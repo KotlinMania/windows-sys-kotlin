@@ -1,45 +1,52 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.ui.shell
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.COLORREF
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.POINTL
-import io.github.kotlinmania.windowssys.windows.win32.foundation.PROPERTYKEY
-import io.github.kotlinmania.windowssys.windows.win32.foundation.RECT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.SIZE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.SYSTEMTIME
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HBITMAP
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HMONITOR
-import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wnet.NETRESOURCEA
-import io.github.kotlinmania.windowssys.windows.win32.system.console.COORD
-import io.github.kotlinmania.windowssys.windows.win32.system.registry.HKEY
-import io.github.kotlinmania.windowssys.windows.win32.system.variant.VARENUM
-import io.github.kotlinmania.windowssys.windows.win32.ui.controls.HIMAGELIST
-import io.github.kotlinmania.windowssys.windows.win32.ui.controls.LPFNSVADDPROPSHEETPAGE
-import io.github.kotlinmania.windowssys.windows.win32.ui.shell.common.STRRET
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.HACCEL
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.HICON
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.HMENU
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Colorref
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Pointl
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Propertykey
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Size
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Systemtime
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbitmap
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hmonitor
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.iphelper.NetAddressInfo
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wnet.Netresourcea
+import io.github.kotlinmania.windowssys.windows.win32.security.SecurityAttributes
+import io.github.kotlinmania.windowssys.windows.win32.system.com.ByteBlob
+import io.github.kotlinmania.windowssys.windows.win32.system.console.Coord
+import io.github.kotlinmania.windowssys.windows.win32.system.registry.Hkey
+import io.github.kotlinmania.windowssys.windows.win32.system.threading.ProcessInformation
+import io.github.kotlinmania.windowssys.windows.win32.system.threading.Startupinfow
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Varenum
+import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Himagelist
+import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Lpfnsvaddpropsheetpage
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.common.Itemidlist
+import io.github.kotlinmania.windowssys.windows.win32.ui.shell.common.Strret
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Haccel
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hicon
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hmenu
 
-public data class AASHELLMENUFILENAME(
+public data class Aashellmenufilename(
     public var cbTotal: Short = 0,
     public var rgbReserved: UByteArray = UByteArray(12),
     public var szFileName: UShortArray = UShortArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is AASHELLMENUFILENAME) return false
+        if (other !is Aashellmenufilename) return false
         if (this.cbTotal != other.cbTotal) return false
         if (!this.rgbReserved.contentEquals(other.rgbReserved)) return false
         if (!this.szFileName.contentEquals(other.szFileName)) return false
@@ -54,70 +61,70 @@ public data class AASHELLMENUFILENAME(
     }
 }
 
-public data class AASHELLMENUITEM(
-    public var lpReserved1: Long = 0L,
+public data class Aashellmenuitem(
+    public var lpReserved1: COpaquePointer? = null,
     public var iReserved: Int = 0,
     public var uiReserved: UInt = 0u,
-    public var lpName: Long = 0L,
-    public var psz: PWSTR = 0L,
+    public var lpName: Aashellmenufilename? = null,
+    public var psz: Pwstr = null,
 )
 
-public data class APPBARDATA(
+public data class Appbardata(
     public var cbSize: UInt = 0u,
-    public var hWnd: HWND = 0L,
+    public var hWnd: Hwnd = null,
     public var uCallbackMessage: UInt = 0u,
     public var uEdge: UInt = 0u,
-    public var rc: RECT = RECT(),
-    public var lParam: LPARAM = 0L,
+    public var rc: Rect = Rect(),
+    public var lParam: Lparam = 0L,
 )
 
-public data class APPCATEGORYINFO(
-    public var Locale: UInt = 0u,
-    public var pszDescription: PWSTR = 0L,
-    public var AppCategoryId: GUID = GUID(),
+public data class Appcategoryinfo(
+    public var locale: UInt = 0u,
+    public var pszDescription: Pwstr = null,
+    public var appCategoryId: Guid = Guid(),
 )
 
-public data class APPCATEGORYINFOLIST(public var cCategory: UInt = 0u, public var pCategoryInfo: Long = 0L)
+public data class Appcategoryinfolist(public var cCategory: UInt = 0u, public var pCategoryInfo: Appcategoryinfo? = null)
 
-public class APPINFODATA(
+public class Appinfodata(
     public var cbSize: UInt = 0u,
     public var dwMask: UInt = 0u,
-    public var pszDisplayName: PWSTR = 0L,
-    public var pszVersion: PWSTR = 0L,
-    public var pszPublisher: PWSTR = 0L,
-    public var pszProductID: PWSTR = 0L,
-    public var pszRegisteredOwner: PWSTR = 0L,
-    public var pszRegisteredCompany: PWSTR = 0L,
-    public var pszLanguage: PWSTR = 0L,
-    public var pszSupportUrl: PWSTR = 0L,
-    public var pszSupportTelephone: PWSTR = 0L,
-    public var pszHelpLink: PWSTR = 0L,
-    public var pszInstallLocation: PWSTR = 0L,
-    public var pszInstallSource: PWSTR = 0L,
-    public var pszInstallDate: PWSTR = 0L,
-    public var pszContact: PWSTR = 0L,
-    public var pszComments: PWSTR = 0L,
-    public var pszImage: PWSTR = 0L,
-    public var pszReadmeUrl: PWSTR = 0L,
-    public var pszUpdateInfoUrl: PWSTR = 0L,
+    public var pszDisplayName: Pwstr = null,
+    public var pszVersion: Pwstr = null,
+    public var pszPublisher: Pwstr = null,
+    public var pszProductID: Pwstr = null,
+    public var pszRegisteredOwner: Pwstr = null,
+    public var pszRegisteredCompany: Pwstr = null,
+    public var pszLanguage: Pwstr = null,
+    public var pszSupportUrl: Pwstr = null,
+    public var pszSupportTelephone: Pwstr = null,
+    public var pszHelpLink: Pwstr = null,
+    public var pszInstallLocation: Pwstr = null,
+    public var pszInstallSource: Pwstr = null,
+    public var pszInstallDate: Pwstr = null,
+    public var pszContact: Pwstr = null,
+    public var pszComments: Pwstr = null,
+    public var pszImage: Pwstr = null,
+    public var pszReadmeUrl: Pwstr = null,
+    public var pszUpdateInfoUrl: Pwstr = null,
 )
 
-public data class ASSOCIATIONELEMENT(
-    public var ac: ASSOCCLASS = 0,
-    public var hkClass: HKEY = 0L,
-    public var pszClass: PCWSTR = 0L,
+public data class Associationelement(
+    public var ac: Assocclass = 0,
+    public var hkClass: Hkey = null,
+    public var pszClass: Pcwstr = null,
 )
 
-public data class AUTO_SCROLL_DATA(
+public data class AutoScrollData(
     public var iNextSample: Int = 0,
     public var dwLastScroll: UInt = 0u,
-    public var bFull: BOOL = 0,
-    public var pts: List<POINT> = List(3) { POINT() },
+    public var bFull: Bool = 0,
+    public var pts: List<Point> = List(3) { Point() },
     public var dwTimes: UIntArray = UIntArray(3),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is AUTO_SCROLL_DATA) return false
+        if (other !is AutoScrollData) return false
         if (this.iNextSample != other.iNextSample) return false
         if (this.dwLastScroll != other.dwLastScroll) return false
         if (this.bFull != other.bFull) return false
@@ -136,123 +143,123 @@ public data class AUTO_SCROLL_DATA(
     }
 }
 
-public data class BANDINFOSFB(
+public data class Bandinfosfb(
     public var dwMask: UInt = 0u,
     public var dwStateMask: UInt = 0u,
     public var dwState: UInt = 0u,
-    public var crBkgnd: COLORREF = 0u,
-    public var crBtnLt: COLORREF = 0u,
-    public var crBtnDk: COLORREF = 0u,
+    public var crBkgnd: Colorref = 0u,
+    public var crBtnLt: Colorref = 0u,
+    public var crBtnDk: Colorref = 0u,
     public var wViewMode: UShort = 0u,
     public var wAlign: UShort = 0u,
-    public var psf: Long = 0L,
-    public var pidl: Long = 0L,
+    public var psf: COpaquePointer? = null,
+    public var pidl: Itemidlist? = null,
 )
 
-public data class BANDSITEINFO(
+public data class Bandsiteinfo(
     public var dwMask: UInt = 0u,
     public var dwState: UInt = 0u,
     public var dwStyle: UInt = 0u,
 )
 
-public data class BANNER_NOTIFICATION(
-    public var event: BANNER_NOTIFICATION_EVENT = 0,
-    public var providerIdentity: PCWSTR = 0L,
-    public var contentId: PCWSTR = 0L,
+public data class BannerNotification(
+    public var event: BannerNotificationEvent = 0,
+    public var providerIdentity: Pcwstr = null,
+    public var contentId: Pcwstr = null,
 )
 
-public class BASEBROWSERDATALH(
-    public var _hwnd: HWND = 0L,
-    public var _ptl: Long = 0L,
-    public var _phlf: Long = 0L,
-    public var _pautoWB2: Long = 0L,
-    public var _pautoEDS: Long = 0L,
-    public var _pautoSS: Long = 0L,
-    public var _eSecureLockIcon: Int = 0,
-    public var _bitfield: UInt = 0u,
-    public var _uActivateState: UInt = 0u,
-    public var _pidlViewState: Long = 0L,
-    public var _pctView: Long = 0L,
-    public var _pidlCur: Long = 0L,
-    public var _psv: Long = 0L,
-    public var _psf: Long = 0L,
-    public var _hwndView: HWND = 0L,
-    public var _pszTitleCur: PWSTR = 0L,
-    public var _pidlPending: Long = 0L,
-    public var _psvPending: Long = 0L,
-    public var _psfPending: Long = 0L,
-    public var _hwndViewPending: HWND = 0L,
-    public var _pszTitlePending: PWSTR = 0L,
-    public var _fIsViewMSHTML: BOOL = 0,
-    public var _fPrivacyImpacted: BOOL = 0,
-    public var _clsidView: GUID = GUID(),
-    public var _clsidViewPending: GUID = GUID(),
-    public var _hwndFrame: HWND = 0L,
-    public var _lPhishingFilterStatus: Int = 0,
+public class Basebrowserdatalh(
+    public var hwnd: Hwnd = null,
+    public var ptl: COpaquePointer? = null,
+    public var phlf: COpaquePointer? = null,
+    public var pautoWb2: COpaquePointer? = null,
+    public var pautoEds: COpaquePointer? = null,
+    public var pautoSs: COpaquePointer? = null,
+    public var eSecureLockIcon: Int = 0,
+    public var bitfield: UInt = 0u,
+    public var uActivateState: UInt = 0u,
+    public var pidlViewState: Itemidlist? = null,
+    public var pctView: COpaquePointer? = null,
+    public var pidlCur: Itemidlist? = null,
+    public var psv: COpaquePointer? = null,
+    public var psf: COpaquePointer? = null,
+    public var hwndView: Hwnd = null,
+    public var pszTitleCur: Pwstr = null,
+    public var pidlPending: Itemidlist? = null,
+    public var psvPending: COpaquePointer? = null,
+    public var psfPending: COpaquePointer? = null,
+    public var hwndViewPending: Hwnd = null,
+    public var pszTitlePending: Pwstr = null,
+    public var fIsViewMshtml: Bool = 0,
+    public var fPrivacyImpacted: Bool = 0,
+    public var clsidView: Guid = Guid(),
+    public var clsidViewPending: Guid = Guid(),
+    public var hwndFrame: Hwnd = null,
+    public var lPhishingFilterStatus: Int = 0,
 )
 
-public class BASEBROWSERDATAXP(
-    public var _hwnd: HWND = 0L,
-    public var _ptl: Long = 0L,
-    public var _phlf: Long = 0L,
-    public var _pautoWB2: Long = 0L,
-    public var _pautoEDS: Long = 0L,
-    public var _pautoSS: Long = 0L,
-    public var _eSecureLockIcon: Int = 0,
-    public var _bitfield: UInt = 0u,
-    public var _uActivateState: UInt = 0u,
-    public var _pidlViewState: Long = 0L,
-    public var _pctView: Long = 0L,
-    public var _pidlCur: Long = 0L,
-    public var _psv: Long = 0L,
-    public var _psf: Long = 0L,
-    public var _hwndView: HWND = 0L,
-    public var _pszTitleCur: PWSTR = 0L,
-    public var _pidlPending: Long = 0L,
-    public var _psvPending: Long = 0L,
-    public var _psfPending: Long = 0L,
-    public var _hwndViewPending: HWND = 0L,
-    public var _pszTitlePending: PWSTR = 0L,
-    public var _fIsViewMSHTML: BOOL = 0,
-    public var _fPrivacyImpacted: BOOL = 0,
-    public var _clsidView: GUID = GUID(),
-    public var _clsidViewPending: GUID = GUID(),
-    public var _hwndFrame: HWND = 0L,
+public class Basebrowserdataxp(
+    public var hwnd: Hwnd = null,
+    public var ptl: COpaquePointer? = null,
+    public var phlf: COpaquePointer? = null,
+    public var pautoWb2: COpaquePointer? = null,
+    public var pautoEds: COpaquePointer? = null,
+    public var pautoSs: COpaquePointer? = null,
+    public var eSecureLockIcon: Int = 0,
+    public var bitfield: UInt = 0u,
+    public var uActivateState: UInt = 0u,
+    public var pidlViewState: Itemidlist? = null,
+    public var pctView: COpaquePointer? = null,
+    public var pidlCur: Itemidlist? = null,
+    public var psv: COpaquePointer? = null,
+    public var psf: COpaquePointer? = null,
+    public var hwndView: Hwnd = null,
+    public var pszTitleCur: Pwstr = null,
+    public var pidlPending: Itemidlist? = null,
+    public var psvPending: COpaquePointer? = null,
+    public var psfPending: COpaquePointer? = null,
+    public var hwndViewPending: Hwnd = null,
+    public var pszTitlePending: Pwstr = null,
+    public var fIsViewMshtml: Bool = 0,
+    public var fPrivacyImpacted: Bool = 0,
+    public var clsidView: Guid = Guid(),
+    public var clsidViewPending: Guid = Guid(),
+    public var hwndFrame: Hwnd = null,
 )
 
-public data class BROWSEINFOA(
-    public var hwndOwner: HWND = 0L,
-    public var pidlRoot: Long = 0L,
-    public var pszDisplayName: PSTR = 0L,
-    public var lpszTitle: PCSTR = 0L,
+public data class Browseinfoa(
+    public var hwndOwner: Hwnd = null,
+    public var pidlRoot: Itemidlist? = null,
+    public var pszDisplayName: Pstr = null,
+    public var lpszTitle: Pcstr = null,
     public var ulFlags: UInt = 0u,
-    public var lpfn: BFFCALLBACK = null,
-    public var lParam: LPARAM = 0L,
+    public var lpfn: Bffcallback = null,
+    public var lParam: Lparam = 0L,
     public var iImage: Int = 0,
 )
 
-public data class BROWSEINFOW(
-    public var hwndOwner: HWND = 0L,
-    public var pidlRoot: Long = 0L,
-    public var pszDisplayName: PWSTR = 0L,
-    public var lpszTitle: PCWSTR = 0L,
+public data class Browseinfow(
+    public var hwndOwner: Hwnd = null,
+    public var pidlRoot: Itemidlist? = null,
+    public var pszDisplayName: Pwstr = null,
+    public var lpszTitle: Pcwstr = null,
     public var ulFlags: UInt = 0u,
-    public var lpfn: BFFCALLBACK = null,
-    public var lParam: LPARAM = 0L,
+    public var lpfn: Bffcallback = null,
+    public var lParam: Lparam = 0L,
     public var iImage: Int = 0,
 )
 
-public data class CABINETSTATE(
+public data class Cabinetstate(
     public var cLength: UShort = 0u,
     public var nVersion: UShort = 0u,
-    public var _bitfield: Int = 0,
+    public var bitfield: Int = 0,
     public var fMenuEnumFilter: UInt = 0u,
 )
 
-public data class CATEGORY_INFO(public var cif: CATEGORYINFO_FLAGS = 0, public var wszName: UShortArray = UShortArray(260)) {
+public data class CategoryInfo(public var cif: CategoryinfoFlags = 0, public var wszName: UShortArray = UShortArray(260)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CATEGORY_INFO) return false
+        if (other !is CategoryInfo) return false
         if (this.cif != other.cif) return false
         if (!this.wszName.contentEquals(other.wszName)) return false
         return true
@@ -265,10 +272,10 @@ public data class CATEGORY_INFO(public var cif: CATEGORYINFO_FLAGS = 0, public v
     }
 }
 
-public data class CIDA(public var cidl: UInt = 0u, public var aoffset: UIntArray = UIntArray(1)) {
+public data class Cida(public var cidl: UInt = 0u, public var aoffset: UIntArray = UIntArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CIDA) return false
+        if (other !is Cida) return false
         if (this.cidl != other.cidl) return false
         if (!this.aoffset.contentEquals(other.aoffset)) return false
         return true
@@ -281,56 +288,56 @@ public data class CIDA(public var cidl: UInt = 0u, public var aoffset: UIntArray
     }
 }
 
-public data class CMINVOKECOMMANDINFO(
+public data class Cminvokecommandinfo(
     public var cbSize: UInt = 0u,
     public var fMask: UInt = 0u,
-    public var hwnd: HWND = 0L,
-    public var lpVerb: PCSTR = 0L,
-    public var lpParameters: PCSTR = 0L,
-    public var lpDirectory: PCSTR = 0L,
+    public var hwnd: Hwnd = null,
+    public var lpVerb: Pcstr = null,
+    public var lpParameters: Pcstr = null,
+    public var lpDirectory: Pcstr = null,
     public var nShow: Int = 0,
     public var dwHotKey: UInt = 0u,
-    public var hIcon: HANDLE = 0L,
+    public var hIcon: Handle = null,
 )
 
-public data class CMINVOKECOMMANDINFOEX(
+public data class Cminvokecommandinfoex(
     public var cbSize: UInt = 0u,
     public var fMask: UInt = 0u,
-    public var hwnd: HWND = 0L,
-    public var lpVerb: PCSTR = 0L,
-    public var lpParameters: PCSTR = 0L,
-    public var lpDirectory: PCSTR = 0L,
+    public var hwnd: Hwnd = null,
+    public var lpVerb: Pcstr = null,
+    public var lpParameters: Pcstr = null,
+    public var lpDirectory: Pcstr = null,
     public var nShow: Int = 0,
     public var dwHotKey: UInt = 0u,
-    public var hIcon: HANDLE = 0L,
-    public var lpTitle: PCSTR = 0L,
-    public var lpVerbW: PCWSTR = 0L,
-    public var lpParametersW: PCWSTR = 0L,
-    public var lpDirectoryW: PCWSTR = 0L,
-    public var lpTitleW: PCWSTR = 0L,
-    public var ptInvoke: POINT = POINT(),
+    public var hIcon: Handle = null,
+    public var lpTitle: Pcstr = null,
+    public var lpVerbW: Pcwstr = null,
+    public var lpParametersW: Pcwstr = null,
+    public var lpDirectoryW: Pcwstr = null,
+    public var lpTitleW: Pcwstr = null,
+    public var ptInvoke: Point = Point(),
 )
 
-public data class CMINVOKECOMMANDINFOEX_REMOTE(
+public data class CminvokecommandinfoexRemote(
     public var cbSize: UInt = 0u,
     public var fMask: UInt = 0u,
-    public var hwnd: HWND = 0L,
-    public var lpVerbString: PCSTR = 0L,
-    public var lpParameters: PCSTR = 0L,
-    public var lpDirectory: PCSTR = 0L,
+    public var hwnd: Hwnd = null,
+    public var lpVerbString: Pcstr = null,
+    public var lpParameters: Pcstr = null,
+    public var lpDirectory: Pcstr = null,
     public var nShow: Int = 0,
     public var dwHotKey: UInt = 0u,
-    public var lpTitle: PCSTR = 0L,
-    public var lpVerbWString: PCWSTR = 0L,
-    public var lpParametersW: PCWSTR = 0L,
-    public var lpDirectoryW: PCWSTR = 0L,
-    public var lpTitleW: PCWSTR = 0L,
-    public var ptInvoke: POINT = POINT(),
+    public var lpTitle: Pcstr = null,
+    public var lpVerbWString: Pcwstr = null,
+    public var lpParametersW: Pcwstr = null,
+    public var lpDirectoryW: Pcwstr = null,
+    public var lpTitleW: Pcwstr = null,
+    public var ptInvoke: Point = Point(),
     public var lpVerbInt: UInt = 0u,
     public var lpVerbWInt: UInt = 0u,
 )
 
-public data class CM_COLUMNINFO(
+public data class CmColumninfo(
     public var cbSize: UInt = 0u,
     public var dwMask: UInt = 0u,
     public var dwState: UInt = 0u,
@@ -341,7 +348,7 @@ public data class CM_COLUMNINFO(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CM_COLUMNINFO) return false
+        if (other !is CmColumninfo) return false
         if (this.cbSize != other.cbSize) return false
         if (this.dwMask != other.dwMask) return false
         if (this.dwState != other.dwState) return false
@@ -364,63 +371,63 @@ public data class CM_COLUMNINFO(
     }
 }
 
-public data class CONFIRM_CONFLICT_ITEM(
-    public var pShellItem: Long = 0L,
-    public var pszOriginalName: PWSTR = 0L,
-    public var pszAlternateName: PWSTR = 0L,
-    public var pszLocationShort: PWSTR = 0L,
-    public var pszLocationFull: PWSTR = 0L,
-    public var nType: SYNCMGR_CONFLICT_ITEM_TYPE = 0,
+public data class ConfirmConflictItem(
+    public var pShellItem: COpaquePointer? = null,
+    public var pszOriginalName: Pwstr = null,
+    public var pszAlternateName: Pwstr = null,
+    public var pszLocationShort: Pwstr = null,
+    public var pszLocationFull: Pwstr = null,
+    public var nType: SyncmgrConflictItemType = 0,
 )
 
-public data class CONFIRM_CONFLICT_RESULT_INFO(public var pszNewName: PWSTR = 0L, public var iItemIndex: UInt = 0u)
+public data class ConfirmConflictResultInfo(public var pszNewName: Pwstr = null, public var iItemIndex: UInt = 0u)
 
-public data class CPLINFO(
+public data class Cplinfo(
     public var idIcon: Int = 0,
     public var idName: Int = 0,
     public var idInfo: Int = 0,
-    public var lData: Long = 0L,
+    public var lData: Int = 0,
 )
 
-public data class CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION(
+public data class CredentialProviderCredentialSerialization(
     public var ulAuthenticationPackage: UInt = 0u,
-    public var clsidCredentialProvider: GUID = GUID(),
+    public var clsidCredentialProvider: Guid = Guid(),
     public var cbSerialization: UInt = 0u,
-    public var rgbSerialization: Long = 0L,
+    public var rgbSerialization: COpaquePointer? = null,
 )
 
-public data class CREDENTIAL_PROVIDER_FIELD_DESCRIPTOR(
+public data class CredentialProviderFieldDescriptor(
     public var dwFieldID: UInt = 0u,
-    public var cpft: CREDENTIAL_PROVIDER_FIELD_TYPE = 0,
-    public var pszLabel: PWSTR = 0L,
-    public var guidFieldType: GUID = GUID(),
+    public var cpft: CredentialProviderFieldType = 0,
+    public var pszLabel: Pwstr = null,
+    public var guidFieldType: Guid = Guid(),
 )
 
-public data class CSFV(
+public data class Csfv(
     public var cbSize: UInt = 0u,
-    public var pshf: Long = 0L,
-    public var psvOuter: Long = 0L,
-    public var pidl: Long = 0L,
+    public var pshf: COpaquePointer? = null,
+    public var psvOuter: COpaquePointer? = null,
+    public var pidl: Itemidlist? = null,
     public var lEvents: Int = 0,
-    public var pfnCallback: LPFNVIEWCALLBACK = null,
-    public var fvm: FOLDERVIEWMODE = 0,
+    public var pfnCallback: Lpfnviewcallback = null,
+    public var fvm: Folderviewmode = 0,
 )
 
-public data class DATABLOCK_HEADER(public var cbSize: UInt = 0u, public var dwSignature: UInt = 0u)
+public data class DatablockHeader(public var cbSize: UInt = 0u, public var dwSignature: UInt = 0u)
 
-public data class DEFCONTEXTMENU(
-    public var hwnd: HWND = 0L,
-    public var pcmcb: Long = 0L,
-    public var pidlFolder: Long = 0L,
-    public var psf: Long = 0L,
+public data class Defcontextmenu(
+    public var hwnd: Hwnd = null,
+    public var pcmcb: COpaquePointer? = null,
+    public var pidlFolder: Itemidlist? = null,
+    public var psf: COpaquePointer? = null,
     public var cidl: UInt = 0u,
-    public var apidl: Long = 0L,
-    public var punkAssociationInfo: Long = 0L,
+    public var apidl: COpaquePointer? = null,
+    public var punkAssociationInfo: COpaquePointer? = null,
     public var cKeys: UInt = 0u,
-    public var aKeys: Long = 0L,
+    public var aKeys: Hkey? = null,
 )
 
-public data class DELEGATEITEMID(
+public data class Delegateitemid(
     public var cbSize: UShort = 0u,
     public var wOuter: UShort = 0u,
     public var cbInner: UShort = 0u,
@@ -428,7 +435,7 @@ public data class DELEGATEITEMID(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DELEGATEITEMID) return false
+        if (other !is Delegateitemid) return false
         if (this.cbSize != other.cbSize) return false
         if (this.wOuter != other.wOuter) return false
         if (this.cbInner != other.cbInner) return false
@@ -445,19 +452,19 @@ public data class DELEGATEITEMID(
     }
 }
 
-public data class DESKBANDINFO(
+public data class Deskbandinfo(
     public var dwMask: UInt = 0u,
-    public var ptMinSize: POINTL = POINTL(),
-    public var ptMaxSize: POINTL = POINTL(),
-    public var ptIntegral: POINTL = POINTL(),
-    public var ptActual: POINTL = POINTL(),
+    public var ptMinSize: Pointl = Pointl(),
+    public var ptMaxSize: Pointl = Pointl(),
+    public var ptIntegral: Pointl = Pointl(),
+    public var ptActual: Pointl = Pointl(),
     public var wszTitle: UShortArray = UShortArray(256),
     public var dwModeFlags: UInt = 0u,
-    public var crBkgnd: COLORREF = 0u,
+    public var crBkgnd: Colorref = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DESKBANDINFO) return false
+        if (other !is Deskbandinfo) return false
         if (this.dwMask != other.dwMask) return false
         if (this.ptMinSize != other.ptMinSize) return false
         if (this.ptMaxSize != other.ptMaxSize) return false
@@ -482,25 +489,25 @@ public data class DESKBANDINFO(
     }
 }
 
-public data class DETAILSINFO(
-    public var pidl: Long = 0L,
+public data class Detailsinfo(
+    public var pidl: Itemidlist? = null,
     public var fmt: Int = 0,
     public var cxChar: Int = 0,
-    public var str: STRRET = STRRET(),
+    public var str: Strret = Strret(),
     public var iImage: Int = 0,
 )
 
-public data class DFMICS(
+public data class Dfmics(
     public var cbSize: UInt = 0u,
     public var fMask: UInt = 0u,
-    public var lParam: LPARAM = 0L,
+    public var lParam: Lparam = 0L,
     public var idCmdFirst: UInt = 0u,
     public var idDefMax: UInt = 0u,
-    public var pici: Long = 0L,
-    public var punkSite: Long = 0L,
+    public var pici: Cminvokecommandinfo? = null,
+    public var punkSite: COpaquePointer? = null,
 )
 
-public data class DLLVERSIONINFO(
+public data class Dllversioninfo(
     public var cbSize: UInt = 0u,
     public var dwMajorVersion: UInt = 0u,
     public var dwMinorVersion: UInt = 0u,
@@ -508,36 +515,36 @@ public data class DLLVERSIONINFO(
     public var dwPlatformID: UInt = 0u,
 )
 
-public data class DLLVERSIONINFO2(
-    public var info1: DLLVERSIONINFO = DLLVERSIONINFO(),
+public data class Dllversioninfo2(
+    public var info1: Dllversioninfo = Dllversioninfo(),
     public var dwFlags: UInt = 0u,
     public var ullVersion: ULong = 0uL,
 )
 
-public data class DRAGINFOA(
+public data class Draginfoa(
     public var uSize: UInt = 0u,
-    public var pt: POINT = POINT(),
-    public var fNC: BOOL = 0,
-    public var lpFileList: PSTR = 0L,
+    public var pt: Point = Point(),
+    public var fNC: Bool = 0,
+    public var lpFileList: Pstr = null,
     public var grfKeyState: UInt = 0u,
 )
 
-public data class DRAGINFOW(
+public data class Draginfow(
     public var uSize: UInt = 0u,
-    public var pt: POINT = POINT(),
-    public var fNC: BOOL = 0,
-    public var lpFileList: PWSTR = 0L,
+    public var pt: Point = Point(),
+    public var fNC: Bool = 0,
+    public var lpFileList: Pwstr = null,
     public var grfKeyState: UInt = 0u,
 )
 
-public data class DROPDESCRIPTION(
-    public var type: DROPIMAGETYPE = 0,
+public data class Dropdescription(
+    public var type: Dropimagetype = 0,
     public var szMessage: UShortArray = UShortArray(260),
     public var szInsert: UShortArray = UShortArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DROPDESCRIPTION) return false
+        if (other !is Dropdescription) return false
         if (this.type != other.type) return false
         if (!this.szMessage.contentEquals(other.szMessage)) return false
         if (!this.szInsert.contentEquals(other.szInsert)) return false
@@ -552,21 +559,21 @@ public data class DROPDESCRIPTION(
     }
 }
 
-public data class DROPFILES(
+public data class Dropfiles(
     public var pFiles: UInt = 0u,
-    public var pt: POINT = POINT(),
-    public var fNC: BOOL = 0,
-    public var fWide: BOOL = 0,
+    public var pt: Point = Point(),
+    public var fNC: Bool = 0,
+    public var fWide: Bool = 0,
 )
 
-public data class EXP_DARWIN_LINK(
-    public var dbh: DATABLOCK_HEADER = DATABLOCK_HEADER(),
+public data class ExpDarwinLink(
+    public var dbh: DatablockHeader = DatablockHeader(),
     public var szDarwinID: ByteArray = ByteArray(260),
     public var szwDarwinID: UShortArray = UShortArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is EXP_DARWIN_LINK) return false
+        if (other !is ExpDarwinLink) return false
         if (this.dbh != other.dbh) return false
         if (!this.szDarwinID.contentEquals(other.szDarwinID)) return false
         if (!this.szwDarwinID.contentEquals(other.szwDarwinID)) return false
@@ -581,14 +588,14 @@ public data class EXP_DARWIN_LINK(
     }
 }
 
-public data class EXP_PROPERTYSTORAGE(
+public data class ExpPropertystorage(
     public var cbSize: UInt = 0u,
     public var dwSignature: UInt = 0u,
     public var abPropertyStorage: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is EXP_PROPERTYSTORAGE) return false
+        if (other !is ExpPropertystorage) return false
         if (this.cbSize != other.cbSize) return false
         if (this.dwSignature != other.dwSignature) return false
         if (!this.abPropertyStorage.contentEquals(other.abPropertyStorage)) return false
@@ -603,14 +610,14 @@ public data class EXP_PROPERTYSTORAGE(
     }
 }
 
-public data class EXP_SPECIAL_FOLDER(
+public data class ExpSpecialFolder(
     public var cbSize: UInt = 0u,
     public var dwSignature: UInt = 0u,
     public var idSpecialFolder: UInt = 0u,
     public var cbOffset: UInt = 0u,
 )
 
-public data class EXP_SZ_LINK(
+public data class ExpSzLink(
     public var cbSize: UInt = 0u,
     public var dwSignature: UInt = 0u,
     public var szTarget: ByteArray = ByteArray(260),
@@ -618,7 +625,7 @@ public data class EXP_SZ_LINK(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is EXP_SZ_LINK) return false
+        if (other !is ExpSzLink) return false
         if (this.cbSize != other.cbSize) return false
         if (this.dwSignature != other.dwSignature) return false
         if (!this.szTarget.contentEquals(other.szTarget)) return false
@@ -635,14 +642,14 @@ public data class EXP_SZ_LINK(
     }
 }
 
-public data class EXTRASEARCH(
-    public var guidSearch: GUID = GUID(),
+public data class Extrasearch(
+    public var guidSearch: Guid = Guid(),
     public var wszFriendlyName: UShortArray = UShortArray(80),
     public var wszUrl: UShortArray = UShortArray(2084),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is EXTRASEARCH) return false
+        if (other !is Extrasearch) return false
         if (this.guidSearch != other.guidSearch) return false
         if (!this.wszFriendlyName.contentEquals(other.wszFriendlyName)) return false
         if (!this.wszUrl.contentEquals(other.wszUrl)) return false
@@ -657,22 +664,22 @@ public data class EXTRASEARCH(
     }
 }
 
-public data class FILEDESCRIPTORA(
+public data class Filedescriptora(
     public var dwFlags: UInt = 0u,
-    public var clsid: GUID = GUID(),
-    public var sizel: SIZE = SIZE(),
-    public var pointl: POINTL = POINTL(),
+    public var clsid: Guid = Guid(),
+    public var sizel: Size = Size(),
+    public var pointl: Pointl = Pointl(),
     public var dwFileAttributes: UInt = 0u,
-    public var ftCreationTime: FILETIME = FILETIME(),
-    public var ftLastAccessTime: FILETIME = FILETIME(),
-    public var ftLastWriteTime: FILETIME = FILETIME(),
+    public var ftCreationTime: Filetime = Filetime(),
+    public var ftLastAccessTime: Filetime = Filetime(),
+    public var ftLastWriteTime: Filetime = Filetime(),
     public var nFileSizeHigh: UInt = 0u,
     public var nFileSizeLow: UInt = 0u,
     public var cFileName: ByteArray = ByteArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is FILEDESCRIPTORA) return false
+        if (other !is Filedescriptora) return false
         if (this.dwFlags != other.dwFlags) return false
         if (this.clsid != other.clsid) return false
         if (this.sizel != other.sizel) return false
@@ -703,22 +710,22 @@ public data class FILEDESCRIPTORA(
     }
 }
 
-public data class FILEDESCRIPTORW(
+public data class Filedescriptorw(
     public var dwFlags: UInt = 0u,
-    public var clsid: GUID = GUID(),
-    public var sizel: SIZE = SIZE(),
-    public var pointl: POINTL = POINTL(),
+    public var clsid: Guid = Guid(),
+    public var sizel: Size = Size(),
+    public var pointl: Pointl = Pointl(),
     public var dwFileAttributes: UInt = 0u,
-    public var ftCreationTime: FILETIME = FILETIME(),
-    public var ftLastAccessTime: FILETIME = FILETIME(),
-    public var ftLastWriteTime: FILETIME = FILETIME(),
+    public var ftCreationTime: Filetime = Filetime(),
+    public var ftLastAccessTime: Filetime = Filetime(),
+    public var ftLastWriteTime: Filetime = Filetime(),
     public var nFileSizeHigh: UInt = 0u,
     public var nFileSizeLow: UInt = 0u,
     public var cFileName: UShortArray = UShortArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is FILEDESCRIPTORW) return false
+        if (other !is Filedescriptorw) return false
         if (this.dwFlags != other.dwFlags) return false
         if (this.clsid != other.clsid) return false
         if (this.sizel != other.sizel) return false
@@ -749,11 +756,11 @@ public data class FILEDESCRIPTORW(
     }
 }
 
-public data class FILEGROUPDESCRIPTORA(public var cItems: UInt = 0u, public var fgd: List<FILEDESCRIPTORA> = List(1) { FILEDESCRIPTORA() })
+public data class Filegroupdescriptora(public var cItems: UInt = 0u, public var fgd: List<Filedescriptora> = List(1) { Filedescriptora() })
 
-public data class FILEGROUPDESCRIPTORW(public var cItems: UInt = 0u, public var fgd: List<FILEDESCRIPTORW> = List(1) { FILEDESCRIPTORW() })
+public data class Filegroupdescriptorw(public var cItems: UInt = 0u, public var fgd: List<Filedescriptorw> = List(1) { Filedescriptorw() })
 
-public data class FILE_ATTRIBUTES_ARRAY(
+public data class FileAttributesArray(
     public var cItems: UInt = 0u,
     public var dwSumFileAttributes: UInt = 0u,
     public var dwProductFileAttributes: UInt = 0u,
@@ -761,7 +768,7 @@ public data class FILE_ATTRIBUTES_ARRAY(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is FILE_ATTRIBUTES_ARRAY) return false
+        if (other !is FileAttributesArray) return false
         if (this.cItems != other.cItems) return false
         if (this.dwSumFileAttributes != other.dwSumFileAttributes) return false
         if (this.dwProductFileAttributes != other.dwProductFileAttributes) return false
@@ -778,24 +785,24 @@ public data class FILE_ATTRIBUTES_ARRAY(
     }
 }
 
-public data class FOLDERSETDATA(
-    public var _fs: FOLDERSETTINGS = FOLDERSETTINGS(),
-    public var _vidRestore: GUID = GUID(),
-    public var _dwViewPriority: UInt = 0u,
+public data class Foldersetdata(
+    public var fs: Foldersettings = Foldersettings(),
+    public var vidRestore: Guid = Guid(),
+    public var dwViewPriority: UInt = 0u,
 )
 
-public data class FOLDERSETTINGS(public var ViewMode: UInt = 0u, public var fFlags: UInt = 0u)
+public data class Foldersettings(public var viewMode: UInt = 0u, public var fFlags: UInt = 0u)
 
-public data class HELPINFO(
+public data class Helpinfo(
     public var cbSize: UInt = 0u,
-    public var iContextType: HELP_INFO_TYPE = 0,
+    public var iContextType: HelpInfoType = 0,
     public var iCtrlId: Int = 0,
-    public var hItemHandle: HANDLE = 0L,
-    public var dwContextId: ULong = 0uL,
-    public var MousePos: POINT = POINT(),
+    public var hItemHandle: Handle = null,
+    public var dwContextId: Int = 0,
+    public var mousePos: Point = Point(),
 )
 
-public data class HELPWININFOA(
+public data class Helpwininfoa(
     public var wStructSize: Int = 0,
     public var x: Int = 0,
     public var y: Int = 0,
@@ -806,7 +813,7 @@ public data class HELPWININFOA(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is HELPWININFOA) return false
+        if (other !is Helpwininfoa) return false
         if (this.wStructSize != other.wStructSize) return false
         if (this.x != other.x) return false
         if (this.y != other.y) return false
@@ -829,7 +836,7 @@ public data class HELPWININFOA(
     }
 }
 
-public data class HELPWININFOW(
+public data class Helpwininfow(
     public var wStructSize: Int = 0,
     public var x: Int = 0,
     public var y: Int = 0,
@@ -840,7 +847,7 @@ public data class HELPWININFOW(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is HELPWININFOW) return false
+        if (other !is Helpwininfow) return false
         if (this.wStructSize != other.wStructSize) return false
         if (this.x != other.x) return false
         if (this.y != other.y) return false
@@ -863,49 +870,49 @@ public data class HELPWININFOW(
     }
 }
 
-public data class HLBWINFO(
+public data class Hlbwinfo(
     public var cbSize: UInt = 0u,
     public var grfHLBWIF: UInt = 0u,
-    public var rcFramePos: RECT = RECT(),
-    public var rcDocPos: RECT = RECT(),
-    public var hltbinfo: HLTBINFO = HLTBINFO(),
+    public var rcFramePos: Rect = Rect(),
+    public var rcDocPos: Rect = Rect(),
+    public var hltbinfo: Hltbinfo = Hltbinfo(),
 )
 
-public data class HLITEM(public var uHLID: UInt = 0u, public var pwzFriendlyName: PWSTR = 0L)
+public data class Hlitem(public var uHLID: UInt = 0u, public var pwzFriendlyName: Pwstr = null)
 
-public data class HLTBINFO(public var uDockType: UInt = 0u, public var rcTbPos: RECT = RECT())
+public data class Hltbinfo(public var uDockType: UInt = 0u, public var rcTbPos: Rect = Rect())
 
-public data class ITEMSPACING(
+public data class Itemspacing(
     public var cxSmall: Int = 0,
     public var cySmall: Int = 0,
     public var cxLarge: Int = 0,
     public var cyLarge: Int = 0,
 )
 
-public data class KNOWNFOLDER_DEFINITION(
-    public var category: KF_CATEGORY = 0,
-    public var pszName: PWSTR = 0L,
-    public var pszDescription: PWSTR = 0L,
-    public var fidParent: GUID = GUID(),
-    public var pszRelativePath: PWSTR = 0L,
-    public var pszParsingName: PWSTR = 0L,
-    public var pszTooltip: PWSTR = 0L,
-    public var pszLocalizedName: PWSTR = 0L,
-    public var pszIcon: PWSTR = 0L,
-    public var pszSecurity: PWSTR = 0L,
+public data class KnownfolderDefinition(
+    public var category: KfCategory = 0,
+    public var pszName: Pwstr = null,
+    public var pszDescription: Pwstr = null,
+    public var fidParent: Guid = Guid(),
+    public var pszRelativePath: Pwstr = null,
+    public var pszParsingName: Pwstr = null,
+    public var pszTooltip: Pwstr = null,
+    public var pszLocalizedName: Pwstr = null,
+    public var pszIcon: Pwstr = null,
+    public var pszSecurity: Pwstr = null,
     public var dwAttributes: UInt = 0u,
     public var kfdFlags: UInt = 0u,
-    public var ftidType: GUID = GUID(),
+    public var ftidType: Guid = Guid(),
 )
 
-public data class MULTIKEYHELPA(
+public data class Multikeyhelpa(
     public var mkSize: UInt = 0u,
     public var mkKeylist: Byte = 0,
     public var szKeyphrase: ByteArray = ByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MULTIKEYHELPA) return false
+        if (other !is Multikeyhelpa) return false
         if (this.mkSize != other.mkSize) return false
         if (this.mkKeylist != other.mkKeylist) return false
         if (!this.szKeyphrase.contentEquals(other.szKeyphrase)) return false
@@ -920,14 +927,14 @@ public data class MULTIKEYHELPA(
     }
 }
 
-public data class MULTIKEYHELPW(
+public data class Multikeyhelpw(
     public var mkSize: UInt = 0u,
     public var mkKeylist: UShort = 0u,
     public var szKeyphrase: UShortArray = UShortArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MULTIKEYHELPW) return false
+        if (other !is Multikeyhelpw) return false
         if (this.mkSize != other.mkSize) return false
         if (this.mkKeylist != other.mkKeylist) return false
         if (!this.szKeyphrase.contentEquals(other.szKeyphrase)) return false
@@ -942,25 +949,25 @@ public data class MULTIKEYHELPW(
     }
 }
 
-public data class NC_ADDRESS(
-    public var pAddrInfo: Long = 0L,
-    public var PortNumber: UShort = 0u,
-    public var PrefixLength: UByte = 0u,
+public data class NcAddress(
+    public var pAddrInfo: NetAddressInfo? = null,
+    public var portNumber: UShort = 0u,
+    public var prefixLength: UByte = 0u,
 )
 
-public data class NEWCPLINFOA(
+public data class Newcplinfoa(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
     public var dwHelpContext: UInt = 0u,
-    public var lData: Long = 0L,
-    public var hIcon: HICON = 0L,
+    public var lData: Int = 0,
+    public var hIcon: Hicon = null,
     public var szName: ByteArray = ByteArray(32),
     public var szInfo: ByteArray = ByteArray(64),
     public var szHelpFile: ByteArray = ByteArray(128),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NEWCPLINFOA) return false
+        if (other !is Newcplinfoa) return false
         if (this.dwSize != other.dwSize) return false
         if (this.dwFlags != other.dwFlags) return false
         if (this.dwHelpContext != other.dwHelpContext) return false
@@ -985,19 +992,19 @@ public data class NEWCPLINFOA(
     }
 }
 
-public data class NEWCPLINFOW(
+public data class Newcplinfow(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
     public var dwHelpContext: UInt = 0u,
-    public var lData: Long = 0L,
-    public var hIcon: HICON = 0L,
+    public var lData: Int = 0,
+    public var hIcon: Hicon = null,
     public var szName: UShortArray = UShortArray(32),
     public var szInfo: UShortArray = UShortArray(64),
     public var szHelpFile: UShortArray = UShortArray(128),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NEWCPLINFOW) return false
+        if (other !is Newcplinfow) return false
         if (this.dwSize != other.dwSize) return false
         if (this.dwFlags != other.dwFlags) return false
         if (this.dwHelpContext != other.dwHelpContext) return false
@@ -1022,26 +1029,26 @@ public data class NEWCPLINFOW(
     }
 }
 
-public data class NOTIFYICONDATAA(
+public data class Notifyicondataa(
     public var cbSize: UInt = 0u,
-    public var hWnd: HWND = 0L,
+    public var hWnd: Hwnd = null,
     public var uID: UInt = 0u,
-    public var uFlags: NOTIFY_ICON_DATA_FLAGS = 0u,
+    public var uFlags: NotifyIconDataFlags = 0u,
     public var uCallbackMessage: UInt = 0u,
-    public var hIcon: HICON = 0L,
+    public var hIcon: Hicon = null,
     public var szTip: ByteArray = ByteArray(128),
-    public var dwState: NOTIFY_ICON_STATE = 0u,
-    public var dwStateMask: NOTIFY_ICON_STATE = 0u,
+    public var dwState: NotifyIconState = 0u,
+    public var dwStateMask: NotifyIconState = 0u,
     public var szInfo: ByteArray = ByteArray(256),
-    public var Anonymous: NOTIFYICONDATAA_0 = NOTIFYICONDATAA_0(),
+    public var anonymous: Notifyicondataa0 = Notifyicondataa0(),
     public var szInfoTitle: ByteArray = ByteArray(64),
-    public var dwInfoFlags: NOTIFY_ICON_INFOTIP_FLAGS = 0u,
-    public var guidItem: GUID = GUID(),
-    public var hBalloonIcon: HICON = 0L,
+    public var dwInfoFlags: NotifyIconInfotipFlags = 0u,
+    public var guidItem: Guid = Guid(),
+    public var hBalloonIcon: Hicon = null,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NOTIFYICONDATAA) return false
+        if (other !is Notifyicondataa) return false
         if (this.cbSize != other.cbSize) return false
         if (this.hWnd != other.hWnd) return false
         if (this.uID != other.uID) return false
@@ -1052,7 +1059,7 @@ public data class NOTIFYICONDATAA(
         if (this.dwState != other.dwState) return false
         if (this.dwStateMask != other.dwStateMask) return false
         if (!this.szInfo.contentEquals(other.szInfo)) return false
-        if (this.Anonymous != other.Anonymous) return false
+        if (this.anonymous != other.anonymous) return false
         if (!this.szInfoTitle.contentEquals(other.szInfoTitle)) return false
         if (this.dwInfoFlags != other.dwInfoFlags) return false
         if (this.guidItem != other.guidItem) return false
@@ -1071,7 +1078,7 @@ public data class NOTIFYICONDATAA(
         result = 31 * result + this.dwState.hashCode()
         result = 31 * result + this.dwStateMask.hashCode()
         result = 31 * result + this.szInfo.contentHashCode()
-        result = 31 * result + this.Anonymous.hashCode()
+        result = 31 * result + this.anonymous.hashCode()
         result = 31 * result + this.szInfoTitle.contentHashCode()
         result = 31 * result + this.dwInfoFlags.hashCode()
         result = 31 * result + this.guidItem.hashCode()
@@ -1080,28 +1087,28 @@ public data class NOTIFYICONDATAA(
     }
 }
 
-public data class NOTIFYICONDATAA_0(public var uTimeout: UInt = 0u, public var uVersion: UInt = 0u)
+public data class Notifyicondataa0(public var uTimeout: UInt = 0u, public var uVersion: UInt = 0u)
 
-public data class NOTIFYICONDATAW(
+public data class Notifyicondataw(
     public var cbSize: UInt = 0u,
-    public var hWnd: HWND = 0L,
+    public var hWnd: Hwnd = null,
     public var uID: UInt = 0u,
-    public var uFlags: NOTIFY_ICON_DATA_FLAGS = 0u,
+    public var uFlags: NotifyIconDataFlags = 0u,
     public var uCallbackMessage: UInt = 0u,
-    public var hIcon: HICON = 0L,
+    public var hIcon: Hicon = null,
     public var szTip: UShortArray = UShortArray(128),
-    public var dwState: NOTIFY_ICON_STATE = 0u,
-    public var dwStateMask: NOTIFY_ICON_STATE = 0u,
+    public var dwState: NotifyIconState = 0u,
+    public var dwStateMask: NotifyIconState = 0u,
     public var szInfo: UShortArray = UShortArray(256),
-    public var Anonymous: NOTIFYICONDATAW_0 = NOTIFYICONDATAW_0(),
+    public var anonymous: Notifyicondataw0 = Notifyicondataw0(),
     public var szInfoTitle: UShortArray = UShortArray(64),
-    public var dwInfoFlags: NOTIFY_ICON_INFOTIP_FLAGS = 0u,
-    public var guidItem: GUID = GUID(),
-    public var hBalloonIcon: HICON = 0L,
+    public var dwInfoFlags: NotifyIconInfotipFlags = 0u,
+    public var guidItem: Guid = Guid(),
+    public var hBalloonIcon: Hicon = null,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NOTIFYICONDATAW) return false
+        if (other !is Notifyicondataw) return false
         if (this.cbSize != other.cbSize) return false
         if (this.hWnd != other.hWnd) return false
         if (this.uID != other.uID) return false
@@ -1112,7 +1119,7 @@ public data class NOTIFYICONDATAW(
         if (this.dwState != other.dwState) return false
         if (this.dwStateMask != other.dwStateMask) return false
         if (!this.szInfo.contentEquals(other.szInfo)) return false
-        if (this.Anonymous != other.Anonymous) return false
+        if (this.anonymous != other.anonymous) return false
         if (!this.szInfoTitle.contentEquals(other.szInfoTitle)) return false
         if (this.dwInfoFlags != other.dwInfoFlags) return false
         if (this.guidItem != other.guidItem) return false
@@ -1131,7 +1138,7 @@ public data class NOTIFYICONDATAW(
         result = 31 * result + this.dwState.hashCode()
         result = 31 * result + this.dwStateMask.hashCode()
         result = 31 * result + this.szInfo.contentHashCode()
-        result = 31 * result + this.Anonymous.hashCode()
+        result = 31 * result + this.anonymous.hashCode()
         result = 31 * result + this.szInfoTitle.contentHashCode()
         result = 31 * result + this.dwInfoFlags.hashCode()
         result = 31 * result + this.guidItem.hashCode()
@@ -1140,96 +1147,96 @@ public data class NOTIFYICONDATAW(
     }
 }
 
-public data class NOTIFYICONDATAW_0(public var uTimeout: UInt = 0u, public var uVersion: UInt = 0u)
+public data class Notifyicondataw0(public var uTimeout: UInt = 0u, public var uVersion: UInt = 0u)
 
-public data class NOTIFYICONIDENTIFIER(
+public data class Notifyiconidentifier(
     public var cbSize: UInt = 0u,
-    public var hWnd: HWND = 0L,
+    public var hWnd: Hwnd = null,
     public var uID: UInt = 0u,
-    public var guidItem: GUID = GUID(),
+    public var guidItem: Guid = Guid(),
 )
 
-public data class NRESARRAY(public var cItems: UInt = 0u, public var nr: List<NETRESOURCEA> = List(1) { NETRESOURCEA() })
+public data class Nresarray(public var cItems: UInt = 0u, public var nr: List<Netresourcea> = List(1) { Netresourcea() })
 
-public data class NSTCCUSTOMDRAW(
-    public var psi: Long = 0L,
+public data class Nstccustomdraw(
+    public var psi: COpaquePointer? = null,
     public var uItemState: UInt = 0u,
     public var nstcis: UInt = 0u,
-    public var pszText: PCWSTR = 0L,
+    public var pszText: Pcwstr = null,
     public var iImage: Int = 0,
-    public var himl: HIMAGELIST = 0L,
+    public var himl: Himagelist = 0L,
     public var iLevel: Int = 0,
     public var iIndent: Int = 0,
 )
 
-public class NT_CONSOLE_PROPS(
-    public var dbh: DATABLOCK_HEADER = DATABLOCK_HEADER(),
+public class NtConsoleProps(
+    public var dbh: DatablockHeader = DatablockHeader(),
     public var wFillAttribute: UShort = 0u,
     public var wPopupFillAttribute: UShort = 0u,
-    public var dwScreenBufferSize: COORD = COORD(),
-    public var dwWindowSize: COORD = COORD(),
-    public var dwWindowOrigin: COORD = COORD(),
+    public var dwScreenBufferSize: Coord = Coord(),
+    public var dwWindowSize: Coord = Coord(),
+    public var dwWindowOrigin: Coord = Coord(),
     public var nFont: UInt = 0u,
     public var nInputBufferSize: UInt = 0u,
-    public var dwFontSize: COORD = COORD(),
+    public var dwFontSize: Coord = Coord(),
     public var uFontFamily: UInt = 0u,
     public var uFontWeight: UInt = 0u,
-    public var FaceName: UShortArray = UShortArray(32),
+    public var faceName: UShortArray = UShortArray(32),
     public var uCursorSize: UInt = 0u,
-    public var bFullScreen: BOOL = 0,
-    public var bQuickEdit: BOOL = 0,
-    public var bInsertMode: BOOL = 0,
-    public var bAutoPosition: BOOL = 0,
+    public var bFullScreen: Bool = 0,
+    public var bQuickEdit: Bool = 0,
+    public var bInsertMode: Bool = 0,
+    public var bAutoPosition: Bool = 0,
     public var uHistoryBufferSize: UInt = 0u,
     public var uNumberOfHistoryBuffers: UInt = 0u,
-    public var bHistoryNoDup: BOOL = 0,
-    public var ColorTable: UIntArray = UIntArray(16),
+    public var bHistoryNoDup: Bool = 0,
+    public var colorTable: UIntArray = UIntArray(16),
 )
 
-public data class NT_FE_CONSOLE_PROPS(public var dbh: DATABLOCK_HEADER = DATABLOCK_HEADER(), public var uCodePage: UInt = 0u)
+public data class NtFeConsoleProps(public var dbh: DatablockHeader = DatablockHeader(), public var uCodePage: UInt = 0u)
 
-public data class OPENASINFO(
-    public var pcszFile: PCWSTR = 0L,
-    public var pcszClass: PCWSTR = 0L,
-    public var oaifInFlags: OPEN_AS_INFO_FLAGS = 0,
+public data class Openasinfo(
+    public var pcszFile: Pcwstr = null,
+    public var pcszClass: Pcwstr = null,
+    public var oaifInFlags: OpenAsInfoFlags = 0,
 )
 
-public data class OPEN_PRINTER_PROPS_INFOA(
+public data class OpenPrinterPropsInfoa(
     public var dwSize: UInt = 0u,
-    public var pszSheetName: PSTR = 0L,
+    public var pszSheetName: Pstr = null,
     public var uSheetIndex: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var bModal: BOOL = 0,
+    public var bModal: Bool = 0,
 )
 
-public data class OPEN_PRINTER_PROPS_INFOW(
+public data class OpenPrinterPropsInfow(
     public var dwSize: UInt = 0u,
-    public var pszSheetName: PWSTR = 0L,
+    public var pszSheetName: Pwstr = null,
     public var uSheetIndex: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var bModal: BOOL = 0,
+    public var bModal: Bool = 0,
 )
 
-public data class PARSEDURLA(
+public data class Parsedurla(
     public var cbSize: UInt = 0u,
-    public var pszProtocol: PCSTR = 0L,
+    public var pszProtocol: Pcstr = null,
     public var cchProtocol: UInt = 0u,
-    public var pszSuffix: PCSTR = 0L,
+    public var pszSuffix: Pcstr = null,
     public var cchSuffix: UInt = 0u,
     public var nScheme: UInt = 0u,
 )
 
-public data class PARSEDURLW(
+public data class Parsedurlw(
     public var cbSize: UInt = 0u,
-    public var pszProtocol: PCWSTR = 0L,
+    public var pszProtocol: Pcwstr = null,
     public var cchProtocol: UInt = 0u,
-    public var pszSuffix: PCWSTR = 0L,
+    public var pszSuffix: Pcwstr = null,
     public var cchSuffix: UInt = 0u,
     public var nScheme: UInt = 0u,
 )
 
-public data class PERSIST_FOLDER_TARGET_INFO(
-    public var pidlTargetFolder: Long = 0L,
+public data class PersistFolderTargetInfo(
+    public var pidlTargetFolder: Itemidlist? = null,
     public var szTargetParsingName: UShortArray = UShortArray(260),
     public var szNetworkProvider: UShortArray = UShortArray(260),
     public var dwAttributes: UInt = 0u,
@@ -1237,7 +1244,7 @@ public data class PERSIST_FOLDER_TARGET_INFO(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is PERSIST_FOLDER_TARGET_INFO) return false
+        if (other !is PersistFolderTargetInfo) return false
         if (this.pidlTargetFolder != other.pidlTargetFolder) return false
         if (!this.szTargetParsingName.contentEquals(other.szTargetParsingName)) return false
         if (!this.szNetworkProvider.contentEquals(other.szNetworkProvider)) return false
@@ -1256,58 +1263,58 @@ public data class PERSIST_FOLDER_TARGET_INFO(
     }
 }
 
-public data class PREVIEWHANDLERFRAMEINFO(public var haccel: HACCEL = 0L, public var cAccelEntries: UInt = 0u)
+public data class Previewhandlerframeinfo(public var haccel: Haccel = null, public var cAccelEntries: UInt = 0u)
 
-public data class PROFILEINFOA(
+public data class Profileinfoa(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var lpUserName: PSTR = 0L,
-    public var lpProfilePath: PSTR = 0L,
-    public var lpDefaultPath: PSTR = 0L,
-    public var lpServerName: PSTR = 0L,
-    public var lpPolicyPath: PSTR = 0L,
-    public var hProfile: HANDLE = 0L,
+    public var lpUserName: Pstr = null,
+    public var lpProfilePath: Pstr = null,
+    public var lpDefaultPath: Pstr = null,
+    public var lpServerName: Pstr = null,
+    public var lpPolicyPath: Pstr = null,
+    public var hProfile: Handle = null,
 )
 
-public data class PROFILEINFOW(
+public data class Profileinfow(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var lpUserName: PWSTR = 0L,
-    public var lpProfilePath: PWSTR = 0L,
-    public var lpDefaultPath: PWSTR = 0L,
-    public var lpServerName: PWSTR = 0L,
-    public var lpPolicyPath: PWSTR = 0L,
-    public var hProfile: HANDLE = 0L,
+    public var lpUserName: Pwstr = null,
+    public var lpProfilePath: Pwstr = null,
+    public var lpDefaultPath: Pwstr = null,
+    public var lpServerName: Pwstr = null,
+    public var lpPolicyPath: Pwstr = null,
+    public var hProfile: Handle = null,
 )
 
-public data class PUBAPPINFO(
+public data class Pubappinfo(
     public var cbSize: UInt = 0u,
     public var dwMask: UInt = 0u,
-    public var pszSource: PWSTR = 0L,
-    public var stAssigned: SYSTEMTIME = SYSTEMTIME(),
-    public var stPublished: SYSTEMTIME = SYSTEMTIME(),
-    public var stScheduled: SYSTEMTIME = SYSTEMTIME(),
-    public var stExpire: SYSTEMTIME = SYSTEMTIME(),
+    public var pszSource: Pwstr = null,
+    public var stAssigned: Systemtime = Systemtime(),
+    public var stPublished: Systemtime = Systemtime(),
+    public var stScheduled: Systemtime = Systemtime(),
+    public var stExpire: Systemtime = Systemtime(),
 )
 
-public data class QCMINFO(
-    public var hmenu: HMENU = 0L,
+public data class Qcminfo(
+    public var hmenu: Hmenu = null,
     public var indexMenu: UInt = 0u,
     public var idCmdFirst: UInt = 0u,
     public var idCmdLast: UInt = 0u,
-    public var pIdMap: Long = 0L,
+    public var pIdMap: QcminfoIdmap? = null,
 )
 
-public data class QCMINFO_IDMAP(public var nMaxIds: UInt = 0u, public var pIdList: List<QCMINFO_IDMAP_PLACEMENT> = List(1) { QCMINFO_IDMAP_PLACEMENT() })
+public data class QcminfoIdmap(public var nMaxIds: UInt = 0u, public var pIdList: List<QcminfoIdmapPlacement> = List(1) { QcminfoIdmapPlacement() })
 
-public data class QCMINFO_IDMAP_PLACEMENT(public var id: UInt = 0u, public var fFlags: UInt = 0u)
+public data class QcminfoIdmapPlacement(public var id: UInt = 0u, public var fFlags: UInt = 0u)
 
-public data class QITAB(public var piid: Long = 0L, public var dwOffset: UInt = 0u)
+public data class Qitab(public var piid: Guid? = null, public var dwOffset: UInt = 0u)
 
-public data class SFVM_HELPTOPIC_DATA(public var wszHelpFile: UShortArray = UShortArray(260), public var wszHelpTopic: UShortArray = UShortArray(260)) {
+public data class SfvmHelptopicData(public var wszHelpFile: UShortArray = UShortArray(260), public var wszHelpTopic: UShortArray = UShortArray(260)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SFVM_HELPTOPIC_DATA) return false
+        if (other !is SfvmHelptopicData) return false
         if (!this.wszHelpFile.contentEquals(other.wszHelpFile)) return false
         if (!this.wszHelpTopic.contentEquals(other.wszHelpTopic)) return false
         return true
@@ -1320,37 +1327,37 @@ public data class SFVM_HELPTOPIC_DATA(public var wszHelpFile: UShortArray = USho
     }
 }
 
-public data class SFVM_PROPPAGE_DATA(
+public data class SfvmProppageData(
     public var dwReserved: UInt = 0u,
-    public var pfn: LPFNSVADDPROPSHEETPAGE = null,
-    public var lParam: LPARAM = 0L,
+    public var pfn: Lpfnsvaddpropsheetpage = null,
+    public var lParam: Lparam = 0L,
 )
 
-public data class SFV_CREATE(
+public data class SfvCreate(
     public var cbSize: UInt = 0u,
-    public var pshf: Long = 0L,
-    public var psvOuter: Long = 0L,
-    public var psfvcb: Long = 0L,
+    public var pshf: COpaquePointer? = null,
+    public var psvOuter: COpaquePointer? = null,
+    public var psfvcb: COpaquePointer? = null,
 )
 
-public data class SFV_SETITEMPOS(public var pidl: Long = 0L, public var pt: POINT = POINT())
+public data class SfvSetitempos(public var pidl: Itemidlist? = null, public var pt: Point = Point())
 
-public data class SHARDAPPIDINFO(public var psi: Long = 0L, public var pszAppID: PCWSTR = 0L)
+public data class Shardappidinfo(public var psi: COpaquePointer? = null, public var pszAppID: Pcwstr = null)
 
-public data class SHARDAPPIDINFOIDLIST(public var pidl: Long = 0L, public var pszAppID: PCWSTR = 0L)
+public data class Shardappidinfoidlist(public var pidl: Itemidlist? = null, public var pszAppID: Pcwstr = null)
 
-public data class SHARDAPPIDINFOLINK(public var psl: Long = 0L, public var pszAppID: PCWSTR = 0L)
+public data class Shardappidinfolink(public var psl: COpaquePointer? = null, public var pszAppID: Pcwstr = null)
 
-public data class SHCOLUMNDATA(
+public data class Shcolumndata(
     public var dwFlags: UInt = 0u,
     public var dwFileAttributes: UInt = 0u,
     public var dwReserved: UInt = 0u,
-    public var pwszExt: PWSTR = 0L,
+    public var pwszExt: Pwstr = null,
     public var wszFile: UShortArray = UShortArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SHCOLUMNDATA) return false
+        if (other !is Shcolumndata) return false
         if (this.dwFlags != other.dwFlags) return false
         if (this.dwFileAttributes != other.dwFileAttributes) return false
         if (this.dwReserved != other.dwReserved) return false
@@ -1369,9 +1376,9 @@ public data class SHCOLUMNDATA(
     }
 }
 
-public data class SHCOLUMNINFO(
-    public var scid: PROPERTYKEY = PROPERTYKEY(),
-    public var vt: VARENUM = 0u,
+public data class Shcolumninfo(
+    public var scid: Propertykey = Propertykey(),
+    public var vt: Varenum = 0u,
     public var fmt: UInt = 0u,
     public var cChars: UInt = 0u,
     public var csFlags: UInt = 0u,
@@ -1380,7 +1387,7 @@ public data class SHCOLUMNINFO(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SHCOLUMNINFO) return false
+        if (other !is Shcolumninfo) return false
         if (this.scid != other.scid) return false
         if (this.vt != other.vt) return false
         if (this.fmt != other.fmt) return false
@@ -1403,14 +1410,14 @@ public data class SHCOLUMNINFO(
     }
 }
 
-public data class SHCOLUMNINIT(
+public data class Shcolumninit(
     public var dwFlags: UInt = 0u,
     public var dwReserved: UInt = 0u,
     public var wszFolder: UShortArray = UShortArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SHCOLUMNINIT) return false
+        if (other !is Shcolumninit) return false
         if (this.dwFlags != other.dwFlags) return false
         if (this.dwReserved != other.dwReserved) return false
         if (!this.wszFolder.contentEquals(other.wszFolder)) return false
@@ -1425,20 +1432,20 @@ public data class SHCOLUMNINIT(
     }
 }
 
-public data class SHCREATEPROCESSINFOW(
+public data class Shcreateprocessinfow(
     public var cbSize: UInt = 0u,
     public var fMask: UInt = 0u,
-    public var hwnd: HWND = 0L,
-    public var pszFile: PCWSTR = 0L,
-    public var pszParameters: PCWSTR = 0L,
-    public var pszCurrentDirectory: PCWSTR = 0L,
-    public var hUserToken: HANDLE = 0L,
-    public var lpProcessAttributes: Long = 0L,
-    public var lpThreadAttributes: Long = 0L,
-    public var bInheritHandles: BOOL = 0,
+    public var hwnd: Hwnd = null,
+    public var pszFile: Pcwstr = null,
+    public var pszParameters: Pcwstr = null,
+    public var pszCurrentDirectory: Pcwstr = null,
+    public var hUserToken: Handle = null,
+    public var lpProcessAttributes: SecurityAttributes? = null,
+    public var lpThreadAttributes: SecurityAttributes? = null,
+    public var bInheritHandles: Bool = 0,
     public var dwCreationFlags: UInt = 0u,
-    public var lpStartupInfo: Long = 0L,
-    public var lpProcessInformation: Long = 0L,
+    public var lpStartupInfo: Startupinfow? = null,
+    public var lpProcessInformation: ProcessInformation? = null,
 )
 
 public data class SHChangeDWORDAsIDList(
@@ -1448,7 +1455,7 @@ public data class SHChangeDWORDAsIDList(
     public var cbZero: UShort = 0u,
 )
 
-public data class SHChangeNotifyEntry(public var pidl: Long = 0L, public var fRecursive: BOOL = 0)
+public data class SHChangeNotifyEntry(public var pidl: Itemidlist? = null, public var fRecursive: Bool = 0)
 
 public data class SHChangeProductKeyAsIDList(
     public var cb: UShort = 0u,
@@ -1506,83 +1513,83 @@ public data class SHChangeUpdateImageIDList(
     }
 }
 
-public data class SHDESCRIPTIONID(public var dwDescriptionId: UInt = 0u, public var clsid: GUID = GUID())
+public data class Shdescriptionid(public var dwDescriptionId: UInt = 0u, public var clsid: Guid = Guid())
 
-public data class SHDRAGIMAGE(
-    public var sizeDragImage: SIZE = SIZE(),
-    public var ptOffset: POINT = POINT(),
-    public var hbmpDragImage: HBITMAP = 0L,
-    public var crColorKey: COLORREF = 0u,
+public data class Shdragimage(
+    public var sizeDragImage: Size = Size(),
+    public var ptOffset: Point = Point(),
+    public var hbmpDragImage: Hbitmap = null,
+    public var crColorKey: Colorref = 0u,
 )
 
-public data class SHELLEXECUTEINFOA(
+public data class Shellexecuteinfoa(
     public var cbSize: UInt = 0u,
     public var fMask: UInt = 0u,
-    public var hwnd: HWND = 0L,
-    public var lpVerb: PCSTR = 0L,
-    public var lpFile: PCSTR = 0L,
-    public var lpParameters: PCSTR = 0L,
-    public var lpDirectory: PCSTR = 0L,
+    public var hwnd: Hwnd = null,
+    public var lpVerb: Pcstr = null,
+    public var lpFile: Pcstr = null,
+    public var lpParameters: Pcstr = null,
+    public var lpDirectory: Pcstr = null,
     public var nShow: Int = 0,
-    public var hInstApp: HINSTANCE = 0L,
-    public var lpIDList: Long = 0L,
-    public var lpClass: PCSTR = 0L,
-    public var hkeyClass: HKEY = 0L,
+    public var hInstApp: Hinstance = null,
+    public var lpIDList: COpaquePointer? = null,
+    public var lpClass: Pcstr = null,
+    public var hkeyClass: Hkey = null,
     public var dwHotKey: UInt = 0u,
-    public var Anonymous: SHELLEXECUTEINFOA_0 = SHELLEXECUTEINFOA_0(),
-    public var hProcess: HANDLE = 0L,
+    public var anonymous: Shellexecuteinfoa0 = Shellexecuteinfoa0(),
+    public var hProcess: Handle = null,
 )
 
-public data class SHELLEXECUTEINFOA_0(public var hIcon: HANDLE = 0L, public var hMonitor: HANDLE = 0L)
+public data class Shellexecuteinfoa0(public var hIcon: Handle = null, public var hMonitor: Handle = null)
 
-public data class SHELLEXECUTEINFOW(
+public data class Shellexecuteinfow(
     public var cbSize: UInt = 0u,
     public var fMask: UInt = 0u,
-    public var hwnd: HWND = 0L,
-    public var lpVerb: PCWSTR = 0L,
-    public var lpFile: PCWSTR = 0L,
-    public var lpParameters: PCWSTR = 0L,
-    public var lpDirectory: PCWSTR = 0L,
+    public var hwnd: Hwnd = null,
+    public var lpVerb: Pcwstr = null,
+    public var lpFile: Pcwstr = null,
+    public var lpParameters: Pcwstr = null,
+    public var lpDirectory: Pcwstr = null,
     public var nShow: Int = 0,
-    public var hInstApp: HINSTANCE = 0L,
-    public var lpIDList: Long = 0L,
-    public var lpClass: PCWSTR = 0L,
-    public var hkeyClass: HKEY = 0L,
+    public var hInstApp: Hinstance = null,
+    public var lpIDList: COpaquePointer? = null,
+    public var lpClass: Pcwstr = null,
+    public var hkeyClass: Hkey = null,
     public var dwHotKey: UInt = 0u,
-    public var Anonymous: SHELLEXECUTEINFOW_0 = SHELLEXECUTEINFOW_0(),
-    public var hProcess: HANDLE = 0L,
+    public var anonymous: Shellexecuteinfow0 = Shellexecuteinfow0(),
+    public var hProcess: Handle = null,
 )
 
-public data class SHELLEXECUTEINFOW_0(public var hIcon: HANDLE = 0L, public var hMonitor: HANDLE = 0L)
+public data class Shellexecuteinfow0(public var hIcon: Handle = null, public var hMonitor: Handle = null)
 
-public data class SHELLFLAGSTATE(public var _bitfield: Int = 0)
+public data class Shellflagstate(public var bitfield: Int = 0)
 
-public data class SHELLSTATEA(
-    public var _bitfield1: Int = 0,
+public data class Shellstatea(
+    public var bitfield1: Int = 0,
     public var dwWin95Unused: UInt = 0u,
     public var uWin95Unused: UInt = 0u,
     public var lParamSort: Int = 0,
     public var iSortDirection: Int = 0,
     public var version: UInt = 0u,
     public var uNotUsed: UInt = 0u,
-    public var _bitfield2: Int = 0,
+    public var bitfield2: Int = 0,
 )
 
-public data class SHELLSTATEW(
-    public var _bitfield1: Int = 0,
+public data class Shellstatew(
+    public var bitfield1: Int = 0,
     public var dwWin95Unused: UInt = 0u,
     public var uWin95Unused: UInt = 0u,
     public var lParamSort: Int = 0,
     public var iSortDirection: Int = 0,
     public var version: UInt = 0u,
     public var uNotUsed: UInt = 0u,
-    public var _bitfield2: Int = 0,
+    public var bitfield2: Int = 0,
 )
 
-public data class SHELL_ITEM_RESOURCE(public var guidType: GUID = GUID(), public var szName: UShortArray = UShortArray(260)) {
+public data class ShellItemResource(public var guidType: Guid = Guid(), public var szName: UShortArray = UShortArray(260)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SHELL_ITEM_RESOURCE) return false
+        if (other !is ShellItemResource) return false
         if (this.guidType != other.guidType) return false
         if (!this.szName.contentEquals(other.szName)) return false
         return true
@@ -1595,8 +1602,8 @@ public data class SHELL_ITEM_RESOURCE(public var guidType: GUID = GUID(), public
     }
 }
 
-public data class SHFILEINFOA(
-    public var hIcon: HICON = 0L,
+public data class Shfileinfoa(
+    public var hIcon: Hicon = null,
     public var iIcon: Int = 0,
     public var dwAttributes: UInt = 0u,
     public var szDisplayName: ByteArray = ByteArray(260),
@@ -1604,7 +1611,7 @@ public data class SHFILEINFOA(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SHFILEINFOA) return false
+        if (other !is Shfileinfoa) return false
         if (this.hIcon != other.hIcon) return false
         if (this.iIcon != other.iIcon) return false
         if (this.dwAttributes != other.dwAttributes) return false
@@ -1623,8 +1630,8 @@ public data class SHFILEINFOA(
     }
 }
 
-public data class SHFILEINFOW(
-    public var hIcon: HICON = 0L,
+public data class Shfileinfow(
+    public var hIcon: Hicon = null,
     public var iIcon: Int = 0,
     public var dwAttributes: UInt = 0u,
     public var szDisplayName: UShortArray = UShortArray(260),
@@ -1632,7 +1639,7 @@ public data class SHFILEINFOW(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SHFILEINFOW) return false
+        if (other !is Shfileinfow) return false
         if (this.hIcon != other.hIcon) return false
         if (this.iIcon != other.iIcon) return false
         if (this.dwAttributes != other.dwAttributes) return false
@@ -1651,76 +1658,76 @@ public data class SHFILEINFOW(
     }
 }
 
-public data class SHFILEOPSTRUCTA(
-    public var hwnd: HWND = 0L,
+public data class Shfileopstructa(
+    public var hwnd: Hwnd = null,
     public var wFunc: UInt = 0u,
-    public var pFrom: Long = 0L,
-    public var pTo: Long = 0L,
+    public var pFrom: COpaquePointer? = null,
+    public var pTo: COpaquePointer? = null,
     public var fFlags: UShort = 0u,
-    public var fAnyOperationsAborted: BOOL = 0,
-    public var hNameMappings: Long = 0L,
-    public var lpszProgressTitle: PCSTR = 0L,
+    public var fAnyOperationsAborted: Bool = 0,
+    public var hNameMappings: COpaquePointer? = null,
+    public var lpszProgressTitle: Pcstr = null,
 )
 
-public data class SHFILEOPSTRUCTW(
-    public var hwnd: HWND = 0L,
+public data class Shfileopstructw(
+    public var hwnd: Hwnd = null,
     public var wFunc: UInt = 0u,
-    public var pFrom: PCWSTR = 0L,
-    public var pTo: PCWSTR = 0L,
+    public var pFrom: Pcwstr = null,
+    public var pTo: Pcwstr = null,
     public var fFlags: UShort = 0u,
-    public var fAnyOperationsAborted: BOOL = 0,
-    public var hNameMappings: Long = 0L,
-    public var lpszProgressTitle: PCWSTR = 0L,
+    public var fAnyOperationsAborted: Bool = 0,
+    public var hNameMappings: COpaquePointer? = null,
+    public var lpszProgressTitle: Pcwstr = null,
 )
 
-public data class SHFOLDERCUSTOMSETTINGS(
+public data class Shfoldercustomsettings(
     public var dwSize: UInt = 0u,
     public var dwMask: UInt = 0u,
-    public var pvid: Long = 0L,
-    public var pszWebViewTemplate: PWSTR = 0L,
+    public var pvid: Guid? = null,
+    public var pszWebViewTemplate: Pwstr = null,
     public var cchWebViewTemplate: UInt = 0u,
-    public var pszWebViewTemplateVersion: PWSTR = 0L,
-    public var pszInfoTip: PWSTR = 0L,
+    public var pszWebViewTemplateVersion: Pwstr = null,
+    public var pszInfoTip: Pwstr = null,
     public var cchInfoTip: UInt = 0u,
-    public var pclsid: Long = 0L,
+    public var pclsid: Guid? = null,
     public var dwFlags: UInt = 0u,
-    public var pszIconFile: PWSTR = 0L,
+    public var pszIconFile: Pwstr = null,
     public var cchIconFile: UInt = 0u,
     public var iIconIndex: Int = 0,
-    public var pszLogo: PWSTR = 0L,
+    public var pszLogo: Pwstr = null,
     public var cchLogo: UInt = 0u,
 )
 
-public data class SHNAMEMAPPINGA(
-    public var pszOldPath: PSTR = 0L,
-    public var pszNewPath: PSTR = 0L,
+public data class Shnamemappinga(
+    public var pszOldPath: Pstr = null,
+    public var pszNewPath: Pstr = null,
     public var cchOldPath: Int = 0,
     public var cchNewPath: Int = 0,
 )
 
-public data class SHNAMEMAPPINGW(
-    public var pszOldPath: PWSTR = 0L,
-    public var pszNewPath: PWSTR = 0L,
+public data class Shnamemappingw(
+    public var pszOldPath: Pwstr = null,
+    public var pszNewPath: Pwstr = null,
     public var cchOldPath: Int = 0,
     public var cchNewPath: Int = 0,
 )
 
-public data class SHQUERYRBINFO(
+public data class Shqueryrbinfo(
     public var cbSize: UInt = 0u,
     public var i64Size: Long = 0L,
     public var i64NumItems: Long = 0L,
 )
 
-public data class SHSTOCKICONINFO(
+public data class Shstockiconinfo(
     public var cbSize: UInt = 0u,
-    public var hIcon: HICON = 0L,
+    public var hIcon: Hicon = null,
     public var iSysImageIndex: Int = 0,
     public var iIcon: Int = 0,
     public var szPath: UShortArray = UShortArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SHSTOCKICONINFO) return false
+        if (other !is Shstockiconinfo) return false
         if (this.cbSize != other.cbSize) return false
         if (this.hIcon != other.hIcon) return false
         if (this.iSysImageIndex != other.iSysImageIndex) return false
@@ -1739,65 +1746,65 @@ public data class SHSTOCKICONINFO(
     }
 }
 
-public data class SLOWAPPINFO(
+public data class Slowappinfo(
     public var ullSize: ULong = 0uL,
-    public var ftLastUsed: FILETIME = FILETIME(),
+    public var ftLastUsed: Filetime = Filetime(),
     public var iTimesUsed: Int = 0,
-    public var pszImage: PWSTR = 0L,
+    public var pszImage: Pwstr = null,
 )
 
-public data class SMCSHCHANGENOTIFYSTRUCT(
+public data class Smcshchangenotifystruct(
     public var lEvent: Int = 0,
-    public var pidl1: Long = 0L,
-    public var pidl2: Long = 0L,
+    public var pidl1: Itemidlist? = null,
+    public var pidl2: Itemidlist? = null,
 )
 
-public data class SMDATA(
+public data class Smdata(
     public var dwMask: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var hmenu: HMENU = 0L,
-    public var hwnd: HWND = 0L,
+    public var hmenu: Hmenu = null,
+    public var hwnd: Hwnd = null,
     public var uId: UInt = 0u,
     public var uIdParent: UInt = 0u,
     public var uIdAncestor: UInt = 0u,
-    public var punk: Long = 0L,
-    public var pidlFolder: Long = 0L,
-    public var pidlItem: Long = 0L,
-    public var psf: Long = 0L,
-    public var pvUserData: Long = 0L,
+    public var punk: COpaquePointer? = null,
+    public var pidlFolder: Itemidlist? = null,
+    public var pidlItem: Itemidlist? = null,
+    public var psf: COpaquePointer? = null,
+    public var pvUserData: COpaquePointer? = null,
 )
 
-public data class SMINFO(
+public data class Sminfo(
     public var dwMask: UInt = 0u,
     public var dwType: UInt = 0u,
     public var dwFlags: UInt = 0u,
     public var iIcon: Int = 0,
 )
 
-public data class SORTCOLUMN(public var propkey: PROPERTYKEY = PROPERTYKEY(), public var direction: SORTDIRECTION = 0)
+public data class Sortcolumn(public var propkey: Propertykey = Propertykey(), public var direction: Sortdirection = 0)
 
-public data class SV2CVW2_PARAMS(
+public data class Sv2cvw2Params(
     public var cbSize: UInt = 0u,
-    public var psvPrev: Long = 0L,
-    public var pfs: Long = 0L,
-    public var psbOwner: Long = 0L,
-    public var prcView: Long = 0L,
-    public var pvid: Long = 0L,
-    public var hwndView: HWND = 0L,
+    public var psvPrev: COpaquePointer? = null,
+    public var pfs: Foldersettings? = null,
+    public var psbOwner: COpaquePointer? = null,
+    public var prcView: Rect? = null,
+    public var pvid: Guid? = null,
+    public var hwndView: Hwnd = null,
 )
 
-public data class SYNCMGRHANDLERINFO(
+public data class Syncmgrhandlerinfo(
     public var cbSize: UInt = 0u,
-    public var hIcon: HICON = 0L,
-    public var SyncMgrHandlerFlags: UInt = 0u,
+    public var hIcon: Hicon = null,
+    public var syncMgrHandlerFlags: UInt = 0u,
     public var wszHandlerName: UShortArray = UShortArray(32),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SYNCMGRHANDLERINFO) return false
+        if (other !is Syncmgrhandlerinfo) return false
         if (this.cbSize != other.cbSize) return false
         if (this.hIcon != other.hIcon) return false
-        if (this.SyncMgrHandlerFlags != other.SyncMgrHandlerFlags) return false
+        if (this.syncMgrHandlerFlags != other.syncMgrHandlerFlags) return false
         if (!this.wszHandlerName.contentEquals(other.wszHandlerName)) return false
         return true
     }
@@ -1805,27 +1812,27 @@ public data class SYNCMGRHANDLERINFO(
     override fun hashCode(): Int {
         var result = this.cbSize.hashCode()
         result = 31 * result + this.hIcon.hashCode()
-        result = 31 * result + this.SyncMgrHandlerFlags.hashCode()
+        result = 31 * result + this.syncMgrHandlerFlags.hashCode()
         result = 31 * result + this.wszHandlerName.contentHashCode()
         return result
     }
 }
 
-public data class SYNCMGRITEM(
+public data class Syncmgritem(
     public var cbSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var ItemID: GUID = GUID(),
+    public var itemID: Guid = Guid(),
     public var dwItemState: UInt = 0u,
-    public var hIcon: HICON = 0L,
+    public var hIcon: Hicon = null,
     public var wszItemName: UShortArray = UShortArray(128),
-    public var ftLastUpdate: FILETIME = FILETIME(),
+    public var ftLastUpdate: Filetime = Filetime(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SYNCMGRITEM) return false
+        if (other !is Syncmgritem) return false
         if (this.cbSize != other.cbSize) return false
         if (this.dwFlags != other.dwFlags) return false
-        if (this.ItemID != other.ItemID) return false
+        if (this.itemID != other.itemID) return false
         if (this.dwItemState != other.dwItemState) return false
         if (this.hIcon != other.hIcon) return false
         if (!this.wszItemName.contentEquals(other.wszItemName)) return false
@@ -1836,7 +1843,7 @@ public data class SYNCMGRITEM(
     override fun hashCode(): Int {
         var result = this.cbSize.hashCode()
         result = 31 * result + this.dwFlags.hashCode()
-        result = 31 * result + this.ItemID.hashCode()
+        result = 31 * result + this.itemID.hashCode()
         result = 31 * result + this.dwItemState.hashCode()
         result = 31 * result + this.hIcon.hashCode()
         result = 31 * result + this.wszItemName.contentHashCode()
@@ -1845,38 +1852,38 @@ public data class SYNCMGRITEM(
     }
 }
 
-public data class SYNCMGRLOGERRORINFO(
+public data class Syncmgrlogerrorinfo(
     public var cbSize: UInt = 0u,
     public var mask: UInt = 0u,
     public var dwSyncMgrErrorFlags: UInt = 0u,
-    public var ErrorID: GUID = GUID(),
-    public var ItemID: GUID = GUID(),
+    public var errorID: Guid = Guid(),
+    public var itemID: Guid = Guid(),
 )
 
-public data class SYNCMGRPROGRESSITEM(
+public data class Syncmgrprogressitem(
     public var cbSize: UInt = 0u,
     public var mask: UInt = 0u,
-    public var lpcStatusText: PCWSTR = 0L,
+    public var lpcStatusText: Pcwstr = null,
     public var dwStatusType: UInt = 0u,
     public var iProgValue: Int = 0,
     public var iMaxValue: Int = 0,
 )
 
-public data class SYNCMGR_CONFLICT_ID_INFO(public var pblobID: Long = 0L, public var pblobExtra: Long = 0L)
+public data class SyncmgrConflictIdInfo(public var pblobID: ByteBlob? = null, public var pblobExtra: ByteBlob? = null)
 
-public data class TBINFO(public var cbuttons: UInt = 0u, public var uFlags: UInt = 0u)
+public data class Tbinfo(public var cbuttons: UInt = 0u, public var uFlags: UInt = 0u)
 
-public data class THUMBBUTTON(
-    public var dwMask: THUMBBUTTONMASK = 0,
+public data class Thumbbutton(
+    public var dwMask: Thumbbuttonmask = 0,
     public var iId: UInt = 0u,
     public var iBitmap: UInt = 0u,
-    public var hIcon: HICON = 0L,
+    public var hIcon: Hicon = null,
     public var szTip: UShortArray = UShortArray(260),
-    public var dwFlags: THUMBBUTTONFLAGS = 0,
+    public var dwFlags: Thumbbuttonflags = 0,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is THUMBBUTTON) return false
+        if (other !is Thumbbutton) return false
         if (this.dwMask != other.dwMask) return false
         if (this.iId != other.iId) return false
         if (this.iBitmap != other.iBitmap) return false
@@ -1897,41 +1904,41 @@ public data class THUMBBUTTON(
     }
 }
 
-public data class TOOLBARITEM(
-    public var ptbar: Long = 0L,
-    public var rcBorderTool: RECT = RECT(),
-    public var pwszItem: PWSTR = 0L,
-    public var fShow: BOOL = 0,
-    public var hMon: HMONITOR = 0L,
+public data class Toolbaritem(
+    public var ptbar: COpaquePointer? = null,
+    public var rcBorderTool: Rect = Rect(),
+    public var pwszItem: Pwstr = null,
+    public var fShow: Bool = 0,
+    public var hMon: Hmonitor = null,
 )
 
-public data class URLINVOKECOMMANDINFOA(
+public data class Urlinvokecommandinfoa(
     public var dwcbSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var hwndParent: HWND = 0L,
-    public var pcszVerb: PCSTR = 0L,
+    public var hwndParent: Hwnd = null,
+    public var pcszVerb: Pcstr = null,
 )
 
-public data class URLINVOKECOMMANDINFOW(
+public data class Urlinvokecommandinfow(
     public var dwcbSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var hwndParent: HWND = 0L,
-    public var pcszVerb: PCWSTR = 0L,
+    public var hwndParent: Hwnd = null,
+    public var pcszVerb: Pcwstr = null,
 )
 
-public data class WINDOWDATA(
+public data class Windowdata(
     public var dwWindowID: UInt = 0u,
     public var uiCP: UInt = 0u,
-    public var pidl: Long = 0L,
-    public var lpszUrl: PWSTR = 0L,
-    public var lpszUrlLocation: PWSTR = 0L,
-    public var lpszTitle: PWSTR = 0L,
+    public var pidl: Itemidlist? = null,
+    public var lpszUrl: Pwstr = null,
+    public var lpszUrlLocation: Pwstr = null,
+    public var lpszTitle: Pwstr = null,
 )
 
-public data class WTS_THUMBNAILID(public var rgbKey: UByteArray = UByteArray(16)) {
+public data class WtsThumbnailid(public var rgbKey: UByteArray = UByteArray(16)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is WTS_THUMBNAILID) return false
+        if (other !is WtsThumbnailid) return false
         if (!this.rgbKey.contentEquals(other.rgbKey)) return false
         return true
     }

@@ -1,19 +1,21 @@
 package io.github.kotlinmania.windowssys.windows.win32.storage.filehistory
 
-public typealias FH_BACKUP_STATUS = Int
+import io.github.kotlinmania.windowssys.COpaquePointer
 
-public typealias FH_DEVICE_VALIDATION_RESULT = Int
+public typealias FhBackupStatus = Int
 
-public typealias FH_LOCAL_POLICY_TYPE = Int
+public typealias FhDeviceValidationResult = Int
 
-public typealias FH_PROTECTED_ITEM_CATEGORY = Int
+public typealias FhLocalPolicyType = Int
 
-public typealias FH_RETENTION_TYPES = Int
+public typealias FhProtectedItemCategory = Int
 
-public typealias FH_SERVICE_PIPE_HANDLE = Long
+public typealias FhRetentionTypes = Int
 
-public typealias FH_TARGET_DRIVE_TYPES = Int
+public typealias FhServicePipeHandle = COpaquePointer?
 
-public typealias FH_TARGET_PROPERTY_TYPE = Int
+public typealias FhTargetDriveTypes = Int
+
+public typealias FhTargetPropertyType = Int
 
 public typealias FhBackupStopReason = Int

@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_environment_CallEnclave_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_environment_callEnclave_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t lproutine = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpparameter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -75,7 +75,7 @@ static Napi::Value windowssys_windows_win32_system_environment_CallEnclave_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_environment_CreateEnclave_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_environment_createEnclave_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -107,7 +107,7 @@ static Napi::Value windowssys_windows_win32_system_environment_CreateEnclave_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_environment_CreateEnvironmentBlock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_environment_createEnvironmentBlock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpenvironment = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* htoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -129,7 +129,7 @@ static Napi::Value windowssys_windows_win32_system_environment_CreateEnvironment
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_environment_DeleteEnclave_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_environment_deleteEnclave_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -147,7 +147,7 @@ static Napi::Value windowssys_windows_win32_system_environment_DeleteEnclave_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_environment_DestroyEnvironmentBlock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_environment_destroyEnvironmentBlock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpenvironment = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -165,7 +165,7 @@ static Napi::Value windowssys_windows_win32_system_environment_DestroyEnvironmen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_environment_EnclaveGetAttestationReport_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_environment_enclaveGetAttestationReport_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enclavedata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* report = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -189,7 +189,7 @@ static Napi::Value windowssys_windows_win32_system_environment_EnclaveGetAttesta
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_environment_EnclaveGetEnclaveInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_environment_enclaveGetEnclaveInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t informationsize = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* enclaveinformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -209,7 +209,7 @@ static Napi::Value windowssys_windows_win32_system_environment_EnclaveGetEnclave
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_environment_EnclaveSealData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_environment_enclaveSealData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* datatoencrypt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t datatoencryptsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -239,7 +239,7 @@ static Napi::Value windowssys_windows_win32_system_environment_EnclaveSealData_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_environment_EnclaveUnsealData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_environment_enclaveUnsealData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* protectedblob = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t protectedblobsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -269,7 +269,7 @@ static Napi::Value windowssys_windows_win32_system_environment_EnclaveUnsealData
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_environment_EnclaveVerifyAttestationReport_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_environment_enclaveVerifyAttestationReport_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t enclavetype = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* report = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -291,7 +291,7 @@ static Napi::Value windowssys_windows_win32_system_environment_EnclaveVerifyAtte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_environment_ExpandEnvironmentStringsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_environment_expandEnvironmentStringsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -313,7 +313,7 @@ static Napi::Value windowssys_windows_win32_system_environment_ExpandEnvironment
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_environment_ExpandEnvironmentStringsForUserA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_environment_expandEnvironmentStringsForUserA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* htoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -337,7 +337,7 @@ static Napi::Value windowssys_windows_win32_system_environment_ExpandEnvironment
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_environment_ExpandEnvironmentStringsForUserW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_environment_expandEnvironmentStringsForUserW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* htoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -361,7 +361,7 @@ static Napi::Value windowssys_windows_win32_system_environment_ExpandEnvironment
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_environment_ExpandEnvironmentStringsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_environment_expandEnvironmentStringsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -383,7 +383,7 @@ static Napi::Value windowssys_windows_win32_system_environment_ExpandEnvironment
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_environment_FreeEnvironmentStringsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_environment_freeEnvironmentStringsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* penv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -401,7 +401,7 @@ static Napi::Value windowssys_windows_win32_system_environment_FreeEnvironmentSt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_environment_FreeEnvironmentStringsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_environment_freeEnvironmentStringsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* penv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -419,7 +419,7 @@ static Napi::Value windowssys_windows_win32_system_environment_FreeEnvironmentSt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_environment_GetCommandLineA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_environment_getCommandLineA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -435,7 +435,7 @@ static Napi::Value windowssys_windows_win32_system_environment_GetCommandLineA_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_environment_GetCommandLineW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_environment_getCommandLineW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -451,7 +451,7 @@ static Napi::Value windowssys_windows_win32_system_environment_GetCommandLineW_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_environment_GetCurrentDirectoryA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_environment_getCurrentDirectoryA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t nbufferlength = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -471,7 +471,7 @@ static Napi::Value windowssys_windows_win32_system_environment_GetCurrentDirecto
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_environment_GetCurrentDirectoryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_environment_getCurrentDirectoryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t nbufferlength = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -491,7 +491,7 @@ static Napi::Value windowssys_windows_win32_system_environment_GetCurrentDirecto
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_environment_GetEnvironmentStrings_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_environment_getEnvironmentStrings_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -507,7 +507,7 @@ static Napi::Value windowssys_windows_win32_system_environment_GetEnvironmentStr
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_environment_GetEnvironmentStringsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_environment_getEnvironmentStringsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -523,7 +523,7 @@ static Napi::Value windowssys_windows_win32_system_environment_GetEnvironmentStr
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_environment_GetEnvironmentVariableA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_environment_getEnvironmentVariableA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -545,7 +545,7 @@ static Napi::Value windowssys_windows_win32_system_environment_GetEnvironmentVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_environment_GetEnvironmentVariableW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_environment_getEnvironmentVariableW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -567,7 +567,7 @@ static Napi::Value windowssys_windows_win32_system_environment_GetEnvironmentVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_environment_InitializeEnclave_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_environment_initializeEnclave_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -593,7 +593,7 @@ static Napi::Value windowssys_windows_win32_system_environment_InitializeEnclave
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_environment_IsEnclaveTypeSupported_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_environment_isEnclaveTypeSupported_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flenclavetype = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -611,7 +611,7 @@ static Napi::Value windowssys_windows_win32_system_environment_IsEnclaveTypeSupp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_environment_LoadEnclaveData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_environment_loadEnclaveData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -645,7 +645,7 @@ static Napi::Value windowssys_windows_win32_system_environment_LoadEnclaveData_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_environment_LoadEnclaveImageA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_environment_loadEnclaveImageA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpenclaveaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpimagename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -665,7 +665,7 @@ static Napi::Value windowssys_windows_win32_system_environment_LoadEnclaveImageA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_environment_LoadEnclaveImageW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_environment_loadEnclaveImageW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpenclaveaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpimagename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -685,7 +685,7 @@ static Napi::Value windowssys_windows_win32_system_environment_LoadEnclaveImageW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_environment_NeedCurrentDirectoryForExePathA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_environment_needCurrentDirectoryForExePathA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* exename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -703,7 +703,7 @@ static Napi::Value windowssys_windows_win32_system_environment_NeedCurrentDirect
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_environment_NeedCurrentDirectoryForExePathW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_environment_needCurrentDirectoryForExePathW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* exename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -721,7 +721,7 @@ static Napi::Value windowssys_windows_win32_system_environment_NeedCurrentDirect
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_environment_SetCurrentDirectoryA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_environment_setCurrentDirectoryA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lppathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -739,7 +739,7 @@ static Napi::Value windowssys_windows_win32_system_environment_SetCurrentDirecto
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_environment_SetCurrentDirectoryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_environment_setCurrentDirectoryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lppathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -757,7 +757,7 @@ static Napi::Value windowssys_windows_win32_system_environment_SetCurrentDirecto
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_environment_SetEnvironmentStringsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_environment_setEnvironmentStringsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* newenvironment = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -775,7 +775,7 @@ static Napi::Value windowssys_windows_win32_system_environment_SetEnvironmentStr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_environment_SetEnvironmentVariableA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_environment_setEnvironmentVariableA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -795,7 +795,7 @@ static Napi::Value windowssys_windows_win32_system_environment_SetEnvironmentVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_environment_SetEnvironmentVariableW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_environment_setEnvironmentVariableW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -815,7 +815,7 @@ static Napi::Value windowssys_windows_win32_system_environment_SetEnvironmentVar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_environment_TerminateEnclave_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_environment_terminateEnclave_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fwait = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -836,43 +836,43 @@ static Napi::Value windowssys_windows_win32_system_environment_TerminateEnclave_
 }
 
 static void register_windows_win32_system_environment_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_environment_CallEnclave", Napi::Function::New(env, windowssys_windows_win32_system_environment_CallEnclave_napi));
-    exports.Set("windowssys_windows_win32_system_environment_CreateEnclave", Napi::Function::New(env, windowssys_windows_win32_system_environment_CreateEnclave_napi));
-    exports.Set("windowssys_windows_win32_system_environment_CreateEnvironmentBlock", Napi::Function::New(env, windowssys_windows_win32_system_environment_CreateEnvironmentBlock_napi));
-    exports.Set("windowssys_windows_win32_system_environment_DeleteEnclave", Napi::Function::New(env, windowssys_windows_win32_system_environment_DeleteEnclave_napi));
-    exports.Set("windowssys_windows_win32_system_environment_DestroyEnvironmentBlock", Napi::Function::New(env, windowssys_windows_win32_system_environment_DestroyEnvironmentBlock_napi));
-    exports.Set("windowssys_windows_win32_system_environment_EnclaveGetAttestationReport", Napi::Function::New(env, windowssys_windows_win32_system_environment_EnclaveGetAttestationReport_napi));
-    exports.Set("windowssys_windows_win32_system_environment_EnclaveGetEnclaveInformation", Napi::Function::New(env, windowssys_windows_win32_system_environment_EnclaveGetEnclaveInformation_napi));
-    exports.Set("windowssys_windows_win32_system_environment_EnclaveSealData", Napi::Function::New(env, windowssys_windows_win32_system_environment_EnclaveSealData_napi));
-    exports.Set("windowssys_windows_win32_system_environment_EnclaveUnsealData", Napi::Function::New(env, windowssys_windows_win32_system_environment_EnclaveUnsealData_napi));
-    exports.Set("windowssys_windows_win32_system_environment_EnclaveVerifyAttestationReport", Napi::Function::New(env, windowssys_windows_win32_system_environment_EnclaveVerifyAttestationReport_napi));
-    exports.Set("windowssys_windows_win32_system_environment_ExpandEnvironmentStringsA", Napi::Function::New(env, windowssys_windows_win32_system_environment_ExpandEnvironmentStringsA_napi));
-    exports.Set("windowssys_windows_win32_system_environment_ExpandEnvironmentStringsForUserA", Napi::Function::New(env, windowssys_windows_win32_system_environment_ExpandEnvironmentStringsForUserA_napi));
-    exports.Set("windowssys_windows_win32_system_environment_ExpandEnvironmentStringsForUserW", Napi::Function::New(env, windowssys_windows_win32_system_environment_ExpandEnvironmentStringsForUserW_napi));
-    exports.Set("windowssys_windows_win32_system_environment_ExpandEnvironmentStringsW", Napi::Function::New(env, windowssys_windows_win32_system_environment_ExpandEnvironmentStringsW_napi));
-    exports.Set("windowssys_windows_win32_system_environment_FreeEnvironmentStringsA", Napi::Function::New(env, windowssys_windows_win32_system_environment_FreeEnvironmentStringsA_napi));
-    exports.Set("windowssys_windows_win32_system_environment_FreeEnvironmentStringsW", Napi::Function::New(env, windowssys_windows_win32_system_environment_FreeEnvironmentStringsW_napi));
-    exports.Set("windowssys_windows_win32_system_environment_GetCommandLineA", Napi::Function::New(env, windowssys_windows_win32_system_environment_GetCommandLineA_napi));
-    exports.Set("windowssys_windows_win32_system_environment_GetCommandLineW", Napi::Function::New(env, windowssys_windows_win32_system_environment_GetCommandLineW_napi));
-    exports.Set("windowssys_windows_win32_system_environment_GetCurrentDirectoryA", Napi::Function::New(env, windowssys_windows_win32_system_environment_GetCurrentDirectoryA_napi));
-    exports.Set("windowssys_windows_win32_system_environment_GetCurrentDirectoryW", Napi::Function::New(env, windowssys_windows_win32_system_environment_GetCurrentDirectoryW_napi));
-    exports.Set("windowssys_windows_win32_system_environment_GetEnvironmentStrings", Napi::Function::New(env, windowssys_windows_win32_system_environment_GetEnvironmentStrings_napi));
-    exports.Set("windowssys_windows_win32_system_environment_GetEnvironmentStringsW", Napi::Function::New(env, windowssys_windows_win32_system_environment_GetEnvironmentStringsW_napi));
-    exports.Set("windowssys_windows_win32_system_environment_GetEnvironmentVariableA", Napi::Function::New(env, windowssys_windows_win32_system_environment_GetEnvironmentVariableA_napi));
-    exports.Set("windowssys_windows_win32_system_environment_GetEnvironmentVariableW", Napi::Function::New(env, windowssys_windows_win32_system_environment_GetEnvironmentVariableW_napi));
-    exports.Set("windowssys_windows_win32_system_environment_InitializeEnclave", Napi::Function::New(env, windowssys_windows_win32_system_environment_InitializeEnclave_napi));
-    exports.Set("windowssys_windows_win32_system_environment_IsEnclaveTypeSupported", Napi::Function::New(env, windowssys_windows_win32_system_environment_IsEnclaveTypeSupported_napi));
-    exports.Set("windowssys_windows_win32_system_environment_LoadEnclaveData", Napi::Function::New(env, windowssys_windows_win32_system_environment_LoadEnclaveData_napi));
-    exports.Set("windowssys_windows_win32_system_environment_LoadEnclaveImageA", Napi::Function::New(env, windowssys_windows_win32_system_environment_LoadEnclaveImageA_napi));
-    exports.Set("windowssys_windows_win32_system_environment_LoadEnclaveImageW", Napi::Function::New(env, windowssys_windows_win32_system_environment_LoadEnclaveImageW_napi));
-    exports.Set("windowssys_windows_win32_system_environment_NeedCurrentDirectoryForExePathA", Napi::Function::New(env, windowssys_windows_win32_system_environment_NeedCurrentDirectoryForExePathA_napi));
-    exports.Set("windowssys_windows_win32_system_environment_NeedCurrentDirectoryForExePathW", Napi::Function::New(env, windowssys_windows_win32_system_environment_NeedCurrentDirectoryForExePathW_napi));
-    exports.Set("windowssys_windows_win32_system_environment_SetCurrentDirectoryA", Napi::Function::New(env, windowssys_windows_win32_system_environment_SetCurrentDirectoryA_napi));
-    exports.Set("windowssys_windows_win32_system_environment_SetCurrentDirectoryW", Napi::Function::New(env, windowssys_windows_win32_system_environment_SetCurrentDirectoryW_napi));
-    exports.Set("windowssys_windows_win32_system_environment_SetEnvironmentStringsW", Napi::Function::New(env, windowssys_windows_win32_system_environment_SetEnvironmentStringsW_napi));
-    exports.Set("windowssys_windows_win32_system_environment_SetEnvironmentVariableA", Napi::Function::New(env, windowssys_windows_win32_system_environment_SetEnvironmentVariableA_napi));
-    exports.Set("windowssys_windows_win32_system_environment_SetEnvironmentVariableW", Napi::Function::New(env, windowssys_windows_win32_system_environment_SetEnvironmentVariableW_napi));
-    exports.Set("windowssys_windows_win32_system_environment_TerminateEnclave", Napi::Function::New(env, windowssys_windows_win32_system_environment_TerminateEnclave_napi));
+    exports.Set("windowssys_windows_win32_system_environment_callEnclave", Napi::Function::New(env, windowssys_windows_win32_system_environment_callEnclave_napi));
+    exports.Set("windowssys_windows_win32_system_environment_createEnclave", Napi::Function::New(env, windowssys_windows_win32_system_environment_createEnclave_napi));
+    exports.Set("windowssys_windows_win32_system_environment_createEnvironmentBlock", Napi::Function::New(env, windowssys_windows_win32_system_environment_createEnvironmentBlock_napi));
+    exports.Set("windowssys_windows_win32_system_environment_deleteEnclave", Napi::Function::New(env, windowssys_windows_win32_system_environment_deleteEnclave_napi));
+    exports.Set("windowssys_windows_win32_system_environment_destroyEnvironmentBlock", Napi::Function::New(env, windowssys_windows_win32_system_environment_destroyEnvironmentBlock_napi));
+    exports.Set("windowssys_windows_win32_system_environment_enclaveGetAttestationReport", Napi::Function::New(env, windowssys_windows_win32_system_environment_enclaveGetAttestationReport_napi));
+    exports.Set("windowssys_windows_win32_system_environment_enclaveGetEnclaveInformation", Napi::Function::New(env, windowssys_windows_win32_system_environment_enclaveGetEnclaveInformation_napi));
+    exports.Set("windowssys_windows_win32_system_environment_enclaveSealData", Napi::Function::New(env, windowssys_windows_win32_system_environment_enclaveSealData_napi));
+    exports.Set("windowssys_windows_win32_system_environment_enclaveUnsealData", Napi::Function::New(env, windowssys_windows_win32_system_environment_enclaveUnsealData_napi));
+    exports.Set("windowssys_windows_win32_system_environment_enclaveVerifyAttestationReport", Napi::Function::New(env, windowssys_windows_win32_system_environment_enclaveVerifyAttestationReport_napi));
+    exports.Set("windowssys_windows_win32_system_environment_expandEnvironmentStringsA", Napi::Function::New(env, windowssys_windows_win32_system_environment_expandEnvironmentStringsA_napi));
+    exports.Set("windowssys_windows_win32_system_environment_expandEnvironmentStringsForUserA", Napi::Function::New(env, windowssys_windows_win32_system_environment_expandEnvironmentStringsForUserA_napi));
+    exports.Set("windowssys_windows_win32_system_environment_expandEnvironmentStringsForUserW", Napi::Function::New(env, windowssys_windows_win32_system_environment_expandEnvironmentStringsForUserW_napi));
+    exports.Set("windowssys_windows_win32_system_environment_expandEnvironmentStringsW", Napi::Function::New(env, windowssys_windows_win32_system_environment_expandEnvironmentStringsW_napi));
+    exports.Set("windowssys_windows_win32_system_environment_freeEnvironmentStringsA", Napi::Function::New(env, windowssys_windows_win32_system_environment_freeEnvironmentStringsA_napi));
+    exports.Set("windowssys_windows_win32_system_environment_freeEnvironmentStringsW", Napi::Function::New(env, windowssys_windows_win32_system_environment_freeEnvironmentStringsW_napi));
+    exports.Set("windowssys_windows_win32_system_environment_getCommandLineA", Napi::Function::New(env, windowssys_windows_win32_system_environment_getCommandLineA_napi));
+    exports.Set("windowssys_windows_win32_system_environment_getCommandLineW", Napi::Function::New(env, windowssys_windows_win32_system_environment_getCommandLineW_napi));
+    exports.Set("windowssys_windows_win32_system_environment_getCurrentDirectoryA", Napi::Function::New(env, windowssys_windows_win32_system_environment_getCurrentDirectoryA_napi));
+    exports.Set("windowssys_windows_win32_system_environment_getCurrentDirectoryW", Napi::Function::New(env, windowssys_windows_win32_system_environment_getCurrentDirectoryW_napi));
+    exports.Set("windowssys_windows_win32_system_environment_getEnvironmentStrings", Napi::Function::New(env, windowssys_windows_win32_system_environment_getEnvironmentStrings_napi));
+    exports.Set("windowssys_windows_win32_system_environment_getEnvironmentStringsW", Napi::Function::New(env, windowssys_windows_win32_system_environment_getEnvironmentStringsW_napi));
+    exports.Set("windowssys_windows_win32_system_environment_getEnvironmentVariableA", Napi::Function::New(env, windowssys_windows_win32_system_environment_getEnvironmentVariableA_napi));
+    exports.Set("windowssys_windows_win32_system_environment_getEnvironmentVariableW", Napi::Function::New(env, windowssys_windows_win32_system_environment_getEnvironmentVariableW_napi));
+    exports.Set("windowssys_windows_win32_system_environment_initializeEnclave", Napi::Function::New(env, windowssys_windows_win32_system_environment_initializeEnclave_napi));
+    exports.Set("windowssys_windows_win32_system_environment_isEnclaveTypeSupported", Napi::Function::New(env, windowssys_windows_win32_system_environment_isEnclaveTypeSupported_napi));
+    exports.Set("windowssys_windows_win32_system_environment_loadEnclaveData", Napi::Function::New(env, windowssys_windows_win32_system_environment_loadEnclaveData_napi));
+    exports.Set("windowssys_windows_win32_system_environment_loadEnclaveImageA", Napi::Function::New(env, windowssys_windows_win32_system_environment_loadEnclaveImageA_napi));
+    exports.Set("windowssys_windows_win32_system_environment_loadEnclaveImageW", Napi::Function::New(env, windowssys_windows_win32_system_environment_loadEnclaveImageW_napi));
+    exports.Set("windowssys_windows_win32_system_environment_needCurrentDirectoryForExePathA", Napi::Function::New(env, windowssys_windows_win32_system_environment_needCurrentDirectoryForExePathA_napi));
+    exports.Set("windowssys_windows_win32_system_environment_needCurrentDirectoryForExePathW", Napi::Function::New(env, windowssys_windows_win32_system_environment_needCurrentDirectoryForExePathW_napi));
+    exports.Set("windowssys_windows_win32_system_environment_setCurrentDirectoryA", Napi::Function::New(env, windowssys_windows_win32_system_environment_setCurrentDirectoryA_napi));
+    exports.Set("windowssys_windows_win32_system_environment_setCurrentDirectoryW", Napi::Function::New(env, windowssys_windows_win32_system_environment_setCurrentDirectoryW_napi));
+    exports.Set("windowssys_windows_win32_system_environment_setEnvironmentStringsW", Napi::Function::New(env, windowssys_windows_win32_system_environment_setEnvironmentStringsW_napi));
+    exports.Set("windowssys_windows_win32_system_environment_setEnvironmentVariableA", Napi::Function::New(env, windowssys_windows_win32_system_environment_setEnvironmentVariableA_napi));
+    exports.Set("windowssys_windows_win32_system_environment_setEnvironmentVariableW", Napi::Function::New(env, windowssys_windows_win32_system_environment_setEnvironmentVariableW_napi));
+    exports.Set("windowssys_windows_win32_system_environment_terminateEnclave", Napi::Function::New(env, windowssys_windows_win32_system_environment_terminateEnclave_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_environment_napi, nullptr };

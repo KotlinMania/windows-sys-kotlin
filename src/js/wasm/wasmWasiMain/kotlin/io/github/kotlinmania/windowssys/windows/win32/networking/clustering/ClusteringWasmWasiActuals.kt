@@ -2,1228 +2,1231 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networking.clustering
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.security.OBJECT_SECURITY_INFORMATION
-import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
-import io.github.kotlinmania.windowssys.windows.win32.system.registry.HKEY
-import io.github.kotlinmania.windowssys.windows.win32.system.services.SC_HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.security.ObjectSecurityInformation
+import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
+import io.github.kotlinmania.windowssys.windows.win32.system.registry.Hkey
+import io.github.kotlinmania.windowssys.windows.win32.system.services.ScHandle
 
-public actual fun AddClusterGroupDependency(hdependentgroup: HGROUP, hprovidergroup: HGROUP): UInt =
-    0u
+public actual fun addClusterGroupDependency(hdependentgroup: Hgroup, hprovidergroup: Hgroup): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AddClusterGroupDependencyEx(hdependentgroup: HGROUP, hprovidergroup: HGROUP, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun addClusterGroupDependencyEx(hdependentgroup: Hgroup, hprovidergroup: Hgroup, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AddClusterGroupSetDependency(hdependentgroupset: HGROUPSET, hprovidergroupset: HGROUPSET): UInt =
-    0u
+public actual fun addClusterGroupSetDependency(hdependentgroupset: Hgroupset, hprovidergroupset: Hgroupset): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AddClusterGroupSetDependencyEx(hdependentgroupset: HGROUPSET, hprovidergroupset: HGROUPSET, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun addClusterGroupSetDependencyEx(hdependentgroupset: Hgroupset, hprovidergroupset: Hgroupset, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AddClusterGroupToGroupSetDependency(hdependentgroup: HGROUP, hprovidergroupset: HGROUPSET): UInt =
-    0u
+public actual fun addClusterGroupToGroupSetDependency(hdependentgroup: Hgroup, hprovidergroupset: Hgroupset): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AddClusterGroupToGroupSetDependencyEx(hdependentgroup: HGROUP, hprovidergroupset: HGROUPSET, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun addClusterGroupToGroupSetDependencyEx(hdependentgroup: Hgroup, hprovidergroupset: Hgroupset, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AddClusterNode(hcluster: HCLUSTER, lpsznodename: PCWSTR, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Long): HNODE =
-    0L
+public actual fun addClusterNode(hcluster: Hcluster, lpsznodename: Pcwstr, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: COpaquePointer?): Hnode =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AddClusterNodeEx(hcluster: HCLUSTER, lpsznodename: PCWSTR, dwflags: UInt, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Long): HNODE =
-    0L
+public actual fun addClusterNodeEx(hcluster: Hcluster, lpsznodename: Pcwstr, dwflags: UInt, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: COpaquePointer?): Hnode =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AddClusterResourceDependency(hresource: HRESOURCE, hdependson: HRESOURCE): UInt =
-    0u
+public actual fun addClusterResourceDependency(hresource: Hresource, hdependson: Hresource): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AddClusterResourceDependencyEx(hresource: HRESOURCE, hdependson: HRESOURCE, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun addClusterResourceDependencyEx(hresource: Hresource, hdependson: Hresource, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AddClusterResourceNode(hresource: HRESOURCE, hnode: HNODE): UInt =
-    0u
+public actual fun addClusterResourceNode(hresource: Hresource, hnode: Hnode): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AddClusterResourceNodeEx(hresource: HRESOURCE, hnode: HNODE, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun addClusterResourceNodeEx(hresource: Hresource, hnode: Hnode, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AddClusterStorageNode(hcluster: HCLUSTER, lpsznodename: PCWSTR, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Long, lpszclusterstoragenodedescription: PCWSTR, lpszclusterstoragenodelocation: PCWSTR): UInt =
-    0u
+public actual fun addClusterStorageNode(hcluster: Hcluster, lpsznodename: Pcwstr, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: COpaquePointer?, lpszclusterstoragenodedescription: Pcwstr, lpszclusterstoragenodelocation: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AddCrossClusterGroupSetDependency(hdependentgroupset: HGROUPSET, lpremoteclustername: PCWSTR, lpremotegroupsetname: PCWSTR): UInt =
-    0u
+public actual fun addCrossClusterGroupSetDependency(hdependentgroupset: Hgroupset, lpremoteclustername: Pcwstr, lpremotegroupsetname: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AddResourceToClusterSharedVolumes(hresource: HRESOURCE): UInt =
-    0u
+public actual fun addResourceToClusterSharedVolumes(hresource: Hresource): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun BackupClusterDatabase(hcluster: HCLUSTER, lpszpathname: PCWSTR): UInt =
-    0u
+public actual fun backupClusterDatabase(hcluster: Hcluster, lpszpathname: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CanResourceBeDependent(hresource: HRESOURCE, hresourcedependent: HRESOURCE): BOOL =
-    0
+public actual fun canResourceBeDependent(hresource: Hresource, hresourcedependent: Hresource): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CancelClusterGroupOperation(hgroup: HGROUP, dwcancelflags_reserved: UInt): UInt =
-    0u
+public actual fun cancelClusterGroupOperation(hgroup: Hgroup, dwcancelflagsReserved: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ChangeClusterResourceGroup(hresource: HRESOURCE, hgroup: HGROUP): UInt =
-    0u
+public actual fun changeClusterResourceGroup(hresource: Hresource, hgroup: Hgroup): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ChangeClusterResourceGroupEx(hresource: HRESOURCE, hgroup: HGROUP, flags: ULong): UInt =
-    0u
+public actual fun changeClusterResourceGroupEx(hresource: Hresource, hgroup: Hgroup, flags: ULong): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ChangeClusterResourceGroupEx2(hresource: HRESOURCE, hgroup: HGROUP, flags: ULong, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun changeClusterResourceGroupEx2(hresource: Hresource, hgroup: Hgroup, flags: ULong, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CloseCluster(hcluster: HCLUSTER): BOOL =
-    0
+public actual fun closeCluster(hcluster: Hcluster): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CloseClusterCryptProvider(hcluscryptprovider: HCLUSCRYPTPROVIDER): UInt =
-    0u
+public actual fun closeClusterCryptProvider(hcluscryptprovider: Hcluscryptprovider): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CloseClusterGroup(hgroup: HGROUP): BOOL =
-    0
+public actual fun closeClusterGroup(hgroup: Hgroup): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CloseClusterGroupSet(hgroupset: HGROUPSET): BOOL =
-    0
+public actual fun closeClusterGroupSet(hgroupset: Hgroupset): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CloseClusterNetInterface(hnetinterface: HNETINTERFACE): BOOL =
-    0
+public actual fun closeClusterNetInterface(hnetinterface: Hnetinterface): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CloseClusterNetwork(hnetwork: HNETWORK): BOOL =
-    0
+public actual fun closeClusterNetwork(hnetwork: Hnetwork): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CloseClusterNode(hnode: HNODE): BOOL =
-    0
+public actual fun closeClusterNode(hnode: Hnode): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CloseClusterNotifyPort(hchange: HCHANGE): BOOL =
-    0
+public actual fun closeClusterNotifyPort(hchange: Hchange): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CloseClusterResource(hresource: HRESOURCE): BOOL =
-    0
+public actual fun closeClusterResource(hresource: Hresource): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusAddClusterHealthFault(hcluster: HCLUSTER, failure: Long, param2: UInt): UInt =
-    0u
+public actual fun clusAddClusterHealthFault(hcluster: Hcluster, failure: COpaquePointer?, param2: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusGetClusterHealthFaults(hcluster: HCLUSTER, objects: Long, flags: UInt): UInt =
-    0u
+public actual fun clusGetClusterHealthFaults(hcluster: Hcluster, objects: COpaquePointer?, flags: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusRemoveClusterHealthFault(hcluster: HCLUSTER, id: PCWSTR, flags: UInt): UInt =
-    0u
+public actual fun clusRemoveClusterHealthFault(hcluster: Hcluster, id: Pcwstr, flags: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusWorkerCheckTerminate(lpworker: Long): BOOL =
-    0
+public actual fun clusWorkerCheckTerminate(lpworker: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusWorkerCreate(lpworker: Long, lpstartaddress: PWORKER_START_ROUTINE, lpparameter: Long): UInt =
-    0u
+public actual fun clusWorkerCreate(lpworker: COpaquePointer?, lpstartaddress: PworkerStartRoutine, lpparameter: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusWorkerTerminate(lpworker: Long) {
+public actual fun clusWorkerTerminate(lpworker: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun ClusWorkerTerminateEx(clusworker: Long, timeoutinmilliseconds: UInt, waitonly: BOOL): UInt =
-    0u
+public actual fun clusWorkerTerminateEx(clusworker: COpaquePointer?, timeoutinmilliseconds: UInt, waitonly: Bool): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusWorkersTerminate(clusworkers: Long, clusworkerscount: ULong, timeoutinmilliseconds: UInt, waitonly: BOOL): UInt =
-    0u
+public actual fun clusWorkersTerminate(clusworkers: COpaquePointer?, clusworkerscount: ULong, timeoutinmilliseconds: UInt, waitonly: Bool): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusapiSetReasonHandler(lphandler: Long): Long =
-    0L
+public actual fun clusapiSetReasonHandler(lphandler: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterAddGroupToAffinityRule(hcluster: HCLUSTER, rulename: PCWSTR, hgroup: HGROUP): UInt =
-    0u
+public actual fun clusterAddGroupToAffinityRule(hcluster: Hcluster, rulename: Pcwstr, hgroup: Hgroup): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterAddGroupToGroupSet(hgroupset: HGROUPSET, hgroup: HGROUP): UInt =
-    0u
+public actual fun clusterAddGroupToGroupSet(hgroupset: Hgroupset, hgroup: Hgroup): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterAddGroupToGroupSetWithDomains(hgroupset: HGROUPSET, hgroup: HGROUP, faultdomain: UInt, updatedomain: UInt): UInt =
-    0u
+public actual fun clusterAddGroupToGroupSetWithDomains(hgroupset: Hgroupset, hgroup: Hgroup, faultdomain: UInt, updatedomain: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterAddGroupToGroupSetWithDomainsEx(hgroupset: HGROUPSET, hgroup: HGROUP, faultdomain: UInt, updatedomain: UInt, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun clusterAddGroupToGroupSetWithDomainsEx(hgroupset: Hgroupset, hgroup: Hgroup, faultdomain: UInt, updatedomain: UInt, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterAffinityRuleControl(hcluster: HCLUSTER, affinityrulename: PCWSTR, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, cbinbuffersize: UInt, lpoutbuffer: Long, cboutbuffersize: UInt, lpbytesreturned: Long): UInt =
-    0u
+public actual fun clusterAffinityRuleControl(hcluster: Hcluster, affinityrulename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpoutbuffer: COpaquePointer?, cboutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterClearBackupStateForSharedVolume(lpszvolumepathname: PCWSTR): UInt =
-    0u
+public actual fun clusterClearBackupStateForSharedVolume(lpszvolumepathname: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterCloseEnum(henum: HCLUSENUM): UInt =
-    0u
+public actual fun clusterCloseEnum(henum: Hclusenum): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterCloseEnumEx(hclusterenum: HCLUSENUMEX): UInt =
-    0u
+public actual fun clusterCloseEnumEx(hclusterenum: Hclusenumex): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterControl(hcluster: HCLUSTER, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long): UInt =
-    0u
+public actual fun clusterControl(hcluster: Hcluster, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterControlEx(hcluster: HCLUSTER, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun clusterControlEx(hcluster: Hcluster, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterCreateAffinityRule(hcluster: HCLUSTER, rulename: PCWSTR, ruletype: CLUS_AFFINITY_RULE_TYPE): UInt =
-    0u
+public actual fun clusterCreateAffinityRule(hcluster: Hcluster, rulename: Pcwstr, ruletype: ClusAffinityRuleType): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterDecrypt(hcluscryptprovider: HCLUSCRYPTPROVIDER, pcryptinput: Long, cbcryptinput: UInt, ppcryptoutput: Long, pcbcryptoutput: Long): UInt =
-    0u
+public actual fun clusterDecrypt(hcluscryptprovider: Hcluscryptprovider, pcryptinput: COpaquePointer?, cbcryptinput: UInt, ppcryptoutput: COpaquePointer?, pcbcryptoutput: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterEncrypt(hcluscryptprovider: HCLUSCRYPTPROVIDER, pdata: Long, cbdata: UInt, ppdata: Long, pcbdata: Long): UInt =
-    0u
+public actual fun clusterEncrypt(hcluscryptprovider: Hcluscryptprovider, pdata: COpaquePointer?, cbdata: UInt, ppdata: COpaquePointer?, pcbdata: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterEnum(henum: HCLUSENUM, dwindex: UInt, lpdwtype: Long, lpszname: PWSTR, lpcchname: Long): UInt =
-    0u
+public actual fun clusterEnum(henum: Hclusenum, dwindex: UInt, lpdwtype: COpaquePointer?, lpszname: Pwstr, lpcchname: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterEnumEx(hclusterenum: HCLUSENUMEX, dwindex: UInt, pitem: Long, cbitem: Long): UInt =
-    0u
+public actual fun clusterEnumEx(hclusterenum: Hclusenumex, dwindex: UInt, pitem: COpaquePointer?, cbitem: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterGetEnumCount(henum: HCLUSENUM): UInt =
-    0u
+public actual fun clusterGetEnumCount(henum: Hclusenum): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterGetEnumCountEx(hclusterenum: HCLUSENUMEX): UInt =
-    0u
+public actual fun clusterGetEnumCountEx(hclusterenum: Hclusenumex): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterGetVolumeNameForVolumeMountPoint(lpszvolumemountpoint: PCWSTR, lpszvolumename: PWSTR, cchbufferlength: UInt): BOOL =
-    0
+public actual fun clusterGetVolumeNameForVolumeMountPoint(lpszvolumemountpoint: Pcwstr, lpszvolumename: Pwstr, cchbufferlength: UInt): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterGetVolumePathName(lpszfilename: PCWSTR, lpszvolumepathname: PWSTR, cchbufferlength: UInt): BOOL =
-    0
+public actual fun clusterGetVolumePathName(lpszfilename: Pcwstr, lpszvolumepathname: Pwstr, cchbufferlength: UInt): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterGroupCloseEnum(hgroupenum: HGROUPENUM): UInt =
-    0u
+public actual fun clusterGroupCloseEnum(hgroupenum: Hgroupenum): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterGroupCloseEnumEx(hgroupenumex: HGROUPENUMEX): UInt =
-    0u
+public actual fun clusterGroupCloseEnumEx(hgroupenumex: Hgroupenumex): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterGroupControl(hgroup: HGROUP, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long): UInt =
-    0u
+public actual fun clusterGroupControl(hgroup: Hgroup, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterGroupControlEx(hgroup: HGROUP, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun clusterGroupControlEx(hgroup: Hgroup, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterGroupEnum(hgroupenum: HGROUPENUM, dwindex: UInt, lpdwtype: Long, lpszresourcename: PWSTR, lpcchname: Long): UInt =
-    0u
+public actual fun clusterGroupEnum(hgroupenum: Hgroupenum, dwindex: UInt, lpdwtype: COpaquePointer?, lpszresourcename: Pwstr, lpcchname: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterGroupEnumEx(hgroupenumex: HGROUPENUMEX, dwindex: UInt, pitem: Long, cbitem: Long): UInt =
-    0u
+public actual fun clusterGroupEnumEx(hgroupenumex: Hgroupenumex, dwindex: UInt, pitem: COpaquePointer?, cbitem: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterGroupGetEnumCount(hgroupenum: HGROUPENUM): UInt =
-    0u
+public actual fun clusterGroupGetEnumCount(hgroupenum: Hgroupenum): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterGroupGetEnumCountEx(hgroupenumex: HGROUPENUMEX): UInt =
-    0u
+public actual fun clusterGroupGetEnumCountEx(hgroupenumex: Hgroupenumex): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterGroupOpenEnum(hgroup: HGROUP, dwtype: UInt): HGROUPENUM =
-    0L
+public actual fun clusterGroupOpenEnum(hgroup: Hgroup, dwtype: UInt): Hgroupenum =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterGroupOpenEnumEx(hcluster: HCLUSTER, lpszproperties: PCWSTR, cbproperties: UInt, lpszroproperties: PCWSTR, cbroproperties: UInt, dwflags: UInt): HGROUPENUMEX =
-    0L
+public actual fun clusterGroupOpenEnumEx(hcluster: Hcluster, lpszproperties: Pcwstr, cbproperties: UInt, lpszroproperties: Pcwstr, cbroproperties: UInt, dwflags: UInt): Hgroupenumex =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterGroupSetCloseEnum(hgroupsetenum: HGROUPSETENUM): UInt =
-    0u
+public actual fun clusterGroupSetCloseEnum(hgroupsetenum: Hgroupsetenum): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterGroupSetControl(hgroupset: HGROUPSET, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, cbinbuffersize: UInt, lpoutbuffer: Long, cboutbuffersize: UInt, lpbytesreturned: Long): UInt =
-    0u
+public actual fun clusterGroupSetControl(hgroupset: Hgroupset, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpoutbuffer: COpaquePointer?, cboutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterGroupSetControlEx(hgroupset: HGROUPSET, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, cbinbuffersize: UInt, lpoutbuffer: Long, cboutbuffersize: UInt, lpbytesreturned: Long, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun clusterGroupSetControlEx(hgroupset: Hgroupset, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpoutbuffer: COpaquePointer?, cboutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterGroupSetEnum(hgroupsetenum: HGROUPSETENUM, dwindex: UInt, lpszname: PWSTR, lpcchname: Long): UInt =
-    0u
+public actual fun clusterGroupSetEnum(hgroupsetenum: Hgroupsetenum, dwindex: UInt, lpszname: Pwstr, lpcchname: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterGroupSetGetEnumCount(hgroupsetenum: HGROUPSETENUM): UInt =
-    0u
+public actual fun clusterGroupSetGetEnumCount(hgroupsetenum: Hgroupsetenum): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterGroupSetOpenEnum(hcluster: HCLUSTER): HGROUPSETENUM =
-    0L
+public actual fun clusterGroupSetOpenEnum(hcluster: Hcluster): Hgroupsetenum =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterIsPathOnSharedVolume(lpszpathname: PCWSTR): BOOL =
-    0
+public actual fun clusterIsPathOnSharedVolume(lpszpathname: Pcwstr): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterNetInterfaceCloseEnum(hnetinterfaceenum: HNETINTERFACEENUM): UInt =
-    0u
+public actual fun clusterNetInterfaceCloseEnum(hnetinterfaceenum: Hnetinterfaceenum): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterNetInterfaceControl(hnetinterface: HNETINTERFACE, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long): UInt =
-    0u
+public actual fun clusterNetInterfaceControl(hnetinterface: Hnetinterface, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterNetInterfaceControlEx(hnetinterface: HNETINTERFACE, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun clusterNetInterfaceControlEx(hnetinterface: Hnetinterface, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterNetInterfaceEnum(hnetinterfaceenum: HNETINTERFACEENUM, dwindex: UInt, lpszname: PWSTR, lpcchname: Long): UInt =
-    0u
+public actual fun clusterNetInterfaceEnum(hnetinterfaceenum: Hnetinterfaceenum, dwindex: UInt, lpszname: Pwstr, lpcchname: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterNetInterfaceOpenEnum(hcluster: HCLUSTER, lpsznodename: PCWSTR, lpsznetworkname: PCWSTR): HNETINTERFACEENUM =
-    0L
+public actual fun clusterNetInterfaceOpenEnum(hcluster: Hcluster, lpsznodename: Pcwstr, lpsznetworkname: Pcwstr): Hnetinterfaceenum =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterNetworkCloseEnum(hnetworkenum: HNETWORKENUM): UInt =
-    0u
+public actual fun clusterNetworkCloseEnum(hnetworkenum: Hnetworkenum): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterNetworkControl(hnetwork: HNETWORK, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long): UInt =
-    0u
+public actual fun clusterNetworkControl(hnetwork: Hnetwork, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterNetworkControlEx(hnetwork: HNETWORK, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun clusterNetworkControlEx(hnetwork: Hnetwork, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterNetworkEnum(hnetworkenum: HNETWORKENUM, dwindex: UInt, lpdwtype: Long, lpszname: PWSTR, lpcchname: Long): UInt =
-    0u
+public actual fun clusterNetworkEnum(hnetworkenum: Hnetworkenum, dwindex: UInt, lpdwtype: COpaquePointer?, lpszname: Pwstr, lpcchname: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterNetworkGetEnumCount(hnetworkenum: HNETWORKENUM): UInt =
-    0u
+public actual fun clusterNetworkGetEnumCount(hnetworkenum: Hnetworkenum): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterNetworkOpenEnum(hnetwork: HNETWORK, dwtype: UInt): HNETWORKENUM =
-    0L
+public actual fun clusterNetworkOpenEnum(hnetwork: Hnetwork, dwtype: UInt): Hnetworkenum =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterNodeCloseEnum(hnodeenum: HNODEENUM): UInt =
-    0u
+public actual fun clusterNodeCloseEnum(hnodeenum: Hnodeenum): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterNodeCloseEnumEx(hnodeenum: HNODEENUMEX): UInt =
-    0u
+public actual fun clusterNodeCloseEnumEx(hnodeenum: Hnodeenumex): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterNodeControl(hnode: HNODE, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long): UInt =
-    0u
+public actual fun clusterNodeControl(hnode: Hnode, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterNodeControlEx(hnode: HNODE, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun clusterNodeControlEx(hnode: Hnode, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterNodeEnum(hnodeenum: HNODEENUM, dwindex: UInt, lpdwtype: Long, lpszname: PWSTR, lpcchname: Long): UInt =
-    0u
+public actual fun clusterNodeEnum(hnodeenum: Hnodeenum, dwindex: UInt, lpdwtype: COpaquePointer?, lpszname: Pwstr, lpcchname: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterNodeEnumEx(hnodeenum: HNODEENUMEX, dwindex: UInt, pitem: Long, cbitem: Long): UInt =
-    0u
+public actual fun clusterNodeEnumEx(hnodeenum: Hnodeenumex, dwindex: UInt, pitem: COpaquePointer?, cbitem: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterNodeGetEnumCount(hnodeenum: HNODEENUM): UInt =
-    0u
+public actual fun clusterNodeGetEnumCount(hnodeenum: Hnodeenum): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterNodeGetEnumCountEx(hnodeenum: HNODEENUMEX): UInt =
-    0u
+public actual fun clusterNodeGetEnumCountEx(hnodeenum: Hnodeenumex): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterNodeOpenEnum(hnode: HNODE, dwtype: UInt): HNODEENUM =
-    0L
+public actual fun clusterNodeOpenEnum(hnode: Hnode, dwtype: UInt): Hnodeenum =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterNodeOpenEnumEx(hnode: HNODE, dwtype: UInt, poptions: Long): HNODEENUMEX =
-    0L
+public actual fun clusterNodeOpenEnumEx(hnode: Hnode, dwtype: UInt, poptions: COpaquePointer?): Hnodeenumex =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterNodeReplacement(hcluster: HCLUSTER, lpsznodenamecurrent: PCWSTR, lpsznodenamenew: PCWSTR): UInt =
-    0u
+public actual fun clusterNodeReplacement(hcluster: Hcluster, lpsznodenamecurrent: Pcwstr, lpsznodenamenew: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterOpenEnum(hcluster: HCLUSTER, dwtype: UInt): HCLUSENUM =
-    0L
+public actual fun clusterOpenEnum(hcluster: Hcluster, dwtype: UInt): Hclusenum =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterOpenEnumEx(hcluster: HCLUSTER, dwtype: UInt, poptions: Long): HCLUSENUMEX =
-    0L
+public actual fun clusterOpenEnumEx(hcluster: Hcluster, dwtype: UInt, poptions: COpaquePointer?): Hclusenumex =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterPrepareSharedVolumeForBackup(lpszfilename: PCWSTR, lpszvolumepathname: PWSTR, lpcchvolumepathname: Long, lpszvolumename: PWSTR, lpcchvolumename: Long): UInt =
-    0u
+public actual fun clusterPrepareSharedVolumeForBackup(lpszfilename: Pcwstr, lpszvolumepathname: Pwstr, lpcchvolumepathname: COpaquePointer?, lpszvolumename: Pwstr, lpcchvolumename: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterRegBatchAddCommand(hregbatch: HREGBATCH, dwcommand: CLUSTER_REG_COMMAND, wzname: PCWSTR, dwoptions: UInt, lpdata: Long, cbdata: UInt): Int =
-    0
+public actual fun clusterRegBatchAddCommand(hregbatch: Hregbatch, dwcommand: ClusterRegCommand, wzname: Pcwstr, dwoptions: UInt, lpdata: COpaquePointer?, cbdata: UInt): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterRegBatchCloseNotification(hbatchnotification: HREGBATCHNOTIFICATION): Int =
-    0
+public actual fun clusterRegBatchCloseNotification(hbatchnotification: Hregbatchnotification): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterRegBatchReadCommand(hbatchnotification: HREGBATCHNOTIFICATION, pbatchcommand: Long): Int =
-    0
+public actual fun clusterRegBatchReadCommand(hbatchnotification: Hregbatchnotification, pbatchcommand: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterRegCloseBatch(hregbatch: HREGBATCH, bcommit: BOOL, failedcommandnumber: Long): Int =
-    0
+public actual fun clusterRegCloseBatch(hregbatch: Hregbatch, bcommit: Bool, failedcommandnumber: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterRegCloseBatchEx(hregbatch: HREGBATCH, flags: UInt, failedcommandnumber: Long): Int =
-    0
+public actual fun clusterRegCloseBatchEx(hregbatch: Hregbatch, flags: UInt, failedcommandnumber: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterRegCloseBatchNotifyPort(hbatchnotifyport: HREGBATCHPORT): Int =
-    0
+public actual fun clusterRegCloseBatchNotifyPort(hbatchnotifyport: Hregbatchport): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterRegCloseKey(hkey: HKEY): Int =
-    0
+public actual fun clusterRegCloseKey(hkey: Hkey): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterRegCloseReadBatch(hregreadbatch: HREGREADBATCH, phregreadbatchreply: Long): Int =
-    0
+public actual fun clusterRegCloseReadBatch(hregreadbatch: Hregreadbatch, phregreadbatchreply: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterRegCloseReadBatchEx(hregreadbatch: HREGREADBATCH, flags: UInt, phregreadbatchreply: Long): Int =
-    0
+public actual fun clusterRegCloseReadBatchEx(hregreadbatch: Hregreadbatch, flags: UInt, phregreadbatchreply: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterRegCloseReadBatchReply(hregreadbatchreply: HREGREADBATCHREPLY): Int =
-    0
+public actual fun clusterRegCloseReadBatchReply(hregreadbatchreply: Hregreadbatchreply): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterRegCreateBatch(hkey: HKEY, phregbatch: Long): Int =
-    0
+public actual fun clusterRegCreateBatch(hkey: Hkey, phregbatch: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterRegCreateBatchNotifyPort(hkey: HKEY, phbatchnotifyport: Long): Int =
-    0
+public actual fun clusterRegCreateBatchNotifyPort(hkey: Hkey, phbatchnotifyport: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterRegCreateKey(hkey: HKEY, lpszsubkey: PCWSTR, dwoptions: UInt, samdesired: UInt, lpsecurityattributes: Long, phkresult: Long, lpdwdisposition: Long): Int =
-    0
+public actual fun clusterRegCreateKey(hkey: Hkey, lpszsubkey: Pcwstr, dwoptions: UInt, samdesired: UInt, lpsecurityattributes: COpaquePointer?, phkresult: COpaquePointer?, lpdwdisposition: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterRegCreateKeyEx(hkey: HKEY, lpsubkey: PCWSTR, dwoptions: UInt, samdesired: UInt, lpsecurityattributes: Long, phkresult: Long, lpdwdisposition: Long, lpszreason: PCWSTR): Int =
-    0
+public actual fun clusterRegCreateKeyEx(hkey: Hkey, lpsubkey: Pcwstr, dwoptions: UInt, samdesired: UInt, lpsecurityattributes: COpaquePointer?, phkresult: COpaquePointer?, lpdwdisposition: COpaquePointer?, lpszreason: Pcwstr): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterRegCreateReadBatch(hkey: HKEY, phregreadbatch: Long): Int =
-    0
+public actual fun clusterRegCreateReadBatch(hkey: Hkey, phregreadbatch: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterRegDeleteKey(hkey: HKEY, lpszsubkey: PCWSTR): Int =
-    0
+public actual fun clusterRegDeleteKey(hkey: Hkey, lpszsubkey: Pcwstr): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterRegDeleteKeyEx(hkey: HKEY, lpsubkey: PCWSTR, lpszreason: PCWSTR): Int =
-    0
+public actual fun clusterRegDeleteKeyEx(hkey: Hkey, lpsubkey: Pcwstr, lpszreason: Pcwstr): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterRegDeleteValue(hkey: HKEY, lpszvaluename: PCWSTR): UInt =
-    0u
+public actual fun clusterRegDeleteValue(hkey: Hkey, lpszvaluename: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterRegDeleteValueEx(hkey: HKEY, lpszvaluename: PCWSTR, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun clusterRegDeleteValueEx(hkey: Hkey, lpszvaluename: Pcwstr, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterRegEnumKey(hkey: HKEY, dwindex: UInt, lpszname: PWSTR, lpcchname: Long, lpftlastwritetime: Long): Int =
-    0
+public actual fun clusterRegEnumKey(hkey: Hkey, dwindex: UInt, lpszname: Pwstr, lpcchname: COpaquePointer?, lpftlastwritetime: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterRegEnumValue(hkey: HKEY, dwindex: UInt, lpszvaluename: PWSTR, lpcchvaluename: Long, lpdwtype: Long, lpdata: Long, lpcbdata: Long): UInt =
-    0u
+public actual fun clusterRegEnumValue(hkey: Hkey, dwindex: UInt, lpszvaluename: Pwstr, lpcchvaluename: COpaquePointer?, lpdwtype: COpaquePointer?, lpdata: COpaquePointer?, lpcbdata: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterRegGetBatchNotification(hbatchnotify: HREGBATCHPORT, phbatchnotification: Long): Int =
-    0
+public actual fun clusterRegGetBatchNotification(hbatchnotify: Hregbatchport, phbatchnotification: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterRegGetKeySecurity(hkey: HKEY, requestedinformation: UInt, psecuritydescriptor: PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: Long): Int =
-    0
+public actual fun clusterRegGetKeySecurity(hkey: Hkey, requestedinformation: UInt, psecuritydescriptor: PsecurityDescriptor, lpcbsecuritydescriptor: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterRegOpenKey(hkey: HKEY, lpszsubkey: PCWSTR, samdesired: UInt, phkresult: Long): Int =
-    0
+public actual fun clusterRegOpenKey(hkey: Hkey, lpszsubkey: Pcwstr, samdesired: UInt, phkresult: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterRegQueryInfoKey(hkey: HKEY, lpcsubkeys: Long, lpcchmaxsubkeylen: Long, lpcvalues: Long, lpcchmaxvaluenamelen: Long, lpcbmaxvaluelen: Long, lpcbsecuritydescriptor: Long, lpftlastwritetime: Long): Int =
-    0
+public actual fun clusterRegQueryInfoKey(hkey: Hkey, lpcsubkeys: COpaquePointer?, lpcchmaxsubkeylen: COpaquePointer?, lpcvalues: COpaquePointer?, lpcchmaxvaluenamelen: COpaquePointer?, lpcbmaxvaluelen: COpaquePointer?, lpcbsecuritydescriptor: COpaquePointer?, lpftlastwritetime: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterRegQueryValue(hkey: HKEY, lpszvaluename: PCWSTR, lpdwvaluetype: Long, lpdata: Long, lpcbdata: Long): Int =
-    0
+public actual fun clusterRegQueryValue(hkey: Hkey, lpszvaluename: Pcwstr, lpdwvaluetype: COpaquePointer?, lpdata: COpaquePointer?, lpcbdata: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterRegReadBatchAddCommand(hregreadbatch: HREGREADBATCH, wzsubkeyname: PCWSTR, wzvaluename: PCWSTR): Int =
-    0
+public actual fun clusterRegReadBatchAddCommand(hregreadbatch: Hregreadbatch, wzsubkeyname: Pcwstr, wzvaluename: Pcwstr): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterRegReadBatchReplyNextCommand(hregreadbatchreply: HREGREADBATCHREPLY, pbatchcommand: Long): Int =
-    0
+public actual fun clusterRegReadBatchReplyNextCommand(hregreadbatchreply: Hregreadbatchreply, pbatchcommand: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterRegSetKeySecurity(hkey: HKEY, securityinformation: UInt, psecuritydescriptor: PSECURITY_DESCRIPTOR): Int =
-    0
+public actual fun clusterRegSetKeySecurity(hkey: Hkey, securityinformation: UInt, psecuritydescriptor: PsecurityDescriptor): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterRegSetKeySecurityEx(hkey: HKEY, securityinformation: OBJECT_SECURITY_INFORMATION, psecuritydescriptor: PSECURITY_DESCRIPTOR, lpszreason: PCWSTR): Int =
-    0
+public actual fun clusterRegSetKeySecurityEx(hkey: Hkey, securityinformation: ObjectSecurityInformation, psecuritydescriptor: PsecurityDescriptor, lpszreason: Pcwstr): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterRegSetValue(hkey: HKEY, lpszvaluename: PCWSTR, dwtype: UInt, lpdata: Long, cbdata: UInt): UInt =
-    0u
+public actual fun clusterRegSetValue(hkey: Hkey, lpszvaluename: Pcwstr, dwtype: UInt, lpdata: COpaquePointer?, cbdata: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterRegSetValueEx(hkey: HKEY, lpszvaluename: PCWSTR, dwtype: UInt, lpdata: Long, cbdata: UInt, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun clusterRegSetValueEx(hkey: Hkey, lpszvaluename: Pcwstr, dwtype: UInt, lpdata: COpaquePointer?, cbdata: UInt, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterRegSyncDatabase(hcluster: HCLUSTER, flags: UInt): Int =
-    0
+public actual fun clusterRegSyncDatabase(hcluster: Hcluster, flags: UInt): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterRemoveAffinityRule(hcluster: HCLUSTER, rulename: PCWSTR): UInt =
-    0u
+public actual fun clusterRemoveAffinityRule(hcluster: Hcluster, rulename: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterRemoveGroupFromAffinityRule(hcluster: HCLUSTER, rulename: PCWSTR, hgroup: HGROUP): UInt =
-    0u
+public actual fun clusterRemoveGroupFromAffinityRule(hcluster: Hcluster, rulename: Pcwstr, hgroup: Hgroup): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterRemoveGroupFromGroupSet(hgroup: HGROUP): UInt =
-    0u
+public actual fun clusterRemoveGroupFromGroupSet(hgroup: Hgroup): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterRemoveGroupFromGroupSetEx(hgroup: HGROUP, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun clusterRemoveGroupFromGroupSetEx(hgroup: Hgroup, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterResourceCloseEnum(hresenum: HRESENUM): UInt =
-    0u
+public actual fun clusterResourceCloseEnum(hresenum: Hresenum): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterResourceCloseEnumEx(hresourceenumex: HRESENUMEX): UInt =
-    0u
+public actual fun clusterResourceCloseEnumEx(hresourceenumex: Hresenumex): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterResourceControl(hresource: HRESOURCE, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, cbinbuffersize: UInt, lpoutbuffer: Long, cboutbuffersize: UInt, lpbytesreturned: Long): UInt =
-    0u
+public actual fun clusterResourceControl(hresource: Hresource, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpoutbuffer: COpaquePointer?, cboutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterResourceControlAsUser(hresource: HRESOURCE, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, cbinbuffersize: UInt, lpoutbuffer: Long, cboutbuffersize: UInt, lpbytesreturned: Long): UInt =
-    0u
+public actual fun clusterResourceControlAsUser(hresource: Hresource, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpoutbuffer: COpaquePointer?, cboutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterResourceControlAsUserEx(hresource: HRESOURCE, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, cbinbuffersize: UInt, lpoutbuffer: Long, cboutbuffersize: UInt, lpbytesreturned: Long, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun clusterResourceControlAsUserEx(hresource: Hresource, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpoutbuffer: COpaquePointer?, cboutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterResourceControlEx(hresource: HRESOURCE, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, cbinbuffersize: UInt, lpoutbuffer: Long, cboutbuffersize: UInt, lpbytesreturned: Long, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun clusterResourceControlEx(hresource: Hresource, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpoutbuffer: COpaquePointer?, cboutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterResourceEnum(hresenum: HRESENUM, dwindex: UInt, lpdwtype: Long, lpszname: PWSTR, lpcchname: Long): UInt =
-    0u
+public actual fun clusterResourceEnum(hresenum: Hresenum, dwindex: UInt, lpdwtype: COpaquePointer?, lpszname: Pwstr, lpcchname: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterResourceEnumEx(hresourceenumex: HRESENUMEX, dwindex: UInt, pitem: Long, cbitem: Long): UInt =
-    0u
+public actual fun clusterResourceEnumEx(hresourceenumex: Hresenumex, dwindex: UInt, pitem: COpaquePointer?, cbitem: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterResourceGetEnumCount(hresenum: HRESENUM): UInt =
-    0u
+public actual fun clusterResourceGetEnumCount(hresenum: Hresenum): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterResourceGetEnumCountEx(hresourceenumex: HRESENUMEX): UInt =
-    0u
+public actual fun clusterResourceGetEnumCountEx(hresourceenumex: Hresenumex): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterResourceOpenEnum(hresource: HRESOURCE, dwtype: UInt): HRESENUM =
-    0L
+public actual fun clusterResourceOpenEnum(hresource: Hresource, dwtype: UInt): Hresenum =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterResourceOpenEnumEx(hcluster: HCLUSTER, lpszproperties: PCWSTR, cbproperties: UInt, lpszroproperties: PCWSTR, cbroproperties: UInt, dwflags: UInt): HRESENUMEX =
-    0L
+public actual fun clusterResourceOpenEnumEx(hcluster: Hcluster, lpszproperties: Pcwstr, cbproperties: UInt, lpszroproperties: Pcwstr, cbroproperties: UInt, dwflags: UInt): Hresenumex =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterResourceTypeCloseEnum(hrestypeenum: HRESTYPEENUM): UInt =
-    0u
+public actual fun clusterResourceTypeCloseEnum(hrestypeenum: Hrestypeenum): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterResourceTypeControl(hcluster: HCLUSTER, lpszresourcetypename: PCWSTR, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long): UInt =
-    0u
+public actual fun clusterResourceTypeControl(hcluster: Hcluster, lpszresourcetypename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterResourceTypeControlAsUser(hcluster: HCLUSTER, lpszresourcetypename: PCWSTR, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long): UInt =
-    0u
+public actual fun clusterResourceTypeControlAsUser(hcluster: Hcluster, lpszresourcetypename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterResourceTypeControlAsUserEx(hcluster: HCLUSTER, lpszresourcetypename: PCWSTR, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun clusterResourceTypeControlAsUserEx(hcluster: Hcluster, lpszresourcetypename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterResourceTypeControlEx(hcluster: HCLUSTER, lpszresourcetypename: PCWSTR, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun clusterResourceTypeControlEx(hcluster: Hcluster, lpszresourcetypename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterResourceTypeEnum(hrestypeenum: HRESTYPEENUM, dwindex: UInt, lpdwtype: Long, lpszname: PWSTR, lpcchname: Long): UInt =
-    0u
+public actual fun clusterResourceTypeEnum(hrestypeenum: Hrestypeenum, dwindex: UInt, lpdwtype: COpaquePointer?, lpszname: Pwstr, lpcchname: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterResourceTypeGetEnumCount(hrestypeenum: HRESTYPEENUM): UInt =
-    0u
+public actual fun clusterResourceTypeGetEnumCount(hrestypeenum: Hrestypeenum): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterResourceTypeOpenEnum(hcluster: HCLUSTER, lpszresourcetypename: PCWSTR, dwtype: UInt): HRESTYPEENUM =
-    0L
+public actual fun clusterResourceTypeOpenEnum(hcluster: Hcluster, lpszresourcetypename: Pcwstr, dwtype: UInt): Hrestypeenum =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterSetAccountAccess(hcluster: HCLUSTER, szaccountsid: PCWSTR, dwaccess: UInt, dwcontroltype: UInt): UInt =
-    0u
+public actual fun clusterSetAccountAccess(hcluster: Hcluster, szaccountsid: Pcwstr, dwaccess: UInt, dwcontroltype: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterSharedVolumeSetSnapshotState(guidsnapshotset: GUID, lpszvolumename: PCWSTR, state: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE): UInt =
-    0u
+public actual fun clusterSharedVolumeSetSnapshotState(guidsnapshotset: Guid, lpszvolumename: Pcwstr, state: ClusterSharedVolumeSnapshotState): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClusterUpgradeFunctionalLevel(hcluster: HCLUSTER, perform: BOOL, pfnprogresscallback: PCLUSTER_UPGRADE_PROGRESS_CALLBACK, pvcallbackarg: Long): UInt =
-    0u
+public actual fun clusterUpgradeFunctionalLevel(hcluster: Hcluster, perform: Bool, pfnprogresscallback: PclusterUpgradeProgressCallback, pvcallbackarg: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CreateCluster(pconfig: Long, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Long): HCLUSTER =
-    0L
+public actual fun createCluster(pconfig: COpaquePointer?, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: COpaquePointer?): Hcluster =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CreateClusterAvailabilitySet(hcluster: HCLUSTER, lpavailabilitysetname: PCWSTR, pavailabilitysetconfig: Long): HGROUPSET =
-    0L
+public actual fun createClusterAvailabilitySet(hcluster: Hcluster, lpavailabilitysetname: Pcwstr, pavailabilitysetconfig: COpaquePointer?): Hgroupset =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CreateClusterGroup(hcluster: HCLUSTER, lpszgroupname: PCWSTR): HGROUP =
-    0L
+public actual fun createClusterGroup(hcluster: Hcluster, lpszgroupname: Pcwstr): Hgroup =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CreateClusterGroupEx(hcluster: HCLUSTER, lpszgroupname: PCWSTR, pgroupinfo: Long): HGROUP =
-    0L
+public actual fun createClusterGroupEx(hcluster: Hcluster, lpszgroupname: Pcwstr, pgroupinfo: COpaquePointer?): Hgroup =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CreateClusterGroupSet(hcluster: HCLUSTER, groupsetname: PCWSTR): HGROUPSET =
-    0L
+public actual fun createClusterGroupSet(hcluster: Hcluster, groupsetname: Pcwstr): Hgroupset =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CreateClusterNameAccount(hcluster: HCLUSTER, pconfig: Long, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Long): UInt =
-    0u
+public actual fun createClusterNameAccount(hcluster: Hcluster, pconfig: COpaquePointer?, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CreateClusterNotifyPort(hchange: HCHANGE, hcluster: HCLUSTER, dwfilter: UInt, dwnotifykey: ULong): HCHANGE =
-    0L
+public actual fun createClusterNotifyPort(hchange: Hchange, hcluster: Hcluster, dwfilter: UInt, dwnotifykey: ULong): Hchange =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CreateClusterNotifyPortV2(hchange: HCHANGE, hcluster: HCLUSTER, filters: Long, dwfiltercount: UInt, dwnotifykey: ULong): HCHANGE =
-    0L
+public actual fun createClusterNotifyPortV2(hchange: Hchange, hcluster: Hcluster, filters: COpaquePointer?, dwfiltercount: UInt, dwnotifykey: ULong): Hchange =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CreateClusterResource(hgroup: HGROUP, lpszresourcename: PCWSTR, lpszresourcetype: PCWSTR, dwflags: UInt): HRESOURCE =
-    0L
+public actual fun createClusterResource(hgroup: Hgroup, lpszresourcename: Pcwstr, lpszresourcetype: Pcwstr, dwflags: UInt): Hresource =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CreateClusterResourceEx(hgroup: HGROUP, lpszresourcename: PCWSTR, lpszresourcetype: PCWSTR, dwflags: UInt, lpszreason: PCWSTR): HRESOURCE =
-    0L
+public actual fun createClusterResourceEx(hgroup: Hgroup, lpszresourcename: Pcwstr, lpszresourcetype: Pcwstr, dwflags: UInt, lpszreason: Pcwstr): Hresource =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CreateClusterResourceType(hcluster: HCLUSTER, lpszresourcetypename: PCWSTR, lpszdisplayname: PCWSTR, lpszresourcetypedll: PCWSTR, dwlooksalivepollinterval: UInt, dwisalivepollinterval: UInt): UInt =
-    0u
+public actual fun createClusterResourceType(hcluster: Hcluster, lpszresourcetypename: Pcwstr, lpszdisplayname: Pcwstr, lpszresourcetypedll: Pcwstr, dwlooksalivepollinterval: UInt, dwisalivepollinterval: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CreateClusterResourceTypeEx(hcluster: HCLUSTER, lpszresourcetypename: PCWSTR, lpszdisplayname: PCWSTR, lpszresourcetypedll: PCWSTR, dwlooksalivepollinterval: UInt, dwisalivepollinterval: UInt, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun createClusterResourceTypeEx(hcluster: Hcluster, lpszresourcetypename: Pcwstr, lpszdisplayname: Pcwstr, lpszresourcetypedll: Pcwstr, dwlooksalivepollinterval: UInt, dwisalivepollinterval: UInt, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DeleteClusterGroup(hgroup: HGROUP): UInt =
-    0u
+public actual fun deleteClusterGroup(hgroup: Hgroup): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DeleteClusterGroupEx(hgroup: HGROUP, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun deleteClusterGroupEx(hgroup: Hgroup, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DeleteClusterGroupSet(hgroupset: HGROUPSET): UInt =
-    0u
+public actual fun deleteClusterGroupSet(hgroupset: Hgroupset): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DeleteClusterGroupSetEx(hgroupset: HGROUPSET, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun deleteClusterGroupSetEx(hgroupset: Hgroupset, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DeleteClusterResource(hresource: HRESOURCE): UInt =
-    0u
+public actual fun deleteClusterResource(hresource: Hresource): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DeleteClusterResourceEx(hresource: HRESOURCE, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun deleteClusterResourceEx(hresource: Hresource, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DeleteClusterResourceType(hcluster: HCLUSTER, lpszresourcetypename: PCWSTR): UInt =
-    0u
+public actual fun deleteClusterResourceType(hcluster: Hcluster, lpszresourcetypename: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DeleteClusterResourceTypeEx(hcluster: HCLUSTER, lpsztypename: PCWSTR, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun deleteClusterResourceTypeEx(hcluster: Hcluster, lpsztypename: Pcwstr, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DestroyCluster(hcluster: HCLUSTER, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Long, fdeletevirtualcomputerobjects: BOOL): UInt =
-    0u
+public actual fun destroyCluster(hcluster: Hcluster, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: COpaquePointer?, fdeletevirtualcomputerobjects: Bool): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DestroyClusterGroup(hgroup: HGROUP): UInt =
-    0u
+public actual fun destroyClusterGroup(hgroup: Hgroup): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DestroyClusterGroupEx(hgroup: HGROUP, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun destroyClusterGroupEx(hgroup: Hgroup, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DetermineCNOResTypeFromCluster(hcluster: HCLUSTER, pcnorestype: Long): UInt =
-    0u
+public actual fun determineCNOResTypeFromCluster(hcluster: Hcluster, pcnorestype: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DetermineCNOResTypeFromNodelist(cnodes: UInt, ppsznodenames: Long, pcnorestype: Long): UInt =
-    0u
+public actual fun determineCNOResTypeFromNodelist(cnodes: UInt, ppsznodenames: COpaquePointer?, pcnorestype: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DetermineClusterCloudTypeFromCluster(hcluster: HCLUSTER, pcloudtype: Long): UInt =
-    0u
+public actual fun determineClusterCloudTypeFromCluster(hcluster: Hcluster, pcloudtype: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DetermineClusterCloudTypeFromNodelist(cnodes: UInt, ppsznodenames: Long, pcloudtype: Long): UInt =
-    0u
+public actual fun determineClusterCloudTypeFromNodelist(cnodes: UInt, ppsznodenames: COpaquePointer?, pcloudtype: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun EvictClusterNode(hnode: HNODE): UInt =
-    0u
+public actual fun evictClusterNode(hnode: Hnode): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun EvictClusterNodeEx(hnode: HNODE, dwtimeout: UInt, phrcleanupstatus: Long): UInt =
-    0u
+public actual fun evictClusterNodeEx(hnode: Hnode, dwtimeout: UInt, phrcleanupstatus: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun EvictClusterNodeEx2(hnode: HNODE, dwtimeout: UInt, phrcleanupstatus: Long, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun evictClusterNodeEx2(hnode: Hnode, dwtimeout: UInt, phrcleanupstatus: COpaquePointer?, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun FailClusterResource(hresource: HRESOURCE): UInt =
-    0u
+public actual fun failClusterResource(hresource: Hresource): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun FailClusterResourceEx(hresource: HRESOURCE, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun failClusterResourceEx(hresource: Hresource, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun FreeClusterCrypt(pcryptinfo: Long): UInt =
-    0u
+public actual fun freeClusterCrypt(pcryptinfo: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun FreeClusterHealthFault(clusterhealthfault: Long): UInt =
-    0u
+public actual fun freeClusterHealthFault(clusterhealthfault: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun FreeClusterHealthFaultArray(clusterhealthfaultarray: Long): UInt =
-    0u
+public actual fun freeClusterHealthFaultArray(clusterhealthfaultarray: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClusterFromGroup(hgroup: HGROUP): HCLUSTER =
-    0L
+public actual fun getClusterFromGroup(hgroup: Hgroup): Hcluster =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClusterFromNetInterface(hnetinterface: HNETINTERFACE): HCLUSTER =
-    0L
+public actual fun getClusterFromNetInterface(hnetinterface: Hnetinterface): Hcluster =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClusterFromNetwork(hnetwork: HNETWORK): HCLUSTER =
-    0L
+public actual fun getClusterFromNetwork(hnetwork: Hnetwork): Hcluster =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClusterFromNode(hnode: HNODE): HCLUSTER =
-    0L
+public actual fun getClusterFromNode(hnode: Hnode): Hcluster =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClusterFromResource(hresource: HRESOURCE): HCLUSTER =
-    0L
+public actual fun getClusterFromResource(hresource: Hresource): Hcluster =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClusterGroupKey(hgroup: HGROUP, samdesired: UInt): HKEY =
-    0L
+public actual fun getClusterGroupKey(hgroup: Hgroup, samdesired: UInt): Hkey =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClusterGroupState(hgroup: HGROUP, lpsznodename: PWSTR, lpcchnodename: Long): CLUSTER_GROUP_STATE =
-    0
+public actual fun getClusterGroupState(hgroup: Hgroup, lpsznodename: Pwstr, lpcchnodename: COpaquePointer?): ClusterGroupState =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClusterInformation(hcluster: HCLUSTER, lpszclustername: PWSTR, lpcchclustername: Long, lpclusterinfo: Long): UInt =
-    0u
+public actual fun getClusterInformation(hcluster: Hcluster, lpszclustername: Pwstr, lpcchclustername: COpaquePointer?, lpclusterinfo: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClusterKey(hcluster: HCLUSTER, samdesired: UInt): HKEY =
-    0L
+public actual fun getClusterKey(hcluster: Hcluster, samdesired: UInt): Hkey =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClusterNetInterface(hcluster: HCLUSTER, lpsznodename: PCWSTR, lpsznetworkname: PCWSTR, lpszinterfacename: PWSTR, lpcchinterfacename: Long): UInt =
-    0u
+public actual fun getClusterNetInterface(hcluster: Hcluster, lpsznodename: Pcwstr, lpsznetworkname: Pcwstr, lpszinterfacename: Pwstr, lpcchinterfacename: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClusterNetInterfaceKey(hnetinterface: HNETINTERFACE, samdesired: UInt): HKEY =
-    0L
+public actual fun getClusterNetInterfaceKey(hnetinterface: Hnetinterface, samdesired: UInt): Hkey =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClusterNetInterfaceState(hnetinterface: HNETINTERFACE): CLUSTER_NETINTERFACE_STATE =
-    0
+public actual fun getClusterNetInterfaceState(hnetinterface: Hnetinterface): ClusterNetinterfaceState =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClusterNetworkId(hnetwork: HNETWORK, lpsznetworkid: PWSTR, lpcchname: Long): UInt =
-    0u
+public actual fun getClusterNetworkId(hnetwork: Hnetwork, lpsznetworkid: Pwstr, lpcchname: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClusterNetworkKey(hnetwork: HNETWORK, samdesired: UInt): HKEY =
-    0L
+public actual fun getClusterNetworkKey(hnetwork: Hnetwork, samdesired: UInt): Hkey =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClusterNetworkState(hnetwork: HNETWORK): CLUSTER_NETWORK_STATE =
-    0
+public actual fun getClusterNetworkState(hnetwork: Hnetwork): ClusterNetworkState =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClusterNodeId(hnode: HNODE, lpsznodeid: PWSTR, lpcchname: Long): UInt =
-    0u
+public actual fun getClusterNodeId(hnode: Hnode, lpsznodeid: Pwstr, lpcchname: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClusterNodeKey(hnode: HNODE, samdesired: UInt): HKEY =
-    0L
+public actual fun getClusterNodeKey(hnode: Hnode, samdesired: UInt): Hkey =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClusterNodeState(hnode: HNODE): CLUSTER_NODE_STATE =
-    0
+public actual fun getClusterNodeState(hnode: Hnode): ClusterNodeState =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClusterNotify(hchange: HCHANGE, lpdwnotifykey: Long, lpdwfiltertype: Long, lpszname: PWSTR, lpcchname: Long, dwmilliseconds: UInt): UInt =
-    0u
+public actual fun getClusterNotify(hchange: Hchange, lpdwnotifykey: COpaquePointer?, lpdwfiltertype: COpaquePointer?, lpszname: Pwstr, lpcchname: COpaquePointer?, dwmilliseconds: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClusterNotifyV2(hchange: HCHANGE, lpdwnotifykey: Long, pfilterandtype: Long, buffer: Long, lpbbuffersize: Long, lpszobjectid: PWSTR, lpcchobjectid: Long, lpszparentid: PWSTR, lpcchparentid: Long, lpszname: PWSTR, lpcchname: Long, lpsztype: PWSTR, lpcchtype: Long, dwmilliseconds: UInt): UInt =
-    0u
+public actual fun getClusterNotifyV2(hchange: Hchange, lpdwnotifykey: COpaquePointer?, pfilterandtype: COpaquePointer?, buffer: COpaquePointer?, lpbbuffersize: COpaquePointer?, lpszobjectid: Pwstr, lpcchobjectid: COpaquePointer?, lpszparentid: Pwstr, lpcchparentid: COpaquePointer?, lpszname: Pwstr, lpcchname: COpaquePointer?, lpsztype: Pwstr, lpcchtype: COpaquePointer?, dwmilliseconds: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClusterQuorumResource(hcluster: HCLUSTER, lpszresourcename: PWSTR, lpcchresourcename: Long, lpszdevicename: PWSTR, lpcchdevicename: Long, lpdwmaxquorumlogsize: Long): UInt =
-    0u
+public actual fun getClusterQuorumResource(hcluster: Hcluster, lpszresourcename: Pwstr, lpcchresourcename: COpaquePointer?, lpszdevicename: Pwstr, lpcchdevicename: COpaquePointer?, lpdwmaxquorumlogsize: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClusterResourceDependencyExpression(hresource: HRESOURCE, lpszdependencyexpression: PWSTR, lpcchdependencyexpression: Long): UInt =
-    0u
+public actual fun getClusterResourceDependencyExpression(hresource: Hresource, lpszdependencyexpression: Pwstr, lpcchdependencyexpression: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClusterResourceKey(hresource: HRESOURCE, samdesired: UInt): HKEY =
-    0L
+public actual fun getClusterResourceKey(hresource: Hresource, samdesired: UInt): Hkey =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClusterResourceNetworkName(hresource: HRESOURCE, lpbuffer: PWSTR, nsize: Long): BOOL =
-    0
+public actual fun getClusterResourceNetworkName(hresource: Hresource, lpbuffer: Pwstr, nsize: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClusterResourceState(hresource: HRESOURCE, lpsznodename: PWSTR, lpcchnodename: Long, lpszgroupname: PWSTR, lpcchgroupname: Long): CLUSTER_RESOURCE_STATE =
-    0
+public actual fun getClusterResourceState(hresource: Hresource, lpsznodename: Pwstr, lpcchnodename: COpaquePointer?, lpszgroupname: Pwstr, lpcchgroupname: COpaquePointer?): ClusterResourceState =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClusterResourceTypeKey(hcluster: HCLUSTER, lpsztypename: PCWSTR, samdesired: UInt): HKEY =
-    0L
+public actual fun getClusterResourceTypeKey(hcluster: Hcluster, lpsztypename: Pcwstr, samdesired: UInt): Hkey =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetNodeCloudTypeDW(ppsznodename: PCWSTR, nodecloudtype: Long): UInt =
-    0u
+public actual fun getNodeCloudTypeDW(ppsznodename: Pcwstr, nodecloudtype: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetNodeClusterState(lpsznodename: PCWSTR, pdwclusterstate: Long): UInt =
-    0u
+public actual fun getNodeClusterState(lpsznodename: Pcwstr, pdwclusterstate: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetNotifyEventHandle(hchange: HCHANGE, lphtargetevent: Long): UInt =
-    0u
+public actual fun getNotifyEventHandle(hchange: Hchange, lphtargetevent: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun InitializeClusterHealthFault(clusterhealthfault: Long): UInt =
-    0u
+public actual fun initializeClusterHealthFault(clusterhealthfault: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun InitializeClusterHealthFaultArray(clusterhealthfaultarray: Long): UInt =
-    0u
+public actual fun initializeClusterHealthFaultArray(clusterhealthfaultarray: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun IsFileOnClusterSharedVolume(lpszpathname: PCWSTR, pbfileisonsharedvolume: Long): UInt =
-    0u
+public actual fun isFileOnClusterSharedVolume(lpszpathname: Pcwstr, pbfileisonsharedvolume: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MoveClusterGroup(hgroup: HGROUP, hdestinationnode: HNODE): UInt =
-    0u
+public actual fun moveClusterGroup(hgroup: Hgroup, hdestinationnode: Hnode): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MoveClusterGroupEx(hgroup: HGROUP, hdestinationnode: HNODE, dwmoveflags: UInt, lpinbuffer: Long, cbinbuffersize: UInt): UInt =
-    0u
+public actual fun moveClusterGroupEx(hgroup: Hgroup, hdestinationnode: Hnode, dwmoveflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MoveClusterGroupEx2(hgroup: HGROUP, hdestinationnode: HNODE, dwmoveflags: UInt, lpinbuffer: Long, cbinbuffersize: UInt, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun moveClusterGroupEx2(hgroup: Hgroup, hdestinationnode: Hnode, dwmoveflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OfflineClusterGroup(hgroup: HGROUP): UInt =
-    0u
+public actual fun offlineClusterGroup(hgroup: Hgroup): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OfflineClusterGroupEx(hgroup: HGROUP, dwofflineflags: UInt, lpinbuffer: Long, cbinbuffersize: UInt): UInt =
-    0u
+public actual fun offlineClusterGroupEx(hgroup: Hgroup, dwofflineflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OfflineClusterGroupEx2(hgroup: HGROUP, dwofflineflags: UInt, lpinbuffer: Long, cbinbuffersize: UInt, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun offlineClusterGroupEx2(hgroup: Hgroup, dwofflineflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OfflineClusterResource(hresource: HRESOURCE): UInt =
-    0u
+public actual fun offlineClusterResource(hresource: Hresource): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OfflineClusterResourceEx(hresource: HRESOURCE, dwofflineflags: UInt, lpinbuffer: Long, cbinbuffersize: UInt): UInt =
-    0u
+public actual fun offlineClusterResourceEx(hresource: Hresource, dwofflineflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OfflineClusterResourceEx2(hresource: HRESOURCE, dwofflineflags: UInt, lpinbuffer: Long, cbinbuffersize: UInt, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun offlineClusterResourceEx2(hresource: Hresource, dwofflineflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OnlineClusterGroup(hgroup: HGROUP, hdestinationnode: HNODE): UInt =
-    0u
+public actual fun onlineClusterGroup(hgroup: Hgroup, hdestinationnode: Hnode): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OnlineClusterGroupEx(hgroup: HGROUP, hdestinationnode: HNODE, dwonlineflags: UInt, lpinbuffer: Long, cbinbuffersize: UInt): UInt =
-    0u
+public actual fun onlineClusterGroupEx(hgroup: Hgroup, hdestinationnode: Hnode, dwonlineflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OnlineClusterGroupEx2(hgroup: HGROUP, hdestinationnode: HNODE, dwonlineflags: UInt, lpinbuffer: Long, cbinbuffersize: UInt, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun onlineClusterGroupEx2(hgroup: Hgroup, hdestinationnode: Hnode, dwonlineflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OnlineClusterResource(hresource: HRESOURCE): UInt =
-    0u
+public actual fun onlineClusterResource(hresource: Hresource): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OnlineClusterResourceEx(hresource: HRESOURCE, dwonlineflags: UInt, lpinbuffer: Long, cbinbuffersize: UInt): UInt =
-    0u
+public actual fun onlineClusterResourceEx(hresource: Hresource, dwonlineflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OnlineClusterResourceEx2(hresource: HRESOURCE, dwonlineflags: UInt, lpinbuffer: Long, cbinbuffersize: UInt, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun onlineClusterResourceEx2(hresource: Hresource, dwonlineflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OpenCluster(lpszclustername: PCWSTR): HCLUSTER =
-    0L
+public actual fun openCluster(lpszclustername: Pcwstr): Hcluster =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OpenClusterCryptProvider(lpszresource: PCWSTR, lpszprovider: Long, dwtype: UInt, dwflags: UInt): HCLUSCRYPTPROVIDER =
-    0L
+public actual fun openClusterCryptProvider(lpszresource: Pcwstr, lpszprovider: COpaquePointer?, dwtype: UInt, dwflags: UInt): Hcluscryptprovider =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OpenClusterCryptProviderEx(lpszresource: PCWSTR, lpszkeyname: PCWSTR, lpszprovider: Long, dwtype: UInt, dwflags: UInt): HCLUSCRYPTPROVIDER =
-    0L
+public actual fun openClusterCryptProviderEx(lpszresource: Pcwstr, lpszkeyname: Pcwstr, lpszprovider: COpaquePointer?, dwtype: UInt, dwflags: UInt): Hcluscryptprovider =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OpenClusterEx(lpszclustername: PCWSTR, desiredaccess: UInt, grantedaccess: Long): HCLUSTER =
-    0L
+public actual fun openClusterEx(lpszclustername: Pcwstr, desiredaccess: UInt, grantedaccess: COpaquePointer?): Hcluster =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OpenClusterGroup(hcluster: HCLUSTER, lpszgroupname: PCWSTR): HGROUP =
-    0L
+public actual fun openClusterGroup(hcluster: Hcluster, lpszgroupname: Pcwstr): Hgroup =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OpenClusterGroupEx(hcluster: HCLUSTER, lpszgroupname: PCWSTR, dwdesiredaccess: UInt, lpdwgrantedaccess: Long): HGROUP =
-    0L
+public actual fun openClusterGroupEx(hcluster: Hcluster, lpszgroupname: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: COpaquePointer?): Hgroup =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OpenClusterGroupSet(hcluster: HCLUSTER, lpszgroupsetname: PCWSTR): HGROUPSET =
-    0L
+public actual fun openClusterGroupSet(hcluster: Hcluster, lpszgroupsetname: Pcwstr): Hgroupset =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OpenClusterNetInterface(hcluster: HCLUSTER, lpszinterfacename: PCWSTR): HNETINTERFACE =
-    0L
+public actual fun openClusterNetInterface(hcluster: Hcluster, lpszinterfacename: Pcwstr): Hnetinterface =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OpenClusterNetInterfaceEx(hcluster: HCLUSTER, lpszinterfacename: PCWSTR, dwdesiredaccess: UInt, lpdwgrantedaccess: Long): HNETINTERFACE =
-    0L
+public actual fun openClusterNetInterfaceEx(hcluster: Hcluster, lpszinterfacename: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: COpaquePointer?): Hnetinterface =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OpenClusterNetwork(hcluster: HCLUSTER, lpsznetworkname: PCWSTR): HNETWORK =
-    0L
+public actual fun openClusterNetwork(hcluster: Hcluster, lpsznetworkname: Pcwstr): Hnetwork =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OpenClusterNetworkEx(hcluster: HCLUSTER, lpsznetworkname: PCWSTR, dwdesiredaccess: UInt, lpdwgrantedaccess: Long): HNETWORK =
-    0L
+public actual fun openClusterNetworkEx(hcluster: Hcluster, lpsznetworkname: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: COpaquePointer?): Hnetwork =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OpenClusterNode(hcluster: HCLUSTER, lpsznodename: PCWSTR): HNODE =
-    0L
+public actual fun openClusterNode(hcluster: Hcluster, lpsznodename: Pcwstr): Hnode =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OpenClusterNodeById(hcluster: HCLUSTER, nodeid: UInt): HNODE =
-    0L
+public actual fun openClusterNodeById(hcluster: Hcluster, nodeid: UInt): Hnode =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OpenClusterNodeEx(hcluster: HCLUSTER, lpsznodename: PCWSTR, dwdesiredaccess: UInt, lpdwgrantedaccess: Long): HNODE =
-    0L
+public actual fun openClusterNodeEx(hcluster: Hcluster, lpsznodename: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: COpaquePointer?): Hnode =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OpenClusterResource(hcluster: HCLUSTER, lpszresourcename: PCWSTR): HRESOURCE =
-    0L
+public actual fun openClusterResource(hcluster: Hcluster, lpszresourcename: Pcwstr): Hresource =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OpenClusterResourceEx(hcluster: HCLUSTER, lpszresourcename: PCWSTR, dwdesiredaccess: UInt, lpdwgrantedaccess: Long): HRESOURCE =
-    0L
+public actual fun openClusterResourceEx(hcluster: Hcluster, lpszresourcename: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: COpaquePointer?): Hresource =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun PauseClusterNode(hnode: HNODE): UInt =
-    0u
+public actual fun pauseClusterNode(hnode: Hnode): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun PauseClusterNodeEx(hnode: HNODE, bdrainnode: BOOL, dwpauseflags: UInt, hnodedraintarget: HNODE): UInt =
-    0u
+public actual fun pauseClusterNodeEx(hnode: Hnode, bdrainnode: Bool, dwpauseflags: UInt, hnodedraintarget: Hnode): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun PauseClusterNodeEx2(hnode: HNODE, bdrainnode: BOOL, dwpauseflags: UInt, hnodedraintarget: HNODE, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun pauseClusterNodeEx2(hnode: Hnode, bdrainnode: Bool, dwpauseflags: UInt, hnodedraintarget: Hnode, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun QueryAppInstanceVersion(appinstanceid: Long, instanceversionhigh: Long, instanceversionlow: Long, versionstatus: Long): UInt =
-    0u
+public actual fun queryAppInstanceVersion(appinstanceid: COpaquePointer?, instanceversionhigh: COpaquePointer?, instanceversionlow: COpaquePointer?, versionstatus: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RegisterAppInstance(processhandle: HANDLE, appinstanceid: Long, childreninheritappinstance: BOOL): UInt =
-    0u
+public actual fun registerAppInstance(processhandle: Handle, appinstanceid: COpaquePointer?, childreninheritappinstance: Bool): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RegisterAppInstanceVersion(appinstanceid: Long, instanceversionhigh: ULong, instanceversionlow: ULong): UInt =
-    0u
+public actual fun registerAppInstanceVersion(appinstanceid: COpaquePointer?, instanceversionhigh: ULong, instanceversionlow: ULong): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RegisterClusterNotify(hchange: HCHANGE, dwfiltertype: UInt, hobject: HANDLE, dwnotifykey: ULong): UInt =
-    0u
+public actual fun registerClusterNotify(hchange: Hchange, dwfiltertype: UInt, hobject: Handle, dwnotifykey: ULong): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RegisterClusterNotifyV2(hchange: HCHANGE, filter: NOTIFY_FILTER_AND_TYPE, hobject: HANDLE, dwnotifykey: ULong): UInt =
-    0u
+public actual fun registerClusterNotifyV2(hchange: Hchange, filter: NotifyFilterAndType, hobject: Handle, dwnotifykey: ULong): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RegisterClusterResourceTypeNotifyV2(hchange: HCHANGE, hcluster: HCLUSTER, flags: Long, restypename: PCWSTR, dwnotifykey: ULong): UInt =
-    0u
+public actual fun registerClusterResourceTypeNotifyV2(hchange: Hchange, hcluster: Hcluster, flags: Long, restypename: Pcwstr, dwnotifykey: ULong): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RemoveClusterGroupDependency(hgroup: HGROUP, hdependson: HGROUP): UInt =
-    0u
+public actual fun removeClusterGroupDependency(hgroup: Hgroup, hdependson: Hgroup): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RemoveClusterGroupDependencyEx(hgroup: HGROUP, hdependson: HGROUP, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun removeClusterGroupDependencyEx(hgroup: Hgroup, hdependson: Hgroup, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RemoveClusterGroupSetDependency(hgroupset: HGROUPSET, hdependson: HGROUPSET): UInt =
-    0u
+public actual fun removeClusterGroupSetDependency(hgroupset: Hgroupset, hdependson: Hgroupset): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RemoveClusterGroupSetDependencyEx(hgroupset: HGROUPSET, hdependson: HGROUPSET, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun removeClusterGroupSetDependencyEx(hgroupset: Hgroupset, hdependson: Hgroupset, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RemoveClusterGroupToGroupSetDependency(hgroup: HGROUP, hdependson: HGROUPSET): UInt =
-    0u
+public actual fun removeClusterGroupToGroupSetDependency(hgroup: Hgroup, hdependson: Hgroupset): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RemoveClusterGroupToGroupSetDependencyEx(hgroup: HGROUP, hdependson: HGROUPSET, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun removeClusterGroupToGroupSetDependencyEx(hgroup: Hgroup, hdependson: Hgroupset, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RemoveClusterNameAccount(hcluster: HCLUSTER, bdeletecomputerobjects: BOOL): UInt =
-    0u
+public actual fun removeClusterNameAccount(hcluster: Hcluster, bdeletecomputerobjects: Bool): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RemoveClusterResourceDependency(hresource: HRESOURCE, hdependson: HRESOURCE): UInt =
-    0u
+public actual fun removeClusterResourceDependency(hresource: Hresource, hdependson: Hresource): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RemoveClusterResourceDependencyEx(hresource: HRESOURCE, hdependson: HRESOURCE, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun removeClusterResourceDependencyEx(hresource: Hresource, hdependson: Hresource, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RemoveClusterResourceNode(hresource: HRESOURCE, hnode: HNODE): UInt =
-    0u
+public actual fun removeClusterResourceNode(hresource: Hresource, hnode: Hnode): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RemoveClusterResourceNodeEx(hresource: HRESOURCE, hnode: HNODE, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun removeClusterResourceNodeEx(hresource: Hresource, hnode: Hnode, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RemoveClusterStorageNode(hcluster: HCLUSTER, lpszclusterstorageenclosurename: PCWSTR, dwtimeout: UInt, dwflags: UInt): UInt =
-    0u
+public actual fun removeClusterStorageNode(hcluster: Hcluster, lpszclusterstorageenclosurename: Pcwstr, dwtimeout: UInt, dwflags: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RemoveCrossClusterGroupSetDependency(hdependentgroupset: HGROUPSET, lpremoteclustername: PCWSTR, lpremotegroupsetname: PCWSTR): UInt =
-    0u
+public actual fun removeCrossClusterGroupSetDependency(hdependentgroupset: Hgroupset, lpremoteclustername: Pcwstr, lpremotegroupsetname: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RemoveResourceFromClusterSharedVolumes(hresource: HRESOURCE): UInt =
-    0u
+public actual fun removeResourceFromClusterSharedVolumes(hresource: Hresource): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilAddUnknownProperties(hkeyclusterkey: HKEY, ppropertytable: Long, poutpropertylist: Long, pcboutpropertylistsize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt =
-    0u
+public actual fun resUtilAddUnknownProperties(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, poutpropertylist: COpaquePointer?, pcboutpropertylistsize: UInt, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilCreateDirectoryTree(pszpath: PCWSTR): UInt =
-    0u
+public actual fun resUtilCreateDirectoryTree(pszpath: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilDupGroup(group: HGROUP, copy: Long): UInt =
-    0u
+public actual fun resUtilDupGroup(group: Hgroup, copy: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilDupParameterBlock(poutparams: Long, pinparams: Long, ppropertytable: Long): UInt =
-    0u
+public actual fun resUtilDupParameterBlock(poutparams: COpaquePointer?, pinparams: COpaquePointer?, ppropertytable: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilDupResource(group: HRESOURCE, copy: Long): UInt =
-    0u
+public actual fun resUtilDupResource(group: Hresource, copy: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilDupString(pszinstring: PCWSTR): PWSTR =
-    0L
+public actual fun resUtilDupString(pszinstring: Pcwstr): Pwstr =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilEnumGroups(hcluster: HCLUSTER, hself: HGROUP, prescallback: LPGROUP_CALLBACK_EX, pparameter: Long): UInt =
-    0u
+public actual fun resUtilEnumGroups(hcluster: Hcluster, hself: Hgroup, prescallback: LpgroupCallbackEx, pparameter: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilEnumGroupsEx(hcluster: HCLUSTER, hself: HGROUP, grouptype: CLUSGROUP_TYPE, prescallback: LPGROUP_CALLBACK_EX, pparameter: Long): UInt =
-    0u
+public actual fun resUtilEnumGroupsEx(hcluster: Hcluster, hself: Hgroup, grouptype: ClusgroupType, prescallback: LpgroupCallbackEx, pparameter: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilEnumPrivateProperties(hkeyclusterkey: HKEY, pszoutproperties: PWSTR, cboutpropertiessize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt =
-    0u
+public actual fun resUtilEnumPrivateProperties(hkeyclusterkey: Hkey, pszoutproperties: Pwstr, cboutpropertiessize: UInt, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilEnumProperties(ppropertytable: Long, pszoutproperties: PWSTR, cboutpropertiessize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt =
-    0u
+public actual fun resUtilEnumProperties(ppropertytable: COpaquePointer?, pszoutproperties: Pwstr, cboutpropertiessize: UInt, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilEnumResources(hself: HRESOURCE, lpszrestypename: PCWSTR, prescallback: LPRESOURCE_CALLBACK, pparameter: Long): UInt =
-    0u
+public actual fun resUtilEnumResources(hself: Hresource, lpszrestypename: Pcwstr, prescallback: LpresourceCallback, pparameter: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilEnumResourcesEx(hcluster: HCLUSTER, hself: HRESOURCE, lpszrestypename: PCWSTR, prescallback: LPRESOURCE_CALLBACK_EX, pparameter: Long): UInt =
-    0u
+public actual fun resUtilEnumResourcesEx(hcluster: Hcluster, hself: Hresource, lpszrestypename: Pcwstr, prescallback: LpresourceCallbackEx, pparameter: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilEnumResourcesEx2(hcluster: HCLUSTER, hself: HRESOURCE, lpszrestypename: PCWSTR, prescallback: LPRESOURCE_CALLBACK_EX, pparameter: Long, dwdesiredaccess: UInt): UInt =
-    0u
+public actual fun resUtilEnumResourcesEx2(hcluster: Hcluster, hself: Hresource, lpszrestypename: Pcwstr, prescallback: LpresourceCallbackEx, pparameter: COpaquePointer?, dwdesiredaccess: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilExpandEnvironmentStrings(pszsrc: PCWSTR): PWSTR =
-    0L
+public actual fun resUtilExpandEnvironmentStrings(pszsrc: Pcwstr): Pwstr =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilFindBinaryProperty(ppropertylist: Long, cbpropertylistsize: UInt, pszpropertyname: PCWSTR, pbpropertyvalue: Long, pcbpropertyvaluesize: Long): UInt =
-    0u
+public actual fun resUtilFindBinaryProperty(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pbpropertyvalue: COpaquePointer?, pcbpropertyvaluesize: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilFindDependentDiskResourceDriveLetter(hcluster: HCLUSTER, hresource: HRESOURCE, pszdriveletter: PWSTR, pcchdriveletter: Long): UInt =
-    0u
+public actual fun resUtilFindDependentDiskResourceDriveLetter(hcluster: Hcluster, hresource: Hresource, pszdriveletter: Pwstr, pcchdriveletter: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilFindDwordProperty(ppropertylist: Long, cbpropertylistsize: UInt, pszpropertyname: PCWSTR, pdwpropertyvalue: Long): UInt =
-    0u
+public actual fun resUtilFindDwordProperty(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pdwpropertyvalue: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilFindExpandSzProperty(ppropertylist: Long, cbpropertylistsize: UInt, pszpropertyname: PCWSTR, pszpropertyvalue: Long): UInt =
-    0u
+public actual fun resUtilFindExpandSzProperty(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pszpropertyvalue: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilFindExpandedSzProperty(ppropertylist: Long, cbpropertylistsize: UInt, pszpropertyname: PCWSTR, pszpropertyvalue: Long): UInt =
-    0u
+public actual fun resUtilFindExpandedSzProperty(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pszpropertyvalue: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilFindFileTimeProperty(ppropertylist: Long, cbpropertylistsize: UInt, pszpropertyname: PCWSTR, pftpropertyvalue: Long): UInt =
-    0u
+public actual fun resUtilFindFileTimeProperty(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pftpropertyvalue: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilFindLongProperty(ppropertylist: Long, cbpropertylistsize: UInt, pszpropertyname: PCWSTR, plpropertyvalue: Long): UInt =
-    0u
+public actual fun resUtilFindLongProperty(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, plpropertyvalue: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilFindMultiSzProperty(ppropertylist: Long, cbpropertylistsize: UInt, pszpropertyname: PCWSTR, pszpropertyvalue: Long, pcbpropertyvaluesize: Long): UInt =
-    0u
+public actual fun resUtilFindMultiSzProperty(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pszpropertyvalue: COpaquePointer?, pcbpropertyvaluesize: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilFindSzProperty(ppropertylist: Long, cbpropertylistsize: UInt, pszpropertyname: PCWSTR, pszpropertyvalue: Long): UInt =
-    0u
+public actual fun resUtilFindSzProperty(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pszpropertyvalue: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilFindULargeIntegerProperty(ppropertylist: Long, cbpropertylistsize: UInt, pszpropertyname: PCWSTR, plpropertyvalue: Long): UInt =
-    0u
+public actual fun resUtilFindULargeIntegerProperty(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, plpropertyvalue: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilFreeEnvironment(lpenvironment: Long): UInt =
-    0u
+public actual fun resUtilFreeEnvironment(lpenvironment: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilFreeParameterBlock(poutparams: Long, pinparams: Long, ppropertytable: Long) {
+public actual fun resUtilFreeParameterBlock(poutparams: COpaquePointer?, pinparams: COpaquePointer?, ppropertytable: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun ResUtilGetAllProperties(hkeyclusterkey: HKEY, ppropertytable: Long, poutpropertylist: Long, cboutpropertylistsize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt =
-    0u
+public actual fun resUtilGetAllProperties(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, poutpropertylist: COpaquePointer?, cboutpropertylistsize: UInt, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilGetBinaryProperty(ppboutvalue: Long, pcboutvaluesize: Long, pvaluestruct: Long, pboldvalue: Long, cboldvaluesize: UInt, pppropertylist: Long, pcbpropertylistsize: Long): UInt =
-    0u
+public actual fun resUtilGetBinaryProperty(ppboutvalue: COpaquePointer?, pcboutvaluesize: COpaquePointer?, pvaluestruct: COpaquePointer?, pboldvalue: COpaquePointer?, cboldvaluesize: UInt, pppropertylist: COpaquePointer?, pcbpropertylistsize: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilGetBinaryValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, ppboutvalue: Long, pcboutvaluesize: Long): UInt =
-    0u
+public actual fun resUtilGetBinaryValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, ppboutvalue: COpaquePointer?, pcboutvaluesize: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilGetClusterGroupType(hgroup: HGROUP, grouptype: Long): UInt =
-    0u
+public actual fun resUtilGetClusterGroupType(hgroup: Hgroup, grouptype: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilGetClusterId(hcluster: HCLUSTER, guid: Long): UInt =
-    0u
+public actual fun resUtilGetClusterId(hcluster: Hcluster, guid: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilGetClusterRoleState(hcluster: HCLUSTER, eclusterrole: CLUSTER_ROLE): CLUSTER_ROLE_STATE =
-    0
+public actual fun resUtilGetClusterRoleState(hcluster: Hcluster, eclusterrole: ClusterRole): ClusterRoleState =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilGetCoreClusterResources(hcluster: HCLUSTER, phclusternameresource: Long, phclusteripaddressresource: Long, phclusterquorumresource: Long): UInt =
-    0u
+public actual fun resUtilGetCoreClusterResources(hcluster: Hcluster, phclusternameresource: COpaquePointer?, phclusteripaddressresource: COpaquePointer?, phclusterquorumresource: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilGetCoreClusterResourcesEx(hclusterin: HCLUSTER, phclusternameresourceout: Long, phclusterquorumresourceout: Long, dwdesiredaccess: UInt): UInt =
-    0u
+public actual fun resUtilGetCoreClusterResourcesEx(hclusterin: Hcluster, phclusternameresourceout: COpaquePointer?, phclusterquorumresourceout: COpaquePointer?, dwdesiredaccess: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilGetCoreGroup(hcluster: HCLUSTER): HGROUP =
-    0L
+public actual fun resUtilGetCoreGroup(hcluster: Hcluster): Hgroup =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilGetDwordProperty(pdwoutvalue: Long, pvaluestruct: Long, dwoldvalue: UInt, dwminimum: UInt, dwmaximum: UInt, pppropertylist: Long, pcbpropertylistsize: Long): UInt =
-    0u
+public actual fun resUtilGetDwordProperty(pdwoutvalue: COpaquePointer?, pvaluestruct: COpaquePointer?, dwoldvalue: UInt, dwminimum: UInt, dwmaximum: UInt, pppropertylist: COpaquePointer?, pcbpropertylistsize: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilGetDwordValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, pdwoutvalue: Long, dwdefaultvalue: UInt): UInt =
-    0u
+public actual fun resUtilGetDwordValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, pdwoutvalue: COpaquePointer?, dwdefaultvalue: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilGetEnvironmentWithNetName(hresource: HRESOURCE): Long =
-    0L
+public actual fun resUtilGetEnvironmentWithNetName(hresource: Hresource): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilGetFileTimeProperty(pftoutvalue: Long, pvaluestruct: Long, ftoldvalue: FILETIME, ftminimum: FILETIME, ftmaximum: FILETIME, pppropertylist: Long, pcbpropertylistsize: Long): UInt =
-    0u
+public actual fun resUtilGetFileTimeProperty(pftoutvalue: COpaquePointer?, pvaluestruct: COpaquePointer?, ftoldvalue: Filetime, ftminimum: Filetime, ftmaximum: Filetime, pppropertylist: COpaquePointer?, pcbpropertylistsize: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilGetLongProperty(ploutvalue: Long, pvaluestruct: Long, loldvalue: Int, lminimum: Int, lmaximum: Int, pppropertylist: Long, pcbpropertylistsize: Long): UInt =
-    0u
+public actual fun resUtilGetLongProperty(ploutvalue: COpaquePointer?, pvaluestruct: COpaquePointer?, loldvalue: Int, lminimum: Int, lmaximum: Int, pppropertylist: COpaquePointer?, pcbpropertylistsize: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilGetMultiSzProperty(ppszoutvalue: Long, pcboutvaluesize: Long, pvaluestruct: Long, pszoldvalue: PCWSTR, cboldvaluesize: UInt, pppropertylist: Long, pcbpropertylistsize: Long): UInt =
-    0u
+public actual fun resUtilGetMultiSzProperty(ppszoutvalue: COpaquePointer?, pcboutvaluesize: COpaquePointer?, pvaluestruct: COpaquePointer?, pszoldvalue: Pcwstr, cboldvaluesize: UInt, pppropertylist: COpaquePointer?, pcbpropertylistsize: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilGetPrivateProperties(hkeyclusterkey: HKEY, poutpropertylist: Long, cboutpropertylistsize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt =
-    0u
+public actual fun resUtilGetPrivateProperties(hkeyclusterkey: Hkey, poutpropertylist: COpaquePointer?, cboutpropertylistsize: UInt, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilGetProperties(hkeyclusterkey: HKEY, ppropertytable: Long, poutpropertylist: Long, cboutpropertylistsize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt =
-    0u
+public actual fun resUtilGetProperties(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, poutpropertylist: COpaquePointer?, cboutpropertylistsize: UInt, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilGetPropertiesToParameterBlock(hkeyclusterkey: HKEY, ppropertytable: Long, poutparams: Long, bcheckforrequiredproperties: BOOL, psznameofpropinerror: Long): UInt =
-    0u
+public actual fun resUtilGetPropertiesToParameterBlock(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, poutparams: COpaquePointer?, bcheckforrequiredproperties: Bool, psznameofpropinerror: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilGetProperty(hkeyclusterkey: HKEY, ppropertytableitem: Long, poutpropertyitem: Long, pcboutpropertyitemsize: Long): UInt =
-    0u
+public actual fun resUtilGetProperty(hkeyclusterkey: Hkey, ppropertytableitem: COpaquePointer?, poutpropertyitem: COpaquePointer?, pcboutpropertyitemsize: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilGetPropertyFormats(ppropertytable: Long, poutpropertyformatlist: Long, cbpropertyformatlistsize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt =
-    0u
+public actual fun resUtilGetPropertyFormats(ppropertytable: COpaquePointer?, poutpropertyformatlist: COpaquePointer?, cbpropertyformatlistsize: UInt, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilGetPropertySize(hkeyclusterkey: HKEY, ppropertytableitem: Long, pcboutpropertylistsize: Long, pnpropertycount: Long): UInt =
-    0u
+public actual fun resUtilGetPropertySize(hkeyclusterkey: Hkey, ppropertytableitem: COpaquePointer?, pcboutpropertylistsize: COpaquePointer?, pnpropertycount: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilGetQwordValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, pqwoutvalue: Long, qwdefaultvalue: ULong): UInt =
-    0u
+public actual fun resUtilGetQwordValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, pqwoutvalue: COpaquePointer?, qwdefaultvalue: ULong): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilGetResourceDependency(hself: HANDLE, lpszresourcetype: PCWSTR): HRESOURCE =
-    0L
+public actual fun resUtilGetResourceDependency(hself: Handle, lpszresourcetype: Pcwstr): Hresource =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilGetResourceDependencyByClass(hcluster: HCLUSTER, hself: HANDLE, prci: Long, brecurse: BOOL): HRESOURCE =
-    0L
+public actual fun resUtilGetResourceDependencyByClass(hcluster: Hcluster, hself: Handle, prci: COpaquePointer?, brecurse: Bool): Hresource =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilGetResourceDependencyByClassEx(hcluster: HCLUSTER, hself: HANDLE, prci: Long, brecurse: BOOL, dwdesiredaccess: UInt): HRESOURCE =
-    0L
+public actual fun resUtilGetResourceDependencyByClassEx(hcluster: Hcluster, hself: Handle, prci: COpaquePointer?, brecurse: Bool, dwdesiredaccess: UInt): Hresource =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilGetResourceDependencyByName(hcluster: HCLUSTER, hself: HANDLE, lpszresourcetype: PCWSTR, brecurse: BOOL): HRESOURCE =
-    0L
+public actual fun resUtilGetResourceDependencyByName(hcluster: Hcluster, hself: Handle, lpszresourcetype: Pcwstr, brecurse: Bool): Hresource =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilGetResourceDependencyByNameEx(hcluster: HCLUSTER, hself: HANDLE, lpszresourcetype: PCWSTR, brecurse: BOOL, dwdesiredaccess: UInt): HRESOURCE =
-    0L
+public actual fun resUtilGetResourceDependencyByNameEx(hcluster: Hcluster, hself: Handle, lpszresourcetype: Pcwstr, brecurse: Bool, dwdesiredaccess: UInt): Hresource =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilGetResourceDependencyEx(hself: HANDLE, lpszresourcetype: PCWSTR, dwdesiredaccess: UInt): HRESOURCE =
-    0L
+public actual fun resUtilGetResourceDependencyEx(hself: Handle, lpszresourcetype: Pcwstr, dwdesiredaccess: UInt): Hresource =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilGetResourceDependentIPAddressProps(hresource: HRESOURCE, pszaddress: PWSTR, pcchaddress: Long, pszsubnetmask: PWSTR, pcchsubnetmask: Long, psznetwork: PWSTR, pcchnetwork: Long): UInt =
-    0u
+public actual fun resUtilGetResourceDependentIPAddressProps(hresource: Hresource, pszaddress: Pwstr, pcchaddress: COpaquePointer?, pszsubnetmask: Pwstr, pcchsubnetmask: COpaquePointer?, psznetwork: Pwstr, pcchnetwork: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilGetResourceName(hresource: HRESOURCE, pszresourcename: PWSTR, pcchresourcenameinout: Long): UInt =
-    0u
+public actual fun resUtilGetResourceName(hresource: Hresource, pszresourcename: Pwstr, pcchresourcenameinout: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilGetResourceNameDependency(lpszresourcename: PCWSTR, lpszresourcetype: PCWSTR): HRESOURCE =
-    0L
+public actual fun resUtilGetResourceNameDependency(lpszresourcename: Pcwstr, lpszresourcetype: Pcwstr): Hresource =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilGetResourceNameDependencyEx(lpszresourcename: PCWSTR, lpszresourcetype: PCWSTR, dwdesiredaccess: UInt): HRESOURCE =
-    0L
+public actual fun resUtilGetResourceNameDependencyEx(lpszresourcename: Pcwstr, lpszresourcetype: Pcwstr, dwdesiredaccess: UInt): Hresource =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilGetSzProperty(ppszoutvalue: Long, pvaluestruct: Long, pszoldvalue: PCWSTR, pppropertylist: Long, pcbpropertylistsize: Long): UInt =
-    0u
+public actual fun resUtilGetSzProperty(ppszoutvalue: COpaquePointer?, pvaluestruct: COpaquePointer?, pszoldvalue: Pcwstr, pppropertylist: COpaquePointer?, pcbpropertylistsize: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilGetSzValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR): PWSTR =
-    0L
+public actual fun resUtilGetSzValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr): Pwstr =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilGroupsEqual(hself: HGROUP, hgroup: HGROUP, pequal: Long): UInt =
-    0u
+public actual fun resUtilGroupsEqual(hself: Hgroup, hgroup: Hgroup, pequal: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilIsPathValid(pszpath: PCWSTR): BOOL =
-    0
+public actual fun resUtilIsPathValid(pszpath: Pcwstr): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilIsResourceClassEqual(prci: Long, hresource: HRESOURCE): BOOL =
-    0
+public actual fun resUtilIsResourceClassEqual(prci: COpaquePointer?, hresource: Hresource): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilLeftPaxosIsLessThanRight(left: Long, right: Long): BOOL =
-    0
+public actual fun resUtilLeftPaxosIsLessThanRight(left: COpaquePointer?, right: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilNodeEnum(hcluster: HCLUSTER, pnodecallback: LPNODE_CALLBACK, pparameter: Long): UInt =
-    0u
+public actual fun resUtilNodeEnum(hcluster: Hcluster, pnodecallback: LpnodeCallback, pparameter: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilPaxosComparer(left: Long, right: Long): BOOL =
-    0
+public actual fun resUtilPaxosComparer(left: COpaquePointer?, right: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilPropertyListFromParameterBlock(ppropertytable: Long, poutpropertylist: Long, pcboutpropertylistsize: Long, pinparams: Long, pcbbytesreturned: Long, pcbrequired: Long): UInt =
-    0u
+public actual fun resUtilPropertyListFromParameterBlock(ppropertytable: COpaquePointer?, poutpropertylist: COpaquePointer?, pcboutpropertylistsize: COpaquePointer?, pinparams: COpaquePointer?, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilRemoveResourceServiceEnvironment(pszservicename: PCWSTR, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: Long): UInt =
-    0u
+public actual fun resUtilRemoveResourceServiceEnvironment(pszservicename: Pcwstr, pfnlogevent: PlogEventRoutine, hresourcehandle: Long): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilResourceDepEnum(hself: HRESOURCE, enumtype: UInt, prescallback: LPRESOURCE_CALLBACK_EX, pparameter: Long): UInt =
-    0u
+public actual fun resUtilResourceDepEnum(hself: Hresource, enumtype: UInt, prescallback: LpresourceCallbackEx, pparameter: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilResourceTypesEqual(lpszresourcetypename: PCWSTR, hresource: HRESOURCE): BOOL =
-    0
+public actual fun resUtilResourceTypesEqual(lpszresourcetypename: Pcwstr, hresource: Hresource): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilResourcesEqual(hself: HRESOURCE, hresource: HRESOURCE): BOOL =
-    0
+public actual fun resUtilResourcesEqual(hself: Hresource, hresource: Hresource): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilSetBinaryValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, pbnewvalue: Long, cbnewvaluesize: UInt, ppboutvalue: Long, pcboutvaluesize: Long): UInt =
-    0u
+public actual fun resUtilSetBinaryValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, pbnewvalue: COpaquePointer?, cbnewvaluesize: UInt, ppboutvalue: COpaquePointer?, pcboutvaluesize: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilSetDwordValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, dwnewvalue: UInt, pdwoutvalue: Long): UInt =
-    0u
+public actual fun resUtilSetDwordValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, dwnewvalue: UInt, pdwoutvalue: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilSetExpandSzValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, psznewvalue: PCWSTR, ppszoutstring: Long): UInt =
-    0u
+public actual fun resUtilSetExpandSzValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, psznewvalue: Pcwstr, ppszoutstring: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilSetMultiSzValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, psznewvalue: PCWSTR, cbnewvaluesize: UInt, ppszoutvalue: Long, pcboutvaluesize: Long): UInt =
-    0u
+public actual fun resUtilSetMultiSzValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, psznewvalue: Pcwstr, cbnewvaluesize: UInt, ppszoutvalue: COpaquePointer?, pcboutvaluesize: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilSetPrivatePropertyList(hkeyclusterkey: HKEY, pinpropertylist: Long, cbinpropertylistsize: UInt): UInt =
-    0u
+public actual fun resUtilSetPrivatePropertyList(hkeyclusterkey: Hkey, pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilSetPropertyParameterBlock(hkeyclusterkey: HKEY, ppropertytable: Long, reserved: Long, pinparams: Long, pinpropertylist: Long, cbinpropertylistsize: UInt, poutparams: Long): UInt =
-    0u
+public actual fun resUtilSetPropertyParameterBlock(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, reserved: COpaquePointer?, pinparams: COpaquePointer?, pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt, poutparams: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilSetPropertyParameterBlockEx(hkeyclusterkey: HKEY, ppropertytable: Long, reserved: Long, pinparams: Long, pinpropertylist: Long, cbinpropertylistsize: UInt, bforcewrite: BOOL, poutparams: Long): UInt =
-    0u
+public actual fun resUtilSetPropertyParameterBlockEx(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, reserved: COpaquePointer?, pinparams: COpaquePointer?, pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt, bforcewrite: Bool, poutparams: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilSetPropertyTable(hkeyclusterkey: HKEY, ppropertytable: Long, reserved: Long, ballowunknownproperties: BOOL, pinpropertylist: Long, cbinpropertylistsize: UInt, poutparams: Long): UInt =
-    0u
+public actual fun resUtilSetPropertyTable(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, reserved: COpaquePointer?, ballowunknownproperties: Bool, pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt, poutparams: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilSetPropertyTableEx(hkeyclusterkey: HKEY, ppropertytable: Long, reserved: Long, ballowunknownproperties: BOOL, pinpropertylist: Long, cbinpropertylistsize: UInt, bforcewrite: BOOL, poutparams: Long): UInt =
-    0u
+public actual fun resUtilSetPropertyTableEx(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, reserved: COpaquePointer?, ballowunknownproperties: Bool, pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt, bforcewrite: Bool, poutparams: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilSetQwordValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, qwnewvalue: ULong, pqwoutvalue: Long): UInt =
-    0u
+public actual fun resUtilSetQwordValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, qwnewvalue: ULong, pqwoutvalue: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilSetResourceServiceEnvironment(pszservicename: PCWSTR, hresource: HRESOURCE, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: Long): UInt =
-    0u
+public actual fun resUtilSetResourceServiceEnvironment(pszservicename: Pcwstr, hresource: Hresource, pfnlogevent: PlogEventRoutine, hresourcehandle: Long): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilSetResourceServiceStartParameters(pszservicename: PCWSTR, schscmhandle: SC_HANDLE, phservice: Long, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: Long): UInt =
-    0u
+public actual fun resUtilSetResourceServiceStartParameters(pszservicename: Pcwstr, schscmhandle: ScHandle, phservice: COpaquePointer?, pfnlogevent: PlogEventRoutine, hresourcehandle: Long): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilSetResourceServiceStartParametersEx(pszservicename: PCWSTR, schscmhandle: SC_HANDLE, phservice: Long, dwdesiredaccess: UInt, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: Long): UInt =
-    0u
+public actual fun resUtilSetResourceServiceStartParametersEx(pszservicename: Pcwstr, schscmhandle: ScHandle, phservice: COpaquePointer?, dwdesiredaccess: UInt, pfnlogevent: PlogEventRoutine, hresourcehandle: Long): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilSetSzValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, psznewvalue: PCWSTR, ppszoutstring: Long): UInt =
-    0u
+public actual fun resUtilSetSzValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, psznewvalue: Pcwstr, ppszoutstring: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilSetUnknownProperties(hkeyclusterkey: HKEY, ppropertytable: Long, pinpropertylist: Long, cbinpropertylistsize: UInt): UInt =
-    0u
+public actual fun resUtilSetUnknownProperties(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilSetValueEx(hkeyclusterkey: HKEY, valuename: PCWSTR, valuetype: UInt, valuedata: Long, valuesize: UInt, flags: UInt): UInt =
-    0u
+public actual fun resUtilSetValueEx(hkeyclusterkey: Hkey, valuename: Pcwstr, valuetype: UInt, valuedata: COpaquePointer?, valuesize: UInt, flags: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilStartResourceService(pszservicename: PCWSTR, phservicehandle: Long): UInt =
-    0u
+public actual fun resUtilStartResourceService(pszservicename: Pcwstr, phservicehandle: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilStopResourceService(pszservicename: PCWSTR): UInt =
-    0u
+public actual fun resUtilStopResourceService(pszservicename: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilStopService(hservicehandle: SC_HANDLE): UInt =
-    0u
+public actual fun resUtilStopService(hservicehandle: ScHandle): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilTerminateServiceProcessFromResDll(dwservicepid: UInt, boffline: BOOL, pdwresourcestate: Long, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: Long): UInt =
-    0u
+public actual fun resUtilTerminateServiceProcessFromResDll(dwservicepid: UInt, boffline: Bool, pdwresourcestate: COpaquePointer?, pfnlogevent: PlogEventRoutine, hresourcehandle: Long): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilVerifyPrivatePropertyList(pinpropertylist: Long, cbinpropertylistsize: UInt): UInt =
-    0u
+public actual fun resUtilVerifyPrivatePropertyList(pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilVerifyPropertyTable(ppropertytable: Long, reserved: Long, ballowunknownproperties: BOOL, pinpropertylist: Long, cbinpropertylistsize: UInt, poutparams: Long): UInt =
-    0u
+public actual fun resUtilVerifyPropertyTable(ppropertytable: COpaquePointer?, reserved: COpaquePointer?, ballowunknownproperties: Bool, pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt, poutparams: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilVerifyResourceService(pszservicename: PCWSTR): UInt =
-    0u
+public actual fun resUtilVerifyResourceService(pszservicename: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilVerifyService(hservicehandle: SC_HANDLE): UInt =
-    0u
+public actual fun resUtilVerifyService(hservicehandle: ScHandle): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilVerifyShutdownSafe(flags: UInt, reason: UInt, presult: Long): UInt =
-    0u
+public actual fun resUtilVerifyShutdownSafe(flags: UInt, reason: UInt, presult: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResUtilsDeleteKeyTree(key: HKEY, keyname: PCWSTR, treatnokeyaserror: BOOL): UInt =
-    0u
+public actual fun resUtilsDeleteKeyTree(key: Hkey, keyname: Pcwstr, treatnokeyaserror: Bool): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResetAllAppInstanceVersions(): UInt =
-    0u
+public actual fun resetAllAppInstanceVersions(): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RestartClusterResource(hresource: HRESOURCE, dwflags: UInt): UInt =
-    0u
+public actual fun restartClusterResource(hresource: Hresource, dwflags: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RestartClusterResourceEx(hresource: HRESOURCE, dwflags: UInt, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun restartClusterResourceEx(hresource: Hresource, dwflags: UInt, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RestoreClusterDatabase(lpszpathname: PCWSTR, bforce: BOOL, lpszquorumdriveletter: PCWSTR): UInt =
-    0u
+public actual fun restoreClusterDatabase(lpszpathname: Pcwstr, bforce: Bool, lpszquorumdriveletter: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResumeClusterNode(hnode: HNODE): UInt =
-    0u
+public actual fun resumeClusterNode(hnode: Hnode): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResumeClusterNodeEx(hnode: HNODE, eresumefailbacktype: CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwresumeflagsreserved: UInt): UInt =
-    0u
+public actual fun resumeClusterNodeEx(hnode: Hnode, eresumefailbacktype: ClusterNodeResumeFailbackType, dwresumeflagsreserved: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResumeClusterNodeEx2(hnode: HNODE, eresumefailbacktype: CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwresumeflagsreserved: UInt, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun resumeClusterNodeEx2(hnode: Hnode, eresumefailbacktype: ClusterNodeResumeFailbackType, dwresumeflagsreserved: UInt, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetAppInstanceCsvFlags(processhandle: HANDLE, mask: UInt, flags: UInt): UInt =
-    0u
+public actual fun setAppInstanceCsvFlags(processhandle: Handle, mask: UInt, flags: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetClusterGroupName(hgroup: HGROUP, lpszgroupname: PCWSTR): UInt =
-    0u
+public actual fun setClusterGroupName(hgroup: Hgroup, lpszgroupname: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetClusterGroupNameEx(hgroup: HGROUP, lpszgroupname: PCWSTR, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun setClusterGroupNameEx(hgroup: Hgroup, lpszgroupname: Pcwstr, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetClusterGroupNodeList(hgroup: HGROUP, nodecount: UInt, nodelist: Long): UInt =
-    0u
+public actual fun setClusterGroupNodeList(hgroup: Hgroup, nodecount: UInt, nodelist: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetClusterGroupNodeListEx(hgroup: HGROUP, nodecount: UInt, nodelist: Long, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun setClusterGroupNodeListEx(hgroup: Hgroup, nodecount: UInt, nodelist: COpaquePointer?, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetClusterGroupSetDependencyExpression(hgroupset: HGROUPSET, lpszdependencyexprssion: PCWSTR): UInt =
-    0u
+public actual fun setClusterGroupSetDependencyExpression(hgroupset: Hgroupset, lpszdependencyexprssion: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetClusterGroupSetDependencyExpressionEx(hgroupset: HGROUPSET, lpszdependencyexpression: PCWSTR, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun setClusterGroupSetDependencyExpressionEx(hgroupset: Hgroupset, lpszdependencyexpression: Pcwstr, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetClusterName(hcluster: HCLUSTER, lpsznewclustername: PCWSTR): UInt =
-    0u
+public actual fun setClusterName(hcluster: Hcluster, lpsznewclustername: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetClusterNameEx(hcluster: HCLUSTER, lpsznewclustername: PCWSTR, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun setClusterNameEx(hcluster: Hcluster, lpsznewclustername: Pcwstr, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetClusterNetworkName(hnetwork: HNETWORK, lpszname: PCWSTR): UInt =
-    0u
+public actual fun setClusterNetworkName(hnetwork: Hnetwork, lpszname: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetClusterNetworkNameEx(hnetwork: HNETWORK, lpszname: PCWSTR, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun setClusterNetworkNameEx(hnetwork: Hnetwork, lpszname: Pcwstr, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetClusterNetworkPriorityOrder(hcluster: HCLUSTER, networkcount: UInt, networklist: Long): UInt =
-    0u
+public actual fun setClusterNetworkPriorityOrder(hcluster: Hcluster, networkcount: UInt, networklist: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetClusterQuorumResource(hresource: HRESOURCE, lpszdevicename: PCWSTR, dwmaxquologsize: UInt): UInt =
-    0u
+public actual fun setClusterQuorumResource(hresource: Hresource, lpszdevicename: Pcwstr, dwmaxquologsize: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetClusterQuorumResourceEx(hresource: HRESOURCE, lpszdevicename: PCWSTR, dwmaxquorumlogsize: UInt, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun setClusterQuorumResourceEx(hresource: Hresource, lpszdevicename: Pcwstr, dwmaxquorumlogsize: UInt, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetClusterResourceDependencyExpression(hresource: HRESOURCE, lpszdependencyexpression: PCWSTR): UInt =
-    0u
+public actual fun setClusterResourceDependencyExpression(hresource: Hresource, lpszdependencyexpression: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetClusterResourceName(hresource: HRESOURCE, lpszresourcename: PCWSTR): UInt =
-    0u
+public actual fun setClusterResourceName(hresource: Hresource, lpszresourcename: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetClusterResourceNameEx(hresource: HRESOURCE, lpszresourcename: PCWSTR, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun setClusterResourceNameEx(hresource: Hresource, lpszresourcename: Pcwstr, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetClusterServiceAccountPassword(lpszclustername: PCWSTR, lpsznewpassword: PCWSTR, dwflags: UInt, lpreturnstatusbuffer: Long, lpcbreturnstatusbuffersize: Long): UInt =
-    0u
+public actual fun setClusterServiceAccountPassword(lpszclustername: Pcwstr, lpsznewpassword: Pcwstr, dwflags: UInt, lpreturnstatusbuffer: COpaquePointer?, lpcbreturnstatusbuffersize: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetGroupDependencyExpression(hgroup: HGROUP, lpszdependencyexpression: PCWSTR): UInt =
-    0u
+public actual fun setGroupDependencyExpression(hgroup: Hgroup, lpszdependencyexpression: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetGroupDependencyExpressionEx(hgroup: HGROUP, lpszdependencyexpression: PCWSTR, lpszreason: PCWSTR): UInt =
-    0u
+public actual fun setGroupDependencyExpressionEx(hgroup: Hgroup, lpszdependencyexpression: Pcwstr, lpszreason: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

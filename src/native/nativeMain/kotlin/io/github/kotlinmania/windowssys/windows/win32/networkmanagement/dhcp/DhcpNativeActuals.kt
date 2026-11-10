@@ -2,651 +2,652 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun DhcpAddFilterV4(serveripaddress: PCWSTR, addfilterinfo: Long, forceflag: BOOL): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpAddFilterV4(serveripaddress.toCPointer<ByteVar>(), addfilterinfo.toCPointer<ByteVar>(), forceflag)
+public actual fun dhcpAddFilterV4(serveripaddress: Pcwstr, addfilterinfo: COpaquePointer?, forceflag: Bool): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpAddFilterV4(serveripaddress?.value?.toCPointer<ByteVar>(), addfilterinfo?.value?.toCPointer<ByteVar>(), forceflag)
 
-public actual fun DhcpAddSecurityGroup(pserver: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpAddSecurityGroup(pserver.toCPointer<ByteVar>())
+public actual fun dhcpAddSecurityGroup(pserver: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpAddSecurityGroup(pserver?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpAddServer(flags: UInt, idinfo: Long, newserver: Long, callbackfn: Long, callbackdata: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpAddServer(flags, idinfo.toCPointer<ByteVar>(), newserver.toCPointer<ByteVar>(), callbackfn.toCPointer<ByteVar>(), callbackdata.toCPointer<ByteVar>())
+public actual fun dhcpAddServer(flags: UInt, idinfo: COpaquePointer?, newserver: COpaquePointer?, callbackfn: COpaquePointer?, callbackdata: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpAddServer(flags, idinfo?.value?.toCPointer<ByteVar>(), newserver?.value?.toCPointer<ByteVar>(), callbackfn?.value?.toCPointer<ByteVar>(), callbackdata?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpAddSubnetElement(serveripaddress: PCWSTR, subnetaddress: UInt, addelementinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpAddSubnetElement(serveripaddress.toCPointer<ByteVar>(), subnetaddress, addelementinfo.toCPointer<ByteVar>())
+public actual fun dhcpAddSubnetElement(serveripaddress: Pcwstr, subnetaddress: UInt, addelementinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpAddSubnetElement(serveripaddress?.value?.toCPointer<ByteVar>(), subnetaddress, addelementinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpAddSubnetElementV4(serveripaddress: PCWSTR, subnetaddress: UInt, addelementinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpAddSubnetElementV4(serveripaddress.toCPointer<ByteVar>(), subnetaddress, addelementinfo.toCPointer<ByteVar>())
+public actual fun dhcpAddSubnetElementV4(serveripaddress: Pcwstr, subnetaddress: UInt, addelementinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpAddSubnetElementV4(serveripaddress?.value?.toCPointer<ByteVar>(), subnetaddress, addelementinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpAddSubnetElementV5(serveripaddress: PCWSTR, subnetaddress: UInt, addelementinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpAddSubnetElementV5(serveripaddress.toCPointer<ByteVar>(), subnetaddress, addelementinfo.toCPointer<ByteVar>())
+public actual fun dhcpAddSubnetElementV5(serveripaddress: Pcwstr, subnetaddress: UInt, addelementinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpAddSubnetElementV5(serveripaddress?.value?.toCPointer<ByteVar>(), subnetaddress, addelementinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpAddSubnetElementV6(serveripaddress: PCWSTR, subnetaddress: DHCP_IPV6_ADDRESS, addelementinfo: Long): UInt =
+public actual fun dhcpAddSubnetElementV6(serveripaddress: Pcwstr, subnetaddress: DhcpIpv6Address, addelementinfo: COpaquePointer?): UInt =
     0u
 
-public actual fun DhcpAuditLogGetParams(serveripaddress: PCWSTR, flags: UInt, auditlogdir: Long, diskcheckinterval: Long, maxlogfilessize: Long, minspaceondisk: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpAuditLogGetParams(serveripaddress.toCPointer<ByteVar>(), flags, auditlogdir.toCPointer<ByteVar>(), diskcheckinterval.toCPointer<ByteVar>(), maxlogfilessize.toCPointer<ByteVar>(), minspaceondisk.toCPointer<ByteVar>())
+public actual fun dhcpAuditLogGetParams(serveripaddress: Pcwstr, flags: UInt, auditlogdir: COpaquePointer?, diskcheckinterval: COpaquePointer?, maxlogfilessize: COpaquePointer?, minspaceondisk: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpAuditLogGetParams(serveripaddress?.value?.toCPointer<ByteVar>(), flags, auditlogdir?.value?.toCPointer<ByteVar>(), diskcheckinterval?.value?.toCPointer<ByteVar>(), maxlogfilessize?.value?.toCPointer<ByteVar>(), minspaceondisk?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpAuditLogSetParams(serveripaddress: PCWSTR, flags: UInt, auditlogdir: PCWSTR, diskcheckinterval: UInt, maxlogfilessize: UInt, minspaceondisk: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpAuditLogSetParams(serveripaddress.toCPointer<ByteVar>(), flags, auditlogdir.toCPointer<ByteVar>(), diskcheckinterval, maxlogfilessize, minspaceondisk)
+public actual fun dhcpAuditLogSetParams(serveripaddress: Pcwstr, flags: UInt, auditlogdir: Pcwstr, diskcheckinterval: UInt, maxlogfilessize: UInt, minspaceondisk: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpAuditLogSetParams(serveripaddress?.value?.toCPointer<ByteVar>(), flags, auditlogdir?.value?.toCPointer<ByteVar>(), diskcheckinterval, maxlogfilessize, minspaceondisk)
 
-public actual fun DhcpCApiCleanup() {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpCApiCleanup()
+public actual fun dhcpCApiCleanup() {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpCApiCleanup()
 }
 
-public actual fun DhcpCApiInitialize(version: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpCApiInitialize(version.toCPointer<ByteVar>())
+public actual fun dhcpCApiInitialize(version: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpCApiInitialize(version?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpCreateClass(serveripaddress: PCWSTR, reservedmustbezero: UInt, classinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateClass(serveripaddress.toCPointer<ByteVar>(), reservedmustbezero, classinfo.toCPointer<ByteVar>())
+public actual fun dhcpCreateClass(serveripaddress: Pcwstr, reservedmustbezero: UInt, classinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClass(serveripaddress?.value?.toCPointer<ByteVar>(), reservedmustbezero, classinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpCreateClassV6(serveripaddress: PCWSTR, reservedmustbezero: UInt, classinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateClassV6(serveripaddress.toCPointer<ByteVar>(), reservedmustbezero, classinfo.toCPointer<ByteVar>())
+public actual fun dhcpCreateClassV6(serveripaddress: Pcwstr, reservedmustbezero: UInt, classinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClassV6(serveripaddress?.value?.toCPointer<ByteVar>(), reservedmustbezero, classinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpCreateClientInfo(serveripaddress: PCWSTR, clientinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateClientInfo(serveripaddress.toCPointer<ByteVar>(), clientinfo.toCPointer<ByteVar>())
+public actual fun dhcpCreateClientInfo(serveripaddress: Pcwstr, clientinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClientInfo(serveripaddress?.value?.toCPointer<ByteVar>(), clientinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpCreateClientInfoV4(serveripaddress: PCWSTR, clientinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateClientInfoV4(serveripaddress.toCPointer<ByteVar>(), clientinfo.toCPointer<ByteVar>())
+public actual fun dhcpCreateClientInfoV4(serveripaddress: Pcwstr, clientinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClientInfoV4(serveripaddress?.value?.toCPointer<ByteVar>(), clientinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpCreateClientInfoVQ(serveripaddress: PCWSTR, clientinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateClientInfoVQ(serveripaddress.toCPointer<ByteVar>(), clientinfo.toCPointer<ByteVar>())
+public actual fun dhcpCreateClientInfoVQ(serveripaddress: Pcwstr, clientinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateClientInfoVQ(serveripaddress?.value?.toCPointer<ByteVar>(), clientinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpCreateOption(serveripaddress: PCWSTR, optionid: UInt, optioninfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateOption(serveripaddress.toCPointer<ByteVar>(), optionid, optioninfo.toCPointer<ByteVar>())
+public actual fun dhcpCreateOption(serveripaddress: Pcwstr, optionid: UInt, optioninfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateOption(serveripaddress?.value?.toCPointer<ByteVar>(), optionid, optioninfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpCreateOptionV5(serveripaddress: PCWSTR, flags: UInt, optionid: UInt, classname: PCWSTR, vendorname: PCWSTR, optioninfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateOptionV5(serveripaddress.toCPointer<ByteVar>(), flags, optionid, classname.toCPointer<ByteVar>(), vendorname.toCPointer<ByteVar>(), optioninfo.toCPointer<ByteVar>())
+public actual fun dhcpCreateOptionV5(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, optioninfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateOptionV5(serveripaddress?.value?.toCPointer<ByteVar>(), flags, optionid, classname?.value?.toCPointer<ByteVar>(), vendorname?.value?.toCPointer<ByteVar>(), optioninfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpCreateOptionV6(serveripaddress: PCWSTR, flags: UInt, optionid: UInt, classname: PCWSTR, vendorname: PCWSTR, optioninfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateOptionV6(serveripaddress.toCPointer<ByteVar>(), flags, optionid, classname.toCPointer<ByteVar>(), vendorname.toCPointer<ByteVar>(), optioninfo.toCPointer<ByteVar>())
+public actual fun dhcpCreateOptionV6(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, optioninfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateOptionV6(serveripaddress?.value?.toCPointer<ByteVar>(), flags, optionid, classname?.value?.toCPointer<ByteVar>(), vendorname?.value?.toCPointer<ByteVar>(), optioninfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpCreateSubnet(serveripaddress: PCWSTR, subnetaddress: UInt, subnetinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateSubnet(serveripaddress.toCPointer<ByteVar>(), subnetaddress, subnetinfo.toCPointer<ByteVar>())
+public actual fun dhcpCreateSubnet(serveripaddress: Pcwstr, subnetaddress: UInt, subnetinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateSubnet(serveripaddress?.value?.toCPointer<ByteVar>(), subnetaddress, subnetinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpCreateSubnetV6(serveripaddress: PCWSTR, subnetaddress: DHCP_IPV6_ADDRESS, subnetinfo: Long): UInt =
+public actual fun dhcpCreateSubnetV6(serveripaddress: Pcwstr, subnetaddress: DhcpIpv6Address, subnetinfo: COpaquePointer?): UInt =
     0u
 
-public actual fun DhcpCreateSubnetVQ(serveripaddress: PCWSTR, subnetaddress: UInt, subnetinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpCreateSubnetVQ(serveripaddress.toCPointer<ByteVar>(), subnetaddress, subnetinfo.toCPointer<ByteVar>())
+public actual fun dhcpCreateSubnetVQ(serveripaddress: Pcwstr, subnetaddress: UInt, subnetinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateSubnetVQ(serveripaddress?.value?.toCPointer<ByteVar>(), subnetaddress, subnetinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpDeRegisterParamChange(flags: UInt, reserved: Long, event: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpDeRegisterParamChange(flags, reserved.toCPointer<ByteVar>(), event.toCPointer<ByteVar>())
+public actual fun dhcpDeRegisterParamChange(flags: UInt, reserved: COpaquePointer?, event: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpDeRegisterParamChange(flags, reserved?.value?.toCPointer<ByteVar>(), event?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpDeleteClass(serveripaddress: PCWSTR, reservedmustbezero: UInt, classname: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteClass(serveripaddress.toCPointer<ByteVar>(), reservedmustbezero, classname.toCPointer<ByteVar>())
+public actual fun dhcpDeleteClass(serveripaddress: Pcwstr, reservedmustbezero: UInt, classname: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteClass(serveripaddress?.value?.toCPointer<ByteVar>(), reservedmustbezero, classname?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpDeleteClassV6(serveripaddress: PCWSTR, reservedmustbezero: UInt, classname: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteClassV6(serveripaddress.toCPointer<ByteVar>(), reservedmustbezero, classname.toCPointer<ByteVar>())
+public actual fun dhcpDeleteClassV6(serveripaddress: Pcwstr, reservedmustbezero: UInt, classname: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteClassV6(serveripaddress?.value?.toCPointer<ByteVar>(), reservedmustbezero, classname?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpDeleteClientInfo(serveripaddress: PCWSTR, clientinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteClientInfo(serveripaddress.toCPointer<ByteVar>(), clientinfo.toCPointer<ByteVar>())
+public actual fun dhcpDeleteClientInfo(serveripaddress: Pcwstr, clientinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteClientInfo(serveripaddress?.value?.toCPointer<ByteVar>(), clientinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpDeleteClientInfoV6(serveripaddress: PCWSTR, clientinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteClientInfoV6(serveripaddress.toCPointer<ByteVar>(), clientinfo.toCPointer<ByteVar>())
+public actual fun dhcpDeleteClientInfoV6(serveripaddress: Pcwstr, clientinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteClientInfoV6(serveripaddress?.value?.toCPointer<ByteVar>(), clientinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpDeleteFilterV4(serveripaddress: PCWSTR, deletefilterinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteFilterV4(serveripaddress.toCPointer<ByteVar>(), deletefilterinfo.toCPointer<ByteVar>())
+public actual fun dhcpDeleteFilterV4(serveripaddress: Pcwstr, deletefilterinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteFilterV4(serveripaddress?.value?.toCPointer<ByteVar>(), deletefilterinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpDeleteServer(flags: UInt, idinfo: Long, newserver: Long, callbackfn: Long, callbackdata: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteServer(flags, idinfo.toCPointer<ByteVar>(), newserver.toCPointer<ByteVar>(), callbackfn.toCPointer<ByteVar>(), callbackdata.toCPointer<ByteVar>())
+public actual fun dhcpDeleteServer(flags: UInt, idinfo: COpaquePointer?, newserver: COpaquePointer?, callbackfn: COpaquePointer?, callbackdata: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteServer(flags, idinfo?.value?.toCPointer<ByteVar>(), newserver?.value?.toCPointer<ByteVar>(), callbackfn?.value?.toCPointer<ByteVar>(), callbackdata?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpDeleteSubnet(serveripaddress: PCWSTR, subnetaddress: UInt, forceflag: DHCP_FORCE_FLAG): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteSubnet(serveripaddress.toCPointer<ByteVar>(), subnetaddress, forceflag)
+public actual fun dhcpDeleteSubnet(serveripaddress: Pcwstr, subnetaddress: UInt, forceflag: DhcpForceFlag): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteSubnet(serveripaddress?.value?.toCPointer<ByteVar>(), subnetaddress, forceflag)
 
-public actual fun DhcpDeleteSubnetV6(serveripaddress: PCWSTR, subnetaddress: DHCP_IPV6_ADDRESS, forceflag: DHCP_FORCE_FLAG): UInt =
+public actual fun dhcpDeleteSubnetV6(serveripaddress: Pcwstr, subnetaddress: DhcpIpv6Address, forceflag: DhcpForceFlag): UInt =
     0u
 
-public actual fun DhcpDeleteSuperScopeV4(serveripaddress: PCWSTR, superscopename: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpDeleteSuperScopeV4(serveripaddress.toCPointer<ByteVar>(), superscopename.toCPointer<ByteVar>())
+public actual fun dhcpDeleteSuperScopeV4(serveripaddress: Pcwstr, superscopename: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteSuperScopeV4(serveripaddress?.value?.toCPointer<ByteVar>(), superscopename?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpDsCleanup() {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpDsCleanup()
+public actual fun dhcpDsCleanup() {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpDsCleanup()
 }
 
-public actual fun DhcpDsInit(): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpDsInit()
+public actual fun dhcpDsInit(): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpDsInit()
 
-public actual fun DhcpEnumClasses(serveripaddress: PCWSTR, reservedmustbezero: UInt, resumehandle: Long, preferredmaximum: UInt, classinfoarray: Long, nread: Long, ntotal: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumClasses(serveripaddress.toCPointer<ByteVar>(), reservedmustbezero, resumehandle.toCPointer<ByteVar>(), preferredmaximum, classinfoarray.toCPointer<ByteVar>(), nread.toCPointer<ByteVar>(), ntotal.toCPointer<ByteVar>())
+public actual fun dhcpEnumClasses(serveripaddress: Pcwstr, reservedmustbezero: UInt, resumehandle: COpaquePointer?, preferredmaximum: UInt, classinfoarray: COpaquePointer?, nread: COpaquePointer?, ntotal: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumClasses(serveripaddress?.value?.toCPointer<ByteVar>(), reservedmustbezero, resumehandle?.value?.toCPointer<ByteVar>(), preferredmaximum, classinfoarray?.value?.toCPointer<ByteVar>(), nread?.value?.toCPointer<ByteVar>(), ntotal?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpEnumClassesV6(serveripaddress: PCWSTR, reservedmustbezero: UInt, resumehandle: Long, preferredmaximum: UInt, classinfoarray: Long, nread: Long, ntotal: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumClassesV6(serveripaddress.toCPointer<ByteVar>(), reservedmustbezero, resumehandle.toCPointer<ByteVar>(), preferredmaximum, classinfoarray.toCPointer<ByteVar>(), nread.toCPointer<ByteVar>(), ntotal.toCPointer<ByteVar>())
+public actual fun dhcpEnumClassesV6(serveripaddress: Pcwstr, reservedmustbezero: UInt, resumehandle: COpaquePointer?, preferredmaximum: UInt, classinfoarray: COpaquePointer?, nread: COpaquePointer?, ntotal: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumClassesV6(serveripaddress?.value?.toCPointer<ByteVar>(), reservedmustbezero, resumehandle?.value?.toCPointer<ByteVar>(), preferredmaximum, classinfoarray?.value?.toCPointer<ByteVar>(), nread?.value?.toCPointer<ByteVar>(), ntotal?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpEnumFilterV4(serveripaddress: PCWSTR, resumehandle: Long, preferredmaximum: UInt, listtype: DHCP_FILTER_LIST_TYPE, enumfilterinfo: Long, elementsread: Long, elementstotal: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumFilterV4(serveripaddress.toCPointer<ByteVar>(), resumehandle.toCPointer<ByteVar>(), preferredmaximum, listtype, enumfilterinfo.toCPointer<ByteVar>(), elementsread.toCPointer<ByteVar>(), elementstotal.toCPointer<ByteVar>())
+public actual fun dhcpEnumFilterV4(serveripaddress: Pcwstr, resumehandle: COpaquePointer?, preferredmaximum: UInt, listtype: DhcpFilterListType, enumfilterinfo: COpaquePointer?, elementsread: COpaquePointer?, elementstotal: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumFilterV4(serveripaddress?.value?.toCPointer<ByteVar>(), resumehandle?.value?.toCPointer<ByteVar>(), preferredmaximum, listtype, enumfilterinfo?.value?.toCPointer<ByteVar>(), elementsread?.value?.toCPointer<ByteVar>(), elementstotal?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpEnumOptionValues(serveripaddress: PCWSTR, scopeinfo: Long, resumehandle: Long, preferredmaximum: UInt, optionvalues: Long, optionsread: Long, optionstotal: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptionValues(serveripaddress.toCPointer<ByteVar>(), scopeinfo.toCPointer<ByteVar>(), resumehandle.toCPointer<ByteVar>(), preferredmaximum, optionvalues.toCPointer<ByteVar>(), optionsread.toCPointer<ByteVar>(), optionstotal.toCPointer<ByteVar>())
+public actual fun dhcpEnumOptionValues(serveripaddress: Pcwstr, scopeinfo: COpaquePointer?, resumehandle: COpaquePointer?, preferredmaximum: UInt, optionvalues: COpaquePointer?, optionsread: COpaquePointer?, optionstotal: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionValues(serveripaddress?.value?.toCPointer<ByteVar>(), scopeinfo?.value?.toCPointer<ByteVar>(), resumehandle?.value?.toCPointer<ByteVar>(), preferredmaximum, optionvalues?.value?.toCPointer<ByteVar>(), optionsread?.value?.toCPointer<ByteVar>(), optionstotal?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpEnumOptionValuesV5(serveripaddress: PCWSTR, flags: UInt, classname: PCWSTR, vendorname: PCWSTR, scopeinfo: Long, resumehandle: Long, preferredmaximum: UInt, optionvalues: Long, optionsread: Long, optionstotal: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptionValuesV5(serveripaddress.toCPointer<ByteVar>(), flags, classname.toCPointer<ByteVar>(), vendorname.toCPointer<ByteVar>(), scopeinfo.toCPointer<ByteVar>(), resumehandle.toCPointer<ByteVar>(), preferredmaximum, optionvalues.toCPointer<ByteVar>(), optionsread.toCPointer<ByteVar>(), optionstotal.toCPointer<ByteVar>())
+public actual fun dhcpEnumOptionValuesV5(serveripaddress: Pcwstr, flags: UInt, classname: Pcwstr, vendorname: Pcwstr, scopeinfo: COpaquePointer?, resumehandle: COpaquePointer?, preferredmaximum: UInt, optionvalues: COpaquePointer?, optionsread: COpaquePointer?, optionstotal: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionValuesV5(serveripaddress?.value?.toCPointer<ByteVar>(), flags, classname?.value?.toCPointer<ByteVar>(), vendorname?.value?.toCPointer<ByteVar>(), scopeinfo?.value?.toCPointer<ByteVar>(), resumehandle?.value?.toCPointer<ByteVar>(), preferredmaximum, optionvalues?.value?.toCPointer<ByteVar>(), optionsread?.value?.toCPointer<ByteVar>(), optionstotal?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpEnumOptionValuesV6(serveripaddress: PCWSTR, flags: UInt, classname: PCWSTR, vendorname: PCWSTR, scopeinfo: Long, resumehandle: Long, preferredmaximum: UInt, optionvalues: Long, optionsread: Long, optionstotal: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptionValuesV6(serveripaddress.toCPointer<ByteVar>(), flags, classname.toCPointer<ByteVar>(), vendorname.toCPointer<ByteVar>(), scopeinfo.toCPointer<ByteVar>(), resumehandle.toCPointer<ByteVar>(), preferredmaximum, optionvalues.toCPointer<ByteVar>(), optionsread.toCPointer<ByteVar>(), optionstotal.toCPointer<ByteVar>())
+public actual fun dhcpEnumOptionValuesV6(serveripaddress: Pcwstr, flags: UInt, classname: Pcwstr, vendorname: Pcwstr, scopeinfo: COpaquePointer?, resumehandle: COpaquePointer?, preferredmaximum: UInt, optionvalues: COpaquePointer?, optionsread: COpaquePointer?, optionstotal: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionValuesV6(serveripaddress?.value?.toCPointer<ByteVar>(), flags, classname?.value?.toCPointer<ByteVar>(), vendorname?.value?.toCPointer<ByteVar>(), scopeinfo?.value?.toCPointer<ByteVar>(), resumehandle?.value?.toCPointer<ByteVar>(), preferredmaximum, optionvalues?.value?.toCPointer<ByteVar>(), optionsread?.value?.toCPointer<ByteVar>(), optionstotal?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpEnumOptions(serveripaddress: PCWSTR, resumehandle: Long, preferredmaximum: UInt, options: Long, optionsread: Long, optionstotal: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptions(serveripaddress.toCPointer<ByteVar>(), resumehandle.toCPointer<ByteVar>(), preferredmaximum, options.toCPointer<ByteVar>(), optionsread.toCPointer<ByteVar>(), optionstotal.toCPointer<ByteVar>())
+public actual fun dhcpEnumOptions(serveripaddress: Pcwstr, resumehandle: COpaquePointer?, preferredmaximum: UInt, options: COpaquePointer?, optionsread: COpaquePointer?, optionstotal: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptions(serveripaddress?.value?.toCPointer<ByteVar>(), resumehandle?.value?.toCPointer<ByteVar>(), preferredmaximum, options?.value?.toCPointer<ByteVar>(), optionsread?.value?.toCPointer<ByteVar>(), optionstotal?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpEnumOptionsV5(serveripaddress: PCWSTR, flags: UInt, classname: PCWSTR, vendorname: PCWSTR, resumehandle: Long, preferredmaximum: UInt, options: Long, optionsread: Long, optionstotal: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptionsV5(serveripaddress.toCPointer<ByteVar>(), flags, classname.toCPointer<ByteVar>(), vendorname.toCPointer<ByteVar>(), resumehandle.toCPointer<ByteVar>(), preferredmaximum, options.toCPointer<ByteVar>(), optionsread.toCPointer<ByteVar>(), optionstotal.toCPointer<ByteVar>())
+public actual fun dhcpEnumOptionsV5(serveripaddress: Pcwstr, flags: UInt, classname: Pcwstr, vendorname: Pcwstr, resumehandle: COpaquePointer?, preferredmaximum: UInt, options: COpaquePointer?, optionsread: COpaquePointer?, optionstotal: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionsV5(serveripaddress?.value?.toCPointer<ByteVar>(), flags, classname?.value?.toCPointer<ByteVar>(), vendorname?.value?.toCPointer<ByteVar>(), resumehandle?.value?.toCPointer<ByteVar>(), preferredmaximum, options?.value?.toCPointer<ByteVar>(), optionsread?.value?.toCPointer<ByteVar>(), optionstotal?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpEnumOptionsV6(serveripaddress: PCWSTR, flags: UInt, classname: PCWSTR, vendorname: PCWSTR, resumehandle: Long, preferredmaximum: UInt, options: Long, optionsread: Long, optionstotal: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumOptionsV6(serveripaddress.toCPointer<ByteVar>(), flags, classname.toCPointer<ByteVar>(), vendorname.toCPointer<ByteVar>(), resumehandle.toCPointer<ByteVar>(), preferredmaximum, options.toCPointer<ByteVar>(), optionsread.toCPointer<ByteVar>(), optionstotal.toCPointer<ByteVar>())
+public actual fun dhcpEnumOptionsV6(serveripaddress: Pcwstr, flags: UInt, classname: Pcwstr, vendorname: Pcwstr, resumehandle: COpaquePointer?, preferredmaximum: UInt, options: COpaquePointer?, optionsread: COpaquePointer?, optionstotal: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptionsV6(serveripaddress?.value?.toCPointer<ByteVar>(), flags, classname?.value?.toCPointer<ByteVar>(), vendorname?.value?.toCPointer<ByteVar>(), resumehandle?.value?.toCPointer<ByteVar>(), preferredmaximum, options?.value?.toCPointer<ByteVar>(), optionsread?.value?.toCPointer<ByteVar>(), optionstotal?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpEnumServers(flags: UInt, idinfo: Long, servers: Long, callbackfn: Long, callbackdata: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumServers(flags, idinfo.toCPointer<ByteVar>(), servers.toCPointer<ByteVar>(), callbackfn.toCPointer<ByteVar>(), callbackdata.toCPointer<ByteVar>())
+public actual fun dhcpEnumServers(flags: UInt, idinfo: COpaquePointer?, servers: COpaquePointer?, callbackfn: COpaquePointer?, callbackdata: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumServers(flags, idinfo?.value?.toCPointer<ByteVar>(), servers?.value?.toCPointer<ByteVar>(), callbackfn?.value?.toCPointer<ByteVar>(), callbackdata?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpEnumSubnetClients(serveripaddress: PCWSTR, subnetaddress: UInt, resumehandle: Long, preferredmaximum: UInt, clientinfo: Long, clientsread: Long, clientstotal: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetClients(serveripaddress.toCPointer<ByteVar>(), subnetaddress, resumehandle.toCPointer<ByteVar>(), preferredmaximum, clientinfo.toCPointer<ByteVar>(), clientsread.toCPointer<ByteVar>(), clientstotal.toCPointer<ByteVar>())
+public actual fun dhcpEnumSubnetClients(serveripaddress: Pcwstr, subnetaddress: UInt, resumehandle: COpaquePointer?, preferredmaximum: UInt, clientinfo: COpaquePointer?, clientsread: COpaquePointer?, clientstotal: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClients(serveripaddress?.value?.toCPointer<ByteVar>(), subnetaddress, resumehandle?.value?.toCPointer<ByteVar>(), preferredmaximum, clientinfo?.value?.toCPointer<ByteVar>(), clientsread?.value?.toCPointer<ByteVar>(), clientstotal?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpEnumSubnetClientsFilterStatusInfo(serveripaddress: PCWSTR, subnetaddress: UInt, resumehandle: Long, preferredmaximum: UInt, clientinfo: Long, clientsread: Long, clientstotal: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetClientsFilterStatusInfo(serveripaddress.toCPointer<ByteVar>(), subnetaddress, resumehandle.toCPointer<ByteVar>(), preferredmaximum, clientinfo.toCPointer<ByteVar>(), clientsread.toCPointer<ByteVar>(), clientstotal.toCPointer<ByteVar>())
+public actual fun dhcpEnumSubnetClientsFilterStatusInfo(serveripaddress: Pcwstr, subnetaddress: UInt, resumehandle: COpaquePointer?, preferredmaximum: UInt, clientinfo: COpaquePointer?, clientsread: COpaquePointer?, clientstotal: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClientsFilterStatusInfo(serveripaddress?.value?.toCPointer<ByteVar>(), subnetaddress, resumehandle?.value?.toCPointer<ByteVar>(), preferredmaximum, clientinfo?.value?.toCPointer<ByteVar>(), clientsread?.value?.toCPointer<ByteVar>(), clientstotal?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpEnumSubnetClientsV4(serveripaddress: PCWSTR, subnetaddress: UInt, resumehandle: Long, preferredmaximum: UInt, clientinfo: Long, clientsread: Long, clientstotal: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetClientsV4(serveripaddress.toCPointer<ByteVar>(), subnetaddress, resumehandle.toCPointer<ByteVar>(), preferredmaximum, clientinfo.toCPointer<ByteVar>(), clientsread.toCPointer<ByteVar>(), clientstotal.toCPointer<ByteVar>())
+public actual fun dhcpEnumSubnetClientsV4(serveripaddress: Pcwstr, subnetaddress: UInt, resumehandle: COpaquePointer?, preferredmaximum: UInt, clientinfo: COpaquePointer?, clientsread: COpaquePointer?, clientstotal: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClientsV4(serveripaddress?.value?.toCPointer<ByteVar>(), subnetaddress, resumehandle?.value?.toCPointer<ByteVar>(), preferredmaximum, clientinfo?.value?.toCPointer<ByteVar>(), clientsread?.value?.toCPointer<ByteVar>(), clientstotal?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpEnumSubnetClientsV5(serveripaddress: PCWSTR, subnetaddress: UInt, resumehandle: Long, preferredmaximum: UInt, clientinfo: Long, clientsread: Long, clientstotal: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetClientsV5(serveripaddress.toCPointer<ByteVar>(), subnetaddress, resumehandle.toCPointer<ByteVar>(), preferredmaximum, clientinfo.toCPointer<ByteVar>(), clientsread.toCPointer<ByteVar>(), clientstotal.toCPointer<ByteVar>())
+public actual fun dhcpEnumSubnetClientsV5(serveripaddress: Pcwstr, subnetaddress: UInt, resumehandle: COpaquePointer?, preferredmaximum: UInt, clientinfo: COpaquePointer?, clientsread: COpaquePointer?, clientstotal: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClientsV5(serveripaddress?.value?.toCPointer<ByteVar>(), subnetaddress, resumehandle?.value?.toCPointer<ByteVar>(), preferredmaximum, clientinfo?.value?.toCPointer<ByteVar>(), clientsread?.value?.toCPointer<ByteVar>(), clientstotal?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpEnumSubnetClientsV6(serveripaddress: PCWSTR, subnetaddress: DHCP_IPV6_ADDRESS, resumehandle: Long, preferredmaximum: UInt, clientinfo: Long, clientsread: Long, clientstotal: Long): UInt =
+public actual fun dhcpEnumSubnetClientsV6(serveripaddress: Pcwstr, subnetaddress: DhcpIpv6Address, resumehandle: COpaquePointer?, preferredmaximum: UInt, clientinfo: COpaquePointer?, clientsread: COpaquePointer?, clientstotal: COpaquePointer?): UInt =
     0u
 
-public actual fun DhcpEnumSubnetClientsVQ(serveripaddress: PCWSTR, subnetaddress: UInt, resumehandle: Long, preferredmaximum: UInt, clientinfo: Long, clientsread: Long, clientstotal: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetClientsVQ(serveripaddress.toCPointer<ByteVar>(), subnetaddress, resumehandle.toCPointer<ByteVar>(), preferredmaximum, clientinfo.toCPointer<ByteVar>(), clientsread.toCPointer<ByteVar>(), clientstotal.toCPointer<ByteVar>())
+public actual fun dhcpEnumSubnetClientsVQ(serveripaddress: Pcwstr, subnetaddress: UInt, resumehandle: COpaquePointer?, preferredmaximum: UInt, clientinfo: COpaquePointer?, clientsread: COpaquePointer?, clientstotal: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetClientsVQ(serveripaddress?.value?.toCPointer<ByteVar>(), subnetaddress, resumehandle?.value?.toCPointer<ByteVar>(), preferredmaximum, clientinfo?.value?.toCPointer<ByteVar>(), clientsread?.value?.toCPointer<ByteVar>(), clientstotal?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpEnumSubnetElements(serveripaddress: PCWSTR, subnetaddress: UInt, enumelementtype: DHCP_SUBNET_ELEMENT_TYPE, resumehandle: Long, preferredmaximum: UInt, enumelementinfo: Long, elementsread: Long, elementstotal: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetElements(serveripaddress.toCPointer<ByteVar>(), subnetaddress, enumelementtype, resumehandle.toCPointer<ByteVar>(), preferredmaximum, enumelementinfo.toCPointer<ByteVar>(), elementsread.toCPointer<ByteVar>(), elementstotal.toCPointer<ByteVar>())
+public actual fun dhcpEnumSubnetElements(serveripaddress: Pcwstr, subnetaddress: UInt, enumelementtype: DhcpSubnetElementType, resumehandle: COpaquePointer?, preferredmaximum: UInt, enumelementinfo: COpaquePointer?, elementsread: COpaquePointer?, elementstotal: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetElements(serveripaddress?.value?.toCPointer<ByteVar>(), subnetaddress, enumelementtype, resumehandle?.value?.toCPointer<ByteVar>(), preferredmaximum, enumelementinfo?.value?.toCPointer<ByteVar>(), elementsread?.value?.toCPointer<ByteVar>(), elementstotal?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpEnumSubnetElementsV4(serveripaddress: PCWSTR, subnetaddress: UInt, enumelementtype: DHCP_SUBNET_ELEMENT_TYPE, resumehandle: Long, preferredmaximum: UInt, enumelementinfo: Long, elementsread: Long, elementstotal: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetElementsV4(serveripaddress.toCPointer<ByteVar>(), subnetaddress, enumelementtype, resumehandle.toCPointer<ByteVar>(), preferredmaximum, enumelementinfo.toCPointer<ByteVar>(), elementsread.toCPointer<ByteVar>(), elementstotal.toCPointer<ByteVar>())
+public actual fun dhcpEnumSubnetElementsV4(serveripaddress: Pcwstr, subnetaddress: UInt, enumelementtype: DhcpSubnetElementType, resumehandle: COpaquePointer?, preferredmaximum: UInt, enumelementinfo: COpaquePointer?, elementsread: COpaquePointer?, elementstotal: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetElementsV4(serveripaddress?.value?.toCPointer<ByteVar>(), subnetaddress, enumelementtype, resumehandle?.value?.toCPointer<ByteVar>(), preferredmaximum, enumelementinfo?.value?.toCPointer<ByteVar>(), elementsread?.value?.toCPointer<ByteVar>(), elementstotal?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpEnumSubnetElementsV5(serveripaddress: PCWSTR, subnetaddress: UInt, enumelementtype: DHCP_SUBNET_ELEMENT_TYPE, resumehandle: Long, preferredmaximum: UInt, enumelementinfo: Long, elementsread: Long, elementstotal: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetElementsV5(serveripaddress.toCPointer<ByteVar>(), subnetaddress, enumelementtype, resumehandle.toCPointer<ByteVar>(), preferredmaximum, enumelementinfo.toCPointer<ByteVar>(), elementsread.toCPointer<ByteVar>(), elementstotal.toCPointer<ByteVar>())
+public actual fun dhcpEnumSubnetElementsV5(serveripaddress: Pcwstr, subnetaddress: UInt, enumelementtype: DhcpSubnetElementType, resumehandle: COpaquePointer?, preferredmaximum: UInt, enumelementinfo: COpaquePointer?, elementsread: COpaquePointer?, elementstotal: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetElementsV5(serveripaddress?.value?.toCPointer<ByteVar>(), subnetaddress, enumelementtype, resumehandle?.value?.toCPointer<ByteVar>(), preferredmaximum, enumelementinfo?.value?.toCPointer<ByteVar>(), elementsread?.value?.toCPointer<ByteVar>(), elementstotal?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpEnumSubnetElementsV6(serveripaddress: PCWSTR, subnetaddress: DHCP_IPV6_ADDRESS, enumelementtype: DHCP_SUBNET_ELEMENT_TYPE_V6, resumehandle: Long, preferredmaximum: UInt, enumelementinfo: Long, elementsread: Long, elementstotal: Long): UInt =
+public actual fun dhcpEnumSubnetElementsV6(serveripaddress: Pcwstr, subnetaddress: DhcpIpv6Address, enumelementtype: DhcpSubnetElementTypeV6, resumehandle: COpaquePointer?, preferredmaximum: UInt, enumelementinfo: COpaquePointer?, elementsread: COpaquePointer?, elementstotal: COpaquePointer?): UInt =
     0u
 
-public actual fun DhcpEnumSubnets(serveripaddress: PCWSTR, resumehandle: Long, preferredmaximum: UInt, enuminfo: Long, elementsread: Long, elementstotal: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnets(serveripaddress.toCPointer<ByteVar>(), resumehandle.toCPointer<ByteVar>(), preferredmaximum, enuminfo.toCPointer<ByteVar>(), elementsread.toCPointer<ByteVar>(), elementstotal.toCPointer<ByteVar>())
+public actual fun dhcpEnumSubnets(serveripaddress: Pcwstr, resumehandle: COpaquePointer?, preferredmaximum: UInt, enuminfo: COpaquePointer?, elementsread: COpaquePointer?, elementstotal: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnets(serveripaddress?.value?.toCPointer<ByteVar>(), resumehandle?.value?.toCPointer<ByteVar>(), preferredmaximum, enuminfo?.value?.toCPointer<ByteVar>(), elementsread?.value?.toCPointer<ByteVar>(), elementstotal?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpEnumSubnetsV6(serveripaddress: PCWSTR, resumehandle: Long, preferredmaximum: UInt, enuminfo: Long, elementsread: Long, elementstotal: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpEnumSubnetsV6(serveripaddress.toCPointer<ByteVar>(), resumehandle.toCPointer<ByteVar>(), preferredmaximum, enuminfo.toCPointer<ByteVar>(), elementsread.toCPointer<ByteVar>(), elementstotal.toCPointer<ByteVar>())
+public actual fun dhcpEnumSubnetsV6(serveripaddress: Pcwstr, resumehandle: COpaquePointer?, preferredmaximum: UInt, enuminfo: COpaquePointer?, elementsread: COpaquePointer?, elementstotal: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubnetsV6(serveripaddress?.value?.toCPointer<ByteVar>(), resumehandle?.value?.toCPointer<ByteVar>(), preferredmaximum, enuminfo?.value?.toCPointer<ByteVar>(), elementsread?.value?.toCPointer<ByteVar>(), elementstotal?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpGetAllOptionValues(serveripaddress: PCWSTR, flags: UInt, scopeinfo: Long, values: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpGetAllOptionValues(serveripaddress.toCPointer<ByteVar>(), flags, scopeinfo.toCPointer<ByteVar>(), values.toCPointer<ByteVar>())
+public actual fun dhcpGetAllOptionValues(serveripaddress: Pcwstr, flags: UInt, scopeinfo: COpaquePointer?, values: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetAllOptionValues(serveripaddress?.value?.toCPointer<ByteVar>(), flags, scopeinfo?.value?.toCPointer<ByteVar>(), values?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpGetAllOptionValuesV6(serveripaddress: PCWSTR, flags: UInt, scopeinfo: Long, values: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpGetAllOptionValuesV6(serveripaddress.toCPointer<ByteVar>(), flags, scopeinfo.toCPointer<ByteVar>(), values.toCPointer<ByteVar>())
+public actual fun dhcpGetAllOptionValuesV6(serveripaddress: Pcwstr, flags: UInt, scopeinfo: COpaquePointer?, values: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetAllOptionValuesV6(serveripaddress?.value?.toCPointer<ByteVar>(), flags, scopeinfo?.value?.toCPointer<ByteVar>(), values?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpGetAllOptions(serveripaddress: PCWSTR, flags: UInt, optionstruct: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpGetAllOptions(serveripaddress.toCPointer<ByteVar>(), flags, optionstruct.toCPointer<ByteVar>())
+public actual fun dhcpGetAllOptions(serveripaddress: Pcwstr, flags: UInt, optionstruct: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetAllOptions(serveripaddress?.value?.toCPointer<ByteVar>(), flags, optionstruct?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpGetAllOptionsV6(serveripaddress: PCWSTR, flags: UInt, optionstruct: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpGetAllOptionsV6(serveripaddress.toCPointer<ByteVar>(), flags, optionstruct.toCPointer<ByteVar>())
+public actual fun dhcpGetAllOptionsV6(serveripaddress: Pcwstr, flags: UInt, optionstruct: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetAllOptionsV6(serveripaddress?.value?.toCPointer<ByteVar>(), flags, optionstruct?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpGetClassInfo(serveripaddress: PCWSTR, reservedmustbezero: UInt, partialclassinfo: Long, filledclassinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClassInfo(serveripaddress.toCPointer<ByteVar>(), reservedmustbezero, partialclassinfo.toCPointer<ByteVar>(), filledclassinfo.toCPointer<ByteVar>())
+public actual fun dhcpGetClassInfo(serveripaddress: Pcwstr, reservedmustbezero: UInt, partialclassinfo: COpaquePointer?, filledclassinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClassInfo(serveripaddress?.value?.toCPointer<ByteVar>(), reservedmustbezero, partialclassinfo?.value?.toCPointer<ByteVar>(), filledclassinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpGetClientInfo(serveripaddress: PCWSTR, searchinfo: Long, clientinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClientInfo(serveripaddress.toCPointer<ByteVar>(), searchinfo.toCPointer<ByteVar>(), clientinfo.toCPointer<ByteVar>())
+public actual fun dhcpGetClientInfo(serveripaddress: Pcwstr, searchinfo: COpaquePointer?, clientinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientInfo(serveripaddress?.value?.toCPointer<ByteVar>(), searchinfo?.value?.toCPointer<ByteVar>(), clientinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpGetClientInfoV4(serveripaddress: PCWSTR, searchinfo: Long, clientinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClientInfoV4(serveripaddress.toCPointer<ByteVar>(), searchinfo.toCPointer<ByteVar>(), clientinfo.toCPointer<ByteVar>())
+public actual fun dhcpGetClientInfoV4(serveripaddress: Pcwstr, searchinfo: COpaquePointer?, clientinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientInfoV4(serveripaddress?.value?.toCPointer<ByteVar>(), searchinfo?.value?.toCPointer<ByteVar>(), clientinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpGetClientInfoV6(serveripaddress: PCWSTR, searchinfo: Long, clientinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClientInfoV6(serveripaddress.toCPointer<ByteVar>(), searchinfo.toCPointer<ByteVar>(), clientinfo.toCPointer<ByteVar>())
+public actual fun dhcpGetClientInfoV6(serveripaddress: Pcwstr, searchinfo: COpaquePointer?, clientinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientInfoV6(serveripaddress?.value?.toCPointer<ByteVar>(), searchinfo?.value?.toCPointer<ByteVar>(), clientinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpGetClientInfoVQ(serveripaddress: PCWSTR, searchinfo: Long, clientinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClientInfoVQ(serveripaddress.toCPointer<ByteVar>(), searchinfo.toCPointer<ByteVar>(), clientinfo.toCPointer<ByteVar>())
+public actual fun dhcpGetClientInfoVQ(serveripaddress: Pcwstr, searchinfo: COpaquePointer?, clientinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientInfoVQ(serveripaddress?.value?.toCPointer<ByteVar>(), searchinfo?.value?.toCPointer<ByteVar>(), clientinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpGetClientOptions(serveripaddress: PCWSTR, clientipaddress: UInt, clientsubnetmask: UInt, clientoptions: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpGetClientOptions(serveripaddress.toCPointer<ByteVar>(), clientipaddress, clientsubnetmask, clientoptions.toCPointer<ByteVar>())
+public actual fun dhcpGetClientOptions(serveripaddress: Pcwstr, clientipaddress: UInt, clientsubnetmask: UInt, clientoptions: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClientOptions(serveripaddress?.value?.toCPointer<ByteVar>(), clientipaddress, clientsubnetmask, clientoptions?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpGetFilterV4(serveripaddress: PCWSTR, globalfilterinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpGetFilterV4(serveripaddress.toCPointer<ByteVar>(), globalfilterinfo.toCPointer<ByteVar>())
+public actual fun dhcpGetFilterV4(serveripaddress: Pcwstr, globalfilterinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetFilterV4(serveripaddress?.value?.toCPointer<ByteVar>(), globalfilterinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpGetMibInfo(serveripaddress: PCWSTR, mibinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpGetMibInfo(serveripaddress.toCPointer<ByteVar>(), mibinfo.toCPointer<ByteVar>())
+public actual fun dhcpGetMibInfo(serveripaddress: Pcwstr, mibinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetMibInfo(serveripaddress?.value?.toCPointer<ByteVar>(), mibinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpGetMibInfoV5(serveripaddress: PCWSTR, mibinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpGetMibInfoV5(serveripaddress.toCPointer<ByteVar>(), mibinfo.toCPointer<ByteVar>())
+public actual fun dhcpGetMibInfoV5(serveripaddress: Pcwstr, mibinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetMibInfoV5(serveripaddress?.value?.toCPointer<ByteVar>(), mibinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpGetMibInfoV6(serveripaddress: PCWSTR, mibinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpGetMibInfoV6(serveripaddress.toCPointer<ByteVar>(), mibinfo.toCPointer<ByteVar>())
+public actual fun dhcpGetMibInfoV6(serveripaddress: Pcwstr, mibinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetMibInfoV6(serveripaddress?.value?.toCPointer<ByteVar>(), mibinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpGetOptionInfo(serveripaddress: PCWSTR, optionid: UInt, optioninfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOptionInfo(serveripaddress.toCPointer<ByteVar>(), optionid, optioninfo.toCPointer<ByteVar>())
+public actual fun dhcpGetOptionInfo(serveripaddress: Pcwstr, optionid: UInt, optioninfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionInfo(serveripaddress?.value?.toCPointer<ByteVar>(), optionid, optioninfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpGetOptionInfoV5(serveripaddress: PCWSTR, flags: UInt, optionid: UInt, classname: PCWSTR, vendorname: PCWSTR, optioninfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOptionInfoV5(serveripaddress.toCPointer<ByteVar>(), flags, optionid, classname.toCPointer<ByteVar>(), vendorname.toCPointer<ByteVar>(), optioninfo.toCPointer<ByteVar>())
+public actual fun dhcpGetOptionInfoV5(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, optioninfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionInfoV5(serveripaddress?.value?.toCPointer<ByteVar>(), flags, optionid, classname?.value?.toCPointer<ByteVar>(), vendorname?.value?.toCPointer<ByteVar>(), optioninfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpGetOptionInfoV6(serveripaddress: PCWSTR, flags: UInt, optionid: UInt, classname: PCWSTR, vendorname: PCWSTR, optioninfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOptionInfoV6(serveripaddress.toCPointer<ByteVar>(), flags, optionid, classname.toCPointer<ByteVar>(), vendorname.toCPointer<ByteVar>(), optioninfo.toCPointer<ByteVar>())
+public actual fun dhcpGetOptionInfoV6(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, optioninfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionInfoV6(serveripaddress?.value?.toCPointer<ByteVar>(), flags, optionid, classname?.value?.toCPointer<ByteVar>(), vendorname?.value?.toCPointer<ByteVar>(), optioninfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpGetOptionValue(serveripaddress: PCWSTR, optionid: UInt, scopeinfo: Long, optionvalue: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOptionValue(serveripaddress.toCPointer<ByteVar>(), optionid, scopeinfo.toCPointer<ByteVar>(), optionvalue.toCPointer<ByteVar>())
+public actual fun dhcpGetOptionValue(serveripaddress: Pcwstr, optionid: UInt, scopeinfo: COpaquePointer?, optionvalue: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionValue(serveripaddress?.value?.toCPointer<ByteVar>(), optionid, scopeinfo?.value?.toCPointer<ByteVar>(), optionvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpGetOptionValueV5(serveripaddress: PCWSTR, flags: UInt, optionid: UInt, classname: PCWSTR, vendorname: PCWSTR, scopeinfo: Long, optionvalue: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOptionValueV5(serveripaddress.toCPointer<ByteVar>(), flags, optionid, classname.toCPointer<ByteVar>(), vendorname.toCPointer<ByteVar>(), scopeinfo.toCPointer<ByteVar>(), optionvalue.toCPointer<ByteVar>())
+public actual fun dhcpGetOptionValueV5(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, scopeinfo: COpaquePointer?, optionvalue: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionValueV5(serveripaddress?.value?.toCPointer<ByteVar>(), flags, optionid, classname?.value?.toCPointer<ByteVar>(), vendorname?.value?.toCPointer<ByteVar>(), scopeinfo?.value?.toCPointer<ByteVar>(), optionvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpGetOptionValueV6(serveripaddress: PCWSTR, flags: UInt, optionid: UInt, classname: PCWSTR, vendorname: PCWSTR, scopeinfo: Long, optionvalue: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOptionValueV6(serveripaddress.toCPointer<ByteVar>(), flags, optionid, classname.toCPointer<ByteVar>(), vendorname.toCPointer<ByteVar>(), scopeinfo.toCPointer<ByteVar>(), optionvalue.toCPointer<ByteVar>())
+public actual fun dhcpGetOptionValueV6(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, scopeinfo: COpaquePointer?, optionvalue: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOptionValueV6(serveripaddress?.value?.toCPointer<ByteVar>(), flags, optionid, classname?.value?.toCPointer<ByteVar>(), vendorname?.value?.toCPointer<ByteVar>(), scopeinfo?.value?.toCPointer<ByteVar>(), optionvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpGetOriginalSubnetMask(sadaptername: PCWSTR, dwsubnetmask: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpGetOriginalSubnetMask(sadaptername.toCPointer<ByteVar>(), dwsubnetmask.toCPointer<ByteVar>())
+public actual fun dhcpGetOriginalSubnetMask(sadaptername: Pcwstr, dwsubnetmask: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOriginalSubnetMask(sadaptername?.value?.toCPointer<ByteVar>(), dwsubnetmask?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpGetServerBindingInfo(serveripaddress: PCWSTR, flags: UInt, bindelementsinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpGetServerBindingInfo(serveripaddress.toCPointer<ByteVar>(), flags, bindelementsinfo.toCPointer<ByteVar>())
+public actual fun dhcpGetServerBindingInfo(serveripaddress: Pcwstr, flags: UInt, bindelementsinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetServerBindingInfo(serveripaddress?.value?.toCPointer<ByteVar>(), flags, bindelementsinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpGetServerBindingInfoV6(serveripaddress: PCWSTR, flags: UInt, bindelementsinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpGetServerBindingInfoV6(serveripaddress.toCPointer<ByteVar>(), flags, bindelementsinfo.toCPointer<ByteVar>())
+public actual fun dhcpGetServerBindingInfoV6(serveripaddress: Pcwstr, flags: UInt, bindelementsinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetServerBindingInfoV6(serveripaddress?.value?.toCPointer<ByteVar>(), flags, bindelementsinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpGetServerSpecificStrings(serveripaddress: PCWSTR, serverspecificstrings: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpGetServerSpecificStrings(serveripaddress.toCPointer<ByteVar>(), serverspecificstrings.toCPointer<ByteVar>())
+public actual fun dhcpGetServerSpecificStrings(serveripaddress: Pcwstr, serverspecificstrings: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetServerSpecificStrings(serveripaddress?.value?.toCPointer<ByteVar>(), serverspecificstrings?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpGetSubnetDelayOffer(serveripaddress: PCWSTR, subnetaddress: UInt, timedelayinmilliseconds: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpGetSubnetDelayOffer(serveripaddress.toCPointer<ByteVar>(), subnetaddress, timedelayinmilliseconds.toCPointer<ByteVar>())
+public actual fun dhcpGetSubnetDelayOffer(serveripaddress: Pcwstr, subnetaddress: UInt, timedelayinmilliseconds: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetSubnetDelayOffer(serveripaddress?.value?.toCPointer<ByteVar>(), subnetaddress, timedelayinmilliseconds?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpGetSubnetInfo(serveripaddress: PCWSTR, subnetaddress: UInt, subnetinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpGetSubnetInfo(serveripaddress.toCPointer<ByteVar>(), subnetaddress, subnetinfo.toCPointer<ByteVar>())
+public actual fun dhcpGetSubnetInfo(serveripaddress: Pcwstr, subnetaddress: UInt, subnetinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetSubnetInfo(serveripaddress?.value?.toCPointer<ByteVar>(), subnetaddress, subnetinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpGetSubnetInfoV6(serveripaddress: PCWSTR, subnetaddress: DHCP_IPV6_ADDRESS, subnetinfo: Long): UInt =
+public actual fun dhcpGetSubnetInfoV6(serveripaddress: Pcwstr, subnetaddress: DhcpIpv6Address, subnetinfo: COpaquePointer?): UInt =
     0u
 
-public actual fun DhcpGetSubnetInfoVQ(serveripaddress: PCWSTR, subnetaddress: UInt, subnetinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpGetSubnetInfoVQ(serveripaddress.toCPointer<ByteVar>(), subnetaddress, subnetinfo.toCPointer<ByteVar>())
+public actual fun dhcpGetSubnetInfoVQ(serveripaddress: Pcwstr, subnetaddress: UInt, subnetinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetSubnetInfoVQ(serveripaddress?.value?.toCPointer<ByteVar>(), subnetaddress, subnetinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpGetSuperScopeInfoV4(serveripaddress: PCWSTR, superscopetable: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpGetSuperScopeInfoV4(serveripaddress.toCPointer<ByteVar>(), superscopetable.toCPointer<ByteVar>())
+public actual fun dhcpGetSuperScopeInfoV4(serveripaddress: Pcwstr, superscopetable: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetSuperScopeInfoV4(serveripaddress?.value?.toCPointer<ByteVar>(), superscopetable?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpGetThreadOptions(pflags: Long, reserved: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpGetThreadOptions(pflags.toCPointer<ByteVar>(), reserved.toCPointer<ByteVar>())
+public actual fun dhcpGetThreadOptions(pflags: COpaquePointer?, reserved: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetThreadOptions(pflags?.value?.toCPointer<ByteVar>(), reserved?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpGetVersion(serveripaddress: PCWSTR, majorversion: Long, minorversion: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpGetVersion(serveripaddress.toCPointer<ByteVar>(), majorversion.toCPointer<ByteVar>(), minorversion.toCPointer<ByteVar>())
+public actual fun dhcpGetVersion(serveripaddress: Pcwstr, majorversion: COpaquePointer?, minorversion: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpGetVersion(serveripaddress?.value?.toCPointer<ByteVar>(), majorversion?.value?.toCPointer<ByteVar>(), minorversion?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpHlprAddV4PolicyCondition(policy: Long, parentexpr: UInt, type: DHCP_POL_ATTR_TYPE, optionid: UInt, suboptionid: UInt, vendorname: PCWSTR, operator: DHCP_POL_COMPARATOR, value: Long, valuelength: UInt, conditionindex: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprAddV4PolicyCondition(policy.toCPointer<ByteVar>(), parentexpr, type, optionid, suboptionid, vendorname.toCPointer<ByteVar>(), operator, value.toCPointer<ByteVar>(), valuelength, conditionindex.toCPointer<ByteVar>())
+public actual fun dhcpHlprAddV4PolicyCondition(policy: COpaquePointer?, parentexpr: UInt, type: DhcpPolAttrType, optionid: UInt, suboptionid: UInt, vendorname: Pcwstr, operator: DhcpPolComparator, value: COpaquePointer?, valuelength: UInt, conditionindex: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprAddV4PolicyCondition(policy?.value?.toCPointer<ByteVar>(), parentexpr, type, optionid, suboptionid, vendorname?.value?.toCPointer<ByteVar>(), operator, value?.value?.toCPointer<ByteVar>(), valuelength, conditionindex?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpHlprAddV4PolicyExpr(policy: Long, parentexpr: UInt, operator: DHCP_POL_LOGIC_OPER, exprindex: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprAddV4PolicyExpr(policy.toCPointer<ByteVar>(), parentexpr, operator, exprindex.toCPointer<ByteVar>())
+public actual fun dhcpHlprAddV4PolicyExpr(policy: COpaquePointer?, parentexpr: UInt, operator: DhcpPolLogicOper, exprindex: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprAddV4PolicyExpr(policy?.value?.toCPointer<ByteVar>(), parentexpr, operator, exprindex?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpHlprAddV4PolicyRange(policy: Long, range: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprAddV4PolicyRange(policy.toCPointer<ByteVar>(), range.toCPointer<ByteVar>())
+public actual fun dhcpHlprAddV4PolicyRange(policy: COpaquePointer?, range: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprAddV4PolicyRange(policy?.value?.toCPointer<ByteVar>(), range?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpHlprCreateV4Policy(policyname: PCWSTR, fglobalpolicy: BOOL, subnet: UInt, processingorder: UInt, rootoperator: DHCP_POL_LOGIC_OPER, description: PCWSTR, enabled: BOOL, policy: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprCreateV4Policy(policyname.toCPointer<ByteVar>(), fglobalpolicy, subnet, processingorder, rootoperator, description.toCPointer<ByteVar>(), enabled, policy.toCPointer<ByteVar>())
+public actual fun dhcpHlprCreateV4Policy(policyname: Pcwstr, fglobalpolicy: Bool, subnet: UInt, processingorder: UInt, rootoperator: DhcpPolLogicOper, description: Pcwstr, enabled: Bool, policy: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprCreateV4Policy(policyname?.value?.toCPointer<ByteVar>(), fglobalpolicy, subnet, processingorder, rootoperator, description?.value?.toCPointer<ByteVar>(), enabled, policy?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpHlprCreateV4PolicyEx(policyname: PCWSTR, fglobalpolicy: BOOL, subnet: UInt, processingorder: UInt, rootoperator: DHCP_POL_LOGIC_OPER, description: PCWSTR, enabled: BOOL, policy: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprCreateV4PolicyEx(policyname.toCPointer<ByteVar>(), fglobalpolicy, subnet, processingorder, rootoperator, description.toCPointer<ByteVar>(), enabled, policy.toCPointer<ByteVar>())
+public actual fun dhcpHlprCreateV4PolicyEx(policyname: Pcwstr, fglobalpolicy: Bool, subnet: UInt, processingorder: UInt, rootoperator: DhcpPolLogicOper, description: Pcwstr, enabled: Bool, policy: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprCreateV4PolicyEx(policyname?.value?.toCPointer<ByteVar>(), fglobalpolicy, subnet, processingorder, rootoperator, description?.value?.toCPointer<ByteVar>(), enabled, policy?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpHlprFindV4DhcpProperty(propertyarray: Long, id: DHCP_PROPERTY_ID, type: DHCP_PROPERTY_TYPE): Long =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFindV4DhcpProperty(propertyarray.toCPointer<ByteVar>(), id, type)?.toLong() ?: 0L
+public actual fun dhcpHlprFindV4DhcpProperty(propertyarray: COpaquePointer?, id: DhcpPropertyId, type: DhcpPropertyType): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFindV4DhcpProperty(propertyarray?.value?.toCPointer<ByteVar>(), id, type)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun DhcpHlprFreeV4DhcpProperty(property: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV4DhcpProperty(property.toCPointer<ByteVar>())
+public actual fun dhcpHlprFreeV4DhcpProperty(property: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4DhcpProperty(property?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun DhcpHlprFreeV4DhcpPropertyArray(propertyarray: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV4DhcpPropertyArray(propertyarray.toCPointer<ByteVar>())
+public actual fun dhcpHlprFreeV4DhcpPropertyArray(propertyarray: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4DhcpPropertyArray(propertyarray?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun DhcpHlprFreeV4Policy(policy: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV4Policy(policy.toCPointer<ByteVar>())
+public actual fun dhcpHlprFreeV4Policy(policy: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4Policy(policy?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun DhcpHlprFreeV4PolicyArray(policyarray: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV4PolicyArray(policyarray.toCPointer<ByteVar>())
+public actual fun dhcpHlprFreeV4PolicyArray(policyarray: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4PolicyArray(policyarray?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun DhcpHlprFreeV4PolicyEx(policyex: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV4PolicyEx(policyex.toCPointer<ByteVar>())
+public actual fun dhcpHlprFreeV4PolicyEx(policyex: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4PolicyEx(policyex?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun DhcpHlprFreeV4PolicyExArray(policyexarray: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprFreeV4PolicyExArray(policyexarray.toCPointer<ByteVar>())
+public actual fun dhcpHlprFreeV4PolicyExArray(policyexarray: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV4PolicyExArray(policyexarray?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun DhcpHlprIsV4PolicySingleUC(policy: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprIsV4PolicySingleUC(policy.toCPointer<ByteVar>())
+public actual fun dhcpHlprIsV4PolicySingleUC(policy: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprIsV4PolicySingleUC(policy?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpHlprIsV4PolicyValid(ppolicy: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprIsV4PolicyValid(ppolicy.toCPointer<ByteVar>())
+public actual fun dhcpHlprIsV4PolicyValid(ppolicy: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprIsV4PolicyValid(ppolicy?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpHlprIsV4PolicyWellFormed(ppolicy: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprIsV4PolicyWellFormed(ppolicy.toCPointer<ByteVar>())
+public actual fun dhcpHlprIsV4PolicyWellFormed(ppolicy: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprIsV4PolicyWellFormed(ppolicy?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpHlprModifyV4PolicyExpr(policy: Long, operator: DHCP_POL_LOGIC_OPER): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprModifyV4PolicyExpr(policy.toCPointer<ByteVar>(), operator)
+public actual fun dhcpHlprModifyV4PolicyExpr(policy: COpaquePointer?, operator: DhcpPolLogicOper): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprModifyV4PolicyExpr(policy?.value?.toCPointer<ByteVar>(), operator)
 
-public actual fun DhcpHlprResetV4PolicyExpr(policy: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpHlprResetV4PolicyExpr(policy.toCPointer<ByteVar>())
+public actual fun dhcpHlprResetV4PolicyExpr(policy: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprResetV4PolicyExpr(policy?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpModifyClass(serveripaddress: PCWSTR, reservedmustbezero: UInt, classinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpModifyClass(serveripaddress.toCPointer<ByteVar>(), reservedmustbezero, classinfo.toCPointer<ByteVar>())
+public actual fun dhcpModifyClass(serveripaddress: Pcwstr, reservedmustbezero: UInt, classinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpModifyClass(serveripaddress?.value?.toCPointer<ByteVar>(), reservedmustbezero, classinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpModifyClassV6(serveripaddress: PCWSTR, reservedmustbezero: UInt, classinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpModifyClassV6(serveripaddress.toCPointer<ByteVar>(), reservedmustbezero, classinfo.toCPointer<ByteVar>())
+public actual fun dhcpModifyClassV6(serveripaddress: Pcwstr, reservedmustbezero: UInt, classinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpModifyClassV6(serveripaddress?.value?.toCPointer<ByteVar>(), reservedmustbezero, classinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpRegisterParamChange(flags: UInt, reserved: Long, adaptername: PCWSTR, classid: Long, params: DHCPCAPI_PARAMS_ARRAY, handle: Long): UInt =
+public actual fun dhcpRegisterParamChange(flags: UInt, reserved: COpaquePointer?, adaptername: Pcwstr, classid: COpaquePointer?, params: DhcpcapiParamsArray, handle: COpaquePointer?): UInt =
     0u
 
-public actual fun DhcpRemoveDNSRegistrations(): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveDNSRegistrations()
+public actual fun dhcpRemoveDNSRegistrations(): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveDNSRegistrations()
 
-public actual fun DhcpRemoveOption(serveripaddress: PCWSTR, optionid: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOption(serveripaddress.toCPointer<ByteVar>(), optionid)
+public actual fun dhcpRemoveOption(serveripaddress: Pcwstr, optionid: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOption(serveripaddress?.value?.toCPointer<ByteVar>(), optionid)
 
-public actual fun DhcpRemoveOptionV5(serveripaddress: PCWSTR, flags: UInt, optionid: UInt, classname: PCWSTR, vendorname: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOptionV5(serveripaddress.toCPointer<ByteVar>(), flags, optionid, classname.toCPointer<ByteVar>(), vendorname.toCPointer<ByteVar>())
+public actual fun dhcpRemoveOptionV5(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionV5(serveripaddress?.value?.toCPointer<ByteVar>(), flags, optionid, classname?.value?.toCPointer<ByteVar>(), vendorname?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpRemoveOptionV6(serveripaddress: PCWSTR, flags: UInt, optionid: UInt, classname: PCWSTR, vendorname: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOptionV6(serveripaddress.toCPointer<ByteVar>(), flags, optionid, classname.toCPointer<ByteVar>(), vendorname.toCPointer<ByteVar>())
+public actual fun dhcpRemoveOptionV6(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionV6(serveripaddress?.value?.toCPointer<ByteVar>(), flags, optionid, classname?.value?.toCPointer<ByteVar>(), vendorname?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpRemoveOptionValue(serveripaddress: PCWSTR, optionid: UInt, scopeinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOptionValue(serveripaddress.toCPointer<ByteVar>(), optionid, scopeinfo.toCPointer<ByteVar>())
+public actual fun dhcpRemoveOptionValue(serveripaddress: Pcwstr, optionid: UInt, scopeinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionValue(serveripaddress?.value?.toCPointer<ByteVar>(), optionid, scopeinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpRemoveOptionValueV5(serveripaddress: PCWSTR, flags: UInt, optionid: UInt, classname: PCWSTR, vendorname: PCWSTR, scopeinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOptionValueV5(serveripaddress.toCPointer<ByteVar>(), flags, optionid, classname.toCPointer<ByteVar>(), vendorname.toCPointer<ByteVar>(), scopeinfo.toCPointer<ByteVar>())
+public actual fun dhcpRemoveOptionValueV5(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, scopeinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionValueV5(serveripaddress?.value?.toCPointer<ByteVar>(), flags, optionid, classname?.value?.toCPointer<ByteVar>(), vendorname?.value?.toCPointer<ByteVar>(), scopeinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpRemoveOptionValueV6(serveripaddress: PCWSTR, flags: UInt, optionid: UInt, classname: PCWSTR, vendorname: PCWSTR, scopeinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveOptionValueV6(serveripaddress.toCPointer<ByteVar>(), flags, optionid, classname.toCPointer<ByteVar>(), vendorname.toCPointer<ByteVar>(), scopeinfo.toCPointer<ByteVar>())
+public actual fun dhcpRemoveOptionValueV6(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, scopeinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOptionValueV6(serveripaddress?.value?.toCPointer<ByteVar>(), flags, optionid, classname?.value?.toCPointer<ByteVar>(), vendorname?.value?.toCPointer<ByteVar>(), scopeinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpRemoveSubnetElement(serveripaddress: PCWSTR, subnetaddress: UInt, removeelementinfo: Long, forceflag: DHCP_FORCE_FLAG): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveSubnetElement(serveripaddress.toCPointer<ByteVar>(), subnetaddress, removeelementinfo.toCPointer<ByteVar>(), forceflag)
+public actual fun dhcpRemoveSubnetElement(serveripaddress: Pcwstr, subnetaddress: UInt, removeelementinfo: COpaquePointer?, forceflag: DhcpForceFlag): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveSubnetElement(serveripaddress?.value?.toCPointer<ByteVar>(), subnetaddress, removeelementinfo?.value?.toCPointer<ByteVar>(), forceflag)
 
-public actual fun DhcpRemoveSubnetElementV4(serveripaddress: PCWSTR, subnetaddress: UInt, removeelementinfo: Long, forceflag: DHCP_FORCE_FLAG): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveSubnetElementV4(serveripaddress.toCPointer<ByteVar>(), subnetaddress, removeelementinfo.toCPointer<ByteVar>(), forceflag)
+public actual fun dhcpRemoveSubnetElementV4(serveripaddress: Pcwstr, subnetaddress: UInt, removeelementinfo: COpaquePointer?, forceflag: DhcpForceFlag): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveSubnetElementV4(serveripaddress?.value?.toCPointer<ByteVar>(), subnetaddress, removeelementinfo?.value?.toCPointer<ByteVar>(), forceflag)
 
-public actual fun DhcpRemoveSubnetElementV5(serveripaddress: PCWSTR, subnetaddress: UInt, removeelementinfo: Long, forceflag: DHCP_FORCE_FLAG): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpRemoveSubnetElementV5(serveripaddress.toCPointer<ByteVar>(), subnetaddress, removeelementinfo.toCPointer<ByteVar>(), forceflag)
+public actual fun dhcpRemoveSubnetElementV5(serveripaddress: Pcwstr, subnetaddress: UInt, removeelementinfo: COpaquePointer?, forceflag: DhcpForceFlag): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveSubnetElementV5(serveripaddress?.value?.toCPointer<ByteVar>(), subnetaddress, removeelementinfo?.value?.toCPointer<ByteVar>(), forceflag)
 
-public actual fun DhcpRemoveSubnetElementV6(serveripaddress: PCWSTR, subnetaddress: DHCP_IPV6_ADDRESS, removeelementinfo: Long, forceflag: DHCP_FORCE_FLAG): UInt =
+public actual fun dhcpRemoveSubnetElementV6(serveripaddress: Pcwstr, subnetaddress: DhcpIpv6Address, removeelementinfo: COpaquePointer?, forceflag: DhcpForceFlag): UInt =
     0u
 
-public actual fun DhcpRequestParams(flags: UInt, reserved: Long, adaptername: PCWSTR, classid: Long, sendparams: DHCPCAPI_PARAMS_ARRAY, recdparams: DHCPCAPI_PARAMS_ARRAY, buffer: Long, psize: Long, requestidstr: PCWSTR): UInt =
+public actual fun dhcpRequestParams(flags: UInt, reserved: COpaquePointer?, adaptername: Pcwstr, classid: COpaquePointer?, sendparams: DhcpcapiParamsArray, recdparams: DhcpcapiParamsArray, buffer: COpaquePointer?, psize: COpaquePointer?, requestidstr: Pcwstr): UInt =
     0u
 
-public actual fun DhcpRpcFreeMemory(bufferpointer: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpRpcFreeMemory(bufferpointer.toCPointer<ByteVar>())
+public actual fun dhcpRpcFreeMemory(bufferpointer: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpRpcFreeMemory(bufferpointer?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun DhcpScanDatabase(serveripaddress: PCWSTR, subnetaddress: UInt, fixflag: UInt, scanlist: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpScanDatabase(serveripaddress.toCPointer<ByteVar>(), subnetaddress, fixflag, scanlist.toCPointer<ByteVar>())
+public actual fun dhcpScanDatabase(serveripaddress: Pcwstr, subnetaddress: UInt, fixflag: UInt, scanlist: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpScanDatabase(serveripaddress?.value?.toCPointer<ByteVar>(), subnetaddress, fixflag, scanlist?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpServerAuditlogParamsFree(configinfo: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpServerAuditlogParamsFree(configinfo.toCPointer<ByteVar>())
+public actual fun dhcpServerAuditlogParamsFree(configinfo: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpServerAuditlogParamsFree(configinfo?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun DhcpServerBackupDatabase(serveripaddress: PCWSTR, path: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpServerBackupDatabase(serveripaddress.toCPointer<ByteVar>(), path.toCPointer<ByteVar>())
+public actual fun dhcpServerBackupDatabase(serveripaddress: Pcwstr, path: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpServerBackupDatabase(serveripaddress?.value?.toCPointer<ByteVar>(), path?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpServerGetConfig(serveripaddress: PCWSTR, configinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpServerGetConfig(serveripaddress.toCPointer<ByteVar>(), configinfo.toCPointer<ByteVar>())
+public actual fun dhcpServerGetConfig(serveripaddress: Pcwstr, configinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpServerGetConfig(serveripaddress?.value?.toCPointer<ByteVar>(), configinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpServerGetConfigV4(serveripaddress: PCWSTR, configinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpServerGetConfigV4(serveripaddress.toCPointer<ByteVar>(), configinfo.toCPointer<ByteVar>())
+public actual fun dhcpServerGetConfigV4(serveripaddress: Pcwstr, configinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpServerGetConfigV4(serveripaddress?.value?.toCPointer<ByteVar>(), configinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpServerGetConfigV6(serveripaddress: PCWSTR, scopeinfo: Long, configinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpServerGetConfigV6(serveripaddress.toCPointer<ByteVar>(), scopeinfo.toCPointer<ByteVar>(), configinfo.toCPointer<ByteVar>())
+public actual fun dhcpServerGetConfigV6(serveripaddress: Pcwstr, scopeinfo: COpaquePointer?, configinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpServerGetConfigV6(serveripaddress?.value?.toCPointer<ByteVar>(), scopeinfo?.value?.toCPointer<ByteVar>(), configinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpServerGetConfigVQ(serveripaddress: PCWSTR, configinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpServerGetConfigVQ(serveripaddress.toCPointer<ByteVar>(), configinfo.toCPointer<ByteVar>())
+public actual fun dhcpServerGetConfigVQ(serveripaddress: Pcwstr, configinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpServerGetConfigVQ(serveripaddress?.value?.toCPointer<ByteVar>(), configinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpServerQueryAttribute(serveripaddr: PCWSTR, dwreserved: UInt, dhcpattribid: UInt, pdhcpattrib: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpServerQueryAttribute(serveripaddr.toCPointer<ByteVar>(), dwreserved, dhcpattribid, pdhcpattrib.toCPointer<ByteVar>())
+public actual fun dhcpServerQueryAttribute(serveripaddr: Pcwstr, dwreserved: UInt, dhcpattribid: UInt, pdhcpattrib: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpServerQueryAttribute(serveripaddr?.value?.toCPointer<ByteVar>(), dwreserved, dhcpattribid, pdhcpattrib?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpServerQueryAttributes(serveripaddr: PCWSTR, dwreserved: UInt, dwattribcount: UInt, pdhcpattribs: Long, pdhcpattribarr: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpServerQueryAttributes(serveripaddr.toCPointer<ByteVar>(), dwreserved, dwattribcount, pdhcpattribs.toCPointer<ByteVar>(), pdhcpattribarr.toCPointer<ByteVar>())
+public actual fun dhcpServerQueryAttributes(serveripaddr: Pcwstr, dwreserved: UInt, dwattribcount: UInt, pdhcpattribs: COpaquePointer?, pdhcpattribarr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpServerQueryAttributes(serveripaddr?.value?.toCPointer<ByteVar>(), dwreserved, dwattribcount, pdhcpattribs?.value?.toCPointer<ByteVar>(), pdhcpattribarr?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpServerQueryDnsRegCredentials(serveripaddress: PCWSTR, unamesize: UInt, uname: PWSTR, domainsize: UInt, domain: PWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpServerQueryDnsRegCredentials(serveripaddress.toCPointer<ByteVar>(), unamesize, uname.toCPointer<ByteVar>(), domainsize, domain.toCPointer<ByteVar>())
+public actual fun dhcpServerQueryDnsRegCredentials(serveripaddress: Pcwstr, unamesize: UInt, uname: Pwstr, domainsize: UInt, domain: Pwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpServerQueryDnsRegCredentials(serveripaddress?.value?.toCPointer<ByteVar>(), unamesize, uname?.value?.toCPointer<ByteVar>(), domainsize, domain?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpServerRedoAuthorization(serveripaddr: PCWSTR, dwreserved: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpServerRedoAuthorization(serveripaddr.toCPointer<ByteVar>(), dwreserved)
+public actual fun dhcpServerRedoAuthorization(serveripaddr: Pcwstr, dwreserved: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpServerRedoAuthorization(serveripaddr?.value?.toCPointer<ByteVar>(), dwreserved)
 
-public actual fun DhcpServerRestoreDatabase(serveripaddress: PCWSTR, path: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpServerRestoreDatabase(serveripaddress.toCPointer<ByteVar>(), path.toCPointer<ByteVar>())
+public actual fun dhcpServerRestoreDatabase(serveripaddress: Pcwstr, path: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpServerRestoreDatabase(serveripaddress?.value?.toCPointer<ByteVar>(), path?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpServerSetConfig(serveripaddress: PCWSTR, fieldstoset: UInt, configinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSetConfig(serveripaddress.toCPointer<ByteVar>(), fieldstoset, configinfo.toCPointer<ByteVar>())
+public actual fun dhcpServerSetConfig(serveripaddress: Pcwstr, fieldstoset: UInt, configinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetConfig(serveripaddress?.value?.toCPointer<ByteVar>(), fieldstoset, configinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpServerSetConfigV4(serveripaddress: PCWSTR, fieldstoset: UInt, configinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSetConfigV4(serveripaddress.toCPointer<ByteVar>(), fieldstoset, configinfo.toCPointer<ByteVar>())
+public actual fun dhcpServerSetConfigV4(serveripaddress: Pcwstr, fieldstoset: UInt, configinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetConfigV4(serveripaddress?.value?.toCPointer<ByteVar>(), fieldstoset, configinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpServerSetConfigV6(serveripaddress: PCWSTR, scopeinfo: Long, fieldstoset: UInt, configinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSetConfigV6(serveripaddress.toCPointer<ByteVar>(), scopeinfo.toCPointer<ByteVar>(), fieldstoset, configinfo.toCPointer<ByteVar>())
+public actual fun dhcpServerSetConfigV6(serveripaddress: Pcwstr, scopeinfo: COpaquePointer?, fieldstoset: UInt, configinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetConfigV6(serveripaddress?.value?.toCPointer<ByteVar>(), scopeinfo?.value?.toCPointer<ByteVar>(), fieldstoset, configinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpServerSetConfigVQ(serveripaddress: PCWSTR, fieldstoset: UInt, configinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSetConfigVQ(serveripaddress.toCPointer<ByteVar>(), fieldstoset, configinfo.toCPointer<ByteVar>())
+public actual fun dhcpServerSetConfigVQ(serveripaddress: Pcwstr, fieldstoset: UInt, configinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetConfigVQ(serveripaddress?.value?.toCPointer<ByteVar>(), fieldstoset, configinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpServerSetDnsRegCredentials(serveripaddress: PCWSTR, uname: PCWSTR, domain: PCWSTR, passwd: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSetDnsRegCredentials(serveripaddress.toCPointer<ByteVar>(), uname.toCPointer<ByteVar>(), domain.toCPointer<ByteVar>(), passwd.toCPointer<ByteVar>())
+public actual fun dhcpServerSetDnsRegCredentials(serveripaddress: Pcwstr, uname: Pcwstr, domain: Pcwstr, passwd: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetDnsRegCredentials(serveripaddress?.value?.toCPointer<ByteVar>(), uname?.value?.toCPointer<ByteVar>(), domain?.value?.toCPointer<ByteVar>(), passwd?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpServerSetDnsRegCredentialsV5(serveripaddress: PCWSTR, uname: PCWSTR, domain: PCWSTR, passwd: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpServerSetDnsRegCredentialsV5(serveripaddress.toCPointer<ByteVar>(), uname.toCPointer<ByteVar>(), domain.toCPointer<ByteVar>(), passwd.toCPointer<ByteVar>())
+public actual fun dhcpServerSetDnsRegCredentialsV5(serveripaddress: Pcwstr, uname: Pcwstr, domain: Pcwstr, passwd: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSetDnsRegCredentialsV5(serveripaddress?.value?.toCPointer<ByteVar>(), uname?.value?.toCPointer<ByteVar>(), domain?.value?.toCPointer<ByteVar>(), passwd?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpSetClientInfo(serveripaddress: PCWSTR, clientinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpSetClientInfo(serveripaddress.toCPointer<ByteVar>(), clientinfo.toCPointer<ByteVar>())
+public actual fun dhcpSetClientInfo(serveripaddress: Pcwstr, clientinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetClientInfo(serveripaddress?.value?.toCPointer<ByteVar>(), clientinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpSetClientInfoV4(serveripaddress: PCWSTR, clientinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpSetClientInfoV4(serveripaddress.toCPointer<ByteVar>(), clientinfo.toCPointer<ByteVar>())
+public actual fun dhcpSetClientInfoV4(serveripaddress: Pcwstr, clientinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetClientInfoV4(serveripaddress?.value?.toCPointer<ByteVar>(), clientinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpSetClientInfoV6(serveripaddress: PCWSTR, clientinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpSetClientInfoV6(serveripaddress.toCPointer<ByteVar>(), clientinfo.toCPointer<ByteVar>())
+public actual fun dhcpSetClientInfoV6(serveripaddress: Pcwstr, clientinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetClientInfoV6(serveripaddress?.value?.toCPointer<ByteVar>(), clientinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpSetClientInfoVQ(serveripaddress: PCWSTR, clientinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpSetClientInfoVQ(serveripaddress.toCPointer<ByteVar>(), clientinfo.toCPointer<ByteVar>())
+public actual fun dhcpSetClientInfoVQ(serveripaddress: Pcwstr, clientinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetClientInfoVQ(serveripaddress?.value?.toCPointer<ByteVar>(), clientinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpSetFilterV4(serveripaddress: PCWSTR, globalfilterinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpSetFilterV4(serveripaddress.toCPointer<ByteVar>(), globalfilterinfo.toCPointer<ByteVar>())
+public actual fun dhcpSetFilterV4(serveripaddress: Pcwstr, globalfilterinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetFilterV4(serveripaddress?.value?.toCPointer<ByteVar>(), globalfilterinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpSetOptionInfo(serveripaddress: PCWSTR, optionid: UInt, optioninfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionInfo(serveripaddress.toCPointer<ByteVar>(), optionid, optioninfo.toCPointer<ByteVar>())
+public actual fun dhcpSetOptionInfo(serveripaddress: Pcwstr, optionid: UInt, optioninfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionInfo(serveripaddress?.value?.toCPointer<ByteVar>(), optionid, optioninfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpSetOptionInfoV5(serveripaddress: PCWSTR, flags: UInt, optionid: UInt, classname: PCWSTR, vendorname: PCWSTR, optioninfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionInfoV5(serveripaddress.toCPointer<ByteVar>(), flags, optionid, classname.toCPointer<ByteVar>(), vendorname.toCPointer<ByteVar>(), optioninfo.toCPointer<ByteVar>())
+public actual fun dhcpSetOptionInfoV5(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, optioninfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionInfoV5(serveripaddress?.value?.toCPointer<ByteVar>(), flags, optionid, classname?.value?.toCPointer<ByteVar>(), vendorname?.value?.toCPointer<ByteVar>(), optioninfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpSetOptionInfoV6(serveripaddress: PCWSTR, flags: UInt, optionid: UInt, classname: PCWSTR, vendorname: PCWSTR, optioninfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionInfoV6(serveripaddress.toCPointer<ByteVar>(), flags, optionid, classname.toCPointer<ByteVar>(), vendorname.toCPointer<ByteVar>(), optioninfo.toCPointer<ByteVar>())
+public actual fun dhcpSetOptionInfoV6(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, optioninfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionInfoV6(serveripaddress?.value?.toCPointer<ByteVar>(), flags, optionid, classname?.value?.toCPointer<ByteVar>(), vendorname?.value?.toCPointer<ByteVar>(), optioninfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpSetOptionValue(serveripaddress: PCWSTR, optionid: UInt, scopeinfo: Long, optionvalue: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionValue(serveripaddress.toCPointer<ByteVar>(), optionid, scopeinfo.toCPointer<ByteVar>(), optionvalue.toCPointer<ByteVar>())
+public actual fun dhcpSetOptionValue(serveripaddress: Pcwstr, optionid: UInt, scopeinfo: COpaquePointer?, optionvalue: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValue(serveripaddress?.value?.toCPointer<ByteVar>(), optionid, scopeinfo?.value?.toCPointer<ByteVar>(), optionvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpSetOptionValueV5(serveripaddress: PCWSTR, flags: UInt, optionid: UInt, classname: PCWSTR, vendorname: PCWSTR, scopeinfo: Long, optionvalue: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionValueV5(serveripaddress.toCPointer<ByteVar>(), flags, optionid, classname.toCPointer<ByteVar>(), vendorname.toCPointer<ByteVar>(), scopeinfo.toCPointer<ByteVar>(), optionvalue.toCPointer<ByteVar>())
+public actual fun dhcpSetOptionValueV5(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, scopeinfo: COpaquePointer?, optionvalue: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValueV5(serveripaddress?.value?.toCPointer<ByteVar>(), flags, optionid, classname?.value?.toCPointer<ByteVar>(), vendorname?.value?.toCPointer<ByteVar>(), scopeinfo?.value?.toCPointer<ByteVar>(), optionvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpSetOptionValueV6(serveripaddress: PCWSTR, flags: UInt, optionid: UInt, classname: PCWSTR, vendorname: PCWSTR, scopeinfo: Long, optionvalue: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionValueV6(serveripaddress.toCPointer<ByteVar>(), flags, optionid, classname.toCPointer<ByteVar>(), vendorname.toCPointer<ByteVar>(), scopeinfo.toCPointer<ByteVar>(), optionvalue.toCPointer<ByteVar>())
+public actual fun dhcpSetOptionValueV6(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, classname: Pcwstr, vendorname: Pcwstr, scopeinfo: COpaquePointer?, optionvalue: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValueV6(serveripaddress?.value?.toCPointer<ByteVar>(), flags, optionid, classname?.value?.toCPointer<ByteVar>(), vendorname?.value?.toCPointer<ByteVar>(), scopeinfo?.value?.toCPointer<ByteVar>(), optionvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpSetOptionValues(serveripaddress: PCWSTR, scopeinfo: Long, optionvalues: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionValues(serveripaddress.toCPointer<ByteVar>(), scopeinfo.toCPointer<ByteVar>(), optionvalues.toCPointer<ByteVar>())
+public actual fun dhcpSetOptionValues(serveripaddress: Pcwstr, scopeinfo: COpaquePointer?, optionvalues: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValues(serveripaddress?.value?.toCPointer<ByteVar>(), scopeinfo?.value?.toCPointer<ByteVar>(), optionvalues?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpSetOptionValuesV5(serveripaddress: PCWSTR, flags: UInt, classname: PCWSTR, vendorname: PCWSTR, scopeinfo: Long, optionvalues: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpSetOptionValuesV5(serveripaddress.toCPointer<ByteVar>(), flags, classname.toCPointer<ByteVar>(), vendorname.toCPointer<ByteVar>(), scopeinfo.toCPointer<ByteVar>(), optionvalues.toCPointer<ByteVar>())
+public actual fun dhcpSetOptionValuesV5(serveripaddress: Pcwstr, flags: UInt, classname: Pcwstr, vendorname: Pcwstr, scopeinfo: COpaquePointer?, optionvalues: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOptionValuesV5(serveripaddress?.value?.toCPointer<ByteVar>(), flags, classname?.value?.toCPointer<ByteVar>(), vendorname?.value?.toCPointer<ByteVar>(), scopeinfo?.value?.toCPointer<ByteVar>(), optionvalues?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpSetServerBindingInfo(serveripaddress: PCWSTR, flags: UInt, bindelementinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpSetServerBindingInfo(serveripaddress.toCPointer<ByteVar>(), flags, bindelementinfo.toCPointer<ByteVar>())
+public actual fun dhcpSetServerBindingInfo(serveripaddress: Pcwstr, flags: UInt, bindelementinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetServerBindingInfo(serveripaddress?.value?.toCPointer<ByteVar>(), flags, bindelementinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpSetServerBindingInfoV6(serveripaddress: PCWSTR, flags: UInt, bindelementinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpSetServerBindingInfoV6(serveripaddress.toCPointer<ByteVar>(), flags, bindelementinfo.toCPointer<ByteVar>())
+public actual fun dhcpSetServerBindingInfoV6(serveripaddress: Pcwstr, flags: UInt, bindelementinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetServerBindingInfoV6(serveripaddress?.value?.toCPointer<ByteVar>(), flags, bindelementinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpSetSubnetDelayOffer(serveripaddress: PCWSTR, subnetaddress: UInt, timedelayinmilliseconds: UShort): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpSetSubnetDelayOffer(serveripaddress.toCPointer<ByteVar>(), subnetaddress, timedelayinmilliseconds)
+public actual fun dhcpSetSubnetDelayOffer(serveripaddress: Pcwstr, subnetaddress: UInt, timedelayinmilliseconds: UShort): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetSubnetDelayOffer(serveripaddress?.value?.toCPointer<ByteVar>(), subnetaddress, timedelayinmilliseconds)
 
-public actual fun DhcpSetSubnetInfo(serveripaddress: PCWSTR, subnetaddress: UInt, subnetinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpSetSubnetInfo(serveripaddress.toCPointer<ByteVar>(), subnetaddress, subnetinfo.toCPointer<ByteVar>())
+public actual fun dhcpSetSubnetInfo(serveripaddress: Pcwstr, subnetaddress: UInt, subnetinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetSubnetInfo(serveripaddress?.value?.toCPointer<ByteVar>(), subnetaddress, subnetinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpSetSubnetInfoV6(serveripaddress: PCWSTR, subnetaddress: DHCP_IPV6_ADDRESS, subnetinfo: Long): UInt =
+public actual fun dhcpSetSubnetInfoV6(serveripaddress: Pcwstr, subnetaddress: DhcpIpv6Address, subnetinfo: COpaquePointer?): UInt =
     0u
 
-public actual fun DhcpSetSubnetInfoVQ(serveripaddress: PCWSTR, subnetaddress: UInt, subnetinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpSetSubnetInfoVQ(serveripaddress.toCPointer<ByteVar>(), subnetaddress, subnetinfo.toCPointer<ByteVar>())
+public actual fun dhcpSetSubnetInfoVQ(serveripaddress: Pcwstr, subnetaddress: UInt, subnetinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetSubnetInfoVQ(serveripaddress?.value?.toCPointer<ByteVar>(), subnetaddress, subnetinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpSetSuperScopeV4(serveripaddress: PCWSTR, subnetaddress: UInt, superscopename: PCWSTR, changeexisting: BOOL): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpSetSuperScopeV4(serveripaddress.toCPointer<ByteVar>(), subnetaddress, superscopename.toCPointer<ByteVar>(), changeexisting)
+public actual fun dhcpSetSuperScopeV4(serveripaddress: Pcwstr, subnetaddress: UInt, superscopename: Pcwstr, changeexisting: Bool): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetSuperScopeV4(serveripaddress?.value?.toCPointer<ByteVar>(), subnetaddress, superscopename?.value?.toCPointer<ByteVar>(), changeexisting)
 
-public actual fun DhcpSetThreadOptions(flags: UInt, reserved: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpSetThreadOptions(flags, reserved.toCPointer<ByteVar>())
+public actual fun dhcpSetThreadOptions(flags: UInt, reserved: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpSetThreadOptions(flags, reserved?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpUndoRequestParams(flags: UInt, reserved: Long, adaptername: PCWSTR, requestidstr: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpUndoRequestParams(flags, reserved.toCPointer<ByteVar>(), adaptername.toCPointer<ByteVar>(), requestidstr.toCPointer<ByteVar>())
+public actual fun dhcpUndoRequestParams(flags: UInt, reserved: COpaquePointer?, adaptername: Pcwstr, requestidstr: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpUndoRequestParams(flags, reserved?.value?.toCPointer<ByteVar>(), adaptername?.value?.toCPointer<ByteVar>(), requestidstr?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV4AddPolicyRange(serveripaddress: PCWSTR, subnetaddress: UInt, policyname: PCWSTR, range: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV4AddPolicyRange(serveripaddress.toCPointer<ByteVar>(), subnetaddress, policyname.toCPointer<ByteVar>(), range.toCPointer<ByteVar>())
+public actual fun dhcpV4AddPolicyRange(serveripaddress: Pcwstr, subnetaddress: UInt, policyname: Pcwstr, range: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4AddPolicyRange(serveripaddress?.value?.toCPointer<ByteVar>(), subnetaddress, policyname?.value?.toCPointer<ByteVar>(), range?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV4CreateClientInfo(serveripaddress: PCWSTR, clientinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV4CreateClientInfo(serveripaddress.toCPointer<ByteVar>(), clientinfo.toCPointer<ByteVar>())
+public actual fun dhcpV4CreateClientInfo(serveripaddress: Pcwstr, clientinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4CreateClientInfo(serveripaddress?.value?.toCPointer<ByteVar>(), clientinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV4CreateClientInfoEx(serveripaddress: PCWSTR, clientinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV4CreateClientInfoEx(serveripaddress.toCPointer<ByteVar>(), clientinfo.toCPointer<ByteVar>())
+public actual fun dhcpV4CreateClientInfoEx(serveripaddress: Pcwstr, clientinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4CreateClientInfoEx(serveripaddress?.value?.toCPointer<ByteVar>(), clientinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV4CreatePolicy(serveripaddress: PCWSTR, ppolicy: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV4CreatePolicy(serveripaddress.toCPointer<ByteVar>(), ppolicy.toCPointer<ByteVar>())
+public actual fun dhcpV4CreatePolicy(serveripaddress: Pcwstr, ppolicy: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4CreatePolicy(serveripaddress?.value?.toCPointer<ByteVar>(), ppolicy?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV4CreatePolicyEx(serveripaddress: PCWSTR, policyex: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV4CreatePolicyEx(serveripaddress.toCPointer<ByteVar>(), policyex.toCPointer<ByteVar>())
+public actual fun dhcpV4CreatePolicyEx(serveripaddress: Pcwstr, policyex: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4CreatePolicyEx(serveripaddress?.value?.toCPointer<ByteVar>(), policyex?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV4DeletePolicy(serveripaddress: PCWSTR, fglobalpolicy: BOOL, subnetaddress: UInt, policyname: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV4DeletePolicy(serveripaddress.toCPointer<ByteVar>(), fglobalpolicy, subnetaddress, policyname.toCPointer<ByteVar>())
+public actual fun dhcpV4DeletePolicy(serveripaddress: Pcwstr, fglobalpolicy: Bool, subnetaddress: UInt, policyname: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4DeletePolicy(serveripaddress?.value?.toCPointer<ByteVar>(), fglobalpolicy, subnetaddress, policyname?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV4EnumPolicies(serveripaddress: PCWSTR, resumehandle: Long, preferredmaximum: UInt, fglobalpolicy: BOOL, subnetaddress: UInt, enuminfo: Long, elementsread: Long, elementstotal: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV4EnumPolicies(serveripaddress.toCPointer<ByteVar>(), resumehandle.toCPointer<ByteVar>(), preferredmaximum, fglobalpolicy, subnetaddress, enuminfo.toCPointer<ByteVar>(), elementsread.toCPointer<ByteVar>(), elementstotal.toCPointer<ByteVar>())
+public actual fun dhcpV4EnumPolicies(serveripaddress: Pcwstr, resumehandle: COpaquePointer?, preferredmaximum: UInt, fglobalpolicy: Bool, subnetaddress: UInt, enuminfo: COpaquePointer?, elementsread: COpaquePointer?, elementstotal: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumPolicies(serveripaddress?.value?.toCPointer<ByteVar>(), resumehandle?.value?.toCPointer<ByteVar>(), preferredmaximum, fglobalpolicy, subnetaddress, enuminfo?.value?.toCPointer<ByteVar>(), elementsread?.value?.toCPointer<ByteVar>(), elementstotal?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV4EnumPoliciesEx(serveripaddress: PCWSTR, resumehandle: Long, preferredmaximum: UInt, globalpolicy: BOOL, subnetaddress: UInt, enuminfo: Long, elementsread: Long, elementstotal: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV4EnumPoliciesEx(serveripaddress.toCPointer<ByteVar>(), resumehandle.toCPointer<ByteVar>(), preferredmaximum, globalpolicy, subnetaddress, enuminfo.toCPointer<ByteVar>(), elementsread.toCPointer<ByteVar>(), elementstotal.toCPointer<ByteVar>())
+public actual fun dhcpV4EnumPoliciesEx(serveripaddress: Pcwstr, resumehandle: COpaquePointer?, preferredmaximum: UInt, globalpolicy: Bool, subnetaddress: UInt, enuminfo: COpaquePointer?, elementsread: COpaquePointer?, elementstotal: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumPoliciesEx(serveripaddress?.value?.toCPointer<ByteVar>(), resumehandle?.value?.toCPointer<ByteVar>(), preferredmaximum, globalpolicy, subnetaddress, enuminfo?.value?.toCPointer<ByteVar>(), elementsread?.value?.toCPointer<ByteVar>(), elementstotal?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV4EnumSubnetClients(serveripaddress: PCWSTR, subnetaddress: UInt, resumehandle: Long, preferredmaximum: UInt, clientinfo: Long, clientsread: Long, clientstotal: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV4EnumSubnetClients(serveripaddress.toCPointer<ByteVar>(), subnetaddress, resumehandle.toCPointer<ByteVar>(), preferredmaximum, clientinfo.toCPointer<ByteVar>(), clientsread.toCPointer<ByteVar>(), clientstotal.toCPointer<ByteVar>())
+public actual fun dhcpV4EnumSubnetClients(serveripaddress: Pcwstr, subnetaddress: UInt, resumehandle: COpaquePointer?, preferredmaximum: UInt, clientinfo: COpaquePointer?, clientsread: COpaquePointer?, clientstotal: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumSubnetClients(serveripaddress?.value?.toCPointer<ByteVar>(), subnetaddress, resumehandle?.value?.toCPointer<ByteVar>(), preferredmaximum, clientinfo?.value?.toCPointer<ByteVar>(), clientsread?.value?.toCPointer<ByteVar>(), clientstotal?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV4EnumSubnetClientsEx(serveripaddress: PCWSTR, subnetaddress: UInt, resumehandle: Long, preferredmaximum: UInt, clientinfo: Long, clientsread: Long, clientstotal: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV4EnumSubnetClientsEx(serveripaddress.toCPointer<ByteVar>(), subnetaddress, resumehandle.toCPointer<ByteVar>(), preferredmaximum, clientinfo.toCPointer<ByteVar>(), clientsread.toCPointer<ByteVar>(), clientstotal.toCPointer<ByteVar>())
+public actual fun dhcpV4EnumSubnetClientsEx(serveripaddress: Pcwstr, subnetaddress: UInt, resumehandle: COpaquePointer?, preferredmaximum: UInt, clientinfo: COpaquePointer?, clientsread: COpaquePointer?, clientstotal: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumSubnetClientsEx(serveripaddress?.value?.toCPointer<ByteVar>(), subnetaddress, resumehandle?.value?.toCPointer<ByteVar>(), preferredmaximum, clientinfo?.value?.toCPointer<ByteVar>(), clientsread?.value?.toCPointer<ByteVar>(), clientstotal?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV4EnumSubnetReservations(serveripaddress: PCWSTR, subnetaddress: UInt, resumehandle: Long, preferredmaximum: UInt, enumelementinfo: Long, elementsread: Long, elementstotal: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV4EnumSubnetReservations(serveripaddress.toCPointer<ByteVar>(), subnetaddress, resumehandle.toCPointer<ByteVar>(), preferredmaximum, enumelementinfo.toCPointer<ByteVar>(), elementsread.toCPointer<ByteVar>(), elementstotal.toCPointer<ByteVar>())
+public actual fun dhcpV4EnumSubnetReservations(serveripaddress: Pcwstr, subnetaddress: UInt, resumehandle: COpaquePointer?, preferredmaximum: UInt, enumelementinfo: COpaquePointer?, elementsread: COpaquePointer?, elementstotal: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumSubnetReservations(serveripaddress?.value?.toCPointer<ByteVar>(), subnetaddress, resumehandle?.value?.toCPointer<ByteVar>(), preferredmaximum, enumelementinfo?.value?.toCPointer<ByteVar>(), elementsread?.value?.toCPointer<ByteVar>(), elementstotal?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV4FailoverAddScopeToRelationship(serveripaddress: PCWSTR, prelationship: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverAddScopeToRelationship(serveripaddress.toCPointer<ByteVar>(), prelationship.toCPointer<ByteVar>())
+public actual fun dhcpV4FailoverAddScopeToRelationship(serveripaddress: Pcwstr, prelationship: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverAddScopeToRelationship(serveripaddress?.value?.toCPointer<ByteVar>(), prelationship?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV4FailoverCreateRelationship(serveripaddress: PCWSTR, prelationship: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverCreateRelationship(serveripaddress.toCPointer<ByteVar>(), prelationship.toCPointer<ByteVar>())
+public actual fun dhcpV4FailoverCreateRelationship(serveripaddress: Pcwstr, prelationship: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverCreateRelationship(serveripaddress?.value?.toCPointer<ByteVar>(), prelationship?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV4FailoverDeleteRelationship(serveripaddress: PCWSTR, prelationshipname: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverDeleteRelationship(serveripaddress.toCPointer<ByteVar>(), prelationshipname.toCPointer<ByteVar>())
+public actual fun dhcpV4FailoverDeleteRelationship(serveripaddress: Pcwstr, prelationshipname: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverDeleteRelationship(serveripaddress?.value?.toCPointer<ByteVar>(), prelationshipname?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV4FailoverDeleteScopeFromRelationship(serveripaddress: PCWSTR, prelationship: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverDeleteScopeFromRelationship(serveripaddress.toCPointer<ByteVar>(), prelationship.toCPointer<ByteVar>())
+public actual fun dhcpV4FailoverDeleteScopeFromRelationship(serveripaddress: Pcwstr, prelationship: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverDeleteScopeFromRelationship(serveripaddress?.value?.toCPointer<ByteVar>(), prelationship?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV4FailoverEnumRelationship(serveripaddress: PCWSTR, resumehandle: Long, preferredmaximum: UInt, prelationship: Long, relationshipread: Long, relationshiptotal: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverEnumRelationship(serveripaddress.toCPointer<ByteVar>(), resumehandle.toCPointer<ByteVar>(), preferredmaximum, prelationship.toCPointer<ByteVar>(), relationshipread.toCPointer<ByteVar>(), relationshiptotal.toCPointer<ByteVar>())
+public actual fun dhcpV4FailoverEnumRelationship(serveripaddress: Pcwstr, resumehandle: COpaquePointer?, preferredmaximum: UInt, prelationship: COpaquePointer?, relationshipread: COpaquePointer?, relationshiptotal: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverEnumRelationship(serveripaddress?.value?.toCPointer<ByteVar>(), resumehandle?.value?.toCPointer<ByteVar>(), preferredmaximum, prelationship?.value?.toCPointer<ByteVar>(), relationshipread?.value?.toCPointer<ByteVar>(), relationshiptotal?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV4FailoverGetAddressStatus(serveripaddress: PCWSTR, subnetaddress: UInt, pstatus: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverGetAddressStatus(serveripaddress.toCPointer<ByteVar>(), subnetaddress, pstatus.toCPointer<ByteVar>())
+public actual fun dhcpV4FailoverGetAddressStatus(serveripaddress: Pcwstr, subnetaddress: UInt, pstatus: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetAddressStatus(serveripaddress?.value?.toCPointer<ByteVar>(), subnetaddress, pstatus?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV4FailoverGetClientInfo(serveripaddress: PCWSTR, searchinfo: Long, clientinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverGetClientInfo(serveripaddress.toCPointer<ByteVar>(), searchinfo.toCPointer<ByteVar>(), clientinfo.toCPointer<ByteVar>())
+public actual fun dhcpV4FailoverGetClientInfo(serveripaddress: Pcwstr, searchinfo: COpaquePointer?, clientinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetClientInfo(serveripaddress?.value?.toCPointer<ByteVar>(), searchinfo?.value?.toCPointer<ByteVar>(), clientinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV4FailoverGetRelationship(serveripaddress: PCWSTR, prelationshipname: PCWSTR, prelationship: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverGetRelationship(serveripaddress.toCPointer<ByteVar>(), prelationshipname.toCPointer<ByteVar>(), prelationship.toCPointer<ByteVar>())
+public actual fun dhcpV4FailoverGetRelationship(serveripaddress: Pcwstr, prelationshipname: Pcwstr, prelationship: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetRelationship(serveripaddress?.value?.toCPointer<ByteVar>(), prelationshipname?.value?.toCPointer<ByteVar>(), prelationship?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV4FailoverGetScopeRelationship(serveripaddress: PCWSTR, scopeid: UInt, prelationship: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverGetScopeRelationship(serveripaddress.toCPointer<ByteVar>(), scopeid, prelationship.toCPointer<ByteVar>())
+public actual fun dhcpV4FailoverGetScopeRelationship(serveripaddress: Pcwstr, scopeid: UInt, prelationship: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetScopeRelationship(serveripaddress?.value?.toCPointer<ByteVar>(), scopeid, prelationship?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV4FailoverGetScopeStatistics(serveripaddress: PCWSTR, scopeid: UInt, pstats: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverGetScopeStatistics(serveripaddress.toCPointer<ByteVar>(), scopeid, pstats.toCPointer<ByteVar>())
+public actual fun dhcpV4FailoverGetScopeStatistics(serveripaddress: Pcwstr, scopeid: UInt, pstats: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetScopeStatistics(serveripaddress?.value?.toCPointer<ByteVar>(), scopeid, pstats?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV4FailoverGetSystemTime(serveripaddress: PCWSTR, ptime: Long, pmaxalloweddeltatime: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverGetSystemTime(serveripaddress.toCPointer<ByteVar>(), ptime.toCPointer<ByteVar>(), pmaxalloweddeltatime.toCPointer<ByteVar>())
+public actual fun dhcpV4FailoverGetSystemTime(serveripaddress: Pcwstr, ptime: COpaquePointer?, pmaxalloweddeltatime: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverGetSystemTime(serveripaddress?.value?.toCPointer<ByteVar>(), ptime?.value?.toCPointer<ByteVar>(), pmaxalloweddeltatime?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV4FailoverSetRelationship(serveripaddress: PCWSTR, flags: UInt, prelationship: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverSetRelationship(serveripaddress.toCPointer<ByteVar>(), flags, prelationship.toCPointer<ByteVar>())
+public actual fun dhcpV4FailoverSetRelationship(serveripaddress: Pcwstr, flags: UInt, prelationship: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverSetRelationship(serveripaddress?.value?.toCPointer<ByteVar>(), flags, prelationship?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV4FailoverTriggerAddrAllocation(serveripaddress: PCWSTR, pfailrelname: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV4FailoverTriggerAddrAllocation(serveripaddress.toCPointer<ByteVar>(), pfailrelname.toCPointer<ByteVar>())
+public actual fun dhcpV4FailoverTriggerAddrAllocation(serveripaddress: Pcwstr, pfailrelname: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4FailoverTriggerAddrAllocation(serveripaddress?.value?.toCPointer<ByteVar>(), pfailrelname?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV4GetAllOptionValues(serveripaddress: PCWSTR, flags: UInt, scopeinfo: Long, values: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetAllOptionValues(serveripaddress.toCPointer<ByteVar>(), flags, scopeinfo.toCPointer<ByteVar>(), values.toCPointer<ByteVar>())
+public actual fun dhcpV4GetAllOptionValues(serveripaddress: Pcwstr, flags: UInt, scopeinfo: COpaquePointer?, values: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetAllOptionValues(serveripaddress?.value?.toCPointer<ByteVar>(), flags, scopeinfo?.value?.toCPointer<ByteVar>(), values?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV4GetClientInfo(serveripaddress: PCWSTR, searchinfo: Long, clientinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetClientInfo(serveripaddress.toCPointer<ByteVar>(), searchinfo.toCPointer<ByteVar>(), clientinfo.toCPointer<ByteVar>())
+public actual fun dhcpV4GetClientInfo(serveripaddress: Pcwstr, searchinfo: COpaquePointer?, clientinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetClientInfo(serveripaddress?.value?.toCPointer<ByteVar>(), searchinfo?.value?.toCPointer<ByteVar>(), clientinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV4GetClientInfoEx(serveripaddress: PCWSTR, searchinfo: Long, clientinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetClientInfoEx(serveripaddress.toCPointer<ByteVar>(), searchinfo.toCPointer<ByteVar>(), clientinfo.toCPointer<ByteVar>())
+public actual fun dhcpV4GetClientInfoEx(serveripaddress: Pcwstr, searchinfo: COpaquePointer?, clientinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetClientInfoEx(serveripaddress?.value?.toCPointer<ByteVar>(), searchinfo?.value?.toCPointer<ByteVar>(), clientinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV4GetFreeIPAddress(serveripaddress: PCWSTR, scopeid: UInt, startip: UInt, endip: UInt, numfreeaddrreq: UInt, ipaddrlist: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetFreeIPAddress(serveripaddress.toCPointer<ByteVar>(), scopeid, startip, endip, numfreeaddrreq, ipaddrlist.toCPointer<ByteVar>())
+public actual fun dhcpV4GetFreeIPAddress(serveripaddress: Pcwstr, scopeid: UInt, startip: UInt, endip: UInt, numfreeaddrreq: UInt, ipaddrlist: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetFreeIPAddress(serveripaddress?.value?.toCPointer<ByteVar>(), scopeid, startip, endip, numfreeaddrreq, ipaddrlist?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV4GetOptionValue(serveripaddress: PCWSTR, flags: UInt, optionid: UInt, policyname: PCWSTR, vendorname: PCWSTR, scopeinfo: Long, optionvalue: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetOptionValue(serveripaddress.toCPointer<ByteVar>(), flags, optionid, policyname.toCPointer<ByteVar>(), vendorname.toCPointer<ByteVar>(), scopeinfo.toCPointer<ByteVar>(), optionvalue.toCPointer<ByteVar>())
+public actual fun dhcpV4GetOptionValue(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, policyname: Pcwstr, vendorname: Pcwstr, scopeinfo: COpaquePointer?, optionvalue: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetOptionValue(serveripaddress?.value?.toCPointer<ByteVar>(), flags, optionid, policyname?.value?.toCPointer<ByteVar>(), vendorname?.value?.toCPointer<ByteVar>(), scopeinfo?.value?.toCPointer<ByteVar>(), optionvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV4GetPolicy(serveripaddress: PCWSTR, fglobalpolicy: BOOL, subnetaddress: UInt, policyname: PCWSTR, policy: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetPolicy(serveripaddress.toCPointer<ByteVar>(), fglobalpolicy, subnetaddress, policyname.toCPointer<ByteVar>(), policy.toCPointer<ByteVar>())
+public actual fun dhcpV4GetPolicy(serveripaddress: Pcwstr, fglobalpolicy: Bool, subnetaddress: UInt, policyname: Pcwstr, policy: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetPolicy(serveripaddress?.value?.toCPointer<ByteVar>(), fglobalpolicy, subnetaddress, policyname?.value?.toCPointer<ByteVar>(), policy?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV4GetPolicyEx(serveripaddress: PCWSTR, globalpolicy: BOOL, subnetaddress: UInt, policyname: PCWSTR, policy: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV4GetPolicyEx(serveripaddress.toCPointer<ByteVar>(), globalpolicy, subnetaddress, policyname.toCPointer<ByteVar>(), policy.toCPointer<ByteVar>())
+public actual fun dhcpV4GetPolicyEx(serveripaddress: Pcwstr, globalpolicy: Bool, subnetaddress: UInt, policyname: Pcwstr, policy: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetPolicyEx(serveripaddress?.value?.toCPointer<ByteVar>(), globalpolicy, subnetaddress, policyname?.value?.toCPointer<ByteVar>(), policy?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV4QueryPolicyEnforcement(serveripaddress: PCWSTR, fglobalpolicy: BOOL, subnetaddress: UInt, enabled: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV4QueryPolicyEnforcement(serveripaddress.toCPointer<ByteVar>(), fglobalpolicy, subnetaddress, enabled.toCPointer<ByteVar>())
+public actual fun dhcpV4QueryPolicyEnforcement(serveripaddress: Pcwstr, fglobalpolicy: Bool, subnetaddress: UInt, enabled: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4QueryPolicyEnforcement(serveripaddress?.value?.toCPointer<ByteVar>(), fglobalpolicy, subnetaddress, enabled?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV4RemoveOptionValue(serveripaddress: PCWSTR, flags: UInt, optionid: UInt, policyname: PCWSTR, vendorname: PCWSTR, scopeinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV4RemoveOptionValue(serveripaddress.toCPointer<ByteVar>(), flags, optionid, policyname.toCPointer<ByteVar>(), vendorname.toCPointer<ByteVar>(), scopeinfo.toCPointer<ByteVar>())
+public actual fun dhcpV4RemoveOptionValue(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, policyname: Pcwstr, vendorname: Pcwstr, scopeinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4RemoveOptionValue(serveripaddress?.value?.toCPointer<ByteVar>(), flags, optionid, policyname?.value?.toCPointer<ByteVar>(), vendorname?.value?.toCPointer<ByteVar>(), scopeinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV4RemovePolicyRange(serveripaddress: PCWSTR, subnetaddress: UInt, policyname: PCWSTR, range: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV4RemovePolicyRange(serveripaddress.toCPointer<ByteVar>(), subnetaddress, policyname.toCPointer<ByteVar>(), range.toCPointer<ByteVar>())
+public actual fun dhcpV4RemovePolicyRange(serveripaddress: Pcwstr, subnetaddress: UInt, policyname: Pcwstr, range: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4RemovePolicyRange(serveripaddress?.value?.toCPointer<ByteVar>(), subnetaddress, policyname?.value?.toCPointer<ByteVar>(), range?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV4SetOptionValue(serveripaddress: PCWSTR, flags: UInt, optionid: UInt, policyname: PCWSTR, vendorname: PCWSTR, scopeinfo: Long, optionvalue: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV4SetOptionValue(serveripaddress.toCPointer<ByteVar>(), flags, optionid, policyname.toCPointer<ByteVar>(), vendorname.toCPointer<ByteVar>(), scopeinfo.toCPointer<ByteVar>(), optionvalue.toCPointer<ByteVar>())
+public actual fun dhcpV4SetOptionValue(serveripaddress: Pcwstr, flags: UInt, optionid: UInt, policyname: Pcwstr, vendorname: Pcwstr, scopeinfo: COpaquePointer?, optionvalue: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetOptionValue(serveripaddress?.value?.toCPointer<ByteVar>(), flags, optionid, policyname?.value?.toCPointer<ByteVar>(), vendorname?.value?.toCPointer<ByteVar>(), scopeinfo?.value?.toCPointer<ByteVar>(), optionvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV4SetOptionValues(serveripaddress: PCWSTR, flags: UInt, policyname: PCWSTR, vendorname: PCWSTR, scopeinfo: Long, optionvalues: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV4SetOptionValues(serveripaddress.toCPointer<ByteVar>(), flags, policyname.toCPointer<ByteVar>(), vendorname.toCPointer<ByteVar>(), scopeinfo.toCPointer<ByteVar>(), optionvalues.toCPointer<ByteVar>())
+public actual fun dhcpV4SetOptionValues(serveripaddress: Pcwstr, flags: UInt, policyname: Pcwstr, vendorname: Pcwstr, scopeinfo: COpaquePointer?, optionvalues: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetOptionValues(serveripaddress?.value?.toCPointer<ByteVar>(), flags, policyname?.value?.toCPointer<ByteVar>(), vendorname?.value?.toCPointer<ByteVar>(), scopeinfo?.value?.toCPointer<ByteVar>(), optionvalues?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV4SetPolicy(serveripaddress: PCWSTR, fieldsmodified: UInt, fglobalpolicy: BOOL, subnetaddress: UInt, policyname: PCWSTR, policy: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV4SetPolicy(serveripaddress.toCPointer<ByteVar>(), fieldsmodified, fglobalpolicy, subnetaddress, policyname.toCPointer<ByteVar>(), policy.toCPointer<ByteVar>())
+public actual fun dhcpV4SetPolicy(serveripaddress: Pcwstr, fieldsmodified: UInt, fglobalpolicy: Bool, subnetaddress: UInt, policyname: Pcwstr, policy: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetPolicy(serveripaddress?.value?.toCPointer<ByteVar>(), fieldsmodified, fglobalpolicy, subnetaddress, policyname?.value?.toCPointer<ByteVar>(), policy?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV4SetPolicyEnforcement(serveripaddress: PCWSTR, fglobalpolicy: BOOL, subnetaddress: UInt, enable: BOOL): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV4SetPolicyEnforcement(serveripaddress.toCPointer<ByteVar>(), fglobalpolicy, subnetaddress, enable)
+public actual fun dhcpV4SetPolicyEnforcement(serveripaddress: Pcwstr, fglobalpolicy: Bool, subnetaddress: UInt, enable: Bool): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetPolicyEnforcement(serveripaddress?.value?.toCPointer<ByteVar>(), fglobalpolicy, subnetaddress, enable)
 
-public actual fun DhcpV4SetPolicyEx(serveripaddress: PCWSTR, fieldsmodified: UInt, globalpolicy: BOOL, subnetaddress: UInt, policyname: PCWSTR, policy: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV4SetPolicyEx(serveripaddress.toCPointer<ByteVar>(), fieldsmodified, globalpolicy, subnetaddress, policyname.toCPointer<ByteVar>(), policy.toCPointer<ByteVar>())
+public actual fun dhcpV4SetPolicyEx(serveripaddress: Pcwstr, fieldsmodified: UInt, globalpolicy: Bool, subnetaddress: UInt, policyname: Pcwstr, policy: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetPolicyEx(serveripaddress?.value?.toCPointer<ByteVar>(), fieldsmodified, globalpolicy, subnetaddress, policyname?.value?.toCPointer<ByteVar>(), policy?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV6CreateClientInfo(serveripaddress: PCWSTR, clientinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV6CreateClientInfo(serveripaddress.toCPointer<ByteVar>(), clientinfo.toCPointer<ByteVar>())
+public actual fun dhcpV6CreateClientInfo(serveripaddress: Pcwstr, clientinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV6CreateClientInfo(serveripaddress?.value?.toCPointer<ByteVar>(), clientinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV6GetFreeIPAddress(serveripaddress: PCWSTR, scopeid: DHCP_IPV6_ADDRESS, startip: DHCP_IPV6_ADDRESS, endip: DHCP_IPV6_ADDRESS, numfreeaddrreq: UInt, ipaddrlist: Long): UInt =
+public actual fun dhcpV6GetFreeIPAddress(serveripaddress: Pcwstr, scopeid: DhcpIpv6Address, startip: DhcpIpv6Address, endip: DhcpIpv6Address, numfreeaddrreq: UInt, ipaddrlist: COpaquePointer?): UInt =
     0u
 
-public actual fun DhcpV6GetStatelessStatistics(serveripaddress: PCWSTR, statelessstats: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_DhcpV6GetStatelessStatistics(serveripaddress.toCPointer<ByteVar>(), statelessstats.toCPointer<ByteVar>())
+public actual fun dhcpV6GetStatelessStatistics(serveripaddress: Pcwstr, statelessstats: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpV6GetStatelessStatistics(serveripaddress?.value?.toCPointer<ByteVar>(), statelessstats?.value?.toCPointer<ByteVar>())
 
-public actual fun DhcpV6GetStatelessStoreParams(serveripaddress: PCWSTR, fserverlevel: BOOL, subnetaddress: DHCP_IPV6_ADDRESS, params: Long): UInt =
+public actual fun dhcpV6GetStatelessStoreParams(serveripaddress: Pcwstr, fserverlevel: Bool, subnetaddress: DhcpIpv6Address, params: COpaquePointer?): UInt =
     0u
 
-public actual fun DhcpV6SetStatelessStoreParams(serveripaddress: PCWSTR, fserverlevel: BOOL, subnetaddress: DHCP_IPV6_ADDRESS, fieldmodified: UInt, params: Long): UInt =
+public actual fun dhcpV6SetStatelessStoreParams(serveripaddress: Pcwstr, fserverlevel: Bool, subnetaddress: DhcpIpv6Address, fieldmodified: UInt, params: COpaquePointer?): UInt =
     0u
 
-public actual fun Dhcpv6CApiCleanup() {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_Dhcpv6CApiCleanup()
+public actual fun dhcpv6CApiCleanup() {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpv6CApiCleanup()
 }
 
-public actual fun Dhcpv6CApiInitialize(version: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_Dhcpv6CApiInitialize(version.toCPointer<ByteVar>())
+public actual fun dhcpv6CApiInitialize(version: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpv6CApiInitialize(version?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun Dhcpv6ReleasePrefix(adaptername: PCWSTR, classid: Long, leaseinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_Dhcpv6ReleasePrefix(adaptername.toCPointer<ByteVar>(), classid.toCPointer<ByteVar>(), leaseinfo.toCPointer<ByteVar>())
+public actual fun dhcpv6ReleasePrefix(adaptername: Pcwstr, classid: COpaquePointer?, leaseinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpv6ReleasePrefix(adaptername?.value?.toCPointer<ByteVar>(), classid?.value?.toCPointer<ByteVar>(), leaseinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun Dhcpv6RenewPrefix(adaptername: PCWSTR, pclassid: Long, prefixleaseinfo: Long, pdwtimetowait: Long, bvalidateprefix: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_Dhcpv6RenewPrefix(adaptername.toCPointer<ByteVar>(), pclassid.toCPointer<ByteVar>(), prefixleaseinfo.toCPointer<ByteVar>(), pdwtimetowait.toCPointer<ByteVar>(), bvalidateprefix)
+public actual fun dhcpv6RenewPrefix(adaptername: Pcwstr, pclassid: COpaquePointer?, prefixleaseinfo: COpaquePointer?, pdwtimetowait: COpaquePointer?, bvalidateprefix: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpv6RenewPrefix(adaptername?.value?.toCPointer<ByteVar>(), pclassid?.value?.toCPointer<ByteVar>(), prefixleaseinfo?.value?.toCPointer<ByteVar>(), pdwtimetowait?.value?.toCPointer<ByteVar>(), bvalidateprefix)
 
-public actual fun Dhcpv6RequestParams(forcenewinform: BOOL, reserved: Long, adaptername: PCWSTR, classid: Long, recdparams: DHCPV6CAPI_PARAMS_ARRAY, buffer: Long, psize: Long): UInt =
+public actual fun dhcpv6RequestParams(forcenewinform: Bool, reserved: COpaquePointer?, adaptername: Pcwstr, classid: COpaquePointer?, recdparams: Dhcpv6capiParamsArray, buffer: COpaquePointer?, psize: COpaquePointer?): UInt =
     0u
 
-public actual fun Dhcpv6RequestPrefix(adaptername: PCWSTR, pclassid: Long, prefixleaseinfo: Long, pdwtimetowait: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_Dhcpv6RequestPrefix(adaptername.toCPointer<ByteVar>(), pclassid.toCPointer<ByteVar>(), prefixleaseinfo.toCPointer<ByteVar>(), pdwtimetowait.toCPointer<ByteVar>())
+public actual fun dhcpv6RequestPrefix(adaptername: Pcwstr, pclassid: COpaquePointer?, prefixleaseinfo: COpaquePointer?, pdwtimetowait: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp.cinterop.windowssys_windows_win32_networkmanagement_dhcp_dhcpv6RequestPrefix(adaptername?.value?.toCPointer<ByteVar>(), pclassid?.value?.toCPointer<ByteVar>(), prefixleaseinfo?.value?.toCPointer<ByteVar>(), pdwtimetowait?.value?.toCPointer<ByteVar>())

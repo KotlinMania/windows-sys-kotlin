@@ -2,28 +2,29 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.filehistory
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun FhServiceBlockBackup(pipe: FH_SERVICE_PIPE_HANDLE): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.filehistory.cinterop.windowssys_windows_win32_storage_filehistory_FhServiceBlockBackup(pipe.toCPointer<ByteVar>())
+public actual fun fhServiceBlockBackup(pipe: FhServicePipeHandle): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.filehistory.cinterop.windowssys_windows_win32_storage_filehistory_fhServiceBlockBackup(pipe?.value?.toCPointer<ByteVar>())
 
-public actual fun FhServiceClosePipe(pipe: FH_SERVICE_PIPE_HANDLE): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.filehistory.cinterop.windowssys_windows_win32_storage_filehistory_FhServiceClosePipe(pipe.toCPointer<ByteVar>())
+public actual fun fhServiceClosePipe(pipe: FhServicePipeHandle): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.filehistory.cinterop.windowssys_windows_win32_storage_filehistory_fhServiceClosePipe(pipe?.value?.toCPointer<ByteVar>())
 
-public actual fun FhServiceOpenPipe(startserviceifstopped: BOOL, pipe: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.filehistory.cinterop.windowssys_windows_win32_storage_filehistory_FhServiceOpenPipe(startserviceifstopped, pipe.toCPointer<ByteVar>())
+public actual fun fhServiceOpenPipe(startserviceifstopped: Bool, pipe: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.filehistory.cinterop.windowssys_windows_win32_storage_filehistory_fhServiceOpenPipe(startserviceifstopped, pipe?.value?.toCPointer<ByteVar>())
 
-public actual fun FhServiceReloadConfiguration(pipe: FH_SERVICE_PIPE_HANDLE): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.filehistory.cinterop.windowssys_windows_win32_storage_filehistory_FhServiceReloadConfiguration(pipe.toCPointer<ByteVar>())
+public actual fun fhServiceReloadConfiguration(pipe: FhServicePipeHandle): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.filehistory.cinterop.windowssys_windows_win32_storage_filehistory_fhServiceReloadConfiguration(pipe?.value?.toCPointer<ByteVar>())
 
-public actual fun FhServiceStartBackup(pipe: FH_SERVICE_PIPE_HANDLE, lowpriorityio: BOOL): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.filehistory.cinterop.windowssys_windows_win32_storage_filehistory_FhServiceStartBackup(pipe.toCPointer<ByteVar>(), lowpriorityio)
+public actual fun fhServiceStartBackup(pipe: FhServicePipeHandle, lowpriorityio: Bool): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.filehistory.cinterop.windowssys_windows_win32_storage_filehistory_fhServiceStartBackup(pipe?.value?.toCPointer<ByteVar>(), lowpriorityio)
 
-public actual fun FhServiceStopBackup(pipe: FH_SERVICE_PIPE_HANDLE, stoptracking: BOOL): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.filehistory.cinterop.windowssys_windows_win32_storage_filehistory_FhServiceStopBackup(pipe.toCPointer<ByteVar>(), stoptracking)
+public actual fun fhServiceStopBackup(pipe: FhServicePipeHandle, stoptracking: Bool): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.filehistory.cinterop.windowssys_windows_win32_storage_filehistory_fhServiceStopBackup(pipe?.value?.toCPointer<ByteVar>(), stoptracking)
 
-public actual fun FhServiceUnblockBackup(pipe: FH_SERVICE_PIPE_HANDLE): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.filehistory.cinterop.windowssys_windows_win32_storage_filehistory_FhServiceUnblockBackup(pipe.toCPointer<ByteVar>())
+public actual fun fhServiceUnblockBackup(pipe: FhServicePipeHandle): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.filehistory.cinterop.windowssys_windows_win32_storage_filehistory_fhServiceUnblockBackup(pipe?.value?.toCPointer<ByteVar>())

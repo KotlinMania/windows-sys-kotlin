@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WindowsWin32NetworkmanagementWindowsconnectionmanagerJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsconnectionmanager_1FreeInterfaceContextTable(JNIEnv* km_env, jclass km_clazz, jlong interfacecontexttable) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WindowsWin32NetworkmanagementWindowsconnectionmanagerJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsconnectionmanager_1freeInterfaceContextTable(JNIEnv* km_env, jclass km_clazz, jlong interfacecontexttable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -34,7 +34,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WindowsWin32NetworkmanagementWindowsconnectionmanagerJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsconnectionmanager_1GetInterfaceContextTableForHostName(JNIEnv* km_env, jclass km_clazz, jlong hostname, jlong proxyname, jint flags, jlong connectionprofilefilterrawdata, jint connectionprofilefilterrawdatasize, jlong interfacecontexttable) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WindowsWin32NetworkmanagementWindowsconnectionmanagerJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsconnectionmanager_1getInterfaceContextTableForHostName(JNIEnv* km_env, jclass km_clazz, jlong hostname, jlong proxyname, jint flags, jlong connectionprofilefilterrawdata, jint connectionprofilefilterrawdatasize, jlong interfacecontexttable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -57,7 +57,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WindowsWin32NetworkmanagementWindowsconnectionmanagerJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsconnectionmanager_1OnDemandGetRoutingHint(JNIEnv* km_env, jclass km_clazz, jlong destinationhostname, jlong interfaceindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WindowsWin32NetworkmanagementWindowsconnectionmanagerJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsconnectionmanager_1onDemandGetRoutingHint(JNIEnv* km_env, jclass km_clazz, jlong destinationhostname, jlong interfaceindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -76,7 +76,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WindowsWin32NetworkmanagementWindowsconnectionmanagerJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsconnectionmanager_1OnDemandRegisterNotification(JNIEnv* km_env, jclass km_clazz, jlong callback, jlong callbackcontext, jlong registrationhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WindowsWin32NetworkmanagementWindowsconnectionmanagerJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsconnectionmanager_1onDemandRegisterNotification(JNIEnv* km_env, jclass km_clazz, jlong callback, jlong callbackcontext, jlong registrationhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -96,7 +96,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WindowsWin32NetworkmanagementWindowsconnectionmanagerJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsconnectionmanager_1OnDemandUnRegisterNotification(JNIEnv* km_env, jclass km_clazz, jlong registrationhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WindowsWin32NetworkmanagementWindowsconnectionmanagerJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsconnectionmanager_1onDemandUnRegisterNotification(JNIEnv* km_env, jclass km_clazz, jlong registrationhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -114,7 +114,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WindowsWin32NetworkmanagementWindowsconnectionmanagerJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsconnectionmanager_1WcmFreeMemory(JNIEnv* km_env, jclass km_clazz, jlong pmemory) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WindowsWin32NetworkmanagementWindowsconnectionmanagerJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsconnectionmanager_1wcmFreeMemory(JNIEnv* km_env, jclass km_clazz, jlong pmemory) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -130,7 +130,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WindowsWin32NetworkmanagementWindowsconnectionmanagerJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsconnectionmanager_1WcmGetProfileList(JNIEnv* km_env, jclass km_clazz, jlong preserved, jlong ppprofilelist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WindowsWin32NetworkmanagementWindowsconnectionmanagerJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsconnectionmanager_1wcmGetProfileList(JNIEnv* km_env, jclass km_clazz, jlong preserved, jlong ppprofilelist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -149,7 +149,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WindowsWin32NetworkmanagementWindowsconnectionmanagerJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsconnectionmanager_1WcmQueryProperty(JNIEnv* km_env, jclass km_clazz, jlong pinterface, jlong strprofilename, jint property, jlong preserved, jlong pdwdatasize, jlong ppdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WindowsWin32NetworkmanagementWindowsconnectionmanagerJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsconnectionmanager_1wcmQueryProperty(JNIEnv* km_env, jclass km_clazz, jlong pinterface, jlong strprofilename, jint property, jlong preserved, jlong pdwdatasize, jlong ppdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -172,7 +172,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WindowsWin32NetworkmanagementWindowsconnectionmanagerJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsconnectionmanager_1WcmSetProfileList(JNIEnv* km_env, jclass km_clazz, jlong pprofilelist, jint dwposition, jint fignoreunknownprofiles, jlong preserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WindowsWin32NetworkmanagementWindowsconnectionmanagerJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsconnectionmanager_1wcmSetProfileList(JNIEnv* km_env, jclass km_clazz, jlong pprofilelist, jint dwposition, jint fignoreunknownprofiles, jlong preserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -193,7 +193,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WindowsWin32NetworkmanagementWindowsconnectionmanagerJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsconnectionmanager_1WcmSetProperty(JNIEnv* km_env, jclass km_clazz, jlong pinterface, jlong strprofilename, jint property, jlong preserved, jint dwdatasize, jlong pbdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WindowsWin32NetworkmanagementWindowsconnectionmanagerJniBridge_windowssys_1windows_1win32_1networkmanagement_1windowsconnectionmanager_1wcmSetProperty(JNIEnv* km_env, jclass km_clazz, jlong pinterface, jlong strprofilename, jint property, jlong preserved, jint dwdatasize, jlong pbdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

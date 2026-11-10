@@ -1,9 +1,11 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.correlationvector
 
-public expect fun RtlExtendCorrelationVector(correlationvector: Long): UInt
+import io.github.kotlinmania.windowssys.COpaquePointer
 
-public expect fun RtlIncrementCorrelationVector(correlationvector: Long): UInt
+public expect fun rtlExtendCorrelationVector(correlationvector: COpaquePointer?): UInt
 
-public expect fun RtlInitializeCorrelationVector(correlationvector: Long, version: Int, guid: Long): UInt
+public expect fun rtlIncrementCorrelationVector(correlationvector: COpaquePointer?): UInt
 
-public expect fun RtlValidateCorrelationVector(vector: Long): UInt
+public expect fun rtlInitializeCorrelationVector(correlationvector: COpaquePointer?, version: Int, guid: COpaquePointer?): UInt
+
+public expect fun rtlValidateCorrelationVector(vector: COpaquePointer?): UInt

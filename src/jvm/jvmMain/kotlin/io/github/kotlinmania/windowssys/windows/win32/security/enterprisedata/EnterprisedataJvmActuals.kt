@@ -2,10 +2,11 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.enterprisedata
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
 
 private object WindowsWin32SecurityEnterprisedataJniBridge {
     init {
@@ -13,81 +14,81 @@ private object WindowsWin32SecurityEnterprisedataJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_enterprisedata_ProtectFileToEnterpriseIdentity(fileorfolderpath: Long, identity: Long): Int
+    external fun windowssys_windows_win32_security_enterprisedata_protectFileToEnterpriseIdentity(fileorfolderpath: Long, identity: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_enterprisedata_SrpCloseThreadNetworkContext(threadnetworkcontext: Long): Int
+    external fun windowssys_windows_win32_security_enterprisedata_srpCloseThreadNetworkContext(threadnetworkcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_enterprisedata_SrpCreateThreadNetworkContext(enterpriseid: Long, threadnetworkcontext: Long): Int
+    external fun windowssys_windows_win32_security_enterprisedata_srpCreateThreadNetworkContext(enterpriseid: Long, threadnetworkcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_enterprisedata_SrpDisablePermissiveModeFileEncryption(): Int
+    external fun windowssys_windows_win32_security_enterprisedata_srpDisablePermissiveModeFileEncryption(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_enterprisedata_SrpDoesPolicyAllowAppExecution(packageid: Long, isallowed: Long): Int
+    external fun windowssys_windows_win32_security_enterprisedata_srpDoesPolicyAllowAppExecution(packageid: Long, isallowed: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_enterprisedata_SrpEnablePermissiveModeFileEncryption(enterpriseid: Long): Int
+    external fun windowssys_windows_win32_security_enterprisedata_srpEnablePermissiveModeFileEncryption(enterpriseid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_enterprisedata_SrpGetEnterpriseIds(tokenhandle: Long, numberofbytes: Long, enterpriseids: Long, enterpriseidcount: Long): Int
+    external fun windowssys_windows_win32_security_enterprisedata_srpGetEnterpriseIds(tokenhandle: Long, numberofbytes: Long, enterpriseids: Long, enterpriseidcount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_enterprisedata_SrpGetEnterprisePolicy(tokenhandle: Long, policyflags: Long): Int
+    external fun windowssys_windows_win32_security_enterprisedata_srpGetEnterprisePolicy(tokenhandle: Long, policyflags: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_enterprisedata_SrpHostingInitialize(version: Int, type: Int, pvdata: Long, cbdata: Int): Int
+    external fun windowssys_windows_win32_security_enterprisedata_srpHostingInitialize(version: Int, type: Int, pvdata: Long, cbdata: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_enterprisedata_SrpHostingTerminate(type: Int)
+    external fun windowssys_windows_win32_security_enterprisedata_srpHostingTerminate(type: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_enterprisedata_SrpIsTokenService(tokenhandle: Long, istokenservice: Long): Int
+    external fun windowssys_windows_win32_security_enterprisedata_srpIsTokenService(tokenhandle: Long, istokenservice: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_enterprisedata_SrpSetTokenEnterpriseId(tokenhandle: Long, enterpriseid: Long): Int
+    external fun windowssys_windows_win32_security_enterprisedata_srpSetTokenEnterpriseId(tokenhandle: Long, enterpriseid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_enterprisedata_UnprotectFile(fileorfolderpath: Long, options: Long): Int
+    external fun windowssys_windows_win32_security_enterprisedata_unprotectFile(fileorfolderpath: Long, options: Long): Int
 }
 
-public actual fun ProtectFileToEnterpriseIdentity(fileorfolderpath: PCWSTR, identity: PCWSTR): HRESULT =
-    WindowsWin32SecurityEnterprisedataJniBridge.windowssys_windows_win32_security_enterprisedata_ProtectFileToEnterpriseIdentity(fileorfolderpath, identity)
+public actual fun protectFileToEnterpriseIdentity(fileorfolderpath: Pcwstr, identity: Pcwstr): Hresult =
+    WindowsWin32SecurityEnterprisedataJniBridge.windowssys_windows_win32_security_enterprisedata_protectFileToEnterpriseIdentity((fileorfolderpath?.value ?: 0L), (identity?.value ?: 0L))
 
-public actual fun SrpCloseThreadNetworkContext(threadnetworkcontext: Long): HRESULT =
-    WindowsWin32SecurityEnterprisedataJniBridge.windowssys_windows_win32_security_enterprisedata_SrpCloseThreadNetworkContext(threadnetworkcontext)
+public actual fun srpCloseThreadNetworkContext(threadnetworkcontext: COpaquePointer?): Hresult =
+    WindowsWin32SecurityEnterprisedataJniBridge.windowssys_windows_win32_security_enterprisedata_srpCloseThreadNetworkContext((threadnetworkcontext?.value ?: 0L))
 
-public actual fun SrpCreateThreadNetworkContext(enterpriseid: PCWSTR, threadnetworkcontext: Long): HRESULT =
-    WindowsWin32SecurityEnterprisedataJniBridge.windowssys_windows_win32_security_enterprisedata_SrpCreateThreadNetworkContext(enterpriseid, threadnetworkcontext)
+public actual fun srpCreateThreadNetworkContext(enterpriseid: Pcwstr, threadnetworkcontext: COpaquePointer?): Hresult =
+    WindowsWin32SecurityEnterprisedataJniBridge.windowssys_windows_win32_security_enterprisedata_srpCreateThreadNetworkContext((enterpriseid?.value ?: 0L), (threadnetworkcontext?.value ?: 0L))
 
-public actual fun SrpDisablePermissiveModeFileEncryption(): HRESULT =
-    WindowsWin32SecurityEnterprisedataJniBridge.windowssys_windows_win32_security_enterprisedata_SrpDisablePermissiveModeFileEncryption()
+public actual fun srpDisablePermissiveModeFileEncryption(): Hresult =
+    WindowsWin32SecurityEnterprisedataJniBridge.windowssys_windows_win32_security_enterprisedata_srpDisablePermissiveModeFileEncryption()
 
-public actual fun SrpDoesPolicyAllowAppExecution(packageid: Long, isallowed: Long): HRESULT =
-    WindowsWin32SecurityEnterprisedataJniBridge.windowssys_windows_win32_security_enterprisedata_SrpDoesPolicyAllowAppExecution(packageid, isallowed)
+public actual fun srpDoesPolicyAllowAppExecution(packageid: COpaquePointer?, isallowed: COpaquePointer?): Hresult =
+    WindowsWin32SecurityEnterprisedataJniBridge.windowssys_windows_win32_security_enterprisedata_srpDoesPolicyAllowAppExecution((packageid?.value ?: 0L), (isallowed?.value ?: 0L))
 
-public actual fun SrpEnablePermissiveModeFileEncryption(enterpriseid: PCWSTR): HRESULT =
-    WindowsWin32SecurityEnterprisedataJniBridge.windowssys_windows_win32_security_enterprisedata_SrpEnablePermissiveModeFileEncryption(enterpriseid)
+public actual fun srpEnablePermissiveModeFileEncryption(enterpriseid: Pcwstr): Hresult =
+    WindowsWin32SecurityEnterprisedataJniBridge.windowssys_windows_win32_security_enterprisedata_srpEnablePermissiveModeFileEncryption((enterpriseid?.value ?: 0L))
 
-public actual fun SrpGetEnterpriseIds(tokenhandle: HANDLE, numberofbytes: Long, enterpriseids: Long, enterpriseidcount: Long): HRESULT =
-    WindowsWin32SecurityEnterprisedataJniBridge.windowssys_windows_win32_security_enterprisedata_SrpGetEnterpriseIds(tokenhandle, numberofbytes, enterpriseids, enterpriseidcount)
+public actual fun srpGetEnterpriseIds(tokenhandle: Handle, numberofbytes: COpaquePointer?, enterpriseids: COpaquePointer?, enterpriseidcount: COpaquePointer?): Hresult =
+    WindowsWin32SecurityEnterprisedataJniBridge.windowssys_windows_win32_security_enterprisedata_srpGetEnterpriseIds((tokenhandle?.value ?: 0L), (numberofbytes?.value ?: 0L), (enterpriseids?.value ?: 0L), (enterpriseidcount?.value ?: 0L))
 
-public actual fun SrpGetEnterprisePolicy(tokenhandle: HANDLE, policyflags: Long): HRESULT =
-    WindowsWin32SecurityEnterprisedataJniBridge.windowssys_windows_win32_security_enterprisedata_SrpGetEnterprisePolicy(tokenhandle, policyflags)
+public actual fun srpGetEnterprisePolicy(tokenhandle: Handle, policyflags: COpaquePointer?): Hresult =
+    WindowsWin32SecurityEnterprisedataJniBridge.windowssys_windows_win32_security_enterprisedata_srpGetEnterprisePolicy((tokenhandle?.value ?: 0L), (policyflags?.value ?: 0L))
 
-public actual fun SrpHostingInitialize(version: SRPHOSTING_VERSION, type: SRPHOSTING_TYPE, pvdata: Long, cbdata: UInt): HRESULT =
-    WindowsWin32SecurityEnterprisedataJniBridge.windowssys_windows_win32_security_enterprisedata_SrpHostingInitialize(version, type, pvdata, cbdata.toInt())
+public actual fun srpHostingInitialize(version: SrphostingVersion, type: SrphostingType, pvdata: COpaquePointer?, cbdata: UInt): Hresult =
+    WindowsWin32SecurityEnterprisedataJniBridge.windowssys_windows_win32_security_enterprisedata_srpHostingInitialize(version, type, (pvdata?.value ?: 0L), cbdata.toInt())
 
-public actual fun SrpHostingTerminate(type: SRPHOSTING_TYPE) {
-    WindowsWin32SecurityEnterprisedataJniBridge.windowssys_windows_win32_security_enterprisedata_SrpHostingTerminate(type)
+public actual fun srpHostingTerminate(type: SrphostingType) {
+    WindowsWin32SecurityEnterprisedataJniBridge.windowssys_windows_win32_security_enterprisedata_srpHostingTerminate(type)
 }
 
-public actual fun SrpIsTokenService(tokenhandle: HANDLE, istokenservice: Long): NTSTATUS =
-    WindowsWin32SecurityEnterprisedataJniBridge.windowssys_windows_win32_security_enterprisedata_SrpIsTokenService(tokenhandle, istokenservice)
+public actual fun srpIsTokenService(tokenhandle: Handle, istokenservice: COpaquePointer?): Ntstatus =
+    WindowsWin32SecurityEnterprisedataJniBridge.windowssys_windows_win32_security_enterprisedata_srpIsTokenService((tokenhandle?.value ?: 0L), (istokenservice?.value ?: 0L))
 
-public actual fun SrpSetTokenEnterpriseId(tokenhandle: HANDLE, enterpriseid: PCWSTR): HRESULT =
-    WindowsWin32SecurityEnterprisedataJniBridge.windowssys_windows_win32_security_enterprisedata_SrpSetTokenEnterpriseId(tokenhandle, enterpriseid)
+public actual fun srpSetTokenEnterpriseId(tokenhandle: Handle, enterpriseid: Pcwstr): Hresult =
+    WindowsWin32SecurityEnterprisedataJniBridge.windowssys_windows_win32_security_enterprisedata_srpSetTokenEnterpriseId((tokenhandle?.value ?: 0L), (enterpriseid?.value ?: 0L))
 
-public actual fun UnprotectFile(fileorfolderpath: PCWSTR, options: Long): HRESULT =
-    WindowsWin32SecurityEnterprisedataJniBridge.windowssys_windows_win32_security_enterprisedata_UnprotectFile(fileorfolderpath, options)
+public actual fun unprotectFile(fileorfolderpath: Pcwstr, options: COpaquePointer?): Hresult =
+    WindowsWin32SecurityEnterprisedataJniBridge.windowssys_windows_win32_security_enterprisedata_unprotectFile((fileorfolderpath?.value ?: 0L), (options?.value ?: 0L))

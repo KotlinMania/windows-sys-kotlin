@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_webdav_WindowsWin32NetworkmanagementWebdavJniBridge_windowssys_1windows_1win32_1networkmanagement_1webdav_1DavAddConnection(JNIEnv* km_env, jclass km_clazz, jlong connectionhandle, jlong remotename, jlong username, jlong password, jlong clientcert, jint certsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_webdav_WindowsWin32NetworkmanagementWebdavJniBridge_windowssys_1windows_1win32_1networkmanagement_1webdav_1davAddConnection(JNIEnv* km_env, jclass km_clazz, jlong connectionhandle, jlong remotename, jlong username, jlong password, jlong clientcert, jint certsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -41,7 +41,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_webdav_WindowsWin32NetworkmanagementWebdavJniBridge_windowssys_1windows_1win32_1networkmanagement_1webdav_1DavCancelConnectionsToServer(JNIEnv* km_env, jclass km_clazz, jlong lpname, jint fforce) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_webdav_WindowsWin32NetworkmanagementWebdavJniBridge_windowssys_1windows_1win32_1networkmanagement_1webdav_1davCancelConnectionsToServer(JNIEnv* km_env, jclass km_clazz, jlong lpname, jint fforce) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -60,7 +60,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_webdav_WindowsWin32NetworkmanagementWebdavJniBridge_windowssys_1windows_1win32_1networkmanagement_1webdav_1DavDeleteConnection(JNIEnv* km_env, jclass km_clazz, jlong connectionhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_webdav_WindowsWin32NetworkmanagementWebdavJniBridge_windowssys_1windows_1win32_1networkmanagement_1webdav_1davDeleteConnection(JNIEnv* km_env, jclass km_clazz, jlong connectionhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -78,7 +78,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_webdav_WindowsWin32NetworkmanagementWebdavJniBridge_windowssys_1windows_1win32_1networkmanagement_1webdav_1DavFlushFile(JNIEnv* km_env, jclass km_clazz, jlong hfile) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_webdav_WindowsWin32NetworkmanagementWebdavJniBridge_windowssys_1windows_1win32_1networkmanagement_1webdav_1davFlushFile(JNIEnv* km_env, jclass km_clazz, jlong hfile) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -96,7 +96,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_webdav_WindowsWin32NetworkmanagementWebdavJniBridge_windowssys_1windows_1win32_1networkmanagement_1webdav_1DavGetExtendedError(JNIEnv* km_env, jclass km_clazz, jlong hfile, jlong exterror, jlong exterrorstring, jlong cchsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_webdav_WindowsWin32NetworkmanagementWebdavJniBridge_windowssys_1windows_1win32_1networkmanagement_1webdav_1davGetExtendedError(JNIEnv* km_env, jclass km_clazz, jlong hfile, jlong exterror, jlong exterrorstring, jlong cchsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -117,7 +117,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_webdav_WindowsWin32NetworkmanagementWebdavJniBridge_windowssys_1windows_1win32_1networkmanagement_1webdav_1DavGetHTTPFromUNCPath(JNIEnv* km_env, jclass km_clazz, jlong uncpath, jlong url, jlong lpsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_webdav_WindowsWin32NetworkmanagementWebdavJniBridge_windowssys_1windows_1win32_1networkmanagement_1webdav_1davGetHTTPFromUNCPath(JNIEnv* km_env, jclass km_clazz, jlong uncpath, jlong url, jlong lpsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -137,7 +137,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_webdav_WindowsWin32NetworkmanagementWebdavJniBridge_windowssys_1windows_1win32_1networkmanagement_1webdav_1DavGetTheLockOwnerOfTheFile(JNIEnv* km_env, jclass km_clazz, jlong filename, jlong lockownername, jlong lockownernamelengthinbytes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_webdav_WindowsWin32NetworkmanagementWebdavJniBridge_windowssys_1windows_1win32_1networkmanagement_1webdav_1davGetTheLockOwnerOfTheFile(JNIEnv* km_env, jclass km_clazz, jlong filename, jlong lockownername, jlong lockownernamelengthinbytes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -157,7 +157,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_webdav_WindowsWin32NetworkmanagementWebdavJniBridge_windowssys_1windows_1win32_1networkmanagement_1webdav_1DavGetUNCFromHTTPPath(JNIEnv* km_env, jclass km_clazz, jlong url, jlong uncpath, jlong lpsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_webdav_WindowsWin32NetworkmanagementWebdavJniBridge_windowssys_1windows_1win32_1networkmanagement_1webdav_1davGetUNCFromHTTPPath(JNIEnv* km_env, jclass km_clazz, jlong url, jlong uncpath, jlong lpsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -177,7 +177,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_webdav_WindowsWin32NetworkmanagementWebdavJniBridge_windowssys_1windows_1win32_1networkmanagement_1webdav_1DavInvalidateCache(JNIEnv* km_env, jclass km_clazz, jlong urlname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_webdav_WindowsWin32NetworkmanagementWebdavJniBridge_windowssys_1windows_1win32_1networkmanagement_1webdav_1davInvalidateCache(JNIEnv* km_env, jclass km_clazz, jlong urlname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -195,7 +195,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_webdav_WindowsWin32NetworkmanagementWebdavJniBridge_windowssys_1windows_1win32_1networkmanagement_1webdav_1DavRegisterAuthCallback(JNIEnv* km_env, jclass km_clazz, jlong callback, jint version) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_webdav_WindowsWin32NetworkmanagementWebdavJniBridge_windowssys_1windows_1win32_1networkmanagement_1webdav_1davRegisterAuthCallback(JNIEnv* km_env, jclass km_clazz, jlong callback, jint version) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -214,7 +214,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_webdav_WindowsWin32NetworkmanagementWebdavJniBridge_windowssys_1windows_1win32_1networkmanagement_1webdav_1DavUnregisterAuthCallback(JNIEnv* km_env, jclass km_clazz, jint hcallback) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_webdav_WindowsWin32NetworkmanagementWebdavJniBridge_windowssys_1windows_1win32_1networkmanagement_1webdav_1davUnregisterAuthCallback(JNIEnv* km_env, jclass km_clazz, jint hcallback) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

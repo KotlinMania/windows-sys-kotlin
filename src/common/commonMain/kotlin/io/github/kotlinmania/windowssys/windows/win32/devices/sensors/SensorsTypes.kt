@@ -1,41 +1,35 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.sensors
 
-public typealias ACTIVITY_STATE = Int
+public typealias ActivityState = Int
 
-public typealias ACTIVITY_STATE_COUNT = Int
+public typealias ActivityStateCount = Int
 
-public typealias AXIS = Int
+public typealias Axis = Int
 
-public typealias ELEVATION_CHANGE_MODE = Int
+public typealias ElevationChangeMode = Int
 
-public typealias HUMAN_PRESENCE_DETECTION_TYPE = Int
+public typealias HumanPresenceDetectionType = Int
 
-public typealias HUMAN_PRESENCE_DETECTION_TYPE_COUNT = Int
+public typealias HumanPresenceDetectionTypeCount = Int
 
-public typealias LOCATION_DESIRED_ACCURACY = Int
+public typealias LocationDesiredAccuracy = Int
 
-public typealias LOCATION_POSITION_SOURCE = Int
-
-public typealias MAGNETOMETER_ACCURACY = Int
+public typealias LocationPositionSource = Int
 
 public typealias MagnetometerAccuracy = Int
 
-public typealias PEDOMETER_STEP_TYPE = Int
+public typealias PedometerStepType = Int
 
-public typealias PEDOMETER_STEP_TYPE_COUNT = Int
+public typealias PedometerStepTypeCount = Int
 
-public typealias PROXIMITY_SENSOR_CAPABILITIES = Int
+public typealias ProximitySensorCapabilities = Int
 
-public typealias PROXIMITY_TYPE = Int
+public typealias ProximityType = Int
 
-public typealias SENSOR_CONNECTION_TYPES = Int
-
-public typealias SENSOR_STATE = Int
-
-public typealias SIMPLE_DEVICE_ORIENTATION = Int
-
-public typealias SensorConnectionType = Int
+public typealias SensorConnectionTypes = Int
 
 public typealias SensorState = Int
 
 public typealias SimpleDeviceOrientation = Int
+
+public typealias SensorConnectionType = Int

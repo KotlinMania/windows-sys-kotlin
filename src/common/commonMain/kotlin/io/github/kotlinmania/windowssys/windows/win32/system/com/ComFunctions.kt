@@ -1,230 +1,231 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.com
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
 
-public expect fun BindMoniker(pmk: Long, grfopt: UInt, iidresult: Long, ppvresult: Long): HRESULT
+public expect fun bindMoniker(pmk: COpaquePointer?, grfopt: UInt, iidresult: COpaquePointer?, ppvresult: COpaquePointer?): Hresult
 
-public expect fun CLSIDFromProgID(lpszprogid: PCWSTR, lpclsid: Long): HRESULT
+public expect fun cLSIDFromProgID(lpszprogid: Pcwstr, lpclsid: COpaquePointer?): Hresult
 
-public expect fun CLSIDFromProgIDEx(lpszprogid: PCWSTR, lpclsid: Long): HRESULT
+public expect fun cLSIDFromProgIDEx(lpszprogid: Pcwstr, lpclsid: COpaquePointer?): Hresult
 
-public expect fun CLSIDFromString(lpsz: PCWSTR, pclsid: Long): HRESULT
+public expect fun cLSIDFromString(lpsz: Pcwstr, pclsid: COpaquePointer?): Hresult
 
-public expect fun CoAddRefServerProcess(): UInt
+public expect fun coAddRefServerProcess(): UInt
 
-public expect fun CoAllowSetForegroundWindow(punk: Long, lpvreserved: Long): HRESULT
+public expect fun coAllowSetForegroundWindow(punk: COpaquePointer?, lpvreserved: COpaquePointer?): Hresult
 
-public expect fun CoAllowUnmarshalerCLSID(clsid: Long): HRESULT
+public expect fun coAllowUnmarshalerCLSID(clsid: COpaquePointer?): Hresult
 
-public expect fun CoBuildVersion(): UInt
+public expect fun coBuildVersion(): UInt
 
-public expect fun CoCancelCall(dwthreadid: UInt, ultimeout: UInt): HRESULT
+public expect fun coCancelCall(dwthreadid: UInt, ultimeout: UInt): Hresult
 
-public expect fun CoCopyProxy(pproxy: Long, ppcopy: Long): HRESULT
+public expect fun coCopyProxy(pproxy: COpaquePointer?, ppcopy: COpaquePointer?): Hresult
 
-public expect fun CoCreateFreeThreadedMarshaler(punkouter: Long, ppunkmarshal: Long): HRESULT
+public expect fun coCreateFreeThreadedMarshaler(punkouter: COpaquePointer?, ppunkmarshal: COpaquePointer?): Hresult
 
-public expect fun CoCreateGuid(pguid: Long): HRESULT
+public expect fun coCreateGuid(pguid: COpaquePointer?): Hresult
 
-public expect fun CoCreateInstance(rclsid: Long, punkouter: Long, dwclscontext: CLSCTX, riid: Long, ppv: Long): HRESULT
+public expect fun coCreateInstance(rclsid: COpaquePointer?, punkouter: COpaquePointer?, dwclscontext: Clsctx, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult
 
-public expect fun CoCreateInstanceEx(clsid: Long, punkouter: Long, dwclsctx: CLSCTX, pserverinfo: Long, dwcount: UInt, presults: Long): HRESULT
+public expect fun coCreateInstanceEx(clsid: COpaquePointer?, punkouter: COpaquePointer?, dwclsctx: Clsctx, pserverinfo: COpaquePointer?, dwcount: UInt, presults: COpaquePointer?): Hresult
 
-public expect fun CoCreateInstanceFromApp(clsid: Long, punkouter: Long, dwclsctx: CLSCTX, reserved: Long, dwcount: UInt, presults: Long): HRESULT
+public expect fun coCreateInstanceFromApp(clsid: COpaquePointer?, punkouter: COpaquePointer?, dwclsctx: Clsctx, reserved: COpaquePointer?, dwcount: UInt, presults: COpaquePointer?): Hresult
 
-public expect fun CoDecrementMTAUsage(cookie: CO_MTA_USAGE_COOKIE): HRESULT
+public expect fun coDecrementMTAUsage(cookie: CoMtaUsageCookie): Hresult
 
-public expect fun CoDisableCallCancellation(preserved: Long): HRESULT
+public expect fun coDisableCallCancellation(preserved: COpaquePointer?): Hresult
 
-public expect fun CoDisconnectContext(dwtimeout: UInt): HRESULT
+public expect fun coDisconnectContext(dwtimeout: UInt): Hresult
 
-public expect fun CoDisconnectObject(punk: Long, dwreserved: UInt): HRESULT
+public expect fun coDisconnectObject(punk: COpaquePointer?, dwreserved: UInt): Hresult
 
-public expect fun CoDosDateTimeToFileTime(ndosdate: UShort, ndostime: UShort, lpfiletime: Long): BOOL
+public expect fun coDosDateTimeToFileTime(ndosdate: UShort, ndostime: UShort, lpfiletime: COpaquePointer?): Bool
 
-public expect fun CoEnableCallCancellation(preserved: Long): HRESULT
+public expect fun coEnableCallCancellation(preserved: COpaquePointer?): Hresult
 
-public expect fun CoFileTimeNow(lpfiletime: Long): HRESULT
+public expect fun coFileTimeNow(lpfiletime: COpaquePointer?): Hresult
 
-public expect fun CoFileTimeToDosDateTime(lpfiletime: Long, lpdosdate: Long, lpdostime: Long): BOOL
+public expect fun coFileTimeToDosDateTime(lpfiletime: COpaquePointer?, lpdosdate: COpaquePointer?, lpdostime: COpaquePointer?): Bool
 
-public expect fun CoFreeAllLibraries()
+public expect fun coFreeAllLibraries()
 
-public expect fun CoFreeLibrary(hinst: HINSTANCE)
+public expect fun coFreeLibrary(hinst: Hinstance)
 
-public expect fun CoFreeUnusedLibraries()
+public expect fun coFreeUnusedLibraries()
 
-public expect fun CoFreeUnusedLibrariesEx(dwunloaddelay: UInt, dwreserved: UInt)
+public expect fun coFreeUnusedLibrariesEx(dwunloaddelay: UInt, dwreserved: UInt)
 
-public expect fun CoGetApartmentType(papttype: Long, paptqualifier: Long): HRESULT
+public expect fun coGetApartmentType(papttype: COpaquePointer?, paptqualifier: COpaquePointer?): Hresult
 
-public expect fun CoGetCallContext(riid: Long, ppinterface: Long): HRESULT
+public expect fun coGetCallContext(riid: COpaquePointer?, ppinterface: COpaquePointer?): Hresult
 
-public expect fun CoGetCallerTID(lpdwtid: Long): HRESULT
+public expect fun coGetCallerTID(lpdwtid: COpaquePointer?): Hresult
 
-public expect fun CoGetCancelObject(dwthreadid: UInt, iid: Long, ppunk: Long): HRESULT
+public expect fun coGetCancelObject(dwthreadid: UInt, iid: COpaquePointer?, ppunk: COpaquePointer?): Hresult
 
-public expect fun CoGetClassObject(rclsid: Long, dwclscontext: UInt, pvreserved: Long, riid: Long, ppv: Long): HRESULT
+public expect fun coGetClassObject(rclsid: COpaquePointer?, dwclscontext: UInt, pvreserved: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult
 
-public expect fun CoGetContextToken(ptoken: Long): HRESULT
+public expect fun coGetContextToken(ptoken: COpaquePointer?): Hresult
 
-public expect fun CoGetCurrentLogicalThreadId(pguid: Long): HRESULT
+public expect fun coGetCurrentLogicalThreadId(pguid: COpaquePointer?): Hresult
 
-public expect fun CoGetCurrentProcess(): UInt
+public expect fun coGetCurrentProcess(): UInt
 
-public expect fun CoGetMalloc(dwmemcontext: UInt, ppmalloc: Long): HRESULT
+public expect fun coGetMalloc(dwmemcontext: UInt, ppmalloc: COpaquePointer?): Hresult
 
-public expect fun CoGetObject(pszname: PCWSTR, pbindoptions: Long, riid: Long, ppv: Long): HRESULT
+public expect fun coGetObject(pszname: Pcwstr, pbindoptions: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult
 
-public expect fun CoGetObjectContext(riid: Long, ppv: Long): HRESULT
+public expect fun coGetObjectContext(riid: COpaquePointer?, ppv: COpaquePointer?): Hresult
 
-public expect fun CoGetPSClsid(riid: Long, pclsid: Long): HRESULT
+public expect fun coGetPSClsid(riid: COpaquePointer?, pclsid: COpaquePointer?): Hresult
 
-public expect fun CoGetSystemSecurityPermissions(comsdtype: COMSD, ppsd: Long): HRESULT
+public expect fun coGetSystemSecurityPermissions(comsdtype: Comsd, ppsd: COpaquePointer?): Hresult
 
-public expect fun CoGetTreatAsClass(clsidold: Long, pclsidnew: Long): HRESULT
+public expect fun coGetTreatAsClass(clsidold: COpaquePointer?, pclsidnew: COpaquePointer?): Hresult
 
-public expect fun CoImpersonateClient(): HRESULT
+public expect fun coImpersonateClient(): Hresult
 
-public expect fun CoIncrementMTAUsage(pcookie: Long): HRESULT
+public expect fun coIncrementMTAUsage(pcookie: COpaquePointer?): Hresult
 
-public expect fun CoInitialize(pvreserved: Long): HRESULT
+public expect fun coInitialize(pvreserved: COpaquePointer?): Hresult
 
-public expect fun CoInitializeEx(pvreserved: Long, dwcoinit: UInt): HRESULT
+public expect fun coInitializeEx(pvreserved: COpaquePointer?, dwcoinit: UInt): Hresult
 
-public expect fun CoInitializeSecurity(psecdesc: PSECURITY_DESCRIPTOR, cauthsvc: Int, asauthsvc: Long, preserved1: Long, dwauthnlevel: RPC_C_AUTHN_LEVEL, dwimplevel: RPC_C_IMP_LEVEL, pauthlist: Long, dwcapabilities: UInt, preserved3: Long): HRESULT
+public expect fun coInitializeSecurity(psecdesc: PsecurityDescriptor, cauthsvc: Int, asauthsvc: COpaquePointer?, preserved1: COpaquePointer?, dwauthnlevel: RpcCAuthnLevel, dwimplevel: RpcCImpLevel, pauthlist: COpaquePointer?, dwcapabilities: UInt, preserved3: COpaquePointer?): Hresult
 
-public expect fun CoInstall(pbc: Long, dwflags: UInt, pclassspec: Long, pquery: Long, pszcodebase: PCWSTR): HRESULT
+public expect fun coInstall(pbc: COpaquePointer?, dwflags: UInt, pclassspec: COpaquePointer?, pquery: COpaquePointer?, pszcodebase: Pcwstr): Hresult
 
-public expect fun CoInvalidateRemoteMachineBindings(pszmachinename: PCWSTR): HRESULT
+public expect fun coInvalidateRemoteMachineBindings(pszmachinename: Pcwstr): Hresult
 
-public expect fun CoIsHandlerConnected(punk: Long): BOOL
+public expect fun coIsHandlerConnected(punk: COpaquePointer?): Bool
 
-public expect fun CoIsOle1Class(rclsid: Long): BOOL
+public expect fun coIsOle1Class(rclsid: COpaquePointer?): Bool
 
-public expect fun CoLoadLibrary(lpszlibname: PCWSTR, bautofree: BOOL): HINSTANCE
+public expect fun coLoadLibrary(lpszlibname: Pcwstr, bautofree: Bool): Hinstance
 
-public expect fun CoLockObjectExternal(punk: Long, flock: BOOL, flastunlockreleases: BOOL): HRESULT
+public expect fun coLockObjectExternal(punk: COpaquePointer?, flock: Bool, flastunlockreleases: Bool): Hresult
 
-public expect fun CoQueryAuthenticationServices(pcauthsvc: Long, asauthsvc: Long): HRESULT
+public expect fun coQueryAuthenticationServices(pcauthsvc: COpaquePointer?, asauthsvc: COpaquePointer?): Hresult
 
-public expect fun CoQueryClientBlanket(pauthnsvc: Long, pauthzsvc: Long, pserverprincname: Long, pauthnlevel: Long, pimplevel: Long, pprivs: Long, pcapabilities: Long): HRESULT
+public expect fun coQueryClientBlanket(pauthnsvc: COpaquePointer?, pauthzsvc: COpaquePointer?, pserverprincname: COpaquePointer?, pauthnlevel: COpaquePointer?, pimplevel: COpaquePointer?, pprivs: COpaquePointer?, pcapabilities: COpaquePointer?): Hresult
 
-public expect fun CoQueryProxyBlanket(pproxy: Long, pwauthnsvc: Long, pauthzsvc: Long, pserverprincname: Long, pauthnlevel: Long, pimplevel: Long, pauthinfo: Long, pcapabilites: Long): HRESULT
+public expect fun coQueryProxyBlanket(pproxy: COpaquePointer?, pwauthnsvc: COpaquePointer?, pauthzsvc: COpaquePointer?, pserverprincname: COpaquePointer?, pauthnlevel: COpaquePointer?, pimplevel: COpaquePointer?, pauthinfo: COpaquePointer?, pcapabilites: COpaquePointer?): Hresult
 
-public expect fun CoRegisterActivationFilter(pactivationfilter: Long): HRESULT
+public expect fun coRegisterActivationFilter(pactivationfilter: COpaquePointer?): Hresult
 
-public expect fun CoRegisterChannelHook(extensionuuid: Long, pchannelhook: Long): HRESULT
+public expect fun coRegisterChannelHook(extensionuuid: COpaquePointer?, pchannelhook: COpaquePointer?): Hresult
 
-public expect fun CoRegisterClassObject(rclsid: Long, punk: Long, dwclscontext: CLSCTX, flags: UInt, lpdwregister: Long): HRESULT
+public expect fun coRegisterClassObject(rclsid: COpaquePointer?, punk: COpaquePointer?, dwclscontext: Clsctx, flags: UInt, lpdwregister: COpaquePointer?): Hresult
 
-public expect fun CoRegisterDeviceCatalog(deviceinstanceid: PCWSTR, cookie: Long): HRESULT
+public expect fun coRegisterDeviceCatalog(deviceinstanceid: Pcwstr, cookie: COpaquePointer?): Hresult
 
-public expect fun CoRegisterInitializeSpy(pspy: Long, pulicookie: Long): HRESULT
+public expect fun coRegisterInitializeSpy(pspy: COpaquePointer?, pulicookie: COpaquePointer?): Hresult
 
-public expect fun CoRegisterMallocSpy(pmallocspy: Long): HRESULT
+public expect fun coRegisterMallocSpy(pmallocspy: COpaquePointer?): Hresult
 
-public expect fun CoRegisterPSClsid(riid: Long, rclsid: Long): HRESULT
+public expect fun coRegisterPSClsid(riid: COpaquePointer?, rclsid: COpaquePointer?): Hresult
 
-public expect fun CoRegisterSurrogate(psurrogate: Long): HRESULT
+public expect fun coRegisterSurrogate(psurrogate: COpaquePointer?): Hresult
 
-public expect fun CoReleaseServerProcess(): UInt
+public expect fun coReleaseServerProcess(): UInt
 
-public expect fun CoResumeClassObjects(): HRESULT
+public expect fun coResumeClassObjects(): Hresult
 
-public expect fun CoRevertToSelf(): HRESULT
+public expect fun coRevertToSelf(): Hresult
 
-public expect fun CoRevokeClassObject(dwregister: UInt): HRESULT
+public expect fun coRevokeClassObject(dwregister: UInt): Hresult
 
-public expect fun CoRevokeDeviceCatalog(cookie: CO_DEVICE_CATALOG_COOKIE): HRESULT
+public expect fun coRevokeDeviceCatalog(cookie: CoDeviceCatalogCookie): Hresult
 
-public expect fun CoRevokeInitializeSpy(ulicookie: ULong): HRESULT
+public expect fun coRevokeInitializeSpy(ulicookie: ULong): Hresult
 
-public expect fun CoRevokeMallocSpy(): HRESULT
+public expect fun coRevokeMallocSpy(): Hresult
 
-public expect fun CoSetCancelObject(punk: Long): HRESULT
+public expect fun coSetCancelObject(punk: COpaquePointer?): Hresult
 
-public expect fun CoSetProxyBlanket(pproxy: Long, dwauthnsvc: UInt, dwauthzsvc: UInt, pserverprincname: PCWSTR, dwauthnlevel: RPC_C_AUTHN_LEVEL, dwimplevel: RPC_C_IMP_LEVEL, pauthinfo: Long, dwcapabilities: UInt): HRESULT
+public expect fun coSetProxyBlanket(pproxy: COpaquePointer?, dwauthnsvc: UInt, dwauthzsvc: UInt, pserverprincname: Pcwstr, dwauthnlevel: RpcCAuthnLevel, dwimplevel: RpcCImpLevel, pauthinfo: COpaquePointer?, dwcapabilities: UInt): Hresult
 
-public expect fun CoSuspendClassObjects(): HRESULT
+public expect fun coSuspendClassObjects(): Hresult
 
-public expect fun CoSwitchCallContext(pnewobject: Long, ppoldobject: Long): HRESULT
+public expect fun coSwitchCallContext(pnewobject: COpaquePointer?, ppoldobject: COpaquePointer?): Hresult
 
-public expect fun CoTaskMemAlloc(cb: ULong): Long
+public expect fun coTaskMemAlloc(cb: ULong): COpaquePointer?
 
-public expect fun CoTaskMemFree(pv: Long)
+public expect fun coTaskMemFree(pv: COpaquePointer?)
 
-public expect fun CoTaskMemRealloc(pv: Long, cb: ULong): Long
+public expect fun coTaskMemRealloc(pv: COpaquePointer?, cb: ULong): COpaquePointer?
 
-public expect fun CoTestCancel(): HRESULT
+public expect fun coTestCancel(): Hresult
 
-public expect fun CoTreatAsClass(clsidold: Long, clsidnew: Long): HRESULT
+public expect fun coTreatAsClass(clsidold: COpaquePointer?, clsidnew: COpaquePointer?): Hresult
 
-public expect fun CoUninitialize()
+public expect fun coUninitialize()
 
-public expect fun CoWaitForMultipleHandles(dwflags: UInt, dwtimeout: UInt, chandles: UInt, phandles: Long, lpdwindex: Long): HRESULT
+public expect fun coWaitForMultipleHandles(dwflags: UInt, dwtimeout: UInt, chandles: UInt, phandles: COpaquePointer?, lpdwindex: COpaquePointer?): Hresult
 
-public expect fun CoWaitForMultipleObjects(dwflags: UInt, dwtimeout: UInt, chandles: UInt, phandles: Long, lpdwindex: Long): HRESULT
+public expect fun coWaitForMultipleObjects(dwflags: UInt, dwtimeout: UInt, chandles: UInt, phandles: COpaquePointer?, lpdwindex: COpaquePointer?): Hresult
 
-public expect fun CreateAntiMoniker(ppmk: Long): HRESULT
+public expect fun createAntiMoniker(ppmk: COpaquePointer?): Hresult
 
-public expect fun CreateBindCtx(reserved: UInt, ppbc: Long): HRESULT
+public expect fun createBindCtx(reserved: UInt, ppbc: COpaquePointer?): Hresult
 
-public expect fun CreateClassMoniker(rclsid: Long, ppmk: Long): HRESULT
+public expect fun createClassMoniker(rclsid: COpaquePointer?, ppmk: COpaquePointer?): Hresult
 
-public expect fun CreateDataAdviseHolder(ppdaholder: Long): HRESULT
+public expect fun createDataAdviseHolder(ppdaholder: COpaquePointer?): Hresult
 
-public expect fun CreateDataCache(punkouter: Long, rclsid: Long, iid: Long, ppv: Long): HRESULT
+public expect fun createDataCache(punkouter: COpaquePointer?, rclsid: COpaquePointer?, iid: COpaquePointer?, ppv: COpaquePointer?): Hresult
 
-public expect fun CreateFileMoniker(lpszpathname: PCWSTR, ppmk: Long): HRESULT
+public expect fun createFileMoniker(lpszpathname: Pcwstr, ppmk: COpaquePointer?): Hresult
 
-public expect fun CreateGenericComposite(pmkfirst: Long, pmkrest: Long, ppmkcomposite: Long): HRESULT
+public expect fun createGenericComposite(pmkfirst: COpaquePointer?, pmkrest: COpaquePointer?, ppmkcomposite: COpaquePointer?): Hresult
 
-public expect fun CreateIUriBuilder(piuri: Long, dwflags: UInt, dwreserved: ULong, ppiuribuilder: Long): HRESULT
+public expect fun createIUriBuilder(piuri: COpaquePointer?, dwflags: UInt, dwreserved: ULong, ppiuribuilder: COpaquePointer?): Hresult
 
-public expect fun CreateItemMoniker(lpszdelim: PCWSTR, lpszitem: PCWSTR, ppmk: Long): HRESULT
+public expect fun createItemMoniker(lpszdelim: Pcwstr, lpszitem: Pcwstr, ppmk: COpaquePointer?): Hresult
 
-public expect fun CreateObjrefMoniker(punk: Long, ppmk: Long): HRESULT
+public expect fun createObjrefMoniker(punk: COpaquePointer?, ppmk: COpaquePointer?): Hresult
 
-public expect fun CreatePointerMoniker(punk: Long, ppmk: Long): HRESULT
+public expect fun createPointerMoniker(punk: COpaquePointer?, ppmk: COpaquePointer?): Hresult
 
-public expect fun CreateStdProgressIndicator(hwndparent: HWND, psztitle: PCWSTR, pibsccaller: Long, ppibsc: Long): HRESULT
+public expect fun createStdProgressIndicator(hwndparent: Hwnd, psztitle: Pcwstr, pibsccaller: COpaquePointer?, ppibsc: COpaquePointer?): Hresult
 
-public expect fun CreateUri(pwzuri: PCWSTR, dwflags: URI_CREATE_FLAGS, dwreserved: ULong, ppuri: Long): HRESULT
+public expect fun createUri(pwzuri: Pcwstr, dwflags: UriCreateFlags, dwreserved: ULong, ppuri: COpaquePointer?): Hresult
 
-public expect fun CreateUriFromMultiByteString(pszansiinputuri: PCSTR, dwencodingflags: UInt, dwcodepage: UInt, dwcreateflags: UInt, dwreserved: ULong, ppuri: Long): HRESULT
+public expect fun createUriFromMultiByteString(pszansiinputuri: Pcstr, dwencodingflags: UInt, dwcodepage: UInt, dwcreateflags: UInt, dwreserved: ULong, ppuri: COpaquePointer?): Hresult
 
-public expect fun CreateUriWithFragment(pwzuri: PCWSTR, pwzfragment: PCWSTR, dwflags: UInt, dwreserved: ULong, ppuri: Long): HRESULT
+public expect fun createUriWithFragment(pwzuri: Pcwstr, pwzfragment: Pcwstr, dwflags: UInt, dwreserved: ULong, ppuri: COpaquePointer?): Hresult
 
-public expect fun DcomChannelSetHResult(pvreserved: Long, pulreserved: Long, appshr: HRESULT): HRESULT
+public expect fun dcomChannelSetHResult(pvreserved: COpaquePointer?, pulreserved: COpaquePointer?, appshr: Hresult): Hresult
 
-public expect fun GetClassFile(szfilename: PCWSTR, pclsid: Long): HRESULT
+public expect fun getClassFile(szfilename: Pcwstr, pclsid: COpaquePointer?): Hresult
 
-public expect fun GetErrorInfo(dwreserved: UInt, pperrinfo: Long): HRESULT
+public expect fun getErrorInfo(dwreserved: UInt, pperrinfo: COpaquePointer?): Hresult
 
-public expect fun GetRunningObjectTable(reserved: UInt, pprot: Long): HRESULT
+public expect fun getRunningObjectTable(reserved: UInt, pprot: COpaquePointer?): Hresult
 
-public expect fun IIDFromString(lpsz: PCWSTR, lpiid: Long): HRESULT
+public expect fun iIDFromString(lpsz: Pcwstr, lpiid: COpaquePointer?): Hresult
 
-public expect fun MkParseDisplayName(pbc: Long, szusername: PCWSTR, pcheaten: Long, ppmk: Long): HRESULT
+public expect fun mkParseDisplayName(pbc: COpaquePointer?, szusername: Pcwstr, pcheaten: COpaquePointer?, ppmk: COpaquePointer?): Hresult
 
-public expect fun MonikerCommonPrefixWith(pmkthis: Long, pmkother: Long, ppmkcommon: Long): HRESULT
+public expect fun monikerCommonPrefixWith(pmkthis: COpaquePointer?, pmkother: COpaquePointer?, ppmkcommon: COpaquePointer?): Hresult
 
-public expect fun MonikerRelativePathTo(pmksrc: Long, pmkdest: Long, ppmkrelpath: Long, dwreserved: BOOL): HRESULT
+public expect fun monikerRelativePathTo(pmksrc: COpaquePointer?, pmkdest: COpaquePointer?, ppmkrelpath: COpaquePointer?, dwreserved: Bool): Hresult
 
-public expect fun ProgIDFromCLSID(clsid: Long, lplpszprogid: Long): HRESULT
+public expect fun progIDFromCLSID(clsid: COpaquePointer?, lplpszprogid: COpaquePointer?): Hresult
 
-public expect fun SetErrorInfo(dwreserved: UInt, perrinfo: Long): HRESULT
+public expect fun setErrorInfo(dwreserved: UInt, perrinfo: COpaquePointer?): Hresult
 
-public expect fun StringFromCLSID(rclsid: Long, lplpsz: Long): HRESULT
+public expect fun stringFromCLSID(rclsid: COpaquePointer?, lplpsz: COpaquePointer?): Hresult
 
-public expect fun StringFromGUID2(rguid: Long, lpsz: PWSTR, cchmax: Int): Int
+public expect fun stringFromGUID2(rguid: COpaquePointer?, lpsz: Pwstr, cchmax: Int): Int
 
-public expect fun StringFromIID(rclsid: Long, lplpsz: Long): HRESULT
+public expect fun stringFromIID(rclsid: COpaquePointer?, lplpsz: COpaquePointer?): Hresult

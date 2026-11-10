@@ -9,9 +9,9 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_win32_system_eventnotificationservice_IsDestinationReachableA(void* lpszdestination, void* lpqocinfo);
-int32_t windowssys_windows_win32_system_eventnotificationservice_IsDestinationReachableW(void* lpszdestination, void* lpqocinfo);
-int32_t windowssys_windows_win32_system_eventnotificationservice_IsNetworkAlive(void* lpdwflags);
+int32_t windowssys_windows_win32_system_eventnotificationservice_isDestinationReachableA(void* lpszdestination, void* lpqocinfo);
+int32_t windowssys_windows_win32_system_eventnotificationservice_isDestinationReachableW(void* lpszdestination, void* lpqocinfo);
+int32_t windowssys_windows_win32_system_eventnotificationservice_isNetworkAlive(void* lpdwflags);
 
 #ifdef __cplusplus
 }

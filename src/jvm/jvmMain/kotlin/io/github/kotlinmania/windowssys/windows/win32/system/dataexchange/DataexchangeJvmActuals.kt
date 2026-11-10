@@ -2,16 +2,17 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.dataexchange
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HENHMETAFILE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Henhmetafile
 
 private object WindowsWin32SystemDataexchangeJniBridge {
     init {
@@ -19,464 +20,464 @@ private object WindowsWin32SystemDataexchangeJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_AddAtomA(lpstring: Long): Short
+    external fun windowssys_windows_win32_system_dataexchange_addAtomA(lpstring: Long): Short
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_AddAtomW(lpstring: Long): Short
+    external fun windowssys_windows_win32_system_dataexchange_addAtomW(lpstring: Long): Short
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_AddClipboardFormatListener(hwnd: Long): Int
+    external fun windowssys_windows_win32_system_dataexchange_addClipboardFormatListener(hwnd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_ChangeClipboardChain(hwndremove: Long, hwndnewnext: Long): Int
+    external fun windowssys_windows_win32_system_dataexchange_changeClipboardChain(hwndremove: Long, hwndnewnext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_CloseClipboard(): Int
+    external fun windowssys_windows_win32_system_dataexchange_closeClipboard(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_CountClipboardFormats(): Int
+    external fun windowssys_windows_win32_system_dataexchange_countClipboardFormats(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_DdeAbandonTransaction(idinst: Int, hconv: Long, idtransaction: Int): Int
+    external fun windowssys_windows_win32_system_dataexchange_ddeAbandonTransaction(idinst: Int, hconv: Long, idtransaction: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_DdeAccessData(hdata: Long, pcbdatasize: Long): Long
+    external fun windowssys_windows_win32_system_dataexchange_ddeAccessData(hdata: Long, pcbdatasize: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_DdeAddData(hdata: Long, psrc: Long, cb: Int, cboff: Int): Long
+    external fun windowssys_windows_win32_system_dataexchange_ddeAddData(hdata: Long, psrc: Long, cb: Int, cboff: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_DdeClientTransaction(pdata: Long, cbdata: Int, hconv: Long, hszitem: Long, wfmt: Int, wtype: Int, dwtimeout: Int, pdwresult: Long): Long
+    external fun windowssys_windows_win32_system_dataexchange_ddeClientTransaction(pdata: Long, cbdata: Int, hconv: Long, hszitem: Long, wfmt: Int, wtype: Int, dwtimeout: Int, pdwresult: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_DdeCmpStringHandles(hsz1: Long, hsz2: Long): Int
+    external fun windowssys_windows_win32_system_dataexchange_ddeCmpStringHandles(hsz1: Long, hsz2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_DdeConnect(idinst: Int, hszservice: Long, hsztopic: Long, pcc: Long): Long
+    external fun windowssys_windows_win32_system_dataexchange_ddeConnect(idinst: Int, hszservice: Long, hsztopic: Long, pcc: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_DdeConnectList(idinst: Int, hszservice: Long, hsztopic: Long, hconvlist: Long, pcc: Long): Long
+    external fun windowssys_windows_win32_system_dataexchange_ddeConnectList(idinst: Int, hszservice: Long, hsztopic: Long, hconvlist: Long, pcc: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_DdeCreateDataHandle(idinst: Int, psrc: Long, cb: Int, cboff: Int, hszitem: Long, wfmt: Int, afcmd: Int): Long
+    external fun windowssys_windows_win32_system_dataexchange_ddeCreateDataHandle(idinst: Int, psrc: Long, cb: Int, cboff: Int, hszitem: Long, wfmt: Int, afcmd: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_DdeCreateStringHandleA(idinst: Int, psz: Long, icodepage: Int): Long
+    external fun windowssys_windows_win32_system_dataexchange_ddeCreateStringHandleA(idinst: Int, psz: Long, icodepage: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_DdeCreateStringHandleW(idinst: Int, psz: Long, icodepage: Int): Long
+    external fun windowssys_windows_win32_system_dataexchange_ddeCreateStringHandleW(idinst: Int, psz: Long, icodepage: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_DdeDisconnect(hconv: Long): Int
+    external fun windowssys_windows_win32_system_dataexchange_ddeDisconnect(hconv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_DdeDisconnectList(hconvlist: Long): Int
+    external fun windowssys_windows_win32_system_dataexchange_ddeDisconnectList(hconvlist: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_DdeEnableCallback(idinst: Int, hconv: Long, wcmd: Int): Int
+    external fun windowssys_windows_win32_system_dataexchange_ddeEnableCallback(idinst: Int, hconv: Long, wcmd: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_DdeFreeDataHandle(hdata: Long): Int
+    external fun windowssys_windows_win32_system_dataexchange_ddeFreeDataHandle(hdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_DdeFreeStringHandle(idinst: Int, hsz: Long): Int
+    external fun windowssys_windows_win32_system_dataexchange_ddeFreeStringHandle(idinst: Int, hsz: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_DdeGetData(hdata: Long, pdst: Long, cbmax: Int, cboff: Int): Int
+    external fun windowssys_windows_win32_system_dataexchange_ddeGetData(hdata: Long, pdst: Long, cbmax: Int, cboff: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_DdeGetLastError(idinst: Int): Int
+    external fun windowssys_windows_win32_system_dataexchange_ddeGetLastError(idinst: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_DdeImpersonateClient(hconv: Long): Int
+    external fun windowssys_windows_win32_system_dataexchange_ddeImpersonateClient(hconv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_DdeInitializeA(pidinst: Long, pfncallback: Long, afcmd: Int, ulres: Int): Int
+    external fun windowssys_windows_win32_system_dataexchange_ddeInitializeA(pidinst: Long, pfncallback: Long, afcmd: Int, ulres: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_DdeInitializeW(pidinst: Long, pfncallback: Long, afcmd: Int, ulres: Int): Int
+    external fun windowssys_windows_win32_system_dataexchange_ddeInitializeW(pidinst: Long, pfncallback: Long, afcmd: Int, ulres: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_DdeKeepStringHandle(idinst: Int, hsz: Long): Int
+    external fun windowssys_windows_win32_system_dataexchange_ddeKeepStringHandle(idinst: Int, hsz: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_DdeNameService(idinst: Int, hsz1: Long, hsz2: Long, afcmd: Int): Long
+    external fun windowssys_windows_win32_system_dataexchange_ddeNameService(idinst: Int, hsz1: Long, hsz2: Long, afcmd: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_DdePostAdvise(idinst: Int, hsztopic: Long, hszitem: Long): Int
+    external fun windowssys_windows_win32_system_dataexchange_ddePostAdvise(idinst: Int, hsztopic: Long, hszitem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_DdeQueryConvInfo(hconv: Long, idtransaction: Int, pconvinfo: Long): Int
+    external fun windowssys_windows_win32_system_dataexchange_ddeQueryConvInfo(hconv: Long, idtransaction: Int, pconvinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_DdeQueryNextServer(hconvlist: Long, hconvprev: Long): Long
+    external fun windowssys_windows_win32_system_dataexchange_ddeQueryNextServer(hconvlist: Long, hconvprev: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_DdeQueryStringA(idinst: Int, hsz: Long, psz: Long, cchmax: Int, icodepage: Int): Int
+    external fun windowssys_windows_win32_system_dataexchange_ddeQueryStringA(idinst: Int, hsz: Long, psz: Long, cchmax: Int, icodepage: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_DdeQueryStringW(idinst: Int, hsz: Long, psz: Long, cchmax: Int, icodepage: Int): Int
+    external fun windowssys_windows_win32_system_dataexchange_ddeQueryStringW(idinst: Int, hsz: Long, psz: Long, cchmax: Int, icodepage: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_DdeReconnect(hconv: Long): Long
+    external fun windowssys_windows_win32_system_dataexchange_ddeReconnect(hconv: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_DdeSetQualityOfService(hwndclient: Long, pqosnew: Long, pqosprev: Long): Int
+    external fun windowssys_windows_win32_system_dataexchange_ddeSetQualityOfService(hwndclient: Long, pqosnew: Long, pqosprev: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_DdeSetUserHandle(hconv: Long, id: Int, huser: Long): Int
+    external fun windowssys_windows_win32_system_dataexchange_ddeSetUserHandle(hconv: Long, id: Int, huser: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_DdeUnaccessData(hdata: Long): Int
+    external fun windowssys_windows_win32_system_dataexchange_ddeUnaccessData(hdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_DdeUninitialize(idinst: Int): Int
+    external fun windowssys_windows_win32_system_dataexchange_ddeUninitialize(idinst: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_DeleteAtom(natom: Short): Short
+    external fun windowssys_windows_win32_system_dataexchange_deleteAtom(natom: Short): Short
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_EmptyClipboard(): Int
+    external fun windowssys_windows_win32_system_dataexchange_emptyClipboard(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_EnumClipboardFormats(format: Int): Int
+    external fun windowssys_windows_win32_system_dataexchange_enumClipboardFormats(format: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_FindAtomA(lpstring: Long): Short
+    external fun windowssys_windows_win32_system_dataexchange_findAtomA(lpstring: Long): Short
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_FindAtomW(lpstring: Long): Short
+    external fun windowssys_windows_win32_system_dataexchange_findAtomW(lpstring: Long): Short
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_FreeDDElParam(msg: Int, lparam: Long): Int
+    external fun windowssys_windows_win32_system_dataexchange_freeDDElParam(msg: Int, lparam: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_GetAtomNameA(natom: Short, lpbuffer: Long, nsize: Int): Int
+    external fun windowssys_windows_win32_system_dataexchange_getAtomNameA(natom: Short, lpbuffer: Long, nsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_GetAtomNameW(natom: Short, lpbuffer: Long, nsize: Int): Int
+    external fun windowssys_windows_win32_system_dataexchange_getAtomNameW(natom: Short, lpbuffer: Long, nsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_GetClipboardData(uformat: Int): Long
+    external fun windowssys_windows_win32_system_dataexchange_getClipboardData(uformat: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_GetClipboardFormatNameA(format: Int, lpszformatname: Long, cchmaxcount: Int): Int
+    external fun windowssys_windows_win32_system_dataexchange_getClipboardFormatNameA(format: Int, lpszformatname: Long, cchmaxcount: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_GetClipboardFormatNameW(format: Int, lpszformatname: Long, cchmaxcount: Int): Int
+    external fun windowssys_windows_win32_system_dataexchange_getClipboardFormatNameW(format: Int, lpszformatname: Long, cchmaxcount: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_GetClipboardOwner(): Long
+    external fun windowssys_windows_win32_system_dataexchange_getClipboardOwner(): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_GetClipboardSequenceNumber(): Int
+    external fun windowssys_windows_win32_system_dataexchange_getClipboardSequenceNumber(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_GetClipboardViewer(): Long
+    external fun windowssys_windows_win32_system_dataexchange_getClipboardViewer(): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_GetOpenClipboardWindow(): Long
+    external fun windowssys_windows_win32_system_dataexchange_getOpenClipboardWindow(): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_GetPriorityClipboardFormat(paformatprioritylist: Long, cformats: Int): Int
+    external fun windowssys_windows_win32_system_dataexchange_getPriorityClipboardFormat(paformatprioritylist: Long, cformats: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_GetUpdatedClipboardFormats(lpuiformats: Long, cformats: Int, pcformatsout: Long): Int
+    external fun windowssys_windows_win32_system_dataexchange_getUpdatedClipboardFormats(lpuiformats: Long, cformats: Int, pcformatsout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_GlobalAddAtomA(lpstring: Long): Short
+    external fun windowssys_windows_win32_system_dataexchange_globalAddAtomA(lpstring: Long): Short
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_GlobalAddAtomExA(lpstring: Long, flags: Int): Short
+    external fun windowssys_windows_win32_system_dataexchange_globalAddAtomExA(lpstring: Long, flags: Int): Short
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_GlobalAddAtomExW(lpstring: Long, flags: Int): Short
+    external fun windowssys_windows_win32_system_dataexchange_globalAddAtomExW(lpstring: Long, flags: Int): Short
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_GlobalAddAtomW(lpstring: Long): Short
+    external fun windowssys_windows_win32_system_dataexchange_globalAddAtomW(lpstring: Long): Short
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_GlobalDeleteAtom(natom: Short): Short
+    external fun windowssys_windows_win32_system_dataexchange_globalDeleteAtom(natom: Short): Short
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_GlobalFindAtomA(lpstring: Long): Short
+    external fun windowssys_windows_win32_system_dataexchange_globalFindAtomA(lpstring: Long): Short
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_GlobalFindAtomW(lpstring: Long): Short
+    external fun windowssys_windows_win32_system_dataexchange_globalFindAtomW(lpstring: Long): Short
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_GlobalGetAtomNameA(natom: Short, lpbuffer: Long, nsize: Int): Int
+    external fun windowssys_windows_win32_system_dataexchange_globalGetAtomNameA(natom: Short, lpbuffer: Long, nsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_GlobalGetAtomNameW(natom: Short, lpbuffer: Long, nsize: Int): Int
+    external fun windowssys_windows_win32_system_dataexchange_globalGetAtomNameW(natom: Short, lpbuffer: Long, nsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_ImpersonateDdeClientWindow(hwndclient: Long, hwndserver: Long): Int
+    external fun windowssys_windows_win32_system_dataexchange_impersonateDdeClientWindow(hwndclient: Long, hwndserver: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_InitAtomTable(nsize: Int): Int
+    external fun windowssys_windows_win32_system_dataexchange_initAtomTable(nsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_IsClipboardFormatAvailable(format: Int): Int
+    external fun windowssys_windows_win32_system_dataexchange_isClipboardFormatAvailable(format: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_OpenClipboard(hwndnewowner: Long): Int
+    external fun windowssys_windows_win32_system_dataexchange_openClipboard(hwndnewowner: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_PackDDElParam(msg: Int, uilo: Long, uihi: Long): Long
+    external fun windowssys_windows_win32_system_dataexchange_packDDElParam(msg: Int, uilo: Long, uihi: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_RegisterClipboardFormatA(lpszformat: Long): Int
+    external fun windowssys_windows_win32_system_dataexchange_registerClipboardFormatA(lpszformat: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_RegisterClipboardFormatW(lpszformat: Long): Int
+    external fun windowssys_windows_win32_system_dataexchange_registerClipboardFormatW(lpszformat: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_RemoveClipboardFormatListener(hwnd: Long): Int
+    external fun windowssys_windows_win32_system_dataexchange_removeClipboardFormatListener(hwnd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_ReuseDDElParam(lparam: Long, msgin: Int, msgout: Int, uilo: Long, uihi: Long): Long
+    external fun windowssys_windows_win32_system_dataexchange_reuseDDElParam(lparam: Long, msgin: Int, msgout: Int, uilo: Long, uihi: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_SetClipboardData(uformat: Int, hmem: Long): Long
+    external fun windowssys_windows_win32_system_dataexchange_setClipboardData(uformat: Int, hmem: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_SetClipboardViewer(hwndnewviewer: Long): Long
+    external fun windowssys_windows_win32_system_dataexchange_setClipboardViewer(hwndnewviewer: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_SetWinMetaFileBits(nsize: Int, lpmeta16data: Long, hdcref: Long, lpmfp: Long): Long
+    external fun windowssys_windows_win32_system_dataexchange_setWinMetaFileBits(nsize: Int, lpmeta16data: Long, hdcref: Long, lpmfp: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_dataexchange_UnpackDDElParam(msg: Int, lparam: Long, puilo: Long, puihi: Long): Int
+    external fun windowssys_windows_win32_system_dataexchange_unpackDDElParam(msg: Int, lparam: Long, puilo: Long, puihi: Long): Int
 }
 
-public actual fun AddAtomA(lpstring: PCSTR): UShort =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_AddAtomA(lpstring).toUShort()
+public actual fun addAtomA(lpstring: Pcstr): UShort =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_addAtomA((lpstring?.value ?: 0L)).toUShort()
 
-public actual fun AddAtomW(lpstring: PCWSTR): UShort =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_AddAtomW(lpstring).toUShort()
+public actual fun addAtomW(lpstring: Pcwstr): UShort =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_addAtomW((lpstring?.value ?: 0L)).toUShort()
 
-public actual fun AddClipboardFormatListener(hwnd: HWND): BOOL =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_AddClipboardFormatListener(hwnd)
+public actual fun addClipboardFormatListener(hwnd: Hwnd): Bool =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_addClipboardFormatListener((hwnd?.value ?: 0L))
 
-public actual fun ChangeClipboardChain(hwndremove: HWND, hwndnewnext: HWND): BOOL =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_ChangeClipboardChain(hwndremove, hwndnewnext)
+public actual fun changeClipboardChain(hwndremove: Hwnd, hwndnewnext: Hwnd): Bool =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_changeClipboardChain((hwndremove?.value ?: 0L), (hwndnewnext?.value ?: 0L))
 
-public actual fun CloseClipboard(): BOOL =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_CloseClipboard()
+public actual fun closeClipboard(): Bool =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_closeClipboard()
 
-public actual fun CountClipboardFormats(): Int =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_CountClipboardFormats()
+public actual fun countClipboardFormats(): Int =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_countClipboardFormats()
 
-public actual fun DdeAbandonTransaction(idinst: UInt, hconv: HCONV, idtransaction: UInt): BOOL =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_DdeAbandonTransaction(idinst.toInt(), hconv, idtransaction.toInt())
+public actual fun ddeAbandonTransaction(idinst: UInt, hconv: Hconv, idtransaction: UInt): Bool =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_ddeAbandonTransaction(idinst.toInt(), (hconv?.value ?: 0L), idtransaction.toInt())
 
-public actual fun DdeAccessData(hdata: HDDEDATA, pcbdatasize: Long): Long =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_DdeAccessData(hdata, pcbdatasize)
+public actual fun ddeAccessData(hdata: Hddedata, pcbdatasize: COpaquePointer?): COpaquePointer? =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_ddeAccessData((hdata?.value ?: 0L), (pcbdatasize?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun DdeAddData(hdata: HDDEDATA, psrc: Long, cb: UInt, cboff: UInt): HDDEDATA =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_DdeAddData(hdata, psrc, cb.toInt(), cboff.toInt())
+public actual fun ddeAddData(hdata: Hddedata, psrc: COpaquePointer?, cb: UInt, cboff: UInt): Hddedata =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_ddeAddData((hdata?.value ?: 0L), (psrc?.value ?: 0L), cb.toInt(), cboff.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun DdeClientTransaction(pdata: Long, cbdata: UInt, hconv: HCONV, hszitem: HSZ, wfmt: UInt, wtype: DDE_CLIENT_TRANSACTION_TYPE, dwtimeout: UInt, pdwresult: Long): HDDEDATA =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_DdeClientTransaction(pdata, cbdata.toInt(), hconv, hszitem, wfmt.toInt(), wtype.toInt(), dwtimeout.toInt(), pdwresult)
+public actual fun ddeClientTransaction(pdata: COpaquePointer?, cbdata: UInt, hconv: Hconv, hszitem: Hsz, wfmt: UInt, wtype: DdeClientTransactionType, dwtimeout: UInt, pdwresult: COpaquePointer?): Hddedata =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_ddeClientTransaction((pdata?.value ?: 0L), cbdata.toInt(), (hconv?.value ?: 0L), (hszitem?.value ?: 0L), wfmt.toInt(), wtype.toInt(), dwtimeout.toInt(), (pdwresult?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun DdeCmpStringHandles(hsz1: HSZ, hsz2: HSZ): Int =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_DdeCmpStringHandles(hsz1, hsz2)
+public actual fun ddeCmpStringHandles(hsz1: Hsz, hsz2: Hsz): Int =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_ddeCmpStringHandles((hsz1?.value ?: 0L), (hsz2?.value ?: 0L))
 
-public actual fun DdeConnect(idinst: UInt, hszservice: HSZ, hsztopic: HSZ, pcc: Long): HCONV =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_DdeConnect(idinst.toInt(), hszservice, hsztopic, pcc)
+public actual fun ddeConnect(idinst: UInt, hszservice: Hsz, hsztopic: Hsz, pcc: COpaquePointer?): Hconv =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_ddeConnect(idinst.toInt(), (hszservice?.value ?: 0L), (hsztopic?.value ?: 0L), (pcc?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun DdeConnectList(idinst: UInt, hszservice: HSZ, hsztopic: HSZ, hconvlist: HCONVLIST, pcc: Long): HCONVLIST =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_DdeConnectList(idinst.toInt(), hszservice, hsztopic, hconvlist, pcc)
+public actual fun ddeConnectList(idinst: UInt, hszservice: Hsz, hsztopic: Hsz, hconvlist: Hconvlist, pcc: COpaquePointer?): Hconvlist =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_ddeConnectList(idinst.toInt(), (hszservice?.value ?: 0L), (hsztopic?.value ?: 0L), (hconvlist?.value ?: 0L), (pcc?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun DdeCreateDataHandle(idinst: UInt, psrc: Long, cb: UInt, cboff: UInt, hszitem: HSZ, wfmt: UInt, afcmd: UInt): HDDEDATA =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_DdeCreateDataHandle(idinst.toInt(), psrc, cb.toInt(), cboff.toInt(), hszitem, wfmt.toInt(), afcmd.toInt())
+public actual fun ddeCreateDataHandle(idinst: UInt, psrc: COpaquePointer?, cb: UInt, cboff: UInt, hszitem: Hsz, wfmt: UInt, afcmd: UInt): Hddedata =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_ddeCreateDataHandle(idinst.toInt(), (psrc?.value ?: 0L), cb.toInt(), cboff.toInt(), (hszitem?.value ?: 0L), wfmt.toInt(), afcmd.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun DdeCreateStringHandleA(idinst: UInt, psz: PCSTR, icodepage: Int): HSZ =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_DdeCreateStringHandleA(idinst.toInt(), psz, icodepage)
+public actual fun ddeCreateStringHandleA(idinst: UInt, psz: Pcstr, icodepage: Int): Hsz =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_ddeCreateStringHandleA(idinst.toInt(), (psz?.value ?: 0L), icodepage).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun DdeCreateStringHandleW(idinst: UInt, psz: PCWSTR, icodepage: Int): HSZ =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_DdeCreateStringHandleW(idinst.toInt(), psz, icodepage)
+public actual fun ddeCreateStringHandleW(idinst: UInt, psz: Pcwstr, icodepage: Int): Hsz =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_ddeCreateStringHandleW(idinst.toInt(), (psz?.value ?: 0L), icodepage).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun DdeDisconnect(hconv: HCONV): BOOL =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_DdeDisconnect(hconv)
+public actual fun ddeDisconnect(hconv: Hconv): Bool =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_ddeDisconnect((hconv?.value ?: 0L))
 
-public actual fun DdeDisconnectList(hconvlist: HCONVLIST): BOOL =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_DdeDisconnectList(hconvlist)
+public actual fun ddeDisconnectList(hconvlist: Hconvlist): Bool =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_ddeDisconnectList((hconvlist?.value ?: 0L))
 
-public actual fun DdeEnableCallback(idinst: UInt, hconv: HCONV, wcmd: DDE_ENABLE_CALLBACK_CMD): BOOL =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_DdeEnableCallback(idinst.toInt(), hconv, wcmd.toInt())
+public actual fun ddeEnableCallback(idinst: UInt, hconv: Hconv, wcmd: DdeEnableCallbackCmd): Bool =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_ddeEnableCallback(idinst.toInt(), (hconv?.value ?: 0L), wcmd.toInt())
 
-public actual fun DdeFreeDataHandle(hdata: HDDEDATA): BOOL =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_DdeFreeDataHandle(hdata)
+public actual fun ddeFreeDataHandle(hdata: Hddedata): Bool =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_ddeFreeDataHandle((hdata?.value ?: 0L))
 
-public actual fun DdeFreeStringHandle(idinst: UInt, hsz: HSZ): BOOL =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_DdeFreeStringHandle(idinst.toInt(), hsz)
+public actual fun ddeFreeStringHandle(idinst: UInt, hsz: Hsz): Bool =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_ddeFreeStringHandle(idinst.toInt(), (hsz?.value ?: 0L))
 
-public actual fun DdeGetData(hdata: HDDEDATA, pdst: Long, cbmax: UInt, cboff: UInt): UInt =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_DdeGetData(hdata, pdst, cbmax.toInt(), cboff.toInt()).toUInt()
+public actual fun ddeGetData(hdata: Hddedata, pdst: COpaquePointer?, cbmax: UInt, cboff: UInt): UInt =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_ddeGetData((hdata?.value ?: 0L), (pdst?.value ?: 0L), cbmax.toInt(), cboff.toInt()).toUInt()
 
-public actual fun DdeGetLastError(idinst: UInt): UInt =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_DdeGetLastError(idinst.toInt()).toUInt()
+public actual fun ddeGetLastError(idinst: UInt): UInt =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_ddeGetLastError(idinst.toInt()).toUInt()
 
-public actual fun DdeImpersonateClient(hconv: HCONV): BOOL =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_DdeImpersonateClient(hconv)
+public actual fun ddeImpersonateClient(hconv: Hconv): Bool =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_ddeImpersonateClient((hconv?.value ?: 0L))
 
-public actual fun DdeInitializeA(pidinst: Long, pfncallback: PFNCALLBACK, afcmd: DDE_INITIALIZE_COMMAND, ulres: UInt): UInt =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_DdeInitializeA(pidinst, pfncallback.toLong(), afcmd.toInt(), ulres.toInt()).toUInt()
+public actual fun ddeInitializeA(pidinst: COpaquePointer?, pfncallback: Pfncallback, afcmd: DdeInitializeCommand, ulres: UInt): UInt =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_ddeInitializeA((pidinst?.value ?: 0L), 0L, afcmd.toInt(), ulres.toInt()).toUInt()
 
-public actual fun DdeInitializeW(pidinst: Long, pfncallback: PFNCALLBACK, afcmd: DDE_INITIALIZE_COMMAND, ulres: UInt): UInt =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_DdeInitializeW(pidinst, pfncallback.toLong(), afcmd.toInt(), ulres.toInt()).toUInt()
+public actual fun ddeInitializeW(pidinst: COpaquePointer?, pfncallback: Pfncallback, afcmd: DdeInitializeCommand, ulres: UInt): UInt =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_ddeInitializeW((pidinst?.value ?: 0L), 0L, afcmd.toInt(), ulres.toInt()).toUInt()
 
-public actual fun DdeKeepStringHandle(idinst: UInt, hsz: HSZ): BOOL =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_DdeKeepStringHandle(idinst.toInt(), hsz)
+public actual fun ddeKeepStringHandle(idinst: UInt, hsz: Hsz): Bool =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_ddeKeepStringHandle(idinst.toInt(), (hsz?.value ?: 0L))
 
-public actual fun DdeNameService(idinst: UInt, hsz1: HSZ, hsz2: HSZ, afcmd: DDE_NAME_SERVICE_CMD): HDDEDATA =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_DdeNameService(idinst.toInt(), hsz1, hsz2, afcmd.toInt())
+public actual fun ddeNameService(idinst: UInt, hsz1: Hsz, hsz2: Hsz, afcmd: DdeNameServiceCmd): Hddedata =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_ddeNameService(idinst.toInt(), (hsz1?.value ?: 0L), (hsz2?.value ?: 0L), afcmd.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun DdePostAdvise(idinst: UInt, hsztopic: HSZ, hszitem: HSZ): BOOL =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_DdePostAdvise(idinst.toInt(), hsztopic, hszitem)
+public actual fun ddePostAdvise(idinst: UInt, hsztopic: Hsz, hszitem: Hsz): Bool =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_ddePostAdvise(idinst.toInt(), (hsztopic?.value ?: 0L), (hszitem?.value ?: 0L))
 
-public actual fun DdeQueryConvInfo(hconv: HCONV, idtransaction: UInt, pconvinfo: Long): UInt =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_DdeQueryConvInfo(hconv, idtransaction.toInt(), pconvinfo).toUInt()
+public actual fun ddeQueryConvInfo(hconv: Hconv, idtransaction: UInt, pconvinfo: COpaquePointer?): UInt =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_ddeQueryConvInfo((hconv?.value ?: 0L), idtransaction.toInt(), (pconvinfo?.value ?: 0L)).toUInt()
 
-public actual fun DdeQueryNextServer(hconvlist: HCONVLIST, hconvprev: HCONV): HCONV =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_DdeQueryNextServer(hconvlist, hconvprev)
+public actual fun ddeQueryNextServer(hconvlist: Hconvlist, hconvprev: Hconv): Hconv =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_ddeQueryNextServer((hconvlist?.value ?: 0L), (hconvprev?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun DdeQueryStringA(idinst: UInt, hsz: HSZ, psz: PSTR, cchmax: UInt, icodepage: Int): UInt =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_DdeQueryStringA(idinst.toInt(), hsz, psz, cchmax.toInt(), icodepage).toUInt()
+public actual fun ddeQueryStringA(idinst: UInt, hsz: Hsz, psz: Pstr, cchmax: UInt, icodepage: Int): UInt =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_ddeQueryStringA(idinst.toInt(), (hsz?.value ?: 0L), (psz?.value ?: 0L), cchmax.toInt(), icodepage).toUInt()
 
-public actual fun DdeQueryStringW(idinst: UInt, hsz: HSZ, psz: PWSTR, cchmax: UInt, icodepage: Int): UInt =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_DdeQueryStringW(idinst.toInt(), hsz, psz, cchmax.toInt(), icodepage).toUInt()
+public actual fun ddeQueryStringW(idinst: UInt, hsz: Hsz, psz: Pwstr, cchmax: UInt, icodepage: Int): UInt =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_ddeQueryStringW(idinst.toInt(), (hsz?.value ?: 0L), (psz?.value ?: 0L), cchmax.toInt(), icodepage).toUInt()
 
-public actual fun DdeReconnect(hconv: HCONV): HCONV =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_DdeReconnect(hconv)
+public actual fun ddeReconnect(hconv: Hconv): Hconv =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_ddeReconnect((hconv?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun DdeSetQualityOfService(hwndclient: HWND, pqosnew: Long, pqosprev: Long): BOOL =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_DdeSetQualityOfService(hwndclient, pqosnew, pqosprev)
+public actual fun ddeSetQualityOfService(hwndclient: Hwnd, pqosnew: COpaquePointer?, pqosprev: COpaquePointer?): Bool =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_ddeSetQualityOfService((hwndclient?.value ?: 0L), (pqosnew?.value ?: 0L), (pqosprev?.value ?: 0L))
 
-public actual fun DdeSetUserHandle(hconv: HCONV, id: UInt, huser: ULong): BOOL =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_DdeSetUserHandle(hconv, id.toInt(), huser.toLong())
+public actual fun ddeSetUserHandle(hconv: Hconv, id: UInt, huser: ULong): Bool =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_ddeSetUserHandle((hconv?.value ?: 0L), id.toInt(), huser.toLong())
 
-public actual fun DdeUnaccessData(hdata: HDDEDATA): BOOL =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_DdeUnaccessData(hdata)
+public actual fun ddeUnaccessData(hdata: Hddedata): Bool =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_ddeUnaccessData((hdata?.value ?: 0L))
 
-public actual fun DdeUninitialize(idinst: UInt): BOOL =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_DdeUninitialize(idinst.toInt())
+public actual fun ddeUninitialize(idinst: UInt): Bool =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_ddeUninitialize(idinst.toInt())
 
-public actual fun DeleteAtom(natom: UShort): UShort =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_DeleteAtom(natom.toShort()).toUShort()
+public actual fun deleteAtom(natom: UShort): UShort =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_deleteAtom(natom.toShort()).toUShort()
 
-public actual fun EmptyClipboard(): BOOL =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_EmptyClipboard()
+public actual fun emptyClipboard(): Bool =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_emptyClipboard()
 
-public actual fun EnumClipboardFormats(format: UInt): UInt =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_EnumClipboardFormats(format.toInt()).toUInt()
+public actual fun enumClipboardFormats(format: UInt): UInt =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_enumClipboardFormats(format.toInt()).toUInt()
 
-public actual fun FindAtomA(lpstring: PCSTR): UShort =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_FindAtomA(lpstring).toUShort()
+public actual fun findAtomA(lpstring: Pcstr): UShort =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_findAtomA((lpstring?.value ?: 0L)).toUShort()
 
-public actual fun FindAtomW(lpstring: PCWSTR): UShort =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_FindAtomW(lpstring).toUShort()
+public actual fun findAtomW(lpstring: Pcwstr): UShort =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_findAtomW((lpstring?.value ?: 0L)).toUShort()
 
-public actual fun FreeDDElParam(msg: UInt, lparam: LPARAM): BOOL =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_FreeDDElParam(msg.toInt(), lparam)
+public actual fun freeDDElParam(msg: UInt, lparam: Lparam): Bool =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_freeDDElParam(msg.toInt(), lparam)
 
-public actual fun GetAtomNameA(natom: UShort, lpbuffer: PSTR, nsize: Int): UInt =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_GetAtomNameA(natom.toShort(), lpbuffer, nsize).toUInt()
+public actual fun getAtomNameA(natom: UShort, lpbuffer: Pstr, nsize: Int): UInt =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_getAtomNameA(natom.toShort(), (lpbuffer?.value ?: 0L), nsize).toUInt()
 
-public actual fun GetAtomNameW(natom: UShort, lpbuffer: PWSTR, nsize: Int): UInt =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_GetAtomNameW(natom.toShort(), lpbuffer, nsize).toUInt()
+public actual fun getAtomNameW(natom: UShort, lpbuffer: Pwstr, nsize: Int): UInt =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_getAtomNameW(natom.toShort(), (lpbuffer?.value ?: 0L), nsize).toUInt()
 
-public actual fun GetClipboardData(uformat: UInt): HANDLE =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_GetClipboardData(uformat.toInt())
+public actual fun getClipboardData(uformat: UInt): Handle =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_getClipboardData(uformat.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GetClipboardFormatNameA(format: UInt, lpszformatname: PSTR, cchmaxcount: Int): Int =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_GetClipboardFormatNameA(format.toInt(), lpszformatname, cchmaxcount)
+public actual fun getClipboardFormatNameA(format: UInt, lpszformatname: Pstr, cchmaxcount: Int): Int =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_getClipboardFormatNameA(format.toInt(), (lpszformatname?.value ?: 0L), cchmaxcount)
 
-public actual fun GetClipboardFormatNameW(format: UInt, lpszformatname: PWSTR, cchmaxcount: Int): Int =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_GetClipboardFormatNameW(format.toInt(), lpszformatname, cchmaxcount)
+public actual fun getClipboardFormatNameW(format: UInt, lpszformatname: Pwstr, cchmaxcount: Int): Int =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_getClipboardFormatNameW(format.toInt(), (lpszformatname?.value ?: 0L), cchmaxcount)
 
-public actual fun GetClipboardOwner(): HWND =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_GetClipboardOwner()
+public actual fun getClipboardOwner(): Hwnd =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_getClipboardOwner().let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GetClipboardSequenceNumber(): UInt =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_GetClipboardSequenceNumber().toUInt()
+public actual fun getClipboardSequenceNumber(): UInt =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_getClipboardSequenceNumber().toUInt()
 
-public actual fun GetClipboardViewer(): HWND =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_GetClipboardViewer()
+public actual fun getClipboardViewer(): Hwnd =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_getClipboardViewer().let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GetOpenClipboardWindow(): HWND =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_GetOpenClipboardWindow()
+public actual fun getOpenClipboardWindow(): Hwnd =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_getOpenClipboardWindow().let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GetPriorityClipboardFormat(paformatprioritylist: Long, cformats: Int): Int =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_GetPriorityClipboardFormat(paformatprioritylist, cformats)
+public actual fun getPriorityClipboardFormat(paformatprioritylist: COpaquePointer?, cformats: Int): Int =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_getPriorityClipboardFormat((paformatprioritylist?.value ?: 0L), cformats)
 
-public actual fun GetUpdatedClipboardFormats(lpuiformats: Long, cformats: UInt, pcformatsout: Long): BOOL =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_GetUpdatedClipboardFormats(lpuiformats, cformats.toInt(), pcformatsout)
+public actual fun getUpdatedClipboardFormats(lpuiformats: COpaquePointer?, cformats: UInt, pcformatsout: COpaquePointer?): Bool =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_getUpdatedClipboardFormats((lpuiformats?.value ?: 0L), cformats.toInt(), (pcformatsout?.value ?: 0L))
 
-public actual fun GlobalAddAtomA(lpstring: PCSTR): UShort =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_GlobalAddAtomA(lpstring).toUShort()
+public actual fun globalAddAtomA(lpstring: Pcstr): UShort =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_globalAddAtomA((lpstring?.value ?: 0L)).toUShort()
 
-public actual fun GlobalAddAtomExA(lpstring: PCSTR, flags: UInt): UShort =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_GlobalAddAtomExA(lpstring, flags.toInt()).toUShort()
+public actual fun globalAddAtomExA(lpstring: Pcstr, flags: UInt): UShort =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_globalAddAtomExA((lpstring?.value ?: 0L), flags.toInt()).toUShort()
 
-public actual fun GlobalAddAtomExW(lpstring: PCWSTR, flags: UInt): UShort =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_GlobalAddAtomExW(lpstring, flags.toInt()).toUShort()
+public actual fun globalAddAtomExW(lpstring: Pcwstr, flags: UInt): UShort =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_globalAddAtomExW((lpstring?.value ?: 0L), flags.toInt()).toUShort()
 
-public actual fun GlobalAddAtomW(lpstring: PCWSTR): UShort =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_GlobalAddAtomW(lpstring).toUShort()
+public actual fun globalAddAtomW(lpstring: Pcwstr): UShort =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_globalAddAtomW((lpstring?.value ?: 0L)).toUShort()
 
-public actual fun GlobalDeleteAtom(natom: UShort): UShort =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_GlobalDeleteAtom(natom.toShort()).toUShort()
+public actual fun globalDeleteAtom(natom: UShort): UShort =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_globalDeleteAtom(natom.toShort()).toUShort()
 
-public actual fun GlobalFindAtomA(lpstring: PCSTR): UShort =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_GlobalFindAtomA(lpstring).toUShort()
+public actual fun globalFindAtomA(lpstring: Pcstr): UShort =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_globalFindAtomA((lpstring?.value ?: 0L)).toUShort()
 
-public actual fun GlobalFindAtomW(lpstring: PCWSTR): UShort =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_GlobalFindAtomW(lpstring).toUShort()
+public actual fun globalFindAtomW(lpstring: Pcwstr): UShort =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_globalFindAtomW((lpstring?.value ?: 0L)).toUShort()
 
-public actual fun GlobalGetAtomNameA(natom: UShort, lpbuffer: PSTR, nsize: Int): UInt =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_GlobalGetAtomNameA(natom.toShort(), lpbuffer, nsize).toUInt()
+public actual fun globalGetAtomNameA(natom: UShort, lpbuffer: Pstr, nsize: Int): UInt =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_globalGetAtomNameA(natom.toShort(), (lpbuffer?.value ?: 0L), nsize).toUInt()
 
-public actual fun GlobalGetAtomNameW(natom: UShort, lpbuffer: PWSTR, nsize: Int): UInt =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_GlobalGetAtomNameW(natom.toShort(), lpbuffer, nsize).toUInt()
+public actual fun globalGetAtomNameW(natom: UShort, lpbuffer: Pwstr, nsize: Int): UInt =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_globalGetAtomNameW(natom.toShort(), (lpbuffer?.value ?: 0L), nsize).toUInt()
 
-public actual fun ImpersonateDdeClientWindow(hwndclient: HWND, hwndserver: HWND): BOOL =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_ImpersonateDdeClientWindow(hwndclient, hwndserver)
+public actual fun impersonateDdeClientWindow(hwndclient: Hwnd, hwndserver: Hwnd): Bool =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_impersonateDdeClientWindow((hwndclient?.value ?: 0L), (hwndserver?.value ?: 0L))
 
-public actual fun InitAtomTable(nsize: UInt): BOOL =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_InitAtomTable(nsize.toInt())
+public actual fun initAtomTable(nsize: UInt): Bool =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_initAtomTable(nsize.toInt())
 
-public actual fun IsClipboardFormatAvailable(format: UInt): BOOL =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_IsClipboardFormatAvailable(format.toInt())
+public actual fun isClipboardFormatAvailable(format: UInt): Bool =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_isClipboardFormatAvailable(format.toInt())
 
-public actual fun OpenClipboard(hwndnewowner: HWND): BOOL =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_OpenClipboard(hwndnewowner)
+public actual fun openClipboard(hwndnewowner: Hwnd): Bool =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_openClipboard((hwndnewowner?.value ?: 0L))
 
-public actual fun PackDDElParam(msg: UInt, uilo: ULong, uihi: ULong): LPARAM =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_PackDDElParam(msg.toInt(), uilo.toLong(), uihi.toLong())
+public actual fun packDDElParam(msg: UInt, uilo: ULong, uihi: ULong): Lparam =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_packDDElParam(msg.toInt(), uilo.toLong(), uihi.toLong())
 
-public actual fun RegisterClipboardFormatA(lpszformat: PCSTR): UInt =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_RegisterClipboardFormatA(lpszformat).toUInt()
+public actual fun registerClipboardFormatA(lpszformat: Pcstr): UInt =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_registerClipboardFormatA((lpszformat?.value ?: 0L)).toUInt()
 
-public actual fun RegisterClipboardFormatW(lpszformat: PCWSTR): UInt =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_RegisterClipboardFormatW(lpszformat).toUInt()
+public actual fun registerClipboardFormatW(lpszformat: Pcwstr): UInt =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_registerClipboardFormatW((lpszformat?.value ?: 0L)).toUInt()
 
-public actual fun RemoveClipboardFormatListener(hwnd: HWND): BOOL =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_RemoveClipboardFormatListener(hwnd)
+public actual fun removeClipboardFormatListener(hwnd: Hwnd): Bool =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_removeClipboardFormatListener((hwnd?.value ?: 0L))
 
-public actual fun ReuseDDElParam(lparam: LPARAM, msgin: UInt, msgout: UInt, uilo: ULong, uihi: ULong): LPARAM =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_ReuseDDElParam(lparam, msgin.toInt(), msgout.toInt(), uilo.toLong(), uihi.toLong())
+public actual fun reuseDDElParam(lparam: Lparam, msgin: UInt, msgout: UInt, uilo: ULong, uihi: ULong): Lparam =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_reuseDDElParam(lparam, msgin.toInt(), msgout.toInt(), uilo.toLong(), uihi.toLong())
 
-public actual fun SetClipboardData(uformat: UInt, hmem: HANDLE): HANDLE =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_SetClipboardData(uformat.toInt(), hmem)
+public actual fun setClipboardData(uformat: UInt, hmem: Handle): Handle =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_setClipboardData(uformat.toInt(), (hmem?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SetClipboardViewer(hwndnewviewer: HWND): HWND =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_SetClipboardViewer(hwndnewviewer)
+public actual fun setClipboardViewer(hwndnewviewer: Hwnd): Hwnd =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_setClipboardViewer((hwndnewviewer?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SetWinMetaFileBits(nsize: UInt, lpmeta16data: Long, hdcref: HDC, lpmfp: Long): HENHMETAFILE =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_SetWinMetaFileBits(nsize.toInt(), lpmeta16data, hdcref, lpmfp)
+public actual fun setWinMetaFileBits(nsize: UInt, lpmeta16data: COpaquePointer?, hdcref: Hdc, lpmfp: COpaquePointer?): Henhmetafile =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_setWinMetaFileBits(nsize.toInt(), (lpmeta16data?.value ?: 0L), (hdcref?.value ?: 0L), (lpmfp?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun UnpackDDElParam(msg: UInt, lparam: LPARAM, puilo: Long, puihi: Long): BOOL =
-    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_UnpackDDElParam(msg.toInt(), lparam, puilo, puihi)
+public actual fun unpackDDElParam(msg: UInt, lparam: Lparam, puilo: COpaquePointer?, puihi: COpaquePointer?): Bool =
+    WindowsWin32SystemDataexchangeJniBridge.windowssys_windows_win32_system_dataexchange_unpackDDElParam(msg.toInt(), lparam, (puilo?.value ?: 0L), (puihi?.value ?: 0L))

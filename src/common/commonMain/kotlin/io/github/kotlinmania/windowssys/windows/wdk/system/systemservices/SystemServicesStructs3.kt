@@ -1,1155 +1,1124 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.wdk.system.systemservices
 
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.PPCW_BUFFER
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
-import io.github.kotlinmania.windowssys.windows.win32.foundation.UNICODE_STRING
-import io.github.kotlinmania.windowssys.windows.win32.system.power.DEVICE_POWER_STATE
-import io.github.kotlinmania.windowssys.windows.win32.system.power.SYSTEM_POWER_STATE
-import io.github.kotlinmania.windowssys.windows.win32.system.threading.PROCESS_BASIC_INFORMATION
-import io.github.kotlinmania.windowssys.windows.win32.system.windowsprogramming.CLIENT_ID
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.FileObject
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.Kevent
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PpcwBuffer
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
+import io.github.kotlinmania.windowssys.windows.win32.foundation.UnicodeString
+import io.github.kotlinmania.windowssys.windows.win32.system.power.DevicePowerState
+import io.github.kotlinmania.windowssys.windows.win32.system.power.SystemPowerState
+import io.github.kotlinmania.windowssys.windows.win32.system.threading.ProcessBasicInformation
+import io.github.kotlinmania.windowssys.windows.win32.system.windowsprogramming.ClientId
 
-public data class PCI_EXPRESS_ERROR_SOURCE_ID_0(public var _bitfield1: UShort = 0u, public var _bitfield2: UShort = 0u)
+public data class PciExpressErrorSourceId0(public var bitfield1: UShort = 0u, public var bitfield2: UShort = 0u)
 
-public data class PCI_EXPRESS_EVENT_COLLECTOR_ENDPOINT_ASSOCIATION_CAPABILITY(public var Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER = PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER(), public var AssociationBitmap: UInt = 0u)
+public data class PciExpressEventCollectorEndpointAssociationCapability(public var header: PciExpressEnhancedCapabilityHeader = PciExpressEnhancedCapabilityHeader(), public var associationBitmap: UInt = 0u)
 
-public data class PCI_EXPRESS_L1_PM_SS_CAPABILITIES_REGISTER(public var Anonymous: PCI_EXPRESS_L1_PM_SS_CAPABILITIES_REGISTER_0 = PCI_EXPRESS_L1_PM_SS_CAPABILITIES_REGISTER_0(), public var AsULONG: UInt = 0u)
+public data class PciExpressL1PmSsCapabilitiesRegister(public var anonymous: PciExpressL1PmSsCapabilitiesRegister0 = PciExpressL1PmSsCapabilitiesRegister0(), public var asULONG: UInt = 0u)
 
-public data class PCI_EXPRESS_L1_PM_SS_CAPABILITIES_REGISTER_0(public var _bitfield: UInt = 0u)
+public data class PciExpressL1PmSsCapabilitiesRegister0(public var bitfield: UInt = 0u)
 
-public data class PCI_EXPRESS_L1_PM_SS_CAPABILITY(
-    public var Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER = PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER(),
-    public var L1PmSsCapabilities: PCI_EXPRESS_L1_PM_SS_CAPABILITIES_REGISTER = PCI_EXPRESS_L1_PM_SS_CAPABILITIES_REGISTER(),
-    public var L1PmSsControl1: PCI_EXPRESS_L1_PM_SS_CONTROL_1_REGISTER = PCI_EXPRESS_L1_PM_SS_CONTROL_1_REGISTER(),
-    public var L1PmSsControl2: PCI_EXPRESS_L1_PM_SS_CONTROL_2_REGISTER = PCI_EXPRESS_L1_PM_SS_CONTROL_2_REGISTER(),
+public data class PciExpressL1PmSsCapability(
+    public var header: PciExpressEnhancedCapabilityHeader = PciExpressEnhancedCapabilityHeader(),
+    public var l1PmSsCapabilities: PciExpressL1PmSsCapabilitiesRegister = PciExpressL1PmSsCapabilitiesRegister(),
+    public var l1PmSsControl1: PciExpressL1PmSsControl1Register = PciExpressL1PmSsControl1Register(),
+    public var l1PmSsControl2: PciExpressL1PmSsControl2Register = PciExpressL1PmSsControl2Register(),
 )
 
-public data class PCI_EXPRESS_L1_PM_SS_CONTROL_1_REGISTER(public var Anonymous: PCI_EXPRESS_L1_PM_SS_CONTROL_1_REGISTER_0 = PCI_EXPRESS_L1_PM_SS_CONTROL_1_REGISTER_0(), public var AsULONG: UInt = 0u)
+public data class PciExpressL1PmSsControl1Register(public var anonymous: PciExpressL1PmSsControl1Register0 = PciExpressL1PmSsControl1Register0(), public var asULONG: UInt = 0u)
 
-public data class PCI_EXPRESS_L1_PM_SS_CONTROL_1_REGISTER_0(public var _bitfield: UInt = 0u)
+public data class PciExpressL1PmSsControl1Register0(public var bitfield: UInt = 0u)
 
-public data class PCI_EXPRESS_L1_PM_SS_CONTROL_2_REGISTER(public var Anonymous: PCI_EXPRESS_L1_PM_SS_CONTROL_2_REGISTER_0 = PCI_EXPRESS_L1_PM_SS_CONTROL_2_REGISTER_0(), public var AsULONG: UInt = 0u)
+public data class PciExpressL1PmSsControl2Register(public var anonymous: PciExpressL1PmSsControl2Register0 = PciExpressL1PmSsControl2Register0(), public var asULONG: UInt = 0u)
 
-public data class PCI_EXPRESS_L1_PM_SS_CONTROL_2_REGISTER_0(public var _bitfield: UInt = 0u)
+public data class PciExpressL1PmSsControl2Register0(public var bitfield: UInt = 0u)
 
-public data class PCI_EXPRESS_LANE_ERROR_STATUS(public var LaneBitmap: UInt = 0u)
+public data class PciExpressLaneErrorStatus(public var laneBitmap: UInt = 0u)
 
-public data class PCI_EXPRESS_LINK_CAPABILITIES_2_REGISTER(public var Anonymous: PCI_EXPRESS_LINK_CAPABILITIES_2_REGISTER_0 = PCI_EXPRESS_LINK_CAPABILITIES_2_REGISTER_0(), public var AsULONG: UInt = 0u)
+public data class PciExpressLinkCapabilities2Register(public var anonymous: PciExpressLinkCapabilities2Register0 = PciExpressLinkCapabilities2Register0(), public var asULONG: UInt = 0u)
 
-public data class PCI_EXPRESS_LINK_CAPABILITIES_2_REGISTER_0(public var _bitfield: UInt = 0u)
+public data class PciExpressLinkCapabilities2Register0(public var bitfield: UInt = 0u)
 
-public data class PCI_EXPRESS_LINK_CAPABILITIES_REGISTER(public var Anonymous: PCI_EXPRESS_LINK_CAPABILITIES_REGISTER_0 = PCI_EXPRESS_LINK_CAPABILITIES_REGISTER_0(), public var AsULONG: UInt = 0u)
+public data class PciExpressLinkCapabilitiesRegister(public var anonymous: PciExpressLinkCapabilitiesRegister0 = PciExpressLinkCapabilitiesRegister0(), public var asULONG: UInt = 0u)
 
-public data class PCI_EXPRESS_LINK_CAPABILITIES_REGISTER_0(public var _bitfield: UInt = 0u)
+public data class PciExpressLinkCapabilitiesRegister0(public var bitfield: UInt = 0u)
 
-public data class PCI_EXPRESS_LINK_CONTROL3(public var Anonymous: PCI_EXPRESS_LINK_CONTROL3_0 = PCI_EXPRESS_LINK_CONTROL3_0())
+public data class PciExpressLinkControl3(public var anonymous: PciExpressLinkControl30 = PciExpressLinkControl30())
 
-public data class PCI_EXPRESS_LINK_CONTROL3_0(public var Anonymous: PCI_EXPRESS_LINK_CONTROL3_0_0 = PCI_EXPRESS_LINK_CONTROL3_0_0(), public var AsULONG: UInt = 0u)
+public data class PciExpressLinkControl30(public var anonymous: PciExpressLinkControl300 = PciExpressLinkControl300(), public var asULONG: UInt = 0u)
 
-public data class PCI_EXPRESS_LINK_CONTROL3_0_0(public var _bitfield: UInt = 0u)
+public data class PciExpressLinkControl300(public var bitfield: UInt = 0u)
 
-public data class PCI_EXPRESS_LINK_CONTROL_2_REGISTER(public var Anonymous: PCI_EXPRESS_LINK_CONTROL_2_REGISTER_0 = PCI_EXPRESS_LINK_CONTROL_2_REGISTER_0(), public var AsUSHORT: UShort = 0u)
+public data class PciExpressLinkControl2Register(public var anonymous: PciExpressLinkControl2Register0 = PciExpressLinkControl2Register0(), public var asUSHORT: UShort = 0u)
 
-public data class PCI_EXPRESS_LINK_CONTROL_2_REGISTER_0(public var _bitfield: UShort = 0u)
+public data class PciExpressLinkControl2Register0(public var bitfield: UShort = 0u)
 
-public data class PCI_EXPRESS_LINK_CONTROL_REGISTER(public var Anonymous: PCI_EXPRESS_LINK_CONTROL_REGISTER_0 = PCI_EXPRESS_LINK_CONTROL_REGISTER_0(), public var AsUSHORT: UShort = 0u)
+public data class PciExpressLinkControlRegister(public var anonymous: PciExpressLinkControlRegister0 = PciExpressLinkControlRegister0(), public var asUSHORT: UShort = 0u)
 
-public data class PCI_EXPRESS_LINK_CONTROL_REGISTER_0(public var _bitfield: UShort = 0u)
+public data class PciExpressLinkControlRegister0(public var bitfield: UShort = 0u)
 
-public data class PCI_EXPRESS_LINK_QUIESCENT_INTERFACE(
-    public var Size: UShort = 0u,
-    public var Version: UShort = 0u,
-    public var Context: Long = 0L,
-    public var InterfaceReference: PINTERFACE_REFERENCE = null,
-    public var InterfaceDereference: PINTERFACE_DEREFERENCE = null,
-    public var PciExpressEnterLinkQuiescentMode: PPCI_EXPRESS_ENTER_LINK_QUIESCENT_MODE = null,
-    public var PciExpressExitLinkQuiescentMode: PPCI_EXPRESS_EXIT_LINK_QUIESCENT_MODE = null,
+public data class PciExpressLinkQuiescentInterface(
+    public var size: UShort = 0u,
+    public var version: UShort = 0u,
+    public var context: COpaquePointer? = null,
+    public var interfaceReference: PinterfaceReference = null,
+    public var interfaceDereference: PinterfaceDereference = null,
+    public var pciExpressEnterLinkQuiescentMode: PpciExpressEnterLinkQuiescentMode = null,
+    public var pciExpressExitLinkQuiescentMode: PpciExpressExitLinkQuiescentMode = null,
 )
 
-public data class PCI_EXPRESS_LINK_STATUS_2_REGISTER(public var Anonymous: PCI_EXPRESS_LINK_STATUS_2_REGISTER_0 = PCI_EXPRESS_LINK_STATUS_2_REGISTER_0(), public var AsUSHORT: UShort = 0u)
+public data class PciExpressLinkStatus2Register(public var anonymous: PciExpressLinkStatus2Register0 = PciExpressLinkStatus2Register0(), public var asUSHORT: UShort = 0u)
 
-public data class PCI_EXPRESS_LINK_STATUS_2_REGISTER_0(public var _bitfield: UShort = 0u)
+public data class PciExpressLinkStatus2Register0(public var bitfield: UShort = 0u)
 
-public data class PCI_EXPRESS_LINK_STATUS_REGISTER(public var Anonymous: PCI_EXPRESS_LINK_STATUS_REGISTER_0 = PCI_EXPRESS_LINK_STATUS_REGISTER_0(), public var AsUSHORT: UShort = 0u)
+public data class PciExpressLinkStatusRegister(public var anonymous: PciExpressLinkStatusRegister0 = PciExpressLinkStatusRegister0(), public var asUSHORT: UShort = 0u)
 
-public data class PCI_EXPRESS_LINK_STATUS_REGISTER_0(public var _bitfield: UShort = 0u)
+public data class PciExpressLinkStatusRegister0(public var bitfield: UShort = 0u)
 
-public data class PCI_EXPRESS_LTR_CAPABILITY(public var Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER = PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER(), public var Latency: PCI_EXPRESS_LTR_MAX_LATENCY_REGISTER = PCI_EXPRESS_LTR_MAX_LATENCY_REGISTER())
+public data class PciExpressLtrCapability(public var header: PciExpressEnhancedCapabilityHeader = PciExpressEnhancedCapabilityHeader(), public var latency: PciExpressLtrMaxLatencyRegister = PciExpressLtrMaxLatencyRegister())
 
-public data class PCI_EXPRESS_LTR_MAX_LATENCY_REGISTER(public var Anonymous: PCI_EXPRESS_LTR_MAX_LATENCY_REGISTER_0 = PCI_EXPRESS_LTR_MAX_LATENCY_REGISTER_0(), public var AsULONG: UInt = 0u)
+public data class PciExpressLtrMaxLatencyRegister(public var anonymous: PciExpressLtrMaxLatencyRegister0 = PciExpressLtrMaxLatencyRegister0(), public var asULONG: UInt = 0u)
 
-public data class PCI_EXPRESS_LTR_MAX_LATENCY_REGISTER_0(public var _bitfield: UInt = 0u)
+public data class PciExpressLtrMaxLatencyRegister0(public var bitfield: UInt = 0u)
 
-public data class PCI_EXPRESS_NPEM_CAPABILITY(
-    public var Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER = PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER(),
-    public var Capability: PCI_EXPRESS_NPEM_CAPABILITY_REGISTER = PCI_EXPRESS_NPEM_CAPABILITY_REGISTER(),
-    public var Control: PCI_EXPRESS_NPEM_CONTROL_REGISTER = PCI_EXPRESS_NPEM_CONTROL_REGISTER(),
-    public var Status: PCI_EXPRESS_NPEM_STATUS_REGISTER = PCI_EXPRESS_NPEM_STATUS_REGISTER(),
+public data class PciExpressNpemCapability(
+    public var header: PciExpressEnhancedCapabilityHeader = PciExpressEnhancedCapabilityHeader(),
+    public var capability: PciExpressNpemCapabilityRegister = PciExpressNpemCapabilityRegister(),
+    public var control: PciExpressNpemControlRegister = PciExpressNpemControlRegister(),
+    public var status: PciExpressNpemStatusRegister = PciExpressNpemStatusRegister(),
 )
 
-public data class PCI_EXPRESS_NPEM_CAPABILITY_REGISTER(public var Anonymous: PCI_EXPRESS_NPEM_CAPABILITY_REGISTER_0 = PCI_EXPRESS_NPEM_CAPABILITY_REGISTER_0(), public var AsULONG: UInt = 0u)
+public data class PciExpressNpemCapabilityRegister(public var anonymous: PciExpressNpemCapabilityRegister0 = PciExpressNpemCapabilityRegister0(), public var asULONG: UInt = 0u)
 
-public data class PCI_EXPRESS_NPEM_CAPABILITY_REGISTER_0(public var _bitfield: UInt = 0u)
+public data class PciExpressNpemCapabilityRegister0(public var bitfield: UInt = 0u)
 
-public data class PCI_EXPRESS_NPEM_CONTROL_REGISTER(public var Anonymous: PCI_EXPRESS_NPEM_CONTROL_REGISTER_0 = PCI_EXPRESS_NPEM_CONTROL_REGISTER_0(), public var AsULONG: UInt = 0u)
+public data class PciExpressNpemControlRegister(public var anonymous: PciExpressNpemControlRegister0 = PciExpressNpemControlRegister0(), public var asULONG: UInt = 0u)
 
-public data class PCI_EXPRESS_NPEM_CONTROL_REGISTER_0(public var _bitfield: UInt = 0u)
+public data class PciExpressNpemControlRegister0(public var bitfield: UInt = 0u)
 
-public data class PCI_EXPRESS_NPEM_STATUS_REGISTER(public var Anonymous: PCI_EXPRESS_NPEM_STATUS_REGISTER_0 = PCI_EXPRESS_NPEM_STATUS_REGISTER_0(), public var AsULONG: UInt = 0u)
+public data class PciExpressNpemStatusRegister(public var anonymous: PciExpressNpemStatusRegister0 = PciExpressNpemStatusRegister0(), public var asULONG: UInt = 0u)
 
-public data class PCI_EXPRESS_NPEM_STATUS_REGISTER_0(public var _bitfield: UInt = 0u)
+public data class PciExpressNpemStatusRegister0(public var bitfield: UInt = 0u)
 
-public data class PCI_EXPRESS_PASID_CAPABILITY(
-    public var Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER = PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER(),
-    public var Capability: PCI_EXPRESS_PASID_CAPABILITY_REGISTER = PCI_EXPRESS_PASID_CAPABILITY_REGISTER(),
-    public var Control: PCI_EXPRESS_PASID_CONTROL_REGISTER = PCI_EXPRESS_PASID_CONTROL_REGISTER(),
+public data class PciExpressPasidCapability(
+    public var header: PciExpressEnhancedCapabilityHeader = PciExpressEnhancedCapabilityHeader(),
+    public var capability: PciExpressPasidCapabilityRegister = PciExpressPasidCapabilityRegister(),
+    public var control: PciExpressPasidControlRegister = PciExpressPasidControlRegister(),
 )
 
-public data class PCI_EXPRESS_PASID_CAPABILITY_REGISTER(public var Anonymous: PCI_EXPRESS_PASID_CAPABILITY_REGISTER_0 = PCI_EXPRESS_PASID_CAPABILITY_REGISTER_0(), public var AsUSHORT: UShort = 0u)
+public data class PciExpressPasidCapabilityRegister(public var anonymous: PciExpressPasidCapabilityRegister0 = PciExpressPasidCapabilityRegister0(), public var asUSHORT: UShort = 0u)
 
-public data class PCI_EXPRESS_PASID_CAPABILITY_REGISTER_0(public var _bitfield: UShort = 0u)
+public data class PciExpressPasidCapabilityRegister0(public var bitfield: UShort = 0u)
 
-public data class PCI_EXPRESS_PASID_CONTROL_REGISTER(public var Anonymous: PCI_EXPRESS_PASID_CONTROL_REGISTER_0 = PCI_EXPRESS_PASID_CONTROL_REGISTER_0(), public var AsUSHORT: UShort = 0u)
+public data class PciExpressPasidControlRegister(public var anonymous: PciExpressPasidControlRegister0 = PciExpressPasidControlRegister0(), public var asUSHORT: UShort = 0u)
 
-public data class PCI_EXPRESS_PASID_CONTROL_REGISTER_0(public var _bitfield: UShort = 0u)
+public data class PciExpressPasidControlRegister0(public var bitfield: UShort = 0u)
 
-public data class PCI_EXPRESS_PME_REQUESTOR_ID(public var Anonymous: PCI_EXPRESS_PME_REQUESTOR_ID_0 = PCI_EXPRESS_PME_REQUESTOR_ID_0(), public var AsUSHORT: UShort = 0u)
+public data class PciExpressPmeRequestorId(public var anonymous: PciExpressPmeRequestorId0 = PciExpressPmeRequestorId0(), public var asUSHORT: UShort = 0u)
 
-public data class PCI_EXPRESS_PME_REQUESTOR_ID_0(public var _bitfield: UShort = 0u)
+public data class PciExpressPmeRequestorId0(public var bitfield: UShort = 0u)
 
-public data class PCI_EXPRESS_PRI_CAPABILITY(
-    public var Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER = PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER(),
-    public var Control: PCI_EXPRESS_PRI_CONTROL_REGISTER = PCI_EXPRESS_PRI_CONTROL_REGISTER(),
-    public var Status: PCI_EXPRESS_PRI_STATUS_REGISTER = PCI_EXPRESS_PRI_STATUS_REGISTER(),
-    public var PRCapacity: UInt = 0u,
-    public var PRAllocation: UInt = 0u,
+public data class PciExpressPriCapability(
+    public var header: PciExpressEnhancedCapabilityHeader = PciExpressEnhancedCapabilityHeader(),
+    public var control: PciExpressPriControlRegister = PciExpressPriControlRegister(),
+    public var status: PciExpressPriStatusRegister = PciExpressPriStatusRegister(),
+    public var pRCapacity: UInt = 0u,
+    public var pRAllocation: UInt = 0u,
 )
 
-public data class PCI_EXPRESS_PRI_CONTROL_REGISTER(public var Anonymous: PCI_EXPRESS_PRI_CONTROL_REGISTER_0 = PCI_EXPRESS_PRI_CONTROL_REGISTER_0(), public var AsUSHORT: UShort = 0u)
+public data class PciExpressPriControlRegister(public var anonymous: PciExpressPriControlRegister0 = PciExpressPriControlRegister0(), public var asUSHORT: UShort = 0u)
 
-public data class PCI_EXPRESS_PRI_CONTROL_REGISTER_0(public var _bitfield: UShort = 0u)
+public data class PciExpressPriControlRegister0(public var bitfield: UShort = 0u)
 
-public data class PCI_EXPRESS_PRI_STATUS_REGISTER(public var Anonymous: PCI_EXPRESS_PRI_STATUS_REGISTER_0 = PCI_EXPRESS_PRI_STATUS_REGISTER_0(), public var AsUSHORT: UShort = 0u)
+public data class PciExpressPriStatusRegister(public var anonymous: PciExpressPriStatusRegister0 = PciExpressPriStatusRegister0(), public var asUSHORT: UShort = 0u)
 
-public data class PCI_EXPRESS_PRI_STATUS_REGISTER_0(public var _bitfield: UShort = 0u)
+public data class PciExpressPriStatusRegister0(public var bitfield: UShort = 0u)
 
-public data class PCI_EXPRESS_PTM_CAPABILITY(
-    public var Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER = PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER(),
-    public var PtmCapability: PCI_EXPRESS_PTM_CAPABILITY_REGISTER = PCI_EXPRESS_PTM_CAPABILITY_REGISTER(),
-    public var PtmControl: PCI_EXPRESS_PTM_CONTROL_REGISTER = PCI_EXPRESS_PTM_CONTROL_REGISTER(),
+public data class PciExpressPtmCapability(
+    public var header: PciExpressEnhancedCapabilityHeader = PciExpressEnhancedCapabilityHeader(),
+    public var ptmCapability: PciExpressPtmCapabilityRegister = PciExpressPtmCapabilityRegister(),
+    public var ptmControl: PciExpressPtmControlRegister = PciExpressPtmControlRegister(),
 )
 
-public data class PCI_EXPRESS_PTM_CAPABILITY_REGISTER(public var Anonymous: PCI_EXPRESS_PTM_CAPABILITY_REGISTER_0 = PCI_EXPRESS_PTM_CAPABILITY_REGISTER_0(), public var AsULONG: UInt = 0u)
+public data class PciExpressPtmCapabilityRegister(public var anonymous: PciExpressPtmCapabilityRegister0 = PciExpressPtmCapabilityRegister0(), public var asULONG: UInt = 0u)
 
-public data class PCI_EXPRESS_PTM_CAPABILITY_REGISTER_0(public var _bitfield: UInt = 0u)
+public data class PciExpressPtmCapabilityRegister0(public var bitfield: UInt = 0u)
 
-public data class PCI_EXPRESS_PTM_CONTROL_REGISTER(public var Anonymous: PCI_EXPRESS_PTM_CONTROL_REGISTER_0 = PCI_EXPRESS_PTM_CONTROL_REGISTER_0(), public var AsULONG: UInt = 0u)
+public data class PciExpressPtmControlRegister(public var anonymous: PciExpressPtmControlRegister0 = PciExpressPtmControlRegister0(), public var asULONG: UInt = 0u)
 
-public data class PCI_EXPRESS_PTM_CONTROL_REGISTER_0(public var _bitfield: UInt = 0u)
+public data class PciExpressPtmControlRegister0(public var bitfield: UInt = 0u)
 
-public data class PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY(public var Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER = PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER(), public var Entry: List<PCI_EXPRESS_RESIZABLE_BAR_ENTRY> = List(6) { PCI_EXPRESS_RESIZABLE_BAR_ENTRY() })
+public data class PciExpressResizableBarCapability(public var header: PciExpressEnhancedCapabilityHeader = PciExpressEnhancedCapabilityHeader(), public var entry: List<PciExpressResizableBarEntry> = List(6) { PciExpressResizableBarEntry() })
 
-public data class PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY_REGISTER(public var Anonymous: PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY_REGISTER_0 = PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY_REGISTER_0(), public var AsULONG: UInt = 0u)
+public data class PciExpressResizableBarCapabilityRegister(public var anonymous: PciExpressResizableBarCapabilityRegister0 = PciExpressResizableBarCapabilityRegister0(), public var asULONG: UInt = 0u)
 
-public data class PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY_REGISTER_0(public var _bitfield: UInt = 0u)
+public data class PciExpressResizableBarCapabilityRegister0(public var bitfield: UInt = 0u)
 
-public data class PCI_EXPRESS_RESIZABLE_BAR_CONTROL_REGISTER(public var Anonymous: PCI_EXPRESS_RESIZABLE_BAR_CONTROL_REGISTER_0 = PCI_EXPRESS_RESIZABLE_BAR_CONTROL_REGISTER_0(), public var AsULONG: UInt = 0u)
+public data class PciExpressResizableBarControlRegister(public var anonymous: PciExpressResizableBarControlRegister0 = PciExpressResizableBarControlRegister0(), public var asULONG: UInt = 0u)
 
-public data class PCI_EXPRESS_RESIZABLE_BAR_CONTROL_REGISTER_0(public var _bitfield: UInt = 0u)
+public data class PciExpressResizableBarControlRegister0(public var bitfield: UInt = 0u)
 
-public data class PCI_EXPRESS_RESIZABLE_BAR_ENTRY(public var Capability: PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY_REGISTER = PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY_REGISTER(), public var Control: PCI_EXPRESS_RESIZABLE_BAR_CONTROL_REGISTER = PCI_EXPRESS_RESIZABLE_BAR_CONTROL_REGISTER())
+public data class PciExpressResizableBarEntry(public var capability: PciExpressResizableBarCapabilityRegister = PciExpressResizableBarCapabilityRegister(), public var control: PciExpressResizableBarControlRegister = PciExpressResizableBarControlRegister())
 
-public data class PCI_EXPRESS_ROOTPORT_AER_CAPABILITY(
-    public var Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER = PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER(),
-    public var UncorrectableErrorStatus: PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS = PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS(),
-    public var UncorrectableErrorMask: PCI_EXPRESS_UNCORRECTABLE_ERROR_MASK = PCI_EXPRESS_UNCORRECTABLE_ERROR_MASK(),
-    public var UncorrectableErrorSeverity: PCI_EXPRESS_UNCORRECTABLE_ERROR_SEVERITY = PCI_EXPRESS_UNCORRECTABLE_ERROR_SEVERITY(),
-    public var CorrectableErrorStatus: PCI_EXPRESS_CORRECTABLE_ERROR_STATUS = PCI_EXPRESS_CORRECTABLE_ERROR_STATUS(),
-    public var CorrectableErrorMask: PCI_EXPRESS_CORRECTABLE_ERROR_MASK = PCI_EXPRESS_CORRECTABLE_ERROR_MASK(),
-    public var CapabilitiesAndControl: PCI_EXPRESS_AER_CAPABILITIES = PCI_EXPRESS_AER_CAPABILITIES(),
-    public var HeaderLog: UIntArray = UIntArray(4),
-    public var RootErrorCommand: PCI_EXPRESS_ROOT_ERROR_COMMAND = PCI_EXPRESS_ROOT_ERROR_COMMAND(),
-    public var RootErrorStatus: PCI_EXPRESS_ROOT_ERROR_STATUS = PCI_EXPRESS_ROOT_ERROR_STATUS(),
-    public var ErrorSourceId: PCI_EXPRESS_ERROR_SOURCE_ID = PCI_EXPRESS_ERROR_SOURCE_ID(),
+public data class PciExpressRootportAerCapability(
+    public var header: PciExpressEnhancedCapabilityHeader = PciExpressEnhancedCapabilityHeader(),
+    public var uncorrectableErrorStatus: PciExpressUncorrectableErrorStatus = PciExpressUncorrectableErrorStatus(),
+    public var uncorrectableErrorMask: PciExpressUncorrectableErrorMask = PciExpressUncorrectableErrorMask(),
+    public var uncorrectableErrorSeverity: PciExpressUncorrectableErrorSeverity = PciExpressUncorrectableErrorSeverity(),
+    public var correctableErrorStatus: PciExpressCorrectableErrorStatus = PciExpressCorrectableErrorStatus(),
+    public var correctableErrorMask: PciExpressCorrectableErrorMask = PciExpressCorrectableErrorMask(),
+    public var capabilitiesAndControl: PciExpressAerCapabilities = PciExpressAerCapabilities(),
+    public var headerLog: UIntArray = UIntArray(4),
+    public var rootErrorCommand: PciExpressRootErrorCommand = PciExpressRootErrorCommand(),
+    public var rootErrorStatus: PciExpressRootErrorStatus = PciExpressRootErrorStatus(),
+    public var errorSourceId: PciExpressErrorSourceId = PciExpressErrorSourceId(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is PCI_EXPRESS_ROOTPORT_AER_CAPABILITY) return false
-        if (this.Header != other.Header) return false
-        if (this.UncorrectableErrorStatus != other.UncorrectableErrorStatus) return false
-        if (this.UncorrectableErrorMask != other.UncorrectableErrorMask) return false
-        if (this.UncorrectableErrorSeverity != other.UncorrectableErrorSeverity) return false
-        if (this.CorrectableErrorStatus != other.CorrectableErrorStatus) return false
-        if (this.CorrectableErrorMask != other.CorrectableErrorMask) return false
-        if (this.CapabilitiesAndControl != other.CapabilitiesAndControl) return false
-        if (!this.HeaderLog.contentEquals(other.HeaderLog)) return false
-        if (this.RootErrorCommand != other.RootErrorCommand) return false
-        if (this.RootErrorStatus != other.RootErrorStatus) return false
-        if (this.ErrorSourceId != other.ErrorSourceId) return false
+        if (other !is PciExpressRootportAerCapability) return false
+        if (this.header != other.header) return false
+        if (this.uncorrectableErrorStatus != other.uncorrectableErrorStatus) return false
+        if (this.uncorrectableErrorMask != other.uncorrectableErrorMask) return false
+        if (this.uncorrectableErrorSeverity != other.uncorrectableErrorSeverity) return false
+        if (this.correctableErrorStatus != other.correctableErrorStatus) return false
+        if (this.correctableErrorMask != other.correctableErrorMask) return false
+        if (this.capabilitiesAndControl != other.capabilitiesAndControl) return false
+        if (!this.headerLog.contentEquals(other.headerLog)) return false
+        if (this.rootErrorCommand != other.rootErrorCommand) return false
+        if (this.rootErrorStatus != other.rootErrorStatus) return false
+        if (this.errorSourceId != other.errorSourceId) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Header.hashCode()
-        result = 31 * result + this.UncorrectableErrorStatus.hashCode()
-        result = 31 * result + this.UncorrectableErrorMask.hashCode()
-        result = 31 * result + this.UncorrectableErrorSeverity.hashCode()
-        result = 31 * result + this.CorrectableErrorStatus.hashCode()
-        result = 31 * result + this.CorrectableErrorMask.hashCode()
-        result = 31 * result + this.CapabilitiesAndControl.hashCode()
-        result = 31 * result + this.HeaderLog.contentHashCode()
-        result = 31 * result + this.RootErrorCommand.hashCode()
-        result = 31 * result + this.RootErrorStatus.hashCode()
-        result = 31 * result + this.ErrorSourceId.hashCode()
+        var result = this.header.hashCode()
+        result = 31 * result + this.uncorrectableErrorStatus.hashCode()
+        result = 31 * result + this.uncorrectableErrorMask.hashCode()
+        result = 31 * result + this.uncorrectableErrorSeverity.hashCode()
+        result = 31 * result + this.correctableErrorStatus.hashCode()
+        result = 31 * result + this.correctableErrorMask.hashCode()
+        result = 31 * result + this.capabilitiesAndControl.hashCode()
+        result = 31 * result + this.headerLog.contentHashCode()
+        result = 31 * result + this.rootErrorCommand.hashCode()
+        result = 31 * result + this.rootErrorStatus.hashCode()
+        result = 31 * result + this.errorSourceId.hashCode()
         return result
     }
 }
 
-public data class PCI_EXPRESS_ROOT_CAPABILITIES_REGISTER(public var Anonymous: PCI_EXPRESS_ROOT_CAPABILITIES_REGISTER_0 = PCI_EXPRESS_ROOT_CAPABILITIES_REGISTER_0(), public var AsUSHORT: UShort = 0u)
+public data class PciExpressRootCapabilitiesRegister(public var anonymous: PciExpressRootCapabilitiesRegister0 = PciExpressRootCapabilitiesRegister0(), public var asUSHORT: UShort = 0u)
 
-public data class PCI_EXPRESS_ROOT_CAPABILITIES_REGISTER_0(public var _bitfield: UShort = 0u)
+public data class PciExpressRootCapabilitiesRegister0(public var bitfield: UShort = 0u)
 
-public data class PCI_EXPRESS_ROOT_CONTROL_REGISTER(public var Anonymous: PCI_EXPRESS_ROOT_CONTROL_REGISTER_0 = PCI_EXPRESS_ROOT_CONTROL_REGISTER_0(), public var AsUSHORT: UShort = 0u)
+public data class PciExpressRootControlRegister(public var anonymous: PciExpressRootControlRegister0 = PciExpressRootControlRegister0(), public var asUSHORT: UShort = 0u)
 
-public data class PCI_EXPRESS_ROOT_CONTROL_REGISTER_0(public var _bitfield: UShort = 0u)
+public data class PciExpressRootControlRegister0(public var bitfield: UShort = 0u)
 
-public data class PCI_EXPRESS_ROOT_ERROR_COMMAND(public var Anonymous: PCI_EXPRESS_ROOT_ERROR_COMMAND_0 = PCI_EXPRESS_ROOT_ERROR_COMMAND_0(), public var AsULONG: UInt = 0u)
+public data class PciExpressRootErrorCommand(public var anonymous: PciExpressRootErrorCommand0 = PciExpressRootErrorCommand0(), public var asULONG: UInt = 0u)
 
-public data class PCI_EXPRESS_ROOT_ERROR_COMMAND_0(public var _bitfield: UInt = 0u)
+public data class PciExpressRootErrorCommand0(public var bitfield: UInt = 0u)
 
-public data class PCI_EXPRESS_ROOT_ERROR_STATUS(public var Anonymous: PCI_EXPRESS_ROOT_ERROR_STATUS_0 = PCI_EXPRESS_ROOT_ERROR_STATUS_0(), public var AsULONG: UInt = 0u)
+public data class PciExpressRootErrorStatus(public var anonymous: PciExpressRootErrorStatus0 = PciExpressRootErrorStatus0(), public var asULONG: UInt = 0u)
 
-public data class PCI_EXPRESS_ROOT_ERROR_STATUS_0(public var _bitfield: UInt = 0u)
+public data class PciExpressRootErrorStatus0(public var bitfield: UInt = 0u)
 
-public data class PCI_EXPRESS_ROOT_PORT_INTERFACE(
-    public var Size: UShort = 0u,
-    public var Version: UShort = 0u,
-    public var Context: Long = 0L,
-    public var InterfaceReference: PINTERFACE_REFERENCE = null,
-    public var InterfaceDereference: PINTERFACE_DEREFERENCE = null,
-    public var ReadConfigSpace: PPCI_EXPRESS_ROOT_PORT_READ_CONFIG_SPACE = null,
-    public var WriteConfigSpace: PPCI_EXPRESS_ROOT_PORT_WRITE_CONFIG_SPACE = null,
+public data class PciExpressRootPortInterface(
+    public var size: UShort = 0u,
+    public var version: UShort = 0u,
+    public var context: COpaquePointer? = null,
+    public var interfaceReference: PinterfaceReference = null,
+    public var interfaceDereference: PinterfaceDereference = null,
+    public var readConfigSpace: PpciExpressRootPortReadConfigSpace = null,
+    public var writeConfigSpace: PpciExpressRootPortWriteConfigSpace = null,
 )
 
-public data class PCI_EXPRESS_ROOT_STATUS_REGISTER(public var Anonymous: PCI_EXPRESS_ROOT_STATUS_REGISTER_0 = PCI_EXPRESS_ROOT_STATUS_REGISTER_0(), public var AsULONG: UInt = 0u)
+public data class PciExpressRootStatusRegister(public var anonymous: PciExpressRootStatusRegister0 = PciExpressRootStatusRegister0(), public var asULONG: UInt = 0u)
 
-public data class PCI_EXPRESS_ROOT_STATUS_REGISTER_0(public var _bitfield: UInt = 0u)
+public data class PciExpressRootStatusRegister0(public var bitfield: UInt = 0u)
 
-public data class PCI_EXPRESS_SECONDARY_CAPABILITY(
-    public var Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER = PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER(),
-    public var LinkControl3: PCI_EXPRESS_LINK_CONTROL3 = PCI_EXPRESS_LINK_CONTROL3(),
-    public var LaneErrorStatus: PCI_EXPRESS_LANE_ERROR_STATUS = PCI_EXPRESS_LANE_ERROR_STATUS(),
+public data class PciExpressSecondaryCapability(
+    public var header: PciExpressEnhancedCapabilityHeader = PciExpressEnhancedCapabilityHeader(),
+    public var linkControl3: PciExpressLinkControl3 = PciExpressLinkControl3(),
+    public var laneErrorStatus: PciExpressLaneErrorStatus = PciExpressLaneErrorStatus(),
 )
 
-public data class PCI_EXPRESS_SEC_AER_CAPABILITIES(public var Anonymous: PCI_EXPRESS_SEC_AER_CAPABILITIES_0 = PCI_EXPRESS_SEC_AER_CAPABILITIES_0(), public var AsULONG: UInt = 0u)
+public data class PciExpressSecAerCapabilities(public var anonymous: PciExpressSecAerCapabilities0 = PciExpressSecAerCapabilities0(), public var asULONG: UInt = 0u)
 
-public data class PCI_EXPRESS_SEC_AER_CAPABILITIES_0(public var _bitfield: UInt = 0u)
+public data class PciExpressSecAerCapabilities0(public var bitfield: UInt = 0u)
 
-public data class PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_MASK(public var Anonymous: PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_MASK_0 = PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_MASK_0(), public var AsULONG: UInt = 0u)
+public data class PciExpressSecUncorrectableErrorMask(public var anonymous: PciExpressSecUncorrectableErrorMask0 = PciExpressSecUncorrectableErrorMask0(), public var asULONG: UInt = 0u)
 
-public data class PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_MASK_0(public var _bitfield: UInt = 0u)
+public data class PciExpressSecUncorrectableErrorMask0(public var bitfield: UInt = 0u)
 
-public data class PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_SEVERITY(public var Anonymous: PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_SEVERITY_0 = PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_SEVERITY_0(), public var AsULONG: UInt = 0u)
+public data class PciExpressSecUncorrectableErrorSeverity(public var anonymous: PciExpressSecUncorrectableErrorSeverity0 = PciExpressSecUncorrectableErrorSeverity0(), public var asULONG: UInt = 0u)
 
-public data class PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_SEVERITY_0(public var _bitfield: UInt = 0u)
+public data class PciExpressSecUncorrectableErrorSeverity0(public var bitfield: UInt = 0u)
 
-public data class PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_STATUS(public var Anonymous: PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_STATUS_0 = PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_STATUS_0(), public var AsULONG: UInt = 0u)
+public data class PciExpressSecUncorrectableErrorStatus(public var anonymous: PciExpressSecUncorrectableErrorStatus0 = PciExpressSecUncorrectableErrorStatus0(), public var asULONG: UInt = 0u)
 
-public data class PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_STATUS_0(public var _bitfield: UInt = 0u)
+public data class PciExpressSecUncorrectableErrorStatus0(public var bitfield: UInt = 0u)
 
-public data class PCI_EXPRESS_SERIAL_NUMBER_CAPABILITY(
-    public var Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER = PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER(),
-    public var LowSerialNumber: UInt = 0u,
-    public var HighSerialNumber: UInt = 0u,
+public data class PciExpressSerialNumberCapability(
+    public var header: PciExpressEnhancedCapabilityHeader = PciExpressEnhancedCapabilityHeader(),
+    public var lowSerialNumber: UInt = 0u,
+    public var highSerialNumber: UInt = 0u,
 )
 
-public data class PCI_EXPRESS_SLOT_CAPABILITIES_REGISTER(public var Anonymous: PCI_EXPRESS_SLOT_CAPABILITIES_REGISTER_0 = PCI_EXPRESS_SLOT_CAPABILITIES_REGISTER_0(), public var AsULONG: UInt = 0u)
+public data class PciExpressSlotCapabilitiesRegister(public var anonymous: PciExpressSlotCapabilitiesRegister0 = PciExpressSlotCapabilitiesRegister0(), public var asULONG: UInt = 0u)
 
-public data class PCI_EXPRESS_SLOT_CAPABILITIES_REGISTER_0(public var _bitfield: UInt = 0u)
+public data class PciExpressSlotCapabilitiesRegister0(public var bitfield: UInt = 0u)
 
-public data class PCI_EXPRESS_SLOT_CONTROL_REGISTER(public var Anonymous: PCI_EXPRESS_SLOT_CONTROL_REGISTER_0 = PCI_EXPRESS_SLOT_CONTROL_REGISTER_0(), public var AsUSHORT: UShort = 0u)
+public data class PciExpressSlotControlRegister(public var anonymous: PciExpressSlotControlRegister0 = PciExpressSlotControlRegister0(), public var asUSHORT: UShort = 0u)
 
-public data class PCI_EXPRESS_SLOT_CONTROL_REGISTER_0(public var _bitfield: UShort = 0u)
+public data class PciExpressSlotControlRegister0(public var bitfield: UShort = 0u)
 
-public data class PCI_EXPRESS_SLOT_STATUS_REGISTER(public var Anonymous: PCI_EXPRESS_SLOT_STATUS_REGISTER_0 = PCI_EXPRESS_SLOT_STATUS_REGISTER_0(), public var AsUSHORT: UShort = 0u)
+public data class PciExpressSlotStatusRegister(public var anonymous: PciExpressSlotStatusRegister0 = PciExpressSlotStatusRegister0(), public var asUSHORT: UShort = 0u)
 
-public data class PCI_EXPRESS_SLOT_STATUS_REGISTER_0(public var _bitfield: UShort = 0u)
+public data class PciExpressSlotStatusRegister0(public var bitfield: UShort = 0u)
 
-public class PCI_EXPRESS_SRIOV_CAPABILITY(
-    public var Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER = PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER(),
-    public var SRIOVCapabilities: PCI_EXPRESS_SRIOV_CAPS = PCI_EXPRESS_SRIOV_CAPS(),
-    public var SRIOVControl: PCI_EXPRESS_SRIOV_CONTROL = PCI_EXPRESS_SRIOV_CONTROL(),
-    public var SRIOVStatus: PCI_EXPRESS_SRIOV_STATUS = PCI_EXPRESS_SRIOV_STATUS(),
-    public var InitialVFs: UShort = 0u,
-    public var TotalVFs: UShort = 0u,
-    public var NumVFs: UShort = 0u,
-    public var FunctionDependencyLink: UByte = 0u,
-    public var RsvdP1: UByte = 0u,
-    public var FirstVFOffset: UShort = 0u,
-    public var VFStride: UShort = 0u,
-    public var RsvdP2: UShort = 0u,
-    public var VFDeviceId: UShort = 0u,
-    public var SupportedPageSizes: UInt = 0u,
-    public var SystemPageSize: UInt = 0u,
-    public var BaseAddresses: UIntArray = UIntArray(6),
-    public var VFMigrationStateArrayOffset: PCI_EXPRESS_SRIOV_MIGRATION_STATE_ARRAY = PCI_EXPRESS_SRIOV_MIGRATION_STATE_ARRAY(),
+public class PciExpressSriovCapability(
+    public var header: PciExpressEnhancedCapabilityHeader = PciExpressEnhancedCapabilityHeader(),
+    public var sRIOVCapabilities: PciExpressSriovCaps = PciExpressSriovCaps(),
+    public var sRIOVControl: PciExpressSriovControl = PciExpressSriovControl(),
+    public var sRIOVStatus: PciExpressSriovStatus = PciExpressSriovStatus(),
+    public var initialVFs: UShort = 0u,
+    public var totalVFs: UShort = 0u,
+    public var numVFs: UShort = 0u,
+    public var functionDependencyLink: UByte = 0u,
+    public var rsvdP1: UByte = 0u,
+    public var firstVFOffset: UShort = 0u,
+    public var vFStride: UShort = 0u,
+    public var rsvdP2: UShort = 0u,
+    public var vFDeviceId: UShort = 0u,
+    public var supportedPageSizes: UInt = 0u,
+    public var systemPageSize: UInt = 0u,
+    public var baseAddresses: UIntArray = UIntArray(6),
+    public var vFMigrationStateArrayOffset: PciExpressSriovMigrationStateArray = PciExpressSriovMigrationStateArray(),
 )
 
-public data class PCI_EXPRESS_SRIOV_CAPS(public var Anonymous: PCI_EXPRESS_SRIOV_CAPS_0 = PCI_EXPRESS_SRIOV_CAPS_0(), public var AsULONG: UInt = 0u)
+public data class PciExpressSriovCaps(public var anonymous: PciExpressSriovCaps0 = PciExpressSriovCaps0(), public var asULONG: UInt = 0u)
 
-public data class PCI_EXPRESS_SRIOV_CAPS_0(public var _bitfield: UInt = 0u)
+public data class PciExpressSriovCaps0(public var bitfield: UInt = 0u)
 
-public data class PCI_EXPRESS_SRIOV_CONTROL(public var Anonymous: PCI_EXPRESS_SRIOV_CONTROL_0 = PCI_EXPRESS_SRIOV_CONTROL_0(), public var AsUSHORT: UShort = 0u)
+public data class PciExpressSriovControl(public var anonymous: PciExpressSriovControl0 = PciExpressSriovControl0(), public var asUSHORT: UShort = 0u)
 
-public data class PCI_EXPRESS_SRIOV_CONTROL_0(public var _bitfield: UShort = 0u)
+public data class PciExpressSriovControl0(public var bitfield: UShort = 0u)
 
-public data class PCI_EXPRESS_SRIOV_MIGRATION_STATE_ARRAY(public var Anonymous: PCI_EXPRESS_SRIOV_MIGRATION_STATE_ARRAY_0 = PCI_EXPRESS_SRIOV_MIGRATION_STATE_ARRAY_0(), public var AsULONG: UInt = 0u)
+public data class PciExpressSriovMigrationStateArray(public var anonymous: PciExpressSriovMigrationStateArray0 = PciExpressSriovMigrationStateArray0(), public var asULONG: UInt = 0u)
 
-public data class PCI_EXPRESS_SRIOV_MIGRATION_STATE_ARRAY_0(public var _bitfield: UInt = 0u)
+public data class PciExpressSriovMigrationStateArray0(public var bitfield: UInt = 0u)
 
-public data class PCI_EXPRESS_SRIOV_STATUS(public var Anonymous: PCI_EXPRESS_SRIOV_STATUS_0 = PCI_EXPRESS_SRIOV_STATUS_0(), public var AsUSHORT: UShort = 0u)
+public data class PciExpressSriovStatus(public var anonymous: PciExpressSriovStatus0 = PciExpressSriovStatus0(), public var asUSHORT: UShort = 0u)
 
-public data class PCI_EXPRESS_SRIOV_STATUS_0(public var _bitfield: UShort = 0u)
+public data class PciExpressSriovStatus0(public var bitfield: UShort = 0u)
 
-public data class PCI_EXPRESS_TPH_REQUESTER_CAPABILITY(
-    public var Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER = PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER(),
-    public var RequesterCapability: PCI_EXPRESS_TPH_REQUESTER_CAPABILITY_REGISTER = PCI_EXPRESS_TPH_REQUESTER_CAPABILITY_REGISTER(),
-    public var RequesterControl: PCI_EXPRESS_TPH_REQUESTER_CONTROL_REGISTER = PCI_EXPRESS_TPH_REQUESTER_CONTROL_REGISTER(),
+public data class PciExpressTphRequesterCapability(
+    public var header: PciExpressEnhancedCapabilityHeader = PciExpressEnhancedCapabilityHeader(),
+    public var requesterCapability: PciExpressTphRequesterCapabilityRegister = PciExpressTphRequesterCapabilityRegister(),
+    public var requesterControl: PciExpressTphRequesterControlRegister = PciExpressTphRequesterControlRegister(),
 )
 
-public data class PCI_EXPRESS_TPH_REQUESTER_CAPABILITY_REGISTER(public var Anonymous: PCI_EXPRESS_TPH_REQUESTER_CAPABILITY_REGISTER_0 = PCI_EXPRESS_TPH_REQUESTER_CAPABILITY_REGISTER_0(), public var AsULONG: UInt = 0u)
+public data class PciExpressTphRequesterCapabilityRegister(public var anonymous: PciExpressTphRequesterCapabilityRegister0 = PciExpressTphRequesterCapabilityRegister0(), public var asULONG: UInt = 0u)
 
-public data class PCI_EXPRESS_TPH_REQUESTER_CAPABILITY_REGISTER_0(public var _bitfield: UInt = 0u)
+public data class PciExpressTphRequesterCapabilityRegister0(public var bitfield: UInt = 0u)
 
-public data class PCI_EXPRESS_TPH_REQUESTER_CONTROL_REGISTER(public var Anonymous: PCI_EXPRESS_TPH_REQUESTER_CONTROL_REGISTER_0 = PCI_EXPRESS_TPH_REQUESTER_CONTROL_REGISTER_0(), public var AsULONG: UInt = 0u)
+public data class PciExpressTphRequesterControlRegister(public var anonymous: PciExpressTphRequesterControlRegister0 = PciExpressTphRequesterControlRegister0(), public var asULONG: UInt = 0u)
 
-public data class PCI_EXPRESS_TPH_REQUESTER_CONTROL_REGISTER_0(public var _bitfield: UInt = 0u)
+public data class PciExpressTphRequesterControlRegister0(public var bitfield: UInt = 0u)
 
-public data class PCI_EXPRESS_TPH_ST_TABLE_ENTRY(public var Anonymous: PCI_EXPRESS_TPH_ST_TABLE_ENTRY_0 = PCI_EXPRESS_TPH_ST_TABLE_ENTRY_0(), public var AsUSHORT: UShort = 0u)
+public data class PciExpressTphStTableEntry(public var anonymous: PciExpressTphStTableEntry0 = PciExpressTphStTableEntry0(), public var asUSHORT: UShort = 0u)
 
-public data class PCI_EXPRESS_TPH_ST_TABLE_ENTRY_0(public var _bitfield: UShort = 0u)
+public data class PciExpressTphStTableEntry0(public var bitfield: UShort = 0u)
 
-public data class PCI_EXPRESS_UNCORRECTABLE_ERROR_MASK(public var Anonymous: PCI_EXPRESS_UNCORRECTABLE_ERROR_MASK_0 = PCI_EXPRESS_UNCORRECTABLE_ERROR_MASK_0(), public var AsULONG: UInt = 0u)
+public data class PciExpressUncorrectableErrorMask(public var anonymous: PciExpressUncorrectableErrorMask0 = PciExpressUncorrectableErrorMask0(), public var asULONG: UInt = 0u)
 
-public data class PCI_EXPRESS_UNCORRECTABLE_ERROR_MASK_0(public var _bitfield: UInt = 0u)
+public data class PciExpressUncorrectableErrorMask0(public var bitfield: UInt = 0u)
 
-public data class PCI_EXPRESS_UNCORRECTABLE_ERROR_SEVERITY(public var Anonymous: PCI_EXPRESS_UNCORRECTABLE_ERROR_SEVERITY_0 = PCI_EXPRESS_UNCORRECTABLE_ERROR_SEVERITY_0(), public var AsULONG: UInt = 0u)
+public data class PciExpressUncorrectableErrorSeverity(public var anonymous: PciExpressUncorrectableErrorSeverity0 = PciExpressUncorrectableErrorSeverity0(), public var asULONG: UInt = 0u)
 
-public data class PCI_EXPRESS_UNCORRECTABLE_ERROR_SEVERITY_0(public var _bitfield: UInt = 0u)
+public data class PciExpressUncorrectableErrorSeverity0(public var bitfield: UInt = 0u)
 
-public data class PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS(public var Anonymous: PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS_0 = PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS_0(), public var AsULONG: UInt = 0u)
+public data class PciExpressUncorrectableErrorStatus(public var anonymous: PciExpressUncorrectableErrorStatus0 = PciExpressUncorrectableErrorStatus0(), public var asULONG: UInt = 0u)
 
-public data class PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS_0(public var _bitfield: UInt = 0u)
+public data class PciExpressUncorrectableErrorStatus0(public var bitfield: UInt = 0u)
 
-public data class PCI_EXPRESS_VENDOR_SPECIFIC_CAPABILITY(
-    public var Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER = PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER(),
-    public var VsecId: UShort = 0u,
-    public var _bitfield: UShort = 0u,
+public data class PciExpressVendorSpecificCapability(
+    public var header: PciExpressEnhancedCapabilityHeader = PciExpressEnhancedCapabilityHeader(),
+    public var vsecId: UShort = 0u,
+    public var bitfield: UShort = 0u,
 )
 
-public data class PCI_EXPRESS_VIRTUAL_CHANNEL_CAPABILITY(
-    public var Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER = PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER(),
-    public var Capabilities1: VIRTUAL_CHANNEL_CAPABILITIES1 = VIRTUAL_CHANNEL_CAPABILITIES1(),
-    public var Capabilities2: VIRTUAL_CHANNEL_CAPABILITIES2 = VIRTUAL_CHANNEL_CAPABILITIES2(),
-    public var Control: VIRTUAL_CHANNEL_CONTROL = VIRTUAL_CHANNEL_CONTROL(),
-    public var Status: VIRTUAL_CHANNEL_STATUS = VIRTUAL_CHANNEL_STATUS(),
-    public var Resource: List<VIRTUAL_RESOURCE> = List(8) { VIRTUAL_RESOURCE() },
+public data class PciExpressVirtualChannelCapability(
+    public var header: PciExpressEnhancedCapabilityHeader = PciExpressEnhancedCapabilityHeader(),
+    public var capabilities1: VirtualChannelCapabilities1 = VirtualChannelCapabilities1(),
+    public var capabilities2: VirtualChannelCapabilities2 = VirtualChannelCapabilities2(),
+    public var control: VirtualChannelControl = VirtualChannelControl(),
+    public var status: VirtualChannelStatus = VirtualChannelStatus(),
+    public var resource: List<VirtualResource> = List(8) { VirtualResource() },
 )
 
-public data class PCI_FIRMWARE_BUS_CAPS(
-    public var Type: UShort = 0u,
-    public var Length: UShort = 0u,
-    public var Anonymous: PCI_FIRMWARE_BUS_CAPS_0 = PCI_FIRMWARE_BUS_CAPS_0(),
-    public var CurrentSpeedAndMode: UByte = 0u,
-    public var SupportedSpeedsAndModesLowByte: UByte = 0u,
-    public var SupportedSpeedsAndModesHighByte: UByte = 0u,
-    public var Voltage: UByte = 0u,
-    public var Reserved2: UByteArray = UByteArray(7),
+public data class PciFirmwareBusCaps(
+    public var type: UShort = 0u,
+    public var length: UShort = 0u,
+    public var anonymous: PciFirmwareBusCaps0 = PciFirmwareBusCaps0(),
+    public var currentSpeedAndMode: UByte = 0u,
+    public var supportedSpeedsAndModesLowByte: UByte = 0u,
+    public var supportedSpeedsAndModesHighByte: UByte = 0u,
+    public var voltage: UByte = 0u,
+    public var reserved2: UByteArray = UByteArray(7),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is PCI_FIRMWARE_BUS_CAPS) return false
-        if (this.Type != other.Type) return false
-        if (this.Length != other.Length) return false
-        if (this.Anonymous != other.Anonymous) return false
-        if (this.CurrentSpeedAndMode != other.CurrentSpeedAndMode) return false
-        if (this.SupportedSpeedsAndModesLowByte != other.SupportedSpeedsAndModesLowByte) return false
-        if (this.SupportedSpeedsAndModesHighByte != other.SupportedSpeedsAndModesHighByte) return false
-        if (this.Voltage != other.Voltage) return false
-        if (!this.Reserved2.contentEquals(other.Reserved2)) return false
+        if (other !is PciFirmwareBusCaps) return false
+        if (this.type != other.type) return false
+        if (this.length != other.length) return false
+        if (this.anonymous != other.anonymous) return false
+        if (this.currentSpeedAndMode != other.currentSpeedAndMode) return false
+        if (this.supportedSpeedsAndModesLowByte != other.supportedSpeedsAndModesLowByte) return false
+        if (this.supportedSpeedsAndModesHighByte != other.supportedSpeedsAndModesHighByte) return false
+        if (this.voltage != other.voltage) return false
+        if (!this.reserved2.contentEquals(other.reserved2)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Type.hashCode()
-        result = 31 * result + this.Length.hashCode()
-        result = 31 * result + this.Anonymous.hashCode()
-        result = 31 * result + this.CurrentSpeedAndMode.hashCode()
-        result = 31 * result + this.SupportedSpeedsAndModesLowByte.hashCode()
-        result = 31 * result + this.SupportedSpeedsAndModesHighByte.hashCode()
-        result = 31 * result + this.Voltage.hashCode()
-        result = 31 * result + this.Reserved2.contentHashCode()
+        var result = this.type.hashCode()
+        result = 31 * result + this.length.hashCode()
+        result = 31 * result + this.anonymous.hashCode()
+        result = 31 * result + this.currentSpeedAndMode.hashCode()
+        result = 31 * result + this.supportedSpeedsAndModesLowByte.hashCode()
+        result = 31 * result + this.supportedSpeedsAndModesHighByte.hashCode()
+        result = 31 * result + this.voltage.hashCode()
+        result = 31 * result + this.reserved2.contentHashCode()
         return result
     }
 }
 
-public data class PCI_FIRMWARE_BUS_CAPS_0(public var _bitfield: UByte = 0u)
+public data class PciFirmwareBusCaps0(public var bitfield: UByte = 0u)
 
-public data class PCI_FIRMWARE_BUS_CAPS_RETURN_BUFFER(
-    public var Version: UShort = 0u,
-    public var Status: UShort = 0u,
-    public var Length: UInt = 0u,
-    public var Caps: PCI_FIRMWARE_BUS_CAPS = PCI_FIRMWARE_BUS_CAPS(),
+public data class PciFirmwareBusCapsReturnBuffer(
+    public var version: UShort = 0u,
+    public var status: UShort = 0u,
+    public var length: UInt = 0u,
+    public var caps: PciFirmwareBusCaps = PciFirmwareBusCaps(),
 )
 
-public data class PCI_FPB_CAPABILITIES_REGISTER(public var Anonymous: PCI_FPB_CAPABILITIES_REGISTER_0 = PCI_FPB_CAPABILITIES_REGISTER_0(), public var AsULONG: UInt = 0u)
+public data class PciFpbCapabilitiesRegister(public var anonymous: PciFpbCapabilitiesRegister0 = PciFpbCapabilitiesRegister0(), public var asULONG: UInt = 0u)
 
-public data class PCI_FPB_CAPABILITIES_REGISTER_0(public var _bitfield: UInt = 0u)
+public data class PciFpbCapabilitiesRegister0(public var bitfield: UInt = 0u)
 
-public data class PCI_FPB_CAPABILITY(
-    public var Header: PCI_FPB_CAPABILITY_HEADER = PCI_FPB_CAPABILITY_HEADER(),
-    public var CapabilitiesRegister: PCI_FPB_CAPABILITIES_REGISTER = PCI_FPB_CAPABILITIES_REGISTER(),
-    public var RidVectorControl1Register: PCI_FPB_RID_VECTOR_CONTROL1_REGISTER = PCI_FPB_RID_VECTOR_CONTROL1_REGISTER(),
-    public var RidVectorControl2Register: PCI_FPB_RID_VECTOR_CONTROL2_REGISTER = PCI_FPB_RID_VECTOR_CONTROL2_REGISTER(),
-    public var MemLowVectorControlRegister: PCI_FPB_MEM_LOW_VECTOR_CONTROL_REGISTER = PCI_FPB_MEM_LOW_VECTOR_CONTROL_REGISTER(),
-    public var MemHighVectorControl1Register: PCI_FPB_MEM_HIGH_VECTOR_CONTROL1_REGISTER = PCI_FPB_MEM_HIGH_VECTOR_CONTROL1_REGISTER(),
-    public var MemHighVectorControl2Register: PCI_FPB_MEM_HIGH_VECTOR_CONTROL2_REGISTER = PCI_FPB_MEM_HIGH_VECTOR_CONTROL2_REGISTER(),
-    public var VectorAccessControlRegister: PCI_FPB_VECTOR_ACCESS_CONTROL_REGISTER = PCI_FPB_VECTOR_ACCESS_CONTROL_REGISTER(),
-    public var VectorAccessDataRegister: PCI_FPB_VECTOR_ACCESS_DATA_REGISTER = PCI_FPB_VECTOR_ACCESS_DATA_REGISTER(),
+public data class PciFpbCapability(
+    public var header: PciFpbCapabilityHeader = PciFpbCapabilityHeader(),
+    public var capabilitiesRegister: PciFpbCapabilitiesRegister = PciFpbCapabilitiesRegister(),
+    public var ridVectorControl1Register: PciFpbRidVectorControl1Register = PciFpbRidVectorControl1Register(),
+    public var ridVectorControl2Register: PciFpbRidVectorControl2Register = PciFpbRidVectorControl2Register(),
+    public var memLowVectorControlRegister: PciFpbMemLowVectorControlRegister = PciFpbMemLowVectorControlRegister(),
+    public var memHighVectorControl1Register: PciFpbMemHighVectorControl1Register = PciFpbMemHighVectorControl1Register(),
+    public var memHighVectorControl2Register: PciFpbMemHighVectorControl2Register = PciFpbMemHighVectorControl2Register(),
+    public var vectorAccessControlRegister: PciFpbVectorAccessControlRegister = PciFpbVectorAccessControlRegister(),
+    public var vectorAccessDataRegister: PciFpbVectorAccessDataRegister = PciFpbVectorAccessDataRegister(),
 )
 
-public data class PCI_FPB_CAPABILITY_HEADER(public var Header: PCI_CAPABILITIES_HEADER = PCI_CAPABILITIES_HEADER(), public var Reserved: UShort = 0u)
+public data class PciFpbCapabilityHeader(public var header: PciCapabilitiesHeader = PciCapabilitiesHeader(), public var reserved: UShort = 0u)
 
-public data class PCI_FPB_MEM_HIGH_VECTOR_CONTROL1_REGISTER(public var Anonymous: PCI_FPB_MEM_HIGH_VECTOR_CONTROL1_REGISTER_0 = PCI_FPB_MEM_HIGH_VECTOR_CONTROL1_REGISTER_0(), public var AsULONG: UInt = 0u)
+public data class PciFpbMemHighVectorControl1Register(public var anonymous: PciFpbMemHighVectorControl1Register0 = PciFpbMemHighVectorControl1Register0(), public var asULONG: UInt = 0u)
 
-public data class PCI_FPB_MEM_HIGH_VECTOR_CONTROL1_REGISTER_0(public var _bitfield: UInt = 0u)
+public data class PciFpbMemHighVectorControl1Register0(public var bitfield: UInt = 0u)
 
-public data class PCI_FPB_MEM_HIGH_VECTOR_CONTROL2_REGISTER(public var MemHighVectorStartUpper: UInt = 0u)
+public data class PciFpbMemHighVectorControl2Register(public var memHighVectorStartUpper: UInt = 0u)
 
-public data class PCI_FPB_MEM_LOW_VECTOR_CONTROL_REGISTER(public var Anonymous: PCI_FPB_MEM_LOW_VECTOR_CONTROL_REGISTER_0 = PCI_FPB_MEM_LOW_VECTOR_CONTROL_REGISTER_0(), public var AsULONG: UInt = 0u)
+public data class PciFpbMemLowVectorControlRegister(public var anonymous: PciFpbMemLowVectorControlRegister0 = PciFpbMemLowVectorControlRegister0(), public var asULONG: UInt = 0u)
 
-public data class PCI_FPB_MEM_LOW_VECTOR_CONTROL_REGISTER_0(public var _bitfield: UInt = 0u)
+public data class PciFpbMemLowVectorControlRegister0(public var bitfield: UInt = 0u)
 
-public data class PCI_FPB_RID_VECTOR_CONTROL1_REGISTER(public var Anonymous: PCI_FPB_RID_VECTOR_CONTROL1_REGISTER_0 = PCI_FPB_RID_VECTOR_CONTROL1_REGISTER_0(), public var AsULONG: UInt = 0u)
+public data class PciFpbRidVectorControl1Register(public var anonymous: PciFpbRidVectorControl1Register0 = PciFpbRidVectorControl1Register0(), public var asULONG: UInt = 0u)
 
-public data class PCI_FPB_RID_VECTOR_CONTROL1_REGISTER_0(public var _bitfield: UInt = 0u)
+public data class PciFpbRidVectorControl1Register0(public var bitfield: UInt = 0u)
 
-public data class PCI_FPB_RID_VECTOR_CONTROL2_REGISTER(public var Anonymous: PCI_FPB_RID_VECTOR_CONTROL2_REGISTER_0 = PCI_FPB_RID_VECTOR_CONTROL2_REGISTER_0(), public var AsULONG: UInt = 0u)
+public data class PciFpbRidVectorControl2Register(public var anonymous: PciFpbRidVectorControl2Register0 = PciFpbRidVectorControl2Register0(), public var asULONG: UInt = 0u)
 
-public data class PCI_FPB_RID_VECTOR_CONTROL2_REGISTER_0(public var _bitfield: UInt = 0u)
+public data class PciFpbRidVectorControl2Register0(public var bitfield: UInt = 0u)
 
-public data class PCI_FPB_VECTOR_ACCESS_CONTROL_REGISTER(public var Anonymous: PCI_FPB_VECTOR_ACCESS_CONTROL_REGISTER_0 = PCI_FPB_VECTOR_ACCESS_CONTROL_REGISTER_0(), public var AsULONG: UInt = 0u)
+public data class PciFpbVectorAccessControlRegister(public var anonymous: PciFpbVectorAccessControlRegister0 = PciFpbVectorAccessControlRegister0(), public var asULONG: UInt = 0u)
 
-public data class PCI_FPB_VECTOR_ACCESS_CONTROL_REGISTER_0(public var _bitfield: UInt = 0u)
+public data class PciFpbVectorAccessControlRegister0(public var bitfield: UInt = 0u)
 
-public data class PCI_FPB_VECTOR_ACCESS_DATA_REGISTER(public var VectorAccessData: UInt = 0u)
+public data class PciFpbVectorAccessDataRegister(public var vectorAccessData: UInt = 0u)
 
-public data class PCI_MSIX_TABLE_CONFIG_INTERFACE(
-    public var Size: UShort = 0u,
-    public var Version: UShort = 0u,
-    public var Context: Long = 0L,
-    public var InterfaceReference: PINTERFACE_REFERENCE = null,
-    public var InterfaceDereference: PINTERFACE_DEREFERENCE = null,
-    public var SetTableEntry: PPCI_MSIX_SET_ENTRY = null,
-    public var MaskTableEntry: PPCI_MSIX_MASKUNMASK_ENTRY = null,
-    public var UnmaskTableEntry: PPCI_MSIX_MASKUNMASK_ENTRY = null,
-    public var GetTableEntry: PPCI_MSIX_GET_ENTRY = null,
-    public var GetTableSize: PPCI_MSIX_GET_TABLE_SIZE = null,
+public data class PciMsixTableConfigInterface(
+    public var size: UShort = 0u,
+    public var version: UShort = 0u,
+    public var context: COpaquePointer? = null,
+    public var interfaceReference: PinterfaceReference = null,
+    public var interfaceDereference: PinterfaceDereference = null,
+    public var setTableEntry: PpciMsixSetEntry = null,
+    public var maskTableEntry: PpciMsixMaskunmaskEntry = null,
+    public var unmaskTableEntry: PpciMsixMaskunmaskEntry = null,
+    public var getTableEntry: PpciMsixGetEntry = null,
+    public var getTableSize: PpciMsixGetTableSize = null,
 )
 
-public data class PCI_PMC(public var _bitfield: UByte = 0u, public var Support: PCI_PMC_0 = PCI_PMC_0())
+public data class PciPmc(public var bitfield: UByte = 0u, public var support: PciPmc0 = PciPmc0())
 
-public data class PCI_PMC_0(public var _bitfield: UByte = 0u)
+public data class PciPmc0(public var bitfield: UByte = 0u)
 
-public data class PCI_PMCSR(public var _bitfield: UShort = 0u)
+public data class PciPmcsr(public var bitfield: UShort = 0u)
 
-public data class PCI_PMCSR_BSE(public var _bitfield: UByte = 0u)
+public data class PciPmcsrBse(public var bitfield: UByte = 0u)
 
-public data class PCI_PM_CAPABILITY(
-    public var Header: PCI_CAPABILITIES_HEADER = PCI_CAPABILITIES_HEADER(),
-    public var PMC: PCI_PM_CAPABILITY_0 = PCI_PM_CAPABILITY_0(),
-    public var PMCSR: PCI_PM_CAPABILITY_1 = PCI_PM_CAPABILITY_1(),
-    public var PMCSR_BSE: PCI_PM_CAPABILITY_2 = PCI_PM_CAPABILITY_2(),
-    public var Data: UByte = 0u,
+public data class PciPmCapability(
+    public var header: PciCapabilitiesHeader = PciCapabilitiesHeader(),
+    public var pmc: PciPmCapability0 = PciPmCapability0(),
+    public var pmcsr: PciPmCapability1 = PciPmCapability1(),
+    public var pmcsrBse: PciPmCapability2 = PciPmCapability2(),
+    public var data: UByte = 0u,
 )
 
-public data class PCI_PM_CAPABILITY_2(public var BridgeSupport: PCI_PMCSR_BSE = PCI_PMCSR_BSE(), public var AsUCHAR: UByte = 0u)
+public data class PciPmCapability2(public var bridgeSupport: PciPmcsrBse = PciPmcsrBse(), public var asUCHAR: UByte = 0u)
 
-public data class PCI_PM_CAPABILITY_1(public var ControlStatus: PCI_PMCSR = PCI_PMCSR(), public var AsUSHORT: UShort = 0u)
+public data class PciPmCapability1(public var controlStatus: PciPmcsr = PciPmcsr(), public var asUSHORT: UShort = 0u)
 
-public data class PCI_PM_CAPABILITY_0(public var Capabilities: PCI_PMC = PCI_PMC(), public var AsUSHORT: UShort = 0u)
+public data class PciPmCapability0(public var capabilities: PciPmc = PciPmc(), public var asUSHORT: UShort = 0u)
 
-public data class PCI_ROOT_BUS_HARDWARE_CAPABILITY(
-    public var SecondaryInterface: PCI_HARDWARE_INTERFACE = 0,
-    public var Anonymous: PCI_ROOT_BUS_HARDWARE_CAPABILITY_0 = PCI_ROOT_BUS_HARDWARE_CAPABILITY_0(),
-    public var OscFeatureSupport: PCI_ROOT_BUS_OSC_SUPPORT_FIELD = PCI_ROOT_BUS_OSC_SUPPORT_FIELD(),
-    public var OscControlRequest: PCI_ROOT_BUS_OSC_CONTROL_FIELD = PCI_ROOT_BUS_OSC_CONTROL_FIELD(),
-    public var OscControlGranted: PCI_ROOT_BUS_OSC_CONTROL_FIELD = PCI_ROOT_BUS_OSC_CONTROL_FIELD(),
+public data class PciRootBusHardwareCapability(
+    public var secondaryInterface: PciHardwareInterface = 0,
+    public var anonymous: PciRootBusHardwareCapability0 = PciRootBusHardwareCapability0(),
+    public var oscFeatureSupport: PciRootBusOscSupportField = PciRootBusOscSupportField(),
+    public var oscControlRequest: PciRootBusOscControlField = PciRootBusOscControlField(),
+    public var oscControlGranted: PciRootBusOscControlField = PciRootBusOscControlField(),
 )
 
-public data class PCI_ROOT_BUS_HARDWARE_CAPABILITY_0(
-    public var BusCapabilitiesFound: Boolean = false,
-    public var CurrentSpeedAndMode: UInt = 0u,
-    public var SupportedSpeedsAndModes: UInt = 0u,
-    public var DeviceIDMessagingCapable: Boolean = false,
-    public var SecondaryBusWidth: PCI_BUS_WIDTH = 0,
+public data class PciRootBusHardwareCapability0(
+    public var busCapabilitiesFound: Boolean = false,
+    public var currentSpeedAndMode: UInt = 0u,
+    public var supportedSpeedsAndModes: UInt = 0u,
+    public var deviceIDMessagingCapable: Boolean = false,
+    public var secondaryBusWidth: PciBusWidth = 0,
 )
 
-public data class PCI_ROOT_BUS_OSC_CONTROL_FIELD(public var u: PCI_ROOT_BUS_OSC_CONTROL_FIELD_0 = PCI_ROOT_BUS_OSC_CONTROL_FIELD_0())
+public data class PciRootBusOscControlField(public var u: PciRootBusOscControlField0 = PciRootBusOscControlField0())
 
-public data class PCI_ROOT_BUS_OSC_CONTROL_FIELD_0(public var Anonymous: PCI_ROOT_BUS_OSC_CONTROL_FIELD_0_0 = PCI_ROOT_BUS_OSC_CONTROL_FIELD_0_0(), public var AsULONG: UInt = 0u)
+public data class PciRootBusOscControlField0(public var anonymous: PciRootBusOscControlField00 = PciRootBusOscControlField00(), public var asULONG: UInt = 0u)
 
-public data class PCI_ROOT_BUS_OSC_CONTROL_FIELD_0_0(public var _bitfield: UInt = 0u)
+public data class PciRootBusOscControlField00(public var bitfield: UInt = 0u)
 
-public data class PCI_ROOT_BUS_OSC_SUPPORT_FIELD(public var u: PCI_ROOT_BUS_OSC_SUPPORT_FIELD_0 = PCI_ROOT_BUS_OSC_SUPPORT_FIELD_0())
+public data class PciRootBusOscSupportField(public var u: PciRootBusOscSupportField0 = PciRootBusOscSupportField0())
 
-public data class PCI_ROOT_BUS_OSC_SUPPORT_FIELD_0(public var Anonymous: PCI_ROOT_BUS_OSC_SUPPORT_FIELD_0_0 = PCI_ROOT_BUS_OSC_SUPPORT_FIELD_0_0(), public var AsULONG: UInt = 0u)
+public data class PciRootBusOscSupportField0(public var anonymous: PciRootBusOscSupportField00 = PciRootBusOscSupportField00(), public var asULONG: UInt = 0u)
 
-public data class PCI_ROOT_BUS_OSC_SUPPORT_FIELD_0_0(public var _bitfield: UInt = 0u)
+public data class PciRootBusOscSupportField00(public var bitfield: UInt = 0u)
 
-public data class PCI_SECURITY_INTERFACE(
-    public var Size: UShort = 0u,
-    public var Version: UShort = 0u,
-    public var Context: Long = 0L,
-    public var InterfaceReference: PINTERFACE_REFERENCE = null,
-    public var InterfaceDereference: PINTERFACE_DEREFERENCE = null,
-    public var SetAccessControlServices: PPCI_SET_ACS = null,
+public data class PciSecurityInterface(
+    public var size: UShort = 0u,
+    public var version: UShort = 0u,
+    public var context: COpaquePointer? = null,
+    public var interfaceReference: PinterfaceReference = null,
+    public var interfaceDereference: PinterfaceDereference = null,
+    public var setAccessControlServices: PpciSetAcs = null,
 )
 
-public data class PCI_SECURITY_INTERFACE2(
-    public var Size: UShort = 0u,
-    public var Version: UShort = 0u,
-    public var Context: Long = 0L,
-    public var InterfaceReference: PINTERFACE_REFERENCE = null,
-    public var InterfaceDereference: PINTERFACE_DEREFERENCE = null,
-    public var Flags: UInt = 0u,
-    public var SupportedScenarios: UInt = 0u,
-    public var SetAccessControlServices: PPCI_SET_ACS2 = null,
+public data class PciSecurityInterface2(
+    public var size: UShort = 0u,
+    public var version: UShort = 0u,
+    public var context: COpaquePointer? = null,
+    public var interfaceReference: PinterfaceReference = null,
+    public var interfaceDereference: PinterfaceDereference = null,
+    public var flags: UInt = 0u,
+    public var supportedScenarios: UInt = 0u,
+    public var setAccessControlServices: PpciSetAcs2 = null,
 )
 
-public data class PCI_SEGMENT_BUS_NUMBER(public var u: PCI_SEGMENT_BUS_NUMBER_0 = PCI_SEGMENT_BUS_NUMBER_0())
+public data class PciSegmentBusNumber(public var u: PciSegmentBusNumber0 = PciSegmentBusNumber0())
 
-public data class PCI_SEGMENT_BUS_NUMBER_0(public var bits: PCI_SEGMENT_BUS_NUMBER_0_0 = PCI_SEGMENT_BUS_NUMBER_0_0(), public var AsULONG: UInt = 0u)
+public data class PciSegmentBusNumber0(public var bits: PciSegmentBusNumber00 = PciSegmentBusNumber00(), public var asULONG: UInt = 0u)
 
-public data class PCI_SEGMENT_BUS_NUMBER_0_0(public var _bitfield: UInt = 0u)
+public data class PciSegmentBusNumber00(public var bitfield: UInt = 0u)
 
-public data class PCI_SLOT_NUMBER(public var u: PCI_SLOT_NUMBER_0 = PCI_SLOT_NUMBER_0())
+public data class PciSlotNumber(public var u: PciSlotNumber0 = PciSlotNumber0())
 
-public data class PCI_SLOT_NUMBER_0(public var bits: PCI_SLOT_NUMBER_0_0 = PCI_SLOT_NUMBER_0_0(), public var AsULONG: UInt = 0u)
+public data class PciSlotNumber0(public var bits: PciSlotNumber00 = PciSlotNumber00(), public var asULONG: UInt = 0u)
 
-public data class PCI_SLOT_NUMBER_0_0(public var _bitfield: UInt = 0u)
+public data class PciSlotNumber00(public var bitfield: UInt = 0u)
 
-public data class PCI_SUBSYSTEM_IDS_CAPABILITY(
-    public var Header: PCI_CAPABILITIES_HEADER = PCI_CAPABILITIES_HEADER(),
-    public var Reserved: UShort = 0u,
-    public var SubVendorID: UShort = 0u,
-    public var SubSystemID: UShort = 0u,
+public data class PciSubsystemIdsCapability(
+    public var header: PciCapabilitiesHeader = PciCapabilitiesHeader(),
+    public var reserved: UShort = 0u,
+    public var subVendorID: UShort = 0u,
+    public var subSystemID: UShort = 0u,
 )
 
-public data class PCI_VENDOR_SPECIFIC_CAPABILITY(
-    public var Header: PCI_CAPABILITIES_HEADER = PCI_CAPABILITIES_HEADER(),
-    public var VscLength: UByte = 0u,
-    public var VendorSpecific: UByte = 0u,
+public data class PciVendorSpecificCapability(
+    public var header: PciCapabilitiesHeader = PciCapabilitiesHeader(),
+    public var vscLength: UByte = 0u,
+    public var vendorSpecific: UByte = 0u,
 )
 
-public data class PCI_VIRTUALIZATION_INTERFACE(
-    public var Size: UShort = 0u,
-    public var Version: UShort = 0u,
-    public var Context: Long = 0L,
-    public var InterfaceReference: PINTERFACE_REFERENCE = null,
-    public var InterfaceDereference: PINTERFACE_DEREFERENCE = null,
-    public var SetVirtualFunctionData: PSET_VIRTUAL_DEVICE_DATA = null,
-    public var GetVirtualFunctionData: PGET_VIRTUAL_DEVICE_DATA = null,
-    public var GetLocation: PGET_VIRTUAL_DEVICE_LOCATION = null,
-    public var GetResources: PGET_VIRTUAL_DEVICE_RESOURCES = null,
-    public var EnableVirtualization: PENABLE_VIRTUALIZATION = null,
-    public var GetVirtualFunctionProbedBars: PGET_VIRTUAL_FUNCTION_PROBED_BARS = null,
+public data class PciVirtualizationInterface(
+    public var size: UShort = 0u,
+    public var version: UShort = 0u,
+    public var context: COpaquePointer? = null,
+    public var interfaceReference: PinterfaceReference = null,
+    public var interfaceDereference: PinterfaceDereference = null,
+    public var setVirtualFunctionData: PsetVirtualDeviceData = null,
+    public var getVirtualFunctionData: PgetVirtualDeviceData = null,
+    public var getLocation: PgetVirtualDeviceLocation = null,
+    public var getResources: PgetVirtualDeviceResources = null,
+    public var enableVirtualization: PenableVirtualization = null,
+    public var getVirtualFunctionProbedBars: PgetVirtualFunctionProbedBars = null,
 )
 
-public data class PCI_X_CAPABILITY(
-    public var Header: PCI_CAPABILITIES_HEADER = PCI_CAPABILITIES_HEADER(),
-    public var Command: PCI_X_CAPABILITY_0 = PCI_X_CAPABILITY_0(),
-    public var Status: PCI_X_CAPABILITY_1 = PCI_X_CAPABILITY_1(),
+public data class PciXCapability(
+    public var header: PciCapabilitiesHeader = PciCapabilitiesHeader(),
+    public var command: PciXCapability0 = PciXCapability0(),
+    public var status: PciXCapability1 = PciXCapability1(),
 )
 
-public data class PCI_X_CAPABILITY_0(public var bits: PCI_X_CAPABILITY_0_0 = PCI_X_CAPABILITY_0_0(), public var AsUSHORT: UShort = 0u)
+public data class PciXCapability0(public var bits: PciXCapability00 = PciXCapability00(), public var asUSHORT: UShort = 0u)
 
-public data class PCI_X_CAPABILITY_0_0(public var _bitfield: UShort = 0u)
+public data class PciXCapability00(public var bitfield: UShort = 0u)
 
-public data class PCI_X_CAPABILITY_1(public var bits: PCI_X_CAPABILITY_1_0 = PCI_X_CAPABILITY_1_0(), public var AsULONG: UInt = 0u)
+public data class PciXCapability1(public var bits: PciXCapability10 = PciXCapability10(), public var asULONG: UInt = 0u)
 
-public data class PCI_X_CAPABILITY_1_0(public var _bitfield: UInt = 0u)
+public data class PciXCapability10(public var bitfield: UInt = 0u)
 
-public data class PCW_CALLBACK_INFORMATION(
-    public var AddCounter: PCW_COUNTER_INFORMATION = PCW_COUNTER_INFORMATION(),
-    public var RemoveCounter: PCW_COUNTER_INFORMATION = PCW_COUNTER_INFORMATION(),
-    public var EnumerateInstances: PCW_MASK_INFORMATION = PCW_MASK_INFORMATION(),
-    public var CollectData: PCW_MASK_INFORMATION = PCW_MASK_INFORMATION(),
+public data class PcwCallbackInformation(
+    public var addCounter: PcwCounterInformation = PcwCounterInformation(),
+    public var removeCounter: PcwCounterInformation = PcwCounterInformation(),
+    public var enumerateInstances: PcwMaskInformation = PcwMaskInformation(),
+    public var collectData: PcwMaskInformation = PcwMaskInformation(),
 )
 
-public data class PCW_COUNTER_DESCRIPTOR(
-    public var Id: UShort = 0u,
-    public var StructIndex: UShort = 0u,
-    public var Offset: UShort = 0u,
-    public var Size: UShort = 0u,
+public data class PcwCounterDescriptor(
+    public var id: UShort = 0u,
+    public var structIndex: UShort = 0u,
+    public var offset: UShort = 0u,
+    public var size: UShort = 0u,
 )
 
-public data class PCW_COUNTER_INFORMATION(public var CounterMask: ULong = 0uL, public var InstanceMask: Long = 0L)
+public data class PcwCounterInformation(public var counterMask: ULong = 0uL, public var instanceMask: UnicodeString? = null)
 
-public data class PCW_DATA(public var Data: Long = 0L, public var Size: UInt = 0u)
+public data class PcwData(public var data: COpaquePointer? = null, public var size: UInt = 0u)
 
-public data class PCW_MASK_INFORMATION(
-    public var CounterMask: ULong = 0uL,
-    public var InstanceMask: Long = 0L,
-    public var InstanceId: UInt = 0u,
-    public var CollectMultiple: Boolean = false,
-    public var Buffer: PPCW_BUFFER = 0L,
-    public var CancelEvent: Long = 0L,
+public data class PcwMaskInformation(
+    public var counterMask: ULong = 0uL,
+    public var instanceMask: UnicodeString? = null,
+    public var instanceId: UInt = 0u,
+    public var collectMultiple: Boolean = false,
+    public var buffer: PpcwBuffer = 0L,
+    public var cancelEvent: Kevent? = null,
 )
 
-public data class PCW_REGISTRATION_INFORMATION(
-    public var Version: UInt = 0u,
-    public var Name: Long = 0L,
-    public var CounterCount: UInt = 0u,
-    public var Counters: Long = 0L,
-    public var Callback: PPCW_CALLBACK = null,
-    public var CallbackContext: Long = 0L,
-    public var Flags: PCW_REGISTRATION_FLAGS = 0,
+public data class PcwRegistrationInformation(
+    public var version: UInt = 0u,
+    public var name: UnicodeString? = null,
+    public var counterCount: UInt = 0u,
+    public var counters: PcwCounterDescriptor? = null,
+    public var callback: PpcwCallback = null,
+    public var callbackContext: COpaquePointer? = null,
+    public var flags: PcwRegistrationFlags = 0,
 )
 
-public data class PHYSICAL_COUNTER_EVENT_BUFFER_CONFIGURATION(
-    public var OverflowHandler: PPHYSICAL_COUNTER_EVENT_BUFFER_OVERFLOW_HANDLER = null,
-    public var CustomEventBufferEntrySize: UInt = 0u,
-    public var EventThreshold: UInt = 0u,
+public data class PhysicalCounterEventBufferConfiguration(
+    public var overflowHandler: PphysicalCounterEventBufferOverflowHandler = null,
+    public var customEventBufferEntrySize: UInt = 0u,
+    public var eventThreshold: UInt = 0u,
 )
 
-public data class PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR(
-    public var Type: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_TYPE = 0,
-    public var Flags: UInt = 0u,
-    public var u: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_0 = PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_0(),
+public data class PhysicalCounterResourceDescriptor(
+    public var type: PhysicalCounterResourceDescriptorType = 0,
+    public var flags: UInt = 0u,
+    public var u: PhysicalCounterResourceDescriptor0 = PhysicalCounterResourceDescriptor0(),
 )
 
-public data class PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_0(
-    public var CounterIndex: UInt = 0u,
-    public var Range: PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_0_0 = PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_0_0(),
-    public var OverflowHandler: PPHYSICAL_COUNTER_OVERFLOW_HANDLER = null,
-    public var EventBufferConfiguration: PHYSICAL_COUNTER_EVENT_BUFFER_CONFIGURATION = PHYSICAL_COUNTER_EVENT_BUFFER_CONFIGURATION(),
-    public var IdentificationTag: UInt = 0u,
+public data class PhysicalCounterResourceDescriptor0(
+    public var counterIndex: UInt = 0u,
+    public var range: PhysicalCounterResourceDescriptor00 = PhysicalCounterResourceDescriptor00(),
+    public var overflowHandler: PphysicalCounterOverflowHandler = null,
+    public var eventBufferConfiguration: PhysicalCounterEventBufferConfiguration = PhysicalCounterEventBufferConfiguration(),
+    public var identificationTag: UInt = 0u,
 )
 
-public data class PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR_0_0(public var Begin: UInt = 0u, public var End: UInt = 0u)
+public data class PhysicalCounterResourceDescriptor00(public var begin: UInt = 0u, public var end: UInt = 0u)
 
-public data class PHYSICAL_COUNTER_RESOURCE_LIST(public var Count: UInt = 0u, public var Descriptors: List<PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR> = List(1) { PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR() })
+public data class PhysicalCounterResourceList(public var count: UInt = 0u, public var descriptors: List<PhysicalCounterResourceDescriptor> = List(1) { PhysicalCounterResourceDescriptor() })
 
-public data class PHYSICAL_MEMORY_RANGE(public var BaseAddress: Long = 0L, public var NumberOfBytes: Long = 0L)
+public data class PhysicalMemoryRange(public var baseAddress: Long = 0L, public var numberOfBytes: Long = 0L)
 
-public data class PLUGPLAY_NOTIFICATION_HEADER(
-    public var Version: UShort = 0u,
-    public var Size: UShort = 0u,
-    public var Event: GUID = GUID(),
+public data class PlugplayNotificationHeader(
+    public var version: UShort = 0u,
+    public var size: UShort = 0u,
+    public var event: Guid = Guid(),
 )
 
-public data class PM_DISPATCH_TABLE(
-    public var Signature: UInt = 0u,
-    public var Version: UInt = 0u,
-    public var Function: LongArray = LongArray(1),
+public data class PmDispatchTable(
+    public var signature: UInt = 0u,
+    public var version: UInt = 0u,
+    public var function: List<COpaquePointer> = List(1) { COpaquePointer(0L) },
+)
+
+public data class PnpBusInformation(
+    public var busTypeGuid: Guid = Guid(),
+    public var legacyBusType: InterfaceType = 0,
+    public var busNumber: UInt = 0u,
+)
+
+public data class PnpExtendedAddressInterface(
+    public var size: UShort = 0u,
+    public var version: UShort = 0u,
+    public var context: COpaquePointer? = null,
+    public var interfaceReference: PinterfaceReference = null,
+    public var interfaceDereference: PinterfaceDereference = null,
+    public var queryExtendedAddress: Pqueryextendedaddress = null,
+)
+
+public data class PnpLocationInterface(
+    public var size: UShort = 0u,
+    public var version: UShort = 0u,
+    public var context: COpaquePointer? = null,
+    public var interfaceReference: PinterfaceReference = null,
+    public var interfaceDereference: PinterfaceDereference = null,
+    public var getLocationString: PgetLocationString = null,
+)
+
+public data class PnpReplaceDriverInterface(
+    public var size: UInt = 0u,
+    public var version: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var unload: PreplaceUnload = null,
+    public var beginReplace: PreplaceBegin = null,
+    public var endReplace: PreplaceEnd = null,
+    public var mirrorPhysicalMemory: PreplaceMirrorPhysicalMemory = null,
+    public var setProcessorId: PreplaceSetProcessorId = null,
+    public var swap: PreplaceSwap = null,
+    public var initiateHardwareMirror: PreplaceInitiateHardwareMirror = null,
+    public var mirrorPlatformMemory: PreplaceMirrorPlatformMemory = null,
+    public var getMemoryDestination: PreplaceGetMemoryDestination = null,
+    public var enableDisableHardwareQuiesce: PreplaceEnableDisableHardwareQuiesce = null,
+)
+
+public data class PnpReplaceMemoryList(
+    public var allocatedCount: UInt = 0u,
+    public var count: UInt = 0u,
+    public var totalLength: ULong = 0uL,
+    public var ranges: List<PnpReplaceMemoryList0> = List(1) { PnpReplaceMemoryList0() },
+)
+
+public data class PnpReplaceMemoryList0(public var address: Long = 0L, public var length: ULong = 0uL)
+
+public data class PnpReplaceParameters(
+    public var size: UInt = 0u,
+    public var version: UInt = 0u,
+    public var target: ULong = 0uL,
+    public var spare: ULong = 0uL,
+    public var targetProcessors: PnpReplaceProcessorList? = null,
+    public var spareProcessors: PnpReplaceProcessorList? = null,
+    public var targetMemory: PnpReplaceMemoryList? = null,
+    public var spareMemory: PnpReplaceMemoryList? = null,
+    public var mapMemory: PreplaceMapMemory = null,
+)
+
+public data class PnpReplaceProcessorList(
+    public var affinity: Int? = null,
+    public var groupCount: UInt = 0u,
+    public var allocatedCount: UInt = 0u,
+    public var count: UInt = 0u,
+    public var apicIds: UIntArray = UIntArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is PM_DISPATCH_TABLE) return false
-        if (this.Signature != other.Signature) return false
-        if (this.Version != other.Version) return false
-        if (!this.Function.contentEquals(other.Function)) return false
+        if (other !is PnpReplaceProcessorList) return false
+        if (this.affinity != other.affinity) return false
+        if (this.groupCount != other.groupCount) return false
+        if (this.allocatedCount != other.allocatedCount) return false
+        if (this.count != other.count) return false
+        if (!this.apicIds.contentEquals(other.apicIds)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Signature.hashCode()
-        result = 31 * result + this.Version.hashCode()
-        result = 31 * result + this.Function.contentHashCode()
+        var result = this.affinity.hashCode()
+        result = 31 * result + this.groupCount.hashCode()
+        result = 31 * result + this.allocatedCount.hashCode()
+        result = 31 * result + this.count.hashCode()
+        result = 31 * result + this.apicIds.contentHashCode()
         return result
     }
 }
 
-public data class PNP_BUS_INFORMATION(
-    public var BusTypeGuid: GUID = GUID(),
-    public var LegacyBusType: INTERFACE_TYPE = 0,
-    public var BusNumber: UInt = 0u,
-)
-
-public data class PNP_EXTENDED_ADDRESS_INTERFACE(
-    public var Size: UShort = 0u,
-    public var Version: UShort = 0u,
-    public var Context: Long = 0L,
-    public var InterfaceReference: PINTERFACE_REFERENCE = null,
-    public var InterfaceDereference: PINTERFACE_DEREFERENCE = null,
-    public var QueryExtendedAddress: PQUERYEXTENDEDADDRESS = null,
-)
-
-public data class PNP_LOCATION_INTERFACE(
-    public var Size: UShort = 0u,
-    public var Version: UShort = 0u,
-    public var Context: Long = 0L,
-    public var InterfaceReference: PINTERFACE_REFERENCE = null,
-    public var InterfaceDereference: PINTERFACE_DEREFERENCE = null,
-    public var GetLocationString: PGET_LOCATION_STRING = null,
-)
-
-public data class PNP_REPLACE_DRIVER_INTERFACE(
-    public var Size: UInt = 0u,
-    public var Version: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var Unload: PREPLACE_UNLOAD = null,
-    public var BeginReplace: PREPLACE_BEGIN = null,
-    public var EndReplace: PREPLACE_END = null,
-    public var MirrorPhysicalMemory: PREPLACE_MIRROR_PHYSICAL_MEMORY = null,
-    public var SetProcessorId: PREPLACE_SET_PROCESSOR_ID = null,
-    public var Swap: PREPLACE_SWAP = null,
-    public var InitiateHardwareMirror: PREPLACE_INITIATE_HARDWARE_MIRROR = null,
-    public var MirrorPlatformMemory: PREPLACE_MIRROR_PLATFORM_MEMORY = null,
-    public var GetMemoryDestination: PREPLACE_GET_MEMORY_DESTINATION = null,
-    public var EnableDisableHardwareQuiesce: PREPLACE_ENABLE_DISABLE_HARDWARE_QUIESCE = null,
-)
-
-public data class PNP_REPLACE_MEMORY_LIST(
-    public var AllocatedCount: UInt = 0u,
-    public var Count: UInt = 0u,
-    public var TotalLength: ULong = 0uL,
-    public var Ranges: List<PNP_REPLACE_MEMORY_LIST_0> = List(1) { PNP_REPLACE_MEMORY_LIST_0() },
-)
-
-public data class PNP_REPLACE_MEMORY_LIST_0(public var Address: Long = 0L, public var Length: ULong = 0uL)
-
-public data class PNP_REPLACE_PARAMETERS(
-    public var Size: UInt = 0u,
-    public var Version: UInt = 0u,
-    public var Target: ULong = 0uL,
-    public var Spare: ULong = 0uL,
-    public var TargetProcessors: Long = 0L,
-    public var SpareProcessors: Long = 0L,
-    public var TargetMemory: Long = 0L,
-    public var SpareMemory: Long = 0L,
-    public var MapMemory: PREPLACE_MAP_MEMORY = null,
-)
-
-public data class PNP_REPLACE_PROCESSOR_LIST(
-    public var Affinity: Long = 0L,
-    public var GroupCount: UInt = 0u,
-    public var AllocatedCount: UInt = 0u,
-    public var Count: UInt = 0u,
-    public var ApicIds: UIntArray = UIntArray(1),
+public data class PnpReplaceProcessorListV1(
+    public var affinityMask: Int = 0,
+    public var allocatedCount: UInt = 0u,
+    public var count: UInt = 0u,
+    public var apicIds: UIntArray = UIntArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is PNP_REPLACE_PROCESSOR_LIST) return false
-        if (this.Affinity != other.Affinity) return false
-        if (this.GroupCount != other.GroupCount) return false
-        if (this.AllocatedCount != other.AllocatedCount) return false
-        if (this.Count != other.Count) return false
-        if (!this.ApicIds.contentEquals(other.ApicIds)) return false
+        if (other !is PnpReplaceProcessorListV1) return false
+        if (this.affinityMask != other.affinityMask) return false
+        if (this.allocatedCount != other.allocatedCount) return false
+        if (this.count != other.count) return false
+        if (!this.apicIds.contentEquals(other.apicIds)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Affinity.hashCode()
-        result = 31 * result + this.GroupCount.hashCode()
-        result = 31 * result + this.AllocatedCount.hashCode()
-        result = 31 * result + this.Count.hashCode()
-        result = 31 * result + this.ApicIds.contentHashCode()
+        var result = this.affinityMask.hashCode()
+        result = 31 * result + this.allocatedCount.hashCode()
+        result = 31 * result + this.count.hashCode()
+        result = 31 * result + this.apicIds.contentHashCode()
         return result
     }
 }
 
-public data class PNP_REPLACE_PROCESSOR_LIST_V1(
-    public var AffinityMask: ULong = 0uL,
-    public var AllocatedCount: UInt = 0u,
-    public var Count: UInt = 0u,
-    public var ApicIds: UIntArray = UIntArray(1),
-) {
+public data class PooledUsageAndLimits(
+    public var peakPagedPoolUsage: Int = 0,
+    public var pagedPoolUsage: Int = 0,
+    public var pagedPoolLimit: Int = 0,
+    public var peakNonPagedPoolUsage: Int = 0,
+    public var nonPagedPoolUsage: Int = 0,
+    public var nonPagedPoolLimit: Int = 0,
+    public var peakPagefileUsage: Int = 0,
+    public var pagefileUsage: Int = 0,
+    public var pagefileLimit: Int = 0,
+)
+
+public data class PoolCreateExtendedParams(public var version: UInt = 0u)
+
+public data class PoolExtendedParameter(public var anonymous1: PoolExtendedParameter0 = PoolExtendedParameter0(), public var anonymous2: PoolExtendedParameter1 = PoolExtendedParameter1())
+
+public data class PoolExtendedParameter0(public var bitfield: ULong = 0uL)
+
+public data class PoolExtendedParameter1(
+    public var reserved2: ULong = 0uL,
+    public var reserved3: COpaquePointer? = null,
+    public var priority: ExPoolPriority = 0,
+    public var securePoolParams: PoolExtendedParamsSecurePool? = null,
+    public var preferredNode: UInt = 0u,
+)
+
+public data class PoolExtendedParamsSecurePool(
+    public var securePoolHandle: Handle = null,
+    public var buffer: COpaquePointer? = null,
+    public var cookie: Int = 0,
+    public var securePoolFlags: UInt = 0u,
+)
+
+public data class PowerMonitorInvocation(public var console: Boolean = false, public var requestReason: PowerMonitorRequestReason = 0)
+
+public data class PowerPlatformInformation(public var aoAc: Boolean = false)
+
+public data class PowerSequence(
+    public var sequenceD1: UInt = 0u,
+    public var sequenceD2: UInt = 0u,
+    public var sequenceD3: UInt = 0u,
+)
+
+public data class PowerSessionConnect(public var connected: Boolean = false, public var console: Boolean = false)
+
+public data class PowerSessionRitState(public var active: Boolean = false, public var lastInputTime: ULong = 0uL)
+
+public data class PowerSessionTimeouts(public var inputTimeout: UInt = 0u, public var displayTimeout: UInt = 0u)
+
+public data class PowerSessionWinlogon(
+    public var sessionId: UInt = 0u,
+    public var console: Boolean = false,
+    public var locked: Boolean = false,
+)
+
+public data class PowerState(public var systemState: SystemPowerState = 0, public var deviceState: DevicePowerState = 0)
+
+public data class PowerThrottlingProcessState(
+    public var version: UInt = 0u,
+    public var controlMask: UInt = 0u,
+    public var stateMask: UInt = 0u,
+)
+
+public data class PowerThrottlingThreadState(
+    public var version: UInt = 0u,
+    public var controlMask: UInt = 0u,
+    public var stateMask: UInt = 0u,
+)
+
+public data class PoFxComponentIdleState(
+    public var transitionLatency: ULong = 0uL,
+    public var residencyRequirement: ULong = 0uL,
+    public var nominalPower: UInt = 0u,
+)
+
+public data class PoFxComponentPerfInfo(public var perfStateSetsCount: UInt = 0u, public var perfStateSets: List<PoFxComponentPerfSet> = List(1) { PoFxComponentPerfSet() })
+
+public data class PoFxComponentPerfSet(
+    public var name: UnicodeString = UnicodeString(),
+    public var flags: ULong = 0uL,
+    public var unit: PoFxPerfStateUnit = 0,
+    public var type: PoFxPerfStateType = 0,
+    public var anonymous: PoFxComponentPerfSet0 = PoFxComponentPerfSet0(),
+)
+
+public data class PoFxComponentPerfSet0(public var discrete: PoFxComponentPerfSet00 = PoFxComponentPerfSet00(), public var range: PoFxComponentPerfSet01 = PoFxComponentPerfSet01())
+
+public data class PoFxComponentPerfSet00(public var count: UInt = 0u, public var states: PoFxPerfState? = null)
+
+public data class PoFxComponentPerfSet01(public var minimum: ULong = 0uL, public var maximum: ULong = 0uL)
+
+public data class PoFxComponentV1(
+    public var id: Guid = Guid(),
+    public var idleStateCount: UInt = 0u,
+    public var deepestWakeableIdleState: UInt = 0u,
+    public var idleStates: PoFxComponentIdleState? = null,
+)
+
+public data class PoFxComponentV2(
+    public var id: Guid = Guid(),
+    public var flags: ULong = 0uL,
+    public var deepestWakeableIdleState: UInt = 0u,
+    public var idleStateCount: UInt = 0u,
+    public var idleStates: PoFxComponentIdleState? = null,
+    public var providerCount: UInt = 0u,
+    public var providers: UInt? = null,
+)
+
+public data class PoFxDeviceV1(
+    public var version: UInt = 0u,
+    public var componentCount: UInt = 0u,
+    public var componentActiveConditionCallback: PpoFxComponentActiveConditionCallback = null,
+    public var componentIdleConditionCallback: PpoFxComponentIdleConditionCallback = null,
+    public var componentIdleStateCallback: PpoFxComponentIdleStateCallback = null,
+    public var devicePowerRequiredCallback: PpoFxDevicePowerRequiredCallback = null,
+    public var devicePowerNotRequiredCallback: PpoFxDevicePowerNotRequiredCallback = null,
+    public var powerControlCallback: PpoFxPowerControlCallback = null,
+    public var deviceContext: COpaquePointer? = null,
+    public var components: List<PoFxComponentV1> = List(1) { PoFxComponentV1() },
+)
+
+public data class PoFxDeviceV2(
+    public var version: UInt = 0u,
+    public var flags: ULong = 0uL,
+    public var componentActiveConditionCallback: PpoFxComponentActiveConditionCallback = null,
+    public var componentIdleConditionCallback: PpoFxComponentIdleConditionCallback = null,
+    public var componentIdleStateCallback: PpoFxComponentIdleStateCallback = null,
+    public var devicePowerRequiredCallback: PpoFxDevicePowerRequiredCallback = null,
+    public var devicePowerNotRequiredCallback: PpoFxDevicePowerNotRequiredCallback = null,
+    public var powerControlCallback: PpoFxPowerControlCallback = null,
+    public var deviceContext: COpaquePointer? = null,
+    public var componentCount: UInt = 0u,
+    public var components: List<PoFxComponentV2> = List(1) { PoFxComponentV2() },
+)
+
+public data class PoFxDeviceV3(
+    public var version: UInt = 0u,
+    public var flags: ULong = 0uL,
+    public var componentActiveConditionCallback: PpoFxComponentActiveConditionCallback = null,
+    public var componentIdleConditionCallback: PpoFxComponentIdleConditionCallback = null,
+    public var componentIdleStateCallback: PpoFxComponentIdleStateCallback = null,
+    public var devicePowerRequiredCallback: PpoFxDevicePowerRequiredCallback = null,
+    public var devicePowerNotRequiredCallback: PpoFxDevicePowerNotRequiredCallback = null,
+    public var powerControlCallback: PpoFxPowerControlCallback = null,
+    public var directedPowerUpCallback: PpoFxDirectedPowerUpCallback = null,
+    public var directedPowerDownCallback: PpoFxDirectedPowerDownCallback = null,
+    public var directedFxTimeoutInSeconds: UInt = 0u,
+    public var deviceContext: COpaquePointer? = null,
+    public var componentCount: UInt = 0u,
+    public var components: List<PoFxComponentV2> = List(1) { PoFxComponentV2() },
+)
+
+public data class PoFxPerfState(public var value: ULong = 0uL, public var context: COpaquePointer? = null)
+
+public data class PoFxPerfStateChange(public var set: UInt = 0u, public var anonymous: PoFxPerfStateChange0 = PoFxPerfStateChange0())
+
+public data class PoFxPerfStateChange0(public var stateIndex: UInt = 0u, public var stateValue: ULong = 0uL)
+
+public data class ProcessAccessToken(public var token: Handle = null, public var thread: Handle = null)
+
+public data class ProcessDevicemapInformation(public var anonymous: ProcessDevicemapInformation0 = ProcessDevicemapInformation0())
+
+public data class ProcessDevicemapInformation0(public var set: ProcessDevicemapInformation00 = ProcessDevicemapInformation00(), public var query: ProcessDevicemapInformation01 = ProcessDevicemapInformation01())
+
+public data class ProcessDevicemapInformation01(public var driveMap: UInt = 0u, public var driveType: UByteArray = UByteArray(32)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is PNP_REPLACE_PROCESSOR_LIST_V1) return false
-        if (this.AffinityMask != other.AffinityMask) return false
-        if (this.AllocatedCount != other.AllocatedCount) return false
-        if (this.Count != other.Count) return false
-        if (!this.ApicIds.contentEquals(other.ApicIds)) return false
+        if (other !is ProcessDevicemapInformation01) return false
+        if (this.driveMap != other.driveMap) return false
+        if (!this.driveType.contentEquals(other.driveType)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.AffinityMask.hashCode()
-        result = 31 * result + this.AllocatedCount.hashCode()
-        result = 31 * result + this.Count.hashCode()
-        result = 31 * result + this.ApicIds.contentHashCode()
+        var result = this.driveMap.hashCode()
+        result = 31 * result + this.driveType.contentHashCode()
         return result
     }
 }
 
-public data class POOLED_USAGE_AND_LIMITS(
-    public var PeakPagedPoolUsage: ULong = 0uL,
-    public var PagedPoolUsage: ULong = 0uL,
-    public var PagedPoolLimit: ULong = 0uL,
-    public var PeakNonPagedPoolUsage: ULong = 0uL,
-    public var NonPagedPoolUsage: ULong = 0uL,
-    public var NonPagedPoolLimit: ULong = 0uL,
-    public var PeakPagefileUsage: ULong = 0uL,
-    public var PagefileUsage: ULong = 0uL,
-    public var PagefileLimit: ULong = 0uL,
-)
+public data class ProcessDevicemapInformation00(public var directoryHandle: Handle = null)
 
-public data class POOL_CREATE_EXTENDED_PARAMS(public var Version: UInt = 0u)
+public data class ProcessDevicemapInformationEx(public var anonymous: ProcessDevicemapInformationEx0 = ProcessDevicemapInformationEx0(), public var flags: UInt = 0u)
 
-public data class POOL_EXTENDED_PARAMETER(public var Anonymous1: POOL_EXTENDED_PARAMETER_0 = POOL_EXTENDED_PARAMETER_0(), public var Anonymous2: POOL_EXTENDED_PARAMETER_1 = POOL_EXTENDED_PARAMETER_1())
+public data class ProcessDevicemapInformationEx0(public var set: ProcessDevicemapInformationEx00 = ProcessDevicemapInformationEx00(), public var query: ProcessDevicemapInformationEx01 = ProcessDevicemapInformationEx01())
 
-public data class POOL_EXTENDED_PARAMETER_0(public var _bitfield: ULong = 0uL)
-
-public data class POOL_EXTENDED_PARAMETER_1(
-    public var Reserved2: ULong = 0uL,
-    public var Reserved3: Long = 0L,
-    public var Priority: EX_POOL_PRIORITY = 0,
-    public var SecurePoolParams: Long = 0L,
-    public var PreferredNode: UInt = 0u,
-)
-
-public data class POOL_EXTENDED_PARAMS_SECURE_POOL(
-    public var SecurePoolHandle: HANDLE = 0L,
-    public var Buffer: Long = 0L,
-    public var Cookie: ULong = 0uL,
-    public var SecurePoolFlags: UInt = 0u,
-)
-
-public data class POWER_MONITOR_INVOCATION(public var Console: Boolean = false, public var RequestReason: POWER_MONITOR_REQUEST_REASON = 0)
-
-public data class POWER_PLATFORM_INFORMATION(public var AoAc: Boolean = false)
-
-public data class POWER_SEQUENCE(
-    public var SequenceD1: UInt = 0u,
-    public var SequenceD2: UInt = 0u,
-    public var SequenceD3: UInt = 0u,
-)
-
-public data class POWER_SESSION_CONNECT(public var Connected: Boolean = false, public var Console: Boolean = false)
-
-public data class POWER_SESSION_RIT_STATE(public var Active: Boolean = false, public var LastInputTime: ULong = 0uL)
-
-public data class POWER_SESSION_TIMEOUTS(public var InputTimeout: UInt = 0u, public var DisplayTimeout: UInt = 0u)
-
-public data class POWER_SESSION_WINLOGON(
-    public var SessionId: UInt = 0u,
-    public var Console: Boolean = false,
-    public var Locked: Boolean = false,
-)
-
-public data class POWER_STATE(public var SystemState: SYSTEM_POWER_STATE = 0, public var DeviceState: DEVICE_POWER_STATE = 0)
-
-public data class POWER_THROTTLING_PROCESS_STATE(
-    public var Version: UInt = 0u,
-    public var ControlMask: UInt = 0u,
-    public var StateMask: UInt = 0u,
-)
-
-public data class POWER_THROTTLING_THREAD_STATE(
-    public var Version: UInt = 0u,
-    public var ControlMask: UInt = 0u,
-    public var StateMask: UInt = 0u,
-)
-
-public data class PO_FX_COMPONENT_IDLE_STATE(
-    public var TransitionLatency: ULong = 0uL,
-    public var ResidencyRequirement: ULong = 0uL,
-    public var NominalPower: UInt = 0u,
-)
-
-public data class PO_FX_COMPONENT_PERF_INFO(public var PerfStateSetsCount: UInt = 0u, public var PerfStateSets: List<PO_FX_COMPONENT_PERF_SET> = List(1) { PO_FX_COMPONENT_PERF_SET() })
-
-public data class PO_FX_COMPONENT_PERF_SET(
-    public var Name: UNICODE_STRING = UNICODE_STRING(),
-    public var Flags: ULong = 0uL,
-    public var Unit: PO_FX_PERF_STATE_UNIT = 0,
-    public var Type: PO_FX_PERF_STATE_TYPE = 0,
-    public var Anonymous: PO_FX_COMPONENT_PERF_SET_0 = PO_FX_COMPONENT_PERF_SET_0(),
-)
-
-public data class PO_FX_COMPONENT_PERF_SET_0(public var Discrete: PO_FX_COMPONENT_PERF_SET_0_0 = PO_FX_COMPONENT_PERF_SET_0_0(), public var Range: PO_FX_COMPONENT_PERF_SET_0_1 = PO_FX_COMPONENT_PERF_SET_0_1())
-
-public data class PO_FX_COMPONENT_PERF_SET_0_0(public var Count: UInt = 0u, public var States: Long = 0L)
-
-public data class PO_FX_COMPONENT_PERF_SET_0_1(public var Minimum: ULong = 0uL, public var Maximum: ULong = 0uL)
-
-public data class PO_FX_COMPONENT_V1(
-    public var Id: GUID = GUID(),
-    public var IdleStateCount: UInt = 0u,
-    public var DeepestWakeableIdleState: UInt = 0u,
-    public var IdleStates: Long = 0L,
-)
-
-public data class PO_FX_COMPONENT_V2(
-    public var Id: GUID = GUID(),
-    public var Flags: ULong = 0uL,
-    public var DeepestWakeableIdleState: UInt = 0u,
-    public var IdleStateCount: UInt = 0u,
-    public var IdleStates: Long = 0L,
-    public var ProviderCount: UInt = 0u,
-    public var Providers: Long = 0L,
-)
-
-public data class PO_FX_DEVICE_V1(
-    public var Version: UInt = 0u,
-    public var ComponentCount: UInt = 0u,
-    public var ComponentActiveConditionCallback: PPO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACK = null,
-    public var ComponentIdleConditionCallback: PPO_FX_COMPONENT_IDLE_CONDITION_CALLBACK = null,
-    public var ComponentIdleStateCallback: PPO_FX_COMPONENT_IDLE_STATE_CALLBACK = null,
-    public var DevicePowerRequiredCallback: PPO_FX_DEVICE_POWER_REQUIRED_CALLBACK = null,
-    public var DevicePowerNotRequiredCallback: PPO_FX_DEVICE_POWER_NOT_REQUIRED_CALLBACK = null,
-    public var PowerControlCallback: PPO_FX_POWER_CONTROL_CALLBACK = null,
-    public var DeviceContext: Long = 0L,
-    public var Components: List<PO_FX_COMPONENT_V1> = List(1) { PO_FX_COMPONENT_V1() },
-)
-
-public data class PO_FX_DEVICE_V2(
-    public var Version: UInt = 0u,
-    public var Flags: ULong = 0uL,
-    public var ComponentActiveConditionCallback: PPO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACK = null,
-    public var ComponentIdleConditionCallback: PPO_FX_COMPONENT_IDLE_CONDITION_CALLBACK = null,
-    public var ComponentIdleStateCallback: PPO_FX_COMPONENT_IDLE_STATE_CALLBACK = null,
-    public var DevicePowerRequiredCallback: PPO_FX_DEVICE_POWER_REQUIRED_CALLBACK = null,
-    public var DevicePowerNotRequiredCallback: PPO_FX_DEVICE_POWER_NOT_REQUIRED_CALLBACK = null,
-    public var PowerControlCallback: PPO_FX_POWER_CONTROL_CALLBACK = null,
-    public var DeviceContext: Long = 0L,
-    public var ComponentCount: UInt = 0u,
-    public var Components: List<PO_FX_COMPONENT_V2> = List(1) { PO_FX_COMPONENT_V2() },
-)
-
-public data class PO_FX_DEVICE_V3(
-    public var Version: UInt = 0u,
-    public var Flags: ULong = 0uL,
-    public var ComponentActiveConditionCallback: PPO_FX_COMPONENT_ACTIVE_CONDITION_CALLBACK = null,
-    public var ComponentIdleConditionCallback: PPO_FX_COMPONENT_IDLE_CONDITION_CALLBACK = null,
-    public var ComponentIdleStateCallback: PPO_FX_COMPONENT_IDLE_STATE_CALLBACK = null,
-    public var DevicePowerRequiredCallback: PPO_FX_DEVICE_POWER_REQUIRED_CALLBACK = null,
-    public var DevicePowerNotRequiredCallback: PPO_FX_DEVICE_POWER_NOT_REQUIRED_CALLBACK = null,
-    public var PowerControlCallback: PPO_FX_POWER_CONTROL_CALLBACK = null,
-    public var DirectedPowerUpCallback: PPO_FX_DIRECTED_POWER_UP_CALLBACK = null,
-    public var DirectedPowerDownCallback: PPO_FX_DIRECTED_POWER_DOWN_CALLBACK = null,
-    public var DirectedFxTimeoutInSeconds: UInt = 0u,
-    public var DeviceContext: Long = 0L,
-    public var ComponentCount: UInt = 0u,
-    public var Components: List<PO_FX_COMPONENT_V2> = List(1) { PO_FX_COMPONENT_V2() },
-)
-
-public data class PO_FX_PERF_STATE(public var Value: ULong = 0uL, public var Context: Long = 0L)
-
-public data class PO_FX_PERF_STATE_CHANGE(public var Set: UInt = 0u, public var Anonymous: PO_FX_PERF_STATE_CHANGE_0 = PO_FX_PERF_STATE_CHANGE_0())
-
-public data class PO_FX_PERF_STATE_CHANGE_0(public var StateIndex: UInt = 0u, public var StateValue: ULong = 0uL)
-
-public data class PROCESS_ACCESS_TOKEN(public var Token: HANDLE = 0L, public var Thread: HANDLE = 0L)
-
-public data class PROCESS_DEVICEMAP_INFORMATION(public var Anonymous: PROCESS_DEVICEMAP_INFORMATION_0 = PROCESS_DEVICEMAP_INFORMATION_0())
-
-public data class PROCESS_DEVICEMAP_INFORMATION_0(public var Set: PROCESS_DEVICEMAP_INFORMATION_0_0 = PROCESS_DEVICEMAP_INFORMATION_0_0(), public var Query: PROCESS_DEVICEMAP_INFORMATION_0_1 = PROCESS_DEVICEMAP_INFORMATION_0_1())
-
-public data class PROCESS_DEVICEMAP_INFORMATION_0_1(public var DriveMap: UInt = 0u, public var DriveType: UByteArray = UByteArray(32)) {
+public data class ProcessDevicemapInformationEx01(public var driveMap: UInt = 0u, public var driveType: UByteArray = UByteArray(32)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is PROCESS_DEVICEMAP_INFORMATION_0_1) return false
-        if (this.DriveMap != other.DriveMap) return false
-        if (!this.DriveType.contentEquals(other.DriveType)) return false
+        if (other !is ProcessDevicemapInformationEx01) return false
+        if (this.driveMap != other.driveMap) return false
+        if (!this.driveType.contentEquals(other.driveType)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.DriveMap.hashCode()
-        result = 31 * result + this.DriveType.contentHashCode()
+        var result = this.driveMap.hashCode()
+        result = 31 * result + this.driveType.contentHashCode()
         return result
     }
 }
 
-public data class PROCESS_DEVICEMAP_INFORMATION_0_0(public var DirectoryHandle: HANDLE = 0L)
+public data class ProcessDevicemapInformationEx00(public var directoryHandle: Handle = null)
 
-public data class PROCESS_DEVICEMAP_INFORMATION_EX(public var Anonymous: PROCESS_DEVICEMAP_INFORMATION_EX_0 = PROCESS_DEVICEMAP_INFORMATION_EX_0(), public var Flags: UInt = 0u)
+public data class ProcessExceptionPort(public var exceptionPortHandle: Handle = null, public var stateFlags: UInt = 0u)
 
-public data class PROCESS_DEVICEMAP_INFORMATION_EX_0(public var Set: PROCESS_DEVICEMAP_INFORMATION_EX_0_0 = PROCESS_DEVICEMAP_INFORMATION_EX_0_0(), public var Query: PROCESS_DEVICEMAP_INFORMATION_EX_0_1 = PROCESS_DEVICEMAP_INFORMATION_EX_0_1())
-
-public data class PROCESS_DEVICEMAP_INFORMATION_EX_0_1(public var DriveMap: UInt = 0u, public var DriveType: UByteArray = UByteArray(32)) {
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (other !is PROCESS_DEVICEMAP_INFORMATION_EX_0_1) return false
-        if (this.DriveMap != other.DriveMap) return false
-        if (!this.DriveType.contentEquals(other.DriveType)) return false
-        return true
-    }
-
-    override fun hashCode(): Int {
-        var result = this.DriveMap.hashCode()
-        result = 31 * result + this.DriveType.contentHashCode()
-        return result
-    }
-}
-
-public data class PROCESS_DEVICEMAP_INFORMATION_EX_0_0(public var DirectoryHandle: HANDLE = 0L)
-
-public data class PROCESS_EXCEPTION_PORT(public var ExceptionPortHandle: HANDLE = 0L, public var StateFlags: UInt = 0u)
-
-public data class PROCESS_EXTENDED_BASIC_INFORMATION(
-    public var Size: ULong = 0uL,
-    public var BasicInfo: PROCESS_BASIC_INFORMATION = PROCESS_BASIC_INFORMATION(),
-    public var Anonymous: PROCESS_EXTENDED_BASIC_INFORMATION_0 = PROCESS_EXTENDED_BASIC_INFORMATION_0(),
+public data class ProcessExtendedBasicInformation(
+    public var size: Int = 0,
+    public var basicInfo: ProcessBasicInformation = ProcessBasicInformation(),
+    public var anonymous: ProcessExtendedBasicInformation0 = ProcessExtendedBasicInformation0(),
 )
 
-public data class PROCESS_EXTENDED_BASIC_INFORMATION_0(public var Flags: UInt = 0u, public var Anonymous: PROCESS_EXTENDED_BASIC_INFORMATION_0_0 = PROCESS_EXTENDED_BASIC_INFORMATION_0_0())
+public data class ProcessExtendedBasicInformation0(public var flags: UInt = 0u, public var anonymous: ProcessExtendedBasicInformation00 = ProcessExtendedBasicInformation00())
 
-public data class PROCESS_EXTENDED_BASIC_INFORMATION_0_0(public var _bitfield: UInt = 0u)
+public data class ProcessExtendedBasicInformation00(public var bitfield: UInt = 0u)
 
-public data class PROCESS_HANDLE_TRACING_ENABLE(public var Flags: UInt = 0u)
+public data class ProcessHandleTracingEnable(public var flags: UInt = 0u)
 
-public data class PROCESS_HANDLE_TRACING_ENABLE_EX(public var Flags: UInt = 0u, public var TotalSlots: UInt = 0u)
+public data class ProcessHandleTracingEnableEx(public var flags: UInt = 0u, public var totalSlots: UInt = 0u)
 
-public data class PROCESS_HANDLE_TRACING_ENTRY(
-    public var Handle: HANDLE = 0L,
-    public var ClientId: CLIENT_ID = CLIENT_ID(),
-    public var Type: UInt = 0u,
-    public var Stacks: LongArray = LongArray(16),
-) {
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (other !is PROCESS_HANDLE_TRACING_ENTRY) return false
-        if (this.Handle != other.Handle) return false
-        if (this.ClientId != other.ClientId) return false
-        if (this.Type != other.Type) return false
-        if (!this.Stacks.contentEquals(other.Stacks)) return false
-        return true
-    }
-
-    override fun hashCode(): Int {
-        var result = this.Handle.hashCode()
-        result = 31 * result + this.ClientId.hashCode()
-        result = 31 * result + this.Type.hashCode()
-        result = 31 * result + this.Stacks.contentHashCode()
-        return result
-    }
-}
-
-public data class PROCESS_HANDLE_TRACING_QUERY(
-    public var Handle: HANDLE = 0L,
-    public var TotalTraces: UInt = 0u,
-    public var HandleTrace: List<PROCESS_HANDLE_TRACING_ENTRY> = List(1) { PROCESS_HANDLE_TRACING_ENTRY() },
+public data class ProcessHandleTracingEntry(
+    public var handle: Handle = null,
+    public var clientId: ClientId = ClientId(),
+    public var type: UInt = 0u,
+    public var stacks: List<COpaquePointer> = List(16) { COpaquePointer(0L) },
 )
 
-public data class PROCESS_KEEPALIVE_COUNT_INFORMATION(public var WakeCount: UInt = 0u, public var NoWakeCount: UInt = 0u)
-
-public data class PROCESS_MEMBERSHIP_INFORMATION(public var ServerSiloId: UInt = 0u)
-
-public data class PROCESS_REVOKE_FILE_HANDLES_INFORMATION(public var TargetDevicePath: UNICODE_STRING = UNICODE_STRING())
-
-public data class PROCESS_SESSION_INFORMATION(public var SessionId: UInt = 0u)
-
-public data class PROCESS_SYSCALL_PROVIDER_INFORMATION(public var ProviderId: GUID = GUID(), public var Level: UByte = 0u)
-
-public data class PROCESS_WS_WATCH_INFORMATION(public var FaultingPc: Long = 0L, public var FaultingVa: Long = 0L)
-
-public data class PS_CREATE_NOTIFY_INFO(
-    public var Size: ULong = 0uL,
-    public var Anonymous: PS_CREATE_NOTIFY_INFO_0 = PS_CREATE_NOTIFY_INFO_0(),
-    public var ParentProcessId: HANDLE = 0L,
-    public var CreatingThreadId: CLIENT_ID = CLIENT_ID(),
-    public var FileObject: Long = 0L,
-    public var ImageFileName: Long = 0L,
-    public var CommandLine: Long = 0L,
-    public var CreationStatus: NTSTATUS = 0,
+public data class ProcessHandleTracingQuery(
+    public var handle: Handle = null,
+    public var totalTraces: UInt = 0u,
+    public var handleTrace: List<ProcessHandleTracingEntry> = List(1) { ProcessHandleTracingEntry() },
 )
 
-public data class PS_CREATE_NOTIFY_INFO_0(public var Flags: UInt = 0u, public var Anonymous: PS_CREATE_NOTIFY_INFO_0_0 = PS_CREATE_NOTIFY_INFO_0_0())
+public data class ProcessKeepaliveCountInformation(public var wakeCount: UInt = 0u, public var noWakeCount: UInt = 0u)
 
-public data class PS_CREATE_NOTIFY_INFO_0_0(public var _bitfield: UInt = 0u)
+public data class ProcessMembershipInformation(public var serverSiloId: UInt = 0u)
 
-public data class PTM_CONTROL_INTERFACE(
-    public var Size: UShort = 0u,
-    public var Version: UShort = 0u,
-    public var Context: Long = 0L,
-    public var InterfaceReference: PINTERFACE_REFERENCE = null,
-    public var InterfaceDereference: PINTERFACE_DEREFERENCE = null,
-    public var QueryGranularity: PPTM_DEVICE_QUERY_GRANULARITY = null,
-    public var QueryTimeSource: PPTM_DEVICE_QUERY_TIME_SOURCE = null,
-    public var Enable: PPTM_DEVICE_ENABLE = null,
-    public var Disable: PPTM_DEVICE_DISABLE = null,
+public data class ProcessRevokeFileHandlesInformation(public var targetDevicePath: UnicodeString = UnicodeString())
+
+public data class ProcessSessionInformation(public var sessionId: UInt = 0u)
+
+public data class ProcessSyscallProviderInformation(public var providerId: Guid = Guid(), public var level: UByte = 0u)
+
+public data class ProcessWsWatchInformation(public var faultingPc: COpaquePointer? = null, public var faultingVa: COpaquePointer? = null)
+
+public data class PsCreateNotifyInfo(
+    public var size: Int = 0,
+    public var anonymous: PsCreateNotifyInfo0 = PsCreateNotifyInfo0(),
+    public var parentProcessId: Handle = null,
+    public var creatingThreadId: ClientId = ClientId(),
+    public var fileObject: FileObject? = null,
+    public var imageFileName: UnicodeString? = null,
+    public var commandLine: UnicodeString? = null,
+    public var creationStatus: Ntstatus = 0,
 )
 
-public data class REENUMERATE_SELF_INTERFACE_STANDARD(
-    public var Size: UShort = 0u,
-    public var Version: UShort = 0u,
-    public var Context: Long = 0L,
-    public var InterfaceReference: PINTERFACE_REFERENCE = null,
-    public var InterfaceDereference: PINTERFACE_DEREFERENCE = null,
-    public var SurpriseRemoveAndReenumerateSelf: PREENUMERATE_SELF = null,
+public data class PsCreateNotifyInfo0(public var flags: UInt = 0u, public var anonymous: PsCreateNotifyInfo00 = PsCreateNotifyInfo00())
+
+public data class PsCreateNotifyInfo00(public var bitfield: UInt = 0u)
+
+public data class PtmControlInterface(
+    public var size: UShort = 0u,
+    public var version: UShort = 0u,
+    public var context: COpaquePointer? = null,
+    public var interfaceReference: PinterfaceReference = null,
+    public var interfaceDereference: PinterfaceDereference = null,
+    public var queryGranularity: PptmDeviceQueryGranularity = null,
+    public var queryTimeSource: PptmDeviceQueryTimeSource = null,
+    public var enable: PptmDeviceEnable = null,
+    public var disable: PptmDeviceDisable = null,
 )
 
-public data class REG_CALLBACK_CONTEXT_CLEANUP_INFORMATION(
-    public var Object: Long = 0L,
-    public var ObjectContext: Long = 0L,
-    public var Reserved: Long = 0L,
+public data class ReenumerateSelfInterfaceStandard(
+    public var size: UShort = 0u,
+    public var version: UShort = 0u,
+    public var context: COpaquePointer? = null,
+    public var interfaceReference: PinterfaceReference = null,
+    public var interfaceDereference: PinterfaceDereference = null,
+    public var surpriseRemoveAndReenumerateSelf: PreenumerateSelf = null,
 )
 
-public data class REG_CREATE_KEY_INFORMATION(
-    public var CompleteName: Long = 0L,
-    public var RootObject: Long = 0L,
-    public var ObjectType: Long = 0L,
-    public var CreateOptions: UInt = 0u,
-    public var Class: Long = 0L,
-    public var SecurityDescriptor: Long = 0L,
-    public var SecurityQualityOfService: Long = 0L,
-    public var DesiredAccess: UInt = 0u,
-    public var GrantedAccess: UInt = 0u,
-    public var Disposition: Long = 0L,
-    public var ResultObject: Long = 0L,
-    public var CallContext: Long = 0L,
-    public var RootObjectContext: Long = 0L,
-    public var Transaction: Long = 0L,
-    public var Reserved: Long = 0L,
+public data class RegCallbackContextCleanupInformation(
+    public var obj: COpaquePointer? = null,
+    public var objectContext: COpaquePointer? = null,
+    public var reserved: COpaquePointer? = null,
 )
 
-public class REG_CREATE_KEY_INFORMATION_V1(
-    public var CompleteName: Long = 0L,
-    public var RootObject: Long = 0L,
-    public var ObjectType: Long = 0L,
-    public var Options: UInt = 0u,
-    public var Class: Long = 0L,
-    public var SecurityDescriptor: Long = 0L,
-    public var SecurityQualityOfService: Long = 0L,
-    public var DesiredAccess: UInt = 0u,
-    public var GrantedAccess: UInt = 0u,
-    public var Disposition: Long = 0L,
-    public var ResultObject: Long = 0L,
-    public var CallContext: Long = 0L,
-    public var RootObjectContext: Long = 0L,
-    public var Transaction: Long = 0L,
-    public var Version: ULong = 0uL,
-    public var RemainingName: Long = 0L,
-    public var Wow64Flags: UInt = 0u,
-    public var Attributes: UInt = 0u,
-    public var CheckAccessMode: Byte = 0,
+public data class RegCreateKeyInformation(
+    public var completeName: UnicodeString? = null,
+    public var rootObject: COpaquePointer? = null,
+    public var objectType: COpaquePointer? = null,
+    public var createOptions: UInt = 0u,
+    public var cls: UnicodeString? = null,
+    public var securityDescriptor: COpaquePointer? = null,
+    public var securityQualityOfService: COpaquePointer? = null,
+    public var desiredAccess: UInt = 0u,
+    public var grantedAccess: UInt = 0u,
+    public var disposition: UInt? = null,
+    public var resultObject: COpaquePointer? = null,
+    public var callContext: COpaquePointer? = null,
+    public var rootObjectContext: COpaquePointer? = null,
+    public var transaction: COpaquePointer? = null,
+    public var reserved: COpaquePointer? = null,
 )
 
-public data class REG_DELETE_KEY_INFORMATION(
-    public var Object: Long = 0L,
-    public var CallContext: Long = 0L,
-    public var ObjectContext: Long = 0L,
-    public var Reserved: Long = 0L,
+public class RegCreateKeyInformationV1(
+    public var completeName: UnicodeString? = null,
+    public var rootObject: COpaquePointer? = null,
+    public var objectType: COpaquePointer? = null,
+    public var options: UInt = 0u,
+    public var cls: UnicodeString? = null,
+    public var securityDescriptor: COpaquePointer? = null,
+    public var securityQualityOfService: COpaquePointer? = null,
+    public var desiredAccess: UInt = 0u,
+    public var grantedAccess: UInt = 0u,
+    public var disposition: UInt? = null,
+    public var resultObject: COpaquePointer? = null,
+    public var callContext: COpaquePointer? = null,
+    public var rootObjectContext: COpaquePointer? = null,
+    public var transaction: COpaquePointer? = null,
+    public var version: Int = 0,
+    public var remainingName: UnicodeString? = null,
+    public var wow64Flags: UInt = 0u,
+    public var attributes: UInt = 0u,
+    public var checkAccessMode: Byte = 0,
 )
 
-public data class REG_DELETE_VALUE_KEY_INFORMATION(
-    public var Object: Long = 0L,
-    public var ValueName: Long = 0L,
-    public var CallContext: Long = 0L,
-    public var ObjectContext: Long = 0L,
-    public var Reserved: Long = 0L,
+public data class RegDeleteKeyInformation(
+    public var obj: COpaquePointer? = null,
+    public var callContext: COpaquePointer? = null,
+    public var objectContext: COpaquePointer? = null,
+    public var reserved: COpaquePointer? = null,
 )
 
-public data class REG_KEY_HANDLE_CLOSE_INFORMATION(
-    public var Object: Long = 0L,
-    public var CallContext: Long = 0L,
-    public var ObjectContext: Long = 0L,
-    public var Reserved: Long = 0L,
+public data class RegDeleteValueKeyInformation(
+    public var obj: COpaquePointer? = null,
+    public var valueName: UnicodeString? = null,
+    public var callContext: COpaquePointer? = null,
+    public var objectContext: COpaquePointer? = null,
+    public var reserved: COpaquePointer? = null,
+)
+
+public data class RegKeyHandleCloseInformation(
+    public var obj: COpaquePointer? = null,
+    public var callContext: COpaquePointer? = null,
+    public var objectContext: COpaquePointer? = null,
+    public var reserved: COpaquePointer? = null,
 )

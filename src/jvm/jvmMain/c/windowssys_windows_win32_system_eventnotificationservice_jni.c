@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventnotificationservice_WindowsWin32SystemEventnotificationserviceJniBridge_windowssys_1windows_1win32_1system_1eventnotificationservice_1IsDestinationReachableA(JNIEnv* km_env, jclass km_clazz, jlong lpszdestination, jlong lpqocinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventnotificationservice_WindowsWin32SystemEventnotificationserviceJniBridge_windowssys_1windows_1win32_1system_1eventnotificationservice_1isDestinationReachableA(JNIEnv* km_env, jclass km_clazz, jlong lpszdestination, jlong lpqocinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -37,7 +37,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventnotificationservice_WindowsWin32SystemEventnotificationserviceJniBridge_windowssys_1windows_1win32_1system_1eventnotificationservice_1IsDestinationReachableW(JNIEnv* km_env, jclass km_clazz, jlong lpszdestination, jlong lpqocinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventnotificationservice_WindowsWin32SystemEventnotificationserviceJniBridge_windowssys_1windows_1win32_1system_1eventnotificationservice_1isDestinationReachableW(JNIEnv* km_env, jclass km_clazz, jlong lpszdestination, jlong lpqocinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -56,7 +56,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventnotificationservice_WindowsWin32SystemEventnotificationserviceJniBridge_windowssys_1windows_1win32_1system_1eventnotificationservice_1IsNetworkAlive(JNIEnv* km_env, jclass km_clazz, jlong lpdwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_eventnotificationservice_WindowsWin32SystemEventnotificationserviceJniBridge_windowssys_1windows_1win32_1system_1eventnotificationservice_1isNetworkAlive(JNIEnv* km_env, jclass km_clazz, jlong lpdwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

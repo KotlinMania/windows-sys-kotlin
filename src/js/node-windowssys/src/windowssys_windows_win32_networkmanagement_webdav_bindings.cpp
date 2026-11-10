@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_webdav_DavAddConnection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_webdav_davAddConnection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* connectionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* remotename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -79,7 +79,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_webdav_DavAddConne
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_webdav_DavCancelConnectionsToServer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_webdav_davCancelConnectionsToServer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fforce = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -99,7 +99,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_webdav_DavCancelCo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_webdav_DavDeleteConnection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_webdav_davDeleteConnection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* connectionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -117,7 +117,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_webdav_DavDeleteCo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_webdav_DavFlushFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_webdav_davFlushFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -135,7 +135,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_webdav_DavFlushFil
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_webdav_DavGetExtendedError_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_webdav_davGetExtendedError_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* exterror = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -159,7 +159,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_webdav_DavGetExten
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_webdav_DavGetHTTPFromUNCPath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_webdav_davGetHTTPFromUNCPath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* uncpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* url = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -181,7 +181,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_webdav_DavGetHTTPF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_webdav_DavGetTheLockOwnerOfTheFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_webdav_davGetTheLockOwnerOfTheFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lockownername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -203,7 +203,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_webdav_DavGetTheLo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_webdav_DavGetUNCFromHTTPPath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_webdav_davGetUNCFromHTTPPath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* url = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* uncpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -225,7 +225,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_webdav_DavGetUNCFr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_webdav_DavInvalidateCache_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_webdav_davInvalidateCache_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* urlname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -243,7 +243,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_webdav_DavInvalida
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_webdav_DavRegisterAuthCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_webdav_davRegisterAuthCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* callback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t version = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -263,7 +263,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_webdav_DavRegister
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_webdav_DavUnregisterAuthCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_webdav_davUnregisterAuthCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hcallback = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -281,17 +281,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_webdav_DavUnregist
 }
 
 static void register_windows_win32_networkmanagement_webdav_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_networkmanagement_webdav_DavAddConnection", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_webdav_DavAddConnection_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_webdav_DavCancelConnectionsToServer", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_webdav_DavCancelConnectionsToServer_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_webdav_DavDeleteConnection", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_webdav_DavDeleteConnection_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_webdav_DavFlushFile", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_webdav_DavFlushFile_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_webdav_DavGetExtendedError", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_webdav_DavGetExtendedError_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_webdav_DavGetHTTPFromUNCPath", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_webdav_DavGetHTTPFromUNCPath_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_webdav_DavGetTheLockOwnerOfTheFile", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_webdav_DavGetTheLockOwnerOfTheFile_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_webdav_DavGetUNCFromHTTPPath", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_webdav_DavGetUNCFromHTTPPath_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_webdav_DavInvalidateCache", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_webdav_DavInvalidateCache_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_webdav_DavRegisterAuthCallback", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_webdav_DavRegisterAuthCallback_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_webdav_DavUnregisterAuthCallback", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_webdav_DavUnregisterAuthCallback_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_webdav_davAddConnection", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_webdav_davAddConnection_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_webdav_davCancelConnectionsToServer", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_webdav_davCancelConnectionsToServer_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_webdav_davDeleteConnection", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_webdav_davDeleteConnection_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_webdav_davFlushFile", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_webdav_davFlushFile_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_webdav_davGetExtendedError", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_webdav_davGetExtendedError_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_webdav_davGetHTTPFromUNCPath", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_webdav_davGetHTTPFromUNCPath_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_webdav_davGetTheLockOwnerOfTheFile", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_webdav_davGetTheLockOwnerOfTheFile_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_webdav_davGetUNCFromHTTPPath", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_webdav_davGetUNCFromHTTPPath_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_webdav_davInvalidateCache", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_webdav_davInvalidateCache_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_webdav_davRegisterAuthCallback", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_webdav_davRegisterAuthCallback_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_webdav_davUnregisterAuthCallback", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_webdav_davUnregisterAuthCallback_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_networkmanagement_webdav_napi, nullptr };

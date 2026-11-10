@@ -2,17 +2,18 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networking.activedirectory
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
-import io.github.kotlinmania.windowssys.windows.win32.system.variant.VARIANT
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.HICON
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hicon
 
 private object WindowsWin32NetworkingActivedirectoryJniBridge {
     init {
@@ -20,962 +21,962 @@ private object WindowsWin32NetworkingActivedirectoryJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_ADsBuildEnumerator(padscontainer: Long, ppenumvariant: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_aDsBuildEnumerator(padscontainer: Long, ppenumvariant: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_ADsBuildVarArrayInt(lpdwobjecttypes: Long, dwobjecttypes: Int, pvar: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_aDsBuildVarArrayInt(lpdwobjecttypes: Long, dwobjecttypes: Int, pvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_ADsBuildVarArrayStr(lpppathnames: Long, dwpathnames: Int, pvar: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_aDsBuildVarArrayStr(lpppathnames: Long, dwpathnames: Int, pvar: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_ADsDecodeBinaryData(szsrcdata: Long, ppbdestdata: Long, pdwdestlen: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_aDsDecodeBinaryData(szsrcdata: Long, ppbdestdata: Long, pdwdestlen: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_ADsEncodeBinaryData(pbsrcdata: Long, dwsrclen: Int, ppszdestdata: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_aDsEncodeBinaryData(pbsrcdata: Long, dwsrclen: Int, ppszdestdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_ADsEnumerateNext(penumvariant: Long, celements: Int, pvar: Long, pcelementsfetched: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_aDsEnumerateNext(penumvariant: Long, celements: Int, pvar: Long, pcelementsfetched: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_ADsFreeEnumerator(penumvariant: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_aDsFreeEnumerator(penumvariant: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_ADsGetLastError(lperror: Long, lperrorbuf: Long, dwerrorbuflen: Int, lpnamebuf: Long, dwnamebuflen: Int): Int
+    external fun windowssys_windows_win32_networking_activedirectory_aDsGetLastError(lperror: Long, lperrorbuf: Long, dwerrorbuflen: Int, lpnamebuf: Long, dwnamebuflen: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_ADsGetObject(lpszpathname: Long, riid: Long, ppobject: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_aDsGetObject(lpszpathname: Long, riid: Long, ppobject: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_ADsOpenObject(lpszpathname: Long, lpszusername: Long, lpszpassword: Long, dwreserved: Int, riid: Long, ppobject: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_aDsOpenObject(lpszpathname: Long, lpszusername: Long, lpszpassword: Long, dwreserved: Int, riid: Long, ppobject: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_ADsPropCheckIfWritable(pwzattr: Long, pwritableattrs: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_aDsPropCheckIfWritable(pwzattr: Long, pwritableattrs: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_ADsPropCreateNotifyObj(pappthddataobj: Long, pwzadsobjname: Long, phnotifyobj: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_aDsPropCreateNotifyObj(pappthddataobj: Long, pwzadsobjname: Long, phnotifyobj: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_ADsPropGetInitInfo(hnotifyobj: Long, pinitparams: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_aDsPropGetInitInfo(hnotifyobj: Long, pinitparams: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_ADsPropSendErrorMessage(hnotifyobj: Long, perror: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_aDsPropSendErrorMessage(hnotifyobj: Long, perror: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_ADsPropSetHwnd(hnotifyobj: Long, hpage: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_aDsPropSetHwnd(hnotifyobj: Long, hpage: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_ADsPropSetHwndWithTitle(hnotifyobj: Long, hpage: Long, ptztitle: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_aDsPropSetHwndWithTitle(hnotifyobj: Long, hpage: Long, ptztitle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_ADsPropShowErrorDialog(hnotifyobj: Long, hpage: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_aDsPropShowErrorDialog(hnotifyobj: Long, hpage: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_ADsSetLastError(dwerr: Int, pszerror: Long, pszprovider: Long)
+    external fun windowssys_windows_win32_networking_activedirectory_aDsSetLastError(dwerr: Int, pszerror: Long, pszprovider: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_AdsFreeAdsValues(padsvalues: Long, dwnumvalues: Int)
+    external fun windowssys_windows_win32_networking_activedirectory_adsFreeAdsValues(padsvalues: Long, dwnumvalues: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_AdsTypeToPropVariant(padsvalues: Long, dwnumvalues: Int, pvariant: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_adsTypeToPropVariant(padsvalues: Long, dwnumvalues: Int, pvariant: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_AllocADsMem(cb: Int): Long
+    external fun windowssys_windows_win32_networking_activedirectory_allocADsMem(cb: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_AllocADsStr(pstr: Long): Long
+    external fun windowssys_windows_win32_networking_activedirectory_allocADsStr(pstr: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_BinarySDToSecurityDescriptor(psecuritydescriptor: Long, pvarsec: Long, pszservername: Long, username: Long, password: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_networking_activedirectory_binarySDToSecurityDescriptor(psecuritydescriptor: Long, pvarsec: Long, pszservername: Long, username: Long, password: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsAddSidHistoryA(hds: Long, flags: Int, srcdomain: Long, srcprincipal: Long, srcdomaincontroller: Long, srcdomaincreds: Long, dstdomain: Long, dstprincipal: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsAddSidHistoryA(hds: Long, flags: Int, srcdomain: Long, srcprincipal: Long, srcdomaincontroller: Long, srcdomaincreds: Long, dstdomain: Long, dstprincipal: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsAddSidHistoryW(hds: Long, flags: Int, srcdomain: Long, srcprincipal: Long, srcdomaincontroller: Long, srcdomaincreds: Long, dstdomain: Long, dstprincipal: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsAddSidHistoryW(hds: Long, flags: Int, srcdomain: Long, srcprincipal: Long, srcdomaincontroller: Long, srcdomaincreds: Long, dstdomain: Long, dstprincipal: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsAddressToSiteNamesA(computername: Long, entrycount: Int, socketaddresses: Long, sitenames: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsAddressToSiteNamesA(computername: Long, entrycount: Int, socketaddresses: Long, sitenames: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsAddressToSiteNamesExA(computername: Long, entrycount: Int, socketaddresses: Long, sitenames: Long, subnetnames: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsAddressToSiteNamesExA(computername: Long, entrycount: Int, socketaddresses: Long, sitenames: Long, subnetnames: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsAddressToSiteNamesExW(computername: Long, entrycount: Int, socketaddresses: Long, sitenames: Long, subnetnames: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsAddressToSiteNamesExW(computername: Long, entrycount: Int, socketaddresses: Long, sitenames: Long, subnetnames: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsAddressToSiteNamesW(computername: Long, entrycount: Int, socketaddresses: Long, sitenames: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsAddressToSiteNamesW(computername: Long, entrycount: Int, socketaddresses: Long, sitenames: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsBindA(domaincontrollername: Long, dnsdomainname: Long, phds: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsBindA(domaincontrollername: Long, dnsdomainname: Long, phds: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsBindByInstanceA(servername: Long, annotation: Long, instanceguid: Long, dnsdomainname: Long, authidentity: Long, serviceprincipalname: Long, bindflags: Int, phds: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsBindByInstanceA(servername: Long, annotation: Long, instanceguid: Long, dnsdomainname: Long, authidentity: Long, serviceprincipalname: Long, bindflags: Int, phds: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsBindByInstanceW(servername: Long, annotation: Long, instanceguid: Long, dnsdomainname: Long, authidentity: Long, serviceprincipalname: Long, bindflags: Int, phds: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsBindByInstanceW(servername: Long, annotation: Long, instanceguid: Long, dnsdomainname: Long, authidentity: Long, serviceprincipalname: Long, bindflags: Int, phds: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsBindToISTGA(sitename: Long, phds: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsBindToISTGA(sitename: Long, phds: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsBindToISTGW(sitename: Long, phds: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsBindToISTGW(sitename: Long, phds: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsBindW(domaincontrollername: Long, dnsdomainname: Long, phds: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsBindW(domaincontrollername: Long, dnsdomainname: Long, phds: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsBindWithCredA(domaincontrollername: Long, dnsdomainname: Long, authidentity: Long, phds: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsBindWithCredA(domaincontrollername: Long, dnsdomainname: Long, authidentity: Long, phds: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsBindWithCredW(domaincontrollername: Long, dnsdomainname: Long, authidentity: Long, phds: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsBindWithCredW(domaincontrollername: Long, dnsdomainname: Long, authidentity: Long, phds: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsBindWithSpnA(domaincontrollername: Long, dnsdomainname: Long, authidentity: Long, serviceprincipalname: Long, phds: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsBindWithSpnA(domaincontrollername: Long, dnsdomainname: Long, authidentity: Long, serviceprincipalname: Long, phds: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsBindWithSpnExA(domaincontrollername: Long, dnsdomainname: Long, authidentity: Long, serviceprincipalname: Long, bindflags: Int, phds: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsBindWithSpnExA(domaincontrollername: Long, dnsdomainname: Long, authidentity: Long, serviceprincipalname: Long, bindflags: Int, phds: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsBindWithSpnExW(domaincontrollername: Long, dnsdomainname: Long, authidentity: Long, serviceprincipalname: Long, bindflags: Int, phds: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsBindWithSpnExW(domaincontrollername: Long, dnsdomainname: Long, authidentity: Long, serviceprincipalname: Long, bindflags: Int, phds: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsBindWithSpnW(domaincontrollername: Long, dnsdomainname: Long, authidentity: Long, serviceprincipalname: Long, phds: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsBindWithSpnW(domaincontrollername: Long, dnsdomainname: Long, authidentity: Long, serviceprincipalname: Long, phds: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsBindingSetTimeout(hds: Long, ctimeoutsecs: Int): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsBindingSetTimeout(hds: Long, ctimeoutsecs: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsBrowseForContainerA(pinfo: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsBrowseForContainerA(pinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsBrowseForContainerW(pinfo: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsBrowseForContainerW(pinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsClientMakeSpnForTargetServerA(serviceclass: Long, servicename: Long, pcspnlength: Long, pszspn: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsClientMakeSpnForTargetServerA(serviceclass: Long, servicename: Long, pcspnlength: Long, pszspn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsClientMakeSpnForTargetServerW(serviceclass: Long, servicename: Long, pcspnlength: Long, pszspn: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsClientMakeSpnForTargetServerW(serviceclass: Long, servicename: Long, pcspnlength: Long, pszspn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsCrackNamesA(hds: Long, flags: Int, formatoffered: Int, formatdesired: Int, cnames: Int, rpnames: Long, ppresult: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsCrackNamesA(hds: Long, flags: Int, formatoffered: Int, formatdesired: Int, cnames: Int, rpnames: Long, ppresult: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsCrackNamesW(hds: Long, flags: Int, formatoffered: Int, formatdesired: Int, cnames: Int, rpnames: Long, ppresult: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsCrackNamesW(hds: Long, flags: Int, formatoffered: Int, formatdesired: Int, cnames: Int, rpnames: Long, ppresult: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsCrackSpn2A(pszspn: Long, cspn: Int, pcserviceclass: Long, serviceclass: Long, pcservicename: Long, servicename: Long, pcinstancename: Long, instancename: Long, pinstanceport: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsCrackSpn2A(pszspn: Long, cspn: Int, pcserviceclass: Long, serviceclass: Long, pcservicename: Long, servicename: Long, pcinstancename: Long, instancename: Long, pinstanceport: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsCrackSpn2W(pszspn: Long, cspn: Int, pcserviceclass: Long, serviceclass: Long, pcservicename: Long, servicename: Long, pcinstancename: Long, instancename: Long, pinstanceport: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsCrackSpn2W(pszspn: Long, cspn: Int, pcserviceclass: Long, serviceclass: Long, pcservicename: Long, servicename: Long, pcinstancename: Long, instancename: Long, pinstanceport: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsCrackSpn3W(pszspn: Long, cspn: Int, pchostname: Long, hostname: Long, pcinstancename: Long, instancename: Long, pportnumber: Long, pcdomainname: Long, domainname: Long, pcrealmname: Long, realmname: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsCrackSpn3W(pszspn: Long, cspn: Int, pchostname: Long, hostname: Long, pcinstancename: Long, instancename: Long, pportnumber: Long, pcdomainname: Long, domainname: Long, pcrealmname: Long, realmname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsCrackSpn4W(pszspn: Long, cspn: Int, pchostname: Long, hostname: Long, pcinstancename: Long, instancename: Long, pcportname: Long, portname: Long, pcdomainname: Long, domainname: Long, pcrealmname: Long, realmname: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsCrackSpn4W(pszspn: Long, cspn: Int, pchostname: Long, hostname: Long, pcinstancename: Long, instancename: Long, pcportname: Long, portname: Long, pcdomainname: Long, domainname: Long, pcrealmname: Long, realmname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsCrackSpnA(pszspn: Long, pcserviceclass: Long, serviceclass: Long, pcservicename: Long, servicename: Long, pcinstancename: Long, instancename: Long, pinstanceport: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsCrackSpnA(pszspn: Long, pcserviceclass: Long, serviceclass: Long, pcservicename: Long, servicename: Long, pcinstancename: Long, instancename: Long, pinstanceport: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsCrackSpnW(pszspn: Long, pcserviceclass: Long, serviceclass: Long, pcservicename: Long, servicename: Long, pcinstancename: Long, instancename: Long, pinstanceport: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsCrackSpnW(pszspn: Long, pcserviceclass: Long, serviceclass: Long, pcservicename: Long, servicename: Long, pcinstancename: Long, instancename: Long, pinstanceport: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsCrackUnquotedMangledRdnA(pszrdn: Long, cchrdn: Int, pguid: Long, pedsmanglefor: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsCrackUnquotedMangledRdnA(pszrdn: Long, cchrdn: Int, pguid: Long, pedsmanglefor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsCrackUnquotedMangledRdnW(pszrdn: Long, cchrdn: Int, pguid: Long, pedsmanglefor: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsCrackUnquotedMangledRdnW(pszrdn: Long, cchrdn: Int, pguid: Long, pedsmanglefor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsDeregisterDnsHostRecordsA(servername: Long, dnsdomainname: Long, domainguid: Long, dsaguid: Long, dnshostname: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsDeregisterDnsHostRecordsA(servername: Long, dnsdomainname: Long, domainguid: Long, dsaguid: Long, dnshostname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsDeregisterDnsHostRecordsW(servername: Long, dnsdomainname: Long, domainguid: Long, dsaguid: Long, dnshostname: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsDeregisterDnsHostRecordsW(servername: Long, dnsdomainname: Long, domainguid: Long, dsaguid: Long, dnshostname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsEnumerateDomainTrustsA(servername: Long, flags: Int, domains: Long, domaincount: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsEnumerateDomainTrustsA(servername: Long, flags: Int, domains: Long, domaincount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsEnumerateDomainTrustsW(servername: Long, flags: Int, domains: Long, domaincount: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsEnumerateDomainTrustsW(servername: Long, flags: Int, domains: Long, domaincount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsFreeDomainControllerInfoA(infolevel: Int, cinfo: Int, pinfo: Long)
+    external fun windowssys_windows_win32_networking_activedirectory_dsFreeDomainControllerInfoA(infolevel: Int, cinfo: Int, pinfo: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsFreeDomainControllerInfoW(infolevel: Int, cinfo: Int, pinfo: Long)
+    external fun windowssys_windows_win32_networking_activedirectory_dsFreeDomainControllerInfoW(infolevel: Int, cinfo: Int, pinfo: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsFreeNameResultA(presult: Long)
+    external fun windowssys_windows_win32_networking_activedirectory_dsFreeNameResultA(presult: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsFreeNameResultW(presult: Long)
+    external fun windowssys_windows_win32_networking_activedirectory_dsFreeNameResultW(presult: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsFreePasswordCredentials(authidentity: Long)
+    external fun windowssys_windows_win32_networking_activedirectory_dsFreePasswordCredentials(authidentity: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsFreeSchemaGuidMapA(pguidmap: Long)
+    external fun windowssys_windows_win32_networking_activedirectory_dsFreeSchemaGuidMapA(pguidmap: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsFreeSchemaGuidMapW(pguidmap: Long)
+    external fun windowssys_windows_win32_networking_activedirectory_dsFreeSchemaGuidMapW(pguidmap: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsFreeSpnArrayA(cspn: Int, rpszspn: Long)
+    external fun windowssys_windows_win32_networking_activedirectory_dsFreeSpnArrayA(cspn: Int, rpszspn: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsFreeSpnArrayW(cspn: Int, rpszspn: Long)
+    external fun windowssys_windows_win32_networking_activedirectory_dsFreeSpnArrayW(cspn: Int, rpszspn: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsGetDcCloseW(getdccontexthandle: Long)
+    external fun windowssys_windows_win32_networking_activedirectory_dsGetDcCloseW(getdccontexthandle: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsGetDcNameA(computername: Long, domainname: Long, domainguid: Long, sitename: Long, flags: Int, domaincontrollerinfo: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsGetDcNameA(computername: Long, domainname: Long, domainguid: Long, sitename: Long, flags: Int, domaincontrollerinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsGetDcNameW(computername: Long, domainname: Long, domainguid: Long, sitename: Long, flags: Int, domaincontrollerinfo: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsGetDcNameW(computername: Long, domainname: Long, domainguid: Long, sitename: Long, flags: Int, domaincontrollerinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsGetDcNextA(getdccontexthandle: Long, sockaddresscount: Long, sockaddresses: Long, dnshostname: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsGetDcNextA(getdccontexthandle: Long, sockaddresscount: Long, sockaddresses: Long, dnshostname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsGetDcNextW(getdccontexthandle: Long, sockaddresscount: Long, sockaddresses: Long, dnshostname: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsGetDcNextW(getdccontexthandle: Long, sockaddresscount: Long, sockaddresses: Long, dnshostname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsGetDcOpenA(dnsname: Long, optionflags: Int, sitename: Long, domainguid: Long, dnsforestname: Long, dcflags: Int, retgetdccontext: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsGetDcOpenA(dnsname: Long, optionflags: Int, sitename: Long, domainguid: Long, dnsforestname: Long, dcflags: Int, retgetdccontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsGetDcOpenW(dnsname: Long, optionflags: Int, sitename: Long, domainguid: Long, dnsforestname: Long, dcflags: Int, retgetdccontext: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsGetDcOpenW(dnsname: Long, optionflags: Int, sitename: Long, domainguid: Long, dnsforestname: Long, dcflags: Int, retgetdccontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsGetDcSiteCoverageA(servername: Long, entrycount: Long, sitenames: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsGetDcSiteCoverageA(servername: Long, entrycount: Long, sitenames: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsGetDcSiteCoverageW(servername: Long, entrycount: Long, sitenames: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsGetDcSiteCoverageW(servername: Long, entrycount: Long, sitenames: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsGetDomainControllerInfoA(hds: Long, domainname: Long, infolevel: Int, pcout: Long, ppinfo: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsGetDomainControllerInfoA(hds: Long, domainname: Long, infolevel: Int, pcout: Long, ppinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsGetDomainControllerInfoW(hds: Long, domainname: Long, infolevel: Int, pcout: Long, ppinfo: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsGetDomainControllerInfoW(hds: Long, domainname: Long, infolevel: Int, pcout: Long, ppinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsGetForestTrustInformationW(servername: Long, trusteddomainname: Long, flags: Int, foresttrustinfo: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsGetForestTrustInformationW(servername: Long, trusteddomainname: Long, flags: Int, foresttrustinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsGetFriendlyClassName(pszobjectclass: Long, pszbuffer: Long, cchbuffer: Int): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsGetFriendlyClassName(pszobjectclass: Long, pszbuffer: Long, cchbuffer: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsGetIcon(dwflags: Int, pszobjectclass: Long, cximage: Int, cyimage: Int): Long
+    external fun windowssys_windows_win32_networking_activedirectory_dsGetIcon(dwflags: Int, pszobjectclass: Long, cximage: Int, cyimage: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsGetRdnW(ppdn: Long, pcdn: Long, ppkey: Long, pckey: Long, ppval: Long, pcval: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsGetRdnW(ppdn: Long, pcdn: Long, ppkey: Long, pckey: Long, ppval: Long, pcval: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsGetSiteNameA(computername: Long, sitename: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsGetSiteNameA(computername: Long, sitename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsGetSiteNameW(computername: Long, sitename: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsGetSiteNameW(computername: Long, sitename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsGetSpnA(servicetype: Int, serviceclass: Long, servicename: Long, instanceport: Short, cinstancenames: Short, pinstancenames: Long, pinstanceports: Long, pcspn: Long, prpszspn: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsGetSpnA(servicetype: Int, serviceclass: Long, servicename: Long, instanceport: Short, cinstancenames: Short, pinstancenames: Long, pinstanceports: Long, pcspn: Long, prpszspn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsGetSpnW(servicetype: Int, serviceclass: Long, servicename: Long, instanceport: Short, cinstancenames: Short, pinstancenames: Long, pinstanceports: Long, pcspn: Long, prpszspn: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsGetSpnW(servicetype: Int, serviceclass: Long, servicename: Long, instanceport: Short, cinstancenames: Short, pinstancenames: Long, pinstanceports: Long, pcspn: Long, prpszspn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsInheritSecurityIdentityA(hds: Long, flags: Int, srcprincipal: Long, dstprincipal: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsInheritSecurityIdentityA(hds: Long, flags: Int, srcprincipal: Long, dstprincipal: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsInheritSecurityIdentityW(hds: Long, flags: Int, srcprincipal: Long, dstprincipal: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsInheritSecurityIdentityW(hds: Long, flags: Int, srcprincipal: Long, dstprincipal: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsIsMangledDnA(pszdn: Long, edsmanglefor: Int): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsIsMangledDnA(pszdn: Long, edsmanglefor: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsIsMangledDnW(pszdn: Long, edsmanglefor: Int): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsIsMangledDnW(pszdn: Long, edsmanglefor: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsIsMangledRdnValueA(pszrdn: Long, crdn: Int, edsmanglefordesired: Int): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsIsMangledRdnValueA(pszrdn: Long, crdn: Int, edsmanglefordesired: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsIsMangledRdnValueW(pszrdn: Long, crdn: Int, edsmanglefordesired: Int): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsIsMangledRdnValueW(pszrdn: Long, crdn: Int, edsmanglefordesired: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsListDomainsInSiteA(hds: Long, site: Long, ppdomains: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsListDomainsInSiteA(hds: Long, site: Long, ppdomains: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsListDomainsInSiteW(hds: Long, site: Long, ppdomains: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsListDomainsInSiteW(hds: Long, site: Long, ppdomains: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsListInfoForServerA(hds: Long, server: Long, ppinfo: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsListInfoForServerA(hds: Long, server: Long, ppinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsListInfoForServerW(hds: Long, server: Long, ppinfo: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsListInfoForServerW(hds: Long, server: Long, ppinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsListRolesA(hds: Long, pproles: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsListRolesA(hds: Long, pproles: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsListRolesW(hds: Long, pproles: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsListRolesW(hds: Long, pproles: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsListServersForDomainInSiteA(hds: Long, domain: Long, site: Long, ppservers: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsListServersForDomainInSiteA(hds: Long, domain: Long, site: Long, ppservers: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsListServersForDomainInSiteW(hds: Long, domain: Long, site: Long, ppservers: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsListServersForDomainInSiteW(hds: Long, domain: Long, site: Long, ppservers: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsListServersInSiteA(hds: Long, site: Long, ppservers: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsListServersInSiteA(hds: Long, site: Long, ppservers: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsListServersInSiteW(hds: Long, site: Long, ppservers: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsListServersInSiteW(hds: Long, site: Long, ppservers: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsListSitesA(hds: Long, ppsites: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsListSitesA(hds: Long, ppsites: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsListSitesW(hds: Long, ppsites: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsListSitesW(hds: Long, ppsites: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsMakePasswordCredentialsA(user: Long, domain: Long, password: Long, pauthidentity: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsMakePasswordCredentialsA(user: Long, domain: Long, password: Long, pauthidentity: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsMakePasswordCredentialsW(user: Long, domain: Long, password: Long, pauthidentity: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsMakePasswordCredentialsW(user: Long, domain: Long, password: Long, pauthidentity: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsMakeSpnA(serviceclass: Long, servicename: Long, instancename: Long, instanceport: Short, referrer: Long, pcspnlength: Long, pszspn: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsMakeSpnA(serviceclass: Long, servicename: Long, instancename: Long, instanceport: Short, referrer: Long, pcspnlength: Long, pszspn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsMakeSpnW(serviceclass: Long, servicename: Long, instancename: Long, instanceport: Short, referrer: Long, pcspnlength: Long, pszspn: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsMakeSpnW(serviceclass: Long, servicename: Long, instancename: Long, instanceport: Short, referrer: Long, pcspnlength: Long, pszspn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsMapSchemaGuidsA(hds: Long, cguids: Int, rguids: Long, ppguidmap: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsMapSchemaGuidsA(hds: Long, cguids: Int, rguids: Long, ppguidmap: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsMapSchemaGuidsW(hds: Long, cguids: Int, rguids: Long, ppguidmap: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsMapSchemaGuidsW(hds: Long, cguids: Int, rguids: Long, ppguidmap: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsMergeForestTrustInformationW(domainname: Long, newforesttrustinfo: Long, oldforesttrustinfo: Long, mergedforesttrustinfo: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsMergeForestTrustInformationW(domainname: Long, newforesttrustinfo: Long, oldforesttrustinfo: Long, mergedforesttrustinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsQuerySitesByCostA(hds: Long, pszfromsite: Long, rgsztosites: Long, ctosites: Int, dwflags: Int, prgsiteinfo: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsQuerySitesByCostA(hds: Long, pszfromsite: Long, rgsztosites: Long, ctosites: Int, dwflags: Int, prgsiteinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsQuerySitesByCostW(hds: Long, pwszfromsite: Long, rgwsztosites: Long, ctosites: Int, dwflags: Int, prgsiteinfo: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsQuerySitesByCostW(hds: Long, pwszfromsite: Long, rgwsztosites: Long, ctosites: Int, dwflags: Int, prgsiteinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsQuerySitesFree(rgsiteinfo: Long)
+    external fun windowssys_windows_win32_networking_activedirectory_dsQuerySitesFree(rgsiteinfo: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsQuoteRdnValueA(cunquotedrdnvaluelength: Int, psunquotedrdnvalue: Long, pcquotedrdnvaluelength: Long, psquotedrdnvalue: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsQuoteRdnValueA(cunquotedrdnvaluelength: Int, psunquotedrdnvalue: Long, pcquotedrdnvaluelength: Long, psquotedrdnvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsQuoteRdnValueW(cunquotedrdnvaluelength: Int, psunquotedrdnvalue: Long, pcquotedrdnvaluelength: Long, psquotedrdnvalue: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsQuoteRdnValueW(cunquotedrdnvaluelength: Int, psunquotedrdnvalue: Long, pcquotedrdnvaluelength: Long, psquotedrdnvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsRemoveDsDomainA(hds: Long, domaindn: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsRemoveDsDomainA(hds: Long, domaindn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsRemoveDsDomainW(hds: Long, domaindn: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsRemoveDsDomainW(hds: Long, domaindn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsRemoveDsServerA(hds: Long, serverdn: Long, domaindn: Long, flastdcindomain: Long, fcommit: Int): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsRemoveDsServerA(hds: Long, serverdn: Long, domaindn: Long, flastdcindomain: Long, fcommit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsRemoveDsServerW(hds: Long, serverdn: Long, domaindn: Long, flastdcindomain: Long, fcommit: Int): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsRemoveDsServerW(hds: Long, serverdn: Long, domaindn: Long, flastdcindomain: Long, fcommit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsReplicaAddA(hds: Long, namecontext: Long, sourcedsadn: Long, transportdn: Long, sourcedsaaddress: Long, pschedule: Long, options: Int): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsReplicaAddA(hds: Long, namecontext: Long, sourcedsadn: Long, transportdn: Long, sourcedsaaddress: Long, pschedule: Long, options: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsReplicaAddW(hds: Long, namecontext: Long, sourcedsadn: Long, transportdn: Long, sourcedsaaddress: Long, pschedule: Long, options: Int): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsReplicaAddW(hds: Long, namecontext: Long, sourcedsadn: Long, transportdn: Long, sourcedsaaddress: Long, pschedule: Long, options: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsReplicaConsistencyCheck(hds: Long, taskid: Int, dwflags: Int): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsReplicaConsistencyCheck(hds: Long, taskid: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsReplicaDelA(hds: Long, namecontext: Long, dsasrc: Long, options: Int): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsReplicaDelA(hds: Long, namecontext: Long, dsasrc: Long, options: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsReplicaDelW(hds: Long, namecontext: Long, dsasrc: Long, options: Int): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsReplicaDelW(hds: Long, namecontext: Long, dsasrc: Long, options: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsReplicaFreeInfo(infotype: Int, pinfo: Long)
+    external fun windowssys_windows_win32_networking_activedirectory_dsReplicaFreeInfo(infotype: Int, pinfo: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsReplicaGetInfo2W(hds: Long, infotype: Int, pszobject: Long, puuidforsourcedsaobjguid: Long, pszattributename: Long, pszvalue: Long, dwflags: Int, dwenumerationcontext: Int, ppinfo: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsReplicaGetInfo2W(hds: Long, infotype: Int, pszobject: Long, puuidforsourcedsaobjguid: Long, pszattributename: Long, pszvalue: Long, dwflags: Int, dwenumerationcontext: Int, ppinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsReplicaGetInfoW(hds: Long, infotype: Int, pszobject: Long, puuidforsourcedsaobjguid: Long, ppinfo: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsReplicaGetInfoW(hds: Long, infotype: Int, pszobject: Long, puuidforsourcedsaobjguid: Long, ppinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsReplicaModifyA(hds: Long, namecontext: Long, puuidsourcedsa: Long, transportdn: Long, sourcedsaaddress: Long, pschedule: Long, replicaflags: Int, modifyfields: Int, options: Int): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsReplicaModifyA(hds: Long, namecontext: Long, puuidsourcedsa: Long, transportdn: Long, sourcedsaaddress: Long, pschedule: Long, replicaflags: Int, modifyfields: Int, options: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsReplicaModifyW(hds: Long, namecontext: Long, puuidsourcedsa: Long, transportdn: Long, sourcedsaaddress: Long, pschedule: Long, replicaflags: Int, modifyfields: Int, options: Int): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsReplicaModifyW(hds: Long, namecontext: Long, puuidsourcedsa: Long, transportdn: Long, sourcedsaaddress: Long, pschedule: Long, replicaflags: Int, modifyfields: Int, options: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsReplicaSyncA(hds: Long, namecontext: Long, puuiddsasrc: Long, options: Int): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsReplicaSyncA(hds: Long, namecontext: Long, puuiddsasrc: Long, options: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsReplicaSyncAllA(hds: Long, psznamecontext: Long, ulflags: Int, pfncallback: Long, pcallbackdata: Long, perrors: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsReplicaSyncAllA(hds: Long, psznamecontext: Long, ulflags: Int, pfncallback: Long, pcallbackdata: Long, perrors: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsReplicaSyncAllW(hds: Long, psznamecontext: Long, ulflags: Int, pfncallback: Long, pcallbackdata: Long, perrors: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsReplicaSyncAllW(hds: Long, psznamecontext: Long, ulflags: Int, pfncallback: Long, pcallbackdata: Long, perrors: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsReplicaSyncW(hds: Long, namecontext: Long, puuiddsasrc: Long, options: Int): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsReplicaSyncW(hds: Long, namecontext: Long, puuiddsasrc: Long, options: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsReplicaUpdateRefsA(hds: Long, namecontext: Long, dsadest: Long, puuiddsadest: Long, options: Int): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsReplicaUpdateRefsA(hds: Long, namecontext: Long, dsadest: Long, puuiddsadest: Long, options: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsReplicaUpdateRefsW(hds: Long, namecontext: Long, dsadest: Long, puuiddsadest: Long, options: Int): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsReplicaUpdateRefsW(hds: Long, namecontext: Long, dsadest: Long, puuiddsadest: Long, options: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsReplicaVerifyObjectsA(hds: Long, namecontext: Long, puuiddsasrc: Long, uloptions: Int): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsReplicaVerifyObjectsA(hds: Long, namecontext: Long, puuiddsasrc: Long, uloptions: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsReplicaVerifyObjectsW(hds: Long, namecontext: Long, puuiddsasrc: Long, uloptions: Int): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsReplicaVerifyObjectsW(hds: Long, namecontext: Long, puuiddsasrc: Long, uloptions: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsRoleFreeMemory(buffer: Long)
+    external fun windowssys_windows_win32_networking_activedirectory_dsRoleFreeMemory(buffer: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsRoleGetPrimaryDomainInformation(lpserver: Long, infolevel: Int, buffer: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsRoleGetPrimaryDomainInformation(lpserver: Long, infolevel: Int, buffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsServerRegisterSpnA(operation: Int, serviceclass: Long, userobjectdn: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsServerRegisterSpnA(operation: Int, serviceclass: Long, userobjectdn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsServerRegisterSpnW(operation: Int, serviceclass: Long, userobjectdn: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsServerRegisterSpnW(operation: Int, serviceclass: Long, userobjectdn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsUnBindA(phds: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsUnBindA(phds: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsUnBindW(phds: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsUnBindW(phds: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsUnquoteRdnValueA(cquotedrdnvaluelength: Int, psquotedrdnvalue: Long, pcunquotedrdnvaluelength: Long, psunquotedrdnvalue: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsUnquoteRdnValueA(cquotedrdnvaluelength: Int, psquotedrdnvalue: Long, pcunquotedrdnvaluelength: Long, psunquotedrdnvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsUnquoteRdnValueW(cquotedrdnvaluelength: Int, psquotedrdnvalue: Long, pcunquotedrdnvaluelength: Long, psunquotedrdnvalue: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsUnquoteRdnValueW(cquotedrdnvaluelength: Int, psquotedrdnvalue: Long, pcunquotedrdnvaluelength: Long, psunquotedrdnvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsValidateSubnetNameA(subnetname: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsValidateSubnetNameA(subnetname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsValidateSubnetNameW(subnetname: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsValidateSubnetNameW(subnetname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsWriteAccountSpnA(hds: Long, operation: Int, pszaccount: Long, cspn: Int, rpszspn: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsWriteAccountSpnA(hds: Long, operation: Int, pszaccount: Long, cspn: Int, rpszspn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_DsWriteAccountSpnW(hds: Long, operation: Int, pszaccount: Long, cspn: Int, rpszspn: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_dsWriteAccountSpnW(hds: Long, operation: Int, pszaccount: Long, cspn: Int, rpszspn: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_FreeADsMem(pmem: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_freeADsMem(pmem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_FreeADsStr(pstr: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_freeADsStr(pstr: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_PropVariantToAdsType(pvariant: Long, dwnumvariant: Int, ppadsvalues: Long, pdwnumvalues: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_propVariantToAdsType(pvariant: Long, dwnumvariant: Int, ppadsvalues: Long, pdwnumvalues: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_ReallocADsMem(poldmem: Long, cbold: Int, cbnew: Int): Long
+    external fun windowssys_windows_win32_networking_activedirectory_reallocADsMem(poldmem: Long, cbold: Int, cbnew: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_activedirectory_ReallocADsStr(ppstr: Long, pstr: Long): Int
+    external fun windowssys_windows_win32_networking_activedirectory_reallocADsStr(ppstr: Long, pstr: Long): Int
 }
 
-public actual fun ADsBuildEnumerator(padscontainer: Long, ppenumvariant: Long): HRESULT =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_ADsBuildEnumerator(padscontainer, ppenumvariant)
+public actual fun aDsBuildEnumerator(padscontainer: COpaquePointer?, ppenumvariant: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_aDsBuildEnumerator((padscontainer?.value ?: 0L), (ppenumvariant?.value ?: 0L))
 
-public actual fun ADsBuildVarArrayInt(lpdwobjecttypes: Long, dwobjecttypes: UInt, pvar: Long): HRESULT =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_ADsBuildVarArrayInt(lpdwobjecttypes, dwobjecttypes.toInt(), pvar)
+public actual fun aDsBuildVarArrayInt(lpdwobjecttypes: COpaquePointer?, dwobjecttypes: UInt, pvar: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_aDsBuildVarArrayInt((lpdwobjecttypes?.value ?: 0L), dwobjecttypes.toInt(), (pvar?.value ?: 0L))
 
-public actual fun ADsBuildVarArrayStr(lpppathnames: Long, dwpathnames: UInt, pvar: Long): HRESULT =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_ADsBuildVarArrayStr(lpppathnames, dwpathnames.toInt(), pvar)
+public actual fun aDsBuildVarArrayStr(lpppathnames: COpaquePointer?, dwpathnames: UInt, pvar: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_aDsBuildVarArrayStr((lpppathnames?.value ?: 0L), dwpathnames.toInt(), (pvar?.value ?: 0L))
 
-public actual fun ADsDecodeBinaryData(szsrcdata: PCWSTR, ppbdestdata: Long, pdwdestlen: Long): HRESULT =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_ADsDecodeBinaryData(szsrcdata, ppbdestdata, pdwdestlen)
+public actual fun aDsDecodeBinaryData(szsrcdata: Pcwstr, ppbdestdata: COpaquePointer?, pdwdestlen: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_aDsDecodeBinaryData((szsrcdata?.value ?: 0L), (ppbdestdata?.value ?: 0L), (pdwdestlen?.value ?: 0L))
 
-public actual fun ADsEncodeBinaryData(pbsrcdata: Long, dwsrclen: UInt, ppszdestdata: Long): HRESULT =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_ADsEncodeBinaryData(pbsrcdata, dwsrclen.toInt(), ppszdestdata)
+public actual fun aDsEncodeBinaryData(pbsrcdata: COpaquePointer?, dwsrclen: UInt, ppszdestdata: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_aDsEncodeBinaryData((pbsrcdata?.value ?: 0L), dwsrclen.toInt(), (ppszdestdata?.value ?: 0L))
 
-public actual fun ADsEnumerateNext(penumvariant: Long, celements: UInt, pvar: Long, pcelementsfetched: Long): HRESULT =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_ADsEnumerateNext(penumvariant, celements.toInt(), pvar, pcelementsfetched)
+public actual fun aDsEnumerateNext(penumvariant: COpaquePointer?, celements: UInt, pvar: COpaquePointer?, pcelementsfetched: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_aDsEnumerateNext((penumvariant?.value ?: 0L), celements.toInt(), (pvar?.value ?: 0L), (pcelementsfetched?.value ?: 0L))
 
-public actual fun ADsFreeEnumerator(penumvariant: Long): HRESULT =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_ADsFreeEnumerator(penumvariant)
+public actual fun aDsFreeEnumerator(penumvariant: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_aDsFreeEnumerator((penumvariant?.value ?: 0L))
 
-public actual fun ADsGetLastError(lperror: Long, lperrorbuf: PWSTR, dwerrorbuflen: UInt, lpnamebuf: PWSTR, dwnamebuflen: UInt): HRESULT =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_ADsGetLastError(lperror, lperrorbuf, dwerrorbuflen.toInt(), lpnamebuf, dwnamebuflen.toInt())
+public actual fun aDsGetLastError(lperror: COpaquePointer?, lperrorbuf: Pwstr, dwerrorbuflen: UInt, lpnamebuf: Pwstr, dwnamebuflen: UInt): Hresult =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_aDsGetLastError((lperror?.value ?: 0L), (lperrorbuf?.value ?: 0L), dwerrorbuflen.toInt(), (lpnamebuf?.value ?: 0L), dwnamebuflen.toInt())
 
-public actual fun ADsGetObject(lpszpathname: PCWSTR, riid: Long, ppobject: Long): HRESULT =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_ADsGetObject(lpszpathname, riid, ppobject)
+public actual fun aDsGetObject(lpszpathname: Pcwstr, riid: COpaquePointer?, ppobject: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_aDsGetObject((lpszpathname?.value ?: 0L), (riid?.value ?: 0L), (ppobject?.value ?: 0L))
 
-public actual fun ADsOpenObject(lpszpathname: PCWSTR, lpszusername: PCWSTR, lpszpassword: PCWSTR, dwreserved: ADS_AUTHENTICATION_ENUM, riid: Long, ppobject: Long): HRESULT =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_ADsOpenObject(lpszpathname, lpszusername, lpszpassword, dwreserved.toInt(), riid, ppobject)
+public actual fun aDsOpenObject(lpszpathname: Pcwstr, lpszusername: Pcwstr, lpszpassword: Pcwstr, dwreserved: AdsAuthenticationEnum, riid: COpaquePointer?, ppobject: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_aDsOpenObject((lpszpathname?.value ?: 0L), (lpszusername?.value ?: 0L), (lpszpassword?.value ?: 0L), dwreserved.toInt(), (riid?.value ?: 0L), (ppobject?.value ?: 0L))
 
-public actual fun ADsPropCheckIfWritable(pwzattr: PCWSTR, pwritableattrs: Long): BOOL =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_ADsPropCheckIfWritable(pwzattr, pwritableattrs)
+public actual fun aDsPropCheckIfWritable(pwzattr: Pcwstr, pwritableattrs: COpaquePointer?): Bool =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_aDsPropCheckIfWritable((pwzattr?.value ?: 0L), (pwritableattrs?.value ?: 0L))
 
-public actual fun ADsPropCreateNotifyObj(pappthddataobj: Long, pwzadsobjname: PCWSTR, phnotifyobj: Long): HRESULT =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_ADsPropCreateNotifyObj(pappthddataobj, pwzadsobjname, phnotifyobj)
+public actual fun aDsPropCreateNotifyObj(pappthddataobj: COpaquePointer?, pwzadsobjname: Pcwstr, phnotifyobj: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_aDsPropCreateNotifyObj((pappthddataobj?.value ?: 0L), (pwzadsobjname?.value ?: 0L), (phnotifyobj?.value ?: 0L))
 
-public actual fun ADsPropGetInitInfo(hnotifyobj: HWND, pinitparams: Long): BOOL =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_ADsPropGetInitInfo(hnotifyobj, pinitparams)
+public actual fun aDsPropGetInitInfo(hnotifyobj: Hwnd, pinitparams: COpaquePointer?): Bool =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_aDsPropGetInitInfo((hnotifyobj?.value ?: 0L), (pinitparams?.value ?: 0L))
 
-public actual fun ADsPropSendErrorMessage(hnotifyobj: HWND, perror: Long): BOOL =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_ADsPropSendErrorMessage(hnotifyobj, perror)
+public actual fun aDsPropSendErrorMessage(hnotifyobj: Hwnd, perror: COpaquePointer?): Bool =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_aDsPropSendErrorMessage((hnotifyobj?.value ?: 0L), (perror?.value ?: 0L))
 
-public actual fun ADsPropSetHwnd(hnotifyobj: HWND, hpage: HWND): BOOL =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_ADsPropSetHwnd(hnotifyobj, hpage)
+public actual fun aDsPropSetHwnd(hnotifyobj: Hwnd, hpage: Hwnd): Bool =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_aDsPropSetHwnd((hnotifyobj?.value ?: 0L), (hpage?.value ?: 0L))
 
-public actual fun ADsPropSetHwndWithTitle(hnotifyobj: HWND, hpage: HWND, ptztitle: Long): BOOL =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_ADsPropSetHwndWithTitle(hnotifyobj, hpage, ptztitle)
+public actual fun aDsPropSetHwndWithTitle(hnotifyobj: Hwnd, hpage: Hwnd, ptztitle: COpaquePointer?): Bool =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_aDsPropSetHwndWithTitle((hnotifyobj?.value ?: 0L), (hpage?.value ?: 0L), (ptztitle?.value ?: 0L))
 
-public actual fun ADsPropShowErrorDialog(hnotifyobj: HWND, hpage: HWND): BOOL =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_ADsPropShowErrorDialog(hnotifyobj, hpage)
+public actual fun aDsPropShowErrorDialog(hnotifyobj: Hwnd, hpage: Hwnd): Bool =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_aDsPropShowErrorDialog((hnotifyobj?.value ?: 0L), (hpage?.value ?: 0L))
 
-public actual fun ADsSetLastError(dwerr: UInt, pszerror: PCWSTR, pszprovider: PCWSTR) {
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_ADsSetLastError(dwerr.toInt(), pszerror, pszprovider)
+public actual fun aDsSetLastError(dwerr: UInt, pszerror: Pcwstr, pszprovider: Pcwstr) {
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_aDsSetLastError(dwerr.toInt(), (pszerror?.value ?: 0L), (pszprovider?.value ?: 0L))
 }
 
-public actual fun AdsFreeAdsValues(padsvalues: Long, dwnumvalues: UInt) {
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_AdsFreeAdsValues(padsvalues, dwnumvalues.toInt())
+public actual fun adsFreeAdsValues(padsvalues: COpaquePointer?, dwnumvalues: UInt) {
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_adsFreeAdsValues((padsvalues?.value ?: 0L), dwnumvalues.toInt())
 }
 
-public actual fun AdsTypeToPropVariant(padsvalues: Long, dwnumvalues: UInt, pvariant: Long): HRESULT =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_AdsTypeToPropVariant(padsvalues, dwnumvalues.toInt(), pvariant)
+public actual fun adsTypeToPropVariant(padsvalues: COpaquePointer?, dwnumvalues: UInt, pvariant: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_adsTypeToPropVariant((padsvalues?.value ?: 0L), dwnumvalues.toInt(), (pvariant?.value ?: 0L))
 
-public actual fun AllocADsMem(cb: UInt): Long =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_AllocADsMem(cb.toInt())
+public actual fun allocADsMem(cb: UInt): COpaquePointer? =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_allocADsMem(cb.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun AllocADsStr(pstr: PCWSTR): PWSTR =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_AllocADsStr(pstr)
+public actual fun allocADsStr(pstr: Pcwstr): Pwstr =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_allocADsStr((pstr?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun BinarySDToSecurityDescriptor(psecuritydescriptor: PSECURITY_DESCRIPTOR, pvarsec: Long, pszservername: PCWSTR, username: PCWSTR, password: PCWSTR, dwflags: UInt): HRESULT =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_BinarySDToSecurityDescriptor(psecuritydescriptor, pvarsec, pszservername, username, password, dwflags.toInt())
+public actual fun binarySDToSecurityDescriptor(psecuritydescriptor: PsecurityDescriptor, pvarsec: COpaquePointer?, pszservername: Pcwstr, username: Pcwstr, password: Pcwstr, dwflags: UInt): Hresult =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_binarySDToSecurityDescriptor((psecuritydescriptor?.value ?: 0L), (pvarsec?.value ?: 0L), (pszservername?.value ?: 0L), (username?.value ?: 0L), (password?.value ?: 0L), dwflags.toInt())
 
-public actual fun DsAddSidHistoryA(hds: HANDLE, flags: UInt, srcdomain: PCSTR, srcprincipal: PCSTR, srcdomaincontroller: PCSTR, srcdomaincreds: Long, dstdomain: PCSTR, dstprincipal: PCSTR): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsAddSidHistoryA(hds, flags.toInt(), srcdomain, srcprincipal, srcdomaincontroller, srcdomaincreds, dstdomain, dstprincipal).toUInt()
+public actual fun dsAddSidHistoryA(hds: Handle, flags: UInt, srcdomain: Pcstr, srcprincipal: Pcstr, srcdomaincontroller: Pcstr, srcdomaincreds: COpaquePointer?, dstdomain: Pcstr, dstprincipal: Pcstr): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsAddSidHistoryA((hds?.value ?: 0L), flags.toInt(), (srcdomain?.value ?: 0L), (srcprincipal?.value ?: 0L), (srcdomaincontroller?.value ?: 0L), (srcdomaincreds?.value ?: 0L), (dstdomain?.value ?: 0L), (dstprincipal?.value ?: 0L)).toUInt()
 
-public actual fun DsAddSidHistoryW(hds: HANDLE, flags: UInt, srcdomain: PCWSTR, srcprincipal: PCWSTR, srcdomaincontroller: PCWSTR, srcdomaincreds: Long, dstdomain: PCWSTR, dstprincipal: PCWSTR): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsAddSidHistoryW(hds, flags.toInt(), srcdomain, srcprincipal, srcdomaincontroller, srcdomaincreds, dstdomain, dstprincipal).toUInt()
+public actual fun dsAddSidHistoryW(hds: Handle, flags: UInt, srcdomain: Pcwstr, srcprincipal: Pcwstr, srcdomaincontroller: Pcwstr, srcdomaincreds: COpaquePointer?, dstdomain: Pcwstr, dstprincipal: Pcwstr): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsAddSidHistoryW((hds?.value ?: 0L), flags.toInt(), (srcdomain?.value ?: 0L), (srcprincipal?.value ?: 0L), (srcdomaincontroller?.value ?: 0L), (srcdomaincreds?.value ?: 0L), (dstdomain?.value ?: 0L), (dstprincipal?.value ?: 0L)).toUInt()
 
-public actual fun DsAddressToSiteNamesA(computername: PCSTR, entrycount: UInt, socketaddresses: Long, sitenames: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsAddressToSiteNamesA(computername, entrycount.toInt(), socketaddresses, sitenames).toUInt()
+public actual fun dsAddressToSiteNamesA(computername: Pcstr, entrycount: UInt, socketaddresses: COpaquePointer?, sitenames: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsAddressToSiteNamesA((computername?.value ?: 0L), entrycount.toInt(), (socketaddresses?.value ?: 0L), (sitenames?.value ?: 0L)).toUInt()
 
-public actual fun DsAddressToSiteNamesExA(computername: PCSTR, entrycount: UInt, socketaddresses: Long, sitenames: Long, subnetnames: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsAddressToSiteNamesExA(computername, entrycount.toInt(), socketaddresses, sitenames, subnetnames).toUInt()
+public actual fun dsAddressToSiteNamesExA(computername: Pcstr, entrycount: UInt, socketaddresses: COpaquePointer?, sitenames: COpaquePointer?, subnetnames: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsAddressToSiteNamesExA((computername?.value ?: 0L), entrycount.toInt(), (socketaddresses?.value ?: 0L), (sitenames?.value ?: 0L), (subnetnames?.value ?: 0L)).toUInt()
 
-public actual fun DsAddressToSiteNamesExW(computername: PCWSTR, entrycount: UInt, socketaddresses: Long, sitenames: Long, subnetnames: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsAddressToSiteNamesExW(computername, entrycount.toInt(), socketaddresses, sitenames, subnetnames).toUInt()
+public actual fun dsAddressToSiteNamesExW(computername: Pcwstr, entrycount: UInt, socketaddresses: COpaquePointer?, sitenames: COpaquePointer?, subnetnames: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsAddressToSiteNamesExW((computername?.value ?: 0L), entrycount.toInt(), (socketaddresses?.value ?: 0L), (sitenames?.value ?: 0L), (subnetnames?.value ?: 0L)).toUInt()
 
-public actual fun DsAddressToSiteNamesW(computername: PCWSTR, entrycount: UInt, socketaddresses: Long, sitenames: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsAddressToSiteNamesW(computername, entrycount.toInt(), socketaddresses, sitenames).toUInt()
+public actual fun dsAddressToSiteNamesW(computername: Pcwstr, entrycount: UInt, socketaddresses: COpaquePointer?, sitenames: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsAddressToSiteNamesW((computername?.value ?: 0L), entrycount.toInt(), (socketaddresses?.value ?: 0L), (sitenames?.value ?: 0L)).toUInt()
 
-public actual fun DsBindA(domaincontrollername: PCSTR, dnsdomainname: PCSTR, phds: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsBindA(domaincontrollername, dnsdomainname, phds).toUInt()
+public actual fun dsBindA(domaincontrollername: Pcstr, dnsdomainname: Pcstr, phds: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsBindA((domaincontrollername?.value ?: 0L), (dnsdomainname?.value ?: 0L), (phds?.value ?: 0L)).toUInt()
 
-public actual fun DsBindByInstanceA(servername: PCSTR, annotation: PCSTR, instanceguid: Long, dnsdomainname: PCSTR, authidentity: Long, serviceprincipalname: PCSTR, bindflags: UInt, phds: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsBindByInstanceA(servername, annotation, instanceguid, dnsdomainname, authidentity, serviceprincipalname, bindflags.toInt(), phds).toUInt()
+public actual fun dsBindByInstanceA(servername: Pcstr, annotation: Pcstr, instanceguid: COpaquePointer?, dnsdomainname: Pcstr, authidentity: COpaquePointer?, serviceprincipalname: Pcstr, bindflags: UInt, phds: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsBindByInstanceA((servername?.value ?: 0L), (annotation?.value ?: 0L), (instanceguid?.value ?: 0L), (dnsdomainname?.value ?: 0L), (authidentity?.value ?: 0L), (serviceprincipalname?.value ?: 0L), bindflags.toInt(), (phds?.value ?: 0L)).toUInt()
 
-public actual fun DsBindByInstanceW(servername: PCWSTR, annotation: PCWSTR, instanceguid: Long, dnsdomainname: PCWSTR, authidentity: Long, serviceprincipalname: PCWSTR, bindflags: UInt, phds: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsBindByInstanceW(servername, annotation, instanceguid, dnsdomainname, authidentity, serviceprincipalname, bindflags.toInt(), phds).toUInt()
+public actual fun dsBindByInstanceW(servername: Pcwstr, annotation: Pcwstr, instanceguid: COpaquePointer?, dnsdomainname: Pcwstr, authidentity: COpaquePointer?, serviceprincipalname: Pcwstr, bindflags: UInt, phds: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsBindByInstanceW((servername?.value ?: 0L), (annotation?.value ?: 0L), (instanceguid?.value ?: 0L), (dnsdomainname?.value ?: 0L), (authidentity?.value ?: 0L), (serviceprincipalname?.value ?: 0L), bindflags.toInt(), (phds?.value ?: 0L)).toUInt()
 
-public actual fun DsBindToISTGA(sitename: PCSTR, phds: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsBindToISTGA(sitename, phds).toUInt()
+public actual fun dsBindToISTGA(sitename: Pcstr, phds: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsBindToISTGA((sitename?.value ?: 0L), (phds?.value ?: 0L)).toUInt()
 
-public actual fun DsBindToISTGW(sitename: PCWSTR, phds: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsBindToISTGW(sitename, phds).toUInt()
+public actual fun dsBindToISTGW(sitename: Pcwstr, phds: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsBindToISTGW((sitename?.value ?: 0L), (phds?.value ?: 0L)).toUInt()
 
-public actual fun DsBindW(domaincontrollername: PCWSTR, dnsdomainname: PCWSTR, phds: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsBindW(domaincontrollername, dnsdomainname, phds).toUInt()
+public actual fun dsBindW(domaincontrollername: Pcwstr, dnsdomainname: Pcwstr, phds: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsBindW((domaincontrollername?.value ?: 0L), (dnsdomainname?.value ?: 0L), (phds?.value ?: 0L)).toUInt()
 
-public actual fun DsBindWithCredA(domaincontrollername: PCSTR, dnsdomainname: PCSTR, authidentity: Long, phds: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsBindWithCredA(domaincontrollername, dnsdomainname, authidentity, phds).toUInt()
+public actual fun dsBindWithCredA(domaincontrollername: Pcstr, dnsdomainname: Pcstr, authidentity: COpaquePointer?, phds: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsBindWithCredA((domaincontrollername?.value ?: 0L), (dnsdomainname?.value ?: 0L), (authidentity?.value ?: 0L), (phds?.value ?: 0L)).toUInt()
 
-public actual fun DsBindWithCredW(domaincontrollername: PCWSTR, dnsdomainname: PCWSTR, authidentity: Long, phds: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsBindWithCredW(domaincontrollername, dnsdomainname, authidentity, phds).toUInt()
+public actual fun dsBindWithCredW(domaincontrollername: Pcwstr, dnsdomainname: Pcwstr, authidentity: COpaquePointer?, phds: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsBindWithCredW((domaincontrollername?.value ?: 0L), (dnsdomainname?.value ?: 0L), (authidentity?.value ?: 0L), (phds?.value ?: 0L)).toUInt()
 
-public actual fun DsBindWithSpnA(domaincontrollername: PCSTR, dnsdomainname: PCSTR, authidentity: Long, serviceprincipalname: PCSTR, phds: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsBindWithSpnA(domaincontrollername, dnsdomainname, authidentity, serviceprincipalname, phds).toUInt()
+public actual fun dsBindWithSpnA(domaincontrollername: Pcstr, dnsdomainname: Pcstr, authidentity: COpaquePointer?, serviceprincipalname: Pcstr, phds: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsBindWithSpnA((domaincontrollername?.value ?: 0L), (dnsdomainname?.value ?: 0L), (authidentity?.value ?: 0L), (serviceprincipalname?.value ?: 0L), (phds?.value ?: 0L)).toUInt()
 
-public actual fun DsBindWithSpnExA(domaincontrollername: PCSTR, dnsdomainname: PCSTR, authidentity: Long, serviceprincipalname: PCSTR, bindflags: UInt, phds: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsBindWithSpnExA(domaincontrollername, dnsdomainname, authidentity, serviceprincipalname, bindflags.toInt(), phds).toUInt()
+public actual fun dsBindWithSpnExA(domaincontrollername: Pcstr, dnsdomainname: Pcstr, authidentity: COpaquePointer?, serviceprincipalname: Pcstr, bindflags: UInt, phds: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsBindWithSpnExA((domaincontrollername?.value ?: 0L), (dnsdomainname?.value ?: 0L), (authidentity?.value ?: 0L), (serviceprincipalname?.value ?: 0L), bindflags.toInt(), (phds?.value ?: 0L)).toUInt()
 
-public actual fun DsBindWithSpnExW(domaincontrollername: PCWSTR, dnsdomainname: PCWSTR, authidentity: Long, serviceprincipalname: PCWSTR, bindflags: UInt, phds: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsBindWithSpnExW(domaincontrollername, dnsdomainname, authidentity, serviceprincipalname, bindflags.toInt(), phds).toUInt()
+public actual fun dsBindWithSpnExW(domaincontrollername: Pcwstr, dnsdomainname: Pcwstr, authidentity: COpaquePointer?, serviceprincipalname: Pcwstr, bindflags: UInt, phds: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsBindWithSpnExW((domaincontrollername?.value ?: 0L), (dnsdomainname?.value ?: 0L), (authidentity?.value ?: 0L), (serviceprincipalname?.value ?: 0L), bindflags.toInt(), (phds?.value ?: 0L)).toUInt()
 
-public actual fun DsBindWithSpnW(domaincontrollername: PCWSTR, dnsdomainname: PCWSTR, authidentity: Long, serviceprincipalname: PCWSTR, phds: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsBindWithSpnW(domaincontrollername, dnsdomainname, authidentity, serviceprincipalname, phds).toUInt()
+public actual fun dsBindWithSpnW(domaincontrollername: Pcwstr, dnsdomainname: Pcwstr, authidentity: COpaquePointer?, serviceprincipalname: Pcwstr, phds: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsBindWithSpnW((domaincontrollername?.value ?: 0L), (dnsdomainname?.value ?: 0L), (authidentity?.value ?: 0L), (serviceprincipalname?.value ?: 0L), (phds?.value ?: 0L)).toUInt()
 
-public actual fun DsBindingSetTimeout(hds: HANDLE, ctimeoutsecs: UInt): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsBindingSetTimeout(hds, ctimeoutsecs.toInt()).toUInt()
+public actual fun dsBindingSetTimeout(hds: Handle, ctimeoutsecs: UInt): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsBindingSetTimeout((hds?.value ?: 0L), ctimeoutsecs.toInt()).toUInt()
 
-public actual fun DsBrowseForContainerA(pinfo: Long): Int =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsBrowseForContainerA(pinfo)
+public actual fun dsBrowseForContainerA(pinfo: COpaquePointer?): Int =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsBrowseForContainerA((pinfo?.value ?: 0L))
 
-public actual fun DsBrowseForContainerW(pinfo: Long): Int =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsBrowseForContainerW(pinfo)
+public actual fun dsBrowseForContainerW(pinfo: COpaquePointer?): Int =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsBrowseForContainerW((pinfo?.value ?: 0L))
 
-public actual fun DsClientMakeSpnForTargetServerA(serviceclass: PCSTR, servicename: PCSTR, pcspnlength: Long, pszspn: PSTR): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsClientMakeSpnForTargetServerA(serviceclass, servicename, pcspnlength, pszspn).toUInt()
+public actual fun dsClientMakeSpnForTargetServerA(serviceclass: Pcstr, servicename: Pcstr, pcspnlength: COpaquePointer?, pszspn: Pstr): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsClientMakeSpnForTargetServerA((serviceclass?.value ?: 0L), (servicename?.value ?: 0L), (pcspnlength?.value ?: 0L), (pszspn?.value ?: 0L)).toUInt()
 
-public actual fun DsClientMakeSpnForTargetServerW(serviceclass: PCWSTR, servicename: PCWSTR, pcspnlength: Long, pszspn: PWSTR): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsClientMakeSpnForTargetServerW(serviceclass, servicename, pcspnlength, pszspn).toUInt()
+public actual fun dsClientMakeSpnForTargetServerW(serviceclass: Pcwstr, servicename: Pcwstr, pcspnlength: COpaquePointer?, pszspn: Pwstr): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsClientMakeSpnForTargetServerW((serviceclass?.value ?: 0L), (servicename?.value ?: 0L), (pcspnlength?.value ?: 0L), (pszspn?.value ?: 0L)).toUInt()
 
-public actual fun DsCrackNamesA(hds: HANDLE, flags: DS_NAME_FLAGS, formatoffered: DS_NAME_FORMAT, formatdesired: DS_NAME_FORMAT, cnames: UInt, rpnames: Long, ppresult: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsCrackNamesA(hds, flags, formatoffered, formatdesired, cnames.toInt(), rpnames, ppresult).toUInt()
+public actual fun dsCrackNamesA(hds: Handle, flags: DsNameFlags, formatoffered: DsNameFormat, formatdesired: DsNameFormat, cnames: UInt, rpnames: COpaquePointer?, ppresult: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsCrackNamesA((hds?.value ?: 0L), flags, formatoffered, formatdesired, cnames.toInt(), (rpnames?.value ?: 0L), (ppresult?.value ?: 0L)).toUInt()
 
-public actual fun DsCrackNamesW(hds: HANDLE, flags: DS_NAME_FLAGS, formatoffered: DS_NAME_FORMAT, formatdesired: DS_NAME_FORMAT, cnames: UInt, rpnames: Long, ppresult: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsCrackNamesW(hds, flags, formatoffered, formatdesired, cnames.toInt(), rpnames, ppresult).toUInt()
+public actual fun dsCrackNamesW(hds: Handle, flags: DsNameFlags, formatoffered: DsNameFormat, formatdesired: DsNameFormat, cnames: UInt, rpnames: COpaquePointer?, ppresult: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsCrackNamesW((hds?.value ?: 0L), flags, formatoffered, formatdesired, cnames.toInt(), (rpnames?.value ?: 0L), (ppresult?.value ?: 0L)).toUInt()
 
-public actual fun DsCrackSpn2A(pszspn: PCSTR, cspn: UInt, pcserviceclass: Long, serviceclass: PSTR, pcservicename: Long, servicename: PSTR, pcinstancename: Long, instancename: PSTR, pinstanceport: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsCrackSpn2A(pszspn, cspn.toInt(), pcserviceclass, serviceclass, pcservicename, servicename, pcinstancename, instancename, pinstanceport).toUInt()
+public actual fun dsCrackSpn2A(pszspn: Pcstr, cspn: UInt, pcserviceclass: COpaquePointer?, serviceclass: Pstr, pcservicename: COpaquePointer?, servicename: Pstr, pcinstancename: COpaquePointer?, instancename: Pstr, pinstanceport: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsCrackSpn2A((pszspn?.value ?: 0L), cspn.toInt(), (pcserviceclass?.value ?: 0L), (serviceclass?.value ?: 0L), (pcservicename?.value ?: 0L), (servicename?.value ?: 0L), (pcinstancename?.value ?: 0L), (instancename?.value ?: 0L), (pinstanceport?.value ?: 0L)).toUInt()
 
-public actual fun DsCrackSpn2W(pszspn: PCWSTR, cspn: UInt, pcserviceclass: Long, serviceclass: PWSTR, pcservicename: Long, servicename: PWSTR, pcinstancename: Long, instancename: PWSTR, pinstanceport: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsCrackSpn2W(pszspn, cspn.toInt(), pcserviceclass, serviceclass, pcservicename, servicename, pcinstancename, instancename, pinstanceport).toUInt()
+public actual fun dsCrackSpn2W(pszspn: Pcwstr, cspn: UInt, pcserviceclass: COpaquePointer?, serviceclass: Pwstr, pcservicename: COpaquePointer?, servicename: Pwstr, pcinstancename: COpaquePointer?, instancename: Pwstr, pinstanceport: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsCrackSpn2W((pszspn?.value ?: 0L), cspn.toInt(), (pcserviceclass?.value ?: 0L), (serviceclass?.value ?: 0L), (pcservicename?.value ?: 0L), (servicename?.value ?: 0L), (pcinstancename?.value ?: 0L), (instancename?.value ?: 0L), (pinstanceport?.value ?: 0L)).toUInt()
 
-public actual fun DsCrackSpn3W(pszspn: PCWSTR, cspn: UInt, pchostname: Long, hostname: PWSTR, pcinstancename: Long, instancename: PWSTR, pportnumber: Long, pcdomainname: Long, domainname: PWSTR, pcrealmname: Long, realmname: PWSTR): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsCrackSpn3W(pszspn, cspn.toInt(), pchostname, hostname, pcinstancename, instancename, pportnumber, pcdomainname, domainname, pcrealmname, realmname).toUInt()
+public actual fun dsCrackSpn3W(pszspn: Pcwstr, cspn: UInt, pchostname: COpaquePointer?, hostname: Pwstr, pcinstancename: COpaquePointer?, instancename: Pwstr, pportnumber: COpaquePointer?, pcdomainname: COpaquePointer?, domainname: Pwstr, pcrealmname: COpaquePointer?, realmname: Pwstr): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsCrackSpn3W((pszspn?.value ?: 0L), cspn.toInt(), (pchostname?.value ?: 0L), (hostname?.value ?: 0L), (pcinstancename?.value ?: 0L), (instancename?.value ?: 0L), (pportnumber?.value ?: 0L), (pcdomainname?.value ?: 0L), (domainname?.value ?: 0L), (pcrealmname?.value ?: 0L), (realmname?.value ?: 0L)).toUInt()
 
-public actual fun DsCrackSpn4W(pszspn: PCWSTR, cspn: UInt, pchostname: Long, hostname: PWSTR, pcinstancename: Long, instancename: PWSTR, pcportname: Long, portname: PWSTR, pcdomainname: Long, domainname: PWSTR, pcrealmname: Long, realmname: PWSTR): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsCrackSpn4W(pszspn, cspn.toInt(), pchostname, hostname, pcinstancename, instancename, pcportname, portname, pcdomainname, domainname, pcrealmname, realmname).toUInt()
+public actual fun dsCrackSpn4W(pszspn: Pcwstr, cspn: UInt, pchostname: COpaquePointer?, hostname: Pwstr, pcinstancename: COpaquePointer?, instancename: Pwstr, pcportname: COpaquePointer?, portname: Pwstr, pcdomainname: COpaquePointer?, domainname: Pwstr, pcrealmname: COpaquePointer?, realmname: Pwstr): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsCrackSpn4W((pszspn?.value ?: 0L), cspn.toInt(), (pchostname?.value ?: 0L), (hostname?.value ?: 0L), (pcinstancename?.value ?: 0L), (instancename?.value ?: 0L), (pcportname?.value ?: 0L), (portname?.value ?: 0L), (pcdomainname?.value ?: 0L), (domainname?.value ?: 0L), (pcrealmname?.value ?: 0L), (realmname?.value ?: 0L)).toUInt()
 
-public actual fun DsCrackSpnA(pszspn: PCSTR, pcserviceclass: Long, serviceclass: PSTR, pcservicename: Long, servicename: PSTR, pcinstancename: Long, instancename: PSTR, pinstanceport: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsCrackSpnA(pszspn, pcserviceclass, serviceclass, pcservicename, servicename, pcinstancename, instancename, pinstanceport).toUInt()
+public actual fun dsCrackSpnA(pszspn: Pcstr, pcserviceclass: COpaquePointer?, serviceclass: Pstr, pcservicename: COpaquePointer?, servicename: Pstr, pcinstancename: COpaquePointer?, instancename: Pstr, pinstanceport: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsCrackSpnA((pszspn?.value ?: 0L), (pcserviceclass?.value ?: 0L), (serviceclass?.value ?: 0L), (pcservicename?.value ?: 0L), (servicename?.value ?: 0L), (pcinstancename?.value ?: 0L), (instancename?.value ?: 0L), (pinstanceport?.value ?: 0L)).toUInt()
 
-public actual fun DsCrackSpnW(pszspn: PCWSTR, pcserviceclass: Long, serviceclass: PWSTR, pcservicename: Long, servicename: PWSTR, pcinstancename: Long, instancename: PWSTR, pinstanceport: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsCrackSpnW(pszspn, pcserviceclass, serviceclass, pcservicename, servicename, pcinstancename, instancename, pinstanceport).toUInt()
+public actual fun dsCrackSpnW(pszspn: Pcwstr, pcserviceclass: COpaquePointer?, serviceclass: Pwstr, pcservicename: COpaquePointer?, servicename: Pwstr, pcinstancename: COpaquePointer?, instancename: Pwstr, pinstanceport: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsCrackSpnW((pszspn?.value ?: 0L), (pcserviceclass?.value ?: 0L), (serviceclass?.value ?: 0L), (pcservicename?.value ?: 0L), (servicename?.value ?: 0L), (pcinstancename?.value ?: 0L), (instancename?.value ?: 0L), (pinstanceport?.value ?: 0L)).toUInt()
 
-public actual fun DsCrackUnquotedMangledRdnA(pszrdn: PCSTR, cchrdn: UInt, pguid: Long, pedsmanglefor: Long): BOOL =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsCrackUnquotedMangledRdnA(pszrdn, cchrdn.toInt(), pguid, pedsmanglefor)
+public actual fun dsCrackUnquotedMangledRdnA(pszrdn: Pcstr, cchrdn: UInt, pguid: COpaquePointer?, pedsmanglefor: COpaquePointer?): Bool =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsCrackUnquotedMangledRdnA((pszrdn?.value ?: 0L), cchrdn.toInt(), (pguid?.value ?: 0L), (pedsmanglefor?.value ?: 0L))
 
-public actual fun DsCrackUnquotedMangledRdnW(pszrdn: PCWSTR, cchrdn: UInt, pguid: Long, pedsmanglefor: Long): BOOL =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsCrackUnquotedMangledRdnW(pszrdn, cchrdn.toInt(), pguid, pedsmanglefor)
+public actual fun dsCrackUnquotedMangledRdnW(pszrdn: Pcwstr, cchrdn: UInt, pguid: COpaquePointer?, pedsmanglefor: COpaquePointer?): Bool =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsCrackUnquotedMangledRdnW((pszrdn?.value ?: 0L), cchrdn.toInt(), (pguid?.value ?: 0L), (pedsmanglefor?.value ?: 0L))
 
-public actual fun DsDeregisterDnsHostRecordsA(servername: PCSTR, dnsdomainname: PCSTR, domainguid: Long, dsaguid: Long, dnshostname: PCSTR): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsDeregisterDnsHostRecordsA(servername, dnsdomainname, domainguid, dsaguid, dnshostname).toUInt()
+public actual fun dsDeregisterDnsHostRecordsA(servername: Pcstr, dnsdomainname: Pcstr, domainguid: COpaquePointer?, dsaguid: COpaquePointer?, dnshostname: Pcstr): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsDeregisterDnsHostRecordsA((servername?.value ?: 0L), (dnsdomainname?.value ?: 0L), (domainguid?.value ?: 0L), (dsaguid?.value ?: 0L), (dnshostname?.value ?: 0L)).toUInt()
 
-public actual fun DsDeregisterDnsHostRecordsW(servername: PCWSTR, dnsdomainname: PCWSTR, domainguid: Long, dsaguid: Long, dnshostname: PCWSTR): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsDeregisterDnsHostRecordsW(servername, dnsdomainname, domainguid, dsaguid, dnshostname).toUInt()
+public actual fun dsDeregisterDnsHostRecordsW(servername: Pcwstr, dnsdomainname: Pcwstr, domainguid: COpaquePointer?, dsaguid: COpaquePointer?, dnshostname: Pcwstr): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsDeregisterDnsHostRecordsW((servername?.value ?: 0L), (dnsdomainname?.value ?: 0L), (domainguid?.value ?: 0L), (dsaguid?.value ?: 0L), (dnshostname?.value ?: 0L)).toUInt()
 
-public actual fun DsEnumerateDomainTrustsA(servername: PCSTR, flags: UInt, domains: Long, domaincount: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsEnumerateDomainTrustsA(servername, flags.toInt(), domains, domaincount).toUInt()
+public actual fun dsEnumerateDomainTrustsA(servername: Pcstr, flags: UInt, domains: COpaquePointer?, domaincount: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsEnumerateDomainTrustsA((servername?.value ?: 0L), flags.toInt(), (domains?.value ?: 0L), (domaincount?.value ?: 0L)).toUInt()
 
-public actual fun DsEnumerateDomainTrustsW(servername: PCWSTR, flags: UInt, domains: Long, domaincount: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsEnumerateDomainTrustsW(servername, flags.toInt(), domains, domaincount).toUInt()
+public actual fun dsEnumerateDomainTrustsW(servername: Pcwstr, flags: UInt, domains: COpaquePointer?, domaincount: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsEnumerateDomainTrustsW((servername?.value ?: 0L), flags.toInt(), (domains?.value ?: 0L), (domaincount?.value ?: 0L)).toUInt()
 
-public actual fun DsFreeDomainControllerInfoA(infolevel: UInt, cinfo: UInt, pinfo: Long) {
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsFreeDomainControllerInfoA(infolevel.toInt(), cinfo.toInt(), pinfo)
+public actual fun dsFreeDomainControllerInfoA(infolevel: UInt, cinfo: UInt, pinfo: COpaquePointer?) {
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsFreeDomainControllerInfoA(infolevel.toInt(), cinfo.toInt(), (pinfo?.value ?: 0L))
 }
 
-public actual fun DsFreeDomainControllerInfoW(infolevel: UInt, cinfo: UInt, pinfo: Long) {
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsFreeDomainControllerInfoW(infolevel.toInt(), cinfo.toInt(), pinfo)
+public actual fun dsFreeDomainControllerInfoW(infolevel: UInt, cinfo: UInt, pinfo: COpaquePointer?) {
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsFreeDomainControllerInfoW(infolevel.toInt(), cinfo.toInt(), (pinfo?.value ?: 0L))
 }
 
-public actual fun DsFreeNameResultA(presult: Long) {
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsFreeNameResultA(presult)
+public actual fun dsFreeNameResultA(presult: COpaquePointer?) {
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsFreeNameResultA((presult?.value ?: 0L))
 }
 
-public actual fun DsFreeNameResultW(presult: Long) {
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsFreeNameResultW(presult)
+public actual fun dsFreeNameResultW(presult: COpaquePointer?) {
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsFreeNameResultW((presult?.value ?: 0L))
 }
 
-public actual fun DsFreePasswordCredentials(authidentity: Long) {
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsFreePasswordCredentials(authidentity)
+public actual fun dsFreePasswordCredentials(authidentity: COpaquePointer?) {
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsFreePasswordCredentials((authidentity?.value ?: 0L))
 }
 
-public actual fun DsFreeSchemaGuidMapA(pguidmap: Long) {
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsFreeSchemaGuidMapA(pguidmap)
+public actual fun dsFreeSchemaGuidMapA(pguidmap: COpaquePointer?) {
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsFreeSchemaGuidMapA((pguidmap?.value ?: 0L))
 }
 
-public actual fun DsFreeSchemaGuidMapW(pguidmap: Long) {
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsFreeSchemaGuidMapW(pguidmap)
+public actual fun dsFreeSchemaGuidMapW(pguidmap: COpaquePointer?) {
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsFreeSchemaGuidMapW((pguidmap?.value ?: 0L))
 }
 
-public actual fun DsFreeSpnArrayA(cspn: UInt, rpszspn: Long) {
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsFreeSpnArrayA(cspn.toInt(), rpszspn)
+public actual fun dsFreeSpnArrayA(cspn: UInt, rpszspn: COpaquePointer?) {
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsFreeSpnArrayA(cspn.toInt(), (rpszspn?.value ?: 0L))
 }
 
-public actual fun DsFreeSpnArrayW(cspn: UInt, rpszspn: Long) {
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsFreeSpnArrayW(cspn.toInt(), rpszspn)
+public actual fun dsFreeSpnArrayW(cspn: UInt, rpszspn: COpaquePointer?) {
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsFreeSpnArrayW(cspn.toInt(), (rpszspn?.value ?: 0L))
 }
 
-public actual fun DsGetDcCloseW(getdccontexthandle: HANDLE) {
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsGetDcCloseW(getdccontexthandle)
+public actual fun dsGetDcCloseW(getdccontexthandle: Handle) {
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsGetDcCloseW((getdccontexthandle?.value ?: 0L))
 }
 
-public actual fun DsGetDcNameA(computername: PCSTR, domainname: PCSTR, domainguid: Long, sitename: PCSTR, flags: UInt, domaincontrollerinfo: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsGetDcNameA(computername, domainname, domainguid, sitename, flags.toInt(), domaincontrollerinfo).toUInt()
+public actual fun dsGetDcNameA(computername: Pcstr, domainname: Pcstr, domainguid: COpaquePointer?, sitename: Pcstr, flags: UInt, domaincontrollerinfo: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsGetDcNameA((computername?.value ?: 0L), (domainname?.value ?: 0L), (domainguid?.value ?: 0L), (sitename?.value ?: 0L), flags.toInt(), (domaincontrollerinfo?.value ?: 0L)).toUInt()
 
-public actual fun DsGetDcNameW(computername: PCWSTR, domainname: PCWSTR, domainguid: Long, sitename: PCWSTR, flags: UInt, domaincontrollerinfo: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsGetDcNameW(computername, domainname, domainguid, sitename, flags.toInt(), domaincontrollerinfo).toUInt()
+public actual fun dsGetDcNameW(computername: Pcwstr, domainname: Pcwstr, domainguid: COpaquePointer?, sitename: Pcwstr, flags: UInt, domaincontrollerinfo: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsGetDcNameW((computername?.value ?: 0L), (domainname?.value ?: 0L), (domainguid?.value ?: 0L), (sitename?.value ?: 0L), flags.toInt(), (domaincontrollerinfo?.value ?: 0L)).toUInt()
 
-public actual fun DsGetDcNextA(getdccontexthandle: HANDLE, sockaddresscount: Long, sockaddresses: Long, dnshostname: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsGetDcNextA(getdccontexthandle, sockaddresscount, sockaddresses, dnshostname).toUInt()
+public actual fun dsGetDcNextA(getdccontexthandle: Handle, sockaddresscount: COpaquePointer?, sockaddresses: COpaquePointer?, dnshostname: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsGetDcNextA((getdccontexthandle?.value ?: 0L), (sockaddresscount?.value ?: 0L), (sockaddresses?.value ?: 0L), (dnshostname?.value ?: 0L)).toUInt()
 
-public actual fun DsGetDcNextW(getdccontexthandle: HANDLE, sockaddresscount: Long, sockaddresses: Long, dnshostname: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsGetDcNextW(getdccontexthandle, sockaddresscount, sockaddresses, dnshostname).toUInt()
+public actual fun dsGetDcNextW(getdccontexthandle: Handle, sockaddresscount: COpaquePointer?, sockaddresses: COpaquePointer?, dnshostname: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsGetDcNextW((getdccontexthandle?.value ?: 0L), (sockaddresscount?.value ?: 0L), (sockaddresses?.value ?: 0L), (dnshostname?.value ?: 0L)).toUInt()
 
-public actual fun DsGetDcOpenA(dnsname: PCSTR, optionflags: UInt, sitename: PCSTR, domainguid: Long, dnsforestname: PCSTR, dcflags: UInt, retgetdccontext: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsGetDcOpenA(dnsname, optionflags.toInt(), sitename, domainguid, dnsforestname, dcflags.toInt(), retgetdccontext).toUInt()
+public actual fun dsGetDcOpenA(dnsname: Pcstr, optionflags: UInt, sitename: Pcstr, domainguid: COpaquePointer?, dnsforestname: Pcstr, dcflags: UInt, retgetdccontext: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsGetDcOpenA((dnsname?.value ?: 0L), optionflags.toInt(), (sitename?.value ?: 0L), (domainguid?.value ?: 0L), (dnsforestname?.value ?: 0L), dcflags.toInt(), (retgetdccontext?.value ?: 0L)).toUInt()
 
-public actual fun DsGetDcOpenW(dnsname: PCWSTR, optionflags: UInt, sitename: PCWSTR, domainguid: Long, dnsforestname: PCWSTR, dcflags: UInt, retgetdccontext: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsGetDcOpenW(dnsname, optionflags.toInt(), sitename, domainguid, dnsforestname, dcflags.toInt(), retgetdccontext).toUInt()
+public actual fun dsGetDcOpenW(dnsname: Pcwstr, optionflags: UInt, sitename: Pcwstr, domainguid: COpaquePointer?, dnsforestname: Pcwstr, dcflags: UInt, retgetdccontext: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsGetDcOpenW((dnsname?.value ?: 0L), optionflags.toInt(), (sitename?.value ?: 0L), (domainguid?.value ?: 0L), (dnsforestname?.value ?: 0L), dcflags.toInt(), (retgetdccontext?.value ?: 0L)).toUInt()
 
-public actual fun DsGetDcSiteCoverageA(servername: PCSTR, entrycount: Long, sitenames: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsGetDcSiteCoverageA(servername, entrycount, sitenames).toUInt()
+public actual fun dsGetDcSiteCoverageA(servername: Pcstr, entrycount: COpaquePointer?, sitenames: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsGetDcSiteCoverageA((servername?.value ?: 0L), (entrycount?.value ?: 0L), (sitenames?.value ?: 0L)).toUInt()
 
-public actual fun DsGetDcSiteCoverageW(servername: PCWSTR, entrycount: Long, sitenames: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsGetDcSiteCoverageW(servername, entrycount, sitenames).toUInt()
+public actual fun dsGetDcSiteCoverageW(servername: Pcwstr, entrycount: COpaquePointer?, sitenames: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsGetDcSiteCoverageW((servername?.value ?: 0L), (entrycount?.value ?: 0L), (sitenames?.value ?: 0L)).toUInt()
 
-public actual fun DsGetDomainControllerInfoA(hds: HANDLE, domainname: PCSTR, infolevel: UInt, pcout: Long, ppinfo: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsGetDomainControllerInfoA(hds, domainname, infolevel.toInt(), pcout, ppinfo).toUInt()
+public actual fun dsGetDomainControllerInfoA(hds: Handle, domainname: Pcstr, infolevel: UInt, pcout: COpaquePointer?, ppinfo: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsGetDomainControllerInfoA((hds?.value ?: 0L), (domainname?.value ?: 0L), infolevel.toInt(), (pcout?.value ?: 0L), (ppinfo?.value ?: 0L)).toUInt()
 
-public actual fun DsGetDomainControllerInfoW(hds: HANDLE, domainname: PCWSTR, infolevel: UInt, pcout: Long, ppinfo: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsGetDomainControllerInfoW(hds, domainname, infolevel.toInt(), pcout, ppinfo).toUInt()
+public actual fun dsGetDomainControllerInfoW(hds: Handle, domainname: Pcwstr, infolevel: UInt, pcout: COpaquePointer?, ppinfo: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsGetDomainControllerInfoW((hds?.value ?: 0L), (domainname?.value ?: 0L), infolevel.toInt(), (pcout?.value ?: 0L), (ppinfo?.value ?: 0L)).toUInt()
 
-public actual fun DsGetForestTrustInformationW(servername: PCWSTR, trusteddomainname: PCWSTR, flags: UInt, foresttrustinfo: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsGetForestTrustInformationW(servername, trusteddomainname, flags.toInt(), foresttrustinfo).toUInt()
+public actual fun dsGetForestTrustInformationW(servername: Pcwstr, trusteddomainname: Pcwstr, flags: UInt, foresttrustinfo: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsGetForestTrustInformationW((servername?.value ?: 0L), (trusteddomainname?.value ?: 0L), flags.toInt(), (foresttrustinfo?.value ?: 0L)).toUInt()
 
-public actual fun DsGetFriendlyClassName(pszobjectclass: PCWSTR, pszbuffer: PWSTR, cchbuffer: UInt): HRESULT =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsGetFriendlyClassName(pszobjectclass, pszbuffer, cchbuffer.toInt())
+public actual fun dsGetFriendlyClassName(pszobjectclass: Pcwstr, pszbuffer: Pwstr, cchbuffer: UInt): Hresult =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsGetFriendlyClassName((pszobjectclass?.value ?: 0L), (pszbuffer?.value ?: 0L), cchbuffer.toInt())
 
-public actual fun DsGetIcon(dwflags: UInt, pszobjectclass: PCWSTR, cximage: Int, cyimage: Int): HICON =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsGetIcon(dwflags.toInt(), pszobjectclass, cximage, cyimage)
+public actual fun dsGetIcon(dwflags: UInt, pszobjectclass: Pcwstr, cximage: Int, cyimage: Int): Hicon =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsGetIcon(dwflags.toInt(), (pszobjectclass?.value ?: 0L), cximage, cyimage).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun DsGetRdnW(ppdn: Long, pcdn: Long, ppkey: Long, pckey: Long, ppval: Long, pcval: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsGetRdnW(ppdn, pcdn, ppkey, pckey, ppval, pcval).toUInt()
+public actual fun dsGetRdnW(ppdn: COpaquePointer?, pcdn: COpaquePointer?, ppkey: COpaquePointer?, pckey: COpaquePointer?, ppval: COpaquePointer?, pcval: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsGetRdnW((ppdn?.value ?: 0L), (pcdn?.value ?: 0L), (ppkey?.value ?: 0L), (pckey?.value ?: 0L), (ppval?.value ?: 0L), (pcval?.value ?: 0L)).toUInt()
 
-public actual fun DsGetSiteNameA(computername: PCSTR, sitename: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsGetSiteNameA(computername, sitename).toUInt()
+public actual fun dsGetSiteNameA(computername: Pcstr, sitename: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsGetSiteNameA((computername?.value ?: 0L), (sitename?.value ?: 0L)).toUInt()
 
-public actual fun DsGetSiteNameW(computername: PCWSTR, sitename: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsGetSiteNameW(computername, sitename).toUInt()
+public actual fun dsGetSiteNameW(computername: Pcwstr, sitename: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsGetSiteNameW((computername?.value ?: 0L), (sitename?.value ?: 0L)).toUInt()
 
-public actual fun DsGetSpnA(servicetype: DS_SPN_NAME_TYPE, serviceclass: PCSTR, servicename: PCSTR, instanceport: UShort, cinstancenames: UShort, pinstancenames: Long, pinstanceports: Long, pcspn: Long, prpszspn: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsGetSpnA(servicetype, serviceclass, servicename, instanceport.toShort(), cinstancenames.toShort(), pinstancenames, pinstanceports, pcspn, prpszspn).toUInt()
+public actual fun dsGetSpnA(servicetype: DsSpnNameType, serviceclass: Pcstr, servicename: Pcstr, instanceport: UShort, cinstancenames: UShort, pinstancenames: COpaquePointer?, pinstanceports: COpaquePointer?, pcspn: COpaquePointer?, prpszspn: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsGetSpnA(servicetype, (serviceclass?.value ?: 0L), (servicename?.value ?: 0L), instanceport.toShort(), cinstancenames.toShort(), (pinstancenames?.value ?: 0L), (pinstanceports?.value ?: 0L), (pcspn?.value ?: 0L), (prpszspn?.value ?: 0L)).toUInt()
 
-public actual fun DsGetSpnW(servicetype: DS_SPN_NAME_TYPE, serviceclass: PCWSTR, servicename: PCWSTR, instanceport: UShort, cinstancenames: UShort, pinstancenames: Long, pinstanceports: Long, pcspn: Long, prpszspn: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsGetSpnW(servicetype, serviceclass, servicename, instanceport.toShort(), cinstancenames.toShort(), pinstancenames, pinstanceports, pcspn, prpszspn).toUInt()
+public actual fun dsGetSpnW(servicetype: DsSpnNameType, serviceclass: Pcwstr, servicename: Pcwstr, instanceport: UShort, cinstancenames: UShort, pinstancenames: COpaquePointer?, pinstanceports: COpaquePointer?, pcspn: COpaquePointer?, prpszspn: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsGetSpnW(servicetype, (serviceclass?.value ?: 0L), (servicename?.value ?: 0L), instanceport.toShort(), cinstancenames.toShort(), (pinstancenames?.value ?: 0L), (pinstanceports?.value ?: 0L), (pcspn?.value ?: 0L), (prpszspn?.value ?: 0L)).toUInt()
 
-public actual fun DsInheritSecurityIdentityA(hds: HANDLE, flags: UInt, srcprincipal: PCSTR, dstprincipal: PCSTR): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsInheritSecurityIdentityA(hds, flags.toInt(), srcprincipal, dstprincipal).toUInt()
+public actual fun dsInheritSecurityIdentityA(hds: Handle, flags: UInt, srcprincipal: Pcstr, dstprincipal: Pcstr): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsInheritSecurityIdentityA((hds?.value ?: 0L), flags.toInt(), (srcprincipal?.value ?: 0L), (dstprincipal?.value ?: 0L)).toUInt()
 
-public actual fun DsInheritSecurityIdentityW(hds: HANDLE, flags: UInt, srcprincipal: PCWSTR, dstprincipal: PCWSTR): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsInheritSecurityIdentityW(hds, flags.toInt(), srcprincipal, dstprincipal).toUInt()
+public actual fun dsInheritSecurityIdentityW(hds: Handle, flags: UInt, srcprincipal: Pcwstr, dstprincipal: Pcwstr): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsInheritSecurityIdentityW((hds?.value ?: 0L), flags.toInt(), (srcprincipal?.value ?: 0L), (dstprincipal?.value ?: 0L)).toUInt()
 
-public actual fun DsIsMangledDnA(pszdn: PCSTR, edsmanglefor: DS_MANGLE_FOR): BOOL =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsIsMangledDnA(pszdn, edsmanglefor)
+public actual fun dsIsMangledDnA(pszdn: Pcstr, edsmanglefor: DsMangleFor): Bool =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsIsMangledDnA((pszdn?.value ?: 0L), edsmanglefor)
 
-public actual fun DsIsMangledDnW(pszdn: PCWSTR, edsmanglefor: DS_MANGLE_FOR): BOOL =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsIsMangledDnW(pszdn, edsmanglefor)
+public actual fun dsIsMangledDnW(pszdn: Pcwstr, edsmanglefor: DsMangleFor): Bool =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsIsMangledDnW((pszdn?.value ?: 0L), edsmanglefor)
 
-public actual fun DsIsMangledRdnValueA(pszrdn: PCSTR, crdn: UInt, edsmanglefordesired: DS_MANGLE_FOR): BOOL =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsIsMangledRdnValueA(pszrdn, crdn.toInt(), edsmanglefordesired)
+public actual fun dsIsMangledRdnValueA(pszrdn: Pcstr, crdn: UInt, edsmanglefordesired: DsMangleFor): Bool =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsIsMangledRdnValueA((pszrdn?.value ?: 0L), crdn.toInt(), edsmanglefordesired)
 
-public actual fun DsIsMangledRdnValueW(pszrdn: PCWSTR, crdn: UInt, edsmanglefordesired: DS_MANGLE_FOR): BOOL =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsIsMangledRdnValueW(pszrdn, crdn.toInt(), edsmanglefordesired)
+public actual fun dsIsMangledRdnValueW(pszrdn: Pcwstr, crdn: UInt, edsmanglefordesired: DsMangleFor): Bool =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsIsMangledRdnValueW((pszrdn?.value ?: 0L), crdn.toInt(), edsmanglefordesired)
 
-public actual fun DsListDomainsInSiteA(hds: HANDLE, site: PCSTR, ppdomains: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsListDomainsInSiteA(hds, site, ppdomains).toUInt()
+public actual fun dsListDomainsInSiteA(hds: Handle, site: Pcstr, ppdomains: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsListDomainsInSiteA((hds?.value ?: 0L), (site?.value ?: 0L), (ppdomains?.value ?: 0L)).toUInt()
 
-public actual fun DsListDomainsInSiteW(hds: HANDLE, site: PCWSTR, ppdomains: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsListDomainsInSiteW(hds, site, ppdomains).toUInt()
+public actual fun dsListDomainsInSiteW(hds: Handle, site: Pcwstr, ppdomains: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsListDomainsInSiteW((hds?.value ?: 0L), (site?.value ?: 0L), (ppdomains?.value ?: 0L)).toUInt()
 
-public actual fun DsListInfoForServerA(hds: HANDLE, server: PCSTR, ppinfo: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsListInfoForServerA(hds, server, ppinfo).toUInt()
+public actual fun dsListInfoForServerA(hds: Handle, server: Pcstr, ppinfo: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsListInfoForServerA((hds?.value ?: 0L), (server?.value ?: 0L), (ppinfo?.value ?: 0L)).toUInt()
 
-public actual fun DsListInfoForServerW(hds: HANDLE, server: PCWSTR, ppinfo: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsListInfoForServerW(hds, server, ppinfo).toUInt()
+public actual fun dsListInfoForServerW(hds: Handle, server: Pcwstr, ppinfo: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsListInfoForServerW((hds?.value ?: 0L), (server?.value ?: 0L), (ppinfo?.value ?: 0L)).toUInt()
 
-public actual fun DsListRolesA(hds: HANDLE, pproles: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsListRolesA(hds, pproles).toUInt()
+public actual fun dsListRolesA(hds: Handle, pproles: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsListRolesA((hds?.value ?: 0L), (pproles?.value ?: 0L)).toUInt()
 
-public actual fun DsListRolesW(hds: HANDLE, pproles: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsListRolesW(hds, pproles).toUInt()
+public actual fun dsListRolesW(hds: Handle, pproles: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsListRolesW((hds?.value ?: 0L), (pproles?.value ?: 0L)).toUInt()
 
-public actual fun DsListServersForDomainInSiteA(hds: HANDLE, domain: PCSTR, site: PCSTR, ppservers: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsListServersForDomainInSiteA(hds, domain, site, ppservers).toUInt()
+public actual fun dsListServersForDomainInSiteA(hds: Handle, domain: Pcstr, site: Pcstr, ppservers: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsListServersForDomainInSiteA((hds?.value ?: 0L), (domain?.value ?: 0L), (site?.value ?: 0L), (ppservers?.value ?: 0L)).toUInt()
 
-public actual fun DsListServersForDomainInSiteW(hds: HANDLE, domain: PCWSTR, site: PCWSTR, ppservers: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsListServersForDomainInSiteW(hds, domain, site, ppservers).toUInt()
+public actual fun dsListServersForDomainInSiteW(hds: Handle, domain: Pcwstr, site: Pcwstr, ppservers: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsListServersForDomainInSiteW((hds?.value ?: 0L), (domain?.value ?: 0L), (site?.value ?: 0L), (ppservers?.value ?: 0L)).toUInt()
 
-public actual fun DsListServersInSiteA(hds: HANDLE, site: PCSTR, ppservers: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsListServersInSiteA(hds, site, ppservers).toUInt()
+public actual fun dsListServersInSiteA(hds: Handle, site: Pcstr, ppservers: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsListServersInSiteA((hds?.value ?: 0L), (site?.value ?: 0L), (ppservers?.value ?: 0L)).toUInt()
 
-public actual fun DsListServersInSiteW(hds: HANDLE, site: PCWSTR, ppservers: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsListServersInSiteW(hds, site, ppservers).toUInt()
+public actual fun dsListServersInSiteW(hds: Handle, site: Pcwstr, ppservers: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsListServersInSiteW((hds?.value ?: 0L), (site?.value ?: 0L), (ppservers?.value ?: 0L)).toUInt()
 
-public actual fun DsListSitesA(hds: HANDLE, ppsites: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsListSitesA(hds, ppsites).toUInt()
+public actual fun dsListSitesA(hds: Handle, ppsites: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsListSitesA((hds?.value ?: 0L), (ppsites?.value ?: 0L)).toUInt()
 
-public actual fun DsListSitesW(hds: HANDLE, ppsites: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsListSitesW(hds, ppsites).toUInt()
+public actual fun dsListSitesW(hds: Handle, ppsites: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsListSitesW((hds?.value ?: 0L), (ppsites?.value ?: 0L)).toUInt()
 
-public actual fun DsMakePasswordCredentialsA(user: PCSTR, domain: PCSTR, password: PCSTR, pauthidentity: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsMakePasswordCredentialsA(user, domain, password, pauthidentity).toUInt()
+public actual fun dsMakePasswordCredentialsA(user: Pcstr, domain: Pcstr, password: Pcstr, pauthidentity: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsMakePasswordCredentialsA((user?.value ?: 0L), (domain?.value ?: 0L), (password?.value ?: 0L), (pauthidentity?.value ?: 0L)).toUInt()
 
-public actual fun DsMakePasswordCredentialsW(user: PCWSTR, domain: PCWSTR, password: PCWSTR, pauthidentity: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsMakePasswordCredentialsW(user, domain, password, pauthidentity).toUInt()
+public actual fun dsMakePasswordCredentialsW(user: Pcwstr, domain: Pcwstr, password: Pcwstr, pauthidentity: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsMakePasswordCredentialsW((user?.value ?: 0L), (domain?.value ?: 0L), (password?.value ?: 0L), (pauthidentity?.value ?: 0L)).toUInt()
 
-public actual fun DsMakeSpnA(serviceclass: PCSTR, servicename: PCSTR, instancename: PCSTR, instanceport: UShort, referrer: PCSTR, pcspnlength: Long, pszspn: PSTR): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsMakeSpnA(serviceclass, servicename, instancename, instanceport.toShort(), referrer, pcspnlength, pszspn).toUInt()
+public actual fun dsMakeSpnA(serviceclass: Pcstr, servicename: Pcstr, instancename: Pcstr, instanceport: UShort, referrer: Pcstr, pcspnlength: COpaquePointer?, pszspn: Pstr): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsMakeSpnA((serviceclass?.value ?: 0L), (servicename?.value ?: 0L), (instancename?.value ?: 0L), instanceport.toShort(), (referrer?.value ?: 0L), (pcspnlength?.value ?: 0L), (pszspn?.value ?: 0L)).toUInt()
 
-public actual fun DsMakeSpnW(serviceclass: PCWSTR, servicename: PCWSTR, instancename: PCWSTR, instanceport: UShort, referrer: PCWSTR, pcspnlength: Long, pszspn: PWSTR): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsMakeSpnW(serviceclass, servicename, instancename, instanceport.toShort(), referrer, pcspnlength, pszspn).toUInt()
+public actual fun dsMakeSpnW(serviceclass: Pcwstr, servicename: Pcwstr, instancename: Pcwstr, instanceport: UShort, referrer: Pcwstr, pcspnlength: COpaquePointer?, pszspn: Pwstr): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsMakeSpnW((serviceclass?.value ?: 0L), (servicename?.value ?: 0L), (instancename?.value ?: 0L), instanceport.toShort(), (referrer?.value ?: 0L), (pcspnlength?.value ?: 0L), (pszspn?.value ?: 0L)).toUInt()
 
-public actual fun DsMapSchemaGuidsA(hds: HANDLE, cguids: UInt, rguids: Long, ppguidmap: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsMapSchemaGuidsA(hds, cguids.toInt(), rguids, ppguidmap).toUInt()
+public actual fun dsMapSchemaGuidsA(hds: Handle, cguids: UInt, rguids: COpaquePointer?, ppguidmap: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsMapSchemaGuidsA((hds?.value ?: 0L), cguids.toInt(), (rguids?.value ?: 0L), (ppguidmap?.value ?: 0L)).toUInt()
 
-public actual fun DsMapSchemaGuidsW(hds: HANDLE, cguids: UInt, rguids: Long, ppguidmap: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsMapSchemaGuidsW(hds, cguids.toInt(), rguids, ppguidmap).toUInt()
+public actual fun dsMapSchemaGuidsW(hds: Handle, cguids: UInt, rguids: COpaquePointer?, ppguidmap: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsMapSchemaGuidsW((hds?.value ?: 0L), cguids.toInt(), (rguids?.value ?: 0L), (ppguidmap?.value ?: 0L)).toUInt()
 
-public actual fun DsMergeForestTrustInformationW(domainname: PCWSTR, newforesttrustinfo: Long, oldforesttrustinfo: Long, mergedforesttrustinfo: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsMergeForestTrustInformationW(domainname, newforesttrustinfo, oldforesttrustinfo, mergedforesttrustinfo).toUInt()
+public actual fun dsMergeForestTrustInformationW(domainname: Pcwstr, newforesttrustinfo: COpaquePointer?, oldforesttrustinfo: COpaquePointer?, mergedforesttrustinfo: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsMergeForestTrustInformationW((domainname?.value ?: 0L), (newforesttrustinfo?.value ?: 0L), (oldforesttrustinfo?.value ?: 0L), (mergedforesttrustinfo?.value ?: 0L)).toUInt()
 
-public actual fun DsQuerySitesByCostA(hds: HANDLE, pszfromsite: PCSTR, rgsztosites: Long, ctosites: UInt, dwflags: UInt, prgsiteinfo: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsQuerySitesByCostA(hds, pszfromsite, rgsztosites, ctosites.toInt(), dwflags.toInt(), prgsiteinfo).toUInt()
+public actual fun dsQuerySitesByCostA(hds: Handle, pszfromsite: Pcstr, rgsztosites: COpaquePointer?, ctosites: UInt, dwflags: UInt, prgsiteinfo: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsQuerySitesByCostA((hds?.value ?: 0L), (pszfromsite?.value ?: 0L), (rgsztosites?.value ?: 0L), ctosites.toInt(), dwflags.toInt(), (prgsiteinfo?.value ?: 0L)).toUInt()
 
-public actual fun DsQuerySitesByCostW(hds: HANDLE, pwszfromsite: PCWSTR, rgwsztosites: Long, ctosites: UInt, dwflags: UInt, prgsiteinfo: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsQuerySitesByCostW(hds, pwszfromsite, rgwsztosites, ctosites.toInt(), dwflags.toInt(), prgsiteinfo).toUInt()
+public actual fun dsQuerySitesByCostW(hds: Handle, pwszfromsite: Pcwstr, rgwsztosites: COpaquePointer?, ctosites: UInt, dwflags: UInt, prgsiteinfo: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsQuerySitesByCostW((hds?.value ?: 0L), (pwszfromsite?.value ?: 0L), (rgwsztosites?.value ?: 0L), ctosites.toInt(), dwflags.toInt(), (prgsiteinfo?.value ?: 0L)).toUInt()
 
-public actual fun DsQuerySitesFree(rgsiteinfo: Long) {
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsQuerySitesFree(rgsiteinfo)
+public actual fun dsQuerySitesFree(rgsiteinfo: COpaquePointer?) {
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsQuerySitesFree((rgsiteinfo?.value ?: 0L))
 }
 
-public actual fun DsQuoteRdnValueA(cunquotedrdnvaluelength: UInt, psunquotedrdnvalue: PCSTR, pcquotedrdnvaluelength: Long, psquotedrdnvalue: PSTR): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsQuoteRdnValueA(cunquotedrdnvaluelength.toInt(), psunquotedrdnvalue, pcquotedrdnvaluelength, psquotedrdnvalue).toUInt()
+public actual fun dsQuoteRdnValueA(cunquotedrdnvaluelength: UInt, psunquotedrdnvalue: Pcstr, pcquotedrdnvaluelength: COpaquePointer?, psquotedrdnvalue: Pstr): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsQuoteRdnValueA(cunquotedrdnvaluelength.toInt(), (psunquotedrdnvalue?.value ?: 0L), (pcquotedrdnvaluelength?.value ?: 0L), (psquotedrdnvalue?.value ?: 0L)).toUInt()
 
-public actual fun DsQuoteRdnValueW(cunquotedrdnvaluelength: UInt, psunquotedrdnvalue: PCWSTR, pcquotedrdnvaluelength: Long, psquotedrdnvalue: PWSTR): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsQuoteRdnValueW(cunquotedrdnvaluelength.toInt(), psunquotedrdnvalue, pcquotedrdnvaluelength, psquotedrdnvalue).toUInt()
+public actual fun dsQuoteRdnValueW(cunquotedrdnvaluelength: UInt, psunquotedrdnvalue: Pcwstr, pcquotedrdnvaluelength: COpaquePointer?, psquotedrdnvalue: Pwstr): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsQuoteRdnValueW(cunquotedrdnvaluelength.toInt(), (psunquotedrdnvalue?.value ?: 0L), (pcquotedrdnvaluelength?.value ?: 0L), (psquotedrdnvalue?.value ?: 0L)).toUInt()
 
-public actual fun DsRemoveDsDomainA(hds: HANDLE, domaindn: PCSTR): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsRemoveDsDomainA(hds, domaindn).toUInt()
+public actual fun dsRemoveDsDomainA(hds: Handle, domaindn: Pcstr): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsRemoveDsDomainA((hds?.value ?: 0L), (domaindn?.value ?: 0L)).toUInt()
 
-public actual fun DsRemoveDsDomainW(hds: HANDLE, domaindn: PCWSTR): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsRemoveDsDomainW(hds, domaindn).toUInt()
+public actual fun dsRemoveDsDomainW(hds: Handle, domaindn: Pcwstr): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsRemoveDsDomainW((hds?.value ?: 0L), (domaindn?.value ?: 0L)).toUInt()
 
-public actual fun DsRemoveDsServerA(hds: HANDLE, serverdn: PCSTR, domaindn: PCSTR, flastdcindomain: Long, fcommit: BOOL): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsRemoveDsServerA(hds, serverdn, domaindn, flastdcindomain, fcommit).toUInt()
+public actual fun dsRemoveDsServerA(hds: Handle, serverdn: Pcstr, domaindn: Pcstr, flastdcindomain: COpaquePointer?, fcommit: Bool): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsRemoveDsServerA((hds?.value ?: 0L), (serverdn?.value ?: 0L), (domaindn?.value ?: 0L), (flastdcindomain?.value ?: 0L), fcommit).toUInt()
 
-public actual fun DsRemoveDsServerW(hds: HANDLE, serverdn: PCWSTR, domaindn: PCWSTR, flastdcindomain: Long, fcommit: BOOL): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsRemoveDsServerW(hds, serverdn, domaindn, flastdcindomain, fcommit).toUInt()
+public actual fun dsRemoveDsServerW(hds: Handle, serverdn: Pcwstr, domaindn: Pcwstr, flastdcindomain: COpaquePointer?, fcommit: Bool): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsRemoveDsServerW((hds?.value ?: 0L), (serverdn?.value ?: 0L), (domaindn?.value ?: 0L), (flastdcindomain?.value ?: 0L), fcommit).toUInt()
 
-public actual fun DsReplicaAddA(hds: HANDLE, namecontext: PCSTR, sourcedsadn: PCSTR, transportdn: PCSTR, sourcedsaaddress: PCSTR, pschedule: Long, options: UInt): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsReplicaAddA(hds, namecontext, sourcedsadn, transportdn, sourcedsaaddress, pschedule, options.toInt()).toUInt()
+public actual fun dsReplicaAddA(hds: Handle, namecontext: Pcstr, sourcedsadn: Pcstr, transportdn: Pcstr, sourcedsaaddress: Pcstr, pschedule: COpaquePointer?, options: UInt): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsReplicaAddA((hds?.value ?: 0L), (namecontext?.value ?: 0L), (sourcedsadn?.value ?: 0L), (transportdn?.value ?: 0L), (sourcedsaaddress?.value ?: 0L), (pschedule?.value ?: 0L), options.toInt()).toUInt()
 
-public actual fun DsReplicaAddW(hds: HANDLE, namecontext: PCWSTR, sourcedsadn: PCWSTR, transportdn: PCWSTR, sourcedsaaddress: PCWSTR, pschedule: Long, options: UInt): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsReplicaAddW(hds, namecontext, sourcedsadn, transportdn, sourcedsaaddress, pschedule, options.toInt()).toUInt()
+public actual fun dsReplicaAddW(hds: Handle, namecontext: Pcwstr, sourcedsadn: Pcwstr, transportdn: Pcwstr, sourcedsaaddress: Pcwstr, pschedule: COpaquePointer?, options: UInt): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsReplicaAddW((hds?.value ?: 0L), (namecontext?.value ?: 0L), (sourcedsadn?.value ?: 0L), (transportdn?.value ?: 0L), (sourcedsaaddress?.value ?: 0L), (pschedule?.value ?: 0L), options.toInt()).toUInt()
 
-public actual fun DsReplicaConsistencyCheck(hds: HANDLE, taskid: DS_KCC_TASKID, dwflags: UInt): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsReplicaConsistencyCheck(hds, taskid, dwflags.toInt()).toUInt()
+public actual fun dsReplicaConsistencyCheck(hds: Handle, taskid: DsKccTaskid, dwflags: UInt): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsReplicaConsistencyCheck((hds?.value ?: 0L), taskid, dwflags.toInt()).toUInt()
 
-public actual fun DsReplicaDelA(hds: HANDLE, namecontext: PCSTR, dsasrc: PCSTR, options: UInt): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsReplicaDelA(hds, namecontext, dsasrc, options.toInt()).toUInt()
+public actual fun dsReplicaDelA(hds: Handle, namecontext: Pcstr, dsasrc: Pcstr, options: UInt): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsReplicaDelA((hds?.value ?: 0L), (namecontext?.value ?: 0L), (dsasrc?.value ?: 0L), options.toInt()).toUInt()
 
-public actual fun DsReplicaDelW(hds: HANDLE, namecontext: PCWSTR, dsasrc: PCWSTR, options: UInt): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsReplicaDelW(hds, namecontext, dsasrc, options.toInt()).toUInt()
+public actual fun dsReplicaDelW(hds: Handle, namecontext: Pcwstr, dsasrc: Pcwstr, options: UInt): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsReplicaDelW((hds?.value ?: 0L), (namecontext?.value ?: 0L), (dsasrc?.value ?: 0L), options.toInt()).toUInt()
 
-public actual fun DsReplicaFreeInfo(infotype: DS_REPL_INFO_TYPE, pinfo: Long) {
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsReplicaFreeInfo(infotype, pinfo)
+public actual fun dsReplicaFreeInfo(infotype: DsReplInfoType, pinfo: COpaquePointer?) {
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsReplicaFreeInfo(infotype, (pinfo?.value ?: 0L))
 }
 
-public actual fun DsReplicaGetInfo2W(hds: HANDLE, infotype: DS_REPL_INFO_TYPE, pszobject: PCWSTR, puuidforsourcedsaobjguid: Long, pszattributename: PCWSTR, pszvalue: PCWSTR, dwflags: UInt, dwenumerationcontext: UInt, ppinfo: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsReplicaGetInfo2W(hds, infotype, pszobject, puuidforsourcedsaobjguid, pszattributename, pszvalue, dwflags.toInt(), dwenumerationcontext.toInt(), ppinfo).toUInt()
+public actual fun dsReplicaGetInfo2W(hds: Handle, infotype: DsReplInfoType, pszobject: Pcwstr, puuidforsourcedsaobjguid: COpaquePointer?, pszattributename: Pcwstr, pszvalue: Pcwstr, dwflags: UInt, dwenumerationcontext: UInt, ppinfo: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsReplicaGetInfo2W((hds?.value ?: 0L), infotype, (pszobject?.value ?: 0L), (puuidforsourcedsaobjguid?.value ?: 0L), (pszattributename?.value ?: 0L), (pszvalue?.value ?: 0L), dwflags.toInt(), dwenumerationcontext.toInt(), (ppinfo?.value ?: 0L)).toUInt()
 
-public actual fun DsReplicaGetInfoW(hds: HANDLE, infotype: DS_REPL_INFO_TYPE, pszobject: PCWSTR, puuidforsourcedsaobjguid: Long, ppinfo: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsReplicaGetInfoW(hds, infotype, pszobject, puuidforsourcedsaobjguid, ppinfo).toUInt()
+public actual fun dsReplicaGetInfoW(hds: Handle, infotype: DsReplInfoType, pszobject: Pcwstr, puuidforsourcedsaobjguid: COpaquePointer?, ppinfo: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsReplicaGetInfoW((hds?.value ?: 0L), infotype, (pszobject?.value ?: 0L), (puuidforsourcedsaobjguid?.value ?: 0L), (ppinfo?.value ?: 0L)).toUInt()
 
-public actual fun DsReplicaModifyA(hds: HANDLE, namecontext: PCSTR, puuidsourcedsa: Long, transportdn: PCSTR, sourcedsaaddress: PCSTR, pschedule: Long, replicaflags: UInt, modifyfields: UInt, options: UInt): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsReplicaModifyA(hds, namecontext, puuidsourcedsa, transportdn, sourcedsaaddress, pschedule, replicaflags.toInt(), modifyfields.toInt(), options.toInt()).toUInt()
+public actual fun dsReplicaModifyA(hds: Handle, namecontext: Pcstr, puuidsourcedsa: COpaquePointer?, transportdn: Pcstr, sourcedsaaddress: Pcstr, pschedule: COpaquePointer?, replicaflags: UInt, modifyfields: UInt, options: UInt): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsReplicaModifyA((hds?.value ?: 0L), (namecontext?.value ?: 0L), (puuidsourcedsa?.value ?: 0L), (transportdn?.value ?: 0L), (sourcedsaaddress?.value ?: 0L), (pschedule?.value ?: 0L), replicaflags.toInt(), modifyfields.toInt(), options.toInt()).toUInt()
 
-public actual fun DsReplicaModifyW(hds: HANDLE, namecontext: PCWSTR, puuidsourcedsa: Long, transportdn: PCWSTR, sourcedsaaddress: PCWSTR, pschedule: Long, replicaflags: UInt, modifyfields: UInt, options: UInt): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsReplicaModifyW(hds, namecontext, puuidsourcedsa, transportdn, sourcedsaaddress, pschedule, replicaflags.toInt(), modifyfields.toInt(), options.toInt()).toUInt()
+public actual fun dsReplicaModifyW(hds: Handle, namecontext: Pcwstr, puuidsourcedsa: COpaquePointer?, transportdn: Pcwstr, sourcedsaaddress: Pcwstr, pschedule: COpaquePointer?, replicaflags: UInt, modifyfields: UInt, options: UInt): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsReplicaModifyW((hds?.value ?: 0L), (namecontext?.value ?: 0L), (puuidsourcedsa?.value ?: 0L), (transportdn?.value ?: 0L), (sourcedsaaddress?.value ?: 0L), (pschedule?.value ?: 0L), replicaflags.toInt(), modifyfields.toInt(), options.toInt()).toUInt()
 
-public actual fun DsReplicaSyncA(hds: HANDLE, namecontext: PCSTR, puuiddsasrc: Long, options: UInt): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsReplicaSyncA(hds, namecontext, puuiddsasrc, options.toInt()).toUInt()
+public actual fun dsReplicaSyncA(hds: Handle, namecontext: Pcstr, puuiddsasrc: COpaquePointer?, options: UInt): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsReplicaSyncA((hds?.value ?: 0L), (namecontext?.value ?: 0L), (puuiddsasrc?.value ?: 0L), options.toInt()).toUInt()
 
-public actual fun DsReplicaSyncAllA(hds: HANDLE, psznamecontext: PCSTR, ulflags: UInt, pfncallback: Long, pcallbackdata: Long, perrors: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsReplicaSyncAllA(hds, psznamecontext, ulflags.toInt(), pfncallback, pcallbackdata, perrors).toUInt()
+public actual fun dsReplicaSyncAllA(hds: Handle, psznamecontext: Pcstr, ulflags: UInt, pfncallback: Long, pcallbackdata: COpaquePointer?, perrors: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsReplicaSyncAllA((hds?.value ?: 0L), (psznamecontext?.value ?: 0L), ulflags.toInt(), pfncallback, (pcallbackdata?.value ?: 0L), (perrors?.value ?: 0L)).toUInt()
 
-public actual fun DsReplicaSyncAllW(hds: HANDLE, psznamecontext: PCWSTR, ulflags: UInt, pfncallback: Long, pcallbackdata: Long, perrors: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsReplicaSyncAllW(hds, psznamecontext, ulflags.toInt(), pfncallback, pcallbackdata, perrors).toUInt()
+public actual fun dsReplicaSyncAllW(hds: Handle, psznamecontext: Pcwstr, ulflags: UInt, pfncallback: Long, pcallbackdata: COpaquePointer?, perrors: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsReplicaSyncAllW((hds?.value ?: 0L), (psznamecontext?.value ?: 0L), ulflags.toInt(), pfncallback, (pcallbackdata?.value ?: 0L), (perrors?.value ?: 0L)).toUInt()
 
-public actual fun DsReplicaSyncW(hds: HANDLE, namecontext: PCWSTR, puuiddsasrc: Long, options: UInt): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsReplicaSyncW(hds, namecontext, puuiddsasrc, options.toInt()).toUInt()
+public actual fun dsReplicaSyncW(hds: Handle, namecontext: Pcwstr, puuiddsasrc: COpaquePointer?, options: UInt): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsReplicaSyncW((hds?.value ?: 0L), (namecontext?.value ?: 0L), (puuiddsasrc?.value ?: 0L), options.toInt()).toUInt()
 
-public actual fun DsReplicaUpdateRefsA(hds: HANDLE, namecontext: PCSTR, dsadest: PCSTR, puuiddsadest: Long, options: UInt): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsReplicaUpdateRefsA(hds, namecontext, dsadest, puuiddsadest, options.toInt()).toUInt()
+public actual fun dsReplicaUpdateRefsA(hds: Handle, namecontext: Pcstr, dsadest: Pcstr, puuiddsadest: COpaquePointer?, options: UInt): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsReplicaUpdateRefsA((hds?.value ?: 0L), (namecontext?.value ?: 0L), (dsadest?.value ?: 0L), (puuiddsadest?.value ?: 0L), options.toInt()).toUInt()
 
-public actual fun DsReplicaUpdateRefsW(hds: HANDLE, namecontext: PCWSTR, dsadest: PCWSTR, puuiddsadest: Long, options: UInt): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsReplicaUpdateRefsW(hds, namecontext, dsadest, puuiddsadest, options.toInt()).toUInt()
+public actual fun dsReplicaUpdateRefsW(hds: Handle, namecontext: Pcwstr, dsadest: Pcwstr, puuiddsadest: COpaquePointer?, options: UInt): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsReplicaUpdateRefsW((hds?.value ?: 0L), (namecontext?.value ?: 0L), (dsadest?.value ?: 0L), (puuiddsadest?.value ?: 0L), options.toInt()).toUInt()
 
-public actual fun DsReplicaVerifyObjectsA(hds: HANDLE, namecontext: PCSTR, puuiddsasrc: Long, uloptions: UInt): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsReplicaVerifyObjectsA(hds, namecontext, puuiddsasrc, uloptions.toInt()).toUInt()
+public actual fun dsReplicaVerifyObjectsA(hds: Handle, namecontext: Pcstr, puuiddsasrc: COpaquePointer?, uloptions: UInt): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsReplicaVerifyObjectsA((hds?.value ?: 0L), (namecontext?.value ?: 0L), (puuiddsasrc?.value ?: 0L), uloptions.toInt()).toUInt()
 
-public actual fun DsReplicaVerifyObjectsW(hds: HANDLE, namecontext: PCWSTR, puuiddsasrc: Long, uloptions: UInt): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsReplicaVerifyObjectsW(hds, namecontext, puuiddsasrc, uloptions.toInt()).toUInt()
+public actual fun dsReplicaVerifyObjectsW(hds: Handle, namecontext: Pcwstr, puuiddsasrc: COpaquePointer?, uloptions: UInt): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsReplicaVerifyObjectsW((hds?.value ?: 0L), (namecontext?.value ?: 0L), (puuiddsasrc?.value ?: 0L), uloptions.toInt()).toUInt()
 
-public actual fun DsRoleFreeMemory(buffer: Long) {
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsRoleFreeMemory(buffer)
+public actual fun dsRoleFreeMemory(buffer: COpaquePointer?) {
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsRoleFreeMemory((buffer?.value ?: 0L))
 }
 
-public actual fun DsRoleGetPrimaryDomainInformation(lpserver: PCWSTR, infolevel: DSROLE_PRIMARY_DOMAIN_INFO_LEVEL, buffer: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsRoleGetPrimaryDomainInformation(lpserver, infolevel, buffer).toUInt()
+public actual fun dsRoleGetPrimaryDomainInformation(lpserver: Pcwstr, infolevel: DsrolePrimaryDomainInfoLevel, buffer: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsRoleGetPrimaryDomainInformation((lpserver?.value ?: 0L), infolevel, (buffer?.value ?: 0L)).toUInt()
 
-public actual fun DsServerRegisterSpnA(operation: DS_SPN_WRITE_OP, serviceclass: PCSTR, userobjectdn: PCSTR): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsServerRegisterSpnA(operation, serviceclass, userobjectdn).toUInt()
+public actual fun dsServerRegisterSpnA(operation: DsSpnWriteOp, serviceclass: Pcstr, userobjectdn: Pcstr): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsServerRegisterSpnA(operation, (serviceclass?.value ?: 0L), (userobjectdn?.value ?: 0L)).toUInt()
 
-public actual fun DsServerRegisterSpnW(operation: DS_SPN_WRITE_OP, serviceclass: PCWSTR, userobjectdn: PCWSTR): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsServerRegisterSpnW(operation, serviceclass, userobjectdn).toUInt()
+public actual fun dsServerRegisterSpnW(operation: DsSpnWriteOp, serviceclass: Pcwstr, userobjectdn: Pcwstr): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsServerRegisterSpnW(operation, (serviceclass?.value ?: 0L), (userobjectdn?.value ?: 0L)).toUInt()
 
-public actual fun DsUnBindA(phds: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsUnBindA(phds).toUInt()
+public actual fun dsUnBindA(phds: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsUnBindA((phds?.value ?: 0L)).toUInt()
 
-public actual fun DsUnBindW(phds: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsUnBindW(phds).toUInt()
+public actual fun dsUnBindW(phds: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsUnBindW((phds?.value ?: 0L)).toUInt()
 
-public actual fun DsUnquoteRdnValueA(cquotedrdnvaluelength: UInt, psquotedrdnvalue: PCSTR, pcunquotedrdnvaluelength: Long, psunquotedrdnvalue: PSTR): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsUnquoteRdnValueA(cquotedrdnvaluelength.toInt(), psquotedrdnvalue, pcunquotedrdnvaluelength, psunquotedrdnvalue).toUInt()
+public actual fun dsUnquoteRdnValueA(cquotedrdnvaluelength: UInt, psquotedrdnvalue: Pcstr, pcunquotedrdnvaluelength: COpaquePointer?, psunquotedrdnvalue: Pstr): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsUnquoteRdnValueA(cquotedrdnvaluelength.toInt(), (psquotedrdnvalue?.value ?: 0L), (pcunquotedrdnvaluelength?.value ?: 0L), (psunquotedrdnvalue?.value ?: 0L)).toUInt()
 
-public actual fun DsUnquoteRdnValueW(cquotedrdnvaluelength: UInt, psquotedrdnvalue: PCWSTR, pcunquotedrdnvaluelength: Long, psunquotedrdnvalue: PWSTR): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsUnquoteRdnValueW(cquotedrdnvaluelength.toInt(), psquotedrdnvalue, pcunquotedrdnvaluelength, psunquotedrdnvalue).toUInt()
+public actual fun dsUnquoteRdnValueW(cquotedrdnvaluelength: UInt, psquotedrdnvalue: Pcwstr, pcunquotedrdnvaluelength: COpaquePointer?, psunquotedrdnvalue: Pwstr): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsUnquoteRdnValueW(cquotedrdnvaluelength.toInt(), (psquotedrdnvalue?.value ?: 0L), (pcunquotedrdnvaluelength?.value ?: 0L), (psunquotedrdnvalue?.value ?: 0L)).toUInt()
 
-public actual fun DsValidateSubnetNameA(subnetname: PCSTR): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsValidateSubnetNameA(subnetname).toUInt()
+public actual fun dsValidateSubnetNameA(subnetname: Pcstr): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsValidateSubnetNameA((subnetname?.value ?: 0L)).toUInt()
 
-public actual fun DsValidateSubnetNameW(subnetname: PCWSTR): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsValidateSubnetNameW(subnetname).toUInt()
+public actual fun dsValidateSubnetNameW(subnetname: Pcwstr): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsValidateSubnetNameW((subnetname?.value ?: 0L)).toUInt()
 
-public actual fun DsWriteAccountSpnA(hds: HANDLE, operation: DS_SPN_WRITE_OP, pszaccount: PCSTR, cspn: UInt, rpszspn: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsWriteAccountSpnA(hds, operation, pszaccount, cspn.toInt(), rpszspn).toUInt()
+public actual fun dsWriteAccountSpnA(hds: Handle, operation: DsSpnWriteOp, pszaccount: Pcstr, cspn: UInt, rpszspn: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsWriteAccountSpnA((hds?.value ?: 0L), operation, (pszaccount?.value ?: 0L), cspn.toInt(), (rpszspn?.value ?: 0L)).toUInt()
 
-public actual fun DsWriteAccountSpnW(hds: HANDLE, operation: DS_SPN_WRITE_OP, pszaccount: PCWSTR, cspn: UInt, rpszspn: Long): UInt =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_DsWriteAccountSpnW(hds, operation, pszaccount, cspn.toInt(), rpszspn).toUInt()
+public actual fun dsWriteAccountSpnW(hds: Handle, operation: DsSpnWriteOp, pszaccount: Pcwstr, cspn: UInt, rpszspn: COpaquePointer?): UInt =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_dsWriteAccountSpnW((hds?.value ?: 0L), operation, (pszaccount?.value ?: 0L), cspn.toInt(), (rpszspn?.value ?: 0L)).toUInt()
 
-public actual fun FreeADsMem(pmem: Long): BOOL =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_FreeADsMem(pmem)
+public actual fun freeADsMem(pmem: COpaquePointer?): Bool =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_freeADsMem((pmem?.value ?: 0L))
 
-public actual fun FreeADsStr(pstr: PCWSTR): BOOL =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_FreeADsStr(pstr)
+public actual fun freeADsStr(pstr: Pcwstr): Bool =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_freeADsStr((pstr?.value ?: 0L))
 
-public actual fun PropVariantToAdsType(pvariant: Long, dwnumvariant: UInt, ppadsvalues: Long, pdwnumvalues: Long): HRESULT =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_PropVariantToAdsType(pvariant, dwnumvariant.toInt(), ppadsvalues, pdwnumvalues)
+public actual fun propVariantToAdsType(pvariant: COpaquePointer?, dwnumvariant: UInt, ppadsvalues: COpaquePointer?, pdwnumvalues: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_propVariantToAdsType((pvariant?.value ?: 0L), dwnumvariant.toInt(), (ppadsvalues?.value ?: 0L), (pdwnumvalues?.value ?: 0L))
 
-public actual fun ReallocADsMem(poldmem: Long, cbold: UInt, cbnew: UInt): Long =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_ReallocADsMem(poldmem, cbold.toInt(), cbnew.toInt())
+public actual fun reallocADsMem(poldmem: COpaquePointer?, cbold: UInt, cbnew: UInt): COpaquePointer? =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_reallocADsMem((poldmem?.value ?: 0L), cbold.toInt(), cbnew.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ReallocADsStr(ppstr: Long, pstr: PCWSTR): BOOL =
-    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_ReallocADsStr(ppstr, pstr)
+public actual fun reallocADsStr(ppstr: COpaquePointer?, pstr: Pcwstr): Bool =
+    WindowsWin32NetworkingActivedirectoryJniBridge.windowssys_windows_win32_networking_activedirectory_reallocADsStr((ppstr?.value ?: 0L), (pstr?.value ?: 0L))
 
-public actual fun SecurityDescriptorToBinarySD(vvarsecdes: VARIANT, ppsecuritydescriptor: Long, pdwsdlength: Long, pszservername: PCWSTR, username: PCWSTR, password: PCWSTR, dwflags: UInt): HRESULT =
+public actual fun securityDescriptorToBinarySD(vvarsecdes: Variant, ppsecuritydescriptor: COpaquePointer?, pdwsdlength: COpaquePointer?, pszservername: Pcwstr, username: Pcwstr, password: Pcwstr, dwflags: UInt): Hresult =
     0

@@ -6,9 +6,9 @@ public val SB_PIXEL_ALPHA: UInt = 2u
 
 public val SB_PREMULT_ALPHA: UInt = 4u
 
-public val SCALINGFACTORX: GET_DEVICE_CAPS_INDEX = 114u
+public val SCALINGFACTORX: GetDeviceCapsIndex = 114u
 
-public val SCALINGFACTORY: GET_DEVICE_CAPS_INDEX = 115u
+public val SCALINGFACTORY: GetDeviceCapsIndex = 115u
 
 public val SC_SCREENSAVE: UInt = 61760u
 
@@ -54,13 +54,13 @@ public val SET_SCREEN_ANGLE: UInt = 4105u
 
 public val SET_SPREAD: UInt = 4106u
 
-public val SHADEBLENDCAPS: GET_DEVICE_CAPS_INDEX = 120u
+public val SHADEBLENDCAPS: GetDeviceCapsIndex = 120u
 
-public val SHIFTJIS_CHARSET: FONT_CHARSET = 128u
+public val SHIFTJIS_CHARSET: FontCharset = 128u.toUByte()
 
-public val SIMPLEREGION: GDI_REGION_TYPE = 2
+public val SIMPLEREGION: GdiRegionType = 2
 
-public val SIZEPALETTE: GET_DEVICE_CAPS_INDEX = 104u
+public val SIZEPALETTE: GetDeviceCapsIndex = 104u
 
 public val SPCLPASSTHROUGH2: UInt = 4568u
 
@@ -76,15 +76,15 @@ public val SP_OUTOFMEMORY: Int = -5
 
 public val SP_USERABORT: Int = -3
 
-public val SRCAND: ROP_CODE = 8913094u
+public val SRCAND: RopCode = 8913094u
 
-public val SRCCOPY: ROP_CODE = 13369376u
+public val SRCCOPY: RopCode = 13369376u
 
-public val SRCERASE: ROP_CODE = 4457256u
+public val SRCERASE: RopCode = 4457256u
 
-public val SRCINVERT: ROP_CODE = 6684742u
+public val SRCINVERT: RopCode = 6684742u
 
-public val SRCPAINT: ROP_CODE = 15597702u
+public val SRCPAINT: RopCode = 15597702u
 
 public val STARTDOC: UInt = 10u
 
@@ -92,49 +92,49 @@ public val STOCK_LAST: UInt = 19u
 
 public val STRETCHBLT: UInt = 2048u
 
-public val STRETCH_ANDSCANS: STRETCH_BLT_MODE = 1
+public val STRETCH_ANDSCANS: StretchBltMode = 1
 
-public val STRETCH_DELETESCANS: STRETCH_BLT_MODE = 3
+public val STRETCH_DELETESCANS: StretchBltMode = 3
 
-public val STRETCH_HALFTONE: STRETCH_BLT_MODE = 4
+public val STRETCH_HALFTONE: StretchBltMode = 4
 
-public val STRETCH_ORSCANS: STRETCH_BLT_MODE = 2
+public val STRETCH_ORSCANS: StretchBltMode = 2
 
-public val SYMBOL_CHARSET: FONT_CHARSET = 2u
+public val SYMBOL_CHARSET: FontCharset = 2u.toUByte()
 
 public val SYSPAL_ERROR: UInt = 0u
 
-public val SYSPAL_NOSTATIC: SYSTEM_PALETTE_USE = 2u
+public val SYSPAL_NOSTATIC: SystemPaletteUse = 2u
 
-public val SYSPAL_NOSTATIC256: SYSTEM_PALETTE_USE = 3u
+public val SYSPAL_NOSTATIC256: SystemPaletteUse = 3u
 
-public val SYSPAL_STATIC: SYSTEM_PALETTE_USE = 1u
+public val SYSPAL_STATIC: SystemPaletteUse = 1u
 
 public val SYSRGN: UInt = 4u
 
-public val SYSTEM_FIXED_FONT: GET_STOCK_OBJECT_FLAGS = 16
+public val SYSTEM_FIXED_FONT: GetStockObjectFlags = 16
 
-public val SYSTEM_FONT: GET_STOCK_OBJECT_FLAGS = 13
+public val SYSTEM_FONT: GetStockObjectFlags = 13
 
-public val TA_BASELINE: TEXT_ALIGN_OPTIONS = 24u
+public val TA_BASELINE: TextAlignOptions = 24u
 
-public val TA_BOTTOM: TEXT_ALIGN_OPTIONS = 8u
+public val TA_BOTTOM: TextAlignOptions = 8u
 
-public val TA_CENTER: TEXT_ALIGN_OPTIONS = 6u
+public val TA_CENTER: TextAlignOptions = 6u
 
-public val TA_LEFT: TEXT_ALIGN_OPTIONS = 0u
+public val TA_LEFT: TextAlignOptions = 0u
 
-public val TA_MASK: TEXT_ALIGN_OPTIONS = 287u
+public val TA_MASK: TextAlignOptions = 287u
 
-public val TA_NOUPDATECP: TEXT_ALIGN_OPTIONS = 0u
+public val TA_NOUPDATECP: TextAlignOptions = 0u
 
-public val TA_RIGHT: TEXT_ALIGN_OPTIONS = 2u
+public val TA_RIGHT: TextAlignOptions = 2u
 
-public val TA_RTLREADING: TEXT_ALIGN_OPTIONS = 256u
+public val TA_RTLREADING: TextAlignOptions = 256u
 
-public val TA_TOP: TEXT_ALIGN_OPTIONS = 0u
+public val TA_TOP: TextAlignOptions = 0u
 
-public val TA_UPDATECP: TEXT_ALIGN_OPTIONS = 1u
+public val TA_UPDATECP: TextAlignOptions = 1u
 
 public val TC_CP_STROKE: UInt = 4u
 
@@ -170,41 +170,41 @@ public val TC_UA_ABLE: UInt = 2048u
 
 public val TC_VA_ABLE: UInt = 16384u
 
-public val TECHNOLOGY: GET_DEVICE_CAPS_INDEX = 2u
+public val TECHNOLOGY: GetDeviceCapsIndex = 2u
 
-public val TEXTCAPS: GET_DEVICE_CAPS_INDEX = 34u
+public val TEXTCAPS: GetDeviceCapsIndex = 34u
 
-public val THAI_CHARSET: FONT_CHARSET = 222u
+public val THAI_CHARSET: FontCharset = 222u.toUByte()
 
-public val TMPF_DEVICE: TMPF_FLAGS = 8u
+public val TMPF_DEVICE: TmpfFlags = 8u.toUByte()
 
-public val TMPF_FIXED_PITCH: TMPF_FLAGS = 1u
+public val TMPF_FIXED_PITCH: TmpfFlags = 1u.toUByte()
 
-public val TMPF_TRUETYPE: TMPF_FLAGS = 4u
+public val TMPF_TRUETYPE: TmpfFlags = 4u.toUByte()
 
-public val TMPF_VECTOR: TMPF_FLAGS = 2u
+public val TMPF_VECTOR: TmpfFlags = 2u.toUByte()
 
 public val TRANSFORM_CTM: UInt = 4107u
 
-public val TRANSPARENT: BACKGROUND_MODE = 1u
+public val TRANSPARENT: BackgroundMode = 1u
 
 public val TRUETYPE_FONTTYPE: UInt = 4u
 
 public val TTDELETE_DONTREMOVEFONT: UInt = 1u
 
-public val TTEMBED_EMBEDEUDC: TTEMBED_FLAGS = 32u
+public val TTEMBED_EMBEDEUDC: TtembedFlags = 32u
 
 public val TTEMBED_EUDCEMBEDDED: UInt = 2u
 
 public val TTEMBED_FAILIFVARIATIONSIMULATED: UInt = 16u
 
-public val TTEMBED_RAW: TTEMBED_FLAGS = 0u
+public val TTEMBED_RAW: TtembedFlags = 0u
 
-public val TTEMBED_SUBSET: TTEMBED_FLAGS = 1u
+public val TTEMBED_SUBSET: TtembedFlags = 1u
 
 public val TTEMBED_SUBSETCANCEL: UInt = 4u
 
-public val TTEMBED_TTCOMPRESSED: TTEMBED_FLAGS = 4u
+public val TTEMBED_TTCOMPRESSED: TtembedFlags = 4u
 
 public val TTEMBED_VARIATIONSIMULATED: UInt = 1u
 
@@ -226,23 +226,23 @@ public val TTFCFP_FLAGS_SUBSET: UInt = 1u
 
 public val TTFCFP_FLAGS_TTC: UInt = 4u
 
-public val TTFCFP_ISO_PLATFORMID: CREATE_FONT_PACKAGE_SUBSET_PLATFORM = 2
+public val TTFCFP_ISO_PLATFORMID: CreateFontPackageSubsetPlatform = 2
 
 public val TTFCFP_LANG_KEEP_ALL: UInt = 0u
 
 public val TTFCFP_MS_PLATFORMID: UInt = 3u
 
-public val TTFCFP_STD_MAC_CHAR_SET: CREATE_FONT_PACKAGE_SUBSET_ENCODING = 0
+public val TTFCFP_STD_MAC_CHAR_SET: CreateFontPackageSubsetEncoding = 0
 
 public val TTFCFP_SUBSET: UInt = 0u
 
 public val TTFCFP_SUBSET1: UInt = 1u
 
-public val TTFCFP_SYMBOL_CHAR_SET: CREATE_FONT_PACKAGE_SUBSET_ENCODING = 0
+public val TTFCFP_SYMBOL_CHAR_SET: CreateFontPackageSubsetEncoding = 0
 
-public val TTFCFP_UNICODE_CHAR_SET: CREATE_FONT_PACKAGE_SUBSET_ENCODING = 1
+public val TTFCFP_UNICODE_CHAR_SET: CreateFontPackageSubsetEncoding = 1
 
-public val TTFCFP_UNICODE_PLATFORMID: CREATE_FONT_PACKAGE_SUBSET_PLATFORM = 0
+public val TTFCFP_UNICODE_PLATFORMID: CreateFontPackageSubsetPlatform = 0
 
 public val TTFMFP_DELTA: UInt = 2u
 
@@ -254,9 +254,9 @@ public val TTLOAD_EUDC_OVERWRITE: UInt = 2u
 
 public val TTLOAD_EUDC_SET: UInt = 4u
 
-public val TTLOAD_FONT_IN_SYSSTARTUP: TTLOAD_EMBEDDED_FONT_STATUS = 2u
+public val TTLOAD_FONT_IN_SYSSTARTUP: TtloadEmbeddedFontStatus = 2u
 
-public val TTLOAD_FONT_SUBSETTED: TTLOAD_EMBEDDED_FONT_STATUS = 1u
+public val TTLOAD_FONT_SUBSETTED: TtloadEmbeddedFontStatus = 1u
 
 public val TTLOAD_PRIVATE: UInt = 1u
 
@@ -272,29 +272,29 @@ public val TT_PRIM_LINE: UInt = 1u
 
 public val TT_PRIM_QSPLINE: UInt = 2u
 
-public val TURKISH_CHARSET: FONT_CHARSET = 162u
+public val TURKISH_CHARSET: FontCharset = 162u.toUByte()
 
-public val VARIABLE_PITCH: FONT_PITCH = 2u
+public val VARIABLE_PITCH: FontPitch = 2u.toUByte()
 
-public val VERTRES: GET_DEVICE_CAPS_INDEX = 10u
+public val VERTRES: GetDeviceCapsIndex = 10u
 
-public val VERTSIZE: GET_DEVICE_CAPS_INDEX = 6u
+public val VERTSIZE: GetDeviceCapsIndex = 6u
 
-public val VIETNAMESE_CHARSET: FONT_CHARSET = 163u
+public val VIETNAMESE_CHARSET: FontCharset = 163u.toUByte()
 
-public val VREFRESH: GET_DEVICE_CAPS_INDEX = 116u
+public val VREFRESH: GetDeviceCapsIndex = 116u
 
-public val VTA_BASELINE: TEXT_ALIGN_OPTIONS = 24u
+public val VTA_BASELINE: TextAlignOptions = 24u
 
-public val VTA_BOTTOM: TEXT_ALIGN_OPTIONS = 2u
+public val VTA_BOTTOM: TextAlignOptions = 2u
 
-public val VTA_CENTER: TEXT_ALIGN_OPTIONS = 6u
+public val VTA_CENTER: TextAlignOptions = 6u
 
-public val VTA_LEFT: TEXT_ALIGN_OPTIONS = 8u
+public val VTA_LEFT: TextAlignOptions = 8u
 
-public val VTA_RIGHT: TEXT_ALIGN_OPTIONS = 0u
+public val VTA_RIGHT: TextAlignOptions = 0u
 
-public val VTA_TOP: TEXT_ALIGN_OPTIONS = 0u
+public val VTA_TOP: TextAlignOptions = 0u
 
 public val WGL_FONT_LINES: UInt = 0u
 
@@ -364,12 +364,12 @@ public val WGL_SWAP_UNDERLAY8: UInt = 8388608u
 
 public val WGL_SWAP_UNDERLAY9: UInt = 16777216u
 
-public val WHITENESS: ROP_CODE = 16711778u
+public val WHITENESS: RopCode = 16711778u
 
-public val WHITEONBLACK: STRETCH_BLT_MODE = 2
+public val WHITEONBLACK: StretchBltMode = 2
 
-public val WHITE_BRUSH: GET_STOCK_OBJECT_FLAGS = 0
+public val WHITE_BRUSH: GetStockObjectFlags = 0
 
-public val WHITE_PEN: GET_STOCK_OBJECT_FLAGS = 6
+public val WHITE_PEN: GetStockObjectFlags = 6
 
-public val WINDING: CREATE_POLYGON_RGN_MODE = 2
+public val WINDING: CreatePolygonRgnMode = 2

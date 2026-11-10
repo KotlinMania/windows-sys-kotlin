@@ -1,45 +1,45 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.dataexchange
 
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.w
 
 public val APPCLASS_MASK: Int = 15
 
-public val APPCLASS_MONITOR: DDE_INITIALIZE_COMMAND = 1u
+public val APPCLASS_MONITOR: DdeInitializeCommand = 1u
 
-public val APPCLASS_STANDARD: DDE_INITIALIZE_COMMAND = 0u
+public val APPCLASS_STANDARD: DdeInitializeCommand = 0u
 
-public val APPCMD_CLIENTONLY: DDE_INITIALIZE_COMMAND = 16u
+public val APPCMD_CLIENTONLY: DdeInitializeCommand = 16u
 
-public val APPCMD_FILTERINITS: DDE_INITIALIZE_COMMAND = 32u
+public val APPCMD_FILTERINITS: DdeInitializeCommand = 32u
 
 public val APPCMD_MASK: Int = 4080
 
 public val CADV_LATEACK: UInt = 65535u
 
-public val CBF_FAIL_ADVISES: DDE_INITIALIZE_COMMAND = 16384u
+public val CBF_FAIL_ADVISES: DdeInitializeCommand = 16384u
 
-public val CBF_FAIL_ALLSVRXACTIONS: DDE_INITIALIZE_COMMAND = 258048u
+public val CBF_FAIL_ALLSVRXACTIONS: DdeInitializeCommand = 258048u
 
-public val CBF_FAIL_CONNECTIONS: DDE_INITIALIZE_COMMAND = 8192u
+public val CBF_FAIL_CONNECTIONS: DdeInitializeCommand = 8192u
 
-public val CBF_FAIL_EXECUTES: DDE_INITIALIZE_COMMAND = 32768u
+public val CBF_FAIL_EXECUTES: DdeInitializeCommand = 32768u
 
-public val CBF_FAIL_POKES: DDE_INITIALIZE_COMMAND = 65536u
+public val CBF_FAIL_POKES: DdeInitializeCommand = 65536u
 
-public val CBF_FAIL_REQUESTS: DDE_INITIALIZE_COMMAND = 131072u
+public val CBF_FAIL_REQUESTS: DdeInitializeCommand = 131072u
 
-public val CBF_FAIL_SELFCONNECTIONS: DDE_INITIALIZE_COMMAND = 4096u
+public val CBF_FAIL_SELFCONNECTIONS: DdeInitializeCommand = 4096u
 
-public val CBF_SKIP_ALLNOTIFICATIONS: DDE_INITIALIZE_COMMAND = 3932160u
+public val CBF_SKIP_ALLNOTIFICATIONS: DdeInitializeCommand = 3932160u
 
-public val CBF_SKIP_CONNECT_CONFIRMS: DDE_INITIALIZE_COMMAND = 262144u
+public val CBF_SKIP_CONNECT_CONFIRMS: DdeInitializeCommand = 262144u
 
-public val CBF_SKIP_DISCONNECTS: DDE_INITIALIZE_COMMAND = 2097152u
+public val CBF_SKIP_DISCONNECTS: DdeInitializeCommand = 2097152u
 
-public val CBF_SKIP_REGISTRATIONS: DDE_INITIALIZE_COMMAND = 524288u
+public val CBF_SKIP_REGISTRATIONS: DdeInitializeCommand = 524288u
 
-public val CBF_SKIP_UNREGISTRATIONS: DDE_INITIALIZE_COMMAND = 1048576u
+public val CBF_SKIP_UNREGISTRATIONS: DdeInitializeCommand = 1048576u
 
 public val CP_WINANSI: Int = 1004
 
@@ -105,41 +105,41 @@ public val DMLERR_UNADVACKTIMEOUT: UInt = 16400u
 
 public val DMLERR_UNFOUND_QUEUE_ID: UInt = 16401u
 
-public val DNS_FILTEROFF: DDE_NAME_SERVICE_CMD = 8u
+public val DNS_FILTEROFF: DdeNameServiceCmd = 8u
 
-public val DNS_FILTERON: DDE_NAME_SERVICE_CMD = 4u
+public val DNS_FILTERON: DdeNameServiceCmd = 4u
 
-public val DNS_REGISTER: DDE_NAME_SERVICE_CMD = 1u
+public val DNS_REGISTER: DdeNameServiceCmd = 1u
 
-public val DNS_UNREGISTER: DDE_NAME_SERVICE_CMD = 2u
+public val DNS_UNREGISTER: DdeNameServiceCmd = 2u
 
-public val EC_DISABLE: DDE_ENABLE_CALLBACK_CMD = 8u
+public val EC_DISABLE: DdeEnableCallbackCmd = 8u
 
-public val EC_ENABLEALL: DDE_ENABLE_CALLBACK_CMD = 0u
+public val EC_ENABLEALL: DdeEnableCallbackCmd = 0u
 
-public val EC_ENABLEONE: DDE_ENABLE_CALLBACK_CMD = 128u
+public val EC_ENABLEONE: DdeEnableCallbackCmd = 128u
 
-public val EC_QUERYWAITING: DDE_ENABLE_CALLBACK_CMD = 2u
+public val EC_QUERYWAITING: DdeEnableCallbackCmd = 2u
 
 public val HDATA_APPOWNED: UInt = 1u
 
 public val MAX_MONITORS: UInt = 4u
 
-public val MF_CALLBACKS: DDE_INITIALIZE_COMMAND = 134217728u
+public val MF_CALLBACKS: DdeInitializeCommand = 134217728u
 
-public val MF_CONV: DDE_INITIALIZE_COMMAND = 1073741824u
+public val MF_CONV: DdeInitializeCommand = 1073741824u
 
-public val MF_ERRORS: DDE_INITIALIZE_COMMAND = 268435456u
+public val MF_ERRORS: DdeInitializeCommand = 268435456u
 
-public val MF_HSZ_INFO: DDE_INITIALIZE_COMMAND = 16777216u
+public val MF_HSZ_INFO: DdeInitializeCommand = 16777216u
 
-public val MF_LINKS: DDE_INITIALIZE_COMMAND = 536870912u
+public val MF_LINKS: DdeInitializeCommand = 536870912u
 
 public val MF_MASK: UInt = 4278190080u
 
-public val MF_POSTMSGS: DDE_INITIALIZE_COMMAND = 67108864u
+public val MF_POSTMSGS: DdeInitializeCommand = 67108864u
 
-public val MF_SENDMSGS: DDE_INITIALIZE_COMMAND = 33554432u
+public val MF_SENDMSGS: DdeInitializeCommand = 33554432u
 
 public val MH_CLEANUP: UInt = 4u
 
@@ -153,39 +153,39 @@ public val MSGF_DDEMGR: UInt = 32769u
 
 public val QID_SYNC: UInt = 4294967295u
 
-public val ST_ADVISE: CONVINFO_STATUS = 2u
+public val ST_ADVISE: ConvinfoStatus = 2u
 
-public val ST_BLOCKED: CONVINFO_STATUS = 8u
+public val ST_BLOCKED: ConvinfoStatus = 8u
 
-public val ST_BLOCKNEXT: CONVINFO_STATUS = 128u
+public val ST_BLOCKNEXT: ConvinfoStatus = 128u
 
-public val ST_CLIENT: CONVINFO_STATUS = 16u
+public val ST_CLIENT: ConvinfoStatus = 16u
 
-public val ST_CONNECTED: CONVINFO_STATUS = 1u
+public val ST_CONNECTED: ConvinfoStatus = 1u
 
-public val ST_INLIST: CONVINFO_STATUS = 64u
+public val ST_INLIST: ConvinfoStatus = 64u
 
-public val ST_ISLOCAL: CONVINFO_STATUS = 4u
+public val ST_ISLOCAL: ConvinfoStatus = 4u
 
-public val ST_ISSELF: CONVINFO_STATUS = 256u
+public val ST_ISSELF: ConvinfoStatus = 256u
 
-public val ST_TERMINATED: CONVINFO_STATUS = 32u
+public val ST_TERMINATED: ConvinfoStatus = 32u
 
-public val SZDDESYS_ITEM_FORMATS: PCWSTR = w("Formats")
+public val SZDDESYS_ITEM_FORMATS: Pcwstr = w("Formats")
 
-public val SZDDESYS_ITEM_HELP: PCWSTR = w("Help")
+public val SZDDESYS_ITEM_HELP: Pcwstr = w("Help")
 
-public val SZDDESYS_ITEM_RTNMSG: PCWSTR = w("ReturnMessage")
+public val SZDDESYS_ITEM_RTNMSG: Pcwstr = w("ReturnMessage")
 
-public val SZDDESYS_ITEM_STATUS: PCWSTR = w("Status")
+public val SZDDESYS_ITEM_STATUS: Pcwstr = w("Status")
 
-public val SZDDESYS_ITEM_SYSITEMS: PCWSTR = w("SysItems")
+public val SZDDESYS_ITEM_SYSITEMS: Pcwstr = w("SysItems")
 
-public val SZDDESYS_ITEM_TOPICS: PCWSTR = w("Topics")
+public val SZDDESYS_ITEM_TOPICS: Pcwstr = w("Topics")
 
-public val SZDDESYS_TOPIC: PCWSTR = w("System")
+public val SZDDESYS_TOPIC: Pcwstr = w("System")
 
-public val SZDDE_ITEM_ITEMLIST: PCWSTR = w("TopicItemList")
+public val SZDDE_ITEM_ITEMLIST: Pcwstr = w("TopicItemList")
 
 public val TIMEOUT_ASYNC: UInt = 4294967295u
 
@@ -221,39 +221,39 @@ public val XCLASS_MASK: UInt = 64512u
 
 public val XCLASS_NOTIFICATION: UInt = 32768u
 
-public val XST_ADVACKRCVD: CONVINFO_CONVERSATION_STATE = 13u
+public val XST_ADVACKRCVD: ConvinfoConversationState = 13u
 
-public val XST_ADVDATAACKRCVD: CONVINFO_CONVERSATION_STATE = 16u
+public val XST_ADVDATAACKRCVD: ConvinfoConversationState = 16u
 
-public val XST_ADVDATASENT: CONVINFO_CONVERSATION_STATE = 15u
+public val XST_ADVDATASENT: ConvinfoConversationState = 15u
 
-public val XST_ADVSENT: CONVINFO_CONVERSATION_STATE = 11u
+public val XST_ADVSENT: ConvinfoConversationState = 11u
 
-public val XST_CONNECTED: CONVINFO_CONVERSATION_STATE = 2u
+public val XST_CONNECTED: ConvinfoConversationState = 2u
 
-public val XST_DATARCVD: CONVINFO_CONVERSATION_STATE = 6u
+public val XST_DATARCVD: ConvinfoConversationState = 6u
 
-public val XST_EXECACKRCVD: CONVINFO_CONVERSATION_STATE = 10u
+public val XST_EXECACKRCVD: ConvinfoConversationState = 10u
 
-public val XST_EXECSENT: CONVINFO_CONVERSATION_STATE = 9u
+public val XST_EXECSENT: ConvinfoConversationState = 9u
 
-public val XST_INCOMPLETE: CONVINFO_CONVERSATION_STATE = 1u
+public val XST_INCOMPLETE: ConvinfoConversationState = 1u
 
-public val XST_INIT1: CONVINFO_CONVERSATION_STATE = 3u
+public val XST_INIT1: ConvinfoConversationState = 3u
 
-public val XST_INIT2: CONVINFO_CONVERSATION_STATE = 4u
+public val XST_INIT2: ConvinfoConversationState = 4u
 
-public val XST_NULL: CONVINFO_CONVERSATION_STATE = 0u
+public val XST_NULL: ConvinfoConversationState = 0u
 
-public val XST_POKEACKRCVD: CONVINFO_CONVERSATION_STATE = 8u
+public val XST_POKEACKRCVD: ConvinfoConversationState = 8u
 
-public val XST_POKESENT: CONVINFO_CONVERSATION_STATE = 7u
+public val XST_POKESENT: ConvinfoConversationState = 7u
 
-public val XST_REQSENT: CONVINFO_CONVERSATION_STATE = 5u
+public val XST_REQSENT: ConvinfoConversationState = 5u
 
-public val XST_UNADVACKRCVD: CONVINFO_CONVERSATION_STATE = 14u
+public val XST_UNADVACKRCVD: ConvinfoConversationState = 14u
 
-public val XST_UNADVSENT: CONVINFO_CONVERSATION_STATE = 12u
+public val XST_UNADVSENT: ConvinfoConversationState = 12u
 
 public val XTYPF_ACKREQ: UInt = 8u
 
@@ -261,36 +261,36 @@ public val XTYPF_NOBLOCK: UInt = 2u
 
 public val XTYPF_NODATA: UInt = 4u
 
-public val XTYP_ADVDATA: DDE_CLIENT_TRANSACTION_TYPE = 16400u
+public val XTYP_ADVDATA: DdeClientTransactionType = 16400u
 
-public val XTYP_ADVREQ: DDE_CLIENT_TRANSACTION_TYPE = 8226u
+public val XTYP_ADVREQ: DdeClientTransactionType = 8226u
 
-public val XTYP_ADVSTART: DDE_CLIENT_TRANSACTION_TYPE = 4144u
+public val XTYP_ADVSTART: DdeClientTransactionType = 4144u
 
-public val XTYP_ADVSTOP: DDE_CLIENT_TRANSACTION_TYPE = 32832u
+public val XTYP_ADVSTOP: DdeClientTransactionType = 32832u
 
-public val XTYP_CONNECT: DDE_CLIENT_TRANSACTION_TYPE = 4194u
+public val XTYP_CONNECT: DdeClientTransactionType = 4194u
 
-public val XTYP_CONNECT_CONFIRM: DDE_CLIENT_TRANSACTION_TYPE = 32882u
+public val XTYP_CONNECT_CONFIRM: DdeClientTransactionType = 32882u
 
-public val XTYP_DISCONNECT: DDE_CLIENT_TRANSACTION_TYPE = 32962u
+public val XTYP_DISCONNECT: DdeClientTransactionType = 32962u
 
-public val XTYP_EXECUTE: DDE_CLIENT_TRANSACTION_TYPE = 16464u
+public val XTYP_EXECUTE: DdeClientTransactionType = 16464u
 
 public val XTYP_MASK: UInt = 240u
 
-public val XTYP_MONITOR: DDE_CLIENT_TRANSACTION_TYPE = 33010u
+public val XTYP_MONITOR: DdeClientTransactionType = 33010u
 
-public val XTYP_POKE: DDE_CLIENT_TRANSACTION_TYPE = 16528u
+public val XTYP_POKE: DdeClientTransactionType = 16528u
 
-public val XTYP_REGISTER: DDE_CLIENT_TRANSACTION_TYPE = 32930u
+public val XTYP_REGISTER: DdeClientTransactionType = 32930u
 
-public val XTYP_REQUEST: DDE_CLIENT_TRANSACTION_TYPE = 8368u
+public val XTYP_REQUEST: DdeClientTransactionType = 8368u
 
 public val XTYP_SHIFT: UInt = 4u
 
-public val XTYP_UNREGISTER: DDE_CLIENT_TRANSACTION_TYPE = 32978u
+public val XTYP_UNREGISTER: DdeClientTransactionType = 32978u
 
-public val XTYP_WILDCONNECT: DDE_CLIENT_TRANSACTION_TYPE = 8418u
+public val XTYP_WILDCONNECT: DdeClientTransactionType = 8418u
 
-public val XTYP_XACT_COMPLETE: DDE_CLIENT_TRANSACTION_TYPE = 32896u
+public val XTYP_XACT_COMPLETE: DdeClientTransactionType = 32896u

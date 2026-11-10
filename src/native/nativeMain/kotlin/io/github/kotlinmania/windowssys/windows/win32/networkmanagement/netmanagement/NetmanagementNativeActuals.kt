@@ -2,555 +2,558 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
-import io.github.kotlinmania.windowssys.windows.win32.security.PSID
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
+import io.github.kotlinmania.windowssys.windows.win32.security.Psid
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun GetNetScheduleAccountInformation(pwszservername: PCWSTR, ccaccount: UInt, wszaccount: PWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_GetNetScheduleAccountInformation(pwszservername.toCPointer<ByteVar>(), ccaccount, wszaccount.toCPointer<ByteVar>())
+public actual fun getNetScheduleAccountInformation(pwszservername: Pcwstr, ccaccount: UInt, wszaccount: Pwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_getNetScheduleAccountInformation(pwszservername?.value?.toCPointer<ByteVar>(), ccaccount, wszaccount?.value?.toCPointer<ByteVar>())
 
-public actual fun I_NetLogonControl2(servername: PCWSTR, functioncode: UInt, querylevel: UInt, data: Long, buffer: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_I_NetLogonControl2(servername.toCPointer<ByteVar>(), functioncode, querylevel, data.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>())
+public actual fun iNetLogonControl2(servername: Pcwstr, functioncode: UInt, querylevel: UInt, data: COpaquePointer?, buffer: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_iNetLogonControl2(servername?.value?.toCPointer<ByteVar>(), functioncode, querylevel, data?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>())
 
-public actual fun LogErrorA(dwmessageid: UInt, cnumberofsubstrings: UInt, plpwssubstrings: Long, dwerrorcode: UInt) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_LogErrorA(dwmessageid, cnumberofsubstrings, plpwssubstrings.toCPointer<ByteVar>(), dwerrorcode)
+public actual fun logErrorA(dwmessageid: UInt, cnumberofsubstrings: UInt, plpwssubstrings: COpaquePointer?, dwerrorcode: UInt) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_logErrorA(dwmessageid, cnumberofsubstrings, plpwssubstrings?.value?.toCPointer<ByteVar>(), dwerrorcode)
 }
 
-public actual fun LogErrorW(dwmessageid: UInt, cnumberofsubstrings: UInt, plpwssubstrings: Long, dwerrorcode: UInt) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_LogErrorW(dwmessageid, cnumberofsubstrings, plpwssubstrings.toCPointer<ByteVar>(), dwerrorcode)
+public actual fun logErrorW(dwmessageid: UInt, cnumberofsubstrings: UInt, plpwssubstrings: COpaquePointer?, dwerrorcode: UInt) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_logErrorW(dwmessageid, cnumberofsubstrings, plpwssubstrings?.value?.toCPointer<ByteVar>(), dwerrorcode)
 }
 
-public actual fun LogEventA(weventtype: UInt, dwmessageid: UInt, cnumberofsubstrings: UInt, plpwssubstrings: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_LogEventA(weventtype, dwmessageid, cnumberofsubstrings, plpwssubstrings.toCPointer<ByteVar>())
+public actual fun logEventA(weventtype: UInt, dwmessageid: UInt, cnumberofsubstrings: UInt, plpwssubstrings: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_logEventA(weventtype, dwmessageid, cnumberofsubstrings, plpwssubstrings?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun LogEventW(weventtype: UInt, dwmessageid: UInt, cnumberofsubstrings: UInt, plpwssubstrings: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_LogEventW(weventtype, dwmessageid, cnumberofsubstrings, plpwssubstrings.toCPointer<ByteVar>())
+public actual fun logEventW(weventtype: UInt, dwmessageid: UInt, cnumberofsubstrings: UInt, plpwssubstrings: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_logEventW(weventtype, dwmessageid, cnumberofsubstrings, plpwssubstrings?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun MprSetupProtocolEnum(dwtransportid: UInt, lplpbuffer: Long, lpdwentriesread: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_MprSetupProtocolEnum(dwtransportid, lplpbuffer.toCPointer<ByteVar>(), lpdwentriesread.toCPointer<ByteVar>())
+public actual fun mprSetupProtocolEnum(dwtransportid: UInt, lplpbuffer: COpaquePointer?, lpdwentriesread: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_mprSetupProtocolEnum(dwtransportid, lplpbuffer?.value?.toCPointer<ByteVar>(), lpdwentriesread?.value?.toCPointer<ByteVar>())
 
-public actual fun MprSetupProtocolFree(lpbuffer: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_MprSetupProtocolFree(lpbuffer.toCPointer<ByteVar>())
+public actual fun mprSetupProtocolFree(lpbuffer: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_mprSetupProtocolFree(lpbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun NetAccessAdd(servername: PCWSTR, level: UInt, buf: Long, parm_err: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetAccessAdd(servername.toCPointer<ByteVar>(), level, buf.toCPointer<ByteVar>(), parm_err.toCPointer<ByteVar>())
+public actual fun netAccessAdd(servername: Pcwstr, level: UInt, buf: COpaquePointer?, parmErr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netAccessAdd(servername?.value?.toCPointer<ByteVar>(), level, buf?.value?.toCPointer<ByteVar>(), parmErr?.value?.toCPointer<ByteVar>())
 
-public actual fun NetAccessDel(servername: PCWSTR, resource: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetAccessDel(servername.toCPointer<ByteVar>(), resource.toCPointer<ByteVar>())
+public actual fun netAccessDel(servername: Pcwstr, resource: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netAccessDel(servername?.value?.toCPointer<ByteVar>(), resource?.value?.toCPointer<ByteVar>())
 
-public actual fun NetAccessEnum(servername: PCWSTR, basepath: PCWSTR, recursive: UInt, level: UInt, bufptr: Long, prefmaxlen: UInt, entriesread: Long, totalentries: Long, resume_handle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetAccessEnum(servername.toCPointer<ByteVar>(), basepath.toCPointer<ByteVar>(), recursive, level, bufptr.toCPointer<ByteVar>(), prefmaxlen, entriesread.toCPointer<ByteVar>(), totalentries.toCPointer<ByteVar>(), resume_handle.toCPointer<ByteVar>())
+public actual fun netAccessEnum(servername: Pcwstr, basepath: Pcwstr, recursive: UInt, level: UInt, bufptr: COpaquePointer?, prefmaxlen: UInt, entriesread: COpaquePointer?, totalentries: COpaquePointer?, resumeHandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netAccessEnum(servername?.value?.toCPointer<ByteVar>(), basepath?.value?.toCPointer<ByteVar>(), recursive, level, bufptr?.value?.toCPointer<ByteVar>(), prefmaxlen, entriesread?.value?.toCPointer<ByteVar>(), totalentries?.value?.toCPointer<ByteVar>(), resumeHandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NetAccessGetInfo(servername: PCWSTR, resource: PCWSTR, level: UInt, bufptr: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetAccessGetInfo(servername.toCPointer<ByteVar>(), resource.toCPointer<ByteVar>(), level, bufptr.toCPointer<ByteVar>())
+public actual fun netAccessGetInfo(servername: Pcwstr, resource: Pcwstr, level: UInt, bufptr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netAccessGetInfo(servername?.value?.toCPointer<ByteVar>(), resource?.value?.toCPointer<ByteVar>(), level, bufptr?.value?.toCPointer<ByteVar>())
 
-public actual fun NetAccessGetUserPerms(servername: PCWSTR, ugname: PCWSTR, resource: PCWSTR, perms: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetAccessGetUserPerms(servername.toCPointer<ByteVar>(), ugname.toCPointer<ByteVar>(), resource.toCPointer<ByteVar>(), perms.toCPointer<ByteVar>())
+public actual fun netAccessGetUserPerms(servername: Pcwstr, ugname: Pcwstr, resource: Pcwstr, perms: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netAccessGetUserPerms(servername?.value?.toCPointer<ByteVar>(), ugname?.value?.toCPointer<ByteVar>(), resource?.value?.toCPointer<ByteVar>(), perms?.value?.toCPointer<ByteVar>())
 
-public actual fun NetAccessSetInfo(servername: PCWSTR, resource: PCWSTR, level: UInt, buf: Long, parm_err: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetAccessSetInfo(servername.toCPointer<ByteVar>(), resource.toCPointer<ByteVar>(), level, buf.toCPointer<ByteVar>(), parm_err.toCPointer<ByteVar>())
+public actual fun netAccessSetInfo(servername: Pcwstr, resource: Pcwstr, level: UInt, buf: COpaquePointer?, parmErr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netAccessSetInfo(servername?.value?.toCPointer<ByteVar>(), resource?.value?.toCPointer<ByteVar>(), level, buf?.value?.toCPointer<ByteVar>(), parmErr?.value?.toCPointer<ByteVar>())
 
-public actual fun NetAddAlternateComputerName(server: PCWSTR, alternatename: PCWSTR, domainaccount: PCWSTR, domainaccountpassword: PCWSTR, reserved: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetAddAlternateComputerName(server.toCPointer<ByteVar>(), alternatename.toCPointer<ByteVar>(), domainaccount.toCPointer<ByteVar>(), domainaccountpassword.toCPointer<ByteVar>(), reserved)
+public actual fun netAddAlternateComputerName(server: Pcwstr, alternatename: Pcwstr, domainaccount: Pcwstr, domainaccountpassword: Pcwstr, reserved: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netAddAlternateComputerName(server?.value?.toCPointer<ByteVar>(), alternatename?.value?.toCPointer<ByteVar>(), domainaccount?.value?.toCPointer<ByteVar>(), domainaccountpassword?.value?.toCPointer<ByteVar>(), reserved)
 
-public actual fun NetAddServiceAccount(servername: PCWSTR, accountname: PCWSTR, password: PCWSTR, flags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetAddServiceAccount(servername.toCPointer<ByteVar>(), accountname.toCPointer<ByteVar>(), password.toCPointer<ByteVar>(), flags)
+public actual fun netAddServiceAccount(servername: Pcwstr, accountname: Pcwstr, password: Pcwstr, flags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netAddServiceAccount(servername?.value?.toCPointer<ByteVar>(), accountname?.value?.toCPointer<ByteVar>(), password?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun NetAlertRaise(alerttype: PCWSTR, buffer: Long, buffersize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetAlertRaise(alerttype.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), buffersize)
+public actual fun netAlertRaise(alerttype: Pcwstr, buffer: COpaquePointer?, buffersize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netAlertRaise(alerttype?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), buffersize)
 
-public actual fun NetAlertRaiseEx(alerttype: PCWSTR, variableinfo: Long, variableinfosize: UInt, servicename: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetAlertRaiseEx(alerttype.toCPointer<ByteVar>(), variableinfo.toCPointer<ByteVar>(), variableinfosize, servicename.toCPointer<ByteVar>())
+public actual fun netAlertRaiseEx(alerttype: Pcwstr, variableinfo: COpaquePointer?, variableinfosize: UInt, servicename: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netAlertRaiseEx(alerttype?.value?.toCPointer<ByteVar>(), variableinfo?.value?.toCPointer<ByteVar>(), variableinfosize, servicename?.value?.toCPointer<ByteVar>())
 
-public actual fun NetApiBufferAllocate(bytecount: UInt, buffer: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetApiBufferAllocate(bytecount, buffer.toCPointer<ByteVar>())
+public actual fun netApiBufferAllocate(bytecount: UInt, buffer: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netApiBufferAllocate(bytecount, buffer?.value?.toCPointer<ByteVar>())
 
-public actual fun NetApiBufferFree(buffer: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetApiBufferFree(buffer.toCPointer<ByteVar>())
+public actual fun netApiBufferFree(buffer: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netApiBufferFree(buffer?.value?.toCPointer<ByteVar>())
 
-public actual fun NetApiBufferReallocate(oldbuffer: Long, newbytecount: UInt, newbuffer: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetApiBufferReallocate(oldbuffer.toCPointer<ByteVar>(), newbytecount, newbuffer.toCPointer<ByteVar>())
+public actual fun netApiBufferReallocate(oldbuffer: COpaquePointer?, newbytecount: UInt, newbuffer: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netApiBufferReallocate(oldbuffer?.value?.toCPointer<ByteVar>(), newbytecount, newbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun NetApiBufferSize(buffer: Long, bytecount: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetApiBufferSize(buffer.toCPointer<ByteVar>(), bytecount.toCPointer<ByteVar>())
+public actual fun netApiBufferSize(buffer: COpaquePointer?, bytecount: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netApiBufferSize(buffer?.value?.toCPointer<ByteVar>(), bytecount?.value?.toCPointer<ByteVar>())
 
-public actual fun NetAuditClear(server: PCWSTR, backupfile: PCWSTR, service: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetAuditClear(server.toCPointer<ByteVar>(), backupfile.toCPointer<ByteVar>(), service.toCPointer<ByteVar>())
+public actual fun netAuditClear(server: Pcwstr, backupfile: Pcwstr, service: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netAuditClear(server?.value?.toCPointer<ByteVar>(), backupfile?.value?.toCPointer<ByteVar>(), service?.value?.toCPointer<ByteVar>())
 
-public actual fun NetAuditRead(server: PCWSTR, service: PCWSTR, auditloghandle: Long, offset: UInt, reserved1: Long, reserved2: UInt, offsetflag: UInt, bufptr: Long, prefmaxlen: UInt, bytesread: Long, totalavailable: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetAuditRead(server.toCPointer<ByteVar>(), service.toCPointer<ByteVar>(), auditloghandle.toCPointer<ByteVar>(), offset, reserved1.toCPointer<ByteVar>(), reserved2, offsetflag, bufptr.toCPointer<ByteVar>(), prefmaxlen, bytesread.toCPointer<ByteVar>(), totalavailable.toCPointer<ByteVar>())
+public actual fun netAuditRead(server: Pcwstr, service: Pcwstr, auditloghandle: COpaquePointer?, offset: UInt, reserved1: COpaquePointer?, reserved2: UInt, offsetflag: UInt, bufptr: COpaquePointer?, prefmaxlen: UInt, bytesread: COpaquePointer?, totalavailable: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netAuditRead(server?.value?.toCPointer<ByteVar>(), service?.value?.toCPointer<ByteVar>(), auditloghandle?.value?.toCPointer<ByteVar>(), offset, reserved1?.value?.toCPointer<ByteVar>(), reserved2, offsetflag, bufptr?.value?.toCPointer<ByteVar>(), prefmaxlen, bytesread?.value?.toCPointer<ByteVar>(), totalavailable?.value?.toCPointer<ByteVar>())
 
-public actual fun NetAuditWrite(type: UInt, buf: Long, numbytes: UInt, service: PCWSTR, reserved: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetAuditWrite(type, buf.toCPointer<ByteVar>(), numbytes, service.toCPointer<ByteVar>(), reserved.toCPointer<ByteVar>())
+public actual fun netAuditWrite(type: UInt, buf: COpaquePointer?, numbytes: UInt, service: Pcwstr, reserved: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netAuditWrite(type, buf?.value?.toCPointer<ByteVar>(), numbytes, service?.value?.toCPointer<ByteVar>(), reserved?.value?.toCPointer<ByteVar>())
 
-public actual fun NetConfigGet(server: PCWSTR, component: PCWSTR, parameter: PCWSTR, bufptr: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetConfigGet(server.toCPointer<ByteVar>(), component.toCPointer<ByteVar>(), parameter.toCPointer<ByteVar>(), bufptr.toCPointer<ByteVar>())
+public actual fun netConfigGet(server: Pcwstr, component: Pcwstr, parameter: Pcwstr, bufptr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netConfigGet(server?.value?.toCPointer<ByteVar>(), component?.value?.toCPointer<ByteVar>(), parameter?.value?.toCPointer<ByteVar>(), bufptr?.value?.toCPointer<ByteVar>())
 
-public actual fun NetConfigGetAll(server: PCWSTR, component: PCWSTR, bufptr: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetConfigGetAll(server.toCPointer<ByteVar>(), component.toCPointer<ByteVar>(), bufptr.toCPointer<ByteVar>())
+public actual fun netConfigGetAll(server: Pcwstr, component: Pcwstr, bufptr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netConfigGetAll(server?.value?.toCPointer<ByteVar>(), component?.value?.toCPointer<ByteVar>(), bufptr?.value?.toCPointer<ByteVar>())
 
-public actual fun NetConfigSet(server: PCWSTR, reserved1: PCWSTR, component: PCWSTR, level: UInt, reserved2: UInt, buf: Long, reserved3: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetConfigSet(server.toCPointer<ByteVar>(), reserved1.toCPointer<ByteVar>(), component.toCPointer<ByteVar>(), level, reserved2, buf.toCPointer<ByteVar>(), reserved3)
+public actual fun netConfigSet(server: Pcwstr, reserved1: Pcwstr, component: Pcwstr, level: UInt, reserved2: UInt, buf: COpaquePointer?, reserved3: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netConfigSet(server?.value?.toCPointer<ByteVar>(), reserved1?.value?.toCPointer<ByteVar>(), component?.value?.toCPointer<ByteVar>(), level, reserved2, buf?.value?.toCPointer<ByteVar>(), reserved3)
 
-public actual fun NetCreateProvisioningPackage(pprovisioningparams: Long, pppackagebindata: Long, pdwpackagebindatasize: Long, pppackagetextdata: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetCreateProvisioningPackage(pprovisioningparams.toCPointer<ByteVar>(), pppackagebindata.toCPointer<ByteVar>(), pdwpackagebindatasize.toCPointer<ByteVar>(), pppackagetextdata.toCPointer<ByteVar>())
+public actual fun netCreateProvisioningPackage(pprovisioningparams: COpaquePointer?, pppackagebindata: COpaquePointer?, pdwpackagebindatasize: COpaquePointer?, pppackagetextdata: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netCreateProvisioningPackage(pprovisioningparams?.value?.toCPointer<ByteVar>(), pppackagebindata?.value?.toCPointer<ByteVar>(), pdwpackagebindatasize?.value?.toCPointer<ByteVar>(), pppackagetextdata?.value?.toCPointer<ByteVar>())
 
-public actual fun NetEnumerateComputerNames(server: PCWSTR, nametype: NET_COMPUTER_NAME_TYPE, reserved: UInt, entrycount: Long, computernames: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetEnumerateComputerNames(server.toCPointer<ByteVar>(), nametype, reserved, entrycount.toCPointer<ByteVar>(), computernames.toCPointer<ByteVar>())
+public actual fun netEnumerateComputerNames(server: Pcwstr, nametype: NetComputerNameType, reserved: UInt, entrycount: COpaquePointer?, computernames: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netEnumerateComputerNames(server?.value?.toCPointer<ByteVar>(), nametype, reserved, entrycount?.value?.toCPointer<ByteVar>(), computernames?.value?.toCPointer<ByteVar>())
 
-public actual fun NetEnumerateServiceAccounts(servername: PCWSTR, flags: UInt, accountscount: Long, accounts: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetEnumerateServiceAccounts(servername.toCPointer<ByteVar>(), flags, accountscount.toCPointer<ByteVar>(), accounts.toCPointer<ByteVar>())
+public actual fun netEnumerateServiceAccounts(servername: Pcwstr, flags: UInt, accountscount: COpaquePointer?, accounts: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netEnumerateServiceAccounts(servername?.value?.toCPointer<ByteVar>(), flags, accountscount?.value?.toCPointer<ByteVar>(), accounts?.value?.toCPointer<ByteVar>())
 
-public actual fun NetErrorLogClear(uncservername: PCWSTR, backupfile: PCWSTR, reserved: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetErrorLogClear(uncservername.toCPointer<ByteVar>(), backupfile.toCPointer<ByteVar>(), reserved.toCPointer<ByteVar>())
+public actual fun netErrorLogClear(uncservername: Pcwstr, backupfile: Pcwstr, reserved: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netErrorLogClear(uncservername?.value?.toCPointer<ByteVar>(), backupfile?.value?.toCPointer<ByteVar>(), reserved?.value?.toCPointer<ByteVar>())
 
-public actual fun NetErrorLogRead(uncservername: PCWSTR, reserved1: PCWSTR, errorloghandle: Long, offset: UInt, reserved2: Long, reserved3: UInt, offsetflag: UInt, bufptr: Long, prefmaxsize: UInt, bytesread: Long, totalavailable: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetErrorLogRead(uncservername.toCPointer<ByteVar>(), reserved1.toCPointer<ByteVar>(), errorloghandle.toCPointer<ByteVar>(), offset, reserved2.toCPointer<ByteVar>(), reserved3, offsetflag, bufptr.toCPointer<ByteVar>(), prefmaxsize, bytesread.toCPointer<ByteVar>(), totalavailable.toCPointer<ByteVar>())
+public actual fun netErrorLogRead(uncservername: Pcwstr, reserved1: Pcwstr, errorloghandle: COpaquePointer?, offset: UInt, reserved2: COpaquePointer?, reserved3: UInt, offsetflag: UInt, bufptr: COpaquePointer?, prefmaxsize: UInt, bytesread: COpaquePointer?, totalavailable: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netErrorLogRead(uncservername?.value?.toCPointer<ByteVar>(), reserved1?.value?.toCPointer<ByteVar>(), errorloghandle?.value?.toCPointer<ByteVar>(), offset, reserved2?.value?.toCPointer<ByteVar>(), reserved3, offsetflag, bufptr?.value?.toCPointer<ByteVar>(), prefmaxsize, bytesread?.value?.toCPointer<ByteVar>(), totalavailable?.value?.toCPointer<ByteVar>())
 
-public actual fun NetErrorLogWrite(reserved1: Long, code: UInt, component: PCWSTR, buffer: Long, numbytes: UInt, msgbuf: Long, strcount: UInt, reserved2: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetErrorLogWrite(reserved1.toCPointer<ByteVar>(), code, component.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), numbytes, msgbuf.toCPointer<ByteVar>(), strcount, reserved2.toCPointer<ByteVar>())
+public actual fun netErrorLogWrite(reserved1: COpaquePointer?, code: UInt, component: Pcwstr, buffer: COpaquePointer?, numbytes: UInt, msgbuf: COpaquePointer?, strcount: UInt, reserved2: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netErrorLogWrite(reserved1?.value?.toCPointer<ByteVar>(), code, component?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), numbytes, msgbuf?.value?.toCPointer<ByteVar>(), strcount, reserved2?.value?.toCPointer<ByteVar>())
 
-public actual fun NetFreeAadJoinInformation(pjoininfo: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetFreeAadJoinInformation(pjoininfo.toCPointer<ByteVar>())
+public actual fun netFreeAadJoinInformation(pjoininfo: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netFreeAadJoinInformation(pjoininfo?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun NetGetAadJoinInformation(pcsztenantid: PCWSTR, ppjoininfo: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetGetAadJoinInformation(pcsztenantid.toCPointer<ByteVar>(), ppjoininfo.toCPointer<ByteVar>())
+public actual fun netGetAadJoinInformation(pcsztenantid: Pcwstr, ppjoininfo: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netGetAadJoinInformation(pcsztenantid?.value?.toCPointer<ByteVar>(), ppjoininfo?.value?.toCPointer<ByteVar>())
 
-public actual fun NetGetAnyDCName(servername: PCWSTR, domainname: PCWSTR, buffer: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetGetAnyDCName(servername.toCPointer<ByteVar>(), domainname.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>())
+public actual fun netGetAnyDCName(servername: Pcwstr, domainname: Pcwstr, buffer: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netGetAnyDCName(servername?.value?.toCPointer<ByteVar>(), domainname?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>())
 
-public actual fun NetGetDCName(servername: PCWSTR, domainname: PCWSTR, buffer: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetGetDCName(servername.toCPointer<ByteVar>(), domainname.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>())
+public actual fun netGetDCName(servername: Pcwstr, domainname: Pcwstr, buffer: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netGetDCName(servername?.value?.toCPointer<ByteVar>(), domainname?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>())
 
-public actual fun NetGetDisplayInformationIndex(servername: PCWSTR, level: UInt, prefix: PCWSTR, index: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetGetDisplayInformationIndex(servername.toCPointer<ByteVar>(), level, prefix.toCPointer<ByteVar>(), index.toCPointer<ByteVar>())
+public actual fun netGetDisplayInformationIndex(servername: Pcwstr, level: UInt, prefix: Pcwstr, index: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netGetDisplayInformationIndex(servername?.value?.toCPointer<ByteVar>(), level, prefix?.value?.toCPointer<ByteVar>(), index?.value?.toCPointer<ByteVar>())
 
-public actual fun NetGetJoinInformation(lpserver: PCWSTR, lpnamebuffer: Long, buffertype: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetGetJoinInformation(lpserver.toCPointer<ByteVar>(), lpnamebuffer.toCPointer<ByteVar>(), buffertype.toCPointer<ByteVar>())
+public actual fun netGetJoinInformation(lpserver: Pcwstr, lpnamebuffer: COpaquePointer?, buffertype: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netGetJoinInformation(lpserver?.value?.toCPointer<ByteVar>(), lpnamebuffer?.value?.toCPointer<ByteVar>(), buffertype?.value?.toCPointer<ByteVar>())
 
-public actual fun NetGetJoinableOUs(lpserver: PCWSTR, lpdomain: PCWSTR, lpaccount: PCWSTR, lppassword: PCWSTR, oucount: Long, ous: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetGetJoinableOUs(lpserver.toCPointer<ByteVar>(), lpdomain.toCPointer<ByteVar>(), lpaccount.toCPointer<ByteVar>(), lppassword.toCPointer<ByteVar>(), oucount.toCPointer<ByteVar>(), ous.toCPointer<ByteVar>())
+public actual fun netGetJoinableOUs(lpserver: Pcwstr, lpdomain: Pcwstr, lpaccount: Pcwstr, lppassword: Pcwstr, oucount: COpaquePointer?, ous: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netGetJoinableOUs(lpserver?.value?.toCPointer<ByteVar>(), lpdomain?.value?.toCPointer<ByteVar>(), lpaccount?.value?.toCPointer<ByteVar>(), lppassword?.value?.toCPointer<ByteVar>(), oucount?.value?.toCPointer<ByteVar>(), ous?.value?.toCPointer<ByteVar>())
 
-public actual fun NetGroupAdd(servername: PCWSTR, level: UInt, buf: Long, parm_err: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetGroupAdd(servername.toCPointer<ByteVar>(), level, buf.toCPointer<ByteVar>(), parm_err.toCPointer<ByteVar>())
+public actual fun netGroupAdd(servername: Pcwstr, level: UInt, buf: COpaquePointer?, parmErr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netGroupAdd(servername?.value?.toCPointer<ByteVar>(), level, buf?.value?.toCPointer<ByteVar>(), parmErr?.value?.toCPointer<ByteVar>())
 
-public actual fun NetGroupAddUser(servername: PCWSTR, groupname: PCWSTR, username: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetGroupAddUser(servername.toCPointer<ByteVar>(), groupname.toCPointer<ByteVar>(), username.toCPointer<ByteVar>())
+public actual fun netGroupAddUser(servername: Pcwstr, groupname: Pcwstr, username: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netGroupAddUser(servername?.value?.toCPointer<ByteVar>(), groupname?.value?.toCPointer<ByteVar>(), username?.value?.toCPointer<ByteVar>())
 
-public actual fun NetGroupDel(servername: PCWSTR, groupname: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetGroupDel(servername.toCPointer<ByteVar>(), groupname.toCPointer<ByteVar>())
+public actual fun netGroupDel(servername: Pcwstr, groupname: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netGroupDel(servername?.value?.toCPointer<ByteVar>(), groupname?.value?.toCPointer<ByteVar>())
 
-public actual fun NetGroupDelUser(servername: PCWSTR, groupname: PCWSTR, username: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetGroupDelUser(servername.toCPointer<ByteVar>(), groupname.toCPointer<ByteVar>(), username.toCPointer<ByteVar>())
+public actual fun netGroupDelUser(servername: Pcwstr, groupname: Pcwstr, username: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netGroupDelUser(servername?.value?.toCPointer<ByteVar>(), groupname?.value?.toCPointer<ByteVar>(), username?.value?.toCPointer<ByteVar>())
 
-public actual fun NetGroupEnum(servername: PCWSTR, level: UInt, bufptr: Long, prefmaxlen: UInt, entriesread: Long, totalentries: Long, resume_handle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetGroupEnum(servername.toCPointer<ByteVar>(), level, bufptr.toCPointer<ByteVar>(), prefmaxlen, entriesread.toCPointer<ByteVar>(), totalentries.toCPointer<ByteVar>(), resume_handle.toCPointer<ByteVar>())
+public actual fun netGroupEnum(servername: Pcwstr, level: UInt, bufptr: COpaquePointer?, prefmaxlen: UInt, entriesread: COpaquePointer?, totalentries: COpaquePointer?, resumeHandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netGroupEnum(servername?.value?.toCPointer<ByteVar>(), level, bufptr?.value?.toCPointer<ByteVar>(), prefmaxlen, entriesread?.value?.toCPointer<ByteVar>(), totalentries?.value?.toCPointer<ByteVar>(), resumeHandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NetGroupGetInfo(servername: PCWSTR, groupname: PCWSTR, level: UInt, bufptr: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetGroupGetInfo(servername.toCPointer<ByteVar>(), groupname.toCPointer<ByteVar>(), level, bufptr.toCPointer<ByteVar>())
+public actual fun netGroupGetInfo(servername: Pcwstr, groupname: Pcwstr, level: UInt, bufptr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netGroupGetInfo(servername?.value?.toCPointer<ByteVar>(), groupname?.value?.toCPointer<ByteVar>(), level, bufptr?.value?.toCPointer<ByteVar>())
 
-public actual fun NetGroupGetUsers(servername: PCWSTR, groupname: PCWSTR, level: UInt, bufptr: Long, prefmaxlen: UInt, entriesread: Long, totalentries: Long, resumehandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetGroupGetUsers(servername.toCPointer<ByteVar>(), groupname.toCPointer<ByteVar>(), level, bufptr.toCPointer<ByteVar>(), prefmaxlen, entriesread.toCPointer<ByteVar>(), totalentries.toCPointer<ByteVar>(), resumehandle.toCPointer<ByteVar>())
+public actual fun netGroupGetUsers(servername: Pcwstr, groupname: Pcwstr, level: UInt, bufptr: COpaquePointer?, prefmaxlen: UInt, entriesread: COpaquePointer?, totalentries: COpaquePointer?, resumehandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netGroupGetUsers(servername?.value?.toCPointer<ByteVar>(), groupname?.value?.toCPointer<ByteVar>(), level, bufptr?.value?.toCPointer<ByteVar>(), prefmaxlen, entriesread?.value?.toCPointer<ByteVar>(), totalentries?.value?.toCPointer<ByteVar>(), resumehandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NetGroupSetInfo(servername: PCWSTR, groupname: PCWSTR, level: UInt, buf: Long, parm_err: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetGroupSetInfo(servername.toCPointer<ByteVar>(), groupname.toCPointer<ByteVar>(), level, buf.toCPointer<ByteVar>(), parm_err.toCPointer<ByteVar>())
+public actual fun netGroupSetInfo(servername: Pcwstr, groupname: Pcwstr, level: UInt, buf: COpaquePointer?, parmErr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netGroupSetInfo(servername?.value?.toCPointer<ByteVar>(), groupname?.value?.toCPointer<ByteVar>(), level, buf?.value?.toCPointer<ByteVar>(), parmErr?.value?.toCPointer<ByteVar>())
 
-public actual fun NetGroupSetUsers(servername: PCWSTR, groupname: PCWSTR, level: UInt, buf: Long, totalentries: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetGroupSetUsers(servername.toCPointer<ByteVar>(), groupname.toCPointer<ByteVar>(), level, buf.toCPointer<ByteVar>(), totalentries)
+public actual fun netGroupSetUsers(servername: Pcwstr, groupname: Pcwstr, level: UInt, buf: COpaquePointer?, totalentries: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netGroupSetUsers(servername?.value?.toCPointer<ByteVar>(), groupname?.value?.toCPointer<ByteVar>(), level, buf?.value?.toCPointer<ByteVar>(), totalentries)
 
-public actual fun NetIsServiceAccount(servername: PCWSTR, accountname: PCWSTR, isservice: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetIsServiceAccount(servername.toCPointer<ByteVar>(), accountname.toCPointer<ByteVar>(), isservice.toCPointer<ByteVar>())
+public actual fun netIsServiceAccount(servername: Pcwstr, accountname: Pcwstr, isservice: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netIsServiceAccount(servername?.value?.toCPointer<ByteVar>(), accountname?.value?.toCPointer<ByteVar>(), isservice?.value?.toCPointer<ByteVar>())
 
-public actual fun NetJoinDomain(lpserver: PCWSTR, lpdomain: PCWSTR, lpmachineaccountou: PCWSTR, lpaccount: PCWSTR, lppassword: PCWSTR, fjoinoptions: NET_JOIN_DOMAIN_JOIN_OPTIONS): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetJoinDomain(lpserver.toCPointer<ByteVar>(), lpdomain.toCPointer<ByteVar>(), lpmachineaccountou.toCPointer<ByteVar>(), lpaccount.toCPointer<ByteVar>(), lppassword.toCPointer<ByteVar>(), fjoinoptions)
+public actual fun netJoinDomain(lpserver: Pcwstr, lpdomain: Pcwstr, lpmachineaccountou: Pcwstr, lpaccount: Pcwstr, lppassword: Pcwstr, fjoinoptions: NetJoinDomainJoinOptions): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netJoinDomain(lpserver?.value?.toCPointer<ByteVar>(), lpdomain?.value?.toCPointer<ByteVar>(), lpmachineaccountou?.value?.toCPointer<ByteVar>(), lpaccount?.value?.toCPointer<ByteVar>(), lppassword?.value?.toCPointer<ByteVar>(), fjoinoptions)
 
-public actual fun NetLocalGroupAdd(servername: PCWSTR, level: UInt, buf: Long, parm_err: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetLocalGroupAdd(servername.toCPointer<ByteVar>(), level, buf.toCPointer<ByteVar>(), parm_err.toCPointer<ByteVar>())
+public actual fun netLocalGroupAdd(servername: Pcwstr, level: UInt, buf: COpaquePointer?, parmErr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netLocalGroupAdd(servername?.value?.toCPointer<ByteVar>(), level, buf?.value?.toCPointer<ByteVar>(), parmErr?.value?.toCPointer<ByteVar>())
 
-public actual fun NetLocalGroupAddMember(servername: PCWSTR, groupname: PCWSTR, membersid: PSID): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetLocalGroupAddMember(servername.toCPointer<ByteVar>(), groupname.toCPointer<ByteVar>(), membersid.toCPointer<ByteVar>())
+public actual fun netLocalGroupAddMember(servername: Pcwstr, groupname: Pcwstr, membersid: Psid): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netLocalGroupAddMember(servername?.value?.toCPointer<ByteVar>(), groupname?.value?.toCPointer<ByteVar>(), membersid?.value?.toCPointer<ByteVar>())
 
-public actual fun NetLocalGroupAddMembers(servername: PCWSTR, groupname: PCWSTR, level: UInt, buf: Long, totalentries: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetLocalGroupAddMembers(servername.toCPointer<ByteVar>(), groupname.toCPointer<ByteVar>(), level, buf.toCPointer<ByteVar>(), totalentries)
+public actual fun netLocalGroupAddMembers(servername: Pcwstr, groupname: Pcwstr, level: UInt, buf: COpaquePointer?, totalentries: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netLocalGroupAddMembers(servername?.value?.toCPointer<ByteVar>(), groupname?.value?.toCPointer<ByteVar>(), level, buf?.value?.toCPointer<ByteVar>(), totalentries)
 
-public actual fun NetLocalGroupDel(servername: PCWSTR, groupname: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetLocalGroupDel(servername.toCPointer<ByteVar>(), groupname.toCPointer<ByteVar>())
+public actual fun netLocalGroupDel(servername: Pcwstr, groupname: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netLocalGroupDel(servername?.value?.toCPointer<ByteVar>(), groupname?.value?.toCPointer<ByteVar>())
 
-public actual fun NetLocalGroupDelMember(servername: PCWSTR, groupname: PCWSTR, membersid: PSID): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetLocalGroupDelMember(servername.toCPointer<ByteVar>(), groupname.toCPointer<ByteVar>(), membersid.toCPointer<ByteVar>())
+public actual fun netLocalGroupDelMember(servername: Pcwstr, groupname: Pcwstr, membersid: Psid): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netLocalGroupDelMember(servername?.value?.toCPointer<ByteVar>(), groupname?.value?.toCPointer<ByteVar>(), membersid?.value?.toCPointer<ByteVar>())
 
-public actual fun NetLocalGroupDelMembers(servername: PCWSTR, groupname: PCWSTR, level: UInt, buf: Long, totalentries: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetLocalGroupDelMembers(servername.toCPointer<ByteVar>(), groupname.toCPointer<ByteVar>(), level, buf.toCPointer<ByteVar>(), totalentries)
+public actual fun netLocalGroupDelMembers(servername: Pcwstr, groupname: Pcwstr, level: UInt, buf: COpaquePointer?, totalentries: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netLocalGroupDelMembers(servername?.value?.toCPointer<ByteVar>(), groupname?.value?.toCPointer<ByteVar>(), level, buf?.value?.toCPointer<ByteVar>(), totalentries)
 
-public actual fun NetLocalGroupEnum(servername: PCWSTR, level: UInt, bufptr: Long, prefmaxlen: UInt, entriesread: Long, totalentries: Long, resumehandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetLocalGroupEnum(servername.toCPointer<ByteVar>(), level, bufptr.toCPointer<ByteVar>(), prefmaxlen, entriesread.toCPointer<ByteVar>(), totalentries.toCPointer<ByteVar>(), resumehandle.toCPointer<ByteVar>())
+public actual fun netLocalGroupEnum(servername: Pcwstr, level: UInt, bufptr: COpaquePointer?, prefmaxlen: UInt, entriesread: COpaquePointer?, totalentries: COpaquePointer?, resumehandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netLocalGroupEnum(servername?.value?.toCPointer<ByteVar>(), level, bufptr?.value?.toCPointer<ByteVar>(), prefmaxlen, entriesread?.value?.toCPointer<ByteVar>(), totalentries?.value?.toCPointer<ByteVar>(), resumehandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NetLocalGroupGetInfo(servername: PCWSTR, groupname: PCWSTR, level: UInt, bufptr: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetLocalGroupGetInfo(servername.toCPointer<ByteVar>(), groupname.toCPointer<ByteVar>(), level, bufptr.toCPointer<ByteVar>())
+public actual fun netLocalGroupGetInfo(servername: Pcwstr, groupname: Pcwstr, level: UInt, bufptr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netLocalGroupGetInfo(servername?.value?.toCPointer<ByteVar>(), groupname?.value?.toCPointer<ByteVar>(), level, bufptr?.value?.toCPointer<ByteVar>())
 
-public actual fun NetLocalGroupGetMembers(servername: PCWSTR, localgroupname: PCWSTR, level: UInt, bufptr: Long, prefmaxlen: UInt, entriesread: Long, totalentries: Long, resumehandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetLocalGroupGetMembers(servername.toCPointer<ByteVar>(), localgroupname.toCPointer<ByteVar>(), level, bufptr.toCPointer<ByteVar>(), prefmaxlen, entriesread.toCPointer<ByteVar>(), totalentries.toCPointer<ByteVar>(), resumehandle.toCPointer<ByteVar>())
+public actual fun netLocalGroupGetMembers(servername: Pcwstr, localgroupname: Pcwstr, level: UInt, bufptr: COpaquePointer?, prefmaxlen: UInt, entriesread: COpaquePointer?, totalentries: COpaquePointer?, resumehandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netLocalGroupGetMembers(servername?.value?.toCPointer<ByteVar>(), localgroupname?.value?.toCPointer<ByteVar>(), level, bufptr?.value?.toCPointer<ByteVar>(), prefmaxlen, entriesread?.value?.toCPointer<ByteVar>(), totalentries?.value?.toCPointer<ByteVar>(), resumehandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NetLocalGroupSetInfo(servername: PCWSTR, groupname: PCWSTR, level: UInt, buf: Long, parm_err: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetLocalGroupSetInfo(servername.toCPointer<ByteVar>(), groupname.toCPointer<ByteVar>(), level, buf.toCPointer<ByteVar>(), parm_err.toCPointer<ByteVar>())
+public actual fun netLocalGroupSetInfo(servername: Pcwstr, groupname: Pcwstr, level: UInt, buf: COpaquePointer?, parmErr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netLocalGroupSetInfo(servername?.value?.toCPointer<ByteVar>(), groupname?.value?.toCPointer<ByteVar>(), level, buf?.value?.toCPointer<ByteVar>(), parmErr?.value?.toCPointer<ByteVar>())
 
-public actual fun NetLocalGroupSetMembers(servername: PCWSTR, groupname: PCWSTR, level: UInt, buf: Long, totalentries: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetLocalGroupSetMembers(servername.toCPointer<ByteVar>(), groupname.toCPointer<ByteVar>(), level, buf.toCPointer<ByteVar>(), totalentries)
+public actual fun netLocalGroupSetMembers(servername: Pcwstr, groupname: Pcwstr, level: UInt, buf: COpaquePointer?, totalentries: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netLocalGroupSetMembers(servername?.value?.toCPointer<ByteVar>(), groupname?.value?.toCPointer<ByteVar>(), level, buf?.value?.toCPointer<ByteVar>(), totalentries)
 
-public actual fun NetMessageBufferSend(servername: PCWSTR, msgname: PCWSTR, fromname: PCWSTR, buf: Long, buflen: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetMessageBufferSend(servername.toCPointer<ByteVar>(), msgname.toCPointer<ByteVar>(), fromname.toCPointer<ByteVar>(), buf.toCPointer<ByteVar>(), buflen)
+public actual fun netMessageBufferSend(servername: Pcwstr, msgname: Pcwstr, fromname: Pcwstr, buf: COpaquePointer?, buflen: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netMessageBufferSend(servername?.value?.toCPointer<ByteVar>(), msgname?.value?.toCPointer<ByteVar>(), fromname?.value?.toCPointer<ByteVar>(), buf?.value?.toCPointer<ByteVar>(), buflen)
 
-public actual fun NetMessageNameAdd(servername: PCWSTR, msgname: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetMessageNameAdd(servername.toCPointer<ByteVar>(), msgname.toCPointer<ByteVar>())
+public actual fun netMessageNameAdd(servername: Pcwstr, msgname: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netMessageNameAdd(servername?.value?.toCPointer<ByteVar>(), msgname?.value?.toCPointer<ByteVar>())
 
-public actual fun NetMessageNameDel(servername: PCWSTR, msgname: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetMessageNameDel(servername.toCPointer<ByteVar>(), msgname.toCPointer<ByteVar>())
+public actual fun netMessageNameDel(servername: Pcwstr, msgname: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netMessageNameDel(servername?.value?.toCPointer<ByteVar>(), msgname?.value?.toCPointer<ByteVar>())
 
-public actual fun NetMessageNameEnum(servername: PCWSTR, level: UInt, bufptr: Long, prefmaxlen: UInt, entriesread: Long, totalentries: Long, resume_handle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetMessageNameEnum(servername.toCPointer<ByteVar>(), level, bufptr.toCPointer<ByteVar>(), prefmaxlen, entriesread.toCPointer<ByteVar>(), totalentries.toCPointer<ByteVar>(), resume_handle.toCPointer<ByteVar>())
+public actual fun netMessageNameEnum(servername: Pcwstr, level: UInt, bufptr: COpaquePointer?, prefmaxlen: UInt, entriesread: COpaquePointer?, totalentries: COpaquePointer?, resumeHandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netMessageNameEnum(servername?.value?.toCPointer<ByteVar>(), level, bufptr?.value?.toCPointer<ByteVar>(), prefmaxlen, entriesread?.value?.toCPointer<ByteVar>(), totalentries?.value?.toCPointer<ByteVar>(), resumeHandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NetMessageNameGetInfo(servername: PCWSTR, msgname: PCWSTR, level: UInt, bufptr: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetMessageNameGetInfo(servername.toCPointer<ByteVar>(), msgname.toCPointer<ByteVar>(), level, bufptr.toCPointer<ByteVar>())
+public actual fun netMessageNameGetInfo(servername: Pcwstr, msgname: Pcwstr, level: UInt, bufptr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netMessageNameGetInfo(servername?.value?.toCPointer<ByteVar>(), msgname?.value?.toCPointer<ByteVar>(), level, bufptr?.value?.toCPointer<ByteVar>())
 
-public actual fun NetProvisionComputerAccount(lpdomain: PCWSTR, lpmachinename: PCWSTR, lpmachineaccountou: PCWSTR, lpdcname: PCWSTR, dwoptions: NETSETUP_PROVISION, pprovisionbindata: Long, pdwprovisionbindatasize: Long, pprovisiontextdata: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetProvisionComputerAccount(lpdomain.toCPointer<ByteVar>(), lpmachinename.toCPointer<ByteVar>(), lpmachineaccountou.toCPointer<ByteVar>(), lpdcname.toCPointer<ByteVar>(), dwoptions, pprovisionbindata.toCPointer<ByteVar>(), pdwprovisionbindatasize.toCPointer<ByteVar>(), pprovisiontextdata.toCPointer<ByteVar>())
+public actual fun netProvisionComputerAccount(lpdomain: Pcwstr, lpmachinename: Pcwstr, lpmachineaccountou: Pcwstr, lpdcname: Pcwstr, dwoptions: NetsetupProvision, pprovisionbindata: COpaquePointer?, pdwprovisionbindatasize: COpaquePointer?, pprovisiontextdata: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netProvisionComputerAccount(lpdomain?.value?.toCPointer<ByteVar>(), lpmachinename?.value?.toCPointer<ByteVar>(), lpmachineaccountou?.value?.toCPointer<ByteVar>(), lpdcname?.value?.toCPointer<ByteVar>(), dwoptions, pprovisionbindata?.value?.toCPointer<ByteVar>(), pdwprovisionbindatasize?.value?.toCPointer<ByteVar>(), pprovisiontextdata?.value?.toCPointer<ByteVar>())
 
-public actual fun NetQueryDisplayInformation(servername: PCWSTR, level: UInt, index: UInt, entriesrequested: UInt, preferredmaximumlength: UInt, returnedentrycount: Long, sortedbuffer: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetQueryDisplayInformation(servername.toCPointer<ByteVar>(), level, index, entriesrequested, preferredmaximumlength, returnedentrycount.toCPointer<ByteVar>(), sortedbuffer.toCPointer<ByteVar>())
+public actual fun netQueryDisplayInformation(servername: Pcwstr, level: UInt, index: UInt, entriesrequested: UInt, preferredmaximumlength: UInt, returnedentrycount: COpaquePointer?, sortedbuffer: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netQueryDisplayInformation(servername?.value?.toCPointer<ByteVar>(), level, index, entriesrequested, preferredmaximumlength, returnedentrycount?.value?.toCPointer<ByteVar>(), sortedbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun NetQueryServiceAccount(servername: PCWSTR, accountname: PCWSTR, infolevel: UInt, buffer: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetQueryServiceAccount(servername.toCPointer<ByteVar>(), accountname.toCPointer<ByteVar>(), infolevel, buffer.toCPointer<ByteVar>())
+public actual fun netQueryServiceAccount(servername: Pcwstr, accountname: Pcwstr, infolevel: UInt, buffer: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netQueryServiceAccount(servername?.value?.toCPointer<ByteVar>(), accountname?.value?.toCPointer<ByteVar>(), infolevel, buffer?.value?.toCPointer<ByteVar>())
 
-public actual fun NetRemoteComputerSupports(uncservername: PCWSTR, optionswanted: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS, optionssupported: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetRemoteComputerSupports(uncservername.toCPointer<ByteVar>(), optionswanted, optionssupported.toCPointer<ByteVar>())
+public actual fun netRemoteComputerSupports(uncservername: Pcwstr, optionswanted: NetRemoteComputerSupportsOptions, optionssupported: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netRemoteComputerSupports(uncservername?.value?.toCPointer<ByteVar>(), optionswanted, optionssupported?.value?.toCPointer<ByteVar>())
 
-public actual fun NetRemoteTOD(uncservername: PCWSTR, bufferptr: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetRemoteTOD(uncservername.toCPointer<ByteVar>(), bufferptr.toCPointer<ByteVar>())
+public actual fun netRemoteTOD(uncservername: Pcwstr, bufferptr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netRemoteTOD(uncservername?.value?.toCPointer<ByteVar>(), bufferptr?.value?.toCPointer<ByteVar>())
 
-public actual fun NetRemoveAlternateComputerName(server: PCWSTR, alternatename: PCWSTR, domainaccount: PCWSTR, domainaccountpassword: PCWSTR, reserved: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetRemoveAlternateComputerName(server.toCPointer<ByteVar>(), alternatename.toCPointer<ByteVar>(), domainaccount.toCPointer<ByteVar>(), domainaccountpassword.toCPointer<ByteVar>(), reserved)
+public actual fun netRemoveAlternateComputerName(server: Pcwstr, alternatename: Pcwstr, domainaccount: Pcwstr, domainaccountpassword: Pcwstr, reserved: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netRemoveAlternateComputerName(server?.value?.toCPointer<ByteVar>(), alternatename?.value?.toCPointer<ByteVar>(), domainaccount?.value?.toCPointer<ByteVar>(), domainaccountpassword?.value?.toCPointer<ByteVar>(), reserved)
 
-public actual fun NetRemoveServiceAccount(servername: PCWSTR, accountname: PCWSTR, flags: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetRemoveServiceAccount(servername.toCPointer<ByteVar>(), accountname.toCPointer<ByteVar>(), flags)
+public actual fun netRemoveServiceAccount(servername: Pcwstr, accountname: Pcwstr, flags: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netRemoveServiceAccount(servername?.value?.toCPointer<ByteVar>(), accountname?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun NetRenameMachineInDomain(lpserver: PCWSTR, lpnewmachinename: PCWSTR, lpaccount: PCWSTR, lppassword: PCWSTR, frenameoptions: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetRenameMachineInDomain(lpserver.toCPointer<ByteVar>(), lpnewmachinename.toCPointer<ByteVar>(), lpaccount.toCPointer<ByteVar>(), lppassword.toCPointer<ByteVar>(), frenameoptions)
+public actual fun netRenameMachineInDomain(lpserver: Pcwstr, lpnewmachinename: Pcwstr, lpaccount: Pcwstr, lppassword: Pcwstr, frenameoptions: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netRenameMachineInDomain(lpserver?.value?.toCPointer<ByteVar>(), lpnewmachinename?.value?.toCPointer<ByteVar>(), lpaccount?.value?.toCPointer<ByteVar>(), lppassword?.value?.toCPointer<ByteVar>(), frenameoptions)
 
-public actual fun NetReplExportDirAdd(servername: PCWSTR, level: UInt, buf: Long, parm_err: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetReplExportDirAdd(servername.toCPointer<ByteVar>(), level, buf.toCPointer<ByteVar>(), parm_err.toCPointer<ByteVar>())
+public actual fun netReplExportDirAdd(servername: Pcwstr, level: UInt, buf: COpaquePointer?, parmErr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netReplExportDirAdd(servername?.value?.toCPointer<ByteVar>(), level, buf?.value?.toCPointer<ByteVar>(), parmErr?.value?.toCPointer<ByteVar>())
 
-public actual fun NetReplExportDirDel(servername: PCWSTR, dirname: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetReplExportDirDel(servername.toCPointer<ByteVar>(), dirname.toCPointer<ByteVar>())
+public actual fun netReplExportDirDel(servername: Pcwstr, dirname: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netReplExportDirDel(servername?.value?.toCPointer<ByteVar>(), dirname?.value?.toCPointer<ByteVar>())
 
-public actual fun NetReplExportDirEnum(servername: PCWSTR, level: UInt, bufptr: Long, prefmaxlen: UInt, entriesread: Long, totalentries: Long, resumehandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetReplExportDirEnum(servername.toCPointer<ByteVar>(), level, bufptr.toCPointer<ByteVar>(), prefmaxlen, entriesread.toCPointer<ByteVar>(), totalentries.toCPointer<ByteVar>(), resumehandle.toCPointer<ByteVar>())
+public actual fun netReplExportDirEnum(servername: Pcwstr, level: UInt, bufptr: COpaquePointer?, prefmaxlen: UInt, entriesread: COpaquePointer?, totalentries: COpaquePointer?, resumehandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netReplExportDirEnum(servername?.value?.toCPointer<ByteVar>(), level, bufptr?.value?.toCPointer<ByteVar>(), prefmaxlen, entriesread?.value?.toCPointer<ByteVar>(), totalentries?.value?.toCPointer<ByteVar>(), resumehandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NetReplExportDirGetInfo(servername: PCWSTR, dirname: PCWSTR, level: UInt, bufptr: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetReplExportDirGetInfo(servername.toCPointer<ByteVar>(), dirname.toCPointer<ByteVar>(), level, bufptr.toCPointer<ByteVar>())
+public actual fun netReplExportDirGetInfo(servername: Pcwstr, dirname: Pcwstr, level: UInt, bufptr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netReplExportDirGetInfo(servername?.value?.toCPointer<ByteVar>(), dirname?.value?.toCPointer<ByteVar>(), level, bufptr?.value?.toCPointer<ByteVar>())
 
-public actual fun NetReplExportDirLock(servername: PCWSTR, dirname: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetReplExportDirLock(servername.toCPointer<ByteVar>(), dirname.toCPointer<ByteVar>())
+public actual fun netReplExportDirLock(servername: Pcwstr, dirname: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netReplExportDirLock(servername?.value?.toCPointer<ByteVar>(), dirname?.value?.toCPointer<ByteVar>())
 
-public actual fun NetReplExportDirSetInfo(servername: PCWSTR, dirname: PCWSTR, level: UInt, buf: Long, parm_err: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetReplExportDirSetInfo(servername.toCPointer<ByteVar>(), dirname.toCPointer<ByteVar>(), level, buf.toCPointer<ByteVar>(), parm_err.toCPointer<ByteVar>())
+public actual fun netReplExportDirSetInfo(servername: Pcwstr, dirname: Pcwstr, level: UInt, buf: COpaquePointer?, parmErr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netReplExportDirSetInfo(servername?.value?.toCPointer<ByteVar>(), dirname?.value?.toCPointer<ByteVar>(), level, buf?.value?.toCPointer<ByteVar>(), parmErr?.value?.toCPointer<ByteVar>())
 
-public actual fun NetReplExportDirUnlock(servername: PCWSTR, dirname: PCWSTR, unlockforce: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetReplExportDirUnlock(servername.toCPointer<ByteVar>(), dirname.toCPointer<ByteVar>(), unlockforce)
+public actual fun netReplExportDirUnlock(servername: Pcwstr, dirname: Pcwstr, unlockforce: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netReplExportDirUnlock(servername?.value?.toCPointer<ByteVar>(), dirname?.value?.toCPointer<ByteVar>(), unlockforce)
 
-public actual fun NetReplGetInfo(servername: PCWSTR, level: UInt, bufptr: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetReplGetInfo(servername.toCPointer<ByteVar>(), level, bufptr.toCPointer<ByteVar>())
+public actual fun netReplGetInfo(servername: Pcwstr, level: UInt, bufptr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netReplGetInfo(servername?.value?.toCPointer<ByteVar>(), level, bufptr?.value?.toCPointer<ByteVar>())
 
-public actual fun NetReplImportDirAdd(servername: PCWSTR, level: UInt, buf: Long, parm_err: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetReplImportDirAdd(servername.toCPointer<ByteVar>(), level, buf.toCPointer<ByteVar>(), parm_err.toCPointer<ByteVar>())
+public actual fun netReplImportDirAdd(servername: Pcwstr, level: UInt, buf: COpaquePointer?, parmErr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netReplImportDirAdd(servername?.value?.toCPointer<ByteVar>(), level, buf?.value?.toCPointer<ByteVar>(), parmErr?.value?.toCPointer<ByteVar>())
 
-public actual fun NetReplImportDirDel(servername: PCWSTR, dirname: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetReplImportDirDel(servername.toCPointer<ByteVar>(), dirname.toCPointer<ByteVar>())
+public actual fun netReplImportDirDel(servername: Pcwstr, dirname: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netReplImportDirDel(servername?.value?.toCPointer<ByteVar>(), dirname?.value?.toCPointer<ByteVar>())
 
-public actual fun NetReplImportDirEnum(servername: PCWSTR, level: UInt, bufptr: Long, prefmaxlen: UInt, entriesread: Long, totalentries: Long, resumehandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetReplImportDirEnum(servername.toCPointer<ByteVar>(), level, bufptr.toCPointer<ByteVar>(), prefmaxlen, entriesread.toCPointer<ByteVar>(), totalentries.toCPointer<ByteVar>(), resumehandle.toCPointer<ByteVar>())
+public actual fun netReplImportDirEnum(servername: Pcwstr, level: UInt, bufptr: COpaquePointer?, prefmaxlen: UInt, entriesread: COpaquePointer?, totalentries: COpaquePointer?, resumehandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netReplImportDirEnum(servername?.value?.toCPointer<ByteVar>(), level, bufptr?.value?.toCPointer<ByteVar>(), prefmaxlen, entriesread?.value?.toCPointer<ByteVar>(), totalentries?.value?.toCPointer<ByteVar>(), resumehandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NetReplImportDirGetInfo(servername: PCWSTR, dirname: PCWSTR, level: UInt, bufptr: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetReplImportDirGetInfo(servername.toCPointer<ByteVar>(), dirname.toCPointer<ByteVar>(), level, bufptr.toCPointer<ByteVar>())
+public actual fun netReplImportDirGetInfo(servername: Pcwstr, dirname: Pcwstr, level: UInt, bufptr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netReplImportDirGetInfo(servername?.value?.toCPointer<ByteVar>(), dirname?.value?.toCPointer<ByteVar>(), level, bufptr?.value?.toCPointer<ByteVar>())
 
-public actual fun NetReplImportDirLock(servername: PCWSTR, dirname: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetReplImportDirLock(servername.toCPointer<ByteVar>(), dirname.toCPointer<ByteVar>())
+public actual fun netReplImportDirLock(servername: Pcwstr, dirname: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netReplImportDirLock(servername?.value?.toCPointer<ByteVar>(), dirname?.value?.toCPointer<ByteVar>())
 
-public actual fun NetReplImportDirUnlock(servername: PCWSTR, dirname: PCWSTR, unlockforce: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetReplImportDirUnlock(servername.toCPointer<ByteVar>(), dirname.toCPointer<ByteVar>(), unlockforce)
+public actual fun netReplImportDirUnlock(servername: Pcwstr, dirname: Pcwstr, unlockforce: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netReplImportDirUnlock(servername?.value?.toCPointer<ByteVar>(), dirname?.value?.toCPointer<ByteVar>(), unlockforce)
 
-public actual fun NetReplSetInfo(servername: PCWSTR, level: UInt, buf: Long, parm_err: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetReplSetInfo(servername.toCPointer<ByteVar>(), level, buf.toCPointer<ByteVar>(), parm_err.toCPointer<ByteVar>())
+public actual fun netReplSetInfo(servername: Pcwstr, level: UInt, buf: COpaquePointer?, parmErr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netReplSetInfo(servername?.value?.toCPointer<ByteVar>(), level, buf?.value?.toCPointer<ByteVar>(), parmErr?.value?.toCPointer<ByteVar>())
 
-public actual fun NetRequestOfflineDomainJoin(pprovisionbindata: Long, cbprovisionbindatasize: UInt, dwoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetRequestOfflineDomainJoin(pprovisionbindata.toCPointer<ByteVar>(), cbprovisionbindatasize, dwoptions, lpwindowspath.toCPointer<ByteVar>())
+public actual fun netRequestOfflineDomainJoin(pprovisionbindata: COpaquePointer?, cbprovisionbindatasize: UInt, dwoptions: NetRequestProvisionOptions, lpwindowspath: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netRequestOfflineDomainJoin(pprovisionbindata?.value?.toCPointer<ByteVar>(), cbprovisionbindatasize, dwoptions, lpwindowspath?.value?.toCPointer<ByteVar>())
 
-public actual fun NetRequestProvisioningPackageInstall(ppackagebindata: Long, dwpackagebindatasize: UInt, dwprovisionoptions: NET_REQUEST_PROVISION_OPTIONS, lpwindowspath: PCWSTR, pvreserved: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetRequestProvisioningPackageInstall(ppackagebindata.toCPointer<ByteVar>(), dwpackagebindatasize, dwprovisionoptions, lpwindowspath.toCPointer<ByteVar>(), pvreserved.toCPointer<ByteVar>())
+public actual fun netRequestProvisioningPackageInstall(ppackagebindata: COpaquePointer?, dwpackagebindatasize: UInt, dwprovisionoptions: NetRequestProvisionOptions, lpwindowspath: Pcwstr, pvreserved: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netRequestProvisioningPackageInstall(ppackagebindata?.value?.toCPointer<ByteVar>(), dwpackagebindatasize, dwprovisionoptions, lpwindowspath?.value?.toCPointer<ByteVar>(), pvreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun NetScheduleJobAdd(servername: PCWSTR, buffer: Long, jobid: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetScheduleJobAdd(servername.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), jobid.toCPointer<ByteVar>())
+public actual fun netScheduleJobAdd(servername: Pcwstr, buffer: COpaquePointer?, jobid: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netScheduleJobAdd(servername?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), jobid?.value?.toCPointer<ByteVar>())
 
-public actual fun NetScheduleJobDel(servername: PCWSTR, minjobid: UInt, maxjobid: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetScheduleJobDel(servername.toCPointer<ByteVar>(), minjobid, maxjobid)
+public actual fun netScheduleJobDel(servername: Pcwstr, minjobid: UInt, maxjobid: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netScheduleJobDel(servername?.value?.toCPointer<ByteVar>(), minjobid, maxjobid)
 
-public actual fun NetScheduleJobEnum(servername: PCWSTR, pointertobuffer: Long, prefferedmaximumlength: UInt, entriesread: Long, totalentries: Long, resumehandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetScheduleJobEnum(servername.toCPointer<ByteVar>(), pointertobuffer.toCPointer<ByteVar>(), prefferedmaximumlength, entriesread.toCPointer<ByteVar>(), totalentries.toCPointer<ByteVar>(), resumehandle.toCPointer<ByteVar>())
+public actual fun netScheduleJobEnum(servername: Pcwstr, pointertobuffer: COpaquePointer?, prefferedmaximumlength: UInt, entriesread: COpaquePointer?, totalentries: COpaquePointer?, resumehandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netScheduleJobEnum(servername?.value?.toCPointer<ByteVar>(), pointertobuffer?.value?.toCPointer<ByteVar>(), prefferedmaximumlength, entriesread?.value?.toCPointer<ByteVar>(), totalentries?.value?.toCPointer<ByteVar>(), resumehandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NetScheduleJobGetInfo(servername: PCWSTR, jobid: UInt, pointertobuffer: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetScheduleJobGetInfo(servername.toCPointer<ByteVar>(), jobid, pointertobuffer.toCPointer<ByteVar>())
+public actual fun netScheduleJobGetInfo(servername: Pcwstr, jobid: UInt, pointertobuffer: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netScheduleJobGetInfo(servername?.value?.toCPointer<ByteVar>(), jobid, pointertobuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun NetServerComputerNameAdd(servername: PCWSTR, emulateddomainname: PCWSTR, emulatedservername: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetServerComputerNameAdd(servername.toCPointer<ByteVar>(), emulateddomainname.toCPointer<ByteVar>(), emulatedservername.toCPointer<ByteVar>())
+public actual fun netServerComputerNameAdd(servername: Pcwstr, emulateddomainname: Pcwstr, emulatedservername: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netServerComputerNameAdd(servername?.value?.toCPointer<ByteVar>(), emulateddomainname?.value?.toCPointer<ByteVar>(), emulatedservername?.value?.toCPointer<ByteVar>())
 
-public actual fun NetServerComputerNameDel(servername: PCWSTR, emulatedservername: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetServerComputerNameDel(servername.toCPointer<ByteVar>(), emulatedservername.toCPointer<ByteVar>())
+public actual fun netServerComputerNameDel(servername: Pcwstr, emulatedservername: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netServerComputerNameDel(servername?.value?.toCPointer<ByteVar>(), emulatedservername?.value?.toCPointer<ByteVar>())
 
-public actual fun NetServerDiskEnum(servername: PCWSTR, level: UInt, bufptr: Long, prefmaxlen: UInt, entriesread: Long, totalentries: Long, resume_handle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetServerDiskEnum(servername.toCPointer<ByteVar>(), level, bufptr.toCPointer<ByteVar>(), prefmaxlen, entriesread.toCPointer<ByteVar>(), totalentries.toCPointer<ByteVar>(), resume_handle.toCPointer<ByteVar>())
+public actual fun netServerDiskEnum(servername: Pcwstr, level: UInt, bufptr: COpaquePointer?, prefmaxlen: UInt, entriesread: COpaquePointer?, totalentries: COpaquePointer?, resumeHandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netServerDiskEnum(servername?.value?.toCPointer<ByteVar>(), level, bufptr?.value?.toCPointer<ByteVar>(), prefmaxlen, entriesread?.value?.toCPointer<ByteVar>(), totalentries?.value?.toCPointer<ByteVar>(), resumeHandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NetServerEnum(servername: PCWSTR, level: UInt, bufptr: Long, prefmaxlen: UInt, entriesread: Long, totalentries: Long, servertype: NET_SERVER_TYPE, domain: PCWSTR, resume_handle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetServerEnum(servername.toCPointer<ByteVar>(), level, bufptr.toCPointer<ByteVar>(), prefmaxlen, entriesread.toCPointer<ByteVar>(), totalentries.toCPointer<ByteVar>(), servertype, domain.toCPointer<ByteVar>(), resume_handle.toCPointer<ByteVar>())
+public actual fun netServerEnum(servername: Pcwstr, level: UInt, bufptr: COpaquePointer?, prefmaxlen: UInt, entriesread: COpaquePointer?, totalentries: COpaquePointer?, servertype: NetServerType, domain: Pcwstr, resumeHandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netServerEnum(servername?.value?.toCPointer<ByteVar>(), level, bufptr?.value?.toCPointer<ByteVar>(), prefmaxlen, entriesread?.value?.toCPointer<ByteVar>(), totalentries?.value?.toCPointer<ByteVar>(), servertype, domain?.value?.toCPointer<ByteVar>(), resumeHandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NetServerGetInfo(servername: PCWSTR, level: UInt, bufptr: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetServerGetInfo(servername.toCPointer<ByteVar>(), level, bufptr.toCPointer<ByteVar>())
+public actual fun netServerGetInfo(servername: Pcwstr, level: UInt, bufptr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netServerGetInfo(servername?.value?.toCPointer<ByteVar>(), level, bufptr?.value?.toCPointer<ByteVar>())
 
-public actual fun NetServerSetInfo(servername: PCWSTR, level: UInt, buf: Long, parmerror: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetServerSetInfo(servername.toCPointer<ByteVar>(), level, buf.toCPointer<ByteVar>(), parmerror.toCPointer<ByteVar>())
+public actual fun netServerSetInfo(servername: Pcwstr, level: UInt, buf: COpaquePointer?, parmerror: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netServerSetInfo(servername?.value?.toCPointer<ByteVar>(), level, buf?.value?.toCPointer<ByteVar>(), parmerror?.value?.toCPointer<ByteVar>())
 
-public actual fun NetServerTransportAdd(servername: PCWSTR, level: UInt, bufptr: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetServerTransportAdd(servername.toCPointer<ByteVar>(), level, bufptr.toCPointer<ByteVar>())
+public actual fun netServerTransportAdd(servername: Pcwstr, level: UInt, bufptr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netServerTransportAdd(servername?.value?.toCPointer<ByteVar>(), level, bufptr?.value?.toCPointer<ByteVar>())
 
-public actual fun NetServerTransportAddEx(servername: PCWSTR, level: UInt, bufptr: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetServerTransportAddEx(servername.toCPointer<ByteVar>(), level, bufptr.toCPointer<ByteVar>())
+public actual fun netServerTransportAddEx(servername: Pcwstr, level: UInt, bufptr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netServerTransportAddEx(servername?.value?.toCPointer<ByteVar>(), level, bufptr?.value?.toCPointer<ByteVar>())
 
-public actual fun NetServerTransportDel(servername: PCWSTR, level: UInt, bufptr: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetServerTransportDel(servername.toCPointer<ByteVar>(), level, bufptr.toCPointer<ByteVar>())
+public actual fun netServerTransportDel(servername: Pcwstr, level: UInt, bufptr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netServerTransportDel(servername?.value?.toCPointer<ByteVar>(), level, bufptr?.value?.toCPointer<ByteVar>())
 
-public actual fun NetServerTransportEnum(servername: PCWSTR, level: UInt, bufptr: Long, prefmaxlen: UInt, entriesread: Long, totalentries: Long, resume_handle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetServerTransportEnum(servername.toCPointer<ByteVar>(), level, bufptr.toCPointer<ByteVar>(), prefmaxlen, entriesread.toCPointer<ByteVar>(), totalentries.toCPointer<ByteVar>(), resume_handle.toCPointer<ByteVar>())
+public actual fun netServerTransportEnum(servername: Pcwstr, level: UInt, bufptr: COpaquePointer?, prefmaxlen: UInt, entriesread: COpaquePointer?, totalentries: COpaquePointer?, resumeHandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netServerTransportEnum(servername?.value?.toCPointer<ByteVar>(), level, bufptr?.value?.toCPointer<ByteVar>(), prefmaxlen, entriesread?.value?.toCPointer<ByteVar>(), totalentries?.value?.toCPointer<ByteVar>(), resumeHandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NetServiceControl(servername: PCWSTR, service: PCWSTR, opcode: UInt, arg: UInt, bufptr: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetServiceControl(servername.toCPointer<ByteVar>(), service.toCPointer<ByteVar>(), opcode, arg, bufptr.toCPointer<ByteVar>())
+public actual fun netServiceControl(servername: Pcwstr, service: Pcwstr, opcode: UInt, arg: UInt, bufptr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netServiceControl(servername?.value?.toCPointer<ByteVar>(), service?.value?.toCPointer<ByteVar>(), opcode, arg, bufptr?.value?.toCPointer<ByteVar>())
 
-public actual fun NetServiceEnum(servername: PCWSTR, level: UInt, bufptr: Long, prefmaxlen: UInt, entriesread: Long, totalentries: Long, resume_handle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetServiceEnum(servername.toCPointer<ByteVar>(), level, bufptr.toCPointer<ByteVar>(), prefmaxlen, entriesread.toCPointer<ByteVar>(), totalentries.toCPointer<ByteVar>(), resume_handle.toCPointer<ByteVar>())
+public actual fun netServiceEnum(servername: Pcwstr, level: UInt, bufptr: COpaquePointer?, prefmaxlen: UInt, entriesread: COpaquePointer?, totalentries: COpaquePointer?, resumeHandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netServiceEnum(servername?.value?.toCPointer<ByteVar>(), level, bufptr?.value?.toCPointer<ByteVar>(), prefmaxlen, entriesread?.value?.toCPointer<ByteVar>(), totalentries?.value?.toCPointer<ByteVar>(), resumeHandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NetServiceGetInfo(servername: PCWSTR, service: PCWSTR, level: UInt, bufptr: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetServiceGetInfo(servername.toCPointer<ByteVar>(), service.toCPointer<ByteVar>(), level, bufptr.toCPointer<ByteVar>())
+public actual fun netServiceGetInfo(servername: Pcwstr, service: Pcwstr, level: UInt, bufptr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netServiceGetInfo(servername?.value?.toCPointer<ByteVar>(), service?.value?.toCPointer<ByteVar>(), level, bufptr?.value?.toCPointer<ByteVar>())
 
-public actual fun NetServiceInstall(servername: PCWSTR, service: PCWSTR, argc: UInt, argv: Long, bufptr: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetServiceInstall(servername.toCPointer<ByteVar>(), service.toCPointer<ByteVar>(), argc, argv.toCPointer<ByteVar>(), bufptr.toCPointer<ByteVar>())
+public actual fun netServiceInstall(servername: Pcwstr, service: Pcwstr, argc: UInt, argv: COpaquePointer?, bufptr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netServiceInstall(servername?.value?.toCPointer<ByteVar>(), service?.value?.toCPointer<ByteVar>(), argc, argv?.value?.toCPointer<ByteVar>(), bufptr?.value?.toCPointer<ByteVar>())
 
-public actual fun NetSetPrimaryComputerName(server: PCWSTR, primaryname: PCWSTR, domainaccount: PCWSTR, domainaccountpassword: PCWSTR, reserved: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetSetPrimaryComputerName(server.toCPointer<ByteVar>(), primaryname.toCPointer<ByteVar>(), domainaccount.toCPointer<ByteVar>(), domainaccountpassword.toCPointer<ByteVar>(), reserved)
+public actual fun netSetPrimaryComputerName(server: Pcwstr, primaryname: Pcwstr, domainaccount: Pcwstr, domainaccountpassword: Pcwstr, reserved: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netSetPrimaryComputerName(server?.value?.toCPointer<ByteVar>(), primaryname?.value?.toCPointer<ByteVar>(), domainaccount?.value?.toCPointer<ByteVar>(), domainaccountpassword?.value?.toCPointer<ByteVar>(), reserved)
 
-public actual fun NetUnjoinDomain(lpserver: PCWSTR, lpaccount: PCWSTR, lppassword: PCWSTR, funjoinoptions: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetUnjoinDomain(lpserver.toCPointer<ByteVar>(), lpaccount.toCPointer<ByteVar>(), lppassword.toCPointer<ByteVar>(), funjoinoptions)
+public actual fun netUnjoinDomain(lpserver: Pcwstr, lpaccount: Pcwstr, lppassword: Pcwstr, funjoinoptions: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netUnjoinDomain(lpserver?.value?.toCPointer<ByteVar>(), lpaccount?.value?.toCPointer<ByteVar>(), lppassword?.value?.toCPointer<ByteVar>(), funjoinoptions)
 
-public actual fun NetUseAdd(servername: Long, levelflags: UInt, buf: Long, parm_err: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetUseAdd(servername.toCPointer<ByteVar>(), levelflags, buf.toCPointer<ByteVar>(), parm_err.toCPointer<ByteVar>())
+public actual fun netUseAdd(servername: COpaquePointer?, levelflags: UInt, buf: COpaquePointer?, parmErr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netUseAdd(servername?.value?.toCPointer<ByteVar>(), levelflags, buf?.value?.toCPointer<ByteVar>(), parmErr?.value?.toCPointer<ByteVar>())
 
-public actual fun NetUseDel(uncservername: PCWSTR, usename: PCWSTR, forcelevelflags: FORCE_LEVEL_FLAGS): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetUseDel(uncservername.toCPointer<ByteVar>(), usename.toCPointer<ByteVar>(), forcelevelflags)
+public actual fun netUseDel(uncservername: Pcwstr, usename: Pcwstr, forcelevelflags: ForceLevelFlags): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netUseDel(uncservername?.value?.toCPointer<ByteVar>(), usename?.value?.toCPointer<ByteVar>(), forcelevelflags)
 
-public actual fun NetUseEnum(uncservername: PCWSTR, levelflags: UInt, bufptr: Long, preferedmaximumsize: UInt, entriesread: Long, totalentries: Long, resumehandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetUseEnum(uncservername.toCPointer<ByteVar>(), levelflags, bufptr.toCPointer<ByteVar>(), preferedmaximumsize, entriesread.toCPointer<ByteVar>(), totalentries.toCPointer<ByteVar>(), resumehandle.toCPointer<ByteVar>())
+public actual fun netUseEnum(uncservername: Pcwstr, levelflags: UInt, bufptr: COpaquePointer?, preferedmaximumsize: UInt, entriesread: COpaquePointer?, totalentries: COpaquePointer?, resumehandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netUseEnum(uncservername?.value?.toCPointer<ByteVar>(), levelflags, bufptr?.value?.toCPointer<ByteVar>(), preferedmaximumsize, entriesread?.value?.toCPointer<ByteVar>(), totalentries?.value?.toCPointer<ByteVar>(), resumehandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NetUseGetInfo(uncservername: PCWSTR, usename: PCWSTR, levelflags: UInt, bufptr: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetUseGetInfo(uncservername.toCPointer<ByteVar>(), usename.toCPointer<ByteVar>(), levelflags, bufptr.toCPointer<ByteVar>())
+public actual fun netUseGetInfo(uncservername: Pcwstr, usename: Pcwstr, levelflags: UInt, bufptr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netUseGetInfo(uncservername?.value?.toCPointer<ByteVar>(), usename?.value?.toCPointer<ByteVar>(), levelflags, bufptr?.value?.toCPointer<ByteVar>())
 
-public actual fun NetUserAdd(servername: PCWSTR, level: UInt, buf: Long, parm_err: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetUserAdd(servername.toCPointer<ByteVar>(), level, buf.toCPointer<ByteVar>(), parm_err.toCPointer<ByteVar>())
+public actual fun netUserAdd(servername: Pcwstr, level: UInt, buf: COpaquePointer?, parmErr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netUserAdd(servername?.value?.toCPointer<ByteVar>(), level, buf?.value?.toCPointer<ByteVar>(), parmErr?.value?.toCPointer<ByteVar>())
 
-public actual fun NetUserChangePassword(domainname: PCWSTR, username: PCWSTR, oldpassword: PCWSTR, newpassword: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetUserChangePassword(domainname.toCPointer<ByteVar>(), username.toCPointer<ByteVar>(), oldpassword.toCPointer<ByteVar>(), newpassword.toCPointer<ByteVar>())
+public actual fun netUserChangePassword(domainname: Pcwstr, username: Pcwstr, oldpassword: Pcwstr, newpassword: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netUserChangePassword(domainname?.value?.toCPointer<ByteVar>(), username?.value?.toCPointer<ByteVar>(), oldpassword?.value?.toCPointer<ByteVar>(), newpassword?.value?.toCPointer<ByteVar>())
 
-public actual fun NetUserDel(servername: PCWSTR, username: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetUserDel(servername.toCPointer<ByteVar>(), username.toCPointer<ByteVar>())
+public actual fun netUserDel(servername: Pcwstr, username: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netUserDel(servername?.value?.toCPointer<ByteVar>(), username?.value?.toCPointer<ByteVar>())
 
-public actual fun NetUserEnum(servername: PCWSTR, level: UInt, filter: NET_USER_ENUM_FILTER_FLAGS, bufptr: Long, prefmaxlen: UInt, entriesread: Long, totalentries: Long, resume_handle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetUserEnum(servername.toCPointer<ByteVar>(), level, filter, bufptr.toCPointer<ByteVar>(), prefmaxlen, entriesread.toCPointer<ByteVar>(), totalentries.toCPointer<ByteVar>(), resume_handle.toCPointer<ByteVar>())
+public actual fun netUserEnum(servername: Pcwstr, level: UInt, filter: NetUserEnumFilterFlags, bufptr: COpaquePointer?, prefmaxlen: UInt, entriesread: COpaquePointer?, totalentries: COpaquePointer?, resumeHandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netUserEnum(servername?.value?.toCPointer<ByteVar>(), level, filter, bufptr?.value?.toCPointer<ByteVar>(), prefmaxlen, entriesread?.value?.toCPointer<ByteVar>(), totalentries?.value?.toCPointer<ByteVar>(), resumeHandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NetUserGetGroups(servername: PCWSTR, username: PCWSTR, level: UInt, bufptr: Long, prefmaxlen: UInt, entriesread: Long, totalentries: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetUserGetGroups(servername.toCPointer<ByteVar>(), username.toCPointer<ByteVar>(), level, bufptr.toCPointer<ByteVar>(), prefmaxlen, entriesread.toCPointer<ByteVar>(), totalentries.toCPointer<ByteVar>())
+public actual fun netUserGetGroups(servername: Pcwstr, username: Pcwstr, level: UInt, bufptr: COpaquePointer?, prefmaxlen: UInt, entriesread: COpaquePointer?, totalentries: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netUserGetGroups(servername?.value?.toCPointer<ByteVar>(), username?.value?.toCPointer<ByteVar>(), level, bufptr?.value?.toCPointer<ByteVar>(), prefmaxlen, entriesread?.value?.toCPointer<ByteVar>(), totalentries?.value?.toCPointer<ByteVar>())
 
-public actual fun NetUserGetInfo(servername: PCWSTR, username: PCWSTR, level: UInt, bufptr: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetUserGetInfo(servername.toCPointer<ByteVar>(), username.toCPointer<ByteVar>(), level, bufptr.toCPointer<ByteVar>())
+public actual fun netUserGetInfo(servername: Pcwstr, username: Pcwstr, level: UInt, bufptr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netUserGetInfo(servername?.value?.toCPointer<ByteVar>(), username?.value?.toCPointer<ByteVar>(), level, bufptr?.value?.toCPointer<ByteVar>())
 
-public actual fun NetUserGetLocalGroups(servername: PCWSTR, username: PCWSTR, level: UInt, flags: UInt, bufptr: Long, prefmaxlen: UInt, entriesread: Long, totalentries: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetUserGetLocalGroups(servername.toCPointer<ByteVar>(), username.toCPointer<ByteVar>(), level, flags, bufptr.toCPointer<ByteVar>(), prefmaxlen, entriesread.toCPointer<ByteVar>(), totalentries.toCPointer<ByteVar>())
+public actual fun netUserGetLocalGroups(servername: Pcwstr, username: Pcwstr, level: UInt, flags: UInt, bufptr: COpaquePointer?, prefmaxlen: UInt, entriesread: COpaquePointer?, totalentries: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netUserGetLocalGroups(servername?.value?.toCPointer<ByteVar>(), username?.value?.toCPointer<ByteVar>(), level, flags, bufptr?.value?.toCPointer<ByteVar>(), prefmaxlen, entriesread?.value?.toCPointer<ByteVar>(), totalentries?.value?.toCPointer<ByteVar>())
 
-public actual fun NetUserModalsGet(servername: PCWSTR, level: UInt, bufptr: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetUserModalsGet(servername.toCPointer<ByteVar>(), level, bufptr.toCPointer<ByteVar>())
+public actual fun netUserModalsGet(servername: Pcwstr, level: UInt, bufptr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netUserModalsGet(servername?.value?.toCPointer<ByteVar>(), level, bufptr?.value?.toCPointer<ByteVar>())
 
-public actual fun NetUserModalsSet(servername: PCWSTR, level: UInt, buf: Long, parm_err: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetUserModalsSet(servername.toCPointer<ByteVar>(), level, buf.toCPointer<ByteVar>(), parm_err.toCPointer<ByteVar>())
+public actual fun netUserModalsSet(servername: Pcwstr, level: UInt, buf: COpaquePointer?, parmErr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netUserModalsSet(servername?.value?.toCPointer<ByteVar>(), level, buf?.value?.toCPointer<ByteVar>(), parmErr?.value?.toCPointer<ByteVar>())
 
-public actual fun NetUserSetGroups(servername: PCWSTR, username: PCWSTR, level: UInt, buf: Long, num_entries: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetUserSetGroups(servername.toCPointer<ByteVar>(), username.toCPointer<ByteVar>(), level, buf.toCPointer<ByteVar>(), num_entries)
+public actual fun netUserSetGroups(servername: Pcwstr, username: Pcwstr, level: UInt, buf: COpaquePointer?, numEntries: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netUserSetGroups(servername?.value?.toCPointer<ByteVar>(), username?.value?.toCPointer<ByteVar>(), level, buf?.value?.toCPointer<ByteVar>(), numEntries)
 
-public actual fun NetUserSetInfo(servername: PCWSTR, username: PCWSTR, level: UInt, buf: Long, parm_err: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetUserSetInfo(servername.toCPointer<ByteVar>(), username.toCPointer<ByteVar>(), level, buf.toCPointer<ByteVar>(), parm_err.toCPointer<ByteVar>())
+public actual fun netUserSetInfo(servername: Pcwstr, username: Pcwstr, level: UInt, buf: COpaquePointer?, parmErr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netUserSetInfo(servername?.value?.toCPointer<ByteVar>(), username?.value?.toCPointer<ByteVar>(), level, buf?.value?.toCPointer<ByteVar>(), parmErr?.value?.toCPointer<ByteVar>())
 
-public actual fun NetValidateName(lpserver: PCWSTR, lpname: PCWSTR, lpaccount: PCWSTR, lppassword: PCWSTR, nametype: NETSETUP_NAME_TYPE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetValidateName(lpserver.toCPointer<ByteVar>(), lpname.toCPointer<ByteVar>(), lpaccount.toCPointer<ByteVar>(), lppassword.toCPointer<ByteVar>(), nametype)
+public actual fun netValidateName(lpserver: Pcwstr, lpname: Pcwstr, lpaccount: Pcwstr, lppassword: Pcwstr, nametype: NetsetupNameType): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netValidateName(lpserver?.value?.toCPointer<ByteVar>(), lpname?.value?.toCPointer<ByteVar>(), lpaccount?.value?.toCPointer<ByteVar>(), lppassword?.value?.toCPointer<ByteVar>(), nametype)
 
-public actual fun NetValidatePasswordPolicy(servername: PCWSTR, qualifier: Long, validationtype: NET_VALIDATE_PASSWORD_TYPE, inputarg: Long, outputarg: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetValidatePasswordPolicy(servername.toCPointer<ByteVar>(), qualifier.toCPointer<ByteVar>(), validationtype, inputarg.toCPointer<ByteVar>(), outputarg.toCPointer<ByteVar>())
+public actual fun netValidatePasswordPolicy(servername: Pcwstr, qualifier: COpaquePointer?, validationtype: NetValidatePasswordType, inputarg: COpaquePointer?, outputarg: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netValidatePasswordPolicy(servername?.value?.toCPointer<ByteVar>(), qualifier?.value?.toCPointer<ByteVar>(), validationtype, inputarg?.value?.toCPointer<ByteVar>(), outputarg?.value?.toCPointer<ByteVar>())
 
-public actual fun NetValidatePasswordPolicyFree(outputarg: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetValidatePasswordPolicyFree(outputarg.toCPointer<ByteVar>())
+public actual fun netValidatePasswordPolicyFree(outputarg: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netValidatePasswordPolicyFree(outputarg?.value?.toCPointer<ByteVar>())
 
-public actual fun NetWkstaGetInfo(servername: PCWSTR, level: UInt, bufptr: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetWkstaGetInfo(servername.toCPointer<ByteVar>(), level, bufptr.toCPointer<ByteVar>())
+public actual fun netWkstaGetInfo(servername: Pcwstr, level: UInt, bufptr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netWkstaGetInfo(servername?.value?.toCPointer<ByteVar>(), level, bufptr?.value?.toCPointer<ByteVar>())
 
-public actual fun NetWkstaSetInfo(servername: PCWSTR, level: UInt, buffer: Long, parm_err: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetWkstaSetInfo(servername.toCPointer<ByteVar>(), level, buffer.toCPointer<ByteVar>(), parm_err.toCPointer<ByteVar>())
+public actual fun netWkstaSetInfo(servername: Pcwstr, level: UInt, buffer: COpaquePointer?, parmErr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netWkstaSetInfo(servername?.value?.toCPointer<ByteVar>(), level, buffer?.value?.toCPointer<ByteVar>(), parmErr?.value?.toCPointer<ByteVar>())
 
-public actual fun NetWkstaTransportAdd(servername: Long, level: UInt, buf: Long, parm_err: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetWkstaTransportAdd(servername.toCPointer<ByteVar>(), level, buf.toCPointer<ByteVar>(), parm_err.toCPointer<ByteVar>())
+public actual fun netWkstaTransportAdd(servername: COpaquePointer?, level: UInt, buf: COpaquePointer?, parmErr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netWkstaTransportAdd(servername?.value?.toCPointer<ByteVar>(), level, buf?.value?.toCPointer<ByteVar>(), parmErr?.value?.toCPointer<ByteVar>())
 
-public actual fun NetWkstaTransportDel(servername: PCWSTR, transportname: PCWSTR, ucond: FORCE_LEVEL_FLAGS): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetWkstaTransportDel(servername.toCPointer<ByteVar>(), transportname.toCPointer<ByteVar>(), ucond)
+public actual fun netWkstaTransportDel(servername: Pcwstr, transportname: Pcwstr, ucond: ForceLevelFlags): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netWkstaTransportDel(servername?.value?.toCPointer<ByteVar>(), transportname?.value?.toCPointer<ByteVar>(), ucond)
 
-public actual fun NetWkstaTransportEnum(servername: Long, level: UInt, bufptr: Long, prefmaxlen: UInt, entriesread: Long, totalentries: Long, resume_handle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetWkstaTransportEnum(servername.toCPointer<ByteVar>(), level, bufptr.toCPointer<ByteVar>(), prefmaxlen, entriesread.toCPointer<ByteVar>(), totalentries.toCPointer<ByteVar>(), resume_handle.toCPointer<ByteVar>())
+public actual fun netWkstaTransportEnum(servername: COpaquePointer?, level: UInt, bufptr: COpaquePointer?, prefmaxlen: UInt, entriesread: COpaquePointer?, totalentries: COpaquePointer?, resumeHandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netWkstaTransportEnum(servername?.value?.toCPointer<ByteVar>(), level, bufptr?.value?.toCPointer<ByteVar>(), prefmaxlen, entriesread?.value?.toCPointer<ByteVar>(), totalentries?.value?.toCPointer<ByteVar>(), resumeHandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NetWkstaUserEnum(servername: PCWSTR, level: UInt, bufptr: Long, prefmaxlen: UInt, entriesread: Long, totalentries: Long, resumehandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetWkstaUserEnum(servername.toCPointer<ByteVar>(), level, bufptr.toCPointer<ByteVar>(), prefmaxlen, entriesread.toCPointer<ByteVar>(), totalentries.toCPointer<ByteVar>(), resumehandle.toCPointer<ByteVar>())
+public actual fun netWkstaUserEnum(servername: Pcwstr, level: UInt, bufptr: COpaquePointer?, prefmaxlen: UInt, entriesread: COpaquePointer?, totalentries: COpaquePointer?, resumehandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netWkstaUserEnum(servername?.value?.toCPointer<ByteVar>(), level, bufptr?.value?.toCPointer<ByteVar>(), prefmaxlen, entriesread?.value?.toCPointer<ByteVar>(), totalentries?.value?.toCPointer<ByteVar>(), resumehandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NetWkstaUserGetInfo(reserved: PCWSTR, level: UInt, bufptr: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetWkstaUserGetInfo(reserved.toCPointer<ByteVar>(), level, bufptr.toCPointer<ByteVar>())
+public actual fun netWkstaUserGetInfo(reserved: Pcwstr, level: UInt, bufptr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netWkstaUserGetInfo(reserved?.value?.toCPointer<ByteVar>(), level, bufptr?.value?.toCPointer<ByteVar>())
 
-public actual fun NetWkstaUserSetInfo(reserved: PCWSTR, level: UInt, buf: Long, parm_err: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_NetWkstaUserSetInfo(reserved.toCPointer<ByteVar>(), level, buf.toCPointer<ByteVar>(), parm_err.toCPointer<ByteVar>())
+public actual fun netWkstaUserSetInfo(reserved: Pcwstr, level: UInt, buf: COpaquePointer?, parmErr: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_netWkstaUserSetInfo(reserved?.value?.toCPointer<ByteVar>(), level, buf?.value?.toCPointer<ByteVar>(), parmErr?.value?.toCPointer<ByteVar>())
 
-public actual fun RouterAssert(pszfailedassertion: PCSTR, pszfilename: PCSTR, dwlinenumber: UInt, pszmessage: PCSTR) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_RouterAssert(pszfailedassertion.toCPointer<ByteVar>(), pszfilename.toCPointer<ByteVar>(), dwlinenumber, pszmessage.toCPointer<ByteVar>())
+public actual fun routerAssert(pszfailedassertion: Pcstr, pszfilename: Pcstr, dwlinenumber: UInt, pszmessage: Pcstr) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_routerAssert(pszfailedassertion?.value?.toCPointer<ByteVar>(), pszfilename?.value?.toCPointer<ByteVar>(), dwlinenumber, pszmessage?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun RouterGetErrorStringA(dwerrorcode: UInt, lplpszerrorstring: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_RouterGetErrorStringA(dwerrorcode, lplpszerrorstring.toCPointer<ByteVar>())
+public actual fun routerGetErrorStringA(dwerrorcode: UInt, lplpszerrorstring: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_routerGetErrorStringA(dwerrorcode, lplpszerrorstring?.value?.toCPointer<ByteVar>())
 
-public actual fun RouterGetErrorStringW(dwerrorcode: UInt, lplpwszerrorstring: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_RouterGetErrorStringW(dwerrorcode, lplpwszerrorstring.toCPointer<ByteVar>())
+public actual fun routerGetErrorStringW(dwerrorcode: UInt, lplpwszerrorstring: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_routerGetErrorStringW(dwerrorcode, lplpwszerrorstring?.value?.toCPointer<ByteVar>())
 
-public actual fun RouterLogDeregisterA(hloghandle: HANDLE) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_RouterLogDeregisterA(hloghandle.toCPointer<ByteVar>())
+public actual fun routerLogDeregisterA(hloghandle: Handle) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_routerLogDeregisterA(hloghandle?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun RouterLogDeregisterW(hloghandle: HANDLE) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_RouterLogDeregisterW(hloghandle.toCPointer<ByteVar>())
+public actual fun routerLogDeregisterW(hloghandle: Handle) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_routerLogDeregisterW(hloghandle?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun RouterLogEventA(hloghandle: HANDLE, dweventtype: UInt, dwmessageid: UInt, dwsubstringcount: UInt, plpszsubstringarray: Long, dwerrorcode: UInt) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_RouterLogEventA(hloghandle.toCPointer<ByteVar>(), dweventtype, dwmessageid, dwsubstringcount, plpszsubstringarray.toCPointer<ByteVar>(), dwerrorcode)
+public actual fun routerLogEventA(hloghandle: Handle, dweventtype: UInt, dwmessageid: UInt, dwsubstringcount: UInt, plpszsubstringarray: COpaquePointer?, dwerrorcode: UInt) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_routerLogEventA(hloghandle?.value?.toCPointer<ByteVar>(), dweventtype, dwmessageid, dwsubstringcount, plpszsubstringarray?.value?.toCPointer<ByteVar>(), dwerrorcode)
 }
 
-public actual fun RouterLogEventDataA(hloghandle: HANDLE, dweventtype: UInt, dwmessageid: UInt, dwsubstringcount: UInt, plpszsubstringarray: Long, dwdatabytes: UInt, lpdatabytes: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_RouterLogEventDataA(hloghandle.toCPointer<ByteVar>(), dweventtype, dwmessageid, dwsubstringcount, plpszsubstringarray.toCPointer<ByteVar>(), dwdatabytes, lpdatabytes.toCPointer<ByteVar>())
+public actual fun routerLogEventDataA(hloghandle: Handle, dweventtype: UInt, dwmessageid: UInt, dwsubstringcount: UInt, plpszsubstringarray: COpaquePointer?, dwdatabytes: UInt, lpdatabytes: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_routerLogEventDataA(hloghandle?.value?.toCPointer<ByteVar>(), dweventtype, dwmessageid, dwsubstringcount, plpszsubstringarray?.value?.toCPointer<ByteVar>(), dwdatabytes, lpdatabytes?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun RouterLogEventDataW(hloghandle: HANDLE, dweventtype: UInt, dwmessageid: UInt, dwsubstringcount: UInt, plpszsubstringarray: Long, dwdatabytes: UInt, lpdatabytes: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_RouterLogEventDataW(hloghandle.toCPointer<ByteVar>(), dweventtype, dwmessageid, dwsubstringcount, plpszsubstringarray.toCPointer<ByteVar>(), dwdatabytes, lpdatabytes.toCPointer<ByteVar>())
+public actual fun routerLogEventDataW(hloghandle: Handle, dweventtype: UInt, dwmessageid: UInt, dwsubstringcount: UInt, plpszsubstringarray: COpaquePointer?, dwdatabytes: UInt, lpdatabytes: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_routerLogEventDataW(hloghandle?.value?.toCPointer<ByteVar>(), dweventtype, dwmessageid, dwsubstringcount, plpszsubstringarray?.value?.toCPointer<ByteVar>(), dwdatabytes, lpdatabytes?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun RouterLogEventExA(hloghandle: HANDLE, dweventtype: UInt, dwerrorcode: UInt, dwmessageid: UInt, ptszformat: PCSTR) {
+public actual fun routerLogEventExA(hloghandle: Handle, dweventtype: UInt, dwerrorcode: UInt, dwmessageid: UInt, ptszformat: Pcstr, vararg variadicArgs: Long) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_routerLogEventExA(hloghandle?.value?.toCPointer<ByteVar>(), dweventtype, dwerrorcode, dwmessageid, ptszformat?.value?.toCPointer<ByteVar>(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 }
 
-public actual fun RouterLogEventExW(hloghandle: HANDLE, dweventtype: UInt, dwerrorcode: UInt, dwmessageid: UInt, ptszformat: PCWSTR) {
+public actual fun routerLogEventExW(hloghandle: Handle, dweventtype: UInt, dwerrorcode: UInt, dwmessageid: UInt, ptszformat: Pcwstr, vararg variadicArgs: Long) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_routerLogEventExW(hloghandle?.value?.toCPointer<ByteVar>(), dweventtype, dwerrorcode, dwmessageid, ptszformat?.value?.toCPointer<ByteVar>(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 }
 
-public actual fun RouterLogEventStringA(hloghandle: HANDLE, dweventtype: UInt, dwmessageid: UInt, dwsubstringcount: UInt, plpszsubstringarray: Long, dwerrorcode: UInt, dwerrorindex: UInt) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_RouterLogEventStringA(hloghandle.toCPointer<ByteVar>(), dweventtype, dwmessageid, dwsubstringcount, plpszsubstringarray.toCPointer<ByteVar>(), dwerrorcode, dwerrorindex)
+public actual fun routerLogEventStringA(hloghandle: Handle, dweventtype: UInt, dwmessageid: UInt, dwsubstringcount: UInt, plpszsubstringarray: COpaquePointer?, dwerrorcode: UInt, dwerrorindex: UInt) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_routerLogEventStringA(hloghandle?.value?.toCPointer<ByteVar>(), dweventtype, dwmessageid, dwsubstringcount, plpszsubstringarray?.value?.toCPointer<ByteVar>(), dwerrorcode, dwerrorindex)
 }
 
-public actual fun RouterLogEventStringW(hloghandle: HANDLE, dweventtype: UInt, dwmessageid: UInt, dwsubstringcount: UInt, plpszsubstringarray: Long, dwerrorcode: UInt, dwerrorindex: UInt) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_RouterLogEventStringW(hloghandle.toCPointer<ByteVar>(), dweventtype, dwmessageid, dwsubstringcount, plpszsubstringarray.toCPointer<ByteVar>(), dwerrorcode, dwerrorindex)
+public actual fun routerLogEventStringW(hloghandle: Handle, dweventtype: UInt, dwmessageid: UInt, dwsubstringcount: UInt, plpszsubstringarray: COpaquePointer?, dwerrorcode: UInt, dwerrorindex: UInt) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_routerLogEventStringW(hloghandle?.value?.toCPointer<ByteVar>(), dweventtype, dwmessageid, dwsubstringcount, plpszsubstringarray?.value?.toCPointer<ByteVar>(), dwerrorcode, dwerrorindex)
 }
 
-public actual fun RouterLogEventValistExA(hloghandle: HANDLE, dweventtype: UInt, dwerrorcode: UInt, dwmessageid: UInt, ptszformat: PCSTR, arglist: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_RouterLogEventValistExA(hloghandle.toCPointer<ByteVar>(), dweventtype, dwerrorcode, dwmessageid, ptszformat.toCPointer<ByteVar>(), arglist.toCPointer<ByteVar>())
+public actual fun routerLogEventValistExA(hloghandle: Handle, dweventtype: UInt, dwerrorcode: UInt, dwmessageid: UInt, ptszformat: Pcstr, arglist: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_routerLogEventValistExA(hloghandle?.value?.toCPointer<ByteVar>(), dweventtype, dwerrorcode, dwmessageid, ptszformat?.value?.toCPointer<ByteVar>(), arglist?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun RouterLogEventValistExW(hloghandle: HANDLE, dweventtype: UInt, dwerrorcode: UInt, dwmessageid: UInt, ptszformat: PCWSTR, arglist: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_RouterLogEventValistExW(hloghandle.toCPointer<ByteVar>(), dweventtype, dwerrorcode, dwmessageid, ptszformat.toCPointer<ByteVar>(), arglist.toCPointer<ByteVar>())
+public actual fun routerLogEventValistExW(hloghandle: Handle, dweventtype: UInt, dwerrorcode: UInt, dwmessageid: UInt, ptszformat: Pcwstr, arglist: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_routerLogEventValistExW(hloghandle?.value?.toCPointer<ByteVar>(), dweventtype, dwerrorcode, dwmessageid, ptszformat?.value?.toCPointer<ByteVar>(), arglist?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun RouterLogEventW(hloghandle: HANDLE, dweventtype: UInt, dwmessageid: UInt, dwsubstringcount: UInt, plpszsubstringarray: Long, dwerrorcode: UInt) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_RouterLogEventW(hloghandle.toCPointer<ByteVar>(), dweventtype, dwmessageid, dwsubstringcount, plpszsubstringarray.toCPointer<ByteVar>(), dwerrorcode)
+public actual fun routerLogEventW(hloghandle: Handle, dweventtype: UInt, dwmessageid: UInt, dwsubstringcount: UInt, plpszsubstringarray: COpaquePointer?, dwerrorcode: UInt) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_routerLogEventW(hloghandle?.value?.toCPointer<ByteVar>(), dweventtype, dwmessageid, dwsubstringcount, plpszsubstringarray?.value?.toCPointer<ByteVar>(), dwerrorcode)
 }
 
-public actual fun RouterLogRegisterA(lpszsource: PCSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_RouterLogRegisterA(lpszsource.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun routerLogRegisterA(lpszsource: Pcstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_routerLogRegisterA(lpszsource?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun RouterLogRegisterW(lpszsource: PCWSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_RouterLogRegisterW(lpszsource.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun routerLogRegisterW(lpszsource: Pcwstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_routerLogRegisterW(lpszsource?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun SetNetScheduleAccountInformation(pwszservername: PCWSTR, pwszaccount: PCWSTR, pwszpassword: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_SetNetScheduleAccountInformation(pwszservername.toCPointer<ByteVar>(), pwszaccount.toCPointer<ByteVar>(), pwszpassword.toCPointer<ByteVar>())
+public actual fun setNetScheduleAccountInformation(pwszservername: Pcwstr, pwszaccount: Pcwstr, pwszpassword: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_setNetScheduleAccountInformation(pwszservername?.value?.toCPointer<ByteVar>(), pwszaccount?.value?.toCPointer<ByteVar>(), pwszpassword?.value?.toCPointer<ByteVar>())
 
-public actual fun TraceDeregisterA(dwtraceid: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_TraceDeregisterA(dwtraceid)
+public actual fun traceDeregisterA(dwtraceid: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_traceDeregisterA(dwtraceid)
 
-public actual fun TraceDeregisterExA(dwtraceid: UInt, dwflags: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_TraceDeregisterExA(dwtraceid, dwflags)
+public actual fun traceDeregisterExA(dwtraceid: UInt, dwflags: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_traceDeregisterExA(dwtraceid, dwflags)
 
-public actual fun TraceDeregisterExW(dwtraceid: UInt, dwflags: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_TraceDeregisterExW(dwtraceid, dwflags)
+public actual fun traceDeregisterExW(dwtraceid: UInt, dwflags: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_traceDeregisterExW(dwtraceid, dwflags)
 
-public actual fun TraceDeregisterW(dwtraceid: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_TraceDeregisterW(dwtraceid)
+public actual fun traceDeregisterW(dwtraceid: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_traceDeregisterW(dwtraceid)
 
-public actual fun TraceDumpExA(dwtraceid: UInt, dwflags: UInt, lpbbytes: Long, dwbytecount: UInt, dwgroupsize: UInt, baddressprefix: BOOL, lpszprefix: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_TraceDumpExA(dwtraceid, dwflags, lpbbytes.toCPointer<ByteVar>(), dwbytecount, dwgroupsize, baddressprefix, lpszprefix.toCPointer<ByteVar>())
+public actual fun traceDumpExA(dwtraceid: UInt, dwflags: UInt, lpbbytes: COpaquePointer?, dwbytecount: UInt, dwgroupsize: UInt, baddressprefix: Bool, lpszprefix: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_traceDumpExA(dwtraceid, dwflags, lpbbytes?.value?.toCPointer<ByteVar>(), dwbytecount, dwgroupsize, baddressprefix, lpszprefix?.value?.toCPointer<ByteVar>())
 
-public actual fun TraceDumpExW(dwtraceid: UInt, dwflags: UInt, lpbbytes: Long, dwbytecount: UInt, dwgroupsize: UInt, baddressprefix: BOOL, lpszprefix: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_TraceDumpExW(dwtraceid, dwflags, lpbbytes.toCPointer<ByteVar>(), dwbytecount, dwgroupsize, baddressprefix, lpszprefix.toCPointer<ByteVar>())
+public actual fun traceDumpExW(dwtraceid: UInt, dwflags: UInt, lpbbytes: COpaquePointer?, dwbytecount: UInt, dwgroupsize: UInt, baddressprefix: Bool, lpszprefix: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_traceDumpExW(dwtraceid, dwflags, lpbbytes?.value?.toCPointer<ByteVar>(), dwbytecount, dwgroupsize, baddressprefix, lpszprefix?.value?.toCPointer<ByteVar>())
 
-public actual fun TraceGetConsoleA(dwtraceid: UInt, lphconsole: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_TraceGetConsoleA(dwtraceid, lphconsole.toCPointer<ByteVar>())
+public actual fun traceGetConsoleA(dwtraceid: UInt, lphconsole: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_traceGetConsoleA(dwtraceid, lphconsole?.value?.toCPointer<ByteVar>())
 
-public actual fun TraceGetConsoleW(dwtraceid: UInt, lphconsole: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_TraceGetConsoleW(dwtraceid, lphconsole.toCPointer<ByteVar>())
+public actual fun traceGetConsoleW(dwtraceid: UInt, lphconsole: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_traceGetConsoleW(dwtraceid, lphconsole?.value?.toCPointer<ByteVar>())
 
-public actual fun TracePrintfA(dwtraceid: UInt, lpszformat: PCSTR): UInt =
-    0u
+public actual fun tracePrintfA(dwtraceid: UInt, lpszformat: Pcstr, vararg variadicArgs: Long): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_tracePrintfA(dwtraceid, lpszformat?.value?.toCPointer<ByteVar>(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun TracePrintfExA(dwtraceid: UInt, dwflags: UInt, lpszformat: PCSTR): UInt =
-    0u
+public actual fun tracePrintfExA(dwtraceid: UInt, dwflags: UInt, lpszformat: Pcstr, vararg variadicArgs: Long): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_tracePrintfExA(dwtraceid, dwflags, lpszformat?.value?.toCPointer<ByteVar>(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun TracePrintfExW(dwtraceid: UInt, dwflags: UInt, lpszformat: PCWSTR): UInt =
-    0u
+public actual fun tracePrintfExW(dwtraceid: UInt, dwflags: UInt, lpszformat: Pcwstr, vararg variadicArgs: Long): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_tracePrintfExW(dwtraceid, dwflags, lpszformat?.value?.toCPointer<ByteVar>(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun TracePrintfW(dwtraceid: UInt, lpszformat: PCWSTR): UInt =
-    0u
+public actual fun tracePrintfW(dwtraceid: UInt, lpszformat: Pcwstr, vararg variadicArgs: Long): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_tracePrintfW(dwtraceid, lpszformat?.value?.toCPointer<ByteVar>(), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 
-public actual fun TracePutsExA(dwtraceid: UInt, dwflags: UInt, lpszstring: PCSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_TracePutsExA(dwtraceid, dwflags, lpszstring.toCPointer<ByteVar>())
+public actual fun tracePutsExA(dwtraceid: UInt, dwflags: UInt, lpszstring: Pcstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_tracePutsExA(dwtraceid, dwflags, lpszstring?.value?.toCPointer<ByteVar>())
 
-public actual fun TracePutsExW(dwtraceid: UInt, dwflags: UInt, lpszstring: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_TracePutsExW(dwtraceid, dwflags, lpszstring.toCPointer<ByteVar>())
+public actual fun tracePutsExW(dwtraceid: UInt, dwflags: UInt, lpszstring: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_tracePutsExW(dwtraceid, dwflags, lpszstring?.value?.toCPointer<ByteVar>())
 
-public actual fun TraceRegisterExA(lpszcallername: PCSTR, dwflags: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_TraceRegisterExA(lpszcallername.toCPointer<ByteVar>(), dwflags)
+public actual fun traceRegisterExA(lpszcallername: Pcstr, dwflags: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_traceRegisterExA(lpszcallername?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun TraceRegisterExW(lpszcallername: PCWSTR, dwflags: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_TraceRegisterExW(lpszcallername.toCPointer<ByteVar>(), dwflags)
+public actual fun traceRegisterExW(lpszcallername: Pcwstr, dwflags: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_traceRegisterExW(lpszcallername?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun TraceVprintfExA(dwtraceid: UInt, dwflags: UInt, lpszformat: PCSTR, arglist: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_TraceVprintfExA(dwtraceid, dwflags, lpszformat.toCPointer<ByteVar>(), arglist.toCPointer<ByteVar>())
+public actual fun traceVprintfExA(dwtraceid: UInt, dwflags: UInt, lpszformat: Pcstr, arglist: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_traceVprintfExA(dwtraceid, dwflags, lpszformat?.value?.toCPointer<ByteVar>(), arglist?.value?.toCPointer<ByteVar>())
 
-public actual fun TraceVprintfExW(dwtraceid: UInt, dwflags: UInt, lpszformat: PCWSTR, arglist: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_TraceVprintfExW(dwtraceid, dwflags, lpszformat.toCPointer<ByteVar>(), arglist.toCPointer<ByteVar>())
+public actual fun traceVprintfExW(dwtraceid: UInt, dwflags: UInt, lpszformat: Pcwstr, arglist: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement.cinterop.windowssys_windows_win32_networkmanagement_netmanagement_traceVprintfExW(dwtraceid, dwflags, lpszformat?.value?.toCPointer<ByteVar>(), arglist?.value?.toCPointer<ByteVar>())

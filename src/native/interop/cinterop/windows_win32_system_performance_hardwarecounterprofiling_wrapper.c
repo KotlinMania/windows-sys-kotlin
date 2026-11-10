@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_system_performance_hardwarecounterprofiling_DisableThreadProfiling(void* performancedatahandle) {
+uint32_t windowssys_windows_win32_system_performance_hardwarecounterprofiling_disableThreadProfiling(void* performancedatahandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ uint32_t windowssys_windows_win32_system_performance_hardwarecounterprofiling_Di
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_hardwarecounterprofiling_EnableThreadProfiling(void* threadhandle, uint32_t flags, uint64_t hardwarecounters, void* performancedatahandle) {
+uint32_t windowssys_windows_win32_system_performance_hardwarecounterprofiling_enableThreadProfiling(void* threadhandle, uint32_t flags, uint64_t hardwarecounters, void* performancedatahandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -62,7 +62,7 @@ uint32_t windowssys_windows_win32_system_performance_hardwarecounterprofiling_En
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_hardwarecounterprofiling_QueryThreadProfiling(void* threadhandle, void* enabled) {
+uint32_t windowssys_windows_win32_system_performance_hardwarecounterprofiling_queryThreadProfiling(void* threadhandle, void* enabled) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -85,7 +85,7 @@ uint32_t windowssys_windows_win32_system_performance_hardwarecounterprofiling_Qu
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_hardwarecounterprofiling_ReadThreadProfilingData(void* performancedatahandle, uint32_t flags, void* performancedata) {
+uint32_t windowssys_windows_win32_system_performance_hardwarecounterprofiling_readThreadProfilingData(void* performancedatahandle, uint32_t flags, void* performancedata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;

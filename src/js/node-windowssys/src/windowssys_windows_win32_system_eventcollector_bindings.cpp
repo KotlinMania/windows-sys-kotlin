@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_eventcollector_EcClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_eventcollector_ecClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t object = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -69,7 +69,7 @@ static Napi::Value windowssys_windows_win32_system_eventcollector_EcClose_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventcollector_EcDeleteSubscription_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_eventcollector_ecDeleteSubscription_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* subscriptionname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -89,7 +89,7 @@ static Napi::Value windowssys_windows_win32_system_eventcollector_EcDeleteSubscr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventcollector_EcEnumNextSubscription_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_eventcollector_ecEnumNextSubscription_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t subscriptionenum = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t subscriptionnamebuffersize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -113,7 +113,7 @@ static Napi::Value windowssys_windows_win32_system_eventcollector_EcEnumNextSubs
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventcollector_EcGetObjectArrayProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_eventcollector_ecGetObjectArrayProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t objectarray = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t propertyid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -143,7 +143,7 @@ static Napi::Value windowssys_windows_win32_system_eventcollector_EcGetObjectArr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventcollector_EcGetObjectArraySize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_eventcollector_ecGetObjectArraySize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t objectarray = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* objectarraysize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -163,7 +163,7 @@ static Napi::Value windowssys_windows_win32_system_eventcollector_EcGetObjectArr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventcollector_EcGetSubscriptionProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_eventcollector_ecGetSubscriptionProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t subscription = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t propertyid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -191,7 +191,7 @@ static Napi::Value windowssys_windows_win32_system_eventcollector_EcGetSubscript
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventcollector_EcGetSubscriptionRunTimeStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_eventcollector_ecGetSubscriptionRunTimeStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* subscriptionname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t statusinfoid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -221,7 +221,7 @@ static Napi::Value windowssys_windows_win32_system_eventcollector_EcGetSubscript
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventcollector_EcInsertObjectArrayElement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_eventcollector_ecInsertObjectArrayElement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t objectarray = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t arrayindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -241,7 +241,7 @@ static Napi::Value windowssys_windows_win32_system_eventcollector_EcInsertObject
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventcollector_EcOpenSubscription_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_eventcollector_ecOpenSubscription_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* subscriptionname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t accessmask = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -263,7 +263,7 @@ static Napi::Value windowssys_windows_win32_system_eventcollector_EcOpenSubscrip
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventcollector_EcOpenSubscriptionEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_eventcollector_ecOpenSubscriptionEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -281,7 +281,7 @@ static Napi::Value windowssys_windows_win32_system_eventcollector_EcOpenSubscrip
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventcollector_EcRemoveObjectArrayElement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_eventcollector_ecRemoveObjectArrayElement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t objectarray = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t arrayindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -301,7 +301,7 @@ static Napi::Value windowssys_windows_win32_system_eventcollector_EcRemoveObject
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventcollector_EcRetrySubscription_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_eventcollector_ecRetrySubscription_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* subscriptionname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* eventsourcename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -323,7 +323,7 @@ static Napi::Value windowssys_windows_win32_system_eventcollector_EcRetrySubscri
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventcollector_EcSaveSubscription_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_eventcollector_ecSaveSubscription_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t subscription = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -343,7 +343,7 @@ static Napi::Value windowssys_windows_win32_system_eventcollector_EcSaveSubscrip
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventcollector_EcSetObjectArrayProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_eventcollector_ecSetObjectArrayProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t objectarray = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t propertyid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -369,7 +369,7 @@ static Napi::Value windowssys_windows_win32_system_eventcollector_EcSetObjectArr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_eventcollector_EcSetSubscriptionProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_eventcollector_ecSetSubscriptionProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t subscription = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t propertyid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -394,21 +394,21 @@ static Napi::Value windowssys_windows_win32_system_eventcollector_EcSetSubscript
 }
 
 static void register_windows_win32_system_eventcollector_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_eventcollector_EcClose", Napi::Function::New(env, windowssys_windows_win32_system_eventcollector_EcClose_napi));
-    exports.Set("windowssys_windows_win32_system_eventcollector_EcDeleteSubscription", Napi::Function::New(env, windowssys_windows_win32_system_eventcollector_EcDeleteSubscription_napi));
-    exports.Set("windowssys_windows_win32_system_eventcollector_EcEnumNextSubscription", Napi::Function::New(env, windowssys_windows_win32_system_eventcollector_EcEnumNextSubscription_napi));
-    exports.Set("windowssys_windows_win32_system_eventcollector_EcGetObjectArrayProperty", Napi::Function::New(env, windowssys_windows_win32_system_eventcollector_EcGetObjectArrayProperty_napi));
-    exports.Set("windowssys_windows_win32_system_eventcollector_EcGetObjectArraySize", Napi::Function::New(env, windowssys_windows_win32_system_eventcollector_EcGetObjectArraySize_napi));
-    exports.Set("windowssys_windows_win32_system_eventcollector_EcGetSubscriptionProperty", Napi::Function::New(env, windowssys_windows_win32_system_eventcollector_EcGetSubscriptionProperty_napi));
-    exports.Set("windowssys_windows_win32_system_eventcollector_EcGetSubscriptionRunTimeStatus", Napi::Function::New(env, windowssys_windows_win32_system_eventcollector_EcGetSubscriptionRunTimeStatus_napi));
-    exports.Set("windowssys_windows_win32_system_eventcollector_EcInsertObjectArrayElement", Napi::Function::New(env, windowssys_windows_win32_system_eventcollector_EcInsertObjectArrayElement_napi));
-    exports.Set("windowssys_windows_win32_system_eventcollector_EcOpenSubscription", Napi::Function::New(env, windowssys_windows_win32_system_eventcollector_EcOpenSubscription_napi));
-    exports.Set("windowssys_windows_win32_system_eventcollector_EcOpenSubscriptionEnum", Napi::Function::New(env, windowssys_windows_win32_system_eventcollector_EcOpenSubscriptionEnum_napi));
-    exports.Set("windowssys_windows_win32_system_eventcollector_EcRemoveObjectArrayElement", Napi::Function::New(env, windowssys_windows_win32_system_eventcollector_EcRemoveObjectArrayElement_napi));
-    exports.Set("windowssys_windows_win32_system_eventcollector_EcRetrySubscription", Napi::Function::New(env, windowssys_windows_win32_system_eventcollector_EcRetrySubscription_napi));
-    exports.Set("windowssys_windows_win32_system_eventcollector_EcSaveSubscription", Napi::Function::New(env, windowssys_windows_win32_system_eventcollector_EcSaveSubscription_napi));
-    exports.Set("windowssys_windows_win32_system_eventcollector_EcSetObjectArrayProperty", Napi::Function::New(env, windowssys_windows_win32_system_eventcollector_EcSetObjectArrayProperty_napi));
-    exports.Set("windowssys_windows_win32_system_eventcollector_EcSetSubscriptionProperty", Napi::Function::New(env, windowssys_windows_win32_system_eventcollector_EcSetSubscriptionProperty_napi));
+    exports.Set("windowssys_windows_win32_system_eventcollector_ecClose", Napi::Function::New(env, windowssys_windows_win32_system_eventcollector_ecClose_napi));
+    exports.Set("windowssys_windows_win32_system_eventcollector_ecDeleteSubscription", Napi::Function::New(env, windowssys_windows_win32_system_eventcollector_ecDeleteSubscription_napi));
+    exports.Set("windowssys_windows_win32_system_eventcollector_ecEnumNextSubscription", Napi::Function::New(env, windowssys_windows_win32_system_eventcollector_ecEnumNextSubscription_napi));
+    exports.Set("windowssys_windows_win32_system_eventcollector_ecGetObjectArrayProperty", Napi::Function::New(env, windowssys_windows_win32_system_eventcollector_ecGetObjectArrayProperty_napi));
+    exports.Set("windowssys_windows_win32_system_eventcollector_ecGetObjectArraySize", Napi::Function::New(env, windowssys_windows_win32_system_eventcollector_ecGetObjectArraySize_napi));
+    exports.Set("windowssys_windows_win32_system_eventcollector_ecGetSubscriptionProperty", Napi::Function::New(env, windowssys_windows_win32_system_eventcollector_ecGetSubscriptionProperty_napi));
+    exports.Set("windowssys_windows_win32_system_eventcollector_ecGetSubscriptionRunTimeStatus", Napi::Function::New(env, windowssys_windows_win32_system_eventcollector_ecGetSubscriptionRunTimeStatus_napi));
+    exports.Set("windowssys_windows_win32_system_eventcollector_ecInsertObjectArrayElement", Napi::Function::New(env, windowssys_windows_win32_system_eventcollector_ecInsertObjectArrayElement_napi));
+    exports.Set("windowssys_windows_win32_system_eventcollector_ecOpenSubscription", Napi::Function::New(env, windowssys_windows_win32_system_eventcollector_ecOpenSubscription_napi));
+    exports.Set("windowssys_windows_win32_system_eventcollector_ecOpenSubscriptionEnum", Napi::Function::New(env, windowssys_windows_win32_system_eventcollector_ecOpenSubscriptionEnum_napi));
+    exports.Set("windowssys_windows_win32_system_eventcollector_ecRemoveObjectArrayElement", Napi::Function::New(env, windowssys_windows_win32_system_eventcollector_ecRemoveObjectArrayElement_napi));
+    exports.Set("windowssys_windows_win32_system_eventcollector_ecRetrySubscription", Napi::Function::New(env, windowssys_windows_win32_system_eventcollector_ecRetrySubscription_napi));
+    exports.Set("windowssys_windows_win32_system_eventcollector_ecSaveSubscription", Napi::Function::New(env, windowssys_windows_win32_system_eventcollector_ecSaveSubscription_napi));
+    exports.Set("windowssys_windows_win32_system_eventcollector_ecSetObjectArrayProperty", Napi::Function::New(env, windowssys_windows_win32_system_eventcollector_ecSetObjectArrayProperty_napi));
+    exports.Set("windowssys_windows_win32_system_eventcollector_ecSetSubscriptionProperty", Napi::Function::New(env, windowssys_windows_win32_system_eventcollector_ecSetSubscriptionProperty_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_eventcollector_napi, nullptr };

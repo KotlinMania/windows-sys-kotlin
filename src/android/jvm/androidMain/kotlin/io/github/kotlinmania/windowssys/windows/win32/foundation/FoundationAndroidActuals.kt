@@ -2,11 +2,12 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.foundation
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.BSTR
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Bstr
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 
 private object WindowsWin32FoundationJniBridge {
     init {
@@ -14,138 +15,138 @@ private object WindowsWin32FoundationJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_foundation_CloseHandle(hobject: Long): Int
+    external fun windowssys_windows_win32_foundation_closeHandle(hobject: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_foundation_CompareObjectHandles(hfirstobjecthandle: Long, hsecondobjecthandle: Long): Int
+    external fun windowssys_windows_win32_foundation_compareObjectHandles(hfirstobjecthandle: Long, hsecondobjecthandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_foundation_DuplicateHandle(hsourceprocesshandle: Long, hsourcehandle: Long, htargetprocesshandle: Long, lptargethandle: Long, dwdesiredaccess: Int, binherithandle: Int, dwoptions: Int): Int
+    external fun windowssys_windows_win32_foundation_duplicateHandle(hsourceprocesshandle: Long, hsourcehandle: Long, htargetprocesshandle: Long, lptargethandle: Long, dwdesiredaccess: Int, binherithandle: Int, dwoptions: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_foundation_FreeLibrary(hlibmodule: Long): Int
+    external fun windowssys_windows_win32_foundation_freeLibrary(hlibmodule: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_foundation_GetHandleInformation(hobject: Long, lpdwflags: Long): Int
+    external fun windowssys_windows_win32_foundation_getHandleInformation(hobject: Long, lpdwflags: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_foundation_GetLastError(): Int
+    external fun windowssys_windows_win32_foundation_getLastError(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_foundation_GlobalFree(hmem: Long): Long
+    external fun windowssys_windows_win32_foundation_globalFree(hmem: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_foundation_LocalFree(hmem: Long): Long
+    external fun windowssys_windows_win32_foundation_localFree(hmem: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_foundation_RtlNtStatusToDosError(status: Int): Int
+    external fun windowssys_windows_win32_foundation_rtlNtStatusToDosError(status: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_foundation_SetHandleInformation(hobject: Long, dwmask: Int, dwflags: Int): Int
+    external fun windowssys_windows_win32_foundation_setHandleInformation(hobject: Long, dwmask: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_foundation_SetLastError(dwerrcode: Int)
+    external fun windowssys_windows_win32_foundation_setLastError(dwerrcode: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_foundation_SetLastErrorEx(dwerrcode: Int, dwtype: Int)
+    external fun windowssys_windows_win32_foundation_setLastErrorEx(dwerrcode: Int, dwtype: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_foundation_SysAddRefString(bstrstring: Long): Int
+    external fun windowssys_windows_win32_foundation_sysAddRefString(bstrstring: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_foundation_SysAllocString(psz: Long): Long
+    external fun windowssys_windows_win32_foundation_sysAllocString(psz: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_foundation_SysAllocStringByteLen(psz: Long, len: Int): Long
+    external fun windowssys_windows_win32_foundation_sysAllocStringByteLen(psz: Long, len: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_foundation_SysAllocStringLen(strin: Long, ui: Int): Long
+    external fun windowssys_windows_win32_foundation_sysAllocStringLen(strin: Long, ui: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_foundation_SysFreeString(bstrstring: Long)
+    external fun windowssys_windows_win32_foundation_sysFreeString(bstrstring: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_foundation_SysReAllocString(pbstr: Long, psz: Long): Int
+    external fun windowssys_windows_win32_foundation_sysReAllocString(pbstr: Long, psz: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_foundation_SysReAllocStringLen(pbstr: Long, psz: Long, len: Int): Int
+    external fun windowssys_windows_win32_foundation_sysReAllocStringLen(pbstr: Long, psz: Long, len: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_foundation_SysReleaseString(bstrstring: Long)
+    external fun windowssys_windows_win32_foundation_sysReleaseString(bstrstring: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_foundation_SysStringByteLen(bstr: Long): Int
+    external fun windowssys_windows_win32_foundation_sysStringByteLen(bstr: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_foundation_SysStringLen(pbstr: Long): Int
+    external fun windowssys_windows_win32_foundation_sysStringLen(pbstr: Long): Int
 }
 
-public actual fun CloseHandle(hobject: HANDLE): BOOL =
-    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_CloseHandle(hobject)
+public actual fun closeHandle(hobject: Handle): Bool =
+    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_closeHandle((hobject?.value ?: 0L))
 
-public actual fun CompareObjectHandles(hfirstobjecthandle: HANDLE, hsecondobjecthandle: HANDLE): BOOL =
-    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_CompareObjectHandles(hfirstobjecthandle, hsecondobjecthandle)
+public actual fun compareObjectHandles(hfirstobjecthandle: Handle, hsecondobjecthandle: Handle): Bool =
+    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_compareObjectHandles((hfirstobjecthandle?.value ?: 0L), (hsecondobjecthandle?.value ?: 0L))
 
-public actual fun DuplicateHandle(hsourceprocesshandle: HANDLE, hsourcehandle: HANDLE, htargetprocesshandle: HANDLE, lptargethandle: Long, dwdesiredaccess: UInt, binherithandle: BOOL, dwoptions: DUPLICATE_HANDLE_OPTIONS): BOOL =
-    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_DuplicateHandle(hsourceprocesshandle, hsourcehandle, htargetprocesshandle, lptargethandle, dwdesiredaccess.toInt(), binherithandle, dwoptions.toInt())
+public actual fun duplicateHandle(hsourceprocesshandle: Handle, hsourcehandle: Handle, htargetprocesshandle: Handle, lptargethandle: COpaquePointer?, dwdesiredaccess: UInt, binherithandle: Bool, dwoptions: DuplicateHandleOptions): Bool =
+    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_duplicateHandle((hsourceprocesshandle?.value ?: 0L), (hsourcehandle?.value ?: 0L), (htargetprocesshandle?.value ?: 0L), (lptargethandle?.value ?: 0L), dwdesiredaccess.toInt(), binherithandle, dwoptions.toInt())
 
-public actual fun FreeLibrary(hlibmodule: HMODULE): BOOL =
-    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_FreeLibrary(hlibmodule)
+public actual fun freeLibrary(hlibmodule: Hmodule): Bool =
+    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_freeLibrary((hlibmodule?.value ?: 0L))
 
-public actual fun GetHandleInformation(hobject: HANDLE, lpdwflags: Long): BOOL =
-    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_GetHandleInformation(hobject, lpdwflags)
+public actual fun getHandleInformation(hobject: Handle, lpdwflags: COpaquePointer?): Bool =
+    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_getHandleInformation((hobject?.value ?: 0L), (lpdwflags?.value ?: 0L))
 
-public actual fun GetLastError(): WIN32_ERROR =
-    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_GetLastError().toUInt()
+public actual fun getLastError(): Win32Error =
+    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_getLastError().toUInt()
 
-public actual fun GlobalFree(hmem: HGLOBAL): HGLOBAL =
-    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_GlobalFree(hmem)
+public actual fun globalFree(hmem: Hglobal): Hglobal =
+    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_globalFree((hmem?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun LocalFree(hmem: HLOCAL): HLOCAL =
-    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_LocalFree(hmem)
+public actual fun localFree(hmem: Hlocal): Hlocal =
+    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_localFree((hmem?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun RtlNtStatusToDosError(status: NTSTATUS): UInt =
-    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_RtlNtStatusToDosError(status).toUInt()
+public actual fun rtlNtStatusToDosError(status: Ntstatus): UInt =
+    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_rtlNtStatusToDosError(status).toUInt()
 
-public actual fun SetHandleInformation(hobject: HANDLE, dwmask: UInt, dwflags: HANDLE_FLAGS): BOOL =
-    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_SetHandleInformation(hobject, dwmask.toInt(), dwflags.toInt())
+public actual fun setHandleInformation(hobject: Handle, dwmask: UInt, dwflags: HandleFlags): Bool =
+    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_setHandleInformation((hobject?.value ?: 0L), dwmask.toInt(), dwflags.toInt())
 
-public actual fun SetLastError(dwerrcode: WIN32_ERROR) {
-    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_SetLastError(dwerrcode.toInt())
+public actual fun setLastError(dwerrcode: Win32Error) {
+    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_setLastError(dwerrcode.toInt())
 }
 
-public actual fun SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: UInt) {
-    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_SetLastErrorEx(dwerrcode.toInt(), dwtype.toInt())
+public actual fun setLastErrorEx(dwerrcode: Win32Error, dwtype: UInt) {
+    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_setLastErrorEx(dwerrcode.toInt(), dwtype.toInt())
 }
 
-public actual fun SysAddRefString(bstrstring: BSTR): HRESULT =
-    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_SysAddRefString(bstrstring)
+public actual fun sysAddRefString(bstrstring: Bstr): Hresult =
+    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_sysAddRefString((bstrstring?.value ?: 0L))
 
-public actual fun SysAllocString(psz: PCWSTR): BSTR =
-    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_SysAllocString(psz)
+public actual fun sysAllocString(psz: Pcwstr): Bstr =
+    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_sysAllocString((psz?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SysAllocStringByteLen(psz: PCSTR, len: UInt): BSTR =
-    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_SysAllocStringByteLen(psz, len.toInt())
+public actual fun sysAllocStringByteLen(psz: Pcstr, len: UInt): Bstr =
+    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_sysAllocStringByteLen((psz?.value ?: 0L), len.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SysAllocStringLen(strin: PCWSTR, ui: UInt): BSTR =
-    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_SysAllocStringLen(strin, ui.toInt())
+public actual fun sysAllocStringLen(strin: Pcwstr, ui: UInt): Bstr =
+    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_sysAllocStringLen((strin?.value ?: 0L), ui.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SysFreeString(bstrstring: BSTR) {
-    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_SysFreeString(bstrstring)
+public actual fun sysFreeString(bstrstring: Bstr) {
+    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_sysFreeString((bstrstring?.value ?: 0L))
 }
 
-public actual fun SysReAllocString(pbstr: Long, psz: PCWSTR): Int =
-    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_SysReAllocString(pbstr, psz)
+public actual fun sysReAllocString(pbstr: COpaquePointer?, psz: Pcwstr): Int =
+    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_sysReAllocString((pbstr?.value ?: 0L), (psz?.value ?: 0L))
 
-public actual fun SysReAllocStringLen(pbstr: Long, psz: PCWSTR, len: UInt): Int =
-    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_SysReAllocStringLen(pbstr, psz, len.toInt())
+public actual fun sysReAllocStringLen(pbstr: COpaquePointer?, psz: Pcwstr, len: UInt): Int =
+    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_sysReAllocStringLen((pbstr?.value ?: 0L), (psz?.value ?: 0L), len.toInt())
 
-public actual fun SysReleaseString(bstrstring: BSTR) {
-    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_SysReleaseString(bstrstring)
+public actual fun sysReleaseString(bstrstring: Bstr) {
+    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_sysReleaseString((bstrstring?.value ?: 0L))
 }
 
-public actual fun SysStringByteLen(bstr: BSTR): UInt =
-    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_SysStringByteLen(bstr).toUInt()
+public actual fun sysStringByteLen(bstr: Bstr): UInt =
+    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_sysStringByteLen((bstr?.value ?: 0L)).toUInt()
 
-public actual fun SysStringLen(pbstr: BSTR): UInt =
-    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_SysStringLen(pbstr).toUInt()
+public actual fun sysStringLen(pbstr: Bstr): UInt =
+    WindowsWin32FoundationJniBridge.windowssys_windows_win32_foundation_sysStringLen((pbstr?.value ?: 0L)).toUInt()

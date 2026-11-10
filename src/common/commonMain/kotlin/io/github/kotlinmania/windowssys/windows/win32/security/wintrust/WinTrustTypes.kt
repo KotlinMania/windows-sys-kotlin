@@ -1,133 +1,134 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.wintrust
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.HCERTSTORE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.Hcertstore
 
-public fun interface PFN_ALLOCANDFILLDEFUSAGEFn {
-    public operator fun invoke(pszusageoid: PCSTR, psdefusage: Long): BOOL
+public fun interface PfnAllocandfilldefusageFn {
+    public operator fun invoke(pszusageoid: Pcstr, psdefusage: COpaquePointer?): Bool
 }
 
-public typealias PFN_ALLOCANDFILLDEFUSAGE = PFN_ALLOCANDFILLDEFUSAGEFn?
+public typealias PfnAllocandfilldefusage = PfnAllocandfilldefusageFn?
 
-public fun interface PFN_CPD_ADD_CERTFn {
-    public operator fun invoke(pprovdata: Long, idxsigner: UInt, fcountersigner: BOOL, idxcountersigner: UInt, pcert2add: Long): BOOL
+public fun interface PfnCpdAddCertFn {
+    public operator fun invoke(pprovdata: COpaquePointer?, idxsigner: UInt, fcountersigner: Bool, idxcountersigner: UInt, pcert2add: COpaquePointer?): Bool
 }
 
-public typealias PFN_CPD_ADD_CERT = PFN_CPD_ADD_CERTFn?
+public typealias PfnCpdAddCert = PfnCpdAddCertFn?
 
-public fun interface PFN_CPD_ADD_PRIVDATAFn {
-    public operator fun invoke(pprovdata: Long, pprivdata2add: Long): BOOL
+public fun interface PfnCpdAddPrivdataFn {
+    public operator fun invoke(pprovdata: COpaquePointer?, pprivdata2add: COpaquePointer?): Bool
 }
 
-public typealias PFN_CPD_ADD_PRIVDATA = PFN_CPD_ADD_PRIVDATAFn?
+public typealias PfnCpdAddPrivdata = PfnCpdAddPrivdataFn?
 
-public fun interface PFN_CPD_ADD_SGNRFn {
-    public operator fun invoke(pprovdata: Long, fcountersigner: BOOL, idxsigner: UInt, psgnr2add: Long): BOOL
+public fun interface PfnCpdAddSgnrFn {
+    public operator fun invoke(pprovdata: COpaquePointer?, fcountersigner: Bool, idxsigner: UInt, psgnr2add: COpaquePointer?): Bool
 }
 
-public typealias PFN_CPD_ADD_SGNR = PFN_CPD_ADD_SGNRFn?
+public typealias PfnCpdAddSgnr = PfnCpdAddSgnrFn?
 
-public fun interface PFN_CPD_ADD_STOREFn {
-    public operator fun invoke(pprovdata: Long, hstore2add: HCERTSTORE): BOOL
+public fun interface PfnCpdAddStoreFn {
+    public operator fun invoke(pprovdata: COpaquePointer?, hstore2add: Hcertstore): Bool
 }
 
-public typealias PFN_CPD_ADD_STORE = PFN_CPD_ADD_STOREFn?
+public typealias PfnCpdAddStore = PfnCpdAddStoreFn?
 
-public fun interface PFN_CPD_MEM_ALLOCFn {
-    public operator fun invoke(cbsize: UInt): Long
+public fun interface PfnCpdMemAllocFn {
+    public operator fun invoke(cbsize: UInt): COpaquePointer?
 }
 
-public typealias PFN_CPD_MEM_ALLOC = PFN_CPD_MEM_ALLOCFn?
+public typealias PfnCpdMemAlloc = PfnCpdMemAllocFn?
 
-public fun interface PFN_CPD_MEM_FREEFn {
-    public operator fun invoke(pvmem2free: Long)
+public fun interface PfnCpdMemFreeFn {
+    public operator fun invoke(pvmem2free: COpaquePointer?)
 }
 
-public typealias PFN_CPD_MEM_FREE = PFN_CPD_MEM_FREEFn?
+public typealias PfnCpdMemFree = PfnCpdMemFreeFn?
 
-public fun interface PFN_FREEDEFUSAGEFn {
-    public operator fun invoke(pszusageoid: PCSTR, psdefusage: Long): BOOL
+public fun interface PfnFreedefusageFn {
+    public operator fun invoke(pszusageoid: Pcstr, psdefusage: COpaquePointer?): Bool
 }
 
-public typealias PFN_FREEDEFUSAGE = PFN_FREEDEFUSAGEFn?
+public typealias PfnFreedefusage = PfnFreedefusageFn?
 
-public fun interface PFN_PROVIDER_CERTCHKPOLICY_CALLFn {
-    public operator fun invoke(pprovdata: Long, idxsigner: UInt, fcountersignerchain: BOOL, idxcountersigner: UInt): BOOL
+public fun interface PfnProviderCertchkpolicyCallFn {
+    public operator fun invoke(pprovdata: COpaquePointer?, idxsigner: UInt, fcountersignerchain: Bool, idxcountersigner: UInt): Bool
 }
 
-public typealias PFN_PROVIDER_CERTCHKPOLICY_CALL = PFN_PROVIDER_CERTCHKPOLICY_CALLFn?
+public typealias PfnProviderCertchkpolicyCall = PfnProviderCertchkpolicyCallFn?
 
-public fun interface PFN_PROVIDER_CERTTRUST_CALLFn {
-    public operator fun invoke(pprovdata: Long): HRESULT
+public fun interface PfnProviderCerttrustCallFn {
+    public operator fun invoke(pprovdata: COpaquePointer?): Hresult
 }
 
-public typealias PFN_PROVIDER_CERTTRUST_CALL = PFN_PROVIDER_CERTTRUST_CALLFn?
+public typealias PfnProviderCerttrustCall = PfnProviderCerttrustCallFn?
 
-public fun interface PFN_PROVIDER_CLEANUP_CALLFn {
-    public operator fun invoke(pprovdata: Long): HRESULT
+public fun interface PfnProviderCleanupCallFn {
+    public operator fun invoke(pprovdata: COpaquePointer?): Hresult
 }
 
-public typealias PFN_PROVIDER_CLEANUP_CALL = PFN_PROVIDER_CLEANUP_CALLFn?
+public typealias PfnProviderCleanupCall = PfnProviderCleanupCallFn?
 
-public fun interface PFN_PROVIDER_FINALPOLICY_CALLFn {
-    public operator fun invoke(pprovdata: Long): HRESULT
+public fun interface PfnProviderFinalpolicyCallFn {
+    public operator fun invoke(pprovdata: COpaquePointer?): Hresult
 }
 
-public typealias PFN_PROVIDER_FINALPOLICY_CALL = PFN_PROVIDER_FINALPOLICY_CALLFn?
+public typealias PfnProviderFinalpolicyCall = PfnProviderFinalpolicyCallFn?
 
-public fun interface PFN_PROVIDER_INIT_CALLFn {
-    public operator fun invoke(pprovdata: Long): HRESULT
+public fun interface PfnProviderInitCallFn {
+    public operator fun invoke(pprovdata: COpaquePointer?): Hresult
 }
 
-public typealias PFN_PROVIDER_INIT_CALL = PFN_PROVIDER_INIT_CALLFn?
+public typealias PfnProviderInitCall = PfnProviderInitCallFn?
 
-public fun interface PFN_PROVIDER_OBJTRUST_CALLFn {
-    public operator fun invoke(pprovdata: Long): HRESULT
+public fun interface PfnProviderObjtrustCallFn {
+    public operator fun invoke(pprovdata: COpaquePointer?): Hresult
 }
 
-public typealias PFN_PROVIDER_OBJTRUST_CALL = PFN_PROVIDER_OBJTRUST_CALLFn?
+public typealias PfnProviderObjtrustCall = PfnProviderObjtrustCallFn?
 
-public fun interface PFN_PROVIDER_SIGTRUST_CALLFn {
-    public operator fun invoke(pprovdata: Long): HRESULT
+public fun interface PfnProviderSigtrustCallFn {
+    public operator fun invoke(pprovdata: COpaquePointer?): Hresult
 }
 
-public typealias PFN_PROVIDER_SIGTRUST_CALL = PFN_PROVIDER_SIGTRUST_CALLFn?
+public typealias PfnProviderSigtrustCall = PfnProviderSigtrustCallFn?
 
-public fun interface PFN_PROVIDER_TESTFINALPOLICY_CALLFn {
-    public operator fun invoke(pprovdata: Long): HRESULT
+public fun interface PfnProviderTestfinalpolicyCallFn {
+    public operator fun invoke(pprovdata: COpaquePointer?): Hresult
 }
 
-public typealias PFN_PROVIDER_TESTFINALPOLICY_CALL = PFN_PROVIDER_TESTFINALPOLICY_CALLFn?
+public typealias PfnProviderTestfinalpolicyCall = PfnProviderTestfinalpolicyCallFn?
 
-public fun interface PFN_PROVUI_CALLFn {
-    public operator fun invoke(hwndsecuritydialog: HWND, pprovdata: Long): BOOL
+public fun interface PfnProvuiCallFn {
+    public operator fun invoke(hwndsecuritydialog: Hwnd, pprovdata: COpaquePointer?): Bool
 }
 
-public typealias PFN_PROVUI_CALL = PFN_PROVUI_CALLFn?
+public typealias PfnProvuiCall = PfnProvuiCallFn?
 
-public fun interface PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACKFn {
-    public operator fun invoke(pprovdata: Long, dwsteperror: UInt, dwregpolicysettings: UInt, csigner: UInt, rgpsigner: Long, pvpolicyarg: Long): HRESULT
+public fun interface PfnWtdGenericChainPolicyCallbackFn {
+    public operator fun invoke(pprovdata: COpaquePointer?, dwsteperror: UInt, dwregpolicysettings: UInt, csigner: UInt, rgpsigner: COpaquePointer?, pvpolicyarg: COpaquePointer?): Hresult
 }
 
-public typealias PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK = PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACKFn?
+public typealias PfnWtdGenericChainPolicyCallback = PfnWtdGenericChainPolicyCallbackFn?
 
-public typealias WINTRUST_DATA_PROVIDER_FLAGS = UInt
+public typealias WintrustDataProviderFlags = UInt
 
-public typealias WINTRUST_DATA_REVOCATION_CHECKS = UInt
+public typealias WintrustDataRevocationChecks = UInt
 
-public typealias WINTRUST_DATA_STATE_ACTION = UInt
+public typealias WintrustDataStateAction = UInt
 
-public typealias WINTRUST_DATA_UICHOICE = UInt
+public typealias WintrustDataUichoice = UInt
 
-public typealias WINTRUST_DATA_UICONTEXT = UInt
+public typealias WintrustDataUicontext = UInt
 
-public typealias WINTRUST_DATA_UNION_CHOICE = UInt
+public typealias WintrustDataUnionChoice = UInt
 
-public typealias WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION = UInt
+public typealias WintrustGetDefaultForUsageAction = UInt
 
-public typealias WINTRUST_POLICY_FLAGS = UInt
+public typealias WintrustPolicyFlags = UInt
 
-public typealias WINTRUST_SIGNATURE_SETTINGS_FLAGS = UInt
+public typealias WintrustSignatureSettingsFlags = UInt

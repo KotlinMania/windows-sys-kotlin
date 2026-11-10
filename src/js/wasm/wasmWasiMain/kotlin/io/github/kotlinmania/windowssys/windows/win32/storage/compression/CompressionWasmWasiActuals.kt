@@ -2,40 +2,41 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.compression
 
-import io.github.kotlinmania.windowssys.core.BOOL
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
 
-public actual fun CloseCompressor(compressorhandle: COMPRESSOR_HANDLE): BOOL =
-    0
+public actual fun closeCompressor(compressorhandle: CompressorHandle): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CloseDecompressor(decompressorhandle: DECOMPRESSOR_HANDLE): BOOL =
-    0
+public actual fun closeDecompressor(decompressorhandle: DecompressorHandle): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun Compress(compressorhandle: COMPRESSOR_HANDLE, uncompresseddata: Long, uncompresseddatasize: ULong, compressedbuffer: Long, compressedbuffersize: ULong, compresseddatasize: Long): BOOL =
-    0
+public actual fun compress(compressorhandle: CompressorHandle, uncompresseddata: COpaquePointer?, uncompresseddatasize: ULong, compressedbuffer: COpaquePointer?, compressedbuffersize: ULong, compresseddatasize: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CreateCompressor(algorithm: COMPRESS_ALGORITHM, allocationroutines: Long, compressorhandle: Long): BOOL =
-    0
+public actual fun createCompressor(algorithm: CompressAlgorithm, allocationroutines: COpaquePointer?, compressorhandle: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CreateDecompressor(algorithm: COMPRESS_ALGORITHM, allocationroutines: Long, decompressorhandle: Long): BOOL =
-    0
+public actual fun createDecompressor(algorithm: CompressAlgorithm, allocationroutines: COpaquePointer?, decompressorhandle: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun Decompress(decompressorhandle: DECOMPRESSOR_HANDLE, compresseddata: Long, compresseddatasize: ULong, uncompressedbuffer: Long, uncompressedbuffersize: ULong, uncompresseddatasize: Long): BOOL =
-    0
+public actual fun decompress(decompressorhandle: DecompressorHandle, compresseddata: COpaquePointer?, compresseddatasize: ULong, uncompressedbuffer: COpaquePointer?, uncompressedbuffersize: ULong, uncompresseddatasize: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun QueryCompressorInformation(compressorhandle: COMPRESSOR_HANDLE, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: Long, compressinformationsize: ULong): BOOL =
-    0
+public actual fun queryCompressorInformation(compressorhandle: CompressorHandle, compressinformationclass: CompressInformationClass, compressinformation: COpaquePointer?, compressinformationsize: ULong): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun QueryDecompressorInformation(decompressorhandle: DECOMPRESSOR_HANDLE, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: Long, compressinformationsize: ULong): BOOL =
-    0
+public actual fun queryDecompressorInformation(decompressorhandle: DecompressorHandle, compressinformationclass: CompressInformationClass, compressinformation: COpaquePointer?, compressinformationsize: ULong): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResetCompressor(compressorhandle: COMPRESSOR_HANDLE): BOOL =
-    0
+public actual fun resetCompressor(compressorhandle: CompressorHandle): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ResetDecompressor(decompressorhandle: DECOMPRESSOR_HANDLE): BOOL =
-    0
+public actual fun resetDecompressor(decompressorhandle: DecompressorHandle): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetCompressorInformation(compressorhandle: COMPRESSOR_HANDLE, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: Long, compressinformationsize: ULong): BOOL =
-    0
+public actual fun setCompressorInformation(compressorhandle: CompressorHandle, compressinformationclass: CompressInformationClass, compressinformation: COpaquePointer?, compressinformationsize: ULong): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetDecompressorInformation(decompressorhandle: DECOMPRESSOR_HANDLE, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: Long, compressinformationsize: ULong): BOOL =
-    0
+public actual fun setDecompressorInformation(decompressorhandle: DecompressorHandle, compressinformationclass: CompressInformationClass, compressinformation: COpaquePointer?, compressinformationsize: ULong): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

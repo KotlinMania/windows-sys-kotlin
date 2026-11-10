@@ -1,366 +1,368 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters
 
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
-import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_BASIC_INFO
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FileBasicInfo
+import io.github.kotlinmania.windowssys.windows.win32.system.correlationvector.CorrelationVector
 
-public class CF_CALLBACK_INFO(
-    public var StructSize: UInt = 0u,
-    public var ConnectionKey: CF_CONNECTION_KEY = 0L,
-    public var CallbackContext: Long = 0L,
-    public var VolumeGuidName: PCWSTR = 0L,
-    public var VolumeDosName: PCWSTR = 0L,
-    public var VolumeSerialNumber: UInt = 0u,
-    public var SyncRootFileId: Long = 0L,
-    public var SyncRootIdentity: Long = 0L,
-    public var SyncRootIdentityLength: UInt = 0u,
-    public var FileId: Long = 0L,
-    public var FileSize: Long = 0L,
-    public var FileIdentity: Long = 0L,
-    public var FileIdentityLength: UInt = 0u,
-    public var NormalizedPath: PCWSTR = 0L,
-    public var TransferKey: Long = 0L,
-    public var PriorityHint: UByte = 0u,
-    public var CorrelationVector: Long = 0L,
-    public var ProcessInfo: Long = 0L,
-    public var RequestKey: Long = 0L,
+public class CfCallbackInfo(
+    public var structSize: UInt = 0u,
+    public var connectionKey: CfConnectionKey = 0L,
+    public var callbackContext: COpaquePointer? = null,
+    public var volumeGuidName: Pcwstr = null,
+    public var volumeDosName: Pcwstr = null,
+    public var volumeSerialNumber: UInt = 0u,
+    public var syncRootFileId: Long = 0L,
+    public var syncRootIdentity: COpaquePointer? = null,
+    public var syncRootIdentityLength: UInt = 0u,
+    public var fileId: Long = 0L,
+    public var fileSize: Long = 0L,
+    public var fileIdentity: COpaquePointer? = null,
+    public var fileIdentityLength: UInt = 0u,
+    public var normalizedPath: Pcwstr = null,
+    public var transferKey: Long = 0L,
+    public var priorityHint: UByte = 0u,
+    public var correlationVector: CorrelationVector? = null,
+    public var processInfo: CfProcessInfo? = null,
+    public var requestKey: Long = 0L,
 )
 
-public data class CF_CALLBACK_PARAMETERS(public var ParamSize: UInt = 0u, public var Anonymous: CF_CALLBACK_PARAMETERS_0 = CF_CALLBACK_PARAMETERS_0())
+public data class CfCallbackParameters(public var paramSize: UInt = 0u, public var anonymous: CfCallbackParameters0 = CfCallbackParameters0())
 
-public data class CF_CALLBACK_PARAMETERS_0(
-    public var Cancel: CF_CALLBACK_PARAMETERS_0_0 = CF_CALLBACK_PARAMETERS_0_0(),
-    public var FetchData: CF_CALLBACK_PARAMETERS_0_1 = CF_CALLBACK_PARAMETERS_0_1(),
-    public var ValidateData: CF_CALLBACK_PARAMETERS_0_2 = CF_CALLBACK_PARAMETERS_0_2(),
-    public var FetchPlaceholders: CF_CALLBACK_PARAMETERS_0_3 = CF_CALLBACK_PARAMETERS_0_3(),
-    public var OpenCompletion: CF_CALLBACK_PARAMETERS_0_4 = CF_CALLBACK_PARAMETERS_0_4(),
-    public var CloseCompletion: CF_CALLBACK_PARAMETERS_0_5 = CF_CALLBACK_PARAMETERS_0_5(),
-    public var Dehydrate: CF_CALLBACK_PARAMETERS_0_6 = CF_CALLBACK_PARAMETERS_0_6(),
-    public var DehydrateCompletion: CF_CALLBACK_PARAMETERS_0_7 = CF_CALLBACK_PARAMETERS_0_7(),
-    public var Delete: CF_CALLBACK_PARAMETERS_0_8 = CF_CALLBACK_PARAMETERS_0_8(),
-    public var DeleteCompletion: CF_CALLBACK_PARAMETERS_0_9 = CF_CALLBACK_PARAMETERS_0_9(),
-    public var Rename: CF_CALLBACK_PARAMETERS_0_10 = CF_CALLBACK_PARAMETERS_0_10(),
-    public var RenameCompletion: CF_CALLBACK_PARAMETERS_0_11 = CF_CALLBACK_PARAMETERS_0_11(),
+public data class CfCallbackParameters0(
+    public var cancel: CfCallbackParameters00 = CfCallbackParameters00(),
+    public var fetchData: CfCallbackParameters01 = CfCallbackParameters01(),
+    public var validateData: CfCallbackParameters02 = CfCallbackParameters02(),
+    public var fetchPlaceholders: CfCallbackParameters03 = CfCallbackParameters03(),
+    public var openCompletion: CfCallbackParameters04 = CfCallbackParameters04(),
+    public var closeCompletion: CfCallbackParameters05 = CfCallbackParameters05(),
+    public var dehydrate: CfCallbackParameters06 = CfCallbackParameters06(),
+    public var dehydrateCompletion: CfCallbackParameters07 = CfCallbackParameters07(),
+    public var delete: CfCallbackParameters08 = CfCallbackParameters08(),
+    public var deleteCompletion: CfCallbackParameters09 = CfCallbackParameters09(),
+    public var rename: CfCallbackParameters010 = CfCallbackParameters010(),
+    public var renameCompletion: CfCallbackParameters011 = CfCallbackParameters011(),
 )
 
-public data class CF_CALLBACK_PARAMETERS_0_0(public var Flags: CF_CALLBACK_CANCEL_FLAGS = 0, public var Anonymous: CF_CALLBACK_PARAMETERS_0_0_0 = CF_CALLBACK_PARAMETERS_0_0_0())
+public data class CfCallbackParameters00(public var flags: CfCallbackCancelFlags = 0, public var anonymous: CfCallbackParameters000 = CfCallbackParameters000())
 
-public data class CF_CALLBACK_PARAMETERS_0_0_0(public var FetchData: CF_CALLBACK_PARAMETERS_0_0_0_0 = CF_CALLBACK_PARAMETERS_0_0_0_0())
+public data class CfCallbackParameters000(public var fetchData: CfCallbackParameters0000 = CfCallbackParameters0000())
 
-public data class CF_CALLBACK_PARAMETERS_0_0_0_0(public var FileOffset: Long = 0L, public var Length: Long = 0L)
+public data class CfCallbackParameters0000(public var fileOffset: Long = 0L, public var length: Long = 0L)
 
-public data class CF_CALLBACK_PARAMETERS_0_5(public var Flags: CF_CALLBACK_CLOSE_COMPLETION_FLAGS = 0)
+public data class CfCallbackParameters05(public var flags: CfCallbackCloseCompletionFlags = 0)
 
-public data class CF_CALLBACK_PARAMETERS_0_7(public var Flags: CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS = 0, public var Reason: CF_CALLBACK_DEHYDRATION_REASON = 0)
+public data class CfCallbackParameters07(public var flags: CfCallbackDehydrateCompletionFlags = 0, public var reason: CfCallbackDehydrationReason = 0)
 
-public data class CF_CALLBACK_PARAMETERS_0_6(public var Flags: CF_CALLBACK_DEHYDRATE_FLAGS = 0, public var Reason: CF_CALLBACK_DEHYDRATION_REASON = 0)
+public data class CfCallbackParameters06(public var flags: CfCallbackDehydrateFlags = 0, public var reason: CfCallbackDehydrationReason = 0)
 
-public data class CF_CALLBACK_PARAMETERS_0_9(public var Flags: CF_CALLBACK_DELETE_COMPLETION_FLAGS = 0)
+public data class CfCallbackParameters09(public var flags: CfCallbackDeleteCompletionFlags = 0)
 
-public data class CF_CALLBACK_PARAMETERS_0_8(public var Flags: CF_CALLBACK_DELETE_FLAGS = 0)
+public data class CfCallbackParameters08(public var flags: CfCallbackDeleteFlags = 0)
 
-public data class CF_CALLBACK_PARAMETERS_0_1(
-    public var Flags: CF_CALLBACK_FETCH_DATA_FLAGS = 0,
-    public var RequiredFileOffset: Long = 0L,
-    public var RequiredLength: Long = 0L,
-    public var OptionalFileOffset: Long = 0L,
-    public var OptionalLength: Long = 0L,
-    public var LastDehydrationTime: Long = 0L,
-    public var LastDehydrationReason: CF_CALLBACK_DEHYDRATION_REASON = 0,
+public data class CfCallbackParameters01(
+    public var flags: CfCallbackFetchDataFlags = 0,
+    public var requiredFileOffset: Long = 0L,
+    public var requiredLength: Long = 0L,
+    public var optionalFileOffset: Long = 0L,
+    public var optionalLength: Long = 0L,
+    public var lastDehydrationTime: Long = 0L,
+    public var lastDehydrationReason: CfCallbackDehydrationReason = 0,
 )
 
-public data class CF_CALLBACK_PARAMETERS_0_3(public var Flags: CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS = 0, public var Pattern: PCWSTR = 0L)
+public data class CfCallbackParameters03(public var flags: CfCallbackFetchPlaceholdersFlags = 0, public var pattern: Pcwstr = null)
 
-public data class CF_CALLBACK_PARAMETERS_0_4(public var Flags: CF_CALLBACK_OPEN_COMPLETION_FLAGS = 0)
+public data class CfCallbackParameters04(public var flags: CfCallbackOpenCompletionFlags = 0)
 
-public data class CF_CALLBACK_PARAMETERS_0_11(public var Flags: CF_CALLBACK_RENAME_COMPLETION_FLAGS = 0, public var SourcePath: PCWSTR = 0L)
+public data class CfCallbackParameters011(public var flags: CfCallbackRenameCompletionFlags = 0, public var sourcePath: Pcwstr = null)
 
-public data class CF_CALLBACK_PARAMETERS_0_10(public var Flags: CF_CALLBACK_RENAME_FLAGS = 0, public var TargetPath: PCWSTR = 0L)
+public data class CfCallbackParameters010(public var flags: CfCallbackRenameFlags = 0, public var targetPath: Pcwstr = null)
 
-public data class CF_CALLBACK_PARAMETERS_0_2(
-    public var Flags: CF_CALLBACK_VALIDATE_DATA_FLAGS = 0,
-    public var RequiredFileOffset: Long = 0L,
-    public var RequiredLength: Long = 0L,
+public data class CfCallbackParameters02(
+    public var flags: CfCallbackValidateDataFlags = 0,
+    public var requiredFileOffset: Long = 0L,
+    public var requiredLength: Long = 0L,
 )
 
-public data class CF_CALLBACK_REGISTRATION(public var Type: CF_CALLBACK_TYPE = 0, public var Callback: CF_CALLBACK = null)
+public data class CfCallbackRegistration(public var type: CfCallbackType = 0, public var callback: CfCallback = null)
 
-public data class CF_FILE_RANGE(public var StartingOffset: Long = 0L, public var Length: Long = 0L)
+public data class CfFileRange(public var startingOffset: Long = 0L, public var length: Long = 0L)
 
-public data class CF_FS_METADATA(public var BasicInfo: FILE_BASIC_INFO = FILE_BASIC_INFO(), public var FileSize: Long = 0L)
+public data class CfFsMetadata(public var basicInfo: FileBasicInfo = FileBasicInfo(), public var fileSize: Long = 0L)
 
-public data class CF_HYDRATION_POLICY(public var Primary: CF_HYDRATION_POLICY_PRIMARY = 0u, public var Modifier: CF_HYDRATION_POLICY_MODIFIER = 0u)
+public data class CfHydrationPolicy(public var primary: CfHydrationPolicyPrimary = 0u, public var modifier: CfHydrationPolicyModifier = 0u)
 
-public data class CF_OPERATION_INFO(
-    public var StructSize: UInt = 0u,
-    public var Type: CF_OPERATION_TYPE = 0,
-    public var ConnectionKey: CF_CONNECTION_KEY = 0L,
-    public var TransferKey: Long = 0L,
-    public var CorrelationVector: Long = 0L,
-    public var SyncStatus: Long = 0L,
-    public var RequestKey: Long = 0L,
+public data class CfOperationInfo(
+    public var structSize: UInt = 0u,
+    public var type: CfOperationType = 0,
+    public var connectionKey: CfConnectionKey = 0L,
+    public var transferKey: Long = 0L,
+    public var correlationVector: CorrelationVector? = null,
+    public var syncStatus: CfSyncStatus? = null,
+    public var requestKey: Long = 0L,
 )
 
-public data class CF_OPERATION_PARAMETERS(public var ParamSize: UInt = 0u, public var Anonymous: CF_OPERATION_PARAMETERS_0 = CF_OPERATION_PARAMETERS_0())
+public data class CfOperationParameters(public var paramSize: UInt = 0u, public var anonymous: CfOperationParameters0 = CfOperationParameters0())
 
-public data class CF_OPERATION_PARAMETERS_0(
-    public var TransferData: CF_OPERATION_PARAMETERS_0_0 = CF_OPERATION_PARAMETERS_0_0(),
-    public var RetrieveData: CF_OPERATION_PARAMETERS_0_1 = CF_OPERATION_PARAMETERS_0_1(),
-    public var AckData: CF_OPERATION_PARAMETERS_0_2 = CF_OPERATION_PARAMETERS_0_2(),
-    public var RestartHydration: CF_OPERATION_PARAMETERS_0_3 = CF_OPERATION_PARAMETERS_0_3(),
-    public var TransferPlaceholders: CF_OPERATION_PARAMETERS_0_4 = CF_OPERATION_PARAMETERS_0_4(),
-    public var AckDehydrate: CF_OPERATION_PARAMETERS_0_5 = CF_OPERATION_PARAMETERS_0_5(),
-    public var AckRename: CF_OPERATION_PARAMETERS_0_6 = CF_OPERATION_PARAMETERS_0_6(),
-    public var AckDelete: CF_OPERATION_PARAMETERS_0_7 = CF_OPERATION_PARAMETERS_0_7(),
+public data class CfOperationParameters0(
+    public var transferData: CfOperationParameters00 = CfOperationParameters00(),
+    public var retrieveData: CfOperationParameters01 = CfOperationParameters01(),
+    public var ackData: CfOperationParameters02 = CfOperationParameters02(),
+    public var restartHydration: CfOperationParameters03 = CfOperationParameters03(),
+    public var transferPlaceholders: CfOperationParameters04 = CfOperationParameters04(),
+    public var ackDehydrate: CfOperationParameters05 = CfOperationParameters05(),
+    public var ackRename: CfOperationParameters06 = CfOperationParameters06(),
+    public var ackDelete: CfOperationParameters07 = CfOperationParameters07(),
 )
 
-public data class CF_OPERATION_PARAMETERS_0_2(
-    public var Flags: CF_OPERATION_ACK_DATA_FLAGS = 0,
-    public var CompletionStatus: NTSTATUS = 0,
-    public var Offset: Long = 0L,
-    public var Length: Long = 0L,
+public data class CfOperationParameters02(
+    public var flags: CfOperationAckDataFlags = 0,
+    public var completionStatus: Ntstatus = 0,
+    public var offset: Long = 0L,
+    public var length: Long = 0L,
 )
 
-public data class CF_OPERATION_PARAMETERS_0_5(
-    public var Flags: CF_OPERATION_ACK_DEHYDRATE_FLAGS = 0,
-    public var CompletionStatus: NTSTATUS = 0,
-    public var FileIdentity: Long = 0L,
-    public var FileIdentityLength: UInt = 0u,
+public data class CfOperationParameters05(
+    public var flags: CfOperationAckDehydrateFlags = 0,
+    public var completionStatus: Ntstatus = 0,
+    public var fileIdentity: COpaquePointer? = null,
+    public var fileIdentityLength: UInt = 0u,
 )
 
-public data class CF_OPERATION_PARAMETERS_0_7(public var Flags: CF_OPERATION_ACK_DELETE_FLAGS = 0, public var CompletionStatus: NTSTATUS = 0)
+public data class CfOperationParameters07(public var flags: CfOperationAckDeleteFlags = 0, public var completionStatus: Ntstatus = 0)
 
-public data class CF_OPERATION_PARAMETERS_0_6(public var Flags: CF_OPERATION_ACK_RENAME_FLAGS = 0, public var CompletionStatus: NTSTATUS = 0)
+public data class CfOperationParameters06(public var flags: CfOperationAckRenameFlags = 0, public var completionStatus: Ntstatus = 0)
 
-public data class CF_OPERATION_PARAMETERS_0_3(
-    public var Flags: CF_OPERATION_RESTART_HYDRATION_FLAGS = 0,
-    public var FsMetadata: Long = 0L,
-    public var FileIdentity: Long = 0L,
-    public var FileIdentityLength: UInt = 0u,
+public data class CfOperationParameters03(
+    public var flags: CfOperationRestartHydrationFlags = 0,
+    public var fsMetadata: CfFsMetadata? = null,
+    public var fileIdentity: COpaquePointer? = null,
+    public var fileIdentityLength: UInt = 0u,
 )
 
-public data class CF_OPERATION_PARAMETERS_0_1(
-    public var Flags: CF_OPERATION_RETRIEVE_DATA_FLAGS = 0,
-    public var Buffer: Long = 0L,
-    public var Offset: Long = 0L,
-    public var Length: Long = 0L,
-    public var ReturnedLength: Long = 0L,
+public data class CfOperationParameters01(
+    public var flags: CfOperationRetrieveDataFlags = 0,
+    public var buffer: COpaquePointer? = null,
+    public var offset: Long = 0L,
+    public var length: Long = 0L,
+    public var returnedLength: Long = 0L,
 )
 
-public data class CF_OPERATION_PARAMETERS_0_0(
-    public var Flags: CF_OPERATION_TRANSFER_DATA_FLAGS = 0,
-    public var CompletionStatus: NTSTATUS = 0,
-    public var Buffer: Long = 0L,
-    public var Offset: Long = 0L,
-    public var Length: Long = 0L,
+public data class CfOperationParameters00(
+    public var flags: CfOperationTransferDataFlags = 0,
+    public var completionStatus: Ntstatus = 0,
+    public var buffer: COpaquePointer? = null,
+    public var offset: Long = 0L,
+    public var length: Long = 0L,
 )
 
-public data class CF_OPERATION_PARAMETERS_0_4(
-    public var Flags: CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS = 0,
-    public var CompletionStatus: NTSTATUS = 0,
-    public var PlaceholderTotalCount: Long = 0L,
-    public var PlaceholderArray: Long = 0L,
-    public var PlaceholderCount: UInt = 0u,
-    public var EntriesProcessed: UInt = 0u,
+public data class CfOperationParameters04(
+    public var flags: CfOperationTransferPlaceholdersFlags = 0,
+    public var completionStatus: Ntstatus = 0,
+    public var placeholderTotalCount: Long = 0L,
+    public var placeholderArray: CfPlaceholderCreateInfo? = null,
+    public var placeholderCount: UInt = 0u,
+    public var entriesProcessed: UInt = 0u,
 )
 
-public data class CF_PLACEHOLDER_BASIC_INFO(
-    public var PinState: CF_PIN_STATE = 0,
-    public var InSyncState: CF_IN_SYNC_STATE = 0,
-    public var FileId: Long = 0L,
-    public var SyncRootFileId: Long = 0L,
-    public var FileIdentityLength: UInt = 0u,
-    public var FileIdentity: UByteArray = UByteArray(1),
+public data class CfPlaceholderBasicInfo(
+    public var pinState: CfPinState = 0,
+    public var inSyncState: CfInSyncState = 0,
+    public var fileId: Long = 0L,
+    public var syncRootFileId: Long = 0L,
+    public var fileIdentityLength: UInt = 0u,
+    public var fileIdentity: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CF_PLACEHOLDER_BASIC_INFO) return false
-        if (this.PinState != other.PinState) return false
-        if (this.InSyncState != other.InSyncState) return false
-        if (this.FileId != other.FileId) return false
-        if (this.SyncRootFileId != other.SyncRootFileId) return false
-        if (this.FileIdentityLength != other.FileIdentityLength) return false
-        if (!this.FileIdentity.contentEquals(other.FileIdentity)) return false
+        if (other !is CfPlaceholderBasicInfo) return false
+        if (this.pinState != other.pinState) return false
+        if (this.inSyncState != other.inSyncState) return false
+        if (this.fileId != other.fileId) return false
+        if (this.syncRootFileId != other.syncRootFileId) return false
+        if (this.fileIdentityLength != other.fileIdentityLength) return false
+        if (!this.fileIdentity.contentEquals(other.fileIdentity)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.PinState.hashCode()
-        result = 31 * result + this.InSyncState.hashCode()
-        result = 31 * result + this.FileId.hashCode()
-        result = 31 * result + this.SyncRootFileId.hashCode()
-        result = 31 * result + this.FileIdentityLength.hashCode()
-        result = 31 * result + this.FileIdentity.contentHashCode()
+        var result = this.pinState.hashCode()
+        result = 31 * result + this.inSyncState.hashCode()
+        result = 31 * result + this.fileId.hashCode()
+        result = 31 * result + this.syncRootFileId.hashCode()
+        result = 31 * result + this.fileIdentityLength.hashCode()
+        result = 31 * result + this.fileIdentity.contentHashCode()
         return result
     }
 }
 
-public data class CF_PLACEHOLDER_CREATE_INFO(
-    public var RelativeFileName: PCWSTR = 0L,
-    public var FsMetadata: CF_FS_METADATA = CF_FS_METADATA(),
-    public var FileIdentity: Long = 0L,
-    public var FileIdentityLength: UInt = 0u,
-    public var Flags: CF_PLACEHOLDER_CREATE_FLAGS = 0,
-    public var Result: HRESULT = 0,
-    public var CreateUsn: Long = 0L,
+public data class CfPlaceholderCreateInfo(
+    public var relativeFileName: Pcwstr = null,
+    public var fsMetadata: CfFsMetadata = CfFsMetadata(),
+    public var fileIdentity: COpaquePointer? = null,
+    public var fileIdentityLength: UInt = 0u,
+    public var flags: CfPlaceholderCreateFlags = 0,
+    public var result: Hresult = 0,
+    public var createUsn: Long = 0L,
 )
 
-public data class CF_PLACEHOLDER_STANDARD_INFO(
-    public var OnDiskDataSize: Long = 0L,
-    public var ValidatedDataSize: Long = 0L,
-    public var ModifiedDataSize: Long = 0L,
-    public var PropertiesSize: Long = 0L,
-    public var PinState: CF_PIN_STATE = 0,
-    public var InSyncState: CF_IN_SYNC_STATE = 0,
-    public var FileId: Long = 0L,
-    public var SyncRootFileId: Long = 0L,
-    public var FileIdentityLength: UInt = 0u,
-    public var FileIdentity: UByteArray = UByteArray(1),
+public data class CfPlaceholderStandardInfo(
+    public var onDiskDataSize: Long = 0L,
+    public var validatedDataSize: Long = 0L,
+    public var modifiedDataSize: Long = 0L,
+    public var propertiesSize: Long = 0L,
+    public var pinState: CfPinState = 0,
+    public var inSyncState: CfInSyncState = 0,
+    public var fileId: Long = 0L,
+    public var syncRootFileId: Long = 0L,
+    public var fileIdentityLength: UInt = 0u,
+    public var fileIdentity: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CF_PLACEHOLDER_STANDARD_INFO) return false
-        if (this.OnDiskDataSize != other.OnDiskDataSize) return false
-        if (this.ValidatedDataSize != other.ValidatedDataSize) return false
-        if (this.ModifiedDataSize != other.ModifiedDataSize) return false
-        if (this.PropertiesSize != other.PropertiesSize) return false
-        if (this.PinState != other.PinState) return false
-        if (this.InSyncState != other.InSyncState) return false
-        if (this.FileId != other.FileId) return false
-        if (this.SyncRootFileId != other.SyncRootFileId) return false
-        if (this.FileIdentityLength != other.FileIdentityLength) return false
-        if (!this.FileIdentity.contentEquals(other.FileIdentity)) return false
+        if (other !is CfPlaceholderStandardInfo) return false
+        if (this.onDiskDataSize != other.onDiskDataSize) return false
+        if (this.validatedDataSize != other.validatedDataSize) return false
+        if (this.modifiedDataSize != other.modifiedDataSize) return false
+        if (this.propertiesSize != other.propertiesSize) return false
+        if (this.pinState != other.pinState) return false
+        if (this.inSyncState != other.inSyncState) return false
+        if (this.fileId != other.fileId) return false
+        if (this.syncRootFileId != other.syncRootFileId) return false
+        if (this.fileIdentityLength != other.fileIdentityLength) return false
+        if (!this.fileIdentity.contentEquals(other.fileIdentity)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.OnDiskDataSize.hashCode()
-        result = 31 * result + this.ValidatedDataSize.hashCode()
-        result = 31 * result + this.ModifiedDataSize.hashCode()
-        result = 31 * result + this.PropertiesSize.hashCode()
-        result = 31 * result + this.PinState.hashCode()
-        result = 31 * result + this.InSyncState.hashCode()
-        result = 31 * result + this.FileId.hashCode()
-        result = 31 * result + this.SyncRootFileId.hashCode()
-        result = 31 * result + this.FileIdentityLength.hashCode()
-        result = 31 * result + this.FileIdentity.contentHashCode()
+        var result = this.onDiskDataSize.hashCode()
+        result = 31 * result + this.validatedDataSize.hashCode()
+        result = 31 * result + this.modifiedDataSize.hashCode()
+        result = 31 * result + this.propertiesSize.hashCode()
+        result = 31 * result + this.pinState.hashCode()
+        result = 31 * result + this.inSyncState.hashCode()
+        result = 31 * result + this.fileId.hashCode()
+        result = 31 * result + this.syncRootFileId.hashCode()
+        result = 31 * result + this.fileIdentityLength.hashCode()
+        result = 31 * result + this.fileIdentity.contentHashCode()
         return result
     }
 }
 
-public data class CF_PLATFORM_INFO(
-    public var BuildNumber: UInt = 0u,
-    public var RevisionNumber: UInt = 0u,
-    public var IntegrationNumber: UInt = 0u,
+public data class CfPlatformInfo(
+    public var buildNumber: UInt = 0u,
+    public var revisionNumber: UInt = 0u,
+    public var integrationNumber: UInt = 0u,
 )
 
-public data class CF_POPULATION_POLICY(public var Primary: CF_POPULATION_POLICY_PRIMARY = 0u, public var Modifier: CF_POPULATION_POLICY_MODIFIER = 0u)
+public data class CfPopulationPolicy(public var primary: CfPopulationPolicyPrimary = 0u, public var modifier: CfPopulationPolicyModifier = 0u)
 
-public data class CF_PROCESS_INFO(
-    public var StructSize: UInt = 0u,
-    public var ProcessId: UInt = 0u,
-    public var ImagePath: PCWSTR = 0L,
-    public var PackageName: PCWSTR = 0L,
-    public var ApplicationId: PCWSTR = 0L,
-    public var CommandLine: PCWSTR = 0L,
-    public var SessionId: UInt = 0u,
+public data class CfProcessInfo(
+    public var structSize: UInt = 0u,
+    public var processId: UInt = 0u,
+    public var imagePath: Pcwstr = null,
+    public var packageName: Pcwstr = null,
+    public var applicationId: Pcwstr = null,
+    public var commandLine: Pcwstr = null,
+    public var sessionId: UInt = 0u,
 )
 
-public data class CF_SYNC_POLICIES(
-    public var StructSize: UInt = 0u,
-    public var Hydration: CF_HYDRATION_POLICY = CF_HYDRATION_POLICY(),
-    public var Population: CF_POPULATION_POLICY = CF_POPULATION_POLICY(),
-    public var InSync: CF_INSYNC_POLICY = 0u,
-    public var HardLink: CF_HARDLINK_POLICY = 0,
-    public var PlaceholderManagement: CF_PLACEHOLDER_MANAGEMENT_POLICY = 0,
+public data class CfSyncPolicies(
+    public var structSize: UInt = 0u,
+    public var hydration: CfHydrationPolicy = CfHydrationPolicy(),
+    public var population: CfPopulationPolicy = CfPopulationPolicy(),
+    public var inSync: CfInsyncPolicy = 0u,
+    public var hardLink: CfHardlinkPolicy = 0,
+    public var placeholderManagement: CfPlaceholderManagementPolicy = 0,
 )
 
-public data class CF_SYNC_REGISTRATION(
-    public var StructSize: UInt = 0u,
-    public var ProviderName: PCWSTR = 0L,
-    public var ProviderVersion: PCWSTR = 0L,
-    public var SyncRootIdentity: Long = 0L,
-    public var SyncRootIdentityLength: UInt = 0u,
-    public var FileIdentity: Long = 0L,
-    public var FileIdentityLength: UInt = 0u,
-    public var ProviderId: GUID = GUID(),
+public data class CfSyncRegistration(
+    public var structSize: UInt = 0u,
+    public var providerName: Pcwstr = null,
+    public var providerVersion: Pcwstr = null,
+    public var syncRootIdentity: COpaquePointer? = null,
+    public var syncRootIdentityLength: UInt = 0u,
+    public var fileIdentity: COpaquePointer? = null,
+    public var fileIdentityLength: UInt = 0u,
+    public var providerId: Guid = Guid(),
 )
 
-public data class CF_SYNC_ROOT_BASIC_INFO(public var SyncRootFileId: Long = 0L)
+public data class CfSyncRootBasicInfo(public var syncRootFileId: Long = 0L)
 
-public data class CF_SYNC_ROOT_PROVIDER_INFO(
-    public var ProviderStatus: CF_SYNC_PROVIDER_STATUS = 0u,
-    public var ProviderName: UShortArray = UShortArray(256),
-    public var ProviderVersion: UShortArray = UShortArray(256),
+public data class CfSyncRootProviderInfo(
+    public var providerStatus: CfSyncProviderStatus = 0u,
+    public var providerName: UShortArray = UShortArray(256),
+    public var providerVersion: UShortArray = UShortArray(256),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CF_SYNC_ROOT_PROVIDER_INFO) return false
-        if (this.ProviderStatus != other.ProviderStatus) return false
-        if (!this.ProviderName.contentEquals(other.ProviderName)) return false
-        if (!this.ProviderVersion.contentEquals(other.ProviderVersion)) return false
+        if (other !is CfSyncRootProviderInfo) return false
+        if (this.providerStatus != other.providerStatus) return false
+        if (!this.providerName.contentEquals(other.providerName)) return false
+        if (!this.providerVersion.contentEquals(other.providerVersion)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ProviderStatus.hashCode()
-        result = 31 * result + this.ProviderName.contentHashCode()
-        result = 31 * result + this.ProviderVersion.contentHashCode()
+        var result = this.providerStatus.hashCode()
+        result = 31 * result + this.providerName.contentHashCode()
+        result = 31 * result + this.providerVersion.contentHashCode()
         return result
     }
 }
 
-public data class CF_SYNC_ROOT_STANDARD_INFO(
-    public var SyncRootFileId: Long = 0L,
-    public var HydrationPolicy: CF_HYDRATION_POLICY = CF_HYDRATION_POLICY(),
-    public var PopulationPolicy: CF_POPULATION_POLICY = CF_POPULATION_POLICY(),
-    public var InSyncPolicy: CF_INSYNC_POLICY = 0u,
-    public var HardLinkPolicy: CF_HARDLINK_POLICY = 0,
-    public var ProviderStatus: CF_SYNC_PROVIDER_STATUS = 0u,
-    public var ProviderName: UShortArray = UShortArray(256),
-    public var ProviderVersion: UShortArray = UShortArray(256),
-    public var SyncRootIdentityLength: UInt = 0u,
-    public var SyncRootIdentity: UByteArray = UByteArray(1),
+public data class CfSyncRootStandardInfo(
+    public var syncRootFileId: Long = 0L,
+    public var hydrationPolicy: CfHydrationPolicy = CfHydrationPolicy(),
+    public var populationPolicy: CfPopulationPolicy = CfPopulationPolicy(),
+    public var inSyncPolicy: CfInsyncPolicy = 0u,
+    public var hardLinkPolicy: CfHardlinkPolicy = 0,
+    public var providerStatus: CfSyncProviderStatus = 0u,
+    public var providerName: UShortArray = UShortArray(256),
+    public var providerVersion: UShortArray = UShortArray(256),
+    public var syncRootIdentityLength: UInt = 0u,
+    public var syncRootIdentity: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CF_SYNC_ROOT_STANDARD_INFO) return false
-        if (this.SyncRootFileId != other.SyncRootFileId) return false
-        if (this.HydrationPolicy != other.HydrationPolicy) return false
-        if (this.PopulationPolicy != other.PopulationPolicy) return false
-        if (this.InSyncPolicy != other.InSyncPolicy) return false
-        if (this.HardLinkPolicy != other.HardLinkPolicy) return false
-        if (this.ProviderStatus != other.ProviderStatus) return false
-        if (!this.ProviderName.contentEquals(other.ProviderName)) return false
-        if (!this.ProviderVersion.contentEquals(other.ProviderVersion)) return false
-        if (this.SyncRootIdentityLength != other.SyncRootIdentityLength) return false
-        if (!this.SyncRootIdentity.contentEquals(other.SyncRootIdentity)) return false
+        if (other !is CfSyncRootStandardInfo) return false
+        if (this.syncRootFileId != other.syncRootFileId) return false
+        if (this.hydrationPolicy != other.hydrationPolicy) return false
+        if (this.populationPolicy != other.populationPolicy) return false
+        if (this.inSyncPolicy != other.inSyncPolicy) return false
+        if (this.hardLinkPolicy != other.hardLinkPolicy) return false
+        if (this.providerStatus != other.providerStatus) return false
+        if (!this.providerName.contentEquals(other.providerName)) return false
+        if (!this.providerVersion.contentEquals(other.providerVersion)) return false
+        if (this.syncRootIdentityLength != other.syncRootIdentityLength) return false
+        if (!this.syncRootIdentity.contentEquals(other.syncRootIdentity)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.SyncRootFileId.hashCode()
-        result = 31 * result + this.HydrationPolicy.hashCode()
-        result = 31 * result + this.PopulationPolicy.hashCode()
-        result = 31 * result + this.InSyncPolicy.hashCode()
-        result = 31 * result + this.HardLinkPolicy.hashCode()
-        result = 31 * result + this.ProviderStatus.hashCode()
-        result = 31 * result + this.ProviderName.contentHashCode()
-        result = 31 * result + this.ProviderVersion.contentHashCode()
-        result = 31 * result + this.SyncRootIdentityLength.hashCode()
-        result = 31 * result + this.SyncRootIdentity.contentHashCode()
+        var result = this.syncRootFileId.hashCode()
+        result = 31 * result + this.hydrationPolicy.hashCode()
+        result = 31 * result + this.populationPolicy.hashCode()
+        result = 31 * result + this.inSyncPolicy.hashCode()
+        result = 31 * result + this.hardLinkPolicy.hashCode()
+        result = 31 * result + this.providerStatus.hashCode()
+        result = 31 * result + this.providerName.contentHashCode()
+        result = 31 * result + this.providerVersion.contentHashCode()
+        result = 31 * result + this.syncRootIdentityLength.hashCode()
+        result = 31 * result + this.syncRootIdentity.contentHashCode()
         return result
     }
 }
 
-public data class CF_SYNC_STATUS(
-    public var StructSize: UInt = 0u,
-    public var Code: UInt = 0u,
-    public var DescriptionOffset: UInt = 0u,
-    public var DescriptionLength: UInt = 0u,
-    public var DeviceIdOffset: UInt = 0u,
-    public var DeviceIdLength: UInt = 0u,
+public data class CfSyncStatus(
+    public var structSize: UInt = 0u,
+    public var code: UInt = 0u,
+    public var descriptionOffset: UInt = 0u,
+    public var descriptionLength: UInt = 0u,
+    public var deviceIdOffset: UInt = 0u,
+    public var deviceIdLength: UInt = 0u,
 )

@@ -2,8 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
 
 private object WindowsWin32StorageProjectedfilesystemJniBridge {
     init {
@@ -11,118 +12,118 @@ private object WindowsWin32StorageProjectedfilesystemJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_projectedfilesystem_PrjAllocateAlignedBuffer(namespacevirtualizationcontext: Long, size: Long): Long
+    external fun windowssys_windows_win32_storage_projectedfilesystem_prjAllocateAlignedBuffer(namespacevirtualizationcontext: Long, size: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_projectedfilesystem_PrjClearNegativePathCache(namespacevirtualizationcontext: Long, totalentrynumber: Long): Int
+    external fun windowssys_windows_win32_storage_projectedfilesystem_prjClearNegativePathCache(namespacevirtualizationcontext: Long, totalentrynumber: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_projectedfilesystem_PrjCompleteCommand(namespacevirtualizationcontext: Long, commandid: Int, completionresult: Int, extendedparameters: Long): Int
+    external fun windowssys_windows_win32_storage_projectedfilesystem_prjCompleteCommand(namespacevirtualizationcontext: Long, commandid: Int, completionresult: Int, extendedparameters: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_projectedfilesystem_PrjDeleteFile(namespacevirtualizationcontext: Long, destinationfilename: Long, updateflags: Int, failurereason: Long): Int
+    external fun windowssys_windows_win32_storage_projectedfilesystem_prjDeleteFile(namespacevirtualizationcontext: Long, destinationfilename: Long, updateflags: Int, failurereason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_projectedfilesystem_PrjDoesNameContainWildCards(filename: Long): Boolean
+    external fun windowssys_windows_win32_storage_projectedfilesystem_prjDoesNameContainWildCards(filename: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_projectedfilesystem_PrjFileNameCompare(filename1: Long, filename2: Long): Int
+    external fun windowssys_windows_win32_storage_projectedfilesystem_prjFileNameCompare(filename1: Long, filename2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_projectedfilesystem_PrjFileNameMatch(filenametocheck: Long, pattern: Long): Boolean
+    external fun windowssys_windows_win32_storage_projectedfilesystem_prjFileNameMatch(filenametocheck: Long, pattern: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_projectedfilesystem_PrjFillDirEntryBuffer(filename: Long, filebasicinfo: Long, direntrybufferhandle: Long): Int
+    external fun windowssys_windows_win32_storage_projectedfilesystem_prjFillDirEntryBuffer(filename: Long, filebasicinfo: Long, direntrybufferhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_projectedfilesystem_PrjFillDirEntryBuffer2(direntrybufferhandle: Long, filename: Long, filebasicinfo: Long, extendedinfo: Long): Int
+    external fun windowssys_windows_win32_storage_projectedfilesystem_prjFillDirEntryBuffer2(direntrybufferhandle: Long, filename: Long, filebasicinfo: Long, extendedinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_projectedfilesystem_PrjFreeAlignedBuffer(buffer: Long)
+    external fun windowssys_windows_win32_storage_projectedfilesystem_prjFreeAlignedBuffer(buffer: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_projectedfilesystem_PrjGetOnDiskFileState(destinationfilename: Long, filestate: Long): Int
+    external fun windowssys_windows_win32_storage_projectedfilesystem_prjGetOnDiskFileState(destinationfilename: Long, filestate: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_projectedfilesystem_PrjGetVirtualizationInstanceInfo(namespacevirtualizationcontext: Long, virtualizationinstanceinfo: Long): Int
+    external fun windowssys_windows_win32_storage_projectedfilesystem_prjGetVirtualizationInstanceInfo(namespacevirtualizationcontext: Long, virtualizationinstanceinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_projectedfilesystem_PrjMarkDirectoryAsPlaceholder(rootpathname: Long, targetpathname: Long, versioninfo: Long, virtualizationinstanceid: Long): Int
+    external fun windowssys_windows_win32_storage_projectedfilesystem_prjMarkDirectoryAsPlaceholder(rootpathname: Long, targetpathname: Long, versioninfo: Long, virtualizationinstanceid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_projectedfilesystem_PrjStartVirtualizing(virtualizationrootpath: Long, callbacks: Long, instancecontext: Long, options: Long, namespacevirtualizationcontext: Long): Int
+    external fun windowssys_windows_win32_storage_projectedfilesystem_prjStartVirtualizing(virtualizationrootpath: Long, callbacks: Long, instancecontext: Long, options: Long, namespacevirtualizationcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_projectedfilesystem_PrjStopVirtualizing(namespacevirtualizationcontext: Long)
+    external fun windowssys_windows_win32_storage_projectedfilesystem_prjStopVirtualizing(namespacevirtualizationcontext: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_projectedfilesystem_PrjUpdateFileIfNeeded(namespacevirtualizationcontext: Long, destinationfilename: Long, placeholderinfo: Long, placeholderinfosize: Int, updateflags: Int, failurereason: Long): Int
+    external fun windowssys_windows_win32_storage_projectedfilesystem_prjUpdateFileIfNeeded(namespacevirtualizationcontext: Long, destinationfilename: Long, placeholderinfo: Long, placeholderinfosize: Int, updateflags: Int, failurereason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_projectedfilesystem_PrjWriteFileData(namespacevirtualizationcontext: Long, datastreamid: Long, buffer: Long, byteoffset: Long, length: Int): Int
+    external fun windowssys_windows_win32_storage_projectedfilesystem_prjWriteFileData(namespacevirtualizationcontext: Long, datastreamid: Long, buffer: Long, byteoffset: Long, length: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_projectedfilesystem_PrjWritePlaceholderInfo(namespacevirtualizationcontext: Long, destinationfilename: Long, placeholderinfo: Long, placeholderinfosize: Int): Int
+    external fun windowssys_windows_win32_storage_projectedfilesystem_prjWritePlaceholderInfo(namespacevirtualizationcontext: Long, destinationfilename: Long, placeholderinfo: Long, placeholderinfosize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_projectedfilesystem_PrjWritePlaceholderInfo2(namespacevirtualizationcontext: Long, destinationfilename: Long, placeholderinfo: Long, placeholderinfosize: Int, extendedinfo: Long): Int
+    external fun windowssys_windows_win32_storage_projectedfilesystem_prjWritePlaceholderInfo2(namespacevirtualizationcontext: Long, destinationfilename: Long, placeholderinfo: Long, placeholderinfosize: Int, extendedinfo: Long): Int
 }
 
-public actual fun PrjAllocateAlignedBuffer(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, size: ULong): Long =
-    WindowsWin32StorageProjectedfilesystemJniBridge.windowssys_windows_win32_storage_projectedfilesystem_PrjAllocateAlignedBuffer(namespacevirtualizationcontext, size.toLong())
+public actual fun prjAllocateAlignedBuffer(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, size: ULong): COpaquePointer? =
+    WindowsWin32StorageProjectedfilesystemJniBridge.windowssys_windows_win32_storage_projectedfilesystem_prjAllocateAlignedBuffer((namespacevirtualizationcontext?.value ?: 0L), size.toLong()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun PrjClearNegativePathCache(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, totalentrynumber: Long): HRESULT =
-    WindowsWin32StorageProjectedfilesystemJniBridge.windowssys_windows_win32_storage_projectedfilesystem_PrjClearNegativePathCache(namespacevirtualizationcontext, totalentrynumber)
+public actual fun prjClearNegativePathCache(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, totalentrynumber: COpaquePointer?): Hresult =
+    WindowsWin32StorageProjectedfilesystemJniBridge.windowssys_windows_win32_storage_projectedfilesystem_prjClearNegativePathCache((namespacevirtualizationcontext?.value ?: 0L), (totalentrynumber?.value ?: 0L))
 
-public actual fun PrjCompleteCommand(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, commandid: Int, completionresult: HRESULT, extendedparameters: Long): HRESULT =
-    WindowsWin32StorageProjectedfilesystemJniBridge.windowssys_windows_win32_storage_projectedfilesystem_PrjCompleteCommand(namespacevirtualizationcontext, commandid, completionresult, extendedparameters)
+public actual fun prjCompleteCommand(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, commandid: Int, completionresult: Hresult, extendedparameters: COpaquePointer?): Hresult =
+    WindowsWin32StorageProjectedfilesystemJniBridge.windowssys_windows_win32_storage_projectedfilesystem_prjCompleteCommand((namespacevirtualizationcontext?.value ?: 0L), commandid, completionresult, (extendedparameters?.value ?: 0L))
 
-public actual fun PrjDeleteFile(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename: PCWSTR, updateflags: PRJ_UPDATE_TYPES, failurereason: Long): HRESULT =
-    WindowsWin32StorageProjectedfilesystemJniBridge.windowssys_windows_win32_storage_projectedfilesystem_PrjDeleteFile(namespacevirtualizationcontext, destinationfilename, updateflags, failurereason)
+public actual fun prjDeleteFile(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, destinationfilename: Pcwstr, updateflags: PrjUpdateTypes, failurereason: COpaquePointer?): Hresult =
+    WindowsWin32StorageProjectedfilesystemJniBridge.windowssys_windows_win32_storage_projectedfilesystem_prjDeleteFile((namespacevirtualizationcontext?.value ?: 0L), (destinationfilename?.value ?: 0L), updateflags, (failurereason?.value ?: 0L))
 
-public actual fun PrjDoesNameContainWildCards(filename: PCWSTR): Boolean =
-    WindowsWin32StorageProjectedfilesystemJniBridge.windowssys_windows_win32_storage_projectedfilesystem_PrjDoesNameContainWildCards(filename)
+public actual fun prjDoesNameContainWildCards(filename: Pcwstr): Boolean =
+    WindowsWin32StorageProjectedfilesystemJniBridge.windowssys_windows_win32_storage_projectedfilesystem_prjDoesNameContainWildCards((filename?.value ?: 0L))
 
-public actual fun PrjFileNameCompare(filename1: PCWSTR, filename2: PCWSTR): Int =
-    WindowsWin32StorageProjectedfilesystemJniBridge.windowssys_windows_win32_storage_projectedfilesystem_PrjFileNameCompare(filename1, filename2)
+public actual fun prjFileNameCompare(filename1: Pcwstr, filename2: Pcwstr): Int =
+    WindowsWin32StorageProjectedfilesystemJniBridge.windowssys_windows_win32_storage_projectedfilesystem_prjFileNameCompare((filename1?.value ?: 0L), (filename2?.value ?: 0L))
 
-public actual fun PrjFileNameMatch(filenametocheck: PCWSTR, pattern: PCWSTR): Boolean =
-    WindowsWin32StorageProjectedfilesystemJniBridge.windowssys_windows_win32_storage_projectedfilesystem_PrjFileNameMatch(filenametocheck, pattern)
+public actual fun prjFileNameMatch(filenametocheck: Pcwstr, pattern: Pcwstr): Boolean =
+    WindowsWin32StorageProjectedfilesystemJniBridge.windowssys_windows_win32_storage_projectedfilesystem_prjFileNameMatch((filenametocheck?.value ?: 0L), (pattern?.value ?: 0L))
 
-public actual fun PrjFillDirEntryBuffer(filename: PCWSTR, filebasicinfo: Long, direntrybufferhandle: PRJ_DIR_ENTRY_BUFFER_HANDLE): HRESULT =
-    WindowsWin32StorageProjectedfilesystemJniBridge.windowssys_windows_win32_storage_projectedfilesystem_PrjFillDirEntryBuffer(filename, filebasicinfo, direntrybufferhandle)
+public actual fun prjFillDirEntryBuffer(filename: Pcwstr, filebasicinfo: COpaquePointer?, direntrybufferhandle: PrjDirEntryBufferHandle): Hresult =
+    WindowsWin32StorageProjectedfilesystemJniBridge.windowssys_windows_win32_storage_projectedfilesystem_prjFillDirEntryBuffer((filename?.value ?: 0L), (filebasicinfo?.value ?: 0L), (direntrybufferhandle?.value ?: 0L))
 
-public actual fun PrjFillDirEntryBuffer2(direntrybufferhandle: PRJ_DIR_ENTRY_BUFFER_HANDLE, filename: PCWSTR, filebasicinfo: Long, extendedinfo: Long): HRESULT =
-    WindowsWin32StorageProjectedfilesystemJniBridge.windowssys_windows_win32_storage_projectedfilesystem_PrjFillDirEntryBuffer2(direntrybufferhandle, filename, filebasicinfo, extendedinfo)
+public actual fun prjFillDirEntryBuffer2(direntrybufferhandle: PrjDirEntryBufferHandle, filename: Pcwstr, filebasicinfo: COpaquePointer?, extendedinfo: COpaquePointer?): Hresult =
+    WindowsWin32StorageProjectedfilesystemJniBridge.windowssys_windows_win32_storage_projectedfilesystem_prjFillDirEntryBuffer2((direntrybufferhandle?.value ?: 0L), (filename?.value ?: 0L), (filebasicinfo?.value ?: 0L), (extendedinfo?.value ?: 0L))
 
-public actual fun PrjFreeAlignedBuffer(buffer: Long) {
-    WindowsWin32StorageProjectedfilesystemJniBridge.windowssys_windows_win32_storage_projectedfilesystem_PrjFreeAlignedBuffer(buffer)
+public actual fun prjFreeAlignedBuffer(buffer: COpaquePointer?) {
+    WindowsWin32StorageProjectedfilesystemJniBridge.windowssys_windows_win32_storage_projectedfilesystem_prjFreeAlignedBuffer((buffer?.value ?: 0L))
 }
 
-public actual fun PrjGetOnDiskFileState(destinationfilename: PCWSTR, filestate: Long): HRESULT =
-    WindowsWin32StorageProjectedfilesystemJniBridge.windowssys_windows_win32_storage_projectedfilesystem_PrjGetOnDiskFileState(destinationfilename, filestate)
+public actual fun prjGetOnDiskFileState(destinationfilename: Pcwstr, filestate: COpaquePointer?): Hresult =
+    WindowsWin32StorageProjectedfilesystemJniBridge.windowssys_windows_win32_storage_projectedfilesystem_prjGetOnDiskFileState((destinationfilename?.value ?: 0L), (filestate?.value ?: 0L))
 
-public actual fun PrjGetVirtualizationInstanceInfo(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, virtualizationinstanceinfo: Long): HRESULT =
-    WindowsWin32StorageProjectedfilesystemJniBridge.windowssys_windows_win32_storage_projectedfilesystem_PrjGetVirtualizationInstanceInfo(namespacevirtualizationcontext, virtualizationinstanceinfo)
+public actual fun prjGetVirtualizationInstanceInfo(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, virtualizationinstanceinfo: COpaquePointer?): Hresult =
+    WindowsWin32StorageProjectedfilesystemJniBridge.windowssys_windows_win32_storage_projectedfilesystem_prjGetVirtualizationInstanceInfo((namespacevirtualizationcontext?.value ?: 0L), (virtualizationinstanceinfo?.value ?: 0L))
 
-public actual fun PrjMarkDirectoryAsPlaceholder(rootpathname: PCWSTR, targetpathname: PCWSTR, versioninfo: Long, virtualizationinstanceid: Long): HRESULT =
-    WindowsWin32StorageProjectedfilesystemJniBridge.windowssys_windows_win32_storage_projectedfilesystem_PrjMarkDirectoryAsPlaceholder(rootpathname, targetpathname, versioninfo, virtualizationinstanceid)
+public actual fun prjMarkDirectoryAsPlaceholder(rootpathname: Pcwstr, targetpathname: Pcwstr, versioninfo: COpaquePointer?, virtualizationinstanceid: COpaquePointer?): Hresult =
+    WindowsWin32StorageProjectedfilesystemJniBridge.windowssys_windows_win32_storage_projectedfilesystem_prjMarkDirectoryAsPlaceholder((rootpathname?.value ?: 0L), (targetpathname?.value ?: 0L), (versioninfo?.value ?: 0L), (virtualizationinstanceid?.value ?: 0L))
 
-public actual fun PrjStartVirtualizing(virtualizationrootpath: PCWSTR, callbacks: Long, instancecontext: Long, options: Long, namespacevirtualizationcontext: Long): HRESULT =
-    WindowsWin32StorageProjectedfilesystemJniBridge.windowssys_windows_win32_storage_projectedfilesystem_PrjStartVirtualizing(virtualizationrootpath, callbacks, instancecontext, options, namespacevirtualizationcontext)
+public actual fun prjStartVirtualizing(virtualizationrootpath: Pcwstr, callbacks: COpaquePointer?, instancecontext: COpaquePointer?, options: COpaquePointer?, namespacevirtualizationcontext: COpaquePointer?): Hresult =
+    WindowsWin32StorageProjectedfilesystemJniBridge.windowssys_windows_win32_storage_projectedfilesystem_prjStartVirtualizing((virtualizationrootpath?.value ?: 0L), (callbacks?.value ?: 0L), (instancecontext?.value ?: 0L), (options?.value ?: 0L), (namespacevirtualizationcontext?.value ?: 0L))
 
-public actual fun PrjStopVirtualizing(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT) {
-    WindowsWin32StorageProjectedfilesystemJniBridge.windowssys_windows_win32_storage_projectedfilesystem_PrjStopVirtualizing(namespacevirtualizationcontext)
+public actual fun prjStopVirtualizing(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext) {
+    WindowsWin32StorageProjectedfilesystemJniBridge.windowssys_windows_win32_storage_projectedfilesystem_prjStopVirtualizing((namespacevirtualizationcontext?.value ?: 0L))
 }
 
-public actual fun PrjUpdateFileIfNeeded(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename: PCWSTR, placeholderinfo: Long, placeholderinfosize: UInt, updateflags: PRJ_UPDATE_TYPES, failurereason: Long): HRESULT =
-    WindowsWin32StorageProjectedfilesystemJniBridge.windowssys_windows_win32_storage_projectedfilesystem_PrjUpdateFileIfNeeded(namespacevirtualizationcontext, destinationfilename, placeholderinfo, placeholderinfosize.toInt(), updateflags, failurereason)
+public actual fun prjUpdateFileIfNeeded(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, destinationfilename: Pcwstr, placeholderinfo: COpaquePointer?, placeholderinfosize: UInt, updateflags: PrjUpdateTypes, failurereason: COpaquePointer?): Hresult =
+    WindowsWin32StorageProjectedfilesystemJniBridge.windowssys_windows_win32_storage_projectedfilesystem_prjUpdateFileIfNeeded((namespacevirtualizationcontext?.value ?: 0L), (destinationfilename?.value ?: 0L), (placeholderinfo?.value ?: 0L), placeholderinfosize.toInt(), updateflags, (failurereason?.value ?: 0L))
 
-public actual fun PrjWriteFileData(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, datastreamid: Long, buffer: Long, byteoffset: ULong, length: UInt): HRESULT =
-    WindowsWin32StorageProjectedfilesystemJniBridge.windowssys_windows_win32_storage_projectedfilesystem_PrjWriteFileData(namespacevirtualizationcontext, datastreamid, buffer, byteoffset.toLong(), length.toInt())
+public actual fun prjWriteFileData(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, datastreamid: COpaquePointer?, buffer: COpaquePointer?, byteoffset: ULong, length: UInt): Hresult =
+    WindowsWin32StorageProjectedfilesystemJniBridge.windowssys_windows_win32_storage_projectedfilesystem_prjWriteFileData((namespacevirtualizationcontext?.value ?: 0L), (datastreamid?.value ?: 0L), (buffer?.value ?: 0L), byteoffset.toLong(), length.toInt())
 
-public actual fun PrjWritePlaceholderInfo(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename: PCWSTR, placeholderinfo: Long, placeholderinfosize: UInt): HRESULT =
-    WindowsWin32StorageProjectedfilesystemJniBridge.windowssys_windows_win32_storage_projectedfilesystem_PrjWritePlaceholderInfo(namespacevirtualizationcontext, destinationfilename, placeholderinfo, placeholderinfosize.toInt())
+public actual fun prjWritePlaceholderInfo(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, destinationfilename: Pcwstr, placeholderinfo: COpaquePointer?, placeholderinfosize: UInt): Hresult =
+    WindowsWin32StorageProjectedfilesystemJniBridge.windowssys_windows_win32_storage_projectedfilesystem_prjWritePlaceholderInfo((namespacevirtualizationcontext?.value ?: 0L), (destinationfilename?.value ?: 0L), (placeholderinfo?.value ?: 0L), placeholderinfosize.toInt())
 
-public actual fun PrjWritePlaceholderInfo2(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename: PCWSTR, placeholderinfo: Long, placeholderinfosize: UInt, extendedinfo: Long): HRESULT =
-    WindowsWin32StorageProjectedfilesystemJniBridge.windowssys_windows_win32_storage_projectedfilesystem_PrjWritePlaceholderInfo2(namespacevirtualizationcontext, destinationfilename, placeholderinfo, placeholderinfosize.toInt(), extendedinfo)
+public actual fun prjWritePlaceholderInfo2(namespacevirtualizationcontext: PrjNamespaceVirtualizationContext, destinationfilename: Pcwstr, placeholderinfo: COpaquePointer?, placeholderinfosize: UInt, extendedinfo: COpaquePointer?): Hresult =
+    WindowsWin32StorageProjectedfilesystemJniBridge.windowssys_windows_win32_storage_projectedfilesystem_prjWritePlaceholderInfo2((namespacevirtualizationcontext?.value ?: 0L), (destinationfilename?.value ?: 0L), (placeholderinfo?.value ?: 0L), placeholderinfosize.toInt(), (extendedinfo?.value ?: 0L))

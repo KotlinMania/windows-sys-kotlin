@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmCalloutAdd0(void* enginehandle, void* callout, void* sd, void* id) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmCalloutAdd0(void* enginehandle, void* callout, void* sd, void* id) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -40,7 +40,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmCalloutCreateEnumHandle0(void* enginehandle, void* enumtemplate, void* enumhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmCalloutCreateEnumHandle0(void* enginehandle, void* enumtemplate, void* enumhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -64,7 +64,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmCalloutDeleteById0(void* enginehandle, uint32_t id) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmCalloutDeleteById0(void* enginehandle, uint32_t id) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -87,7 +87,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmCalloutDeleteByKey0(void* enginehandle, void* key) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmCalloutDeleteByKey0(void* enginehandle, void* key) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -110,7 +110,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmCalloutDestroyEnumHandle0(void* enginehandle, void* enumhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmCalloutDestroyEnumHandle0(void* enginehandle, void* enumhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -133,7 +133,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmCalloutEnum0(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmCalloutEnum0(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -159,7 +159,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmCalloutGetById0(void* enginehandle, uint32_t id, void* callout) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmCalloutGetById0(void* enginehandle, uint32_t id, void* callout) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -183,7 +183,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmCalloutGetByKey0(void* enginehandle, void* key, void* callout) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmCalloutGetByKey0(void* enginehandle, void* key, void* callout) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -207,7 +207,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmCalloutGetSecurityInfoByKey0(void* enginehandle, void* key, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl, void* securitydescriptor) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmCalloutGetSecurityInfoByKey0(void* enginehandle, void* key, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl, void* securitydescriptor) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -236,7 +236,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmCalloutSetSecurityInfoByKey0(void* enginehandle, void* key, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmCalloutSetSecurityInfoByKey0(void* enginehandle, void* key, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -264,7 +264,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmCalloutSubscribeChanges0(void* enginehandle, void* subscription, void* callback, void* context, void* changehandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmCalloutSubscribeChanges0(void* enginehandle, void* subscription, void* callback, void* context, void* changehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -290,7 +290,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmCalloutSubscriptionsGet0(void* enginehandle, void* entries, void* numentries) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmCalloutSubscriptionsGet0(void* enginehandle, void* entries, void* numentries) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -314,7 +314,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmCalloutUnsubscribeChanges0(void* enginehandle, void* changehandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmCalloutUnsubscribeChanges0(void* enginehandle, void* changehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -337,7 +337,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmConnectionCreateEnumHandle0(void* enginehandle, void* enumtemplate, void* enumhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmConnectionCreateEnumHandle0(void* enginehandle, void* enumtemplate, void* enumhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -361,7 +361,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmConnectionDestroyEnumHandle0(void* enginehandle, void* enumhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmConnectionDestroyEnumHandle0(void* enginehandle, void* enumhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -384,7 +384,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmConnectionEnum0(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmConnectionEnum0(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -410,7 +410,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmConnectionGetById0(void* enginehandle, uint64_t id, void* connection) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmConnectionGetById0(void* enginehandle, uint64_t id, void* connection) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -434,7 +434,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmConnectionGetSecurityInfo0(void* enginehandle, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl, void* securitydescriptor) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmConnectionGetSecurityInfo0(void* enginehandle, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl, void* securitydescriptor) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -462,7 +462,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmConnectionSetSecurityInfo0(void* enginehandle, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmConnectionSetSecurityInfo0(void* enginehandle, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -489,7 +489,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmConnectionSubscribe0(void* enginehandle, void* subscription, void* callback, void* context, void* eventshandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmConnectionSubscribe0(void* enginehandle, void* subscription, void* callback, void* context, void* eventshandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -515,7 +515,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmConnectionUnsubscribe0(void* enginehandle, void* eventshandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmConnectionUnsubscribe0(void* enginehandle, void* eventshandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -538,7 +538,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmDynamicKeywordSubscribe0(uint32_t flags, void* callback, void* context, void* subscriptionhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmDynamicKeywordSubscribe0(uint32_t flags, void* callback, void* context, void* subscriptionhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -563,7 +563,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmDynamicKeywordUnsubscribe0(void* subscriptionhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmDynamicKeywordUnsubscribe0(void* subscriptionhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -585,7 +585,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmEngineClose0(void* enginehandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmEngineClose0(void* enginehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -607,7 +607,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmEngineGetOption0(void* enginehandle, int32_t option, void* value) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmEngineGetOption0(void* enginehandle, int32_t option, void* value) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -631,7 +631,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmEngineGetSecurityInfo0(void* enginehandle, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl, void* securitydescriptor) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmEngineGetSecurityInfo0(void* enginehandle, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl, void* securitydescriptor) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -659,7 +659,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmEngineOpen0(void* servername, uint32_t authnservice, void* authidentity, void* session, void* enginehandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmEngineOpen0(void* servername, uint32_t authnservice, void* authidentity, void* session, void* enginehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -685,7 +685,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmEngineSetOption0(void* enginehandle, int32_t option, void* newvalue) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmEngineSetOption0(void* enginehandle, int32_t option, void* newvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -709,7 +709,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmEngineSetSecurityInfo0(void* enginehandle, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmEngineSetSecurityInfo0(void* enginehandle, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -736,7 +736,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmFilterAdd0(void* enginehandle, void* filter, void* sd, void* id) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmFilterAdd0(void* enginehandle, void* filter, void* sd, void* id) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -761,7 +761,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmFilterCreateEnumHandle0(void* enginehandle, void* enumtemplate, void* enumhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmFilterCreateEnumHandle0(void* enginehandle, void* enumtemplate, void* enumhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -785,7 +785,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmFilterDeleteById0(void* enginehandle, uint64_t id) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmFilterDeleteById0(void* enginehandle, uint64_t id) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -808,7 +808,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmFilterDeleteByKey0(void* enginehandle, void* key) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmFilterDeleteByKey0(void* enginehandle, void* key) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -831,7 +831,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmFilterDestroyEnumHandle0(void* enginehandle, void* enumhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmFilterDestroyEnumHandle0(void* enginehandle, void* enumhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -854,7 +854,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmFilterEnum0(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmFilterEnum0(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -880,7 +880,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmFilterGetById0(void* enginehandle, uint64_t id, void* filter) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmFilterGetById0(void* enginehandle, uint64_t id, void* filter) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -904,7 +904,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmFilterGetByKey0(void* enginehandle, void* key, void* filter) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmFilterGetByKey0(void* enginehandle, void* key, void* filter) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -928,7 +928,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmFilterGetSecurityInfoByKey0(void* enginehandle, void* key, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl, void* securitydescriptor) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmFilterGetSecurityInfoByKey0(void* enginehandle, void* key, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl, void* securitydescriptor) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -957,7 +957,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmFilterSetSecurityInfoByKey0(void* enginehandle, void* key, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmFilterSetSecurityInfoByKey0(void* enginehandle, void* key, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -985,7 +985,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmFilterSubscribeChanges0(void* enginehandle, void* subscription, void* callback, void* context, void* changehandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmFilterSubscribeChanges0(void* enginehandle, void* subscription, void* callback, void* context, void* changehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1011,7 +1011,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmFilterSubscriptionsGet0(void* enginehandle, void* entries, void* numentries) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmFilterSubscriptionsGet0(void* enginehandle, void* entries, void* numentries) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1035,7 +1035,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmFilterUnsubscribeChanges0(void* enginehandle, void* changehandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmFilterUnsubscribeChanges0(void* enginehandle, void* changehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1058,7 +1058,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmFreeMemory0(void* p) {
+void windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmFreeMemory0(void* p) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1079,7 +1079,7 @@ void windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmFre
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmGetAppIdFromFileName0(void* filename, void* appid) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmGetAppIdFromFileName0(void* filename, void* appid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1102,7 +1102,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelAdd0(void* enginehandle, uint32_t flags, void* mainmodepolicy, void* tunnelpolicy, uint32_t numfilterconditions, void* filterconditions, void* sd) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd0(void* enginehandle, uint32_t flags, void* mainmodepolicy, void* tunnelpolicy, uint32_t numfilterconditions, void* filterconditions, void* sd) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1130,7 +1130,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelAdd1(void* enginehandle, uint32_t flags, void* mainmodepolicy, void* tunnelpolicy, uint32_t numfilterconditions, void* filterconditions, void* keymodkey, void* sd) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd1(void* enginehandle, uint32_t flags, void* mainmodepolicy, void* tunnelpolicy, uint32_t numfilterconditions, void* filterconditions, void* keymodkey, void* sd) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1159,7 +1159,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelAdd2(void* enginehandle, uint32_t flags, void* mainmodepolicy, void* tunnelpolicy, uint32_t numfilterconditions, void* filterconditions, void* keymodkey, void* sd) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd2(void* enginehandle, uint32_t flags, void* mainmodepolicy, void* tunnelpolicy, uint32_t numfilterconditions, void* filterconditions, void* keymodkey, void* sd) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1188,7 +1188,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelAdd3(void* enginehandle, uint32_t flags, void* mainmodepolicy, void* tunnelpolicy, uint32_t numfilterconditions, void* filterconditions, void* keymodkey, void* sd) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd3(void* enginehandle, uint32_t flags, void* mainmodepolicy, void* tunnelpolicy, uint32_t numfilterconditions, void* filterconditions, void* keymodkey, void* sd) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1217,7 +1217,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelDeleteByKey0(void* enginehandle, void* key) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelDeleteByKey0(void* enginehandle, void* key) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1240,7 +1240,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmLayerCreateEnumHandle0(void* enginehandle, void* enumtemplate, void* enumhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmLayerCreateEnumHandle0(void* enginehandle, void* enumtemplate, void* enumhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1264,7 +1264,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmLayerDestroyEnumHandle0(void* enginehandle, void* enumhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmLayerDestroyEnumHandle0(void* enginehandle, void* enumhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1287,7 +1287,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmLayerEnum0(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmLayerEnum0(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1313,7 +1313,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmLayerGetById0(void* enginehandle, uint16_t id, void* layer) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmLayerGetById0(void* enginehandle, uint16_t id, void* layer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1337,7 +1337,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmLayerGetByKey0(void* enginehandle, void* key, void* layer) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmLayerGetByKey0(void* enginehandle, void* key, void* layer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1361,7 +1361,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmLayerGetSecurityInfoByKey0(void* enginehandle, void* key, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl, void* securitydescriptor) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmLayerGetSecurityInfoByKey0(void* enginehandle, void* key, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl, void* securitydescriptor) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1390,7 +1390,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmLayerSetSecurityInfoByKey0(void* enginehandle, void* key, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmLayerSetSecurityInfoByKey0(void* enginehandle, void* key, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1418,7 +1418,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmNetEventCreateEnumHandle0(void* enginehandle, void* enumtemplate, void* enumhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmNetEventCreateEnumHandle0(void* enginehandle, void* enumtemplate, void* enumhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1442,7 +1442,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmNetEventDestroyEnumHandle0(void* enginehandle, void* enumhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmNetEventDestroyEnumHandle0(void* enginehandle, void* enumhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1465,7 +1465,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum0(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum0(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1491,7 +1491,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum1(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum1(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1517,7 +1517,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum2(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum2(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1543,7 +1543,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum3(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum3(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1569,7 +1569,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum4(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum4(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1595,7 +1595,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum5(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum5(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1621,7 +1621,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmNetEventSubscribe0(void* enginehandle, void* subscription, void* callback, void* context, void* eventshandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmNetEventSubscribe0(void* enginehandle, void* subscription, void* callback, void* context, void* eventshandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1647,7 +1647,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmNetEventSubscribe1(void* enginehandle, void* subscription, void* callback, void* context, void* eventshandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmNetEventSubscribe1(void* enginehandle, void* subscription, void* callback, void* context, void* eventshandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1673,7 +1673,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmNetEventSubscribe2(void* enginehandle, void* subscription, void* callback, void* context, void* eventshandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmNetEventSubscribe2(void* enginehandle, void* subscription, void* callback, void* context, void* eventshandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1699,7 +1699,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmNetEventSubscribe3(void* enginehandle, void* subscription, void* callback, void* context, void* eventshandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmNetEventSubscribe3(void* enginehandle, void* subscription, void* callback, void* context, void* eventshandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1725,7 +1725,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmNetEventSubscribe4(void* enginehandle, void* subscription, void* callback, void* context, void* eventshandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmNetEventSubscribe4(void* enginehandle, void* subscription, void* callback, void* context, void* eventshandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1751,7 +1751,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmNetEventSubscriptionsGet0(void* enginehandle, void* entries, void* numentries) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmNetEventSubscriptionsGet0(void* enginehandle, void* entries, void* numentries) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1775,7 +1775,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmNetEventUnsubscribe0(void* enginehandle, void* eventshandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmNetEventUnsubscribe0(void* enginehandle, void* eventshandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1798,7 +1798,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmNetEventsGetSecurityInfo0(void* enginehandle, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl, void* securitydescriptor) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmNetEventsGetSecurityInfo0(void* enginehandle, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl, void* securitydescriptor) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1826,7 +1826,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmNetEventsSetSecurityInfo0(void* enginehandle, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmNetEventsSetSecurityInfo0(void* enginehandle, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1853,7 +1853,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderAdd0(void* enginehandle, void* provider, void* sd) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderAdd0(void* enginehandle, void* provider, void* sd) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1877,7 +1877,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextAdd0(void* enginehandle, void* providercontext, void* sd, void* id) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd0(void* enginehandle, void* providercontext, void* sd, void* id) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1902,7 +1902,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextAdd1(void* enginehandle, void* providercontext, void* sd, void* id) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd1(void* enginehandle, void* providercontext, void* sd, void* id) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1927,7 +1927,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextAdd2(void* enginehandle, void* providercontext, void* sd, void* id) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd2(void* enginehandle, void* providercontext, void* sd, void* id) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1952,7 +1952,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextAdd3(void* enginehandle, void* providercontext, void* sd, void* id) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd3(void* enginehandle, void* providercontext, void* sd, void* id) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1977,7 +1977,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextCreateEnumHandle0(void* enginehandle, void* enumtemplate, void* enumhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextCreateEnumHandle0(void* enginehandle, void* enumtemplate, void* enumhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2001,7 +2001,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextDeleteById0(void* enginehandle, uint64_t id) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextDeleteById0(void* enginehandle, uint64_t id) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2024,7 +2024,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextDeleteByKey0(void* enginehandle, void* key) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextDeleteByKey0(void* enginehandle, void* key) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2047,7 +2047,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextDestroyEnumHandle0(void* enginehandle, void* enumhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextDestroyEnumHandle0(void* enginehandle, void* enumhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2070,7 +2070,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextEnum0(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum0(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2096,7 +2096,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextEnum1(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum1(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2122,7 +2122,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextEnum2(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum2(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2148,7 +2148,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextEnum3(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum3(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2174,7 +2174,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetById0(void* enginehandle, uint64_t id, void* providercontext) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById0(void* enginehandle, uint64_t id, void* providercontext) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2198,7 +2198,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetById1(void* enginehandle, uint64_t id, void* providercontext) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById1(void* enginehandle, uint64_t id, void* providercontext) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2222,7 +2222,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetById2(void* enginehandle, uint64_t id, void* providercontext) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById2(void* enginehandle, uint64_t id, void* providercontext) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2246,7 +2246,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetById3(void* enginehandle, uint64_t id, void* providercontext) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById3(void* enginehandle, uint64_t id, void* providercontext) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2270,7 +2270,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetByKey0(void* enginehandle, void* key, void* providercontext) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey0(void* enginehandle, void* key, void* providercontext) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2294,7 +2294,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetByKey1(void* enginehandle, void* key, void* providercontext) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey1(void* enginehandle, void* key, void* providercontext) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2318,7 +2318,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetByKey2(void* enginehandle, void* key, void* providercontext) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey2(void* enginehandle, void* key, void* providercontext) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2342,7 +2342,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetByKey3(void* enginehandle, void* key, void* providercontext) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey3(void* enginehandle, void* key, void* providercontext) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2366,7 +2366,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetSecurityInfoByKey0(void* enginehandle, void* key, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl, void* securitydescriptor) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetSecurityInfoByKey0(void* enginehandle, void* key, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl, void* securitydescriptor) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2395,7 +2395,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextSetSecurityInfoByKey0(void* enginehandle, void* key, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextSetSecurityInfoByKey0(void* enginehandle, void* key, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2423,7 +2423,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextSubscribeChanges0(void* enginehandle, void* subscription, void* callback, void* context, void* changehandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextSubscribeChanges0(void* enginehandle, void* subscription, void* callback, void* context, void* changehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2449,7 +2449,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextSubscriptionsGet0(void* enginehandle, void* entries, void* numentries) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextSubscriptionsGet0(void* enginehandle, void* entries, void* numentries) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2473,7 +2473,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderContextUnsubscribeChanges0(void* enginehandle, void* changehandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderContextUnsubscribeChanges0(void* enginehandle, void* changehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2496,7 +2496,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderCreateEnumHandle0(void* enginehandle, void* enumtemplate, void* enumhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderCreateEnumHandle0(void* enginehandle, void* enumtemplate, void* enumhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2520,7 +2520,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderDeleteByKey0(void* enginehandle, void* key) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderDeleteByKey0(void* enginehandle, void* key) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2543,7 +2543,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderDestroyEnumHandle0(void* enginehandle, void* enumhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderDestroyEnumHandle0(void* enginehandle, void* enumhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2566,7 +2566,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderEnum0(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderEnum0(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2592,7 +2592,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderGetByKey0(void* enginehandle, void* key, void* provider) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderGetByKey0(void* enginehandle, void* key, void* provider) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2616,7 +2616,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderGetSecurityInfoByKey0(void* enginehandle, void* key, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl, void* securitydescriptor) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderGetSecurityInfoByKey0(void* enginehandle, void* key, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl, void* securitydescriptor) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2645,7 +2645,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderSetSecurityInfoByKey0(void* enginehandle, void* key, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderSetSecurityInfoByKey0(void* enginehandle, void* key, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2673,7 +2673,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderSubscribeChanges0(void* enginehandle, void* subscription, void* callback, void* context, void* changehandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderSubscribeChanges0(void* enginehandle, void* subscription, void* callback, void* context, void* changehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2699,7 +2699,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderSubscriptionsGet0(void* enginehandle, void* entries, void* numentries) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderSubscriptionsGet0(void* enginehandle, void* entries, void* numentries) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2723,7 +2723,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmProviderUnsubscribeChanges0(void* enginehandle, void* changehandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmProviderUnsubscribeChanges0(void* enginehandle, void* changehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2746,7 +2746,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmSessionCreateEnumHandle0(void* enginehandle, void* enumtemplate, void* enumhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmSessionCreateEnumHandle0(void* enginehandle, void* enumtemplate, void* enumhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2770,7 +2770,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmSessionDestroyEnumHandle0(void* enginehandle, void* enumhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmSessionDestroyEnumHandle0(void* enginehandle, void* enumhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2793,7 +2793,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmSessionEnum0(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmSessionEnum0(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2819,7 +2819,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmSubLayerAdd0(void* enginehandle, void* sublayer, void* sd) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmSubLayerAdd0(void* enginehandle, void* sublayer, void* sd) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2843,7 +2843,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmSubLayerCreateEnumHandle0(void* enginehandle, void* enumtemplate, void* enumhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmSubLayerCreateEnumHandle0(void* enginehandle, void* enumtemplate, void* enumhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2867,7 +2867,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmSubLayerDeleteByKey0(void* enginehandle, void* key) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmSubLayerDeleteByKey0(void* enginehandle, void* key) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2890,7 +2890,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmSubLayerDestroyEnumHandle0(void* enginehandle, void* enumhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmSubLayerDestroyEnumHandle0(void* enginehandle, void* enumhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2913,7 +2913,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmSubLayerEnum0(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmSubLayerEnum0(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2939,7 +2939,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmSubLayerGetByKey0(void* enginehandle, void* key, void* sublayer) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmSubLayerGetByKey0(void* enginehandle, void* key, void* sublayer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2963,7 +2963,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmSubLayerGetSecurityInfoByKey0(void* enginehandle, void* key, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl, void* securitydescriptor) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmSubLayerGetSecurityInfoByKey0(void* enginehandle, void* key, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl, void* securitydescriptor) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2992,7 +2992,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmSubLayerSetSecurityInfoByKey0(void* enginehandle, void* key, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmSubLayerSetSecurityInfoByKey0(void* enginehandle, void* key, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3020,7 +3020,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmSubLayerSubscribeChanges0(void* enginehandle, void* subscription, void* callback, void* context, void* changehandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmSubLayerSubscribeChanges0(void* enginehandle, void* subscription, void* callback, void* context, void* changehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3046,7 +3046,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmSubLayerSubscriptionsGet0(void* enginehandle, void* entries, void* numentries) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmSubLayerSubscriptionsGet0(void* enginehandle, void* entries, void* numentries) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3070,7 +3070,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmSubLayerUnsubscribeChanges0(void* enginehandle, void* changehandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmSubLayerUnsubscribeChanges0(void* enginehandle, void* changehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3093,7 +3093,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmSystemPortsGet0(void* enginehandle, void* sysports) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmSystemPortsGet0(void* enginehandle, void* sysports) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3116,7 +3116,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmSystemPortsSubscribe0(void* enginehandle, void* reserved, void* callback, void* context, void* sysportshandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmSystemPortsSubscribe0(void* enginehandle, void* reserved, void* callback, void* context, void* sysportshandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3142,7 +3142,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmSystemPortsUnsubscribe0(void* enginehandle, void* sysportshandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmSystemPortsUnsubscribe0(void* enginehandle, void* sysportshandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3165,7 +3165,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmTransactionAbort0(void* enginehandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmTransactionAbort0(void* enginehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3187,7 +3187,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmTransactionBegin0(void* enginehandle, uint32_t flags) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmTransactionBegin0(void* enginehandle, uint32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3210,7 +3210,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmTransactionCommit0(void* enginehandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmTransactionCommit0(void* enginehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3232,7 +3232,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmvSwitchEventSubscribe0(void* enginehandle, void* subscription, void* callback, void* context, void* subscriptionhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmvSwitchEventSubscribe0(void* enginehandle, void* subscription, void* callback, void* context, void* subscriptionhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3258,7 +3258,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmvSwitchEventUnsubscribe0(void* enginehandle, void* subscriptionhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmvSwitchEventUnsubscribe0(void* enginehandle, void* subscriptionhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3281,7 +3281,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmvSwitchEventsGetSecurityInfo0(void* enginehandle, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl, void* securitydescriptor) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmvSwitchEventsGetSecurityInfo0(void* enginehandle, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl, void* securitydescriptor) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3309,7 +3309,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_FwpmvSwitchEventsSetSecurityInfo0(void* enginehandle, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_fwpmvSwitchEventsSetSecurityInfo0(void* enginehandle, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3336,7 +3336,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Fwp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecDospGetSecurityInfo0(void* enginehandle, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl, void* securitydescriptor) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecDospGetSecurityInfo0(void* enginehandle, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl, void* securitydescriptor) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3364,7 +3364,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecDospGetStatistics0(void* enginehandle, void* idpstatistics) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecDospGetStatistics0(void* enginehandle, void* idpstatistics) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3387,7 +3387,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecDospSetSecurityInfo0(void* enginehandle, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecDospSetSecurityInfo0(void* enginehandle, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3414,7 +3414,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecDospStateCreateEnumHandle0(void* enginehandle, void* enumtemplate, void* enumhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecDospStateCreateEnumHandle0(void* enginehandle, void* enumtemplate, void* enumhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3438,7 +3438,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecDospStateDestroyEnumHandle0(void* enginehandle, void* enumhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecDospStateDestroyEnumHandle0(void* enginehandle, void* enumhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3461,7 +3461,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecDospStateEnum0(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentries) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecDospStateEnum0(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentries) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3487,7 +3487,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecGetStatistics0(void* enginehandle, void* ipsecstatistics) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecGetStatistics0(void* enginehandle, void* ipsecstatistics) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3510,7 +3510,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecGetStatistics1(void* enginehandle, void* ipsecstatistics) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecGetStatistics1(void* enginehandle, void* ipsecstatistics) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3533,7 +3533,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecKeyManagerAddAndRegister0(void* enginehandle, void* keymanager, void* keymanagercallbacks, void* keymgmthandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecKeyManagerAddAndRegister0(void* enginehandle, void* keymanager, void* keymanagercallbacks, void* keymgmthandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3558,7 +3558,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecKeyManagerGetSecurityInfoByKey0(void* enginehandle, void* reserved, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl, void* securitydescriptor) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecKeyManagerGetSecurityInfoByKey0(void* enginehandle, void* reserved, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl, void* securitydescriptor) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3587,7 +3587,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecKeyManagerSetSecurityInfoByKey0(void* enginehandle, void* reserved, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecKeyManagerSetSecurityInfoByKey0(void* enginehandle, void* reserved, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3615,7 +3615,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecKeyManagerUnregisterAndDelete0(void* enginehandle, void* keymgmthandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecKeyManagerUnregisterAndDelete0(void* enginehandle, void* keymgmthandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3638,7 +3638,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecKeyManagersGet0(void* enginehandle, void* entries, void* numentries) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecKeyManagersGet0(void* enginehandle, void* entries, void* numentries) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3662,7 +3662,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextAddInbound0(void* enginehandle, uint64_t id, void* inboundbundle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextAddInbound0(void* enginehandle, uint64_t id, void* inboundbundle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3686,7 +3686,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextAddInbound1(void* enginehandle, uint64_t id, void* inboundbundle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextAddInbound1(void* enginehandle, uint64_t id, void* inboundbundle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3710,7 +3710,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextAddOutbound0(void* enginehandle, uint64_t id, void* outboundbundle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextAddOutbound0(void* enginehandle, uint64_t id, void* outboundbundle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3734,7 +3734,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextAddOutbound1(void* enginehandle, uint64_t id, void* outboundbundle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextAddOutbound1(void* enginehandle, uint64_t id, void* outboundbundle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3758,7 +3758,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextCreate0(void* enginehandle, void* outboundtraffic, void* inboundfilterid, void* id) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextCreate0(void* enginehandle, void* outboundtraffic, void* inboundfilterid, void* id) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3783,7 +3783,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextCreate1(void* enginehandle, void* outboundtraffic, void* virtualiftunnelinfo, void* inboundfilterid, void* id) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextCreate1(void* enginehandle, void* outboundtraffic, void* virtualiftunnelinfo, void* inboundfilterid, void* id) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3809,7 +3809,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextCreateEnumHandle0(void* enginehandle, void* enumtemplate, void* enumhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextCreateEnumHandle0(void* enginehandle, void* enumtemplate, void* enumhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3833,7 +3833,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextDeleteById0(void* enginehandle, uint64_t id) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextDeleteById0(void* enginehandle, uint64_t id) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3856,7 +3856,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextDestroyEnumHandle0(void* enginehandle, void* enumhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextDestroyEnumHandle0(void* enginehandle, void* enumhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3879,7 +3879,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextEnum0(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextEnum0(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3905,7 +3905,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextEnum1(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextEnum1(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3931,7 +3931,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextExpire0(void* enginehandle, uint64_t id) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextExpire0(void* enginehandle, uint64_t id) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3954,7 +3954,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextGetById0(void* enginehandle, uint64_t id, void* sacontext) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextGetById0(void* enginehandle, uint64_t id, void* sacontext) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3978,7 +3978,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextGetById1(void* enginehandle, uint64_t id, void* sacontext) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextGetById1(void* enginehandle, uint64_t id, void* sacontext) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4002,7 +4002,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextGetSpi0(void* enginehandle, uint64_t id, void* getspi, void* inboundspi) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextGetSpi0(void* enginehandle, uint64_t id, void* getspi, void* inboundspi) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4027,7 +4027,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextGetSpi1(void* enginehandle, uint64_t id, void* getspi, void* inboundspi) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextGetSpi1(void* enginehandle, uint64_t id, void* getspi, void* inboundspi) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4052,7 +4052,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextSetSpi0(void* enginehandle, uint64_t id, void* getspi, uint32_t inboundspi) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextSetSpi0(void* enginehandle, uint64_t id, void* getspi, uint32_t inboundspi) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4077,7 +4077,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextSubscribe0(void* enginehandle, void* subscription, void* callback, void* context, void* eventshandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextSubscribe0(void* enginehandle, void* subscription, void* callback, void* context, void* eventshandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4103,7 +4103,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextSubscriptionsGet0(void* enginehandle, void* entries, void* numentries) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextSubscriptionsGet0(void* enginehandle, void* entries, void* numentries) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4127,7 +4127,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextUnsubscribe0(void* enginehandle, void* eventshandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextUnsubscribe0(void* enginehandle, void* eventshandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4150,7 +4150,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaContextUpdate0(void* enginehandle, uint64_t flags, void* newvalues) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaContextUpdate0(void* enginehandle, uint64_t flags, void* newvalues) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4174,7 +4174,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaCreateEnumHandle0(void* enginehandle, void* enumtemplate, void* enumhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaCreateEnumHandle0(void* enginehandle, void* enumtemplate, void* enumhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4198,7 +4198,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaDbGetSecurityInfo0(void* enginehandle, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl, void* securitydescriptor) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaDbGetSecurityInfo0(void* enginehandle, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl, void* securitydescriptor) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4226,7 +4226,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaDbSetSecurityInfo0(void* enginehandle, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaDbSetSecurityInfo0(void* enginehandle, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4253,7 +4253,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaDestroyEnumHandle0(void* enginehandle, void* enumhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaDestroyEnumHandle0(void* enginehandle, void* enumhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4276,7 +4276,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaEnum0(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaEnum0(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4302,7 +4302,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPsecSaEnum1(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_iPsecSaEnum1(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4328,7 +4328,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IPs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IkeextGetStatistics0(void* enginehandle, void* ikeextstatistics) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_ikeextGetStatistics0(void* enginehandle, void* ikeextstatistics) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4351,7 +4351,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Ike
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IkeextGetStatistics1(void* enginehandle, void* ikeextstatistics) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_ikeextGetStatistics1(void* enginehandle, void* ikeextstatistics) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4374,7 +4374,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Ike
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IkeextSaCreateEnumHandle0(void* enginehandle, void* enumtemplate, void* enumhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_ikeextSaCreateEnumHandle0(void* enginehandle, void* enumtemplate, void* enumhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4398,7 +4398,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Ike
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IkeextSaDbGetSecurityInfo0(void* enginehandle, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl, void* securitydescriptor) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_ikeextSaDbGetSecurityInfo0(void* enginehandle, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl, void* securitydescriptor) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4426,7 +4426,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Ike
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IkeextSaDbSetSecurityInfo0(void* enginehandle, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_ikeextSaDbSetSecurityInfo0(void* enginehandle, uint32_t securityinfo, void* sidowner, void* sidgroup, void* dacl, void* sacl) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4453,7 +4453,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Ike
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IkeextSaDeleteById0(void* enginehandle, uint64_t id) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_ikeextSaDeleteById0(void* enginehandle, uint64_t id) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4476,7 +4476,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Ike
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IkeextSaDestroyEnumHandle0(void* enginehandle, void* enumhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_ikeextSaDestroyEnumHandle0(void* enginehandle, void* enumhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4499,7 +4499,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Ike
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IkeextSaEnum0(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_ikeextSaEnum0(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4525,7 +4525,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Ike
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IkeextSaEnum1(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_ikeextSaEnum1(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4551,7 +4551,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Ike
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IkeextSaEnum2(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_ikeextSaEnum2(void* enginehandle, void* enumhandle, uint32_t numentriesrequested, void* entries, void* numentriesreturned) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4577,7 +4577,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Ike
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IkeextSaGetById0(void* enginehandle, uint64_t id, void* sa) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_ikeextSaGetById0(void* enginehandle, uint64_t id, void* sa) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4601,7 +4601,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Ike
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IkeextSaGetById1(void* enginehandle, uint64_t id, void* salookupcontext, void* sa) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_ikeextSaGetById1(void* enginehandle, uint64_t id, void* salookupcontext, void* sa) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4626,7 +4626,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_Ike
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_IkeextSaGetById2(void* enginehandle, uint64_t id, void* salookupcontext, void* sa) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsfilteringplatform_ikeextSaGetById2(void* enginehandle, uint64_t id, void* salookupcontext, void* sa) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

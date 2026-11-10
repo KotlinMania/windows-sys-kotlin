@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_AddISNSServerA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_addISNSServerA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* address = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -69,7 +69,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_AddISNSServerA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_AddISNSServerW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_addISNSServerW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* address = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -87,7 +87,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_AddISNSServerW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_AddIScsiConnectionA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_addIScsiConnectionA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* uniquesessionid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* reserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -121,7 +121,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_AddIScsiConnection
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_AddIScsiConnectionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_addIScsiConnectionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* uniquesessionid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* reserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -155,7 +155,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_AddIScsiConnection
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_AddIScsiSendTargetPortalA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_addIScsiSendTargetPortalA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* initiatorinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t initiatorportnumber = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -181,7 +181,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_AddIScsiSendTarget
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_AddIScsiSendTargetPortalW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_addIScsiSendTargetPortalW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* initiatorinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t initiatorportnumber = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -207,7 +207,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_AddIScsiSendTarget
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_AddIScsiStaticTargetA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_addIScsiStaticTargetA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* targetname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* targetalias = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -237,7 +237,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_AddIScsiStaticTarg
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_AddIScsiStaticTargetW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_addIScsiStaticTargetW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* targetname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* targetalias = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -267,7 +267,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_AddIScsiStaticTarg
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_AddPersistentIScsiDeviceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_addPersistentIScsiDeviceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* devicepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -285,7 +285,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_AddPersistentIScsi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_AddPersistentIScsiDeviceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_addPersistentIScsiDeviceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* devicepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -303,7 +303,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_AddPersistentIScsi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_AddRadiusServerA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_addRadiusServerA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* address = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -321,7 +321,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_AddRadiusServerA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_AddRadiusServerW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_addRadiusServerW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* address = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -339,7 +339,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_AddRadiusServerW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_ClearPersistentIScsiDevices_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_clearPersistentIScsiDevices_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -355,7 +355,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_ClearPersistentISc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_GetDevicesForIScsiSessionA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_getDevicesForIScsiSessionA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* uniquesessionid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* devicecount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -377,7 +377,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_GetDevicesForIScsi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_GetDevicesForIScsiSessionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_getDevicesForIScsiSessionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* uniquesessionid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* devicecount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -399,7 +399,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_GetDevicesForIScsi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_GetIScsiIKEInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_getIScsiIKEInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* initiatorname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t initiatorportnumber = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -423,7 +423,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_GetIScsiIKEInfoA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_GetIScsiIKEInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_getIScsiIKEInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* initiatorname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t initiatorportnumber = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -447,7 +447,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_GetIScsiIKEInfoW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_GetIScsiInitiatorNodeNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_getIScsiInitiatorNodeNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* initiatornodename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -465,7 +465,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_GetIScsiInitiatorN
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_GetIScsiInitiatorNodeNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_getIScsiInitiatorNodeNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* initiatornodename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -483,7 +483,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_GetIScsiInitiatorN
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_GetIScsiSessionListA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_getIScsiSessionListA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* buffersize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sessioncount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -505,7 +505,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_GetIScsiSessionLis
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_GetIScsiSessionListEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_getIScsiSessionListEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* buffersize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sessioncountptr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -527,7 +527,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_GetIScsiSessionLis
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_GetIScsiSessionListW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_getIScsiSessionListW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* buffersize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sessioncount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -549,7 +549,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_GetIScsiSessionLis
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_GetIScsiTargetInformationA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_getIScsiTargetInformationA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* targetname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* discoverymechanism = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -575,7 +575,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_GetIScsiTargetInfo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_GetIScsiTargetInformationW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_getIScsiTargetInformationW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* targetname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* discoverymechanism = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -601,7 +601,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_GetIScsiTargetInfo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_GetIScsiVersionInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_getIScsiVersionInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* versioninfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -619,7 +619,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_GetIScsiVersionInf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_LoginIScsiTargetA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_loginIScsiTargetA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* targetname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     bool isinformationalsession = km_info.Length() > 1 ? km_info[1].ToBoolean().Value() : false;
@@ -661,7 +661,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_LoginIScsiTargetA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_LoginIScsiTargetW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_loginIScsiTargetW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* targetname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     bool isinformationalsession = km_info.Length() > 1 ? km_info[1].ToBoolean().Value() : false;
@@ -703,7 +703,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_LoginIScsiTargetW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_LogoutIScsiTarget_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_logoutIScsiTarget_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* uniquesessionid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -721,7 +721,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_LogoutIScsiTarget_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_RefreshISNSServerA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_refreshISNSServerA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* address = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -739,7 +739,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_RefreshISNSServerA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_RefreshISNSServerW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_refreshISNSServerW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* address = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -757,7 +757,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_RefreshISNSServerW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_RefreshIScsiSendTargetPortalA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_refreshIScsiSendTargetPortalA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* initiatorinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t initiatorportnumber = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -779,7 +779,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_RefreshIScsiSendTa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_RefreshIScsiSendTargetPortalW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_refreshIScsiSendTargetPortalW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* initiatorinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t initiatorportnumber = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -801,7 +801,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_RefreshIScsiSendTa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_RemoveISNSServerA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_removeISNSServerA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* address = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -819,7 +819,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_RemoveISNSServerA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_RemoveISNSServerW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_removeISNSServerW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* address = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -837,7 +837,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_RemoveISNSServerW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_RemoveIScsiConnection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_removeIScsiConnection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* uniquesessionid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* connectionid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -857,7 +857,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_RemoveIScsiConnect
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_RemoveIScsiPersistentTargetA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_removeIScsiPersistentTargetA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* initiatorinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t initiatorportnumber = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -881,7 +881,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_RemoveIScsiPersist
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_RemoveIScsiPersistentTargetW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_removeIScsiPersistentTargetW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* initiatorinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t initiatorportnumber = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -905,7 +905,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_RemoveIScsiPersist
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_RemoveIScsiSendTargetPortalA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_removeIScsiSendTargetPortalA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* initiatorinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t initiatorportnumber = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -927,7 +927,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_RemoveIScsiSendTar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_RemoveIScsiSendTargetPortalW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_removeIScsiSendTargetPortalW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* initiatorinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t initiatorportnumber = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -949,7 +949,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_RemoveIScsiSendTar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_RemoveIScsiStaticTargetA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_removeIScsiStaticTargetA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* targetname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -967,7 +967,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_RemoveIScsiStaticT
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_RemoveIScsiStaticTargetW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_removeIScsiStaticTargetW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* targetname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -985,7 +985,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_RemoveIScsiStaticT
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_RemovePersistentIScsiDeviceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_removePersistentIScsiDeviceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* devicepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1003,7 +1003,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_RemovePersistentIS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_RemovePersistentIScsiDeviceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_removePersistentIScsiDeviceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* devicepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1021,7 +1021,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_RemovePersistentIS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_RemoveRadiusServerA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_removeRadiusServerA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* address = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1039,7 +1039,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_RemoveRadiusServer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_RemoveRadiusServerW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_removeRadiusServerW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* address = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1057,7 +1057,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_RemoveRadiusServer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportActiveIScsiTargetMappingsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportActiveIScsiTargetMappingsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* buffersize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* mappingcount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1079,7 +1079,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportActiveIScsiT
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportActiveIScsiTargetMappingsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportActiveIScsiTargetMappingsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* buffersize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* mappingcount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1101,7 +1101,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportActiveIScsiT
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportISNSServerListA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportISNSServerListA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* buffersizeinchar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1121,7 +1121,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportISNSServerLi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportISNSServerListW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportISNSServerListW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* buffersizeinchar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1141,7 +1141,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportISNSServerLi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportIScsiInitiatorListA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportIScsiInitiatorListA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* buffersize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1161,7 +1161,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportIScsiInitiat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportIScsiInitiatorListW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportIScsiInitiatorListW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* buffersize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1181,7 +1181,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportIScsiInitiat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportIScsiPersistentLoginsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportIScsiPersistentLoginsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* count = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* persistentlogininfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1203,7 +1203,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportIScsiPersist
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportIScsiPersistentLoginsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportIScsiPersistentLoginsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* count = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* persistentlogininfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1225,7 +1225,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportIScsiPersist
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportIScsiSendTargetPortalsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* portalcount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* portalinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1245,7 +1245,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportIScsiSendTar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportIScsiSendTargetPortalsExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* portalcount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* portalinfosize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1267,7 +1267,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportIScsiSendTar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportIScsiSendTargetPortalsExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* portalcount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* portalinfosize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1289,7 +1289,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportIScsiSendTar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportIScsiSendTargetPortalsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* portalcount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* portalinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1309,7 +1309,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportIScsiSendTar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportIScsiTargetPortalsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetPortalsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* initiatorname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* targetname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1335,7 +1335,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportIScsiTargetP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportIScsiTargetPortalsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetPortalsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* initiatorname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* targetname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1361,7 +1361,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportIScsiTargetP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportIScsiTargetsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     bool forceupdate = km_info.Length() > 0 ? km_info[0].ToBoolean().Value() : false;
     void* buffersize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1383,7 +1383,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportIScsiTargets
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportIScsiTargetsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     bool forceupdate = km_info.Length() > 0 ? km_info[0].ToBoolean().Value() : false;
     void* buffersize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1405,7 +1405,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportIScsiTargets
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportPersistentIScsiDevicesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportPersistentIScsiDevicesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* buffersizeinchar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1425,7 +1425,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportPersistentIS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportPersistentIScsiDevicesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportPersistentIScsiDevicesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* buffersizeinchar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1445,7 +1445,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportPersistentIS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportRadiusServerListA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportRadiusServerListA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* buffersizeinchar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1465,7 +1465,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportRadiusServer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportRadiusServerListW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportRadiusServerListW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* buffersizeinchar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1485,7 +1485,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_ReportRadiusServer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_SendScsiInquiry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_sendScsiInquiry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* uniquesessionid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t lun = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1519,7 +1519,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_SendScsiInquiry_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_SendScsiReadCapacity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_sendScsiReadCapacity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* uniquesessionid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t lun = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1549,7 +1549,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_SendScsiReadCapaci
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_SendScsiReportLuns_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_sendScsiReportLuns_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* uniquesessionid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* scsistatus = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1577,7 +1577,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_SendScsiReportLuns
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_SetIScsiGroupPresharedKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_setIScsiGroupPresharedKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t keylength = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* key = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1599,7 +1599,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_SetIScsiGroupPresh
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_SetIScsiIKEInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_setIScsiIKEInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* initiatorname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t initiatorportnumber = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1623,7 +1623,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_SetIScsiIKEInfoA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_SetIScsiIKEInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_setIScsiIKEInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* initiatorname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t initiatorportnumber = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1647,7 +1647,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_SetIScsiIKEInfoW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_SetIScsiInitiatorCHAPSharedSecret_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorCHAPSharedSecret_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sharedsecretlength = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* sharedsecret = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1667,7 +1667,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_SetIScsiInitiatorC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_SetIScsiInitiatorNodeNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorNodeNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* initiatornodename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1685,7 +1685,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_SetIScsiInitiatorN
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_SetIScsiInitiatorNodeNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorNodeNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* initiatornodename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1703,7 +1703,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_SetIScsiInitiatorN
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_SetIScsiInitiatorRADIUSSharedSecret_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorRADIUSSharedSecret_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sharedsecretlength = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* sharedsecret = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1723,7 +1723,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_SetIScsiInitiatorR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_SetIScsiTunnelModeOuterAddressA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_setIScsiTunnelModeOuterAddressA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* initiatorname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t initiatorportnumber = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1749,7 +1749,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_SetIScsiTunnelMode
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_SetIScsiTunnelModeOuterAddressW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_setIScsiTunnelModeOuterAddressW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* initiatorname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t initiatorportnumber = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1775,7 +1775,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_SetIScsiTunnelMode
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_SetupPersistentIScsiDevices_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_setupPersistentIScsiDevices_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -1791,7 +1791,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_SetupPersistentISc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_iscsidisc_SetupPersistentIScsiVolumes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_iscsidisc_setupPersistentIScsiVolumes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -1808,85 +1808,85 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_SetupPersistentISc
 }
 
 static void register_windows_win32_storage_iscsidisc_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_AddISNSServerA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_AddISNSServerA_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_AddISNSServerW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_AddISNSServerW_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_AddIScsiConnectionA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_AddIScsiConnectionA_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_AddIScsiConnectionW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_AddIScsiConnectionW_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_AddIScsiSendTargetPortalA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_AddIScsiSendTargetPortalA_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_AddIScsiSendTargetPortalW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_AddIScsiSendTargetPortalW_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_AddIScsiStaticTargetA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_AddIScsiStaticTargetA_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_AddIScsiStaticTargetW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_AddIScsiStaticTargetW_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_AddPersistentIScsiDeviceA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_AddPersistentIScsiDeviceA_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_AddPersistentIScsiDeviceW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_AddPersistentIScsiDeviceW_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_AddRadiusServerA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_AddRadiusServerA_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_AddRadiusServerW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_AddRadiusServerW_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_ClearPersistentIScsiDevices", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_ClearPersistentIScsiDevices_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_GetDevicesForIScsiSessionA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_GetDevicesForIScsiSessionA_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_GetDevicesForIScsiSessionW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_GetDevicesForIScsiSessionW_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_GetIScsiIKEInfoA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_GetIScsiIKEInfoA_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_GetIScsiIKEInfoW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_GetIScsiIKEInfoW_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_GetIScsiInitiatorNodeNameA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_GetIScsiInitiatorNodeNameA_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_GetIScsiInitiatorNodeNameW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_GetIScsiInitiatorNodeNameW_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_GetIScsiSessionListA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_GetIScsiSessionListA_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_GetIScsiSessionListEx", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_GetIScsiSessionListEx_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_GetIScsiSessionListW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_GetIScsiSessionListW_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_GetIScsiTargetInformationA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_GetIScsiTargetInformationA_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_GetIScsiTargetInformationW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_GetIScsiTargetInformationW_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_GetIScsiVersionInformation", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_GetIScsiVersionInformation_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_LoginIScsiTargetA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_LoginIScsiTargetA_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_LoginIScsiTargetW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_LoginIScsiTargetW_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_LogoutIScsiTarget", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_LogoutIScsiTarget_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_RefreshISNSServerA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_RefreshISNSServerA_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_RefreshISNSServerW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_RefreshISNSServerW_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_RefreshIScsiSendTargetPortalA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_RefreshIScsiSendTargetPortalA_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_RefreshIScsiSendTargetPortalW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_RefreshIScsiSendTargetPortalW_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_RemoveISNSServerA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_RemoveISNSServerA_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_RemoveISNSServerW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_RemoveISNSServerW_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_RemoveIScsiConnection", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_RemoveIScsiConnection_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_RemoveIScsiPersistentTargetA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_RemoveIScsiPersistentTargetA_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_RemoveIScsiPersistentTargetW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_RemoveIScsiPersistentTargetW_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_RemoveIScsiSendTargetPortalA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_RemoveIScsiSendTargetPortalA_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_RemoveIScsiSendTargetPortalW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_RemoveIScsiSendTargetPortalW_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_RemoveIScsiStaticTargetA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_RemoveIScsiStaticTargetA_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_RemoveIScsiStaticTargetW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_RemoveIScsiStaticTargetW_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_RemovePersistentIScsiDeviceA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_RemovePersistentIScsiDeviceA_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_RemovePersistentIScsiDeviceW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_RemovePersistentIScsiDeviceW_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_RemoveRadiusServerA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_RemoveRadiusServerA_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_RemoveRadiusServerW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_RemoveRadiusServerW_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_ReportActiveIScsiTargetMappingsA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_ReportActiveIScsiTargetMappingsA_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_ReportActiveIScsiTargetMappingsW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_ReportActiveIScsiTargetMappingsW_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_ReportISNSServerListA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_ReportISNSServerListA_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_ReportISNSServerListW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_ReportISNSServerListW_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_ReportIScsiInitiatorListA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_ReportIScsiInitiatorListA_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_ReportIScsiInitiatorListW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_ReportIScsiInitiatorListW_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_ReportIScsiPersistentLoginsA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_ReportIScsiPersistentLoginsA_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_ReportIScsiPersistentLoginsW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_ReportIScsiPersistentLoginsW_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_ReportIScsiSendTargetPortalsA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_ReportIScsiSendTargetPortalsA_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_ReportIScsiSendTargetPortalsExA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_ReportIScsiSendTargetPortalsExA_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_ReportIScsiSendTargetPortalsExW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_ReportIScsiSendTargetPortalsExW_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_ReportIScsiSendTargetPortalsW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_ReportIScsiSendTargetPortalsW_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_ReportIScsiTargetPortalsA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_ReportIScsiTargetPortalsA_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_ReportIScsiTargetPortalsW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_ReportIScsiTargetPortalsW_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_ReportIScsiTargetsA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_ReportIScsiTargetsA_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_ReportIScsiTargetsW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_ReportIScsiTargetsW_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_ReportPersistentIScsiDevicesA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_ReportPersistentIScsiDevicesA_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_ReportPersistentIScsiDevicesW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_ReportPersistentIScsiDevicesW_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_ReportRadiusServerListA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_ReportRadiusServerListA_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_ReportRadiusServerListW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_ReportRadiusServerListW_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_SendScsiInquiry", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_SendScsiInquiry_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_SendScsiReadCapacity", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_SendScsiReadCapacity_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_SendScsiReportLuns", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_SendScsiReportLuns_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_SetIScsiGroupPresharedKey", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_SetIScsiGroupPresharedKey_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_SetIScsiIKEInfoA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_SetIScsiIKEInfoA_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_SetIScsiIKEInfoW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_SetIScsiIKEInfoW_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_SetIScsiInitiatorCHAPSharedSecret", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_SetIScsiInitiatorCHAPSharedSecret_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_SetIScsiInitiatorNodeNameA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_SetIScsiInitiatorNodeNameA_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_SetIScsiInitiatorNodeNameW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_SetIScsiInitiatorNodeNameW_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_SetIScsiInitiatorRADIUSSharedSecret", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_SetIScsiInitiatorRADIUSSharedSecret_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_SetIScsiTunnelModeOuterAddressA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_SetIScsiTunnelModeOuterAddressA_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_SetIScsiTunnelModeOuterAddressW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_SetIScsiTunnelModeOuterAddressW_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_SetupPersistentIScsiDevices", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_SetupPersistentIScsiDevices_napi));
-    exports.Set("windowssys_windows_win32_storage_iscsidisc_SetupPersistentIScsiVolumes", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_SetupPersistentIScsiVolumes_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_addISNSServerA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_addISNSServerA_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_addISNSServerW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_addISNSServerW_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_addIScsiConnectionA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_addIScsiConnectionA_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_addIScsiConnectionW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_addIScsiConnectionW_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_addIScsiSendTargetPortalA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_addIScsiSendTargetPortalA_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_addIScsiSendTargetPortalW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_addIScsiSendTargetPortalW_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_addIScsiStaticTargetA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_addIScsiStaticTargetA_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_addIScsiStaticTargetW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_addIScsiStaticTargetW_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_addPersistentIScsiDeviceA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_addPersistentIScsiDeviceA_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_addPersistentIScsiDeviceW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_addPersistentIScsiDeviceW_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_addRadiusServerA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_addRadiusServerA_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_addRadiusServerW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_addRadiusServerW_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_clearPersistentIScsiDevices", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_clearPersistentIScsiDevices_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_getDevicesForIScsiSessionA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_getDevicesForIScsiSessionA_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_getDevicesForIScsiSessionW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_getDevicesForIScsiSessionW_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_getIScsiIKEInfoA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_getIScsiIKEInfoA_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_getIScsiIKEInfoW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_getIScsiIKEInfoW_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_getIScsiInitiatorNodeNameA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_getIScsiInitiatorNodeNameA_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_getIScsiInitiatorNodeNameW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_getIScsiInitiatorNodeNameW_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_getIScsiSessionListA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_getIScsiSessionListA_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_getIScsiSessionListEx", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_getIScsiSessionListEx_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_getIScsiSessionListW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_getIScsiSessionListW_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_getIScsiTargetInformationA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_getIScsiTargetInformationA_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_getIScsiTargetInformationW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_getIScsiTargetInformationW_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_getIScsiVersionInformation", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_getIScsiVersionInformation_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_loginIScsiTargetA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_loginIScsiTargetA_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_loginIScsiTargetW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_loginIScsiTargetW_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_logoutIScsiTarget", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_logoutIScsiTarget_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_refreshISNSServerA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_refreshISNSServerA_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_refreshISNSServerW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_refreshISNSServerW_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_refreshIScsiSendTargetPortalA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_refreshIScsiSendTargetPortalA_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_refreshIScsiSendTargetPortalW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_refreshIScsiSendTargetPortalW_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_removeISNSServerA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_removeISNSServerA_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_removeISNSServerW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_removeISNSServerW_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_removeIScsiConnection", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_removeIScsiConnection_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_removeIScsiPersistentTargetA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_removeIScsiPersistentTargetA_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_removeIScsiPersistentTargetW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_removeIScsiPersistentTargetW_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_removeIScsiSendTargetPortalA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_removeIScsiSendTargetPortalA_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_removeIScsiSendTargetPortalW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_removeIScsiSendTargetPortalW_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_removeIScsiStaticTargetA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_removeIScsiStaticTargetA_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_removeIScsiStaticTargetW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_removeIScsiStaticTargetW_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_removePersistentIScsiDeviceA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_removePersistentIScsiDeviceA_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_removePersistentIScsiDeviceW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_removePersistentIScsiDeviceW_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_removeRadiusServerA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_removeRadiusServerA_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_removeRadiusServerW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_removeRadiusServerW_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_reportActiveIScsiTargetMappingsA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_reportActiveIScsiTargetMappingsA_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_reportActiveIScsiTargetMappingsW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_reportActiveIScsiTargetMappingsW_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_reportISNSServerListA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_reportISNSServerListA_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_reportISNSServerListW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_reportISNSServerListW_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_reportIScsiInitiatorListA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_reportIScsiInitiatorListA_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_reportIScsiInitiatorListW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_reportIScsiInitiatorListW_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_reportIScsiPersistentLoginsA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_reportIScsiPersistentLoginsA_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_reportIScsiPersistentLoginsW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_reportIScsiPersistentLoginsW_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsA_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsExA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsExA_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsExW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsExW_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsW_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetPortalsA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetPortalsA_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetPortalsW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetPortalsW_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetsA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetsA_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetsW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetsW_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_reportPersistentIScsiDevicesA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_reportPersistentIScsiDevicesA_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_reportPersistentIScsiDevicesW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_reportPersistentIScsiDevicesW_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_reportRadiusServerListA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_reportRadiusServerListA_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_reportRadiusServerListW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_reportRadiusServerListW_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_sendScsiInquiry", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_sendScsiInquiry_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_sendScsiReadCapacity", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_sendScsiReadCapacity_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_sendScsiReportLuns", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_sendScsiReportLuns_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_setIScsiGroupPresharedKey", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_setIScsiGroupPresharedKey_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_setIScsiIKEInfoA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_setIScsiIKEInfoA_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_setIScsiIKEInfoW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_setIScsiIKEInfoW_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorCHAPSharedSecret", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorCHAPSharedSecret_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorNodeNameA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorNodeNameA_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorNodeNameW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorNodeNameW_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorRADIUSSharedSecret", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorRADIUSSharedSecret_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_setIScsiTunnelModeOuterAddressA", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_setIScsiTunnelModeOuterAddressA_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_setIScsiTunnelModeOuterAddressW", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_setIScsiTunnelModeOuterAddressW_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_setupPersistentIScsiDevices", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_setupPersistentIScsiDevices_napi));
+    exports.Set("windowssys_windows_win32_storage_iscsidisc_setupPersistentIScsiVolumes", Napi::Function::New(env, windowssys_windows_win32_storage_iscsidisc_setupPersistentIScsiVolumes_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_storage_iscsidisc_napi, nullptr };

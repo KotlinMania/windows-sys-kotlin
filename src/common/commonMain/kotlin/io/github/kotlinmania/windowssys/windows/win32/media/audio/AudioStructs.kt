@@ -1,19 +1,21 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.media.audio
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.HICON
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage.Propvariant
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hicon
 
-public data class ACMDRIVERDETAILSA(
+public data class Acmdriverdetailsa(
     public var cbStruct: UInt = 0u,
     public var fccType: UInt = 0u,
     public var fccComp: UInt = 0u,
@@ -24,7 +26,7 @@ public data class ACMDRIVERDETAILSA(
     public var fdwSupport: UInt = 0u,
     public var cFormatTags: UInt = 0u,
     public var cFilterTags: UInt = 0u,
-    public var hicon: HICON = 0L,
+    public var hicon: Hicon = null,
     public var szShortName: ByteArray = ByteArray(32),
     public var szLongName: ByteArray = ByteArray(128),
     public var szCopyright: ByteArray = ByteArray(80),
@@ -33,7 +35,7 @@ public data class ACMDRIVERDETAILSA(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is ACMDRIVERDETAILSA) return false
+        if (other !is Acmdriverdetailsa) return false
         if (this.cbStruct != other.cbStruct) return false
         if (this.fccType != other.fccType) return false
         if (this.fccComp != other.fccComp) return false
@@ -74,7 +76,7 @@ public data class ACMDRIVERDETAILSA(
     }
 }
 
-public data class ACMDRIVERDETAILSW(
+public data class Acmdriverdetailsw(
     public var cbStruct: UInt = 0u,
     public var fccType: UInt = 0u,
     public var fccComp: UInt = 0u,
@@ -85,7 +87,7 @@ public data class ACMDRIVERDETAILSW(
     public var fdwSupport: UInt = 0u,
     public var cFormatTags: UInt = 0u,
     public var cFilterTags: UInt = 0u,
-    public var hicon: HICON = 0L,
+    public var hicon: Hicon = null,
     public var szShortName: UShortArray = UShortArray(32),
     public var szLongName: UShortArray = UShortArray(128),
     public var szCopyright: UShortArray = UShortArray(80),
@@ -94,7 +96,7 @@ public data class ACMDRIVERDETAILSW(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is ACMDRIVERDETAILSW) return false
+        if (other !is Acmdriverdetailsw) return false
         if (this.cbStruct != other.cbStruct) return false
         if (this.fccType != other.fccType) return false
         if (this.fccComp != other.fccComp) return false
@@ -135,104 +137,104 @@ public data class ACMDRIVERDETAILSW(
     }
 }
 
-public data class ACMDRVFORMATSUGGEST(
+public data class Acmdrvformatsuggest(
     public var cbStruct: UInt = 0u,
     public var fdwSuggest: UInt = 0u,
-    public var pwfxSrc: Long = 0L,
+    public var pwfxSrc: Waveformatex? = null,
     public var cbwfxSrc: UInt = 0u,
-    public var pwfxDst: Long = 0L,
+    public var pwfxDst: Waveformatex? = null,
     public var cbwfxDst: UInt = 0u,
 )
 
-public data class ACMDRVOPENDESCA(
+public data class Acmdrvopendesca(
     public var cbStruct: UInt = 0u,
     public var fccType: UInt = 0u,
     public var fccComp: UInt = 0u,
     public var dwVersion: UInt = 0u,
     public var dwFlags: UInt = 0u,
     public var dwError: UInt = 0u,
-    public var pszSectionName: PCSTR = 0L,
-    public var pszAliasName: PCSTR = 0L,
+    public var pszSectionName: Pcstr = null,
+    public var pszAliasName: Pcstr = null,
     public var dnDevNode: UInt = 0u,
 )
 
-public data class ACMDRVOPENDESCW(
+public data class Acmdrvopendescw(
     public var cbStruct: UInt = 0u,
     public var fccType: UInt = 0u,
     public var fccComp: UInt = 0u,
     public var dwVersion: UInt = 0u,
     public var dwFlags: UInt = 0u,
     public var dwError: UInt = 0u,
-    public var pszSectionName: PCWSTR = 0L,
-    public var pszAliasName: PCWSTR = 0L,
+    public var pszSectionName: Pcwstr = null,
+    public var pszAliasName: Pcwstr = null,
     public var dnDevNode: UInt = 0u,
 )
 
-public class ACMDRVSTREAMHEADER(
+public class Acmdrvstreamheader(
     public var cbStruct: UInt = 0u,
     public var fdwStatus: UInt = 0u,
-    public var dwUser: ULong = 0uL,
-    public var pbSrc: Long = 0L,
+    public var dwUser: Int = 0,
+    public var pbSrc: COpaquePointer? = null,
     public var cbSrcLength: UInt = 0u,
     public var cbSrcLengthUsed: UInt = 0u,
-    public var dwSrcUser: ULong = 0uL,
-    public var pbDst: Long = 0L,
+    public var dwSrcUser: Int = 0,
+    public var pbDst: COpaquePointer? = null,
     public var cbDstLength: UInt = 0u,
     public var cbDstLengthUsed: UInt = 0u,
-    public var dwDstUser: ULong = 0uL,
+    public var dwDstUser: Int = 0,
     public var fdwConvert: UInt = 0u,
-    public var padshNext: Long = 0L,
+    public var padshNext: Acmdrvstreamheader? = null,
     public var fdwDriver: UInt = 0u,
-    public var dwDriver: ULong = 0uL,
+    public var dwDriver: Int = 0,
     public var fdwPrepared: UInt = 0u,
-    public var dwPrepared: ULong = 0uL,
-    public var pbPreparedSrc: Long = 0L,
+    public var dwPrepared: Int = 0,
+    public var pbPreparedSrc: COpaquePointer? = null,
     public var cbPreparedSrcLength: UInt = 0u,
-    public var pbPreparedDst: Long = 0L,
+    public var pbPreparedDst: COpaquePointer? = null,
     public var cbPreparedDstLength: UInt = 0u,
 )
 
-public data class ACMDRVSTREAMINSTANCE(
+public data class Acmdrvstreaminstance(
     public var cbStruct: UInt = 0u,
-    public var pwfxSrc: Long = 0L,
-    public var pwfxDst: Long = 0L,
-    public var pwfltr: Long = 0L,
-    public var dwCallback: ULong = 0uL,
-    public var dwInstance: ULong = 0uL,
+    public var pwfxSrc: Waveformatex? = null,
+    public var pwfxDst: Waveformatex? = null,
+    public var pwfltr: Wavefilter? = null,
+    public var dwCallback: Int = 0,
+    public var dwInstance: Int = 0,
     public var fdwOpen: UInt = 0u,
     public var fdwDriver: UInt = 0u,
-    public var dwDriver: ULong = 0uL,
-    public var has: HACMSTREAM = 0L,
+    public var dwDriver: Int = 0,
+    public var has: Hacmstream = null,
 )
 
-public data class ACMDRVSTREAMSIZE(
+public data class Acmdrvstreamsize(
     public var cbStruct: UInt = 0u,
     public var fdwSize: UInt = 0u,
     public var cbSrcLength: UInt = 0u,
     public var cbDstLength: UInt = 0u,
 )
 
-public data class ACMFILTERCHOOSEA(
+public data class Acmfilterchoosea(
     public var cbStruct: UInt = 0u,
     public var fdwStyle: UInt = 0u,
-    public var hwndOwner: HWND = 0L,
-    public var pwfltr: Long = 0L,
+    public var hwndOwner: Hwnd = null,
+    public var pwfltr: Wavefilter? = null,
     public var cbwfltr: UInt = 0u,
-    public var pszTitle: PCSTR = 0L,
+    public var pszTitle: Pcstr = null,
     public var szFilterTag: ByteArray = ByteArray(48),
     public var szFilter: ByteArray = ByteArray(128),
-    public var pszName: PSTR = 0L,
+    public var pszName: Pstr = null,
     public var cchName: UInt = 0u,
     public var fdwEnum: UInt = 0u,
-    public var pwfltrEnum: Long = 0L,
-    public var hInstance: HINSTANCE = 0L,
-    public var pszTemplateName: PCSTR = 0L,
-    public var lCustData: LPARAM = 0L,
-    public var pfnHook: ACMFILTERCHOOSEHOOKPROCA = null,
+    public var pwfltrEnum: Wavefilter? = null,
+    public var hInstance: Hinstance = null,
+    public var pszTemplateName: Pcstr = null,
+    public var lCustData: Lparam = 0L,
+    public var pfnHook: Acmfilterchoosehookproca = null,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is ACMFILTERCHOOSEA) return false
+        if (other !is Acmfilterchoosea) return false
         if (this.cbStruct != other.cbStruct) return false
         if (this.fdwStyle != other.fdwStyle) return false
         if (this.hwndOwner != other.hwndOwner) return false
@@ -273,27 +275,27 @@ public data class ACMFILTERCHOOSEA(
     }
 }
 
-public data class ACMFILTERCHOOSEW(
+public data class Acmfilterchoosew(
     public var cbStruct: UInt = 0u,
     public var fdwStyle: UInt = 0u,
-    public var hwndOwner: HWND = 0L,
-    public var pwfltr: Long = 0L,
+    public var hwndOwner: Hwnd = null,
+    public var pwfltr: Wavefilter? = null,
     public var cbwfltr: UInt = 0u,
-    public var pszTitle: PCWSTR = 0L,
+    public var pszTitle: Pcwstr = null,
     public var szFilterTag: UShortArray = UShortArray(48),
     public var szFilter: UShortArray = UShortArray(128),
-    public var pszName: PWSTR = 0L,
+    public var pszName: Pwstr = null,
     public var cchName: UInt = 0u,
     public var fdwEnum: UInt = 0u,
-    public var pwfltrEnum: Long = 0L,
-    public var hInstance: HINSTANCE = 0L,
-    public var pszTemplateName: PCWSTR = 0L,
-    public var lCustData: LPARAM = 0L,
-    public var pfnHook: ACMFILTERCHOOSEHOOKPROCW = null,
+    public var pwfltrEnum: Wavefilter? = null,
+    public var hInstance: Hinstance = null,
+    public var pszTemplateName: Pcwstr = null,
+    public var lCustData: Lparam = 0L,
+    public var pfnHook: Acmfilterchoosehookprocw = null,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is ACMFILTERCHOOSEW) return false
+        if (other !is Acmfilterchoosew) return false
         if (this.cbStruct != other.cbStruct) return false
         if (this.fdwStyle != other.fdwStyle) return false
         if (this.hwndOwner != other.hwndOwner) return false
@@ -334,18 +336,18 @@ public data class ACMFILTERCHOOSEW(
     }
 }
 
-public data class ACMFILTERDETAILSA(
+public data class Acmfilterdetailsa(
     public var cbStruct: UInt = 0u,
     public var dwFilterIndex: UInt = 0u,
     public var dwFilterTag: UInt = 0u,
     public var fdwSupport: UInt = 0u,
-    public var pwfltr: Long = 0L,
+    public var pwfltr: Wavefilter? = null,
     public var cbwfltr: UInt = 0u,
     public var szFilter: ByteArray = ByteArray(128),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is ACMFILTERDETAILSA) return false
+        if (other !is Acmfilterdetailsa) return false
         if (this.cbStruct != other.cbStruct) return false
         if (this.dwFilterIndex != other.dwFilterIndex) return false
         if (this.dwFilterTag != other.dwFilterTag) return false
@@ -368,18 +370,18 @@ public data class ACMFILTERDETAILSA(
     }
 }
 
-public data class ACMFILTERDETAILSW(
+public data class Acmfilterdetailsw(
     public var cbStruct: UInt = 0u,
     public var dwFilterIndex: UInt = 0u,
     public var dwFilterTag: UInt = 0u,
     public var fdwSupport: UInt = 0u,
-    public var pwfltr: Long = 0L,
+    public var pwfltr: Wavefilter? = null,
     public var cbwfltr: UInt = 0u,
     public var szFilter: UShortArray = UShortArray(128),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is ACMFILTERDETAILSW) return false
+        if (other !is Acmfilterdetailsw) return false
         if (this.cbStruct != other.cbStruct) return false
         if (this.dwFilterIndex != other.dwFilterIndex) return false
         if (this.dwFilterTag != other.dwFilterTag) return false
@@ -402,7 +404,7 @@ public data class ACMFILTERDETAILSW(
     }
 }
 
-public data class ACMFILTERTAGDETAILSA(
+public data class Acmfiltertagdetailsa(
     public var cbStruct: UInt = 0u,
     public var dwFilterTagIndex: UInt = 0u,
     public var dwFilterTag: UInt = 0u,
@@ -413,7 +415,7 @@ public data class ACMFILTERTAGDETAILSA(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is ACMFILTERTAGDETAILSA) return false
+        if (other !is Acmfiltertagdetailsa) return false
         if (this.cbStruct != other.cbStruct) return false
         if (this.dwFilterTagIndex != other.dwFilterTagIndex) return false
         if (this.dwFilterTag != other.dwFilterTag) return false
@@ -436,7 +438,7 @@ public data class ACMFILTERTAGDETAILSA(
     }
 }
 
-public data class ACMFILTERTAGDETAILSW(
+public data class Acmfiltertagdetailsw(
     public var cbStruct: UInt = 0u,
     public var dwFilterTagIndex: UInt = 0u,
     public var dwFilterTag: UInt = 0u,
@@ -447,7 +449,7 @@ public data class ACMFILTERTAGDETAILSW(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is ACMFILTERTAGDETAILSW) return false
+        if (other !is Acmfiltertagdetailsw) return false
         if (this.cbStruct != other.cbStruct) return false
         if (this.dwFilterTagIndex != other.dwFilterTagIndex) return false
         if (this.dwFilterTag != other.dwFilterTag) return false
@@ -470,27 +472,27 @@ public data class ACMFILTERTAGDETAILSW(
     }
 }
 
-public data class ACMFORMATCHOOSEA(
+public data class Acmformatchoosea(
     public var cbStruct: UInt = 0u,
     public var fdwStyle: UInt = 0u,
-    public var hwndOwner: HWND = 0L,
-    public var pwfx: Long = 0L,
+    public var hwndOwner: Hwnd = null,
+    public var pwfx: Waveformatex? = null,
     public var cbwfx: UInt = 0u,
-    public var pszTitle: PCSTR = 0L,
+    public var pszTitle: Pcstr = null,
     public var szFormatTag: ByteArray = ByteArray(48),
     public var szFormat: ByteArray = ByteArray(128),
-    public var pszName: PSTR = 0L,
+    public var pszName: Pstr = null,
     public var cchName: UInt = 0u,
     public var fdwEnum: UInt = 0u,
-    public var pwfxEnum: Long = 0L,
-    public var hInstance: HINSTANCE = 0L,
-    public var pszTemplateName: PCSTR = 0L,
-    public var lCustData: LPARAM = 0L,
-    public var pfnHook: ACMFORMATCHOOSEHOOKPROCA = null,
+    public var pwfxEnum: Waveformatex? = null,
+    public var hInstance: Hinstance = null,
+    public var pszTemplateName: Pcstr = null,
+    public var lCustData: Lparam = 0L,
+    public var pfnHook: Acmformatchoosehookproca = null,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is ACMFORMATCHOOSEA) return false
+        if (other !is Acmformatchoosea) return false
         if (this.cbStruct != other.cbStruct) return false
         if (this.fdwStyle != other.fdwStyle) return false
         if (this.hwndOwner != other.hwndOwner) return false
@@ -531,27 +533,27 @@ public data class ACMFORMATCHOOSEA(
     }
 }
 
-public data class ACMFORMATCHOOSEW(
+public data class Acmformatchoosew(
     public var cbStruct: UInt = 0u,
     public var fdwStyle: UInt = 0u,
-    public var hwndOwner: HWND = 0L,
-    public var pwfx: Long = 0L,
+    public var hwndOwner: Hwnd = null,
+    public var pwfx: Waveformatex? = null,
     public var cbwfx: UInt = 0u,
-    public var pszTitle: PCWSTR = 0L,
+    public var pszTitle: Pcwstr = null,
     public var szFormatTag: UShortArray = UShortArray(48),
     public var szFormat: UShortArray = UShortArray(128),
-    public var pszName: PWSTR = 0L,
+    public var pszName: Pwstr = null,
     public var cchName: UInt = 0u,
     public var fdwEnum: UInt = 0u,
-    public var pwfxEnum: Long = 0L,
-    public var hInstance: HINSTANCE = 0L,
-    public var pszTemplateName: PCWSTR = 0L,
-    public var lCustData: LPARAM = 0L,
-    public var pfnHook: ACMFORMATCHOOSEHOOKPROCW = null,
+    public var pwfxEnum: Waveformatex? = null,
+    public var hInstance: Hinstance = null,
+    public var pszTemplateName: Pcwstr = null,
+    public var lCustData: Lparam = 0L,
+    public var pfnHook: Acmformatchoosehookprocw = null,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is ACMFORMATCHOOSEW) return false
+        if (other !is Acmformatchoosew) return false
         if (this.cbStruct != other.cbStruct) return false
         if (this.fdwStyle != other.fdwStyle) return false
         if (this.hwndOwner != other.hwndOwner) return false
@@ -592,18 +594,18 @@ public data class ACMFORMATCHOOSEW(
     }
 }
 
-public data class ACMFORMATDETAILSA(
+public data class Acmformatdetailsa(
     public var cbStruct: UInt = 0u,
     public var dwFormatIndex: UInt = 0u,
     public var dwFormatTag: UInt = 0u,
     public var fdwSupport: UInt = 0u,
-    public var pwfx: Long = 0L,
+    public var pwfx: Waveformatex? = null,
     public var cbwfx: UInt = 0u,
     public var szFormat: ByteArray = ByteArray(128),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is ACMFORMATDETAILSA) return false
+        if (other !is Acmformatdetailsa) return false
         if (this.cbStruct != other.cbStruct) return false
         if (this.dwFormatIndex != other.dwFormatIndex) return false
         if (this.dwFormatTag != other.dwFormatTag) return false
@@ -626,7 +628,7 @@ public data class ACMFORMATDETAILSA(
     }
 }
 
-public data class ACMFORMATTAGDETAILSA(
+public data class Acmformattagdetailsa(
     public var cbStruct: UInt = 0u,
     public var dwFormatTagIndex: UInt = 0u,
     public var dwFormatTag: UInt = 0u,
@@ -637,7 +639,7 @@ public data class ACMFORMATTAGDETAILSA(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is ACMFORMATTAGDETAILSA) return false
+        if (other !is Acmformattagdetailsa) return false
         if (this.cbStruct != other.cbStruct) return false
         if (this.dwFormatTagIndex != other.dwFormatTagIndex) return false
         if (this.dwFormatTag != other.dwFormatTag) return false
@@ -660,7 +662,7 @@ public data class ACMFORMATTAGDETAILSA(
     }
 }
 
-public data class ACMFORMATTAGDETAILSW(
+public data class Acmformattagdetailsw(
     public var cbStruct: UInt = 0u,
     public var dwFormatTagIndex: UInt = 0u,
     public var dwFormatTag: UInt = 0u,
@@ -671,7 +673,7 @@ public data class ACMFORMATTAGDETAILSW(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is ACMFORMATTAGDETAILSW) return false
+        if (other !is Acmformattagdetailsw) return false
         if (this.cbStruct != other.cbStruct) return false
         if (this.dwFormatTagIndex != other.dwFormatTagIndex) return false
         if (this.dwFormatTag != other.dwFormatTag) return false
@@ -694,23 +696,23 @@ public data class ACMFORMATTAGDETAILSW(
     }
 }
 
-public data class ACMSTREAMHEADER(
+public data class Acmstreamheader(
     public var cbStruct: UInt = 0u,
     public var fdwStatus: UInt = 0u,
-    public var dwUser: ULong = 0uL,
-    public var pbSrc: Long = 0L,
+    public var dwUser: Int = 0,
+    public var pbSrc: COpaquePointer? = null,
     public var cbSrcLength: UInt = 0u,
     public var cbSrcLengthUsed: UInt = 0u,
-    public var dwSrcUser: ULong = 0uL,
-    public var pbDst: Long = 0L,
+    public var dwSrcUser: Int = 0,
+    public var pbDst: COpaquePointer? = null,
     public var cbDstLength: UInt = 0u,
     public var cbDstLengthUsed: UInt = 0u,
-    public var dwDstUser: ULong = 0uL,
+    public var dwDstUser: Int = 0,
     public var dwReservedDriver: UIntArray = UIntArray(15),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is ACMSTREAMHEADER) return false
+        if (other !is Acmstreamheader) return false
         if (this.cbStruct != other.cbStruct) return false
         if (this.fdwStatus != other.fdwStatus) return false
         if (this.dwUser != other.dwUser) return false
@@ -743,39 +745,39 @@ public data class ACMSTREAMHEADER(
     }
 }
 
-public data class AMBISONICS_PARAMS(
+public data class AmbisonicsParams(
     public var u32Size: UInt = 0u,
     public var u32Version: UInt = 0u,
-    public var u32Type: AMBISONICS_TYPE = 0,
-    public var u32ChannelOrdering: AMBISONICS_CHANNEL_ORDERING = 0,
-    public var u32Normalization: AMBISONICS_NORMALIZATION = 0,
+    public var u32Type: AmbisonicsType = 0,
+    public var u32ChannelOrdering: AmbisonicsChannelOrdering = 0,
+    public var u32Normalization: AmbisonicsNormalization = 0,
     public var u32Order: UInt = 0u,
     public var u32NumChannels: UInt = 0u,
-    public var pu32ChannelMap: Long = 0L,
+    public var pu32ChannelMap: UInt? = null,
 )
 
-public data class AUDIOCLIENT_ACTIVATION_PARAMS(public var ActivationType: AUDIOCLIENT_ACTIVATION_TYPE = 0, public var Anonymous: AUDIOCLIENT_ACTIVATION_PARAMS_0 = AUDIOCLIENT_ACTIVATION_PARAMS_0())
+public data class AudioclientActivationParams(public var activationType: AudioclientActivationType = 0, public var anonymous: AudioclientActivationParams0 = AudioclientActivationParams0())
 
-public data class AUDIOCLIENT_ACTIVATION_PARAMS_0(public var ProcessLoopbackParams: AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS = AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS())
+public data class AudioclientActivationParams0(public var processLoopbackParams: AudioclientProcessLoopbackParams = AudioclientProcessLoopbackParams())
 
-public data class AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS(public var TargetProcessId: UInt = 0u, public var ProcessLoopbackMode: PROCESS_LOOPBACK_MODE = 0)
+public data class AudioclientProcessLoopbackParams(public var targetProcessId: UInt = 0u, public var processLoopbackMode: ProcessLoopbackMode = 0)
 
-public data class AUDIO_EFFECT(
-    public var id: GUID = GUID(),
-    public var canSetState: BOOL = 0,
-    public var state: AUDIO_EFFECT_STATE = 0,
+public data class AudioEffect(
+    public var id: Guid = Guid(),
+    public var canSetState: Bool = 0,
+    public var state: AudioEffectState = 0,
 )
 
-public data class AUDIO_VOLUME_NOTIFICATION_DATA(
-    public var guidEventContext: GUID = GUID(),
-    public var bMuted: BOOL = 0,
+public data class AudioVolumeNotificationData(
+    public var guidEventContext: Guid = Guid(),
+    public var bMuted: Bool = 0,
     public var fMasterVolume: Float = 0.0f,
     public var nChannels: UInt = 0u,
     public var afChannelVolumes: FloatArray = FloatArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is AUDIO_VOLUME_NOTIFICATION_DATA) return false
+        if (other !is AudioVolumeNotificationData) return false
         if (this.guidEventContext != other.guidEventContext) return false
         if (this.bMuted != other.bMuted) return false
         if (this.fMasterVolume != other.fMasterVolume) return false
@@ -794,7 +796,7 @@ public data class AUDIO_VOLUME_NOTIFICATION_DATA(
     }
 }
 
-public data class AUXCAPS2A(
+public data class Auxcaps2a(
     public var wMid: UShort = 0u,
     public var wPid: UShort = 0u,
     public var vDriverVersion: UInt = 0u,
@@ -802,13 +804,13 @@ public data class AUXCAPS2A(
     public var wTechnology: UShort = 0u,
     public var wReserved1: UShort = 0u,
     public var dwSupport: UInt = 0u,
-    public var ManufacturerGuid: GUID = GUID(),
-    public var ProductGuid: GUID = GUID(),
-    public var NameGuid: GUID = GUID(),
+    public var manufacturerGuid: Guid = Guid(),
+    public var productGuid: Guid = Guid(),
+    public var nameGuid: Guid = Guid(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is AUXCAPS2A) return false
+        if (other !is Auxcaps2a) return false
         if (this.wMid != other.wMid) return false
         if (this.wPid != other.wPid) return false
         if (this.vDriverVersion != other.vDriverVersion) return false
@@ -816,9 +818,9 @@ public data class AUXCAPS2A(
         if (this.wTechnology != other.wTechnology) return false
         if (this.wReserved1 != other.wReserved1) return false
         if (this.dwSupport != other.dwSupport) return false
-        if (this.ManufacturerGuid != other.ManufacturerGuid) return false
-        if (this.ProductGuid != other.ProductGuid) return false
-        if (this.NameGuid != other.NameGuid) return false
+        if (this.manufacturerGuid != other.manufacturerGuid) return false
+        if (this.productGuid != other.productGuid) return false
+        if (this.nameGuid != other.nameGuid) return false
         return true
     }
 
@@ -830,14 +832,14 @@ public data class AUXCAPS2A(
         result = 31 * result + this.wTechnology.hashCode()
         result = 31 * result + this.wReserved1.hashCode()
         result = 31 * result + this.dwSupport.hashCode()
-        result = 31 * result + this.ManufacturerGuid.hashCode()
-        result = 31 * result + this.ProductGuid.hashCode()
-        result = 31 * result + this.NameGuid.hashCode()
+        result = 31 * result + this.manufacturerGuid.hashCode()
+        result = 31 * result + this.productGuid.hashCode()
+        result = 31 * result + this.nameGuid.hashCode()
         return result
     }
 }
 
-public data class AUXCAPS2W(
+public data class Auxcaps2w(
     public var wMid: UShort = 0u,
     public var wPid: UShort = 0u,
     public var vDriverVersion: UInt = 0u,
@@ -845,13 +847,13 @@ public data class AUXCAPS2W(
     public var wTechnology: UShort = 0u,
     public var wReserved1: UShort = 0u,
     public var dwSupport: UInt = 0u,
-    public var ManufacturerGuid: GUID = GUID(),
-    public var ProductGuid: GUID = GUID(),
-    public var NameGuid: GUID = GUID(),
+    public var manufacturerGuid: Guid = Guid(),
+    public var productGuid: Guid = Guid(),
+    public var nameGuid: Guid = Guid(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is AUXCAPS2W) return false
+        if (other !is Auxcaps2w) return false
         if (this.wMid != other.wMid) return false
         if (this.wPid != other.wPid) return false
         if (this.vDriverVersion != other.vDriverVersion) return false
@@ -859,9 +861,9 @@ public data class AUXCAPS2W(
         if (this.wTechnology != other.wTechnology) return false
         if (this.wReserved1 != other.wReserved1) return false
         if (this.dwSupport != other.dwSupport) return false
-        if (this.ManufacturerGuid != other.ManufacturerGuid) return false
-        if (this.ProductGuid != other.ProductGuid) return false
-        if (this.NameGuid != other.NameGuid) return false
+        if (this.manufacturerGuid != other.manufacturerGuid) return false
+        if (this.productGuid != other.productGuid) return false
+        if (this.nameGuid != other.nameGuid) return false
         return true
     }
 
@@ -873,14 +875,14 @@ public data class AUXCAPS2W(
         result = 31 * result + this.wTechnology.hashCode()
         result = 31 * result + this.wReserved1.hashCode()
         result = 31 * result + this.dwSupport.hashCode()
-        result = 31 * result + this.ManufacturerGuid.hashCode()
-        result = 31 * result + this.ProductGuid.hashCode()
-        result = 31 * result + this.NameGuid.hashCode()
+        result = 31 * result + this.manufacturerGuid.hashCode()
+        result = 31 * result + this.productGuid.hashCode()
+        result = 31 * result + this.nameGuid.hashCode()
         return result
     }
 }
 
-public data class AUXCAPSA(
+public data class Auxcapsa(
     public var wMid: UShort = 0u,
     public var wPid: UShort = 0u,
     public var vDriverVersion: UInt = 0u,
@@ -891,7 +893,7 @@ public data class AUXCAPSA(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is AUXCAPSA) return false
+        if (other !is Auxcapsa) return false
         if (this.wMid != other.wMid) return false
         if (this.wPid != other.wPid) return false
         if (this.vDriverVersion != other.vDriverVersion) return false
@@ -914,7 +916,7 @@ public data class AUXCAPSA(
     }
 }
 
-public data class AUXCAPSW(
+public data class Auxcapsw(
     public var wMid: UShort = 0u,
     public var wPid: UShort = 0u,
     public var vDriverVersion: UInt = 0u,
@@ -925,7 +927,7 @@ public data class AUXCAPSW(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is AUXCAPSW) return false
+        if (other !is Auxcapsw) return false
         if (this.wMid != other.wMid) return false
         if (this.wPid != other.wPid) return false
         if (this.vDriverVersion != other.vDriverVersion) return false
@@ -948,20 +950,20 @@ public data class AUXCAPSW(
     }
 }
 
-public data class AudioClient3ActivationParams(public var tracingContextId: GUID = GUID())
+public data class AudioClient3ActivationParams(public var tracingContextId: Guid = Guid())
 
 public data class AudioClientProperties(
     public var cbSize: UInt = 0u,
-    public var bIsOffload: BOOL = 0,
-    public var eCategory: AUDIO_STREAM_CATEGORY = 0,
-    public var Options: AUDCLNT_STREAMOPTIONS = 0,
+    public var bIsOffload: Bool = 0,
+    public var eCategory: AudioStreamCategory = 0,
+    public var options: AudclntStreamoptions = 0,
 )
 
 public data class AudioExtensionParams(
-    public var AddPageParam: LPARAM = 0L,
-    public var pEndpoint: Long = 0L,
-    public var pPnpInterface: Long = 0L,
-    public var pPnpDevnode: Long = 0L,
+    public var addPageParam: Lparam = 0L,
+    public var pEndpoint: COpaquePointer? = null,
+    public var pPnpInterface: COpaquePointer? = null,
+    public var pPnpDevnode: COpaquePointer? = null,
 )
 
 public data class ConnectorType(public var value: Int = 0) {
@@ -970,33 +972,33 @@ public data class ConnectorType(public var value: Int = 0) {
         set(v) { value = v }
 
     public companion object {
-        public val Unknown_Connector: ConnectorType = ConnectorType(0)
+        public val UNKNOWN_CONNECTOR: ConnectorType = ConnectorType(0)
 
-        public val Physical_Internal: ConnectorType = ConnectorType(1)
+        public val PHYSICAL_INTERNAL: ConnectorType = ConnectorType(1)
 
-        public val Physical_External: ConnectorType = ConnectorType(2)
+        public val PHYSICAL_EXTERNAL: ConnectorType = ConnectorType(2)
 
-        public val Software_IO: ConnectorType = ConnectorType(3)
+        public val SOFTWARE_IO: ConnectorType = ConnectorType(3)
 
-        public val Software_Fixed: ConnectorType = ConnectorType(4)
+        public val SOFTWARE_FIXED: ConnectorType = ConnectorType(4)
 
-        public val Network: ConnectorType = ConnectorType(5)
+        public val NETWORK: ConnectorType = ConnectorType(5)
     }
 }
 
-public data class DIRECTX_AUDIO_ACTIVATION_PARAMS(
+public data class DirectxAudioActivationParams(
     public var cbDirectXAudioActivationParams: UInt = 0u,
-    public var guidAudioSession: GUID = GUID(),
+    public var guidAudioSession: Guid = Guid(),
     public var dwAudioStreamFlags: UInt = 0u,
 )
 
-public data class ECHOWAVEFILTER(
-    public var wfltr: WAVEFILTER = WAVEFILTER(),
+public data class Echowavefilter(
+    public var wfltr: Wavefilter = Wavefilter(),
     public var dwVolume: UInt = 0u,
     public var dwDelay: UInt = 0u,
 )
 
-public data class MIDIEVENT(
+public data class Midievent(
     public var dwDeltaTime: UInt = 0u,
     public var dwStreamID: UInt = 0u,
     public var dwEvent: UInt = 0u,
@@ -1004,7 +1006,7 @@ public data class MIDIEVENT(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIDIEVENT) return false
+        if (other !is Midievent) return false
         if (this.dwDeltaTime != other.dwDeltaTime) return false
         if (this.dwStreamID != other.dwStreamID) return false
         if (this.dwEvent != other.dwEvent) return false
@@ -1021,20 +1023,20 @@ public data class MIDIEVENT(
     }
 }
 
-public data class MIDIHDR(
-    public var lpData: PSTR = 0L,
+public data class Midihdr(
+    public var lpData: Pstr = null,
     public var dwBufferLength: UInt = 0u,
     public var dwBytesRecorded: UInt = 0u,
-    public var dwUser: ULong = 0uL,
+    public var dwUser: Int = 0,
     public var dwFlags: UInt = 0u,
-    public var lpNext: Long = 0L,
-    public var reserved: ULong = 0uL,
+    public var lpNext: Midihdr? = null,
+    public var reserved: Int = 0,
     public var dwOffset: UInt = 0u,
-    public var dwReserved: ULongArray = ULongArray(8),
+    public var dwReserved: IntArray = IntArray(8),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIDIHDR) return false
+        if (other !is Midihdr) return false
         if (this.lpData != other.lpData) return false
         if (this.dwBufferLength != other.dwBufferLength) return false
         if (this.dwBytesRecorded != other.dwBytesRecorded) return false
@@ -1061,27 +1063,27 @@ public data class MIDIHDR(
     }
 }
 
-public data class MIDIINCAPS2A(
+public data class Midiincaps2a(
     public var wMid: UShort = 0u,
     public var wPid: UShort = 0u,
     public var vDriverVersion: UInt = 0u,
     public var szPname: ByteArray = ByteArray(32),
     public var dwSupport: UInt = 0u,
-    public var ManufacturerGuid: GUID = GUID(),
-    public var ProductGuid: GUID = GUID(),
-    public var NameGuid: GUID = GUID(),
+    public var manufacturerGuid: Guid = Guid(),
+    public var productGuid: Guid = Guid(),
+    public var nameGuid: Guid = Guid(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIDIINCAPS2A) return false
+        if (other !is Midiincaps2a) return false
         if (this.wMid != other.wMid) return false
         if (this.wPid != other.wPid) return false
         if (this.vDriverVersion != other.vDriverVersion) return false
         if (!this.szPname.contentEquals(other.szPname)) return false
         if (this.dwSupport != other.dwSupport) return false
-        if (this.ManufacturerGuid != other.ManufacturerGuid) return false
-        if (this.ProductGuid != other.ProductGuid) return false
-        if (this.NameGuid != other.NameGuid) return false
+        if (this.manufacturerGuid != other.manufacturerGuid) return false
+        if (this.productGuid != other.productGuid) return false
+        if (this.nameGuid != other.nameGuid) return false
         return true
     }
 
@@ -1091,34 +1093,34 @@ public data class MIDIINCAPS2A(
         result = 31 * result + this.vDriverVersion.hashCode()
         result = 31 * result + this.szPname.contentHashCode()
         result = 31 * result + this.dwSupport.hashCode()
-        result = 31 * result + this.ManufacturerGuid.hashCode()
-        result = 31 * result + this.ProductGuid.hashCode()
-        result = 31 * result + this.NameGuid.hashCode()
+        result = 31 * result + this.manufacturerGuid.hashCode()
+        result = 31 * result + this.productGuid.hashCode()
+        result = 31 * result + this.nameGuid.hashCode()
         return result
     }
 }
 
-public data class MIDIINCAPS2W(
+public data class Midiincaps2w(
     public var wMid: UShort = 0u,
     public var wPid: UShort = 0u,
     public var vDriverVersion: UInt = 0u,
     public var szPname: UShortArray = UShortArray(32),
     public var dwSupport: UInt = 0u,
-    public var ManufacturerGuid: GUID = GUID(),
-    public var ProductGuid: GUID = GUID(),
-    public var NameGuid: GUID = GUID(),
+    public var manufacturerGuid: Guid = Guid(),
+    public var productGuid: Guid = Guid(),
+    public var nameGuid: Guid = Guid(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIDIINCAPS2W) return false
+        if (other !is Midiincaps2w) return false
         if (this.wMid != other.wMid) return false
         if (this.wPid != other.wPid) return false
         if (this.vDriverVersion != other.vDriverVersion) return false
         if (!this.szPname.contentEquals(other.szPname)) return false
         if (this.dwSupport != other.dwSupport) return false
-        if (this.ManufacturerGuid != other.ManufacturerGuid) return false
-        if (this.ProductGuid != other.ProductGuid) return false
-        if (this.NameGuid != other.NameGuid) return false
+        if (this.manufacturerGuid != other.manufacturerGuid) return false
+        if (this.productGuid != other.productGuid) return false
+        if (this.nameGuid != other.nameGuid) return false
         return true
     }
 
@@ -1128,14 +1130,14 @@ public data class MIDIINCAPS2W(
         result = 31 * result + this.vDriverVersion.hashCode()
         result = 31 * result + this.szPname.contentHashCode()
         result = 31 * result + this.dwSupport.hashCode()
-        result = 31 * result + this.ManufacturerGuid.hashCode()
-        result = 31 * result + this.ProductGuid.hashCode()
-        result = 31 * result + this.NameGuid.hashCode()
+        result = 31 * result + this.manufacturerGuid.hashCode()
+        result = 31 * result + this.productGuid.hashCode()
+        result = 31 * result + this.nameGuid.hashCode()
         return result
     }
 }
 
-public data class MIDIINCAPSA(
+public data class Midiincapsa(
     public var wMid: UShort = 0u,
     public var wPid: UShort = 0u,
     public var vDriverVersion: UInt = 0u,
@@ -1144,7 +1146,7 @@ public data class MIDIINCAPSA(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIDIINCAPSA) return false
+        if (other !is Midiincapsa) return false
         if (this.wMid != other.wMid) return false
         if (this.wPid != other.wPid) return false
         if (this.vDriverVersion != other.vDriverVersion) return false
@@ -1163,7 +1165,7 @@ public data class MIDIINCAPSA(
     }
 }
 
-public data class MIDIINCAPSW(
+public data class Midiincapsw(
     public var wMid: UShort = 0u,
     public var wPid: UShort = 0u,
     public var vDriverVersion: UInt = 0u,
@@ -1172,7 +1174,7 @@ public data class MIDIINCAPSW(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIDIINCAPSW) return false
+        if (other !is Midiincapsw) return false
         if (this.wMid != other.wMid) return false
         if (this.wPid != other.wPid) return false
         if (this.vDriverVersion != other.vDriverVersion) return false
@@ -1191,7 +1193,7 @@ public data class MIDIINCAPSW(
     }
 }
 
-public data class MIDIOUTCAPS2A(
+public data class Midioutcaps2a(
     public var wMid: UShort = 0u,
     public var wPid: UShort = 0u,
     public var vDriverVersion: UInt = 0u,
@@ -1201,13 +1203,13 @@ public data class MIDIOUTCAPS2A(
     public var wNotes: UShort = 0u,
     public var wChannelMask: UShort = 0u,
     public var dwSupport: UInt = 0u,
-    public var ManufacturerGuid: GUID = GUID(),
-    public var ProductGuid: GUID = GUID(),
-    public var NameGuid: GUID = GUID(),
+    public var manufacturerGuid: Guid = Guid(),
+    public var productGuid: Guid = Guid(),
+    public var nameGuid: Guid = Guid(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIDIOUTCAPS2A) return false
+        if (other !is Midioutcaps2a) return false
         if (this.wMid != other.wMid) return false
         if (this.wPid != other.wPid) return false
         if (this.vDriverVersion != other.vDriverVersion) return false
@@ -1217,9 +1219,9 @@ public data class MIDIOUTCAPS2A(
         if (this.wNotes != other.wNotes) return false
         if (this.wChannelMask != other.wChannelMask) return false
         if (this.dwSupport != other.dwSupport) return false
-        if (this.ManufacturerGuid != other.ManufacturerGuid) return false
-        if (this.ProductGuid != other.ProductGuid) return false
-        if (this.NameGuid != other.NameGuid) return false
+        if (this.manufacturerGuid != other.manufacturerGuid) return false
+        if (this.productGuid != other.productGuid) return false
+        if (this.nameGuid != other.nameGuid) return false
         return true
     }
 
@@ -1233,14 +1235,14 @@ public data class MIDIOUTCAPS2A(
         result = 31 * result + this.wNotes.hashCode()
         result = 31 * result + this.wChannelMask.hashCode()
         result = 31 * result + this.dwSupport.hashCode()
-        result = 31 * result + this.ManufacturerGuid.hashCode()
-        result = 31 * result + this.ProductGuid.hashCode()
-        result = 31 * result + this.NameGuid.hashCode()
+        result = 31 * result + this.manufacturerGuid.hashCode()
+        result = 31 * result + this.productGuid.hashCode()
+        result = 31 * result + this.nameGuid.hashCode()
         return result
     }
 }
 
-public data class MIDIOUTCAPS2W(
+public data class Midioutcaps2w(
     public var wMid: UShort = 0u,
     public var wPid: UShort = 0u,
     public var vDriverVersion: UInt = 0u,
@@ -1250,13 +1252,13 @@ public data class MIDIOUTCAPS2W(
     public var wNotes: UShort = 0u,
     public var wChannelMask: UShort = 0u,
     public var dwSupport: UInt = 0u,
-    public var ManufacturerGuid: GUID = GUID(),
-    public var ProductGuid: GUID = GUID(),
-    public var NameGuid: GUID = GUID(),
+    public var manufacturerGuid: Guid = Guid(),
+    public var productGuid: Guid = Guid(),
+    public var nameGuid: Guid = Guid(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIDIOUTCAPS2W) return false
+        if (other !is Midioutcaps2w) return false
         if (this.wMid != other.wMid) return false
         if (this.wPid != other.wPid) return false
         if (this.vDriverVersion != other.vDriverVersion) return false
@@ -1266,9 +1268,9 @@ public data class MIDIOUTCAPS2W(
         if (this.wNotes != other.wNotes) return false
         if (this.wChannelMask != other.wChannelMask) return false
         if (this.dwSupport != other.dwSupport) return false
-        if (this.ManufacturerGuid != other.ManufacturerGuid) return false
-        if (this.ProductGuid != other.ProductGuid) return false
-        if (this.NameGuid != other.NameGuid) return false
+        if (this.manufacturerGuid != other.manufacturerGuid) return false
+        if (this.productGuid != other.productGuid) return false
+        if (this.nameGuid != other.nameGuid) return false
         return true
     }
 
@@ -1282,14 +1284,14 @@ public data class MIDIOUTCAPS2W(
         result = 31 * result + this.wNotes.hashCode()
         result = 31 * result + this.wChannelMask.hashCode()
         result = 31 * result + this.dwSupport.hashCode()
-        result = 31 * result + this.ManufacturerGuid.hashCode()
-        result = 31 * result + this.ProductGuid.hashCode()
-        result = 31 * result + this.NameGuid.hashCode()
+        result = 31 * result + this.manufacturerGuid.hashCode()
+        result = 31 * result + this.productGuid.hashCode()
+        result = 31 * result + this.nameGuid.hashCode()
         return result
     }
 }
 
-public data class MIDIOUTCAPSA(
+public data class Midioutcapsa(
     public var wMid: UShort = 0u,
     public var wPid: UShort = 0u,
     public var vDriverVersion: UInt = 0u,
@@ -1302,47 +1304,7 @@ public data class MIDIOUTCAPSA(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIDIOUTCAPSA) return false
-        if (this.wMid != other.wMid) return false
-        if (this.wPid != other.wPid) return false
-        if (this.vDriverVersion != other.vDriverVersion) return false
-        if (!this.szPname.contentEquals(other.szPname)) return false
-        if (this.wTechnology != other.wTechnology) return false
-        if (this.wVoices != other.wVoices) return false
-        if (this.wNotes != other.wNotes) return false
-        if (this.wChannelMask != other.wChannelMask) return false
-        if (this.dwSupport != other.dwSupport) return false
-        return true
-    }
-
-    override fun hashCode(): Int {
-        var result = this.wMid.hashCode()
-        result = 31 * result + this.wPid.hashCode()
-        result = 31 * result + this.vDriverVersion.hashCode()
-        result = 31 * result + this.szPname.contentHashCode()
-        result = 31 * result + this.wTechnology.hashCode()
-        result = 31 * result + this.wVoices.hashCode()
-        result = 31 * result + this.wNotes.hashCode()
-        result = 31 * result + this.wChannelMask.hashCode()
-        result = 31 * result + this.dwSupport.hashCode()
-        return result
-    }
-}
-
-public data class MIDIOUTCAPSW(
-    public var wMid: UShort = 0u,
-    public var wPid: UShort = 0u,
-    public var vDriverVersion: UInt = 0u,
-    public var szPname: UShortArray = UShortArray(32),
-    public var wTechnology: UShort = 0u,
-    public var wVoices: UShort = 0u,
-    public var wNotes: UShort = 0u,
-    public var wChannelMask: UShort = 0u,
-    public var dwSupport: UInt = 0u,
-) {
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (other !is MIDIOUTCAPSW) return false
+        if (other !is Midioutcapsa) return false
         if (this.wMid != other.wMid) return false
         if (this.wPid != other.wPid) return false
         if (this.vDriverVersion != other.vDriverVersion) return false
@@ -1369,39 +1331,79 @@ public data class MIDIOUTCAPSW(
     }
 }
 
-public data class MIDIPROPTEMPO(public var cbStruct: UInt = 0u, public var dwTempo: UInt = 0u)
+public data class Midioutcapsw(
+    public var wMid: UShort = 0u,
+    public var wPid: UShort = 0u,
+    public var vDriverVersion: UInt = 0u,
+    public var szPname: UShortArray = UShortArray(32),
+    public var wTechnology: UShort = 0u,
+    public var wVoices: UShort = 0u,
+    public var wNotes: UShort = 0u,
+    public var wChannelMask: UShort = 0u,
+    public var dwSupport: UInt = 0u,
+) {
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is Midioutcapsw) return false
+        if (this.wMid != other.wMid) return false
+        if (this.wPid != other.wPid) return false
+        if (this.vDriverVersion != other.vDriverVersion) return false
+        if (!this.szPname.contentEquals(other.szPname)) return false
+        if (this.wTechnology != other.wTechnology) return false
+        if (this.wVoices != other.wVoices) return false
+        if (this.wNotes != other.wNotes) return false
+        if (this.wChannelMask != other.wChannelMask) return false
+        if (this.dwSupport != other.dwSupport) return false
+        return true
+    }
 
-public data class MIDIPROPTIMEDIV(public var cbStruct: UInt = 0u, public var dwTimeDiv: UInt = 0u)
+    override fun hashCode(): Int {
+        var result = this.wMid.hashCode()
+        result = 31 * result + this.wPid.hashCode()
+        result = 31 * result + this.vDriverVersion.hashCode()
+        result = 31 * result + this.szPname.contentHashCode()
+        result = 31 * result + this.wTechnology.hashCode()
+        result = 31 * result + this.wVoices.hashCode()
+        result = 31 * result + this.wNotes.hashCode()
+        result = 31 * result + this.wChannelMask.hashCode()
+        result = 31 * result + this.dwSupport.hashCode()
+        return result
+    }
+}
 
-public data class MIDISTRMBUFFVER(
+public data class Midiproptempo(public var cbStruct: UInt = 0u, public var dwTempo: UInt = 0u)
+
+public data class Midiproptimediv(public var cbStruct: UInt = 0u, public var dwTimeDiv: UInt = 0u)
+
+public data class Midistrmbuffver(
     public var dwVersion: UInt = 0u,
     public var dwMid: UInt = 0u,
     public var dwOEMVersion: UInt = 0u,
 )
 
-public data class MIXERCAPS2A(
+public data class Mixercaps2a(
     public var wMid: UShort = 0u,
     public var wPid: UShort = 0u,
     public var vDriverVersion: UInt = 0u,
     public var szPname: ByteArray = ByteArray(32),
     public var fdwSupport: UInt = 0u,
     public var cDestinations: UInt = 0u,
-    public var ManufacturerGuid: GUID = GUID(),
-    public var ProductGuid: GUID = GUID(),
-    public var NameGuid: GUID = GUID(),
+    public var manufacturerGuid: Guid = Guid(),
+    public var productGuid: Guid = Guid(),
+    public var nameGuid: Guid = Guid(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIXERCAPS2A) return false
+        if (other !is Mixercaps2a) return false
         if (this.wMid != other.wMid) return false
         if (this.wPid != other.wPid) return false
         if (this.vDriverVersion != other.vDriverVersion) return false
         if (!this.szPname.contentEquals(other.szPname)) return false
         if (this.fdwSupport != other.fdwSupport) return false
         if (this.cDestinations != other.cDestinations) return false
-        if (this.ManufacturerGuid != other.ManufacturerGuid) return false
-        if (this.ProductGuid != other.ProductGuid) return false
-        if (this.NameGuid != other.NameGuid) return false
+        if (this.manufacturerGuid != other.manufacturerGuid) return false
+        if (this.productGuid != other.productGuid) return false
+        if (this.nameGuid != other.nameGuid) return false
         return true
     }
 
@@ -1412,36 +1414,36 @@ public data class MIXERCAPS2A(
         result = 31 * result + this.szPname.contentHashCode()
         result = 31 * result + this.fdwSupport.hashCode()
         result = 31 * result + this.cDestinations.hashCode()
-        result = 31 * result + this.ManufacturerGuid.hashCode()
-        result = 31 * result + this.ProductGuid.hashCode()
-        result = 31 * result + this.NameGuid.hashCode()
+        result = 31 * result + this.manufacturerGuid.hashCode()
+        result = 31 * result + this.productGuid.hashCode()
+        result = 31 * result + this.nameGuid.hashCode()
         return result
     }
 }
 
-public data class MIXERCAPS2W(
+public data class Mixercaps2w(
     public var wMid: UShort = 0u,
     public var wPid: UShort = 0u,
     public var vDriverVersion: UInt = 0u,
     public var szPname: UShortArray = UShortArray(32),
     public var fdwSupport: UInt = 0u,
     public var cDestinations: UInt = 0u,
-    public var ManufacturerGuid: GUID = GUID(),
-    public var ProductGuid: GUID = GUID(),
-    public var NameGuid: GUID = GUID(),
+    public var manufacturerGuid: Guid = Guid(),
+    public var productGuid: Guid = Guid(),
+    public var nameGuid: Guid = Guid(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIXERCAPS2W) return false
+        if (other !is Mixercaps2w) return false
         if (this.wMid != other.wMid) return false
         if (this.wPid != other.wPid) return false
         if (this.vDriverVersion != other.vDriverVersion) return false
         if (!this.szPname.contentEquals(other.szPname)) return false
         if (this.fdwSupport != other.fdwSupport) return false
         if (this.cDestinations != other.cDestinations) return false
-        if (this.ManufacturerGuid != other.ManufacturerGuid) return false
-        if (this.ProductGuid != other.ProductGuid) return false
-        if (this.NameGuid != other.NameGuid) return false
+        if (this.manufacturerGuid != other.manufacturerGuid) return false
+        if (this.productGuid != other.productGuid) return false
+        if (this.nameGuid != other.nameGuid) return false
         return true
     }
 
@@ -1452,14 +1454,14 @@ public data class MIXERCAPS2W(
         result = 31 * result + this.szPname.contentHashCode()
         result = 31 * result + this.fdwSupport.hashCode()
         result = 31 * result + this.cDestinations.hashCode()
-        result = 31 * result + this.ManufacturerGuid.hashCode()
-        result = 31 * result + this.ProductGuid.hashCode()
-        result = 31 * result + this.NameGuid.hashCode()
+        result = 31 * result + this.manufacturerGuid.hashCode()
+        result = 31 * result + this.productGuid.hashCode()
+        result = 31 * result + this.nameGuid.hashCode()
         return result
     }
 }
 
-public data class MIXERCAPSA(
+public data class Mixercapsa(
     public var wMid: UShort = 0u,
     public var wPid: UShort = 0u,
     public var vDriverVersion: UInt = 0u,
@@ -1469,7 +1471,7 @@ public data class MIXERCAPSA(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIXERCAPSA) return false
+        if (other !is Mixercapsa) return false
         if (this.wMid != other.wMid) return false
         if (this.wPid != other.wPid) return false
         if (this.vDriverVersion != other.vDriverVersion) return false
@@ -1490,7 +1492,7 @@ public data class MIXERCAPSA(
     }
 }
 
-public data class MIXERCAPSW(
+public data class Mixercapsw(
     public var wMid: UShort = 0u,
     public var wPid: UShort = 0u,
     public var vDriverVersion: UInt = 0u,
@@ -1500,7 +1502,7 @@ public data class MIXERCAPSW(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIXERCAPSW) return false
+        if (other !is Mixercapsw) return false
         if (this.wMid != other.wMid) return false
         if (this.wPid != other.wPid) return false
         if (this.vDriverVersion != other.vDriverVersion) return false
@@ -1521,7 +1523,7 @@ public data class MIXERCAPSW(
     }
 }
 
-public data class MIXERCONTROLA(
+public data class Mixercontrola(
     public var cbStruct: UInt = 0u,
     public var dwControlID: UInt = 0u,
     public var dwControlType: UInt = 0u,
@@ -1529,12 +1531,12 @@ public data class MIXERCONTROLA(
     public var cMultipleItems: UInt = 0u,
     public var szShortName: ByteArray = ByteArray(16),
     public var szName: ByteArray = ByteArray(64),
-    public var Bounds: MIXERCONTROLA_0 = MIXERCONTROLA_0(),
-    public var Metrics: MIXERCONTROLA_1 = MIXERCONTROLA_1(),
+    public var bounds: Mixercontrola0 = Mixercontrola0(),
+    public var metrics: Mixercontrola1 = Mixercontrola1(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIXERCONTROLA) return false
+        if (other !is Mixercontrola) return false
         if (this.cbStruct != other.cbStruct) return false
         if (this.dwControlID != other.dwControlID) return false
         if (this.dwControlType != other.dwControlType) return false
@@ -1542,8 +1544,8 @@ public data class MIXERCONTROLA(
         if (this.cMultipleItems != other.cMultipleItems) return false
         if (!this.szShortName.contentEquals(other.szShortName)) return false
         if (!this.szName.contentEquals(other.szName)) return false
-        if (this.Bounds != other.Bounds) return false
-        if (this.Metrics != other.Metrics) return false
+        if (this.bounds != other.bounds) return false
+        if (this.metrics != other.metrics) return false
         return true
     }
 
@@ -1555,46 +1557,46 @@ public data class MIXERCONTROLA(
         result = 31 * result + this.cMultipleItems.hashCode()
         result = 31 * result + this.szShortName.contentHashCode()
         result = 31 * result + this.szName.contentHashCode()
-        result = 31 * result + this.Bounds.hashCode()
-        result = 31 * result + this.Metrics.hashCode()
+        result = 31 * result + this.bounds.hashCode()
+        result = 31 * result + this.metrics.hashCode()
         return result
     }
 }
 
-public data class MIXERCONTROLA_0(
-    public var Anonymous1: MIXERCONTROLA_0_0 = MIXERCONTROLA_0_0(),
-    public var Anonymous2: MIXERCONTROLA_0_1 = MIXERCONTROLA_0_1(),
+public data class Mixercontrola0(
+    public var anonymous1: Mixercontrola00 = Mixercontrola00(),
+    public var anonymous2: Mixercontrola01 = Mixercontrola01(),
     public var dwReserved: UIntArray = UIntArray(6),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIXERCONTROLA_0) return false
-        if (this.Anonymous1 != other.Anonymous1) return false
-        if (this.Anonymous2 != other.Anonymous2) return false
+        if (other !is Mixercontrola0) return false
+        if (this.anonymous1 != other.anonymous1) return false
+        if (this.anonymous2 != other.anonymous2) return false
         if (!this.dwReserved.contentEquals(other.dwReserved)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Anonymous1.hashCode()
-        result = 31 * result + this.Anonymous2.hashCode()
+        var result = this.anonymous1.hashCode()
+        result = 31 * result + this.anonymous2.hashCode()
         result = 31 * result + this.dwReserved.contentHashCode()
         return result
     }
 }
 
-public data class MIXERCONTROLA_0_0(public var lMinimum: Int = 0, public var lMaximum: Int = 0)
+public data class Mixercontrola00(public var lMinimum: Int = 0, public var lMaximum: Int = 0)
 
-public data class MIXERCONTROLA_0_1(public var dwMinimum: UInt = 0u, public var dwMaximum: UInt = 0u)
+public data class Mixercontrola01(public var dwMinimum: UInt = 0u, public var dwMaximum: UInt = 0u)
 
-public data class MIXERCONTROLA_1(
+public data class Mixercontrola1(
     public var cSteps: UInt = 0u,
     public var cbCustomData: UInt = 0u,
     public var dwReserved: UIntArray = UIntArray(6),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIXERCONTROLA_1) return false
+        if (other !is Mixercontrola1) return false
         if (this.cSteps != other.cSteps) return false
         if (this.cbCustomData != other.cbCustomData) return false
         if (!this.dwReserved.contentEquals(other.dwReserved)) return false
@@ -1609,27 +1611,27 @@ public data class MIXERCONTROLA_1(
     }
 }
 
-public data class MIXERCONTROLDETAILS(
+public data class Mixercontroldetails(
     public var cbStruct: UInt = 0u,
     public var dwControlID: UInt = 0u,
     public var cChannels: UInt = 0u,
-    public var Anonymous: MIXERCONTROLDETAILS_0 = MIXERCONTROLDETAILS_0(),
+    public var anonymous: Mixercontroldetails0 = Mixercontroldetails0(),
     public var cbDetails: UInt = 0u,
-    public var paDetails: Long = 0L,
+    public var paDetails: COpaquePointer? = null,
 )
 
-public data class MIXERCONTROLDETAILS_0(public var hwndOwner: HWND = 0L, public var cMultipleItems: UInt = 0u)
+public data class Mixercontroldetails0(public var hwndOwner: Hwnd = null, public var cMultipleItems: UInt = 0u)
 
-public data class MIXERCONTROLDETAILS_BOOLEAN(public var fValue: Int = 0)
+public data class MixercontroldetailsBoolean(public var fValue: Int = 0)
 
-public data class MIXERCONTROLDETAILS_LISTTEXTA(
+public data class MixercontroldetailsListtexta(
     public var dwParam1: UInt = 0u,
     public var dwParam2: UInt = 0u,
     public var szName: ByteArray = ByteArray(64),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIXERCONTROLDETAILS_LISTTEXTA) return false
+        if (other !is MixercontroldetailsListtexta) return false
         if (this.dwParam1 != other.dwParam1) return false
         if (this.dwParam2 != other.dwParam2) return false
         if (!this.szName.contentEquals(other.szName)) return false
@@ -1644,14 +1646,14 @@ public data class MIXERCONTROLDETAILS_LISTTEXTA(
     }
 }
 
-public data class MIXERCONTROLDETAILS_LISTTEXTW(
+public data class MixercontroldetailsListtextw(
     public var dwParam1: UInt = 0u,
     public var dwParam2: UInt = 0u,
     public var szName: UShortArray = UShortArray(64),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIXERCONTROLDETAILS_LISTTEXTW) return false
+        if (other !is MixercontroldetailsListtextw) return false
         if (this.dwParam1 != other.dwParam1) return false
         if (this.dwParam2 != other.dwParam2) return false
         if (!this.szName.contentEquals(other.szName)) return false
@@ -1666,11 +1668,11 @@ public data class MIXERCONTROLDETAILS_LISTTEXTW(
     }
 }
 
-public data class MIXERCONTROLDETAILS_SIGNED(public var lValue: Int = 0)
+public data class MixercontroldetailsSigned(public var lValue: Int = 0)
 
-public data class MIXERCONTROLDETAILS_UNSIGNED(public var dwValue: UInt = 0u)
+public data class MixercontroldetailsUnsigned(public var dwValue: UInt = 0u)
 
-public data class MIXERCONTROLW(
+public data class Mixercontrolw(
     public var cbStruct: UInt = 0u,
     public var dwControlID: UInt = 0u,
     public var dwControlType: UInt = 0u,
@@ -1678,12 +1680,12 @@ public data class MIXERCONTROLW(
     public var cMultipleItems: UInt = 0u,
     public var szShortName: UShortArray = UShortArray(16),
     public var szName: UShortArray = UShortArray(64),
-    public var Bounds: MIXERCONTROLW_0 = MIXERCONTROLW_0(),
-    public var Metrics: MIXERCONTROLW_1 = MIXERCONTROLW_1(),
+    public var bounds: Mixercontrolw0 = Mixercontrolw0(),
+    public var metrics: Mixercontrolw1 = Mixercontrolw1(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIXERCONTROLW) return false
+        if (other !is Mixercontrolw) return false
         if (this.cbStruct != other.cbStruct) return false
         if (this.dwControlID != other.dwControlID) return false
         if (this.dwControlType != other.dwControlType) return false
@@ -1691,8 +1693,8 @@ public data class MIXERCONTROLW(
         if (this.cMultipleItems != other.cMultipleItems) return false
         if (!this.szShortName.contentEquals(other.szShortName)) return false
         if (!this.szName.contentEquals(other.szName)) return false
-        if (this.Bounds != other.Bounds) return false
-        if (this.Metrics != other.Metrics) return false
+        if (this.bounds != other.bounds) return false
+        if (this.metrics != other.metrics) return false
         return true
     }
 
@@ -1704,46 +1706,46 @@ public data class MIXERCONTROLW(
         result = 31 * result + this.cMultipleItems.hashCode()
         result = 31 * result + this.szShortName.contentHashCode()
         result = 31 * result + this.szName.contentHashCode()
-        result = 31 * result + this.Bounds.hashCode()
-        result = 31 * result + this.Metrics.hashCode()
+        result = 31 * result + this.bounds.hashCode()
+        result = 31 * result + this.metrics.hashCode()
         return result
     }
 }
 
-public data class MIXERCONTROLW_0(
-    public var Anonymous1: MIXERCONTROLW_0_0 = MIXERCONTROLW_0_0(),
-    public var Anonymous2: MIXERCONTROLW_0_1 = MIXERCONTROLW_0_1(),
+public data class Mixercontrolw0(
+    public var anonymous1: Mixercontrolw00 = Mixercontrolw00(),
+    public var anonymous2: Mixercontrolw01 = Mixercontrolw01(),
     public var dwReserved: UIntArray = UIntArray(6),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIXERCONTROLW_0) return false
-        if (this.Anonymous1 != other.Anonymous1) return false
-        if (this.Anonymous2 != other.Anonymous2) return false
+        if (other !is Mixercontrolw0) return false
+        if (this.anonymous1 != other.anonymous1) return false
+        if (this.anonymous2 != other.anonymous2) return false
         if (!this.dwReserved.contentEquals(other.dwReserved)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Anonymous1.hashCode()
-        result = 31 * result + this.Anonymous2.hashCode()
+        var result = this.anonymous1.hashCode()
+        result = 31 * result + this.anonymous2.hashCode()
         result = 31 * result + this.dwReserved.contentHashCode()
         return result
     }
 }
 
-public data class MIXERCONTROLW_0_0(public var lMinimum: Int = 0, public var lMaximum: Int = 0)
+public data class Mixercontrolw00(public var lMinimum: Int = 0, public var lMaximum: Int = 0)
 
-public data class MIXERCONTROLW_0_1(public var dwMinimum: UInt = 0u, public var dwMaximum: UInt = 0u)
+public data class Mixercontrolw01(public var dwMinimum: UInt = 0u, public var dwMaximum: UInt = 0u)
 
-public data class MIXERCONTROLW_1(
+public data class Mixercontrolw1(
     public var cSteps: UInt = 0u,
     public var cbCustomData: UInt = 0u,
     public var dwReserved: UIntArray = UIntArray(6),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIXERCONTROLW_1) return false
+        if (other !is Mixercontrolw1) return false
         if (this.cSteps != other.cSteps) return false
         if (this.cbCustomData != other.cbCustomData) return false
         if (!this.dwReserved.contentEquals(other.dwReserved)) return false
@@ -1758,24 +1760,24 @@ public data class MIXERCONTROLW_1(
     }
 }
 
-public data class MIXERLINEA(
+public data class Mixerlinea(
     public var cbStruct: UInt = 0u,
     public var dwDestination: UInt = 0u,
     public var dwSource: UInt = 0u,
     public var dwLineID: UInt = 0u,
     public var fdwLine: UInt = 0u,
-    public var dwUser: ULong = 0uL,
-    public var dwComponentType: MIXERLINE_COMPONENTTYPE = 0u,
+    public var dwUser: Int = 0,
+    public var dwComponentType: MixerlineComponenttype = 0u,
     public var cChannels: UInt = 0u,
     public var cConnections: UInt = 0u,
     public var cControls: UInt = 0u,
     public var szShortName: ByteArray = ByteArray(16),
     public var szName: ByteArray = ByteArray(64),
-    public var Target: MIXERLINEA_0 = MIXERLINEA_0(),
+    public var target: Mixerlinea0 = Mixerlinea0(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIXERLINEA) return false
+        if (other !is Mixerlinea) return false
         if (this.cbStruct != other.cbStruct) return false
         if (this.dwDestination != other.dwDestination) return false
         if (this.dwSource != other.dwSource) return false
@@ -1788,7 +1790,7 @@ public data class MIXERLINEA(
         if (this.cControls != other.cControls) return false
         if (!this.szShortName.contentEquals(other.szShortName)) return false
         if (!this.szName.contentEquals(other.szName)) return false
-        if (this.Target != other.Target) return false
+        if (this.target != other.target) return false
         return true
     }
 
@@ -1805,12 +1807,12 @@ public data class MIXERLINEA(
         result = 31 * result + this.cControls.hashCode()
         result = 31 * result + this.szShortName.contentHashCode()
         result = 31 * result + this.szName.contentHashCode()
-        result = 31 * result + this.Target.hashCode()
+        result = 31 * result + this.target.hashCode()
         return result
     }
 }
 
-public data class MIXERLINEA_0(
+public data class Mixerlinea0(
     public var dwType: UInt = 0u,
     public var dwDeviceID: UInt = 0u,
     public var wMid: UShort = 0u,
@@ -1820,7 +1822,7 @@ public data class MIXERLINEA_0(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIXERLINEA_0) return false
+        if (other !is Mixerlinea0) return false
         if (this.dwType != other.dwType) return false
         if (this.dwDeviceID != other.dwDeviceID) return false
         if (this.wMid != other.wMid) return false
@@ -1841,46 +1843,46 @@ public data class MIXERLINEA_0(
     }
 }
 
-public data class MIXERLINECONTROLSA(
+public data class Mixerlinecontrolsa(
     public var cbStruct: UInt = 0u,
     public var dwLineID: UInt = 0u,
-    public var Anonymous: MIXERLINECONTROLSA_0 = MIXERLINECONTROLSA_0(),
+    public var anonymous: Mixerlinecontrolsa0 = Mixerlinecontrolsa0(),
     public var cControls: UInt = 0u,
     public var cbmxctrl: UInt = 0u,
-    public var pamxctrl: Long = 0L,
+    public var pamxctrl: Mixercontrola? = null,
 )
 
-public data class MIXERLINECONTROLSA_0(public var dwControlID: UInt = 0u, public var dwControlType: UInt = 0u)
+public data class Mixerlinecontrolsa0(public var dwControlID: UInt = 0u, public var dwControlType: UInt = 0u)
 
-public data class MIXERLINECONTROLSW(
+public data class Mixerlinecontrolsw(
     public var cbStruct: UInt = 0u,
     public var dwLineID: UInt = 0u,
-    public var Anonymous: MIXERLINECONTROLSW_0 = MIXERLINECONTROLSW_0(),
+    public var anonymous: Mixerlinecontrolsw0 = Mixerlinecontrolsw0(),
     public var cControls: UInt = 0u,
     public var cbmxctrl: UInt = 0u,
-    public var pamxctrl: Long = 0L,
+    public var pamxctrl: Mixercontrolw? = null,
 )
 
-public data class MIXERLINECONTROLSW_0(public var dwControlID: UInt = 0u, public var dwControlType: UInt = 0u)
+public data class Mixerlinecontrolsw0(public var dwControlID: UInt = 0u, public var dwControlType: UInt = 0u)
 
-public data class MIXERLINEW(
+public data class Mixerlinew(
     public var cbStruct: UInt = 0u,
     public var dwDestination: UInt = 0u,
     public var dwSource: UInt = 0u,
     public var dwLineID: UInt = 0u,
     public var fdwLine: UInt = 0u,
-    public var dwUser: ULong = 0uL,
-    public var dwComponentType: MIXERLINE_COMPONENTTYPE = 0u,
+    public var dwUser: Int = 0,
+    public var dwComponentType: MixerlineComponenttype = 0u,
     public var cChannels: UInt = 0u,
     public var cConnections: UInt = 0u,
     public var cControls: UInt = 0u,
     public var szShortName: UShortArray = UShortArray(16),
     public var szName: UShortArray = UShortArray(64),
-    public var Target: MIXERLINEW_0 = MIXERLINEW_0(),
+    public var target: Mixerlinew0 = Mixerlinew0(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIXERLINEW) return false
+        if (other !is Mixerlinew) return false
         if (this.cbStruct != other.cbStruct) return false
         if (this.dwDestination != other.dwDestination) return false
         if (this.dwSource != other.dwSource) return false
@@ -1893,7 +1895,7 @@ public data class MIXERLINEW(
         if (this.cControls != other.cControls) return false
         if (!this.szShortName.contentEquals(other.szShortName)) return false
         if (!this.szName.contentEquals(other.szName)) return false
-        if (this.Target != other.Target) return false
+        if (this.target != other.target) return false
         return true
     }
 
@@ -1910,12 +1912,12 @@ public data class MIXERLINEW(
         result = 31 * result + this.cControls.hashCode()
         result = 31 * result + this.szShortName.contentHashCode()
         result = 31 * result + this.szName.contentHashCode()
-        result = 31 * result + this.Target.hashCode()
+        result = 31 * result + this.target.hashCode()
         return result
     }
 }
 
-public data class MIXERLINEW_0(
+public data class Mixerlinew0(
     public var dwType: UInt = 0u,
     public var dwDeviceID: UInt = 0u,
     public var wMid: UShort = 0u,
@@ -1925,7 +1927,7 @@ public data class MIXERLINEW_0(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIXERLINEW_0) return false
+        if (other !is Mixerlinew0) return false
         if (this.dwType != other.dwType) return false
         if (this.dwDeviceID != other.dwDeviceID) return false
         if (this.wMid != other.wMid) return false
@@ -1946,11 +1948,11 @@ public data class MIXERLINEW_0(
     }
 }
 
-public data class PCMWAVEFORMAT(public var wf: WAVEFORMAT = WAVEFORMAT(), public var wBitsPerSample: UShort = 0u)
+public data class Pcmwaveformat(public var wf: Waveformat = Waveformat(), public var wBitsPerSample: UShort = 0u)
 
 public data class SpatialAudioClientActivationParams(
-    public var tracingContextId: GUID = GUID(),
-    public var appId: GUID = GUID(),
+    public var tracingContextId: Guid = Guid(),
+    public var appId: Guid = Guid(),
     public var majorVersion: Int = 0,
     public var minorVersion1: Int = 0,
     public var minorVersion2: Int = 0,
@@ -1958,116 +1960,116 @@ public data class SpatialAudioClientActivationParams(
 )
 
 public data class SpatialAudioHrtfActivationParams(
-    public var ObjectFormat: Long = 0L,
-    public var StaticObjectTypeMask: AudioObjectType = 0,
-    public var MinDynamicObjectCount: UInt = 0u,
-    public var MaxDynamicObjectCount: UInt = 0u,
-    public var Category: AUDIO_STREAM_CATEGORY = 0,
-    public var EventHandle: HANDLE = 0L,
-    public var NotifyObject: Long = 0L,
-    public var DistanceDecay: Long = 0L,
-    public var Directivity: Long = 0L,
-    public var Environment: Long = 0L,
-    public var Orientation: Long = 0L,
+    public var objectFormat: Waveformatex? = null,
+    public var staticObjectTypeMask: AudioObjectType = 0,
+    public var minDynamicObjectCount: UInt = 0u,
+    public var maxDynamicObjectCount: UInt = 0u,
+    public var category: AudioStreamCategory = 0,
+    public var eventHandle: Handle = null,
+    public var notifyObject: COpaquePointer? = null,
+    public var distanceDecay: SpatialAudioHrtfDistanceDecay? = null,
+    public var directivity: SpatialAudioHrtfDirectivityUnion? = null,
+    public var environment: Int? = null,
+    public var orientation: Float? = null,
 )
 
 public data class SpatialAudioHrtfActivationParams2(
-    public var ObjectFormat: Long = 0L,
-    public var StaticObjectTypeMask: AudioObjectType = 0,
-    public var MinDynamicObjectCount: UInt = 0u,
-    public var MaxDynamicObjectCount: UInt = 0u,
-    public var Category: AUDIO_STREAM_CATEGORY = 0,
-    public var EventHandle: HANDLE = 0L,
-    public var NotifyObject: Long = 0L,
-    public var DistanceDecay: Long = 0L,
-    public var Directivity: Long = 0L,
-    public var Environment: Long = 0L,
-    public var Orientation: Long = 0L,
-    public var Options: SPATIAL_AUDIO_STREAM_OPTIONS = 0,
+    public var objectFormat: Waveformatex? = null,
+    public var staticObjectTypeMask: AudioObjectType = 0,
+    public var minDynamicObjectCount: UInt = 0u,
+    public var maxDynamicObjectCount: UInt = 0u,
+    public var category: AudioStreamCategory = 0,
+    public var eventHandle: Handle = null,
+    public var notifyObject: COpaquePointer? = null,
+    public var distanceDecay: SpatialAudioHrtfDistanceDecay? = null,
+    public var directivity: SpatialAudioHrtfDirectivityUnion? = null,
+    public var environment: Int? = null,
+    public var orientation: Float? = null,
+    public var options: SpatialAudioStreamOptions = 0,
 )
 
-public data class SpatialAudioHrtfDirectivity(public var Type: SpatialAudioHrtfDirectivityType = 0, public var Scaling: Float = 0.0f)
+public data class SpatialAudioHrtfDirectivity(public var type: SpatialAudioHrtfDirectivityType = 0, public var scaling: Float = 0.0f)
 
-public data class SpatialAudioHrtfDirectivityCardioid(public var directivity: SpatialAudioHrtfDirectivity = SpatialAudioHrtfDirectivity(), public var Order: Float = 0.0f)
+public data class SpatialAudioHrtfDirectivityCardioid(public var directivity: SpatialAudioHrtfDirectivity = SpatialAudioHrtfDirectivity(), public var order: Float = 0.0f)
 
 public data class SpatialAudioHrtfDirectivityCone(
     public var directivity: SpatialAudioHrtfDirectivity = SpatialAudioHrtfDirectivity(),
-    public var InnerAngle: Float = 0.0f,
-    public var OuterAngle: Float = 0.0f,
+    public var innerAngle: Float = 0.0f,
+    public var outerAngle: Float = 0.0f,
 )
 
 public data class SpatialAudioHrtfDirectivityUnion(
-    public var Cone: SpatialAudioHrtfDirectivityCone = SpatialAudioHrtfDirectivityCone(),
-    public var Cardiod: SpatialAudioHrtfDirectivityCardioid = SpatialAudioHrtfDirectivityCardioid(),
-    public var Omni: SpatialAudioHrtfDirectivity = SpatialAudioHrtfDirectivity(),
+    public var cone: SpatialAudioHrtfDirectivityCone = SpatialAudioHrtfDirectivityCone(),
+    public var cardiod: SpatialAudioHrtfDirectivityCardioid = SpatialAudioHrtfDirectivityCardioid(),
+    public var omni: SpatialAudioHrtfDirectivity = SpatialAudioHrtfDirectivity(),
 )
 
 public data class SpatialAudioHrtfDistanceDecay(
-    public var Type: SpatialAudioHrtfDistanceDecayType = 0,
-    public var MaxGain: Float = 0.0f,
-    public var MinGain: Float = 0.0f,
-    public var UnityGainDistance: Float = 0.0f,
-    public var CutoffDistance: Float = 0.0f,
+    public var type: SpatialAudioHrtfDistanceDecayType = 0,
+    public var maxGain: Float = 0.0f,
+    public var minGain: Float = 0.0f,
+    public var unityGainDistance: Float = 0.0f,
+    public var cutoffDistance: Float = 0.0f,
 )
 
 public data class SpatialAudioMetadataItemsInfo(
-    public var FrameCount: UShort = 0u,
-    public var ItemCount: UShort = 0u,
-    public var MaxItemCount: UShort = 0u,
-    public var MaxValueBufferLength: UInt = 0u,
+    public var frameCount: UShort = 0u,
+    public var itemCount: UShort = 0u,
+    public var maxItemCount: UShort = 0u,
+    public var maxValueBufferLength: UInt = 0u,
 )
 
 public data class SpatialAudioObjectRenderStreamActivationParams(
-    public var ObjectFormat: Long = 0L,
-    public var StaticObjectTypeMask: AudioObjectType = 0,
-    public var MinDynamicObjectCount: UInt = 0u,
-    public var MaxDynamicObjectCount: UInt = 0u,
-    public var Category: AUDIO_STREAM_CATEGORY = 0,
-    public var EventHandle: HANDLE = 0L,
-    public var NotifyObject: Long = 0L,
+    public var objectFormat: Waveformatex? = null,
+    public var staticObjectTypeMask: AudioObjectType = 0,
+    public var minDynamicObjectCount: UInt = 0u,
+    public var maxDynamicObjectCount: UInt = 0u,
+    public var category: AudioStreamCategory = 0,
+    public var eventHandle: Handle = null,
+    public var notifyObject: COpaquePointer? = null,
 )
 
 public data class SpatialAudioObjectRenderStreamActivationParams2(
-    public var ObjectFormat: Long = 0L,
-    public var StaticObjectTypeMask: AudioObjectType = 0,
-    public var MinDynamicObjectCount: UInt = 0u,
-    public var MaxDynamicObjectCount: UInt = 0u,
-    public var Category: AUDIO_STREAM_CATEGORY = 0,
-    public var EventHandle: HANDLE = 0L,
-    public var NotifyObject: Long = 0L,
-    public var Options: SPATIAL_AUDIO_STREAM_OPTIONS = 0,
+    public var objectFormat: Waveformatex? = null,
+    public var staticObjectTypeMask: AudioObjectType = 0,
+    public var minDynamicObjectCount: UInt = 0u,
+    public var maxDynamicObjectCount: UInt = 0u,
+    public var category: AudioStreamCategory = 0,
+    public var eventHandle: Handle = null,
+    public var notifyObject: COpaquePointer? = null,
+    public var options: SpatialAudioStreamOptions = 0,
 )
 
 public data class SpatialAudioObjectRenderStreamForMetadataActivationParams(
-    public var ObjectFormat: Long = 0L,
-    public var StaticObjectTypeMask: AudioObjectType = 0,
-    public var MinDynamicObjectCount: UInt = 0u,
-    public var MaxDynamicObjectCount: UInt = 0u,
-    public var Category: AUDIO_STREAM_CATEGORY = 0,
-    public var EventHandle: HANDLE = 0L,
-    public var MetadataFormatId: GUID = GUID(),
-    public var MaxMetadataItemCount: UShort = 0u,
-    public var MetadataActivationParams: Long = 0L,
-    public var NotifyObject: Long = 0L,
+    public var objectFormat: Waveformatex? = null,
+    public var staticObjectTypeMask: AudioObjectType = 0,
+    public var minDynamicObjectCount: UInt = 0u,
+    public var maxDynamicObjectCount: UInt = 0u,
+    public var category: AudioStreamCategory = 0,
+    public var eventHandle: Handle = null,
+    public var metadataFormatId: Guid = Guid(),
+    public var maxMetadataItemCount: UShort = 0u,
+    public var metadataActivationParams: Propvariant? = null,
+    public var notifyObject: COpaquePointer? = null,
 )
 
 public data class SpatialAudioObjectRenderStreamForMetadataActivationParams2(
-    public var ObjectFormat: Long = 0L,
-    public var StaticObjectTypeMask: AudioObjectType = 0,
-    public var MinDynamicObjectCount: UInt = 0u,
-    public var MaxDynamicObjectCount: UInt = 0u,
-    public var Category: AUDIO_STREAM_CATEGORY = 0,
-    public var EventHandle: HANDLE = 0L,
-    public var MetadataFormatId: GUID = GUID(),
-    public var MaxMetadataItemCount: UInt = 0u,
-    public var MetadataActivationParams: Long = 0L,
-    public var NotifyObject: Long = 0L,
-    public var Options: SPATIAL_AUDIO_STREAM_OPTIONS = 0,
+    public var objectFormat: Waveformatex? = null,
+    public var staticObjectTypeMask: AudioObjectType = 0,
+    public var minDynamicObjectCount: UInt = 0u,
+    public var maxDynamicObjectCount: UInt = 0u,
+    public var category: AudioStreamCategory = 0,
+    public var eventHandle: Handle = null,
+    public var metadataFormatId: Guid = Guid(),
+    public var maxMetadataItemCount: UInt = 0u,
+    public var metadataActivationParams: Propvariant? = null,
+    public var notifyObject: COpaquePointer? = null,
+    public var options: SpatialAudioStreamOptions = 0,
 )
 
-public data class VOLUMEWAVEFILTER(public var wfltr: WAVEFILTER = WAVEFILTER(), public var dwVolume: UInt = 0u)
+public data class Volumewavefilter(public var wfltr: Wavefilter = Wavefilter(), public var dwVolume: UInt = 0u)
 
-public data class WAVEFILTER(
+public data class Wavefilter(
     public var cbStruct: UInt = 0u,
     public var dwFilterTag: UInt = 0u,
     public var fdwFilter: UInt = 0u,
@@ -2075,7 +2077,7 @@ public data class WAVEFILTER(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is WAVEFILTER) return false
+        if (other !is Wavefilter) return false
         if (this.cbStruct != other.cbStruct) return false
         if (this.dwFilterTag != other.dwFilterTag) return false
         if (this.fdwFilter != other.fdwFilter) return false
@@ -2092,7 +2094,7 @@ public data class WAVEFILTER(
     }
 }
 
-public data class WAVEFORMAT(
+public data class Waveformat(
     public var wFormatTag: UShort = 0u,
     public var nChannels: UShort = 0u,
     public var nSamplesPerSec: UInt = 0u,
@@ -2100,7 +2102,7 @@ public data class WAVEFORMAT(
     public var nBlockAlign: UShort = 0u,
 )
 
-public data class WAVEFORMATEX(
+public data class Waveformatex(
     public var wFormatTag: UShort = 0u,
     public var nChannels: UShort = 0u,
     public var nSamplesPerSec: UInt = 0u,
@@ -2110,31 +2112,31 @@ public data class WAVEFORMATEX(
     public var cbSize: UShort = 0u,
 )
 
-public data class WAVEFORMATEXTENSIBLE(
-    public var Format: WAVEFORMATEX = WAVEFORMATEX(),
-    public var Samples: WAVEFORMATEXTENSIBLE_0 = WAVEFORMATEXTENSIBLE_0(),
+public data class Waveformatextensible(
+    public var format: Waveformatex = Waveformatex(),
+    public var samples: Waveformatextensible0 = Waveformatextensible0(),
     public var dwChannelMask: UInt = 0u,
-    public var SubFormat: GUID = GUID(),
+    public var subFormat: Guid = Guid(),
 )
 
-public data class WAVEFORMATEXTENSIBLE_0(
+public data class Waveformatextensible0(
     public var wValidBitsPerSample: UShort = 0u,
     public var wSamplesPerBlock: UShort = 0u,
     public var wReserved: UShort = 0u,
 )
 
-public data class WAVEHDR(
-    public var lpData: PSTR = 0L,
+public data class Wavehdr(
+    public var lpData: Pstr = null,
     public var dwBufferLength: UInt = 0u,
     public var dwBytesRecorded: UInt = 0u,
-    public var dwUser: ULong = 0uL,
+    public var dwUser: Int = 0,
     public var dwFlags: UInt = 0u,
     public var dwLoops: UInt = 0u,
-    public var lpNext: Long = 0L,
-    public var reserved: ULong = 0uL,
+    public var lpNext: Wavehdr? = null,
+    public var reserved: Int = 0,
 )
 
-public data class WAVEINCAPS2A(
+public data class Waveincaps2a(
     public var wMid: UShort = 0u,
     public var wPid: UShort = 0u,
     public var vDriverVersion: UInt = 0u,
@@ -2142,13 +2144,13 @@ public data class WAVEINCAPS2A(
     public var dwFormats: UInt = 0u,
     public var wChannels: UShort = 0u,
     public var wReserved1: UShort = 0u,
-    public var ManufacturerGuid: GUID = GUID(),
-    public var ProductGuid: GUID = GUID(),
-    public var NameGuid: GUID = GUID(),
+    public var manufacturerGuid: Guid = Guid(),
+    public var productGuid: Guid = Guid(),
+    public var nameGuid: Guid = Guid(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is WAVEINCAPS2A) return false
+        if (other !is Waveincaps2a) return false
         if (this.wMid != other.wMid) return false
         if (this.wPid != other.wPid) return false
         if (this.vDriverVersion != other.vDriverVersion) return false
@@ -2156,9 +2158,9 @@ public data class WAVEINCAPS2A(
         if (this.dwFormats != other.dwFormats) return false
         if (this.wChannels != other.wChannels) return false
         if (this.wReserved1 != other.wReserved1) return false
-        if (this.ManufacturerGuid != other.ManufacturerGuid) return false
-        if (this.ProductGuid != other.ProductGuid) return false
-        if (this.NameGuid != other.NameGuid) return false
+        if (this.manufacturerGuid != other.manufacturerGuid) return false
+        if (this.productGuid != other.productGuid) return false
+        if (this.nameGuid != other.nameGuid) return false
         return true
     }
 
@@ -2170,14 +2172,14 @@ public data class WAVEINCAPS2A(
         result = 31 * result + this.dwFormats.hashCode()
         result = 31 * result + this.wChannels.hashCode()
         result = 31 * result + this.wReserved1.hashCode()
-        result = 31 * result + this.ManufacturerGuid.hashCode()
-        result = 31 * result + this.ProductGuid.hashCode()
-        result = 31 * result + this.NameGuid.hashCode()
+        result = 31 * result + this.manufacturerGuid.hashCode()
+        result = 31 * result + this.productGuid.hashCode()
+        result = 31 * result + this.nameGuid.hashCode()
         return result
     }
 }
 
-public data class WAVEINCAPS2W(
+public data class Waveincaps2w(
     public var wMid: UShort = 0u,
     public var wPid: UShort = 0u,
     public var vDriverVersion: UInt = 0u,
@@ -2185,13 +2187,13 @@ public data class WAVEINCAPS2W(
     public var dwFormats: UInt = 0u,
     public var wChannels: UShort = 0u,
     public var wReserved1: UShort = 0u,
-    public var ManufacturerGuid: GUID = GUID(),
-    public var ProductGuid: GUID = GUID(),
-    public var NameGuid: GUID = GUID(),
+    public var manufacturerGuid: Guid = Guid(),
+    public var productGuid: Guid = Guid(),
+    public var nameGuid: Guid = Guid(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is WAVEINCAPS2W) return false
+        if (other !is Waveincaps2w) return false
         if (this.wMid != other.wMid) return false
         if (this.wPid != other.wPid) return false
         if (this.vDriverVersion != other.vDriverVersion) return false
@@ -2199,9 +2201,9 @@ public data class WAVEINCAPS2W(
         if (this.dwFormats != other.dwFormats) return false
         if (this.wChannels != other.wChannels) return false
         if (this.wReserved1 != other.wReserved1) return false
-        if (this.ManufacturerGuid != other.ManufacturerGuid) return false
-        if (this.ProductGuid != other.ProductGuid) return false
-        if (this.NameGuid != other.NameGuid) return false
+        if (this.manufacturerGuid != other.manufacturerGuid) return false
+        if (this.productGuid != other.productGuid) return false
+        if (this.nameGuid != other.nameGuid) return false
         return true
     }
 
@@ -2213,14 +2215,14 @@ public data class WAVEINCAPS2W(
         result = 31 * result + this.dwFormats.hashCode()
         result = 31 * result + this.wChannels.hashCode()
         result = 31 * result + this.wReserved1.hashCode()
-        result = 31 * result + this.ManufacturerGuid.hashCode()
-        result = 31 * result + this.ProductGuid.hashCode()
-        result = 31 * result + this.NameGuid.hashCode()
+        result = 31 * result + this.manufacturerGuid.hashCode()
+        result = 31 * result + this.productGuid.hashCode()
+        result = 31 * result + this.nameGuid.hashCode()
         return result
     }
 }
 
-public data class WAVEINCAPSA(
+public data class Waveincapsa(
     public var wMid: UShort = 0u,
     public var wPid: UShort = 0u,
     public var vDriverVersion: UInt = 0u,
@@ -2231,7 +2233,7 @@ public data class WAVEINCAPSA(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is WAVEINCAPSA) return false
+        if (other !is Waveincapsa) return false
         if (this.wMid != other.wMid) return false
         if (this.wPid != other.wPid) return false
         if (this.vDriverVersion != other.vDriverVersion) return false
@@ -2254,7 +2256,7 @@ public data class WAVEINCAPSA(
     }
 }
 
-public data class WAVEINCAPSW(
+public data class Waveincapsw(
     public var wMid: UShort = 0u,
     public var wPid: UShort = 0u,
     public var vDriverVersion: UInt = 0u,
@@ -2265,7 +2267,7 @@ public data class WAVEINCAPSW(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is WAVEINCAPSW) return false
+        if (other !is Waveincapsw) return false
         if (this.wMid != other.wMid) return false
         if (this.wPid != other.wPid) return false
         if (this.vDriverVersion != other.vDriverVersion) return false
@@ -2288,7 +2290,7 @@ public data class WAVEINCAPSW(
     }
 }
 
-public data class WAVEOUTCAPS2A(
+public data class Waveoutcaps2a(
     public var wMid: UShort = 0u,
     public var wPid: UShort = 0u,
     public var vDriverVersion: UInt = 0u,
@@ -2297,13 +2299,13 @@ public data class WAVEOUTCAPS2A(
     public var wChannels: UShort = 0u,
     public var wReserved1: UShort = 0u,
     public var dwSupport: UInt = 0u,
-    public var ManufacturerGuid: GUID = GUID(),
-    public var ProductGuid: GUID = GUID(),
-    public var NameGuid: GUID = GUID(),
+    public var manufacturerGuid: Guid = Guid(),
+    public var productGuid: Guid = Guid(),
+    public var nameGuid: Guid = Guid(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is WAVEOUTCAPS2A) return false
+        if (other !is Waveoutcaps2a) return false
         if (this.wMid != other.wMid) return false
         if (this.wPid != other.wPid) return false
         if (this.vDriverVersion != other.vDriverVersion) return false
@@ -2312,9 +2314,9 @@ public data class WAVEOUTCAPS2A(
         if (this.wChannels != other.wChannels) return false
         if (this.wReserved1 != other.wReserved1) return false
         if (this.dwSupport != other.dwSupport) return false
-        if (this.ManufacturerGuid != other.ManufacturerGuid) return false
-        if (this.ProductGuid != other.ProductGuid) return false
-        if (this.NameGuid != other.NameGuid) return false
+        if (this.manufacturerGuid != other.manufacturerGuid) return false
+        if (this.productGuid != other.productGuid) return false
+        if (this.nameGuid != other.nameGuid) return false
         return true
     }
 
@@ -2327,14 +2329,14 @@ public data class WAVEOUTCAPS2A(
         result = 31 * result + this.wChannels.hashCode()
         result = 31 * result + this.wReserved1.hashCode()
         result = 31 * result + this.dwSupport.hashCode()
-        result = 31 * result + this.ManufacturerGuid.hashCode()
-        result = 31 * result + this.ProductGuid.hashCode()
-        result = 31 * result + this.NameGuid.hashCode()
+        result = 31 * result + this.manufacturerGuid.hashCode()
+        result = 31 * result + this.productGuid.hashCode()
+        result = 31 * result + this.nameGuid.hashCode()
         return result
     }
 }
 
-public data class WAVEOUTCAPS2W(
+public data class Waveoutcaps2w(
     public var wMid: UShort = 0u,
     public var wPid: UShort = 0u,
     public var vDriverVersion: UInt = 0u,
@@ -2343,13 +2345,13 @@ public data class WAVEOUTCAPS2W(
     public var wChannels: UShort = 0u,
     public var wReserved1: UShort = 0u,
     public var dwSupport: UInt = 0u,
-    public var ManufacturerGuid: GUID = GUID(),
-    public var ProductGuid: GUID = GUID(),
-    public var NameGuid: GUID = GUID(),
+    public var manufacturerGuid: Guid = Guid(),
+    public var productGuid: Guid = Guid(),
+    public var nameGuid: Guid = Guid(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is WAVEOUTCAPS2W) return false
+        if (other !is Waveoutcaps2w) return false
         if (this.wMid != other.wMid) return false
         if (this.wPid != other.wPid) return false
         if (this.vDriverVersion != other.vDriverVersion) return false
@@ -2358,9 +2360,9 @@ public data class WAVEOUTCAPS2W(
         if (this.wChannels != other.wChannels) return false
         if (this.wReserved1 != other.wReserved1) return false
         if (this.dwSupport != other.dwSupport) return false
-        if (this.ManufacturerGuid != other.ManufacturerGuid) return false
-        if (this.ProductGuid != other.ProductGuid) return false
-        if (this.NameGuid != other.NameGuid) return false
+        if (this.manufacturerGuid != other.manufacturerGuid) return false
+        if (this.productGuid != other.productGuid) return false
+        if (this.nameGuid != other.nameGuid) return false
         return true
     }
 
@@ -2373,14 +2375,14 @@ public data class WAVEOUTCAPS2W(
         result = 31 * result + this.wChannels.hashCode()
         result = 31 * result + this.wReserved1.hashCode()
         result = 31 * result + this.dwSupport.hashCode()
-        result = 31 * result + this.ManufacturerGuid.hashCode()
-        result = 31 * result + this.ProductGuid.hashCode()
-        result = 31 * result + this.NameGuid.hashCode()
+        result = 31 * result + this.manufacturerGuid.hashCode()
+        result = 31 * result + this.productGuid.hashCode()
+        result = 31 * result + this.nameGuid.hashCode()
         return result
     }
 }
 
-public data class WAVEOUTCAPSA(
+public data class Waveoutcapsa(
     public var wMid: UShort = 0u,
     public var wPid: UShort = 0u,
     public var vDriverVersion: UInt = 0u,
@@ -2392,44 +2394,7 @@ public data class WAVEOUTCAPSA(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is WAVEOUTCAPSA) return false
-        if (this.wMid != other.wMid) return false
-        if (this.wPid != other.wPid) return false
-        if (this.vDriverVersion != other.vDriverVersion) return false
-        if (!this.szPname.contentEquals(other.szPname)) return false
-        if (this.dwFormats != other.dwFormats) return false
-        if (this.wChannels != other.wChannels) return false
-        if (this.wReserved1 != other.wReserved1) return false
-        if (this.dwSupport != other.dwSupport) return false
-        return true
-    }
-
-    override fun hashCode(): Int {
-        var result = this.wMid.hashCode()
-        result = 31 * result + this.wPid.hashCode()
-        result = 31 * result + this.vDriverVersion.hashCode()
-        result = 31 * result + this.szPname.contentHashCode()
-        result = 31 * result + this.dwFormats.hashCode()
-        result = 31 * result + this.wChannels.hashCode()
-        result = 31 * result + this.wReserved1.hashCode()
-        result = 31 * result + this.dwSupport.hashCode()
-        return result
-    }
-}
-
-public data class WAVEOUTCAPSW(
-    public var wMid: UShort = 0u,
-    public var wPid: UShort = 0u,
-    public var vDriverVersion: UInt = 0u,
-    public var szPname: UShortArray = UShortArray(32),
-    public var dwFormats: UInt = 0u,
-    public var wChannels: UShort = 0u,
-    public var wReserved1: UShort = 0u,
-    public var dwSupport: UInt = 0u,
-) {
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (other !is WAVEOUTCAPSW) return false
+        if (other !is Waveoutcapsa) return false
         if (this.wMid != other.wMid) return false
         if (this.wPid != other.wPid) return false
         if (this.vDriverVersion != other.vDriverVersion) return false
@@ -2454,18 +2419,55 @@ public data class WAVEOUTCAPSW(
     }
 }
 
-public data class tACMFORMATDETAILSW(
+public data class Waveoutcapsw(
+    public var wMid: UShort = 0u,
+    public var wPid: UShort = 0u,
+    public var vDriverVersion: UInt = 0u,
+    public var szPname: UShortArray = UShortArray(32),
+    public var dwFormats: UInt = 0u,
+    public var wChannels: UShort = 0u,
+    public var wReserved1: UShort = 0u,
+    public var dwSupport: UInt = 0u,
+) {
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is Waveoutcapsw) return false
+        if (this.wMid != other.wMid) return false
+        if (this.wPid != other.wPid) return false
+        if (this.vDriverVersion != other.vDriverVersion) return false
+        if (!this.szPname.contentEquals(other.szPname)) return false
+        if (this.dwFormats != other.dwFormats) return false
+        if (this.wChannels != other.wChannels) return false
+        if (this.wReserved1 != other.wReserved1) return false
+        if (this.dwSupport != other.dwSupport) return false
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = this.wMid.hashCode()
+        result = 31 * result + this.wPid.hashCode()
+        result = 31 * result + this.vDriverVersion.hashCode()
+        result = 31 * result + this.szPname.contentHashCode()
+        result = 31 * result + this.dwFormats.hashCode()
+        result = 31 * result + this.wChannels.hashCode()
+        result = 31 * result + this.wReserved1.hashCode()
+        result = 31 * result + this.dwSupport.hashCode()
+        return result
+    }
+}
+
+public data class TAcmformatdetailsw(
     public var cbStruct: UInt = 0u,
     public var dwFormatIndex: UInt = 0u,
     public var dwFormatTag: UInt = 0u,
     public var fdwSupport: UInt = 0u,
-    public var pwfx: Long = 0L,
+    public var pwfx: Waveformatex? = null,
     public var cbwfx: UInt = 0u,
     public var szFormat: UShortArray = UShortArray(128),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is tACMFORMATDETAILSW) return false
+        if (other !is TAcmformatdetailsw) return false
         if (this.cbStruct != other.cbStruct) return false
         if (this.dwFormatIndex != other.dwFormatIndex) return false
         if (this.dwFormatTag != other.dwFormatTag) return false

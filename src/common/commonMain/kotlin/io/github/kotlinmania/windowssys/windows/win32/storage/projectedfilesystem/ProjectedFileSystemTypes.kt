@@ -1,76 +1,77 @@
 package io.github.kotlinmania.windowssys.windows.win32.storage.projectedfilesystem
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
 
-public typealias PRJ_CALLBACK_DATA_FLAGS = Int
+public typealias PrjCallbackDataFlags = Int
 
-public fun interface PRJ_CANCEL_COMMAND_CBFn {
-    public operator fun invoke(callbackdata: Long)
+public fun interface PrjCancelCommandCbFn {
+    public operator fun invoke(callbackdata: COpaquePointer?)
 }
 
-public typealias PRJ_CANCEL_COMMAND_CB = PRJ_CANCEL_COMMAND_CBFn?
+public typealias PrjCancelCommandCb = PrjCancelCommandCbFn?
 
-public typealias PRJ_COMPLETE_COMMAND_TYPE = Int
+public typealias PrjCompleteCommandType = Int
 
-public typealias PRJ_DIR_ENTRY_BUFFER_HANDLE = Long
+public typealias PrjDirEntryBufferHandle = COpaquePointer?
 
-public fun interface PRJ_END_DIRECTORY_ENUMERATION_CBFn {
-    public operator fun invoke(callbackdata: Long, enumerationid: Long): HRESULT
+public fun interface PrjEndDirectoryEnumerationCbFn {
+    public operator fun invoke(callbackdata: COpaquePointer?, enumerationid: COpaquePointer?): Hresult
 }
 
-public typealias PRJ_END_DIRECTORY_ENUMERATION_CB = PRJ_END_DIRECTORY_ENUMERATION_CBFn?
+public typealias PrjEndDirectoryEnumerationCb = PrjEndDirectoryEnumerationCbFn?
 
-public typealias PRJ_EXT_INFO_TYPE = Int
+public typealias PrjExtInfoType = Int
 
-public typealias PRJ_FILE_STATE = Int
+public typealias PrjFileState = Int
 
-public fun interface PRJ_GET_DIRECTORY_ENUMERATION_CBFn {
-    public operator fun invoke(callbackdata: Long, enumerationid: Long, searchexpression: PCWSTR, direntrybufferhandle: PRJ_DIR_ENTRY_BUFFER_HANDLE): HRESULT
+public fun interface PrjGetDirectoryEnumerationCbFn {
+    public operator fun invoke(callbackdata: COpaquePointer?, enumerationid: COpaquePointer?, searchexpression: Pcwstr, direntrybufferhandle: PrjDirEntryBufferHandle): Hresult
 }
 
-public typealias PRJ_GET_DIRECTORY_ENUMERATION_CB = PRJ_GET_DIRECTORY_ENUMERATION_CBFn?
+public typealias PrjGetDirectoryEnumerationCb = PrjGetDirectoryEnumerationCbFn?
 
-public fun interface PRJ_GET_FILE_DATA_CBFn {
-    public operator fun invoke(callbackdata: Long, byteoffset: ULong, length: UInt): HRESULT
+public fun interface PrjGetFileDataCbFn {
+    public operator fun invoke(callbackdata: COpaquePointer?, byteoffset: ULong, length: UInt): Hresult
 }
 
-public typealias PRJ_GET_FILE_DATA_CB = PRJ_GET_FILE_DATA_CBFn?
+public typealias PrjGetFileDataCb = PrjGetFileDataCbFn?
 
-public fun interface PRJ_GET_PLACEHOLDER_INFO_CBFn {
-    public operator fun invoke(callbackdata: Long): HRESULT
+public fun interface PrjGetPlaceholderInfoCbFn {
+    public operator fun invoke(callbackdata: COpaquePointer?): Hresult
 }
 
-public typealias PRJ_GET_PLACEHOLDER_INFO_CB = PRJ_GET_PLACEHOLDER_INFO_CBFn?
+public typealias PrjGetPlaceholderInfoCb = PrjGetPlaceholderInfoCbFn?
 
-public typealias PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT = Long
+public typealias PrjNamespaceVirtualizationContext = COpaquePointer?
 
-public typealias PRJ_NOTIFICATION = Int
+public typealias PrjNotification = Int
 
-public fun interface PRJ_NOTIFICATION_CBFn {
-    public operator fun invoke(callbackdata: Long, isdirectory: Boolean, notification: PRJ_NOTIFICATION, destinationfilename: PCWSTR, operationparameters: Long): HRESULT
+public fun interface PrjNotificationCbFn {
+    public operator fun invoke(callbackdata: COpaquePointer?, isdirectory: Boolean, notification: PrjNotification, destinationfilename: Pcwstr, operationparameters: COpaquePointer?): Hresult
 }
 
-public typealias PRJ_NOTIFICATION_CB = PRJ_NOTIFICATION_CBFn?
+public typealias PrjNotificationCb = PrjNotificationCbFn?
 
-public typealias PRJ_NOTIFY_TYPES = UInt
+public typealias PrjNotifyTypes = UInt
 
-public typealias PRJ_PLACEHOLDER_ID = Int
+public typealias PrjPlaceholderId = Int
 
-public fun interface PRJ_QUERY_FILE_NAME_CBFn {
-    public operator fun invoke(callbackdata: Long): HRESULT
+public fun interface PrjQueryFileNameCbFn {
+    public operator fun invoke(callbackdata: COpaquePointer?): Hresult
 }
 
-public typealias PRJ_QUERY_FILE_NAME_CB = PRJ_QUERY_FILE_NAME_CBFn?
+public typealias PrjQueryFileNameCb = PrjQueryFileNameCbFn?
 
-public typealias PRJ_STARTVIRTUALIZING_FLAGS = Int
+public typealias PrjStartvirtualizingFlags = Int
 
-public fun interface PRJ_START_DIRECTORY_ENUMERATION_CBFn {
-    public operator fun invoke(callbackdata: Long, enumerationid: Long): HRESULT
+public fun interface PrjStartDirectoryEnumerationCbFn {
+    public operator fun invoke(callbackdata: COpaquePointer?, enumerationid: COpaquePointer?): Hresult
 }
 
-public typealias PRJ_START_DIRECTORY_ENUMERATION_CB = PRJ_START_DIRECTORY_ENUMERATION_CBFn?
+public typealias PrjStartDirectoryEnumerationCb = PrjStartDirectoryEnumerationCbFn?
 
-public typealias PRJ_UPDATE_FAILURE_CAUSES = Int
+public typealias PrjUpdateFailureCauses = Int
 
-public typealias PRJ_UPDATE_TYPES = Int
+public typealias PrjUpdateTypes = Int

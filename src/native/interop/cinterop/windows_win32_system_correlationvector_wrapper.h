@@ -9,10 +9,10 @@
 extern "C" {
 #endif
 
-uint32_t windowssys_windows_win32_system_correlationvector_RtlExtendCorrelationVector(void* correlationvector);
-uint32_t windowssys_windows_win32_system_correlationvector_RtlIncrementCorrelationVector(void* correlationvector);
-uint32_t windowssys_windows_win32_system_correlationvector_RtlInitializeCorrelationVector(void* correlationvector, int32_t version, void* guid);
-uint32_t windowssys_windows_win32_system_correlationvector_RtlValidateCorrelationVector(void* vector);
+uint32_t windowssys_windows_win32_system_correlationvector_rtlExtendCorrelationVector(void* correlationvector);
+uint32_t windowssys_windows_win32_system_correlationvector_rtlIncrementCorrelationVector(void* correlationvector);
+uint32_t windowssys_windows_win32_system_correlationvector_rtlInitializeCorrelationVector(void* correlationvector, int32_t version, void* guid);
+uint32_t windowssys_windows_win32_system_correlationvector_rtlValidateCorrelationVector(void* vector);
 
 #ifdef __cplusplus
 }

@@ -2,50 +2,51 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.shutdown
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 
-public actual fun AbortSystemShutdownA(lpmachinename: PCSTR): BOOL =
-    0
+public actual fun abortSystemShutdownA(lpmachinename: Pcstr): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AbortSystemShutdownW(lpmachinename: PCWSTR): BOOL =
-    0
+public actual fun abortSystemShutdownW(lpmachinename: Pcwstr): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CheckForHiberboot(phiberboot: Long, bclearflag: Boolean): UInt =
-    0u
+public actual fun checkForHiberboot(phiberboot: COpaquePointer?, bclearflag: Boolean): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ExitWindowsEx(uflags: EXIT_WINDOWS_FLAGS, dwreason: SHUTDOWN_REASON): BOOL =
-    0
+public actual fun exitWindowsEx(uflags: ExitWindowsFlags, dwreason: ShutdownReason): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun InitiateShutdownA(lpmachinename: PCSTR, lpmessage: PCSTR, dwgraceperiod: UInt, dwshutdownflags: SHUTDOWN_FLAGS, dwreason: SHUTDOWN_REASON): UInt =
-    0u
+public actual fun initiateShutdownA(lpmachinename: Pcstr, lpmessage: Pcstr, dwgraceperiod: UInt, dwshutdownflags: ShutdownFlags, dwreason: ShutdownReason): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun InitiateShutdownW(lpmachinename: PCWSTR, lpmessage: PCWSTR, dwgraceperiod: UInt, dwshutdownflags: SHUTDOWN_FLAGS, dwreason: SHUTDOWN_REASON): UInt =
-    0u
+public actual fun initiateShutdownW(lpmachinename: Pcwstr, lpmessage: Pcwstr, dwgraceperiod: UInt, dwshutdownflags: ShutdownFlags, dwreason: ShutdownReason): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun InitiateSystemShutdownA(lpmachinename: PCSTR, lpmessage: PCSTR, dwtimeout: UInt, bforceappsclosed: BOOL, brebootaftershutdown: BOOL): BOOL =
-    0
+public actual fun initiateSystemShutdownA(lpmachinename: Pcstr, lpmessage: Pcstr, dwtimeout: UInt, bforceappsclosed: Bool, brebootaftershutdown: Bool): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun InitiateSystemShutdownExA(lpmachinename: PCSTR, lpmessage: PCSTR, dwtimeout: UInt, bforceappsclosed: BOOL, brebootaftershutdown: BOOL, dwreason: SHUTDOWN_REASON): BOOL =
-    0
+public actual fun initiateSystemShutdownExA(lpmachinename: Pcstr, lpmessage: Pcstr, dwtimeout: UInt, bforceappsclosed: Bool, brebootaftershutdown: Bool, dwreason: ShutdownReason): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun InitiateSystemShutdownExW(lpmachinename: PCWSTR, lpmessage: PCWSTR, dwtimeout: UInt, bforceappsclosed: BOOL, brebootaftershutdown: BOOL, dwreason: SHUTDOWN_REASON): BOOL =
-    0
+public actual fun initiateSystemShutdownExW(lpmachinename: Pcwstr, lpmessage: Pcwstr, dwtimeout: UInt, bforceappsclosed: Bool, brebootaftershutdown: Bool, dwreason: ShutdownReason): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun InitiateSystemShutdownW(lpmachinename: PCWSTR, lpmessage: PCWSTR, dwtimeout: UInt, bforceappsclosed: BOOL, brebootaftershutdown: BOOL): BOOL =
-    0
+public actual fun initiateSystemShutdownW(lpmachinename: Pcwstr, lpmessage: Pcwstr, dwtimeout: UInt, bforceappsclosed: Bool, brebootaftershutdown: Bool): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LockWorkStation(): BOOL =
-    0
+public actual fun lockWorkStation(): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ShutdownBlockReasonCreate(hwnd: HWND, pwszreason: PCWSTR): BOOL =
-    0
+public actual fun shutdownBlockReasonCreate(hwnd: Hwnd, pwszreason: Pcwstr): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ShutdownBlockReasonDestroy(hwnd: HWND): BOOL =
-    0
+public actual fun shutdownBlockReasonDestroy(hwnd: Hwnd): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ShutdownBlockReasonQuery(hwnd: HWND, pwszbuff: PWSTR, pcchbuff: Long): BOOL =
-    0
+public actual fun shutdownBlockReasonQuery(hwnd: Hwnd, pwszbuff: Pwstr, pcchbuff: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

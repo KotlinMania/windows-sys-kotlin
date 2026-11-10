@@ -1,15 +1,15 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog
 
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Pcwstr
 
-public typealias CRYPTCATATTRIBUTE_FLAGS = UInt
+public typealias CryptcatattributeFlags = UInt
 
-public typealias CRYPTCAT_OPEN_FLAGS = UInt
+public typealias CryptcatOpenFlags = UInt
 
-public typealias CRYPTCAT_VERSION = UInt
+public typealias CryptcatVersion = UInt
 
-public fun interface PFN_CDF_PARSE_ERROR_CALLBACKFn {
-    public operator fun invoke(dwerrorarea: UInt, dwlocalerror: UInt, pwszline: PCWSTR)
+public fun interface PfnCdfParseErrorCallbackFn {
+    public operator fun invoke(dwerrorarea: UInt, dwlocalerror: UInt, pwszline: Pcwstr)
 }
 
-public typealias PFN_CDF_PARSE_ERROR_CALLBACK = PFN_CDF_PARSE_ERROR_CALLBACKFn?
+public typealias PfnCdfParseErrorCallback = PfnCdfParseErrorCallbackFn?

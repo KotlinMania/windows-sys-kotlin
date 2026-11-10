@@ -1,152 +1,153 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.extensions
 
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
 public typealias CallingConventionKind = Int
 
-public typealias DBGKD_MAJOR_TYPES = Int
+public typealias DbgkdMajorTypes = Int
 
-public typealias DEBUG_FAILURE_TYPE = Int
+public typealias DebugFailureType = Int
 
-public typealias DEBUG_FLR_PARAM_TYPE = Int
+public typealias DebugFlrParamType = Int
 
-public typealias DEBUG_POOL_REGION = Int
+public typealias DebugPoolRegion = Int
 
-public fun interface ENTRY_CALLBACKFn {
-    public operator fun invoke(entryaddress: ULong, context: Long): HRESULT
+public fun interface EntryCallbackFn {
+    public operator fun invoke(entryaddress: ULong, context: COpaquePointer?): Hresult
 }
 
-public typealias ENTRY_CALLBACK = ENTRY_CALLBACKFn?
+public typealias EntryCallback = EntryCallbackFn?
 
-public fun interface EXTDLL_ITERATERTLBALANCEDNODESFn {
-    public operator fun invoke(rootnode: ULong, entryoffset: UInt, callback: ENTRY_CALLBACK, callbackcontext: Long)
+public fun interface ExtdllIteratertlbalancednodesFn {
+    public operator fun invoke(rootnode: ULong, entryoffset: UInt, callback: EntryCallback, callbackcontext: COpaquePointer?)
 }
 
-public typealias EXTDLL_ITERATERTLBALANCEDNODES = EXTDLL_ITERATERTLBALANCEDNODESFn?
+public typealias ExtdllIteratertlbalancednodes = ExtdllIteratertlbalancednodesFn?
 
-public fun interface EXTDLL_QUERYDATABYTAGFn {
-    public operator fun invoke(client: Long, dwdatatag: UInt, pqueryinfo: Long, pdata: Long, cbdata: UInt): HRESULT
+public fun interface ExtdllQuerydatabytagFn {
+    public operator fun invoke(client: COpaquePointer?, dwdatatag: UInt, pqueryinfo: COpaquePointer?, pdata: COpaquePointer?, cbdata: UInt): Hresult
 }
 
-public typealias EXTDLL_QUERYDATABYTAG = EXTDLL_QUERYDATABYTAGFn?
+public typealias ExtdllQuerydatabytag = ExtdllQuerydatabytagFn?
 
-public fun interface EXTDLL_QUERYDATABYTAGEXFn {
-    public operator fun invoke(client: Long, dwdatatag: UInt, pqueryinfo: Long, pdata: Long, cbdata: UInt, pdataex: Long, cbdataex: UInt): HRESULT
+public fun interface ExtdllQuerydatabytagexFn {
+    public operator fun invoke(client: COpaquePointer?, dwdatatag: UInt, pqueryinfo: COpaquePointer?, pdata: COpaquePointer?, cbdata: UInt, pdataex: COpaquePointer?, cbdataex: UInt): Hresult
 }
 
-public typealias EXTDLL_QUERYDATABYTAGEX = EXTDLL_QUERYDATABYTAGEXFn?
+public typealias ExtdllQuerydatabytagex = ExtdllQuerydatabytagexFn?
 
-public fun interface EXTS_JOB_PROCESS_CALLBACKFn {
-    public operator fun invoke(job: ULong, process: ULong, context: Long): Boolean
+public fun interface ExtsJobProcessCallbackFn {
+    public operator fun invoke(job: ULong, process: ULong, context: COpaquePointer?): Boolean
 }
 
-public typealias EXTS_JOB_PROCESS_CALLBACK = EXTS_JOB_PROCESS_CALLBACKFn?
+public typealias ExtsJobProcessCallback = ExtsJobProcessCallbackFn?
 
-public fun interface EXTS_TABLE_ENTRY_CALLBACKFn {
-    public operator fun invoke(entry: ULong, context: Long): Boolean
+public fun interface ExtsTableEntryCallbackFn {
+    public operator fun invoke(entry: ULong, context: COpaquePointer?): Boolean
 }
 
-public typealias EXTS_TABLE_ENTRY_CALLBACK = EXTS_TABLE_ENTRY_CALLBACKFn?
+public typealias ExtsTableEntryCallback = ExtsTableEntryCallbackFn?
 
-public fun interface EXT_ANALYSIS_PLUGINFn {
-    public operator fun invoke(client: Long, callphase: FA_EXTENSION_PLUGIN_PHASE, panalysis: Long): HRESULT
+public fun interface ExtAnalysisPluginFn {
+    public operator fun invoke(client: COpaquePointer?, callphase: FaExtensionPluginPhase, panalysis: COpaquePointer?): Hresult
 }
 
-public typealias EXT_ANALYSIS_PLUGIN = EXT_ANALYSIS_PLUGINFn?
+public typealias ExtAnalysisPlugin = ExtAnalysisPluginFn?
 
-public fun interface EXT_ANALYZERFn {
-    public operator fun invoke(client: Long, bucketsuffix: PSTR, cbbucketsuffix: UInt, debugtext: PSTR, cbdebugtext: UInt, flags: Long, panalysis: Long): HRESULT
+public fun interface ExtAnalyzerFn {
+    public operator fun invoke(client: COpaquePointer?, bucketsuffix: Pstr, cbbucketsuffix: UInt, debugtext: Pstr, cbdebugtext: UInt, flags: COpaquePointer?, panalysis: COpaquePointer?): Hresult
 }
 
-public typealias EXT_ANALYZER = EXT_ANALYZERFn?
+public typealias ExtAnalyzer = ExtAnalyzerFn?
 
-public fun interface EXT_DECODE_ERRORFn {
-    public operator fun invoke(pdecodeerror: Long)
+public fun interface ExtDecodeErrorFn {
+    public operator fun invoke(pdecodeerror: COpaquePointer?)
 }
 
-public typealias EXT_DECODE_ERROR = EXT_DECODE_ERRORFn?
+public typealias ExtDecodeError = ExtDecodeErrorFn?
 
-public fun interface EXT_GET_DEBUG_FAILURE_ANALYSISFn {
-    public operator fun invoke(client: Long, flags: UInt, classid: GUID, ppanalysis: Long): HRESULT
+public fun interface ExtGetDebugFailureAnalysisFn {
+    public operator fun invoke(client: COpaquePointer?, flags: UInt, classid: Guid, ppanalysis: COpaquePointer?): Hresult
 }
 
-public typealias EXT_GET_DEBUG_FAILURE_ANALYSIS = EXT_GET_DEBUG_FAILURE_ANALYSISFn?
+public typealias ExtGetDebugFailureAnalysis = ExtGetDebugFailureAnalysisFn?
 
-public fun interface EXT_GET_ENVIRONMENT_VARIABLEFn {
-    public operator fun invoke(peb: ULong, variable: PCSTR, buffer: PCSTR, buffersize: UInt): HRESULT
+public fun interface ExtGetEnvironmentVariableFn {
+    public operator fun invoke(peb: ULong, variable: Pcstr, buffer: Pcstr, buffersize: UInt): Hresult
 }
 
-public typealias EXT_GET_ENVIRONMENT_VARIABLE = EXT_GET_ENVIRONMENT_VARIABLEFn?
+public typealias ExtGetEnvironmentVariable = ExtGetEnvironmentVariableFn?
 
-public fun interface EXT_GET_FAILURE_ANALYSISFn {
-    public operator fun invoke(client: Long, flags: UInt, ppanalysis: Long): HRESULT
+public fun interface ExtGetFailureAnalysisFn {
+    public operator fun invoke(client: COpaquePointer?, flags: UInt, ppanalysis: COpaquePointer?): Hresult
 }
 
-public typealias EXT_GET_FAILURE_ANALYSIS = EXT_GET_FAILURE_ANALYSISFn?
+public typealias ExtGetFailureAnalysis = ExtGetFailureAnalysisFn?
 
-public fun interface EXT_GET_FA_ENTRIES_DATAFn {
-    public operator fun invoke(client: Long, count: Long, entries: Long): HRESULT
+public fun interface ExtGetFaEntriesDataFn {
+    public operator fun invoke(client: COpaquePointer?, count: COpaquePointer?, entries: COpaquePointer?): Hresult
 }
 
-public typealias EXT_GET_FA_ENTRIES_DATA = EXT_GET_FA_ENTRIES_DATAFn?
+public typealias ExtGetFaEntriesData = ExtGetFaEntriesDataFn?
 
-public fun interface EXT_GET_HANDLE_TRACEFn {
-    public operator fun invoke(client: Long, tracetype: UInt, startindex: UInt, handlevalue: Long, stackfunctions: Long, stacktracesize: UInt): HRESULT
+public fun interface ExtGetHandleTraceFn {
+    public operator fun invoke(client: COpaquePointer?, tracetype: UInt, startindex: UInt, handlevalue: COpaquePointer?, stackfunctions: COpaquePointer?, stacktracesize: UInt): Hresult
 }
 
-public typealias EXT_GET_HANDLE_TRACE = EXT_GET_HANDLE_TRACEFn?
+public typealias ExtGetHandleTrace = ExtGetHandleTraceFn?
 
-public fun interface EXT_RELOAD_TRIAGERFn {
-    public operator fun invoke(client: Long): HRESULT
+public fun interface ExtReloadTriagerFn {
+    public operator fun invoke(client: COpaquePointer?): Hresult
 }
 
-public typealias EXT_RELOAD_TRIAGER = EXT_RELOAD_TRIAGERFn?
+public typealias ExtReloadTriager = ExtReloadTriagerFn?
 
-public fun interface EXT_TARGET_INFOFn {
-    public operator fun invoke(client: Long, ptargetinfo: Long): HRESULT
+public fun interface ExtTargetInfoFn {
+    public operator fun invoke(client: COpaquePointer?, ptargetinfo: COpaquePointer?): Hresult
 }
 
-public typealias EXT_TARGET_INFO = EXT_TARGET_INFOFn?
+public typealias ExtTargetInfo = ExtTargetInfoFn?
 
-public typealias EXT_TDOP = Int
+public typealias ExtTdop = Int
 
-public fun interface EXT_TRIAGE_FOLLOWUPFn {
-    public operator fun invoke(client: Long, symbolname: PCSTR, ownerinfo: Long): UInt
+public fun interface ExtTriageFollowupFn {
+    public operator fun invoke(client: COpaquePointer?, symbolname: Pcstr, ownerinfo: COpaquePointer?): UInt
 }
 
-public typealias EXT_TRIAGE_FOLLOWUP = EXT_TRIAGE_FOLLOWUPFn?
+public typealias ExtTriageFollowup = ExtTriageFollowupFn?
 
-public fun interface EXT_XML_DATAFn {
-    public operator fun invoke(client: Long, pxmpdata: Long): HRESULT
+public fun interface ExtXmlDataFn {
+    public operator fun invoke(client: COpaquePointer?, pxmpdata: COpaquePointer?): Hresult
 }
 
-public typealias EXT_XML_DATA = EXT_XML_DATAFn?
+public typealias ExtXmlData = ExtXmlDataFn?
 
 public typealias ErrorClass = Int
 
-public typealias FA_ENTRY_TYPE = Int
+public typealias FaEntryType = Int
 
-public typealias FA_EXTENSION_PLUGIN_PHASE = Int
+public typealias FaExtensionPluginPhase = Int
 
 public typealias IntrinsicKind = Int
 
-public fun interface KDEXTS_LOCK_CALLBACKROUTINEFn {
-    public operator fun invoke(plock: Long, context: Long): HRESULT
+public fun interface KdextsLockCallbackroutineFn {
+    public operator fun invoke(plock: COpaquePointer?, context: COpaquePointer?): Hresult
 }
 
-public typealias KDEXTS_LOCK_CALLBACKROUTINE = KDEXTS_LOCK_CALLBACKROUTINEFn?
+public typealias KdextsLockCallbackroutine = KdextsLockCallbackroutineFn?
 
-public fun interface KDEXT_DUMP_HANDLE_CALLBACKFn {
-    public operator fun invoke(handleinfo: Long, flags: UInt, context: Long): Boolean
+public fun interface KdextDumpHandleCallbackFn {
+    public operator fun invoke(handleinfo: COpaquePointer?, flags: UInt, context: COpaquePointer?): Boolean
 }
 
-public typealias KDEXT_DUMP_HANDLE_CALLBACK = KDEXT_DUMP_HANDLE_CALLBACKFn?
+public typealias KdextDumpHandleCallback = KdextDumpHandleCallbackFn?
 
 public typealias LanguageKind = Int
 
@@ -154,427 +155,427 @@ public typealias LocationKind = Int
 
 public typealias ModelObjectKind = Int
 
-public typealias OS_TYPE = Int
+public typealias OsType = Int
 
-public fun interface PDEBUG_EXTENSION_CALLFn {
-    public operator fun invoke(client: Long, args: PCSTR): HRESULT
+public fun interface PdebugExtensionCallFn {
+    public operator fun invoke(client: COpaquePointer?, args: Pcstr): Hresult
 }
 
-public typealias PDEBUG_EXTENSION_CALL = PDEBUG_EXTENSION_CALLFn?
+public typealias PdebugExtensionCall = PdebugExtensionCallFn?
 
-public fun interface PDEBUG_EXTENSION_CANUNLOADFn {
-    public operator fun invoke(): HRESULT
+public fun interface PdebugExtensionCanunloadFn {
+    public operator fun invoke(): Hresult
 }
 
-public typealias PDEBUG_EXTENSION_CANUNLOAD = PDEBUG_EXTENSION_CANUNLOADFn?
+public typealias PdebugExtensionCanunload = PdebugExtensionCanunloadFn?
 
-public fun interface PDEBUG_EXTENSION_INITIALIZEFn {
-    public operator fun invoke(version: Long, flags: Long): HRESULT
+public fun interface PdebugExtensionInitializeFn {
+    public operator fun invoke(version: COpaquePointer?, flags: COpaquePointer?): Hresult
 }
 
-public typealias PDEBUG_EXTENSION_INITIALIZE = PDEBUG_EXTENSION_INITIALIZEFn?
+public typealias PdebugExtensionInitialize = PdebugExtensionInitializeFn?
 
-public fun interface PDEBUG_EXTENSION_KNOWN_STRUCTFn {
-    public operator fun invoke(flags: UInt, offset: ULong, typename: PCSTR, buffer: PSTR, bufferchars: Long): HRESULT
+public fun interface PdebugExtensionKnownStructFn {
+    public operator fun invoke(flags: UInt, offset: ULong, typename: Pcstr, buffer: Pstr, bufferchars: COpaquePointer?): Hresult
 }
 
-public typealias PDEBUG_EXTENSION_KNOWN_STRUCT = PDEBUG_EXTENSION_KNOWN_STRUCTFn?
+public typealias PdebugExtensionKnownStruct = PdebugExtensionKnownStructFn?
 
-public fun interface PDEBUG_EXTENSION_KNOWN_STRUCT_EXFn {
-    public operator fun invoke(client: Long, flags: UInt, offset: ULong, typename: PCSTR, buffer: PSTR, bufferchars: Long): HRESULT
+public fun interface PdebugExtensionKnownStructExFn {
+    public operator fun invoke(client: COpaquePointer?, flags: UInt, offset: ULong, typename: Pcstr, buffer: Pstr, bufferchars: COpaquePointer?): Hresult
 }
 
-public typealias PDEBUG_EXTENSION_KNOWN_STRUCT_EX = PDEBUG_EXTENSION_KNOWN_STRUCT_EXFn?
+public typealias PdebugExtensionKnownStructEx = PdebugExtensionKnownStructExFn?
 
-public fun interface PDEBUG_EXTENSION_NOTIFYFn {
+public fun interface PdebugExtensionNotifyFn {
     public operator fun invoke(notify: UInt, argument: ULong)
 }
 
-public typealias PDEBUG_EXTENSION_NOTIFY = PDEBUG_EXTENSION_NOTIFYFn?
+public typealias PdebugExtensionNotify = PdebugExtensionNotifyFn?
 
-public fun interface PDEBUG_EXTENSION_PROVIDE_VALUEFn {
-    public operator fun invoke(client: Long, flags: UInt, name: PCWSTR, value: Long, typemodbase: Long, typeid: Long, typeflags: Long): HRESULT
+public fun interface PdebugExtensionProvideValueFn {
+    public operator fun invoke(client: COpaquePointer?, flags: UInt, name: Pcwstr, value: COpaquePointer?, typemodbase: COpaquePointer?, typeid: COpaquePointer?, typeflags: COpaquePointer?): Hresult
 }
 
-public typealias PDEBUG_EXTENSION_PROVIDE_VALUE = PDEBUG_EXTENSION_PROVIDE_VALUEFn?
+public typealias PdebugExtensionProvideValue = PdebugExtensionProvideValueFn?
 
-public fun interface PDEBUG_EXTENSION_QUERY_VALUE_NAMESFn {
-    public operator fun invoke(client: Long, flags: UInt, buffer: PWSTR, bufferchars: UInt, bufferneeded: Long): HRESULT
+public fun interface PdebugExtensionQueryValueNamesFn {
+    public operator fun invoke(client: COpaquePointer?, flags: UInt, buffer: Pwstr, bufferchars: UInt, bufferneeded: COpaquePointer?): Hresult
 }
 
-public typealias PDEBUG_EXTENSION_QUERY_VALUE_NAMES = PDEBUG_EXTENSION_QUERY_VALUE_NAMESFn?
+public typealias PdebugExtensionQueryValueNames = PdebugExtensionQueryValueNamesFn?
 
-public fun interface PDEBUG_EXTENSION_UNINITIALIZEFn {
+public fun interface PdebugExtensionUninitializeFn {
     public operator fun invoke()
 }
 
-public typealias PDEBUG_EXTENSION_UNINITIALIZE = PDEBUG_EXTENSION_UNINITIALIZEFn?
+public typealias PdebugExtensionUninitialize = PdebugExtensionUninitializeFn?
 
-public fun interface PDEBUG_EXTENSION_UNLOADFn {
+public fun interface PdebugExtensionUnloadFn {
     public operator fun invoke()
 }
 
-public typealias PDEBUG_EXTENSION_UNLOAD = PDEBUG_EXTENSION_UNLOADFn?
+public typealias PdebugExtensionUnload = PdebugExtensionUnloadFn?
 
-public fun interface PDEBUG_STACK_PROVIDER_BEGINTHREADSTACKRECONSTRUCTIONFn {
-    public operator fun invoke(streamtype: UInt, minidumpstreambuffer: Long, buffersize: UInt): HRESULT
+public fun interface PdebugStackProviderBeginthreadstackreconstructionFn {
+    public operator fun invoke(streamtype: UInt, minidumpstreambuffer: COpaquePointer?, buffersize: UInt): Hresult
 }
 
-public typealias PDEBUG_STACK_PROVIDER_BEGINTHREADSTACKRECONSTRUCTION = PDEBUG_STACK_PROVIDER_BEGINTHREADSTACKRECONSTRUCTIONFn?
+public typealias PdebugStackProviderBeginthreadstackreconstruction = PdebugStackProviderBeginthreadstackreconstructionFn?
 
-public fun interface PDEBUG_STACK_PROVIDER_ENDTHREADSTACKRECONSTRUCTIONFn {
-    public operator fun invoke(): HRESULT
+public fun interface PdebugStackProviderEndthreadstackreconstructionFn {
+    public operator fun invoke(): Hresult
 }
 
-public typealias PDEBUG_STACK_PROVIDER_ENDTHREADSTACKRECONSTRUCTION = PDEBUG_STACK_PROVIDER_ENDTHREADSTACKRECONSTRUCTIONFn?
+public typealias PdebugStackProviderEndthreadstackreconstruction = PdebugStackProviderEndthreadstackreconstructionFn?
 
-public fun interface PDEBUG_STACK_PROVIDER_FREESTACKSYMFRAMESFn {
-    public operator fun invoke(stacksymframes: Long): HRESULT
+public fun interface PdebugStackProviderFreestacksymframesFn {
+    public operator fun invoke(stacksymframes: COpaquePointer?): Hresult
 }
 
-public typealias PDEBUG_STACK_PROVIDER_FREESTACKSYMFRAMES = PDEBUG_STACK_PROVIDER_FREESTACKSYMFRAMESFn?
+public typealias PdebugStackProviderFreestacksymframes = PdebugStackProviderFreestacksymframesFn?
 
-public fun interface PDEBUG_STACK_PROVIDER_RECONSTRUCTSTACKFn {
-    public operator fun invoke(systemthreadid: UInt, nativeframes: Long, countnativeframes: UInt, stacksymframes: Long, stacksymframesfilled: Long): HRESULT
+public fun interface PdebugStackProviderReconstructstackFn {
+    public operator fun invoke(systemthreadid: UInt, nativeframes: COpaquePointer?, countnativeframes: UInt, stacksymframes: COpaquePointer?, stacksymframesfilled: COpaquePointer?): Hresult
 }
 
-public typealias PDEBUG_STACK_PROVIDER_RECONSTRUCTSTACK = PDEBUG_STACK_PROVIDER_RECONSTRUCTSTACKFn?
+public typealias PdebugStackProviderReconstructstack = PdebugStackProviderReconstructstackFn?
 
-public fun interface PENUMERATE_HANDLESFn {
-    public operator fun invoke(client: Long, process: ULong, handletodump: ULong, flags: UInt, callback: KDEXT_DUMP_HANDLE_CALLBACK, context: Long): HRESULT
+public fun interface PenumerateHandlesFn {
+    public operator fun invoke(client: COpaquePointer?, process: ULong, handletodump: ULong, flags: UInt, callback: KdextDumpHandleCallback, context: COpaquePointer?): Hresult
 }
 
-public typealias PENUMERATE_HANDLES = PENUMERATE_HANDLESFn?
+public typealias PenumerateHandles = PenumerateHandlesFn?
 
-public fun interface PENUMERATE_HASH_TABLEFn {
-    public operator fun invoke(client: Long, hashtable: ULong, callback: EXTS_TABLE_ENTRY_CALLBACK, context: Long): HRESULT
+public fun interface PenumerateHashTableFn {
+    public operator fun invoke(client: COpaquePointer?, hashtable: ULong, callback: ExtsTableEntryCallback, context: COpaquePointer?): Hresult
 }
 
-public typealias PENUMERATE_HASH_TABLE = PENUMERATE_HASH_TABLEFn?
+public typealias PenumerateHashTable = PenumerateHashTableFn?
 
-public fun interface PENUMERATE_JOB_PROCESSESFn {
-    public operator fun invoke(client: Long, job: ULong, callback: EXTS_JOB_PROCESS_CALLBACK, context: Long): HRESULT
+public fun interface PenumerateJobProcessesFn {
+    public operator fun invoke(client: COpaquePointer?, job: ULong, callback: ExtsJobProcessCallback, context: COpaquePointer?): Hresult
 }
 
-public typealias PENUMERATE_JOB_PROCESSES = PENUMERATE_JOB_PROCESSESFn?
+public typealias PenumerateJobProcesses = PenumerateJobProcessesFn?
 
-public fun interface PENUMERATE_SYSTEM_LOCKSFn {
-    public operator fun invoke(client: Long, flags: UInt, callback: KDEXTS_LOCK_CALLBACKROUTINE, context: Long): HRESULT
+public fun interface PenumerateSystemLocksFn {
+    public operator fun invoke(client: COpaquePointer?, flags: UInt, callback: KdextsLockCallbackroutine, context: COpaquePointer?): Hresult
 }
 
-public typealias PENUMERATE_SYSTEM_LOCKS = PENUMERATE_SYSTEM_LOCKSFn?
+public typealias PenumerateSystemLocks = PenumerateSystemLocksFn?
 
-public fun interface PFIND_FILELOCK_OWNERINFOFn {
-    public operator fun invoke(client: Long, pfilelockowner: Long): HRESULT
+public fun interface PfindFilelockOwnerinfoFn {
+    public operator fun invoke(client: COpaquePointer?, pfilelockowner: COpaquePointer?): Hresult
 }
 
-public typealias PFIND_FILELOCK_OWNERINFO = PFIND_FILELOCK_OWNERINFOFn?
+public typealias PfindFilelockOwnerinfo = PfindFilelockOwnerinfoFn?
 
-public fun interface PFIND_MATCHING_PROCESSFn {
-    public operator fun invoke(client: Long, processinfo: Long, process: Long): HRESULT
+public fun interface PfindMatchingProcessFn {
+    public operator fun invoke(client: COpaquePointer?, processinfo: COpaquePointer?, process: COpaquePointer?): Hresult
 }
 
-public typealias PFIND_MATCHING_PROCESS = PFIND_MATCHING_PROCESSFn?
+public typealias PfindMatchingProcess = PfindMatchingProcessFn?
 
-public fun interface PFIND_MATCHING_THREADFn {
-    public operator fun invoke(client: Long, threadinfo: Long): HRESULT
+public fun interface PfindMatchingThreadFn {
+    public operator fun invoke(client: COpaquePointer?, threadinfo: COpaquePointer?): Hresult
 }
 
-public typealias PFIND_MATCHING_THREAD = PFIND_MATCHING_THREADFn?
+public typealias PfindMatchingThread = PfindMatchingThreadFn?
 
-public fun interface PGET_CPU_MICROCODE_VERSIONFn {
-    public operator fun invoke(client: Long, pcpumicrocodeversion: Long): HRESULT
+public fun interface PgetCpuMicrocodeVersionFn {
+    public operator fun invoke(client: COpaquePointer?, pcpumicrocodeversion: COpaquePointer?): Hresult
 }
 
-public typealias PGET_CPU_MICROCODE_VERSION = PGET_CPU_MICROCODE_VERSIONFn?
+public typealias PgetCpuMicrocodeVersion = PgetCpuMicrocodeVersionFn?
 
-public fun interface PGET_CPU_PSPEED_INFOFn {
-    public operator fun invoke(client: Long, pcpuspeedinfo: Long): HRESULT
+public fun interface PgetCpuPspeedInfoFn {
+    public operator fun invoke(client: COpaquePointer?, pcpuspeedinfo: COpaquePointer?): Hresult
 }
 
-public typealias PGET_CPU_PSPEED_INFO = PGET_CPU_PSPEED_INFOFn?
+public typealias PgetCpuPspeedInfo = PgetCpuPspeedInfoFn?
 
-public fun interface PGET_DEVICE_OBJECT_INFOFn {
-    public operator fun invoke(client: Long, deviceobject: ULong, pdevobjinfo: Long): HRESULT
+public fun interface PgetDeviceObjectInfoFn {
+    public operator fun invoke(client: COpaquePointer?, deviceobject: ULong, pdevobjinfo: COpaquePointer?): Hresult
 }
 
-public typealias PGET_DEVICE_OBJECT_INFO = PGET_DEVICE_OBJECT_INFOFn?
+public typealias PgetDeviceObjectInfo = PgetDeviceObjectInfoFn?
 
-public fun interface PGET_DRIVER_OBJECT_INFOFn {
-    public operator fun invoke(client: Long, driverobject: ULong, pdrvobjinfo: Long): HRESULT
+public fun interface PgetDriverObjectInfoFn {
+    public operator fun invoke(client: COpaquePointer?, driverobject: ULong, pdrvobjinfo: COpaquePointer?): Hresult
 }
 
-public typealias PGET_DRIVER_OBJECT_INFO = PGET_DRIVER_OBJECT_INFOFn?
+public typealias PgetDriverObjectInfo = PgetDriverObjectInfoFn?
 
-public fun interface PGET_FULL_IMAGE_NAMEFn {
-    public operator fun invoke(client: Long, process: ULong, fullimagename: Long): HRESULT
+public fun interface PgetFullImageNameFn {
+    public operator fun invoke(client: COpaquePointer?, process: ULong, fullimagename: COpaquePointer?): Hresult
 }
 
-public typealias PGET_FULL_IMAGE_NAME = PGET_FULL_IMAGE_NAMEFn?
+public typealias PgetFullImageName = PgetFullImageNameFn?
 
-public fun interface PGET_IRP_INFOFn {
-    public operator fun invoke(client: Long, irp: ULong, irpinfo: Long): HRESULT
+public fun interface PgetIrpInfoFn {
+    public operator fun invoke(client: COpaquePointer?, irp: ULong, irpinfo: COpaquePointer?): Hresult
 }
 
-public typealias PGET_IRP_INFO = PGET_IRP_INFOFn?
+public typealias PgetIrpInfo = PgetIrpInfoFn?
 
-public fun interface PGET_PNP_TRIAGE_INFOFn {
-    public operator fun invoke(client: Long, ppnptriageinfo: Long): HRESULT
+public fun interface PgetPnpTriageInfoFn {
+    public operator fun invoke(client: COpaquePointer?, ppnptriageinfo: COpaquePointer?): Hresult
 }
 
-public typealias PGET_PNP_TRIAGE_INFO = PGET_PNP_TRIAGE_INFOFn?
+public typealias PgetPnpTriageInfo = PgetPnpTriageInfoFn?
 
-public fun interface PGET_POOL_DATAFn {
-    public operator fun invoke(client: Long, pool: ULong, pooldata: Long): HRESULT
+public fun interface PgetPoolDataFn {
+    public operator fun invoke(client: COpaquePointer?, pool: ULong, pooldata: COpaquePointer?): Hresult
 }
 
-public typealias PGET_POOL_DATA = PGET_POOL_DATAFn?
+public typealias PgetPoolData = PgetPoolDataFn?
 
-public fun interface PGET_POOL_REGIONFn {
-    public operator fun invoke(client: Long, pool: ULong, poolregion: Long): HRESULT
+public fun interface PgetPoolRegionFn {
+    public operator fun invoke(client: COpaquePointer?, pool: ULong, poolregion: COpaquePointer?): Hresult
 }
 
-public typealias PGET_POOL_REGION = PGET_POOL_REGIONFn?
+public typealias PgetPoolRegion = PgetPoolRegionFn?
 
-public fun interface PGET_POOL_TAG_DESCRIPTIONFn {
-    public operator fun invoke(pooltag: UInt, pdescription: Long): HRESULT
+public fun interface PgetPoolTagDescriptionFn {
+    public operator fun invoke(pooltag: UInt, pdescription: COpaquePointer?): Hresult
 }
 
-public typealias PGET_POOL_TAG_DESCRIPTION = PGET_POOL_TAG_DESCRIPTIONFn?
+public typealias PgetPoolTagDescription = PgetPoolTagDescriptionFn?
 
-public fun interface PGET_PROCESS_COMMITFn {
-    public operator fun invoke(client: Long, totalcommitcharge: Long, numberofprocesses: Long, commitdata: Long): HRESULT
+public fun interface PgetProcessCommitFn {
+    public operator fun invoke(client: COpaquePointer?, totalcommitcharge: COpaquePointer?, numberofprocesses: COpaquePointer?, commitdata: COpaquePointer?): Hresult
 }
 
-public typealias PGET_PROCESS_COMMIT = PGET_PROCESS_COMMITFn?
+public typealias PgetProcessCommit = PgetProcessCommitFn?
 
-public fun interface PGET_SMBIOS_INFOFn {
-    public operator fun invoke(client: Long, psmbiosinfo: Long): HRESULT
+public fun interface PgetSmbiosInfoFn {
+    public operator fun invoke(client: COpaquePointer?, psmbiosinfo: COpaquePointer?): Hresult
 }
 
-public typealias PGET_SMBIOS_INFO = PGET_SMBIOS_INFOFn?
+public typealias PgetSmbiosInfo = PgetSmbiosInfoFn?
 
-public fun interface PKDEXTS_GET_PTE_INFOFn {
-    public operator fun invoke(client: Long, virtual: ULong, pteinfo: Long): HRESULT
+public fun interface PkdextsGetPteInfoFn {
+    public operator fun invoke(client: COpaquePointer?, virtual: ULong, pteinfo: COpaquePointer?): Hresult
 }
 
-public typealias PKDEXTS_GET_PTE_INFO = PKDEXTS_GET_PTE_INFOFn?
+public typealias PkdextsGetPteInfo = PkdextsGetPteInfoFn?
 
-public fun interface PSYM_DUMP_FIELD_CALLBACKFn {
-    public operator fun invoke(pfield: Long, usercontext: Long): UInt
+public fun interface PsymDumpFieldCallbackFn {
+    public operator fun invoke(pfield: COpaquePointer?, usercontext: COpaquePointer?): UInt
 }
 
-public typealias PSYM_DUMP_FIELD_CALLBACK = PSYM_DUMP_FIELD_CALLBACKFn?
+public typealias PsymDumpFieldCallback = PsymDumpFieldCallbackFn?
 
-public fun interface PWINDBG_CHECK_CONTROL_CFn {
+public fun interface PwindbgCheckControlCFn {
     public operator fun invoke(): UInt
 }
 
-public typealias PWINDBG_CHECK_CONTROL_C = PWINDBG_CHECK_CONTROL_CFn?
+public typealias PwindbgCheckControlC = PwindbgCheckControlCFn?
 
-public fun interface PWINDBG_CHECK_VERSIONFn {
+public fun interface PwindbgCheckVersionFn {
     public operator fun invoke(): UInt
 }
 
-public typealias PWINDBG_CHECK_VERSION = PWINDBG_CHECK_VERSIONFn?
+public typealias PwindbgCheckVersion = PwindbgCheckVersionFn?
 
-public fun interface PWINDBG_DISASMFn {
-    public operator fun invoke(lpoffset: Long, lpbuffer: PCSTR, fshoweffectiveaddress: UInt): UInt
+public fun interface PwindbgDisasmFn {
+    public operator fun invoke(lpoffset: COpaquePointer?, lpbuffer: Pcstr, fshoweffectiveaddress: UInt): UInt
 }
 
-public typealias PWINDBG_DISASM = PWINDBG_DISASMFn?
+public typealias PwindbgDisasm = PwindbgDisasmFn?
 
-public fun interface PWINDBG_DISASM32Fn {
-    public operator fun invoke(lpoffset: Long, lpbuffer: PCSTR, fshoweffectiveaddress: UInt): UInt
+public fun interface PwindbgDisasm32Fn {
+    public operator fun invoke(lpoffset: COpaquePointer?, lpbuffer: Pcstr, fshoweffectiveaddress: UInt): UInt
 }
 
-public typealias PWINDBG_DISASM32 = PWINDBG_DISASM32Fn?
+public typealias PwindbgDisasm32 = PwindbgDisasm32Fn?
 
-public fun interface PWINDBG_DISASM64Fn {
-    public operator fun invoke(lpoffset: Long, lpbuffer: PCSTR, fshoweffectiveaddress: UInt): UInt
+public fun interface PwindbgDisasm64Fn {
+    public operator fun invoke(lpoffset: COpaquePointer?, lpbuffer: Pcstr, fshoweffectiveaddress: UInt): UInt
 }
 
-public typealias PWINDBG_DISASM64 = PWINDBG_DISASM64Fn?
+public typealias PwindbgDisasm64 = PwindbgDisasm64Fn?
 
-public fun interface PWINDBG_EXTENSION_API_VERSIONFn {
-    public operator fun invoke(): Long
+public fun interface PwindbgExtensionApiVersionFn {
+    public operator fun invoke(): COpaquePointer?
 }
 
-public typealias PWINDBG_EXTENSION_API_VERSION = PWINDBG_EXTENSION_API_VERSIONFn?
+public typealias PwindbgExtensionApiVersion = PwindbgExtensionApiVersionFn?
 
-public fun interface PWINDBG_EXTENSION_DLL_INITFn {
-    public operator fun invoke(lpextensionapis: Long, majorversion: UShort, minorversion: UShort)
+public fun interface PwindbgExtensionDllInitFn {
+    public operator fun invoke(lpextensionapis: COpaquePointer?, majorversion: UShort, minorversion: UShort)
 }
 
-public typealias PWINDBG_EXTENSION_DLL_INIT = PWINDBG_EXTENSION_DLL_INITFn?
+public typealias PwindbgExtensionDllInit = PwindbgExtensionDllInitFn?
 
-public fun interface PWINDBG_EXTENSION_DLL_INIT32Fn {
-    public operator fun invoke(lpextensionapis: Long, majorversion: UShort, minorversion: UShort)
+public fun interface PwindbgExtensionDllInit32Fn {
+    public operator fun invoke(lpextensionapis: COpaquePointer?, majorversion: UShort, minorversion: UShort)
 }
 
-public typealias PWINDBG_EXTENSION_DLL_INIT32 = PWINDBG_EXTENSION_DLL_INIT32Fn?
+public typealias PwindbgExtensionDllInit32 = PwindbgExtensionDllInit32Fn?
 
-public fun interface PWINDBG_EXTENSION_DLL_INIT64Fn {
-    public operator fun invoke(lpextensionapis: Long, majorversion: UShort, minorversion: UShort)
+public fun interface PwindbgExtensionDllInit64Fn {
+    public operator fun invoke(lpextensionapis: COpaquePointer?, majorversion: UShort, minorversion: UShort)
 }
 
-public typealias PWINDBG_EXTENSION_DLL_INIT64 = PWINDBG_EXTENSION_DLL_INIT64Fn?
+public typealias PwindbgExtensionDllInit64 = PwindbgExtensionDllInit64Fn?
 
-public fun interface PWINDBG_EXTENSION_ROUTINEFn {
-    public operator fun invoke(hcurrentprocess: HANDLE, hcurrentthread: HANDLE, dwcurrentpc: UInt, dwprocessor: UInt, lpargumentstring: PCSTR)
+public fun interface PwindbgExtensionRoutineFn {
+    public operator fun invoke(hcurrentprocess: Handle, hcurrentthread: Handle, dwcurrentpc: UInt, dwprocessor: UInt, lpargumentstring: Pcstr)
 }
 
-public typealias PWINDBG_EXTENSION_ROUTINE = PWINDBG_EXTENSION_ROUTINEFn?
+public typealias PwindbgExtensionRoutine = PwindbgExtensionRoutineFn?
 
-public fun interface PWINDBG_EXTENSION_ROUTINE32Fn {
-    public operator fun invoke(hcurrentprocess: HANDLE, hcurrentthread: HANDLE, dwcurrentpc: UInt, dwprocessor: UInt, lpargumentstring: PCSTR)
+public fun interface PwindbgExtensionRoutine32Fn {
+    public operator fun invoke(hcurrentprocess: Handle, hcurrentthread: Handle, dwcurrentpc: UInt, dwprocessor: UInt, lpargumentstring: Pcstr)
 }
 
-public typealias PWINDBG_EXTENSION_ROUTINE32 = PWINDBG_EXTENSION_ROUTINE32Fn?
+public typealias PwindbgExtensionRoutine32 = PwindbgExtensionRoutine32Fn?
 
-public fun interface PWINDBG_EXTENSION_ROUTINE64Fn {
-    public operator fun invoke(hcurrentprocess: HANDLE, hcurrentthread: HANDLE, dwcurrentpc: ULong, dwprocessor: UInt, lpargumentstring: PCSTR)
+public fun interface PwindbgExtensionRoutine64Fn {
+    public operator fun invoke(hcurrentprocess: Handle, hcurrentthread: Handle, dwcurrentpc: ULong, dwprocessor: UInt, lpargumentstring: Pcstr)
 }
 
-public typealias PWINDBG_EXTENSION_ROUTINE64 = PWINDBG_EXTENSION_ROUTINE64Fn?
+public typealias PwindbgExtensionRoutine64 = PwindbgExtensionRoutine64Fn?
 
-public fun interface PWINDBG_GET_EXPRESSIONFn {
-    public operator fun invoke(lpexpression: PCSTR): ULong
+public fun interface PwindbgGetExpressionFn {
+    public operator fun invoke(lpexpression: Pcstr): ULong
 }
 
-public typealias PWINDBG_GET_EXPRESSION = PWINDBG_GET_EXPRESSIONFn?
+public typealias PwindbgGetExpression = PwindbgGetExpressionFn?
 
-public fun interface PWINDBG_GET_EXPRESSION32Fn {
-    public operator fun invoke(lpexpression: PCSTR): UInt
+public fun interface PwindbgGetExpression32Fn {
+    public operator fun invoke(lpexpression: Pcstr): UInt
 }
 
-public typealias PWINDBG_GET_EXPRESSION32 = PWINDBG_GET_EXPRESSION32Fn?
+public typealias PwindbgGetExpression32 = PwindbgGetExpression32Fn?
 
-public fun interface PWINDBG_GET_EXPRESSION64Fn {
-    public operator fun invoke(lpexpression: PCSTR): ULong
+public fun interface PwindbgGetExpression64Fn {
+    public operator fun invoke(lpexpression: Pcstr): ULong
 }
 
-public typealias PWINDBG_GET_EXPRESSION64 = PWINDBG_GET_EXPRESSION64Fn?
+public typealias PwindbgGetExpression64 = PwindbgGetExpression64Fn?
 
-public fun interface PWINDBG_GET_SYMBOLFn {
-    public operator fun invoke(offset: Long, pchbuffer: PCSTR, pdisplacement: Long)
+public fun interface PwindbgGetSymbolFn {
+    public operator fun invoke(offset: COpaquePointer?, pchbuffer: Pcstr, pdisplacement: COpaquePointer?)
 }
 
-public typealias PWINDBG_GET_SYMBOL = PWINDBG_GET_SYMBOLFn?
+public typealias PwindbgGetSymbol = PwindbgGetSymbolFn?
 
-public fun interface PWINDBG_GET_SYMBOL32Fn {
-    public operator fun invoke(offset: UInt, pchbuffer: PCSTR, pdisplacement: Long)
+public fun interface PwindbgGetSymbol32Fn {
+    public operator fun invoke(offset: UInt, pchbuffer: Pcstr, pdisplacement: COpaquePointer?)
 }
 
-public typealias PWINDBG_GET_SYMBOL32 = PWINDBG_GET_SYMBOL32Fn?
+public typealias PwindbgGetSymbol32 = PwindbgGetSymbol32Fn?
 
-public fun interface PWINDBG_GET_SYMBOL64Fn {
-    public operator fun invoke(offset: ULong, pchbuffer: PCSTR, pdisplacement: Long)
+public fun interface PwindbgGetSymbol64Fn {
+    public operator fun invoke(offset: ULong, pchbuffer: Pcstr, pdisplacement: COpaquePointer?)
 }
 
-public typealias PWINDBG_GET_SYMBOL64 = PWINDBG_GET_SYMBOL64Fn?
+public typealias PwindbgGetSymbol64 = PwindbgGetSymbol64Fn?
 
-public fun interface PWINDBG_GET_THREAD_CONTEXT_ROUTINEFn {
-    public operator fun invoke(processor: UInt, lpcontext: Long, cbsizeofcontext: UInt): UInt
+public fun interface PwindbgGetThreadContextRoutineFn {
+    public operator fun invoke(processor: UInt, lpcontext: COpaquePointer?, cbsizeofcontext: UInt): UInt
 }
 
-public typealias PWINDBG_GET_THREAD_CONTEXT_ROUTINE = PWINDBG_GET_THREAD_CONTEXT_ROUTINEFn?
+public typealias PwindbgGetThreadContextRoutine = PwindbgGetThreadContextRoutineFn?
 
-public fun interface PWINDBG_IOCTL_ROUTINEFn {
-    public operator fun invoke(ioctltype: UShort, lpvdata: Long, cbsize: UInt): UInt
+public fun interface PwindbgIoctlRoutineFn {
+    public operator fun invoke(ioctltype: UShort, lpvdata: COpaquePointer?, cbsize: UInt): UInt
 }
 
-public typealias PWINDBG_IOCTL_ROUTINE = PWINDBG_IOCTL_ROUTINEFn?
+public typealias PwindbgIoctlRoutine = PwindbgIoctlRoutineFn?
 
-public fun interface PWINDBG_OLDKD_EXTENSION_ROUTINEFn {
-    public operator fun invoke(dwcurrentpc: UInt, lpextensionapis: Long, lpargumentstring: PCSTR)
+public fun interface PwindbgOldkdExtensionRoutineFn {
+    public operator fun invoke(dwcurrentpc: UInt, lpextensionapis: COpaquePointer?, lpargumentstring: Pcstr)
 }
 
-public typealias PWINDBG_OLDKD_EXTENSION_ROUTINE = PWINDBG_OLDKD_EXTENSION_ROUTINEFn?
+public typealias PwindbgOldkdExtensionRoutine = PwindbgOldkdExtensionRoutineFn?
 
-public fun interface PWINDBG_OLDKD_READ_PHYSICAL_MEMORYFn {
-    public operator fun invoke(address: ULong, buffer: Long, count: UInt, bytesread: Long): UInt
+public fun interface PwindbgOldkdReadPhysicalMemoryFn {
+    public operator fun invoke(address: ULong, buffer: COpaquePointer?, count: UInt, bytesread: COpaquePointer?): UInt
 }
 
-public typealias PWINDBG_OLDKD_READ_PHYSICAL_MEMORY = PWINDBG_OLDKD_READ_PHYSICAL_MEMORYFn?
+public typealias PwindbgOldkdReadPhysicalMemory = PwindbgOldkdReadPhysicalMemoryFn?
 
-public fun interface PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORYFn {
-    public operator fun invoke(address: ULong, buffer: Long, length: UInt, byteswritten: Long): UInt
+public fun interface PwindbgOldkdWritePhysicalMemoryFn {
+    public operator fun invoke(address: ULong, buffer: COpaquePointer?, length: UInt, byteswritten: COpaquePointer?): UInt
 }
 
-public typealias PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY = PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORYFn?
+public typealias PwindbgOldkdWritePhysicalMemory = PwindbgOldkdWritePhysicalMemoryFn?
 
-public fun interface PWINDBG_OLD_EXTENSION_ROUTINEFn {
-    public operator fun invoke(dwcurrentpc: UInt, lpextensionapis: Long, lpargumentstring: PCSTR)
+public fun interface PwindbgOldExtensionRoutineFn {
+    public operator fun invoke(dwcurrentpc: UInt, lpextensionapis: COpaquePointer?, lpargumentstring: Pcstr)
 }
 
-public typealias PWINDBG_OLD_EXTENSION_ROUTINE = PWINDBG_OLD_EXTENSION_ROUTINEFn?
+public typealias PwindbgOldExtensionRoutine = PwindbgOldExtensionRoutineFn?
 
-public fun interface PWINDBG_OUTPUT_ROUTINEFn {
-    public operator fun invoke(lpformat: PCSTR)
+public fun interface PwindbgOutputRoutineFn {
+    public operator fun invoke(lpformat: Pcstr)
 }
 
-public typealias PWINDBG_OUTPUT_ROUTINE = PWINDBG_OUTPUT_ROUTINEFn?
+public typealias PwindbgOutputRoutine = PwindbgOutputRoutineFn?
 
-public fun interface PWINDBG_READ_PROCESS_MEMORY_ROUTINEFn {
-    public operator fun invoke(offset: ULong, lpbuffer: Long, cb: UInt, lpcbbytesread: Long): UInt
+public fun interface PwindbgReadProcessMemoryRoutineFn {
+    public operator fun invoke(offset: ULong, lpbuffer: COpaquePointer?, cb: UInt, lpcbbytesread: COpaquePointer?): UInt
 }
 
-public typealias PWINDBG_READ_PROCESS_MEMORY_ROUTINE = PWINDBG_READ_PROCESS_MEMORY_ROUTINEFn?
+public typealias PwindbgReadProcessMemoryRoutine = PwindbgReadProcessMemoryRoutineFn?
 
-public fun interface PWINDBG_READ_PROCESS_MEMORY_ROUTINE32Fn {
-    public operator fun invoke(offset: UInt, lpbuffer: Long, cb: UInt, lpcbbytesread: Long): UInt
+public fun interface PwindbgReadProcessMemoryRoutine32Fn {
+    public operator fun invoke(offset: UInt, lpbuffer: COpaquePointer?, cb: UInt, lpcbbytesread: COpaquePointer?): UInt
 }
 
-public typealias PWINDBG_READ_PROCESS_MEMORY_ROUTINE32 = PWINDBG_READ_PROCESS_MEMORY_ROUTINE32Fn?
+public typealias PwindbgReadProcessMemoryRoutine32 = PwindbgReadProcessMemoryRoutine32Fn?
 
-public fun interface PWINDBG_READ_PROCESS_MEMORY_ROUTINE64Fn {
-    public operator fun invoke(offset: ULong, lpbuffer: Long, cb: UInt, lpcbbytesread: Long): UInt
+public fun interface PwindbgReadProcessMemoryRoutine64Fn {
+    public operator fun invoke(offset: ULong, lpbuffer: COpaquePointer?, cb: UInt, lpcbbytesread: COpaquePointer?): UInt
 }
 
-public typealias PWINDBG_READ_PROCESS_MEMORY_ROUTINE64 = PWINDBG_READ_PROCESS_MEMORY_ROUTINE64Fn?
+public typealias PwindbgReadProcessMemoryRoutine64 = PwindbgReadProcessMemoryRoutine64Fn?
 
-public fun interface PWINDBG_SET_THREAD_CONTEXT_ROUTINEFn {
-    public operator fun invoke(processor: UInt, lpcontext: Long, cbsizeofcontext: UInt): UInt
+public fun interface PwindbgSetThreadContextRoutineFn {
+    public operator fun invoke(processor: UInt, lpcontext: COpaquePointer?, cbsizeofcontext: UInt): UInt
 }
 
-public typealias PWINDBG_SET_THREAD_CONTEXT_ROUTINE = PWINDBG_SET_THREAD_CONTEXT_ROUTINEFn?
+public typealias PwindbgSetThreadContextRoutine = PwindbgSetThreadContextRoutineFn?
 
-public fun interface PWINDBG_STACKTRACE_ROUTINEFn {
-    public operator fun invoke(framepointer: UInt, stackpointer: UInt, programcounter: UInt, stackframes: Long, frames: UInt): UInt
+public fun interface PwindbgStacktraceRoutineFn {
+    public operator fun invoke(framepointer: UInt, stackpointer: UInt, programcounter: UInt, stackframes: COpaquePointer?, frames: UInt): UInt
 }
 
-public typealias PWINDBG_STACKTRACE_ROUTINE = PWINDBG_STACKTRACE_ROUTINEFn?
+public typealias PwindbgStacktraceRoutine = PwindbgStacktraceRoutineFn?
 
-public fun interface PWINDBG_STACKTRACE_ROUTINE32Fn {
-    public operator fun invoke(framepointer: UInt, stackpointer: UInt, programcounter: UInt, stackframes: Long, frames: UInt): UInt
+public fun interface PwindbgStacktraceRoutine32Fn {
+    public operator fun invoke(framepointer: UInt, stackpointer: UInt, programcounter: UInt, stackframes: COpaquePointer?, frames: UInt): UInt
 }
 
-public typealias PWINDBG_STACKTRACE_ROUTINE32 = PWINDBG_STACKTRACE_ROUTINE32Fn?
+public typealias PwindbgStacktraceRoutine32 = PwindbgStacktraceRoutine32Fn?
 
-public fun interface PWINDBG_STACKTRACE_ROUTINE64Fn {
-    public operator fun invoke(framepointer: ULong, stackpointer: ULong, programcounter: ULong, stackframes: Long, frames: UInt): UInt
+public fun interface PwindbgStacktraceRoutine64Fn {
+    public operator fun invoke(framepointer: ULong, stackpointer: ULong, programcounter: ULong, stackframes: COpaquePointer?, frames: UInt): UInt
 }
 
-public typealias PWINDBG_STACKTRACE_ROUTINE64 = PWINDBG_STACKTRACE_ROUTINE64Fn?
+public typealias PwindbgStacktraceRoutine64 = PwindbgStacktraceRoutine64Fn?
 
-public fun interface PWINDBG_WRITE_PROCESS_MEMORY_ROUTINEFn {
-    public operator fun invoke(offset: ULong, lpbuffer: Long, cb: UInt, lpcbbyteswritten: Long): UInt
+public fun interface PwindbgWriteProcessMemoryRoutineFn {
+    public operator fun invoke(offset: ULong, lpbuffer: COpaquePointer?, cb: UInt, lpcbbyteswritten: COpaquePointer?): UInt
 }
 
-public typealias PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE = PWINDBG_WRITE_PROCESS_MEMORY_ROUTINEFn?
+public typealias PwindbgWriteProcessMemoryRoutine = PwindbgWriteProcessMemoryRoutineFn?
 
-public fun interface PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32Fn {
-    public operator fun invoke(offset: UInt, lpbuffer: Long, cb: UInt, lpcbbyteswritten: Long): UInt
+public fun interface PwindbgWriteProcessMemoryRoutine32Fn {
+    public operator fun invoke(offset: UInt, lpbuffer: COpaquePointer?, cb: UInt, lpcbbyteswritten: COpaquePointer?): UInt
 }
 
-public typealias PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32 = PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE32Fn?
+public typealias PwindbgWriteProcessMemoryRoutine32 = PwindbgWriteProcessMemoryRoutine32Fn?
 
-public fun interface PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE64Fn {
-    public operator fun invoke(offset: ULong, lpbuffer: Long, cb: UInt, lpcbbyteswritten: Long): UInt
+public fun interface PwindbgWriteProcessMemoryRoutine64Fn {
+    public operator fun invoke(offset: ULong, lpbuffer: COpaquePointer?, cb: UInt, lpcbbyteswritten: COpaquePointer?): UInt
 }
 
-public typealias PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE64 = PWINDBG_WRITE_PROCESS_MEMORY_ROUTINE64Fn?
+public typealias PwindbgWriteProcessMemoryRoutine64 = PwindbgWriteProcessMemoryRoutine64Fn?
 
 public typealias PointerKind = Int
 
@@ -598,14 +599,14 @@ public typealias SymbolKind = Int
 
 public typealias SymbolSearchOptions = Int
 
-public typealias TANALYZE_RETURN = Int
+public typealias TanalyzeReturn = Int
 
 public typealias TypeKind = Int
 
 public typealias VarArgsKind = Int
 
-public fun interface fnDebugFailureAnalysisCreateInstanceFn {
-    public operator fun invoke(client: Long, args: PCWSTR, flags: UInt, rclsid: Long, riid: Long, ppv: Long): HRESULT
+public fun interface FnDebugFailureAnalysisCreateInstanceFn {
+    public operator fun invoke(client: COpaquePointer?, args: Pcwstr, flags: UInt, rclsid: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult
 }
 
-public typealias fnDebugFailureAnalysisCreateInstance = fnDebugFailureAnalysisCreateInstanceFn?
+public typealias FnDebugFailureAnalysisCreateInstance = FnDebugFailureAnalysisCreateInstanceFn?

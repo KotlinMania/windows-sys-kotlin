@@ -1,31 +1,31 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
 
 public val NETSETUP_PROVISION_CHECK_PWD_ONLY: UInt = 2147483648u
 
-public val NETSETUP_PROVISION_DOWNLEVEL_PRIV_SUPPORT: NETSETUP_PROVISION = 1u
+public val NETSETUP_PROVISION_DOWNLEVEL_PRIV_SUPPORT: NetsetupProvision = 1u
 
-public val NETSETUP_PROVISION_ONLINE_CALLER: NET_REQUEST_PROVISION_OPTIONS = 1073741824u
+public val NETSETUP_PROVISION_ONLINE_CALLER: NetRequestProvisionOptions = 1073741824u
 
 public val NETSETUP_PROVISION_PERSISTENTSITE: UInt = 32u
 
-public val NETSETUP_PROVISION_REUSE_ACCOUNT: NETSETUP_PROVISION = 2u
+public val NETSETUP_PROVISION_REUSE_ACCOUNT: NetsetupProvision = 2u
 
-public val NETSETUP_PROVISION_ROOT_CA_CERTS: NETSETUP_PROVISION = 16u
+public val NETSETUP_PROVISION_ROOT_CA_CERTS: NetsetupProvision = 16u
 
-public val NETSETUP_PROVISION_SKIP_ACCOUNT_SEARCH: NETSETUP_PROVISION = 8u
+public val NETSETUP_PROVISION_SKIP_ACCOUNT_SEARCH: NetsetupProvision = 8u
 
-public val NETSETUP_PROVISION_USE_DEFAULT_PASSWORD: NETSETUP_PROVISION = 4u
+public val NETSETUP_PROVISION_USE_DEFAULT_PASSWORD: NetsetupProvision = 4u
 
-public val NETSETUP_SET_MACHINE_NAME: NET_JOIN_DOMAIN_JOIN_OPTIONS = 32768u
+public val NETSETUP_SET_MACHINE_NAME: NetJoinDomainJoinOptions = 32768u
 
-public val NETSETUP_WIN9X_UPGRADE: NET_JOIN_DOMAIN_JOIN_OPTIONS = 16u
+public val NETSETUP_WIN9X_UPGRADE: NetJoinDomainJoinOptions = 16u
 
 public val NET_DFS_ENUM: Int = 1073756324
 
@@ -51,21 +51,21 @@ public val NOT_A_DFS_PATH: Int = 1073756224
 
 public val NO_PERMISSION_REQUIRED: UInt = 1u
 
-public val NSF_COMPONENT_UPDATE: NETWORK_UPGRADE_TYPE = 512
+public val NSF_COMPONENT_UPDATE: NetworkUpgradeType = 512
 
-public val NSF_POSTSYSINSTALL: NETWORK_INSTALL_TIME = 2
+public val NSF_POSTSYSINSTALL: NetworkInstallTime = 2
 
-public val NSF_PRIMARYINSTALL: NETWORK_INSTALL_TIME = 1
+public val NSF_PRIMARYINSTALL: NetworkInstallTime = 1
 
-public val NSF_WIN16_UPGRADE: NETWORK_UPGRADE_TYPE = 16
+public val NSF_WIN16_UPGRADE: NetworkUpgradeType = 16
 
-public val NSF_WIN95_UPGRADE: NETWORK_UPGRADE_TYPE = 32
+public val NSF_WIN95_UPGRADE: NetworkUpgradeType = 32
 
-public val NSF_WINNT_SBS_UPGRADE: NETWORK_UPGRADE_TYPE = 256
+public val NSF_WINNT_SBS_UPGRADE: NetworkUpgradeType = 256
 
-public val NSF_WINNT_SVR_UPGRADE: NETWORK_UPGRADE_TYPE = 128
+public val NSF_WINNT_SVR_UPGRADE: NetworkUpgradeType = 128
 
-public val NSF_WINNT_WKS_UPGRADE: NETWORK_UPGRADE_TYPE = 64
+public val NSF_WINNT_WKS_UPGRADE: NetworkUpgradeType = 64
 
 public val NTFRSPRF_COLLECT_RPC_BINDING_ERROR_CONN: Int = -1073728292
 
@@ -91,9 +91,9 @@ public val NTFRSPRF_VIRTUALALLOC_ERROR_CONN: Int = -1073728288
 
 public val NTFRSPRF_VIRTUALALLOC_ERROR_SET: Int = -1073728289
 
-public val NULL_USERSETINFO_PASSWD: PCSTR = s("              ")
+public val NULL_USERSETINFO_PASSWD: Pcstr = s("              ")
 
-public val NWSAP_DISPLAY_NAME: PCWSTR = w("NW Sap Agent")
+public val NWSAP_DISPLAY_NAME: Pcwstr = w("NW Sap Agent")
 
 public val NWSAP_EVENT_BADWANFILTER_VALUE: Int = -1073733302
 
@@ -163,49 +163,49 @@ public val NWSAP_EVENT_WANSOCKET_FAILED: Int = -1073733297
 
 public val NWSAP_EVENT_WSASTARTUP_FAILED: Int = -1073733323
 
-public val NetAllComputerNames: NET_COMPUTER_NAME_TYPE = 2
+public val NET_ALL_COMPUTER_NAMES: NetComputerNameType = 2
 
-public val NetAlternateComputerNames: NET_COMPUTER_NAME_TYPE = 1
+public val NET_ALTERNATE_COMPUTER_NAMES: NetComputerNameType = 1
 
-public val NetComputerNameTypeMax: NET_COMPUTER_NAME_TYPE = 3
+public val NET_COMPUTER_NAME_TYPE_MAX: NetComputerNameType = 3
 
-public val NetPrimaryComputerName: NET_COMPUTER_NAME_TYPE = 0
+public val NET_PRIMARY_COMPUTER_NAME: NetComputerNameType = 0
 
-public val NetProvisioning: GUID = GUID.from_u128(U128(0x2aa2b5feb8464d07uL, 0x810cb21ee45320e3uL))
+public val NET_PROVISIONING: Guid = Guid.fromU128(U128(0x2aa2b5feb8464d07uL, 0x810cb21ee45320e3uL))
 
-public val NetSetupDnsMachine: NETSETUP_NAME_TYPE = 5
+public val NET_SETUP_DNS_MACHINE: NetsetupNameType = 5
 
-public val NetSetupDomain: NETSETUP_NAME_TYPE = 3
+public val NET_SETUP_DOMAIN: NetsetupNameType = 3
 
-public val NetSetupDomainName: NETSETUP_JOIN_STATUS = 3
+public val NET_SETUP_DOMAIN_NAME: NetsetupJoinStatus = 3
 
-public val NetSetupMachine: NETSETUP_NAME_TYPE = 1
+public val NET_SETUP_MACHINE: NetsetupNameType = 1
 
-public val NetSetupNonExistentDomain: NETSETUP_NAME_TYPE = 4
+public val NET_SETUP_NON_EXISTENT_DOMAIN: NetsetupNameType = 4
 
-public val NetSetupUnjoined: NETSETUP_JOIN_STATUS = 1
+public val NET_SETUP_UNJOINED: NetsetupJoinStatus = 1
 
-public val NetSetupUnknown: NETSETUP_NAME_TYPE = 0
+public val NET_SETUP_UNKNOWN: NetsetupNameType = 0
 
-public val NetSetupUnknownStatus: NETSETUP_JOIN_STATUS = 0
+public val NET_SETUP_UNKNOWN_STATUS: NetsetupJoinStatus = 0
 
-public val NetSetupWorkgroup: NETSETUP_NAME_TYPE = 2
+public val NET_SETUP_WORKGROUP: NetsetupNameType = 2
 
-public val NetSetupWorkgroupName: NETSETUP_JOIN_STATUS = 2
+public val NET_SETUP_WORKGROUP_NAME: NetsetupJoinStatus = 2
 
-public val NetValidateAuthentication: NET_VALIDATE_PASSWORD_TYPE = 1
+public val NET_VALIDATE_AUTHENTICATION: NetValidatePasswordType = 1
 
-public val NetValidatePasswordChange: NET_VALIDATE_PASSWORD_TYPE = 2
+public val NET_VALIDATE_PASSWORD_CHANGE: NetValidatePasswordType = 2
 
-public val NetValidatePasswordReset: NET_VALIDATE_PASSWORD_TYPE = 3
+public val NET_VALIDATE_PASSWORD_RESET: NetValidatePasswordType = 3
 
-public val OBO_COMPONENT: OBO_TOKEN_TYPE = 2
+public val OBO_COMPONENT: OboTokenType = 2
 
-public val OBO_SOFTWARE: OBO_TOKEN_TYPE = 3
+public val OBO_SOFTWARE: OboTokenType = 3
 
-public val OBO_USER: OBO_TOKEN_TYPE = 1
+public val OBO_USER: OboTokenType = 1
 
-public val OS2MSG_FILENAME: PCWSTR = w("BASE")
+public val OS2MSG_FILENAME: Pcwstr = w("BASE")
 
 public val PARMNUM_ALL: UInt = 0u
 
@@ -311,39 +311,39 @@ public val PWLEN: UInt = 256u
 
 public val QNLEN: UInt = 80u
 
-public val RCUIF_DEMAND_DIAL: RASCON_UIINFO_FLAGS = 2
+public val RCUIF_DEMAND_DIAL: RasconUiinfoFlags = 2
 
-public val RCUIF_DISABLE_CLASS_BASED_ROUTE: RASCON_UIINFO_FLAGS = 32768
+public val RCUIF_DISABLE_CLASS_BASED_ROUTE: RasconUiinfoFlags = 32768
 
-public val RCUIF_ENABLE_NBT: RASCON_UIINFO_FLAGS = 1024
+public val RCUIF_ENABLE_NBT: RasconUiinfoFlags = 1024
 
-public val RCUIF_NOT_ADMIN: RASCON_UIINFO_FLAGS = 4
+public val RCUIF_NOT_ADMIN: RasconUiinfoFlags = 4
 
-public val RCUIF_USE_DISABLE_REGISTER_DNS: RASCON_UIINFO_FLAGS = 256
+public val RCUIF_USE_DISABLE_REGISTER_DNS: RasconUiinfoFlags = 256
 
-public val RCUIF_USE_HEADER_COMPRESSION: RASCON_UIINFO_FLAGS = 128
+public val RCUIF_USE_HEADER_COMPRESSION: RasconUiinfoFlags = 128
 
-public val RCUIF_USE_IPv4_EXPLICIT_METRIC: RASCON_UIINFO_FLAGS = 64
+public val RCUIF_USE_I_PV4_EXPLICIT_METRIC: RasconUiinfoFlags = 64
 
-public val RCUIF_USE_IPv4_NAME_SERVERS: RASCON_UIINFO_FLAGS = 16
+public val RCUIF_USE_I_PV4_NAME_SERVERS: RasconUiinfoFlags = 16
 
-public val RCUIF_USE_IPv4_REMOTE_GATEWAY: RASCON_UIINFO_FLAGS = 32
+public val RCUIF_USE_I_PV4_REMOTE_GATEWAY: RasconUiinfoFlags = 32
 
-public val RCUIF_USE_IPv4_STATICADDRESS: RASCON_UIINFO_FLAGS = 8
+public val RCUIF_USE_I_PV4_STATICADDRESS: RasconUiinfoFlags = 8
 
-public val RCUIF_USE_IPv6_EXPLICIT_METRIC: RASCON_UIINFO_FLAGS = 16384
+public val RCUIF_USE_I_PV6_EXPLICIT_METRIC: RasconUiinfoFlags = 16384
 
-public val RCUIF_USE_IPv6_NAME_SERVERS: RASCON_UIINFO_FLAGS = 4096
+public val RCUIF_USE_I_PV6_NAME_SERVERS: RasconUiinfoFlags = 4096
 
-public val RCUIF_USE_IPv6_REMOTE_GATEWAY: RASCON_UIINFO_FLAGS = 8192
+public val RCUIF_USE_I_PV6_REMOTE_GATEWAY: RasconUiinfoFlags = 8192
 
-public val RCUIF_USE_IPv6_STATICADDRESS: RASCON_UIINFO_FLAGS = 2048
+public val RCUIF_USE_I_PV6_STATICADDRESS: RasconUiinfoFlags = 2048
 
-public val RCUIF_USE_PRIVATE_DNS_SUFFIX: RASCON_UIINFO_FLAGS = 512
+public val RCUIF_USE_PRIVATE_DNS_SUFFIX: RasconUiinfoFlags = 512
 
-public val RCUIF_VPN: RASCON_UIINFO_FLAGS = 1
+public val RCUIF_VPN: RasconUiinfoFlags = 1
 
-public val REGISTER_PROTOCOL_ENTRY_POINT_STRING: PCSTR = s("RegisterProtocol")
+public val REGISTER_PROTOCOL_ENTRY_POINT_STRING: Pcstr = s("RegisterProtocol")
 
 public val REPL_EXPORT_EXTENT_INFOLEVEL: UInt = 1001u
 
@@ -413,9 +413,9 @@ public val RTUTILS_MAX_PROTOCOL_DLL_LEN: UInt = 48u
 
 public val RTUTILS_MAX_PROTOCOL_NAME_LEN: UInt = 40u
 
-public val SERVCE_LM20_W32TIME: PCWSTR = w("w32time")
+public val SERVCE_LM20_W32TIME: Pcwstr = w("w32time")
 
-public val SERVER_DISPLAY_NAME: PCWSTR = w("Server")
+public val SERVER_DISPLAY_NAME: Pcwstr = w("Server")
 
 public val SERVICE2_BASE: UInt = 5600u
 
@@ -427,19 +427,19 @@ public val SERVICE_ACCOUNT_FLAG_REMOVE_OFFLINE: Int = 2
 
 public val SERVICE_ACCOUNT_FLAG_UNLINK_FROM_HOST_ONLY: Int = 1
 
-public val SERVICE_ACCOUNT_PASSWORD: PCWSTR = w("_SA_{262E99C9-6160-4871-ACEC-4E61736B6F21}")
+public val SERVICE_ACCOUNT_PASSWORD: Pcwstr = w("_SA_{262E99C9-6160-4871-ACEC-4E61736B6F21}")
 
-public val SERVICE_ACCOUNT_SECRET_PREFIX: PCWSTR = w("_SC_{262E99C9-6160-4871-ACEC-4E61736B6F21}_")
+public val SERVICE_ACCOUNT_SECRET_PREFIX: Pcwstr = w("_SC_{262E99C9-6160-4871-ACEC-4E61736B6F21}_")
 
-public val SERVICE_ADWS: PCWSTR = w("ADWS")
+public val SERVICE_ADWS: Pcwstr = w("ADWS")
 
-public val SERVICE_AFP: PCWSTR = w("AFP")
+public val SERVICE_AFP: Pcwstr = w("AFP")
 
-public val SERVICE_ALERTER: PCWSTR = w("ALERTER")
+public val SERVICE_ALERTER: Pcwstr = w("ALERTER")
 
 public val SERVICE_BASE: UInt = 3050u
 
-public val SERVICE_BROWSER: PCWSTR = w("BROWSER")
+public val SERVICE_BROWSER: Pcwstr = w("BROWSER")
 
 public val SERVICE_CCP_CHKPT_NUM: UInt = 255u
 
@@ -463,13 +463,13 @@ public val SERVICE_CTRL_REDIR_PRINT: UInt = 2u
 
 public val SERVICE_CTRL_UNINSTALL: UInt = 3u
 
-public val SERVICE_DHCP: PCWSTR = w("DHCP")
+public val SERVICE_DHCP: Pcwstr = w("DHCP")
 
-public val SERVICE_DNS_CACHE: PCWSTR = w("DnsCache")
+public val SERVICE_DNS_CACHE: Pcwstr = w("DnsCache")
 
-public val SERVICE_DOS_ENCRYPTION: PCWSTR = w("ENCRYPT")
+public val SERVICE_DOS_ENCRYPTION: Pcwstr = w("ENCRYPT")
 
-public val SERVICE_DSROLE: PCWSTR = w("DsRoleSvc")
+public val SERVICE_DSROLE: Pcwstr = w("DsRoleSvc")
 
 public val SERVICE_INSTALLED: UInt = 3u
 
@@ -487,103 +487,103 @@ public val SERVICE_IP_WAITTIME_SHIFT: UInt = 8u
 
 public val SERVICE_IP_WAIT_TIME: UInt = 65280u
 
-public val SERVICE_ISMSERV: PCWSTR = w("IsmServ")
+public val SERVICE_ISMSERV: Pcwstr = w("IsmServ")
 
-public val SERVICE_KDC: PCWSTR = w("kdc")
+public val SERVICE_KDC: Pcwstr = w("kdc")
 
-public val SERVICE_LM20_AFP: PCWSTR = w("AFP")
+public val SERVICE_LM20_AFP: Pcwstr = w("AFP")
 
-public val SERVICE_LM20_ALERTER: PCWSTR = w("ALERTER")
+public val SERVICE_LM20_ALERTER: Pcwstr = w("ALERTER")
 
-public val SERVICE_LM20_BROWSER: PCWSTR = w("BROWSER")
+public val SERVICE_LM20_BROWSER: Pcwstr = w("BROWSER")
 
-public val SERVICE_LM20_DHCP: PCWSTR = w("DHCP")
+public val SERVICE_LM20_DHCP: Pcwstr = w("DHCP")
 
-public val SERVICE_LM20_DSROLE: PCWSTR = w("DsRoleSvc")
+public val SERVICE_LM20_DSROLE: Pcwstr = w("DsRoleSvc")
 
-public val SERVICE_LM20_ISMSERV: PCWSTR = w("IsmServ")
+public val SERVICE_LM20_ISMSERV: Pcwstr = w("IsmServ")
 
-public val SERVICE_LM20_KDC: PCWSTR = w("kdc")
+public val SERVICE_LM20_KDC: Pcwstr = w("kdc")
 
-public val SERVICE_LM20_LMHOSTS: PCWSTR = w("LMHOSTS")
+public val SERVICE_LM20_LMHOSTS: Pcwstr = w("LMHOSTS")
 
-public val SERVICE_LM20_MESSENGER: PCWSTR = w("MESSENGER")
+public val SERVICE_LM20_MESSENGER: Pcwstr = w("MESSENGER")
 
-public val SERVICE_LM20_NBT: PCWSTR = w("NBT")
+public val SERVICE_LM20_NBT: Pcwstr = w("NBT")
 
-public val SERVICE_LM20_NETLOGON: PCWSTR = w("NETLOGON")
+public val SERVICE_LM20_NETLOGON: Pcwstr = w("NETLOGON")
 
-public val SERVICE_LM20_NETPOPUP: PCWSTR = w("NETPOPUP")
+public val SERVICE_LM20_NETPOPUP: Pcwstr = w("NETPOPUP")
 
-public val SERVICE_LM20_NETRUN: PCWSTR = w("NETRUN")
+public val SERVICE_LM20_NETRUN: Pcwstr = w("NETRUN")
 
-public val SERVICE_LM20_NTDS: PCWSTR = w("NTDS")
+public val SERVICE_LM20_NTDS: Pcwstr = w("NTDS")
 
-public val SERVICE_LM20_NTFRS: PCWSTR = w("NtFrs")
+public val SERVICE_LM20_NTFRS: Pcwstr = w("NtFrs")
 
-public val SERVICE_LM20_NWSAP: PCWSTR = w("NwSapAgent")
+public val SERVICE_LM20_NWSAP: Pcwstr = w("NwSapAgent")
 
-public val SERVICE_LM20_REPL: PCWSTR = w("REPLICATOR")
+public val SERVICE_LM20_REPL: Pcwstr = w("REPLICATOR")
 
-public val SERVICE_LM20_RIPL: PCWSTR = w("REMOTEBOOT")
+public val SERVICE_LM20_RIPL: Pcwstr = w("REMOTEBOOT")
 
-public val SERVICE_LM20_RPCLOCATOR: PCWSTR = w("RPCLOCATOR")
+public val SERVICE_LM20_RPCLOCATOR: Pcwstr = w("RPCLOCATOR")
 
-public val SERVICE_LM20_SCHEDULE: PCWSTR = w("Schedule")
+public val SERVICE_LM20_SCHEDULE: Pcwstr = w("Schedule")
 
-public val SERVICE_LM20_SERVER: PCWSTR = w("SERVER")
+public val SERVICE_LM20_SERVER: Pcwstr = w("SERVER")
 
-public val SERVICE_LM20_SPOOLER: PCWSTR = w("SPOOLER")
+public val SERVICE_LM20_SPOOLER: Pcwstr = w("SPOOLER")
 
-public val SERVICE_LM20_SQLSERVER: PCWSTR = w("SQLSERVER")
+public val SERVICE_LM20_SQLSERVER: Pcwstr = w("SQLSERVER")
 
-public val SERVICE_LM20_TCPIP: PCWSTR = w("TCPIP")
+public val SERVICE_LM20_TCPIP: Pcwstr = w("TCPIP")
 
-public val SERVICE_LM20_TELNET: PCWSTR = w("Telnet")
+public val SERVICE_LM20_TELNET: Pcwstr = w("Telnet")
 
-public val SERVICE_LM20_TIMESOURCE: PCWSTR = w("TIMESOURCE")
+public val SERVICE_LM20_TIMESOURCE: Pcwstr = w("TIMESOURCE")
 
-public val SERVICE_LM20_TRKSVR: PCWSTR = w("TrkSvr")
+public val SERVICE_LM20_TRKSVR: Pcwstr = w("TrkSvr")
 
-public val SERVICE_LM20_TRKWKS: PCWSTR = w("TrkWks")
+public val SERVICE_LM20_TRKWKS: Pcwstr = w("TrkWks")
 
-public val SERVICE_LM20_UPS: PCWSTR = w("UPS")
+public val SERVICE_LM20_UPS: Pcwstr = w("UPS")
 
-public val SERVICE_LM20_WORKSTATION: PCWSTR = w("WORKSTATION")
+public val SERVICE_LM20_WORKSTATION: Pcwstr = w("WORKSTATION")
 
-public val SERVICE_LM20_XACTSRV: PCWSTR = w("XACTSRV")
+public val SERVICE_LM20_XACTSRV: Pcwstr = w("XACTSRV")
 
-public val SERVICE_LMHOSTS: PCWSTR = w("LMHOSTS")
+public val SERVICE_LMHOSTS: Pcwstr = w("LMHOSTS")
 
 public val SERVICE_MAXTIME: UInt = 255u
 
-public val SERVICE_MESSENGER: PCWSTR = w("MESSENGER")
+public val SERVICE_MESSENGER: Pcwstr = w("MESSENGER")
 
-public val SERVICE_NBT: PCWSTR = w("NBT")
+public val SERVICE_NBT: Pcwstr = w("NBT")
 
-public val SERVICE_NETLOGON: PCWSTR = w("NETLOGON")
+public val SERVICE_NETLOGON: Pcwstr = w("NETLOGON")
 
-public val SERVICE_NETPOPUP: PCWSTR = w("NETPOPUP")
+public val SERVICE_NETPOPUP: Pcwstr = w("NETPOPUP")
 
-public val SERVICE_NETRUN: PCWSTR = w("NETRUN")
+public val SERVICE_NETRUN: Pcwstr = w("NETRUN")
 
 public val SERVICE_NOT_PAUSABLE: UInt = 0u
 
 public val SERVICE_NOT_UNINSTALLABLE: UInt = 0u
 
-public val SERVICE_NTDS: PCWSTR = w("NTDS")
+public val SERVICE_NTDS: Pcwstr = w("NTDS")
 
-public val SERVICE_NTFRS: PCWSTR = w("NtFrs")
+public val SERVICE_NTFRS: Pcwstr = w("NtFrs")
 
 public val SERVICE_NTIP_WAITTIME_SHIFT: UInt = 12u
 
-public val SERVICE_NTLMSSP: PCWSTR = w("NtLmSsp")
+public val SERVICE_NTLMSSP: Pcwstr = w("NtLmSsp")
 
 public val SERVICE_NT_MAXTIME: UInt = 65535u
 
-public val SERVICE_NWCS: PCWSTR = w("NWCWorkstation")
+public val SERVICE_NWCS: Pcwstr = w("NWCWorkstation")
 
-public val SERVICE_NWSAP: PCWSTR = w("NwSapAgent")
+public val SERVICE_NWSAP: Pcwstr = w("NwSapAgent")
 
 public val SERVICE_PAUSABLE: UInt = 32u
 
@@ -597,31 +597,31 @@ public val SERVICE_REDIR_PAUSED: UInt = 1792u
 
 public val SERVICE_REDIR_PRINT_PAUSED: UInt = 512u
 
-public val SERVICE_REPL: PCWSTR = w("REPLICATOR")
+public val SERVICE_REPL: Pcwstr = w("REPLICATOR")
 
 public val SERVICE_RESRV_MASK: UInt = 131071u
 
-public val SERVICE_RIPL: PCWSTR = w("REMOTEBOOT")
+public val SERVICE_RIPL: Pcwstr = w("REMOTEBOOT")
 
-public val SERVICE_RPCLOCATOR: PCWSTR = w("RPCLOCATOR")
+public val SERVICE_RPCLOCATOR: Pcwstr = w("RPCLOCATOR")
 
-public val SERVICE_SCHEDULE: PCWSTR = w("Schedule")
+public val SERVICE_SCHEDULE: Pcwstr = w("Schedule")
 
-public val SERVICE_SERVER: PCWSTR = w("LanmanServer")
+public val SERVICE_SERVER: Pcwstr = w("LanmanServer")
 
-public val SERVICE_SPOOLER: PCWSTR = w("SPOOLER")
+public val SERVICE_SPOOLER: Pcwstr = w("SPOOLER")
 
-public val SERVICE_SQLSERVER: PCWSTR = w("SQLSERVER")
+public val SERVICE_SQLSERVER: Pcwstr = w("SQLSERVER")
 
-public val SERVICE_TCPIP: PCWSTR = w("TCPIP")
+public val SERVICE_TCPIP: Pcwstr = w("TCPIP")
 
-public val SERVICE_TELNET: PCWSTR = w("Telnet")
+public val SERVICE_TELNET: Pcwstr = w("Telnet")
 
-public val SERVICE_TIMESOURCE: PCWSTR = w("TIMESOURCE")
+public val SERVICE_TIMESOURCE: Pcwstr = w("TIMESOURCE")
 
-public val SERVICE_TRKSVR: PCWSTR = w("TrkSvr")
+public val SERVICE_TRKSVR: Pcwstr = w("TrkSvr")
 
-public val SERVICE_TRKWKS: PCWSTR = w("TrkWks")
+public val SERVICE_TRKWKS: Pcwstr = w("TrkWks")
 
 public val SERVICE_UIC_AMBIGPARM: UInt = 3058u
 
@@ -725,13 +725,13 @@ public val SERVICE_UNINSTALLED: UInt = 0u
 
 public val SERVICE_UNINSTALL_PENDING: UInt = 2u
 
-public val SERVICE_UPS: PCWSTR = w("UPS")
+public val SERVICE_UPS: Pcwstr = w("UPS")
 
-public val SERVICE_W32TIME: PCWSTR = w("w32time")
+public val SERVICE_W32TIME: Pcwstr = w("w32time")
 
-public val SERVICE_WORKSTATION: PCWSTR = w("LanmanWorkstation")
+public val SERVICE_WORKSTATION: Pcwstr = w("LanmanWorkstation")
 
-public val SERVICE_XACTSRV: PCWSTR = w("XACTSRV")
+public val SERVICE_XACTSRV: Pcwstr = w("XACTSRV")
 
 public val SESSION_CRYPT_KLEN: UInt = 21u
 
@@ -749,15 +749,15 @@ public val STXTLEN: UInt = 256u
 
 public val SUPPORTS_ANY: Int = -1
 
-public val SUPPORTS_LOCAL: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = 32u
+public val SUPPORTS_LOCAL: NetRemoteComputerSupportsOptions = 32u
 
-public val SUPPORTS_REMOTE_ADMIN_PROTOCOL: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = 2u
+public val SUPPORTS_REMOTE_ADMIN_PROTOCOL: NetRemoteComputerSupportsOptions = 2u
 
-public val SUPPORTS_RPC: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = 4u
+public val SUPPORTS_RPC: NetRemoteComputerSupportsOptions = 4u
 
-public val SUPPORTS_SAM_PROTOCOL: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = 8u
+public val SUPPORTS_SAM_PROTOCOL: NetRemoteComputerSupportsOptions = 8u
 
-public val SUPPORTS_UNICODE: NET_REMOTE_COMPUTER_SUPPORTS_OPTIONS = 16u
+public val SUPPORTS_UNICODE: NetRemoteComputerSupportsOptions = 16u
 
 public val SVAUD_BADNETLOGON: UInt = 384u
 
@@ -891,7 +891,7 @@ public val SV_GLIST_MTIME_PARMNUM: UInt = 402u
 
 public val SV_GUESTACC_PARMNUM: UInt = 408u
 
-public val SV_HIDDEN: SERVER_INFO_HIDDEN = 1
+public val SV_HIDDEN: ServerInfoHidden = 1
 
 public val SV_HIDDEN_PARMNUM: UInt = 16u
 
@@ -1059,7 +1059,7 @@ public val SV_SESSUSERS_PARMNUM: UInt = 510u
 
 public val SV_SESSVCS_PARMNUM: UInt = 502u
 
-public val SV_SHARESECURITY: SERVER_INFO_SECURITY = 0u
+public val SV_SHARESECURITY: ServerInfoSecurity = 0u
 
 public val SV_SHARES_PARMNUM: UInt = 413u
 
@@ -1077,79 +1077,79 @@ public val SV_THREADPRIORITY_PARMNUM: UInt = 532u
 
 public val SV_TIMESOURCE_PARMNUM: UInt = 516u
 
-public val SV_TYPE_AFP: NET_SERVER_TYPE = 64u
+public val SV_TYPE_AFP: NetServerType = 64u
 
-public val SV_TYPE_ALL: NET_SERVER_TYPE = 4294967295u
+public val SV_TYPE_ALL: NetServerType = 4294967295u
 
-public val SV_TYPE_ALTERNATE_XPORT: NET_SERVER_TYPE = 536870912u
+public val SV_TYPE_ALTERNATE_XPORT: NetServerType = 536870912u
 
-public val SV_TYPE_BACKUP_BROWSER: NET_SERVER_TYPE = 131072u
+public val SV_TYPE_BACKUP_BROWSER: NetServerType = 131072u
 
-public val SV_TYPE_CLUSTER_NT: NET_SERVER_TYPE = 16777216u
+public val SV_TYPE_CLUSTER_NT: NetServerType = 16777216u
 
-public val SV_TYPE_CLUSTER_VS_NT: NET_SERVER_TYPE = 67108864u
+public val SV_TYPE_CLUSTER_VS_NT: NetServerType = 67108864u
 
-public val SV_TYPE_DCE: NET_SERVER_TYPE = 268435456u
+public val SV_TYPE_DCE: NetServerType = 268435456u
 
-public val SV_TYPE_DFS: NET_SERVER_TYPE = 8388608u
+public val SV_TYPE_DFS: NetServerType = 8388608u
 
-public val SV_TYPE_DIALIN_SERVER: NET_SERVER_TYPE = 1024u
+public val SV_TYPE_DIALIN_SERVER: NetServerType = 1024u
 
-public val SV_TYPE_DOMAIN_BAKCTRL: NET_SERVER_TYPE = 16u
+public val SV_TYPE_DOMAIN_BAKCTRL: NetServerType = 16u
 
-public val SV_TYPE_DOMAIN_CTRL: NET_SERVER_TYPE = 8u
+public val SV_TYPE_DOMAIN_CTRL: NetServerType = 8u
 
-public val SV_TYPE_DOMAIN_ENUM: NET_SERVER_TYPE = 2147483648u
+public val SV_TYPE_DOMAIN_ENUM: NetServerType = 2147483648u
 
-public val SV_TYPE_DOMAIN_MASTER: NET_SERVER_TYPE = 524288u
+public val SV_TYPE_DOMAIN_MASTER: NetServerType = 524288u
 
-public val SV_TYPE_DOMAIN_MEMBER: NET_SERVER_TYPE = 256u
+public val SV_TYPE_DOMAIN_MEMBER: NetServerType = 256u
 
-public val SV_TYPE_LOCAL_LIST_ONLY: NET_SERVER_TYPE = 1073741824u
+public val SV_TYPE_LOCAL_LIST_ONLY: NetServerType = 1073741824u
 
-public val SV_TYPE_MASTER_BROWSER: NET_SERVER_TYPE = 262144u
+public val SV_TYPE_MASTER_BROWSER: NetServerType = 262144u
 
-public val SV_TYPE_NOVELL: NET_SERVER_TYPE = 128u
+public val SV_TYPE_NOVELL: NetServerType = 128u
 
-public val SV_TYPE_NT: NET_SERVER_TYPE = 4096u
+public val SV_TYPE_NT: NetServerType = 4096u
 
 public val SV_TYPE_PARMNUM: UInt = 105u
 
-public val SV_TYPE_POTENTIAL_BROWSER: NET_SERVER_TYPE = 65536u
+public val SV_TYPE_POTENTIAL_BROWSER: NetServerType = 65536u
 
-public val SV_TYPE_PRINTQ_SERVER: NET_SERVER_TYPE = 512u
+public val SV_TYPE_PRINTQ_SERVER: NetServerType = 512u
 
-public val SV_TYPE_SERVER: NET_SERVER_TYPE = 2u
+public val SV_TYPE_SERVER: NetServerType = 2u
 
-public val SV_TYPE_SERVER_MFPN: NET_SERVER_TYPE = 16384u
+public val SV_TYPE_SERVER_MFPN: NetServerType = 16384u
 
-public val SV_TYPE_SERVER_NT: NET_SERVER_TYPE = 32768u
+public val SV_TYPE_SERVER_NT: NetServerType = 32768u
 
-public val SV_TYPE_SERVER_OSF: NET_SERVER_TYPE = 1048576u
+public val SV_TYPE_SERVER_OSF: NetServerType = 1048576u
 
-public val SV_TYPE_SERVER_UNIX: NET_SERVER_TYPE = 2048u
+public val SV_TYPE_SERVER_UNIX: NetServerType = 2048u
 
-public val SV_TYPE_SERVER_VMS: NET_SERVER_TYPE = 2097152u
+public val SV_TYPE_SERVER_VMS: NetServerType = 2097152u
 
-public val SV_TYPE_SQLSERVER: NET_SERVER_TYPE = 4u
+public val SV_TYPE_SQLSERVER: NetServerType = 4u
 
-public val SV_TYPE_TERMINALSERVER: NET_SERVER_TYPE = 33554432u
+public val SV_TYPE_TERMINALSERVER: NetServerType = 33554432u
 
-public val SV_TYPE_TIME_SOURCE: NET_SERVER_TYPE = 32u
+public val SV_TYPE_TIME_SOURCE: NetServerType = 32u
 
-public val SV_TYPE_WFW: NET_SERVER_TYPE = 8192u
+public val SV_TYPE_WFW: NetServerType = 8192u
 
-public val SV_TYPE_WINDOWS: NET_SERVER_TYPE = 4194304u
+public val SV_TYPE_WINDOWS: NetServerType = 4194304u
 
-public val SV_TYPE_WORKSTATION: NET_SERVER_TYPE = 1u
+public val SV_TYPE_WORKSTATION: NetServerType = 1u
 
-public val SV_TYPE_XENIX_SERVER: NET_SERVER_TYPE = 2048u
+public val SV_TYPE_XENIX_SERVER: NetServerType = 2048u
 
 public val SV_ULIST_MTIME_PARMNUM: UInt = 401u
 
 public val SV_USERPATH_PARMNUM: UInt = 112u
 
-public val SV_USERSECURITY: SERVER_INFO_SECURITY = 1u
+public val SV_USERSECURITY: ServerInfoSecurity = 1u
 
 public val SV_USERS_PARMNUM: UInt = 107u
 
@@ -1159,7 +1159,7 @@ public val SV_VERSION_MAJOR_PARMNUM: UInt = 103u
 
 public val SV_VERSION_MINOR_PARMNUM: UInt = 104u
 
-public val SV_VISIBLE: SERVER_INFO_HIDDEN = 0
+public val SV_VISIBLE: ServerInfoHidden = 0
 
 public val SV_XACTMEMSIZE_PARMNUM: UInt = 531u
 
@@ -1167,7 +1167,7 @@ public val SW_AUTOPROF_LOAD_MASK: UInt = 1u
 
 public val SW_AUTOPROF_SAVE_MASK: UInt = 2u
 
-public val ServiceAccountPasswordGUID: GUID = GUID.from_u128(U128(0x262e99c961604871uL, 0xacec4e61736b6f21uL))
+public val SERVICE_ACCOUNT_PASSWORD_GUID: Guid = Guid.fromU128(U128(0x262e99c961604871uL, 0xacec4e61736b6f21uL))
 
 public val TITLE_SC_MESSAGE_BOX: Int = -1073734795
 
@@ -1189,59 +1189,59 @@ public val TRANSPORT_NAME_PARMNUM: UInt = 202u
 
 public val TRANSPORT_QUALITYOFSERVICE_PARMNUM: UInt = 201u
 
-public val UAS_ROLE_BACKUP: USER_MODALS_ROLES = 2u
+public val UAS_ROLE_BACKUP: UserModalsRoles = 2u
 
-public val UAS_ROLE_MEMBER: USER_MODALS_ROLES = 1u
+public val UAS_ROLE_MEMBER: UserModalsRoles = 1u
 
-public val UAS_ROLE_PRIMARY: USER_MODALS_ROLES = 3u
+public val UAS_ROLE_PRIMARY: UserModalsRoles = 3u
 
-public val UAS_ROLE_STANDALONE: USER_MODALS_ROLES = 0u
+public val UAS_ROLE_STANDALONE: UserModalsRoles = 0u
 
-public val UF_ACCOUNTDISABLE: USER_ACCOUNT_FLAGS = 2u
+public val UF_ACCOUNTDISABLE: UserAccountFlags = 2u
 
-public val UF_DONT_EXPIRE_PASSWD: USER_ACCOUNT_FLAGS = 65536u
+public val UF_DONT_EXPIRE_PASSWD: UserAccountFlags = 65536u
 
-public val UF_DONT_REQUIRE_PREAUTH: USER_ACCOUNT_FLAGS = 4194304u
+public val UF_DONT_REQUIRE_PREAUTH: UserAccountFlags = 4194304u
 
-public val UF_ENCRYPTED_TEXT_PASSWORD_ALLOWED: USER_ACCOUNT_FLAGS = 128u
+public val UF_ENCRYPTED_TEXT_PASSWORD_ALLOWED: UserAccountFlags = 128u
 
-public val UF_HOMEDIR_REQUIRED: USER_ACCOUNT_FLAGS = 8u
+public val UF_HOMEDIR_REQUIRED: UserAccountFlags = 8u
 
 public val UF_INTERDOMAIN_TRUST_ACCOUNT: UInt = 2048u
 
-public val UF_LOCKOUT: USER_ACCOUNT_FLAGS = 16u
+public val UF_LOCKOUT: UserAccountFlags = 16u
 
 public val UF_MNS_LOGON_ACCOUNT: UInt = 131072u
 
 public val UF_NORMAL_ACCOUNT: UInt = 512u
 
-public val UF_NOT_DELEGATED: USER_ACCOUNT_FLAGS = 1048576u
+public val UF_NOT_DELEGATED: UserAccountFlags = 1048576u
 
 public val UF_NO_AUTH_DATA_REQUIRED: UInt = 33554432u
 
 public val UF_PARTIAL_SECRETS_ACCOUNT: UInt = 67108864u
 
-public val UF_PASSWD_CANT_CHANGE: USER_ACCOUNT_FLAGS = 64u
+public val UF_PASSWD_CANT_CHANGE: UserAccountFlags = 64u
 
-public val UF_PASSWD_NOTREQD: USER_ACCOUNT_FLAGS = 32u
+public val UF_PASSWD_NOTREQD: UserAccountFlags = 32u
 
-public val UF_PASSWORD_EXPIRED: USER_ACCOUNT_FLAGS = 8388608u
+public val UF_PASSWORD_EXPIRED: UserAccountFlags = 8388608u
 
-public val UF_SCRIPT: USER_ACCOUNT_FLAGS = 1u
+public val UF_SCRIPT: UserAccountFlags = 1u
 
 public val UF_SERVER_TRUST_ACCOUNT: UInt = 8192u
 
-public val UF_SMARTCARD_REQUIRED: USER_ACCOUNT_FLAGS = 262144u
+public val UF_SMARTCARD_REQUIRED: UserAccountFlags = 262144u
 
 public val UF_TEMP_DUPLICATE_ACCOUNT: UInt = 256u
 
-public val UF_TRUSTED_FOR_DELEGATION: USER_ACCOUNT_FLAGS = 524288u
+public val UF_TRUSTED_FOR_DELEGATION: UserAccountFlags = 524288u
 
-public val UF_TRUSTED_TO_AUTHENTICATE_FOR_DELEGATION: USER_ACCOUNT_FLAGS = 16777216u
+public val UF_TRUSTED_TO_AUTHENTICATE_FOR_DELEGATION: UserAccountFlags = 16777216u
 
 public val UF_USE_AES_KEYS: UInt = 134217728u
 
-public val UF_USE_DES_KEY_ONLY: USER_ACCOUNT_FLAGS = 2097152u
+public val UF_USE_DES_KEY_ONLY: UserAccountFlags = 2097152u
 
 public val UF_WORKSTATION_TRUST_ACCOUNT: UInt = 4096u
 
@@ -1297,15 +1297,15 @@ public val USER_PASSWORD_PARMNUM: UInt = 3u
 
 public val USER_PRIMARY_GROUP_PARMNUM: UInt = 51u
 
-public val USER_PRIV_ADMIN: USER_PRIV = 2u
+public val USER_PRIV_ADMIN: UserPriv = 2u
 
-public val USER_PRIV_GUEST: USER_PRIV = 0u
+public val USER_PRIV_GUEST: UserPriv = 0u
 
 public val USER_PRIV_MASK: UInt = 3u
 
 public val USER_PRIV_PARMNUM: UInt = 5u
 
-public val USER_PRIV_USER: USER_PRIV = 1u
+public val USER_PRIV_USER: UserPriv = 1u
 
 public val USER_PROFILE: UInt = 52u
 
@@ -1331,7 +1331,7 @@ public val USE_DEFAULT_CREDENTIALS: UInt = 4u
 
 public val USE_DISCONN: UInt = 2u
 
-public val USE_DISKDEV: USE_INFO_ASG_TYPE = 0u
+public val USE_DISKDEV: UseInfoAsgType = 0u
 
 public val USE_DOMAINNAME_PARMNUM: UInt = 6u
 
@@ -1339,17 +1339,17 @@ public val USE_FLAGS_PARMNUM: UInt = 7u
 
 public val USE_FLAG_GLOBAL_MAPPING: UInt = 65536u
 
-public val USE_FORCE: FORCE_LEVEL_FLAGS = 1u
+public val USE_FORCE: ForceLevelFlags = 1u
 
-public val USE_IPC: USE_INFO_ASG_TYPE = 3u
+public val USE_IPC: UseInfoAsgType = 3u
 
 public val USE_LOCAL_PARMNUM: UInt = 1u
 
-public val USE_LOTS_OF_FORCE: FORCE_LEVEL_FLAGS = 2u
+public val USE_LOTS_OF_FORCE: ForceLevelFlags = 2u
 
 public val USE_NETERR: UInt = 3u
 
-public val USE_NOFORCE: FORCE_LEVEL_FLAGS = 0u
+public val USE_NOFORCE: ForceLevelFlags = 0u
 
 public val USE_OK: UInt = 0u
 
@@ -1369,17 +1369,17 @@ public val USE_SESSLOST: UInt = 2u
 
 public val USE_SPECIFIC_TRANSPORT: UInt = 2147483648u
 
-public val USE_SPOOLDEV: USE_INFO_ASG_TYPE = 1u
+public val USE_SPOOLDEV: UseInfoAsgType = 1u
 
 public val USE_USERNAME_PARMNUM: UInt = 5u
 
-public val USE_WILDCARD: USE_INFO_ASG_TYPE = 4294967295u
+public val USE_WILDCARD: UseInfoAsgType = 4294967295u
 
-public val UseTransportType_None: TRANSPORT_TYPE = 0
+public val USE_TRANSPORT_TYPE_NONE: TransportType = 0
 
-public val UseTransportType_Quic: TRANSPORT_TYPE = 2
+public val USE_TRANSPORT_TYPE_QUIC: TransportType = 2
 
-public val UseTransportType_Wsk: TRANSPORT_TYPE = 1
+public val USE_TRANSPORT_TYPE_WSK: TransportType = 1
 
 public val VALIDATED_LOGON: UInt = 0u
 
@@ -1491,7 +1491,7 @@ public val WKSTA_VER_MINOR_PARMNUM: UInt = 5u
 
 public val WKSTA_WRKHEURISTICS_PARMNUM: UInt = 32u
 
-public val WORKSTATION_DISPLAY_NAME: PCWSTR = w("Workstation")
+public val WORKSTATION_DISPLAY_NAME: Pcwstr = w("Workstation")
 
 public val WZC_PROFILE_API_ERROR_FAILED_TO_LOAD_SCHEMA: UInt = 34u
 

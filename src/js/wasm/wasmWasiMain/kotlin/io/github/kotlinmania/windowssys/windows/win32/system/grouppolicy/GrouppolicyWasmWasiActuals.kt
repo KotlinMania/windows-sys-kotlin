@@ -2,107 +2,109 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.grouppolicy
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
-import io.github.kotlinmania.windowssys.windows.win32.security.PSID
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
+import io.github.kotlinmania.windowssys.windows.win32.security.Psid
 
-public actual fun BrowseForGPO(lpbrowseinfo: Long): HRESULT =
-    0
+public actual fun browseForGPO(lpbrowseinfo: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CommandLineFromMsiDescriptor(descriptor: PCWSTR, commandline: PWSTR, commandlinelength: Long): UInt =
-    0u
+public actual fun commandLineFromMsiDescriptor(descriptor: Pcwstr, commandline: Pwstr, commandlinelength: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CreateGPOLink(lpgpo: PCWSTR, lpcontainer: PCWSTR, fhighpriority: BOOL): HRESULT =
-    0
+public actual fun createGPOLink(lpgpo: Pcwstr, lpcontainer: Pcwstr, fhighpriority: Bool): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DeleteAllGPOLinks(lpcontainer: PCWSTR): HRESULT =
-    0
+public actual fun deleteAllGPOLinks(lpcontainer: Pcwstr): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DeleteGPOLink(lpgpo: PCWSTR, lpcontainer: PCWSTR): HRESULT =
-    0
+public actual fun deleteGPOLink(lpgpo: Pcwstr, lpcontainer: Pcwstr): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun EnterCriticalPolicySection(bmachine: BOOL): HANDLE =
-    0L
+public actual fun enterCriticalPolicySection(bmachine: Bool): Handle =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ExportRSoPData(lpnamespace: PCWSTR, lpfilename: PCWSTR): HRESULT =
-    0
+public actual fun exportRSoPData(lpnamespace: Pcwstr, lpfilename: Pcwstr): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun FreeGPOListA(pgpolist: Long): BOOL =
-    0
+public actual fun freeGPOListA(pgpolist: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun FreeGPOListW(pgpolist: Long): BOOL =
-    0
+public actual fun freeGPOListW(pgpolist: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GenerateGPNotification(bmachine: BOOL, lpwszmgmtproduct: PCWSTR, dwmgmtproductoptions: UInt): UInt =
-    0u
+public actual fun generateGPNotification(bmachine: Bool, lpwszmgmtproduct: Pcwstr, dwmgmtproductoptions: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetAppliedGPOListA(dwflags: UInt, pmachinename: PCSTR, psiduser: PSID, pguidextension: Long, ppgpolist: Long): UInt =
-    0u
+public actual fun getAppliedGPOListA(dwflags: UInt, pmachinename: Pcstr, psiduser: Psid, pguidextension: COpaquePointer?, ppgpolist: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetAppliedGPOListW(dwflags: UInt, pmachinename: PCWSTR, psiduser: PSID, pguidextension: Long, ppgpolist: Long): UInt =
-    0u
+public actual fun getAppliedGPOListW(dwflags: UInt, pmachinename: Pcwstr, psiduser: Psid, pguidextension: COpaquePointer?, ppgpolist: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetGPOListA(htoken: HANDLE, lpname: PCSTR, lphostname: PCSTR, lpcomputername: PCSTR, dwflags: UInt, pgpolist: Long): BOOL =
-    0
+public actual fun getGPOListA(htoken: Handle, lpname: Pcstr, lphostname: Pcstr, lpcomputername: Pcstr, dwflags: UInt, pgpolist: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetGPOListW(htoken: HANDLE, lpname: PCWSTR, lphostname: PCWSTR, lpcomputername: PCWSTR, dwflags: UInt, pgpolist: Long): BOOL =
-    0
+public actual fun getGPOListW(htoken: Handle, lpname: Pcwstr, lphostname: Pcwstr, lpcomputername: Pcwstr, dwflags: UInt, pgpolist: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetLocalManagedApplicationData(productcode: PCWSTR, displayname: Long, supporturl: Long) {
+public actual fun getLocalManagedApplicationData(productcode: Pcwstr, displayname: COpaquePointer?, supporturl: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun GetLocalManagedApplications(buserapps: BOOL, pdwapps: Long, prglocalapps: Long): UInt =
-    0u
+public actual fun getLocalManagedApplications(buserapps: Bool, pdwapps: COpaquePointer?, prglocalapps: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetManagedApplicationCategories(dwreserved: UInt, pappcategory: Long): UInt =
-    0u
+public actual fun getManagedApplicationCategories(dwreserved: UInt, pappcategory: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetManagedApplications(pcategory: Long, dwqueryflags: UInt, dwinfolevel: UInt, pdwapps: Long, prgmanagedapps: Long): UInt =
-    0u
+public actual fun getManagedApplications(pcategory: COpaquePointer?, dwqueryflags: UInt, dwinfolevel: UInt, pdwapps: COpaquePointer?, prgmanagedapps: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ImportRSoPData(lpnamespace: PCWSTR, lpfilename: PCWSTR): HRESULT =
-    0
+public actual fun importRSoPData(lpnamespace: Pcwstr, lpfilename: Pcwstr): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun InstallApplication(pinstallinfo: Long): UInt =
-    0u
+public actual fun installApplication(pinstallinfo: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LeaveCriticalPolicySection(hsection: HANDLE): BOOL =
-    0
+public actual fun leaveCriticalPolicySection(hsection: Handle): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ProcessGroupPolicyCompleted(extensionid: Long, pasynchandle: ULong, dwstatus: UInt): UInt =
-    0u
+public actual fun processGroupPolicyCompleted(extensionid: COpaquePointer?, pasynchandle: ULong, dwstatus: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ProcessGroupPolicyCompletedEx(extensionid: Long, pasynchandle: ULong, dwstatus: UInt, rsopstatus: HRESULT): UInt =
-    0u
+public actual fun processGroupPolicyCompletedEx(extensionid: COpaquePointer?, pasynchandle: ULong, dwstatus: UInt, rsopstatus: Hresult): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RefreshPolicy(bmachine: BOOL): BOOL =
-    0
+public actual fun refreshPolicy(bmachine: Bool): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RefreshPolicyEx(bmachine: BOOL, dwoptions: UInt): BOOL =
-    0
+public actual fun refreshPolicyEx(bmachine: Bool, dwoptions: UInt): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RegisterGPNotification(hevent: HANDLE, bmachine: BOOL): BOOL =
-    0
+public actual fun registerGPNotification(hevent: Handle, bmachine: Bool): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RsopAccessCheckByType(psecuritydescriptor: PSECURITY_DESCRIPTOR, pprincipalselfsid: PSID, prsoptoken: Long, dwdesiredaccessmask: UInt, pobjecttypelist: Long, objecttypelistlength: UInt, pgenericmapping: Long, pprivilegeset: Long, pdwprivilegesetlength: Long, pdwgrantedaccessmask: Long, pbaccessstatus: Long): HRESULT =
-    0
+public actual fun rsopAccessCheckByType(psecuritydescriptor: PsecurityDescriptor, pprincipalselfsid: Psid, prsoptoken: COpaquePointer?, dwdesiredaccessmask: UInt, pobjecttypelist: COpaquePointer?, objecttypelistlength: UInt, pgenericmapping: COpaquePointer?, pprivilegeset: COpaquePointer?, pdwprivilegesetlength: COpaquePointer?, pdwgrantedaccessmask: COpaquePointer?, pbaccessstatus: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RsopFileAccessCheck(pszfilename: PCWSTR, prsoptoken: Long, dwdesiredaccessmask: UInt, pdwgrantedaccessmask: Long, pbaccessstatus: Long): HRESULT =
-    0
+public actual fun rsopFileAccessCheck(pszfilename: Pcwstr, prsoptoken: COpaquePointer?, dwdesiredaccessmask: UInt, pdwgrantedaccessmask: COpaquePointer?, pbaccessstatus: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RsopResetPolicySettingStatus(dwflags: UInt, pservices: Long, psettinginstance: Long): HRESULT =
-    0
+public actual fun rsopResetPolicySettingStatus(dwflags: UInt, pservices: COpaquePointer?, psettinginstance: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RsopSetPolicySettingStatus(dwflags: UInt, pservices: Long, psettinginstance: Long, ninfo: UInt, pstatus: Long): HRESULT =
-    0
+public actual fun rsopSetPolicySettingStatus(dwflags: UInt, pservices: COpaquePointer?, psettinginstance: COpaquePointer?, ninfo: UInt, pstatus: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun UninstallApplication(productcode: PCWSTR, dwstatus: UInt): UInt =
-    0u
+public actual fun uninstallApplication(productcode: Pcwstr, dwstatus: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun UnregisterGPNotification(hevent: HANDLE): BOOL =
-    0
+public actual fun unregisterGPNotification(hevent: Handle): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

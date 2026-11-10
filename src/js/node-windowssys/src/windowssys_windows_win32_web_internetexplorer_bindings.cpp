@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_ComputeInvCMAP_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_computeInvCMAP_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prgbcolors = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ncolors = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -75,7 +75,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_ComputeInvCMAP_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_CreateMIMEMap_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_createMIMEMap_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppmap = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -93,7 +93,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_CreateMIMEMap_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_DecodeImage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_decodeImage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstream = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pmap = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -115,7 +115,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_DecodeImage_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_DecodeImageEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_decodeImageEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstream = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pmap = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -139,7 +139,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_DecodeImageEx_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_DitherTo8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_ditherTo8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdestbits = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t ndestpitch = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -183,7 +183,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_DitherTo8_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_GetMaxMIMEIDBytes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_getMaxMIMEIDBytes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pnmaxbytes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -201,7 +201,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_GetMaxMIMEIDByt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_IEAssociateThreadWithTab_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_iEAssociateThreadWithTab_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwtabthreadid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwassociatedthreadid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -221,7 +221,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_IEAssociateThre
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_IECancelSaveFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_iECancelSaveFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -239,7 +239,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_IECancelSaveFil
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_IECreateDirectory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_iECreateDirectory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lppathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsecurityattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -259,7 +259,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_IECreateDirecto
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_IECreateFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_iECreateFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwdesiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -289,7 +289,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_IECreateFile_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_IEDeleteFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_iEDeleteFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -307,7 +307,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_IEDeleteFile_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_IEDisassociateThreadWithTab_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_iEDisassociateThreadWithTab_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwtabthreadid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwassociatedthreadid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -327,7 +327,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_IEDisassociateT
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_IEFindFirstFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_iEFindFirstFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfindfiledata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -347,7 +347,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_IEFindFirstFile
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_IEGetFileAttributesEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_iEGetFileAttributesEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t finfolevelid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -369,7 +369,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_IEGetFileAttrib
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_IEGetProtectedModeCookie_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_iEGetProtectedModeCookie_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszcookiename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -395,7 +395,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_IEGetProtectedM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_IEGetWriteableFolderPath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_iEGetWriteableFolderPath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* clsidfolderid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lppwstrpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -415,7 +415,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_IEGetWriteableF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_IEGetWriteableLowHKCU_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_iEGetWriteableLowHKCU_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -433,7 +433,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_IEGetWriteableL
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_IEInPrivateFilteringEnabled_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_iEInPrivateFilteringEnabled_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -449,7 +449,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_IEInPrivateFilt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_IEIsInPrivateBrowsing_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_iEIsInPrivateBrowsing_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -465,7 +465,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_IEIsInPrivateBr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_IEIsProtectedModeProcess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_iEIsProtectedModeProcess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbresult = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -483,7 +483,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_IEIsProtectedMo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_IEIsProtectedModeURL_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_iEIsProtectedModeURL_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpwstrurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -501,7 +501,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_IEIsProtectedMo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_IELaunchURL_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_iELaunchURL_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpwstrurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpprocinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -523,7 +523,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_IELaunchURL_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_IEMoveFileEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_iEMoveFileEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpexistingfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpnewfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -545,7 +545,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_IEMoveFileEx_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_IERefreshElevationPolicy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_iERefreshElevationPolicy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -561,7 +561,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_IERefreshElevat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_IERegCreateKeyEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_iERegCreateKeyEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t reserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -593,7 +593,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_IERegCreateKeyE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_IERegSetValueEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_iERegSetValueEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpvaluename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -621,7 +621,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_IERegSetValueEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_IERemoveDirectory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_iERemoveDirectory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lppathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -639,7 +639,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_IERemoveDirecto
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_IESaveFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_iESaveFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hstate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpwstrsourcefile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -659,7 +659,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_IESaveFile_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_IESetProtectedModeCookie_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_iESetProtectedModeCookie_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszcookiename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -683,7 +683,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_IESetProtectedM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_IEShowOpenFileDialog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_iEShowOpenFileDialog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpwstrfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -717,7 +717,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_IEShowOpenFileD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_IEShowSaveFileDialog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_iEShowSaveFileDialog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpwstrinitialfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -751,7 +751,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_IEShowSaveFileD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_IETrackingProtectionEnabled_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_iETrackingProtectionEnabled_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -767,7 +767,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_IETrackingProte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_IdentifyMIMEType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_identifyMIMEType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbbytes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t nbytes = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -789,7 +789,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_IdentifyMIMETyp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingAccessDeniedDialog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingAccessDeniedDialog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -813,7 +813,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingAccessDen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingAccessDeniedDialog2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingAccessDeniedDialog2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -835,7 +835,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingAccessDen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingAccessDeniedDialog2W_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingAccessDeniedDialog2W_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -857,7 +857,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingAccessDen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingAccessDeniedDialogW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingAccessDeniedDialogW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -881,7 +881,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingAccessDen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingAddToApprovedSites_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingAddToApprovedSites_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbpasswordblob = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -911,7 +911,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingAddToAppr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingCheckUserAccess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingCheckUserAccess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -939,7 +939,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingCheckUser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingCheckUserAccessW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingCheckUserAccessW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -967,7 +967,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingCheckUser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingClickedOnPRFInternal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingClickedOnPRFInternal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -991,7 +991,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingClickedOn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingClickedOnRATInternal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingClickedOnRATInternal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1015,7 +1015,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingClickedOn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingEnable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingEnable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1037,7 +1037,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingEnable_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingEnableW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingEnableW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1059,7 +1059,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingEnableW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingEnabledQuery_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingEnabledQuery_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -1075,7 +1075,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingEnabledQu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingFreeDetails_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingFreeDetails_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pratingdetails = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1093,7 +1093,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingFreeDetai
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingInit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingInit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -1109,7 +1109,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingInit_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingObtainCancel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingObtainCancel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hratingobtainquery = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1127,7 +1127,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingObtainCan
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingObtainQuery_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingObtainQuery_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psztargeturl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwuserdata = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1151,7 +1151,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingObtainQue
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingObtainQueryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingObtainQueryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psztargeturl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwuserdata = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1175,7 +1175,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingObtainQue
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingSetupUI_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingSetupUI_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1195,7 +1195,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingSetupUI_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingSetupUIW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingSetupUIW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1215,7 +1215,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_RatingSetupUIW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_web_internetexplorer_SniffStream_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_web_internetexplorer_sniffStream_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pinstream = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pnformat = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1238,59 +1238,59 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_SniffStream_nap
 }
 
 static void register_windows_win32_web_internetexplorer_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_web_internetexplorer_ComputeInvCMAP", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_ComputeInvCMAP_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_CreateMIMEMap", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_CreateMIMEMap_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_DecodeImage", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_DecodeImage_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_DecodeImageEx", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_DecodeImageEx_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_DitherTo8", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_DitherTo8_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_GetMaxMIMEIDBytes", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_GetMaxMIMEIDBytes_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_IEAssociateThreadWithTab", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IEAssociateThreadWithTab_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_IECancelSaveFile", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IECancelSaveFile_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_IECreateDirectory", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IECreateDirectory_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_IECreateFile", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IECreateFile_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_IEDeleteFile", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IEDeleteFile_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_IEDisassociateThreadWithTab", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IEDisassociateThreadWithTab_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_IEFindFirstFile", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IEFindFirstFile_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_IEGetFileAttributesEx", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IEGetFileAttributesEx_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_IEGetProtectedModeCookie", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IEGetProtectedModeCookie_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_IEGetWriteableFolderPath", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IEGetWriteableFolderPath_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_IEGetWriteableLowHKCU", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IEGetWriteableLowHKCU_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_IEInPrivateFilteringEnabled", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IEInPrivateFilteringEnabled_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_IEIsInPrivateBrowsing", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IEIsInPrivateBrowsing_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_IEIsProtectedModeProcess", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IEIsProtectedModeProcess_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_IEIsProtectedModeURL", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IEIsProtectedModeURL_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_IELaunchURL", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IELaunchURL_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_IEMoveFileEx", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IEMoveFileEx_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_IERefreshElevationPolicy", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IERefreshElevationPolicy_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_IERegCreateKeyEx", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IERegCreateKeyEx_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_IERegSetValueEx", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IERegSetValueEx_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_IERemoveDirectory", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IERemoveDirectory_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_IESaveFile", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IESaveFile_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_IESetProtectedModeCookie", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IESetProtectedModeCookie_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_IEShowOpenFileDialog", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IEShowOpenFileDialog_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_IEShowSaveFileDialog", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IEShowSaveFileDialog_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_IETrackingProtectionEnabled", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IETrackingProtectionEnabled_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_IdentifyMIMEType", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_IdentifyMIMEType_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_RatingAccessDeniedDialog", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_RatingAccessDeniedDialog_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_RatingAccessDeniedDialog2", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_RatingAccessDeniedDialog2_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_RatingAccessDeniedDialog2W", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_RatingAccessDeniedDialog2W_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_RatingAccessDeniedDialogW", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_RatingAccessDeniedDialogW_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_RatingAddToApprovedSites", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_RatingAddToApprovedSites_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_RatingCheckUserAccess", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_RatingCheckUserAccess_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_RatingCheckUserAccessW", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_RatingCheckUserAccessW_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_RatingClickedOnPRFInternal", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_RatingClickedOnPRFInternal_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_RatingClickedOnRATInternal", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_RatingClickedOnRATInternal_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_RatingEnable", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_RatingEnable_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_RatingEnableW", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_RatingEnableW_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_RatingEnabledQuery", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_RatingEnabledQuery_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_RatingFreeDetails", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_RatingFreeDetails_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_RatingInit", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_RatingInit_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_RatingObtainCancel", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_RatingObtainCancel_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_RatingObtainQuery", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_RatingObtainQuery_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_RatingObtainQueryW", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_RatingObtainQueryW_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_RatingSetupUI", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_RatingSetupUI_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_RatingSetupUIW", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_RatingSetupUIW_napi));
-    exports.Set("windowssys_windows_win32_web_internetexplorer_SniffStream", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_SniffStream_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_computeInvCMAP", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_computeInvCMAP_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_createMIMEMap", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_createMIMEMap_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_decodeImage", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_decodeImage_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_decodeImageEx", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_decodeImageEx_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_ditherTo8", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_ditherTo8_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_getMaxMIMEIDBytes", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_getMaxMIMEIDBytes_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_iEAssociateThreadWithTab", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_iEAssociateThreadWithTab_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_iECancelSaveFile", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_iECancelSaveFile_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_iECreateDirectory", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_iECreateDirectory_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_iECreateFile", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_iECreateFile_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_iEDeleteFile", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_iEDeleteFile_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_iEDisassociateThreadWithTab", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_iEDisassociateThreadWithTab_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_iEFindFirstFile", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_iEFindFirstFile_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_iEGetFileAttributesEx", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_iEGetFileAttributesEx_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_iEGetProtectedModeCookie", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_iEGetProtectedModeCookie_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_iEGetWriteableFolderPath", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_iEGetWriteableFolderPath_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_iEGetWriteableLowHKCU", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_iEGetWriteableLowHKCU_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_iEInPrivateFilteringEnabled", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_iEInPrivateFilteringEnabled_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_iEIsInPrivateBrowsing", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_iEIsInPrivateBrowsing_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_iEIsProtectedModeProcess", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_iEIsProtectedModeProcess_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_iEIsProtectedModeURL", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_iEIsProtectedModeURL_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_iELaunchURL", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_iELaunchURL_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_iEMoveFileEx", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_iEMoveFileEx_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_iERefreshElevationPolicy", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_iERefreshElevationPolicy_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_iERegCreateKeyEx", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_iERegCreateKeyEx_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_iERegSetValueEx", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_iERegSetValueEx_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_iERemoveDirectory", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_iERemoveDirectory_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_iESaveFile", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_iESaveFile_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_iESetProtectedModeCookie", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_iESetProtectedModeCookie_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_iEShowOpenFileDialog", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_iEShowOpenFileDialog_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_iEShowSaveFileDialog", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_iEShowSaveFileDialog_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_iETrackingProtectionEnabled", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_iETrackingProtectionEnabled_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_identifyMIMEType", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_identifyMIMEType_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_ratingAccessDeniedDialog", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_ratingAccessDeniedDialog_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_ratingAccessDeniedDialog2", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_ratingAccessDeniedDialog2_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_ratingAccessDeniedDialog2W", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_ratingAccessDeniedDialog2W_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_ratingAccessDeniedDialogW", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_ratingAccessDeniedDialogW_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_ratingAddToApprovedSites", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_ratingAddToApprovedSites_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_ratingCheckUserAccess", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_ratingCheckUserAccess_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_ratingCheckUserAccessW", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_ratingCheckUserAccessW_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_ratingClickedOnPRFInternal", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_ratingClickedOnPRFInternal_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_ratingClickedOnRATInternal", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_ratingClickedOnRATInternal_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_ratingEnable", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_ratingEnable_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_ratingEnableW", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_ratingEnableW_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_ratingEnabledQuery", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_ratingEnabledQuery_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_ratingFreeDetails", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_ratingFreeDetails_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_ratingInit", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_ratingInit_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_ratingObtainCancel", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_ratingObtainCancel_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_ratingObtainQuery", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_ratingObtainQuery_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_ratingObtainQueryW", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_ratingObtainQueryW_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_ratingSetupUI", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_ratingSetupUI_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_ratingSetupUIW", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_ratingSetupUIW_napi));
+    exports.Set("windowssys_windows_win32_web_internetexplorer_sniffStream", Napi::Function::New(env, windowssys_windows_win32_web_internetexplorer_sniffStream_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_web_internetexplorer_napi, nullptr };

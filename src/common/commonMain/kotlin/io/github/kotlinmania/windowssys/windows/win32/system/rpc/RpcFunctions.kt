@@ -1,1010 +1,1011 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.rpc
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LUID
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Luid
 
-public expect fun DceErrorInqTextA(rpcstatus: RPC_STATUS, errortext: PSTR): RPC_STATUS
+public expect fun dceErrorInqTextA(rpcstatus: RpcStatus, errortext: Pstr): RpcStatus
 
-public expect fun DceErrorInqTextW(rpcstatus: RPC_STATUS, errortext: PWSTR): RPC_STATUS
+public expect fun dceErrorInqTextW(rpcstatus: RpcStatus, errortext: Pwstr): RpcStatus
 
-public expect fun IUnknown_AddRef_Proxy(thisRef: Long): UInt
+public expect fun iunknownAddRefProxy(thisRef: COpaquePointer?): UInt
 
-public expect fun IUnknown_QueryInterface_Proxy(thisRef: Long, riid: Long, ppvobject: Long): HRESULT
+public expect fun iunknownQueryInterfaceProxy(thisRef: COpaquePointer?, riid: COpaquePointer?, ppvobject: COpaquePointer?): Hresult
 
-public expect fun IUnknown_Release_Proxy(thisRef: Long): UInt
+public expect fun iunknownReleaseProxy(thisRef: COpaquePointer?): UInt
 
-public expect fun I_RpcAllocate(size: UInt): Long
+public expect fun iRpcAllocate(size: UInt): COpaquePointer?
 
-public expect fun I_RpcAsyncAbortCall(pasync: Long, exceptioncode: UInt): RPC_STATUS
+public expect fun iRpcAsyncAbortCall(pasync: COpaquePointer?, exceptioncode: UInt): RpcStatus
 
-public expect fun I_RpcAsyncSetHandle(message: Long, pasync: Long): RPC_STATUS
+public expect fun iRpcAsyncSetHandle(message: COpaquePointer?, pasync: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcBindingCopy(sourcebinding: Long, destinationbinding: Long): RPC_STATUS
+public expect fun iRpcBindingCopy(sourcebinding: COpaquePointer?, destinationbinding: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcBindingCreateNP(servername: PCWSTR, servicename: PCWSTR, networkoptions: PCWSTR, binding: Long): RPC_STATUS
+public expect fun iRpcBindingCreateNp(servername: Pcwstr, servicename: Pcwstr, networkoptions: Pcwstr, binding: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcBindingHandleToAsyncHandle(binding: Long, asynchandle: Long): RPC_STATUS
+public expect fun iRpcBindingHandleToAsyncHandle(binding: COpaquePointer?, asynchandle: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcBindingInqClientTokenAttributes(binding: Long, tokenid: Long, authenticationid: Long, modifiedid: Long): RPC_STATUS
+public expect fun iRpcBindingInqClientTokenAttributes(binding: COpaquePointer?, tokenid: COpaquePointer?, authenticationid: COpaquePointer?, modifiedid: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcBindingInqDynamicEndpointA(binding: Long, dynamicendpoint: Long): RPC_STATUS
+public expect fun iRpcBindingInqDynamicEndpointA(binding: COpaquePointer?, dynamicendpoint: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcBindingInqDynamicEndpointW(binding: Long, dynamicendpoint: Long): RPC_STATUS
+public expect fun iRpcBindingInqDynamicEndpointW(binding: COpaquePointer?, dynamicendpoint: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcBindingInqLocalClientPID(binding: Long, pid: Long): RPC_STATUS
+public expect fun iRpcBindingInqLocalClientPid(binding: COpaquePointer?, pid: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcBindingInqMarshalledTargetInfo(binding: Long, marshalledtargetinfosize: Long, marshalledtargetinfo: Long): RPC_STATUS
+public expect fun iRpcBindingInqMarshalledTargetInfo(binding: COpaquePointer?, marshalledtargetinfosize: COpaquePointer?, marshalledtargetinfo: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcBindingInqSecurityContext(binding: Long, securitycontexthandle: Long): RPC_STATUS
+public expect fun iRpcBindingInqSecurityContext(binding: COpaquePointer?, securitycontexthandle: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcBindingInqSecurityContextKeyInfo(binding: Long, keyinfo: Long): RPC_STATUS
+public expect fun iRpcBindingInqSecurityContextKeyInfo(binding: COpaquePointer?, keyinfo: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcBindingInqTransportType(binding: Long, type: Long): RPC_STATUS
+public expect fun iRpcBindingInqTransportType(binding: COpaquePointer?, type: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcBindingInqWireIdForSnego(binding: Long, wireid: Long): RPC_STATUS
+public expect fun iRpcBindingInqWireIdForSnego(binding: COpaquePointer?, wireid: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcBindingIsClientLocal(bindinghandle: Long, clientlocalflag: Long): RPC_STATUS
+public expect fun iRpcBindingIsClientLocal(bindinghandle: COpaquePointer?, clientlocalflag: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcBindingIsServerLocal(binding: Long, serverlocalflag: Long): RPC_STATUS
+public expect fun iRpcBindingIsServerLocal(binding: COpaquePointer?, serverlocalflag: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcBindingSetPrivateOption(hbinding: Long, option: UInt, optionvalue: ULong): RPC_STATUS
+public expect fun iRpcBindingSetPrivateOption(hbinding: COpaquePointer?, option: UInt, optionvalue: ULong): RpcStatus
 
-public expect fun I_RpcBindingToStaticStringBindingW(binding: Long, stringbinding: Long): RPC_STATUS
+public expect fun iRpcBindingToStaticStringBindingW(binding: COpaquePointer?, stringbinding: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcClearMutex(mutex: Long)
+public expect fun iRpcClearMutex(mutex: COpaquePointer?)
 
-public expect fun I_RpcDeleteMutex(mutex: Long)
+public expect fun iRpcDeleteMutex(mutex: COpaquePointer?)
 
-public expect fun I_RpcExceptionFilter(exceptioncode: UInt): Int
+public expect fun iRpcExceptionFilter(exceptioncode: UInt): Int
 
-public expect fun I_RpcFree(obj: Long)
+public expect fun iRpcFree(obj: COpaquePointer?)
 
-public expect fun I_RpcFreeBuffer(message: Long): RPC_STATUS
+public expect fun iRpcFreeBuffer(message: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcFreePipeBuffer(message: Long): RPC_STATUS
+public expect fun iRpcFreePipeBuffer(message: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcGetBuffer(message: Long): RPC_STATUS
+public expect fun iRpcGetBuffer(message: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcGetBufferWithObject(message: Long, objectuuid: Long): RPC_STATUS
+public expect fun iRpcGetBufferWithObject(message: COpaquePointer?, objectuuid: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcGetCurrentCallHandle(): Long
+public expect fun iRpcGetCurrentCallHandle(): COpaquePointer?
 
-public expect fun I_RpcGetDefaultSD(ppsecuritydescriptor: Long): RPC_STATUS
+public expect fun iRpcGetDefaultSd(ppsecuritydescriptor: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcGetExtendedError(): RPC_STATUS
+public expect fun iRpcGetExtendedError(): RpcStatus
 
-public expect fun I_RpcIfInqTransferSyntaxes(rpcifhandle: Long, transfersyntaxes: Long, transfersyntaxsize: UInt, transfersyntaxcount: Long): RPC_STATUS
+public expect fun iRpcIfInqTransferSyntaxes(rpcifhandle: COpaquePointer?, transfersyntaxes: COpaquePointer?, transfersyntaxsize: UInt, transfersyntaxcount: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcMapWin32Status(status: RPC_STATUS): Int
+public expect fun iRpcMapWin32Status(status: RpcStatus): Int
 
-public expect fun I_RpcMgmtEnableDedicatedThreadPool(): RPC_STATUS
+public expect fun iRpcMgmtEnableDedicatedThreadPool(): RpcStatus
 
-public expect fun I_RpcNegotiateTransferSyntax(message: Long): RPC_STATUS
+public expect fun iRpcNegotiateTransferSyntax(message: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcNsBindingSetEntryNameA(binding: Long, entrynamesyntax: UInt, entryname: PCSTR): RPC_STATUS
+public expect fun iRpcNsBindingSetEntryNameA(binding: COpaquePointer?, entrynamesyntax: UInt, entryname: Pcstr): RpcStatus
 
-public expect fun I_RpcNsBindingSetEntryNameW(binding: Long, entrynamesyntax: UInt, entryname: PCWSTR): RPC_STATUS
+public expect fun iRpcNsBindingSetEntryNameW(binding: COpaquePointer?, entrynamesyntax: UInt, entryname: Pcwstr): RpcStatus
 
-public expect fun I_RpcNsGetBuffer(message: Long): RPC_STATUS
+public expect fun iRpcNsGetBuffer(message: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcNsInterfaceExported(entrynamesyntax: UInt, entryname: Long, rpcinterfaceinformation: Long): RPC_STATUS
+public expect fun iRpcNsInterfaceExported(entrynamesyntax: UInt, entryname: COpaquePointer?, rpcinterfaceinformation: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcNsInterfaceUnexported(entrynamesyntax: UInt, entryname: Long, rpcinterfaceinformation: Long): RPC_STATUS
+public expect fun iRpcNsInterfaceUnexported(entrynamesyntax: UInt, entryname: COpaquePointer?, rpcinterfaceinformation: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcNsRaiseException(message: Long, status: RPC_STATUS)
+public expect fun iRpcNsRaiseException(message: COpaquePointer?, status: RpcStatus)
 
-public expect fun I_RpcNsSendReceive(message: Long, handle: Long): RPC_STATUS
+public expect fun iRpcNsSendReceive(message: COpaquePointer?, handle: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcOpenClientProcess(binding: Long, desiredaccess: UInt, clientprocess: Long): RPC_STATUS
+public expect fun iRpcOpenClientProcess(binding: COpaquePointer?, desiredaccess: UInt, clientprocess: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcPauseExecution(milliseconds: UInt)
+public expect fun iRpcPauseExecution(milliseconds: UInt)
 
-public expect fun I_RpcReBindBuffer(message: Long): RPC_STATUS
+public expect fun iRpcReBindBuffer(message: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcReallocPipeBuffer(message: Long, newsize: UInt): RPC_STATUS
+public expect fun iRpcReallocPipeBuffer(message: COpaquePointer?, newsize: UInt): RpcStatus
 
-public expect fun I_RpcReceive(message: Long, size: UInt): RPC_STATUS
+public expect fun iRpcReceive(message: COpaquePointer?, size: UInt): RpcStatus
 
-public expect fun I_RpcRecordCalloutFailure(rpcstatus: RPC_STATUS, calloutstate: Long, dllname: Long)
+public expect fun iRpcRecordCalloutFailure(rpcstatus: RpcStatus, calloutstate: COpaquePointer?, dllname: COpaquePointer?)
 
-public expect fun I_RpcRequestMutex(mutex: Long)
+public expect fun iRpcRequestMutex(mutex: COpaquePointer?)
 
-public expect fun I_RpcSend(message: Long): RPC_STATUS
+public expect fun iRpcSend(message: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcSendReceive(message: Long): RPC_STATUS
+public expect fun iRpcSendReceive(message: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcServerCheckClientRestriction(context: Long): RPC_STATUS
+public expect fun iRpcServerCheckClientRestriction(context: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcServerDisableExceptionFilter(): Int
+public expect fun iRpcServerDisableExceptionFilter(): Int
 
-public expect fun I_RpcServerGetAssociationID(binding: Long, associationid: Long): RPC_STATUS
+public expect fun iRpcServerGetAssociationId(binding: COpaquePointer?, associationid: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcServerInqAddressChangeFn(): Long
+public expect fun iRpcServerInqAddressChangeFn(): COpaquePointer?
 
-public expect fun I_RpcServerInqLocalConnAddress(binding: Long, buffer: Long, buffersize: Long, addressformat: Long): RPC_STATUS
+public expect fun iRpcServerInqLocalConnAddress(binding: COpaquePointer?, buffer: COpaquePointer?, buffersize: COpaquePointer?, addressformat: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcServerInqRemoteConnAddress(binding: Long, buffer: Long, buffersize: Long, addressformat: Long): RPC_STATUS
+public expect fun iRpcServerInqRemoteConnAddress(binding: COpaquePointer?, buffer: COpaquePointer?, buffersize: COpaquePointer?, addressformat: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcServerInqTransportType(type: Long): RPC_STATUS
+public expect fun iRpcServerInqTransportType(type: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcServerRegisterForwardFunction(pforwardfunction: Long): RPC_STATUS
+public expect fun iRpcServerRegisterForwardFunction(pforwardfunction: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcServerSetAddressChangeFn(paddresschangefn: Long): RPC_STATUS
+public expect fun iRpcServerSetAddressChangeFn(paddresschangefn: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcServerStartService(protseq: PCWSTR, endpoint: PCWSTR, ifspec: Long): RPC_STATUS
+public expect fun iRpcServerStartService(protseq: Pcwstr, endpoint: Pcwstr, ifspec: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcServerSubscribeForDisconnectNotification(binding: Long, hevent: Long): RPC_STATUS
+public expect fun iRpcServerSubscribeForDisconnectNotification(binding: COpaquePointer?, hevent: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcServerSubscribeForDisconnectNotification2(binding: Long, hevent: Long, subscriptionid: Long): RPC_STATUS
+public expect fun iRpcServerSubscribeForDisconnectNotification2(binding: COpaquePointer?, hevent: COpaquePointer?, subscriptionid: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcServerUnsubscribeForDisconnectNotification(binding: Long, subscriptionid: GUID): RPC_STATUS
+public expect fun iRpcServerUnsubscribeForDisconnectNotification(binding: COpaquePointer?, subscriptionid: Guid): RpcStatus
 
-public expect fun I_RpcServerUseProtseq2A(networkaddress: PCSTR, protseq: PCSTR, maxcalls: UInt, securitydescriptor: Long, policy: Long): RPC_STATUS
+public expect fun iRpcServerUseProtseq2A(networkaddress: Pcstr, protseq: Pcstr, maxcalls: UInt, securitydescriptor: COpaquePointer?, policy: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcServerUseProtseq2W(networkaddress: PCWSTR, protseq: PCWSTR, maxcalls: UInt, securitydescriptor: Long, policy: Long): RPC_STATUS
+public expect fun iRpcServerUseProtseq2W(networkaddress: Pcwstr, protseq: Pcwstr, maxcalls: UInt, securitydescriptor: COpaquePointer?, policy: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcServerUseProtseqEp2A(networkaddress: PCSTR, protseq: PCSTR, maxcalls: UInt, endpoint: PCSTR, securitydescriptor: Long, policy: Long): RPC_STATUS
+public expect fun iRpcServerUseProtseqEp2A(networkaddress: Pcstr, protseq: Pcstr, maxcalls: UInt, endpoint: Pcstr, securitydescriptor: COpaquePointer?, policy: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcServerUseProtseqEp2W(networkaddress: PCWSTR, protseq: PCWSTR, maxcalls: UInt, endpoint: PCWSTR, securitydescriptor: Long, policy: Long): RPC_STATUS
+public expect fun iRpcServerUseProtseqEp2W(networkaddress: Pcwstr, protseq: Pcwstr, maxcalls: UInt, endpoint: Pcwstr, securitydescriptor: COpaquePointer?, policy: COpaquePointer?): RpcStatus
 
-public expect fun I_RpcSessionStrictContextHandle()
+public expect fun iRpcSessionStrictContextHandle()
 
-public expect fun I_RpcSsDontSerializeContext()
+public expect fun iRpcSsDontSerializeContext()
 
-public expect fun I_RpcSystemHandleTypeSpecificWork(handle: Long, actualtype: UByte, idltype: UByte, marshaldirection: LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION): RPC_STATUS
+public expect fun iRpcSystemHandleTypeSpecificWork(handle: COpaquePointer?, actualtype: UByte, idltype: UByte, marshaldirection: LrpcSystemHandleMarshalDirection): RpcStatus
 
-public expect fun I_RpcTurnOnEEInfoPropagation(): RPC_STATUS
+public expect fun iRpcTurnOnEeinfoPropagation(): RpcStatus
 
-public expect fun I_UuidCreate(uuid: Long): RPC_STATUS
+public expect fun iUuidCreate(uuid: COpaquePointer?): RpcStatus
 
-public expect fun MesBufferHandleReset(handle: Long, handlestyle: UInt, operation: MIDL_ES_CODE, pbuffer: Long, buffersize: UInt, pencodedsize: Long): RPC_STATUS
+public expect fun mesBufferHandleReset(handle: COpaquePointer?, handlestyle: UInt, operation: MidlEsCode, pbuffer: COpaquePointer?, buffersize: UInt, pencodedsize: COpaquePointer?): RpcStatus
 
-public expect fun MesDecodeBufferHandleCreate(buffer: PCSTR, buffersize: UInt, phandle: Long): RPC_STATUS
+public expect fun mesDecodeBufferHandleCreate(buffer: Pcstr, buffersize: UInt, phandle: COpaquePointer?): RpcStatus
 
-public expect fun MesDecodeIncrementalHandleCreate(userstate: Long, readfn: MIDL_ES_READ, phandle: Long): RPC_STATUS
+public expect fun mesDecodeIncrementalHandleCreate(userstate: COpaquePointer?, readfn: MidlEsRead, phandle: COpaquePointer?): RpcStatus
 
-public expect fun MesEncodeDynBufferHandleCreate(pbuffer: Long, pencodedsize: Long, phandle: Long): RPC_STATUS
+public expect fun mesEncodeDynBufferHandleCreate(pbuffer: COpaquePointer?, pencodedsize: COpaquePointer?, phandle: COpaquePointer?): RpcStatus
 
-public expect fun MesEncodeFixedBufferHandleCreate(pbuffer: PSTR, buffersize: UInt, pencodedsize: Long, phandle: Long): RPC_STATUS
+public expect fun mesEncodeFixedBufferHandleCreate(pbuffer: Pstr, buffersize: UInt, pencodedsize: COpaquePointer?, phandle: COpaquePointer?): RpcStatus
 
-public expect fun MesEncodeIncrementalHandleCreate(userstate: Long, allocfn: MIDL_ES_ALLOC, writefn: MIDL_ES_WRITE, phandle: Long): RPC_STATUS
+public expect fun mesEncodeIncrementalHandleCreate(userstate: COpaquePointer?, allocfn: MidlEsAlloc, writefn: MidlEsWrite, phandle: COpaquePointer?): RpcStatus
 
-public expect fun MesHandleFree(handle: Long): RPC_STATUS
+public expect fun mesHandleFree(handle: COpaquePointer?): RpcStatus
 
-public expect fun MesIncrementalHandleReset(handle: Long, userstate: Long, allocfn: MIDL_ES_ALLOC, writefn: MIDL_ES_WRITE, readfn: MIDL_ES_READ, operation: MIDL_ES_CODE): RPC_STATUS
+public expect fun mesIncrementalHandleReset(handle: COpaquePointer?, userstate: COpaquePointer?, allocfn: MidlEsAlloc, writefn: MidlEsWrite, readfn: MidlEsRead, operation: MidlEsCode): RpcStatus
 
-public expect fun MesInqProcEncodingId(handle: Long, pinterfaceid: Long, pprocnum: Long): RPC_STATUS
+public expect fun mesInqProcEncodingId(handle: COpaquePointer?, pinterfaceid: COpaquePointer?, pprocnum: COpaquePointer?): RpcStatus
 
-public expect fun NDRCContextBinding(ccontext: Long): Long
+public expect fun nDRCContextBinding(ccontext: Long): COpaquePointer?
 
-public expect fun NDRCContextMarshall(ccontext: Long, pbuff: Long)
+public expect fun nDRCContextMarshall(ccontext: Long, pbuff: COpaquePointer?)
 
-public expect fun NDRCContextUnmarshall(pccontext: Long, hbinding: Long, pbuff: Long, datarepresentation: UInt)
+public expect fun nDRCContextUnmarshall(pccontext: COpaquePointer?, hbinding: COpaquePointer?, pbuff: COpaquePointer?, datarepresentation: UInt)
 
-public expect fun NDRSContextMarshall(ccontext: Long, pbuff: Long, userrundownin: NDR_RUNDOWN)
+public expect fun nDRSContextMarshall(ccontext: COpaquePointer?, pbuff: COpaquePointer?, userrundownin: NdrRundown)
 
-public expect fun NDRSContextMarshall2(bindinghandle: Long, ccontext: Long, pbuff: Long, userrundownin: NDR_RUNDOWN, ctxguard: Long, flags: UInt)
+public expect fun nDRSContextMarshall2(bindinghandle: COpaquePointer?, ccontext: COpaquePointer?, pbuff: COpaquePointer?, userrundownin: NdrRundown, ctxguard: COpaquePointer?, flags: UInt)
 
-public expect fun NDRSContextMarshallEx(bindinghandle: Long, ccontext: Long, pbuff: Long, userrundownin: NDR_RUNDOWN)
+public expect fun nDRSContextMarshallEx(bindinghandle: COpaquePointer?, ccontext: COpaquePointer?, pbuff: COpaquePointer?, userrundownin: NdrRundown)
 
-public expect fun NDRSContextUnmarshall(pbuff: Long, datarepresentation: UInt): Long
+public expect fun nDRSContextUnmarshall(pbuff: COpaquePointer?, datarepresentation: UInt): COpaquePointer?
 
-public expect fun NDRSContextUnmarshall2(bindinghandle: Long, pbuff: Long, datarepresentation: UInt, ctxguard: Long, flags: UInt): Long
+public expect fun nDRSContextUnmarshall2(bindinghandle: COpaquePointer?, pbuff: COpaquePointer?, datarepresentation: UInt, ctxguard: COpaquePointer?, flags: UInt): COpaquePointer?
 
-public expect fun NDRSContextUnmarshallEx(bindinghandle: Long, pbuff: Long, datarepresentation: UInt): Long
+public expect fun nDRSContextUnmarshallEx(bindinghandle: COpaquePointer?, pbuff: COpaquePointer?, datarepresentation: UInt): COpaquePointer?
 
-public expect fun Ndr64AsyncClientCall(pproxyinfo: Long, nprocnum: UInt, preturnvalue: Long, vararg variadicArgs: Long): CLIENT_CALL_RETURN
+public expect fun ndr64AsyncClientCall(pproxyinfo: COpaquePointer?, nprocnum: UInt, preturnvalue: COpaquePointer?, vararg variadicArgs: Long): ClientCallReturn
 
-public expect fun Ndr64AsyncServerCall64(prpcmsg: Long)
+public expect fun ndr64AsyncServerCall64(prpcmsg: COpaquePointer?)
 
-public expect fun Ndr64AsyncServerCallAll(prpcmsg: Long)
+public expect fun ndr64AsyncServerCallAll(prpcmsg: COpaquePointer?)
 
-public expect fun Ndr64DcomAsyncClientCall(pproxyinfo: Long, nprocnum: UInt, preturnvalue: Long, vararg variadicArgs: Long): CLIENT_CALL_RETURN
+public expect fun ndr64DcomAsyncClientCall(pproxyinfo: COpaquePointer?, nprocnum: UInt, preturnvalue: COpaquePointer?, vararg variadicArgs: Long): ClientCallReturn
 
-public expect fun Ndr64DcomAsyncStubCall(pthis: Long, pchannel: Long, prpcmsg: Long, pdwstubphase: Long): Int
+public expect fun ndr64DcomAsyncStubCall(pthis: COpaquePointer?, pchannel: COpaquePointer?, prpcmsg: COpaquePointer?, pdwstubphase: COpaquePointer?): Int
 
-public expect fun NdrAllocate(pstubmsg: Long, len: ULong): Long
+public expect fun ndrAllocate(pstubmsg: COpaquePointer?, len: ULong): COpaquePointer?
 
-public expect fun NdrAsyncClientCall(pstubdescriptor: Long, pformat: Long, vararg variadicArgs: Long): CLIENT_CALL_RETURN
+public expect fun ndrAsyncClientCall(pstubdescriptor: COpaquePointer?, pformat: COpaquePointer?, vararg variadicArgs: Long): ClientCallReturn
 
-public expect fun NdrAsyncServerCall(prpcmsg: Long)
+public expect fun ndrAsyncServerCall(prpcmsg: COpaquePointer?)
 
-public expect fun NdrByteCountPointerBufferSize(pstubmsg: Long, pmemory: Long, pformat: Long)
+public expect fun ndrByteCountPointerBufferSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?)
 
-public expect fun NdrByteCountPointerFree(pstubmsg: Long, pmemory: Long, pformat: Long)
+public expect fun ndrByteCountPointerFree(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?)
 
-public expect fun NdrByteCountPointerMarshall(pstubmsg: Long, pmemory: Long, pformat: Long): Long
+public expect fun ndrByteCountPointerMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer?
 
-public expect fun NdrByteCountPointerUnmarshall(pstubmsg: Long, ppmemory: Long, pformat: Long, fmustalloc: UByte): Long
+public expect fun ndrByteCountPointerUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?, fmustalloc: UByte): COpaquePointer?
 
-public expect fun NdrClearOutParameters(pstubmsg: Long, pformat: Long, argaddr: Long)
+public expect fun ndrClearOutParameters(pstubmsg: COpaquePointer?, pformat: COpaquePointer?, argaddr: COpaquePointer?)
 
-public expect fun NdrClientCall2(pstubdescriptor: Long, pformat: Long, vararg variadicArgs: Long): CLIENT_CALL_RETURN
+public expect fun ndrClientCall2(pstubdescriptor: COpaquePointer?, pformat: COpaquePointer?, vararg variadicArgs: Long): ClientCallReturn
 
-public expect fun NdrClientCall3(pproxyinfo: Long, nprocnum: UInt, preturnvalue: Long, vararg variadicArgs: Long): CLIENT_CALL_RETURN
+public expect fun ndrClientCall3(pproxyinfo: COpaquePointer?, nprocnum: UInt, preturnvalue: COpaquePointer?, vararg variadicArgs: Long): ClientCallReturn
 
-public expect fun NdrClientContextMarshall(pstubmsg: Long, contexthandle: Long, fcheck: Int)
+public expect fun ndrClientContextMarshall(pstubmsg: COpaquePointer?, contexthandle: Long, fcheck: Int)
 
-public expect fun NdrClientContextUnmarshall(pstubmsg: Long, pcontexthandle: Long, bindhandle: Long)
+public expect fun ndrClientContextUnmarshall(pstubmsg: COpaquePointer?, pcontexthandle: COpaquePointer?, bindhandle: COpaquePointer?)
 
-public expect fun NdrClientInitialize(prpcmsg: Long, pstubmsg: Long, pstubdescriptor: Long, procnum: UInt)
+public expect fun ndrClientInitialize(prpcmsg: COpaquePointer?, pstubmsg: COpaquePointer?, pstubdescriptor: COpaquePointer?, procnum: UInt)
 
-public expect fun NdrClientInitializeNew(prpcmsg: Long, pstubmsg: Long, pstubdescriptor: Long, procnum: UInt)
+public expect fun ndrClientInitializeNew(prpcmsg: COpaquePointer?, pstubmsg: COpaquePointer?, pstubdescriptor: COpaquePointer?, procnum: UInt)
 
-public expect fun NdrComplexArrayBufferSize(pstubmsg: Long, pmemory: Long, pformat: Long)
+public expect fun ndrComplexArrayBufferSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?)
 
-public expect fun NdrComplexArrayFree(pstubmsg: Long, pmemory: Long, pformat: Long)
+public expect fun ndrComplexArrayFree(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?)
 
-public expect fun NdrComplexArrayMarshall(pstubmsg: Long, pmemory: Long, pformat: Long): Long
+public expect fun ndrComplexArrayMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer?
 
-public expect fun NdrComplexArrayMemorySize(pstubmsg: Long, pformat: Long): UInt
+public expect fun ndrComplexArrayMemorySize(pstubmsg: COpaquePointer?, pformat: COpaquePointer?): UInt
 
-public expect fun NdrComplexArrayUnmarshall(pstubmsg: Long, ppmemory: Long, pformat: Long, fmustalloc: UByte): Long
+public expect fun ndrComplexArrayUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?, fmustalloc: UByte): COpaquePointer?
 
-public expect fun NdrComplexStructBufferSize(pstubmsg: Long, pmemory: Long, pformat: Long)
+public expect fun ndrComplexStructBufferSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?)
 
-public expect fun NdrComplexStructFree(pstubmsg: Long, pmemory: Long, pformat: Long)
+public expect fun ndrComplexStructFree(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?)
 
-public expect fun NdrComplexStructMarshall(pstubmsg: Long, pmemory: Long, pformat: Long): Long
+public expect fun ndrComplexStructMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer?
 
-public expect fun NdrComplexStructMemorySize(pstubmsg: Long, pformat: Long): UInt
+public expect fun ndrComplexStructMemorySize(pstubmsg: COpaquePointer?, pformat: COpaquePointer?): UInt
 
-public expect fun NdrComplexStructUnmarshall(pstubmsg: Long, ppmemory: Long, pformat: Long, fmustalloc: UByte): Long
+public expect fun ndrComplexStructUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?, fmustalloc: UByte): COpaquePointer?
 
-public expect fun NdrConformantArrayBufferSize(pstubmsg: Long, pmemory: Long, pformat: Long)
+public expect fun ndrConformantArrayBufferSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?)
 
-public expect fun NdrConformantArrayFree(pstubmsg: Long, pmemory: Long, pformat: Long)
+public expect fun ndrConformantArrayFree(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?)
 
-public expect fun NdrConformantArrayMarshall(pstubmsg: Long, pmemory: Long, pformat: Long): Long
+public expect fun ndrConformantArrayMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer?
 
-public expect fun NdrConformantArrayMemorySize(pstubmsg: Long, pformat: Long): UInt
+public expect fun ndrConformantArrayMemorySize(pstubmsg: COpaquePointer?, pformat: COpaquePointer?): UInt
 
-public expect fun NdrConformantArrayUnmarshall(pstubmsg: Long, ppmemory: Long, pformat: Long, fmustalloc: UByte): Long
+public expect fun ndrConformantArrayUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?, fmustalloc: UByte): COpaquePointer?
 
-public expect fun NdrConformantStringBufferSize(pstubmsg: Long, pmemory: Long, pformat: Long)
+public expect fun ndrConformantStringBufferSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?)
 
-public expect fun NdrConformantStringMarshall(pstubmsg: Long, pmemory: Long, pformat: Long): Long
+public expect fun ndrConformantStringMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer?
 
-public expect fun NdrConformantStringMemorySize(pstubmsg: Long, pformat: Long): UInt
+public expect fun ndrConformantStringMemorySize(pstubmsg: COpaquePointer?, pformat: COpaquePointer?): UInt
 
-public expect fun NdrConformantStringUnmarshall(pstubmsg: Long, ppmemory: Long, pformat: Long, fmustalloc: UByte): Long
+public expect fun ndrConformantStringUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?, fmustalloc: UByte): COpaquePointer?
 
-public expect fun NdrConformantStructBufferSize(pstubmsg: Long, pmemory: Long, pformat: Long)
+public expect fun ndrConformantStructBufferSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?)
 
-public expect fun NdrConformantStructFree(pstubmsg: Long, pmemory: Long, pformat: Long)
+public expect fun ndrConformantStructFree(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?)
 
-public expect fun NdrConformantStructMarshall(pstubmsg: Long, pmemory: Long, pformat: Long): Long
+public expect fun ndrConformantStructMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer?
 
-public expect fun NdrConformantStructMemorySize(pstubmsg: Long, pformat: Long): UInt
+public expect fun ndrConformantStructMemorySize(pstubmsg: COpaquePointer?, pformat: COpaquePointer?): UInt
 
-public expect fun NdrConformantStructUnmarshall(pstubmsg: Long, ppmemory: Long, pformat: Long, fmustalloc: UByte): Long
+public expect fun ndrConformantStructUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?, fmustalloc: UByte): COpaquePointer?
 
-public expect fun NdrConformantVaryingArrayBufferSize(pstubmsg: Long, pmemory: Long, pformat: Long)
+public expect fun ndrConformantVaryingArrayBufferSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?)
 
-public expect fun NdrConformantVaryingArrayFree(pstubmsg: Long, pmemory: Long, pformat: Long)
+public expect fun ndrConformantVaryingArrayFree(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?)
 
-public expect fun NdrConformantVaryingArrayMarshall(pstubmsg: Long, pmemory: Long, pformat: Long): Long
+public expect fun ndrConformantVaryingArrayMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer?
 
-public expect fun NdrConformantVaryingArrayMemorySize(pstubmsg: Long, pformat: Long): UInt
+public expect fun ndrConformantVaryingArrayMemorySize(pstubmsg: COpaquePointer?, pformat: COpaquePointer?): UInt
 
-public expect fun NdrConformantVaryingArrayUnmarshall(pstubmsg: Long, ppmemory: Long, pformat: Long, fmustalloc: UByte): Long
+public expect fun ndrConformantVaryingArrayUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?, fmustalloc: UByte): COpaquePointer?
 
-public expect fun NdrConformantVaryingStructBufferSize(pstubmsg: Long, pmemory: Long, pformat: Long)
+public expect fun ndrConformantVaryingStructBufferSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?)
 
-public expect fun NdrConformantVaryingStructFree(pstubmsg: Long, pmemory: Long, pformat: Long)
+public expect fun ndrConformantVaryingStructFree(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?)
 
-public expect fun NdrConformantVaryingStructMarshall(pstubmsg: Long, pmemory: Long, pformat: Long): Long
+public expect fun ndrConformantVaryingStructMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer?
 
-public expect fun NdrConformantVaryingStructMemorySize(pstubmsg: Long, pformat: Long): UInt
+public expect fun ndrConformantVaryingStructMemorySize(pstubmsg: COpaquePointer?, pformat: COpaquePointer?): UInt
 
-public expect fun NdrConformantVaryingStructUnmarshall(pstubmsg: Long, ppmemory: Long, pformat: Long, fmustalloc: UByte): Long
+public expect fun ndrConformantVaryingStructUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?, fmustalloc: UByte): COpaquePointer?
 
-public expect fun NdrContextHandleInitialize(pstubmsg: Long, pformat: Long): Long
+public expect fun ndrContextHandleInitialize(pstubmsg: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer?
 
-public expect fun NdrContextHandleSize(pstubmsg: Long, pmemory: Long, pformat: Long)
+public expect fun ndrContextHandleSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?)
 
-public expect fun NdrConvert(pstubmsg: Long, pformat: Long)
+public expect fun ndrConvert(pstubmsg: COpaquePointer?, pformat: COpaquePointer?)
 
-public expect fun NdrConvert2(pstubmsg: Long, pformat: Long, numberparams: Int)
+public expect fun ndrConvert2(pstubmsg: COpaquePointer?, pformat: COpaquePointer?, numberparams: Int)
 
-public expect fun NdrCorrelationFree(pstubmsg: Long)
+public expect fun ndrCorrelationFree(pstubmsg: COpaquePointer?)
 
-public expect fun NdrCorrelationInitialize(pstubmsg: Long, pmemory: Long, cachesize: UInt, flags: UInt)
+public expect fun ndrCorrelationInitialize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, cachesize: UInt, flags: UInt)
 
-public expect fun NdrCorrelationPass(pstubmsg: Long)
+public expect fun ndrCorrelationPass(pstubmsg: COpaquePointer?)
 
-public expect fun NdrCreateServerInterfaceFromStub(pstub: Long, pserverif: Long): RPC_STATUS
+public expect fun ndrCreateServerInterfaceFromStub(pstub: COpaquePointer?, pserverif: COpaquePointer?): RpcStatus
 
-public expect fun NdrDcomAsyncClientCall(pstubdescriptor: Long, pformat: Long, vararg variadicArgs: Long): CLIENT_CALL_RETURN
+public expect fun ndrDcomAsyncClientCall(pstubdescriptor: COpaquePointer?, pformat: COpaquePointer?, vararg variadicArgs: Long): ClientCallReturn
 
-public expect fun NdrDcomAsyncStubCall(pthis: Long, pchannel: Long, prpcmsg: Long, pdwstubphase: Long): Int
+public expect fun ndrDcomAsyncStubCall(pthis: COpaquePointer?, pchannel: COpaquePointer?, prpcmsg: COpaquePointer?, pdwstubphase: COpaquePointer?): Int
 
-public expect fun NdrEncapsulatedUnionBufferSize(pstubmsg: Long, pmemory: Long, pformat: Long)
+public expect fun ndrEncapsulatedUnionBufferSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?)
 
-public expect fun NdrEncapsulatedUnionFree(pstubmsg: Long, pmemory: Long, pformat: Long)
+public expect fun ndrEncapsulatedUnionFree(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?)
 
-public expect fun NdrEncapsulatedUnionMarshall(pstubmsg: Long, pmemory: Long, pformat: Long): Long
+public expect fun ndrEncapsulatedUnionMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer?
 
-public expect fun NdrEncapsulatedUnionMemorySize(pstubmsg: Long, pformat: Long): UInt
+public expect fun ndrEncapsulatedUnionMemorySize(pstubmsg: COpaquePointer?, pformat: COpaquePointer?): UInt
 
-public expect fun NdrEncapsulatedUnionUnmarshall(pstubmsg: Long, ppmemory: Long, pformat: Long, fmustalloc: UByte): Long
+public expect fun ndrEncapsulatedUnionUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?, fmustalloc: UByte): COpaquePointer?
 
-public expect fun NdrFixedArrayBufferSize(pstubmsg: Long, pmemory: Long, pformat: Long)
+public expect fun ndrFixedArrayBufferSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?)
 
-public expect fun NdrFixedArrayFree(pstubmsg: Long, pmemory: Long, pformat: Long)
+public expect fun ndrFixedArrayFree(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?)
 
-public expect fun NdrFixedArrayMarshall(pstubmsg: Long, pmemory: Long, pformat: Long): Long
+public expect fun ndrFixedArrayMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer?
 
-public expect fun NdrFixedArrayMemorySize(pstubmsg: Long, pformat: Long): UInt
+public expect fun ndrFixedArrayMemorySize(pstubmsg: COpaquePointer?, pformat: COpaquePointer?): UInt
 
-public expect fun NdrFixedArrayUnmarshall(pstubmsg: Long, ppmemory: Long, pformat: Long, fmustalloc: UByte): Long
+public expect fun ndrFixedArrayUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?, fmustalloc: UByte): COpaquePointer?
 
-public expect fun NdrFreeBuffer(pstubmsg: Long)
+public expect fun ndrFreeBuffer(pstubmsg: COpaquePointer?)
 
-public expect fun NdrFullPointerXlatFree(pxlattables: Long)
+public expect fun ndrFullPointerXlatFree(pxlattables: COpaquePointer?)
 
-public expect fun NdrFullPointerXlatInit(numberofpointers: UInt, xlatside: XLAT_SIDE): Long
+public expect fun ndrFullPointerXlatInit(numberofpointers: UInt, xlatside: XlatSide): COpaquePointer?
 
-public expect fun NdrGetBuffer(pstubmsg: Long, bufferlength: UInt, handle: Long): Long
+public expect fun ndrGetBuffer(pstubmsg: COpaquePointer?, bufferlength: UInt, handle: COpaquePointer?): COpaquePointer?
 
-public expect fun NdrGetDcomProtocolVersion(pstubmsg: Long, pversion: Long): HRESULT
+public expect fun ndrGetDcomProtocolVersion(pstubmsg: COpaquePointer?, pversion: COpaquePointer?): Hresult
 
-public expect fun NdrGetUserMarshalInfo(pflags: Long, informationlevel: UInt, pmarshalinfo: Long): RPC_STATUS
+public expect fun ndrGetUserMarshalInfo(pflags: COpaquePointer?, informationlevel: UInt, pmarshalinfo: COpaquePointer?): RpcStatus
 
-public expect fun NdrInterfacePointerBufferSize(pstubmsg: Long, pmemory: Long, pformat: Long)
+public expect fun ndrInterfacePointerBufferSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?)
 
-public expect fun NdrInterfacePointerFree(pstubmsg: Long, pmemory: Long, pformat: Long)
+public expect fun ndrInterfacePointerFree(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?)
 
-public expect fun NdrInterfacePointerMarshall(pstubmsg: Long, pmemory: Long, pformat: Long): Long
+public expect fun ndrInterfacePointerMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer?
 
-public expect fun NdrInterfacePointerMemorySize(pstubmsg: Long, pformat: Long): UInt
+public expect fun ndrInterfacePointerMemorySize(pstubmsg: COpaquePointer?, pformat: COpaquePointer?): UInt
 
-public expect fun NdrInterfacePointerUnmarshall(pstubmsg: Long, ppmemory: Long, pformat: Long, fmustalloc: UByte): Long
+public expect fun ndrInterfacePointerUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?, fmustalloc: UByte): COpaquePointer?
 
-public expect fun NdrMapCommAndFaultStatus(pstubmsg: Long, pcommstatus: Long, pfaultstatus: Long, status: RPC_STATUS): RPC_STATUS
+public expect fun ndrMapCommAndFaultStatus(pstubmsg: COpaquePointer?, pcommstatus: COpaquePointer?, pfaultstatus: COpaquePointer?, status: RpcStatus): RpcStatus
 
-public expect fun NdrMesProcEncodeDecode(handle: Long, pstubdesc: Long, pformatstring: Long, vararg variadicArgs: Long)
+public expect fun ndrMesProcEncodeDecode(handle: COpaquePointer?, pstubdesc: COpaquePointer?, pformatstring: COpaquePointer?, vararg variadicArgs: Long)
 
-public expect fun NdrMesProcEncodeDecode2(handle: Long, pstubdesc: Long, pformatstring: Long, vararg variadicArgs: Long): CLIENT_CALL_RETURN
+public expect fun ndrMesProcEncodeDecode2(handle: COpaquePointer?, pstubdesc: COpaquePointer?, pformatstring: COpaquePointer?, vararg variadicArgs: Long): ClientCallReturn
 
-public expect fun NdrMesProcEncodeDecode3(handle: Long, pproxyinfo: Long, nprocnum: UInt, preturnvalue: Long, vararg variadicArgs: Long): CLIENT_CALL_RETURN
+public expect fun ndrMesProcEncodeDecode3(handle: COpaquePointer?, pproxyinfo: COpaquePointer?, nprocnum: UInt, preturnvalue: COpaquePointer?, vararg variadicArgs: Long): ClientCallReturn
 
-public expect fun NdrMesSimpleTypeAlignSize(param0: Long): ULong
+public expect fun ndrMesSimpleTypeAlignSize(param0: COpaquePointer?): ULong
 
-public expect fun NdrMesSimpleTypeAlignSizeAll(handle: Long, pproxyinfo: Long): ULong
+public expect fun ndrMesSimpleTypeAlignSizeAll(handle: COpaquePointer?, pproxyinfo: COpaquePointer?): ULong
 
-public expect fun NdrMesSimpleTypeDecode(handle: Long, pobject: Long, size: Short)
+public expect fun ndrMesSimpleTypeDecode(handle: COpaquePointer?, pobject: COpaquePointer?, size: Short)
 
-public expect fun NdrMesSimpleTypeDecodeAll(handle: Long, pproxyinfo: Long, pobject: Long, size: Short)
+public expect fun ndrMesSimpleTypeDecodeAll(handle: COpaquePointer?, pproxyinfo: COpaquePointer?, pobject: COpaquePointer?, size: Short)
 
-public expect fun NdrMesSimpleTypeEncode(handle: Long, pstubdesc: Long, pobject: Long, size: Short)
+public expect fun ndrMesSimpleTypeEncode(handle: COpaquePointer?, pstubdesc: COpaquePointer?, pobject: COpaquePointer?, size: Short)
 
-public expect fun NdrMesSimpleTypeEncodeAll(handle: Long, pproxyinfo: Long, pobject: Long, size: Short)
+public expect fun ndrMesSimpleTypeEncodeAll(handle: COpaquePointer?, pproxyinfo: COpaquePointer?, pobject: COpaquePointer?, size: Short)
 
-public expect fun NdrMesTypeAlignSize(handle: Long, pstubdesc: Long, pformatstring: Long, pobject: Long): ULong
+public expect fun ndrMesTypeAlignSize(handle: COpaquePointer?, pstubdesc: COpaquePointer?, pformatstring: COpaquePointer?, pobject: COpaquePointer?): ULong
 
-public expect fun NdrMesTypeAlignSize2(handle: Long, ppicklinginfo: Long, pstubdesc: Long, pformatstring: Long, pobject: Long): ULong
+public expect fun ndrMesTypeAlignSize2(handle: COpaquePointer?, ppicklinginfo: COpaquePointer?, pstubdesc: COpaquePointer?, pformatstring: COpaquePointer?, pobject: COpaquePointer?): ULong
 
-public expect fun NdrMesTypeAlignSize3(handle: Long, ppicklinginfo: Long, pproxyinfo: Long, arrtypeoffset: Long, ntypeindex: UInt, pobject: Long): ULong
+public expect fun ndrMesTypeAlignSize3(handle: COpaquePointer?, ppicklinginfo: COpaquePointer?, pproxyinfo: COpaquePointer?, arrtypeoffset: COpaquePointer?, ntypeindex: UInt, pobject: COpaquePointer?): ULong
 
-public expect fun NdrMesTypeDecode(handle: Long, pstubdesc: Long, pformatstring: Long, pobject: Long)
+public expect fun ndrMesTypeDecode(handle: COpaquePointer?, pstubdesc: COpaquePointer?, pformatstring: COpaquePointer?, pobject: COpaquePointer?)
 
-public expect fun NdrMesTypeDecode2(handle: Long, ppicklinginfo: Long, pstubdesc: Long, pformatstring: Long, pobject: Long)
+public expect fun ndrMesTypeDecode2(handle: COpaquePointer?, ppicklinginfo: COpaquePointer?, pstubdesc: COpaquePointer?, pformatstring: COpaquePointer?, pobject: COpaquePointer?)
 
-public expect fun NdrMesTypeDecode3(handle: Long, ppicklinginfo: Long, pproxyinfo: Long, arrtypeoffset: Long, ntypeindex: UInt, pobject: Long)
+public expect fun ndrMesTypeDecode3(handle: COpaquePointer?, ppicklinginfo: COpaquePointer?, pproxyinfo: COpaquePointer?, arrtypeoffset: COpaquePointer?, ntypeindex: UInt, pobject: COpaquePointer?)
 
-public expect fun NdrMesTypeEncode(handle: Long, pstubdesc: Long, pformatstring: Long, pobject: Long)
+public expect fun ndrMesTypeEncode(handle: COpaquePointer?, pstubdesc: COpaquePointer?, pformatstring: COpaquePointer?, pobject: COpaquePointer?)
 
-public expect fun NdrMesTypeEncode2(handle: Long, ppicklinginfo: Long, pstubdesc: Long, pformatstring: Long, pobject: Long)
+public expect fun ndrMesTypeEncode2(handle: COpaquePointer?, ppicklinginfo: COpaquePointer?, pstubdesc: COpaquePointer?, pformatstring: COpaquePointer?, pobject: COpaquePointer?)
 
-public expect fun NdrMesTypeEncode3(handle: Long, ppicklinginfo: Long, pproxyinfo: Long, arrtypeoffset: Long, ntypeindex: UInt, pobject: Long)
+public expect fun ndrMesTypeEncode3(handle: COpaquePointer?, ppicklinginfo: COpaquePointer?, pproxyinfo: COpaquePointer?, arrtypeoffset: COpaquePointer?, ntypeindex: UInt, pobject: COpaquePointer?)
 
-public expect fun NdrMesTypeFree2(handle: Long, ppicklinginfo: Long, pstubdesc: Long, pformatstring: Long, pobject: Long)
+public expect fun ndrMesTypeFree2(handle: COpaquePointer?, ppicklinginfo: COpaquePointer?, pstubdesc: COpaquePointer?, pformatstring: COpaquePointer?, pobject: COpaquePointer?)
 
-public expect fun NdrMesTypeFree3(handle: Long, ppicklinginfo: Long, pproxyinfo: Long, arrtypeoffset: Long, ntypeindex: UInt, pobject: Long)
+public expect fun ndrMesTypeFree3(handle: COpaquePointer?, ppicklinginfo: COpaquePointer?, pproxyinfo: COpaquePointer?, arrtypeoffset: COpaquePointer?, ntypeindex: UInt, pobject: COpaquePointer?)
 
-public expect fun NdrNonConformantStringBufferSize(pstubmsg: Long, pmemory: Long, pformat: Long)
+public expect fun ndrNonConformantStringBufferSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?)
 
-public expect fun NdrNonConformantStringMarshall(pstubmsg: Long, pmemory: Long, pformat: Long): Long
+public expect fun ndrNonConformantStringMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer?
 
-public expect fun NdrNonConformantStringMemorySize(pstubmsg: Long, pformat: Long): UInt
+public expect fun ndrNonConformantStringMemorySize(pstubmsg: COpaquePointer?, pformat: COpaquePointer?): UInt
 
-public expect fun NdrNonConformantStringUnmarshall(pstubmsg: Long, ppmemory: Long, pformat: Long, fmustalloc: UByte): Long
+public expect fun ndrNonConformantStringUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?, fmustalloc: UByte): COpaquePointer?
 
-public expect fun NdrNonEncapsulatedUnionBufferSize(pstubmsg: Long, pmemory: Long, pformat: Long)
+public expect fun ndrNonEncapsulatedUnionBufferSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?)
 
-public expect fun NdrNonEncapsulatedUnionFree(pstubmsg: Long, pmemory: Long, pformat: Long)
+public expect fun ndrNonEncapsulatedUnionFree(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?)
 
-public expect fun NdrNonEncapsulatedUnionMarshall(pstubmsg: Long, pmemory: Long, pformat: Long): Long
+public expect fun ndrNonEncapsulatedUnionMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer?
 
-public expect fun NdrNonEncapsulatedUnionMemorySize(pstubmsg: Long, pformat: Long): UInt
+public expect fun ndrNonEncapsulatedUnionMemorySize(pstubmsg: COpaquePointer?, pformat: COpaquePointer?): UInt
 
-public expect fun NdrNonEncapsulatedUnionUnmarshall(pstubmsg: Long, ppmemory: Long, pformat: Long, fmustalloc: UByte): Long
+public expect fun ndrNonEncapsulatedUnionUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?, fmustalloc: UByte): COpaquePointer?
 
-public expect fun NdrNsGetBuffer(pstubmsg: Long, bufferlength: UInt, handle: Long): Long
+public expect fun ndrNsGetBuffer(pstubmsg: COpaquePointer?, bufferlength: UInt, handle: COpaquePointer?): COpaquePointer?
 
-public expect fun NdrNsSendReceive(pstubmsg: Long, pbufferend: Long, pautohandle: Long): Long
+public expect fun ndrNsSendReceive(pstubmsg: COpaquePointer?, pbufferend: COpaquePointer?, pautohandle: COpaquePointer?): COpaquePointer?
 
-public expect fun NdrOleAllocate(size: ULong): Long
+public expect fun ndrOleAllocate(size: ULong): COpaquePointer?
 
-public expect fun NdrOleFree(nodetofree: Long)
+public expect fun ndrOleFree(nodetofree: COpaquePointer?)
 
-public expect fun NdrPartialIgnoreClientBufferSize(pstubmsg: Long, pmemory: Long)
+public expect fun ndrPartialIgnoreClientBufferSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?)
 
-public expect fun NdrPartialIgnoreClientMarshall(pstubmsg: Long, pmemory: Long)
+public expect fun ndrPartialIgnoreClientMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?)
 
-public expect fun NdrPartialIgnoreServerInitialize(pstubmsg: Long, ppmemory: Long, pformat: Long)
+public expect fun ndrPartialIgnoreServerInitialize(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?)
 
-public expect fun NdrPartialIgnoreServerUnmarshall(pstubmsg: Long, ppmemory: Long)
+public expect fun ndrPartialIgnoreServerUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?)
 
-public expect fun NdrPointerBufferSize(pstubmsg: Long, pmemory: Long, pformat: Long)
+public expect fun ndrPointerBufferSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?)
 
-public expect fun NdrPointerFree(pstubmsg: Long, pmemory: Long, pformat: Long)
+public expect fun ndrPointerFree(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?)
 
-public expect fun NdrPointerMarshall(pstubmsg: Long, pmemory: Long, pformat: Long): Long
+public expect fun ndrPointerMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer?
 
-public expect fun NdrPointerMemorySize(pstubmsg: Long, pformat: Long): UInt
+public expect fun ndrPointerMemorySize(pstubmsg: COpaquePointer?, pformat: COpaquePointer?): UInt
 
-public expect fun NdrPointerUnmarshall(pstubmsg: Long, ppmemory: Long, pformat: Long, fmustalloc: UByte): Long
+public expect fun ndrPointerUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?, fmustalloc: UByte): COpaquePointer?
 
-public expect fun NdrRangeUnmarshall(pstubmsg: Long, ppmemory: Long, pformat: Long, fmustalloc: UByte): Long
+public expect fun ndrRangeUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?, fmustalloc: UByte): COpaquePointer?
 
-public expect fun NdrRpcSmClientAllocate(size: ULong): Long
+public expect fun ndrRpcSmClientAllocate(size: ULong): COpaquePointer?
 
-public expect fun NdrRpcSmClientFree(nodetofree: Long)
+public expect fun ndrRpcSmClientFree(nodetofree: COpaquePointer?)
 
-public expect fun NdrRpcSmSetClientToOsf(pmessage: Long)
+public expect fun ndrRpcSmSetClientToOsf(pmessage: COpaquePointer?)
 
-public expect fun NdrRpcSsDefaultAllocate(size: ULong): Long
+public expect fun ndrRpcSsDefaultAllocate(size: ULong): COpaquePointer?
 
-public expect fun NdrRpcSsDefaultFree(nodetofree: Long)
+public expect fun ndrRpcSsDefaultFree(nodetofree: COpaquePointer?)
 
-public expect fun NdrRpcSsDisableAllocate(pmessage: Long)
+public expect fun ndrRpcSsDisableAllocate(pmessage: COpaquePointer?)
 
-public expect fun NdrRpcSsEnableAllocate(pmessage: Long)
+public expect fun ndrRpcSsEnableAllocate(pmessage: COpaquePointer?)
 
-public expect fun NdrSendReceive(pstubmsg: Long, pbufferend: Long): Long
+public expect fun ndrSendReceive(pstubmsg: COpaquePointer?, pbufferend: COpaquePointer?): COpaquePointer?
 
-public expect fun NdrServerCall2(prpcmsg: Long)
+public expect fun ndrServerCall2(prpcmsg: COpaquePointer?)
 
-public expect fun NdrServerCallAll(prpcmsg: Long)
+public expect fun ndrServerCallAll(prpcmsg: COpaquePointer?)
 
-public expect fun NdrServerCallNdr64(prpcmsg: Long)
+public expect fun ndrServerCallNdr64(prpcmsg: COpaquePointer?)
 
-public expect fun NdrServerContextMarshall(pstubmsg: Long, contexthandle: Long, rundownroutine: NDR_RUNDOWN)
+public expect fun ndrServerContextMarshall(pstubmsg: COpaquePointer?, contexthandle: COpaquePointer?, rundownroutine: NdrRundown)
 
-public expect fun NdrServerContextNewMarshall(pstubmsg: Long, contexthandle: Long, rundownroutine: NDR_RUNDOWN, pformat: Long)
+public expect fun ndrServerContextNewMarshall(pstubmsg: COpaquePointer?, contexthandle: COpaquePointer?, rundownroutine: NdrRundown, pformat: COpaquePointer?)
 
-public expect fun NdrServerContextNewUnmarshall(pstubmsg: Long, pformat: Long): Long
+public expect fun ndrServerContextNewUnmarshall(pstubmsg: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer?
 
-public expect fun NdrServerContextUnmarshall(pstubmsg: Long): Long
+public expect fun ndrServerContextUnmarshall(pstubmsg: COpaquePointer?): COpaquePointer?
 
-public expect fun NdrServerInitialize(prpcmsg: Long, pstubmsg: Long, pstubdescriptor: Long): Long
+public expect fun ndrServerInitialize(prpcmsg: COpaquePointer?, pstubmsg: COpaquePointer?, pstubdescriptor: COpaquePointer?): COpaquePointer?
 
-public expect fun NdrServerInitializeMarshall(prpcmsg: Long, pstubmsg: Long)
+public expect fun ndrServerInitializeMarshall(prpcmsg: COpaquePointer?, pstubmsg: COpaquePointer?)
 
-public expect fun NdrServerInitializeNew(prpcmsg: Long, pstubmsg: Long, pstubdescriptor: Long): Long
+public expect fun ndrServerInitializeNew(prpcmsg: COpaquePointer?, pstubmsg: COpaquePointer?, pstubdescriptor: COpaquePointer?): COpaquePointer?
 
-public expect fun NdrServerInitializePartial(prpcmsg: Long, pstubmsg: Long, pstubdescriptor: Long, requestedbuffersize: UInt)
+public expect fun ndrServerInitializePartial(prpcmsg: COpaquePointer?, pstubmsg: COpaquePointer?, pstubdescriptor: COpaquePointer?, requestedbuffersize: UInt)
 
-public expect fun NdrServerInitializeUnmarshall(pstubmsg: Long, pstubdescriptor: Long, prpcmsg: Long): Long
+public expect fun ndrServerInitializeUnmarshall(pstubmsg: COpaquePointer?, pstubdescriptor: COpaquePointer?, prpcmsg: COpaquePointer?): COpaquePointer?
 
-public expect fun NdrSimpleStructBufferSize(pstubmsg: Long, pmemory: Long, pformat: Long)
+public expect fun ndrSimpleStructBufferSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?)
 
-public expect fun NdrSimpleStructFree(pstubmsg: Long, pmemory: Long, pformat: Long)
+public expect fun ndrSimpleStructFree(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?)
 
-public expect fun NdrSimpleStructMarshall(pstubmsg: Long, pmemory: Long, pformat: Long): Long
+public expect fun ndrSimpleStructMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer?
 
-public expect fun NdrSimpleStructMemorySize(pstubmsg: Long, pformat: Long): UInt
+public expect fun ndrSimpleStructMemorySize(pstubmsg: COpaquePointer?, pformat: COpaquePointer?): UInt
 
-public expect fun NdrSimpleStructUnmarshall(pstubmsg: Long, ppmemory: Long, pformat: Long, fmustalloc: UByte): Long
+public expect fun ndrSimpleStructUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?, fmustalloc: UByte): COpaquePointer?
 
-public expect fun NdrSimpleTypeMarshall(pstubmsg: Long, pmemory: Long, formatchar: UByte)
+public expect fun ndrSimpleTypeMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, formatchar: UByte)
 
-public expect fun NdrSimpleTypeUnmarshall(pstubmsg: Long, pmemory: Long, formatchar: UByte)
+public expect fun ndrSimpleTypeUnmarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, formatchar: UByte)
 
-public expect fun NdrStubCall2(pthis: Long, pchannel: Long, prpcmsg: Long, pdwstubphase: Long): Int
+public expect fun ndrStubCall2(pthis: COpaquePointer?, pchannel: COpaquePointer?, prpcmsg: COpaquePointer?, pdwstubphase: COpaquePointer?): Int
 
-public expect fun NdrStubCall3(pthis: Long, pchannel: Long, prpcmsg: Long, pdwstubphase: Long): Int
+public expect fun ndrStubCall3(pthis: COpaquePointer?, pchannel: COpaquePointer?, prpcmsg: COpaquePointer?, pdwstubphase: COpaquePointer?): Int
 
-public expect fun NdrUserMarshalBufferSize(pstubmsg: Long, pmemory: Long, pformat: Long)
+public expect fun ndrUserMarshalBufferSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?)
 
-public expect fun NdrUserMarshalFree(pstubmsg: Long, pmemory: Long, pformat: Long)
+public expect fun ndrUserMarshalFree(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?)
 
-public expect fun NdrUserMarshalMarshall(pstubmsg: Long, pmemory: Long, pformat: Long): Long
+public expect fun ndrUserMarshalMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer?
 
-public expect fun NdrUserMarshalMemorySize(pstubmsg: Long, pformat: Long): UInt
+public expect fun ndrUserMarshalMemorySize(pstubmsg: COpaquePointer?, pformat: COpaquePointer?): UInt
 
-public expect fun NdrUserMarshalSimpleTypeConvert(pflags: Long, pbuffer: Long, formatchar: UByte): Long
+public expect fun ndrUserMarshalSimpleTypeConvert(pflags: COpaquePointer?, pbuffer: COpaquePointer?, formatchar: UByte): COpaquePointer?
 
-public expect fun NdrUserMarshalUnmarshall(pstubmsg: Long, ppmemory: Long, pformat: Long, fmustalloc: UByte): Long
+public expect fun ndrUserMarshalUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?, fmustalloc: UByte): COpaquePointer?
 
-public expect fun NdrVaryingArrayBufferSize(pstubmsg: Long, pmemory: Long, pformat: Long)
+public expect fun ndrVaryingArrayBufferSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?)
 
-public expect fun NdrVaryingArrayFree(pstubmsg: Long, pmemory: Long, pformat: Long)
+public expect fun ndrVaryingArrayFree(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?)
 
-public expect fun NdrVaryingArrayMarshall(pstubmsg: Long, pmemory: Long, pformat: Long): Long
+public expect fun ndrVaryingArrayMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer?
 
-public expect fun NdrVaryingArrayMemorySize(pstubmsg: Long, pformat: Long): UInt
+public expect fun ndrVaryingArrayMemorySize(pstubmsg: COpaquePointer?, pformat: COpaquePointer?): UInt
 
-public expect fun NdrVaryingArrayUnmarshall(pstubmsg: Long, ppmemory: Long, pformat: Long, fmustalloc: UByte): Long
+public expect fun ndrVaryingArrayUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?, fmustalloc: UByte): COpaquePointer?
 
-public expect fun NdrXmitOrRepAsBufferSize(pstubmsg: Long, pmemory: Long, pformat: Long)
+public expect fun ndrXmitOrRepAsBufferSize(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?)
 
-public expect fun NdrXmitOrRepAsFree(pstubmsg: Long, pmemory: Long, pformat: Long)
+public expect fun ndrXmitOrRepAsFree(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?)
 
-public expect fun NdrXmitOrRepAsMarshall(pstubmsg: Long, pmemory: Long, pformat: Long): Long
+public expect fun ndrXmitOrRepAsMarshall(pstubmsg: COpaquePointer?, pmemory: COpaquePointer?, pformat: COpaquePointer?): COpaquePointer?
 
-public expect fun NdrXmitOrRepAsMemorySize(pstubmsg: Long, pformat: Long): UInt
+public expect fun ndrXmitOrRepAsMemorySize(pstubmsg: COpaquePointer?, pformat: COpaquePointer?): UInt
 
-public expect fun NdrXmitOrRepAsUnmarshall(pstubmsg: Long, ppmemory: Long, pformat: Long, fmustalloc: UByte): Long
+public expect fun ndrXmitOrRepAsUnmarshall(pstubmsg: COpaquePointer?, ppmemory: COpaquePointer?, pformat: COpaquePointer?, fmustalloc: UByte): COpaquePointer?
 
-public expect fun RpcAsyncAbortCall(pasync: Long, exceptioncode: UInt): RPC_STATUS
+public expect fun rpcAsyncAbortCall(pasync: COpaquePointer?, exceptioncode: UInt): RpcStatus
 
-public expect fun RpcAsyncCancelCall(pasync: Long, fabort: BOOL): RPC_STATUS
+public expect fun rpcAsyncCancelCall(pasync: COpaquePointer?, fabort: Bool): RpcStatus
 
-public expect fun RpcAsyncCompleteCall(pasync: Long, reply: Long): RPC_STATUS
+public expect fun rpcAsyncCompleteCall(pasync: COpaquePointer?, reply: COpaquePointer?): RpcStatus
 
-public expect fun RpcAsyncGetCallStatus(pasync: Long): RPC_STATUS
+public expect fun rpcAsyncGetCallStatus(pasync: COpaquePointer?): RpcStatus
 
-public expect fun RpcAsyncInitializeHandle(pasync: Long, size: UInt): RPC_STATUS
+public expect fun rpcAsyncInitializeHandle(pasync: COpaquePointer?, size: UInt): RpcStatus
 
-public expect fun RpcAsyncRegisterInfo(pasync: Long): RPC_STATUS
+public expect fun rpcAsyncRegisterInfo(pasync: COpaquePointer?): RpcStatus
 
-public expect fun RpcBindingBind(pasync: Long, binding: Long, ifspec: Long): RPC_STATUS
+public expect fun rpcBindingBind(pasync: COpaquePointer?, binding: COpaquePointer?, ifspec: COpaquePointer?): RpcStatus
 
-public expect fun RpcBindingCopy(sourcebinding: Long, destinationbinding: Long): RPC_STATUS
+public expect fun rpcBindingCopy(sourcebinding: COpaquePointer?, destinationbinding: COpaquePointer?): RpcStatus
 
-public expect fun RpcBindingCreateA(template: Long, security: Long, options: Long, binding: Long): RPC_STATUS
+public expect fun rpcBindingCreateA(template: COpaquePointer?, security: COpaquePointer?, options: COpaquePointer?, binding: COpaquePointer?): RpcStatus
 
-public expect fun RpcBindingCreateW(template: Long, security: Long, options: Long, binding: Long): RPC_STATUS
+public expect fun rpcBindingCreateW(template: COpaquePointer?, security: COpaquePointer?, options: COpaquePointer?, binding: COpaquePointer?): RpcStatus
 
-public expect fun RpcBindingFree(binding: Long): RPC_STATUS
+public expect fun rpcBindingFree(binding: COpaquePointer?): RpcStatus
 
-public expect fun RpcBindingFromStringBindingA(stringbinding: PCSTR, binding: Long): RPC_STATUS
+public expect fun rpcBindingFromStringBindingA(stringbinding: Pcstr, binding: COpaquePointer?): RpcStatus
 
-public expect fun RpcBindingFromStringBindingW(stringbinding: PCWSTR, binding: Long): RPC_STATUS
+public expect fun rpcBindingFromStringBindingW(stringbinding: Pcwstr, binding: COpaquePointer?): RpcStatus
 
-public expect fun RpcBindingInqAuthClientA(clientbinding: Long, privs: Long, serverprincname: Long, authnlevel: Long, authnsvc: Long, authzsvc: Long): RPC_STATUS
+public expect fun rpcBindingInqAuthClientA(clientbinding: COpaquePointer?, privs: COpaquePointer?, serverprincname: COpaquePointer?, authnlevel: COpaquePointer?, authnsvc: COpaquePointer?, authzsvc: COpaquePointer?): RpcStatus
 
-public expect fun RpcBindingInqAuthClientExA(clientbinding: Long, privs: Long, serverprincname: Long, authnlevel: Long, authnsvc: Long, authzsvc: Long, flags: UInt): RPC_STATUS
+public expect fun rpcBindingInqAuthClientExA(clientbinding: COpaquePointer?, privs: COpaquePointer?, serverprincname: COpaquePointer?, authnlevel: COpaquePointer?, authnsvc: COpaquePointer?, authzsvc: COpaquePointer?, flags: UInt): RpcStatus
 
-public expect fun RpcBindingInqAuthClientExW(clientbinding: Long, privs: Long, serverprincname: Long, authnlevel: Long, authnsvc: Long, authzsvc: Long, flags: UInt): RPC_STATUS
+public expect fun rpcBindingInqAuthClientExW(clientbinding: COpaquePointer?, privs: COpaquePointer?, serverprincname: COpaquePointer?, authnlevel: COpaquePointer?, authnsvc: COpaquePointer?, authzsvc: COpaquePointer?, flags: UInt): RpcStatus
 
-public expect fun RpcBindingInqAuthClientW(clientbinding: Long, privs: Long, serverprincname: Long, authnlevel: Long, authnsvc: Long, authzsvc: Long): RPC_STATUS
+public expect fun rpcBindingInqAuthClientW(clientbinding: COpaquePointer?, privs: COpaquePointer?, serverprincname: COpaquePointer?, authnlevel: COpaquePointer?, authnsvc: COpaquePointer?, authzsvc: COpaquePointer?): RpcStatus
 
-public expect fun RpcBindingInqAuthInfoA(binding: Long, serverprincname: Long, authnlevel: Long, authnsvc: Long, authidentity: Long, authzsvc: Long): RPC_STATUS
+public expect fun rpcBindingInqAuthInfoA(binding: COpaquePointer?, serverprincname: COpaquePointer?, authnlevel: COpaquePointer?, authnsvc: COpaquePointer?, authidentity: COpaquePointer?, authzsvc: COpaquePointer?): RpcStatus
 
-public expect fun RpcBindingInqAuthInfoExA(binding: Long, serverprincname: Long, authnlevel: Long, authnsvc: Long, authidentity: Long, authzsvc: Long, rpcqosversion: UInt, securityqos: Long): RPC_STATUS
+public expect fun rpcBindingInqAuthInfoExA(binding: COpaquePointer?, serverprincname: COpaquePointer?, authnlevel: COpaquePointer?, authnsvc: COpaquePointer?, authidentity: COpaquePointer?, authzsvc: COpaquePointer?, rpcqosversion: UInt, securityqos: COpaquePointer?): RpcStatus
 
-public expect fun RpcBindingInqAuthInfoExW(binding: Long, serverprincname: Long, authnlevel: Long, authnsvc: Long, authidentity: Long, authzsvc: Long, rpcqosversion: UInt, securityqos: Long): RPC_STATUS
+public expect fun rpcBindingInqAuthInfoExW(binding: COpaquePointer?, serverprincname: COpaquePointer?, authnlevel: COpaquePointer?, authnsvc: COpaquePointer?, authidentity: COpaquePointer?, authzsvc: COpaquePointer?, rpcqosversion: UInt, securityqos: COpaquePointer?): RpcStatus
 
-public expect fun RpcBindingInqAuthInfoW(binding: Long, serverprincname: Long, authnlevel: Long, authnsvc: Long, authidentity: Long, authzsvc: Long): RPC_STATUS
+public expect fun rpcBindingInqAuthInfoW(binding: COpaquePointer?, serverprincname: COpaquePointer?, authnlevel: COpaquePointer?, authnsvc: COpaquePointer?, authidentity: COpaquePointer?, authzsvc: COpaquePointer?): RpcStatus
 
-public expect fun RpcBindingInqMaxCalls(binding: Long, maxcalls: Long): RPC_STATUS
+public expect fun rpcBindingInqMaxCalls(binding: COpaquePointer?, maxcalls: COpaquePointer?): RpcStatus
 
-public expect fun RpcBindingInqObject(binding: Long, objectuuid: Long): RPC_STATUS
+public expect fun rpcBindingInqObject(binding: COpaquePointer?, objectuuid: COpaquePointer?): RpcStatus
 
-public expect fun RpcBindingInqOption(hbinding: Long, option: UInt, poptionvalue: Long): RPC_STATUS
+public expect fun rpcBindingInqOption(hbinding: COpaquePointer?, option: UInt, poptionvalue: COpaquePointer?): RpcStatus
 
-public expect fun RpcBindingReset(binding: Long): RPC_STATUS
+public expect fun rpcBindingReset(binding: COpaquePointer?): RpcStatus
 
-public expect fun RpcBindingServerFromClient(clientbinding: Long, serverbinding: Long): RPC_STATUS
+public expect fun rpcBindingServerFromClient(clientbinding: COpaquePointer?, serverbinding: COpaquePointer?): RpcStatus
 
-public expect fun RpcBindingSetAuthInfoA(binding: Long, serverprincname: PCSTR, authnlevel: UInt, authnsvc: UInt, authidentity: Long, authzsvc: UInt): RPC_STATUS
+public expect fun rpcBindingSetAuthInfoA(binding: COpaquePointer?, serverprincname: Pcstr, authnlevel: UInt, authnsvc: UInt, authidentity: COpaquePointer?, authzsvc: UInt): RpcStatus
 
-public expect fun RpcBindingSetAuthInfoExA(binding: Long, serverprincname: PCSTR, authnlevel: UInt, authnsvc: UInt, authidentity: Long, authzsvc: UInt, securityqos: Long): RPC_STATUS
+public expect fun rpcBindingSetAuthInfoExA(binding: COpaquePointer?, serverprincname: Pcstr, authnlevel: UInt, authnsvc: UInt, authidentity: COpaquePointer?, authzsvc: UInt, securityqos: COpaquePointer?): RpcStatus
 
-public expect fun RpcBindingSetAuthInfoExW(binding: Long, serverprincname: PCWSTR, authnlevel: UInt, authnsvc: UInt, authidentity: Long, authzsvc: UInt, securityqos: Long): RPC_STATUS
+public expect fun rpcBindingSetAuthInfoExW(binding: COpaquePointer?, serverprincname: Pcwstr, authnlevel: UInt, authnsvc: UInt, authidentity: COpaquePointer?, authzsvc: UInt, securityqos: COpaquePointer?): RpcStatus
 
-public expect fun RpcBindingSetAuthInfoW(binding: Long, serverprincname: PCWSTR, authnlevel: UInt, authnsvc: UInt, authidentity: Long, authzsvc: UInt): RPC_STATUS
+public expect fun rpcBindingSetAuthInfoW(binding: COpaquePointer?, serverprincname: Pcwstr, authnlevel: UInt, authnsvc: UInt, authidentity: COpaquePointer?, authzsvc: UInt): RpcStatus
 
-public expect fun RpcBindingSetObject(binding: Long, objectuuid: Long): RPC_STATUS
+public expect fun rpcBindingSetObject(binding: COpaquePointer?, objectuuid: COpaquePointer?): RpcStatus
 
-public expect fun RpcBindingSetOption(hbinding: Long, option: UInt, optionvalue: ULong): RPC_STATUS
+public expect fun rpcBindingSetOption(hbinding: COpaquePointer?, option: UInt, optionvalue: ULong): RpcStatus
 
-public expect fun RpcBindingToStringBindingA(binding: Long, stringbinding: Long): RPC_STATUS
+public expect fun rpcBindingToStringBindingA(binding: COpaquePointer?, stringbinding: COpaquePointer?): RpcStatus
 
-public expect fun RpcBindingToStringBindingW(binding: Long, stringbinding: Long): RPC_STATUS
+public expect fun rpcBindingToStringBindingW(binding: COpaquePointer?, stringbinding: COpaquePointer?): RpcStatus
 
-public expect fun RpcBindingUnbind(binding: Long): RPC_STATUS
+public expect fun rpcBindingUnbind(binding: COpaquePointer?): RpcStatus
 
-public expect fun RpcBindingVectorFree(bindingvector: Long): RPC_STATUS
+public expect fun rpcBindingVectorFree(bindingvector: COpaquePointer?): RpcStatus
 
-public expect fun RpcCancelThread(thread: Long): RPC_STATUS
+public expect fun rpcCancelThread(thread: COpaquePointer?): RpcStatus
 
-public expect fun RpcCancelThreadEx(thread: Long, timeout: Int): RPC_STATUS
+public expect fun rpcCancelThreadEx(thread: COpaquePointer?, timeout: Int): RpcStatus
 
-public expect fun RpcCertGeneratePrincipalNameA(context: Long, flags: UInt, pbuffer: Long): RPC_STATUS
+public expect fun rpcCertGeneratePrincipalNameA(context: COpaquePointer?, flags: UInt, pbuffer: COpaquePointer?): RpcStatus
 
-public expect fun RpcCertGeneratePrincipalNameW(context: Long, flags: UInt, pbuffer: Long): RPC_STATUS
+public expect fun rpcCertGeneratePrincipalNameW(context: COpaquePointer?, flags: UInt, pbuffer: COpaquePointer?): RpcStatus
 
-public expect fun RpcEpRegisterA(ifspec: Long, bindingvector: Long, uuidvector: Long, annotation: PCSTR): RPC_STATUS
+public expect fun rpcEpRegisterA(ifspec: COpaquePointer?, bindingvector: COpaquePointer?, uuidvector: COpaquePointer?, annotation: Pcstr): RpcStatus
 
-public expect fun RpcEpRegisterNoReplaceA(ifspec: Long, bindingvector: Long, uuidvector: Long, annotation: PCSTR): RPC_STATUS
+public expect fun rpcEpRegisterNoReplaceA(ifspec: COpaquePointer?, bindingvector: COpaquePointer?, uuidvector: COpaquePointer?, annotation: Pcstr): RpcStatus
 
-public expect fun RpcEpRegisterNoReplaceW(ifspec: Long, bindingvector: Long, uuidvector: Long, annotation: PCWSTR): RPC_STATUS
+public expect fun rpcEpRegisterNoReplaceW(ifspec: COpaquePointer?, bindingvector: COpaquePointer?, uuidvector: COpaquePointer?, annotation: Pcwstr): RpcStatus
 
-public expect fun RpcEpRegisterW(ifspec: Long, bindingvector: Long, uuidvector: Long, annotation: PCWSTR): RPC_STATUS
+public expect fun rpcEpRegisterW(ifspec: COpaquePointer?, bindingvector: COpaquePointer?, uuidvector: COpaquePointer?, annotation: Pcwstr): RpcStatus
 
-public expect fun RpcEpResolveBinding(binding: Long, ifspec: Long): RPC_STATUS
+public expect fun rpcEpResolveBinding(binding: COpaquePointer?, ifspec: COpaquePointer?): RpcStatus
 
-public expect fun RpcEpUnregister(ifspec: Long, bindingvector: Long, uuidvector: Long): RPC_STATUS
+public expect fun rpcEpUnregister(ifspec: COpaquePointer?, bindingvector: COpaquePointer?, uuidvector: COpaquePointer?): RpcStatus
 
-public expect fun RpcErrorAddRecord(errorinfo: Long): RPC_STATUS
+public expect fun rpcErrorAddRecord(errorinfo: COpaquePointer?): RpcStatus
 
-public expect fun RpcErrorClearInformation()
+public expect fun rpcErrorClearInformation()
 
-public expect fun RpcErrorEndEnumeration(enumhandle: Long): RPC_STATUS
+public expect fun rpcErrorEndEnumeration(enumhandle: COpaquePointer?): RpcStatus
 
-public expect fun RpcErrorGetNextRecord(enumhandle: Long, copystrings: BOOL, errorinfo: Long): RPC_STATUS
+public expect fun rpcErrorGetNextRecord(enumhandle: COpaquePointer?, copystrings: Bool, errorinfo: COpaquePointer?): RpcStatus
 
-public expect fun RpcErrorGetNumberOfRecords(enumhandle: Long, records: Long): RPC_STATUS
+public expect fun rpcErrorGetNumberOfRecords(enumhandle: COpaquePointer?, records: COpaquePointer?): RpcStatus
 
-public expect fun RpcErrorLoadErrorInfo(errorblob: Long, blobsize: ULong, enumhandle: Long): RPC_STATUS
+public expect fun rpcErrorLoadErrorInfo(errorblob: COpaquePointer?, blobsize: ULong, enumhandle: COpaquePointer?): RpcStatus
 
-public expect fun RpcErrorResetEnumeration(enumhandle: Long): RPC_STATUS
+public expect fun rpcErrorResetEnumeration(enumhandle: COpaquePointer?): RpcStatus
 
-public expect fun RpcErrorSaveErrorInfo(enumhandle: Long, errorblob: Long, blobsize: Long): RPC_STATUS
+public expect fun rpcErrorSaveErrorInfo(enumhandle: COpaquePointer?, errorblob: COpaquePointer?, blobsize: COpaquePointer?): RpcStatus
 
-public expect fun RpcErrorStartEnumeration(enumhandle: Long): RPC_STATUS
+public expect fun rpcErrorStartEnumeration(enumhandle: COpaquePointer?): RpcStatus
 
-public expect fun RpcExceptionFilter(exceptioncode: UInt): Int
+public expect fun rpcExceptionFilter(exceptioncode: UInt): Int
 
-public expect fun RpcFreeAuthorizationContext(pauthzclientcontext: Long): RPC_STATUS
+public expect fun rpcFreeAuthorizationContext(pauthzclientcontext: COpaquePointer?): RpcStatus
 
-public expect fun RpcGetAuthorizationContextForClient(clientbinding: Long, impersonateonreturn: BOOL, reserved1: Long, pexpirationtime: Long, reserved2: LUID, reserved3: UInt, reserved4: Long, pauthzclientcontext: Long): RPC_STATUS
+public expect fun rpcGetAuthorizationContextForClient(clientbinding: COpaquePointer?, impersonateonreturn: Bool, reserved1: COpaquePointer?, pexpirationtime: COpaquePointer?, reserved2: Luid, reserved3: UInt, reserved4: COpaquePointer?, pauthzclientcontext: COpaquePointer?): RpcStatus
 
-public expect fun RpcIfIdVectorFree(ifidvector: Long): RPC_STATUS
+public expect fun rpcIfIdVectorFree(ifidvector: COpaquePointer?): RpcStatus
 
-public expect fun RpcIfInqId(rpcifhandle: Long, rpcifid: Long): RPC_STATUS
+public expect fun rpcIfInqId(rpcifhandle: COpaquePointer?, rpcifid: COpaquePointer?): RpcStatus
 
-public expect fun RpcImpersonateClient(bindinghandle: Long): RPC_STATUS
+public expect fun rpcImpersonateClient(bindinghandle: COpaquePointer?): RpcStatus
 
-public expect fun RpcImpersonateClient2(bindinghandle: Long): RPC_STATUS
+public expect fun rpcImpersonateClient2(bindinghandle: COpaquePointer?): RpcStatus
 
-public expect fun RpcImpersonateClientContainer(bindinghandle: Long): RPC_STATUS
+public expect fun rpcImpersonateClientContainer(bindinghandle: COpaquePointer?): RpcStatus
 
-public expect fun RpcMgmtEnableIdleCleanup(): RPC_STATUS
+public expect fun rpcMgmtEnableIdleCleanup(): RpcStatus
 
-public expect fun RpcMgmtEpEltInqBegin(epbinding: Long, inquirytype: UInt, ifid: Long, versoption: UInt, objectuuid: Long, inquirycontext: Long): RPC_STATUS
+public expect fun rpcMgmtEpEltInqBegin(epbinding: COpaquePointer?, inquirytype: UInt, ifid: COpaquePointer?, versoption: UInt, objectuuid: COpaquePointer?, inquirycontext: COpaquePointer?): RpcStatus
 
-public expect fun RpcMgmtEpEltInqDone(inquirycontext: Long): RPC_STATUS
+public expect fun rpcMgmtEpEltInqDone(inquirycontext: COpaquePointer?): RpcStatus
 
-public expect fun RpcMgmtEpEltInqNextA(inquirycontext: Long, ifid: Long, binding: Long, objectuuid: Long, annotation: Long): RPC_STATUS
+public expect fun rpcMgmtEpEltInqNextA(inquirycontext: COpaquePointer?, ifid: COpaquePointer?, binding: COpaquePointer?, objectuuid: COpaquePointer?, annotation: COpaquePointer?): RpcStatus
 
-public expect fun RpcMgmtEpEltInqNextW(inquirycontext: Long, ifid: Long, binding: Long, objectuuid: Long, annotation: Long): RPC_STATUS
+public expect fun rpcMgmtEpEltInqNextW(inquirycontext: COpaquePointer?, ifid: COpaquePointer?, binding: COpaquePointer?, objectuuid: COpaquePointer?, annotation: COpaquePointer?): RpcStatus
 
-public expect fun RpcMgmtEpUnregister(epbinding: Long, ifid: Long, binding: Long, objectuuid: Long): RPC_STATUS
+public expect fun rpcMgmtEpUnregister(epbinding: COpaquePointer?, ifid: COpaquePointer?, binding: COpaquePointer?, objectuuid: COpaquePointer?): RpcStatus
 
-public expect fun RpcMgmtInqComTimeout(binding: Long, timeout: Long): RPC_STATUS
+public expect fun rpcMgmtInqComTimeout(binding: COpaquePointer?, timeout: COpaquePointer?): RpcStatus
 
-public expect fun RpcMgmtInqDefaultProtectLevel(authnsvc: UInt, authnlevel: Long): RPC_STATUS
+public expect fun rpcMgmtInqDefaultProtectLevel(authnsvc: UInt, authnlevel: COpaquePointer?): RpcStatus
 
-public expect fun RpcMgmtInqIfIds(binding: Long, ifidvector: Long): RPC_STATUS
+public expect fun rpcMgmtInqIfIds(binding: COpaquePointer?, ifidvector: COpaquePointer?): RpcStatus
 
-public expect fun RpcMgmtInqServerPrincNameA(binding: Long, authnsvc: UInt, serverprincname: Long): RPC_STATUS
+public expect fun rpcMgmtInqServerPrincNameA(binding: COpaquePointer?, authnsvc: UInt, serverprincname: COpaquePointer?): RpcStatus
 
-public expect fun RpcMgmtInqServerPrincNameW(binding: Long, authnsvc: UInt, serverprincname: Long): RPC_STATUS
+public expect fun rpcMgmtInqServerPrincNameW(binding: COpaquePointer?, authnsvc: UInt, serverprincname: COpaquePointer?): RpcStatus
 
-public expect fun RpcMgmtInqStats(binding: Long, statistics: Long): RPC_STATUS
+public expect fun rpcMgmtInqStats(binding: COpaquePointer?, statistics: COpaquePointer?): RpcStatus
 
-public expect fun RpcMgmtIsServerListening(binding: Long): RPC_STATUS
+public expect fun rpcMgmtIsServerListening(binding: COpaquePointer?): RpcStatus
 
-public expect fun RpcMgmtSetAuthorizationFn(authorizationfn: RPC_MGMT_AUTHORIZATION_FN): RPC_STATUS
+public expect fun rpcMgmtSetAuthorizationFn(authorizationfn: RpcMgmtAuthorizationFn): RpcStatus
 
-public expect fun RpcMgmtSetCancelTimeout(timeout: Int): RPC_STATUS
+public expect fun rpcMgmtSetCancelTimeout(timeout: Int): RpcStatus
 
-public expect fun RpcMgmtSetComTimeout(binding: Long, timeout: UInt): RPC_STATUS
+public expect fun rpcMgmtSetComTimeout(binding: COpaquePointer?, timeout: UInt): RpcStatus
 
-public expect fun RpcMgmtSetServerStackSize(threadstacksize: UInt): RPC_STATUS
+public expect fun rpcMgmtSetServerStackSize(threadstacksize: UInt): RpcStatus
 
-public expect fun RpcMgmtStatsVectorFree(statsvector: Long): RPC_STATUS
+public expect fun rpcMgmtStatsVectorFree(statsvector: COpaquePointer?): RpcStatus
 
-public expect fun RpcMgmtStopServerListening(binding: Long): RPC_STATUS
+public expect fun rpcMgmtStopServerListening(binding: COpaquePointer?): RpcStatus
 
-public expect fun RpcMgmtWaitServerListen(): RPC_STATUS
+public expect fun rpcMgmtWaitServerListen(): RpcStatus
 
-public expect fun RpcNetworkInqProtseqsA(protseqvector: Long): RPC_STATUS
+public expect fun rpcNetworkInqProtseqsA(protseqvector: COpaquePointer?): RpcStatus
 
-public expect fun RpcNetworkInqProtseqsW(protseqvector: Long): RPC_STATUS
+public expect fun rpcNetworkInqProtseqsW(protseqvector: COpaquePointer?): RpcStatus
 
-public expect fun RpcNetworkIsProtseqValidA(protseq: PCSTR): RPC_STATUS
+public expect fun rpcNetworkIsProtseqValidA(protseq: Pcstr): RpcStatus
 
-public expect fun RpcNetworkIsProtseqValidW(protseq: PCWSTR): RPC_STATUS
+public expect fun rpcNetworkIsProtseqValidW(protseq: Pcwstr): RpcStatus
 
-public expect fun RpcNsBindingExportA(entrynamesyntax: UInt, entryname: PCSTR, ifspec: Long, bindingvec: Long, objectuuidvec: Long): RPC_STATUS
+public expect fun rpcNsBindingExportA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: COpaquePointer?, bindingvec: COpaquePointer?, objectuuidvec: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsBindingExportPnPA(entrynamesyntax: UInt, entryname: PCSTR, ifspec: Long, objectvector: Long): RPC_STATUS
+public expect fun rpcNsBindingExportPnPA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: COpaquePointer?, objectvector: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsBindingExportPnPW(entrynamesyntax: UInt, entryname: PCWSTR, ifspec: Long, objectvector: Long): RPC_STATUS
+public expect fun rpcNsBindingExportPnPW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: COpaquePointer?, objectvector: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsBindingExportW(entrynamesyntax: UInt, entryname: PCWSTR, ifspec: Long, bindingvec: Long, objectuuidvec: Long): RPC_STATUS
+public expect fun rpcNsBindingExportW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: COpaquePointer?, bindingvec: COpaquePointer?, objectuuidvec: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsBindingImportBeginA(entrynamesyntax: UInt, entryname: PCSTR, ifspec: Long, objuuid: Long, importcontext: Long): RPC_STATUS
+public expect fun rpcNsBindingImportBeginA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: COpaquePointer?, objuuid: COpaquePointer?, importcontext: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsBindingImportBeginW(entrynamesyntax: UInt, entryname: PCWSTR, ifspec: Long, objuuid: Long, importcontext: Long): RPC_STATUS
+public expect fun rpcNsBindingImportBeginW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: COpaquePointer?, objuuid: COpaquePointer?, importcontext: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsBindingImportDone(importcontext: Long): RPC_STATUS
+public expect fun rpcNsBindingImportDone(importcontext: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsBindingImportNext(importcontext: Long, binding: Long): RPC_STATUS
+public expect fun rpcNsBindingImportNext(importcontext: COpaquePointer?, binding: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsBindingInqEntryNameA(binding: Long, entrynamesyntax: UInt, entryname: Long): RPC_STATUS
+public expect fun rpcNsBindingInqEntryNameA(binding: COpaquePointer?, entrynamesyntax: UInt, entryname: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsBindingInqEntryNameW(binding: Long, entrynamesyntax: UInt, entryname: Long): RPC_STATUS
+public expect fun rpcNsBindingInqEntryNameW(binding: COpaquePointer?, entrynamesyntax: UInt, entryname: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsBindingLookupBeginA(entrynamesyntax: UInt, entryname: PCSTR, ifspec: Long, objuuid: Long, bindingmaxcount: UInt, lookupcontext: Long): RPC_STATUS
+public expect fun rpcNsBindingLookupBeginA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: COpaquePointer?, objuuid: COpaquePointer?, bindingmaxcount: UInt, lookupcontext: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsBindingLookupBeginW(entrynamesyntax: UInt, entryname: PCWSTR, ifspec: Long, objuuid: Long, bindingmaxcount: UInt, lookupcontext: Long): RPC_STATUS
+public expect fun rpcNsBindingLookupBeginW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: COpaquePointer?, objuuid: COpaquePointer?, bindingmaxcount: UInt, lookupcontext: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsBindingLookupDone(lookupcontext: Long): RPC_STATUS
+public expect fun rpcNsBindingLookupDone(lookupcontext: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsBindingLookupNext(lookupcontext: Long, bindingvec: Long): RPC_STATUS
+public expect fun rpcNsBindingLookupNext(lookupcontext: COpaquePointer?, bindingvec: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsBindingSelect(bindingvec: Long, binding: Long): RPC_STATUS
+public expect fun rpcNsBindingSelect(bindingvec: COpaquePointer?, binding: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsBindingUnexportA(entrynamesyntax: UInt, entryname: PCSTR, ifspec: Long, objectuuidvec: Long): RPC_STATUS
+public expect fun rpcNsBindingUnexportA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: COpaquePointer?, objectuuidvec: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsBindingUnexportPnPA(entrynamesyntax: UInt, entryname: PCSTR, ifspec: Long, objectvector: Long): RPC_STATUS
+public expect fun rpcNsBindingUnexportPnPA(entrynamesyntax: UInt, entryname: Pcstr, ifspec: COpaquePointer?, objectvector: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsBindingUnexportPnPW(entrynamesyntax: UInt, entryname: PCWSTR, ifspec: Long, objectvector: Long): RPC_STATUS
+public expect fun rpcNsBindingUnexportPnPW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: COpaquePointer?, objectvector: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsBindingUnexportW(entrynamesyntax: UInt, entryname: PCWSTR, ifspec: Long, objectuuidvec: Long): RPC_STATUS
+public expect fun rpcNsBindingUnexportW(entrynamesyntax: UInt, entryname: Pcwstr, ifspec: COpaquePointer?, objectuuidvec: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsEntryExpandNameA(entrynamesyntax: UInt, entryname: PCSTR, expandedname: Long): RPC_STATUS
+public expect fun rpcNsEntryExpandNameA(entrynamesyntax: UInt, entryname: Pcstr, expandedname: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsEntryExpandNameW(entrynamesyntax: UInt, entryname: PCWSTR, expandedname: Long): RPC_STATUS
+public expect fun rpcNsEntryExpandNameW(entrynamesyntax: UInt, entryname: Pcwstr, expandedname: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsEntryObjectInqBeginA(entrynamesyntax: UInt, entryname: PCSTR, inquirycontext: Long): RPC_STATUS
+public expect fun rpcNsEntryObjectInqBeginA(entrynamesyntax: UInt, entryname: Pcstr, inquirycontext: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsEntryObjectInqBeginW(entrynamesyntax: UInt, entryname: PCWSTR, inquirycontext: Long): RPC_STATUS
+public expect fun rpcNsEntryObjectInqBeginW(entrynamesyntax: UInt, entryname: Pcwstr, inquirycontext: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsEntryObjectInqDone(inquirycontext: Long): RPC_STATUS
+public expect fun rpcNsEntryObjectInqDone(inquirycontext: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsEntryObjectInqNext(inquirycontext: Long, objuuid: Long): RPC_STATUS
+public expect fun rpcNsEntryObjectInqNext(inquirycontext: COpaquePointer?, objuuid: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsGroupDeleteA(groupnamesyntax: GROUP_NAME_SYNTAX, groupname: PCSTR): RPC_STATUS
+public expect fun rpcNsGroupDeleteA(groupnamesyntax: GroupNameSyntax, groupname: Pcstr): RpcStatus
 
-public expect fun RpcNsGroupDeleteW(groupnamesyntax: GROUP_NAME_SYNTAX, groupname: PCWSTR): RPC_STATUS
+public expect fun rpcNsGroupDeleteW(groupnamesyntax: GroupNameSyntax, groupname: Pcwstr): RpcStatus
 
-public expect fun RpcNsGroupMbrAddA(groupnamesyntax: UInt, groupname: PCSTR, membernamesyntax: UInt, membername: PCSTR): RPC_STATUS
+public expect fun rpcNsGroupMbrAddA(groupnamesyntax: UInt, groupname: Pcstr, membernamesyntax: UInt, membername: Pcstr): RpcStatus
 
-public expect fun RpcNsGroupMbrAddW(groupnamesyntax: UInt, groupname: PCWSTR, membernamesyntax: UInt, membername: PCWSTR): RPC_STATUS
+public expect fun rpcNsGroupMbrAddW(groupnamesyntax: UInt, groupname: Pcwstr, membernamesyntax: UInt, membername: Pcwstr): RpcStatus
 
-public expect fun RpcNsGroupMbrInqBeginA(groupnamesyntax: UInt, groupname: PCSTR, membernamesyntax: UInt, inquirycontext: Long): RPC_STATUS
+public expect fun rpcNsGroupMbrInqBeginA(groupnamesyntax: UInt, groupname: Pcstr, membernamesyntax: UInt, inquirycontext: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsGroupMbrInqBeginW(groupnamesyntax: UInt, groupname: PCWSTR, membernamesyntax: UInt, inquirycontext: Long): RPC_STATUS
+public expect fun rpcNsGroupMbrInqBeginW(groupnamesyntax: UInt, groupname: Pcwstr, membernamesyntax: UInt, inquirycontext: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsGroupMbrInqDone(inquirycontext: Long): RPC_STATUS
+public expect fun rpcNsGroupMbrInqDone(inquirycontext: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsGroupMbrInqNextA(inquirycontext: Long, membername: Long): RPC_STATUS
+public expect fun rpcNsGroupMbrInqNextA(inquirycontext: COpaquePointer?, membername: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsGroupMbrInqNextW(inquirycontext: Long, membername: Long): RPC_STATUS
+public expect fun rpcNsGroupMbrInqNextW(inquirycontext: COpaquePointer?, membername: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsGroupMbrRemoveA(groupnamesyntax: UInt, groupname: PCSTR, membernamesyntax: UInt, membername: PCSTR): RPC_STATUS
+public expect fun rpcNsGroupMbrRemoveA(groupnamesyntax: UInt, groupname: Pcstr, membernamesyntax: UInt, membername: Pcstr): RpcStatus
 
-public expect fun RpcNsGroupMbrRemoveW(groupnamesyntax: UInt, groupname: PCWSTR, membernamesyntax: UInt, membername: PCWSTR): RPC_STATUS
+public expect fun rpcNsGroupMbrRemoveW(groupnamesyntax: UInt, groupname: Pcwstr, membernamesyntax: UInt, membername: Pcwstr): RpcStatus
 
-public expect fun RpcNsMgmtBindingUnexportA(entrynamesyntax: UInt, entryname: PCSTR, ifid: Long, versoption: UInt, objectuuidvec: Long): RPC_STATUS
+public expect fun rpcNsMgmtBindingUnexportA(entrynamesyntax: UInt, entryname: Pcstr, ifid: COpaquePointer?, versoption: UInt, objectuuidvec: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsMgmtBindingUnexportW(entrynamesyntax: UInt, entryname: PCWSTR, ifid: Long, versoption: UInt, objectuuidvec: Long): RPC_STATUS
+public expect fun rpcNsMgmtBindingUnexportW(entrynamesyntax: UInt, entryname: Pcwstr, ifid: COpaquePointer?, versoption: UInt, objectuuidvec: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsMgmtEntryCreateA(entrynamesyntax: UInt, entryname: PCSTR): RPC_STATUS
+public expect fun rpcNsMgmtEntryCreateA(entrynamesyntax: UInt, entryname: Pcstr): RpcStatus
 
-public expect fun RpcNsMgmtEntryCreateW(entrynamesyntax: UInt, entryname: PCWSTR): RPC_STATUS
+public expect fun rpcNsMgmtEntryCreateW(entrynamesyntax: UInt, entryname: Pcwstr): RpcStatus
 
-public expect fun RpcNsMgmtEntryDeleteA(entrynamesyntax: UInt, entryname: PCSTR): RPC_STATUS
+public expect fun rpcNsMgmtEntryDeleteA(entrynamesyntax: UInt, entryname: Pcstr): RpcStatus
 
-public expect fun RpcNsMgmtEntryDeleteW(entrynamesyntax: UInt, entryname: PCWSTR): RPC_STATUS
+public expect fun rpcNsMgmtEntryDeleteW(entrynamesyntax: UInt, entryname: Pcwstr): RpcStatus
 
-public expect fun RpcNsMgmtEntryInqIfIdsA(entrynamesyntax: UInt, entryname: PCSTR, ifidvec: Long): RPC_STATUS
+public expect fun rpcNsMgmtEntryInqIfIdsA(entrynamesyntax: UInt, entryname: Pcstr, ifidvec: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsMgmtEntryInqIfIdsW(entrynamesyntax: UInt, entryname: PCWSTR, ifidvec: Long): RPC_STATUS
+public expect fun rpcNsMgmtEntryInqIfIdsW(entrynamesyntax: UInt, entryname: Pcwstr, ifidvec: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsMgmtHandleSetExpAge(nshandle: Long, expirationage: UInt): RPC_STATUS
+public expect fun rpcNsMgmtHandleSetExpAge(nshandle: COpaquePointer?, expirationage: UInt): RpcStatus
 
-public expect fun RpcNsMgmtInqExpAge(expirationage: Long): RPC_STATUS
+public expect fun rpcNsMgmtInqExpAge(expirationage: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsMgmtSetExpAge(expirationage: UInt): RPC_STATUS
+public expect fun rpcNsMgmtSetExpAge(expirationage: UInt): RpcStatus
 
-public expect fun RpcNsProfileDeleteA(profilenamesyntax: UInt, profilename: PCSTR): RPC_STATUS
+public expect fun rpcNsProfileDeleteA(profilenamesyntax: UInt, profilename: Pcstr): RpcStatus
 
-public expect fun RpcNsProfileDeleteW(profilenamesyntax: UInt, profilename: PCWSTR): RPC_STATUS
+public expect fun rpcNsProfileDeleteW(profilenamesyntax: UInt, profilename: Pcwstr): RpcStatus
 
-public expect fun RpcNsProfileEltAddA(profilenamesyntax: UInt, profilename: PCSTR, ifid: Long, membernamesyntax: UInt, membername: PCSTR, priority: UInt, annotation: PCSTR): RPC_STATUS
+public expect fun rpcNsProfileEltAddA(profilenamesyntax: UInt, profilename: Pcstr, ifid: COpaquePointer?, membernamesyntax: UInt, membername: Pcstr, priority: UInt, annotation: Pcstr): RpcStatus
 
-public expect fun RpcNsProfileEltAddW(profilenamesyntax: UInt, profilename: PCWSTR, ifid: Long, membernamesyntax: UInt, membername: PCWSTR, priority: UInt, annotation: PCWSTR): RPC_STATUS
+public expect fun rpcNsProfileEltAddW(profilenamesyntax: UInt, profilename: Pcwstr, ifid: COpaquePointer?, membernamesyntax: UInt, membername: Pcwstr, priority: UInt, annotation: Pcwstr): RpcStatus
 
-public expect fun RpcNsProfileEltInqBeginA(profilenamesyntax: UInt, profilename: PCSTR, inquirytype: UInt, ifid: Long, versoption: UInt, membernamesyntax: UInt, membername: PCSTR, inquirycontext: Long): RPC_STATUS
+public expect fun rpcNsProfileEltInqBeginA(profilenamesyntax: UInt, profilename: Pcstr, inquirytype: UInt, ifid: COpaquePointer?, versoption: UInt, membernamesyntax: UInt, membername: Pcstr, inquirycontext: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsProfileEltInqBeginW(profilenamesyntax: UInt, profilename: PCWSTR, inquirytype: UInt, ifid: Long, versoption: UInt, membernamesyntax: UInt, membername: PCWSTR, inquirycontext: Long): RPC_STATUS
+public expect fun rpcNsProfileEltInqBeginW(profilenamesyntax: UInt, profilename: Pcwstr, inquirytype: UInt, ifid: COpaquePointer?, versoption: UInt, membernamesyntax: UInt, membername: Pcwstr, inquirycontext: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsProfileEltInqDone(inquirycontext: Long): RPC_STATUS
+public expect fun rpcNsProfileEltInqDone(inquirycontext: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsProfileEltInqNextA(inquirycontext: Long, ifid: Long, membername: Long, priority: Long, annotation: Long): RPC_STATUS
+public expect fun rpcNsProfileEltInqNextA(inquirycontext: COpaquePointer?, ifid: COpaquePointer?, membername: COpaquePointer?, priority: COpaquePointer?, annotation: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsProfileEltInqNextW(inquirycontext: Long, ifid: Long, membername: Long, priority: Long, annotation: Long): RPC_STATUS
+public expect fun rpcNsProfileEltInqNextW(inquirycontext: COpaquePointer?, ifid: COpaquePointer?, membername: COpaquePointer?, priority: COpaquePointer?, annotation: COpaquePointer?): RpcStatus
 
-public expect fun RpcNsProfileEltRemoveA(profilenamesyntax: UInt, profilename: PCSTR, ifid: Long, membernamesyntax: UInt, membername: PCSTR): RPC_STATUS
+public expect fun rpcNsProfileEltRemoveA(profilenamesyntax: UInt, profilename: Pcstr, ifid: COpaquePointer?, membernamesyntax: UInt, membername: Pcstr): RpcStatus
 
-public expect fun RpcNsProfileEltRemoveW(profilenamesyntax: UInt, profilename: PCWSTR, ifid: Long, membernamesyntax: UInt, membername: PCWSTR): RPC_STATUS
+public expect fun rpcNsProfileEltRemoveW(profilenamesyntax: UInt, profilename: Pcwstr, ifid: COpaquePointer?, membernamesyntax: UInt, membername: Pcwstr): RpcStatus
 
-public expect fun RpcObjectInqType(objuuid: Long, typeuuid: Long): RPC_STATUS
+public expect fun rpcObjectInqType(objuuid: COpaquePointer?, typeuuid: COpaquePointer?): RpcStatus
 
-public expect fun RpcObjectSetInqFn(inquiryfn: RPC_OBJECT_INQ_FN): RPC_STATUS
+public expect fun rpcObjectSetInqFn(inquiryfn: RpcObjectInqFn): RpcStatus
 
-public expect fun RpcObjectSetType(objuuid: Long, typeuuid: Long): RPC_STATUS
+public expect fun rpcObjectSetType(objuuid: COpaquePointer?, typeuuid: COpaquePointer?): RpcStatus
 
-public expect fun RpcProtseqVectorFreeA(protseqvector: Long): RPC_STATUS
+public expect fun rpcProtseqVectorFreeA(protseqvector: COpaquePointer?): RpcStatus
 
-public expect fun RpcProtseqVectorFreeW(protseqvector: Long): RPC_STATUS
+public expect fun rpcProtseqVectorFreeW(protseqvector: COpaquePointer?): RpcStatus
 
-public expect fun RpcRaiseException(exception: RPC_STATUS)
+public expect fun rpcRaiseException(exception: RpcStatus)
 
-public expect fun RpcRevertContainerImpersonation(): RPC_STATUS
+public expect fun rpcRevertContainerImpersonation(): RpcStatus
 
-public expect fun RpcRevertToSelf(): RPC_STATUS
+public expect fun rpcRevertToSelf(): RpcStatus
 
-public expect fun RpcRevertToSelfEx(bindinghandle: Long): RPC_STATUS
+public expect fun rpcRevertToSelfEx(bindinghandle: COpaquePointer?): RpcStatus
 
-public expect fun RpcServerCompleteSecurityCallback(bindinghandle: Long, status: RPC_STATUS): RPC_STATUS
+public expect fun rpcServerCompleteSecurityCallback(bindinghandle: COpaquePointer?, status: RpcStatus): RpcStatus
 
-public expect fun RpcServerInqBindingHandle(binding: Long): RPC_STATUS
+public expect fun rpcServerInqBindingHandle(binding: COpaquePointer?): RpcStatus
 
-public expect fun RpcServerInqBindings(bindingvector: Long): RPC_STATUS
+public expect fun rpcServerInqBindings(bindingvector: COpaquePointer?): RpcStatus
 
-public expect fun RpcServerInqBindingsEx(securitydescriptor: Long, bindingvector: Long): RPC_STATUS
+public expect fun rpcServerInqBindingsEx(securitydescriptor: COpaquePointer?, bindingvector: COpaquePointer?): RpcStatus
 
-public expect fun RpcServerInqCallAttributesA(clientbinding: Long, rpccallattributes: Long): RPC_STATUS
+public expect fun rpcServerInqCallAttributesA(clientbinding: COpaquePointer?, rpccallattributes: COpaquePointer?): RpcStatus
 
-public expect fun RpcServerInqCallAttributesW(clientbinding: Long, rpccallattributes: Long): RPC_STATUS
+public expect fun rpcServerInqCallAttributesW(clientbinding: COpaquePointer?, rpccallattributes: COpaquePointer?): RpcStatus
 
-public expect fun RpcServerInqDefaultPrincNameA(authnsvc: UInt, princname: Long): RPC_STATUS
+public expect fun rpcServerInqDefaultPrincNameA(authnsvc: UInt, princname: COpaquePointer?): RpcStatus
 
-public expect fun RpcServerInqDefaultPrincNameW(authnsvc: UInt, princname: Long): RPC_STATUS
+public expect fun rpcServerInqDefaultPrincNameW(authnsvc: UInt, princname: COpaquePointer?): RpcStatus
 
-public expect fun RpcServerInqIf(ifspec: Long, mgrtypeuuid: Long, mgrepv: Long): RPC_STATUS
+public expect fun rpcServerInqIf(ifspec: COpaquePointer?, mgrtypeuuid: COpaquePointer?, mgrepv: COpaquePointer?): RpcStatus
 
-public expect fun RpcServerInterfaceGroupActivate(ifgroup: Long): RPC_STATUS
+public expect fun rpcServerInterfaceGroupActivate(ifgroup: COpaquePointer?): RpcStatus
 
-public expect fun RpcServerInterfaceGroupClose(ifgroup: Long): RPC_STATUS
+public expect fun rpcServerInterfaceGroupClose(ifgroup: COpaquePointer?): RpcStatus
 
-public expect fun RpcServerInterfaceGroupCreateA(interfaces: Long, numifs: UInt, endpoints: Long, numendpoints: UInt, idleperiod: UInt, idlecallbackfn: RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN, idlecallbackcontext: Long, ifgroup: Long): RPC_STATUS
+public expect fun rpcServerInterfaceGroupCreateA(interfaces: COpaquePointer?, numifs: UInt, endpoints: COpaquePointer?, numendpoints: UInt, idleperiod: UInt, idlecallbackfn: RpcInterfaceGroupIdleCallbackFn, idlecallbackcontext: COpaquePointer?, ifgroup: COpaquePointer?): RpcStatus
 
-public expect fun RpcServerInterfaceGroupCreateW(interfaces: Long, numifs: UInt, endpoints: Long, numendpoints: UInt, idleperiod: UInt, idlecallbackfn: RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN, idlecallbackcontext: Long, ifgroup: Long): RPC_STATUS
+public expect fun rpcServerInterfaceGroupCreateW(interfaces: COpaquePointer?, numifs: UInt, endpoints: COpaquePointer?, numendpoints: UInt, idleperiod: UInt, idlecallbackfn: RpcInterfaceGroupIdleCallbackFn, idlecallbackcontext: COpaquePointer?, ifgroup: COpaquePointer?): RpcStatus
 
-public expect fun RpcServerInterfaceGroupDeactivate(ifgroup: Long, forcedeactivation: UInt): RPC_STATUS
+public expect fun rpcServerInterfaceGroupDeactivate(ifgroup: COpaquePointer?, forcedeactivation: UInt): RpcStatus
 
-public expect fun RpcServerInterfaceGroupInqBindings(ifgroup: Long, bindingvector: Long): RPC_STATUS
+public expect fun rpcServerInterfaceGroupInqBindings(ifgroup: COpaquePointer?, bindingvector: COpaquePointer?): RpcStatus
 
-public expect fun RpcServerListen(minimumcallthreads: UInt, maxcalls: UInt, dontwait: UInt): RPC_STATUS
+public expect fun rpcServerListen(minimumcallthreads: UInt, maxcalls: UInt, dontwait: UInt): RpcStatus
 
-public expect fun RpcServerRegisterAuthInfoA(serverprincname: PCSTR, authnsvc: UInt, getkeyfn: RPC_AUTH_KEY_RETRIEVAL_FN, arg: Long): RPC_STATUS
+public expect fun rpcServerRegisterAuthInfoA(serverprincname: Pcstr, authnsvc: UInt, getkeyfn: RpcAuthKeyRetrievalFn, arg: COpaquePointer?): RpcStatus
 
-public expect fun RpcServerRegisterAuthInfoW(serverprincname: PCWSTR, authnsvc: UInt, getkeyfn: RPC_AUTH_KEY_RETRIEVAL_FN, arg: Long): RPC_STATUS
+public expect fun rpcServerRegisterAuthInfoW(serverprincname: Pcwstr, authnsvc: UInt, getkeyfn: RpcAuthKeyRetrievalFn, arg: COpaquePointer?): RpcStatus
 
-public expect fun RpcServerRegisterIf(ifspec: Long, mgrtypeuuid: Long, mgrepv: Long): RPC_STATUS
+public expect fun rpcServerRegisterIf(ifspec: COpaquePointer?, mgrtypeuuid: COpaquePointer?, mgrepv: COpaquePointer?): RpcStatus
 
-public expect fun RpcServerRegisterIf2(ifspec: Long, mgrtypeuuid: Long, mgrepv: Long, flags: UInt, maxcalls: UInt, maxrpcsize: UInt, ifcallbackfn: RPC_IF_CALLBACK_FN): RPC_STATUS
+public expect fun rpcServerRegisterIf2(ifspec: COpaquePointer?, mgrtypeuuid: COpaquePointer?, mgrepv: COpaquePointer?, flags: UInt, maxcalls: UInt, maxrpcsize: UInt, ifcallbackfn: RpcIfCallbackFn): RpcStatus
 
-public expect fun RpcServerRegisterIf3(ifspec: Long, mgrtypeuuid: Long, mgrepv: Long, flags: UInt, maxcalls: UInt, maxrpcsize: UInt, ifcallback: RPC_IF_CALLBACK_FN, securitydescriptor: Long): RPC_STATUS
+public expect fun rpcServerRegisterIf3(ifspec: COpaquePointer?, mgrtypeuuid: COpaquePointer?, mgrepv: COpaquePointer?, flags: UInt, maxcalls: UInt, maxrpcsize: UInt, ifcallback: RpcIfCallbackFn, securitydescriptor: COpaquePointer?): RpcStatus
 
-public expect fun RpcServerRegisterIfEx(ifspec: Long, mgrtypeuuid: Long, mgrepv: Long, flags: UInt, maxcalls: UInt, ifcallback: RPC_IF_CALLBACK_FN): RPC_STATUS
+public expect fun rpcServerRegisterIfEx(ifspec: COpaquePointer?, mgrtypeuuid: COpaquePointer?, mgrepv: COpaquePointer?, flags: UInt, maxcalls: UInt, ifcallback: RpcIfCallbackFn): RpcStatus
 
-public expect fun RpcServerSubscribeForNotification(binding: Long, notification: RPC_NOTIFICATIONS, notificationtype: RPC_NOTIFICATION_TYPES, notificationinfo: Long): RPC_STATUS
+public expect fun rpcServerSubscribeForNotification(binding: COpaquePointer?, notification: RpcNotifications, notificationtype: RpcNotificationTypes, notificationinfo: COpaquePointer?): RpcStatus
 
-public expect fun RpcServerTestCancel(bindinghandle: Long): RPC_STATUS
+public expect fun rpcServerTestCancel(bindinghandle: COpaquePointer?): RpcStatus
 
-public expect fun RpcServerUnregisterIf(ifspec: Long, mgrtypeuuid: Long, waitforcallstocomplete: UInt): RPC_STATUS
+public expect fun rpcServerUnregisterIf(ifspec: COpaquePointer?, mgrtypeuuid: COpaquePointer?, waitforcallstocomplete: UInt): RpcStatus
 
-public expect fun RpcServerUnregisterIfEx(ifspec: Long, mgrtypeuuid: Long, rundowncontexthandles: Int): RPC_STATUS
+public expect fun rpcServerUnregisterIfEx(ifspec: COpaquePointer?, mgrtypeuuid: COpaquePointer?, rundowncontexthandles: Int): RpcStatus
 
-public expect fun RpcServerUnsubscribeForNotification(binding: Long, notification: RPC_NOTIFICATIONS, notificationsqueued: Long): RPC_STATUS
+public expect fun rpcServerUnsubscribeForNotification(binding: COpaquePointer?, notification: RpcNotifications, notificationsqueued: COpaquePointer?): RpcStatus
 
-public expect fun RpcServerUseAllProtseqs(maxcalls: UInt, securitydescriptor: Long): RPC_STATUS
+public expect fun rpcServerUseAllProtseqs(maxcalls: UInt, securitydescriptor: COpaquePointer?): RpcStatus
 
-public expect fun RpcServerUseAllProtseqsEx(maxcalls: UInt, securitydescriptor: Long, policy: Long): RPC_STATUS
+public expect fun rpcServerUseAllProtseqsEx(maxcalls: UInt, securitydescriptor: COpaquePointer?, policy: COpaquePointer?): RpcStatus
 
-public expect fun RpcServerUseAllProtseqsIf(maxcalls: UInt, ifspec: Long, securitydescriptor: Long): RPC_STATUS
+public expect fun rpcServerUseAllProtseqsIf(maxcalls: UInt, ifspec: COpaquePointer?, securitydescriptor: COpaquePointer?): RpcStatus
 
-public expect fun RpcServerUseAllProtseqsIfEx(maxcalls: UInt, ifspec: Long, securitydescriptor: Long, policy: Long): RPC_STATUS
+public expect fun rpcServerUseAllProtseqsIfEx(maxcalls: UInt, ifspec: COpaquePointer?, securitydescriptor: COpaquePointer?, policy: COpaquePointer?): RpcStatus
 
-public expect fun RpcServerUseProtseqA(protseq: PCSTR, maxcalls: UInt, securitydescriptor: Long): RPC_STATUS
+public expect fun rpcServerUseProtseqA(protseq: Pcstr, maxcalls: UInt, securitydescriptor: COpaquePointer?): RpcStatus
 
-public expect fun RpcServerUseProtseqEpA(protseq: PCSTR, maxcalls: UInt, endpoint: PCSTR, securitydescriptor: Long): RPC_STATUS
+public expect fun rpcServerUseProtseqEpA(protseq: Pcstr, maxcalls: UInt, endpoint: Pcstr, securitydescriptor: COpaquePointer?): RpcStatus
 
-public expect fun RpcServerUseProtseqEpExA(protseq: PCSTR, maxcalls: UInt, endpoint: PCSTR, securitydescriptor: Long, policy: Long): RPC_STATUS
+public expect fun rpcServerUseProtseqEpExA(protseq: Pcstr, maxcalls: UInt, endpoint: Pcstr, securitydescriptor: COpaquePointer?, policy: COpaquePointer?): RpcStatus
 
-public expect fun RpcServerUseProtseqEpExW(protseq: PCWSTR, maxcalls: UInt, endpoint: PCWSTR, securitydescriptor: Long, policy: Long): RPC_STATUS
+public expect fun rpcServerUseProtseqEpExW(protseq: Pcwstr, maxcalls: UInt, endpoint: Pcwstr, securitydescriptor: COpaquePointer?, policy: COpaquePointer?): RpcStatus
 
-public expect fun RpcServerUseProtseqEpW(protseq: PCWSTR, maxcalls: UInt, endpoint: PCWSTR, securitydescriptor: Long): RPC_STATUS
+public expect fun rpcServerUseProtseqEpW(protseq: Pcwstr, maxcalls: UInt, endpoint: Pcwstr, securitydescriptor: COpaquePointer?): RpcStatus
 
-public expect fun RpcServerUseProtseqExA(protseq: PCSTR, maxcalls: UInt, securitydescriptor: Long, policy: Long): RPC_STATUS
+public expect fun rpcServerUseProtseqExA(protseq: Pcstr, maxcalls: UInt, securitydescriptor: COpaquePointer?, policy: COpaquePointer?): RpcStatus
 
-public expect fun RpcServerUseProtseqExW(protseq: PCWSTR, maxcalls: UInt, securitydescriptor: Long, policy: Long): RPC_STATUS
+public expect fun rpcServerUseProtseqExW(protseq: Pcwstr, maxcalls: UInt, securitydescriptor: COpaquePointer?, policy: COpaquePointer?): RpcStatus
 
-public expect fun RpcServerUseProtseqIfA(protseq: PCSTR, maxcalls: UInt, ifspec: Long, securitydescriptor: Long): RPC_STATUS
+public expect fun rpcServerUseProtseqIfA(protseq: Pcstr, maxcalls: UInt, ifspec: COpaquePointer?, securitydescriptor: COpaquePointer?): RpcStatus
 
-public expect fun RpcServerUseProtseqIfExA(protseq: PCSTR, maxcalls: UInt, ifspec: Long, securitydescriptor: Long, policy: Long): RPC_STATUS
+public expect fun rpcServerUseProtseqIfExA(protseq: Pcstr, maxcalls: UInt, ifspec: COpaquePointer?, securitydescriptor: COpaquePointer?, policy: COpaquePointer?): RpcStatus
 
-public expect fun RpcServerUseProtseqIfExW(protseq: PCWSTR, maxcalls: UInt, ifspec: Long, securitydescriptor: Long, policy: Long): RPC_STATUS
+public expect fun rpcServerUseProtseqIfExW(protseq: Pcwstr, maxcalls: UInt, ifspec: COpaquePointer?, securitydescriptor: COpaquePointer?, policy: COpaquePointer?): RpcStatus
 
-public expect fun RpcServerUseProtseqIfW(protseq: PCWSTR, maxcalls: UInt, ifspec: Long, securitydescriptor: Long): RPC_STATUS
+public expect fun rpcServerUseProtseqIfW(protseq: Pcwstr, maxcalls: UInt, ifspec: COpaquePointer?, securitydescriptor: COpaquePointer?): RpcStatus
 
-public expect fun RpcServerUseProtseqW(protseq: PCWSTR, maxcalls: UInt, securitydescriptor: Long): RPC_STATUS
+public expect fun rpcServerUseProtseqW(protseq: Pcwstr, maxcalls: UInt, securitydescriptor: COpaquePointer?): RpcStatus
 
-public expect fun RpcServerYield()
+public expect fun rpcServerYield()
 
-public expect fun RpcSmAllocate(size: ULong, pstatus: Long): Long
+public expect fun rpcSmAllocate(size: ULong, pstatus: COpaquePointer?): COpaquePointer?
 
-public expect fun RpcSmClientFree(pnodetofree: Long): RPC_STATUS
+public expect fun rpcSmClientFree(pnodetofree: COpaquePointer?): RpcStatus
 
-public expect fun RpcSmDestroyClientContext(contexthandle: Long): RPC_STATUS
+public expect fun rpcSmDestroyClientContext(contexthandle: COpaquePointer?): RpcStatus
 
-public expect fun RpcSmDisableAllocate(): RPC_STATUS
+public expect fun rpcSmDisableAllocate(): RpcStatus
 
-public expect fun RpcSmEnableAllocate(): RPC_STATUS
+public expect fun rpcSmEnableAllocate(): RpcStatus
 
-public expect fun RpcSmFree(nodetofree: Long): RPC_STATUS
+public expect fun rpcSmFree(nodetofree: COpaquePointer?): RpcStatus
 
-public expect fun RpcSmGetThreadHandle(pstatus: Long): Long
+public expect fun rpcSmGetThreadHandle(pstatus: COpaquePointer?): COpaquePointer?
 
-public expect fun RpcSmSetClientAllocFree(clientalloc: RPC_CLIENT_ALLOC, clientfree: RPC_CLIENT_FREE): RPC_STATUS
+public expect fun rpcSmSetClientAllocFree(clientalloc: RpcClientAlloc, clientfree: RpcClientFree): RpcStatus
 
-public expect fun RpcSmSetThreadHandle(id: Long): RPC_STATUS
+public expect fun rpcSmSetThreadHandle(id: COpaquePointer?): RpcStatus
 
-public expect fun RpcSmSwapClientAllocFree(clientalloc: RPC_CLIENT_ALLOC, clientfree: RPC_CLIENT_FREE, oldclientalloc: Long, oldclientfree: Long): RPC_STATUS
+public expect fun rpcSmSwapClientAllocFree(clientalloc: RpcClientAlloc, clientfree: RpcClientFree, oldclientalloc: COpaquePointer?, oldclientfree: COpaquePointer?): RpcStatus
 
-public expect fun RpcSsAllocate(size: ULong): Long
+public expect fun rpcSsAllocate(size: ULong): COpaquePointer?
 
-public expect fun RpcSsContextLockExclusive(serverbindinghandle: Long, usercontext: Long): RPC_STATUS
+public expect fun rpcSsContextLockExclusive(serverbindinghandle: COpaquePointer?, usercontext: COpaquePointer?): RpcStatus
 
-public expect fun RpcSsContextLockShared(serverbindinghandle: Long, usercontext: Long): RPC_STATUS
+public expect fun rpcSsContextLockShared(serverbindinghandle: COpaquePointer?, usercontext: COpaquePointer?): RpcStatus
 
-public expect fun RpcSsDestroyClientContext(contexthandle: Long)
+public expect fun rpcSsDestroyClientContext(contexthandle: COpaquePointer?)
 
-public expect fun RpcSsDisableAllocate()
+public expect fun rpcSsDisableAllocate()
 
-public expect fun RpcSsDontSerializeContext()
+public expect fun rpcSsDontSerializeContext()
 
-public expect fun RpcSsEnableAllocate()
+public expect fun rpcSsEnableAllocate()
 
-public expect fun RpcSsFree(nodetofree: Long)
+public expect fun rpcSsFree(nodetofree: COpaquePointer?)
 
-public expect fun RpcSsGetContextBinding(contexthandle: Long, binding: Long): RPC_STATUS
+public expect fun rpcSsGetContextBinding(contexthandle: COpaquePointer?, binding: COpaquePointer?): RpcStatus
 
-public expect fun RpcSsGetThreadHandle(): Long
+public expect fun rpcSsGetThreadHandle(): COpaquePointer?
 
-public expect fun RpcSsSetClientAllocFree(clientalloc: RPC_CLIENT_ALLOC, clientfree: RPC_CLIENT_FREE)
+public expect fun rpcSsSetClientAllocFree(clientalloc: RpcClientAlloc, clientfree: RpcClientFree)
 
-public expect fun RpcSsSetThreadHandle(id: Long)
+public expect fun rpcSsSetThreadHandle(id: COpaquePointer?)
 
-public expect fun RpcSsSwapClientAllocFree(clientalloc: RPC_CLIENT_ALLOC, clientfree: RPC_CLIENT_FREE, oldclientalloc: Long, oldclientfree: Long)
+public expect fun rpcSsSwapClientAllocFree(clientalloc: RpcClientAlloc, clientfree: RpcClientFree, oldclientalloc: COpaquePointer?, oldclientfree: COpaquePointer?)
 
-public expect fun RpcStringBindingComposeA(objuuid: PCSTR, protseq: PCSTR, networkaddr: PCSTR, endpoint: PCSTR, options: PCSTR, stringbinding: Long): RPC_STATUS
+public expect fun rpcStringBindingComposeA(objuuid: Pcstr, protseq: Pcstr, networkaddr: Pcstr, endpoint: Pcstr, options: Pcstr, stringbinding: COpaquePointer?): RpcStatus
 
-public expect fun RpcStringBindingComposeW(objuuid: PCWSTR, protseq: PCWSTR, networkaddr: PCWSTR, endpoint: PCWSTR, options: PCWSTR, stringbinding: Long): RPC_STATUS
+public expect fun rpcStringBindingComposeW(objuuid: Pcwstr, protseq: Pcwstr, networkaddr: Pcwstr, endpoint: Pcwstr, options: Pcwstr, stringbinding: COpaquePointer?): RpcStatus
 
-public expect fun RpcStringBindingParseA(stringbinding: PCSTR, objuuid: Long, protseq: Long, networkaddr: Long, endpoint: Long, networkoptions: Long): RPC_STATUS
+public expect fun rpcStringBindingParseA(stringbinding: Pcstr, objuuid: COpaquePointer?, protseq: COpaquePointer?, networkaddr: COpaquePointer?, endpoint: COpaquePointer?, networkoptions: COpaquePointer?): RpcStatus
 
-public expect fun RpcStringBindingParseW(stringbinding: PCWSTR, objuuid: Long, protseq: Long, networkaddr: Long, endpoint: Long, networkoptions: Long): RPC_STATUS
+public expect fun rpcStringBindingParseW(stringbinding: Pcwstr, objuuid: COpaquePointer?, protseq: COpaquePointer?, networkaddr: COpaquePointer?, endpoint: COpaquePointer?, networkoptions: COpaquePointer?): RpcStatus
 
-public expect fun RpcStringFreeA(string: Long): RPC_STATUS
+public expect fun rpcStringFreeA(string: COpaquePointer?): RpcStatus
 
-public expect fun RpcStringFreeW(string: Long): RPC_STATUS
+public expect fun rpcStringFreeW(string: COpaquePointer?): RpcStatus
 
-public expect fun RpcTestCancel(): RPC_STATUS
+public expect fun rpcTestCancel(): RpcStatus
 
-public expect fun RpcUserFree(asynchandle: Long, pbuffer: Long)
+public expect fun rpcUserFree(asynchandle: COpaquePointer?, pbuffer: COpaquePointer?)
 
-public expect fun UuidCompare(uuid1: Long, uuid2: Long, status: Long): Int
+public expect fun uuidCompare(uuid1: COpaquePointer?, uuid2: COpaquePointer?, status: COpaquePointer?): Int
 
-public expect fun UuidCreate(uuid: Long): RPC_STATUS
+public expect fun uuidCreate(uuid: COpaquePointer?): RpcStatus
 
-public expect fun UuidCreateNil(niluuid: Long): RPC_STATUS
+public expect fun uuidCreateNil(niluuid: COpaquePointer?): RpcStatus

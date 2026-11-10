@@ -1,616 +1,617 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.fax
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 
-public typealias FAXROUTE_ENABLE = Int
+public typealias FaxrouteEnable = Int
 
-public typealias FAX_ACCESS_RIGHTS_ENUM = Int
+public typealias FaxAccessRightsEnum = Int
 
-public typealias FAX_ACCESS_RIGHTS_ENUM_2 = Int
+public typealias FaxAccessRightsEnum2 = Int
 
-public typealias FAX_ACCOUNT_EVENTS_TYPE_ENUM = Int
+public typealias FaxAccountEventsTypeEnum = Int
 
-public typealias FAX_COVERPAGE_TYPE_ENUM = Int
+public typealias FaxCoverpageTypeEnum = Int
 
-public typealias FAX_DEVICE_RECEIVE_MODE_ENUM = Int
+public typealias FaxDeviceReceiveModeEnum = Int
 
-public typealias FAX_ENUM_DELIVERY_REPORT_TYPES = Int
+public typealias FaxEnumDeliveryReportTypes = Int
 
-public typealias FAX_ENUM_DEVICE_ID_SOURCE = Int
+public typealias FaxEnumDeviceIdSource = Int
 
-public typealias FAX_ENUM_JOB_COMMANDS = Int
+public typealias FaxEnumJobCommands = Int
 
-public typealias FAX_ENUM_JOB_SEND_ATTRIBUTES = Int
+public typealias FaxEnumJobSendAttributes = Int
 
-public typealias FAX_ENUM_LOG_CATEGORIES = Int
+public typealias FaxEnumLogCategories = Int
 
-public typealias FAX_ENUM_LOG_LEVELS = Int
+public typealias FaxEnumLogLevels = Int
 
-public typealias FAX_ENUM_PORT_OPEN_TYPE = Int
+public typealias FaxEnumPortOpenType = Int
 
-public typealias FAX_GROUP_STATUS_ENUM = Int
+public typealias FaxGroupStatusEnum = Int
 
-public typealias FAX_JOB_EXTENDED_STATUS_ENUM = Int
+public typealias FaxJobExtendedStatusEnum = Int
 
-public typealias FAX_JOB_OPERATIONS_ENUM = Int
+public typealias FaxJobOperationsEnum = Int
 
-public typealias FAX_JOB_STATUS_ENUM = Int
+public typealias FaxJobStatusEnum = Int
 
-public typealias FAX_JOB_TYPE_ENUM = Int
+public typealias FaxJobTypeEnum = Int
 
-public typealias FAX_LOG_LEVEL_ENUM = Int
+public typealias FaxLogLevelEnum = Int
 
-public typealias FAX_PRIORITY_TYPE_ENUM = Int
+public typealias FaxPriorityTypeEnum = Int
 
-public typealias FAX_PROVIDER_STATUS_ENUM = Int
+public typealias FaxProviderStatusEnum = Int
 
-public typealias FAX_RECEIPT_TYPE_ENUM = Int
+public typealias FaxReceiptTypeEnum = Int
 
-public typealias FAX_ROUTING_RULE_CODE_ENUM = Int
+public typealias FaxRoutingRuleCodeEnum = Int
 
-public typealias FAX_RULE_STATUS_ENUM = Int
+public typealias FaxRuleStatusEnum = Int
 
-public typealias FAX_SCHEDULE_TYPE_ENUM = Int
+public typealias FaxScheduleTypeEnum = Int
 
-public typealias FAX_SERVER_APIVERSION_ENUM = Int
+public typealias FaxServerApiversionEnum = Int
 
-public typealias FAX_SERVER_EVENTS_TYPE_ENUM = Int
+public typealias FaxServerEventsTypeEnum = Int
 
-public typealias FAX_SMTP_AUTHENTICATION_TYPE_ENUM = Int
+public typealias FaxSmtpAuthenticationTypeEnum = Int
 
-public fun interface PFAXABORTFn {
-    public operator fun invoke(faxhandle: HANDLE, jobid: UInt): BOOL
+public fun interface PfaxabortFn {
+    public operator fun invoke(faxhandle: Handle, jobid: UInt): Bool
 }
 
-public typealias PFAXABORT = PFAXABORTFn?
+public typealias Pfaxabort = PfaxabortFn?
 
-public fun interface PFAXACCESSCHECKFn {
-    public operator fun invoke(faxhandle: HANDLE, accessmask: UInt): BOOL
+public fun interface PfaxaccesscheckFn {
+    public operator fun invoke(faxhandle: Handle, accessmask: UInt): Bool
 }
 
-public typealias PFAXACCESSCHECK = PFAXACCESSCHECKFn?
+public typealias Pfaxaccesscheck = PfaxaccesscheckFn?
 
-public fun interface PFAXCLOSEFn {
-    public operator fun invoke(faxhandle: HANDLE): BOOL
+public fun interface PfaxcloseFn {
+    public operator fun invoke(faxhandle: Handle): Bool
 }
 
-public typealias PFAXCLOSE = PFAXCLOSEFn?
+public typealias Pfaxclose = PfaxcloseFn?
 
-public fun interface PFAXCOMPLETEJOBPARAMSAFn {
-    public operator fun invoke(jobparams: Long, coverpageinfo: Long): BOOL
+public fun interface PfaxcompletejobparamsaFn {
+    public operator fun invoke(jobparams: COpaquePointer?, coverpageinfo: COpaquePointer?): Bool
 }
 
-public typealias PFAXCOMPLETEJOBPARAMSA = PFAXCOMPLETEJOBPARAMSAFn?
+public typealias Pfaxcompletejobparamsa = PfaxcompletejobparamsaFn?
 
-public fun interface PFAXCOMPLETEJOBPARAMSWFn {
-    public operator fun invoke(jobparams: Long, coverpageinfo: Long): BOOL
+public fun interface PfaxcompletejobparamswFn {
+    public operator fun invoke(jobparams: COpaquePointer?, coverpageinfo: COpaquePointer?): Bool
 }
 
-public typealias PFAXCOMPLETEJOBPARAMSW = PFAXCOMPLETEJOBPARAMSWFn?
+public typealias Pfaxcompletejobparamsw = PfaxcompletejobparamswFn?
 
-public fun interface PFAXCONNECTFAXSERVERAFn {
-    public operator fun invoke(machinename: PCSTR, faxhandle: Long): BOOL
+public fun interface PfaxconnectfaxserveraFn {
+    public operator fun invoke(machinename: Pcstr, faxhandle: COpaquePointer?): Bool
 }
 
-public typealias PFAXCONNECTFAXSERVERA = PFAXCONNECTFAXSERVERAFn?
+public typealias Pfaxconnectfaxservera = PfaxconnectfaxserveraFn?
 
-public fun interface PFAXCONNECTFAXSERVERWFn {
-    public operator fun invoke(machinename: PCWSTR, faxhandle: Long): BOOL
+public fun interface PfaxconnectfaxserverwFn {
+    public operator fun invoke(machinename: Pcwstr, faxhandle: COpaquePointer?): Bool
 }
 
-public typealias PFAXCONNECTFAXSERVERW = PFAXCONNECTFAXSERVERWFn?
+public typealias Pfaxconnectfaxserverw = PfaxconnectfaxserverwFn?
 
-public fun interface PFAXDEVABORTOPERATIONFn {
-    public operator fun invoke(param0: HANDLE): BOOL
+public fun interface PfaxdevabortoperationFn {
+    public operator fun invoke(param0: Handle): Bool
 }
 
-public typealias PFAXDEVABORTOPERATION = PFAXDEVABORTOPERATIONFn?
+public typealias Pfaxdevabortoperation = PfaxdevabortoperationFn?
 
-public fun interface PFAXDEVCONFIGUREFn {
-    public operator fun invoke(param0: Long): BOOL
+public fun interface PfaxdevconfigureFn {
+    public operator fun invoke(param0: COpaquePointer?): Bool
 }
 
-public typealias PFAXDEVCONFIGURE = PFAXDEVCONFIGUREFn?
+public typealias Pfaxdevconfigure = PfaxdevconfigureFn?
 
-public fun interface PFAXDEVENDJOBFn {
-    public operator fun invoke(param0: HANDLE): BOOL
+public fun interface PfaxdevendjobFn {
+    public operator fun invoke(param0: Handle): Bool
 }
 
-public typealias PFAXDEVENDJOB = PFAXDEVENDJOBFn?
+public typealias Pfaxdevendjob = PfaxdevendjobFn?
 
-public fun interface PFAXDEVINITIALIZEFn {
-    public operator fun invoke(param0: UInt, param1: HANDLE, param2: Long, param3: PFAX_SERVICE_CALLBACK): BOOL
+public fun interface PfaxdevinitializeFn {
+    public operator fun invoke(param0: UInt, param1: Handle, param2: COpaquePointer?, param3: PfaxServiceCallback): Bool
 }
 
-public typealias PFAXDEVINITIALIZE = PFAXDEVINITIALIZEFn?
+public typealias Pfaxdevinitialize = PfaxdevinitializeFn?
 
-public fun interface PFAXDEVRECEIVEFn {
-    public operator fun invoke(param0: HANDLE, param1: UInt, param2: Long): BOOL
+public fun interface PfaxdevreceiveFn {
+    public operator fun invoke(param0: Handle, param1: UInt, param2: COpaquePointer?): Bool
 }
 
-public typealias PFAXDEVRECEIVE = PFAXDEVRECEIVEFn?
+public typealias Pfaxdevreceive = PfaxdevreceiveFn?
 
-public fun interface PFAXDEVREPORTSTATUSFn {
-    public operator fun invoke(param0: HANDLE, param1: Long, param2: UInt, param3: Long): BOOL
+public fun interface PfaxdevreportstatusFn {
+    public operator fun invoke(param0: Handle, param1: COpaquePointer?, param2: UInt, param3: COpaquePointer?): Bool
 }
 
-public typealias PFAXDEVREPORTSTATUS = PFAXDEVREPORTSTATUSFn?
+public typealias Pfaxdevreportstatus = PfaxdevreportstatusFn?
 
-public fun interface PFAXDEVSENDFn {
-    public operator fun invoke(param0: HANDLE, param1: Long, param2: PFAX_SEND_CALLBACK): BOOL
+public fun interface PfaxdevsendFn {
+    public operator fun invoke(param0: Handle, param1: COpaquePointer?, param2: PfaxSendCallback): Bool
 }
 
-public typealias PFAXDEVSEND = PFAXDEVSENDFn?
+public typealias Pfaxdevsend = PfaxdevsendFn?
 
-public fun interface PFAXDEVSHUTDOWNFn {
-    public operator fun invoke(): HRESULT
+public fun interface PfaxdevshutdownFn {
+    public operator fun invoke(): Hresult
 }
 
-public typealias PFAXDEVSHUTDOWN = PFAXDEVSHUTDOWNFn?
+public typealias Pfaxdevshutdown = PfaxdevshutdownFn?
 
-public fun interface PFAXDEVSTARTJOBFn {
-    public operator fun invoke(param0: UInt, param1: UInt, param2: Long, param3: HANDLE, param4: ULong): BOOL
+public fun interface PfaxdevstartjobFn {
+    public operator fun invoke(param0: UInt, param1: UInt, param2: COpaquePointer?, param3: Handle, param4: ULong): Bool
 }
 
-public typealias PFAXDEVSTARTJOB = PFAXDEVSTARTJOBFn?
+public typealias Pfaxdevstartjob = PfaxdevstartjobFn?
 
-public fun interface PFAXDEVVIRTUALDEVICECREATIONFn {
-    public operator fun invoke(devicecount: Long, devicenameprefix: PWSTR, deviceidprefix: Long, completionport: HANDLE, completionkey: ULong): BOOL
+public fun interface PfaxdevvirtualdevicecreationFn {
+    public operator fun invoke(devicecount: COpaquePointer?, devicenameprefix: Pwstr, deviceidprefix: COpaquePointer?, completionport: Handle, completionkey: ULong): Bool
 }
 
-public typealias PFAXDEVVIRTUALDEVICECREATION = PFAXDEVVIRTUALDEVICECREATIONFn?
+public typealias Pfaxdevvirtualdevicecreation = PfaxdevvirtualdevicecreationFn?
 
-public fun interface PFAXENABLEROUTINGMETHODAFn {
-    public operator fun invoke(faxporthandle: HANDLE, routingguid: PCSTR, enabled: BOOL): BOOL
+public fun interface PfaxenableroutingmethodaFn {
+    public operator fun invoke(faxporthandle: Handle, routingguid: Pcstr, enabled: Bool): Bool
 }
 
-public typealias PFAXENABLEROUTINGMETHODA = PFAXENABLEROUTINGMETHODAFn?
+public typealias Pfaxenableroutingmethoda = PfaxenableroutingmethodaFn?
 
-public fun interface PFAXENABLEROUTINGMETHODWFn {
-    public operator fun invoke(faxporthandle: HANDLE, routingguid: PCWSTR, enabled: BOOL): BOOL
+public fun interface PfaxenableroutingmethodwFn {
+    public operator fun invoke(faxporthandle: Handle, routingguid: Pcwstr, enabled: Bool): Bool
 }
 
-public typealias PFAXENABLEROUTINGMETHODW = PFAXENABLEROUTINGMETHODWFn?
+public typealias Pfaxenableroutingmethodw = PfaxenableroutingmethodwFn?
 
-public fun interface PFAXENUMGLOBALROUTINGINFOAFn {
-    public operator fun invoke(faxhandle: HANDLE, routinginfo: Long, methodsreturned: Long): BOOL
+public fun interface PfaxenumglobalroutinginfoaFn {
+    public operator fun invoke(faxhandle: Handle, routinginfo: COpaquePointer?, methodsreturned: COpaquePointer?): Bool
 }
 
-public typealias PFAXENUMGLOBALROUTINGINFOA = PFAXENUMGLOBALROUTINGINFOAFn?
+public typealias Pfaxenumglobalroutinginfoa = PfaxenumglobalroutinginfoaFn?
 
-public fun interface PFAXENUMGLOBALROUTINGINFOWFn {
-    public operator fun invoke(faxhandle: HANDLE, routinginfo: Long, methodsreturned: Long): BOOL
+public fun interface PfaxenumglobalroutinginfowFn {
+    public operator fun invoke(faxhandle: Handle, routinginfo: COpaquePointer?, methodsreturned: COpaquePointer?): Bool
 }
 
-public typealias PFAXENUMGLOBALROUTINGINFOW = PFAXENUMGLOBALROUTINGINFOWFn?
+public typealias Pfaxenumglobalroutinginfow = PfaxenumglobalroutinginfowFn?
 
-public fun interface PFAXENUMJOBSAFn {
-    public operator fun invoke(faxhandle: HANDLE, jobentry: Long, jobsreturned: Long): BOOL
+public fun interface PfaxenumjobsaFn {
+    public operator fun invoke(faxhandle: Handle, jobentry: COpaquePointer?, jobsreturned: COpaquePointer?): Bool
 }
 
-public typealias PFAXENUMJOBSA = PFAXENUMJOBSAFn?
+public typealias Pfaxenumjobsa = PfaxenumjobsaFn?
 
-public fun interface PFAXENUMJOBSWFn {
-    public operator fun invoke(faxhandle: HANDLE, jobentry: Long, jobsreturned: Long): BOOL
+public fun interface PfaxenumjobswFn {
+    public operator fun invoke(faxhandle: Handle, jobentry: COpaquePointer?, jobsreturned: COpaquePointer?): Bool
 }
 
-public typealias PFAXENUMJOBSW = PFAXENUMJOBSWFn?
+public typealias Pfaxenumjobsw = PfaxenumjobswFn?
 
-public fun interface PFAXENUMPORTSAFn {
-    public operator fun invoke(faxhandle: HANDLE, portinfo: Long, portsreturned: Long): BOOL
+public fun interface PfaxenumportsaFn {
+    public operator fun invoke(faxhandle: Handle, portinfo: COpaquePointer?, portsreturned: COpaquePointer?): Bool
 }
 
-public typealias PFAXENUMPORTSA = PFAXENUMPORTSAFn?
+public typealias Pfaxenumportsa = PfaxenumportsaFn?
 
-public fun interface PFAXENUMPORTSWFn {
-    public operator fun invoke(faxhandle: HANDLE, portinfo: Long, portsreturned: Long): BOOL
+public fun interface PfaxenumportswFn {
+    public operator fun invoke(faxhandle: Handle, portinfo: COpaquePointer?, portsreturned: COpaquePointer?): Bool
 }
 
-public typealias PFAXENUMPORTSW = PFAXENUMPORTSWFn?
+public typealias Pfaxenumportsw = PfaxenumportswFn?
 
-public fun interface PFAXENUMROUTINGMETHODSAFn {
-    public operator fun invoke(faxporthandle: HANDLE, routingmethod: Long, methodsreturned: Long): BOOL
+public fun interface PfaxenumroutingmethodsaFn {
+    public operator fun invoke(faxporthandle: Handle, routingmethod: COpaquePointer?, methodsreturned: COpaquePointer?): Bool
 }
 
-public typealias PFAXENUMROUTINGMETHODSA = PFAXENUMROUTINGMETHODSAFn?
+public typealias Pfaxenumroutingmethodsa = PfaxenumroutingmethodsaFn?
 
-public fun interface PFAXENUMROUTINGMETHODSWFn {
-    public operator fun invoke(faxporthandle: HANDLE, routingmethod: Long, methodsreturned: Long): BOOL
+public fun interface PfaxenumroutingmethodswFn {
+    public operator fun invoke(faxporthandle: Handle, routingmethod: COpaquePointer?, methodsreturned: COpaquePointer?): Bool
 }
 
-public typealias PFAXENUMROUTINGMETHODSW = PFAXENUMROUTINGMETHODSWFn?
+public typealias Pfaxenumroutingmethodsw = PfaxenumroutingmethodswFn?
 
-public fun interface PFAXFREEBUFFERFn {
-    public operator fun invoke(buffer: Long)
+public fun interface PfaxfreebufferFn {
+    public operator fun invoke(buffer: COpaquePointer?)
 }
 
-public typealias PFAXFREEBUFFER = PFAXFREEBUFFERFn?
+public typealias Pfaxfreebuffer = PfaxfreebufferFn?
 
-public fun interface PFAXGETCONFIGURATIONAFn {
-    public operator fun invoke(faxhandle: HANDLE, faxconfig: Long): BOOL
+public fun interface PfaxgetconfigurationaFn {
+    public operator fun invoke(faxhandle: Handle, faxconfig: COpaquePointer?): Bool
 }
 
-public typealias PFAXGETCONFIGURATIONA = PFAXGETCONFIGURATIONAFn?
+public typealias Pfaxgetconfigurationa = PfaxgetconfigurationaFn?
 
-public fun interface PFAXGETCONFIGURATIONWFn {
-    public operator fun invoke(faxhandle: HANDLE, faxconfig: Long): BOOL
+public fun interface PfaxgetconfigurationwFn {
+    public operator fun invoke(faxhandle: Handle, faxconfig: COpaquePointer?): Bool
 }
 
-public typealias PFAXGETCONFIGURATIONW = PFAXGETCONFIGURATIONWFn?
+public typealias Pfaxgetconfigurationw = PfaxgetconfigurationwFn?
 
-public fun interface PFAXGETDEVICESTATUSAFn {
-    public operator fun invoke(faxporthandle: HANDLE, devicestatus: Long): BOOL
+public fun interface PfaxgetdevicestatusaFn {
+    public operator fun invoke(faxporthandle: Handle, devicestatus: COpaquePointer?): Bool
 }
 
-public typealias PFAXGETDEVICESTATUSA = PFAXGETDEVICESTATUSAFn?
+public typealias Pfaxgetdevicestatusa = PfaxgetdevicestatusaFn?
 
-public fun interface PFAXGETDEVICESTATUSWFn {
-    public operator fun invoke(faxporthandle: HANDLE, devicestatus: Long): BOOL
+public fun interface PfaxgetdevicestatuswFn {
+    public operator fun invoke(faxporthandle: Handle, devicestatus: COpaquePointer?): Bool
 }
 
-public typealias PFAXGETDEVICESTATUSW = PFAXGETDEVICESTATUSWFn?
+public typealias Pfaxgetdevicestatusw = PfaxgetdevicestatuswFn?
 
-public fun interface PFAXGETJOBAFn {
-    public operator fun invoke(faxhandle: HANDLE, jobid: UInt, jobentry: Long): BOOL
+public fun interface PfaxgetjobaFn {
+    public operator fun invoke(faxhandle: Handle, jobid: UInt, jobentry: COpaquePointer?): Bool
 }
 
-public typealias PFAXGETJOBA = PFAXGETJOBAFn?
+public typealias Pfaxgetjoba = PfaxgetjobaFn?
 
-public fun interface PFAXGETJOBWFn {
-    public operator fun invoke(faxhandle: HANDLE, jobid: UInt, jobentry: Long): BOOL
+public fun interface PfaxgetjobwFn {
+    public operator fun invoke(faxhandle: Handle, jobid: UInt, jobentry: COpaquePointer?): Bool
 }
 
-public typealias PFAXGETJOBW = PFAXGETJOBWFn?
+public typealias Pfaxgetjobw = PfaxgetjobwFn?
 
-public fun interface PFAXGETLOGGINGCATEGORIESAFn {
-    public operator fun invoke(faxhandle: HANDLE, categories: Long, numbercategories: Long): BOOL
+public fun interface PfaxgetloggingcategoriesaFn {
+    public operator fun invoke(faxhandle: Handle, categories: COpaquePointer?, numbercategories: COpaquePointer?): Bool
 }
 
-public typealias PFAXGETLOGGINGCATEGORIESA = PFAXGETLOGGINGCATEGORIESAFn?
+public typealias Pfaxgetloggingcategoriesa = PfaxgetloggingcategoriesaFn?
 
-public fun interface PFAXGETLOGGINGCATEGORIESWFn {
-    public operator fun invoke(faxhandle: HANDLE, categories: Long, numbercategories: Long): BOOL
+public fun interface PfaxgetloggingcategorieswFn {
+    public operator fun invoke(faxhandle: Handle, categories: COpaquePointer?, numbercategories: COpaquePointer?): Bool
 }
 
-public typealias PFAXGETLOGGINGCATEGORIESW = PFAXGETLOGGINGCATEGORIESWFn?
+public typealias Pfaxgetloggingcategoriesw = PfaxgetloggingcategorieswFn?
 
-public fun interface PFAXGETPAGEDATAFn {
-    public operator fun invoke(faxhandle: HANDLE, jobid: UInt, buffer: Long, buffersize: Long, imagewidth: Long, imageheight: Long): BOOL
+public fun interface PfaxgetpagedataFn {
+    public operator fun invoke(faxhandle: Handle, jobid: UInt, buffer: COpaquePointer?, buffersize: COpaquePointer?, imagewidth: COpaquePointer?, imageheight: COpaquePointer?): Bool
 }
 
-public typealias PFAXGETPAGEDATA = PFAXGETPAGEDATAFn?
+public typealias Pfaxgetpagedata = PfaxgetpagedataFn?
 
-public fun interface PFAXGETPORTAFn {
-    public operator fun invoke(faxporthandle: HANDLE, portinfo: Long): BOOL
+public fun interface PfaxgetportaFn {
+    public operator fun invoke(faxporthandle: Handle, portinfo: COpaquePointer?): Bool
 }
 
-public typealias PFAXGETPORTA = PFAXGETPORTAFn?
+public typealias Pfaxgetporta = PfaxgetportaFn?
 
-public fun interface PFAXGETPORTWFn {
-    public operator fun invoke(faxporthandle: HANDLE, portinfo: Long): BOOL
+public fun interface PfaxgetportwFn {
+    public operator fun invoke(faxporthandle: Handle, portinfo: COpaquePointer?): Bool
 }
 
-public typealias PFAXGETPORTW = PFAXGETPORTWFn?
+public typealias Pfaxgetportw = PfaxgetportwFn?
 
-public fun interface PFAXGETROUTINGINFOAFn {
-    public operator fun invoke(faxporthandle: HANDLE, routingguid: PCSTR, routinginfobuffer: Long, routinginfobuffersize: Long): BOOL
+public fun interface PfaxgetroutinginfoaFn {
+    public operator fun invoke(faxporthandle: Handle, routingguid: Pcstr, routinginfobuffer: COpaquePointer?, routinginfobuffersize: COpaquePointer?): Bool
 }
 
-public typealias PFAXGETROUTINGINFOA = PFAXGETROUTINGINFOAFn?
+public typealias Pfaxgetroutinginfoa = PfaxgetroutinginfoaFn?
 
-public fun interface PFAXGETROUTINGINFOWFn {
-    public operator fun invoke(faxporthandle: HANDLE, routingguid: PCWSTR, routinginfobuffer: Long, routinginfobuffersize: Long): BOOL
+public fun interface PfaxgetroutinginfowFn {
+    public operator fun invoke(faxporthandle: Handle, routingguid: Pcwstr, routinginfobuffer: COpaquePointer?, routinginfobuffersize: COpaquePointer?): Bool
 }
 
-public typealias PFAXGETROUTINGINFOW = PFAXGETROUTINGINFOWFn?
+public typealias Pfaxgetroutinginfow = PfaxgetroutinginfowFn?
 
-public fun interface PFAXINITIALIZEEVENTQUEUEFn {
-    public operator fun invoke(faxhandle: HANDLE, completionport: HANDLE, completionkey: ULong, hwnd: HWND, messagestart: UInt): BOOL
+public fun interface PfaxinitializeeventqueueFn {
+    public operator fun invoke(faxhandle: Handle, completionport: Handle, completionkey: ULong, hwnd: Hwnd, messagestart: UInt): Bool
 }
 
-public typealias PFAXINITIALIZEEVENTQUEUE = PFAXINITIALIZEEVENTQUEUEFn?
+public typealias Pfaxinitializeeventqueue = PfaxinitializeeventqueueFn?
 
-public fun interface PFAXOPENPORTFn {
-    public operator fun invoke(faxhandle: HANDLE, deviceid: UInt, flags: UInt, faxporthandle: Long): BOOL
+public fun interface PfaxopenportFn {
+    public operator fun invoke(faxhandle: Handle, deviceid: UInt, flags: UInt, faxporthandle: COpaquePointer?): Bool
 }
 
-public typealias PFAXOPENPORT = PFAXOPENPORTFn?
+public typealias Pfaxopenport = PfaxopenportFn?
 
-public fun interface PFAXPRINTCOVERPAGEAFn {
-    public operator fun invoke(faxcontextinfo: Long, coverpageinfo: Long): BOOL
+public fun interface PfaxprintcoverpageaFn {
+    public operator fun invoke(faxcontextinfo: COpaquePointer?, coverpageinfo: COpaquePointer?): Bool
 }
 
-public typealias PFAXPRINTCOVERPAGEA = PFAXPRINTCOVERPAGEAFn?
+public typealias Pfaxprintcoverpagea = PfaxprintcoverpageaFn?
 
-public fun interface PFAXPRINTCOVERPAGEWFn {
-    public operator fun invoke(faxcontextinfo: Long, coverpageinfo: Long): BOOL
+public fun interface PfaxprintcoverpagewFn {
+    public operator fun invoke(faxcontextinfo: COpaquePointer?, coverpageinfo: COpaquePointer?): Bool
 }
 
-public typealias PFAXPRINTCOVERPAGEW = PFAXPRINTCOVERPAGEWFn?
+public typealias Pfaxprintcoverpagew = PfaxprintcoverpagewFn?
 
-public fun interface PFAXREGISTERROUTINGEXTENSIONWFn {
-    public operator fun invoke(faxhandle: HANDLE, extensionname: PCWSTR, friendlyname: PCWSTR, imagename: PCWSTR, callback: PFAX_ROUTING_INSTALLATION_CALLBACKW, context: Long): BOOL
+public fun interface PfaxregisterroutingextensionwFn {
+    public operator fun invoke(faxhandle: Handle, extensionname: Pcwstr, friendlyname: Pcwstr, imagename: Pcwstr, callback: PfaxRoutingInstallationCallbackw, context: COpaquePointer?): Bool
 }
 
-public typealias PFAXREGISTERROUTINGEXTENSIONW = PFAXREGISTERROUTINGEXTENSIONWFn?
+public typealias Pfaxregisterroutingextensionw = PfaxregisterroutingextensionwFn?
 
-public fun interface PFAXREGISTERSERVICEPROVIDERWFn {
-    public operator fun invoke(deviceprovider: PCWSTR, friendlyname: PCWSTR, imagename: PCWSTR, tspname: PCWSTR): BOOL
+public fun interface PfaxregisterserviceproviderwFn {
+    public operator fun invoke(deviceprovider: Pcwstr, friendlyname: Pcwstr, imagename: Pcwstr, tspname: Pcwstr): Bool
 }
 
-public typealias PFAXREGISTERSERVICEPROVIDERW = PFAXREGISTERSERVICEPROVIDERWFn?
+public typealias Pfaxregisterserviceproviderw = PfaxregisterserviceproviderwFn?
 
-public fun interface PFAXROUTEADDFILEFn {
-    public operator fun invoke(jobid: UInt, filename: PCWSTR, guid: Long): Int
+public fun interface PfaxrouteaddfileFn {
+    public operator fun invoke(jobid: UInt, filename: Pcwstr, guid: COpaquePointer?): Int
 }
 
-public typealias PFAXROUTEADDFILE = PFAXROUTEADDFILEFn?
+public typealias Pfaxrouteaddfile = PfaxrouteaddfileFn?
 
-public fun interface PFAXROUTEDELETEFILEFn {
-    public operator fun invoke(jobid: UInt, filename: PCWSTR): Int
+public fun interface PfaxroutedeletefileFn {
+    public operator fun invoke(jobid: UInt, filename: Pcwstr): Int
 }
 
-public typealias PFAXROUTEDELETEFILE = PFAXROUTEDELETEFILEFn?
+public typealias Pfaxroutedeletefile = PfaxroutedeletefileFn?
 
-public fun interface PFAXROUTEDEVICECHANGENOTIFICATIONFn {
-    public operator fun invoke(param0: UInt, param1: BOOL): BOOL
+public fun interface PfaxroutedevicechangenotificationFn {
+    public operator fun invoke(param0: UInt, param1: Bool): Bool
 }
 
-public typealias PFAXROUTEDEVICECHANGENOTIFICATION = PFAXROUTEDEVICECHANGENOTIFICATIONFn?
+public typealias Pfaxroutedevicechangenotification = PfaxroutedevicechangenotificationFn?
 
-public fun interface PFAXROUTEDEVICEENABLEFn {
-    public operator fun invoke(param0: PCWSTR, param1: UInt, param2: Int): BOOL
+public fun interface PfaxroutedeviceenableFn {
+    public operator fun invoke(param0: Pcwstr, param1: UInt, param2: Int): Bool
 }
 
-public typealias PFAXROUTEDEVICEENABLE = PFAXROUTEDEVICEENABLEFn?
+public typealias Pfaxroutedeviceenable = PfaxroutedeviceenableFn?
 
-public fun interface PFAXROUTEENUMFILEFn {
-    public operator fun invoke(jobid: UInt, guidowner: Long, guidcaller: Long, filename: PCWSTR, context: Long): BOOL
+public fun interface PfaxrouteenumfileFn {
+    public operator fun invoke(jobid: UInt, guidowner: COpaquePointer?, guidcaller: COpaquePointer?, filename: Pcwstr, context: COpaquePointer?): Bool
 }
 
-public typealias PFAXROUTEENUMFILE = PFAXROUTEENUMFILEFn?
+public typealias Pfaxrouteenumfile = PfaxrouteenumfileFn?
 
-public fun interface PFAXROUTEENUMFILESFn {
-    public operator fun invoke(jobid: UInt, guid: Long, fileenumerator: PFAXROUTEENUMFILE, context: Long): BOOL
+public fun interface PfaxrouteenumfilesFn {
+    public operator fun invoke(jobid: UInt, guid: COpaquePointer?, fileenumerator: Pfaxrouteenumfile, context: COpaquePointer?): Bool
 }
 
-public typealias PFAXROUTEENUMFILES = PFAXROUTEENUMFILESFn?
+public typealias Pfaxrouteenumfiles = PfaxrouteenumfilesFn?
 
-public fun interface PFAXROUTEGETFILEFn {
-    public operator fun invoke(jobid: UInt, index: UInt, filenamebuffer: PWSTR, requiredsize: Long): BOOL
+public fun interface PfaxroutegetfileFn {
+    public operator fun invoke(jobid: UInt, index: UInt, filenamebuffer: Pwstr, requiredsize: COpaquePointer?): Bool
 }
 
-public typealias PFAXROUTEGETFILE = PFAXROUTEGETFILEFn?
+public typealias Pfaxroutegetfile = PfaxroutegetfileFn?
 
-public fun interface PFAXROUTEGETROUTINGINFOFn {
-    public operator fun invoke(param0: PCWSTR, param1: UInt, param2: Long, param3: Long): BOOL
+public fun interface PfaxroutegetroutinginfoFn {
+    public operator fun invoke(param0: Pcwstr, param1: UInt, param2: COpaquePointer?, param3: COpaquePointer?): Bool
 }
 
-public typealias PFAXROUTEGETROUTINGINFO = PFAXROUTEGETROUTINGINFOFn?
+public typealias Pfaxroutegetroutinginfo = PfaxroutegetroutinginfoFn?
 
-public fun interface PFAXROUTEINITIALIZEFn {
-    public operator fun invoke(param0: HANDLE, param1: Long): BOOL
+public fun interface PfaxrouteinitializeFn {
+    public operator fun invoke(param0: Handle, param1: COpaquePointer?): Bool
 }
 
-public typealias PFAXROUTEINITIALIZE = PFAXROUTEINITIALIZEFn?
+public typealias Pfaxrouteinitialize = PfaxrouteinitializeFn?
 
-public fun interface PFAXROUTEMETHODFn {
-    public operator fun invoke(param0: Long, param1: Long, param2: Long): BOOL
+public fun interface PfaxroutemethodFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): Bool
 }
 
-public typealias PFAXROUTEMETHOD = PFAXROUTEMETHODFn?
+public typealias Pfaxroutemethod = PfaxroutemethodFn?
 
-public fun interface PFAXROUTEMODIFYROUTINGDATAFn {
-    public operator fun invoke(jobid: UInt, routingguid: PCWSTR, routingdata: Long, routingdatasize: UInt): BOOL
+public fun interface PfaxroutemodifyroutingdataFn {
+    public operator fun invoke(jobid: UInt, routingguid: Pcwstr, routingdata: COpaquePointer?, routingdatasize: UInt): Bool
 }
 
-public typealias PFAXROUTEMODIFYROUTINGDATA = PFAXROUTEMODIFYROUTINGDATAFn?
+public typealias Pfaxroutemodifyroutingdata = PfaxroutemodifyroutingdataFn?
 
-public fun interface PFAXROUTESETROUTINGINFOFn {
-    public operator fun invoke(param0: PCWSTR, param1: UInt, param2: Long, param3: UInt): BOOL
+public fun interface PfaxroutesetroutinginfoFn {
+    public operator fun invoke(param0: Pcwstr, param1: UInt, param2: COpaquePointer?, param3: UInt): Bool
 }
 
-public typealias PFAXROUTESETROUTINGINFO = PFAXROUTESETROUTINGINFOFn?
+public typealias Pfaxroutesetroutinginfo = PfaxroutesetroutinginfoFn?
 
-public fun interface PFAXSENDDOCUMENTAFn {
-    public operator fun invoke(faxhandle: HANDLE, filename: PCSTR, jobparams: Long, coverpageinfo: Long, faxjobid: Long): BOOL
+public fun interface PfaxsenddocumentaFn {
+    public operator fun invoke(faxhandle: Handle, filename: Pcstr, jobparams: COpaquePointer?, coverpageinfo: COpaquePointer?, faxjobid: COpaquePointer?): Bool
 }
 
-public typealias PFAXSENDDOCUMENTA = PFAXSENDDOCUMENTAFn?
+public typealias Pfaxsenddocumenta = PfaxsenddocumentaFn?
 
-public fun interface PFAXSENDDOCUMENTFORBROADCASTAFn {
-    public operator fun invoke(faxhandle: HANDLE, filename: PCSTR, faxjobid: Long, faxrecipientcallback: PFAX_RECIPIENT_CALLBACKA, context: Long): BOOL
+public fun interface PfaxsenddocumentforbroadcastaFn {
+    public operator fun invoke(faxhandle: Handle, filename: Pcstr, faxjobid: COpaquePointer?, faxrecipientcallback: PfaxRecipientCallbacka, context: COpaquePointer?): Bool
 }
 
-public typealias PFAXSENDDOCUMENTFORBROADCASTA = PFAXSENDDOCUMENTFORBROADCASTAFn?
+public typealias Pfaxsenddocumentforbroadcasta = PfaxsenddocumentforbroadcastaFn?
 
-public fun interface PFAXSENDDOCUMENTFORBROADCASTWFn {
-    public operator fun invoke(faxhandle: HANDLE, filename: PCWSTR, faxjobid: Long, faxrecipientcallback: PFAX_RECIPIENT_CALLBACKW, context: Long): BOOL
+public fun interface PfaxsenddocumentforbroadcastwFn {
+    public operator fun invoke(faxhandle: Handle, filename: Pcwstr, faxjobid: COpaquePointer?, faxrecipientcallback: PfaxRecipientCallbackw, context: COpaquePointer?): Bool
 }
 
-public typealias PFAXSENDDOCUMENTFORBROADCASTW = PFAXSENDDOCUMENTFORBROADCASTWFn?
+public typealias Pfaxsenddocumentforbroadcastw = PfaxsenddocumentforbroadcastwFn?
 
-public fun interface PFAXSENDDOCUMENTWFn {
-    public operator fun invoke(faxhandle: HANDLE, filename: PCWSTR, jobparams: Long, coverpageinfo: Long, faxjobid: Long): BOOL
+public fun interface PfaxsenddocumentwFn {
+    public operator fun invoke(faxhandle: Handle, filename: Pcwstr, jobparams: COpaquePointer?, coverpageinfo: COpaquePointer?, faxjobid: COpaquePointer?): Bool
 }
 
-public typealias PFAXSENDDOCUMENTW = PFAXSENDDOCUMENTWFn?
+public typealias Pfaxsenddocumentw = PfaxsenddocumentwFn?
 
-public fun interface PFAXSETCONFIGURATIONAFn {
-    public operator fun invoke(faxhandle: HANDLE, faxconfig: Long): BOOL
+public fun interface PfaxsetconfigurationaFn {
+    public operator fun invoke(faxhandle: Handle, faxconfig: COpaquePointer?): Bool
 }
 
-public typealias PFAXSETCONFIGURATIONA = PFAXSETCONFIGURATIONAFn?
+public typealias Pfaxsetconfigurationa = PfaxsetconfigurationaFn?
 
-public fun interface PFAXSETCONFIGURATIONWFn {
-    public operator fun invoke(faxhandle: HANDLE, faxconfig: Long): BOOL
+public fun interface PfaxsetconfigurationwFn {
+    public operator fun invoke(faxhandle: Handle, faxconfig: COpaquePointer?): Bool
 }
 
-public typealias PFAXSETCONFIGURATIONW = PFAXSETCONFIGURATIONWFn?
+public typealias Pfaxsetconfigurationw = PfaxsetconfigurationwFn?
 
-public fun interface PFAXSETGLOBALROUTINGINFOAFn {
-    public operator fun invoke(faxporthandle: HANDLE, routinginfo: Long): BOOL
+public fun interface PfaxsetglobalroutinginfoaFn {
+    public operator fun invoke(faxporthandle: Handle, routinginfo: COpaquePointer?): Bool
 }
 
-public typealias PFAXSETGLOBALROUTINGINFOA = PFAXSETGLOBALROUTINGINFOAFn?
+public typealias Pfaxsetglobalroutinginfoa = PfaxsetglobalroutinginfoaFn?
 
-public fun interface PFAXSETGLOBALROUTINGINFOWFn {
-    public operator fun invoke(faxporthandle: HANDLE, routinginfo: Long): BOOL
+public fun interface PfaxsetglobalroutinginfowFn {
+    public operator fun invoke(faxporthandle: Handle, routinginfo: COpaquePointer?): Bool
 }
 
-public typealias PFAXSETGLOBALROUTINGINFOW = PFAXSETGLOBALROUTINGINFOWFn?
+public typealias Pfaxsetglobalroutinginfow = PfaxsetglobalroutinginfowFn?
 
-public fun interface PFAXSETJOBAFn {
-    public operator fun invoke(faxhandle: HANDLE, jobid: UInt, command: UInt, jobentry: Long): BOOL
+public fun interface PfaxsetjobaFn {
+    public operator fun invoke(faxhandle: Handle, jobid: UInt, command: UInt, jobentry: COpaquePointer?): Bool
 }
 
-public typealias PFAXSETJOBA = PFAXSETJOBAFn?
+public typealias Pfaxsetjoba = PfaxsetjobaFn?
 
-public fun interface PFAXSETJOBWFn {
-    public operator fun invoke(faxhandle: HANDLE, jobid: UInt, command: UInt, jobentry: Long): BOOL
+public fun interface PfaxsetjobwFn {
+    public operator fun invoke(faxhandle: Handle, jobid: UInt, command: UInt, jobentry: COpaquePointer?): Bool
 }
 
-public typealias PFAXSETJOBW = PFAXSETJOBWFn?
+public typealias Pfaxsetjobw = PfaxsetjobwFn?
 
-public fun interface PFAXSETLOGGINGCATEGORIESAFn {
-    public operator fun invoke(faxhandle: HANDLE, categories: Long, numbercategories: UInt): BOOL
+public fun interface PfaxsetloggingcategoriesaFn {
+    public operator fun invoke(faxhandle: Handle, categories: COpaquePointer?, numbercategories: UInt): Bool
 }
 
-public typealias PFAXSETLOGGINGCATEGORIESA = PFAXSETLOGGINGCATEGORIESAFn?
+public typealias Pfaxsetloggingcategoriesa = PfaxsetloggingcategoriesaFn?
 
-public fun interface PFAXSETLOGGINGCATEGORIESWFn {
-    public operator fun invoke(faxhandle: HANDLE, categories: Long, numbercategories: UInt): BOOL
+public fun interface PfaxsetloggingcategorieswFn {
+    public operator fun invoke(faxhandle: Handle, categories: COpaquePointer?, numbercategories: UInt): Bool
 }
 
-public typealias PFAXSETLOGGINGCATEGORIESW = PFAXSETLOGGINGCATEGORIESWFn?
+public typealias Pfaxsetloggingcategoriesw = PfaxsetloggingcategorieswFn?
 
-public fun interface PFAXSETPORTAFn {
-    public operator fun invoke(faxporthandle: HANDLE, portinfo: Long): BOOL
+public fun interface PfaxsetportaFn {
+    public operator fun invoke(faxporthandle: Handle, portinfo: COpaquePointer?): Bool
 }
 
-public typealias PFAXSETPORTA = PFAXSETPORTAFn?
+public typealias Pfaxsetporta = PfaxsetportaFn?
 
-public fun interface PFAXSETPORTWFn {
-    public operator fun invoke(faxporthandle: HANDLE, portinfo: Long): BOOL
+public fun interface PfaxsetportwFn {
+    public operator fun invoke(faxporthandle: Handle, portinfo: COpaquePointer?): Bool
 }
 
-public typealias PFAXSETPORTW = PFAXSETPORTWFn?
+public typealias Pfaxsetportw = PfaxsetportwFn?
 
-public fun interface PFAXSETROUTINGINFOAFn {
-    public operator fun invoke(faxporthandle: HANDLE, routingguid: PCSTR, routinginfobuffer: Long, routinginfobuffersize: UInt): BOOL
+public fun interface PfaxsetroutinginfoaFn {
+    public operator fun invoke(faxporthandle: Handle, routingguid: Pcstr, routinginfobuffer: COpaquePointer?, routinginfobuffersize: UInt): Bool
 }
 
-public typealias PFAXSETROUTINGINFOA = PFAXSETROUTINGINFOAFn?
+public typealias Pfaxsetroutinginfoa = PfaxsetroutinginfoaFn?
 
-public fun interface PFAXSETROUTINGINFOWFn {
-    public operator fun invoke(faxporthandle: HANDLE, routingguid: PCWSTR, routinginfobuffer: Long, routinginfobuffersize: UInt): BOOL
+public fun interface PfaxsetroutinginfowFn {
+    public operator fun invoke(faxporthandle: Handle, routingguid: Pcwstr, routinginfobuffer: COpaquePointer?, routinginfobuffersize: UInt): Bool
 }
 
-public typealias PFAXSETROUTINGINFOW = PFAXSETROUTINGINFOWFn?
+public typealias Pfaxsetroutinginfow = PfaxsetroutinginfowFn?
 
-public fun interface PFAXSTARTPRINTJOBAFn {
-    public operator fun invoke(printername: PCSTR, printinfo: Long, faxjobid: Long, faxcontextinfo: Long): BOOL
+public fun interface PfaxstartprintjobaFn {
+    public operator fun invoke(printername: Pcstr, printinfo: COpaquePointer?, faxjobid: COpaquePointer?, faxcontextinfo: COpaquePointer?): Bool
 }
 
-public typealias PFAXSTARTPRINTJOBA = PFAXSTARTPRINTJOBAFn?
+public typealias Pfaxstartprintjoba = PfaxstartprintjobaFn?
 
-public fun interface PFAXSTARTPRINTJOBWFn {
-    public operator fun invoke(printername: PCWSTR, printinfo: Long, faxjobid: Long, faxcontextinfo: Long): BOOL
+public fun interface PfaxstartprintjobwFn {
+    public operator fun invoke(printername: Pcwstr, printinfo: COpaquePointer?, faxjobid: COpaquePointer?, faxcontextinfo: COpaquePointer?): Bool
 }
 
-public typealias PFAXSTARTPRINTJOBW = PFAXSTARTPRINTJOBWFn?
+public typealias Pfaxstartprintjobw = PfaxstartprintjobwFn?
 
-public fun interface PFAXUNREGISTERSERVICEPROVIDERWFn {
-    public operator fun invoke(deviceprovider: PCWSTR): BOOL
+public fun interface PfaxunregisterserviceproviderwFn {
+    public operator fun invoke(deviceprovider: Pcwstr): Bool
 }
 
-public typealias PFAXUNREGISTERSERVICEPROVIDERW = PFAXUNREGISTERSERVICEPROVIDERWFn?
+public typealias Pfaxunregisterserviceproviderw = PfaxunregisterserviceproviderwFn?
 
-public fun interface PFAX_EXT_CONFIG_CHANGEFn {
-    public operator fun invoke(param0: UInt, param1: PCWSTR, param2: Long, param3: UInt): HRESULT
+public fun interface PfaxExtConfigChangeFn {
+    public operator fun invoke(param0: UInt, param1: Pcwstr, param2: COpaquePointer?, param3: UInt): Hresult
 }
 
-public typealias PFAX_EXT_CONFIG_CHANGE = PFAX_EXT_CONFIG_CHANGEFn?
+public typealias PfaxExtConfigChange = PfaxExtConfigChangeFn?
 
-public fun interface PFAX_EXT_FREE_BUFFERFn {
-    public operator fun invoke(param0: Long)
+public fun interface PfaxExtFreeBufferFn {
+    public operator fun invoke(param0: COpaquePointer?)
 }
 
-public typealias PFAX_EXT_FREE_BUFFER = PFAX_EXT_FREE_BUFFERFn?
+public typealias PfaxExtFreeBuffer = PfaxExtFreeBufferFn?
 
-public fun interface PFAX_EXT_GET_DATAFn {
-    public operator fun invoke(param0: UInt, param1: FAX_ENUM_DEVICE_ID_SOURCE, param2: PCWSTR, param3: Long, param4: Long): UInt
+public fun interface PfaxExtGetDataFn {
+    public operator fun invoke(param0: UInt, param1: FaxEnumDeviceIdSource, param2: Pcwstr, param3: COpaquePointer?, param4: COpaquePointer?): UInt
 }
 
-public typealias PFAX_EXT_GET_DATA = PFAX_EXT_GET_DATAFn?
+public typealias PfaxExtGetData = PfaxExtGetDataFn?
 
-public fun interface PFAX_EXT_INITIALIZE_CONFIGFn {
-    public operator fun invoke(param0: PFAX_EXT_GET_DATA, param1: PFAX_EXT_SET_DATA, param2: PFAX_EXT_REGISTER_FOR_EVENTS, param3: PFAX_EXT_UNREGISTER_FOR_EVENTS, param4: PFAX_EXT_FREE_BUFFER): HRESULT
+public fun interface PfaxExtInitializeConfigFn {
+    public operator fun invoke(param0: PfaxExtGetData, param1: PfaxExtSetData, param2: PfaxExtRegisterForEvents, param3: PfaxExtUnregisterForEvents, param4: PfaxExtFreeBuffer): Hresult
 }
 
-public typealias PFAX_EXT_INITIALIZE_CONFIG = PFAX_EXT_INITIALIZE_CONFIGFn?
+public typealias PfaxExtInitializeConfig = PfaxExtInitializeConfigFn?
 
-public fun interface PFAX_EXT_REGISTER_FOR_EVENTSFn {
-    public operator fun invoke(param0: HINSTANCE, param1: UInt, param2: FAX_ENUM_DEVICE_ID_SOURCE, param3: PCWSTR, param4: PFAX_EXT_CONFIG_CHANGE): HANDLE
+public fun interface PfaxExtRegisterForEventsFn {
+    public operator fun invoke(param0: Hinstance, param1: UInt, param2: FaxEnumDeviceIdSource, param3: Pcwstr, param4: PfaxExtConfigChange): Handle
 }
 
-public typealias PFAX_EXT_REGISTER_FOR_EVENTS = PFAX_EXT_REGISTER_FOR_EVENTSFn?
+public typealias PfaxExtRegisterForEvents = PfaxExtRegisterForEventsFn?
 
-public fun interface PFAX_EXT_SET_DATAFn {
-    public operator fun invoke(param0: HINSTANCE, param1: UInt, param2: FAX_ENUM_DEVICE_ID_SOURCE, param3: PCWSTR, param4: Long, param5: UInt): UInt
+public fun interface PfaxExtSetDataFn {
+    public operator fun invoke(param0: Hinstance, param1: UInt, param2: FaxEnumDeviceIdSource, param3: Pcwstr, param4: COpaquePointer?, param5: UInt): UInt
 }
 
-public typealias PFAX_EXT_SET_DATA = PFAX_EXT_SET_DATAFn?
+public typealias PfaxExtSetData = PfaxExtSetDataFn?
 
-public fun interface PFAX_EXT_UNREGISTER_FOR_EVENTSFn {
-    public operator fun invoke(param0: HANDLE): UInt
+public fun interface PfaxExtUnregisterForEventsFn {
+    public operator fun invoke(param0: Handle): UInt
 }
 
-public typealias PFAX_EXT_UNREGISTER_FOR_EVENTS = PFAX_EXT_UNREGISTER_FOR_EVENTSFn?
+public typealias PfaxExtUnregisterForEvents = PfaxExtUnregisterForEventsFn?
 
-public fun interface PFAX_LINECALLBACKFn {
-    public operator fun invoke(faxhandle: HANDLE, hdevice: UInt, dwmessage: UInt, dwinstance: ULong, dwparam1: ULong, dwparam2: ULong, dwparam3: ULong)
+public fun interface PfaxLinecallbackFn {
+    public operator fun invoke(faxhandle: Handle, hdevice: UInt, dwmessage: UInt, dwinstance: ULong, dwparam1: ULong, dwparam2: ULong, dwparam3: ULong)
 }
 
-public typealias PFAX_LINECALLBACK = PFAX_LINECALLBACKFn?
+public typealias PfaxLinecallback = PfaxLinecallbackFn?
 
-public fun interface PFAX_RECIPIENT_CALLBACKAFn {
-    public operator fun invoke(faxhandle: HANDLE, recipientnumber: UInt, context: Long, jobparams: Long, coverpageinfo: Long): BOOL
+public fun interface PfaxRecipientCallbackaFn {
+    public operator fun invoke(faxhandle: Handle, recipientnumber: UInt, context: COpaquePointer?, jobparams: COpaquePointer?, coverpageinfo: COpaquePointer?): Bool
 }
 
-public typealias PFAX_RECIPIENT_CALLBACKA = PFAX_RECIPIENT_CALLBACKAFn?
+public typealias PfaxRecipientCallbacka = PfaxRecipientCallbackaFn?
 
-public fun interface PFAX_RECIPIENT_CALLBACKWFn {
-    public operator fun invoke(faxhandle: HANDLE, recipientnumber: UInt, context: Long, jobparams: Long, coverpageinfo: Long): BOOL
+public fun interface PfaxRecipientCallbackwFn {
+    public operator fun invoke(faxhandle: Handle, recipientnumber: UInt, context: COpaquePointer?, jobparams: COpaquePointer?, coverpageinfo: COpaquePointer?): Bool
 }
 
-public typealias PFAX_RECIPIENT_CALLBACKW = PFAX_RECIPIENT_CALLBACKWFn?
+public typealias PfaxRecipientCallbackw = PfaxRecipientCallbackwFn?
 
-public fun interface PFAX_ROUTING_INSTALLATION_CALLBACKWFn {
-    public operator fun invoke(faxhandle: HANDLE, context: Long, methodname: PWSTR, friendlyname: PWSTR, functionname: PWSTR, guid: PWSTR): BOOL
+public fun interface PfaxRoutingInstallationCallbackwFn {
+    public operator fun invoke(faxhandle: Handle, context: COpaquePointer?, methodname: Pwstr, friendlyname: Pwstr, functionname: Pwstr, guid: Pwstr): Bool
 }
 
-public typealias PFAX_ROUTING_INSTALLATION_CALLBACKW = PFAX_ROUTING_INSTALLATION_CALLBACKWFn?
+public typealias PfaxRoutingInstallationCallbackw = PfaxRoutingInstallationCallbackwFn?
 
-public fun interface PFAX_SEND_CALLBACKFn {
-    public operator fun invoke(faxhandle: HANDLE, callhandle: UInt, reserved1: UInt, reserved2: UInt): BOOL
+public fun interface PfaxSendCallbackFn {
+    public operator fun invoke(faxhandle: Handle, callhandle: UInt, reserved1: UInt, reserved2: UInt): Bool
 }
 
-public typealias PFAX_SEND_CALLBACK = PFAX_SEND_CALLBACKFn?
+public typealias PfaxSendCallback = PfaxSendCallbackFn?
 
-public fun interface PFAX_SERVICE_CALLBACKFn {
-    public operator fun invoke(faxhandle: HANDLE, deviceid: UInt, param1: ULong, param2: ULong, param3: ULong): BOOL
+public fun interface PfaxServiceCallbackFn {
+    public operator fun invoke(faxhandle: Handle, deviceid: UInt, param1: ULong, param2: ULong, param3: ULong): Bool
 }
 
-public typealias PFAX_SERVICE_CALLBACK = PFAX_SERVICE_CALLBACKFn?
+public typealias PfaxServiceCallback = PfaxServiceCallbackFn?
 
-public typealias STI_DEVICE_MJ_TYPE = Int
+public typealias StiDeviceMjType = Int
 
 public typealias SendToMode = Int

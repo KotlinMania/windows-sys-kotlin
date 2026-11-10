@@ -1,173 +1,175 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.system.services
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
 
-public data class ENUM_SERVICE_STATUSA(
-    public var lpServiceName: PSTR = 0L,
-    public var lpDisplayName: PSTR = 0L,
-    public var ServiceStatus: SERVICE_STATUS = SERVICE_STATUS(),
+public data class EnumServiceStatusa(
+    public var lpServiceName: Pstr = null,
+    public var lpDisplayName: Pstr = null,
+    public var serviceStatus: ServiceStatus = ServiceStatus(),
 )
 
-public data class ENUM_SERVICE_STATUSW(
-    public var lpServiceName: PWSTR = 0L,
-    public var lpDisplayName: PWSTR = 0L,
-    public var ServiceStatus: SERVICE_STATUS = SERVICE_STATUS(),
+public data class EnumServiceStatusw(
+    public var lpServiceName: Pwstr = null,
+    public var lpDisplayName: Pwstr = null,
+    public var serviceStatus: ServiceStatus = ServiceStatus(),
 )
 
-public data class ENUM_SERVICE_STATUS_PROCESSA(
-    public var lpServiceName: PSTR = 0L,
-    public var lpDisplayName: PSTR = 0L,
-    public var ServiceStatusProcess: SERVICE_STATUS_PROCESS = SERVICE_STATUS_PROCESS(),
+public data class EnumServiceStatusProcessa(
+    public var lpServiceName: Pstr = null,
+    public var lpDisplayName: Pstr = null,
+    public var serviceStatusProcess: ServiceStatusProcess = ServiceStatusProcess(),
 )
 
-public data class ENUM_SERVICE_STATUS_PROCESSW(
-    public var lpServiceName: PWSTR = 0L,
-    public var lpDisplayName: PWSTR = 0L,
-    public var ServiceStatusProcess: SERVICE_STATUS_PROCESS = SERVICE_STATUS_PROCESS(),
+public data class EnumServiceStatusProcessw(
+    public var lpServiceName: Pwstr = null,
+    public var lpDisplayName: Pwstr = null,
+    public var serviceStatusProcess: ServiceStatusProcess = ServiceStatusProcess(),
 )
 
-public data class QUERY_SERVICE_CONFIGA(
-    public var dwServiceType: ENUM_SERVICE_TYPE = 0u,
-    public var dwStartType: SERVICE_START_TYPE = 0u,
-    public var dwErrorControl: SERVICE_ERROR = 0u,
-    public var lpBinaryPathName: PSTR = 0L,
-    public var lpLoadOrderGroup: PSTR = 0L,
+public data class QueryServiceConfiga(
+    public var dwServiceType: EnumServiceType = 0u,
+    public var dwStartType: ServiceStartType = 0u,
+    public var dwErrorControl: ServiceError = 0u,
+    public var lpBinaryPathName: Pstr = null,
+    public var lpLoadOrderGroup: Pstr = null,
     public var dwTagId: UInt = 0u,
-    public var lpDependencies: PSTR = 0L,
-    public var lpServiceStartName: PSTR = 0L,
-    public var lpDisplayName: PSTR = 0L,
+    public var lpDependencies: Pstr = null,
+    public var lpServiceStartName: Pstr = null,
+    public var lpDisplayName: Pstr = null,
 )
 
-public data class QUERY_SERVICE_CONFIGW(
-    public var dwServiceType: ENUM_SERVICE_TYPE = 0u,
-    public var dwStartType: SERVICE_START_TYPE = 0u,
-    public var dwErrorControl: SERVICE_ERROR = 0u,
-    public var lpBinaryPathName: PWSTR = 0L,
-    public var lpLoadOrderGroup: PWSTR = 0L,
+public data class QueryServiceConfigw(
+    public var dwServiceType: EnumServiceType = 0u,
+    public var dwStartType: ServiceStartType = 0u,
+    public var dwErrorControl: ServiceError = 0u,
+    public var lpBinaryPathName: Pwstr = null,
+    public var lpLoadOrderGroup: Pwstr = null,
     public var dwTagId: UInt = 0u,
-    public var lpDependencies: PWSTR = 0L,
-    public var lpServiceStartName: PWSTR = 0L,
-    public var lpDisplayName: PWSTR = 0L,
+    public var lpDependencies: Pwstr = null,
+    public var lpServiceStartName: Pwstr = null,
+    public var lpDisplayName: Pwstr = null,
 )
 
-public data class QUERY_SERVICE_LOCK_STATUSA(
+public data class QueryServiceLockStatusa(
     public var fIsLocked: UInt = 0u,
-    public var lpLockOwner: PSTR = 0L,
+    public var lpLockOwner: Pstr = null,
     public var dwLockDuration: UInt = 0u,
 )
 
-public data class QUERY_SERVICE_LOCK_STATUSW(
+public data class QueryServiceLockStatusw(
     public var fIsLocked: UInt = 0u,
-    public var lpLockOwner: PWSTR = 0L,
+    public var lpLockOwner: Pwstr = null,
     public var dwLockDuration: UInt = 0u,
 )
 
-public data class SC_ACTION(public var Type: SC_ACTION_TYPE = 0, public var Delay: UInt = 0u)
+public data class ScAction(public var type: ScActionType = 0, public var delay: UInt = 0u)
 
-public data class SERVICE_CONTROL_STATUS_REASON_PARAMSA(
+public data class ServiceControlStatusReasonParamsa(
     public var dwReason: UInt = 0u,
-    public var pszComment: PSTR = 0L,
-    public var ServiceStatus: SERVICE_STATUS_PROCESS = SERVICE_STATUS_PROCESS(),
+    public var pszComment: Pstr = null,
+    public var serviceStatus: ServiceStatusProcess = ServiceStatusProcess(),
 )
 
-public data class SERVICE_CONTROL_STATUS_REASON_PARAMSW(
+public data class ServiceControlStatusReasonParamsw(
     public var dwReason: UInt = 0u,
-    public var pszComment: PWSTR = 0L,
-    public var ServiceStatus: SERVICE_STATUS_PROCESS = SERVICE_STATUS_PROCESS(),
+    public var pszComment: Pwstr = null,
+    public var serviceStatus: ServiceStatusProcess = ServiceStatusProcess(),
 )
 
-public data class SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM(public var u: SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 = SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0())
+public data class ServiceCustomSystemStateChangeDataItem(public var u: ServiceCustomSystemStateChangeDataItem0 = ServiceCustomSystemStateChangeDataItem0())
 
-public data class SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0(public var CustomStateId: SERVICE_TRIGGER_CUSTOM_STATE_ID = SERVICE_TRIGGER_CUSTOM_STATE_ID(), public var s: SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 = SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0())
+public data class ServiceCustomSystemStateChangeDataItem0(public var customStateId: ServiceTriggerCustomStateId = ServiceTriggerCustomStateId(), public var s: ServiceCustomSystemStateChangeDataItem00 = ServiceCustomSystemStateChangeDataItem00())
 
-public data class SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0(public var DataOffset: UInt = 0u, public var Data: UByteArray = UByteArray(1)) {
+public data class ServiceCustomSystemStateChangeDataItem00(public var dataOffset: UInt = 0u, public var data: UByteArray = UByteArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0) return false
-        if (this.DataOffset != other.DataOffset) return false
-        if (!this.Data.contentEquals(other.Data)) return false
+        if (other !is ServiceCustomSystemStateChangeDataItem00) return false
+        if (this.dataOffset != other.dataOffset) return false
+        if (!this.data.contentEquals(other.data)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.DataOffset.hashCode()
-        result = 31 * result + this.Data.contentHashCode()
+        var result = this.dataOffset.hashCode()
+        result = 31 * result + this.data.contentHashCode()
         return result
     }
 }
 
-public data class SERVICE_DELAYED_AUTO_START_INFO(public var fDelayedAutostart: BOOL = 0)
+public data class ServiceDelayedAutoStartInfo(public var fDelayedAutostart: Bool = 0)
 
-public data class SERVICE_DESCRIPTIONA(public var lpDescription: PSTR = 0L)
+public data class ServiceDescriptiona(public var lpDescription: Pstr = null)
 
-public data class SERVICE_DESCRIPTIONW(public var lpDescription: PWSTR = 0L)
+public data class ServiceDescriptionw(public var lpDescription: Pwstr = null)
 
-public data class SERVICE_FAILURE_ACTIONSA(
+public data class ServiceFailureActionsa(
     public var dwResetPeriod: UInt = 0u,
-    public var lpRebootMsg: PSTR = 0L,
-    public var lpCommand: PSTR = 0L,
+    public var lpRebootMsg: Pstr = null,
+    public var lpCommand: Pstr = null,
     public var cActions: UInt = 0u,
-    public var lpsaActions: Long = 0L,
+    public var lpsaActions: ScAction? = null,
 )
 
-public data class SERVICE_FAILURE_ACTIONSW(
+public data class ServiceFailureActionsw(
     public var dwResetPeriod: UInt = 0u,
-    public var lpRebootMsg: PWSTR = 0L,
-    public var lpCommand: PWSTR = 0L,
+    public var lpRebootMsg: Pwstr = null,
+    public var lpCommand: Pwstr = null,
     public var cActions: UInt = 0u,
-    public var lpsaActions: Long = 0L,
+    public var lpsaActions: ScAction? = null,
 )
 
-public data class SERVICE_FAILURE_ACTIONS_FLAG(public var fFailureActionsOnNonCrashFailures: BOOL = 0)
+public data class ServiceFailureActionsFlag(public var fFailureActionsOnNonCrashFailures: Bool = 0)
 
-public data class SERVICE_LAUNCH_PROTECTED_INFO(public var dwLaunchProtected: UInt = 0u)
+public data class ServiceLaunchProtectedInfo(public var dwLaunchProtected: UInt = 0u)
 
-public data class SERVICE_NOTIFY_1(
+public data class ServiceNotify1(
     public var dwVersion: UInt = 0u,
-    public var pfnNotifyCallback: PFN_SC_NOTIFY_CALLBACK = null,
-    public var pContext: Long = 0L,
+    public var pfnNotifyCallback: PfnScNotifyCallback = null,
+    public var pContext: COpaquePointer? = null,
     public var dwNotificationStatus: UInt = 0u,
-    public var ServiceStatus: SERVICE_STATUS_PROCESS = SERVICE_STATUS_PROCESS(),
+    public var serviceStatus: ServiceStatusProcess = ServiceStatusProcess(),
 )
 
-public data class SERVICE_NOTIFY_2A(
+public data class ServiceNotify2a(
     public var dwVersion: UInt = 0u,
-    public var pfnNotifyCallback: PFN_SC_NOTIFY_CALLBACK = null,
-    public var pContext: Long = 0L,
+    public var pfnNotifyCallback: PfnScNotifyCallback = null,
+    public var pContext: COpaquePointer? = null,
     public var dwNotificationStatus: UInt = 0u,
-    public var ServiceStatus: SERVICE_STATUS_PROCESS = SERVICE_STATUS_PROCESS(),
+    public var serviceStatus: ServiceStatusProcess = ServiceStatusProcess(),
     public var dwNotificationTriggered: UInt = 0u,
-    public var pszServiceNames: PSTR = 0L,
+    public var pszServiceNames: Pstr = null,
 )
 
-public data class SERVICE_NOTIFY_2W(
+public data class ServiceNotify2w(
     public var dwVersion: UInt = 0u,
-    public var pfnNotifyCallback: PFN_SC_NOTIFY_CALLBACK = null,
-    public var pContext: Long = 0L,
+    public var pfnNotifyCallback: PfnScNotifyCallback = null,
+    public var pContext: COpaquePointer? = null,
     public var dwNotificationStatus: UInt = 0u,
-    public var ServiceStatus: SERVICE_STATUS_PROCESS = SERVICE_STATUS_PROCESS(),
+    public var serviceStatus: ServiceStatusProcess = ServiceStatusProcess(),
     public var dwNotificationTriggered: UInt = 0u,
-    public var pszServiceNames: PWSTR = 0L,
+    public var pszServiceNames: Pwstr = null,
 )
 
-public data class SERVICE_PREFERRED_NODE_INFO(public var usPreferredNode: UShort = 0u, public var fDelete: Boolean = false)
+public data class ServicePreferredNodeInfo(public var usPreferredNode: UShort = 0u, public var fDelete: Boolean = false)
 
-public data class SERVICE_PRESHUTDOWN_INFO(public var dwPreshutdownTimeout: UInt = 0u)
+public data class ServicePreshutdownInfo(public var dwPreshutdownTimeout: UInt = 0u)
 
-public data class SERVICE_REQUIRED_PRIVILEGES_INFOA(public var pmszRequiredPrivileges: PSTR = 0L)
+public data class ServiceRequiredPrivilegesInfoa(public var pmszRequiredPrivileges: Pstr = null)
 
-public data class SERVICE_REQUIRED_PRIVILEGES_INFOW(public var pmszRequiredPrivileges: PWSTR = 0L)
+public data class ServiceRequiredPrivilegesInfow(public var pmszRequiredPrivileges: Pwstr = null)
 
-public data class SERVICE_SID_INFO(public var dwServiceSidType: UInt = 0u)
+public data class ServiceSidInfo(public var dwServiceSidType: UInt = 0u)
 
-public data class SERVICE_START_REASON(public var dwReason: UInt = 0u)
+public data class ServiceStartReason(public var dwReason: UInt = 0u)
 
-public data class SERVICE_STATUS(
-    public var dwServiceType: ENUM_SERVICE_TYPE = 0u,
-    public var dwCurrentState: SERVICE_STATUS_CURRENT_STATE = 0u,
+public data class ServiceStatus(
+    public var dwServiceType: EnumServiceType = 0u,
+    public var dwCurrentState: ServiceStatusCurrentState = 0u,
     public var dwControlsAccepted: UInt = 0u,
     public var dwWin32ExitCode: UInt = 0u,
     public var dwServiceSpecificExitCode: UInt = 0u,
@@ -175,53 +177,53 @@ public data class SERVICE_STATUS(
     public var dwWaitHint: UInt = 0u,
 )
 
-public data class SERVICE_STATUS_PROCESS(
-    public var dwServiceType: ENUM_SERVICE_TYPE = 0u,
-    public var dwCurrentState: SERVICE_STATUS_CURRENT_STATE = 0u,
+public data class ServiceStatusProcess(
+    public var dwServiceType: EnumServiceType = 0u,
+    public var dwCurrentState: ServiceStatusCurrentState = 0u,
     public var dwControlsAccepted: UInt = 0u,
     public var dwWin32ExitCode: UInt = 0u,
     public var dwServiceSpecificExitCode: UInt = 0u,
     public var dwCheckPoint: UInt = 0u,
     public var dwWaitHint: UInt = 0u,
     public var dwProcessId: UInt = 0u,
-    public var dwServiceFlags: SERVICE_RUNS_IN_PROCESS = 0u,
+    public var dwServiceFlags: ServiceRunsInProcess = 0u,
 )
 
-public data class SERVICE_TABLE_ENTRYA(public var lpServiceName: PSTR = 0L, public var lpServiceProc: LPSERVICE_MAIN_FUNCTIONA = null)
+public data class ServiceTableEntrya(public var lpServiceName: Pstr = null, public var lpServiceProc: LpserviceMainFunctiona = null)
 
-public data class SERVICE_TABLE_ENTRYW(public var lpServiceName: PWSTR = 0L, public var lpServiceProc: LPSERVICE_MAIN_FUNCTIONW = null)
+public data class ServiceTableEntryw(public var lpServiceName: Pwstr = null, public var lpServiceProc: LpserviceMainFunctionw = null)
 
-public data class SERVICE_TIMECHANGE_INFO(public var liNewTime: Long = 0L, public var liOldTime: Long = 0L)
+public data class ServiceTimechangeInfo(public var liNewTime: Long = 0L, public var liOldTime: Long = 0L)
 
-public data class SERVICE_TRIGGER(
-    public var dwTriggerType: SERVICE_TRIGGER_TYPE = 0u,
-    public var dwAction: SERVICE_TRIGGER_ACTION = 0u,
-    public var pTriggerSubtype: Long = 0L,
+public data class ServiceTrigger(
+    public var dwTriggerType: ServiceTriggerType = 0u,
+    public var dwAction: ServiceTriggerAction = 0u,
+    public var pTriggerSubtype: Guid? = null,
     public var cDataItems: UInt = 0u,
-    public var pDataItems: Long = 0L,
+    public var pDataItems: ServiceTriggerSpecificDataItem? = null,
 )
 
-public data class SERVICE_TRIGGER_CUSTOM_STATE_ID(public var Data: UIntArray = UIntArray(2)) {
+public data class ServiceTriggerCustomStateId(public var data: UIntArray = UIntArray(2)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SERVICE_TRIGGER_CUSTOM_STATE_ID) return false
-        if (!this.Data.contentEquals(other.Data)) return false
+        if (other !is ServiceTriggerCustomStateId) return false
+        if (!this.data.contentEquals(other.data)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        return this.Data.contentHashCode()
+        return this.data.contentHashCode()
     }
 }
 
-public data class SERVICE_TRIGGER_INFO(
+public data class ServiceTriggerInfo(
     public var cTriggers: UInt = 0u,
-    public var pTriggers: Long = 0L,
-    public var pReserved: Long = 0L,
+    public var pTriggers: ServiceTrigger? = null,
+    public var pReserved: COpaquePointer? = null,
 )
 
-public data class SERVICE_TRIGGER_SPECIFIC_DATA_ITEM(
-    public var dwDataType: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = 0u,
+public data class ServiceTriggerSpecificDataItem(
+    public var dwDataType: ServiceTriggerSpecificDataItemDataType = 0u,
     public var cbData: UInt = 0u,
-    public var pData: Long = 0L,
+    public var pData: COpaquePointer? = null,
 )

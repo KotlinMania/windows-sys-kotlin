@@ -1,79 +1,80 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.system.com.urlmon
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.SYSTEMTIME
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Systemtime
 
-public data class CODEBASEHOLD(
+public data class Codebasehold(
     public var cbSize: UInt = 0u,
-    public var szDistUnit: PWSTR = 0L,
-    public var szCodeBase: PWSTR = 0L,
+    public var szDistUnit: Pwstr = null,
+    public var szCodeBase: Pwstr = null,
     public var dwVersionMS: UInt = 0u,
     public var dwVersionLS: UInt = 0u,
     public var dwStyle: UInt = 0u,
 )
 
-public data class CONFIRMSAFETY(
-    public var clsid: GUID = GUID(),
-    public var pUnk: Long = 0L,
+public data class Confirmsafety(
+    public var clsid: Guid = Guid(),
+    public var pUnk: COpaquePointer? = null,
     public var dwFlags: UInt = 0u,
 )
 
-public data class DATAINFO(
+public data class Datainfo(
     public var ulTotalSize: UInt = 0u,
     public var ulavrPacketSize: UInt = 0u,
     public var ulConnectSpeed: UInt = 0u,
     public var ulProcessorSpeed: UInt = 0u,
 )
 
-public data class HIT_LOGGING_INFO(
+public data class HitLoggingInfo(
     public var dwStructSize: UInt = 0u,
-    public var lpszLoggedUrlName: PSTR = 0L,
-    public var StartTime: SYSTEMTIME = SYSTEMTIME(),
-    public var EndTime: SYSTEMTIME = SYSTEMTIME(),
-    public var lpszExtendedInfo: PSTR = 0L,
+    public var lpszLoggedUrlName: Pstr = null,
+    public var startTime: Systemtime = Systemtime(),
+    public var endTime: Systemtime = Systemtime(),
+    public var lpszExtendedInfo: Pstr = null,
 )
 
-public data class PROTOCOLDATA(
+public data class Protocoldata(
     public var grfFlags: UInt = 0u,
     public var dwState: UInt = 0u,
-    public var pData: Long = 0L,
+    public var pData: COpaquePointer? = null,
     public var cbData: UInt = 0u,
 )
 
-public data class PROTOCOLFILTERDATA(
+public data class Protocolfilterdata(
     public var cbSize: UInt = 0u,
-    public var pProtocolSink: Long = 0L,
-    public var pProtocol: Long = 0L,
-    public var pUnk: Long = 0L,
+    public var pProtocolSink: COpaquePointer? = null,
+    public var pProtocol: COpaquePointer? = null,
+    public var pUnk: COpaquePointer? = null,
     public var dwFilterFlags: UInt = 0u,
 )
 
-public data class PROTOCOL_ARGUMENT(public var szMethod: PCWSTR = 0L, public var szTargetUrl: PCWSTR = 0L)
+public data class ProtocolArgument(public var szMethod: Pcwstr = null, public var szTargetUrl: Pcwstr = null)
 
-public data class REMSECURITY_ATTRIBUTES(
+public data class RemsecurityAttributes(
     public var nLength: UInt = 0u,
     public var lpSecurityDescriptor: UInt = 0u,
-    public var bInheritHandle: BOOL = 0,
+    public var bInheritHandle: Bool = 0,
 )
 
 public data class RemBINDINFO(
     public var cbSize: UInt = 0u,
-    public var szExtraInfo: PWSTR = 0L,
+    public var szExtraInfo: Pwstr = null,
     public var grfBindInfoF: UInt = 0u,
     public var dwBindVerb: UInt = 0u,
-    public var szCustomVerb: PWSTR = 0L,
+    public var szCustomVerb: Pwstr = null,
     public var cbstgmedData: UInt = 0u,
     public var dwOptions: UInt = 0u,
     public var dwOptionsFlags: UInt = 0u,
     public var dwCodePage: UInt = 0u,
-    public var securityAttributes: REMSECURITY_ATTRIBUTES = REMSECURITY_ATTRIBUTES(),
-    public var iid: GUID = GUID(),
-    public var pUnk: Long = 0L,
+    public var securityAttributes: RemsecurityAttributes = RemsecurityAttributes(),
+    public var iid: Guid = Guid(),
+    public var pUnk: COpaquePointer? = null,
     public var dwReserved: UInt = 0u,
 )
 
@@ -85,13 +86,13 @@ public data class RemFORMATETC(
     public var tymed: UInt = 0u,
 )
 
-public data class SOFTDISTINFO(
+public data class Softdistinfo(
     public var cbSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
     public var dwAdState: UInt = 0u,
-    public var szTitle: PWSTR = 0L,
-    public var szAbstract: PWSTR = 0L,
-    public var szHREF: PWSTR = 0L,
+    public var szTitle: Pwstr = null,
+    public var szAbstract: Pwstr = null,
+    public var szHREF: Pwstr = null,
     public var dwInstalledVersionMS: UInt = 0u,
     public var dwInstalledVersionLS: UInt = 0u,
     public var dwUpdateVersionMS: UInt = 0u,
@@ -102,12 +103,12 @@ public data class SOFTDISTINFO(
 )
 
 public data class StartParam(
-    public var iid: GUID = GUID(),
-    public var pIBindCtx: Long = 0L,
-    public var pItf: Long = 0L,
+    public var iid: Guid = Guid(),
+    public var pIBindCtx: COpaquePointer? = null,
+    public var pItf: COpaquePointer? = null,
 )
 
-public data class ZONEATTRIBUTES(
+public data class Zoneattributes(
     public var cbSize: UInt = 0u,
     public var szDisplayName: UShortArray = UShortArray(260),
     public var szDescription: UShortArray = UShortArray(200),
@@ -119,7 +120,7 @@ public data class ZONEATTRIBUTES(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is ZONEATTRIBUTES) return false
+        if (other !is Zoneattributes) return false
         if (this.cbSize != other.cbSize) return false
         if (!this.szDisplayName.contentEquals(other.szDisplayName)) return false
         if (!this.szDescription.contentEquals(other.szDescription)) return false

@@ -2,671 +2,700 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 
 private val _windowsWin32NetworkingWindowswebservicesNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun WebAuthNAuthenticatorGetAssertion(hwnd: HWND, pwszrpid: PCWSTR, pwebauthnclientdata: Long, pwebauthngetassertionoptions: Long, ppwebauthnassertion: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WebAuthNAuthenticatorGetAssertion(hwnd.toString(), pwszrpid.toString(), pwebauthnclientdata.toString(), pwebauthngetassertionoptions.toString(), ppwebauthnassertion.toString()) as Int) else 0
+public actual fun webAuthNAuthenticatorGetAssertion(hwnd: Hwnd, pwszrpid: Pcwstr, pwebauthnclientdata: COpaquePointer?, pwebauthngetassertionoptions: COpaquePointer?, ppwebauthnassertion: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_webAuthNAuthenticatorGetAssertion((hwnd?.value ?: 0L).toString(), (pwszrpid?.value ?: 0L).toString(), (pwebauthnclientdata?.value ?: 0L).toString(), (pwebauthngetassertionoptions?.value ?: 0L).toString(), (ppwebauthnassertion?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WebAuthNAuthenticatorMakeCredential(hwnd: HWND, prpinformation: Long, puserinformation: Long, ppubkeycredparams: Long, pwebauthnclientdata: Long, pwebauthnmakecredentialoptions: Long, ppwebauthncredentialattestation: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WebAuthNAuthenticatorMakeCredential(hwnd.toString(), prpinformation.toString(), puserinformation.toString(), ppubkeycredparams.toString(), pwebauthnclientdata.toString(), pwebauthnmakecredentialoptions.toString(), ppwebauthncredentialattestation.toString()) as Int) else 0
+public actual fun webAuthNAuthenticatorMakeCredential(hwnd: Hwnd, prpinformation: COpaquePointer?, puserinformation: COpaquePointer?, ppubkeycredparams: COpaquePointer?, pwebauthnclientdata: COpaquePointer?, pwebauthnmakecredentialoptions: COpaquePointer?, ppwebauthncredentialattestation: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_webAuthNAuthenticatorMakeCredential((hwnd?.value ?: 0L).toString(), (prpinformation?.value ?: 0L).toString(), (puserinformation?.value ?: 0L).toString(), (ppubkeycredparams?.value ?: 0L).toString(), (pwebauthnclientdata?.value ?: 0L).toString(), (pwebauthnmakecredentialoptions?.value ?: 0L).toString(), (ppwebauthncredentialattestation?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WebAuthNCancelCurrentOperation(pcancellationid: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WebAuthNCancelCurrentOperation(pcancellationid.toString()) as Int) else 0
+public actual fun webAuthNCancelCurrentOperation(pcancellationid: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_webAuthNCancelCurrentOperation((pcancellationid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WebAuthNDeletePlatformCredential(cbcredentialid: UInt, pbcredentialid: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WebAuthNDeletePlatformCredential(cbcredentialid.toInt(), pbcredentialid.toString()) as Int) else 0
+public actual fun webAuthNDeletePlatformCredential(cbcredentialid: UInt, pbcredentialid: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_webAuthNDeletePlatformCredential(cbcredentialid.toInt(), (pbcredentialid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WebAuthNFreeAssertion(pwebauthnassertion: Long) {
+public actual fun webAuthNFreeAssertion(pwebauthnassertion: COpaquePointer?) {
     if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) {
-        _windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WebAuthNFreeAssertion(pwebauthnassertion.toString())
+        _windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_webAuthNFreeAssertion((pwebauthnassertion?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun WebAuthNFreeCredentialAttestation(pwebauthncredentialattestation: Long) {
+public actual fun webAuthNFreeCredentialAttestation(pwebauthncredentialattestation: COpaquePointer?) {
     if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) {
-        _windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WebAuthNFreeCredentialAttestation(pwebauthncredentialattestation.toString())
+        _windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_webAuthNFreeCredentialAttestation((pwebauthncredentialattestation?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun WebAuthNFreePlatformCredentialList(pcredentialdetailslist: Long) {
+public actual fun webAuthNFreePlatformCredentialList(pcredentialdetailslist: COpaquePointer?) {
     if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) {
-        _windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WebAuthNFreePlatformCredentialList(pcredentialdetailslist.toString())
+        _windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_webAuthNFreePlatformCredentialList((pcredentialdetailslist?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun WebAuthNGetApiVersionNumber(): UInt =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WebAuthNGetApiVersionNumber() as Int).toUInt() else 0u
+public actual fun webAuthNGetApiVersionNumber(): UInt =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_webAuthNGetApiVersionNumber() as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WebAuthNGetCancellationId(pcancellationid: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WebAuthNGetCancellationId(pcancellationid.toString()) as Int) else 0
+public actual fun webAuthNGetCancellationId(pcancellationid: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_webAuthNGetCancellationId((pcancellationid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WebAuthNGetErrorName(hr: HRESULT): PCWSTR =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WebAuthNGetErrorName(hr) as String).toLong() else 0L
+public actual fun webAuthNGetErrorName(hr: Hresult): Pcwstr =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_webAuthNGetErrorName(hr) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WebAuthNGetPlatformCredentialList(pgetcredentialsoptions: Long, ppcredentialdetailslist: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WebAuthNGetPlatformCredentialList(pgetcredentialsoptions.toString(), ppcredentialdetailslist.toString()) as Int) else 0
+public actual fun webAuthNGetPlatformCredentialList(pgetcredentialsoptions: COpaquePointer?, ppcredentialdetailslist: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_webAuthNGetPlatformCredentialList((pgetcredentialsoptions?.value ?: 0L).toString(), (ppcredentialdetailslist?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WebAuthNGetW3CExceptionDOMError(hr: HRESULT): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WebAuthNGetW3CExceptionDOMError(hr) as Int) else 0
+public actual fun webAuthNGetW3CExceptionDOMError(hr: Hresult): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_webAuthNGetW3CExceptionDOMError(hr) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable(pbisuserverifyingplatformauthenticatoravailable: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable(pbisuserverifyingplatformauthenticatoravailable.toString()) as Int) else 0
+public actual fun webAuthNIsUserVerifyingPlatformAuthenticatorAvailable(pbisuserverifyingplatformauthenticatoravailable: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_webAuthNIsUserVerifyingPlatformAuthenticatorAvailable((pbisuserverifyingplatformauthenticatoravailable?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsAbandonCall(serviceproxy: Long, callid: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsAbandonCall(serviceproxy.toString(), callid.toInt(), error.toString()) as Int) else 0
+public actual fun wsAbandonCall(serviceproxy: COpaquePointer?, callid: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsAbandonCall((serviceproxy?.value ?: 0L).toString(), callid.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsAbandonMessage(channel: Long, message: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsAbandonMessage(channel.toString(), message.toString(), error.toString()) as Int) else 0
+public actual fun wsAbandonMessage(channel: COpaquePointer?, message: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsAbandonMessage((channel?.value ?: 0L).toString(), (message?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsAbortChannel(channel: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsAbortChannel(channel.toString(), error.toString()) as Int) else 0
+public actual fun wsAbortChannel(channel: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsAbortChannel((channel?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsAbortListener(listener: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsAbortListener(listener.toString(), error.toString()) as Int) else 0
+public actual fun wsAbortListener(listener: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsAbortListener((listener?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsAbortServiceHost(servicehost: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsAbortServiceHost(servicehost.toString(), error.toString()) as Int) else 0
+public actual fun wsAbortServiceHost(servicehost: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsAbortServiceHost((servicehost?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsAbortServiceProxy(serviceproxy: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsAbortServiceProxy(serviceproxy.toString(), error.toString()) as Int) else 0
+public actual fun wsAbortServiceProxy(serviceproxy: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsAbortServiceProxy((serviceproxy?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsAcceptChannel(listener: Long, channel: Long, asynccontext: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsAcceptChannel(listener.toString(), channel.toString(), asynccontext.toString(), error.toString()) as Int) else 0
+public actual fun wsAcceptChannel(listener: COpaquePointer?, channel: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsAcceptChannel((listener?.value ?: 0L).toString(), (channel?.value ?: 0L).toString(), (asynccontext?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsAddCustomHeader(message: Long, headerdescription: Long, writeoption: WS_WRITE_OPTION, value: Long, valuesize: UInt, headerattributes: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsAddCustomHeader(message.toString(), headerdescription.toString(), writeoption, value.toString(), valuesize.toInt(), headerattributes.toInt(), error.toString()) as Int) else 0
+public actual fun wsAddCustomHeader(message: COpaquePointer?, headerdescription: COpaquePointer?, writeoption: WsWriteOption, value: COpaquePointer?, valuesize: UInt, headerattributes: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsAddCustomHeader((message?.value ?: 0L).toString(), (headerdescription?.value ?: 0L).toString(), writeoption, (value?.value ?: 0L).toString(), valuesize.toInt(), headerattributes.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsAddErrorString(error: Long, string: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsAddErrorString(error.toString(), string.toString()) as Int) else 0
+public actual fun wsAddErrorString(error: COpaquePointer?, string: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsAddErrorString((error?.value ?: 0L).toString(), (string?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsAddMappedHeader(message: Long, headername: Long, valuetype: WS_TYPE, writeoption: WS_WRITE_OPTION, value: Long, valuesize: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsAddMappedHeader(message.toString(), headername.toString(), valuetype, writeoption, value.toString(), valuesize.toInt(), error.toString()) as Int) else 0
+public actual fun wsAddMappedHeader(message: COpaquePointer?, headername: COpaquePointer?, valuetype: WsType, writeoption: WsWriteOption, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsAddMappedHeader((message?.value ?: 0L).toString(), (headername?.value ?: 0L).toString(), valuetype, writeoption, (value?.value ?: 0L).toString(), valuesize.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsAddressMessage(message: Long, address: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsAddressMessage(message.toString(), address.toString(), error.toString()) as Int) else 0
+public actual fun wsAddressMessage(message: COpaquePointer?, address: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsAddressMessage((message?.value ?: 0L).toString(), (address?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsAlloc(heap: Long, size: ULong, ptr: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsAlloc(heap.toString(), size.toString(), ptr.toString(), error.toString()) as Int) else 0
+public actual fun wsAlloc(heap: COpaquePointer?, size: ULong, ptr: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsAlloc((heap?.value ?: 0L).toString(), size.toString(), (ptr?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsAsyncExecute(asyncstate: Long, operation: WS_ASYNC_FUNCTION, callbackmodel: WS_CALLBACK_MODEL, callbackstate: Long, asynccontext: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsAsyncExecute(asyncstate.toString(), operation.toLong().toString(), callbackmodel, callbackstate.toString(), asynccontext.toString(), error.toString()) as Int) else 0
+public actual fun wsAsyncExecute(asyncstate: COpaquePointer?, operation: WsAsyncFunction, callbackmodel: WsCallbackModel, callbackstate: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsAsyncExecute((asyncstate?.value ?: 0L).toString(), 0L.toString(), callbackmodel, (callbackstate?.value ?: 0L).toString(), (asynccontext?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsCall(serviceproxy: Long, operation: Long, arguments: Long, heap: Long, callproperties: Long, callpropertycount: UInt, asynccontext: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsCall(serviceproxy.toString(), operation.toString(), arguments.toString(), heap.toString(), callproperties.toString(), callpropertycount.toInt(), asynccontext.toString(), error.toString()) as Int) else 0
+public actual fun wsCall(serviceproxy: COpaquePointer?, operation: COpaquePointer?, arguments: COpaquePointer?, heap: COpaquePointer?, callproperties: COpaquePointer?, callpropertycount: UInt, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsCall((serviceproxy?.value ?: 0L).toString(), (operation?.value ?: 0L).toString(), (arguments?.value ?: 0L).toString(), (heap?.value ?: 0L).toString(), (callproperties?.value ?: 0L).toString(), callpropertycount.toInt(), (asynccontext?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsCheckMustUnderstandHeaders(message: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsCheckMustUnderstandHeaders(message.toString(), error.toString()) as Int) else 0
+public actual fun wsCheckMustUnderstandHeaders(message: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsCheckMustUnderstandHeaders((message?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsCloseChannel(channel: Long, asynccontext: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsCloseChannel(channel.toString(), asynccontext.toString(), error.toString()) as Int) else 0
+public actual fun wsCloseChannel(channel: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsCloseChannel((channel?.value ?: 0L).toString(), (asynccontext?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsCloseListener(listener: Long, asynccontext: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsCloseListener(listener.toString(), asynccontext.toString(), error.toString()) as Int) else 0
+public actual fun wsCloseListener(listener: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsCloseListener((listener?.value ?: 0L).toString(), (asynccontext?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsCloseServiceHost(servicehost: Long, asynccontext: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsCloseServiceHost(servicehost.toString(), asynccontext.toString(), error.toString()) as Int) else 0
+public actual fun wsCloseServiceHost(servicehost: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsCloseServiceHost((servicehost?.value ?: 0L).toString(), (asynccontext?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsCloseServiceProxy(serviceproxy: Long, asynccontext: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsCloseServiceProxy(serviceproxy.toString(), asynccontext.toString(), error.toString()) as Int) else 0
+public actual fun wsCloseServiceProxy(serviceproxy: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsCloseServiceProxy((serviceproxy?.value ?: 0L).toString(), (asynccontext?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsCombineUrl(baseurl: Long, referenceurl: Long, flags: UInt, heap: Long, resulturl: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsCombineUrl(baseurl.toString(), referenceurl.toString(), flags.toInt(), heap.toString(), resulturl.toString(), error.toString()) as Int) else 0
+public actual fun wsCombineUrl(baseurl: COpaquePointer?, referenceurl: COpaquePointer?, flags: UInt, heap: COpaquePointer?, resulturl: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsCombineUrl((baseurl?.value ?: 0L).toString(), (referenceurl?.value ?: 0L).toString(), flags.toInt(), (heap?.value ?: 0L).toString(), (resulturl?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsCopyError(source: Long, destination: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsCopyError(source.toString(), destination.toString()) as Int) else 0
+public actual fun wsCopyError(source: COpaquePointer?, destination: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsCopyError((source?.value ?: 0L).toString(), (destination?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsCopyNode(writer: Long, reader: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsCopyNode(writer.toString(), reader.toString(), error.toString()) as Int) else 0
+public actual fun wsCopyNode(writer: COpaquePointer?, reader: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsCopyNode((writer?.value ?: 0L).toString(), (reader?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsCreateChannel(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, properties: Long, propertycount: UInt, securitydescription: Long, channel: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsCreateChannel(channeltype, channelbinding, properties.toString(), propertycount.toInt(), securitydescription.toString(), channel.toString(), error.toString()) as Int) else 0
+public actual fun wsCreateChannel(channeltype: WsChannelType, channelbinding: WsChannelBinding, properties: COpaquePointer?, propertycount: UInt, securitydescription: COpaquePointer?, channel: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsCreateChannel(channeltype, channelbinding, (properties?.value ?: 0L).toString(), propertycount.toInt(), (securitydescription?.value ?: 0L).toString(), (channel?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsCreateChannelForListener(listener: Long, properties: Long, propertycount: UInt, channel: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsCreateChannelForListener(listener.toString(), properties.toString(), propertycount.toInt(), channel.toString(), error.toString()) as Int) else 0
+public actual fun wsCreateChannelForListener(listener: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, channel: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsCreateChannelForListener((listener?.value ?: 0L).toString(), (properties?.value ?: 0L).toString(), propertycount.toInt(), (channel?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsCreateError(properties: Long, propertycount: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsCreateError(properties.toString(), propertycount.toInt(), error.toString()) as Int) else 0
+public actual fun wsCreateError(properties: COpaquePointer?, propertycount: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsCreateError((properties?.value ?: 0L).toString(), propertycount.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsCreateFaultFromError(error: Long, faulterrorcode: HRESULT, faultdisclosure: WS_FAULT_DISCLOSURE, heap: Long, fault: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsCreateFaultFromError(error.toString(), faulterrorcode, faultdisclosure, heap.toString(), fault.toString()) as Int) else 0
+public actual fun wsCreateFaultFromError(error: COpaquePointer?, faulterrorcode: Hresult, faultdisclosure: WsFaultDisclosure, heap: COpaquePointer?, fault: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsCreateFaultFromError((error?.value ?: 0L).toString(), faulterrorcode, faultdisclosure, (heap?.value ?: 0L).toString(), (fault?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsCreateHeap(maxsize: ULong, trimsize: ULong, properties: Long, propertycount: UInt, heap: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsCreateHeap(maxsize.toString(), trimsize.toString(), properties.toString(), propertycount.toInt(), heap.toString(), error.toString()) as Int) else 0
+public actual fun wsCreateHeap(maxsize: ULong, trimsize: ULong, properties: COpaquePointer?, propertycount: UInt, heap: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsCreateHeap(maxsize.toString(), trimsize.toString(), (properties?.value ?: 0L).toString(), propertycount.toInt(), (heap?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsCreateListener(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, properties: Long, propertycount: UInt, securitydescription: Long, listener: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsCreateListener(channeltype, channelbinding, properties.toString(), propertycount.toInt(), securitydescription.toString(), listener.toString(), error.toString()) as Int) else 0
+public actual fun wsCreateListener(channeltype: WsChannelType, channelbinding: WsChannelBinding, properties: COpaquePointer?, propertycount: UInt, securitydescription: COpaquePointer?, listener: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsCreateListener(channeltype, channelbinding, (properties?.value ?: 0L).toString(), propertycount.toInt(), (securitydescription?.value ?: 0L).toString(), (listener?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsCreateMessage(envelopeversion: WS_ENVELOPE_VERSION, addressingversion: WS_ADDRESSING_VERSION, properties: Long, propertycount: UInt, message: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsCreateMessage(envelopeversion, addressingversion, properties.toString(), propertycount.toInt(), message.toString(), error.toString()) as Int) else 0
+public actual fun wsCreateMessage(envelopeversion: WsEnvelopeVersion, addressingversion: WsAddressingVersion, properties: COpaquePointer?, propertycount: UInt, message: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsCreateMessage(envelopeversion, addressingversion, (properties?.value ?: 0L).toString(), propertycount.toInt(), (message?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsCreateMessageForChannel(channel: Long, properties: Long, propertycount: UInt, message: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsCreateMessageForChannel(channel.toString(), properties.toString(), propertycount.toInt(), message.toString(), error.toString()) as Int) else 0
+public actual fun wsCreateMessageForChannel(channel: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, message: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsCreateMessageForChannel((channel?.value ?: 0L).toString(), (properties?.value ?: 0L).toString(), propertycount.toInt(), (message?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsCreateMetadata(properties: Long, propertycount: UInt, metadata: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsCreateMetadata(properties.toString(), propertycount.toInt(), metadata.toString(), error.toString()) as Int) else 0
+public actual fun wsCreateMetadata(properties: COpaquePointer?, propertycount: UInt, metadata: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsCreateMetadata((properties?.value ?: 0L).toString(), propertycount.toInt(), (metadata?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsCreateReader(properties: Long, propertycount: UInt, reader: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsCreateReader(properties.toString(), propertycount.toInt(), reader.toString(), error.toString()) as Int) else 0
+public actual fun wsCreateReader(properties: COpaquePointer?, propertycount: UInt, reader: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsCreateReader((properties?.value ?: 0L).toString(), propertycount.toInt(), (reader?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsCreateServiceEndpointFromTemplate(channeltype: WS_CHANNEL_TYPE, properties: Long, propertycount: UInt, addressurl: Long, contract: Long, authorizationcallback: WS_SERVICE_SECURITY_CALLBACK, heap: Long, templatetype: WS_BINDING_TEMPLATE_TYPE, templatevalue: Long, templatesize: UInt, templatedescription: Long, templatedescriptionsize: UInt, serviceendpoint: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsCreateServiceEndpointFromTemplate(channeltype, properties.toString(), propertycount.toInt(), addressurl.toString(), contract.toString(), authorizationcallback.toLong().toString(), heap.toString(), templatetype, templatevalue.toString(), templatesize.toInt(), templatedescription.toString(), templatedescriptionsize.toInt(), serviceendpoint.toString(), error.toString()) as Int) else 0
+public actual fun wsCreateServiceEndpointFromTemplate(channeltype: WsChannelType, properties: COpaquePointer?, propertycount: UInt, addressurl: COpaquePointer?, contract: COpaquePointer?, authorizationcallback: WsServiceSecurityCallback, heap: COpaquePointer?, templatetype: WsBindingTemplateType, templatevalue: COpaquePointer?, templatesize: UInt, templatedescription: COpaquePointer?, templatedescriptionsize: UInt, serviceendpoint: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsCreateServiceEndpointFromTemplate(channeltype, (properties?.value ?: 0L).toString(), propertycount.toInt(), (addressurl?.value ?: 0L).toString(), (contract?.value ?: 0L).toString(), 0L.toString(), (heap?.value ?: 0L).toString(), templatetype, (templatevalue?.value ?: 0L).toString(), templatesize.toInt(), (templatedescription?.value ?: 0L).toString(), templatedescriptionsize.toInt(), (serviceendpoint?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsCreateServiceHost(endpoints: Long, endpointcount: UShort, serviceproperties: Long, servicepropertycount: UInt, servicehost: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsCreateServiceHost(endpoints.toString(), endpointcount.toInt(), serviceproperties.toString(), servicepropertycount.toInt(), servicehost.toString(), error.toString()) as Int) else 0
+public actual fun wsCreateServiceHost(endpoints: COpaquePointer?, endpointcount: UShort, serviceproperties: COpaquePointer?, servicepropertycount: UInt, servicehost: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsCreateServiceHost((endpoints?.value ?: 0L).toString(), endpointcount.toInt(), (serviceproperties?.value ?: 0L).toString(), servicepropertycount.toInt(), (servicehost?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsCreateServiceProxy(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, securitydescription: Long, properties: Long, propertycount: UInt, channelproperties: Long, channelpropertycount: UInt, serviceproxy: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsCreateServiceProxy(channeltype, channelbinding, securitydescription.toString(), properties.toString(), propertycount.toInt(), channelproperties.toString(), channelpropertycount.toInt(), serviceproxy.toString(), error.toString()) as Int) else 0
+public actual fun wsCreateServiceProxy(channeltype: WsChannelType, channelbinding: WsChannelBinding, securitydescription: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, channelproperties: COpaquePointer?, channelpropertycount: UInt, serviceproxy: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsCreateServiceProxy(channeltype, channelbinding, (securitydescription?.value ?: 0L).toString(), (properties?.value ?: 0L).toString(), propertycount.toInt(), (channelproperties?.value ?: 0L).toString(), channelpropertycount.toInt(), (serviceproxy?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsCreateServiceProxyFromTemplate(channeltype: WS_CHANNEL_TYPE, properties: Long, propertycount: UInt, templatetype: WS_BINDING_TEMPLATE_TYPE, templatevalue: Long, templatesize: UInt, templatedescription: Long, templatedescriptionsize: UInt, serviceproxy: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsCreateServiceProxyFromTemplate(channeltype, properties.toString(), propertycount.toInt(), templatetype, templatevalue.toString(), templatesize.toInt(), templatedescription.toString(), templatedescriptionsize.toInt(), serviceproxy.toString(), error.toString()) as Int) else 0
+public actual fun wsCreateServiceProxyFromTemplate(channeltype: WsChannelType, properties: COpaquePointer?, propertycount: UInt, templatetype: WsBindingTemplateType, templatevalue: COpaquePointer?, templatesize: UInt, templatedescription: COpaquePointer?, templatedescriptionsize: UInt, serviceproxy: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsCreateServiceProxyFromTemplate(channeltype, (properties?.value ?: 0L).toString(), propertycount.toInt(), templatetype, (templatevalue?.value ?: 0L).toString(), templatesize.toInt(), (templatedescription?.value ?: 0L).toString(), templatedescriptionsize.toInt(), (serviceproxy?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsCreateWriter(properties: Long, propertycount: UInt, writer: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsCreateWriter(properties.toString(), propertycount.toInt(), writer.toString(), error.toString()) as Int) else 0
+public actual fun wsCreateWriter(properties: COpaquePointer?, propertycount: UInt, writer: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsCreateWriter((properties?.value ?: 0L).toString(), propertycount.toInt(), (writer?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsCreateXmlBuffer(heap: Long, properties: Long, propertycount: UInt, buffer: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsCreateXmlBuffer(heap.toString(), properties.toString(), propertycount.toInt(), buffer.toString(), error.toString()) as Int) else 0
+public actual fun wsCreateXmlBuffer(heap: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, buffer: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsCreateXmlBuffer((heap?.value ?: 0L).toString(), (properties?.value ?: 0L).toString(), propertycount.toInt(), (buffer?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsCreateXmlSecurityToken(tokenxml: Long, tokenkey: Long, properties: Long, propertycount: UInt, token: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsCreateXmlSecurityToken(tokenxml.toString(), tokenkey.toString(), properties.toString(), propertycount.toInt(), token.toString(), error.toString()) as Int) else 0
+public actual fun wsCreateXmlSecurityToken(tokenxml: COpaquePointer?, tokenkey: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, token: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsCreateXmlSecurityToken((tokenxml?.value ?: 0L).toString(), (tokenkey?.value ?: 0L).toString(), (properties?.value ?: 0L).toString(), propertycount.toInt(), (token?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsDateTimeToFileTime(datetime: Long, filetime: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsDateTimeToFileTime(datetime.toString(), filetime.toString(), error.toString()) as Int) else 0
+public actual fun wsDateTimeToFileTime(datetime: COpaquePointer?, filetime: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsDateTimeToFileTime((datetime?.value ?: 0L).toString(), (filetime?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsDecodeUrl(url: Long, flags: UInt, heap: Long, outurl: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsDecodeUrl(url.toString(), flags.toInt(), heap.toString(), outurl.toString(), error.toString()) as Int) else 0
+public actual fun wsDecodeUrl(url: COpaquePointer?, flags: UInt, heap: COpaquePointer?, outurl: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsDecodeUrl((url?.value ?: 0L).toString(), flags.toInt(), (heap?.value ?: 0L).toString(), (outurl?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsEncodeUrl(url: Long, flags: UInt, heap: Long, outurl: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsEncodeUrl(url.toString(), flags.toInt(), heap.toString(), outurl.toString(), error.toString()) as Int) else 0
+public actual fun wsEncodeUrl(url: COpaquePointer?, flags: UInt, heap: COpaquePointer?, outurl: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsEncodeUrl((url?.value ?: 0L).toString(), flags.toInt(), (heap?.value ?: 0L).toString(), (outurl?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsEndReaderCanonicalization(reader: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsEndReaderCanonicalization(reader.toString(), error.toString()) as Int) else 0
+public actual fun wsEndReaderCanonicalization(reader: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsEndReaderCanonicalization((reader?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsEndWriterCanonicalization(writer: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsEndWriterCanonicalization(writer.toString(), error.toString()) as Int) else 0
+public actual fun wsEndWriterCanonicalization(writer: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsEndWriterCanonicalization((writer?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsFileTimeToDateTime(filetime: Long, datetime: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsFileTimeToDateTime(filetime.toString(), datetime.toString(), error.toString()) as Int) else 0
+public actual fun wsFileTimeToDateTime(filetime: COpaquePointer?, datetime: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsFileTimeToDateTime((filetime?.value ?: 0L).toString(), (datetime?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsFillBody(message: Long, minsize: UInt, asynccontext: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsFillBody(message.toString(), minsize.toInt(), asynccontext.toString(), error.toString()) as Int) else 0
+public actual fun wsFillBody(message: COpaquePointer?, minsize: UInt, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsFillBody((message?.value ?: 0L).toString(), minsize.toInt(), (asynccontext?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsFillReader(reader: Long, minsize: UInt, asynccontext: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsFillReader(reader.toString(), minsize.toInt(), asynccontext.toString(), error.toString()) as Int) else 0
+public actual fun wsFillReader(reader: COpaquePointer?, minsize: UInt, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsFillReader((reader?.value ?: 0L).toString(), minsize.toInt(), (asynccontext?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsFindAttribute(reader: Long, localname: Long, ns: Long, required: BOOL, attributeindex: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsFindAttribute(reader.toString(), localname.toString(), ns.toString(), required, attributeindex.toString(), error.toString()) as Int) else 0
+public actual fun wsFindAttribute(reader: COpaquePointer?, localname: COpaquePointer?, ns: COpaquePointer?, required: Bool, attributeindex: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsFindAttribute((reader?.value ?: 0L).toString(), (localname?.value ?: 0L).toString(), (ns?.value ?: 0L).toString(), required, (attributeindex?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsFlushBody(message: Long, minsize: UInt, asynccontext: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsFlushBody(message.toString(), minsize.toInt(), asynccontext.toString(), error.toString()) as Int) else 0
+public actual fun wsFlushBody(message: COpaquePointer?, minsize: UInt, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsFlushBody((message?.value ?: 0L).toString(), minsize.toInt(), (asynccontext?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsFlushWriter(writer: Long, minsize: UInt, asynccontext: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsFlushWriter(writer.toString(), minsize.toInt(), asynccontext.toString(), error.toString()) as Int) else 0
+public actual fun wsFlushWriter(writer: COpaquePointer?, minsize: UInt, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsFlushWriter((writer?.value ?: 0L).toString(), minsize.toInt(), (asynccontext?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsFreeChannel(channel: Long) {
+public actual fun wsFreeChannel(channel: COpaquePointer?) {
     if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) {
-        _windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsFreeChannel(channel.toString())
+        _windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsFreeChannel((channel?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun WsFreeError(error: Long) {
+public actual fun wsFreeError(error: COpaquePointer?) {
     if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) {
-        _windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsFreeError(error.toString())
+        _windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsFreeError((error?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun WsFreeHeap(heap: Long) {
+public actual fun wsFreeHeap(heap: COpaquePointer?) {
     if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) {
-        _windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsFreeHeap(heap.toString())
+        _windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsFreeHeap((heap?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun WsFreeListener(listener: Long) {
+public actual fun wsFreeListener(listener: COpaquePointer?) {
     if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) {
-        _windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsFreeListener(listener.toString())
+        _windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsFreeListener((listener?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun WsFreeMessage(message: Long) {
+public actual fun wsFreeMessage(message: COpaquePointer?) {
     if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) {
-        _windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsFreeMessage(message.toString())
+        _windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsFreeMessage((message?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun WsFreeMetadata(metadata: Long) {
+public actual fun wsFreeMetadata(metadata: COpaquePointer?) {
     if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) {
-        _windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsFreeMetadata(metadata.toString())
+        _windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsFreeMetadata((metadata?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun WsFreeReader(reader: Long) {
+public actual fun wsFreeReader(reader: COpaquePointer?) {
     if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) {
-        _windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsFreeReader(reader.toString())
+        _windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsFreeReader((reader?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun WsFreeSecurityToken(token: Long) {
+public actual fun wsFreeSecurityToken(token: COpaquePointer?) {
     if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) {
-        _windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsFreeSecurityToken(token.toString())
+        _windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsFreeSecurityToken((token?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun WsFreeServiceHost(servicehost: Long) {
+public actual fun wsFreeServiceHost(servicehost: COpaquePointer?) {
     if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) {
-        _windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsFreeServiceHost(servicehost.toString())
+        _windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsFreeServiceHost((servicehost?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun WsFreeServiceProxy(serviceproxy: Long) {
+public actual fun wsFreeServiceProxy(serviceproxy: COpaquePointer?) {
     if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) {
-        _windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsFreeServiceProxy(serviceproxy.toString())
+        _windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsFreeServiceProxy((serviceproxy?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun WsFreeWriter(writer: Long) {
+public actual fun wsFreeWriter(writer: COpaquePointer?) {
     if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) {
-        _windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsFreeWriter(writer.toString())
+        _windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsFreeWriter((writer?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun WsGetChannelProperty(channel: Long, id: WS_CHANNEL_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsGetChannelProperty(channel.toString(), id, value.toString(), valuesize.toInt(), error.toString()) as Int) else 0
+public actual fun wsGetChannelProperty(channel: COpaquePointer?, id: WsChannelPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsGetChannelProperty((channel?.value ?: 0L).toString(), id, (value?.value ?: 0L).toString(), valuesize.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsGetCustomHeader(message: Long, customheaderdescription: Long, repeatingoption: WS_REPEATING_HEADER_OPTION, headerindex: UInt, readoption: WS_READ_OPTION, heap: Long, value: Long, valuesize: UInt, headerattributes: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsGetCustomHeader(message.toString(), customheaderdescription.toString(), repeatingoption, headerindex.toInt(), readoption, heap.toString(), value.toString(), valuesize.toInt(), headerattributes.toString(), error.toString()) as Int) else 0
+public actual fun wsGetCustomHeader(message: COpaquePointer?, customheaderdescription: COpaquePointer?, repeatingoption: WsRepeatingHeaderOption, headerindex: UInt, readoption: WsReadOption, heap: COpaquePointer?, value: COpaquePointer?, valuesize: UInt, headerattributes: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsGetCustomHeader((message?.value ?: 0L).toString(), (customheaderdescription?.value ?: 0L).toString(), repeatingoption, headerindex.toInt(), readoption, (heap?.value ?: 0L).toString(), (value?.value ?: 0L).toString(), valuesize.toInt(), (headerattributes?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsGetDictionary(encoding: WS_ENCODING, dictionary: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsGetDictionary(encoding, dictionary.toString(), error.toString()) as Int) else 0
+public actual fun wsGetDictionary(encoding: WsEncoding, dictionary: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsGetDictionary(encoding, (dictionary?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsGetErrorProperty(error: Long, id: WS_ERROR_PROPERTY_ID, buffer: Long, buffersize: UInt): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsGetErrorProperty(error.toString(), id, buffer.toString(), buffersize.toInt()) as Int) else 0
+public actual fun wsGetErrorProperty(error: COpaquePointer?, id: WsErrorPropertyId, buffer: COpaquePointer?, buffersize: UInt): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsGetErrorProperty((error?.value ?: 0L).toString(), id, (buffer?.value ?: 0L).toString(), buffersize.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsGetErrorString(error: Long, index: UInt, string: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsGetErrorString(error.toString(), index.toInt(), string.toString()) as Int) else 0
+public actual fun wsGetErrorString(error: COpaquePointer?, index: UInt, string: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsGetErrorString((error?.value ?: 0L).toString(), index.toInt(), (string?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsGetFaultErrorDetail(error: Long, faultdetaildescription: Long, readoption: WS_READ_OPTION, heap: Long, value: Long, valuesize: UInt): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsGetFaultErrorDetail(error.toString(), faultdetaildescription.toString(), readoption, heap.toString(), value.toString(), valuesize.toInt()) as Int) else 0
+public actual fun wsGetFaultErrorDetail(error: COpaquePointer?, faultdetaildescription: COpaquePointer?, readoption: WsReadOption, heap: COpaquePointer?, value: COpaquePointer?, valuesize: UInt): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsGetFaultErrorDetail((error?.value ?: 0L).toString(), (faultdetaildescription?.value ?: 0L).toString(), readoption, (heap?.value ?: 0L).toString(), (value?.value ?: 0L).toString(), valuesize.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsGetFaultErrorProperty(error: Long, id: WS_FAULT_ERROR_PROPERTY_ID, buffer: Long, buffersize: UInt): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsGetFaultErrorProperty(error.toString(), id, buffer.toString(), buffersize.toInt()) as Int) else 0
+public actual fun wsGetFaultErrorProperty(error: COpaquePointer?, id: WsFaultErrorPropertyId, buffer: COpaquePointer?, buffersize: UInt): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsGetFaultErrorProperty((error?.value ?: 0L).toString(), id, (buffer?.value ?: 0L).toString(), buffersize.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsGetHeader(message: Long, headertype: WS_HEADER_TYPE, valuetype: WS_TYPE, readoption: WS_READ_OPTION, heap: Long, value: Long, valuesize: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsGetHeader(message.toString(), headertype, valuetype, readoption, heap.toString(), value.toString(), valuesize.toInt(), error.toString()) as Int) else 0
+public actual fun wsGetHeader(message: COpaquePointer?, headertype: WsHeaderType, valuetype: WsType, readoption: WsReadOption, heap: COpaquePointer?, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsGetHeader((message?.value ?: 0L).toString(), headertype, valuetype, readoption, (heap?.value ?: 0L).toString(), (value?.value ?: 0L).toString(), valuesize.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsGetHeaderAttributes(message: Long, reader: Long, headerattributes: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsGetHeaderAttributes(message.toString(), reader.toString(), headerattributes.toString(), error.toString()) as Int) else 0
+public actual fun wsGetHeaderAttributes(message: COpaquePointer?, reader: COpaquePointer?, headerattributes: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsGetHeaderAttributes((message?.value ?: 0L).toString(), (reader?.value ?: 0L).toString(), (headerattributes?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsGetHeapProperty(heap: Long, id: WS_HEAP_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsGetHeapProperty(heap.toString(), id, value.toString(), valuesize.toInt(), error.toString()) as Int) else 0
+public actual fun wsGetHeapProperty(heap: COpaquePointer?, id: WsHeapPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsGetHeapProperty((heap?.value ?: 0L).toString(), id, (value?.value ?: 0L).toString(), valuesize.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsGetListenerProperty(listener: Long, id: WS_LISTENER_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsGetListenerProperty(listener.toString(), id, value.toString(), valuesize.toInt(), error.toString()) as Int) else 0
+public actual fun wsGetListenerProperty(listener: COpaquePointer?, id: WsListenerPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsGetListenerProperty((listener?.value ?: 0L).toString(), id, (value?.value ?: 0L).toString(), valuesize.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsGetMappedHeader(message: Long, headername: Long, repeatingoption: WS_REPEATING_HEADER_OPTION, headerindex: UInt, valuetype: WS_TYPE, readoption: WS_READ_OPTION, heap: Long, value: Long, valuesize: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsGetMappedHeader(message.toString(), headername.toString(), repeatingoption, headerindex.toInt(), valuetype, readoption, heap.toString(), value.toString(), valuesize.toInt(), error.toString()) as Int) else 0
+public actual fun wsGetMappedHeader(message: COpaquePointer?, headername: COpaquePointer?, repeatingoption: WsRepeatingHeaderOption, headerindex: UInt, valuetype: WsType, readoption: WsReadOption, heap: COpaquePointer?, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsGetMappedHeader((message?.value ?: 0L).toString(), (headername?.value ?: 0L).toString(), repeatingoption, headerindex.toInt(), valuetype, readoption, (heap?.value ?: 0L).toString(), (value?.value ?: 0L).toString(), valuesize.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsGetMessageProperty(message: Long, id: WS_MESSAGE_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsGetMessageProperty(message.toString(), id, value.toString(), valuesize.toInt(), error.toString()) as Int) else 0
+public actual fun wsGetMessageProperty(message: COpaquePointer?, id: WsMessagePropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsGetMessageProperty((message?.value ?: 0L).toString(), id, (value?.value ?: 0L).toString(), valuesize.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsGetMetadataEndpoints(metadata: Long, endpoints: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsGetMetadataEndpoints(metadata.toString(), endpoints.toString(), error.toString()) as Int) else 0
+public actual fun wsGetMetadataEndpoints(metadata: COpaquePointer?, endpoints: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsGetMetadataEndpoints((metadata?.value ?: 0L).toString(), (endpoints?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsGetMetadataProperty(metadata: Long, id: WS_METADATA_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsGetMetadataProperty(metadata.toString(), id, value.toString(), valuesize.toInt(), error.toString()) as Int) else 0
+public actual fun wsGetMetadataProperty(metadata: COpaquePointer?, id: WsMetadataPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsGetMetadataProperty((metadata?.value ?: 0L).toString(), id, (value?.value ?: 0L).toString(), valuesize.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsGetMissingMetadataDocumentAddress(metadata: Long, address: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsGetMissingMetadataDocumentAddress(metadata.toString(), address.toString(), error.toString()) as Int) else 0
+public actual fun wsGetMissingMetadataDocumentAddress(metadata: COpaquePointer?, address: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsGetMissingMetadataDocumentAddress((metadata?.value ?: 0L).toString(), (address?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsGetNamespaceFromPrefix(reader: Long, prefix: Long, required: BOOL, ns: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsGetNamespaceFromPrefix(reader.toString(), prefix.toString(), required, ns.toString(), error.toString()) as Int) else 0
+public actual fun wsGetNamespaceFromPrefix(reader: COpaquePointer?, prefix: COpaquePointer?, required: Bool, ns: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsGetNamespaceFromPrefix((reader?.value ?: 0L).toString(), (prefix?.value ?: 0L).toString(), required, (ns?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsGetOperationContextProperty(context: Long, id: WS_OPERATION_CONTEXT_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsGetOperationContextProperty(context.toString(), id, value.toString(), valuesize.toInt(), error.toString()) as Int) else 0
+public actual fun wsGetOperationContextProperty(context: COpaquePointer?, id: WsOperationContextPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsGetOperationContextProperty((context?.value ?: 0L).toString(), id, (value?.value ?: 0L).toString(), valuesize.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsGetPolicyAlternativeCount(policy: Long, count: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsGetPolicyAlternativeCount(policy.toString(), count.toString(), error.toString()) as Int) else 0
+public actual fun wsGetPolicyAlternativeCount(policy: COpaquePointer?, count: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsGetPolicyAlternativeCount((policy?.value ?: 0L).toString(), (count?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsGetPolicyProperty(policy: Long, id: WS_POLICY_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsGetPolicyProperty(policy.toString(), id, value.toString(), valuesize.toInt(), error.toString()) as Int) else 0
+public actual fun wsGetPolicyProperty(policy: COpaquePointer?, id: WsPolicyPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsGetPolicyProperty((policy?.value ?: 0L).toString(), id, (value?.value ?: 0L).toString(), valuesize.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsGetPrefixFromNamespace(writer: Long, ns: Long, required: BOOL, prefix: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsGetPrefixFromNamespace(writer.toString(), ns.toString(), required, prefix.toString(), error.toString()) as Int) else 0
+public actual fun wsGetPrefixFromNamespace(writer: COpaquePointer?, ns: COpaquePointer?, required: Bool, prefix: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsGetPrefixFromNamespace((writer?.value ?: 0L).toString(), (ns?.value ?: 0L).toString(), required, (prefix?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsGetReaderNode(xmlreader: Long, node: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsGetReaderNode(xmlreader.toString(), node.toString(), error.toString()) as Int) else 0
+public actual fun wsGetReaderNode(xmlreader: COpaquePointer?, node: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsGetReaderNode((xmlreader?.value ?: 0L).toString(), (node?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsGetReaderPosition(reader: Long, nodeposition: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsGetReaderPosition(reader.toString(), nodeposition.toString(), error.toString()) as Int) else 0
+public actual fun wsGetReaderPosition(reader: COpaquePointer?, nodeposition: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsGetReaderPosition((reader?.value ?: 0L).toString(), (nodeposition?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsGetReaderProperty(reader: Long, id: WS_XML_READER_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsGetReaderProperty(reader.toString(), id, value.toString(), valuesize.toInt(), error.toString()) as Int) else 0
+public actual fun wsGetReaderProperty(reader: COpaquePointer?, id: WsXmlReaderPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsGetReaderProperty((reader?.value ?: 0L).toString(), id, (value?.value ?: 0L).toString(), valuesize.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsGetSecurityContextProperty(securitycontext: Long, id: WS_SECURITY_CONTEXT_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsGetSecurityContextProperty(securitycontext.toString(), id, value.toString(), valuesize.toInt(), error.toString()) as Int) else 0
+public actual fun wsGetSecurityContextProperty(securitycontext: COpaquePointer?, id: WsSecurityContextPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsGetSecurityContextProperty((securitycontext?.value ?: 0L).toString(), id, (value?.value ?: 0L).toString(), valuesize.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsGetSecurityTokenProperty(securitytoken: Long, id: WS_SECURITY_TOKEN_PROPERTY_ID, value: Long, valuesize: UInt, heap: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsGetSecurityTokenProperty(securitytoken.toString(), id, value.toString(), valuesize.toInt(), heap.toString(), error.toString()) as Int) else 0
+public actual fun wsGetSecurityTokenProperty(securitytoken: COpaquePointer?, id: WsSecurityTokenPropertyId, value: COpaquePointer?, valuesize: UInt, heap: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsGetSecurityTokenProperty((securitytoken?.value ?: 0L).toString(), id, (value?.value ?: 0L).toString(), valuesize.toInt(), (heap?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsGetServiceHostProperty(servicehost: Long, id: WS_SERVICE_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsGetServiceHostProperty(servicehost.toString(), id, value.toString(), valuesize.toInt(), error.toString()) as Int) else 0
+public actual fun wsGetServiceHostProperty(servicehost: COpaquePointer?, id: WsServicePropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsGetServiceHostProperty((servicehost?.value ?: 0L).toString(), id, (value?.value ?: 0L).toString(), valuesize.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsGetServiceProxyProperty(serviceproxy: Long, id: WS_PROXY_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsGetServiceProxyProperty(serviceproxy.toString(), id, value.toString(), valuesize.toInt(), error.toString()) as Int) else 0
+public actual fun wsGetServiceProxyProperty(serviceproxy: COpaquePointer?, id: WsProxyPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsGetServiceProxyProperty((serviceproxy?.value ?: 0L).toString(), id, (value?.value ?: 0L).toString(), valuesize.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsGetWriterPosition(writer: Long, nodeposition: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsGetWriterPosition(writer.toString(), nodeposition.toString(), error.toString()) as Int) else 0
+public actual fun wsGetWriterPosition(writer: COpaquePointer?, nodeposition: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsGetWriterPosition((writer?.value ?: 0L).toString(), (nodeposition?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsGetWriterProperty(writer: Long, id: WS_XML_WRITER_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsGetWriterProperty(writer.toString(), id, value.toString(), valuesize.toInt(), error.toString()) as Int) else 0
+public actual fun wsGetWriterProperty(writer: COpaquePointer?, id: WsXmlWriterPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsGetWriterProperty((writer?.value ?: 0L).toString(), id, (value?.value ?: 0L).toString(), valuesize.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsGetXmlAttribute(reader: Long, localname: Long, heap: Long, valuechars: Long, valuecharcount: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsGetXmlAttribute(reader.toString(), localname.toString(), heap.toString(), valuechars.toString(), valuecharcount.toString(), error.toString()) as Int) else 0
+public actual fun wsGetXmlAttribute(reader: COpaquePointer?, localname: COpaquePointer?, heap: COpaquePointer?, valuechars: COpaquePointer?, valuecharcount: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsGetXmlAttribute((reader?.value ?: 0L).toString(), (localname?.value ?: 0L).toString(), (heap?.value ?: 0L).toString(), (valuechars?.value ?: 0L).toString(), (valuecharcount?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsInitializeMessage(message: Long, initialization: WS_MESSAGE_INITIALIZATION, sourcemessage: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsInitializeMessage(message.toString(), initialization, sourcemessage.toString(), error.toString()) as Int) else 0
+public actual fun wsInitializeMessage(message: COpaquePointer?, initialization: WsMessageInitialization, sourcemessage: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsInitializeMessage((message?.value ?: 0L).toString(), initialization, (sourcemessage?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsMarkHeaderAsUnderstood(message: Long, headerposition: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsMarkHeaderAsUnderstood(message.toString(), headerposition.toString(), error.toString()) as Int) else 0
+public actual fun wsMarkHeaderAsUnderstood(message: COpaquePointer?, headerposition: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsMarkHeaderAsUnderstood((message?.value ?: 0L).toString(), (headerposition?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsMatchPolicyAlternative(policy: Long, alternativeindex: UInt, policyconstraints: Long, matchrequired: BOOL, heap: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsMatchPolicyAlternative(policy.toString(), alternativeindex.toInt(), policyconstraints.toString(), matchrequired, heap.toString(), error.toString()) as Int) else 0
+public actual fun wsMatchPolicyAlternative(policy: COpaquePointer?, alternativeindex: UInt, policyconstraints: COpaquePointer?, matchrequired: Bool, heap: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsMatchPolicyAlternative((policy?.value ?: 0L).toString(), alternativeindex.toInt(), (policyconstraints?.value ?: 0L).toString(), matchrequired, (heap?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsMoveReader(reader: Long, moveto: WS_MOVE_TO, found: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsMoveReader(reader.toString(), moveto, found.toString(), error.toString()) as Int) else 0
+public actual fun wsMoveReader(reader: COpaquePointer?, moveto: WsMoveTo, found: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsMoveReader((reader?.value ?: 0L).toString(), moveto, (found?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsMoveWriter(writer: Long, moveto: WS_MOVE_TO, found: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsMoveWriter(writer.toString(), moveto, found.toString(), error.toString()) as Int) else 0
+public actual fun wsMoveWriter(writer: COpaquePointer?, moveto: WsMoveTo, found: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsMoveWriter((writer?.value ?: 0L).toString(), moveto, (found?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsOpenChannel(channel: Long, endpointaddress: Long, asynccontext: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsOpenChannel(channel.toString(), endpointaddress.toString(), asynccontext.toString(), error.toString()) as Int) else 0
+public actual fun wsOpenChannel(channel: COpaquePointer?, endpointaddress: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsOpenChannel((channel?.value ?: 0L).toString(), (endpointaddress?.value ?: 0L).toString(), (asynccontext?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsOpenListener(listener: Long, url: Long, asynccontext: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsOpenListener(listener.toString(), url.toString(), asynccontext.toString(), error.toString()) as Int) else 0
+public actual fun wsOpenListener(listener: COpaquePointer?, url: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsOpenListener((listener?.value ?: 0L).toString(), (url?.value ?: 0L).toString(), (asynccontext?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsOpenServiceHost(servicehost: Long, asynccontext: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsOpenServiceHost(servicehost.toString(), asynccontext.toString(), error.toString()) as Int) else 0
+public actual fun wsOpenServiceHost(servicehost: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsOpenServiceHost((servicehost?.value ?: 0L).toString(), (asynccontext?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsOpenServiceProxy(serviceproxy: Long, address: Long, asynccontext: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsOpenServiceProxy(serviceproxy.toString(), address.toString(), asynccontext.toString(), error.toString()) as Int) else 0
+public actual fun wsOpenServiceProxy(serviceproxy: COpaquePointer?, address: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsOpenServiceProxy((serviceproxy?.value ?: 0L).toString(), (address?.value ?: 0L).toString(), (asynccontext?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsPullBytes(writer: Long, callback: WS_PULL_BYTES_CALLBACK, callbackstate: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsPullBytes(writer.toString(), callback.toLong().toString(), callbackstate.toString(), error.toString()) as Int) else 0
+public actual fun wsPullBytes(writer: COpaquePointer?, callback: WsPullBytesCallback, callbackstate: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsPullBytes((writer?.value ?: 0L).toString(), 0L.toString(), (callbackstate?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsPushBytes(writer: Long, callback: WS_PUSH_BYTES_CALLBACK, callbackstate: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsPushBytes(writer.toString(), callback.toLong().toString(), callbackstate.toString(), error.toString()) as Int) else 0
+public actual fun wsPushBytes(writer: COpaquePointer?, callback: WsPushBytesCallback, callbackstate: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsPushBytes((writer?.value ?: 0L).toString(), 0L.toString(), (callbackstate?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsReadArray(reader: Long, localname: Long, ns: Long, valuetype: WS_VALUE_TYPE, array: Long, arraysize: UInt, itemoffset: UInt, itemcount: UInt, actualitemcount: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsReadArray(reader.toString(), localname.toString(), ns.toString(), valuetype, array.toString(), arraysize.toInt(), itemoffset.toInt(), itemcount.toInt(), actualitemcount.toString(), error.toString()) as Int) else 0
+public actual fun wsReadArray(reader: COpaquePointer?, localname: COpaquePointer?, ns: COpaquePointer?, valuetype: WsValueType, array: COpaquePointer?, arraysize: UInt, itemoffset: UInt, itemcount: UInt, actualitemcount: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsReadArray((reader?.value ?: 0L).toString(), (localname?.value ?: 0L).toString(), (ns?.value ?: 0L).toString(), valuetype, (array?.value ?: 0L).toString(), arraysize.toInt(), itemoffset.toInt(), itemcount.toInt(), (actualitemcount?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsReadAttribute(reader: Long, attributedescription: Long, readoption: WS_READ_OPTION, heap: Long, value: Long, valuesize: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsReadAttribute(reader.toString(), attributedescription.toString(), readoption, heap.toString(), value.toString(), valuesize.toInt(), error.toString()) as Int) else 0
+public actual fun wsReadAttribute(reader: COpaquePointer?, attributedescription: COpaquePointer?, readoption: WsReadOption, heap: COpaquePointer?, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsReadAttribute((reader?.value ?: 0L).toString(), (attributedescription?.value ?: 0L).toString(), readoption, (heap?.value ?: 0L).toString(), (value?.value ?: 0L).toString(), valuesize.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsReadBody(message: Long, bodydescription: Long, readoption: WS_READ_OPTION, heap: Long, value: Long, valuesize: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsReadBody(message.toString(), bodydescription.toString(), readoption, heap.toString(), value.toString(), valuesize.toInt(), error.toString()) as Int) else 0
+public actual fun wsReadBody(message: COpaquePointer?, bodydescription: COpaquePointer?, readoption: WsReadOption, heap: COpaquePointer?, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsReadBody((message?.value ?: 0L).toString(), (bodydescription?.value ?: 0L).toString(), readoption, (heap?.value ?: 0L).toString(), (value?.value ?: 0L).toString(), valuesize.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsReadBytes(reader: Long, bytes: Long, maxbytecount: UInt, actualbytecount: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsReadBytes(reader.toString(), bytes.toString(), maxbytecount.toInt(), actualbytecount.toString(), error.toString()) as Int) else 0
+public actual fun wsReadBytes(reader: COpaquePointer?, bytes: COpaquePointer?, maxbytecount: UInt, actualbytecount: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsReadBytes((reader?.value ?: 0L).toString(), (bytes?.value ?: 0L).toString(), maxbytecount.toInt(), (actualbytecount?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsReadChars(reader: Long, chars: PWSTR, maxcharcount: UInt, actualcharcount: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsReadChars(reader.toString(), chars.toString(), maxcharcount.toInt(), actualcharcount.toString(), error.toString()) as Int) else 0
+public actual fun wsReadChars(reader: COpaquePointer?, chars: Pwstr, maxcharcount: UInt, actualcharcount: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsReadChars((reader?.value ?: 0L).toString(), (chars?.value ?: 0L).toString(), maxcharcount.toInt(), (actualcharcount?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsReadCharsUtf8(reader: Long, bytes: Long, maxbytecount: UInt, actualbytecount: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsReadCharsUtf8(reader.toString(), bytes.toString(), maxbytecount.toInt(), actualbytecount.toString(), error.toString()) as Int) else 0
+public actual fun wsReadCharsUtf8(reader: COpaquePointer?, bytes: COpaquePointer?, maxbytecount: UInt, actualbytecount: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsReadCharsUtf8((reader?.value ?: 0L).toString(), (bytes?.value ?: 0L).toString(), maxbytecount.toInt(), (actualbytecount?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsReadElement(reader: Long, elementdescription: Long, readoption: WS_READ_OPTION, heap: Long, value: Long, valuesize: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsReadElement(reader.toString(), elementdescription.toString(), readoption, heap.toString(), value.toString(), valuesize.toInt(), error.toString()) as Int) else 0
+public actual fun wsReadElement(reader: COpaquePointer?, elementdescription: COpaquePointer?, readoption: WsReadOption, heap: COpaquePointer?, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsReadElement((reader?.value ?: 0L).toString(), (elementdescription?.value ?: 0L).toString(), readoption, (heap?.value ?: 0L).toString(), (value?.value ?: 0L).toString(), valuesize.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsReadEndAttribute(reader: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsReadEndAttribute(reader.toString(), error.toString()) as Int) else 0
+public actual fun wsReadEndAttribute(reader: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsReadEndAttribute((reader?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsReadEndElement(reader: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsReadEndElement(reader.toString(), error.toString()) as Int) else 0
+public actual fun wsReadEndElement(reader: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsReadEndElement((reader?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsReadEndpointAddressExtension(reader: Long, endpointaddress: Long, extensiontype: WS_ENDPOINT_ADDRESS_EXTENSION_TYPE, readoption: WS_READ_OPTION, heap: Long, value: Long, valuesize: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsReadEndpointAddressExtension(reader.toString(), endpointaddress.toString(), extensiontype, readoption, heap.toString(), value.toString(), valuesize.toInt(), error.toString()) as Int) else 0
+public actual fun wsReadEndpointAddressExtension(reader: COpaquePointer?, endpointaddress: COpaquePointer?, extensiontype: WsEndpointAddressExtensionType, readoption: WsReadOption, heap: COpaquePointer?, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsReadEndpointAddressExtension((reader?.value ?: 0L).toString(), (endpointaddress?.value ?: 0L).toString(), extensiontype, readoption, (heap?.value ?: 0L).toString(), (value?.value ?: 0L).toString(), valuesize.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsReadEnvelopeEnd(message: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsReadEnvelopeEnd(message.toString(), error.toString()) as Int) else 0
+public actual fun wsReadEnvelopeEnd(message: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsReadEnvelopeEnd((message?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsReadEnvelopeStart(message: Long, reader: Long, donecallback: WS_MESSAGE_DONE_CALLBACK, donecallbackstate: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsReadEnvelopeStart(message.toString(), reader.toString(), donecallback.toLong().toString(), donecallbackstate.toString(), error.toString()) as Int) else 0
+public actual fun wsReadEnvelopeStart(message: COpaquePointer?, reader: COpaquePointer?, donecallback: WsMessageDoneCallback, donecallbackstate: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsReadEnvelopeStart((message?.value ?: 0L).toString(), (reader?.value ?: 0L).toString(), 0L.toString(), (donecallbackstate?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsReadMessageEnd(channel: Long, message: Long, asynccontext: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsReadMessageEnd(channel.toString(), message.toString(), asynccontext.toString(), error.toString()) as Int) else 0
+public actual fun wsReadMessageEnd(channel: COpaquePointer?, message: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsReadMessageEnd((channel?.value ?: 0L).toString(), (message?.value ?: 0L).toString(), (asynccontext?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsReadMessageStart(channel: Long, message: Long, asynccontext: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsReadMessageStart(channel.toString(), message.toString(), asynccontext.toString(), error.toString()) as Int) else 0
+public actual fun wsReadMessageStart(channel: COpaquePointer?, message: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsReadMessageStart((channel?.value ?: 0L).toString(), (message?.value ?: 0L).toString(), (asynccontext?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsReadMetadata(metadata: Long, reader: Long, url: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsReadMetadata(metadata.toString(), reader.toString(), url.toString(), error.toString()) as Int) else 0
+public actual fun wsReadMetadata(metadata: COpaquePointer?, reader: COpaquePointer?, url: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsReadMetadata((metadata?.value ?: 0L).toString(), (reader?.value ?: 0L).toString(), (url?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsReadNode(reader: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsReadNode(reader.toString(), error.toString()) as Int) else 0
+public actual fun wsReadNode(reader: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsReadNode((reader?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsReadQualifiedName(reader: Long, heap: Long, prefix: Long, localname: Long, ns: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsReadQualifiedName(reader.toString(), heap.toString(), prefix.toString(), localname.toString(), ns.toString(), error.toString()) as Int) else 0
+public actual fun wsReadQualifiedName(reader: COpaquePointer?, heap: COpaquePointer?, prefix: COpaquePointer?, localname: COpaquePointer?, ns: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsReadQualifiedName((reader?.value ?: 0L).toString(), (heap?.value ?: 0L).toString(), (prefix?.value ?: 0L).toString(), (localname?.value ?: 0L).toString(), (ns?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsReadStartAttribute(reader: Long, attributeindex: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsReadStartAttribute(reader.toString(), attributeindex.toInt(), error.toString()) as Int) else 0
+public actual fun wsReadStartAttribute(reader: COpaquePointer?, attributeindex: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsReadStartAttribute((reader?.value ?: 0L).toString(), attributeindex.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsReadStartElement(reader: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsReadStartElement(reader.toString(), error.toString()) as Int) else 0
+public actual fun wsReadStartElement(reader: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsReadStartElement((reader?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsReadToStartElement(reader: Long, localname: Long, ns: Long, found: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsReadToStartElement(reader.toString(), localname.toString(), ns.toString(), found.toString(), error.toString()) as Int) else 0
+public actual fun wsReadToStartElement(reader: COpaquePointer?, localname: COpaquePointer?, ns: COpaquePointer?, found: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsReadToStartElement((reader?.value ?: 0L).toString(), (localname?.value ?: 0L).toString(), (ns?.value ?: 0L).toString(), (found?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsReadType(reader: Long, typemapping: WS_TYPE_MAPPING, type: WS_TYPE, typedescription: Long, readoption: WS_READ_OPTION, heap: Long, value: Long, valuesize: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsReadType(reader.toString(), typemapping, type, typedescription.toString(), readoption, heap.toString(), value.toString(), valuesize.toInt(), error.toString()) as Int) else 0
+public actual fun wsReadType(reader: COpaquePointer?, typemapping: WsTypeMapping, type: WsType, typedescription: COpaquePointer?, readoption: WsReadOption, heap: COpaquePointer?, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsReadType((reader?.value ?: 0L).toString(), typemapping, type, (typedescription?.value ?: 0L).toString(), readoption, (heap?.value ?: 0L).toString(), (value?.value ?: 0L).toString(), valuesize.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsReadValue(reader: Long, valuetype: WS_VALUE_TYPE, value: Long, valuesize: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsReadValue(reader.toString(), valuetype, value.toString(), valuesize.toInt(), error.toString()) as Int) else 0
+public actual fun wsReadValue(reader: COpaquePointer?, valuetype: WsValueType, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsReadValue((reader?.value ?: 0L).toString(), valuetype, (value?.value ?: 0L).toString(), valuesize.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsReadXmlBuffer(reader: Long, heap: Long, xmlbuffer: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsReadXmlBuffer(reader.toString(), heap.toString(), xmlbuffer.toString(), error.toString()) as Int) else 0
+public actual fun wsReadXmlBuffer(reader: COpaquePointer?, heap: COpaquePointer?, xmlbuffer: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsReadXmlBuffer((reader?.value ?: 0L).toString(), (heap?.value ?: 0L).toString(), (xmlbuffer?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsReadXmlBufferFromBytes(reader: Long, encoding: Long, properties: Long, propertycount: UInt, bytes: Long, bytecount: UInt, heap: Long, xmlbuffer: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsReadXmlBufferFromBytes(reader.toString(), encoding.toString(), properties.toString(), propertycount.toInt(), bytes.toString(), bytecount.toInt(), heap.toString(), xmlbuffer.toString(), error.toString()) as Int) else 0
+public actual fun wsReadXmlBufferFromBytes(reader: COpaquePointer?, encoding: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, bytes: COpaquePointer?, bytecount: UInt, heap: COpaquePointer?, xmlbuffer: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsReadXmlBufferFromBytes((reader?.value ?: 0L).toString(), (encoding?.value ?: 0L).toString(), (properties?.value ?: 0L).toString(), propertycount.toInt(), (bytes?.value ?: 0L).toString(), bytecount.toInt(), (heap?.value ?: 0L).toString(), (xmlbuffer?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsReceiveMessage(channel: Long, message: Long, messagedescriptions: Long, messagedescriptioncount: UInt, receiveoption: WS_RECEIVE_OPTION, readbodyoption: WS_READ_OPTION, heap: Long, value: Long, valuesize: UInt, index: Long, asynccontext: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsReceiveMessage(channel.toString(), message.toString(), messagedescriptions.toString(), messagedescriptioncount.toInt(), receiveoption, readbodyoption, heap.toString(), value.toString(), valuesize.toInt(), index.toString(), asynccontext.toString(), error.toString()) as Int) else 0
+public actual fun wsReceiveMessage(channel: COpaquePointer?, message: COpaquePointer?, messagedescriptions: COpaquePointer?, messagedescriptioncount: UInt, receiveoption: WsReceiveOption, readbodyoption: WsReadOption, heap: COpaquePointer?, value: COpaquePointer?, valuesize: UInt, index: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsReceiveMessage((channel?.value ?: 0L).toString(), (message?.value ?: 0L).toString(), (messagedescriptions?.value ?: 0L).toString(), messagedescriptioncount.toInt(), receiveoption, readbodyoption, (heap?.value ?: 0L).toString(), (value?.value ?: 0L).toString(), valuesize.toInt(), (index?.value ?: 0L).toString(), (asynccontext?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsRegisterOperationForCancel(context: Long, cancelcallback: WS_OPERATION_CANCEL_CALLBACK, freestatecallback: WS_OPERATION_FREE_STATE_CALLBACK, userstate: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsRegisterOperationForCancel(context.toString(), cancelcallback.toLong().toString(), freestatecallback.toLong().toString(), userstate.toString(), error.toString()) as Int) else 0
+public actual fun wsRegisterOperationForCancel(context: COpaquePointer?, cancelcallback: WsOperationCancelCallback, freestatecallback: WsOperationFreeStateCallback, userstate: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsRegisterOperationForCancel((context?.value ?: 0L).toString(), 0L.toString(), 0L.toString(), (userstate?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsRemoveCustomHeader(message: Long, headername: Long, headerns: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsRemoveCustomHeader(message.toString(), headername.toString(), headerns.toString(), error.toString()) as Int) else 0
+public actual fun wsRemoveCustomHeader(message: COpaquePointer?, headername: COpaquePointer?, headerns: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsRemoveCustomHeader((message?.value ?: 0L).toString(), (headername?.value ?: 0L).toString(), (headerns?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsRemoveHeader(message: Long, headertype: WS_HEADER_TYPE, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsRemoveHeader(message.toString(), headertype, error.toString()) as Int) else 0
+public actual fun wsRemoveHeader(message: COpaquePointer?, headertype: WsHeaderType, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsRemoveHeader((message?.value ?: 0L).toString(), headertype, (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsRemoveMappedHeader(message: Long, headername: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsRemoveMappedHeader(message.toString(), headername.toString(), error.toString()) as Int) else 0
+public actual fun wsRemoveMappedHeader(message: COpaquePointer?, headername: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsRemoveMappedHeader((message?.value ?: 0L).toString(), (headername?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsRemoveNode(nodeposition: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsRemoveNode(nodeposition.toString(), error.toString()) as Int) else 0
+public actual fun wsRemoveNode(nodeposition: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsRemoveNode((nodeposition?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsRequestReply(channel: Long, requestmessage: Long, requestmessagedescription: Long, writeoption: WS_WRITE_OPTION, requestbodyvalue: Long, requestbodyvaluesize: UInt, replymessage: Long, replymessagedescription: Long, readoption: WS_READ_OPTION, heap: Long, value: Long, valuesize: UInt, asynccontext: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsRequestReply(channel.toString(), requestmessage.toString(), requestmessagedescription.toString(), writeoption, requestbodyvalue.toString(), requestbodyvaluesize.toInt(), replymessage.toString(), replymessagedescription.toString(), readoption, heap.toString(), value.toString(), valuesize.toInt(), asynccontext.toString(), error.toString()) as Int) else 0
+public actual fun wsRequestReply(channel: COpaquePointer?, requestmessage: COpaquePointer?, requestmessagedescription: COpaquePointer?, writeoption: WsWriteOption, requestbodyvalue: COpaquePointer?, requestbodyvaluesize: UInt, replymessage: COpaquePointer?, replymessagedescription: COpaquePointer?, readoption: WsReadOption, heap: COpaquePointer?, value: COpaquePointer?, valuesize: UInt, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsRequestReply((channel?.value ?: 0L).toString(), (requestmessage?.value ?: 0L).toString(), (requestmessagedescription?.value ?: 0L).toString(), writeoption, (requestbodyvalue?.value ?: 0L).toString(), requestbodyvaluesize.toInt(), (replymessage?.value ?: 0L).toString(), (replymessagedescription?.value ?: 0L).toString(), readoption, (heap?.value ?: 0L).toString(), (value?.value ?: 0L).toString(), valuesize.toInt(), (asynccontext?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsRequestSecurityToken(channel: Long, properties: Long, propertycount: UInt, token: Long, asynccontext: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsRequestSecurityToken(channel.toString(), properties.toString(), propertycount.toInt(), token.toString(), asynccontext.toString(), error.toString()) as Int) else 0
+public actual fun wsRequestSecurityToken(channel: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, token: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsRequestSecurityToken((channel?.value ?: 0L).toString(), (properties?.value ?: 0L).toString(), propertycount.toInt(), (token?.value ?: 0L).toString(), (asynccontext?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsResetChannel(channel: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsResetChannel(channel.toString(), error.toString()) as Int) else 0
+public actual fun wsResetChannel(channel: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsResetChannel((channel?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsResetError(error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsResetError(error.toString()) as Int) else 0
+public actual fun wsResetError(error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsResetError((error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsResetHeap(heap: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsResetHeap(heap.toString(), error.toString()) as Int) else 0
+public actual fun wsResetHeap(heap: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsResetHeap((heap?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsResetListener(listener: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsResetListener(listener.toString(), error.toString()) as Int) else 0
+public actual fun wsResetListener(listener: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsResetListener((listener?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsResetMessage(message: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsResetMessage(message.toString(), error.toString()) as Int) else 0
+public actual fun wsResetMessage(message: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsResetMessage((message?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsResetMetadata(metadata: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsResetMetadata(metadata.toString(), error.toString()) as Int) else 0
+public actual fun wsResetMetadata(metadata: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsResetMetadata((metadata?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsResetServiceHost(servicehost: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsResetServiceHost(servicehost.toString(), error.toString()) as Int) else 0
+public actual fun wsResetServiceHost(servicehost: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsResetServiceHost((servicehost?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsResetServiceProxy(serviceproxy: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsResetServiceProxy(serviceproxy.toString(), error.toString()) as Int) else 0
+public actual fun wsResetServiceProxy(serviceproxy: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsResetServiceProxy((serviceproxy?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsRevokeSecurityContext(securitycontext: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsRevokeSecurityContext(securitycontext.toString(), error.toString()) as Int) else 0
+public actual fun wsRevokeSecurityContext(securitycontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsRevokeSecurityContext((securitycontext?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsSendFaultMessageForError(channel: Long, replymessage: Long, faulterror: Long, faulterrorcode: HRESULT, faultdisclosure: WS_FAULT_DISCLOSURE, requestmessage: Long, asynccontext: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsSendFaultMessageForError(channel.toString(), replymessage.toString(), faulterror.toString(), faulterrorcode, faultdisclosure, requestmessage.toString(), asynccontext.toString(), error.toString()) as Int) else 0
+public actual fun wsSendFaultMessageForError(channel: COpaquePointer?, replymessage: COpaquePointer?, faulterror: COpaquePointer?, faulterrorcode: Hresult, faultdisclosure: WsFaultDisclosure, requestmessage: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsSendFaultMessageForError((channel?.value ?: 0L).toString(), (replymessage?.value ?: 0L).toString(), (faulterror?.value ?: 0L).toString(), faulterrorcode, faultdisclosure, (requestmessage?.value ?: 0L).toString(), (asynccontext?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsSendMessage(channel: Long, message: Long, messagedescription: Long, writeoption: WS_WRITE_OPTION, bodyvalue: Long, bodyvaluesize: UInt, asynccontext: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsSendMessage(channel.toString(), message.toString(), messagedescription.toString(), writeoption, bodyvalue.toString(), bodyvaluesize.toInt(), asynccontext.toString(), error.toString()) as Int) else 0
+public actual fun wsSendMessage(channel: COpaquePointer?, message: COpaquePointer?, messagedescription: COpaquePointer?, writeoption: WsWriteOption, bodyvalue: COpaquePointer?, bodyvaluesize: UInt, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsSendMessage((channel?.value ?: 0L).toString(), (message?.value ?: 0L).toString(), (messagedescription?.value ?: 0L).toString(), writeoption, (bodyvalue?.value ?: 0L).toString(), bodyvaluesize.toInt(), (asynccontext?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsSendReplyMessage(channel: Long, replymessage: Long, replymessagedescription: Long, writeoption: WS_WRITE_OPTION, replybodyvalue: Long, replybodyvaluesize: UInt, requestmessage: Long, asynccontext: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsSendReplyMessage(channel.toString(), replymessage.toString(), replymessagedescription.toString(), writeoption, replybodyvalue.toString(), replybodyvaluesize.toInt(), requestmessage.toString(), asynccontext.toString(), error.toString()) as Int) else 0
+public actual fun wsSendReplyMessage(channel: COpaquePointer?, replymessage: COpaquePointer?, replymessagedescription: COpaquePointer?, writeoption: WsWriteOption, replybodyvalue: COpaquePointer?, replybodyvaluesize: UInt, requestmessage: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsSendReplyMessage((channel?.value ?: 0L).toString(), (replymessage?.value ?: 0L).toString(), (replymessagedescription?.value ?: 0L).toString(), writeoption, (replybodyvalue?.value ?: 0L).toString(), replybodyvaluesize.toInt(), (requestmessage?.value ?: 0L).toString(), (asynccontext?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsSetChannelProperty(channel: Long, id: WS_CHANNEL_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsSetChannelProperty(channel.toString(), id, value.toString(), valuesize.toInt(), error.toString()) as Int) else 0
+public actual fun wsSetChannelProperty(channel: COpaquePointer?, id: WsChannelPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsSetChannelProperty((channel?.value ?: 0L).toString(), id, (value?.value ?: 0L).toString(), valuesize.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsSetErrorProperty(error: Long, id: WS_ERROR_PROPERTY_ID, value: Long, valuesize: UInt): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsSetErrorProperty(error.toString(), id, value.toString(), valuesize.toInt()) as Int) else 0
+public actual fun wsSetErrorProperty(error: COpaquePointer?, id: WsErrorPropertyId, value: COpaquePointer?, valuesize: UInt): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsSetErrorProperty((error?.value ?: 0L).toString(), id, (value?.value ?: 0L).toString(), valuesize.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsSetFaultErrorDetail(error: Long, faultdetaildescription: Long, writeoption: WS_WRITE_OPTION, value: Long, valuesize: UInt): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsSetFaultErrorDetail(error.toString(), faultdetaildescription.toString(), writeoption, value.toString(), valuesize.toInt()) as Int) else 0
+public actual fun wsSetFaultErrorDetail(error: COpaquePointer?, faultdetaildescription: COpaquePointer?, writeoption: WsWriteOption, value: COpaquePointer?, valuesize: UInt): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsSetFaultErrorDetail((error?.value ?: 0L).toString(), (faultdetaildescription?.value ?: 0L).toString(), writeoption, (value?.value ?: 0L).toString(), valuesize.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsSetFaultErrorProperty(error: Long, id: WS_FAULT_ERROR_PROPERTY_ID, value: Long, valuesize: UInt): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsSetFaultErrorProperty(error.toString(), id, value.toString(), valuesize.toInt()) as Int) else 0
+public actual fun wsSetFaultErrorProperty(error: COpaquePointer?, id: WsFaultErrorPropertyId, value: COpaquePointer?, valuesize: UInt): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsSetFaultErrorProperty((error?.value ?: 0L).toString(), id, (value?.value ?: 0L).toString(), valuesize.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsSetHeader(message: Long, headertype: WS_HEADER_TYPE, valuetype: WS_TYPE, writeoption: WS_WRITE_OPTION, value: Long, valuesize: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsSetHeader(message.toString(), headertype, valuetype, writeoption, value.toString(), valuesize.toInt(), error.toString()) as Int) else 0
+public actual fun wsSetHeader(message: COpaquePointer?, headertype: WsHeaderType, valuetype: WsType, writeoption: WsWriteOption, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsSetHeader((message?.value ?: 0L).toString(), headertype, valuetype, writeoption, (value?.value ?: 0L).toString(), valuesize.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsSetInput(reader: Long, encoding: Long, input: Long, properties: Long, propertycount: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsSetInput(reader.toString(), encoding.toString(), input.toString(), properties.toString(), propertycount.toInt(), error.toString()) as Int) else 0
+public actual fun wsSetInput(reader: COpaquePointer?, encoding: COpaquePointer?, input: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsSetInput((reader?.value ?: 0L).toString(), (encoding?.value ?: 0L).toString(), (input?.value ?: 0L).toString(), (properties?.value ?: 0L).toString(), propertycount.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsSetInputToBuffer(reader: Long, buffer: Long, properties: Long, propertycount: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsSetInputToBuffer(reader.toString(), buffer.toString(), properties.toString(), propertycount.toInt(), error.toString()) as Int) else 0
+public actual fun wsSetInputToBuffer(reader: COpaquePointer?, buffer: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsSetInputToBuffer((reader?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), (properties?.value ?: 0L).toString(), propertycount.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsSetListenerProperty(listener: Long, id: WS_LISTENER_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsSetListenerProperty(listener.toString(), id, value.toString(), valuesize.toInt(), error.toString()) as Int) else 0
+public actual fun wsSetListenerProperty(listener: COpaquePointer?, id: WsListenerPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsSetListenerProperty((listener?.value ?: 0L).toString(), id, (value?.value ?: 0L).toString(), valuesize.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsSetMessageProperty(message: Long, id: WS_MESSAGE_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsSetMessageProperty(message.toString(), id, value.toString(), valuesize.toInt(), error.toString()) as Int) else 0
+public actual fun wsSetMessageProperty(message: COpaquePointer?, id: WsMessagePropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsSetMessageProperty((message?.value ?: 0L).toString(), id, (value?.value ?: 0L).toString(), valuesize.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsSetOutput(writer: Long, encoding: Long, output: Long, properties: Long, propertycount: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsSetOutput(writer.toString(), encoding.toString(), output.toString(), properties.toString(), propertycount.toInt(), error.toString()) as Int) else 0
+public actual fun wsSetOutput(writer: COpaquePointer?, encoding: COpaquePointer?, output: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsSetOutput((writer?.value ?: 0L).toString(), (encoding?.value ?: 0L).toString(), (output?.value ?: 0L).toString(), (properties?.value ?: 0L).toString(), propertycount.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsSetOutputToBuffer(writer: Long, buffer: Long, properties: Long, propertycount: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsSetOutputToBuffer(writer.toString(), buffer.toString(), properties.toString(), propertycount.toInt(), error.toString()) as Int) else 0
+public actual fun wsSetOutputToBuffer(writer: COpaquePointer?, buffer: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsSetOutputToBuffer((writer?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), (properties?.value ?: 0L).toString(), propertycount.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsSetReaderPosition(reader: Long, nodeposition: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsSetReaderPosition(reader.toString(), nodeposition.toString(), error.toString()) as Int) else 0
+public actual fun wsSetReaderPosition(reader: COpaquePointer?, nodeposition: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsSetReaderPosition((reader?.value ?: 0L).toString(), (nodeposition?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsSetWriterPosition(writer: Long, nodeposition: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsSetWriterPosition(writer.toString(), nodeposition.toString(), error.toString()) as Int) else 0
+public actual fun wsSetWriterPosition(writer: COpaquePointer?, nodeposition: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsSetWriterPosition((writer?.value ?: 0L).toString(), (nodeposition?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsShutdownSessionChannel(channel: Long, asynccontext: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsShutdownSessionChannel(channel.toString(), asynccontext.toString(), error.toString()) as Int) else 0
+public actual fun wsShutdownSessionChannel(channel: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsShutdownSessionChannel((channel?.value ?: 0L).toString(), (asynccontext?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsSkipNode(reader: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsSkipNode(reader.toString(), error.toString()) as Int) else 0
+public actual fun wsSkipNode(reader: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsSkipNode((reader?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsStartReaderCanonicalization(reader: Long, writecallback: WS_WRITE_CALLBACK, writecallbackstate: Long, properties: Long, propertycount: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsStartReaderCanonicalization(reader.toString(), writecallback.toLong().toString(), writecallbackstate.toString(), properties.toString(), propertycount.toInt(), error.toString()) as Int) else 0
+public actual fun wsStartReaderCanonicalization(reader: COpaquePointer?, writecallback: WsWriteCallback, writecallbackstate: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsStartReaderCanonicalization((reader?.value ?: 0L).toString(), 0L.toString(), (writecallbackstate?.value ?: 0L).toString(), (properties?.value ?: 0L).toString(), propertycount.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsStartWriterCanonicalization(writer: Long, writecallback: WS_WRITE_CALLBACK, writecallbackstate: Long, properties: Long, propertycount: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsStartWriterCanonicalization(writer.toString(), writecallback.toLong().toString(), writecallbackstate.toString(), properties.toString(), propertycount.toInt(), error.toString()) as Int) else 0
+public actual fun wsStartWriterCanonicalization(writer: COpaquePointer?, writecallback: WsWriteCallback, writecallbackstate: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsStartWriterCanonicalization((writer?.value ?: 0L).toString(), 0L.toString(), (writecallbackstate?.value ?: 0L).toString(), (properties?.value ?: 0L).toString(), propertycount.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsTrimXmlWhitespace(chars: PCWSTR, charcount: UInt, trimmedchars: Long, trimmedcount: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsTrimXmlWhitespace(chars.toString(), charcount.toInt(), trimmedchars.toString(), trimmedcount.toString(), error.toString()) as Int) else 0
+public actual fun wsTrimXmlWhitespace(chars: Pcwstr, charcount: UInt, trimmedchars: COpaquePointer?, trimmedcount: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsTrimXmlWhitespace((chars?.value ?: 0L).toString(), charcount.toInt(), (trimmedchars?.value ?: 0L).toString(), (trimmedcount?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsVerifyXmlNCName(ncnamechars: PCWSTR, ncnamecharcount: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsVerifyXmlNCName(ncnamechars.toString(), ncnamecharcount.toInt(), error.toString()) as Int) else 0
+public actual fun wsVerifyXmlNCName(ncnamechars: Pcwstr, ncnamecharcount: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsVerifyXmlNCName((ncnamechars?.value ?: 0L).toString(), ncnamecharcount.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsWriteArray(writer: Long, localname: Long, ns: Long, valuetype: WS_VALUE_TYPE, array: Long, arraysize: UInt, itemoffset: UInt, itemcount: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsWriteArray(writer.toString(), localname.toString(), ns.toString(), valuetype, array.toString(), arraysize.toInt(), itemoffset.toInt(), itemcount.toInt(), error.toString()) as Int) else 0
+public actual fun wsWriteArray(writer: COpaquePointer?, localname: COpaquePointer?, ns: COpaquePointer?, valuetype: WsValueType, array: COpaquePointer?, arraysize: UInt, itemoffset: UInt, itemcount: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsWriteArray((writer?.value ?: 0L).toString(), (localname?.value ?: 0L).toString(), (ns?.value ?: 0L).toString(), valuetype, (array?.value ?: 0L).toString(), arraysize.toInt(), itemoffset.toInt(), itemcount.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsWriteAttribute(writer: Long, attributedescription: Long, writeoption: WS_WRITE_OPTION, value: Long, valuesize: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsWriteAttribute(writer.toString(), attributedescription.toString(), writeoption, value.toString(), valuesize.toInt(), error.toString()) as Int) else 0
+public actual fun wsWriteAttribute(writer: COpaquePointer?, attributedescription: COpaquePointer?, writeoption: WsWriteOption, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsWriteAttribute((writer?.value ?: 0L).toString(), (attributedescription?.value ?: 0L).toString(), writeoption, (value?.value ?: 0L).toString(), valuesize.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsWriteBody(message: Long, bodydescription: Long, writeoption: WS_WRITE_OPTION, value: Long, valuesize: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsWriteBody(message.toString(), bodydescription.toString(), writeoption, value.toString(), valuesize.toInt(), error.toString()) as Int) else 0
+public actual fun wsWriteBody(message: COpaquePointer?, bodydescription: COpaquePointer?, writeoption: WsWriteOption, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsWriteBody((message?.value ?: 0L).toString(), (bodydescription?.value ?: 0L).toString(), writeoption, (value?.value ?: 0L).toString(), valuesize.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsWriteBytes(writer: Long, bytes: Long, bytecount: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsWriteBytes(writer.toString(), bytes.toString(), bytecount.toInt(), error.toString()) as Int) else 0
+public actual fun wsWriteBytes(writer: COpaquePointer?, bytes: COpaquePointer?, bytecount: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsWriteBytes((writer?.value ?: 0L).toString(), (bytes?.value ?: 0L).toString(), bytecount.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsWriteChars(writer: Long, chars: PCWSTR, charcount: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsWriteChars(writer.toString(), chars.toString(), charcount.toInt(), error.toString()) as Int) else 0
+public actual fun wsWriteChars(writer: COpaquePointer?, chars: Pcwstr, charcount: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsWriteChars((writer?.value ?: 0L).toString(), (chars?.value ?: 0L).toString(), charcount.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsWriteCharsUtf8(writer: Long, bytes: Long, bytecount: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsWriteCharsUtf8(writer.toString(), bytes.toString(), bytecount.toInt(), error.toString()) as Int) else 0
+public actual fun wsWriteCharsUtf8(writer: COpaquePointer?, bytes: COpaquePointer?, bytecount: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsWriteCharsUtf8((writer?.value ?: 0L).toString(), (bytes?.value ?: 0L).toString(), bytecount.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsWriteElement(writer: Long, elementdescription: Long, writeoption: WS_WRITE_OPTION, value: Long, valuesize: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsWriteElement(writer.toString(), elementdescription.toString(), writeoption, value.toString(), valuesize.toInt(), error.toString()) as Int) else 0
+public actual fun wsWriteElement(writer: COpaquePointer?, elementdescription: COpaquePointer?, writeoption: WsWriteOption, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsWriteElement((writer?.value ?: 0L).toString(), (elementdescription?.value ?: 0L).toString(), writeoption, (value?.value ?: 0L).toString(), valuesize.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsWriteEndAttribute(writer: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsWriteEndAttribute(writer.toString(), error.toString()) as Int) else 0
+public actual fun wsWriteEndAttribute(writer: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsWriteEndAttribute((writer?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsWriteEndCData(writer: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsWriteEndCData(writer.toString(), error.toString()) as Int) else 0
+public actual fun wsWriteEndCData(writer: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsWriteEndCData((writer?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsWriteEndElement(writer: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsWriteEndElement(writer.toString(), error.toString()) as Int) else 0
+public actual fun wsWriteEndElement(writer: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsWriteEndElement((writer?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsWriteEndStartElement(writer: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsWriteEndStartElement(writer.toString(), error.toString()) as Int) else 0
+public actual fun wsWriteEndStartElement(writer: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsWriteEndStartElement((writer?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsWriteEnvelopeEnd(message: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsWriteEnvelopeEnd(message.toString(), error.toString()) as Int) else 0
+public actual fun wsWriteEnvelopeEnd(message: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsWriteEnvelopeEnd((message?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsWriteEnvelopeStart(message: Long, writer: Long, donecallback: WS_MESSAGE_DONE_CALLBACK, donecallbackstate: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsWriteEnvelopeStart(message.toString(), writer.toString(), donecallback.toLong().toString(), donecallbackstate.toString(), error.toString()) as Int) else 0
+public actual fun wsWriteEnvelopeStart(message: COpaquePointer?, writer: COpaquePointer?, donecallback: WsMessageDoneCallback, donecallbackstate: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsWriteEnvelopeStart((message?.value ?: 0L).toString(), (writer?.value ?: 0L).toString(), 0L.toString(), (donecallbackstate?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsWriteMessageEnd(channel: Long, message: Long, asynccontext: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsWriteMessageEnd(channel.toString(), message.toString(), asynccontext.toString(), error.toString()) as Int) else 0
+public actual fun wsWriteMessageEnd(channel: COpaquePointer?, message: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsWriteMessageEnd((channel?.value ?: 0L).toString(), (message?.value ?: 0L).toString(), (asynccontext?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsWriteMessageStart(channel: Long, message: Long, asynccontext: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsWriteMessageStart(channel.toString(), message.toString(), asynccontext.toString(), error.toString()) as Int) else 0
+public actual fun wsWriteMessageStart(channel: COpaquePointer?, message: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsWriteMessageStart((channel?.value ?: 0L).toString(), (message?.value ?: 0L).toString(), (asynccontext?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsWriteNode(writer: Long, node: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsWriteNode(writer.toString(), node.toString(), error.toString()) as Int) else 0
+public actual fun wsWriteNode(writer: COpaquePointer?, node: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsWriteNode((writer?.value ?: 0L).toString(), (node?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsWriteQualifiedName(writer: Long, prefix: Long, localname: Long, ns: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsWriteQualifiedName(writer.toString(), prefix.toString(), localname.toString(), ns.toString(), error.toString()) as Int) else 0
+public actual fun wsWriteQualifiedName(writer: COpaquePointer?, prefix: COpaquePointer?, localname: COpaquePointer?, ns: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsWriteQualifiedName((writer?.value ?: 0L).toString(), (prefix?.value ?: 0L).toString(), (localname?.value ?: 0L).toString(), (ns?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsWriteStartAttribute(writer: Long, prefix: Long, localname: Long, ns: Long, singlequote: BOOL, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsWriteStartAttribute(writer.toString(), prefix.toString(), localname.toString(), ns.toString(), singlequote, error.toString()) as Int) else 0
+public actual fun wsWriteStartAttribute(writer: COpaquePointer?, prefix: COpaquePointer?, localname: COpaquePointer?, ns: COpaquePointer?, singlequote: Bool, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsWriteStartAttribute((writer?.value ?: 0L).toString(), (prefix?.value ?: 0L).toString(), (localname?.value ?: 0L).toString(), (ns?.value ?: 0L).toString(), singlequote, (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsWriteStartCData(writer: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsWriteStartCData(writer.toString(), error.toString()) as Int) else 0
+public actual fun wsWriteStartCData(writer: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsWriteStartCData((writer?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsWriteStartElement(writer: Long, prefix: Long, localname: Long, ns: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsWriteStartElement(writer.toString(), prefix.toString(), localname.toString(), ns.toString(), error.toString()) as Int) else 0
+public actual fun wsWriteStartElement(writer: COpaquePointer?, prefix: COpaquePointer?, localname: COpaquePointer?, ns: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsWriteStartElement((writer?.value ?: 0L).toString(), (prefix?.value ?: 0L).toString(), (localname?.value ?: 0L).toString(), (ns?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsWriteText(writer: Long, text: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsWriteText(writer.toString(), text.toString(), error.toString()) as Int) else 0
+public actual fun wsWriteText(writer: COpaquePointer?, text: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsWriteText((writer?.value ?: 0L).toString(), (text?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsWriteType(writer: Long, typemapping: WS_TYPE_MAPPING, type: WS_TYPE, typedescription: Long, writeoption: WS_WRITE_OPTION, value: Long, valuesize: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsWriteType(writer.toString(), typemapping, type, typedescription.toString(), writeoption, value.toString(), valuesize.toInt(), error.toString()) as Int) else 0
+public actual fun wsWriteType(writer: COpaquePointer?, typemapping: WsTypeMapping, type: WsType, typedescription: COpaquePointer?, writeoption: WsWriteOption, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsWriteType((writer?.value ?: 0L).toString(), typemapping, type, (typedescription?.value ?: 0L).toString(), writeoption, (value?.value ?: 0L).toString(), valuesize.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsWriteValue(writer: Long, valuetype: WS_VALUE_TYPE, value: Long, valuesize: UInt, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsWriteValue(writer.toString(), valuetype, value.toString(), valuesize.toInt(), error.toString()) as Int) else 0
+public actual fun wsWriteValue(writer: COpaquePointer?, valuetype: WsValueType, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsWriteValue((writer?.value ?: 0L).toString(), valuetype, (value?.value ?: 0L).toString(), valuesize.toInt(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsWriteXmlBuffer(writer: Long, xmlbuffer: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsWriteXmlBuffer(writer.toString(), xmlbuffer.toString(), error.toString()) as Int) else 0
+public actual fun wsWriteXmlBuffer(writer: COpaquePointer?, xmlbuffer: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsWriteXmlBuffer((writer?.value ?: 0L).toString(), (xmlbuffer?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsWriteXmlBufferToBytes(writer: Long, xmlbuffer: Long, encoding: Long, properties: Long, propertycount: UInt, heap: Long, bytes: Long, bytecount: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsWriteXmlBufferToBytes(writer.toString(), xmlbuffer.toString(), encoding.toString(), properties.toString(), propertycount.toInt(), heap.toString(), bytes.toString(), bytecount.toString(), error.toString()) as Int) else 0
+public actual fun wsWriteXmlBufferToBytes(writer: COpaquePointer?, xmlbuffer: COpaquePointer?, encoding: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, heap: COpaquePointer?, bytes: COpaquePointer?, bytecount: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsWriteXmlBufferToBytes((writer?.value ?: 0L).toString(), (xmlbuffer?.value ?: 0L).toString(), (encoding?.value ?: 0L).toString(), (properties?.value ?: 0L).toString(), propertycount.toInt(), (heap?.value ?: 0L).toString(), (bytes?.value ?: 0L).toString(), (bytecount?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsWriteXmlnsAttribute(writer: Long, prefix: Long, ns: Long, singlequote: BOOL, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsWriteXmlnsAttribute(writer.toString(), prefix.toString(), ns.toString(), singlequote, error.toString()) as Int) else 0
+public actual fun wsWriteXmlnsAttribute(writer: COpaquePointer?, prefix: COpaquePointer?, ns: COpaquePointer?, singlequote: Bool, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsWriteXmlnsAttribute((writer?.value ?: 0L).toString(), (prefix?.value ?: 0L).toString(), (ns?.value ?: 0L).toString(), singlequote, (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WsXmlStringEquals(string1: Long, string2: Long, error: Long): HRESULT =
-    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_WsXmlStringEquals(string1.toString(), string2.toString(), error.toString()) as Int) else 0
+public actual fun wsXmlStringEquals(string1: COpaquePointer?, string2: COpaquePointer?, error: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkingWindowswebservicesNapiAddon != null) (_windowsWin32NetworkingWindowswebservicesNapiAddon.windowssys_windows_win32_networking_windowswebservices_wsXmlStringEquals((string1?.value ?: 0L).toString(), (string2?.value ?: 0L).toString(), (error?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

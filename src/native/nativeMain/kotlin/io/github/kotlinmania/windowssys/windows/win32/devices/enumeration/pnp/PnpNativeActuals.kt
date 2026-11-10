@@ -2,37 +2,38 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.enumeration.pnp
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun SwDeviceClose(hswdevice: HSWDEVICE) {
-    io.github.kotlinmania.windowssys.windows.win32.devices.enumeration.pnp.cinterop.windowssys_windows_win32_devices_enumeration_pnp_SwDeviceClose(hswdevice.toCPointer<ByteVar>())
+public actual fun swDeviceClose(hswdevice: Hswdevice) {
+    io.github.kotlinmania.windowssys.windows.win32.devices.enumeration.pnp.cinterop.windowssys_windows_win32_devices_enumeration_pnp_swDeviceClose(hswdevice?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun SwDeviceCreate(pszenumeratorname: PCWSTR, pszparentdeviceinstance: PCWSTR, pcreateinfo: Long, cpropertycount: UInt, pproperties: Long, pcallback: SW_DEVICE_CREATE_CALLBACK, pcontext: Long, phswdevice: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.enumeration.pnp.cinterop.windowssys_windows_win32_devices_enumeration_pnp_SwDeviceCreate(pszenumeratorname.toCPointer<ByteVar>(), pszparentdeviceinstance.toCPointer<ByteVar>(), pcreateinfo.toCPointer<ByteVar>(), cpropertycount, pproperties.toCPointer<ByteVar>(), pcallback.toLong().toCPointer<ByteVar>(), pcontext.toCPointer<ByteVar>(), phswdevice.toCPointer<ByteVar>())
+public actual fun swDeviceCreate(pszenumeratorname: Pcwstr, pszparentdeviceinstance: Pcwstr, pcreateinfo: COpaquePointer?, cpropertycount: UInt, pproperties: COpaquePointer?, pcallback: SwDeviceCreateCallback, pcontext: COpaquePointer?, phswdevice: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.enumeration.pnp.cinterop.windowssys_windows_win32_devices_enumeration_pnp_swDeviceCreate(pszenumeratorname?.value?.toCPointer<ByteVar>(), pszparentdeviceinstance?.value?.toCPointer<ByteVar>(), pcreateinfo?.value?.toCPointer<ByteVar>(), cpropertycount, pproperties?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), pcontext?.value?.toCPointer<ByteVar>(), phswdevice?.value?.toCPointer<ByteVar>())
 
-public actual fun SwDeviceGetLifetime(hswdevice: HSWDEVICE, plifetime: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.enumeration.pnp.cinterop.windowssys_windows_win32_devices_enumeration_pnp_SwDeviceGetLifetime(hswdevice.toCPointer<ByteVar>(), plifetime.toCPointer<ByteVar>())
+public actual fun swDeviceGetLifetime(hswdevice: Hswdevice, plifetime: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.enumeration.pnp.cinterop.windowssys_windows_win32_devices_enumeration_pnp_swDeviceGetLifetime(hswdevice?.value?.toCPointer<ByteVar>(), plifetime?.value?.toCPointer<ByteVar>())
 
-public actual fun SwDeviceInterfacePropertySet(hswdevice: HSWDEVICE, pszdeviceinterfaceid: PCWSTR, cpropertycount: UInt, pproperties: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.enumeration.pnp.cinterop.windowssys_windows_win32_devices_enumeration_pnp_SwDeviceInterfacePropertySet(hswdevice.toCPointer<ByteVar>(), pszdeviceinterfaceid.toCPointer<ByteVar>(), cpropertycount, pproperties.toCPointer<ByteVar>())
+public actual fun swDeviceInterfacePropertySet(hswdevice: Hswdevice, pszdeviceinterfaceid: Pcwstr, cpropertycount: UInt, pproperties: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.enumeration.pnp.cinterop.windowssys_windows_win32_devices_enumeration_pnp_swDeviceInterfacePropertySet(hswdevice?.value?.toCPointer<ByteVar>(), pszdeviceinterfaceid?.value?.toCPointer<ByteVar>(), cpropertycount, pproperties?.value?.toCPointer<ByteVar>())
 
-public actual fun SwDeviceInterfaceRegister(hswdevice: HSWDEVICE, pinterfaceclassguid: Long, pszreferencestring: PCWSTR, cpropertycount: UInt, pproperties: Long, fenabled: BOOL, ppszdeviceinterfaceid: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.enumeration.pnp.cinterop.windowssys_windows_win32_devices_enumeration_pnp_SwDeviceInterfaceRegister(hswdevice.toCPointer<ByteVar>(), pinterfaceclassguid.toCPointer<ByteVar>(), pszreferencestring.toCPointer<ByteVar>(), cpropertycount, pproperties.toCPointer<ByteVar>(), fenabled, ppszdeviceinterfaceid.toCPointer<ByteVar>())
+public actual fun swDeviceInterfaceRegister(hswdevice: Hswdevice, pinterfaceclassguid: COpaquePointer?, pszreferencestring: Pcwstr, cpropertycount: UInt, pproperties: COpaquePointer?, fenabled: Bool, ppszdeviceinterfaceid: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.enumeration.pnp.cinterop.windowssys_windows_win32_devices_enumeration_pnp_swDeviceInterfaceRegister(hswdevice?.value?.toCPointer<ByteVar>(), pinterfaceclassguid?.value?.toCPointer<ByteVar>(), pszreferencestring?.value?.toCPointer<ByteVar>(), cpropertycount, pproperties?.value?.toCPointer<ByteVar>(), fenabled, ppszdeviceinterfaceid?.value?.toCPointer<ByteVar>())
 
-public actual fun SwDeviceInterfaceSetState(hswdevice: HSWDEVICE, pszdeviceinterfaceid: PCWSTR, fenabled: BOOL): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.enumeration.pnp.cinterop.windowssys_windows_win32_devices_enumeration_pnp_SwDeviceInterfaceSetState(hswdevice.toCPointer<ByteVar>(), pszdeviceinterfaceid.toCPointer<ByteVar>(), fenabled)
+public actual fun swDeviceInterfaceSetState(hswdevice: Hswdevice, pszdeviceinterfaceid: Pcwstr, fenabled: Bool): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.enumeration.pnp.cinterop.windowssys_windows_win32_devices_enumeration_pnp_swDeviceInterfaceSetState(hswdevice?.value?.toCPointer<ByteVar>(), pszdeviceinterfaceid?.value?.toCPointer<ByteVar>(), fenabled)
 
-public actual fun SwDevicePropertySet(hswdevice: HSWDEVICE, cpropertycount: UInt, pproperties: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.enumeration.pnp.cinterop.windowssys_windows_win32_devices_enumeration_pnp_SwDevicePropertySet(hswdevice.toCPointer<ByteVar>(), cpropertycount, pproperties.toCPointer<ByteVar>())
+public actual fun swDevicePropertySet(hswdevice: Hswdevice, cpropertycount: UInt, pproperties: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.enumeration.pnp.cinterop.windowssys_windows_win32_devices_enumeration_pnp_swDevicePropertySet(hswdevice?.value?.toCPointer<ByteVar>(), cpropertycount, pproperties?.value?.toCPointer<ByteVar>())
 
-public actual fun SwDeviceSetLifetime(hswdevice: HSWDEVICE, lifetime: SW_DEVICE_LIFETIME): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.enumeration.pnp.cinterop.windowssys_windows_win32_devices_enumeration_pnp_SwDeviceSetLifetime(hswdevice.toCPointer<ByteVar>(), lifetime)
+public actual fun swDeviceSetLifetime(hswdevice: Hswdevice, lifetime: SwDeviceLifetime): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.enumeration.pnp.cinterop.windowssys_windows_win32_devices_enumeration_pnp_swDeviceSetLifetime(hswdevice?.value?.toCPointer<ByteVar>(), lifetime)
 
-public actual fun SwMemFree(pmem: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.devices.enumeration.pnp.cinterop.windowssys_windows_win32_devices_enumeration_pnp_SwMemFree(pmem.toCPointer<ByteVar>())
+public actual fun swMemFree(pmem: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.devices.enumeration.pnp.cinterop.windowssys_windows_win32_devices_enumeration_pnp_swMemFree(pmem?.value?.toCPointer<ByteVar>())
 }

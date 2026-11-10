@@ -2,40 +2,41 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.applocker
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.security.SAFER_LEVEL_HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.security.SaferLevelHandle
 
 private val _windowsWin32SecurityApplockerNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun SaferCloseLevel(hlevelhandle: SAFER_LEVEL_HANDLE): BOOL =
-    if (_windowsWin32SecurityApplockerNapiAddon != null) (_windowsWin32SecurityApplockerNapiAddon.windowssys_windows_win32_security_applocker_SaferCloseLevel(hlevelhandle.toString()) as Int) else 0
+public actual fun saferCloseLevel(hlevelhandle: SaferLevelHandle): Bool =
+    if (_windowsWin32SecurityApplockerNapiAddon != null) (_windowsWin32SecurityApplockerNapiAddon.windowssys_windows_win32_security_applocker_saferCloseLevel((hlevelhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SaferComputeTokenFromLevel(levelhandle: SAFER_LEVEL_HANDLE, inaccesstoken: HANDLE, outaccesstoken: Long, dwflags: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS, lpreserved: Long): BOOL =
-    if (_windowsWin32SecurityApplockerNapiAddon != null) (_windowsWin32SecurityApplockerNapiAddon.windowssys_windows_win32_security_applocker_SaferComputeTokenFromLevel(levelhandle.toString(), inaccesstoken.toString(), outaccesstoken.toString(), dwflags.toInt(), lpreserved.toString()) as Int) else 0
+public actual fun saferComputeTokenFromLevel(levelhandle: SaferLevelHandle, inaccesstoken: Handle, outaccesstoken: COpaquePointer?, dwflags: SaferComputeTokenFromLevelFlags, lpreserved: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityApplockerNapiAddon != null) (_windowsWin32SecurityApplockerNapiAddon.windowssys_windows_win32_security_applocker_saferComputeTokenFromLevel((levelhandle?.value ?: 0L).toString(), (inaccesstoken?.value ?: 0L).toString(), (outaccesstoken?.value ?: 0L).toString(), dwflags.toInt(), (lpreserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SaferCreateLevel(dwscopeid: UInt, dwlevelid: UInt, openflags: UInt, plevelhandle: Long, lpreserved: Long): BOOL =
-    if (_windowsWin32SecurityApplockerNapiAddon != null) (_windowsWin32SecurityApplockerNapiAddon.windowssys_windows_win32_security_applocker_SaferCreateLevel(dwscopeid.toInt(), dwlevelid.toInt(), openflags.toInt(), plevelhandle.toString(), lpreserved.toString()) as Int) else 0
+public actual fun saferCreateLevel(dwscopeid: UInt, dwlevelid: UInt, openflags: UInt, plevelhandle: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityApplockerNapiAddon != null) (_windowsWin32SecurityApplockerNapiAddon.windowssys_windows_win32_security_applocker_saferCreateLevel(dwscopeid.toInt(), dwlevelid.toInt(), openflags.toInt(), (plevelhandle?.value ?: 0L).toString(), (lpreserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SaferGetLevelInformation(levelhandle: SAFER_LEVEL_HANDLE, dwinfotype: SAFER_OBJECT_INFO_CLASS, lpquerybuffer: Long, dwinbuffersize: UInt, lpdwoutbuffersize: Long): BOOL =
-    if (_windowsWin32SecurityApplockerNapiAddon != null) (_windowsWin32SecurityApplockerNapiAddon.windowssys_windows_win32_security_applocker_SaferGetLevelInformation(levelhandle.toString(), dwinfotype, lpquerybuffer.toString(), dwinbuffersize.toInt(), lpdwoutbuffersize.toString()) as Int) else 0
+public actual fun saferGetLevelInformation(levelhandle: SaferLevelHandle, dwinfotype: SaferObjectInfoClass, lpquerybuffer: COpaquePointer?, dwinbuffersize: UInt, lpdwoutbuffersize: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityApplockerNapiAddon != null) (_windowsWin32SecurityApplockerNapiAddon.windowssys_windows_win32_security_applocker_saferGetLevelInformation((levelhandle?.value ?: 0L).toString(), dwinfotype, (lpquerybuffer?.value ?: 0L).toString(), dwinbuffersize.toInt(), (lpdwoutbuffersize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SaferGetPolicyInformation(dwscopeid: UInt, saferpolicyinfoclass: SAFER_POLICY_INFO_CLASS, infobuffersize: UInt, infobuffer: Long, infobufferretsize: Long, lpreserved: Long): BOOL =
-    if (_windowsWin32SecurityApplockerNapiAddon != null) (_windowsWin32SecurityApplockerNapiAddon.windowssys_windows_win32_security_applocker_SaferGetPolicyInformation(dwscopeid.toInt(), saferpolicyinfoclass, infobuffersize.toInt(), infobuffer.toString(), infobufferretsize.toString(), lpreserved.toString()) as Int) else 0
+public actual fun saferGetPolicyInformation(dwscopeid: UInt, saferpolicyinfoclass: SaferPolicyInfoClass, infobuffersize: UInt, infobuffer: COpaquePointer?, infobufferretsize: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityApplockerNapiAddon != null) (_windowsWin32SecurityApplockerNapiAddon.windowssys_windows_win32_security_applocker_saferGetPolicyInformation(dwscopeid.toInt(), saferpolicyinfoclass, infobuffersize.toInt(), (infobuffer?.value ?: 0L).toString(), (infobufferretsize?.value ?: 0L).toString(), (lpreserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SaferIdentifyLevel(dwnumproperties: UInt, pcodeproperties: Long, plevelhandle: Long, lpreserved: Long): BOOL =
-    if (_windowsWin32SecurityApplockerNapiAddon != null) (_windowsWin32SecurityApplockerNapiAddon.windowssys_windows_win32_security_applocker_SaferIdentifyLevel(dwnumproperties.toInt(), pcodeproperties.toString(), plevelhandle.toString(), lpreserved.toString()) as Int) else 0
+public actual fun saferIdentifyLevel(dwnumproperties: UInt, pcodeproperties: COpaquePointer?, plevelhandle: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityApplockerNapiAddon != null) (_windowsWin32SecurityApplockerNapiAddon.windowssys_windows_win32_security_applocker_saferIdentifyLevel(dwnumproperties.toInt(), (pcodeproperties?.value ?: 0L).toString(), (plevelhandle?.value ?: 0L).toString(), (lpreserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SaferRecordEventLogEntry(hlevel: SAFER_LEVEL_HANDLE, sztargetpath: PCWSTR, lpreserved: Long): BOOL =
-    if (_windowsWin32SecurityApplockerNapiAddon != null) (_windowsWin32SecurityApplockerNapiAddon.windowssys_windows_win32_security_applocker_SaferRecordEventLogEntry(hlevel.toString(), sztargetpath.toString(), lpreserved.toString()) as Int) else 0
+public actual fun saferRecordEventLogEntry(hlevel: SaferLevelHandle, sztargetpath: Pcwstr, lpreserved: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityApplockerNapiAddon != null) (_windowsWin32SecurityApplockerNapiAddon.windowssys_windows_win32_security_applocker_saferRecordEventLogEntry((hlevel?.value ?: 0L).toString(), (sztargetpath?.value ?: 0L).toString(), (lpreserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SaferSetLevelInformation(levelhandle: SAFER_LEVEL_HANDLE, dwinfotype: SAFER_OBJECT_INFO_CLASS, lpquerybuffer: Long, dwinbuffersize: UInt): BOOL =
-    if (_windowsWin32SecurityApplockerNapiAddon != null) (_windowsWin32SecurityApplockerNapiAddon.windowssys_windows_win32_security_applocker_SaferSetLevelInformation(levelhandle.toString(), dwinfotype, lpquerybuffer.toString(), dwinbuffersize.toInt()) as Int) else 0
+public actual fun saferSetLevelInformation(levelhandle: SaferLevelHandle, dwinfotype: SaferObjectInfoClass, lpquerybuffer: COpaquePointer?, dwinbuffersize: UInt): Bool =
+    if (_windowsWin32SecurityApplockerNapiAddon != null) (_windowsWin32SecurityApplockerNapiAddon.windowssys_windows_win32_security_applocker_saferSetLevelInformation((levelhandle?.value ?: 0L).toString(), dwinfotype, (lpquerybuffer?.value ?: 0L).toString(), dwinbuffersize.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SaferSetPolicyInformation(dwscopeid: UInt, saferpolicyinfoclass: SAFER_POLICY_INFO_CLASS, infobuffersize: UInt, infobuffer: Long, lpreserved: Long): BOOL =
-    if (_windowsWin32SecurityApplockerNapiAddon != null) (_windowsWin32SecurityApplockerNapiAddon.windowssys_windows_win32_security_applocker_SaferSetPolicyInformation(dwscopeid.toInt(), saferpolicyinfoclass, infobuffersize.toInt(), infobuffer.toString(), lpreserved.toString()) as Int) else 0
+public actual fun saferSetPolicyInformation(dwscopeid: UInt, saferpolicyinfoclass: SaferPolicyInfoClass, infobuffersize: UInt, infobuffer: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityApplockerNapiAddon != null) (_windowsWin32SecurityApplockerNapiAddon.windowssys_windows_win32_security_applocker_saferSetPolicyInformation(dwscopeid.toInt(), saferpolicyinfoclass, infobuffersize.toInt(), (infobuffer?.value ?: 0L).toString(), (lpreserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SaferiIsExecutableFileType(szfullpathname: PCWSTR, bfromshellexecute: Boolean): BOOL =
-    if (_windowsWin32SecurityApplockerNapiAddon != null) (_windowsWin32SecurityApplockerNapiAddon.windowssys_windows_win32_security_applocker_SaferiIsExecutableFileType(szfullpathname.toString(), bfromshellexecute) as Int) else 0
+public actual fun saferiIsExecutableFileType(szfullpathname: Pcwstr, bfromshellexecute: Boolean): Bool =
+    if (_windowsWin32SecurityApplockerNapiAddon != null) (_windowsWin32SecurityApplockerNapiAddon.windowssys_windows_win32_security_applocker_saferiIsExecutableFileType((szfullpathname?.value ?: 0L).toString(), bfromshellexecute) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

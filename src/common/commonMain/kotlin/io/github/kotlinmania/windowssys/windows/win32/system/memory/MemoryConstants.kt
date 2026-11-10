@@ -8,272 +8,272 @@ public val FILE_CACHE_MIN_HARD_DISABLE: UInt = 8u
 
 public val FILE_CACHE_MIN_HARD_ENABLE: UInt = 4u
 
-public val FILE_MAP_ALL_ACCESS: FILE_MAP = 983071u
+public val FILE_MAP_ALL_ACCESS: FileMap = 983071u
 
-public val FILE_MAP_COPY: FILE_MAP = 1u
+public val FILE_MAP_COPY: FileMap = 1u
 
-public val FILE_MAP_EXECUTE: FILE_MAP = 32u
+public val FILE_MAP_EXECUTE: FileMap = 32u
 
-public val FILE_MAP_LARGE_PAGES: FILE_MAP = 536870912u
+public val FILE_MAP_LARGE_PAGES: FileMap = 536870912u
 
-public val FILE_MAP_READ: FILE_MAP = 4u
+public val FILE_MAP_READ: FileMap = 4u
 
-public val FILE_MAP_RESERVE: FILE_MAP = 2147483648u
+public val FILE_MAP_RESERVE: FileMap = 2147483648u
 
-public val FILE_MAP_TARGETS_INVALID: FILE_MAP = 1073741824u
+public val FILE_MAP_TARGETS_INVALID: FileMap = 1073741824u
 
-public val FILE_MAP_WRITE: FILE_MAP = 2u
+public val FILE_MAP_WRITE: FileMap = 2u
 
-public val GHND: GLOBAL_ALLOC_FLAGS = 66u
+public val GHND: GlobalAllocFlags = 66u
 
-public val GMEM_FIXED: GLOBAL_ALLOC_FLAGS = 0u
+public val GMEM_FIXED: GlobalAllocFlags = 0u
 
-public val GMEM_MOVEABLE: GLOBAL_ALLOC_FLAGS = 2u
+public val GMEM_MOVEABLE: GlobalAllocFlags = 2u
 
-public val GMEM_ZEROINIT: GLOBAL_ALLOC_FLAGS = 64u
+public val GMEM_ZEROINIT: GlobalAllocFlags = 64u
 
-public val GPTR: GLOBAL_ALLOC_FLAGS = 64u
+public val GPTR: GlobalAllocFlags = 64u
 
-public val HEAP_CREATE_ALIGN_16: HEAP_FLAGS = 65536u
+public val HEAP_CREATE_ALIGN_16: HeapFlags = 65536u
 
-public val HEAP_CREATE_ENABLE_EXECUTE: HEAP_FLAGS = 262144u
+public val HEAP_CREATE_ENABLE_EXECUTE: HeapFlags = 262144u
 
-public val HEAP_CREATE_ENABLE_TRACING: HEAP_FLAGS = 131072u
+public val HEAP_CREATE_ENABLE_TRACING: HeapFlags = 131072u
 
-public val HEAP_CREATE_HARDENED: HEAP_FLAGS = 512u
+public val HEAP_CREATE_HARDENED: HeapFlags = 512u
 
-public val HEAP_CREATE_SEGMENT_HEAP: HEAP_FLAGS = 256u
+public val HEAP_CREATE_SEGMENT_HEAP: HeapFlags = 256u
 
-public val HEAP_DISABLE_COALESCE_ON_FREE: HEAP_FLAGS = 128u
+public val HEAP_DISABLE_COALESCE_ON_FREE: HeapFlags = 128u
 
-public val HEAP_FREE_CHECKING_ENABLED: HEAP_FLAGS = 64u
+public val HEAP_FREE_CHECKING_ENABLED: HeapFlags = 64u
 
-public val HEAP_GENERATE_EXCEPTIONS: HEAP_FLAGS = 4u
+public val HEAP_GENERATE_EXCEPTIONS: HeapFlags = 4u
 
-public val HEAP_GROWABLE: HEAP_FLAGS = 2u
+public val HEAP_GROWABLE: HeapFlags = 2u
 
-public val HEAP_MAXIMUM_TAG: HEAP_FLAGS = 4095u
+public val HEAP_MAXIMUM_TAG: HeapFlags = 4095u
 
-public val HEAP_NONE: HEAP_FLAGS = 0u
+public val HEAP_NONE: HeapFlags = 0u
 
-public val HEAP_NO_SERIALIZE: HEAP_FLAGS = 1u
+public val HEAP_NO_SERIALIZE: HeapFlags = 1u
 
-public val HEAP_PSEUDO_TAG_FLAG: HEAP_FLAGS = 32768u
+public val HEAP_PSEUDO_TAG_FLAG: HeapFlags = 32768u
 
-public val HEAP_REALLOC_IN_PLACE_ONLY: HEAP_FLAGS = 16u
+public val HEAP_REALLOC_IN_PLACE_ONLY: HeapFlags = 16u
 
-public val HEAP_TAG_SHIFT: HEAP_FLAGS = 18u
+public val HEAP_TAG_SHIFT: HeapFlags = 18u
 
-public val HEAP_TAIL_CHECKING_ENABLED: HEAP_FLAGS = 32u
+public val HEAP_TAIL_CHECKING_ENABLED: HeapFlags = 32u
 
-public val HEAP_ZERO_MEMORY: HEAP_FLAGS = 8u
+public val HEAP_ZERO_MEMORY: HeapFlags = 8u
 
-public val HeapCompatibilityInformation: HEAP_INFORMATION_CLASS = 0
+public val HEAP_COMPATIBILITY_INFORMATION: HeapInformationClass = 0
 
-public val HeapEnableTerminationOnCorruption: HEAP_INFORMATION_CLASS = 1
+public val HEAP_ENABLE_TERMINATION_ON_CORRUPTION: HeapInformationClass = 1
 
-public val HeapOptimizeResources: HEAP_INFORMATION_CLASS = 3
+public val HEAP_OPTIMIZE_RESOURCES: HeapInformationClass = 3
 
-public val HeapTag: HEAP_INFORMATION_CLASS = 7
+public val HEAP_TAG: HeapInformationClass = 7
 
-public val HighMemoryResourceNotification: MEMORY_RESOURCE_NOTIFICATION_TYPE = 1
+public val HIGH_MEMORY_RESOURCE_NOTIFICATION: MemoryResourceNotificationType = 1
 
-public val LHND: LOCAL_ALLOC_FLAGS = 66u
+public val LHND: LocalAllocFlags = 66u
 
-public val LMEM_FIXED: LOCAL_ALLOC_FLAGS = 0u
+public val LMEM_FIXED: LocalAllocFlags = 0u
 
-public val LMEM_MOVEABLE: LOCAL_ALLOC_FLAGS = 2u
+public val LMEM_MOVEABLE: LocalAllocFlags = 2u
 
-public val LMEM_ZEROINIT: LOCAL_ALLOC_FLAGS = 64u
+public val LMEM_ZEROINIT: LocalAllocFlags = 64u
 
-public val LPTR: LOCAL_ALLOC_FLAGS = 64u
+public val LPTR: LocalAllocFlags = 64u
 
-public val LowMemoryResourceNotification: MEMORY_RESOURCE_NOTIFICATION_TYPE = 0
+public val LOW_MEMORY_RESOURCE_NOTIFICATION: MemoryResourceNotificationType = 0
 
 public val MEHC_PATROL_SCRUBBER_PRESENT: UInt = 1u
 
-public val MEM_COMMIT: VIRTUAL_ALLOCATION_TYPE = 4096u
+public val MEM_COMMIT: VirtualAllocationType = 4096u
 
-public val MEM_DECOMMIT: VIRTUAL_FREE_TYPE = 16384u
+public val MEM_DECOMMIT: VirtualFreeType = 16384u
 
-public val MEM_FREE: VIRTUAL_ALLOCATION_TYPE = 65536u
+public val MEM_FREE: VirtualAllocationType = 65536u
 
-public val MEM_IMAGE: PAGE_TYPE = 16777216u
+public val MEM_IMAGE: PageType = 16777216u
 
-public val MEM_LARGE_PAGES: VIRTUAL_ALLOCATION_TYPE = 536870912u
+public val MEM_LARGE_PAGES: VirtualAllocationType = 536870912u
 
-public val MEM_MAPPED: PAGE_TYPE = 262144u
+public val MEM_MAPPED: PageType = 262144u
 
-public val MEM_PRESERVE_PLACEHOLDER: UNMAP_VIEW_OF_FILE_FLAGS = 2u
+public val MEM_PRESERVE_PLACEHOLDER: UnmapViewOfFileFlags = 2u
 
-public val MEM_PRIVATE: PAGE_TYPE = 131072u
+public val MEM_PRIVATE: PageType = 131072u
 
-public val MEM_RELEASE: VIRTUAL_FREE_TYPE = 32768u
+public val MEM_RELEASE: VirtualFreeType = 32768u
 
-public val MEM_REPLACE_PLACEHOLDER: VIRTUAL_ALLOCATION_TYPE = 16384u
+public val MEM_REPLACE_PLACEHOLDER: VirtualAllocationType = 16384u
 
-public val MEM_RESERVE: VIRTUAL_ALLOCATION_TYPE = 8192u
+public val MEM_RESERVE: VirtualAllocationType = 8192u
 
-public val MEM_RESERVE_PLACEHOLDER: VIRTUAL_ALLOCATION_TYPE = 262144u
+public val MEM_RESERVE_PLACEHOLDER: VirtualAllocationType = 262144u
 
-public val MEM_RESET: VIRTUAL_ALLOCATION_TYPE = 524288u
+public val MEM_RESET: VirtualAllocationType = 524288u
 
-public val MEM_RESET_UNDO: VIRTUAL_ALLOCATION_TYPE = 16777216u
+public val MEM_RESET_UNDO: VirtualAllocationType = 16777216u
 
-public val MEM_UNMAP_NONE: UNMAP_VIEW_OF_FILE_FLAGS = 0u
+public val MEM_UNMAP_NONE: UnmapViewOfFileFlags = 0u
 
-public val MEM_UNMAP_WITH_TRANSIENT_BOOST: UNMAP_VIEW_OF_FILE_FLAGS = 1u
+public val MEM_UNMAP_WITH_TRANSIENT_BOOST: UnmapViewOfFileFlags = 1u
 
-public val MemDedicatedAttributeMax: MEM_DEDICATED_ATTRIBUTE_TYPE = 4
+public val MEM_DEDICATED_ATTRIBUTE_MAX: MemDedicatedAttributeType = 4
 
-public val MemDedicatedAttributeReadBandwidth: MEM_DEDICATED_ATTRIBUTE_TYPE = 0
+public val MEM_DEDICATED_ATTRIBUTE_READ_BANDWIDTH: MemDedicatedAttributeType = 0
 
-public val MemDedicatedAttributeReadLatency: MEM_DEDICATED_ATTRIBUTE_TYPE = 1
+public val MEM_DEDICATED_ATTRIBUTE_READ_LATENCY: MemDedicatedAttributeType = 1
 
-public val MemDedicatedAttributeWriteBandwidth: MEM_DEDICATED_ATTRIBUTE_TYPE = 2
+public val MEM_DEDICATED_ATTRIBUTE_WRITE_BANDWIDTH: MemDedicatedAttributeType = 2
 
-public val MemDedicatedAttributeWriteLatency: MEM_DEDICATED_ATTRIBUTE_TYPE = 3
+public val MEM_DEDICATED_ATTRIBUTE_WRITE_LATENCY: MemDedicatedAttributeType = 3
 
-public val MemExtendedParameterAddressRequirements: MEM_EXTENDED_PARAMETER_TYPE = 1
+public val MEM_EXTENDED_PARAMETER_ADDRESS_REQUIREMENTS: MemExtendedParameterType = 1
 
-public val MemExtendedParameterAttributeFlags: MEM_EXTENDED_PARAMETER_TYPE = 5
+public val MEM_EXTENDED_PARAMETER_ATTRIBUTE_FLAGS: MemExtendedParameterType = 5
 
-public val MemExtendedParameterImageMachine: MEM_EXTENDED_PARAMETER_TYPE = 6
+public val MEM_EXTENDED_PARAMETER_IMAGE_MACHINE: MemExtendedParameterType = 6
 
-public val MemExtendedParameterInvalidType: MEM_EXTENDED_PARAMETER_TYPE = 0
+public val MEM_EXTENDED_PARAMETER_INVALID_TYPE: MemExtendedParameterType = 0
 
-public val MemExtendedParameterMax: MEM_EXTENDED_PARAMETER_TYPE = 7
+public val MEM_EXTENDED_PARAMETER_MAX: MemExtendedParameterType = 7
 
-public val MemExtendedParameterNumaNode: MEM_EXTENDED_PARAMETER_TYPE = 2
+public val MEM_EXTENDED_PARAMETER_NUMA_NODE: MemExtendedParameterType = 2
 
-public val MemExtendedParameterPartitionHandle: MEM_EXTENDED_PARAMETER_TYPE = 3
+public val MEM_EXTENDED_PARAMETER_PARTITION_HANDLE: MemExtendedParameterType = 3
 
-public val MemExtendedParameterUserPhysicalHandle: MEM_EXTENDED_PARAMETER_TYPE = 4
+public val MEM_EXTENDED_PARAMETER_USER_PHYSICAL_HANDLE: MemExtendedParameterType = 4
 
-public val MemSectionExtendedParameterInvalidType: MEM_SECTION_EXTENDED_PARAMETER_TYPE = 0
+public val MEM_SECTION_EXTENDED_PARAMETER_INVALID_TYPE: MemSectionExtendedParameterType = 0
 
-public val MemSectionExtendedParameterMax: MEM_SECTION_EXTENDED_PARAMETER_TYPE = 4
+public val MEM_SECTION_EXTENDED_PARAMETER_MAX: MemSectionExtendedParameterType = 4
 
-public val MemSectionExtendedParameterNumaNode: MEM_SECTION_EXTENDED_PARAMETER_TYPE = 2
+public val MEM_SECTION_EXTENDED_PARAMETER_NUMA_NODE: MemSectionExtendedParameterType = 2
 
-public val MemSectionExtendedParameterSigningLevel: MEM_SECTION_EXTENDED_PARAMETER_TYPE = 3
+public val MEM_SECTION_EXTENDED_PARAMETER_SIGNING_LEVEL: MemSectionExtendedParameterType = 3
 
-public val MemSectionExtendedParameterUserPhysicalFlags: MEM_SECTION_EXTENDED_PARAMETER_TYPE = 1
+public val MEM_SECTION_EXTENDED_PARAMETER_USER_PHYSICAL_FLAGS: MemSectionExtendedParameterType = 1
 
-public val MemoryPartitionDedicatedMemoryInfo: WIN32_MEMORY_PARTITION_INFORMATION_CLASS = 1
+public val MEMORY_PARTITION_DEDICATED_MEMORY_INFO: Win32MemoryPartitionInformationClass = 1
 
-public val MemoryPartitionInfo: WIN32_MEMORY_PARTITION_INFORMATION_CLASS = 0
+public val MEMORY_PARTITION_INFO: Win32MemoryPartitionInformationClass = 0
 
-public val MemoryRegionInfo: WIN32_MEMORY_INFORMATION_CLASS = 0
+public val MEMORY_REGION_INFO: Win32MemoryInformationClass = 0
 
-public val NONZEROLHND: LOCAL_ALLOC_FLAGS = 2u
+public val NONZEROLHND: LocalAllocFlags = 2u
 
-public val NONZEROLPTR: LOCAL_ALLOC_FLAGS = 0u
+public val NONZEROLPTR: LocalAllocFlags = 0u
 
-public val PAGE_ENCLAVE_DECOMMIT: PAGE_PROTECTION_FLAGS = 268435456u
+public val PAGE_ENCLAVE_DECOMMIT: PageProtectionFlags = 268435456u
 
-public val PAGE_ENCLAVE_MASK: PAGE_PROTECTION_FLAGS = 268435456u
+public val PAGE_ENCLAVE_MASK: PageProtectionFlags = 268435456u
 
-public val PAGE_ENCLAVE_SS_FIRST: PAGE_PROTECTION_FLAGS = 268435457u
+public val PAGE_ENCLAVE_SS_FIRST: PageProtectionFlags = 268435457u
 
-public val PAGE_ENCLAVE_SS_REST: PAGE_PROTECTION_FLAGS = 268435458u
+public val PAGE_ENCLAVE_SS_REST: PageProtectionFlags = 268435458u
 
-public val PAGE_ENCLAVE_THREAD_CONTROL: PAGE_PROTECTION_FLAGS = 2147483648u
+public val PAGE_ENCLAVE_THREAD_CONTROL: PageProtectionFlags = 2147483648u
 
-public val PAGE_ENCLAVE_UNVALIDATED: PAGE_PROTECTION_FLAGS = 536870912u
+public val PAGE_ENCLAVE_UNVALIDATED: PageProtectionFlags = 536870912u
 
-public val PAGE_EXECUTE: PAGE_PROTECTION_FLAGS = 16u
+public val PAGE_EXECUTE: PageProtectionFlags = 16u
 
-public val PAGE_EXECUTE_READ: PAGE_PROTECTION_FLAGS = 32u
+public val PAGE_EXECUTE_READ: PageProtectionFlags = 32u
 
-public val PAGE_EXECUTE_READWRITE: PAGE_PROTECTION_FLAGS = 64u
+public val PAGE_EXECUTE_READWRITE: PageProtectionFlags = 64u
 
-public val PAGE_EXECUTE_WRITECOPY: PAGE_PROTECTION_FLAGS = 128u
+public val PAGE_EXECUTE_WRITECOPY: PageProtectionFlags = 128u
 
-public val PAGE_GRAPHICS_COHERENT: PAGE_PROTECTION_FLAGS = 131072u
+public val PAGE_GRAPHICS_COHERENT: PageProtectionFlags = 131072u
 
-public val PAGE_GRAPHICS_EXECUTE: PAGE_PROTECTION_FLAGS = 16384u
+public val PAGE_GRAPHICS_EXECUTE: PageProtectionFlags = 16384u
 
-public val PAGE_GRAPHICS_EXECUTE_READ: PAGE_PROTECTION_FLAGS = 32768u
+public val PAGE_GRAPHICS_EXECUTE_READ: PageProtectionFlags = 32768u
 
-public val PAGE_GRAPHICS_EXECUTE_READWRITE: PAGE_PROTECTION_FLAGS = 65536u
+public val PAGE_GRAPHICS_EXECUTE_READWRITE: PageProtectionFlags = 65536u
 
-public val PAGE_GRAPHICS_NOACCESS: PAGE_PROTECTION_FLAGS = 2048u
+public val PAGE_GRAPHICS_NOACCESS: PageProtectionFlags = 2048u
 
-public val PAGE_GRAPHICS_NOCACHE: PAGE_PROTECTION_FLAGS = 262144u
+public val PAGE_GRAPHICS_NOCACHE: PageProtectionFlags = 262144u
 
-public val PAGE_GRAPHICS_READONLY: PAGE_PROTECTION_FLAGS = 4096u
+public val PAGE_GRAPHICS_READONLY: PageProtectionFlags = 4096u
 
-public val PAGE_GRAPHICS_READWRITE: PAGE_PROTECTION_FLAGS = 8192u
+public val PAGE_GRAPHICS_READWRITE: PageProtectionFlags = 8192u
 
-public val PAGE_GUARD: PAGE_PROTECTION_FLAGS = 256u
+public val PAGE_GUARD: PageProtectionFlags = 256u
 
-public val PAGE_NOACCESS: PAGE_PROTECTION_FLAGS = 1u
+public val PAGE_NOACCESS: PageProtectionFlags = 1u
 
-public val PAGE_NOCACHE: PAGE_PROTECTION_FLAGS = 512u
+public val PAGE_NOCACHE: PageProtectionFlags = 512u
 
-public val PAGE_READONLY: PAGE_PROTECTION_FLAGS = 2u
+public val PAGE_READONLY: PageProtectionFlags = 2u
 
-public val PAGE_READWRITE: PAGE_PROTECTION_FLAGS = 4u
+public val PAGE_READWRITE: PageProtectionFlags = 4u
 
-public val PAGE_REVERT_TO_FILE_MAP: PAGE_PROTECTION_FLAGS = 2147483648u
+public val PAGE_REVERT_TO_FILE_MAP: PageProtectionFlags = 2147483648u
 
-public val PAGE_TARGETS_INVALID: PAGE_PROTECTION_FLAGS = 1073741824u
+public val PAGE_TARGETS_INVALID: PageProtectionFlags = 1073741824u
 
-public val PAGE_TARGETS_NO_UPDATE: PAGE_PROTECTION_FLAGS = 1073741824u
+public val PAGE_TARGETS_NO_UPDATE: PageProtectionFlags = 1073741824u
 
-public val PAGE_WRITECOMBINE: PAGE_PROTECTION_FLAGS = 1024u
+public val PAGE_WRITECOMBINE: PageProtectionFlags = 1024u
 
-public val PAGE_WRITECOPY: PAGE_PROTECTION_FLAGS = 8u
+public val PAGE_WRITECOPY: PageProtectionFlags = 8u
 
-public val QUOTA_LIMITS_HARDWS_MAX_DISABLE: SETPROCESSWORKINGSETSIZEEX_FLAGS = 8u
+public val QUOTA_LIMITS_HARDWS_MAX_DISABLE: SetprocessworkingsetsizeexFlags = 8u
 
-public val QUOTA_LIMITS_HARDWS_MAX_ENABLE: SETPROCESSWORKINGSETSIZEEX_FLAGS = 4u
+public val QUOTA_LIMITS_HARDWS_MAX_ENABLE: SetprocessworkingsetsizeexFlags = 4u
 
-public val QUOTA_LIMITS_HARDWS_MIN_DISABLE: SETPROCESSWORKINGSETSIZEEX_FLAGS = 2u
+public val QUOTA_LIMITS_HARDWS_MIN_DISABLE: SetprocessworkingsetsizeexFlags = 2u
 
-public val QUOTA_LIMITS_HARDWS_MIN_ENABLE: SETPROCESSWORKINGSETSIZEEX_FLAGS = 1u
+public val QUOTA_LIMITS_HARDWS_MIN_ENABLE: SetprocessworkingsetsizeexFlags = 1u
 
-public val SECTION_ALL_ACCESS: SECTION_FLAGS = 983071u
+public val SECTION_ALL_ACCESS: SectionFlags = 983071u
 
-public val SECTION_EXTEND_SIZE: SECTION_FLAGS = 16u
+public val SECTION_EXTEND_SIZE: SectionFlags = 16u
 
-public val SECTION_MAP_EXECUTE: SECTION_FLAGS = 8u
+public val SECTION_MAP_EXECUTE: SectionFlags = 8u
 
-public val SECTION_MAP_EXECUTE_EXPLICIT: SECTION_FLAGS = 32u
+public val SECTION_MAP_EXECUTE_EXPLICIT: SectionFlags = 32u
 
-public val SECTION_MAP_READ: SECTION_FLAGS = 4u
+public val SECTION_MAP_READ: SectionFlags = 4u
 
-public val SECTION_MAP_WRITE: SECTION_FLAGS = 2u
+public val SECTION_MAP_WRITE: SectionFlags = 2u
 
-public val SECTION_QUERY: SECTION_FLAGS = 1u
+public val SECTION_QUERY: SectionFlags = 1u
 
-public val SEC_64K_PAGES: PAGE_PROTECTION_FLAGS = 524288u
+public val SEC_64K_PAGES: PageProtectionFlags = 524288u
 
-public val SEC_COMMIT: PAGE_PROTECTION_FLAGS = 134217728u
+public val SEC_COMMIT: PageProtectionFlags = 134217728u
 
-public val SEC_FILE: PAGE_PROTECTION_FLAGS = 8388608u
+public val SEC_FILE: PageProtectionFlags = 8388608u
 
-public val SEC_IMAGE: PAGE_PROTECTION_FLAGS = 16777216u
+public val SEC_IMAGE: PageProtectionFlags = 16777216u
 
-public val SEC_IMAGE_NO_EXECUTE: PAGE_PROTECTION_FLAGS = 285212672u
+public val SEC_IMAGE_NO_EXECUTE: PageProtectionFlags = 285212672u
 
-public val SEC_LARGE_PAGES: PAGE_PROTECTION_FLAGS = 2147483648u
+public val SEC_LARGE_PAGES: PageProtectionFlags = 2147483648u
 
-public val SEC_NOCACHE: PAGE_PROTECTION_FLAGS = 268435456u
+public val SEC_NOCACHE: PageProtectionFlags = 268435456u
 
-public val SEC_PARTITION_OWNER_HANDLE: PAGE_PROTECTION_FLAGS = 262144u
+public val SEC_PARTITION_OWNER_HANDLE: PageProtectionFlags = 262144u
 
-public val SEC_PROTECTED_IMAGE: PAGE_PROTECTION_FLAGS = 33554432u
+public val SEC_PROTECTED_IMAGE: PageProtectionFlags = 33554432u
 
-public val SEC_RESERVE: PAGE_PROTECTION_FLAGS = 67108864u
+public val SEC_RESERVE: PageProtectionFlags = 67108864u
 
-public val SEC_WRITECOMBINE: PAGE_PROTECTION_FLAGS = 1073741824u
+public val SEC_WRITECOMBINE: PageProtectionFlags = 1073741824u
 
-public val VmOfferPriorityBelowNormal: OFFER_PRIORITY = 3
+public val VM_OFFER_PRIORITY_BELOW_NORMAL: OfferPriority = 3
 
-public val VmOfferPriorityLow: OFFER_PRIORITY = 2
+public val VM_OFFER_PRIORITY_LOW: OfferPriority = 2
 
-public val VmOfferPriorityNormal: OFFER_PRIORITY = 4
+public val VM_OFFER_PRIORITY_NORMAL: OfferPriority = 4
 
-public val VmOfferPriorityVeryLow: OFFER_PRIORITY = 1
+public val VM_OFFER_PRIORITY_VERY_LOW: OfferPriority = 1

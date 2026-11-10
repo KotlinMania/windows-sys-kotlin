@@ -2,663 +2,671 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
-import io.github.kotlinmania.windowssys.windows.win32.security.OBJECT_SECURITY_INFORMATION
-import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
-import io.github.kotlinmania.windowssys.windows.win32.security.PSID
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CRYPT_INTEGER_BLOB
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
+import io.github.kotlinmania.windowssys.windows.win32.security.ObjectSecurityInformation
+import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
+import io.github.kotlinmania.windowssys.windows.win32.security.Psid
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CryptIntegerBlob
 
-public actual fun AcceptSecurityContext(phcredential: Long, phcontext: Long, pinput: Long, fcontextreq: ASC_REQ_FLAGS, targetdatarep: UInt, phnewcontext: Long, poutput: Long, pfcontextattr: Long, ptsexpiry: Long): HRESULT =
-    0
+public actual fun acceptSecurityContext(phcredential: COpaquePointer?, phcontext: COpaquePointer?, pinput: COpaquePointer?, fcontextreq: AscReqFlags, targetdatarep: UInt, phnewcontext: COpaquePointer?, poutput: COpaquePointer?, pfcontextattr: COpaquePointer?, ptsexpiry: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AcquireCredentialsHandleA(pszprincipal: PCSTR, pszpackage: PCSTR, fcredentialuse: SECPKG_CRED, pvlogonid: Long, pauthdata: Long, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: Long, phcredential: Long, ptsexpiry: Long): HRESULT =
-    0
+public actual fun acquireCredentialsHandleA(pszprincipal: Pcstr, pszpackage: Pcstr, fcredentialuse: SecpkgCred, pvlogonid: COpaquePointer?, pauthdata: COpaquePointer?, pgetkeyfn: SecGetKeyFn, pvgetkeyargument: COpaquePointer?, phcredential: COpaquePointer?, ptsexpiry: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AcquireCredentialsHandleW(pszprincipal: PCWSTR, pszpackage: PCWSTR, fcredentialuse: SECPKG_CRED, pvlogonid: Long, pauthdata: Long, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: Long, phcredential: Long, ptsexpiry: Long): HRESULT =
-    0
+public actual fun acquireCredentialsHandleW(pszprincipal: Pcwstr, pszpackage: Pcwstr, fcredentialuse: SecpkgCred, pvlogonid: COpaquePointer?, pauthdata: COpaquePointer?, pgetkeyfn: SecGetKeyFn, pvgetkeyargument: COpaquePointer?, phcredential: COpaquePointer?, ptsexpiry: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AddCredentialsA(hcredentials: Long, pszprincipal: PCSTR, pszpackage: PCSTR, fcredentialuse: UInt, pauthdata: Long, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: Long, ptsexpiry: Long): HRESULT =
-    0
+public actual fun addCredentialsA(hcredentials: COpaquePointer?, pszprincipal: Pcstr, pszpackage: Pcstr, fcredentialuse: UInt, pauthdata: COpaquePointer?, pgetkeyfn: SecGetKeyFn, pvgetkeyargument: COpaquePointer?, ptsexpiry: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AddCredentialsW(hcredentials: Long, pszprincipal: PCWSTR, pszpackage: PCWSTR, fcredentialuse: UInt, pauthdata: Long, pgetkeyfn: SEC_GET_KEY_FN, pvgetkeyargument: Long, ptsexpiry: Long): HRESULT =
-    0
+public actual fun addCredentialsW(hcredentials: COpaquePointer?, pszprincipal: Pcwstr, pszpackage: Pcwstr, fcredentialuse: UInt, pauthdata: COpaquePointer?, pgetkeyfn: SecGetKeyFn, pvgetkeyargument: COpaquePointer?, ptsexpiry: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AddSecurityPackageA(pszpackagename: PCSTR, poptions: Long): HRESULT =
-    0
+public actual fun addSecurityPackageA(pszpackagename: Pcstr, poptions: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AddSecurityPackageW(pszpackagename: PCWSTR, poptions: Long): HRESULT =
-    0
+public actual fun addSecurityPackageW(pszpackagename: Pcwstr, poptions: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ApplyControlToken(phcontext: Long, pinput: Long): HRESULT =
-    0
+public actual fun applyControlToken(phcontext: COpaquePointer?, pinput: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AuditComputeEffectivePolicyBySid(psid: PSID, psubcategoryguids: Long, dwpolicycount: UInt, ppauditpolicy: Long): Boolean =
-    false
+public actual fun auditComputeEffectivePolicyBySid(psid: Psid, psubcategoryguids: COpaquePointer?, dwpolicycount: UInt, ppauditpolicy: COpaquePointer?): Boolean =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AuditComputeEffectivePolicyByToken(htokenhandle: HANDLE, psubcategoryguids: Long, dwpolicycount: UInt, ppauditpolicy: Long): Boolean =
-    false
+public actual fun auditComputeEffectivePolicyByToken(htokenhandle: Handle, psubcategoryguids: COpaquePointer?, dwpolicycount: UInt, ppauditpolicy: COpaquePointer?): Boolean =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AuditEnumerateCategories(ppauditcategoriesarray: Long, pdwcountreturned: Long): Boolean =
-    false
+public actual fun auditEnumerateCategories(ppauditcategoriesarray: COpaquePointer?, pdwcountreturned: COpaquePointer?): Boolean =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AuditEnumeratePerUserPolicy(ppauditsidarray: Long): Boolean =
-    false
+public actual fun auditEnumeratePerUserPolicy(ppauditsidarray: COpaquePointer?): Boolean =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AuditEnumerateSubCategories(pauditcategoryguid: Long, bretrieveallsubcategories: Boolean, ppauditsubcategoriesarray: Long, pdwcountreturned: Long): Boolean =
-    false
+public actual fun auditEnumerateSubCategories(pauditcategoryguid: COpaquePointer?, bretrieveallsubcategories: Boolean, ppauditsubcategoriesarray: COpaquePointer?, pdwcountreturned: COpaquePointer?): Boolean =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AuditFree(buffer: Long) {
+public actual fun auditFree(buffer: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun AuditLookupCategoryGuidFromCategoryId(auditcategoryid: POLICY_AUDIT_EVENT_TYPE, pauditcategoryguid: Long): Boolean =
-    false
+public actual fun auditLookupCategoryGuidFromCategoryId(auditcategoryid: PolicyAuditEventType, pauditcategoryguid: COpaquePointer?): Boolean =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AuditLookupCategoryIdFromCategoryGuid(pauditcategoryguid: Long, pauditcategoryid: Long): Boolean =
-    false
+public actual fun auditLookupCategoryIdFromCategoryGuid(pauditcategoryguid: COpaquePointer?, pauditcategoryid: COpaquePointer?): Boolean =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AuditLookupCategoryNameA(pauditcategoryguid: Long, ppszcategoryname: Long): Boolean =
-    false
+public actual fun auditLookupCategoryNameA(pauditcategoryguid: COpaquePointer?, ppszcategoryname: COpaquePointer?): Boolean =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AuditLookupCategoryNameW(pauditcategoryguid: Long, ppszcategoryname: Long): Boolean =
-    false
+public actual fun auditLookupCategoryNameW(pauditcategoryguid: COpaquePointer?, ppszcategoryname: COpaquePointer?): Boolean =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AuditLookupSubCategoryNameA(pauditsubcategoryguid: Long, ppszsubcategoryname: Long): Boolean =
-    false
+public actual fun auditLookupSubCategoryNameA(pauditsubcategoryguid: COpaquePointer?, ppszsubcategoryname: COpaquePointer?): Boolean =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AuditLookupSubCategoryNameW(pauditsubcategoryguid: Long, ppszsubcategoryname: Long): Boolean =
-    false
+public actual fun auditLookupSubCategoryNameW(pauditsubcategoryguid: COpaquePointer?, ppszsubcategoryname: COpaquePointer?): Boolean =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AuditQueryGlobalSaclA(objecttypename: PCSTR, acl: Long): Boolean =
-    false
+public actual fun auditQueryGlobalSaclA(objecttypename: Pcstr, acl: COpaquePointer?): Boolean =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AuditQueryGlobalSaclW(objecttypename: PCWSTR, acl: Long): Boolean =
-    false
+public actual fun auditQueryGlobalSaclW(objecttypename: Pcwstr, acl: COpaquePointer?): Boolean =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AuditQueryPerUserPolicy(psid: PSID, psubcategoryguids: Long, dwpolicycount: UInt, ppauditpolicy: Long): Boolean =
-    false
+public actual fun auditQueryPerUserPolicy(psid: Psid, psubcategoryguids: COpaquePointer?, dwpolicycount: UInt, ppauditpolicy: COpaquePointer?): Boolean =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AuditQuerySecurity(securityinformation: OBJECT_SECURITY_INFORMATION, ppsecuritydescriptor: Long): Boolean =
-    false
+public actual fun auditQuerySecurity(securityinformation: ObjectSecurityInformation, ppsecuritydescriptor: COpaquePointer?): Boolean =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AuditQuerySystemPolicy(psubcategoryguids: Long, dwpolicycount: UInt, ppauditpolicy: Long): Boolean =
-    false
+public actual fun auditQuerySystemPolicy(psubcategoryguids: COpaquePointer?, dwpolicycount: UInt, ppauditpolicy: COpaquePointer?): Boolean =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AuditSetGlobalSaclA(objecttypename: PCSTR, acl: Long): Boolean =
-    false
+public actual fun auditSetGlobalSaclA(objecttypename: Pcstr, acl: COpaquePointer?): Boolean =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AuditSetGlobalSaclW(objecttypename: PCWSTR, acl: Long): Boolean =
-    false
+public actual fun auditSetGlobalSaclW(objecttypename: Pcwstr, acl: COpaquePointer?): Boolean =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AuditSetPerUserPolicy(psid: PSID, pauditpolicy: Long, dwpolicycount: UInt): Boolean =
-    false
+public actual fun auditSetPerUserPolicy(psid: Psid, pauditpolicy: COpaquePointer?, dwpolicycount: UInt): Boolean =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AuditSetSecurity(securityinformation: OBJECT_SECURITY_INFORMATION, psecuritydescriptor: PSECURITY_DESCRIPTOR): Boolean =
-    false
+public actual fun auditSetSecurity(securityinformation: ObjectSecurityInformation, psecuritydescriptor: PsecurityDescriptor): Boolean =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AuditSetSystemPolicy(pauditpolicy: Long, dwpolicycount: UInt): Boolean =
-    false
+public actual fun auditSetSystemPolicy(pauditpolicy: COpaquePointer?, dwpolicycount: UInt): Boolean =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ChangeAccountPasswordA(pszpackagename: Long, pszdomainname: Long, pszaccountname: Long, pszoldpassword: Long, psznewpassword: Long, bimpersonating: Boolean, dwreserved: UInt, poutput: Long): HRESULT =
-    0
+public actual fun changeAccountPasswordA(pszpackagename: COpaquePointer?, pszdomainname: COpaquePointer?, pszaccountname: COpaquePointer?, pszoldpassword: COpaquePointer?, psznewpassword: COpaquePointer?, bimpersonating: Boolean, dwreserved: UInt, poutput: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ChangeAccountPasswordW(pszpackagename: Long, pszdomainname: Long, pszaccountname: Long, pszoldpassword: Long, psznewpassword: Long, bimpersonating: Boolean, dwreserved: UInt, poutput: Long): HRESULT =
-    0
+public actual fun changeAccountPasswordW(pszpackagename: COpaquePointer?, pszdomainname: COpaquePointer?, pszaccountname: COpaquePointer?, pszoldpassword: COpaquePointer?, psznewpassword: COpaquePointer?, bimpersonating: Boolean, dwreserved: UInt, poutput: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CompleteAuthToken(phcontext: Long, ptoken: Long): HRESULT =
-    0
+public actual fun completeAuthToken(phcontext: COpaquePointer?, ptoken: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CredMarshalTargetInfo(intargetinfo: Long, buffer: Long, buffersize: Long): NTSTATUS =
-    0
+public actual fun credMarshalTargetInfo(intargetinfo: COpaquePointer?, buffer: COpaquePointer?, buffersize: COpaquePointer?): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CredUnmarshalTargetInfo(buffer: Long, buffersize: UInt, rettargetinfo: Long, retactualsize: Long): NTSTATUS =
-    0
+public actual fun credUnmarshalTargetInfo(buffer: COpaquePointer?, buffersize: UInt, rettargetinfo: COpaquePointer?, retactualsize: COpaquePointer?): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DecryptMessage(phcontext: Long, pmessage: Long, messageseqno: UInt, pfqop: Long): HRESULT =
-    0
+public actual fun decryptMessage(phcontext: COpaquePointer?, pmessage: COpaquePointer?, messageseqno: UInt, pfqop: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DeleteSecurityContext(phcontext: Long): HRESULT =
-    0
+public actual fun deleteSecurityContext(phcontext: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DeleteSecurityPackageA(pszpackagename: PCSTR): HRESULT =
-    0
+public actual fun deleteSecurityPackageA(pszpackagename: Pcstr): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DeleteSecurityPackageW(pszpackagename: PCWSTR): HRESULT =
-    0
+public actual fun deleteSecurityPackageW(pszpackagename: Pcwstr): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun EncryptMessage(phcontext: Long, fqop: UInt, pmessage: Long, messageseqno: UInt): HRESULT =
-    0
+public actual fun encryptMessage(phcontext: COpaquePointer?, fqop: UInt, pmessage: COpaquePointer?, messageseqno: UInt): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun EnumerateSecurityPackagesA(pcpackages: Long, pppackageinfo: Long): HRESULT =
-    0
+public actual fun enumerateSecurityPackagesA(pcpackages: COpaquePointer?, pppackageinfo: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun EnumerateSecurityPackagesW(pcpackages: Long, pppackageinfo: Long): HRESULT =
-    0
+public actual fun enumerateSecurityPackagesW(pcpackages: COpaquePointer?, pppackageinfo: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ExportSecurityContext(phcontext: Long, fflags: EXPORT_SECURITY_CONTEXT_FLAGS, ppackedcontext: Long, ptoken: Long): HRESULT =
-    0
+public actual fun exportSecurityContext(phcontext: COpaquePointer?, fflags: ExportSecurityContextFlags, ppackedcontext: COpaquePointer?, ptoken: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun FreeContextBuffer(pvcontextbuffer: Long): HRESULT =
-    0
+public actual fun freeContextBuffer(pvcontextbuffer: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun FreeCredentialsHandle(phcredential: Long): HRESULT =
-    0
+public actual fun freeCredentialsHandle(phcredential: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetComputerObjectNameA(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: PSTR, nsize: Long): Boolean =
-    false
+public actual fun getComputerObjectNameA(nameformat: ExtendedNameFormat, lpnamebuffer: Pstr, nsize: COpaquePointer?): Boolean =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetComputerObjectNameW(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: PWSTR, nsize: Long): Boolean =
-    false
+public actual fun getComputerObjectNameW(nameformat: ExtendedNameFormat, lpnamebuffer: Pwstr, nsize: COpaquePointer?): Boolean =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetUserNameExA(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: PSTR, nsize: Long): Boolean =
-    false
+public actual fun getUserNameExA(nameformat: ExtendedNameFormat, lpnamebuffer: Pstr, nsize: COpaquePointer?): Boolean =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetUserNameExW(nameformat: EXTENDED_NAME_FORMAT, lpnamebuffer: PWSTR, nsize: Long): Boolean =
-    false
+public actual fun getUserNameExW(nameformat: ExtendedNameFormat, lpnamebuffer: Pwstr, nsize: COpaquePointer?): Boolean =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ImpersonateSecurityContext(phcontext: Long): HRESULT =
-    0
+public actual fun impersonateSecurityContext(phcontext: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ImportSecurityContextA(pszpackage: PCSTR, ppackedcontext: Long, token: Long, phcontext: Long): HRESULT =
-    0
+public actual fun importSecurityContextA(pszpackage: Pcstr, ppackedcontext: COpaquePointer?, token: COpaquePointer?, phcontext: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ImportSecurityContextW(pszpackage: PCWSTR, ppackedcontext: Long, token: Long, phcontext: Long): HRESULT =
-    0
+public actual fun importSecurityContextW(pszpackage: Pcwstr, ppackedcontext: COpaquePointer?, token: COpaquePointer?, phcontext: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun InitSecurityInterfaceA(): Long =
-    0L
+public actual fun initSecurityInterfaceA(): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun InitSecurityInterfaceW(): Long =
-    0L
+public actual fun initSecurityInterfaceW(): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun InitializeSecurityContextA(phcredential: Long, phcontext: Long, psztargetname: Long, fcontextreq: ISC_REQ_FLAGS, reserved1: UInt, targetdatarep: UInt, pinput: Long, reserved2: UInt, phnewcontext: Long, poutput: Long, pfcontextattr: Long, ptsexpiry: Long): HRESULT =
-    0
+public actual fun initializeSecurityContextA(phcredential: COpaquePointer?, phcontext: COpaquePointer?, psztargetname: COpaquePointer?, fcontextreq: IscReqFlags, reserved1: UInt, targetdatarep: UInt, pinput: COpaquePointer?, reserved2: UInt, phnewcontext: COpaquePointer?, poutput: COpaquePointer?, pfcontextattr: COpaquePointer?, ptsexpiry: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun InitializeSecurityContextW(phcredential: Long, phcontext: Long, psztargetname: Long, fcontextreq: ISC_REQ_FLAGS, reserved1: UInt, targetdatarep: UInt, pinput: Long, reserved2: UInt, phnewcontext: Long, poutput: Long, pfcontextattr: Long, ptsexpiry: Long): HRESULT =
-    0
+public actual fun initializeSecurityContextW(phcredential: COpaquePointer?, phcontext: COpaquePointer?, psztargetname: COpaquePointer?, fcontextreq: IscReqFlags, reserved1: UInt, targetdatarep: UInt, pinput: COpaquePointer?, reserved2: UInt, phnewcontext: COpaquePointer?, poutput: COpaquePointer?, pfcontextattr: COpaquePointer?, ptsexpiry: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaAddAccountRights(policyhandle: LSA_HANDLE, accountsid: PSID, userrights: Long, countofrights: UInt): NTSTATUS =
-    0
+public actual fun lsaAddAccountRights(policyhandle: LsaHandle, accountsid: Psid, userrights: COpaquePointer?, countofrights: UInt): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaCallAuthenticationPackage(lsahandle: HANDLE, authenticationpackage: UInt, protocolsubmitbuffer: Long, submitbufferlength: UInt, protocolreturnbuffer: Long, returnbufferlength: Long, protocolstatus: Long): NTSTATUS =
-    0
+public actual fun lsaCallAuthenticationPackage(lsahandle: Handle, authenticationpackage: UInt, protocolsubmitbuffer: COpaquePointer?, submitbufferlength: UInt, protocolreturnbuffer: COpaquePointer?, returnbufferlength: COpaquePointer?, protocolstatus: COpaquePointer?): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaClose(objecthandle: LSA_HANDLE): NTSTATUS =
-    0
+public actual fun lsaClose(objecthandle: LsaHandle): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaConnectUntrusted(lsahandle: Long): NTSTATUS =
-    0
+public actual fun lsaConnectUntrusted(lsahandle: COpaquePointer?): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaCreateTrustedDomainEx(policyhandle: LSA_HANDLE, trusteddomaininformation: Long, authenticationinformation: Long, desiredaccess: UInt, trusteddomainhandle: Long): NTSTATUS =
-    0
+public actual fun lsaCreateTrustedDomainEx(policyhandle: LsaHandle, trusteddomaininformation: COpaquePointer?, authenticationinformation: COpaquePointer?, desiredaccess: UInt, trusteddomainhandle: COpaquePointer?): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaDeleteTrustedDomain(policyhandle: LSA_HANDLE, trusteddomainsid: PSID): NTSTATUS =
-    0
+public actual fun lsaDeleteTrustedDomain(policyhandle: LsaHandle, trusteddomainsid: Psid): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaDeregisterLogonProcess(lsahandle: HANDLE): NTSTATUS =
-    0
+public actual fun lsaDeregisterLogonProcess(lsahandle: Handle): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaEnumerateAccountRights(policyhandle: LSA_HANDLE, accountsid: PSID, userrights: Long, countofrights: Long): NTSTATUS =
-    0
+public actual fun lsaEnumerateAccountRights(policyhandle: LsaHandle, accountsid: Psid, userrights: COpaquePointer?, countofrights: COpaquePointer?): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaEnumerateAccountsWithUserRight(policyhandle: LSA_HANDLE, userright: Long, buffer: Long, countreturned: Long): NTSTATUS =
-    0
+public actual fun lsaEnumerateAccountsWithUserRight(policyhandle: LsaHandle, userright: COpaquePointer?, buffer: COpaquePointer?, countreturned: COpaquePointer?): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaEnumerateLogonSessions(logonsessioncount: Long, logonsessionlist: Long): NTSTATUS =
-    0
+public actual fun lsaEnumerateLogonSessions(logonsessioncount: COpaquePointer?, logonsessionlist: COpaquePointer?): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaEnumerateTrustedDomains(policyhandle: LSA_HANDLE, enumerationcontext: Long, buffer: Long, preferedmaximumlength: UInt, countreturned: Long): NTSTATUS =
-    0
+public actual fun lsaEnumerateTrustedDomains(policyhandle: LsaHandle, enumerationcontext: COpaquePointer?, buffer: COpaquePointer?, preferedmaximumlength: UInt, countreturned: COpaquePointer?): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaEnumerateTrustedDomainsEx(policyhandle: LSA_HANDLE, enumerationcontext: Long, buffer: Long, preferedmaximumlength: UInt, countreturned: Long): NTSTATUS =
-    0
+public actual fun lsaEnumerateTrustedDomainsEx(policyhandle: LsaHandle, enumerationcontext: COpaquePointer?, buffer: COpaquePointer?, preferedmaximumlength: UInt, countreturned: COpaquePointer?): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaFreeMemory(buffer: Long): NTSTATUS =
-    0
+public actual fun lsaFreeMemory(buffer: COpaquePointer?): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaFreeReturnBuffer(buffer: Long): NTSTATUS =
-    0
+public actual fun lsaFreeReturnBuffer(buffer: COpaquePointer?): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaGetAppliedCAPIDs(systemname: Long, capids: Long, capidcount: Long): NTSTATUS =
-    0
+public actual fun lsaGetAppliedCAPIDs(systemname: COpaquePointer?, capids: COpaquePointer?, capidcount: COpaquePointer?): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaGetLogonSessionData(logonid: Long, pplogonsessiondata: Long): NTSTATUS =
-    0
+public actual fun lsaGetLogonSessionData(logonid: COpaquePointer?, pplogonsessiondata: COpaquePointer?): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaLogonUser(lsahandle: HANDLE, originname: Long, logontype: SECURITY_LOGON_TYPE, authenticationpackage: UInt, authenticationinformation: Long, authenticationinformationlength: UInt, localgroups: Long, sourcecontext: Long, profilebuffer: Long, profilebufferlength: Long, logonid: Long, token: Long, quotas: Long, substatus: Long): NTSTATUS =
-    0
+public actual fun lsaLogonUser(lsahandle: Handle, originname: COpaquePointer?, logontype: SecurityLogonType, authenticationpackage: UInt, authenticationinformation: COpaquePointer?, authenticationinformationlength: UInt, localgroups: COpaquePointer?, sourcecontext: COpaquePointer?, profilebuffer: COpaquePointer?, profilebufferlength: COpaquePointer?, logonid: COpaquePointer?, token: COpaquePointer?, quotas: COpaquePointer?, substatus: COpaquePointer?): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaLookupAuthenticationPackage(lsahandle: HANDLE, packagename: Long, authenticationpackage: Long): NTSTATUS =
-    0
+public actual fun lsaLookupAuthenticationPackage(lsahandle: Handle, packagename: COpaquePointer?, authenticationpackage: COpaquePointer?): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaLookupNames(policyhandle: LSA_HANDLE, count: UInt, names: Long, referenceddomains: Long, sids: Long): NTSTATUS =
-    0
+public actual fun lsaLookupNames(policyhandle: LsaHandle, count: UInt, names: COpaquePointer?, referenceddomains: COpaquePointer?, sids: COpaquePointer?): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaLookupNames2(policyhandle: LSA_HANDLE, flags: UInt, count: UInt, names: Long, referenceddomains: Long, sids: Long): NTSTATUS =
-    0
+public actual fun lsaLookupNames2(policyhandle: LsaHandle, flags: UInt, count: UInt, names: COpaquePointer?, referenceddomains: COpaquePointer?, sids: COpaquePointer?): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaLookupSids(policyhandle: LSA_HANDLE, count: UInt, sids: Long, referenceddomains: Long, names: Long): NTSTATUS =
-    0
+public actual fun lsaLookupSids(policyhandle: LsaHandle, count: UInt, sids: COpaquePointer?, referenceddomains: COpaquePointer?, names: COpaquePointer?): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaLookupSids2(policyhandle: LSA_HANDLE, lookupoptions: UInt, count: UInt, sids: Long, referenceddomains: Long, names: Long): NTSTATUS =
-    0
+public actual fun lsaLookupSids2(policyhandle: LsaHandle, lookupoptions: UInt, count: UInt, sids: COpaquePointer?, referenceddomains: COpaquePointer?, names: COpaquePointer?): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaNtStatusToWinError(status: NTSTATUS): UInt =
-    0u
+public actual fun lsaNtStatusToWinError(status: Ntstatus): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaOpenPolicy(systemname: Long, objectattributes: Long, desiredaccess: UInt, policyhandle: Long): NTSTATUS =
-    0
+public actual fun lsaOpenPolicy(systemname: COpaquePointer?, objectattributes: COpaquePointer?, desiredaccess: UInt, policyhandle: COpaquePointer?): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaOpenTrustedDomainByName(policyhandle: LSA_HANDLE, trusteddomainname: Long, desiredaccess: UInt, trusteddomainhandle: Long): NTSTATUS =
-    0
+public actual fun lsaOpenTrustedDomainByName(policyhandle: LsaHandle, trusteddomainname: COpaquePointer?, desiredaccess: UInt, trusteddomainhandle: COpaquePointer?): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaQueryCAPs(capids: Long, capidcount: UInt, caps: Long, capcount: Long): NTSTATUS =
-    0
+public actual fun lsaQueryCAPs(capids: COpaquePointer?, capidcount: UInt, caps: COpaquePointer?, capcount: COpaquePointer?): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaQueryDomainInformationPolicy(policyhandle: LSA_HANDLE, informationclass: POLICY_DOMAIN_INFORMATION_CLASS, buffer: Long): NTSTATUS =
-    0
+public actual fun lsaQueryDomainInformationPolicy(policyhandle: LsaHandle, informationclass: PolicyDomainInformationClass, buffer: COpaquePointer?): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaQueryForestTrustInformation(policyhandle: LSA_HANDLE, trusteddomainname: Long, foresttrustinfo: Long): NTSTATUS =
-    0
+public actual fun lsaQueryForestTrustInformation(policyhandle: LsaHandle, trusteddomainname: COpaquePointer?, foresttrustinfo: COpaquePointer?): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaQueryForestTrustInformation2(policyhandle: LSA_HANDLE, trusteddomainname: Long, highestrecordtype: LSA_FOREST_TRUST_RECORD_TYPE, foresttrustinfo: Long): NTSTATUS =
-    0
+public actual fun lsaQueryForestTrustInformation2(policyhandle: LsaHandle, trusteddomainname: COpaquePointer?, highestrecordtype: LsaForestTrustRecordType, foresttrustinfo: COpaquePointer?): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaQueryInformationPolicy(policyhandle: LSA_HANDLE, informationclass: POLICY_INFORMATION_CLASS, buffer: Long): NTSTATUS =
-    0
+public actual fun lsaQueryInformationPolicy(policyhandle: LsaHandle, informationclass: PolicyInformationClass, buffer: COpaquePointer?): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaQueryTrustedDomainInfo(policyhandle: LSA_HANDLE, trusteddomainsid: PSID, informationclass: TRUSTED_INFORMATION_CLASS, buffer: Long): NTSTATUS =
-    0
+public actual fun lsaQueryTrustedDomainInfo(policyhandle: LsaHandle, trusteddomainsid: Psid, informationclass: TrustedInformationClass, buffer: COpaquePointer?): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaQueryTrustedDomainInfoByName(policyhandle: LSA_HANDLE, trusteddomainname: Long, informationclass: TRUSTED_INFORMATION_CLASS, buffer: Long): NTSTATUS =
-    0
+public actual fun lsaQueryTrustedDomainInfoByName(policyhandle: LsaHandle, trusteddomainname: COpaquePointer?, informationclass: TrustedInformationClass, buffer: COpaquePointer?): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaRegisterLogonProcess(logonprocessname: Long, lsahandle: Long, securitymode: Long): NTSTATUS =
-    0
+public actual fun lsaRegisterLogonProcess(logonprocessname: COpaquePointer?, lsahandle: COpaquePointer?, securitymode: COpaquePointer?): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaRegisterPolicyChangeNotification(informationclass: POLICY_NOTIFICATION_INFORMATION_CLASS, notificationeventhandle: HANDLE): NTSTATUS =
-    0
+public actual fun lsaRegisterPolicyChangeNotification(informationclass: PolicyNotificationInformationClass, notificationeventhandle: Handle): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaRemoveAccountRights(policyhandle: LSA_HANDLE, accountsid: PSID, allrights: Boolean, userrights: Long, countofrights: UInt): NTSTATUS =
-    0
+public actual fun lsaRemoveAccountRights(policyhandle: LsaHandle, accountsid: Psid, allrights: Boolean, userrights: COpaquePointer?, countofrights: UInt): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaRetrievePrivateData(policyhandle: LSA_HANDLE, keyname: Long, privatedata: Long): NTSTATUS =
-    0
+public actual fun lsaRetrievePrivateData(policyhandle: LsaHandle, keyname: COpaquePointer?, privatedata: COpaquePointer?): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaSetCAPs(capdns: Long, capdncount: UInt, flags: UInt): NTSTATUS =
-    0
+public actual fun lsaSetCAPs(capdns: COpaquePointer?, capdncount: UInt, flags: UInt): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaSetDomainInformationPolicy(policyhandle: LSA_HANDLE, informationclass: POLICY_DOMAIN_INFORMATION_CLASS, buffer: Long): NTSTATUS =
-    0
+public actual fun lsaSetDomainInformationPolicy(policyhandle: LsaHandle, informationclass: PolicyDomainInformationClass, buffer: COpaquePointer?): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaSetForestTrustInformation(policyhandle: LSA_HANDLE, trusteddomainname: Long, foresttrustinfo: Long, checkonly: Boolean, collisioninfo: Long): NTSTATUS =
-    0
+public actual fun lsaSetForestTrustInformation(policyhandle: LsaHandle, trusteddomainname: COpaquePointer?, foresttrustinfo: COpaquePointer?, checkonly: Boolean, collisioninfo: COpaquePointer?): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaSetForestTrustInformation2(policyhandle: LSA_HANDLE, trusteddomainname: Long, highestrecordtype: LSA_FOREST_TRUST_RECORD_TYPE, foresttrustinfo: Long, checkonly: Boolean, collisioninfo: Long): NTSTATUS =
-    0
+public actual fun lsaSetForestTrustInformation2(policyhandle: LsaHandle, trusteddomainname: COpaquePointer?, highestrecordtype: LsaForestTrustRecordType, foresttrustinfo: COpaquePointer?, checkonly: Boolean, collisioninfo: COpaquePointer?): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaSetInformationPolicy(policyhandle: LSA_HANDLE, informationclass: POLICY_INFORMATION_CLASS, buffer: Long): NTSTATUS =
-    0
+public actual fun lsaSetInformationPolicy(policyhandle: LsaHandle, informationclass: PolicyInformationClass, buffer: COpaquePointer?): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaSetTrustedDomainInfoByName(policyhandle: LSA_HANDLE, trusteddomainname: Long, informationclass: TRUSTED_INFORMATION_CLASS, buffer: Long): NTSTATUS =
-    0
+public actual fun lsaSetTrustedDomainInfoByName(policyhandle: LsaHandle, trusteddomainname: COpaquePointer?, informationclass: TrustedInformationClass, buffer: COpaquePointer?): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaSetTrustedDomainInformation(policyhandle: LSA_HANDLE, trusteddomainsid: PSID, informationclass: TRUSTED_INFORMATION_CLASS, buffer: Long): NTSTATUS =
-    0
+public actual fun lsaSetTrustedDomainInformation(policyhandle: LsaHandle, trusteddomainsid: Psid, informationclass: TrustedInformationClass, buffer: COpaquePointer?): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaStorePrivateData(policyhandle: LSA_HANDLE, keyname: Long, privatedata: Long): NTSTATUS =
-    0
+public actual fun lsaStorePrivateData(policyhandle: LsaHandle, keyname: COpaquePointer?, privatedata: COpaquePointer?): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LsaUnregisterPolicyChangeNotification(informationclass: POLICY_NOTIFICATION_INFORMATION_CLASS, notificationeventhandle: HANDLE): NTSTATUS =
-    0
+public actual fun lsaUnregisterPolicyChangeNotification(informationclass: PolicyNotificationInformationClass, notificationeventhandle: Handle): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MakeSignature(phcontext: Long, fqop: UInt, pmessage: Long, messageseqno: UInt): HRESULT =
-    0
+public actual fun makeSignature(phcontext: COpaquePointer?, fqop: UInt, pmessage: COpaquePointer?, messageseqno: UInt): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun QueryContextAttributesA(phcontext: Long, ulattribute: SECPKG_ATTR, pbuffer: Long): HRESULT =
-    0
+public actual fun queryContextAttributesA(phcontext: COpaquePointer?, ulattribute: SecpkgAttr, pbuffer: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun QueryContextAttributesExA(phcontext: Long, ulattribute: SECPKG_ATTR, pbuffer: Long, cbbuffer: UInt): HRESULT =
-    0
+public actual fun queryContextAttributesExA(phcontext: COpaquePointer?, ulattribute: SecpkgAttr, pbuffer: COpaquePointer?, cbbuffer: UInt): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun QueryContextAttributesExW(phcontext: Long, ulattribute: SECPKG_ATTR, pbuffer: Long, cbbuffer: UInt): HRESULT =
-    0
+public actual fun queryContextAttributesExW(phcontext: COpaquePointer?, ulattribute: SecpkgAttr, pbuffer: COpaquePointer?, cbbuffer: UInt): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun QueryContextAttributesW(phcontext: Long, ulattribute: SECPKG_ATTR, pbuffer: Long): HRESULT =
-    0
+public actual fun queryContextAttributesW(phcontext: COpaquePointer?, ulattribute: SecpkgAttr, pbuffer: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun QueryCredentialsAttributesA(phcredential: Long, ulattribute: UInt, pbuffer: Long): HRESULT =
-    0
+public actual fun queryCredentialsAttributesA(phcredential: COpaquePointer?, ulattribute: UInt, pbuffer: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun QueryCredentialsAttributesExA(phcredential: Long, ulattribute: UInt, pbuffer: Long, cbbuffer: UInt): HRESULT =
-    0
+public actual fun queryCredentialsAttributesExA(phcredential: COpaquePointer?, ulattribute: UInt, pbuffer: COpaquePointer?, cbbuffer: UInt): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun QueryCredentialsAttributesExW(phcredential: Long, ulattribute: UInt, pbuffer: Long, cbbuffer: UInt): HRESULT =
-    0
+public actual fun queryCredentialsAttributesExW(phcredential: COpaquePointer?, ulattribute: UInt, pbuffer: COpaquePointer?, cbbuffer: UInt): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun QueryCredentialsAttributesW(phcredential: Long, ulattribute: UInt, pbuffer: Long): HRESULT =
-    0
+public actual fun queryCredentialsAttributesW(phcredential: COpaquePointer?, ulattribute: UInt, pbuffer: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun QuerySecurityContextToken(phcontext: Long, token: Long): HRESULT =
-    0
+public actual fun querySecurityContextToken(phcontext: COpaquePointer?, token: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun QuerySecurityPackageInfoA(pszpackagename: PCSTR, pppackageinfo: Long): HRESULT =
-    0
+public actual fun querySecurityPackageInfoA(pszpackagename: Pcstr, pppackageinfo: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun QuerySecurityPackageInfoW(pszpackagename: PCWSTR, pppackageinfo: Long): HRESULT =
-    0
+public actual fun querySecurityPackageInfoW(pszpackagename: Pcwstr, pppackageinfo: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RevertSecurityContext(phcontext: Long): HRESULT =
-    0
+public actual fun revertSecurityContext(phcontext: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RtlDecryptMemory(memory: Long, memorysize: UInt, optionflags: UInt): NTSTATUS =
-    0
+public actual fun rtlDecryptMemory(memory: COpaquePointer?, memorysize: UInt, optionflags: UInt): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RtlEncryptMemory(memory: Long, memorysize: UInt, optionflags: UInt): NTSTATUS =
-    0
+public actual fun rtlEncryptMemory(memory: COpaquePointer?, memorysize: UInt, optionflags: UInt): Ntstatus =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RtlGenRandom(randombuffer: Long, randombufferlength: UInt): Boolean =
-    false
+public actual fun rtlGenRandom(randombuffer: COpaquePointer?, randombufferlength: UInt): Boolean =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SLAcquireGenuineTicket(ppticketblob: Long, pcbticketblob: Long, pwsztemplateid: PCWSTR, pwszserverurl: PCWSTR, pwszclienttoken: PCWSTR): HRESULT =
-    0
+public actual fun sLAcquireGenuineTicket(ppticketblob: COpaquePointer?, pcbticketblob: COpaquePointer?, pwsztemplateid: Pcwstr, pwszserverurl: Pcwstr, pwszclienttoken: Pcwstr): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SLActivateProduct(hslc: Long, pproductskuid: Long, cbappspecificdata: UInt, pvappspecificdata: Long, pactivationinfo: Long, pwszproxyserver: PCWSTR, wproxyport: UShort): HRESULT =
-    0
+public actual fun sLActivateProduct(hslc: COpaquePointer?, pproductskuid: COpaquePointer?, cbappspecificdata: UInt, pvappspecificdata: COpaquePointer?, pactivationinfo: COpaquePointer?, pwszproxyserver: Pcwstr, wproxyport: UShort): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SLClose(hslc: Long): HRESULT =
-    0
+public actual fun sLClose(hslc: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SLConsumeRight(hslc: Long, pappid: Long, pproductskuid: Long, pwszrightname: PCWSTR, pvreserved: Long): HRESULT =
-    0
+public actual fun sLConsumeRight(hslc: COpaquePointer?, pappid: COpaquePointer?, pproductskuid: COpaquePointer?, pwszrightname: Pcwstr, pvreserved: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SLDepositOfflineConfirmationId(hslc: Long, pproductskuid: Long, pwszinstallationid: PCWSTR, pwszconfirmationid: PCWSTR): HRESULT =
-    0
+public actual fun sLDepositOfflineConfirmationId(hslc: COpaquePointer?, pproductskuid: COpaquePointer?, pwszinstallationid: Pcwstr, pwszconfirmationid: Pcwstr): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SLDepositOfflineConfirmationIdEx(hslc: Long, pproductskuid: Long, pactivationinfo: Long, pwszinstallationid: PCWSTR, pwszconfirmationid: PCWSTR): HRESULT =
-    0
+public actual fun sLDepositOfflineConfirmationIdEx(hslc: COpaquePointer?, pproductskuid: COpaquePointer?, pactivationinfo: COpaquePointer?, pwszinstallationid: Pcwstr, pwszconfirmationid: Pcwstr): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SLFireEvent(hslc: Long, pwszeventid: PCWSTR, papplicationid: Long): HRESULT =
-    0
+public actual fun sLFireEvent(hslc: COpaquePointer?, pwszeventid: Pcwstr, papplicationid: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SLGenerateOfflineInstallationId(hslc: Long, pproductskuid: Long, ppwszinstallationid: Long): HRESULT =
-    0
+public actual fun sLGenerateOfflineInstallationId(hslc: COpaquePointer?, pproductskuid: COpaquePointer?, ppwszinstallationid: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SLGenerateOfflineInstallationIdEx(hslc: Long, pproductskuid: Long, pactivationinfo: Long, ppwszinstallationid: Long): HRESULT =
-    0
+public actual fun sLGenerateOfflineInstallationIdEx(hslc: COpaquePointer?, pproductskuid: COpaquePointer?, pactivationinfo: COpaquePointer?, ppwszinstallationid: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SLGetApplicationInformation(hslc: Long, papplicationid: Long, pwszvaluename: PCWSTR, pedatatype: Long, pcbvalue: Long, ppbvalue: Long): HRESULT =
-    0
+public actual fun sLGetApplicationInformation(hslc: COpaquePointer?, papplicationid: COpaquePointer?, pwszvaluename: Pcwstr, pedatatype: COpaquePointer?, pcbvalue: COpaquePointer?, ppbvalue: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SLGetGenuineInformation(pqueryid: Long, pwszvaluename: PCWSTR, pedatatype: Long, pcbvalue: Long, ppbvalue: Long): HRESULT =
-    0
+public actual fun sLGetGenuineInformation(pqueryid: COpaquePointer?, pwszvaluename: Pcwstr, pedatatype: COpaquePointer?, pcbvalue: COpaquePointer?, ppbvalue: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SLGetInstalledProductKeyIds(hslc: Long, pproductskuid: Long, pnproductkeyids: Long, ppproductkeyids: Long): HRESULT =
-    0
+public actual fun sLGetInstalledProductKeyIds(hslc: COpaquePointer?, pproductskuid: COpaquePointer?, pnproductkeyids: COpaquePointer?, ppproductkeyids: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SLGetLicense(hslc: Long, plicensefileid: Long, pcblicensefile: Long, ppblicensefile: Long): HRESULT =
-    0
+public actual fun sLGetLicense(hslc: COpaquePointer?, plicensefileid: COpaquePointer?, pcblicensefile: COpaquePointer?, ppblicensefile: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SLGetLicenseFileId(hslc: Long, cblicenseblob: UInt, pblicenseblob: Long, plicensefileid: Long): HRESULT =
-    0
+public actual fun sLGetLicenseFileId(hslc: COpaquePointer?, cblicenseblob: UInt, pblicenseblob: COpaquePointer?, plicensefileid: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SLGetLicenseInformation(hslc: Long, psllicenseid: Long, pwszvaluename: PCWSTR, pedatatype: Long, pcbvalue: Long, ppbvalue: Long): HRESULT =
-    0
+public actual fun sLGetLicenseInformation(hslc: COpaquePointer?, psllicenseid: COpaquePointer?, pwszvaluename: Pcwstr, pedatatype: COpaquePointer?, pcbvalue: COpaquePointer?, ppbvalue: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SLGetLicensingStatusInformation(hslc: Long, pappid: Long, pproductskuid: Long, pwszrightname: PCWSTR, pnstatuscount: Long, pplicensingstatus: Long): HRESULT =
-    0
+public actual fun sLGetLicensingStatusInformation(hslc: COpaquePointer?, pappid: COpaquePointer?, pproductskuid: COpaquePointer?, pwszrightname: Pcwstr, pnstatuscount: COpaquePointer?, pplicensingstatus: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SLGetPKeyId(hslc: Long, pwszpkeyalgorithm: PCWSTR, pwszpkeystring: PCWSTR, cbpkeyspecificdata: UInt, pbpkeyspecificdata: Long, ppkeyid: Long): HRESULT =
-    0
+public actual fun sLGetPKeyId(hslc: COpaquePointer?, pwszpkeyalgorithm: Pcwstr, pwszpkeystring: Pcwstr, cbpkeyspecificdata: UInt, pbpkeyspecificdata: COpaquePointer?, ppkeyid: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SLGetPKeyInformation(hslc: Long, ppkeyid: Long, pwszvaluename: PCWSTR, pedatatype: Long, pcbvalue: Long, ppbvalue: Long): HRESULT =
-    0
+public actual fun sLGetPKeyInformation(hslc: COpaquePointer?, ppkeyid: COpaquePointer?, pwszvaluename: Pcwstr, pedatatype: COpaquePointer?, pcbvalue: COpaquePointer?, ppbvalue: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SLGetPolicyInformation(hslc: Long, pwszvaluename: PCWSTR, pedatatype: Long, pcbvalue: Long, ppbvalue: Long): HRESULT =
-    0
+public actual fun sLGetPolicyInformation(hslc: COpaquePointer?, pwszvaluename: Pcwstr, pedatatype: COpaquePointer?, pcbvalue: COpaquePointer?, ppbvalue: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SLGetPolicyInformationDWORD(hslc: Long, pwszvaluename: PCWSTR, pdwvalue: Long): HRESULT =
-    0
+public actual fun sLGetPolicyInformationDWORD(hslc: COpaquePointer?, pwszvaluename: Pcwstr, pdwvalue: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SLGetProductSkuInformation(hslc: Long, pproductskuid: Long, pwszvaluename: PCWSTR, pedatatype: Long, pcbvalue: Long, ppbvalue: Long): HRESULT =
-    0
+public actual fun sLGetProductSkuInformation(hslc: COpaquePointer?, pproductskuid: COpaquePointer?, pwszvaluename: Pcwstr, pedatatype: COpaquePointer?, pcbvalue: COpaquePointer?, ppbvalue: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SLGetReferralInformation(hslc: Long, ereferraltype: SLREFERRALTYPE, pskuorappid: Long, pwszvaluename: PCWSTR, ppwszvalue: Long): HRESULT =
-    0
+public actual fun sLGetReferralInformation(hslc: COpaquePointer?, ereferraltype: Slreferraltype, pskuorappid: COpaquePointer?, pwszvaluename: Pcwstr, ppwszvalue: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SLGetSLIDList(hslc: Long, equeryidtype: SLIDTYPE, pqueryid: Long, ereturnidtype: SLIDTYPE, pnreturnids: Long, ppreturnids: Long): HRESULT =
-    0
+public actual fun sLGetSLIDList(hslc: COpaquePointer?, equeryidtype: Slidtype, pqueryid: COpaquePointer?, ereturnidtype: Slidtype, pnreturnids: COpaquePointer?, ppreturnids: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SLGetServerStatus(pwszserverurl: PCWSTR, pwszacquisitiontype: PCWSTR, pwszproxyserver: PCWSTR, wproxyport: UShort, phrstatus: Long): HRESULT =
-    0
+public actual fun sLGetServerStatus(pwszserverurl: Pcwstr, pwszacquisitiontype: Pcwstr, pwszproxyserver: Pcwstr, wproxyport: UShort, phrstatus: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SLGetServiceInformation(hslc: Long, pwszvaluename: PCWSTR, pedatatype: Long, pcbvalue: Long, ppbvalue: Long): HRESULT =
-    0
+public actual fun sLGetServiceInformation(hslc: COpaquePointer?, pwszvaluename: Pcwstr, pedatatype: COpaquePointer?, pcbvalue: COpaquePointer?, ppbvalue: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SLGetWindowsInformation(pwszvaluename: PCWSTR, pedatatype: Long, pcbvalue: Long, ppbvalue: Long): HRESULT =
-    0
+public actual fun sLGetWindowsInformation(pwszvaluename: Pcwstr, pedatatype: COpaquePointer?, pcbvalue: COpaquePointer?, ppbvalue: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SLGetWindowsInformationDWORD(pwszvaluename: PCWSTR, pdwvalue: Long): HRESULT =
-    0
+public actual fun sLGetWindowsInformationDWORD(pwszvaluename: Pcwstr, pdwvalue: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SLInstallLicense(hslc: Long, cblicenseblob: UInt, pblicenseblob: Long, plicensefileid: Long): HRESULT =
-    0
+public actual fun sLInstallLicense(hslc: COpaquePointer?, cblicenseblob: UInt, pblicenseblob: COpaquePointer?, plicensefileid: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SLInstallProofOfPurchase(hslc: Long, pwszpkeyalgorithm: PCWSTR, pwszpkeystring: PCWSTR, cbpkeyspecificdata: UInt, pbpkeyspecificdata: Long, ppkeyid: Long): HRESULT =
-    0
+public actual fun sLInstallProofOfPurchase(hslc: COpaquePointer?, pwszpkeyalgorithm: Pcwstr, pwszpkeystring: Pcwstr, cbpkeyspecificdata: UInt, pbpkeyspecificdata: COpaquePointer?, ppkeyid: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SLIsGenuineLocal(pappid: Long, pgenuinestate: Long, puioptions: Long): HRESULT =
-    0
+public actual fun sLIsGenuineLocal(pappid: COpaquePointer?, pgenuinestate: COpaquePointer?, puioptions: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SLOpen(phslc: Long): HRESULT =
-    0
+public actual fun sLOpen(phslc: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SLQueryLicenseValueFromApp(valuename: PCWSTR, valuetype: Long, databuffer: Long, datasize: UInt, resultdatasize: Long): HRESULT =
-    0
+public actual fun sLQueryLicenseValueFromApp(valuename: Pcwstr, valuetype: COpaquePointer?, databuffer: COpaquePointer?, datasize: UInt, resultdatasize: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SLRegisterEvent(hslc: Long, pwszeventid: PCWSTR, papplicationid: Long, hevent: HANDLE): HRESULT =
-    0
+public actual fun sLRegisterEvent(hslc: COpaquePointer?, pwszeventid: Pcwstr, papplicationid: COpaquePointer?, hevent: Handle): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SLSetCurrentProductKey(hslc: Long, pproductskuid: Long, pproductkeyid: Long): HRESULT =
-    0
+public actual fun sLSetCurrentProductKey(hslc: COpaquePointer?, pproductskuid: COpaquePointer?, pproductkeyid: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SLSetGenuineInformation(pqueryid: Long, pwszvaluename: PCWSTR, edatatype: SLDATATYPE, cbvalue: UInt, pbvalue: Long): HRESULT =
-    0
+public actual fun sLSetGenuineInformation(pqueryid: COpaquePointer?, pwszvaluename: Pcwstr, edatatype: Sldatatype, cbvalue: UInt, pbvalue: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SLUninstallLicense(hslc: Long, plicensefileid: Long): HRESULT =
-    0
+public actual fun sLUninstallLicense(hslc: COpaquePointer?, plicensefileid: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SLUninstallProofOfPurchase(hslc: Long, ppkeyid: Long): HRESULT =
-    0
+public actual fun sLUninstallProofOfPurchase(hslc: COpaquePointer?, ppkeyid: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SLUnregisterEvent(hslc: Long, pwszeventid: PCWSTR, papplicationid: Long, hevent: HANDLE): HRESULT =
-    0
+public actual fun sLUnregisterEvent(hslc: COpaquePointer?, pwszeventid: Pcwstr, papplicationid: COpaquePointer?, hevent: Handle): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SaslAcceptSecurityContext(phcredential: Long, phcontext: Long, pinput: Long, fcontextreq: ASC_REQ_FLAGS, targetdatarep: UInt, phnewcontext: Long, poutput: Long, pfcontextattr: Long, ptsexpiry: Long): HRESULT =
-    0
+public actual fun saslAcceptSecurityContext(phcredential: COpaquePointer?, phcontext: COpaquePointer?, pinput: COpaquePointer?, fcontextreq: AscReqFlags, targetdatarep: UInt, phnewcontext: COpaquePointer?, poutput: COpaquePointer?, pfcontextattr: COpaquePointer?, ptsexpiry: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SaslEnumerateProfilesA(profilelist: Long, profilecount: Long): HRESULT =
-    0
+public actual fun saslEnumerateProfilesA(profilelist: COpaquePointer?, profilecount: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SaslEnumerateProfilesW(profilelist: Long, profilecount: Long): HRESULT =
-    0
+public actual fun saslEnumerateProfilesW(profilelist: COpaquePointer?, profilecount: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SaslGetContextOption(contexthandle: Long, option: UInt, value: Long, size: UInt, needed: Long): HRESULT =
-    0
+public actual fun saslGetContextOption(contexthandle: COpaquePointer?, option: UInt, value: COpaquePointer?, size: UInt, needed: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SaslGetProfilePackageA(profilename: PCSTR, packageinfo: Long): HRESULT =
-    0
+public actual fun saslGetProfilePackageA(profilename: Pcstr, packageinfo: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SaslGetProfilePackageW(profilename: PCWSTR, packageinfo: Long): HRESULT =
-    0
+public actual fun saslGetProfilePackageW(profilename: Pcwstr, packageinfo: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SaslIdentifyPackageA(pinput: Long, packageinfo: Long): HRESULT =
-    0
+public actual fun saslIdentifyPackageA(pinput: COpaquePointer?, packageinfo: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SaslIdentifyPackageW(pinput: Long, packageinfo: Long): HRESULT =
-    0
+public actual fun saslIdentifyPackageW(pinput: COpaquePointer?, packageinfo: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SaslInitializeSecurityContextA(phcredential: Long, phcontext: Long, psztargetname: PCSTR, fcontextreq: ISC_REQ_FLAGS, reserved1: UInt, targetdatarep: UInt, pinput: Long, reserved2: UInt, phnewcontext: Long, poutput: Long, pfcontextattr: Long, ptsexpiry: Long): HRESULT =
-    0
+public actual fun saslInitializeSecurityContextA(phcredential: COpaquePointer?, phcontext: COpaquePointer?, psztargetname: Pcstr, fcontextreq: IscReqFlags, reserved1: UInt, targetdatarep: UInt, pinput: COpaquePointer?, reserved2: UInt, phnewcontext: COpaquePointer?, poutput: COpaquePointer?, pfcontextattr: COpaquePointer?, ptsexpiry: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SaslInitializeSecurityContextW(phcredential: Long, phcontext: Long, psztargetname: PCWSTR, fcontextreq: ISC_REQ_FLAGS, reserved1: UInt, targetdatarep: UInt, pinput: Long, reserved2: UInt, phnewcontext: Long, poutput: Long, pfcontextattr: Long, ptsexpiry: Long): HRESULT =
-    0
+public actual fun saslInitializeSecurityContextW(phcredential: COpaquePointer?, phcontext: COpaquePointer?, psztargetname: Pcwstr, fcontextreq: IscReqFlags, reserved1: UInt, targetdatarep: UInt, pinput: COpaquePointer?, reserved2: UInt, phnewcontext: COpaquePointer?, poutput: COpaquePointer?, pfcontextattr: COpaquePointer?, ptsexpiry: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SaslSetContextOption(contexthandle: Long, option: UInt, value: Long, size: UInt): HRESULT =
-    0
+public actual fun saslSetContextOption(contexthandle: COpaquePointer?, option: UInt, value: COpaquePointer?, size: UInt): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SendSAS(asuser: BOOL) {
+public actual fun sendSAS(asuser: Bool) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun SetContextAttributesA(phcontext: Long, ulattribute: SECPKG_ATTR, pbuffer: Long, cbbuffer: UInt): HRESULT =
-    0
+public actual fun setContextAttributesA(phcontext: COpaquePointer?, ulattribute: SecpkgAttr, pbuffer: COpaquePointer?, cbbuffer: UInt): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetContextAttributesW(phcontext: Long, ulattribute: SECPKG_ATTR, pbuffer: Long, cbbuffer: UInt): HRESULT =
-    0
+public actual fun setContextAttributesW(phcontext: COpaquePointer?, ulattribute: SecpkgAttr, pbuffer: COpaquePointer?, cbbuffer: UInt): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetCredentialsAttributesA(phcredential: Long, ulattribute: UInt, pbuffer: Long, cbbuffer: UInt): HRESULT =
-    0
+public actual fun setCredentialsAttributesA(phcredential: COpaquePointer?, ulattribute: UInt, pbuffer: COpaquePointer?, cbbuffer: UInt): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetCredentialsAttributesW(phcredential: Long, ulattribute: UInt, pbuffer: Long, cbbuffer: UInt): HRESULT =
-    0
+public actual fun setCredentialsAttributesW(phcredential: COpaquePointer?, ulattribute: UInt, pbuffer: COpaquePointer?, cbbuffer: UInt): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SslCrackCertificate(pbcertificate: Long, cbcertificate: UInt, dwflags: UInt, ppcertificate: Long): BOOL =
-    0
+public actual fun sslCrackCertificate(pbcertificate: COpaquePointer?, cbcertificate: UInt, dwflags: UInt, ppcertificate: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SslDeserializeCertificateStore(serializedcertificatestore: CRYPT_INTEGER_BLOB, ppcertcontext: Long): HRESULT =
-    0
+public actual fun sslDeserializeCertificateStore(serializedcertificatestore: CryptIntegerBlob, ppcertcontext: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SslEmptyCacheA(psztargetname: PCSTR, dwflags: UInt): BOOL =
-    0
+public actual fun sslEmptyCacheA(psztargetname: Pcstr, dwflags: UInt): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SslEmptyCacheW(psztargetname: PCWSTR, dwflags: UInt): BOOL =
-    0
+public actual fun sslEmptyCacheW(psztargetname: Pcwstr, dwflags: UInt): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SslFreeCertificate(pcertificate: Long) {
+public actual fun sslFreeCertificate(pcertificate: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun SslGenerateRandomBits(prandomdata: Long, crandomdata: Int) {
+public actual fun sslGenerateRandomBits(prandomdata: COpaquePointer?, crandomdata: Int) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun SslGetExtensions(clienthello: Long, clienthellobytesize: UInt, genericextensions: Long, genericextensionscount: UByte, bytestoread: Long, flags: SchGetExtensionsOptions): HRESULT =
-    0
+public actual fun sslGetExtensions(clienthello: COpaquePointer?, clienthellobytesize: UInt, genericextensions: COpaquePointer?, genericextensionscount: UByte, bytestoread: COpaquePointer?, flags: SchGetExtensionsOptions): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SslGetMaximumKeySize(reserved: UInt): UInt =
-    0u
+public actual fun sslGetMaximumKeySize(reserved: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SslGetServerIdentity(clienthello: Long, clienthellosize: UInt, serveridentity: Long, serveridentitysize: Long, flags: UInt): HRESULT =
-    0
+public actual fun sslGetServerIdentity(clienthello: COpaquePointer?, clienthellosize: UInt, serveridentity: COpaquePointer?, serveridentitysize: COpaquePointer?, flags: UInt): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SspiCompareAuthIdentities(authidentity1: Long, authidentity2: Long, samesupplieduser: Long, samesuppliedidentity: Long): HRESULT =
-    0
+public actual fun sspiCompareAuthIdentities(authidentity1: COpaquePointer?, authidentity2: COpaquePointer?, samesupplieduser: COpaquePointer?, samesuppliedidentity: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SspiCopyAuthIdentity(authdata: Long, authdatacopy: Long): HRESULT =
-    0
+public actual fun sspiCopyAuthIdentity(authdata: COpaquePointer?, authdatacopy: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SspiDecryptAuthIdentity(encryptedauthdata: Long): HRESULT =
-    0
+public actual fun sspiDecryptAuthIdentity(encryptedauthdata: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SspiDecryptAuthIdentityEx(options: UInt, encryptedauthdata: Long): HRESULT =
-    0
+public actual fun sspiDecryptAuthIdentityEx(options: UInt, encryptedauthdata: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SspiEncodeAuthIdentityAsStrings(pauthidentity: Long, ppszusername: Long, ppszdomainname: Long, ppszpackedcredentialsstring: Long): HRESULT =
-    0
+public actual fun sspiEncodeAuthIdentityAsStrings(pauthidentity: COpaquePointer?, ppszusername: COpaquePointer?, ppszdomainname: COpaquePointer?, ppszpackedcredentialsstring: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SspiEncodeStringsAsAuthIdentity(pszusername: PCWSTR, pszdomainname: PCWSTR, pszpackedcredentialsstring: PCWSTR, ppauthidentity: Long): HRESULT =
-    0
+public actual fun sspiEncodeStringsAsAuthIdentity(pszusername: Pcwstr, pszdomainname: Pcwstr, pszpackedcredentialsstring: Pcwstr, ppauthidentity: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SspiEncryptAuthIdentity(authdata: Long): HRESULT =
-    0
+public actual fun sspiEncryptAuthIdentity(authdata: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SspiEncryptAuthIdentityEx(options: UInt, authdata: Long): HRESULT =
-    0
+public actual fun sspiEncryptAuthIdentityEx(options: UInt, authdata: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SspiExcludePackage(authidentity: Long, pszpackagename: PCWSTR, ppnewauthidentity: Long): HRESULT =
-    0
+public actual fun sspiExcludePackage(authidentity: COpaquePointer?, pszpackagename: Pcwstr, ppnewauthidentity: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SspiFreeAuthIdentity(authdata: Long) {
+public actual fun sspiFreeAuthIdentity(authdata: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun SspiGetTargetHostName(psztargetname: PCWSTR, pszhostname: Long): HRESULT =
-    0
+public actual fun sspiGetTargetHostName(psztargetname: Pcwstr, pszhostname: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SspiIsAuthIdentityEncrypted(encryptedauthdata: Long): Boolean =
-    false
+public actual fun sspiIsAuthIdentityEncrypted(encryptedauthdata: COpaquePointer?): Boolean =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SspiIsPromptingNeeded(errororntstatus: UInt): Boolean =
-    false
+public actual fun sspiIsPromptingNeeded(errororntstatus: UInt): Boolean =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SspiLocalFree(databuffer: Long) {
+public actual fun sspiLocalFree(databuffer: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun SspiMarshalAuthIdentity(authidentity: Long, authidentitylength: Long, authidentitybytearray: Long): HRESULT =
-    0
+public actual fun sspiMarshalAuthIdentity(authidentity: COpaquePointer?, authidentitylength: COpaquePointer?, authidentitybytearray: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SspiPrepareForCredRead(authidentity: Long, psztargetname: PCWSTR, pcredmancredentialtype: Long, ppszcredmantargetname: Long): HRESULT =
-    0
+public actual fun sspiPrepareForCredRead(authidentity: COpaquePointer?, psztargetname: Pcwstr, pcredmancredentialtype: COpaquePointer?, ppszcredmantargetname: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SspiPrepareForCredWrite(authidentity: Long, psztargetname: PCWSTR, pcredmancredentialtype: Long, ppszcredmantargetname: Long, ppszcredmanusername: Long, ppcredentialblob: Long, pcredentialblobsize: Long): HRESULT =
-    0
+public actual fun sspiPrepareForCredWrite(authidentity: COpaquePointer?, psztargetname: Pcwstr, pcredmancredentialtype: COpaquePointer?, ppszcredmantargetname: COpaquePointer?, ppszcredmanusername: COpaquePointer?, ppcredentialblob: COpaquePointer?, pcredentialblobsize: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SspiPromptForCredentialsA(psztargetname: PCSTR, puiinfo: Long, dwautherror: UInt, pszpackage: PCSTR, pinputauthidentity: Long, ppauthidentity: Long, pfsave: Long, dwflags: UInt): UInt =
-    0u
+public actual fun sspiPromptForCredentialsA(psztargetname: Pcstr, puiinfo: COpaquePointer?, dwautherror: UInt, pszpackage: Pcstr, pinputauthidentity: COpaquePointer?, ppauthidentity: COpaquePointer?, pfsave: COpaquePointer?, dwflags: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SspiPromptForCredentialsW(psztargetname: PCWSTR, puiinfo: Long, dwautherror: UInt, pszpackage: PCWSTR, pinputauthidentity: Long, ppauthidentity: Long, pfsave: Long, dwflags: UInt): UInt =
-    0u
+public actual fun sspiPromptForCredentialsW(psztargetname: Pcwstr, puiinfo: COpaquePointer?, dwautherror: UInt, pszpackage: Pcwstr, pinputauthidentity: COpaquePointer?, ppauthidentity: COpaquePointer?, pfsave: COpaquePointer?, dwflags: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SspiSetChannelBindingFlags(pbindings: Long, flags: UInt): HRESULT =
-    0
+public actual fun sspiSetChannelBindingFlags(pbindings: COpaquePointer?, flags: UInt): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SspiUnmarshalAuthIdentity(authidentitylength: UInt, authidentitybytearray: PCSTR, ppauthidentity: Long): HRESULT =
-    0
+public actual fun sspiUnmarshalAuthIdentity(authidentitylength: UInt, authidentitybytearray: Pcstr, ppauthidentity: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SspiValidateAuthIdentity(authdata: Long): HRESULT =
-    0
+public actual fun sspiValidateAuthIdentity(authdata: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SspiZeroAuthIdentity(authdata: Long) {
+public actual fun sspiZeroAuthIdentity(authdata: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun TokenBindingDeleteAllBindings(): HRESULT =
-    0
+public actual fun tokenBindingDeleteAllBindings(): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun TokenBindingDeleteBinding(targeturl: PCWSTR): HRESULT =
-    0
+public actual fun tokenBindingDeleteBinding(targeturl: Pcwstr): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun TokenBindingGenerateBinding(keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, targeturl: PCWSTR, bindingtype: TOKENBINDING_TYPE, tlsekm: Long, tlsekmsize: UInt, extensionformat: TOKENBINDING_EXTENSION_FORMAT, extensiondata: Long, tokenbinding: Long, tokenbindingsize: Long, resultdata: Long): HRESULT =
-    0
+public actual fun tokenBindingGenerateBinding(keytype: TokenbindingKeyParametersType, targeturl: Pcwstr, bindingtype: TokenbindingType, tlsekm: COpaquePointer?, tlsekmsize: UInt, extensionformat: TokenbindingExtensionFormat, extensiondata: COpaquePointer?, tokenbinding: COpaquePointer?, tokenbindingsize: COpaquePointer?, resultdata: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun TokenBindingGenerateID(keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, publickey: Long, publickeysize: UInt, resultdata: Long): HRESULT =
-    0
+public actual fun tokenBindingGenerateID(keytype: TokenbindingKeyParametersType, publickey: COpaquePointer?, publickeysize: UInt, resultdata: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun TokenBindingGenerateIDForUri(keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, targeturi: PCWSTR, resultdata: Long): HRESULT =
-    0
+public actual fun tokenBindingGenerateIDForUri(keytype: TokenbindingKeyParametersType, targeturi: Pcwstr, resultdata: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun TokenBindingGenerateMessage(tokenbindings: Long, tokenbindingssize: Long, tokenbindingscount: UInt, tokenbindingmessage: Long, tokenbindingmessagesize: Long): HRESULT =
-    0
+public actual fun tokenBindingGenerateMessage(tokenbindings: COpaquePointer?, tokenbindingssize: COpaquePointer?, tokenbindingscount: UInt, tokenbindingmessage: COpaquePointer?, tokenbindingmessagesize: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun TokenBindingGetHighestSupportedVersion(majorversion: Long, minorversion: Long): HRESULT =
-    0
+public actual fun tokenBindingGetHighestSupportedVersion(majorversion: COpaquePointer?, minorversion: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun TokenBindingGetKeyTypesClient(keytypes: Long): HRESULT =
-    0
+public actual fun tokenBindingGetKeyTypesClient(keytypes: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun TokenBindingGetKeyTypesServer(keytypes: Long): HRESULT =
-    0
+public actual fun tokenBindingGetKeyTypesServer(keytypes: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun TokenBindingVerifyMessage(tokenbindingmessage: Long, tokenbindingmessagesize: UInt, keytype: TOKENBINDING_KEY_PARAMETERS_TYPE, tlsekm: Long, tlsekmsize: UInt, resultlist: Long): HRESULT =
-    0
+public actual fun tokenBindingVerifyMessage(tokenbindingmessage: COpaquePointer?, tokenbindingmessagesize: UInt, keytype: TokenbindingKeyParametersType, tlsekm: COpaquePointer?, tlsekmsize: UInt, resultlist: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun TranslateNameA(lpaccountname: PCSTR, accountnameformat: EXTENDED_NAME_FORMAT, desirednameformat: EXTENDED_NAME_FORMAT, lptranslatedname: PSTR, nsize: Long): Boolean =
-    false
+public actual fun translateNameA(lpaccountname: Pcstr, accountnameformat: ExtendedNameFormat, desirednameformat: ExtendedNameFormat, lptranslatedname: Pstr, nsize: COpaquePointer?): Boolean =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun TranslateNameW(lpaccountname: PCWSTR, accountnameformat: EXTENDED_NAME_FORMAT, desirednameformat: EXTENDED_NAME_FORMAT, lptranslatedname: PWSTR, nsize: Long): Boolean =
-    false
+public actual fun translateNameW(lpaccountname: Pcwstr, accountnameformat: ExtendedNameFormat, desirednameformat: ExtendedNameFormat, lptranslatedname: Pwstr, nsize: COpaquePointer?): Boolean =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun VerifySignature(phcontext: Long, pmessage: Long, messageseqno: UInt, pfqop: Long): HRESULT =
-    0
+public actual fun verifySignature(phcontext: COpaquePointer?, pmessage: COpaquePointer?, messageseqno: UInt, pfqop: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

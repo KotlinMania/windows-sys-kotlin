@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_ActivateKeyboardLayout_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_activateKeyboardLayout_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -71,7 +71,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_ActivateKe
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_BlockInput_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_blockInput_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t fblockit = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -89,7 +89,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_BlockInput
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_EnableWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_enableWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t benable = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -109,7 +109,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_EnableWind
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_GetActiveWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_getActiveWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -125,7 +125,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_GetActiveW
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_GetAsyncKeyState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_getAsyncKeyState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t vkey = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -143,7 +143,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_GetAsyncKe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_GetCapture_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_getCapture_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -159,7 +159,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_GetCapture
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_GetDoubleClickTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_getDoubleClickTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -175,7 +175,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_GetDoubleC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_GetFocus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_getFocus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -191,7 +191,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_GetFocus_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_GetKBCodePage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_getKBCodePage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -207,7 +207,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_GetKBCodeP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyNameTextA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_getKeyNameTextA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t lparam = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -229,7 +229,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyName
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyNameTextW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_getKeyNameTextW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t lparam = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -251,7 +251,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyName
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_getKeyState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t nvirtkey = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -269,7 +269,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyStat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardLayout_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardLayout_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t idthread = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -287,7 +287,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboar
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardLayoutList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardLayoutList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t nbuff = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lplist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -307,7 +307,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardLayoutNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardLayoutNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszklid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -325,7 +325,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardLayoutNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardLayoutNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszklid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -343,7 +343,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpkeystate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -361,7 +361,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t ntypeflag = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -379,7 +379,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_GetLastInputInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_getLastInputInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plii = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -397,7 +397,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_GetLastInp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_GetMouseMovePointsEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_getMouseMovePointsEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t cbsize = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lppt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -423,7 +423,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_GetMouseMo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_IsWindowEnabled_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_isWindowEnabled_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -441,7 +441,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_IsWindowEn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_LoadKeyboardLayoutA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_loadKeyboardLayoutA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszklid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -461,7 +461,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_LoadKeyboa
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_LoadKeyboardLayoutW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_loadKeyboardLayoutW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszklid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -481,7 +481,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_LoadKeyboa
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtualKeyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_mapVirtualKeyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ucode = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t umaptype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -501,7 +501,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtual
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtualKeyExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_mapVirtualKeyExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ucode = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t umaptype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -523,7 +523,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtual
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtualKeyExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_mapVirtualKeyExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ucode = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t umaptype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -545,7 +545,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtual
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtualKeyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_mapVirtualKeyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ucode = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t umaptype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -565,7 +565,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtual
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_OemKeyScan_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_oemKeyScan_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t woemchar = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -583,7 +583,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_OemKeyScan
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_RegisterHotKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_registerHotKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t id = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -607,7 +607,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_RegisterHo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_ReleaseCapture_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_releaseCapture_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -623,7 +623,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_ReleaseCap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_SendInput_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_sendInput_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t cinputs = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pinputs = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -645,7 +645,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_SendInput_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_SetActiveWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_setActiveWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -663,7 +663,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_SetActiveW
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_SetCapture_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_setCapture_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -681,7 +681,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_SetCapture
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_SetDoubleClickTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_setDoubleClickTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t param0 = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -699,7 +699,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_SetDoubleC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_SetFocus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_setFocus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -717,7 +717,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_SetFocus_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_SetKeyboardState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_setKeyboardState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpkeystate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -735,7 +735,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_SetKeyboar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_SwapMouseButton_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_swapMouseButton_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t fswap = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -753,7 +753,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_SwapMouseB
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_ToAscii_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_toAscii_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t uvirtkey = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t uscancode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -779,7 +779,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_ToAscii_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_ToAsciiEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_toAsciiEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t uvirtkey = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t uscancode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -807,7 +807,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_ToAsciiEx_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_ToUnicode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_toUnicode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t wvirtkey = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t wscancode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -835,7 +835,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_ToUnicode_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_ToUnicodeEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_toUnicodeEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t wvirtkey = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t wscancode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -865,7 +865,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_ToUnicodeE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_TrackMouseEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_trackMouseEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpeventtrack = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -883,7 +883,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_TrackMouse
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_UnloadKeyboardLayout_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_unloadKeyboardLayout_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -901,7 +901,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_UnloadKeyb
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_UnregisterHotKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_unregisterHotKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t id = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -921,7 +921,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_Unregister
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_vkKeyScanA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int8_t ch = static_cast<int8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -939,7 +939,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_vkKeyScanExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int8_t ch = static_cast<int8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* dwhkl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -959,7 +959,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_vkKeyScanExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t ch = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* dwhkl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -979,7 +979,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_vkKeyScanW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t ch = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -997,25 +997,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse__TrackMouseEvent_napi(const Napi::CallbackInfo& km_info) {
-    Napi::Env km_env = km_info.Env();
-    void* lpeventtrack = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
-#ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*);
-    static km_fn_t km_fn_ptr = nullptr;
-    if (km_fn_ptr == nullptr) {
-        HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
-        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "_TrackMouseEvent")));
-    }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpeventtrack) : -1;
-#else
-    (void)lpeventtrack;
-    int32_t km_res = -1;
-#endif
-    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
-}
-
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_keybd_event_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_keybdEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint8_t bvk = static_cast<uint8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint8_t bscan = static_cast<uint8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1038,7 +1020,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_keybd_even
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_mouse_event_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_mouseEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t dx = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1064,57 +1046,56 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_mouse_even
 }
 
 static void register_windows_win32_ui_input_keyboardandmouse_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_ActivateKeyboardLayout", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_ActivateKeyboardLayout_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_BlockInput", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_BlockInput_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_EnableWindow", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_EnableWindow_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_GetActiveWindow", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_GetActiveWindow_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_GetAsyncKeyState", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_GetAsyncKeyState_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_GetCapture", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_GetCapture_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_GetDoubleClickTime", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_GetDoubleClickTime_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_GetFocus", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_GetFocus_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_GetKBCodePage", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_GetKBCodePage_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyNameTextA", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyNameTextA_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyNameTextW", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyNameTextW_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyState", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyState_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardLayout", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardLayout_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardLayoutList", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardLayoutList_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardLayoutNameA", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardLayoutNameA_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardLayoutNameW", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardLayoutNameW_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardState", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardState_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardType", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardType_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_GetLastInputInfo", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_GetLastInputInfo_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_GetMouseMovePointsEx", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_GetMouseMovePointsEx_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_IsWindowEnabled", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_IsWindowEnabled_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_LoadKeyboardLayoutA", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_LoadKeyboardLayoutA_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_LoadKeyboardLayoutW", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_LoadKeyboardLayoutW_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtualKeyA", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtualKeyA_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtualKeyExA", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtualKeyExA_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtualKeyExW", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtualKeyExW_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtualKeyW", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtualKeyW_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_OemKeyScan", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_OemKeyScan_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_RegisterHotKey", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_RegisterHotKey_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_ReleaseCapture", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_ReleaseCapture_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_SendInput", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_SendInput_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_SetActiveWindow", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_SetActiveWindow_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_SetCapture", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_SetCapture_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_SetDoubleClickTime", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_SetDoubleClickTime_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_SetFocus", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_SetFocus_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_SetKeyboardState", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_SetKeyboardState_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_SwapMouseButton", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_SwapMouseButton_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_ToAscii", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_ToAscii_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_ToAsciiEx", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_ToAsciiEx_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_ToUnicode", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_ToUnicode_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_ToUnicodeEx", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_ToUnicodeEx_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_TrackMouseEvent", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_TrackMouseEvent_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_UnloadKeyboardLayout", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_UnloadKeyboardLayout_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_UnregisterHotKey", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_UnregisterHotKey_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanA", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanA_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanExA", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanExA_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanExW", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanExW_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanW", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanW_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse__TrackMouseEvent", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse__TrackMouseEvent_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_keybd_event", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_keybd_event_napi));
-    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_mouse_event", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_mouse_event_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_activateKeyboardLayout", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_activateKeyboardLayout_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_blockInput", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_blockInput_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_enableWindow", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_enableWindow_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_getActiveWindow", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_getActiveWindow_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_getAsyncKeyState", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_getAsyncKeyState_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_getCapture", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_getCapture_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_getDoubleClickTime", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_getDoubleClickTime_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_getFocus", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_getFocus_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_getKBCodePage", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_getKBCodePage_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_getKeyNameTextA", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_getKeyNameTextA_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_getKeyNameTextW", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_getKeyNameTextW_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_getKeyState", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_getKeyState_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardLayout", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardLayout_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardLayoutList", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardLayoutList_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardLayoutNameA", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardLayoutNameA_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardLayoutNameW", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardLayoutNameW_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardState", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardState_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardType", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardType_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_getLastInputInfo", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_getLastInputInfo_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_getMouseMovePointsEx", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_getMouseMovePointsEx_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_isWindowEnabled", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_isWindowEnabled_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_loadKeyboardLayoutA", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_loadKeyboardLayoutA_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_loadKeyboardLayoutW", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_loadKeyboardLayoutW_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_mapVirtualKeyA", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_mapVirtualKeyA_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_mapVirtualKeyExA", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_mapVirtualKeyExA_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_mapVirtualKeyExW", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_mapVirtualKeyExW_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_mapVirtualKeyW", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_mapVirtualKeyW_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_oemKeyScan", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_oemKeyScan_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_registerHotKey", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_registerHotKey_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_releaseCapture", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_releaseCapture_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_sendInput", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_sendInput_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_setActiveWindow", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_setActiveWindow_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_setCapture", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_setCapture_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_setDoubleClickTime", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_setDoubleClickTime_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_setFocus", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_setFocus_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_setKeyboardState", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_setKeyboardState_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_swapMouseButton", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_swapMouseButton_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_toAscii", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_toAscii_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_toAsciiEx", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_toAsciiEx_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_toUnicode", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_toUnicode_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_toUnicodeEx", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_toUnicodeEx_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_trackMouseEvent", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_trackMouseEvent_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_unloadKeyboardLayout", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_unloadKeyboardLayout_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_unregisterHotKey", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_unregisterHotKey_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_vkKeyScanA", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_vkKeyScanA_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_vkKeyScanExA", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_vkKeyScanExA_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_vkKeyScanExW", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_vkKeyScanExW_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_vkKeyScanW", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_vkKeyScanW_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_keybdEvent", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_keybdEvent_napi));
+    exports.Set("windowssys_windows_win32_ui_input_keyboardandmouse_mouseEvent", Napi::Function::New(env, windowssys_windows_win32_ui_input_keyboardandmouse_mouseEvent_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_ui_input_keyboardandmouse_napi, nullptr };

@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_foundation_WindowsWdkFoundationJniBridge_windowssys_1windows_1wdk_1foundation_1NtClose(JNIEnv* km_env, jclass km_clazz, jlong handle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_foundation_WindowsWdkFoundationJniBridge_windowssys_1windows_1wdk_1foundation_1ntClose(JNIEnv* km_env, jclass km_clazz, jlong handle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -36,7 +36,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_foundat
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_foundation_WindowsWdkFoundationJniBridge_windowssys_1windows_1wdk_1foundation_1NtQueryObject(JNIEnv* km_env, jclass km_clazz, jlong handle, jint objectinformationclass, jlong objectinformation, jint objectinformationlength, jlong returnlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_foundation_WindowsWdkFoundationJniBridge_windowssys_1windows_1wdk_1foundation_1ntQueryObject(JNIEnv* km_env, jclass km_clazz, jlong handle, jint objectinformationclass, jlong objectinformation, jint objectinformationlength, jlong returnlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

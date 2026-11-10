@@ -2,281 +2,290 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.variant
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
 
 private val _windowsWin32SystemVariantNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun ClearVariantArray(pvars: Long, cvars: UInt) {
+public actual fun clearVariantArray(pvars: COpaquePointer?, cvars: UInt) {
     if (_windowsWin32SystemVariantNapiAddon != null) {
-        _windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_ClearVariantArray(pvars.toString(), cvars.toInt())
+        _windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_clearVariantArray((pvars?.value ?: 0L).toString(), cvars.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun DosDateTimeToVariantTime(wdosdate: UShort, wdostime: UShort, pvtime: Long): Int =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_DosDateTimeToVariantTime(wdosdate.toInt(), wdostime.toInt(), pvtime.toString()) as Int) else 0
+public actual fun dosDateTimeToVariantTime(wdosdate: UShort, wdostime: UShort, pvtime: COpaquePointer?): Int =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_dosDateTimeToVariantTime(wdosdate.toInt(), wdostime.toInt(), (pvtime?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InitVariantFromBooleanArray(prgf: Long, celems: UInt, pvar: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_InitVariantFromBooleanArray(prgf.toString(), celems.toInt(), pvar.toString()) as Int) else 0
+public actual fun initVariantFromBooleanArray(prgf: COpaquePointer?, celems: UInt, pvar: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_initVariantFromBooleanArray((prgf?.value ?: 0L).toString(), celems.toInt(), (pvar?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InitVariantFromBuffer(pv: Long, cb: UInt, pvar: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_InitVariantFromBuffer(pv.toString(), cb.toInt(), pvar.toString()) as Int) else 0
+public actual fun initVariantFromBuffer(pv: COpaquePointer?, cb: UInt, pvar: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_initVariantFromBuffer((pv?.value ?: 0L).toString(), cb.toInt(), (pvar?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InitVariantFromDoubleArray(prgn: Long, celems: UInt, pvar: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_InitVariantFromDoubleArray(prgn.toString(), celems.toInt(), pvar.toString()) as Int) else 0
+public actual fun initVariantFromDoubleArray(prgn: COpaquePointer?, celems: UInt, pvar: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_initVariantFromDoubleArray((prgn?.value ?: 0L).toString(), celems.toInt(), (pvar?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InitVariantFromFileTime(pft: Long, pvar: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_InitVariantFromFileTime(pft.toString(), pvar.toString()) as Int) else 0
+public actual fun initVariantFromFileTime(pft: COpaquePointer?, pvar: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_initVariantFromFileTime((pft?.value ?: 0L).toString(), (pvar?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InitVariantFromFileTimeArray(prgft: Long, celems: UInt, pvar: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_InitVariantFromFileTimeArray(prgft.toString(), celems.toInt(), pvar.toString()) as Int) else 0
+public actual fun initVariantFromFileTimeArray(prgft: COpaquePointer?, celems: UInt, pvar: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_initVariantFromFileTimeArray((prgft?.value ?: 0L).toString(), celems.toInt(), (pvar?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InitVariantFromGUIDAsString(guid: Long, pvar: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_InitVariantFromGUIDAsString(guid.toString(), pvar.toString()) as Int) else 0
+public actual fun initVariantFromGUIDAsString(guid: COpaquePointer?, pvar: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_initVariantFromGUIDAsString((guid?.value ?: 0L).toString(), (pvar?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InitVariantFromInt16Array(prgn: Long, celems: UInt, pvar: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_InitVariantFromInt16Array(prgn.toString(), celems.toInt(), pvar.toString()) as Int) else 0
+public actual fun initVariantFromInt16Array(prgn: COpaquePointer?, celems: UInt, pvar: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_initVariantFromInt16Array((prgn?.value ?: 0L).toString(), celems.toInt(), (pvar?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InitVariantFromInt32Array(prgn: Long, celems: UInt, pvar: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_InitVariantFromInt32Array(prgn.toString(), celems.toInt(), pvar.toString()) as Int) else 0
+public actual fun initVariantFromInt32Array(prgn: COpaquePointer?, celems: UInt, pvar: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_initVariantFromInt32Array((prgn?.value ?: 0L).toString(), celems.toInt(), (pvar?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InitVariantFromInt64Array(prgn: Long, celems: UInt, pvar: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_InitVariantFromInt64Array(prgn.toString(), celems.toInt(), pvar.toString()) as Int) else 0
+public actual fun initVariantFromInt64Array(prgn: COpaquePointer?, celems: UInt, pvar: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_initVariantFromInt64Array((prgn?.value ?: 0L).toString(), celems.toInt(), (pvar?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InitVariantFromResource(hinst: HINSTANCE, id: UInt, pvar: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_InitVariantFromResource(hinst.toString(), id.toInt(), pvar.toString()) as Int) else 0
+public actual fun initVariantFromResource(hinst: Hinstance, id: UInt, pvar: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_initVariantFromResource((hinst?.value ?: 0L).toString(), id.toInt(), (pvar?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InitVariantFromStringArray(prgsz: Long, celems: UInt, pvar: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_InitVariantFromStringArray(prgsz.toString(), celems.toInt(), pvar.toString()) as Int) else 0
+public actual fun initVariantFromStringArray(prgsz: COpaquePointer?, celems: UInt, pvar: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_initVariantFromStringArray((prgsz?.value ?: 0L).toString(), celems.toInt(), (pvar?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InitVariantFromUInt16Array(prgn: Long, celems: UInt, pvar: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_InitVariantFromUInt16Array(prgn.toString(), celems.toInt(), pvar.toString()) as Int) else 0
+public actual fun initVariantFromUInt16Array(prgn: COpaquePointer?, celems: UInt, pvar: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_initVariantFromUInt16Array((prgn?.value ?: 0L).toString(), celems.toInt(), (pvar?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InitVariantFromUInt32Array(prgn: Long, celems: UInt, pvar: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_InitVariantFromUInt32Array(prgn.toString(), celems.toInt(), pvar.toString()) as Int) else 0
+public actual fun initVariantFromUInt32Array(prgn: COpaquePointer?, celems: UInt, pvar: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_initVariantFromUInt32Array((prgn?.value ?: 0L).toString(), celems.toInt(), (pvar?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InitVariantFromUInt64Array(prgn: Long, celems: UInt, pvar: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_InitVariantFromUInt64Array(prgn.toString(), celems.toInt(), pvar.toString()) as Int) else 0
+public actual fun initVariantFromUInt64Array(prgn: COpaquePointer?, celems: UInt, pvar: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_initVariantFromUInt64Array((prgn?.value ?: 0L).toString(), celems.toInt(), (pvar?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InitVariantFromVariantArrayElem(varin: Long, ielem: UInt, pvar: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_InitVariantFromVariantArrayElem(varin.toString(), ielem.toInt(), pvar.toString()) as Int) else 0
+public actual fun initVariantFromVariantArrayElem(varin: COpaquePointer?, ielem: UInt, pvar: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_initVariantFromVariantArrayElem((varin?.value ?: 0L).toString(), ielem.toInt(), (pvar?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SystemTimeToVariantTime(lpsystemtime: Long, pvtime: Long): Int =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_SystemTimeToVariantTime(lpsystemtime.toString(), pvtime.toString()) as Int) else 0
+public actual fun systemTimeToVariantTime(lpsystemtime: COpaquePointer?, pvtime: COpaquePointer?): Int =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_systemTimeToVariantTime((lpsystemtime?.value ?: 0L).toString(), (pvtime?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VARIANT_UserFree(param0: Long, param1: Long) {
+public actual fun variantUserFree(param0: COpaquePointer?, param1: COpaquePointer?) {
     if (_windowsWin32SystemVariantNapiAddon != null) {
-        _windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VARIANT_UserFree(param0.toString(), param1.toString())
+        _windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantUserFree((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun VARIANT_UserFree64(param0: Long, param1: Long) {
+public actual fun variantUserFree64(param0: COpaquePointer?, param1: COpaquePointer?) {
     if (_windowsWin32SystemVariantNapiAddon != null) {
-        _windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VARIANT_UserFree64(param0.toString(), param1.toString())
+        _windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantUserFree64((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun VARIANT_UserMarshal(param0: Long, param1: Long, param2: Long): Long =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VARIANT_UserMarshal(param0.toString(), param1.toString(), param2.toString()) as String).toLong() else 0L
+public actual fun variantUserMarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantUserMarshal((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VARIANT_UserMarshal64(param0: Long, param1: Long, param2: Long): Long =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VARIANT_UserMarshal64(param0.toString(), param1.toString(), param2.toString()) as String).toLong() else 0L
+public actual fun variantUserMarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantUserMarshal64((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VARIANT_UserSize(param0: Long, param1: UInt, param2: Long): UInt =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VARIANT_UserSize(param0.toString(), param1.toInt(), param2.toString()) as Int).toUInt() else 0u
+public actual fun variantUserSize(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantUserSize((param0?.value ?: 0L).toString(), param1.toInt(), (param2?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VARIANT_UserSize64(param0: Long, param1: UInt, param2: Long): UInt =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VARIANT_UserSize64(param0.toString(), param1.toInt(), param2.toString()) as Int).toUInt() else 0u
+public actual fun variantUserSize64(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantUserSize64((param0?.value ?: 0L).toString(), param1.toInt(), (param2?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VARIANT_UserUnmarshal(param0: Long, param1: Long, param2: Long): Long =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VARIANT_UserUnmarshal(param0.toString(), param1.toString(), param2.toString()) as String).toLong() else 0L
+public actual fun variantUserUnmarshal(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantUserUnmarshal((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VARIANT_UserUnmarshal64(param0: Long, param1: Long, param2: Long): Long =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VARIANT_UserUnmarshal64(param0.toString(), param1.toString(), param2.toString()) as String).toLong() else 0L
+public actual fun variantUserUnmarshal64(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantUserUnmarshal64((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (param2?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantChangeType(pvargdest: Long, pvarsrc: Long, wflags: VAR_CHANGE_FLAGS, vt: VARENUM): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantChangeType(pvargdest.toString(), pvarsrc.toString(), wflags.toInt(), vt.toInt()) as Int) else 0
+public actual fun variantChangeType(pvargdest: COpaquePointer?, pvarsrc: COpaquePointer?, wflags: VarChangeFlags, vt: Varenum): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantChangeType((pvargdest?.value ?: 0L).toString(), (pvarsrc?.value ?: 0L).toString(), wflags.toInt(), vt.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantChangeTypeEx(pvargdest: Long, pvarsrc: Long, lcid: UInt, wflags: VAR_CHANGE_FLAGS, vt: VARENUM): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantChangeTypeEx(pvargdest.toString(), pvarsrc.toString(), lcid.toInt(), wflags.toInt(), vt.toInt()) as Int) else 0
+public actual fun variantChangeTypeEx(pvargdest: COpaquePointer?, pvarsrc: COpaquePointer?, lcid: UInt, wflags: VarChangeFlags, vt: Varenum): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantChangeTypeEx((pvargdest?.value ?: 0L).toString(), (pvarsrc?.value ?: 0L).toString(), lcid.toInt(), wflags.toInt(), vt.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantClear(pvarg: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantClear(pvarg.toString()) as Int) else 0
+public actual fun variantClear(pvarg: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantClear((pvarg?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantCompare(var1: Long, var2: Long): Int =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantCompare(var1.toString(), var2.toString()) as Int) else 0
+public actual fun variantCompare(var1: COpaquePointer?, var2: COpaquePointer?): Int =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantCompare((var1?.value ?: 0L).toString(), (var2?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantCopy(pvargdest: Long, pvargsrc: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantCopy(pvargdest.toString(), pvargsrc.toString()) as Int) else 0
+public actual fun variantCopy(pvargdest: COpaquePointer?, pvargsrc: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantCopy((pvargdest?.value ?: 0L).toString(), (pvargsrc?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantCopyInd(pvardest: Long, pvargsrc: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantCopyInd(pvardest.toString(), pvargsrc.toString()) as Int) else 0
+public actual fun variantCopyInd(pvardest: COpaquePointer?, pvargsrc: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantCopyInd((pvardest?.value ?: 0L).toString(), (pvargsrc?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantGetBooleanElem(variable: Long, ielem: UInt, pfval: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantGetBooleanElem(variable.toString(), ielem.toInt(), pfval.toString()) as Int) else 0
+public actual fun variantGetBooleanElem(variable: COpaquePointer?, ielem: UInt, pfval: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantGetBooleanElem((variable?.value ?: 0L).toString(), ielem.toInt(), (pfval?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantGetDoubleElem(variable: Long, ielem: UInt, pnval: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantGetDoubleElem(variable.toString(), ielem.toInt(), pnval.toString()) as Int) else 0
+public actual fun variantGetDoubleElem(variable: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantGetDoubleElem((variable?.value ?: 0L).toString(), ielem.toInt(), (pnval?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantGetElementCount(varin: Long): UInt =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantGetElementCount(varin.toString()) as Int).toUInt() else 0u
+public actual fun variantGetElementCount(varin: COpaquePointer?): UInt =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantGetElementCount((varin?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantGetInt16Elem(variable: Long, ielem: UInt, pnval: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantGetInt16Elem(variable.toString(), ielem.toInt(), pnval.toString()) as Int) else 0
+public actual fun variantGetInt16Elem(variable: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantGetInt16Elem((variable?.value ?: 0L).toString(), ielem.toInt(), (pnval?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantGetInt32Elem(variable: Long, ielem: UInt, pnval: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantGetInt32Elem(variable.toString(), ielem.toInt(), pnval.toString()) as Int) else 0
+public actual fun variantGetInt32Elem(variable: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantGetInt32Elem((variable?.value ?: 0L).toString(), ielem.toInt(), (pnval?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantGetInt64Elem(variable: Long, ielem: UInt, pnval: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantGetInt64Elem(variable.toString(), ielem.toInt(), pnval.toString()) as Int) else 0
+public actual fun variantGetInt64Elem(variable: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantGetInt64Elem((variable?.value ?: 0L).toString(), ielem.toInt(), (pnval?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantGetStringElem(variable: Long, ielem: UInt, ppszval: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantGetStringElem(variable.toString(), ielem.toInt(), ppszval.toString()) as Int) else 0
+public actual fun variantGetStringElem(variable: COpaquePointer?, ielem: UInt, ppszval: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantGetStringElem((variable?.value ?: 0L).toString(), ielem.toInt(), (ppszval?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantGetUInt16Elem(variable: Long, ielem: UInt, pnval: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantGetUInt16Elem(variable.toString(), ielem.toInt(), pnval.toString()) as Int) else 0
+public actual fun variantGetUInt16Elem(variable: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantGetUInt16Elem((variable?.value ?: 0L).toString(), ielem.toInt(), (pnval?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantGetUInt32Elem(variable: Long, ielem: UInt, pnval: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantGetUInt32Elem(variable.toString(), ielem.toInt(), pnval.toString()) as Int) else 0
+public actual fun variantGetUInt32Elem(variable: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantGetUInt32Elem((variable?.value ?: 0L).toString(), ielem.toInt(), (pnval?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantGetUInt64Elem(variable: Long, ielem: UInt, pnval: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantGetUInt64Elem(variable.toString(), ielem.toInt(), pnval.toString()) as Int) else 0
+public actual fun variantGetUInt64Elem(variable: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantGetUInt64Elem((variable?.value ?: 0L).toString(), ielem.toInt(), (pnval?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantInit(pvarg: Long) {
+public actual fun variantInit(pvarg: COpaquePointer?) {
     if (_windowsWin32SystemVariantNapiAddon != null) {
-        _windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantInit(pvarg.toString())
+        _windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantInit((pvarg?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun VariantTimeToDosDateTime(vtime: Double, pwdosdate: Long, pwdostime: Long): Int =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantTimeToDosDateTime(vtime, pwdosdate.toString(), pwdostime.toString()) as Int) else 0
+public actual fun variantTimeToDosDateTime(vtime: Double, pwdosdate: COpaquePointer?, pwdostime: COpaquePointer?): Int =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantTimeToDosDateTime(vtime, (pwdosdate?.value ?: 0L).toString(), (pwdostime?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantTimeToSystemTime(vtime: Double, lpsystemtime: Long): Int =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantTimeToSystemTime(vtime, lpsystemtime.toString()) as Int) else 0
+public actual fun variantTimeToSystemTime(vtime: Double, lpsystemtime: COpaquePointer?): Int =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantTimeToSystemTime(vtime, (lpsystemtime?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToBoolean(varin: Long, pfret: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToBoolean(varin.toString(), pfret.toString()) as Int) else 0
+public actual fun variantToBoolean(varin: COpaquePointer?, pfret: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToBoolean((varin?.value ?: 0L).toString(), (pfret?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToBooleanArray(variable: Long, prgf: Long, crgn: UInt, pcelem: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToBooleanArray(variable.toString(), prgf.toString(), crgn.toInt(), pcelem.toString()) as Int) else 0
+public actual fun variantToBooleanArray(variable: COpaquePointer?, prgf: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToBooleanArray((variable?.value ?: 0L).toString(), (prgf?.value ?: 0L).toString(), crgn.toInt(), (pcelem?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToBooleanArrayAlloc(variable: Long, pprgf: Long, pcelem: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToBooleanArrayAlloc(variable.toString(), pprgf.toString(), pcelem.toString()) as Int) else 0
+public actual fun variantToBooleanArrayAlloc(variable: COpaquePointer?, pprgf: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToBooleanArrayAlloc((variable?.value ?: 0L).toString(), (pprgf?.value ?: 0L).toString(), (pcelem?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToBooleanWithDefault(varin: Long, fdefault: BOOL): BOOL =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToBooleanWithDefault(varin.toString(), fdefault) as Int) else 0
+public actual fun variantToBooleanWithDefault(varin: COpaquePointer?, fdefault: Bool): Bool =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToBooleanWithDefault((varin?.value ?: 0L).toString(), fdefault) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToBuffer(varin: Long, pv: Long, cb: UInt): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToBuffer(varin.toString(), pv.toString(), cb.toInt()) as Int) else 0
+public actual fun variantToBuffer(varin: COpaquePointer?, pv: COpaquePointer?, cb: UInt): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToBuffer((varin?.value ?: 0L).toString(), (pv?.value ?: 0L).toString(), cb.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToDosDateTime(varin: Long, pwdate: Long, pwtime: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToDosDateTime(varin.toString(), pwdate.toString(), pwtime.toString()) as Int) else 0
+public actual fun variantToDosDateTime(varin: COpaquePointer?, pwdate: COpaquePointer?, pwtime: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToDosDateTime((varin?.value ?: 0L).toString(), (pwdate?.value ?: 0L).toString(), (pwtime?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToDouble(varin: Long, pdblret: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToDouble(varin.toString(), pdblret.toString()) as Int) else 0
+public actual fun variantToDouble(varin: COpaquePointer?, pdblret: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToDouble((varin?.value ?: 0L).toString(), (pdblret?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToDoubleArray(variable: Long, prgn: Long, crgn: UInt, pcelem: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToDoubleArray(variable.toString(), prgn.toString(), crgn.toInt(), pcelem.toString()) as Int) else 0
+public actual fun variantToDoubleArray(variable: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToDoubleArray((variable?.value ?: 0L).toString(), (prgn?.value ?: 0L).toString(), crgn.toInt(), (pcelem?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToDoubleArrayAlloc(variable: Long, pprgn: Long, pcelem: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToDoubleArrayAlloc(variable.toString(), pprgn.toString(), pcelem.toString()) as Int) else 0
+public actual fun variantToDoubleArrayAlloc(variable: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToDoubleArrayAlloc((variable?.value ?: 0L).toString(), (pprgn?.value ?: 0L).toString(), (pcelem?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToDoubleWithDefault(varin: Long, dbldefault: Double): Double =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToDoubleWithDefault(varin.toString(), dbldefault) as Double) else 0.0
+public actual fun variantToDoubleWithDefault(varin: COpaquePointer?, dbldefault: Double): Double =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToDoubleWithDefault((varin?.value ?: 0L).toString(), dbldefault) as Double) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToFileTime(varin: Long, stfout: PSTIME_FLAGS, pftout: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToFileTime(varin.toString(), stfout, pftout.toString()) as Int) else 0
+public actual fun variantToFileTime(varin: COpaquePointer?, stfout: PstimeFlags, pftout: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToFileTime((varin?.value ?: 0L).toString(), stfout, (pftout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToGUID(varin: Long, pguid: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToGUID(varin.toString(), pguid.toString()) as Int) else 0
+public actual fun variantToGUID(varin: COpaquePointer?, pguid: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToGUID((varin?.value ?: 0L).toString(), (pguid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToInt16(varin: Long, piret: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToInt16(varin.toString(), piret.toString()) as Int) else 0
+public actual fun variantToInt16(varin: COpaquePointer?, piret: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToInt16((varin?.value ?: 0L).toString(), (piret?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToInt16Array(variable: Long, prgn: Long, crgn: UInt, pcelem: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToInt16Array(variable.toString(), prgn.toString(), crgn.toInt(), pcelem.toString()) as Int) else 0
+public actual fun variantToInt16Array(variable: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToInt16Array((variable?.value ?: 0L).toString(), (prgn?.value ?: 0L).toString(), crgn.toInt(), (pcelem?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToInt16ArrayAlloc(variable: Long, pprgn: Long, pcelem: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToInt16ArrayAlloc(variable.toString(), pprgn.toString(), pcelem.toString()) as Int) else 0
+public actual fun variantToInt16ArrayAlloc(variable: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToInt16ArrayAlloc((variable?.value ?: 0L).toString(), (pprgn?.value ?: 0L).toString(), (pcelem?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToInt16WithDefault(varin: Long, idefault: Short): Short =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToInt16WithDefault(varin.toString(), idefault.toInt()) as Int).toShort() else 0
+public actual fun variantToInt16WithDefault(varin: COpaquePointer?, idefault: Short): Short =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToInt16WithDefault((varin?.value ?: 0L).toString(), idefault.toInt()) as Int).toShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToInt32(varin: Long, plret: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToInt32(varin.toString(), plret.toString()) as Int) else 0
+public actual fun variantToInt32(varin: COpaquePointer?, plret: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToInt32((varin?.value ?: 0L).toString(), (plret?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToInt32Array(variable: Long, prgn: Long, crgn: UInt, pcelem: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToInt32Array(variable.toString(), prgn.toString(), crgn.toInt(), pcelem.toString()) as Int) else 0
+public actual fun variantToInt32Array(variable: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToInt32Array((variable?.value ?: 0L).toString(), (prgn?.value ?: 0L).toString(), crgn.toInt(), (pcelem?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToInt32ArrayAlloc(variable: Long, pprgn: Long, pcelem: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToInt32ArrayAlloc(variable.toString(), pprgn.toString(), pcelem.toString()) as Int) else 0
+public actual fun variantToInt32ArrayAlloc(variable: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToInt32ArrayAlloc((variable?.value ?: 0L).toString(), (pprgn?.value ?: 0L).toString(), (pcelem?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToInt32WithDefault(varin: Long, ldefault: Int): Int =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToInt32WithDefault(varin.toString(), ldefault) as Int) else 0
+public actual fun variantToInt32WithDefault(varin: COpaquePointer?, ldefault: Int): Int =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToInt32WithDefault((varin?.value ?: 0L).toString(), ldefault) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToInt64(varin: Long, pllret: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToInt64(varin.toString(), pllret.toString()) as Int) else 0
+public actual fun variantToInt64(varin: COpaquePointer?, pllret: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToInt64((varin?.value ?: 0L).toString(), (pllret?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToInt64Array(variable: Long, prgn: Long, crgn: UInt, pcelem: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToInt64Array(variable.toString(), prgn.toString(), crgn.toInt(), pcelem.toString()) as Int) else 0
+public actual fun variantToInt64Array(variable: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToInt64Array((variable?.value ?: 0L).toString(), (prgn?.value ?: 0L).toString(), crgn.toInt(), (pcelem?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToInt64ArrayAlloc(variable: Long, pprgn: Long, pcelem: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToInt64ArrayAlloc(variable.toString(), pprgn.toString(), pcelem.toString()) as Int) else 0
+public actual fun variantToInt64ArrayAlloc(variable: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToInt64ArrayAlloc((variable?.value ?: 0L).toString(), (pprgn?.value ?: 0L).toString(), (pcelem?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToInt64WithDefault(varin: Long, lldefault: Long): Long =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToInt64WithDefault(varin.toString(), lldefault.toString()) as String).toLong() else 0L
+public actual fun variantToInt64WithDefault(varin: COpaquePointer?, lldefault: Long): Long =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToInt64WithDefault((varin?.value ?: 0L).toString(), lldefault.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToString(varin: Long, pszbuf: PWSTR, cchbuf: UInt): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToString(varin.toString(), pszbuf.toString(), cchbuf.toInt()) as Int) else 0
+public actual fun variantToString(varin: COpaquePointer?, pszbuf: Pwstr, cchbuf: UInt): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToString((varin?.value ?: 0L).toString(), (pszbuf?.value ?: 0L).toString(), cchbuf.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToStringAlloc(varin: Long, ppszbuf: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToStringAlloc(varin.toString(), ppszbuf.toString()) as Int) else 0
+public actual fun variantToStringAlloc(varin: COpaquePointer?, ppszbuf: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToStringAlloc((varin?.value ?: 0L).toString(), (ppszbuf?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToStringArray(variable: Long, prgsz: Long, crgsz: UInt, pcelem: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToStringArray(variable.toString(), prgsz.toString(), crgsz.toInt(), pcelem.toString()) as Int) else 0
+public actual fun variantToStringArray(variable: COpaquePointer?, prgsz: COpaquePointer?, crgsz: UInt, pcelem: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToStringArray((variable?.value ?: 0L).toString(), (prgsz?.value ?: 0L).toString(), crgsz.toInt(), (pcelem?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToStringArrayAlloc(variable: Long, pprgsz: Long, pcelem: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToStringArrayAlloc(variable.toString(), pprgsz.toString(), pcelem.toString()) as Int) else 0
+public actual fun variantToStringArrayAlloc(variable: COpaquePointer?, pprgsz: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToStringArrayAlloc((variable?.value ?: 0L).toString(), (pprgsz?.value ?: 0L).toString(), (pcelem?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToStringWithDefault(varin: Long, pszdefault: PCWSTR): PCWSTR =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToStringWithDefault(varin.toString(), pszdefault.toString()) as String).toLong() else 0L
+public actual fun variantToStringWithDefault(varin: COpaquePointer?, pszdefault: Pcwstr): Pcwstr =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToStringWithDefault((varin?.value ?: 0L).toString(), (pszdefault?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToUInt16(varin: Long, puiret: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToUInt16(varin.toString(), puiret.toString()) as Int) else 0
+public actual fun variantToUInt16(varin: COpaquePointer?, puiret: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToUInt16((varin?.value ?: 0L).toString(), (puiret?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToUInt16Array(variable: Long, prgn: Long, crgn: UInt, pcelem: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToUInt16Array(variable.toString(), prgn.toString(), crgn.toInt(), pcelem.toString()) as Int) else 0
+public actual fun variantToUInt16Array(variable: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToUInt16Array((variable?.value ?: 0L).toString(), (prgn?.value ?: 0L).toString(), crgn.toInt(), (pcelem?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToUInt16ArrayAlloc(variable: Long, pprgn: Long, pcelem: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToUInt16ArrayAlloc(variable.toString(), pprgn.toString(), pcelem.toString()) as Int) else 0
+public actual fun variantToUInt16ArrayAlloc(variable: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToUInt16ArrayAlloc((variable?.value ?: 0L).toString(), (pprgn?.value ?: 0L).toString(), (pcelem?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToUInt16WithDefault(varin: Long, uidefault: UShort): UShort =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToUInt16WithDefault(varin.toString(), uidefault.toInt()) as Int).toUShort() else 0u
+public actual fun variantToUInt16WithDefault(varin: COpaquePointer?, uidefault: UShort): UShort =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToUInt16WithDefault((varin?.value ?: 0L).toString(), uidefault.toInt()) as Int).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToUInt32(varin: Long, pulret: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToUInt32(varin.toString(), pulret.toString()) as Int) else 0
+public actual fun variantToUInt32(varin: COpaquePointer?, pulret: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToUInt32((varin?.value ?: 0L).toString(), (pulret?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToUInt32Array(variable: Long, prgn: Long, crgn: UInt, pcelem: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToUInt32Array(variable.toString(), prgn.toString(), crgn.toInt(), pcelem.toString()) as Int) else 0
+public actual fun variantToUInt32Array(variable: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToUInt32Array((variable?.value ?: 0L).toString(), (prgn?.value ?: 0L).toString(), crgn.toInt(), (pcelem?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToUInt32ArrayAlloc(variable: Long, pprgn: Long, pcelem: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToUInt32ArrayAlloc(variable.toString(), pprgn.toString(), pcelem.toString()) as Int) else 0
+public actual fun variantToUInt32ArrayAlloc(variable: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToUInt32ArrayAlloc((variable?.value ?: 0L).toString(), (pprgn?.value ?: 0L).toString(), (pcelem?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToUInt32WithDefault(varin: Long, uldefault: UInt): UInt =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToUInt32WithDefault(varin.toString(), uldefault.toInt()) as Int).toUInt() else 0u
+public actual fun variantToUInt32WithDefault(varin: COpaquePointer?, uldefault: UInt): UInt =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToUInt32WithDefault((varin?.value ?: 0L).toString(), uldefault.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToUInt64(varin: Long, pullret: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToUInt64(varin.toString(), pullret.toString()) as Int) else 0
+public actual fun variantToUInt64(varin: COpaquePointer?, pullret: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToUInt64((varin?.value ?: 0L).toString(), (pullret?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToUInt64Array(variable: Long, prgn: Long, crgn: UInt, pcelem: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToUInt64Array(variable.toString(), prgn.toString(), crgn.toInt(), pcelem.toString()) as Int) else 0
+public actual fun variantToUInt64Array(variable: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToUInt64Array((variable?.value ?: 0L).toString(), (prgn?.value ?: 0L).toString(), crgn.toInt(), (pcelem?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToUInt64ArrayAlloc(variable: Long, pprgn: Long, pcelem: Long): HRESULT =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToUInt64ArrayAlloc(variable.toString(), pprgn.toString(), pcelem.toString()) as Int) else 0
+public actual fun variantToUInt64ArrayAlloc(variable: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToUInt64ArrayAlloc((variable?.value ?: 0L).toString(), (pprgn?.value ?: 0L).toString(), (pcelem?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VariantToUInt64WithDefault(varin: Long, ulldefault: ULong): ULong =
-    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_VariantToUInt64WithDefault(varin.toString(), ulldefault.toString()) as String).toULong() else 0uL
+public actual fun variantToUInt64WithDefault(varin: COpaquePointer?, ulldefault: ULong): ULong =
+    if (_windowsWin32SystemVariantNapiAddon != null) (_windowsWin32SystemVariantNapiAddon.windowssys_windows_win32_system_variant_variantToUInt64WithDefault((varin?.value ?: 0L).toString(), ulldefault.toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")

@@ -1,33 +1,33 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.system.useraccesslogging
 
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SOCKADDR_STORAGE
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SockaddrStorage
 
-public data class UAL_DATA_BLOB(
-    public var Size: UInt = 0u,
-    public var RoleGuid: GUID = GUID(),
-    public var TenantId: GUID = GUID(),
-    public var Address: SOCKADDR_STORAGE = SOCKADDR_STORAGE(),
-    public var UserName: UShortArray = UShortArray(260),
+public data class UalDataBlob(
+    public var size: UInt = 0u,
+    public var roleGuid: Guid = Guid(),
+    public var tenantId: Guid = Guid(),
+    public var address: SockaddrStorage = SockaddrStorage(),
+    public var userName: UShortArray = UShortArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is UAL_DATA_BLOB) return false
-        if (this.Size != other.Size) return false
-        if (this.RoleGuid != other.RoleGuid) return false
-        if (this.TenantId != other.TenantId) return false
-        if (this.Address != other.Address) return false
-        if (!this.UserName.contentEquals(other.UserName)) return false
+        if (other !is UalDataBlob) return false
+        if (this.size != other.size) return false
+        if (this.roleGuid != other.roleGuid) return false
+        if (this.tenantId != other.tenantId) return false
+        if (this.address != other.address) return false
+        if (!this.userName.contentEquals(other.userName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Size.hashCode()
-        result = 31 * result + this.RoleGuid.hashCode()
-        result = 31 * result + this.TenantId.hashCode()
-        result = 31 * result + this.Address.hashCode()
-        result = 31 * result + this.UserName.contentHashCode()
+        var result = this.size.hashCode()
+        result = 31 * result + this.roleGuid.hashCode()
+        result = 31 * result + this.tenantId.hashCode()
+        result = 31 * result + this.address.hashCode()
+        result = 31 * result + this.userName.contentHashCode()
         return result
     }
 }

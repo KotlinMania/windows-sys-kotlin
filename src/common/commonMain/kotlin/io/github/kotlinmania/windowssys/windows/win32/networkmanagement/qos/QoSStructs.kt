@@ -1,164 +1,165 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.FLOWSPEC
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.IN_ADDR
-import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NETWORK_ADDRESS_LIST
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.Flowspec
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.InAddr
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.Sockaddr
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis.NetworkAddressList
 
-public data class ADDRESS_LIST_DESCRIPTOR(public var MediaType: UInt = 0u, public var AddressList: NETWORK_ADDRESS_LIST = NETWORK_ADDRESS_LIST())
+public data class AddressListDescriptor(public var mediaType: UInt = 0u, public var addressList: NetworkAddressList = NetworkAddressList())
 
-public data class ADSPEC(public var adspec_header: RsvpObjHdr = RsvpObjHdr(), public var adspec_body: IS_ADSPEC_BODY = IS_ADSPEC_BODY())
+public data class Adspec(public var adspecHeader: RsvpObjHdr = RsvpObjHdr(), public var adspecBody: IsAdspecBody = IsAdspecBody())
 
-public data class AD_GENERAL_PARAMS(
-    public var IntServAwareHopCount: UInt = 0u,
-    public var PathBandwidthEstimate: UInt = 0u,
-    public var MinimumLatency: UInt = 0u,
-    public var PathMTU: UInt = 0u,
-    public var Flags: UInt = 0u,
+public data class AdGeneralParams(
+    public var intServAwareHopCount: UInt = 0u,
+    public var pathBandwidthEstimate: UInt = 0u,
+    public var minimumLatency: UInt = 0u,
+    public var pathMTU: UInt = 0u,
+    public var flags: UInt = 0u,
 )
 
-public data class AD_GUARANTEED(
-    public var CTotal: UInt = 0u,
-    public var DTotal: UInt = 0u,
-    public var CSum: UInt = 0u,
-    public var DSum: UInt = 0u,
+public data class AdGuaranteed(
+    public var cTotal: UInt = 0u,
+    public var dTotal: UInt = 0u,
+    public var cSum: UInt = 0u,
+    public var dSum: UInt = 0u,
 )
 
-public data class CONTROL_SERVICE(
-    public var Length: UInt = 0u,
-    public var Service: UInt = 0u,
-    public var Overrides: AD_GENERAL_PARAMS = AD_GENERAL_PARAMS(),
-    public var Anonymous: CONTROL_SERVICE_0 = CONTROL_SERVICE_0(),
+public data class ControlService(
+    public var length: UInt = 0u,
+    public var service: UInt = 0u,
+    public var overrides: AdGeneralParams = AdGeneralParams(),
+    public var anonymous: ControlService0 = ControlService0(),
 )
 
-public data class CONTROL_SERVICE_0(public var Guaranteed: AD_GUARANTEED = AD_GUARANTEED(), public var ParamBuffer: List<PARAM_BUFFER> = List(1) { PARAM_BUFFER() })
+public data class ControlService0(public var guaranteed: AdGuaranteed = AdGuaranteed(), public var paramBuffer: List<ParamBuffer> = List(1) { ParamBuffer() })
 
 public data class CtrlLoadFlowspec(
-    public var CL_spec_serv_hdr: IntServServiceHdr = IntServServiceHdr(),
-    public var CL_spec_parm_hdr: IntServParmHdr = IntServParmHdr(),
-    public var CL_spec_parms: GenTspecParms = GenTspecParms(),
+    public var clSpecServHdr: IntServServiceHdr = IntServServiceHdr(),
+    public var clSpecParmHdr: IntServParmHdr = IntServParmHdr(),
+    public var clSpecParms: GenTspecParms = GenTspecParms(),
 )
 
-public data class ENUMERATION_BUFFER(
-    public var Length: UInt = 0u,
-    public var OwnerProcessId: UInt = 0u,
-    public var FlowNameLength: UShort = 0u,
-    public var FlowName: UShortArray = UShortArray(256),
-    public var pFlow: Long = 0L,
-    public var NumberOfFilters: UInt = 0u,
-    public var GenericFilter: List<TC_GEN_FILTER> = List(1) { TC_GEN_FILTER() },
+public data class EnumerationBuffer(
+    public var length: UInt = 0u,
+    public var ownerProcessId: UInt = 0u,
+    public var flowNameLength: UShort = 0u,
+    public var flowName: UShortArray = UShortArray(256),
+    public var pFlow: TcGenFlow? = null,
+    public var numberOfFilters: UInt = 0u,
+    public var genericFilter: List<TcGenFilter> = List(1) { TcGenFilter() },
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is ENUMERATION_BUFFER) return false
-        if (this.Length != other.Length) return false
-        if (this.OwnerProcessId != other.OwnerProcessId) return false
-        if (this.FlowNameLength != other.FlowNameLength) return false
-        if (!this.FlowName.contentEquals(other.FlowName)) return false
+        if (other !is EnumerationBuffer) return false
+        if (this.length != other.length) return false
+        if (this.ownerProcessId != other.ownerProcessId) return false
+        if (this.flowNameLength != other.flowNameLength) return false
+        if (!this.flowName.contentEquals(other.flowName)) return false
         if (this.pFlow != other.pFlow) return false
-        if (this.NumberOfFilters != other.NumberOfFilters) return false
-        if (this.GenericFilter != other.GenericFilter) return false
+        if (this.numberOfFilters != other.numberOfFilters) return false
+        if (this.genericFilter != other.genericFilter) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Length.hashCode()
-        result = 31 * result + this.OwnerProcessId.hashCode()
-        result = 31 * result + this.FlowNameLength.hashCode()
-        result = 31 * result + this.FlowName.contentHashCode()
+        var result = this.length.hashCode()
+        result = 31 * result + this.ownerProcessId.hashCode()
+        result = 31 * result + this.flowNameLength.hashCode()
+        result = 31 * result + this.flowName.contentHashCode()
         result = 31 * result + this.pFlow.hashCode()
-        result = 31 * result + this.NumberOfFilters.hashCode()
-        result = 31 * result + this.GenericFilter.hashCode()
+        result = 31 * result + this.numberOfFilters.hashCode()
+        result = 31 * result + this.genericFilter.hashCode()
         return result
     }
 }
 
-public data class ERROR_SPEC(public var errs_header: RsvpObjHdr = RsvpObjHdr(), public var errs_u: ERROR_SPEC_0 = ERROR_SPEC_0())
+public data class ErrorSpec(public var errsHeader: RsvpObjHdr = RsvpObjHdr(), public var errsU: ErrorSpec0 = ErrorSpec0())
 
-public data class ERROR_SPEC_0(public var errs_ipv4: Error_Spec_IPv4 = Error_Spec_IPv4())
+public data class ErrorSpec0(public var errsIpv4: ErrorSpecIpv4 = ErrorSpecIpv4())
 
-public data class Error_Spec_IPv4(
-    public var errs_errnode: IN_ADDR = IN_ADDR(),
-    public var errs_flags: UByte = 0u,
-    public var errs_code: UByte = 0u,
-    public var errs_value: UShort = 0u,
+public data class ErrorSpecIpv4(
+    public var errsErrnode: InAddr = InAddr(),
+    public var errsFlags: UByte = 0u,
+    public var errsCode: UByte = 0u,
+    public var errsValue: UShort = 0u,
 )
 
-public data class FILTER_SPEC(public var filt_header: RsvpObjHdr = RsvpObjHdr(), public var filt_u: FILTER_SPEC_0 = FILTER_SPEC_0())
+public data class FilterSpec(public var filtHeader: RsvpObjHdr = RsvpObjHdr(), public var filtU: FilterSpec0 = FilterSpec0())
 
-public data class FILTER_SPEC_0(public var filt_ipv4: Filter_Spec_IPv4 = Filter_Spec_IPv4(), public var filt_ipv4gpi: Filter_Spec_IPv4GPI = Filter_Spec_IPv4GPI())
+public data class FilterSpec0(public var filtIpv4: FilterSpecIpv4 = FilterSpecIpv4(), public var filtIpv4gpi: FilterSpecIpv4Gpi = FilterSpecIpv4Gpi())
 
-public data class FLOWDESCRIPTOR(
-    public var FlowSpec: FLOWSPEC = FLOWSPEC(),
-    public var NumFilters: UInt = 0u,
-    public var FilterList: Long = 0L,
+public data class Flowdescriptor(
+    public var flowSpec: Flowspec = Flowspec(),
+    public var numFilters: UInt = 0u,
+    public var filterList: RsvpFilterspec? = null,
 )
 
-public data class FLOW_DESC(public var u1: FLOW_DESC_0 = FLOW_DESC_0(), public var u2: FLOW_DESC_1 = FLOW_DESC_1())
+public data class FlowDesc(public var u1: FlowDesc0 = FlowDesc0(), public var u2: FlowDesc1 = FlowDesc1())
 
-public data class FLOW_DESC_0(public var stspec: Long = 0L, public var isflow: Long = 0L)
+public data class FlowDesc0(public var stspec: SenderTspec? = null, public var isflow: IsFlowspec? = null)
 
-public data class FLOW_DESC_1(public var stemp: Long = 0L, public var fspec: Long = 0L)
+public data class FlowDesc1(public var stemp: FilterSpec? = null, public var fspec: FilterSpec? = null)
 
-public data class Filter_Spec_IPv4(
-    public var filt_ipaddr: IN_ADDR = IN_ADDR(),
-    public var filt_unused: UShort = 0u,
-    public var filt_port: UShort = 0u,
+public data class FilterSpecIpv4(
+    public var filtIpaddr: InAddr = InAddr(),
+    public var filtUnused: UShort = 0u,
+    public var filtPort: UShort = 0u,
 )
 
-public data class Filter_Spec_IPv4GPI(public var filt_ipaddr: IN_ADDR = IN_ADDR(), public var filt_gpi: UInt = 0u)
+public data class FilterSpecIpv4Gpi(public var filtIpaddr: InAddr = InAddr(), public var filtGpi: UInt = 0u)
 
-public data class Gads_parms_t(
-    public var Gads_serv_hdr: IntServServiceHdr = IntServServiceHdr(),
-    public var Gads_Ctot_hdr: IntServParmHdr = IntServParmHdr(),
-    public var Gads_Ctot: UInt = 0u,
-    public var Gads_Dtot_hdr: IntServParmHdr = IntServParmHdr(),
-    public var Gads_Dtot: UInt = 0u,
-    public var Gads_Csum_hdr: IntServParmHdr = IntServParmHdr(),
-    public var Gads_Csum: UInt = 0u,
-    public var Gads_Dsum_hdr: IntServParmHdr = IntServParmHdr(),
-    public var Gads_Dsum: UInt = 0u,
+public data class GadsParmsT(
+    public var gadsServHdr: IntServServiceHdr = IntServServiceHdr(),
+    public var gadsCtotHdr: IntServParmHdr = IntServParmHdr(),
+    public var gadsCtot: UInt = 0u,
+    public var gadsDtotHdr: IntServParmHdr = IntServParmHdr(),
+    public var gadsDtot: UInt = 0u,
+    public var gadsCsumHdr: IntServParmHdr = IntServParmHdr(),
+    public var gadsCsum: UInt = 0u,
+    public var gadsDsumHdr: IntServParmHdr = IntServParmHdr(),
+    public var gadsDsum: UInt = 0u,
 )
 
 public data class GenAdspecParams(
-    public var gen_parm_hdr: IntServServiceHdr = IntServServiceHdr(),
-    public var gen_parm_hopcnt_hdr: IntServParmHdr = IntServParmHdr(),
-    public var gen_parm_hopcnt: UInt = 0u,
-    public var gen_parm_pathbw_hdr: IntServParmHdr = IntServParmHdr(),
-    public var gen_parm_path_bw: Float = 0.0f,
-    public var gen_parm_minlat_hdr: IntServParmHdr = IntServParmHdr(),
-    public var gen_parm_min_latency: UInt = 0u,
-    public var gen_parm_compmtu_hdr: IntServParmHdr = IntServParmHdr(),
-    public var gen_parm_composed_MTU: UInt = 0u,
+    public var genParmHdr: IntServServiceHdr = IntServServiceHdr(),
+    public var genParmHopcntHdr: IntServParmHdr = IntServParmHdr(),
+    public var genParmHopcnt: UInt = 0u,
+    public var genParmPathbwHdr: IntServParmHdr = IntServParmHdr(),
+    public var genParmPathBw: Float = 0.0f,
+    public var genParmMinlatHdr: IntServParmHdr = IntServParmHdr(),
+    public var genParmMinLatency: UInt = 0u,
+    public var genParmCompmtuHdr: IntServParmHdr = IntServParmHdr(),
+    public var genParmComposedMtu: UInt = 0u,
 )
 
 public data class GenTspec(
-    public var gen_Tspec_serv_hdr: IntServServiceHdr = IntServServiceHdr(),
-    public var gen_Tspec_parm_hdr: IntServParmHdr = IntServParmHdr(),
-    public var gen_Tspec_parms: GenTspecParms = GenTspecParms(),
+    public var genTspecServHdr: IntServServiceHdr = IntServServiceHdr(),
+    public var genTspecParmHdr: IntServParmHdr = IntServParmHdr(),
+    public var genTspecParms: GenTspecParms = GenTspecParms(),
 )
 
 public data class GenTspecParms(
-    public var TB_Tspec_r: Float = 0.0f,
-    public var TB_Tspec_b: Float = 0.0f,
-    public var TB_Tspec_p: Float = 0.0f,
-    public var TB_Tspec_m: UInt = 0u,
-    public var TB_Tspec_M: UInt = 0u,
+    public var tbTspecR: Float = 0.0f,
+    public var tbTspecB: Float = 0.0f,
+    public var tbTspecP: Float = 0.0f,
+    public var tbTspecM: UInt = 0u,
 )
 
 public data class GuarFlowSpec(
-    public var Guar_serv_hdr: IntServServiceHdr = IntServServiceHdr(),
-    public var Guar_Tspec_hdr: IntServParmHdr = IntServParmHdr(),
-    public var Guar_Tspec_parms: GenTspecParms = GenTspecParms(),
-    public var Guar_Rspec_hdr: IntServParmHdr = IntServParmHdr(),
-    public var Guar_Rspec: GuarRspec = GuarRspec(),
+    public var guarServHdr: IntServServiceHdr = IntServServiceHdr(),
+    public var guarTspecHdr: IntServParmHdr = IntServParmHdr(),
+    public var guarTspecParms: GenTspecParms = GenTspecParms(),
+    public var guarRspecHdr: IntServParmHdr = IntServParmHdr(),
+    public var guarRspec: GuarRspec = GuarRspec(),
 )
 
-public data class GuarRspec(public var Guar_R: Float = 0.0f, public var Guar_S: UInt = 0u)
+public data class GuarRspec(public var guarR: Float = 0.0f, public var guarS: UInt = 0u)
 
-public data class HSP_UPGRADE_IMAGEDATA(
+public data class HspUpgradeImagedata(
     public var hashAlgID: UShort = 0u,
     public var digestSize: UShort = 0u,
     public var digest: UByteArray = UByteArray(64),
@@ -166,7 +167,7 @@ public data class HSP_UPGRADE_IMAGEDATA(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is HSP_UPGRADE_IMAGEDATA) return false
+        if (other !is HspUpgradeImagedata) return false
         if (this.hashAlgID != other.hashAlgID) return false
         if (this.digestSize != other.digestSize) return false
         if (!this.digest.contentEquals(other.digest)) return false
@@ -183,32 +184,32 @@ public data class HSP_UPGRADE_IMAGEDATA(
     }
 }
 
-public data class IDPE_ATTR(
-    public var PeAttribLength: UShort = 0u,
-    public var PeAttribType: UByte = 0u,
-    public var PeAttribSubType: UByte = 0u,
-    public var PeAttribValue: UByteArray = UByteArray(4),
+public data class IdpeAttr(
+    public var peAttribLength: UShort = 0u,
+    public var peAttribType: UByte = 0u,
+    public var peAttribSubType: UByte = 0u,
+    public var peAttribValue: UByteArray = UByteArray(4),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IDPE_ATTR) return false
-        if (this.PeAttribLength != other.PeAttribLength) return false
-        if (this.PeAttribType != other.PeAttribType) return false
-        if (this.PeAttribSubType != other.PeAttribSubType) return false
-        if (!this.PeAttribValue.contentEquals(other.PeAttribValue)) return false
+        if (other !is IdpeAttr) return false
+        if (this.peAttribLength != other.peAttribLength) return false
+        if (this.peAttribType != other.peAttribType) return false
+        if (this.peAttribSubType != other.peAttribSubType) return false
+        if (!this.peAttribValue.contentEquals(other.peAttribValue)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.PeAttribLength.hashCode()
-        result = 31 * result + this.PeAttribType.hashCode()
-        result = 31 * result + this.PeAttribSubType.hashCode()
-        result = 31 * result + this.PeAttribValue.contentHashCode()
+        var result = this.peAttribLength.hashCode()
+        result = 31 * result + this.peAttribType.hashCode()
+        result = 31 * result + this.peAttribSubType.hashCode()
+        result = 31 * result + this.peAttribValue.contentHashCode()
         return result
     }
 }
 
-public data class ID_ERROR_OBJECT(
+public data class IdErrorObject(
     public var usIdErrLength: UShort = 0u,
     public var ucAType: UByte = 0u,
     public var ucSubType: UByte = 0u,
@@ -218,7 +219,7 @@ public data class ID_ERROR_OBJECT(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is ID_ERROR_OBJECT) return false
+        if (other !is IdErrorObject) return false
         if (this.usIdErrLength != other.usIdErrLength) return false
         if (this.ucAType != other.ucAType) return false
         if (this.ucSubType != other.ucSubType) return false
@@ -239,200 +240,200 @@ public data class ID_ERROR_OBJECT(
     }
 }
 
-public data class IN_ADDR_IPV4(public var Addr: UInt = 0u, public var AddrBytes: UByteArray = UByteArray(4)) {
+public data class InAddrIpv4(public var addr: UInt = 0u, public var addrBytes: UByteArray = UByteArray(4)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IN_ADDR_IPV4) return false
-        if (this.Addr != other.Addr) return false
-        if (!this.AddrBytes.contentEquals(other.AddrBytes)) return false
+        if (other !is InAddrIpv4) return false
+        if (this.addr != other.addr) return false
+        if (!this.addrBytes.contentEquals(other.addrBytes)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Addr.hashCode()
-        result = 31 * result + this.AddrBytes.contentHashCode()
+        var result = this.addr.hashCode()
+        result = 31 * result + this.addrBytes.contentHashCode()
         return result
     }
 }
 
-public data class IN_ADDR_IPV6(public var Addr: UByteArray = UByteArray(16)) {
+public data class InAddrIpv6(public var addr: UByteArray = UByteArray(16)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IN_ADDR_IPV6) return false
-        if (!this.Addr.contentEquals(other.Addr)) return false
+        if (other !is InAddrIpv6) return false
+        if (!this.addr.contentEquals(other.addr)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        return this.Addr.contentHashCode()
+        return this.addr.contentHashCode()
     }
 }
 
-public data class IPX_PATTERN(public var Src: IPX_PATTERN_0 = IPX_PATTERN_0(), public var Dest: IPX_PATTERN_0 = IPX_PATTERN_0())
+public data class IpxPattern(public var src: IpxPattern0 = IpxPattern0(), public var dest: IpxPattern0 = IpxPattern0())
 
-public data class IPX_PATTERN_0(
-    public var NetworkAddress: UInt = 0u,
-    public var NodeAddress: UByteArray = UByteArray(6),
-    public var Socket: UShort = 0u,
+public data class IpxPattern0(
+    public var networkAddress: UInt = 0u,
+    public var nodeAddress: UByteArray = UByteArray(6),
+    public var socket: UShort = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IPX_PATTERN_0) return false
-        if (this.NetworkAddress != other.NetworkAddress) return false
-        if (!this.NodeAddress.contentEquals(other.NodeAddress)) return false
-        if (this.Socket != other.Socket) return false
+        if (other !is IpxPattern0) return false
+        if (this.networkAddress != other.networkAddress) return false
+        if (!this.nodeAddress.contentEquals(other.nodeAddress)) return false
+        if (this.socket != other.socket) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.NetworkAddress.hashCode()
-        result = 31 * result + this.NodeAddress.contentHashCode()
-        result = 31 * result + this.Socket.hashCode()
+        var result = this.networkAddress.hashCode()
+        result = 31 * result + this.nodeAddress.contentHashCode()
+        result = 31 * result + this.socket.hashCode()
         return result
     }
 }
 
-public data class IP_PATTERN(
-    public var Reserved1: UInt = 0u,
-    public var Reserved2: UInt = 0u,
-    public var SrcAddr: UInt = 0u,
-    public var DstAddr: UInt = 0u,
-    public var S_un: IP_PATTERN_0 = IP_PATTERN_0(),
-    public var ProtocolId: UByte = 0u,
-    public var Reserved3: UByteArray = UByteArray(3),
+public data class IpPattern(
+    public var reserved1: UInt = 0u,
+    public var reserved2: UInt = 0u,
+    public var srcAddr: UInt = 0u,
+    public var dstAddr: UInt = 0u,
+    public var sUn: IpPattern0 = IpPattern0(),
+    public var protocolId: UByte = 0u,
+    public var reserved3: UByteArray = UByteArray(3),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IP_PATTERN) return false
-        if (this.Reserved1 != other.Reserved1) return false
-        if (this.Reserved2 != other.Reserved2) return false
-        if (this.SrcAddr != other.SrcAddr) return false
-        if (this.DstAddr != other.DstAddr) return false
-        if (this.S_un != other.S_un) return false
-        if (this.ProtocolId != other.ProtocolId) return false
-        if (!this.Reserved3.contentEquals(other.Reserved3)) return false
+        if (other !is IpPattern) return false
+        if (this.reserved1 != other.reserved1) return false
+        if (this.reserved2 != other.reserved2) return false
+        if (this.srcAddr != other.srcAddr) return false
+        if (this.dstAddr != other.dstAddr) return false
+        if (this.sUn != other.sUn) return false
+        if (this.protocolId != other.protocolId) return false
+        if (!this.reserved3.contentEquals(other.reserved3)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Reserved1.hashCode()
-        result = 31 * result + this.Reserved2.hashCode()
-        result = 31 * result + this.SrcAddr.hashCode()
-        result = 31 * result + this.DstAddr.hashCode()
-        result = 31 * result + this.S_un.hashCode()
-        result = 31 * result + this.ProtocolId.hashCode()
-        result = 31 * result + this.Reserved3.contentHashCode()
+        var result = this.reserved1.hashCode()
+        result = 31 * result + this.reserved2.hashCode()
+        result = 31 * result + this.srcAddr.hashCode()
+        result = 31 * result + this.dstAddr.hashCode()
+        result = 31 * result + this.sUn.hashCode()
+        result = 31 * result + this.protocolId.hashCode()
+        result = 31 * result + this.reserved3.contentHashCode()
         return result
     }
 }
 
-public data class IP_PATTERN_0(
-    public var S_un_ports: IP_PATTERN_0_0 = IP_PATTERN_0_0(),
-    public var S_un_icmp: IP_PATTERN_0_1 = IP_PATTERN_0_1(),
-    public var S_Spi: UInt = 0u,
+public data class IpPattern0(
+    public var sUnPorts: IpPattern00 = IpPattern00(),
+    public var sUnIcmp: IpPattern01 = IpPattern01(),
+    public var sSpi: UInt = 0u,
 )
 
-public data class IP_PATTERN_0_1(
-    public var s_type: UByte = 0u,
-    public var s_code: UByte = 0u,
+public data class IpPattern01(
+    public var sType: UByte = 0u,
+    public var sCode: UByte = 0u,
     public var filler: UShort = 0u,
 )
 
-public data class IP_PATTERN_0_0(public var s_srcport: UShort = 0u, public var s_dstport: UShort = 0u)
+public data class IpPattern00(public var sSrcport: UShort = 0u, public var sDstport: UShort = 0u)
 
-public data class IS_ADSPEC_BODY(public var adspec_mh: IntServMainHdr = IntServMainHdr(), public var adspec_genparms: GenAdspecParams = GenAdspecParams())
+public data class IsAdspecBody(public var adspecMh: IntServMainHdr = IntServMainHdr(), public var adspecGenparms: GenAdspecParams = GenAdspecParams())
 
-public data class IS_FLOWSPEC(public var flow_header: RsvpObjHdr = RsvpObjHdr(), public var flow_body: IntServFlowSpec = IntServFlowSpec())
+public data class IsFlowspec(public var flowHeader: RsvpObjHdr = RsvpObjHdr(), public var flowBody: IntServFlowSpec = IntServFlowSpec())
 
-public data class IntServFlowSpec(public var spec_mh: IntServMainHdr = IntServMainHdr(), public var spec_u: IntServFlowSpec_0 = IntServFlowSpec_0())
+public data class IntServFlowSpec(public var specMh: IntServMainHdr = IntServMainHdr(), public var specU: IntServFlowSpec0 = IntServFlowSpec0())
 
-public data class IntServFlowSpec_0(
-    public var CL_spec: CtrlLoadFlowspec = CtrlLoadFlowspec(),
-    public var G_spec: GuarFlowSpec = GuarFlowSpec(),
-    public var Q_spec: QualAppFlowSpec = QualAppFlowSpec(),
+public data class IntServFlowSpec0(
+    public var clSpec: CtrlLoadFlowspec = CtrlLoadFlowspec(),
+    public var gSpec: GuarFlowSpec = GuarFlowSpec(),
+    public var qSpec: QualAppFlowSpec = QualAppFlowSpec(),
 )
 
 public data class IntServMainHdr(
-    public var ismh_version: UByte = 0u,
-    public var ismh_unused: UByte = 0u,
-    public var ismh_len32b: UShort = 0u,
+    public var ismhVersion: UByte = 0u,
+    public var ismhUnused: UByte = 0u,
+    public var ismhLen32b: UShort = 0u,
 )
 
 public data class IntServParmHdr(
-    public var isph_parm_num: UByte = 0u,
-    public var isph_flags: UByte = 0u,
-    public var isph_len32b: UShort = 0u,
+    public var isphParmNum: UByte = 0u,
+    public var isphFlags: UByte = 0u,
+    public var isphLen32b: UShort = 0u,
 )
 
 public data class IntServServiceHdr(
-    public var issh_service: UByte = 0u,
-    public var issh_flags: UByte = 0u,
-    public var issh_len32b: UShort = 0u,
+    public var isshService: UByte = 0u,
+    public var isshFlags: UByte = 0u,
+    public var isshLen32b: UShort = 0u,
 )
 
-public data class IntServTspecBody(public var st_mh: IntServMainHdr = IntServMainHdr(), public var tspec_u: IntServTspecBody_0 = IntServTspecBody_0())
+public data class IntServTspecBody(public var stMh: IntServMainHdr = IntServMainHdr(), public var tspecU: IntServTspecBody0 = IntServTspecBody0())
 
-public data class IntServTspecBody_0(public var gen_stspec: GenTspec = GenTspec(), public var qual_stspec: QualTspec = QualTspec())
+public data class IntServTspecBody0(public var genStspec: GenTspec = GenTspec(), public var qualStspec: QualTspec = QualTspec())
 
-public data class LPMIPTABLE(
+public data class Lpmiptable(
     public var ulIfIndex: UInt = 0u,
-    public var MediaType: UInt = 0u,
-    public var IfIpAddr: IN_ADDR = IN_ADDR(),
-    public var IfNetMask: IN_ADDR = IN_ADDR(),
+    public var mediaType: UInt = 0u,
+    public var ifIpAddr: InAddr = InAddr(),
+    public var ifNetMask: InAddr = InAddr(),
 )
 
-public data class LPM_INIT_INFO(
-    public var PcmVersionNumber: UInt = 0u,
-    public var ResultTimeLimit: UInt = 0u,
-    public var ConfiguredLpmCount: Int = 0,
-    public var AllocMemory: PALLOCMEM = null,
-    public var FreeMemory: PFREEMEM = null,
-    public var PcmAdmitResultCallback: CBADMITRESULT = null,
-    public var GetRsvpObjectsCallback: CBGETRSVPOBJECTS = null,
+public data class LpmInitInfo(
+    public var pcmVersionNumber: UInt = 0u,
+    public var resultTimeLimit: UInt = 0u,
+    public var configuredLpmCount: Int = 0,
+    public var allocMemory: Pallocmem = null,
+    public var freeMemory: Pfreemem = null,
+    public var pcmAdmitResultCallback: Cbadmitresult = null,
+    public var getRsvpObjectsCallback: Cbgetrsvpobjects = null,
 )
 
-public data class PARAM_BUFFER(
-    public var ParameterId: UInt = 0u,
-    public var Length: UInt = 0u,
-    public var Buffer: UByteArray = UByteArray(1),
+public data class ParamBuffer(
+    public var parameterId: UInt = 0u,
+    public var length: UInt = 0u,
+    public var buffer: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is PARAM_BUFFER) return false
-        if (this.ParameterId != other.ParameterId) return false
-        if (this.Length != other.Length) return false
-        if (!this.Buffer.contentEquals(other.Buffer)) return false
+        if (other !is ParamBuffer) return false
+        if (this.parameterId != other.parameterId) return false
+        if (this.length != other.length) return false
+        if (!this.buffer.contentEquals(other.buffer)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ParameterId.hashCode()
-        result = 31 * result + this.Length.hashCode()
-        result = 31 * result + this.Buffer.contentHashCode()
+        var result = this.parameterId.hashCode()
+        result = 31 * result + this.length.hashCode()
+        result = 31 * result + this.buffer.contentHashCode()
         return result
     }
 }
 
-public data class POLICY_DATA(
-    public var PolicyObjHdr: RsvpObjHdr = RsvpObjHdr(),
+public data class PolicyData(
+    public var policyObjHdr: RsvpObjHdr = RsvpObjHdr(),
     public var usPeOffset: UShort = 0u,
     public var usReserved: UShort = 0u,
 )
 
-public data class POLICY_DECISION(
+public data class PolicyDecision(
     public var lpvResult: UInt = 0u,
     public var wPolicyErrCode: UShort = 0u,
     public var wPolicyErrValue: UShort = 0u,
 )
 
-public data class POLICY_ELEMENT(
+public data class PolicyElement(
     public var usPeLength: UShort = 0u,
     public var usPeType: UShort = 0u,
     public var ucPeData: UByteArray = UByteArray(4),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is POLICY_ELEMENT) return false
+        if (other !is PolicyElement) return false
         if (this.usPeLength != other.usPeLength) return false
         if (this.usPeType != other.usPeType) return false
         if (!this.ucPeData.contentEquals(other.ucPeData)) return false
@@ -447,394 +448,394 @@ public data class POLICY_ELEMENT(
     }
 }
 
-public data class QOS_DESTADDR(
-    public var ObjectHdr: QOS_OBJECT_HDR = QOS_OBJECT_HDR(),
-    public var SocketAddress: Long = 0L,
-    public var SocketAddressLength: UInt = 0u,
+public data class QosDestaddr(
+    public var objectHdr: QosObjectHdr = QosObjectHdr(),
+    public var socketAddress: Sockaddr? = null,
+    public var socketAddressLength: UInt = 0u,
 )
 
-public data class QOS_DIFFSERV(
-    public var ObjectHdr: QOS_OBJECT_HDR = QOS_OBJECT_HDR(),
-    public var DSFieldCount: UInt = 0u,
-    public var DiffservRule: UByteArray = UByteArray(1),
+public data class QosDiffserv(
+    public var objectHdr: QosObjectHdr = QosObjectHdr(),
+    public var dSFieldCount: UInt = 0u,
+    public var diffservRule: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is QOS_DIFFSERV) return false
-        if (this.ObjectHdr != other.ObjectHdr) return false
-        if (this.DSFieldCount != other.DSFieldCount) return false
-        if (!this.DiffservRule.contentEquals(other.DiffservRule)) return false
+        if (other !is QosDiffserv) return false
+        if (this.objectHdr != other.objectHdr) return false
+        if (this.dSFieldCount != other.dSFieldCount) return false
+        if (!this.diffservRule.contentEquals(other.diffservRule)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ObjectHdr.hashCode()
-        result = 31 * result + this.DSFieldCount.hashCode()
-        result = 31 * result + this.DiffservRule.contentHashCode()
+        var result = this.objectHdr.hashCode()
+        result = 31 * result + this.dSFieldCount.hashCode()
+        result = 31 * result + this.diffservRule.contentHashCode()
         return result
     }
 }
 
-public data class QOS_DIFFSERV_RULE(
-    public var InboundDSField: UByte = 0u,
-    public var ConformingOutboundDSField: UByte = 0u,
-    public var NonConformingOutboundDSField: UByte = 0u,
-    public var ConformingUserPriority: UByte = 0u,
-    public var NonConformingUserPriority: UByte = 0u,
+public data class QosDiffservRule(
+    public var inboundDSField: UByte = 0u,
+    public var conformingOutboundDSField: UByte = 0u,
+    public var nonConformingOutboundDSField: UByte = 0u,
+    public var conformingUserPriority: UByte = 0u,
+    public var nonConformingUserPriority: UByte = 0u,
 )
 
-public data class QOS_DS_CLASS(public var ObjectHdr: QOS_OBJECT_HDR = QOS_OBJECT_HDR(), public var DSField: UInt = 0u)
+public data class QosDsClass(public var objectHdr: QosObjectHdr = QosObjectHdr(), public var dSField: UInt = 0u)
 
-public data class QOS_FLOWRATE_OUTGOING(
-    public var Bandwidth: ULong = 0uL,
-    public var ShapingBehavior: QOS_SHAPING = 0,
-    public var Reason: QOS_FLOWRATE_REASON = 0,
+public data class QosFlowrateOutgoing(
+    public var bandwidth: ULong = 0uL,
+    public var shapingBehavior: QosShaping = 0,
+    public var reason: QosFlowrateReason = 0,
 )
 
-public data class QOS_FLOW_FUNDAMENTALS(
-    public var BottleneckBandwidthSet: BOOL = 0,
-    public var BottleneckBandwidth: ULong = 0uL,
-    public var AvailableBandwidthSet: BOOL = 0,
-    public var AvailableBandwidth: ULong = 0uL,
-    public var RTTSet: BOOL = 0,
-    public var RTT: UInt = 0u,
+public data class QosFlowFundamentals(
+    public var bottleneckBandwidthSet: Bool = 0,
+    public var bottleneckBandwidth: ULong = 0uL,
+    public var availableBandwidthSet: Bool = 0,
+    public var availableBandwidth: ULong = 0uL,
+    public var rTTSet: Bool = 0,
+    public var rtt: UInt = 0u,
 )
 
-public data class QOS_FRIENDLY_NAME(public var ObjectHdr: QOS_OBJECT_HDR = QOS_OBJECT_HDR(), public var FriendlyName: UShortArray = UShortArray(256)) {
+public data class QosFriendlyName(public var objectHdr: QosObjectHdr = QosObjectHdr(), public var friendlyName: UShortArray = UShortArray(256)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is QOS_FRIENDLY_NAME) return false
-        if (this.ObjectHdr != other.ObjectHdr) return false
-        if (!this.FriendlyName.contentEquals(other.FriendlyName)) return false
+        if (other !is QosFriendlyName) return false
+        if (this.objectHdr != other.objectHdr) return false
+        if (!this.friendlyName.contentEquals(other.friendlyName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ObjectHdr.hashCode()
-        result = 31 * result + this.FriendlyName.contentHashCode()
+        var result = this.objectHdr.hashCode()
+        result = 31 * result + this.friendlyName.contentHashCode()
         return result
     }
 }
 
-public data class QOS_OBJECT_HDR(public var ObjectType: UInt = 0u, public var ObjectLength: UInt = 0u)
+public data class QosObjectHdr(public var objectType: UInt = 0u, public var objectLength: UInt = 0u)
 
-public data class QOS_PACKET_PRIORITY(
-    public var ConformantDSCPValue: UInt = 0u,
-    public var NonConformantDSCPValue: UInt = 0u,
-    public var ConformantL2Value: UInt = 0u,
-    public var NonConformantL2Value: UInt = 0u,
+public data class QosPacketPriority(
+    public var conformantDSCPValue: UInt = 0u,
+    public var nonConformantDSCPValue: UInt = 0u,
+    public var conformantL2Value: UInt = 0u,
+    public var nonConformantL2Value: UInt = 0u,
 )
 
-public data class QOS_SD_MODE(public var ObjectHdr: QOS_OBJECT_HDR = QOS_OBJECT_HDR(), public var ShapeDiscardMode: UInt = 0u)
+public data class QosSdMode(public var objectHdr: QosObjectHdr = QosObjectHdr(), public var shapeDiscardMode: UInt = 0u)
 
-public data class QOS_SHAPING_RATE(public var ObjectHdr: QOS_OBJECT_HDR = QOS_OBJECT_HDR(), public var ShapingRate: UInt = 0u)
+public data class QosShapingRate(public var objectHdr: QosObjectHdr = QosObjectHdr(), public var shapingRate: UInt = 0u)
 
-public data class QOS_TCP_TRAFFIC(public var ObjectHdr: QOS_OBJECT_HDR = QOS_OBJECT_HDR())
+public data class QosTcpTraffic(public var objectHdr: QosObjectHdr = QosObjectHdr())
 
-public data class QOS_TRAFFIC_CLASS(public var ObjectHdr: QOS_OBJECT_HDR = QOS_OBJECT_HDR(), public var TrafficClass: UInt = 0u)
+public data class QosTrafficClass(public var objectHdr: QosObjectHdr = QosObjectHdr(), public var trafficClass: UInt = 0u)
 
-public data class QOS_VERSION(public var MajorVersion: UShort = 0u, public var MinorVersion: UShort = 0u)
+public data class QosVersion(public var majorVersion: UShort = 0u, public var minorVersion: UShort = 0u)
 
 public data class QualAppFlowSpec(
-    public var Q_spec_serv_hdr: IntServServiceHdr = IntServServiceHdr(),
-    public var Q_spec_parm_hdr: IntServParmHdr = IntServParmHdr(),
-    public var Q_spec_parms: QualTspecParms = QualTspecParms(),
+    public var qSpecServHdr: IntServServiceHdr = IntServServiceHdr(),
+    public var qSpecParmHdr: IntServParmHdr = IntServParmHdr(),
+    public var qSpecParms: QualTspecParms = QualTspecParms(),
 )
 
 public data class QualTspec(
-    public var qual_Tspec_serv_hdr: IntServServiceHdr = IntServServiceHdr(),
-    public var qual_Tspec_parm_hdr: IntServParmHdr = IntServParmHdr(),
-    public var qual_Tspec_parms: QualTspecParms = QualTspecParms(),
+    public var qualTspecServHdr: IntServServiceHdr = IntServServiceHdr(),
+    public var qualTspecParmHdr: IntServParmHdr = IntServParmHdr(),
+    public var qualTspecParms: QualTspecParms = QualTspecParms(),
 )
 
-public data class QualTspecParms(public var TB_Tspec_M: UInt = 0u)
+public data class QualTspecParms(public var tbTspecM: UInt = 0u)
 
-public data class RESV_STYLE(public var style_header: RsvpObjHdr = RsvpObjHdr(), public var style_word: UInt = 0u)
+public data class ResvStyle(public var styleHeader: RsvpObjHdr = RsvpObjHdr(), public var styleWord: UInt = 0u)
 
-public data class RSVP_ADSPEC(
-    public var ObjectHdr: QOS_OBJECT_HDR = QOS_OBJECT_HDR(),
-    public var GeneralParams: AD_GENERAL_PARAMS = AD_GENERAL_PARAMS(),
-    public var NumberOfServices: UInt = 0u,
-    public var Services: List<CONTROL_SERVICE> = List(1) { CONTROL_SERVICE() },
+public data class RsvpAdspec(
+    public var objectHdr: QosObjectHdr = QosObjectHdr(),
+    public var generalParams: AdGeneralParams = AdGeneralParams(),
+    public var numberOfServices: UInt = 0u,
+    public var services: List<ControlService> = List(1) { ControlService() },
 )
 
-public data class RSVP_FILTERSPEC(public var Type: FilterType = 0, public var Anonymous: RSVP_FILTERSPEC_0 = RSVP_FILTERSPEC_0())
+public data class RsvpFilterspec(public var type: FilterType = 0, public var anonymous: RsvpFilterspec0 = RsvpFilterspec0())
 
-public data class RSVP_FILTERSPEC_0(
-    public var FilterSpecV4: RSVP_FILTERSPEC_V4 = RSVP_FILTERSPEC_V4(),
-    public var FilterSpecV6: RSVP_FILTERSPEC_V6 = RSVP_FILTERSPEC_V6(),
-    public var FilterSpecV6Flow: RSVP_FILTERSPEC_V6_FLOW = RSVP_FILTERSPEC_V6_FLOW(),
-    public var FilterSpecV4Gpi: RSVP_FILTERSPEC_V4_GPI = RSVP_FILTERSPEC_V4_GPI(),
-    public var FilterSpecV6Gpi: RSVP_FILTERSPEC_V6_GPI = RSVP_FILTERSPEC_V6_GPI(),
+public data class RsvpFilterspec0(
+    public var filterSpecV4: RsvpFilterspecV4 = RsvpFilterspecV4(),
+    public var filterSpecV6: RsvpFilterspecV6 = RsvpFilterspecV6(),
+    public var filterSpecV6Flow: RsvpFilterspecV6Flow = RsvpFilterspecV6Flow(),
+    public var filterSpecV4Gpi: RsvpFilterspecV4Gpi = RsvpFilterspecV4Gpi(),
+    public var filterSpecV6Gpi: RsvpFilterspecV6Gpi = RsvpFilterspecV6Gpi(),
 )
 
-public data class RSVP_FILTERSPEC_V4(
-    public var Address: IN_ADDR_IPV4 = IN_ADDR_IPV4(),
-    public var Unused: UShort = 0u,
-    public var Port: UShort = 0u,
+public data class RsvpFilterspecV4(
+    public var address: InAddrIpv4 = InAddrIpv4(),
+    public var unused: UShort = 0u,
+    public var port: UShort = 0u,
 )
 
-public data class RSVP_FILTERSPEC_V4_GPI(public var Address: IN_ADDR_IPV4 = IN_ADDR_IPV4(), public var GeneralPortId: UInt = 0u)
+public data class RsvpFilterspecV4Gpi(public var address: InAddrIpv4 = InAddrIpv4(), public var generalPortId: UInt = 0u)
 
-public data class RSVP_FILTERSPEC_V6(
-    public var Address: IN_ADDR_IPV6 = IN_ADDR_IPV6(),
-    public var UnUsed: UShort = 0u,
-    public var Port: UShort = 0u,
+public data class RsvpFilterspecV6(
+    public var address: InAddrIpv6 = InAddrIpv6(),
+    public var unUsed: UShort = 0u,
+    public var port: UShort = 0u,
 )
 
-public data class RSVP_FILTERSPEC_V6_FLOW(
-    public var Address: IN_ADDR_IPV6 = IN_ADDR_IPV6(),
-    public var UnUsed: UByte = 0u,
-    public var FlowLabel: UByteArray = UByteArray(3),
+public data class RsvpFilterspecV6Flow(
+    public var address: InAddrIpv6 = InAddrIpv6(),
+    public var unUsed: UByte = 0u,
+    public var flowLabel: UByteArray = UByteArray(3),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is RSVP_FILTERSPEC_V6_FLOW) return false
-        if (this.Address != other.Address) return false
-        if (this.UnUsed != other.UnUsed) return false
-        if (!this.FlowLabel.contentEquals(other.FlowLabel)) return false
+        if (other !is RsvpFilterspecV6Flow) return false
+        if (this.address != other.address) return false
+        if (this.unUsed != other.unUsed) return false
+        if (!this.flowLabel.contentEquals(other.flowLabel)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Address.hashCode()
-        result = 31 * result + this.UnUsed.hashCode()
-        result = 31 * result + this.FlowLabel.contentHashCode()
+        var result = this.address.hashCode()
+        result = 31 * result + this.unUsed.hashCode()
+        result = 31 * result + this.flowLabel.contentHashCode()
         return result
     }
 }
 
-public data class RSVP_FILTERSPEC_V6_GPI(public var Address: IN_ADDR_IPV6 = IN_ADDR_IPV6(), public var GeneralPortId: UInt = 0u)
+public data class RsvpFilterspecV6Gpi(public var address: InAddrIpv6 = InAddrIpv6(), public var generalPortId: UInt = 0u)
 
-public data class RSVP_HOP(public var hop_header: RsvpObjHdr = RsvpObjHdr(), public var hop_u: RSVP_HOP_0 = RSVP_HOP_0())
+public data class RsvpHop(public var hopHeader: RsvpObjHdr = RsvpObjHdr(), public var hopU: RsvpHop0 = RsvpHop0())
 
-public data class RSVP_HOP_0(public var hop_ipv4: Rsvp_Hop_IPv4 = Rsvp_Hop_IPv4())
+public data class RsvpHop0(public var hopIpv4: RsvpHopIpv4 = RsvpHopIpv4())
 
-public data class RSVP_MSG_OBJS(
-    public var RsvpMsgType: Int = 0,
-    public var pRsvpSession: Long = 0L,
-    public var pRsvpFromHop: Long = 0L,
-    public var pRsvpToHop: Long = 0L,
-    public var pResvStyle: Long = 0L,
-    public var pRsvpScope: Long = 0L,
-    public var FlowDescCount: Int = 0,
-    public var pFlowDescs: Long = 0L,
-    public var PdObjectCount: Int = 0,
-    public var ppPdObjects: Long = 0L,
-    public var pErrorSpec: Long = 0L,
-    public var pAdspec: Long = 0L,
+public data class RsvpMsgObjs(
+    public var rsvpMsgType: Int = 0,
+    public var pRsvpSession: RsvpSession? = null,
+    public var pRsvpFromHop: RsvpHop? = null,
+    public var pRsvpToHop: RsvpHop? = null,
+    public var pResvStyle: ResvStyle? = null,
+    public var pRsvpScope: RsvpScope? = null,
+    public var flowDescCount: Int = 0,
+    public var pFlowDescs: FlowDesc? = null,
+    public var pdObjectCount: Int = 0,
+    public var ppPdObjects: COpaquePointer? = null,
+    public var pErrorSpec: ErrorSpec? = null,
+    public var pAdspec: Adspec? = null,
 )
 
-public data class RSVP_POLICY(
-    public var Len: UShort = 0u,
-    public var Type: UShort = 0u,
-    public var Info: UByteArray = UByteArray(4),
+public data class RsvpPolicy(
+    public var len: UShort = 0u,
+    public var type: UShort = 0u,
+    public var info: UByteArray = UByteArray(4),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is RSVP_POLICY) return false
-        if (this.Len != other.Len) return false
-        if (this.Type != other.Type) return false
-        if (!this.Info.contentEquals(other.Info)) return false
+        if (other !is RsvpPolicy) return false
+        if (this.len != other.len) return false
+        if (this.type != other.type) return false
+        if (!this.info.contentEquals(other.info)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Len.hashCode()
-        result = 31 * result + this.Type.hashCode()
-        result = 31 * result + this.Info.contentHashCode()
+        var result = this.len.hashCode()
+        result = 31 * result + this.type.hashCode()
+        result = 31 * result + this.info.contentHashCode()
         return result
     }
 }
 
-public data class RSVP_POLICY_INFO(
-    public var ObjectHdr: QOS_OBJECT_HDR = QOS_OBJECT_HDR(),
-    public var NumPolicyElement: UInt = 0u,
-    public var PolicyElement: List<RSVP_POLICY> = List(1) { RSVP_POLICY() },
+public data class RsvpPolicyInfo(
+    public var objectHdr: QosObjectHdr = QosObjectHdr(),
+    public var numPolicyElement: UInt = 0u,
+    public var policyElement: List<RsvpPolicy> = List(1) { RsvpPolicy() },
 )
 
-public data class RSVP_RESERVE_INFO(
-    public var ObjectHdr: QOS_OBJECT_HDR = QOS_OBJECT_HDR(),
-    public var Style: UInt = 0u,
-    public var ConfirmRequest: UInt = 0u,
-    public var PolicyElementList: Long = 0L,
-    public var NumFlowDesc: UInt = 0u,
-    public var FlowDescList: Long = 0L,
+public data class RsvpReserveInfo(
+    public var objectHdr: QosObjectHdr = QosObjectHdr(),
+    public var style: UInt = 0u,
+    public var confirmRequest: UInt = 0u,
+    public var policyElementList: RsvpPolicyInfo? = null,
+    public var numFlowDesc: UInt = 0u,
+    public var flowDescList: Flowdescriptor? = null,
 )
 
-public data class RSVP_SCOPE(public var scopl_header: RsvpObjHdr = RsvpObjHdr(), public var scope_u: RSVP_SCOPE_0 = RSVP_SCOPE_0())
+public data class RsvpScope(public var scoplHeader: RsvpObjHdr = RsvpObjHdr(), public var scopeU: RsvpScope0 = RsvpScope0())
 
-public data class RSVP_SCOPE_0(public var scopl_ipv4: Scope_list_ipv4 = Scope_list_ipv4())
+public data class RsvpScope0(public var scoplIpv4: ScopeListIpv4 = ScopeListIpv4())
 
-public data class RSVP_SESSION(public var sess_header: RsvpObjHdr = RsvpObjHdr(), public var sess_u: RSVP_SESSION_0 = RSVP_SESSION_0())
+public data class RsvpSession(public var sessHeader: RsvpObjHdr = RsvpObjHdr(), public var sessU: RsvpSession0 = RsvpSession0())
 
-public data class RSVP_SESSION_0(public var sess_ipv4: Session_IPv4 = Session_IPv4())
+public data class RsvpSession0(public var sessIpv4: SessionIpv4 = SessionIpv4())
 
-public data class RSVP_STATUS_INFO(
-    public var ObjectHdr: QOS_OBJECT_HDR = QOS_OBJECT_HDR(),
-    public var StatusCode: UInt = 0u,
-    public var ExtendedStatus1: UInt = 0u,
-    public var ExtendedStatus2: UInt = 0u,
+public data class RsvpStatusInfo(
+    public var objectHdr: QosObjectHdr = QosObjectHdr(),
+    public var statusCode: UInt = 0u,
+    public var extendedStatus1: UInt = 0u,
+    public var extendedStatus2: UInt = 0u,
 )
 
 public data class RsvpObjHdr(
-    public var obj_length: UShort = 0u,
-    public var obj_class: UByte = 0u,
-    public var obj_ctype: UByte = 0u,
+    public var objLength: UShort = 0u,
+    public var objClass: UByte = 0u,
+    public var objCtype: UByte = 0u,
 )
 
-public data class Rsvp_Hop_IPv4(public var hop_ipaddr: IN_ADDR = IN_ADDR(), public var hop_LIH: UInt = 0u)
+public data class RsvpHopIpv4(public var hopIpaddr: InAddr = InAddr(), public var hopLih: UInt = 0u)
 
-public data class SENDER_TSPEC(public var stspec_header: RsvpObjHdr = RsvpObjHdr(), public var stspec_body: IntServTspecBody = IntServTspecBody())
+public data class SenderTspec(public var stspecHeader: RsvpObjHdr = RsvpObjHdr(), public var stspecBody: IntServTspecBody = IntServTspecBody())
 
-public data class SIPAEVENT_KSR_SIGNATURE_PAYLOAD(
-    public var SignAlgID: UInt = 0u,
-    public var SignatureLength: UInt = 0u,
-    public var Signature: UByteArray = UByteArray(1),
+public data class SipaeventKsrSignaturePayload(
+    public var signAlgID: UInt = 0u,
+    public var signatureLength: UInt = 0u,
+    public var signature: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SIPAEVENT_KSR_SIGNATURE_PAYLOAD) return false
-        if (this.SignAlgID != other.SignAlgID) return false
-        if (this.SignatureLength != other.SignatureLength) return false
-        if (!this.Signature.contentEquals(other.Signature)) return false
+        if (other !is SipaeventKsrSignaturePayload) return false
+        if (this.signAlgID != other.signAlgID) return false
+        if (this.signatureLength != other.signatureLength) return false
+        if (!this.signature.contentEquals(other.signature)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.SignAlgID.hashCode()
-        result = 31 * result + this.SignatureLength.hashCode()
-        result = 31 * result + this.Signature.contentHashCode()
+        var result = this.signAlgID.hashCode()
+        result = 31 * result + this.signatureLength.hashCode()
+        result = 31 * result + this.signature.contentHashCode()
         return result
     }
 }
 
-public data class SIPAEVENT_REVOCATION_LIST_PAYLOAD(
-    public var CreationTime: Long = 0L,
-    public var DigestLength: UInt = 0u,
-    public var HashAlgID: UShort = 0u,
-    public var Digest: UByteArray = UByteArray(1),
+public data class SipaeventRevocationListPayload(
+    public var creationTime: Long = 0L,
+    public var digestLength: UInt = 0u,
+    public var hashAlgID: UShort = 0u,
+    public var digest: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SIPAEVENT_REVOCATION_LIST_PAYLOAD) return false
-        if (this.CreationTime != other.CreationTime) return false
-        if (this.DigestLength != other.DigestLength) return false
-        if (this.HashAlgID != other.HashAlgID) return false
-        if (!this.Digest.contentEquals(other.Digest)) return false
+        if (other !is SipaeventRevocationListPayload) return false
+        if (this.creationTime != other.creationTime) return false
+        if (this.digestLength != other.digestLength) return false
+        if (this.hashAlgID != other.hashAlgID) return false
+        if (!this.digest.contentEquals(other.digest)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.CreationTime.hashCode()
-        result = 31 * result + this.DigestLength.hashCode()
-        result = 31 * result + this.HashAlgID.hashCode()
-        result = 31 * result + this.Digest.contentHashCode()
+        var result = this.creationTime.hashCode()
+        result = 31 * result + this.digestLength.hashCode()
+        result = 31 * result + this.hashAlgID.hashCode()
+        result = 31 * result + this.digest.contentHashCode()
         return result
     }
 }
 
-public data class SIPAEVENT_SBCP_INFO_PAYLOAD_V1(
-    public var PayloadVersion: UInt = 0u,
-    public var VarDataOffset: UInt = 0u,
-    public var HashAlgID: UShort = 0u,
-    public var DigestLength: UShort = 0u,
-    public var Options: UInt = 0u,
-    public var SignersCount: UInt = 0u,
-    public var VarData: UByteArray = UByteArray(1),
+public data class SipaeventSbcpInfoPayloadV1(
+    public var payloadVersion: UInt = 0u,
+    public var varDataOffset: UInt = 0u,
+    public var hashAlgID: UShort = 0u,
+    public var digestLength: UShort = 0u,
+    public var options: UInt = 0u,
+    public var signersCount: UInt = 0u,
+    public var varData: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SIPAEVENT_SBCP_INFO_PAYLOAD_V1) return false
-        if (this.PayloadVersion != other.PayloadVersion) return false
-        if (this.VarDataOffset != other.VarDataOffset) return false
-        if (this.HashAlgID != other.HashAlgID) return false
-        if (this.DigestLength != other.DigestLength) return false
-        if (this.Options != other.Options) return false
-        if (this.SignersCount != other.SignersCount) return false
-        if (!this.VarData.contentEquals(other.VarData)) return false
+        if (other !is SipaeventSbcpInfoPayloadV1) return false
+        if (this.payloadVersion != other.payloadVersion) return false
+        if (this.varDataOffset != other.varDataOffset) return false
+        if (this.hashAlgID != other.hashAlgID) return false
+        if (this.digestLength != other.digestLength) return false
+        if (this.options != other.options) return false
+        if (this.signersCount != other.signersCount) return false
+        if (!this.varData.contentEquals(other.varData)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.PayloadVersion.hashCode()
-        result = 31 * result + this.VarDataOffset.hashCode()
-        result = 31 * result + this.HashAlgID.hashCode()
-        result = 31 * result + this.DigestLength.hashCode()
-        result = 31 * result + this.Options.hashCode()
-        result = 31 * result + this.SignersCount.hashCode()
-        result = 31 * result + this.VarData.contentHashCode()
+        var result = this.payloadVersion.hashCode()
+        result = 31 * result + this.varDataOffset.hashCode()
+        result = 31 * result + this.hashAlgID.hashCode()
+        result = 31 * result + this.digestLength.hashCode()
+        result = 31 * result + this.options.hashCode()
+        result = 31 * result + this.signersCount.hashCode()
+        result = 31 * result + this.varData.contentHashCode()
         return result
     }
 }
 
-public data class SIPAEVENT_SI_POLICY_PAYLOAD(
-    public var PolicyVersion: ULong = 0uL,
-    public var PolicyNameLength: UShort = 0u,
-    public var HashAlgID: UShort = 0u,
-    public var DigestLength: UInt = 0u,
-    public var VarLengthData: UByteArray = UByteArray(1),
+public data class SipaeventSiPolicyPayload(
+    public var policyVersion: ULong = 0uL,
+    public var policyNameLength: UShort = 0u,
+    public var hashAlgID: UShort = 0u,
+    public var digestLength: UInt = 0u,
+    public var varLengthData: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SIPAEVENT_SI_POLICY_PAYLOAD) return false
-        if (this.PolicyVersion != other.PolicyVersion) return false
-        if (this.PolicyNameLength != other.PolicyNameLength) return false
-        if (this.HashAlgID != other.HashAlgID) return false
-        if (this.DigestLength != other.DigestLength) return false
-        if (!this.VarLengthData.contentEquals(other.VarLengthData)) return false
+        if (other !is SipaeventSiPolicyPayload) return false
+        if (this.policyVersion != other.policyVersion) return false
+        if (this.policyNameLength != other.policyNameLength) return false
+        if (this.hashAlgID != other.hashAlgID) return false
+        if (this.digestLength != other.digestLength) return false
+        if (!this.varLengthData.contentEquals(other.varLengthData)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.PolicyVersion.hashCode()
-        result = 31 * result + this.PolicyNameLength.hashCode()
-        result = 31 * result + this.HashAlgID.hashCode()
-        result = 31 * result + this.DigestLength.hashCode()
-        result = 31 * result + this.VarLengthData.contentHashCode()
+        var result = this.policyVersion.hashCode()
+        result = 31 * result + this.policyNameLength.hashCode()
+        result = 31 * result + this.hashAlgID.hashCode()
+        result = 31 * result + this.digestLength.hashCode()
+        result = 31 * result + this.varLengthData.contentHashCode()
         return result
     }
 }
 
-public data class SIPAEVENT_VSM_IDK_INFO_PAYLOAD(public var KeyAlgID: UInt = 0u, public var Anonymous: SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0 = SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0())
+public data class SipaeventVsmIdkInfoPayload(public var keyAlgID: UInt = 0u, public var anonymous: SipaeventVsmIdkInfoPayload0 = SipaeventVsmIdkInfoPayload0())
 
-public data class SIPAEVENT_VSM_IDK_INFO_PAYLOAD_0(public var RsaKeyInfo: SIPAEVENT_VSM_IDK_RSA_INFO = SIPAEVENT_VSM_IDK_RSA_INFO())
+public data class SipaeventVsmIdkInfoPayload0(public var rsaKeyInfo: SipaeventVsmIdkRsaInfo = SipaeventVsmIdkRsaInfo())
 
-public data class SIPAEVENT_VSM_IDK_RSA_INFO(
-    public var KeyBitLength: UInt = 0u,
-    public var PublicExpLengthBytes: UInt = 0u,
-    public var ModulusSizeBytes: UInt = 0u,
-    public var PublicKeyData: UByteArray = UByteArray(1),
+public data class SipaeventVsmIdkRsaInfo(
+    public var keyBitLength: UInt = 0u,
+    public var publicExpLengthBytes: UInt = 0u,
+    public var modulusSizeBytes: UInt = 0u,
+    public var publicKeyData: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SIPAEVENT_VSM_IDK_RSA_INFO) return false
-        if (this.KeyBitLength != other.KeyBitLength) return false
-        if (this.PublicExpLengthBytes != other.PublicExpLengthBytes) return false
-        if (this.ModulusSizeBytes != other.ModulusSizeBytes) return false
-        if (!this.PublicKeyData.contentEquals(other.PublicKeyData)) return false
+        if (other !is SipaeventVsmIdkRsaInfo) return false
+        if (this.keyBitLength != other.keyBitLength) return false
+        if (this.publicExpLengthBytes != other.publicExpLengthBytes) return false
+        if (this.modulusSizeBytes != other.modulusSizeBytes) return false
+        if (!this.publicKeyData.contentEquals(other.publicKeyData)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.KeyBitLength.hashCode()
-        result = 31 * result + this.PublicExpLengthBytes.hashCode()
-        result = 31 * result + this.ModulusSizeBytes.hashCode()
-        result = 31 * result + this.PublicKeyData.contentHashCode()
+        var result = this.keyBitLength.hashCode()
+        result = 31 * result + this.publicExpLengthBytes.hashCode()
+        result = 31 * result + this.modulusSizeBytes.hashCode()
+        result = 31 * result + this.publicKeyData.contentHashCode()
         return result
     }
 }
 
-public data class Scope_list_ipv4(public var scopl_ipaddr: List<IN_ADDR> = List(1) { IN_ADDR() })
+public data class ScopeListIpv4(public var scoplIpaddr: List<InAddr> = List(1) { InAddr() })
 
-public data class Session_IPv4(
-    public var sess_destaddr: IN_ADDR = IN_ADDR(),
-    public var sess_protid: UByte = 0u,
-    public var sess_flags: UByte = 0u,
-    public var sess_destport: UShort = 0u,
+public data class SessionIpv4(
+    public var sessDestaddr: InAddr = InAddr(),
+    public var sessProtid: UByte = 0u,
+    public var sessFlags: UByte = 0u,
+    public var sessDestport: UShort = 0u,
 )
 
-public data class TCG_PCClientPCREventStruct(
+public data class TcgPcclientPcreventStruct(
     public var pcrIndex: UInt = 0u,
     public var eventType: UInt = 0u,
     public var digest: UByteArray = UByteArray(20),
@@ -843,7 +844,7 @@ public data class TCG_PCClientPCREventStruct(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is TCG_PCClientPCREventStruct) return false
+        if (other !is TcgPcclientPcreventStruct) return false
         if (this.pcrIndex != other.pcrIndex) return false
         if (this.eventType != other.eventType) return false
         if (!this.digest.contentEquals(other.digest)) return false
@@ -862,95 +863,95 @@ public data class TCG_PCClientPCREventStruct(
     }
 }
 
-public data class TCG_PCClientTaggedEventStruct(
-    public var EventID: UInt = 0u,
-    public var EventDataSize: UInt = 0u,
-    public var EventData: UByteArray = UByteArray(1),
+public data class TcgPcclientTaggedEventStruct(
+    public var eventID: UInt = 0u,
+    public var eventDataSize: UInt = 0u,
+    public var eventData: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is TCG_PCClientTaggedEventStruct) return false
-        if (this.EventID != other.EventID) return false
-        if (this.EventDataSize != other.EventDataSize) return false
-        if (!this.EventData.contentEquals(other.EventData)) return false
+        if (other !is TcgPcclientTaggedEventStruct) return false
+        if (this.eventID != other.eventID) return false
+        if (this.eventDataSize != other.eventDataSize) return false
+        if (!this.eventData.contentEquals(other.eventData)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.EventID.hashCode()
-        result = 31 * result + this.EventDataSize.hashCode()
-        result = 31 * result + this.EventData.contentHashCode()
+        var result = this.eventID.hashCode()
+        result = 31 * result + this.eventDataSize.hashCode()
+        result = 31 * result + this.eventData.contentHashCode()
         return result
     }
 }
 
-public data class TCI_CLIENT_FUNC_LIST(
-    public var ClNotifyHandler: TCI_NOTIFY_HANDLER = null,
-    public var ClAddFlowCompleteHandler: TCI_ADD_FLOW_COMPLETE_HANDLER = null,
-    public var ClModifyFlowCompleteHandler: TCI_MOD_FLOW_COMPLETE_HANDLER = null,
-    public var ClDeleteFlowCompleteHandler: TCI_DEL_FLOW_COMPLETE_HANDLER = null,
+public data class TciClientFuncList(
+    public var clNotifyHandler: TciNotifyHandler = null,
+    public var clAddFlowCompleteHandler: TciAddFlowCompleteHandler = null,
+    public var clModifyFlowCompleteHandler: TciModFlowCompleteHandler = null,
+    public var clDeleteFlowCompleteHandler: TciDelFlowCompleteHandler = null,
 )
 
-public data class TC_GEN_FILTER(
-    public var AddressType: UShort = 0u,
-    public var PatternSize: UInt = 0u,
-    public var Pattern: Long = 0L,
-    public var Mask: Long = 0L,
+public data class TcGenFilter(
+    public var addressType: UShort = 0u,
+    public var patternSize: UInt = 0u,
+    public var pattern: COpaquePointer? = null,
+    public var mask: COpaquePointer? = null,
 )
 
-public data class TC_GEN_FLOW(
-    public var SendingFlowspec: FLOWSPEC = FLOWSPEC(),
-    public var ReceivingFlowspec: FLOWSPEC = FLOWSPEC(),
-    public var TcObjectsLength: UInt = 0u,
-    public var TcObjects: List<QOS_OBJECT_HDR> = List(1) { QOS_OBJECT_HDR() },
+public data class TcGenFlow(
+    public var sendingFlowspec: Flowspec = Flowspec(),
+    public var receivingFlowspec: Flowspec = Flowspec(),
+    public var tcObjectsLength: UInt = 0u,
+    public var tcObjects: List<QosObjectHdr> = List(1) { QosObjectHdr() },
 )
 
-public data class TC_IFC_DESCRIPTOR(
-    public var Length: UInt = 0u,
-    public var pInterfaceName: PWSTR = 0L,
-    public var pInterfaceID: PWSTR = 0L,
-    public var AddressListDesc: ADDRESS_LIST_DESCRIPTOR = ADDRESS_LIST_DESCRIPTOR(),
+public data class TcIfcDescriptor(
+    public var length: UInt = 0u,
+    public var pInterfaceName: Pwstr = null,
+    public var pInterfaceID: Pwstr = null,
+    public var addressListDesc: AddressListDescriptor = AddressListDescriptor(),
 )
 
-public data class TC_SUPPORTED_INFO_BUFFER(
-    public var InstanceIDLength: UShort = 0u,
-    public var InstanceID: UShortArray = UShortArray(256),
-    public var InterfaceLuid: ULong = 0uL,
-    public var AddrListDesc: ADDRESS_LIST_DESCRIPTOR = ADDRESS_LIST_DESCRIPTOR(),
+public data class TcSupportedInfoBuffer(
+    public var instanceIDLength: UShort = 0u,
+    public var instanceID: UShortArray = UShortArray(256),
+    public var interfaceLuid: ULong = 0uL,
+    public var addrListDesc: AddressListDescriptor = AddressListDescriptor(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is TC_SUPPORTED_INFO_BUFFER) return false
-        if (this.InstanceIDLength != other.InstanceIDLength) return false
-        if (!this.InstanceID.contentEquals(other.InstanceID)) return false
-        if (this.InterfaceLuid != other.InterfaceLuid) return false
-        if (this.AddrListDesc != other.AddrListDesc) return false
+        if (other !is TcSupportedInfoBuffer) return false
+        if (this.instanceIDLength != other.instanceIDLength) return false
+        if (!this.instanceID.contentEquals(other.instanceID)) return false
+        if (this.interfaceLuid != other.interfaceLuid) return false
+        if (this.addrListDesc != other.addrListDesc) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.InstanceIDLength.hashCode()
-        result = 31 * result + this.InstanceID.contentHashCode()
-        result = 31 * result + this.InterfaceLuid.hashCode()
-        result = 31 * result + this.AddrListDesc.hashCode()
+        var result = this.instanceIDLength.hashCode()
+        result = 31 * result + this.instanceID.contentHashCode()
+        result = 31 * result + this.interfaceLuid.hashCode()
+        result = 31 * result + this.addrListDesc.hashCode()
         return result
     }
 }
 
-public data class WBCL_Iterator(
-    public var firstElementPtr: Long = 0L,
+public data class WbclIterator(
+    public var firstElementPtr: COpaquePointer? = null,
     public var logSize: UInt = 0u,
-    public var currentElementPtr: Long = 0L,
+    public var currentElementPtr: COpaquePointer? = null,
     public var currentElementSize: UInt = 0u,
     public var digestSize: UShort = 0u,
     public var logFormat: UShort = 0u,
     public var numberOfDigests: UInt = 0u,
-    public var digestSizes: Long = 0L,
+    public var digestSizes: COpaquePointer? = null,
     public var supportedAlgorithms: UInt = 0u,
     public var hashAlgorithm: UShort = 0u,
 )
 
-public data class WBCL_LogHdr(
+public data class WbclLogHdr(
     public var signature: UInt = 0u,
     public var version: UInt = 0u,
     public var entries: UInt = 0u,

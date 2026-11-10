@@ -1,82 +1,83 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.power
 
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 
-public typealias ACPI_TIME_RESOLUTION = Int
+public typealias AcpiTimeResolution = Int
 
-public typealias BATTERY_CHARGING_SOURCE_TYPE = Int
+public typealias BatteryChargingSourceType = Int
 
-public typealias BATTERY_QUERY_INFORMATION_LEVEL = Int
+public typealias BatteryQueryInformationLevel = Int
 
-public typealias BATTERY_SET_INFORMATION_LEVEL = Int
+public typealias BatterySetInformationLevel = Int
 
-public typealias DEVICE_POWER_CAPABILITIES = UInt
+public typealias DevicePowerCapabilities = UInt
 
-public typealias DEVICE_POWER_STATE = Int
+public typealias DevicePowerState = Int
 
-public typealias EFFECTIVE_POWER_MODE = Int
+public typealias EffectivePowerMode = Int
 
-public fun interface EFFECTIVE_POWER_MODE_CALLBACKFn {
-    public operator fun invoke(mode: EFFECTIVE_POWER_MODE, context: Long)
+public fun interface EffectivePowerModeCallbackFn {
+    public operator fun invoke(mode: EffectivePowerMode, context: COpaquePointer?)
 }
 
-public typealias EFFECTIVE_POWER_MODE_CALLBACK = EFFECTIVE_POWER_MODE_CALLBACKFn?
+public typealias EffectivePowerModeCallback = EffectivePowerModeCallbackFn?
 
-public typealias EMI_MEASUREMENT_UNIT = Int
+public typealias EmiMeasurementUnit = Int
 
-public typealias EXECUTION_STATE = UInt
+public typealias ExecutionState = UInt
 
-public typealias HPOWERNOTIFY = Long
+public typealias Hpowernotify = Long
 
-public typealias LATENCY_TIME = Int
+public typealias LatencyTime = Int
 
-public fun interface PDEVICE_NOTIFY_CALLBACK_ROUTINEFn {
-    public operator fun invoke(context: Long, type: UInt, setting: Long): UInt
+public fun interface PdeviceNotifyCallbackRoutineFn {
+    public operator fun invoke(context: COpaquePointer?, type: UInt, setting: COpaquePointer?): UInt
 }
 
-public typealias PDEVICE_NOTIFY_CALLBACK_ROUTINE = PDEVICE_NOTIFY_CALLBACK_ROUTINEFn?
+public typealias PdeviceNotifyCallbackRoutine = PdeviceNotifyCallbackRoutineFn?
 
-public typealias POWER_ACTION = Int
+public typealias PowerAction = Int
 
-public typealias POWER_ACTION_POLICY_EVENT_CODE = UInt
+public typealias PowerActionPolicyEventCode = UInt
 
-public typealias POWER_COOLING_MODE = UShort
+public typealias PowerCoolingMode = UShort
 
-public typealias POWER_DATA_ACCESSOR = Int
+public typealias PowerDataAccessor = Int
 
-public typealias POWER_INFORMATION_LEVEL = Int
+public typealias PowerInformationLevel = Int
 
-public typealias POWER_MONITOR_REQUEST_REASON = Int
+public typealias PowerMonitorRequestReason = Int
 
-public typealias POWER_MONITOR_REQUEST_TYPE = Int
+public typealias PowerMonitorRequestType = Int
 
-public typealias POWER_PLATFORM_ROLE = Int
+public typealias PowerPlatformRole = Int
 
-public typealias POWER_PLATFORM_ROLE_VERSION = UInt
+public typealias PowerPlatformRoleVersion = UInt
 
-public typealias POWER_REQUEST_TYPE = Int
+public typealias PowerRequestType = Int
 
-public typealias POWER_SETTING_ALTITUDE = Int
+public typealias PowerSettingAltitude = Int
 
-public typealias POWER_USER_PRESENCE_TYPE = Int
+public typealias PowerUserPresenceType = Int
 
-public fun interface PWRSCHEMESENUMPROCFn {
-    public operator fun invoke(index: UInt, namesize: UInt, name: PCWSTR, descriptionsize: UInt, description: PCWSTR, policy: Long, context: LPARAM): Boolean
+public fun interface PwrschemesenumprocFn {
+    public operator fun invoke(index: UInt, namesize: UInt, name: Pcwstr, descriptionsize: UInt, description: Pcwstr, policy: COpaquePointer?, context: Lparam): Boolean
 }
 
-public typealias PWRSCHEMESENUMPROC = PWRSCHEMESENUMPROCFn?
+public typealias Pwrschemesenumproc = PwrschemesenumprocFn?
 
-public fun interface PWRSCHEMESENUMPROC_V1Fn {
-    public operator fun invoke(index: UInt, namesize: UInt, name: Long, descriptionsize: UInt, description: Long, policy: Long, context: LPARAM): Boolean
+public fun interface PwrschemesenumprocV1Fn {
+    public operator fun invoke(index: UInt, namesize: UInt, name: COpaquePointer?, descriptionsize: UInt, description: COpaquePointer?, policy: COpaquePointer?, context: Lparam): Boolean
 }
 
-public typealias PWRSCHEMESENUMPROC_V1 = PWRSCHEMESENUMPROC_V1Fn?
+public typealias PwrschemesenumprocV1 = PwrschemesenumprocV1Fn?
 
-public typealias SYSTEM_POWER_CONDITION = Int
+public typealias SystemPowerCondition = Int
 
-public typealias SYSTEM_POWER_STATE = Int
+public typealias SystemPowerState = Int
 
-public typealias USB_CHARGER_PORT = Int
+public typealias UsbChargerPort = Int
 
-public typealias USER_ACTIVITY_PRESENCE = Int
+public typealias UserActivityPresence = Int

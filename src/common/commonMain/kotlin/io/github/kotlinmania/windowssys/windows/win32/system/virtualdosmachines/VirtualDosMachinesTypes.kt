@@ -1,181 +1,182 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.virtualdosmachines
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 
-public fun interface DEBUGEVENTPROCFn {
-    public operator fun invoke(param0: Long, param1: Long): UInt
+public fun interface DebugeventprocFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?): UInt
 }
 
-public typealias DEBUGEVENTPROC = DEBUGEVENTPROCFn?
+public typealias Debugeventproc = DebugeventprocFn?
 
-public fun interface PROCESSENUMPROCFn {
-    public operator fun invoke(dwprocessid: UInt, dwattributes: UInt, lpuserdefined: LPARAM): BOOL
+public fun interface ProcessenumprocFn {
+    public operator fun invoke(dwprocessid: UInt, dwattributes: UInt, lpuserdefined: Lparam): Bool
 }
 
-public typealias PROCESSENUMPROC = PROCESSENUMPROCFn?
+public typealias Processenumproc = ProcessenumprocFn?
 
-public fun interface TASKENUMPROCFn {
-    public operator fun invoke(dwthreadid: UInt, hmod16: UShort, htask16: UShort, lpuserdefined: LPARAM): BOOL
+public fun interface TaskenumprocFn {
+    public operator fun invoke(dwthreadid: UInt, hmod16: UShort, htask16: UShort, lpuserdefined: Lparam): Bool
 }
 
-public typealias TASKENUMPROC = TASKENUMPROCFn?
+public typealias Taskenumproc = TaskenumprocFn?
 
-public fun interface TASKENUMPROCEXFn {
-    public operator fun invoke(dwthreadid: UInt, hmod16: UShort, htask16: UShort, pszmodname: Long, pszfilename: Long, lpuserdefined: LPARAM): BOOL
+public fun interface TaskenumprocexFn {
+    public operator fun invoke(dwthreadid: UInt, hmod16: UShort, htask16: UShort, pszmodname: COpaquePointer?, pszfilename: COpaquePointer?, lpuserdefined: Lparam): Bool
 }
 
-public typealias TASKENUMPROCEX = TASKENUMPROCEXFn?
+public typealias Taskenumprocex = TaskenumprocexFn?
 
-public fun interface VDMBREAKTHREADPROCFn {
-    public operator fun invoke(param0: HANDLE): BOOL
+public fun interface VdmbreakthreadprocFn {
+    public operator fun invoke(param0: Handle): Bool
 }
 
-public typealias VDMBREAKTHREADPROC = VDMBREAKTHREADPROCFn?
+public typealias Vdmbreakthreadproc = VdmbreakthreadprocFn?
 
-public fun interface VDMDETECTWOWPROCFn {
-    public operator fun invoke(): BOOL
+public fun interface VdmdetectwowprocFn {
+    public operator fun invoke(): Bool
 }
 
-public typealias VDMDETECTWOWPROC = VDMDETECTWOWPROCFn?
+public typealias Vdmdetectwowproc = VdmdetectwowprocFn?
 
-public fun interface VDMENUMPROCESSWOWPROCFn {
-    public operator fun invoke(param0: PROCESSENUMPROC, param1: LPARAM): Int
+public fun interface VdmenumprocesswowprocFn {
+    public operator fun invoke(param0: Processenumproc, param1: Lparam): Int
 }
 
-public typealias VDMENUMPROCESSWOWPROC = VDMENUMPROCESSWOWPROCFn?
+public typealias Vdmenumprocesswowproc = VdmenumprocesswowprocFn?
 
-public fun interface VDMENUMTASKWOWEXPROCFn {
-    public operator fun invoke(param0: UInt, param1: TASKENUMPROCEX, param2: LPARAM): Int
+public fun interface VdmenumtaskwowexprocFn {
+    public operator fun invoke(param0: UInt, param1: Taskenumprocex, param2: Lparam): Int
 }
 
-public typealias VDMENUMTASKWOWEXPROC = VDMENUMTASKWOWEXPROCFn?
+public typealias Vdmenumtaskwowexproc = VdmenumtaskwowexprocFn?
 
-public fun interface VDMENUMTASKWOWPROCFn {
-    public operator fun invoke(param0: UInt, param1: TASKENUMPROC, param2: LPARAM): Int
+public fun interface VdmenumtaskwowprocFn {
+    public operator fun invoke(param0: UInt, param1: Taskenumproc, param2: Lparam): Int
 }
 
-public typealias VDMENUMTASKWOWPROC = VDMENUMTASKWOWPROCFn?
+public typealias Vdmenumtaskwowproc = VdmenumtaskwowprocFn?
 
-public fun interface VDMGETADDREXPRESSIONPROCFn {
-    public operator fun invoke(param0: PCSTR, param1: PCSTR, param2: Long, param3: Long, param4: Long): BOOL
+public fun interface VdmgetaddrexpressionprocFn {
+    public operator fun invoke(param0: Pcstr, param1: Pcstr, param2: COpaquePointer?, param3: COpaquePointer?, param4: COpaquePointer?): Bool
 }
 
-public typealias VDMGETADDREXPRESSIONPROC = VDMGETADDREXPRESSIONPROCFn?
+public typealias Vdmgetaddrexpressionproc = VdmgetaddrexpressionprocFn?
 
-public fun interface VDMGETCONTEXTPROCFn {
-    public operator fun invoke(param0: HANDLE, param1: HANDLE, param2: Long): BOOL
+public fun interface VdmgetcontextprocFn {
+    public operator fun invoke(param0: Handle, param1: Handle, param2: COpaquePointer?): Bool
 }
 
-public typealias VDMGETCONTEXTPROC = VDMGETCONTEXTPROCFn?
+public typealias Vdmgetcontextproc = VdmgetcontextprocFn?
 
-public fun interface VDMGETDBGFLAGSPROCFn {
-    public operator fun invoke(param0: HANDLE): UInt
+public fun interface VdmgetdbgflagsprocFn {
+    public operator fun invoke(param0: Handle): UInt
 }
 
-public typealias VDMGETDBGFLAGSPROC = VDMGETDBGFLAGSPROCFn?
+public typealias Vdmgetdbgflagsproc = VdmgetdbgflagsprocFn?
 
-public fun interface VDMGETMODULESELECTORPROCFn {
-    public operator fun invoke(param0: HANDLE, param1: HANDLE, param2: UInt, param3: PCSTR, param4: Long): BOOL
+public fun interface VdmgetmoduleselectorprocFn {
+    public operator fun invoke(param0: Handle, param1: Handle, param2: UInt, param3: Pcstr, param4: COpaquePointer?): Bool
 }
 
-public typealias VDMGETMODULESELECTORPROC = VDMGETMODULESELECTORPROCFn?
+public typealias Vdmgetmoduleselectorproc = VdmgetmoduleselectorprocFn?
 
-public fun interface VDMGETPOINTERPROCFn {
-    public operator fun invoke(param0: HANDLE, param1: HANDLE, param2: UShort, param3: UInt, param4: BOOL): UInt
+public fun interface VdmgetpointerprocFn {
+    public operator fun invoke(param0: Handle, param1: Handle, param2: UShort, param3: UInt, param4: Bool): UInt
 }
 
-public typealias VDMGETPOINTERPROC = VDMGETPOINTERPROCFn?
+public typealias Vdmgetpointerproc = VdmgetpointerprocFn?
 
-public fun interface VDMGETSEGMENTINFOPROCFn {
-    public operator fun invoke(param0: UShort, param1: UInt, param2: BOOL, param3: VDM_SEGINFO): BOOL
+public fun interface VdmgetsegmentinfoprocFn {
+    public operator fun invoke(param0: UShort, param1: UInt, param2: Bool, param3: VdmSeginfo): Bool
 }
 
-public typealias VDMGETSEGMENTINFOPROC = VDMGETSEGMENTINFOPROCFn?
+public typealias Vdmgetsegmentinfoproc = VdmgetsegmentinfoprocFn?
 
-public fun interface VDMGETSELECTORMODULEPROCFn {
-    public operator fun invoke(param0: HANDLE, param1: HANDLE, param2: UShort, param3: Long, param4: PCSTR, param5: UInt, param6: PCSTR, param7: UInt): BOOL
+public fun interface VdmgetselectormoduleprocFn {
+    public operator fun invoke(param0: Handle, param1: Handle, param2: UShort, param3: COpaquePointer?, param4: Pcstr, param5: UInt, param6: Pcstr, param7: UInt): Bool
 }
 
-public typealias VDMGETSELECTORMODULEPROC = VDMGETSELECTORMODULEPROCFn?
+public typealias Vdmgetselectormoduleproc = VdmgetselectormoduleprocFn?
 
-public fun interface VDMGETSYMBOLPROCFn {
-    public operator fun invoke(param0: PCSTR, param1: UShort, param2: UInt, param3: BOOL, param4: BOOL, param5: PSTR, param6: Long): BOOL
+public fun interface VdmgetsymbolprocFn {
+    public operator fun invoke(param0: Pcstr, param1: UShort, param2: UInt, param3: Bool, param4: Bool, param5: Pstr, param6: COpaquePointer?): Bool
 }
 
-public typealias VDMGETSYMBOLPROC = VDMGETSYMBOLPROCFn?
+public typealias Vdmgetsymbolproc = VdmgetsymbolprocFn?
 
-public fun interface VDMGETTHREADSELECTORENTRYPROCFn {
-    public operator fun invoke(param0: HANDLE, param1: HANDLE, param2: UInt, param3: Long): BOOL
+public fun interface VdmgetthreadselectorentryprocFn {
+    public operator fun invoke(param0: Handle, param1: Handle, param2: UInt, param3: COpaquePointer?): Bool
 }
 
-public typealias VDMGETTHREADSELECTORENTRYPROC = VDMGETTHREADSELECTORENTRYPROCFn?
+public typealias Vdmgetthreadselectorentryproc = VdmgetthreadselectorentryprocFn?
 
-public fun interface VDMGLOBALFIRSTPROCFn {
-    public operator fun invoke(param0: HANDLE, param1: HANDLE, param2: Long, param3: UShort, param4: DEBUGEVENTPROC, param5: Long): BOOL
+public fun interface VdmglobalfirstprocFn {
+    public operator fun invoke(param0: Handle, param1: Handle, param2: COpaquePointer?, param3: UShort, param4: Debugeventproc, param5: COpaquePointer?): Bool
 }
 
-public typealias VDMGLOBALFIRSTPROC = VDMGLOBALFIRSTPROCFn?
+public typealias Vdmglobalfirstproc = VdmglobalfirstprocFn?
 
-public fun interface VDMGLOBALNEXTPROCFn {
-    public operator fun invoke(param0: HANDLE, param1: HANDLE, param2: Long, param3: UShort, param4: DEBUGEVENTPROC, param5: Long): BOOL
+public fun interface VdmglobalnextprocFn {
+    public operator fun invoke(param0: Handle, param1: Handle, param2: COpaquePointer?, param3: UShort, param4: Debugeventproc, param5: COpaquePointer?): Bool
 }
 
-public typealias VDMGLOBALNEXTPROC = VDMGLOBALNEXTPROCFn?
+public typealias Vdmglobalnextproc = VdmglobalnextprocFn?
 
-public fun interface VDMISMODULELOADEDPROCFn {
-    public operator fun invoke(param0: PCSTR): BOOL
+public fun interface VdmismoduleloadedprocFn {
+    public operator fun invoke(param0: Pcstr): Bool
 }
 
-public typealias VDMISMODULELOADEDPROC = VDMISMODULELOADEDPROCFn?
+public typealias Vdmismoduleloadedproc = VdmismoduleloadedprocFn?
 
-public fun interface VDMKILLWOWPROCFn {
-    public operator fun invoke(): BOOL
+public fun interface VdmkillwowprocFn {
+    public operator fun invoke(): Bool
 }
 
-public typealias VDMKILLWOWPROC = VDMKILLWOWPROCFn?
+public typealias Vdmkillwowproc = VdmkillwowprocFn?
 
-public fun interface VDMMODULEFIRSTPROCFn {
-    public operator fun invoke(param0: HANDLE, param1: HANDLE, param2: Long, param3: DEBUGEVENTPROC, param4: Long): BOOL
+public fun interface VdmmodulefirstprocFn {
+    public operator fun invoke(param0: Handle, param1: Handle, param2: COpaquePointer?, param3: Debugeventproc, param4: COpaquePointer?): Bool
 }
 
-public typealias VDMMODULEFIRSTPROC = VDMMODULEFIRSTPROCFn?
+public typealias Vdmmodulefirstproc = VdmmodulefirstprocFn?
 
-public fun interface VDMMODULENEXTPROCFn {
-    public operator fun invoke(param0: HANDLE, param1: HANDLE, param2: Long, param3: DEBUGEVENTPROC, param4: Long): BOOL
+public fun interface VdmmodulenextprocFn {
+    public operator fun invoke(param0: Handle, param1: Handle, param2: COpaquePointer?, param3: Debugeventproc, param4: COpaquePointer?): Bool
 }
 
-public typealias VDMMODULENEXTPROC = VDMMODULENEXTPROCFn?
+public typealias Vdmmodulenextproc = VdmmodulenextprocFn?
 
-public fun interface VDMPROCESSEXCEPTIONPROCFn {
-    public operator fun invoke(param0: Long): BOOL
+public fun interface VdmprocessexceptionprocFn {
+    public operator fun invoke(param0: COpaquePointer?): Bool
 }
 
-public typealias VDMPROCESSEXCEPTIONPROC = VDMPROCESSEXCEPTIONPROCFn?
+public typealias Vdmprocessexceptionproc = VdmprocessexceptionprocFn?
 
-public fun interface VDMSETCONTEXTPROCFn {
-    public operator fun invoke(param0: HANDLE, param1: HANDLE, param2: Long): BOOL
+public fun interface VdmsetcontextprocFn {
+    public operator fun invoke(param0: Handle, param1: Handle, param2: COpaquePointer?): Bool
 }
 
-public typealias VDMSETCONTEXTPROC = VDMSETCONTEXTPROCFn?
+public typealias Vdmsetcontextproc = VdmsetcontextprocFn?
 
-public fun interface VDMSETDBGFLAGSPROCFn {
-    public operator fun invoke(param0: HANDLE, param1: UInt): BOOL
+public fun interface VdmsetdbgflagsprocFn {
+    public operator fun invoke(param0: Handle, param1: UInt): Bool
 }
 
-public typealias VDMSETDBGFLAGSPROC = VDMSETDBGFLAGSPROCFn?
+public typealias Vdmsetdbgflagsproc = VdmsetdbgflagsprocFn?
 
-public fun interface VDMSTARTTASKINWOWPROCFn {
-    public operator fun invoke(param0: UInt, param1: PCSTR, param2: UShort): BOOL
+public fun interface VdmstarttaskinwowprocFn {
+    public operator fun invoke(param0: UInt, param1: Pcstr, param2: UShort): Bool
 }
 
-public typealias VDMSTARTTASKINWOWPROC = VDMSTARTTASKINWOWPROCFn?
+public typealias Vdmstarttaskinwowproc = VdmstarttaskinwowprocFn?
 
-public fun interface VDMTERMINATETASKINWOWPROCFn {
-    public operator fun invoke(param0: UInt, param1: UShort): BOOL
+public fun interface VdmterminatetaskinwowprocFn {
+    public operator fun invoke(param0: UInt, param1: UShort): Bool
 }
 
-public typealias VDMTERMINATETASKINWOWPROC = VDMTERMINATETASKINWOWPROCFn?
+public typealias Vdmterminatetaskinwowproc = VdmterminatetaskinwowprocFn?

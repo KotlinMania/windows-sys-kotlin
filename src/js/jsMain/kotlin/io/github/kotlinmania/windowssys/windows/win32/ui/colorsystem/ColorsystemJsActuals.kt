@@ -2,380 +2,381 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.COLORREF
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LUID
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HPALETTE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Colorref
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Luid
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hpalette
 
 private val _windowsWin32UiColorsystemNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun AssociateColorProfileWithDeviceA(pmachinename: PCSTR, pprofilename: PCSTR, pdevicename: PCSTR): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_AssociateColorProfileWithDeviceA(pmachinename.toString(), pprofilename.toString(), pdevicename.toString()) as Int) else 0
+public actual fun associateColorProfileWithDeviceA(pmachinename: Pcstr, pprofilename: Pcstr, pdevicename: Pcstr): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_associateColorProfileWithDeviceA((pmachinename?.value ?: 0L).toString(), (pprofilename?.value ?: 0L).toString(), (pdevicename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AssociateColorProfileWithDeviceW(pmachinename: PCWSTR, pprofilename: PCWSTR, pdevicename: PCWSTR): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_AssociateColorProfileWithDeviceW(pmachinename.toString(), pprofilename.toString(), pdevicename.toString()) as Int) else 0
+public actual fun associateColorProfileWithDeviceW(pmachinename: Pcwstr, pprofilename: Pcwstr, pdevicename: Pcwstr): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_associateColorProfileWithDeviceW((pmachinename?.value ?: 0L).toString(), (pprofilename?.value ?: 0L).toString(), (pdevicename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CMCheckColors(hcmtransform: Long, lpainputcolors: Long, ncolors: UInt, ctinput: COLORTYPE, lparesult: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_CMCheckColors(hcmtransform.toString(), lpainputcolors.toString(), ncolors.toInt(), ctinput, lparesult.toString()) as Int) else 0
+public actual fun cMCheckColors(hcmtransform: Long, lpainputcolors: COpaquePointer?, ncolors: UInt, ctinput: Colortype, lparesult: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_cMCheckColors(hcmtransform.toString(), (lpainputcolors?.value ?: 0L).toString(), ncolors.toInt(), ctinput, (lparesult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CMCheckColorsInGamut(hcmtransform: Long, lpargbtriple: Long, lparesult: Long, ncount: UInt): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_CMCheckColorsInGamut(hcmtransform.toString(), lpargbtriple.toString(), lparesult.toString(), ncount.toInt()) as Int) else 0
+public actual fun cMCheckColorsInGamut(hcmtransform: Long, lpargbtriple: COpaquePointer?, lparesult: COpaquePointer?, ncount: UInt): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_cMCheckColorsInGamut(hcmtransform.toString(), (lpargbtriple?.value ?: 0L).toString(), (lparesult?.value ?: 0L).toString(), ncount.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CMCheckRGBs(hcmtransform: Long, lpsrcbits: Long, bminput: BMFORMAT, dwwidth: UInt, dwheight: UInt, dwstride: UInt, lparesult: Long, pfncallback: LPBMCALLBACKFN, ulcallbackdata: LPARAM): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_CMCheckRGBs(hcmtransform.toString(), lpsrcbits.toString(), bminput, dwwidth.toInt(), dwheight.toInt(), dwstride.toInt(), lparesult.toString(), pfncallback.toLong().toString(), ulcallbackdata.toString()) as Int) else 0
+public actual fun cMCheckRGBs(hcmtransform: Long, lpsrcbits: COpaquePointer?, bminput: Bmformat, dwwidth: UInt, dwheight: UInt, dwstride: UInt, lparesult: COpaquePointer?, pfncallback: Lpbmcallbackfn, ulcallbackdata: Lparam): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_cMCheckRGBs(hcmtransform.toString(), (lpsrcbits?.value ?: 0L).toString(), bminput, dwwidth.toInt(), dwheight.toInt(), dwstride.toInt(), (lparesult?.value ?: 0L).toString(), 0L.toString(), ulcallbackdata.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CMConvertColorNameToIndex(hprofile: Long, pacolorname: Long, paindex: Long, dwcount: UInt): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_CMConvertColorNameToIndex(hprofile.toString(), pacolorname.toString(), paindex.toString(), dwcount.toInt()) as Int) else 0
+public actual fun cMConvertColorNameToIndex(hprofile: Long, pacolorname: COpaquePointer?, paindex: COpaquePointer?, dwcount: UInt): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_cMConvertColorNameToIndex(hprofile.toString(), (pacolorname?.value ?: 0L).toString(), (paindex?.value ?: 0L).toString(), dwcount.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CMConvertIndexToColorName(hprofile: Long, paindex: Long, pacolorname: Long, dwcount: UInt): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_CMConvertIndexToColorName(hprofile.toString(), paindex.toString(), pacolorname.toString(), dwcount.toInt()) as Int) else 0
+public actual fun cMConvertIndexToColorName(hprofile: Long, paindex: COpaquePointer?, pacolorname: COpaquePointer?, dwcount: UInt): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_cMConvertIndexToColorName(hprofile.toString(), (paindex?.value ?: 0L).toString(), (pacolorname?.value ?: 0L).toString(), dwcount.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CMCreateDeviceLinkProfile(pahprofiles: Long, nprofiles: UInt, padwintents: Long, nintents: UInt, dwflags: UInt, lpprofiledata: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_CMCreateDeviceLinkProfile(pahprofiles.toString(), nprofiles.toInt(), padwintents.toString(), nintents.toInt(), dwflags.toInt(), lpprofiledata.toString()) as Int) else 0
+public actual fun cMCreateDeviceLinkProfile(pahprofiles: COpaquePointer?, nprofiles: UInt, padwintents: COpaquePointer?, nintents: UInt, dwflags: UInt, lpprofiledata: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_cMCreateDeviceLinkProfile((pahprofiles?.value ?: 0L).toString(), nprofiles.toInt(), (padwintents?.value ?: 0L).toString(), nintents.toInt(), dwflags.toInt(), (lpprofiledata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CMCreateMultiProfileTransform(pahprofiles: Long, nprofiles: UInt, padwintents: Long, nintents: UInt, dwflags: UInt): Long =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_CMCreateMultiProfileTransform(pahprofiles.toString(), nprofiles.toInt(), padwintents.toString(), nintents.toInt(), dwflags.toInt()) as String).toLong() else 0L
+public actual fun cMCreateMultiProfileTransform(pahprofiles: COpaquePointer?, nprofiles: UInt, padwintents: COpaquePointer?, nintents: UInt, dwflags: UInt): Long =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_cMCreateMultiProfileTransform((pahprofiles?.value ?: 0L).toString(), nprofiles.toInt(), (padwintents?.value ?: 0L).toString(), nintents.toInt(), dwflags.toInt()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CMCreateProfile(lpcolorspace: Long, lpprofiledata: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_CMCreateProfile(lpcolorspace.toString(), lpprofiledata.toString()) as Int) else 0
+public actual fun cMCreateProfile(lpcolorspace: COpaquePointer?, lpprofiledata: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_cMCreateProfile((lpcolorspace?.value ?: 0L).toString(), (lpprofiledata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CMCreateProfileW(lpcolorspace: Long, lpprofiledata: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_CMCreateProfileW(lpcolorspace.toString(), lpprofiledata.toString()) as Int) else 0
+public actual fun cMCreateProfileW(lpcolorspace: COpaquePointer?, lpprofiledata: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_cMCreateProfileW((lpcolorspace?.value ?: 0L).toString(), (lpprofiledata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CMCreateTransform(lpcolorspace: Long, lpdevcharacter: Long, lptargetdevcharacter: Long): Long =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_CMCreateTransform(lpcolorspace.toString(), lpdevcharacter.toString(), lptargetdevcharacter.toString()) as String).toLong() else 0L
+public actual fun cMCreateTransform(lpcolorspace: COpaquePointer?, lpdevcharacter: COpaquePointer?, lptargetdevcharacter: COpaquePointer?): Long =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_cMCreateTransform((lpcolorspace?.value ?: 0L).toString(), (lpdevcharacter?.value ?: 0L).toString(), (lptargetdevcharacter?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CMCreateTransformExt(lpcolorspace: Long, lpdevcharacter: Long, lptargetdevcharacter: Long, dwflags: UInt): Long =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_CMCreateTransformExt(lpcolorspace.toString(), lpdevcharacter.toString(), lptargetdevcharacter.toString(), dwflags.toInt()) as String).toLong() else 0L
+public actual fun cMCreateTransformExt(lpcolorspace: COpaquePointer?, lpdevcharacter: COpaquePointer?, lptargetdevcharacter: COpaquePointer?, dwflags: UInt): Long =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_cMCreateTransformExt((lpcolorspace?.value ?: 0L).toString(), (lpdevcharacter?.value ?: 0L).toString(), (lptargetdevcharacter?.value ?: 0L).toString(), dwflags.toInt()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CMCreateTransformExtW(lpcolorspace: Long, lpdevcharacter: Long, lptargetdevcharacter: Long, dwflags: UInt): Long =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_CMCreateTransformExtW(lpcolorspace.toString(), lpdevcharacter.toString(), lptargetdevcharacter.toString(), dwflags.toInt()) as String).toLong() else 0L
+public actual fun cMCreateTransformExtW(lpcolorspace: COpaquePointer?, lpdevcharacter: COpaquePointer?, lptargetdevcharacter: COpaquePointer?, dwflags: UInt): Long =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_cMCreateTransformExtW((lpcolorspace?.value ?: 0L).toString(), (lpdevcharacter?.value ?: 0L).toString(), (lptargetdevcharacter?.value ?: 0L).toString(), dwflags.toInt()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CMCreateTransformW(lpcolorspace: Long, lpdevcharacter: Long, lptargetdevcharacter: Long): Long =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_CMCreateTransformW(lpcolorspace.toString(), lpdevcharacter.toString(), lptargetdevcharacter.toString()) as String).toLong() else 0L
+public actual fun cMCreateTransformW(lpcolorspace: COpaquePointer?, lpdevcharacter: COpaquePointer?, lptargetdevcharacter: COpaquePointer?): Long =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_cMCreateTransformW((lpcolorspace?.value ?: 0L).toString(), (lpdevcharacter?.value ?: 0L).toString(), (lptargetdevcharacter?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CMDeleteTransform(hcmtransform: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_CMDeleteTransform(hcmtransform.toString()) as Int) else 0
+public actual fun cMDeleteTransform(hcmtransform: Long): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_cMDeleteTransform(hcmtransform.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CMGetInfo(dwinfo: UInt): UInt =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_CMGetInfo(dwinfo.toInt()) as Int).toUInt() else 0u
+public actual fun cMGetInfo(dwinfo: UInt): UInt =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_cMGetInfo(dwinfo.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CMGetNamedProfileInfo(hprofile: Long, pnamedprofileinfo: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_CMGetNamedProfileInfo(hprofile.toString(), pnamedprofileinfo.toString()) as Int) else 0
+public actual fun cMGetNamedProfileInfo(hprofile: Long, pnamedprofileinfo: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_cMGetNamedProfileInfo(hprofile.toString(), (pnamedprofileinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CMIsProfileValid(hprofile: Long, lpbvalid: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_CMIsProfileValid(hprofile.toString(), lpbvalid.toString()) as Int) else 0
+public actual fun cMIsProfileValid(hprofile: Long, lpbvalid: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_cMIsProfileValid(hprofile.toString(), (lpbvalid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CMTranslateColors(hcmtransform: Long, lpainputcolors: Long, ncolors: UInt, ctinput: COLORTYPE, lpaoutputcolors: Long, ctoutput: COLORTYPE): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_CMTranslateColors(hcmtransform.toString(), lpainputcolors.toString(), ncolors.toInt(), ctinput, lpaoutputcolors.toString(), ctoutput) as Int) else 0
+public actual fun cMTranslateColors(hcmtransform: Long, lpainputcolors: COpaquePointer?, ncolors: UInt, ctinput: Colortype, lpaoutputcolors: COpaquePointer?, ctoutput: Colortype): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_cMTranslateColors(hcmtransform.toString(), (lpainputcolors?.value ?: 0L).toString(), ncolors.toInt(), ctinput, (lpaoutputcolors?.value ?: 0L).toString(), ctoutput) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CMTranslateRGB(hcmtransform: Long, colorref: COLORREF, lpcolorref: Long, dwflags: UInt): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_CMTranslateRGB(hcmtransform.toString(), colorref.toInt(), lpcolorref.toString(), dwflags.toInt()) as Int) else 0
+public actual fun cMTranslateRGB(hcmtransform: Long, colorref: Colorref, lpcolorref: COpaquePointer?, dwflags: UInt): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_cMTranslateRGB(hcmtransform.toString(), colorref.toInt(), (lpcolorref?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CMTranslateRGBs(hcmtransform: Long, lpsrcbits: Long, bminput: BMFORMAT, dwwidth: UInt, dwheight: UInt, dwstride: UInt, lpdestbits: Long, bmoutput: BMFORMAT, dwtranslatedirection: UInt): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_CMTranslateRGBs(hcmtransform.toString(), lpsrcbits.toString(), bminput, dwwidth.toInt(), dwheight.toInt(), dwstride.toInt(), lpdestbits.toString(), bmoutput, dwtranslatedirection.toInt()) as Int) else 0
+public actual fun cMTranslateRGBs(hcmtransform: Long, lpsrcbits: COpaquePointer?, bminput: Bmformat, dwwidth: UInt, dwheight: UInt, dwstride: UInt, lpdestbits: COpaquePointer?, bmoutput: Bmformat, dwtranslatedirection: UInt): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_cMTranslateRGBs(hcmtransform.toString(), (lpsrcbits?.value ?: 0L).toString(), bminput, dwwidth.toInt(), dwheight.toInt(), dwstride.toInt(), (lpdestbits?.value ?: 0L).toString(), bmoutput, dwtranslatedirection.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CMTranslateRGBsExt(hcmtransform: Long, lpsrcbits: Long, bminput: BMFORMAT, dwwidth: UInt, dwheight: UInt, dwinputstride: UInt, lpdestbits: Long, bmoutput: BMFORMAT, dwoutputstride: UInt, lpfncallback: LPBMCALLBACKFN, ulcallbackdata: LPARAM): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_CMTranslateRGBsExt(hcmtransform.toString(), lpsrcbits.toString(), bminput, dwwidth.toInt(), dwheight.toInt(), dwinputstride.toInt(), lpdestbits.toString(), bmoutput, dwoutputstride.toInt(), lpfncallback.toLong().toString(), ulcallbackdata.toString()) as Int) else 0
+public actual fun cMTranslateRGBsExt(hcmtransform: Long, lpsrcbits: COpaquePointer?, bminput: Bmformat, dwwidth: UInt, dwheight: UInt, dwinputstride: UInt, lpdestbits: COpaquePointer?, bmoutput: Bmformat, dwoutputstride: UInt, lpfncallback: Lpbmcallbackfn, ulcallbackdata: Lparam): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_cMTranslateRGBsExt(hcmtransform.toString(), (lpsrcbits?.value ?: 0L).toString(), bminput, dwwidth.toInt(), dwheight.toInt(), dwinputstride.toInt(), (lpdestbits?.value ?: 0L).toString(), bmoutput, dwoutputstride.toInt(), 0L.toString(), ulcallbackdata.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CheckBitmapBits(hcolortransform: Long, psrcbits: Long, bminput: BMFORMAT, dwwidth: UInt, dwheight: UInt, dwstride: UInt, paresult: Long, pfncallback: LPBMCALLBACKFN, lpcallbackdata: LPARAM): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_CheckBitmapBits(hcolortransform.toString(), psrcbits.toString(), bminput, dwwidth.toInt(), dwheight.toInt(), dwstride.toInt(), paresult.toString(), pfncallback.toLong().toString(), lpcallbackdata.toString()) as Int) else 0
+public actual fun checkBitmapBits(hcolortransform: Long, psrcbits: COpaquePointer?, bminput: Bmformat, dwwidth: UInt, dwheight: UInt, dwstride: UInt, paresult: COpaquePointer?, pfncallback: Lpbmcallbackfn, lpcallbackdata: Lparam): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_checkBitmapBits(hcolortransform.toString(), (psrcbits?.value ?: 0L).toString(), bminput, dwwidth.toInt(), dwheight.toInt(), dwstride.toInt(), (paresult?.value ?: 0L).toString(), 0L.toString(), lpcallbackdata.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CheckColors(hcolortransform: Long, painputcolors: Long, ncolors: UInt, ctinput: COLORTYPE, paresult: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_CheckColors(hcolortransform.toString(), painputcolors.toString(), ncolors.toInt(), ctinput, paresult.toString()) as Int) else 0
+public actual fun checkColors(hcolortransform: Long, painputcolors: COpaquePointer?, ncolors: UInt, ctinput: Colortype, paresult: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_checkColors(hcolortransform.toString(), (painputcolors?.value ?: 0L).toString(), ncolors.toInt(), ctinput, (paresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CheckColorsInGamut(hdc: HDC, lprgbtriple: Long, dlpbuffer: Long, ncount: UInt): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_CheckColorsInGamut(hdc.toString(), lprgbtriple.toString(), dlpbuffer.toString(), ncount.toInt()) as Int) else 0
+public actual fun checkColorsInGamut(hdc: Hdc, lprgbtriple: COpaquePointer?, dlpbuffer: COpaquePointer?, ncount: UInt): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_checkColorsInGamut((hdc?.value ?: 0L).toString(), (lprgbtriple?.value ?: 0L).toString(), (dlpbuffer?.value ?: 0L).toString(), ncount.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CloseColorProfile(hprofile: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_CloseColorProfile(hprofile.toString()) as Int) else 0
+public actual fun closeColorProfile(hprofile: Long): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_closeColorProfile(hprofile.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ColorCorrectPalette(hdc: HDC, hpal: HPALETTE, defirst: UInt, num: UInt): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_ColorCorrectPalette(hdc.toString(), hpal.toString(), defirst.toInt(), num.toInt()) as Int) else 0
+public actual fun colorCorrectPalette(hdc: Hdc, hpal: Hpalette, defirst: UInt, num: UInt): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_colorCorrectPalette((hdc?.value ?: 0L).toString(), (hpal?.value ?: 0L).toString(), defirst.toInt(), num.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ColorMatchToTarget(hdc: HDC, hdctarget: HDC, action: COLOR_MATCH_TO_TARGET_ACTION): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_ColorMatchToTarget(hdc.toString(), hdctarget.toString(), action.toInt()) as Int) else 0
+public actual fun colorMatchToTarget(hdc: Hdc, hdctarget: Hdc, action: ColorMatchToTargetAction): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_colorMatchToTarget((hdc?.value ?: 0L).toString(), (hdctarget?.value ?: 0L).toString(), action.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ColorProfileAddDisplayAssociation(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: PCWSTR, targetadapterid: LUID, sourceid: UInt, setasdefault: BOOL, associateasadvancedcolor: BOOL): HRESULT =
-    0
+public actual fun colorProfileAddDisplayAssociation(scope: WcsProfileManagementScope, profilename: Pcwstr, targetadapterid: Luid, sourceid: UInt, setasdefault: Bool, associateasadvancedcolor: Bool): Hresult =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ColorProfileGetDisplayDefault(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: LUID, sourceid: UInt, profiletype: COLORPROFILETYPE, profilesubtype: COLORPROFILESUBTYPE, profilename: Long): HRESULT =
-    0
+public actual fun colorProfileGetDisplayDefault(scope: WcsProfileManagementScope, targetadapterid: Luid, sourceid: UInt, profiletype: Colorprofiletype, profilesubtype: Colorprofilesubtype, profilename: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ColorProfileGetDisplayList(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: LUID, sourceid: UInt, profilelist: Long, profilecount: Long): HRESULT =
-    0
+public actual fun colorProfileGetDisplayList(scope: WcsProfileManagementScope, targetadapterid: Luid, sourceid: UInt, profilelist: COpaquePointer?, profilecount: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ColorProfileGetDisplayUserScope(targetadapterid: LUID, sourceid: UInt, scope: Long): HRESULT =
-    0
+public actual fun colorProfileGetDisplayUserScope(targetadapterid: Luid, sourceid: UInt, scope: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ColorProfileRemoveDisplayAssociation(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: PCWSTR, targetadapterid: LUID, sourceid: UInt, dissociateadvancedcolor: BOOL): HRESULT =
-    0
+public actual fun colorProfileRemoveDisplayAssociation(scope: WcsProfileManagementScope, profilename: Pcwstr, targetadapterid: Luid, sourceid: UInt, dissociateadvancedcolor: Bool): Hresult =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ColorProfileSetDisplayDefaultAssociation(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: PCWSTR, profiletype: COLORPROFILETYPE, profilesubtype: COLORPROFILESUBTYPE, targetadapterid: LUID, sourceid: UInt): HRESULT =
-    0
+public actual fun colorProfileSetDisplayDefaultAssociation(scope: WcsProfileManagementScope, profilename: Pcwstr, profiletype: Colorprofiletype, profilesubtype: Colorprofilesubtype, targetadapterid: Luid, sourceid: UInt): Hresult =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ConvertColorNameToIndex(hprofile: Long, pacolorname: Long, paindex: Long, dwcount: UInt): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_ConvertColorNameToIndex(hprofile.toString(), pacolorname.toString(), paindex.toString(), dwcount.toInt()) as Int) else 0
+public actual fun convertColorNameToIndex(hprofile: Long, pacolorname: COpaquePointer?, paindex: COpaquePointer?, dwcount: UInt): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_convertColorNameToIndex(hprofile.toString(), (pacolorname?.value ?: 0L).toString(), (paindex?.value ?: 0L).toString(), dwcount.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ConvertIndexToColorName(hprofile: Long, paindex: Long, pacolorname: Long, dwcount: UInt): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_ConvertIndexToColorName(hprofile.toString(), paindex.toString(), pacolorname.toString(), dwcount.toInt()) as Int) else 0
+public actual fun convertIndexToColorName(hprofile: Long, paindex: COpaquePointer?, pacolorname: COpaquePointer?, dwcount: UInt): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_convertIndexToColorName(hprofile.toString(), (paindex?.value ?: 0L).toString(), (pacolorname?.value ?: 0L).toString(), dwcount.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateColorSpaceA(lplcs: Long): HCOLORSPACE =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_CreateColorSpaceA(lplcs.toString()) as String).toLong() else 0L
+public actual fun createColorSpaceA(lplcs: COpaquePointer?): Hcolorspace =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_createColorSpaceA((lplcs?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateColorSpaceW(lplcs: Long): HCOLORSPACE =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_CreateColorSpaceW(lplcs.toString()) as String).toLong() else 0L
+public actual fun createColorSpaceW(lplcs: COpaquePointer?): Hcolorspace =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_createColorSpaceW((lplcs?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateColorTransformA(plogcolorspace: Long, hdestprofile: Long, htargetprofile: Long, dwflags: UInt): Long =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_CreateColorTransformA(plogcolorspace.toString(), hdestprofile.toString(), htargetprofile.toString(), dwflags.toInt()) as String).toLong() else 0L
+public actual fun createColorTransformA(plogcolorspace: COpaquePointer?, hdestprofile: Long, htargetprofile: Long, dwflags: UInt): Long =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_createColorTransformA((plogcolorspace?.value ?: 0L).toString(), hdestprofile.toString(), htargetprofile.toString(), dwflags.toInt()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateColorTransformW(plogcolorspace: Long, hdestprofile: Long, htargetprofile: Long, dwflags: UInt): Long =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_CreateColorTransformW(plogcolorspace.toString(), hdestprofile.toString(), htargetprofile.toString(), dwflags.toInt()) as String).toLong() else 0L
+public actual fun createColorTransformW(plogcolorspace: COpaquePointer?, hdestprofile: Long, htargetprofile: Long, dwflags: UInt): Long =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_createColorTransformW((plogcolorspace?.value ?: 0L).toString(), hdestprofile.toString(), htargetprofile.toString(), dwflags.toInt()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateDeviceLinkProfile(hprofile: Long, nprofiles: UInt, padwintent: Long, nintents: UInt, dwflags: UInt, pprofiledata: Long, indexpreferredcmm: UInt): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_CreateDeviceLinkProfile(hprofile.toString(), nprofiles.toInt(), padwintent.toString(), nintents.toInt(), dwflags.toInt(), pprofiledata.toString(), indexpreferredcmm.toInt()) as Int) else 0
+public actual fun createDeviceLinkProfile(hprofile: COpaquePointer?, nprofiles: UInt, padwintent: COpaquePointer?, nintents: UInt, dwflags: UInt, pprofiledata: COpaquePointer?, indexpreferredcmm: UInt): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_createDeviceLinkProfile((hprofile?.value ?: 0L).toString(), nprofiles.toInt(), (padwintent?.value ?: 0L).toString(), nintents.toInt(), dwflags.toInt(), (pprofiledata?.value ?: 0L).toString(), indexpreferredcmm.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateMultiProfileTransform(pahprofiles: Long, nprofiles: UInt, padwintent: Long, nintents: UInt, dwflags: UInt, indexpreferredcmm: UInt): Long =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_CreateMultiProfileTransform(pahprofiles.toString(), nprofiles.toInt(), padwintent.toString(), nintents.toInt(), dwflags.toInt(), indexpreferredcmm.toInt()) as String).toLong() else 0L
+public actual fun createMultiProfileTransform(pahprofiles: COpaquePointer?, nprofiles: UInt, padwintent: COpaquePointer?, nintents: UInt, dwflags: UInt, indexpreferredcmm: UInt): Long =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_createMultiProfileTransform((pahprofiles?.value ?: 0L).toString(), nprofiles.toInt(), (padwintent?.value ?: 0L).toString(), nintents.toInt(), dwflags.toInt(), indexpreferredcmm.toInt()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateProfileFromLogColorSpaceA(plogcolorspace: Long, pprofile: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_CreateProfileFromLogColorSpaceA(plogcolorspace.toString(), pprofile.toString()) as Int) else 0
+public actual fun createProfileFromLogColorSpaceA(plogcolorspace: COpaquePointer?, pprofile: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_createProfileFromLogColorSpaceA((plogcolorspace?.value ?: 0L).toString(), (pprofile?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateProfileFromLogColorSpaceW(plogcolorspace: Long, pprofile: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_CreateProfileFromLogColorSpaceW(plogcolorspace.toString(), pprofile.toString()) as Int) else 0
+public actual fun createProfileFromLogColorSpaceW(plogcolorspace: COpaquePointer?, pprofile: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_createProfileFromLogColorSpaceW((plogcolorspace?.value ?: 0L).toString(), (pprofile?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteColorSpace(hcs: HCOLORSPACE): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_DeleteColorSpace(hcs.toString()) as Int) else 0
+public actual fun deleteColorSpace(hcs: Hcolorspace): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_deleteColorSpace((hcs?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteColorTransform(hxform: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_DeleteColorTransform(hxform.toString()) as Int) else 0
+public actual fun deleteColorTransform(hxform: Long): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_deleteColorTransform(hxform.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DisassociateColorProfileFromDeviceA(pmachinename: PCSTR, pprofilename: PCSTR, pdevicename: PCSTR): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_DisassociateColorProfileFromDeviceA(pmachinename.toString(), pprofilename.toString(), pdevicename.toString()) as Int) else 0
+public actual fun disassociateColorProfileFromDeviceA(pmachinename: Pcstr, pprofilename: Pcstr, pdevicename: Pcstr): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_disassociateColorProfileFromDeviceA((pmachinename?.value ?: 0L).toString(), (pprofilename?.value ?: 0L).toString(), (pdevicename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DisassociateColorProfileFromDeviceW(pmachinename: PCWSTR, pprofilename: PCWSTR, pdevicename: PCWSTR): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_DisassociateColorProfileFromDeviceW(pmachinename.toString(), pprofilename.toString(), pdevicename.toString()) as Int) else 0
+public actual fun disassociateColorProfileFromDeviceW(pmachinename: Pcwstr, pprofilename: Pcwstr, pdevicename: Pcwstr): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_disassociateColorProfileFromDeviceW((pmachinename?.value ?: 0L).toString(), (pprofilename?.value ?: 0L).toString(), (pdevicename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumColorProfilesA(pmachinename: PCSTR, penumrecord: Long, penumerationbuffer: Long, pdwsizeofenumerationbuffer: Long, pnprofiles: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_EnumColorProfilesA(pmachinename.toString(), penumrecord.toString(), penumerationbuffer.toString(), pdwsizeofenumerationbuffer.toString(), pnprofiles.toString()) as Int) else 0
+public actual fun enumColorProfilesA(pmachinename: Pcstr, penumrecord: COpaquePointer?, penumerationbuffer: COpaquePointer?, pdwsizeofenumerationbuffer: COpaquePointer?, pnprofiles: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_enumColorProfilesA((pmachinename?.value ?: 0L).toString(), (penumrecord?.value ?: 0L).toString(), (penumerationbuffer?.value ?: 0L).toString(), (pdwsizeofenumerationbuffer?.value ?: 0L).toString(), (pnprofiles?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumColorProfilesW(pmachinename: PCWSTR, penumrecord: Long, penumerationbuffer: Long, pdwsizeofenumerationbuffer: Long, pnprofiles: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_EnumColorProfilesW(pmachinename.toString(), penumrecord.toString(), penumerationbuffer.toString(), pdwsizeofenumerationbuffer.toString(), pnprofiles.toString()) as Int) else 0
+public actual fun enumColorProfilesW(pmachinename: Pcwstr, penumrecord: COpaquePointer?, penumerationbuffer: COpaquePointer?, pdwsizeofenumerationbuffer: COpaquePointer?, pnprofiles: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_enumColorProfilesW((pmachinename?.value ?: 0L).toString(), (penumrecord?.value ?: 0L).toString(), (penumerationbuffer?.value ?: 0L).toString(), (pdwsizeofenumerationbuffer?.value ?: 0L).toString(), (pnprofiles?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumICMProfilesA(hdc: HDC, proc: ICMENUMPROCA, param2: LPARAM): Int =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_EnumICMProfilesA(hdc.toString(), proc.toLong().toString(), param2.toString()) as Int) else 0
+public actual fun enumICMProfilesA(hdc: Hdc, proc: Icmenumproca, param2: Lparam): Int =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_enumICMProfilesA((hdc?.value ?: 0L).toString(), 0L.toString(), param2.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumICMProfilesW(hdc: HDC, proc: ICMENUMPROCW, param2: LPARAM): Int =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_EnumICMProfilesW(hdc.toString(), proc.toLong().toString(), param2.toString()) as Int) else 0
+public actual fun enumICMProfilesW(hdc: Hdc, proc: Icmenumprocw, param2: Lparam): Int =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_enumICMProfilesW((hdc?.value ?: 0L).toString(), 0L.toString(), param2.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCMMInfo(hcolortransform: Long, param1: UInt): UInt =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_GetCMMInfo(hcolortransform.toString(), param1.toInt()) as Int).toUInt() else 0u
+public actual fun getCMMInfo(hcolortransform: Long, param1: UInt): UInt =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_getCMMInfo(hcolortransform.toString(), param1.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetColorDirectoryA(pmachinename: PCSTR, pbuffer: PSTR, pdwsize: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_GetColorDirectoryA(pmachinename.toString(), pbuffer.toString(), pdwsize.toString()) as Int) else 0
+public actual fun getColorDirectoryA(pmachinename: Pcstr, pbuffer: Pstr, pdwsize: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_getColorDirectoryA((pmachinename?.value ?: 0L).toString(), (pbuffer?.value ?: 0L).toString(), (pdwsize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetColorDirectoryW(pmachinename: PCWSTR, pbuffer: PWSTR, pdwsize: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_GetColorDirectoryW(pmachinename.toString(), pbuffer.toString(), pdwsize.toString()) as Int) else 0
+public actual fun getColorDirectoryW(pmachinename: Pcwstr, pbuffer: Pwstr, pdwsize: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_getColorDirectoryW((pmachinename?.value ?: 0L).toString(), (pbuffer?.value ?: 0L).toString(), (pdwsize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetColorProfileElement(hprofile: Long, tag: UInt, dwoffset: UInt, pcbelement: Long, pelement: Long, pbreference: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_GetColorProfileElement(hprofile.toString(), tag.toInt(), dwoffset.toInt(), pcbelement.toString(), pelement.toString(), pbreference.toString()) as Int) else 0
+public actual fun getColorProfileElement(hprofile: Long, tag: UInt, dwoffset: UInt, pcbelement: COpaquePointer?, pelement: COpaquePointer?, pbreference: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_getColorProfileElement(hprofile.toString(), tag.toInt(), dwoffset.toInt(), (pcbelement?.value ?: 0L).toString(), (pelement?.value ?: 0L).toString(), (pbreference?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetColorProfileElementTag(hprofile: Long, dwindex: UInt, ptag: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_GetColorProfileElementTag(hprofile.toString(), dwindex.toInt(), ptag.toString()) as Int) else 0
+public actual fun getColorProfileElementTag(hprofile: Long, dwindex: UInt, ptag: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_getColorProfileElementTag(hprofile.toString(), dwindex.toInt(), (ptag?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetColorProfileFromHandle(hprofile: Long, pprofile: Long, pcbprofile: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_GetColorProfileFromHandle(hprofile.toString(), pprofile.toString(), pcbprofile.toString()) as Int) else 0
+public actual fun getColorProfileFromHandle(hprofile: Long, pprofile: COpaquePointer?, pcbprofile: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_getColorProfileFromHandle(hprofile.toString(), (pprofile?.value ?: 0L).toString(), (pcbprofile?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetColorProfileHeader(hprofile: Long, pheader: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_GetColorProfileHeader(hprofile.toString(), pheader.toString()) as Int) else 0
+public actual fun getColorProfileHeader(hprofile: Long, pheader: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_getColorProfileHeader(hprofile.toString(), (pheader?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetColorSpace(hdc: HDC): HCOLORSPACE =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_GetColorSpace(hdc.toString()) as String).toLong() else 0L
+public actual fun getColorSpace(hdc: Hdc): Hcolorspace =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_getColorSpace((hdc?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCountColorProfileElements(hprofile: Long, pnelementcount: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_GetCountColorProfileElements(hprofile.toString(), pnelementcount.toString()) as Int) else 0
+public actual fun getCountColorProfileElements(hprofile: Long, pnelementcount: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_getCountColorProfileElements(hprofile.toString(), (pnelementcount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetDeviceGammaRamp(hdc: HDC, lpramp: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_GetDeviceGammaRamp(hdc.toString(), lpramp.toString()) as Int) else 0
+public actual fun getDeviceGammaRamp(hdc: Hdc, lpramp: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_getDeviceGammaRamp((hdc?.value ?: 0L).toString(), (lpramp?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetICMProfileA(hdc: HDC, pbufsize: Long, pszfilename: PSTR): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_GetICMProfileA(hdc.toString(), pbufsize.toString(), pszfilename.toString()) as Int) else 0
+public actual fun getICMProfileA(hdc: Hdc, pbufsize: COpaquePointer?, pszfilename: Pstr): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_getICMProfileA((hdc?.value ?: 0L).toString(), (pbufsize?.value ?: 0L).toString(), (pszfilename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetICMProfileW(hdc: HDC, pbufsize: Long, pszfilename: PWSTR): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_GetICMProfileW(hdc.toString(), pbufsize.toString(), pszfilename.toString()) as Int) else 0
+public actual fun getICMProfileW(hdc: Hdc, pbufsize: COpaquePointer?, pszfilename: Pwstr): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_getICMProfileW((hdc?.value ?: 0L).toString(), (pbufsize?.value ?: 0L).toString(), (pszfilename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetLogColorSpaceA(hcolorspace: HCOLORSPACE, lpbuffer: Long, nsize: UInt): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_GetLogColorSpaceA(hcolorspace.toString(), lpbuffer.toString(), nsize.toInt()) as Int) else 0
+public actual fun getLogColorSpaceA(hcolorspace: Hcolorspace, lpbuffer: COpaquePointer?, nsize: UInt): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_getLogColorSpaceA((hcolorspace?.value ?: 0L).toString(), (lpbuffer?.value ?: 0L).toString(), nsize.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetLogColorSpaceW(hcolorspace: HCOLORSPACE, lpbuffer: Long, nsize: UInt): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_GetLogColorSpaceW(hcolorspace.toString(), lpbuffer.toString(), nsize.toInt()) as Int) else 0
+public actual fun getLogColorSpaceW(hcolorspace: Hcolorspace, lpbuffer: COpaquePointer?, nsize: UInt): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_getLogColorSpaceW((hcolorspace?.value ?: 0L).toString(), (lpbuffer?.value ?: 0L).toString(), nsize.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetNamedProfileInfo(hprofile: Long, pnamedprofileinfo: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_GetNamedProfileInfo(hprofile.toString(), pnamedprofileinfo.toString()) as Int) else 0
+public actual fun getNamedProfileInfo(hprofile: Long, pnamedprofileinfo: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_getNamedProfileInfo(hprofile.toString(), (pnamedprofileinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPS2ColorRenderingDictionary(hprofile: Long, dwintent: UInt, pps2colorrenderingdictionary: Long, pcbps2colorrenderingdictionary: Long, pbbinary: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_GetPS2ColorRenderingDictionary(hprofile.toString(), dwintent.toInt(), pps2colorrenderingdictionary.toString(), pcbps2colorrenderingdictionary.toString(), pbbinary.toString()) as Int) else 0
+public actual fun getPS2ColorRenderingDictionary(hprofile: Long, dwintent: UInt, pps2colorrenderingdictionary: COpaquePointer?, pcbps2colorrenderingdictionary: COpaquePointer?, pbbinary: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_getPS2ColorRenderingDictionary(hprofile.toString(), dwintent.toInt(), (pps2colorrenderingdictionary?.value ?: 0L).toString(), (pcbps2colorrenderingdictionary?.value ?: 0L).toString(), (pbbinary?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPS2ColorRenderingIntent(hprofile: Long, dwintent: UInt, pbuffer: Long, pcbps2colorrenderingintent: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_GetPS2ColorRenderingIntent(hprofile.toString(), dwintent.toInt(), pbuffer.toString(), pcbps2colorrenderingintent.toString()) as Int) else 0
+public actual fun getPS2ColorRenderingIntent(hprofile: Long, dwintent: UInt, pbuffer: COpaquePointer?, pcbps2colorrenderingintent: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_getPS2ColorRenderingIntent(hprofile.toString(), dwintent.toInt(), (pbuffer?.value ?: 0L).toString(), (pcbps2colorrenderingintent?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPS2ColorSpaceArray(hprofile: Long, dwintent: UInt, dwcsatype: UInt, pps2colorspacearray: Long, pcbps2colorspacearray: Long, pbbinary: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_GetPS2ColorSpaceArray(hprofile.toString(), dwintent.toInt(), dwcsatype.toInt(), pps2colorspacearray.toString(), pcbps2colorspacearray.toString(), pbbinary.toString()) as Int) else 0
+public actual fun getPS2ColorSpaceArray(hprofile: Long, dwintent: UInt, dwcsatype: UInt, pps2colorspacearray: COpaquePointer?, pcbps2colorspacearray: COpaquePointer?, pbbinary: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_getPS2ColorSpaceArray(hprofile.toString(), dwintent.toInt(), dwcsatype.toInt(), (pps2colorspacearray?.value ?: 0L).toString(), (pcbps2colorspacearray?.value ?: 0L).toString(), (pbbinary?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetStandardColorSpaceProfileA(pmachinename: PCSTR, dwscs: UInt, pbuffer: PSTR, pcbsize: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_GetStandardColorSpaceProfileA(pmachinename.toString(), dwscs.toInt(), pbuffer.toString(), pcbsize.toString()) as Int) else 0
+public actual fun getStandardColorSpaceProfileA(pmachinename: Pcstr, dwscs: UInt, pbuffer: Pstr, pcbsize: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_getStandardColorSpaceProfileA((pmachinename?.value ?: 0L).toString(), dwscs.toInt(), (pbuffer?.value ?: 0L).toString(), (pcbsize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetStandardColorSpaceProfileW(pmachinename: PCWSTR, dwscs: UInt, pbuffer: PWSTR, pcbsize: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_GetStandardColorSpaceProfileW(pmachinename.toString(), dwscs.toInt(), pbuffer.toString(), pcbsize.toString()) as Int) else 0
+public actual fun getStandardColorSpaceProfileW(pmachinename: Pcwstr, dwscs: UInt, pbuffer: Pwstr, pcbsize: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_getStandardColorSpaceProfileW((pmachinename?.value ?: 0L).toString(), dwscs.toInt(), (pbuffer?.value ?: 0L).toString(), (pcbsize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InstallColorProfileA(pmachinename: PCSTR, pprofilename: PCSTR): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_InstallColorProfileA(pmachinename.toString(), pprofilename.toString()) as Int) else 0
+public actual fun installColorProfileA(pmachinename: Pcstr, pprofilename: Pcstr): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_installColorProfileA((pmachinename?.value ?: 0L).toString(), (pprofilename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InstallColorProfileW(pmachinename: PCWSTR, pprofilename: PCWSTR): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_InstallColorProfileW(pmachinename.toString(), pprofilename.toString()) as Int) else 0
+public actual fun installColorProfileW(pmachinename: Pcwstr, pprofilename: Pcwstr): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_installColorProfileW((pmachinename?.value ?: 0L).toString(), (pprofilename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsColorProfileTagPresent(hprofile: Long, tag: UInt, pbpresent: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_IsColorProfileTagPresent(hprofile.toString(), tag.toInt(), pbpresent.toString()) as Int) else 0
+public actual fun isColorProfileTagPresent(hprofile: Long, tag: UInt, pbpresent: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_isColorProfileTagPresent(hprofile.toString(), tag.toInt(), (pbpresent?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsColorProfileValid(hprofile: Long, pbvalid: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_IsColorProfileValid(hprofile.toString(), pbvalid.toString()) as Int) else 0
+public actual fun isColorProfileValid(hprofile: Long, pbvalid: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_isColorProfileValid(hprofile.toString(), (pbvalid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenColorProfileA(pprofile: Long, dwdesiredaccess: UInt, dwsharemode: UInt, dwcreationmode: UInt): Long =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_OpenColorProfileA(pprofile.toString(), dwdesiredaccess.toInt(), dwsharemode.toInt(), dwcreationmode.toInt()) as String).toLong() else 0L
+public actual fun openColorProfileA(pprofile: COpaquePointer?, dwdesiredaccess: UInt, dwsharemode: UInt, dwcreationmode: UInt): Long =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_openColorProfileA((pprofile?.value ?: 0L).toString(), dwdesiredaccess.toInt(), dwsharemode.toInt(), dwcreationmode.toInt()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenColorProfileW(pprofile: Long, dwdesiredaccess: UInt, dwsharemode: UInt, dwcreationmode: UInt): Long =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_OpenColorProfileW(pprofile.toString(), dwdesiredaccess.toInt(), dwsharemode.toInt(), dwcreationmode.toInt()) as String).toLong() else 0L
+public actual fun openColorProfileW(pprofile: COpaquePointer?, dwdesiredaccess: UInt, dwsharemode: UInt, dwcreationmode: UInt): Long =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_openColorProfileW((pprofile?.value ?: 0L).toString(), dwdesiredaccess.toInt(), dwsharemode.toInt(), dwcreationmode.toInt()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RegisterCMMA(pmachinename: PCSTR, cmmid: UInt, pcmmdll: PCSTR): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_RegisterCMMA(pmachinename.toString(), cmmid.toInt(), pcmmdll.toString()) as Int) else 0
+public actual fun registerCMMA(pmachinename: Pcstr, cmmid: UInt, pcmmdll: Pcstr): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_registerCMMA((pmachinename?.value ?: 0L).toString(), cmmid.toInt(), (pcmmdll?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RegisterCMMW(pmachinename: PCWSTR, cmmid: UInt, pcmmdll: PCWSTR): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_RegisterCMMW(pmachinename.toString(), cmmid.toInt(), pcmmdll.toString()) as Int) else 0
+public actual fun registerCMMW(pmachinename: Pcwstr, cmmid: UInt, pcmmdll: Pcwstr): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_registerCMMW((pmachinename?.value ?: 0L).toString(), cmmid.toInt(), (pcmmdll?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SelectCMM(dwcmmtype: UInt): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_SelectCMM(dwcmmtype.toInt()) as Int) else 0
+public actual fun selectCMM(dwcmmtype: UInt): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_selectCMM(dwcmmtype.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetColorProfileElement(hprofile: Long, tag: UInt, dwoffset: UInt, pcbelement: Long, pelement: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_SetColorProfileElement(hprofile.toString(), tag.toInt(), dwoffset.toInt(), pcbelement.toString(), pelement.toString()) as Int) else 0
+public actual fun setColorProfileElement(hprofile: Long, tag: UInt, dwoffset: UInt, pcbelement: COpaquePointer?, pelement: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_setColorProfileElement(hprofile.toString(), tag.toInt(), dwoffset.toInt(), (pcbelement?.value ?: 0L).toString(), (pelement?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetColorProfileElementReference(hprofile: Long, newtag: UInt, reftag: UInt): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_SetColorProfileElementReference(hprofile.toString(), newtag.toInt(), reftag.toInt()) as Int) else 0
+public actual fun setColorProfileElementReference(hprofile: Long, newtag: UInt, reftag: UInt): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_setColorProfileElementReference(hprofile.toString(), newtag.toInt(), reftag.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetColorProfileElementSize(hprofile: Long, tagtype: UInt, pcbelement: UInt): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_SetColorProfileElementSize(hprofile.toString(), tagtype.toInt(), pcbelement.toInt()) as Int) else 0
+public actual fun setColorProfileElementSize(hprofile: Long, tagtype: UInt, pcbelement: UInt): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_setColorProfileElementSize(hprofile.toString(), tagtype.toInt(), pcbelement.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetColorProfileHeader(hprofile: Long, pheader: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_SetColorProfileHeader(hprofile.toString(), pheader.toString()) as Int) else 0
+public actual fun setColorProfileHeader(hprofile: Long, pheader: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_setColorProfileHeader(hprofile.toString(), (pheader?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetColorSpace(hdc: HDC, hcs: HCOLORSPACE): HCOLORSPACE =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_SetColorSpace(hdc.toString(), hcs.toString()) as String).toLong() else 0L
+public actual fun setColorSpace(hdc: Hdc, hcs: Hcolorspace): Hcolorspace =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_setColorSpace((hdc?.value ?: 0L).toString(), (hcs?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetDeviceGammaRamp(hdc: HDC, lpramp: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_SetDeviceGammaRamp(hdc.toString(), lpramp.toString()) as Int) else 0
+public actual fun setDeviceGammaRamp(hdc: Hdc, lpramp: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_setDeviceGammaRamp((hdc?.value ?: 0L).toString(), (lpramp?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetICMMode(hdc: HDC, mode: ICM_MODE): Int =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_SetICMMode(hdc.toString(), mode) as Int) else 0
+public actual fun setICMMode(hdc: Hdc, mode: IcmMode): Int =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_setICMMode((hdc?.value ?: 0L).toString(), mode) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetICMProfileA(hdc: HDC, lpfilename: PCSTR): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_SetICMProfileA(hdc.toString(), lpfilename.toString()) as Int) else 0
+public actual fun setICMProfileA(hdc: Hdc, lpfilename: Pcstr): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_setICMProfileA((hdc?.value ?: 0L).toString(), (lpfilename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetICMProfileW(hdc: HDC, lpfilename: PCWSTR): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_SetICMProfileW(hdc.toString(), lpfilename.toString()) as Int) else 0
+public actual fun setICMProfileW(hdc: Hdc, lpfilename: Pcwstr): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_setICMProfileW((hdc?.value ?: 0L).toString(), (lpfilename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetStandardColorSpaceProfileA(pmachinename: PCSTR, dwprofileid: UInt, pprofilename: PCSTR): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_SetStandardColorSpaceProfileA(pmachinename.toString(), dwprofileid.toInt(), pprofilename.toString()) as Int) else 0
+public actual fun setStandardColorSpaceProfileA(pmachinename: Pcstr, dwprofileid: UInt, pprofilename: Pcstr): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_setStandardColorSpaceProfileA((pmachinename?.value ?: 0L).toString(), dwprofileid.toInt(), (pprofilename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetStandardColorSpaceProfileW(pmachinename: PCWSTR, dwprofileid: UInt, pprofilename: PCWSTR): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_SetStandardColorSpaceProfileW(pmachinename.toString(), dwprofileid.toInt(), pprofilename.toString()) as Int) else 0
+public actual fun setStandardColorSpaceProfileW(pmachinename: Pcwstr, dwprofileid: UInt, pprofilename: Pcwstr): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_setStandardColorSpaceProfileW((pmachinename?.value ?: 0L).toString(), dwprofileid.toInt(), (pprofilename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetupColorMatchingA(pcms: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_SetupColorMatchingA(pcms.toString()) as Int) else 0
+public actual fun setupColorMatchingA(pcms: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_setupColorMatchingA((pcms?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetupColorMatchingW(pcms: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_SetupColorMatchingW(pcms.toString()) as Int) else 0
+public actual fun setupColorMatchingW(pcms: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_setupColorMatchingW((pcms?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TranslateBitmapBits(hcolortransform: Long, psrcbits: Long, bminput: BMFORMAT, dwwidth: UInt, dwheight: UInt, dwinputstride: UInt, pdestbits: Long, bmoutput: BMFORMAT, dwoutputstride: UInt, pfncallback: LPBMCALLBACKFN, ulcallbackdata: LPARAM): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_TranslateBitmapBits(hcolortransform.toString(), psrcbits.toString(), bminput, dwwidth.toInt(), dwheight.toInt(), dwinputstride.toInt(), pdestbits.toString(), bmoutput, dwoutputstride.toInt(), pfncallback.toLong().toString(), ulcallbackdata.toString()) as Int) else 0
+public actual fun translateBitmapBits(hcolortransform: Long, psrcbits: COpaquePointer?, bminput: Bmformat, dwwidth: UInt, dwheight: UInt, dwinputstride: UInt, pdestbits: COpaquePointer?, bmoutput: Bmformat, dwoutputstride: UInt, pfncallback: Lpbmcallbackfn, ulcallbackdata: Lparam): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_translateBitmapBits(hcolortransform.toString(), (psrcbits?.value ?: 0L).toString(), bminput, dwwidth.toInt(), dwheight.toInt(), dwinputstride.toInt(), (pdestbits?.value ?: 0L).toString(), bmoutput, dwoutputstride.toInt(), 0L.toString(), ulcallbackdata.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TranslateColors(hcolortransform: Long, painputcolors: Long, ncolors: UInt, ctinput: COLORTYPE, paoutputcolors: Long, ctoutput: COLORTYPE): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_TranslateColors(hcolortransform.toString(), painputcolors.toString(), ncolors.toInt(), ctinput, paoutputcolors.toString(), ctoutput) as Int) else 0
+public actual fun translateColors(hcolortransform: Long, painputcolors: COpaquePointer?, ncolors: UInt, ctinput: Colortype, paoutputcolors: COpaquePointer?, ctoutput: Colortype): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_translateColors(hcolortransform.toString(), (painputcolors?.value ?: 0L).toString(), ncolors.toInt(), ctinput, (paoutputcolors?.value ?: 0L).toString(), ctoutput) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UninstallColorProfileA(pmachinename: PCSTR, pprofilename: PCSTR, bdelete: BOOL): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_UninstallColorProfileA(pmachinename.toString(), pprofilename.toString(), bdelete) as Int) else 0
+public actual fun uninstallColorProfileA(pmachinename: Pcstr, pprofilename: Pcstr, bdelete: Bool): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_uninstallColorProfileA((pmachinename?.value ?: 0L).toString(), (pprofilename?.value ?: 0L).toString(), bdelete) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UninstallColorProfileW(pmachinename: PCWSTR, pprofilename: PCWSTR, bdelete: BOOL): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_UninstallColorProfileW(pmachinename.toString(), pprofilename.toString(), bdelete) as Int) else 0
+public actual fun uninstallColorProfileW(pmachinename: Pcwstr, pprofilename: Pcwstr, bdelete: Bool): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_uninstallColorProfileW((pmachinename?.value ?: 0L).toString(), (pprofilename?.value ?: 0L).toString(), bdelete) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UnregisterCMMA(pmachinename: PCSTR, cmmid: UInt): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_UnregisterCMMA(pmachinename.toString(), cmmid.toInt()) as Int) else 0
+public actual fun unregisterCMMA(pmachinename: Pcstr, cmmid: UInt): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_unregisterCMMA((pmachinename?.value ?: 0L).toString(), cmmid.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UnregisterCMMW(pmachinename: PCWSTR, cmmid: UInt): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_UnregisterCMMW(pmachinename.toString(), cmmid.toInt()) as Int) else 0
+public actual fun unregisterCMMW(pmachinename: Pcwstr, cmmid: UInt): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_unregisterCMMW((pmachinename?.value ?: 0L).toString(), cmmid.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UpdateICMRegKeyA(reserved: UInt, lpszcmid: PCSTR, lpszfilename: PCSTR, command: ICM_COMMAND): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_UpdateICMRegKeyA(reserved.toInt(), lpszcmid.toString(), lpszfilename.toString(), command.toInt()) as Int) else 0
+public actual fun updateICMRegKeyA(reserved: UInt, lpszcmid: Pcstr, lpszfilename: Pcstr, command: IcmCommand): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_updateICMRegKeyA(reserved.toInt(), (lpszcmid?.value ?: 0L).toString(), (lpszfilename?.value ?: 0L).toString(), command.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UpdateICMRegKeyW(reserved: UInt, lpszcmid: PCWSTR, lpszfilename: PCWSTR, command: ICM_COMMAND): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_UpdateICMRegKeyW(reserved.toInt(), lpszcmid.toString(), lpszfilename.toString(), command.toInt()) as Int) else 0
+public actual fun updateICMRegKeyW(reserved: UInt, lpszcmid: Pcwstr, lpszfilename: Pcwstr, command: IcmCommand): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_updateICMRegKeyW(reserved.toInt(), (lpszcmid?.value ?: 0L).toString(), (lpszfilename?.value ?: 0L).toString(), command.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WcsAssociateColorProfileWithDevice(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pprofilename: PCWSTR, pdevicename: PCWSTR): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_WcsAssociateColorProfileWithDevice(scope, pprofilename.toString(), pdevicename.toString()) as Int) else 0
+public actual fun wcsAssociateColorProfileWithDevice(scope: WcsProfileManagementScope, pprofilename: Pcwstr, pdevicename: Pcwstr): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_wcsAssociateColorProfileWithDevice(scope, (pprofilename?.value ?: 0L).toString(), (pdevicename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WcsCheckColors(hcolortransform: Long, ncolors: UInt, ninputchannels: UInt, cdtinput: COLORDATATYPE, cbinput: UInt, pinputdata: Long, paresult: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_WcsCheckColors(hcolortransform.toString(), ncolors.toInt(), ninputchannels.toInt(), cdtinput, cbinput.toInt(), pinputdata.toString(), paresult.toString()) as Int) else 0
+public actual fun wcsCheckColors(hcolortransform: Long, ncolors: UInt, ninputchannels: UInt, cdtinput: Colordatatype, cbinput: UInt, pinputdata: COpaquePointer?, paresult: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_wcsCheckColors(hcolortransform.toString(), ncolors.toInt(), ninputchannels.toInt(), cdtinput, cbinput.toInt(), (pinputdata?.value ?: 0L).toString(), (paresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WcsCreateIccProfile(hwcsprofile: Long, dwoptions: UInt): Long =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_WcsCreateIccProfile(hwcsprofile.toString(), dwoptions.toInt()) as String).toLong() else 0L
+public actual fun wcsCreateIccProfile(hwcsprofile: Long, dwoptions: UInt): Long =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_wcsCreateIccProfile(hwcsprofile.toString(), dwoptions.toInt()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WcsDisassociateColorProfileFromDevice(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pprofilename: PCWSTR, pdevicename: PCWSTR): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_WcsDisassociateColorProfileFromDevice(scope, pprofilename.toString(), pdevicename.toString()) as Int) else 0
+public actual fun wcsDisassociateColorProfileFromDevice(scope: WcsProfileManagementScope, pprofilename: Pcwstr, pdevicename: Pcwstr): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_wcsDisassociateColorProfileFromDevice(scope, (pprofilename?.value ?: 0L).toString(), (pdevicename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WcsEnumColorProfiles(scope: WCS_PROFILE_MANAGEMENT_SCOPE, penumrecord: Long, pbuffer: Long, dwsize: UInt, pnprofiles: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_WcsEnumColorProfiles(scope, penumrecord.toString(), pbuffer.toString(), dwsize.toInt(), pnprofiles.toString()) as Int) else 0
+public actual fun wcsEnumColorProfiles(scope: WcsProfileManagementScope, penumrecord: COpaquePointer?, pbuffer: COpaquePointer?, dwsize: UInt, pnprofiles: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_wcsEnumColorProfiles(scope, (penumrecord?.value ?: 0L).toString(), (pbuffer?.value ?: 0L).toString(), dwsize.toInt(), (pnprofiles?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WcsEnumColorProfilesSize(scope: WCS_PROFILE_MANAGEMENT_SCOPE, penumrecord: Long, pdwsize: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_WcsEnumColorProfilesSize(scope, penumrecord.toString(), pdwsize.toString()) as Int) else 0
+public actual fun wcsEnumColorProfilesSize(scope: WcsProfileManagementScope, penumrecord: COpaquePointer?, pdwsize: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_wcsEnumColorProfilesSize(scope, (penumrecord?.value ?: 0L).toString(), (pdwsize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WcsGetCalibrationManagementState(pbisenabled: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_WcsGetCalibrationManagementState(pbisenabled.toString()) as Int) else 0
+public actual fun wcsGetCalibrationManagementState(pbisenabled: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_wcsGetCalibrationManagementState((pbisenabled?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WcsGetDefaultColorProfile(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename: PCWSTR, cptcolorprofiletype: COLORPROFILETYPE, cpstcolorprofilesubtype: COLORPROFILESUBTYPE, dwprofileid: UInt, cbprofilename: UInt, pprofilename: PWSTR): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_WcsGetDefaultColorProfile(scope, pdevicename.toString(), cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid.toInt(), cbprofilename.toInt(), pprofilename.toString()) as Int) else 0
+public actual fun wcsGetDefaultColorProfile(scope: WcsProfileManagementScope, pdevicename: Pcwstr, cptcolorprofiletype: Colorprofiletype, cpstcolorprofilesubtype: Colorprofilesubtype, dwprofileid: UInt, cbprofilename: UInt, pprofilename: Pwstr): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_wcsGetDefaultColorProfile(scope, (pdevicename?.value ?: 0L).toString(), cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid.toInt(), cbprofilename.toInt(), (pprofilename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WcsGetDefaultColorProfileSize(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename: PCWSTR, cptcolorprofiletype: COLORPROFILETYPE, cpstcolorprofilesubtype: COLORPROFILESUBTYPE, dwprofileid: UInt, pcbprofilename: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_WcsGetDefaultColorProfileSize(scope, pdevicename.toString(), cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid.toInt(), pcbprofilename.toString()) as Int) else 0
+public actual fun wcsGetDefaultColorProfileSize(scope: WcsProfileManagementScope, pdevicename: Pcwstr, cptcolorprofiletype: Colorprofiletype, cpstcolorprofilesubtype: Colorprofilesubtype, dwprofileid: UInt, pcbprofilename: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_wcsGetDefaultColorProfileSize(scope, (pdevicename?.value ?: 0L).toString(), cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid.toInt(), (pcbprofilename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WcsGetDefaultRenderingIntent(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdwrenderingintent: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_WcsGetDefaultRenderingIntent(scope, pdwrenderingintent.toString()) as Int) else 0
+public actual fun wcsGetDefaultRenderingIntent(scope: WcsProfileManagementScope, pdwrenderingintent: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_wcsGetDefaultRenderingIntent(scope, (pdwrenderingintent?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WcsGetUsePerUserProfiles(pdevicename: PCWSTR, dwdeviceclass: UInt, puseperuserprofiles: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_WcsGetUsePerUserProfiles(pdevicename.toString(), dwdeviceclass.toInt(), puseperuserprofiles.toString()) as Int) else 0
+public actual fun wcsGetUsePerUserProfiles(pdevicename: Pcwstr, dwdeviceclass: UInt, puseperuserprofiles: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_wcsGetUsePerUserProfiles((pdevicename?.value ?: 0L).toString(), dwdeviceclass.toInt(), (puseperuserprofiles?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WcsOpenColorProfileA(pcdmpprofile: Long, pcampprofile: Long, pgmmpprofile: Long, dwdesireaccess: UInt, dwsharemode: UInt, dwcreationmode: UInt, dwflags: UInt): Long =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_WcsOpenColorProfileA(pcdmpprofile.toString(), pcampprofile.toString(), pgmmpprofile.toString(), dwdesireaccess.toInt(), dwsharemode.toInt(), dwcreationmode.toInt(), dwflags.toInt()) as String).toLong() else 0L
+public actual fun wcsOpenColorProfileA(pcdmpprofile: COpaquePointer?, pcampprofile: COpaquePointer?, pgmmpprofile: COpaquePointer?, dwdesireaccess: UInt, dwsharemode: UInt, dwcreationmode: UInt, dwflags: UInt): Long =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_wcsOpenColorProfileA((pcdmpprofile?.value ?: 0L).toString(), (pcampprofile?.value ?: 0L).toString(), (pgmmpprofile?.value ?: 0L).toString(), dwdesireaccess.toInt(), dwsharemode.toInt(), dwcreationmode.toInt(), dwflags.toInt()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WcsOpenColorProfileW(pcdmpprofile: Long, pcampprofile: Long, pgmmpprofile: Long, dwdesireaccess: UInt, dwsharemode: UInt, dwcreationmode: UInt, dwflags: UInt): Long =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_WcsOpenColorProfileW(pcdmpprofile.toString(), pcampprofile.toString(), pgmmpprofile.toString(), dwdesireaccess.toInt(), dwsharemode.toInt(), dwcreationmode.toInt(), dwflags.toInt()) as String).toLong() else 0L
+public actual fun wcsOpenColorProfileW(pcdmpprofile: COpaquePointer?, pcampprofile: COpaquePointer?, pgmmpprofile: COpaquePointer?, dwdesireaccess: UInt, dwsharemode: UInt, dwcreationmode: UInt, dwflags: UInt): Long =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_wcsOpenColorProfileW((pcdmpprofile?.value ?: 0L).toString(), (pcampprofile?.value ?: 0L).toString(), (pgmmpprofile?.value ?: 0L).toString(), dwdesireaccess.toInt(), dwsharemode.toInt(), dwcreationmode.toInt(), dwflags.toInt()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WcsSetCalibrationManagementState(bisenabled: BOOL): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_WcsSetCalibrationManagementState(bisenabled) as Int) else 0
+public actual fun wcsSetCalibrationManagementState(bisenabled: Bool): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_wcsSetCalibrationManagementState(bisenabled) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WcsSetDefaultColorProfile(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename: PCWSTR, cptcolorprofiletype: COLORPROFILETYPE, cpstcolorprofilesubtype: COLORPROFILESUBTYPE, dwprofileid: UInt, pprofilename: PCWSTR): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_WcsSetDefaultColorProfile(scope, pdevicename.toString(), cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid.toInt(), pprofilename.toString()) as Int) else 0
+public actual fun wcsSetDefaultColorProfile(scope: WcsProfileManagementScope, pdevicename: Pcwstr, cptcolorprofiletype: Colorprofiletype, cpstcolorprofilesubtype: Colorprofilesubtype, dwprofileid: UInt, pprofilename: Pcwstr): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_wcsSetDefaultColorProfile(scope, (pdevicename?.value ?: 0L).toString(), cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid.toInt(), (pprofilename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WcsSetDefaultRenderingIntent(scope: WCS_PROFILE_MANAGEMENT_SCOPE, dwrenderingintent: UInt): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_WcsSetDefaultRenderingIntent(scope, dwrenderingintent.toInt()) as Int) else 0
+public actual fun wcsSetDefaultRenderingIntent(scope: WcsProfileManagementScope, dwrenderingintent: UInt): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_wcsSetDefaultRenderingIntent(scope, dwrenderingintent.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WcsSetUsePerUserProfiles(pdevicename: PCWSTR, dwdeviceclass: UInt, useperuserprofiles: BOOL): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_WcsSetUsePerUserProfiles(pdevicename.toString(), dwdeviceclass.toInt(), useperuserprofiles) as Int) else 0
+public actual fun wcsSetUsePerUserProfiles(pdevicename: Pcwstr, dwdeviceclass: UInt, useperuserprofiles: Bool): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_wcsSetUsePerUserProfiles((pdevicename?.value ?: 0L).toString(), dwdeviceclass.toInt(), useperuserprofiles) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WcsTranslateColors(hcolortransform: Long, ncolors: UInt, ninputchannels: UInt, cdtinput: COLORDATATYPE, cbinput: UInt, pinputdata: Long, noutputchannels: UInt, cdtoutput: COLORDATATYPE, cboutput: UInt, poutputdata: Long): BOOL =
-    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_WcsTranslateColors(hcolortransform.toString(), ncolors.toInt(), ninputchannels.toInt(), cdtinput, cbinput.toInt(), pinputdata.toString(), noutputchannels.toInt(), cdtoutput, cboutput.toInt(), poutputdata.toString()) as Int) else 0
+public actual fun wcsTranslateColors(hcolortransform: Long, ncolors: UInt, ninputchannels: UInt, cdtinput: Colordatatype, cbinput: UInt, pinputdata: COpaquePointer?, noutputchannels: UInt, cdtoutput: Colordatatype, cboutput: UInt, poutputdata: COpaquePointer?): Bool =
+    if (_windowsWin32UiColorsystemNapiAddon != null) (_windowsWin32UiColorsystemNapiAddon.windowssys_windows_win32_ui_colorsystem_wcsTranslateColors(hcolortransform.toString(), ncolors.toInt(), ninputchannels.toInt(), cdtinput, cbinput.toInt(), (pinputdata?.value ?: 0L).toString(), noutputchannels.toInt(), cdtoutput, cboutput.toInt(), (poutputdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

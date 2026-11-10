@@ -2,419 +2,420 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.performance
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 
 private val _windowsWin32SystemPerformanceNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun BackupPerfRegistryToFileW(szfilename: PCWSTR, szcommentstring: PCWSTR): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_BackupPerfRegistryToFileW(szfilename.toString(), szcommentstring.toString()) as Int).toUInt() else 0u
+public actual fun backupPerfRegistryToFileW(szfilename: Pcwstr, szcommentstring: Pcwstr): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_backupPerfRegistryToFileW((szfilename?.value ?: 0L).toString(), (szcommentstring?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InstallPerfDllA(szcomputername: PCSTR, lpinifile: PCSTR, dwflags: ULong): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_InstallPerfDllA(szcomputername.toString(), lpinifile.toString(), dwflags.toString()) as Int).toUInt() else 0u
+public actual fun installPerfDllA(szcomputername: Pcstr, lpinifile: Pcstr, dwflags: ULong): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_installPerfDllA((szcomputername?.value ?: 0L).toString(), (lpinifile?.value ?: 0L).toString(), dwflags.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InstallPerfDllW(szcomputername: PCWSTR, lpinifile: PCWSTR, dwflags: ULong): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_InstallPerfDllW(szcomputername.toString(), lpinifile.toString(), dwflags.toString()) as Int).toUInt() else 0u
+public actual fun installPerfDllW(szcomputername: Pcwstr, lpinifile: Pcwstr, dwflags: ULong): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_installPerfDllW((szcomputername?.value ?: 0L).toString(), (lpinifile?.value ?: 0L).toString(), dwflags.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LoadPerfCounterTextStringsA(lpcommandline: PCSTR, bquietmodearg: BOOL): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_LoadPerfCounterTextStringsA(lpcommandline.toString(), bquietmodearg) as Int).toUInt() else 0u
+public actual fun loadPerfCounterTextStringsA(lpcommandline: Pcstr, bquietmodearg: Bool): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_loadPerfCounterTextStringsA((lpcommandline?.value ?: 0L).toString(), bquietmodearg) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LoadPerfCounterTextStringsW(lpcommandline: PCWSTR, bquietmodearg: BOOL): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_LoadPerfCounterTextStringsW(lpcommandline.toString(), bquietmodearg) as Int).toUInt() else 0u
+public actual fun loadPerfCounterTextStringsW(lpcommandline: Pcwstr, bquietmodearg: Bool): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_loadPerfCounterTextStringsW((lpcommandline?.value ?: 0L).toString(), bquietmodearg) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhAddCounterA(hquery: PDH_HQUERY, szfullcounterpath: PCSTR, dwuserdata: ULong, phcounter: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhAddCounterA(hquery.toString(), szfullcounterpath.toString(), dwuserdata.toString(), phcounter.toString()) as Int).toUInt() else 0u
+public actual fun pdhAddCounterA(hquery: PdhHquery, szfullcounterpath: Pcstr, dwuserdata: ULong, phcounter: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhAddCounterA((hquery?.value ?: 0L).toString(), (szfullcounterpath?.value ?: 0L).toString(), dwuserdata.toString(), (phcounter?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhAddCounterW(hquery: PDH_HQUERY, szfullcounterpath: PCWSTR, dwuserdata: ULong, phcounter: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhAddCounterW(hquery.toString(), szfullcounterpath.toString(), dwuserdata.toString(), phcounter.toString()) as Int).toUInt() else 0u
+public actual fun pdhAddCounterW(hquery: PdhHquery, szfullcounterpath: Pcwstr, dwuserdata: ULong, phcounter: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhAddCounterW((hquery?.value ?: 0L).toString(), (szfullcounterpath?.value ?: 0L).toString(), dwuserdata.toString(), (phcounter?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhAddEnglishCounterA(hquery: PDH_HQUERY, szfullcounterpath: PCSTR, dwuserdata: ULong, phcounter: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhAddEnglishCounterA(hquery.toString(), szfullcounterpath.toString(), dwuserdata.toString(), phcounter.toString()) as Int).toUInt() else 0u
+public actual fun pdhAddEnglishCounterA(hquery: PdhHquery, szfullcounterpath: Pcstr, dwuserdata: ULong, phcounter: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhAddEnglishCounterA((hquery?.value ?: 0L).toString(), (szfullcounterpath?.value ?: 0L).toString(), dwuserdata.toString(), (phcounter?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhAddEnglishCounterW(hquery: PDH_HQUERY, szfullcounterpath: PCWSTR, dwuserdata: ULong, phcounter: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhAddEnglishCounterW(hquery.toString(), szfullcounterpath.toString(), dwuserdata.toString(), phcounter.toString()) as Int).toUInt() else 0u
+public actual fun pdhAddEnglishCounterW(hquery: PdhHquery, szfullcounterpath: Pcwstr, dwuserdata: ULong, phcounter: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhAddEnglishCounterW((hquery?.value ?: 0L).toString(), (szfullcounterpath?.value ?: 0L).toString(), dwuserdata.toString(), (phcounter?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhBindInputDataSourceA(phdatasource: Long, logfilenamelist: PCSTR): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhBindInputDataSourceA(phdatasource.toString(), logfilenamelist.toString()) as Int).toUInt() else 0u
+public actual fun pdhBindInputDataSourceA(phdatasource: COpaquePointer?, logfilenamelist: Pcstr): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhBindInputDataSourceA((phdatasource?.value ?: 0L).toString(), (logfilenamelist?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhBindInputDataSourceW(phdatasource: Long, logfilenamelist: PCWSTR): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhBindInputDataSourceW(phdatasource.toString(), logfilenamelist.toString()) as Int).toUInt() else 0u
+public actual fun pdhBindInputDataSourceW(phdatasource: COpaquePointer?, logfilenamelist: Pcwstr): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhBindInputDataSourceW((phdatasource?.value ?: 0L).toString(), (logfilenamelist?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhBrowseCountersA(pbrowsedlgdata: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhBrowseCountersA(pbrowsedlgdata.toString()) as Int).toUInt() else 0u
+public actual fun pdhBrowseCountersA(pbrowsedlgdata: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhBrowseCountersA((pbrowsedlgdata?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhBrowseCountersHA(pbrowsedlgdata: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhBrowseCountersHA(pbrowsedlgdata.toString()) as Int).toUInt() else 0u
+public actual fun pdhBrowseCountersHA(pbrowsedlgdata: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhBrowseCountersHA((pbrowsedlgdata?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhBrowseCountersHW(pbrowsedlgdata: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhBrowseCountersHW(pbrowsedlgdata.toString()) as Int).toUInt() else 0u
+public actual fun pdhBrowseCountersHW(pbrowsedlgdata: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhBrowseCountersHW((pbrowsedlgdata?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhBrowseCountersW(pbrowsedlgdata: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhBrowseCountersW(pbrowsedlgdata.toString()) as Int).toUInt() else 0u
+public actual fun pdhBrowseCountersW(pbrowsedlgdata: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhBrowseCountersW((pbrowsedlgdata?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhCalculateCounterFromRawValue(hcounter: PDH_HCOUNTER, dwformat: PDH_FMT, rawvalue1: Long, rawvalue2: Long, fmtvalue: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhCalculateCounterFromRawValue(hcounter.toString(), dwformat.toInt(), rawvalue1.toString(), rawvalue2.toString(), fmtvalue.toString()) as Int).toUInt() else 0u
+public actual fun pdhCalculateCounterFromRawValue(hcounter: PdhHcounter, dwformat: PdhFmt, rawvalue1: COpaquePointer?, rawvalue2: COpaquePointer?, fmtvalue: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhCalculateCounterFromRawValue((hcounter?.value ?: 0L).toString(), dwformat.toInt(), (rawvalue1?.value ?: 0L).toString(), (rawvalue2?.value ?: 0L).toString(), (fmtvalue?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhCloseLog(hlog: PDH_HLOG, dwflags: UInt): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhCloseLog(hlog.toString(), dwflags.toInt()) as Int).toUInt() else 0u
+public actual fun pdhCloseLog(hlog: PdhHlog, dwflags: UInt): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhCloseLog((hlog?.value ?: 0L).toString(), dwflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhCloseQuery(hquery: PDH_HQUERY): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhCloseQuery(hquery.toString()) as Int).toUInt() else 0u
+public actual fun pdhCloseQuery(hquery: PdhHquery): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhCloseQuery((hquery?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhCollectQueryData(hquery: PDH_HQUERY): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhCollectQueryData(hquery.toString()) as Int).toUInt() else 0u
+public actual fun pdhCollectQueryData(hquery: PdhHquery): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhCollectQueryData((hquery?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhCollectQueryDataEx(hquery: PDH_HQUERY, dwintervaltime: UInt, hnewdataevent: HANDLE): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhCollectQueryDataEx(hquery.toString(), dwintervaltime.toInt(), hnewdataevent.toString()) as Int).toUInt() else 0u
+public actual fun pdhCollectQueryDataEx(hquery: PdhHquery, dwintervaltime: UInt, hnewdataevent: Handle): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhCollectQueryDataEx((hquery?.value ?: 0L).toString(), dwintervaltime.toInt(), (hnewdataevent?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhCollectQueryDataWithTime(hquery: PDH_HQUERY, plltimestamp: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhCollectQueryDataWithTime(hquery.toString(), plltimestamp.toString()) as Int).toUInt() else 0u
+public actual fun pdhCollectQueryDataWithTime(hquery: PdhHquery, plltimestamp: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhCollectQueryDataWithTime((hquery?.value ?: 0L).toString(), (plltimestamp?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhComputeCounterStatistics(hcounter: PDH_HCOUNTER, dwformat: PDH_FMT, dwfirstentry: UInt, dwnumentries: UInt, lprawvaluearray: Long, data: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhComputeCounterStatistics(hcounter.toString(), dwformat.toInt(), dwfirstentry.toInt(), dwnumentries.toInt(), lprawvaluearray.toString(), data.toString()) as Int).toUInt() else 0u
+public actual fun pdhComputeCounterStatistics(hcounter: PdhHcounter, dwformat: PdhFmt, dwfirstentry: UInt, dwnumentries: UInt, lprawvaluearray: COpaquePointer?, data: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhComputeCounterStatistics((hcounter?.value ?: 0L).toString(), dwformat.toInt(), dwfirstentry.toInt(), dwnumentries.toInt(), (lprawvaluearray?.value ?: 0L).toString(), (data?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhConnectMachineA(szmachinename: PCSTR): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhConnectMachineA(szmachinename.toString()) as Int).toUInt() else 0u
+public actual fun pdhConnectMachineA(szmachinename: Pcstr): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhConnectMachineA((szmachinename?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhConnectMachineW(szmachinename: PCWSTR): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhConnectMachineW(szmachinename.toString()) as Int).toUInt() else 0u
+public actual fun pdhConnectMachineW(szmachinename: Pcwstr): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhConnectMachineW((szmachinename?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhCreateSQLTablesA(szdatasource: PCSTR): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhCreateSQLTablesA(szdatasource.toString()) as Int).toUInt() else 0u
+public actual fun pdhCreateSQLTablesA(szdatasource: Pcstr): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhCreateSQLTablesA((szdatasource?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhCreateSQLTablesW(szdatasource: PCWSTR): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhCreateSQLTablesW(szdatasource.toString()) as Int).toUInt() else 0u
+public actual fun pdhCreateSQLTablesW(szdatasource: Pcwstr): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhCreateSQLTablesW((szdatasource?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhEnumLogSetNamesA(szdatasource: PCSTR, mszdatasetnamelist: PSTR, pcchbufferlength: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhEnumLogSetNamesA(szdatasource.toString(), mszdatasetnamelist.toString(), pcchbufferlength.toString()) as Int).toUInt() else 0u
+public actual fun pdhEnumLogSetNamesA(szdatasource: Pcstr, mszdatasetnamelist: Pstr, pcchbufferlength: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhEnumLogSetNamesA((szdatasource?.value ?: 0L).toString(), (mszdatasetnamelist?.value ?: 0L).toString(), (pcchbufferlength?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhEnumLogSetNamesW(szdatasource: PCWSTR, mszdatasetnamelist: PWSTR, pcchbufferlength: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhEnumLogSetNamesW(szdatasource.toString(), mszdatasetnamelist.toString(), pcchbufferlength.toString()) as Int).toUInt() else 0u
+public actual fun pdhEnumLogSetNamesW(szdatasource: Pcwstr, mszdatasetnamelist: Pwstr, pcchbufferlength: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhEnumLogSetNamesW((szdatasource?.value ?: 0L).toString(), (mszdatasetnamelist?.value ?: 0L).toString(), (pcchbufferlength?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhEnumMachinesA(szdatasource: PCSTR, mszmachinelist: PSTR, pcchbuffersize: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhEnumMachinesA(szdatasource.toString(), mszmachinelist.toString(), pcchbuffersize.toString()) as Int).toUInt() else 0u
+public actual fun pdhEnumMachinesA(szdatasource: Pcstr, mszmachinelist: Pstr, pcchbuffersize: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhEnumMachinesA((szdatasource?.value ?: 0L).toString(), (mszmachinelist?.value ?: 0L).toString(), (pcchbuffersize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhEnumMachinesHA(hdatasource: PDH_HLOG, mszmachinelist: PSTR, pcchbuffersize: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhEnumMachinesHA(hdatasource.toString(), mszmachinelist.toString(), pcchbuffersize.toString()) as Int).toUInt() else 0u
+public actual fun pdhEnumMachinesHA(hdatasource: PdhHlog, mszmachinelist: Pstr, pcchbuffersize: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhEnumMachinesHA((hdatasource?.value ?: 0L).toString(), (mszmachinelist?.value ?: 0L).toString(), (pcchbuffersize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhEnumMachinesHW(hdatasource: PDH_HLOG, mszmachinelist: PWSTR, pcchbuffersize: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhEnumMachinesHW(hdatasource.toString(), mszmachinelist.toString(), pcchbuffersize.toString()) as Int).toUInt() else 0u
+public actual fun pdhEnumMachinesHW(hdatasource: PdhHlog, mszmachinelist: Pwstr, pcchbuffersize: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhEnumMachinesHW((hdatasource?.value ?: 0L).toString(), (mszmachinelist?.value ?: 0L).toString(), (pcchbuffersize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhEnumMachinesW(szdatasource: PCWSTR, mszmachinelist: PWSTR, pcchbuffersize: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhEnumMachinesW(szdatasource.toString(), mszmachinelist.toString(), pcchbuffersize.toString()) as Int).toUInt() else 0u
+public actual fun pdhEnumMachinesW(szdatasource: Pcwstr, mszmachinelist: Pwstr, pcchbuffersize: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhEnumMachinesW((szdatasource?.value ?: 0L).toString(), (mszmachinelist?.value ?: 0L).toString(), (pcchbuffersize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhEnumObjectItemsA(szdatasource: PCSTR, szmachinename: PCSTR, szobjectname: PCSTR, mszcounterlist: PSTR, pcchcounterlistlength: Long, mszinstancelist: PSTR, pcchinstancelistlength: Long, dwdetaillevel: PERF_DETAIL, dwflags: UInt): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhEnumObjectItemsA(szdatasource.toString(), szmachinename.toString(), szobjectname.toString(), mszcounterlist.toString(), pcchcounterlistlength.toString(), mszinstancelist.toString(), pcchinstancelistlength.toString(), dwdetaillevel.toInt(), dwflags.toInt()) as Int).toUInt() else 0u
+public actual fun pdhEnumObjectItemsA(szdatasource: Pcstr, szmachinename: Pcstr, szobjectname: Pcstr, mszcounterlist: Pstr, pcchcounterlistlength: COpaquePointer?, mszinstancelist: Pstr, pcchinstancelistlength: COpaquePointer?, dwdetaillevel: PerfDetail, dwflags: UInt): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhEnumObjectItemsA((szdatasource?.value ?: 0L).toString(), (szmachinename?.value ?: 0L).toString(), (szobjectname?.value ?: 0L).toString(), (mszcounterlist?.value ?: 0L).toString(), (pcchcounterlistlength?.value ?: 0L).toString(), (mszinstancelist?.value ?: 0L).toString(), (pcchinstancelistlength?.value ?: 0L).toString(), dwdetaillevel.toInt(), dwflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhEnumObjectItemsHA(hdatasource: PDH_HLOG, szmachinename: PCSTR, szobjectname: PCSTR, mszcounterlist: PSTR, pcchcounterlistlength: Long, mszinstancelist: PSTR, pcchinstancelistlength: Long, dwdetaillevel: PERF_DETAIL, dwflags: UInt): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhEnumObjectItemsHA(hdatasource.toString(), szmachinename.toString(), szobjectname.toString(), mszcounterlist.toString(), pcchcounterlistlength.toString(), mszinstancelist.toString(), pcchinstancelistlength.toString(), dwdetaillevel.toInt(), dwflags.toInt()) as Int).toUInt() else 0u
+public actual fun pdhEnumObjectItemsHA(hdatasource: PdhHlog, szmachinename: Pcstr, szobjectname: Pcstr, mszcounterlist: Pstr, pcchcounterlistlength: COpaquePointer?, mszinstancelist: Pstr, pcchinstancelistlength: COpaquePointer?, dwdetaillevel: PerfDetail, dwflags: UInt): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhEnumObjectItemsHA((hdatasource?.value ?: 0L).toString(), (szmachinename?.value ?: 0L).toString(), (szobjectname?.value ?: 0L).toString(), (mszcounterlist?.value ?: 0L).toString(), (pcchcounterlistlength?.value ?: 0L).toString(), (mszinstancelist?.value ?: 0L).toString(), (pcchinstancelistlength?.value ?: 0L).toString(), dwdetaillevel.toInt(), dwflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhEnumObjectItemsHW(hdatasource: PDH_HLOG, szmachinename: PCWSTR, szobjectname: PCWSTR, mszcounterlist: PWSTR, pcchcounterlistlength: Long, mszinstancelist: PWSTR, pcchinstancelistlength: Long, dwdetaillevel: PERF_DETAIL, dwflags: UInt): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhEnumObjectItemsHW(hdatasource.toString(), szmachinename.toString(), szobjectname.toString(), mszcounterlist.toString(), pcchcounterlistlength.toString(), mszinstancelist.toString(), pcchinstancelistlength.toString(), dwdetaillevel.toInt(), dwflags.toInt()) as Int).toUInt() else 0u
+public actual fun pdhEnumObjectItemsHW(hdatasource: PdhHlog, szmachinename: Pcwstr, szobjectname: Pcwstr, mszcounterlist: Pwstr, pcchcounterlistlength: COpaquePointer?, mszinstancelist: Pwstr, pcchinstancelistlength: COpaquePointer?, dwdetaillevel: PerfDetail, dwflags: UInt): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhEnumObjectItemsHW((hdatasource?.value ?: 0L).toString(), (szmachinename?.value ?: 0L).toString(), (szobjectname?.value ?: 0L).toString(), (mszcounterlist?.value ?: 0L).toString(), (pcchcounterlistlength?.value ?: 0L).toString(), (mszinstancelist?.value ?: 0L).toString(), (pcchinstancelistlength?.value ?: 0L).toString(), dwdetaillevel.toInt(), dwflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhEnumObjectItemsW(szdatasource: PCWSTR, szmachinename: PCWSTR, szobjectname: PCWSTR, mszcounterlist: PWSTR, pcchcounterlistlength: Long, mszinstancelist: PWSTR, pcchinstancelistlength: Long, dwdetaillevel: PERF_DETAIL, dwflags: UInt): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhEnumObjectItemsW(szdatasource.toString(), szmachinename.toString(), szobjectname.toString(), mszcounterlist.toString(), pcchcounterlistlength.toString(), mszinstancelist.toString(), pcchinstancelistlength.toString(), dwdetaillevel.toInt(), dwflags.toInt()) as Int).toUInt() else 0u
+public actual fun pdhEnumObjectItemsW(szdatasource: Pcwstr, szmachinename: Pcwstr, szobjectname: Pcwstr, mszcounterlist: Pwstr, pcchcounterlistlength: COpaquePointer?, mszinstancelist: Pwstr, pcchinstancelistlength: COpaquePointer?, dwdetaillevel: PerfDetail, dwflags: UInt): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhEnumObjectItemsW((szdatasource?.value ?: 0L).toString(), (szmachinename?.value ?: 0L).toString(), (szobjectname?.value ?: 0L).toString(), (mszcounterlist?.value ?: 0L).toString(), (pcchcounterlistlength?.value ?: 0L).toString(), (mszinstancelist?.value ?: 0L).toString(), (pcchinstancelistlength?.value ?: 0L).toString(), dwdetaillevel.toInt(), dwflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhEnumObjectsA(szdatasource: PCSTR, szmachinename: PCSTR, mszobjectlist: PSTR, pcchbuffersize: Long, dwdetaillevel: PERF_DETAIL, brefresh: BOOL): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhEnumObjectsA(szdatasource.toString(), szmachinename.toString(), mszobjectlist.toString(), pcchbuffersize.toString(), dwdetaillevel.toInt(), brefresh) as Int).toUInt() else 0u
+public actual fun pdhEnumObjectsA(szdatasource: Pcstr, szmachinename: Pcstr, mszobjectlist: Pstr, pcchbuffersize: COpaquePointer?, dwdetaillevel: PerfDetail, brefresh: Bool): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhEnumObjectsA((szdatasource?.value ?: 0L).toString(), (szmachinename?.value ?: 0L).toString(), (mszobjectlist?.value ?: 0L).toString(), (pcchbuffersize?.value ?: 0L).toString(), dwdetaillevel.toInt(), brefresh) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhEnumObjectsHA(hdatasource: PDH_HLOG, szmachinename: PCSTR, mszobjectlist: PSTR, pcchbuffersize: Long, dwdetaillevel: PERF_DETAIL, brefresh: BOOL): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhEnumObjectsHA(hdatasource.toString(), szmachinename.toString(), mszobjectlist.toString(), pcchbuffersize.toString(), dwdetaillevel.toInt(), brefresh) as Int).toUInt() else 0u
+public actual fun pdhEnumObjectsHA(hdatasource: PdhHlog, szmachinename: Pcstr, mszobjectlist: Pstr, pcchbuffersize: COpaquePointer?, dwdetaillevel: PerfDetail, brefresh: Bool): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhEnumObjectsHA((hdatasource?.value ?: 0L).toString(), (szmachinename?.value ?: 0L).toString(), (mszobjectlist?.value ?: 0L).toString(), (pcchbuffersize?.value ?: 0L).toString(), dwdetaillevel.toInt(), brefresh) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhEnumObjectsHW(hdatasource: PDH_HLOG, szmachinename: PCWSTR, mszobjectlist: PWSTR, pcchbuffersize: Long, dwdetaillevel: PERF_DETAIL, brefresh: BOOL): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhEnumObjectsHW(hdatasource.toString(), szmachinename.toString(), mszobjectlist.toString(), pcchbuffersize.toString(), dwdetaillevel.toInt(), brefresh) as Int).toUInt() else 0u
+public actual fun pdhEnumObjectsHW(hdatasource: PdhHlog, szmachinename: Pcwstr, mszobjectlist: Pwstr, pcchbuffersize: COpaquePointer?, dwdetaillevel: PerfDetail, brefresh: Bool): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhEnumObjectsHW((hdatasource?.value ?: 0L).toString(), (szmachinename?.value ?: 0L).toString(), (mszobjectlist?.value ?: 0L).toString(), (pcchbuffersize?.value ?: 0L).toString(), dwdetaillevel.toInt(), brefresh) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhEnumObjectsW(szdatasource: PCWSTR, szmachinename: PCWSTR, mszobjectlist: PWSTR, pcchbuffersize: Long, dwdetaillevel: PERF_DETAIL, brefresh: BOOL): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhEnumObjectsW(szdatasource.toString(), szmachinename.toString(), mszobjectlist.toString(), pcchbuffersize.toString(), dwdetaillevel.toInt(), brefresh) as Int).toUInt() else 0u
+public actual fun pdhEnumObjectsW(szdatasource: Pcwstr, szmachinename: Pcwstr, mszobjectlist: Pwstr, pcchbuffersize: COpaquePointer?, dwdetaillevel: PerfDetail, brefresh: Bool): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhEnumObjectsW((szdatasource?.value ?: 0L).toString(), (szmachinename?.value ?: 0L).toString(), (mszobjectlist?.value ?: 0L).toString(), (pcchbuffersize?.value ?: 0L).toString(), dwdetaillevel.toInt(), brefresh) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhExpandCounterPathA(szwildcardpath: PCSTR, mszexpandedpathlist: PSTR, pcchpathlistlength: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhExpandCounterPathA(szwildcardpath.toString(), mszexpandedpathlist.toString(), pcchpathlistlength.toString()) as Int).toUInt() else 0u
+public actual fun pdhExpandCounterPathA(szwildcardpath: Pcstr, mszexpandedpathlist: Pstr, pcchpathlistlength: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhExpandCounterPathA((szwildcardpath?.value ?: 0L).toString(), (mszexpandedpathlist?.value ?: 0L).toString(), (pcchpathlistlength?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhExpandCounterPathW(szwildcardpath: PCWSTR, mszexpandedpathlist: PWSTR, pcchpathlistlength: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhExpandCounterPathW(szwildcardpath.toString(), mszexpandedpathlist.toString(), pcchpathlistlength.toString()) as Int).toUInt() else 0u
+public actual fun pdhExpandCounterPathW(szwildcardpath: Pcwstr, mszexpandedpathlist: Pwstr, pcchpathlistlength: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhExpandCounterPathW((szwildcardpath?.value ?: 0L).toString(), (mszexpandedpathlist?.value ?: 0L).toString(), (pcchpathlistlength?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhExpandWildCardPathA(szdatasource: PCSTR, szwildcardpath: PCSTR, mszexpandedpathlist: PSTR, pcchpathlistlength: Long, dwflags: UInt): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhExpandWildCardPathA(szdatasource.toString(), szwildcardpath.toString(), mszexpandedpathlist.toString(), pcchpathlistlength.toString(), dwflags.toInt()) as Int).toUInt() else 0u
+public actual fun pdhExpandWildCardPathA(szdatasource: Pcstr, szwildcardpath: Pcstr, mszexpandedpathlist: Pstr, pcchpathlistlength: COpaquePointer?, dwflags: UInt): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhExpandWildCardPathA((szdatasource?.value ?: 0L).toString(), (szwildcardpath?.value ?: 0L).toString(), (mszexpandedpathlist?.value ?: 0L).toString(), (pcchpathlistlength?.value ?: 0L).toString(), dwflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhExpandWildCardPathHA(hdatasource: PDH_HLOG, szwildcardpath: PCSTR, mszexpandedpathlist: PSTR, pcchpathlistlength: Long, dwflags: UInt): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhExpandWildCardPathHA(hdatasource.toString(), szwildcardpath.toString(), mszexpandedpathlist.toString(), pcchpathlistlength.toString(), dwflags.toInt()) as Int).toUInt() else 0u
+public actual fun pdhExpandWildCardPathHA(hdatasource: PdhHlog, szwildcardpath: Pcstr, mszexpandedpathlist: Pstr, pcchpathlistlength: COpaquePointer?, dwflags: UInt): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhExpandWildCardPathHA((hdatasource?.value ?: 0L).toString(), (szwildcardpath?.value ?: 0L).toString(), (mszexpandedpathlist?.value ?: 0L).toString(), (pcchpathlistlength?.value ?: 0L).toString(), dwflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhExpandWildCardPathHW(hdatasource: PDH_HLOG, szwildcardpath: PCWSTR, mszexpandedpathlist: PWSTR, pcchpathlistlength: Long, dwflags: UInt): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhExpandWildCardPathHW(hdatasource.toString(), szwildcardpath.toString(), mszexpandedpathlist.toString(), pcchpathlistlength.toString(), dwflags.toInt()) as Int).toUInt() else 0u
+public actual fun pdhExpandWildCardPathHW(hdatasource: PdhHlog, szwildcardpath: Pcwstr, mszexpandedpathlist: Pwstr, pcchpathlistlength: COpaquePointer?, dwflags: UInt): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhExpandWildCardPathHW((hdatasource?.value ?: 0L).toString(), (szwildcardpath?.value ?: 0L).toString(), (mszexpandedpathlist?.value ?: 0L).toString(), (pcchpathlistlength?.value ?: 0L).toString(), dwflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhExpandWildCardPathW(szdatasource: PCWSTR, szwildcardpath: PCWSTR, mszexpandedpathlist: PWSTR, pcchpathlistlength: Long, dwflags: UInt): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhExpandWildCardPathW(szdatasource.toString(), szwildcardpath.toString(), mszexpandedpathlist.toString(), pcchpathlistlength.toString(), dwflags.toInt()) as Int).toUInt() else 0u
+public actual fun pdhExpandWildCardPathW(szdatasource: Pcwstr, szwildcardpath: Pcwstr, mszexpandedpathlist: Pwstr, pcchpathlistlength: COpaquePointer?, dwflags: UInt): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhExpandWildCardPathW((szdatasource?.value ?: 0L).toString(), (szwildcardpath?.value ?: 0L).toString(), (mszexpandedpathlist?.value ?: 0L).toString(), (pcchpathlistlength?.value ?: 0L).toString(), dwflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhFormatFromRawValue(dwcountertype: UInt, dwformat: PDH_FMT, ptimebase: Long, prawvalue1: Long, prawvalue2: Long, pfmtvalue: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhFormatFromRawValue(dwcountertype.toInt(), dwformat.toInt(), ptimebase.toString(), prawvalue1.toString(), prawvalue2.toString(), pfmtvalue.toString()) as Int).toUInt() else 0u
+public actual fun pdhFormatFromRawValue(dwcountertype: UInt, dwformat: PdhFmt, ptimebase: COpaquePointer?, prawvalue1: COpaquePointer?, prawvalue2: COpaquePointer?, pfmtvalue: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhFormatFromRawValue(dwcountertype.toInt(), dwformat.toInt(), (ptimebase?.value ?: 0L).toString(), (prawvalue1?.value ?: 0L).toString(), (prawvalue2?.value ?: 0L).toString(), (pfmtvalue?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhGetCounterInfoA(hcounter: PDH_HCOUNTER, bretrieveexplaintext: Boolean, pdwbuffersize: Long, lpbuffer: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhGetCounterInfoA(hcounter.toString(), bretrieveexplaintext, pdwbuffersize.toString(), lpbuffer.toString()) as Int).toUInt() else 0u
+public actual fun pdhGetCounterInfoA(hcounter: PdhHcounter, bretrieveexplaintext: Boolean, pdwbuffersize: COpaquePointer?, lpbuffer: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhGetCounterInfoA((hcounter?.value ?: 0L).toString(), bretrieveexplaintext, (pdwbuffersize?.value ?: 0L).toString(), (lpbuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhGetCounterInfoW(hcounter: PDH_HCOUNTER, bretrieveexplaintext: Boolean, pdwbuffersize: Long, lpbuffer: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhGetCounterInfoW(hcounter.toString(), bretrieveexplaintext, pdwbuffersize.toString(), lpbuffer.toString()) as Int).toUInt() else 0u
+public actual fun pdhGetCounterInfoW(hcounter: PdhHcounter, bretrieveexplaintext: Boolean, pdwbuffersize: COpaquePointer?, lpbuffer: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhGetCounterInfoW((hcounter?.value ?: 0L).toString(), bretrieveexplaintext, (pdwbuffersize?.value ?: 0L).toString(), (lpbuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhGetCounterTimeBase(hcounter: PDH_HCOUNTER, ptimebase: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhGetCounterTimeBase(hcounter.toString(), ptimebase.toString()) as Int).toUInt() else 0u
+public actual fun pdhGetCounterTimeBase(hcounter: PdhHcounter, ptimebase: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhGetCounterTimeBase((hcounter?.value ?: 0L).toString(), (ptimebase?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhGetDataSourceTimeRangeA(szdatasource: PCSTR, pdwnumentries: Long, pinfo: Long, pdwbuffersize: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhGetDataSourceTimeRangeA(szdatasource.toString(), pdwnumentries.toString(), pinfo.toString(), pdwbuffersize.toString()) as Int).toUInt() else 0u
+public actual fun pdhGetDataSourceTimeRangeA(szdatasource: Pcstr, pdwnumentries: COpaquePointer?, pinfo: COpaquePointer?, pdwbuffersize: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhGetDataSourceTimeRangeA((szdatasource?.value ?: 0L).toString(), (pdwnumentries?.value ?: 0L).toString(), (pinfo?.value ?: 0L).toString(), (pdwbuffersize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhGetDataSourceTimeRangeH(hdatasource: PDH_HLOG, pdwnumentries: Long, pinfo: Long, pdwbuffersize: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhGetDataSourceTimeRangeH(hdatasource.toString(), pdwnumentries.toString(), pinfo.toString(), pdwbuffersize.toString()) as Int).toUInt() else 0u
+public actual fun pdhGetDataSourceTimeRangeH(hdatasource: PdhHlog, pdwnumentries: COpaquePointer?, pinfo: COpaquePointer?, pdwbuffersize: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhGetDataSourceTimeRangeH((hdatasource?.value ?: 0L).toString(), (pdwnumentries?.value ?: 0L).toString(), (pinfo?.value ?: 0L).toString(), (pdwbuffersize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhGetDataSourceTimeRangeW(szdatasource: PCWSTR, pdwnumentries: Long, pinfo: Long, pdwbuffersize: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhGetDataSourceTimeRangeW(szdatasource.toString(), pdwnumentries.toString(), pinfo.toString(), pdwbuffersize.toString()) as Int).toUInt() else 0u
+public actual fun pdhGetDataSourceTimeRangeW(szdatasource: Pcwstr, pdwnumentries: COpaquePointer?, pinfo: COpaquePointer?, pdwbuffersize: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhGetDataSourceTimeRangeW((szdatasource?.value ?: 0L).toString(), (pdwnumentries?.value ?: 0L).toString(), (pinfo?.value ?: 0L).toString(), (pdwbuffersize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhGetDefaultPerfCounterA(szdatasource: PCSTR, szmachinename: PCSTR, szobjectname: PCSTR, szdefaultcountername: PSTR, pcchbuffersize: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhGetDefaultPerfCounterA(szdatasource.toString(), szmachinename.toString(), szobjectname.toString(), szdefaultcountername.toString(), pcchbuffersize.toString()) as Int).toUInt() else 0u
+public actual fun pdhGetDefaultPerfCounterA(szdatasource: Pcstr, szmachinename: Pcstr, szobjectname: Pcstr, szdefaultcountername: Pstr, pcchbuffersize: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhGetDefaultPerfCounterA((szdatasource?.value ?: 0L).toString(), (szmachinename?.value ?: 0L).toString(), (szobjectname?.value ?: 0L).toString(), (szdefaultcountername?.value ?: 0L).toString(), (pcchbuffersize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhGetDefaultPerfCounterHA(hdatasource: PDH_HLOG, szmachinename: PCSTR, szobjectname: PCSTR, szdefaultcountername: PSTR, pcchbuffersize: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhGetDefaultPerfCounterHA(hdatasource.toString(), szmachinename.toString(), szobjectname.toString(), szdefaultcountername.toString(), pcchbuffersize.toString()) as Int).toUInt() else 0u
+public actual fun pdhGetDefaultPerfCounterHA(hdatasource: PdhHlog, szmachinename: Pcstr, szobjectname: Pcstr, szdefaultcountername: Pstr, pcchbuffersize: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhGetDefaultPerfCounterHA((hdatasource?.value ?: 0L).toString(), (szmachinename?.value ?: 0L).toString(), (szobjectname?.value ?: 0L).toString(), (szdefaultcountername?.value ?: 0L).toString(), (pcchbuffersize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhGetDefaultPerfCounterHW(hdatasource: PDH_HLOG, szmachinename: PCWSTR, szobjectname: PCWSTR, szdefaultcountername: PWSTR, pcchbuffersize: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhGetDefaultPerfCounterHW(hdatasource.toString(), szmachinename.toString(), szobjectname.toString(), szdefaultcountername.toString(), pcchbuffersize.toString()) as Int).toUInt() else 0u
+public actual fun pdhGetDefaultPerfCounterHW(hdatasource: PdhHlog, szmachinename: Pcwstr, szobjectname: Pcwstr, szdefaultcountername: Pwstr, pcchbuffersize: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhGetDefaultPerfCounterHW((hdatasource?.value ?: 0L).toString(), (szmachinename?.value ?: 0L).toString(), (szobjectname?.value ?: 0L).toString(), (szdefaultcountername?.value ?: 0L).toString(), (pcchbuffersize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhGetDefaultPerfCounterW(szdatasource: PCWSTR, szmachinename: PCWSTR, szobjectname: PCWSTR, szdefaultcountername: PWSTR, pcchbuffersize: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhGetDefaultPerfCounterW(szdatasource.toString(), szmachinename.toString(), szobjectname.toString(), szdefaultcountername.toString(), pcchbuffersize.toString()) as Int).toUInt() else 0u
+public actual fun pdhGetDefaultPerfCounterW(szdatasource: Pcwstr, szmachinename: Pcwstr, szobjectname: Pcwstr, szdefaultcountername: Pwstr, pcchbuffersize: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhGetDefaultPerfCounterW((szdatasource?.value ?: 0L).toString(), (szmachinename?.value ?: 0L).toString(), (szobjectname?.value ?: 0L).toString(), (szdefaultcountername?.value ?: 0L).toString(), (pcchbuffersize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhGetDefaultPerfObjectA(szdatasource: PCSTR, szmachinename: PCSTR, szdefaultobjectname: PSTR, pcchbuffersize: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhGetDefaultPerfObjectA(szdatasource.toString(), szmachinename.toString(), szdefaultobjectname.toString(), pcchbuffersize.toString()) as Int).toUInt() else 0u
+public actual fun pdhGetDefaultPerfObjectA(szdatasource: Pcstr, szmachinename: Pcstr, szdefaultobjectname: Pstr, pcchbuffersize: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhGetDefaultPerfObjectA((szdatasource?.value ?: 0L).toString(), (szmachinename?.value ?: 0L).toString(), (szdefaultobjectname?.value ?: 0L).toString(), (pcchbuffersize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhGetDefaultPerfObjectHA(hdatasource: PDH_HLOG, szmachinename: PCSTR, szdefaultobjectname: PSTR, pcchbuffersize: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhGetDefaultPerfObjectHA(hdatasource.toString(), szmachinename.toString(), szdefaultobjectname.toString(), pcchbuffersize.toString()) as Int).toUInt() else 0u
+public actual fun pdhGetDefaultPerfObjectHA(hdatasource: PdhHlog, szmachinename: Pcstr, szdefaultobjectname: Pstr, pcchbuffersize: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhGetDefaultPerfObjectHA((hdatasource?.value ?: 0L).toString(), (szmachinename?.value ?: 0L).toString(), (szdefaultobjectname?.value ?: 0L).toString(), (pcchbuffersize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhGetDefaultPerfObjectHW(hdatasource: PDH_HLOG, szmachinename: PCWSTR, szdefaultobjectname: PWSTR, pcchbuffersize: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhGetDefaultPerfObjectHW(hdatasource.toString(), szmachinename.toString(), szdefaultobjectname.toString(), pcchbuffersize.toString()) as Int).toUInt() else 0u
+public actual fun pdhGetDefaultPerfObjectHW(hdatasource: PdhHlog, szmachinename: Pcwstr, szdefaultobjectname: Pwstr, pcchbuffersize: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhGetDefaultPerfObjectHW((hdatasource?.value ?: 0L).toString(), (szmachinename?.value ?: 0L).toString(), (szdefaultobjectname?.value ?: 0L).toString(), (pcchbuffersize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhGetDefaultPerfObjectW(szdatasource: PCWSTR, szmachinename: PCWSTR, szdefaultobjectname: PWSTR, pcchbuffersize: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhGetDefaultPerfObjectW(szdatasource.toString(), szmachinename.toString(), szdefaultobjectname.toString(), pcchbuffersize.toString()) as Int).toUInt() else 0u
+public actual fun pdhGetDefaultPerfObjectW(szdatasource: Pcwstr, szmachinename: Pcwstr, szdefaultobjectname: Pwstr, pcchbuffersize: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhGetDefaultPerfObjectW((szdatasource?.value ?: 0L).toString(), (szmachinename?.value ?: 0L).toString(), (szdefaultobjectname?.value ?: 0L).toString(), (pcchbuffersize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhGetDllVersion(lpdwversion: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhGetDllVersion(lpdwversion.toString()) as Int).toUInt() else 0u
+public actual fun pdhGetDllVersion(lpdwversion: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhGetDllVersion((lpdwversion?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhGetFormattedCounterArrayA(hcounter: PDH_HCOUNTER, dwformat: PDH_FMT, lpdwbuffersize: Long, lpdwitemcount: Long, itembuffer: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhGetFormattedCounterArrayA(hcounter.toString(), dwformat.toInt(), lpdwbuffersize.toString(), lpdwitemcount.toString(), itembuffer.toString()) as Int).toUInt() else 0u
+public actual fun pdhGetFormattedCounterArrayA(hcounter: PdhHcounter, dwformat: PdhFmt, lpdwbuffersize: COpaquePointer?, lpdwitemcount: COpaquePointer?, itembuffer: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhGetFormattedCounterArrayA((hcounter?.value ?: 0L).toString(), dwformat.toInt(), (lpdwbuffersize?.value ?: 0L).toString(), (lpdwitemcount?.value ?: 0L).toString(), (itembuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhGetFormattedCounterArrayW(hcounter: PDH_HCOUNTER, dwformat: PDH_FMT, lpdwbuffersize: Long, lpdwitemcount: Long, itembuffer: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhGetFormattedCounterArrayW(hcounter.toString(), dwformat.toInt(), lpdwbuffersize.toString(), lpdwitemcount.toString(), itembuffer.toString()) as Int).toUInt() else 0u
+public actual fun pdhGetFormattedCounterArrayW(hcounter: PdhHcounter, dwformat: PdhFmt, lpdwbuffersize: COpaquePointer?, lpdwitemcount: COpaquePointer?, itembuffer: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhGetFormattedCounterArrayW((hcounter?.value ?: 0L).toString(), dwformat.toInt(), (lpdwbuffersize?.value ?: 0L).toString(), (lpdwitemcount?.value ?: 0L).toString(), (itembuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhGetFormattedCounterValue(hcounter: PDH_HCOUNTER, dwformat: PDH_FMT, lpdwtype: Long, pvalue: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhGetFormattedCounterValue(hcounter.toString(), dwformat.toInt(), lpdwtype.toString(), pvalue.toString()) as Int).toUInt() else 0u
+public actual fun pdhGetFormattedCounterValue(hcounter: PdhHcounter, dwformat: PdhFmt, lpdwtype: COpaquePointer?, pvalue: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhGetFormattedCounterValue((hcounter?.value ?: 0L).toString(), dwformat.toInt(), (lpdwtype?.value ?: 0L).toString(), (pvalue?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhGetLogFileSize(hlog: PDH_HLOG, llsize: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhGetLogFileSize(hlog.toString(), llsize.toString()) as Int).toUInt() else 0u
+public actual fun pdhGetLogFileSize(hlog: PdhHlog, llsize: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhGetLogFileSize((hlog?.value ?: 0L).toString(), (llsize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhGetLogSetGUID(hlog: PDH_HLOG, pguid: Long, prunid: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhGetLogSetGUID(hlog.toString(), pguid.toString(), prunid.toString()) as Int).toUInt() else 0u
+public actual fun pdhGetLogSetGUID(hlog: PdhHlog, pguid: COpaquePointer?, prunid: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhGetLogSetGUID((hlog?.value ?: 0L).toString(), (pguid?.value ?: 0L).toString(), (prunid?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhGetRawCounterArrayA(hcounter: PDH_HCOUNTER, lpdwbuffersize: Long, lpdwitemcount: Long, itembuffer: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhGetRawCounterArrayA(hcounter.toString(), lpdwbuffersize.toString(), lpdwitemcount.toString(), itembuffer.toString()) as Int).toUInt() else 0u
+public actual fun pdhGetRawCounterArrayA(hcounter: PdhHcounter, lpdwbuffersize: COpaquePointer?, lpdwitemcount: COpaquePointer?, itembuffer: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhGetRawCounterArrayA((hcounter?.value ?: 0L).toString(), (lpdwbuffersize?.value ?: 0L).toString(), (lpdwitemcount?.value ?: 0L).toString(), (itembuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhGetRawCounterArrayW(hcounter: PDH_HCOUNTER, lpdwbuffersize: Long, lpdwitemcount: Long, itembuffer: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhGetRawCounterArrayW(hcounter.toString(), lpdwbuffersize.toString(), lpdwitemcount.toString(), itembuffer.toString()) as Int).toUInt() else 0u
+public actual fun pdhGetRawCounterArrayW(hcounter: PdhHcounter, lpdwbuffersize: COpaquePointer?, lpdwitemcount: COpaquePointer?, itembuffer: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhGetRawCounterArrayW((hcounter?.value ?: 0L).toString(), (lpdwbuffersize?.value ?: 0L).toString(), (lpdwitemcount?.value ?: 0L).toString(), (itembuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhGetRawCounterValue(hcounter: PDH_HCOUNTER, lpdwtype: Long, pvalue: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhGetRawCounterValue(hcounter.toString(), lpdwtype.toString(), pvalue.toString()) as Int).toUInt() else 0u
+public actual fun pdhGetRawCounterValue(hcounter: PdhHcounter, lpdwtype: COpaquePointer?, pvalue: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhGetRawCounterValue((hcounter?.value ?: 0L).toString(), (lpdwtype?.value ?: 0L).toString(), (pvalue?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhIsRealTimeQuery(hquery: PDH_HQUERY): BOOL =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhIsRealTimeQuery(hquery.toString()) as Int) else 0
+public actual fun pdhIsRealTimeQuery(hquery: PdhHquery): Bool =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhIsRealTimeQuery((hquery?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhLookupPerfIndexByNameA(szmachinename: PCSTR, sznamebuffer: PCSTR, pdwindex: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhLookupPerfIndexByNameA(szmachinename.toString(), sznamebuffer.toString(), pdwindex.toString()) as Int).toUInt() else 0u
+public actual fun pdhLookupPerfIndexByNameA(szmachinename: Pcstr, sznamebuffer: Pcstr, pdwindex: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhLookupPerfIndexByNameA((szmachinename?.value ?: 0L).toString(), (sznamebuffer?.value ?: 0L).toString(), (pdwindex?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhLookupPerfIndexByNameW(szmachinename: PCWSTR, sznamebuffer: PCWSTR, pdwindex: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhLookupPerfIndexByNameW(szmachinename.toString(), sznamebuffer.toString(), pdwindex.toString()) as Int).toUInt() else 0u
+public actual fun pdhLookupPerfIndexByNameW(szmachinename: Pcwstr, sznamebuffer: Pcwstr, pdwindex: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhLookupPerfIndexByNameW((szmachinename?.value ?: 0L).toString(), (sznamebuffer?.value ?: 0L).toString(), (pdwindex?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhLookupPerfNameByIndexA(szmachinename: PCSTR, dwnameindex: UInt, sznamebuffer: PSTR, pcchnamebuffersize: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhLookupPerfNameByIndexA(szmachinename.toString(), dwnameindex.toInt(), sznamebuffer.toString(), pcchnamebuffersize.toString()) as Int).toUInt() else 0u
+public actual fun pdhLookupPerfNameByIndexA(szmachinename: Pcstr, dwnameindex: UInt, sznamebuffer: Pstr, pcchnamebuffersize: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhLookupPerfNameByIndexA((szmachinename?.value ?: 0L).toString(), dwnameindex.toInt(), (sznamebuffer?.value ?: 0L).toString(), (pcchnamebuffersize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhLookupPerfNameByIndexW(szmachinename: PCWSTR, dwnameindex: UInt, sznamebuffer: PWSTR, pcchnamebuffersize: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhLookupPerfNameByIndexW(szmachinename.toString(), dwnameindex.toInt(), sznamebuffer.toString(), pcchnamebuffersize.toString()) as Int).toUInt() else 0u
+public actual fun pdhLookupPerfNameByIndexW(szmachinename: Pcwstr, dwnameindex: UInt, sznamebuffer: Pwstr, pcchnamebuffersize: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhLookupPerfNameByIndexW((szmachinename?.value ?: 0L).toString(), dwnameindex.toInt(), (sznamebuffer?.value ?: 0L).toString(), (pcchnamebuffersize?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhMakeCounterPathA(pcounterpathelements: Long, szfullpathbuffer: PSTR, pcchbuffersize: Long, dwflags: PDH_PATH_FLAGS): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhMakeCounterPathA(pcounterpathelements.toString(), szfullpathbuffer.toString(), pcchbuffersize.toString(), dwflags.toInt()) as Int).toUInt() else 0u
+public actual fun pdhMakeCounterPathA(pcounterpathelements: COpaquePointer?, szfullpathbuffer: Pstr, pcchbuffersize: COpaquePointer?, dwflags: PdhPathFlags): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhMakeCounterPathA((pcounterpathelements?.value ?: 0L).toString(), (szfullpathbuffer?.value ?: 0L).toString(), (pcchbuffersize?.value ?: 0L).toString(), dwflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhMakeCounterPathW(pcounterpathelements: Long, szfullpathbuffer: PWSTR, pcchbuffersize: Long, dwflags: PDH_PATH_FLAGS): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhMakeCounterPathW(pcounterpathelements.toString(), szfullpathbuffer.toString(), pcchbuffersize.toString(), dwflags.toInt()) as Int).toUInt() else 0u
+public actual fun pdhMakeCounterPathW(pcounterpathelements: COpaquePointer?, szfullpathbuffer: Pwstr, pcchbuffersize: COpaquePointer?, dwflags: PdhPathFlags): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhMakeCounterPathW((pcounterpathelements?.value ?: 0L).toString(), (szfullpathbuffer?.value ?: 0L).toString(), (pcchbuffersize?.value ?: 0L).toString(), dwflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhOpenLogA(szlogfilename: PCSTR, dwaccessflags: PDH_LOG, lpdwlogtype: Long, hquery: PDH_HQUERY, dwmaxsize: UInt, szusercaption: PCSTR, phlog: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhOpenLogA(szlogfilename.toString(), dwaccessflags.toInt(), lpdwlogtype.toString(), hquery.toString(), dwmaxsize.toInt(), szusercaption.toString(), phlog.toString()) as Int).toUInt() else 0u
+public actual fun pdhOpenLogA(szlogfilename: Pcstr, dwaccessflags: PdhLog, lpdwlogtype: COpaquePointer?, hquery: PdhHquery, dwmaxsize: UInt, szusercaption: Pcstr, phlog: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhOpenLogA((szlogfilename?.value ?: 0L).toString(), dwaccessflags.toInt(), (lpdwlogtype?.value ?: 0L).toString(), (hquery?.value ?: 0L).toString(), dwmaxsize.toInt(), (szusercaption?.value ?: 0L).toString(), (phlog?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhOpenLogW(szlogfilename: PCWSTR, dwaccessflags: PDH_LOG, lpdwlogtype: Long, hquery: PDH_HQUERY, dwmaxsize: UInt, szusercaption: PCWSTR, phlog: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhOpenLogW(szlogfilename.toString(), dwaccessflags.toInt(), lpdwlogtype.toString(), hquery.toString(), dwmaxsize.toInt(), szusercaption.toString(), phlog.toString()) as Int).toUInt() else 0u
+public actual fun pdhOpenLogW(szlogfilename: Pcwstr, dwaccessflags: PdhLog, lpdwlogtype: COpaquePointer?, hquery: PdhHquery, dwmaxsize: UInt, szusercaption: Pcwstr, phlog: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhOpenLogW((szlogfilename?.value ?: 0L).toString(), dwaccessflags.toInt(), (lpdwlogtype?.value ?: 0L).toString(), (hquery?.value ?: 0L).toString(), dwmaxsize.toInt(), (szusercaption?.value ?: 0L).toString(), (phlog?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhOpenQueryA(szdatasource: PCSTR, dwuserdata: ULong, phquery: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhOpenQueryA(szdatasource.toString(), dwuserdata.toString(), phquery.toString()) as Int).toUInt() else 0u
+public actual fun pdhOpenQueryA(szdatasource: Pcstr, dwuserdata: ULong, phquery: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhOpenQueryA((szdatasource?.value ?: 0L).toString(), dwuserdata.toString(), (phquery?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhOpenQueryH(hdatasource: PDH_HLOG, dwuserdata: ULong, phquery: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhOpenQueryH(hdatasource.toString(), dwuserdata.toString(), phquery.toString()) as Int).toUInt() else 0u
+public actual fun pdhOpenQueryH(hdatasource: PdhHlog, dwuserdata: ULong, phquery: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhOpenQueryH((hdatasource?.value ?: 0L).toString(), dwuserdata.toString(), (phquery?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhOpenQueryW(szdatasource: PCWSTR, dwuserdata: ULong, phquery: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhOpenQueryW(szdatasource.toString(), dwuserdata.toString(), phquery.toString()) as Int).toUInt() else 0u
+public actual fun pdhOpenQueryW(szdatasource: Pcwstr, dwuserdata: ULong, phquery: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhOpenQueryW((szdatasource?.value ?: 0L).toString(), dwuserdata.toString(), (phquery?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhParseCounterPathA(szfullpathbuffer: PCSTR, pcounterpathelements: Long, pdwbuffersize: Long, dwflags: UInt): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhParseCounterPathA(szfullpathbuffer.toString(), pcounterpathelements.toString(), pdwbuffersize.toString(), dwflags.toInt()) as Int).toUInt() else 0u
+public actual fun pdhParseCounterPathA(szfullpathbuffer: Pcstr, pcounterpathelements: COpaquePointer?, pdwbuffersize: COpaquePointer?, dwflags: UInt): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhParseCounterPathA((szfullpathbuffer?.value ?: 0L).toString(), (pcounterpathelements?.value ?: 0L).toString(), (pdwbuffersize?.value ?: 0L).toString(), dwflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhParseCounterPathW(szfullpathbuffer: PCWSTR, pcounterpathelements: Long, pdwbuffersize: Long, dwflags: UInt): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhParseCounterPathW(szfullpathbuffer.toString(), pcounterpathelements.toString(), pdwbuffersize.toString(), dwflags.toInt()) as Int).toUInt() else 0u
+public actual fun pdhParseCounterPathW(szfullpathbuffer: Pcwstr, pcounterpathelements: COpaquePointer?, pdwbuffersize: COpaquePointer?, dwflags: UInt): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhParseCounterPathW((szfullpathbuffer?.value ?: 0L).toString(), (pcounterpathelements?.value ?: 0L).toString(), (pdwbuffersize?.value ?: 0L).toString(), dwflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhParseInstanceNameA(szinstancestring: PCSTR, szinstancename: PSTR, pcchinstancenamelength: Long, szparentname: PSTR, pcchparentnamelength: Long, lpindex: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhParseInstanceNameA(szinstancestring.toString(), szinstancename.toString(), pcchinstancenamelength.toString(), szparentname.toString(), pcchparentnamelength.toString(), lpindex.toString()) as Int).toUInt() else 0u
+public actual fun pdhParseInstanceNameA(szinstancestring: Pcstr, szinstancename: Pstr, pcchinstancenamelength: COpaquePointer?, szparentname: Pstr, pcchparentnamelength: COpaquePointer?, lpindex: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhParseInstanceNameA((szinstancestring?.value ?: 0L).toString(), (szinstancename?.value ?: 0L).toString(), (pcchinstancenamelength?.value ?: 0L).toString(), (szparentname?.value ?: 0L).toString(), (pcchparentnamelength?.value ?: 0L).toString(), (lpindex?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhParseInstanceNameW(szinstancestring: PCWSTR, szinstancename: PWSTR, pcchinstancenamelength: Long, szparentname: PWSTR, pcchparentnamelength: Long, lpindex: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhParseInstanceNameW(szinstancestring.toString(), szinstancename.toString(), pcchinstancenamelength.toString(), szparentname.toString(), pcchparentnamelength.toString(), lpindex.toString()) as Int).toUInt() else 0u
+public actual fun pdhParseInstanceNameW(szinstancestring: Pcwstr, szinstancename: Pwstr, pcchinstancenamelength: COpaquePointer?, szparentname: Pwstr, pcchparentnamelength: COpaquePointer?, lpindex: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhParseInstanceNameW((szinstancestring?.value ?: 0L).toString(), (szinstancename?.value ?: 0L).toString(), (pcchinstancenamelength?.value ?: 0L).toString(), (szparentname?.value ?: 0L).toString(), (pcchparentnamelength?.value ?: 0L).toString(), (lpindex?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhReadRawLogRecord(hlog: PDH_HLOG, ftrecord: FILETIME, prawlogrecord: Long, pdwbufferlength: Long): UInt =
-    0u
+public actual fun pdhReadRawLogRecord(hlog: PdhHlog, ftrecord: Filetime, prawlogrecord: COpaquePointer?, pdwbufferlength: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhRemoveCounter(hcounter: PDH_HCOUNTER): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhRemoveCounter(hcounter.toString()) as Int).toUInt() else 0u
+public actual fun pdhRemoveCounter(hcounter: PdhHcounter): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhRemoveCounter((hcounter?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhSelectDataSourceA(hwndowner: HWND, dwflags: PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource: PSTR, pcchbufferlength: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhSelectDataSourceA(hwndowner.toString(), dwflags.toInt(), szdatasource.toString(), pcchbufferlength.toString()) as Int).toUInt() else 0u
+public actual fun pdhSelectDataSourceA(hwndowner: Hwnd, dwflags: PdhSelectDataSourceFlags, szdatasource: Pstr, pcchbufferlength: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhSelectDataSourceA((hwndowner?.value ?: 0L).toString(), dwflags.toInt(), (szdatasource?.value ?: 0L).toString(), (pcchbufferlength?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhSelectDataSourceW(hwndowner: HWND, dwflags: PDH_SELECT_DATA_SOURCE_FLAGS, szdatasource: PWSTR, pcchbufferlength: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhSelectDataSourceW(hwndowner.toString(), dwflags.toInt(), szdatasource.toString(), pcchbufferlength.toString()) as Int).toUInt() else 0u
+public actual fun pdhSelectDataSourceW(hwndowner: Hwnd, dwflags: PdhSelectDataSourceFlags, szdatasource: Pwstr, pcchbufferlength: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhSelectDataSourceW((hwndowner?.value ?: 0L).toString(), dwflags.toInt(), (szdatasource?.value ?: 0L).toString(), (pcchbufferlength?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhSetCounterScaleFactor(hcounter: PDH_HCOUNTER, lfactor: Int): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhSetCounterScaleFactor(hcounter.toString(), lfactor) as Int).toUInt() else 0u
+public actual fun pdhSetCounterScaleFactor(hcounter: PdhHcounter, lfactor: Int): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhSetCounterScaleFactor((hcounter?.value ?: 0L).toString(), lfactor) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhSetDefaultRealTimeDataSource(dwdatasourceid: REAL_TIME_DATA_SOURCE_ID_FLAGS): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhSetDefaultRealTimeDataSource(dwdatasourceid.toInt()) as Int).toUInt() else 0u
+public actual fun pdhSetDefaultRealTimeDataSource(dwdatasourceid: RealTimeDataSourceIdFlags): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhSetDefaultRealTimeDataSource(dwdatasourceid.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhSetLogSetRunID(hlog: PDH_HLOG, runid: Int): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhSetLogSetRunID(hlog.toString(), runid) as Int).toUInt() else 0u
+public actual fun pdhSetLogSetRunID(hlog: PdhHlog, runid: Int): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhSetLogSetRunID((hlog?.value ?: 0L).toString(), runid) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhSetQueryTimeRange(hquery: PDH_HQUERY, pinfo: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhSetQueryTimeRange(hquery.toString(), pinfo.toString()) as Int).toUInt() else 0u
+public actual fun pdhSetQueryTimeRange(hquery: PdhHquery, pinfo: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhSetQueryTimeRange((hquery?.value ?: 0L).toString(), (pinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhUpdateLogA(hlog: PDH_HLOG, szuserstring: PCSTR): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhUpdateLogA(hlog.toString(), szuserstring.toString()) as Int).toUInt() else 0u
+public actual fun pdhUpdateLogA(hlog: PdhHlog, szuserstring: Pcstr): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhUpdateLogA((hlog?.value ?: 0L).toString(), (szuserstring?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhUpdateLogFileCatalog(hlog: PDH_HLOG): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhUpdateLogFileCatalog(hlog.toString()) as Int).toUInt() else 0u
+public actual fun pdhUpdateLogFileCatalog(hlog: PdhHlog): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhUpdateLogFileCatalog((hlog?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhUpdateLogW(hlog: PDH_HLOG, szuserstring: PCWSTR): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhUpdateLogW(hlog.toString(), szuserstring.toString()) as Int).toUInt() else 0u
+public actual fun pdhUpdateLogW(hlog: PdhHlog, szuserstring: Pcwstr): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhUpdateLogW((hlog?.value ?: 0L).toString(), (szuserstring?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhValidatePathA(szfullpathbuffer: PCSTR): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhValidatePathA(szfullpathbuffer.toString()) as Int).toUInt() else 0u
+public actual fun pdhValidatePathA(szfullpathbuffer: Pcstr): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhValidatePathA((szfullpathbuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhValidatePathExA(hdatasource: PDH_HLOG, szfullpathbuffer: PCSTR): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhValidatePathExA(hdatasource.toString(), szfullpathbuffer.toString()) as Int).toUInt() else 0u
+public actual fun pdhValidatePathExA(hdatasource: PdhHlog, szfullpathbuffer: Pcstr): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhValidatePathExA((hdatasource?.value ?: 0L).toString(), (szfullpathbuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhValidatePathExW(hdatasource: PDH_HLOG, szfullpathbuffer: PCWSTR): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhValidatePathExW(hdatasource.toString(), szfullpathbuffer.toString()) as Int).toUInt() else 0u
+public actual fun pdhValidatePathExW(hdatasource: PdhHlog, szfullpathbuffer: Pcwstr): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhValidatePathExW((hdatasource?.value ?: 0L).toString(), (szfullpathbuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhValidatePathW(szfullpathbuffer: PCWSTR): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhValidatePathW(szfullpathbuffer.toString()) as Int).toUInt() else 0u
+public actual fun pdhValidatePathW(szfullpathbuffer: Pcwstr): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhValidatePathW((szfullpathbuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhVerifySQLDBA(szdatasource: PCSTR): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhVerifySQLDBA(szdatasource.toString()) as Int).toUInt() else 0u
+public actual fun pdhVerifySQLDBA(szdatasource: Pcstr): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhVerifySQLDBA((szdatasource?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PdhVerifySQLDBW(szdatasource: PCWSTR): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PdhVerifySQLDBW(szdatasource.toString()) as Int).toUInt() else 0u
+public actual fun pdhVerifySQLDBW(szdatasource: Pcwstr): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_pdhVerifySQLDBW((szdatasource?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PerfAddCounters(hquery: HANDLE, pcounters: Long, cbcounters: UInt): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PerfAddCounters(hquery.toString(), pcounters.toString(), cbcounters.toInt()) as Int).toUInt() else 0u
+public actual fun perfAddCounters(hquery: Handle, pcounters: COpaquePointer?, cbcounters: UInt): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_perfAddCounters((hquery?.value ?: 0L).toString(), (pcounters?.value ?: 0L).toString(), cbcounters.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PerfCloseQueryHandle(hquery: HANDLE): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PerfCloseQueryHandle(hquery.toString()) as Int).toUInt() else 0u
+public actual fun perfCloseQueryHandle(hquery: Handle): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_perfCloseQueryHandle((hquery?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PerfCreateInstance(providerhandle: HANDLE, countersetguid: Long, name: PCWSTR, id: UInt): Long =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PerfCreateInstance(providerhandle.toString(), countersetguid.toString(), name.toString(), id.toInt()) as String).toLong() else 0L
+public actual fun perfCreateInstance(providerhandle: Handle, countersetguid: COpaquePointer?, name: Pcwstr, id: UInt): COpaquePointer? =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_perfCreateInstance((providerhandle?.value ?: 0L).toString(), (countersetguid?.value ?: 0L).toString(), (name?.value ?: 0L).toString(), id.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PerfDecrementULongCounterValue(provider: HANDLE, instance: Long, counterid: UInt, value: UInt): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PerfDecrementULongCounterValue(provider.toString(), instance.toString(), counterid.toInt(), value.toInt()) as Int).toUInt() else 0u
+public actual fun perfDecrementULongCounterValue(provider: Handle, instance: COpaquePointer?, counterid: UInt, value: UInt): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_perfDecrementULongCounterValue((provider?.value ?: 0L).toString(), (instance?.value ?: 0L).toString(), counterid.toInt(), value.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PerfDecrementULongLongCounterValue(provider: HANDLE, instance: Long, counterid: UInt, value: ULong): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PerfDecrementULongLongCounterValue(provider.toString(), instance.toString(), counterid.toInt(), value.toString()) as Int).toUInt() else 0u
+public actual fun perfDecrementULongLongCounterValue(provider: Handle, instance: COpaquePointer?, counterid: UInt, value: ULong): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_perfDecrementULongLongCounterValue((provider?.value ?: 0L).toString(), (instance?.value ?: 0L).toString(), counterid.toInt(), value.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PerfDeleteCounters(hquery: HANDLE, pcounters: Long, cbcounters: UInt): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PerfDeleteCounters(hquery.toString(), pcounters.toString(), cbcounters.toInt()) as Int).toUInt() else 0u
+public actual fun perfDeleteCounters(hquery: Handle, pcounters: COpaquePointer?, cbcounters: UInt): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_perfDeleteCounters((hquery?.value ?: 0L).toString(), (pcounters?.value ?: 0L).toString(), cbcounters.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PerfDeleteInstance(provider: HANDLE, instanceblock: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PerfDeleteInstance(provider.toString(), instanceblock.toString()) as Int).toUInt() else 0u
+public actual fun perfDeleteInstance(provider: Handle, instanceblock: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_perfDeleteInstance((provider?.value ?: 0L).toString(), (instanceblock?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PerfEnumerateCounterSet(szmachine: PCWSTR, pcountersetids: Long, ccountersetids: UInt, pccountersetidsactual: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PerfEnumerateCounterSet(szmachine.toString(), pcountersetids.toString(), ccountersetids.toInt(), pccountersetidsactual.toString()) as Int).toUInt() else 0u
+public actual fun perfEnumerateCounterSet(szmachine: Pcwstr, pcountersetids: COpaquePointer?, ccountersetids: UInt, pccountersetidsactual: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_perfEnumerateCounterSet((szmachine?.value ?: 0L).toString(), (pcountersetids?.value ?: 0L).toString(), ccountersetids.toInt(), (pccountersetidsactual?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PerfEnumerateCounterSetInstances(szmachine: PCWSTR, pcountersetid: Long, pinstances: Long, cbinstances: UInt, pcbinstancesactual: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PerfEnumerateCounterSetInstances(szmachine.toString(), pcountersetid.toString(), pinstances.toString(), cbinstances.toInt(), pcbinstancesactual.toString()) as Int).toUInt() else 0u
+public actual fun perfEnumerateCounterSetInstances(szmachine: Pcwstr, pcountersetid: COpaquePointer?, pinstances: COpaquePointer?, cbinstances: UInt, pcbinstancesactual: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_perfEnumerateCounterSetInstances((szmachine?.value ?: 0L).toString(), (pcountersetid?.value ?: 0L).toString(), (pinstances?.value ?: 0L).toString(), cbinstances.toInt(), (pcbinstancesactual?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PerfIncrementULongCounterValue(provider: HANDLE, instance: Long, counterid: UInt, value: UInt): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PerfIncrementULongCounterValue(provider.toString(), instance.toString(), counterid.toInt(), value.toInt()) as Int).toUInt() else 0u
+public actual fun perfIncrementULongCounterValue(provider: Handle, instance: COpaquePointer?, counterid: UInt, value: UInt): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_perfIncrementULongCounterValue((provider?.value ?: 0L).toString(), (instance?.value ?: 0L).toString(), counterid.toInt(), value.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PerfIncrementULongLongCounterValue(provider: HANDLE, instance: Long, counterid: UInt, value: ULong): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PerfIncrementULongLongCounterValue(provider.toString(), instance.toString(), counterid.toInt(), value.toString()) as Int).toUInt() else 0u
+public actual fun perfIncrementULongLongCounterValue(provider: Handle, instance: COpaquePointer?, counterid: UInt, value: ULong): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_perfIncrementULongLongCounterValue((provider?.value ?: 0L).toString(), (instance?.value ?: 0L).toString(), counterid.toInt(), value.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PerfOpenQueryHandle(szmachine: PCWSTR, phquery: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PerfOpenQueryHandle(szmachine.toString(), phquery.toString()) as Int).toUInt() else 0u
+public actual fun perfOpenQueryHandle(szmachine: Pcwstr, phquery: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_perfOpenQueryHandle((szmachine?.value ?: 0L).toString(), (phquery?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PerfQueryCounterData(hquery: HANDLE, pcounterblock: Long, cbcounterblock: UInt, pcbcounterblockactual: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PerfQueryCounterData(hquery.toString(), pcounterblock.toString(), cbcounterblock.toInt(), pcbcounterblockactual.toString()) as Int).toUInt() else 0u
+public actual fun perfQueryCounterData(hquery: Handle, pcounterblock: COpaquePointer?, cbcounterblock: UInt, pcbcounterblockactual: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_perfQueryCounterData((hquery?.value ?: 0L).toString(), (pcounterblock?.value ?: 0L).toString(), cbcounterblock.toInt(), (pcbcounterblockactual?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PerfQueryCounterInfo(hquery: HANDLE, pcounters: Long, cbcounters: UInt, pcbcountersactual: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PerfQueryCounterInfo(hquery.toString(), pcounters.toString(), cbcounters.toInt(), pcbcountersactual.toString()) as Int).toUInt() else 0u
+public actual fun perfQueryCounterInfo(hquery: Handle, pcounters: COpaquePointer?, cbcounters: UInt, pcbcountersactual: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_perfQueryCounterInfo((hquery?.value ?: 0L).toString(), (pcounters?.value ?: 0L).toString(), cbcounters.toInt(), (pcbcountersactual?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PerfQueryCounterSetRegistrationInfo(szmachine: PCWSTR, pcountersetid: Long, requestcode: PerfRegInfoType, requestlangid: UInt, pbreginfo: Long, cbreginfo: UInt, pcbreginfoactual: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PerfQueryCounterSetRegistrationInfo(szmachine.toString(), pcountersetid.toString(), requestcode, requestlangid.toInt(), pbreginfo.toString(), cbreginfo.toInt(), pcbreginfoactual.toString()) as Int).toUInt() else 0u
+public actual fun perfQueryCounterSetRegistrationInfo(szmachine: Pcwstr, pcountersetid: COpaquePointer?, requestcode: PerfRegInfoType, requestlangid: UInt, pbreginfo: COpaquePointer?, cbreginfo: UInt, pcbreginfoactual: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_perfQueryCounterSetRegistrationInfo((szmachine?.value ?: 0L).toString(), (pcountersetid?.value ?: 0L).toString(), requestcode, requestlangid.toInt(), (pbreginfo?.value ?: 0L).toString(), cbreginfo.toInt(), (pcbreginfoactual?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PerfQueryInstance(providerhandle: HANDLE, countersetguid: Long, name: PCWSTR, id: UInt): Long =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PerfQueryInstance(providerhandle.toString(), countersetguid.toString(), name.toString(), id.toInt()) as String).toLong() else 0L
+public actual fun perfQueryInstance(providerhandle: Handle, countersetguid: COpaquePointer?, name: Pcwstr, id: UInt): COpaquePointer? =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_perfQueryInstance((providerhandle?.value ?: 0L).toString(), (countersetguid?.value ?: 0L).toString(), (name?.value ?: 0L).toString(), id.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PerfSetCounterRefValue(provider: HANDLE, instance: Long, counterid: UInt, address: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PerfSetCounterRefValue(provider.toString(), instance.toString(), counterid.toInt(), address.toString()) as Int).toUInt() else 0u
+public actual fun perfSetCounterRefValue(provider: Handle, instance: COpaquePointer?, counterid: UInt, address: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_perfSetCounterRefValue((provider?.value ?: 0L).toString(), (instance?.value ?: 0L).toString(), counterid.toInt(), (address?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PerfSetCounterSetInfo(providerhandle: HANDLE, template: Long, templatesize: UInt): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PerfSetCounterSetInfo(providerhandle.toString(), template.toString(), templatesize.toInt()) as Int).toUInt() else 0u
+public actual fun perfSetCounterSetInfo(providerhandle: Handle, template: COpaquePointer?, templatesize: UInt): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_perfSetCounterSetInfo((providerhandle?.value ?: 0L).toString(), (template?.value ?: 0L).toString(), templatesize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PerfSetULongCounterValue(provider: HANDLE, instance: Long, counterid: UInt, value: UInt): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PerfSetULongCounterValue(provider.toString(), instance.toString(), counterid.toInt(), value.toInt()) as Int).toUInt() else 0u
+public actual fun perfSetULongCounterValue(provider: Handle, instance: COpaquePointer?, counterid: UInt, value: UInt): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_perfSetULongCounterValue((provider?.value ?: 0L).toString(), (instance?.value ?: 0L).toString(), counterid.toInt(), value.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PerfSetULongLongCounterValue(provider: HANDLE, instance: Long, counterid: UInt, value: ULong): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PerfSetULongLongCounterValue(provider.toString(), instance.toString(), counterid.toInt(), value.toString()) as Int).toUInt() else 0u
+public actual fun perfSetULongLongCounterValue(provider: Handle, instance: COpaquePointer?, counterid: UInt, value: ULong): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_perfSetULongLongCounterValue((provider?.value ?: 0L).toString(), (instance?.value ?: 0L).toString(), counterid.toInt(), value.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PerfStartProvider(providerguid: Long, controlcallback: PERFLIBREQUEST, phprovider: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PerfStartProvider(providerguid.toString(), controlcallback.toLong().toString(), phprovider.toString()) as Int).toUInt() else 0u
+public actual fun perfStartProvider(providerguid: COpaquePointer?, controlcallback: Perflibrequest, phprovider: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_perfStartProvider((providerguid?.value ?: 0L).toString(), 0L.toString(), (phprovider?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PerfStartProviderEx(providerguid: Long, providercontext: Long, provider: Long): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PerfStartProviderEx(providerguid.toString(), providercontext.toString(), provider.toString()) as Int).toUInt() else 0u
+public actual fun perfStartProviderEx(providerguid: COpaquePointer?, providercontext: COpaquePointer?, provider: COpaquePointer?): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_perfStartProviderEx((providerguid?.value ?: 0L).toString(), (providercontext?.value ?: 0L).toString(), (provider?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PerfStopProvider(providerhandle: HANDLE): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_PerfStopProvider(providerhandle.toString()) as Int).toUInt() else 0u
+public actual fun perfStopProvider(providerhandle: Handle): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_perfStopProvider((providerhandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QueryPerformanceCounter(lpperformancecount: Long): BOOL =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_QueryPerformanceCounter(lpperformancecount.toString()) as Int) else 0
+public actual fun queryPerformanceCounter(lpperformancecount: COpaquePointer?): Bool =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_queryPerformanceCounter((lpperformancecount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QueryPerformanceFrequency(lpfrequency: Long): BOOL =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_QueryPerformanceFrequency(lpfrequency.toString()) as Int) else 0
+public actual fun queryPerformanceFrequency(lpfrequency: COpaquePointer?): Bool =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_queryPerformanceFrequency((lpfrequency?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RestorePerfRegistryFromFileW(szfilename: PCWSTR, szlangid: PCWSTR): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_RestorePerfRegistryFromFileW(szfilename.toString(), szlangid.toString()) as Int).toUInt() else 0u
+public actual fun restorePerfRegistryFromFileW(szfilename: Pcwstr, szlangid: Pcwstr): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_restorePerfRegistryFromFileW((szfilename?.value ?: 0L).toString(), (szlangid?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetServiceAsTrustedA(szreserved: PCSTR, szservicename: PCSTR): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_SetServiceAsTrustedA(szreserved.toString(), szservicename.toString()) as Int).toUInt() else 0u
+public actual fun setServiceAsTrustedA(szreserved: Pcstr, szservicename: Pcstr): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_setServiceAsTrustedA((szreserved?.value ?: 0L).toString(), (szservicename?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetServiceAsTrustedW(szreserved: PCWSTR, szservicename: PCWSTR): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_SetServiceAsTrustedW(szreserved.toString(), szservicename.toString()) as Int).toUInt() else 0u
+public actual fun setServiceAsTrustedW(szreserved: Pcwstr, szservicename: Pcwstr): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_setServiceAsTrustedW((szreserved?.value ?: 0L).toString(), (szservicename?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UnloadPerfCounterTextStringsA(lpcommandline: PCSTR, bquietmodearg: BOOL): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_UnloadPerfCounterTextStringsA(lpcommandline.toString(), bquietmodearg) as Int).toUInt() else 0u
+public actual fun unloadPerfCounterTextStringsA(lpcommandline: Pcstr, bquietmodearg: Bool): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_unloadPerfCounterTextStringsA((lpcommandline?.value ?: 0L).toString(), bquietmodearg) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UnloadPerfCounterTextStringsW(lpcommandline: PCWSTR, bquietmodearg: BOOL): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_UnloadPerfCounterTextStringsW(lpcommandline.toString(), bquietmodearg) as Int).toUInt() else 0u
+public actual fun unloadPerfCounterTextStringsW(lpcommandline: Pcwstr, bquietmodearg: Bool): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_unloadPerfCounterTextStringsW((lpcommandline?.value ?: 0L).toString(), bquietmodearg) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UpdatePerfNameFilesA(sznewctrfilepath: PCSTR, sznewhlpfilepath: PCSTR, szlanguageid: PCSTR, dwflags: ULong): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_UpdatePerfNameFilesA(sznewctrfilepath.toString(), sznewhlpfilepath.toString(), szlanguageid.toString(), dwflags.toString()) as Int).toUInt() else 0u
+public actual fun updatePerfNameFilesA(sznewctrfilepath: Pcstr, sznewhlpfilepath: Pcstr, szlanguageid: Pcstr, dwflags: ULong): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_updatePerfNameFilesA((sznewctrfilepath?.value ?: 0L).toString(), (sznewhlpfilepath?.value ?: 0L).toString(), (szlanguageid?.value ?: 0L).toString(), dwflags.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UpdatePerfNameFilesW(sznewctrfilepath: PCWSTR, sznewhlpfilepath: PCWSTR, szlanguageid: PCWSTR, dwflags: ULong): UInt =
-    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_UpdatePerfNameFilesW(sznewctrfilepath.toString(), sznewhlpfilepath.toString(), szlanguageid.toString(), dwflags.toString()) as Int).toUInt() else 0u
+public actual fun updatePerfNameFilesW(sznewctrfilepath: Pcwstr, sznewhlpfilepath: Pcwstr, szlanguageid: Pcwstr, dwflags: ULong): UInt =
+    if (_windowsWin32SystemPerformanceNapiAddon != null) (_windowsWin32SystemPerformanceNapiAddon.windowssys_windows_win32_system_performance_updatePerfNameFilesW((sznewctrfilepath?.value ?: 0L).toString(), (sznewhlpfilepath?.value ?: 0L).toString(), (szlanguageid?.value ?: 0L).toString(), dwflags.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")

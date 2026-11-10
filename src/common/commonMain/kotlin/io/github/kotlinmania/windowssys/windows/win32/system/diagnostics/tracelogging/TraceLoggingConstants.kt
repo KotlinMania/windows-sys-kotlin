@@ -1,82 +1,82 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.tracelogging
 
-public val MSG_category_Devices: Int = 1
+public val MSG_CATEGORY_DEVICES: Int = 1
 
-public val MSG_category_Disk: Int = 2
+public val MSG_CATEGORY_DISK: Int = 2
 
-public val MSG_category_Network: Int = 7
+public val MSG_CATEGORY_NETWORK: Int = 7
 
-public val MSG_category_Printers: Int = 3
+public val MSG_CATEGORY_PRINTERS: Int = 3
 
-public val MSG_category_Services: Int = 4
+public val MSG_CATEGORY_SERVICES: Int = 4
 
-public val MSG_category_Shell: Int = 5
+public val MSG_CATEGORY_SHELL: Int = 5
 
-public val MSG_category_SystemEvent: Int = 6
+public val MSG_CATEGORY_SYSTEM_EVENT: Int = 6
 
-public val MSG_channel_Application: Int = 256
+public val MSG_CHANNEL_APPLICATION: Int = 256
 
-public val MSG_channel_ProviderMetadata: Int = -1879048189
+public val MSG_CHANNEL_PROVIDER_METADATA: Int = -1879048189
 
-public val MSG_channel_Security: Int = 257
+public val MSG_CHANNEL_SECURITY: Int = 257
 
-public val MSG_channel_System: Int = 258
+public val MSG_CHANNEL_SYSTEM: Int = 258
 
-public val MSG_channel_TraceClassic: Int = -1879048191
+public val MSG_CHANNEL_TRACE_CLASSIC: Int = -1879048191
 
-public val MSG_channel_TraceLogging: Int = -1879048190
+public val MSG_CHANNEL_TRACE_LOGGING: Int = -1879048190
 
-public val MSG_keyword_AnyKeyword: Int = 268435456
+public val MSG_KEYWORD_ANY_KEYWORD: Int = 268435456
 
-public val MSG_keyword_AuditFailure: Int = 268435509
+public val MSG_KEYWORD_AUDIT_FAILURE: Int = 268435509
 
-public val MSG_keyword_AuditSuccess: Int = 268435510
+public val MSG_KEYWORD_AUDIT_SUCCESS: Int = 268435510
 
-public val MSG_keyword_Classic: Int = 268435512
+public val MSG_KEYWORD_CLASSIC: Int = 268435512
 
-public val MSG_keyword_CorrelationHint: Int = 268435511
+public val MSG_KEYWORD_CORRELATION_HINT: Int = 268435511
 
-public val MSG_keyword_ResponseTime: Int = 268435505
+public val MSG_KEYWORD_RESPONSE_TIME: Int = 268435505
 
-public val MSG_keyword_SQM: Int = 268435508
+public val MSG_KEYWORD_SQM: Int = 268435508
 
-public val MSG_keyword_WDIDiag: Int = 268435507
+public val MSG_KEYWORD_WDI_DIAG: Int = 268435507
 
-public val MSG_level_Critical: Int = 1342177281
+public val MSG_LEVEL_CRITICAL: Int = 1342177281
 
-public val MSG_level_Error: Int = 1342177282
+public val MSG_LEVEL_ERROR: Int = 1342177282
 
-public val MSG_level_Informational: Int = 1342177284
+public val MSG_LEVEL_INFORMATIONAL: Int = 1342177284
 
-public val MSG_level_LogAlways: Int = 1342177280
+public val MSG_LEVEL_LOG_ALWAYS: Int = 1342177280
 
-public val MSG_level_Verbose: Int = 1342177285
+public val MSG_LEVEL_VERBOSE: Int = 1342177285
 
-public val MSG_level_Warning: Int = 1342177283
+public val MSG_LEVEL_WARNING: Int = 1342177283
 
-public val MSG_opcode_DCStart: Int = 805502976
+public val MSG_OPCODE_DC_START: Int = 805502976
 
-public val MSG_opcode_DCStop: Int = 805568512
+public val MSG_OPCODE_DC_STOP: Int = 805568512
 
-public val MSG_opcode_Extension: Int = 805634048
+public val MSG_OPCODE_EXTENSION: Int = 805634048
 
-public val MSG_opcode_Info: Int = 805306368
+public val MSG_OPCODE_INFO: Int = 805306368
 
-public val MSG_opcode_Receive: Int = 821035008
+public val MSG_OPCODE_RECEIVE: Int = 821035008
 
-public val MSG_opcode_Reply: Int = 805699584
+public val MSG_OPCODE_REPLY: Int = 805699584
 
-public val MSG_opcode_Resume: Int = 805765120
+public val MSG_OPCODE_RESUME: Int = 805765120
 
-public val MSG_opcode_Send: Int = 805896192
+public val MSG_OPCODE_SEND: Int = 805896192
 
-public val MSG_opcode_Start: Int = 805371904
+public val MSG_OPCODE_START: Int = 805371904
 
-public val MSG_opcode_Stop: Int = 805437440
+public val MSG_OPCODE_STOP: Int = 805437440
 
-public val MSG_opcode_Suspend: Int = 805830656
+public val MSG_OPCODE_SUSPEND: Int = 805830656
 
-public val MSG_task_None: Int = 1879048192
+public val MSG_TASK_NONE: Int = 1879048192
 
 public val WINEVENT_CHANNEL_CLASSIC_TRACE: Int = 0
 

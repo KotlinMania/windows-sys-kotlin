@@ -2,153 +2,154 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun DirectInput8Create(hinst: HINSTANCE, dwversion: UInt, riidltf: Long, ppvout: Long, punkouter: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_DirectInput8Create(hinst.toCPointer<ByteVar>(), dwversion, riidltf.toCPointer<ByteVar>(), ppvout.toCPointer<ByteVar>(), punkouter.toCPointer<ByteVar>())
+public actual fun directInput8Create(hinst: Hinstance, dwversion: UInt, riidltf: COpaquePointer?, ppvout: COpaquePointer?, punkouter: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_directInput8Create(hinst?.value?.toCPointer<ByteVar>(), dwversion, riidltf?.value?.toCPointer<ByteVar>(), ppvout?.value?.toCPointer<ByteVar>(), punkouter?.value?.toCPointer<ByteVar>())
 
-public actual fun HidD_FlushQueue(hiddeviceobject: HANDLE): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidD_FlushQueue(hiddeviceobject.toCPointer<ByteVar>())
+public actual fun hidDFlushQueue(hiddeviceobject: Handle): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidDFlushQueue(hiddeviceobject?.value?.toCPointer<ByteVar>())
 
-public actual fun HidD_FreePreparsedData(preparseddata: PHIDP_PREPARSED_DATA): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidD_FreePreparsedData(preparseddata)
+public actual fun hidDFreePreparsedData(preparseddata: PhidpPreparsedData): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidDFreePreparsedData(preparseddata.toLong())
 
-public actual fun HidD_GetAttributes(hiddeviceobject: HANDLE, attributes: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetAttributes(hiddeviceobject.toCPointer<ByteVar>(), attributes.toCPointer<ByteVar>())
+public actual fun hidDGetAttributes(hiddeviceobject: Handle, attributes: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidDGetAttributes(hiddeviceobject?.value?.toCPointer<ByteVar>(), attributes?.value?.toCPointer<ByteVar>())
 
-public actual fun HidD_GetConfiguration(hiddeviceobject: HANDLE, configuration: Long, configurationlength: UInt): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetConfiguration(hiddeviceobject.toCPointer<ByteVar>(), configuration.toCPointer<ByteVar>(), configurationlength)
+public actual fun hidDGetConfiguration(hiddeviceobject: Handle, configuration: COpaquePointer?, configurationlength: UInt): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidDGetConfiguration(hiddeviceobject?.value?.toCPointer<ByteVar>(), configuration?.value?.toCPointer<ByteVar>(), configurationlength)
 
-public actual fun HidD_GetFeature(hiddeviceobject: HANDLE, reportbuffer: Long, reportbufferlength: UInt): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetFeature(hiddeviceobject.toCPointer<ByteVar>(), reportbuffer.toCPointer<ByteVar>(), reportbufferlength)
+public actual fun hidDGetFeature(hiddeviceobject: Handle, reportbuffer: COpaquePointer?, reportbufferlength: UInt): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidDGetFeature(hiddeviceobject?.value?.toCPointer<ByteVar>(), reportbuffer?.value?.toCPointer<ByteVar>(), reportbufferlength)
 
-public actual fun HidD_GetHidGuid(hidguid: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetHidGuid(hidguid.toCPointer<ByteVar>())
+public actual fun hidDGetHidGuid(hidguid: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidDGetHidGuid(hidguid?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun HidD_GetIndexedString(hiddeviceobject: HANDLE, stringindex: UInt, buffer: Long, bufferlength: UInt): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetIndexedString(hiddeviceobject.toCPointer<ByteVar>(), stringindex, buffer.toCPointer<ByteVar>(), bufferlength)
+public actual fun hidDGetIndexedString(hiddeviceobject: Handle, stringindex: UInt, buffer: COpaquePointer?, bufferlength: UInt): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidDGetIndexedString(hiddeviceobject?.value?.toCPointer<ByteVar>(), stringindex, buffer?.value?.toCPointer<ByteVar>(), bufferlength)
 
-public actual fun HidD_GetInputReport(hiddeviceobject: HANDLE, reportbuffer: Long, reportbufferlength: UInt): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetInputReport(hiddeviceobject.toCPointer<ByteVar>(), reportbuffer.toCPointer<ByteVar>(), reportbufferlength)
+public actual fun hidDGetInputReport(hiddeviceobject: Handle, reportbuffer: COpaquePointer?, reportbufferlength: UInt): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidDGetInputReport(hiddeviceobject?.value?.toCPointer<ByteVar>(), reportbuffer?.value?.toCPointer<ByteVar>(), reportbufferlength)
 
-public actual fun HidD_GetManufacturerString(hiddeviceobject: HANDLE, buffer: Long, bufferlength: UInt): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetManufacturerString(hiddeviceobject.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), bufferlength)
+public actual fun hidDGetManufacturerString(hiddeviceobject: Handle, buffer: COpaquePointer?, bufferlength: UInt): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidDGetManufacturerString(hiddeviceobject?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), bufferlength)
 
-public actual fun HidD_GetMsGenreDescriptor(hiddeviceobject: HANDLE, buffer: Long, bufferlength: UInt): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetMsGenreDescriptor(hiddeviceobject.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), bufferlength)
+public actual fun hidDGetMsGenreDescriptor(hiddeviceobject: Handle, buffer: COpaquePointer?, bufferlength: UInt): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidDGetMsGenreDescriptor(hiddeviceobject?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), bufferlength)
 
-public actual fun HidD_GetNumInputBuffers(hiddeviceobject: HANDLE, numberbuffers: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetNumInputBuffers(hiddeviceobject.toCPointer<ByteVar>(), numberbuffers.toCPointer<ByteVar>())
+public actual fun hidDGetNumInputBuffers(hiddeviceobject: Handle, numberbuffers: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidDGetNumInputBuffers(hiddeviceobject?.value?.toCPointer<ByteVar>(), numberbuffers?.value?.toCPointer<ByteVar>())
 
-public actual fun HidD_GetPhysicalDescriptor(hiddeviceobject: HANDLE, buffer: Long, bufferlength: UInt): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetPhysicalDescriptor(hiddeviceobject.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), bufferlength)
+public actual fun hidDGetPhysicalDescriptor(hiddeviceobject: Handle, buffer: COpaquePointer?, bufferlength: UInt): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidDGetPhysicalDescriptor(hiddeviceobject?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), bufferlength)
 
-public actual fun HidD_GetPreparsedData(hiddeviceobject: HANDLE, preparseddata: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetPreparsedData(hiddeviceobject.toCPointer<ByteVar>(), preparseddata.toCPointer<ByteVar>())
+public actual fun hidDGetPreparsedData(hiddeviceobject: Handle, preparseddata: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidDGetPreparsedData(hiddeviceobject?.value?.toCPointer<ByteVar>(), preparseddata?.value?.toCPointer<ByteVar>())
 
-public actual fun HidD_GetProductString(hiddeviceobject: HANDLE, buffer: Long, bufferlength: UInt): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetProductString(hiddeviceobject.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), bufferlength)
+public actual fun hidDGetProductString(hiddeviceobject: Handle, buffer: COpaquePointer?, bufferlength: UInt): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidDGetProductString(hiddeviceobject?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), bufferlength)
 
-public actual fun HidD_GetSerialNumberString(hiddeviceobject: HANDLE, buffer: Long, bufferlength: UInt): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetSerialNumberString(hiddeviceobject.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), bufferlength)
+public actual fun hidDGetSerialNumberString(hiddeviceobject: Handle, buffer: COpaquePointer?, bufferlength: UInt): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidDGetSerialNumberString(hiddeviceobject?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), bufferlength)
 
-public actual fun HidD_SetConfiguration(hiddeviceobject: HANDLE, configuration: Long, configurationlength: UInt): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidD_SetConfiguration(hiddeviceobject.toCPointer<ByteVar>(), configuration.toCPointer<ByteVar>(), configurationlength)
+public actual fun hidDSetConfiguration(hiddeviceobject: Handle, configuration: COpaquePointer?, configurationlength: UInt): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidDSetConfiguration(hiddeviceobject?.value?.toCPointer<ByteVar>(), configuration?.value?.toCPointer<ByteVar>(), configurationlength)
 
-public actual fun HidD_SetFeature(hiddeviceobject: HANDLE, reportbuffer: Long, reportbufferlength: UInt): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidD_SetFeature(hiddeviceobject.toCPointer<ByteVar>(), reportbuffer.toCPointer<ByteVar>(), reportbufferlength)
+public actual fun hidDSetFeature(hiddeviceobject: Handle, reportbuffer: COpaquePointer?, reportbufferlength: UInt): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidDSetFeature(hiddeviceobject?.value?.toCPointer<ByteVar>(), reportbuffer?.value?.toCPointer<ByteVar>(), reportbufferlength)
 
-public actual fun HidD_SetNumInputBuffers(hiddeviceobject: HANDLE, numberbuffers: UInt): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidD_SetNumInputBuffers(hiddeviceobject.toCPointer<ByteVar>(), numberbuffers)
+public actual fun hidDSetNumInputBuffers(hiddeviceobject: Handle, numberbuffers: UInt): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidDSetNumInputBuffers(hiddeviceobject?.value?.toCPointer<ByteVar>(), numberbuffers)
 
-public actual fun HidD_SetOutputReport(hiddeviceobject: HANDLE, reportbuffer: Long, reportbufferlength: UInt): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidD_SetOutputReport(hiddeviceobject.toCPointer<ByteVar>(), reportbuffer.toCPointer<ByteVar>(), reportbufferlength)
+public actual fun hidDSetOutputReport(hiddeviceobject: Handle, reportbuffer: COpaquePointer?, reportbufferlength: UInt): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidDSetOutputReport(hiddeviceobject?.value?.toCPointer<ByteVar>(), reportbuffer?.value?.toCPointer<ByteVar>(), reportbufferlength)
 
-public actual fun HidP_GetButtonArray(reporttype: HIDP_REPORT_TYPE, usagepage: UShort, linkcollection: UShort, usage: UShort, buttondata: Long, buttondatalength: Long, preparseddata: PHIDP_PREPARSED_DATA, report: PCSTR, reportlength: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetButtonArray(reporttype, usagepage, linkcollection, usage, buttondata.toCPointer<ByteVar>(), buttondatalength.toCPointer<ByteVar>(), preparseddata, report.toCPointer<ByteVar>(), reportlength)
+public actual fun hidPGetButtonArray(reporttype: HidpReportType, usagepage: UShort, linkcollection: UShort, usage: UShort, buttondata: COpaquePointer?, buttondatalength: COpaquePointer?, preparseddata: PhidpPreparsedData, report: Pcstr, reportlength: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidPGetButtonArray(reporttype, usagepage, linkcollection, usage, buttondata?.value?.toCPointer<ByteVar>(), buttondatalength?.value?.toCPointer<ByteVar>(), preparseddata.toLong(), report?.value?.toCPointer<ByteVar>(), reportlength)
 
-public actual fun HidP_GetButtonCaps(reporttype: HIDP_REPORT_TYPE, buttoncaps: Long, buttoncapslength: Long, preparseddata: PHIDP_PREPARSED_DATA): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetButtonCaps(reporttype, buttoncaps.toCPointer<ByteVar>(), buttoncapslength.toCPointer<ByteVar>(), preparseddata)
+public actual fun hidPGetButtonCaps(reporttype: HidpReportType, buttoncaps: COpaquePointer?, buttoncapslength: COpaquePointer?, preparseddata: PhidpPreparsedData): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidPGetButtonCaps(reporttype, buttoncaps?.value?.toCPointer<ByteVar>(), buttoncapslength?.value?.toCPointer<ByteVar>(), preparseddata.toLong())
 
-public actual fun HidP_GetCaps(preparseddata: PHIDP_PREPARSED_DATA, capabilities: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetCaps(preparseddata, capabilities.toCPointer<ByteVar>())
+public actual fun hidPGetCaps(preparseddata: PhidpPreparsedData, capabilities: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidPGetCaps(preparseddata.toLong(), capabilities?.value?.toCPointer<ByteVar>())
 
-public actual fun HidP_GetData(reporttype: HIDP_REPORT_TYPE, datalist: Long, datalength: Long, preparseddata: PHIDP_PREPARSED_DATA, report: PSTR, reportlength: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetData(reporttype, datalist.toCPointer<ByteVar>(), datalength.toCPointer<ByteVar>(), preparseddata, report.toCPointer<ByteVar>(), reportlength)
+public actual fun hidPGetData(reporttype: HidpReportType, datalist: COpaquePointer?, datalength: COpaquePointer?, preparseddata: PhidpPreparsedData, report: Pstr, reportlength: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidPGetData(reporttype, datalist?.value?.toCPointer<ByteVar>(), datalength?.value?.toCPointer<ByteVar>(), preparseddata.toLong(), report?.value?.toCPointer<ByteVar>(), reportlength)
 
-public actual fun HidP_GetExtendedAttributes(reporttype: HIDP_REPORT_TYPE, dataindex: UShort, preparseddata: PHIDP_PREPARSED_DATA, attributes: Long, lengthattributes: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetExtendedAttributes(reporttype, dataindex, preparseddata, attributes.toCPointer<ByteVar>(), lengthattributes.toCPointer<ByteVar>())
+public actual fun hidPGetExtendedAttributes(reporttype: HidpReportType, dataindex: UShort, preparseddata: PhidpPreparsedData, attributes: COpaquePointer?, lengthattributes: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidPGetExtendedAttributes(reporttype, dataindex, preparseddata.toLong(), attributes?.value?.toCPointer<ByteVar>(), lengthattributes?.value?.toCPointer<ByteVar>())
 
-public actual fun HidP_GetLinkCollectionNodes(linkcollectionnodes: Long, linkcollectionnodeslength: Long, preparseddata: PHIDP_PREPARSED_DATA): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetLinkCollectionNodes(linkcollectionnodes.toCPointer<ByteVar>(), linkcollectionnodeslength.toCPointer<ByteVar>(), preparseddata)
+public actual fun hidPGetLinkCollectionNodes(linkcollectionnodes: COpaquePointer?, linkcollectionnodeslength: COpaquePointer?, preparseddata: PhidpPreparsedData): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidPGetLinkCollectionNodes(linkcollectionnodes?.value?.toCPointer<ByteVar>(), linkcollectionnodeslength?.value?.toCPointer<ByteVar>(), preparseddata.toLong())
 
-public actual fun HidP_GetScaledUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: UShort, linkcollection: UShort, usage: UShort, usagevalue: Long, preparseddata: PHIDP_PREPARSED_DATA, report: PCSTR, reportlength: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetScaledUsageValue(reporttype, usagepage, linkcollection, usage, usagevalue.toCPointer<ByteVar>(), preparseddata, report.toCPointer<ByteVar>(), reportlength)
+public actual fun hidPGetScaledUsageValue(reporttype: HidpReportType, usagepage: UShort, linkcollection: UShort, usage: UShort, usagevalue: COpaquePointer?, preparseddata: PhidpPreparsedData, report: Pcstr, reportlength: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidPGetScaledUsageValue(reporttype, usagepage, linkcollection, usage, usagevalue?.value?.toCPointer<ByteVar>(), preparseddata.toLong(), report?.value?.toCPointer<ByteVar>(), reportlength)
 
-public actual fun HidP_GetSpecificButtonCaps(reporttype: HIDP_REPORT_TYPE, usagepage: UShort, linkcollection: UShort, usage: UShort, buttoncaps: Long, buttoncapslength: Long, preparseddata: PHIDP_PREPARSED_DATA): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetSpecificButtonCaps(reporttype, usagepage, linkcollection, usage, buttoncaps.toCPointer<ByteVar>(), buttoncapslength.toCPointer<ByteVar>(), preparseddata)
+public actual fun hidPGetSpecificButtonCaps(reporttype: HidpReportType, usagepage: UShort, linkcollection: UShort, usage: UShort, buttoncaps: COpaquePointer?, buttoncapslength: COpaquePointer?, preparseddata: PhidpPreparsedData): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidPGetSpecificButtonCaps(reporttype, usagepage, linkcollection, usage, buttoncaps?.value?.toCPointer<ByteVar>(), buttoncapslength?.value?.toCPointer<ByteVar>(), preparseddata.toLong())
 
-public actual fun HidP_GetSpecificValueCaps(reporttype: HIDP_REPORT_TYPE, usagepage: UShort, linkcollection: UShort, usage: UShort, valuecaps: Long, valuecapslength: Long, preparseddata: PHIDP_PREPARSED_DATA): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetSpecificValueCaps(reporttype, usagepage, linkcollection, usage, valuecaps.toCPointer<ByteVar>(), valuecapslength.toCPointer<ByteVar>(), preparseddata)
+public actual fun hidPGetSpecificValueCaps(reporttype: HidpReportType, usagepage: UShort, linkcollection: UShort, usage: UShort, valuecaps: COpaquePointer?, valuecapslength: COpaquePointer?, preparseddata: PhidpPreparsedData): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidPGetSpecificValueCaps(reporttype, usagepage, linkcollection, usage, valuecaps?.value?.toCPointer<ByteVar>(), valuecapslength?.value?.toCPointer<ByteVar>(), preparseddata.toLong())
 
-public actual fun HidP_GetUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: UShort, linkcollection: UShort, usage: UShort, usagevalue: Long, preparseddata: PHIDP_PREPARSED_DATA, report: PCSTR, reportlength: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetUsageValue(reporttype, usagepage, linkcollection, usage, usagevalue.toCPointer<ByteVar>(), preparseddata, report.toCPointer<ByteVar>(), reportlength)
+public actual fun hidPGetUsageValue(reporttype: HidpReportType, usagepage: UShort, linkcollection: UShort, usage: UShort, usagevalue: COpaquePointer?, preparseddata: PhidpPreparsedData, report: Pcstr, reportlength: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidPGetUsageValue(reporttype, usagepage, linkcollection, usage, usagevalue?.value?.toCPointer<ByteVar>(), preparseddata.toLong(), report?.value?.toCPointer<ByteVar>(), reportlength)
 
-public actual fun HidP_GetUsageValueArray(reporttype: HIDP_REPORT_TYPE, usagepage: UShort, linkcollection: UShort, usage: UShort, usagevalue: PSTR, usagevaluebytelength: UShort, preparseddata: PHIDP_PREPARSED_DATA, report: PCSTR, reportlength: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetUsageValueArray(reporttype, usagepage, linkcollection, usage, usagevalue.toCPointer<ByteVar>(), usagevaluebytelength, preparseddata, report.toCPointer<ByteVar>(), reportlength)
+public actual fun hidPGetUsageValueArray(reporttype: HidpReportType, usagepage: UShort, linkcollection: UShort, usage: UShort, usagevalue: Pstr, usagevaluebytelength: UShort, preparseddata: PhidpPreparsedData, report: Pcstr, reportlength: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidPGetUsageValueArray(reporttype, usagepage, linkcollection, usage, usagevalue?.value?.toCPointer<ByteVar>(), usagevaluebytelength, preparseddata.toLong(), report?.value?.toCPointer<ByteVar>(), reportlength)
 
-public actual fun HidP_GetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: UShort, linkcollection: UShort, usagelist: Long, usagelength: Long, preparseddata: PHIDP_PREPARSED_DATA, report: PSTR, reportlength: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetUsages(reporttype, usagepage, linkcollection, usagelist.toCPointer<ByteVar>(), usagelength.toCPointer<ByteVar>(), preparseddata, report.toCPointer<ByteVar>(), reportlength)
+public actual fun hidPGetUsages(reporttype: HidpReportType, usagepage: UShort, linkcollection: UShort, usagelist: COpaquePointer?, usagelength: COpaquePointer?, preparseddata: PhidpPreparsedData, report: Pstr, reportlength: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidPGetUsages(reporttype, usagepage, linkcollection, usagelist?.value?.toCPointer<ByteVar>(), usagelength?.value?.toCPointer<ByteVar>(), preparseddata.toLong(), report?.value?.toCPointer<ByteVar>(), reportlength)
 
-public actual fun HidP_GetUsagesEx(reporttype: HIDP_REPORT_TYPE, linkcollection: UShort, buttonlist: Long, usagelength: Long, preparseddata: PHIDP_PREPARSED_DATA, report: PCSTR, reportlength: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetUsagesEx(reporttype, linkcollection, buttonlist.toCPointer<ByteVar>(), usagelength.toCPointer<ByteVar>(), preparseddata, report.toCPointer<ByteVar>(), reportlength)
+public actual fun hidPGetUsagesEx(reporttype: HidpReportType, linkcollection: UShort, buttonlist: COpaquePointer?, usagelength: COpaquePointer?, preparseddata: PhidpPreparsedData, report: Pcstr, reportlength: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidPGetUsagesEx(reporttype, linkcollection, buttonlist?.value?.toCPointer<ByteVar>(), usagelength?.value?.toCPointer<ByteVar>(), preparseddata.toLong(), report?.value?.toCPointer<ByteVar>(), reportlength)
 
-public actual fun HidP_GetValueCaps(reporttype: HIDP_REPORT_TYPE, valuecaps: Long, valuecapslength: Long, preparseddata: PHIDP_PREPARSED_DATA): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetValueCaps(reporttype, valuecaps.toCPointer<ByteVar>(), valuecapslength.toCPointer<ByteVar>(), preparseddata)
+public actual fun hidPGetValueCaps(reporttype: HidpReportType, valuecaps: COpaquePointer?, valuecapslength: COpaquePointer?, preparseddata: PhidpPreparsedData): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidPGetValueCaps(reporttype, valuecaps?.value?.toCPointer<ByteVar>(), valuecapslength?.value?.toCPointer<ByteVar>(), preparseddata.toLong())
 
-public actual fun HidP_InitializeReportForID(reporttype: HIDP_REPORT_TYPE, reportid: UByte, preparseddata: PHIDP_PREPARSED_DATA, report: PSTR, reportlength: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidP_InitializeReportForID(reporttype, reportid, preparseddata, report.toCPointer<ByteVar>(), reportlength)
+public actual fun hidPInitializeReportForId(reporttype: HidpReportType, reportid: UByte, preparseddata: PhidpPreparsedData, report: Pstr, reportlength: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidPInitializeReportForId(reporttype, reportid, preparseddata.toLong(), report?.value?.toCPointer<ByteVar>(), reportlength)
 
-public actual fun HidP_MaxDataListLength(reporttype: HIDP_REPORT_TYPE, preparseddata: PHIDP_PREPARSED_DATA): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidP_MaxDataListLength(reporttype, preparseddata)
+public actual fun hidPMaxDataListLength(reporttype: HidpReportType, preparseddata: PhidpPreparsedData): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidPMaxDataListLength(reporttype, preparseddata.toLong())
 
-public actual fun HidP_MaxUsageListLength(reporttype: HIDP_REPORT_TYPE, usagepage: UShort, preparseddata: PHIDP_PREPARSED_DATA): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidP_MaxUsageListLength(reporttype, usagepage, preparseddata)
+public actual fun hidPMaxUsageListLength(reporttype: HidpReportType, usagepage: UShort, preparseddata: PhidpPreparsedData): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidPMaxUsageListLength(reporttype, usagepage, preparseddata.toLong())
 
-public actual fun HidP_SetButtonArray(reporttype: HIDP_REPORT_TYPE, usagepage: UShort, linkcollection: UShort, usage: UShort, buttondata: Long, buttondatalength: UShort, preparseddata: PHIDP_PREPARSED_DATA, report: PSTR, reportlength: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidP_SetButtonArray(reporttype, usagepage, linkcollection, usage, buttondata.toCPointer<ByteVar>(), buttondatalength, preparseddata, report.toCPointer<ByteVar>(), reportlength)
+public actual fun hidPSetButtonArray(reporttype: HidpReportType, usagepage: UShort, linkcollection: UShort, usage: UShort, buttondata: COpaquePointer?, buttondatalength: UShort, preparseddata: PhidpPreparsedData, report: Pstr, reportlength: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidPSetButtonArray(reporttype, usagepage, linkcollection, usage, buttondata?.value?.toCPointer<ByteVar>(), buttondatalength, preparseddata.toLong(), report?.value?.toCPointer<ByteVar>(), reportlength)
 
-public actual fun HidP_SetData(reporttype: HIDP_REPORT_TYPE, datalist: Long, datalength: Long, preparseddata: PHIDP_PREPARSED_DATA, report: PCSTR, reportlength: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidP_SetData(reporttype, datalist.toCPointer<ByteVar>(), datalength.toCPointer<ByteVar>(), preparseddata, report.toCPointer<ByteVar>(), reportlength)
+public actual fun hidPSetData(reporttype: HidpReportType, datalist: COpaquePointer?, datalength: COpaquePointer?, preparseddata: PhidpPreparsedData, report: Pcstr, reportlength: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidPSetData(reporttype, datalist?.value?.toCPointer<ByteVar>(), datalength?.value?.toCPointer<ByteVar>(), preparseddata.toLong(), report?.value?.toCPointer<ByteVar>(), reportlength)
 
-public actual fun HidP_SetScaledUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: UShort, linkcollection: UShort, usage: UShort, usagevalue: Int, preparseddata: PHIDP_PREPARSED_DATA, report: PSTR, reportlength: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidP_SetScaledUsageValue(reporttype, usagepage, linkcollection, usage, usagevalue, preparseddata, report.toCPointer<ByteVar>(), reportlength)
+public actual fun hidPSetScaledUsageValue(reporttype: HidpReportType, usagepage: UShort, linkcollection: UShort, usage: UShort, usagevalue: Int, preparseddata: PhidpPreparsedData, report: Pstr, reportlength: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidPSetScaledUsageValue(reporttype, usagepage, linkcollection, usage, usagevalue, preparseddata.toLong(), report?.value?.toCPointer<ByteVar>(), reportlength)
 
-public actual fun HidP_SetUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: UShort, linkcollection: UShort, usage: UShort, usagevalue: UInt, preparseddata: PHIDP_PREPARSED_DATA, report: PSTR, reportlength: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidP_SetUsageValue(reporttype, usagepage, linkcollection, usage, usagevalue, preparseddata, report.toCPointer<ByteVar>(), reportlength)
+public actual fun hidPSetUsageValue(reporttype: HidpReportType, usagepage: UShort, linkcollection: UShort, usage: UShort, usagevalue: UInt, preparseddata: PhidpPreparsedData, report: Pstr, reportlength: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidPSetUsageValue(reporttype, usagepage, linkcollection, usage, usagevalue, preparseddata.toLong(), report?.value?.toCPointer<ByteVar>(), reportlength)
 
-public actual fun HidP_SetUsageValueArray(reporttype: HIDP_REPORT_TYPE, usagepage: UShort, linkcollection: UShort, usage: UShort, usagevalue: PCSTR, usagevaluebytelength: UShort, preparseddata: PHIDP_PREPARSED_DATA, report: PSTR, reportlength: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidP_SetUsageValueArray(reporttype, usagepage, linkcollection, usage, usagevalue.toCPointer<ByteVar>(), usagevaluebytelength, preparseddata, report.toCPointer<ByteVar>(), reportlength)
+public actual fun hidPSetUsageValueArray(reporttype: HidpReportType, usagepage: UShort, linkcollection: UShort, usage: UShort, usagevalue: Pcstr, usagevaluebytelength: UShort, preparseddata: PhidpPreparsedData, report: Pstr, reportlength: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidPSetUsageValueArray(reporttype, usagepage, linkcollection, usage, usagevalue?.value?.toCPointer<ByteVar>(), usagevaluebytelength, preparseddata.toLong(), report?.value?.toCPointer<ByteVar>(), reportlength)
 
-public actual fun HidP_SetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: UShort, linkcollection: UShort, usagelist: Long, usagelength: Long, preparseddata: PHIDP_PREPARSED_DATA, report: PCSTR, reportlength: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidP_SetUsages(reporttype, usagepage, linkcollection, usagelist.toCPointer<ByteVar>(), usagelength.toCPointer<ByteVar>(), preparseddata, report.toCPointer<ByteVar>(), reportlength)
+public actual fun hidPSetUsages(reporttype: HidpReportType, usagepage: UShort, linkcollection: UShort, usagelist: COpaquePointer?, usagelength: COpaquePointer?, preparseddata: PhidpPreparsedData, report: Pcstr, reportlength: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidPSetUsages(reporttype, usagepage, linkcollection, usagelist?.value?.toCPointer<ByteVar>(), usagelength?.value?.toCPointer<ByteVar>(), preparseddata.toLong(), report?.value?.toCPointer<ByteVar>(), reportlength)
 
-public actual fun HidP_TranslateUsagesToI8042ScanCodes(changedusagelist: Long, usagelistlength: UInt, keyaction: HIDP_KEYBOARD_DIRECTION, modifierstate: Long, insertcodesprocedure: PHIDP_INSERT_SCANCODES, insertcodescontext: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidP_TranslateUsagesToI8042ScanCodes(changedusagelist.toCPointer<ByteVar>(), usagelistlength, keyaction, modifierstate.toCPointer<ByteVar>(), insertcodesprocedure.toLong().toCPointer<ByteVar>(), insertcodescontext.toCPointer<ByteVar>())
+public actual fun hidPTranslateUsagesToI8042ScanCodes(changedusagelist: COpaquePointer?, usagelistlength: UInt, keyaction: HidpKeyboardDirection, modifierstate: COpaquePointer?, insertcodesprocedure: PhidpInsertScancodes, insertcodescontext: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidPTranslateUsagesToI8042ScanCodes(changedusagelist?.value?.toCPointer<ByteVar>(), usagelistlength, keyaction, modifierstate?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), insertcodescontext?.value?.toCPointer<ByteVar>())
 
-public actual fun HidP_UnsetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: UShort, linkcollection: UShort, usagelist: Long, usagelength: Long, preparseddata: PHIDP_PREPARSED_DATA, report: PCSTR, reportlength: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidP_UnsetUsages(reporttype, usagepage, linkcollection, usagelist.toCPointer<ByteVar>(), usagelength.toCPointer<ByteVar>(), preparseddata, report.toCPointer<ByteVar>(), reportlength)
+public actual fun hidPUnsetUsages(reporttype: HidpReportType, usagepage: UShort, linkcollection: UShort, usagelist: COpaquePointer?, usagelength: COpaquePointer?, preparseddata: PhidpPreparsedData, report: Pcstr, reportlength: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidPUnsetUsages(reporttype, usagepage, linkcollection, usagelist?.value?.toCPointer<ByteVar>(), usagelength?.value?.toCPointer<ByteVar>(), preparseddata.toLong(), report?.value?.toCPointer<ByteVar>(), reportlength)
 
-public actual fun HidP_UsageListDifference(previoususagelist: Long, currentusagelist: Long, breakusagelist: Long, makeusagelist: Long, usagelistlength: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_HidP_UsageListDifference(previoususagelist.toCPointer<ByteVar>(), currentusagelist.toCPointer<ByteVar>(), breakusagelist.toCPointer<ByteVar>(), makeusagelist.toCPointer<ByteVar>(), usagelistlength)
+public actual fun hidPUsageListDifference(previoususagelist: COpaquePointer?, currentusagelist: COpaquePointer?, breakusagelist: COpaquePointer?, makeusagelist: COpaquePointer?, usagelistlength: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_hidPUsageListDifference(previoususagelist?.value?.toCPointer<ByteVar>(), currentusagelist?.value?.toCPointer<ByteVar>(), breakusagelist?.value?.toCPointer<ByteVar>(), makeusagelist?.value?.toCPointer<ByteVar>(), usagelistlength)
 
 public actual fun joyConfigChanged(dwflags: UInt): UInt =
     io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice.cinterop.windowssys_windows_win32_devices_humaninterfacedevice_joyConfigChanged(dwflags)

@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1DrtClose(JNIEnv* km_env, jclass km_clazz, jlong hdrt) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1drtClose(JNIEnv* km_env, jclass km_clazz, jlong hdrt) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -34,7 +34,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1DrtContinueSearch(JNIEnv* km_env, jclass km_clazz, jlong hsearchcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1drtContinueSearch(JNIEnv* km_env, jclass km_clazz, jlong hsearchcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -52,7 +52,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1DrtCreateDerivedKey(JNIEnv* km_env, jclass km_clazz, jlong plocalcert, jlong pkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1drtCreateDerivedKey(JNIEnv* km_env, jclass km_clazz, jlong plocalcert, jlong pkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -71,7 +71,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1DrtCreateDerivedKeySecurityProvider(JNIEnv* km_env, jclass km_clazz, jlong prootcert, jlong plocalcert, jlong ppsecurityprovider) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1drtCreateDerivedKeySecurityProvider(JNIEnv* km_env, jclass km_clazz, jlong prootcert, jlong plocalcert, jlong ppsecurityprovider) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -91,7 +91,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1DrtCreateDnsBootstrapResolver(JNIEnv* km_env, jclass km_clazz, jshort port, jlong pwszaddress, jlong ppmodule) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1drtCreateDnsBootstrapResolver(JNIEnv* km_env, jclass km_clazz, jshort port, jlong pwszaddress, jlong ppmodule) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -111,7 +111,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1DrtCreateIpv6UdpTransport(JNIEnv* km_env, jclass km_clazz, jint scope, jint dwscopeid, jint dwlocalitythreshold, jlong pwport, jlong phtransport) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1drtCreateIpv6UdpTransport(JNIEnv* km_env, jclass km_clazz, jint scope, jint dwscopeid, jint dwlocalitythreshold, jlong pwport, jlong phtransport) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -133,7 +133,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1DrtCreateNullSecurityProvider(JNIEnv* km_env, jclass km_clazz, jlong ppsecurityprovider) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1drtCreateNullSecurityProvider(JNIEnv* km_env, jclass km_clazz, jlong ppsecurityprovider) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -151,7 +151,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1DrtCreatePnrpBootstrapResolver(JNIEnv* km_env, jclass km_clazz, jint fpublish, jlong pwzpeername, jlong pwzcloudname, jlong pwzpublishingidentity, jlong ppresolver) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1drtCreatePnrpBootstrapResolver(JNIEnv* km_env, jclass km_clazz, jint fpublish, jlong pwzpeername, jlong pwzcloudname, jlong pwzpublishingidentity, jlong ppresolver) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -173,7 +173,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1DrtDeleteDerivedKeySecurityProvider(JNIEnv* km_env, jclass km_clazz, jlong psecurityprovider) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1drtDeleteDerivedKeySecurityProvider(JNIEnv* km_env, jclass km_clazz, jlong psecurityprovider) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -189,7 +189,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1DrtDeleteDnsBootstrapResolver(JNIEnv* km_env, jclass km_clazz, jlong presolver) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1drtDeleteDnsBootstrapResolver(JNIEnv* km_env, jclass km_clazz, jlong presolver) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -205,7 +205,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1DrtDeleteIpv6UdpTransport(JNIEnv* km_env, jclass km_clazz, jlong htransport) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1drtDeleteIpv6UdpTransport(JNIEnv* km_env, jclass km_clazz, jlong htransport) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -223,7 +223,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1DrtDeleteNullSecurityProvider(JNIEnv* km_env, jclass km_clazz, jlong psecurityprovider) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1drtDeleteNullSecurityProvider(JNIEnv* km_env, jclass km_clazz, jlong psecurityprovider) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -239,7 +239,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1DrtDeletePnrpBootstrapResolver(JNIEnv* km_env, jclass km_clazz, jlong presolver) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1drtDeletePnrpBootstrapResolver(JNIEnv* km_env, jclass km_clazz, jlong presolver) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -255,7 +255,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1DrtEndSearch(JNIEnv* km_env, jclass km_clazz, jlong hsearchcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1drtEndSearch(JNIEnv* km_env, jclass km_clazz, jlong hsearchcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -273,7 +273,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1DrtGetEventData(JNIEnv* km_env, jclass km_clazz, jlong hdrt, jint uleventdatalen, jlong peventdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1drtGetEventData(JNIEnv* km_env, jclass km_clazz, jlong hdrt, jint uleventdatalen, jlong peventdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -293,7 +293,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1DrtGetEventDataSize(JNIEnv* km_env, jclass km_clazz, jlong hdrt, jlong puleventdatalen) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1drtGetEventDataSize(JNIEnv* km_env, jclass km_clazz, jlong hdrt, jlong puleventdatalen) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -312,7 +312,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1DrtGetInstanceName(JNIEnv* km_env, jclass km_clazz, jlong hdrt, jint ulcbinstancenamesize, jlong pwzdrtinstancename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1drtGetInstanceName(JNIEnv* km_env, jclass km_clazz, jlong hdrt, jint ulcbinstancenamesize, jlong pwzdrtinstancename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -332,7 +332,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1DrtGetInstanceNameSize(JNIEnv* km_env, jclass km_clazz, jlong hdrt, jlong pulcbinstancenamesize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1drtGetInstanceNameSize(JNIEnv* km_env, jclass km_clazz, jlong hdrt, jlong pulcbinstancenamesize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -351,7 +351,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1DrtGetSearchPath(JNIEnv* km_env, jclass km_clazz, jlong hsearchcontext, jint ulsearchpathsize, jlong psearchpath) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1drtGetSearchPath(JNIEnv* km_env, jclass km_clazz, jlong hsearchcontext, jint ulsearchpathsize, jlong psearchpath) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -371,7 +371,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1DrtGetSearchPathSize(JNIEnv* km_env, jclass km_clazz, jlong hsearchcontext, jlong pulsearchpathsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1drtGetSearchPathSize(JNIEnv* km_env, jclass km_clazz, jlong hsearchcontext, jlong pulsearchpathsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -390,7 +390,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1DrtGetSearchResult(JNIEnv* km_env, jclass km_clazz, jlong hsearchcontext, jint ulsearchresultsize, jlong psearchresult) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1drtGetSearchResult(JNIEnv* km_env, jclass km_clazz, jlong hsearchcontext, jint ulsearchresultsize, jlong psearchresult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -410,7 +410,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1DrtGetSearchResultSize(JNIEnv* km_env, jclass km_clazz, jlong hsearchcontext, jlong pulsearchresultsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1drtGetSearchResultSize(JNIEnv* km_env, jclass km_clazz, jlong hsearchcontext, jlong pulsearchresultsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -429,7 +429,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1DrtOpen(JNIEnv* km_env, jclass km_clazz, jlong psettings, jlong hevent, jlong pvcontext, jlong phdrt) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1drtOpen(JNIEnv* km_env, jclass km_clazz, jlong psettings, jlong hevent, jlong pvcontext, jlong phdrt) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -450,7 +450,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1DrtRegisterKey(JNIEnv* km_env, jclass km_clazz, jlong hdrt, jlong pregistration, jlong pvkeycontext, jlong phkeyregistration) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1drtRegisterKey(JNIEnv* km_env, jclass km_clazz, jlong hdrt, jlong pregistration, jlong pvkeycontext, jlong phkeyregistration) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -471,7 +471,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1DrtStartSearch(JNIEnv* km_env, jclass km_clazz, jlong hdrt, jlong pkey, jlong pinfo, jint timeout, jlong hevent, jlong pvcontext, jlong hsearchcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1drtStartSearch(JNIEnv* km_env, jclass km_clazz, jlong hdrt, jlong pkey, jlong pinfo, jint timeout, jlong hevent, jlong pvcontext, jlong hsearchcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -495,7 +495,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1DrtUnregisterKey(JNIEnv* km_env, jclass km_clazz, jlong hkeyregistration) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1drtUnregisterKey(JNIEnv* km_env, jclass km_clazz, jlong hkeyregistration) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -511,7 +511,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1DrtUpdateKey(JNIEnv* km_env, jclass km_clazz, jlong hkeyregistration, jlong pappdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1drtUpdateKey(JNIEnv* km_env, jclass km_clazz, jlong hkeyregistration, jlong pappdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -530,7 +530,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabAddContact(JNIEnv* km_env, jclass km_clazz, jlong pwzcontactdata, jlong ppcontact) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabAddContact(JNIEnv* km_env, jclass km_clazz, jlong pwzcontactdata, jlong ppcontact) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -549,7 +549,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabAsyncInviteContact(JNIEnv* km_env, jclass km_clazz, jlong pccontact, jlong pcendpoint, jlong pcinvitation, jlong hevent, jlong phinvitation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabAsyncInviteContact(JNIEnv* km_env, jclass km_clazz, jlong pccontact, jlong pcendpoint, jlong pcinvitation, jlong hevent, jlong phinvitation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -571,7 +571,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabAsyncInviteEndpoint(JNIEnv* km_env, jclass km_clazz, jlong pcendpoint, jlong pcinvitation, jlong hevent, jlong phinvitation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabAsyncInviteEndpoint(JNIEnv* km_env, jclass km_clazz, jlong pcendpoint, jlong pcinvitation, jlong hevent, jlong phinvitation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -592,7 +592,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabCancelInvitation(JNIEnv* km_env, jclass km_clazz, jlong hinvitation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabCancelInvitation(JNIEnv* km_env, jclass km_clazz, jlong hinvitation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -610,7 +610,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabCloseHandle(JNIEnv* km_env, jclass km_clazz, jlong hinvitation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabCloseHandle(JNIEnv* km_env, jclass km_clazz, jlong hinvitation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -628,7 +628,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabDeleteContact(JNIEnv* km_env, jclass km_clazz, jlong pwzpeername) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabDeleteContact(JNIEnv* km_env, jclass km_clazz, jlong pwzpeername) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -646,7 +646,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabDeleteEndpointData(JNIEnv* km_env, jclass km_clazz, jlong pcendpoint) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabDeleteEndpointData(JNIEnv* km_env, jclass km_clazz, jlong pcendpoint) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -664,7 +664,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabDeleteObject(JNIEnv* km_env, jclass km_clazz, jlong pobjectid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabDeleteObject(JNIEnv* km_env, jclass km_clazz, jlong pobjectid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -682,7 +682,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabEnumApplicationRegistrationInfo(JNIEnv* km_env, jclass km_clazz, jint registrationtype, jlong phpeerenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabEnumApplicationRegistrationInfo(JNIEnv* km_env, jclass km_clazz, jint registrationtype, jlong phpeerenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -701,7 +701,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabEnumApplications(JNIEnv* km_env, jclass km_clazz, jlong pcendpoint, jlong papplicationid, jlong phpeerenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabEnumApplications(JNIEnv* km_env, jclass km_clazz, jlong pcendpoint, jlong papplicationid, jlong phpeerenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -721,7 +721,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabEnumContacts(JNIEnv* km_env, jclass km_clazz, jlong phpeerenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabEnumContacts(JNIEnv* km_env, jclass km_clazz, jlong phpeerenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -739,7 +739,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabEnumEndpoints(JNIEnv* km_env, jclass km_clazz, jlong pccontact, jlong phpeerenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabEnumEndpoints(JNIEnv* km_env, jclass km_clazz, jlong pccontact, jlong phpeerenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -758,7 +758,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabEnumObjects(JNIEnv* km_env, jclass km_clazz, jlong pcendpoint, jlong pobjectid, jlong phpeerenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabEnumObjects(JNIEnv* km_env, jclass km_clazz, jlong pcendpoint, jlong pobjectid, jlong phpeerenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -778,7 +778,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabEnumPeopleNearMe(JNIEnv* km_env, jclass km_clazz, jlong phpeerenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabEnumPeopleNearMe(JNIEnv* km_env, jclass km_clazz, jlong phpeerenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -796,7 +796,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabExportContact(JNIEnv* km_env, jclass km_clazz, jlong pwzpeername, jlong ppwzcontactdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabExportContact(JNIEnv* km_env, jclass km_clazz, jlong pwzpeername, jlong ppwzcontactdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -815,7 +815,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabGetAppLaunchInfo(JNIEnv* km_env, jclass km_clazz, jlong pplaunchinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabGetAppLaunchInfo(JNIEnv* km_env, jclass km_clazz, jlong pplaunchinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -833,7 +833,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabGetApplicationRegistrationInfo(JNIEnv* km_env, jclass km_clazz, jlong papplicationid, jint registrationtype, jlong ppapplication) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabGetApplicationRegistrationInfo(JNIEnv* km_env, jclass km_clazz, jlong papplicationid, jint registrationtype, jlong ppapplication) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -853,7 +853,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabGetContact(JNIEnv* km_env, jclass km_clazz, jlong pwzpeername, jlong ppcontact) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabGetContact(JNIEnv* km_env, jclass km_clazz, jlong pwzpeername, jlong ppcontact) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -872,7 +872,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabGetEndpointName(JNIEnv* km_env, jclass km_clazz, jlong ppwzendpointname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabGetEndpointName(JNIEnv* km_env, jclass km_clazz, jlong ppwzendpointname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -890,7 +890,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabGetEventData(JNIEnv* km_env, jclass km_clazz, jlong hpeerevent, jlong ppeventdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabGetEventData(JNIEnv* km_env, jclass km_clazz, jlong hpeerevent, jlong ppeventdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -909,7 +909,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabGetInvitationResponse(JNIEnv* km_env, jclass km_clazz, jlong hinvitation, jlong ppinvitationresponse) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabGetInvitationResponse(JNIEnv* km_env, jclass km_clazz, jlong hinvitation, jlong ppinvitationresponse) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -928,7 +928,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabGetPresenceInfo(JNIEnv* km_env, jclass km_clazz, jlong pcendpoint, jlong pppresenceinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabGetPresenceInfo(JNIEnv* km_env, jclass km_clazz, jlong pcendpoint, jlong pppresenceinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -947,7 +947,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabGetSigninOptions(JNIEnv* km_env, jclass km_clazz, jlong pdwsigninoptions) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabGetSigninOptions(JNIEnv* km_env, jclass km_clazz, jlong pdwsigninoptions) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -965,7 +965,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabInviteContact(JNIEnv* km_env, jclass km_clazz, jlong pccontact, jlong pcendpoint, jlong pcinvitation, jlong ppresponse) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabInviteContact(JNIEnv* km_env, jclass km_clazz, jlong pccontact, jlong pcendpoint, jlong pcinvitation, jlong ppresponse) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -986,7 +986,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabInviteEndpoint(JNIEnv* km_env, jclass km_clazz, jlong pcendpoint, jlong pcinvitation, jlong ppresponse) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabInviteEndpoint(JNIEnv* km_env, jclass km_clazz, jlong pcendpoint, jlong pcinvitation, jlong ppresponse) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1006,7 +1006,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabParseContact(JNIEnv* km_env, jclass km_clazz, jlong pwzcontactdata, jlong ppcontact) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabParseContact(JNIEnv* km_env, jclass km_clazz, jlong pwzcontactdata, jlong ppcontact) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1025,7 +1025,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabQueryContactData(JNIEnv* km_env, jclass km_clazz, jlong pcendpoint, jlong ppwzcontactdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabQueryContactData(JNIEnv* km_env, jclass km_clazz, jlong pcendpoint, jlong ppwzcontactdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1044,7 +1044,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabRefreshEndpointData(JNIEnv* km_env, jclass km_clazz, jlong pcendpoint) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabRefreshEndpointData(JNIEnv* km_env, jclass km_clazz, jlong pcendpoint) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1062,7 +1062,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabRegisterApplication(JNIEnv* km_env, jclass km_clazz, jlong pcapplication, jint registrationtype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabRegisterApplication(JNIEnv* km_env, jclass km_clazz, jlong pcapplication, jint registrationtype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1081,7 +1081,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabRegisterEvent(JNIEnv* km_env, jclass km_clazz, jlong hevent, jint ceventregistration, jlong peventregistrations, jlong phpeerevent) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabRegisterEvent(JNIEnv* km_env, jclass km_clazz, jlong hevent, jint ceventregistration, jlong peventregistrations, jlong phpeerevent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1102,7 +1102,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabSetEndpointName(JNIEnv* km_env, jclass km_clazz, jlong pwzendpointname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabSetEndpointName(JNIEnv* km_env, jclass km_clazz, jlong pwzendpointname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1120,7 +1120,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabSetObject(JNIEnv* km_env, jclass km_clazz, jlong pcobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabSetObject(JNIEnv* km_env, jclass km_clazz, jlong pcobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1138,7 +1138,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabSetPresenceInfo(JNIEnv* km_env, jclass km_clazz, jlong pcpresenceinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabSetPresenceInfo(JNIEnv* km_env, jclass km_clazz, jlong pcpresenceinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1156,7 +1156,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabShutdown(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabShutdown(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1173,7 +1173,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabSignin(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jint dwsigninoptions) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabSignin(JNIEnv* km_env, jclass km_clazz, jlong hwndparent, jint dwsigninoptions) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1192,7 +1192,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabSignout(JNIEnv* km_env, jclass km_clazz, jint dwsigninoptions) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabSignout(JNIEnv* km_env, jclass km_clazz, jint dwsigninoptions) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1210,7 +1210,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabStartup(JNIEnv* km_env, jclass km_clazz, jshort wversionrequested) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabStartup(JNIEnv* km_env, jclass km_clazz, jshort wversionrequested) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1228,7 +1228,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabSubscribeEndpointData(JNIEnv* km_env, jclass km_clazz, jlong pcendpoint) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabSubscribeEndpointData(JNIEnv* km_env, jclass km_clazz, jlong pcendpoint) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1246,7 +1246,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabUnregisterApplication(JNIEnv* km_env, jclass km_clazz, jlong papplicationid, jint registrationtype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabUnregisterApplication(JNIEnv* km_env, jclass km_clazz, jlong papplicationid, jint registrationtype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1265,7 +1265,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabUnregisterEvent(JNIEnv* km_env, jclass km_clazz, jlong hpeerevent) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabUnregisterEvent(JNIEnv* km_env, jclass km_clazz, jlong hpeerevent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1283,7 +1283,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabUnsubscribeEndpointData(JNIEnv* km_env, jclass km_clazz, jlong pcendpoint) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabUnsubscribeEndpointData(JNIEnv* km_env, jclass km_clazz, jlong pcendpoint) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1301,7 +1301,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCollabUpdateContact(JNIEnv* km_env, jclass km_clazz, jlong pcontact) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCollabUpdateContact(JNIEnv* km_env, jclass km_clazz, jlong pcontact) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1319,7 +1319,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerCreatePeerName(JNIEnv* km_env, jclass km_clazz, jlong pwzidentity, jlong pwzclassifier, jlong ppwzpeername) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerCreatePeerName(JNIEnv* km_env, jclass km_clazz, jlong pwzidentity, jlong pwzclassifier, jlong ppwzpeername) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1339,7 +1339,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerDistClientAddContentInformation(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jlong hcontenthandle, jint cbnumberofbytes, jlong pbuffer, jlong lpoverlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerDistClientAddContentInformation(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jlong hcontenthandle, jint cbnumberofbytes, jlong pbuffer, jlong lpoverlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1361,7 +1361,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerDistClientAddData(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jlong hcontenthandle, jint cbnumberofbytes, jlong pbuffer, jlong lpoverlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerDistClientAddData(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jlong hcontenthandle, jint cbnumberofbytes, jlong pbuffer, jlong lpoverlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1383,7 +1383,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerDistClientBlockRead(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jlong hcontenthandle, jint cbmaxnumberofbytes, jlong pbuffer, jint dwtimeoutinmilliseconds, jlong lpoverlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerDistClientBlockRead(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jlong hcontenthandle, jint cbmaxnumberofbytes, jlong pbuffer, jint dwtimeoutinmilliseconds, jlong lpoverlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1406,7 +1406,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerDistClientCancelAsyncOperation(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jlong hcontenthandle, jlong poverlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerDistClientCancelAsyncOperation(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jlong hcontenthandle, jlong poverlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1426,7 +1426,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerDistClientCloseContent(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jlong hcontenthandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerDistClientCloseContent(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jlong hcontenthandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1445,7 +1445,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerDistClientCompleteContentInformation(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jlong hcontenthandle, jlong lpoverlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerDistClientCompleteContentInformation(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jlong hcontenthandle, jlong lpoverlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1465,7 +1465,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerDistClientFlushContent(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jlong pcontenttag, jlong hcompletionport, jlong ulcompletionkey, jlong lpoverlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerDistClientFlushContent(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jlong pcontenttag, jlong hcompletionport, jlong ulcompletionkey, jlong lpoverlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1487,7 +1487,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerDistClientGetInformationByHandle(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jlong hcontenthandle, jint peerdistclientinfoclass, jint dwbuffersize, jlong lpinformation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerDistClientGetInformationByHandle(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jlong hcontenthandle, jint peerdistclientinfoclass, jint dwbuffersize, jlong lpinformation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1509,7 +1509,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerDistClientOpenContent(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jlong pcontenttag, jlong hcompletionport, jlong ulcompletionkey, jlong phcontenthandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerDistClientOpenContent(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jlong pcontenttag, jlong hcompletionport, jlong ulcompletionkey, jlong phcontenthandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1531,7 +1531,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerDistClientStreamRead(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jlong hcontenthandle, jint cbmaxnumberofbytes, jlong pbuffer, jint dwtimeoutinmilliseconds, jlong lpoverlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerDistClientStreamRead(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jlong hcontenthandle, jint cbmaxnumberofbytes, jlong pbuffer, jint dwtimeoutinmilliseconds, jlong lpoverlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1554,7 +1554,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerDistGetOverlappedResult(JNIEnv* km_env, jclass km_clazz, jlong lpoverlapped, jlong lpnumberofbytestransferred, jint bwait) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerDistGetOverlappedResult(JNIEnv* km_env, jclass km_clazz, jlong lpoverlapped, jlong lpnumberofbytestransferred, jint bwait) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1574,7 +1574,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerDistGetStatus(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jlong ppeerdiststatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerDistGetStatus(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jlong ppeerdiststatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1593,7 +1593,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerDistGetStatusEx(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jlong ppeerdiststatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerDistGetStatusEx(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jlong ppeerdiststatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1612,7 +1612,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerDistRegisterForStatusChangeNotification(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jlong hcompletionport, jlong ulcompletionkey, jlong lpoverlapped, jlong ppeerdiststatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerDistRegisterForStatusChangeNotification(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jlong hcompletionport, jlong ulcompletionkey, jlong lpoverlapped, jlong ppeerdiststatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1634,7 +1634,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerDistRegisterForStatusChangeNotificationEx(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jlong hcompletionport, jlong ulcompletionkey, jlong lpoverlapped, jlong ppeerdiststatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerDistRegisterForStatusChangeNotificationEx(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jlong hcompletionport, jlong ulcompletionkey, jlong lpoverlapped, jlong ppeerdiststatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1656,7 +1656,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerDistServerCancelAsyncOperation(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jint cbcontentidentifier, jlong pcontentidentifier, jlong poverlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerDistServerCancelAsyncOperation(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jint cbcontentidentifier, jlong pcontentidentifier, jlong poverlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1677,7 +1677,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerDistServerCloseContentInformation(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jlong hcontentinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerDistServerCloseContentInformation(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jlong hcontentinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1696,7 +1696,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerDistServerCloseStreamHandle(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jlong hstream) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerDistServerCloseStreamHandle(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jlong hstream) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1715,7 +1715,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerDistServerOpenContentInformation(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jint cbcontentidentifier, jlong pcontentidentifier, jlong ullcontentoffset, jlong cbcontentlength, jlong hcompletionport, jlong ulcompletionkey, jlong phcontentinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerDistServerOpenContentInformation(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jint cbcontentidentifier, jlong pcontentidentifier, jlong ullcontentoffset, jlong cbcontentlength, jlong hcompletionport, jlong ulcompletionkey, jlong phcontentinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1740,7 +1740,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerDistServerOpenContentInformationEx(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jint cbcontentidentifier, jlong pcontentidentifier, jlong ullcontentoffset, jlong cbcontentlength, jlong pretrievaloptions, jlong hcompletionport, jlong ulcompletionkey, jlong phcontentinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerDistServerOpenContentInformationEx(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jint cbcontentidentifier, jlong pcontentidentifier, jlong ullcontentoffset, jlong cbcontentlength, jlong pretrievaloptions, jlong hcompletionport, jlong ulcompletionkey, jlong phcontentinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1766,7 +1766,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerDistServerPublishAddToStream(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jlong hstream, jint cbnumberofbytes, jlong pbuffer, jlong lpoverlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerDistServerPublishAddToStream(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jlong hstream, jint cbnumberofbytes, jlong pbuffer, jlong lpoverlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1788,7 +1788,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerDistServerPublishCompleteStream(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jlong hstream, jlong lpoverlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerDistServerPublishCompleteStream(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jlong hstream, jlong lpoverlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1808,7 +1808,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerDistServerPublishStream(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jint cbcontentidentifier, jlong pcontentidentifier, jlong cbcontentlength, jlong ppublishoptions, jlong hcompletionport, jlong ulcompletionkey, jlong phstream) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerDistServerPublishStream(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jint cbcontentidentifier, jlong pcontentidentifier, jlong cbcontentlength, jlong ppublishoptions, jlong hcompletionport, jlong ulcompletionkey, jlong phstream) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1833,7 +1833,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerDistServerRetrieveContentInformation(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jlong hcontentinfo, jint cbmaxnumberofbytes, jlong pbuffer, jlong lpoverlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerDistServerRetrieveContentInformation(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jlong hcontentinfo, jint cbmaxnumberofbytes, jlong pbuffer, jlong lpoverlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1855,7 +1855,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerDistServerUnpublish(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jint cbcontentidentifier, jlong pcontentidentifier) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerDistServerUnpublish(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist, jint cbcontentidentifier, jlong pcontentidentifier) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1875,7 +1875,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerDistShutdown(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerDistShutdown(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1893,7 +1893,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerDistStartup(JNIEnv* km_env, jclass km_clazz, jint dwversionrequested, jlong phpeerdist, jlong pdwsupportedversion) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerDistStartup(JNIEnv* km_env, jclass km_clazz, jint dwversionrequested, jlong phpeerdist, jlong pdwsupportedversion) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1913,7 +1913,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerDistUnregisterForStatusChangeNotification(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerDistUnregisterForStatusChangeNotification(JNIEnv* km_env, jclass km_clazz, jlong hpeerdist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1931,7 +1931,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerEndEnumeration(JNIEnv* km_env, jclass km_clazz, jlong hpeerenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerEndEnumeration(JNIEnv* km_env, jclass km_clazz, jlong hpeerenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1949,7 +1949,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerEnumGroups(JNIEnv* km_env, jclass km_clazz, jlong pwzidentity, jlong phpeerenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerEnumGroups(JNIEnv* km_env, jclass km_clazz, jlong pwzidentity, jlong phpeerenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1968,7 +1968,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerEnumIdentities(JNIEnv* km_env, jclass km_clazz, jlong phpeerenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerEnumIdentities(JNIEnv* km_env, jclass km_clazz, jlong phpeerenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1986,7 +1986,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerFreeData(JNIEnv* km_env, jclass km_clazz, jlong pvdata) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerFreeData(JNIEnv* km_env, jclass km_clazz, jlong pvdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2002,7 +2002,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGetItemCount(JNIEnv* km_env, jclass km_clazz, jlong hpeerenum, jlong pcount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGetItemCount(JNIEnv* km_env, jclass km_clazz, jlong hpeerenum, jlong pcount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2021,7 +2021,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGetNextItem(JNIEnv* km_env, jclass km_clazz, jlong hpeerenum, jlong pcount, jlong pppvitems) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGetNextItem(JNIEnv* km_env, jclass km_clazz, jlong hpeerenum, jlong pcount, jlong pppvitems) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2041,7 +2041,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGraphAddRecord(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong precord, jlong precordid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGraphAddRecord(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong precord, jlong precordid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2061,7 +2061,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGraphClose(JNIEnv* km_env, jclass km_clazz, jlong hgraph) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGraphClose(JNIEnv* km_env, jclass km_clazz, jlong hgraph) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2079,7 +2079,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGraphCloseDirectConnection(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong ullconnectionid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGraphCloseDirectConnection(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong ullconnectionid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2098,7 +2098,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGraphConnect(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong pwzpeerid, jlong paddress, jlong pullconnectionid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGraphConnect(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong pwzpeerid, jlong paddress, jlong pullconnectionid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2119,7 +2119,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGraphCreate(JNIEnv* km_env, jclass km_clazz, jlong pgraphproperties, jlong pwzdatabasename, jlong psecurityinterface, jlong phgraph) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGraphCreate(JNIEnv* km_env, jclass km_clazz, jlong pgraphproperties, jlong pwzdatabasename, jlong psecurityinterface, jlong phgraph) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2140,7 +2140,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGraphDelete(JNIEnv* km_env, jclass km_clazz, jlong pwzgraphid, jlong pwzpeerid, jlong pwzdatabasename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGraphDelete(JNIEnv* km_env, jclass km_clazz, jlong pwzgraphid, jlong pwzpeerid, jlong pwzdatabasename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2160,7 +2160,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGraphDeleteRecord(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong precordid, jint flocal) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGraphDeleteRecord(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong precordid, jint flocal) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2180,7 +2180,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGraphEndEnumeration(JNIEnv* km_env, jclass km_clazz, jlong hpeerenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGraphEndEnumeration(JNIEnv* km_env, jclass km_clazz, jlong hpeerenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2198,7 +2198,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGraphEnumConnections(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jint dwflags, jlong phpeerenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGraphEnumConnections(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jint dwflags, jlong phpeerenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2218,7 +2218,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGraphEnumNodes(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong pwzpeerid, jlong phpeerenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGraphEnumNodes(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong pwzpeerid, jlong phpeerenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2238,7 +2238,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGraphEnumRecords(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong precordtype, jlong pwzpeerid, jlong phpeerenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGraphEnumRecords(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong precordtype, jlong pwzpeerid, jlong phpeerenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2259,7 +2259,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGraphExportDatabase(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong pwzfilepath) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGraphExportDatabase(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong pwzfilepath) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2278,7 +2278,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGraphFreeData(JNIEnv* km_env, jclass km_clazz, jlong pvdata) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGraphFreeData(JNIEnv* km_env, jclass km_clazz, jlong pvdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2294,7 +2294,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGraphGetEventData(JNIEnv* km_env, jclass km_clazz, jlong hpeerevent, jlong ppeventdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGraphGetEventData(JNIEnv* km_env, jclass km_clazz, jlong hpeerevent, jlong ppeventdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2313,7 +2313,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGraphGetItemCount(JNIEnv* km_env, jclass km_clazz, jlong hpeerenum, jlong pcount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGraphGetItemCount(JNIEnv* km_env, jclass km_clazz, jlong hpeerenum, jlong pcount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2332,7 +2332,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGraphGetNextItem(JNIEnv* km_env, jclass km_clazz, jlong hpeerenum, jlong pcount, jlong pppvitems) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGraphGetNextItem(JNIEnv* km_env, jclass km_clazz, jlong hpeerenum, jlong pcount, jlong pppvitems) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2352,7 +2352,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGraphGetNodeInfo(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong ullnodeid, jlong ppnodeinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGraphGetNodeInfo(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong ullnodeid, jlong ppnodeinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2372,7 +2372,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGraphGetProperties(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong ppgraphproperties) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGraphGetProperties(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong ppgraphproperties) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2391,7 +2391,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGraphGetRecord(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong precordid, jlong pprecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGraphGetRecord(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong precordid, jlong pprecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2411,7 +2411,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGraphGetStatus(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong pdwstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGraphGetStatus(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong pdwstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2430,7 +2430,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGraphImportDatabase(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong pwzfilepath) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGraphImportDatabase(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong pwzfilepath) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2449,7 +2449,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGraphListen(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jint dwscope, jint dwscopeid, jshort wport) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGraphListen(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jint dwscope, jint dwscopeid, jshort wport) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2470,7 +2470,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGraphOpen(JNIEnv* km_env, jclass km_clazz, jlong pwzgraphid, jlong pwzpeerid, jlong pwzdatabasename, jlong psecurityinterface, jint crecordtypesyncprecedence, jlong precordtypesyncprecedence, jlong phgraph) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGraphOpen(JNIEnv* km_env, jclass km_clazz, jlong pwzgraphid, jlong pwzpeerid, jlong pwzdatabasename, jlong psecurityinterface, jint crecordtypesyncprecedence, jlong precordtypesyncprecedence, jlong phgraph) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2494,7 +2494,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGraphOpenDirectConnection(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong pwzpeerid, jlong paddress, jlong pullconnectionid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGraphOpenDirectConnection(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong pwzpeerid, jlong paddress, jlong pullconnectionid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2515,7 +2515,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGraphPeerTimeToUniversalTime(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong pftpeertime, jlong pftuniversaltime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGraphPeerTimeToUniversalTime(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong pftpeertime, jlong pftuniversaltime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2535,7 +2535,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGraphRegisterEvent(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong hevent, jint ceventregistrations, jlong peventregistrations, jlong phpeerevent) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGraphRegisterEvent(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong hevent, jint ceventregistrations, jlong peventregistrations, jlong phpeerevent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2557,7 +2557,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGraphSearchRecords(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong pwzcriteria, jlong phpeerenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGraphSearchRecords(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong pwzcriteria, jlong phpeerenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2577,7 +2577,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGraphSendData(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong ullconnectionid, jlong ptype, jint cbdata, jlong pvdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGraphSendData(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong ullconnectionid, jlong ptype, jint cbdata, jlong pvdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2599,7 +2599,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGraphSetNodeAttributes(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong pwzattributes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGraphSetNodeAttributes(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong pwzattributes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2618,7 +2618,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGraphSetPresence(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jint fpresent) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGraphSetPresence(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jint fpresent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2637,7 +2637,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGraphSetProperties(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong pgraphproperties) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGraphSetProperties(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong pgraphproperties) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2656,7 +2656,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGraphShutdown(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGraphShutdown(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2673,7 +2673,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGraphStartup(JNIEnv* km_env, jclass km_clazz, jshort wversionrequested, jlong pversiondata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGraphStartup(JNIEnv* km_env, jclass km_clazz, jshort wversionrequested, jlong pversiondata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2692,7 +2692,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGraphUniversalTimeToPeerTime(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong pftuniversaltime, jlong pftpeertime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGraphUniversalTimeToPeerTime(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong pftuniversaltime, jlong pftpeertime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2712,7 +2712,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGraphUnregisterEvent(JNIEnv* km_env, jclass km_clazz, jlong hpeerevent) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGraphUnregisterEvent(JNIEnv* km_env, jclass km_clazz, jlong hpeerevent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2730,7 +2730,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGraphUpdateRecord(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong precord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGraphUpdateRecord(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jlong precord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2749,7 +2749,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGraphValidateDeferredRecords(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jint crecordids, jlong precordids) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGraphValidateDeferredRecords(JNIEnv* km_env, jclass km_clazz, jlong hgraph, jint crecordids, jlong precordids) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2769,7 +2769,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGroupAddRecord(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong precord, jlong precordid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGroupAddRecord(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong precord, jlong precordid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2789,7 +2789,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGroupClose(JNIEnv* km_env, jclass km_clazz, jlong hgroup) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGroupClose(JNIEnv* km_env, jclass km_clazz, jlong hgroup) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2807,7 +2807,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGroupCloseDirectConnection(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong ullconnectionid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGroupCloseDirectConnection(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong ullconnectionid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2826,7 +2826,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGroupConnect(JNIEnv* km_env, jclass km_clazz, jlong hgroup) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGroupConnect(JNIEnv* km_env, jclass km_clazz, jlong hgroup) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2844,7 +2844,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGroupConnectByAddress(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jint caddresses, jlong paddresses) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGroupConnectByAddress(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jint caddresses, jlong paddresses) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2864,7 +2864,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGroupCreate(JNIEnv* km_env, jclass km_clazz, jlong pproperties, jlong phgroup) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGroupCreate(JNIEnv* km_env, jclass km_clazz, jlong pproperties, jlong phgroup) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2883,7 +2883,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGroupCreateInvitation(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong pwzidentityinfo, jlong pftexpiration, jint croles, jlong proles, jlong ppwzinvitation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGroupCreateInvitation(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong pwzidentityinfo, jlong pftexpiration, jint croles, jlong proles, jlong ppwzinvitation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2906,7 +2906,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGroupCreatePasswordInvitation(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong ppwzinvitation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGroupCreatePasswordInvitation(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong ppwzinvitation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2925,7 +2925,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGroupDelete(JNIEnv* km_env, jclass km_clazz, jlong pwzidentity, jlong pwzgrouppeername) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGroupDelete(JNIEnv* km_env, jclass km_clazz, jlong pwzidentity, jlong pwzgrouppeername) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2944,7 +2944,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGroupDeleteRecord(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong precordid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGroupDeleteRecord(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong precordid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2963,7 +2963,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGroupEnumConnections(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jint dwflags, jlong phpeerenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGroupEnumConnections(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jint dwflags, jlong phpeerenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2983,7 +2983,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGroupEnumMembers(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jint dwflags, jlong pwzidentity, jlong phpeerenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGroupEnumMembers(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jint dwflags, jlong pwzidentity, jlong phpeerenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3004,7 +3004,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGroupEnumRecords(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong precordtype, jlong phpeerenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGroupEnumRecords(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong precordtype, jlong phpeerenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3024,7 +3024,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGroupExportConfig(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong pwzpassword, jlong ppwzxml) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGroupExportConfig(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong pwzpassword, jlong ppwzxml) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3044,7 +3044,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGroupExportDatabase(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong pwzfilepath) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGroupExportDatabase(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong pwzfilepath) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3063,7 +3063,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGroupGetEventData(JNIEnv* km_env, jclass km_clazz, jlong hpeerevent, jlong ppeventdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGroupGetEventData(JNIEnv* km_env, jclass km_clazz, jlong hpeerevent, jlong ppeventdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3082,7 +3082,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGroupGetProperties(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong ppproperties) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGroupGetProperties(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong ppproperties) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3101,7 +3101,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGroupGetRecord(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong precordid, jlong pprecord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGroupGetRecord(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong precordid, jlong pprecord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3121,7 +3121,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGroupGetStatus(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong pdwstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGroupGetStatus(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong pdwstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3140,7 +3140,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGroupImportConfig(JNIEnv* km_env, jclass km_clazz, jlong pwzxml, jlong pwzpassword, jint foverwrite, jlong ppwzidentity, jlong ppwzgroup) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGroupImportConfig(JNIEnv* km_env, jclass km_clazz, jlong pwzxml, jlong pwzpassword, jint foverwrite, jlong ppwzidentity, jlong ppwzgroup) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3162,7 +3162,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGroupImportDatabase(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong pwzfilepath) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGroupImportDatabase(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong pwzfilepath) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3181,7 +3181,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGroupIssueCredentials(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong pwzsubjectidentity, jlong pcredentialinfo, jint dwflags, jlong ppwzinvitation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGroupIssueCredentials(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong pwzsubjectidentity, jlong pcredentialinfo, jint dwflags, jlong ppwzinvitation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3203,7 +3203,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGroupJoin(JNIEnv* km_env, jclass km_clazz, jlong pwzidentity, jlong pwzinvitation, jlong pwzcloud, jlong phgroup) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGroupJoin(JNIEnv* km_env, jclass km_clazz, jlong pwzidentity, jlong pwzinvitation, jlong pwzcloud, jlong phgroup) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3224,7 +3224,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGroupOpen(JNIEnv* km_env, jclass km_clazz, jlong pwzidentity, jlong pwzgrouppeername, jlong pwzcloud, jlong phgroup) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGroupOpen(JNIEnv* km_env, jclass km_clazz, jlong pwzidentity, jlong pwzgrouppeername, jlong pwzcloud, jlong phgroup) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3245,7 +3245,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGroupOpenDirectConnection(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong pwzidentity, jlong paddress, jlong pullconnectionid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGroupOpenDirectConnection(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong pwzidentity, jlong paddress, jlong pullconnectionid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3266,7 +3266,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGroupParseInvitation(JNIEnv* km_env, jclass km_clazz, jlong pwzinvitation, jlong ppinvitationinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGroupParseInvitation(JNIEnv* km_env, jclass km_clazz, jlong pwzinvitation, jlong ppinvitationinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3285,7 +3285,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGroupPasswordJoin(JNIEnv* km_env, jclass km_clazz, jlong pwzidentity, jlong pwzinvitation, jlong pwzpassword, jlong pwzcloud, jlong phgroup) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGroupPasswordJoin(JNIEnv* km_env, jclass km_clazz, jlong pwzidentity, jlong pwzinvitation, jlong pwzpassword, jlong pwzcloud, jlong phgroup) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3307,7 +3307,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGroupPeerTimeToUniversalTime(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong pftpeertime, jlong pftuniversaltime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGroupPeerTimeToUniversalTime(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong pftpeertime, jlong pftuniversaltime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3327,7 +3327,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGroupRegisterEvent(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong hevent, jint ceventregistration, jlong peventregistrations, jlong phpeerevent) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGroupRegisterEvent(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong hevent, jint ceventregistration, jlong peventregistrations, jlong phpeerevent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3349,7 +3349,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGroupResumePasswordAuthentication(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong hpeereventhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGroupResumePasswordAuthentication(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong hpeereventhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3368,7 +3368,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGroupSearchRecords(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong pwzcriteria, jlong phpeerenum) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGroupSearchRecords(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong pwzcriteria, jlong phpeerenum) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3388,7 +3388,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGroupSendData(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong ullconnectionid, jlong ptype, jint cbdata, jlong pvdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGroupSendData(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong ullconnectionid, jlong ptype, jint cbdata, jlong pvdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3410,7 +3410,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGroupSetProperties(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong pproperties) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGroupSetProperties(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong pproperties) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3429,7 +3429,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGroupShutdown(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGroupShutdown(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3446,7 +3446,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGroupStartup(JNIEnv* km_env, jclass km_clazz, jshort wversionrequested, jlong pversiondata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGroupStartup(JNIEnv* km_env, jclass km_clazz, jshort wversionrequested, jlong pversiondata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3465,7 +3465,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGroupUniversalTimeToPeerTime(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong pftuniversaltime, jlong pftpeertime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGroupUniversalTimeToPeerTime(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong pftuniversaltime, jlong pftpeertime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3485,7 +3485,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGroupUnregisterEvent(JNIEnv* km_env, jclass km_clazz, jlong hpeerevent) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGroupUnregisterEvent(JNIEnv* km_env, jclass km_clazz, jlong hpeerevent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3503,7 +3503,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerGroupUpdateRecord(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong precord) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerGroupUpdateRecord(JNIEnv* km_env, jclass km_clazz, jlong hgroup, jlong precord) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3522,7 +3522,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerHostNameToPeerName(JNIEnv* km_env, jclass km_clazz, jlong pwzhostname, jlong ppwzpeername) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerHostNameToPeerName(JNIEnv* km_env, jclass km_clazz, jlong pwzhostname, jlong ppwzpeername) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3541,7 +3541,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerIdentityCreate(JNIEnv* km_env, jclass km_clazz, jlong pwzclassifier, jlong pwzfriendlyname, jlong hcryptprov, jlong ppwzidentity) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerIdentityCreate(JNIEnv* km_env, jclass km_clazz, jlong pwzclassifier, jlong pwzfriendlyname, jlong hcryptprov, jlong ppwzidentity) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3562,7 +3562,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerIdentityDelete(JNIEnv* km_env, jclass km_clazz, jlong pwzidentity) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerIdentityDelete(JNIEnv* km_env, jclass km_clazz, jlong pwzidentity) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3580,7 +3580,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerIdentityExport(JNIEnv* km_env, jclass km_clazz, jlong pwzidentity, jlong pwzpassword, jlong ppwzexportxml) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerIdentityExport(JNIEnv* km_env, jclass km_clazz, jlong pwzidentity, jlong pwzpassword, jlong ppwzexportxml) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3600,7 +3600,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerIdentityGetCryptKey(JNIEnv* km_env, jclass km_clazz, jlong pwzidentity, jlong phcryptprov) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerIdentityGetCryptKey(JNIEnv* km_env, jclass km_clazz, jlong pwzidentity, jlong phcryptprov) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3619,7 +3619,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerIdentityGetDefault(JNIEnv* km_env, jclass km_clazz, jlong ppwzpeername) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerIdentityGetDefault(JNIEnv* km_env, jclass km_clazz, jlong ppwzpeername) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3637,7 +3637,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerIdentityGetFriendlyName(JNIEnv* km_env, jclass km_clazz, jlong pwzidentity, jlong ppwzfriendlyname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerIdentityGetFriendlyName(JNIEnv* km_env, jclass km_clazz, jlong pwzidentity, jlong ppwzfriendlyname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3656,7 +3656,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerIdentityGetXML(JNIEnv* km_env, jclass km_clazz, jlong pwzidentity, jlong ppwzidentityxml) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerIdentityGetXML(JNIEnv* km_env, jclass km_clazz, jlong pwzidentity, jlong ppwzidentityxml) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3675,7 +3675,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerIdentityImport(JNIEnv* km_env, jclass km_clazz, jlong pwzimportxml, jlong pwzpassword, jlong ppwzidentity) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerIdentityImport(JNIEnv* km_env, jclass km_clazz, jlong pwzimportxml, jlong pwzpassword, jlong ppwzidentity) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3695,7 +3695,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerIdentitySetFriendlyName(JNIEnv* km_env, jclass km_clazz, jlong pwzidentity, jlong pwzfriendlyname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerIdentitySetFriendlyName(JNIEnv* km_env, jclass km_clazz, jlong pwzidentity, jlong pwzfriendlyname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3714,7 +3714,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerNameToPeerHostName(JNIEnv* km_env, jclass km_clazz, jlong pwzpeername, jlong ppwzhostname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerNameToPeerHostName(JNIEnv* km_env, jclass km_clazz, jlong pwzpeername, jlong ppwzhostname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3733,7 +3733,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerPnrpEndResolve(JNIEnv* km_env, jclass km_clazz, jlong hresolve) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerPnrpEndResolve(JNIEnv* km_env, jclass km_clazz, jlong hresolve) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3751,7 +3751,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerPnrpGetCloudInfo(JNIEnv* km_env, jclass km_clazz, jlong pcnumclouds, jlong ppcloudinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerPnrpGetCloudInfo(JNIEnv* km_env, jclass km_clazz, jlong pcnumclouds, jlong ppcloudinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3770,7 +3770,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerPnrpGetEndpoint(JNIEnv* km_env, jclass km_clazz, jlong hresolve, jlong ppendpoint) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerPnrpGetEndpoint(JNIEnv* km_env, jclass km_clazz, jlong hresolve, jlong ppendpoint) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3789,7 +3789,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerPnrpRegister(JNIEnv* km_env, jclass km_clazz, jlong pcwzpeername, jlong pregistrationinfo, jlong phregistration) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerPnrpRegister(JNIEnv* km_env, jclass km_clazz, jlong pcwzpeername, jlong pregistrationinfo, jlong phregistration) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3809,7 +3809,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerPnrpResolve(JNIEnv* km_env, jclass km_clazz, jlong pcwzpeername, jlong pcwzcloudname, jlong pcendpoints, jlong ppendpoints) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerPnrpResolve(JNIEnv* km_env, jclass km_clazz, jlong pcwzpeername, jlong pcwzcloudname, jlong pcendpoints, jlong ppendpoints) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3830,7 +3830,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerPnrpShutdown(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerPnrpShutdown(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3847,7 +3847,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerPnrpStartResolve(JNIEnv* km_env, jclass km_clazz, jlong pcwzpeername, jlong pcwzcloudname, jint cmaxendpoints, jlong hevent, jlong phresolve) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerPnrpStartResolve(JNIEnv* km_env, jclass km_clazz, jlong pcwzpeername, jlong pcwzcloudname, jint cmaxendpoints, jlong hevent, jlong phresolve) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3869,7 +3869,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerPnrpStartup(JNIEnv* km_env, jclass km_clazz, jshort wversionrequested) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerPnrpStartup(JNIEnv* km_env, jclass km_clazz, jshort wversionrequested) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3887,7 +3887,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerPnrpUnregister(JNIEnv* km_env, jclass km_clazz, jlong hregistration) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerPnrpUnregister(JNIEnv* km_env, jclass km_clazz, jlong hregistration) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3905,7 +3905,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1PeerPnrpUpdateRegistration(JNIEnv* km_env, jclass km_clazz, jlong hregistration, jlong pregistrationinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_p2p_WindowsWin32NetworkmanagementP2pJniBridge_windowssys_1windows_1win32_1networkmanagement_1p2p_1peerPnrpUpdateRegistration(JNIEnv* km_env, jclass km_clazz, jlong hregistration, jlong pregistrationinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

@@ -1,14 +1,26 @@
-@file:OptIn(kotlin.ExperimentalUnsignedTypes::class)
+@file:OptIn(kotlin.ExperimentalUnsignedTypes::class, kotlin.js.ExperimentalWasmJsInterop::class)
 
 package io.github.kotlinmania.windowssys.windows.win32.security.directoryservices
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 
-public actual fun DSCreateSecurityPage(pwszobjectpath: PCWSTR, pwszobjectclass: PCWSTR, dwflags: UInt, phpage: Long, pfnreadsd: PFNREADOBJECTSECURITY, pfnwritesd: PFNWRITEOBJECTSECURITY, lpcontext: LPARAM): HRESULT =
-    0
+@JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
+private external fun _initWindowsWin32SecurityDirectoryservicesNapiAddon(): Boolean
 
-public actual fun DSEditSecurity(hwndowner: HWND, pwszobjectpath: PCWSTR, pwszobjectclass: PCWSTR, dwflags: UInt, pwszcaption: PCWSTR, pfnreadsd: PFNREADOBJECTSECURITY, pfnwritesd: PFNWRITEOBJECTSECURITY, lpcontext: LPARAM): HRESULT =
-    0
+private val _windowsWin32SecurityDirectoryservicesNapiAvailable: Boolean = _initWindowsWin32SecurityDirectoryservicesNapiAddon()
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_security_directoryservices_dSCreateSecurityPage(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_security_directoryservices_dSCreateSecurityPage(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_security_directoryservices_dSEditSecurity(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_security_directoryservices_dSEditSecurity(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String, p6: String, p7: String): Int
+
+public actual fun dSCreateSecurityPage(pwszobjectpath: Pcwstr, pwszobjectclass: Pcwstr, dwflags: UInt, phpage: COpaquePointer?, pfnreadsd: Pfnreadobjectsecurity, pfnwritesd: Pfnwriteobjectsecurity, lpcontext: Lparam): Hresult =
+    if (_windowsWin32SecurityDirectoryservicesNapiAvailable) _wasm_windowssys_windows_win32_security_directoryservices_dSCreateSecurityPage((pwszobjectpath?.value ?: 0L).toString(), (pwszobjectclass?.value ?: 0L).toString(), dwflags.toInt(), (phpage?.value ?: 0L).toString(), 0L.toString(), 0L.toString(), lpcontext.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun dSEditSecurity(hwndowner: Hwnd, pwszobjectpath: Pcwstr, pwszobjectclass: Pcwstr, dwflags: UInt, pwszcaption: Pcwstr, pfnreadsd: Pfnreadobjectsecurity, pfnwritesd: Pfnwriteobjectsecurity, lpcontext: Lparam): Hresult =
+    if (_windowsWin32SecurityDirectoryservicesNapiAvailable) _wasm_windowssys_windows_win32_security_directoryservices_dSEditSecurity((hwndowner?.value ?: 0L).toString(), (pwszobjectpath?.value ?: 0L).toString(), (pwszobjectclass?.value ?: 0L).toString(), dwflags.toInt(), (pwszcaption?.value ?: 0L).toString(), 0L.toString(), 0L.toString(), lpcontext.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

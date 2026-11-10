@@ -1,57 +1,57 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.com.urlmon
 
-public typealias AUTHENTICATEF = Int
+public typealias Authenticatef = Int
 
-public typealias BINDF = Int
+public typealias Bindf = Int
 
-public typealias BINDF2 = Int
+public typealias Bindf2 = Int
 
-public typealias BINDHANDLETYPES = Int
+public typealias Bindhandletypes = Int
 
-public typealias BINDINFO_OPTIONS = Int
+public typealias BindinfoOptions = Int
 
-public typealias BINDSTATUS = Int
+public typealias Bindstatus = Int
 
-public typealias BINDSTRING = Int
+public typealias Bindstring = Int
 
-public typealias BINDVERB = Int
+public typealias Bindverb = Int
 
-public typealias BSCF = Int
+public typealias Bscf = Int
 
-public typealias CIP_STATUS = Int
+public typealias CipStatus = Int
 
 public typealias IEObjectType = Int
 
-public typealias INET_ZONE_MANAGER_CONSTANTS = Int
+public typealias InetZoneManagerConstants = Int
 
-public typealias INTERNETFEATURELIST = Int
+public typealias Internetfeaturelist = Int
 
-public typealias MONIKERPROPERTY = Int
+public typealias Monikerproperty = Int
 
-public typealias OIBDG_FLAGS = Int
+public typealias OibdgFlags = Int
 
-public typealias PARSEACTION = Int
+public typealias Parseaction = Int
 
-public typealias PI_FLAGS = Int
+public typealias PiFlags = Int
 
-public typealias PSUACTION = Int
+public typealias Psuaction = Int
 
-public typealias PUAF = Int
+public typealias Puaf = Int
 
-public typealias PUAFOUT = Int
+public typealias Puafout = Int
 
-public typealias QUERYOPTION = Int
+public typealias Queryoption = Int
 
-public typealias SZM_FLAGS = Int
+public typealias SzmFlags = Int
 
-public typealias URLTEMPLATE = Int
+public typealias Urltemplate = Int
 
-public typealias URLZONE = Int
+public typealias Urlzone = Int
 
-public typealias URLZONEREG = Int
+public typealias Urlzonereg = Int
 
-public typealias URL_ENCODING = Int
+public typealias UrlEncoding = Int
 
-public typealias Uri_HOST_TYPE = Int
+public typealias UriHostType = Int
 
-public typealias ZAFLAGS = Int
+public typealias Zaflags = Int

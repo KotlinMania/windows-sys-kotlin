@@ -9,8 +9,8 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_win32_security_directoryservices_DSCreateSecurityPage(void* pwszobjectpath, void* pwszobjectclass, uint32_t dwflags, void* phpage, void* pfnreadsd, void* pfnwritesd, int64_t lpcontext);
-int32_t windowssys_windows_win32_security_directoryservices_DSEditSecurity(void* hwndowner, void* pwszobjectpath, void* pwszobjectclass, uint32_t dwflags, void* pwszcaption, void* pfnreadsd, void* pfnwritesd, int64_t lpcontext);
+int32_t windowssys_windows_win32_security_directoryservices_dSCreateSecurityPage(void* pwszobjectpath, void* pwszobjectclass, uint32_t dwflags, void* phpage, void* pfnreadsd, void* pfnwritesd, int64_t lpcontext);
+int32_t windowssys_windows_win32_security_directoryservices_dSEditSecurity(void* hwndowner, void* pwszobjectpath, void* pwszobjectclass, uint32_t dwflags, void* pwszcaption, void* pfnreadsd, void* pfnwritesd, int64_t lpcontext);
 
 #ifdef __cplusplus
 }

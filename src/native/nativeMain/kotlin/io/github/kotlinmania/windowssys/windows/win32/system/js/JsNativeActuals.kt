@@ -2,250 +2,251 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.js
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun JsAddRef(ref: Long, count: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsAddRef(ref.toCPointer<ByteVar>(), count.toCPointer<ByteVar>())
+public actual fun jsAddRef(ref: COpaquePointer?, count: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsAddRef(ref?.value?.toCPointer<ByteVar>(), count?.value?.toCPointer<ByteVar>())
 
-public actual fun JsBoolToBoolean(value: UByte, booleanvalue: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsBoolToBoolean(value, booleanvalue.toCPointer<ByteVar>())
+public actual fun jsBoolToBoolean(value: UByte, booleanvalue: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsBoolToBoolean(value, booleanvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun JsBooleanToBool(value: Long, boolvalue: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsBooleanToBool(value.toCPointer<ByteVar>(), boolvalue.toCPointer<ByteVar>())
+public actual fun jsBooleanToBool(value: COpaquePointer?, boolvalue: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsBooleanToBool(value?.value?.toCPointer<ByteVar>(), boolvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun JsCallFunction(function: Long, arguments: Long, argumentcount: UShort, result: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsCallFunction(function.toCPointer<ByteVar>(), arguments.toCPointer<ByteVar>(), argumentcount, result.toCPointer<ByteVar>())
+public actual fun jsCallFunction(function: COpaquePointer?, arguments: COpaquePointer?, argumentcount: UShort, result: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsCallFunction(function?.value?.toCPointer<ByteVar>(), arguments?.value?.toCPointer<ByteVar>(), argumentcount, result?.value?.toCPointer<ByteVar>())
 
-public actual fun JsCollectGarbage(runtime: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsCollectGarbage(runtime.toCPointer<ByteVar>())
+public actual fun jsCollectGarbage(runtime: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsCollectGarbage(runtime?.value?.toCPointer<ByteVar>())
 
-public actual fun JsConstructObject(function: Long, arguments: Long, argumentcount: UShort, result: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsConstructObject(function.toCPointer<ByteVar>(), arguments.toCPointer<ByteVar>(), argumentcount, result.toCPointer<ByteVar>())
+public actual fun jsConstructObject(function: COpaquePointer?, arguments: COpaquePointer?, argumentcount: UShort, result: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsConstructObject(function?.value?.toCPointer<ByteVar>(), arguments?.value?.toCPointer<ByteVar>(), argumentcount, result?.value?.toCPointer<ByteVar>())
 
-public actual fun JsConvertValueToBoolean(value: Long, booleanvalue: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsConvertValueToBoolean(value.toCPointer<ByteVar>(), booleanvalue.toCPointer<ByteVar>())
+public actual fun jsConvertValueToBoolean(value: COpaquePointer?, booleanvalue: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsConvertValueToBoolean(value?.value?.toCPointer<ByteVar>(), booleanvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun JsConvertValueToNumber(value: Long, numbervalue: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsConvertValueToNumber(value.toCPointer<ByteVar>(), numbervalue.toCPointer<ByteVar>())
+public actual fun jsConvertValueToNumber(value: COpaquePointer?, numbervalue: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsConvertValueToNumber(value?.value?.toCPointer<ByteVar>(), numbervalue?.value?.toCPointer<ByteVar>())
 
-public actual fun JsConvertValueToObject(value: Long, obj: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsConvertValueToObject(value.toCPointer<ByteVar>(), obj.toCPointer<ByteVar>())
+public actual fun jsConvertValueToObject(value: COpaquePointer?, obj: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsConvertValueToObject(value?.value?.toCPointer<ByteVar>(), obj?.value?.toCPointer<ByteVar>())
 
-public actual fun JsConvertValueToString(value: Long, stringvalue: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsConvertValueToString(value.toCPointer<ByteVar>(), stringvalue.toCPointer<ByteVar>())
+public actual fun jsConvertValueToString(value: COpaquePointer?, stringvalue: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsConvertValueToString(value?.value?.toCPointer<ByteVar>(), stringvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun JsCreateArray(length: UInt, result: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsCreateArray(length, result.toCPointer<ByteVar>())
+public actual fun jsCreateArray(length: UInt, result: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsCreateArray(length, result?.value?.toCPointer<ByteVar>())
 
-public actual fun JsCreateError(message: Long, error: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsCreateError(message.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun jsCreateError(message: COpaquePointer?, error: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsCreateError(message?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun JsCreateExternalObject(data: Long, finalizecallback: JsFinalizeCallback, obj: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsCreateExternalObject(data.toCPointer<ByteVar>(), finalizecallback.toLong().toCPointer<ByteVar>(), obj.toCPointer<ByteVar>())
+public actual fun jsCreateExternalObject(data: COpaquePointer?, finalizecallback: JsFinalizeCallback, obj: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsCreateExternalObject(data?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), obj?.value?.toCPointer<ByteVar>())
 
-public actual fun JsCreateFunction(nativefunction: JsNativeFunction, callbackstate: Long, function: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsCreateFunction(nativefunction.toLong().toCPointer<ByteVar>(), callbackstate.toCPointer<ByteVar>(), function.toCPointer<ByteVar>())
+public actual fun jsCreateFunction(nativefunction: JsNativeFunction, callbackstate: COpaquePointer?, function: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsCreateFunction(0L.toCPointer<ByteVar>(), callbackstate?.value?.toCPointer<ByteVar>(), function?.value?.toCPointer<ByteVar>())
 
-public actual fun JsCreateObject(obj: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsCreateObject(obj.toCPointer<ByteVar>())
+public actual fun jsCreateObject(obj: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsCreateObject(obj?.value?.toCPointer<ByteVar>())
 
-public actual fun JsCreateRangeError(message: Long, error: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsCreateRangeError(message.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun jsCreateRangeError(message: COpaquePointer?, error: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsCreateRangeError(message?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun JsCreateReferenceError(message: Long, error: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsCreateReferenceError(message.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun jsCreateReferenceError(message: COpaquePointer?, error: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsCreateReferenceError(message?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun JsCreateRuntime(attributes: JsRuntimeAttributes, runtimeversion: JsRuntimeVersion, threadservice: JsThreadServiceCallback, runtime: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsCreateRuntime(attributes, runtimeversion, threadservice.toLong().toCPointer<ByteVar>(), runtime.toCPointer<ByteVar>())
+public actual fun jsCreateRuntime(attributes: JsRuntimeAttributes, runtimeversion: JsRuntimeVersion, threadservice: JsThreadServiceCallback, runtime: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsCreateRuntime(attributes, runtimeversion, 0L.toCPointer<ByteVar>(), runtime?.value?.toCPointer<ByteVar>())
 
-public actual fun JsCreateSyntaxError(message: Long, error: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsCreateSyntaxError(message.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun jsCreateSyntaxError(message: COpaquePointer?, error: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsCreateSyntaxError(message?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun JsCreateTypeError(message: Long, error: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsCreateTypeError(message.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun jsCreateTypeError(message: COpaquePointer?, error: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsCreateTypeError(message?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun JsCreateURIError(message: Long, error: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsCreateURIError(message.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun jsCreateURIError(message: COpaquePointer?, error: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsCreateURIError(message?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun JsDefineProperty(obj: Long, propertyid: Long, propertydescriptor: Long, result: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsDefineProperty(obj.toCPointer<ByteVar>(), propertyid.toCPointer<ByteVar>(), propertydescriptor.toCPointer<ByteVar>(), result.toCPointer<ByteVar>())
+public actual fun jsDefineProperty(obj: COpaquePointer?, propertyid: COpaquePointer?, propertydescriptor: COpaquePointer?, result: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsDefineProperty(obj?.value?.toCPointer<ByteVar>(), propertyid?.value?.toCPointer<ByteVar>(), propertydescriptor?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>())
 
-public actual fun JsDeleteIndexedProperty(obj: Long, index: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsDeleteIndexedProperty(obj.toCPointer<ByteVar>(), index.toCPointer<ByteVar>())
+public actual fun jsDeleteIndexedProperty(obj: COpaquePointer?, index: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsDeleteIndexedProperty(obj?.value?.toCPointer<ByteVar>(), index?.value?.toCPointer<ByteVar>())
 
-public actual fun JsDeleteProperty(obj: Long, propertyid: Long, usestrictrules: UByte, result: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsDeleteProperty(obj.toCPointer<ByteVar>(), propertyid.toCPointer<ByteVar>(), usestrictrules, result.toCPointer<ByteVar>())
+public actual fun jsDeleteProperty(obj: COpaquePointer?, propertyid: COpaquePointer?, usestrictrules: UByte, result: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsDeleteProperty(obj?.value?.toCPointer<ByteVar>(), propertyid?.value?.toCPointer<ByteVar>(), usestrictrules, result?.value?.toCPointer<ByteVar>())
 
-public actual fun JsDisableRuntimeExecution(runtime: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsDisableRuntimeExecution(runtime.toCPointer<ByteVar>())
+public actual fun jsDisableRuntimeExecution(runtime: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsDisableRuntimeExecution(runtime?.value?.toCPointer<ByteVar>())
 
-public actual fun JsDisposeRuntime(runtime: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsDisposeRuntime(runtime.toCPointer<ByteVar>())
+public actual fun jsDisposeRuntime(runtime: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsDisposeRuntime(runtime?.value?.toCPointer<ByteVar>())
 
-public actual fun JsDoubleToNumber(doublevalue: Double, value: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsDoubleToNumber(doublevalue, value.toCPointer<ByteVar>())
+public actual fun jsDoubleToNumber(doublevalue: Double, value: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsDoubleToNumber(doublevalue, value?.value?.toCPointer<ByteVar>())
 
-public actual fun JsEnableRuntimeExecution(runtime: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsEnableRuntimeExecution(runtime.toCPointer<ByteVar>())
+public actual fun jsEnableRuntimeExecution(runtime: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsEnableRuntimeExecution(runtime?.value?.toCPointer<ByteVar>())
 
-public actual fun JsEquals(object1: Long, object2: Long, result: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsEquals(object1.toCPointer<ByteVar>(), object2.toCPointer<ByteVar>(), result.toCPointer<ByteVar>())
+public actual fun jsEquals(object1: COpaquePointer?, object2: COpaquePointer?, result: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsEquals(object1?.value?.toCPointer<ByteVar>(), object2?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>())
 
-public actual fun JsGetAndClearException(exception: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsGetAndClearException(exception.toCPointer<ByteVar>())
+public actual fun jsGetAndClearException(exception: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetAndClearException(exception?.value?.toCPointer<ByteVar>())
 
-public actual fun JsGetCurrentContext(currentcontext: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsGetCurrentContext(currentcontext.toCPointer<ByteVar>())
+public actual fun jsGetCurrentContext(currentcontext: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetCurrentContext(currentcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun JsGetExtensionAllowed(obj: Long, value: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsGetExtensionAllowed(obj.toCPointer<ByteVar>(), value.toCPointer<ByteVar>())
+public actual fun jsGetExtensionAllowed(obj: COpaquePointer?, value: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetExtensionAllowed(obj?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
 
-public actual fun JsGetExternalData(obj: Long, externaldata: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsGetExternalData(obj.toCPointer<ByteVar>(), externaldata.toCPointer<ByteVar>())
+public actual fun jsGetExternalData(obj: COpaquePointer?, externaldata: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetExternalData(obj?.value?.toCPointer<ByteVar>(), externaldata?.value?.toCPointer<ByteVar>())
 
-public actual fun JsGetFalseValue(falsevalue: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsGetFalseValue(falsevalue.toCPointer<ByteVar>())
+public actual fun jsGetFalseValue(falsevalue: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetFalseValue(falsevalue?.value?.toCPointer<ByteVar>())
 
-public actual fun JsGetGlobalObject(globalobject: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsGetGlobalObject(globalobject.toCPointer<ByteVar>())
+public actual fun jsGetGlobalObject(globalobject: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetGlobalObject(globalobject?.value?.toCPointer<ByteVar>())
 
-public actual fun JsGetIndexedProperty(obj: Long, index: Long, result: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsGetIndexedProperty(obj.toCPointer<ByteVar>(), index.toCPointer<ByteVar>(), result.toCPointer<ByteVar>())
+public actual fun jsGetIndexedProperty(obj: COpaquePointer?, index: COpaquePointer?, result: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetIndexedProperty(obj?.value?.toCPointer<ByteVar>(), index?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>())
 
-public actual fun JsGetNullValue(nullvalue: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsGetNullValue(nullvalue.toCPointer<ByteVar>())
+public actual fun jsGetNullValue(nullvalue: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetNullValue(nullvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun JsGetOwnPropertyDescriptor(obj: Long, propertyid: Long, propertydescriptor: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsGetOwnPropertyDescriptor(obj.toCPointer<ByteVar>(), propertyid.toCPointer<ByteVar>(), propertydescriptor.toCPointer<ByteVar>())
+public actual fun jsGetOwnPropertyDescriptor(obj: COpaquePointer?, propertyid: COpaquePointer?, propertydescriptor: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetOwnPropertyDescriptor(obj?.value?.toCPointer<ByteVar>(), propertyid?.value?.toCPointer<ByteVar>(), propertydescriptor?.value?.toCPointer<ByteVar>())
 
-public actual fun JsGetOwnPropertyNames(obj: Long, propertynames: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsGetOwnPropertyNames(obj.toCPointer<ByteVar>(), propertynames.toCPointer<ByteVar>())
+public actual fun jsGetOwnPropertyNames(obj: COpaquePointer?, propertynames: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetOwnPropertyNames(obj?.value?.toCPointer<ByteVar>(), propertynames?.value?.toCPointer<ByteVar>())
 
-public actual fun JsGetProperty(obj: Long, propertyid: Long, value: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsGetProperty(obj.toCPointer<ByteVar>(), propertyid.toCPointer<ByteVar>(), value.toCPointer<ByteVar>())
+public actual fun jsGetProperty(obj: COpaquePointer?, propertyid: COpaquePointer?, value: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetProperty(obj?.value?.toCPointer<ByteVar>(), propertyid?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
 
-public actual fun JsGetPropertyIdFromName(name: PCWSTR, propertyid: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsGetPropertyIdFromName(name.toCPointer<ByteVar>(), propertyid.toCPointer<ByteVar>())
+public actual fun jsGetPropertyIdFromName(name: Pcwstr, propertyid: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetPropertyIdFromName(name?.value?.toCPointer<ByteVar>(), propertyid?.value?.toCPointer<ByteVar>())
 
-public actual fun JsGetPropertyNameFromId(propertyid: Long, name: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsGetPropertyNameFromId(propertyid.toCPointer<ByteVar>(), name.toCPointer<ByteVar>())
+public actual fun jsGetPropertyNameFromId(propertyid: COpaquePointer?, name: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetPropertyNameFromId(propertyid?.value?.toCPointer<ByteVar>(), name?.value?.toCPointer<ByteVar>())
 
-public actual fun JsGetPrototype(obj: Long, prototypeobject: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsGetPrototype(obj.toCPointer<ByteVar>(), prototypeobject.toCPointer<ByteVar>())
+public actual fun jsGetPrototype(obj: COpaquePointer?, prototypeobject: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetPrototype(obj?.value?.toCPointer<ByteVar>(), prototypeobject?.value?.toCPointer<ByteVar>())
 
-public actual fun JsGetRuntime(context: Long, runtime: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsGetRuntime(context.toCPointer<ByteVar>(), runtime.toCPointer<ByteVar>())
+public actual fun jsGetRuntime(context: COpaquePointer?, runtime: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetRuntime(context?.value?.toCPointer<ByteVar>(), runtime?.value?.toCPointer<ByteVar>())
 
-public actual fun JsGetRuntimeMemoryLimit(runtime: Long, memorylimit: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsGetRuntimeMemoryLimit(runtime.toCPointer<ByteVar>(), memorylimit.toCPointer<ByteVar>())
+public actual fun jsGetRuntimeMemoryLimit(runtime: COpaquePointer?, memorylimit: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetRuntimeMemoryLimit(runtime?.value?.toCPointer<ByteVar>(), memorylimit?.value?.toCPointer<ByteVar>())
 
-public actual fun JsGetRuntimeMemoryUsage(runtime: Long, memoryusage: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsGetRuntimeMemoryUsage(runtime.toCPointer<ByteVar>(), memoryusage.toCPointer<ByteVar>())
+public actual fun jsGetRuntimeMemoryUsage(runtime: COpaquePointer?, memoryusage: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetRuntimeMemoryUsage(runtime?.value?.toCPointer<ByteVar>(), memoryusage?.value?.toCPointer<ByteVar>())
 
-public actual fun JsGetStringLength(stringvalue: Long, length: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsGetStringLength(stringvalue.toCPointer<ByteVar>(), length.toCPointer<ByteVar>())
+public actual fun jsGetStringLength(stringvalue: COpaquePointer?, length: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetStringLength(stringvalue?.value?.toCPointer<ByteVar>(), length?.value?.toCPointer<ByteVar>())
 
-public actual fun JsGetTrueValue(truevalue: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsGetTrueValue(truevalue.toCPointer<ByteVar>())
+public actual fun jsGetTrueValue(truevalue: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetTrueValue(truevalue?.value?.toCPointer<ByteVar>())
 
-public actual fun JsGetUndefinedValue(undefinedvalue: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsGetUndefinedValue(undefinedvalue.toCPointer<ByteVar>())
+public actual fun jsGetUndefinedValue(undefinedvalue: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetUndefinedValue(undefinedvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun JsGetValueType(value: Long, type: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsGetValueType(value.toCPointer<ByteVar>(), type.toCPointer<ByteVar>())
+public actual fun jsGetValueType(value: COpaquePointer?, type: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsGetValueType(value?.value?.toCPointer<ByteVar>(), type?.value?.toCPointer<ByteVar>())
 
-public actual fun JsHasException(hasexception: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsHasException(hasexception.toCPointer<ByteVar>())
+public actual fun jsHasException(hasexception: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsHasException(hasexception?.value?.toCPointer<ByteVar>())
 
-public actual fun JsHasExternalData(obj: Long, value: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsHasExternalData(obj.toCPointer<ByteVar>(), value.toCPointer<ByteVar>())
+public actual fun jsHasExternalData(obj: COpaquePointer?, value: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsHasExternalData(obj?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
 
-public actual fun JsHasIndexedProperty(obj: Long, index: Long, result: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsHasIndexedProperty(obj.toCPointer<ByteVar>(), index.toCPointer<ByteVar>(), result.toCPointer<ByteVar>())
+public actual fun jsHasIndexedProperty(obj: COpaquePointer?, index: COpaquePointer?, result: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsHasIndexedProperty(obj?.value?.toCPointer<ByteVar>(), index?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>())
 
-public actual fun JsHasProperty(obj: Long, propertyid: Long, hasproperty: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsHasProperty(obj.toCPointer<ByteVar>(), propertyid.toCPointer<ByteVar>(), hasproperty.toCPointer<ByteVar>())
+public actual fun jsHasProperty(obj: COpaquePointer?, propertyid: COpaquePointer?, hasproperty: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsHasProperty(obj?.value?.toCPointer<ByteVar>(), propertyid?.value?.toCPointer<ByteVar>(), hasproperty?.value?.toCPointer<ByteVar>())
 
-public actual fun JsIdle(nextidletick: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsIdle(nextidletick.toCPointer<ByteVar>())
+public actual fun jsIdle(nextidletick: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsIdle(nextidletick?.value?.toCPointer<ByteVar>())
 
-public actual fun JsIntToNumber(intvalue: Int, value: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsIntToNumber(intvalue, value.toCPointer<ByteVar>())
+public actual fun jsIntToNumber(intvalue: Int, value: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsIntToNumber(intvalue, value?.value?.toCPointer<ByteVar>())
 
-public actual fun JsIsEnumeratingHeap(isenumeratingheap: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsIsEnumeratingHeap(isenumeratingheap.toCPointer<ByteVar>())
+public actual fun jsIsEnumeratingHeap(isenumeratingheap: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsIsEnumeratingHeap(isenumeratingheap?.value?.toCPointer<ByteVar>())
 
-public actual fun JsIsRuntimeExecutionDisabled(runtime: Long, isdisabled: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsIsRuntimeExecutionDisabled(runtime.toCPointer<ByteVar>(), isdisabled.toCPointer<ByteVar>())
+public actual fun jsIsRuntimeExecutionDisabled(runtime: COpaquePointer?, isdisabled: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsIsRuntimeExecutionDisabled(runtime?.value?.toCPointer<ByteVar>(), isdisabled?.value?.toCPointer<ByteVar>())
 
-public actual fun JsNumberToDouble(value: Long, doublevalue: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsNumberToDouble(value.toCPointer<ByteVar>(), doublevalue.toCPointer<ByteVar>())
+public actual fun jsNumberToDouble(value: COpaquePointer?, doublevalue: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsNumberToDouble(value?.value?.toCPointer<ByteVar>(), doublevalue?.value?.toCPointer<ByteVar>())
 
-public actual fun JsParseScript(script: PCWSTR, sourcecontext: ULong, sourceurl: PCWSTR, result: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsParseScript(script.toCPointer<ByteVar>(), sourcecontext, sourceurl.toCPointer<ByteVar>(), result.toCPointer<ByteVar>())
+public actual fun jsParseScript(script: Pcwstr, sourcecontext: ULong, sourceurl: Pcwstr, result: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsParseScript(script?.value?.toCPointer<ByteVar>(), sourcecontext, sourceurl?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>())
 
-public actual fun JsParseSerializedScript(script: PCWSTR, buffer: Long, sourcecontext: ULong, sourceurl: PCWSTR, result: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsParseSerializedScript(script.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), sourcecontext, sourceurl.toCPointer<ByteVar>(), result.toCPointer<ByteVar>())
+public actual fun jsParseSerializedScript(script: Pcwstr, buffer: COpaquePointer?, sourcecontext: ULong, sourceurl: Pcwstr, result: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsParseSerializedScript(script?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), sourcecontext, sourceurl?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>())
 
-public actual fun JsPointerToString(stringvalue: PCWSTR, stringlength: ULong, value: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsPointerToString(stringvalue.toCPointer<ByteVar>(), stringlength, value.toCPointer<ByteVar>())
+public actual fun jsPointerToString(stringvalue: Pcwstr, stringlength: ULong, value: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsPointerToString(stringvalue?.value?.toCPointer<ByteVar>(), stringlength, value?.value?.toCPointer<ByteVar>())
 
-public actual fun JsPreventExtension(obj: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsPreventExtension(obj.toCPointer<ByteVar>())
+public actual fun jsPreventExtension(obj: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsPreventExtension(obj?.value?.toCPointer<ByteVar>())
 
-public actual fun JsRelease(ref: Long, count: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsRelease(ref.toCPointer<ByteVar>(), count.toCPointer<ByteVar>())
+public actual fun jsRelease(ref: COpaquePointer?, count: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsRelease(ref?.value?.toCPointer<ByteVar>(), count?.value?.toCPointer<ByteVar>())
 
-public actual fun JsRunScript(script: PCWSTR, sourcecontext: ULong, sourceurl: PCWSTR, result: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsRunScript(script.toCPointer<ByteVar>(), sourcecontext, sourceurl.toCPointer<ByteVar>(), result.toCPointer<ByteVar>())
+public actual fun jsRunScript(script: Pcwstr, sourcecontext: ULong, sourceurl: Pcwstr, result: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsRunScript(script?.value?.toCPointer<ByteVar>(), sourcecontext, sourceurl?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>())
 
-public actual fun JsRunSerializedScript(script: PCWSTR, buffer: Long, sourcecontext: ULong, sourceurl: PCWSTR, result: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsRunSerializedScript(script.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), sourcecontext, sourceurl.toCPointer<ByteVar>(), result.toCPointer<ByteVar>())
+public actual fun jsRunSerializedScript(script: Pcwstr, buffer: COpaquePointer?, sourcecontext: ULong, sourceurl: Pcwstr, result: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsRunSerializedScript(script?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), sourcecontext, sourceurl?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>())
 
-public actual fun JsSerializeScript(script: PCWSTR, buffer: Long, buffersize: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsSerializeScript(script.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), buffersize.toCPointer<ByteVar>())
+public actual fun jsSerializeScript(script: Pcwstr, buffer: COpaquePointer?, buffersize: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsSerializeScript(script?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), buffersize?.value?.toCPointer<ByteVar>())
 
-public actual fun JsSetCurrentContext(context: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsSetCurrentContext(context.toCPointer<ByteVar>())
+public actual fun jsSetCurrentContext(context: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsSetCurrentContext(context?.value?.toCPointer<ByteVar>())
 
-public actual fun JsSetException(exception: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsSetException(exception.toCPointer<ByteVar>())
+public actual fun jsSetException(exception: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsSetException(exception?.value?.toCPointer<ByteVar>())
 
-public actual fun JsSetExternalData(obj: Long, externaldata: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsSetExternalData(obj.toCPointer<ByteVar>(), externaldata.toCPointer<ByteVar>())
+public actual fun jsSetExternalData(obj: COpaquePointer?, externaldata: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsSetExternalData(obj?.value?.toCPointer<ByteVar>(), externaldata?.value?.toCPointer<ByteVar>())
 
-public actual fun JsSetIndexedProperty(obj: Long, index: Long, value: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsSetIndexedProperty(obj.toCPointer<ByteVar>(), index.toCPointer<ByteVar>(), value.toCPointer<ByteVar>())
+public actual fun jsSetIndexedProperty(obj: COpaquePointer?, index: COpaquePointer?, value: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsSetIndexedProperty(obj?.value?.toCPointer<ByteVar>(), index?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
 
-public actual fun JsSetProperty(obj: Long, propertyid: Long, value: Long, usestrictrules: UByte): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsSetProperty(obj.toCPointer<ByteVar>(), propertyid.toCPointer<ByteVar>(), value.toCPointer<ByteVar>(), usestrictrules)
+public actual fun jsSetProperty(obj: COpaquePointer?, propertyid: COpaquePointer?, value: COpaquePointer?, usestrictrules: UByte): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsSetProperty(obj?.value?.toCPointer<ByteVar>(), propertyid?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>(), usestrictrules)
 
-public actual fun JsSetPrototype(obj: Long, prototypeobject: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsSetPrototype(obj.toCPointer<ByteVar>(), prototypeobject.toCPointer<ByteVar>())
+public actual fun jsSetPrototype(obj: COpaquePointer?, prototypeobject: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsSetPrototype(obj?.value?.toCPointer<ByteVar>(), prototypeobject?.value?.toCPointer<ByteVar>())
 
-public actual fun JsSetRuntimeBeforeCollectCallback(runtime: Long, callbackstate: Long, beforecollectcallback: JsBeforeCollectCallback): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsSetRuntimeBeforeCollectCallback(runtime.toCPointer<ByteVar>(), callbackstate.toCPointer<ByteVar>(), beforecollectcallback.toLong().toCPointer<ByteVar>())
+public actual fun jsSetRuntimeBeforeCollectCallback(runtime: COpaquePointer?, callbackstate: COpaquePointer?, beforecollectcallback: JsBeforeCollectCallback): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsSetRuntimeBeforeCollectCallback(runtime?.value?.toCPointer<ByteVar>(), callbackstate?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun JsSetRuntimeMemoryAllocationCallback(runtime: Long, callbackstate: Long, allocationcallback: JsMemoryAllocationCallback): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsSetRuntimeMemoryAllocationCallback(runtime.toCPointer<ByteVar>(), callbackstate.toCPointer<ByteVar>(), allocationcallback.toLong().toCPointer<ByteVar>())
+public actual fun jsSetRuntimeMemoryAllocationCallback(runtime: COpaquePointer?, callbackstate: COpaquePointer?, allocationcallback: JsMemoryAllocationCallback): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsSetRuntimeMemoryAllocationCallback(runtime?.value?.toCPointer<ByteVar>(), callbackstate?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun JsSetRuntimeMemoryLimit(runtime: Long, memorylimit: ULong): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsSetRuntimeMemoryLimit(runtime.toCPointer<ByteVar>(), memorylimit)
+public actual fun jsSetRuntimeMemoryLimit(runtime: COpaquePointer?, memorylimit: ULong): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsSetRuntimeMemoryLimit(runtime?.value?.toCPointer<ByteVar>(), memorylimit)
 
-public actual fun JsStopProfiling(reason: HRESULT): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsStopProfiling(reason)
+public actual fun jsStopProfiling(reason: Hresult): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsStopProfiling(reason)
 
-public actual fun JsStrictEquals(object1: Long, object2: Long, result: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsStrictEquals(object1.toCPointer<ByteVar>(), object2.toCPointer<ByteVar>(), result.toCPointer<ByteVar>())
+public actual fun jsStrictEquals(object1: COpaquePointer?, object2: COpaquePointer?, result: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsStrictEquals(object1?.value?.toCPointer<ByteVar>(), object2?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>())
 
-public actual fun JsStringToPointer(value: Long, stringvalue: Long, stringlength: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsStringToPointer(value.toCPointer<ByteVar>(), stringvalue.toCPointer<ByteVar>(), stringlength.toCPointer<ByteVar>())
+public actual fun jsStringToPointer(value: COpaquePointer?, stringvalue: COpaquePointer?, stringlength: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsStringToPointer(value?.value?.toCPointer<ByteVar>(), stringvalue?.value?.toCPointer<ByteVar>(), stringlength?.value?.toCPointer<ByteVar>())
 
-public actual fun JsValueToVariant(obj: Long, variant: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsValueToVariant(obj.toCPointer<ByteVar>(), variant.toCPointer<ByteVar>())
+public actual fun jsValueToVariant(obj: COpaquePointer?, variant: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsValueToVariant(obj?.value?.toCPointer<ByteVar>(), variant?.value?.toCPointer<ByteVar>())
 
-public actual fun JsVariantToValue(variant: Long, value: Long): JsErrorCode =
-    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_JsVariantToValue(variant.toCPointer<ByteVar>(), value.toCPointer<ByteVar>())
+public actual fun jsVariantToValue(variant: COpaquePointer?, value: COpaquePointer?): JsErrorCode =
+    io.github.kotlinmania.windowssys.windows.win32.system.js.cinterop.windowssys_windows_win32_system_js_jsVariantToValue(variant?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())

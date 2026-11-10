@@ -1,9 +1,9 @@
 package io.github.kotlinmania.windowssys.windows.win32.globalization
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
 
@@ -245,35 +245,35 @@ public val CAL_USE_CP_ACP: UInt = 1073741824u
 
 public val CANITER_SKIP_ZEROES: UInt = 1u
 
-public val CMLangConvertCharset: GUID = GUID.from_u128(U128(0xd66d6f99cdaa11d0uL, 0xb82200c04fc9b31fuL))
+public val CM_LANG_CONVERT_CHARSET: Guid = Guid.fromU128(U128(0xd66d6f99cdaa11d0uL, 0xb82200c04fc9b31fuL))
 
-public val CMLangString: GUID = GUID.from_u128(U128(0xc04d65cfb70d11d0uL, 0xb18800aa0038c969uL))
+public val CM_LANG_STRING: Guid = Guid.fromU128(U128(0xc04d65cfb70d11d0uL, 0xb18800aa0038c969uL))
 
-public val CMultiLanguage: GUID = GUID.from_u128(U128(0x275c23e2374711d0uL, 0x9fea00aa003f8646uL))
+public val C_MULTI_LANGUAGE: Guid = Guid.fromU128(U128(0x275c23e2374711d0uL, 0x9fea00aa003f8646uL))
 
-public val COMPARE_STRING: SYSNLS_FUNCTION = 1
+public val COMPARE_STRING: SysnlsFunction = 1
 
-public val CORRECTIVE_ACTION_DELETE: CORRECTIVE_ACTION = 3
+public val CORRECTIVE_ACTION_DELETE: CorrectiveAction = 3
 
-public val CORRECTIVE_ACTION_GET_SUGGESTIONS: CORRECTIVE_ACTION = 1
+public val CORRECTIVE_ACTION_GET_SUGGESTIONS: CorrectiveAction = 1
 
-public val CORRECTIVE_ACTION_NONE: CORRECTIVE_ACTION = 0
+public val CORRECTIVE_ACTION_NONE: CorrectiveAction = 0
 
-public val CORRECTIVE_ACTION_REPLACE: CORRECTIVE_ACTION = 2
+public val CORRECTIVE_ACTION_REPLACE: CorrectiveAction = 2
 
-public val CPIOD_FORCE_PROMPT: Int = -2147483648
+public val CPIOD_FORCE_PROMPT: Int = -2147483648.toInt()
 
 public val CPIOD_PEEK: Int = 1073741824
 
 public val CP_ACP: UInt = 0u
 
-public val CP_INSTALLED: ENUM_SYSTEM_CODE_PAGES_FLAGS = 1u
+public val CP_INSTALLED: EnumSystemCodePagesFlags = 1u
 
 public val CP_MACCP: UInt = 2u
 
 public val CP_OEMCP: UInt = 1u
 
-public val CP_SUPPORTED: ENUM_SYSTEM_CODE_PAGES_FLAGS = 2u
+public val CP_SUPPORTED: EnumSystemCodePagesFlags = 2u
 
 public val CP_SYMBOL: UInt = 42u
 
@@ -283,11 +283,11 @@ public val CP_UTF7: UInt = 65000u
 
 public val CP_UTF8: UInt = 65001u
 
-public val CSTR_EQUAL: COMPARESTRING_RESULT = 2
+public val CSTR_EQUAL: ComparestringResult = 2
 
-public val CSTR_GREATER_THAN: COMPARESTRING_RESULT = 3
+public val CSTR_GREATER_THAN: ComparestringResult = 3
 
-public val CSTR_LESS_THAN: COMPARESTRING_RESULT = 1
+public val CSTR_LESS_THAN: ComparestringResult = 1
 
 public val CTRY_ALBANIA: UInt = 355u
 
@@ -519,45 +519,45 @@ public val CT_CTYPE2: UInt = 2u
 
 public val CT_CTYPE3: UInt = 4u
 
-public val DATE_AUTOLAYOUT: ENUM_DATE_FORMATS_FLAGS = 64u
+public val DATE_AUTOLAYOUT: EnumDateFormatsFlags = 64u
 
-public val DATE_LONGDATE: ENUM_DATE_FORMATS_FLAGS = 2u
+public val DATE_LONGDATE: EnumDateFormatsFlags = 2u
 
-public val DATE_LTRREADING: ENUM_DATE_FORMATS_FLAGS = 16u
+public val DATE_LTRREADING: EnumDateFormatsFlags = 16u
 
-public val DATE_MONTHDAY: ENUM_DATE_FORMATS_FLAGS = 128u
+public val DATE_MONTHDAY: EnumDateFormatsFlags = 128u
 
-public val DATE_RTLREADING: ENUM_DATE_FORMATS_FLAGS = 32u
+public val DATE_RTLREADING: EnumDateFormatsFlags = 32u
 
-public val DATE_SHORTDATE: ENUM_DATE_FORMATS_FLAGS = 1u
+public val DATE_SHORTDATE: EnumDateFormatsFlags = 1u
 
-public val DATE_USE_ALT_CALENDAR: ENUM_DATE_FORMATS_FLAGS = 4u
+public val DATE_USE_ALT_CALENDAR: EnumDateFormatsFlags = 4u
 
-public val DATE_YEARMONTH: ENUM_DATE_FORMATS_FLAGS = 8u
+public val DATE_YEARMONTH: EnumDateFormatsFlags = 8u
 
-public val DayUnit: CALDATETIME_DATEUNIT = 4
+public val DAY_UNIT: CaldatetimeDateunit = 4
 
-public val ELS_GUID_LANGUAGE_DETECTION: GUID = GUID.from_u128(U128(0xcf7e00b1909b4d95uL, 0xa8f4611f7c377702uL))
+public val ELS_GUID_LANGUAGE_DETECTION: Guid = Guid.fromU128(U128(0xcf7e00b1909b4d95uL, 0xa8f4611f7c377702uL))
 
-public val ELS_GUID_SCRIPT_DETECTION: GUID = GUID.from_u128(U128(0x2d64b4396caf4f6buL, 0xb688e5d0f4faa7d7uL))
+public val ELS_GUID_SCRIPT_DETECTION: Guid = Guid.fromU128(U128(0x2d64b4396caf4f6buL, 0xb688e5d0f4faa7d7uL))
 
-public val ELS_GUID_TRANSLITERATION_BENGALI_TO_LATIN: GUID = GUID.from_u128(U128(0xf4dfd82591a4489fuL, 0x855e9ad9bee55727uL))
+public val ELS_GUID_TRANSLITERATION_BENGALI_TO_LATIN: Guid = Guid.fromU128(U128(0xf4dfd82591a4489fuL, 0x855e9ad9bee55727uL))
 
-public val ELS_GUID_TRANSLITERATION_CYRILLIC_TO_LATIN: GUID = GUID.from_u128(U128(0x3dd12a985afd4903uL, 0xa13fe17e6c0bfe01uL))
+public val ELS_GUID_TRANSLITERATION_CYRILLIC_TO_LATIN: Guid = Guid.fromU128(U128(0x3dd12a985afd4903uL, 0xa13fe17e6c0bfe01uL))
 
-public val ELS_GUID_TRANSLITERATION_DEVANAGARI_TO_LATIN: GUID = GUID.from_u128(U128(0xc4a4dcfe26614d02uL, 0x9835f48187109803uL))
+public val ELS_GUID_TRANSLITERATION_DEVANAGARI_TO_LATIN: Guid = Guid.fromU128(U128(0xc4a4dcfe26614d02uL, 0x9835f48187109803uL))
 
-public val ELS_GUID_TRANSLITERATION_HANGUL_DECOMPOSITION: GUID = GUID.from_u128(U128(0x4ba2a721e43d41b7uL, 0xb330536ae1e48863uL))
+public val ELS_GUID_TRANSLITERATION_HANGUL_DECOMPOSITION: Guid = Guid.fromU128(U128(0x4ba2a721e43d41b7uL, 0xb330536ae1e48863uL))
 
-public val ELS_GUID_TRANSLITERATION_HANS_TO_HANT: GUID = GUID.from_u128(U128(0x3caccdc8559042dcuL, 0x9a7bb5a6b5b3b63buL))
+public val ELS_GUID_TRANSLITERATION_HANS_TO_HANT: Guid = Guid.fromU128(U128(0x3caccdc8559042dcuL, 0x9a7bb5a6b5b3b63buL))
 
-public val ELS_GUID_TRANSLITERATION_HANT_TO_HANS: GUID = GUID.from_u128(U128(0xa3a8333bf4fc42f6uL, 0xa0c40462fe7317cbuL))
+public val ELS_GUID_TRANSLITERATION_HANT_TO_HANS: Guid = Guid.fromU128(U128(0xa3a8333bf4fc42f6uL, 0xa0c40462fe7317cbuL))
 
-public val ELS_GUID_TRANSLITERATION_MALAYALAM_TO_LATIN: GUID = GUID.from_u128(U128(0xd8b983b1f8bf4a2buL, 0xbcd55b5ea20613e1uL))
+public val ELS_GUID_TRANSLITERATION_MALAYALAM_TO_LATIN: Guid = Guid.fromU128(U128(0xd8b983b1f8bf4a2buL, 0xbcd55b5ea20613e1uL))
 
 public val ENUM_ALL_CALENDARS: UInt = 4294967295u
 
-public val EraUnit: CALDATETIME_DATEUNIT = 0
+public val ERA_UNIT: CaldatetimeDateunit = 0
 
 public val FIND_ENDSWITH: UInt = 2097152u
 
@@ -567,49 +567,49 @@ public val FIND_FROMSTART: UInt = 4194304u
 
 public val FIND_STARTSWITH: UInt = 1048576u
 
-public val GEOCLASS_ALL: SYSGEOCLASS = 0
+public val GEOCLASS_ALL: Sysgeoclass = 0
 
-public val GEOCLASS_NATION: SYSGEOCLASS = 16
+public val GEOCLASS_NATION: Sysgeoclass = 16
 
-public val GEOCLASS_REGION: SYSGEOCLASS = 14
+public val GEOCLASS_REGION: Sysgeoclass = 14
 
 public val GEOID_NOT_AVAILABLE: Int = -1
 
-public val GEO_CURRENCYCODE: SYSGEOTYPE = 15
+public val GEO_CURRENCYCODE: Sysgeotype = 15
 
-public val GEO_CURRENCYSYMBOL: SYSGEOTYPE = 16
+public val GEO_CURRENCYSYMBOL: Sysgeotype = 16
 
-public val GEO_DIALINGCODE: SYSGEOTYPE = 14
+public val GEO_DIALINGCODE: Sysgeotype = 14
 
-public val GEO_FRIENDLYNAME: SYSGEOTYPE = 8
+public val GEO_FRIENDLYNAME: Sysgeotype = 8
 
-public val GEO_ID: SYSGEOTYPE = 18
+public val GEO_ID: Sysgeotype = 18
 
-public val GEO_ISO2: SYSGEOTYPE = 4
+public val GEO_ISO2: Sysgeotype = 4
 
-public val GEO_ISO3: SYSGEOTYPE = 5
+public val GEO_ISO3: Sysgeotype = 5
 
-public val GEO_ISO_UN_NUMBER: SYSGEOTYPE = 12
+public val GEO_ISO_UN_NUMBER: Sysgeotype = 12
 
-public val GEO_LATITUDE: SYSGEOTYPE = 2
+public val GEO_LATITUDE: Sysgeotype = 2
 
-public val GEO_LCID: SYSGEOTYPE = 7
+public val GEO_LCID: Sysgeotype = 7
 
-public val GEO_LONGITUDE: SYSGEOTYPE = 3
+public val GEO_LONGITUDE: Sysgeotype = 3
 
-public val GEO_NAME: SYSGEOTYPE = 17
+public val GEO_NAME: Sysgeotype = 17
 
-public val GEO_NATION: SYSGEOTYPE = 1
+public val GEO_NATION: Sysgeotype = 1
 
-public val GEO_OFFICIALLANGUAGES: SYSGEOTYPE = 11
+public val GEO_OFFICIALLANGUAGES: Sysgeotype = 11
 
-public val GEO_OFFICIALNAME: SYSGEOTYPE = 9
+public val GEO_OFFICIALNAME: Sysgeotype = 9
 
-public val GEO_PARENT: SYSGEOTYPE = 13
+public val GEO_PARENT: Sysgeotype = 13
 
-public val GEO_RFC1766: SYSGEOTYPE = 6
+public val GEO_RFC1766: Sysgeotype = 6
 
-public val GEO_TIMEZONES: SYSGEOTYPE = 10
+public val GEO_TIMEZONES: Sysgeotype = 10
 
 public val GSS_ALLOW_INHERITED_COMMON: UInt = 1u
 
@@ -619,7 +619,7 @@ public val HIGH_SURROGATE_END: UInt = 56319u
 
 public val HIGH_SURROGATE_START: UInt = 55296u
 
-public val HourUnit: CALDATETIME_DATEUNIT = 5
+public val HOUR_UNIT: CaldatetimeDateunit = 5
 
 public val IDN_ALLOW_UNASSIGNED: UInt = 1u
 
@@ -629,35 +629,35 @@ public val IDN_RAW_PUNYCODE: UInt = 8u
 
 public val IDN_USE_STD3_ASCII_RULES: UInt = 2u
 
-public val IS_TEXT_UNICODE_ASCII16: IS_TEXT_UNICODE_RESULT = 1u
+public val IS_TEXT_UNICODE_ASCII16: IsTextUnicodeResult = 1u
 
-public val IS_TEXT_UNICODE_CONTROLS: IS_TEXT_UNICODE_RESULT = 4u
+public val IS_TEXT_UNICODE_CONTROLS: IsTextUnicodeResult = 4u
 
-public val IS_TEXT_UNICODE_ILLEGAL_CHARS: IS_TEXT_UNICODE_RESULT = 256u
+public val IS_TEXT_UNICODE_ILLEGAL_CHARS: IsTextUnicodeResult = 256u
 
-public val IS_TEXT_UNICODE_NOT_ASCII_MASK: IS_TEXT_UNICODE_RESULT = 61440u
+public val IS_TEXT_UNICODE_NOT_ASCII_MASK: IsTextUnicodeResult = 61440u
 
-public val IS_TEXT_UNICODE_NOT_UNICODE_MASK: IS_TEXT_UNICODE_RESULT = 3840u
+public val IS_TEXT_UNICODE_NOT_UNICODE_MASK: IsTextUnicodeResult = 3840u
 
-public val IS_TEXT_UNICODE_NULL_BYTES: IS_TEXT_UNICODE_RESULT = 4096u
+public val IS_TEXT_UNICODE_NULL_BYTES: IsTextUnicodeResult = 4096u
 
-public val IS_TEXT_UNICODE_ODD_LENGTH: IS_TEXT_UNICODE_RESULT = 512u
+public val IS_TEXT_UNICODE_ODD_LENGTH: IsTextUnicodeResult = 512u
 
-public val IS_TEXT_UNICODE_REVERSE_ASCII16: IS_TEXT_UNICODE_RESULT = 16u
+public val IS_TEXT_UNICODE_REVERSE_ASCII16: IsTextUnicodeResult = 16u
 
-public val IS_TEXT_UNICODE_REVERSE_CONTROLS: IS_TEXT_UNICODE_RESULT = 64u
+public val IS_TEXT_UNICODE_REVERSE_CONTROLS: IsTextUnicodeResult = 64u
 
-public val IS_TEXT_UNICODE_REVERSE_MASK: IS_TEXT_UNICODE_RESULT = 240u
+public val IS_TEXT_UNICODE_REVERSE_MASK: IsTextUnicodeResult = 240u
 
-public val IS_TEXT_UNICODE_REVERSE_SIGNATURE: IS_TEXT_UNICODE_RESULT = 128u
+public val IS_TEXT_UNICODE_REVERSE_SIGNATURE: IsTextUnicodeResult = 128u
 
-public val IS_TEXT_UNICODE_REVERSE_STATISTICS: IS_TEXT_UNICODE_RESULT = 32u
+public val IS_TEXT_UNICODE_REVERSE_STATISTICS: IsTextUnicodeResult = 32u
 
-public val IS_TEXT_UNICODE_SIGNATURE: IS_TEXT_UNICODE_RESULT = 8u
+public val IS_TEXT_UNICODE_SIGNATURE: IsTextUnicodeResult = 8u
 
-public val IS_TEXT_UNICODE_STATISTICS: IS_TEXT_UNICODE_RESULT = 2u
+public val IS_TEXT_UNICODE_STATISTICS: IsTextUnicodeResult = 2u
 
-public val IS_TEXT_UNICODE_UNICODE_MASK: IS_TEXT_UNICODE_RESULT = 15u
+public val IS_TEXT_UNICODE_UNICODE_MASK: IsTextUnicodeResult = 15u
 
 public val LANG_SYSTEM_DEFAULT: Int = 2048
 
@@ -665,9 +665,9 @@ public val LANG_USER_DEFAULT: Int = 1024
 
 public val LCID_ALTERNATE_SORTS: UInt = 4u
 
-public val LCID_INSTALLED: IS_VALID_LOCALE_FLAGS = 1u
+public val LCID_INSTALLED: IsValidLocaleFlags = 1u
 
-public val LCID_SUPPORTED: IS_VALID_LOCALE_FLAGS = 2u
+public val LCID_SUPPORTED: IsValidLocaleFlags = 2u
 
 public val LCMAP_BYTEREV: UInt = 2048u
 
@@ -715,7 +715,7 @@ public val LGRPID_HEBREW: UInt = 12u
 
 public val LGRPID_INDIC: UInt = 15u
 
-public val LGRPID_INSTALLED: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS = 1u
+public val LGRPID_INSTALLED: EnumSystemLanguageGroupsFlags = 1u
 
 public val LGRPID_JAPANESE: UInt = 7u
 
@@ -723,7 +723,7 @@ public val LGRPID_KOREAN: UInt = 8u
 
 public val LGRPID_SIMPLIFIED_CHINESE: UInt = 10u
 
-public val LGRPID_SUPPORTED: ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS = 2u
+public val LGRPID_SUPPORTED: EnumSystemLanguageGroupsFlags = 2u
 
 public val LGRPID_THAI: UInt = 11u
 
@@ -737,9 +737,9 @@ public val LGRPID_VIETNAMESE: UInt = 14u
 
 public val LGRPID_WESTERN_EUROPE: UInt = 1u
 
-public val LINGUISTIC_IGNORECASE: COMPARE_STRING_FLAGS = 16u
+public val LINGUISTIC_IGNORECASE: CompareStringFlags = 16u
 
-public val LINGUISTIC_IGNOREDIACRITIC: COMPARE_STRING_FLAGS = 32u
+public val LINGUISTIC_IGNOREDIACRITIC: CompareStringFlags = 32u
 
 public val LOCALE_ALL: UInt = 0u
 
@@ -839,9 +839,9 @@ public val LOCALE_IUSEUTF8LEGACYACP: UInt = 1638u
 
 public val LOCALE_IUSEUTF8LEGACYOEMCP: UInt = 2457u
 
-public val LOCALE_NAME_INVARIANT: PCWSTR = w("")
+public val LOCALE_NAME_INVARIANT: Pcwstr = w("")
 
-public val LOCALE_NAME_SYSTEM_DEFAULT: PCWSTR = w("!x-sys-default-locale")
+public val LOCALE_NAME_SYSTEM_DEFAULT: Pcwstr = w("!x-sys-default-locale")
 
 public val LOCALE_NEUTRALDATA: UInt = 16u
 
@@ -1095,15 +1095,15 @@ public val LOW_SURROGATE_END: UInt = 57343u
 
 public val LOW_SURROGATE_START: UInt = 56320u
 
-public val MAP_COMPOSITE: FOLD_STRING_MAP_FLAGS = 64u
+public val MAP_COMPOSITE: FoldStringMapFlags = 64u
 
-public val MAP_EXPAND_LIGATURES: FOLD_STRING_MAP_FLAGS = 8192u
+public val MAP_EXPAND_LIGATURES: FoldStringMapFlags = 8192u
 
-public val MAP_FOLDCZONE: FOLD_STRING_MAP_FLAGS = 16u
+public val MAP_FOLDCZONE: FoldStringMapFlags = 16u
 
-public val MAP_FOLDDIGITS: FOLD_STRING_MAP_FLAGS = 128u
+public val MAP_FOLDDIGITS: FoldStringMapFlags = 128u
 
-public val MAP_PRECOMPOSED: FOLD_STRING_MAP_FLAGS = 32u
+public val MAP_PRECOMPOSED: FoldStringMapFlags = 32u
 
 public val MAX_DEFAULTCHAR: UInt = 2u
 
@@ -1121,87 +1121,87 @@ public val MAX_RFC1766_NAME: UInt = 6u
 
 public val MAX_SCRIPT_NAME: UInt = 48u
 
-public val MB_COMPOSITE: MULTI_BYTE_TO_WIDE_CHAR_FLAGS = 2u
+public val MB_COMPOSITE: MultiByteToWideCharFlags = 2u
 
-public val MB_ERR_INVALID_CHARS: MULTI_BYTE_TO_WIDE_CHAR_FLAGS = 8u
+public val MB_ERR_INVALID_CHARS: MultiByteToWideCharFlags = 8u
 
-public val MB_PRECOMPOSED: MULTI_BYTE_TO_WIDE_CHAR_FLAGS = 1u
+public val MB_PRECOMPOSED: MultiByteToWideCharFlags = 1u
 
-public val MB_USEGLYPHCHARS: MULTI_BYTE_TO_WIDE_CHAR_FLAGS = 4u
+public val MB_USEGLYPHCHARS: MultiByteToWideCharFlags = 4u
 
-public val MIMECONTF_BROWSER: MIMECONTF = 2
+public val MIMECONTF_BROWSER: Mimecontf = 2
 
-public val MIMECONTF_EXPORT: MIMECONTF = 1024
+public val MIMECONTF_EXPORT: Mimecontf = 1024
 
-public val MIMECONTF_IMPORT: MIMECONTF = 8
+public val MIMECONTF_IMPORT: Mimecontf = 8
 
-public val MIMECONTF_MAILNEWS: MIMECONTF = 1
+public val MIMECONTF_MAILNEWS: Mimecontf = 1
 
-public val MIMECONTF_MIME_IE4: MIMECONTF = 268435456
+public val MIMECONTF_MIME_IE4: Mimecontf = 268435456
 
-public val MIMECONTF_MIME_LATEST: MIMECONTF = 536870912
+public val MIMECONTF_MIME_LATEST: Mimecontf = 536870912
 
-public val MIMECONTF_MIME_REGISTRY: MIMECONTF = 1073741824
+public val MIMECONTF_MIME_REGISTRY: Mimecontf = 1073741824
 
-public val MIMECONTF_MINIMAL: MIMECONTF = 4
+public val MIMECONTF_MINIMAL: Mimecontf = 4
 
-public val MIMECONTF_PRIVCONVERTER: MIMECONTF = 65536
+public val MIMECONTF_PRIVCONVERTER: Mimecontf = 65536
 
-public val MIMECONTF_SAVABLE_BROWSER: MIMECONTF = 512
+public val MIMECONTF_SAVABLE_BROWSER: Mimecontf = 512
 
-public val MIMECONTF_SAVABLE_MAILNEWS: MIMECONTF = 256
+public val MIMECONTF_SAVABLE_MAILNEWS: Mimecontf = 256
 
-public val MIMECONTF_VALID: MIMECONTF = 131072
+public val MIMECONTF_VALID: Mimecontf = 131072
 
-public val MIMECONTF_VALID_NLS: MIMECONTF = 262144
+public val MIMECONTF_VALID_NLS: Mimecontf = 262144
 
 public val MIN_SPELLING_NTDDI: UInt = 100794368u
 
-public val MLCONVCHARF_AUTODETECT: MLCONVCHAR = 1
+public val MLCONVCHARF_AUTODETECT: Mlconvchar = 1
 
-public val MLCONVCHARF_DETECTJPN: MLCONVCHAR = 32
+public val MLCONVCHARF_DETECTJPN: Mlconvchar = 32
 
-public val MLCONVCHARF_ENTITIZE: MLCONVCHAR = 2
+public val MLCONVCHARF_ENTITIZE: Mlconvchar = 2
 
-public val MLCONVCHARF_NAME_ENTITIZE: MLCONVCHAR = 4
+public val MLCONVCHARF_NAME_ENTITIZE: Mlconvchar = 4
 
-public val MLCONVCHARF_NCR_ENTITIZE: MLCONVCHAR = 2
+public val MLCONVCHARF_NCR_ENTITIZE: Mlconvchar = 2
 
-public val MLCONVCHARF_NOBESTFITCHARS: MLCONVCHAR = 16
+public val MLCONVCHARF_NOBESTFITCHARS: Mlconvchar = 16
 
-public val MLCONVCHARF_USEDEFCHAR: MLCONVCHAR = 8
+public val MLCONVCHARF_USEDEFCHAR: Mlconvchar = 8
 
-public val MLDETECTCP_7BIT: MLDETECTCP = 1
+public val MLDETECTCP_7BIT: Mldetectcp = 1
 
-public val MLDETECTCP_8BIT: MLDETECTCP = 2
+public val MLDETECTCP_8BIT: Mldetectcp = 2
 
-public val MLDETECTCP_DBCS: MLDETECTCP = 4
+public val MLDETECTCP_DBCS: Mldetectcp = 4
 
-public val MLDETECTCP_HTML: MLDETECTCP = 8
+public val MLDETECTCP_HTML: Mldetectcp = 8
 
-public val MLDETECTCP_NONE: MLDETECTCP = 0
+public val MLDETECTCP_NONE: Mldetectcp = 0
 
-public val MLDETECTCP_NUMBER: MLDETECTCP = 16
+public val MLDETECTCP_NUMBER: Mldetectcp = 16
 
-public val MLDETECTF_BROWSER: MLCP = 2
+public val MLDETECTF_BROWSER: Mlcp = 2
 
-public val MLDETECTF_EURO_UTF8: MLCP = 128
+public val MLDETECTF_EURO_UTF8: Mlcp = 128
 
-public val MLDETECTF_FILTER_SPECIALCHAR: MLCP = 64
+public val MLDETECTF_FILTER_SPECIALCHAR: Mlcp = 64
 
-public val MLDETECTF_MAILNEWS: MLCP = 1
+public val MLDETECTF_MAILNEWS: Mlcp = 1
 
-public val MLDETECTF_PREFERRED_ONLY: MLCP = 32
+public val MLDETECTF_PREFERRED_ONLY: Mlcp = 32
 
-public val MLDETECTF_PRESERVE_ORDER: MLCP = 16
+public val MLDETECTF_PRESERVE_ORDER: Mlcp = 16
 
-public val MLDETECTF_VALID: MLCP = 4
+public val MLDETECTF_VALID: Mlcp = 4
 
-public val MLDETECTF_VALID_NLS: MLCP = 8
+public val MLDETECTF_VALID_NLS: Mlcp = 8
 
-public val MLSTR_READ: MLSTR_FLAGS = 1
+public val MLSTR_READ: MlstrFlags = 1
 
-public val MLSTR_WRITE: MLSTR_FLAGS = 2
+public val MLSTR_WRITE: MlstrFlags = 2
 
 public val MUI_COMPLEX_SCRIPT_FILTER: UInt = 512u
 
@@ -1269,9 +1269,9 @@ public val MUI_USE_SEARCH_ALL_LANGUAGES: UInt = 64u
 
 public val MUI_VERIFY_FILE_EXISTS: UInt = 4u
 
-public val MinuteUnit: CALDATETIME_DATEUNIT = 6
+public val MINUTE_UNIT: CaldatetimeDateunit = 6
 
-public val MonthUnit: CALDATETIME_DATEUNIT = 2
+public val MONTH_UNIT: CaldatetimeDateunit = 2
 
 public val NLS_CP_CPINFO: UInt = 268435456u
 
@@ -1279,43 +1279,43 @@ public val NLS_CP_MBTOWC: UInt = 1073741824u
 
 public val NLS_CP_WCTOMB: UInt = 2147483648u
 
-public val NORM_IGNORECASE: COMPARE_STRING_FLAGS = 1u
+public val NORM_IGNORECASE: CompareStringFlags = 1u
 
-public val NORM_IGNOREKANATYPE: COMPARE_STRING_FLAGS = 65536u
+public val NORM_IGNOREKANATYPE: CompareStringFlags = 65536u
 
-public val NORM_IGNORENONSPACE: COMPARE_STRING_FLAGS = 2u
+public val NORM_IGNORENONSPACE: CompareStringFlags = 2u
 
-public val NORM_IGNORESYMBOLS: COMPARE_STRING_FLAGS = 4u
+public val NORM_IGNORESYMBOLS: CompareStringFlags = 4u
 
-public val NORM_IGNOREWIDTH: COMPARE_STRING_FLAGS = 131072u
+public val NORM_IGNOREWIDTH: CompareStringFlags = 131072u
 
-public val NORM_LINGUISTIC_CASING: COMPARE_STRING_FLAGS = 134217728u
+public val NORM_LINGUISTIC_CASING: CompareStringFlags = 134217728u
 
 public val NUMSYS_NAME_CAPACITY: UInt = 8u
 
-public val NormalizationC: NORM_FORM = 1
+public val NORMALIZATION_C: NormForm = 1
 
-public val NormalizationD: NORM_FORM = 2
+public val NORMALIZATION_D: NormForm = 2
 
-public val NormalizationKC: NORM_FORM = 5
+public val NORMALIZATION_KC: NormForm = 5
 
-public val NormalizationKD: NORM_FORM = 6
+public val NORMALIZATION_KD: NormForm = 6
 
-public val NormalizationOther: NORM_FORM = 0
+public val NORMALIZATION_OTHER: NormForm = 0
 
 public val OFFLINE_SERVICES: UInt = 2u
 
 public val ONLINE_SERVICES: UInt = 1u
 
-public val SCRIPTCONTF_FIXED_FONT: SCRIPTFONTCONTF = 1
+public val SCRIPTCONTF_FIXED_FONT: Scriptfontcontf = 1
 
-public val SCRIPTCONTF_PROPORTIONAL_FONT: SCRIPTFONTCONTF = 2
+public val SCRIPTCONTF_PROPORTIONAL_FONT: Scriptfontcontf = 2
 
-public val SCRIPTCONTF_SCRIPT_HIDE: SCRIPTFONTCONTF = 131072
+public val SCRIPTCONTF_SCRIPT_HIDE: Scriptfontcontf = 131072
 
-public val SCRIPTCONTF_SCRIPT_SYSTEM: SCRIPTFONTCONTF = 262144
+public val SCRIPTCONTF_SCRIPT_SYSTEM: Scriptfontcontf = 262144
 
-public val SCRIPTCONTF_SCRIPT_USER: SCRIPTFONTCONTF = 65536
+public val SCRIPTCONTF_SCRIPT_USER: Scriptfontcontf = 65536
 
 public val SCRIPT_DIGITSUBSTITUTE_CONTEXT: UInt = 0u
 
@@ -1325,37 +1325,37 @@ public val SCRIPT_DIGITSUBSTITUTE_NONE: UInt = 1u
 
 public val SCRIPT_DIGITSUBSTITUTE_TRADITIONAL: UInt = 3u
 
-public val SCRIPT_JUSTIFY_ARABIC_ALEF: SCRIPT_JUSTIFY = 9
+public val SCRIPT_JUSTIFY_ARABIC_ALEF: ScriptJustify = 9
 
-public val SCRIPT_JUSTIFY_ARABIC_BA: SCRIPT_JUSTIFY = 12
+public val SCRIPT_JUSTIFY_ARABIC_BA: ScriptJustify = 12
 
-public val SCRIPT_JUSTIFY_ARABIC_BARA: SCRIPT_JUSTIFY = 13
+public val SCRIPT_JUSTIFY_ARABIC_BARA: ScriptJustify = 13
 
-public val SCRIPT_JUSTIFY_ARABIC_BLANK: SCRIPT_JUSTIFY = 1
+public val SCRIPT_JUSTIFY_ARABIC_BLANK: ScriptJustify = 1
 
-public val SCRIPT_JUSTIFY_ARABIC_HA: SCRIPT_JUSTIFY = 10
+public val SCRIPT_JUSTIFY_ARABIC_HA: ScriptJustify = 10
 
-public val SCRIPT_JUSTIFY_ARABIC_KASHIDA: SCRIPT_JUSTIFY = 8
+public val SCRIPT_JUSTIFY_ARABIC_KASHIDA: ScriptJustify = 8
 
-public val SCRIPT_JUSTIFY_ARABIC_NORMAL: SCRIPT_JUSTIFY = 7
+public val SCRIPT_JUSTIFY_ARABIC_NORMAL: ScriptJustify = 7
 
-public val SCRIPT_JUSTIFY_ARABIC_RA: SCRIPT_JUSTIFY = 11
+public val SCRIPT_JUSTIFY_ARABIC_RA: ScriptJustify = 11
 
-public val SCRIPT_JUSTIFY_ARABIC_SEEN: SCRIPT_JUSTIFY = 14
+public val SCRIPT_JUSTIFY_ARABIC_SEEN: ScriptJustify = 14
 
-public val SCRIPT_JUSTIFY_ARABIC_SEEN_M: SCRIPT_JUSTIFY = 15
+public val SCRIPT_JUSTIFY_ARABIC_SEEN_M: ScriptJustify = 15
 
-public val SCRIPT_JUSTIFY_BLANK: SCRIPT_JUSTIFY = 4
+public val SCRIPT_JUSTIFY_BLANK: ScriptJustify = 4
 
-public val SCRIPT_JUSTIFY_CHARACTER: SCRIPT_JUSTIFY = 2
+public val SCRIPT_JUSTIFY_CHARACTER: ScriptJustify = 2
 
-public val SCRIPT_JUSTIFY_NONE: SCRIPT_JUSTIFY = 0
+public val SCRIPT_JUSTIFY_NONE: ScriptJustify = 0
 
-public val SCRIPT_JUSTIFY_RESERVED1: SCRIPT_JUSTIFY = 3
+public val SCRIPT_JUSTIFY_RESERVED1: ScriptJustify = 3
 
-public val SCRIPT_JUSTIFY_RESERVED2: SCRIPT_JUSTIFY = 5
+public val SCRIPT_JUSTIFY_RESERVED2: ScriptJustify = 5
 
-public val SCRIPT_JUSTIFY_RESERVED3: SCRIPT_JUSTIFY = 6
+public val SCRIPT_JUSTIFY_RESERVED3: ScriptJustify = 6
 
 public val SCRIPT_TAG_UNKNOWN: UInt = 0u
 
@@ -1363,19 +1363,19 @@ public val SCRIPT_UNDEFINED: UInt = 0u
 
 public val SGCM_RTL: UInt = 1u
 
-public val SIC_ASCIIDIGIT: SCRIPT_IS_COMPLEX_FLAGS = 2u
+public val SIC_ASCIIDIGIT: ScriptIsComplexFlags = 2u
 
-public val SIC_COMPLEX: SCRIPT_IS_COMPLEX_FLAGS = 1u
+public val SIC_COMPLEX: ScriptIsComplexFlags = 1u
 
-public val SIC_NEUTRAL: SCRIPT_IS_COMPLEX_FLAGS = 4u
+public val SIC_NEUTRAL: ScriptIsComplexFlags = 4u
 
 public val SORTING_PARADIGM_ICU: UInt = 16777216u
 
 public val SORTING_PARADIGM_NLS: UInt = 0u
 
-public val SORT_DIGITSASNUMBERS: COMPARE_STRING_FLAGS = 8u
+public val SORT_DIGITSASNUMBERS: CompareStringFlags = 8u
 
-public val SORT_STRINGSORT: COMPARE_STRING_FLAGS = 4096u
+public val SORT_STRINGSORT: CompareStringFlags = 4096u
 
 public val SSA_BREAK: UInt = 64u
 
@@ -1419,33 +1419,33 @@ public val SSA_RTL: UInt = 256u
 
 public val SSA_TAB: UInt = 2u
 
-public val SecondUnit: CALDATETIME_DATEUNIT = 7
+public val SECOND_UNIT: CaldatetimeDateunit = 7
 
-public val SpellCheckerFactory: GUID = GUID.from_u128(U128(0x7ab366531796484buL, 0xbdfae74f1db7c1dcuL))
+public val SPELL_CHECKER_FACTORY: Guid = Guid.fromU128(U128(0x7ab366531796484buL, 0xbdfae74f1db7c1dcuL))
 
-public val TCI_SRCCHARSET: TRANSLATE_CHARSET_INFO_FLAGS = 1u
+public val TCI_SRCCHARSET: TranslateCharsetInfoFlags = 1u
 
-public val TCI_SRCCODEPAGE: TRANSLATE_CHARSET_INFO_FLAGS = 2u
+public val TCI_SRCCODEPAGE: TranslateCharsetInfoFlags = 2u
 
-public val TCI_SRCFONTSIG: TRANSLATE_CHARSET_INFO_FLAGS = 3u
+public val TCI_SRCFONTSIG: TranslateCharsetInfoFlags = 3u
 
-public val TCI_SRCLOCALE: TRANSLATE_CHARSET_INFO_FLAGS = 4096u
+public val TCI_SRCLOCALE: TranslateCharsetInfoFlags = 4096u
 
-public val TIME_FORCE24HOURFORMAT: TIME_FORMAT_FLAGS = 8u
+public val TIME_FORCE24HOURFORMAT: TimeFormatFlags = 8u
 
-public val TIME_NOMINUTESORSECONDS: TIME_FORMAT_FLAGS = 1u
+public val TIME_NOMINUTESORSECONDS: TimeFormatFlags = 1u
 
-public val TIME_NOSECONDS: TIME_FORMAT_FLAGS = 2u
+public val TIME_NOSECONDS: TimeFormatFlags = 2u
 
-public val TIME_NOTIMEMARKER: TIME_FORMAT_FLAGS = 4u
+public val TIME_NOTIMEMARKER: TimeFormatFlags = 4u
 
-public val TickUnit: CALDATETIME_DATEUNIT = 8
+public val TICK_UNIT: CaldatetimeDateunit = 8
 
 public val U16_MAX_LENGTH: UInt = 2u
 
-public val U8_LEAD3_T1_BITS: PCSTR = s(" 000000000000\u001000")
+public val U8_LEAD3_T1_BITS: Pcstr = s(" 000000000000\u001000")
 
-public val U8_LEAD4_T1_BITS: PCSTR = s("\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u001e\u000f\u000f\u000f\u0000\u0000\u0000\u0000")
+public val U8_LEAD4_T1_BITS: Pcstr = s("\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u001e\u000f\u000f\u000f\u0000\u0000\u0000\u0000")
 
 public val U8_MAX_LENGTH: UInt = 4u
 
@@ -2301,7 +2301,7 @@ public val UCAL_TZ_TRANSITION_PREVIOUS_INCLUSIVE: UTimeZoneTransitionType = 3
 
 public val UCAL_UNDECIMBER: UCalendarMonths = 12
 
-public val UCAL_UNKNOWN_ZONE_ID: PCSTR = s("Etc/Unknown")
+public val UCAL_UNKNOWN_ZONE_ID: Pcstr = s("Etc/Unknown")
 
 public val UCAL_WALLTIME_FIRST: UCalendarWallTimeOption = 1
 
@@ -2579,17 +2579,17 @@ public val UCNV_DBCS: UConverterType = 1
 
 public val UCNV_EBCDIC_STATEFUL: UConverterType = 9
 
-public val UCNV_ESCAPE_C: PCSTR = s("C")
+public val UCNV_ESCAPE_C: Pcstr = s("C")
 
-public val UCNV_ESCAPE_CSS2: PCSTR = s("S")
+public val UCNV_ESCAPE_CSS2: Pcstr = s("S")
 
-public val UCNV_ESCAPE_JAVA: PCSTR = s("J")
+public val UCNV_ESCAPE_JAVA: Pcstr = s("J")
 
-public val UCNV_ESCAPE_UNICODE: PCSTR = s("U")
+public val UCNV_ESCAPE_UNICODE: Pcstr = s("U")
 
-public val UCNV_ESCAPE_XML_DEC: PCSTR = s("D")
+public val UCNV_ESCAPE_XML_DEC: Pcstr = s("D")
 
-public val UCNV_ESCAPE_XML_HEX: PCSTR = s("X")
+public val UCNV_ESCAPE_XML_HEX: Pcstr = s("X")
 
 public val UCNV_HZ: UConverterType = 23
 
@@ -2633,7 +2633,7 @@ public val UCNV_LMBCS_8: UConverterType = 17
 
 public val UCNV_LMBCS_LAST: UConverterType = 22
 
-public val UCNV_LOCALE_OPTION_STRING: PCSTR = s(",locale=")
+public val UCNV_LOCALE_OPTION_STRING: Pcstr = s(",locale=")
 
 public val UCNV_MAX_CONVERTER_NAME_LENGTH: UInt = 60u
 
@@ -2641,7 +2641,7 @@ public val UCNV_MBCS: UConverterType = 2
 
 public val UCNV_NUMBER_OF_SUPPORTED_CONVERTER_TYPES: UConverterType = 34
 
-public val UCNV_OPTION_SEP_STRING: PCSTR = s(",")
+public val UCNV_OPTION_SEP_STRING: Pcstr = s(",")
 
 public val UCNV_RESET: UConverterCallbackReason = 3
 
@@ -2655,13 +2655,13 @@ public val UCNV_SCSU: UConverterType = 24
 
 public val UCNV_SI: UInt = 15u
 
-public val UCNV_SKIP_STOP_ON_ILLEGAL: PCSTR = s("i")
+public val UCNV_SKIP_STOP_ON_ILLEGAL: Pcstr = s("i")
 
 public val UCNV_SO: UInt = 14u
 
-public val UCNV_SUB_STOP_ON_ILLEGAL: PCSTR = s("i")
+public val UCNV_SUB_STOP_ON_ILLEGAL: Pcstr = s("i")
 
-public val UCNV_SWAP_LFNL_OPTION_STRING: PCSTR = s(",swaplfnl")
+public val UCNV_SWAP_LFNL_OPTION_STRING: Pcstr = s(",swaplfnl")
 
 public val UCNV_UNASSIGNED: UConverterCallbackReason = 0
 
@@ -2673,23 +2673,23 @@ public val UCNV_US_ASCII: UConverterType = 26
 
 public val UCNV_UTF16: UConverterType = 29
 
-public val UCNV_UTF16_BigEndian: UConverterType = 5
+public val UCNV_UTF16_BIG_ENDIAN: UConverterType = 5
 
-public val UCNV_UTF16_LittleEndian: UConverterType = 6
+public val UCNV_UTF16_LITTLE_ENDIAN: UConverterType = 6
 
 public val UCNV_UTF32: UConverterType = 30
 
-public val UCNV_UTF32_BigEndian: UConverterType = 7
+public val UCNV_UTF32_BIG_ENDIAN: UConverterType = 7
 
-public val UCNV_UTF32_LittleEndian: UConverterType = 8
+public val UCNV_UTF32_LITTLE_ENDIAN: UConverterType = 8
 
 public val UCNV_UTF7: UConverterType = 27
 
 public val UCNV_UTF8: UConverterType = 4
 
-public val UCNV_VALUE_SEP_STRING: PCSTR = s("=")
+public val UCNV_VALUE_SEP_STRING: Pcstr = s("=")
 
-public val UCNV_VERSION_OPTION_STRING: PCSTR = s(",version=")
+public val UCNV_VERSION_OPTION_STRING: Pcstr = s(",version=")
 
 public val UCOL_ALTERNATE_HANDLING: UColAttribute = 1
 
@@ -2911,21 +2911,21 @@ public val UDATPG_YEAR_FIELD: UDateTimePatternField = 1
 
 public val UDATPG_ZONE_FIELD: UDateTimePatternField = 15
 
-public val UDAT_ABBR_GENERIC_TZ: PCSTR = s("v")
+public val UDAT_ABBR_GENERIC_TZ: Pcstr = s("v")
 
-public val UDAT_ABBR_MONTH: PCSTR = s("MMM")
+public val UDAT_ABBR_MONTH: Pcstr = s("MMM")
 
-public val UDAT_ABBR_MONTH_DAY: PCSTR = s("MMMd")
+public val UDAT_ABBR_MONTH_DAY: Pcstr = s("MMMd")
 
-public val UDAT_ABBR_MONTH_WEEKDAY_DAY: PCSTR = s("MMMEd")
+public val UDAT_ABBR_MONTH_WEEKDAY_DAY: Pcstr = s("MMMEd")
 
-public val UDAT_ABBR_QUARTER: PCSTR = s("QQQ")
+public val UDAT_ABBR_QUARTER: Pcstr = s("QQQ")
 
-public val UDAT_ABBR_SPECIFIC_TZ: PCSTR = s("z")
+public val UDAT_ABBR_SPECIFIC_TZ: Pcstr = s("z")
 
-public val UDAT_ABBR_UTC_TZ: PCSTR = s("ZZZZ")
+public val UDAT_ABBR_UTC_TZ: Pcstr = s("ZZZZ")
 
-public val UDAT_ABBR_WEEKDAY: PCSTR = s("E")
+public val UDAT_ABBR_WEEKDAY: Pcstr = s("E")
 
 public val UDAT_ABSOLUTE_DAY: UDateAbsoluteUnit = 7
 
@@ -2969,7 +2969,7 @@ public val UDAT_CYCLIC_YEARS_WIDE: UDateFormatSymbolType = 22
 
 public val UDAT_DATE_FIELD: UDateFormatField = 3
 
-public val UDAT_DAY: PCSTR = s("d")
+public val UDAT_DAY: Pcstr = s("d")
 
 public val UDAT_DAY_OF_WEEK_FIELD: UDateFormatField = 9
 

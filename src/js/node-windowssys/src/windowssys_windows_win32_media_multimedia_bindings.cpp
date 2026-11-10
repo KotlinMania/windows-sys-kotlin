@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIBuildFilterA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIBuildFilterA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszfilter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t cbfilter = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -73,7 +73,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIBuildFilterA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIBuildFilterW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIBuildFilterW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszfilter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t cbfilter = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -95,7 +95,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIBuildFilterW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIClearClipboard_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIClearClipboard_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -111,7 +111,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIClearClipboard_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIFileAddRef_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIFileAddRef_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -129,7 +129,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIFileAddRef_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIFileCreateStreamA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIFileCreateStreamA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppavi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -151,7 +151,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIFileCreateStream
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIFileCreateStreamW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIFileCreateStreamW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppavi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -173,7 +173,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIFileCreateStream
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIFileEndRecord_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIFileEndRecord_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -191,7 +191,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIFileEndRecord_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIFileExit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIFileExit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
@@ -206,7 +206,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIFileExit_napi(co
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIFileGetStream_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIFileGetStream_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppavi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -230,7 +230,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIFileGetStream_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIFileInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIFileInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -252,7 +252,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIFileInfoA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIFileInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIFileInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -274,7 +274,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIFileInfoW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIFileInit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIFileInit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
@@ -289,7 +289,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIFileInit_napi(co
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIFileOpenA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIFileOpenA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -313,7 +313,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIFileOpenA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIFileOpenW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIFileOpenW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -337,7 +337,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIFileOpenW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIFileReadData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIFileReadData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ckid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -361,7 +361,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIFileReadData_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIFileRelease_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIFileRelease_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -379,7 +379,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIFileRelease_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIFileWriteData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIFileWriteData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ckid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -403,7 +403,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIFileWriteData_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIGetFromClipboard_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIGetFromClipboard_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lppf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -421,7 +421,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIGetFromClipboard
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIMakeCompressedStream_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIMakeCompressedStream_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppscompressed = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppssource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -445,7 +445,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIMakeCompressedSt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIMakeFileFromStreams_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIMakeFileFromStreams_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t nstreams = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -467,7 +467,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIMakeFileFromStre
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIMakeStreamFromClipboard_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIMakeStreamFromClipboard_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t cfformat = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hglobal = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -489,7 +489,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIMakeStreamFromCl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIPutFileOnClipboard_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIPutFileOnClipboard_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -507,7 +507,50 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIPutFileOnClipboa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVISaveOptions_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVISaveA_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* szfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* pclsidhandler = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lpfncallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    int32_t nstreams = static_cast<int32_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
+    void* pfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+    void* lpoptions = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
+    int32_t km_vac = km_info.Length() > 6 ? km_info[6].ToNumber().Int32Value() : 0;
+    int64_t km_va0 = km_info.Length() > 7 ? km_napi_arg_i64(km_info[7]) : 0;
+    int64_t km_va1 = km_info.Length() > 8 ? km_napi_arg_i64(km_info[8]) : 0;
+    int64_t km_va2 = km_info.Length() > 9 ? km_napi_arg_i64(km_info[9]) : 0;
+    int64_t km_va3 = km_info.Length() > 10 ? km_napi_arg_i64(km_info[10]) : 0;
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(void*, void*, void*, int32_t, void*, void*, ...);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVISaveA")));
+    }
+    int32_t km_res = -1;
+    if (km_fn_ptr != nullptr) {
+        switch (km_vac) {
+            case 0: km_res = km_fn_ptr(szfile, pclsidhandler, lpfncallback, nstreams, pfile, lpoptions); break;
+            case 1: km_res = km_fn_ptr(szfile, pclsidhandler, lpfncallback, nstreams, pfile, lpoptions, static_cast<intptr_t>(km_va0)); break;
+            case 2: km_res = km_fn_ptr(szfile, pclsidhandler, lpfncallback, nstreams, pfile, lpoptions, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1)); break;
+            case 3: km_res = km_fn_ptr(szfile, pclsidhandler, lpfncallback, nstreams, pfile, lpoptions, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
+            default: km_res = km_fn_ptr(szfile, pclsidhandler, lpfncallback, nstreams, pfile, lpoptions, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
+        }
+    }
+#else
+    (void)szfile;
+    (void)pclsidhandler;
+    (void)lpfncallback;
+    (void)nstreams;
+    (void)pfile;
+    (void)lpoptions;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_media_multimedia_aVISaveOptions_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uiflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -533,7 +576,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVISaveOptions_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVISaveOptionsFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVISaveOptionsFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t nstreams = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* plpoptions = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -553,7 +596,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVISaveOptionsFree_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVISaveVA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVISaveVA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pclsidhandler = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -581,7 +624,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVISaveVA_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVISaveVW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVISaveVW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pclsidhandler = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -609,7 +652,50 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVISaveVW_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamAddRef_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVISaveW_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* szfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* pclsidhandler = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lpfncallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    int32_t nstreams = static_cast<int32_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
+    void* pfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+    void* lpoptions = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
+    int32_t km_vac = km_info.Length() > 6 ? km_info[6].ToNumber().Int32Value() : 0;
+    int64_t km_va0 = km_info.Length() > 7 ? km_napi_arg_i64(km_info[7]) : 0;
+    int64_t km_va1 = km_info.Length() > 8 ? km_napi_arg_i64(km_info[8]) : 0;
+    int64_t km_va2 = km_info.Length() > 9 ? km_napi_arg_i64(km_info[9]) : 0;
+    int64_t km_va3 = km_info.Length() > 10 ? km_napi_arg_i64(km_info[10]) : 0;
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(void*, void*, void*, int32_t, void*, void*, ...);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVISaveW")));
+    }
+    int32_t km_res = -1;
+    if (km_fn_ptr != nullptr) {
+        switch (km_vac) {
+            case 0: km_res = km_fn_ptr(szfile, pclsidhandler, lpfncallback, nstreams, pfile, lpoptions); break;
+            case 1: km_res = km_fn_ptr(szfile, pclsidhandler, lpfncallback, nstreams, pfile, lpoptions, static_cast<intptr_t>(km_va0)); break;
+            case 2: km_res = km_fn_ptr(szfile, pclsidhandler, lpfncallback, nstreams, pfile, lpoptions, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1)); break;
+            case 3: km_res = km_fn_ptr(szfile, pclsidhandler, lpfncallback, nstreams, pfile, lpoptions, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
+            default: km_res = km_fn_ptr(szfile, pclsidhandler, lpfncallback, nstreams, pfile, lpoptions, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
+        }
+    }
+#else
+    (void)szfile;
+    (void)pclsidhandler;
+    (void)lpfncallback;
+    (void)nstreams;
+    (void)pfile;
+    (void)lpoptions;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamAddRef_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pavi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -627,7 +713,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamAddRef_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamBeginStreaming_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamBeginStreaming_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pavi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t lstart = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -651,7 +737,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamBeginStrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamCreate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppavi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t lparam1 = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -675,7 +761,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamCreate_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamEndStreaming_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamEndStreaming_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pavi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -693,7 +779,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamEndStreami
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamFindSample_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamFindSample_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pavi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t lpos = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -715,7 +801,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamFindSample
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamGetFrame_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamGetFrame_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t lpos = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -735,7 +821,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamGetFrame_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamGetFrameClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamGetFrameClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -753,7 +839,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamGetFrameCl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamGetFrameOpen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamGetFrameOpen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pavi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbiwanted = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -773,7 +859,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamGetFrameOp
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pavi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -795,7 +881,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamInfoA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pavi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -817,7 +903,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamInfoW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamLength_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamLength_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pavi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -835,7 +921,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamLength_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamOpenFromFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamOpenFromFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppavi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -863,7 +949,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamOpenFromFi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamOpenFromFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamOpenFromFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppavi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -891,7 +977,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamOpenFromFi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamRead_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamRead_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pavi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t lstart = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -921,7 +1007,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamRead_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamReadData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamReadData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pavi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t fcc = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -945,7 +1031,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamReadData_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamReadFormat_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamReadFormat_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pavi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t lpos = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -969,7 +1055,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamReadFormat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamRelease_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamRelease_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pavi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -987,7 +1073,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamRelease_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamSampleToTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamSampleToTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pavi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t lsample = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1007,7 +1093,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamSampleToTi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamSetFormat_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamSetFormat_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pavi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t lpos = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1031,7 +1117,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamSetFormat_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamStart_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamStart_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pavi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1049,7 +1135,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamStart_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamTimeToSample_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamTimeToSample_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pavi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t ltime = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1069,7 +1155,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamTimeToSamp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamWrite_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamWrite_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pavi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t lstart = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1101,7 +1187,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamWrite_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamWriteData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamWriteData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pavi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t fcc = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1125,7 +1211,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_AVIStreamWriteData_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_CloseDriver_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_closeDriver_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdriver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t lparam1 = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1147,7 +1233,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_CloseDriver_napi(co
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_CreateEditableStream_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_createEditableStream_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppseditable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pssource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1167,7 +1253,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_CreateEditableStrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_DefDriverProc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_defDriverProc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t dwdriveridentifier = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* hdrvr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1193,7 +1279,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_DefDriverProc_napi(
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_DrawDibBegin_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_drawDibBegin_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdd = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1225,7 +1311,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_DrawDibBegin_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_DrawDibChangePalette_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_drawDibChangePalette_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdd = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t istart = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1249,7 +1335,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_DrawDibChangePalett
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_DrawDibClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_drawDibClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdd = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1267,7 +1353,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_DrawDibClose_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_DrawDibDraw_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_drawDibDraw_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdd = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1309,7 +1395,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_DrawDibDraw_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_DrawDibEnd_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_drawDibEnd_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdd = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1327,7 +1413,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_DrawDibEnd_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_DrawDibGetBuffer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_drawDibGetBuffer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdd = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpbi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1351,7 +1437,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_DrawDibGetBuffer_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_DrawDibGetPalette_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_drawDibGetPalette_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdd = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1369,7 +1455,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_DrawDibGetPalette_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_DrawDibOpen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_drawDibOpen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void);
@@ -1385,7 +1471,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_DrawDibOpen_napi(co
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_DrawDibProfileDisplay_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_drawDibProfileDisplay_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpbi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1403,7 +1489,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_DrawDibProfileDispl
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_DrawDibRealize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_drawDibRealize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdd = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1425,7 +1511,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_DrawDibRealize_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_DrawDibSetPalette_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_drawDibSetPalette_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdd = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hpal = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1445,7 +1531,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_DrawDibSetPalette_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_DrawDibStart_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_drawDibStart_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdd = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t rate = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1465,7 +1551,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_DrawDibStart_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_DrawDibStop_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_drawDibStop_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdd = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1483,7 +1569,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_DrawDibStop_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_DrawDibTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_drawDibTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hdd = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpddtime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1503,7 +1589,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_DrawDibTime_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_DriverCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_driverCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t dwcallback = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1533,7 +1619,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_DriverCallback_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_DrvGetModuleHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_drvGetModuleHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdriver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1551,7 +1637,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_DrvGetModuleHandle_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_EditStreamClone_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_editStreamClone_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pavi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppresult = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1571,7 +1657,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_EditStreamClone_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_EditStreamCopy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_editStreamCopy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pavi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* plstart = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1595,7 +1681,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_EditStreamCopy_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_EditStreamCut_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_editStreamCut_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pavi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* plstart = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1619,7 +1705,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_EditStreamCut_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_EditStreamPaste_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_editStreamPaste_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pavi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* plpos = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1647,7 +1733,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_EditStreamPaste_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_EditStreamSetInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_editStreamSetInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pavi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1669,7 +1755,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_EditStreamSetInfoA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_EditStreamSetInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_editStreamSetInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pavi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1691,7 +1777,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_EditStreamSetInfoW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_EditStreamSetNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_editStreamSetNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pavi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1711,7 +1797,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_EditStreamSetNameA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_EditStreamSetNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_editStreamSetNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pavi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1731,7 +1817,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_EditStreamSetNameW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_GetDriverModuleHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_getDriverModuleHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdriver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1749,7 +1835,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_GetDriverModuleHand
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_GetOpenFileNamePreviewA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_getOpenFileNamePreviewA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpofn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1767,7 +1853,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_GetOpenFileNamePrev
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_GetOpenFileNamePreviewW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_getOpenFileNamePreviewW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpofn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1785,7 +1871,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_GetOpenFileNamePrev
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_GetSaveFileNamePreviewA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_getSaveFileNamePreviewA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpofn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1803,7 +1889,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_GetSaveFileNamePrev
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_GetSaveFileNamePreviewW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_getSaveFileNamePreviewW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpofn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1821,7 +1907,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_GetSaveFileNamePrev
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_ICClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_iCClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hic = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1839,7 +1925,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_ICClose_napi(const 
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_ICCompress_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_iCCompress_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hic = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1881,7 +1967,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_ICCompress_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_ICCompressorChoose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_iCCompressorChoose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uiflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1909,7 +1995,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_ICCompressorChoose_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_ICCompressorFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_iCCompressorFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1926,7 +2012,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_ICCompressorFree_na
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_ICDecompress_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_iCDecompress_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hic = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1954,7 +2040,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_ICDecompress_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_ICDraw_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_iCDraw_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hic = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1982,7 +2068,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_ICDraw_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_ICDrawBegin_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_iCDrawBegin_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hic = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2030,7 +2116,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_ICDrawBegin_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_ICGetDisplayFormat_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_iCGetDisplayFormat_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hic = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbiin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2058,7 +2144,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_ICGetDisplayFormat_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_ICGetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_iCGetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hic = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* picinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2080,7 +2166,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_ICGetInfo_napi(cons
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_ICImageCompress_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_iCImageCompress_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hic = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uiflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2110,7 +2196,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_ICImageCompress_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_ICImageDecompress_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_iCImageDecompress_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hic = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uiflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2136,7 +2222,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_ICImageDecompress_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_ICInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_iCInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t fcctype = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t fcchandler = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2158,7 +2244,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_ICInfo_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_ICInstall_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_iCInstall_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t fcctype = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t fcchandler = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2184,7 +2270,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_ICInstall_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_ICLocate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_iCLocate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t fcctype = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t fcchandler = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2210,7 +2296,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_ICLocate_napi(const
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_ICOpen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_iCOpen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t fcctype = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t fcchandler = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2232,7 +2318,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_ICOpen_napi(const N
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_ICRemove_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_iCRemove_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t fcctype = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t fcchandler = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2254,7 +2340,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_ICRemove_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_ICSendMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_iCSendMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hic = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t msg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2278,7 +2364,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_ICSendMessage_napi(
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_ICSeqCompressFrame_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_iCSeqCompressFrame_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uiflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2304,7 +2390,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_ICSeqCompressFrame_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_ICSeqCompressFrameEnd_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_iCSeqCompressFrameEnd_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2321,7 +2407,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_ICSeqCompressFrameE
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_ICSeqCompressFrameStart_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_iCSeqCompressFrameStart_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbiin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2341,7 +2427,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_ICSeqCompressFrameS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_MCIWndCreateA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_mCIWndCreateA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2365,7 +2451,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_MCIWndCreateA_napi(
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_MCIWndCreateW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_mCIWndCreateW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2389,7 +2475,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_MCIWndCreateW_napi(
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_MCIWndRegisterClass_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_mCIWndRegisterClass_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -2405,7 +2491,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_MCIWndRegisterClass
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_OpenDriver_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_openDriver_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szdrivername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szsectionname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2427,7 +2513,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_OpenDriver_napi(con
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_SendDriverMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_sendDriverMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdriver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t message = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2451,7 +2537,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_SendDriverMessage_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_media_multimedia_VideoForWindowsVersion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_media_multimedia_videoForWindowsVersion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -3760,113 +3846,115 @@ static Napi::Value windowssys_windows_win32_media_multimedia_sndOpenSound_napi(c
 }
 
 static void register_windows_win32_media_multimedia_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIBuildFilterA", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIBuildFilterA_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIBuildFilterW", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIBuildFilterW_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIClearClipboard", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIClearClipboard_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIFileAddRef", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIFileAddRef_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIFileCreateStreamA", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIFileCreateStreamA_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIFileCreateStreamW", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIFileCreateStreamW_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIFileEndRecord", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIFileEndRecord_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIFileExit", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIFileExit_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIFileGetStream", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIFileGetStream_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIFileInfoA", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIFileInfoA_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIFileInfoW", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIFileInfoW_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIFileInit", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIFileInit_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIFileOpenA", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIFileOpenA_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIFileOpenW", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIFileOpenW_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIFileReadData", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIFileReadData_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIFileRelease", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIFileRelease_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIFileWriteData", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIFileWriteData_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIGetFromClipboard", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIGetFromClipboard_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIMakeCompressedStream", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIMakeCompressedStream_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIMakeFileFromStreams", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIMakeFileFromStreams_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIMakeStreamFromClipboard", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIMakeStreamFromClipboard_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIPutFileOnClipboard", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIPutFileOnClipboard_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVISaveOptions", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVISaveOptions_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVISaveOptionsFree", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVISaveOptionsFree_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVISaveVA", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVISaveVA_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVISaveVW", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVISaveVW_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIStreamAddRef", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIStreamAddRef_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIStreamBeginStreaming", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIStreamBeginStreaming_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIStreamCreate", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIStreamCreate_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIStreamEndStreaming", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIStreamEndStreaming_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIStreamFindSample", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIStreamFindSample_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIStreamGetFrame", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIStreamGetFrame_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIStreamGetFrameClose", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIStreamGetFrameClose_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIStreamGetFrameOpen", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIStreamGetFrameOpen_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIStreamInfoA", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIStreamInfoA_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIStreamInfoW", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIStreamInfoW_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIStreamLength", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIStreamLength_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIStreamOpenFromFileA", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIStreamOpenFromFileA_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIStreamOpenFromFileW", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIStreamOpenFromFileW_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIStreamRead", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIStreamRead_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIStreamReadData", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIStreamReadData_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIStreamReadFormat", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIStreamReadFormat_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIStreamRelease", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIStreamRelease_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIStreamSampleToTime", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIStreamSampleToTime_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIStreamSetFormat", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIStreamSetFormat_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIStreamStart", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIStreamStart_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIStreamTimeToSample", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIStreamTimeToSample_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIStreamWrite", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIStreamWrite_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_AVIStreamWriteData", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_AVIStreamWriteData_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_CloseDriver", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_CloseDriver_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_CreateEditableStream", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_CreateEditableStream_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_DefDriverProc", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_DefDriverProc_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_DrawDibBegin", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_DrawDibBegin_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_DrawDibChangePalette", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_DrawDibChangePalette_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_DrawDibClose", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_DrawDibClose_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_DrawDibDraw", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_DrawDibDraw_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_DrawDibEnd", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_DrawDibEnd_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_DrawDibGetBuffer", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_DrawDibGetBuffer_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_DrawDibGetPalette", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_DrawDibGetPalette_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_DrawDibOpen", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_DrawDibOpen_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_DrawDibProfileDisplay", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_DrawDibProfileDisplay_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_DrawDibRealize", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_DrawDibRealize_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_DrawDibSetPalette", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_DrawDibSetPalette_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_DrawDibStart", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_DrawDibStart_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_DrawDibStop", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_DrawDibStop_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_DrawDibTime", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_DrawDibTime_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_DriverCallback", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_DriverCallback_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_DrvGetModuleHandle", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_DrvGetModuleHandle_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_EditStreamClone", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_EditStreamClone_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_EditStreamCopy", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_EditStreamCopy_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_EditStreamCut", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_EditStreamCut_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_EditStreamPaste", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_EditStreamPaste_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_EditStreamSetInfoA", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_EditStreamSetInfoA_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_EditStreamSetInfoW", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_EditStreamSetInfoW_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_EditStreamSetNameA", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_EditStreamSetNameA_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_EditStreamSetNameW", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_EditStreamSetNameW_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_GetDriverModuleHandle", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_GetDriverModuleHandle_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_GetOpenFileNamePreviewA", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_GetOpenFileNamePreviewA_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_GetOpenFileNamePreviewW", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_GetOpenFileNamePreviewW_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_GetSaveFileNamePreviewA", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_GetSaveFileNamePreviewA_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_GetSaveFileNamePreviewW", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_GetSaveFileNamePreviewW_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_ICClose", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_ICClose_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_ICCompress", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_ICCompress_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_ICCompressorChoose", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_ICCompressorChoose_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_ICCompressorFree", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_ICCompressorFree_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_ICDecompress", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_ICDecompress_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_ICDraw", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_ICDraw_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_ICDrawBegin", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_ICDrawBegin_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_ICGetDisplayFormat", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_ICGetDisplayFormat_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_ICGetInfo", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_ICGetInfo_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_ICImageCompress", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_ICImageCompress_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_ICImageDecompress", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_ICImageDecompress_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_ICInfo", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_ICInfo_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_ICInstall", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_ICInstall_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_ICLocate", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_ICLocate_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_ICOpen", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_ICOpen_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_ICRemove", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_ICRemove_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_ICSendMessage", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_ICSendMessage_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_ICSeqCompressFrame", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_ICSeqCompressFrame_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_ICSeqCompressFrameEnd", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_ICSeqCompressFrameEnd_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_ICSeqCompressFrameStart", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_ICSeqCompressFrameStart_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_MCIWndCreateA", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_MCIWndCreateA_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_MCIWndCreateW", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_MCIWndCreateW_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_MCIWndRegisterClass", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_MCIWndRegisterClass_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_OpenDriver", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_OpenDriver_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_SendDriverMessage", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_SendDriverMessage_napi));
-    exports.Set("windowssys_windows_win32_media_multimedia_VideoForWindowsVersion", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_VideoForWindowsVersion_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIBuildFilterA", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIBuildFilterA_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIBuildFilterW", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIBuildFilterW_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIClearClipboard", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIClearClipboard_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIFileAddRef", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIFileAddRef_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIFileCreateStreamA", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIFileCreateStreamA_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIFileCreateStreamW", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIFileCreateStreamW_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIFileEndRecord", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIFileEndRecord_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIFileExit", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIFileExit_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIFileGetStream", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIFileGetStream_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIFileInfoA", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIFileInfoA_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIFileInfoW", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIFileInfoW_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIFileInit", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIFileInit_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIFileOpenA", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIFileOpenA_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIFileOpenW", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIFileOpenW_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIFileReadData", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIFileReadData_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIFileRelease", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIFileRelease_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIFileWriteData", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIFileWriteData_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIGetFromClipboard", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIGetFromClipboard_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIMakeCompressedStream", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIMakeCompressedStream_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIMakeFileFromStreams", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIMakeFileFromStreams_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIMakeStreamFromClipboard", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIMakeStreamFromClipboard_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIPutFileOnClipboard", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIPutFileOnClipboard_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVISaveA", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVISaveA_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVISaveOptions", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVISaveOptions_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVISaveOptionsFree", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVISaveOptionsFree_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVISaveVA", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVISaveVA_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVISaveVW", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVISaveVW_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVISaveW", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVISaveW_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIStreamAddRef", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIStreamAddRef_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIStreamBeginStreaming", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIStreamBeginStreaming_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIStreamCreate", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIStreamCreate_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIStreamEndStreaming", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIStreamEndStreaming_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIStreamFindSample", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIStreamFindSample_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIStreamGetFrame", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIStreamGetFrame_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIStreamGetFrameClose", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIStreamGetFrameClose_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIStreamGetFrameOpen", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIStreamGetFrameOpen_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIStreamInfoA", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIStreamInfoA_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIStreamInfoW", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIStreamInfoW_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIStreamLength", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIStreamLength_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIStreamOpenFromFileA", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIStreamOpenFromFileA_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIStreamOpenFromFileW", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIStreamOpenFromFileW_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIStreamRead", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIStreamRead_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIStreamReadData", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIStreamReadData_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIStreamReadFormat", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIStreamReadFormat_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIStreamRelease", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIStreamRelease_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIStreamSampleToTime", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIStreamSampleToTime_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIStreamSetFormat", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIStreamSetFormat_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIStreamStart", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIStreamStart_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIStreamTimeToSample", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIStreamTimeToSample_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIStreamWrite", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIStreamWrite_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_aVIStreamWriteData", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_aVIStreamWriteData_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_closeDriver", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_closeDriver_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_createEditableStream", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_createEditableStream_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_defDriverProc", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_defDriverProc_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_drawDibBegin", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_drawDibBegin_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_drawDibChangePalette", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_drawDibChangePalette_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_drawDibClose", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_drawDibClose_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_drawDibDraw", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_drawDibDraw_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_drawDibEnd", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_drawDibEnd_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_drawDibGetBuffer", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_drawDibGetBuffer_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_drawDibGetPalette", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_drawDibGetPalette_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_drawDibOpen", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_drawDibOpen_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_drawDibProfileDisplay", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_drawDibProfileDisplay_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_drawDibRealize", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_drawDibRealize_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_drawDibSetPalette", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_drawDibSetPalette_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_drawDibStart", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_drawDibStart_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_drawDibStop", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_drawDibStop_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_drawDibTime", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_drawDibTime_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_driverCallback", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_driverCallback_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_drvGetModuleHandle", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_drvGetModuleHandle_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_editStreamClone", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_editStreamClone_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_editStreamCopy", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_editStreamCopy_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_editStreamCut", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_editStreamCut_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_editStreamPaste", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_editStreamPaste_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_editStreamSetInfoA", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_editStreamSetInfoA_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_editStreamSetInfoW", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_editStreamSetInfoW_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_editStreamSetNameA", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_editStreamSetNameA_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_editStreamSetNameW", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_editStreamSetNameW_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_getDriverModuleHandle", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_getDriverModuleHandle_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_getOpenFileNamePreviewA", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_getOpenFileNamePreviewA_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_getOpenFileNamePreviewW", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_getOpenFileNamePreviewW_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_getSaveFileNamePreviewA", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_getSaveFileNamePreviewA_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_getSaveFileNamePreviewW", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_getSaveFileNamePreviewW_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_iCClose", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_iCClose_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_iCCompress", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_iCCompress_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_iCCompressorChoose", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_iCCompressorChoose_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_iCCompressorFree", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_iCCompressorFree_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_iCDecompress", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_iCDecompress_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_iCDraw", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_iCDraw_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_iCDrawBegin", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_iCDrawBegin_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_iCGetDisplayFormat", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_iCGetDisplayFormat_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_iCGetInfo", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_iCGetInfo_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_iCImageCompress", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_iCImageCompress_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_iCImageDecompress", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_iCImageDecompress_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_iCInfo", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_iCInfo_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_iCInstall", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_iCInstall_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_iCLocate", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_iCLocate_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_iCOpen", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_iCOpen_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_iCRemove", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_iCRemove_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_iCSendMessage", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_iCSendMessage_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_iCSeqCompressFrame", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_iCSeqCompressFrame_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_iCSeqCompressFrameEnd", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_iCSeqCompressFrameEnd_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_iCSeqCompressFrameStart", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_iCSeqCompressFrameStart_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_mCIWndCreateA", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_mCIWndCreateA_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_mCIWndCreateW", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_mCIWndCreateW_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_mCIWndRegisterClass", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_mCIWndRegisterClass_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_openDriver", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_openDriver_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_sendDriverMessage", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_sendDriverMessage_napi));
+    exports.Set("windowssys_windows_win32_media_multimedia_videoForWindowsVersion", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_videoForWindowsVersion_napi));
     exports.Set("windowssys_windows_win32_media_multimedia_capCreateCaptureWindowA", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_capCreateCaptureWindowA_napi));
     exports.Set("windowssys_windows_win32_media_multimedia_capCreateCaptureWindowW", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_capCreateCaptureWindowW_napi));
     exports.Set("windowssys_windows_win32_media_multimedia_capGetDriverDescriptionA", Napi::Function::New(env, windowssys_windows_win32_media_multimedia_capGetDriverDescriptionA_napi));

@@ -2,1270 +2,1277 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.COLORREF
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LRESULT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WAIT_EVENT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HBITMAP
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HBRUSH
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HRGN
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Colorref
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WaitEvent
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbitmap
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbrush
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hrgn
 
-public actual fun AdjustWindowRect(lprect: Long, dwstyle: WINDOW_STYLE, bmenu: BOOL): BOOL =
-    0
+public actual fun adjustWindowRect(lprect: COpaquePointer?, dwstyle: WindowStyle, bmenu: Bool): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AdjustWindowRectEx(lprect: Long, dwstyle: WINDOW_STYLE, bmenu: BOOL, dwexstyle: WINDOW_EX_STYLE): BOOL =
-    0
+public actual fun adjustWindowRectEx(lprect: COpaquePointer?, dwstyle: WindowStyle, bmenu: Bool, dwexstyle: WindowExStyle): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AllowSetForegroundWindow(dwprocessid: UInt): BOOL =
-    0
+public actual fun allowSetForegroundWindow(dwprocessid: UInt): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AnimateWindow(hwnd: HWND, dwtime: UInt, dwflags: ANIMATE_WINDOW_FLAGS): BOOL =
-    0
+public actual fun animateWindow(hwnd: Hwnd, dwtime: UInt, dwflags: AnimateWindowFlags): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AnyPopup(): BOOL =
-    0
+public actual fun anyPopup(): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AppendMenuA(hmenu: HMENU, uflags: MENU_ITEM_FLAGS, uidnewitem: ULong, lpnewitem: PCSTR): BOOL =
-    0
+public actual fun appendMenuA(hmenu: Hmenu, uflags: MenuItemFlags, uidnewitem: ULong, lpnewitem: Pcstr): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AppendMenuW(hmenu: HMENU, uflags: MENU_ITEM_FLAGS, uidnewitem: ULong, lpnewitem: PCWSTR): BOOL =
-    0
+public actual fun appendMenuW(hmenu: Hmenu, uflags: MenuItemFlags, uidnewitem: ULong, lpnewitem: Pcwstr): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ArrangeIconicWindows(hwnd: HWND): UInt =
-    0u
+public actual fun arrangeIconicWindows(hwnd: Hwnd): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun BeginDeferWindowPos(nnumwindows: Int): HDWP =
-    0L
+public actual fun beginDeferWindowPos(nnumwindows: Int): Hdwp =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun BringWindowToTop(hwnd: HWND): BOOL =
-    0
+public actual fun bringWindowToTop(hwnd: Hwnd): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CalculatePopupWindowPosition(anchorpoint: Long, windowsize: Long, flags: UInt, excluderect: Long, popupwindowposition: Long): BOOL =
-    0
+public actual fun calculatePopupWindowPosition(anchorpoint: COpaquePointer?, windowsize: COpaquePointer?, flags: UInt, excluderect: COpaquePointer?, popupwindowposition: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CallMsgFilterA(lpmsg: Long, ncode: Int): BOOL =
-    0
+public actual fun callMsgFilterA(lpmsg: COpaquePointer?, ncode: Int): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CallMsgFilterW(lpmsg: Long, ncode: Int): BOOL =
-    0
+public actual fun callMsgFilterW(lpmsg: COpaquePointer?, ncode: Int): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CallNextHookEx(hhk: HHOOK, ncode: Int, wparam: WPARAM, lparam: LPARAM): LRESULT =
-    0L
+public actual fun callNextHookEx(hhk: Hhook, ncode: Int, wparam: Wparam, lparam: Lparam): Lresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CallWindowProcA(lpprevwndfunc: WNDPROC, hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT =
-    0L
+public actual fun callWindowProcA(lpprevwndfunc: Wndproc, hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CallWindowProcW(lpprevwndfunc: WNDPROC, hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT =
-    0L
+public actual fun callWindowProcW(lpprevwndfunc: Wndproc, hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CancelShutdown(): BOOL =
-    0
+public actual fun cancelShutdown(): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CascadeWindows(hwndparent: HWND, whow: CASCADE_WINDOWS_HOW, lprect: Long, ckids: UInt, lpkids: Long): UShort =
-    0u
+public actual fun cascadeWindows(hwndparent: Hwnd, whow: CascadeWindowsHow, lprect: COpaquePointer?, ckids: UInt, lpkids: COpaquePointer?): UShort =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ChangeMenuA(hmenu: HMENU, cmd: UInt, lpsznewitem: PCSTR, cmdinsert: UInt, flags: UInt): BOOL =
-    0
+public actual fun changeMenuA(hmenu: Hmenu, cmd: UInt, lpsznewitem: Pcstr, cmdinsert: UInt, flags: UInt): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ChangeMenuW(hmenu: HMENU, cmd: UInt, lpsznewitem: PCWSTR, cmdinsert: UInt, flags: UInt): BOOL =
-    0
+public actual fun changeMenuW(hmenu: Hmenu, cmd: UInt, lpsznewitem: Pcwstr, cmdinsert: UInt, flags: UInt): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ChangeWindowMessageFilter(message: UInt, dwflag: CHANGE_WINDOW_MESSAGE_FILTER_FLAGS): BOOL =
-    0
+public actual fun changeWindowMessageFilter(message: UInt, dwflag: ChangeWindowMessageFilterFlags): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ChangeWindowMessageFilterEx(hwnd: HWND, message: UInt, action: WINDOW_MESSAGE_FILTER_ACTION, pchangefilterstruct: Long): BOOL =
-    0
+public actual fun changeWindowMessageFilterEx(hwnd: Hwnd, message: UInt, action: WindowMessageFilterAction, pchangefilterstruct: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CharLowerA(lpsz: PSTR): PSTR =
-    0L
+public actual fun charLowerA(lpsz: Pstr): Pstr =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CharLowerBuffA(lpsz: PSTR, cchlength: UInt): UInt =
-    0u
+public actual fun charLowerBuffA(lpsz: Pstr, cchlength: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CharLowerBuffW(lpsz: PWSTR, cchlength: UInt): UInt =
-    0u
+public actual fun charLowerBuffW(lpsz: Pwstr, cchlength: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CharLowerW(lpsz: PWSTR): PWSTR =
-    0L
+public actual fun charLowerW(lpsz: Pwstr): Pwstr =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CharNextA(lpsz: PCSTR): PSTR =
-    0L
+public actual fun charNextA(lpsz: Pcstr): Pstr =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CharNextExA(codepage: UShort, lpcurrentchar: PCSTR, dwflags: UInt): PSTR =
-    0L
+public actual fun charNextExA(codepage: UShort, lpcurrentchar: Pcstr, dwflags: UInt): Pstr =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CharNextW(lpsz: PCWSTR): PWSTR =
-    0L
+public actual fun charNextW(lpsz: Pcwstr): Pwstr =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CharPrevA(lpszstart: PCSTR, lpszcurrent: PCSTR): PSTR =
-    0L
+public actual fun charPrevA(lpszstart: Pcstr, lpszcurrent: Pcstr): Pstr =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CharPrevExA(codepage: UShort, lpstart: PCSTR, lpcurrentchar: PCSTR, dwflags: UInt): PSTR =
-    0L
+public actual fun charPrevExA(codepage: UShort, lpstart: Pcstr, lpcurrentchar: Pcstr, dwflags: UInt): Pstr =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CharPrevW(lpszstart: PCWSTR, lpszcurrent: PCWSTR): PWSTR =
-    0L
+public actual fun charPrevW(lpszstart: Pcwstr, lpszcurrent: Pcwstr): Pwstr =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CharToOemA(psrc: PCSTR, pdst: PSTR): BOOL =
-    0
+public actual fun charToOemA(psrc: Pcstr, pdst: Pstr): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CharToOemBuffA(lpszsrc: PCSTR, lpszdst: PSTR, cchdstlength: UInt): BOOL =
-    0
+public actual fun charToOemBuffA(lpszsrc: Pcstr, lpszdst: Pstr, cchdstlength: UInt): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CharToOemBuffW(lpszsrc: PCWSTR, lpszdst: PSTR, cchdstlength: UInt): BOOL =
-    0
+public actual fun charToOemBuffW(lpszsrc: Pcwstr, lpszdst: Pstr, cchdstlength: UInt): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CharToOemW(psrc: PCWSTR, pdst: PSTR): BOOL =
-    0
+public actual fun charToOemW(psrc: Pcwstr, pdst: Pstr): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CharUpperA(lpsz: PSTR): PSTR =
-    0L
+public actual fun charUpperA(lpsz: Pstr): Pstr =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CharUpperBuffA(lpsz: PSTR, cchlength: UInt): UInt =
-    0u
+public actual fun charUpperBuffA(lpsz: Pstr, cchlength: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CharUpperBuffW(lpsz: PWSTR, cchlength: UInt): UInt =
-    0u
+public actual fun charUpperBuffW(lpsz: Pwstr, cchlength: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CharUpperW(lpsz: PWSTR): PWSTR =
-    0L
+public actual fun charUpperW(lpsz: Pwstr): Pwstr =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CheckMenuItem(hmenu: HMENU, uidcheckitem: UInt, ucheck: UInt): UInt =
-    0u
+public actual fun checkMenuItem(hmenu: Hmenu, uidcheckitem: UInt, ucheck: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CheckMenuRadioItem(hmenu: HMENU, first: UInt, last: UInt, check: UInt, flags: UInt): BOOL =
-    0
+public actual fun checkMenuRadioItem(hmenu: Hmenu, first: UInt, last: UInt, check: UInt, flags: UInt): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ChildWindowFromPoint(hwndparent: HWND, point: POINT): HWND =
-    0L
+public actual fun childWindowFromPoint(hwndparent: Hwnd, point: Point): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ChildWindowFromPointEx(hwnd: HWND, pt: POINT, flags: CWP_FLAGS): HWND =
-    0L
+public actual fun childWindowFromPointEx(hwnd: Hwnd, pt: Point, flags: CwpFlags): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ClipCursor(lprect: Long): BOOL =
-    0
+public actual fun clipCursor(lprect: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CloseWindow(hwnd: HWND): BOOL =
-    0
+public actual fun closeWindow(hwnd: Hwnd): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CopyAcceleratorTableA(haccelsrc: HACCEL, lpacceldst: Long, caccelentries: Int): Int =
-    0
+public actual fun copyAcceleratorTableA(haccelsrc: Haccel, lpacceldst: COpaquePointer?, caccelentries: Int): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CopyAcceleratorTableW(haccelsrc: HACCEL, lpacceldst: Long, caccelentries: Int): Int =
-    0
+public actual fun copyAcceleratorTableW(haccelsrc: Haccel, lpacceldst: COpaquePointer?, caccelentries: Int): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CopyIcon(hicon: HICON): HICON =
-    0L
+public actual fun copyIcon(hicon: Hicon): Hicon =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CopyImage(h: HANDLE, type: GDI_IMAGE_TYPE, cx: Int, cy: Int, flags: IMAGE_FLAGS): HANDLE =
-    0L
+public actual fun copyImage(h: Handle, type: GdiImageType, cx: Int, cy: Int, flags: ImageFlags): Handle =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CreateAcceleratorTableA(paccel: Long, caccel: Int): HACCEL =
-    0L
+public actual fun createAcceleratorTableA(paccel: COpaquePointer?, caccel: Int): Haccel =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CreateAcceleratorTableW(paccel: Long, caccel: Int): HACCEL =
-    0L
+public actual fun createAcceleratorTableW(paccel: COpaquePointer?, caccel: Int): Haccel =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CreateCaret(hwnd: HWND, hbitmap: HBITMAP, nwidth: Int, nheight: Int): BOOL =
-    0
+public actual fun createCaret(hwnd: Hwnd, hbitmap: Hbitmap, nwidth: Int, nheight: Int): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CreateCursor(hinst: HINSTANCE, xhotspot: Int, yhotspot: Int, nwidth: Int, nheight: Int, pvandplane: Long, pvxorplane: Long): HCURSOR =
-    0L
+public actual fun createCursor(hinst: Hinstance, xhotspot: Int, yhotspot: Int, nwidth: Int, nheight: Int, pvandplane: COpaquePointer?, pvxorplane: COpaquePointer?): Hcursor =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CreateDialogIndirectParamA(hinstance: HINSTANCE, lptemplate: Long, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): HWND =
-    0L
+public actual fun createDialogIndirectParamA(hinstance: Hinstance, lptemplate: COpaquePointer?, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CreateDialogIndirectParamW(hinstance: HINSTANCE, lptemplate: Long, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): HWND =
-    0L
+public actual fun createDialogIndirectParamW(hinstance: Hinstance, lptemplate: COpaquePointer?, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CreateDialogParamA(hinstance: HINSTANCE, lptemplatename: PCSTR, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): HWND =
-    0L
+public actual fun createDialogParamA(hinstance: Hinstance, lptemplatename: Pcstr, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CreateDialogParamW(hinstance: HINSTANCE, lptemplatename: PCWSTR, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): HWND =
-    0L
+public actual fun createDialogParamW(hinstance: Hinstance, lptemplatename: Pcwstr, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CreateIcon(hinstance: HINSTANCE, nwidth: Int, nheight: Int, cplanes: UByte, cbitspixel: UByte, lpbandbits: Long, lpbxorbits: Long): HICON =
-    0L
+public actual fun createIcon(hinstance: Hinstance, nwidth: Int, nheight: Int, cplanes: UByte, cbitspixel: UByte, lpbandbits: COpaquePointer?, lpbxorbits: COpaquePointer?): Hicon =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CreateIconFromResource(presbits: Long, dwressize: UInt, ficon: BOOL, dwver: UInt): HICON =
-    0L
+public actual fun createIconFromResource(presbits: COpaquePointer?, dwressize: UInt, ficon: Bool, dwver: UInt): Hicon =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CreateIconFromResourceEx(presbits: Long, dwressize: UInt, ficon: BOOL, dwver: UInt, cxdesired: Int, cydesired: Int, flags: IMAGE_FLAGS): HICON =
-    0L
+public actual fun createIconFromResourceEx(presbits: COpaquePointer?, dwressize: UInt, ficon: Bool, dwver: UInt, cxdesired: Int, cydesired: Int, flags: ImageFlags): Hicon =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CreateIconIndirect(piconinfo: Long): HICON =
-    0L
+public actual fun createIconIndirect(piconinfo: COpaquePointer?): Hicon =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CreateMDIWindowA(lpclassname: PCSTR, lpwindowname: PCSTR, dwstyle: WINDOW_STYLE, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: HWND, hinstance: HINSTANCE, lparam: LPARAM): HWND =
-    0L
+public actual fun createMDIWindowA(lpclassname: Pcstr, lpwindowname: Pcstr, dwstyle: WindowStyle, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: Hwnd, hinstance: Hinstance, lparam: Lparam): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CreateMDIWindowW(lpclassname: PCWSTR, lpwindowname: PCWSTR, dwstyle: WINDOW_STYLE, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: HWND, hinstance: HINSTANCE, lparam: LPARAM): HWND =
-    0L
+public actual fun createMDIWindowW(lpclassname: Pcwstr, lpwindowname: Pcwstr, dwstyle: WindowStyle, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: Hwnd, hinstance: Hinstance, lparam: Lparam): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CreateMenu(): HMENU =
-    0L
+public actual fun createMenu(): Hmenu =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CreatePopupMenu(): HMENU =
-    0L
+public actual fun createPopupMenu(): Hmenu =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CreateResourceIndexer(projectroot: PCWSTR, extensiondllpath: PCWSTR, ppresourceindexer: Long): HRESULT =
-    0
+public actual fun createResourceIndexer(projectroot: Pcwstr, extensiondllpath: Pcwstr, ppresourceindexer: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CreateWindowExA(dwexstyle: WINDOW_EX_STYLE, lpclassname: PCSTR, lpwindowname: PCSTR, dwstyle: WINDOW_STYLE, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: HWND, hmenu: HMENU, hinstance: HINSTANCE, lpparam: Long): HWND =
-    0L
+public actual fun createWindowExA(dwexstyle: WindowExStyle, lpclassname: Pcstr, lpwindowname: Pcstr, dwstyle: WindowStyle, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: Hwnd, hmenu: Hmenu, hinstance: Hinstance, lpparam: COpaquePointer?): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CreateWindowExW(dwexstyle: WINDOW_EX_STYLE, lpclassname: PCWSTR, lpwindowname: PCWSTR, dwstyle: WINDOW_STYLE, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: HWND, hmenu: HMENU, hinstance: HINSTANCE, lpparam: Long): HWND =
-    0L
+public actual fun createWindowExW(dwexstyle: WindowExStyle, lpclassname: Pcwstr, lpwindowname: Pcwstr, dwstyle: WindowStyle, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: Hwnd, hmenu: Hmenu, hinstance: Hinstance, lpparam: COpaquePointer?): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DefDlgProcA(hdlg: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT =
-    0L
+public actual fun defDlgProcA(hdlg: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DefDlgProcW(hdlg: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT =
-    0L
+public actual fun defDlgProcW(hdlg: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DefFrameProcA(hwnd: HWND, hwndmdiclient: HWND, umsg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT =
-    0L
+public actual fun defFrameProcA(hwnd: Hwnd, hwndmdiclient: Hwnd, umsg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DefFrameProcW(hwnd: HWND, hwndmdiclient: HWND, umsg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT =
-    0L
+public actual fun defFrameProcW(hwnd: Hwnd, hwndmdiclient: Hwnd, umsg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DefMDIChildProcA(hwnd: HWND, umsg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT =
-    0L
+public actual fun defMDIChildProcA(hwnd: Hwnd, umsg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DefMDIChildProcW(hwnd: HWND, umsg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT =
-    0L
+public actual fun defMDIChildProcW(hwnd: Hwnd, umsg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DefWindowProcA(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT =
-    0L
+public actual fun defWindowProcA(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DefWindowProcW(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT =
-    0L
+public actual fun defWindowProcW(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DeferWindowPos(hwinposinfo: HDWP, hwnd: HWND, hwndinsertafter: HWND, x: Int, y: Int, cx: Int, cy: Int, uflags: SET_WINDOW_POS_FLAGS): HDWP =
-    0L
+public actual fun deferWindowPos(hwinposinfo: Hdwp, hwnd: Hwnd, hwndinsertafter: Hwnd, x: Int, y: Int, cx: Int, cy: Int, uflags: SetWindowPosFlags): Hdwp =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DeleteMenu(hmenu: HMENU, uposition: UInt, uflags: MENU_ITEM_FLAGS): BOOL =
-    0
+public actual fun deleteMenu(hmenu: Hmenu, uposition: UInt, uflags: MenuItemFlags): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DeregisterShellHookWindow(hwnd: HWND): BOOL =
-    0
+public actual fun deregisterShellHookWindow(hwnd: Hwnd): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DestroyAcceleratorTable(haccel: HACCEL): BOOL =
-    0
+public actual fun destroyAcceleratorTable(haccel: Haccel): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DestroyCaret(): BOOL =
-    0
+public actual fun destroyCaret(): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DestroyCursor(hcursor: HCURSOR): BOOL =
-    0
+public actual fun destroyCursor(hcursor: Hcursor): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DestroyIcon(hicon: HICON): BOOL =
-    0
+public actual fun destroyIcon(hicon: Hicon): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DestroyIndexedResults(resourceuri: PCWSTR, qualifiercount: UInt, qualifiers: Long) {
+public actual fun destroyIndexedResults(resourceuri: Pcwstr, qualifiercount: UInt, qualifiers: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun DestroyMenu(hmenu: HMENU): BOOL =
-    0
+public actual fun destroyMenu(hmenu: Hmenu): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DestroyResourceIndexer(resourceindexer: Long) {
+public actual fun destroyResourceIndexer(resourceindexer: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun DestroyWindow(hwnd: HWND): BOOL =
-    0
+public actual fun destroyWindow(hwnd: Hwnd): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DialogBoxIndirectParamA(hinstance: HINSTANCE, hdialogtemplate: Long, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): Long =
-    0L
+public actual fun dialogBoxIndirectParamA(hinstance: Hinstance, hdialogtemplate: COpaquePointer?, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Long =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DialogBoxIndirectParamW(hinstance: HINSTANCE, hdialogtemplate: Long, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): Long =
-    0L
+public actual fun dialogBoxIndirectParamW(hinstance: Hinstance, hdialogtemplate: COpaquePointer?, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Long =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DialogBoxParamA(hinstance: HINSTANCE, lptemplatename: PCSTR, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): Long =
-    0L
+public actual fun dialogBoxParamA(hinstance: Hinstance, lptemplatename: Pcstr, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Long =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DialogBoxParamW(hinstance: HINSTANCE, lptemplatename: PCWSTR, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): Long =
-    0L
+public actual fun dialogBoxParamW(hinstance: Hinstance, lptemplatename: Pcwstr, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Long =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DisableProcessWindowsGhosting() {
+public actual fun disableProcessWindowsGhosting() {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun DispatchMessageA(lpmsg: Long): LRESULT =
-    0L
+public actual fun dispatchMessageA(lpmsg: COpaquePointer?): Lresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DispatchMessageW(lpmsg: Long): LRESULT =
-    0L
+public actual fun dispatchMessageW(lpmsg: COpaquePointer?): Lresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DragObject(hwndparent: HWND, hwndfrom: HWND, fmt: UInt, data: ULong, hcur: HCURSOR): UInt =
-    0u
+public actual fun dragObject(hwndparent: Hwnd, hwndfrom: Hwnd, fmt: UInt, data: ULong, hcur: Hcursor): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DrawIcon(hdc: HDC, x: Int, y: Int, hicon: HICON): BOOL =
-    0
+public actual fun drawIcon(hdc: Hdc, x: Int, y: Int, hicon: Hicon): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DrawIconEx(hdc: HDC, xleft: Int, ytop: Int, hicon: HICON, cxwidth: Int, cywidth: Int, istepifanicur: UInt, hbrflickerfreedraw: HBRUSH, diflags: DI_FLAGS): BOOL =
-    0
+public actual fun drawIconEx(hdc: Hdc, xleft: Int, ytop: Int, hicon: Hicon, cxwidth: Int, cywidth: Int, istepifanicur: UInt, hbrflickerfreedraw: Hbrush, diflags: DiFlags): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DrawMenuBar(hwnd: HWND): BOOL =
-    0
+public actual fun drawMenuBar(hwnd: Hwnd): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun EnableMenuItem(hmenu: HMENU, uidenableitem: UInt, uenable: MENU_ITEM_FLAGS): BOOL =
-    0
+public actual fun enableMenuItem(hmenu: Hmenu, uidenableitem: UInt, uenable: MenuItemFlags): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun EndDeferWindowPos(hwinposinfo: HDWP): BOOL =
-    0
+public actual fun endDeferWindowPos(hwinposinfo: Hdwp): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun EndDialog(hdlg: HWND, nresult: Long): BOOL =
-    0
+public actual fun endDialog(hdlg: Hwnd, nresult: Long): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun EndMenu(): BOOL =
-    0
+public actual fun endMenu(): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun EnumChildWindows(hwndparent: HWND, lpenumfunc: WNDENUMPROC, lparam: LPARAM): BOOL =
-    0
+public actual fun enumChildWindows(hwndparent: Hwnd, lpenumfunc: Wndenumproc, lparam: Lparam): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun EnumPropsA(hwnd: HWND, lpenumfunc: PROPENUMPROCA): Int =
-    0
+public actual fun enumPropsA(hwnd: Hwnd, lpenumfunc: Propenumproca): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun EnumPropsExA(hwnd: HWND, lpenumfunc: PROPENUMPROCEXA, lparam: LPARAM): Int =
-    0
+public actual fun enumPropsExA(hwnd: Hwnd, lpenumfunc: Propenumprocexa, lparam: Lparam): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun EnumPropsExW(hwnd: HWND, lpenumfunc: PROPENUMPROCEXW, lparam: LPARAM): Int =
-    0
+public actual fun enumPropsExW(hwnd: Hwnd, lpenumfunc: Propenumprocexw, lparam: Lparam): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun EnumPropsW(hwnd: HWND, lpenumfunc: PROPENUMPROCW): Int =
-    0
+public actual fun enumPropsW(hwnd: Hwnd, lpenumfunc: Propenumprocw): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun EnumThreadWindows(dwthreadid: UInt, lpfn: WNDENUMPROC, lparam: LPARAM): BOOL =
-    0
+public actual fun enumThreadWindows(dwthreadid: UInt, lpfn: Wndenumproc, lparam: Lparam): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun EnumWindows(lpenumfunc: WNDENUMPROC, lparam: LPARAM): BOOL =
-    0
+public actual fun enumWindows(lpenumfunc: Wndenumproc, lparam: Lparam): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun FindWindowA(lpclassname: PCSTR, lpwindowname: PCSTR): HWND =
-    0L
+public actual fun findWindowA(lpclassname: Pcstr, lpwindowname: Pcstr): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun FindWindowExA(hwndparent: HWND, hwndchildafter: HWND, lpszclass: PCSTR, lpszwindow: PCSTR): HWND =
-    0L
+public actual fun findWindowExA(hwndparent: Hwnd, hwndchildafter: Hwnd, lpszclass: Pcstr, lpszwindow: Pcstr): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun FindWindowExW(hwndparent: HWND, hwndchildafter: HWND, lpszclass: PCWSTR, lpszwindow: PCWSTR): HWND =
-    0L
+public actual fun findWindowExW(hwndparent: Hwnd, hwndchildafter: Hwnd, lpszclass: Pcwstr, lpszwindow: Pcwstr): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun FindWindowW(lpclassname: PCWSTR, lpwindowname: PCWSTR): HWND =
-    0L
+public actual fun findWindowW(lpclassname: Pcwstr, lpwindowname: Pcwstr): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun FlashWindow(hwnd: HWND, binvert: BOOL): BOOL =
-    0
+public actual fun flashWindow(hwnd: Hwnd, binvert: Bool): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun FlashWindowEx(pfwi: Long): BOOL =
-    0
+public actual fun flashWindowEx(pfwi: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetAltTabInfoA(hwnd: HWND, iitem: Int, pati: Long, pszitemtext: PSTR, cchitemtext: UInt): BOOL =
-    0
+public actual fun getAltTabInfoA(hwnd: Hwnd, iitem: Int, pati: COpaquePointer?, pszitemtext: Pstr, cchitemtext: UInt): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetAltTabInfoW(hwnd: HWND, iitem: Int, pati: Long, pszitemtext: PWSTR, cchitemtext: UInt): BOOL =
-    0
+public actual fun getAltTabInfoW(hwnd: Hwnd, iitem: Int, pati: COpaquePointer?, pszitemtext: Pwstr, cchitemtext: UInt): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetAncestor(hwnd: HWND, gaflags: GET_ANCESTOR_FLAGS): HWND =
-    0L
+public actual fun getAncestor(hwnd: Hwnd, gaflags: GetAncestorFlags): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetCaretBlinkTime(): UInt =
-    0u
+public actual fun getCaretBlinkTime(): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetCaretPos(lppoint: Long): BOOL =
-    0
+public actual fun getCaretPos(lppoint: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClassInfoA(hinstance: HINSTANCE, lpclassname: PCSTR, lpwndclass: Long): BOOL =
-    0
+public actual fun getClassInfoA(hinstance: Hinstance, lpclassname: Pcstr, lpwndclass: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClassInfoExA(hinstance: HINSTANCE, lpszclass: PCSTR, lpwcx: Long): BOOL =
-    0
+public actual fun getClassInfoExA(hinstance: Hinstance, lpszclass: Pcstr, lpwcx: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClassInfoExW(hinstance: HINSTANCE, lpszclass: PCWSTR, lpwcx: Long): BOOL =
-    0
+public actual fun getClassInfoExW(hinstance: Hinstance, lpszclass: Pcwstr, lpwcx: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClassInfoW(hinstance: HINSTANCE, lpclassname: PCWSTR, lpwndclass: Long): BOOL =
-    0
+public actual fun getClassInfoW(hinstance: Hinstance, lpclassname: Pcwstr, lpwndclass: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClassLongA(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX): UInt =
-    0u
+public actual fun getClassLongA(hwnd: Hwnd, nindex: GetClassLongIndex): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClassLongPtrA(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX): ULong =
-    0uL
+public actual fun getClassLongPtrA(hwnd: Hwnd, nindex: GetClassLongIndex): ULong =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClassLongPtrW(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX): ULong =
-    0uL
+public actual fun getClassLongPtrW(hwnd: Hwnd, nindex: GetClassLongIndex): ULong =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClassLongW(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX): UInt =
-    0u
+public actual fun getClassLongW(hwnd: Hwnd, nindex: GetClassLongIndex): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClassNameA(hwnd: HWND, lpclassname: PSTR, nmaxcount: Int): Int =
-    0
+public actual fun getClassNameA(hwnd: Hwnd, lpclassname: Pstr, nmaxcount: Int): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClassNameW(hwnd: HWND, lpclassname: PWSTR, nmaxcount: Int): Int =
-    0
+public actual fun getClassNameW(hwnd: Hwnd, lpclassname: Pwstr, nmaxcount: Int): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClassWord(hwnd: HWND, nindex: Int): UShort =
-    0u
+public actual fun getClassWord(hwnd: Hwnd, nindex: Int): UShort =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClientRect(hwnd: HWND, lprect: Long): BOOL =
-    0
+public actual fun getClientRect(hwnd: Hwnd, lprect: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClipCursor(lprect: Long): BOOL =
-    0
+public actual fun getClipCursor(lprect: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetCursor(): HCURSOR =
-    0L
+public actual fun getCursor(): Hcursor =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetCursorInfo(pci: Long): BOOL =
-    0
+public actual fun getCursorInfo(pci: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetCursorPos(lppoint: Long): BOOL =
-    0
+public actual fun getCursorPos(lppoint: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetDesktopWindow(): HWND =
-    0L
+public actual fun getDesktopWindow(): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetDialogBaseUnits(): Int =
-    0
+public actual fun getDialogBaseUnits(): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetDlgCtrlID(hwnd: HWND): Int =
-    0
+public actual fun getDlgCtrlID(hwnd: Hwnd): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetDlgItem(hdlg: HWND, niddlgitem: Int): HWND =
-    0L
+public actual fun getDlgItem(hdlg: Hwnd, niddlgitem: Int): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetDlgItemInt(hdlg: HWND, niddlgitem: Int, lptranslated: Long, bsigned: BOOL): UInt =
-    0u
+public actual fun getDlgItemInt(hdlg: Hwnd, niddlgitem: Int, lptranslated: COpaquePointer?, bsigned: Bool): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetDlgItemTextA(hdlg: HWND, niddlgitem: Int, lpstring: PSTR, cchmax: Int): UInt =
-    0u
+public actual fun getDlgItemTextA(hdlg: Hwnd, niddlgitem: Int, lpstring: Pstr, cchmax: Int): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetDlgItemTextW(hdlg: HWND, niddlgitem: Int, lpstring: PWSTR, cchmax: Int): UInt =
-    0u
+public actual fun getDlgItemTextW(hdlg: Hwnd, niddlgitem: Int, lpstring: Pwstr, cchmax: Int): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetForegroundWindow(): HWND =
-    0L
+public actual fun getForegroundWindow(): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetGUIThreadInfo(idthread: UInt, pgui: Long): BOOL =
-    0
+public actual fun getGUIThreadInfo(idthread: UInt, pgui: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetIconInfo(hicon: HICON, piconinfo: Long): BOOL =
-    0
+public actual fun getIconInfo(hicon: Hicon, piconinfo: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetIconInfoExA(hicon: HICON, piconinfo: Long): BOOL =
-    0
+public actual fun getIconInfoExA(hicon: Hicon, piconinfo: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetIconInfoExW(hicon: HICON, piconinfo: Long): BOOL =
-    0
+public actual fun getIconInfoExW(hicon: Hicon, piconinfo: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetInputState(): BOOL =
-    0
+public actual fun getInputState(): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetLastActivePopup(hwnd: HWND): HWND =
-    0L
+public actual fun getLastActivePopup(hwnd: Hwnd): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetLayeredWindowAttributes(hwnd: HWND, pcrkey: Long, pbalpha: Long, pdwflags: Long): BOOL =
-    0
+public actual fun getLayeredWindowAttributes(hwnd: Hwnd, pcrkey: COpaquePointer?, pbalpha: COpaquePointer?, pdwflags: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetMenu(hwnd: HWND): HMENU =
-    0L
+public actual fun getMenu(hwnd: Hwnd): Hmenu =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetMenuBarInfo(hwnd: HWND, idobject: OBJECT_IDENTIFIER, iditem: Int, pmbi: Long): BOOL =
-    0
+public actual fun getMenuBarInfo(hwnd: Hwnd, idobject: ObjectIdentifier, iditem: Int, pmbi: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetMenuCheckMarkDimensions(): Int =
-    0
+public actual fun getMenuCheckMarkDimensions(): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetMenuDefaultItem(hmenu: HMENU, fbypos: UInt, gmdiflags: GET_MENU_DEFAULT_ITEM_FLAGS): UInt =
-    0u
+public actual fun getMenuDefaultItem(hmenu: Hmenu, fbypos: UInt, gmdiflags: GetMenuDefaultItemFlags): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetMenuInfo(param0: HMENU, param1: Long): BOOL =
-    0
+public actual fun getMenuInfo(param0: Hmenu, param1: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetMenuItemCount(hmenu: HMENU): Int =
-    0
+public actual fun getMenuItemCount(hmenu: Hmenu): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetMenuItemID(hmenu: HMENU, npos: Int): UInt =
-    0u
+public actual fun getMenuItemID(hmenu: Hmenu, npos: Int): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetMenuItemInfoA(hmenu: HMENU, item: UInt, fbyposition: BOOL, lpmii: Long): BOOL =
-    0
+public actual fun getMenuItemInfoA(hmenu: Hmenu, item: UInt, fbyposition: Bool, lpmii: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetMenuItemInfoW(hmenu: HMENU, item: UInt, fbyposition: BOOL, lpmii: Long): BOOL =
-    0
+public actual fun getMenuItemInfoW(hmenu: Hmenu, item: UInt, fbyposition: Bool, lpmii: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetMenuItemRect(hwnd: HWND, hmenu: HMENU, uitem: UInt, lprcitem: Long): BOOL =
-    0
+public actual fun getMenuItemRect(hwnd: Hwnd, hmenu: Hmenu, uitem: UInt, lprcitem: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetMenuState(hmenu: HMENU, uid: UInt, uflags: MENU_ITEM_FLAGS): UInt =
-    0u
+public actual fun getMenuState(hmenu: Hmenu, uid: UInt, uflags: MenuItemFlags): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetMenuStringA(hmenu: HMENU, uiditem: UInt, lpstring: PSTR, cchmax: Int, flags: MENU_ITEM_FLAGS): Int =
-    0
+public actual fun getMenuStringA(hmenu: Hmenu, uiditem: UInt, lpstring: Pstr, cchmax: Int, flags: MenuItemFlags): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetMenuStringW(hmenu: HMENU, uiditem: UInt, lpstring: PWSTR, cchmax: Int, flags: MENU_ITEM_FLAGS): Int =
-    0
+public actual fun getMenuStringW(hmenu: Hmenu, uiditem: UInt, lpstring: Pwstr, cchmax: Int, flags: MenuItemFlags): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetMessageA(lpmsg: Long, hwnd: HWND, wmsgfiltermin: UInt, wmsgfiltermax: UInt): BOOL =
-    0
+public actual fun getMessageA(lpmsg: COpaquePointer?, hwnd: Hwnd, wmsgfiltermin: UInt, wmsgfiltermax: UInt): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetMessageExtraInfo(): LPARAM =
-    0L
+public actual fun getMessageExtraInfo(): Lparam =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetMessagePos(): UInt =
-    0u
+public actual fun getMessagePos(): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetMessageTime(): Int =
-    0
+public actual fun getMessageTime(): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetMessageW(lpmsg: Long, hwnd: HWND, wmsgfiltermin: UInt, wmsgfiltermax: UInt): BOOL =
-    0
+public actual fun getMessageW(lpmsg: COpaquePointer?, hwnd: Hwnd, wmsgfiltermin: UInt, wmsgfiltermax: UInt): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetNextDlgGroupItem(hdlg: HWND, hctl: HWND, bprevious: BOOL): HWND =
-    0L
+public actual fun getNextDlgGroupItem(hdlg: Hwnd, hctl: Hwnd, bprevious: Bool): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetNextDlgTabItem(hdlg: HWND, hctl: HWND, bprevious: BOOL): HWND =
-    0L
+public actual fun getNextDlgTabItem(hdlg: Hwnd, hctl: Hwnd, bprevious: Bool): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetParent(hwnd: HWND): HWND =
-    0L
+public actual fun getParent(hwnd: Hwnd): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetPhysicalCursorPos(lppoint: Long): BOOL =
-    0
+public actual fun getPhysicalCursorPos(lppoint: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetProcessDefaultLayout(pdwdefaultlayout: Long): BOOL =
-    0
+public actual fun getProcessDefaultLayout(pdwdefaultlayout: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetPropA(hwnd: HWND, lpstring: PCSTR): HANDLE =
-    0L
+public actual fun getPropA(hwnd: Hwnd, lpstring: Pcstr): Handle =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetPropW(hwnd: HWND, lpstring: PCWSTR): HANDLE =
-    0L
+public actual fun getPropW(hwnd: Hwnd, lpstring: Pcwstr): Handle =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetQueueStatus(flags: QUEUE_STATUS_FLAGS): UInt =
-    0u
+public actual fun getQueueStatus(flags: QueueStatusFlags): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetScrollBarInfo(hwnd: HWND, idobject: OBJECT_IDENTIFIER, psbi: Long): BOOL =
-    0
+public actual fun getScrollBarInfo(hwnd: Hwnd, idobject: ObjectIdentifier, psbi: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetScrollInfo(hwnd: HWND, nbar: SCROLLBAR_CONSTANTS, lpsi: Long): BOOL =
-    0
+public actual fun getScrollInfo(hwnd: Hwnd, nbar: ScrollbarConstants, lpsi: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetScrollPos(hwnd: HWND, nbar: SCROLLBAR_CONSTANTS): Int =
-    0
+public actual fun getScrollPos(hwnd: Hwnd, nbar: ScrollbarConstants): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetScrollRange(hwnd: HWND, nbar: SCROLLBAR_CONSTANTS, lpminpos: Long, lpmaxpos: Long): BOOL =
-    0
+public actual fun getScrollRange(hwnd: Hwnd, nbar: ScrollbarConstants, lpminpos: COpaquePointer?, lpmaxpos: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetShellWindow(): HWND =
-    0L
+public actual fun getShellWindow(): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetSubMenu(hmenu: HMENU, npos: Int): HMENU =
-    0L
+public actual fun getSubMenu(hmenu: Hmenu, npos: Int): Hmenu =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetSystemMenu(hwnd: HWND, brevert: BOOL): HMENU =
-    0L
+public actual fun getSystemMenu(hwnd: Hwnd, brevert: Bool): Hmenu =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetSystemMetrics(nindex: SYSTEM_METRICS_INDEX): Int =
-    0
+public actual fun getSystemMetrics(nindex: SystemMetricsIndex): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetTitleBarInfo(hwnd: HWND, pti: Long): BOOL =
-    0
+public actual fun getTitleBarInfo(hwnd: Hwnd, pti: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetTopWindow(hwnd: HWND): HWND =
-    0L
+public actual fun getTopWindow(hwnd: Hwnd): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetWindow(hwnd: HWND, ucmd: GET_WINDOW_CMD): HWND =
-    0L
+public actual fun getWindow(hwnd: Hwnd, ucmd: GetWindowCmd): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetWindowDisplayAffinity(hwnd: HWND, pdwaffinity: Long): BOOL =
-    0
+public actual fun getWindowDisplayAffinity(hwnd: Hwnd, pdwaffinity: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetWindowInfo(hwnd: HWND, pwi: Long): BOOL =
-    0
+public actual fun getWindowInfo(hwnd: Hwnd, pwi: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetWindowLongA(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX): Int =
-    0
+public actual fun getWindowLongA(hwnd: Hwnd, nindex: WindowLongPtrIndex): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetWindowLongPtrA(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX): Long =
-    0L
+public actual fun getWindowLongPtrA(hwnd: Hwnd, nindex: WindowLongPtrIndex): Long =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetWindowLongPtrW(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX): Long =
-    0L
+public actual fun getWindowLongPtrW(hwnd: Hwnd, nindex: WindowLongPtrIndex): Long =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetWindowLongW(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX): Int =
-    0
+public actual fun getWindowLongW(hwnd: Hwnd, nindex: WindowLongPtrIndex): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetWindowModuleFileNameA(hwnd: HWND, pszfilename: PSTR, cchfilenamemax: UInt): UInt =
-    0u
+public actual fun getWindowModuleFileNameA(hwnd: Hwnd, pszfilename: Pstr, cchfilenamemax: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetWindowModuleFileNameW(hwnd: HWND, pszfilename: PWSTR, cchfilenamemax: UInt): UInt =
-    0u
+public actual fun getWindowModuleFileNameW(hwnd: Hwnd, pszfilename: Pwstr, cchfilenamemax: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetWindowPlacement(hwnd: HWND, lpwndpl: Long): BOOL =
-    0
+public actual fun getWindowPlacement(hwnd: Hwnd, lpwndpl: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetWindowRect(hwnd: HWND, lprect: Long): BOOL =
-    0
+public actual fun getWindowRect(hwnd: Hwnd, lprect: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetWindowTextA(hwnd: HWND, lpstring: PSTR, nmaxcount: Int): Int =
-    0
+public actual fun getWindowTextA(hwnd: Hwnd, lpstring: Pstr, nmaxcount: Int): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetWindowTextLengthA(hwnd: HWND): Int =
-    0
+public actual fun getWindowTextLengthA(hwnd: Hwnd): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetWindowTextLengthW(hwnd: HWND): Int =
-    0
+public actual fun getWindowTextLengthW(hwnd: Hwnd): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetWindowTextW(hwnd: HWND, lpstring: PWSTR, nmaxcount: Int): Int =
-    0
+public actual fun getWindowTextW(hwnd: Hwnd, lpstring: Pwstr, nmaxcount: Int): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetWindowThreadProcessId(hwnd: HWND, lpdwprocessid: Long): UInt =
-    0u
+public actual fun getWindowThreadProcessId(hwnd: Hwnd, lpdwprocessid: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetWindowWord(hwnd: HWND, nindex: Int): UShort =
-    0u
+public actual fun getWindowWord(hwnd: Hwnd, nindex: Int): UShort =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HideCaret(hwnd: HWND): BOOL =
-    0
+public actual fun hideCaret(hwnd: Hwnd): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun HiliteMenuItem(hwnd: HWND, hmenu: HMENU, uidhiliteitem: UInt, uhilite: UInt): BOOL =
-    0
+public actual fun hiliteMenuItem(hwnd: Hwnd, hmenu: Hmenu, uidhiliteitem: UInt, uhilite: UInt): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun InSendMessage(): BOOL =
-    0
+public actual fun inSendMessage(): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun InSendMessageEx(lpreserved: Long): UInt =
-    0u
+public actual fun inSendMessageEx(lpreserved: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun IndexFilePath(resourceindexer: Long, filepath: PCWSTR, ppresourceuri: Long, pqualifiercount: Long, ppqualifiers: Long): HRESULT =
-    0
+public actual fun indexFilePath(resourceindexer: COpaquePointer?, filepath: Pcwstr, ppresourceuri: COpaquePointer?, pqualifiercount: COpaquePointer?, ppqualifiers: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun InheritWindowMonitor(hwnd: HWND, hwndinherit: HWND): BOOL =
-    0
+public actual fun inheritWindowMonitor(hwnd: Hwnd, hwndinherit: Hwnd): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun InsertMenuA(hmenu: HMENU, uposition: UInt, uflags: MENU_ITEM_FLAGS, uidnewitem: ULong, lpnewitem: PCSTR): BOOL =
-    0
+public actual fun insertMenuA(hmenu: Hmenu, uposition: UInt, uflags: MenuItemFlags, uidnewitem: ULong, lpnewitem: Pcstr): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun InsertMenuItemA(hmenu: HMENU, item: UInt, fbyposition: BOOL, lpmi: Long): BOOL =
-    0
+public actual fun insertMenuItemA(hmenu: Hmenu, item: UInt, fbyposition: Bool, lpmi: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun InsertMenuItemW(hmenu: HMENU, item: UInt, fbyposition: BOOL, lpmi: Long): BOOL =
-    0
+public actual fun insertMenuItemW(hmenu: Hmenu, item: UInt, fbyposition: Bool, lpmi: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun InsertMenuW(hmenu: HMENU, uposition: UInt, uflags: MENU_ITEM_FLAGS, uidnewitem: ULong, lpnewitem: PCWSTR): BOOL =
-    0
+public actual fun insertMenuW(hmenu: Hmenu, uposition: UInt, uflags: MenuItemFlags, uidnewitem: ULong, lpnewitem: Pcwstr): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun InternalGetWindowText(hwnd: HWND, pstring: PWSTR, cchmaxcount: Int): Int =
-    0
+public actual fun internalGetWindowText(hwnd: Hwnd, pstring: Pwstr, cchmaxcount: Int): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun IsCharAlphaA(ch: Byte): BOOL =
-    0
+public actual fun isCharAlphaA(ch: Byte): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun IsCharAlphaNumericA(ch: Byte): BOOL =
-    0
+public actual fun isCharAlphaNumericA(ch: Byte): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun IsCharAlphaNumericW(ch: UShort): BOOL =
-    0
+public actual fun isCharAlphaNumericW(ch: UShort): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun IsCharAlphaW(ch: UShort): BOOL =
-    0
+public actual fun isCharAlphaW(ch: UShort): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun IsCharLowerA(ch: Byte): BOOL =
-    0
+public actual fun isCharLowerA(ch: Byte): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun IsCharUpperA(ch: Byte): BOOL =
-    0
+public actual fun isCharUpperA(ch: Byte): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun IsCharUpperW(ch: UShort): BOOL =
-    0
+public actual fun isCharUpperW(ch: UShort): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun IsChild(hwndparent: HWND, hwnd: HWND): BOOL =
-    0
+public actual fun isChild(hwndparent: Hwnd, hwnd: Hwnd): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun IsDialogMessageA(hdlg: HWND, lpmsg: Long): BOOL =
-    0
+public actual fun isDialogMessageA(hdlg: Hwnd, lpmsg: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun IsDialogMessageW(hdlg: HWND, lpmsg: Long): BOOL =
-    0
+public actual fun isDialogMessageW(hdlg: Hwnd, lpmsg: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun IsGUIThread(bconvert: BOOL): BOOL =
-    0
+public actual fun isGUIThread(bconvert: Bool): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun IsHungAppWindow(hwnd: HWND): BOOL =
-    0
+public actual fun isHungAppWindow(hwnd: Hwnd): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun IsIconic(hwnd: HWND): BOOL =
-    0
+public actual fun isIconic(hwnd: Hwnd): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun IsMenu(hmenu: HMENU): BOOL =
-    0
+public actual fun isMenu(hmenu: Hmenu): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun IsProcessDPIAware(): BOOL =
-    0
+public actual fun isProcessDPIAware(): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun IsWindow(hwnd: HWND): BOOL =
-    0
+public actual fun isWindow(hwnd: Hwnd): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun IsWindowArranged(hwnd: HWND): BOOL =
-    0
+public actual fun isWindowArranged(hwnd: Hwnd): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun IsWindowUnicode(hwnd: HWND): BOOL =
-    0
+public actual fun isWindowUnicode(hwnd: Hwnd): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun IsWindowVisible(hwnd: HWND): BOOL =
-    0
+public actual fun isWindowVisible(hwnd: Hwnd): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun IsWow64Message(): BOOL =
-    0
+public actual fun isWow64Message(): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun IsZoomed(hwnd: HWND): BOOL =
-    0
+public actual fun isZoomed(hwnd: Hwnd): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun KillTimer(hwnd: HWND, uidevent: ULong): BOOL =
-    0
+public actual fun killTimer(hwnd: Hwnd, uidevent: ULong): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LoadAcceleratorsA(hinstance: HINSTANCE, lptablename: PCSTR): HACCEL =
-    0L
+public actual fun loadAcceleratorsA(hinstance: Hinstance, lptablename: Pcstr): Haccel =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LoadAcceleratorsW(hinstance: HINSTANCE, lptablename: PCWSTR): HACCEL =
-    0L
+public actual fun loadAcceleratorsW(hinstance: Hinstance, lptablename: Pcwstr): Haccel =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LoadCursorA(hinstance: HINSTANCE, lpcursorname: PCSTR): HCURSOR =
-    0L
+public actual fun loadCursorA(hinstance: Hinstance, lpcursorname: Pcstr): Hcursor =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LoadCursorFromFileA(lpfilename: PCSTR): HCURSOR =
-    0L
+public actual fun loadCursorFromFileA(lpfilename: Pcstr): Hcursor =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LoadCursorFromFileW(lpfilename: PCWSTR): HCURSOR =
-    0L
+public actual fun loadCursorFromFileW(lpfilename: Pcwstr): Hcursor =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LoadCursorW(hinstance: HINSTANCE, lpcursorname: PCWSTR): HCURSOR =
-    0L
+public actual fun loadCursorW(hinstance: Hinstance, lpcursorname: Pcwstr): Hcursor =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LoadIconA(hinstance: HINSTANCE, lpiconname: PCSTR): HICON =
-    0L
+public actual fun loadIconA(hinstance: Hinstance, lpiconname: Pcstr): Hicon =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LoadIconW(hinstance: HINSTANCE, lpiconname: PCWSTR): HICON =
-    0L
+public actual fun loadIconW(hinstance: Hinstance, lpiconname: Pcwstr): Hicon =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LoadImageA(hinst: HINSTANCE, name: PCSTR, type: GDI_IMAGE_TYPE, cx: Int, cy: Int, fuload: IMAGE_FLAGS): HANDLE =
-    0L
+public actual fun loadImageA(hinst: Hinstance, name: Pcstr, type: GdiImageType, cx: Int, cy: Int, fuload: ImageFlags): Handle =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LoadImageW(hinst: HINSTANCE, name: PCWSTR, type: GDI_IMAGE_TYPE, cx: Int, cy: Int, fuload: IMAGE_FLAGS): HANDLE =
-    0L
+public actual fun loadImageW(hinst: Hinstance, name: Pcwstr, type: GdiImageType, cx: Int, cy: Int, fuload: ImageFlags): Handle =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LoadMenuA(hinstance: HINSTANCE, lpmenuname: PCSTR): HMENU =
-    0L
+public actual fun loadMenuA(hinstance: Hinstance, lpmenuname: Pcstr): Hmenu =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LoadMenuIndirectA(lpmenutemplate: Long): HMENU =
-    0L
+public actual fun loadMenuIndirectA(lpmenutemplate: COpaquePointer?): Hmenu =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LoadMenuIndirectW(lpmenutemplate: Long): HMENU =
-    0L
+public actual fun loadMenuIndirectW(lpmenutemplate: COpaquePointer?): Hmenu =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LoadMenuW(hinstance: HINSTANCE, lpmenuname: PCWSTR): HMENU =
-    0L
+public actual fun loadMenuW(hinstance: Hinstance, lpmenuname: Pcwstr): Hmenu =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LoadStringA(hinstance: HINSTANCE, uid: UInt, lpbuffer: PSTR, cchbuffermax: Int): Int =
-    0
+public actual fun loadStringA(hinstance: Hinstance, uid: UInt, lpbuffer: Pstr, cchbuffermax: Int): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LoadStringW(hinstance: HINSTANCE, uid: UInt, lpbuffer: PWSTR, cchbuffermax: Int): Int =
-    0
+public actual fun loadStringW(hinstance: Hinstance, uid: UInt, lpbuffer: Pwstr, cchbuffermax: Int): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LockSetForegroundWindow(ulockcode: FOREGROUND_WINDOW_LOCK_CODE): BOOL =
-    0
+public actual fun lockSetForegroundWindow(ulockcode: ForegroundWindowLockCode): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LogicalToPhysicalPoint(hwnd: HWND, lppoint: Long): BOOL =
-    0
+public actual fun logicalToPhysicalPoint(hwnd: Hwnd, lppoint: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LookupIconIdFromDirectory(presbits: Long, ficon: BOOL): Int =
-    0
+public actual fun lookupIconIdFromDirectory(presbits: COpaquePointer?, ficon: Bool): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun LookupIconIdFromDirectoryEx(presbits: Long, ficon: BOOL, cxdesired: Int, cydesired: Int, flags: IMAGE_FLAGS): Int =
-    0
+public actual fun lookupIconIdFromDirectoryEx(presbits: COpaquePointer?, ficon: Bool, cxdesired: Int, cydesired: Int, flags: ImageFlags): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MapDialogRect(hdlg: HWND, lprect: Long): BOOL =
-    0
+public actual fun mapDialogRect(hdlg: Hwnd, lprect: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MenuItemFromPoint(hwnd: HWND, hmenu: HMENU, ptscreen: POINT): Int =
-    0
+public actual fun menuItemFromPoint(hwnd: Hwnd, hmenu: Hmenu, ptscreen: Point): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MessageBoxA(hwnd: HWND, lptext: PCSTR, lpcaption: PCSTR, utype: MESSAGEBOX_STYLE): MESSAGEBOX_RESULT =
-    0
+public actual fun messageBoxA(hwnd: Hwnd, lptext: Pcstr, lpcaption: Pcstr, utype: MessageboxStyle): MessageboxResult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MessageBoxExA(hwnd: HWND, lptext: PCSTR, lpcaption: PCSTR, utype: MESSAGEBOX_STYLE, wlanguageid: UShort): MESSAGEBOX_RESULT =
-    0
+public actual fun messageBoxExA(hwnd: Hwnd, lptext: Pcstr, lpcaption: Pcstr, utype: MessageboxStyle, wlanguageid: UShort): MessageboxResult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MessageBoxExW(hwnd: HWND, lptext: PCWSTR, lpcaption: PCWSTR, utype: MESSAGEBOX_STYLE, wlanguageid: UShort): MESSAGEBOX_RESULT =
-    0
+public actual fun messageBoxExW(hwnd: Hwnd, lptext: Pcwstr, lpcaption: Pcwstr, utype: MessageboxStyle, wlanguageid: UShort): MessageboxResult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MessageBoxIndirectA(lpmbp: Long): MESSAGEBOX_RESULT =
-    0
+public actual fun messageBoxIndirectA(lpmbp: COpaquePointer?): MessageboxResult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MessageBoxIndirectW(lpmbp: Long): MESSAGEBOX_RESULT =
-    0
+public actual fun messageBoxIndirectW(lpmbp: COpaquePointer?): MessageboxResult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MessageBoxW(hwnd: HWND, lptext: PCWSTR, lpcaption: PCWSTR, utype: MESSAGEBOX_STYLE): MESSAGEBOX_RESULT =
-    0
+public actual fun messageBoxW(hwnd: Hwnd, lptext: Pcwstr, lpcaption: Pcwstr, utype: MessageboxStyle): MessageboxResult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ModifyMenuA(hmnu: HMENU, uposition: UInt, uflags: MENU_ITEM_FLAGS, uidnewitem: ULong, lpnewitem: PCSTR): BOOL =
-    0
+public actual fun modifyMenuA(hmnu: Hmenu, uposition: UInt, uflags: MenuItemFlags, uidnewitem: ULong, lpnewitem: Pcstr): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ModifyMenuW(hmnu: HMENU, uposition: UInt, uflags: MENU_ITEM_FLAGS, uidnewitem: ULong, lpnewitem: PCWSTR): BOOL =
-    0
+public actual fun modifyMenuW(hmnu: Hmenu, uposition: UInt, uflags: MenuItemFlags, uidnewitem: ULong, lpnewitem: Pcwstr): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MoveWindow(hwnd: HWND, x: Int, y: Int, nwidth: Int, nheight: Int, brepaint: BOOL): BOOL =
-    0
+public actual fun moveWindow(hwnd: Hwnd, x: Int, y: Int, nwidth: Int, nheight: Int, brepaint: Bool): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MrmCreateConfig(platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, outputxmlfile: PCWSTR): HRESULT =
-    0
+public actual fun mrmCreateConfig(platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, outputxmlfile: Pcwstr): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MrmCreateConfigInMemory(platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, outputxmldata: Long, outputxmlsize: Long): HRESULT =
-    0
+public actual fun mrmCreateConfigInMemory(platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, outputxmldata: COpaquePointer?, outputxmlsize: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MrmCreateResourceFile(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputdirectory: PCWSTR): HRESULT =
-    0
+public actual fun mrmCreateResourceFile(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputdirectory: Pcwstr): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MrmCreateResourceFileInMemory(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputpridata: Long, outputprisize: Long): HRESULT =
-    0
+public actual fun mrmCreateResourceFileInMemory(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputpridata: COpaquePointer?, outputprisize: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MrmCreateResourceFileWithChecksum(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, checksum: UInt, outputdirectory: PCWSTR): HRESULT =
-    0
+public actual fun mrmCreateResourceFileWithChecksum(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, checksum: UInt, outputdirectory: Pcwstr): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MrmCreateResourceIndexer(packagefamilyname: PCWSTR, projectroot: PCWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, indexer: Long): HRESULT =
-    0
+public actual fun mrmCreateResourceIndexer(packagefamilyname: Pcwstr, projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, indexer: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MrmCreateResourceIndexerFromPreviousPriData(projectroot: PCWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, pridata: Long, prisize: UInt, indexer: Long): HRESULT =
-    0
+public actual fun mrmCreateResourceIndexerFromPreviousPriData(projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, pridata: COpaquePointer?, prisize: UInt, indexer: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MrmCreateResourceIndexerFromPreviousPriFile(projectroot: PCWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, prifile: PCWSTR, indexer: Long): HRESULT =
-    0
+public actual fun mrmCreateResourceIndexerFromPreviousPriFile(projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, prifile: Pcwstr, indexer: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MrmCreateResourceIndexerFromPreviousSchemaData(projectroot: PCWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, schemaxmldata: Long, schemaxmlsize: UInt, indexer: Long): HRESULT =
-    0
+public actual fun mrmCreateResourceIndexerFromPreviousSchemaData(projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, schemaxmldata: COpaquePointer?, schemaxmlsize: UInt, indexer: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MrmCreateResourceIndexerFromPreviousSchemaFile(projectroot: PCWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, schemafile: PCWSTR, indexer: Long): HRESULT =
-    0
+public actual fun mrmCreateResourceIndexerFromPreviousSchemaFile(projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, schemafile: Pcwstr, indexer: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MrmCreateResourceIndexerWithFlags(packagefamilyname: PCWSTR, projectroot: PCWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, flags: MrmIndexerFlags, indexer: Long): HRESULT =
-    0
+public actual fun mrmCreateResourceIndexerWithFlags(packagefamilyname: Pcwstr, projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, flags: MrmIndexerFlags, indexer: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MrmDestroyIndexerAndMessages(indexer: MrmResourceIndexerHandle): HRESULT =
-    0
+public actual fun mrmDestroyIndexerAndMessages(indexer: MrmResourceIndexerHandle): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MrmDumpPriDataInMemory(inputpridata: Long, inputprisize: UInt, schemapridata: Long, schemaprisize: UInt, dumptype: MrmDumpType, outputxmldata: Long, outputxmlsize: Long): HRESULT =
-    0
+public actual fun mrmDumpPriDataInMemory(inputpridata: COpaquePointer?, inputprisize: UInt, schemapridata: COpaquePointer?, schemaprisize: UInt, dumptype: MrmDumpType, outputxmldata: COpaquePointer?, outputxmlsize: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MrmDumpPriFile(indexfilename: PCWSTR, schemaprifile: PCWSTR, dumptype: MrmDumpType, outputxmlfile: PCWSTR): HRESULT =
-    0
+public actual fun mrmDumpPriFile(indexfilename: Pcwstr, schemaprifile: Pcwstr, dumptype: MrmDumpType, outputxmlfile: Pcwstr): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MrmDumpPriFileInMemory(indexfilename: PCWSTR, schemaprifile: PCWSTR, dumptype: MrmDumpType, outputxmldata: Long, outputxmlsize: Long): HRESULT =
-    0
+public actual fun mrmDumpPriFileInMemory(indexfilename: Pcwstr, schemaprifile: Pcwstr, dumptype: MrmDumpType, outputxmldata: COpaquePointer?, outputxmlsize: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MrmFreeMemory(data: Long): HRESULT =
-    0
+public actual fun mrmFreeMemory(data: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MrmGetPriFileContentChecksum(prifile: PCWSTR, checksum: Long): HRESULT =
-    0
+public actual fun mrmGetPriFileContentChecksum(prifile: Pcwstr, checksum: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MrmIndexEmbeddedData(indexer: MrmResourceIndexerHandle, resourceuri: PCWSTR, embeddeddata: Long, embeddeddatasize: UInt, qualifiers: PCWSTR): HRESULT =
-    0
+public actual fun mrmIndexEmbeddedData(indexer: MrmResourceIndexerHandle, resourceuri: Pcwstr, embeddeddata: COpaquePointer?, embeddeddatasize: UInt, qualifiers: Pcwstr): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MrmIndexFile(indexer: MrmResourceIndexerHandle, resourceuri: PCWSTR, filepath: PCWSTR, qualifiers: PCWSTR): HRESULT =
-    0
+public actual fun mrmIndexFile(indexer: MrmResourceIndexerHandle, resourceuri: Pcwstr, filepath: Pcwstr, qualifiers: Pcwstr): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MrmIndexFileAutoQualifiers(indexer: MrmResourceIndexerHandle, filepath: PCWSTR): HRESULT =
-    0
+public actual fun mrmIndexFileAutoQualifiers(indexer: MrmResourceIndexerHandle, filepath: Pcwstr): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MrmIndexResourceContainerAutoQualifiers(indexer: MrmResourceIndexerHandle, containerpath: PCWSTR): HRESULT =
-    0
+public actual fun mrmIndexResourceContainerAutoQualifiers(indexer: MrmResourceIndexerHandle, containerpath: Pcwstr): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MrmIndexString(indexer: MrmResourceIndexerHandle, resourceuri: PCWSTR, resourcestring: PCWSTR, qualifiers: PCWSTR): HRESULT =
-    0
+public actual fun mrmIndexString(indexer: MrmResourceIndexerHandle, resourceuri: Pcwstr, resourcestring: Pcwstr, qualifiers: Pcwstr): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MrmPeekResourceIndexerMessages(handle: MrmResourceIndexerHandle, messages: Long, nummsgs: Long): HRESULT =
-    0
+public actual fun mrmPeekResourceIndexerMessages(handle: MrmResourceIndexerHandle, messages: COpaquePointer?, nummsgs: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MsgWaitForMultipleObjects(ncount: UInt, phandles: Long, fwaitall: BOOL, dwmilliseconds: UInt, dwwakemask: QUEUE_STATUS_FLAGS): WAIT_EVENT =
-    0u
+public actual fun msgWaitForMultipleObjects(ncount: UInt, phandles: COpaquePointer?, fwaitall: Bool, dwmilliseconds: UInt, dwwakemask: QueueStatusFlags): WaitEvent =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MsgWaitForMultipleObjectsEx(ncount: UInt, phandles: Long, dwmilliseconds: UInt, dwwakemask: QUEUE_STATUS_FLAGS, dwflags: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS): WAIT_EVENT =
-    0u
+public actual fun msgWaitForMultipleObjectsEx(ncount: UInt, phandles: COpaquePointer?, dwmilliseconds: UInt, dwwakemask: QueueStatusFlags, dwflags: MsgWaitForMultipleObjectsExFlags): WaitEvent =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OemToCharA(psrc: PCSTR, pdst: PSTR): BOOL =
-    0
+public actual fun oemToCharA(psrc: Pcstr, pdst: Pstr): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OemToCharBuffA(lpszsrc: PCSTR, lpszdst: PSTR, cchdstlength: UInt): BOOL =
-    0
+public actual fun oemToCharBuffA(lpszsrc: Pcstr, lpszdst: Pstr, cchdstlength: UInt): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OemToCharBuffW(lpszsrc: PCSTR, lpszdst: PWSTR, cchdstlength: UInt): BOOL =
-    0
+public actual fun oemToCharBuffW(lpszsrc: Pcstr, lpszdst: Pwstr, cchdstlength: UInt): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OemToCharW(psrc: PCSTR, pdst: PWSTR): BOOL =
-    0
+public actual fun oemToCharW(psrc: Pcstr, pdst: Pwstr): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OpenIcon(hwnd: HWND): BOOL =
-    0
+public actual fun openIcon(hwnd: Hwnd): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun PeekMessageA(lpmsg: Long, hwnd: HWND, wmsgfiltermin: UInt, wmsgfiltermax: UInt, wremovemsg: PEEK_MESSAGE_REMOVE_TYPE): BOOL =
-    0
+public actual fun peekMessageA(lpmsg: COpaquePointer?, hwnd: Hwnd, wmsgfiltermin: UInt, wmsgfiltermax: UInt, wremovemsg: PeekMessageRemoveType): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun PeekMessageW(lpmsg: Long, hwnd: HWND, wmsgfiltermin: UInt, wmsgfiltermax: UInt, wremovemsg: PEEK_MESSAGE_REMOVE_TYPE): BOOL =
-    0
+public actual fun peekMessageW(lpmsg: COpaquePointer?, hwnd: Hwnd, wmsgfiltermin: UInt, wmsgfiltermax: UInt, wremovemsg: PeekMessageRemoveType): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun PhysicalToLogicalPoint(hwnd: HWND, lppoint: Long): BOOL =
-    0
+public actual fun physicalToLogicalPoint(hwnd: Hwnd, lppoint: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun PostMessageA(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): BOOL =
-    0
+public actual fun postMessageA(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun PostMessageW(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): BOOL =
-    0
+public actual fun postMessageW(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun PostQuitMessage(nexitcode: Int) {
+public actual fun postQuitMessage(nexitcode: Int) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun PostThreadMessageA(idthread: UInt, msg: UInt, wparam: WPARAM, lparam: LPARAM): BOOL =
-    0
+public actual fun postThreadMessageA(idthread: UInt, msg: UInt, wparam: Wparam, lparam: Lparam): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun PostThreadMessageW(idthread: UInt, msg: UInt, wparam: WPARAM, lparam: LPARAM): BOOL =
-    0
+public actual fun postThreadMessageW(idthread: UInt, msg: UInt, wparam: Wparam, lparam: Lparam): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun PrivateExtractIconsA(szfilename: PCSTR, niconindex: Int, cxicon: Int, cyicon: Int, phicon: Long, piconid: Long, nicons: UInt, flags: UInt): UInt =
-    0u
+public actual fun privateExtractIconsA(szfilename: Pcstr, niconindex: Int, cxicon: Int, cyicon: Int, phicon: COpaquePointer?, piconid: COpaquePointer?, nicons: UInt, flags: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun PrivateExtractIconsW(szfilename: PCWSTR, niconindex: Int, cxicon: Int, cyicon: Int, phicon: Long, piconid: Long, nicons: UInt, flags: UInt): UInt =
-    0u
+public actual fun privateExtractIconsW(szfilename: Pcwstr, niconindex: Int, cxicon: Int, cyicon: Int, phicon: COpaquePointer?, piconid: COpaquePointer?, nicons: UInt, flags: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RealChildWindowFromPoint(hwndparent: HWND, ptparentclientcoords: POINT): HWND =
-    0L
+public actual fun realChildWindowFromPoint(hwndparent: Hwnd, ptparentclientcoords: Point): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RealGetWindowClassA(hwnd: HWND, ptszclassname: PSTR, cchclassnamemax: UInt): UInt =
-    0u
+public actual fun realGetWindowClassA(hwnd: Hwnd, ptszclassname: Pstr, cchclassnamemax: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RealGetWindowClassW(hwnd: HWND, ptszclassname: PWSTR, cchclassnamemax: UInt): UInt =
-    0u
+public actual fun realGetWindowClassW(hwnd: Hwnd, ptszclassname: Pwstr, cchclassnamemax: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RegisterClassA(lpwndclass: Long): UShort =
-    0u
+public actual fun registerClassA(lpwndclass: COpaquePointer?): UShort =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RegisterClassExA(param0: Long): UShort =
-    0u
+public actual fun registerClassExA(param0: COpaquePointer?): UShort =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RegisterClassExW(param0: Long): UShort =
-    0u
+public actual fun registerClassExW(param0: COpaquePointer?): UShort =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RegisterClassW(lpwndclass: Long): UShort =
-    0u
+public actual fun registerClassW(lpwndclass: COpaquePointer?): UShort =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RegisterDeviceNotificationA(hrecipient: HANDLE, notificationfilter: Long, flags: REGISTER_NOTIFICATION_FLAGS): HDEVNOTIFY =
-    0L
+public actual fun registerDeviceNotificationA(hrecipient: Handle, notificationfilter: COpaquePointer?, flags: RegisterNotificationFlags): Hdevnotify =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RegisterDeviceNotificationW(hrecipient: HANDLE, notificationfilter: Long, flags: REGISTER_NOTIFICATION_FLAGS): HDEVNOTIFY =
-    0L
+public actual fun registerDeviceNotificationW(hrecipient: Handle, notificationfilter: COpaquePointer?, flags: RegisterNotificationFlags): Hdevnotify =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RegisterForTooltipDismissNotification(hwnd: HWND, tdflags: TOOLTIP_DISMISS_FLAGS): BOOL =
-    0
+public actual fun registerForTooltipDismissNotification(hwnd: Hwnd, tdflags: TooltipDismissFlags): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RegisterShellHookWindow(hwnd: HWND): BOOL =
-    0
+public actual fun registerShellHookWindow(hwnd: Hwnd): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RegisterWindowMessageA(lpstring: PCSTR): UInt =
-    0u
+public actual fun registerWindowMessageA(lpstring: Pcstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RegisterWindowMessageW(lpstring: PCWSTR): UInt =
-    0u
+public actual fun registerWindowMessageW(lpstring: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RemoveMenu(hmenu: HMENU, uposition: UInt, uflags: MENU_ITEM_FLAGS): BOOL =
-    0
+public actual fun removeMenu(hmenu: Hmenu, uposition: UInt, uflags: MenuItemFlags): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RemovePropA(hwnd: HWND, lpstring: PCSTR): HANDLE =
-    0L
+public actual fun removePropA(hwnd: Hwnd, lpstring: Pcstr): Handle =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RemovePropW(hwnd: HWND, lpstring: PCWSTR): HANDLE =
-    0L
+public actual fun removePropW(hwnd: Hwnd, lpstring: Pcwstr): Handle =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ReplyMessage(lresult: LRESULT): BOOL =
-    0
+public actual fun replyMessage(lresult: Lresult): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ScrollDC(hdc: HDC, dx: Int, dy: Int, lprcscroll: Long, lprcclip: Long, hrgnupdate: HRGN, lprcupdate: Long): BOOL =
-    0
+public actual fun scrollDC(hdc: Hdc, dx: Int, dy: Int, lprcscroll: COpaquePointer?, lprcclip: COpaquePointer?, hrgnupdate: Hrgn, lprcupdate: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ScrollWindow(hwnd: HWND, xamount: Int, yamount: Int, lprect: Long, lpcliprect: Long): BOOL =
-    0
+public actual fun scrollWindow(hwnd: Hwnd, xamount: Int, yamount: Int, lprect: COpaquePointer?, lpcliprect: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ScrollWindowEx(hwnd: HWND, dx: Int, dy: Int, prcscroll: Long, prcclip: Long, hrgnupdate: HRGN, prcupdate: Long, flags: SCROLL_WINDOW_FLAGS): Int =
-    0
+public actual fun scrollWindowEx(hwnd: Hwnd, dx: Int, dy: Int, prcscroll: COpaquePointer?, prcclip: COpaquePointer?, hrgnupdate: Hrgn, prcupdate: COpaquePointer?, flags: ScrollWindowFlags): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SendDlgItemMessageA(hdlg: HWND, niddlgitem: Int, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT =
-    0L
+public actual fun sendDlgItemMessageA(hdlg: Hwnd, niddlgitem: Int, msg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SendDlgItemMessageW(hdlg: HWND, niddlgitem: Int, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT =
-    0L
+public actual fun sendDlgItemMessageW(hdlg: Hwnd, niddlgitem: Int, msg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SendMessageA(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT =
-    0L
+public actual fun sendMessageA(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SendMessageCallbackA(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM, lpresultcallback: SENDASYNCPROC, dwdata: ULong): BOOL =
-    0
+public actual fun sendMessageCallbackA(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam, lpresultcallback: Sendasyncproc, dwdata: ULong): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SendMessageCallbackW(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM, lpresultcallback: SENDASYNCPROC, dwdata: ULong): BOOL =
-    0
+public actual fun sendMessageCallbackW(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam, lpresultcallback: Sendasyncproc, dwdata: ULong): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SendMessageTimeoutA(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM, fuflags: SEND_MESSAGE_TIMEOUT_FLAGS, utimeout: UInt, lpdwresult: Long): LRESULT =
-    0L
+public actual fun sendMessageTimeoutA(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam, fuflags: SendMessageTimeoutFlags, utimeout: UInt, lpdwresult: COpaquePointer?): Lresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SendMessageTimeoutW(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM, fuflags: SEND_MESSAGE_TIMEOUT_FLAGS, utimeout: UInt, lpdwresult: Long): LRESULT =
-    0L
+public actual fun sendMessageTimeoutW(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam, fuflags: SendMessageTimeoutFlags, utimeout: UInt, lpdwresult: COpaquePointer?): Lresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SendMessageW(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT =
-    0L
+public actual fun sendMessageW(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SendNotifyMessageA(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): BOOL =
-    0
+public actual fun sendNotifyMessageA(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SendNotifyMessageW(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): BOOL =
-    0
+public actual fun sendNotifyMessageW(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetAdditionalForegroundBoostProcesses(toplevelwindow: HWND, processhandlecount: UInt, processhandlearray: Long): BOOL =
-    0
+public actual fun setAdditionalForegroundBoostProcesses(toplevelwindow: Hwnd, processhandlecount: UInt, processhandlearray: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetCaretBlinkTime(umseconds: UInt): BOOL =
-    0
+public actual fun setCaretBlinkTime(umseconds: UInt): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetCaretPos(x: Int, y: Int): BOOL =
-    0
+public actual fun setCaretPos(x: Int, y: Int): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetClassLongA(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX, dwnewlong: Int): UInt =
-    0u
+public actual fun setClassLongA(hwnd: Hwnd, nindex: GetClassLongIndex, dwnewlong: Int): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetClassLongPtrA(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX, dwnewlong: Long): ULong =
-    0uL
+public actual fun setClassLongPtrA(hwnd: Hwnd, nindex: GetClassLongIndex, dwnewlong: Long): ULong =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetClassLongPtrW(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX, dwnewlong: Long): ULong =
-    0uL
+public actual fun setClassLongPtrW(hwnd: Hwnd, nindex: GetClassLongIndex, dwnewlong: Long): ULong =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetClassLongW(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX, dwnewlong: Int): UInt =
-    0u
+public actual fun setClassLongW(hwnd: Hwnd, nindex: GetClassLongIndex, dwnewlong: Int): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetClassWord(hwnd: HWND, nindex: Int, wnewword: UShort): UShort =
-    0u
+public actual fun setClassWord(hwnd: Hwnd, nindex: Int, wnewword: UShort): UShort =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetCoalescableTimer(hwnd: HWND, nidevent: ULong, uelapse: UInt, lptimerfunc: TIMERPROC, utolerancedelay: UInt): ULong =
-    0uL
+public actual fun setCoalescableTimer(hwnd: Hwnd, nidevent: ULong, uelapse: UInt, lptimerfunc: Timerproc, utolerancedelay: UInt): ULong =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetCursor(hcursor: HCURSOR): HCURSOR =
-    0L
+public actual fun setCursor(hcursor: Hcursor): Hcursor =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetCursorPos(x: Int, y: Int): BOOL =
-    0
+public actual fun setCursorPos(x: Int, y: Int): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetDebugErrorLevel(dwlevel: UInt) {
+public actual fun setDebugErrorLevel(dwlevel: UInt) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun SetDlgItemInt(hdlg: HWND, niddlgitem: Int, uvalue: UInt, bsigned: BOOL): BOOL =
-    0
+public actual fun setDlgItemInt(hdlg: Hwnd, niddlgitem: Int, uvalue: UInt, bsigned: Bool): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetDlgItemTextA(hdlg: HWND, niddlgitem: Int, lpstring: PCSTR): BOOL =
-    0
+public actual fun setDlgItemTextA(hdlg: Hwnd, niddlgitem: Int, lpstring: Pcstr): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetDlgItemTextW(hdlg: HWND, niddlgitem: Int, lpstring: PCWSTR): BOOL =
-    0
+public actual fun setDlgItemTextW(hdlg: Hwnd, niddlgitem: Int, lpstring: Pcwstr): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetForegroundWindow(hwnd: HWND): BOOL =
-    0
+public actual fun setForegroundWindow(hwnd: Hwnd): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetLayeredWindowAttributes(hwnd: HWND, crkey: COLORREF, balpha: UByte, dwflags: LAYERED_WINDOW_ATTRIBUTES_FLAGS): BOOL =
-    0
+public actual fun setLayeredWindowAttributes(hwnd: Hwnd, crkey: Colorref, balpha: UByte, dwflags: LayeredWindowAttributesFlags): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetMenu(hwnd: HWND, hmenu: HMENU): BOOL =
-    0
+public actual fun setMenu(hwnd: Hwnd, hmenu: Hmenu): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetMenuDefaultItem(hmenu: HMENU, uitem: UInt, fbypos: UInt): BOOL =
-    0
+public actual fun setMenuDefaultItem(hmenu: Hmenu, uitem: UInt, fbypos: UInt): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetMenuInfo(param0: HMENU, param1: Long): BOOL =
-    0
+public actual fun setMenuInfo(param0: Hmenu, param1: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetMenuItemBitmaps(hmenu: HMENU, uposition: UInt, uflags: MENU_ITEM_FLAGS, hbitmapunchecked: HBITMAP, hbitmapchecked: HBITMAP): BOOL =
-    0
+public actual fun setMenuItemBitmaps(hmenu: Hmenu, uposition: UInt, uflags: MenuItemFlags, hbitmapunchecked: Hbitmap, hbitmapchecked: Hbitmap): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetMenuItemInfoA(hmenu: HMENU, item: UInt, fbypositon: BOOL, lpmii: Long): BOOL =
-    0
+public actual fun setMenuItemInfoA(hmenu: Hmenu, item: UInt, fbypositon: Bool, lpmii: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetMenuItemInfoW(hmenu: HMENU, item: UInt, fbypositon: BOOL, lpmii: Long): BOOL =
-    0
+public actual fun setMenuItemInfoW(hmenu: Hmenu, item: UInt, fbypositon: Bool, lpmii: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetMessageExtraInfo(lparam: LPARAM): LPARAM =
-    0L
+public actual fun setMessageExtraInfo(lparam: Lparam): Lparam =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetMessageQueue(cmessagesmax: Int): BOOL =
-    0
+public actual fun setMessageQueue(cmessagesmax: Int): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetParent(hwndchild: HWND, hwndnewparent: HWND): HWND =
-    0L
+public actual fun setParent(hwndchild: Hwnd, hwndnewparent: Hwnd): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetPhysicalCursorPos(x: Int, y: Int): BOOL =
-    0
+public actual fun setPhysicalCursorPos(x: Int, y: Int): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetProcessDPIAware(): BOOL =
-    0
+public actual fun setProcessDPIAware(): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetProcessDefaultLayout(dwdefaultlayout: UInt): BOOL =
-    0
+public actual fun setProcessDefaultLayout(dwdefaultlayout: UInt): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetPropA(hwnd: HWND, lpstring: PCSTR, hdata: HANDLE): BOOL =
-    0
+public actual fun setPropA(hwnd: Hwnd, lpstring: Pcstr, hdata: Handle): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetPropW(hwnd: HWND, lpstring: PCWSTR, hdata: HANDLE): BOOL =
-    0
+public actual fun setPropW(hwnd: Hwnd, lpstring: Pcwstr, hdata: Handle): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetSystemCursor(hcur: HCURSOR, id: SYSTEM_CURSOR_ID): BOOL =
-    0
+public actual fun setSystemCursor(hcur: Hcursor, id: SystemCursorId): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetTimer(hwnd: HWND, nidevent: ULong, uelapse: UInt, lptimerfunc: TIMERPROC): ULong =
-    0uL
+public actual fun setTimer(hwnd: Hwnd, nidevent: ULong, uelapse: UInt, lptimerfunc: Timerproc): ULong =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetWindowDisplayAffinity(hwnd: HWND, dwaffinity: WINDOW_DISPLAY_AFFINITY): BOOL =
-    0
+public actual fun setWindowDisplayAffinity(hwnd: Hwnd, dwaffinity: WindowDisplayAffinity): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetWindowLongA(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: Int): Int =
-    0
+public actual fun setWindowLongA(hwnd: Hwnd, nindex: WindowLongPtrIndex, dwnewlong: Int): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetWindowLongPtrA(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: Long): Long =
-    0L
+public actual fun setWindowLongPtrA(hwnd: Hwnd, nindex: WindowLongPtrIndex, dwnewlong: Long): Long =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetWindowLongPtrW(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: Long): Long =
-    0L
+public actual fun setWindowLongPtrW(hwnd: Hwnd, nindex: WindowLongPtrIndex, dwnewlong: Long): Long =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetWindowLongW(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: Int): Int =
-    0
+public actual fun setWindowLongW(hwnd: Hwnd, nindex: WindowLongPtrIndex, dwnewlong: Int): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetWindowPlacement(hwnd: HWND, lpwndpl: Long): BOOL =
-    0
+public actual fun setWindowPlacement(hwnd: Hwnd, lpwndpl: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetWindowPos(hwnd: HWND, hwndinsertafter: HWND, x: Int, y: Int, cx: Int, cy: Int, uflags: SET_WINDOW_POS_FLAGS): BOOL =
-    0
+public actual fun setWindowPos(hwnd: Hwnd, hwndinsertafter: Hwnd, x: Int, y: Int, cx: Int, cy: Int, uflags: SetWindowPosFlags): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetWindowTextA(hwnd: HWND, lpstring: PCSTR): BOOL =
-    0
+public actual fun setWindowTextA(hwnd: Hwnd, lpstring: Pcstr): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetWindowTextW(hwnd: HWND, lpstring: PCWSTR): BOOL =
-    0
+public actual fun setWindowTextW(hwnd: Hwnd, lpstring: Pcwstr): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetWindowWord(hwnd: HWND, nindex: Int, wnewword: UShort): UShort =
-    0u
+public actual fun setWindowWord(hwnd: Hwnd, nindex: Int, wnewword: UShort): UShort =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetWindowsHookA(nfiltertype: Int, pfnfilterproc: HOOKPROC): HHOOK =
-    0L
+public actual fun setWindowsHookA(nfiltertype: Int, pfnfilterproc: Hookproc): Hhook =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetWindowsHookExA(idhook: WINDOWS_HOOK_ID, lpfn: HOOKPROC, hmod: HINSTANCE, dwthreadid: UInt): HHOOK =
-    0L
+public actual fun setWindowsHookExA(idhook: WindowsHookId, lpfn: Hookproc, hmod: Hinstance, dwthreadid: UInt): Hhook =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetWindowsHookExW(idhook: WINDOWS_HOOK_ID, lpfn: HOOKPROC, hmod: HINSTANCE, dwthreadid: UInt): HHOOK =
-    0L
+public actual fun setWindowsHookExW(idhook: WindowsHookId, lpfn: Hookproc, hmod: Hinstance, dwthreadid: UInt): Hhook =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetWindowsHookW(nfiltertype: Int, pfnfilterproc: HOOKPROC): HHOOK =
-    0L
+public actual fun setWindowsHookW(nfiltertype: Int, pfnfilterproc: Hookproc): Hhook =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ShowCaret(hwnd: HWND): BOOL =
-    0
+public actual fun showCaret(hwnd: Hwnd): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ShowCursor(bshow: BOOL): Int =
-    0
+public actual fun showCursor(bshow: Bool): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ShowOwnedPopups(hwnd: HWND, fshow: BOOL): BOOL =
-    0
+public actual fun showOwnedPopups(hwnd: Hwnd, fshow: Bool): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ShowWindow(hwnd: HWND, ncmdshow: SHOW_WINDOW_CMD): BOOL =
-    0
+public actual fun showWindow(hwnd: Hwnd, ncmdshow: ShowWindowCmd): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ShowWindowAsync(hwnd: HWND, ncmdshow: SHOW_WINDOW_CMD): BOOL =
-    0
+public actual fun showWindowAsync(hwnd: Hwnd, ncmdshow: ShowWindowCmd): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SoundSentry(): BOOL =
-    0
+public actual fun soundSentry(): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SwitchToThisWindow(hwnd: HWND, funknown: BOOL) {
+public actual fun switchToThisWindow(hwnd: Hwnd, funknown: Bool) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun SystemParametersInfoA(uiaction: SYSTEM_PARAMETERS_INFO_ACTION, uiparam: UInt, pvparam: Long, fwinini: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS): BOOL =
-    0
+public actual fun systemParametersInfoA(uiaction: SystemParametersInfoAction, uiparam: UInt, pvparam: COpaquePointer?, fwinini: SystemParametersInfoUpdateFlags): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SystemParametersInfoW(uiaction: SYSTEM_PARAMETERS_INFO_ACTION, uiparam: UInt, pvparam: Long, fwinini: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS): BOOL =
-    0
+public actual fun systemParametersInfoW(uiaction: SystemParametersInfoAction, uiparam: UInt, pvparam: COpaquePointer?, fwinini: SystemParametersInfoUpdateFlags): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun TileWindows(hwndparent: HWND, whow: TILE_WINDOWS_HOW, lprect: Long, ckids: UInt, lpkids: Long): UShort =
-    0u
+public actual fun tileWindows(hwndparent: Hwnd, whow: TileWindowsHow, lprect: COpaquePointer?, ckids: UInt, lpkids: COpaquePointer?): UShort =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun TrackPopupMenu(hmenu: HMENU, uflags: TRACK_POPUP_MENU_FLAGS, x: Int, y: Int, nreserved: Int, hwnd: HWND, prcrect: Long): BOOL =
-    0
+public actual fun trackPopupMenu(hmenu: Hmenu, uflags: TrackPopupMenuFlags, x: Int, y: Int, nreserved: Int, hwnd: Hwnd, prcrect: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun TrackPopupMenuEx(hmenu: HMENU, uflags: UInt, x: Int, y: Int, hwnd: HWND, lptpm: Long): BOOL =
-    0
+public actual fun trackPopupMenuEx(hmenu: Hmenu, uflags: UInt, x: Int, y: Int, hwnd: Hwnd, lptpm: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun TranslateAcceleratorA(hwnd: HWND, hacctable: HACCEL, lpmsg: Long): Int =
-    0
+public actual fun translateAcceleratorA(hwnd: Hwnd, hacctable: Haccel, lpmsg: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun TranslateAcceleratorW(hwnd: HWND, hacctable: HACCEL, lpmsg: Long): Int =
-    0
+public actual fun translateAcceleratorW(hwnd: Hwnd, hacctable: Haccel, lpmsg: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun TranslateMDISysAccel(hwndclient: HWND, lpmsg: Long): BOOL =
-    0
+public actual fun translateMDISysAccel(hwndclient: Hwnd, lpmsg: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun TranslateMessage(lpmsg: Long): BOOL =
-    0
+public actual fun translateMessage(lpmsg: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun UnhookWindowsHook(ncode: Int, pfnfilterproc: HOOKPROC): BOOL =
-    0
+public actual fun unhookWindowsHook(ncode: Int, pfnfilterproc: Hookproc): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun UnhookWindowsHookEx(hhk: HHOOK): BOOL =
-    0
+public actual fun unhookWindowsHookEx(hhk: Hhook): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun UnregisterClassA(lpclassname: PCSTR, hinstance: HINSTANCE): BOOL =
-    0
+public actual fun unregisterClassA(lpclassname: Pcstr, hinstance: Hinstance): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun UnregisterClassW(lpclassname: PCWSTR, hinstance: HINSTANCE): BOOL =
-    0
+public actual fun unregisterClassW(lpclassname: Pcwstr, hinstance: Hinstance): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun UnregisterDeviceNotification(handle: HDEVNOTIFY): BOOL =
-    0
+public actual fun unregisterDeviceNotification(handle: Hdevnotify): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun UpdateLayeredWindow(hwnd: HWND, hdcdst: HDC, pptdst: Long, psize: Long, hdcsrc: HDC, pptsrc: Long, crkey: COLORREF, pblend: Long, dwflags: UPDATE_LAYERED_WINDOW_FLAGS): BOOL =
-    0
+public actual fun updateLayeredWindow(hwnd: Hwnd, hdcdst: Hdc, pptdst: COpaquePointer?, psize: COpaquePointer?, hdcsrc: Hdc, pptsrc: COpaquePointer?, crkey: Colorref, pblend: COpaquePointer?, dwflags: UpdateLayeredWindowFlags): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun UpdateLayeredWindowIndirect(hwnd: HWND, pulwinfo: Long): BOOL =
-    0
+public actual fun updateLayeredWindowIndirect(hwnd: Hwnd, pulwinfo: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun WaitMessage(): BOOL =
-    0
+public actual fun waitMessage(): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun WindowFromPhysicalPoint(point: POINT): HWND =
-    0L
+public actual fun windowFromPhysicalPoint(point: Point): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun WindowFromPoint(point: POINT): HWND =
-    0L
+public actual fun windowFromPoint(point: Point): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun wsprintfA(param0: PSTR, param1: PCSTR): Int =
-    0
+public actual fun wsprintfA(param0: Pstr, param1: Pcstr, vararg variadicArgs: Long): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun wsprintfW(param0: PWSTR, param1: PCWSTR): Int =
-    0
+public actual fun wsprintfW(param0: Pwstr, param1: Pcwstr, vararg variadicArgs: Long): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun wvsprintfA(param0: PSTR, param1: PCSTR, arglist: Long): Int =
-    0
+public actual fun wvsprintfA(param0: Pstr, param1: Pcstr, arglist: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun wvsprintfW(param0: PWSTR, param1: PCWSTR, arglist: Long): Int =
-    0
+public actual fun wvsprintfW(param0: Pwstr, param1: Pcwstr, arglist: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

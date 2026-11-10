@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_system_componentservices_CoCreateActivity(void* piunknown, void* riid, void* ppobj) {
+int32_t windowssys_windows_win32_system_componentservices_coCreateActivity(void* piunknown, void* riid, void* ppobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -39,7 +39,7 @@ int32_t windowssys_windows_win32_system_componentservices_CoCreateActivity(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_componentservices_CoEnterServiceDomain(void* pconfigobject) {
+int32_t windowssys_windows_win32_system_componentservices_coEnterServiceDomain(void* pconfigobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -61,7 +61,7 @@ int32_t windowssys_windows_win32_system_componentservices_CoEnterServiceDomain(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_componentservices_CoGetDefaultContext(int32_t apttype, void* riid, void* ppv) {
+int32_t windowssys_windows_win32_system_componentservices_coGetDefaultContext(int32_t apttype, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -85,7 +85,7 @@ int32_t windowssys_windows_win32_system_componentservices_CoGetDefaultContext(in
 #endif
 }
 
-void windowssys_windows_win32_system_componentservices_CoLeaveServiceDomain(void* punkstatus) {
+void windowssys_windows_win32_system_componentservices_coLeaveServiceDomain(void* punkstatus) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -106,7 +106,7 @@ void windowssys_windows_win32_system_componentservices_CoLeaveServiceDomain(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_componentservices_GetDispenserManager(void* param0) {
+int32_t windowssys_windows_win32_system_componentservices_getDispenserManager(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -128,7 +128,7 @@ int32_t windowssys_windows_win32_system_componentservices_GetDispenserManager(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_componentservices_GetManagedExtensions(void* dwexts) {
+int32_t windowssys_windows_win32_system_componentservices_getManagedExtensions(void* dwexts) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -150,7 +150,7 @@ int32_t windowssys_windows_win32_system_componentservices_GetManagedExtensions(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_componentservices_MTSCreateActivity(void* riid, void* ppobj) {
+int32_t windowssys_windows_win32_system_componentservices_mTSCreateActivity(void* riid, void* ppobj) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -173,7 +173,7 @@ int32_t windowssys_windows_win32_system_componentservices_MTSCreateActivity(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_componentservices_RecycleSurrogate(int32_t lreasoncode) {
+int32_t windowssys_windows_win32_system_componentservices_recycleSurrogate(int32_t lreasoncode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -195,7 +195,7 @@ int32_t windowssys_windows_win32_system_componentservices_RecycleSurrogate(int32
 #endif
 }
 
-void* windowssys_windows_win32_system_componentservices_SafeRef(void* rid, void* punk) {
+void* windowssys_windows_win32_system_componentservices_safeRef(void* rid, void* punk) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;

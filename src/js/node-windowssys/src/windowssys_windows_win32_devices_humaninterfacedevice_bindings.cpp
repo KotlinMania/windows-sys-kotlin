@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_DirectInput8Create_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_directInput8Create_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwversion = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -77,7 +77,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_DirectI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidD_FlushQueue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidDFlushQueue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hiddeviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -95,7 +95,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidD_Fl
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidD_FreePreparsedData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidDFreePreparsedData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t preparseddata = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -113,7 +113,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidD_Fr
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetAttributes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidDGetAttributes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hiddeviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* attributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -133,7 +133,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidD_Ge
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetConfiguration_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidDGetConfiguration_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hiddeviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* configuration = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -155,7 +155,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidD_Ge
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetFeature_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidDGetFeature_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hiddeviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* reportbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -177,7 +177,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidD_Ge
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetHidGuid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidDGetHidGuid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hidguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -194,7 +194,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidD_Ge
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetIndexedString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidDGetIndexedString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hiddeviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t stringindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -218,7 +218,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidD_Ge
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetInputReport_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidDGetInputReport_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hiddeviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* reportbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -240,7 +240,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidD_Ge
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetManufacturerString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidDGetManufacturerString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hiddeviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -262,7 +262,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidD_Ge
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetMsGenreDescriptor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidDGetMsGenreDescriptor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hiddeviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -284,7 +284,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidD_Ge
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetNumInputBuffers_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidDGetNumInputBuffers_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hiddeviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* numberbuffers = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -304,7 +304,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidD_Ge
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetPhysicalDescriptor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidDGetPhysicalDescriptor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hiddeviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -326,7 +326,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidD_Ge
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetPreparsedData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidDGetPreparsedData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hiddeviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* preparseddata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -346,7 +346,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidD_Ge
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetProductString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidDGetProductString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hiddeviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -368,7 +368,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidD_Ge
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetSerialNumberString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidDGetSerialNumberString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hiddeviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -390,7 +390,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidD_Ge
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidD_SetConfiguration_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidDSetConfiguration_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hiddeviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* configuration = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -412,7 +412,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidD_Se
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidD_SetFeature_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidDSetFeature_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hiddeviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* reportbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -434,7 +434,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidD_Se
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidD_SetNumInputBuffers_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidDSetNumInputBuffers_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hiddeviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t numberbuffers = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -454,7 +454,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidD_Se
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidD_SetOutputReport_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidDSetOutputReport_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hiddeviceobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* reportbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -476,7 +476,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidD_Se
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetButtonArray_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPGetButtonArray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t reporttype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint16_t usagepage = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -510,7 +510,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_Ge
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetButtonCaps_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPGetButtonCaps_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t reporttype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* buttoncaps = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -534,7 +534,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_Ge
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetCaps_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPGetCaps_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t preparseddata = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* capabilities = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -554,7 +554,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_Ge
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPGetData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t reporttype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* datalist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -582,7 +582,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_Ge
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetExtendedAttributes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPGetExtendedAttributes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t reporttype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint16_t dataindex = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -608,7 +608,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_Ge
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetLinkCollectionNodes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPGetLinkCollectionNodes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* linkcollectionnodes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* linkcollectionnodeslength = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -630,7 +630,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_Ge
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetScaledUsageValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPGetScaledUsageValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t reporttype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint16_t usagepage = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -662,7 +662,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_Ge
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetSpecificButtonCaps_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPGetSpecificButtonCaps_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t reporttype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint16_t usagepage = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -692,7 +692,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_Ge
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetSpecificValueCaps_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPGetSpecificValueCaps_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t reporttype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint16_t usagepage = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -722,7 +722,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_Ge
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetUsageValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPGetUsageValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t reporttype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint16_t usagepage = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -754,7 +754,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_Ge
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetUsageValueArray_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPGetUsageValueArray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t reporttype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint16_t usagepage = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -788,7 +788,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_Ge
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetUsages_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPGetUsages_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t reporttype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint16_t usagepage = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -820,7 +820,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_Ge
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetUsagesEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPGetUsagesEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t reporttype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint16_t linkcollection = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -850,7 +850,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_Ge
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetValueCaps_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPGetValueCaps_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t reporttype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* valuecaps = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -874,7 +874,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_Ge
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_InitializeReportForID_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPInitializeReportForId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t reporttype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint8_t reportid = static_cast<uint8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -900,7 +900,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_In
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_MaxDataListLength_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPMaxDataListLength_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t reporttype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int64_t preparseddata = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -920,7 +920,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_Ma
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_MaxUsageListLength_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPMaxUsageListLength_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t reporttype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint16_t usagepage = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -942,7 +942,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_Ma
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_SetButtonArray_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPSetButtonArray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t reporttype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint16_t usagepage = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -976,7 +976,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_Se
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_SetData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPSetData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t reporttype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* datalist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1004,7 +1004,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_Se
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_SetScaledUsageValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPSetScaledUsageValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t reporttype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint16_t usagepage = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1036,7 +1036,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_Se
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_SetUsageValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPSetUsageValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t reporttype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint16_t usagepage = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1068,7 +1068,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_Se
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_SetUsageValueArray_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPSetUsageValueArray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t reporttype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint16_t usagepage = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1102,7 +1102,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_Se
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_SetUsages_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPSetUsages_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t reporttype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint16_t usagepage = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1134,7 +1134,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_Se
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_TranslateUsagesToI8042ScanCodes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPTranslateUsagesToI8042ScanCodes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* changedusagelist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t usagelistlength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1162,7 +1162,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_Tr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_UnsetUsages_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPUnsetUsages_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t reporttype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint16_t usagepage = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1194,7 +1194,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_Un
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_HidP_UsageListDifference_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPUsageListDifference_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* previoususagelist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* currentusagelist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1239,52 +1239,52 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_joyConf
 }
 
 static void register_windows_win32_devices_humaninterfacedevice_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_DirectInput8Create", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_DirectInput8Create_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidD_FlushQueue", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidD_FlushQueue_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidD_FreePreparsedData", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidD_FreePreparsedData_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetAttributes", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetAttributes_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetConfiguration", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetConfiguration_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetFeature", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetFeature_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetHidGuid", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetHidGuid_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetIndexedString", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetIndexedString_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetInputReport", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetInputReport_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetManufacturerString", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetManufacturerString_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetMsGenreDescriptor", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetMsGenreDescriptor_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetNumInputBuffers", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetNumInputBuffers_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetPhysicalDescriptor", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetPhysicalDescriptor_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetPreparsedData", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetPreparsedData_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetProductString", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetProductString_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetSerialNumberString", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetSerialNumberString_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidD_SetConfiguration", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidD_SetConfiguration_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidD_SetFeature", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidD_SetFeature_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidD_SetNumInputBuffers", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidD_SetNumInputBuffers_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidD_SetOutputReport", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidD_SetOutputReport_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetButtonArray", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetButtonArray_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetButtonCaps", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetButtonCaps_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetCaps", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetCaps_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetData", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetData_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetExtendedAttributes", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetExtendedAttributes_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetLinkCollectionNodes", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetLinkCollectionNodes_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetScaledUsageValue", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetScaledUsageValue_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetSpecificButtonCaps", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetSpecificButtonCaps_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetSpecificValueCaps", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetSpecificValueCaps_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetUsageValue", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetUsageValue_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetUsageValueArray", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetUsageValueArray_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetUsages", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetUsages_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetUsagesEx", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetUsagesEx_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetValueCaps", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetValueCaps_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidP_InitializeReportForID", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidP_InitializeReportForID_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidP_MaxDataListLength", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidP_MaxDataListLength_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidP_MaxUsageListLength", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidP_MaxUsageListLength_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidP_SetButtonArray", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidP_SetButtonArray_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidP_SetData", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidP_SetData_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidP_SetScaledUsageValue", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidP_SetScaledUsageValue_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidP_SetUsageValue", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidP_SetUsageValue_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidP_SetUsageValueArray", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidP_SetUsageValueArray_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidP_SetUsages", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidP_SetUsages_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidP_TranslateUsagesToI8042ScanCodes", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidP_TranslateUsagesToI8042ScanCodes_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidP_UnsetUsages", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidP_UnsetUsages_napi));
-    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_HidP_UsageListDifference", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_HidP_UsageListDifference_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_directInput8Create", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_directInput8Create_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidDFlushQueue", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidDFlushQueue_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidDFreePreparsedData", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidDFreePreparsedData_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidDGetAttributes", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidDGetAttributes_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidDGetConfiguration", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidDGetConfiguration_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidDGetFeature", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidDGetFeature_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidDGetHidGuid", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidDGetHidGuid_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidDGetIndexedString", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidDGetIndexedString_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidDGetInputReport", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidDGetInputReport_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidDGetManufacturerString", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidDGetManufacturerString_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidDGetMsGenreDescriptor", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidDGetMsGenreDescriptor_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidDGetNumInputBuffers", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidDGetNumInputBuffers_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidDGetPhysicalDescriptor", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidDGetPhysicalDescriptor_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidDGetPreparsedData", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidDGetPreparsedData_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidDGetProductString", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidDGetProductString_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidDGetSerialNumberString", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidDGetSerialNumberString_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidDSetConfiguration", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidDSetConfiguration_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidDSetFeature", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidDSetFeature_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidDSetNumInputBuffers", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidDSetNumInputBuffers_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidDSetOutputReport", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidDSetOutputReport_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidPGetButtonArray", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidPGetButtonArray_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidPGetButtonCaps", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidPGetButtonCaps_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidPGetCaps", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidPGetCaps_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidPGetData", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidPGetData_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidPGetExtendedAttributes", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidPGetExtendedAttributes_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidPGetLinkCollectionNodes", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidPGetLinkCollectionNodes_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidPGetScaledUsageValue", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidPGetScaledUsageValue_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidPGetSpecificButtonCaps", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidPGetSpecificButtonCaps_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidPGetSpecificValueCaps", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidPGetSpecificValueCaps_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidPGetUsageValue", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidPGetUsageValue_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidPGetUsageValueArray", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidPGetUsageValueArray_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidPGetUsages", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidPGetUsages_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidPGetUsagesEx", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidPGetUsagesEx_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidPGetValueCaps", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidPGetValueCaps_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidPInitializeReportForId", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidPInitializeReportForId_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidPMaxDataListLength", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidPMaxDataListLength_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidPMaxUsageListLength", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidPMaxUsageListLength_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidPSetButtonArray", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidPSetButtonArray_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidPSetData", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidPSetData_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidPSetScaledUsageValue", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidPSetScaledUsageValue_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidPSetUsageValue", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidPSetUsageValue_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidPSetUsageValueArray", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidPSetUsageValueArray_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidPSetUsages", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidPSetUsages_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidPTranslateUsagesToI8042ScanCodes", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidPTranslateUsagesToI8042ScanCodes_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidPUnsetUsages", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidPUnsetUsages_napi));
+    exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_hidPUsageListDifference", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_hidPUsageListDifference_napi));
     exports.Set("windowssys_windows_win32_devices_humaninterfacedevice_joyConfigChanged", Napi::Function::New(env, windowssys_windows_win32_devices_humaninterfacedevice_joyConfigChanged_napi));
 }
 

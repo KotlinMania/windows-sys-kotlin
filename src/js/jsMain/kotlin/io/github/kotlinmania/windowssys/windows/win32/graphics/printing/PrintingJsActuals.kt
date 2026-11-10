@@ -2,672 +2,681 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.graphics.printing
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
 
 private val _windowsWin32GraphicsPrintingNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun AbortPrinter(hprinter: PRINTER_HANDLE): BOOL =
-    0
+public actual fun abortPrinter(hprinter: PrinterHandle): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddFormA(hprinter: PRINTER_HANDLE, level: UInt, pform: Long): BOOL =
-    0
+public actual fun addFormA(hprinter: PrinterHandle, level: UInt, pform: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddFormW(hprinter: PRINTER_HANDLE, level: UInt, pform: Long): BOOL =
-    0
+public actual fun addFormW(hprinter: PrinterHandle, level: UInt, pform: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddJobA(hprinter: PRINTER_HANDLE, level: UInt, pdata: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
-    0
+public actual fun addJobA(hprinter: PrinterHandle, level: UInt, pdata: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddJobW(hprinter: PRINTER_HANDLE, level: UInt, pdata: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
-    0
+public actual fun addJobW(hprinter: PrinterHandle, level: UInt, pdata: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddMonitorA(pname: PCSTR, level: UInt, pmonitors: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_AddMonitorA(pname.toString(), level.toInt(), pmonitors.toString()) as Int) else 0
+public actual fun addMonitorA(pname: Pcstr, level: UInt, pmonitors: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_addMonitorA((pname?.value ?: 0L).toString(), level.toInt(), (pmonitors?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddMonitorW(pname: PCWSTR, level: UInt, pmonitors: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_AddMonitorW(pname.toString(), level.toInt(), pmonitors.toString()) as Int) else 0
+public actual fun addMonitorW(pname: Pcwstr, level: UInt, pmonitors: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_addMonitorW((pname?.value ?: 0L).toString(), level.toInt(), (pmonitors?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddPortA(pname: PCSTR, hwnd: HWND, pmonitorname: PCSTR): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_AddPortA(pname.toString(), hwnd.toString(), pmonitorname.toString()) as Int) else 0
+public actual fun addPortA(pname: Pcstr, hwnd: Hwnd, pmonitorname: Pcstr): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_addPortA((pname?.value ?: 0L).toString(), (hwnd?.value ?: 0L).toString(), (pmonitorname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddPortW(pname: PCWSTR, hwnd: HWND, pmonitorname: PCWSTR): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_AddPortW(pname.toString(), hwnd.toString(), pmonitorname.toString()) as Int) else 0
+public actual fun addPortW(pname: Pcwstr, hwnd: Hwnd, pmonitorname: Pcwstr): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_addPortW((pname?.value ?: 0L).toString(), (hwnd?.value ?: 0L).toString(), (pmonitorname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddPrintDeviceObject(hprinter: PRINTER_HANDLE, phdeviceobject: Long): HRESULT =
-    0
+public actual fun addPrintDeviceObject(hprinter: PrinterHandle, phdeviceobject: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddPrintProcessorA(pname: PCSTR, penvironment: PCSTR, ppathname: PCSTR, pprintprocessorname: PCSTR): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_AddPrintProcessorA(pname.toString(), penvironment.toString(), ppathname.toString(), pprintprocessorname.toString()) as Int) else 0
+public actual fun addPrintProcessorA(pname: Pcstr, penvironment: Pcstr, ppathname: Pcstr, pprintprocessorname: Pcstr): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_addPrintProcessorA((pname?.value ?: 0L).toString(), (penvironment?.value ?: 0L).toString(), (ppathname?.value ?: 0L).toString(), (pprintprocessorname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddPrintProcessorW(pname: PCWSTR, penvironment: PCWSTR, ppathname: PCWSTR, pprintprocessorname: PCWSTR): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_AddPrintProcessorW(pname.toString(), penvironment.toString(), ppathname.toString(), pprintprocessorname.toString()) as Int) else 0
+public actual fun addPrintProcessorW(pname: Pcwstr, penvironment: Pcwstr, ppathname: Pcwstr, pprintprocessorname: Pcwstr): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_addPrintProcessorW((pname?.value ?: 0L).toString(), (penvironment?.value ?: 0L).toString(), (ppathname?.value ?: 0L).toString(), (pprintprocessorname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddPrintProvidorA(pname: PCSTR, level: UInt, pprovidorinfo: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_AddPrintProvidorA(pname.toString(), level.toInt(), pprovidorinfo.toString()) as Int) else 0
+public actual fun addPrintProvidorA(pname: Pcstr, level: UInt, pprovidorinfo: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_addPrintProvidorA((pname?.value ?: 0L).toString(), level.toInt(), (pprovidorinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddPrintProvidorW(pname: PCWSTR, level: UInt, pprovidorinfo: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_AddPrintProvidorW(pname.toString(), level.toInt(), pprovidorinfo.toString()) as Int) else 0
+public actual fun addPrintProvidorW(pname: Pcwstr, level: UInt, pprovidorinfo: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_addPrintProvidorW((pname?.value ?: 0L).toString(), level.toInt(), (pprovidorinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddPrinterA(pname: PCSTR, level: UInt, pprinter: Long): HANDLE =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_AddPrinterA(pname.toString(), level.toInt(), pprinter.toString()) as String).toLong() else 0L
+public actual fun addPrinterA(pname: Pcstr, level: UInt, pprinter: COpaquePointer?): Handle =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_addPrinterA((pname?.value ?: 0L).toString(), level.toInt(), (pprinter?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddPrinterConnection2A(hwnd: HWND, pszname: PCSTR, dwlevel: UInt, pconnectioninfo: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_AddPrinterConnection2A(hwnd.toString(), pszname.toString(), dwlevel.toInt(), pconnectioninfo.toString()) as Int) else 0
+public actual fun addPrinterConnection2A(hwnd: Hwnd, pszname: Pcstr, dwlevel: UInt, pconnectioninfo: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_addPrinterConnection2A((hwnd?.value ?: 0L).toString(), (pszname?.value ?: 0L).toString(), dwlevel.toInt(), (pconnectioninfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddPrinterConnection2W(hwnd: HWND, pszname: PCWSTR, dwlevel: UInt, pconnectioninfo: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_AddPrinterConnection2W(hwnd.toString(), pszname.toString(), dwlevel.toInt(), pconnectioninfo.toString()) as Int) else 0
+public actual fun addPrinterConnection2W(hwnd: Hwnd, pszname: Pcwstr, dwlevel: UInt, pconnectioninfo: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_addPrinterConnection2W((hwnd?.value ?: 0L).toString(), (pszname?.value ?: 0L).toString(), dwlevel.toInt(), (pconnectioninfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddPrinterConnectionA(pname: PCSTR): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_AddPrinterConnectionA(pname.toString()) as Int) else 0
+public actual fun addPrinterConnectionA(pname: Pcstr): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_addPrinterConnectionA((pname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddPrinterConnectionW(pname: PCWSTR): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_AddPrinterConnectionW(pname.toString()) as Int) else 0
+public actual fun addPrinterConnectionW(pname: Pcwstr): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_addPrinterConnectionW((pname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddPrinterDriverA(pname: PCSTR, level: UInt, pdriverinfo: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_AddPrinterDriverA(pname.toString(), level.toInt(), pdriverinfo.toString()) as Int) else 0
+public actual fun addPrinterDriverA(pname: Pcstr, level: UInt, pdriverinfo: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_addPrinterDriverA((pname?.value ?: 0L).toString(), level.toInt(), (pdriverinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddPrinterDriverExA(pname: PCSTR, level: UInt, lpbdriverinfo: Long, dwfilecopyflags: UInt): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_AddPrinterDriverExA(pname.toString(), level.toInt(), lpbdriverinfo.toString(), dwfilecopyflags.toInt()) as Int) else 0
+public actual fun addPrinterDriverExA(pname: Pcstr, level: UInt, lpbdriverinfo: COpaquePointer?, dwfilecopyflags: UInt): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_addPrinterDriverExA((pname?.value ?: 0L).toString(), level.toInt(), (lpbdriverinfo?.value ?: 0L).toString(), dwfilecopyflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddPrinterDriverExW(pname: PCWSTR, level: UInt, lpbdriverinfo: Long, dwfilecopyflags: UInt): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_AddPrinterDriverExW(pname.toString(), level.toInt(), lpbdriverinfo.toString(), dwfilecopyflags.toInt()) as Int) else 0
+public actual fun addPrinterDriverExW(pname: Pcwstr, level: UInt, lpbdriverinfo: COpaquePointer?, dwfilecopyflags: UInt): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_addPrinterDriverExW((pname?.value ?: 0L).toString(), level.toInt(), (lpbdriverinfo?.value ?: 0L).toString(), dwfilecopyflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddPrinterDriverW(pname: PCWSTR, level: UInt, pdriverinfo: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_AddPrinterDriverW(pname.toString(), level.toInt(), pdriverinfo.toString()) as Int) else 0
+public actual fun addPrinterDriverW(pname: Pcwstr, level: UInt, pdriverinfo: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_addPrinterDriverW((pname?.value ?: 0L).toString(), level.toInt(), (pdriverinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddPrinterW(pname: PCWSTR, level: UInt, pprinter: Long): HANDLE =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_AddPrinterW(pname.toString(), level.toInt(), pprinter.toString()) as String).toLong() else 0L
+public actual fun addPrinterW(pname: Pcwstr, level: UInt, pprinter: COpaquePointer?): Handle =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_addPrinterW((pname?.value ?: 0L).toString(), level.toInt(), (pprinter?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AdvancedDocumentPropertiesA(hwnd: HWND, hprinter: PRINTER_HANDLE, pdevicename: PCSTR, pdevmodeoutput: Long, pdevmodeinput: Long): Int =
-    0
+public actual fun advancedDocumentPropertiesA(hwnd: Hwnd, hprinter: PrinterHandle, pdevicename: Pcstr, pdevmodeoutput: COpaquePointer?, pdevmodeinput: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AdvancedDocumentPropertiesW(hwnd: HWND, hprinter: PRINTER_HANDLE, pdevicename: PCWSTR, pdevmodeoutput: Long, pdevmodeinput: Long): Int =
-    0
+public actual fun advancedDocumentPropertiesW(hwnd: Hwnd, hprinter: PrinterHandle, pdevicename: Pcwstr, pdevmodeoutput: COpaquePointer?, pdevmodeinput: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AppendPrinterNotifyInfoData(pinfodest: Long, pdatasrc: Long, fdwflags: UInt): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_AppendPrinterNotifyInfoData(pinfodest.toString(), pdatasrc.toString(), fdwflags.toInt()) as Int) else 0
+public actual fun appendPrinterNotifyInfoData(pinfodest: COpaquePointer?, pdatasrc: COpaquePointer?, fdwflags: UInt): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_appendPrinterNotifyInfoData((pinfodest?.value ?: 0L).toString(), (pdatasrc?.value ?: 0L).toString(), fdwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CallRouterFindFirstPrinterChangeNotification(hprinterrpc: HANDLE, fdwfilterflags: UInt, fdwoptions: UInt, hnotify: HANDLE, pprinternotifyoptions: Long): UInt =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_CallRouterFindFirstPrinterChangeNotification(hprinterrpc.toString(), fdwfilterflags.toInt(), fdwoptions.toInt(), hnotify.toString(), pprinternotifyoptions.toString()) as Int).toUInt() else 0u
+public actual fun callRouterFindFirstPrinterChangeNotification(hprinterrpc: Handle, fdwfilterflags: UInt, fdwoptions: UInt, hnotify: Handle, pprinternotifyoptions: COpaquePointer?): UInt =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_callRouterFindFirstPrinterChangeNotification((hprinterrpc?.value ?: 0L).toString(), fdwfilterflags.toInt(), fdwoptions.toInt(), (hnotify?.value ?: 0L).toString(), (pprinternotifyoptions?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClosePrinter(hprinter: PRINTER_HANDLE): BOOL =
-    0
+public actual fun closePrinter(hprinter: PrinterHandle): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CloseSpoolFileHandle(hprinter: PRINTER_HANDLE, hspoolfile: HANDLE): BOOL =
-    0
+public actual fun closeSpoolFileHandle(hprinter: PrinterHandle, hspoolfile: Handle): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CommitSpoolData(hprinter: PRINTER_HANDLE, hspoolfile: HANDLE, cbcommit: UInt): HANDLE =
-    0L
+public actual fun commitSpoolData(hprinter: PrinterHandle, hspoolfile: Handle, cbcommit: UInt): Handle =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CommonPropertySheetUIA(hwndowner: HWND, pfnpropsheetui: PFNPROPSHEETUI, lparam: LPARAM, presult: Long): Int =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_CommonPropertySheetUIA(hwndowner.toString(), pfnpropsheetui.toLong().toString(), lparam.toString(), presult.toString()) as Int) else 0
+public actual fun commonPropertySheetUIA(hwndowner: Hwnd, pfnpropsheetui: Pfnpropsheetui, lparam: Lparam, presult: COpaquePointer?): Int =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_commonPropertySheetUIA((hwndowner?.value ?: 0L).toString(), 0L.toString(), lparam.toString(), (presult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CommonPropertySheetUIW(hwndowner: HWND, pfnpropsheetui: PFNPROPSHEETUI, lparam: LPARAM, presult: Long): Int =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_CommonPropertySheetUIW(hwndowner.toString(), pfnpropsheetui.toLong().toString(), lparam.toString(), presult.toString()) as Int) else 0
+public actual fun commonPropertySheetUIW(hwndowner: Hwnd, pfnpropsheetui: Pfnpropsheetui, lparam: Lparam, presult: COpaquePointer?): Int =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_commonPropertySheetUIW((hwndowner?.value ?: 0L).toString(), 0L.toString(), lparam.toString(), (presult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ConfigurePortA(pname: PCSTR, hwnd: HWND, pportname: PCSTR): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_ConfigurePortA(pname.toString(), hwnd.toString(), pportname.toString()) as Int) else 0
+public actual fun configurePortA(pname: Pcstr, hwnd: Hwnd, pportname: Pcstr): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_configurePortA((pname?.value ?: 0L).toString(), (hwnd?.value ?: 0L).toString(), (pportname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ConfigurePortW(pname: PCWSTR, hwnd: HWND, pportname: PCWSTR): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_ConfigurePortW(pname.toString(), hwnd.toString(), pportname.toString()) as Int) else 0
+public actual fun configurePortW(pname: Pcwstr, hwnd: Hwnd, pportname: Pcwstr): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_configurePortW((pname?.value ?: 0L).toString(), (hwnd?.value ?: 0L).toString(), (pportname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ConnectToPrinterDlg(hwnd: HWND, flags: UInt): HANDLE =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_ConnectToPrinterDlg(hwnd.toString(), flags.toInt()) as String).toLong() else 0L
+public actual fun connectToPrinterDlg(hwnd: Hwnd, flags: UInt): Handle =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_connectToPrinterDlg((hwnd?.value ?: 0L).toString(), flags.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CorePrinterDriverInstalledA(pszserver: PCSTR, pszenvironment: PCSTR, coredriverguid: GUID, ftdriverdate: FILETIME, dwldriverversion: ULong, pbdriverinstalled: Long): HRESULT =
-    0
+public actual fun corePrinterDriverInstalledA(pszserver: Pcstr, pszenvironment: Pcstr, coredriverguid: Guid, ftdriverdate: Filetime, dwldriverversion: ULong, pbdriverinstalled: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CorePrinterDriverInstalledW(pszserver: PCWSTR, pszenvironment: PCWSTR, coredriverguid: GUID, ftdriverdate: FILETIME, dwldriverversion: ULong, pbdriverinstalled: Long): HRESULT =
-    0
+public actual fun corePrinterDriverInstalledW(pszserver: Pcwstr, pszenvironment: Pcwstr, coredriverguid: Guid, ftdriverdate: Filetime, dwldriverversion: ULong, pbdriverinstalled: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreatePrintAsyncNotifyChannel(pszname: PCWSTR, pnotificationtype: Long, euserfilter: PrintAsyncNotifyUserFilter, econversationstyle: PrintAsyncNotifyConversationStyle, pcallback: Long, ppiasynchnotification: Long): HRESULT =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_CreatePrintAsyncNotifyChannel(pszname.toString(), pnotificationtype.toString(), euserfilter, econversationstyle, pcallback.toString(), ppiasynchnotification.toString()) as Int) else 0
+public actual fun createPrintAsyncNotifyChannel(pszname: Pcwstr, pnotificationtype: COpaquePointer?, euserfilter: PrintAsyncNotifyUserFilter, econversationstyle: PrintAsyncNotifyConversationStyle, pcallback: COpaquePointer?, ppiasynchnotification: COpaquePointer?): Hresult =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_createPrintAsyncNotifyChannel((pszname?.value ?: 0L).toString(), (pnotificationtype?.value ?: 0L).toString(), euserfilter, econversationstyle, (pcallback?.value ?: 0L).toString(), (ppiasynchnotification?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreatePrinterIC(hprinter: PRINTER_HANDLE, pdevmode: Long): HANDLE =
-    0L
+public actual fun createPrinterIC(hprinter: PrinterHandle, pdevmode: COpaquePointer?): Handle =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteFormA(hprinter: PRINTER_HANDLE, pformname: PCSTR): BOOL =
-    0
+public actual fun deleteFormA(hprinter: PrinterHandle, pformname: Pcstr): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteFormW(hprinter: PRINTER_HANDLE, pformname: PCWSTR): BOOL =
-    0
+public actual fun deleteFormW(hprinter: PrinterHandle, pformname: Pcwstr): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteJobNamedProperty(hprinter: PRINTER_HANDLE, jobid: UInt, pszname: PCWSTR): UInt =
-    0u
+public actual fun deleteJobNamedProperty(hprinter: PrinterHandle, jobid: UInt, pszname: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteMonitorA(pname: PCSTR, penvironment: PCSTR, pmonitorname: PCSTR): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_DeleteMonitorA(pname.toString(), penvironment.toString(), pmonitorname.toString()) as Int) else 0
+public actual fun deleteMonitorA(pname: Pcstr, penvironment: Pcstr, pmonitorname: Pcstr): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_deleteMonitorA((pname?.value ?: 0L).toString(), (penvironment?.value ?: 0L).toString(), (pmonitorname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteMonitorW(pname: PCWSTR, penvironment: PCWSTR, pmonitorname: PCWSTR): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_DeleteMonitorW(pname.toString(), penvironment.toString(), pmonitorname.toString()) as Int) else 0
+public actual fun deleteMonitorW(pname: Pcwstr, penvironment: Pcwstr, pmonitorname: Pcwstr): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_deleteMonitorW((pname?.value ?: 0L).toString(), (penvironment?.value ?: 0L).toString(), (pmonitorname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeletePortA(pname: PCSTR, hwnd: HWND, pportname: PCSTR): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_DeletePortA(pname.toString(), hwnd.toString(), pportname.toString()) as Int) else 0
+public actual fun deletePortA(pname: Pcstr, hwnd: Hwnd, pportname: Pcstr): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_deletePortA((pname?.value ?: 0L).toString(), (hwnd?.value ?: 0L).toString(), (pportname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeletePortW(pname: PCWSTR, hwnd: HWND, pportname: PCWSTR): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_DeletePortW(pname.toString(), hwnd.toString(), pportname.toString()) as Int) else 0
+public actual fun deletePortW(pname: Pcwstr, hwnd: Hwnd, pportname: Pcwstr): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_deletePortW((pname?.value ?: 0L).toString(), (hwnd?.value ?: 0L).toString(), (pportname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeletePrintProcessorA(pname: PCSTR, penvironment: PCSTR, pprintprocessorname: PCSTR): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_DeletePrintProcessorA(pname.toString(), penvironment.toString(), pprintprocessorname.toString()) as Int) else 0
+public actual fun deletePrintProcessorA(pname: Pcstr, penvironment: Pcstr, pprintprocessorname: Pcstr): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_deletePrintProcessorA((pname?.value ?: 0L).toString(), (penvironment?.value ?: 0L).toString(), (pprintprocessorname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeletePrintProcessorW(pname: PCWSTR, penvironment: PCWSTR, pprintprocessorname: PCWSTR): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_DeletePrintProcessorW(pname.toString(), penvironment.toString(), pprintprocessorname.toString()) as Int) else 0
+public actual fun deletePrintProcessorW(pname: Pcwstr, penvironment: Pcwstr, pprintprocessorname: Pcwstr): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_deletePrintProcessorW((pname?.value ?: 0L).toString(), (penvironment?.value ?: 0L).toString(), (pprintprocessorname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeletePrintProvidorA(pname: PCSTR, penvironment: PCSTR, pprintprovidorname: PCSTR): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_DeletePrintProvidorA(pname.toString(), penvironment.toString(), pprintprovidorname.toString()) as Int) else 0
+public actual fun deletePrintProvidorA(pname: Pcstr, penvironment: Pcstr, pprintprovidorname: Pcstr): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_deletePrintProvidorA((pname?.value ?: 0L).toString(), (penvironment?.value ?: 0L).toString(), (pprintprovidorname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeletePrintProvidorW(pname: PCWSTR, penvironment: PCWSTR, pprintprovidorname: PCWSTR): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_DeletePrintProvidorW(pname.toString(), penvironment.toString(), pprintprovidorname.toString()) as Int) else 0
+public actual fun deletePrintProvidorW(pname: Pcwstr, penvironment: Pcwstr, pprintprovidorname: Pcwstr): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_deletePrintProvidorW((pname?.value ?: 0L).toString(), (penvironment?.value ?: 0L).toString(), (pprintprovidorname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeletePrinter(hprinter: PRINTER_HANDLE): BOOL =
-    0
+public actual fun deletePrinter(hprinter: PrinterHandle): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeletePrinterConnectionA(pname: PCSTR): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_DeletePrinterConnectionA(pname.toString()) as Int) else 0
+public actual fun deletePrinterConnectionA(pname: Pcstr): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_deletePrinterConnectionA((pname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeletePrinterConnectionW(pname: PCWSTR): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_DeletePrinterConnectionW(pname.toString()) as Int) else 0
+public actual fun deletePrinterConnectionW(pname: Pcwstr): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_deletePrinterConnectionW((pname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeletePrinterDataA(hprinter: PRINTER_HANDLE, pvaluename: PCSTR): UInt =
-    0u
+public actual fun deletePrinterDataA(hprinter: PrinterHandle, pvaluename: Pcstr): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeletePrinterDataExA(hprinter: PRINTER_HANDLE, pkeyname: PCSTR, pvaluename: PCSTR): UInt =
-    0u
+public actual fun deletePrinterDataExA(hprinter: PrinterHandle, pkeyname: Pcstr, pvaluename: Pcstr): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeletePrinterDataExW(hprinter: PRINTER_HANDLE, pkeyname: PCWSTR, pvaluename: PCWSTR): UInt =
-    0u
+public actual fun deletePrinterDataExW(hprinter: PrinterHandle, pkeyname: Pcwstr, pvaluename: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeletePrinterDataW(hprinter: PRINTER_HANDLE, pvaluename: PCWSTR): UInt =
-    0u
+public actual fun deletePrinterDataW(hprinter: PrinterHandle, pvaluename: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeletePrinterDriverA(pname: PCSTR, penvironment: PCSTR, pdrivername: PCSTR): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_DeletePrinterDriverA(pname.toString(), penvironment.toString(), pdrivername.toString()) as Int) else 0
+public actual fun deletePrinterDriverA(pname: Pcstr, penvironment: Pcstr, pdrivername: Pcstr): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_deletePrinterDriverA((pname?.value ?: 0L).toString(), (penvironment?.value ?: 0L).toString(), (pdrivername?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeletePrinterDriverExA(pname: PCSTR, penvironment: PCSTR, pdrivername: PCSTR, dwdeleteflag: UInt, dwversionflag: UInt): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_DeletePrinterDriverExA(pname.toString(), penvironment.toString(), pdrivername.toString(), dwdeleteflag.toInt(), dwversionflag.toInt()) as Int) else 0
+public actual fun deletePrinterDriverExA(pname: Pcstr, penvironment: Pcstr, pdrivername: Pcstr, dwdeleteflag: UInt, dwversionflag: UInt): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_deletePrinterDriverExA((pname?.value ?: 0L).toString(), (penvironment?.value ?: 0L).toString(), (pdrivername?.value ?: 0L).toString(), dwdeleteflag.toInt(), dwversionflag.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeletePrinterDriverExW(pname: PCWSTR, penvironment: PCWSTR, pdrivername: PCWSTR, dwdeleteflag: UInt, dwversionflag: UInt): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_DeletePrinterDriverExW(pname.toString(), penvironment.toString(), pdrivername.toString(), dwdeleteflag.toInt(), dwversionflag.toInt()) as Int) else 0
+public actual fun deletePrinterDriverExW(pname: Pcwstr, penvironment: Pcwstr, pdrivername: Pcwstr, dwdeleteflag: UInt, dwversionflag: UInt): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_deletePrinterDriverExW((pname?.value ?: 0L).toString(), (penvironment?.value ?: 0L).toString(), (pdrivername?.value ?: 0L).toString(), dwdeleteflag.toInt(), dwversionflag.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeletePrinterDriverPackageA(pszserver: PCSTR, pszinfpath: PCSTR, pszenvironment: PCSTR): HRESULT =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_DeletePrinterDriverPackageA(pszserver.toString(), pszinfpath.toString(), pszenvironment.toString()) as Int) else 0
+public actual fun deletePrinterDriverPackageA(pszserver: Pcstr, pszinfpath: Pcstr, pszenvironment: Pcstr): Hresult =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_deletePrinterDriverPackageA((pszserver?.value ?: 0L).toString(), (pszinfpath?.value ?: 0L).toString(), (pszenvironment?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeletePrinterDriverPackageW(pszserver: PCWSTR, pszinfpath: PCWSTR, pszenvironment: PCWSTR): HRESULT =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_DeletePrinterDriverPackageW(pszserver.toString(), pszinfpath.toString(), pszenvironment.toString()) as Int) else 0
+public actual fun deletePrinterDriverPackageW(pszserver: Pcwstr, pszinfpath: Pcwstr, pszenvironment: Pcwstr): Hresult =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_deletePrinterDriverPackageW((pszserver?.value ?: 0L).toString(), (pszinfpath?.value ?: 0L).toString(), (pszenvironment?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeletePrinterDriverW(pname: PCWSTR, penvironment: PCWSTR, pdrivername: PCWSTR): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_DeletePrinterDriverW(pname.toString(), penvironment.toString(), pdrivername.toString()) as Int) else 0
+public actual fun deletePrinterDriverW(pname: Pcwstr, penvironment: Pcwstr, pdrivername: Pcwstr): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_deletePrinterDriverW((pname?.value ?: 0L).toString(), (penvironment?.value ?: 0L).toString(), (pdrivername?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeletePrinterIC(hprinteric: HANDLE): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_DeletePrinterIC(hprinteric.toString()) as Int) else 0
+public actual fun deletePrinterIC(hprinteric: Handle): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_deletePrinterIC((hprinteric?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeletePrinterKeyA(hprinter: PRINTER_HANDLE, pkeyname: PCSTR): UInt =
-    0u
+public actual fun deletePrinterKeyA(hprinter: PrinterHandle, pkeyname: Pcstr): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeletePrinterKeyW(hprinter: PRINTER_HANDLE, pkeyname: PCWSTR): UInt =
-    0u
+public actual fun deletePrinterKeyW(hprinter: PrinterHandle, pkeyname: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DevQueryPrint(hprinter: PRINTER_HANDLE, pdevmode: Long, presid: Long): BOOL =
-    0
+public actual fun devQueryPrint(hprinter: PrinterHandle, pdevmode: COpaquePointer?, presid: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DevQueryPrintEx(pdqpinfo: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_DevQueryPrintEx(pdqpinfo.toString()) as Int) else 0
+public actual fun devQueryPrintEx(pdqpinfo: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_devQueryPrintEx((pdqpinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DocumentPropertiesA(hwnd: HWND, hprinter: PRINTER_HANDLE, pdevicename: PCSTR, pdevmodeoutput: Long, pdevmodeinput: Long, fmode: UInt): Int =
-    0
+public actual fun documentPropertiesA(hwnd: Hwnd, hprinter: PrinterHandle, pdevicename: Pcstr, pdevmodeoutput: COpaquePointer?, pdevmodeinput: COpaquePointer?, fmode: UInt): Int =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DocumentPropertiesW(hwnd: HWND, hprinter: PRINTER_HANDLE, pdevicename: PCWSTR, pdevmodeoutput: Long, pdevmodeinput: Long, fmode: UInt): Int =
-    0
+public actual fun documentPropertiesW(hwnd: Hwnd, hprinter: PrinterHandle, pdevicename: Pcwstr, pdevmodeoutput: COpaquePointer?, pdevmodeinput: COpaquePointer?, fmode: UInt): Int =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EndDocPrinter(hprinter: PRINTER_HANDLE): BOOL =
-    0
+public actual fun endDocPrinter(hprinter: PrinterHandle): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EndPagePrinter(hprinter: PRINTER_HANDLE): BOOL =
-    0
+public actual fun endPagePrinter(hprinter: PrinterHandle): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumFormsA(hprinter: PRINTER_HANDLE, level: UInt, pform: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    0
+public actual fun enumFormsA(hprinter: PrinterHandle, level: UInt, pform: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumFormsW(hprinter: PRINTER_HANDLE, level: UInt, pform: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    0
+public actual fun enumFormsW(hprinter: PrinterHandle, level: UInt, pform: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumJobNamedProperties(hprinter: PRINTER_HANDLE, jobid: UInt, pcproperties: Long, ppproperties: Long): UInt =
-    0u
+public actual fun enumJobNamedProperties(hprinter: PrinterHandle, jobid: UInt, pcproperties: COpaquePointer?, ppproperties: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumJobsA(hprinter: PRINTER_HANDLE, firstjob: UInt, nojobs: UInt, level: UInt, pjob: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    0
+public actual fun enumJobsA(hprinter: PrinterHandle, firstjob: UInt, nojobs: UInt, level: UInt, pjob: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumJobsW(hprinter: PRINTER_HANDLE, firstjob: UInt, nojobs: UInt, level: UInt, pjob: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    0
+public actual fun enumJobsW(hprinter: PrinterHandle, firstjob: UInt, nojobs: UInt, level: UInt, pjob: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumMonitorsA(pname: PCSTR, level: UInt, pmonitor: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_EnumMonitorsA(pname.toString(), level.toInt(), pmonitor.toString(), cbbuf.toInt(), pcbneeded.toString(), pcreturned.toString()) as Int) else 0
+public actual fun enumMonitorsA(pname: Pcstr, level: UInt, pmonitor: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_enumMonitorsA((pname?.value ?: 0L).toString(), level.toInt(), (pmonitor?.value ?: 0L).toString(), cbbuf.toInt(), (pcbneeded?.value ?: 0L).toString(), (pcreturned?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumMonitorsW(pname: PCWSTR, level: UInt, pmonitor: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_EnumMonitorsW(pname.toString(), level.toInt(), pmonitor.toString(), cbbuf.toInt(), pcbneeded.toString(), pcreturned.toString()) as Int) else 0
+public actual fun enumMonitorsW(pname: Pcwstr, level: UInt, pmonitor: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_enumMonitorsW((pname?.value ?: 0L).toString(), level.toInt(), (pmonitor?.value ?: 0L).toString(), cbbuf.toInt(), (pcbneeded?.value ?: 0L).toString(), (pcreturned?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumPortsA(pname: PCSTR, level: UInt, pport: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_EnumPortsA(pname.toString(), level.toInt(), pport.toString(), cbbuf.toInt(), pcbneeded.toString(), pcreturned.toString()) as Int) else 0
+public actual fun enumPortsA(pname: Pcstr, level: UInt, pport: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_enumPortsA((pname?.value ?: 0L).toString(), level.toInt(), (pport?.value ?: 0L).toString(), cbbuf.toInt(), (pcbneeded?.value ?: 0L).toString(), (pcreturned?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumPortsW(pname: PCWSTR, level: UInt, pport: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_EnumPortsW(pname.toString(), level.toInt(), pport.toString(), cbbuf.toInt(), pcbneeded.toString(), pcreturned.toString()) as Int) else 0
+public actual fun enumPortsW(pname: Pcwstr, level: UInt, pport: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_enumPortsW((pname?.value ?: 0L).toString(), level.toInt(), (pport?.value ?: 0L).toString(), cbbuf.toInt(), (pcbneeded?.value ?: 0L).toString(), (pcreturned?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumPrintProcessorDatatypesA(pname: PCSTR, pprintprocessorname: PCSTR, level: UInt, pdatatypes: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_EnumPrintProcessorDatatypesA(pname.toString(), pprintprocessorname.toString(), level.toInt(), pdatatypes.toString(), cbbuf.toInt(), pcbneeded.toString(), pcreturned.toString()) as Int) else 0
+public actual fun enumPrintProcessorDatatypesA(pname: Pcstr, pprintprocessorname: Pcstr, level: UInt, pdatatypes: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_enumPrintProcessorDatatypesA((pname?.value ?: 0L).toString(), (pprintprocessorname?.value ?: 0L).toString(), level.toInt(), (pdatatypes?.value ?: 0L).toString(), cbbuf.toInt(), (pcbneeded?.value ?: 0L).toString(), (pcreturned?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumPrintProcessorDatatypesW(pname: PCWSTR, pprintprocessorname: PCWSTR, level: UInt, pdatatypes: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_EnumPrintProcessorDatatypesW(pname.toString(), pprintprocessorname.toString(), level.toInt(), pdatatypes.toString(), cbbuf.toInt(), pcbneeded.toString(), pcreturned.toString()) as Int) else 0
+public actual fun enumPrintProcessorDatatypesW(pname: Pcwstr, pprintprocessorname: Pcwstr, level: UInt, pdatatypes: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_enumPrintProcessorDatatypesW((pname?.value ?: 0L).toString(), (pprintprocessorname?.value ?: 0L).toString(), level.toInt(), (pdatatypes?.value ?: 0L).toString(), cbbuf.toInt(), (pcbneeded?.value ?: 0L).toString(), (pcreturned?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumPrintProcessorsA(pname: PCSTR, penvironment: PCSTR, level: UInt, pprintprocessorinfo: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_EnumPrintProcessorsA(pname.toString(), penvironment.toString(), level.toInt(), pprintprocessorinfo.toString(), cbbuf.toInt(), pcbneeded.toString(), pcreturned.toString()) as Int) else 0
+public actual fun enumPrintProcessorsA(pname: Pcstr, penvironment: Pcstr, level: UInt, pprintprocessorinfo: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_enumPrintProcessorsA((pname?.value ?: 0L).toString(), (penvironment?.value ?: 0L).toString(), level.toInt(), (pprintprocessorinfo?.value ?: 0L).toString(), cbbuf.toInt(), (pcbneeded?.value ?: 0L).toString(), (pcreturned?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumPrintProcessorsW(pname: PCWSTR, penvironment: PCWSTR, level: UInt, pprintprocessorinfo: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_EnumPrintProcessorsW(pname.toString(), penvironment.toString(), level.toInt(), pprintprocessorinfo.toString(), cbbuf.toInt(), pcbneeded.toString(), pcreturned.toString()) as Int) else 0
+public actual fun enumPrintProcessorsW(pname: Pcwstr, penvironment: Pcwstr, level: UInt, pprintprocessorinfo: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_enumPrintProcessorsW((pname?.value ?: 0L).toString(), (penvironment?.value ?: 0L).toString(), level.toInt(), (pprintprocessorinfo?.value ?: 0L).toString(), cbbuf.toInt(), (pcbneeded?.value ?: 0L).toString(), (pcreturned?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumPrinterDataA(hprinter: PRINTER_HANDLE, dwindex: UInt, pvaluename: PSTR, cbvaluename: UInt, pcbvaluename: Long, ptype: Long, pdata: Long, cbdata: UInt, pcbdata: Long): UInt =
-    0u
+public actual fun enumPrinterDataA(hprinter: PrinterHandle, dwindex: UInt, pvaluename: Pstr, cbvaluename: UInt, pcbvaluename: COpaquePointer?, ptype: COpaquePointer?, pdata: COpaquePointer?, cbdata: UInt, pcbdata: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumPrinterDataExA(hprinter: PRINTER_HANDLE, pkeyname: PCSTR, penumvalues: Long, cbenumvalues: UInt, pcbenumvalues: Long, pnenumvalues: Long): UInt =
-    0u
+public actual fun enumPrinterDataExA(hprinter: PrinterHandle, pkeyname: Pcstr, penumvalues: COpaquePointer?, cbenumvalues: UInt, pcbenumvalues: COpaquePointer?, pnenumvalues: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumPrinterDataExW(hprinter: PRINTER_HANDLE, pkeyname: PCWSTR, penumvalues: Long, cbenumvalues: UInt, pcbenumvalues: Long, pnenumvalues: Long): UInt =
-    0u
+public actual fun enumPrinterDataExW(hprinter: PrinterHandle, pkeyname: Pcwstr, penumvalues: COpaquePointer?, cbenumvalues: UInt, pcbenumvalues: COpaquePointer?, pnenumvalues: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumPrinterDataW(hprinter: PRINTER_HANDLE, dwindex: UInt, pvaluename: PWSTR, cbvaluename: UInt, pcbvaluename: Long, ptype: Long, pdata: Long, cbdata: UInt, pcbdata: Long): UInt =
-    0u
+public actual fun enumPrinterDataW(hprinter: PrinterHandle, dwindex: UInt, pvaluename: Pwstr, cbvaluename: UInt, pcbvaluename: COpaquePointer?, ptype: COpaquePointer?, pdata: COpaquePointer?, cbdata: UInt, pcbdata: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumPrinterDriversA(pname: PCSTR, penvironment: PCSTR, level: UInt, pdriverinfo: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_EnumPrinterDriversA(pname.toString(), penvironment.toString(), level.toInt(), pdriverinfo.toString(), cbbuf.toInt(), pcbneeded.toString(), pcreturned.toString()) as Int) else 0
+public actual fun enumPrinterDriversA(pname: Pcstr, penvironment: Pcstr, level: UInt, pdriverinfo: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_enumPrinterDriversA((pname?.value ?: 0L).toString(), (penvironment?.value ?: 0L).toString(), level.toInt(), (pdriverinfo?.value ?: 0L).toString(), cbbuf.toInt(), (pcbneeded?.value ?: 0L).toString(), (pcreturned?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumPrinterDriversW(pname: PCWSTR, penvironment: PCWSTR, level: UInt, pdriverinfo: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_EnumPrinterDriversW(pname.toString(), penvironment.toString(), level.toInt(), pdriverinfo.toString(), cbbuf.toInt(), pcbneeded.toString(), pcreturned.toString()) as Int) else 0
+public actual fun enumPrinterDriversW(pname: Pcwstr, penvironment: Pcwstr, level: UInt, pdriverinfo: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_enumPrinterDriversW((pname?.value ?: 0L).toString(), (penvironment?.value ?: 0L).toString(), level.toInt(), (pdriverinfo?.value ?: 0L).toString(), cbbuf.toInt(), (pcbneeded?.value ?: 0L).toString(), (pcreturned?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumPrinterKeyA(hprinter: PRINTER_HANDLE, pkeyname: PCSTR, psubkey: PSTR, cbsubkey: UInt, pcbsubkey: Long): UInt =
-    0u
+public actual fun enumPrinterKeyA(hprinter: PrinterHandle, pkeyname: Pcstr, psubkey: Pstr, cbsubkey: UInt, pcbsubkey: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumPrinterKeyW(hprinter: PRINTER_HANDLE, pkeyname: PCWSTR, psubkey: PWSTR, cbsubkey: UInt, pcbsubkey: Long): UInt =
-    0u
+public actual fun enumPrinterKeyW(hprinter: PrinterHandle, pkeyname: Pcwstr, psubkey: Pwstr, cbsubkey: UInt, pcbsubkey: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumPrintersA(flags: UInt, name: PCSTR, level: UInt, pprinterenum: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_EnumPrintersA(flags.toInt(), name.toString(), level.toInt(), pprinterenum.toString(), cbbuf.toInt(), pcbneeded.toString(), pcreturned.toString()) as Int) else 0
+public actual fun enumPrintersA(flags: UInt, name: Pcstr, level: UInt, pprinterenum: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_enumPrintersA(flags.toInt(), (name?.value ?: 0L).toString(), level.toInt(), (pprinterenum?.value ?: 0L).toString(), cbbuf.toInt(), (pcbneeded?.value ?: 0L).toString(), (pcreturned?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumPrintersW(flags: UInt, name: PCWSTR, level: UInt, pprinterenum: Long, cbbuf: UInt, pcbneeded: Long, pcreturned: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_EnumPrintersW(flags.toInt(), name.toString(), level.toInt(), pprinterenum.toString(), cbbuf.toInt(), pcbneeded.toString(), pcreturned.toString()) as Int) else 0
+public actual fun enumPrintersW(flags: UInt, name: Pcwstr, level: UInt, pprinterenum: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?, pcreturned: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_enumPrintersW(flags.toInt(), (name?.value ?: 0L).toString(), level.toInt(), (pprinterenum?.value ?: 0L).toString(), cbbuf.toInt(), (pcbneeded?.value ?: 0L).toString(), (pcreturned?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ExtDeviceMode(hwnd: HWND, hinst: HANDLE, pdevmodeoutput: Long, pdevicename: PCSTR, pport: PCSTR, pdevmodeinput: Long, pprofile: PCSTR, fmode: UInt): Int =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_ExtDeviceMode(hwnd.toString(), hinst.toString(), pdevmodeoutput.toString(), pdevicename.toString(), pport.toString(), pdevmodeinput.toString(), pprofile.toString(), fmode.toInt()) as Int) else 0
+public actual fun extDeviceMode(hwnd: Hwnd, hinst: Handle, pdevmodeoutput: COpaquePointer?, pdevicename: Pcstr, pport: Pcstr, pdevmodeinput: COpaquePointer?, pprofile: Pcstr, fmode: UInt): Int =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_extDeviceMode((hwnd?.value ?: 0L).toString(), (hinst?.value ?: 0L).toString(), (pdevmodeoutput?.value ?: 0L).toString(), (pdevicename?.value ?: 0L).toString(), (pport?.value ?: 0L).toString(), (pdevmodeinput?.value ?: 0L).toString(), (pprofile?.value ?: 0L).toString(), fmode.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindClosePrinterChangeNotification(hchange: HANDLE): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_FindClosePrinterChangeNotification(hchange.toString()) as Int) else 0
+public actual fun findClosePrinterChangeNotification(hchange: Handle): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_findClosePrinterChangeNotification((hchange?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindFirstPrinterChangeNotification(hprinter: PRINTER_HANDLE, fdwfilter: UInt, fdwoptions: UInt, pprinternotifyoptions: Long): HANDLE =
-    0L
+public actual fun findFirstPrinterChangeNotification(hprinter: PrinterHandle, fdwfilter: UInt, fdwoptions: UInt, pprinternotifyoptions: COpaquePointer?): Handle =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindNextPrinterChangeNotification(hchange: HANDLE, pdwchange: Long, pvreserved: Long, ppprinternotifyinfo: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_FindNextPrinterChangeNotification(hchange.toString(), pdwchange.toString(), pvreserved.toString(), ppprinternotifyinfo.toString()) as Int) else 0
+public actual fun findNextPrinterChangeNotification(hchange: Handle, pdwchange: COpaquePointer?, pvreserved: COpaquePointer?, ppprinternotifyinfo: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_findNextPrinterChangeNotification((hchange?.value ?: 0L).toString(), (pdwchange?.value ?: 0L).toString(), (pvreserved?.value ?: 0L).toString(), (ppprinternotifyinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FlushPrinter(hprinter: PRINTER_HANDLE, pbuf: Long, cbbuf: UInt, pcwritten: Long, csleep: UInt): BOOL =
-    0
+public actual fun flushPrinter(hprinter: PrinterHandle, pbuf: COpaquePointer?, cbbuf: UInt, pcwritten: COpaquePointer?, csleep: UInt): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FreePrintNamedPropertyArray(cproperties: UInt, ppproperties: Long) {
+public actual fun freePrintNamedPropertyArray(cproperties: UInt, ppproperties: COpaquePointer?) {
     if (_windowsWin32GraphicsPrintingNapiAddon != null) {
-        _windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_FreePrintNamedPropertyArray(cproperties.toInt(), ppproperties.toString())
+        _windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_freePrintNamedPropertyArray(cproperties.toInt(), (ppproperties?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FreePrintPropertyValue(pvalue: Long) {
+public actual fun freePrintPropertyValue(pvalue: COpaquePointer?) {
     if (_windowsWin32GraphicsPrintingNapiAddon != null) {
-        _windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_FreePrintPropertyValue(pvalue.toString())
+        _windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_freePrintPropertyValue((pvalue?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun FreePrinterNotifyInfo(pprinternotifyinfo: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_FreePrinterNotifyInfo(pprinternotifyinfo.toString()) as Int) else 0
+public actual fun freePrinterNotifyInfo(pprinternotifyinfo: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_freePrinterNotifyInfo((pprinternotifyinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdiDeleteSpoolFileHandle(spoolfilehandle: HANDLE): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_GdiDeleteSpoolFileHandle(spoolfilehandle.toString()) as Int) else 0
+public actual fun gdiDeleteSpoolFileHandle(spoolfilehandle: Handle): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_gdiDeleteSpoolFileHandle((spoolfilehandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdiEndDocEMF(spoolfilehandle: HANDLE): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_GdiEndDocEMF(spoolfilehandle.toString()) as Int) else 0
+public actual fun gdiEndDocEMF(spoolfilehandle: Handle): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_gdiEndDocEMF((spoolfilehandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdiEndPageEMF(spoolfilehandle: HANDLE, dwoptimization: UInt): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_GdiEndPageEMF(spoolfilehandle.toString(), dwoptimization.toInt()) as Int) else 0
+public actual fun gdiEndPageEMF(spoolfilehandle: Handle, dwoptimization: UInt): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_gdiEndPageEMF((spoolfilehandle?.value ?: 0L).toString(), dwoptimization.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdiGetDC(spoolfilehandle: HANDLE): HDC =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_GdiGetDC(spoolfilehandle.toString()) as String).toLong() else 0L
+public actual fun gdiGetDC(spoolfilehandle: Handle): Hdc =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_gdiGetDC((spoolfilehandle?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdiGetDevmodeForPage(spoolfilehandle: HANDLE, dwpagenumber: UInt, pcurrdm: Long, plastdm: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_GdiGetDevmodeForPage(spoolfilehandle.toString(), dwpagenumber.toInt(), pcurrdm.toString(), plastdm.toString()) as Int) else 0
+public actual fun gdiGetDevmodeForPage(spoolfilehandle: Handle, dwpagenumber: UInt, pcurrdm: COpaquePointer?, plastdm: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_gdiGetDevmodeForPage((spoolfilehandle?.value ?: 0L).toString(), dwpagenumber.toInt(), (pcurrdm?.value ?: 0L).toString(), (plastdm?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdiGetPageCount(spoolfilehandle: HANDLE): UInt =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_GdiGetPageCount(spoolfilehandle.toString()) as Int).toUInt() else 0u
+public actual fun gdiGetPageCount(spoolfilehandle: Handle): UInt =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_gdiGetPageCount((spoolfilehandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdiGetPageHandle(spoolfilehandle: HANDLE, page: UInt, pdwpagetype: Long): HANDLE =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_GdiGetPageHandle(spoolfilehandle.toString(), page.toInt(), pdwpagetype.toString()) as String).toLong() else 0L
+public actual fun gdiGetPageHandle(spoolfilehandle: Handle, page: UInt, pdwpagetype: COpaquePointer?): Handle =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_gdiGetPageHandle((spoolfilehandle?.value ?: 0L).toString(), page.toInt(), (pdwpagetype?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdiGetSpoolFileHandle(pwszprintername: PCWSTR, pdevmode: Long, pwszdocname: PCWSTR): HANDLE =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_GdiGetSpoolFileHandle(pwszprintername.toString(), pdevmode.toString(), pwszdocname.toString()) as String).toLong() else 0L
+public actual fun gdiGetSpoolFileHandle(pwszprintername: Pcwstr, pdevmode: COpaquePointer?, pwszdocname: Pcwstr): Handle =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_gdiGetSpoolFileHandle((pwszprintername?.value ?: 0L).toString(), (pdevmode?.value ?: 0L).toString(), (pwszdocname?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdiPlayPageEMF(spoolfilehandle: HANDLE, hemf: HANDLE, prectdocument: Long, prectborder: Long, prectclip: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_GdiPlayPageEMF(spoolfilehandle.toString(), hemf.toString(), prectdocument.toString(), prectborder.toString(), prectclip.toString()) as Int) else 0
+public actual fun gdiPlayPageEMF(spoolfilehandle: Handle, hemf: Handle, prectdocument: COpaquePointer?, prectborder: COpaquePointer?, prectclip: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_gdiPlayPageEMF((spoolfilehandle?.value ?: 0L).toString(), (hemf?.value ?: 0L).toString(), (prectdocument?.value ?: 0L).toString(), (prectborder?.value ?: 0L).toString(), (prectclip?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdiResetDCEMF(spoolfilehandle: HANDLE, pcurrdm: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_GdiResetDCEMF(spoolfilehandle.toString(), pcurrdm.toString()) as Int) else 0
+public actual fun gdiResetDCEMF(spoolfilehandle: Handle, pcurrdm: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_gdiResetDCEMF((spoolfilehandle?.value ?: 0L).toString(), (pcurrdm?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdiStartDocEMF(spoolfilehandle: HANDLE, pdocinfo: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_GdiStartDocEMF(spoolfilehandle.toString(), pdocinfo.toString()) as Int) else 0
+public actual fun gdiStartDocEMF(spoolfilehandle: Handle, pdocinfo: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_gdiStartDocEMF((spoolfilehandle?.value ?: 0L).toString(), (pdocinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdiStartPageEMF(spoolfilehandle: HANDLE): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_GdiStartPageEMF(spoolfilehandle.toString()) as Int) else 0
+public actual fun gdiStartPageEMF(spoolfilehandle: Handle): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_gdiStartPageEMF((spoolfilehandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GenerateCopyFilePaths(pszprintername: PCWSTR, pszdirectory: PCWSTR, psplclientinfo: Long, dwlevel: UInt, pszsourcedir: PWSTR, pcchsourcedirsize: Long, psztargetdir: PWSTR, pcchtargetdirsize: Long, dwflags: UInt): UInt =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_GenerateCopyFilePaths(pszprintername.toString(), pszdirectory.toString(), psplclientinfo.toString(), dwlevel.toInt(), pszsourcedir.toString(), pcchsourcedirsize.toString(), psztargetdir.toString(), pcchtargetdirsize.toString(), dwflags.toInt()) as Int).toUInt() else 0u
+public actual fun generateCopyFilePaths(pszprintername: Pcwstr, pszdirectory: Pcwstr, psplclientinfo: COpaquePointer?, dwlevel: UInt, pszsourcedir: Pwstr, pcchsourcedirsize: COpaquePointer?, psztargetdir: Pwstr, pcchtargetdirsize: COpaquePointer?, dwflags: UInt): UInt =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_generateCopyFilePaths((pszprintername?.value ?: 0L).toString(), (pszdirectory?.value ?: 0L).toString(), (psplclientinfo?.value ?: 0L).toString(), dwlevel.toInt(), (pszsourcedir?.value ?: 0L).toString(), (pcchsourcedirsize?.value ?: 0L).toString(), (psztargetdir?.value ?: 0L).toString(), (pcchtargetdirsize?.value ?: 0L).toString(), dwflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCPSUIUserData(hdlg: HWND): ULong =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_GetCPSUIUserData(hdlg.toString()) as String).toULong() else 0uL
+public actual fun getCPSUIUserData(hdlg: Hwnd): ULong =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_getCPSUIUserData((hdlg?.value ?: 0L).toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCorePrinterDriversA(pszserver: PCSTR, pszenvironment: PCSTR, pszzcoredriverdependencies: PCSTR, ccoreprinterdrivers: UInt, pcoreprinterdrivers: Long): HRESULT =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_GetCorePrinterDriversA(pszserver.toString(), pszenvironment.toString(), pszzcoredriverdependencies.toString(), ccoreprinterdrivers.toInt(), pcoreprinterdrivers.toString()) as Int) else 0
+public actual fun getCorePrinterDriversA(pszserver: Pcstr, pszenvironment: Pcstr, pszzcoredriverdependencies: Pcstr, ccoreprinterdrivers: UInt, pcoreprinterdrivers: COpaquePointer?): Hresult =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_getCorePrinterDriversA((pszserver?.value ?: 0L).toString(), (pszenvironment?.value ?: 0L).toString(), (pszzcoredriverdependencies?.value ?: 0L).toString(), ccoreprinterdrivers.toInt(), (pcoreprinterdrivers?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCorePrinterDriversW(pszserver: PCWSTR, pszenvironment: PCWSTR, pszzcoredriverdependencies: PCWSTR, ccoreprinterdrivers: UInt, pcoreprinterdrivers: Long): HRESULT =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_GetCorePrinterDriversW(pszserver.toString(), pszenvironment.toString(), pszzcoredriverdependencies.toString(), ccoreprinterdrivers.toInt(), pcoreprinterdrivers.toString()) as Int) else 0
+public actual fun getCorePrinterDriversW(pszserver: Pcwstr, pszenvironment: Pcwstr, pszzcoredriverdependencies: Pcwstr, ccoreprinterdrivers: UInt, pcoreprinterdrivers: COpaquePointer?): Hresult =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_getCorePrinterDriversW((pszserver?.value ?: 0L).toString(), (pszenvironment?.value ?: 0L).toString(), (pszzcoredriverdependencies?.value ?: 0L).toString(), ccoreprinterdrivers.toInt(), (pcoreprinterdrivers?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetDefaultPrinterA(pszbuffer: PSTR, pcchbuffer: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_GetDefaultPrinterA(pszbuffer.toString(), pcchbuffer.toString()) as Int) else 0
+public actual fun getDefaultPrinterA(pszbuffer: Pstr, pcchbuffer: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_getDefaultPrinterA((pszbuffer?.value ?: 0L).toString(), (pcchbuffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetDefaultPrinterW(pszbuffer: PWSTR, pcchbuffer: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_GetDefaultPrinterW(pszbuffer.toString(), pcchbuffer.toString()) as Int) else 0
+public actual fun getDefaultPrinterW(pszbuffer: Pwstr, pcchbuffer: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_getDefaultPrinterW((pszbuffer?.value ?: 0L).toString(), (pcchbuffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetFormA(hprinter: PRINTER_HANDLE, pformname: PCSTR, level: UInt, pform: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
-    0
+public actual fun getFormA(hprinter: PrinterHandle, pformname: Pcstr, level: UInt, pform: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetFormW(hprinter: PRINTER_HANDLE, pformname: PCWSTR, level: UInt, pform: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
-    0
+public actual fun getFormW(hprinter: PrinterHandle, pformname: Pcwstr, level: UInt, pform: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetJobA(hprinter: PRINTER_HANDLE, jobid: UInt, level: UInt, pjob: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
-    0
+public actual fun getJobA(hprinter: PrinterHandle, jobid: UInt, level: UInt, pjob: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetJobAttributes(pprintername: PCWSTR, pdevmode: Long, pattributeinfo: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_GetJobAttributes(pprintername.toString(), pdevmode.toString(), pattributeinfo.toString()) as Int) else 0
+public actual fun getJobAttributes(pprintername: Pcwstr, pdevmode: COpaquePointer?, pattributeinfo: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_getJobAttributes((pprintername?.value ?: 0L).toString(), (pdevmode?.value ?: 0L).toString(), (pattributeinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetJobAttributesEx(pprintername: PCWSTR, pdevmode: Long, dwlevel: UInt, pattributeinfo: Long, nsize: UInt, dwflags: UInt): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_GetJobAttributesEx(pprintername.toString(), pdevmode.toString(), dwlevel.toInt(), pattributeinfo.toString(), nsize.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun getJobAttributesEx(pprintername: Pcwstr, pdevmode: COpaquePointer?, dwlevel: UInt, pattributeinfo: COpaquePointer?, nsize: UInt, dwflags: UInt): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_getJobAttributesEx((pprintername?.value ?: 0L).toString(), (pdevmode?.value ?: 0L).toString(), dwlevel.toInt(), (pattributeinfo?.value ?: 0L).toString(), nsize.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetJobNamedPropertyValue(hprinter: PRINTER_HANDLE, jobid: UInt, pszname: PCWSTR, pvalue: Long): UInt =
-    0u
+public actual fun getJobNamedPropertyValue(hprinter: PrinterHandle, jobid: UInt, pszname: Pcwstr, pvalue: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetJobW(hprinter: PRINTER_HANDLE, jobid: UInt, level: UInt, pjob: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
-    0
+public actual fun getJobW(hprinter: PrinterHandle, jobid: UInt, level: UInt, pjob: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPrintExecutionData(pdata: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_GetPrintExecutionData(pdata.toString()) as Int) else 0
+public actual fun getPrintExecutionData(pdata: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_getPrintExecutionData((pdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPrintOutputInfo(hwnd: HWND, pszprinter: PCWSTR, phfile: Long, ppszoutputfile: Long): HRESULT =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_GetPrintOutputInfo(hwnd.toString(), pszprinter.toString(), phfile.toString(), ppszoutputfile.toString()) as Int) else 0
+public actual fun getPrintOutputInfo(hwnd: Hwnd, pszprinter: Pcwstr, phfile: COpaquePointer?, ppszoutputfile: COpaquePointer?): Hresult =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_getPrintOutputInfo((hwnd?.value ?: 0L).toString(), (pszprinter?.value ?: 0L).toString(), (phfile?.value ?: 0L).toString(), (ppszoutputfile?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPrintProcessorDirectoryA(pname: PCSTR, penvironment: PCSTR, level: UInt, pprintprocessorinfo: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_GetPrintProcessorDirectoryA(pname.toString(), penvironment.toString(), level.toInt(), pprintprocessorinfo.toString(), cbbuf.toInt(), pcbneeded.toString()) as Int) else 0
+public actual fun getPrintProcessorDirectoryA(pname: Pcstr, penvironment: Pcstr, level: UInt, pprintprocessorinfo: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_getPrintProcessorDirectoryA((pname?.value ?: 0L).toString(), (penvironment?.value ?: 0L).toString(), level.toInt(), (pprintprocessorinfo?.value ?: 0L).toString(), cbbuf.toInt(), (pcbneeded?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPrintProcessorDirectoryW(pname: PCWSTR, penvironment: PCWSTR, level: UInt, pprintprocessorinfo: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_GetPrintProcessorDirectoryW(pname.toString(), penvironment.toString(), level.toInt(), pprintprocessorinfo.toString(), cbbuf.toInt(), pcbneeded.toString()) as Int) else 0
+public actual fun getPrintProcessorDirectoryW(pname: Pcwstr, penvironment: Pcwstr, level: UInt, pprintprocessorinfo: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_getPrintProcessorDirectoryW((pname?.value ?: 0L).toString(), (penvironment?.value ?: 0L).toString(), level.toInt(), (pprintprocessorinfo?.value ?: 0L).toString(), cbbuf.toInt(), (pcbneeded?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPrinterA(hprinter: PRINTER_HANDLE, level: UInt, pprinter: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
-    0
+public actual fun getPrinterA(hprinter: PrinterHandle, level: UInt, pprinter: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPrinterDataA(hprinter: PRINTER_HANDLE, pvaluename: PCSTR, ptype: Long, pdata: Long, nsize: UInt, pcbneeded: Long): UInt =
-    0u
+public actual fun getPrinterDataA(hprinter: PrinterHandle, pvaluename: Pcstr, ptype: COpaquePointer?, pdata: COpaquePointer?, nsize: UInt, pcbneeded: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPrinterDataExA(hprinter: PRINTER_HANDLE, pkeyname: PCSTR, pvaluename: PCSTR, ptype: Long, pdata: Long, nsize: UInt, pcbneeded: Long): UInt =
-    0u
+public actual fun getPrinterDataExA(hprinter: PrinterHandle, pkeyname: Pcstr, pvaluename: Pcstr, ptype: COpaquePointer?, pdata: COpaquePointer?, nsize: UInt, pcbneeded: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPrinterDataExW(hprinter: PRINTER_HANDLE, pkeyname: PCWSTR, pvaluename: PCWSTR, ptype: Long, pdata: Long, nsize: UInt, pcbneeded: Long): UInt =
-    0u
+public actual fun getPrinterDataExW(hprinter: PrinterHandle, pkeyname: Pcwstr, pvaluename: Pcwstr, ptype: COpaquePointer?, pdata: COpaquePointer?, nsize: UInt, pcbneeded: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPrinterDataW(hprinter: PRINTER_HANDLE, pvaluename: PCWSTR, ptype: Long, pdata: Long, nsize: UInt, pcbneeded: Long): UInt =
-    0u
+public actual fun getPrinterDataW(hprinter: PrinterHandle, pvaluename: Pcwstr, ptype: COpaquePointer?, pdata: COpaquePointer?, nsize: UInt, pcbneeded: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPrinterDriver2A(hwnd: HWND, hprinter: PRINTER_HANDLE, penvironment: PCSTR, level: UInt, pdriverinfo: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
-    0
+public actual fun getPrinterDriver2A(hwnd: Hwnd, hprinter: PrinterHandle, penvironment: Pcstr, level: UInt, pdriverinfo: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPrinterDriver2W(hwnd: HWND, hprinter: PRINTER_HANDLE, penvironment: PCWSTR, level: UInt, pdriverinfo: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
-    0
+public actual fun getPrinterDriver2W(hwnd: Hwnd, hprinter: PrinterHandle, penvironment: Pcwstr, level: UInt, pdriverinfo: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPrinterDriverA(hprinter: PRINTER_HANDLE, penvironment: PCSTR, level: UInt, pdriverinfo: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
-    0
+public actual fun getPrinterDriverA(hprinter: PrinterHandle, penvironment: Pcstr, level: UInt, pdriverinfo: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPrinterDriverDirectoryA(pname: PCSTR, penvironment: PCSTR, level: UInt, pdriverdirectory: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_GetPrinterDriverDirectoryA(pname.toString(), penvironment.toString(), level.toInt(), pdriverdirectory.toString(), cbbuf.toInt(), pcbneeded.toString()) as Int) else 0
+public actual fun getPrinterDriverDirectoryA(pname: Pcstr, penvironment: Pcstr, level: UInt, pdriverdirectory: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_getPrinterDriverDirectoryA((pname?.value ?: 0L).toString(), (penvironment?.value ?: 0L).toString(), level.toInt(), (pdriverdirectory?.value ?: 0L).toString(), cbbuf.toInt(), (pcbneeded?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPrinterDriverDirectoryW(pname: PCWSTR, penvironment: PCWSTR, level: UInt, pdriverdirectory: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_GetPrinterDriverDirectoryW(pname.toString(), penvironment.toString(), level.toInt(), pdriverdirectory.toString(), cbbuf.toInt(), pcbneeded.toString()) as Int) else 0
+public actual fun getPrinterDriverDirectoryW(pname: Pcwstr, penvironment: Pcwstr, level: UInt, pdriverdirectory: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_getPrinterDriverDirectoryW((pname?.value ?: 0L).toString(), (penvironment?.value ?: 0L).toString(), level.toInt(), (pdriverdirectory?.value ?: 0L).toString(), cbbuf.toInt(), (pcbneeded?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPrinterDriverPackagePathA(pszserver: PCSTR, pszenvironment: PCSTR, pszlanguage: PCSTR, pszpackageid: PCSTR, pszdriverpackagecab: PSTR, cchdriverpackagecab: UInt, pcchrequiredsize: Long): HRESULT =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_GetPrinterDriverPackagePathA(pszserver.toString(), pszenvironment.toString(), pszlanguage.toString(), pszpackageid.toString(), pszdriverpackagecab.toString(), cchdriverpackagecab.toInt(), pcchrequiredsize.toString()) as Int) else 0
+public actual fun getPrinterDriverPackagePathA(pszserver: Pcstr, pszenvironment: Pcstr, pszlanguage: Pcstr, pszpackageid: Pcstr, pszdriverpackagecab: Pstr, cchdriverpackagecab: UInt, pcchrequiredsize: COpaquePointer?): Hresult =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_getPrinterDriverPackagePathA((pszserver?.value ?: 0L).toString(), (pszenvironment?.value ?: 0L).toString(), (pszlanguage?.value ?: 0L).toString(), (pszpackageid?.value ?: 0L).toString(), (pszdriverpackagecab?.value ?: 0L).toString(), cchdriverpackagecab.toInt(), (pcchrequiredsize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPrinterDriverPackagePathW(pszserver: PCWSTR, pszenvironment: PCWSTR, pszlanguage: PCWSTR, pszpackageid: PCWSTR, pszdriverpackagecab: PWSTR, cchdriverpackagecab: UInt, pcchrequiredsize: Long): HRESULT =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_GetPrinterDriverPackagePathW(pszserver.toString(), pszenvironment.toString(), pszlanguage.toString(), pszpackageid.toString(), pszdriverpackagecab.toString(), cchdriverpackagecab.toInt(), pcchrequiredsize.toString()) as Int) else 0
+public actual fun getPrinterDriverPackagePathW(pszserver: Pcwstr, pszenvironment: Pcwstr, pszlanguage: Pcwstr, pszpackageid: Pcwstr, pszdriverpackagecab: Pwstr, cchdriverpackagecab: UInt, pcchrequiredsize: COpaquePointer?): Hresult =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_getPrinterDriverPackagePathW((pszserver?.value ?: 0L).toString(), (pszenvironment?.value ?: 0L).toString(), (pszlanguage?.value ?: 0L).toString(), (pszpackageid?.value ?: 0L).toString(), (pszdriverpackagecab?.value ?: 0L).toString(), cchdriverpackagecab.toInt(), (pcchrequiredsize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPrinterDriverW(hprinter: PRINTER_HANDLE, penvironment: PCWSTR, level: UInt, pdriverinfo: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
-    0
+public actual fun getPrinterDriverW(hprinter: PrinterHandle, penvironment: Pcwstr, level: UInt, pdriverinfo: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPrinterW(hprinter: PRINTER_HANDLE, level: UInt, pprinter: Long, cbbuf: UInt, pcbneeded: Long): BOOL =
-    0
+public actual fun getPrinterW(hprinter: PrinterHandle, level: UInt, pprinter: COpaquePointer?, cbbuf: UInt, pcbneeded: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetSpoolFileHandle(hprinter: PRINTER_HANDLE): HANDLE =
-    0L
+public actual fun getSpoolFileHandle(hprinter: PrinterHandle): Handle =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ImpersonatePrinterClient(htoken: HANDLE): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_ImpersonatePrinterClient(htoken.toString()) as Int) else 0
+public actual fun impersonatePrinterClient(htoken: Handle): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_impersonatePrinterClient((htoken?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InstallPrinterDriverFromPackageA(pszserver: PCSTR, pszinfpath: PCSTR, pszdrivername: PCSTR, pszenvironment: PCSTR, dwflags: UInt): HRESULT =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_InstallPrinterDriverFromPackageA(pszserver.toString(), pszinfpath.toString(), pszdrivername.toString(), pszenvironment.toString(), dwflags.toInt()) as Int) else 0
+public actual fun installPrinterDriverFromPackageA(pszserver: Pcstr, pszinfpath: Pcstr, pszdrivername: Pcstr, pszenvironment: Pcstr, dwflags: UInt): Hresult =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_installPrinterDriverFromPackageA((pszserver?.value ?: 0L).toString(), (pszinfpath?.value ?: 0L).toString(), (pszdrivername?.value ?: 0L).toString(), (pszenvironment?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InstallPrinterDriverFromPackageW(pszserver: PCWSTR, pszinfpath: PCWSTR, pszdrivername: PCWSTR, pszenvironment: PCWSTR, dwflags: UInt): HRESULT =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_InstallPrinterDriverFromPackageW(pszserver.toString(), pszinfpath.toString(), pszdrivername.toString(), pszenvironment.toString(), dwflags.toInt()) as Int) else 0
+public actual fun installPrinterDriverFromPackageW(pszserver: Pcwstr, pszinfpath: Pcwstr, pszdrivername: Pcwstr, pszenvironment: Pcwstr, dwflags: UInt): Hresult =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_installPrinterDriverFromPackageW((pszserver?.value ?: 0L).toString(), (pszinfpath?.value ?: 0L).toString(), (pszdrivername?.value ?: 0L).toString(), (pszenvironment?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsValidDevmodeA(pdevmode: Long, devmodesize: ULong): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_IsValidDevmodeA(pdevmode.toString(), devmodesize.toString()) as Int) else 0
+public actual fun isValidDevmodeA(pdevmode: COpaquePointer?, devmodesize: ULong): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_isValidDevmodeA((pdevmode?.value ?: 0L).toString(), devmodesize.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsValidDevmodeW(pdevmode: Long, devmodesize: ULong): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_IsValidDevmodeW(pdevmode.toString(), devmodesize.toString()) as Int) else 0
+public actual fun isValidDevmodeW(pdevmode: COpaquePointer?, devmodesize: ULong): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_isValidDevmodeW((pdevmode?.value ?: 0L).toString(), devmodesize.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenPrinter2A(pprintername: PCSTR, phprinter: Long, pdefault: Long, poptions: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_OpenPrinter2A(pprintername.toString(), phprinter.toString(), pdefault.toString(), poptions.toString()) as Int) else 0
+public actual fun openPrinter2A(pprintername: Pcstr, phprinter: COpaquePointer?, pdefault: COpaquePointer?, poptions: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_openPrinter2A((pprintername?.value ?: 0L).toString(), (phprinter?.value ?: 0L).toString(), (pdefault?.value ?: 0L).toString(), (poptions?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenPrinter2W(pprintername: PCWSTR, phprinter: Long, pdefault: Long, poptions: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_OpenPrinter2W(pprintername.toString(), phprinter.toString(), pdefault.toString(), poptions.toString()) as Int) else 0
+public actual fun openPrinter2W(pprintername: Pcwstr, phprinter: COpaquePointer?, pdefault: COpaquePointer?, poptions: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_openPrinter2W((pprintername?.value ?: 0L).toString(), (phprinter?.value ?: 0L).toString(), (pdefault?.value ?: 0L).toString(), (poptions?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenPrinterA(pprintername: PCSTR, phprinter: Long, pdefault: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_OpenPrinterA(pprintername.toString(), phprinter.toString(), pdefault.toString()) as Int) else 0
+public actual fun openPrinterA(pprintername: Pcstr, phprinter: COpaquePointer?, pdefault: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_openPrinterA((pprintername?.value ?: 0L).toString(), (phprinter?.value ?: 0L).toString(), (pdefault?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenPrinterW(pprintername: PCWSTR, phprinter: Long, pdefault: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_OpenPrinterW(pprintername.toString(), phprinter.toString(), pdefault.toString()) as Int) else 0
+public actual fun openPrinterW(pprintername: Pcwstr, phprinter: COpaquePointer?, pdefault: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_openPrinterW((pprintername?.value ?: 0L).toString(), (phprinter?.value ?: 0L).toString(), (pdefault?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PartialReplyPrinterChangeNotification(hprinter: PRINTER_HANDLE, pdatasrc: Long): BOOL =
-    0
+public actual fun partialReplyPrinterChangeNotification(hprinter: PrinterHandle, pdatasrc: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PlayGdiScriptOnPrinterIC(hprinteric: HANDLE, pin: Long, cin: UInt, pout: Long, cout: UInt, ul: UInt): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_PlayGdiScriptOnPrinterIC(hprinteric.toString(), pin.toString(), cin.toInt(), pout.toString(), cout.toInt(), ul.toInt()) as Int) else 0
+public actual fun playGdiScriptOnPrinterIC(hprinteric: Handle, pin: COpaquePointer?, cin: UInt, pout: COpaquePointer?, cout: UInt, ul: UInt): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_playGdiScriptOnPrinterIC((hprinteric?.value ?: 0L).toString(), (pin?.value ?: 0L).toString(), cin.toInt(), (pout?.value ?: 0L).toString(), cout.toInt(), ul.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PrinterMessageBoxA(hprinter: PRINTER_HANDLE, error: UInt, hwnd: HWND, ptext: PCSTR, pcaption: PCSTR, dwtype: UInt): UInt =
-    0u
+public actual fun printerMessageBoxA(hprinter: PrinterHandle, error: UInt, hwnd: Hwnd, ptext: Pcstr, pcaption: Pcstr, dwtype: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PrinterMessageBoxW(hprinter: PRINTER_HANDLE, error: UInt, hwnd: HWND, ptext: PCWSTR, pcaption: PCWSTR, dwtype: UInt): UInt =
-    0u
+public actual fun printerMessageBoxW(hprinter: PrinterHandle, error: UInt, hwnd: Hwnd, ptext: Pcwstr, pcaption: Pcwstr, dwtype: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PrinterProperties(hwnd: HWND, hprinter: PRINTER_HANDLE): BOOL =
-    0
+public actual fun printerProperties(hwnd: Hwnd, hprinter: PrinterHandle): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ProvidorFindClosePrinterChangeNotification(hprinter: PRINTER_HANDLE): BOOL =
-    0
+public actual fun providorFindClosePrinterChangeNotification(hprinter: PrinterHandle): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ProvidorFindFirstPrinterChangeNotification(hprinter: PRINTER_HANDLE, fdwflags: UInt, fdwoptions: UInt, hnotify: HANDLE, pprinternotifyoptions: Long, pvreserved1: Long): BOOL =
-    0
+public actual fun providorFindFirstPrinterChangeNotification(hprinter: PrinterHandle, fdwflags: UInt, fdwoptions: UInt, hnotify: Handle, pprinternotifyoptions: COpaquePointer?, pvreserved1: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ReadPrinter(hprinter: PRINTER_HANDLE, pbuf: Long, cbbuf: UInt, pnobytesread: Long): BOOL =
-    0
+public actual fun readPrinter(hprinter: PrinterHandle, pbuf: COpaquePointer?, cbbuf: UInt, pnobytesread: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RegisterForPrintAsyncNotifications(pszname: PCWSTR, pnotificationtype: Long, euserfilter: PrintAsyncNotifyUserFilter, econversationstyle: PrintAsyncNotifyConversationStyle, pcallback: Long, phnotify: Long): HRESULT =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_RegisterForPrintAsyncNotifications(pszname.toString(), pnotificationtype.toString(), euserfilter, econversationstyle, pcallback.toString(), phnotify.toString()) as Int) else 0
+public actual fun registerForPrintAsyncNotifications(pszname: Pcwstr, pnotificationtype: COpaquePointer?, euserfilter: PrintAsyncNotifyUserFilter, econversationstyle: PrintAsyncNotifyConversationStyle, pcallback: COpaquePointer?, phnotify: COpaquePointer?): Hresult =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_registerForPrintAsyncNotifications((pszname?.value ?: 0L).toString(), (pnotificationtype?.value ?: 0L).toString(), euserfilter, econversationstyle, (pcallback?.value ?: 0L).toString(), (phnotify?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RemovePrintDeviceObject(hdeviceobject: HANDLE): HRESULT =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_RemovePrintDeviceObject(hdeviceobject.toString()) as Int) else 0
+public actual fun removePrintDeviceObject(hdeviceobject: Handle): Hresult =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_removePrintDeviceObject((hdeviceobject?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ReplyPrinterChangeNotification(hprinter: PRINTER_HANDLE, fdwchangeflags: UInt, pdwresult: Long, pprinternotifyinfo: Long): BOOL =
-    0
+public actual fun replyPrinterChangeNotification(hprinter: PrinterHandle, fdwchangeflags: UInt, pdwresult: COpaquePointer?, pprinternotifyinfo: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ReplyPrinterChangeNotificationEx(hnotify: HANDLE, dwcolor: UInt, fdwflags: UInt, pdwresult: Long, pprinternotifyinfo: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_ReplyPrinterChangeNotificationEx(hnotify.toString(), dwcolor.toInt(), fdwflags.toInt(), pdwresult.toString(), pprinternotifyinfo.toString()) as Int) else 0
+public actual fun replyPrinterChangeNotificationEx(hnotify: Handle, dwcolor: UInt, fdwflags: UInt, pdwresult: COpaquePointer?, pprinternotifyinfo: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_replyPrinterChangeNotificationEx((hnotify?.value ?: 0L).toString(), dwcolor.toInt(), fdwflags.toInt(), (pdwresult?.value ?: 0L).toString(), (pprinternotifyinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ReportJobProcessingProgress(printerhandle: HANDLE, jobid: UInt, joboperation: EPrintXPSJobOperation, jobprogress: EPrintXPSJobProgress): HRESULT =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_ReportJobProcessingProgress(printerhandle.toString(), jobid.toInt(), joboperation, jobprogress) as Int) else 0
+public actual fun reportJobProcessingProgress(printerhandle: Handle, jobid: UInt, joboperation: EPrintXPSJobOperation, jobprogress: EPrintXPSJobProgress): Hresult =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_reportJobProcessingProgress((printerhandle?.value ?: 0L).toString(), jobid.toInt(), joboperation, jobprogress) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResetPrinterA(hprinter: PRINTER_HANDLE, pdefault: Long): BOOL =
-    0
+public actual fun resetPrinterA(hprinter: PrinterHandle, pdefault: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResetPrinterW(hprinter: PRINTER_HANDLE, pdefault: Long): BOOL =
-    0
+public actual fun resetPrinterW(hprinter: PrinterHandle, pdefault: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RevertToPrinterSelf(): HANDLE =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_RevertToPrinterSelf() as String).toLong() else 0L
+public actual fun revertToPrinterSelf(): Handle =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_revertToPrinterSelf() as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RouterAllocBidiMem(numbytes: ULong): Long =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_RouterAllocBidiMem(numbytes.toString()) as String).toLong() else 0L
+public actual fun routerAllocBidiMem(numbytes: ULong): COpaquePointer? =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_routerAllocBidiMem(numbytes.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RouterAllocBidiResponseContainer(count: UInt): Long =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_RouterAllocBidiResponseContainer(count.toInt()) as String).toLong() else 0L
+public actual fun routerAllocBidiResponseContainer(count: UInt): COpaquePointer? =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_routerAllocBidiResponseContainer(count.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RouterAllocPrinterNotifyInfo(cprinternotifyinfodata: UInt): Long =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_RouterAllocPrinterNotifyInfo(cprinternotifyinfodata.toInt()) as String).toLong() else 0L
+public actual fun routerAllocPrinterNotifyInfo(cprinternotifyinfodata: UInt): COpaquePointer? =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_routerAllocPrinterNotifyInfo(cprinternotifyinfodata.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RouterFreeBidiMem(pmempointer: Long) {
+public actual fun routerFreeBidiMem(pmempointer: COpaquePointer?) {
     if (_windowsWin32GraphicsPrintingNapiAddon != null) {
-        _windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_RouterFreeBidiMem(pmempointer.toString())
+        _windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_routerFreeBidiMem((pmempointer?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun RouterFreeBidiResponseContainer(pdata: Long): UInt =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_RouterFreeBidiResponseContainer(pdata.toString()) as Int).toUInt() else 0u
+public actual fun routerFreeBidiResponseContainer(pdata: COpaquePointer?): UInt =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_routerFreeBidiResponseContainer((pdata?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RouterFreePrinterNotifyInfo(pinfo: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_RouterFreePrinterNotifyInfo(pinfo.toString()) as Int) else 0
+public actual fun routerFreePrinterNotifyInfo(pinfo: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_routerFreePrinterNotifyInfo((pinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScheduleJob(hprinter: PRINTER_HANDLE, jobid: UInt): BOOL =
-    0
+public actual fun scheduleJob(hprinter: PrinterHandle, jobid: UInt): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetCPSUIUserData(hdlg: HWND, cpsuiuserdata: ULong): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_SetCPSUIUserData(hdlg.toString(), cpsuiuserdata.toString()) as Int) else 0
+public actual fun setCPSUIUserData(hdlg: Hwnd, cpsuiuserdata: ULong): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_setCPSUIUserData((hdlg?.value ?: 0L).toString(), cpsuiuserdata.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetDefaultPrinterA(pszprinter: PCSTR): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_SetDefaultPrinterA(pszprinter.toString()) as Int) else 0
+public actual fun setDefaultPrinterA(pszprinter: Pcstr): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_setDefaultPrinterA((pszprinter?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetDefaultPrinterW(pszprinter: PCWSTR): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_SetDefaultPrinterW(pszprinter.toString()) as Int) else 0
+public actual fun setDefaultPrinterW(pszprinter: Pcwstr): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_setDefaultPrinterW((pszprinter?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetFormA(hprinter: PRINTER_HANDLE, pformname: PCSTR, level: UInt, pform: Long): BOOL =
-    0
+public actual fun setFormA(hprinter: PrinterHandle, pformname: Pcstr, level: UInt, pform: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetFormW(hprinter: PRINTER_HANDLE, pformname: PCWSTR, level: UInt, pform: Long): BOOL =
-    0
+public actual fun setFormW(hprinter: PrinterHandle, pformname: Pcwstr, level: UInt, pform: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetJobA(hprinter: PRINTER_HANDLE, jobid: UInt, level: UInt, pjob: Long, command: UInt): BOOL =
-    0
+public actual fun setJobA(hprinter: PrinterHandle, jobid: UInt, level: UInt, pjob: COpaquePointer?, command: UInt): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetJobNamedProperty(hprinter: PRINTER_HANDLE, jobid: UInt, pproperty: Long): UInt =
-    0u
+public actual fun setJobNamedProperty(hprinter: PrinterHandle, jobid: UInt, pproperty: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetJobW(hprinter: PRINTER_HANDLE, jobid: UInt, level: UInt, pjob: Long, command: UInt): BOOL =
-    0
+public actual fun setJobW(hprinter: PrinterHandle, jobid: UInt, level: UInt, pjob: COpaquePointer?, command: UInt): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetPortA(pname: PCSTR, pportname: PCSTR, dwlevel: UInt, pportinfo: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_SetPortA(pname.toString(), pportname.toString(), dwlevel.toInt(), pportinfo.toString()) as Int) else 0
+public actual fun setPortA(pname: Pcstr, pportname: Pcstr, dwlevel: UInt, pportinfo: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_setPortA((pname?.value ?: 0L).toString(), (pportname?.value ?: 0L).toString(), dwlevel.toInt(), (pportinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetPortW(pname: PCWSTR, pportname: PCWSTR, dwlevel: UInt, pportinfo: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_SetPortW(pname.toString(), pportname.toString(), dwlevel.toInt(), pportinfo.toString()) as Int) else 0
+public actual fun setPortW(pname: Pcwstr, pportname: Pcwstr, dwlevel: UInt, pportinfo: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_setPortW((pname?.value ?: 0L).toString(), (pportname?.value ?: 0L).toString(), dwlevel.toInt(), (pportinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetPrinterA(hprinter: PRINTER_HANDLE, level: UInt, pprinter: Long, command: UInt): BOOL =
-    0
+public actual fun setPrinterA(hprinter: PrinterHandle, level: UInt, pprinter: COpaquePointer?, command: UInt): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetPrinterDataA(hprinter: PRINTER_HANDLE, pvaluename: PCSTR, type: UInt, pdata: Long, cbdata: UInt): UInt =
-    0u
+public actual fun setPrinterDataA(hprinter: PrinterHandle, pvaluename: Pcstr, type: UInt, pdata: COpaquePointer?, cbdata: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetPrinterDataExA(hprinter: PRINTER_HANDLE, pkeyname: PCSTR, pvaluename: PCSTR, type: UInt, pdata: Long, cbdata: UInt): UInt =
-    0u
+public actual fun setPrinterDataExA(hprinter: PrinterHandle, pkeyname: Pcstr, pvaluename: Pcstr, type: UInt, pdata: COpaquePointer?, cbdata: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetPrinterDataExW(hprinter: PRINTER_HANDLE, pkeyname: PCWSTR, pvaluename: PCWSTR, type: UInt, pdata: Long, cbdata: UInt): UInt =
-    0u
+public actual fun setPrinterDataExW(hprinter: PrinterHandle, pkeyname: Pcwstr, pvaluename: Pcwstr, type: UInt, pdata: COpaquePointer?, cbdata: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetPrinterDataW(hprinter: PRINTER_HANDLE, pvaluename: PCWSTR, type: UInt, pdata: Long, cbdata: UInt): UInt =
-    0u
+public actual fun setPrinterDataW(hprinter: PrinterHandle, pvaluename: Pcwstr, type: UInt, pdata: COpaquePointer?, cbdata: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetPrinterW(hprinter: PRINTER_HANDLE, level: UInt, pprinter: Long, command: UInt): BOOL =
-    0
+public actual fun setPrinterW(hprinter: PrinterHandle, level: UInt, pprinter: COpaquePointer?, command: UInt): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SplIsSessionZero(hprinter: PRINTER_HANDLE, jobid: UInt, pissessionzero: Long): UInt =
-    0u
+public actual fun splIsSessionZero(hprinter: PrinterHandle, jobid: UInt, pissessionzero: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SplPromptUIInUsersSession(hprinter: PRINTER_HANDLE, jobid: UInt, puiparams: Long, presponse: Long): BOOL =
-    0
+public actual fun splPromptUIInUsersSession(hprinter: PrinterHandle, jobid: UInt, puiparams: COpaquePointer?, presponse: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SpoolerCopyFileEvent(pszprintername: PCWSTR, pszkey: PCWSTR, dwcopyfileevent: UInt): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_SpoolerCopyFileEvent(pszprintername.toString(), pszkey.toString(), dwcopyfileevent.toInt()) as Int) else 0
+public actual fun spoolerCopyFileEvent(pszprintername: Pcwstr, pszkey: Pcwstr, dwcopyfileevent: UInt): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_spoolerCopyFileEvent((pszprintername?.value ?: 0L).toString(), (pszkey?.value ?: 0L).toString(), dwcopyfileevent.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SpoolerFindClosePrinterChangeNotification(hprinter: PRINTER_HANDLE): BOOL =
-    0
+public actual fun spoolerFindClosePrinterChangeNotification(hprinter: PrinterHandle): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SpoolerFindFirstPrinterChangeNotification(hprinter: PRINTER_HANDLE, fdwfilterflags: UInt, fdwoptions: UInt, pprinternotifyoptions: Long, pvreserved: Long, pnotificationconfig: Long, phnotify: Long, phevent: Long): BOOL =
-    0
+public actual fun spoolerFindFirstPrinterChangeNotification(hprinter: PrinterHandle, fdwfilterflags: UInt, fdwoptions: UInt, pprinternotifyoptions: COpaquePointer?, pvreserved: COpaquePointer?, pnotificationconfig: COpaquePointer?, phnotify: COpaquePointer?, phevent: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SpoolerFindNextPrinterChangeNotification(hprinter: PRINTER_HANDLE, pfdwchange: Long, pprinternotifyoptions: Long, ppprinternotifyinfo: Long): BOOL =
-    0
+public actual fun spoolerFindNextPrinterChangeNotification(hprinter: PrinterHandle, pfdwchange: COpaquePointer?, pprinternotifyoptions: COpaquePointer?, ppprinternotifyinfo: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SpoolerFreePrinterNotifyInfo(pinfo: Long) {
+public actual fun spoolerFreePrinterNotifyInfo(pinfo: COpaquePointer?) {
     if (_windowsWin32GraphicsPrintingNapiAddon != null) {
-        _windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_SpoolerFreePrinterNotifyInfo(pinfo.toString())
+        _windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_spoolerFreePrinterNotifyInfo((pinfo?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SpoolerRefreshPrinterChangeNotification(hprinter: PRINTER_HANDLE, dwcolor: UInt, poptions: Long, ppinfo: Long): BOOL =
-    0
+public actual fun spoolerRefreshPrinterChangeNotification(hprinter: PrinterHandle, dwcolor: UInt, poptions: COpaquePointer?, ppinfo: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun StartDocPrinterA(hprinter: PRINTER_HANDLE, level: UInt, pdocinfo: Long): UInt =
-    0u
+public actual fun startDocPrinterA(hprinter: PrinterHandle, level: UInt, pdocinfo: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun StartDocPrinterW(hprinter: PRINTER_HANDLE, level: UInt, pdocinfo: Long): UInt =
-    0u
+public actual fun startDocPrinterW(hprinter: PrinterHandle, level: UInt, pdocinfo: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun StartPagePrinter(hprinter: PRINTER_HANDLE): BOOL =
-    0
+public actual fun startPagePrinter(hprinter: PrinterHandle): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UnRegisterForPrintAsyncNotifications(param0: HANDLE): HRESULT =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_UnRegisterForPrintAsyncNotifications(param0.toString()) as Int) else 0
+public actual fun unRegisterForPrintAsyncNotifications(param0: Handle): Hresult =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_unRegisterForPrintAsyncNotifications((param0?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UpdatePrintDeviceObject(hprinter: PRINTER_HANDLE, hdeviceobject: HANDLE): HRESULT =
-    0
+public actual fun updatePrintDeviceObject(hprinter: PrinterHandle, hdeviceobject: Handle): Hresult =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UploadPrinterDriverPackageA(pszserver: PCSTR, pszinfpath: PCSTR, pszenvironment: PCSTR, dwflags: UInt, hwnd: HWND, pszdestinfpath: PSTR, pcchdestinfpath: Long): HRESULT =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_UploadPrinterDriverPackageA(pszserver.toString(), pszinfpath.toString(), pszenvironment.toString(), dwflags.toInt(), hwnd.toString(), pszdestinfpath.toString(), pcchdestinfpath.toString()) as Int) else 0
+public actual fun uploadPrinterDriverPackageA(pszserver: Pcstr, pszinfpath: Pcstr, pszenvironment: Pcstr, dwflags: UInt, hwnd: Hwnd, pszdestinfpath: Pstr, pcchdestinfpath: COpaquePointer?): Hresult =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_uploadPrinterDriverPackageA((pszserver?.value ?: 0L).toString(), (pszinfpath?.value ?: 0L).toString(), (pszenvironment?.value ?: 0L).toString(), dwflags.toInt(), (hwnd?.value ?: 0L).toString(), (pszdestinfpath?.value ?: 0L).toString(), (pcchdestinfpath?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UploadPrinterDriverPackageW(pszserver: PCWSTR, pszinfpath: PCWSTR, pszenvironment: PCWSTR, dwflags: UInt, hwnd: HWND, pszdestinfpath: PWSTR, pcchdestinfpath: Long): HRESULT =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_UploadPrinterDriverPackageW(pszserver.toString(), pszinfpath.toString(), pszenvironment.toString(), dwflags.toInt(), hwnd.toString(), pszdestinfpath.toString(), pcchdestinfpath.toString()) as Int) else 0
+public actual fun uploadPrinterDriverPackageW(pszserver: Pcwstr, pszinfpath: Pcwstr, pszenvironment: Pcwstr, dwflags: UInt, hwnd: Hwnd, pszdestinfpath: Pwstr, pcchdestinfpath: COpaquePointer?): Hresult =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_uploadPrinterDriverPackageW((pszserver?.value ?: 0L).toString(), (pszinfpath?.value ?: 0L).toString(), (pszenvironment?.value ?: 0L).toString(), dwflags.toInt(), (hwnd?.value ?: 0L).toString(), (pszdestinfpath?.value ?: 0L).toString(), (pcchdestinfpath?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WaitForPrinterChange(hprinter: PRINTER_HANDLE, flags: UInt): UInt =
-    0u
+public actual fun waitForPrinterChange(hprinter: PrinterHandle, flags: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WritePrinter(hprinter: PRINTER_HANDLE, pbuf: Long, cbbuf: UInt, pcwritten: Long): BOOL =
-    0
+public actual fun writePrinter(hprinter: PrinterHandle, pbuf: COpaquePointer?, cbbuf: UInt, pcwritten: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun XcvDataW(hxcv: HANDLE, pszdataname: PCWSTR, pinputdata: Long, cbinputdata: UInt, poutputdata: Long, cboutputdata: UInt, pcboutputneeded: Long, pdwstatus: Long): BOOL =
-    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_XcvDataW(hxcv.toString(), pszdataname.toString(), pinputdata.toString(), cbinputdata.toInt(), poutputdata.toString(), cboutputdata.toInt(), pcboutputneeded.toString(), pdwstatus.toString()) as Int) else 0
+public actual fun xcvDataW(hxcv: Handle, pszdataname: Pcwstr, pinputdata: COpaquePointer?, cbinputdata: UInt, poutputdata: COpaquePointer?, cboutputdata: UInt, pcboutputneeded: COpaquePointer?, pdwstatus: COpaquePointer?): Bool =
+    if (_windowsWin32GraphicsPrintingNapiAddon != null) (_windowsWin32GraphicsPrintingNapiAddon.windowssys_windows_win32_graphics_printing_xcvDataW((hxcv?.value ?: 0L).toString(), (pszdataname?.value ?: 0L).toString(), (pinputdata?.value ?: 0L).toString(), cbinputdata.toInt(), (poutputdata?.value ?: 0L).toString(), cboutputdata.toInt(), (pcboutputneeded?.value ?: 0L).toString(), (pdwstatus?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

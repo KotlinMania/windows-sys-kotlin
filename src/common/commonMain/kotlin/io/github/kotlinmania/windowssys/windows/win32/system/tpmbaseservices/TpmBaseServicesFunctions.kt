@@ -1,33 +1,34 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.tpmbaseservices
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pwstr
 
-public expect fun GetDeviceID(pbwindowsaik: Long, cbwindowsaik: UInt, pcbresult: Long, pfprotectedbytpm: Long): HRESULT
+public expect fun getDeviceID(pbwindowsaik: COpaquePointer?, cbwindowsaik: UInt, pcbresult: COpaquePointer?, pfprotectedbytpm: COpaquePointer?): Hresult
 
-public expect fun GetDeviceIDString(pszwindowsaik: PWSTR, cchwindowsaik: UInt, pcchresult: Long, pfprotectedbytpm: Long): HRESULT
+public expect fun getDeviceIDString(pszwindowsaik: Pwstr, cchwindowsaik: UInt, pcchresult: COpaquePointer?, pfprotectedbytpm: COpaquePointer?): Hresult
 
-public expect fun Tbsi_Context_Create(pcontextparams: Long, phcontext: Long): UInt
+public expect fun tbsiContextCreate(pcontextparams: COpaquePointer?, phcontext: COpaquePointer?): UInt
 
-public expect fun Tbsi_Create_Windows_Key(keyhandle: UInt): UInt
+public expect fun tbsiCreateWindowsKey(keyhandle: UInt): UInt
 
-public expect fun Tbsi_GetDeviceInfo(size: UInt, info: Long): UInt
+public expect fun tbsiGetDeviceInfo(size: UInt, info: COpaquePointer?): UInt
 
-public expect fun Tbsi_Get_OwnerAuth(hcontext: Long, ownerauthtype: UInt, poutputbuf: Long, poutputbuflen: Long): UInt
+public expect fun tbsiGetOwnerAuth(hcontext: COpaquePointer?, ownerauthtype: UInt, poutputbuf: COpaquePointer?, poutputbuflen: COpaquePointer?): UInt
 
-public expect fun Tbsi_Get_TCG_Log(hcontext: Long, poutputbuf: Long, poutputbuflen: Long): UInt
+public expect fun tbsiGetTcgLog(hcontext: COpaquePointer?, poutputbuf: COpaquePointer?, poutputbuflen: COpaquePointer?): UInt
 
-public expect fun Tbsi_Get_TCG_Log_Ex(logtype: UInt, pboutput: Long, pcboutput: Long): UInt
+public expect fun tbsiGetTcgLogEx(logtype: UInt, pboutput: COpaquePointer?, pcboutput: COpaquePointer?): UInt
 
-public expect fun Tbsi_Is_Tpm_Present(): BOOL
+public expect fun tbsiIsTpmPresent(): Bool
 
-public expect fun Tbsi_Physical_Presence_Command(hcontext: Long, pabinput: Long, cbinput: UInt, paboutput: Long, pcboutput: Long): UInt
+public expect fun tbsiPhysicalPresenceCommand(hcontext: COpaquePointer?, pabinput: COpaquePointer?, cbinput: UInt, paboutput: COpaquePointer?, pcboutput: COpaquePointer?): UInt
 
-public expect fun Tbsi_Revoke_Attestation(): UInt
+public expect fun tbsiRevokeAttestation(): UInt
 
-public expect fun Tbsip_Cancel_Commands(hcontext: Long): UInt
+public expect fun tbsipCancelCommands(hcontext: COpaquePointer?): UInt
 
-public expect fun Tbsip_Context_Close(hcontext: Long): UInt
+public expect fun tbsipContextClose(hcontext: COpaquePointer?): UInt
 
-public expect fun Tbsip_Submit_Command(hcontext: Long, locality: TBS_COMMAND_LOCALITY, priority: TBS_COMMAND_PRIORITY, pabcommand: Long, cbcommand: UInt, pabresult: Long, pcbresult: Long): UInt
+public expect fun tbsipSubmitCommand(hcontext: COpaquePointer?, locality: TbsCommandLocality, priority: TbsCommandPriority, pabcommand: COpaquePointer?, cbcommand: UInt, pabresult: COpaquePointer?, pcbresult: COpaquePointer?): UInt

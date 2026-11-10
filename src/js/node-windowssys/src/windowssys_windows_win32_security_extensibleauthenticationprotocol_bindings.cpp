@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerClearConnection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerClearConnection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pconnectionid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppeaperror = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -71,7 +71,7 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerEndSession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerEndSession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* ppeaperror = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -91,7 +91,7 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerFreeEapError_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerFreeEapError_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* peaperror = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -108,7 +108,7 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerFreeErrorMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerFreeErrorMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* peaperror = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -125,7 +125,7 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerFreeMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerFreeMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -142,7 +142,7 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerFreeRuntimeMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerFreeRuntimeMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -159,7 +159,7 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetAuthStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetAuthStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t authparam = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -185,7 +185,7 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetDataToUnplumbCredentials_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetDataToUnplumbCredentials_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pconnectionidthatlastsavedcreds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phcredentialimpersonationtoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -211,7 +211,7 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetEncryptedPassword_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetEncryptedPassword_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwsizeofpassword = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szpassword = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -233,7 +233,7 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetMethods_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetMethods_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* peapmethodinfoarray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppeaperror = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -253,7 +253,7 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetResponseAttributes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetResponseAttributes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pattribs = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -275,7 +275,7 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetResult_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetResult_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t reason = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -299,7 +299,7 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetSendPacket_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetSendPacket_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pcbsendpacket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -323,7 +323,7 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetUIContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetUIContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pdwsizeofuicontextdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -347,7 +347,7 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerInitialize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerInitialize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -363,7 +363,7 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerInvokeInteractiveUI_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerInvokeInteractiveUI_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwsizeofuicontextdata = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -391,7 +391,7 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerProcessReceivedPacket_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerProcessReceivedPacket_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t cbreceivepacket = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -417,7 +417,7 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerQueryInteractiveUIInputFields_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerQueryInteractiveUIInputFields_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwversion = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -447,7 +447,7 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerQueryUIBlobFromInteractiveUIInputFields_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerQueryUIBlobFromInteractiveUIInputFields_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwversion = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -481,7 +481,7 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerSetResponseAttributes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerSetResponseAttributes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pattribs = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -505,7 +505,7 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerSetUIContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerSetUIContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t sessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwsizeofuicontextdata = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -531,7 +531,7 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerUninitialize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerUninitialize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
@@ -547,28 +547,28 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
 }
 
 static void register_windows_win32_security_extensibleauthenticationprotocol_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerClearConnection", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerClearConnection_napi));
-    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerEndSession", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerEndSession_napi));
-    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerFreeEapError", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerFreeEapError_napi));
-    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerFreeErrorMemory", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerFreeErrorMemory_napi));
-    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerFreeMemory", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerFreeMemory_napi));
-    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerFreeRuntimeMemory", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerFreeRuntimeMemory_napi));
-    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetAuthStatus", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetAuthStatus_napi));
-    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetDataToUnplumbCredentials", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetDataToUnplumbCredentials_napi));
-    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetEncryptedPassword", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetEncryptedPassword_napi));
-    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetMethods", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetMethods_napi));
-    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetResponseAttributes", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetResponseAttributes_napi));
-    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetResult", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetResult_napi));
-    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetSendPacket", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetSendPacket_napi));
-    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetUIContext", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerGetUIContext_napi));
-    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerInitialize", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerInitialize_napi));
-    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerInvokeInteractiveUI", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerInvokeInteractiveUI_napi));
-    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerProcessReceivedPacket", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerProcessReceivedPacket_napi));
-    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerQueryInteractiveUIInputFields", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerQueryInteractiveUIInputFields_napi));
-    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerQueryUIBlobFromInteractiveUIInputFields", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerQueryUIBlobFromInteractiveUIInputFields_napi));
-    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerSetResponseAttributes", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerSetResponseAttributes_napi));
-    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerSetUIContext", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerSetUIContext_napi));
-    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerUninitialize", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_EapHostPeerUninitialize_napi));
+    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerClearConnection", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerClearConnection_napi));
+    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerEndSession", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerEndSession_napi));
+    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerFreeEapError", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerFreeEapError_napi));
+    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerFreeErrorMemory", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerFreeErrorMemory_napi));
+    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerFreeMemory", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerFreeMemory_napi));
+    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerFreeRuntimeMemory", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerFreeRuntimeMemory_napi));
+    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetAuthStatus", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetAuthStatus_napi));
+    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetDataToUnplumbCredentials", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetDataToUnplumbCredentials_napi));
+    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetEncryptedPassword", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetEncryptedPassword_napi));
+    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetMethods", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetMethods_napi));
+    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetResponseAttributes", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetResponseAttributes_napi));
+    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetResult", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetResult_napi));
+    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetSendPacket", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetSendPacket_napi));
+    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetUIContext", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerGetUIContext_napi));
+    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerInitialize", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerInitialize_napi));
+    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerInvokeInteractiveUI", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerInvokeInteractiveUI_napi));
+    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerProcessReceivedPacket", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerProcessReceivedPacket_napi));
+    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerQueryInteractiveUIInputFields", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerQueryInteractiveUIInputFields_napi));
+    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerQueryUIBlobFromInteractiveUIInputFields", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerQueryUIBlobFromInteractiveUIInputFields_napi));
+    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerSetResponseAttributes", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerSetResponseAttributes_napi));
+    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerSetUIContext", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerSetUIContext_napi));
+    exports.Set("windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerUninitialize", Napi::Function::New(env, windowssys_windows_win32_security_extensibleauthenticationprotocol_eapHostPeerUninitialize_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_security_extensibleauthenticationprotocol_napi, nullptr };

@@ -2,62 +2,65 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.wintrust
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 
-public actual fun OpenPersonalTrustDBDialog(hwndparent: HWND): BOOL =
-    0
+public actual fun openPersonalTrustDBDialog(hwndparent: Hwnd): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OpenPersonalTrustDBDialogEx(hwndparent: HWND, dwflags: UInt, pvreserved: Long): BOOL =
-    0
+public actual fun openPersonalTrustDBDialogEx(hwndparent: Hwnd, dwflags: UInt, pvreserved: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun WTHelperCertCheckValidSignature(pprovdata: Long): HRESULT =
-    0
+public actual fun wTHelperCertCheckValidSignature(pprovdata: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun WTHelperCertIsSelfSigned(dwencoding: UInt, pcert: Long): BOOL =
-    0
+public actual fun wTHelperCertIsSelfSigned(dwencoding: UInt, pcert: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun WTHelperGetProvCertFromChain(psgnr: Long, idxcert: UInt): Long =
-    0L
+public actual fun wTHelperGetProvCertFromChain(psgnr: COpaquePointer?, idxcert: UInt): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun WTHelperGetProvPrivateDataFromChain(pprovdata: Long, pgproviderid: Long): Long =
-    0L
+public actual fun wTHelperGetProvPrivateDataFromChain(pprovdata: COpaquePointer?, pgproviderid: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun WTHelperGetProvSignerFromChain(pprovdata: Long, idxsigner: UInt, fcountersigner: BOOL, idxcountersigner: UInt): Long =
-    0L
+public actual fun wTHelperGetProvSignerFromChain(pprovdata: COpaquePointer?, idxsigner: UInt, fcountersigner: Bool, idxcountersigner: UInt): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun WTHelperProvDataFromStateData(hstatedata: HANDLE): Long =
-    0L
+public actual fun wTHelperProvDataFromStateData(hstatedata: Handle): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun WinVerifyTrust(hwnd: HWND, pgactionid: Long, pwvtdata: Long): Int =
-    0
+public actual fun winVerifyTrust(hwnd: Hwnd, pgactionid: COpaquePointer?, pwvtdata: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun WinVerifyTrustEx(hwnd: HWND, pgactionid: Long, pwintrustdata: Long): Int =
-    0
+public actual fun winVerifyTrustEx(hwnd: Hwnd, pgactionid: COpaquePointer?, pwintrustdata: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun WintrustAddActionID(pgactionid: Long, fdwflags: UInt, psprovinfo: Long): BOOL =
-    0
+public actual fun wintrustAddActionID(pgactionid: COpaquePointer?, fdwflags: UInt, psprovinfo: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun WintrustAddDefaultForUsage(pszusageoid: PCSTR, psdefusage: Long): BOOL =
-    0
+public actual fun wintrustAddDefaultForUsage(pszusageoid: Pcstr, psdefusage: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun WintrustGetDefaultForUsage(dwaction: WINTRUST_GET_DEFAULT_FOR_USAGE_ACTION, pszusageoid: PCSTR, psusage: Long): BOOL =
-    0
+public actual fun wintrustGetDefaultForUsage(dwaction: WintrustGetDefaultForUsageAction, pszusageoid: Pcstr, psusage: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun WintrustGetRegPolicyFlags(pdwpolicyflags: Long) {
+public actual fun wintrustGetRegPolicyFlags(pdwpolicyflags: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun WintrustLoadFunctionPointers(pgactionid: Long, ppfns: Long): BOOL =
-    0
+public actual fun wintrustLoadFunctionPointers(pgactionid: COpaquePointer?, ppfns: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun WintrustRemoveActionID(pgactionid: Long): BOOL =
-    0
+public actual fun wintrustRemoveActionID(pgactionid: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun WintrustSetDefaultIncludePEPageHashes(fincludepepagehashes: BOOL) {
+public actual fun wintrustSetDefaultIncludePEPageHashes(fincludepepagehashes: Bool) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun WintrustSetRegPolicyFlags(dwpolicyflags: WINTRUST_POLICY_FLAGS): BOOL =
-    0
+public actual fun wintrustSetRegPolicyFlags(dwpolicyflags: WintrustPolicyFlags): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

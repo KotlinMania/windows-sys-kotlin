@@ -1,57 +1,58 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography.ui
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
 
-public typealias CERT_SELECT_STRUCT_FLAGS = UInt
+public typealias CertSelectStructFlags = UInt
 
-public typealias CERT_VIEWPROPERTIES_STRUCT_FLAGS = UInt
+public typealias CertViewpropertiesStructFlags = UInt
 
-public typealias CRYPTUI_VIEWCERTIFICATE_FLAGS = UInt
+public typealias CryptuiViewcertificateFlags = UInt
 
-public typealias CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE = UInt
+public typealias CryptuiWizDigitalAdditionalCertChoice = UInt
 
-public typealias CRYPTUI_WIZ_DIGITAL_SIGN = UInt
+public typealias CryptuiWizDigitalSign = UInt
 
-public typealias CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION = UInt
+public typealias CryptuiWizDigitalSignPvkOption = UInt
 
-public typealias CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE = UInt
+public typealias CryptuiWizDigitalSignSigType = UInt
 
-public typealias CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT = UInt
+public typealias CryptuiWizDigitalSignSubject = UInt
 
-public typealias CRYPTUI_WIZ_EXPORT_FORMAT = UInt
+public typealias CryptuiWizExportFormat = UInt
 
-public typealias CRYPTUI_WIZ_EXPORT_SUBJECT = UInt
+public typealias CryptuiWizExportSubject = UInt
 
-public typealias CRYPTUI_WIZ_FLAGS = UInt
+public typealias CryptuiWizFlags = UInt
 
-public typealias CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION = UInt
+public typealias CryptuiWizImportSubjectOption = UInt
 
-public typealias CTL_MODIFY_REQUEST_OPERATION = UInt
+public typealias CtlModifyRequestOperation = UInt
 
-public fun interface PFNCFILTERPROCFn {
-    public operator fun invoke(pcertcontext: Long, pfinitialselectedcert: Long, pvcallbackdata: Long): BOOL
+public fun interface PfncfilterprocFn {
+    public operator fun invoke(pcertcontext: COpaquePointer?, pfinitialselectedcert: COpaquePointer?, pvcallbackdata: COpaquePointer?): Bool
 }
 
-public typealias PFNCFILTERPROC = PFNCFILTERPROCFn?
+public typealias Pfncfilterproc = PfncfilterprocFn?
 
-public fun interface PFNCMFILTERPROCFn {
-    public operator fun invoke(pcertcontext: Long, param1: LPARAM, param2: UInt, param3: UInt): BOOL
+public fun interface PfncmfilterprocFn {
+    public operator fun invoke(pcertcontext: COpaquePointer?, param1: Lparam, param2: UInt, param3: UInt): Bool
 }
 
-public typealias PFNCMFILTERPROC = PFNCMFILTERPROCFn?
+public typealias Pfncmfilterproc = PfncmfilterprocFn?
 
-public fun interface PFNCMHOOKPROCFn {
-    public operator fun invoke(hwnddialog: HWND, message: UInt, wparam: WPARAM, lparam: LPARAM): UInt
+public fun interface PfncmhookprocFn {
+    public operator fun invoke(hwnddialog: Hwnd, message: UInt, wparam: Wparam, lparam: Lparam): UInt
 }
 
-public typealias PFNCMHOOKPROC = PFNCMHOOKPROCFn?
+public typealias Pfncmhookproc = PfncmhookprocFn?
 
-public fun interface PFNTRUSTHELPERFn {
-    public operator fun invoke(pcertcontext: Long, lcustdata: LPARAM, fleafcertificate: BOOL, pbtrustblob: Long): HRESULT
+public fun interface PfntrusthelperFn {
+    public operator fun invoke(pcertcontext: COpaquePointer?, lcustdata: Lparam, fleafcertificate: Bool, pbtrustblob: COpaquePointer?): Hresult
 }
 
-public typealias PFNTRUSTHELPER = PFNTRUSTHELPERFn?
+public typealias Pfntrusthelper = PfntrusthelperFn?

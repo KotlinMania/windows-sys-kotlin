@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_system_wmi_MI_Application_InitializeV1(uint32_t flags, void* applicationid, void* extendederror, void* application) {
+int32_t windowssys_windows_win32_system_wmi_miApplicationInitializeV1(uint32_t flags, void* applicationid, void* extendederror, void* application) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

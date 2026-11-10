@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_graphics_printing_AddMonitorA(void* pname, uint32_t level, void* pmonitors) {
+int32_t windowssys_windows_win32_graphics_printing_addMonitorA(void* pname, uint32_t level, void* pmonitors) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -39,7 +39,7 @@ int32_t windowssys_windows_win32_graphics_printing_AddMonitorA(void* pname, uint
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_AddMonitorW(void* pname, uint32_t level, void* pmonitors) {
+int32_t windowssys_windows_win32_graphics_printing_addMonitorW(void* pname, uint32_t level, void* pmonitors) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -63,7 +63,7 @@ int32_t windowssys_windows_win32_graphics_printing_AddMonitorW(void* pname, uint
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_AddPortA(void* pname, void* hwnd, void* pmonitorname) {
+int32_t windowssys_windows_win32_graphics_printing_addPortA(void* pname, void* hwnd, void* pmonitorname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -87,7 +87,7 @@ int32_t windowssys_windows_win32_graphics_printing_AddPortA(void* pname, void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_AddPortW(void* pname, void* hwnd, void* pmonitorname) {
+int32_t windowssys_windows_win32_graphics_printing_addPortW(void* pname, void* hwnd, void* pmonitorname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -111,7 +111,7 @@ int32_t windowssys_windows_win32_graphics_printing_AddPortW(void* pname, void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_AddPrintProcessorA(void* pname, void* penvironment, void* ppathname, void* pprintprocessorname) {
+int32_t windowssys_windows_win32_graphics_printing_addPrintProcessorA(void* pname, void* penvironment, void* ppathname, void* pprintprocessorname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -136,7 +136,7 @@ int32_t windowssys_windows_win32_graphics_printing_AddPrintProcessorA(void* pnam
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_AddPrintProcessorW(void* pname, void* penvironment, void* ppathname, void* pprintprocessorname) {
+int32_t windowssys_windows_win32_graphics_printing_addPrintProcessorW(void* pname, void* penvironment, void* ppathname, void* pprintprocessorname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -161,7 +161,7 @@ int32_t windowssys_windows_win32_graphics_printing_AddPrintProcessorW(void* pnam
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_AddPrintProvidorA(void* pname, uint32_t level, void* pprovidorinfo) {
+int32_t windowssys_windows_win32_graphics_printing_addPrintProvidorA(void* pname, uint32_t level, void* pprovidorinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -185,7 +185,7 @@ int32_t windowssys_windows_win32_graphics_printing_AddPrintProvidorA(void* pname
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_AddPrintProvidorW(void* pname, uint32_t level, void* pprovidorinfo) {
+int32_t windowssys_windows_win32_graphics_printing_addPrintProvidorW(void* pname, uint32_t level, void* pprovidorinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -209,7 +209,7 @@ int32_t windowssys_windows_win32_graphics_printing_AddPrintProvidorW(void* pname
 #endif
 }
 
-void* windowssys_windows_win32_graphics_printing_AddPrinterA(void* pname, uint32_t level, void* pprinter) {
+void* windowssys_windows_win32_graphics_printing_addPrinterA(void* pname, uint32_t level, void* pprinter) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -233,7 +233,7 @@ void* windowssys_windows_win32_graphics_printing_AddPrinterA(void* pname, uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_AddPrinterConnection2A(void* hwnd, void* pszname, uint32_t dwlevel, void* pconnectioninfo) {
+int32_t windowssys_windows_win32_graphics_printing_addPrinterConnection2A(void* hwnd, void* pszname, uint32_t dwlevel, void* pconnectioninfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -258,7 +258,7 @@ int32_t windowssys_windows_win32_graphics_printing_AddPrinterConnection2A(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_AddPrinterConnection2W(void* hwnd, void* pszname, uint32_t dwlevel, void* pconnectioninfo) {
+int32_t windowssys_windows_win32_graphics_printing_addPrinterConnection2W(void* hwnd, void* pszname, uint32_t dwlevel, void* pconnectioninfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -283,7 +283,7 @@ int32_t windowssys_windows_win32_graphics_printing_AddPrinterConnection2W(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_AddPrinterConnectionA(void* pname) {
+int32_t windowssys_windows_win32_graphics_printing_addPrinterConnectionA(void* pname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -305,7 +305,7 @@ int32_t windowssys_windows_win32_graphics_printing_AddPrinterConnectionA(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_AddPrinterConnectionW(void* pname) {
+int32_t windowssys_windows_win32_graphics_printing_addPrinterConnectionW(void* pname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -327,7 +327,7 @@ int32_t windowssys_windows_win32_graphics_printing_AddPrinterConnectionW(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_AddPrinterDriverA(void* pname, uint32_t level, void* pdriverinfo) {
+int32_t windowssys_windows_win32_graphics_printing_addPrinterDriverA(void* pname, uint32_t level, void* pdriverinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -351,7 +351,7 @@ int32_t windowssys_windows_win32_graphics_printing_AddPrinterDriverA(void* pname
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_AddPrinterDriverExA(void* pname, uint32_t level, void* lpbdriverinfo, uint32_t dwfilecopyflags) {
+int32_t windowssys_windows_win32_graphics_printing_addPrinterDriverExA(void* pname, uint32_t level, void* lpbdriverinfo, uint32_t dwfilecopyflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -376,7 +376,7 @@ int32_t windowssys_windows_win32_graphics_printing_AddPrinterDriverExA(void* pna
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_AddPrinterDriverExW(void* pname, uint32_t level, void* lpbdriverinfo, uint32_t dwfilecopyflags) {
+int32_t windowssys_windows_win32_graphics_printing_addPrinterDriverExW(void* pname, uint32_t level, void* lpbdriverinfo, uint32_t dwfilecopyflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -401,7 +401,7 @@ int32_t windowssys_windows_win32_graphics_printing_AddPrinterDriverExW(void* pna
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_AddPrinterDriverW(void* pname, uint32_t level, void* pdriverinfo) {
+int32_t windowssys_windows_win32_graphics_printing_addPrinterDriverW(void* pname, uint32_t level, void* pdriverinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -425,7 +425,7 @@ int32_t windowssys_windows_win32_graphics_printing_AddPrinterDriverW(void* pname
 #endif
 }
 
-void* windowssys_windows_win32_graphics_printing_AddPrinterW(void* pname, uint32_t level, void* pprinter) {
+void* windowssys_windows_win32_graphics_printing_addPrinterW(void* pname, uint32_t level, void* pprinter) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -449,7 +449,7 @@ void* windowssys_windows_win32_graphics_printing_AddPrinterW(void* pname, uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_AppendPrinterNotifyInfoData(void* pinfodest, void* pdatasrc, uint32_t fdwflags) {
+int32_t windowssys_windows_win32_graphics_printing_appendPrinterNotifyInfoData(void* pinfodest, void* pdatasrc, uint32_t fdwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -473,7 +473,7 @@ int32_t windowssys_windows_win32_graphics_printing_AppendPrinterNotifyInfoData(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_printing_CallRouterFindFirstPrinterChangeNotification(void* hprinterrpc, uint32_t fdwfilterflags, uint32_t fdwoptions, void* hnotify, void* pprinternotifyoptions) {
+uint32_t windowssys_windows_win32_graphics_printing_callRouterFindFirstPrinterChangeNotification(void* hprinterrpc, uint32_t fdwfilterflags, uint32_t fdwoptions, void* hnotify, void* pprinternotifyoptions) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -499,7 +499,7 @@ uint32_t windowssys_windows_win32_graphics_printing_CallRouterFindFirstPrinterCh
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_CommonPropertySheetUIA(void* hwndowner, void* pfnpropsheetui, int64_t lparam, void* presult) {
+int32_t windowssys_windows_win32_graphics_printing_commonPropertySheetUIA(void* hwndowner, void* pfnpropsheetui, int64_t lparam, void* presult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -524,7 +524,7 @@ int32_t windowssys_windows_win32_graphics_printing_CommonPropertySheetUIA(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_CommonPropertySheetUIW(void* hwndowner, void* pfnpropsheetui, int64_t lparam, void* presult) {
+int32_t windowssys_windows_win32_graphics_printing_commonPropertySheetUIW(void* hwndowner, void* pfnpropsheetui, int64_t lparam, void* presult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -549,7 +549,7 @@ int32_t windowssys_windows_win32_graphics_printing_CommonPropertySheetUIW(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_ConfigurePortA(void* pname, void* hwnd, void* pportname) {
+int32_t windowssys_windows_win32_graphics_printing_configurePortA(void* pname, void* hwnd, void* pportname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -573,7 +573,7 @@ int32_t windowssys_windows_win32_graphics_printing_ConfigurePortA(void* pname, v
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_ConfigurePortW(void* pname, void* hwnd, void* pportname) {
+int32_t windowssys_windows_win32_graphics_printing_configurePortW(void* pname, void* hwnd, void* pportname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -597,7 +597,7 @@ int32_t windowssys_windows_win32_graphics_printing_ConfigurePortW(void* pname, v
 #endif
 }
 
-void* windowssys_windows_win32_graphics_printing_ConnectToPrinterDlg(void* hwnd, uint32_t flags) {
+void* windowssys_windows_win32_graphics_printing_connectToPrinterDlg(void* hwnd, uint32_t flags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -620,7 +620,7 @@ void* windowssys_windows_win32_graphics_printing_ConnectToPrinterDlg(void* hwnd,
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_CreatePrintAsyncNotifyChannel(void* pszname, void* pnotificationtype, int32_t euserfilter, int32_t econversationstyle, void* pcallback, void* ppiasynchnotification) {
+int32_t windowssys_windows_win32_graphics_printing_createPrintAsyncNotifyChannel(void* pszname, void* pnotificationtype, int32_t euserfilter, int32_t econversationstyle, void* pcallback, void* ppiasynchnotification) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -647,7 +647,7 @@ int32_t windowssys_windows_win32_graphics_printing_CreatePrintAsyncNotifyChannel
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_DeleteMonitorA(void* pname, void* penvironment, void* pmonitorname) {
+int32_t windowssys_windows_win32_graphics_printing_deleteMonitorA(void* pname, void* penvironment, void* pmonitorname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -671,7 +671,7 @@ int32_t windowssys_windows_win32_graphics_printing_DeleteMonitorA(void* pname, v
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_DeleteMonitorW(void* pname, void* penvironment, void* pmonitorname) {
+int32_t windowssys_windows_win32_graphics_printing_deleteMonitorW(void* pname, void* penvironment, void* pmonitorname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -695,7 +695,7 @@ int32_t windowssys_windows_win32_graphics_printing_DeleteMonitorW(void* pname, v
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_DeletePortA(void* pname, void* hwnd, void* pportname) {
+int32_t windowssys_windows_win32_graphics_printing_deletePortA(void* pname, void* hwnd, void* pportname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -719,7 +719,7 @@ int32_t windowssys_windows_win32_graphics_printing_DeletePortA(void* pname, void
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_DeletePortW(void* pname, void* hwnd, void* pportname) {
+int32_t windowssys_windows_win32_graphics_printing_deletePortW(void* pname, void* hwnd, void* pportname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -743,7 +743,7 @@ int32_t windowssys_windows_win32_graphics_printing_DeletePortW(void* pname, void
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_DeletePrintProcessorA(void* pname, void* penvironment, void* pprintprocessorname) {
+int32_t windowssys_windows_win32_graphics_printing_deletePrintProcessorA(void* pname, void* penvironment, void* pprintprocessorname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -767,7 +767,7 @@ int32_t windowssys_windows_win32_graphics_printing_DeletePrintProcessorA(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_DeletePrintProcessorW(void* pname, void* penvironment, void* pprintprocessorname) {
+int32_t windowssys_windows_win32_graphics_printing_deletePrintProcessorW(void* pname, void* penvironment, void* pprintprocessorname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -791,7 +791,7 @@ int32_t windowssys_windows_win32_graphics_printing_DeletePrintProcessorW(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_DeletePrintProvidorA(void* pname, void* penvironment, void* pprintprovidorname) {
+int32_t windowssys_windows_win32_graphics_printing_deletePrintProvidorA(void* pname, void* penvironment, void* pprintprovidorname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -815,7 +815,7 @@ int32_t windowssys_windows_win32_graphics_printing_DeletePrintProvidorA(void* pn
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_DeletePrintProvidorW(void* pname, void* penvironment, void* pprintprovidorname) {
+int32_t windowssys_windows_win32_graphics_printing_deletePrintProvidorW(void* pname, void* penvironment, void* pprintprovidorname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -839,7 +839,7 @@ int32_t windowssys_windows_win32_graphics_printing_DeletePrintProvidorW(void* pn
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_DeletePrinterConnectionA(void* pname) {
+int32_t windowssys_windows_win32_graphics_printing_deletePrinterConnectionA(void* pname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -861,7 +861,7 @@ int32_t windowssys_windows_win32_graphics_printing_DeletePrinterConnectionA(void
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_DeletePrinterConnectionW(void* pname) {
+int32_t windowssys_windows_win32_graphics_printing_deletePrinterConnectionW(void* pname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -883,7 +883,7 @@ int32_t windowssys_windows_win32_graphics_printing_DeletePrinterConnectionW(void
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_DeletePrinterDriverA(void* pname, void* penvironment, void* pdrivername) {
+int32_t windowssys_windows_win32_graphics_printing_deletePrinterDriverA(void* pname, void* penvironment, void* pdrivername) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -907,7 +907,7 @@ int32_t windowssys_windows_win32_graphics_printing_DeletePrinterDriverA(void* pn
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_DeletePrinterDriverExA(void* pname, void* penvironment, void* pdrivername, uint32_t dwdeleteflag, uint32_t dwversionflag) {
+int32_t windowssys_windows_win32_graphics_printing_deletePrinterDriverExA(void* pname, void* penvironment, void* pdrivername, uint32_t dwdeleteflag, uint32_t dwversionflag) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -933,7 +933,7 @@ int32_t windowssys_windows_win32_graphics_printing_DeletePrinterDriverExA(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_DeletePrinterDriverExW(void* pname, void* penvironment, void* pdrivername, uint32_t dwdeleteflag, uint32_t dwversionflag) {
+int32_t windowssys_windows_win32_graphics_printing_deletePrinterDriverExW(void* pname, void* penvironment, void* pdrivername, uint32_t dwdeleteflag, uint32_t dwversionflag) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -959,7 +959,7 @@ int32_t windowssys_windows_win32_graphics_printing_DeletePrinterDriverExW(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_DeletePrinterDriverPackageA(void* pszserver, void* pszinfpath, void* pszenvironment) {
+int32_t windowssys_windows_win32_graphics_printing_deletePrinterDriverPackageA(void* pszserver, void* pszinfpath, void* pszenvironment) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -983,7 +983,7 @@ int32_t windowssys_windows_win32_graphics_printing_DeletePrinterDriverPackageA(v
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_DeletePrinterDriverPackageW(void* pszserver, void* pszinfpath, void* pszenvironment) {
+int32_t windowssys_windows_win32_graphics_printing_deletePrinterDriverPackageW(void* pszserver, void* pszinfpath, void* pszenvironment) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1007,7 +1007,7 @@ int32_t windowssys_windows_win32_graphics_printing_DeletePrinterDriverPackageW(v
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_DeletePrinterDriverW(void* pname, void* penvironment, void* pdrivername) {
+int32_t windowssys_windows_win32_graphics_printing_deletePrinterDriverW(void* pname, void* penvironment, void* pdrivername) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1031,7 +1031,7 @@ int32_t windowssys_windows_win32_graphics_printing_DeletePrinterDriverW(void* pn
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_DeletePrinterIC(void* hprinteric) {
+int32_t windowssys_windows_win32_graphics_printing_deletePrinterIC(void* hprinteric) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1053,7 +1053,7 @@ int32_t windowssys_windows_win32_graphics_printing_DeletePrinterIC(void* hprinte
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_DevQueryPrintEx(void* pdqpinfo) {
+int32_t windowssys_windows_win32_graphics_printing_devQueryPrintEx(void* pdqpinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1075,7 +1075,7 @@ int32_t windowssys_windows_win32_graphics_printing_DevQueryPrintEx(void* pdqpinf
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_EnumMonitorsA(void* pname, uint32_t level, void* pmonitor, uint32_t cbbuf, void* pcbneeded, void* pcreturned) {
+int32_t windowssys_windows_win32_graphics_printing_enumMonitorsA(void* pname, uint32_t level, void* pmonitor, uint32_t cbbuf, void* pcbneeded, void* pcreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1102,7 +1102,7 @@ int32_t windowssys_windows_win32_graphics_printing_EnumMonitorsA(void* pname, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_EnumMonitorsW(void* pname, uint32_t level, void* pmonitor, uint32_t cbbuf, void* pcbneeded, void* pcreturned) {
+int32_t windowssys_windows_win32_graphics_printing_enumMonitorsW(void* pname, uint32_t level, void* pmonitor, uint32_t cbbuf, void* pcbneeded, void* pcreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1129,7 +1129,7 @@ int32_t windowssys_windows_win32_graphics_printing_EnumMonitorsW(void* pname, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_EnumPortsA(void* pname, uint32_t level, void* pport, uint32_t cbbuf, void* pcbneeded, void* pcreturned) {
+int32_t windowssys_windows_win32_graphics_printing_enumPortsA(void* pname, uint32_t level, void* pport, uint32_t cbbuf, void* pcbneeded, void* pcreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1156,7 +1156,7 @@ int32_t windowssys_windows_win32_graphics_printing_EnumPortsA(void* pname, uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_EnumPortsW(void* pname, uint32_t level, void* pport, uint32_t cbbuf, void* pcbneeded, void* pcreturned) {
+int32_t windowssys_windows_win32_graphics_printing_enumPortsW(void* pname, uint32_t level, void* pport, uint32_t cbbuf, void* pcbneeded, void* pcreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1183,7 +1183,7 @@ int32_t windowssys_windows_win32_graphics_printing_EnumPortsW(void* pname, uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_EnumPrintProcessorDatatypesA(void* pname, void* pprintprocessorname, uint32_t level, void* pdatatypes, uint32_t cbbuf, void* pcbneeded, void* pcreturned) {
+int32_t windowssys_windows_win32_graphics_printing_enumPrintProcessorDatatypesA(void* pname, void* pprintprocessorname, uint32_t level, void* pdatatypes, uint32_t cbbuf, void* pcbneeded, void* pcreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1211,7 +1211,7 @@ int32_t windowssys_windows_win32_graphics_printing_EnumPrintProcessorDatatypesA(
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_EnumPrintProcessorDatatypesW(void* pname, void* pprintprocessorname, uint32_t level, void* pdatatypes, uint32_t cbbuf, void* pcbneeded, void* pcreturned) {
+int32_t windowssys_windows_win32_graphics_printing_enumPrintProcessorDatatypesW(void* pname, void* pprintprocessorname, uint32_t level, void* pdatatypes, uint32_t cbbuf, void* pcbneeded, void* pcreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1239,7 +1239,7 @@ int32_t windowssys_windows_win32_graphics_printing_EnumPrintProcessorDatatypesW(
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_EnumPrintProcessorsA(void* pname, void* penvironment, uint32_t level, void* pprintprocessorinfo, uint32_t cbbuf, void* pcbneeded, void* pcreturned) {
+int32_t windowssys_windows_win32_graphics_printing_enumPrintProcessorsA(void* pname, void* penvironment, uint32_t level, void* pprintprocessorinfo, uint32_t cbbuf, void* pcbneeded, void* pcreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1267,7 +1267,7 @@ int32_t windowssys_windows_win32_graphics_printing_EnumPrintProcessorsA(void* pn
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_EnumPrintProcessorsW(void* pname, void* penvironment, uint32_t level, void* pprintprocessorinfo, uint32_t cbbuf, void* pcbneeded, void* pcreturned) {
+int32_t windowssys_windows_win32_graphics_printing_enumPrintProcessorsW(void* pname, void* penvironment, uint32_t level, void* pprintprocessorinfo, uint32_t cbbuf, void* pcbneeded, void* pcreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1295,7 +1295,7 @@ int32_t windowssys_windows_win32_graphics_printing_EnumPrintProcessorsW(void* pn
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_EnumPrinterDriversA(void* pname, void* penvironment, uint32_t level, void* pdriverinfo, uint32_t cbbuf, void* pcbneeded, void* pcreturned) {
+int32_t windowssys_windows_win32_graphics_printing_enumPrinterDriversA(void* pname, void* penvironment, uint32_t level, void* pdriverinfo, uint32_t cbbuf, void* pcbneeded, void* pcreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1323,7 +1323,7 @@ int32_t windowssys_windows_win32_graphics_printing_EnumPrinterDriversA(void* pna
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_EnumPrinterDriversW(void* pname, void* penvironment, uint32_t level, void* pdriverinfo, uint32_t cbbuf, void* pcbneeded, void* pcreturned) {
+int32_t windowssys_windows_win32_graphics_printing_enumPrinterDriversW(void* pname, void* penvironment, uint32_t level, void* pdriverinfo, uint32_t cbbuf, void* pcbneeded, void* pcreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1351,7 +1351,7 @@ int32_t windowssys_windows_win32_graphics_printing_EnumPrinterDriversW(void* pna
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_EnumPrintersA(uint32_t flags, void* name, uint32_t level, void* pprinterenum, uint32_t cbbuf, void* pcbneeded, void* pcreturned) {
+int32_t windowssys_windows_win32_graphics_printing_enumPrintersA(uint32_t flags, void* name, uint32_t level, void* pprinterenum, uint32_t cbbuf, void* pcbneeded, void* pcreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1379,7 +1379,7 @@ int32_t windowssys_windows_win32_graphics_printing_EnumPrintersA(uint32_t flags,
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_EnumPrintersW(uint32_t flags, void* name, uint32_t level, void* pprinterenum, uint32_t cbbuf, void* pcbneeded, void* pcreturned) {
+int32_t windowssys_windows_win32_graphics_printing_enumPrintersW(uint32_t flags, void* name, uint32_t level, void* pprinterenum, uint32_t cbbuf, void* pcbneeded, void* pcreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1407,7 +1407,7 @@ int32_t windowssys_windows_win32_graphics_printing_EnumPrintersW(uint32_t flags,
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_ExtDeviceMode(void* hwnd, void* hinst, void* pdevmodeoutput, void* pdevicename, void* pport, void* pdevmodeinput, void* pprofile, uint32_t fmode) {
+int32_t windowssys_windows_win32_graphics_printing_extDeviceMode(void* hwnd, void* hinst, void* pdevmodeoutput, void* pdevicename, void* pport, void* pdevmodeinput, void* pprofile, uint32_t fmode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1436,7 +1436,7 @@ int32_t windowssys_windows_win32_graphics_printing_ExtDeviceMode(void* hwnd, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_FindClosePrinterChangeNotification(void* hchange) {
+int32_t windowssys_windows_win32_graphics_printing_findClosePrinterChangeNotification(void* hchange) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1458,7 +1458,7 @@ int32_t windowssys_windows_win32_graphics_printing_FindClosePrinterChangeNotific
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_FindNextPrinterChangeNotification(void* hchange, void* pdwchange, void* pvreserved, void* ppprinternotifyinfo) {
+int32_t windowssys_windows_win32_graphics_printing_findNextPrinterChangeNotification(void* hchange, void* pdwchange, void* pvreserved, void* ppprinternotifyinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1483,7 +1483,7 @@ int32_t windowssys_windows_win32_graphics_printing_FindNextPrinterChangeNotifica
 #endif
 }
 
-void windowssys_windows_win32_graphics_printing_FreePrintNamedPropertyArray(uint32_t cproperties, void* ppproperties) {
+void windowssys_windows_win32_graphics_printing_freePrintNamedPropertyArray(uint32_t cproperties, void* ppproperties) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1505,7 +1505,7 @@ void windowssys_windows_win32_graphics_printing_FreePrintNamedPropertyArray(uint
 #endif
 }
 
-void windowssys_windows_win32_graphics_printing_FreePrintPropertyValue(void* pvalue) {
+void windowssys_windows_win32_graphics_printing_freePrintPropertyValue(void* pvalue) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1526,7 +1526,7 @@ void windowssys_windows_win32_graphics_printing_FreePrintPropertyValue(void* pva
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_FreePrinterNotifyInfo(void* pprinternotifyinfo) {
+int32_t windowssys_windows_win32_graphics_printing_freePrinterNotifyInfo(void* pprinternotifyinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1548,7 +1548,7 @@ int32_t windowssys_windows_win32_graphics_printing_FreePrinterNotifyInfo(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_GdiDeleteSpoolFileHandle(void* spoolfilehandle) {
+int32_t windowssys_windows_win32_graphics_printing_gdiDeleteSpoolFileHandle(void* spoolfilehandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1570,7 +1570,7 @@ int32_t windowssys_windows_win32_graphics_printing_GdiDeleteSpoolFileHandle(void
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_GdiEndDocEMF(void* spoolfilehandle) {
+int32_t windowssys_windows_win32_graphics_printing_gdiEndDocEMF(void* spoolfilehandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1592,7 +1592,7 @@ int32_t windowssys_windows_win32_graphics_printing_GdiEndDocEMF(void* spoolfileh
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_GdiEndPageEMF(void* spoolfilehandle, uint32_t dwoptimization) {
+int32_t windowssys_windows_win32_graphics_printing_gdiEndPageEMF(void* spoolfilehandle, uint32_t dwoptimization) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1615,7 +1615,7 @@ int32_t windowssys_windows_win32_graphics_printing_GdiEndPageEMF(void* spoolfile
 #endif
 }
 
-void* windowssys_windows_win32_graphics_printing_GdiGetDC(void* spoolfilehandle) {
+void* windowssys_windows_win32_graphics_printing_gdiGetDC(void* spoolfilehandle) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1637,7 +1637,7 @@ void* windowssys_windows_win32_graphics_printing_GdiGetDC(void* spoolfilehandle)
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_GdiGetDevmodeForPage(void* spoolfilehandle, uint32_t dwpagenumber, void* pcurrdm, void* plastdm) {
+int32_t windowssys_windows_win32_graphics_printing_gdiGetDevmodeForPage(void* spoolfilehandle, uint32_t dwpagenumber, void* pcurrdm, void* plastdm) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1662,7 +1662,7 @@ int32_t windowssys_windows_win32_graphics_printing_GdiGetDevmodeForPage(void* sp
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_printing_GdiGetPageCount(void* spoolfilehandle) {
+uint32_t windowssys_windows_win32_graphics_printing_gdiGetPageCount(void* spoolfilehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1684,7 +1684,7 @@ uint32_t windowssys_windows_win32_graphics_printing_GdiGetPageCount(void* spoolf
 #endif
 }
 
-void* windowssys_windows_win32_graphics_printing_GdiGetPageHandle(void* spoolfilehandle, uint32_t page, void* pdwpagetype) {
+void* windowssys_windows_win32_graphics_printing_gdiGetPageHandle(void* spoolfilehandle, uint32_t page, void* pdwpagetype) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1708,7 +1708,7 @@ void* windowssys_windows_win32_graphics_printing_GdiGetPageHandle(void* spoolfil
 #endif
 }
 
-void* windowssys_windows_win32_graphics_printing_GdiGetSpoolFileHandle(void* pwszprintername, void* pdevmode, void* pwszdocname) {
+void* windowssys_windows_win32_graphics_printing_gdiGetSpoolFileHandle(void* pwszprintername, void* pdevmode, void* pwszdocname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1732,7 +1732,7 @@ void* windowssys_windows_win32_graphics_printing_GdiGetSpoolFileHandle(void* pws
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_GdiPlayPageEMF(void* spoolfilehandle, void* hemf, void* prectdocument, void* prectborder, void* prectclip) {
+int32_t windowssys_windows_win32_graphics_printing_gdiPlayPageEMF(void* spoolfilehandle, void* hemf, void* prectdocument, void* prectborder, void* prectclip) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1758,7 +1758,7 @@ int32_t windowssys_windows_win32_graphics_printing_GdiPlayPageEMF(void* spoolfil
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_GdiResetDCEMF(void* spoolfilehandle, void* pcurrdm) {
+int32_t windowssys_windows_win32_graphics_printing_gdiResetDCEMF(void* spoolfilehandle, void* pcurrdm) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1781,7 +1781,7 @@ int32_t windowssys_windows_win32_graphics_printing_GdiResetDCEMF(void* spoolfile
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_GdiStartDocEMF(void* spoolfilehandle, void* pdocinfo) {
+int32_t windowssys_windows_win32_graphics_printing_gdiStartDocEMF(void* spoolfilehandle, void* pdocinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1804,7 +1804,7 @@ int32_t windowssys_windows_win32_graphics_printing_GdiStartDocEMF(void* spoolfil
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_GdiStartPageEMF(void* spoolfilehandle) {
+int32_t windowssys_windows_win32_graphics_printing_gdiStartPageEMF(void* spoolfilehandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1826,7 +1826,7 @@ int32_t windowssys_windows_win32_graphics_printing_GdiStartPageEMF(void* spoolfi
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_printing_GenerateCopyFilePaths(void* pszprintername, void* pszdirectory, void* psplclientinfo, uint32_t dwlevel, void* pszsourcedir, void* pcchsourcedirsize, void* psztargetdir, void* pcchtargetdirsize, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_graphics_printing_generateCopyFilePaths(void* pszprintername, void* pszdirectory, void* psplclientinfo, uint32_t dwlevel, void* pszsourcedir, void* pcchsourcedirsize, void* psztargetdir, void* pcchtargetdirsize, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1856,7 +1856,7 @@ uint32_t windowssys_windows_win32_graphics_printing_GenerateCopyFilePaths(void* 
 #endif
 }
 
-uint64_t windowssys_windows_win32_graphics_printing_GetCPSUIUserData(void* hdlg) {
+uint64_t windowssys_windows_win32_graphics_printing_getCPSUIUserData(void* hdlg) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1878,7 +1878,7 @@ uint64_t windowssys_windows_win32_graphics_printing_GetCPSUIUserData(void* hdlg)
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_GetCorePrinterDriversA(void* pszserver, void* pszenvironment, void* pszzcoredriverdependencies, uint32_t ccoreprinterdrivers, void* pcoreprinterdrivers) {
+int32_t windowssys_windows_win32_graphics_printing_getCorePrinterDriversA(void* pszserver, void* pszenvironment, void* pszzcoredriverdependencies, uint32_t ccoreprinterdrivers, void* pcoreprinterdrivers) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1904,7 +1904,7 @@ int32_t windowssys_windows_win32_graphics_printing_GetCorePrinterDriversA(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_GetCorePrinterDriversW(void* pszserver, void* pszenvironment, void* pszzcoredriverdependencies, uint32_t ccoreprinterdrivers, void* pcoreprinterdrivers) {
+int32_t windowssys_windows_win32_graphics_printing_getCorePrinterDriversW(void* pszserver, void* pszenvironment, void* pszzcoredriverdependencies, uint32_t ccoreprinterdrivers, void* pcoreprinterdrivers) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1930,7 +1930,7 @@ int32_t windowssys_windows_win32_graphics_printing_GetCorePrinterDriversW(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_GetDefaultPrinterA(void* pszbuffer, void* pcchbuffer) {
+int32_t windowssys_windows_win32_graphics_printing_getDefaultPrinterA(void* pszbuffer, void* pcchbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1953,7 +1953,7 @@ int32_t windowssys_windows_win32_graphics_printing_GetDefaultPrinterA(void* pszb
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_GetDefaultPrinterW(void* pszbuffer, void* pcchbuffer) {
+int32_t windowssys_windows_win32_graphics_printing_getDefaultPrinterW(void* pszbuffer, void* pcchbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1976,7 +1976,7 @@ int32_t windowssys_windows_win32_graphics_printing_GetDefaultPrinterW(void* pszb
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_GetJobAttributes(void* pprintername, void* pdevmode, void* pattributeinfo) {
+int32_t windowssys_windows_win32_graphics_printing_getJobAttributes(void* pprintername, void* pdevmode, void* pattributeinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2000,7 +2000,7 @@ int32_t windowssys_windows_win32_graphics_printing_GetJobAttributes(void* pprint
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_GetJobAttributesEx(void* pprintername, void* pdevmode, uint32_t dwlevel, void* pattributeinfo, uint32_t nsize, uint32_t dwflags) {
+int32_t windowssys_windows_win32_graphics_printing_getJobAttributesEx(void* pprintername, void* pdevmode, uint32_t dwlevel, void* pattributeinfo, uint32_t nsize, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2027,7 +2027,7 @@ int32_t windowssys_windows_win32_graphics_printing_GetJobAttributesEx(void* ppri
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_GetPrintExecutionData(void* pdata) {
+int32_t windowssys_windows_win32_graphics_printing_getPrintExecutionData(void* pdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2049,7 +2049,7 @@ int32_t windowssys_windows_win32_graphics_printing_GetPrintExecutionData(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_GetPrintOutputInfo(void* hwnd, void* pszprinter, void* phfile, void* ppszoutputfile) {
+int32_t windowssys_windows_win32_graphics_printing_getPrintOutputInfo(void* hwnd, void* pszprinter, void* phfile, void* ppszoutputfile) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2074,7 +2074,7 @@ int32_t windowssys_windows_win32_graphics_printing_GetPrintOutputInfo(void* hwnd
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_GetPrintProcessorDirectoryA(void* pname, void* penvironment, uint32_t level, void* pprintprocessorinfo, uint32_t cbbuf, void* pcbneeded) {
+int32_t windowssys_windows_win32_graphics_printing_getPrintProcessorDirectoryA(void* pname, void* penvironment, uint32_t level, void* pprintprocessorinfo, uint32_t cbbuf, void* pcbneeded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2101,7 +2101,7 @@ int32_t windowssys_windows_win32_graphics_printing_GetPrintProcessorDirectoryA(v
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_GetPrintProcessorDirectoryW(void* pname, void* penvironment, uint32_t level, void* pprintprocessorinfo, uint32_t cbbuf, void* pcbneeded) {
+int32_t windowssys_windows_win32_graphics_printing_getPrintProcessorDirectoryW(void* pname, void* penvironment, uint32_t level, void* pprintprocessorinfo, uint32_t cbbuf, void* pcbneeded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2128,7 +2128,7 @@ int32_t windowssys_windows_win32_graphics_printing_GetPrintProcessorDirectoryW(v
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_GetPrinterDriverDirectoryA(void* pname, void* penvironment, uint32_t level, void* pdriverdirectory, uint32_t cbbuf, void* pcbneeded) {
+int32_t windowssys_windows_win32_graphics_printing_getPrinterDriverDirectoryA(void* pname, void* penvironment, uint32_t level, void* pdriverdirectory, uint32_t cbbuf, void* pcbneeded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2155,7 +2155,7 @@ int32_t windowssys_windows_win32_graphics_printing_GetPrinterDriverDirectoryA(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_GetPrinterDriverDirectoryW(void* pname, void* penvironment, uint32_t level, void* pdriverdirectory, uint32_t cbbuf, void* pcbneeded) {
+int32_t windowssys_windows_win32_graphics_printing_getPrinterDriverDirectoryW(void* pname, void* penvironment, uint32_t level, void* pdriverdirectory, uint32_t cbbuf, void* pcbneeded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2182,7 +2182,7 @@ int32_t windowssys_windows_win32_graphics_printing_GetPrinterDriverDirectoryW(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_GetPrinterDriverPackagePathA(void* pszserver, void* pszenvironment, void* pszlanguage, void* pszpackageid, void* pszdriverpackagecab, uint32_t cchdriverpackagecab, void* pcchrequiredsize) {
+int32_t windowssys_windows_win32_graphics_printing_getPrinterDriverPackagePathA(void* pszserver, void* pszenvironment, void* pszlanguage, void* pszpackageid, void* pszdriverpackagecab, uint32_t cchdriverpackagecab, void* pcchrequiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2210,7 +2210,7 @@ int32_t windowssys_windows_win32_graphics_printing_GetPrinterDriverPackagePathA(
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_GetPrinterDriverPackagePathW(void* pszserver, void* pszenvironment, void* pszlanguage, void* pszpackageid, void* pszdriverpackagecab, uint32_t cchdriverpackagecab, void* pcchrequiredsize) {
+int32_t windowssys_windows_win32_graphics_printing_getPrinterDriverPackagePathW(void* pszserver, void* pszenvironment, void* pszlanguage, void* pszpackageid, void* pszdriverpackagecab, uint32_t cchdriverpackagecab, void* pcchrequiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2238,7 +2238,7 @@ int32_t windowssys_windows_win32_graphics_printing_GetPrinterDriverPackagePathW(
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_ImpersonatePrinterClient(void* htoken) {
+int32_t windowssys_windows_win32_graphics_printing_impersonatePrinterClient(void* htoken) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2260,7 +2260,7 @@ int32_t windowssys_windows_win32_graphics_printing_ImpersonatePrinterClient(void
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_InstallPrinterDriverFromPackageA(void* pszserver, void* pszinfpath, void* pszdrivername, void* pszenvironment, uint32_t dwflags) {
+int32_t windowssys_windows_win32_graphics_printing_installPrinterDriverFromPackageA(void* pszserver, void* pszinfpath, void* pszdrivername, void* pszenvironment, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2286,7 +2286,7 @@ int32_t windowssys_windows_win32_graphics_printing_InstallPrinterDriverFromPacka
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_InstallPrinterDriverFromPackageW(void* pszserver, void* pszinfpath, void* pszdrivername, void* pszenvironment, uint32_t dwflags) {
+int32_t windowssys_windows_win32_graphics_printing_installPrinterDriverFromPackageW(void* pszserver, void* pszinfpath, void* pszdrivername, void* pszenvironment, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2312,7 +2312,7 @@ int32_t windowssys_windows_win32_graphics_printing_InstallPrinterDriverFromPacka
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_IsValidDevmodeA(void* pdevmode, uint64_t devmodesize) {
+int32_t windowssys_windows_win32_graphics_printing_isValidDevmodeA(void* pdevmode, uint64_t devmodesize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2335,7 +2335,7 @@ int32_t windowssys_windows_win32_graphics_printing_IsValidDevmodeA(void* pdevmod
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_IsValidDevmodeW(void* pdevmode, uint64_t devmodesize) {
+int32_t windowssys_windows_win32_graphics_printing_isValidDevmodeW(void* pdevmode, uint64_t devmodesize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2358,7 +2358,7 @@ int32_t windowssys_windows_win32_graphics_printing_IsValidDevmodeW(void* pdevmod
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_OpenPrinter2A(void* pprintername, void* phprinter, void* pdefault, void* poptions) {
+int32_t windowssys_windows_win32_graphics_printing_openPrinter2A(void* pprintername, void* phprinter, void* pdefault, void* poptions) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2383,7 +2383,7 @@ int32_t windowssys_windows_win32_graphics_printing_OpenPrinter2A(void* pprintern
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_OpenPrinter2W(void* pprintername, void* phprinter, void* pdefault, void* poptions) {
+int32_t windowssys_windows_win32_graphics_printing_openPrinter2W(void* pprintername, void* phprinter, void* pdefault, void* poptions) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2408,7 +2408,7 @@ int32_t windowssys_windows_win32_graphics_printing_OpenPrinter2W(void* pprintern
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_OpenPrinterA(void* pprintername, void* phprinter, void* pdefault) {
+int32_t windowssys_windows_win32_graphics_printing_openPrinterA(void* pprintername, void* phprinter, void* pdefault) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2432,7 +2432,7 @@ int32_t windowssys_windows_win32_graphics_printing_OpenPrinterA(void* pprinterna
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_OpenPrinterW(void* pprintername, void* phprinter, void* pdefault) {
+int32_t windowssys_windows_win32_graphics_printing_openPrinterW(void* pprintername, void* phprinter, void* pdefault) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2456,7 +2456,7 @@ int32_t windowssys_windows_win32_graphics_printing_OpenPrinterW(void* pprinterna
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_PlayGdiScriptOnPrinterIC(void* hprinteric, void* pin, uint32_t cin, void* pout, uint32_t cout, uint32_t ul) {
+int32_t windowssys_windows_win32_graphics_printing_playGdiScriptOnPrinterIC(void* hprinteric, void* pin, uint32_t cin, void* pout, uint32_t cout, uint32_t ul) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2483,7 +2483,7 @@ int32_t windowssys_windows_win32_graphics_printing_PlayGdiScriptOnPrinterIC(void
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_RegisterForPrintAsyncNotifications(void* pszname, void* pnotificationtype, int32_t euserfilter, int32_t econversationstyle, void* pcallback, void* phnotify) {
+int32_t windowssys_windows_win32_graphics_printing_registerForPrintAsyncNotifications(void* pszname, void* pnotificationtype, int32_t euserfilter, int32_t econversationstyle, void* pcallback, void* phnotify) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2510,7 +2510,7 @@ int32_t windowssys_windows_win32_graphics_printing_RegisterForPrintAsyncNotifica
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_RemovePrintDeviceObject(void* hdeviceobject) {
+int32_t windowssys_windows_win32_graphics_printing_removePrintDeviceObject(void* hdeviceobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2532,7 +2532,7 @@ int32_t windowssys_windows_win32_graphics_printing_RemovePrintDeviceObject(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_ReplyPrinterChangeNotificationEx(void* hnotify, uint32_t dwcolor, uint32_t fdwflags, void* pdwresult, void* pprinternotifyinfo) {
+int32_t windowssys_windows_win32_graphics_printing_replyPrinterChangeNotificationEx(void* hnotify, uint32_t dwcolor, uint32_t fdwflags, void* pdwresult, void* pprinternotifyinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2558,7 +2558,7 @@ int32_t windowssys_windows_win32_graphics_printing_ReplyPrinterChangeNotificatio
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_ReportJobProcessingProgress(void* printerhandle, uint32_t jobid, int32_t joboperation, int32_t jobprogress) {
+int32_t windowssys_windows_win32_graphics_printing_reportJobProcessingProgress(void* printerhandle, uint32_t jobid, int32_t joboperation, int32_t jobprogress) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2583,7 +2583,7 @@ int32_t windowssys_windows_win32_graphics_printing_ReportJobProcessingProgress(v
 #endif
 }
 
-void* windowssys_windows_win32_graphics_printing_RevertToPrinterSelf(void) {
+void* windowssys_windows_win32_graphics_printing_revertToPrinterSelf(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -2604,7 +2604,7 @@ void* windowssys_windows_win32_graphics_printing_RevertToPrinterSelf(void) {
 #endif
 }
 
-void* windowssys_windows_win32_graphics_printing_RouterAllocBidiMem(uint64_t numbytes) {
+void* windowssys_windows_win32_graphics_printing_routerAllocBidiMem(uint64_t numbytes) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2626,7 +2626,7 @@ void* windowssys_windows_win32_graphics_printing_RouterAllocBidiMem(uint64_t num
 #endif
 }
 
-void* windowssys_windows_win32_graphics_printing_RouterAllocBidiResponseContainer(uint32_t count) {
+void* windowssys_windows_win32_graphics_printing_routerAllocBidiResponseContainer(uint32_t count) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2648,7 +2648,7 @@ void* windowssys_windows_win32_graphics_printing_RouterAllocBidiResponseContaine
 #endif
 }
 
-void* windowssys_windows_win32_graphics_printing_RouterAllocPrinterNotifyInfo(uint32_t cprinternotifyinfodata) {
+void* windowssys_windows_win32_graphics_printing_routerAllocPrinterNotifyInfo(uint32_t cprinternotifyinfodata) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2670,7 +2670,7 @@ void* windowssys_windows_win32_graphics_printing_RouterAllocPrinterNotifyInfo(ui
 #endif
 }
 
-void windowssys_windows_win32_graphics_printing_RouterFreeBidiMem(void* pmempointer) {
+void windowssys_windows_win32_graphics_printing_routerFreeBidiMem(void* pmempointer) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2691,7 +2691,7 @@ void windowssys_windows_win32_graphics_printing_RouterFreeBidiMem(void* pmempoin
 #endif
 }
 
-uint32_t windowssys_windows_win32_graphics_printing_RouterFreeBidiResponseContainer(void* pdata) {
+uint32_t windowssys_windows_win32_graphics_printing_routerFreeBidiResponseContainer(void* pdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2713,7 +2713,7 @@ uint32_t windowssys_windows_win32_graphics_printing_RouterFreeBidiResponseContai
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_RouterFreePrinterNotifyInfo(void* pinfo) {
+int32_t windowssys_windows_win32_graphics_printing_routerFreePrinterNotifyInfo(void* pinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2735,7 +2735,7 @@ int32_t windowssys_windows_win32_graphics_printing_RouterFreePrinterNotifyInfo(v
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_SetCPSUIUserData(void* hdlg, uint64_t cpsuiuserdata) {
+int32_t windowssys_windows_win32_graphics_printing_setCPSUIUserData(void* hdlg, uint64_t cpsuiuserdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2758,7 +2758,7 @@ int32_t windowssys_windows_win32_graphics_printing_SetCPSUIUserData(void* hdlg, 
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_SetDefaultPrinterA(void* pszprinter) {
+int32_t windowssys_windows_win32_graphics_printing_setDefaultPrinterA(void* pszprinter) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2780,7 +2780,7 @@ int32_t windowssys_windows_win32_graphics_printing_SetDefaultPrinterA(void* pszp
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_SetDefaultPrinterW(void* pszprinter) {
+int32_t windowssys_windows_win32_graphics_printing_setDefaultPrinterW(void* pszprinter) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2802,7 +2802,7 @@ int32_t windowssys_windows_win32_graphics_printing_SetDefaultPrinterW(void* pszp
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_SetPortA(void* pname, void* pportname, uint32_t dwlevel, void* pportinfo) {
+int32_t windowssys_windows_win32_graphics_printing_setPortA(void* pname, void* pportname, uint32_t dwlevel, void* pportinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2827,7 +2827,7 @@ int32_t windowssys_windows_win32_graphics_printing_SetPortA(void* pname, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_SetPortW(void* pname, void* pportname, uint32_t dwlevel, void* pportinfo) {
+int32_t windowssys_windows_win32_graphics_printing_setPortW(void* pname, void* pportname, uint32_t dwlevel, void* pportinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2852,7 +2852,7 @@ int32_t windowssys_windows_win32_graphics_printing_SetPortW(void* pname, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_SpoolerCopyFileEvent(void* pszprintername, void* pszkey, uint32_t dwcopyfileevent) {
+int32_t windowssys_windows_win32_graphics_printing_spoolerCopyFileEvent(void* pszprintername, void* pszkey, uint32_t dwcopyfileevent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2876,7 +2876,7 @@ int32_t windowssys_windows_win32_graphics_printing_SpoolerCopyFileEvent(void* ps
 #endif
 }
 
-void windowssys_windows_win32_graphics_printing_SpoolerFreePrinterNotifyInfo(void* pinfo) {
+void windowssys_windows_win32_graphics_printing_spoolerFreePrinterNotifyInfo(void* pinfo) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2897,7 +2897,7 @@ void windowssys_windows_win32_graphics_printing_SpoolerFreePrinterNotifyInfo(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_UnRegisterForPrintAsyncNotifications(void* param0) {
+int32_t windowssys_windows_win32_graphics_printing_unRegisterForPrintAsyncNotifications(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2919,7 +2919,7 @@ int32_t windowssys_windows_win32_graphics_printing_UnRegisterForPrintAsyncNotifi
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_UploadPrinterDriverPackageA(void* pszserver, void* pszinfpath, void* pszenvironment, uint32_t dwflags, void* hwnd, void* pszdestinfpath, void* pcchdestinfpath) {
+int32_t windowssys_windows_win32_graphics_printing_uploadPrinterDriverPackageA(void* pszserver, void* pszinfpath, void* pszenvironment, uint32_t dwflags, void* hwnd, void* pszdestinfpath, void* pcchdestinfpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2947,7 +2947,7 @@ int32_t windowssys_windows_win32_graphics_printing_UploadPrinterDriverPackageA(v
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_UploadPrinterDriverPackageW(void* pszserver, void* pszinfpath, void* pszenvironment, uint32_t dwflags, void* hwnd, void* pszdestinfpath, void* pcchdestinfpath) {
+int32_t windowssys_windows_win32_graphics_printing_uploadPrinterDriverPackageW(void* pszserver, void* pszinfpath, void* pszenvironment, uint32_t dwflags, void* hwnd, void* pszdestinfpath, void* pcchdestinfpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2975,7 +2975,7 @@ int32_t windowssys_windows_win32_graphics_printing_UploadPrinterDriverPackageW(v
 #endif
 }
 
-int32_t windowssys_windows_win32_graphics_printing_XcvDataW(void* hxcv, void* pszdataname, void* pinputdata, uint32_t cbinputdata, void* poutputdata, uint32_t cboutputdata, void* pcboutputneeded, void* pdwstatus) {
+int32_t windowssys_windows_win32_graphics_printing_xcvDataW(void* hxcv, void* pszdataname, void* pinputdata, uint32_t cbinputdata, void* poutputdata, uint32_t cboutputdata, void* pcboutputneeded, void* pdwstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

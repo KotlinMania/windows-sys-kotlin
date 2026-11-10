@@ -2,115 +2,116 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.security.OBJECT_SECURITY_INFORMATION
-import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.security.ObjectSecurityInformation
+import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun MQADsPathToFormatName(lpwcsadspath: PCWSTR, lpwcsformatname: PWSTR, lpdwformatnamelength: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_MQADsPathToFormatName(lpwcsadspath.toCPointer<ByteVar>(), lpwcsformatname.toCPointer<ByteVar>(), lpdwformatnamelength.toCPointer<ByteVar>())
+public actual fun mQADsPathToFormatName(lpwcsadspath: Pcwstr, lpwcsformatname: Pwstr, lpdwformatnamelength: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_mQADsPathToFormatName(lpwcsadspath?.value?.toCPointer<ByteVar>(), lpwcsformatname?.value?.toCPointer<ByteVar>(), lpdwformatnamelength?.value?.toCPointer<ByteVar>())
 
-public actual fun MQBeginTransaction(pptransaction: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_MQBeginTransaction(pptransaction.toCPointer<ByteVar>())
+public actual fun mQBeginTransaction(pptransaction: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_mQBeginTransaction(pptransaction?.value?.toCPointer<ByteVar>())
 
-public actual fun MQCloseCursor(hcursor: HANDLE): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_MQCloseCursor(hcursor.toCPointer<ByteVar>())
+public actual fun mQCloseCursor(hcursor: Handle): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_mQCloseCursor(hcursor?.value?.toCPointer<ByteVar>())
 
-public actual fun MQCloseQueue(hqueue: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_MQCloseQueue(hqueue)
+public actual fun mQCloseQueue(hqueue: Long): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_mQCloseQueue(hqueue)
 
-public actual fun MQCreateCursor(hqueue: Long, phcursor: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_MQCreateCursor(hqueue, phcursor.toCPointer<ByteVar>())
+public actual fun mQCreateCursor(hqueue: Long, phcursor: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_mQCreateCursor(hqueue, phcursor?.value?.toCPointer<ByteVar>())
 
-public actual fun MQCreateQueue(psecuritydescriptor: PSECURITY_DESCRIPTOR, pqueueprops: Long, lpwcsformatname: PWSTR, lpdwformatnamelength: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_MQCreateQueue(psecuritydescriptor.toCPointer<ByteVar>(), pqueueprops.toCPointer<ByteVar>(), lpwcsformatname.toCPointer<ByteVar>(), lpdwformatnamelength.toCPointer<ByteVar>())
+public actual fun mQCreateQueue(psecuritydescriptor: PsecurityDescriptor, pqueueprops: COpaquePointer?, lpwcsformatname: Pwstr, lpdwformatnamelength: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_mQCreateQueue(psecuritydescriptor?.value?.toCPointer<ByteVar>(), pqueueprops?.value?.toCPointer<ByteVar>(), lpwcsformatname?.value?.toCPointer<ByteVar>(), lpdwformatnamelength?.value?.toCPointer<ByteVar>())
 
-public actual fun MQDeleteQueue(lpwcsformatname: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_MQDeleteQueue(lpwcsformatname.toCPointer<ByteVar>())
+public actual fun mQDeleteQueue(lpwcsformatname: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_mQDeleteQueue(lpwcsformatname?.value?.toCPointer<ByteVar>())
 
-public actual fun MQFreeMemory(pvmemory: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_MQFreeMemory(pvmemory.toCPointer<ByteVar>())
+public actual fun mQFreeMemory(pvmemory: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_mQFreeMemory(pvmemory?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun MQFreeSecurityContext(hsecuritycontext: HANDLE) {
-    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_MQFreeSecurityContext(hsecuritycontext.toCPointer<ByteVar>())
+public actual fun mQFreeSecurityContext(hsecuritycontext: Handle) {
+    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_mQFreeSecurityContext(hsecuritycontext?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun MQGetMachineProperties(lpwcsmachinename: PCWSTR, pguidmachineid: Long, pqmprops: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_MQGetMachineProperties(lpwcsmachinename.toCPointer<ByteVar>(), pguidmachineid.toCPointer<ByteVar>(), pqmprops.toCPointer<ByteVar>())
+public actual fun mQGetMachineProperties(lpwcsmachinename: Pcwstr, pguidmachineid: COpaquePointer?, pqmprops: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_mQGetMachineProperties(lpwcsmachinename?.value?.toCPointer<ByteVar>(), pguidmachineid?.value?.toCPointer<ByteVar>(), pqmprops?.value?.toCPointer<ByteVar>())
 
-public actual fun MQGetOverlappedResult(lpoverlapped: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_MQGetOverlappedResult(lpoverlapped.toCPointer<ByteVar>())
+public actual fun mQGetOverlappedResult(lpoverlapped: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_mQGetOverlappedResult(lpoverlapped?.value?.toCPointer<ByteVar>())
 
-public actual fun MQGetPrivateComputerInformation(lpwcscomputername: PCWSTR, pprivateprops: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_MQGetPrivateComputerInformation(lpwcscomputername.toCPointer<ByteVar>(), pprivateprops.toCPointer<ByteVar>())
+public actual fun mQGetPrivateComputerInformation(lpwcscomputername: Pcwstr, pprivateprops: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_mQGetPrivateComputerInformation(lpwcscomputername?.value?.toCPointer<ByteVar>(), pprivateprops?.value?.toCPointer<ByteVar>())
 
-public actual fun MQGetQueueProperties(lpwcsformatname: PCWSTR, pqueueprops: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_MQGetQueueProperties(lpwcsformatname.toCPointer<ByteVar>(), pqueueprops.toCPointer<ByteVar>())
+public actual fun mQGetQueueProperties(lpwcsformatname: Pcwstr, pqueueprops: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_mQGetQueueProperties(lpwcsformatname?.value?.toCPointer<ByteVar>(), pqueueprops?.value?.toCPointer<ByteVar>())
 
-public actual fun MQGetQueueSecurity(lpwcsformatname: PCWSTR, requestedinformation: UInt, psecuritydescriptor: PSECURITY_DESCRIPTOR, nlength: UInt, lpnlengthneeded: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_MQGetQueueSecurity(lpwcsformatname.toCPointer<ByteVar>(), requestedinformation, psecuritydescriptor.toCPointer<ByteVar>(), nlength, lpnlengthneeded.toCPointer<ByteVar>())
+public actual fun mQGetQueueSecurity(lpwcsformatname: Pcwstr, requestedinformation: UInt, psecuritydescriptor: PsecurityDescriptor, nlength: UInt, lpnlengthneeded: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_mQGetQueueSecurity(lpwcsformatname?.value?.toCPointer<ByteVar>(), requestedinformation, psecuritydescriptor?.value?.toCPointer<ByteVar>(), nlength, lpnlengthneeded?.value?.toCPointer<ByteVar>())
 
-public actual fun MQGetSecurityContext(lpcertbuffer: Long, dwcertbufferlength: UInt, phsecuritycontext: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_MQGetSecurityContext(lpcertbuffer.toCPointer<ByteVar>(), dwcertbufferlength, phsecuritycontext.toCPointer<ByteVar>())
+public actual fun mQGetSecurityContext(lpcertbuffer: COpaquePointer?, dwcertbufferlength: UInt, phsecuritycontext: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_mQGetSecurityContext(lpcertbuffer?.value?.toCPointer<ByteVar>(), dwcertbufferlength, phsecuritycontext?.value?.toCPointer<ByteVar>())
 
-public actual fun MQGetSecurityContextEx(lpcertbuffer: Long, dwcertbufferlength: UInt, phsecuritycontext: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_MQGetSecurityContextEx(lpcertbuffer.toCPointer<ByteVar>(), dwcertbufferlength, phsecuritycontext.toCPointer<ByteVar>())
+public actual fun mQGetSecurityContextEx(lpcertbuffer: COpaquePointer?, dwcertbufferlength: UInt, phsecuritycontext: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_mQGetSecurityContextEx(lpcertbuffer?.value?.toCPointer<ByteVar>(), dwcertbufferlength, phsecuritycontext?.value?.toCPointer<ByteVar>())
 
-public actual fun MQHandleToFormatName(hqueue: Long, lpwcsformatname: PWSTR, lpdwformatnamelength: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_MQHandleToFormatName(hqueue, lpwcsformatname.toCPointer<ByteVar>(), lpdwformatnamelength.toCPointer<ByteVar>())
+public actual fun mQHandleToFormatName(hqueue: Long, lpwcsformatname: Pwstr, lpdwformatnamelength: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_mQHandleToFormatName(hqueue, lpwcsformatname?.value?.toCPointer<ByteVar>(), lpdwformatnamelength?.value?.toCPointer<ByteVar>())
 
-public actual fun MQInstanceToFormatName(pguid: Long, lpwcsformatname: PWSTR, lpdwformatnamelength: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_MQInstanceToFormatName(pguid.toCPointer<ByteVar>(), lpwcsformatname.toCPointer<ByteVar>(), lpdwformatnamelength.toCPointer<ByteVar>())
+public actual fun mQInstanceToFormatName(pguid: COpaquePointer?, lpwcsformatname: Pwstr, lpdwformatnamelength: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_mQInstanceToFormatName(pguid?.value?.toCPointer<ByteVar>(), lpwcsformatname?.value?.toCPointer<ByteVar>(), lpdwformatnamelength?.value?.toCPointer<ByteVar>())
 
-public actual fun MQLocateBegin(lpwcscontext: PCWSTR, prestriction: Long, pcolumns: Long, psort: Long, phenum: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_MQLocateBegin(lpwcscontext.toCPointer<ByteVar>(), prestriction.toCPointer<ByteVar>(), pcolumns.toCPointer<ByteVar>(), psort.toCPointer<ByteVar>(), phenum.toCPointer<ByteVar>())
+public actual fun mQLocateBegin(lpwcscontext: Pcwstr, prestriction: COpaquePointer?, pcolumns: COpaquePointer?, psort: COpaquePointer?, phenum: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_mQLocateBegin(lpwcscontext?.value?.toCPointer<ByteVar>(), prestriction?.value?.toCPointer<ByteVar>(), pcolumns?.value?.toCPointer<ByteVar>(), psort?.value?.toCPointer<ByteVar>(), phenum?.value?.toCPointer<ByteVar>())
 
-public actual fun MQLocateEnd(henum: HANDLE): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_MQLocateEnd(henum.toCPointer<ByteVar>())
+public actual fun mQLocateEnd(henum: Handle): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_mQLocateEnd(henum?.value?.toCPointer<ByteVar>())
 
-public actual fun MQLocateNext(henum: HANDLE, pcprops: Long, apropvar: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_MQLocateNext(henum.toCPointer<ByteVar>(), pcprops.toCPointer<ByteVar>(), apropvar.toCPointer<ByteVar>())
+public actual fun mQLocateNext(henum: Handle, pcprops: COpaquePointer?, apropvar: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_mQLocateNext(henum?.value?.toCPointer<ByteVar>(), pcprops?.value?.toCPointer<ByteVar>(), apropvar?.value?.toCPointer<ByteVar>())
 
-public actual fun MQMarkMessageRejected(hqueue: HANDLE, ulllookupid: ULong): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_MQMarkMessageRejected(hqueue.toCPointer<ByteVar>(), ulllookupid)
+public actual fun mQMarkMessageRejected(hqueue: Handle, ulllookupid: ULong): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_mQMarkMessageRejected(hqueue?.value?.toCPointer<ByteVar>(), ulllookupid)
 
-public actual fun MQMgmtAction(pcomputername: PCWSTR, pobjectname: PCWSTR, paction: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_MQMgmtAction(pcomputername.toCPointer<ByteVar>(), pobjectname.toCPointer<ByteVar>(), paction.toCPointer<ByteVar>())
+public actual fun mQMgmtAction(pcomputername: Pcwstr, pobjectname: Pcwstr, paction: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_mQMgmtAction(pcomputername?.value?.toCPointer<ByteVar>(), pobjectname?.value?.toCPointer<ByteVar>(), paction?.value?.toCPointer<ByteVar>())
 
-public actual fun MQMgmtGetInfo(pcomputername: PCWSTR, pobjectname: PCWSTR, pmgmtprops: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_MQMgmtGetInfo(pcomputername.toCPointer<ByteVar>(), pobjectname.toCPointer<ByteVar>(), pmgmtprops.toCPointer<ByteVar>())
+public actual fun mQMgmtGetInfo(pcomputername: Pcwstr, pobjectname: Pcwstr, pmgmtprops: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_mQMgmtGetInfo(pcomputername?.value?.toCPointer<ByteVar>(), pobjectname?.value?.toCPointer<ByteVar>(), pmgmtprops?.value?.toCPointer<ByteVar>())
 
-public actual fun MQMoveMessage(hsourcequeue: Long, hdestinationqueue: Long, ulllookupid: ULong, ptransaction: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_MQMoveMessage(hsourcequeue, hdestinationqueue, ulllookupid, ptransaction.toCPointer<ByteVar>())
+public actual fun mQMoveMessage(hsourcequeue: Long, hdestinationqueue: Long, ulllookupid: ULong, ptransaction: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_mQMoveMessage(hsourcequeue, hdestinationqueue, ulllookupid, ptransaction?.value?.toCPointer<ByteVar>())
 
-public actual fun MQOpenQueue(lpwcsformatname: PCWSTR, dwaccess: UInt, dwsharemode: UInt, phqueue: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_MQOpenQueue(lpwcsformatname.toCPointer<ByteVar>(), dwaccess, dwsharemode, phqueue.toCPointer<ByteVar>())
+public actual fun mQOpenQueue(lpwcsformatname: Pcwstr, dwaccess: UInt, dwsharemode: UInt, phqueue: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_mQOpenQueue(lpwcsformatname?.value?.toCPointer<ByteVar>(), dwaccess, dwsharemode, phqueue?.value?.toCPointer<ByteVar>())
 
-public actual fun MQPathNameToFormatName(lpwcspathname: PCWSTR, lpwcsformatname: PWSTR, lpdwformatnamelength: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_MQPathNameToFormatName(lpwcspathname.toCPointer<ByteVar>(), lpwcsformatname.toCPointer<ByteVar>(), lpdwformatnamelength.toCPointer<ByteVar>())
+public actual fun mQPathNameToFormatName(lpwcspathname: Pcwstr, lpwcsformatname: Pwstr, lpdwformatnamelength: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_mQPathNameToFormatName(lpwcspathname?.value?.toCPointer<ByteVar>(), lpwcsformatname?.value?.toCPointer<ByteVar>(), lpdwformatnamelength?.value?.toCPointer<ByteVar>())
 
-public actual fun MQPurgeQueue(hqueue: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_MQPurgeQueue(hqueue)
+public actual fun mQPurgeQueue(hqueue: Long): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_mQPurgeQueue(hqueue)
 
-public actual fun MQReceiveMessage(hsource: Long, dwtimeout: UInt, dwaction: UInt, pmessageprops: Long, lpoverlapped: Long, fnreceivecallback: PMQRECEIVECALLBACK, hcursor: HANDLE, ptransaction: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_MQReceiveMessage(hsource, dwtimeout, dwaction, pmessageprops.toCPointer<ByteVar>(), lpoverlapped.toCPointer<ByteVar>(), fnreceivecallback.toLong().toCPointer<ByteVar>(), hcursor.toCPointer<ByteVar>(), ptransaction.toCPointer<ByteVar>())
+public actual fun mQReceiveMessage(hsource: Long, dwtimeout: UInt, dwaction: UInt, pmessageprops: COpaquePointer?, lpoverlapped: COpaquePointer?, fnreceivecallback: Pmqreceivecallback, hcursor: Handle, ptransaction: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_mQReceiveMessage(hsource, dwtimeout, dwaction, pmessageprops?.value?.toCPointer<ByteVar>(), lpoverlapped?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), hcursor?.value?.toCPointer<ByteVar>(), ptransaction?.value?.toCPointer<ByteVar>())
 
-public actual fun MQReceiveMessageByLookupId(hsource: Long, ulllookupid: ULong, dwlookupaction: UInt, pmessageprops: Long, lpoverlapped: Long, fnreceivecallback: PMQRECEIVECALLBACK, ptransaction: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_MQReceiveMessageByLookupId(hsource, ulllookupid, dwlookupaction, pmessageprops.toCPointer<ByteVar>(), lpoverlapped.toCPointer<ByteVar>(), fnreceivecallback.toLong().toCPointer<ByteVar>(), ptransaction.toCPointer<ByteVar>())
+public actual fun mQReceiveMessageByLookupId(hsource: Long, ulllookupid: ULong, dwlookupaction: UInt, pmessageprops: COpaquePointer?, lpoverlapped: COpaquePointer?, fnreceivecallback: Pmqreceivecallback, ptransaction: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_mQReceiveMessageByLookupId(hsource, ulllookupid, dwlookupaction, pmessageprops?.value?.toCPointer<ByteVar>(), lpoverlapped?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), ptransaction?.value?.toCPointer<ByteVar>())
 
-public actual fun MQRegisterCertificate(dwflags: UInt, lpcertbuffer: Long, dwcertbufferlength: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_MQRegisterCertificate(dwflags, lpcertbuffer.toCPointer<ByteVar>(), dwcertbufferlength)
+public actual fun mQRegisterCertificate(dwflags: UInt, lpcertbuffer: COpaquePointer?, dwcertbufferlength: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_mQRegisterCertificate(dwflags, lpcertbuffer?.value?.toCPointer<ByteVar>(), dwcertbufferlength)
 
-public actual fun MQSendMessage(hdestinationqueue: Long, pmessageprops: Long, ptransaction: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_MQSendMessage(hdestinationqueue, pmessageprops.toCPointer<ByteVar>(), ptransaction.toCPointer<ByteVar>())
+public actual fun mQSendMessage(hdestinationqueue: Long, pmessageprops: COpaquePointer?, ptransaction: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_mQSendMessage(hdestinationqueue, pmessageprops?.value?.toCPointer<ByteVar>(), ptransaction?.value?.toCPointer<ByteVar>())
 
-public actual fun MQSetQueueProperties(lpwcsformatname: PCWSTR, pqueueprops: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_MQSetQueueProperties(lpwcsformatname.toCPointer<ByteVar>(), pqueueprops.toCPointer<ByteVar>())
+public actual fun mQSetQueueProperties(lpwcsformatname: Pcwstr, pqueueprops: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_mQSetQueueProperties(lpwcsformatname?.value?.toCPointer<ByteVar>(), pqueueprops?.value?.toCPointer<ByteVar>())
 
-public actual fun MQSetQueueSecurity(lpwcsformatname: PCWSTR, securityinformation: OBJECT_SECURITY_INFORMATION, psecuritydescriptor: PSECURITY_DESCRIPTOR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_MQSetQueueSecurity(lpwcsformatname.toCPointer<ByteVar>(), securityinformation, psecuritydescriptor.toCPointer<ByteVar>())
+public actual fun mQSetQueueSecurity(lpwcsformatname: Pcwstr, securityinformation: ObjectSecurityInformation, psecuritydescriptor: PsecurityDescriptor): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.messagequeuing.cinterop.windowssys_windows_win32_system_messagequeuing_mQSetQueueSecurity(lpwcsformatname?.value?.toCPointer<ByteVar>(), securityinformation, psecuritydescriptor?.value?.toCPointer<ByteVar>())

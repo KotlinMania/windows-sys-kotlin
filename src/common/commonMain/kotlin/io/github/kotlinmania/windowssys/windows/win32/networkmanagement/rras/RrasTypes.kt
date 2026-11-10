@@ -1,368 +1,369 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.rras
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 
-public typealias HRASCONN = Long
+public typealias Hrasconn = COpaquePointer?
 
-public typealias IKEV2_ID_PAYLOAD_TYPE = Int
+public typealias Ikev2IdPayloadType = Int
 
-public typealias MGM_ENUM_TYPES = Int
+public typealias MgmEnumTypes = Int
 
-public typealias MPRAPI_OBJECT_TYPE = Int
+public typealias MprapiObjectType = Int
 
-public typealias MPR_ET = UInt
+public typealias MprEt = UInt
 
-public typealias MPR_INTERFACE_DIAL_MODE = UInt
+public typealias MprInterfaceDialMode = UInt
 
-public typealias MPR_VPN_TS_TYPE = Int
+public typealias MprVpnTsType = Int
 
-public typealias MPR_VS = UInt
+public typealias MprVs = UInt
 
-public fun interface ORASADFUNCFn {
-    public operator fun invoke(param0: HWND, param1: PCSTR, param2: UInt, param3: Long): BOOL
+public fun interface OrasadfuncFn {
+    public operator fun invoke(param0: Hwnd, param1: Pcstr, param2: UInt, param3: COpaquePointer?): Bool
 }
 
-public typealias ORASADFUNC = ORASADFUNCFn?
+public typealias Orasadfunc = OrasadfuncFn?
 
-public fun interface PFNRASFREEBUFFERFn {
-    public operator fun invoke(pbufer: Long): UInt
+public fun interface PfnrasfreebufferFn {
+    public operator fun invoke(pbufer: COpaquePointer?): UInt
 }
 
-public typealias PFNRASFREEBUFFER = PFNRASFREEBUFFERFn?
+public typealias Pfnrasfreebuffer = PfnrasfreebufferFn?
 
-public fun interface PFNRASGETBUFFERFn {
-    public operator fun invoke(ppbuffer: Long, pdwsize: Long): UInt
+public fun interface PfnrasgetbufferFn {
+    public operator fun invoke(ppbuffer: COpaquePointer?, pdwsize: COpaquePointer?): UInt
 }
 
-public typealias PFNRASGETBUFFER = PFNRASGETBUFFERFn?
+public typealias Pfnrasgetbuffer = PfnrasgetbufferFn?
 
-public fun interface PFNRASRECEIVEBUFFERFn {
-    public operator fun invoke(hport: HANDLE, pbuffer: Long, pdwsize: Long, dwtimeout: UInt, hevent: HANDLE): UInt
+public fun interface PfnrasreceivebufferFn {
+    public operator fun invoke(hport: Handle, pbuffer: COpaquePointer?, pdwsize: COpaquePointer?, dwtimeout: UInt, hevent: Handle): UInt
 }
 
-public typealias PFNRASRECEIVEBUFFER = PFNRASRECEIVEBUFFERFn?
+public typealias Pfnrasreceivebuffer = PfnrasreceivebufferFn?
 
-public fun interface PFNRASRETRIEVEBUFFERFn {
-    public operator fun invoke(hport: HANDLE, pbuffer: Long, pdwsize: Long): UInt
+public fun interface PfnrasretrievebufferFn {
+    public operator fun invoke(hport: Handle, pbuffer: COpaquePointer?, pdwsize: COpaquePointer?): UInt
 }
 
-public typealias PFNRASRETRIEVEBUFFER = PFNRASRETRIEVEBUFFERFn?
+public typealias Pfnrasretrievebuffer = PfnrasretrievebufferFn?
 
-public fun interface PFNRASSENDBUFFERFn {
-    public operator fun invoke(hport: HANDLE, pbuffer: Long, dwsize: UInt): UInt
+public fun interface PfnrassendbufferFn {
+    public operator fun invoke(hport: Handle, pbuffer: COpaquePointer?, dwsize: UInt): UInt
 }
 
-public typealias PFNRASSENDBUFFER = PFNRASSENDBUFFERFn?
+public typealias Pfnrassendbuffer = PfnrassendbufferFn?
 
-public fun interface PFNRASSETCOMMSETTINGSFn {
-    public operator fun invoke(hport: HANDLE, prascommsettings: Long, pvreserved: Long): UInt
+public fun interface PfnrassetcommsettingsFn {
+    public operator fun invoke(hport: Handle, prascommsettings: COpaquePointer?, pvreserved: COpaquePointer?): UInt
 }
 
-public typealias PFNRASSETCOMMSETTINGS = PFNRASSETCOMMSETTINGSFn?
+public typealias Pfnrassetcommsettings = PfnrassetcommsettingsFn?
 
-public fun interface PMGM_CREATION_ALERT_CALLBACKFn {
-    public operator fun invoke(dwsourceaddr: UInt, dwsourcemask: UInt, dwgroupaddr: UInt, dwgroupmask: UInt, dwinifindex: UInt, dwinifnexthopaddr: UInt, dwifcount: UInt, pmieoutiflist: Long): UInt
+public fun interface PmgmCreationAlertCallbackFn {
+    public operator fun invoke(dwsourceaddr: UInt, dwsourcemask: UInt, dwgroupaddr: UInt, dwgroupmask: UInt, dwinifindex: UInt, dwinifnexthopaddr: UInt, dwifcount: UInt, pmieoutiflist: COpaquePointer?): UInt
 }
 
-public typealias PMGM_CREATION_ALERT_CALLBACK = PMGM_CREATION_ALERT_CALLBACKFn?
+public typealias PmgmCreationAlertCallback = PmgmCreationAlertCallbackFn?
 
-public fun interface PMGM_DISABLE_IGMP_CALLBACKFn {
+public fun interface PmgmDisableIgmpCallbackFn {
     public operator fun invoke(dwifindex: UInt, dwifnexthopaddr: UInt): UInt
 }
 
-public typealias PMGM_DISABLE_IGMP_CALLBACK = PMGM_DISABLE_IGMP_CALLBACKFn?
+public typealias PmgmDisableIgmpCallback = PmgmDisableIgmpCallbackFn?
 
-public fun interface PMGM_ENABLE_IGMP_CALLBACKFn {
+public fun interface PmgmEnableIgmpCallbackFn {
     public operator fun invoke(dwifindex: UInt, dwifnexthopaddr: UInt): UInt
 }
 
-public typealias PMGM_ENABLE_IGMP_CALLBACK = PMGM_ENABLE_IGMP_CALLBACKFn?
+public typealias PmgmEnableIgmpCallback = PmgmEnableIgmpCallbackFn?
 
-public fun interface PMGM_JOIN_ALERT_CALLBACKFn {
-    public operator fun invoke(dwsourceaddr: UInt, dwsourcemask: UInt, dwgroupaddr: UInt, dwgroupmask: UInt, bmemberupdate: BOOL): UInt
+public fun interface PmgmJoinAlertCallbackFn {
+    public operator fun invoke(dwsourceaddr: UInt, dwsourcemask: UInt, dwgroupaddr: UInt, dwgroupmask: UInt, bmemberupdate: Bool): UInt
 }
 
-public typealias PMGM_JOIN_ALERT_CALLBACK = PMGM_JOIN_ALERT_CALLBACKFn?
+public typealias PmgmJoinAlertCallback = PmgmJoinAlertCallbackFn?
 
-public fun interface PMGM_LOCAL_JOIN_CALLBACKFn {
+public fun interface PmgmLocalJoinCallbackFn {
     public operator fun invoke(dwsourceaddr: UInt, dwsourcemask: UInt, dwgroupaddr: UInt, dwgroupmask: UInt, dwifindex: UInt, dwifnexthopaddr: UInt): UInt
 }
 
-public typealias PMGM_LOCAL_JOIN_CALLBACK = PMGM_LOCAL_JOIN_CALLBACKFn?
+public typealias PmgmLocalJoinCallback = PmgmLocalJoinCallbackFn?
 
-public fun interface PMGM_LOCAL_LEAVE_CALLBACKFn {
+public fun interface PmgmLocalLeaveCallbackFn {
     public operator fun invoke(dwsourceaddr: UInt, dwsourcemask: UInt, dwgroupaddr: UInt, dwgroupmask: UInt, dwifindex: UInt, dwifnexthopaddr: UInt): UInt
 }
 
-public typealias PMGM_LOCAL_LEAVE_CALLBACK = PMGM_LOCAL_LEAVE_CALLBACKFn?
+public typealias PmgmLocalLeaveCallback = PmgmLocalLeaveCallbackFn?
 
-public fun interface PMGM_PRUNE_ALERT_CALLBACKFn {
-    public operator fun invoke(dwsourceaddr: UInt, dwsourcemask: UInt, dwgroupaddr: UInt, dwgroupmask: UInt, dwifindex: UInt, dwifnexthopaddr: UInt, bmemberdelete: BOOL, pdwtimeout: Long): UInt
+public fun interface PmgmPruneAlertCallbackFn {
+    public operator fun invoke(dwsourceaddr: UInt, dwsourcemask: UInt, dwgroupaddr: UInt, dwgroupmask: UInt, dwifindex: UInt, dwifnexthopaddr: UInt, bmemberdelete: Bool, pdwtimeout: COpaquePointer?): UInt
 }
 
-public typealias PMGM_PRUNE_ALERT_CALLBACK = PMGM_PRUNE_ALERT_CALLBACKFn?
+public typealias PmgmPruneAlertCallback = PmgmPruneAlertCallbackFn?
 
-public fun interface PMGM_RPF_CALLBACKFn {
-    public operator fun invoke(dwsourceaddr: UInt, dwsourcemask: UInt, dwgroupaddr: UInt, dwgroupmask: UInt, pdwinifindex: Long, pdwinifnexthopaddr: Long, pdwupstreamnbr: Long, dwhdrsize: UInt, pbpackethdr: Long, pbroute: Long): UInt
+public fun interface PmgmRpfCallbackFn {
+    public operator fun invoke(dwsourceaddr: UInt, dwsourcemask: UInt, dwgroupaddr: UInt, dwgroupmask: UInt, pdwinifindex: COpaquePointer?, pdwinifnexthopaddr: COpaquePointer?, pdwupstreamnbr: COpaquePointer?, dwhdrsize: UInt, pbpackethdr: COpaquePointer?, pbroute: COpaquePointer?): UInt
 }
 
-public typealias PMGM_RPF_CALLBACK = PMGM_RPF_CALLBACKFn?
+public typealias PmgmRpfCallback = PmgmRpfCallbackFn?
 
-public fun interface PMGM_WRONG_IF_CALLBACKFn {
-    public operator fun invoke(dwsourceaddr: UInt, dwgroupaddr: UInt, dwifindex: UInt, dwifnexthopaddr: UInt, dwhdrsize: UInt, pbpackethdr: Long): UInt
+public fun interface PmgmWrongIfCallbackFn {
+    public operator fun invoke(dwsourceaddr: UInt, dwgroupaddr: UInt, dwifindex: UInt, dwifnexthopaddr: UInt, dwhdrsize: UInt, pbpackethdr: COpaquePointer?): UInt
 }
 
-public typealias PMGM_WRONG_IF_CALLBACK = PMGM_WRONG_IF_CALLBACKFn?
+public typealias PmgmWrongIfCallback = PmgmWrongIfCallbackFn?
 
-public fun interface PMPRADMINACCEPTNEWCONNECTIONFn {
-    public operator fun invoke(param0: Long, param1: Long): BOOL
+public fun interface PmpradminacceptnewconnectionFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?): Bool
 }
 
-public typealias PMPRADMINACCEPTNEWCONNECTION = PMPRADMINACCEPTNEWCONNECTIONFn?
+public typealias Pmpradminacceptnewconnection = PmpradminacceptnewconnectionFn?
 
-public fun interface PMPRADMINACCEPTNEWCONNECTION2Fn {
-    public operator fun invoke(param0: Long, param1: Long, param2: Long): BOOL
+public fun interface Pmpradminacceptnewconnection2Fn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): Bool
 }
 
-public typealias PMPRADMINACCEPTNEWCONNECTION2 = PMPRADMINACCEPTNEWCONNECTION2Fn?
+public typealias Pmpradminacceptnewconnection2 = Pmpradminacceptnewconnection2Fn?
 
-public fun interface PMPRADMINACCEPTNEWCONNECTION3Fn {
-    public operator fun invoke(param0: Long, param1: Long, param2: Long, param3: Long): BOOL
+public fun interface Pmpradminacceptnewconnection3Fn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?, param3: COpaquePointer?): Bool
 }
 
-public typealias PMPRADMINACCEPTNEWCONNECTION3 = PMPRADMINACCEPTNEWCONNECTION3Fn?
+public typealias Pmpradminacceptnewconnection3 = Pmpradminacceptnewconnection3Fn?
 
-public fun interface PMPRADMINACCEPTNEWCONNECTIONEXFn {
-    public operator fun invoke(param0: Long): BOOL
+public fun interface PmpradminacceptnewconnectionexFn {
+    public operator fun invoke(param0: COpaquePointer?): Bool
 }
 
-public typealias PMPRADMINACCEPTNEWCONNECTIONEX = PMPRADMINACCEPTNEWCONNECTIONEXFn?
+public typealias Pmpradminacceptnewconnectionex = PmpradminacceptnewconnectionexFn?
 
-public fun interface PMPRADMINACCEPTNEWLINKFn {
-    public operator fun invoke(param0: Long, param1: Long): BOOL
+public fun interface PmpradminacceptnewlinkFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?): Bool
 }
 
-public typealias PMPRADMINACCEPTNEWLINK = PMPRADMINACCEPTNEWLINKFn?
+public typealias Pmpradminacceptnewlink = PmpradminacceptnewlinkFn?
 
-public fun interface PMPRADMINACCEPTREAUTHENTICATIONFn {
-    public operator fun invoke(param0: Long, param1: Long, param2: Long, param3: Long): BOOL
+public fun interface PmpradminacceptreauthenticationFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?, param3: COpaquePointer?): Bool
 }
 
-public typealias PMPRADMINACCEPTREAUTHENTICATION = PMPRADMINACCEPTREAUTHENTICATIONFn?
+public typealias Pmpradminacceptreauthentication = PmpradminacceptreauthenticationFn?
 
-public fun interface PMPRADMINACCEPTREAUTHENTICATIONEXFn {
-    public operator fun invoke(param0: Long): BOOL
+public fun interface PmpradminacceptreauthenticationexFn {
+    public operator fun invoke(param0: COpaquePointer?): Bool
 }
 
-public typealias PMPRADMINACCEPTREAUTHENTICATIONEX = PMPRADMINACCEPTREAUTHENTICATIONEXFn?
+public typealias Pmpradminacceptreauthenticationex = PmpradminacceptreauthenticationexFn?
 
-public fun interface PMPRADMINACCEPTTUNNELENDPOINTCHANGEEXFn {
-    public operator fun invoke(param0: Long): BOOL
+public fun interface PmpradminaccepttunnelendpointchangeexFn {
+    public operator fun invoke(param0: COpaquePointer?): Bool
 }
 
-public typealias PMPRADMINACCEPTTUNNELENDPOINTCHANGEEX = PMPRADMINACCEPTTUNNELENDPOINTCHANGEEXFn?
+public typealias Pmpradminaccepttunnelendpointchangeex = PmpradminaccepttunnelendpointchangeexFn?
 
-public fun interface PMPRADMINCONNECTIONHANGUPNOTIFICATIONFn {
-    public operator fun invoke(param0: Long, param1: Long)
+public fun interface PmpradminconnectionhangupnotificationFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?)
 }
 
-public typealias PMPRADMINCONNECTIONHANGUPNOTIFICATION = PMPRADMINCONNECTIONHANGUPNOTIFICATIONFn?
+public typealias Pmpradminconnectionhangupnotification = PmpradminconnectionhangupnotificationFn?
 
-public fun interface PMPRADMINCONNECTIONHANGUPNOTIFICATION2Fn {
-    public operator fun invoke(param0: Long, param1: Long, param2: Long)
+public fun interface Pmpradminconnectionhangupnotification2Fn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?)
 }
 
-public typealias PMPRADMINCONNECTIONHANGUPNOTIFICATION2 = PMPRADMINCONNECTIONHANGUPNOTIFICATION2Fn?
+public typealias Pmpradminconnectionhangupnotification2 = Pmpradminconnectionhangupnotification2Fn?
 
-public fun interface PMPRADMINCONNECTIONHANGUPNOTIFICATION3Fn {
-    public operator fun invoke(param0: Long, param1: Long, param2: Long, param3: Long)
+public fun interface Pmpradminconnectionhangupnotification3Fn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?, param3: COpaquePointer?)
 }
 
-public typealias PMPRADMINCONNECTIONHANGUPNOTIFICATION3 = PMPRADMINCONNECTIONHANGUPNOTIFICATION3Fn?
+public typealias Pmpradminconnectionhangupnotification3 = Pmpradminconnectionhangupnotification3Fn?
 
-public fun interface PMPRADMINCONNECTIONHANGUPNOTIFICATIONEXFn {
-    public operator fun invoke(param0: Long)
+public fun interface PmpradminconnectionhangupnotificationexFn {
+    public operator fun invoke(param0: COpaquePointer?)
 }
 
-public typealias PMPRADMINCONNECTIONHANGUPNOTIFICATIONEX = PMPRADMINCONNECTIONHANGUPNOTIFICATIONEXFn?
+public typealias Pmpradminconnectionhangupnotificationex = PmpradminconnectionhangupnotificationexFn?
 
-public fun interface PMPRADMINGETIPADDRESSFORUSERFn {
-    public operator fun invoke(param0: PCWSTR, param1: PCWSTR, param2: Long, param3: Long): UInt
+public fun interface PmpradmingetipaddressforuserFn {
+    public operator fun invoke(param0: Pcwstr, param1: Pcwstr, param2: COpaquePointer?, param3: COpaquePointer?): UInt
 }
 
-public typealias PMPRADMINGETIPADDRESSFORUSER = PMPRADMINGETIPADDRESSFORUSERFn?
+public typealias Pmpradmingetipaddressforuser = PmpradmingetipaddressforuserFn?
 
-public fun interface PMPRADMINGETIPV6ADDRESSFORUSERFn {
-    public operator fun invoke(param0: PCWSTR, param1: PCWSTR, param2: Long, param3: Long): UInt
+public fun interface Pmpradmingetipv6addressforuserFn {
+    public operator fun invoke(param0: Pcwstr, param1: Pcwstr, param2: COpaquePointer?, param3: COpaquePointer?): UInt
 }
 
-public typealias PMPRADMINGETIPV6ADDRESSFORUSER = PMPRADMINGETIPV6ADDRESSFORUSERFn?
+public typealias Pmpradmingetipv6addressforuser = Pmpradmingetipv6addressforuserFn?
 
-public fun interface PMPRADMINLINKHANGUPNOTIFICATIONFn {
-    public operator fun invoke(param0: Long, param1: Long)
+public fun interface PmpradminlinkhangupnotificationFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?)
 }
 
-public typealias PMPRADMINLINKHANGUPNOTIFICATION = PMPRADMINLINKHANGUPNOTIFICATIONFn?
+public typealias Pmpradminlinkhangupnotification = PmpradminlinkhangupnotificationFn?
 
-public fun interface PMPRADMINRASVALIDATEPREAUTHENTICATEDCONNECTIONEXFn {
-    public operator fun invoke(param0: Long): UInt
+public fun interface PmpradminrasvalidatepreauthenticatedconnectionexFn {
+    public operator fun invoke(param0: COpaquePointer?): UInt
 }
 
-public typealias PMPRADMINRASVALIDATEPREAUTHENTICATEDCONNECTIONEX = PMPRADMINRASVALIDATEPREAUTHENTICATEDCONNECTIONEXFn?
+public typealias Pmpradminrasvalidatepreauthenticatedconnectionex = PmpradminrasvalidatepreauthenticatedconnectionexFn?
 
-public fun interface PMPRADMINRELEASEIPADRESSFn {
-    public operator fun invoke(param0: PCWSTR, param1: PCWSTR, param2: Long)
+public fun interface PmpradminreleaseipadressFn {
+    public operator fun invoke(param0: Pcwstr, param1: Pcwstr, param2: COpaquePointer?)
 }
 
-public typealias PMPRADMINRELEASEIPADRESS = PMPRADMINRELEASEIPADRESSFn?
+public typealias Pmpradminreleaseipadress = PmpradminreleaseipadressFn?
 
-public fun interface PMPRADMINRELEASEIPV6ADDRESSFORUSERFn {
-    public operator fun invoke(param0: PCWSTR, param1: PCWSTR, param2: Long)
+public fun interface Pmpradminreleaseipv6addressforuserFn {
+    public operator fun invoke(param0: Pcwstr, param1: Pcwstr, param2: COpaquePointer?)
 }
 
-public typealias PMPRADMINRELEASEIPV6ADDRESSFORUSER = PMPRADMINRELEASEIPV6ADDRESSFORUSERFn?
+public typealias Pmpradminreleaseipv6addressforuser = Pmpradminreleaseipv6addressforuserFn?
 
-public fun interface PMPRADMINTERMINATEDLLFn {
+public fun interface PmpradminterminatedllFn {
     public operator fun invoke(): UInt
 }
 
-public typealias PMPRADMINTERMINATEDLL = PMPRADMINTERMINATEDLLFn?
+public typealias Pmpradminterminatedll = PmpradminterminatedllFn?
 
-public typealias PPP_LCP = UInt
+public typealias PppLcp = UInt
 
-public typealias PPP_LCP_INFO_AUTH_DATA = UInt
+public typealias PppLcpInfoAuthData = UInt
 
-public fun interface RASADFUNCAFn {
-    public operator fun invoke(param0: PCSTR, param1: PCSTR, param2: Long, param3: Long): BOOL
+public fun interface RasadfuncaFn {
+    public operator fun invoke(param0: Pcstr, param1: Pcstr, param2: COpaquePointer?, param3: COpaquePointer?): Bool
 }
 
-public typealias RASADFUNCA = RASADFUNCAFn?
+public typealias Rasadfunca = RasadfuncaFn?
 
-public fun interface RASADFUNCWFn {
-    public operator fun invoke(param0: PCWSTR, param1: PCWSTR, param2: Long, param3: Long): BOOL
+public fun interface RasadfuncwFn {
+    public operator fun invoke(param0: Pcwstr, param1: Pcwstr, param2: COpaquePointer?, param3: COpaquePointer?): Bool
 }
 
-public typealias RASADFUNCW = RASADFUNCWFn?
+public typealias Rasadfuncw = RasadfuncwFn?
 
-public typealias RASAPIVERSION = Int
+public typealias Rasapiversion = Int
 
-public typealias RASCONNSTATE = Int
+public typealias Rasconnstate = Int
 
-public typealias RASCONNSUBSTATE = Int
+public typealias Rasconnsubstate = Int
 
-public fun interface RASDIALFUNCFn {
-    public operator fun invoke(param0: UInt, param1: RASCONNSTATE, param2: UInt)
+public fun interface RasdialfuncFn {
+    public operator fun invoke(param0: UInt, param1: Rasconnstate, param2: UInt)
 }
 
-public typealias RASDIALFUNC = RASDIALFUNCFn?
+public typealias Rasdialfunc = RasdialfuncFn?
 
-public fun interface RASDIALFUNC1Fn {
-    public operator fun invoke(param0: HRASCONN, param1: UInt, param2: RASCONNSTATE, param3: UInt, param4: UInt)
+public fun interface Rasdialfunc1Fn {
+    public operator fun invoke(param0: Hrasconn, param1: UInt, param2: Rasconnstate, param3: UInt, param4: UInt)
 }
 
-public typealias RASDIALFUNC1 = RASDIALFUNC1Fn?
+public typealias Rasdialfunc1 = Rasdialfunc1Fn?
 
-public fun interface RASDIALFUNC2Fn {
-    public operator fun invoke(param0: ULong, param1: UInt, param2: HRASCONN, param3: UInt, param4: RASCONNSTATE, param5: UInt, param6: UInt): UInt
+public fun interface Rasdialfunc2Fn {
+    public operator fun invoke(param0: ULong, param1: UInt, param2: Hrasconn, param3: UInt, param4: Rasconnstate, param5: UInt, param6: UInt): UInt
 }
 
-public typealias RASDIALFUNC2 = RASDIALFUNC2Fn?
+public typealias Rasdialfunc2 = Rasdialfunc2Fn?
 
-public typealias RASENTRY_DIAL_MODE = UInt
+public typealias RasentryDialMode = UInt
 
-public typealias RASIKEV_PROJECTION_INFO_FLAGS = UInt
+public typealias RasikevProjectionInfoFlags = UInt
 
-public fun interface RASPBDLGFUNCAFn {
-    public operator fun invoke(param0: ULong, param1: UInt, param2: PCSTR, param3: Long)
+public fun interface RaspbdlgfuncaFn {
+    public operator fun invoke(param0: ULong, param1: UInt, param2: Pcstr, param3: COpaquePointer?)
 }
 
-public typealias RASPBDLGFUNCA = RASPBDLGFUNCAFn?
+public typealias Raspbdlgfunca = RaspbdlgfuncaFn?
 
-public fun interface RASPBDLGFUNCWFn {
-    public operator fun invoke(param0: ULong, param1: UInt, param2: PCWSTR, param3: Long)
+public fun interface RaspbdlgfuncwFn {
+    public operator fun invoke(param0: ULong, param1: UInt, param2: Pcwstr, param3: COpaquePointer?)
 }
 
-public typealias RASPBDLGFUNCW = RASPBDLGFUNCWFn?
+public typealias Raspbdlgfuncw = RaspbdlgfuncwFn?
 
-public typealias RASPPP_PROJECTION_INFO_SERVER_AUTH_DATA = UInt
+public typealias RaspppProjectionInfoServerAuthData = UInt
 
-public typealias RASPPP_PROJECTION_INFO_SERVER_AUTH_PROTOCOL = UInt
+public typealias RaspppProjectionInfoServerAuthProtocol = UInt
 
-public typealias RASPROJECTION = Int
+public typealias Rasprojection = Int
 
-public typealias RASPROJECTION_INFO_TYPE = Int
+public typealias RasprojectionInfoType = Int
 
-public fun interface RASSECURITYPROCFn {
+public fun interface RassecurityprocFn {
     public operator fun invoke(): UInt
 }
 
-public typealias RASSECURITYPROC = RASSECURITYPROCFn?
+public typealias Rassecurityproc = RassecurityprocFn?
 
-public typealias RAS_FLAGS = UInt
+public typealias RasFlags = UInt
 
-public typealias RAS_HARDWARE_CONDITION = Int
+public typealias RasHardwareCondition = Int
 
-public typealias RAS_PORT_CONDITION = Int
+public typealias RasPortCondition = Int
 
-public typealias RAS_QUARANTINE_STATE = Int
+public typealias RasQuarantineState = Int
 
-public typealias ROUTER_CONNECTION_STATE = Int
+public typealias RouterConnectionState = Int
 
-public typealias ROUTER_INTERFACE_TYPE = Int
+public typealias RouterInterfaceType = Int
 
-public fun interface RTM_ENTITY_EXPORT_METHODFn {
-    public operator fun invoke(callerhandle: Long, calleehandle: Long, input: Long, output: Long)
+public fun interface RtmEntityExportMethodFn {
+    public operator fun invoke(callerhandle: Long, calleehandle: Long, input: COpaquePointer?, output: COpaquePointer?)
 }
 
-public typealias RTM_ENTITY_EXPORT_METHOD = RTM_ENTITY_EXPORT_METHODFn?
+public typealias RtmEntityExportMethod = RtmEntityExportMethodFn?
 
-public fun interface RTM_EVENT_CALLBACKFn {
-    public operator fun invoke(rtmreghandle: Long, eventtype: RTM_EVENT_TYPE, context1: Long, context2: Long): UInt
+public fun interface RtmEventCallbackFn {
+    public operator fun invoke(rtmreghandle: Long, eventtype: RtmEventType, context1: COpaquePointer?, context2: COpaquePointer?): UInt
 }
 
-public typealias RTM_EVENT_CALLBACK = RTM_EVENT_CALLBACKFn?
+public typealias RtmEventCallback = RtmEventCallbackFn?
 
-public typealias RTM_EVENT_TYPE = Int
+public typealias RtmEventType = Int
 
 public fun interface RasCustomDeleteEntryNotifyFnFn {
-    public operator fun invoke(lpszphonebook: PCWSTR, lpszentry: PCWSTR, dwflags: UInt): UInt
+    public operator fun invoke(lpszphonebook: Pcwstr, lpszentry: Pcwstr, dwflags: UInt): UInt
 }
 
 public typealias RasCustomDeleteEntryNotifyFn = RasCustomDeleteEntryNotifyFnFn?
 
 public fun interface RasCustomDialDlgFnFn {
-    public operator fun invoke(hinstdll: HINSTANCE, dwflags: UInt, lpszphonebook: PCWSTR, lpszentry: PCWSTR, lpszphonenumber: PCWSTR, lpinfo: Long, pvinfo: Long): BOOL
+    public operator fun invoke(hinstdll: Hinstance, dwflags: UInt, lpszphonebook: Pcwstr, lpszentry: Pcwstr, lpszphonenumber: Pcwstr, lpinfo: COpaquePointer?, pvinfo: COpaquePointer?): Bool
 }
 
 public typealias RasCustomDialDlgFn = RasCustomDialDlgFnFn?
 
 public fun interface RasCustomDialFnFn {
-    public operator fun invoke(hinstdll: HINSTANCE, lprasdialextensions: Long, lpszphonebook: PCWSTR, lprasdialparams: Long, dwnotifiertype: UInt, lpvnotifier: Long, lphrasconn: Long, dwflags: UInt): UInt
+    public operator fun invoke(hinstdll: Hinstance, lprasdialextensions: COpaquePointer?, lpszphonebook: Pcwstr, lprasdialparams: COpaquePointer?, dwnotifiertype: UInt, lpvnotifier: COpaquePointer?, lphrasconn: COpaquePointer?, dwflags: UInt): UInt
 }
 
 public typealias RasCustomDialFn = RasCustomDialFnFn?
 
 public fun interface RasCustomEntryDlgFnFn {
-    public operator fun invoke(hinstdll: HINSTANCE, lpszphonebook: PCWSTR, lpszentry: PCWSTR, lpinfo: Long, dwflags: UInt): BOOL
+    public operator fun invoke(hinstdll: Hinstance, lpszphonebook: Pcwstr, lpszentry: Pcwstr, lpinfo: COpaquePointer?, dwflags: UInt): Bool
 }
 
 public typealias RasCustomEntryDlgFn = RasCustomEntryDlgFnFn?
 
 public fun interface RasCustomHangUpFnFn {
-    public operator fun invoke(hrasconn: HRASCONN): UInt
+    public operator fun invoke(hrasconn: Hrasconn): UInt
 }
 
 public typealias RasCustomHangUpFn = RasCustomHangUpFnFn?
 
 public fun interface RasCustomScriptExecuteFnFn {
-    public operator fun invoke(hport: HANDLE, lpszphonebook: PCWSTR, lpszentryname: PCWSTR, pfnrasgetbuffer: PFNRASGETBUFFER, pfnrasfreebuffer: PFNRASFREEBUFFER, pfnrassendbuffer: PFNRASSENDBUFFER, pfnrasreceivebuffer: PFNRASRECEIVEBUFFER, pfnrasretrievebuffer: PFNRASRETRIEVEBUFFER, hwnd: HWND, prasdialparams: Long, pvreserved: Long): UInt
+    public operator fun invoke(hport: Handle, lpszphonebook: Pcwstr, lpszentryname: Pcwstr, pfnrasgetbuffer: Pfnrasgetbuffer, pfnrasfreebuffer: Pfnrasfreebuffer, pfnrassendbuffer: Pfnrassendbuffer, pfnrasreceivebuffer: Pfnrasreceivebuffer, pfnrasretrievebuffer: Pfnrasretrievebuffer, hwnd: Hwnd, prasdialparams: COpaquePointer?, pvreserved: COpaquePointer?): UInt
 }
 
 public typealias RasCustomScriptExecuteFn = RasCustomScriptExecuteFnFn?
 
-public typealias SECURITY_MESSAGE_MSG_ID = UInt
+public typealias SecurityMessageMsgId = UInt

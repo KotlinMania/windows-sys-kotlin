@@ -1,9 +1,9 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.bluetooth
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
 
@@ -23,7 +23,7 @@ public val A2DP_SOURCE_SUPPORTED_FEATURES_PLAYER: UInt = 1u
 
 public val A2DP_SOURCE_SUPPORTED_FEATURES_TUNER: UInt = 4u
 
-public val AF_BTH: UShort = 32u
+public val AF_BTH: UShort = 32u.toUShort()
 
 public val ATT_PROTOCOL_UUID16: UInt = 7u
 
@@ -57,25 +57,25 @@ public val AVRCP_SUPPORTED_FEATURES_TG_MULTIPLE_PLAYER_APPLICATIONS: UInt = 128u
 
 public val AVRCP_SUPPORTED_FEATURES_TG_PLAYER_APPLICATION_SETTINGS: UInt = 16u
 
-public val AVRemoteControlControllerServiceClass_UUID16: UInt = 4367u
+public val AV_REMOTE_CONTROL_CONTROLLER_SERVICE_CLASS_UUID16: UInt = 4367u
 
-public val AVRemoteControlServiceClassID_UUID16: UInt = 4366u
+public val AV_REMOTE_CONTROL_SERVICE_CLASS_ID_UUID16: UInt = 4366u
 
-public val AVRemoteControlTargetServiceClassID_UUID16: UInt = 4364u
+public val AV_REMOTE_CONTROL_TARGET_SERVICE_CLASS_ID_UUID16: UInt = 4364u
 
-public val AdvancedAudioDistributionProfileID_UUID16: UInt = 4365u
+public val ADVANCED_AUDIO_DISTRIBUTION_PROFILE_ID_UUID16: UInt = 4365u
 
-public val AdvancedAudioDistributionServiceClassID_UUID16: UInt = 4365u
+public val ADVANCED_AUDIO_DISTRIBUTION_SERVICE_CLASS_ID_UUID16: UInt = 4365u
 
-public val AudioSinkServiceClassID_UUID16: UInt = 4363u
+public val AUDIO_SINK_SERVICE_CLASS_ID_UUID16: UInt = 4363u
 
-public val AudioSinkSourceServiceClassID_UUID16: UInt = 4363u
+public val AUDIO_SINK_SOURCE_SERVICE_CLASS_ID_UUID16: UInt = 4363u
 
-public val AudioSourceServiceClassID_UUID16: UInt = 4362u
+public val AUDIO_SOURCE_SERVICE_CLASS_ID_UUID16: UInt = 4362u
 
-public val AudioVideoServiceClassID_UUID16: UInt = 4396u
+public val AUDIO_VIDEO_SERVICE_CLASS_ID_UUID16: UInt = 4396u
 
-public val AudioVideoServiceClass_UUID16: UInt = 4396u
+public val AUDIO_VIDEO_SERVICE_CLASS_UUID16: UInt = 4396u
 
 public val BDIF_ADDRESS: UInt = 1u
 
@@ -137,15 +137,15 @@ public val BDIF_TX_POWER: UInt = 2147483648u
 
 public val BDIF_VISIBLE: UInt = 128u
 
-public val BLUETOOTH_AUTHENTICATION_METHOD_LEGACY: BLUETOOTH_AUTHENTICATION_METHOD = 1
+public val BLUETOOTH_AUTHENTICATION_METHOD_LEGACY: BluetoothAuthenticationMethod = 1
 
-public val BLUETOOTH_AUTHENTICATION_METHOD_NUMERIC_COMPARISON: BLUETOOTH_AUTHENTICATION_METHOD = 3
+public val BLUETOOTH_AUTHENTICATION_METHOD_NUMERIC_COMPARISON: BluetoothAuthenticationMethod = 3
 
-public val BLUETOOTH_AUTHENTICATION_METHOD_OOB: BLUETOOTH_AUTHENTICATION_METHOD = 2
+public val BLUETOOTH_AUTHENTICATION_METHOD_OOB: BluetoothAuthenticationMethod = 2
 
-public val BLUETOOTH_AUTHENTICATION_METHOD_PASSKEY: BLUETOOTH_AUTHENTICATION_METHOD = 5
+public val BLUETOOTH_AUTHENTICATION_METHOD_PASSKEY: BluetoothAuthenticationMethod = 5
 
-public val BLUETOOTH_AUTHENTICATION_METHOD_PASSKEY_NOTIFICATION: BLUETOOTH_AUTHENTICATION_METHOD = 4
+public val BLUETOOTH_AUTHENTICATION_METHOD_PASSKEY_NOTIFICATION: BluetoothAuthenticationMethod = 4
 
 public val BLUETOOTH_DEVICE_NAME_SIZE: UInt = 256u
 
@@ -165,15 +165,15 @@ public val BLUETOOTH_GATT_FLAG_SIGNED_WRITE: UInt = 16u
 
 public val BLUETOOTH_GATT_FLAG_WRITE_WITHOUT_RESPONSE: UInt = 32u
 
-public val BLUETOOTH_IO_CAPABILITY_DISPLAYONLY: BLUETOOTH_IO_CAPABILITY = 0
+public val BLUETOOTH_IO_CAPABILITY_DISPLAYONLY: BluetoothIoCapability = 0
 
-public val BLUETOOTH_IO_CAPABILITY_DISPLAYYESNO: BLUETOOTH_IO_CAPABILITY = 1
+public val BLUETOOTH_IO_CAPABILITY_DISPLAYYESNO: BluetoothIoCapability = 1
 
-public val BLUETOOTH_IO_CAPABILITY_KEYBOARDONLY: BLUETOOTH_IO_CAPABILITY = 2
+public val BLUETOOTH_IO_CAPABILITY_KEYBOARDONLY: BluetoothIoCapability = 2
 
-public val BLUETOOTH_IO_CAPABILITY_NOINPUTNOOUTPUT: BLUETOOTH_IO_CAPABILITY = 3
+public val BLUETOOTH_IO_CAPABILITY_NOINPUTNOOUTPUT: BluetoothIoCapability = 3
 
-public val BLUETOOTH_IO_CAPABILITY_UNDEFINED: BLUETOOTH_IO_CAPABILITY = 255
+public val BLUETOOTH_IO_CAPABILITY_UNDEFINED: BluetoothIoCapability = 255
 
 public val BLUETOOTH_MAX_NAME_SIZE: UInt = 248u
 
@@ -183,19 +183,19 @@ public val BLUETOOTH_MAX_PASSKEY_SIZE: UInt = 16u
 
 public val BLUETOOTH_MAX_SERVICE_NAME_SIZE: UInt = 256u
 
-public val BLUETOOTH_MITM_ProtectionNotDefined: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = 255
+public val BLUETOOTH_MITM_PROTECTION_NOT_DEFINED: BluetoothAuthenticationRequirements = 255
 
-public val BLUETOOTH_MITM_ProtectionNotRequired: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = 0
+public val BLUETOOTH_MITM_PROTECTION_NOT_REQUIRED: BluetoothAuthenticationRequirements = 0
 
-public val BLUETOOTH_MITM_ProtectionNotRequiredBonding: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = 2
+public val BLUETOOTH_MITM_PROTECTION_NOT_REQUIRED_BONDING: BluetoothAuthenticationRequirements = 2
 
-public val BLUETOOTH_MITM_ProtectionNotRequiredGeneralBonding: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = 4
+public val BLUETOOTH_MITM_PROTECTION_NOT_REQUIRED_GENERAL_BONDING: BluetoothAuthenticationRequirements = 4
 
-public val BLUETOOTH_MITM_ProtectionRequired: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = 1
+public val BLUETOOTH_MITM_PROTECTION_REQUIRED: BluetoothAuthenticationRequirements = 1
 
-public val BLUETOOTH_MITM_ProtectionRequiredBonding: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = 3
+public val BLUETOOTH_MITM_PROTECTION_REQUIRED_BONDING: BluetoothAuthenticationRequirements = 3
 
-public val BLUETOOTH_MITM_ProtectionRequiredGeneralBonding: BLUETOOTH_AUTHENTICATION_REQUIREMENTS = 5
+public val BLUETOOTH_MITM_PROTECTION_REQUIRED_GENERAL_BONDING: BluetoothAuthenticationRequirements = 5
 
 public val BLUETOOTH_SERVICE_DISABLE: UInt = 0u
 
@@ -413,7 +413,7 @@ public val BTH_HOST_FEATURE_STREAMING_MODE: ULong = 2uL
 
 public val BTH_IOCTL_BASE: UInt = 0u
 
-public val BTH_LE_ATT_BLUETOOTH_BASE_GUID: GUID = GUID.from_u128(U128(0x1000uL, 0x800000805f9b34fbuL))
+public val BTH_LE_ATT_BLUETOOTH_BASE_GUID: Guid = Guid.fromU128(U128(0x1000uL, 0x800000805f9b34fbuL))
 
 public val BTH_LE_ATT_CID: UInt = 4u
 
@@ -823,13 +823,13 @@ public val BT_PORT_MAX: UInt = 65535u
 
 public val BT_PORT_MIN: UInt = 1u
 
-public val BasicPrintingProfileID_UUID16: UInt = 4386u
+public val BASIC_PRINTING_PROFILE_ID_UUID16: UInt = 4386u
 
-public val BasicPrintingServiceClassID_UUID16: UInt = 4386u
+public val BASIC_PRINTING_SERVICE_CLASS_ID_UUID16: UInt = 4386u
 
-public val Bluetooth_Base_UUID: GUID = GUID.from_u128(U128(0x1000uL, 0x800000805f9b34fbuL))
+public val BLUETOOTH_BASE_UUID: Guid = Guid.fromU128(U128(0x1000uL, 0x800000805f9b34fbuL))
 
-public val BrowseGroupDescriptorServiceClassID_UUID16: UInt = 4097u
+public val BROWSE_GROUP_DESCRIPTOR_SERVICE_CLASS_ID_UUID16: UInt = 4097u
 
 public val CMPT_PROTOCOL_UUID16: UInt = 27u
 
@@ -1047,91 +1047,91 @@ public val CORDLESS_EXTERNAL_NETWORK_PACKET_SWITCHED: UInt = 6u
 
 public val CORDLESS_EXTERNAL_NETWORK_PSTN: UInt = 1u
 
-public val CTNAccessServiceClassID_UUID16: UInt = 4412u
+public val CTN_ACCESS_SERVICE_CLASS_ID_UUID16: UInt = 4412u
 
-public val CTNNotificationServiceClassID_UUID16: UInt = 4413u
+public val CTN_NOTIFICATION_SERVICE_CLASS_ID_UUID16: UInt = 4413u
 
-public val CTNProfileID_UUID16: UInt = 4414u
+public val CTN_PROFILE_ID_UUID16: UInt = 4414u
 
-public val CharacteristicAggregateFormat: BTH_LE_GATT_DESCRIPTOR_TYPE = 5
+public val CHARACTERISTIC_AGGREGATE_FORMAT: BthLeGattDescriptorType = 5
 
-public val CharacteristicExtendedProperties: BTH_LE_GATT_DESCRIPTOR_TYPE = 0
+public val CHARACTERISTIC_EXTENDED_PROPERTIES: BthLeGattDescriptorType = 0
 
-public val CharacteristicFormat: BTH_LE_GATT_DESCRIPTOR_TYPE = 4
+public val CHARACTERISTIC_FORMAT: BthLeGattDescriptorType = 4
 
-public val CharacteristicUserDescription: BTH_LE_GATT_DESCRIPTOR_TYPE = 1
+public val CHARACTERISTIC_USER_DESCRIPTION: BthLeGattDescriptorType = 1
 
-public val CharacteristicValueChangedEvent: BTH_LE_GATT_EVENT_TYPE = 0
+public val CHARACTERISTIC_VALUE_CHANGED_EVENT: BthLeGattEventType = 0
 
-public val ClientCharacteristicConfiguration: BTH_LE_GATT_DESCRIPTOR_TYPE = 2
+public val CLIENT_CHARACTERISTIC_CONFIGURATION: BthLeGattDescriptorType = 2
 
-public val CommonISDNAccessServiceClassID_UUID16: UInt = 4392u
+public val COMMON_ISDN_ACCESS_SERVICE_CLASS_ID_UUID16: UInt = 4392u
 
-public val CommonISDNAccessServiceClass_UUID16: UInt = 4392u
+public val COMMON_ISDN_ACCESS_SERVICE_CLASS_UUID16: UInt = 4392u
 
-public val CordlessServiceClassID_UUID16: UInt = 4361u
+public val CORDLESS_SERVICE_CLASS_ID_UUID16: UInt = 4361u
 
-public val CordlessTelephonyServiceClassID_UUID16: UInt = 4361u
+public val CORDLESS_TELEPHONY_SERVICE_CLASS_ID_UUID16: UInt = 4361u
 
-public val CustomDescriptor: BTH_LE_GATT_DESCRIPTOR_TYPE = 6
+public val CUSTOM_DESCRIPTOR: BthLeGattDescriptorType = 6
 
 public val DI_VENDOR_ID_SOURCE_BLUETOOTH_SIG: UInt = 1u
 
 public val DI_VENDOR_ID_SOURCE_USB_IF: UInt = 2u
 
-public val DialupNetworkingServiceClassID_UUID16: UInt = 4355u
+public val DIALUP_NETWORKING_SERVICE_CLASS_ID_UUID16: UInt = 4355u
 
-public val DirectPrintingReferenceObjectsServiceClassID_UUID16: UInt = 4384u
+public val DIRECT_PRINTING_REFERENCE_OBJECTS_SERVICE_CLASS_ID_UUID16: UInt = 4384u
 
-public val DirectPrintingServiceClassID_UUID16: UInt = 4376u
+public val DIRECT_PRINTING_SERVICE_CLASS_ID_UUID16: UInt = 4376u
 
 public val ENCODING_UTF_8: UInt = 106u
 
-public val ESdpUpnpIpLapServiceClassID_UUID16: UInt = 4865u
+public val E_SDP_UPNP_IP_LAP_SERVICE_CLASS_ID_UUID16: UInt = 4865u
 
-public val ESdpUpnpIpPanServiceClassID_UUID16: UInt = 4864u
+public val E_SDP_UPNP_IP_PAN_SERVICE_CLASS_ID_UUID16: UInt = 4864u
 
-public val ESdpUpnpL2capServiceClassID_UUID16: UInt = 4866u
+public val E_SDP_UPNP_L2CAP_SERVICE_CLASS_ID_UUID16: UInt = 4866u
 
 public val FTP_PROTOCOL_UUID16: UInt = 10u
 
-public val FaxServiceClassID_UUID16: UInt = 4369u
+public val FAX_SERVICE_CLASS_ID_UUID16: UInt = 4369u
 
-public val GNSSProfileID_UUID16: UInt = 4405u
+public val GNSS_PROFILE_ID_UUID16: UInt = 4405u
 
-public val GNSSServerServiceClassID_UUID16: UInt = 4406u
+public val GNSS_SERVER_SERVICE_CLASS_ID_UUID16: UInt = 4406u
 
-public val GNServiceClassID_UUID16: UInt = 4375u
+public val GN_SERVICE_CLASS_ID_UUID16: UInt = 4375u
 
-public val GUID_BLUETOOTHLE_DEVICE_INTERFACE: GUID = GUID.from_u128(U128(0x781aee1877334ce4uL, 0xadd091f41c67b592uL))
+public val GUID_BLUETOOTHLE_DEVICE_INTERFACE: Guid = Guid.fromU128(U128(0x781aee1877334ce4uL, 0xadd091f41c67b592uL))
 
-public val GUID_BLUETOOTH_AUTHENTICATION_REQUEST: GUID = GUID.from_u128(U128(0x5dc9136d996c46dbuL, 0x84f532c0a3f47352uL))
+public val GUID_BLUETOOTH_AUTHENTICATION_REQUEST: Guid = Guid.fromU128(U128(0x5dc9136d996c46dbuL, 0x84f532c0a3f47352uL))
 
-public val GUID_BLUETOOTH_GATT_SERVICE_DEVICE_INTERFACE: GUID = GUID.from_u128(U128(0x6e3bb679437240c8uL, 0x9eaa4509df260cd8uL))
+public val GUID_BLUETOOTH_GATT_SERVICE_DEVICE_INTERFACE: Guid = Guid.fromU128(U128(0x6e3bb679437240c8uL, 0x9eaa4509df260cd8uL))
 
-public val GUID_BLUETOOTH_HCI_EVENT: GUID = GUID.from_u128(U128(0xfc240062154149beuL, 0xb46384c4dcd7bf7fuL))
+public val GUID_BLUETOOTH_HCI_EVENT: Guid = Guid.fromU128(U128(0xfc240062154149beuL, 0xb46384c4dcd7bf7fuL))
 
-public val GUID_BLUETOOTH_HCI_VENDOR_EVENT: GUID = GUID.from_u128(U128(0x547247e645bb4c33uL, 0xaf8cc00efe15a71duL))
+public val GUID_BLUETOOTH_HCI_VENDOR_EVENT: Guid = Guid.fromU128(U128(0x547247e645bb4c33uL, 0xaf8cc00efe15a71duL))
 
-public val GUID_BLUETOOTH_KEYPRESS_EVENT: GUID = GUID.from_u128(U128(0xd668dfcd0f4e4efcuL, 0xbfe0392eeec5109cuL))
+public val GUID_BLUETOOTH_KEYPRESS_EVENT: Guid = Guid.fromU128(U128(0xd668dfcd0f4e4efcuL, 0xbfe0392eeec5109cuL))
 
-public val GUID_BLUETOOTH_L2CAP_EVENT: GUID = GUID.from_u128(U128(0x7eae4030b7094aa8uL, 0xac55e953829c9daauL))
+public val GUID_BLUETOOTH_L2CAP_EVENT: Guid = Guid.fromU128(U128(0x7eae4030b7094aa8uL, 0xac55e953829c9daauL))
 
-public val GUID_BLUETOOTH_RADIO_IN_RANGE: GUID = GUID.from_u128(U128(0xea3b5b8226ee450euL, 0xb0d8d26fe30a3869uL))
+public val GUID_BLUETOOTH_RADIO_IN_RANGE: Guid = Guid.fromU128(U128(0xea3b5b8226ee450euL, 0xb0d8d26fe30a3869uL))
 
-public val GUID_BLUETOOTH_RADIO_OUT_OF_RANGE: GUID = GUID.from_u128(U128(0xe28867c9c2aa4ceduL, 0xb9694570866037c4uL))
+public val GUID_BLUETOOTH_RADIO_OUT_OF_RANGE: Guid = Guid.fromU128(U128(0xe28867c9c2aa4ceduL, 0xb9694570866037c4uL))
 
-public val GUID_BTHPORT_DEVICE_INTERFACE: GUID = GUID.from_u128(U128(0x850302ab3444fdauL, 0x9be990576b8d46f0uL))
+public val GUID_BTHPORT_DEVICE_INTERFACE: Guid = Guid.fromU128(U128(0x850302ab3444fdauL, 0x9be990576b8d46f0uL))
 
-public val GUID_BTH_RFCOMM_SERVICE_DEVICE_INTERFACE: GUID = GUID.from_u128(U128(0xb142fc3efa4e460buL, 0x8abc072b628b3c70uL))
+public val GUID_BTH_RFCOMM_SERVICE_DEVICE_INTERFACE: Guid = Guid.fromU128(U128(0xb142fc3efa4e460buL, 0x8abc072b628b3c70uL))
 
-public val GenericAudioServiceClassID_UUID16: UInt = 4611u
+public val GENERIC_AUDIO_SERVICE_CLASS_ID_UUID16: UInt = 4611u
 
-public val GenericFileTransferServiceClassID_UUID16: UInt = 4610u
+public val GENERIC_FILE_TRANSFER_SERVICE_CLASS_ID_UUID16: UInt = 4610u
 
-public val GenericNetworkingServiceClassID_UUID16: UInt = 4609u
+public val GENERIC_NETWORKING_SERVICE_CLASS_ID_UUID16: UInt = 4609u
 
-public val GenericTelephonyServiceClassID_UUID16: UInt = 4612u
+public val GENERIC_TELEPHONY_SERVICE_CLASS_ID_UUID16: UInt = 4612u
 
 public val HCCC_PROTOCOL_UUID16: UInt = 18u
 
@@ -1149,63 +1149,63 @@ public val HCI_CONNNECTION_TYPE_SCO: UInt = 2u
 
 public val HCN_PROTOCOL_UUID16: UInt = 22u
 
-public val HCRPrintServiceClassID_UUID16: UInt = 4390u
+public val HCR_PRINT_SERVICE_CLASS_ID_UUID16: UInt = 4390u
 
-public val HCRScanServiceClassID_UUID16: UInt = 4391u
+public val HCR_SCAN_SERVICE_CLASS_ID_UUID16: UInt = 4391u
 
 public val HID_PROTOCOL_UUID16: UInt = 17u
 
 public val HTTP_PROTOCOL_UUID16: UInt = 12u
 
-public val HandsfreeAudioGatewayServiceClassID_UUID16: UInt = 4383u
+public val HANDSFREE_AUDIO_GATEWAY_SERVICE_CLASS_ID_UUID16: UInt = 4383u
 
-public val HandsfreeServiceClassID_UUID16: UInt = 4382u
+public val HANDSFREE_SERVICE_CLASS_ID_UUID16: UInt = 4382u
 
-public val HardcopyCableReplacementProfileID_UUID16: UInt = 4389u
+public val HARDCOPY_CABLE_REPLACEMENT_PROFILE_ID_UUID16: UInt = 4389u
 
-public val HardcopyCableReplacementServiceClassID_UUID16: UInt = 4389u
+public val HARDCOPY_CABLE_REPLACEMENT_SERVICE_CLASS_ID_UUID16: UInt = 4389u
 
-public val HeadsetAudioGatewayServiceClassID_UUID16: UInt = 4370u
+public val HEADSET_AUDIO_GATEWAY_SERVICE_CLASS_ID_UUID16: UInt = 4370u
 
-public val HeadsetHSServiceClassID_UUID16: UInt = 4401u
+public val HEADSET_HS_SERVICE_CLASS_ID_UUID16: UInt = 4401u
 
-public val HeadsetServiceClassID_UUID16: UInt = 4360u
+public val HEADSET_SERVICE_CLASS_ID_UUID16: UInt = 4360u
 
-public val HealthDeviceProfileID_UUID16: UInt = 5120u
+public val HEALTH_DEVICE_PROFILE_ID_UUID16: UInt = 5120u
 
-public val HealthDeviceProfileSinkServiceClassID_UUID16: UInt = 5122u
+public val HEALTH_DEVICE_PROFILE_SINK_SERVICE_CLASS_ID_UUID16: UInt = 5122u
 
-public val HealthDeviceProfileSourceServiceClassID_UUID16: UInt = 5121u
+public val HEALTH_DEVICE_PROFILE_SOURCE_SERVICE_CLASS_ID_UUID16: UInt = 5121u
 
-public val HumanInterfaceDeviceServiceClassID_UUID16: UInt = 4388u
+public val HUMAN_INTERFACE_DEVICE_SERVICE_CLASS_ID_UUID16: UInt = 4388u
 
 public val IP_PROTOCOL_UUID16: UInt = 9u
 
-public val ImagingAutomaticArchiveServiceClassID_UUID16: UInt = 4380u
+public val IMAGING_AUTOMATIC_ARCHIVE_SERVICE_CLASS_ID_UUID16: UInt = 4380u
 
-public val ImagingReferenceObjectsServiceClassID_UUID16: UInt = 4381u
+public val IMAGING_REFERENCE_OBJECTS_SERVICE_CLASS_ID_UUID16: UInt = 4381u
 
-public val ImagingResponderServiceClassID_UUID16: UInt = 4379u
+public val IMAGING_RESPONDER_SERVICE_CLASS_ID_UUID16: UInt = 4379u
 
-public val ImagingServiceClassID_UUID16: UInt = 4378u
+public val IMAGING_SERVICE_CLASS_ID_UUID16: UInt = 4378u
 
-public val ImagingServiceProfileID_UUID16: UInt = 4378u
+public val IMAGING_SERVICE_PROFILE_ID_UUID16: UInt = 4378u
 
-public val IntercomServiceClassID_UUID16: UInt = 4368u
+public val INTERCOM_SERVICE_CLASS_ID_UUID16: UInt = 4368u
 
-public val IoCaps_DisplayOnly: IO_CAPABILITY = 0
+public val IO_CAPS_DISPLAY_ONLY: IoCapability = 0
 
-public val IoCaps_DisplayYesNo: IO_CAPABILITY = 1
+public val IO_CAPS_DISPLAY_YES_NO: IoCapability = 1
 
-public val IoCaps_KeyboardOnly: IO_CAPABILITY = 2
+public val IO_CAPS_KEYBOARD_ONLY: IoCapability = 2
 
-public val IoCaps_NoInputNoOutput: IO_CAPABILITY = 3
+public val IO_CAPS_NO_INPUT_NO_OUTPUT: IoCapability = 3
 
-public val IoCaps_Undefined: IO_CAPABILITY = 255
+public val IO_CAPS_UNDEFINED: IoCapability = 255
 
-public val IrMCSyncServiceClassID_UUID16: UInt = 4356u
+public val IR_MC_SYNC_SERVICE_CLASS_ID_UUID16: UInt = 4356u
 
-public val IrMcSyncCommandServiceClassID_UUID16: UInt = 4359u
+public val IR_MC_SYNC_COMMAND_SERVICE_CLASS_ID_UUID16: UInt = 4359u
 
 public val L2CAP_DEFAULT_MTU: UInt = 672u
 
@@ -1215,7 +1215,7 @@ public val L2CAP_MIN_MTU: UInt = 48u
 
 public val L2CAP_PROTOCOL_UUID16: UInt = 256u
 
-public val LANAccessUsingPPPServiceClassID_UUID16: UInt = 4354u
+public val LAN_ACCESS_USING_PPP_SERVICE_CLASS_ID_UUID16: UInt = 4354u
 
 public val LANGUAGE_EN_US: UInt = 25966u
 
@@ -1237,41 +1237,41 @@ public val MAX_L2CAP_PING_DATA_LENGTH: UInt = 44u
 
 public val MAX_UUIDS_IN_QUERY: UInt = 12u
 
-public val MITMProtectionNotDefined: AUTHENTICATION_REQUIREMENTS = 255
+public val MITM_PROTECTION_NOT_DEFINED: AuthenticationRequirements = 255
 
-public val MITMProtectionNotRequired: AUTHENTICATION_REQUIREMENTS = 0
+public val MITM_PROTECTION_NOT_REQUIRED: AuthenticationRequirements = 0
 
-public val MITMProtectionNotRequiredBonding: AUTHENTICATION_REQUIREMENTS = 2
+public val MITM_PROTECTION_NOT_REQUIRED_BONDING: AuthenticationRequirements = 2
 
-public val MITMProtectionNotRequiredGeneralBonding: AUTHENTICATION_REQUIREMENTS = 4
+public val MITM_PROTECTION_NOT_REQUIRED_GENERAL_BONDING: AuthenticationRequirements = 4
 
-public val MITMProtectionRequired: AUTHENTICATION_REQUIREMENTS = 1
+public val MITM_PROTECTION_REQUIRED: AuthenticationRequirements = 1
 
-public val MITMProtectionRequiredBonding: AUTHENTICATION_REQUIREMENTS = 3
+public val MITM_PROTECTION_REQUIRED_BONDING: AuthenticationRequirements = 3
 
-public val MITMProtectionRequiredGeneralBonding: AUTHENTICATION_REQUIREMENTS = 5
+public val MITM_PROTECTION_REQUIRED_GENERAL_BONDING: AuthenticationRequirements = 5
 
-public val MPSProfileID_UUID16: UInt = 4410u
+public val MPS_PROFILE_ID_UUID16: UInt = 4410u
 
-public val MPSServiceClassID_UUID16: UInt = 4411u
+public val MPS_SERVICE_CLASS_ID_UUID16: UInt = 4411u
 
-public val MessageAccessProfileID_UUID16: UInt = 4404u
+public val MESSAGE_ACCESS_PROFILE_ID_UUID16: UInt = 4404u
 
-public val MessageAccessServerServiceClassID_UUID16: UInt = 4402u
+public val MESSAGE_ACCESS_SERVER_SERVICE_CLASS_ID_UUID16: UInt = 4402u
 
-public val MessageNotificationServerServiceClassID_UUID16: UInt = 4403u
+public val MESSAGE_NOTIFICATION_SERVER_SERVICE_CLASS_ID_UUID16: UInt = 4403u
 
-public val NAPServiceClassID_UUID16: UInt = 4374u
+public val NAP_SERVICE_CLASS_ID_UUID16: UInt = 4374u
 
 public val NS_BTH: UInt = 16u
 
-public val NodeContainerTypeAlternative: NodeContainerType = 1
+public val NODE_CONTAINER_TYPE_ALTERNATIVE: NodeContainerType = 1
 
-public val NodeContainerTypeSequence: NodeContainerType = 0
+public val NODE_CONTAINER_TYPE_SEQUENCE: NodeContainerType = 0
 
-public val OBEXFileTransferServiceClassID_UUID16: UInt = 4358u
+public val OBEX_FILE_TRANSFER_SERVICE_CLASS_ID_UUID16: UInt = 4358u
 
-public val OBEXObjectPushServiceClassID_UUID16: UInt = 4357u
+public val OBEX_OBJECT_PUSH_SERVICE_CLASS_ID_UUID16: UInt = 4357u
 
 public val OBEX_PROTOCOL_UUID16: UInt = 8u
 
@@ -1289,9 +1289,9 @@ public val OBJECT_PUSH_FORMAT_VMESSAGE: UInt = 6u
 
 public val OBJECT_PUSH_FORMAT_VNOTE: UInt = 5u
 
-public val PANUServiceClassID_UUID16: UInt = 4373u
+public val PANU_SERVICE_CLASS_ID_UUID16: UInt = 4373u
 
-public val PF_BTH: UShort = 32u
+public val PF_BTH: UShort = 32u.toUShort()
 
 public val PSM_3DSP: UInt = 33u
 
@@ -1323,17 +1323,17 @@ public val PSM_UDI_C_PLANE: UInt = 29u
 
 public val PSM_UPNP: UInt = 21u
 
-public val PhonebookAccessPceServiceClassID_UUID16: UInt = 4398u
+public val PHONEBOOK_ACCESS_PCE_SERVICE_CLASS_ID_UUID16: UInt = 4398u
 
-public val PhonebookAccessProfileID_UUID16: UInt = 4400u
+public val PHONEBOOK_ACCESS_PROFILE_ID_UUID16: UInt = 4400u
 
-public val PhonebookAccessPseServiceClassID_UUID16: UInt = 4399u
+public val PHONEBOOK_ACCESS_PSE_SERVICE_CLASS_ID_UUID16: UInt = 4399u
 
-public val PnPInformationServiceClassID_UUID16: UInt = 4608u
+public val PN_P_INFORMATION_SERVICE_CLASS_ID_UUID16: UInt = 4608u
 
-public val PrintingStatusServiceClassID_UUID16: UInt = 4387u
+public val PRINTING_STATUS_SERVICE_CLASS_ID_UUID16: UInt = 4387u
 
-public val PublicBrowseGroupServiceClassID_UUID16: UInt = 4098u
+public val PUBLIC_BROWSE_GROUP_SERVICE_CLASS_ID_UUID16: UInt = 4098u
 
 public val RFCOMM_CMD_MSC: UInt = 1u
 
@@ -1439,9 +1439,9 @@ public val RPN_STOP_1: UInt = 0u
 
 public val RPN_STOP_1_5: UInt = 4u
 
-public val ReferencePrintingServiceClassID_UUID16: UInt = 4377u
+public val REFERENCE_PRINTING_SERVICE_CLASS_ID_UUID16: UInt = 4377u
 
-public val ReflectsUIServiceClassID_UUID16: UInt = 4385u
+public val REFLECTS_UI_SERVICE_CLASS_ID_UUID16: UInt = 4385u
 
 public val SAP_BIT_OFFSET: UInt = 0u
 
@@ -1615,53 +1615,53 @@ public val SDP_SERVICE_SEARCH_ATTRIBUTE_REQUEST: UInt = 3u
 
 public val SDP_SERVICE_SEARCH_REQUEST: UInt = 1u
 
-public val SDP_ST_INT128: SDP_SPECIFICTYPE = 1056
+public val SDP_ST_INT128: SdpSpecifictype = 1056
 
-public val SDP_ST_INT16: SDP_SPECIFICTYPE = 288
+public val SDP_ST_INT16: SdpSpecifictype = 288
 
-public val SDP_ST_INT32: SDP_SPECIFICTYPE = 544
+public val SDP_ST_INT32: SdpSpecifictype = 544
 
-public val SDP_ST_INT64: SDP_SPECIFICTYPE = 800
+public val SDP_ST_INT64: SdpSpecifictype = 800
 
-public val SDP_ST_INT8: SDP_SPECIFICTYPE = 32
+public val SDP_ST_INT8: SdpSpecifictype = 32
 
-public val SDP_ST_NONE: SDP_SPECIFICTYPE = 0
+public val SDP_ST_NONE: SdpSpecifictype = 0
 
-public val SDP_ST_UINT128: SDP_SPECIFICTYPE = 1040
+public val SDP_ST_UINT128: SdpSpecifictype = 1040
 
-public val SDP_ST_UINT16: SDP_SPECIFICTYPE = 272
+public val SDP_ST_UINT16: SdpSpecifictype = 272
 
-public val SDP_ST_UINT32: SDP_SPECIFICTYPE = 528
+public val SDP_ST_UINT32: SdpSpecifictype = 528
 
-public val SDP_ST_UINT64: SDP_SPECIFICTYPE = 784
+public val SDP_ST_UINT64: SdpSpecifictype = 784
 
-public val SDP_ST_UINT8: SDP_SPECIFICTYPE = 16
+public val SDP_ST_UINT8: SdpSpecifictype = 16
 
-public val SDP_ST_UUID128: SDP_SPECIFICTYPE = 1072
+public val SDP_ST_UUID128: SdpSpecifictype = 1072
 
-public val SDP_ST_UUID16: SDP_SPECIFICTYPE = 304
+public val SDP_ST_UUID16: SdpSpecifictype = 304
 
-public val SDP_ST_UUID32: SDP_SPECIFICTYPE = 544
+public val SDP_ST_UUID32: SdpSpecifictype = 544
 
-public val SDP_TYPE_ALTERNATIVE: SDP_TYPE = 7
+public val SDP_TYPE_ALTERNATIVE: SdpType = 7
 
-public val SDP_TYPE_BOOLEAN: SDP_TYPE = 5
+public val SDP_TYPE_BOOLEAN: SdpType = 5
 
-public val SDP_TYPE_CONTAINER: SDP_TYPE = 32
+public val SDP_TYPE_CONTAINER: SdpType = 32
 
-public val SDP_TYPE_INT: SDP_TYPE = 2
+public val SDP_TYPE_INT: SdpType = 2
 
-public val SDP_TYPE_NIL: SDP_TYPE = 0
+public val SDP_TYPE_NIL: SdpType = 0
 
-public val SDP_TYPE_SEQUENCE: SDP_TYPE = 6
+public val SDP_TYPE_SEQUENCE: SdpType = 6
 
-public val SDP_TYPE_STRING: SDP_TYPE = 4
+public val SDP_TYPE_STRING: SdpType = 4
 
-public val SDP_TYPE_UINT: SDP_TYPE = 1
+public val SDP_TYPE_UINT: SdpType = 1
 
-public val SDP_TYPE_URL: SDP_TYPE = 8
+public val SDP_TYPE_URL: SdpType = 8
 
-public val SDP_TYPE_UUID: SDP_TYPE = 3
+public val SDP_TYPE_UUID: SdpType = 3
 
 public val SERVICE_OPTION_DO_NOT_PUBLISH: UInt = 2u
 
@@ -1707,25 +1707,25 @@ public val STRING_NAME_OFFSET: UInt = 0u
 
 public val STRING_PROVIDER_NAME_OFFSET: UInt = 2u
 
-public val STR_ADDR_FMT: PCWSTR = w("(%02x:%02x:%02x:%02x:%02x:%02x)")
+public val STR_ADDR_FMT: Pcwstr = w("(%02x:%02x:%02x:%02x:%02x:%02x)")
 
-public val STR_ADDR_FMTA: PCSTR = s("(%02x:%02x:%02x:%02x:%02x:%02x)")
+public val STR_ADDR_FMTA: Pcstr = s("(%02x:%02x:%02x:%02x:%02x:%02x)")
 
-public val STR_ADDR_FMTW: PCWSTR = w("(%02x:%02x:%02x:%02x:%02x:%02x)")
+public val STR_ADDR_FMTW: Pcwstr = w("(%02x:%02x:%02x:%02x:%02x:%02x)")
 
-public val STR_ADDR_SHORT_FMT: PCWSTR = w("%04x%08x")
+public val STR_ADDR_SHORT_FMT: Pcwstr = w("%04x%08x")
 
-public val STR_ADDR_SHORT_FMTA: PCSTR = s("%04x%08x")
+public val STR_ADDR_SHORT_FMTA: Pcstr = s("%04x%08x")
 
-public val STR_ADDR_SHORT_FMTW: PCWSTR = w("%04x%08x")
+public val STR_ADDR_SHORT_FMTW: Pcwstr = w("%04x%08x")
 
-public val STR_USBHCI_CLASS_HARDWAREID: PCWSTR = w("USB\\Class_E0&SubClass_01&Prot_01")
+public val STR_USBHCI_CLASS_HARDWAREID: Pcwstr = w("USB\\Class_E0&SubClass_01&Prot_01")
 
-public val STR_USBHCI_CLASS_HARDWAREIDA: PCSTR = s("USB\\Class_E0&SubClass_01&Prot_01")
+public val STR_USBHCI_CLASS_HARDWAREIDA: Pcstr = s("USB\\Class_E0&SubClass_01&Prot_01")
 
-public val STR_USBHCI_CLASS_HARDWAREIDW: PCWSTR = w("USB\\Class_E0&SubClass_01&Prot_01")
+public val STR_USBHCI_CLASS_HARDWAREIDW: Pcwstr = w("USB\\Class_E0&SubClass_01&Prot_01")
 
-public val SVCID_BTH_PROVIDER: GUID = GUID.from_u128(U128(0x6aa63e07d6041ffuL, 0xafb23ee6d2d9392duL))
+public val SVCID_BTH_PROVIDER: Guid = Guid.fromU128(U128(0x6aa63e07d6041ffuL, 0xafb23ee6d2d9392duL))
 
 public val SYNCH_DATA_STORE_CALENDAR: UInt = 3u
 
@@ -1735,13 +1735,13 @@ public val SYNCH_DATA_STORE_NOTES: UInt = 5u
 
 public val SYNCH_DATA_STORE_PHONEBOOK: UInt = 1u
 
-public val SerialPortServiceClassID_UUID16: UInt = 4353u
+public val SERIAL_PORT_SERVICE_CLASS_ID_UUID16: UInt = 4353u
 
-public val ServerCharacteristicConfiguration: BTH_LE_GATT_DESCRIPTOR_TYPE = 3
+public val SERVER_CHARACTERISTIC_CONFIGURATION: BthLeGattDescriptorType = 3
 
-public val ServiceDiscoveryServerServiceClassID_UUID16: UInt = 4096u
+public val SERVICE_DISCOVERY_SERVER_SERVICE_CLASS_ID_UUID16: UInt = 4096u
 
-public val SimAccessServiceClassID_UUID16: UInt = 4397u
+public val SIM_ACCESS_SERVICE_CLASS_ID_UUID16: UInt = 4397u
 
 public val TCP_PROTOCOL_UUID16: UInt = 4u
 
@@ -1749,19 +1749,19 @@ public val TCSAT_PROTOCOL_UUID16: UInt = 6u
 
 public val TCSBIN_PROTOCOL_UUID16: UInt = 5u
 
-public val ThreeDimensionalDisplayServiceClassID_UUID16: UInt = 4407u
+public val THREE_DIMENSIONAL_DISPLAY_SERVICE_CLASS_ID_UUID16: UInt = 4407u
 
-public val ThreeDimensionalGlassesServiceClassID_UUID16: UInt = 4408u
+public val THREE_DIMENSIONAL_GLASSES_SERVICE_CLASS_ID_UUID16: UInt = 4408u
 
-public val ThreeDimensionalSynchronizationProfileID_UUID16: UInt = 4409u
+public val THREE_DIMENSIONAL_SYNCHRONIZATION_PROFILE_ID_UUID16: UInt = 4409u
 
-public val UDIMTServiceClassID_UUID16: UInt = 4394u
+public val UDIMT_SERVICE_CLASS_ID_UUID16: UInt = 4394u
 
-public val UDIMTServiceClass_UUID16: UInt = 4394u
+public val UDIMT_SERVICE_CLASS_UUID16: UInt = 4394u
 
-public val UDITAServiceClassID_UUID16: UInt = 4395u
+public val UDITA_SERVICE_CLASS_ID_UUID16: UInt = 4395u
 
-public val UDITAServiceClass_UUID16: UInt = 4395u
+public val UDITA_SERVICE_CLASS_UUID16: UInt = 4395u
 
 public val UDI_C_PLANE_PROTOCOL_UUID16: UInt = 29u
 
@@ -1769,24 +1769,24 @@ public val UDP_PROTOCOL_UUID16: UInt = 2u
 
 public val UPNP_PROTOCOL_UUID16: UInt = 16u
 
-public val UPnpIpServiceClassID_UUID16: UInt = 4614u
+public val U_PNP_IP_SERVICE_CLASS_ID_UUID16: UInt = 4614u
 
-public val UPnpServiceClassID_UUID16: UInt = 4613u
+public val U_PNP_SERVICE_CLASS_ID_UUID16: UInt = 4613u
 
-public val VideoConferencingGWServiceClassID_UUID16: UInt = 4393u
+public val VIDEO_CONFERENCING_GW_SERVICE_CLASS_ID_UUID16: UInt = 4393u
 
-public val VideoConferencingGWServiceClass_UUID16: UInt = 4393u
+public val VIDEO_CONFERENCING_GW_SERVICE_CLASS_UUID16: UInt = 4393u
 
-public val VideoConferencingServiceClassID_UUID16: UInt = 4367u
+public val VIDEO_CONFERENCING_SERVICE_CLASS_ID_UUID16: UInt = 4367u
 
-public val VideoDistributionProfileID_UUID16: UInt = 4869u
+public val VIDEO_DISTRIBUTION_PROFILE_ID_UUID16: UInt = 4869u
 
-public val VideoSinkServiceClassID_UUID16: UInt = 4868u
+public val VIDEO_SINK_SERVICE_CLASS_ID_UUID16: UInt = 4868u
 
-public val VideoSourceServiceClassID_UUID16: UInt = 4867u
+public val VIDEO_SOURCE_SERVICE_CLASS_ID_UUID16: UInt = 4867u
 
-public val WAPClientServiceClassID_UUID16: UInt = 4372u
+public val WAP_CLIENT_SERVICE_CLASS_ID_UUID16: UInt = 4372u
 
-public val WAPServiceClassID_UUID16: UInt = 4371u
+public val WAP_SERVICE_CLASS_ID_UUID16: UInt = 4371u
 
 public val WSP_PROTOCOL_UUID16: UInt = 14u

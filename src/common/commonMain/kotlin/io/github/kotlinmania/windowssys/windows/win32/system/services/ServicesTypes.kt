@@ -1,105 +1,107 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.services
 
-public typealias ENUM_SERVICE_STATE = UInt
+import io.github.kotlinmania.windowssys.COpaquePointer
 
-public typealias ENUM_SERVICE_TYPE = UInt
+public typealias EnumServiceState = UInt
 
-public fun interface HANDLER_FUNCTIONFn {
+public typealias EnumServiceType = UInt
+
+public fun interface HandlerFunctionFn {
     public operator fun invoke(dwcontrol: UInt)
 }
 
-public typealias HANDLER_FUNCTION = HANDLER_FUNCTIONFn?
+public typealias HandlerFunction = HandlerFunctionFn?
 
-public fun interface HANDLER_FUNCTION_EXFn {
-    public operator fun invoke(dwcontrol: UInt, dweventtype: UInt, lpeventdata: Long, lpcontext: Long): UInt
+public fun interface HandlerFunctionExFn {
+    public operator fun invoke(dwcontrol: UInt, dweventtype: UInt, lpeventdata: COpaquePointer?, lpcontext: COpaquePointer?): UInt
 }
 
-public typealias HANDLER_FUNCTION_EX = HANDLER_FUNCTION_EXFn?
+public typealias HandlerFunctionEx = HandlerFunctionExFn?
 
-public fun interface LPHANDLER_FUNCTIONFn {
+public fun interface LphandlerFunctionFn {
     public operator fun invoke(dwcontrol: UInt)
 }
 
-public typealias LPHANDLER_FUNCTION = LPHANDLER_FUNCTIONFn?
+public typealias LphandlerFunction = LphandlerFunctionFn?
 
-public fun interface LPHANDLER_FUNCTION_EXFn {
-    public operator fun invoke(dwcontrol: UInt, dweventtype: UInt, lpeventdata: Long, lpcontext: Long): UInt
+public fun interface LphandlerFunctionExFn {
+    public operator fun invoke(dwcontrol: UInt, dweventtype: UInt, lpeventdata: COpaquePointer?, lpcontext: COpaquePointer?): UInt
 }
 
-public typealias LPHANDLER_FUNCTION_EX = LPHANDLER_FUNCTION_EXFn?
+public typealias LphandlerFunctionEx = LphandlerFunctionExFn?
 
-public fun interface LPSERVICE_MAIN_FUNCTIONAFn {
-    public operator fun invoke(dwnumservicesargs: UInt, lpserviceargvectors: Long)
+public fun interface LpserviceMainFunctionaFn {
+    public operator fun invoke(dwnumservicesargs: UInt, lpserviceargvectors: COpaquePointer?)
 }
 
-public typealias LPSERVICE_MAIN_FUNCTIONA = LPSERVICE_MAIN_FUNCTIONAFn?
+public typealias LpserviceMainFunctiona = LpserviceMainFunctionaFn?
 
-public fun interface LPSERVICE_MAIN_FUNCTIONWFn {
-    public operator fun invoke(dwnumservicesargs: UInt, lpserviceargvectors: Long)
+public fun interface LpserviceMainFunctionwFn {
+    public operator fun invoke(dwnumservicesargs: UInt, lpserviceargvectors: COpaquePointer?)
 }
 
-public typealias LPSERVICE_MAIN_FUNCTIONW = LPSERVICE_MAIN_FUNCTIONWFn?
+public typealias LpserviceMainFunctionw = LpserviceMainFunctionwFn?
 
-public fun interface PFN_SC_NOTIFY_CALLBACKFn {
-    public operator fun invoke(pparameter: Long)
+public fun interface PfnScNotifyCallbackFn {
+    public operator fun invoke(pparameter: COpaquePointer?)
 }
 
-public typealias PFN_SC_NOTIFY_CALLBACK = PFN_SC_NOTIFY_CALLBACKFn?
+public typealias PfnScNotifyCallback = PfnScNotifyCallbackFn?
 
-public fun interface PSC_NOTIFICATION_CALLBACKFn {
-    public operator fun invoke(dwnotify: UInt, pcallbackcontext: Long)
+public fun interface PscNotificationCallbackFn {
+    public operator fun invoke(dwnotify: UInt, pcallbackcontext: COpaquePointer?)
 }
 
-public typealias PSC_NOTIFICATION_CALLBACK = PSC_NOTIFICATION_CALLBACKFn?
+public typealias PscNotificationCallback = PscNotificationCallbackFn?
 
-public typealias PSC_NOTIFICATION_REGISTRATION = Long
+public typealias PscNotificationRegistration = Long
 
-public typealias SC_ACTION_TYPE = Int
+public typealias ScActionType = Int
 
-public typealias SC_ENUM_TYPE = Int
+public typealias ScEnumType = Int
 
-public typealias SC_EVENT_TYPE = Int
+public typealias ScEventType = Int
 
-public typealias SC_HANDLE = Long
+public typealias ScHandle = COpaquePointer?
 
-public typealias SC_STATUS_TYPE = Int
+public typealias ScStatusType = Int
 
-public typealias SERVICE_CONFIG = UInt
+public typealias ServiceConfig = UInt
 
-public typealias SERVICE_DIRECTORY_TYPE = Int
+public typealias ServiceDirectoryType = Int
 
-public typealias SERVICE_ERROR = UInt
+public typealias ServiceError = UInt
 
-public fun interface SERVICE_MAIN_FUNCTIONAFn {
-    public operator fun invoke(dwnumservicesargs: UInt, lpserviceargvectors: Long)
+public fun interface ServiceMainFunctionaFn {
+    public operator fun invoke(dwnumservicesargs: UInt, lpserviceargvectors: COpaquePointer?)
 }
 
-public typealias SERVICE_MAIN_FUNCTIONA = SERVICE_MAIN_FUNCTIONAFn?
+public typealias ServiceMainFunctiona = ServiceMainFunctionaFn?
 
-public fun interface SERVICE_MAIN_FUNCTIONWFn {
-    public operator fun invoke(dwnumservicesargs: UInt, lpserviceargvectors: Long)
+public fun interface ServiceMainFunctionwFn {
+    public operator fun invoke(dwnumservicesargs: UInt, lpserviceargvectors: COpaquePointer?)
 }
 
-public typealias SERVICE_MAIN_FUNCTIONW = SERVICE_MAIN_FUNCTIONWFn?
+public typealias ServiceMainFunctionw = ServiceMainFunctionwFn?
 
-public typealias SERVICE_NOTIFY = UInt
+public typealias ServiceNotify = UInt
 
-public typealias SERVICE_REGISTRY_STATE_TYPE = Int
+public typealias ServiceRegistryStateType = Int
 
-public typealias SERVICE_RUNS_IN_PROCESS = UInt
+public typealias ServiceRunsInProcess = UInt
 
-public typealias SERVICE_SHARED_DIRECTORY_TYPE = Int
+public typealias ServiceSharedDirectoryType = Int
 
-public typealias SERVICE_SHARED_REGISTRY_STATE_TYPE = Int
+public typealias ServiceSharedRegistryStateType = Int
 
-public typealias SERVICE_START_TYPE = UInt
+public typealias ServiceStartType = UInt
 
-public typealias SERVICE_STATUS_CURRENT_STATE = UInt
+public typealias ServiceStatusCurrentState = UInt
 
-public typealias SERVICE_STATUS_HANDLE = Long
+public typealias ServiceStatusHandle = COpaquePointer?
 
-public typealias SERVICE_TRIGGER_ACTION = UInt
+public typealias ServiceTriggerAction = UInt
 
-public typealias SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = UInt
+public typealias ServiceTriggerSpecificDataItemDataType = UInt
 
-public typealias SERVICE_TRIGGER_TYPE = UInt
+public typealias ServiceTriggerType = UInt

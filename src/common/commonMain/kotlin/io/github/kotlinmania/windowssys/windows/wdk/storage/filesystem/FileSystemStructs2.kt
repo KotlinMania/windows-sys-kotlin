@@ -1,498 +1,501 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem
 
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.FAST_MUTEX
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.RTL_SPLAY_LINKS
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LUID
-import io.github.kotlinmania.windowssys.windows.win32.foundation.UNICODE_STRING
-import io.github.kotlinmania.windowssys.windows.win32.security.AUDIT_EVENT_TYPE
-import io.github.kotlinmania.windowssys.windows.win32.security.PSID
-import io.github.kotlinmania.windowssys.windows.win32.system.kernel.LIST_ENTRY
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.FastMutex
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.RtlSplayLinks
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Luid
+import io.github.kotlinmania.windowssys.windows.win32.foundation.UnicodeString
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SockaddrStorage
+import io.github.kotlinmania.windowssys.windows.win32.security.AuditEventType
+import io.github.kotlinmania.windowssys.windows.win32.security.Psid
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.ListEntry
 
-public data class SEC_FLAGS(public var Flags: ULong = 0uL)
+public data class SecFlags(public var flags: ULong = 0uL)
 
-public data class SEC_NEGOTIATION_INFO(
-    public var Size: UInt = 0u,
-    public var NameLength: UInt = 0u,
-    public var Name: Long = 0L,
-    public var Reserved: Long = 0L,
+public data class SecNegotiationInfo(
+    public var size: UInt = 0u,
+    public var nameLength: UInt = 0u,
+    public var name: UShort? = null,
+    public var reserved: COpaquePointer? = null,
 )
 
-public data class SEC_PRESHAREDKEY(public var KeySize: UShort = 0u, public var Key: UByteArray = UByteArray(1)) {
+public data class SecPresharedkey(public var keySize: UShort = 0u, public var key: UByteArray = UByteArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SEC_PRESHAREDKEY) return false
-        if (this.KeySize != other.KeySize) return false
-        if (!this.Key.contentEquals(other.Key)) return false
+        if (other !is SecPresharedkey) return false
+        if (this.keySize != other.keySize) return false
+        if (!this.key.contentEquals(other.key)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.KeySize.hashCode()
-        result = 31 * result + this.Key.contentHashCode()
+        var result = this.keySize.hashCode()
+        result = 31 * result + this.key.contentHashCode()
         return result
     }
 }
 
-public data class SEC_SRTP_MASTER_KEY_IDENTIFIER(public var MasterKeyIdentifierSize: UByte = 0u, public var MasterKeyIdentifier: UByteArray = UByteArray(1)) {
+public data class SecSrtpMasterKeyIdentifier(public var masterKeyIdentifierSize: UByte = 0u, public var masterKeyIdentifier: UByteArray = UByteArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SEC_SRTP_MASTER_KEY_IDENTIFIER) return false
-        if (this.MasterKeyIdentifierSize != other.MasterKeyIdentifierSize) return false
-        if (!this.MasterKeyIdentifier.contentEquals(other.MasterKeyIdentifier)) return false
+        if (other !is SecSrtpMasterKeyIdentifier) return false
+        if (this.masterKeyIdentifierSize != other.masterKeyIdentifierSize) return false
+        if (!this.masterKeyIdentifier.contentEquals(other.masterKeyIdentifier)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.MasterKeyIdentifierSize.hashCode()
-        result = 31 * result + this.MasterKeyIdentifier.contentHashCode()
+        var result = this.masterKeyIdentifierSize.hashCode()
+        result = 31 * result + this.masterKeyIdentifier.contentHashCode()
         return result
     }
 }
 
-public data class SET_CACHED_RUNS_STATE_INPUT_BUFFER(public var Enable: Boolean = false)
+public data class SetCachedRunsStateInputBuffer(public var enable: Boolean = false)
 
-public data class SE_AUDIT_INFO(
-    public var Size: UInt = 0u,
-    public var AuditType: AUDIT_EVENT_TYPE = 0,
-    public var AuditOperation: SE_AUDIT_OPERATION = 0,
-    public var AuditFlags: UInt = 0u,
-    public var SubsystemName: UNICODE_STRING = UNICODE_STRING(),
-    public var ObjectTypeName: UNICODE_STRING = UNICODE_STRING(),
-    public var ObjectName: UNICODE_STRING = UNICODE_STRING(),
-    public var HandleId: Long = 0L,
-    public var TransactionId: Long = 0L,
-    public var OperationId: Long = 0L,
-    public var ObjectCreation: Boolean = false,
-    public var GenerateOnClose: Boolean = false,
+public data class SeAuditInfo(
+    public var size: UInt = 0u,
+    public var auditType: AuditEventType = 0,
+    public var auditOperation: SeAuditOperation = 0,
+    public var auditFlags: UInt = 0u,
+    public var subsystemName: UnicodeString = UnicodeString(),
+    public var objectTypeName: UnicodeString = UnicodeString(),
+    public var objectName: UnicodeString = UnicodeString(),
+    public var handleId: COpaquePointer? = null,
+    public var transactionId: Guid? = null,
+    public var operationId: Luid? = null,
+    public var objectCreation: Boolean = false,
+    public var generateOnClose: Boolean = false,
 )
 
-public class SE_EXPORTS {
-    public var SeCreateTokenPrivilege: LUID = LUID()
+public class SeExports {
+    public var seCreateTokenPrivilege: Luid = Luid()
 
-    public var SeAssignPrimaryTokenPrivilege: LUID = LUID()
+    public var seAssignPrimaryTokenPrivilege: Luid = Luid()
 
-    public var SeLockMemoryPrivilege: LUID = LUID()
+    public var seLockMemoryPrivilege: Luid = Luid()
 
-    public var SeIncreaseQuotaPrivilege: LUID = LUID()
+    public var seIncreaseQuotaPrivilege: Luid = Luid()
 
-    public var SeUnsolicitedInputPrivilege: LUID = LUID()
+    public var seUnsolicitedInputPrivilege: Luid = Luid()
 
-    public var SeTcbPrivilege: LUID = LUID()
+    public var seTcbPrivilege: Luid = Luid()
 
-    public var SeSecurityPrivilege: LUID = LUID()
+    public var seSecurityPrivilege: Luid = Luid()
 
-    public var SeTakeOwnershipPrivilege: LUID = LUID()
+    public var seTakeOwnershipPrivilege: Luid = Luid()
 
-    public var SeLoadDriverPrivilege: LUID = LUID()
+    public var seLoadDriverPrivilege: Luid = Luid()
 
-    public var SeCreatePagefilePrivilege: LUID = LUID()
+    public var seCreatePagefilePrivilege: Luid = Luid()
 
-    public var SeIncreaseBasePriorityPrivilege: LUID = LUID()
+    public var seIncreaseBasePriorityPrivilege: Luid = Luid()
 
-    public var SeSystemProfilePrivilege: LUID = LUID()
+    public var seSystemProfilePrivilege: Luid = Luid()
 
-    public var SeSystemtimePrivilege: LUID = LUID()
+    public var seSystemtimePrivilege: Luid = Luid()
 
-    public var SeProfileSingleProcessPrivilege: LUID = LUID()
+    public var seProfileSingleProcessPrivilege: Luid = Luid()
 
-    public var SeCreatePermanentPrivilege: LUID = LUID()
+    public var seCreatePermanentPrivilege: Luid = Luid()
 
-    public var SeBackupPrivilege: LUID = LUID()
+    public var seBackupPrivilege: Luid = Luid()
 
-    public var SeRestorePrivilege: LUID = LUID()
+    public var seRestorePrivilege: Luid = Luid()
 
-    public var SeShutdownPrivilege: LUID = LUID()
+    public var seShutdownPrivilege: Luid = Luid()
 
-    public var SeDebugPrivilege: LUID = LUID()
+    public var seDebugPrivilege: Luid = Luid()
 
-    public var SeAuditPrivilege: LUID = LUID()
+    public var seAuditPrivilege: Luid = Luid()
 
-    public var SeSystemEnvironmentPrivilege: LUID = LUID()
+    public var seSystemEnvironmentPrivilege: Luid = Luid()
 
-    public var SeChangeNotifyPrivilege: LUID = LUID()
+    public var seChangeNotifyPrivilege: Luid = Luid()
 
-    public var SeRemoteShutdownPrivilege: LUID = LUID()
+    public var seRemoteShutdownPrivilege: Luid = Luid()
 
-    public var SeNullSid: PSID = 0L
+    public var seNullSid: Psid = null
 
-    public var SeWorldSid: PSID = 0L
+    public var seWorldSid: Psid = null
 
-    public var SeLocalSid: PSID = 0L
+    public var seLocalSid: Psid = null
 
-    public var SeCreatorOwnerSid: PSID = 0L
+    public var seCreatorOwnerSid: Psid = null
 
-    public var SeCreatorGroupSid: PSID = 0L
+    public var seCreatorGroupSid: Psid = null
 
-    public var SeNtAuthoritySid: PSID = 0L
+    public var seNtAuthoritySid: Psid = null
 
-    public var SeDialupSid: PSID = 0L
+    public var seDialupSid: Psid = null
 
-    public var SeNetworkSid: PSID = 0L
+    public var seNetworkSid: Psid = null
 
-    public var SeBatchSid: PSID = 0L
+    public var seBatchSid: Psid = null
 
-    public var SeInteractiveSid: PSID = 0L
+    public var seInteractiveSid: Psid = null
 
-    public var SeLocalSystemSid: PSID = 0L
+    public var seLocalSystemSid: Psid = null
 
-    public var SeAliasAdminsSid: PSID = 0L
+    public var seAliasAdminsSid: Psid = null
 
-    public var SeAliasUsersSid: PSID = 0L
+    public var seAliasUsersSid: Psid = null
 
-    public var SeAliasGuestsSid: PSID = 0L
+    public var seAliasGuestsSid: Psid = null
 
-    public var SeAliasPowerUsersSid: PSID = 0L
+    public var seAliasPowerUsersSid: Psid = null
 
-    public var SeAliasAccountOpsSid: PSID = 0L
+    public var seAliasAccountOpsSid: Psid = null
 
-    public var SeAliasSystemOpsSid: PSID = 0L
+    public var seAliasSystemOpsSid: Psid = null
 
-    public var SeAliasPrintOpsSid: PSID = 0L
+    public var seAliasPrintOpsSid: Psid = null
 
-    public var SeAliasBackupOpsSid: PSID = 0L
+    public var seAliasBackupOpsSid: Psid = null
 
-    public var SeAuthenticatedUsersSid: PSID = 0L
+    public var seAuthenticatedUsersSid: Psid = null
 
-    public var SeRestrictedSid: PSID = 0L
+    public var seRestrictedSid: Psid = null
 
-    public var SeAnonymousLogonSid: PSID = 0L
+    public var seAnonymousLogonSid: Psid = null
 
-    public var SeUndockPrivilege: LUID = LUID()
+    public var seUndockPrivilege: Luid = Luid()
 
-    public var SeSyncAgentPrivilege: LUID = LUID()
+    public var seSyncAgentPrivilege: Luid = Luid()
 
-    public var SeEnableDelegationPrivilege: LUID = LUID()
+    public var seEnableDelegationPrivilege: Luid = Luid()
 
-    public var SeLocalServiceSid: PSID = 0L
+    public var seLocalServiceSid: Psid = null
 
-    public var SeNetworkServiceSid: PSID = 0L
+    public var seNetworkServiceSid: Psid = null
 
-    public var SeManageVolumePrivilege: LUID = LUID()
+    public var seManageVolumePrivilege: Luid = Luid()
 
-    public var SeImpersonatePrivilege: LUID = LUID()
+    public var seImpersonatePrivilege: Luid = Luid()
 
-    public var SeCreateGlobalPrivilege: LUID = LUID()
+    public var seCreateGlobalPrivilege: Luid = Luid()
 
-    public var SeTrustedCredManAccessPrivilege: LUID = LUID()
+    public var seTrustedCredManAccessPrivilege: Luid = Luid()
 
-    public var SeRelabelPrivilege: LUID = LUID()
+    public var seRelabelPrivilege: Luid = Luid()
 
-    public var SeIncreaseWorkingSetPrivilege: LUID = LUID()
+    public var seIncreaseWorkingSetPrivilege: Luid = Luid()
 
-    public var SeTimeZonePrivilege: LUID = LUID()
+    public var seTimeZonePrivilege: Luid = Luid()
 
-    public var SeCreateSymbolicLinkPrivilege: LUID = LUID()
+    public var seCreateSymbolicLinkPrivilege: Luid = Luid()
 
-    public var SeIUserSid: PSID = 0L
+    public var seIUserSid: Psid = null
 
-    public var SeUntrustedMandatorySid: PSID = 0L
+    public var seUntrustedMandatorySid: Psid = null
 
-    public var SeLowMandatorySid: PSID = 0L
+    public var seLowMandatorySid: Psid = null
 
-    public var SeMediumMandatorySid: PSID = 0L
+    public var seMediumMandatorySid: Psid = null
 
-    public var SeHighMandatorySid: PSID = 0L
+    public var seHighMandatorySid: Psid = null
 
-    public var SeSystemMandatorySid: PSID = 0L
+    public var seSystemMandatorySid: Psid = null
 
-    public var SeOwnerRightsSid: PSID = 0L
+    public var seOwnerRightsSid: Psid = null
 
-    public var SeAllAppPackagesSid: PSID = 0L
+    public var seAllAppPackagesSid: Psid = null
 
-    public var SeUserModeDriversSid: PSID = 0L
+    public var seUserModeDriversSid: Psid = null
 
-    public var SeProcTrustWinTcbSid: PSID = 0L
+    public var seProcTrustWinTcbSid: Psid = null
 
-    public var SeTrustedInstallerSid: PSID = 0L
+    public var seTrustedInstallerSid: Psid = null
 
-    public var SeDelegateSessionUserImpersonatePrivilege: LUID = LUID()
+    public var seDelegateSessionUserImpersonatePrivilege: Luid = Luid()
 
-    public var SeAppSiloSid: PSID = 0L
+    public var seAppSiloSid: Psid = null
 
-    public var SeAppSiloVolumeRootMinimalCapabilitySid: PSID = 0L
+    public var seAppSiloVolumeRootMinimalCapabilitySid: Psid = null
 
-    public var SeAppSiloProfilesRootMinimalCapabilitySid: PSID = 0L
+    public var seAppSiloProfilesRootMinimalCapabilitySid: Psid = null
 }
 
-public data class SRV_OPEN_ECP_CONTEXT(
-    public var ShareName: Long = 0L,
-    public var SocketAddress: Long = 0L,
-    public var OplockBlockState: Boolean = false,
-    public var OplockAppState: Boolean = false,
-    public var OplockFinalState: Boolean = false,
-    public var Version: UShort = 0u,
-    public var InstanceType: SRV_INSTANCE_TYPE = 0,
+public data class SrvOpenEcpContext(
+    public var shareName: UnicodeString? = null,
+    public var socketAddress: SockaddrStorage? = null,
+    public var oplockBlockState: Boolean = false,
+    public var oplockAppState: Boolean = false,
+    public var oplockFinalState: Boolean = false,
+    public var version: UShort = 0u,
+    public var instanceType: SrvInstanceType = 0,
 )
 
-public data class SYSTEM_PROCESS_TRUST_LABEL_ACE(
-    public var Header: ACE_HEADER = ACE_HEADER(),
-    public var Mask: UInt = 0u,
-    public var SidStart: UInt = 0u,
+public data class SystemProcessTrustLabelAce(
+    public var header: AceHeader = AceHeader(),
+    public var mask: UInt = 0u,
+    public var sidStart: UInt = 0u,
 )
 
 public data class SecBuffer(
     public var cbBuffer: UInt = 0u,
-    public var BufferType: UInt = 0u,
-    public var pvBuffer: Long = 0L,
+    public var bufferType: UInt = 0u,
+    public var pvBuffer: COpaquePointer? = null,
 )
 
 public data class SecBufferDesc(
     public var ulVersion: UInt = 0u,
     public var cBuffers: UInt = 0u,
-    public var pBuffers: Long = 0L,
+    public var pBuffers: SecBuffer? = null,
 )
 
-public data class SecHandle(public var dwLower: ULong = 0uL, public var dwUpper: ULong = 0uL)
+public data class SecHandle(public var dwLower: Int = 0, public var dwUpper: Int = 0)
 
-public data class TUNNEL(
-    public var Mutex: FAST_MUTEX = FAST_MUTEX(),
-    public var Cache: Long = 0L,
-    public var TimerQueue: LIST_ENTRY = LIST_ENTRY(),
-    public var NumEntries: UShort = 0u,
+public data class Tunnel(
+    public var mutex: FastMutex = FastMutex(),
+    public var cache: RtlSplayLinks? = null,
+    public var timerQueue: ListEntry = ListEntry(),
+    public var numEntries: UShort = 0u,
 )
 
-public data class UNICODE_PREFIX_TABLE(
-    public var NodeTypeCode: Short = 0,
-    public var NameLength: Short = 0,
-    public var NextPrefixTree: Long = 0L,
-    public var LastNextEntry: Long = 0L,
+public data class UnicodePrefixTable(
+    public var nodeTypeCode: Short = 0,
+    public var nameLength: Short = 0,
+    public var nextPrefixTree: UnicodePrefixTableEntry? = null,
+    public var lastNextEntry: UnicodePrefixTableEntry? = null,
 )
 
-public data class UNICODE_PREFIX_TABLE_ENTRY(
-    public var NodeTypeCode: Short = 0,
-    public var NameLength: Short = 0,
-    public var NextPrefixTree: Long = 0L,
-    public var CaseMatch: Long = 0L,
-    public var Links: RTL_SPLAY_LINKS = RTL_SPLAY_LINKS(),
-    public var Prefix: Long = 0L,
+public data class UnicodePrefixTableEntry(
+    public var nodeTypeCode: Short = 0,
+    public var nameLength: Short = 0,
+    public var nextPrefixTree: UnicodePrefixTableEntry? = null,
+    public var caseMatch: UnicodePrefixTableEntry? = null,
+    public var links: RtlSplayLinks = RtlSplayLinks(),
+    public var prefix: UnicodeString? = null,
 )
 
-public data class USN_JOURNAL_DATA(
-    public var UsnJournalID: ULong = 0uL,
-    public var FirstUsn: Long = 0L,
-    public var NextUsn: Long = 0L,
-    public var LowestValidUsn: Long = 0L,
-    public var MaxUsn: Long = 0L,
-    public var MaximumSize: ULong = 0uL,
-    public var AllocationDelta: ULong = 0uL,
-    public var MinSupportedMajorVersion: UShort = 0u,
-    public var MaxSupportedMajorVersion: UShort = 0u,
+public data class UsnJournalData(
+    public var usnJournalID: ULong = 0uL,
+    public var firstUsn: Long = 0L,
+    public var nextUsn: Long = 0L,
+    public var lowestValidUsn: Long = 0L,
+    public var maxUsn: Long = 0L,
+    public var maximumSize: ULong = 0uL,
+    public var allocationDelta: ULong = 0uL,
+    public var minSupportedMajorVersion: UShort = 0u,
+    public var maxSupportedMajorVersion: UShort = 0u,
 )
 
-public data class USN_RECORD(
-    public var RecordLength: UInt = 0u,
-    public var MajorVersion: UShort = 0u,
-    public var MinorVersion: UShort = 0u,
-    public var FileReferenceNumber: ULong = 0uL,
-    public var ParentFileReferenceNumber: ULong = 0uL,
-    public var Usn: Long = 0L,
-    public var TimeStamp: Long = 0L,
-    public var Reason: UInt = 0u,
-    public var SourceInfo: UInt = 0u,
-    public var SecurityId: UInt = 0u,
-    public var FileAttributes: UInt = 0u,
-    public var FileNameLength: UShort = 0u,
-    public var FileNameOffset: UShort = 0u,
-    public var FileName: UShortArray = UShortArray(1),
+public data class UsnRecord(
+    public var recordLength: UInt = 0u,
+    public var majorVersion: UShort = 0u,
+    public var minorVersion: UShort = 0u,
+    public var fileReferenceNumber: ULong = 0uL,
+    public var parentFileReferenceNumber: ULong = 0uL,
+    public var usn: Long = 0L,
+    public var timeStamp: Long = 0L,
+    public var reason: UInt = 0u,
+    public var sourceInfo: UInt = 0u,
+    public var securityId: UInt = 0u,
+    public var fileAttributes: UInt = 0u,
+    public var fileNameLength: UShort = 0u,
+    public var fileNameOffset: UShort = 0u,
+    public var fileName: UShortArray = UShortArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is USN_RECORD) return false
-        if (this.RecordLength != other.RecordLength) return false
-        if (this.MajorVersion != other.MajorVersion) return false
-        if (this.MinorVersion != other.MinorVersion) return false
-        if (this.FileReferenceNumber != other.FileReferenceNumber) return false
-        if (this.ParentFileReferenceNumber != other.ParentFileReferenceNumber) return false
-        if (this.Usn != other.Usn) return false
-        if (this.TimeStamp != other.TimeStamp) return false
-        if (this.Reason != other.Reason) return false
-        if (this.SourceInfo != other.SourceInfo) return false
-        if (this.SecurityId != other.SecurityId) return false
-        if (this.FileAttributes != other.FileAttributes) return false
-        if (this.FileNameLength != other.FileNameLength) return false
-        if (this.FileNameOffset != other.FileNameOffset) return false
-        if (!this.FileName.contentEquals(other.FileName)) return false
+        if (other !is UsnRecord) return false
+        if (this.recordLength != other.recordLength) return false
+        if (this.majorVersion != other.majorVersion) return false
+        if (this.minorVersion != other.minorVersion) return false
+        if (this.fileReferenceNumber != other.fileReferenceNumber) return false
+        if (this.parentFileReferenceNumber != other.parentFileReferenceNumber) return false
+        if (this.usn != other.usn) return false
+        if (this.timeStamp != other.timeStamp) return false
+        if (this.reason != other.reason) return false
+        if (this.sourceInfo != other.sourceInfo) return false
+        if (this.securityId != other.securityId) return false
+        if (this.fileAttributes != other.fileAttributes) return false
+        if (this.fileNameLength != other.fileNameLength) return false
+        if (this.fileNameOffset != other.fileNameOffset) return false
+        if (!this.fileName.contentEquals(other.fileName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.RecordLength.hashCode()
-        result = 31 * result + this.MajorVersion.hashCode()
-        result = 31 * result + this.MinorVersion.hashCode()
-        result = 31 * result + this.FileReferenceNumber.hashCode()
-        result = 31 * result + this.ParentFileReferenceNumber.hashCode()
-        result = 31 * result + this.Usn.hashCode()
-        result = 31 * result + this.TimeStamp.hashCode()
-        result = 31 * result + this.Reason.hashCode()
-        result = 31 * result + this.SourceInfo.hashCode()
-        result = 31 * result + this.SecurityId.hashCode()
-        result = 31 * result + this.FileAttributes.hashCode()
-        result = 31 * result + this.FileNameLength.hashCode()
-        result = 31 * result + this.FileNameOffset.hashCode()
-        result = 31 * result + this.FileName.contentHashCode()
+        var result = this.recordLength.hashCode()
+        result = 31 * result + this.majorVersion.hashCode()
+        result = 31 * result + this.minorVersion.hashCode()
+        result = 31 * result + this.fileReferenceNumber.hashCode()
+        result = 31 * result + this.parentFileReferenceNumber.hashCode()
+        result = 31 * result + this.usn.hashCode()
+        result = 31 * result + this.timeStamp.hashCode()
+        result = 31 * result + this.reason.hashCode()
+        result = 31 * result + this.sourceInfo.hashCode()
+        result = 31 * result + this.securityId.hashCode()
+        result = 31 * result + this.fileAttributes.hashCode()
+        result = 31 * result + this.fileNameLength.hashCode()
+        result = 31 * result + this.fileNameOffset.hashCode()
+        result = 31 * result + this.fileName.contentHashCode()
         return result
     }
 }
 
-public data class VCN_RANGE_INPUT_BUFFER(public var StartingVcn: Long = 0L, public var ClusterCount: Long = 0L)
+public data class VcnRangeInputBuffer(public var startingVcn: Long = 0L, public var clusterCount: Long = 0L)
 
-public class VOLUME_REFS_INFO_BUFFER {
-    public var CacheSizeInBytes: Long = 0L
+public class VolumeRefsInfoBuffer {
+    public var cacheSizeInBytes: Long = 0L
 
-    public var AllocatedCacheInBytes: Long = 0L
+    public var allocatedCacheInBytes: Long = 0L
 
-    public var PopulatedCacheInBytes: Long = 0L
+    public var populatedCacheInBytes: Long = 0L
 
-    public var InErrorCacheInBytes: Long = 0L
+    public var inErrorCacheInBytes: Long = 0L
 
-    public var MemoryUsedForCacheMetadata: Long = 0L
+    public var memoryUsedForCacheMetadata: Long = 0L
 
-    public var CacheLineSize: UInt = 0u
+    public var cacheLineSize: UInt = 0u
 
-    public var CacheTransactionsOutstanding: Int = 0
+    public var cacheTransactionsOutstanding: Int = 0
 
-    public var CacheLinesFree: Int = 0
+    public var cacheLinesFree: Int = 0
 
-    public var CacheLinesInError: Int = 0
+    public var cacheLinesInError: Int = 0
 
-    public var CacheHitsInBytes: Long = 0L
+    public var cacheHitsInBytes: Long = 0L
 
-    public var CacheMissesInBytes: Long = 0L
+    public var cacheMissesInBytes: Long = 0L
 
-    public var CachePopulationUpdatesInBytes: Long = 0L
+    public var cachePopulationUpdatesInBytes: Long = 0L
 
-    public var CacheWriteThroughUpdatesInBytes: Long = 0L
+    public var cacheWriteThroughUpdatesInBytes: Long = 0L
 
-    public var CacheInvalidationsInBytes: Long = 0L
+    public var cacheInvalidationsInBytes: Long = 0L
 
-    public var CacheOverReadsInBytes: Long = 0L
+    public var cacheOverReadsInBytes: Long = 0L
 
-    public var MetadataWrittenBytes: Long = 0L
+    public var metadataWrittenBytes: Long = 0L
 
-    public var CacheHitCounter: Int = 0
+    public var cacheHitCounter: Int = 0
 
-    public var CacheMissCounter: Int = 0
+    public var cacheMissCounter: Int = 0
 
-    public var CacheLineAllocationCounter: Int = 0
+    public var cacheLineAllocationCounter: Int = 0
 
-    public var CacheInvalidationsCounter: Int = 0
+    public var cacheInvalidationsCounter: Int = 0
 
-    public var CachePopulationUpdatesCounter: Int = 0
+    public var cachePopulationUpdatesCounter: Int = 0
 
-    public var CacheWriteThroughUpdatesCounter: Int = 0
+    public var cacheWriteThroughUpdatesCounter: Int = 0
 
-    public var MaxCacheTransactionsOutstanding: Int = 0
+    public var maxCacheTransactionsOutstanding: Int = 0
 
-    public var DataWritesReallocationCount: Int = 0
+    public var dataWritesReallocationCount: Int = 0
 
-    public var DataInPlaceWriteCount: Int = 0
+    public var dataInPlaceWriteCount: Int = 0
 
-    public var MetadataAllocationsFastTierCount: Int = 0
+    public var metadataAllocationsFastTierCount: Int = 0
 
-    public var MetadataAllocationsSlowTierCount: Int = 0
+    public var metadataAllocationsSlowTierCount: Int = 0
 
-    public var DataAllocationsFastTierCount: Int = 0
+    public var dataAllocationsFastTierCount: Int = 0
 
-    public var DataAllocationsSlowTierCount: Int = 0
+    public var dataAllocationsSlowTierCount: Int = 0
 
-    public var DestagesSlowTierToFastTier: Int = 0
+    public var destagesSlowTierToFastTier: Int = 0
 
-    public var DestagesFastTierToSlowTier: Int = 0
+    public var destagesFastTierToSlowTier: Int = 0
 
-    public var SlowTierDataFillRatio: Int = 0
+    public var slowTierDataFillRatio: Int = 0
 
-    public var FastTierDataFillRatio: Int = 0
+    public var fastTierDataFillRatio: Int = 0
 
-    public var SlowTierMetadataFillRatio: Int = 0
+    public var slowTierMetadataFillRatio: Int = 0
 
-    public var FastTierMetadataFillRatio: Int = 0
+    public var fastTierMetadataFillRatio: Int = 0
 
-    public var SlowToFastDestageReadLatency: Int = 0
+    public var slowToFastDestageReadLatency: Int = 0
 
-    public var SlowToFastDestageReadLatencyBase: Int = 0
+    public var slowToFastDestageReadLatencyBase: Int = 0
 
-    public var SlowToFastDestageWriteLatency: Int = 0
+    public var slowToFastDestageWriteLatency: Int = 0
 
-    public var SlowToFastDestageWriteLatencyBase: Int = 0
+    public var slowToFastDestageWriteLatencyBase: Int = 0
 
-    public var FastToSlowDestageReadLatency: Int = 0
+    public var fastToSlowDestageReadLatency: Int = 0
 
-    public var FastToSlowDestageReadLatencyBase: Int = 0
+    public var fastToSlowDestageReadLatencyBase: Int = 0
 
-    public var FastToSlowDestageWriteLatency: Int = 0
+    public var fastToSlowDestageWriteLatency: Int = 0
 
-    public var FastToSlowDestageWriteLatencyBase: Int = 0
+    public var fastToSlowDestageWriteLatencyBase: Int = 0
 
-    public var SlowTierContainerFillRatio: Int = 0
+    public var slowTierContainerFillRatio: Int = 0
 
-    public var SlowTierContainerFillRatioBase: Int = 0
+    public var slowTierContainerFillRatioBase: Int = 0
 
-    public var FastTierContainerFillRatio: Int = 0
+    public var fastTierContainerFillRatio: Int = 0
 
-    public var FastTierContainerFillRatioBase: Int = 0
+    public var fastTierContainerFillRatioBase: Int = 0
 
-    public var TreeUpdateLatency: Int = 0
+    public var treeUpdateLatency: Int = 0
 
-    public var TreeUpdateLatencyBase: Int = 0
+    public var treeUpdateLatencyBase: Int = 0
 
-    public var CheckpointLatency: Int = 0
+    public var checkpointLatency: Int = 0
 
-    public var CheckpointLatencyBase: Int = 0
+    public var checkpointLatencyBase: Int = 0
 
-    public var TreeUpdateCount: Int = 0
+    public var treeUpdateCount: Int = 0
 
-    public var CheckpointCount: Int = 0
+    public var checkpointCount: Int = 0
 
-    public var LogWriteCount: Int = 0
+    public var logWriteCount: Int = 0
 
-    public var LogFillRatio: Int = 0
+    public var logFillRatio: Int = 0
 
-    public var ReadCacheInvalidationsForOverwrite: Int = 0
+    public var readCacheInvalidationsForOverwrite: Int = 0
 
-    public var ReadCacheInvalidationsForReuse: Int = 0
+    public var readCacheInvalidationsForReuse: Int = 0
 
-    public var ReadCacheInvalidationsGeneral: Int = 0
+    public var readCacheInvalidationsGeneral: Int = 0
 
-    public var ReadCacheChecksOnMount: Int = 0
+    public var readCacheChecksOnMount: Int = 0
 
-    public var ReadCacheIssuesOnMount: Int = 0
+    public var readCacheIssuesOnMount: Int = 0
 
-    public var TrimLatency: Int = 0
+    public var trimLatency: Int = 0
 
-    public var TrimLatencyBase: Int = 0
+    public var trimLatencyBase: Int = 0
 
-    public var DataCompactionCount: Int = 0
+    public var dataCompactionCount: Int = 0
 
-    public var CompactionReadLatency: Int = 0
+    public var compactionReadLatency: Int = 0
 
-    public var CompactionReadLatencyBase: Int = 0
+    public var compactionReadLatencyBase: Int = 0
 
-    public var CompactionWriteLatency: Int = 0
+    public var compactionWriteLatency: Int = 0
 
-    public var CompactionWriteLatencyBase: Int = 0
+    public var compactionWriteLatencyBase: Int = 0
 
-    public var DataInPlaceWriteClusterCount: Long = 0L
+    public var dataInPlaceWriteClusterCount: Long = 0L
 
-    public var CompactionFailedDueToIneligibleContainer: Int = 0
+    public var compactionFailedDueToIneligibleContainer: Int = 0
 
-    public var CompactionFailedDueToMaxFragmentation: Int = 0
+    public var compactionFailedDueToMaxFragmentation: Int = 0
 
-    public var CompactedContainerFillRatio: Int = 0
+    public var compactedContainerFillRatio: Int = 0
 
-    public var CompactedContainerFillRatioBase: Int = 0
+    public var compactedContainerFillRatioBase: Int = 0
 
-    public var ContainerMoveRetryCount: Int = 0
+    public var containerMoveRetryCount: Int = 0
 
-    public var ContainerMoveFailedDueToIneligibleContainer: Int = 0
+    public var containerMoveFailedDueToIneligibleContainer: Int = 0
 
-    public var CompactionFailureCount: Int = 0
+    public var compactionFailureCount: Int = 0
 
-    public var ContainerMoveFailureCount: Int = 0
+    public var containerMoveFailureCount: Int = 0
 
-    public var NumberOfDirtyMetadataPages: Long = 0L
+    public var numberOfDirtyMetadataPages: Long = 0L
 
-    public var NumberOfDirtyTableListEntries: Int = 0
+    public var numberOfDirtyTableListEntries: Int = 0
 
-    public var NumberOfDeleteQueueEntries: Int = 0
+    public var numberOfDeleteQueueEntries: Int = 0
 }

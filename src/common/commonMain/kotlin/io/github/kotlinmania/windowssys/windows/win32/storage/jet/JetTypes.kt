@@ -1,42 +1,43 @@
 package io.github.kotlinmania.windowssys.windows.win32.storage.jet
 
-import io.github.kotlinmania.windowssys.windows.win32.storage.structuredstorage.JET_API_PTR
-import io.github.kotlinmania.windowssys.windows.win32.storage.structuredstorage.JET_TABLEID
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.windows.win32.storage.structuredstorage.JetApiPtr
+import io.github.kotlinmania.windowssys.windows.win32.storage.structuredstorage.JetTableid
 
-public fun interface JET_CALLBACKFn {
-    public operator fun invoke(sesid: JET_SESID, dbid: UInt, tableid: JET_TABLEID, cbtyp: UInt, pvarg1: Long, pvarg2: Long, pvcontext: Long, ulunused: JET_API_PTR): Int
+public fun interface JetCallbackFn {
+    public operator fun invoke(sesid: JetSesid, dbid: UInt, tableid: JetTableid, cbtyp: UInt, pvarg1: COpaquePointer?, pvarg2: COpaquePointer?, pvcontext: COpaquePointer?, ulunused: JetApiPtr): Int
 }
 
-public typealias JET_CALLBACK = JET_CALLBACKFn?
+public typealias JetCallback = JetCallbackFn?
 
-public typealias JET_ERRCAT = Int
+public typealias JetErrcat = Int
 
-public typealias JET_INDEXCHECKING = Int
+public typealias JetIndexchecking = Int
 
-public typealias JET_INSTANCE = ULong
+public typealias JetInstance = ULong
 
-public typealias JET_LS = ULong
+public typealias JetLs = ULong
 
-public typealias JET_OSSNAPID = ULong
+public typealias JetOssnapid = ULong
 
-public fun interface JET_PFNDURABLECOMMITCALLBACKFn {
-    public operator fun invoke(instance: JET_INSTANCE, pcommitidseen: Long, grbit: UInt): Int
+public fun interface JetPfndurablecommitcallbackFn {
+    public operator fun invoke(instance: JetInstance, pcommitidseen: COpaquePointer?, grbit: UInt): Int
 }
 
-public typealias JET_PFNDURABLECOMMITCALLBACK = JET_PFNDURABLECOMMITCALLBACKFn?
+public typealias JetPfndurablecommitcallback = JetPfndurablecommitcallbackFn?
 
-public fun interface JET_PFNREALLOCFn {
-    public operator fun invoke(pvcontext: Long, pv: Long, cb: UInt): Long
+public fun interface JetPfnreallocFn {
+    public operator fun invoke(pvcontext: COpaquePointer?, pv: COpaquePointer?, cb: UInt): COpaquePointer?
 }
 
-public typealias JET_PFNREALLOC = JET_PFNREALLOCFn?
+public typealias JetPfnrealloc = JetPfnreallocFn?
 
-public fun interface JET_PFNSTATUSFn {
-    public operator fun invoke(sesid: JET_SESID, snp: UInt, snt: UInt, pv: Long): Int
+public fun interface JetPfnstatusFn {
+    public operator fun invoke(sesid: JetSesid, snp: UInt, snt: UInt, pv: COpaquePointer?): Int
 }
 
-public typealias JET_PFNSTATUS = JET_PFNSTATUSFn?
+public typealias JetPfnstatus = JetPfnstatusFn?
 
-public typealias JET_RELOP = Int
+public typealias JetRelop = Int
 
-public typealias JET_SESID = ULong
+public typealias JetSesid = ULong

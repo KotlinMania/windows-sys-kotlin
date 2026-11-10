@@ -1,18 +1,18 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.system.restore
 
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WIN32_ERROR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Win32Error
 
-public data class RESTOREPOINTINFOA(
-    public var dwEventType: RESTOREPOINTINFO_EVENT_TYPE = 0u,
-    public var dwRestorePtType: RESTOREPOINTINFO_TYPE = 0u,
+public data class Restorepointinfoa(
+    public var dwEventType: RestorepointinfoEventType = 0u,
+    public var dwRestorePtType: RestorepointinfoType = 0u,
     public var llSequenceNumber: Long = 0L,
     public var szDescription: ByteArray = ByteArray(64),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is RESTOREPOINTINFOA) return false
+        if (other !is Restorepointinfoa) return false
         if (this.dwEventType != other.dwEventType) return false
         if (this.dwRestorePtType != other.dwRestorePtType) return false
         if (this.llSequenceNumber != other.llSequenceNumber) return false
@@ -29,8 +29,8 @@ public data class RESTOREPOINTINFOA(
     }
 }
 
-public data class RESTOREPOINTINFOEX(
-    public var ftCreation: FILETIME = FILETIME(),
+public data class Restorepointinfoex(
+    public var ftCreation: Filetime = Filetime(),
     public var dwEventType: UInt = 0u,
     public var dwRestorePtType: UInt = 0u,
     public var dwRPNum: UInt = 0u,
@@ -38,7 +38,7 @@ public data class RESTOREPOINTINFOEX(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is RESTOREPOINTINFOEX) return false
+        if (other !is Restorepointinfoex) return false
         if (this.ftCreation != other.ftCreation) return false
         if (this.dwEventType != other.dwEventType) return false
         if (this.dwRestorePtType != other.dwRestorePtType) return false
@@ -57,15 +57,15 @@ public data class RESTOREPOINTINFOEX(
     }
 }
 
-public data class RESTOREPOINTINFOW(
-    public var dwEventType: RESTOREPOINTINFO_EVENT_TYPE = 0u,
-    public var dwRestorePtType: RESTOREPOINTINFO_TYPE = 0u,
+public data class Restorepointinfow(
+    public var dwEventType: RestorepointinfoEventType = 0u,
+    public var dwRestorePtType: RestorepointinfoType = 0u,
     public var llSequenceNumber: Long = 0L,
     public var szDescription: UShortArray = UShortArray(256),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is RESTOREPOINTINFOW) return false
+        if (other !is Restorepointinfow) return false
         if (this.dwEventType != other.dwEventType) return false
         if (this.dwRestorePtType != other.dwRestorePtType) return false
         if (this.llSequenceNumber != other.llSequenceNumber) return false
@@ -82,4 +82,4 @@ public data class RESTOREPOINTINFOW(
     }
 }
 
-public data class STATEMGRSTATUS(public var nStatus: WIN32_ERROR = 0u, public var llSequenceNumber: Long = 0L)
+public data class Statemgrstatus(public var nStatus: Win32Error = 0u, public var llSequenceNumber: Long = 0L)

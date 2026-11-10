@@ -2,384 +2,385 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.display
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.SIZE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WIN32_ERROR
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HBITMAP
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HMONITOR
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HPALETTE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Size
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Win32Error
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbitmap
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hmonitor
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hpalette
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun BRUSHOBJ_hGetColorTransform(pbo: Long): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_BRUSHOBJ_hGetColorTransform(pbo.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun brushobjHGetColorTransform(pbo: COpaquePointer?): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_brushobjHGetColorTransform(pbo?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun BRUSHOBJ_pvAllocRbrush(pbo: Long, cj: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_BRUSHOBJ_pvAllocRbrush(pbo.toCPointer<ByteVar>(), cj)?.toLong() ?: 0L
+public actual fun brushobjPvAllocRbrush(pbo: COpaquePointer?, cj: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_brushobjPvAllocRbrush(pbo?.value?.toCPointer<ByteVar>(), cj)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun BRUSHOBJ_pvGetRbrush(pbo: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_BRUSHOBJ_pvGetRbrush(pbo.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun brushobjPvGetRbrush(pbo: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_brushobjPvGetRbrush(pbo?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun BRUSHOBJ_ulGetBrushColor(pbo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_BRUSHOBJ_ulGetBrushColor(pbo.toCPointer<ByteVar>())
+public actual fun brushobjUlGetBrushColor(pbo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_brushobjUlGetBrushColor(pbo?.value?.toCPointer<ByteVar>())
 
-public actual fun CLIPOBJ_bEnum(pco: Long, cj: UInt, pul: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_CLIPOBJ_bEnum(pco.toCPointer<ByteVar>(), cj, pul.toCPointer<ByteVar>())
+public actual fun clipobjBEnum(pco: COpaquePointer?, cj: UInt, pul: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_clipobjBEnum(pco?.value?.toCPointer<ByteVar>(), cj, pul?.value?.toCPointer<ByteVar>())
 
-public actual fun CLIPOBJ_cEnumStart(pco: Long, ball: BOOL, itype: UInt, idirection: UInt, climit: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_CLIPOBJ_cEnumStart(pco.toCPointer<ByteVar>(), ball, itype, idirection, climit)
+public actual fun clipobjCEnumStart(pco: COpaquePointer?, ball: Bool, itype: UInt, idirection: UInt, climit: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_clipobjCEnumStart(pco?.value?.toCPointer<ByteVar>(), ball, itype, idirection, climit)
 
-public actual fun CLIPOBJ_ppoGetPath(pco: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_CLIPOBJ_ppoGetPath(pco.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun clipobjPpoGetPath(pco: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_clipobjPpoGetPath(pco?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CapabilitiesRequestAndCapabilitiesReply(hmonitor: HANDLE, pszasciicapabilitiesstring: PSTR, dwcapabilitiesstringlengthincharacters: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_CapabilitiesRequestAndCapabilitiesReply(hmonitor.toCPointer<ByteVar>(), pszasciicapabilitiesstring.toCPointer<ByteVar>(), dwcapabilitiesstringlengthincharacters)
+public actual fun capabilitiesRequestAndCapabilitiesReply(hmonitor: Handle, pszasciicapabilitiesstring: Pstr, dwcapabilitiesstringlengthincharacters: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_capabilitiesRequestAndCapabilitiesReply(hmonitor?.value?.toCPointer<ByteVar>(), pszasciicapabilitiesstring?.value?.toCPointer<ByteVar>(), dwcapabilitiesstringlengthincharacters)
 
-public actual fun DegaussMonitor(hmonitor: HANDLE): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_DegaussMonitor(hmonitor.toCPointer<ByteVar>())
+public actual fun degaussMonitor(hmonitor: Handle): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_degaussMonitor(hmonitor?.value?.toCPointer<ByteVar>())
 
-public actual fun DestroyPhysicalMonitor(hmonitor: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_DestroyPhysicalMonitor(hmonitor.toCPointer<ByteVar>())
+public actual fun destroyPhysicalMonitor(hmonitor: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_destroyPhysicalMonitor(hmonitor?.value?.toCPointer<ByteVar>())
 
-public actual fun DestroyPhysicalMonitors(dwphysicalmonitorarraysize: UInt, pphysicalmonitorarray: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_DestroyPhysicalMonitors(dwphysicalmonitorarraysize, pphysicalmonitorarray.toCPointer<ByteVar>())
+public actual fun destroyPhysicalMonitors(dwphysicalmonitorarraysize: UInt, pphysicalmonitorarray: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_destroyPhysicalMonitors(dwphysicalmonitorarraysize, pphysicalmonitorarray?.value?.toCPointer<ByteVar>())
 
-public actual fun DisplayConfigGetDeviceInfo(requestpacket: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_DisplayConfigGetDeviceInfo(requestpacket.toCPointer<ByteVar>())
+public actual fun displayConfigGetDeviceInfo(requestpacket: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_displayConfigGetDeviceInfo(requestpacket?.value?.toCPointer<ByteVar>())
 
-public actual fun DisplayConfigSetDeviceInfo(setpacket: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_DisplayConfigSetDeviceInfo(setpacket.toCPointer<ByteVar>())
+public actual fun displayConfigSetDeviceInfo(setpacket: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_displayConfigSetDeviceInfo(setpacket?.value?.toCPointer<ByteVar>())
 
-public actual fun EngAcquireSemaphore(hsem: HSEMAPHORE) {
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngAcquireSemaphore(hsem.toCPointer<ByteVar>())
+public actual fun engAcquireSemaphore(hsem: Hsemaphore) {
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engAcquireSemaphore(hsem?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun EngAlphaBlend(psodest: Long, psosrc: Long, pco: Long, pxlo: Long, prcldest: Long, prclsrc: Long, pblendobj: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngAlphaBlend(psodest.toCPointer<ByteVar>(), psosrc.toCPointer<ByteVar>(), pco.toCPointer<ByteVar>(), pxlo.toCPointer<ByteVar>(), prcldest.toCPointer<ByteVar>(), prclsrc.toCPointer<ByteVar>(), pblendobj.toCPointer<ByteVar>())
+public actual fun engAlphaBlend(psodest: COpaquePointer?, psosrc: COpaquePointer?, pco: COpaquePointer?, pxlo: COpaquePointer?, prcldest: COpaquePointer?, prclsrc: COpaquePointer?, pblendobj: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engAlphaBlend(psodest?.value?.toCPointer<ByteVar>(), psosrc?.value?.toCPointer<ByteVar>(), pco?.value?.toCPointer<ByteVar>(), pxlo?.value?.toCPointer<ByteVar>(), prcldest?.value?.toCPointer<ByteVar>(), prclsrc?.value?.toCPointer<ByteVar>(), pblendobj?.value?.toCPointer<ByteVar>())
 
-public actual fun EngAssociateSurface(hsurf: HSURF, hdev: HDEV, flhooks: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngAssociateSurface(hsurf.toCPointer<ByteVar>(), hdev.toCPointer<ByteVar>(), flhooks)
+public actual fun engAssociateSurface(hsurf: Hsurf, hdev: Hdev, flhooks: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engAssociateSurface(hsurf?.value?.toCPointer<ByteVar>(), hdev?.value?.toCPointer<ByteVar>(), flhooks)
 
-public actual fun EngBitBlt(psotrg: Long, psosrc: Long, psomask: Long, pco: Long, pxlo: Long, prcltrg: Long, pptlsrc: Long, pptlmask: Long, pbo: Long, pptlbrush: Long, rop4: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngBitBlt(psotrg.toCPointer<ByteVar>(), psosrc.toCPointer<ByteVar>(), psomask.toCPointer<ByteVar>(), pco.toCPointer<ByteVar>(), pxlo.toCPointer<ByteVar>(), prcltrg.toCPointer<ByteVar>(), pptlsrc.toCPointer<ByteVar>(), pptlmask.toCPointer<ByteVar>(), pbo.toCPointer<ByteVar>(), pptlbrush.toCPointer<ByteVar>(), rop4)
+public actual fun engBitBlt(psotrg: COpaquePointer?, psosrc: COpaquePointer?, psomask: COpaquePointer?, pco: COpaquePointer?, pxlo: COpaquePointer?, prcltrg: COpaquePointer?, pptlsrc: COpaquePointer?, pptlmask: COpaquePointer?, pbo: COpaquePointer?, pptlbrush: COpaquePointer?, rop4: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engBitBlt(psotrg?.value?.toCPointer<ByteVar>(), psosrc?.value?.toCPointer<ByteVar>(), psomask?.value?.toCPointer<ByteVar>(), pco?.value?.toCPointer<ByteVar>(), pxlo?.value?.toCPointer<ByteVar>(), prcltrg?.value?.toCPointer<ByteVar>(), pptlsrc?.value?.toCPointer<ByteVar>(), pptlmask?.value?.toCPointer<ByteVar>(), pbo?.value?.toCPointer<ByteVar>(), pptlbrush?.value?.toCPointer<ByteVar>(), rop4)
 
-public actual fun EngCheckAbort(pso: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngCheckAbort(pso.toCPointer<ByteVar>())
+public actual fun engCheckAbort(pso: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engCheckAbort(pso?.value?.toCPointer<ByteVar>())
 
-public actual fun EngComputeGlyphSet(ncodepage: Int, nfirstchar: Int, cchars: Int): Long =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngComputeGlyphSet(ncodepage, nfirstchar, cchars)?.toLong() ?: 0L
+public actual fun engComputeGlyphSet(ncodepage: Int, nfirstchar: Int, cchars: Int): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engComputeGlyphSet(ncodepage, nfirstchar, cchars)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun EngCopyBits(psodest: Long, psosrc: Long, pco: Long, pxlo: Long, prcldest: Long, pptlsrc: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngCopyBits(psodest.toCPointer<ByteVar>(), psosrc.toCPointer<ByteVar>(), pco.toCPointer<ByteVar>(), pxlo.toCPointer<ByteVar>(), prcldest.toCPointer<ByteVar>(), pptlsrc.toCPointer<ByteVar>())
+public actual fun engCopyBits(psodest: COpaquePointer?, psosrc: COpaquePointer?, pco: COpaquePointer?, pxlo: COpaquePointer?, prcldest: COpaquePointer?, pptlsrc: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engCopyBits(psodest?.value?.toCPointer<ByteVar>(), psosrc?.value?.toCPointer<ByteVar>(), pco?.value?.toCPointer<ByteVar>(), pxlo?.value?.toCPointer<ByteVar>(), prcldest?.value?.toCPointer<ByteVar>(), pptlsrc?.value?.toCPointer<ByteVar>())
 
-public actual fun EngCreateBitmap(sizl: SIZE, lwidth: Int, iformat: UInt, fl: UInt, pvbits: Long): HBITMAP =
-    0L
+public actual fun engCreateBitmap(sizl: Size, lwidth: Int, iformat: UInt, fl: UInt, pvbits: COpaquePointer?): Hbitmap =
+    null
 
-public actual fun EngCreateClip(): Long =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngCreateClip()?.toLong() ?: 0L
+public actual fun engCreateClip(): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engCreateClip()?.let { COpaquePointer(it.toLong()) }
 
-public actual fun EngCreateDeviceBitmap(dhsurf: DHSURF, sizl: SIZE, iformatcompat: UInt): HBITMAP =
-    0L
+public actual fun engCreateDeviceBitmap(dhsurf: Dhsurf, sizl: Size, iformatcompat: UInt): Hbitmap =
+    null
 
-public actual fun EngCreateDeviceSurface(dhsurf: DHSURF, sizl: SIZE, iformatcompat: UInt): HSURF =
-    0L
+public actual fun engCreateDeviceSurface(dhsurf: Dhsurf, sizl: Size, iformatcompat: UInt): Hsurf =
+    null
 
-public actual fun EngCreatePalette(imode: UInt, ccolors: UInt, pulcolors: Long, flred: UInt, flgreen: UInt, flblue: UInt): HPALETTE =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngCreatePalette(imode, ccolors, pulcolors.toCPointer<ByteVar>(), flred, flgreen, flblue)?.toLong() ?: 0L
+public actual fun engCreatePalette(imode: UInt, ccolors: UInt, pulcolors: COpaquePointer?, flred: UInt, flgreen: UInt, flblue: UInt): Hpalette =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engCreatePalette(imode, ccolors, pulcolors?.value?.toCPointer<ByteVar>(), flred, flgreen, flblue)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun EngCreateSemaphore(): HSEMAPHORE =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngCreateSemaphore()?.toLong() ?: 0L
+public actual fun engCreateSemaphore(): Hsemaphore =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engCreateSemaphore()?.let { COpaquePointer(it.toLong()) }
 
-public actual fun EngDeleteClip(pco: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngDeleteClip(pco.toCPointer<ByteVar>())
+public actual fun engDeleteClip(pco: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engDeleteClip(pco?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun EngDeletePalette(hpal: HPALETTE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngDeletePalette(hpal.toCPointer<ByteVar>())
+public actual fun engDeletePalette(hpal: Hpalette): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engDeletePalette(hpal?.value?.toCPointer<ByteVar>())
 
-public actual fun EngDeletePath(ppo: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngDeletePath(ppo.toCPointer<ByteVar>())
+public actual fun engDeletePath(ppo: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engDeletePath(ppo?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun EngDeleteSemaphore(hsem: HSEMAPHORE) {
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngDeleteSemaphore(hsem.toCPointer<ByteVar>())
+public actual fun engDeleteSemaphore(hsem: Hsemaphore) {
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engDeleteSemaphore(hsem?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun EngDeleteSurface(hsurf: HSURF): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngDeleteSurface(hsurf.toCPointer<ByteVar>())
+public actual fun engDeleteSurface(hsurf: Hsurf): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engDeleteSurface(hsurf?.value?.toCPointer<ByteVar>())
 
-public actual fun EngEraseSurface(pso: Long, prcl: Long, icolor: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngEraseSurface(pso.toCPointer<ByteVar>(), prcl.toCPointer<ByteVar>(), icolor)
+public actual fun engEraseSurface(pso: COpaquePointer?, prcl: COpaquePointer?, icolor: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engEraseSurface(pso?.value?.toCPointer<ByteVar>(), prcl?.value?.toCPointer<ByteVar>(), icolor)
 
-public actual fun EngFillPath(pso: Long, ppo: Long, pco: Long, pbo: Long, pptlbrushorg: Long, mix: UInt, floptions: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngFillPath(pso.toCPointer<ByteVar>(), ppo.toCPointer<ByteVar>(), pco.toCPointer<ByteVar>(), pbo.toCPointer<ByteVar>(), pptlbrushorg.toCPointer<ByteVar>(), mix, floptions)
+public actual fun engFillPath(pso: COpaquePointer?, ppo: COpaquePointer?, pco: COpaquePointer?, pbo: COpaquePointer?, pptlbrushorg: COpaquePointer?, mix: UInt, floptions: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engFillPath(pso?.value?.toCPointer<ByteVar>(), ppo?.value?.toCPointer<ByteVar>(), pco?.value?.toCPointer<ByteVar>(), pbo?.value?.toCPointer<ByteVar>(), pptlbrushorg?.value?.toCPointer<ByteVar>(), mix, floptions)
 
-public actual fun EngFindResource(h: HANDLE, iname: Int, itype: Int, pulsize: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngFindResource(h.toCPointer<ByteVar>(), iname, itype, pulsize.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun engFindResource(h: Handle, iname: Int, itype: Int, pulsize: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engFindResource(h?.value?.toCPointer<ByteVar>(), iname, itype, pulsize?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun EngFreeModule(h: HANDLE) {
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngFreeModule(h.toCPointer<ByteVar>())
+public actual fun engFreeModule(h: Handle) {
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engFreeModule(h?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun EngGetCurrentCodePage(oemcodepage: Long, ansicodepage: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngGetCurrentCodePage(oemcodepage.toCPointer<ByteVar>(), ansicodepage.toCPointer<ByteVar>())
+public actual fun engGetCurrentCodePage(oemcodepage: COpaquePointer?, ansicodepage: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engGetCurrentCodePage(oemcodepage?.value?.toCPointer<ByteVar>(), ansicodepage?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun EngGetDriverName(hdev: HDEV): PWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngGetDriverName(hdev.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun engGetDriverName(hdev: Hdev): Pwstr =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engGetDriverName(hdev?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun EngGetPrinterDataFileName(hdev: HDEV): PWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngGetPrinterDataFileName(hdev.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun engGetPrinterDataFileName(hdev: Hdev): Pwstr =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engGetPrinterDataFileName(hdev?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun EngGradientFill(psodest: Long, pco: Long, pxlo: Long, pvertex: Long, nvertex: UInt, pmesh: Long, nmesh: UInt, prclextents: Long, pptlditherorg: Long, ulmode: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngGradientFill(psodest.toCPointer<ByteVar>(), pco.toCPointer<ByteVar>(), pxlo.toCPointer<ByteVar>(), pvertex.toCPointer<ByteVar>(), nvertex, pmesh.toCPointer<ByteVar>(), nmesh, prclextents.toCPointer<ByteVar>(), pptlditherorg.toCPointer<ByteVar>(), ulmode)
+public actual fun engGradientFill(psodest: COpaquePointer?, pco: COpaquePointer?, pxlo: COpaquePointer?, pvertex: COpaquePointer?, nvertex: UInt, pmesh: COpaquePointer?, nmesh: UInt, prclextents: COpaquePointer?, pptlditherorg: COpaquePointer?, ulmode: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engGradientFill(psodest?.value?.toCPointer<ByteVar>(), pco?.value?.toCPointer<ByteVar>(), pxlo?.value?.toCPointer<ByteVar>(), pvertex?.value?.toCPointer<ByteVar>(), nvertex, pmesh?.value?.toCPointer<ByteVar>(), nmesh, prclextents?.value?.toCPointer<ByteVar>(), pptlditherorg?.value?.toCPointer<ByteVar>(), ulmode)
 
-public actual fun EngLineTo(pso: Long, pco: Long, pbo: Long, x1: Int, y1: Int, x2: Int, y2: Int, prclbounds: Long, mix: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngLineTo(pso.toCPointer<ByteVar>(), pco.toCPointer<ByteVar>(), pbo.toCPointer<ByteVar>(), x1, y1, x2, y2, prclbounds.toCPointer<ByteVar>(), mix)
+public actual fun engLineTo(pso: COpaquePointer?, pco: COpaquePointer?, pbo: COpaquePointer?, x1: Int, y1: Int, x2: Int, y2: Int, prclbounds: COpaquePointer?, mix: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engLineTo(pso?.value?.toCPointer<ByteVar>(), pco?.value?.toCPointer<ByteVar>(), pbo?.value?.toCPointer<ByteVar>(), x1, y1, x2, y2, prclbounds?.value?.toCPointer<ByteVar>(), mix)
 
-public actual fun EngLoadModule(pwsz: PCWSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngLoadModule(pwsz.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun engLoadModule(pwsz: Pcwstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engLoadModule(pwsz?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun EngLockSurface(hsurf: HSURF): Long =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngLockSurface(hsurf.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun engLockSurface(hsurf: Hsurf): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engLockSurface(hsurf?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun EngMarkBandingSurface(hsurf: HSURF): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngMarkBandingSurface(hsurf.toCPointer<ByteVar>())
+public actual fun engMarkBandingSurface(hsurf: Hsurf): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engMarkBandingSurface(hsurf?.value?.toCPointer<ByteVar>())
 
-public actual fun EngMultiByteToUnicodeN(unicodestring: PWSTR, maxbytesinunicodestring: UInt, bytesinunicodestring: Long, multibytestring: PCSTR, bytesinmultibytestring: UInt) {
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngMultiByteToUnicodeN(unicodestring.toCPointer<ByteVar>(), maxbytesinunicodestring, bytesinunicodestring.toCPointer<ByteVar>(), multibytestring.toCPointer<ByteVar>(), bytesinmultibytestring)
+public actual fun engMultiByteToUnicodeN(unicodestring: Pwstr, maxbytesinunicodestring: UInt, bytesinunicodestring: COpaquePointer?, multibytestring: Pcstr, bytesinmultibytestring: UInt) {
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engMultiByteToUnicodeN(unicodestring?.value?.toCPointer<ByteVar>(), maxbytesinunicodestring, bytesinunicodestring?.value?.toCPointer<ByteVar>(), multibytestring?.value?.toCPointer<ByteVar>(), bytesinmultibytestring)
 }
 
-public actual fun EngMultiByteToWideChar(codepage: UInt, widecharstring: PWSTR, bytesinwidecharstring: Int, multibytestring: PCSTR, bytesinmultibytestring: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngMultiByteToWideChar(codepage, widecharstring.toCPointer<ByteVar>(), bytesinwidecharstring, multibytestring.toCPointer<ByteVar>(), bytesinmultibytestring)
+public actual fun engMultiByteToWideChar(codepage: UInt, widecharstring: Pwstr, bytesinwidecharstring: Int, multibytestring: Pcstr, bytesinmultibytestring: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engMultiByteToWideChar(codepage, widecharstring?.value?.toCPointer<ByteVar>(), bytesinwidecharstring, multibytestring?.value?.toCPointer<ByteVar>(), bytesinmultibytestring)
 
-public actual fun EngPaint(pso: Long, pco: Long, pbo: Long, pptlbrushorg: Long, mix: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngPaint(pso.toCPointer<ByteVar>(), pco.toCPointer<ByteVar>(), pbo.toCPointer<ByteVar>(), pptlbrushorg.toCPointer<ByteVar>(), mix)
+public actual fun engPaint(pso: COpaquePointer?, pco: COpaquePointer?, pbo: COpaquePointer?, pptlbrushorg: COpaquePointer?, mix: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engPaint(pso?.value?.toCPointer<ByteVar>(), pco?.value?.toCPointer<ByteVar>(), pbo?.value?.toCPointer<ByteVar>(), pptlbrushorg?.value?.toCPointer<ByteVar>(), mix)
 
-public actual fun EngPlgBlt(psotrg: Long, psosrc: Long, psomsk: Long, pco: Long, pxlo: Long, pca: Long, pptlbrushorg: Long, pptfx: Long, prcl: Long, pptl: Long, imode: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngPlgBlt(psotrg.toCPointer<ByteVar>(), psosrc.toCPointer<ByteVar>(), psomsk.toCPointer<ByteVar>(), pco.toCPointer<ByteVar>(), pxlo.toCPointer<ByteVar>(), pca.toCPointer<ByteVar>(), pptlbrushorg.toCPointer<ByteVar>(), pptfx.toCPointer<ByteVar>(), prcl.toCPointer<ByteVar>(), pptl.toCPointer<ByteVar>(), imode)
+public actual fun engPlgBlt(psotrg: COpaquePointer?, psosrc: COpaquePointer?, psomsk: COpaquePointer?, pco: COpaquePointer?, pxlo: COpaquePointer?, pca: COpaquePointer?, pptlbrushorg: COpaquePointer?, pptfx: COpaquePointer?, prcl: COpaquePointer?, pptl: COpaquePointer?, imode: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engPlgBlt(psotrg?.value?.toCPointer<ByteVar>(), psosrc?.value?.toCPointer<ByteVar>(), psomsk?.value?.toCPointer<ByteVar>(), pco?.value?.toCPointer<ByteVar>(), pxlo?.value?.toCPointer<ByteVar>(), pca?.value?.toCPointer<ByteVar>(), pptlbrushorg?.value?.toCPointer<ByteVar>(), pptfx?.value?.toCPointer<ByteVar>(), prcl?.value?.toCPointer<ByteVar>(), pptl?.value?.toCPointer<ByteVar>(), imode)
 
-public actual fun EngQueryEMFInfo(hdev: HDEV, pemfinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngQueryEMFInfo(hdev.toCPointer<ByteVar>(), pemfinfo.toCPointer<ByteVar>())
+public actual fun engQueryEMFInfo(hdev: Hdev, pemfinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engQueryEMFInfo(hdev?.value?.toCPointer<ByteVar>(), pemfinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun EngQueryLocalTime(param0: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngQueryLocalTime(param0.toCPointer<ByteVar>())
+public actual fun engQueryLocalTime(param0: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engQueryLocalTime(param0?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun EngReleaseSemaphore(hsem: HSEMAPHORE) {
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngReleaseSemaphore(hsem.toCPointer<ByteVar>())
+public actual fun engReleaseSemaphore(hsem: Hsemaphore) {
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engReleaseSemaphore(hsem?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun EngStretchBlt(psodest: Long, psosrc: Long, psomask: Long, pco: Long, pxlo: Long, pca: Long, pptlhtorg: Long, prcldest: Long, prclsrc: Long, pptlmask: Long, imode: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngStretchBlt(psodest.toCPointer<ByteVar>(), psosrc.toCPointer<ByteVar>(), psomask.toCPointer<ByteVar>(), pco.toCPointer<ByteVar>(), pxlo.toCPointer<ByteVar>(), pca.toCPointer<ByteVar>(), pptlhtorg.toCPointer<ByteVar>(), prcldest.toCPointer<ByteVar>(), prclsrc.toCPointer<ByteVar>(), pptlmask.toCPointer<ByteVar>(), imode)
+public actual fun engStretchBlt(psodest: COpaquePointer?, psosrc: COpaquePointer?, psomask: COpaquePointer?, pco: COpaquePointer?, pxlo: COpaquePointer?, pca: COpaquePointer?, pptlhtorg: COpaquePointer?, prcldest: COpaquePointer?, prclsrc: COpaquePointer?, pptlmask: COpaquePointer?, imode: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engStretchBlt(psodest?.value?.toCPointer<ByteVar>(), psosrc?.value?.toCPointer<ByteVar>(), psomask?.value?.toCPointer<ByteVar>(), pco?.value?.toCPointer<ByteVar>(), pxlo?.value?.toCPointer<ByteVar>(), pca?.value?.toCPointer<ByteVar>(), pptlhtorg?.value?.toCPointer<ByteVar>(), prcldest?.value?.toCPointer<ByteVar>(), prclsrc?.value?.toCPointer<ByteVar>(), pptlmask?.value?.toCPointer<ByteVar>(), imode)
 
-public actual fun EngStretchBltROP(psodest: Long, psosrc: Long, psomask: Long, pco: Long, pxlo: Long, pca: Long, pptlhtorg: Long, prcldest: Long, prclsrc: Long, pptlmask: Long, imode: UInt, pbo: Long, rop4: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngStretchBltROP(psodest.toCPointer<ByteVar>(), psosrc.toCPointer<ByteVar>(), psomask.toCPointer<ByteVar>(), pco.toCPointer<ByteVar>(), pxlo.toCPointer<ByteVar>(), pca.toCPointer<ByteVar>(), pptlhtorg.toCPointer<ByteVar>(), prcldest.toCPointer<ByteVar>(), prclsrc.toCPointer<ByteVar>(), pptlmask.toCPointer<ByteVar>(), imode, pbo.toCPointer<ByteVar>(), rop4)
+public actual fun engStretchBltROP(psodest: COpaquePointer?, psosrc: COpaquePointer?, psomask: COpaquePointer?, pco: COpaquePointer?, pxlo: COpaquePointer?, pca: COpaquePointer?, pptlhtorg: COpaquePointer?, prcldest: COpaquePointer?, prclsrc: COpaquePointer?, pptlmask: COpaquePointer?, imode: UInt, pbo: COpaquePointer?, rop4: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engStretchBltROP(psodest?.value?.toCPointer<ByteVar>(), psosrc?.value?.toCPointer<ByteVar>(), psomask?.value?.toCPointer<ByteVar>(), pco?.value?.toCPointer<ByteVar>(), pxlo?.value?.toCPointer<ByteVar>(), pca?.value?.toCPointer<ByteVar>(), pptlhtorg?.value?.toCPointer<ByteVar>(), prcldest?.value?.toCPointer<ByteVar>(), prclsrc?.value?.toCPointer<ByteVar>(), pptlmask?.value?.toCPointer<ByteVar>(), imode, pbo?.value?.toCPointer<ByteVar>(), rop4)
 
-public actual fun EngStrokeAndFillPath(pso: Long, ppo: Long, pco: Long, pxo: Long, pbostroke: Long, plineattrs: Long, pbofill: Long, pptlbrushorg: Long, mixfill: UInt, floptions: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngStrokeAndFillPath(pso.toCPointer<ByteVar>(), ppo.toCPointer<ByteVar>(), pco.toCPointer<ByteVar>(), pxo.toCPointer<ByteVar>(), pbostroke.toCPointer<ByteVar>(), plineattrs.toCPointer<ByteVar>(), pbofill.toCPointer<ByteVar>(), pptlbrushorg.toCPointer<ByteVar>(), mixfill, floptions)
+public actual fun engStrokeAndFillPath(pso: COpaquePointer?, ppo: COpaquePointer?, pco: COpaquePointer?, pxo: COpaquePointer?, pbostroke: COpaquePointer?, plineattrs: COpaquePointer?, pbofill: COpaquePointer?, pptlbrushorg: COpaquePointer?, mixfill: UInt, floptions: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engStrokeAndFillPath(pso?.value?.toCPointer<ByteVar>(), ppo?.value?.toCPointer<ByteVar>(), pco?.value?.toCPointer<ByteVar>(), pxo?.value?.toCPointer<ByteVar>(), pbostroke?.value?.toCPointer<ByteVar>(), plineattrs?.value?.toCPointer<ByteVar>(), pbofill?.value?.toCPointer<ByteVar>(), pptlbrushorg?.value?.toCPointer<ByteVar>(), mixfill, floptions)
 
-public actual fun EngStrokePath(pso: Long, ppo: Long, pco: Long, pxo: Long, pbo: Long, pptlbrushorg: Long, plineattrs: Long, mix: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngStrokePath(pso.toCPointer<ByteVar>(), ppo.toCPointer<ByteVar>(), pco.toCPointer<ByteVar>(), pxo.toCPointer<ByteVar>(), pbo.toCPointer<ByteVar>(), pptlbrushorg.toCPointer<ByteVar>(), plineattrs.toCPointer<ByteVar>(), mix)
+public actual fun engStrokePath(pso: COpaquePointer?, ppo: COpaquePointer?, pco: COpaquePointer?, pxo: COpaquePointer?, pbo: COpaquePointer?, pptlbrushorg: COpaquePointer?, plineattrs: COpaquePointer?, mix: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engStrokePath(pso?.value?.toCPointer<ByteVar>(), ppo?.value?.toCPointer<ByteVar>(), pco?.value?.toCPointer<ByteVar>(), pxo?.value?.toCPointer<ByteVar>(), pbo?.value?.toCPointer<ByteVar>(), pptlbrushorg?.value?.toCPointer<ByteVar>(), plineattrs?.value?.toCPointer<ByteVar>(), mix)
 
-public actual fun EngTextOut(pso: Long, pstro: Long, pfo: Long, pco: Long, prclextra: Long, prclopaque: Long, pbofore: Long, pboopaque: Long, pptlorg: Long, mix: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngTextOut(pso.toCPointer<ByteVar>(), pstro.toCPointer<ByteVar>(), pfo.toCPointer<ByteVar>(), pco.toCPointer<ByteVar>(), prclextra.toCPointer<ByteVar>(), prclopaque.toCPointer<ByteVar>(), pbofore.toCPointer<ByteVar>(), pboopaque.toCPointer<ByteVar>(), pptlorg.toCPointer<ByteVar>(), mix)
+public actual fun engTextOut(pso: COpaquePointer?, pstro: COpaquePointer?, pfo: COpaquePointer?, pco: COpaquePointer?, prclextra: COpaquePointer?, prclopaque: COpaquePointer?, pbofore: COpaquePointer?, pboopaque: COpaquePointer?, pptlorg: COpaquePointer?, mix: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engTextOut(pso?.value?.toCPointer<ByteVar>(), pstro?.value?.toCPointer<ByteVar>(), pfo?.value?.toCPointer<ByteVar>(), pco?.value?.toCPointer<ByteVar>(), prclextra?.value?.toCPointer<ByteVar>(), prclopaque?.value?.toCPointer<ByteVar>(), pbofore?.value?.toCPointer<ByteVar>(), pboopaque?.value?.toCPointer<ByteVar>(), pptlorg?.value?.toCPointer<ByteVar>(), mix)
 
-public actual fun EngTransparentBlt(psodst: Long, psosrc: Long, pco: Long, pxlo: Long, prcldst: Long, prclsrc: Long, transcolor: UInt, bcalledfrombitblt: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngTransparentBlt(psodst.toCPointer<ByteVar>(), psosrc.toCPointer<ByteVar>(), pco.toCPointer<ByteVar>(), pxlo.toCPointer<ByteVar>(), prcldst.toCPointer<ByteVar>(), prclsrc.toCPointer<ByteVar>(), transcolor, bcalledfrombitblt)
+public actual fun engTransparentBlt(psodst: COpaquePointer?, psosrc: COpaquePointer?, pco: COpaquePointer?, pxlo: COpaquePointer?, prcldst: COpaquePointer?, prclsrc: COpaquePointer?, transcolor: UInt, bcalledfrombitblt: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engTransparentBlt(psodst?.value?.toCPointer<ByteVar>(), psosrc?.value?.toCPointer<ByteVar>(), pco?.value?.toCPointer<ByteVar>(), pxlo?.value?.toCPointer<ByteVar>(), prcldst?.value?.toCPointer<ByteVar>(), prclsrc?.value?.toCPointer<ByteVar>(), transcolor, bcalledfrombitblt)
 
-public actual fun EngUnicodeToMultiByteN(multibytestring: PSTR, maxbytesinmultibytestring: UInt, bytesinmultibytestring: Long, unicodestring: PCWSTR, bytesinunicodestring: UInt) {
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngUnicodeToMultiByteN(multibytestring.toCPointer<ByteVar>(), maxbytesinmultibytestring, bytesinmultibytestring.toCPointer<ByteVar>(), unicodestring.toCPointer<ByteVar>(), bytesinunicodestring)
+public actual fun engUnicodeToMultiByteN(multibytestring: Pstr, maxbytesinmultibytestring: UInt, bytesinmultibytestring: COpaquePointer?, unicodestring: Pcwstr, bytesinunicodestring: UInt) {
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engUnicodeToMultiByteN(multibytestring?.value?.toCPointer<ByteVar>(), maxbytesinmultibytestring, bytesinmultibytestring?.value?.toCPointer<ByteVar>(), unicodestring?.value?.toCPointer<ByteVar>(), bytesinunicodestring)
 }
 
-public actual fun EngUnlockSurface(pso: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngUnlockSurface(pso.toCPointer<ByteVar>())
+public actual fun engUnlockSurface(pso: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engUnlockSurface(pso?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun EngWideCharToMultiByte(codepage: UInt, widecharstring: PCWSTR, bytesinwidecharstring: Int, multibytestring: PSTR, bytesinmultibytestring: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_EngWideCharToMultiByte(codepage, widecharstring.toCPointer<ByteVar>(), bytesinwidecharstring, multibytestring.toCPointer<ByteVar>(), bytesinmultibytestring)
+public actual fun engWideCharToMultiByte(codepage: UInt, widecharstring: Pcwstr, bytesinwidecharstring: Int, multibytestring: Pstr, bytesinmultibytestring: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_engWideCharToMultiByte(codepage, widecharstring?.value?.toCPointer<ByteVar>(), bytesinwidecharstring, multibytestring?.value?.toCPointer<ByteVar>(), bytesinmultibytestring)
 
-public actual fun FONTOBJ_cGetAllGlyphHandles(pfo: Long, phg: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_FONTOBJ_cGetAllGlyphHandles(pfo.toCPointer<ByteVar>(), phg.toCPointer<ByteVar>())
+public actual fun fontobjCGetAllGlyphHandles(pfo: COpaquePointer?, phg: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_fontobjCGetAllGlyphHandles(pfo?.value?.toCPointer<ByteVar>(), phg?.value?.toCPointer<ByteVar>())
 
-public actual fun FONTOBJ_cGetGlyphs(pfo: Long, imode: UInt, cglyph: UInt, phg: Long, ppvglyph: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_FONTOBJ_cGetGlyphs(pfo.toCPointer<ByteVar>(), imode, cglyph, phg.toCPointer<ByteVar>(), ppvglyph.toCPointer<ByteVar>())
+public actual fun fontobjCGetGlyphs(pfo: COpaquePointer?, imode: UInt, cglyph: UInt, phg: COpaquePointer?, ppvglyph: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_fontobjCGetGlyphs(pfo?.value?.toCPointer<ByteVar>(), imode, cglyph, phg?.value?.toCPointer<ByteVar>(), ppvglyph?.value?.toCPointer<ByteVar>())
 
-public actual fun FONTOBJ_pQueryGlyphAttrs(pfo: Long, imode: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_FONTOBJ_pQueryGlyphAttrs(pfo.toCPointer<ByteVar>(), imode)?.toLong() ?: 0L
+public actual fun fontobjPQueryGlyphAttrs(pfo: COpaquePointer?, imode: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_fontobjPQueryGlyphAttrs(pfo?.value?.toCPointer<ByteVar>(), imode)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun FONTOBJ_pfdg(pfo: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_FONTOBJ_pfdg(pfo.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun fontobjPfdg(pfo: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_fontobjPfdg(pfo?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun FONTOBJ_pifi(pfo: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_FONTOBJ_pifi(pfo.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun fontobjPifi(pfo: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_fontobjPifi(pfo?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun FONTOBJ_pvTrueTypeFontFile(pfo: Long, pcjfile: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_FONTOBJ_pvTrueTypeFontFile(pfo.toCPointer<ByteVar>(), pcjfile.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun fontobjPvTrueTypeFontFile(pfo: COpaquePointer?, pcjfile: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_fontobjPvTrueTypeFontFile(pfo?.value?.toCPointer<ByteVar>(), pcjfile?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun FONTOBJ_pxoGetXform(pfo: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_FONTOBJ_pxoGetXform(pfo.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun fontobjPxoGetXform(pfo: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_fontobjPxoGetXform(pfo?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun FONTOBJ_vGetInfo(pfo: Long, cjsize: UInt, pfi: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_FONTOBJ_vGetInfo(pfo.toCPointer<ByteVar>(), cjsize, pfi.toCPointer<ByteVar>())
+public actual fun fontobjVGetInfo(pfo: COpaquePointer?, cjsize: UInt, pfi: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_fontobjVGetInfo(pfo?.value?.toCPointer<ByteVar>(), cjsize, pfi?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun GetAutoRotationState(pstate: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_GetAutoRotationState(pstate.toCPointer<ByteVar>())
+public actual fun getAutoRotationState(pstate: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_getAutoRotationState(pstate?.value?.toCPointer<ByteVar>())
 
-public actual fun GetCapabilitiesStringLength(hmonitor: HANDLE, pdwcapabilitiesstringlengthincharacters: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_GetCapabilitiesStringLength(hmonitor.toCPointer<ByteVar>(), pdwcapabilitiesstringlengthincharacters.toCPointer<ByteVar>())
+public actual fun getCapabilitiesStringLength(hmonitor: Handle, pdwcapabilitiesstringlengthincharacters: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_getCapabilitiesStringLength(hmonitor?.value?.toCPointer<ByteVar>(), pdwcapabilitiesstringlengthincharacters?.value?.toCPointer<ByteVar>())
 
-public actual fun GetDisplayAutoRotationPreferences(porientation: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_GetDisplayAutoRotationPreferences(porientation.toCPointer<ByteVar>())
+public actual fun getDisplayAutoRotationPreferences(porientation: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_getDisplayAutoRotationPreferences(porientation?.value?.toCPointer<ByteVar>())
 
-public actual fun GetDisplayConfigBufferSizes(flags: QUERY_DISPLAY_CONFIG_FLAGS, numpatharrayelements: Long, nummodeinfoarrayelements: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_GetDisplayConfigBufferSizes(flags, numpatharrayelements.toCPointer<ByteVar>(), nummodeinfoarrayelements.toCPointer<ByteVar>())
+public actual fun getDisplayConfigBufferSizes(flags: QueryDisplayConfigFlags, numpatharrayelements: COpaquePointer?, nummodeinfoarrayelements: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_getDisplayConfigBufferSizes(flags, numpatharrayelements?.value?.toCPointer<ByteVar>(), nummodeinfoarrayelements?.value?.toCPointer<ByteVar>())
 
-public actual fun GetMonitorBrightness(hmonitor: HANDLE, pdwminimumbrightness: Long, pdwcurrentbrightness: Long, pdwmaximumbrightness: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_GetMonitorBrightness(hmonitor.toCPointer<ByteVar>(), pdwminimumbrightness.toCPointer<ByteVar>(), pdwcurrentbrightness.toCPointer<ByteVar>(), pdwmaximumbrightness.toCPointer<ByteVar>())
+public actual fun getMonitorBrightness(hmonitor: Handle, pdwminimumbrightness: COpaquePointer?, pdwcurrentbrightness: COpaquePointer?, pdwmaximumbrightness: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_getMonitorBrightness(hmonitor?.value?.toCPointer<ByteVar>(), pdwminimumbrightness?.value?.toCPointer<ByteVar>(), pdwcurrentbrightness?.value?.toCPointer<ByteVar>(), pdwmaximumbrightness?.value?.toCPointer<ByteVar>())
 
-public actual fun GetMonitorCapabilities(hmonitor: HANDLE, pdwmonitorcapabilities: Long, pdwsupportedcolortemperatures: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_GetMonitorCapabilities(hmonitor.toCPointer<ByteVar>(), pdwmonitorcapabilities.toCPointer<ByteVar>(), pdwsupportedcolortemperatures.toCPointer<ByteVar>())
+public actual fun getMonitorCapabilities(hmonitor: Handle, pdwmonitorcapabilities: COpaquePointer?, pdwsupportedcolortemperatures: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_getMonitorCapabilities(hmonitor?.value?.toCPointer<ByteVar>(), pdwmonitorcapabilities?.value?.toCPointer<ByteVar>(), pdwsupportedcolortemperatures?.value?.toCPointer<ByteVar>())
 
-public actual fun GetMonitorColorTemperature(hmonitor: HANDLE, pctcurrentcolortemperature: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_GetMonitorColorTemperature(hmonitor.toCPointer<ByteVar>(), pctcurrentcolortemperature.toCPointer<ByteVar>())
+public actual fun getMonitorColorTemperature(hmonitor: Handle, pctcurrentcolortemperature: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_getMonitorColorTemperature(hmonitor?.value?.toCPointer<ByteVar>(), pctcurrentcolortemperature?.value?.toCPointer<ByteVar>())
 
-public actual fun GetMonitorContrast(hmonitor: HANDLE, pdwminimumcontrast: Long, pdwcurrentcontrast: Long, pdwmaximumcontrast: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_GetMonitorContrast(hmonitor.toCPointer<ByteVar>(), pdwminimumcontrast.toCPointer<ByteVar>(), pdwcurrentcontrast.toCPointer<ByteVar>(), pdwmaximumcontrast.toCPointer<ByteVar>())
+public actual fun getMonitorContrast(hmonitor: Handle, pdwminimumcontrast: COpaquePointer?, pdwcurrentcontrast: COpaquePointer?, pdwmaximumcontrast: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_getMonitorContrast(hmonitor?.value?.toCPointer<ByteVar>(), pdwminimumcontrast?.value?.toCPointer<ByteVar>(), pdwcurrentcontrast?.value?.toCPointer<ByteVar>(), pdwmaximumcontrast?.value?.toCPointer<ByteVar>())
 
-public actual fun GetMonitorDisplayAreaPosition(hmonitor: HANDLE, ptpositiontype: MC_POSITION_TYPE, pdwminimumposition: Long, pdwcurrentposition: Long, pdwmaximumposition: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_GetMonitorDisplayAreaPosition(hmonitor.toCPointer<ByteVar>(), ptpositiontype, pdwminimumposition.toCPointer<ByteVar>(), pdwcurrentposition.toCPointer<ByteVar>(), pdwmaximumposition.toCPointer<ByteVar>())
+public actual fun getMonitorDisplayAreaPosition(hmonitor: Handle, ptpositiontype: McPositionType, pdwminimumposition: COpaquePointer?, pdwcurrentposition: COpaquePointer?, pdwmaximumposition: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_getMonitorDisplayAreaPosition(hmonitor?.value?.toCPointer<ByteVar>(), ptpositiontype, pdwminimumposition?.value?.toCPointer<ByteVar>(), pdwcurrentposition?.value?.toCPointer<ByteVar>(), pdwmaximumposition?.value?.toCPointer<ByteVar>())
 
-public actual fun GetMonitorDisplayAreaSize(hmonitor: HANDLE, stsizetype: MC_SIZE_TYPE, pdwminimumwidthorheight: Long, pdwcurrentwidthorheight: Long, pdwmaximumwidthorheight: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_GetMonitorDisplayAreaSize(hmonitor.toCPointer<ByteVar>(), stsizetype, pdwminimumwidthorheight.toCPointer<ByteVar>(), pdwcurrentwidthorheight.toCPointer<ByteVar>(), pdwmaximumwidthorheight.toCPointer<ByteVar>())
+public actual fun getMonitorDisplayAreaSize(hmonitor: Handle, stsizetype: McSizeType, pdwminimumwidthorheight: COpaquePointer?, pdwcurrentwidthorheight: COpaquePointer?, pdwmaximumwidthorheight: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_getMonitorDisplayAreaSize(hmonitor?.value?.toCPointer<ByteVar>(), stsizetype, pdwminimumwidthorheight?.value?.toCPointer<ByteVar>(), pdwcurrentwidthorheight?.value?.toCPointer<ByteVar>(), pdwmaximumwidthorheight?.value?.toCPointer<ByteVar>())
 
-public actual fun GetMonitorRedGreenOrBlueDrive(hmonitor: HANDLE, dtdrivetype: MC_DRIVE_TYPE, pdwminimumdrive: Long, pdwcurrentdrive: Long, pdwmaximumdrive: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_GetMonitorRedGreenOrBlueDrive(hmonitor.toCPointer<ByteVar>(), dtdrivetype, pdwminimumdrive.toCPointer<ByteVar>(), pdwcurrentdrive.toCPointer<ByteVar>(), pdwmaximumdrive.toCPointer<ByteVar>())
+public actual fun getMonitorRedGreenOrBlueDrive(hmonitor: Handle, dtdrivetype: McDriveType, pdwminimumdrive: COpaquePointer?, pdwcurrentdrive: COpaquePointer?, pdwmaximumdrive: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_getMonitorRedGreenOrBlueDrive(hmonitor?.value?.toCPointer<ByteVar>(), dtdrivetype, pdwminimumdrive?.value?.toCPointer<ByteVar>(), pdwcurrentdrive?.value?.toCPointer<ByteVar>(), pdwmaximumdrive?.value?.toCPointer<ByteVar>())
 
-public actual fun GetMonitorRedGreenOrBlueGain(hmonitor: HANDLE, gtgaintype: MC_GAIN_TYPE, pdwminimumgain: Long, pdwcurrentgain: Long, pdwmaximumgain: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_GetMonitorRedGreenOrBlueGain(hmonitor.toCPointer<ByteVar>(), gtgaintype, pdwminimumgain.toCPointer<ByteVar>(), pdwcurrentgain.toCPointer<ByteVar>(), pdwmaximumgain.toCPointer<ByteVar>())
+public actual fun getMonitorRedGreenOrBlueGain(hmonitor: Handle, gtgaintype: McGainType, pdwminimumgain: COpaquePointer?, pdwcurrentgain: COpaquePointer?, pdwmaximumgain: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_getMonitorRedGreenOrBlueGain(hmonitor?.value?.toCPointer<ByteVar>(), gtgaintype, pdwminimumgain?.value?.toCPointer<ByteVar>(), pdwcurrentgain?.value?.toCPointer<ByteVar>(), pdwmaximumgain?.value?.toCPointer<ByteVar>())
 
-public actual fun GetMonitorTechnologyType(hmonitor: HANDLE, pdtydisplaytechnologytype: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_GetMonitorTechnologyType(hmonitor.toCPointer<ByteVar>(), pdtydisplaytechnologytype.toCPointer<ByteVar>())
+public actual fun getMonitorTechnologyType(hmonitor: Handle, pdtydisplaytechnologytype: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_getMonitorTechnologyType(hmonitor?.value?.toCPointer<ByteVar>(), pdtydisplaytechnologytype?.value?.toCPointer<ByteVar>())
 
-public actual fun GetNumberOfPhysicalMonitorsFromHMONITOR(hmonitor: HMONITOR, pdwnumberofphysicalmonitors: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_GetNumberOfPhysicalMonitorsFromHMONITOR(hmonitor.toCPointer<ByteVar>(), pdwnumberofphysicalmonitors.toCPointer<ByteVar>())
+public actual fun getNumberOfPhysicalMonitorsFromHMONITOR(hmonitor: Hmonitor, pdwnumberofphysicalmonitors: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_getNumberOfPhysicalMonitorsFromHMONITOR(hmonitor?.value?.toCPointer<ByteVar>(), pdwnumberofphysicalmonitors?.value?.toCPointer<ByteVar>())
 
-public actual fun GetPhysicalMonitorsFromHMONITOR(hmonitor: HMONITOR, dwphysicalmonitorarraysize: UInt, pphysicalmonitorarray: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_GetPhysicalMonitorsFromHMONITOR(hmonitor.toCPointer<ByteVar>(), dwphysicalmonitorarraysize, pphysicalmonitorarray.toCPointer<ByteVar>())
+public actual fun getPhysicalMonitorsFromHMONITOR(hmonitor: Hmonitor, dwphysicalmonitorarraysize: UInt, pphysicalmonitorarray: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_getPhysicalMonitorsFromHMONITOR(hmonitor?.value?.toCPointer<ByteVar>(), dwphysicalmonitorarraysize, pphysicalmonitorarray?.value?.toCPointer<ByteVar>())
 
-public actual fun GetTimingReport(hmonitor: HANDLE, pmtrmonitortimingreport: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_GetTimingReport(hmonitor.toCPointer<ByteVar>(), pmtrmonitortimingreport.toCPointer<ByteVar>())
+public actual fun getTimingReport(hmonitor: Handle, pmtrmonitortimingreport: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_getTimingReport(hmonitor?.value?.toCPointer<ByteVar>(), pmtrmonitortimingreport?.value?.toCPointer<ByteVar>())
 
-public actual fun GetVCPFeatureAndVCPFeatureReply(hmonitor: HANDLE, bvcpcode: UByte, pvct: Long, pdwcurrentvalue: Long, pdwmaximumvalue: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_GetVCPFeatureAndVCPFeatureReply(hmonitor.toCPointer<ByteVar>(), bvcpcode, pvct.toCPointer<ByteVar>(), pdwcurrentvalue.toCPointer<ByteVar>(), pdwmaximumvalue.toCPointer<ByteVar>())
+public actual fun getVCPFeatureAndVCPFeatureReply(hmonitor: Handle, bvcpcode: UByte, pvct: COpaquePointer?, pdwcurrentvalue: COpaquePointer?, pdwmaximumvalue: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_getVCPFeatureAndVCPFeatureReply(hmonitor?.value?.toCPointer<ByteVar>(), bvcpcode, pvct?.value?.toCPointer<ByteVar>(), pdwcurrentvalue?.value?.toCPointer<ByteVar>(), pdwmaximumvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun HT_Get8BPPFormatPalette(ppaletteentry: Long, redgamma: UShort, greengamma: UShort, bluegamma: UShort): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_HT_Get8BPPFormatPalette(ppaletteentry.toCPointer<ByteVar>(), redgamma, greengamma, bluegamma)
+public actual fun htGet8BppformatPalette(ppaletteentry: COpaquePointer?, redgamma: UShort, greengamma: UShort, bluegamma: UShort): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_htGet8BppformatPalette(ppaletteentry?.value?.toCPointer<ByteVar>(), redgamma, greengamma, bluegamma)
 
-public actual fun HT_Get8BPPMaskPalette(ppaletteentry: Long, use8bppmaskpal: BOOL, cmymask: UByte, redgamma: UShort, greengamma: UShort, bluegamma: UShort): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_HT_Get8BPPMaskPalette(ppaletteentry.toCPointer<ByteVar>(), use8bppmaskpal, cmymask, redgamma, greengamma, bluegamma)
+public actual fun htGet8BppmaskPalette(ppaletteentry: COpaquePointer?, use8bppmaskpal: Bool, cmymask: UByte, redgamma: UShort, greengamma: UShort, bluegamma: UShort): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_htGet8BppmaskPalette(ppaletteentry?.value?.toCPointer<ByteVar>(), use8bppmaskpal, cmymask, redgamma, greengamma, bluegamma)
 
-public actual fun PATHOBJ_bEnum(ppo: Long, ppd: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_PATHOBJ_bEnum(ppo.toCPointer<ByteVar>(), ppd.toCPointer<ByteVar>())
+public actual fun pathobjBEnum(ppo: COpaquePointer?, ppd: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_pathobjBEnum(ppo?.value?.toCPointer<ByteVar>(), ppd?.value?.toCPointer<ByteVar>())
 
-public actual fun PATHOBJ_bEnumClipLines(ppo: Long, cb: UInt, pcl: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_PATHOBJ_bEnumClipLines(ppo.toCPointer<ByteVar>(), cb, pcl.toCPointer<ByteVar>())
+public actual fun pathobjBEnumClipLines(ppo: COpaquePointer?, cb: UInt, pcl: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_pathobjBEnumClipLines(ppo?.value?.toCPointer<ByteVar>(), cb, pcl?.value?.toCPointer<ByteVar>())
 
-public actual fun PATHOBJ_vEnumStart(ppo: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_PATHOBJ_vEnumStart(ppo.toCPointer<ByteVar>())
+public actual fun pathobjVEnumStart(ppo: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_pathobjVEnumStart(ppo?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun PATHOBJ_vEnumStartClipLines(ppo: Long, pco: Long, pso: Long, pla: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_PATHOBJ_vEnumStartClipLines(ppo.toCPointer<ByteVar>(), pco.toCPointer<ByteVar>(), pso.toCPointer<ByteVar>(), pla.toCPointer<ByteVar>())
+public actual fun pathobjVEnumStartClipLines(ppo: COpaquePointer?, pco: COpaquePointer?, pso: COpaquePointer?, pla: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_pathobjVEnumStartClipLines(ppo?.value?.toCPointer<ByteVar>(), pco?.value?.toCPointer<ByteVar>(), pso?.value?.toCPointer<ByteVar>(), pla?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun PATHOBJ_vGetBounds(ppo: Long, prectfx: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_PATHOBJ_vGetBounds(ppo.toCPointer<ByteVar>(), prectfx.toCPointer<ByteVar>())
+public actual fun pathobjVGetBounds(ppo: COpaquePointer?, prectfx: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_pathobjVGetBounds(ppo?.value?.toCPointer<ByteVar>(), prectfx?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun QueryDisplayConfig(flags: QUERY_DISPLAY_CONFIG_FLAGS, numpatharrayelements: Long, patharray: Long, nummodeinfoarrayelements: Long, modeinfoarray: Long, currenttopologyid: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_QueryDisplayConfig(flags, numpatharrayelements.toCPointer<ByteVar>(), patharray.toCPointer<ByteVar>(), nummodeinfoarrayelements.toCPointer<ByteVar>(), modeinfoarray.toCPointer<ByteVar>(), currenttopologyid.toCPointer<ByteVar>())
+public actual fun queryDisplayConfig(flags: QueryDisplayConfigFlags, numpatharrayelements: COpaquePointer?, patharray: COpaquePointer?, nummodeinfoarrayelements: COpaquePointer?, modeinfoarray: COpaquePointer?, currenttopologyid: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_queryDisplayConfig(flags, numpatharrayelements?.value?.toCPointer<ByteVar>(), patharray?.value?.toCPointer<ByteVar>(), nummodeinfoarrayelements?.value?.toCPointer<ByteVar>(), modeinfoarray?.value?.toCPointer<ByteVar>(), currenttopologyid?.value?.toCPointer<ByteVar>())
 
-public actual fun RestoreMonitorFactoryColorDefaults(hmonitor: HANDLE): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_RestoreMonitorFactoryColorDefaults(hmonitor.toCPointer<ByteVar>())
+public actual fun restoreMonitorFactoryColorDefaults(hmonitor: Handle): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_restoreMonitorFactoryColorDefaults(hmonitor?.value?.toCPointer<ByteVar>())
 
-public actual fun RestoreMonitorFactoryDefaults(hmonitor: HANDLE): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_RestoreMonitorFactoryDefaults(hmonitor.toCPointer<ByteVar>())
+public actual fun restoreMonitorFactoryDefaults(hmonitor: Handle): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_restoreMonitorFactoryDefaults(hmonitor?.value?.toCPointer<ByteVar>())
 
-public actual fun STROBJ_bEnum(pstro: Long, pc: Long, ppgpos: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_STROBJ_bEnum(pstro.toCPointer<ByteVar>(), pc.toCPointer<ByteVar>(), ppgpos.toCPointer<ByteVar>())
+public actual fun strobjBEnum(pstro: COpaquePointer?, pc: COpaquePointer?, ppgpos: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_strobjBEnum(pstro?.value?.toCPointer<ByteVar>(), pc?.value?.toCPointer<ByteVar>(), ppgpos?.value?.toCPointer<ByteVar>())
 
-public actual fun STROBJ_bEnumPositionsOnly(pstro: Long, pc: Long, ppgpos: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_STROBJ_bEnumPositionsOnly(pstro.toCPointer<ByteVar>(), pc.toCPointer<ByteVar>(), ppgpos.toCPointer<ByteVar>())
+public actual fun strobjBEnumPositionsOnly(pstro: COpaquePointer?, pc: COpaquePointer?, ppgpos: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_strobjBEnumPositionsOnly(pstro?.value?.toCPointer<ByteVar>(), pc?.value?.toCPointer<ByteVar>(), ppgpos?.value?.toCPointer<ByteVar>())
 
-public actual fun STROBJ_bGetAdvanceWidths(pso: Long, ifirst: UInt, c: UInt, pptqd: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_STROBJ_bGetAdvanceWidths(pso.toCPointer<ByteVar>(), ifirst, c, pptqd.toCPointer<ByteVar>())
+public actual fun strobjBGetAdvanceWidths(pso: COpaquePointer?, ifirst: UInt, c: UInt, pptqd: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_strobjBGetAdvanceWidths(pso?.value?.toCPointer<ByteVar>(), ifirst, c, pptqd?.value?.toCPointer<ByteVar>())
 
-public actual fun STROBJ_dwGetCodePage(pstro: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_STROBJ_dwGetCodePage(pstro.toCPointer<ByteVar>())
+public actual fun strobjDwGetCodePage(pstro: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_strobjDwGetCodePage(pstro?.value?.toCPointer<ByteVar>())
 
-public actual fun STROBJ_vEnumStart(pstro: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_STROBJ_vEnumStart(pstro.toCPointer<ByteVar>())
+public actual fun strobjVEnumStart(pstro: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_strobjVEnumStart(pstro?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun SaveCurrentMonitorSettings(hmonitor: HANDLE): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_SaveCurrentMonitorSettings(hmonitor.toCPointer<ByteVar>())
+public actual fun saveCurrentMonitorSettings(hmonitor: Handle): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_saveCurrentMonitorSettings(hmonitor?.value?.toCPointer<ByteVar>())
 
-public actual fun SaveCurrentSettings(hmonitor: HANDLE): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_SaveCurrentSettings(hmonitor.toCPointer<ByteVar>())
+public actual fun saveCurrentSettings(hmonitor: Handle): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_saveCurrentSettings(hmonitor?.value?.toCPointer<ByteVar>())
 
-public actual fun SetDisplayAutoRotationPreferences(orientation: ORIENTATION_PREFERENCE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_SetDisplayAutoRotationPreferences(orientation)
+public actual fun setDisplayAutoRotationPreferences(orientation: OrientationPreference): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_setDisplayAutoRotationPreferences(orientation)
 
-public actual fun SetDisplayConfig(numpatharrayelements: UInt, patharray: Long, nummodeinfoarrayelements: UInt, modeinfoarray: Long, flags: SET_DISPLAY_CONFIG_FLAGS): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_SetDisplayConfig(numpatharrayelements, patharray.toCPointer<ByteVar>(), nummodeinfoarrayelements, modeinfoarray.toCPointer<ByteVar>(), flags)
+public actual fun setDisplayConfig(numpatharrayelements: UInt, patharray: COpaquePointer?, nummodeinfoarrayelements: UInt, modeinfoarray: COpaquePointer?, flags: SetDisplayConfigFlags): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_setDisplayConfig(numpatharrayelements, patharray?.value?.toCPointer<ByteVar>(), nummodeinfoarrayelements, modeinfoarray?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun SetMonitorBrightness(hmonitor: HANDLE, dwnewbrightness: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_SetMonitorBrightness(hmonitor.toCPointer<ByteVar>(), dwnewbrightness)
+public actual fun setMonitorBrightness(hmonitor: Handle, dwnewbrightness: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_setMonitorBrightness(hmonitor?.value?.toCPointer<ByteVar>(), dwnewbrightness)
 
-public actual fun SetMonitorColorTemperature(hmonitor: HANDLE, ctcurrentcolortemperature: MC_COLOR_TEMPERATURE): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_SetMonitorColorTemperature(hmonitor.toCPointer<ByteVar>(), ctcurrentcolortemperature)
+public actual fun setMonitorColorTemperature(hmonitor: Handle, ctcurrentcolortemperature: McColorTemperature): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_setMonitorColorTemperature(hmonitor?.value?.toCPointer<ByteVar>(), ctcurrentcolortemperature)
 
-public actual fun SetMonitorContrast(hmonitor: HANDLE, dwnewcontrast: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_SetMonitorContrast(hmonitor.toCPointer<ByteVar>(), dwnewcontrast)
+public actual fun setMonitorContrast(hmonitor: Handle, dwnewcontrast: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_setMonitorContrast(hmonitor?.value?.toCPointer<ByteVar>(), dwnewcontrast)
 
-public actual fun SetMonitorDisplayAreaPosition(hmonitor: HANDLE, ptpositiontype: MC_POSITION_TYPE, dwnewposition: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_SetMonitorDisplayAreaPosition(hmonitor.toCPointer<ByteVar>(), ptpositiontype, dwnewposition)
+public actual fun setMonitorDisplayAreaPosition(hmonitor: Handle, ptpositiontype: McPositionType, dwnewposition: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_setMonitorDisplayAreaPosition(hmonitor?.value?.toCPointer<ByteVar>(), ptpositiontype, dwnewposition)
 
-public actual fun SetMonitorDisplayAreaSize(hmonitor: HANDLE, stsizetype: MC_SIZE_TYPE, dwnewdisplayareawidthorheight: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_SetMonitorDisplayAreaSize(hmonitor.toCPointer<ByteVar>(), stsizetype, dwnewdisplayareawidthorheight)
+public actual fun setMonitorDisplayAreaSize(hmonitor: Handle, stsizetype: McSizeType, dwnewdisplayareawidthorheight: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_setMonitorDisplayAreaSize(hmonitor?.value?.toCPointer<ByteVar>(), stsizetype, dwnewdisplayareawidthorheight)
 
-public actual fun SetMonitorRedGreenOrBlueDrive(hmonitor: HANDLE, dtdrivetype: MC_DRIVE_TYPE, dwnewdrive: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_SetMonitorRedGreenOrBlueDrive(hmonitor.toCPointer<ByteVar>(), dtdrivetype, dwnewdrive)
+public actual fun setMonitorRedGreenOrBlueDrive(hmonitor: Handle, dtdrivetype: McDriveType, dwnewdrive: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_setMonitorRedGreenOrBlueDrive(hmonitor?.value?.toCPointer<ByteVar>(), dtdrivetype, dwnewdrive)
 
-public actual fun SetMonitorRedGreenOrBlueGain(hmonitor: HANDLE, gtgaintype: MC_GAIN_TYPE, dwnewgain: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_SetMonitorRedGreenOrBlueGain(hmonitor.toCPointer<ByteVar>(), gtgaintype, dwnewgain)
+public actual fun setMonitorRedGreenOrBlueGain(hmonitor: Handle, gtgaintype: McGainType, dwnewgain: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_setMonitorRedGreenOrBlueGain(hmonitor?.value?.toCPointer<ByteVar>(), gtgaintype, dwnewgain)
 
-public actual fun SetVCPFeature(hmonitor: HANDLE, bvcpcode: UByte, dwnewvalue: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_SetVCPFeature(hmonitor.toCPointer<ByteVar>(), bvcpcode, dwnewvalue)
+public actual fun setVCPFeature(hmonitor: Handle, bvcpcode: UByte, dwnewvalue: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_setVCPFeature(hmonitor?.value?.toCPointer<ByteVar>(), bvcpcode, dwnewvalue)
 
-public actual fun XFORMOBJ_bApplyXform(pxo: Long, imode: UInt, cpoints: UInt, pvin: Long, pvout: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_XFORMOBJ_bApplyXform(pxo.toCPointer<ByteVar>(), imode, cpoints, pvin.toCPointer<ByteVar>(), pvout.toCPointer<ByteVar>())
+public actual fun xformobjBApplyXform(pxo: COpaquePointer?, imode: UInt, cpoints: UInt, pvin: COpaquePointer?, pvout: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_xformobjBApplyXform(pxo?.value?.toCPointer<ByteVar>(), imode, cpoints, pvin?.value?.toCPointer<ByteVar>(), pvout?.value?.toCPointer<ByteVar>())
 
-public actual fun XFORMOBJ_iGetXform(pxo: Long, pxform: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_XFORMOBJ_iGetXform(pxo.toCPointer<ByteVar>(), pxform.toCPointer<ByteVar>())
+public actual fun xformobjIGetXform(pxo: COpaquePointer?, pxform: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_xformobjIGetXform(pxo?.value?.toCPointer<ByteVar>(), pxform?.value?.toCPointer<ByteVar>())
 
-public actual fun XLATEOBJ_cGetPalette(pxlo: Long, ipal: UInt, cpal: UInt, ppal: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_XLATEOBJ_cGetPalette(pxlo.toCPointer<ByteVar>(), ipal, cpal, ppal.toCPointer<ByteVar>())
+public actual fun xlateobjCGetPalette(pxlo: COpaquePointer?, ipal: UInt, cpal: UInt, ppal: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_xlateobjCGetPalette(pxlo?.value?.toCPointer<ByteVar>(), ipal, cpal, ppal?.value?.toCPointer<ByteVar>())
 
-public actual fun XLATEOBJ_hGetColorTransform(pxlo: Long): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_XLATEOBJ_hGetColorTransform(pxlo.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun xlateobjHGetColorTransform(pxlo: COpaquePointer?): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_xlateobjHGetColorTransform(pxlo?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun XLATEOBJ_iXlate(pxlo: Long, icolor: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_XLATEOBJ_iXlate(pxlo.toCPointer<ByteVar>(), icolor)
+public actual fun xlateobjIXlate(pxlo: COpaquePointer?, icolor: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_xlateobjIXlate(pxlo?.value?.toCPointer<ByteVar>(), icolor)
 
-public actual fun XLATEOBJ_piVector(pxlo: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_XLATEOBJ_piVector(pxlo.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun xlateobjPiVector(pxlo: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.devices.display.cinterop.windowssys_windows_win32_devices_display_xlateobjPiVector(pxlo?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }

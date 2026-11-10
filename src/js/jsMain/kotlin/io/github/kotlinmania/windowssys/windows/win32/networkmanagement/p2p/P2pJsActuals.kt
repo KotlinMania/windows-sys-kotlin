@@ -2,636 +2,653 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 
 private val _windowsWin32NetworkmanagementP2pNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun DrtClose(hdrt: Long) {
+public actual fun drtClose(hdrt: COpaquePointer?) {
     if (_windowsWin32NetworkmanagementP2pNapiAddon != null) {
-        _windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_DrtClose(hdrt.toString())
+        _windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_drtClose((hdrt?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun DrtContinueSearch(hsearchcontext: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_DrtContinueSearch(hsearchcontext.toString()) as Int) else 0
+public actual fun drtContinueSearch(hsearchcontext: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_drtContinueSearch((hsearchcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DrtCreateDerivedKey(plocalcert: Long, pkey: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_DrtCreateDerivedKey(plocalcert.toString(), pkey.toString()) as Int) else 0
+public actual fun drtCreateDerivedKey(plocalcert: COpaquePointer?, pkey: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_drtCreateDerivedKey((plocalcert?.value ?: 0L).toString(), (pkey?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DrtCreateDerivedKeySecurityProvider(prootcert: Long, plocalcert: Long, ppsecurityprovider: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_DrtCreateDerivedKeySecurityProvider(prootcert.toString(), plocalcert.toString(), ppsecurityprovider.toString()) as Int) else 0
+public actual fun drtCreateDerivedKeySecurityProvider(prootcert: COpaquePointer?, plocalcert: COpaquePointer?, ppsecurityprovider: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_drtCreateDerivedKeySecurityProvider((prootcert?.value ?: 0L).toString(), (plocalcert?.value ?: 0L).toString(), (ppsecurityprovider?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DrtCreateDnsBootstrapResolver(port: UShort, pwszaddress: PCWSTR, ppmodule: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_DrtCreateDnsBootstrapResolver(port.toInt(), pwszaddress.toString(), ppmodule.toString()) as Int) else 0
+public actual fun drtCreateDnsBootstrapResolver(port: UShort, pwszaddress: Pcwstr, ppmodule: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_drtCreateDnsBootstrapResolver(port.toInt(), (pwszaddress?.value ?: 0L).toString(), (ppmodule?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DrtCreateIpv6UdpTransport(scope: DRT_SCOPE, dwscopeid: UInt, dwlocalitythreshold: UInt, pwport: Long, phtransport: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_DrtCreateIpv6UdpTransport(scope, dwscopeid.toInt(), dwlocalitythreshold.toInt(), pwport.toString(), phtransport.toString()) as Int) else 0
+public actual fun drtCreateIpv6UdpTransport(scope: DrtScope, dwscopeid: UInt, dwlocalitythreshold: UInt, pwport: COpaquePointer?, phtransport: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_drtCreateIpv6UdpTransport(scope, dwscopeid.toInt(), dwlocalitythreshold.toInt(), (pwport?.value ?: 0L).toString(), (phtransport?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DrtCreateNullSecurityProvider(ppsecurityprovider: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_DrtCreateNullSecurityProvider(ppsecurityprovider.toString()) as Int) else 0
+public actual fun drtCreateNullSecurityProvider(ppsecurityprovider: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_drtCreateNullSecurityProvider((ppsecurityprovider?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DrtCreatePnrpBootstrapResolver(fpublish: BOOL, pwzpeername: PCWSTR, pwzcloudname: PCWSTR, pwzpublishingidentity: PCWSTR, ppresolver: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_DrtCreatePnrpBootstrapResolver(fpublish, pwzpeername.toString(), pwzcloudname.toString(), pwzpublishingidentity.toString(), ppresolver.toString()) as Int) else 0
+public actual fun drtCreatePnrpBootstrapResolver(fpublish: Bool, pwzpeername: Pcwstr, pwzcloudname: Pcwstr, pwzpublishingidentity: Pcwstr, ppresolver: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_drtCreatePnrpBootstrapResolver(fpublish, (pwzpeername?.value ?: 0L).toString(), (pwzcloudname?.value ?: 0L).toString(), (pwzpublishingidentity?.value ?: 0L).toString(), (ppresolver?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DrtDeleteDerivedKeySecurityProvider(psecurityprovider: Long) {
+public actual fun drtDeleteDerivedKeySecurityProvider(psecurityprovider: COpaquePointer?) {
     if (_windowsWin32NetworkmanagementP2pNapiAddon != null) {
-        _windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_DrtDeleteDerivedKeySecurityProvider(psecurityprovider.toString())
+        _windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_drtDeleteDerivedKeySecurityProvider((psecurityprovider?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun DrtDeleteDnsBootstrapResolver(presolver: Long) {
+public actual fun drtDeleteDnsBootstrapResolver(presolver: COpaquePointer?) {
     if (_windowsWin32NetworkmanagementP2pNapiAddon != null) {
-        _windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_DrtDeleteDnsBootstrapResolver(presolver.toString())
+        _windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_drtDeleteDnsBootstrapResolver((presolver?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun DrtDeleteIpv6UdpTransport(htransport: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_DrtDeleteIpv6UdpTransport(htransport.toString()) as Int) else 0
+public actual fun drtDeleteIpv6UdpTransport(htransport: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_drtDeleteIpv6UdpTransport((htransport?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DrtDeleteNullSecurityProvider(psecurityprovider: Long) {
+public actual fun drtDeleteNullSecurityProvider(psecurityprovider: COpaquePointer?) {
     if (_windowsWin32NetworkmanagementP2pNapiAddon != null) {
-        _windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_DrtDeleteNullSecurityProvider(psecurityprovider.toString())
+        _windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_drtDeleteNullSecurityProvider((psecurityprovider?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun DrtDeletePnrpBootstrapResolver(presolver: Long) {
+public actual fun drtDeletePnrpBootstrapResolver(presolver: COpaquePointer?) {
     if (_windowsWin32NetworkmanagementP2pNapiAddon != null) {
-        _windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_DrtDeletePnrpBootstrapResolver(presolver.toString())
+        _windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_drtDeletePnrpBootstrapResolver((presolver?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun DrtEndSearch(hsearchcontext: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_DrtEndSearch(hsearchcontext.toString()) as Int) else 0
+public actual fun drtEndSearch(hsearchcontext: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_drtEndSearch((hsearchcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DrtGetEventData(hdrt: Long, uleventdatalen: UInt, peventdata: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_DrtGetEventData(hdrt.toString(), uleventdatalen.toInt(), peventdata.toString()) as Int) else 0
+public actual fun drtGetEventData(hdrt: COpaquePointer?, uleventdatalen: UInt, peventdata: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_drtGetEventData((hdrt?.value ?: 0L).toString(), uleventdatalen.toInt(), (peventdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DrtGetEventDataSize(hdrt: Long, puleventdatalen: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_DrtGetEventDataSize(hdrt.toString(), puleventdatalen.toString()) as Int) else 0
+public actual fun drtGetEventDataSize(hdrt: COpaquePointer?, puleventdatalen: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_drtGetEventDataSize((hdrt?.value ?: 0L).toString(), (puleventdatalen?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DrtGetInstanceName(hdrt: Long, ulcbinstancenamesize: UInt, pwzdrtinstancename: PWSTR): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_DrtGetInstanceName(hdrt.toString(), ulcbinstancenamesize.toInt(), pwzdrtinstancename.toString()) as Int) else 0
+public actual fun drtGetInstanceName(hdrt: COpaquePointer?, ulcbinstancenamesize: UInt, pwzdrtinstancename: Pwstr): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_drtGetInstanceName((hdrt?.value ?: 0L).toString(), ulcbinstancenamesize.toInt(), (pwzdrtinstancename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DrtGetInstanceNameSize(hdrt: Long, pulcbinstancenamesize: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_DrtGetInstanceNameSize(hdrt.toString(), pulcbinstancenamesize.toString()) as Int) else 0
+public actual fun drtGetInstanceNameSize(hdrt: COpaquePointer?, pulcbinstancenamesize: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_drtGetInstanceNameSize((hdrt?.value ?: 0L).toString(), (pulcbinstancenamesize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DrtGetSearchPath(hsearchcontext: Long, ulsearchpathsize: UInt, psearchpath: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_DrtGetSearchPath(hsearchcontext.toString(), ulsearchpathsize.toInt(), psearchpath.toString()) as Int) else 0
+public actual fun drtGetSearchPath(hsearchcontext: COpaquePointer?, ulsearchpathsize: UInt, psearchpath: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_drtGetSearchPath((hsearchcontext?.value ?: 0L).toString(), ulsearchpathsize.toInt(), (psearchpath?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DrtGetSearchPathSize(hsearchcontext: Long, pulsearchpathsize: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_DrtGetSearchPathSize(hsearchcontext.toString(), pulsearchpathsize.toString()) as Int) else 0
+public actual fun drtGetSearchPathSize(hsearchcontext: COpaquePointer?, pulsearchpathsize: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_drtGetSearchPathSize((hsearchcontext?.value ?: 0L).toString(), (pulsearchpathsize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DrtGetSearchResult(hsearchcontext: Long, ulsearchresultsize: UInt, psearchresult: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_DrtGetSearchResult(hsearchcontext.toString(), ulsearchresultsize.toInt(), psearchresult.toString()) as Int) else 0
+public actual fun drtGetSearchResult(hsearchcontext: COpaquePointer?, ulsearchresultsize: UInt, psearchresult: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_drtGetSearchResult((hsearchcontext?.value ?: 0L).toString(), ulsearchresultsize.toInt(), (psearchresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DrtGetSearchResultSize(hsearchcontext: Long, pulsearchresultsize: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_DrtGetSearchResultSize(hsearchcontext.toString(), pulsearchresultsize.toString()) as Int) else 0
+public actual fun drtGetSearchResultSize(hsearchcontext: COpaquePointer?, pulsearchresultsize: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_drtGetSearchResultSize((hsearchcontext?.value ?: 0L).toString(), (pulsearchresultsize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DrtOpen(psettings: Long, hevent: HANDLE, pvcontext: Long, phdrt: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_DrtOpen(psettings.toString(), hevent.toString(), pvcontext.toString(), phdrt.toString()) as Int) else 0
+public actual fun drtOpen(psettings: COpaquePointer?, hevent: Handle, pvcontext: COpaquePointer?, phdrt: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_drtOpen((psettings?.value ?: 0L).toString(), (hevent?.value ?: 0L).toString(), (pvcontext?.value ?: 0L).toString(), (phdrt?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DrtRegisterKey(hdrt: Long, pregistration: Long, pvkeycontext: Long, phkeyregistration: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_DrtRegisterKey(hdrt.toString(), pregistration.toString(), pvkeycontext.toString(), phkeyregistration.toString()) as Int) else 0
+public actual fun drtRegisterKey(hdrt: COpaquePointer?, pregistration: COpaquePointer?, pvkeycontext: COpaquePointer?, phkeyregistration: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_drtRegisterKey((hdrt?.value ?: 0L).toString(), (pregistration?.value ?: 0L).toString(), (pvkeycontext?.value ?: 0L).toString(), (phkeyregistration?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DrtStartSearch(hdrt: Long, pkey: Long, pinfo: Long, timeout: UInt, hevent: HANDLE, pvcontext: Long, hsearchcontext: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_DrtStartSearch(hdrt.toString(), pkey.toString(), pinfo.toString(), timeout.toInt(), hevent.toString(), pvcontext.toString(), hsearchcontext.toString()) as Int) else 0
+public actual fun drtStartSearch(hdrt: COpaquePointer?, pkey: COpaquePointer?, pinfo: COpaquePointer?, timeout: UInt, hevent: Handle, pvcontext: COpaquePointer?, hsearchcontext: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_drtStartSearch((hdrt?.value ?: 0L).toString(), (pkey?.value ?: 0L).toString(), (pinfo?.value ?: 0L).toString(), timeout.toInt(), (hevent?.value ?: 0L).toString(), (pvcontext?.value ?: 0L).toString(), (hsearchcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DrtUnregisterKey(hkeyregistration: Long) {
+public actual fun drtUnregisterKey(hkeyregistration: COpaquePointer?) {
     if (_windowsWin32NetworkmanagementP2pNapiAddon != null) {
-        _windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_DrtUnregisterKey(hkeyregistration.toString())
+        _windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_drtUnregisterKey((hkeyregistration?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun DrtUpdateKey(hkeyregistration: Long, pappdata: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_DrtUpdateKey(hkeyregistration.toString(), pappdata.toString()) as Int) else 0
+public actual fun drtUpdateKey(hkeyregistration: COpaquePointer?, pappdata: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_drtUpdateKey((hkeyregistration?.value ?: 0L).toString(), (pappdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabAddContact(pwzcontactdata: PCWSTR, ppcontact: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabAddContact(pwzcontactdata.toString(), ppcontact.toString()) as Int) else 0
+public actual fun peerCollabAddContact(pwzcontactdata: Pcwstr, ppcontact: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabAddContact((pwzcontactdata?.value ?: 0L).toString(), (ppcontact?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabAsyncInviteContact(pccontact: Long, pcendpoint: Long, pcinvitation: Long, hevent: HANDLE, phinvitation: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabAsyncInviteContact(pccontact.toString(), pcendpoint.toString(), pcinvitation.toString(), hevent.toString(), phinvitation.toString()) as Int) else 0
+public actual fun peerCollabAsyncInviteContact(pccontact: COpaquePointer?, pcendpoint: COpaquePointer?, pcinvitation: COpaquePointer?, hevent: Handle, phinvitation: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabAsyncInviteContact((pccontact?.value ?: 0L).toString(), (pcendpoint?.value ?: 0L).toString(), (pcinvitation?.value ?: 0L).toString(), (hevent?.value ?: 0L).toString(), (phinvitation?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabAsyncInviteEndpoint(pcendpoint: Long, pcinvitation: Long, hevent: HANDLE, phinvitation: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabAsyncInviteEndpoint(pcendpoint.toString(), pcinvitation.toString(), hevent.toString(), phinvitation.toString()) as Int) else 0
+public actual fun peerCollabAsyncInviteEndpoint(pcendpoint: COpaquePointer?, pcinvitation: COpaquePointer?, hevent: Handle, phinvitation: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabAsyncInviteEndpoint((pcendpoint?.value ?: 0L).toString(), (pcinvitation?.value ?: 0L).toString(), (hevent?.value ?: 0L).toString(), (phinvitation?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabCancelInvitation(hinvitation: HANDLE): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabCancelInvitation(hinvitation.toString()) as Int) else 0
+public actual fun peerCollabCancelInvitation(hinvitation: Handle): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabCancelInvitation((hinvitation?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabCloseHandle(hinvitation: HANDLE): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabCloseHandle(hinvitation.toString()) as Int) else 0
+public actual fun peerCollabCloseHandle(hinvitation: Handle): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabCloseHandle((hinvitation?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabDeleteContact(pwzpeername: PCWSTR): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabDeleteContact(pwzpeername.toString()) as Int) else 0
+public actual fun peerCollabDeleteContact(pwzpeername: Pcwstr): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabDeleteContact((pwzpeername?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabDeleteEndpointData(pcendpoint: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabDeleteEndpointData(pcendpoint.toString()) as Int) else 0
+public actual fun peerCollabDeleteEndpointData(pcendpoint: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabDeleteEndpointData((pcendpoint?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabDeleteObject(pobjectid: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabDeleteObject(pobjectid.toString()) as Int) else 0
+public actual fun peerCollabDeleteObject(pobjectid: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabDeleteObject((pobjectid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabEnumApplicationRegistrationInfo(registrationtype: PEER_APPLICATION_REGISTRATION_TYPE, phpeerenum: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabEnumApplicationRegistrationInfo(registrationtype, phpeerenum.toString()) as Int) else 0
+public actual fun peerCollabEnumApplicationRegistrationInfo(registrationtype: PeerApplicationRegistrationType, phpeerenum: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumApplicationRegistrationInfo(registrationtype, (phpeerenum?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabEnumApplications(pcendpoint: Long, papplicationid: Long, phpeerenum: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabEnumApplications(pcendpoint.toString(), papplicationid.toString(), phpeerenum.toString()) as Int) else 0
+public actual fun peerCollabEnumApplications(pcendpoint: COpaquePointer?, papplicationid: COpaquePointer?, phpeerenum: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumApplications((pcendpoint?.value ?: 0L).toString(), (papplicationid?.value ?: 0L).toString(), (phpeerenum?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabEnumContacts(phpeerenum: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabEnumContacts(phpeerenum.toString()) as Int) else 0
+public actual fun peerCollabEnumContacts(phpeerenum: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumContacts((phpeerenum?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabEnumEndpoints(pccontact: Long, phpeerenum: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabEnumEndpoints(pccontact.toString(), phpeerenum.toString()) as Int) else 0
+public actual fun peerCollabEnumEndpoints(pccontact: COpaquePointer?, phpeerenum: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumEndpoints((pccontact?.value ?: 0L).toString(), (phpeerenum?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabEnumObjects(pcendpoint: Long, pobjectid: Long, phpeerenum: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabEnumObjects(pcendpoint.toString(), pobjectid.toString(), phpeerenum.toString()) as Int) else 0
+public actual fun peerCollabEnumObjects(pcendpoint: COpaquePointer?, pobjectid: COpaquePointer?, phpeerenum: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumObjects((pcendpoint?.value ?: 0L).toString(), (pobjectid?.value ?: 0L).toString(), (phpeerenum?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabEnumPeopleNearMe(phpeerenum: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabEnumPeopleNearMe(phpeerenum.toString()) as Int) else 0
+public actual fun peerCollabEnumPeopleNearMe(phpeerenum: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumPeopleNearMe((phpeerenum?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabExportContact(pwzpeername: PCWSTR, ppwzcontactdata: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabExportContact(pwzpeername.toString(), ppwzcontactdata.toString()) as Int) else 0
+public actual fun peerCollabExportContact(pwzpeername: Pcwstr, ppwzcontactdata: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabExportContact((pwzpeername?.value ?: 0L).toString(), (ppwzcontactdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabGetAppLaunchInfo(pplaunchinfo: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetAppLaunchInfo(pplaunchinfo.toString()) as Int) else 0
+public actual fun peerCollabGetAppLaunchInfo(pplaunchinfo: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabGetAppLaunchInfo((pplaunchinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabGetApplicationRegistrationInfo(papplicationid: Long, registrationtype: PEER_APPLICATION_REGISTRATION_TYPE, ppapplication: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetApplicationRegistrationInfo(papplicationid.toString(), registrationtype, ppapplication.toString()) as Int) else 0
+public actual fun peerCollabGetApplicationRegistrationInfo(papplicationid: COpaquePointer?, registrationtype: PeerApplicationRegistrationType, ppapplication: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabGetApplicationRegistrationInfo((papplicationid?.value ?: 0L).toString(), registrationtype, (ppapplication?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabGetContact(pwzpeername: PCWSTR, ppcontact: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetContact(pwzpeername.toString(), ppcontact.toString()) as Int) else 0
+public actual fun peerCollabGetContact(pwzpeername: Pcwstr, ppcontact: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabGetContact((pwzpeername?.value ?: 0L).toString(), (ppcontact?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabGetEndpointName(ppwzendpointname: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetEndpointName(ppwzendpointname.toString()) as Int) else 0
+public actual fun peerCollabGetEndpointName(ppwzendpointname: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabGetEndpointName((ppwzendpointname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabGetEventData(hpeerevent: Long, ppeventdata: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetEventData(hpeerevent.toString(), ppeventdata.toString()) as Int) else 0
+public actual fun peerCollabGetEventData(hpeerevent: COpaquePointer?, ppeventdata: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabGetEventData((hpeerevent?.value ?: 0L).toString(), (ppeventdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabGetInvitationResponse(hinvitation: HANDLE, ppinvitationresponse: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetInvitationResponse(hinvitation.toString(), ppinvitationresponse.toString()) as Int) else 0
+public actual fun peerCollabGetInvitationResponse(hinvitation: Handle, ppinvitationresponse: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabGetInvitationResponse((hinvitation?.value ?: 0L).toString(), (ppinvitationresponse?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabGetPresenceInfo(pcendpoint: Long, pppresenceinfo: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetPresenceInfo(pcendpoint.toString(), pppresenceinfo.toString()) as Int) else 0
+public actual fun peerCollabGetPresenceInfo(pcendpoint: COpaquePointer?, pppresenceinfo: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabGetPresenceInfo((pcendpoint?.value ?: 0L).toString(), (pppresenceinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabGetSigninOptions(pdwsigninoptions: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetSigninOptions(pdwsigninoptions.toString()) as Int) else 0
+public actual fun peerCollabGetSigninOptions(pdwsigninoptions: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabGetSigninOptions((pdwsigninoptions?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabInviteContact(pccontact: Long, pcendpoint: Long, pcinvitation: Long, ppresponse: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabInviteContact(pccontact.toString(), pcendpoint.toString(), pcinvitation.toString(), ppresponse.toString()) as Int) else 0
+public actual fun peerCollabInviteContact(pccontact: COpaquePointer?, pcendpoint: COpaquePointer?, pcinvitation: COpaquePointer?, ppresponse: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabInviteContact((pccontact?.value ?: 0L).toString(), (pcendpoint?.value ?: 0L).toString(), (pcinvitation?.value ?: 0L).toString(), (ppresponse?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabInviteEndpoint(pcendpoint: Long, pcinvitation: Long, ppresponse: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabInviteEndpoint(pcendpoint.toString(), pcinvitation.toString(), ppresponse.toString()) as Int) else 0
+public actual fun peerCollabInviteEndpoint(pcendpoint: COpaquePointer?, pcinvitation: COpaquePointer?, ppresponse: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabInviteEndpoint((pcendpoint?.value ?: 0L).toString(), (pcinvitation?.value ?: 0L).toString(), (ppresponse?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabParseContact(pwzcontactdata: PCWSTR, ppcontact: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabParseContact(pwzcontactdata.toString(), ppcontact.toString()) as Int) else 0
+public actual fun peerCollabParseContact(pwzcontactdata: Pcwstr, ppcontact: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabParseContact((pwzcontactdata?.value ?: 0L).toString(), (ppcontact?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabQueryContactData(pcendpoint: Long, ppwzcontactdata: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabQueryContactData(pcendpoint.toString(), ppwzcontactdata.toString()) as Int) else 0
+public actual fun peerCollabQueryContactData(pcendpoint: COpaquePointer?, ppwzcontactdata: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabQueryContactData((pcendpoint?.value ?: 0L).toString(), (ppwzcontactdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabRefreshEndpointData(pcendpoint: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabRefreshEndpointData(pcendpoint.toString()) as Int) else 0
+public actual fun peerCollabRefreshEndpointData(pcendpoint: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabRefreshEndpointData((pcendpoint?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabRegisterApplication(pcapplication: Long, registrationtype: PEER_APPLICATION_REGISTRATION_TYPE): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabRegisterApplication(pcapplication.toString(), registrationtype) as Int) else 0
+public actual fun peerCollabRegisterApplication(pcapplication: COpaquePointer?, registrationtype: PeerApplicationRegistrationType): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabRegisterApplication((pcapplication?.value ?: 0L).toString(), registrationtype) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabRegisterEvent(hevent: HANDLE, ceventregistration: UInt, peventregistrations: Long, phpeerevent: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabRegisterEvent(hevent.toString(), ceventregistration.toInt(), peventregistrations.toString(), phpeerevent.toString()) as Int) else 0
+public actual fun peerCollabRegisterEvent(hevent: Handle, ceventregistration: UInt, peventregistrations: COpaquePointer?, phpeerevent: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabRegisterEvent((hevent?.value ?: 0L).toString(), ceventregistration.toInt(), (peventregistrations?.value ?: 0L).toString(), (phpeerevent?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabSetEndpointName(pwzendpointname: PCWSTR): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabSetEndpointName(pwzendpointname.toString()) as Int) else 0
+public actual fun peerCollabSetEndpointName(pwzendpointname: Pcwstr): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabSetEndpointName((pwzendpointname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabSetObject(pcobject: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabSetObject(pcobject.toString()) as Int) else 0
+public actual fun peerCollabSetObject(pcobject: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabSetObject((pcobject?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabSetPresenceInfo(pcpresenceinfo: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabSetPresenceInfo(pcpresenceinfo.toString()) as Int) else 0
+public actual fun peerCollabSetPresenceInfo(pcpresenceinfo: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabSetPresenceInfo((pcpresenceinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabShutdown(): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabShutdown() as Int) else 0
+public actual fun peerCollabShutdown(): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabShutdown() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabSignin(hwndparent: HWND, dwsigninoptions: UInt): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabSignin(hwndparent.toString(), dwsigninoptions.toInt()) as Int) else 0
+public actual fun peerCollabSignin(hwndparent: Hwnd, dwsigninoptions: UInt): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabSignin((hwndparent?.value ?: 0L).toString(), dwsigninoptions.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabSignout(dwsigninoptions: UInt): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabSignout(dwsigninoptions.toInt()) as Int) else 0
+public actual fun peerCollabSignout(dwsigninoptions: UInt): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabSignout(dwsigninoptions.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabStartup(wversionrequested: UShort): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabStartup(wversionrequested.toInt()) as Int) else 0
+public actual fun peerCollabStartup(wversionrequested: UShort): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabStartup(wversionrequested.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabSubscribeEndpointData(pcendpoint: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabSubscribeEndpointData(pcendpoint.toString()) as Int) else 0
+public actual fun peerCollabSubscribeEndpointData(pcendpoint: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabSubscribeEndpointData((pcendpoint?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabUnregisterApplication(papplicationid: Long, registrationtype: PEER_APPLICATION_REGISTRATION_TYPE): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabUnregisterApplication(papplicationid.toString(), registrationtype) as Int) else 0
+public actual fun peerCollabUnregisterApplication(papplicationid: COpaquePointer?, registrationtype: PeerApplicationRegistrationType): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabUnregisterApplication((papplicationid?.value ?: 0L).toString(), registrationtype) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabUnregisterEvent(hpeerevent: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabUnregisterEvent(hpeerevent.toString()) as Int) else 0
+public actual fun peerCollabUnregisterEvent(hpeerevent: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabUnregisterEvent((hpeerevent?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabUnsubscribeEndpointData(pcendpoint: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabUnsubscribeEndpointData(pcendpoint.toString()) as Int) else 0
+public actual fun peerCollabUnsubscribeEndpointData(pcendpoint: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabUnsubscribeEndpointData((pcendpoint?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCollabUpdateContact(pcontact: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCollabUpdateContact(pcontact.toString()) as Int) else 0
+public actual fun peerCollabUpdateContact(pcontact: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCollabUpdateContact((pcontact?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerCreatePeerName(pwzidentity: PCWSTR, pwzclassifier: PCWSTR, ppwzpeername: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerCreatePeerName(pwzidentity.toString(), pwzclassifier.toString(), ppwzpeername.toString()) as Int) else 0
+public actual fun peerCreatePeerName(pwzidentity: Pcwstr, pwzclassifier: Pcwstr, ppwzpeername: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerCreatePeerName((pwzidentity?.value ?: 0L).toString(), (pwzclassifier?.value ?: 0L).toString(), (ppwzpeername?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerDistClientAddContentInformation(hpeerdist: Long, hcontenthandle: Long, cbnumberofbytes: UInt, pbuffer: Long, lpoverlapped: Long): UInt =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerDistClientAddContentInformation(hpeerdist.toString(), hcontenthandle.toString(), cbnumberofbytes.toInt(), pbuffer.toString(), lpoverlapped.toString()) as Int).toUInt() else 0u
+public actual fun peerDistClientAddContentInformation(hpeerdist: Long, hcontenthandle: Long, cbnumberofbytes: UInt, pbuffer: COpaquePointer?, lpoverlapped: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerDistClientAddContentInformation(hpeerdist.toString(), hcontenthandle.toString(), cbnumberofbytes.toInt(), (pbuffer?.value ?: 0L).toString(), (lpoverlapped?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerDistClientAddData(hpeerdist: Long, hcontenthandle: Long, cbnumberofbytes: UInt, pbuffer: Long, lpoverlapped: Long): UInt =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerDistClientAddData(hpeerdist.toString(), hcontenthandle.toString(), cbnumberofbytes.toInt(), pbuffer.toString(), lpoverlapped.toString()) as Int).toUInt() else 0u
+public actual fun peerDistClientAddData(hpeerdist: Long, hcontenthandle: Long, cbnumberofbytes: UInt, pbuffer: COpaquePointer?, lpoverlapped: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerDistClientAddData(hpeerdist.toString(), hcontenthandle.toString(), cbnumberofbytes.toInt(), (pbuffer?.value ?: 0L).toString(), (lpoverlapped?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerDistClientBlockRead(hpeerdist: Long, hcontenthandle: Long, cbmaxnumberofbytes: UInt, pbuffer: Long, dwtimeoutinmilliseconds: UInt, lpoverlapped: Long): UInt =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerDistClientBlockRead(hpeerdist.toString(), hcontenthandle.toString(), cbmaxnumberofbytes.toInt(), pbuffer.toString(), dwtimeoutinmilliseconds.toInt(), lpoverlapped.toString()) as Int).toUInt() else 0u
+public actual fun peerDistClientBlockRead(hpeerdist: Long, hcontenthandle: Long, cbmaxnumberofbytes: UInt, pbuffer: COpaquePointer?, dwtimeoutinmilliseconds: UInt, lpoverlapped: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerDistClientBlockRead(hpeerdist.toString(), hcontenthandle.toString(), cbmaxnumberofbytes.toInt(), (pbuffer?.value ?: 0L).toString(), dwtimeoutinmilliseconds.toInt(), (lpoverlapped?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerDistClientCancelAsyncOperation(hpeerdist: Long, hcontenthandle: Long, poverlapped: Long): UInt =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerDistClientCancelAsyncOperation(hpeerdist.toString(), hcontenthandle.toString(), poverlapped.toString()) as Int).toUInt() else 0u
+public actual fun peerDistClientCancelAsyncOperation(hpeerdist: Long, hcontenthandle: Long, poverlapped: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerDistClientCancelAsyncOperation(hpeerdist.toString(), hcontenthandle.toString(), (poverlapped?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerDistClientCloseContent(hpeerdist: Long, hcontenthandle: Long): UInt =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerDistClientCloseContent(hpeerdist.toString(), hcontenthandle.toString()) as Int).toUInt() else 0u
+public actual fun peerDistClientCloseContent(hpeerdist: Long, hcontenthandle: Long): UInt =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerDistClientCloseContent(hpeerdist.toString(), hcontenthandle.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerDistClientCompleteContentInformation(hpeerdist: Long, hcontenthandle: Long, lpoverlapped: Long): UInt =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerDistClientCompleteContentInformation(hpeerdist.toString(), hcontenthandle.toString(), lpoverlapped.toString()) as Int).toUInt() else 0u
+public actual fun peerDistClientCompleteContentInformation(hpeerdist: Long, hcontenthandle: Long, lpoverlapped: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerDistClientCompleteContentInformation(hpeerdist.toString(), hcontenthandle.toString(), (lpoverlapped?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerDistClientFlushContent(hpeerdist: Long, pcontenttag: Long, hcompletionport: HANDLE, ulcompletionkey: ULong, lpoverlapped: Long): UInt =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerDistClientFlushContent(hpeerdist.toString(), pcontenttag.toString(), hcompletionport.toString(), ulcompletionkey.toString(), lpoverlapped.toString()) as Int).toUInt() else 0u
+public actual fun peerDistClientFlushContent(hpeerdist: Long, pcontenttag: COpaquePointer?, hcompletionport: Handle, ulcompletionkey: ULong, lpoverlapped: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerDistClientFlushContent(hpeerdist.toString(), (pcontenttag?.value ?: 0L).toString(), (hcompletionport?.value ?: 0L).toString(), ulcompletionkey.toString(), (lpoverlapped?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerDistClientGetInformationByHandle(hpeerdist: Long, hcontenthandle: Long, peerdistclientinfoclass: PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS, dwbuffersize: UInt, lpinformation: Long): UInt =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerDistClientGetInformationByHandle(hpeerdist.toString(), hcontenthandle.toString(), peerdistclientinfoclass, dwbuffersize.toInt(), lpinformation.toString()) as Int).toUInt() else 0u
+public actual fun peerDistClientGetInformationByHandle(hpeerdist: Long, hcontenthandle: Long, peerdistclientinfoclass: PeerdistClientInfoByHandleClass, dwbuffersize: UInt, lpinformation: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerDistClientGetInformationByHandle(hpeerdist.toString(), hcontenthandle.toString(), peerdistclientinfoclass, dwbuffersize.toInt(), (lpinformation?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerDistClientOpenContent(hpeerdist: Long, pcontenttag: Long, hcompletionport: HANDLE, ulcompletionkey: ULong, phcontenthandle: Long): UInt =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerDistClientOpenContent(hpeerdist.toString(), pcontenttag.toString(), hcompletionport.toString(), ulcompletionkey.toString(), phcontenthandle.toString()) as Int).toUInt() else 0u
+public actual fun peerDistClientOpenContent(hpeerdist: Long, pcontenttag: COpaquePointer?, hcompletionport: Handle, ulcompletionkey: ULong, phcontenthandle: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerDistClientOpenContent(hpeerdist.toString(), (pcontenttag?.value ?: 0L).toString(), (hcompletionport?.value ?: 0L).toString(), ulcompletionkey.toString(), (phcontenthandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerDistClientStreamRead(hpeerdist: Long, hcontenthandle: Long, cbmaxnumberofbytes: UInt, pbuffer: Long, dwtimeoutinmilliseconds: UInt, lpoverlapped: Long): UInt =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerDistClientStreamRead(hpeerdist.toString(), hcontenthandle.toString(), cbmaxnumberofbytes.toInt(), pbuffer.toString(), dwtimeoutinmilliseconds.toInt(), lpoverlapped.toString()) as Int).toUInt() else 0u
+public actual fun peerDistClientStreamRead(hpeerdist: Long, hcontenthandle: Long, cbmaxnumberofbytes: UInt, pbuffer: COpaquePointer?, dwtimeoutinmilliseconds: UInt, lpoverlapped: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerDistClientStreamRead(hpeerdist.toString(), hcontenthandle.toString(), cbmaxnumberofbytes.toInt(), (pbuffer?.value ?: 0L).toString(), dwtimeoutinmilliseconds.toInt(), (lpoverlapped?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerDistGetOverlappedResult(lpoverlapped: Long, lpnumberofbytestransferred: Long, bwait: BOOL): BOOL =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerDistGetOverlappedResult(lpoverlapped.toString(), lpnumberofbytestransferred.toString(), bwait) as Int) else 0
+public actual fun peerDistGetOverlappedResult(lpoverlapped: COpaquePointer?, lpnumberofbytestransferred: COpaquePointer?, bwait: Bool): Bool =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerDistGetOverlappedResult((lpoverlapped?.value ?: 0L).toString(), (lpnumberofbytestransferred?.value ?: 0L).toString(), bwait) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerDistGetStatus(hpeerdist: Long, ppeerdiststatus: Long): UInt =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerDistGetStatus(hpeerdist.toString(), ppeerdiststatus.toString()) as Int).toUInt() else 0u
+public actual fun peerDistGetStatus(hpeerdist: Long, ppeerdiststatus: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerDistGetStatus(hpeerdist.toString(), (ppeerdiststatus?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerDistGetStatusEx(hpeerdist: Long, ppeerdiststatus: Long): UInt =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerDistGetStatusEx(hpeerdist.toString(), ppeerdiststatus.toString()) as Int).toUInt() else 0u
+public actual fun peerDistGetStatusEx(hpeerdist: Long, ppeerdiststatus: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerDistGetStatusEx(hpeerdist.toString(), (ppeerdiststatus?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerDistRegisterForStatusChangeNotification(hpeerdist: Long, hcompletionport: HANDLE, ulcompletionkey: ULong, lpoverlapped: Long, ppeerdiststatus: Long): UInt =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerDistRegisterForStatusChangeNotification(hpeerdist.toString(), hcompletionport.toString(), ulcompletionkey.toString(), lpoverlapped.toString(), ppeerdiststatus.toString()) as Int).toUInt() else 0u
+public actual fun peerDistRegisterForStatusChangeNotification(hpeerdist: Long, hcompletionport: Handle, ulcompletionkey: ULong, lpoverlapped: COpaquePointer?, ppeerdiststatus: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerDistRegisterForStatusChangeNotification(hpeerdist.toString(), (hcompletionport?.value ?: 0L).toString(), ulcompletionkey.toString(), (lpoverlapped?.value ?: 0L).toString(), (ppeerdiststatus?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerDistRegisterForStatusChangeNotificationEx(hpeerdist: Long, hcompletionport: HANDLE, ulcompletionkey: ULong, lpoverlapped: Long, ppeerdiststatus: Long): UInt =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerDistRegisterForStatusChangeNotificationEx(hpeerdist.toString(), hcompletionport.toString(), ulcompletionkey.toString(), lpoverlapped.toString(), ppeerdiststatus.toString()) as Int).toUInt() else 0u
+public actual fun peerDistRegisterForStatusChangeNotificationEx(hpeerdist: Long, hcompletionport: Handle, ulcompletionkey: ULong, lpoverlapped: COpaquePointer?, ppeerdiststatus: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerDistRegisterForStatusChangeNotificationEx(hpeerdist.toString(), (hcompletionport?.value ?: 0L).toString(), ulcompletionkey.toString(), (lpoverlapped?.value ?: 0L).toString(), (ppeerdiststatus?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerDistServerCancelAsyncOperation(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: Long, poverlapped: Long): UInt =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerDistServerCancelAsyncOperation(hpeerdist.toString(), cbcontentidentifier.toInt(), pcontentidentifier.toString(), poverlapped.toString()) as Int).toUInt() else 0u
+public actual fun peerDistServerCancelAsyncOperation(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: COpaquePointer?, poverlapped: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerDistServerCancelAsyncOperation(hpeerdist.toString(), cbcontentidentifier.toInt(), (pcontentidentifier?.value ?: 0L).toString(), (poverlapped?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerDistServerCloseContentInformation(hpeerdist: Long, hcontentinfo: Long): UInt =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerDistServerCloseContentInformation(hpeerdist.toString(), hcontentinfo.toString()) as Int).toUInt() else 0u
+public actual fun peerDistServerCloseContentInformation(hpeerdist: Long, hcontentinfo: Long): UInt =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerDistServerCloseContentInformation(hpeerdist.toString(), hcontentinfo.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerDistServerCloseStreamHandle(hpeerdist: Long, hstream: Long): UInt =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerDistServerCloseStreamHandle(hpeerdist.toString(), hstream.toString()) as Int).toUInt() else 0u
+public actual fun peerDistServerCloseStreamHandle(hpeerdist: Long, hstream: Long): UInt =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerDistServerCloseStreamHandle(hpeerdist.toString(), hstream.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerDistServerOpenContentInformation(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: Long, ullcontentoffset: ULong, cbcontentlength: ULong, hcompletionport: HANDLE, ulcompletionkey: ULong, phcontentinfo: Long): UInt =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerDistServerOpenContentInformation(hpeerdist.toString(), cbcontentidentifier.toInt(), pcontentidentifier.toString(), ullcontentoffset.toString(), cbcontentlength.toString(), hcompletionport.toString(), ulcompletionkey.toString(), phcontentinfo.toString()) as Int).toUInt() else 0u
+public actual fun peerDistServerOpenContentInformation(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: COpaquePointer?, ullcontentoffset: ULong, cbcontentlength: ULong, hcompletionport: Handle, ulcompletionkey: ULong, phcontentinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerDistServerOpenContentInformation(hpeerdist.toString(), cbcontentidentifier.toInt(), (pcontentidentifier?.value ?: 0L).toString(), ullcontentoffset.toString(), cbcontentlength.toString(), (hcompletionport?.value ?: 0L).toString(), ulcompletionkey.toString(), (phcontentinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerDistServerOpenContentInformationEx(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: Long, ullcontentoffset: ULong, cbcontentlength: ULong, pretrievaloptions: Long, hcompletionport: HANDLE, ulcompletionkey: ULong, phcontentinfo: Long): UInt =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerDistServerOpenContentInformationEx(hpeerdist.toString(), cbcontentidentifier.toInt(), pcontentidentifier.toString(), ullcontentoffset.toString(), cbcontentlength.toString(), pretrievaloptions.toString(), hcompletionport.toString(), ulcompletionkey.toString(), phcontentinfo.toString()) as Int).toUInt() else 0u
+public actual fun peerDistServerOpenContentInformationEx(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: COpaquePointer?, ullcontentoffset: ULong, cbcontentlength: ULong, pretrievaloptions: COpaquePointer?, hcompletionport: Handle, ulcompletionkey: ULong, phcontentinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerDistServerOpenContentInformationEx(hpeerdist.toString(), cbcontentidentifier.toInt(), (pcontentidentifier?.value ?: 0L).toString(), ullcontentoffset.toString(), cbcontentlength.toString(), (pretrievaloptions?.value ?: 0L).toString(), (hcompletionport?.value ?: 0L).toString(), ulcompletionkey.toString(), (phcontentinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerDistServerPublishAddToStream(hpeerdist: Long, hstream: Long, cbnumberofbytes: UInt, pbuffer: Long, lpoverlapped: Long): UInt =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerDistServerPublishAddToStream(hpeerdist.toString(), hstream.toString(), cbnumberofbytes.toInt(), pbuffer.toString(), lpoverlapped.toString()) as Int).toUInt() else 0u
+public actual fun peerDistServerPublishAddToStream(hpeerdist: Long, hstream: Long, cbnumberofbytes: UInt, pbuffer: COpaquePointer?, lpoverlapped: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerDistServerPublishAddToStream(hpeerdist.toString(), hstream.toString(), cbnumberofbytes.toInt(), (pbuffer?.value ?: 0L).toString(), (lpoverlapped?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerDistServerPublishCompleteStream(hpeerdist: Long, hstream: Long, lpoverlapped: Long): UInt =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerDistServerPublishCompleteStream(hpeerdist.toString(), hstream.toString(), lpoverlapped.toString()) as Int).toUInt() else 0u
+public actual fun peerDistServerPublishCompleteStream(hpeerdist: Long, hstream: Long, lpoverlapped: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerDistServerPublishCompleteStream(hpeerdist.toString(), hstream.toString(), (lpoverlapped?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerDistServerPublishStream(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: Long, cbcontentlength: ULong, ppublishoptions: Long, hcompletionport: HANDLE, ulcompletionkey: ULong, phstream: Long): UInt =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerDistServerPublishStream(hpeerdist.toString(), cbcontentidentifier.toInt(), pcontentidentifier.toString(), cbcontentlength.toString(), ppublishoptions.toString(), hcompletionport.toString(), ulcompletionkey.toString(), phstream.toString()) as Int).toUInt() else 0u
+public actual fun peerDistServerPublishStream(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: COpaquePointer?, cbcontentlength: ULong, ppublishoptions: COpaquePointer?, hcompletionport: Handle, ulcompletionkey: ULong, phstream: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerDistServerPublishStream(hpeerdist.toString(), cbcontentidentifier.toInt(), (pcontentidentifier?.value ?: 0L).toString(), cbcontentlength.toString(), (ppublishoptions?.value ?: 0L).toString(), (hcompletionport?.value ?: 0L).toString(), ulcompletionkey.toString(), (phstream?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerDistServerRetrieveContentInformation(hpeerdist: Long, hcontentinfo: Long, cbmaxnumberofbytes: UInt, pbuffer: Long, lpoverlapped: Long): UInt =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerDistServerRetrieveContentInformation(hpeerdist.toString(), hcontentinfo.toString(), cbmaxnumberofbytes.toInt(), pbuffer.toString(), lpoverlapped.toString()) as Int).toUInt() else 0u
+public actual fun peerDistServerRetrieveContentInformation(hpeerdist: Long, hcontentinfo: Long, cbmaxnumberofbytes: UInt, pbuffer: COpaquePointer?, lpoverlapped: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerDistServerRetrieveContentInformation(hpeerdist.toString(), hcontentinfo.toString(), cbmaxnumberofbytes.toInt(), (pbuffer?.value ?: 0L).toString(), (lpoverlapped?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerDistServerUnpublish(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: Long): UInt =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerDistServerUnpublish(hpeerdist.toString(), cbcontentidentifier.toInt(), pcontentidentifier.toString()) as Int).toUInt() else 0u
+public actual fun peerDistServerUnpublish(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerDistServerUnpublish(hpeerdist.toString(), cbcontentidentifier.toInt(), (pcontentidentifier?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerDistShutdown(hpeerdist: Long): UInt =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerDistShutdown(hpeerdist.toString()) as Int).toUInt() else 0u
+public actual fun peerDistShutdown(hpeerdist: Long): UInt =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerDistShutdown(hpeerdist.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerDistStartup(dwversionrequested: UInt, phpeerdist: Long, pdwsupportedversion: Long): UInt =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerDistStartup(dwversionrequested.toInt(), phpeerdist.toString(), pdwsupportedversion.toString()) as Int).toUInt() else 0u
+public actual fun peerDistStartup(dwversionrequested: UInt, phpeerdist: COpaquePointer?, pdwsupportedversion: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerDistStartup(dwversionrequested.toInt(), (phpeerdist?.value ?: 0L).toString(), (pdwsupportedversion?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerDistUnregisterForStatusChangeNotification(hpeerdist: Long): UInt =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerDistUnregisterForStatusChangeNotification(hpeerdist.toString()) as Int).toUInt() else 0u
+public actual fun peerDistUnregisterForStatusChangeNotification(hpeerdist: Long): UInt =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerDistUnregisterForStatusChangeNotification(hpeerdist.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerEndEnumeration(hpeerenum: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerEndEnumeration(hpeerenum.toString()) as Int) else 0
+public actual fun peerEndEnumeration(hpeerenum: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerEndEnumeration((hpeerenum?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerEnumGroups(pwzidentity: PCWSTR, phpeerenum: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerEnumGroups(pwzidentity.toString(), phpeerenum.toString()) as Int) else 0
+public actual fun peerEnumGroups(pwzidentity: Pcwstr, phpeerenum: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerEnumGroups((pwzidentity?.value ?: 0L).toString(), (phpeerenum?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerEnumIdentities(phpeerenum: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerEnumIdentities(phpeerenum.toString()) as Int) else 0
+public actual fun peerEnumIdentities(phpeerenum: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerEnumIdentities((phpeerenum?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerFreeData(pvdata: Long) {
+public actual fun peerFreeData(pvdata: COpaquePointer?) {
     if (_windowsWin32NetworkmanagementP2pNapiAddon != null) {
-        _windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerFreeData(pvdata.toString())
+        _windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerFreeData((pvdata?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun PeerGetItemCount(hpeerenum: Long, pcount: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGetItemCount(hpeerenum.toString(), pcount.toString()) as Int) else 0
+public actual fun peerGetItemCount(hpeerenum: COpaquePointer?, pcount: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGetItemCount((hpeerenum?.value ?: 0L).toString(), (pcount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGetNextItem(hpeerenum: Long, pcount: Long, pppvitems: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGetNextItem(hpeerenum.toString(), pcount.toString(), pppvitems.toString()) as Int) else 0
+public actual fun peerGetNextItem(hpeerenum: COpaquePointer?, pcount: COpaquePointer?, pppvitems: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGetNextItem((hpeerenum?.value ?: 0L).toString(), (pcount?.value ?: 0L).toString(), (pppvitems?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGraphAddRecord(hgraph: Long, precord: Long, precordid: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGraphAddRecord(hgraph.toString(), precord.toString(), precordid.toString()) as Int) else 0
+public actual fun peerGraphAddRecord(hgraph: COpaquePointer?, precord: COpaquePointer?, precordid: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGraphAddRecord((hgraph?.value ?: 0L).toString(), (precord?.value ?: 0L).toString(), (precordid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGraphClose(hgraph: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGraphClose(hgraph.toString()) as Int) else 0
+public actual fun peerGraphClose(hgraph: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGraphClose((hgraph?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGraphCloseDirectConnection(hgraph: Long, ullconnectionid: ULong): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGraphCloseDirectConnection(hgraph.toString(), ullconnectionid.toString()) as Int) else 0
+public actual fun peerGraphCloseDirectConnection(hgraph: COpaquePointer?, ullconnectionid: ULong): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGraphCloseDirectConnection((hgraph?.value ?: 0L).toString(), ullconnectionid.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGraphConnect(hgraph: Long, pwzpeerid: PCWSTR, paddress: Long, pullconnectionid: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGraphConnect(hgraph.toString(), pwzpeerid.toString(), paddress.toString(), pullconnectionid.toString()) as Int) else 0
+public actual fun peerGraphConnect(hgraph: COpaquePointer?, pwzpeerid: Pcwstr, paddress: COpaquePointer?, pullconnectionid: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGraphConnect((hgraph?.value ?: 0L).toString(), (pwzpeerid?.value ?: 0L).toString(), (paddress?.value ?: 0L).toString(), (pullconnectionid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGraphCreate(pgraphproperties: Long, pwzdatabasename: PCWSTR, psecurityinterface: Long, phgraph: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGraphCreate(pgraphproperties.toString(), pwzdatabasename.toString(), psecurityinterface.toString(), phgraph.toString()) as Int) else 0
+public actual fun peerGraphCreate(pgraphproperties: COpaquePointer?, pwzdatabasename: Pcwstr, psecurityinterface: COpaquePointer?, phgraph: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGraphCreate((pgraphproperties?.value ?: 0L).toString(), (pwzdatabasename?.value ?: 0L).toString(), (psecurityinterface?.value ?: 0L).toString(), (phgraph?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGraphDelete(pwzgraphid: PCWSTR, pwzpeerid: PCWSTR, pwzdatabasename: PCWSTR): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGraphDelete(pwzgraphid.toString(), pwzpeerid.toString(), pwzdatabasename.toString()) as Int) else 0
+public actual fun peerGraphDelete(pwzgraphid: Pcwstr, pwzpeerid: Pcwstr, pwzdatabasename: Pcwstr): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGraphDelete((pwzgraphid?.value ?: 0L).toString(), (pwzpeerid?.value ?: 0L).toString(), (pwzdatabasename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGraphDeleteRecord(hgraph: Long, precordid: Long, flocal: BOOL): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGraphDeleteRecord(hgraph.toString(), precordid.toString(), flocal) as Int) else 0
+public actual fun peerGraphDeleteRecord(hgraph: COpaquePointer?, precordid: COpaquePointer?, flocal: Bool): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGraphDeleteRecord((hgraph?.value ?: 0L).toString(), (precordid?.value ?: 0L).toString(), flocal) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGraphEndEnumeration(hpeerenum: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGraphEndEnumeration(hpeerenum.toString()) as Int) else 0
+public actual fun peerGraphEndEnumeration(hpeerenum: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGraphEndEnumeration((hpeerenum?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGraphEnumConnections(hgraph: Long, dwflags: UInt, phpeerenum: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGraphEnumConnections(hgraph.toString(), dwflags.toInt(), phpeerenum.toString()) as Int) else 0
+public actual fun peerGraphEnumConnections(hgraph: COpaquePointer?, dwflags: UInt, phpeerenum: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGraphEnumConnections((hgraph?.value ?: 0L).toString(), dwflags.toInt(), (phpeerenum?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGraphEnumNodes(hgraph: Long, pwzpeerid: PCWSTR, phpeerenum: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGraphEnumNodes(hgraph.toString(), pwzpeerid.toString(), phpeerenum.toString()) as Int) else 0
+public actual fun peerGraphEnumNodes(hgraph: COpaquePointer?, pwzpeerid: Pcwstr, phpeerenum: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGraphEnumNodes((hgraph?.value ?: 0L).toString(), (pwzpeerid?.value ?: 0L).toString(), (phpeerenum?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGraphEnumRecords(hgraph: Long, precordtype: Long, pwzpeerid: PCWSTR, phpeerenum: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGraphEnumRecords(hgraph.toString(), precordtype.toString(), pwzpeerid.toString(), phpeerenum.toString()) as Int) else 0
+public actual fun peerGraphEnumRecords(hgraph: COpaquePointer?, precordtype: COpaquePointer?, pwzpeerid: Pcwstr, phpeerenum: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGraphEnumRecords((hgraph?.value ?: 0L).toString(), (precordtype?.value ?: 0L).toString(), (pwzpeerid?.value ?: 0L).toString(), (phpeerenum?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGraphExportDatabase(hgraph: Long, pwzfilepath: PCWSTR): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGraphExportDatabase(hgraph.toString(), pwzfilepath.toString()) as Int) else 0
+public actual fun peerGraphExportDatabase(hgraph: COpaquePointer?, pwzfilepath: Pcwstr): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGraphExportDatabase((hgraph?.value ?: 0L).toString(), (pwzfilepath?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGraphFreeData(pvdata: Long) {
+public actual fun peerGraphFreeData(pvdata: COpaquePointer?) {
     if (_windowsWin32NetworkmanagementP2pNapiAddon != null) {
-        _windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGraphFreeData(pvdata.toString())
+        _windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGraphFreeData((pvdata?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun PeerGraphGetEventData(hpeerevent: Long, ppeventdata: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetEventData(hpeerevent.toString(), ppeventdata.toString()) as Int) else 0
+public actual fun peerGraphGetEventData(hpeerevent: COpaquePointer?, ppeventdata: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGraphGetEventData((hpeerevent?.value ?: 0L).toString(), (ppeventdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGraphGetItemCount(hpeerenum: Long, pcount: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetItemCount(hpeerenum.toString(), pcount.toString()) as Int) else 0
+public actual fun peerGraphGetItemCount(hpeerenum: COpaquePointer?, pcount: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGraphGetItemCount((hpeerenum?.value ?: 0L).toString(), (pcount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGraphGetNextItem(hpeerenum: Long, pcount: Long, pppvitems: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetNextItem(hpeerenum.toString(), pcount.toString(), pppvitems.toString()) as Int) else 0
+public actual fun peerGraphGetNextItem(hpeerenum: COpaquePointer?, pcount: COpaquePointer?, pppvitems: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGraphGetNextItem((hpeerenum?.value ?: 0L).toString(), (pcount?.value ?: 0L).toString(), (pppvitems?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGraphGetNodeInfo(hgraph: Long, ullnodeid: ULong, ppnodeinfo: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetNodeInfo(hgraph.toString(), ullnodeid.toString(), ppnodeinfo.toString()) as Int) else 0
+public actual fun peerGraphGetNodeInfo(hgraph: COpaquePointer?, ullnodeid: ULong, ppnodeinfo: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGraphGetNodeInfo((hgraph?.value ?: 0L).toString(), ullnodeid.toString(), (ppnodeinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGraphGetProperties(hgraph: Long, ppgraphproperties: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetProperties(hgraph.toString(), ppgraphproperties.toString()) as Int) else 0
+public actual fun peerGraphGetProperties(hgraph: COpaquePointer?, ppgraphproperties: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGraphGetProperties((hgraph?.value ?: 0L).toString(), (ppgraphproperties?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGraphGetRecord(hgraph: Long, precordid: Long, pprecord: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetRecord(hgraph.toString(), precordid.toString(), pprecord.toString()) as Int) else 0
+public actual fun peerGraphGetRecord(hgraph: COpaquePointer?, precordid: COpaquePointer?, pprecord: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGraphGetRecord((hgraph?.value ?: 0L).toString(), (precordid?.value ?: 0L).toString(), (pprecord?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGraphGetStatus(hgraph: Long, pdwstatus: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetStatus(hgraph.toString(), pdwstatus.toString()) as Int) else 0
+public actual fun peerGraphGetStatus(hgraph: COpaquePointer?, pdwstatus: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGraphGetStatus((hgraph?.value ?: 0L).toString(), (pdwstatus?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGraphImportDatabase(hgraph: Long, pwzfilepath: PCWSTR): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGraphImportDatabase(hgraph.toString(), pwzfilepath.toString()) as Int) else 0
+public actual fun peerGraphImportDatabase(hgraph: COpaquePointer?, pwzfilepath: Pcwstr): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGraphImportDatabase((hgraph?.value ?: 0L).toString(), (pwzfilepath?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGraphListen(hgraph: Long, dwscope: UInt, dwscopeid: UInt, wport: UShort): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGraphListen(hgraph.toString(), dwscope.toInt(), dwscopeid.toInt(), wport.toInt()) as Int) else 0
+public actual fun peerGraphListen(hgraph: COpaquePointer?, dwscope: UInt, dwscopeid: UInt, wport: UShort): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGraphListen((hgraph?.value ?: 0L).toString(), dwscope.toInt(), dwscopeid.toInt(), wport.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGraphOpen(pwzgraphid: PCWSTR, pwzpeerid: PCWSTR, pwzdatabasename: PCWSTR, psecurityinterface: Long, crecordtypesyncprecedence: UInt, precordtypesyncprecedence: Long, phgraph: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGraphOpen(pwzgraphid.toString(), pwzpeerid.toString(), pwzdatabasename.toString(), psecurityinterface.toString(), crecordtypesyncprecedence.toInt(), precordtypesyncprecedence.toString(), phgraph.toString()) as Int) else 0
+public actual fun peerGraphOpen(pwzgraphid: Pcwstr, pwzpeerid: Pcwstr, pwzdatabasename: Pcwstr, psecurityinterface: COpaquePointer?, crecordtypesyncprecedence: UInt, precordtypesyncprecedence: COpaquePointer?, phgraph: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGraphOpen((pwzgraphid?.value ?: 0L).toString(), (pwzpeerid?.value ?: 0L).toString(), (pwzdatabasename?.value ?: 0L).toString(), (psecurityinterface?.value ?: 0L).toString(), crecordtypesyncprecedence.toInt(), (precordtypesyncprecedence?.value ?: 0L).toString(), (phgraph?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGraphOpenDirectConnection(hgraph: Long, pwzpeerid: PCWSTR, paddress: Long, pullconnectionid: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGraphOpenDirectConnection(hgraph.toString(), pwzpeerid.toString(), paddress.toString(), pullconnectionid.toString()) as Int) else 0
+public actual fun peerGraphOpenDirectConnection(hgraph: COpaquePointer?, pwzpeerid: Pcwstr, paddress: COpaquePointer?, pullconnectionid: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGraphOpenDirectConnection((hgraph?.value ?: 0L).toString(), (pwzpeerid?.value ?: 0L).toString(), (paddress?.value ?: 0L).toString(), (pullconnectionid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGraphPeerTimeToUniversalTime(hgraph: Long, pftpeertime: Long, pftuniversaltime: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGraphPeerTimeToUniversalTime(hgraph.toString(), pftpeertime.toString(), pftuniversaltime.toString()) as Int) else 0
+public actual fun peerGraphPeerTimeToUniversalTime(hgraph: COpaquePointer?, pftpeertime: COpaquePointer?, pftuniversaltime: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGraphPeerTimeToUniversalTime((hgraph?.value ?: 0L).toString(), (pftpeertime?.value ?: 0L).toString(), (pftuniversaltime?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGraphRegisterEvent(hgraph: Long, hevent: HANDLE, ceventregistrations: UInt, peventregistrations: Long, phpeerevent: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGraphRegisterEvent(hgraph.toString(), hevent.toString(), ceventregistrations.toInt(), peventregistrations.toString(), phpeerevent.toString()) as Int) else 0
+public actual fun peerGraphRegisterEvent(hgraph: COpaquePointer?, hevent: Handle, ceventregistrations: UInt, peventregistrations: COpaquePointer?, phpeerevent: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGraphRegisterEvent((hgraph?.value ?: 0L).toString(), (hevent?.value ?: 0L).toString(), ceventregistrations.toInt(), (peventregistrations?.value ?: 0L).toString(), (phpeerevent?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGraphSearchRecords(hgraph: Long, pwzcriteria: PCWSTR, phpeerenum: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGraphSearchRecords(hgraph.toString(), pwzcriteria.toString(), phpeerenum.toString()) as Int) else 0
+public actual fun peerGraphSearchRecords(hgraph: COpaquePointer?, pwzcriteria: Pcwstr, phpeerenum: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGraphSearchRecords((hgraph?.value ?: 0L).toString(), (pwzcriteria?.value ?: 0L).toString(), (phpeerenum?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGraphSendData(hgraph: Long, ullconnectionid: ULong, ptype: Long, cbdata: UInt, pvdata: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGraphSendData(hgraph.toString(), ullconnectionid.toString(), ptype.toString(), cbdata.toInt(), pvdata.toString()) as Int) else 0
+public actual fun peerGraphSendData(hgraph: COpaquePointer?, ullconnectionid: ULong, ptype: COpaquePointer?, cbdata: UInt, pvdata: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGraphSendData((hgraph?.value ?: 0L).toString(), ullconnectionid.toString(), (ptype?.value ?: 0L).toString(), cbdata.toInt(), (pvdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGraphSetNodeAttributes(hgraph: Long, pwzattributes: PCWSTR): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGraphSetNodeAttributes(hgraph.toString(), pwzattributes.toString()) as Int) else 0
+public actual fun peerGraphSetNodeAttributes(hgraph: COpaquePointer?, pwzattributes: Pcwstr): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGraphSetNodeAttributes((hgraph?.value ?: 0L).toString(), (pwzattributes?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGraphSetPresence(hgraph: Long, fpresent: BOOL): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGraphSetPresence(hgraph.toString(), fpresent) as Int) else 0
+public actual fun peerGraphSetPresence(hgraph: COpaquePointer?, fpresent: Bool): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGraphSetPresence((hgraph?.value ?: 0L).toString(), fpresent) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGraphSetProperties(hgraph: Long, pgraphproperties: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGraphSetProperties(hgraph.toString(), pgraphproperties.toString()) as Int) else 0
+public actual fun peerGraphSetProperties(hgraph: COpaquePointer?, pgraphproperties: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGraphSetProperties((hgraph?.value ?: 0L).toString(), (pgraphproperties?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGraphShutdown(): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGraphShutdown() as Int) else 0
+public actual fun peerGraphShutdown(): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGraphShutdown() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGraphStartup(wversionrequested: UShort, pversiondata: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGraphStartup(wversionrequested.toInt(), pversiondata.toString()) as Int) else 0
+public actual fun peerGraphStartup(wversionrequested: UShort, pversiondata: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGraphStartup(wversionrequested.toInt(), (pversiondata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGraphUniversalTimeToPeerTime(hgraph: Long, pftuniversaltime: Long, pftpeertime: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGraphUniversalTimeToPeerTime(hgraph.toString(), pftuniversaltime.toString(), pftpeertime.toString()) as Int) else 0
+public actual fun peerGraphUniversalTimeToPeerTime(hgraph: COpaquePointer?, pftuniversaltime: COpaquePointer?, pftpeertime: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGraphUniversalTimeToPeerTime((hgraph?.value ?: 0L).toString(), (pftuniversaltime?.value ?: 0L).toString(), (pftpeertime?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGraphUnregisterEvent(hpeerevent: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGraphUnregisterEvent(hpeerevent.toString()) as Int) else 0
+public actual fun peerGraphUnregisterEvent(hpeerevent: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGraphUnregisterEvent((hpeerevent?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGraphUpdateRecord(hgraph: Long, precord: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGraphUpdateRecord(hgraph.toString(), precord.toString()) as Int) else 0
+public actual fun peerGraphUpdateRecord(hgraph: COpaquePointer?, precord: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGraphUpdateRecord((hgraph?.value ?: 0L).toString(), (precord?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGraphValidateDeferredRecords(hgraph: Long, crecordids: UInt, precordids: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGraphValidateDeferredRecords(hgraph.toString(), crecordids.toInt(), precordids.toString()) as Int) else 0
+public actual fun peerGraphValidateDeferredRecords(hgraph: COpaquePointer?, crecordids: UInt, precordids: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGraphValidateDeferredRecords((hgraph?.value ?: 0L).toString(), crecordids.toInt(), (precordids?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGroupAddRecord(hgroup: Long, precord: Long, precordid: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGroupAddRecord(hgroup.toString(), precord.toString(), precordid.toString()) as Int) else 0
+public actual fun peerGroupAddRecord(hgroup: COpaquePointer?, precord: COpaquePointer?, precordid: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGroupAddRecord((hgroup?.value ?: 0L).toString(), (precord?.value ?: 0L).toString(), (precordid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGroupClose(hgroup: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGroupClose(hgroup.toString()) as Int) else 0
+public actual fun peerGroupClose(hgroup: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGroupClose((hgroup?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGroupCloseDirectConnection(hgroup: Long, ullconnectionid: ULong): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGroupCloseDirectConnection(hgroup.toString(), ullconnectionid.toString()) as Int) else 0
+public actual fun peerGroupCloseDirectConnection(hgroup: COpaquePointer?, ullconnectionid: ULong): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGroupCloseDirectConnection((hgroup?.value ?: 0L).toString(), ullconnectionid.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGroupConnect(hgroup: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGroupConnect(hgroup.toString()) as Int) else 0
+public actual fun peerGroupConnect(hgroup: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGroupConnect((hgroup?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGroupConnectByAddress(hgroup: Long, caddresses: UInt, paddresses: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGroupConnectByAddress(hgroup.toString(), caddresses.toInt(), paddresses.toString()) as Int) else 0
+public actual fun peerGroupConnectByAddress(hgroup: COpaquePointer?, caddresses: UInt, paddresses: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGroupConnectByAddress((hgroup?.value ?: 0L).toString(), caddresses.toInt(), (paddresses?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGroupCreate(pproperties: Long, phgroup: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGroupCreate(pproperties.toString(), phgroup.toString()) as Int) else 0
+public actual fun peerGroupCreate(pproperties: COpaquePointer?, phgroup: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGroupCreate((pproperties?.value ?: 0L).toString(), (phgroup?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGroupCreateInvitation(hgroup: Long, pwzidentityinfo: PCWSTR, pftexpiration: Long, croles: UInt, proles: Long, ppwzinvitation: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGroupCreateInvitation(hgroup.toString(), pwzidentityinfo.toString(), pftexpiration.toString(), croles.toInt(), proles.toString(), ppwzinvitation.toString()) as Int) else 0
+public actual fun peerGroupCreateInvitation(hgroup: COpaquePointer?, pwzidentityinfo: Pcwstr, pftexpiration: COpaquePointer?, croles: UInt, proles: COpaquePointer?, ppwzinvitation: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGroupCreateInvitation((hgroup?.value ?: 0L).toString(), (pwzidentityinfo?.value ?: 0L).toString(), (pftexpiration?.value ?: 0L).toString(), croles.toInt(), (proles?.value ?: 0L).toString(), (ppwzinvitation?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGroupCreatePasswordInvitation(hgroup: Long, ppwzinvitation: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGroupCreatePasswordInvitation(hgroup.toString(), ppwzinvitation.toString()) as Int) else 0
+public actual fun peerGroupCreatePasswordInvitation(hgroup: COpaquePointer?, ppwzinvitation: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGroupCreatePasswordInvitation((hgroup?.value ?: 0L).toString(), (ppwzinvitation?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGroupDelete(pwzidentity: PCWSTR, pwzgrouppeername: PCWSTR): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGroupDelete(pwzidentity.toString(), pwzgrouppeername.toString()) as Int) else 0
+public actual fun peerGroupDelete(pwzidentity: Pcwstr, pwzgrouppeername: Pcwstr): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGroupDelete((pwzidentity?.value ?: 0L).toString(), (pwzgrouppeername?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGroupDeleteRecord(hgroup: Long, precordid: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGroupDeleteRecord(hgroup.toString(), precordid.toString()) as Int) else 0
+public actual fun peerGroupDeleteRecord(hgroup: COpaquePointer?, precordid: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGroupDeleteRecord((hgroup?.value ?: 0L).toString(), (precordid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGroupEnumConnections(hgroup: Long, dwflags: UInt, phpeerenum: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGroupEnumConnections(hgroup.toString(), dwflags.toInt(), phpeerenum.toString()) as Int) else 0
+public actual fun peerGroupEnumConnections(hgroup: COpaquePointer?, dwflags: UInt, phpeerenum: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGroupEnumConnections((hgroup?.value ?: 0L).toString(), dwflags.toInt(), (phpeerenum?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGroupEnumMembers(hgroup: Long, dwflags: UInt, pwzidentity: PCWSTR, phpeerenum: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGroupEnumMembers(hgroup.toString(), dwflags.toInt(), pwzidentity.toString(), phpeerenum.toString()) as Int) else 0
+public actual fun peerGroupEnumMembers(hgroup: COpaquePointer?, dwflags: UInt, pwzidentity: Pcwstr, phpeerenum: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGroupEnumMembers((hgroup?.value ?: 0L).toString(), dwflags.toInt(), (pwzidentity?.value ?: 0L).toString(), (phpeerenum?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGroupEnumRecords(hgroup: Long, precordtype: Long, phpeerenum: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGroupEnumRecords(hgroup.toString(), precordtype.toString(), phpeerenum.toString()) as Int) else 0
+public actual fun peerGroupEnumRecords(hgroup: COpaquePointer?, precordtype: COpaquePointer?, phpeerenum: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGroupEnumRecords((hgroup?.value ?: 0L).toString(), (precordtype?.value ?: 0L).toString(), (phpeerenum?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGroupExportConfig(hgroup: Long, pwzpassword: PCWSTR, ppwzxml: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGroupExportConfig(hgroup.toString(), pwzpassword.toString(), ppwzxml.toString()) as Int) else 0
+public actual fun peerGroupExportConfig(hgroup: COpaquePointer?, pwzpassword: Pcwstr, ppwzxml: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGroupExportConfig((hgroup?.value ?: 0L).toString(), (pwzpassword?.value ?: 0L).toString(), (ppwzxml?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGroupExportDatabase(hgroup: Long, pwzfilepath: PCWSTR): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGroupExportDatabase(hgroup.toString(), pwzfilepath.toString()) as Int) else 0
+public actual fun peerGroupExportDatabase(hgroup: COpaquePointer?, pwzfilepath: Pcwstr): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGroupExportDatabase((hgroup?.value ?: 0L).toString(), (pwzfilepath?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGroupGetEventData(hpeerevent: Long, ppeventdata: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGroupGetEventData(hpeerevent.toString(), ppeventdata.toString()) as Int) else 0
+public actual fun peerGroupGetEventData(hpeerevent: COpaquePointer?, ppeventdata: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGroupGetEventData((hpeerevent?.value ?: 0L).toString(), (ppeventdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGroupGetProperties(hgroup: Long, ppproperties: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGroupGetProperties(hgroup.toString(), ppproperties.toString()) as Int) else 0
+public actual fun peerGroupGetProperties(hgroup: COpaquePointer?, ppproperties: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGroupGetProperties((hgroup?.value ?: 0L).toString(), (ppproperties?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGroupGetRecord(hgroup: Long, precordid: Long, pprecord: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGroupGetRecord(hgroup.toString(), precordid.toString(), pprecord.toString()) as Int) else 0
+public actual fun peerGroupGetRecord(hgroup: COpaquePointer?, precordid: COpaquePointer?, pprecord: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGroupGetRecord((hgroup?.value ?: 0L).toString(), (precordid?.value ?: 0L).toString(), (pprecord?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGroupGetStatus(hgroup: Long, pdwstatus: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGroupGetStatus(hgroup.toString(), pdwstatus.toString()) as Int) else 0
+public actual fun peerGroupGetStatus(hgroup: COpaquePointer?, pdwstatus: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGroupGetStatus((hgroup?.value ?: 0L).toString(), (pdwstatus?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGroupImportConfig(pwzxml: PCWSTR, pwzpassword: PCWSTR, foverwrite: BOOL, ppwzidentity: Long, ppwzgroup: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGroupImportConfig(pwzxml.toString(), pwzpassword.toString(), foverwrite, ppwzidentity.toString(), ppwzgroup.toString()) as Int) else 0
+public actual fun peerGroupImportConfig(pwzxml: Pcwstr, pwzpassword: Pcwstr, foverwrite: Bool, ppwzidentity: COpaquePointer?, ppwzgroup: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGroupImportConfig((pwzxml?.value ?: 0L).toString(), (pwzpassword?.value ?: 0L).toString(), foverwrite, (ppwzidentity?.value ?: 0L).toString(), (ppwzgroup?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGroupImportDatabase(hgroup: Long, pwzfilepath: PCWSTR): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGroupImportDatabase(hgroup.toString(), pwzfilepath.toString()) as Int) else 0
+public actual fun peerGroupImportDatabase(hgroup: COpaquePointer?, pwzfilepath: Pcwstr): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGroupImportDatabase((hgroup?.value ?: 0L).toString(), (pwzfilepath?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGroupIssueCredentials(hgroup: Long, pwzsubjectidentity: PCWSTR, pcredentialinfo: Long, dwflags: UInt, ppwzinvitation: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGroupIssueCredentials(hgroup.toString(), pwzsubjectidentity.toString(), pcredentialinfo.toString(), dwflags.toInt(), ppwzinvitation.toString()) as Int) else 0
+public actual fun peerGroupIssueCredentials(hgroup: COpaquePointer?, pwzsubjectidentity: Pcwstr, pcredentialinfo: COpaquePointer?, dwflags: UInt, ppwzinvitation: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGroupIssueCredentials((hgroup?.value ?: 0L).toString(), (pwzsubjectidentity?.value ?: 0L).toString(), (pcredentialinfo?.value ?: 0L).toString(), dwflags.toInt(), (ppwzinvitation?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGroupJoin(pwzidentity: PCWSTR, pwzinvitation: PCWSTR, pwzcloud: PCWSTR, phgroup: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGroupJoin(pwzidentity.toString(), pwzinvitation.toString(), pwzcloud.toString(), phgroup.toString()) as Int) else 0
+public actual fun peerGroupJoin(pwzidentity: Pcwstr, pwzinvitation: Pcwstr, pwzcloud: Pcwstr, phgroup: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGroupJoin((pwzidentity?.value ?: 0L).toString(), (pwzinvitation?.value ?: 0L).toString(), (pwzcloud?.value ?: 0L).toString(), (phgroup?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGroupOpen(pwzidentity: PCWSTR, pwzgrouppeername: PCWSTR, pwzcloud: PCWSTR, phgroup: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGroupOpen(pwzidentity.toString(), pwzgrouppeername.toString(), pwzcloud.toString(), phgroup.toString()) as Int) else 0
+public actual fun peerGroupOpen(pwzidentity: Pcwstr, pwzgrouppeername: Pcwstr, pwzcloud: Pcwstr, phgroup: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGroupOpen((pwzidentity?.value ?: 0L).toString(), (pwzgrouppeername?.value ?: 0L).toString(), (pwzcloud?.value ?: 0L).toString(), (phgroup?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGroupOpenDirectConnection(hgroup: Long, pwzidentity: PCWSTR, paddress: Long, pullconnectionid: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGroupOpenDirectConnection(hgroup.toString(), pwzidentity.toString(), paddress.toString(), pullconnectionid.toString()) as Int) else 0
+public actual fun peerGroupOpenDirectConnection(hgroup: COpaquePointer?, pwzidentity: Pcwstr, paddress: COpaquePointer?, pullconnectionid: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGroupOpenDirectConnection((hgroup?.value ?: 0L).toString(), (pwzidentity?.value ?: 0L).toString(), (paddress?.value ?: 0L).toString(), (pullconnectionid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGroupParseInvitation(pwzinvitation: PCWSTR, ppinvitationinfo: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGroupParseInvitation(pwzinvitation.toString(), ppinvitationinfo.toString()) as Int) else 0
+public actual fun peerGroupParseInvitation(pwzinvitation: Pcwstr, ppinvitationinfo: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGroupParseInvitation((pwzinvitation?.value ?: 0L).toString(), (ppinvitationinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGroupPasswordJoin(pwzidentity: PCWSTR, pwzinvitation: PCWSTR, pwzpassword: PCWSTR, pwzcloud: PCWSTR, phgroup: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGroupPasswordJoin(pwzidentity.toString(), pwzinvitation.toString(), pwzpassword.toString(), pwzcloud.toString(), phgroup.toString()) as Int) else 0
+public actual fun peerGroupPasswordJoin(pwzidentity: Pcwstr, pwzinvitation: Pcwstr, pwzpassword: Pcwstr, pwzcloud: Pcwstr, phgroup: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGroupPasswordJoin((pwzidentity?.value ?: 0L).toString(), (pwzinvitation?.value ?: 0L).toString(), (pwzpassword?.value ?: 0L).toString(), (pwzcloud?.value ?: 0L).toString(), (phgroup?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGroupPeerTimeToUniversalTime(hgroup: Long, pftpeertime: Long, pftuniversaltime: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGroupPeerTimeToUniversalTime(hgroup.toString(), pftpeertime.toString(), pftuniversaltime.toString()) as Int) else 0
+public actual fun peerGroupPeerTimeToUniversalTime(hgroup: COpaquePointer?, pftpeertime: COpaquePointer?, pftuniversaltime: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGroupPeerTimeToUniversalTime((hgroup?.value ?: 0L).toString(), (pftpeertime?.value ?: 0L).toString(), (pftuniversaltime?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGroupRegisterEvent(hgroup: Long, hevent: HANDLE, ceventregistration: UInt, peventregistrations: Long, phpeerevent: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGroupRegisterEvent(hgroup.toString(), hevent.toString(), ceventregistration.toInt(), peventregistrations.toString(), phpeerevent.toString()) as Int) else 0
+public actual fun peerGroupRegisterEvent(hgroup: COpaquePointer?, hevent: Handle, ceventregistration: UInt, peventregistrations: COpaquePointer?, phpeerevent: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGroupRegisterEvent((hgroup?.value ?: 0L).toString(), (hevent?.value ?: 0L).toString(), ceventregistration.toInt(), (peventregistrations?.value ?: 0L).toString(), (phpeerevent?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGroupResumePasswordAuthentication(hgroup: Long, hpeereventhandle: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGroupResumePasswordAuthentication(hgroup.toString(), hpeereventhandle.toString()) as Int) else 0
+public actual fun peerGroupResumePasswordAuthentication(hgroup: COpaquePointer?, hpeereventhandle: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGroupResumePasswordAuthentication((hgroup?.value ?: 0L).toString(), (hpeereventhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGroupSearchRecords(hgroup: Long, pwzcriteria: PCWSTR, phpeerenum: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGroupSearchRecords(hgroup.toString(), pwzcriteria.toString(), phpeerenum.toString()) as Int) else 0
+public actual fun peerGroupSearchRecords(hgroup: COpaquePointer?, pwzcriteria: Pcwstr, phpeerenum: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGroupSearchRecords((hgroup?.value ?: 0L).toString(), (pwzcriteria?.value ?: 0L).toString(), (phpeerenum?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGroupSendData(hgroup: Long, ullconnectionid: ULong, ptype: Long, cbdata: UInt, pvdata: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGroupSendData(hgroup.toString(), ullconnectionid.toString(), ptype.toString(), cbdata.toInt(), pvdata.toString()) as Int) else 0
+public actual fun peerGroupSendData(hgroup: COpaquePointer?, ullconnectionid: ULong, ptype: COpaquePointer?, cbdata: UInt, pvdata: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGroupSendData((hgroup?.value ?: 0L).toString(), ullconnectionid.toString(), (ptype?.value ?: 0L).toString(), cbdata.toInt(), (pvdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGroupSetProperties(hgroup: Long, pproperties: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGroupSetProperties(hgroup.toString(), pproperties.toString()) as Int) else 0
+public actual fun peerGroupSetProperties(hgroup: COpaquePointer?, pproperties: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGroupSetProperties((hgroup?.value ?: 0L).toString(), (pproperties?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGroupShutdown(): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGroupShutdown() as Int) else 0
+public actual fun peerGroupShutdown(): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGroupShutdown() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGroupStartup(wversionrequested: UShort, pversiondata: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGroupStartup(wversionrequested.toInt(), pversiondata.toString()) as Int) else 0
+public actual fun peerGroupStartup(wversionrequested: UShort, pversiondata: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGroupStartup(wversionrequested.toInt(), (pversiondata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGroupUniversalTimeToPeerTime(hgroup: Long, pftuniversaltime: Long, pftpeertime: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGroupUniversalTimeToPeerTime(hgroup.toString(), pftuniversaltime.toString(), pftpeertime.toString()) as Int) else 0
+public actual fun peerGroupUniversalTimeToPeerTime(hgroup: COpaquePointer?, pftuniversaltime: COpaquePointer?, pftpeertime: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGroupUniversalTimeToPeerTime((hgroup?.value ?: 0L).toString(), (pftuniversaltime?.value ?: 0L).toString(), (pftpeertime?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGroupUnregisterEvent(hpeerevent: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGroupUnregisterEvent(hpeerevent.toString()) as Int) else 0
+public actual fun peerGroupUnregisterEvent(hpeerevent: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGroupUnregisterEvent((hpeerevent?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerGroupUpdateRecord(hgroup: Long, precord: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerGroupUpdateRecord(hgroup.toString(), precord.toString()) as Int) else 0
+public actual fun peerGroupUpdateRecord(hgroup: COpaquePointer?, precord: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerGroupUpdateRecord((hgroup?.value ?: 0L).toString(), (precord?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerHostNameToPeerName(pwzhostname: PCWSTR, ppwzpeername: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerHostNameToPeerName(pwzhostname.toString(), ppwzpeername.toString()) as Int) else 0
+public actual fun peerHostNameToPeerName(pwzhostname: Pcwstr, ppwzpeername: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerHostNameToPeerName((pwzhostname?.value ?: 0L).toString(), (ppwzpeername?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerIdentityCreate(pwzclassifier: PCWSTR, pwzfriendlyname: PCWSTR, hcryptprov: ULong, ppwzidentity: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerIdentityCreate(pwzclassifier.toString(), pwzfriendlyname.toString(), hcryptprov.toString(), ppwzidentity.toString()) as Int) else 0
+public actual fun peerIdentityCreate(pwzclassifier: Pcwstr, pwzfriendlyname: Pcwstr, hcryptprov: ULong, ppwzidentity: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerIdentityCreate((pwzclassifier?.value ?: 0L).toString(), (pwzfriendlyname?.value ?: 0L).toString(), hcryptprov.toString(), (ppwzidentity?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerIdentityDelete(pwzidentity: PCWSTR): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerIdentityDelete(pwzidentity.toString()) as Int) else 0
+public actual fun peerIdentityDelete(pwzidentity: Pcwstr): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerIdentityDelete((pwzidentity?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerIdentityExport(pwzidentity: PCWSTR, pwzpassword: PCWSTR, ppwzexportxml: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerIdentityExport(pwzidentity.toString(), pwzpassword.toString(), ppwzexportxml.toString()) as Int) else 0
+public actual fun peerIdentityExport(pwzidentity: Pcwstr, pwzpassword: Pcwstr, ppwzexportxml: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerIdentityExport((pwzidentity?.value ?: 0L).toString(), (pwzpassword?.value ?: 0L).toString(), (ppwzexportxml?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerIdentityGetCryptKey(pwzidentity: PCWSTR, phcryptprov: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerIdentityGetCryptKey(pwzidentity.toString(), phcryptprov.toString()) as Int) else 0
+public actual fun peerIdentityGetCryptKey(pwzidentity: Pcwstr, phcryptprov: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerIdentityGetCryptKey((pwzidentity?.value ?: 0L).toString(), (phcryptprov?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerIdentityGetDefault(ppwzpeername: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerIdentityGetDefault(ppwzpeername.toString()) as Int) else 0
+public actual fun peerIdentityGetDefault(ppwzpeername: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerIdentityGetDefault((ppwzpeername?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerIdentityGetFriendlyName(pwzidentity: PCWSTR, ppwzfriendlyname: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerIdentityGetFriendlyName(pwzidentity.toString(), ppwzfriendlyname.toString()) as Int) else 0
+public actual fun peerIdentityGetFriendlyName(pwzidentity: Pcwstr, ppwzfriendlyname: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerIdentityGetFriendlyName((pwzidentity?.value ?: 0L).toString(), (ppwzfriendlyname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerIdentityGetXML(pwzidentity: PCWSTR, ppwzidentityxml: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerIdentityGetXML(pwzidentity.toString(), ppwzidentityxml.toString()) as Int) else 0
+public actual fun peerIdentityGetXML(pwzidentity: Pcwstr, ppwzidentityxml: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerIdentityGetXML((pwzidentity?.value ?: 0L).toString(), (ppwzidentityxml?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerIdentityImport(pwzimportxml: PCWSTR, pwzpassword: PCWSTR, ppwzidentity: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerIdentityImport(pwzimportxml.toString(), pwzpassword.toString(), ppwzidentity.toString()) as Int) else 0
+public actual fun peerIdentityImport(pwzimportxml: Pcwstr, pwzpassword: Pcwstr, ppwzidentity: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerIdentityImport((pwzimportxml?.value ?: 0L).toString(), (pwzpassword?.value ?: 0L).toString(), (ppwzidentity?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerIdentitySetFriendlyName(pwzidentity: PCWSTR, pwzfriendlyname: PCWSTR): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerIdentitySetFriendlyName(pwzidentity.toString(), pwzfriendlyname.toString()) as Int) else 0
+public actual fun peerIdentitySetFriendlyName(pwzidentity: Pcwstr, pwzfriendlyname: Pcwstr): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerIdentitySetFriendlyName((pwzidentity?.value ?: 0L).toString(), (pwzfriendlyname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerNameToPeerHostName(pwzpeername: PCWSTR, ppwzhostname: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerNameToPeerHostName(pwzpeername.toString(), ppwzhostname.toString()) as Int) else 0
+public actual fun peerNameToPeerHostName(pwzpeername: Pcwstr, ppwzhostname: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerNameToPeerHostName((pwzpeername?.value ?: 0L).toString(), (ppwzhostname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerPnrpEndResolve(hresolve: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerPnrpEndResolve(hresolve.toString()) as Int) else 0
+public actual fun peerPnrpEndResolve(hresolve: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerPnrpEndResolve((hresolve?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerPnrpGetCloudInfo(pcnumclouds: Long, ppcloudinfo: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerPnrpGetCloudInfo(pcnumclouds.toString(), ppcloudinfo.toString()) as Int) else 0
+public actual fun peerPnrpGetCloudInfo(pcnumclouds: COpaquePointer?, ppcloudinfo: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerPnrpGetCloudInfo((pcnumclouds?.value ?: 0L).toString(), (ppcloudinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerPnrpGetEndpoint(hresolve: Long, ppendpoint: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerPnrpGetEndpoint(hresolve.toString(), ppendpoint.toString()) as Int) else 0
+public actual fun peerPnrpGetEndpoint(hresolve: COpaquePointer?, ppendpoint: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerPnrpGetEndpoint((hresolve?.value ?: 0L).toString(), (ppendpoint?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerPnrpRegister(pcwzpeername: PCWSTR, pregistrationinfo: Long, phregistration: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerPnrpRegister(pcwzpeername.toString(), pregistrationinfo.toString(), phregistration.toString()) as Int) else 0
+public actual fun peerPnrpRegister(pcwzpeername: Pcwstr, pregistrationinfo: COpaquePointer?, phregistration: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerPnrpRegister((pcwzpeername?.value ?: 0L).toString(), (pregistrationinfo?.value ?: 0L).toString(), (phregistration?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerPnrpResolve(pcwzpeername: PCWSTR, pcwzcloudname: PCWSTR, pcendpoints: Long, ppendpoints: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerPnrpResolve(pcwzpeername.toString(), pcwzcloudname.toString(), pcendpoints.toString(), ppendpoints.toString()) as Int) else 0
+public actual fun peerPnrpResolve(pcwzpeername: Pcwstr, pcwzcloudname: Pcwstr, pcendpoints: COpaquePointer?, ppendpoints: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerPnrpResolve((pcwzpeername?.value ?: 0L).toString(), (pcwzcloudname?.value ?: 0L).toString(), (pcendpoints?.value ?: 0L).toString(), (ppendpoints?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerPnrpShutdown(): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerPnrpShutdown() as Int) else 0
+public actual fun peerPnrpShutdown(): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerPnrpShutdown() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerPnrpStartResolve(pcwzpeername: PCWSTR, pcwzcloudname: PCWSTR, cmaxendpoints: UInt, hevent: HANDLE, phresolve: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerPnrpStartResolve(pcwzpeername.toString(), pcwzcloudname.toString(), cmaxendpoints.toInt(), hevent.toString(), phresolve.toString()) as Int) else 0
+public actual fun peerPnrpStartResolve(pcwzpeername: Pcwstr, pcwzcloudname: Pcwstr, cmaxendpoints: UInt, hevent: Handle, phresolve: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerPnrpStartResolve((pcwzpeername?.value ?: 0L).toString(), (pcwzcloudname?.value ?: 0L).toString(), cmaxendpoints.toInt(), (hevent?.value ?: 0L).toString(), (phresolve?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerPnrpStartup(wversionrequested: UShort): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerPnrpStartup(wversionrequested.toInt()) as Int) else 0
+public actual fun peerPnrpStartup(wversionrequested: UShort): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerPnrpStartup(wversionrequested.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerPnrpUnregister(hregistration: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerPnrpUnregister(hregistration.toString()) as Int) else 0
+public actual fun peerPnrpUnregister(hregistration: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerPnrpUnregister((hregistration?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeerPnrpUpdateRegistration(hregistration: Long, pregistrationinfo: Long): HRESULT =
-    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_PeerPnrpUpdateRegistration(hregistration.toString(), pregistrationinfo.toString()) as Int) else 0
+public actual fun peerPnrpUpdateRegistration(hregistration: COpaquePointer?, pregistrationinfo: COpaquePointer?): Hresult =
+    if (_windowsWin32NetworkmanagementP2pNapiAddon != null) (_windowsWin32NetworkmanagementP2pNapiAddon.windowssys_windows_win32_networkmanagement_p2p_peerPnrpUpdateRegistration((hregistration?.value ?: 0L).toString(), (pregistrationinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

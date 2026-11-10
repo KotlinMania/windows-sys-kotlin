@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_security_credentials_CredDeleteA(void* targetname, uint32_t type, uint32_t flags) {
+int32_t windowssys_windows_win32_security_credentials_credDeleteA(void* targetname, uint32_t type, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -39,7 +39,7 @@ int32_t windowssys_windows_win32_security_credentials_CredDeleteA(void* targetna
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_CredDeleteW(void* targetname, uint32_t type, uint32_t flags) {
+int32_t windowssys_windows_win32_security_credentials_credDeleteW(void* targetname, uint32_t type, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -63,7 +63,7 @@ int32_t windowssys_windows_win32_security_credentials_CredDeleteW(void* targetna
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_CredEnumerateA(void* filter, uint32_t flags, void* count, void* credential) {
+int32_t windowssys_windows_win32_security_credentials_credEnumerateA(void* filter, uint32_t flags, void* count, void* credential) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -88,7 +88,7 @@ int32_t windowssys_windows_win32_security_credentials_CredEnumerateA(void* filte
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_CredEnumerateW(void* filter, uint32_t flags, void* count, void* credential) {
+int32_t windowssys_windows_win32_security_credentials_credEnumerateW(void* filter, uint32_t flags, void* count, void* credential) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -113,7 +113,7 @@ int32_t windowssys_windows_win32_security_credentials_CredEnumerateW(void* filte
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_CredFindBestCredentialA(void* targetname, uint32_t type, uint32_t flags, void* credential) {
+int32_t windowssys_windows_win32_security_credentials_credFindBestCredentialA(void* targetname, uint32_t type, uint32_t flags, void* credential) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -138,7 +138,7 @@ int32_t windowssys_windows_win32_security_credentials_CredFindBestCredentialA(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_CredFindBestCredentialW(void* targetname, uint32_t type, uint32_t flags, void* credential) {
+int32_t windowssys_windows_win32_security_credentials_credFindBestCredentialW(void* targetname, uint32_t type, uint32_t flags, void* credential) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -163,7 +163,7 @@ int32_t windowssys_windows_win32_security_credentials_CredFindBestCredentialW(vo
 #endif
 }
 
-void windowssys_windows_win32_security_credentials_CredFree(void* buffer) {
+void windowssys_windows_win32_security_credentials_credFree(void* buffer) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -184,7 +184,7 @@ void windowssys_windows_win32_security_credentials_CredFree(void* buffer) {
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_CredGetSessionTypes(uint32_t maximumpersistcount, void* maximumpersist) {
+int32_t windowssys_windows_win32_security_credentials_credGetSessionTypes(uint32_t maximumpersistcount, void* maximumpersist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -207,7 +207,7 @@ int32_t windowssys_windows_win32_security_credentials_CredGetSessionTypes(uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_CredGetTargetInfoA(void* targetname, uint32_t flags, void* targetinfo) {
+int32_t windowssys_windows_win32_security_credentials_credGetTargetInfoA(void* targetname, uint32_t flags, void* targetinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -231,7 +231,7 @@ int32_t windowssys_windows_win32_security_credentials_CredGetTargetInfoA(void* t
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_CredGetTargetInfoW(void* targetname, uint32_t flags, void* targetinfo) {
+int32_t windowssys_windows_win32_security_credentials_credGetTargetInfoW(void* targetname, uint32_t flags, void* targetinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -255,7 +255,7 @@ int32_t windowssys_windows_win32_security_credentials_CredGetTargetInfoW(void* t
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_CredIsMarshaledCredentialA(void* marshaledcredential) {
+int32_t windowssys_windows_win32_security_credentials_credIsMarshaledCredentialA(void* marshaledcredential) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -277,7 +277,7 @@ int32_t windowssys_windows_win32_security_credentials_CredIsMarshaledCredentialA
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_CredIsMarshaledCredentialW(void* marshaledcredential) {
+int32_t windowssys_windows_win32_security_credentials_credIsMarshaledCredentialW(void* marshaledcredential) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -299,7 +299,7 @@ int32_t windowssys_windows_win32_security_credentials_CredIsMarshaledCredentialW
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_CredIsProtectedA(void* pszprotectedcredentials, void* pprotectiontype) {
+int32_t windowssys_windows_win32_security_credentials_credIsProtectedA(void* pszprotectedcredentials, void* pprotectiontype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -322,7 +322,7 @@ int32_t windowssys_windows_win32_security_credentials_CredIsProtectedA(void* psz
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_CredIsProtectedW(void* pszprotectedcredentials, void* pprotectiontype) {
+int32_t windowssys_windows_win32_security_credentials_credIsProtectedW(void* pszprotectedcredentials, void* pprotectiontype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -345,7 +345,7 @@ int32_t windowssys_windows_win32_security_credentials_CredIsProtectedW(void* psz
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_CredMarshalCredentialA(int32_t credtype, void* credential, void* marshaledcredential) {
+int32_t windowssys_windows_win32_security_credentials_credMarshalCredentialA(int32_t credtype, void* credential, void* marshaledcredential) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -369,7 +369,7 @@ int32_t windowssys_windows_win32_security_credentials_CredMarshalCredentialA(int
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_CredMarshalCredentialW(int32_t credtype, void* credential, void* marshaledcredential) {
+int32_t windowssys_windows_win32_security_credentials_credMarshalCredentialW(int32_t credtype, void* credential, void* marshaledcredential) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -393,7 +393,7 @@ int32_t windowssys_windows_win32_security_credentials_CredMarshalCredentialW(int
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_CredPackAuthenticationBufferA(uint32_t dwflags, void* pszusername, void* pszpassword, void* ppackedcredentials, void* pcbpackedcredentials) {
+int32_t windowssys_windows_win32_security_credentials_credPackAuthenticationBufferA(uint32_t dwflags, void* pszusername, void* pszpassword, void* ppackedcredentials, void* pcbpackedcredentials) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -419,7 +419,7 @@ int32_t windowssys_windows_win32_security_credentials_CredPackAuthenticationBuff
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_CredPackAuthenticationBufferW(uint32_t dwflags, void* pszusername, void* pszpassword, void* ppackedcredentials, void* pcbpackedcredentials) {
+int32_t windowssys_windows_win32_security_credentials_credPackAuthenticationBufferW(uint32_t dwflags, void* pszusername, void* pszpassword, void* ppackedcredentials, void* pcbpackedcredentials) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -445,7 +445,7 @@ int32_t windowssys_windows_win32_security_credentials_CredPackAuthenticationBuff
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_CredProtectA(int32_t fasself, void* pszcredentials, uint32_t cchcredentials, void* pszprotectedcredentials, void* pcchmaxchars, void* protectiontype) {
+int32_t windowssys_windows_win32_security_credentials_credProtectA(int32_t fasself, void* pszcredentials, uint32_t cchcredentials, void* pszprotectedcredentials, void* pcchmaxchars, void* protectiontype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -472,7 +472,7 @@ int32_t windowssys_windows_win32_security_credentials_CredProtectA(int32_t fasse
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_CredProtectW(int32_t fasself, void* pszcredentials, uint32_t cchcredentials, void* pszprotectedcredentials, void* pcchmaxchars, void* protectiontype) {
+int32_t windowssys_windows_win32_security_credentials_credProtectW(int32_t fasself, void* pszcredentials, uint32_t cchcredentials, void* pszprotectedcredentials, void* pcchmaxchars, void* protectiontype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -499,7 +499,7 @@ int32_t windowssys_windows_win32_security_credentials_CredProtectW(int32_t fasse
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_CredReadA(void* targetname, uint32_t type, uint32_t flags, void* credential) {
+int32_t windowssys_windows_win32_security_credentials_credReadA(void* targetname, uint32_t type, uint32_t flags, void* credential) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -524,7 +524,7 @@ int32_t windowssys_windows_win32_security_credentials_CredReadA(void* targetname
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_CredReadDomainCredentialsA(void* targetinfo, uint32_t flags, void* count, void* credential) {
+int32_t windowssys_windows_win32_security_credentials_credReadDomainCredentialsA(void* targetinfo, uint32_t flags, void* count, void* credential) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -549,7 +549,7 @@ int32_t windowssys_windows_win32_security_credentials_CredReadDomainCredentialsA
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_CredReadDomainCredentialsW(void* targetinfo, uint32_t flags, void* count, void* credential) {
+int32_t windowssys_windows_win32_security_credentials_credReadDomainCredentialsW(void* targetinfo, uint32_t flags, void* count, void* credential) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -574,7 +574,7 @@ int32_t windowssys_windows_win32_security_credentials_CredReadDomainCredentialsW
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_CredReadW(void* targetname, uint32_t type, uint32_t flags, void* credential) {
+int32_t windowssys_windows_win32_security_credentials_credReadW(void* targetname, uint32_t type, uint32_t flags, void* credential) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -599,7 +599,7 @@ int32_t windowssys_windows_win32_security_credentials_CredReadW(void* targetname
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_CredRenameA(void* oldtargetname, void* newtargetname, uint32_t type, uint32_t flags) {
+int32_t windowssys_windows_win32_security_credentials_credRenameA(void* oldtargetname, void* newtargetname, uint32_t type, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -624,7 +624,7 @@ int32_t windowssys_windows_win32_security_credentials_CredRenameA(void* oldtarge
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_CredRenameW(void* oldtargetname, void* newtargetname, uint32_t type, uint32_t flags) {
+int32_t windowssys_windows_win32_security_credentials_credRenameW(void* oldtargetname, void* newtargetname, uint32_t type, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -649,7 +649,7 @@ int32_t windowssys_windows_win32_security_credentials_CredRenameW(void* oldtarge
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_credentials_CredUICmdLinePromptForCredentialsA(void* psztargetname, void* pcontext, uint32_t dwautherror, void* username, uint32_t uluserbuffersize, void* pszpassword, uint32_t ulpasswordbuffersize, void* pfsave, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_security_credentials_credUICmdLinePromptForCredentialsA(void* psztargetname, void* pcontext, uint32_t dwautherror, void* username, uint32_t uluserbuffersize, void* pszpassword, uint32_t ulpasswordbuffersize, void* pfsave, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -679,7 +679,7 @@ uint32_t windowssys_windows_win32_security_credentials_CredUICmdLinePromptForCre
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_credentials_CredUICmdLinePromptForCredentialsW(void* psztargetname, void* pcontext, uint32_t dwautherror, void* username, uint32_t uluserbuffersize, void* pszpassword, uint32_t ulpasswordbuffersize, void* pfsave, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_security_credentials_credUICmdLinePromptForCredentialsW(void* psztargetname, void* pcontext, uint32_t dwautherror, void* username, uint32_t uluserbuffersize, void* pszpassword, uint32_t ulpasswordbuffersize, void* pfsave, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -709,7 +709,7 @@ uint32_t windowssys_windows_win32_security_credentials_CredUICmdLinePromptForCre
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_credentials_CredUIConfirmCredentialsA(void* psztargetname, int32_t bconfirm) {
+uint32_t windowssys_windows_win32_security_credentials_credUIConfirmCredentialsA(void* psztargetname, int32_t bconfirm) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -732,7 +732,7 @@ uint32_t windowssys_windows_win32_security_credentials_CredUIConfirmCredentialsA
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_credentials_CredUIConfirmCredentialsW(void* psztargetname, int32_t bconfirm) {
+uint32_t windowssys_windows_win32_security_credentials_credUIConfirmCredentialsW(void* psztargetname, int32_t bconfirm) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -755,7 +755,7 @@ uint32_t windowssys_windows_win32_security_credentials_CredUIConfirmCredentialsW
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_credentials_CredUIParseUserNameA(void* username, void* user, uint32_t userbuffersize, void* domain, uint32_t domainbuffersize) {
+uint32_t windowssys_windows_win32_security_credentials_credUIParseUserNameA(void* username, void* user, uint32_t userbuffersize, void* domain, uint32_t domainbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -781,7 +781,7 @@ uint32_t windowssys_windows_win32_security_credentials_CredUIParseUserNameA(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_credentials_CredUIParseUserNameW(void* username, void* user, uint32_t userbuffersize, void* domain, uint32_t domainbuffersize) {
+uint32_t windowssys_windows_win32_security_credentials_credUIParseUserNameW(void* username, void* user, uint32_t userbuffersize, void* domain, uint32_t domainbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -807,7 +807,7 @@ uint32_t windowssys_windows_win32_security_credentials_CredUIParseUserNameW(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_credentials_CredUIPromptForCredentialsA(void* puiinfo, void* psztargetname, void* pcontext, uint32_t dwautherror, void* pszusername, uint32_t ulusernamebuffersize, void* pszpassword, uint32_t ulpasswordbuffersize, void* save, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_security_credentials_credUIPromptForCredentialsA(void* puiinfo, void* psztargetname, void* pcontext, uint32_t dwautherror, void* pszusername, uint32_t ulusernamebuffersize, void* pszpassword, uint32_t ulpasswordbuffersize, void* save, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -838,7 +838,7 @@ uint32_t windowssys_windows_win32_security_credentials_CredUIPromptForCredential
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_credentials_CredUIPromptForCredentialsW(void* puiinfo, void* psztargetname, void* pcontext, uint32_t dwautherror, void* pszusername, uint32_t ulusernamebuffersize, void* pszpassword, uint32_t ulpasswordbuffersize, void* save, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_security_credentials_credUIPromptForCredentialsW(void* puiinfo, void* psztargetname, void* pcontext, uint32_t dwautherror, void* pszusername, uint32_t ulusernamebuffersize, void* pszpassword, uint32_t ulpasswordbuffersize, void* save, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -869,7 +869,7 @@ uint32_t windowssys_windows_win32_security_credentials_CredUIPromptForCredential
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_credentials_CredUIPromptForWindowsCredentialsA(void* puiinfo, uint32_t dwautherror, void* pulauthpackage, void* pvinauthbuffer, uint32_t ulinauthbuffersize, void* ppvoutauthbuffer, void* puloutauthbuffersize, void* pfsave, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_security_credentials_credUIPromptForWindowsCredentialsA(void* puiinfo, uint32_t dwautherror, void* pulauthpackage, void* pvinauthbuffer, uint32_t ulinauthbuffersize, void* ppvoutauthbuffer, void* puloutauthbuffersize, void* pfsave, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -899,7 +899,7 @@ uint32_t windowssys_windows_win32_security_credentials_CredUIPromptForWindowsCre
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_credentials_CredUIPromptForWindowsCredentialsW(void* puiinfo, uint32_t dwautherror, void* pulauthpackage, void* pvinauthbuffer, uint32_t ulinauthbuffersize, void* ppvoutauthbuffer, void* puloutauthbuffersize, void* pfsave, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_security_credentials_credUIPromptForWindowsCredentialsW(void* puiinfo, uint32_t dwautherror, void* pulauthpackage, void* pvinauthbuffer, uint32_t ulinauthbuffersize, void* ppvoutauthbuffer, void* puloutauthbuffersize, void* pfsave, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -929,7 +929,7 @@ uint32_t windowssys_windows_win32_security_credentials_CredUIPromptForWindowsCre
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_credentials_CredUIReadSSOCredW(void* pszrealm, void* ppszusername) {
+uint32_t windowssys_windows_win32_security_credentials_credUIReadSSOCredW(void* pszrealm, void* ppszusername) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -952,7 +952,7 @@ uint32_t windowssys_windows_win32_security_credentials_CredUIReadSSOCredW(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_credentials_CredUIStoreSSOCredW(void* pszrealm, void* pszusername, void* pszpassword, int32_t bpersist) {
+uint32_t windowssys_windows_win32_security_credentials_credUIStoreSSOCredW(void* pszrealm, void* pszusername, void* pszpassword, int32_t bpersist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -977,7 +977,7 @@ uint32_t windowssys_windows_win32_security_credentials_CredUIStoreSSOCredW(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_CredUnPackAuthenticationBufferA(uint32_t dwflags, void* pauthbuffer, uint32_t cbauthbuffer, void* pszusername, void* pcchlmaxusername, void* pszdomainname, void* pcchmaxdomainname, void* pszpassword, void* pcchmaxpassword) {
+int32_t windowssys_windows_win32_security_credentials_credUnPackAuthenticationBufferA(uint32_t dwflags, void* pauthbuffer, uint32_t cbauthbuffer, void* pszusername, void* pcchlmaxusername, void* pszdomainname, void* pcchmaxdomainname, void* pszpassword, void* pcchmaxpassword) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1007,7 +1007,7 @@ int32_t windowssys_windows_win32_security_credentials_CredUnPackAuthenticationBu
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_CredUnPackAuthenticationBufferW(uint32_t dwflags, void* pauthbuffer, uint32_t cbauthbuffer, void* pszusername, void* pcchmaxusername, void* pszdomainname, void* pcchmaxdomainname, void* pszpassword, void* pcchmaxpassword) {
+int32_t windowssys_windows_win32_security_credentials_credUnPackAuthenticationBufferW(uint32_t dwflags, void* pauthbuffer, uint32_t cbauthbuffer, void* pszusername, void* pcchmaxusername, void* pszdomainname, void* pcchmaxdomainname, void* pszpassword, void* pcchmaxpassword) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1037,7 +1037,7 @@ int32_t windowssys_windows_win32_security_credentials_CredUnPackAuthenticationBu
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_CredUnmarshalCredentialA(void* marshaledcredential, void* credtype, void* credential) {
+int32_t windowssys_windows_win32_security_credentials_credUnmarshalCredentialA(void* marshaledcredential, void* credtype, void* credential) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1061,7 +1061,7 @@ int32_t windowssys_windows_win32_security_credentials_CredUnmarshalCredentialA(v
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_CredUnmarshalCredentialW(void* marshaledcredential, void* credtype, void* credential) {
+int32_t windowssys_windows_win32_security_credentials_credUnmarshalCredentialW(void* marshaledcredential, void* credtype, void* credential) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1085,7 +1085,7 @@ int32_t windowssys_windows_win32_security_credentials_CredUnmarshalCredentialW(v
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_CredUnprotectA(int32_t fasself, void* pszprotectedcredentials, uint32_t cchprotectedcredentials, void* pszcredentials, void* pcchmaxchars) {
+int32_t windowssys_windows_win32_security_credentials_credUnprotectA(int32_t fasself, void* pszprotectedcredentials, uint32_t cchprotectedcredentials, void* pszcredentials, void* pcchmaxchars) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1111,7 +1111,7 @@ int32_t windowssys_windows_win32_security_credentials_CredUnprotectA(int32_t fas
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_CredUnprotectW(int32_t fasself, void* pszprotectedcredentials, uint32_t cchprotectedcredentials, void* pszcredentials, void* pcchmaxchars) {
+int32_t windowssys_windows_win32_security_credentials_credUnprotectW(int32_t fasself, void* pszprotectedcredentials, uint32_t cchprotectedcredentials, void* pszcredentials, void* pcchmaxchars) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1137,7 +1137,7 @@ int32_t windowssys_windows_win32_security_credentials_CredUnprotectW(int32_t fas
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_CredWriteA(void* credential, uint32_t flags) {
+int32_t windowssys_windows_win32_security_credentials_credWriteA(void* credential, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1160,7 +1160,7 @@ int32_t windowssys_windows_win32_security_credentials_CredWriteA(void* credentia
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_CredWriteDomainCredentialsA(void* targetinfo, void* credential, uint32_t flags) {
+int32_t windowssys_windows_win32_security_credentials_credWriteDomainCredentialsA(void* targetinfo, void* credential, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1184,7 +1184,7 @@ int32_t windowssys_windows_win32_security_credentials_CredWriteDomainCredentials
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_CredWriteDomainCredentialsW(void* targetinfo, void* credential, uint32_t flags) {
+int32_t windowssys_windows_win32_security_credentials_credWriteDomainCredentialsW(void* targetinfo, void* credential, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1208,7 +1208,7 @@ int32_t windowssys_windows_win32_security_credentials_CredWriteDomainCredentials
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_CredWriteW(void* credential, uint32_t flags) {
+int32_t windowssys_windows_win32_security_credentials_credWriteW(void* credential, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1231,7 +1231,7 @@ int32_t windowssys_windows_win32_security_credentials_CredWriteW(void* credentia
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_GetOpenCardNameA(void* param0) {
+int32_t windowssys_windows_win32_security_credentials_getOpenCardNameA(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1253,7 +1253,7 @@ int32_t windowssys_windows_win32_security_credentials_GetOpenCardNameA(void* par
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_GetOpenCardNameW(void* param0) {
+int32_t windowssys_windows_win32_security_credentials_getOpenCardNameW(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1275,7 +1275,7 @@ int32_t windowssys_windows_win32_security_credentials_GetOpenCardNameW(void* par
 #endif
 }
 
-void windowssys_windows_win32_security_credentials_KeyCredentialManagerFreeInformation(void* keycredentialmanagerinfo) {
+void windowssys_windows_win32_security_credentials_keyCredentialManagerFreeInformation(void* keycredentialmanagerinfo) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1296,7 +1296,7 @@ void windowssys_windows_win32_security_credentials_KeyCredentialManagerFreeInfor
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_KeyCredentialManagerGetInformation(void* keycredentialmanagerinfo) {
+int32_t windowssys_windows_win32_security_credentials_keyCredentialManagerGetInformation(void* keycredentialmanagerinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1318,7 +1318,7 @@ int32_t windowssys_windows_win32_security_credentials_KeyCredentialManagerGetInf
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_KeyCredentialManagerGetOperationErrorStates(int32_t keycredentialmanageroperationtype, void* isready, void* keycredentialmanageroperationerrorstates) {
+int32_t windowssys_windows_win32_security_credentials_keyCredentialManagerGetOperationErrorStates(int32_t keycredentialmanageroperationtype, void* isready, void* keycredentialmanageroperationerrorstates) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1342,7 +1342,7 @@ int32_t windowssys_windows_win32_security_credentials_KeyCredentialManagerGetOpe
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_KeyCredentialManagerShowUIOperation(void* hwndowner, int32_t keycredentialmanageroperationtype) {
+int32_t windowssys_windows_win32_security_credentials_keyCredentialManagerShowUIOperation(void* hwndowner, int32_t keycredentialmanageroperationtype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1365,7 +1365,7 @@ int32_t windowssys_windows_win32_security_credentials_KeyCredentialManagerShowUI
 #endif
 }
 
-void* windowssys_windows_win32_security_credentials_SCardAccessStartedEvent(void) {
+void* windowssys_windows_win32_security_credentials_sCardAccessStartedEvent(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1386,7 +1386,7 @@ void* windowssys_windows_win32_security_credentials_SCardAccessStartedEvent(void
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardAddReaderToGroupA(uint64_t hcontext, void* szreadername, void* szgroupname) {
+int32_t windowssys_windows_win32_security_credentials_sCardAddReaderToGroupA(uint64_t hcontext, void* szreadername, void* szgroupname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1410,7 +1410,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardAddReaderToGroupA(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardAddReaderToGroupW(uint64_t hcontext, void* szreadername, void* szgroupname) {
+int32_t windowssys_windows_win32_security_credentials_sCardAddReaderToGroupW(uint64_t hcontext, void* szreadername, void* szgroupname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1434,7 +1434,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardAddReaderToGroupW(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardAudit(uint64_t hcontext, uint32_t dwevent) {
+int32_t windowssys_windows_win32_security_credentials_sCardAudit(uint64_t hcontext, uint32_t dwevent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1457,7 +1457,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardAudit(uint64_t hconte
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardBeginTransaction(uint64_t hcard) {
+int32_t windowssys_windows_win32_security_credentials_sCardBeginTransaction(uint64_t hcard) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1479,7 +1479,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardBeginTransaction(uint
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardCancel(uint64_t hcontext) {
+int32_t windowssys_windows_win32_security_credentials_sCardCancel(uint64_t hcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1501,7 +1501,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardCancel(uint64_t hcont
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardConnectA(uint64_t hcontext, void* szreader, uint32_t dwsharemode, uint32_t dwpreferredprotocols, void* phcard, void* pdwactiveprotocol) {
+int32_t windowssys_windows_win32_security_credentials_sCardConnectA(uint64_t hcontext, void* szreader, uint32_t dwsharemode, uint32_t dwpreferredprotocols, void* phcard, void* pdwactiveprotocol) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1528,7 +1528,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardConnectA(uint64_t hco
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardConnectW(uint64_t hcontext, void* szreader, uint32_t dwsharemode, uint32_t dwpreferredprotocols, void* phcard, void* pdwactiveprotocol) {
+int32_t windowssys_windows_win32_security_credentials_sCardConnectW(uint64_t hcontext, void* szreader, uint32_t dwsharemode, uint32_t dwpreferredprotocols, void* phcard, void* pdwactiveprotocol) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1555,7 +1555,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardConnectW(uint64_t hco
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardControl(uint64_t hcard, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t cbinbuffersize, void* lpoutbuffer, uint32_t cboutbuffersize, void* lpbytesreturned) {
+int32_t windowssys_windows_win32_security_credentials_sCardControl(uint64_t hcard, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t cbinbuffersize, void* lpoutbuffer, uint32_t cboutbuffersize, void* lpbytesreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1583,7 +1583,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardControl(uint64_t hcar
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardDisconnect(uint64_t hcard, uint32_t dwdisposition) {
+int32_t windowssys_windows_win32_security_credentials_sCardDisconnect(uint64_t hcard, uint32_t dwdisposition) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1606,7 +1606,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardDisconnect(uint64_t h
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardDlgExtendedError(void) {
+int32_t windowssys_windows_win32_security_credentials_sCardDlgExtendedError(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1627,7 +1627,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardDlgExtendedError(void
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardEndTransaction(uint64_t hcard, uint32_t dwdisposition) {
+int32_t windowssys_windows_win32_security_credentials_sCardEndTransaction(uint64_t hcard, uint32_t dwdisposition) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1650,7 +1650,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardEndTransaction(uint64
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardEstablishContext(uint32_t dwscope, void* pvreserved1, void* pvreserved2, void* phcontext) {
+int32_t windowssys_windows_win32_security_credentials_sCardEstablishContext(uint32_t dwscope, void* pvreserved1, void* pvreserved2, void* phcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1675,7 +1675,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardEstablishContext(uint
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardForgetCardTypeA(uint64_t hcontext, void* szcardname) {
+int32_t windowssys_windows_win32_security_credentials_sCardForgetCardTypeA(uint64_t hcontext, void* szcardname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1698,7 +1698,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardForgetCardTypeA(uint6
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardForgetCardTypeW(uint64_t hcontext, void* szcardname) {
+int32_t windowssys_windows_win32_security_credentials_sCardForgetCardTypeW(uint64_t hcontext, void* szcardname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1721,7 +1721,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardForgetCardTypeW(uint6
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardForgetReaderA(uint64_t hcontext, void* szreadername) {
+int32_t windowssys_windows_win32_security_credentials_sCardForgetReaderA(uint64_t hcontext, void* szreadername) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1744,7 +1744,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardForgetReaderA(uint64_
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardForgetReaderGroupA(uint64_t hcontext, void* szgroupname) {
+int32_t windowssys_windows_win32_security_credentials_sCardForgetReaderGroupA(uint64_t hcontext, void* szgroupname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1767,7 +1767,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardForgetReaderGroupA(ui
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardForgetReaderGroupW(uint64_t hcontext, void* szgroupname) {
+int32_t windowssys_windows_win32_security_credentials_sCardForgetReaderGroupW(uint64_t hcontext, void* szgroupname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1790,7 +1790,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardForgetReaderGroupW(ui
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardForgetReaderW(uint64_t hcontext, void* szreadername) {
+int32_t windowssys_windows_win32_security_credentials_sCardForgetReaderW(uint64_t hcontext, void* szreadername) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1813,7 +1813,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardForgetReaderW(uint64_
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardFreeMemory(uint64_t hcontext, void* pvmem) {
+int32_t windowssys_windows_win32_security_credentials_sCardFreeMemory(uint64_t hcontext, void* pvmem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1836,7 +1836,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardFreeMemory(uint64_t h
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardGetAttrib(uint64_t hcard, uint32_t dwattrid, void* pbattr, void* pcbattrlen) {
+int32_t windowssys_windows_win32_security_credentials_sCardGetAttrib(uint64_t hcard, uint32_t dwattrid, void* pbattr, void* pcbattrlen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1861,7 +1861,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardGetAttrib(uint64_t hc
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardGetCardTypeProviderNameA(uint64_t hcontext, void* szcardname, uint32_t dwproviderid, void* szprovider, void* pcchprovider) {
+int32_t windowssys_windows_win32_security_credentials_sCardGetCardTypeProviderNameA(uint64_t hcontext, void* szcardname, uint32_t dwproviderid, void* szprovider, void* pcchprovider) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1887,7 +1887,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardGetCardTypeProviderNa
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardGetCardTypeProviderNameW(uint64_t hcontext, void* szcardname, uint32_t dwproviderid, void* szprovider, void* pcchprovider) {
+int32_t windowssys_windows_win32_security_credentials_sCardGetCardTypeProviderNameW(uint64_t hcontext, void* szcardname, uint32_t dwproviderid, void* szprovider, void* pcchprovider) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1913,7 +1913,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardGetCardTypeProviderNa
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardGetDeviceTypeIdA(uint64_t hcontext, void* szreadername, void* pdwdevicetypeid) {
+int32_t windowssys_windows_win32_security_credentials_sCardGetDeviceTypeIdA(uint64_t hcontext, void* szreadername, void* pdwdevicetypeid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1937,7 +1937,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardGetDeviceTypeIdA(uint
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardGetDeviceTypeIdW(uint64_t hcontext, void* szreadername, void* pdwdevicetypeid) {
+int32_t windowssys_windows_win32_security_credentials_sCardGetDeviceTypeIdW(uint64_t hcontext, void* szreadername, void* pdwdevicetypeid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1961,7 +1961,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardGetDeviceTypeIdW(uint
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardGetProviderIdA(uint64_t hcontext, void* szcard, void* pguidproviderid) {
+int32_t windowssys_windows_win32_security_credentials_sCardGetProviderIdA(uint64_t hcontext, void* szcard, void* pguidproviderid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1985,7 +1985,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardGetProviderIdA(uint64
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardGetProviderIdW(uint64_t hcontext, void* szcard, void* pguidproviderid) {
+int32_t windowssys_windows_win32_security_credentials_sCardGetProviderIdW(uint64_t hcontext, void* szcard, void* pguidproviderid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2009,7 +2009,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardGetProviderIdW(uint64
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardGetReaderDeviceInstanceIdA(uint64_t hcontext, void* szreadername, void* szdeviceinstanceid, void* pcchdeviceinstanceid) {
+int32_t windowssys_windows_win32_security_credentials_sCardGetReaderDeviceInstanceIdA(uint64_t hcontext, void* szreadername, void* szdeviceinstanceid, void* pcchdeviceinstanceid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2034,7 +2034,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardGetReaderDeviceInstan
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardGetReaderDeviceInstanceIdW(uint64_t hcontext, void* szreadername, void* szdeviceinstanceid, void* pcchdeviceinstanceid) {
+int32_t windowssys_windows_win32_security_credentials_sCardGetReaderDeviceInstanceIdW(uint64_t hcontext, void* szreadername, void* szdeviceinstanceid, void* pcchdeviceinstanceid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2059,7 +2059,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardGetReaderDeviceInstan
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardGetReaderIconA(uint64_t hcontext, void* szreadername, void* pbicon, void* pcbicon) {
+int32_t windowssys_windows_win32_security_credentials_sCardGetReaderIconA(uint64_t hcontext, void* szreadername, void* pbicon, void* pcbicon) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2084,7 +2084,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardGetReaderIconA(uint64
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardGetReaderIconW(uint64_t hcontext, void* szreadername, void* pbicon, void* pcbicon) {
+int32_t windowssys_windows_win32_security_credentials_sCardGetReaderIconW(uint64_t hcontext, void* szreadername, void* pbicon, void* pcbicon) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2109,7 +2109,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardGetReaderIconW(uint64
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardGetStatusChangeA(uint64_t hcontext, uint32_t dwtimeout, void* rgreaderstates, uint32_t creaders) {
+int32_t windowssys_windows_win32_security_credentials_sCardGetStatusChangeA(uint64_t hcontext, uint32_t dwtimeout, void* rgreaderstates, uint32_t creaders) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2134,7 +2134,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardGetStatusChangeA(uint
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardGetStatusChangeW(uint64_t hcontext, uint32_t dwtimeout, void* rgreaderstates, uint32_t creaders) {
+int32_t windowssys_windows_win32_security_credentials_sCardGetStatusChangeW(uint64_t hcontext, uint32_t dwtimeout, void* rgreaderstates, uint32_t creaders) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2159,7 +2159,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardGetStatusChangeW(uint
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardGetTransmitCount(uint64_t hcard, void* pctransmitcount) {
+int32_t windowssys_windows_win32_security_credentials_sCardGetTransmitCount(uint64_t hcard, void* pctransmitcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2182,7 +2182,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardGetTransmitCount(uint
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardIntroduceCardTypeA(uint64_t hcontext, void* szcardname, void* pguidprimaryprovider, void* rgguidinterfaces, uint32_t dwinterfacecount, void* pbatr, void* pbatrmask, uint32_t cbatrlen) {
+int32_t windowssys_windows_win32_security_credentials_sCardIntroduceCardTypeA(uint64_t hcontext, void* szcardname, void* pguidprimaryprovider, void* rgguidinterfaces, uint32_t dwinterfacecount, void* pbatr, void* pbatrmask, uint32_t cbatrlen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2211,7 +2211,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardIntroduceCardTypeA(ui
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardIntroduceCardTypeW(uint64_t hcontext, void* szcardname, void* pguidprimaryprovider, void* rgguidinterfaces, uint32_t dwinterfacecount, void* pbatr, void* pbatrmask, uint32_t cbatrlen) {
+int32_t windowssys_windows_win32_security_credentials_sCardIntroduceCardTypeW(uint64_t hcontext, void* szcardname, void* pguidprimaryprovider, void* rgguidinterfaces, uint32_t dwinterfacecount, void* pbatr, void* pbatrmask, uint32_t cbatrlen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2240,7 +2240,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardIntroduceCardTypeW(ui
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardIntroduceReaderA(uint64_t hcontext, void* szreadername, void* szdevicename) {
+int32_t windowssys_windows_win32_security_credentials_sCardIntroduceReaderA(uint64_t hcontext, void* szreadername, void* szdevicename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2264,7 +2264,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardIntroduceReaderA(uint
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardIntroduceReaderGroupA(uint64_t hcontext, void* szgroupname) {
+int32_t windowssys_windows_win32_security_credentials_sCardIntroduceReaderGroupA(uint64_t hcontext, void* szgroupname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2287,7 +2287,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardIntroduceReaderGroupA
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardIntroduceReaderGroupW(uint64_t hcontext, void* szgroupname) {
+int32_t windowssys_windows_win32_security_credentials_sCardIntroduceReaderGroupW(uint64_t hcontext, void* szgroupname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2310,7 +2310,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardIntroduceReaderGroupW
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardIntroduceReaderW(uint64_t hcontext, void* szreadername, void* szdevicename) {
+int32_t windowssys_windows_win32_security_credentials_sCardIntroduceReaderW(uint64_t hcontext, void* szreadername, void* szdevicename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2334,7 +2334,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardIntroduceReaderW(uint
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardIsValidContext(uint64_t hcontext) {
+int32_t windowssys_windows_win32_security_credentials_sCardIsValidContext(uint64_t hcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2356,7 +2356,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardIsValidContext(uint64
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardListCardsA(uint64_t hcontext, void* pbatr, void* rgquidinterfaces, uint32_t cguidinterfacecount, void* mszcards, void* pcchcards) {
+int32_t windowssys_windows_win32_security_credentials_sCardListCardsA(uint64_t hcontext, void* pbatr, void* rgquidinterfaces, uint32_t cguidinterfacecount, void* mszcards, void* pcchcards) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2383,7 +2383,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardListCardsA(uint64_t h
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardListCardsW(uint64_t hcontext, void* pbatr, void* rgquidinterfaces, uint32_t cguidinterfacecount, void* mszcards, void* pcchcards) {
+int32_t windowssys_windows_win32_security_credentials_sCardListCardsW(uint64_t hcontext, void* pbatr, void* rgquidinterfaces, uint32_t cguidinterfacecount, void* mszcards, void* pcchcards) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2410,7 +2410,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardListCardsW(uint64_t h
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardListInterfacesA(uint64_t hcontext, void* szcard, void* pguidinterfaces, void* pcguidinterfaces) {
+int32_t windowssys_windows_win32_security_credentials_sCardListInterfacesA(uint64_t hcontext, void* szcard, void* pguidinterfaces, void* pcguidinterfaces) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2435,7 +2435,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardListInterfacesA(uint6
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardListInterfacesW(uint64_t hcontext, void* szcard, void* pguidinterfaces, void* pcguidinterfaces) {
+int32_t windowssys_windows_win32_security_credentials_sCardListInterfacesW(uint64_t hcontext, void* szcard, void* pguidinterfaces, void* pcguidinterfaces) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2460,7 +2460,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardListInterfacesW(uint6
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardListReaderGroupsA(uint64_t hcontext, void* mszgroups, void* pcchgroups) {
+int32_t windowssys_windows_win32_security_credentials_sCardListReaderGroupsA(uint64_t hcontext, void* mszgroups, void* pcchgroups) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2484,7 +2484,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardListReaderGroupsA(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardListReaderGroupsW(uint64_t hcontext, void* mszgroups, void* pcchgroups) {
+int32_t windowssys_windows_win32_security_credentials_sCardListReaderGroupsW(uint64_t hcontext, void* mszgroups, void* pcchgroups) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2508,7 +2508,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardListReaderGroupsW(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardListReadersA(uint64_t hcontext, void* mszgroups, void* mszreaders, void* pcchreaders) {
+int32_t windowssys_windows_win32_security_credentials_sCardListReadersA(uint64_t hcontext, void* mszgroups, void* mszreaders, void* pcchreaders) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2533,7 +2533,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardListReadersA(uint64_t
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardListReadersW(uint64_t hcontext, void* mszgroups, void* mszreaders, void* pcchreaders) {
+int32_t windowssys_windows_win32_security_credentials_sCardListReadersW(uint64_t hcontext, void* mszgroups, void* mszreaders, void* pcchreaders) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2558,7 +2558,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardListReadersW(uint64_t
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardListReadersWithDeviceInstanceIdA(uint64_t hcontext, void* szdeviceinstanceid, void* mszreaders, void* pcchreaders) {
+int32_t windowssys_windows_win32_security_credentials_sCardListReadersWithDeviceInstanceIdA(uint64_t hcontext, void* szdeviceinstanceid, void* mszreaders, void* pcchreaders) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2583,7 +2583,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardListReadersWithDevice
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardListReadersWithDeviceInstanceIdW(uint64_t hcontext, void* szdeviceinstanceid, void* mszreaders, void* pcchreaders) {
+int32_t windowssys_windows_win32_security_credentials_sCardListReadersWithDeviceInstanceIdW(uint64_t hcontext, void* szdeviceinstanceid, void* mszreaders, void* pcchreaders) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2608,7 +2608,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardListReadersWithDevice
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardLocateCardsA(uint64_t hcontext, void* mszcards, void* rgreaderstates, uint32_t creaders) {
+int32_t windowssys_windows_win32_security_credentials_sCardLocateCardsA(uint64_t hcontext, void* mszcards, void* rgreaderstates, uint32_t creaders) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2633,7 +2633,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardLocateCardsA(uint64_t
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardLocateCardsByATRA(uint64_t hcontext, void* rgatrmasks, uint32_t catrs, void* rgreaderstates, uint32_t creaders) {
+int32_t windowssys_windows_win32_security_credentials_sCardLocateCardsByATRA(uint64_t hcontext, void* rgatrmasks, uint32_t catrs, void* rgreaderstates, uint32_t creaders) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2659,7 +2659,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardLocateCardsByATRA(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardLocateCardsByATRW(uint64_t hcontext, void* rgatrmasks, uint32_t catrs, void* rgreaderstates, uint32_t creaders) {
+int32_t windowssys_windows_win32_security_credentials_sCardLocateCardsByATRW(uint64_t hcontext, void* rgatrmasks, uint32_t catrs, void* rgreaderstates, uint32_t creaders) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2685,7 +2685,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardLocateCardsByATRW(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardLocateCardsW(uint64_t hcontext, void* mszcards, void* rgreaderstates, uint32_t creaders) {
+int32_t windowssys_windows_win32_security_credentials_sCardLocateCardsW(uint64_t hcontext, void* mszcards, void* rgreaderstates, uint32_t creaders) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2710,7 +2710,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardLocateCardsW(uint64_t
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardReadCacheA(uint64_t hcontext, void* cardidentifier, uint32_t freshnesscounter, void* lookupname, void* data, void* datalen) {
+int32_t windowssys_windows_win32_security_credentials_sCardReadCacheA(uint64_t hcontext, void* cardidentifier, uint32_t freshnesscounter, void* lookupname, void* data, void* datalen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2737,7 +2737,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardReadCacheA(uint64_t h
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardReadCacheW(uint64_t hcontext, void* cardidentifier, uint32_t freshnesscounter, void* lookupname, void* data, void* datalen) {
+int32_t windowssys_windows_win32_security_credentials_sCardReadCacheW(uint64_t hcontext, void* cardidentifier, uint32_t freshnesscounter, void* lookupname, void* data, void* datalen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2764,7 +2764,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardReadCacheW(uint64_t h
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardReconnect(uint64_t hcard, uint32_t dwsharemode, uint32_t dwpreferredprotocols, uint32_t dwinitialization, void* pdwactiveprotocol) {
+int32_t windowssys_windows_win32_security_credentials_sCardReconnect(uint64_t hcard, uint32_t dwsharemode, uint32_t dwpreferredprotocols, uint32_t dwinitialization, void* pdwactiveprotocol) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2790,7 +2790,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardReconnect(uint64_t hc
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardReleaseContext(uint64_t hcontext) {
+int32_t windowssys_windows_win32_security_credentials_sCardReleaseContext(uint64_t hcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2812,7 +2812,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardReleaseContext(uint64
 #endif
 }
 
-void windowssys_windows_win32_security_credentials_SCardReleaseStartedEvent(void) {
+void windowssys_windows_win32_security_credentials_sCardReleaseStartedEvent(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -2832,7 +2832,7 @@ void windowssys_windows_win32_security_credentials_SCardReleaseStartedEvent(void
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardRemoveReaderFromGroupA(uint64_t hcontext, void* szreadername, void* szgroupname) {
+int32_t windowssys_windows_win32_security_credentials_sCardRemoveReaderFromGroupA(uint64_t hcontext, void* szreadername, void* szgroupname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2856,7 +2856,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardRemoveReaderFromGroup
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardRemoveReaderFromGroupW(uint64_t hcontext, void* szreadername, void* szgroupname) {
+int32_t windowssys_windows_win32_security_credentials_sCardRemoveReaderFromGroupW(uint64_t hcontext, void* szreadername, void* szgroupname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2880,7 +2880,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardRemoveReaderFromGroup
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardSetAttrib(uint64_t hcard, uint32_t dwattrid, void* pbattr, uint32_t cbattrlen) {
+int32_t windowssys_windows_win32_security_credentials_sCardSetAttrib(uint64_t hcard, uint32_t dwattrid, void* pbattr, uint32_t cbattrlen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2905,7 +2905,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardSetAttrib(uint64_t hc
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardSetCardTypeProviderNameA(uint64_t hcontext, void* szcardname, uint32_t dwproviderid, void* szprovider) {
+int32_t windowssys_windows_win32_security_credentials_sCardSetCardTypeProviderNameA(uint64_t hcontext, void* szcardname, uint32_t dwproviderid, void* szprovider) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2930,7 +2930,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardSetCardTypeProviderNa
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardSetCardTypeProviderNameW(uint64_t hcontext, void* szcardname, uint32_t dwproviderid, void* szprovider) {
+int32_t windowssys_windows_win32_security_credentials_sCardSetCardTypeProviderNameW(uint64_t hcontext, void* szcardname, uint32_t dwproviderid, void* szprovider) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2955,7 +2955,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardSetCardTypeProviderNa
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardState(uint64_t hcard, void* pdwstate, void* pdwprotocol, void* pbatr, void* pcbatrlen) {
+int32_t windowssys_windows_win32_security_credentials_sCardState(uint64_t hcard, void* pdwstate, void* pdwprotocol, void* pbatr, void* pcbatrlen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2981,7 +2981,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardState(uint64_t hcard,
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardStatusA(uint64_t hcard, void* mszreadernames, void* pcchreaderlen, void* pdwstate, void* pdwprotocol, void* pbatr, void* pcbatrlen) {
+int32_t windowssys_windows_win32_security_credentials_sCardStatusA(uint64_t hcard, void* mszreadernames, void* pcchreaderlen, void* pdwstate, void* pdwprotocol, void* pbatr, void* pcbatrlen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3009,7 +3009,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardStatusA(uint64_t hcar
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardStatusW(uint64_t hcard, void* mszreadernames, void* pcchreaderlen, void* pdwstate, void* pdwprotocol, void* pbatr, void* pcbatrlen) {
+int32_t windowssys_windows_win32_security_credentials_sCardStatusW(uint64_t hcard, void* mszreadernames, void* pcchreaderlen, void* pdwstate, void* pdwprotocol, void* pbatr, void* pcbatrlen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3037,7 +3037,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardStatusW(uint64_t hcar
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardTransmit(uint64_t hcard, void* piosendpci, void* pbsendbuffer, uint32_t cbsendlength, void* piorecvpci, void* pbrecvbuffer, void* pcbrecvlength) {
+int32_t windowssys_windows_win32_security_credentials_sCardTransmit(uint64_t hcard, void* piosendpci, void* pbsendbuffer, uint32_t cbsendlength, void* piorecvpci, void* pbrecvbuffer, void* pcbrecvlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3065,7 +3065,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardTransmit(uint64_t hca
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardUIDlgSelectCardA(void* param0) {
+int32_t windowssys_windows_win32_security_credentials_sCardUIDlgSelectCardA(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3087,7 +3087,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardUIDlgSelectCardA(void
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardUIDlgSelectCardW(void* param0) {
+int32_t windowssys_windows_win32_security_credentials_sCardUIDlgSelectCardW(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3109,7 +3109,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardUIDlgSelectCardW(void
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardWriteCacheA(uint64_t hcontext, void* cardidentifier, uint32_t freshnesscounter, void* lookupname, void* data, uint32_t datalen) {
+int32_t windowssys_windows_win32_security_credentials_sCardWriteCacheA(uint64_t hcontext, void* cardidentifier, uint32_t freshnesscounter, void* lookupname, void* data, uint32_t datalen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3136,7 +3136,7 @@ int32_t windowssys_windows_win32_security_credentials_SCardWriteCacheA(uint64_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_security_credentials_SCardWriteCacheW(uint64_t hcontext, void* cardidentifier, uint32_t freshnesscounter, void* lookupname, void* data, uint32_t datalen) {
+int32_t windowssys_windows_win32_security_credentials_sCardWriteCacheW(uint64_t hcontext, void* cardidentifier, uint32_t freshnesscounter, void* lookupname, void* data, uint32_t datalen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;

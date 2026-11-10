@@ -1,79 +1,81 @@
 package io.github.kotlinmania.windowssys.windows.win32.foundation
 
-public typealias COLORREF = UInt
+import io.github.kotlinmania.windowssys.COpaquePointer
 
-public typealias DUPLICATE_HANDLE_OPTIONS = UInt
+public typealias Colorref = UInt
 
-public fun interface FARPROCFn {
+public typealias DuplicateHandleOptions = UInt
+
+public fun interface FarprocFn {
     public operator fun invoke(): Long
 }
 
-public typealias FARPROC = FARPROCFn?
+public typealias Farproc = FarprocFn?
 
-public typealias GENERIC_ACCESS_RIGHTS = UInt
+public typealias GenericAccessRights = UInt
 
-public typealias HANDLE = Long
+public typealias Handle = COpaquePointer?
 
-public typealias HANDLE_FLAGS = UInt
+public typealias HandleFlags = UInt
 
-public typealias HANDLE_PTR = ULong
+public typealias HandlePtr = Int
 
-public typealias HGLOBAL = Long
+public typealias Hglobal = COpaquePointer?
 
-public typealias HINSTANCE = Long
+public typealias Hinstance = COpaquePointer?
 
-public typealias HLOCAL = Long
+public typealias Hlocal = COpaquePointer?
 
-public typealias HLSURF = Long
+public typealias Hlsurf = COpaquePointer?
 
-public typealias HMODULE = Long
+public typealias Hmodule = COpaquePointer?
 
-public typealias HRSRC = Long
+public typealias Hrsrc = COpaquePointer?
 
-public typealias HSPRITE = Long
+public typealias Hsprite = COpaquePointer?
 
-public typealias HSTR = Long
+public typealias Hstr = COpaquePointer?
 
-public typealias HUMPD = Long
+public typealias Humpd = COpaquePointer?
 
-public typealias HWND = Long
+public typealias Hwnd = COpaquePointer?
 
-public typealias LPARAM = Long
+public typealias Lparam = Long
 
-public typealias LRESULT = Long
+public typealias Lresult = Long
 
-public fun interface NEARPROCFn {
+public fun interface NearprocFn {
     public operator fun invoke(): Long
 }
 
-public typealias NEARPROC = NEARPROCFn?
+public typealias Nearproc = NearprocFn?
 
-public typealias NTSTATUS = Int
+public typealias Ntstatus = Int
 
-public typealias NTSTATUS_FACILITY_CODE = UInt
+public typealias NtstatusFacilityCode = UInt
 
-public typealias NTSTATUS_SEVERITY_CODE = UInt
+public typealias NtstatusSeverityCode = UInt
 
-public typealias OBJECT_ATTRIBUTE_FLAGS = UInt
+public typealias ObjectAttributeFlags = UInt
 
-public fun interface PAPCFUNCFn {
+public fun interface PapcfuncFn {
     public operator fun invoke(parameter: ULong)
 }
 
-public typealias PAPCFUNC = PAPCFUNCFn?
+public typealias Papcfunc = PapcfuncFn?
 
-public fun interface PROCFn {
+public fun interface ProcFn {
     public operator fun invoke(): Long
 }
 
-public typealias PROC = PROCFn?
+public typealias Proc = ProcFn?
 
-public typealias SHANDLE_PTR = Long
+public typealias ShandlePtr = Long
 
-public typealias VARIANT_BOOL = Short
+public typealias VariantBool = Short
 
-public typealias WAIT_EVENT = UInt
+public typealias WaitEvent = UInt
 
-public typealias WIN32_ERROR = UInt
+public typealias Win32Error = UInt
 
-public typealias WPARAM = ULong
+public typealias Wparam = ULong

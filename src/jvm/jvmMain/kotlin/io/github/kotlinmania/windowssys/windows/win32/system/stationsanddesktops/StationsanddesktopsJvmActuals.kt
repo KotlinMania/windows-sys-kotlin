@@ -2,13 +2,14 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.stationsanddesktops
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.WNDENUMPROC
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Wndenumproc
 
 private object WindowsWin32SystemStationsanddesktopsJniBridge {
     init {
@@ -16,185 +17,185 @@ private object WindowsWin32SystemStationsanddesktopsJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_stationsanddesktops_BroadcastSystemMessageA(flags: Int, lpinfo: Long, msg: Int, wparam: Long, lparam: Long): Int
+    external fun windowssys_windows_win32_system_stationsanddesktops_broadcastSystemMessageA(flags: Int, lpinfo: Long, msg: Int, wparam: Long, lparam: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_stationsanddesktops_BroadcastSystemMessageExA(flags: Int, lpinfo: Long, msg: Int, wparam: Long, lparam: Long, pbsminfo: Long): Int
+    external fun windowssys_windows_win32_system_stationsanddesktops_broadcastSystemMessageExA(flags: Int, lpinfo: Long, msg: Int, wparam: Long, lparam: Long, pbsminfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_stationsanddesktops_BroadcastSystemMessageExW(flags: Int, lpinfo: Long, msg: Int, wparam: Long, lparam: Long, pbsminfo: Long): Int
+    external fun windowssys_windows_win32_system_stationsanddesktops_broadcastSystemMessageExW(flags: Int, lpinfo: Long, msg: Int, wparam: Long, lparam: Long, pbsminfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_stationsanddesktops_BroadcastSystemMessageW(flags: Int, lpinfo: Long, msg: Int, wparam: Long, lparam: Long): Int
+    external fun windowssys_windows_win32_system_stationsanddesktops_broadcastSystemMessageW(flags: Int, lpinfo: Long, msg: Int, wparam: Long, lparam: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_stationsanddesktops_CloseDesktop(hdesktop: Long): Int
+    external fun windowssys_windows_win32_system_stationsanddesktops_closeDesktop(hdesktop: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_stationsanddesktops_CloseWindowStation(hwinsta: Long): Int
+    external fun windowssys_windows_win32_system_stationsanddesktops_closeWindowStation(hwinsta: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_stationsanddesktops_CreateDesktopA(lpszdesktop: Long, lpszdevice: Long, pdevmode: Long, dwflags: Int, dwdesiredaccess: Int, lpsa: Long): Long
+    external fun windowssys_windows_win32_system_stationsanddesktops_createDesktopA(lpszdesktop: Long, lpszdevice: Long, pdevmode: Long, dwflags: Int, dwdesiredaccess: Int, lpsa: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_stationsanddesktops_CreateDesktopExA(lpszdesktop: Long, lpszdevice: Long, pdevmode: Long, dwflags: Int, dwdesiredaccess: Int, lpsa: Long, ulheapsize: Int, pvoid: Long): Long
+    external fun windowssys_windows_win32_system_stationsanddesktops_createDesktopExA(lpszdesktop: Long, lpszdevice: Long, pdevmode: Long, dwflags: Int, dwdesiredaccess: Int, lpsa: Long, ulheapsize: Int, pvoid: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_stationsanddesktops_CreateDesktopExW(lpszdesktop: Long, lpszdevice: Long, pdevmode: Long, dwflags: Int, dwdesiredaccess: Int, lpsa: Long, ulheapsize: Int, pvoid: Long): Long
+    external fun windowssys_windows_win32_system_stationsanddesktops_createDesktopExW(lpszdesktop: Long, lpszdevice: Long, pdevmode: Long, dwflags: Int, dwdesiredaccess: Int, lpsa: Long, ulheapsize: Int, pvoid: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_stationsanddesktops_CreateDesktopW(lpszdesktop: Long, lpszdevice: Long, pdevmode: Long, dwflags: Int, dwdesiredaccess: Int, lpsa: Long): Long
+    external fun windowssys_windows_win32_system_stationsanddesktops_createDesktopW(lpszdesktop: Long, lpszdevice: Long, pdevmode: Long, dwflags: Int, dwdesiredaccess: Int, lpsa: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_stationsanddesktops_CreateWindowStationA(lpwinsta: Long, dwflags: Int, dwdesiredaccess: Int, lpsa: Long): Long
+    external fun windowssys_windows_win32_system_stationsanddesktops_createWindowStationA(lpwinsta: Long, dwflags: Int, dwdesiredaccess: Int, lpsa: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_stationsanddesktops_CreateWindowStationW(lpwinsta: Long, dwflags: Int, dwdesiredaccess: Int, lpsa: Long): Long
+    external fun windowssys_windows_win32_system_stationsanddesktops_createWindowStationW(lpwinsta: Long, dwflags: Int, dwdesiredaccess: Int, lpsa: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_stationsanddesktops_EnumDesktopsA(hwinsta: Long, lpenumfunc: Long, lparam: Long): Int
+    external fun windowssys_windows_win32_system_stationsanddesktops_enumDesktopsA(hwinsta: Long, lpenumfunc: Long, lparam: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_stationsanddesktops_EnumDesktopsW(hwinsta: Long, lpenumfunc: Long, lparam: Long): Int
+    external fun windowssys_windows_win32_system_stationsanddesktops_enumDesktopsW(hwinsta: Long, lpenumfunc: Long, lparam: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_stationsanddesktops_EnumWindowStationsA(lpenumfunc: Long, lparam: Long): Int
+    external fun windowssys_windows_win32_system_stationsanddesktops_enumWindowStationsA(lpenumfunc: Long, lparam: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_stationsanddesktops_EnumWindowStationsW(lpenumfunc: Long, lparam: Long): Int
+    external fun windowssys_windows_win32_system_stationsanddesktops_enumWindowStationsW(lpenumfunc: Long, lparam: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_stationsanddesktops_GetProcessWindowStation(): Long
+    external fun windowssys_windows_win32_system_stationsanddesktops_getProcessWindowStation(): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_stationsanddesktops_GetThreadDesktop(dwthreadid: Int): Long
+    external fun windowssys_windows_win32_system_stationsanddesktops_getThreadDesktop(dwthreadid: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_stationsanddesktops_GetUserObjectInformationA(hobj: Long, nindex: Int, pvinfo: Long, nlength: Int, lpnlengthneeded: Long): Int
+    external fun windowssys_windows_win32_system_stationsanddesktops_getUserObjectInformationA(hobj: Long, nindex: Int, pvinfo: Long, nlength: Int, lpnlengthneeded: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_stationsanddesktops_GetUserObjectInformationW(hobj: Long, nindex: Int, pvinfo: Long, nlength: Int, lpnlengthneeded: Long): Int
+    external fun windowssys_windows_win32_system_stationsanddesktops_getUserObjectInformationW(hobj: Long, nindex: Int, pvinfo: Long, nlength: Int, lpnlengthneeded: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_stationsanddesktops_OpenDesktopA(lpszdesktop: Long, dwflags: Int, finherit: Int, dwdesiredaccess: Int): Long
+    external fun windowssys_windows_win32_system_stationsanddesktops_openDesktopA(lpszdesktop: Long, dwflags: Int, finherit: Int, dwdesiredaccess: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_stationsanddesktops_OpenDesktopW(lpszdesktop: Long, dwflags: Int, finherit: Int, dwdesiredaccess: Int): Long
+    external fun windowssys_windows_win32_system_stationsanddesktops_openDesktopW(lpszdesktop: Long, dwflags: Int, finherit: Int, dwdesiredaccess: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_stationsanddesktops_OpenInputDesktop(dwflags: Int, finherit: Int, dwdesiredaccess: Int): Long
+    external fun windowssys_windows_win32_system_stationsanddesktops_openInputDesktop(dwflags: Int, finherit: Int, dwdesiredaccess: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_stationsanddesktops_OpenWindowStationA(lpszwinsta: Long, finherit: Int, dwdesiredaccess: Int): Long
+    external fun windowssys_windows_win32_system_stationsanddesktops_openWindowStationA(lpszwinsta: Long, finherit: Int, dwdesiredaccess: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_stationsanddesktops_OpenWindowStationW(lpszwinsta: Long, finherit: Int, dwdesiredaccess: Int): Long
+    external fun windowssys_windows_win32_system_stationsanddesktops_openWindowStationW(lpszwinsta: Long, finherit: Int, dwdesiredaccess: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_stationsanddesktops_SetProcessWindowStation(hwinsta: Long): Int
+    external fun windowssys_windows_win32_system_stationsanddesktops_setProcessWindowStation(hwinsta: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_stationsanddesktops_SetThreadDesktop(hdesktop: Long): Int
+    external fun windowssys_windows_win32_system_stationsanddesktops_setThreadDesktop(hdesktop: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_stationsanddesktops_SetUserObjectInformationA(hobj: Long, nindex: Int, pvinfo: Long, nlength: Int): Int
+    external fun windowssys_windows_win32_system_stationsanddesktops_setUserObjectInformationA(hobj: Long, nindex: Int, pvinfo: Long, nlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_stationsanddesktops_SetUserObjectInformationW(hobj: Long, nindex: Int, pvinfo: Long, nlength: Int): Int
+    external fun windowssys_windows_win32_system_stationsanddesktops_setUserObjectInformationW(hobj: Long, nindex: Int, pvinfo: Long, nlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_stationsanddesktops_SwitchDesktop(hdesktop: Long): Int
+    external fun windowssys_windows_win32_system_stationsanddesktops_switchDesktop(hdesktop: Long): Int
 }
 
-public actual fun BroadcastSystemMessageA(flags: UInt, lpinfo: Long, msg: UInt, wparam: WPARAM, lparam: LPARAM): Int =
-    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_BroadcastSystemMessageA(flags.toInt(), lpinfo, msg.toInt(), wparam.toLong(), lparam)
+public actual fun broadcastSystemMessageA(flags: UInt, lpinfo: COpaquePointer?, msg: UInt, wparam: Wparam, lparam: Lparam): Int =
+    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_broadcastSystemMessageA(flags.toInt(), (lpinfo?.value ?: 0L), msg.toInt(), wparam.toLong(), lparam)
 
-public actual fun BroadcastSystemMessageExA(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: Long, msg: UInt, wparam: WPARAM, lparam: LPARAM, pbsminfo: Long): Int =
-    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_BroadcastSystemMessageExA(flags.toInt(), lpinfo, msg.toInt(), wparam.toLong(), lparam, pbsminfo)
+public actual fun broadcastSystemMessageExA(flags: BroadcastSystemMessageFlags, lpinfo: COpaquePointer?, msg: UInt, wparam: Wparam, lparam: Lparam, pbsminfo: COpaquePointer?): Int =
+    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_broadcastSystemMessageExA(flags.toInt(), (lpinfo?.value ?: 0L), msg.toInt(), wparam.toLong(), lparam, (pbsminfo?.value ?: 0L))
 
-public actual fun BroadcastSystemMessageExW(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: Long, msg: UInt, wparam: WPARAM, lparam: LPARAM, pbsminfo: Long): Int =
-    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_BroadcastSystemMessageExW(flags.toInt(), lpinfo, msg.toInt(), wparam.toLong(), lparam, pbsminfo)
+public actual fun broadcastSystemMessageExW(flags: BroadcastSystemMessageFlags, lpinfo: COpaquePointer?, msg: UInt, wparam: Wparam, lparam: Lparam, pbsminfo: COpaquePointer?): Int =
+    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_broadcastSystemMessageExW(flags.toInt(), (lpinfo?.value ?: 0L), msg.toInt(), wparam.toLong(), lparam, (pbsminfo?.value ?: 0L))
 
-public actual fun BroadcastSystemMessageW(flags: BROADCAST_SYSTEM_MESSAGE_FLAGS, lpinfo: Long, msg: UInt, wparam: WPARAM, lparam: LPARAM): Int =
-    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_BroadcastSystemMessageW(flags.toInt(), lpinfo, msg.toInt(), wparam.toLong(), lparam)
+public actual fun broadcastSystemMessageW(flags: BroadcastSystemMessageFlags, lpinfo: COpaquePointer?, msg: UInt, wparam: Wparam, lparam: Lparam): Int =
+    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_broadcastSystemMessageW(flags.toInt(), (lpinfo?.value ?: 0L), msg.toInt(), wparam.toLong(), lparam)
 
-public actual fun CloseDesktop(hdesktop: HDESK): BOOL =
-    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_CloseDesktop(hdesktop)
+public actual fun closeDesktop(hdesktop: Hdesk): Bool =
+    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_closeDesktop((hdesktop?.value ?: 0L))
 
-public actual fun CloseWindowStation(hwinsta: HWINSTA): BOOL =
-    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_CloseWindowStation(hwinsta)
+public actual fun closeWindowStation(hwinsta: Hwinsta): Bool =
+    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_closeWindowStation((hwinsta?.value ?: 0L))
 
-public actual fun CreateDesktopA(lpszdesktop: PCSTR, lpszdevice: PCSTR, pdevmode: Long, dwflags: DESKTOP_CONTROL_FLAGS, dwdesiredaccess: UInt, lpsa: Long): HDESK =
-    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_CreateDesktopA(lpszdesktop, lpszdevice, pdevmode, dwflags.toInt(), dwdesiredaccess.toInt(), lpsa)
+public actual fun createDesktopA(lpszdesktop: Pcstr, lpszdevice: Pcstr, pdevmode: COpaquePointer?, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: COpaquePointer?): Hdesk =
+    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_createDesktopA((lpszdesktop?.value ?: 0L), (lpszdevice?.value ?: 0L), (pdevmode?.value ?: 0L), dwflags.toInt(), dwdesiredaccess.toInt(), (lpsa?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateDesktopExA(lpszdesktop: PCSTR, lpszdevice: PCSTR, pdevmode: Long, dwflags: DESKTOP_CONTROL_FLAGS, dwdesiredaccess: UInt, lpsa: Long, ulheapsize: UInt, pvoid: Long): HDESK =
-    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_CreateDesktopExA(lpszdesktop, lpszdevice, pdevmode, dwflags.toInt(), dwdesiredaccess.toInt(), lpsa, ulheapsize.toInt(), pvoid)
+public actual fun createDesktopExA(lpszdesktop: Pcstr, lpszdevice: Pcstr, pdevmode: COpaquePointer?, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: COpaquePointer?, ulheapsize: UInt, pvoid: COpaquePointer?): Hdesk =
+    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_createDesktopExA((lpszdesktop?.value ?: 0L), (lpszdevice?.value ?: 0L), (pdevmode?.value ?: 0L), dwflags.toInt(), dwdesiredaccess.toInt(), (lpsa?.value ?: 0L), ulheapsize.toInt(), (pvoid?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateDesktopExW(lpszdesktop: PCWSTR, lpszdevice: PCWSTR, pdevmode: Long, dwflags: DESKTOP_CONTROL_FLAGS, dwdesiredaccess: UInt, lpsa: Long, ulheapsize: UInt, pvoid: Long): HDESK =
-    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_CreateDesktopExW(lpszdesktop, lpszdevice, pdevmode, dwflags.toInt(), dwdesiredaccess.toInt(), lpsa, ulheapsize.toInt(), pvoid)
+public actual fun createDesktopExW(lpszdesktop: Pcwstr, lpszdevice: Pcwstr, pdevmode: COpaquePointer?, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: COpaquePointer?, ulheapsize: UInt, pvoid: COpaquePointer?): Hdesk =
+    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_createDesktopExW((lpszdesktop?.value ?: 0L), (lpszdevice?.value ?: 0L), (pdevmode?.value ?: 0L), dwflags.toInt(), dwdesiredaccess.toInt(), (lpsa?.value ?: 0L), ulheapsize.toInt(), (pvoid?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateDesktopW(lpszdesktop: PCWSTR, lpszdevice: PCWSTR, pdevmode: Long, dwflags: DESKTOP_CONTROL_FLAGS, dwdesiredaccess: UInt, lpsa: Long): HDESK =
-    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_CreateDesktopW(lpszdesktop, lpszdevice, pdevmode, dwflags.toInt(), dwdesiredaccess.toInt(), lpsa)
+public actual fun createDesktopW(lpszdesktop: Pcwstr, lpszdevice: Pcwstr, pdevmode: COpaquePointer?, dwflags: DesktopControlFlags, dwdesiredaccess: UInt, lpsa: COpaquePointer?): Hdesk =
+    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_createDesktopW((lpszdesktop?.value ?: 0L), (lpszdevice?.value ?: 0L), (pdevmode?.value ?: 0L), dwflags.toInt(), dwdesiredaccess.toInt(), (lpsa?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateWindowStationA(lpwinsta: PCSTR, dwflags: UInt, dwdesiredaccess: UInt, lpsa: Long): HWINSTA =
-    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_CreateWindowStationA(lpwinsta, dwflags.toInt(), dwdesiredaccess.toInt(), lpsa)
+public actual fun createWindowStationA(lpwinsta: Pcstr, dwflags: UInt, dwdesiredaccess: UInt, lpsa: COpaquePointer?): Hwinsta =
+    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_createWindowStationA((lpwinsta?.value ?: 0L), dwflags.toInt(), dwdesiredaccess.toInt(), (lpsa?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateWindowStationW(lpwinsta: PCWSTR, dwflags: UInt, dwdesiredaccess: UInt, lpsa: Long): HWINSTA =
-    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_CreateWindowStationW(lpwinsta, dwflags.toInt(), dwdesiredaccess.toInt(), lpsa)
+public actual fun createWindowStationW(lpwinsta: Pcwstr, dwflags: UInt, dwdesiredaccess: UInt, lpsa: COpaquePointer?): Hwinsta =
+    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_createWindowStationW((lpwinsta?.value ?: 0L), dwflags.toInt(), dwdesiredaccess.toInt(), (lpsa?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun EnumDesktopWindows(hdesktop: HDESK, lpfn: WNDENUMPROC, lparam: LPARAM): BOOL =
+public actual fun enumDesktopWindows(hdesktop: Hdesk, lpfn: Wndenumproc, lparam: Lparam): Bool =
     0
 
-public actual fun EnumDesktopsA(hwinsta: HWINSTA, lpenumfunc: DESKTOPENUMPROCA, lparam: LPARAM): BOOL =
-    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_EnumDesktopsA(hwinsta, lpenumfunc.toLong(), lparam)
+public actual fun enumDesktopsA(hwinsta: Hwinsta, lpenumfunc: Desktopenumproca, lparam: Lparam): Bool =
+    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_enumDesktopsA((hwinsta?.value ?: 0L), 0L, lparam)
 
-public actual fun EnumDesktopsW(hwinsta: HWINSTA, lpenumfunc: DESKTOPENUMPROCW, lparam: LPARAM): BOOL =
-    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_EnumDesktopsW(hwinsta, lpenumfunc.toLong(), lparam)
+public actual fun enumDesktopsW(hwinsta: Hwinsta, lpenumfunc: Desktopenumprocw, lparam: Lparam): Bool =
+    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_enumDesktopsW((hwinsta?.value ?: 0L), 0L, lparam)
 
-public actual fun EnumWindowStationsA(lpenumfunc: WINSTAENUMPROCA, lparam: LPARAM): BOOL =
-    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_EnumWindowStationsA(lpenumfunc.toLong(), lparam)
+public actual fun enumWindowStationsA(lpenumfunc: Winstaenumproca, lparam: Lparam): Bool =
+    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_enumWindowStationsA(0L, lparam)
 
-public actual fun EnumWindowStationsW(lpenumfunc: WINSTAENUMPROCW, lparam: LPARAM): BOOL =
-    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_EnumWindowStationsW(lpenumfunc.toLong(), lparam)
+public actual fun enumWindowStationsW(lpenumfunc: Winstaenumprocw, lparam: Lparam): Bool =
+    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_enumWindowStationsW(0L, lparam)
 
-public actual fun GetProcessWindowStation(): HWINSTA =
-    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_GetProcessWindowStation()
+public actual fun getProcessWindowStation(): Hwinsta =
+    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_getProcessWindowStation().let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GetThreadDesktop(dwthreadid: UInt): HDESK =
-    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_GetThreadDesktop(dwthreadid.toInt())
+public actual fun getThreadDesktop(dwthreadid: UInt): Hdesk =
+    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_getThreadDesktop(dwthreadid.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GetUserObjectInformationA(hobj: HANDLE, nindex: USER_OBJECT_INFORMATION_INDEX, pvinfo: Long, nlength: UInt, lpnlengthneeded: Long): BOOL =
-    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_GetUserObjectInformationA(hobj, nindex, pvinfo, nlength.toInt(), lpnlengthneeded)
+public actual fun getUserObjectInformationA(hobj: Handle, nindex: UserObjectInformationIndex, pvinfo: COpaquePointer?, nlength: UInt, lpnlengthneeded: COpaquePointer?): Bool =
+    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_getUserObjectInformationA((hobj?.value ?: 0L), nindex, (pvinfo?.value ?: 0L), nlength.toInt(), (lpnlengthneeded?.value ?: 0L))
 
-public actual fun GetUserObjectInformationW(hobj: HANDLE, nindex: USER_OBJECT_INFORMATION_INDEX, pvinfo: Long, nlength: UInt, lpnlengthneeded: Long): BOOL =
-    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_GetUserObjectInformationW(hobj, nindex, pvinfo, nlength.toInt(), lpnlengthneeded)
+public actual fun getUserObjectInformationW(hobj: Handle, nindex: UserObjectInformationIndex, pvinfo: COpaquePointer?, nlength: UInt, lpnlengthneeded: COpaquePointer?): Bool =
+    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_getUserObjectInformationW((hobj?.value ?: 0L), nindex, (pvinfo?.value ?: 0L), nlength.toInt(), (lpnlengthneeded?.value ?: 0L))
 
-public actual fun OpenDesktopA(lpszdesktop: PCSTR, dwflags: DESKTOP_CONTROL_FLAGS, finherit: BOOL, dwdesiredaccess: UInt): HDESK =
-    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_OpenDesktopA(lpszdesktop, dwflags.toInt(), finherit, dwdesiredaccess.toInt())
+public actual fun openDesktopA(lpszdesktop: Pcstr, dwflags: DesktopControlFlags, finherit: Bool, dwdesiredaccess: UInt): Hdesk =
+    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_openDesktopA((lpszdesktop?.value ?: 0L), dwflags.toInt(), finherit, dwdesiredaccess.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun OpenDesktopW(lpszdesktop: PCWSTR, dwflags: DESKTOP_CONTROL_FLAGS, finherit: BOOL, dwdesiredaccess: UInt): HDESK =
-    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_OpenDesktopW(lpszdesktop, dwflags.toInt(), finherit, dwdesiredaccess.toInt())
+public actual fun openDesktopW(lpszdesktop: Pcwstr, dwflags: DesktopControlFlags, finherit: Bool, dwdesiredaccess: UInt): Hdesk =
+    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_openDesktopW((lpszdesktop?.value ?: 0L), dwflags.toInt(), finherit, dwdesiredaccess.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun OpenInputDesktop(dwflags: DESKTOP_CONTROL_FLAGS, finherit: BOOL, dwdesiredaccess: DESKTOP_ACCESS_FLAGS): HDESK =
-    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_OpenInputDesktop(dwflags.toInt(), finherit, dwdesiredaccess.toInt())
+public actual fun openInputDesktop(dwflags: DesktopControlFlags, finherit: Bool, dwdesiredaccess: DesktopAccessFlags): Hdesk =
+    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_openInputDesktop(dwflags.toInt(), finherit, dwdesiredaccess.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun OpenWindowStationA(lpszwinsta: PCSTR, finherit: BOOL, dwdesiredaccess: UInt): HWINSTA =
-    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_OpenWindowStationA(lpszwinsta, finherit, dwdesiredaccess.toInt())
+public actual fun openWindowStationA(lpszwinsta: Pcstr, finherit: Bool, dwdesiredaccess: UInt): Hwinsta =
+    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_openWindowStationA((lpszwinsta?.value ?: 0L), finherit, dwdesiredaccess.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun OpenWindowStationW(lpszwinsta: PCWSTR, finherit: BOOL, dwdesiredaccess: UInt): HWINSTA =
-    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_OpenWindowStationW(lpszwinsta, finherit, dwdesiredaccess.toInt())
+public actual fun openWindowStationW(lpszwinsta: Pcwstr, finherit: Bool, dwdesiredaccess: UInt): Hwinsta =
+    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_openWindowStationW((lpszwinsta?.value ?: 0L), finherit, dwdesiredaccess.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SetProcessWindowStation(hwinsta: HWINSTA): BOOL =
-    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_SetProcessWindowStation(hwinsta)
+public actual fun setProcessWindowStation(hwinsta: Hwinsta): Bool =
+    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_setProcessWindowStation((hwinsta?.value ?: 0L))
 
-public actual fun SetThreadDesktop(hdesktop: HDESK): BOOL =
-    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_SetThreadDesktop(hdesktop)
+public actual fun setThreadDesktop(hdesktop: Hdesk): Bool =
+    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_setThreadDesktop((hdesktop?.value ?: 0L))
 
-public actual fun SetUserObjectInformationA(hobj: HANDLE, nindex: Int, pvinfo: Long, nlength: UInt): BOOL =
-    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_SetUserObjectInformationA(hobj, nindex, pvinfo, nlength.toInt())
+public actual fun setUserObjectInformationA(hobj: Handle, nindex: Int, pvinfo: COpaquePointer?, nlength: UInt): Bool =
+    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_setUserObjectInformationA((hobj?.value ?: 0L), nindex, (pvinfo?.value ?: 0L), nlength.toInt())
 
-public actual fun SetUserObjectInformationW(hobj: HANDLE, nindex: Int, pvinfo: Long, nlength: UInt): BOOL =
-    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_SetUserObjectInformationW(hobj, nindex, pvinfo, nlength.toInt())
+public actual fun setUserObjectInformationW(hobj: Handle, nindex: Int, pvinfo: COpaquePointer?, nlength: UInt): Bool =
+    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_setUserObjectInformationW((hobj?.value ?: 0L), nindex, (pvinfo?.value ?: 0L), nlength.toInt())
 
-public actual fun SwitchDesktop(hdesktop: HDESK): BOOL =
-    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_SwitchDesktop(hdesktop)
+public actual fun switchDesktop(hdesktop: Hdesk): Bool =
+    WindowsWin32SystemStationsanddesktopsJniBridge.windowssys_windows_win32_system_stationsanddesktops_switchDesktop((hdesktop?.value ?: 0L))

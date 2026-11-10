@@ -2,184 +2,185 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.GET_FILEEX_INFO_LEVELS
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.GetFileexInfoLevels
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun ComputeInvCMAP(prgbcolors: Long, ncolors: UInt, pinvtable: Long, cbtable: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_ComputeInvCMAP(prgbcolors.toCPointer<ByteVar>(), ncolors, pinvtable.toCPointer<ByteVar>(), cbtable)
+public actual fun computeInvCMAP(prgbcolors: COpaquePointer?, ncolors: UInt, pinvtable: COpaquePointer?, cbtable: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_computeInvCMAP(prgbcolors?.value?.toCPointer<ByteVar>(), ncolors, pinvtable?.value?.toCPointer<ByteVar>(), cbtable)
 
-public actual fun CreateMIMEMap(ppmap: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_CreateMIMEMap(ppmap.toCPointer<ByteVar>())
+public actual fun createMIMEMap(ppmap: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_createMIMEMap(ppmap?.value?.toCPointer<ByteVar>())
 
-public actual fun DecodeImage(pstream: Long, pmap: Long, peventsink: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_DecodeImage(pstream.toCPointer<ByteVar>(), pmap.toCPointer<ByteVar>(), peventsink.toCPointer<ByteVar>())
+public actual fun decodeImage(pstream: COpaquePointer?, pmap: COpaquePointer?, peventsink: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_decodeImage(pstream?.value?.toCPointer<ByteVar>(), pmap?.value?.toCPointer<ByteVar>(), peventsink?.value?.toCPointer<ByteVar>())
 
-public actual fun DecodeImageEx(pstream: Long, pmap: Long, peventsink: Long, pszmimetypeparam: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_DecodeImageEx(pstream.toCPointer<ByteVar>(), pmap.toCPointer<ByteVar>(), peventsink.toCPointer<ByteVar>(), pszmimetypeparam.toCPointer<ByteVar>())
+public actual fun decodeImageEx(pstream: COpaquePointer?, pmap: COpaquePointer?, peventsink: COpaquePointer?, pszmimetypeparam: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_decodeImageEx(pstream?.value?.toCPointer<ByteVar>(), pmap?.value?.toCPointer<ByteVar>(), peventsink?.value?.toCPointer<ByteVar>(), pszmimetypeparam?.value?.toCPointer<ByteVar>())
 
-public actual fun DitherTo8(pdestbits: Long, ndestpitch: Int, psrcbits: Long, nsrcpitch: Int, bfidsrc: Long, prgbdestcolors: Long, prgbsrccolors: Long, pbdestinvmap: Long, x: Int, y: Int, cx: Int, cy: Int, ldesttrans: Int, lsrctrans: Int): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_DitherTo8(pdestbits.toCPointer<ByteVar>(), ndestpitch, psrcbits.toCPointer<ByteVar>(), nsrcpitch, bfidsrc.toCPointer<ByteVar>(), prgbdestcolors.toCPointer<ByteVar>(), prgbsrccolors.toCPointer<ByteVar>(), pbdestinvmap.toCPointer<ByteVar>(), x, y, cx, cy, ldesttrans, lsrctrans)
+public actual fun ditherTo8(pdestbits: COpaquePointer?, ndestpitch: Int, psrcbits: COpaquePointer?, nsrcpitch: Int, bfidsrc: COpaquePointer?, prgbdestcolors: COpaquePointer?, prgbsrccolors: COpaquePointer?, pbdestinvmap: COpaquePointer?, x: Int, y: Int, cx: Int, cy: Int, ldesttrans: Int, lsrctrans: Int): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_ditherTo8(pdestbits?.value?.toCPointer<ByteVar>(), ndestpitch, psrcbits?.value?.toCPointer<ByteVar>(), nsrcpitch, bfidsrc?.value?.toCPointer<ByteVar>(), prgbdestcolors?.value?.toCPointer<ByteVar>(), prgbsrccolors?.value?.toCPointer<ByteVar>(), pbdestinvmap?.value?.toCPointer<ByteVar>(), x, y, cx, cy, ldesttrans, lsrctrans)
 
-public actual fun GetMaxMIMEIDBytes(pnmaxbytes: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_GetMaxMIMEIDBytes(pnmaxbytes.toCPointer<ByteVar>())
+public actual fun getMaxMIMEIDBytes(pnmaxbytes: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_getMaxMIMEIDBytes(pnmaxbytes?.value?.toCPointer<ByteVar>())
 
-public actual fun IEAssociateThreadWithTab(dwtabthreadid: UInt, dwassociatedthreadid: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_IEAssociateThreadWithTab(dwtabthreadid, dwassociatedthreadid)
+public actual fun iEAssociateThreadWithTab(dwtabthreadid: UInt, dwassociatedthreadid: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_iEAssociateThreadWithTab(dwtabthreadid, dwassociatedthreadid)
 
-public actual fun IECancelSaveFile(hstate: HANDLE): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_IECancelSaveFile(hstate.toCPointer<ByteVar>())
+public actual fun iECancelSaveFile(hstate: Handle): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_iECancelSaveFile(hstate?.value?.toCPointer<ByteVar>())
 
-public actual fun IECreateDirectory(lppathname: PCWSTR, lpsecurityattributes: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_IECreateDirectory(lppathname.toCPointer<ByteVar>(), lpsecurityattributes.toCPointer<ByteVar>())
+public actual fun iECreateDirectory(lppathname: Pcwstr, lpsecurityattributes: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_iECreateDirectory(lppathname?.value?.toCPointer<ByteVar>(), lpsecurityattributes?.value?.toCPointer<ByteVar>())
 
-public actual fun IECreateFile(lpfilename: PCWSTR, dwdesiredaccess: UInt, dwsharemode: UInt, lpsecurityattributes: Long, dwcreationdisposition: UInt, dwflagsandattributes: UInt, htemplatefile: HANDLE): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_IECreateFile(lpfilename.toCPointer<ByteVar>(), dwdesiredaccess, dwsharemode, lpsecurityattributes.toCPointer<ByteVar>(), dwcreationdisposition, dwflagsandattributes, htemplatefile.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun iECreateFile(lpfilename: Pcwstr, dwdesiredaccess: UInt, dwsharemode: UInt, lpsecurityattributes: COpaquePointer?, dwcreationdisposition: UInt, dwflagsandattributes: UInt, htemplatefile: Handle): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_iECreateFile(lpfilename?.value?.toCPointer<ByteVar>(), dwdesiredaccess, dwsharemode, lpsecurityattributes?.value?.toCPointer<ByteVar>(), dwcreationdisposition, dwflagsandattributes, htemplatefile?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun IEDeleteFile(lpfilename: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_IEDeleteFile(lpfilename.toCPointer<ByteVar>())
+public actual fun iEDeleteFile(lpfilename: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_iEDeleteFile(lpfilename?.value?.toCPointer<ByteVar>())
 
-public actual fun IEDisassociateThreadWithTab(dwtabthreadid: UInt, dwassociatedthreadid: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_IEDisassociateThreadWithTab(dwtabthreadid, dwassociatedthreadid)
+public actual fun iEDisassociateThreadWithTab(dwtabthreadid: UInt, dwassociatedthreadid: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_iEDisassociateThreadWithTab(dwtabthreadid, dwassociatedthreadid)
 
-public actual fun IEFindFirstFile(lpfilename: PCWSTR, lpfindfiledata: Long): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_IEFindFirstFile(lpfilename.toCPointer<ByteVar>(), lpfindfiledata.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun iEFindFirstFile(lpfilename: Pcwstr, lpfindfiledata: COpaquePointer?): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_iEFindFirstFile(lpfilename?.value?.toCPointer<ByteVar>(), lpfindfiledata?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun IEGetFileAttributesEx(lpfilename: PCWSTR, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_IEGetFileAttributesEx(lpfilename.toCPointer<ByteVar>(), finfolevelid, lpfileinformation.toCPointer<ByteVar>())
+public actual fun iEGetFileAttributesEx(lpfilename: Pcwstr, finfolevelid: GetFileexInfoLevels, lpfileinformation: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_iEGetFileAttributesEx(lpfilename?.value?.toCPointer<ByteVar>(), finfolevelid, lpfileinformation?.value?.toCPointer<ByteVar>())
 
-public actual fun IEGetProtectedModeCookie(lpszurl: PCWSTR, lpszcookiename: PCWSTR, lpszcookiedata: PWSTR, pcchcookiedata: Long, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_IEGetProtectedModeCookie(lpszurl.toCPointer<ByteVar>(), lpszcookiename.toCPointer<ByteVar>(), lpszcookiedata.toCPointer<ByteVar>(), pcchcookiedata.toCPointer<ByteVar>(), dwflags)
+public actual fun iEGetProtectedModeCookie(lpszurl: Pcwstr, lpszcookiename: Pcwstr, lpszcookiedata: Pwstr, pcchcookiedata: COpaquePointer?, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_iEGetProtectedModeCookie(lpszurl?.value?.toCPointer<ByteVar>(), lpszcookiename?.value?.toCPointer<ByteVar>(), lpszcookiedata?.value?.toCPointer<ByteVar>(), pcchcookiedata?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun IEGetWriteableFolderPath(clsidfolderid: Long, lppwstrpath: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_IEGetWriteableFolderPath(clsidfolderid.toCPointer<ByteVar>(), lppwstrpath.toCPointer<ByteVar>())
+public actual fun iEGetWriteableFolderPath(clsidfolderid: COpaquePointer?, lppwstrpath: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_iEGetWriteableFolderPath(clsidfolderid?.value?.toCPointer<ByteVar>(), lppwstrpath?.value?.toCPointer<ByteVar>())
 
-public actual fun IEGetWriteableLowHKCU(phkey: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_IEGetWriteableLowHKCU(phkey.toCPointer<ByteVar>())
+public actual fun iEGetWriteableLowHKCU(phkey: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_iEGetWriteableLowHKCU(phkey?.value?.toCPointer<ByteVar>())
 
-public actual fun IEInPrivateFilteringEnabled(): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_IEInPrivateFilteringEnabled()
+public actual fun iEInPrivateFilteringEnabled(): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_iEInPrivateFilteringEnabled()
 
-public actual fun IEIsInPrivateBrowsing(): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_IEIsInPrivateBrowsing()
+public actual fun iEIsInPrivateBrowsing(): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_iEIsInPrivateBrowsing()
 
-public actual fun IEIsProtectedModeProcess(pbresult: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_IEIsProtectedModeProcess(pbresult.toCPointer<ByteVar>())
+public actual fun iEIsProtectedModeProcess(pbresult: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_iEIsProtectedModeProcess(pbresult?.value?.toCPointer<ByteVar>())
 
-public actual fun IEIsProtectedModeURL(lpwstrurl: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_IEIsProtectedModeURL(lpwstrurl.toCPointer<ByteVar>())
+public actual fun iEIsProtectedModeURL(lpwstrurl: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_iEIsProtectedModeURL(lpwstrurl?.value?.toCPointer<ByteVar>())
 
-public actual fun IELaunchURL(lpwstrurl: PCWSTR, lpprocinfo: Long, lpinfo: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_IELaunchURL(lpwstrurl.toCPointer<ByteVar>(), lpprocinfo.toCPointer<ByteVar>(), lpinfo.toCPointer<ByteVar>())
+public actual fun iELaunchURL(lpwstrurl: Pcwstr, lpprocinfo: COpaquePointer?, lpinfo: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_iELaunchURL(lpwstrurl?.value?.toCPointer<ByteVar>(), lpprocinfo?.value?.toCPointer<ByteVar>(), lpinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun IEMoveFileEx(lpexistingfilename: PCWSTR, lpnewfilename: PCWSTR, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_IEMoveFileEx(lpexistingfilename.toCPointer<ByteVar>(), lpnewfilename.toCPointer<ByteVar>(), dwflags)
+public actual fun iEMoveFileEx(lpexistingfilename: Pcwstr, lpnewfilename: Pcwstr, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_iEMoveFileEx(lpexistingfilename?.value?.toCPointer<ByteVar>(), lpnewfilename?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun IERefreshElevationPolicy(): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_IERefreshElevationPolicy()
+public actual fun iERefreshElevationPolicy(): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_iERefreshElevationPolicy()
 
-public actual fun IERegCreateKeyEx(lpsubkey: PCWSTR, reserved: UInt, lpclass: PCWSTR, dwoptions: UInt, samdesired: UInt, lpsecurityattributes: Long, phkresult: Long, lpdwdisposition: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_IERegCreateKeyEx(lpsubkey.toCPointer<ByteVar>(), reserved, lpclass.toCPointer<ByteVar>(), dwoptions, samdesired, lpsecurityattributes.toCPointer<ByteVar>(), phkresult.toCPointer<ByteVar>(), lpdwdisposition.toCPointer<ByteVar>())
+public actual fun iERegCreateKeyEx(lpsubkey: Pcwstr, reserved: UInt, lpclass: Pcwstr, dwoptions: UInt, samdesired: UInt, lpsecurityattributes: COpaquePointer?, phkresult: COpaquePointer?, lpdwdisposition: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_iERegCreateKeyEx(lpsubkey?.value?.toCPointer<ByteVar>(), reserved, lpclass?.value?.toCPointer<ByteVar>(), dwoptions, samdesired, lpsecurityattributes?.value?.toCPointer<ByteVar>(), phkresult?.value?.toCPointer<ByteVar>(), lpdwdisposition?.value?.toCPointer<ByteVar>())
 
-public actual fun IERegSetValueEx(lpsubkey: PCWSTR, lpvaluename: PCWSTR, reserved: UInt, dwtype: UInt, lpdata: Long, cbdata: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_IERegSetValueEx(lpsubkey.toCPointer<ByteVar>(), lpvaluename.toCPointer<ByteVar>(), reserved, dwtype, lpdata.toCPointer<ByteVar>(), cbdata)
+public actual fun iERegSetValueEx(lpsubkey: Pcwstr, lpvaluename: Pcwstr, reserved: UInt, dwtype: UInt, lpdata: COpaquePointer?, cbdata: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_iERegSetValueEx(lpsubkey?.value?.toCPointer<ByteVar>(), lpvaluename?.value?.toCPointer<ByteVar>(), reserved, dwtype, lpdata?.value?.toCPointer<ByteVar>(), cbdata)
 
-public actual fun IERegisterWritableRegistryKey(guid: GUID, lpsubkey: PCWSTR, fsubkeyallowed: BOOL): HRESULT =
+public actual fun iERegisterWritableRegistryKey(guid: Guid, lpsubkey: Pcwstr, fsubkeyallowed: Bool): Hresult =
     0
 
-public actual fun IERegisterWritableRegistryValue(guid: GUID, lppath: PCWSTR, lpvaluename: PCWSTR, dwtype: UInt, lpdata: Long, cbmaxdata: UInt): HRESULT =
+public actual fun iERegisterWritableRegistryValue(guid: Guid, lppath: Pcwstr, lpvaluename: Pcwstr, dwtype: UInt, lpdata: COpaquePointer?, cbmaxdata: UInt): Hresult =
     0
 
-public actual fun IERemoveDirectory(lppathname: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_IERemoveDirectory(lppathname.toCPointer<ByteVar>())
+public actual fun iERemoveDirectory(lppathname: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_iERemoveDirectory(lppathname?.value?.toCPointer<ByteVar>())
 
-public actual fun IESaveFile(hstate: HANDLE, lpwstrsourcefile: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_IESaveFile(hstate.toCPointer<ByteVar>(), lpwstrsourcefile.toCPointer<ByteVar>())
+public actual fun iESaveFile(hstate: Handle, lpwstrsourcefile: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_iESaveFile(hstate?.value?.toCPointer<ByteVar>(), lpwstrsourcefile?.value?.toCPointer<ByteVar>())
 
-public actual fun IESetProtectedModeCookie(lpszurl: PCWSTR, lpszcookiename: PCWSTR, lpszcookiedata: PCWSTR, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_IESetProtectedModeCookie(lpszurl.toCPointer<ByteVar>(), lpszcookiename.toCPointer<ByteVar>(), lpszcookiedata.toCPointer<ByteVar>(), dwflags)
+public actual fun iESetProtectedModeCookie(lpszurl: Pcwstr, lpszcookiename: Pcwstr, lpszcookiedata: Pcwstr, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_iESetProtectedModeCookie(lpszurl?.value?.toCPointer<ByteVar>(), lpszcookiename?.value?.toCPointer<ByteVar>(), lpszcookiedata?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun IEShowOpenFileDialog(hwnd: HWND, lpwstrfilename: PWSTR, cchmaxfilename: UInt, lpwstrinitialdir: PCWSTR, lpwstrfilter: PCWSTR, lpwstrdefext: PCWSTR, dwfilterindex: UInt, dwflags: UInt, phfile: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_IEShowOpenFileDialog(hwnd.toCPointer<ByteVar>(), lpwstrfilename.toCPointer<ByteVar>(), cchmaxfilename, lpwstrinitialdir.toCPointer<ByteVar>(), lpwstrfilter.toCPointer<ByteVar>(), lpwstrdefext.toCPointer<ByteVar>(), dwfilterindex, dwflags, phfile.toCPointer<ByteVar>())
+public actual fun iEShowOpenFileDialog(hwnd: Hwnd, lpwstrfilename: Pwstr, cchmaxfilename: UInt, lpwstrinitialdir: Pcwstr, lpwstrfilter: Pcwstr, lpwstrdefext: Pcwstr, dwfilterindex: UInt, dwflags: UInt, phfile: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_iEShowOpenFileDialog(hwnd?.value?.toCPointer<ByteVar>(), lpwstrfilename?.value?.toCPointer<ByteVar>(), cchmaxfilename, lpwstrinitialdir?.value?.toCPointer<ByteVar>(), lpwstrfilter?.value?.toCPointer<ByteVar>(), lpwstrdefext?.value?.toCPointer<ByteVar>(), dwfilterindex, dwflags, phfile?.value?.toCPointer<ByteVar>())
 
-public actual fun IEShowSaveFileDialog(hwnd: HWND, lpwstrinitialfilename: PCWSTR, lpwstrinitialdir: PCWSTR, lpwstrfilter: PCWSTR, lpwstrdefext: PCWSTR, dwfilterindex: UInt, dwflags: UInt, lppwstrdestinationfilepath: Long, phstate: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_IEShowSaveFileDialog(hwnd.toCPointer<ByteVar>(), lpwstrinitialfilename.toCPointer<ByteVar>(), lpwstrinitialdir.toCPointer<ByteVar>(), lpwstrfilter.toCPointer<ByteVar>(), lpwstrdefext.toCPointer<ByteVar>(), dwfilterindex, dwflags, lppwstrdestinationfilepath.toCPointer<ByteVar>(), phstate.toCPointer<ByteVar>())
+public actual fun iEShowSaveFileDialog(hwnd: Hwnd, lpwstrinitialfilename: Pcwstr, lpwstrinitialdir: Pcwstr, lpwstrfilter: Pcwstr, lpwstrdefext: Pcwstr, dwfilterindex: UInt, dwflags: UInt, lppwstrdestinationfilepath: COpaquePointer?, phstate: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_iEShowSaveFileDialog(hwnd?.value?.toCPointer<ByteVar>(), lpwstrinitialfilename?.value?.toCPointer<ByteVar>(), lpwstrinitialdir?.value?.toCPointer<ByteVar>(), lpwstrfilter?.value?.toCPointer<ByteVar>(), lpwstrdefext?.value?.toCPointer<ByteVar>(), dwfilterindex, dwflags, lppwstrdestinationfilepath?.value?.toCPointer<ByteVar>(), phstate?.value?.toCPointer<ByteVar>())
 
-public actual fun IETrackingProtectionEnabled(): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_IETrackingProtectionEnabled()
+public actual fun iETrackingProtectionEnabled(): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_iETrackingProtectionEnabled()
 
-public actual fun IEUnregisterWritableRegistry(guid: GUID): HRESULT =
+public actual fun iEUnregisterWritableRegistry(guid: Guid): Hresult =
     0
 
-public actual fun IdentifyMIMEType(pbbytes: Long, nbytes: UInt, pnformat: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_IdentifyMIMEType(pbbytes.toCPointer<ByteVar>(), nbytes, pnformat.toCPointer<ByteVar>())
+public actual fun identifyMIMEType(pbbytes: COpaquePointer?, nbytes: UInt, pnformat: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_identifyMIMEType(pbbytes?.value?.toCPointer<ByteVar>(), nbytes, pnformat?.value?.toCPointer<ByteVar>())
 
-public actual fun RatingAccessDeniedDialog(hdlg: HWND, pszusername: PCSTR, pszcontentdescription: PCSTR, pratingdetails: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_RatingAccessDeniedDialog(hdlg.toCPointer<ByteVar>(), pszusername.toCPointer<ByteVar>(), pszcontentdescription.toCPointer<ByteVar>(), pratingdetails.toCPointer<ByteVar>())
+public actual fun ratingAccessDeniedDialog(hdlg: Hwnd, pszusername: Pcstr, pszcontentdescription: Pcstr, pratingdetails: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_ratingAccessDeniedDialog(hdlg?.value?.toCPointer<ByteVar>(), pszusername?.value?.toCPointer<ByteVar>(), pszcontentdescription?.value?.toCPointer<ByteVar>(), pratingdetails?.value?.toCPointer<ByteVar>())
 
-public actual fun RatingAccessDeniedDialog2(hdlg: HWND, pszusername: PCSTR, pratingdetails: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_RatingAccessDeniedDialog2(hdlg.toCPointer<ByteVar>(), pszusername.toCPointer<ByteVar>(), pratingdetails.toCPointer<ByteVar>())
+public actual fun ratingAccessDeniedDialog2(hdlg: Hwnd, pszusername: Pcstr, pratingdetails: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_ratingAccessDeniedDialog2(hdlg?.value?.toCPointer<ByteVar>(), pszusername?.value?.toCPointer<ByteVar>(), pratingdetails?.value?.toCPointer<ByteVar>())
 
-public actual fun RatingAccessDeniedDialog2W(hdlg: HWND, pszusername: PCWSTR, pratingdetails: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_RatingAccessDeniedDialog2W(hdlg.toCPointer<ByteVar>(), pszusername.toCPointer<ByteVar>(), pratingdetails.toCPointer<ByteVar>())
+public actual fun ratingAccessDeniedDialog2W(hdlg: Hwnd, pszusername: Pcwstr, pratingdetails: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_ratingAccessDeniedDialog2W(hdlg?.value?.toCPointer<ByteVar>(), pszusername?.value?.toCPointer<ByteVar>(), pratingdetails?.value?.toCPointer<ByteVar>())
 
-public actual fun RatingAccessDeniedDialogW(hdlg: HWND, pszusername: PCWSTR, pszcontentdescription: PCWSTR, pratingdetails: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_RatingAccessDeniedDialogW(hdlg.toCPointer<ByteVar>(), pszusername.toCPointer<ByteVar>(), pszcontentdescription.toCPointer<ByteVar>(), pratingdetails.toCPointer<ByteVar>())
+public actual fun ratingAccessDeniedDialogW(hdlg: Hwnd, pszusername: Pcwstr, pszcontentdescription: Pcwstr, pratingdetails: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_ratingAccessDeniedDialogW(hdlg?.value?.toCPointer<ByteVar>(), pszusername?.value?.toCPointer<ByteVar>(), pszcontentdescription?.value?.toCPointer<ByteVar>(), pratingdetails?.value?.toCPointer<ByteVar>())
 
-public actual fun RatingAddToApprovedSites(hdlg: HWND, cbpasswordblob: UInt, pbpasswordblob: Long, lpszurl: PCWSTR, falwaysnever: BOOL, fsitepage: BOOL, fapprovedsitesenforced: BOOL): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_RatingAddToApprovedSites(hdlg.toCPointer<ByteVar>(), cbpasswordblob, pbpasswordblob.toCPointer<ByteVar>(), lpszurl.toCPointer<ByteVar>(), falwaysnever, fsitepage, fapprovedsitesenforced)
+public actual fun ratingAddToApprovedSites(hdlg: Hwnd, cbpasswordblob: UInt, pbpasswordblob: COpaquePointer?, lpszurl: Pcwstr, falwaysnever: Bool, fsitepage: Bool, fapprovedsitesenforced: Bool): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_ratingAddToApprovedSites(hdlg?.value?.toCPointer<ByteVar>(), cbpasswordblob, pbpasswordblob?.value?.toCPointer<ByteVar>(), lpszurl?.value?.toCPointer<ByteVar>(), falwaysnever, fsitepage, fapprovedsitesenforced)
 
-public actual fun RatingCheckUserAccess(pszusername: PCSTR, pszurl: PCSTR, pszratinginfo: PCSTR, pdata: Long, cbdata: UInt, ppratingdetails: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_RatingCheckUserAccess(pszusername.toCPointer<ByteVar>(), pszurl.toCPointer<ByteVar>(), pszratinginfo.toCPointer<ByteVar>(), pdata.toCPointer<ByteVar>(), cbdata, ppratingdetails.toCPointer<ByteVar>())
+public actual fun ratingCheckUserAccess(pszusername: Pcstr, pszurl: Pcstr, pszratinginfo: Pcstr, pdata: COpaquePointer?, cbdata: UInt, ppratingdetails: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_ratingCheckUserAccess(pszusername?.value?.toCPointer<ByteVar>(), pszurl?.value?.toCPointer<ByteVar>(), pszratinginfo?.value?.toCPointer<ByteVar>(), pdata?.value?.toCPointer<ByteVar>(), cbdata, ppratingdetails?.value?.toCPointer<ByteVar>())
 
-public actual fun RatingCheckUserAccessW(pszusername: PCWSTR, pszurl: PCWSTR, pszratinginfo: PCWSTR, pdata: Long, cbdata: UInt, ppratingdetails: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_RatingCheckUserAccessW(pszusername.toCPointer<ByteVar>(), pszurl.toCPointer<ByteVar>(), pszratinginfo.toCPointer<ByteVar>(), pdata.toCPointer<ByteVar>(), cbdata, ppratingdetails.toCPointer<ByteVar>())
+public actual fun ratingCheckUserAccessW(pszusername: Pcwstr, pszurl: Pcwstr, pszratinginfo: Pcwstr, pdata: COpaquePointer?, cbdata: UInt, ppratingdetails: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_ratingCheckUserAccessW(pszusername?.value?.toCPointer<ByteVar>(), pszurl?.value?.toCPointer<ByteVar>(), pszratinginfo?.value?.toCPointer<ByteVar>(), pdata?.value?.toCPointer<ByteVar>(), cbdata, ppratingdetails?.value?.toCPointer<ByteVar>())
 
-public actual fun RatingClickedOnPRFInternal(hwndowner: HWND, param1: HINSTANCE, lpszfilename: PCSTR, nshow: Int): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_RatingClickedOnPRFInternal(hwndowner.toCPointer<ByteVar>(), param1.toCPointer<ByteVar>(), lpszfilename.toCPointer<ByteVar>(), nshow)
+public actual fun ratingClickedOnPRFInternal(hwndowner: Hwnd, param1: Hinstance, lpszfilename: Pcstr, nshow: Int): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_ratingClickedOnPRFInternal(hwndowner?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), lpszfilename?.value?.toCPointer<ByteVar>(), nshow)
 
-public actual fun RatingClickedOnRATInternal(hwndowner: HWND, param1: HINSTANCE, lpszfilename: PCSTR, nshow: Int): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_RatingClickedOnRATInternal(hwndowner.toCPointer<ByteVar>(), param1.toCPointer<ByteVar>(), lpszfilename.toCPointer<ByteVar>(), nshow)
+public actual fun ratingClickedOnRATInternal(hwndowner: Hwnd, param1: Hinstance, lpszfilename: Pcstr, nshow: Int): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_ratingClickedOnRATInternal(hwndowner?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), lpszfilename?.value?.toCPointer<ByteVar>(), nshow)
 
-public actual fun RatingEnable(hwndparent: HWND, pszusername: PCSTR, fenable: BOOL): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_RatingEnable(hwndparent.toCPointer<ByteVar>(), pszusername.toCPointer<ByteVar>(), fenable)
+public actual fun ratingEnable(hwndparent: Hwnd, pszusername: Pcstr, fenable: Bool): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_ratingEnable(hwndparent?.value?.toCPointer<ByteVar>(), pszusername?.value?.toCPointer<ByteVar>(), fenable)
 
-public actual fun RatingEnableW(hwndparent: HWND, pszusername: PCWSTR, fenable: BOOL): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_RatingEnableW(hwndparent.toCPointer<ByteVar>(), pszusername.toCPointer<ByteVar>(), fenable)
+public actual fun ratingEnableW(hwndparent: Hwnd, pszusername: Pcwstr, fenable: Bool): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_ratingEnableW(hwndparent?.value?.toCPointer<ByteVar>(), pszusername?.value?.toCPointer<ByteVar>(), fenable)
 
-public actual fun RatingEnabledQuery(): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_RatingEnabledQuery()
+public actual fun ratingEnabledQuery(): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_ratingEnabledQuery()
 
-public actual fun RatingFreeDetails(pratingdetails: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_RatingFreeDetails(pratingdetails.toCPointer<ByteVar>())
+public actual fun ratingFreeDetails(pratingdetails: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_ratingFreeDetails(pratingdetails?.value?.toCPointer<ByteVar>())
 
-public actual fun RatingInit(): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_RatingInit()
+public actual fun ratingInit(): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_ratingInit()
 
-public actual fun RatingObtainCancel(hratingobtainquery: HANDLE): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_RatingObtainCancel(hratingobtainquery.toCPointer<ByteVar>())
+public actual fun ratingObtainCancel(hratingobtainquery: Handle): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_ratingObtainCancel(hratingobtainquery?.value?.toCPointer<ByteVar>())
 
-public actual fun RatingObtainQuery(psztargeturl: PCSTR, dwuserdata: UInt, fcallback: Long, phratingobtainquery: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_RatingObtainQuery(psztargeturl.toCPointer<ByteVar>(), dwuserdata, fcallback, phratingobtainquery.toCPointer<ByteVar>())
+public actual fun ratingObtainQuery(psztargeturl: Pcstr, dwuserdata: UInt, fcallback: Long, phratingobtainquery: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_ratingObtainQuery(psztargeturl?.value?.toCPointer<ByteVar>(), dwuserdata, fcallback, phratingobtainquery?.value?.toCPointer<ByteVar>())
 
-public actual fun RatingObtainQueryW(psztargeturl: PCWSTR, dwuserdata: UInt, fcallback: Long, phratingobtainquery: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_RatingObtainQueryW(psztargeturl.toCPointer<ByteVar>(), dwuserdata, fcallback, phratingobtainquery.toCPointer<ByteVar>())
+public actual fun ratingObtainQueryW(psztargeturl: Pcwstr, dwuserdata: UInt, fcallback: Long, phratingobtainquery: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_ratingObtainQueryW(psztargeturl?.value?.toCPointer<ByteVar>(), dwuserdata, fcallback, phratingobtainquery?.value?.toCPointer<ByteVar>())
 
-public actual fun RatingSetupUI(hdlg: HWND, pszusername: PCSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_RatingSetupUI(hdlg.toCPointer<ByteVar>(), pszusername.toCPointer<ByteVar>())
+public actual fun ratingSetupUI(hdlg: Hwnd, pszusername: Pcstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_ratingSetupUI(hdlg?.value?.toCPointer<ByteVar>(), pszusername?.value?.toCPointer<ByteVar>())
 
-public actual fun RatingSetupUIW(hdlg: HWND, pszusername: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_RatingSetupUIW(hdlg.toCPointer<ByteVar>(), pszusername.toCPointer<ByteVar>())
+public actual fun ratingSetupUIW(hdlg: Hwnd, pszusername: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_ratingSetupUIW(hdlg?.value?.toCPointer<ByteVar>(), pszusername?.value?.toCPointer<ByteVar>())
 
-public actual fun SniffStream(pinstream: Long, pnformat: Long, ppoutstream: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_SniffStream(pinstream.toCPointer<ByteVar>(), pnformat.toCPointer<ByteVar>(), ppoutstream.toCPointer<ByteVar>())
+public actual fun sniffStream(pinstream: COpaquePointer?, pnformat: COpaquePointer?, ppoutstream: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.web.internetexplorer.cinterop.windowssys_windows_win32_web_internetexplorer_sniffStream(pinstream?.value?.toCPointer<ByteVar>(), pnformat?.value?.toCPointer<ByteVar>(), ppoutstream?.value?.toCPointer<ByteVar>())

@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_ActivateActCtx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_activateActCtx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hactctx = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcookie = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -71,7 +71,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_AddRefActCtx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_addRefActCtx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hactctx = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -88,7 +88,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_ApplyDeltaA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_applyDeltaA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t applyflags = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpsourcename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -112,7 +112,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_ApplyDeltaW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_applyDeltaW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t applyflags = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* lpsourcename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -136,7 +136,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_ApplyPatchToFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_applyPatchToFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* patchfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* oldfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -160,7 +160,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_ApplyPatchToFileByBuffers_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_applyPatchToFileByBuffers_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* patchfilemapped = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t patchfilesize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -198,7 +198,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_ApplyPatchToFileByHandles_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_applyPatchToFileByHandles_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* patchfilehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* oldfilehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -222,7 +222,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_ApplyPatchToFileByHandlesEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_applyPatchToFileByHandlesEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* patchfilehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* oldfilehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -250,7 +250,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_ApplyPatchToFileExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_applyPatchToFileExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* patchfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* oldfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -278,7 +278,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_ApplyPatchToFileExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_applyPatchToFileExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* patchfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* oldfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -306,7 +306,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_ApplyPatchToFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_applyPatchToFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* patchfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* oldfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -330,7 +330,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_CreateActCtxA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_createActCtxA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pactctx = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -348,7 +348,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_CreateActCtxW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_createActCtxW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pactctx = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -366,7 +366,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_CreatePatchFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_createPatchFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* oldfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* newfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -392,7 +392,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_CreatePatchFileByHandles_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_createPatchFileByHandles_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* oldfilehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* newfilehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -418,7 +418,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_CreatePatchFileByHandlesEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_createPatchFileByHandlesEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t oldfilecount = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* oldfileinfoarray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -450,7 +450,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_CreatePatchFileExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_createPatchFileExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t oldfilecount = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* oldfileinfoarray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -482,7 +482,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_CreatePatchFileExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_createPatchFileExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t oldfilecount = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* oldfileinfoarray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -514,7 +514,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_CreatePatchFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_createPatchFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* oldfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* newfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -540,7 +540,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_DeactivateActCtx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_deactivateActCtx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint64_t ulcookie = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -560,7 +560,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_DeltaFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_deltaFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmemory = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -578,7 +578,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_ExtractPatchHeaderToFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_extractPatchHeaderToFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* patchfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* patchheaderfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -598,7 +598,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_ExtractPatchHeaderToFileByHandles_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_extractPatchHeaderToFileByHandles_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* patchfilehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* patchheaderfilehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -618,7 +618,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_ExtractPatchHeaderToFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_extractPatchHeaderToFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* patchfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* patchheaderfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -638,7 +638,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_FindActCtxSectionGuid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_findActCtxSectionGuid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpextensionguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -664,7 +664,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_FindActCtxSectionStringA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_findActCtxSectionStringA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpextensionguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -690,7 +690,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_FindActCtxSectionStringW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_findActCtxSectionStringW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpextensionguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -716,7 +716,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_GetCurrentActCtx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_getCurrentActCtx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lphactctx = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -734,7 +734,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_GetDeltaInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_getDeltaInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpdeltaname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpheaderinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -754,7 +754,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_GetDeltaInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_getDeltaInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpdeltaname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpheaderinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -774,7 +774,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_GetDeltaSignatureA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_getDeltaSignatureA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t filetypeset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t hashalgid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -798,7 +798,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_GetDeltaSignatureW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_getDeltaSignatureW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t filetypeset = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t hashalgid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -822,7 +822,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_GetFilePatchSignatureA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_getFilePatchSignatureA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t optionflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -856,7 +856,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_GetFilePatchSignatureByBuffer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_getFilePatchSignatureByBuffer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filebufferwritable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t filesize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -892,7 +892,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_GetFilePatchSignatureByHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_getFilePatchSignatureByHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t optionflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -926,7 +926,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_GetFilePatchSignatureW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_getFilePatchSignatureW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t optionflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -960,7 +960,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiAdvertiseProductA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiAdvertiseProductA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szpackagepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szscriptfilepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -984,7 +984,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiAdvertiseProductExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiAdvertiseProductExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szpackagepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szscriptfilepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1012,7 +1012,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiAdvertiseProductExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiAdvertiseProductExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szpackagepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szscriptfilepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1040,7 +1040,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiAdvertiseProductW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiAdvertiseProductW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szpackagepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szscriptfilepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1064,7 +1064,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiAdvertiseScriptA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiAdvertiseScriptA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szscriptfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1088,7 +1088,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiAdvertiseScriptW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiAdvertiseScriptW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szscriptfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1112,7 +1112,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiApplyMultiplePatchesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiApplyMultiplePatchesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szpatchpackages = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szproductcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1134,7 +1134,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiApplyMultiplePatchesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiApplyMultiplePatchesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szpatchpackages = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szproductcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1156,7 +1156,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiApplyPatchA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiApplyPatchA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szpatchpackage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szinstallpackage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1180,7 +1180,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiApplyPatchW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiApplyPatchW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szpatchpackage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szinstallpackage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1204,7 +1204,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiBeginTransactionA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiBeginTransactionA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwtransactionattributes = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1228,7 +1228,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiBeginTransactionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiBeginTransactionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwtransactionattributes = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1252,7 +1252,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiCloseAllHandles_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiCloseAllHandles_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -1268,7 +1268,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiCloseHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiCloseHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hany = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -1286,7 +1286,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiCollectUserInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiCollectUserInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1304,7 +1304,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiCollectUserInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiCollectUserInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1322,7 +1322,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiConfigureFeatureA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiConfigureFeatureA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szfeature = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1344,7 +1344,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiConfigureFeatureW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiConfigureFeatureW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szfeature = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1366,7 +1366,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiConfigureProductA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiConfigureProductA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t iinstalllevel = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1388,7 +1388,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiConfigureProductExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiConfigureProductExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t iinstalllevel = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1412,7 +1412,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiConfigureProductExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiConfigureProductExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t iinstalllevel = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1436,7 +1436,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiConfigureProductW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiConfigureProductW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t iinstalllevel = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1458,7 +1458,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiCreateRecord_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiCreateRecord_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t cparams = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -1476,7 +1476,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiCreateTransformSummaryInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiCreateTransformSummaryInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hdatabase = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t hdatabasereference = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1502,7 +1502,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiCreateTransformSummaryInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiCreateTransformSummaryInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hdatabase = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t hdatabasereference = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1528,7 +1528,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseApplyTransformA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseApplyTransformA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hdatabase = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* sztransformfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1550,7 +1550,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseApplyTransformW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseApplyTransformW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hdatabase = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* sztransformfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1572,7 +1572,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseCommit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseCommit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hdatabase = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -1590,7 +1590,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseExportA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseExportA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hdatabase = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* sztablename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1614,7 +1614,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseExportW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseExportW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hdatabase = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* sztablename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1638,7 +1638,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseGenerateTransformA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseGenerateTransformA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hdatabase = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t hdatabasereference = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1664,7 +1664,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseGenerateTransformW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseGenerateTransformW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hdatabase = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t hdatabasereference = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1690,7 +1690,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseGetPrimaryKeysA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseGetPrimaryKeysA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hdatabase = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* sztablename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1712,7 +1712,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseGetPrimaryKeysW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseGetPrimaryKeysW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hdatabase = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* sztablename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1734,7 +1734,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseImportA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseImportA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hdatabase = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szfolderpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1756,7 +1756,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseImportW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseImportW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hdatabase = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szfolderpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1778,7 +1778,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseIsTablePersistentA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseIsTablePersistentA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hdatabase = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* sztablename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1798,7 +1798,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseIsTablePersistentW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseIsTablePersistentW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hdatabase = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* sztablename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1818,7 +1818,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseMergeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseMergeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hdatabase = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t hdatabasemerge = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1840,7 +1840,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseMergeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseMergeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hdatabase = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t hdatabasemerge = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1862,7 +1862,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseOpenViewA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseOpenViewA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hdatabase = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szquery = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1884,7 +1884,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseOpenViewW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseOpenViewW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hdatabase = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szquery = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1906,7 +1906,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiDetermineApplicablePatchesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiDetermineApplicablePatchesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproductpackagepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cpatchinfo = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1928,7 +1928,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiDetermineApplicablePatchesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiDetermineApplicablePatchesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproductpackagepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cpatchinfo = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1950,7 +1950,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiDeterminePatchSequenceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiDeterminePatchSequenceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproductcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1976,7 +1976,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiDeterminePatchSequenceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiDeterminePatchSequenceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproductcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2002,7 +2002,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiDoActionA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiDoActionA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szaction = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2022,7 +2022,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiDoActionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiDoActionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szaction = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2042,7 +2042,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnableLogA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiEnableLogA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwlogmode = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szlogfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2064,7 +2064,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnableLogW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiEnableLogW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwlogmode = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szlogfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2086,7 +2086,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnableUIPreview_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiEnableUIPreview_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hdatabase = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* phpreview = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2106,7 +2106,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiEndTransaction_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiEndTransaction_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwtransactionstate = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -2124,7 +2124,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumClientsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumClientsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szcomponent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t iproductindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2146,7 +2146,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumClientsExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumClientsExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szcomponent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2178,7 +2178,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumClientsExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumClientsExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szcomponent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2210,7 +2210,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumClientsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumClientsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szcomponent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t iproductindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2232,7 +2232,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumComponentCostsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentCostsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szcomponent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2264,7 +2264,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumComponentCostsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentCostsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szcomponent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2296,7 +2296,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumComponentQualifiersA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentQualifiersA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szcomponent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t iindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2324,7 +2324,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumComponentQualifiersW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentQualifiersW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szcomponent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t iindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2352,7 +2352,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumComponentsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t icomponentindex = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpcomponentbuf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2372,7 +2372,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumComponentsExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentsExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szusersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwcontext = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2402,7 +2402,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumComponentsExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentsExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szusersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwcontext = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2432,7 +2432,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumComponentsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t icomponentindex = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpcomponentbuf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2452,7 +2452,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumFeaturesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumFeaturesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ifeatureindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2476,7 +2476,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumFeaturesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumFeaturesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ifeatureindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2500,7 +2500,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumPatchesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumPatchesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ipatchindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2526,7 +2526,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumPatchesExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumPatchesExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproductcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2562,7 +2562,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumPatchesExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumPatchesExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproductcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2598,7 +2598,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumPatchesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumPatchesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ipatchindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2624,7 +2624,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumProductsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumProductsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t iproductindex = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpproductbuf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2644,7 +2644,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumProductsExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumProductsExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproductcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2676,7 +2676,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumProductsExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumProductsExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproductcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2708,7 +2708,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumProductsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumProductsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t iproductindex = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpproductbuf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2728,7 +2728,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumRelatedProductsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumRelatedProductsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpupgradecode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwreserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2752,7 +2752,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumRelatedProductsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumRelatedProductsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpupgradecode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwreserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2776,7 +2776,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiEvaluateConditionA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiEvaluateConditionA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szcondition = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2796,7 +2796,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiEvaluateConditionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiEvaluateConditionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szcondition = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2816,7 +2816,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiExtractPatchXMLDataA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiExtractPatchXMLDataA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szpatchpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwreserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2840,7 +2840,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiExtractPatchXMLDataW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiExtractPatchXMLDataW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szpatchpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwreserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2864,7 +2864,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiFormatRecordA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiFormatRecordA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t hrecord = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2888,7 +2888,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiFormatRecordW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiFormatRecordW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t hrecord = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2912,7 +2912,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetActiveDatabase_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetActiveDatabase_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -2930,7 +2930,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetComponentPathA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetComponentPathA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szcomponent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2954,7 +2954,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetComponentPathExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetComponentPathExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproductcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szcomponentcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2982,7 +2982,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetComponentPathExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetComponentPathExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproductcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szcomponentcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3010,7 +3010,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetComponentPathW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetComponentPathW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szcomponent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3034,7 +3034,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetComponentStateA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetComponentStateA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szcomponent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3058,7 +3058,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetComponentStateW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetComponentStateW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szcomponent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3082,7 +3082,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetDatabaseState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetDatabaseState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hdatabase = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -3100,7 +3100,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureCostA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureCostA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szfeature = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3126,7 +3126,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureCostW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureCostW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szfeature = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3152,7 +3152,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hproduct = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szfeature = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3182,7 +3182,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hproduct = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szfeature = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3212,7 +3212,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureStateA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureStateA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szfeature = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3236,7 +3236,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureStateW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureStateW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szfeature = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3260,7 +3260,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureUsageA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureUsageA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szfeature = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3284,7 +3284,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureUsageW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureUsageW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szfeature = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3308,7 +3308,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureValidStatesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureValidStatesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szfeature = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3330,7 +3330,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureValidStatesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureValidStatesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szfeature = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3352,7 +3352,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFileHashA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFileHashA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szfilepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwoptions = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3374,7 +3374,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFileHashW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFileHashW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szfilepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwoptions = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3396,7 +3396,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFileSignatureInformationA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFileSignatureInformationA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szsignedobjectpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3422,7 +3422,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFileSignatureInformationW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFileSignatureInformationW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szsignedobjectpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3448,7 +3448,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFileVersionA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFileVersionA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szfilepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpversionbuf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3474,7 +3474,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFileVersionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFileVersionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szfilepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpversionbuf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3500,7 +3500,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetLanguage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetLanguage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -3518,7 +3518,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetLastErrorRecord_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetLastErrorRecord_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -3534,7 +3534,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t erunmode = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3554,7 +3554,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetPatchFileListA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPatchFileListA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproductcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szpatchpackages = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3578,7 +3578,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetPatchFileListW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPatchFileListW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproductcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szpatchpackages = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3602,7 +3602,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetPatchInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPatchInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szpatch = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szattribute = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3626,7 +3626,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetPatchInfoExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPatchInfoExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szpatchcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szproductcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3656,7 +3656,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetPatchInfoExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPatchInfoExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szpatchcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szproductcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3686,7 +3686,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetPatchInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPatchInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szpatch = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szattribute = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3710,7 +3710,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductCodeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductCodeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szcomponent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbuf39 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3730,7 +3730,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductCodeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductCodeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szcomponent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpbuf39 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3750,7 +3750,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szattribute = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3774,7 +3774,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductInfoExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductInfoExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproductcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3802,7 +3802,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductInfoExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductInfoExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproductcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3830,7 +3830,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductInfoFromScriptA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductInfoFromScriptA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szscriptfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpproductbuf39 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3862,7 +3862,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductInfoFromScriptW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductInfoFromScriptW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szscriptfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpproductbuf39 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3894,7 +3894,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szattribute = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3918,7 +3918,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductPropertyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductPropertyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hproduct = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szproperty = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3942,7 +3942,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductPropertyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductPropertyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hproduct = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szproperty = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3966,7 +3966,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetPropertyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPropertyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3990,7 +3990,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetPropertyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPropertyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4014,7 +4014,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetShortcutTargetA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetShortcutTargetA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szshortcutpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szproductcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4038,7 +4038,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetShortcutTargetW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetShortcutTargetW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szshortcutpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szproductcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4062,7 +4062,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetSourcePathA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetSourcePathA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szfolder = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4086,7 +4086,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetSourcePathW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetSourcePathW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szfolder = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4110,7 +4110,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetSummaryInformationA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetSummaryInformationA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hdatabase = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szdatabasepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4134,7 +4134,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetSummaryInformationW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetSummaryInformationW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hdatabase = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szdatabasepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4158,7 +4158,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetTargetPathA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetTargetPathA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szfolder = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4182,7 +4182,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetTargetPathW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetTargetPathW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szfolder = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4206,7 +4206,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetUserInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetUserInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpusernamebuf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4236,7 +4236,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetUserInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiGetUserInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpusernamebuf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4266,7 +4266,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiInstallMissingComponentA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiInstallMissingComponentA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szcomponent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4288,7 +4288,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiInstallMissingComponentW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiInstallMissingComponentW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szcomponent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4310,7 +4310,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiInstallMissingFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiInstallMissingFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4330,7 +4330,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiInstallMissingFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiInstallMissingFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4350,7 +4350,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiInstallProductA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiInstallProductA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szpackagepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szcommandline = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4370,7 +4370,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiInstallProductW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiInstallProductW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szpackagepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szcommandline = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4390,7 +4390,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiIsProductElevatedA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiIsProductElevatedA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfelevated = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4410,7 +4410,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiIsProductElevatedW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiIsProductElevatedW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfelevated = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4430,7 +4430,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiJoinTransaction_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiJoinTransaction_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t htransactionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwtransactionattributes = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4452,7 +4452,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiLocateComponentA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiLocateComponentA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szcomponent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lppathbuf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4474,7 +4474,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiLocateComponentW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiLocateComponentW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szcomponent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lppathbuf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4496,7 +4496,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiNotifySidChangeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiNotifySidChangeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* poldsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pnewsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4516,7 +4516,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiNotifySidChangeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiNotifySidChangeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* poldsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pnewsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4536,7 +4536,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiOpenDatabaseA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenDatabaseA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szdatabasepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szpersist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4558,7 +4558,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiOpenDatabaseW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenDatabaseW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szdatabasepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szpersist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4580,7 +4580,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiOpenPackageA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenPackageA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szpackagepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4600,7 +4600,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiOpenPackageExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenPackageExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szpackagepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwoptions = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4622,7 +4622,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiOpenPackageExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenPackageExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szpackagepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwoptions = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4644,7 +4644,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiOpenPackageW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenPackageW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szpackagepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4664,7 +4664,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiOpenProductA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenProductA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4684,7 +4684,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiOpenProductW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenProductW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4704,7 +4704,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiPreviewBillboardA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiPreviewBillboardA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hpreview = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szcontrolname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4726,7 +4726,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiPreviewBillboardW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiPreviewBillboardW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hpreview = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szcontrolname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4748,7 +4748,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiPreviewDialogA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiPreviewDialogA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hpreview = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szdialogname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4768,7 +4768,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiPreviewDialogW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiPreviewDialogW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hpreview = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szdialogname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4788,7 +4788,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiProcessAdvertiseScriptA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiProcessAdvertiseScriptA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szscriptfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sziconfolder = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4814,7 +4814,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiProcessAdvertiseScriptW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiProcessAdvertiseScriptW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szscriptfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sziconfolder = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4840,7 +4840,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiProcessMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiProcessMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t emessagetype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4862,7 +4862,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiProvideAssemblyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideAssemblyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szassemblyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szappcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4890,7 +4890,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiProvideAssemblyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideAssemblyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szassemblyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szappcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4918,7 +4918,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiProvideComponentA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideComponentA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szfeature = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4946,7 +4946,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiProvideComponentW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideComponentW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szfeature = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4974,7 +4974,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiProvideQualifiedComponentA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideQualifiedComponentA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szcategory = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szqualifier = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5000,7 +5000,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiProvideQualifiedComponentExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideQualifiedComponentExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szcategory = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szqualifier = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5032,7 +5032,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiProvideQualifiedComponentExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideQualifiedComponentExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szcategory = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szqualifier = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5064,7 +5064,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiProvideQualifiedComponentW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideQualifiedComponentW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szcategory = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szqualifier = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5090,7 +5090,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiQueryComponentStateA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryComponentStateA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproductcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5116,7 +5116,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiQueryComponentStateW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryComponentStateW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproductcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5142,7 +5142,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiQueryFeatureStateA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryFeatureStateA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szfeature = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5162,7 +5162,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiQueryFeatureStateExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryFeatureStateExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproductcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5188,7 +5188,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiQueryFeatureStateExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryFeatureStateExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproductcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5214,7 +5214,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiQueryFeatureStateW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryFeatureStateW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szfeature = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5234,7 +5234,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiQueryProductStateA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryProductStateA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5252,7 +5252,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiQueryProductStateW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryProductStateW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5270,7 +5270,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordClearData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordClearData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hrecord = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -5288,7 +5288,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordDataSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordDataSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hrecord = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ifield = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5308,7 +5308,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordGetFieldCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordGetFieldCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hrecord = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -5326,7 +5326,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordGetInteger_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordGetInteger_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hrecord = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ifield = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5346,7 +5346,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordGetStringA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordGetStringA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hrecord = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ifield = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5370,7 +5370,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordGetStringW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordGetStringW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hrecord = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ifield = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5394,7 +5394,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordIsNull_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordIsNull_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hrecord = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ifield = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5414,7 +5414,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordReadStream_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordReadStream_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hrecord = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ifield = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5438,7 +5438,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordSetInteger_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordSetInteger_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hrecord = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ifield = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5460,7 +5460,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordSetStreamA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordSetStreamA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hrecord = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ifield = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5482,7 +5482,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordSetStreamW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordSetStreamW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hrecord = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ifield = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5504,7 +5504,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordSetStringA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordSetStringA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hrecord = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ifield = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5526,7 +5526,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordSetStringW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordSetStringW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hrecord = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ifield = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5548,7 +5548,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiReinstallFeatureA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiReinstallFeatureA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szfeature = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5570,7 +5570,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiReinstallFeatureW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiReinstallFeatureW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szfeature = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5592,7 +5592,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiReinstallProductA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiReinstallProductA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t szreinstallmode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5612,7 +5612,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiReinstallProductW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiReinstallProductW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t szreinstallmode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5632,7 +5632,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiRemovePatchesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiRemovePatchesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szpatchlist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szproductcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5656,7 +5656,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiRemovePatchesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiRemovePatchesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szpatchlist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szproductcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5680,7 +5680,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSequenceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSequenceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* sztable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5702,7 +5702,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSequenceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSequenceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* sztable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5724,7 +5724,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetComponentStateA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSetComponentStateA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szcomponent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5746,7 +5746,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetComponentStateW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSetComponentStateW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szcomponent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5768,7 +5768,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetExternalUIA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSetExternalUIA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* puihandler = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwmessagefilter = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5790,7 +5790,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetExternalUIRecord_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSetExternalUIRecord_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* puihandler = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwmessagefilter = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5814,7 +5814,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetExternalUIW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSetExternalUIW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* puihandler = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwmessagefilter = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5836,7 +5836,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetFeatureAttributesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSetFeatureAttributesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szfeature = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5858,7 +5858,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetFeatureAttributesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSetFeatureAttributesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szfeature = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5880,7 +5880,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetFeatureStateA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSetFeatureStateA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szfeature = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5902,7 +5902,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetFeatureStateW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSetFeatureStateW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szfeature = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5924,7 +5924,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetInstallLevel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSetInstallLevel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t iinstalllevel = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5944,7 +5944,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetInternalUI_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSetInternalUI_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t dwuilevel = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* phwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5964,7 +5964,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSetMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t erunmode = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5986,7 +5986,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetPropertyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSetPropertyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6008,7 +6008,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetPropertyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSetPropertyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6030,7 +6030,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetTargetPathA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSetTargetPathA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szfolder = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6052,7 +6052,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetTargetPathW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSetTargetPathW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szfolder = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6074,7 +6074,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListAddMediaDiskA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListAddMediaDiskA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproductcodeorpatchcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6104,7 +6104,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListAddMediaDiskW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListAddMediaDiskW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproductcodeorpatchcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6134,7 +6134,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListAddSourceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListAddSourceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6158,7 +6158,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListAddSourceExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListAddSourceExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproductcodeorpatchcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6186,7 +6186,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListAddSourceExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListAddSourceExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproductcodeorpatchcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6214,7 +6214,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListAddSourceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListAddSourceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6238,7 +6238,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListClearAllA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearAllA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6260,7 +6260,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListClearAllExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearAllExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproductcodeorpatchcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6284,7 +6284,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListClearAllExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearAllExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproductcodeorpatchcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6308,7 +6308,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListClearAllW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearAllW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6330,7 +6330,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListClearMediaDiskA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearMediaDiskA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproductcodeorpatchcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6356,7 +6356,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListClearMediaDiskW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearMediaDiskW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproductcodeorpatchcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6382,7 +6382,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListClearSourceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearSourceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproductcodeorpatchcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6408,7 +6408,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListClearSourceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearSourceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproductcodeorpatchcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6434,7 +6434,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListEnumMediaDisksA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListEnumMediaDisksA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproductcodeorpatchcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6470,7 +6470,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListEnumMediaDisksW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListEnumMediaDisksW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproductcodeorpatchcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6506,7 +6506,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListEnumSourcesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListEnumSourcesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproductcodeorpatchcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6536,7 +6536,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListEnumSourcesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListEnumSourcesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproductcodeorpatchcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6566,7 +6566,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListForceResolutionA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListForceResolutionA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6588,7 +6588,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListForceResolutionExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListForceResolutionExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproductcodeorpatchcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6612,7 +6612,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListForceResolutionExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListForceResolutionExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproductcodeorpatchcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6636,7 +6636,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListForceResolutionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListForceResolutionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6658,7 +6658,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListGetInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListGetInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproductcodeorpatchcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6688,7 +6688,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListGetInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListGetInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproductcodeorpatchcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6718,7 +6718,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListSetInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListSetInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproductcodeorpatchcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6746,7 +6746,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListSetInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListSetInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproductcodeorpatchcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szusersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6774,7 +6774,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSummaryInfoGetPropertyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSummaryInfoGetPropertyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hsummaryinfo = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t uiproperty = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6804,7 +6804,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSummaryInfoGetPropertyCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSummaryInfoGetPropertyCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hsummaryinfo = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* puipropertycount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6824,7 +6824,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSummaryInfoGetPropertyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSummaryInfoGetPropertyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hsummaryinfo = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t uiproperty = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6854,7 +6854,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSummaryInfoPersist_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSummaryInfoPersist_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hsummaryinfo = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -6872,7 +6872,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSummaryInfoSetPropertyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSummaryInfoSetPropertyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hsummaryinfo = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t uiproperty = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6900,7 +6900,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiSummaryInfoSetPropertyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiSummaryInfoSetPropertyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hsummaryinfo = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t uiproperty = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6928,7 +6928,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiUseFeatureA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiUseFeatureA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szfeature = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6948,7 +6948,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiUseFeatureExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiUseFeatureExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szfeature = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6972,7 +6972,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiUseFeatureExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiUseFeatureExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szfeature = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6996,7 +6996,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiUseFeatureW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiUseFeatureW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szfeature = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7016,7 +7016,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiVerifyDiskSpace_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiVerifyDiskSpace_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hinstall = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -7034,7 +7034,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiVerifyPackageA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiVerifyPackageA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szpackagepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -7052,7 +7052,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiVerifyPackageW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiVerifyPackageW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szpackagepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -7070,7 +7070,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiViewClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiViewClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hview = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -7088,7 +7088,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiViewExecute_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiViewExecute_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hview = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t hrecord = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7108,7 +7108,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiViewFetch_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiViewFetch_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hview = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* phrecord = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7128,7 +7128,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiViewGetColumnInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiViewGetColumnInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hview = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t ecolumninfo = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7150,7 +7150,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiViewGetErrorA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiViewGetErrorA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hview = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szcolumnnamebuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7172,7 +7172,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiViewGetErrorW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiViewGetErrorW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hview = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szcolumnnamebuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7194,7 +7194,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_MsiViewModify_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_msiViewModify_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t hview = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t emodifymode = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7216,7 +7216,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_NormalizeFileForPatchSignature_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_normalizeFileForPatchSignature_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filebuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t filesize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7252,7 +7252,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_QueryActCtxSettingsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_queryActCtxSettingsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hactctx = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7282,7 +7282,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_QueryActCtxW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_queryActCtxW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hactctx = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7312,7 +7312,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_ReleaseActCtx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_releaseActCtx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hactctx = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -7329,7 +7329,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_SfcGetNextProtectedFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_sfcGetNextProtectedFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rpchandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* protfiledata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7349,7 +7349,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_SfcIsFileProtected_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_sfcIsFileProtected_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rpchandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* protfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7369,7 +7369,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_SfcIsKeyProtected_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_sfcIsKeyProtected_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* subkeyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7391,7 +7391,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_SfpVerifyFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_sfpVerifyFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszerror = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7413,7 +7413,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_TestApplyPatchToFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_testApplyPatchToFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* patchfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* oldfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7435,7 +7435,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_TestApplyPatchToFileByBuffers_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_testApplyPatchToFileByBuffers_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* patchfilebuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t patchfilesize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7463,7 +7463,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_TestApplyPatchToFileByHandles_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_testApplyPatchToFileByHandles_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* patchfilehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* oldfilehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7485,7 +7485,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_TestApplyPatchToFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_testApplyPatchToFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* patchfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* oldfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7507,7 +7507,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_ZombifyActCtx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_applicationinstallationandservicing_zombifyActCtx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hactctx = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -7526,319 +7526,319 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
 }
 
 static void register_windows_win32_system_applicationinstallationandservicing_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_ActivateActCtx", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_ActivateActCtx_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_AddRefActCtx", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_AddRefActCtx_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_ApplyDeltaA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_ApplyDeltaA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_ApplyDeltaW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_ApplyDeltaW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_ApplyPatchToFileA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_ApplyPatchToFileA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_ApplyPatchToFileByBuffers", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_ApplyPatchToFileByBuffers_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_ApplyPatchToFileByHandles", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_ApplyPatchToFileByHandles_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_ApplyPatchToFileByHandlesEx", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_ApplyPatchToFileByHandlesEx_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_ApplyPatchToFileExA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_ApplyPatchToFileExA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_ApplyPatchToFileExW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_ApplyPatchToFileExW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_ApplyPatchToFileW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_ApplyPatchToFileW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_CreateActCtxA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_CreateActCtxA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_CreateActCtxW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_CreateActCtxW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_CreatePatchFileA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_CreatePatchFileA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_CreatePatchFileByHandles", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_CreatePatchFileByHandles_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_CreatePatchFileByHandlesEx", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_CreatePatchFileByHandlesEx_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_CreatePatchFileExA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_CreatePatchFileExA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_CreatePatchFileExW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_CreatePatchFileExW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_CreatePatchFileW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_CreatePatchFileW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_DeactivateActCtx", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_DeactivateActCtx_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_DeltaFree", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_DeltaFree_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_ExtractPatchHeaderToFileA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_ExtractPatchHeaderToFileA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_ExtractPatchHeaderToFileByHandles", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_ExtractPatchHeaderToFileByHandles_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_ExtractPatchHeaderToFileW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_ExtractPatchHeaderToFileW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_FindActCtxSectionGuid", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_FindActCtxSectionGuid_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_FindActCtxSectionStringA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_FindActCtxSectionStringA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_FindActCtxSectionStringW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_FindActCtxSectionStringW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_GetCurrentActCtx", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_GetCurrentActCtx_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_GetDeltaInfoA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_GetDeltaInfoA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_GetDeltaInfoW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_GetDeltaInfoW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_GetDeltaSignatureA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_GetDeltaSignatureA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_GetDeltaSignatureW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_GetDeltaSignatureW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_GetFilePatchSignatureA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_GetFilePatchSignatureA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_GetFilePatchSignatureByBuffer", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_GetFilePatchSignatureByBuffer_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_GetFilePatchSignatureByHandle", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_GetFilePatchSignatureByHandle_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_GetFilePatchSignatureW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_GetFilePatchSignatureW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiAdvertiseProductA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiAdvertiseProductA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiAdvertiseProductExA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiAdvertiseProductExA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiAdvertiseProductExW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiAdvertiseProductExW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiAdvertiseProductW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiAdvertiseProductW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiAdvertiseScriptA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiAdvertiseScriptA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiAdvertiseScriptW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiAdvertiseScriptW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiApplyMultiplePatchesA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiApplyMultiplePatchesA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiApplyMultiplePatchesW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiApplyMultiplePatchesW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiApplyPatchA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiApplyPatchA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiApplyPatchW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiApplyPatchW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiBeginTransactionA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiBeginTransactionA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiBeginTransactionW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiBeginTransactionW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiCloseAllHandles", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiCloseAllHandles_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiCloseHandle", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiCloseHandle_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiCollectUserInfoA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiCollectUserInfoA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiCollectUserInfoW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiCollectUserInfoW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiConfigureFeatureA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiConfigureFeatureA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiConfigureFeatureW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiConfigureFeatureW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiConfigureProductA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiConfigureProductA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiConfigureProductExA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiConfigureProductExA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiConfigureProductExW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiConfigureProductExW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiConfigureProductW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiConfigureProductW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiCreateRecord", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiCreateRecord_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiCreateTransformSummaryInfoA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiCreateTransformSummaryInfoA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiCreateTransformSummaryInfoW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiCreateTransformSummaryInfoW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseApplyTransformA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseApplyTransformA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseApplyTransformW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseApplyTransformW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseCommit", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseCommit_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseExportA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseExportA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseExportW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseExportW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseGenerateTransformA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseGenerateTransformA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseGenerateTransformW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseGenerateTransformW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseGetPrimaryKeysA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseGetPrimaryKeysA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseGetPrimaryKeysW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseGetPrimaryKeysW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseImportA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseImportA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseImportW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseImportW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseIsTablePersistentA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseIsTablePersistentA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseIsTablePersistentW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseIsTablePersistentW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseMergeA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseMergeA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseMergeW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseMergeW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseOpenViewA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseOpenViewA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseOpenViewW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiDatabaseOpenViewW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiDetermineApplicablePatchesA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiDetermineApplicablePatchesA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiDetermineApplicablePatchesW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiDetermineApplicablePatchesW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiDeterminePatchSequenceA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiDeterminePatchSequenceA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiDeterminePatchSequenceW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiDeterminePatchSequenceW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiDoActionA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiDoActionA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiDoActionW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiDoActionW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnableLogA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnableLogA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnableLogW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnableLogW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnableUIPreview", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnableUIPreview_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiEndTransaction", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiEndTransaction_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumClientsA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumClientsA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumClientsExA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumClientsExA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumClientsExW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumClientsExW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumClientsW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumClientsW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumComponentCostsA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumComponentCostsA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumComponentCostsW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumComponentCostsW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumComponentQualifiersA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumComponentQualifiersA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumComponentQualifiersW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumComponentQualifiersW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumComponentsA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumComponentsA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumComponentsExA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumComponentsExA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumComponentsExW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumComponentsExW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumComponentsW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumComponentsW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumFeaturesA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumFeaturesA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumFeaturesW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumFeaturesW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumPatchesA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumPatchesA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumPatchesExA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumPatchesExA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumPatchesExW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumPatchesExW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumPatchesW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumPatchesW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumProductsA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumProductsA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumProductsExA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumProductsExA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumProductsExW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumProductsExW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumProductsW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumProductsW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumRelatedProductsA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumRelatedProductsA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumRelatedProductsW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiEnumRelatedProductsW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiEvaluateConditionA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiEvaluateConditionA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiEvaluateConditionW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiEvaluateConditionW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiExtractPatchXMLDataA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiExtractPatchXMLDataA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiExtractPatchXMLDataW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiExtractPatchXMLDataW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiFormatRecordA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiFormatRecordA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiFormatRecordW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiFormatRecordW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetActiveDatabase", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetActiveDatabase_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetComponentPathA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetComponentPathA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetComponentPathExA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetComponentPathExA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetComponentPathExW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetComponentPathExW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetComponentPathW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetComponentPathW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetComponentStateA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetComponentStateA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetComponentStateW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetComponentStateW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetDatabaseState", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetDatabaseState_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureCostA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureCostA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureCostW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureCostW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureInfoA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureInfoA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureInfoW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureInfoW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureStateA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureStateA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureStateW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureStateW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureUsageA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureUsageA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureUsageW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureUsageW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureValidStatesA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureValidStatesA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureValidStatesW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFeatureValidStatesW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFileHashA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFileHashA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFileHashW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFileHashW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFileSignatureInformationA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFileSignatureInformationA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFileSignatureInformationW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFileSignatureInformationW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFileVersionA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFileVersionA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFileVersionW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetFileVersionW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetLanguage", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetLanguage_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetLastErrorRecord", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetLastErrorRecord_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetMode", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetMode_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetPatchFileListA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetPatchFileListA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetPatchFileListW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetPatchFileListW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetPatchInfoA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetPatchInfoA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetPatchInfoExA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetPatchInfoExA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetPatchInfoExW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetPatchInfoExW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetPatchInfoW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetPatchInfoW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductCodeA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductCodeA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductCodeW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductCodeW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductInfoA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductInfoA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductInfoExA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductInfoExA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductInfoExW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductInfoExW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductInfoFromScriptA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductInfoFromScriptA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductInfoFromScriptW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductInfoFromScriptW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductInfoW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductInfoW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductPropertyA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductPropertyA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductPropertyW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetProductPropertyW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetPropertyA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetPropertyA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetPropertyW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetPropertyW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetShortcutTargetA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetShortcutTargetA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetShortcutTargetW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetShortcutTargetW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetSourcePathA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetSourcePathA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetSourcePathW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetSourcePathW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetSummaryInformationA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetSummaryInformationA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetSummaryInformationW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetSummaryInformationW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetTargetPathA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetTargetPathA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetTargetPathW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetTargetPathW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetUserInfoA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetUserInfoA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetUserInfoW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiGetUserInfoW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiInstallMissingComponentA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiInstallMissingComponentA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiInstallMissingComponentW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiInstallMissingComponentW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiInstallMissingFileA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiInstallMissingFileA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiInstallMissingFileW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiInstallMissingFileW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiInstallProductA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiInstallProductA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiInstallProductW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiInstallProductW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiIsProductElevatedA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiIsProductElevatedA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiIsProductElevatedW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiIsProductElevatedW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiJoinTransaction", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiJoinTransaction_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiLocateComponentA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiLocateComponentA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiLocateComponentW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiLocateComponentW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiNotifySidChangeA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiNotifySidChangeA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiNotifySidChangeW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiNotifySidChangeW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiOpenDatabaseA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiOpenDatabaseA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiOpenDatabaseW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiOpenDatabaseW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiOpenPackageA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiOpenPackageA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiOpenPackageExA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiOpenPackageExA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiOpenPackageExW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiOpenPackageExW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiOpenPackageW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiOpenPackageW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiOpenProductA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiOpenProductA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiOpenProductW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiOpenProductW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiPreviewBillboardA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiPreviewBillboardA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiPreviewBillboardW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiPreviewBillboardW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiPreviewDialogA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiPreviewDialogA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiPreviewDialogW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiPreviewDialogW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiProcessAdvertiseScriptA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiProcessAdvertiseScriptA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiProcessAdvertiseScriptW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiProcessAdvertiseScriptW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiProcessMessage", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiProcessMessage_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiProvideAssemblyA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiProvideAssemblyA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiProvideAssemblyW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiProvideAssemblyW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiProvideComponentA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiProvideComponentA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiProvideComponentW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiProvideComponentW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiProvideQualifiedComponentA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiProvideQualifiedComponentA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiProvideQualifiedComponentExA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiProvideQualifiedComponentExA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiProvideQualifiedComponentExW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiProvideQualifiedComponentExW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiProvideQualifiedComponentW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiProvideQualifiedComponentW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiQueryComponentStateA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiQueryComponentStateA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiQueryComponentStateW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiQueryComponentStateW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiQueryFeatureStateA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiQueryFeatureStateA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiQueryFeatureStateExA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiQueryFeatureStateExA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiQueryFeatureStateExW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiQueryFeatureStateExW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiQueryFeatureStateW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiQueryFeatureStateW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiQueryProductStateA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiQueryProductStateA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiQueryProductStateW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiQueryProductStateW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordClearData", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordClearData_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordDataSize", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordDataSize_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordGetFieldCount", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordGetFieldCount_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordGetInteger", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordGetInteger_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordGetStringA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordGetStringA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordGetStringW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordGetStringW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordIsNull", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordIsNull_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordReadStream", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordReadStream_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordSetInteger", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordSetInteger_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordSetStreamA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordSetStreamA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordSetStreamW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordSetStreamW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordSetStringA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordSetStringA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordSetStringW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiRecordSetStringW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiReinstallFeatureA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiReinstallFeatureA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiReinstallFeatureW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiReinstallFeatureW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiReinstallProductA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiReinstallProductA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiReinstallProductW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiReinstallProductW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiRemovePatchesA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiRemovePatchesA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiRemovePatchesW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiRemovePatchesW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSequenceA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSequenceA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSequenceW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSequenceW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetComponentStateA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetComponentStateA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetComponentStateW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetComponentStateW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetExternalUIA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetExternalUIA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetExternalUIRecord", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetExternalUIRecord_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetExternalUIW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetExternalUIW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetFeatureAttributesA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetFeatureAttributesA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetFeatureAttributesW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetFeatureAttributesW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetFeatureStateA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetFeatureStateA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetFeatureStateW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetFeatureStateW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetInstallLevel", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetInstallLevel_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetInternalUI", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetInternalUI_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetMode", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetMode_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetPropertyA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetPropertyA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetPropertyW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetPropertyW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetTargetPathA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetTargetPathA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetTargetPathW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSetTargetPathW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListAddMediaDiskA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListAddMediaDiskA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListAddMediaDiskW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListAddMediaDiskW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListAddSourceA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListAddSourceA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListAddSourceExA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListAddSourceExA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListAddSourceExW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListAddSourceExW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListAddSourceW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListAddSourceW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListClearAllA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListClearAllA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListClearAllExA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListClearAllExA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListClearAllExW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListClearAllExW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListClearAllW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListClearAllW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListClearMediaDiskA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListClearMediaDiskA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListClearMediaDiskW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListClearMediaDiskW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListClearSourceA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListClearSourceA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListClearSourceW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListClearSourceW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListEnumMediaDisksA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListEnumMediaDisksA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListEnumMediaDisksW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListEnumMediaDisksW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListEnumSourcesA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListEnumSourcesA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListEnumSourcesW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListEnumSourcesW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListForceResolutionA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListForceResolutionA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListForceResolutionExA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListForceResolutionExA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListForceResolutionExW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListForceResolutionExW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListForceResolutionW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListForceResolutionW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListGetInfoA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListGetInfoA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListGetInfoW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListGetInfoW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListSetInfoA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListSetInfoA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListSetInfoW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSourceListSetInfoW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSummaryInfoGetPropertyA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSummaryInfoGetPropertyA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSummaryInfoGetPropertyCount", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSummaryInfoGetPropertyCount_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSummaryInfoGetPropertyW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSummaryInfoGetPropertyW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSummaryInfoPersist", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSummaryInfoPersist_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSummaryInfoSetPropertyA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSummaryInfoSetPropertyA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiSummaryInfoSetPropertyW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiSummaryInfoSetPropertyW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiUseFeatureA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiUseFeatureA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiUseFeatureExA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiUseFeatureExA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiUseFeatureExW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiUseFeatureExW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiUseFeatureW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiUseFeatureW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiVerifyDiskSpace", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiVerifyDiskSpace_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiVerifyPackageA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiVerifyPackageA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiVerifyPackageW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiVerifyPackageW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiViewClose", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiViewClose_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiViewExecute", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiViewExecute_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiViewFetch", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiViewFetch_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiViewGetColumnInfo", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiViewGetColumnInfo_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiViewGetErrorA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiViewGetErrorA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiViewGetErrorW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiViewGetErrorW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_MsiViewModify", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_MsiViewModify_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_NormalizeFileForPatchSignature", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_NormalizeFileForPatchSignature_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_QueryActCtxSettingsW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_QueryActCtxSettingsW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_QueryActCtxW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_QueryActCtxW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_ReleaseActCtx", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_ReleaseActCtx_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_SfcGetNextProtectedFile", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_SfcGetNextProtectedFile_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_SfcIsFileProtected", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_SfcIsFileProtected_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_SfcIsKeyProtected", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_SfcIsKeyProtected_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_SfpVerifyFile", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_SfpVerifyFile_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_TestApplyPatchToFileA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_TestApplyPatchToFileA_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_TestApplyPatchToFileByBuffers", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_TestApplyPatchToFileByBuffers_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_TestApplyPatchToFileByHandles", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_TestApplyPatchToFileByHandles_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_TestApplyPatchToFileW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_TestApplyPatchToFileW_napi));
-    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_ZombifyActCtx", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_ZombifyActCtx_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_activateActCtx", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_activateActCtx_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_addRefActCtx", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_addRefActCtx_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_applyDeltaA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_applyDeltaA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_applyDeltaW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_applyDeltaW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_applyPatchToFileA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_applyPatchToFileA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_applyPatchToFileByBuffers", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_applyPatchToFileByBuffers_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_applyPatchToFileByHandles", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_applyPatchToFileByHandles_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_applyPatchToFileByHandlesEx", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_applyPatchToFileByHandlesEx_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_applyPatchToFileExA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_applyPatchToFileExA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_applyPatchToFileExW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_applyPatchToFileExW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_applyPatchToFileW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_applyPatchToFileW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_createActCtxA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_createActCtxA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_createActCtxW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_createActCtxW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_createPatchFileA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_createPatchFileA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_createPatchFileByHandles", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_createPatchFileByHandles_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_createPatchFileByHandlesEx", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_createPatchFileByHandlesEx_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_createPatchFileExA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_createPatchFileExA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_createPatchFileExW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_createPatchFileExW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_createPatchFileW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_createPatchFileW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_deactivateActCtx", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_deactivateActCtx_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_deltaFree", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_deltaFree_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_extractPatchHeaderToFileA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_extractPatchHeaderToFileA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_extractPatchHeaderToFileByHandles", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_extractPatchHeaderToFileByHandles_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_extractPatchHeaderToFileW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_extractPatchHeaderToFileW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_findActCtxSectionGuid", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_findActCtxSectionGuid_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_findActCtxSectionStringA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_findActCtxSectionStringA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_findActCtxSectionStringW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_findActCtxSectionStringW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_getCurrentActCtx", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_getCurrentActCtx_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_getDeltaInfoA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_getDeltaInfoA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_getDeltaInfoW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_getDeltaInfoW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_getDeltaSignatureA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_getDeltaSignatureA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_getDeltaSignatureW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_getDeltaSignatureW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_getFilePatchSignatureA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_getFilePatchSignatureA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_getFilePatchSignatureByBuffer", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_getFilePatchSignatureByBuffer_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_getFilePatchSignatureByHandle", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_getFilePatchSignatureByHandle_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_getFilePatchSignatureW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_getFilePatchSignatureW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiAdvertiseProductA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiAdvertiseProductA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiAdvertiseProductExA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiAdvertiseProductExA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiAdvertiseProductExW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiAdvertiseProductExW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiAdvertiseProductW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiAdvertiseProductW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiAdvertiseScriptA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiAdvertiseScriptA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiAdvertiseScriptW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiAdvertiseScriptW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiApplyMultiplePatchesA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiApplyMultiplePatchesA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiApplyMultiplePatchesW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiApplyMultiplePatchesW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiApplyPatchA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiApplyPatchA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiApplyPatchW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiApplyPatchW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiBeginTransactionA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiBeginTransactionA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiBeginTransactionW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiBeginTransactionW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiCloseAllHandles", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiCloseAllHandles_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiCloseHandle", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiCloseHandle_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiCollectUserInfoA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiCollectUserInfoA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiCollectUserInfoW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiCollectUserInfoW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiConfigureFeatureA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiConfigureFeatureA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiConfigureFeatureW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiConfigureFeatureW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiConfigureProductA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiConfigureProductA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiConfigureProductExA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiConfigureProductExA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiConfigureProductExW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiConfigureProductExW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiConfigureProductW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiConfigureProductW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiCreateRecord", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiCreateRecord_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiCreateTransformSummaryInfoA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiCreateTransformSummaryInfoA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiCreateTransformSummaryInfoW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiCreateTransformSummaryInfoW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseApplyTransformA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseApplyTransformA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseApplyTransformW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseApplyTransformW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseCommit", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseCommit_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseExportA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseExportA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseExportW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseExportW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseGenerateTransformA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseGenerateTransformA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseGenerateTransformW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseGenerateTransformW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseGetPrimaryKeysA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseGetPrimaryKeysA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseGetPrimaryKeysW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseGetPrimaryKeysW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseImportA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseImportA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseImportW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseImportW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseIsTablePersistentA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseIsTablePersistentA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseIsTablePersistentW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseIsTablePersistentW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseMergeA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseMergeA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseMergeW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseMergeW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseOpenViewA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseOpenViewA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseOpenViewW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiDatabaseOpenViewW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiDetermineApplicablePatchesA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiDetermineApplicablePatchesA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiDetermineApplicablePatchesW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiDetermineApplicablePatchesW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiDeterminePatchSequenceA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiDeterminePatchSequenceA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiDeterminePatchSequenceW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiDeterminePatchSequenceW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiDoActionA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiDoActionA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiDoActionW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiDoActionW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiEnableLogA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiEnableLogA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiEnableLogW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiEnableLogW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiEnableUIPreview", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiEnableUIPreview_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiEndTransaction", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiEndTransaction_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumClientsA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumClientsA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumClientsExA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumClientsExA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumClientsExW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumClientsExW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumClientsW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumClientsW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentCostsA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentCostsA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentCostsW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentCostsW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentQualifiersA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentQualifiersA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentQualifiersW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentQualifiersW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentsA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentsA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentsExA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentsExA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentsExW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentsExW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentsW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumComponentsW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumFeaturesA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumFeaturesA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumFeaturesW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumFeaturesW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumPatchesA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumPatchesA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumPatchesExA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumPatchesExA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumPatchesExW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumPatchesExW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumPatchesW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumPatchesW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumProductsA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumProductsA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumProductsExA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumProductsExA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumProductsExW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumProductsExW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumProductsW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumProductsW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumRelatedProductsA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumRelatedProductsA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumRelatedProductsW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiEnumRelatedProductsW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiEvaluateConditionA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiEvaluateConditionA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiEvaluateConditionW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiEvaluateConditionW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiExtractPatchXMLDataA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiExtractPatchXMLDataA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiExtractPatchXMLDataW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiExtractPatchXMLDataW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiFormatRecordA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiFormatRecordA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiFormatRecordW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiFormatRecordW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetActiveDatabase", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetActiveDatabase_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetComponentPathA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetComponentPathA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetComponentPathExA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetComponentPathExA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetComponentPathExW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetComponentPathExW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetComponentPathW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetComponentPathW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetComponentStateA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetComponentStateA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetComponentStateW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetComponentStateW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetDatabaseState", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetDatabaseState_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureCostA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureCostA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureCostW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureCostW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureInfoA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureInfoA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureInfoW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureInfoW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureStateA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureStateA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureStateW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureStateW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureUsageA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureUsageA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureUsageW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureUsageW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureValidStatesA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureValidStatesA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureValidStatesW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFeatureValidStatesW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFileHashA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFileHashA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFileHashW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFileHashW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFileSignatureInformationA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFileSignatureInformationA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFileSignatureInformationW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFileSignatureInformationW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFileVersionA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFileVersionA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFileVersionW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetFileVersionW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetLanguage", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetLanguage_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetLastErrorRecord", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetLastErrorRecord_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetMode", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetMode_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPatchFileListA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPatchFileListA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPatchFileListW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPatchFileListW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPatchInfoA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPatchInfoA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPatchInfoExA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPatchInfoExA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPatchInfoExW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPatchInfoExW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPatchInfoW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPatchInfoW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductCodeA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductCodeA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductCodeW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductCodeW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductInfoA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductInfoA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductInfoExA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductInfoExA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductInfoExW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductInfoExW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductInfoFromScriptA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductInfoFromScriptA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductInfoFromScriptW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductInfoFromScriptW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductInfoW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductInfoW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductPropertyA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductPropertyA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductPropertyW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetProductPropertyW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPropertyA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPropertyA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPropertyW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetPropertyW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetShortcutTargetA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetShortcutTargetA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetShortcutTargetW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetShortcutTargetW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetSourcePathA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetSourcePathA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetSourcePathW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetSourcePathW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetSummaryInformationA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetSummaryInformationA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetSummaryInformationW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetSummaryInformationW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetTargetPathA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetTargetPathA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetTargetPathW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetTargetPathW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetUserInfoA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetUserInfoA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiGetUserInfoW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiGetUserInfoW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiInstallMissingComponentA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiInstallMissingComponentA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiInstallMissingComponentW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiInstallMissingComponentW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiInstallMissingFileA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiInstallMissingFileA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiInstallMissingFileW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiInstallMissingFileW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiInstallProductA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiInstallProductA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiInstallProductW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiInstallProductW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiIsProductElevatedA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiIsProductElevatedA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiIsProductElevatedW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiIsProductElevatedW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiJoinTransaction", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiJoinTransaction_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiLocateComponentA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiLocateComponentA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiLocateComponentW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiLocateComponentW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiNotifySidChangeA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiNotifySidChangeA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiNotifySidChangeW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiNotifySidChangeW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenDatabaseA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenDatabaseA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenDatabaseW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenDatabaseW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenPackageA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenPackageA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenPackageExA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenPackageExA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenPackageExW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenPackageExW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenPackageW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenPackageW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenProductA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenProductA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenProductW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiOpenProductW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiPreviewBillboardA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiPreviewBillboardA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiPreviewBillboardW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiPreviewBillboardW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiPreviewDialogA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiPreviewDialogA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiPreviewDialogW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiPreviewDialogW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiProcessAdvertiseScriptA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiProcessAdvertiseScriptA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiProcessAdvertiseScriptW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiProcessAdvertiseScriptW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiProcessMessage", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiProcessMessage_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideAssemblyA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideAssemblyA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideAssemblyW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideAssemblyW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideComponentA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideComponentA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideComponentW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideComponentW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideQualifiedComponentA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideQualifiedComponentA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideQualifiedComponentExA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideQualifiedComponentExA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideQualifiedComponentExW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideQualifiedComponentExW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideQualifiedComponentW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiProvideQualifiedComponentW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryComponentStateA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryComponentStateA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryComponentStateW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryComponentStateW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryFeatureStateA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryFeatureStateA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryFeatureStateExA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryFeatureStateExA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryFeatureStateExW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryFeatureStateExW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryFeatureStateW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryFeatureStateW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryProductStateA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryProductStateA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryProductStateW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiQueryProductStateW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordClearData", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordClearData_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordDataSize", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordDataSize_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordGetFieldCount", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordGetFieldCount_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordGetInteger", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordGetInteger_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordGetStringA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordGetStringA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordGetStringW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordGetStringW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordIsNull", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordIsNull_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordReadStream", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordReadStream_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordSetInteger", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordSetInteger_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordSetStreamA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordSetStreamA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordSetStreamW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordSetStreamW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordSetStringA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordSetStringA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordSetStringW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiRecordSetStringW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiReinstallFeatureA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiReinstallFeatureA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiReinstallFeatureW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiReinstallFeatureW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiReinstallProductA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiReinstallProductA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiReinstallProductW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiReinstallProductW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiRemovePatchesA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiRemovePatchesA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiRemovePatchesW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiRemovePatchesW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSequenceA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSequenceA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSequenceW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSequenceW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSetComponentStateA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSetComponentStateA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSetComponentStateW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSetComponentStateW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSetExternalUIA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSetExternalUIA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSetExternalUIRecord", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSetExternalUIRecord_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSetExternalUIW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSetExternalUIW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSetFeatureAttributesA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSetFeatureAttributesA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSetFeatureAttributesW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSetFeatureAttributesW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSetFeatureStateA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSetFeatureStateA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSetFeatureStateW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSetFeatureStateW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSetInstallLevel", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSetInstallLevel_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSetInternalUI", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSetInternalUI_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSetMode", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSetMode_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSetPropertyA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSetPropertyA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSetPropertyW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSetPropertyW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSetTargetPathA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSetTargetPathA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSetTargetPathW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSetTargetPathW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListAddMediaDiskA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListAddMediaDiskA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListAddMediaDiskW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListAddMediaDiskW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListAddSourceA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListAddSourceA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListAddSourceExA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListAddSourceExA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListAddSourceExW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListAddSourceExW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListAddSourceW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListAddSourceW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearAllA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearAllA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearAllExA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearAllExA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearAllExW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearAllExW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearAllW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearAllW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearMediaDiskA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearMediaDiskA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearMediaDiskW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearMediaDiskW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearSourceA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearSourceA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearSourceW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListClearSourceW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListEnumMediaDisksA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListEnumMediaDisksA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListEnumMediaDisksW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListEnumMediaDisksW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListEnumSourcesA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListEnumSourcesA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListEnumSourcesW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListEnumSourcesW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListForceResolutionA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListForceResolutionA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListForceResolutionExA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListForceResolutionExA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListForceResolutionExW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListForceResolutionExW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListForceResolutionW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListForceResolutionW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListGetInfoA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListGetInfoA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListGetInfoW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListGetInfoW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListSetInfoA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListSetInfoA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListSetInfoW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSourceListSetInfoW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSummaryInfoGetPropertyA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSummaryInfoGetPropertyA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSummaryInfoGetPropertyCount", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSummaryInfoGetPropertyCount_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSummaryInfoGetPropertyW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSummaryInfoGetPropertyW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSummaryInfoPersist", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSummaryInfoPersist_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSummaryInfoSetPropertyA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSummaryInfoSetPropertyA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiSummaryInfoSetPropertyW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiSummaryInfoSetPropertyW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiUseFeatureA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiUseFeatureA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiUseFeatureExA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiUseFeatureExA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiUseFeatureExW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiUseFeatureExW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiUseFeatureW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiUseFeatureW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiVerifyDiskSpace", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiVerifyDiskSpace_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiVerifyPackageA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiVerifyPackageA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiVerifyPackageW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiVerifyPackageW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiViewClose", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiViewClose_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiViewExecute", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiViewExecute_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiViewFetch", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiViewFetch_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiViewGetColumnInfo", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiViewGetColumnInfo_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiViewGetErrorA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiViewGetErrorA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiViewGetErrorW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiViewGetErrorW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_msiViewModify", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_msiViewModify_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_normalizeFileForPatchSignature", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_normalizeFileForPatchSignature_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_queryActCtxSettingsW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_queryActCtxSettingsW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_queryActCtxW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_queryActCtxW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_releaseActCtx", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_releaseActCtx_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_sfcGetNextProtectedFile", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_sfcGetNextProtectedFile_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_sfcIsFileProtected", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_sfcIsFileProtected_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_sfcIsKeyProtected", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_sfcIsKeyProtected_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_sfpVerifyFile", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_sfpVerifyFile_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_testApplyPatchToFileA", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_testApplyPatchToFileA_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_testApplyPatchToFileByBuffers", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_testApplyPatchToFileByBuffers_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_testApplyPatchToFileByHandles", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_testApplyPatchToFileByHandles_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_testApplyPatchToFileW", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_testApplyPatchToFileW_napi));
+    exports.Set("windowssys_windows_win32_system_applicationinstallationandservicing_zombifyActCtx", Napi::Function::New(env, windowssys_windows_win32_system_applicationinstallationandservicing_zombifyActCtx_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_applicationinstallationandservicing_napi, nullptr };

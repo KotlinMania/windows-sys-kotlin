@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_networking_clustering_AddClusterGroupDependency(int64_t hdependentgroup, int64_t hprovidergroup) {
+uint32_t windowssys_windows_win32_networking_clustering_addClusterGroupDependency(int64_t hdependentgroup, int64_t hprovidergroup) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ uint32_t windowssys_windows_win32_networking_clustering_AddClusterGroupDependenc
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_AddClusterGroupDependencyEx(int64_t hdependentgroup, int64_t hprovidergroup, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_addClusterGroupDependencyEx(int64_t hdependentgroup, int64_t hprovidergroup, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -62,7 +62,7 @@ uint32_t windowssys_windows_win32_networking_clustering_AddClusterGroupDependenc
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_AddClusterGroupSetDependency(int64_t hdependentgroupset, int64_t hprovidergroupset) {
+uint32_t windowssys_windows_win32_networking_clustering_addClusterGroupSetDependency(int64_t hdependentgroupset, int64_t hprovidergroupset) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -85,7 +85,7 @@ uint32_t windowssys_windows_win32_networking_clustering_AddClusterGroupSetDepend
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_AddClusterGroupSetDependencyEx(int64_t hdependentgroupset, int64_t hprovidergroupset, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_addClusterGroupSetDependencyEx(int64_t hdependentgroupset, int64_t hprovidergroupset, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -109,7 +109,7 @@ uint32_t windowssys_windows_win32_networking_clustering_AddClusterGroupSetDepend
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_AddClusterGroupToGroupSetDependency(int64_t hdependentgroup, int64_t hprovidergroupset) {
+uint32_t windowssys_windows_win32_networking_clustering_addClusterGroupToGroupSetDependency(int64_t hdependentgroup, int64_t hprovidergroupset) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -132,7 +132,7 @@ uint32_t windowssys_windows_win32_networking_clustering_AddClusterGroupToGroupSe
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_AddClusterGroupToGroupSetDependencyEx(int64_t hdependentgroup, int64_t hprovidergroupset, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_addClusterGroupToGroupSetDependencyEx(int64_t hdependentgroup, int64_t hprovidergroupset, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -156,7 +156,7 @@ uint32_t windowssys_windows_win32_networking_clustering_AddClusterGroupToGroupSe
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_AddClusterNode(int64_t hcluster, void* lpsznodename, void* pfnprogresscallback, void* pvcallbackarg) {
+int64_t windowssys_windows_win32_networking_clustering_addClusterNode(int64_t hcluster, void* lpsznodename, void* pfnprogresscallback, void* pvcallbackarg) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -181,7 +181,7 @@ int64_t windowssys_windows_win32_networking_clustering_AddClusterNode(int64_t hc
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_AddClusterNodeEx(int64_t hcluster, void* lpsznodename, uint32_t dwflags, void* pfnprogresscallback, void* pvcallbackarg) {
+int64_t windowssys_windows_win32_networking_clustering_addClusterNodeEx(int64_t hcluster, void* lpsznodename, uint32_t dwflags, void* pfnprogresscallback, void* pvcallbackarg) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -207,7 +207,7 @@ int64_t windowssys_windows_win32_networking_clustering_AddClusterNodeEx(int64_t 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_AddClusterResourceDependency(int64_t hresource, int64_t hdependson) {
+uint32_t windowssys_windows_win32_networking_clustering_addClusterResourceDependency(int64_t hresource, int64_t hdependson) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -230,7 +230,7 @@ uint32_t windowssys_windows_win32_networking_clustering_AddClusterResourceDepend
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_AddClusterResourceDependencyEx(int64_t hresource, int64_t hdependson, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_addClusterResourceDependencyEx(int64_t hresource, int64_t hdependson, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -254,7 +254,7 @@ uint32_t windowssys_windows_win32_networking_clustering_AddClusterResourceDepend
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_AddClusterResourceNode(int64_t hresource, int64_t hnode) {
+uint32_t windowssys_windows_win32_networking_clustering_addClusterResourceNode(int64_t hresource, int64_t hnode) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -277,7 +277,7 @@ uint32_t windowssys_windows_win32_networking_clustering_AddClusterResourceNode(i
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_AddClusterResourceNodeEx(int64_t hresource, int64_t hnode, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_addClusterResourceNodeEx(int64_t hresource, int64_t hnode, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -301,7 +301,7 @@ uint32_t windowssys_windows_win32_networking_clustering_AddClusterResourceNodeEx
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_AddClusterStorageNode(int64_t hcluster, void* lpsznodename, void* pfnprogresscallback, void* pvcallbackarg, void* lpszclusterstoragenodedescription, void* lpszclusterstoragenodelocation) {
+uint32_t windowssys_windows_win32_networking_clustering_addClusterStorageNode(int64_t hcluster, void* lpsznodename, void* pfnprogresscallback, void* pvcallbackarg, void* lpszclusterstoragenodedescription, void* lpszclusterstoragenodelocation) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -328,7 +328,7 @@ uint32_t windowssys_windows_win32_networking_clustering_AddClusterStorageNode(in
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_AddCrossClusterGroupSetDependency(int64_t hdependentgroupset, void* lpremoteclustername, void* lpremotegroupsetname) {
+uint32_t windowssys_windows_win32_networking_clustering_addCrossClusterGroupSetDependency(int64_t hdependentgroupset, void* lpremoteclustername, void* lpremotegroupsetname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -352,7 +352,7 @@ uint32_t windowssys_windows_win32_networking_clustering_AddCrossClusterGroupSetD
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_AddResourceToClusterSharedVolumes(int64_t hresource) {
+uint32_t windowssys_windows_win32_networking_clustering_addResourceToClusterSharedVolumes(int64_t hresource) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -374,7 +374,7 @@ uint32_t windowssys_windows_win32_networking_clustering_AddResourceToClusterShar
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_BackupClusterDatabase(int64_t hcluster, void* lpszpathname) {
+uint32_t windowssys_windows_win32_networking_clustering_backupClusterDatabase(int64_t hcluster, void* lpszpathname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -397,7 +397,7 @@ uint32_t windowssys_windows_win32_networking_clustering_BackupClusterDatabase(in
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_CanResourceBeDependent(int64_t hresource, int64_t hresourcedependent) {
+int32_t windowssys_windows_win32_networking_clustering_canResourceBeDependent(int64_t hresource, int64_t hresourcedependent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -420,7 +420,7 @@ int32_t windowssys_windows_win32_networking_clustering_CanResourceBeDependent(in
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_CancelClusterGroupOperation(int64_t hgroup, uint32_t dwcancelflags_reserved) {
+uint32_t windowssys_windows_win32_networking_clustering_cancelClusterGroupOperation(int64_t hgroup, uint32_t dwcancelflags_reserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -443,7 +443,7 @@ uint32_t windowssys_windows_win32_networking_clustering_CancelClusterGroupOperat
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ChangeClusterResourceGroup(int64_t hresource, int64_t hgroup) {
+uint32_t windowssys_windows_win32_networking_clustering_changeClusterResourceGroup(int64_t hresource, int64_t hgroup) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -466,7 +466,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ChangeClusterResourceGro
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ChangeClusterResourceGroupEx(int64_t hresource, int64_t hgroup, uint64_t flags) {
+uint32_t windowssys_windows_win32_networking_clustering_changeClusterResourceGroupEx(int64_t hresource, int64_t hgroup, uint64_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -490,7 +490,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ChangeClusterResourceGro
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ChangeClusterResourceGroupEx2(int64_t hresource, int64_t hgroup, uint64_t flags, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_changeClusterResourceGroupEx2(int64_t hresource, int64_t hgroup, uint64_t flags, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -515,7 +515,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ChangeClusterResourceGro
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_CloseCluster(int64_t hcluster) {
+int32_t windowssys_windows_win32_networking_clustering_closeCluster(int64_t hcluster) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -537,7 +537,7 @@ int32_t windowssys_windows_win32_networking_clustering_CloseCluster(int64_t hclu
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_CloseClusterCryptProvider(int64_t hcluscryptprovider) {
+uint32_t windowssys_windows_win32_networking_clustering_closeClusterCryptProvider(int64_t hcluscryptprovider) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -559,7 +559,7 @@ uint32_t windowssys_windows_win32_networking_clustering_CloseClusterCryptProvide
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_CloseClusterGroup(int64_t hgroup) {
+int32_t windowssys_windows_win32_networking_clustering_closeClusterGroup(int64_t hgroup) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -581,7 +581,7 @@ int32_t windowssys_windows_win32_networking_clustering_CloseClusterGroup(int64_t
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_CloseClusterGroupSet(int64_t hgroupset) {
+int32_t windowssys_windows_win32_networking_clustering_closeClusterGroupSet(int64_t hgroupset) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -603,7 +603,7 @@ int32_t windowssys_windows_win32_networking_clustering_CloseClusterGroupSet(int6
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_CloseClusterNetInterface(int64_t hnetinterface) {
+int32_t windowssys_windows_win32_networking_clustering_closeClusterNetInterface(int64_t hnetinterface) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -625,7 +625,7 @@ int32_t windowssys_windows_win32_networking_clustering_CloseClusterNetInterface(
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_CloseClusterNetwork(int64_t hnetwork) {
+int32_t windowssys_windows_win32_networking_clustering_closeClusterNetwork(int64_t hnetwork) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -647,7 +647,7 @@ int32_t windowssys_windows_win32_networking_clustering_CloseClusterNetwork(int64
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_CloseClusterNode(int64_t hnode) {
+int32_t windowssys_windows_win32_networking_clustering_closeClusterNode(int64_t hnode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -669,7 +669,7 @@ int32_t windowssys_windows_win32_networking_clustering_CloseClusterNode(int64_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_CloseClusterNotifyPort(int64_t hchange) {
+int32_t windowssys_windows_win32_networking_clustering_closeClusterNotifyPort(int64_t hchange) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -691,7 +691,7 @@ int32_t windowssys_windows_win32_networking_clustering_CloseClusterNotifyPort(in
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_CloseClusterResource(int64_t hresource) {
+int32_t windowssys_windows_win32_networking_clustering_closeClusterResource(int64_t hresource) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -713,7 +713,7 @@ int32_t windowssys_windows_win32_networking_clustering_CloseClusterResource(int6
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusAddClusterHealthFault(int64_t hcluster, void* failure, uint32_t param2) {
+uint32_t windowssys_windows_win32_networking_clustering_clusAddClusterHealthFault(int64_t hcluster, void* failure, uint32_t param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -737,7 +737,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusAddClusterHealthFaul
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusGetClusterHealthFaults(int64_t hcluster, void* objects, uint32_t flags) {
+uint32_t windowssys_windows_win32_networking_clustering_clusGetClusterHealthFaults(int64_t hcluster, void* objects, uint32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -761,7 +761,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusGetClusterHealthFaul
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusRemoveClusterHealthFault(int64_t hcluster, void* id, uint32_t flags) {
+uint32_t windowssys_windows_win32_networking_clustering_clusRemoveClusterHealthFault(int64_t hcluster, void* id, uint32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -785,7 +785,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusRemoveClusterHealthF
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_ClusWorkerCheckTerminate(void* lpworker) {
+int32_t windowssys_windows_win32_networking_clustering_clusWorkerCheckTerminate(void* lpworker) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -807,7 +807,7 @@ int32_t windowssys_windows_win32_networking_clustering_ClusWorkerCheckTerminate(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusWorkerCreate(void* lpworker, void* lpstartaddress, void* lpparameter) {
+uint32_t windowssys_windows_win32_networking_clustering_clusWorkerCreate(void* lpworker, void* lpstartaddress, void* lpparameter) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -831,7 +831,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusWorkerCreate(void* l
 #endif
 }
 
-void windowssys_windows_win32_networking_clustering_ClusWorkerTerminate(void* lpworker) {
+void windowssys_windows_win32_networking_clustering_clusWorkerTerminate(void* lpworker) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -852,7 +852,7 @@ void windowssys_windows_win32_networking_clustering_ClusWorkerTerminate(void* lp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusWorkerTerminateEx(void* clusworker, uint32_t timeoutinmilliseconds, int32_t waitonly) {
+uint32_t windowssys_windows_win32_networking_clustering_clusWorkerTerminateEx(void* clusworker, uint32_t timeoutinmilliseconds, int32_t waitonly) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -876,7 +876,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusWorkerTerminateEx(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusWorkersTerminate(void* clusworkers, uint64_t clusworkerscount, uint32_t timeoutinmilliseconds, int32_t waitonly) {
+uint32_t windowssys_windows_win32_networking_clustering_clusWorkersTerminate(void* clusworkers, uint64_t clusworkerscount, uint32_t timeoutinmilliseconds, int32_t waitonly) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -901,7 +901,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusWorkersTerminate(voi
 #endif
 }
 
-void* windowssys_windows_win32_networking_clustering_ClusapiSetReasonHandler(void* lphandler) {
+void* windowssys_windows_win32_networking_clustering_clusapiSetReasonHandler(void* lphandler) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -923,7 +923,7 @@ void* windowssys_windows_win32_networking_clustering_ClusapiSetReasonHandler(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterAddGroupToAffinityRule(int64_t hcluster, void* rulename, int64_t hgroup) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterAddGroupToAffinityRule(int64_t hcluster, void* rulename, int64_t hgroup) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -947,7 +947,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterAddGroupToAffinit
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterAddGroupToGroupSet(int64_t hgroupset, int64_t hgroup) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterAddGroupToGroupSet(int64_t hgroupset, int64_t hgroup) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -970,7 +970,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterAddGroupToGroupSe
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterAddGroupToGroupSetWithDomains(int64_t hgroupset, int64_t hgroup, uint32_t faultdomain, uint32_t updatedomain) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterAddGroupToGroupSetWithDomains(int64_t hgroupset, int64_t hgroup, uint32_t faultdomain, uint32_t updatedomain) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -995,7 +995,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterAddGroupToGroupSe
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterAddGroupToGroupSetWithDomainsEx(int64_t hgroupset, int64_t hgroup, uint32_t faultdomain, uint32_t updatedomain, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterAddGroupToGroupSetWithDomainsEx(int64_t hgroupset, int64_t hgroup, uint32_t faultdomain, uint32_t updatedomain, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1021,7 +1021,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterAddGroupToGroupSe
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterAffinityRuleControl(int64_t hcluster, void* affinityrulename, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t cbinbuffersize, void* lpoutbuffer, uint32_t cboutbuffersize, void* lpbytesreturned) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterAffinityRuleControl(int64_t hcluster, void* affinityrulename, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t cbinbuffersize, void* lpoutbuffer, uint32_t cboutbuffersize, void* lpbytesreturned) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, int64_t, uint32_t, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1051,7 +1051,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterAffinityRuleContr
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterClearBackupStateForSharedVolume(void* lpszvolumepathname) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterClearBackupStateForSharedVolume(void* lpszvolumepathname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1073,7 +1073,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterClearBackupStateF
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterCloseEnum(int64_t henum) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterCloseEnum(int64_t henum) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1095,7 +1095,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterCloseEnum(int64_t
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterCloseEnumEx(int64_t hclusterenum) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterCloseEnumEx(int64_t hclusterenum) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1117,7 +1117,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterCloseEnumEx(int64
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterControl(int64_t hcluster, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t ninbuffersize, void* lpoutbuffer, uint32_t noutbuffersize, void* lpbytesreturned) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterControl(int64_t hcluster, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t ninbuffersize, void* lpoutbuffer, uint32_t noutbuffersize, void* lpbytesreturned) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1146,7 +1146,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterControl(int64_t h
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterControlEx(int64_t hcluster, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t ninbuffersize, void* lpoutbuffer, uint32_t noutbuffersize, void* lpbytesreturned, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterControlEx(int64_t hcluster, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t ninbuffersize, void* lpoutbuffer, uint32_t noutbuffersize, void* lpbytesreturned, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1176,7 +1176,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterControlEx(int64_t
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterCreateAffinityRule(int64_t hcluster, void* rulename, int32_t ruletype) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterCreateAffinityRule(int64_t hcluster, void* rulename, int32_t ruletype) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1200,7 +1200,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterCreateAffinityRul
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterDecrypt(int64_t hcluscryptprovider, void* pcryptinput, uint32_t cbcryptinput, void* ppcryptoutput, void* pcbcryptoutput) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterDecrypt(int64_t hcluscryptprovider, void* pcryptinput, uint32_t cbcryptinput, void* ppcryptoutput, void* pcbcryptoutput) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1226,7 +1226,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterDecrypt(int64_t h
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterEncrypt(int64_t hcluscryptprovider, void* pdata, uint32_t cbdata, void* ppdata, void* pcbdata) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterEncrypt(int64_t hcluscryptprovider, void* pdata, uint32_t cbdata, void* ppdata, void* pcbdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1252,7 +1252,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterEncrypt(int64_t h
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterEnum(int64_t henum, uint32_t dwindex, void* lpdwtype, void* lpszname, void* lpcchname) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterEnum(int64_t henum, uint32_t dwindex, void* lpdwtype, void* lpszname, void* lpcchname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1278,7 +1278,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterEnum(int64_t henu
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterEnumEx(int64_t hclusterenum, uint32_t dwindex, void* pitem, void* cbitem) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterEnumEx(int64_t hclusterenum, uint32_t dwindex, void* pitem, void* cbitem) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1303,7 +1303,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterEnumEx(int64_t hc
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterGetEnumCount(int64_t henum) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterGetEnumCount(int64_t henum) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1325,7 +1325,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterGetEnumCount(int6
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterGetEnumCountEx(int64_t hclusterenum) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterGetEnumCountEx(int64_t hclusterenum) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1347,7 +1347,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterGetEnumCountEx(in
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_ClusterGetVolumeNameForVolumeMountPoint(void* lpszvolumemountpoint, void* lpszvolumename, uint32_t cchbufferlength) {
+int32_t windowssys_windows_win32_networking_clustering_clusterGetVolumeNameForVolumeMountPoint(void* lpszvolumemountpoint, void* lpszvolumename, uint32_t cchbufferlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1371,7 +1371,7 @@ int32_t windowssys_windows_win32_networking_clustering_ClusterGetVolumeNameForVo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_ClusterGetVolumePathName(void* lpszfilename, void* lpszvolumepathname, uint32_t cchbufferlength) {
+int32_t windowssys_windows_win32_networking_clustering_clusterGetVolumePathName(void* lpszfilename, void* lpszvolumepathname, uint32_t cchbufferlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1395,7 +1395,7 @@ int32_t windowssys_windows_win32_networking_clustering_ClusterGetVolumePathName(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterGroupCloseEnum(int64_t hgroupenum) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterGroupCloseEnum(int64_t hgroupenum) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1417,7 +1417,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterGroupCloseEnum(in
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterGroupCloseEnumEx(int64_t hgroupenumex) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterGroupCloseEnumEx(int64_t hgroupenumex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1439,7 +1439,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterGroupCloseEnumEx(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterGroupControl(int64_t hgroup, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t ninbuffersize, void* lpoutbuffer, uint32_t noutbuffersize, void* lpbytesreturned) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterGroupControl(int64_t hgroup, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t ninbuffersize, void* lpoutbuffer, uint32_t noutbuffersize, void* lpbytesreturned) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1468,7 +1468,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterGroupControl(int6
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterGroupControlEx(int64_t hgroup, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t ninbuffersize, void* lpoutbuffer, uint32_t noutbuffersize, void* lpbytesreturned, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterGroupControlEx(int64_t hgroup, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t ninbuffersize, void* lpoutbuffer, uint32_t noutbuffersize, void* lpbytesreturned, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1498,7 +1498,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterGroupControlEx(in
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterGroupEnum(int64_t hgroupenum, uint32_t dwindex, void* lpdwtype, void* lpszresourcename, void* lpcchname) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterGroupEnum(int64_t hgroupenum, uint32_t dwindex, void* lpdwtype, void* lpszresourcename, void* lpcchname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1524,7 +1524,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterGroupEnum(int64_t
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterGroupEnumEx(int64_t hgroupenumex, uint32_t dwindex, void* pitem, void* cbitem) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterGroupEnumEx(int64_t hgroupenumex, uint32_t dwindex, void* pitem, void* cbitem) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1549,7 +1549,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterGroupEnumEx(int64
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterGroupGetEnumCount(int64_t hgroupenum) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterGroupGetEnumCount(int64_t hgroupenum) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1571,7 +1571,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterGroupGetEnumCount
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterGroupGetEnumCountEx(int64_t hgroupenumex) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterGroupGetEnumCountEx(int64_t hgroupenumex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1593,7 +1593,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterGroupGetEnumCount
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_ClusterGroupOpenEnum(int64_t hgroup, uint32_t dwtype) {
+int64_t windowssys_windows_win32_networking_clustering_clusterGroupOpenEnum(int64_t hgroup, uint32_t dwtype) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1616,7 +1616,7 @@ int64_t windowssys_windows_win32_networking_clustering_ClusterGroupOpenEnum(int6
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_ClusterGroupOpenEnumEx(int64_t hcluster, void* lpszproperties, uint32_t cbproperties, void* lpszroproperties, uint32_t cbroproperties, uint32_t dwflags) {
+int64_t windowssys_windows_win32_networking_clustering_clusterGroupOpenEnumEx(int64_t hcluster, void* lpszproperties, uint32_t cbproperties, void* lpszroproperties, uint32_t cbroproperties, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1643,7 +1643,7 @@ int64_t windowssys_windows_win32_networking_clustering_ClusterGroupOpenEnumEx(in
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterGroupSetCloseEnum(int64_t hgroupsetenum) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterGroupSetCloseEnum(int64_t hgroupsetenum) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1665,7 +1665,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterGroupSetCloseEnum
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterGroupSetControl(int64_t hgroupset, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t cbinbuffersize, void* lpoutbuffer, uint32_t cboutbuffersize, void* lpbytesreturned) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterGroupSetControl(int64_t hgroupset, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t cbinbuffersize, void* lpoutbuffer, uint32_t cboutbuffersize, void* lpbytesreturned) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1694,7 +1694,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterGroupSetControl(i
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterGroupSetControlEx(int64_t hgroupset, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t cbinbuffersize, void* lpoutbuffer, uint32_t cboutbuffersize, void* lpbytesreturned, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterGroupSetControlEx(int64_t hgroupset, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t cbinbuffersize, void* lpoutbuffer, uint32_t cboutbuffersize, void* lpbytesreturned, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1724,7 +1724,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterGroupSetControlEx
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterGroupSetEnum(int64_t hgroupsetenum, uint32_t dwindex, void* lpszname, void* lpcchname) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterGroupSetEnum(int64_t hgroupsetenum, uint32_t dwindex, void* lpszname, void* lpcchname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1749,7 +1749,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterGroupSetEnum(int6
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterGroupSetGetEnumCount(int64_t hgroupsetenum) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterGroupSetGetEnumCount(int64_t hgroupsetenum) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1771,9 +1771,9 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterGroupSetGetEnumCo
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_ClusterGroupSetOpenEnum(int64_t hcluster) {
+int32_t windowssys_windows_win32_networking_clustering_clusterGroupSetOpenEnum(int64_t hcluster) {
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int64_t);
+    typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
@@ -1793,7 +1793,7 @@ int64_t windowssys_windows_win32_networking_clustering_ClusterGroupSetOpenEnum(i
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_ClusterIsPathOnSharedVolume(void* lpszpathname) {
+int32_t windowssys_windows_win32_networking_clustering_clusterIsPathOnSharedVolume(void* lpszpathname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1815,7 +1815,7 @@ int32_t windowssys_windows_win32_networking_clustering_ClusterIsPathOnSharedVolu
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterNetInterfaceCloseEnum(int64_t hnetinterfaceenum) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterNetInterfaceCloseEnum(int64_t hnetinterfaceenum) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1837,7 +1837,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterNetInterfaceClose
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterNetInterfaceControl(int64_t hnetinterface, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t ninbuffersize, void* lpoutbuffer, uint32_t noutbuffersize, void* lpbytesreturned) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterNetInterfaceControl(int64_t hnetinterface, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t ninbuffersize, void* lpoutbuffer, uint32_t noutbuffersize, void* lpbytesreturned) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1866,7 +1866,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterNetInterfaceContr
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterNetInterfaceControlEx(int64_t hnetinterface, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t ninbuffersize, void* lpoutbuffer, uint32_t noutbuffersize, void* lpbytesreturned, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterNetInterfaceControlEx(int64_t hnetinterface, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t ninbuffersize, void* lpoutbuffer, uint32_t noutbuffersize, void* lpbytesreturned, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1896,7 +1896,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterNetInterfaceContr
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterNetInterfaceEnum(int64_t hnetinterfaceenum, uint32_t dwindex, void* lpszname, void* lpcchname) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterNetInterfaceEnum(int64_t hnetinterfaceenum, uint32_t dwindex, void* lpszname, void* lpcchname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1921,9 +1921,9 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterNetInterfaceEnum(
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_ClusterNetInterfaceOpenEnum(int64_t hcluster, void* lpsznodename, void* lpsznetworkname) {
+int32_t windowssys_windows_win32_networking_clustering_clusterNetInterfaceOpenEnum(int64_t hcluster, void* lpsznodename, void* lpsznetworkname) {
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, void*);
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
@@ -1945,7 +1945,7 @@ int64_t windowssys_windows_win32_networking_clustering_ClusterNetInterfaceOpenEn
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterNetworkCloseEnum(int64_t hnetworkenum) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterNetworkCloseEnum(int64_t hnetworkenum) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1967,7 +1967,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterNetworkCloseEnum(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterNetworkControl(int64_t hnetwork, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t ninbuffersize, void* lpoutbuffer, uint32_t noutbuffersize, void* lpbytesreturned) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterNetworkControl(int64_t hnetwork, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t ninbuffersize, void* lpoutbuffer, uint32_t noutbuffersize, void* lpbytesreturned) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1996,7 +1996,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterNetworkControl(in
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterNetworkControlEx(int64_t hnetwork, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t ninbuffersize, void* lpoutbuffer, uint32_t noutbuffersize, void* lpbytesreturned, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterNetworkControlEx(int64_t hnetwork, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t ninbuffersize, void* lpoutbuffer, uint32_t noutbuffersize, void* lpbytesreturned, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2026,7 +2026,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterNetworkControlEx(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterNetworkEnum(int64_t hnetworkenum, uint32_t dwindex, void* lpdwtype, void* lpszname, void* lpcchname) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterNetworkEnum(int64_t hnetworkenum, uint32_t dwindex, void* lpdwtype, void* lpszname, void* lpcchname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2052,7 +2052,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterNetworkEnum(int64
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterNetworkGetEnumCount(int64_t hnetworkenum) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterNetworkGetEnumCount(int64_t hnetworkenum) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2074,7 +2074,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterNetworkGetEnumCou
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_ClusterNetworkOpenEnum(int64_t hnetwork, uint32_t dwtype) {
+int64_t windowssys_windows_win32_networking_clustering_clusterNetworkOpenEnum(int64_t hnetwork, uint32_t dwtype) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2097,7 +2097,7 @@ int64_t windowssys_windows_win32_networking_clustering_ClusterNetworkOpenEnum(in
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterNodeCloseEnum(int64_t hnodeenum) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterNodeCloseEnum(int64_t hnodeenum) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2119,7 +2119,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterNodeCloseEnum(int
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterNodeCloseEnumEx(int64_t hnodeenum) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterNodeCloseEnumEx(int64_t hnodeenum) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2141,7 +2141,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterNodeCloseEnumEx(i
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterNodeControl(int64_t hnode, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t ninbuffersize, void* lpoutbuffer, uint32_t noutbuffersize, void* lpbytesreturned) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterNodeControl(int64_t hnode, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t ninbuffersize, void* lpoutbuffer, uint32_t noutbuffersize, void* lpbytesreturned) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2170,7 +2170,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterNodeControl(int64
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterNodeControlEx(int64_t hnode, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t ninbuffersize, void* lpoutbuffer, uint32_t noutbuffersize, void* lpbytesreturned, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterNodeControlEx(int64_t hnode, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t ninbuffersize, void* lpoutbuffer, uint32_t noutbuffersize, void* lpbytesreturned, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2200,7 +2200,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterNodeControlEx(int
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterNodeEnum(int64_t hnodeenum, uint32_t dwindex, void* lpdwtype, void* lpszname, void* lpcchname) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterNodeEnum(int64_t hnodeenum, uint32_t dwindex, void* lpdwtype, void* lpszname, void* lpcchname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2226,7 +2226,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterNodeEnum(int64_t 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterNodeEnumEx(int64_t hnodeenum, uint32_t dwindex, void* pitem, void* cbitem) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterNodeEnumEx(int64_t hnodeenum, uint32_t dwindex, void* pitem, void* cbitem) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2251,7 +2251,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterNodeEnumEx(int64_
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterNodeGetEnumCount(int64_t hnodeenum) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterNodeGetEnumCount(int64_t hnodeenum) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2273,7 +2273,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterNodeGetEnumCount(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterNodeGetEnumCountEx(int64_t hnodeenum) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterNodeGetEnumCountEx(int64_t hnodeenum) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2295,7 +2295,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterNodeGetEnumCountE
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_ClusterNodeOpenEnum(int64_t hnode, uint32_t dwtype) {
+int64_t windowssys_windows_win32_networking_clustering_clusterNodeOpenEnum(int64_t hnode, uint32_t dwtype) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2318,7 +2318,7 @@ int64_t windowssys_windows_win32_networking_clustering_ClusterNodeOpenEnum(int64
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_ClusterNodeOpenEnumEx(int64_t hnode, uint32_t dwtype, void* poptions) {
+int64_t windowssys_windows_win32_networking_clustering_clusterNodeOpenEnumEx(int64_t hnode, uint32_t dwtype, void* poptions) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2342,7 +2342,7 @@ int64_t windowssys_windows_win32_networking_clustering_ClusterNodeOpenEnumEx(int
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterNodeReplacement(int64_t hcluster, void* lpsznodenamecurrent, void* lpsznodenamenew) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterNodeReplacement(int64_t hcluster, void* lpsznodenamecurrent, void* lpsznodenamenew) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2366,7 +2366,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterNodeReplacement(i
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_ClusterOpenEnum(int64_t hcluster, uint32_t dwtype) {
+int64_t windowssys_windows_win32_networking_clustering_clusterOpenEnum(int64_t hcluster, uint32_t dwtype) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2389,7 +2389,7 @@ int64_t windowssys_windows_win32_networking_clustering_ClusterOpenEnum(int64_t h
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_ClusterOpenEnumEx(int64_t hcluster, uint32_t dwtype, void* poptions) {
+int64_t windowssys_windows_win32_networking_clustering_clusterOpenEnumEx(int64_t hcluster, uint32_t dwtype, void* poptions) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2413,7 +2413,7 @@ int64_t windowssys_windows_win32_networking_clustering_ClusterOpenEnumEx(int64_t
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterPrepareSharedVolumeForBackup(void* lpszfilename, void* lpszvolumepathname, void* lpcchvolumepathname, void* lpszvolumename, void* lpcchvolumename) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterPrepareSharedVolumeForBackup(void* lpszfilename, void* lpszvolumepathname, void* lpcchvolumepathname, void* lpszvolumename, void* lpcchvolumename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2439,7 +2439,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterPrepareSharedVolu
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_ClusterRegBatchAddCommand(int64_t hregbatch, int32_t dwcommand, void* wzname, uint32_t dwoptions, void* lpdata, uint32_t cbdata) {
+int32_t windowssys_windows_win32_networking_clustering_clusterRegBatchAddCommand(int64_t hregbatch, int32_t dwcommand, void* wzname, uint32_t dwoptions, void* lpdata, uint32_t cbdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2466,7 +2466,7 @@ int32_t windowssys_windows_win32_networking_clustering_ClusterRegBatchAddCommand
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_ClusterRegBatchCloseNotification(int64_t hbatchnotification) {
+int32_t windowssys_windows_win32_networking_clustering_clusterRegBatchCloseNotification(int64_t hbatchnotification) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2488,7 +2488,7 @@ int32_t windowssys_windows_win32_networking_clustering_ClusterRegBatchCloseNotif
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_ClusterRegBatchReadCommand(int64_t hbatchnotification, void* pbatchcommand) {
+int32_t windowssys_windows_win32_networking_clustering_clusterRegBatchReadCommand(int64_t hbatchnotification, void* pbatchcommand) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2511,7 +2511,7 @@ int32_t windowssys_windows_win32_networking_clustering_ClusterRegBatchReadComman
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_ClusterRegCloseBatch(int64_t hregbatch, int32_t bcommit, void* failedcommandnumber) {
+int32_t windowssys_windows_win32_networking_clustering_clusterRegCloseBatch(int64_t hregbatch, int32_t bcommit, void* failedcommandnumber) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2535,7 +2535,7 @@ int32_t windowssys_windows_win32_networking_clustering_ClusterRegCloseBatch(int6
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_ClusterRegCloseBatchEx(int64_t hregbatch, uint32_t flags, void* failedcommandnumber) {
+int32_t windowssys_windows_win32_networking_clustering_clusterRegCloseBatchEx(int64_t hregbatch, uint32_t flags, void* failedcommandnumber) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2559,7 +2559,7 @@ int32_t windowssys_windows_win32_networking_clustering_ClusterRegCloseBatchEx(in
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_ClusterRegCloseBatchNotifyPort(int64_t hbatchnotifyport) {
+int32_t windowssys_windows_win32_networking_clustering_clusterRegCloseBatchNotifyPort(int64_t hbatchnotifyport) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2581,7 +2581,7 @@ int32_t windowssys_windows_win32_networking_clustering_ClusterRegCloseBatchNotif
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_ClusterRegCloseKey(void* hkey) {
+int32_t windowssys_windows_win32_networking_clustering_clusterRegCloseKey(void* hkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2603,7 +2603,7 @@ int32_t windowssys_windows_win32_networking_clustering_ClusterRegCloseKey(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_ClusterRegCloseReadBatch(int64_t hregreadbatch, void* phregreadbatchreply) {
+int32_t windowssys_windows_win32_networking_clustering_clusterRegCloseReadBatch(int64_t hregreadbatch, void* phregreadbatchreply) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2626,7 +2626,7 @@ int32_t windowssys_windows_win32_networking_clustering_ClusterRegCloseReadBatch(
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_ClusterRegCloseReadBatchEx(int64_t hregreadbatch, uint32_t flags, void* phregreadbatchreply) {
+int32_t windowssys_windows_win32_networking_clustering_clusterRegCloseReadBatchEx(int64_t hregreadbatch, uint32_t flags, void* phregreadbatchreply) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2650,7 +2650,7 @@ int32_t windowssys_windows_win32_networking_clustering_ClusterRegCloseReadBatchE
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_ClusterRegCloseReadBatchReply(int64_t hregreadbatchreply) {
+int32_t windowssys_windows_win32_networking_clustering_clusterRegCloseReadBatchReply(int64_t hregreadbatchreply) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2672,7 +2672,7 @@ int32_t windowssys_windows_win32_networking_clustering_ClusterRegCloseReadBatchR
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_ClusterRegCreateBatch(void* hkey, void* phregbatch) {
+int32_t windowssys_windows_win32_networking_clustering_clusterRegCreateBatch(void* hkey, void* phregbatch) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2695,7 +2695,7 @@ int32_t windowssys_windows_win32_networking_clustering_ClusterRegCreateBatch(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_ClusterRegCreateBatchNotifyPort(void* hkey, void* phbatchnotifyport) {
+int32_t windowssys_windows_win32_networking_clustering_clusterRegCreateBatchNotifyPort(void* hkey, void* phbatchnotifyport) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2718,7 +2718,7 @@ int32_t windowssys_windows_win32_networking_clustering_ClusterRegCreateBatchNoti
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_ClusterRegCreateKey(void* hkey, void* lpszsubkey, uint32_t dwoptions, uint32_t samdesired, void* lpsecurityattributes, void* phkresult, void* lpdwdisposition) {
+int32_t windowssys_windows_win32_networking_clustering_clusterRegCreateKey(void* hkey, void* lpszsubkey, uint32_t dwoptions, uint32_t samdesired, void* lpsecurityattributes, void* phkresult, void* lpdwdisposition) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2746,7 +2746,7 @@ int32_t windowssys_windows_win32_networking_clustering_ClusterRegCreateKey(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_ClusterRegCreateKeyEx(void* hkey, void* lpsubkey, uint32_t dwoptions, uint32_t samdesired, void* lpsecurityattributes, void* phkresult, void* lpdwdisposition, void* lpszreason) {
+int32_t windowssys_windows_win32_networking_clustering_clusterRegCreateKeyEx(void* hkey, void* lpsubkey, uint32_t dwoptions, uint32_t samdesired, void* lpsecurityattributes, void* phkresult, void* lpdwdisposition, void* lpszreason) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2775,7 +2775,7 @@ int32_t windowssys_windows_win32_networking_clustering_ClusterRegCreateKeyEx(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_ClusterRegCreateReadBatch(void* hkey, void* phregreadbatch) {
+int32_t windowssys_windows_win32_networking_clustering_clusterRegCreateReadBatch(void* hkey, void* phregreadbatch) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2798,7 +2798,7 @@ int32_t windowssys_windows_win32_networking_clustering_ClusterRegCreateReadBatch
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_ClusterRegDeleteKey(void* hkey, void* lpszsubkey) {
+int32_t windowssys_windows_win32_networking_clustering_clusterRegDeleteKey(void* hkey, void* lpszsubkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2821,7 +2821,7 @@ int32_t windowssys_windows_win32_networking_clustering_ClusterRegDeleteKey(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_ClusterRegDeleteKeyEx(void* hkey, void* lpsubkey, void* lpszreason) {
+int32_t windowssys_windows_win32_networking_clustering_clusterRegDeleteKeyEx(void* hkey, void* lpsubkey, void* lpszreason) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2845,7 +2845,7 @@ int32_t windowssys_windows_win32_networking_clustering_ClusterRegDeleteKeyEx(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterRegDeleteValue(void* hkey, void* lpszvaluename) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterRegDeleteValue(void* hkey, void* lpszvaluename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2868,7 +2868,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterRegDeleteValue(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterRegDeleteValueEx(void* hkey, void* lpszvaluename, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterRegDeleteValueEx(void* hkey, void* lpszvaluename, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2892,7 +2892,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterRegDeleteValueEx(
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_ClusterRegEnumKey(void* hkey, uint32_t dwindex, void* lpszname, void* lpcchname, void* lpftlastwritetime) {
+int32_t windowssys_windows_win32_networking_clustering_clusterRegEnumKey(void* hkey, uint32_t dwindex, void* lpszname, void* lpcchname, void* lpftlastwritetime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2918,7 +2918,7 @@ int32_t windowssys_windows_win32_networking_clustering_ClusterRegEnumKey(void* h
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterRegEnumValue(void* hkey, uint32_t dwindex, void* lpszvaluename, void* lpcchvaluename, void* lpdwtype, void* lpdata, void* lpcbdata) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterRegEnumValue(void* hkey, uint32_t dwindex, void* lpszvaluename, void* lpcchvaluename, void* lpdwtype, void* lpdata, void* lpcbdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2946,7 +2946,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterRegEnumValue(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_ClusterRegGetBatchNotification(int64_t hbatchnotify, void* phbatchnotification) {
+int32_t windowssys_windows_win32_networking_clustering_clusterRegGetBatchNotification(int64_t hbatchnotify, void* phbatchnotification) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2969,7 +2969,7 @@ int32_t windowssys_windows_win32_networking_clustering_ClusterRegGetBatchNotific
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_ClusterRegGetKeySecurity(void* hkey, uint32_t requestedinformation, void* psecuritydescriptor, void* lpcbsecuritydescriptor) {
+int32_t windowssys_windows_win32_networking_clustering_clusterRegGetKeySecurity(void* hkey, uint32_t requestedinformation, void* psecuritydescriptor, void* lpcbsecuritydescriptor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2994,7 +2994,7 @@ int32_t windowssys_windows_win32_networking_clustering_ClusterRegGetKeySecurity(
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_ClusterRegOpenKey(void* hkey, void* lpszsubkey, uint32_t samdesired, void* phkresult) {
+int32_t windowssys_windows_win32_networking_clustering_clusterRegOpenKey(void* hkey, void* lpszsubkey, uint32_t samdesired, void* phkresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3019,7 +3019,7 @@ int32_t windowssys_windows_win32_networking_clustering_ClusterRegOpenKey(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_ClusterRegQueryInfoKey(void* hkey, void* lpcsubkeys, void* lpcchmaxsubkeylen, void* lpcvalues, void* lpcchmaxvaluenamelen, void* lpcbmaxvaluelen, void* lpcbsecuritydescriptor, void* lpftlastwritetime) {
+int32_t windowssys_windows_win32_networking_clustering_clusterRegQueryInfoKey(void* hkey, void* lpcsubkeys, void* lpcchmaxsubkeylen, void* lpcvalues, void* lpcchmaxvaluenamelen, void* lpcbmaxvaluelen, void* lpcbsecuritydescriptor, void* lpftlastwritetime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3048,7 +3048,7 @@ int32_t windowssys_windows_win32_networking_clustering_ClusterRegQueryInfoKey(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_ClusterRegQueryValue(void* hkey, void* lpszvaluename, void* lpdwvaluetype, void* lpdata, void* lpcbdata) {
+int32_t windowssys_windows_win32_networking_clustering_clusterRegQueryValue(void* hkey, void* lpszvaluename, void* lpdwvaluetype, void* lpdata, void* lpcbdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3074,7 +3074,7 @@ int32_t windowssys_windows_win32_networking_clustering_ClusterRegQueryValue(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_ClusterRegReadBatchAddCommand(int64_t hregreadbatch, void* wzsubkeyname, void* wzvaluename) {
+int32_t windowssys_windows_win32_networking_clustering_clusterRegReadBatchAddCommand(int64_t hregreadbatch, void* wzsubkeyname, void* wzvaluename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3098,7 +3098,7 @@ int32_t windowssys_windows_win32_networking_clustering_ClusterRegReadBatchAddCom
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_ClusterRegReadBatchReplyNextCommand(int64_t hregreadbatchreply, void* pbatchcommand) {
+int32_t windowssys_windows_win32_networking_clustering_clusterRegReadBatchReplyNextCommand(int64_t hregreadbatchreply, void* pbatchcommand) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3121,7 +3121,7 @@ int32_t windowssys_windows_win32_networking_clustering_ClusterRegReadBatchReplyN
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_ClusterRegSetKeySecurity(void* hkey, uint32_t securityinformation, void* psecuritydescriptor) {
+int32_t windowssys_windows_win32_networking_clustering_clusterRegSetKeySecurity(void* hkey, uint32_t securityinformation, void* psecuritydescriptor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3145,7 +3145,7 @@ int32_t windowssys_windows_win32_networking_clustering_ClusterRegSetKeySecurity(
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_ClusterRegSetKeySecurityEx(void* hkey, uint32_t securityinformation, void* psecuritydescriptor, void* lpszreason) {
+int32_t windowssys_windows_win32_networking_clustering_clusterRegSetKeySecurityEx(void* hkey, uint32_t securityinformation, void* psecuritydescriptor, void* lpszreason) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3170,7 +3170,7 @@ int32_t windowssys_windows_win32_networking_clustering_ClusterRegSetKeySecurityE
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterRegSetValue(void* hkey, void* lpszvaluename, uint32_t dwtype, void* lpdata, uint32_t cbdata) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterRegSetValue(void* hkey, void* lpszvaluename, uint32_t dwtype, void* lpdata, uint32_t cbdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3196,7 +3196,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterRegSetValue(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterRegSetValueEx(void* hkey, void* lpszvaluename, uint32_t dwtype, void* lpdata, uint32_t cbdata, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterRegSetValueEx(void* hkey, void* lpszvaluename, uint32_t dwtype, void* lpdata, uint32_t cbdata, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3223,7 +3223,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterRegSetValueEx(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_ClusterRegSyncDatabase(int64_t hcluster, uint32_t flags) {
+int32_t windowssys_windows_win32_networking_clustering_clusterRegSyncDatabase(int64_t hcluster, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3246,7 +3246,7 @@ int32_t windowssys_windows_win32_networking_clustering_ClusterRegSyncDatabase(in
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterRemoveAffinityRule(int64_t hcluster, void* rulename) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterRemoveAffinityRule(int64_t hcluster, void* rulename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3269,7 +3269,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterRemoveAffinityRul
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterRemoveGroupFromAffinityRule(int64_t hcluster, void* rulename, int64_t hgroup) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterRemoveGroupFromAffinityRule(int64_t hcluster, void* rulename, int64_t hgroup) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3293,7 +3293,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterRemoveGroupFromAf
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterRemoveGroupFromGroupSet(int64_t hgroup) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterRemoveGroupFromGroupSet(int64_t hgroup) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3315,7 +3315,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterRemoveGroupFromGr
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterRemoveGroupFromGroupSetEx(int64_t hgroup, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterRemoveGroupFromGroupSetEx(int64_t hgroup, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3338,7 +3338,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterRemoveGroupFromGr
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterResourceCloseEnum(int64_t hresenum) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterResourceCloseEnum(int64_t hresenum) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3360,7 +3360,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterResourceCloseEnum
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterResourceCloseEnumEx(int64_t hresourceenumex) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterResourceCloseEnumEx(int64_t hresourceenumex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3382,7 +3382,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterResourceCloseEnum
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterResourceControl(int64_t hresource, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t cbinbuffersize, void* lpoutbuffer, uint32_t cboutbuffersize, void* lpbytesreturned) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterResourceControl(int64_t hresource, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t cbinbuffersize, void* lpoutbuffer, uint32_t cboutbuffersize, void* lpbytesreturned) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3411,7 +3411,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterResourceControl(i
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterResourceControlAsUser(int64_t hresource, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t cbinbuffersize, void* lpoutbuffer, uint32_t cboutbuffersize, void* lpbytesreturned) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterResourceControlAsUser(int64_t hresource, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t cbinbuffersize, void* lpoutbuffer, uint32_t cboutbuffersize, void* lpbytesreturned) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3440,7 +3440,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterResourceControlAs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterResourceControlAsUserEx(int64_t hresource, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t cbinbuffersize, void* lpoutbuffer, uint32_t cboutbuffersize, void* lpbytesreturned, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterResourceControlAsUserEx(int64_t hresource, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t cbinbuffersize, void* lpoutbuffer, uint32_t cboutbuffersize, void* lpbytesreturned, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3470,7 +3470,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterResourceControlAs
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterResourceControlEx(int64_t hresource, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t cbinbuffersize, void* lpoutbuffer, uint32_t cboutbuffersize, void* lpbytesreturned, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterResourceControlEx(int64_t hresource, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t cbinbuffersize, void* lpoutbuffer, uint32_t cboutbuffersize, void* lpbytesreturned, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3500,7 +3500,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterResourceControlEx
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterResourceEnum(int64_t hresenum, uint32_t dwindex, void* lpdwtype, void* lpszname, void* lpcchname) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterResourceEnum(int64_t hresenum, uint32_t dwindex, void* lpdwtype, void* lpszname, void* lpcchname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3526,7 +3526,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterResourceEnum(int6
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterResourceEnumEx(int64_t hresourceenumex, uint32_t dwindex, void* pitem, void* cbitem) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterResourceEnumEx(int64_t hresourceenumex, uint32_t dwindex, void* pitem, void* cbitem) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3551,7 +3551,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterResourceEnumEx(in
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterResourceGetEnumCount(int64_t hresenum) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterResourceGetEnumCount(int64_t hresenum) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3573,7 +3573,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterResourceGetEnumCo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterResourceGetEnumCountEx(int64_t hresourceenumex) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterResourceGetEnumCountEx(int64_t hresourceenumex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3595,7 +3595,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterResourceGetEnumCo
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_ClusterResourceOpenEnum(int64_t hresource, uint32_t dwtype) {
+int64_t windowssys_windows_win32_networking_clustering_clusterResourceOpenEnum(int64_t hresource, uint32_t dwtype) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3618,7 +3618,7 @@ int64_t windowssys_windows_win32_networking_clustering_ClusterResourceOpenEnum(i
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_ClusterResourceOpenEnumEx(int64_t hcluster, void* lpszproperties, uint32_t cbproperties, void* lpszroproperties, uint32_t cbroproperties, uint32_t dwflags) {
+int64_t windowssys_windows_win32_networking_clustering_clusterResourceOpenEnumEx(int64_t hcluster, void* lpszproperties, uint32_t cbproperties, void* lpszroproperties, uint32_t cbroproperties, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3645,7 +3645,7 @@ int64_t windowssys_windows_win32_networking_clustering_ClusterResourceOpenEnumEx
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterResourceTypeCloseEnum(int64_t hrestypeenum) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterResourceTypeCloseEnum(int64_t hrestypeenum) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3667,7 +3667,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterResourceTypeClose
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterResourceTypeControl(int64_t hcluster, void* lpszresourcetypename, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t ninbuffersize, void* lpoutbuffer, uint32_t noutbuffersize, void* lpbytesreturned) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterResourceTypeControl(int64_t hcluster, void* lpszresourcetypename, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t ninbuffersize, void* lpoutbuffer, uint32_t noutbuffersize, void* lpbytesreturned) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, int64_t, uint32_t, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3697,7 +3697,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterResourceTypeContr
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterResourceTypeControlAsUser(int64_t hcluster, void* lpszresourcetypename, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t ninbuffersize, void* lpoutbuffer, uint32_t noutbuffersize, void* lpbytesreturned) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterResourceTypeControlAsUser(int64_t hcluster, void* lpszresourcetypename, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t ninbuffersize, void* lpoutbuffer, uint32_t noutbuffersize, void* lpbytesreturned) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, int64_t, uint32_t, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3727,7 +3727,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterResourceTypeContr
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterResourceTypeControlAsUserEx(int64_t hcluster, void* lpszresourcetypename, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t ninbuffersize, void* lpoutbuffer, uint32_t noutbuffersize, void* lpbytesreturned, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterResourceTypeControlAsUserEx(int64_t hcluster, void* lpszresourcetypename, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t ninbuffersize, void* lpoutbuffer, uint32_t noutbuffersize, void* lpbytesreturned, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, int64_t, uint32_t, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3758,7 +3758,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterResourceTypeContr
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterResourceTypeControlEx(int64_t hcluster, void* lpszresourcetypename, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t ninbuffersize, void* lpoutbuffer, uint32_t noutbuffersize, void* lpbytesreturned, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterResourceTypeControlEx(int64_t hcluster, void* lpszresourcetypename, int64_t hhostnode, uint32_t dwcontrolcode, void* lpinbuffer, uint32_t ninbuffersize, void* lpoutbuffer, uint32_t noutbuffersize, void* lpbytesreturned, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, int64_t, uint32_t, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3789,7 +3789,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterResourceTypeContr
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterResourceTypeEnum(int64_t hrestypeenum, uint32_t dwindex, void* lpdwtype, void* lpszname, void* lpcchname) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterResourceTypeEnum(int64_t hrestypeenum, uint32_t dwindex, void* lpdwtype, void* lpszname, void* lpcchname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3815,7 +3815,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterResourceTypeEnum(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterResourceTypeGetEnumCount(int64_t hrestypeenum) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterResourceTypeGetEnumCount(int64_t hrestypeenum) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3837,7 +3837,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterResourceTypeGetEn
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_ClusterResourceTypeOpenEnum(int64_t hcluster, void* lpszresourcetypename, uint32_t dwtype) {
+int64_t windowssys_windows_win32_networking_clustering_clusterResourceTypeOpenEnum(int64_t hcluster, void* lpszresourcetypename, uint32_t dwtype) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3861,7 +3861,7 @@ int64_t windowssys_windows_win32_networking_clustering_ClusterResourceTypeOpenEn
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterSetAccountAccess(int64_t hcluster, void* szaccountsid, uint32_t dwaccess, uint32_t dwcontroltype) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterSetAccountAccess(int64_t hcluster, void* szaccountsid, uint32_t dwaccess, uint32_t dwcontroltype) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3886,7 +3886,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterSetAccountAccess(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ClusterUpgradeFunctionalLevel(int64_t hcluster, int32_t perform, void* pfnprogresscallback, void* pvcallbackarg) {
+uint32_t windowssys_windows_win32_networking_clustering_clusterUpgradeFunctionalLevel(int64_t hcluster, int32_t perform, void* pfnprogresscallback, void* pvcallbackarg) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3911,7 +3911,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ClusterUpgradeFunctional
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_CreateCluster(void* pconfig, void* pfnprogresscallback, void* pvcallbackarg) {
+int64_t windowssys_windows_win32_networking_clustering_createCluster(void* pconfig, void* pfnprogresscallback, void* pvcallbackarg) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3935,7 +3935,7 @@ int64_t windowssys_windows_win32_networking_clustering_CreateCluster(void* pconf
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_CreateClusterAvailabilitySet(int64_t hcluster, void* lpavailabilitysetname, void* pavailabilitysetconfig) {
+int64_t windowssys_windows_win32_networking_clustering_createClusterAvailabilitySet(int64_t hcluster, void* lpavailabilitysetname, void* pavailabilitysetconfig) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3959,7 +3959,7 @@ int64_t windowssys_windows_win32_networking_clustering_CreateClusterAvailability
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_CreateClusterGroup(int64_t hcluster, void* lpszgroupname) {
+int64_t windowssys_windows_win32_networking_clustering_createClusterGroup(int64_t hcluster, void* lpszgroupname) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3982,7 +3982,7 @@ int64_t windowssys_windows_win32_networking_clustering_CreateClusterGroup(int64_
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_CreateClusterGroupEx(int64_t hcluster, void* lpszgroupname, void* pgroupinfo) {
+int64_t windowssys_windows_win32_networking_clustering_createClusterGroupEx(int64_t hcluster, void* lpszgroupname, void* pgroupinfo) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4006,7 +4006,7 @@ int64_t windowssys_windows_win32_networking_clustering_CreateClusterGroupEx(int6
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_CreateClusterGroupSet(int64_t hcluster, void* groupsetname) {
+int64_t windowssys_windows_win32_networking_clustering_createClusterGroupSet(int64_t hcluster, void* groupsetname) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4029,7 +4029,7 @@ int64_t windowssys_windows_win32_networking_clustering_CreateClusterGroupSet(int
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_CreateClusterNameAccount(int64_t hcluster, void* pconfig, void* pfnprogresscallback, void* pvcallbackarg) {
+uint32_t windowssys_windows_win32_networking_clustering_createClusterNameAccount(int64_t hcluster, void* pconfig, void* pfnprogresscallback, void* pvcallbackarg) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4054,7 +4054,7 @@ uint32_t windowssys_windows_win32_networking_clustering_CreateClusterNameAccount
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_CreateClusterNotifyPort(int64_t hchange, int64_t hcluster, uint32_t dwfilter, uint64_t dwnotifykey) {
+int64_t windowssys_windows_win32_networking_clustering_createClusterNotifyPort(int64_t hchange, int64_t hcluster, uint32_t dwfilter, uint64_t dwnotifykey) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4079,7 +4079,7 @@ int64_t windowssys_windows_win32_networking_clustering_CreateClusterNotifyPort(i
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_CreateClusterNotifyPortV2(int64_t hchange, int64_t hcluster, void* filters, uint32_t dwfiltercount, uint64_t dwnotifykey) {
+int64_t windowssys_windows_win32_networking_clustering_createClusterNotifyPortV2(int64_t hchange, int64_t hcluster, void* filters, uint32_t dwfiltercount, uint64_t dwnotifykey) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, int64_t, void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4105,7 +4105,7 @@ int64_t windowssys_windows_win32_networking_clustering_CreateClusterNotifyPortV2
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_CreateClusterResource(int64_t hgroup, void* lpszresourcename, void* lpszresourcetype, uint32_t dwflags) {
+int64_t windowssys_windows_win32_networking_clustering_createClusterResource(int64_t hgroup, void* lpszresourcename, void* lpszresourcetype, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4130,7 +4130,7 @@ int64_t windowssys_windows_win32_networking_clustering_CreateClusterResource(int
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_CreateClusterResourceEx(int64_t hgroup, void* lpszresourcename, void* lpszresourcetype, uint32_t dwflags, void* lpszreason) {
+int64_t windowssys_windows_win32_networking_clustering_createClusterResourceEx(int64_t hgroup, void* lpszresourcename, void* lpszresourcetype, uint32_t dwflags, void* lpszreason) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4156,7 +4156,7 @@ int64_t windowssys_windows_win32_networking_clustering_CreateClusterResourceEx(i
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_CreateClusterResourceType(int64_t hcluster, void* lpszresourcetypename, void* lpszdisplayname, void* lpszresourcetypedll, uint32_t dwlooksalivepollinterval, uint32_t dwisalivepollinterval) {
+uint32_t windowssys_windows_win32_networking_clustering_createClusterResourceType(int64_t hcluster, void* lpszresourcetypename, void* lpszdisplayname, void* lpszresourcetypedll, uint32_t dwlooksalivepollinterval, uint32_t dwisalivepollinterval) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4183,7 +4183,7 @@ uint32_t windowssys_windows_win32_networking_clustering_CreateClusterResourceTyp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_CreateClusterResourceTypeEx(int64_t hcluster, void* lpszresourcetypename, void* lpszdisplayname, void* lpszresourcetypedll, uint32_t dwlooksalivepollinterval, uint32_t dwisalivepollinterval, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_createClusterResourceTypeEx(int64_t hcluster, void* lpszresourcetypename, void* lpszdisplayname, void* lpszresourcetypedll, uint32_t dwlooksalivepollinterval, uint32_t dwisalivepollinterval, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4211,7 +4211,7 @@ uint32_t windowssys_windows_win32_networking_clustering_CreateClusterResourceTyp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_DeleteClusterGroup(int64_t hgroup) {
+uint32_t windowssys_windows_win32_networking_clustering_deleteClusterGroup(int64_t hgroup) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4233,7 +4233,7 @@ uint32_t windowssys_windows_win32_networking_clustering_DeleteClusterGroup(int64
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_DeleteClusterGroupEx(int64_t hgroup, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_deleteClusterGroupEx(int64_t hgroup, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4256,7 +4256,7 @@ uint32_t windowssys_windows_win32_networking_clustering_DeleteClusterGroupEx(int
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_DeleteClusterGroupSet(int64_t hgroupset) {
+uint32_t windowssys_windows_win32_networking_clustering_deleteClusterGroupSet(int64_t hgroupset) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4278,7 +4278,7 @@ uint32_t windowssys_windows_win32_networking_clustering_DeleteClusterGroupSet(in
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_DeleteClusterGroupSetEx(int64_t hgroupset, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_deleteClusterGroupSetEx(int64_t hgroupset, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4301,7 +4301,7 @@ uint32_t windowssys_windows_win32_networking_clustering_DeleteClusterGroupSetEx(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_DeleteClusterResource(int64_t hresource) {
+uint32_t windowssys_windows_win32_networking_clustering_deleteClusterResource(int64_t hresource) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4323,7 +4323,7 @@ uint32_t windowssys_windows_win32_networking_clustering_DeleteClusterResource(in
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_DeleteClusterResourceEx(int64_t hresource, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_deleteClusterResourceEx(int64_t hresource, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4346,7 +4346,7 @@ uint32_t windowssys_windows_win32_networking_clustering_DeleteClusterResourceEx(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_DeleteClusterResourceType(int64_t hcluster, void* lpszresourcetypename) {
+uint32_t windowssys_windows_win32_networking_clustering_deleteClusterResourceType(int64_t hcluster, void* lpszresourcetypename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4369,7 +4369,7 @@ uint32_t windowssys_windows_win32_networking_clustering_DeleteClusterResourceTyp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_DeleteClusterResourceTypeEx(int64_t hcluster, void* lpsztypename, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_deleteClusterResourceTypeEx(int64_t hcluster, void* lpsztypename, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4393,7 +4393,7 @@ uint32_t windowssys_windows_win32_networking_clustering_DeleteClusterResourceTyp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_DestroyCluster(int64_t hcluster, void* pfnprogresscallback, void* pvcallbackarg, int32_t fdeletevirtualcomputerobjects) {
+uint32_t windowssys_windows_win32_networking_clustering_destroyCluster(int64_t hcluster, void* pfnprogresscallback, void* pvcallbackarg, int32_t fdeletevirtualcomputerobjects) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4418,7 +4418,7 @@ uint32_t windowssys_windows_win32_networking_clustering_DestroyCluster(int64_t h
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_DestroyClusterGroup(int64_t hgroup) {
+uint32_t windowssys_windows_win32_networking_clustering_destroyClusterGroup(int64_t hgroup) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4440,7 +4440,7 @@ uint32_t windowssys_windows_win32_networking_clustering_DestroyClusterGroup(int6
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_DestroyClusterGroupEx(int64_t hgroup, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_destroyClusterGroupEx(int64_t hgroup, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4463,7 +4463,7 @@ uint32_t windowssys_windows_win32_networking_clustering_DestroyClusterGroupEx(in
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_DetermineCNOResTypeFromCluster(int64_t hcluster, void* pcnorestype) {
+uint32_t windowssys_windows_win32_networking_clustering_determineCNOResTypeFromCluster(int64_t hcluster, void* pcnorestype) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4486,7 +4486,7 @@ uint32_t windowssys_windows_win32_networking_clustering_DetermineCNOResTypeFromC
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_DetermineCNOResTypeFromNodelist(uint32_t cnodes, void* ppsznodenames, void* pcnorestype) {
+uint32_t windowssys_windows_win32_networking_clustering_determineCNOResTypeFromNodelist(uint32_t cnodes, void* ppsznodenames, void* pcnorestype) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4510,7 +4510,7 @@ uint32_t windowssys_windows_win32_networking_clustering_DetermineCNOResTypeFromN
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_DetermineClusterCloudTypeFromCluster(int64_t hcluster, void* pcloudtype) {
+uint32_t windowssys_windows_win32_networking_clustering_determineClusterCloudTypeFromCluster(int64_t hcluster, void* pcloudtype) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4533,7 +4533,7 @@ uint32_t windowssys_windows_win32_networking_clustering_DetermineClusterCloudTyp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_DetermineClusterCloudTypeFromNodelist(uint32_t cnodes, void* ppsznodenames, void* pcloudtype) {
+uint32_t windowssys_windows_win32_networking_clustering_determineClusterCloudTypeFromNodelist(uint32_t cnodes, void* ppsznodenames, void* pcloudtype) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4557,7 +4557,7 @@ uint32_t windowssys_windows_win32_networking_clustering_DetermineClusterCloudTyp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_EvictClusterNode(int64_t hnode) {
+uint32_t windowssys_windows_win32_networking_clustering_evictClusterNode(int64_t hnode) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4579,7 +4579,7 @@ uint32_t windowssys_windows_win32_networking_clustering_EvictClusterNode(int64_t
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_EvictClusterNodeEx(int64_t hnode, uint32_t dwtimeout, void* phrcleanupstatus) {
+uint32_t windowssys_windows_win32_networking_clustering_evictClusterNodeEx(int64_t hnode, uint32_t dwtimeout, void* phrcleanupstatus) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4603,7 +4603,7 @@ uint32_t windowssys_windows_win32_networking_clustering_EvictClusterNodeEx(int64
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_EvictClusterNodeEx2(int64_t hnode, uint32_t dwtimeout, void* phrcleanupstatus, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_evictClusterNodeEx2(int64_t hnode, uint32_t dwtimeout, void* phrcleanupstatus, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4628,7 +4628,7 @@ uint32_t windowssys_windows_win32_networking_clustering_EvictClusterNodeEx2(int6
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_FailClusterResource(int64_t hresource) {
+uint32_t windowssys_windows_win32_networking_clustering_failClusterResource(int64_t hresource) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4650,7 +4650,7 @@ uint32_t windowssys_windows_win32_networking_clustering_FailClusterResource(int6
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_FailClusterResourceEx(int64_t hresource, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_failClusterResourceEx(int64_t hresource, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4673,7 +4673,7 @@ uint32_t windowssys_windows_win32_networking_clustering_FailClusterResourceEx(in
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_FreeClusterCrypt(void* pcryptinfo) {
+uint32_t windowssys_windows_win32_networking_clustering_freeClusterCrypt(void* pcryptinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4695,7 +4695,7 @@ uint32_t windowssys_windows_win32_networking_clustering_FreeClusterCrypt(void* p
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_FreeClusterHealthFault(void* clusterhealthfault) {
+uint32_t windowssys_windows_win32_networking_clustering_freeClusterHealthFault(void* clusterhealthfault) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4717,7 +4717,7 @@ uint32_t windowssys_windows_win32_networking_clustering_FreeClusterHealthFault(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_FreeClusterHealthFaultArray(void* clusterhealthfaultarray) {
+uint32_t windowssys_windows_win32_networking_clustering_freeClusterHealthFaultArray(void* clusterhealthfaultarray) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4739,7 +4739,7 @@ uint32_t windowssys_windows_win32_networking_clustering_FreeClusterHealthFaultAr
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_GetClusterFromGroup(int64_t hgroup) {
+int64_t windowssys_windows_win32_networking_clustering_getClusterFromGroup(int64_t hgroup) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4761,7 +4761,7 @@ int64_t windowssys_windows_win32_networking_clustering_GetClusterFromGroup(int64
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_GetClusterFromNetInterface(int64_t hnetinterface) {
+int64_t windowssys_windows_win32_networking_clustering_getClusterFromNetInterface(int64_t hnetinterface) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4783,7 +4783,7 @@ int64_t windowssys_windows_win32_networking_clustering_GetClusterFromNetInterfac
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_GetClusterFromNetwork(int64_t hnetwork) {
+int64_t windowssys_windows_win32_networking_clustering_getClusterFromNetwork(int64_t hnetwork) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4805,7 +4805,7 @@ int64_t windowssys_windows_win32_networking_clustering_GetClusterFromNetwork(int
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_GetClusterFromNode(int64_t hnode) {
+int64_t windowssys_windows_win32_networking_clustering_getClusterFromNode(int64_t hnode) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4827,7 +4827,7 @@ int64_t windowssys_windows_win32_networking_clustering_GetClusterFromNode(int64_
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_GetClusterFromResource(int64_t hresource) {
+int64_t windowssys_windows_win32_networking_clustering_getClusterFromResource(int64_t hresource) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4849,7 +4849,7 @@ int64_t windowssys_windows_win32_networking_clustering_GetClusterFromResource(in
 #endif
 }
 
-void* windowssys_windows_win32_networking_clustering_GetClusterGroupKey(int64_t hgroup, uint32_t samdesired) {
+void* windowssys_windows_win32_networking_clustering_getClusterGroupKey(int64_t hgroup, uint32_t samdesired) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4872,7 +4872,7 @@ void* windowssys_windows_win32_networking_clustering_GetClusterGroupKey(int64_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_GetClusterGroupState(int64_t hgroup, void* lpsznodename, void* lpcchnodename) {
+int32_t windowssys_windows_win32_networking_clustering_getClusterGroupState(int64_t hgroup, void* lpsznodename, void* lpcchnodename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4896,7 +4896,7 @@ int32_t windowssys_windows_win32_networking_clustering_GetClusterGroupState(int6
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_GetClusterInformation(int64_t hcluster, void* lpszclustername, void* lpcchclustername, void* lpclusterinfo) {
+uint32_t windowssys_windows_win32_networking_clustering_getClusterInformation(int64_t hcluster, void* lpszclustername, void* lpcchclustername, void* lpclusterinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4921,7 +4921,7 @@ uint32_t windowssys_windows_win32_networking_clustering_GetClusterInformation(in
 #endif
 }
 
-void* windowssys_windows_win32_networking_clustering_GetClusterKey(int64_t hcluster, uint32_t samdesired) {
+void* windowssys_windows_win32_networking_clustering_getClusterKey(int64_t hcluster, uint32_t samdesired) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4944,7 +4944,7 @@ void* windowssys_windows_win32_networking_clustering_GetClusterKey(int64_t hclus
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_GetClusterNetInterface(int64_t hcluster, void* lpsznodename, void* lpsznetworkname, void* lpszinterfacename, void* lpcchinterfacename) {
+uint32_t windowssys_windows_win32_networking_clustering_getClusterNetInterface(int64_t hcluster, void* lpsznodename, void* lpsznetworkname, void* lpszinterfacename, void* lpcchinterfacename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4970,7 +4970,7 @@ uint32_t windowssys_windows_win32_networking_clustering_GetClusterNetInterface(i
 #endif
 }
 
-void* windowssys_windows_win32_networking_clustering_GetClusterNetInterfaceKey(int64_t hnetinterface, uint32_t samdesired) {
+void* windowssys_windows_win32_networking_clustering_getClusterNetInterfaceKey(int64_t hnetinterface, uint32_t samdesired) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4993,7 +4993,7 @@ void* windowssys_windows_win32_networking_clustering_GetClusterNetInterfaceKey(i
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_GetClusterNetInterfaceState(int64_t hnetinterface) {
+int32_t windowssys_windows_win32_networking_clustering_getClusterNetInterfaceState(int64_t hnetinterface) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5015,7 +5015,7 @@ int32_t windowssys_windows_win32_networking_clustering_GetClusterNetInterfaceSta
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_GetClusterNetworkId(int64_t hnetwork, void* lpsznetworkid, void* lpcchname) {
+uint32_t windowssys_windows_win32_networking_clustering_getClusterNetworkId(int64_t hnetwork, void* lpsznetworkid, void* lpcchname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5039,7 +5039,7 @@ uint32_t windowssys_windows_win32_networking_clustering_GetClusterNetworkId(int6
 #endif
 }
 
-void* windowssys_windows_win32_networking_clustering_GetClusterNetworkKey(int64_t hnetwork, uint32_t samdesired) {
+void* windowssys_windows_win32_networking_clustering_getClusterNetworkKey(int64_t hnetwork, uint32_t samdesired) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5062,7 +5062,7 @@ void* windowssys_windows_win32_networking_clustering_GetClusterNetworkKey(int64_
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_GetClusterNetworkState(int64_t hnetwork) {
+int32_t windowssys_windows_win32_networking_clustering_getClusterNetworkState(int64_t hnetwork) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5084,7 +5084,7 @@ int32_t windowssys_windows_win32_networking_clustering_GetClusterNetworkState(in
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_GetClusterNodeId(int64_t hnode, void* lpsznodeid, void* lpcchname) {
+uint32_t windowssys_windows_win32_networking_clustering_getClusterNodeId(int64_t hnode, void* lpsznodeid, void* lpcchname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5108,7 +5108,7 @@ uint32_t windowssys_windows_win32_networking_clustering_GetClusterNodeId(int64_t
 #endif
 }
 
-void* windowssys_windows_win32_networking_clustering_GetClusterNodeKey(int64_t hnode, uint32_t samdesired) {
+void* windowssys_windows_win32_networking_clustering_getClusterNodeKey(int64_t hnode, uint32_t samdesired) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5131,7 +5131,7 @@ void* windowssys_windows_win32_networking_clustering_GetClusterNodeKey(int64_t h
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_GetClusterNodeState(int64_t hnode) {
+int32_t windowssys_windows_win32_networking_clustering_getClusterNodeState(int64_t hnode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5153,7 +5153,7 @@ int32_t windowssys_windows_win32_networking_clustering_GetClusterNodeState(int64
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_GetClusterNotify(int64_t hchange, void* lpdwnotifykey, void* lpdwfiltertype, void* lpszname, void* lpcchname, uint32_t dwmilliseconds) {
+uint32_t windowssys_windows_win32_networking_clustering_getClusterNotify(int64_t hchange, void* lpdwnotifykey, void* lpdwfiltertype, void* lpszname, void* lpcchname, uint32_t dwmilliseconds) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5180,7 +5180,7 @@ uint32_t windowssys_windows_win32_networking_clustering_GetClusterNotify(int64_t
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_GetClusterNotifyV2(int64_t hchange, void* lpdwnotifykey, void* pfilterandtype, void* buffer, void* lpbbuffersize, void* lpszobjectid, void* lpcchobjectid, void* lpszparentid, void* lpcchparentid, void* lpszname, void* lpcchname, void* lpsztype, void* lpcchtype, uint32_t dwmilliseconds) {
+uint32_t windowssys_windows_win32_networking_clustering_getClusterNotifyV2(int64_t hchange, void* lpdwnotifykey, void* pfilterandtype, void* buffer, void* lpbbuffersize, void* lpszobjectid, void* lpcchobjectid, void* lpszparentid, void* lpcchparentid, void* lpszname, void* lpcchname, void* lpsztype, void* lpcchtype, uint32_t dwmilliseconds) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5215,7 +5215,7 @@ uint32_t windowssys_windows_win32_networking_clustering_GetClusterNotifyV2(int64
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_GetClusterQuorumResource(int64_t hcluster, void* lpszresourcename, void* lpcchresourcename, void* lpszdevicename, void* lpcchdevicename, void* lpdwmaxquorumlogsize) {
+uint32_t windowssys_windows_win32_networking_clustering_getClusterQuorumResource(int64_t hcluster, void* lpszresourcename, void* lpcchresourcename, void* lpszdevicename, void* lpcchdevicename, void* lpdwmaxquorumlogsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5242,7 +5242,7 @@ uint32_t windowssys_windows_win32_networking_clustering_GetClusterQuorumResource
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_GetClusterResourceDependencyExpression(int64_t hresource, void* lpszdependencyexpression, void* lpcchdependencyexpression) {
+uint32_t windowssys_windows_win32_networking_clustering_getClusterResourceDependencyExpression(int64_t hresource, void* lpszdependencyexpression, void* lpcchdependencyexpression) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5266,7 +5266,7 @@ uint32_t windowssys_windows_win32_networking_clustering_GetClusterResourceDepend
 #endif
 }
 
-void* windowssys_windows_win32_networking_clustering_GetClusterResourceKey(int64_t hresource, uint32_t samdesired) {
+void* windowssys_windows_win32_networking_clustering_getClusterResourceKey(int64_t hresource, uint32_t samdesired) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5289,7 +5289,7 @@ void* windowssys_windows_win32_networking_clustering_GetClusterResourceKey(int64
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_GetClusterResourceNetworkName(int64_t hresource, void* lpbuffer, void* nsize) {
+int32_t windowssys_windows_win32_networking_clustering_getClusterResourceNetworkName(int64_t hresource, void* lpbuffer, void* nsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5313,7 +5313,7 @@ int32_t windowssys_windows_win32_networking_clustering_GetClusterResourceNetwork
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_GetClusterResourceState(int64_t hresource, void* lpsznodename, void* lpcchnodename, void* lpszgroupname, void* lpcchgroupname) {
+int32_t windowssys_windows_win32_networking_clustering_getClusterResourceState(int64_t hresource, void* lpsznodename, void* lpcchnodename, void* lpszgroupname, void* lpcchgroupname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5339,7 +5339,7 @@ int32_t windowssys_windows_win32_networking_clustering_GetClusterResourceState(i
 #endif
 }
 
-void* windowssys_windows_win32_networking_clustering_GetClusterResourceTypeKey(int64_t hcluster, void* lpsztypename, uint32_t samdesired) {
+void* windowssys_windows_win32_networking_clustering_getClusterResourceTypeKey(int64_t hcluster, void* lpsztypename, uint32_t samdesired) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5363,7 +5363,7 @@ void* windowssys_windows_win32_networking_clustering_GetClusterResourceTypeKey(i
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_GetNodeCloudTypeDW(void* ppsznodename, void* nodecloudtype) {
+uint32_t windowssys_windows_win32_networking_clustering_getNodeCloudTypeDW(void* ppsznodename, void* nodecloudtype) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5386,7 +5386,7 @@ uint32_t windowssys_windows_win32_networking_clustering_GetNodeCloudTypeDW(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_GetNodeClusterState(void* lpsznodename, void* pdwclusterstate) {
+uint32_t windowssys_windows_win32_networking_clustering_getNodeClusterState(void* lpsznodename, void* pdwclusterstate) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5409,7 +5409,7 @@ uint32_t windowssys_windows_win32_networking_clustering_GetNodeClusterState(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_GetNotifyEventHandle(int64_t hchange, void* lphtargetevent) {
+uint32_t windowssys_windows_win32_networking_clustering_getNotifyEventHandle(int64_t hchange, void* lphtargetevent) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5432,7 +5432,7 @@ uint32_t windowssys_windows_win32_networking_clustering_GetNotifyEventHandle(int
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_InitializeClusterHealthFault(void* clusterhealthfault) {
+uint32_t windowssys_windows_win32_networking_clustering_initializeClusterHealthFault(void* clusterhealthfault) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5454,7 +5454,7 @@ uint32_t windowssys_windows_win32_networking_clustering_InitializeClusterHealthF
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_InitializeClusterHealthFaultArray(void* clusterhealthfaultarray) {
+uint32_t windowssys_windows_win32_networking_clustering_initializeClusterHealthFaultArray(void* clusterhealthfaultarray) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5476,7 +5476,7 @@ uint32_t windowssys_windows_win32_networking_clustering_InitializeClusterHealthF
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_IsFileOnClusterSharedVolume(void* lpszpathname, void* pbfileisonsharedvolume) {
+uint32_t windowssys_windows_win32_networking_clustering_isFileOnClusterSharedVolume(void* lpszpathname, void* pbfileisonsharedvolume) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5499,7 +5499,7 @@ uint32_t windowssys_windows_win32_networking_clustering_IsFileOnClusterSharedVol
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_MoveClusterGroup(int64_t hgroup, int64_t hdestinationnode) {
+uint32_t windowssys_windows_win32_networking_clustering_moveClusterGroup(int64_t hgroup, int64_t hdestinationnode) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5522,7 +5522,7 @@ uint32_t windowssys_windows_win32_networking_clustering_MoveClusterGroup(int64_t
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_MoveClusterGroupEx(int64_t hgroup, int64_t hdestinationnode, uint32_t dwmoveflags, void* lpinbuffer, uint32_t cbinbuffersize) {
+uint32_t windowssys_windows_win32_networking_clustering_moveClusterGroupEx(int64_t hgroup, int64_t hdestinationnode, uint32_t dwmoveflags, void* lpinbuffer, uint32_t cbinbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5548,7 +5548,7 @@ uint32_t windowssys_windows_win32_networking_clustering_MoveClusterGroupEx(int64
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_MoveClusterGroupEx2(int64_t hgroup, int64_t hdestinationnode, uint32_t dwmoveflags, void* lpinbuffer, uint32_t cbinbuffersize, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_moveClusterGroupEx2(int64_t hgroup, int64_t hdestinationnode, uint32_t dwmoveflags, void* lpinbuffer, uint32_t cbinbuffersize, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5575,7 +5575,7 @@ uint32_t windowssys_windows_win32_networking_clustering_MoveClusterGroupEx2(int6
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_OfflineClusterGroup(int64_t hgroup) {
+uint32_t windowssys_windows_win32_networking_clustering_offlineClusterGroup(int64_t hgroup) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5597,7 +5597,7 @@ uint32_t windowssys_windows_win32_networking_clustering_OfflineClusterGroup(int6
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_OfflineClusterGroupEx(int64_t hgroup, uint32_t dwofflineflags, void* lpinbuffer, uint32_t cbinbuffersize) {
+uint32_t windowssys_windows_win32_networking_clustering_offlineClusterGroupEx(int64_t hgroup, uint32_t dwofflineflags, void* lpinbuffer, uint32_t cbinbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5622,7 +5622,7 @@ uint32_t windowssys_windows_win32_networking_clustering_OfflineClusterGroupEx(in
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_OfflineClusterGroupEx2(int64_t hgroup, uint32_t dwofflineflags, void* lpinbuffer, uint32_t cbinbuffersize, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_offlineClusterGroupEx2(int64_t hgroup, uint32_t dwofflineflags, void* lpinbuffer, uint32_t cbinbuffersize, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5648,7 +5648,7 @@ uint32_t windowssys_windows_win32_networking_clustering_OfflineClusterGroupEx2(i
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_OfflineClusterResource(int64_t hresource) {
+uint32_t windowssys_windows_win32_networking_clustering_offlineClusterResource(int64_t hresource) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5670,7 +5670,7 @@ uint32_t windowssys_windows_win32_networking_clustering_OfflineClusterResource(i
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_OfflineClusterResourceEx(int64_t hresource, uint32_t dwofflineflags, void* lpinbuffer, uint32_t cbinbuffersize) {
+uint32_t windowssys_windows_win32_networking_clustering_offlineClusterResourceEx(int64_t hresource, uint32_t dwofflineflags, void* lpinbuffer, uint32_t cbinbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5695,7 +5695,7 @@ uint32_t windowssys_windows_win32_networking_clustering_OfflineClusterResourceEx
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_OfflineClusterResourceEx2(int64_t hresource, uint32_t dwofflineflags, void* lpinbuffer, uint32_t cbinbuffersize, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_offlineClusterResourceEx2(int64_t hresource, uint32_t dwofflineflags, void* lpinbuffer, uint32_t cbinbuffersize, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5721,7 +5721,7 @@ uint32_t windowssys_windows_win32_networking_clustering_OfflineClusterResourceEx
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_OnlineClusterGroup(int64_t hgroup, int64_t hdestinationnode) {
+uint32_t windowssys_windows_win32_networking_clustering_onlineClusterGroup(int64_t hgroup, int64_t hdestinationnode) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5744,7 +5744,7 @@ uint32_t windowssys_windows_win32_networking_clustering_OnlineClusterGroup(int64
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_OnlineClusterGroupEx(int64_t hgroup, int64_t hdestinationnode, uint32_t dwonlineflags, void* lpinbuffer, uint32_t cbinbuffersize) {
+uint32_t windowssys_windows_win32_networking_clustering_onlineClusterGroupEx(int64_t hgroup, int64_t hdestinationnode, uint32_t dwonlineflags, void* lpinbuffer, uint32_t cbinbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5770,7 +5770,7 @@ uint32_t windowssys_windows_win32_networking_clustering_OnlineClusterGroupEx(int
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_OnlineClusterGroupEx2(int64_t hgroup, int64_t hdestinationnode, uint32_t dwonlineflags, void* lpinbuffer, uint32_t cbinbuffersize, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_onlineClusterGroupEx2(int64_t hgroup, int64_t hdestinationnode, uint32_t dwonlineflags, void* lpinbuffer, uint32_t cbinbuffersize, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5797,7 +5797,7 @@ uint32_t windowssys_windows_win32_networking_clustering_OnlineClusterGroupEx2(in
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_OnlineClusterResource(int64_t hresource) {
+uint32_t windowssys_windows_win32_networking_clustering_onlineClusterResource(int64_t hresource) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5819,7 +5819,7 @@ uint32_t windowssys_windows_win32_networking_clustering_OnlineClusterResource(in
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_OnlineClusterResourceEx(int64_t hresource, uint32_t dwonlineflags, void* lpinbuffer, uint32_t cbinbuffersize) {
+uint32_t windowssys_windows_win32_networking_clustering_onlineClusterResourceEx(int64_t hresource, uint32_t dwonlineflags, void* lpinbuffer, uint32_t cbinbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5844,7 +5844,7 @@ uint32_t windowssys_windows_win32_networking_clustering_OnlineClusterResourceEx(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_OnlineClusterResourceEx2(int64_t hresource, uint32_t dwonlineflags, void* lpinbuffer, uint32_t cbinbuffersize, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_onlineClusterResourceEx2(int64_t hresource, uint32_t dwonlineflags, void* lpinbuffer, uint32_t cbinbuffersize, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5870,7 +5870,7 @@ uint32_t windowssys_windows_win32_networking_clustering_OnlineClusterResourceEx2
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_OpenCluster(void* lpszclustername) {
+int64_t windowssys_windows_win32_networking_clustering_openCluster(void* lpszclustername) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5892,7 +5892,7 @@ int64_t windowssys_windows_win32_networking_clustering_OpenCluster(void* lpszclu
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_OpenClusterCryptProvider(void* lpszresource, void* lpszprovider, uint32_t dwtype, uint32_t dwflags) {
+int64_t windowssys_windows_win32_networking_clustering_openClusterCryptProvider(void* lpszresource, void* lpszprovider, uint32_t dwtype, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5917,7 +5917,7 @@ int64_t windowssys_windows_win32_networking_clustering_OpenClusterCryptProvider(
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_OpenClusterCryptProviderEx(void* lpszresource, void* lpszkeyname, void* lpszprovider, uint32_t dwtype, uint32_t dwflags) {
+int64_t windowssys_windows_win32_networking_clustering_openClusterCryptProviderEx(void* lpszresource, void* lpszkeyname, void* lpszprovider, uint32_t dwtype, uint32_t dwflags) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5943,7 +5943,7 @@ int64_t windowssys_windows_win32_networking_clustering_OpenClusterCryptProviderE
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_OpenClusterEx(void* lpszclustername, uint32_t desiredaccess, void* grantedaccess) {
+int64_t windowssys_windows_win32_networking_clustering_openClusterEx(void* lpszclustername, uint32_t desiredaccess, void* grantedaccess) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5967,7 +5967,7 @@ int64_t windowssys_windows_win32_networking_clustering_OpenClusterEx(void* lpszc
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_OpenClusterGroup(int64_t hcluster, void* lpszgroupname) {
+int64_t windowssys_windows_win32_networking_clustering_openClusterGroup(int64_t hcluster, void* lpszgroupname) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5990,7 +5990,7 @@ int64_t windowssys_windows_win32_networking_clustering_OpenClusterGroup(int64_t 
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_OpenClusterGroupEx(int64_t hcluster, void* lpszgroupname, uint32_t dwdesiredaccess, void* lpdwgrantedaccess) {
+int64_t windowssys_windows_win32_networking_clustering_openClusterGroupEx(int64_t hcluster, void* lpszgroupname, uint32_t dwdesiredaccess, void* lpdwgrantedaccess) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6015,7 +6015,7 @@ int64_t windowssys_windows_win32_networking_clustering_OpenClusterGroupEx(int64_
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_OpenClusterGroupSet(int64_t hcluster, void* lpszgroupsetname) {
+int64_t windowssys_windows_win32_networking_clustering_openClusterGroupSet(int64_t hcluster, void* lpszgroupsetname) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6038,7 +6038,7 @@ int64_t windowssys_windows_win32_networking_clustering_OpenClusterGroupSet(int64
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_OpenClusterNetInterface(int64_t hcluster, void* lpszinterfacename) {
+int64_t windowssys_windows_win32_networking_clustering_openClusterNetInterface(int64_t hcluster, void* lpszinterfacename) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6061,7 +6061,7 @@ int64_t windowssys_windows_win32_networking_clustering_OpenClusterNetInterface(i
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_OpenClusterNetInterfaceEx(int64_t hcluster, void* lpszinterfacename, uint32_t dwdesiredaccess, void* lpdwgrantedaccess) {
+int64_t windowssys_windows_win32_networking_clustering_openClusterNetInterfaceEx(int64_t hcluster, void* lpszinterfacename, uint32_t dwdesiredaccess, void* lpdwgrantedaccess) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6086,7 +6086,7 @@ int64_t windowssys_windows_win32_networking_clustering_OpenClusterNetInterfaceEx
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_OpenClusterNetwork(int64_t hcluster, void* lpsznetworkname) {
+int64_t windowssys_windows_win32_networking_clustering_openClusterNetwork(int64_t hcluster, void* lpsznetworkname) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6109,7 +6109,7 @@ int64_t windowssys_windows_win32_networking_clustering_OpenClusterNetwork(int64_
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_OpenClusterNetworkEx(int64_t hcluster, void* lpsznetworkname, uint32_t dwdesiredaccess, void* lpdwgrantedaccess) {
+int64_t windowssys_windows_win32_networking_clustering_openClusterNetworkEx(int64_t hcluster, void* lpsznetworkname, uint32_t dwdesiredaccess, void* lpdwgrantedaccess) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6134,7 +6134,7 @@ int64_t windowssys_windows_win32_networking_clustering_OpenClusterNetworkEx(int6
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_OpenClusterNode(int64_t hcluster, void* lpsznodename) {
+int64_t windowssys_windows_win32_networking_clustering_openClusterNode(int64_t hcluster, void* lpsznodename) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6157,7 +6157,7 @@ int64_t windowssys_windows_win32_networking_clustering_OpenClusterNode(int64_t h
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_OpenClusterNodeById(int64_t hcluster, uint32_t nodeid) {
+int64_t windowssys_windows_win32_networking_clustering_openClusterNodeById(int64_t hcluster, uint32_t nodeid) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6180,7 +6180,7 @@ int64_t windowssys_windows_win32_networking_clustering_OpenClusterNodeById(int64
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_OpenClusterNodeEx(int64_t hcluster, void* lpsznodename, uint32_t dwdesiredaccess, void* lpdwgrantedaccess) {
+int64_t windowssys_windows_win32_networking_clustering_openClusterNodeEx(int64_t hcluster, void* lpsznodename, uint32_t dwdesiredaccess, void* lpdwgrantedaccess) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6205,7 +6205,7 @@ int64_t windowssys_windows_win32_networking_clustering_OpenClusterNodeEx(int64_t
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_OpenClusterResource(int64_t hcluster, void* lpszresourcename) {
+int64_t windowssys_windows_win32_networking_clustering_openClusterResource(int64_t hcluster, void* lpszresourcename) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6228,7 +6228,7 @@ int64_t windowssys_windows_win32_networking_clustering_OpenClusterResource(int64
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_OpenClusterResourceEx(int64_t hcluster, void* lpszresourcename, uint32_t dwdesiredaccess, void* lpdwgrantedaccess) {
+int64_t windowssys_windows_win32_networking_clustering_openClusterResourceEx(int64_t hcluster, void* lpszresourcename, uint32_t dwdesiredaccess, void* lpdwgrantedaccess) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6253,7 +6253,7 @@ int64_t windowssys_windows_win32_networking_clustering_OpenClusterResourceEx(int
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_PauseClusterNode(int64_t hnode) {
+uint32_t windowssys_windows_win32_networking_clustering_pauseClusterNode(int64_t hnode) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6275,7 +6275,7 @@ uint32_t windowssys_windows_win32_networking_clustering_PauseClusterNode(int64_t
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_PauseClusterNodeEx(int64_t hnode, int32_t bdrainnode, uint32_t dwpauseflags, int64_t hnodedraintarget) {
+uint32_t windowssys_windows_win32_networking_clustering_pauseClusterNodeEx(int64_t hnode, int32_t bdrainnode, uint32_t dwpauseflags, int64_t hnodedraintarget) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6300,7 +6300,7 @@ uint32_t windowssys_windows_win32_networking_clustering_PauseClusterNodeEx(int64
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_PauseClusterNodeEx2(int64_t hnode, int32_t bdrainnode, uint32_t dwpauseflags, int64_t hnodedraintarget, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_pauseClusterNodeEx2(int64_t hnode, int32_t bdrainnode, uint32_t dwpauseflags, int64_t hnodedraintarget, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int32_t, uint32_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6326,7 +6326,7 @@ uint32_t windowssys_windows_win32_networking_clustering_PauseClusterNodeEx2(int6
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_QueryAppInstanceVersion(void* appinstanceid, void* instanceversionhigh, void* instanceversionlow, void* versionstatus) {
+uint32_t windowssys_windows_win32_networking_clustering_queryAppInstanceVersion(void* appinstanceid, void* instanceversionhigh, void* instanceversionlow, void* versionstatus) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6351,7 +6351,7 @@ uint32_t windowssys_windows_win32_networking_clustering_QueryAppInstanceVersion(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_RegisterAppInstance(void* processhandle, void* appinstanceid, int32_t childreninheritappinstance) {
+uint32_t windowssys_windows_win32_networking_clustering_registerAppInstance(void* processhandle, void* appinstanceid, int32_t childreninheritappinstance) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6375,7 +6375,7 @@ uint32_t windowssys_windows_win32_networking_clustering_RegisterAppInstance(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_RegisterAppInstanceVersion(void* appinstanceid, uint64_t instanceversionhigh, uint64_t instanceversionlow) {
+uint32_t windowssys_windows_win32_networking_clustering_registerAppInstanceVersion(void* appinstanceid, uint64_t instanceversionhigh, uint64_t instanceversionlow) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6399,7 +6399,7 @@ uint32_t windowssys_windows_win32_networking_clustering_RegisterAppInstanceVersi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_RegisterClusterNotify(int64_t hchange, uint32_t dwfiltertype, void* hobject, uint64_t dwnotifykey) {
+uint32_t windowssys_windows_win32_networking_clustering_registerClusterNotify(int64_t hchange, uint32_t dwfiltertype, void* hobject, uint64_t dwnotifykey) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6424,7 +6424,7 @@ uint32_t windowssys_windows_win32_networking_clustering_RegisterClusterNotify(in
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_RegisterClusterResourceTypeNotifyV2(int64_t hchange, int64_t hcluster, int64_t flags, void* restypename, uint64_t dwnotifykey) {
+uint32_t windowssys_windows_win32_networking_clustering_registerClusterResourceTypeNotifyV2(int64_t hchange, int64_t hcluster, int64_t flags, void* restypename, uint64_t dwnotifykey) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, int64_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6450,7 +6450,7 @@ uint32_t windowssys_windows_win32_networking_clustering_RegisterClusterResourceT
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_RemoveClusterGroupDependency(int64_t hgroup, int64_t hdependson) {
+uint32_t windowssys_windows_win32_networking_clustering_removeClusterGroupDependency(int64_t hgroup, int64_t hdependson) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6473,7 +6473,7 @@ uint32_t windowssys_windows_win32_networking_clustering_RemoveClusterGroupDepend
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_RemoveClusterGroupDependencyEx(int64_t hgroup, int64_t hdependson, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_removeClusterGroupDependencyEx(int64_t hgroup, int64_t hdependson, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6497,7 +6497,7 @@ uint32_t windowssys_windows_win32_networking_clustering_RemoveClusterGroupDepend
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_RemoveClusterGroupSetDependency(int64_t hgroupset, int64_t hdependson) {
+uint32_t windowssys_windows_win32_networking_clustering_removeClusterGroupSetDependency(int64_t hgroupset, int64_t hdependson) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6520,7 +6520,7 @@ uint32_t windowssys_windows_win32_networking_clustering_RemoveClusterGroupSetDep
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_RemoveClusterGroupSetDependencyEx(int64_t hgroupset, int64_t hdependson, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_removeClusterGroupSetDependencyEx(int64_t hgroupset, int64_t hdependson, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6544,7 +6544,7 @@ uint32_t windowssys_windows_win32_networking_clustering_RemoveClusterGroupSetDep
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_RemoveClusterGroupToGroupSetDependency(int64_t hgroup, int64_t hdependson) {
+uint32_t windowssys_windows_win32_networking_clustering_removeClusterGroupToGroupSetDependency(int64_t hgroup, int64_t hdependson) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6567,7 +6567,7 @@ uint32_t windowssys_windows_win32_networking_clustering_RemoveClusterGroupToGrou
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_RemoveClusterGroupToGroupSetDependencyEx(int64_t hgroup, int64_t hdependson, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_removeClusterGroupToGroupSetDependencyEx(int64_t hgroup, int64_t hdependson, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6591,7 +6591,7 @@ uint32_t windowssys_windows_win32_networking_clustering_RemoveClusterGroupToGrou
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_RemoveClusterNameAccount(int64_t hcluster, int32_t bdeletecomputerobjects) {
+uint32_t windowssys_windows_win32_networking_clustering_removeClusterNameAccount(int64_t hcluster, int32_t bdeletecomputerobjects) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6614,7 +6614,7 @@ uint32_t windowssys_windows_win32_networking_clustering_RemoveClusterNameAccount
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_RemoveClusterResourceDependency(int64_t hresource, int64_t hdependson) {
+uint32_t windowssys_windows_win32_networking_clustering_removeClusterResourceDependency(int64_t hresource, int64_t hdependson) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6637,7 +6637,7 @@ uint32_t windowssys_windows_win32_networking_clustering_RemoveClusterResourceDep
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_RemoveClusterResourceDependencyEx(int64_t hresource, int64_t hdependson, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_removeClusterResourceDependencyEx(int64_t hresource, int64_t hdependson, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6661,7 +6661,7 @@ uint32_t windowssys_windows_win32_networking_clustering_RemoveClusterResourceDep
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_RemoveClusterResourceNode(int64_t hresource, int64_t hnode) {
+uint32_t windowssys_windows_win32_networking_clustering_removeClusterResourceNode(int64_t hresource, int64_t hnode) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6684,7 +6684,7 @@ uint32_t windowssys_windows_win32_networking_clustering_RemoveClusterResourceNod
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_RemoveClusterResourceNodeEx(int64_t hresource, int64_t hnode, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_removeClusterResourceNodeEx(int64_t hresource, int64_t hnode, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6708,7 +6708,7 @@ uint32_t windowssys_windows_win32_networking_clustering_RemoveClusterResourceNod
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_RemoveClusterStorageNode(int64_t hcluster, void* lpszclusterstorageenclosurename, uint32_t dwtimeout, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_networking_clustering_removeClusterStorageNode(int64_t hcluster, void* lpszclusterstorageenclosurename, uint32_t dwtimeout, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6733,7 +6733,7 @@ uint32_t windowssys_windows_win32_networking_clustering_RemoveClusterStorageNode
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_RemoveCrossClusterGroupSetDependency(int64_t hdependentgroupset, void* lpremoteclustername, void* lpremotegroupsetname) {
+uint32_t windowssys_windows_win32_networking_clustering_removeCrossClusterGroupSetDependency(int64_t hdependentgroupset, void* lpremoteclustername, void* lpremotegroupsetname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6757,7 +6757,7 @@ uint32_t windowssys_windows_win32_networking_clustering_RemoveCrossClusterGroupS
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_RemoveResourceFromClusterSharedVolumes(int64_t hresource) {
+uint32_t windowssys_windows_win32_networking_clustering_removeResourceFromClusterSharedVolumes(int64_t hresource) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6779,7 +6779,7 @@ uint32_t windowssys_windows_win32_networking_clustering_RemoveResourceFromCluste
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilAddUnknownProperties(void* hkeyclusterkey, void* ppropertytable, void* poutpropertylist, uint32_t pcboutpropertylistsize, void* pcbbytesreturned, void* pcbrequired) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilAddUnknownProperties(void* hkeyclusterkey, void* ppropertytable, void* poutpropertylist, uint32_t pcboutpropertylistsize, void* pcbbytesreturned, void* pcbrequired) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6806,7 +6806,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilAddUnknownPropert
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilCreateDirectoryTree(void* pszpath) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilCreateDirectoryTree(void* pszpath) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6828,7 +6828,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilCreateDirectoryTr
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilDupGroup(int64_t group, void* copy) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilDupGroup(int64_t group, void* copy) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6851,7 +6851,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilDupGroup(int64_t 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilDupParameterBlock(void* poutparams, void* pinparams, void* ppropertytable) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilDupParameterBlock(void* poutparams, void* pinparams, void* ppropertytable) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6875,7 +6875,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilDupParameterBlock
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilDupResource(int64_t group, void* copy) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilDupResource(int64_t group, void* copy) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6898,7 +6898,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilDupResource(int64
 #endif
 }
 
-void* windowssys_windows_win32_networking_clustering_ResUtilDupString(void* pszinstring) {
+void* windowssys_windows_win32_networking_clustering_resUtilDupString(void* pszinstring) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6920,7 +6920,7 @@ void* windowssys_windows_win32_networking_clustering_ResUtilDupString(void* pszi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilEnumGroups(int64_t hcluster, int64_t hself, void* prescallback, void* pparameter) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilEnumGroups(int64_t hcluster, int64_t hself, void* prescallback, void* pparameter) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6945,7 +6945,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilEnumGroups(int64_
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilEnumGroupsEx(int64_t hcluster, int64_t hself, int32_t grouptype, void* prescallback, void* pparameter) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilEnumGroupsEx(int64_t hcluster, int64_t hself, int32_t grouptype, void* prescallback, void* pparameter) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6971,7 +6971,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilEnumGroupsEx(int6
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilEnumPrivateProperties(void* hkeyclusterkey, void* pszoutproperties, uint32_t cboutpropertiessize, void* pcbbytesreturned, void* pcbrequired) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilEnumPrivateProperties(void* hkeyclusterkey, void* pszoutproperties, uint32_t cboutpropertiessize, void* pcbbytesreturned, void* pcbrequired) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6997,7 +6997,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilEnumPrivateProper
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilEnumProperties(void* ppropertytable, void* pszoutproperties, uint32_t cboutpropertiessize, void* pcbbytesreturned, void* pcbrequired) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilEnumProperties(void* ppropertytable, void* pszoutproperties, uint32_t cboutpropertiessize, void* pcbbytesreturned, void* pcbrequired) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7023,7 +7023,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilEnumProperties(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilEnumResources(int64_t hself, void* lpszrestypename, void* prescallback, void* pparameter) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilEnumResources(int64_t hself, void* lpszrestypename, void* prescallback, void* pparameter) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7048,7 +7048,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilEnumResources(int
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilEnumResourcesEx(int64_t hcluster, int64_t hself, void* lpszrestypename, void* prescallback, void* pparameter) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilEnumResourcesEx(int64_t hcluster, int64_t hself, void* lpszrestypename, void* prescallback, void* pparameter) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7074,7 +7074,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilEnumResourcesEx(i
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilEnumResourcesEx2(int64_t hcluster, int64_t hself, void* lpszrestypename, void* prescallback, void* pparameter, uint32_t dwdesiredaccess) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilEnumResourcesEx2(int64_t hcluster, int64_t hself, void* lpszrestypename, void* prescallback, void* pparameter, uint32_t dwdesiredaccess) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7101,7 +7101,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilEnumResourcesEx2(
 #endif
 }
 
-void* windowssys_windows_win32_networking_clustering_ResUtilExpandEnvironmentStrings(void* pszsrc) {
+void* windowssys_windows_win32_networking_clustering_resUtilExpandEnvironmentStrings(void* pszsrc) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7123,7 +7123,7 @@ void* windowssys_windows_win32_networking_clustering_ResUtilExpandEnvironmentStr
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilFindBinaryProperty(void* ppropertylist, uint32_t cbpropertylistsize, void* pszpropertyname, void* pbpropertyvalue, void* pcbpropertyvaluesize) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilFindBinaryProperty(void* ppropertylist, uint32_t cbpropertylistsize, void* pszpropertyname, void* pbpropertyvalue, void* pcbpropertyvaluesize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7149,7 +7149,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilFindBinaryPropert
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilFindDependentDiskResourceDriveLetter(int64_t hcluster, int64_t hresource, void* pszdriveletter, void* pcchdriveletter) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilFindDependentDiskResourceDriveLetter(int64_t hcluster, int64_t hresource, void* pszdriveletter, void* pcchdriveletter) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7174,7 +7174,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilFindDependentDisk
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilFindDwordProperty(void* ppropertylist, uint32_t cbpropertylistsize, void* pszpropertyname, void* pdwpropertyvalue) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilFindDwordProperty(void* ppropertylist, uint32_t cbpropertylistsize, void* pszpropertyname, void* pdwpropertyvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7199,7 +7199,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilFindDwordProperty
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilFindExpandSzProperty(void* ppropertylist, uint32_t cbpropertylistsize, void* pszpropertyname, void* pszpropertyvalue) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilFindExpandSzProperty(void* ppropertylist, uint32_t cbpropertylistsize, void* pszpropertyname, void* pszpropertyvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7224,7 +7224,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilFindExpandSzPrope
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilFindExpandedSzProperty(void* ppropertylist, uint32_t cbpropertylistsize, void* pszpropertyname, void* pszpropertyvalue) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilFindExpandedSzProperty(void* ppropertylist, uint32_t cbpropertylistsize, void* pszpropertyname, void* pszpropertyvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7249,7 +7249,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilFindExpandedSzPro
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilFindFileTimeProperty(void* ppropertylist, uint32_t cbpropertylistsize, void* pszpropertyname, void* pftpropertyvalue) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilFindFileTimeProperty(void* ppropertylist, uint32_t cbpropertylistsize, void* pszpropertyname, void* pftpropertyvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7274,7 +7274,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilFindFileTimePrope
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilFindLongProperty(void* ppropertylist, uint32_t cbpropertylistsize, void* pszpropertyname, void* plpropertyvalue) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilFindLongProperty(void* ppropertylist, uint32_t cbpropertylistsize, void* pszpropertyname, void* plpropertyvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7299,7 +7299,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilFindLongProperty(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilFindMultiSzProperty(void* ppropertylist, uint32_t cbpropertylistsize, void* pszpropertyname, void* pszpropertyvalue, void* pcbpropertyvaluesize) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilFindMultiSzProperty(void* ppropertylist, uint32_t cbpropertylistsize, void* pszpropertyname, void* pszpropertyvalue, void* pcbpropertyvaluesize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7325,7 +7325,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilFindMultiSzProper
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilFindSzProperty(void* ppropertylist, uint32_t cbpropertylistsize, void* pszpropertyname, void* pszpropertyvalue) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilFindSzProperty(void* ppropertylist, uint32_t cbpropertylistsize, void* pszpropertyname, void* pszpropertyvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7350,7 +7350,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilFindSzProperty(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilFindULargeIntegerProperty(void* ppropertylist, uint32_t cbpropertylistsize, void* pszpropertyname, void* plpropertyvalue) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilFindULargeIntegerProperty(void* ppropertylist, uint32_t cbpropertylistsize, void* pszpropertyname, void* plpropertyvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7375,7 +7375,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilFindULargeInteger
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilFreeEnvironment(void* lpenvironment) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilFreeEnvironment(void* lpenvironment) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7397,7 +7397,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilFreeEnvironment(v
 #endif
 }
 
-void windowssys_windows_win32_networking_clustering_ResUtilFreeParameterBlock(void* poutparams, void* pinparams, void* ppropertytable) {
+void windowssys_windows_win32_networking_clustering_resUtilFreeParameterBlock(void* poutparams, void* pinparams, void* ppropertytable) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7420,7 +7420,7 @@ void windowssys_windows_win32_networking_clustering_ResUtilFreeParameterBlock(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetAllProperties(void* hkeyclusterkey, void* ppropertytable, void* poutpropertylist, uint32_t cboutpropertylistsize, void* pcbbytesreturned, void* pcbrequired) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilGetAllProperties(void* hkeyclusterkey, void* ppropertytable, void* poutpropertylist, uint32_t cboutpropertylistsize, void* pcbbytesreturned, void* pcbrequired) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7447,7 +7447,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetAllProperties(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetBinaryProperty(void* ppboutvalue, void* pcboutvaluesize, void* pvaluestruct, void* pboldvalue, uint32_t cboldvaluesize, void* pppropertylist, void* pcbpropertylistsize) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilGetBinaryProperty(void* ppboutvalue, void* pcboutvaluesize, void* pvaluestruct, void* pboldvalue, uint32_t cboldvaluesize, void* pppropertylist, void* pcbpropertylistsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7475,7 +7475,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetBinaryProperty
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetBinaryValue(void* hkeyclusterkey, void* pszvaluename, void* ppboutvalue, void* pcboutvaluesize) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilGetBinaryValue(void* hkeyclusterkey, void* pszvaluename, void* ppboutvalue, void* pcboutvaluesize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7500,7 +7500,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetBinaryValue(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetClusterGroupType(int64_t hgroup, void* grouptype) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilGetClusterGroupType(int64_t hgroup, void* grouptype) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7523,7 +7523,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetClusterGroupTy
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetClusterId(int64_t hcluster, void* guid) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilGetClusterId(int64_t hcluster, void* guid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7546,7 +7546,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetClusterId(int6
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_ResUtilGetClusterRoleState(int64_t hcluster, int32_t eclusterrole) {
+int32_t windowssys_windows_win32_networking_clustering_resUtilGetClusterRoleState(int64_t hcluster, int32_t eclusterrole) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7569,7 +7569,7 @@ int32_t windowssys_windows_win32_networking_clustering_ResUtilGetClusterRoleStat
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetCoreClusterResources(int64_t hcluster, void* phclusternameresource, void* phclusteripaddressresource, void* phclusterquorumresource) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilGetCoreClusterResources(int64_t hcluster, void* phclusternameresource, void* phclusteripaddressresource, void* phclusterquorumresource) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7594,7 +7594,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetCoreClusterRes
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetCoreClusterResourcesEx(int64_t hclusterin, void* phclusternameresourceout, void* phclusterquorumresourceout, uint32_t dwdesiredaccess) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilGetCoreClusterResourcesEx(int64_t hclusterin, void* phclusternameresourceout, void* phclusterquorumresourceout, uint32_t dwdesiredaccess) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7619,7 +7619,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetCoreClusterRes
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_ResUtilGetCoreGroup(int64_t hcluster) {
+int64_t windowssys_windows_win32_networking_clustering_resUtilGetCoreGroup(int64_t hcluster) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7641,7 +7641,7 @@ int64_t windowssys_windows_win32_networking_clustering_ResUtilGetCoreGroup(int64
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetDwordProperty(void* pdwoutvalue, void* pvaluestruct, uint32_t dwoldvalue, uint32_t dwminimum, uint32_t dwmaximum, void* pppropertylist, void* pcbpropertylistsize) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilGetDwordProperty(void* pdwoutvalue, void* pvaluestruct, uint32_t dwoldvalue, uint32_t dwminimum, uint32_t dwmaximum, void* pppropertylist, void* pcbpropertylistsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7669,7 +7669,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetDwordProperty(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetDwordValue(void* hkeyclusterkey, void* pszvaluename, void* pdwoutvalue, uint32_t dwdefaultvalue) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilGetDwordValue(void* hkeyclusterkey, void* pszvaluename, void* pdwoutvalue, uint32_t dwdefaultvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7694,7 +7694,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetDwordValue(voi
 #endif
 }
 
-void* windowssys_windows_win32_networking_clustering_ResUtilGetEnvironmentWithNetName(int64_t hresource) {
+void* windowssys_windows_win32_networking_clustering_resUtilGetEnvironmentWithNetName(int64_t hresource) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7716,7 +7716,7 @@ void* windowssys_windows_win32_networking_clustering_ResUtilGetEnvironmentWithNe
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetLongProperty(void* ploutvalue, void* pvaluestruct, int32_t loldvalue, int32_t lminimum, int32_t lmaximum, void* pppropertylist, void* pcbpropertylistsize) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilGetLongProperty(void* ploutvalue, void* pvaluestruct, int32_t loldvalue, int32_t lminimum, int32_t lmaximum, void* pppropertylist, void* pcbpropertylistsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7744,7 +7744,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetLongProperty(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetMultiSzProperty(void* ppszoutvalue, void* pcboutvaluesize, void* pvaluestruct, void* pszoldvalue, uint32_t cboldvaluesize, void* pppropertylist, void* pcbpropertylistsize) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilGetMultiSzProperty(void* ppszoutvalue, void* pcboutvaluesize, void* pvaluestruct, void* pszoldvalue, uint32_t cboldvaluesize, void* pppropertylist, void* pcbpropertylistsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7772,7 +7772,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetMultiSzPropert
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetPrivateProperties(void* hkeyclusterkey, void* poutpropertylist, uint32_t cboutpropertylistsize, void* pcbbytesreturned, void* pcbrequired) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilGetPrivateProperties(void* hkeyclusterkey, void* poutpropertylist, uint32_t cboutpropertylistsize, void* pcbbytesreturned, void* pcbrequired) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7798,7 +7798,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetPrivatePropert
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetProperties(void* hkeyclusterkey, void* ppropertytable, void* poutpropertylist, uint32_t cboutpropertylistsize, void* pcbbytesreturned, void* pcbrequired) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilGetProperties(void* hkeyclusterkey, void* ppropertytable, void* poutpropertylist, uint32_t cboutpropertylistsize, void* pcbbytesreturned, void* pcbrequired) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7825,7 +7825,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetProperties(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetPropertiesToParameterBlock(void* hkeyclusterkey, void* ppropertytable, void* poutparams, int32_t bcheckforrequiredproperties, void* psznameofpropinerror) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilGetPropertiesToParameterBlock(void* hkeyclusterkey, void* ppropertytable, void* poutparams, int32_t bcheckforrequiredproperties, void* psznameofpropinerror) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7851,7 +7851,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetPropertiesToPa
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetProperty(void* hkeyclusterkey, void* ppropertytableitem, void* poutpropertyitem, void* pcboutpropertyitemsize) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilGetProperty(void* hkeyclusterkey, void* ppropertytableitem, void* poutpropertyitem, void* pcboutpropertyitemsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7876,7 +7876,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetProperty(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetPropertyFormats(void* ppropertytable, void* poutpropertyformatlist, uint32_t cbpropertyformatlistsize, void* pcbbytesreturned, void* pcbrequired) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilGetPropertyFormats(void* ppropertytable, void* poutpropertyformatlist, uint32_t cbpropertyformatlistsize, void* pcbbytesreturned, void* pcbrequired) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7902,7 +7902,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetPropertyFormat
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetPropertySize(void* hkeyclusterkey, void* ppropertytableitem, void* pcboutpropertylistsize, void* pnpropertycount) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilGetPropertySize(void* hkeyclusterkey, void* ppropertytableitem, void* pcboutpropertylistsize, void* pnpropertycount) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7927,7 +7927,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetPropertySize(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetQwordValue(void* hkeyclusterkey, void* pszvaluename, void* pqwoutvalue, uint64_t qwdefaultvalue) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilGetQwordValue(void* hkeyclusterkey, void* pszvaluename, void* pqwoutvalue, uint64_t qwdefaultvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7952,7 +7952,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetQwordValue(voi
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_ResUtilGetResourceDependency(void* hself, void* lpszresourcetype) {
+int64_t windowssys_windows_win32_networking_clustering_resUtilGetResourceDependency(void* hself, void* lpszresourcetype) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7975,7 +7975,7 @@ int64_t windowssys_windows_win32_networking_clustering_ResUtilGetResourceDepende
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_ResUtilGetResourceDependencyByClass(int64_t hcluster, void* hself, void* prci, int32_t brecurse) {
+int64_t windowssys_windows_win32_networking_clustering_resUtilGetResourceDependencyByClass(int64_t hcluster, void* hself, void* prci, int32_t brecurse) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8000,7 +8000,7 @@ int64_t windowssys_windows_win32_networking_clustering_ResUtilGetResourceDepende
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_ResUtilGetResourceDependencyByClassEx(int64_t hcluster, void* hself, void* prci, int32_t brecurse, uint32_t dwdesiredaccess) {
+int64_t windowssys_windows_win32_networking_clustering_resUtilGetResourceDependencyByClassEx(int64_t hcluster, void* hself, void* prci, int32_t brecurse, uint32_t dwdesiredaccess) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8026,7 +8026,7 @@ int64_t windowssys_windows_win32_networking_clustering_ResUtilGetResourceDepende
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_ResUtilGetResourceDependencyByName(int64_t hcluster, void* hself, void* lpszresourcetype, int32_t brecurse) {
+int64_t windowssys_windows_win32_networking_clustering_resUtilGetResourceDependencyByName(int64_t hcluster, void* hself, void* lpszresourcetype, int32_t brecurse) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8051,7 +8051,7 @@ int64_t windowssys_windows_win32_networking_clustering_ResUtilGetResourceDepende
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_ResUtilGetResourceDependencyByNameEx(int64_t hcluster, void* hself, void* lpszresourcetype, int32_t brecurse, uint32_t dwdesiredaccess) {
+int64_t windowssys_windows_win32_networking_clustering_resUtilGetResourceDependencyByNameEx(int64_t hcluster, void* hself, void* lpszresourcetype, int32_t brecurse, uint32_t dwdesiredaccess) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8077,7 +8077,7 @@ int64_t windowssys_windows_win32_networking_clustering_ResUtilGetResourceDepende
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_ResUtilGetResourceDependencyEx(void* hself, void* lpszresourcetype, uint32_t dwdesiredaccess) {
+int64_t windowssys_windows_win32_networking_clustering_resUtilGetResourceDependencyEx(void* hself, void* lpszresourcetype, uint32_t dwdesiredaccess) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8101,7 +8101,7 @@ int64_t windowssys_windows_win32_networking_clustering_ResUtilGetResourceDepende
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetResourceDependentIPAddressProps(int64_t hresource, void* pszaddress, void* pcchaddress, void* pszsubnetmask, void* pcchsubnetmask, void* psznetwork, void* pcchnetwork) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilGetResourceDependentIPAddressProps(int64_t hresource, void* pszaddress, void* pcchaddress, void* pszsubnetmask, void* pcchsubnetmask, void* psznetwork, void* pcchnetwork) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8129,7 +8129,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetResourceDepend
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetResourceName(int64_t hresource, void* pszresourcename, void* pcchresourcenameinout) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilGetResourceName(int64_t hresource, void* pszresourcename, void* pcchresourcenameinout) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8153,7 +8153,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetResourceName(i
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_ResUtilGetResourceNameDependency(void* lpszresourcename, void* lpszresourcetype) {
+int64_t windowssys_windows_win32_networking_clustering_resUtilGetResourceNameDependency(void* lpszresourcename, void* lpszresourcetype) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8176,7 +8176,7 @@ int64_t windowssys_windows_win32_networking_clustering_ResUtilGetResourceNameDep
 #endif
 }
 
-int64_t windowssys_windows_win32_networking_clustering_ResUtilGetResourceNameDependencyEx(void* lpszresourcename, void* lpszresourcetype, uint32_t dwdesiredaccess) {
+int64_t windowssys_windows_win32_networking_clustering_resUtilGetResourceNameDependencyEx(void* lpszresourcename, void* lpszresourcetype, uint32_t dwdesiredaccess) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8200,7 +8200,7 @@ int64_t windowssys_windows_win32_networking_clustering_ResUtilGetResourceNameDep
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetSzProperty(void* ppszoutvalue, void* pvaluestruct, void* pszoldvalue, void* pppropertylist, void* pcbpropertylistsize) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilGetSzProperty(void* ppszoutvalue, void* pvaluestruct, void* pszoldvalue, void* pppropertylist, void* pcbpropertylistsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8226,7 +8226,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilGetSzProperty(voi
 #endif
 }
 
-void* windowssys_windows_win32_networking_clustering_ResUtilGetSzValue(void* hkeyclusterkey, void* pszvaluename) {
+void* windowssys_windows_win32_networking_clustering_resUtilGetSzValue(void* hkeyclusterkey, void* pszvaluename) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8249,7 +8249,7 @@ void* windowssys_windows_win32_networking_clustering_ResUtilGetSzValue(void* hke
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilGroupsEqual(int64_t hself, int64_t hgroup, void* pequal) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilGroupsEqual(int64_t hself, int64_t hgroup, void* pequal) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8273,7 +8273,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilGroupsEqual(int64
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_ResUtilIsPathValid(void* pszpath) {
+int32_t windowssys_windows_win32_networking_clustering_resUtilIsPathValid(void* pszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8295,7 +8295,7 @@ int32_t windowssys_windows_win32_networking_clustering_ResUtilIsPathValid(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_ResUtilIsResourceClassEqual(void* prci, int64_t hresource) {
+int32_t windowssys_windows_win32_networking_clustering_resUtilIsResourceClassEqual(void* prci, int64_t hresource) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8318,7 +8318,7 @@ int32_t windowssys_windows_win32_networking_clustering_ResUtilIsResourceClassEqu
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_ResUtilLeftPaxosIsLessThanRight(void* left, void* right) {
+int32_t windowssys_windows_win32_networking_clustering_resUtilLeftPaxosIsLessThanRight(void* left, void* right) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8341,7 +8341,7 @@ int32_t windowssys_windows_win32_networking_clustering_ResUtilLeftPaxosIsLessTha
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilNodeEnum(int64_t hcluster, void* pnodecallback, void* pparameter) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilNodeEnum(int64_t hcluster, void* pnodecallback, void* pparameter) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8365,7 +8365,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilNodeEnum(int64_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_ResUtilPaxosComparer(void* left, void* right) {
+int32_t windowssys_windows_win32_networking_clustering_resUtilPaxosComparer(void* left, void* right) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8388,7 +8388,7 @@ int32_t windowssys_windows_win32_networking_clustering_ResUtilPaxosComparer(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilPropertyListFromParameterBlock(void* ppropertytable, void* poutpropertylist, void* pcboutpropertylistsize, void* pinparams, void* pcbbytesreturned, void* pcbrequired) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilPropertyListFromParameterBlock(void* ppropertytable, void* poutpropertylist, void* pcboutpropertylistsize, void* pinparams, void* pcbbytesreturned, void* pcbrequired) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8415,7 +8415,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilPropertyListFromP
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilRemoveResourceServiceEnvironment(void* pszservicename, void* pfnlogevent, int64_t hresourcehandle) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilRemoveResourceServiceEnvironment(void* pszservicename, void* pfnlogevent, int64_t hresourcehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8439,7 +8439,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilRemoveResourceSer
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilResourceDepEnum(int64_t hself, uint32_t enumtype, void* prescallback, void* pparameter) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilResourceDepEnum(int64_t hself, uint32_t enumtype, void* prescallback, void* pparameter) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8464,7 +8464,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilResourceDepEnum(i
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_ResUtilResourceTypesEqual(void* lpszresourcetypename, int64_t hresource) {
+int32_t windowssys_windows_win32_networking_clustering_resUtilResourceTypesEqual(void* lpszresourcetypename, int64_t hresource) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8487,7 +8487,7 @@ int32_t windowssys_windows_win32_networking_clustering_ResUtilResourceTypesEqual
 #endif
 }
 
-int32_t windowssys_windows_win32_networking_clustering_ResUtilResourcesEqual(int64_t hself, int64_t hresource) {
+int32_t windowssys_windows_win32_networking_clustering_resUtilResourcesEqual(int64_t hself, int64_t hresource) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8510,7 +8510,7 @@ int32_t windowssys_windows_win32_networking_clustering_ResUtilResourcesEqual(int
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilSetBinaryValue(void* hkeyclusterkey, void* pszvaluename, void* pbnewvalue, uint32_t cbnewvaluesize, void* ppboutvalue, void* pcboutvaluesize) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilSetBinaryValue(void* hkeyclusterkey, void* pszvaluename, void* pbnewvalue, uint32_t cbnewvaluesize, void* ppboutvalue, void* pcboutvaluesize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8537,7 +8537,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilSetBinaryValue(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilSetDwordValue(void* hkeyclusterkey, void* pszvaluename, uint32_t dwnewvalue, void* pdwoutvalue) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilSetDwordValue(void* hkeyclusterkey, void* pszvaluename, uint32_t dwnewvalue, void* pdwoutvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8562,7 +8562,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilSetDwordValue(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilSetExpandSzValue(void* hkeyclusterkey, void* pszvaluename, void* psznewvalue, void* ppszoutstring) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilSetExpandSzValue(void* hkeyclusterkey, void* pszvaluename, void* psznewvalue, void* ppszoutstring) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8587,7 +8587,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilSetExpandSzValue(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilSetMultiSzValue(void* hkeyclusterkey, void* pszvaluename, void* psznewvalue, uint32_t cbnewvaluesize, void* ppszoutvalue, void* pcboutvaluesize) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilSetMultiSzValue(void* hkeyclusterkey, void* pszvaluename, void* psznewvalue, uint32_t cbnewvaluesize, void* ppszoutvalue, void* pcboutvaluesize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8614,7 +8614,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilSetMultiSzValue(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilSetPrivatePropertyList(void* hkeyclusterkey, void* pinpropertylist, uint32_t cbinpropertylistsize) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilSetPrivatePropertyList(void* hkeyclusterkey, void* pinpropertylist, uint32_t cbinpropertylistsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8638,7 +8638,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilSetPrivatePropert
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilSetPropertyParameterBlock(void* hkeyclusterkey, void* ppropertytable, void* reserved, void* pinparams, void* pinpropertylist, uint32_t cbinpropertylistsize, void* poutparams) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilSetPropertyParameterBlock(void* hkeyclusterkey, void* ppropertytable, void* reserved, void* pinparams, void* pinpropertylist, uint32_t cbinpropertylistsize, void* poutparams) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8666,7 +8666,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilSetPropertyParame
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilSetPropertyParameterBlockEx(void* hkeyclusterkey, void* ppropertytable, void* reserved, void* pinparams, void* pinpropertylist, uint32_t cbinpropertylistsize, int32_t bforcewrite, void* poutparams) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilSetPropertyParameterBlockEx(void* hkeyclusterkey, void* ppropertytable, void* reserved, void* pinparams, void* pinpropertylist, uint32_t cbinpropertylistsize, int32_t bforcewrite, void* poutparams) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8695,7 +8695,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilSetPropertyParame
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilSetPropertyTable(void* hkeyclusterkey, void* ppropertytable, void* reserved, int32_t ballowunknownproperties, void* pinpropertylist, uint32_t cbinpropertylistsize, void* poutparams) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilSetPropertyTable(void* hkeyclusterkey, void* ppropertytable, void* reserved, int32_t ballowunknownproperties, void* pinpropertylist, uint32_t cbinpropertylistsize, void* poutparams) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8723,7 +8723,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilSetPropertyTable(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilSetPropertyTableEx(void* hkeyclusterkey, void* ppropertytable, void* reserved, int32_t ballowunknownproperties, void* pinpropertylist, uint32_t cbinpropertylistsize, int32_t bforcewrite, void* poutparams) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilSetPropertyTableEx(void* hkeyclusterkey, void* ppropertytable, void* reserved, int32_t ballowunknownproperties, void* pinpropertylist, uint32_t cbinpropertylistsize, int32_t bforcewrite, void* poutparams) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8752,7 +8752,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilSetPropertyTableE
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilSetQwordValue(void* hkeyclusterkey, void* pszvaluename, uint64_t qwnewvalue, void* pqwoutvalue) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilSetQwordValue(void* hkeyclusterkey, void* pszvaluename, uint64_t qwnewvalue, void* pqwoutvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8777,7 +8777,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilSetQwordValue(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilSetResourceServiceEnvironment(void* pszservicename, int64_t hresource, void* pfnlogevent, int64_t hresourcehandle) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilSetResourceServiceEnvironment(void* pszservicename, int64_t hresource, void* pfnlogevent, int64_t hresourcehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int64_t, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8802,7 +8802,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilSetResourceServic
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilSetResourceServiceStartParameters(void* pszservicename, void* schscmhandle, void* phservice, void* pfnlogevent, int64_t hresourcehandle) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilSetResourceServiceStartParameters(void* pszservicename, void* schscmhandle, void* phservice, void* pfnlogevent, int64_t hresourcehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8828,7 +8828,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilSetResourceServic
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilSetResourceServiceStartParametersEx(void* pszservicename, void* schscmhandle, void* phservice, uint32_t dwdesiredaccess, void* pfnlogevent, int64_t hresourcehandle) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilSetResourceServiceStartParametersEx(void* pszservicename, void* schscmhandle, void* phservice, uint32_t dwdesiredaccess, void* pfnlogevent, int64_t hresourcehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8855,7 +8855,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilSetResourceServic
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilSetSzValue(void* hkeyclusterkey, void* pszvaluename, void* psznewvalue, void* ppszoutstring) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilSetSzValue(void* hkeyclusterkey, void* pszvaluename, void* psznewvalue, void* ppszoutstring) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8880,7 +8880,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilSetSzValue(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilSetUnknownProperties(void* hkeyclusterkey, void* ppropertytable, void* pinpropertylist, uint32_t cbinpropertylistsize) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilSetUnknownProperties(void* hkeyclusterkey, void* ppropertytable, void* pinpropertylist, uint32_t cbinpropertylistsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8905,7 +8905,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilSetUnknownPropert
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilSetValueEx(void* hkeyclusterkey, void* valuename, uint32_t valuetype, void* valuedata, uint32_t valuesize, uint32_t flags) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilSetValueEx(void* hkeyclusterkey, void* valuename, uint32_t valuetype, void* valuedata, uint32_t valuesize, uint32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8932,7 +8932,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilSetValueEx(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilStartResourceService(void* pszservicename, void* phservicehandle) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilStartResourceService(void* pszservicename, void* phservicehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8955,7 +8955,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilStartResourceServ
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilStopResourceService(void* pszservicename) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilStopResourceService(void* pszservicename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8977,7 +8977,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilStopResourceServi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilStopService(void* hservicehandle) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilStopService(void* hservicehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8999,7 +8999,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilStopService(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilTerminateServiceProcessFromResDll(uint32_t dwservicepid, int32_t boffline, void* pdwresourcestate, void* pfnlogevent, int64_t hresourcehandle) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilTerminateServiceProcessFromResDll(uint32_t dwservicepid, int32_t boffline, void* pdwresourcestate, void* pfnlogevent, int64_t hresourcehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, int32_t, void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9025,7 +9025,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilTerminateServiceP
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilVerifyPrivatePropertyList(void* pinpropertylist, uint32_t cbinpropertylistsize) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilVerifyPrivatePropertyList(void* pinpropertylist, uint32_t cbinpropertylistsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9048,7 +9048,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilVerifyPrivateProp
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilVerifyPropertyTable(void* ppropertytable, void* reserved, int32_t ballowunknownproperties, void* pinpropertylist, uint32_t cbinpropertylistsize, void* poutparams) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilVerifyPropertyTable(void* ppropertytable, void* reserved, int32_t ballowunknownproperties, void* pinpropertylist, uint32_t cbinpropertylistsize, void* poutparams) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9075,7 +9075,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilVerifyPropertyTab
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilVerifyResourceService(void* pszservicename) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilVerifyResourceService(void* pszservicename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9097,7 +9097,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilVerifyResourceSer
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilVerifyService(void* hservicehandle) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilVerifyService(void* hservicehandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9119,7 +9119,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilVerifyService(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilVerifyShutdownSafe(uint32_t flags, uint32_t reason, void* presult) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilVerifyShutdownSafe(uint32_t flags, uint32_t reason, void* presult) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9143,7 +9143,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilVerifyShutdownSaf
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResUtilsDeleteKeyTree(void* key, void* keyname, int32_t treatnokeyaserror) {
+uint32_t windowssys_windows_win32_networking_clustering_resUtilsDeleteKeyTree(void* key, void* keyname, int32_t treatnokeyaserror) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9167,7 +9167,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResUtilsDeleteKeyTree(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResetAllAppInstanceVersions(void) {
+uint32_t windowssys_windows_win32_networking_clustering_resetAllAppInstanceVersions(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -9188,7 +9188,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResetAllAppInstanceVersi
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_RestartClusterResource(int64_t hresource, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_networking_clustering_restartClusterResource(int64_t hresource, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9211,7 +9211,7 @@ uint32_t windowssys_windows_win32_networking_clustering_RestartClusterResource(i
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_RestartClusterResourceEx(int64_t hresource, uint32_t dwflags, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_restartClusterResourceEx(int64_t hresource, uint32_t dwflags, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9235,7 +9235,7 @@ uint32_t windowssys_windows_win32_networking_clustering_RestartClusterResourceEx
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_RestoreClusterDatabase(void* lpszpathname, int32_t bforce, void* lpszquorumdriveletter) {
+uint32_t windowssys_windows_win32_networking_clustering_restoreClusterDatabase(void* lpszpathname, int32_t bforce, void* lpszquorumdriveletter) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9259,7 +9259,7 @@ uint32_t windowssys_windows_win32_networking_clustering_RestoreClusterDatabase(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResumeClusterNode(int64_t hnode) {
+uint32_t windowssys_windows_win32_networking_clustering_resumeClusterNode(int64_t hnode) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9281,7 +9281,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResumeClusterNode(int64_
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResumeClusterNodeEx(int64_t hnode, int32_t eresumefailbacktype, uint32_t dwresumeflagsreserved) {
+uint32_t windowssys_windows_win32_networking_clustering_resumeClusterNodeEx(int64_t hnode, int32_t eresumefailbacktype, uint32_t dwresumeflagsreserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9305,7 +9305,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResumeClusterNodeEx(int6
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_ResumeClusterNodeEx2(int64_t hnode, int32_t eresumefailbacktype, uint32_t dwresumeflagsreserved, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_resumeClusterNodeEx2(int64_t hnode, int32_t eresumefailbacktype, uint32_t dwresumeflagsreserved, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9330,7 +9330,7 @@ uint32_t windowssys_windows_win32_networking_clustering_ResumeClusterNodeEx2(int
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_SetAppInstanceCsvFlags(void* processhandle, uint32_t mask, uint32_t flags) {
+uint32_t windowssys_windows_win32_networking_clustering_setAppInstanceCsvFlags(void* processhandle, uint32_t mask, uint32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9354,7 +9354,7 @@ uint32_t windowssys_windows_win32_networking_clustering_SetAppInstanceCsvFlags(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_SetClusterGroupName(int64_t hgroup, void* lpszgroupname) {
+uint32_t windowssys_windows_win32_networking_clustering_setClusterGroupName(int64_t hgroup, void* lpszgroupname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9377,7 +9377,7 @@ uint32_t windowssys_windows_win32_networking_clustering_SetClusterGroupName(int6
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_SetClusterGroupNameEx(int64_t hgroup, void* lpszgroupname, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_setClusterGroupNameEx(int64_t hgroup, void* lpszgroupname, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9401,7 +9401,7 @@ uint32_t windowssys_windows_win32_networking_clustering_SetClusterGroupNameEx(in
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_SetClusterGroupNodeList(int64_t hgroup, uint32_t nodecount, void* nodelist) {
+uint32_t windowssys_windows_win32_networking_clustering_setClusterGroupNodeList(int64_t hgroup, uint32_t nodecount, void* nodelist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9425,7 +9425,7 @@ uint32_t windowssys_windows_win32_networking_clustering_SetClusterGroupNodeList(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_SetClusterGroupNodeListEx(int64_t hgroup, uint32_t nodecount, void* nodelist, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_setClusterGroupNodeListEx(int64_t hgroup, uint32_t nodecount, void* nodelist, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9450,7 +9450,7 @@ uint32_t windowssys_windows_win32_networking_clustering_SetClusterGroupNodeListE
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_SetClusterGroupSetDependencyExpression(int64_t hgroupset, void* lpszdependencyexprssion) {
+uint32_t windowssys_windows_win32_networking_clustering_setClusterGroupSetDependencyExpression(int64_t hgroupset, void* lpszdependencyexprssion) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9473,7 +9473,7 @@ uint32_t windowssys_windows_win32_networking_clustering_SetClusterGroupSetDepend
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_SetClusterGroupSetDependencyExpressionEx(int64_t hgroupset, void* lpszdependencyexpression, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_setClusterGroupSetDependencyExpressionEx(int64_t hgroupset, void* lpszdependencyexpression, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9497,7 +9497,7 @@ uint32_t windowssys_windows_win32_networking_clustering_SetClusterGroupSetDepend
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_SetClusterName(int64_t hcluster, void* lpsznewclustername) {
+uint32_t windowssys_windows_win32_networking_clustering_setClusterName(int64_t hcluster, void* lpsznewclustername) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9520,7 +9520,7 @@ uint32_t windowssys_windows_win32_networking_clustering_SetClusterName(int64_t h
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_SetClusterNameEx(int64_t hcluster, void* lpsznewclustername, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_setClusterNameEx(int64_t hcluster, void* lpsznewclustername, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9544,7 +9544,7 @@ uint32_t windowssys_windows_win32_networking_clustering_SetClusterNameEx(int64_t
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_SetClusterNetworkName(int64_t hnetwork, void* lpszname) {
+uint32_t windowssys_windows_win32_networking_clustering_setClusterNetworkName(int64_t hnetwork, void* lpszname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9567,7 +9567,7 @@ uint32_t windowssys_windows_win32_networking_clustering_SetClusterNetworkName(in
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_SetClusterNetworkNameEx(int64_t hnetwork, void* lpszname, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_setClusterNetworkNameEx(int64_t hnetwork, void* lpszname, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9591,7 +9591,7 @@ uint32_t windowssys_windows_win32_networking_clustering_SetClusterNetworkNameEx(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_SetClusterNetworkPriorityOrder(int64_t hcluster, uint32_t networkcount, void* networklist) {
+uint32_t windowssys_windows_win32_networking_clustering_setClusterNetworkPriorityOrder(int64_t hcluster, uint32_t networkcount, void* networklist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9615,7 +9615,7 @@ uint32_t windowssys_windows_win32_networking_clustering_SetClusterNetworkPriorit
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_SetClusterQuorumResource(int64_t hresource, void* lpszdevicename, uint32_t dwmaxquologsize) {
+uint32_t windowssys_windows_win32_networking_clustering_setClusterQuorumResource(int64_t hresource, void* lpszdevicename, uint32_t dwmaxquologsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9639,7 +9639,7 @@ uint32_t windowssys_windows_win32_networking_clustering_SetClusterQuorumResource
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_SetClusterQuorumResourceEx(int64_t hresource, void* lpszdevicename, uint32_t dwmaxquorumlogsize, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_setClusterQuorumResourceEx(int64_t hresource, void* lpszdevicename, uint32_t dwmaxquorumlogsize, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9664,7 +9664,7 @@ uint32_t windowssys_windows_win32_networking_clustering_SetClusterQuorumResource
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_SetClusterResourceDependencyExpression(int64_t hresource, void* lpszdependencyexpression) {
+uint32_t windowssys_windows_win32_networking_clustering_setClusterResourceDependencyExpression(int64_t hresource, void* lpszdependencyexpression) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9687,7 +9687,7 @@ uint32_t windowssys_windows_win32_networking_clustering_SetClusterResourceDepend
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_SetClusterResourceName(int64_t hresource, void* lpszresourcename) {
+uint32_t windowssys_windows_win32_networking_clustering_setClusterResourceName(int64_t hresource, void* lpszresourcename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9710,7 +9710,7 @@ uint32_t windowssys_windows_win32_networking_clustering_SetClusterResourceName(i
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_SetClusterResourceNameEx(int64_t hresource, void* lpszresourcename, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_setClusterResourceNameEx(int64_t hresource, void* lpszresourcename, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9734,7 +9734,7 @@ uint32_t windowssys_windows_win32_networking_clustering_SetClusterResourceNameEx
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_SetClusterServiceAccountPassword(void* lpszclustername, void* lpsznewpassword, uint32_t dwflags, void* lpreturnstatusbuffer, void* lpcbreturnstatusbuffersize) {
+uint32_t windowssys_windows_win32_networking_clustering_setClusterServiceAccountPassword(void* lpszclustername, void* lpsznewpassword, uint32_t dwflags, void* lpreturnstatusbuffer, void* lpcbreturnstatusbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9760,7 +9760,7 @@ uint32_t windowssys_windows_win32_networking_clustering_SetClusterServiceAccount
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_SetGroupDependencyExpression(int64_t hgroup, void* lpszdependencyexpression) {
+uint32_t windowssys_windows_win32_networking_clustering_setGroupDependencyExpression(int64_t hgroup, void* lpszdependencyexpression) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9783,7 +9783,7 @@ uint32_t windowssys_windows_win32_networking_clustering_SetGroupDependencyExpres
 #endif
 }
 
-uint32_t windowssys_windows_win32_networking_clustering_SetGroupDependencyExpressionEx(int64_t hgroup, void* lpszdependencyexpression, void* lpszreason) {
+uint32_t windowssys_windows_win32_networking_clustering_setGroupDependencyExpressionEx(int64_t hgroup, void* lpszdependencyexpression, void* lpszreason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

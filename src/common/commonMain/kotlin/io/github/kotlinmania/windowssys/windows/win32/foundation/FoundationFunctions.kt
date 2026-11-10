@@ -1,51 +1,52 @@
 package io.github.kotlinmania.windowssys.windows.win32.foundation
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.BSTR
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Bstr
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 
-public expect fun CloseHandle(hobject: HANDLE): BOOL
+public expect fun closeHandle(hobject: Handle): Bool
 
-public expect fun CompareObjectHandles(hfirstobjecthandle: HANDLE, hsecondobjecthandle: HANDLE): BOOL
+public expect fun compareObjectHandles(hfirstobjecthandle: Handle, hsecondobjecthandle: Handle): Bool
 
-public expect fun DuplicateHandle(hsourceprocesshandle: HANDLE, hsourcehandle: HANDLE, htargetprocesshandle: HANDLE, lptargethandle: Long, dwdesiredaccess: UInt, binherithandle: BOOL, dwoptions: DUPLICATE_HANDLE_OPTIONS): BOOL
+public expect fun duplicateHandle(hsourceprocesshandle: Handle, hsourcehandle: Handle, htargetprocesshandle: Handle, lptargethandle: COpaquePointer?, dwdesiredaccess: UInt, binherithandle: Bool, dwoptions: DuplicateHandleOptions): Bool
 
-public expect fun FreeLibrary(hlibmodule: HMODULE): BOOL
+public expect fun freeLibrary(hlibmodule: Hmodule): Bool
 
-public expect fun GetHandleInformation(hobject: HANDLE, lpdwflags: Long): BOOL
+public expect fun getHandleInformation(hobject: Handle, lpdwflags: COpaquePointer?): Bool
 
-public expect fun GetLastError(): WIN32_ERROR
+public expect fun getLastError(): Win32Error
 
-public expect fun GlobalFree(hmem: HGLOBAL): HGLOBAL
+public expect fun globalFree(hmem: Hglobal): Hglobal
 
-public expect fun LocalFree(hmem: HLOCAL): HLOCAL
+public expect fun localFree(hmem: Hlocal): Hlocal
 
-public expect fun RtlNtStatusToDosError(status: NTSTATUS): UInt
+public expect fun rtlNtStatusToDosError(status: Ntstatus): UInt
 
-public expect fun SetHandleInformation(hobject: HANDLE, dwmask: UInt, dwflags: HANDLE_FLAGS): BOOL
+public expect fun setHandleInformation(hobject: Handle, dwmask: UInt, dwflags: HandleFlags): Bool
 
-public expect fun SetLastError(dwerrcode: WIN32_ERROR)
+public expect fun setLastError(dwerrcode: Win32Error)
 
-public expect fun SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: UInt)
+public expect fun setLastErrorEx(dwerrcode: Win32Error, dwtype: UInt)
 
-public expect fun SysAddRefString(bstrstring: BSTR): HRESULT
+public expect fun sysAddRefString(bstrstring: Bstr): Hresult
 
-public expect fun SysAllocString(psz: PCWSTR): BSTR
+public expect fun sysAllocString(psz: Pcwstr): Bstr
 
-public expect fun SysAllocStringByteLen(psz: PCSTR, len: UInt): BSTR
+public expect fun sysAllocStringByteLen(psz: Pcstr, len: UInt): Bstr
 
-public expect fun SysAllocStringLen(strin: PCWSTR, ui: UInt): BSTR
+public expect fun sysAllocStringLen(strin: Pcwstr, ui: UInt): Bstr
 
-public expect fun SysFreeString(bstrstring: BSTR)
+public expect fun sysFreeString(bstrstring: Bstr)
 
-public expect fun SysReAllocString(pbstr: Long, psz: PCWSTR): Int
+public expect fun sysReAllocString(pbstr: COpaquePointer?, psz: Pcwstr): Int
 
-public expect fun SysReAllocStringLen(pbstr: Long, psz: PCWSTR, len: UInt): Int
+public expect fun sysReAllocStringLen(pbstr: COpaquePointer?, psz: Pcwstr, len: UInt): Int
 
-public expect fun SysReleaseString(bstrstring: BSTR)
+public expect fun sysReleaseString(bstrstring: Bstr)
 
-public expect fun SysStringByteLen(bstr: BSTR): UInt
+public expect fun sysStringByteLen(bstr: Bstr): UInt
 
-public expect fun SysStringLen(pbstr: BSTR): UInt
+public expect fun sysStringLen(pbstr: Bstr): UInt

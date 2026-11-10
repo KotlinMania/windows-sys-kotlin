@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_clrhosting_CLRCreateInstance_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_clrhosting_cLRCreateInstance_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* clsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -73,7 +73,7 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_CLRCreateInstance_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_clrhosting_CallFunctionShim_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_clrhosting_callFunctionShim_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szdllname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szfunctionname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -101,7 +101,7 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_CallFunctionShim_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_clrhosting_ClrCreateManagedInstance_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_clrhosting_clrCreateManagedInstance_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ptypename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -123,7 +123,7 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_ClrCreateManagedIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_clrhosting_CorBindToCurrentRuntime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_clrhosting_corBindToCurrentRuntime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* rclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -147,7 +147,7 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_CorBindToCurrentRu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_clrhosting_CorBindToRuntime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_clrhosting_corBindToRuntime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszversion = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwszbuildflavor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -173,7 +173,7 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_CorBindToRuntime_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_clrhosting_CorBindToRuntimeByCfg_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_clrhosting_corBindToRuntimeByCfg_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcfgstream = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t reserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -201,7 +201,7 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_CorBindToRuntimeBy
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_clrhosting_CorBindToRuntimeEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_clrhosting_corBindToRuntimeEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszversion = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwszbuildflavor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -229,7 +229,7 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_CorBindToRuntimeEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_clrhosting_CorBindToRuntimeHost_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_clrhosting_corBindToRuntimeHost_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszversion = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwszbuildflavor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -261,7 +261,7 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_CorBindToRuntimeHo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_clrhosting_CorExitProcess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_clrhosting_corExitProcess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t exitcode = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -278,7 +278,7 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_CorExitProcess_nap
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_clrhosting_CorLaunchApplication_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_clrhosting_corLaunchApplication_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t dwclickoncehost = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pwzappfullname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -308,7 +308,7 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_CorLaunchApplicati
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_clrhosting_CorMarkThreadInThreadPool_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_clrhosting_corMarkThreadInThreadPool_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
@@ -323,7 +323,7 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_CorMarkThreadInThr
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_clrhosting_CreateDebuggingInterfaceFromVersion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_clrhosting_createDebuggingInterfaceFromVersion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t idebuggerversion = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szdebuggeeversion = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -345,7 +345,7 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_CreateDebuggingInt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_clrhosting_GetCLRIdentityManager_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_clrhosting_getCLRIdentityManager_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppmanager = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -365,7 +365,7 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_GetCLRIdentityMana
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_clrhosting_GetCORRequiredVersion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_clrhosting_getCORRequiredVersion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cchbuffer = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -387,7 +387,7 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_GetCORRequiredVers
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_clrhosting_GetCORSystemDirectory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_clrhosting_getCORSystemDirectory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cchbuffer = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -409,7 +409,7 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_GetCORSystemDirect
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_clrhosting_GetCORVersion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_clrhosting_getCORVersion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cchbuffer = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -431,7 +431,7 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_GetCORVersion_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_clrhosting_GetFileVersion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_clrhosting_getFileVersion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -455,7 +455,7 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_GetFileVersion_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_clrhosting_GetRealProcAddress_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_clrhosting_getRealProcAddress_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszprocname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -475,7 +475,7 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_GetRealProcAddress
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_clrhosting_GetRequestedRuntimeInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_clrhosting_getRequestedRuntimeInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pexe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwszversion = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -513,7 +513,7 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_GetRequestedRuntim
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_clrhosting_GetRequestedRuntimeVersion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_clrhosting_getRequestedRuntimeVersion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pexe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pversion = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -537,7 +537,7 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_GetRequestedRuntim
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_clrhosting_GetRequestedRuntimeVersionForCLSID_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_clrhosting_getRequestedRuntimeVersionForCLSID_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pversion = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -563,7 +563,7 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_GetRequestedRuntim
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_clrhosting_GetVersionFromProcess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_clrhosting_getVersionFromProcess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pversion = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -587,7 +587,7 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_GetVersionFromProc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_clrhosting_LoadLibraryShim_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_clrhosting_loadLibraryShim_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szdllname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szversion = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -611,7 +611,7 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_LoadLibraryShim_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_clrhosting_LoadStringRC_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_clrhosting_loadStringRC_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t iresouceid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -635,7 +635,7 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_LoadStringRC_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_clrhosting_LoadStringRCEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_clrhosting_loadStringRCEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t iresouceid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -663,7 +663,7 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_LoadStringRCEx_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_clrhosting_LockClrVersion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_clrhosting_lockClrVersion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hostcallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbeginhostsetup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -685,7 +685,7 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_LockClrVersion_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_clrhosting_RunDll32ShimW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_clrhosting_runDll32ShimW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -710,33 +710,33 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_RunDll32ShimW_napi
 }
 
 static void register_windows_win32_system_clrhosting_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_clrhosting_CLRCreateInstance", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_CLRCreateInstance_napi));
-    exports.Set("windowssys_windows_win32_system_clrhosting_CallFunctionShim", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_CallFunctionShim_napi));
-    exports.Set("windowssys_windows_win32_system_clrhosting_ClrCreateManagedInstance", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_ClrCreateManagedInstance_napi));
-    exports.Set("windowssys_windows_win32_system_clrhosting_CorBindToCurrentRuntime", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_CorBindToCurrentRuntime_napi));
-    exports.Set("windowssys_windows_win32_system_clrhosting_CorBindToRuntime", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_CorBindToRuntime_napi));
-    exports.Set("windowssys_windows_win32_system_clrhosting_CorBindToRuntimeByCfg", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_CorBindToRuntimeByCfg_napi));
-    exports.Set("windowssys_windows_win32_system_clrhosting_CorBindToRuntimeEx", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_CorBindToRuntimeEx_napi));
-    exports.Set("windowssys_windows_win32_system_clrhosting_CorBindToRuntimeHost", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_CorBindToRuntimeHost_napi));
-    exports.Set("windowssys_windows_win32_system_clrhosting_CorExitProcess", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_CorExitProcess_napi));
-    exports.Set("windowssys_windows_win32_system_clrhosting_CorLaunchApplication", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_CorLaunchApplication_napi));
-    exports.Set("windowssys_windows_win32_system_clrhosting_CorMarkThreadInThreadPool", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_CorMarkThreadInThreadPool_napi));
-    exports.Set("windowssys_windows_win32_system_clrhosting_CreateDebuggingInterfaceFromVersion", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_CreateDebuggingInterfaceFromVersion_napi));
-    exports.Set("windowssys_windows_win32_system_clrhosting_GetCLRIdentityManager", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_GetCLRIdentityManager_napi));
-    exports.Set("windowssys_windows_win32_system_clrhosting_GetCORRequiredVersion", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_GetCORRequiredVersion_napi));
-    exports.Set("windowssys_windows_win32_system_clrhosting_GetCORSystemDirectory", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_GetCORSystemDirectory_napi));
-    exports.Set("windowssys_windows_win32_system_clrhosting_GetCORVersion", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_GetCORVersion_napi));
-    exports.Set("windowssys_windows_win32_system_clrhosting_GetFileVersion", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_GetFileVersion_napi));
-    exports.Set("windowssys_windows_win32_system_clrhosting_GetRealProcAddress", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_GetRealProcAddress_napi));
-    exports.Set("windowssys_windows_win32_system_clrhosting_GetRequestedRuntimeInfo", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_GetRequestedRuntimeInfo_napi));
-    exports.Set("windowssys_windows_win32_system_clrhosting_GetRequestedRuntimeVersion", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_GetRequestedRuntimeVersion_napi));
-    exports.Set("windowssys_windows_win32_system_clrhosting_GetRequestedRuntimeVersionForCLSID", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_GetRequestedRuntimeVersionForCLSID_napi));
-    exports.Set("windowssys_windows_win32_system_clrhosting_GetVersionFromProcess", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_GetVersionFromProcess_napi));
-    exports.Set("windowssys_windows_win32_system_clrhosting_LoadLibraryShim", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_LoadLibraryShim_napi));
-    exports.Set("windowssys_windows_win32_system_clrhosting_LoadStringRC", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_LoadStringRC_napi));
-    exports.Set("windowssys_windows_win32_system_clrhosting_LoadStringRCEx", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_LoadStringRCEx_napi));
-    exports.Set("windowssys_windows_win32_system_clrhosting_LockClrVersion", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_LockClrVersion_napi));
-    exports.Set("windowssys_windows_win32_system_clrhosting_RunDll32ShimW", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_RunDll32ShimW_napi));
+    exports.Set("windowssys_windows_win32_system_clrhosting_cLRCreateInstance", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_cLRCreateInstance_napi));
+    exports.Set("windowssys_windows_win32_system_clrhosting_callFunctionShim", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_callFunctionShim_napi));
+    exports.Set("windowssys_windows_win32_system_clrhosting_clrCreateManagedInstance", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_clrCreateManagedInstance_napi));
+    exports.Set("windowssys_windows_win32_system_clrhosting_corBindToCurrentRuntime", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_corBindToCurrentRuntime_napi));
+    exports.Set("windowssys_windows_win32_system_clrhosting_corBindToRuntime", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_corBindToRuntime_napi));
+    exports.Set("windowssys_windows_win32_system_clrhosting_corBindToRuntimeByCfg", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_corBindToRuntimeByCfg_napi));
+    exports.Set("windowssys_windows_win32_system_clrhosting_corBindToRuntimeEx", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_corBindToRuntimeEx_napi));
+    exports.Set("windowssys_windows_win32_system_clrhosting_corBindToRuntimeHost", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_corBindToRuntimeHost_napi));
+    exports.Set("windowssys_windows_win32_system_clrhosting_corExitProcess", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_corExitProcess_napi));
+    exports.Set("windowssys_windows_win32_system_clrhosting_corLaunchApplication", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_corLaunchApplication_napi));
+    exports.Set("windowssys_windows_win32_system_clrhosting_corMarkThreadInThreadPool", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_corMarkThreadInThreadPool_napi));
+    exports.Set("windowssys_windows_win32_system_clrhosting_createDebuggingInterfaceFromVersion", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_createDebuggingInterfaceFromVersion_napi));
+    exports.Set("windowssys_windows_win32_system_clrhosting_getCLRIdentityManager", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_getCLRIdentityManager_napi));
+    exports.Set("windowssys_windows_win32_system_clrhosting_getCORRequiredVersion", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_getCORRequiredVersion_napi));
+    exports.Set("windowssys_windows_win32_system_clrhosting_getCORSystemDirectory", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_getCORSystemDirectory_napi));
+    exports.Set("windowssys_windows_win32_system_clrhosting_getCORVersion", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_getCORVersion_napi));
+    exports.Set("windowssys_windows_win32_system_clrhosting_getFileVersion", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_getFileVersion_napi));
+    exports.Set("windowssys_windows_win32_system_clrhosting_getRealProcAddress", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_getRealProcAddress_napi));
+    exports.Set("windowssys_windows_win32_system_clrhosting_getRequestedRuntimeInfo", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_getRequestedRuntimeInfo_napi));
+    exports.Set("windowssys_windows_win32_system_clrhosting_getRequestedRuntimeVersion", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_getRequestedRuntimeVersion_napi));
+    exports.Set("windowssys_windows_win32_system_clrhosting_getRequestedRuntimeVersionForCLSID", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_getRequestedRuntimeVersionForCLSID_napi));
+    exports.Set("windowssys_windows_win32_system_clrhosting_getVersionFromProcess", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_getVersionFromProcess_napi));
+    exports.Set("windowssys_windows_win32_system_clrhosting_loadLibraryShim", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_loadLibraryShim_napi));
+    exports.Set("windowssys_windows_win32_system_clrhosting_loadStringRC", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_loadStringRC_napi));
+    exports.Set("windowssys_windows_win32_system_clrhosting_loadStringRCEx", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_loadStringRCEx_napi));
+    exports.Set("windowssys_windows_win32_system_clrhosting_lockClrVersion", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_lockClrVersion_napi));
+    exports.Set("windowssys_windows_win32_system_clrhosting_runDll32ShimW", Napi::Function::New(env, windowssys_windows_win32_system_clrhosting_runDll32ShimW_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_clrhosting_napi, nullptr };

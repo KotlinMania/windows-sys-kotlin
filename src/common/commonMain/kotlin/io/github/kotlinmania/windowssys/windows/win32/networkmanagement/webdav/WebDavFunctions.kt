@@ -1,28 +1,29 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.webdav
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
-public expect fun DavAddConnection(connectionhandle: Long, remotename: PCWSTR, username: PCWSTR, password: PCWSTR, clientcert: Long, certsize: UInt): UInt
+public expect fun davAddConnection(connectionhandle: COpaquePointer?, remotename: Pcwstr, username: Pcwstr, password: Pcwstr, clientcert: COpaquePointer?, certsize: UInt): UInt
 
-public expect fun DavCancelConnectionsToServer(lpname: PCWSTR, fforce: BOOL): UInt
+public expect fun davCancelConnectionsToServer(lpname: Pcwstr, fforce: Bool): UInt
 
-public expect fun DavDeleteConnection(connectionhandle: HANDLE): UInt
+public expect fun davDeleteConnection(connectionhandle: Handle): UInt
 
-public expect fun DavFlushFile(hfile: HANDLE): UInt
+public expect fun davFlushFile(hfile: Handle): UInt
 
-public expect fun DavGetExtendedError(hfile: HANDLE, exterror: Long, exterrorstring: PWSTR, cchsize: Long): UInt
+public expect fun davGetExtendedError(hfile: Handle, exterror: COpaquePointer?, exterrorstring: Pwstr, cchsize: COpaquePointer?): UInt
 
-public expect fun DavGetHTTPFromUNCPath(uncpath: PCWSTR, url: PWSTR, lpsize: Long): UInt
+public expect fun davGetHTTPFromUNCPath(uncpath: Pcwstr, url: Pwstr, lpsize: COpaquePointer?): UInt
 
-public expect fun DavGetTheLockOwnerOfTheFile(filename: PCWSTR, lockownername: PWSTR, lockownernamelengthinbytes: Long): UInt
+public expect fun davGetTheLockOwnerOfTheFile(filename: Pcwstr, lockownername: Pwstr, lockownernamelengthinbytes: COpaquePointer?): UInt
 
-public expect fun DavGetUNCFromHTTPPath(url: PCWSTR, uncpath: PWSTR, lpsize: Long): UInt
+public expect fun davGetUNCFromHTTPPath(url: Pcwstr, uncpath: Pwstr, lpsize: COpaquePointer?): UInt
 
-public expect fun DavInvalidateCache(urlname: PCWSTR): UInt
+public expect fun davInvalidateCache(urlname: Pcwstr): UInt
 
-public expect fun DavRegisterAuthCallback(callback: PFNDAVAUTHCALLBACK, version: UInt): UInt
+public expect fun davRegisterAuthCallback(callback: Pfndavauthcallback, version: UInt): UInt
 
-public expect fun DavUnregisterAuthCallback(hcallback: UInt)
+public expect fun davUnregisterAuthCallback(hcallback: UInt)

@@ -1,1030 +1,1031 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.system.power
 
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pwstr
 
-public data class ACPI_REAL_TIME(
-    public var Year: UShort = 0u,
-    public var Month: UByte = 0u,
-    public var Day: UByte = 0u,
-    public var Hour: UByte = 0u,
-    public var Minute: UByte = 0u,
-    public var Second: UByte = 0u,
-    public var Valid: UByte = 0u,
-    public var Milliseconds: UShort = 0u,
-    public var TimeZone: Short = 0,
-    public var DayLight: UByte = 0u,
-    public var Reserved1: UByteArray = UByteArray(3),
+public data class AcpiRealTime(
+    public var year: UShort = 0u,
+    public var month: UByte = 0u,
+    public var day: UByte = 0u,
+    public var hour: UByte = 0u,
+    public var minute: UByte = 0u,
+    public var second: UByte = 0u,
+    public var valid: UByte = 0u,
+    public var milliseconds: UShort = 0u,
+    public var timeZone: Short = 0,
+    public var dayLight: UByte = 0u,
+    public var reserved1: UByteArray = UByteArray(3),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is ACPI_REAL_TIME) return false
-        if (this.Year != other.Year) return false
-        if (this.Month != other.Month) return false
-        if (this.Day != other.Day) return false
-        if (this.Hour != other.Hour) return false
-        if (this.Minute != other.Minute) return false
-        if (this.Second != other.Second) return false
-        if (this.Valid != other.Valid) return false
-        if (this.Milliseconds != other.Milliseconds) return false
-        if (this.TimeZone != other.TimeZone) return false
-        if (this.DayLight != other.DayLight) return false
-        if (!this.Reserved1.contentEquals(other.Reserved1)) return false
+        if (other !is AcpiRealTime) return false
+        if (this.year != other.year) return false
+        if (this.month != other.month) return false
+        if (this.day != other.day) return false
+        if (this.hour != other.hour) return false
+        if (this.minute != other.minute) return false
+        if (this.second != other.second) return false
+        if (this.valid != other.valid) return false
+        if (this.milliseconds != other.milliseconds) return false
+        if (this.timeZone != other.timeZone) return false
+        if (this.dayLight != other.dayLight) return false
+        if (!this.reserved1.contentEquals(other.reserved1)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Year.hashCode()
-        result = 31 * result + this.Month.hashCode()
-        result = 31 * result + this.Day.hashCode()
-        result = 31 * result + this.Hour.hashCode()
-        result = 31 * result + this.Minute.hashCode()
-        result = 31 * result + this.Second.hashCode()
-        result = 31 * result + this.Valid.hashCode()
-        result = 31 * result + this.Milliseconds.hashCode()
-        result = 31 * result + this.TimeZone.hashCode()
-        result = 31 * result + this.DayLight.hashCode()
-        result = 31 * result + this.Reserved1.contentHashCode()
+        var result = this.year.hashCode()
+        result = 31 * result + this.month.hashCode()
+        result = 31 * result + this.day.hashCode()
+        result = 31 * result + this.hour.hashCode()
+        result = 31 * result + this.minute.hashCode()
+        result = 31 * result + this.second.hashCode()
+        result = 31 * result + this.valid.hashCode()
+        result = 31 * result + this.milliseconds.hashCode()
+        result = 31 * result + this.timeZone.hashCode()
+        result = 31 * result + this.dayLight.hashCode()
+        result = 31 * result + this.reserved1.contentHashCode()
         return result
     }
 }
 
-public data class ACPI_TIME_AND_ALARM_CAPABILITIES(
-    public var AcWakeSupported: Boolean = false,
-    public var DcWakeSupported: Boolean = false,
-    public var S4AcWakeSupported: Boolean = false,
-    public var S4DcWakeSupported: Boolean = false,
-    public var S5AcWakeSupported: Boolean = false,
-    public var S5DcWakeSupported: Boolean = false,
-    public var S4S5WakeStatusSupported: Boolean = false,
-    public var DeepestWakeSystemState: UInt = 0u,
-    public var RealTimeFeaturesSupported: Boolean = false,
-    public var RealTimeResolution: ACPI_TIME_RESOLUTION = 0,
+public data class AcpiTimeAndAlarmCapabilities(
+    public var acWakeSupported: Boolean = false,
+    public var dcWakeSupported: Boolean = false,
+    public var s4AcWakeSupported: Boolean = false,
+    public var s4DcWakeSupported: Boolean = false,
+    public var s5AcWakeSupported: Boolean = false,
+    public var s5DcWakeSupported: Boolean = false,
+    public var s4S5WakeStatusSupported: Boolean = false,
+    public var deepestWakeSystemState: UInt = 0u,
+    public var realTimeFeaturesSupported: Boolean = false,
+    public var realTimeResolution: AcpiTimeResolution = 0,
 )
 
-public data class ADMINISTRATOR_POWER_POLICY(
-    public var MinSleep: SYSTEM_POWER_STATE = 0,
-    public var MaxSleep: SYSTEM_POWER_STATE = 0,
-    public var MinVideoTimeout: UInt = 0u,
-    public var MaxVideoTimeout: UInt = 0u,
-    public var MinSpindownTimeout: UInt = 0u,
-    public var MaxSpindownTimeout: UInt = 0u,
+public data class AdministratorPowerPolicy(
+    public var minSleep: SystemPowerState = 0,
+    public var maxSleep: SystemPowerState = 0,
+    public var minVideoTimeout: UInt = 0u,
+    public var maxVideoTimeout: UInt = 0u,
+    public var minSpindownTimeout: UInt = 0u,
+    public var maxSpindownTimeout: UInt = 0u,
 )
 
-public data class BATTERY_CHARGER_STATUS(public var Type: BATTERY_CHARGING_SOURCE_TYPE = 0, public var VaData: UIntArray = UIntArray(1)) {
+public data class BatteryChargerStatus(public var type: BatteryChargingSourceType = 0, public var vaData: UIntArray = UIntArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is BATTERY_CHARGER_STATUS) return false
-        if (this.Type != other.Type) return false
-        if (!this.VaData.contentEquals(other.VaData)) return false
+        if (other !is BatteryChargerStatus) return false
+        if (this.type != other.type) return false
+        if (!this.vaData.contentEquals(other.vaData)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Type.hashCode()
-        result = 31 * result + this.VaData.contentHashCode()
+        var result = this.type.hashCode()
+        result = 31 * result + this.vaData.contentHashCode()
         return result
     }
 }
 
-public data class BATTERY_CHARGING_SOURCE(public var Type: BATTERY_CHARGING_SOURCE_TYPE = 0, public var MaxCurrent: UInt = 0u)
+public data class BatteryChargingSource(public var type: BatteryChargingSourceType = 0, public var maxCurrent: UInt = 0u)
 
-public data class BATTERY_CHARGING_SOURCE_INFORMATION(public var Type: BATTERY_CHARGING_SOURCE_TYPE = 0, public var SourceOnline: Boolean = false)
+public data class BatteryChargingSourceInformation(public var type: BatteryChargingSourceType = 0, public var sourceOnline: Boolean = false)
 
-public data class BATTERY_INFORMATION(
-    public var Capabilities: UInt = 0u,
-    public var Technology: UByte = 0u,
-    public var Reserved: UByteArray = UByteArray(3),
-    public var Chemistry: UByteArray = UByteArray(4),
-    public var DesignedCapacity: UInt = 0u,
-    public var FullChargedCapacity: UInt = 0u,
-    public var DefaultAlert1: UInt = 0u,
-    public var DefaultAlert2: UInt = 0u,
-    public var CriticalBias: UInt = 0u,
-    public var CycleCount: UInt = 0u,
+public data class BatteryInformation(
+    public var capabilities: UInt = 0u,
+    public var technology: UByte = 0u,
+    public var reserved: UByteArray = UByteArray(3),
+    public var chemistry: UByteArray = UByteArray(4),
+    public var designedCapacity: UInt = 0u,
+    public var fullChargedCapacity: UInt = 0u,
+    public var defaultAlert1: UInt = 0u,
+    public var defaultAlert2: UInt = 0u,
+    public var criticalBias: UInt = 0u,
+    public var cycleCount: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is BATTERY_INFORMATION) return false
-        if (this.Capabilities != other.Capabilities) return false
-        if (this.Technology != other.Technology) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
-        if (!this.Chemistry.contentEquals(other.Chemistry)) return false
-        if (this.DesignedCapacity != other.DesignedCapacity) return false
-        if (this.FullChargedCapacity != other.FullChargedCapacity) return false
-        if (this.DefaultAlert1 != other.DefaultAlert1) return false
-        if (this.DefaultAlert2 != other.DefaultAlert2) return false
-        if (this.CriticalBias != other.CriticalBias) return false
-        if (this.CycleCount != other.CycleCount) return false
+        if (other !is BatteryInformation) return false
+        if (this.capabilities != other.capabilities) return false
+        if (this.technology != other.technology) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
+        if (!this.chemistry.contentEquals(other.chemistry)) return false
+        if (this.designedCapacity != other.designedCapacity) return false
+        if (this.fullChargedCapacity != other.fullChargedCapacity) return false
+        if (this.defaultAlert1 != other.defaultAlert1) return false
+        if (this.defaultAlert2 != other.defaultAlert2) return false
+        if (this.criticalBias != other.criticalBias) return false
+        if (this.cycleCount != other.cycleCount) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Capabilities.hashCode()
-        result = 31 * result + this.Technology.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
-        result = 31 * result + this.Chemistry.contentHashCode()
-        result = 31 * result + this.DesignedCapacity.hashCode()
-        result = 31 * result + this.FullChargedCapacity.hashCode()
-        result = 31 * result + this.DefaultAlert1.hashCode()
-        result = 31 * result + this.DefaultAlert2.hashCode()
-        result = 31 * result + this.CriticalBias.hashCode()
-        result = 31 * result + this.CycleCount.hashCode()
+        var result = this.capabilities.hashCode()
+        result = 31 * result + this.technology.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
+        result = 31 * result + this.chemistry.contentHashCode()
+        result = 31 * result + this.designedCapacity.hashCode()
+        result = 31 * result + this.fullChargedCapacity.hashCode()
+        result = 31 * result + this.defaultAlert1.hashCode()
+        result = 31 * result + this.defaultAlert2.hashCode()
+        result = 31 * result + this.criticalBias.hashCode()
+        result = 31 * result + this.cycleCount.hashCode()
         return result
     }
 }
 
-public data class BATTERY_MANUFACTURE_DATE(
-    public var Day: UByte = 0u,
-    public var Month: UByte = 0u,
-    public var Year: UShort = 0u,
+public data class BatteryManufactureDate(
+    public var day: UByte = 0u,
+    public var month: UByte = 0u,
+    public var year: UShort = 0u,
 )
 
-public data class BATTERY_QUERY_INFORMATION(
-    public var BatteryTag: UInt = 0u,
-    public var InformationLevel: BATTERY_QUERY_INFORMATION_LEVEL = 0,
-    public var AtRate: UInt = 0u,
+public data class BatteryQueryInformation(
+    public var batteryTag: UInt = 0u,
+    public var informationLevel: BatteryQueryInformationLevel = 0,
+    public var atRate: UInt = 0u,
 )
 
-public data class BATTERY_REPORTING_SCALE(public var Granularity: UInt = 0u, public var Capacity: UInt = 0u)
+public data class BatteryReportingScale(public var granularity: UInt = 0u, public var capacity: UInt = 0u)
 
-public data class BATTERY_SET_INFORMATION(
-    public var BatteryTag: UInt = 0u,
-    public var InformationLevel: BATTERY_SET_INFORMATION_LEVEL = 0,
-    public var Buffer: UByteArray = UByteArray(1),
+public data class BatterySetInformation(
+    public var batteryTag: UInt = 0u,
+    public var informationLevel: BatterySetInformationLevel = 0,
+    public var buffer: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is BATTERY_SET_INFORMATION) return false
-        if (this.BatteryTag != other.BatteryTag) return false
-        if (this.InformationLevel != other.InformationLevel) return false
-        if (!this.Buffer.contentEquals(other.Buffer)) return false
+        if (other !is BatterySetInformation) return false
+        if (this.batteryTag != other.batteryTag) return false
+        if (this.informationLevel != other.informationLevel) return false
+        if (!this.buffer.contentEquals(other.buffer)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.BatteryTag.hashCode()
-        result = 31 * result + this.InformationLevel.hashCode()
-        result = 31 * result + this.Buffer.contentHashCode()
+        var result = this.batteryTag.hashCode()
+        result = 31 * result + this.informationLevel.hashCode()
+        result = 31 * result + this.buffer.contentHashCode()
         return result
     }
 }
 
-public data class BATTERY_STATUS(
-    public var PowerState: UInt = 0u,
-    public var Capacity: UInt = 0u,
-    public var Voltage: UInt = 0u,
-    public var Rate: Int = 0,
+public data class BatteryStatus(
+    public var powerState: UInt = 0u,
+    public var capacity: UInt = 0u,
+    public var voltage: UInt = 0u,
+    public var rate: Int = 0,
 )
 
-public data class BATTERY_USB_CHARGER_STATUS(
-    public var Type: BATTERY_CHARGING_SOURCE_TYPE = 0,
-    public var Reserved: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var MaxCurrent: UInt = 0u,
-    public var Voltage: UInt = 0u,
-    public var PortType: USB_CHARGER_PORT = 0,
-    public var PortId: ULong = 0uL,
-    public var PowerSourceInformation: Long = 0L,
-    public var OemCharger: GUID = GUID(),
+public data class BatteryUsbChargerStatus(
+    public var type: BatteryChargingSourceType = 0,
+    public var reserved: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var maxCurrent: UInt = 0u,
+    public var voltage: UInt = 0u,
+    public var portType: UsbChargerPort = 0,
+    public var portId: ULong = 0uL,
+    public var powerSourceInformation: COpaquePointer? = null,
+    public var oemCharger: Guid = Guid(),
 )
 
-public data class BATTERY_WAIT_STATUS(
-    public var BatteryTag: UInt = 0u,
-    public var Timeout: UInt = 0u,
-    public var PowerState: UInt = 0u,
-    public var LowCapacity: UInt = 0u,
-    public var HighCapacity: UInt = 0u,
+public data class BatteryWaitStatus(
+    public var batteryTag: UInt = 0u,
+    public var timeout: UInt = 0u,
+    public var powerState: UInt = 0u,
+    public var lowCapacity: UInt = 0u,
+    public var highCapacity: UInt = 0u,
 )
 
-public data class CM_POWER_DATA(
-    public var PD_Size: UInt = 0u,
-    public var PD_MostRecentPowerState: DEVICE_POWER_STATE = 0,
-    public var PD_Capabilities: UInt = 0u,
-    public var PD_D1Latency: UInt = 0u,
-    public var PD_D2Latency: UInt = 0u,
-    public var PD_D3Latency: UInt = 0u,
-    public var PD_PowerStateMapping: IntArray = IntArray(7),
-    public var PD_DeepestSystemWake: SYSTEM_POWER_STATE = 0,
+public data class CmPowerData(
+    public var pdSize: UInt = 0u,
+    public var pdMostRecentPowerState: DevicePowerState = 0,
+    public var pdCapabilities: UInt = 0u,
+    public var pdD1Latency: UInt = 0u,
+    public var pdD2Latency: UInt = 0u,
+    public var pdD3Latency: UInt = 0u,
+    public var pdPowerStateMapping: IntArray = IntArray(7),
+    public var pdDeepestSystemWake: SystemPowerState = 0,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CM_POWER_DATA) return false
-        if (this.PD_Size != other.PD_Size) return false
-        if (this.PD_MostRecentPowerState != other.PD_MostRecentPowerState) return false
-        if (this.PD_Capabilities != other.PD_Capabilities) return false
-        if (this.PD_D1Latency != other.PD_D1Latency) return false
-        if (this.PD_D2Latency != other.PD_D2Latency) return false
-        if (this.PD_D3Latency != other.PD_D3Latency) return false
-        if (!this.PD_PowerStateMapping.contentEquals(other.PD_PowerStateMapping)) return false
-        if (this.PD_DeepestSystemWake != other.PD_DeepestSystemWake) return false
+        if (other !is CmPowerData) return false
+        if (this.pdSize != other.pdSize) return false
+        if (this.pdMostRecentPowerState != other.pdMostRecentPowerState) return false
+        if (this.pdCapabilities != other.pdCapabilities) return false
+        if (this.pdD1Latency != other.pdD1Latency) return false
+        if (this.pdD2Latency != other.pdD2Latency) return false
+        if (this.pdD3Latency != other.pdD3Latency) return false
+        if (!this.pdPowerStateMapping.contentEquals(other.pdPowerStateMapping)) return false
+        if (this.pdDeepestSystemWake != other.pdDeepestSystemWake) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.PD_Size.hashCode()
-        result = 31 * result + this.PD_MostRecentPowerState.hashCode()
-        result = 31 * result + this.PD_Capabilities.hashCode()
-        result = 31 * result + this.PD_D1Latency.hashCode()
-        result = 31 * result + this.PD_D2Latency.hashCode()
-        result = 31 * result + this.PD_D3Latency.hashCode()
-        result = 31 * result + this.PD_PowerStateMapping.contentHashCode()
-        result = 31 * result + this.PD_DeepestSystemWake.hashCode()
+        var result = this.pdSize.hashCode()
+        result = 31 * result + this.pdMostRecentPowerState.hashCode()
+        result = 31 * result + this.pdCapabilities.hashCode()
+        result = 31 * result + this.pdD1Latency.hashCode()
+        result = 31 * result + this.pdD2Latency.hashCode()
+        result = 31 * result + this.pdD3Latency.hashCode()
+        result = 31 * result + this.pdPowerStateMapping.contentHashCode()
+        result = 31 * result + this.pdDeepestSystemWake.hashCode()
         return result
     }
 }
 
-public data class DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS(public var Callback: PDEVICE_NOTIFY_CALLBACK_ROUTINE = null, public var Context: Long = 0L)
+public data class DeviceNotifySubscribeParameters(public var callback: PdeviceNotifyCallbackRoutine = null, public var context: COpaquePointer? = null)
 
-public data class EMI_CHANNEL_MEASUREMENT_DATA(public var AbsoluteEnergy: ULong = 0uL, public var AbsoluteTime: ULong = 0uL)
+public data class EmiChannelMeasurementData(public var absoluteEnergy: ULong = 0uL, public var absoluteTime: ULong = 0uL)
 
-public data class EMI_CHANNEL_V2(
-    public var MeasurementUnit: EMI_MEASUREMENT_UNIT = 0,
-    public var ChannelNameSize: UShort = 0u,
-    public var ChannelName: UShortArray = UShortArray(1),
+public data class EmiChannelV2(
+    public var measurementUnit: EmiMeasurementUnit = 0,
+    public var channelNameSize: UShort = 0u,
+    public var channelName: UShortArray = UShortArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is EMI_CHANNEL_V2) return false
-        if (this.MeasurementUnit != other.MeasurementUnit) return false
-        if (this.ChannelNameSize != other.ChannelNameSize) return false
-        if (!this.ChannelName.contentEquals(other.ChannelName)) return false
+        if (other !is EmiChannelV2) return false
+        if (this.measurementUnit != other.measurementUnit) return false
+        if (this.channelNameSize != other.channelNameSize) return false
+        if (!this.channelName.contentEquals(other.channelName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.MeasurementUnit.hashCode()
-        result = 31 * result + this.ChannelNameSize.hashCode()
-        result = 31 * result + this.ChannelName.contentHashCode()
+        var result = this.measurementUnit.hashCode()
+        result = 31 * result + this.channelNameSize.hashCode()
+        result = 31 * result + this.channelName.contentHashCode()
         return result
     }
 }
 
-public data class EMI_MEASUREMENT_DATA_V2(public var ChannelData: List<EMI_CHANNEL_MEASUREMENT_DATA> = List(1) { EMI_CHANNEL_MEASUREMENT_DATA() })
+public data class EmiMeasurementDataV2(public var channelData: List<EmiChannelMeasurementData> = List(1) { EmiChannelMeasurementData() })
 
-public data class EMI_METADATA_SIZE(public var MetadataSize: UInt = 0u)
+public data class EmiMetadataSize(public var metadataSize: UInt = 0u)
 
-public data class EMI_METADATA_V1(
-    public var MeasurementUnit: EMI_MEASUREMENT_UNIT = 0,
-    public var HardwareOEM: UShortArray = UShortArray(16),
-    public var HardwareModel: UShortArray = UShortArray(16),
-    public var HardwareRevision: UShort = 0u,
-    public var MeteredHardwareNameSize: UShort = 0u,
-    public var MeteredHardwareName: UShortArray = UShortArray(1),
+public data class EmiMetadataV1(
+    public var measurementUnit: EmiMeasurementUnit = 0,
+    public var hardwareOEM: UShortArray = UShortArray(16),
+    public var hardwareModel: UShortArray = UShortArray(16),
+    public var hardwareRevision: UShort = 0u,
+    public var meteredHardwareNameSize: UShort = 0u,
+    public var meteredHardwareName: UShortArray = UShortArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is EMI_METADATA_V1) return false
-        if (this.MeasurementUnit != other.MeasurementUnit) return false
-        if (!this.HardwareOEM.contentEquals(other.HardwareOEM)) return false
-        if (!this.HardwareModel.contentEquals(other.HardwareModel)) return false
-        if (this.HardwareRevision != other.HardwareRevision) return false
-        if (this.MeteredHardwareNameSize != other.MeteredHardwareNameSize) return false
-        if (!this.MeteredHardwareName.contentEquals(other.MeteredHardwareName)) return false
+        if (other !is EmiMetadataV1) return false
+        if (this.measurementUnit != other.measurementUnit) return false
+        if (!this.hardwareOEM.contentEquals(other.hardwareOEM)) return false
+        if (!this.hardwareModel.contentEquals(other.hardwareModel)) return false
+        if (this.hardwareRevision != other.hardwareRevision) return false
+        if (this.meteredHardwareNameSize != other.meteredHardwareNameSize) return false
+        if (!this.meteredHardwareName.contentEquals(other.meteredHardwareName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.MeasurementUnit.hashCode()
-        result = 31 * result + this.HardwareOEM.contentHashCode()
-        result = 31 * result + this.HardwareModel.contentHashCode()
-        result = 31 * result + this.HardwareRevision.hashCode()
-        result = 31 * result + this.MeteredHardwareNameSize.hashCode()
-        result = 31 * result + this.MeteredHardwareName.contentHashCode()
+        var result = this.measurementUnit.hashCode()
+        result = 31 * result + this.hardwareOEM.contentHashCode()
+        result = 31 * result + this.hardwareModel.contentHashCode()
+        result = 31 * result + this.hardwareRevision.hashCode()
+        result = 31 * result + this.meteredHardwareNameSize.hashCode()
+        result = 31 * result + this.meteredHardwareName.contentHashCode()
         return result
     }
 }
 
-public data class EMI_METADATA_V2(
-    public var HardwareOEM: UShortArray = UShortArray(16),
-    public var HardwareModel: UShortArray = UShortArray(16),
-    public var HardwareRevision: UShort = 0u,
-    public var ChannelCount: UShort = 0u,
-    public var Channels: List<EMI_CHANNEL_V2> = List(1) { EMI_CHANNEL_V2() },
+public data class EmiMetadataV2(
+    public var hardwareOEM: UShortArray = UShortArray(16),
+    public var hardwareModel: UShortArray = UShortArray(16),
+    public var hardwareRevision: UShort = 0u,
+    public var channelCount: UShort = 0u,
+    public var channels: List<EmiChannelV2> = List(1) { EmiChannelV2() },
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is EMI_METADATA_V2) return false
-        if (!this.HardwareOEM.contentEquals(other.HardwareOEM)) return false
-        if (!this.HardwareModel.contentEquals(other.HardwareModel)) return false
-        if (this.HardwareRevision != other.HardwareRevision) return false
-        if (this.ChannelCount != other.ChannelCount) return false
-        if (this.Channels != other.Channels) return false
+        if (other !is EmiMetadataV2) return false
+        if (!this.hardwareOEM.contentEquals(other.hardwareOEM)) return false
+        if (!this.hardwareModel.contentEquals(other.hardwareModel)) return false
+        if (this.hardwareRevision != other.hardwareRevision) return false
+        if (this.channelCount != other.channelCount) return false
+        if (this.channels != other.channels) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.HardwareOEM.contentHashCode()
-        result = 31 * result + this.HardwareModel.contentHashCode()
-        result = 31 * result + this.HardwareRevision.hashCode()
-        result = 31 * result + this.ChannelCount.hashCode()
-        result = 31 * result + this.Channels.hashCode()
+        var result = this.hardwareOEM.contentHashCode()
+        result = 31 * result + this.hardwareModel.contentHashCode()
+        result = 31 * result + this.hardwareRevision.hashCode()
+        result = 31 * result + this.channelCount.hashCode()
+        result = 31 * result + this.channels.hashCode()
         return result
     }
 }
 
-public data class EMI_VERSION(public var EmiVersion: UShort = 0u)
+public data class EmiVersion(public var emiVersion: UShort = 0u)
 
-public data class GLOBAL_MACHINE_POWER_POLICY(
-    public var Revision: UInt = 0u,
-    public var LidOpenWakeAc: SYSTEM_POWER_STATE = 0,
-    public var LidOpenWakeDc: SYSTEM_POWER_STATE = 0,
-    public var BroadcastCapacityResolution: UInt = 0u,
+public data class GlobalMachinePowerPolicy(
+    public var revision: UInt = 0u,
+    public var lidOpenWakeAc: SystemPowerState = 0,
+    public var lidOpenWakeDc: SystemPowerState = 0,
+    public var broadcastCapacityResolution: UInt = 0u,
 )
 
-public data class GLOBAL_POWER_POLICY(public var user: GLOBAL_USER_POWER_POLICY = GLOBAL_USER_POWER_POLICY(), public var mach: GLOBAL_MACHINE_POWER_POLICY = GLOBAL_MACHINE_POWER_POLICY())
+public data class GlobalPowerPolicy(public var user: GlobalUserPowerPolicy = GlobalUserPowerPolicy(), public var mach: GlobalMachinePowerPolicy = GlobalMachinePowerPolicy())
 
-public data class GLOBAL_USER_POWER_POLICY(
-    public var Revision: UInt = 0u,
-    public var PowerButtonAc: POWER_ACTION_POLICY = POWER_ACTION_POLICY(),
-    public var PowerButtonDc: POWER_ACTION_POLICY = POWER_ACTION_POLICY(),
-    public var SleepButtonAc: POWER_ACTION_POLICY = POWER_ACTION_POLICY(),
-    public var SleepButtonDc: POWER_ACTION_POLICY = POWER_ACTION_POLICY(),
-    public var LidCloseAc: POWER_ACTION_POLICY = POWER_ACTION_POLICY(),
-    public var LidCloseDc: POWER_ACTION_POLICY = POWER_ACTION_POLICY(),
-    public var DischargePolicy: List<SYSTEM_POWER_LEVEL> = List(4) { SYSTEM_POWER_LEVEL() },
-    public var GlobalFlags: UInt = 0u,
+public data class GlobalUserPowerPolicy(
+    public var revision: UInt = 0u,
+    public var powerButtonAc: PowerActionPolicy = PowerActionPolicy(),
+    public var powerButtonDc: PowerActionPolicy = PowerActionPolicy(),
+    public var sleepButtonAc: PowerActionPolicy = PowerActionPolicy(),
+    public var sleepButtonDc: PowerActionPolicy = PowerActionPolicy(),
+    public var lidCloseAc: PowerActionPolicy = PowerActionPolicy(),
+    public var lidCloseDc: PowerActionPolicy = PowerActionPolicy(),
+    public var dischargePolicy: List<SystemPowerLevel> = List(4) { SystemPowerLevel() },
+    public var globalFlags: UInt = 0u,
 )
 
-public data class MACHINE_POWER_POLICY(
-    public var Revision: UInt = 0u,
-    public var MinSleepAc: SYSTEM_POWER_STATE = 0,
-    public var MinSleepDc: SYSTEM_POWER_STATE = 0,
-    public var ReducedLatencySleepAc: SYSTEM_POWER_STATE = 0,
-    public var ReducedLatencySleepDc: SYSTEM_POWER_STATE = 0,
-    public var DozeTimeoutAc: UInt = 0u,
-    public var DozeTimeoutDc: UInt = 0u,
-    public var DozeS4TimeoutAc: UInt = 0u,
-    public var DozeS4TimeoutDc: UInt = 0u,
-    public var MinThrottleAc: UByte = 0u,
-    public var MinThrottleDc: UByte = 0u,
+public data class MachinePowerPolicy(
+    public var revision: UInt = 0u,
+    public var minSleepAc: SystemPowerState = 0,
+    public var minSleepDc: SystemPowerState = 0,
+    public var reducedLatencySleepAc: SystemPowerState = 0,
+    public var reducedLatencySleepDc: SystemPowerState = 0,
+    public var dozeTimeoutAc: UInt = 0u,
+    public var dozeTimeoutDc: UInt = 0u,
+    public var dozeS4TimeoutAc: UInt = 0u,
+    public var dozeS4TimeoutDc: UInt = 0u,
+    public var minThrottleAc: UByte = 0u,
+    public var minThrottleDc: UByte = 0u,
     public var pad1: UByteArray = UByteArray(2),
-    public var OverThrottledAc: POWER_ACTION_POLICY = POWER_ACTION_POLICY(),
-    public var OverThrottledDc: POWER_ACTION_POLICY = POWER_ACTION_POLICY(),
+    public var overThrottledAc: PowerActionPolicy = PowerActionPolicy(),
+    public var overThrottledDc: PowerActionPolicy = PowerActionPolicy(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MACHINE_POWER_POLICY) return false
-        if (this.Revision != other.Revision) return false
-        if (this.MinSleepAc != other.MinSleepAc) return false
-        if (this.MinSleepDc != other.MinSleepDc) return false
-        if (this.ReducedLatencySleepAc != other.ReducedLatencySleepAc) return false
-        if (this.ReducedLatencySleepDc != other.ReducedLatencySleepDc) return false
-        if (this.DozeTimeoutAc != other.DozeTimeoutAc) return false
-        if (this.DozeTimeoutDc != other.DozeTimeoutDc) return false
-        if (this.DozeS4TimeoutAc != other.DozeS4TimeoutAc) return false
-        if (this.DozeS4TimeoutDc != other.DozeS4TimeoutDc) return false
-        if (this.MinThrottleAc != other.MinThrottleAc) return false
-        if (this.MinThrottleDc != other.MinThrottleDc) return false
+        if (other !is MachinePowerPolicy) return false
+        if (this.revision != other.revision) return false
+        if (this.minSleepAc != other.minSleepAc) return false
+        if (this.minSleepDc != other.minSleepDc) return false
+        if (this.reducedLatencySleepAc != other.reducedLatencySleepAc) return false
+        if (this.reducedLatencySleepDc != other.reducedLatencySleepDc) return false
+        if (this.dozeTimeoutAc != other.dozeTimeoutAc) return false
+        if (this.dozeTimeoutDc != other.dozeTimeoutDc) return false
+        if (this.dozeS4TimeoutAc != other.dozeS4TimeoutAc) return false
+        if (this.dozeS4TimeoutDc != other.dozeS4TimeoutDc) return false
+        if (this.minThrottleAc != other.minThrottleAc) return false
+        if (this.minThrottleDc != other.minThrottleDc) return false
         if (!this.pad1.contentEquals(other.pad1)) return false
-        if (this.OverThrottledAc != other.OverThrottledAc) return false
-        if (this.OverThrottledDc != other.OverThrottledDc) return false
+        if (this.overThrottledAc != other.overThrottledAc) return false
+        if (this.overThrottledDc != other.overThrottledDc) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Revision.hashCode()
-        result = 31 * result + this.MinSleepAc.hashCode()
-        result = 31 * result + this.MinSleepDc.hashCode()
-        result = 31 * result + this.ReducedLatencySleepAc.hashCode()
-        result = 31 * result + this.ReducedLatencySleepDc.hashCode()
-        result = 31 * result + this.DozeTimeoutAc.hashCode()
-        result = 31 * result + this.DozeTimeoutDc.hashCode()
-        result = 31 * result + this.DozeS4TimeoutAc.hashCode()
-        result = 31 * result + this.DozeS4TimeoutDc.hashCode()
-        result = 31 * result + this.MinThrottleAc.hashCode()
-        result = 31 * result + this.MinThrottleDc.hashCode()
+        var result = this.revision.hashCode()
+        result = 31 * result + this.minSleepAc.hashCode()
+        result = 31 * result + this.minSleepDc.hashCode()
+        result = 31 * result + this.reducedLatencySleepAc.hashCode()
+        result = 31 * result + this.reducedLatencySleepDc.hashCode()
+        result = 31 * result + this.dozeTimeoutAc.hashCode()
+        result = 31 * result + this.dozeTimeoutDc.hashCode()
+        result = 31 * result + this.dozeS4TimeoutAc.hashCode()
+        result = 31 * result + this.dozeS4TimeoutDc.hashCode()
+        result = 31 * result + this.minThrottleAc.hashCode()
+        result = 31 * result + this.minThrottleDc.hashCode()
         result = 31 * result + this.pad1.contentHashCode()
-        result = 31 * result + this.OverThrottledAc.hashCode()
-        result = 31 * result + this.OverThrottledDc.hashCode()
+        result = 31 * result + this.overThrottledAc.hashCode()
+        result = 31 * result + this.overThrottledDc.hashCode()
         return result
     }
 }
 
-public data class MACHINE_PROCESSOR_POWER_POLICY(
-    public var Revision: UInt = 0u,
-    public var ProcessorPolicyAc: PROCESSOR_POWER_POLICY = PROCESSOR_POWER_POLICY(),
-    public var ProcessorPolicyDc: PROCESSOR_POWER_POLICY = PROCESSOR_POWER_POLICY(),
+public data class MachineProcessorPowerPolicy(
+    public var revision: UInt = 0u,
+    public var processorPolicyAc: ProcessorPowerPolicy = ProcessorPowerPolicy(),
+    public var processorPolicyDc: ProcessorPowerPolicy = ProcessorPowerPolicy(),
 )
 
-public data class POWERBROADCAST_SETTING(
-    public var PowerSetting: GUID = GUID(),
-    public var DataLength: UInt = 0u,
-    public var Data: UByteArray = UByteArray(1),
+public data class PowerbroadcastSetting(
+    public var powerSetting: Guid = Guid(),
+    public var dataLength: UInt = 0u,
+    public var data: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is POWERBROADCAST_SETTING) return false
-        if (this.PowerSetting != other.PowerSetting) return false
-        if (this.DataLength != other.DataLength) return false
-        if (!this.Data.contentEquals(other.Data)) return false
+        if (other !is PowerbroadcastSetting) return false
+        if (this.powerSetting != other.powerSetting) return false
+        if (this.dataLength != other.dataLength) return false
+        if (!this.data.contentEquals(other.data)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.PowerSetting.hashCode()
-        result = 31 * result + this.DataLength.hashCode()
-        result = 31 * result + this.Data.contentHashCode()
+        var result = this.powerSetting.hashCode()
+        result = 31 * result + this.dataLength.hashCode()
+        result = 31 * result + this.data.contentHashCode()
         return result
     }
 }
 
-public data class POWER_ACTION_POLICY(
-    public var Action: POWER_ACTION = 0,
-    public var Flags: UInt = 0u,
-    public var EventCode: POWER_ACTION_POLICY_EVENT_CODE = 0u,
+public data class PowerActionPolicy(
+    public var action: PowerAction = 0,
+    public var flags: UInt = 0u,
+    public var eventCode: PowerActionPolicyEventCode = 0u,
 )
 
-public data class POWER_IDLE_RESILIENCY(public var CoalescingTimeout: UInt = 0u, public var IdleResiliencyPeriod: UInt = 0u)
+public data class PowerIdleResiliency(public var coalescingTimeout: UInt = 0u, public var idleResiliencyPeriod: UInt = 0u)
 
-public data class POWER_MONITOR_INVOCATION(public var Console: Boolean = false, public var RequestReason: POWER_MONITOR_REQUEST_REASON = 0)
+public data class PowerMonitorInvocation(public var console: Boolean = false, public var requestReason: PowerMonitorRequestReason = 0)
 
-public data class POWER_PLATFORM_INFORMATION(public var AoAc: Boolean = false)
+public data class PowerPlatformInformation(public var aoAc: Boolean = false)
 
-public data class POWER_POLICY(public var user: USER_POWER_POLICY = USER_POWER_POLICY(), public var mach: MACHINE_POWER_POLICY = MACHINE_POWER_POLICY())
+public data class PowerPolicy(public var user: UserPowerPolicy = UserPowerPolicy(), public var mach: MachinePowerPolicy = MachinePowerPolicy())
 
-public data class POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES(public var IsAllowed: Boolean = false)
+public data class PowerSessionAllowExternalDmaDevices(public var isAllowed: Boolean = false)
 
-public data class POWER_SESSION_CONNECT(public var Connected: Boolean = false, public var Console: Boolean = false)
+public data class PowerSessionConnect(public var connected: Boolean = false, public var console: Boolean = false)
 
-public data class POWER_SESSION_RIT_STATE(public var Active: Boolean = false, public var LastInputTime: ULong = 0uL)
+public data class PowerSessionRitState(public var active: Boolean = false, public var lastInputTime: ULong = 0uL)
 
-public data class POWER_SESSION_TIMEOUTS(public var InputTimeout: UInt = 0u, public var DisplayTimeout: UInt = 0u)
+public data class PowerSessionTimeouts(public var inputTimeout: UInt = 0u, public var displayTimeout: UInt = 0u)
 
-public data class POWER_SESSION_WINLOGON(
-    public var SessionId: UInt = 0u,
-    public var Console: Boolean = false,
-    public var Locked: Boolean = false,
+public data class PowerSessionWinlogon(
+    public var sessionId: UInt = 0u,
+    public var console: Boolean = false,
+    public var locked: Boolean = false,
 )
 
-public data class POWER_USER_PRESENCE(public var UserPresence: POWER_USER_PRESENCE_TYPE = 0)
+public data class PowerUserPresence(public var userPresence: PowerUserPresenceType = 0)
 
-public data class PPM_IDLESTATE_EVENT(
-    public var NewState: UInt = 0u,
-    public var OldState: UInt = 0u,
-    public var Processors: ULong = 0uL,
+public data class PpmIdlestateEvent(
+    public var newState: UInt = 0u,
+    public var oldState: UInt = 0u,
+    public var processors: ULong = 0uL,
 )
 
-public data class PPM_IDLE_ACCOUNTING(
-    public var StateCount: UInt = 0u,
-    public var TotalTransitions: UInt = 0u,
-    public var ResetCount: UInt = 0u,
-    public var StartTime: ULong = 0uL,
-    public var State: List<PPM_IDLE_STATE_ACCOUNTING> = List(1) { PPM_IDLE_STATE_ACCOUNTING() },
+public data class PpmIdleAccounting(
+    public var stateCount: UInt = 0u,
+    public var totalTransitions: UInt = 0u,
+    public var resetCount: UInt = 0u,
+    public var startTime: ULong = 0uL,
+    public var state: List<PpmIdleStateAccounting> = List(1) { PpmIdleStateAccounting() },
 )
 
-public data class PPM_IDLE_ACCOUNTING_EX(
-    public var StateCount: UInt = 0u,
-    public var TotalTransitions: UInt = 0u,
-    public var ResetCount: UInt = 0u,
-    public var AbortCount: UInt = 0u,
-    public var StartTime: ULong = 0uL,
-    public var State: List<PPM_IDLE_STATE_ACCOUNTING_EX> = List(1) { PPM_IDLE_STATE_ACCOUNTING_EX() },
+public data class PpmIdleAccountingEx(
+    public var stateCount: UInt = 0u,
+    public var totalTransitions: UInt = 0u,
+    public var resetCount: UInt = 0u,
+    public var abortCount: UInt = 0u,
+    public var startTime: ULong = 0uL,
+    public var state: List<PpmIdleStateAccountingEx> = List(1) { PpmIdleStateAccountingEx() },
 )
 
-public data class PPM_IDLE_STATE_ACCOUNTING(
-    public var IdleTransitions: UInt = 0u,
-    public var FailedTransitions: UInt = 0u,
-    public var InvalidBucketIndex: UInt = 0u,
-    public var TotalTime: ULong = 0uL,
-    public var IdleTimeBuckets: UIntArray = UIntArray(6),
+public data class PpmIdleStateAccounting(
+    public var idleTransitions: UInt = 0u,
+    public var failedTransitions: UInt = 0u,
+    public var invalidBucketIndex: UInt = 0u,
+    public var totalTime: ULong = 0uL,
+    public var idleTimeBuckets: UIntArray = UIntArray(6),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is PPM_IDLE_STATE_ACCOUNTING) return false
-        if (this.IdleTransitions != other.IdleTransitions) return false
-        if (this.FailedTransitions != other.FailedTransitions) return false
-        if (this.InvalidBucketIndex != other.InvalidBucketIndex) return false
-        if (this.TotalTime != other.TotalTime) return false
-        if (!this.IdleTimeBuckets.contentEquals(other.IdleTimeBuckets)) return false
+        if (other !is PpmIdleStateAccounting) return false
+        if (this.idleTransitions != other.idleTransitions) return false
+        if (this.failedTransitions != other.failedTransitions) return false
+        if (this.invalidBucketIndex != other.invalidBucketIndex) return false
+        if (this.totalTime != other.totalTime) return false
+        if (!this.idleTimeBuckets.contentEquals(other.idleTimeBuckets)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.IdleTransitions.hashCode()
-        result = 31 * result + this.FailedTransitions.hashCode()
-        result = 31 * result + this.InvalidBucketIndex.hashCode()
-        result = 31 * result + this.TotalTime.hashCode()
-        result = 31 * result + this.IdleTimeBuckets.contentHashCode()
+        var result = this.idleTransitions.hashCode()
+        result = 31 * result + this.failedTransitions.hashCode()
+        result = 31 * result + this.invalidBucketIndex.hashCode()
+        result = 31 * result + this.totalTime.hashCode()
+        result = 31 * result + this.idleTimeBuckets.contentHashCode()
         return result
     }
 }
 
-public data class PPM_IDLE_STATE_ACCOUNTING_EX(
-    public var TotalTime: ULong = 0uL,
-    public var IdleTransitions: UInt = 0u,
-    public var FailedTransitions: UInt = 0u,
-    public var InvalidBucketIndex: UInt = 0u,
-    public var MinTimeUs: UInt = 0u,
-    public var MaxTimeUs: UInt = 0u,
-    public var CancelledTransitions: UInt = 0u,
-    public var IdleTimeBuckets: List<PPM_IDLE_STATE_BUCKET_EX> = List(16) { PPM_IDLE_STATE_BUCKET_EX() },
+public data class PpmIdleStateAccountingEx(
+    public var totalTime: ULong = 0uL,
+    public var idleTransitions: UInt = 0u,
+    public var failedTransitions: UInt = 0u,
+    public var invalidBucketIndex: UInt = 0u,
+    public var minTimeUs: UInt = 0u,
+    public var maxTimeUs: UInt = 0u,
+    public var cancelledTransitions: UInt = 0u,
+    public var idleTimeBuckets: List<PpmIdleStateBucketEx> = List(16) { PpmIdleStateBucketEx() },
 )
 
-public data class PPM_IDLE_STATE_BUCKET_EX(
-    public var TotalTimeUs: ULong = 0uL,
-    public var MinTimeUs: UInt = 0u,
-    public var MaxTimeUs: UInt = 0u,
-    public var Count: UInt = 0u,
+public data class PpmIdleStateBucketEx(
+    public var totalTimeUs: ULong = 0uL,
+    public var minTimeUs: UInt = 0u,
+    public var maxTimeUs: UInt = 0u,
+    public var count: UInt = 0u,
 )
 
-public data class PPM_PERFSTATE_DOMAIN_EVENT(
-    public var State: UInt = 0u,
-    public var Latency: UInt = 0u,
-    public var Speed: UInt = 0u,
-    public var Processors: ULong = 0uL,
+public data class PpmPerfstateDomainEvent(
+    public var state: UInt = 0u,
+    public var latency: UInt = 0u,
+    public var speed: UInt = 0u,
+    public var processors: ULong = 0uL,
 )
 
-public data class PPM_PERFSTATE_EVENT(
-    public var State: UInt = 0u,
-    public var Status: UInt = 0u,
-    public var Latency: UInt = 0u,
-    public var Speed: UInt = 0u,
-    public var Processor: UInt = 0u,
+public data class PpmPerfstateEvent(
+    public var state: UInt = 0u,
+    public var status: UInt = 0u,
+    public var latency: UInt = 0u,
+    public var speed: UInt = 0u,
+    public var processor: UInt = 0u,
 )
 
-public data class PPM_THERMALCHANGE_EVENT(public var ThermalConstraint: UInt = 0u, public var Processors: ULong = 0uL)
+public data class PpmThermalchangeEvent(public var thermalConstraint: UInt = 0u, public var processors: ULong = 0uL)
 
-public data class PPM_THERMAL_POLICY_EVENT(public var Mode: UByte = 0u, public var Processors: ULong = 0uL)
+public data class PpmThermalPolicyEvent(public var mode: UByte = 0u, public var processors: ULong = 0uL)
 
-public data class PPM_WMI_IDLE_STATE(
-    public var Latency: UInt = 0u,
-    public var Power: UInt = 0u,
-    public var TimeCheck: UInt = 0u,
-    public var PromotePercent: UByte = 0u,
-    public var DemotePercent: UByte = 0u,
-    public var StateType: UByte = 0u,
-    public var Reserved: UByte = 0u,
-    public var StateFlags: UInt = 0u,
-    public var Context: UInt = 0u,
-    public var IdleHandler: UInt = 0u,
-    public var Reserved1: UInt = 0u,
+public data class PpmWmiIdleState(
+    public var latency: UInt = 0u,
+    public var power: UInt = 0u,
+    public var timeCheck: UInt = 0u,
+    public var promotePercent: UByte = 0u,
+    public var demotePercent: UByte = 0u,
+    public var stateType: UByte = 0u,
+    public var reserved: UByte = 0u,
+    public var stateFlags: UInt = 0u,
+    public var context: UInt = 0u,
+    public var idleHandler: UInt = 0u,
+    public var reserved1: UInt = 0u,
 )
 
-public data class PPM_WMI_IDLE_STATES(
-    public var Type: UInt = 0u,
-    public var Count: UInt = 0u,
-    public var TargetState: UInt = 0u,
-    public var OldState: UInt = 0u,
-    public var TargetProcessors: ULong = 0uL,
-    public var State: List<PPM_WMI_IDLE_STATE> = List(1) { PPM_WMI_IDLE_STATE() },
+public data class PpmWmiIdleStates(
+    public var type: UInt = 0u,
+    public var count: UInt = 0u,
+    public var targetState: UInt = 0u,
+    public var oldState: UInt = 0u,
+    public var targetProcessors: ULong = 0uL,
+    public var state: List<PpmWmiIdleState> = List(1) { PpmWmiIdleState() },
 )
 
-public data class PPM_WMI_IDLE_STATES_EX(
-    public var Type: UInt = 0u,
-    public var Count: UInt = 0u,
-    public var TargetState: UInt = 0u,
-    public var OldState: UInt = 0u,
-    public var TargetProcessors: Long = 0L,
-    public var State: List<PPM_WMI_IDLE_STATE> = List(1) { PPM_WMI_IDLE_STATE() },
+public data class PpmWmiIdleStatesEx(
+    public var type: UInt = 0u,
+    public var count: UInt = 0u,
+    public var targetState: UInt = 0u,
+    public var oldState: UInt = 0u,
+    public var targetProcessors: COpaquePointer? = null,
+    public var state: List<PpmWmiIdleState> = List(1) { PpmWmiIdleState() },
 )
 
-public data class PPM_WMI_LEGACY_PERFSTATE(
-    public var Frequency: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var PercentFrequency: UInt = 0u,
+public data class PpmWmiLegacyPerfstate(
+    public var frequency: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var percentFrequency: UInt = 0u,
 )
 
-public data class PPM_WMI_PERF_STATE(
-    public var Frequency: UInt = 0u,
-    public var Power: UInt = 0u,
-    public var PercentFrequency: UByte = 0u,
-    public var IncreaseLevel: UByte = 0u,
-    public var DecreaseLevel: UByte = 0u,
-    public var Type: UByte = 0u,
-    public var IncreaseTime: UInt = 0u,
-    public var DecreaseTime: UInt = 0u,
-    public var Control: ULong = 0uL,
-    public var Status: ULong = 0uL,
-    public var HitCount: UInt = 0u,
-    public var Reserved1: UInt = 0u,
-    public var Reserved2: ULong = 0uL,
-    public var Reserved3: ULong = 0uL,
+public data class PpmWmiPerfState(
+    public var frequency: UInt = 0u,
+    public var power: UInt = 0u,
+    public var percentFrequency: UByte = 0u,
+    public var increaseLevel: UByte = 0u,
+    public var decreaseLevel: UByte = 0u,
+    public var type: UByte = 0u,
+    public var increaseTime: UInt = 0u,
+    public var decreaseTime: UInt = 0u,
+    public var control: ULong = 0uL,
+    public var status: ULong = 0uL,
+    public var hitCount: UInt = 0u,
+    public var reserved1: UInt = 0u,
+    public var reserved2: ULong = 0uL,
+    public var reserved3: ULong = 0uL,
 )
 
-public class PPM_WMI_PERF_STATES(
-    public var Count: UInt = 0u,
-    public var MaxFrequency: UInt = 0u,
-    public var CurrentState: UInt = 0u,
-    public var MaxPerfState: UInt = 0u,
-    public var MinPerfState: UInt = 0u,
-    public var LowestPerfState: UInt = 0u,
-    public var ThermalConstraint: UInt = 0u,
-    public var BusyAdjThreshold: UByte = 0u,
-    public var PolicyType: UByte = 0u,
-    public var Type: UByte = 0u,
-    public var Reserved: UByte = 0u,
-    public var TimerInterval: UInt = 0u,
-    public var TargetProcessors: ULong = 0uL,
-    public var PStateHandler: UInt = 0u,
-    public var PStateContext: UInt = 0u,
-    public var TStateHandler: UInt = 0u,
-    public var TStateContext: UInt = 0u,
-    public var FeedbackHandler: UInt = 0u,
-    public var Reserved1: UInt = 0u,
-    public var Reserved2: ULong = 0uL,
-    public var State: List<PPM_WMI_PERF_STATE> = List(1) { PPM_WMI_PERF_STATE() },
+public class PpmWmiPerfStates(
+    public var count: UInt = 0u,
+    public var maxFrequency: UInt = 0u,
+    public var currentState: UInt = 0u,
+    public var maxPerfState: UInt = 0u,
+    public var minPerfState: UInt = 0u,
+    public var lowestPerfState: UInt = 0u,
+    public var thermalConstraint: UInt = 0u,
+    public var busyAdjThreshold: UByte = 0u,
+    public var policyType: UByte = 0u,
+    public var type: UByte = 0u,
+    public var reserved: UByte = 0u,
+    public var timerInterval: UInt = 0u,
+    public var targetProcessors: ULong = 0uL,
+    public var pStateHandler: UInt = 0u,
+    public var pStateContext: UInt = 0u,
+    public var tStateHandler: UInt = 0u,
+    public var tStateContext: UInt = 0u,
+    public var feedbackHandler: UInt = 0u,
+    public var reserved1: UInt = 0u,
+    public var reserved2: ULong = 0uL,
+    public var state: List<PpmWmiPerfState> = List(1) { PpmWmiPerfState() },
 )
 
-public class PPM_WMI_PERF_STATES_EX(
-    public var Count: UInt = 0u,
-    public var MaxFrequency: UInt = 0u,
-    public var CurrentState: UInt = 0u,
-    public var MaxPerfState: UInt = 0u,
-    public var MinPerfState: UInt = 0u,
-    public var LowestPerfState: UInt = 0u,
-    public var ThermalConstraint: UInt = 0u,
-    public var BusyAdjThreshold: UByte = 0u,
-    public var PolicyType: UByte = 0u,
-    public var Type: UByte = 0u,
-    public var Reserved: UByte = 0u,
-    public var TimerInterval: UInt = 0u,
-    public var TargetProcessors: Long = 0L,
-    public var PStateHandler: UInt = 0u,
-    public var PStateContext: UInt = 0u,
-    public var TStateHandler: UInt = 0u,
-    public var TStateContext: UInt = 0u,
-    public var FeedbackHandler: UInt = 0u,
-    public var Reserved1: UInt = 0u,
-    public var Reserved2: ULong = 0uL,
-    public var State: List<PPM_WMI_PERF_STATE> = List(1) { PPM_WMI_PERF_STATE() },
+public class PpmWmiPerfStatesEx(
+    public var count: UInt = 0u,
+    public var maxFrequency: UInt = 0u,
+    public var currentState: UInt = 0u,
+    public var maxPerfState: UInt = 0u,
+    public var minPerfState: UInt = 0u,
+    public var lowestPerfState: UInt = 0u,
+    public var thermalConstraint: UInt = 0u,
+    public var busyAdjThreshold: UByte = 0u,
+    public var policyType: UByte = 0u,
+    public var type: UByte = 0u,
+    public var reserved: UByte = 0u,
+    public var timerInterval: UInt = 0u,
+    public var targetProcessors: COpaquePointer? = null,
+    public var pStateHandler: UInt = 0u,
+    public var pStateContext: UInt = 0u,
+    public var tStateHandler: UInt = 0u,
+    public var tStateContext: UInt = 0u,
+    public var feedbackHandler: UInt = 0u,
+    public var reserved1: UInt = 0u,
+    public var reserved2: ULong = 0uL,
+    public var state: List<PpmWmiPerfState> = List(1) { PpmWmiPerfState() },
 )
 
-public data class PROCESSOR_OBJECT_INFO(
-    public var PhysicalID: UInt = 0u,
-    public var PBlkAddress: UInt = 0u,
-    public var PBlkLength: UByte = 0u,
+public data class ProcessorObjectInfo(
+    public var physicalID: UInt = 0u,
+    public var pBlkAddress: UInt = 0u,
+    public var pBlkLength: UByte = 0u,
 )
 
-public data class PROCESSOR_OBJECT_INFO_EX(
-    public var PhysicalID: UInt = 0u,
-    public var PBlkAddress: UInt = 0u,
-    public var PBlkLength: UByte = 0u,
-    public var InitialApicId: UInt = 0u,
+public data class ProcessorObjectInfoEx(
+    public var physicalID: UInt = 0u,
+    public var pBlkAddress: UInt = 0u,
+    public var pBlkLength: UByte = 0u,
+    public var initialApicId: UInt = 0u,
 )
 
-public data class PROCESSOR_POWER_INFORMATION(
-    public var Number: UInt = 0u,
-    public var MaxMhz: UInt = 0u,
-    public var CurrentMhz: UInt = 0u,
-    public var MhzLimit: UInt = 0u,
-    public var MaxIdleState: UInt = 0u,
-    public var CurrentIdleState: UInt = 0u,
+public data class ProcessorPowerInformation(
+    public var number: UInt = 0u,
+    public var maxMhz: UInt = 0u,
+    public var currentMhz: UInt = 0u,
+    public var mhzLimit: UInt = 0u,
+    public var maxIdleState: UInt = 0u,
+    public var currentIdleState: UInt = 0u,
 )
 
-public data class PROCESSOR_POWER_POLICY(
-    public var Revision: UInt = 0u,
-    public var DynamicThrottle: UByte = 0u,
-    public var Spare: UByteArray = UByteArray(3),
-    public var _bitfield: UInt = 0u,
-    public var PolicyCount: UInt = 0u,
-    public var Policy: List<PROCESSOR_POWER_POLICY_INFO> = List(3) { PROCESSOR_POWER_POLICY_INFO() },
+public data class ProcessorPowerPolicy(
+    public var revision: UInt = 0u,
+    public var dynamicThrottle: UByte = 0u,
+    public var spare: UByteArray = UByteArray(3),
+    public var bitfield: UInt = 0u,
+    public var policyCount: UInt = 0u,
+    public var policy: List<ProcessorPowerPolicyInfo> = List(3) { ProcessorPowerPolicyInfo() },
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is PROCESSOR_POWER_POLICY) return false
-        if (this.Revision != other.Revision) return false
-        if (this.DynamicThrottle != other.DynamicThrottle) return false
-        if (!this.Spare.contentEquals(other.Spare)) return false
-        if (this._bitfield != other._bitfield) return false
-        if (this.PolicyCount != other.PolicyCount) return false
-        if (this.Policy != other.Policy) return false
+        if (other !is ProcessorPowerPolicy) return false
+        if (this.revision != other.revision) return false
+        if (this.dynamicThrottle != other.dynamicThrottle) return false
+        if (!this.spare.contentEquals(other.spare)) return false
+        if (this.bitfield != other.bitfield) return false
+        if (this.policyCount != other.policyCount) return false
+        if (this.policy != other.policy) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Revision.hashCode()
-        result = 31 * result + this.DynamicThrottle.hashCode()
-        result = 31 * result + this.Spare.contentHashCode()
-        result = 31 * result + this._bitfield.hashCode()
-        result = 31 * result + this.PolicyCount.hashCode()
-        result = 31 * result + this.Policy.hashCode()
+        var result = this.revision.hashCode()
+        result = 31 * result + this.dynamicThrottle.hashCode()
+        result = 31 * result + this.spare.contentHashCode()
+        result = 31 * result + this.bitfield.hashCode()
+        result = 31 * result + this.policyCount.hashCode()
+        result = 31 * result + this.policy.hashCode()
         return result
     }
 }
 
-public data class PROCESSOR_POWER_POLICY_INFO(
-    public var TimeCheck: UInt = 0u,
-    public var DemoteLimit: UInt = 0u,
-    public var PromoteLimit: UInt = 0u,
-    public var DemotePercent: UByte = 0u,
-    public var PromotePercent: UByte = 0u,
-    public var Spare: UByteArray = UByteArray(2),
-    public var _bitfield: UInt = 0u,
+public data class ProcessorPowerPolicyInfo(
+    public var timeCheck: UInt = 0u,
+    public var demoteLimit: UInt = 0u,
+    public var promoteLimit: UInt = 0u,
+    public var demotePercent: UByte = 0u,
+    public var promotePercent: UByte = 0u,
+    public var spare: UByteArray = UByteArray(2),
+    public var bitfield: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is PROCESSOR_POWER_POLICY_INFO) return false
-        if (this.TimeCheck != other.TimeCheck) return false
-        if (this.DemoteLimit != other.DemoteLimit) return false
-        if (this.PromoteLimit != other.PromoteLimit) return false
-        if (this.DemotePercent != other.DemotePercent) return false
-        if (this.PromotePercent != other.PromotePercent) return false
-        if (!this.Spare.contentEquals(other.Spare)) return false
-        if (this._bitfield != other._bitfield) return false
+        if (other !is ProcessorPowerPolicyInfo) return false
+        if (this.timeCheck != other.timeCheck) return false
+        if (this.demoteLimit != other.demoteLimit) return false
+        if (this.promoteLimit != other.promoteLimit) return false
+        if (this.demotePercent != other.demotePercent) return false
+        if (this.promotePercent != other.promotePercent) return false
+        if (!this.spare.contentEquals(other.spare)) return false
+        if (this.bitfield != other.bitfield) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.TimeCheck.hashCode()
-        result = 31 * result + this.DemoteLimit.hashCode()
-        result = 31 * result + this.PromoteLimit.hashCode()
-        result = 31 * result + this.DemotePercent.hashCode()
-        result = 31 * result + this.PromotePercent.hashCode()
-        result = 31 * result + this.Spare.contentHashCode()
-        result = 31 * result + this._bitfield.hashCode()
+        var result = this.timeCheck.hashCode()
+        result = 31 * result + this.demoteLimit.hashCode()
+        result = 31 * result + this.promoteLimit.hashCode()
+        result = 31 * result + this.demotePercent.hashCode()
+        result = 31 * result + this.promotePercent.hashCode()
+        result = 31 * result + this.spare.contentHashCode()
+        result = 31 * result + this.bitfield.hashCode()
         return result
     }
 }
 
-public data class RESUME_PERFORMANCE(
-    public var PostTimeMs: UInt = 0u,
-    public var TotalResumeTimeMs: ULong = 0uL,
-    public var ResumeCompleteTimestamp: ULong = 0uL,
+public data class ResumePerformance(
+    public var postTimeMs: UInt = 0u,
+    public var totalResumeTimeMs: ULong = 0uL,
+    public var resumeCompleteTimestamp: ULong = 0uL,
 )
 
-public data class SET_POWER_SETTING_VALUE(
-    public var Version: UInt = 0u,
-    public var Guid: GUID = GUID(),
-    public var PowerCondition: SYSTEM_POWER_CONDITION = 0,
-    public var DataLength: UInt = 0u,
-    public var Data: UByteArray = UByteArray(1),
+public data class SetPowerSettingValue(
+    public var version: UInt = 0u,
+    public var guid: Guid = Guid(),
+    public var powerCondition: SystemPowerCondition = 0,
+    public var dataLength: UInt = 0u,
+    public var data: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SET_POWER_SETTING_VALUE) return false
-        if (this.Version != other.Version) return false
-        if (this.Guid != other.Guid) return false
-        if (this.PowerCondition != other.PowerCondition) return false
-        if (this.DataLength != other.DataLength) return false
-        if (!this.Data.contentEquals(other.Data)) return false
+        if (other !is SetPowerSettingValue) return false
+        if (this.version != other.version) return false
+        if (this.guid != other.guid) return false
+        if (this.powerCondition != other.powerCondition) return false
+        if (this.dataLength != other.dataLength) return false
+        if (!this.data.contentEquals(other.data)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Version.hashCode()
-        result = 31 * result + this.Guid.hashCode()
-        result = 31 * result + this.PowerCondition.hashCode()
-        result = 31 * result + this.DataLength.hashCode()
-        result = 31 * result + this.Data.contentHashCode()
+        var result = this.version.hashCode()
+        result = 31 * result + this.guid.hashCode()
+        result = 31 * result + this.powerCondition.hashCode()
+        result = 31 * result + this.dataLength.hashCode()
+        result = 31 * result + this.data.contentHashCode()
         return result
     }
 }
 
-public data class SYSTEM_BATTERY_STATE(
-    public var AcOnLine: Boolean = false,
-    public var BatteryPresent: Boolean = false,
-    public var Charging: Boolean = false,
-    public var Discharging: Boolean = false,
-    public var Spare1: BooleanArray = BooleanArray(3),
-    public var Tag: UByte = 0u,
-    public var MaxCapacity: UInt = 0u,
-    public var RemainingCapacity: UInt = 0u,
-    public var Rate: UInt = 0u,
-    public var EstimatedTime: UInt = 0u,
-    public var DefaultAlert1: UInt = 0u,
-    public var DefaultAlert2: UInt = 0u,
+public data class SystemBatteryState(
+    public var acOnLine: Boolean = false,
+    public var batteryPresent: Boolean = false,
+    public var charging: Boolean = false,
+    public var discharging: Boolean = false,
+    public var spare1: BooleanArray = BooleanArray(3),
+    public var tag: UByte = 0u,
+    public var maxCapacity: UInt = 0u,
+    public var remainingCapacity: UInt = 0u,
+    public var rate: UInt = 0u,
+    public var estimatedTime: UInt = 0u,
+    public var defaultAlert1: UInt = 0u,
+    public var defaultAlert2: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SYSTEM_BATTERY_STATE) return false
-        if (this.AcOnLine != other.AcOnLine) return false
-        if (this.BatteryPresent != other.BatteryPresent) return false
-        if (this.Charging != other.Charging) return false
-        if (this.Discharging != other.Discharging) return false
-        if (!this.Spare1.contentEquals(other.Spare1)) return false
-        if (this.Tag != other.Tag) return false
-        if (this.MaxCapacity != other.MaxCapacity) return false
-        if (this.RemainingCapacity != other.RemainingCapacity) return false
-        if (this.Rate != other.Rate) return false
-        if (this.EstimatedTime != other.EstimatedTime) return false
-        if (this.DefaultAlert1 != other.DefaultAlert1) return false
-        if (this.DefaultAlert2 != other.DefaultAlert2) return false
+        if (other !is SystemBatteryState) return false
+        if (this.acOnLine != other.acOnLine) return false
+        if (this.batteryPresent != other.batteryPresent) return false
+        if (this.charging != other.charging) return false
+        if (this.discharging != other.discharging) return false
+        if (!this.spare1.contentEquals(other.spare1)) return false
+        if (this.tag != other.tag) return false
+        if (this.maxCapacity != other.maxCapacity) return false
+        if (this.remainingCapacity != other.remainingCapacity) return false
+        if (this.rate != other.rate) return false
+        if (this.estimatedTime != other.estimatedTime) return false
+        if (this.defaultAlert1 != other.defaultAlert1) return false
+        if (this.defaultAlert2 != other.defaultAlert2) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.AcOnLine.hashCode()
-        result = 31 * result + this.BatteryPresent.hashCode()
-        result = 31 * result + this.Charging.hashCode()
-        result = 31 * result + this.Discharging.hashCode()
-        result = 31 * result + this.Spare1.contentHashCode()
-        result = 31 * result + this.Tag.hashCode()
-        result = 31 * result + this.MaxCapacity.hashCode()
-        result = 31 * result + this.RemainingCapacity.hashCode()
-        result = 31 * result + this.Rate.hashCode()
-        result = 31 * result + this.EstimatedTime.hashCode()
-        result = 31 * result + this.DefaultAlert1.hashCode()
-        result = 31 * result + this.DefaultAlert2.hashCode()
+        var result = this.acOnLine.hashCode()
+        result = 31 * result + this.batteryPresent.hashCode()
+        result = 31 * result + this.charging.hashCode()
+        result = 31 * result + this.discharging.hashCode()
+        result = 31 * result + this.spare1.contentHashCode()
+        result = 31 * result + this.tag.hashCode()
+        result = 31 * result + this.maxCapacity.hashCode()
+        result = 31 * result + this.remainingCapacity.hashCode()
+        result = 31 * result + this.rate.hashCode()
+        result = 31 * result + this.estimatedTime.hashCode()
+        result = 31 * result + this.defaultAlert1.hashCode()
+        result = 31 * result + this.defaultAlert2.hashCode()
         return result
     }
 }
 
-public class SYSTEM_POWER_CAPABILITIES(
-    public var PowerButtonPresent: Boolean = false,
-    public var SleepButtonPresent: Boolean = false,
-    public var LidPresent: Boolean = false,
-    public var SystemS1: Boolean = false,
-    public var SystemS2: Boolean = false,
-    public var SystemS3: Boolean = false,
-    public var SystemS4: Boolean = false,
-    public var SystemS5: Boolean = false,
-    public var HiberFilePresent: Boolean = false,
-    public var FullWake: Boolean = false,
-    public var VideoDimPresent: Boolean = false,
-    public var ApmPresent: Boolean = false,
-    public var UpsPresent: Boolean = false,
-    public var ThermalControl: Boolean = false,
-    public var ProcessorThrottle: Boolean = false,
-    public var ProcessorMinThrottle: UByte = 0u,
-    public var ProcessorMaxThrottle: UByte = 0u,
-    public var FastSystemS4: Boolean = false,
-    public var Hiberboot: Boolean = false,
-    public var WakeAlarmPresent: Boolean = false,
-    public var AoAc: Boolean = false,
-    public var DiskSpinDown: Boolean = false,
-    public var HiberFileType: UByte = 0u,
-    public var AoAcConnectivitySupported: Boolean = false,
+public class SystemPowerCapabilities(
+    public var powerButtonPresent: Boolean = false,
+    public var sleepButtonPresent: Boolean = false,
+    public var lidPresent: Boolean = false,
+    public var systemS1: Boolean = false,
+    public var systemS2: Boolean = false,
+    public var systemS3: Boolean = false,
+    public var systemS4: Boolean = false,
+    public var systemS5: Boolean = false,
+    public var hiberFilePresent: Boolean = false,
+    public var fullWake: Boolean = false,
+    public var videoDimPresent: Boolean = false,
+    public var apmPresent: Boolean = false,
+    public var upsPresent: Boolean = false,
+    public var thermalControl: Boolean = false,
+    public var processorThrottle: Boolean = false,
+    public var processorMinThrottle: UByte = 0u,
+    public var processorMaxThrottle: UByte = 0u,
+    public var fastSystemS4: Boolean = false,
+    public var hiberboot: Boolean = false,
+    public var wakeAlarmPresent: Boolean = false,
+    public var aoAc: Boolean = false,
+    public var diskSpinDown: Boolean = false,
+    public var hiberFileType: UByte = 0u,
+    public var aoAcConnectivitySupported: Boolean = false,
     public var spare3: UByteArray = UByteArray(6),
-    public var SystemBatteriesPresent: Boolean = false,
-    public var BatteriesAreShortTerm: Boolean = false,
-    public var BatteryScale: List<BATTERY_REPORTING_SCALE> = List(3) { BATTERY_REPORTING_SCALE() },
-    public var AcOnLineWake: SYSTEM_POWER_STATE = 0,
-    public var SoftLidWake: SYSTEM_POWER_STATE = 0,
-    public var RtcWake: SYSTEM_POWER_STATE = 0,
-    public var MinDeviceWakeState: SYSTEM_POWER_STATE = 0,
-    public var DefaultLowLatencyWake: SYSTEM_POWER_STATE = 0,
+    public var systemBatteriesPresent: Boolean = false,
+    public var batteriesAreShortTerm: Boolean = false,
+    public var batteryScale: List<BatteryReportingScale> = List(3) { BatteryReportingScale() },
+    public var acOnLineWake: SystemPowerState = 0,
+    public var softLidWake: SystemPowerState = 0,
+    public var rtcWake: SystemPowerState = 0,
+    public var minDeviceWakeState: SystemPowerState = 0,
+    public var defaultLowLatencyWake: SystemPowerState = 0,
 )
 
-public data class SYSTEM_POWER_INFORMATION(
-    public var MaxIdlenessAllowed: UInt = 0u,
-    public var Idleness: UInt = 0u,
-    public var TimeRemaining: UInt = 0u,
-    public var CoolingMode: POWER_COOLING_MODE = 0u,
+public data class SystemPowerInformation(
+    public var maxIdlenessAllowed: UInt = 0u,
+    public var idleness: UInt = 0u,
+    public var timeRemaining: UInt = 0u,
+    public var coolingMode: PowerCoolingMode = 0u,
 )
 
-public data class SYSTEM_POWER_LEVEL(
-    public var Enable: Boolean = false,
-    public var Spare: UByteArray = UByteArray(3),
-    public var BatteryLevel: UInt = 0u,
-    public var PowerPolicy: POWER_ACTION_POLICY = POWER_ACTION_POLICY(),
-    public var MinSystemState: SYSTEM_POWER_STATE = 0,
+public data class SystemPowerLevel(
+    public var enable: Boolean = false,
+    public var spare: UByteArray = UByteArray(3),
+    public var batteryLevel: UInt = 0u,
+    public var powerPolicy: PowerActionPolicy = PowerActionPolicy(),
+    public var minSystemState: SystemPowerState = 0,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SYSTEM_POWER_LEVEL) return false
-        if (this.Enable != other.Enable) return false
-        if (!this.Spare.contentEquals(other.Spare)) return false
-        if (this.BatteryLevel != other.BatteryLevel) return false
-        if (this.PowerPolicy != other.PowerPolicy) return false
-        if (this.MinSystemState != other.MinSystemState) return false
+        if (other !is SystemPowerLevel) return false
+        if (this.enable != other.enable) return false
+        if (!this.spare.contentEquals(other.spare)) return false
+        if (this.batteryLevel != other.batteryLevel) return false
+        if (this.powerPolicy != other.powerPolicy) return false
+        if (this.minSystemState != other.minSystemState) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Enable.hashCode()
-        result = 31 * result + this.Spare.contentHashCode()
-        result = 31 * result + this.BatteryLevel.hashCode()
-        result = 31 * result + this.PowerPolicy.hashCode()
-        result = 31 * result + this.MinSystemState.hashCode()
+        var result = this.enable.hashCode()
+        result = 31 * result + this.spare.contentHashCode()
+        result = 31 * result + this.batteryLevel.hashCode()
+        result = 31 * result + this.powerPolicy.hashCode()
+        result = 31 * result + this.minSystemState.hashCode()
         return result
     }
 }
 
-public class SYSTEM_POWER_POLICY(
-    public var Revision: UInt = 0u,
-    public var PowerButton: POWER_ACTION_POLICY = POWER_ACTION_POLICY(),
-    public var SleepButton: POWER_ACTION_POLICY = POWER_ACTION_POLICY(),
-    public var LidClose: POWER_ACTION_POLICY = POWER_ACTION_POLICY(),
-    public var LidOpenWake: SYSTEM_POWER_STATE = 0,
-    public var Reserved: UInt = 0u,
-    public var Idle: POWER_ACTION_POLICY = POWER_ACTION_POLICY(),
-    public var IdleTimeout: UInt = 0u,
-    public var IdleSensitivity: UByte = 0u,
-    public var DynamicThrottle: UByte = 0u,
-    public var Spare2: UByteArray = UByteArray(2),
-    public var MinSleep: SYSTEM_POWER_STATE = 0,
-    public var MaxSleep: SYSTEM_POWER_STATE = 0,
-    public var ReducedLatencySleep: SYSTEM_POWER_STATE = 0,
-    public var WinLogonFlags: UInt = 0u,
-    public var Spare3: UInt = 0u,
-    public var DozeS4Timeout: UInt = 0u,
-    public var BroadcastCapacityResolution: UInt = 0u,
-    public var DischargePolicy: List<SYSTEM_POWER_LEVEL> = List(4) { SYSTEM_POWER_LEVEL() },
-    public var VideoTimeout: UInt = 0u,
-    public var VideoDimDisplay: Boolean = false,
-    public var VideoReserved: UIntArray = UIntArray(3),
-    public var SpindownTimeout: UInt = 0u,
-    public var OptimizeForPower: Boolean = false,
-    public var FanThrottleTolerance: UByte = 0u,
-    public var ForcedThrottle: UByte = 0u,
-    public var MinThrottle: UByte = 0u,
-    public var OverThrottled: POWER_ACTION_POLICY = POWER_ACTION_POLICY(),
+public class SystemPowerPolicy(
+    public var revision: UInt = 0u,
+    public var powerButton: PowerActionPolicy = PowerActionPolicy(),
+    public var sleepButton: PowerActionPolicy = PowerActionPolicy(),
+    public var lidClose: PowerActionPolicy = PowerActionPolicy(),
+    public var lidOpenWake: SystemPowerState = 0,
+    public var reserved: UInt = 0u,
+    public var idle: PowerActionPolicy = PowerActionPolicy(),
+    public var idleTimeout: UInt = 0u,
+    public var idleSensitivity: UByte = 0u,
+    public var dynamicThrottle: UByte = 0u,
+    public var spare2: UByteArray = UByteArray(2),
+    public var minSleep: SystemPowerState = 0,
+    public var maxSleep: SystemPowerState = 0,
+    public var reducedLatencySleep: SystemPowerState = 0,
+    public var winLogonFlags: UInt = 0u,
+    public var spare3: UInt = 0u,
+    public var dozeS4Timeout: UInt = 0u,
+    public var broadcastCapacityResolution: UInt = 0u,
+    public var dischargePolicy: List<SystemPowerLevel> = List(4) { SystemPowerLevel() },
+    public var videoTimeout: UInt = 0u,
+    public var videoDimDisplay: Boolean = false,
+    public var videoReserved: UIntArray = UIntArray(3),
+    public var spindownTimeout: UInt = 0u,
+    public var optimizeForPower: Boolean = false,
+    public var fanThrottleTolerance: UByte = 0u,
+    public var forcedThrottle: UByte = 0u,
+    public var minThrottle: UByte = 0u,
+    public var overThrottled: PowerActionPolicy = PowerActionPolicy(),
 )
 
-public data class SYSTEM_POWER_STATUS(
-    public var ACLineStatus: UByte = 0u,
-    public var BatteryFlag: UByte = 0u,
-    public var BatteryLifePercent: UByte = 0u,
-    public var SystemStatusFlag: UByte = 0u,
-    public var BatteryLifeTime: UInt = 0u,
-    public var BatteryFullLifeTime: UInt = 0u,
+public data class SystemPowerStatus(
+    public var aCLineStatus: UByte = 0u,
+    public var batteryFlag: UByte = 0u,
+    public var batteryLifePercent: UByte = 0u,
+    public var systemStatusFlag: UByte = 0u,
+    public var batteryLifeTime: UInt = 0u,
+    public var batteryFullLifeTime: UInt = 0u,
 )
 
-public data class THERMAL_EVENT(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var Type: UInt = 0u,
-    public var Temperature: UInt = 0u,
-    public var TripPointTemperature: UInt = 0u,
-    public var Initiator: PWSTR = 0L,
+public data class ThermalEvent(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var type: UInt = 0u,
+    public var temperature: UInt = 0u,
+    public var tripPointTemperature: UInt = 0u,
+    public var initiator: Pwstr = null,
 )
 
-public data class THERMAL_INFORMATION(
-    public var ThermalStamp: UInt = 0u,
-    public var ThermalConstant1: UInt = 0u,
-    public var ThermalConstant2: UInt = 0u,
-    public var Processors: ULong = 0uL,
-    public var SamplingPeriod: UInt = 0u,
-    public var CurrentTemperature: UInt = 0u,
-    public var PassiveTripPoint: UInt = 0u,
-    public var CriticalTripPoint: UInt = 0u,
-    public var ActiveTripPointCount: UByte = 0u,
-    public var ActiveTripPoint: UIntArray = UIntArray(10),
+public data class ThermalInformation(
+    public var thermalStamp: UInt = 0u,
+    public var thermalConstant1: UInt = 0u,
+    public var thermalConstant2: UInt = 0u,
+    public var processors: Int = 0,
+    public var samplingPeriod: UInt = 0u,
+    public var currentTemperature: UInt = 0u,
+    public var passiveTripPoint: UInt = 0u,
+    public var criticalTripPoint: UInt = 0u,
+    public var activeTripPointCount: UByte = 0u,
+    public var activeTripPoint: UIntArray = UIntArray(10),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is THERMAL_INFORMATION) return false
-        if (this.ThermalStamp != other.ThermalStamp) return false
-        if (this.ThermalConstant1 != other.ThermalConstant1) return false
-        if (this.ThermalConstant2 != other.ThermalConstant2) return false
-        if (this.Processors != other.Processors) return false
-        if (this.SamplingPeriod != other.SamplingPeriod) return false
-        if (this.CurrentTemperature != other.CurrentTemperature) return false
-        if (this.PassiveTripPoint != other.PassiveTripPoint) return false
-        if (this.CriticalTripPoint != other.CriticalTripPoint) return false
-        if (this.ActiveTripPointCount != other.ActiveTripPointCount) return false
-        if (!this.ActiveTripPoint.contentEquals(other.ActiveTripPoint)) return false
+        if (other !is ThermalInformation) return false
+        if (this.thermalStamp != other.thermalStamp) return false
+        if (this.thermalConstant1 != other.thermalConstant1) return false
+        if (this.thermalConstant2 != other.thermalConstant2) return false
+        if (this.processors != other.processors) return false
+        if (this.samplingPeriod != other.samplingPeriod) return false
+        if (this.currentTemperature != other.currentTemperature) return false
+        if (this.passiveTripPoint != other.passiveTripPoint) return false
+        if (this.criticalTripPoint != other.criticalTripPoint) return false
+        if (this.activeTripPointCount != other.activeTripPointCount) return false
+        if (!this.activeTripPoint.contentEquals(other.activeTripPoint)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ThermalStamp.hashCode()
-        result = 31 * result + this.ThermalConstant1.hashCode()
-        result = 31 * result + this.ThermalConstant2.hashCode()
-        result = 31 * result + this.Processors.hashCode()
-        result = 31 * result + this.SamplingPeriod.hashCode()
-        result = 31 * result + this.CurrentTemperature.hashCode()
-        result = 31 * result + this.PassiveTripPoint.hashCode()
-        result = 31 * result + this.CriticalTripPoint.hashCode()
-        result = 31 * result + this.ActiveTripPointCount.hashCode()
-        result = 31 * result + this.ActiveTripPoint.contentHashCode()
+        var result = this.thermalStamp.hashCode()
+        result = 31 * result + this.thermalConstant1.hashCode()
+        result = 31 * result + this.thermalConstant2.hashCode()
+        result = 31 * result + this.processors.hashCode()
+        result = 31 * result + this.samplingPeriod.hashCode()
+        result = 31 * result + this.currentTemperature.hashCode()
+        result = 31 * result + this.passiveTripPoint.hashCode()
+        result = 31 * result + this.criticalTripPoint.hashCode()
+        result = 31 * result + this.activeTripPointCount.hashCode()
+        result = 31 * result + this.activeTripPoint.contentHashCode()
         return result
     }
 }
 
-public data class THERMAL_POLICY(
-    public var Version: UInt = 0u,
-    public var WaitForUpdate: Boolean = false,
-    public var Hibernate: Boolean = false,
-    public var Critical: Boolean = false,
-    public var ThermalStandby: Boolean = false,
-    public var ActivationReasons: UInt = 0u,
-    public var PassiveLimit: UInt = 0u,
-    public var ActiveLevel: UInt = 0u,
-    public var OverThrottled: Boolean = false,
+public data class ThermalPolicy(
+    public var version: UInt = 0u,
+    public var waitForUpdate: Boolean = false,
+    public var hibernate: Boolean = false,
+    public var critical: Boolean = false,
+    public var thermalStandby: Boolean = false,
+    public var activationReasons: UInt = 0u,
+    public var passiveLimit: UInt = 0u,
+    public var activeLevel: UInt = 0u,
+    public var overThrottled: Boolean = false,
 )
 
-public data class THERMAL_WAIT_READ(
-    public var Timeout: UInt = 0u,
-    public var LowTemperature: UInt = 0u,
-    public var HighTemperature: UInt = 0u,
+public data class ThermalWaitRead(
+    public var timeout: UInt = 0u,
+    public var lowTemperature: UInt = 0u,
+    public var highTemperature: UInt = 0u,
 )
 
-public class USER_POWER_POLICY(
-    public var Revision: UInt = 0u,
-    public var IdleAc: POWER_ACTION_POLICY = POWER_ACTION_POLICY(),
-    public var IdleDc: POWER_ACTION_POLICY = POWER_ACTION_POLICY(),
-    public var IdleTimeoutAc: UInt = 0u,
-    public var IdleTimeoutDc: UInt = 0u,
-    public var IdleSensitivityAc: UByte = 0u,
-    public var IdleSensitivityDc: UByte = 0u,
-    public var ThrottlePolicyAc: UByte = 0u,
-    public var ThrottlePolicyDc: UByte = 0u,
-    public var MaxSleepAc: SYSTEM_POWER_STATE = 0,
-    public var MaxSleepDc: SYSTEM_POWER_STATE = 0,
-    public var Reserved: UIntArray = UIntArray(2),
-    public var VideoTimeoutAc: UInt = 0u,
-    public var VideoTimeoutDc: UInt = 0u,
-    public var SpindownTimeoutAc: UInt = 0u,
-    public var SpindownTimeoutDc: UInt = 0u,
-    public var OptimizeForPowerAc: Boolean = false,
-    public var OptimizeForPowerDc: Boolean = false,
-    public var FanThrottleToleranceAc: UByte = 0u,
-    public var FanThrottleToleranceDc: UByte = 0u,
-    public var ForcedThrottleAc: UByte = 0u,
-    public var ForcedThrottleDc: UByte = 0u,
+public class UserPowerPolicy(
+    public var revision: UInt = 0u,
+    public var idleAc: PowerActionPolicy = PowerActionPolicy(),
+    public var idleDc: PowerActionPolicy = PowerActionPolicy(),
+    public var idleTimeoutAc: UInt = 0u,
+    public var idleTimeoutDc: UInt = 0u,
+    public var idleSensitivityAc: UByte = 0u,
+    public var idleSensitivityDc: UByte = 0u,
+    public var throttlePolicyAc: UByte = 0u,
+    public var throttlePolicyDc: UByte = 0u,
+    public var maxSleepAc: SystemPowerState = 0,
+    public var maxSleepDc: SystemPowerState = 0,
+    public var reserved: UIntArray = UIntArray(2),
+    public var videoTimeoutAc: UInt = 0u,
+    public var videoTimeoutDc: UInt = 0u,
+    public var spindownTimeoutAc: UInt = 0u,
+    public var spindownTimeoutDc: UInt = 0u,
+    public var optimizeForPowerAc: Boolean = false,
+    public var optimizeForPowerDc: Boolean = false,
+    public var fanThrottleToleranceAc: UByte = 0u,
+    public var fanThrottleToleranceDc: UByte = 0u,
+    public var forcedThrottleAc: UByte = 0u,
+    public var forcedThrottleDc: UByte = 0u,
 )
 
-public data class WAKE_ALARM_INFORMATION(public var TimerIdentifier: UInt = 0u, public var Timeout: UInt = 0u)
+public data class WakeAlarmInformation(public var timerIdentifier: UInt = 0u, public var timeout: UInt = 0u)

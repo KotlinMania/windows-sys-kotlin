@@ -1,208 +1,209 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.networking.clustering
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.SYSTEMTIME
-import io.github.kotlinmania.windowssys.windows.win32.security.SECURITY_DESCRIPTOR_RELATIVE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Systemtime
+import io.github.kotlinmania.windowssys.windows.win32.security.SecurityDescriptorRelative
 
-public class CLRES_CALLBACK_FUNCTION_TABLE(
-    public var LogEvent: PLOG_EVENT_ROUTINE = null,
-    public var SetResourceStatusEx: PSET_RESOURCE_STATUS_ROUTINE_EX = null,
-    public var SetResourceLockedMode: PSET_RESOURCE_LOCKED_MODE_ROUTINE = null,
-    public var SignalFailure: PSIGNAL_FAILURE_ROUTINE = null,
-    public var SetResourceInMemoryNodeLocalProperties: PSET_RESOURCE_INMEMORY_NODELOCAL_PROPERTIES_ROUTINE = null,
-    public var EndControlCall: PEND_CONTROL_CALL = null,
-    public var EndTypeControlCall: PEND_TYPE_CONTROL_CALL = null,
-    public var ExtendControlCall: PEXTEND_RES_CONTROL_CALL = null,
-    public var ExtendTypeControlCall: PEXTEND_RES_TYPE_CONTROL_CALL = null,
-    public var RaiseResTypeNotification: PRAISE_RES_TYPE_NOTIFICATION = null,
-    public var ChangeResourceProcessForDumps: PCHANGE_RESOURCE_PROCESS_FOR_DUMPS = null,
-    public var ChangeResTypeProcessForDumps: PCHANGE_RES_TYPE_PROCESS_FOR_DUMPS = null,
-    public var SetInternalState: PSET_INTERNAL_STATE = null,
-    public var SetResourceLockedModeEx: PSET_RESOURCE_LOCKED_MODE_EX_ROUTINE = null,
-    public var RequestDump: PREQUEST_DUMP_ROUTINE = null,
-    public var SetResourceWprPolicy: PSET_RESOURCE_WPR_POLICY_ROUTINE = null,
-    public var ArmWprWatchdogForCurrentResourceCall: PARM_WPR_WATCHDOG_FOR_CURRENT_RESOURCE_CALL_ROUTINE = null,
+public class ClresCallbackFunctionTable(
+    public var logEvent: PlogEventRoutine = null,
+    public var setResourceStatusEx: PsetResourceStatusRoutineEx = null,
+    public var setResourceLockedMode: PsetResourceLockedModeRoutine = null,
+    public var signalFailure: PsignalFailureRoutine = null,
+    public var setResourceInMemoryNodeLocalProperties: PsetResourceInmemoryNodelocalPropertiesRoutine = null,
+    public var endControlCall: PendControlCall = null,
+    public var endTypeControlCall: PendTypeControlCall = null,
+    public var extendControlCall: PextendResControlCall = null,
+    public var extendTypeControlCall: PextendResTypeControlCall = null,
+    public var raiseResTypeNotification: PraiseResTypeNotification = null,
+    public var changeResourceProcessForDumps: PchangeResourceProcessForDumps = null,
+    public var changeResTypeProcessForDumps: PchangeResTypeProcessForDumps = null,
+    public var setInternalState: PsetInternalState = null,
+    public var setResourceLockedModeEx: PsetResourceLockedModeExRoutine = null,
+    public var requestDump: PrequestDumpRoutine = null,
+    public var setResourceWprPolicy: PsetResourceWprPolicyRoutine = null,
+    public var armWprWatchdogForCurrentResourceCall: ParmWprWatchdogForCurrentResourceCallRoutine = null,
 )
 
-public data class CLRES_FUNCTION_TABLE(
-    public var TableSize: UInt = 0u,
-    public var Version: UInt = 0u,
-    public var Anonymous: CLRES_FUNCTION_TABLE_0 = CLRES_FUNCTION_TABLE_0(),
+public data class ClresFunctionTable(
+    public var tableSize: UInt = 0u,
+    public var version: UInt = 0u,
+    public var anonymous: ClresFunctionTable0 = ClresFunctionTable0(),
 )
 
-public data class CLRES_FUNCTION_TABLE_0(
-    public var V1Functions: CLRES_V1_FUNCTIONS = CLRES_V1_FUNCTIONS(),
-    public var V2Functions: CLRES_V2_FUNCTIONS = CLRES_V2_FUNCTIONS(),
-    public var V3Functions: CLRES_V3_FUNCTIONS = CLRES_V3_FUNCTIONS(),
-    public var V4Functions: CLRES_V4_FUNCTIONS = CLRES_V4_FUNCTIONS(),
+public data class ClresFunctionTable0(
+    public var v1Functions: ClresV1Functions = ClresV1Functions(),
+    public var v2Functions: ClresV2Functions = ClresV2Functions(),
+    public var v3Functions: ClresV3Functions = ClresV3Functions(),
+    public var v4Functions: ClresV4Functions = ClresV4Functions(),
 )
 
-public data class CLRES_V1_FUNCTIONS(
-    public var Open: POPEN_ROUTINE = null,
-    public var Close: PCLOSE_ROUTINE = null,
-    public var Online: PONLINE_ROUTINE = null,
-    public var Offline: POFFLINE_ROUTINE = null,
-    public var Terminate: PTERMINATE_ROUTINE = null,
-    public var LooksAlive: PLOOKS_ALIVE_ROUTINE = null,
-    public var IsAlive: PIS_ALIVE_ROUTINE = null,
-    public var Arbitrate: PARBITRATE_ROUTINE = null,
-    public var Release: PRELEASE_ROUTINE = null,
-    public var ResourceControl: PRESOURCE_CONTROL_ROUTINE = null,
-    public var ResourceTypeControl: PRESOURCE_TYPE_CONTROL_ROUTINE = null,
+public data class ClresV1Functions(
+    public var open: PopenRoutine = null,
+    public var close: PcloseRoutine = null,
+    public var online: PonlineRoutine = null,
+    public var offline: PofflineRoutine = null,
+    public var terminate: PterminateRoutine = null,
+    public var looksAlive: PlooksAliveRoutine = null,
+    public var isAlive: PisAliveRoutine = null,
+    public var arbitrate: ParbitrateRoutine = null,
+    public var release: PreleaseRoutine = null,
+    public var resourceControl: PresourceControlRoutine = null,
+    public var resourceTypeControl: PresourceTypeControlRoutine = null,
 )
 
-public data class CLRES_V2_FUNCTIONS(
-    public var Open: POPEN_V2_ROUTINE = null,
-    public var Close: PCLOSE_ROUTINE = null,
-    public var Online: PONLINE_V2_ROUTINE = null,
-    public var Offline: POFFLINE_V2_ROUTINE = null,
-    public var Terminate: PTERMINATE_ROUTINE = null,
-    public var LooksAlive: PLOOKS_ALIVE_ROUTINE = null,
-    public var IsAlive: PIS_ALIVE_ROUTINE = null,
-    public var Arbitrate: PARBITRATE_ROUTINE = null,
-    public var Release: PRELEASE_ROUTINE = null,
-    public var ResourceControl: PRESOURCE_CONTROL_ROUTINE = null,
-    public var ResourceTypeControl: PRESOURCE_TYPE_CONTROL_ROUTINE = null,
-    public var Cancel: PCANCEL_ROUTINE = null,
+public data class ClresV2Functions(
+    public var open: PopenV2Routine = null,
+    public var close: PcloseRoutine = null,
+    public var online: PonlineV2Routine = null,
+    public var offline: PofflineV2Routine = null,
+    public var terminate: PterminateRoutine = null,
+    public var looksAlive: PlooksAliveRoutine = null,
+    public var isAlive: PisAliveRoutine = null,
+    public var arbitrate: ParbitrateRoutine = null,
+    public var release: PreleaseRoutine = null,
+    public var resourceControl: PresourceControlRoutine = null,
+    public var resourceTypeControl: PresourceTypeControlRoutine = null,
+    public var cancel: PcancelRoutine = null,
 )
 
-public data class CLRES_V3_FUNCTIONS(
-    public var Open: POPEN_V2_ROUTINE = null,
-    public var Close: PCLOSE_ROUTINE = null,
-    public var Online: PONLINE_V2_ROUTINE = null,
-    public var Offline: POFFLINE_V2_ROUTINE = null,
-    public var Terminate: PTERMINATE_ROUTINE = null,
-    public var LooksAlive: PLOOKS_ALIVE_ROUTINE = null,
-    public var IsAlive: PIS_ALIVE_ROUTINE = null,
-    public var Arbitrate: PARBITRATE_ROUTINE = null,
-    public var Release: PRELEASE_ROUTINE = null,
-    public var BeginResourceControl: PBEGIN_RESCALL_ROUTINE = null,
-    public var BeginResourceTypeControl: PBEGIN_RESTYPECALL_ROUTINE = null,
-    public var Cancel: PCANCEL_ROUTINE = null,
+public data class ClresV3Functions(
+    public var open: PopenV2Routine = null,
+    public var close: PcloseRoutine = null,
+    public var online: PonlineV2Routine = null,
+    public var offline: PofflineV2Routine = null,
+    public var terminate: PterminateRoutine = null,
+    public var looksAlive: PlooksAliveRoutine = null,
+    public var isAlive: PisAliveRoutine = null,
+    public var arbitrate: ParbitrateRoutine = null,
+    public var release: PreleaseRoutine = null,
+    public var beginResourceControl: PbeginRescallRoutine = null,
+    public var beginResourceTypeControl: PbeginRestypecallRoutine = null,
+    public var cancel: PcancelRoutine = null,
 )
 
-public data class CLRES_V4_FUNCTIONS(
-    public var Open: POPEN_V2_ROUTINE = null,
-    public var Close: PCLOSE_ROUTINE = null,
-    public var Online: PONLINE_V2_ROUTINE = null,
-    public var Offline: POFFLINE_V2_ROUTINE = null,
-    public var Terminate: PTERMINATE_ROUTINE = null,
-    public var LooksAlive: PLOOKS_ALIVE_ROUTINE = null,
-    public var IsAlive: PIS_ALIVE_ROUTINE = null,
-    public var Arbitrate: PARBITRATE_ROUTINE = null,
-    public var Release: PRELEASE_ROUTINE = null,
-    public var BeginResourceControl: PBEGIN_RESCALL_ROUTINE = null,
-    public var BeginResourceTypeControl: PBEGIN_RESTYPECALL_ROUTINE = null,
-    public var Cancel: PCANCEL_ROUTINE = null,
-    public var BeginResourceControlAsUser: PBEGIN_RESCALL_AS_USER_ROUTINE = null,
-    public var BeginResourceTypeControlAsUser: PBEGIN_RESTYPECALL_AS_USER_ROUTINE = null,
+public data class ClresV4Functions(
+    public var open: PopenV2Routine = null,
+    public var close: PcloseRoutine = null,
+    public var online: PonlineV2Routine = null,
+    public var offline: PofflineV2Routine = null,
+    public var terminate: PterminateRoutine = null,
+    public var looksAlive: PlooksAliveRoutine = null,
+    public var isAlive: PisAliveRoutine = null,
+    public var arbitrate: ParbitrateRoutine = null,
+    public var release: PreleaseRoutine = null,
+    public var beginResourceControl: PbeginRescallRoutine = null,
+    public var beginResourceTypeControl: PbeginRestypecallRoutine = null,
+    public var cancel: PcancelRoutine = null,
+    public var beginResourceControlAsUser: PbeginRescallAsUserRoutine = null,
+    public var beginResourceTypeControlAsUser: PbeginRestypecallAsUserRoutine = null,
 )
 
-public data class CLUSAPI_REASON_HANDLER(public var lpParameter: Long = 0L, public var pfnHandler: PCLUSAPI_PFN_REASON_HANDLER = null)
+public data class ClusapiReasonHandler(public var lpParameter: COpaquePointer? = null, public var pfnHandler: PclusapiPfnReasonHandler = null)
 
-public data class CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT(
-    public var GetTickCount64: ULong = 0uL,
-    public var GetSystemTime: SYSTEMTIME = SYSTEMTIME(),
-    public var NodeId: UInt = 0u,
+public data class ClusctlGroupGetLastMoveTimeOutput(
+    public var getTickCount64: ULong = 0uL,
+    public var getSystemTime: Systemtime = Systemtime(),
+    public var nodeId: UInt = 0u,
 )
 
-public data class CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT(
+public data class ClusctlResourceStateChangeReasonStruct(
     public var dwSize: UInt = 0u,
     public var dwVersion: UInt = 0u,
-    public var eReason: CLUSTER_RESOURCE_STATE_CHANGE_REASON = 0,
+    public var eReason: ClusterResourceStateChangeReason = 0,
 )
 
-public data class CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT(public var dwFlags: UInt = 0u, public var guidPoolFilter: GUID = GUID())
+public data class ClusctlResourceTypeStorageGetAvailableDisksEx2Input(public var dwFlags: UInt = 0u, public var guidPoolFilter: Guid = Guid())
 
-public data class CLUSPROP_BINARY(public var Base: CLUSPROP_VALUE = CLUSPROP_VALUE(), public var rgb: UByteArray = UByteArray(1)) {
+public data class CluspropBinary(public var base: CluspropValue = CluspropValue(), public var rgb: UByteArray = UByteArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CLUSPROP_BINARY) return false
-        if (this.Base != other.Base) return false
+        if (other !is CluspropBinary) return false
+        if (this.base != other.base) return false
         if (!this.rgb.contentEquals(other.rgb)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Base.hashCode()
+        var result = this.base.hashCode()
         result = 31 * result + this.rgb.contentHashCode()
         return result
     }
 }
 
-public class CLUSPROP_BUFFER_HELPER(
-    public var pb: Long = 0L,
-    public var pw: Long = 0L,
-    public var pdw: Long = 0L,
-    public var pl: Long = 0L,
-    public var psz: PWSTR = 0L,
-    public var pList: Long = 0L,
-    public var pSyntax: Long = 0L,
-    public var pName: Long = 0L,
-    public var pValue: Long = 0L,
-    public var pBinaryValue: Long = 0L,
-    public var pWordValue: Long = 0L,
-    public var pDwordValue: Long = 0L,
-    public var pLongValue: Long = 0L,
-    public var pULargeIntegerValue: Long = 0L,
-    public var pLargeIntegerValue: Long = 0L,
-    public var pStringValue: Long = 0L,
-    public var pMultiSzValue: Long = 0L,
-    public var pSecurityDescriptor: Long = 0L,
-    public var pResourceClassValue: Long = 0L,
-    public var pResourceClassInfoValue: Long = 0L,
-    public var pDiskSignatureValue: Long = 0L,
-    public var pScsiAddressValue: Long = 0L,
-    public var pDiskNumberValue: Long = 0L,
-    public var pPartitionInfoValue: Long = 0L,
-    public var pRequiredDependencyValue: Long = 0L,
-    public var pPartitionInfoValueEx: Long = 0L,
-    public var pPartitionInfoValueEx2: Long = 0L,
-    public var pFileTimeValue: Long = 0L,
+public class CluspropBufferHelper(
+    public var pb: COpaquePointer? = null,
+    public var pw: UShort? = null,
+    public var pdw: UInt? = null,
+    public var pl: Int? = null,
+    public var psz: Pwstr = null,
+    public var pList: CluspropList? = null,
+    public var pSyntax: CluspropSyntax? = null,
+    public var pName: CluspropSz? = null,
+    public var pValue: CluspropValue? = null,
+    public var pBinaryValue: CluspropBinary? = null,
+    public var pWordValue: CluspropWord? = null,
+    public var pDwordValue: CluspropDword? = null,
+    public var pLongValue: CluspropLong? = null,
+    public var pULargeIntegerValue: CluspropUlargeInteger? = null,
+    public var pLargeIntegerValue: CluspropLargeInteger? = null,
+    public var pStringValue: CluspropSz? = null,
+    public var pMultiSzValue: CluspropSz? = null,
+    public var pSecurityDescriptor: CluspropSecurityDescriptor? = null,
+    public var pResourceClassValue: CluspropResourceClass? = null,
+    public var pResourceClassInfoValue: CluspropResourceClassInfo? = null,
+    public var pDiskSignatureValue: CluspropDword? = null,
+    public var pScsiAddressValue: CluspropScsiAddress? = null,
+    public var pDiskNumberValue: CluspropDword? = null,
+    public var pPartitionInfoValue: CluspropPartitionInfo? = null,
+    public var pRequiredDependencyValue: CluspropRequiredDependency? = null,
+    public var pPartitionInfoValueEx: CluspropPartitionInfoEx? = null,
+    public var pPartitionInfoValueEx2: CluspropPartitionInfoEx2? = null,
+    public var pFileTimeValue: CluspropFiletime? = null,
 )
 
-public data class CLUSPROP_DWORD(public var Base: CLUSPROP_VALUE = CLUSPROP_VALUE(), public var dw: UInt = 0u)
+public data class CluspropDword(public var base: CluspropValue = CluspropValue(), public var dw: UInt = 0u)
 
-public data class CLUSPROP_FILETIME(public var Base: CLUSPROP_VALUE = CLUSPROP_VALUE(), public var ft: FILETIME = FILETIME())
+public data class CluspropFiletime(public var base: CluspropValue = CluspropValue(), public var ft: Filetime = Filetime())
 
-public data class CLUSPROP_FTSET_INFO(public var Base: CLUSPROP_VALUE = CLUSPROP_VALUE(), public var Base2: CLUS_FTSET_INFO = CLUS_FTSET_INFO())
+public data class CluspropFtsetInfo(public var base: CluspropValue = CluspropValue(), public var base2: ClusFtsetInfo = ClusFtsetInfo())
 
-public data class CLUSPROP_LARGE_INTEGER(public var Base: CLUSPROP_VALUE = CLUSPROP_VALUE(), public var li: Long = 0L)
+public data class CluspropLargeInteger(public var base: CluspropValue = CluspropValue(), public var li: Long = 0L)
 
-public data class CLUSPROP_LIST(public var nPropertyCount: UInt = 0u, public var PropertyName: CLUSPROP_SZ = CLUSPROP_SZ())
+public data class CluspropList(public var nPropertyCount: UInt = 0u, public var propertyName: CluspropSz = CluspropSz())
 
-public data class CLUSPROP_LONG(public var Base: CLUSPROP_VALUE = CLUSPROP_VALUE(), public var l: Int = 0)
+public data class CluspropLong(public var base: CluspropValue = CluspropValue(), public var l: Int = 0)
 
-public data class CLUSPROP_PARTITION_INFO(public var Base: CLUSPROP_VALUE = CLUSPROP_VALUE(), public var Base2: CLUS_PARTITION_INFO = CLUS_PARTITION_INFO())
+public data class CluspropPartitionInfo(public var base: CluspropValue = CluspropValue(), public var base2: ClusPartitionInfo = ClusPartitionInfo())
 
-public data class CLUSPROP_PARTITION_INFO_EX(public var Base: CLUSPROP_VALUE = CLUSPROP_VALUE(), public var Base2: CLUS_PARTITION_INFO_EX = CLUS_PARTITION_INFO_EX())
+public data class CluspropPartitionInfoEx(public var base: CluspropValue = CluspropValue(), public var base2: ClusPartitionInfoEx = ClusPartitionInfoEx())
 
-public data class CLUSPROP_PARTITION_INFO_EX2(public var Base: CLUSPROP_PARTITION_INFO_EX = CLUSPROP_PARTITION_INFO_EX(), public var Base2: CLUS_PARTITION_INFO_EX2 = CLUS_PARTITION_INFO_EX2())
+public data class CluspropPartitionInfoEx2(public var base: CluspropPartitionInfoEx = CluspropPartitionInfoEx(), public var base2: ClusPartitionInfoEx2 = ClusPartitionInfoEx2())
 
-public data class CLUSPROP_REQUIRED_DEPENDENCY(
-    public var Value: CLUSPROP_VALUE = CLUSPROP_VALUE(),
-    public var ResClass: CLUSPROP_RESOURCE_CLASS = CLUSPROP_RESOURCE_CLASS(),
-    public var ResTypeName: CLUSPROP_SZ = CLUSPROP_SZ(),
+public data class CluspropRequiredDependency(
+    public var value: CluspropValue = CluspropValue(),
+    public var resClass: CluspropResourceClass = CluspropResourceClass(),
+    public var resTypeName: CluspropSz = CluspropSz(),
 )
 
-public data class CLUSPROP_RESOURCE_CLASS(public var Base: CLUSPROP_VALUE = CLUSPROP_VALUE(), public var rc: CLUSTER_RESOURCE_CLASS = 0)
+public data class CluspropResourceClass(public var base: CluspropValue = CluspropValue(), public var rc: ClusterResourceClass = 0)
 
-public data class CLUSPROP_RESOURCE_CLASS_INFO(public var Base: CLUSPROP_VALUE = CLUSPROP_VALUE(), public var Base2: CLUS_RESOURCE_CLASS_INFO = CLUS_RESOURCE_CLASS_INFO())
+public data class CluspropResourceClassInfo(public var base: CluspropValue = CluspropValue(), public var base2: ClusResourceClassInfo = ClusResourceClassInfo())
 
-public data class CLUSPROP_SCSI_ADDRESS(public var Base: CLUSPROP_VALUE = CLUSPROP_VALUE(), public var Base2: CLUS_SCSI_ADDRESS = CLUS_SCSI_ADDRESS())
+public data class CluspropScsiAddress(public var base: CluspropValue = CluspropValue(), public var base2: ClusScsiAddress = ClusScsiAddress())
 
-public data class CLUSPROP_SECURITY_DESCRIPTOR(public var Base: CLUSPROP_VALUE = CLUSPROP_VALUE(), public var Anonymous: CLUSPROP_SECURITY_DESCRIPTOR_0 = CLUSPROP_SECURITY_DESCRIPTOR_0())
+public data class CluspropSecurityDescriptor(public var base: CluspropValue = CluspropValue(), public var anonymous: CluspropSecurityDescriptor0 = CluspropSecurityDescriptor0())
 
-public data class CLUSPROP_SECURITY_DESCRIPTOR_0(public var sd: SECURITY_DESCRIPTOR_RELATIVE = SECURITY_DESCRIPTOR_RELATIVE(), public var rgbSecurityDescriptor: UByteArray = UByteArray(1)) {
+public data class CluspropSecurityDescriptor0(public var sd: SecurityDescriptorRelative = SecurityDescriptorRelative(), public var rgbSecurityDescriptor: UByteArray = UByteArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CLUSPROP_SECURITY_DESCRIPTOR_0) return false
+        if (other !is CluspropSecurityDescriptor0) return false
         if (this.sd != other.sd) return false
         if (!this.rgbSecurityDescriptor.contentEquals(other.rgbSecurityDescriptor)) return false
         return true
@@ -215,37 +216,37 @@ public data class CLUSPROP_SECURITY_DESCRIPTOR_0(public var sd: SECURITY_DESCRIP
     }
 }
 
-public data class CLUSPROP_SYNTAX(public var dw: UInt = 0u, public var Anonymous: CLUSPROP_SYNTAX_0 = CLUSPROP_SYNTAX_0())
+public data class CluspropSyntax(public var dw: UInt = 0u, public var anonymous: CluspropSyntax0 = CluspropSyntax0())
 
-public data class CLUSPROP_SYNTAX_0(public var wFormat: UShort = 0u, public var wType: UShort = 0u)
+public data class CluspropSyntax0(public var wFormat: UShort = 0u, public var wType: UShort = 0u)
 
-public data class CLUSPROP_SZ(public var Base: CLUSPROP_VALUE = CLUSPROP_VALUE(), public var sz: UShortArray = UShortArray(1)) {
+public data class CluspropSz(public var base: CluspropValue = CluspropValue(), public var sz: UShortArray = UShortArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CLUSPROP_SZ) return false
-        if (this.Base != other.Base) return false
+        if (other !is CluspropSz) return false
+        if (this.base != other.base) return false
         if (!this.sz.contentEquals(other.sz)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Base.hashCode()
+        var result = this.base.hashCode()
         result = 31 * result + this.sz.contentHashCode()
         return result
     }
 }
 
-public data class CLUSPROP_ULARGE_INTEGER(public var Base: CLUSPROP_VALUE = CLUSPROP_VALUE(), public var li: ULong = 0uL)
+public data class CluspropUlargeInteger(public var base: CluspropValue = CluspropValue(), public var li: ULong = 0uL)
 
-public data class CLUSPROP_VALUE(public var Syntax: CLUSPROP_SYNTAX = CLUSPROP_SYNTAX(), public var cbLength: UInt = 0u)
+public data class CluspropValue(public var syntax: CluspropSyntax = CluspropSyntax(), public var cbLength: UInt = 0u)
 
-public data class CLUSPROP_WORD(public var Base: CLUSPROP_VALUE = CLUSPROP_VALUE(), public var w: UShort = 0u)
+public data class CluspropWord(public var base: CluspropValue = CluspropValue(), public var w: UShort = 0u)
 
-public data class CLUSTERVERSIONINFO(
+public data class Clusterversioninfo(
     public var dwVersionInfoSize: UInt = 0u,
-    public var MajorVersion: UShort = 0u,
-    public var MinorVersion: UShort = 0u,
-    public var BuildNumber: UShort = 0u,
+    public var majorVersion: UShort = 0u,
+    public var minorVersion: UShort = 0u,
+    public var buildNumber: UShort = 0u,
     public var szVendorId: UShortArray = UShortArray(64),
     public var szCSDVersion: UShortArray = UShortArray(64),
     public var dwClusterHighestVersion: UInt = 0u,
@@ -255,11 +256,11 @@ public data class CLUSTERVERSIONINFO(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CLUSTERVERSIONINFO) return false
+        if (other !is Clusterversioninfo) return false
         if (this.dwVersionInfoSize != other.dwVersionInfoSize) return false
-        if (this.MajorVersion != other.MajorVersion) return false
-        if (this.MinorVersion != other.MinorVersion) return false
-        if (this.BuildNumber != other.BuildNumber) return false
+        if (this.majorVersion != other.majorVersion) return false
+        if (this.minorVersion != other.minorVersion) return false
+        if (this.buildNumber != other.buildNumber) return false
         if (!this.szVendorId.contentEquals(other.szVendorId)) return false
         if (!this.szCSDVersion.contentEquals(other.szCSDVersion)) return false
         if (this.dwClusterHighestVersion != other.dwClusterHighestVersion) return false
@@ -271,9 +272,9 @@ public data class CLUSTERVERSIONINFO(
 
     override fun hashCode(): Int {
         var result = this.dwVersionInfoSize.hashCode()
-        result = 31 * result + this.MajorVersion.hashCode()
-        result = 31 * result + this.MinorVersion.hashCode()
-        result = 31 * result + this.BuildNumber.hashCode()
+        result = 31 * result + this.majorVersion.hashCode()
+        result = 31 * result + this.minorVersion.hashCode()
+        result = 31 * result + this.buildNumber.hashCode()
         result = 31 * result + this.szVendorId.contentHashCode()
         result = 31 * result + this.szCSDVersion.contentHashCode()
         result = 31 * result + this.dwClusterHighestVersion.hashCode()
@@ -284,21 +285,21 @@ public data class CLUSTERVERSIONINFO(
     }
 }
 
-public data class CLUSTERVERSIONINFO_NT4(
+public data class ClusterversioninfoNt4(
     public var dwVersionInfoSize: UInt = 0u,
-    public var MajorVersion: UShort = 0u,
-    public var MinorVersion: UShort = 0u,
-    public var BuildNumber: UShort = 0u,
+    public var majorVersion: UShort = 0u,
+    public var minorVersion: UShort = 0u,
+    public var buildNumber: UShort = 0u,
     public var szVendorId: UShortArray = UShortArray(64),
     public var szCSDVersion: UShortArray = UShortArray(64),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CLUSTERVERSIONINFO_NT4) return false
+        if (other !is ClusterversioninfoNt4) return false
         if (this.dwVersionInfoSize != other.dwVersionInfoSize) return false
-        if (this.MajorVersion != other.MajorVersion) return false
-        if (this.MinorVersion != other.MinorVersion) return false
-        if (this.BuildNumber != other.BuildNumber) return false
+        if (this.majorVersion != other.majorVersion) return false
+        if (this.minorVersion != other.minorVersion) return false
+        if (this.buildNumber != other.buildNumber) return false
         if (!this.szVendorId.contentEquals(other.szVendorId)) return false
         if (!this.szCSDVersion.contentEquals(other.szCSDVersion)) return false
         return true
@@ -306,241 +307,241 @@ public data class CLUSTERVERSIONINFO_NT4(
 
     override fun hashCode(): Int {
         var result = this.dwVersionInfoSize.hashCode()
-        result = 31 * result + this.MajorVersion.hashCode()
-        result = 31 * result + this.MinorVersion.hashCode()
-        result = 31 * result + this.BuildNumber.hashCode()
+        result = 31 * result + this.majorVersion.hashCode()
+        result = 31 * result + this.minorVersion.hashCode()
+        result = 31 * result + this.buildNumber.hashCode()
         result = 31 * result + this.szVendorId.contentHashCode()
         result = 31 * result + this.szCSDVersion.contentHashCode()
         return result
     }
 }
 
-public data class CLUSTER_AVAILABILITY_SET_CONFIG(
+public data class ClusterAvailabilitySetConfig(
     public var dwVersion: UInt = 0u,
     public var dwUpdateDomains: UInt = 0u,
     public var dwFaultDomains: UInt = 0u,
-    public var bReserveSpareNode: BOOL = 0,
+    public var bReserveSpareNode: Bool = 0,
 )
 
-public data class CLUSTER_BATCH_COMMAND(
-    public var Command: CLUSTER_REG_COMMAND = 0,
+public data class ClusterBatchCommand(
+    public var command: ClusterRegCommand = 0,
     public var dwOptions: UInt = 0u,
-    public var wzName: PCWSTR = 0L,
-    public var lpData: Long = 0L,
+    public var wzName: Pcwstr = null,
+    public var lpData: COpaquePointer? = null,
     public var cbData: UInt = 0u,
 )
 
-public data class CLUSTER_CREATE_GROUP_INFO(public var dwVersion: UInt = 0u, public var groupType: CLUSGROUP_TYPE = 0)
+public data class ClusterCreateGroupInfo(public var dwVersion: UInt = 0u, public var groupType: ClusgroupType = 0)
 
-public data class CLUSTER_ENUM_ITEM(
+public data class ClusterEnumItem(
     public var dwVersion: UInt = 0u,
     public var dwType: UInt = 0u,
     public var cbId: UInt = 0u,
-    public var lpszId: PWSTR = 0L,
+    public var lpszId: Pwstr = null,
     public var cbName: UInt = 0u,
-    public var lpszName: PWSTR = 0L,
+    public var lpszName: Pwstr = null,
 )
 
-public data class CLUSTER_GROUP_ENUM_ITEM(
+public data class ClusterGroupEnumItem(
     public var dwVersion: UInt = 0u,
     public var cbId: UInt = 0u,
-    public var lpszId: PWSTR = 0L,
+    public var lpszId: Pwstr = null,
     public var cbName: UInt = 0u,
-    public var lpszName: PWSTR = 0L,
-    public var state: CLUSTER_GROUP_STATE = 0,
+    public var lpszName: Pwstr = null,
+    public var state: ClusterGroupState = 0,
     public var cbOwnerNode: UInt = 0u,
-    public var lpszOwnerNode: PWSTR = 0L,
+    public var lpszOwnerNode: Pwstr = null,
     public var dwFlags: UInt = 0u,
     public var cbProperties: UInt = 0u,
-    public var pProperties: Long = 0L,
+    public var pProperties: COpaquePointer? = null,
     public var cbRoProperties: UInt = 0u,
-    public var pRoProperties: Long = 0L,
+    public var pRoProperties: COpaquePointer? = null,
 )
 
-public data class CLUSTER_HEALTH_FAULT(
-    public var Id: PWSTR = 0L,
-    public var ErrorType: UInt = 0u,
-    public var ErrorCode: UInt = 0u,
-    public var Description: PWSTR = 0L,
-    public var Provider: PWSTR = 0L,
-    public var Flags: UInt = 0u,
-    public var Reserved: UInt = 0u,
+public data class ClusterHealthFault(
+    public var id: Pwstr = null,
+    public var errorType: UInt = 0u,
+    public var errorCode: UInt = 0u,
+    public var description: Pwstr = null,
+    public var provider: Pwstr = null,
+    public var flags: UInt = 0u,
+    public var reserved: UInt = 0u,
 )
 
-public data class CLUSTER_HEALTH_FAULT_ARRAY(public var numFaults: UInt = 0u, public var faults: Long = 0L)
+public data class ClusterHealthFaultArray(public var numFaults: UInt = 0u, public var faults: ClusterHealthFault? = null)
 
-public data class CLUSTER_IP_ENTRY(public var lpszIpAddress: PCWSTR = 0L, public var dwPrefixLength: UInt = 0u)
+public data class ClusterIpEntry(public var lpszIpAddress: Pcwstr = null, public var dwPrefixLength: UInt = 0u)
 
-public data class CLUSTER_MEMBERSHIP_INFO(
-    public var HasQuorum: BOOL = 0,
-    public var UpnodesSize: UInt = 0u,
-    public var Upnodes: UByteArray = UByteArray(1),
+public data class ClusterMembershipInfo(
+    public var hasQuorum: Bool = 0,
+    public var upnodesSize: UInt = 0u,
+    public var upnodes: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CLUSTER_MEMBERSHIP_INFO) return false
-        if (this.HasQuorum != other.HasQuorum) return false
-        if (this.UpnodesSize != other.UpnodesSize) return false
-        if (!this.Upnodes.contentEquals(other.Upnodes)) return false
+        if (other !is ClusterMembershipInfo) return false
+        if (this.hasQuorum != other.hasQuorum) return false
+        if (this.upnodesSize != other.upnodesSize) return false
+        if (!this.upnodes.contentEquals(other.upnodes)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.HasQuorum.hashCode()
-        result = 31 * result + this.UpnodesSize.hashCode()
-        result = 31 * result + this.Upnodes.contentHashCode()
+        var result = this.hasQuorum.hashCode()
+        result = 31 * result + this.upnodesSize.hashCode()
+        result = 31 * result + this.upnodes.contentHashCode()
         return result
     }
 }
 
-public data class CLUSTER_READ_BATCH_COMMAND(
-    public var Command: CLUSTER_REG_COMMAND = 0,
+public data class ClusterReadBatchCommand(
+    public var command: ClusterRegCommand = 0,
     public var dwOptions: UInt = 0u,
-    public var wzSubkeyName: PCWSTR = 0L,
-    public var wzValueName: PCWSTR = 0L,
-    public var lpData: Long = 0L,
+    public var wzSubkeyName: Pcwstr = null,
+    public var wzValueName: Pcwstr = null,
+    public var lpData: COpaquePointer? = null,
     public var cbData: UInt = 0u,
 )
 
-public data class CLUSTER_RESOURCE_ENUM_ITEM(
+public data class ClusterResourceEnumItem(
     public var dwVersion: UInt = 0u,
     public var cbId: UInt = 0u,
-    public var lpszId: PWSTR = 0L,
+    public var lpszId: Pwstr = null,
     public var cbName: UInt = 0u,
-    public var lpszName: PWSTR = 0L,
+    public var lpszName: Pwstr = null,
     public var cbOwnerGroupName: UInt = 0u,
-    public var lpszOwnerGroupName: PWSTR = 0L,
+    public var lpszOwnerGroupName: Pwstr = null,
     public var cbOwnerGroupId: UInt = 0u,
-    public var lpszOwnerGroupId: PWSTR = 0L,
+    public var lpszOwnerGroupId: Pwstr = null,
     public var cbProperties: UInt = 0u,
-    public var pProperties: Long = 0L,
+    public var pProperties: COpaquePointer? = null,
     public var cbRoProperties: UInt = 0u,
-    public var pRoProperties: Long = 0L,
+    public var pRoProperties: COpaquePointer? = null,
 )
 
-public data class CLUSTER_SET_PASSWORD_STATUS(
-    public var NodeId: UInt = 0u,
-    public var SetAttempted: Boolean = false,
-    public var ReturnStatus: UInt = 0u,
+public data class ClusterSetPasswordStatus(
+    public var nodeId: UInt = 0u,
+    public var setAttempted: Boolean = false,
+    public var returnStatus: UInt = 0u,
 )
 
-public data class CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT(public var Base: CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME = CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME(), public var Base2: CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME = CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME())
+public data class ClusterSharedVolumeRenameGuidInput(public var base: ClusterSharedVolumeRenameInputVolume = ClusterSharedVolumeRenameInputVolume(), public var base2: ClusterSharedVolumeRenameInputGuidName = ClusterSharedVolumeRenameInputGuidName())
 
-public data class CLUSTER_SHARED_VOLUME_RENAME_INPUT(public var Base: CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME = CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME(), public var Base2: CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME = CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME())
+public data class ClusterSharedVolumeRenameInput(public var base: ClusterSharedVolumeRenameInputVolume = ClusterSharedVolumeRenameInputVolume(), public var base2: ClusterSharedVolumeRenameInputName = ClusterSharedVolumeRenameInputName())
 
-public data class CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME(public var NewVolumeName: UShortArray = UShortArray(260), public var NewVolumeGuid: UShortArray = UShortArray(50)) {
+public data class ClusterSharedVolumeRenameInputGuidName(public var newVolumeName: UShortArray = UShortArray(260), public var newVolumeGuid: UShortArray = UShortArray(50)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME) return false
-        if (!this.NewVolumeName.contentEquals(other.NewVolumeName)) return false
-        if (!this.NewVolumeGuid.contentEquals(other.NewVolumeGuid)) return false
+        if (other !is ClusterSharedVolumeRenameInputGuidName) return false
+        if (!this.newVolumeName.contentEquals(other.newVolumeName)) return false
+        if (!this.newVolumeGuid.contentEquals(other.newVolumeGuid)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.NewVolumeName.contentHashCode()
-        result = 31 * result + this.NewVolumeGuid.contentHashCode()
+        var result = this.newVolumeName.contentHashCode()
+        result = 31 * result + this.newVolumeGuid.contentHashCode()
         return result
     }
 }
 
-public data class CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME(public var NewVolumeName: UShortArray = UShortArray(260)) {
+public data class ClusterSharedVolumeRenameInputName(public var newVolumeName: UShortArray = UShortArray(260)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME) return false
-        if (!this.NewVolumeName.contentEquals(other.NewVolumeName)) return false
+        if (other !is ClusterSharedVolumeRenameInputName) return false
+        if (!this.newVolumeName.contentEquals(other.newVolumeName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        return this.NewVolumeName.contentHashCode()
+        return this.newVolumeName.contentHashCode()
     }
 }
 
-public data class CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME(public var InputType: CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE = 0, public var Anonymous: CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0 = CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0())
+public data class ClusterSharedVolumeRenameInputVolume(public var inputType: ClusterSharedVolumeRenameInputType = 0, public var anonymous: ClusterSharedVolumeRenameInputVolume0 = ClusterSharedVolumeRenameInputVolume0())
 
-public data class CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0(
-    public var VolumeOffset: ULong = 0uL,
-    public var VolumeId: UShortArray = UShortArray(260),
-    public var VolumeName: UShortArray = UShortArray(260),
-    public var VolumeGuid: UShortArray = UShortArray(50),
+public data class ClusterSharedVolumeRenameInputVolume0(
+    public var volumeOffset: ULong = 0uL,
+    public var volumeId: UShortArray = UShortArray(260),
+    public var volumeName: UShortArray = UShortArray(260),
+    public var volumeGuid: UShortArray = UShortArray(50),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0) return false
-        if (this.VolumeOffset != other.VolumeOffset) return false
-        if (!this.VolumeId.contentEquals(other.VolumeId)) return false
-        if (!this.VolumeName.contentEquals(other.VolumeName)) return false
-        if (!this.VolumeGuid.contentEquals(other.VolumeGuid)) return false
+        if (other !is ClusterSharedVolumeRenameInputVolume0) return false
+        if (this.volumeOffset != other.volumeOffset) return false
+        if (!this.volumeId.contentEquals(other.volumeId)) return false
+        if (!this.volumeName.contentEquals(other.volumeName)) return false
+        if (!this.volumeGuid.contentEquals(other.volumeGuid)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.VolumeOffset.hashCode()
-        result = 31 * result + this.VolumeId.contentHashCode()
-        result = 31 * result + this.VolumeName.contentHashCode()
-        result = 31 * result + this.VolumeGuid.contentHashCode()
+        var result = this.volumeOffset.hashCode()
+        result = 31 * result + this.volumeId.contentHashCode()
+        result = 31 * result + this.volumeName.contentHashCode()
+        result = 31 * result + this.volumeGuid.contentHashCode()
         return result
     }
 }
 
-public data class CLUSTER_SHARED_VOLUME_STATE_INFO(
+public data class ClusterSharedVolumeStateInfo(
     public var szVolumeName: UShortArray = UShortArray(260),
     public var szNodeName: UShortArray = UShortArray(260),
-    public var VolumeState: CLUSTER_SHARED_VOLUME_STATE = 0,
+    public var volumeState: ClusterSharedVolumeState = 0,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CLUSTER_SHARED_VOLUME_STATE_INFO) return false
+        if (other !is ClusterSharedVolumeStateInfo) return false
         if (!this.szVolumeName.contentEquals(other.szVolumeName)) return false
         if (!this.szNodeName.contentEquals(other.szNodeName)) return false
-        if (this.VolumeState != other.VolumeState) return false
+        if (this.volumeState != other.volumeState) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.szVolumeName.contentHashCode()
         result = 31 * result + this.szNodeName.contentHashCode()
-        result = 31 * result + this.VolumeState.hashCode()
+        result = 31 * result + this.volumeState.hashCode()
         return result
     }
 }
 
-public data class CLUSTER_SHARED_VOLUME_STATE_INFO_EX(
+public data class ClusterSharedVolumeStateInfoEx(
     public var szVolumeName: UShortArray = UShortArray(260),
     public var szNodeName: UShortArray = UShortArray(260),
-    public var VolumeState: CLUSTER_SHARED_VOLUME_STATE = 0,
+    public var volumeState: ClusterSharedVolumeState = 0,
     public var szVolumeFriendlyName: UShortArray = UShortArray(260),
-    public var RedirectedIOReason: ULong = 0uL,
-    public var VolumeRedirectedIOReason: ULong = 0uL,
+    public var redirectedIOReason: ULong = 0uL,
+    public var volumeRedirectedIOReason: ULong = 0uL,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CLUSTER_SHARED_VOLUME_STATE_INFO_EX) return false
+        if (other !is ClusterSharedVolumeStateInfoEx) return false
         if (!this.szVolumeName.contentEquals(other.szVolumeName)) return false
         if (!this.szNodeName.contentEquals(other.szNodeName)) return false
-        if (this.VolumeState != other.VolumeState) return false
+        if (this.volumeState != other.volumeState) return false
         if (!this.szVolumeFriendlyName.contentEquals(other.szVolumeFriendlyName)) return false
-        if (this.RedirectedIOReason != other.RedirectedIOReason) return false
-        if (this.VolumeRedirectedIOReason != other.VolumeRedirectedIOReason) return false
+        if (this.redirectedIOReason != other.redirectedIOReason) return false
+        if (this.volumeRedirectedIOReason != other.volumeRedirectedIOReason) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.szVolumeName.contentHashCode()
         result = 31 * result + this.szNodeName.contentHashCode()
-        result = 31 * result + this.VolumeState.hashCode()
+        result = 31 * result + this.volumeState.hashCode()
         result = 31 * result + this.szVolumeFriendlyName.contentHashCode()
-        result = 31 * result + this.RedirectedIOReason.hashCode()
-        result = 31 * result + this.VolumeRedirectedIOReason.hashCode()
+        result = 31 * result + this.redirectedIOReason.hashCode()
+        result = 31 * result + this.volumeRedirectedIOReason.hashCode()
         return result
     }
 }
 
-public data class CLUSTER_VALIDATE_CSV_FILENAME(public var szFileName: UShortArray = UShortArray(1)) {
+public data class ClusterValidateCsvFilename(public var szFileName: UShortArray = UShortArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CLUSTER_VALIDATE_CSV_FILENAME) return false
+        if (other !is ClusterValidateCsvFilename) return false
         if (!this.szFileName.contentEquals(other.szFileName)) return false
         return true
     }
@@ -550,10 +551,10 @@ public data class CLUSTER_VALIDATE_CSV_FILENAME(public var szFileName: UShortArr
     }
 }
 
-public data class CLUSTER_VALIDATE_DIRECTORY(public var szPath: UShortArray = UShortArray(1)) {
+public data class ClusterValidateDirectory(public var szPath: UShortArray = UShortArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CLUSTER_VALIDATE_DIRECTORY) return false
+        if (other !is ClusterValidateDirectory) return false
         if (!this.szPath.contentEquals(other.szPath)) return false
         return true
     }
@@ -563,10 +564,10 @@ public data class CLUSTER_VALIDATE_DIRECTORY(public var szPath: UShortArray = US
     }
 }
 
-public data class CLUSTER_VALIDATE_NETNAME(public var szNetworkName: UShortArray = UShortArray(1)) {
+public data class ClusterValidateNetname(public var szNetworkName: UShortArray = UShortArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CLUSTER_VALIDATE_NETNAME) return false
+        if (other !is ClusterValidateNetname) return false
         if (!this.szNetworkName.contentEquals(other.szNetworkName)) return false
         return true
     }
@@ -576,10 +577,10 @@ public data class CLUSTER_VALIDATE_NETNAME(public var szNetworkName: UShortArray
     }
 }
 
-public data class CLUSTER_VALIDATE_PATH(public var szPath: UShortArray = UShortArray(1)) {
+public data class ClusterValidatePath(public var szPath: UShortArray = UShortArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CLUSTER_VALIDATE_PATH) return false
+        if (other !is ClusterValidatePath) return false
         if (!this.szPath.contentEquals(other.szPath)) return false
         return true
     }
@@ -589,133 +590,133 @@ public data class CLUSTER_VALIDATE_PATH(public var szPath: UShortArray = UShortA
     }
 }
 
-public data class CLUS_CHKDSK_INFO(
-    public var PartitionNumber: UInt = 0u,
-    public var ChkdskState: UInt = 0u,
-    public var FileIdCount: UInt = 0u,
-    public var FileIdList: ULongArray = ULongArray(1),
+public data class ClusChkdskInfo(
+    public var partitionNumber: UInt = 0u,
+    public var chkdskState: UInt = 0u,
+    public var fileIdCount: UInt = 0u,
+    public var fileIdList: ULongArray = ULongArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CLUS_CHKDSK_INFO) return false
-        if (this.PartitionNumber != other.PartitionNumber) return false
-        if (this.ChkdskState != other.ChkdskState) return false
-        if (this.FileIdCount != other.FileIdCount) return false
-        if (!this.FileIdList.contentEquals(other.FileIdList)) return false
+        if (other !is ClusChkdskInfo) return false
+        if (this.partitionNumber != other.partitionNumber) return false
+        if (this.chkdskState != other.chkdskState) return false
+        if (this.fileIdCount != other.fileIdCount) return false
+        if (!this.fileIdList.contentEquals(other.fileIdList)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.PartitionNumber.hashCode()
-        result = 31 * result + this.ChkdskState.hashCode()
-        result = 31 * result + this.FileIdCount.hashCode()
-        result = 31 * result + this.FileIdList.contentHashCode()
+        var result = this.partitionNumber.hashCode()
+        result = 31 * result + this.chkdskState.hashCode()
+        result = 31 * result + this.fileIdCount.hashCode()
+        result = 31 * result + this.fileIdList.contentHashCode()
         return result
     }
 }
 
-public data class CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT(public var FileServerName: UShortArray = UShortArray(16)) {
+public data class ClusCreateInfrastructureFileserverInput(public var fileServerName: UShortArray = UShortArray(16)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT) return false
-        if (!this.FileServerName.contentEquals(other.FileServerName)) return false
+        if (other !is ClusCreateInfrastructureFileserverInput) return false
+        if (!this.fileServerName.contentEquals(other.fileServerName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        return this.FileServerName.contentHashCode()
+        return this.fileServerName.contentHashCode()
     }
 }
 
-public data class CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT(public var FileServerName: UShortArray = UShortArray(260)) {
+public data class ClusCreateInfrastructureFileserverOutput(public var fileServerName: UShortArray = UShortArray(260)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT) return false
-        if (!this.FileServerName.contentEquals(other.FileServerName)) return false
+        if (other !is ClusCreateInfrastructureFileserverOutput) return false
+        if (!this.fileServerName.contentEquals(other.fileServerName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        return this.FileServerName.contentHashCode()
+        return this.fileServerName.contentHashCode()
     }
 }
 
-public data class CLUS_CSV_MAINTENANCE_MODE_INFO(public var InMaintenance: BOOL = 0, public var VolumeName: UShortArray = UShortArray(260)) {
+public data class ClusCsvMaintenanceModeInfo(public var inMaintenance: Bool = 0, public var volumeName: UShortArray = UShortArray(260)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CLUS_CSV_MAINTENANCE_MODE_INFO) return false
-        if (this.InMaintenance != other.InMaintenance) return false
-        if (!this.VolumeName.contentEquals(other.VolumeName)) return false
+        if (other !is ClusCsvMaintenanceModeInfo) return false
+        if (this.inMaintenance != other.inMaintenance) return false
+        if (!this.volumeName.contentEquals(other.volumeName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.InMaintenance.hashCode()
-        result = 31 * result + this.VolumeName.contentHashCode()
+        var result = this.inMaintenance.hashCode()
+        result = 31 * result + this.volumeName.contentHashCode()
         return result
     }
 }
 
-public data class CLUS_CSV_VOLUME_INFO(
-    public var VolumeOffset: ULong = 0uL,
-    public var PartitionNumber: UInt = 0u,
-    public var FaultState: CLUSTER_CSV_VOLUME_FAULT_STATE = 0,
-    public var BackupState: CLUSTER_SHARED_VOLUME_BACKUP_STATE = 0,
+public data class ClusCsvVolumeInfo(
+    public var volumeOffset: ULong = 0uL,
+    public var partitionNumber: UInt = 0u,
+    public var faultState: ClusterCsvVolumeFaultState = 0,
+    public var backupState: ClusterSharedVolumeBackupState = 0,
     public var szVolumeFriendlyName: UShortArray = UShortArray(260),
     public var szVolumeName: UShortArray = UShortArray(50),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CLUS_CSV_VOLUME_INFO) return false
-        if (this.VolumeOffset != other.VolumeOffset) return false
-        if (this.PartitionNumber != other.PartitionNumber) return false
-        if (this.FaultState != other.FaultState) return false
-        if (this.BackupState != other.BackupState) return false
+        if (other !is ClusCsvVolumeInfo) return false
+        if (this.volumeOffset != other.volumeOffset) return false
+        if (this.partitionNumber != other.partitionNumber) return false
+        if (this.faultState != other.faultState) return false
+        if (this.backupState != other.backupState) return false
         if (!this.szVolumeFriendlyName.contentEquals(other.szVolumeFriendlyName)) return false
         if (!this.szVolumeName.contentEquals(other.szVolumeName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.VolumeOffset.hashCode()
-        result = 31 * result + this.PartitionNumber.hashCode()
-        result = 31 * result + this.FaultState.hashCode()
-        result = 31 * result + this.BackupState.hashCode()
+        var result = this.volumeOffset.hashCode()
+        result = 31 * result + this.partitionNumber.hashCode()
+        result = 31 * result + this.faultState.hashCode()
+        result = 31 * result + this.backupState.hashCode()
         result = 31 * result + this.szVolumeFriendlyName.contentHashCode()
         result = 31 * result + this.szVolumeName.contentHashCode()
         return result
     }
 }
 
-public data class CLUS_CSV_VOLUME_NAME(
-    public var VolumeOffset: Long = 0L,
+public data class ClusCsvVolumeName(
+    public var volumeOffset: Long = 0L,
     public var szVolumeName: UShortArray = UShortArray(260),
     public var szRootPath: UShortArray = UShortArray(263),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CLUS_CSV_VOLUME_NAME) return false
-        if (this.VolumeOffset != other.VolumeOffset) return false
+        if (other !is ClusCsvVolumeName) return false
+        if (this.volumeOffset != other.volumeOffset) return false
         if (!this.szVolumeName.contentEquals(other.szVolumeName)) return false
         if (!this.szRootPath.contentEquals(other.szRootPath)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.VolumeOffset.hashCode()
+        var result = this.volumeOffset.hashCode()
         result = 31 * result + this.szVolumeName.contentHashCode()
         result = 31 * result + this.szRootPath.contentHashCode()
         return result
     }
 }
 
-public data class CLUS_DISK_NUMBER_INFO(public var DiskNumber: UInt = 0u, public var BytesPerSector: UInt = 0u)
+public data class ClusDiskNumberInfo(public var diskNumber: UInt = 0u, public var bytesPerSector: UInt = 0u)
 
-public data class CLUS_DNN_LEADER_STATUS(public var IsOnline: BOOL = 0, public var IsFileServerPresent: BOOL = 0)
+public data class ClusDnnLeaderStatus(public var isOnline: Bool = 0, public var isFileServerPresent: Bool = 0)
 
-public data class CLUS_DNN_SODAFS_CLONE_STATUS(public var NodeId: UInt = 0u, public var Status: CLUSTER_RESOURCE_STATE = 0)
+public data class ClusDnnSodafsCloneStatus(public var nodeId: UInt = 0u, public var status: ClusterResourceState = 0)
 
-public data class CLUS_FORCE_QUORUM_INFO(
+public data class ClusForceQuorumInfo(
     public var dwSize: UInt = 0u,
     public var dwNodeBitMask: UInt = 0u,
     public var dwMaxNumberofNodes: UInt = 0u,
@@ -723,7 +724,7 @@ public data class CLUS_FORCE_QUORUM_INFO(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CLUS_FORCE_QUORUM_INFO) return false
+        if (other !is ClusForceQuorumInfo) return false
         if (this.dwSize != other.dwSize) return false
         if (this.dwNodeBitMask != other.dwNodeBitMask) return false
         if (this.dwMaxNumberofNodes != other.dwMaxNumberofNodes) return false
@@ -740,118 +741,118 @@ public data class CLUS_FORCE_QUORUM_INFO(
     }
 }
 
-public data class CLUS_FTSET_INFO(public var dwRootSignature: UInt = 0u, public var dwFtType: UInt = 0u)
+public data class ClusFtsetInfo(public var dwRootSignature: UInt = 0u, public var dwFtType: UInt = 0u)
 
-public data class CLUS_MAINTENANCE_MODE_INFO(public var InMaintenance: BOOL = 0)
+public data class ClusMaintenanceModeInfo(public var inMaintenance: Bool = 0)
 
-public data class CLUS_MAINTENANCE_MODE_INFOEX(
-    public var InMaintenance: BOOL = 0,
-    public var MaintainenceModeType: MAINTENANCE_MODE_TYPE_ENUM = 0,
-    public var InternalState: CLUSTER_RESOURCE_STATE = 0,
-    public var Signature: UInt = 0u,
+public data class ClusMaintenanceModeInfoex(
+    public var inMaintenance: Bool = 0,
+    public var maintainenceModeType: MaintenanceModeTypeEnum = 0,
+    public var internalState: ClusterResourceState = 0,
+    public var signature: UInt = 0u,
 )
 
-public data class CLUS_NETNAME_IP_INFO_ENTRY(
-    public var NodeId: UInt = 0u,
-    public var AddressSize: UInt = 0u,
-    public var Address: UByteArray = UByteArray(1),
+public data class ClusNetnameIpInfoEntry(
+    public var nodeId: UInt = 0u,
+    public var addressSize: UInt = 0u,
+    public var address: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CLUS_NETNAME_IP_INFO_ENTRY) return false
-        if (this.NodeId != other.NodeId) return false
-        if (this.AddressSize != other.AddressSize) return false
-        if (!this.Address.contentEquals(other.Address)) return false
+        if (other !is ClusNetnameIpInfoEntry) return false
+        if (this.nodeId != other.nodeId) return false
+        if (this.addressSize != other.addressSize) return false
+        if (!this.address.contentEquals(other.address)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.NodeId.hashCode()
-        result = 31 * result + this.AddressSize.hashCode()
-        result = 31 * result + this.Address.contentHashCode()
+        var result = this.nodeId.hashCode()
+        result = 31 * result + this.addressSize.hashCode()
+        result = 31 * result + this.address.contentHashCode()
         return result
     }
 }
 
-public data class CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL(
+public data class ClusNetnameIpInfoForMultichannel(
     public var szName: UShortArray = UShortArray(64),
-    public var NumEntries: UInt = 0u,
-    public var IpInfo: List<CLUS_NETNAME_IP_INFO_ENTRY> = List(1) { CLUS_NETNAME_IP_INFO_ENTRY() },
+    public var numEntries: UInt = 0u,
+    public var ipInfo: List<ClusNetnameIpInfoEntry> = List(1) { ClusNetnameIpInfoEntry() },
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL) return false
+        if (other !is ClusNetnameIpInfoForMultichannel) return false
         if (!this.szName.contentEquals(other.szName)) return false
-        if (this.NumEntries != other.NumEntries) return false
-        if (this.IpInfo != other.IpInfo) return false
+        if (this.numEntries != other.numEntries) return false
+        if (this.ipInfo != other.ipInfo) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.szName.contentHashCode()
-        result = 31 * result + this.NumEntries.hashCode()
-        result = 31 * result + this.IpInfo.hashCode()
+        result = 31 * result + this.numEntries.hashCode()
+        result = 31 * result + this.ipInfo.hashCode()
         return result
     }
 }
 
-public data class CLUS_NETNAME_PWD_INFO(
-    public var Flags: UInt = 0u,
-    public var Password: UShortArray = UShortArray(16),
-    public var CreatingDC: UShortArray = UShortArray(258),
-    public var ObjectGuid: UShortArray = UShortArray(64),
+public data class ClusNetnamePwdInfo(
+    public var flags: UInt = 0u,
+    public var password: UShortArray = UShortArray(16),
+    public var creatingDC: UShortArray = UShortArray(258),
+    public var objectGuid: UShortArray = UShortArray(64),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CLUS_NETNAME_PWD_INFO) return false
-        if (this.Flags != other.Flags) return false
-        if (!this.Password.contentEquals(other.Password)) return false
-        if (!this.CreatingDC.contentEquals(other.CreatingDC)) return false
-        if (!this.ObjectGuid.contentEquals(other.ObjectGuid)) return false
+        if (other !is ClusNetnamePwdInfo) return false
+        if (this.flags != other.flags) return false
+        if (!this.password.contentEquals(other.password)) return false
+        if (!this.creatingDC.contentEquals(other.creatingDC)) return false
+        if (!this.objectGuid.contentEquals(other.objectGuid)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Flags.hashCode()
-        result = 31 * result + this.Password.contentHashCode()
-        result = 31 * result + this.CreatingDC.contentHashCode()
-        result = 31 * result + this.ObjectGuid.contentHashCode()
+        var result = this.flags.hashCode()
+        result = 31 * result + this.password.contentHashCode()
+        result = 31 * result + this.creatingDC.contentHashCode()
+        result = 31 * result + this.objectGuid.contentHashCode()
         return result
     }
 }
 
-public data class CLUS_NETNAME_PWD_INFOEX(
-    public var Flags: UInt = 0u,
-    public var Password: UShortArray = UShortArray(128),
-    public var CreatingDC: UShortArray = UShortArray(258),
-    public var ObjectGuid: UShortArray = UShortArray(64),
+public data class ClusNetnamePwdInfoex(
+    public var flags: UInt = 0u,
+    public var password: UShortArray = UShortArray(128),
+    public var creatingDC: UShortArray = UShortArray(258),
+    public var objectGuid: UShortArray = UShortArray(64),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CLUS_NETNAME_PWD_INFOEX) return false
-        if (this.Flags != other.Flags) return false
-        if (!this.Password.contentEquals(other.Password)) return false
-        if (!this.CreatingDC.contentEquals(other.CreatingDC)) return false
-        if (!this.ObjectGuid.contentEquals(other.ObjectGuid)) return false
+        if (other !is ClusNetnamePwdInfoex) return false
+        if (this.flags != other.flags) return false
+        if (!this.password.contentEquals(other.password)) return false
+        if (!this.creatingDC.contentEquals(other.creatingDC)) return false
+        if (!this.objectGuid.contentEquals(other.objectGuid)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Flags.hashCode()
-        result = 31 * result + this.Password.contentHashCode()
-        result = 31 * result + this.CreatingDC.contentHashCode()
-        result = 31 * result + this.ObjectGuid.contentHashCode()
+        var result = this.flags.hashCode()
+        result = 31 * result + this.password.contentHashCode()
+        result = 31 * result + this.creatingDC.contentHashCode()
+        result = 31 * result + this.objectGuid.contentHashCode()
         return result
     }
 }
 
-public data class CLUS_NETNAME_VS_TOKEN_INFO(
-    public var ProcessID: UInt = 0u,
-    public var DesiredAccess: UInt = 0u,
-    public var InheritHandle: BOOL = 0,
+public data class ClusNetnameVsTokenInfo(
+    public var processID: UInt = 0u,
+    public var desiredAccess: UInt = 0u,
+    public var inheritHandle: Bool = 0,
 )
 
-public data class CLUS_PARTITION_INFO(
+public data class ClusPartitionInfo(
     public var dwFlags: UInt = 0u,
     public var szDeviceName: UShortArray = UShortArray(260),
     public var szVolumeLabel: UShortArray = UShortArray(260),
@@ -862,7 +863,7 @@ public data class CLUS_PARTITION_INFO(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CLUS_PARTITION_INFO) return false
+        if (other !is ClusPartitionInfo) return false
         if (this.dwFlags != other.dwFlags) return false
         if (!this.szDeviceName.contentEquals(other.szDeviceName)) return false
         if (!this.szVolumeLabel.contentEquals(other.szVolumeLabel)) return false
@@ -885,7 +886,7 @@ public data class CLUS_PARTITION_INFO(
     }
 }
 
-public data class CLUS_PARTITION_INFO_EX(
+public data class ClusPartitionInfoEx(
     public var dwFlags: UInt = 0u,
     public var szDeviceName: UShortArray = UShortArray(260),
     public var szVolumeLabel: UShortArray = UShortArray(260),
@@ -893,15 +894,15 @@ public data class CLUS_PARTITION_INFO_EX(
     public var rgdwMaximumComponentLength: UInt = 0u,
     public var dwFileSystemFlags: UInt = 0u,
     public var szFileSystem: UShortArray = UShortArray(32),
-    public var TotalSizeInBytes: ULong = 0uL,
-    public var FreeSizeInBytes: ULong = 0uL,
-    public var DeviceNumber: UInt = 0u,
-    public var PartitionNumber: UInt = 0u,
-    public var VolumeGuid: GUID = GUID(),
+    public var totalSizeInBytes: ULong = 0uL,
+    public var freeSizeInBytes: ULong = 0uL,
+    public var deviceNumber: UInt = 0u,
+    public var partitionNumber: UInt = 0u,
+    public var volumeGuid: Guid = Guid(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CLUS_PARTITION_INFO_EX) return false
+        if (other !is ClusPartitionInfoEx) return false
         if (this.dwFlags != other.dwFlags) return false
         if (!this.szDeviceName.contentEquals(other.szDeviceName)) return false
         if (!this.szVolumeLabel.contentEquals(other.szVolumeLabel)) return false
@@ -909,11 +910,11 @@ public data class CLUS_PARTITION_INFO_EX(
         if (this.rgdwMaximumComponentLength != other.rgdwMaximumComponentLength) return false
         if (this.dwFileSystemFlags != other.dwFileSystemFlags) return false
         if (!this.szFileSystem.contentEquals(other.szFileSystem)) return false
-        if (this.TotalSizeInBytes != other.TotalSizeInBytes) return false
-        if (this.FreeSizeInBytes != other.FreeSizeInBytes) return false
-        if (this.DeviceNumber != other.DeviceNumber) return false
-        if (this.PartitionNumber != other.PartitionNumber) return false
-        if (this.VolumeGuid != other.VolumeGuid) return false
+        if (this.totalSizeInBytes != other.totalSizeInBytes) return false
+        if (this.freeSizeInBytes != other.freeSizeInBytes) return false
+        if (this.deviceNumber != other.deviceNumber) return false
+        if (this.partitionNumber != other.partitionNumber) return false
+        if (this.volumeGuid != other.volumeGuid) return false
         return true
     }
 
@@ -925,45 +926,45 @@ public data class CLUS_PARTITION_INFO_EX(
         result = 31 * result + this.rgdwMaximumComponentLength.hashCode()
         result = 31 * result + this.dwFileSystemFlags.hashCode()
         result = 31 * result + this.szFileSystem.contentHashCode()
-        result = 31 * result + this.TotalSizeInBytes.hashCode()
-        result = 31 * result + this.FreeSizeInBytes.hashCode()
-        result = 31 * result + this.DeviceNumber.hashCode()
-        result = 31 * result + this.PartitionNumber.hashCode()
-        result = 31 * result + this.VolumeGuid.hashCode()
+        result = 31 * result + this.totalSizeInBytes.hashCode()
+        result = 31 * result + this.freeSizeInBytes.hashCode()
+        result = 31 * result + this.deviceNumber.hashCode()
+        result = 31 * result + this.partitionNumber.hashCode()
+        result = 31 * result + this.volumeGuid.hashCode()
         return result
     }
 }
 
-public data class CLUS_PARTITION_INFO_EX2(
-    public var GptPartitionId: GUID = GUID(),
+public data class ClusPartitionInfoEx2(
+    public var gptPartitionId: Guid = Guid(),
     public var szPartitionName: UShortArray = UShortArray(260),
-    public var EncryptionFlags: UInt = 0u,
+    public var encryptionFlags: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CLUS_PARTITION_INFO_EX2) return false
-        if (this.GptPartitionId != other.GptPartitionId) return false
+        if (other !is ClusPartitionInfoEx2) return false
+        if (this.gptPartitionId != other.gptPartitionId) return false
         if (!this.szPartitionName.contentEquals(other.szPartitionName)) return false
-        if (this.EncryptionFlags != other.EncryptionFlags) return false
+        if (this.encryptionFlags != other.encryptionFlags) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.GptPartitionId.hashCode()
+        var result = this.gptPartitionId.hashCode()
         result = 31 * result + this.szPartitionName.contentHashCode()
-        result = 31 * result + this.EncryptionFlags.hashCode()
+        result = 31 * result + this.encryptionFlags.hashCode()
         return result
     }
 }
 
-public data class CLUS_PROVIDER_STATE_CHANGE_INFO(
+public data class ClusProviderStateChangeInfo(
     public var dwSize: UInt = 0u,
-    public var resourceState: CLUSTER_RESOURCE_STATE = 0,
+    public var resourceState: ClusterResourceState = 0,
     public var szProviderId: UShortArray = UShortArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CLUS_PROVIDER_STATE_CHANGE_INFO) return false
+        if (other !is ClusProviderStateChangeInfo) return false
         if (this.dwSize != other.dwSize) return false
         if (this.resourceState != other.resourceState) return false
         if (!this.szProviderId.contentEquals(other.szProviderId)) return false
@@ -978,152 +979,152 @@ public data class CLUS_PROVIDER_STATE_CHANGE_INFO(
     }
 }
 
-public data class CLUS_RESOURCE_CLASS_INFO(public var Anonymous: CLUS_RESOURCE_CLASS_INFO_0 = CLUS_RESOURCE_CLASS_INFO_0())
+public data class ClusResourceClassInfo(public var anonymous: ClusResourceClassInfo0 = ClusResourceClassInfo0())
 
-public data class CLUS_RESOURCE_CLASS_INFO_0(public var Anonymous: CLUS_RESOURCE_CLASS_INFO_0_0 = CLUS_RESOURCE_CLASS_INFO_0_0(), public var li: ULong = 0uL)
+public data class ClusResourceClassInfo0(public var anonymous: ClusResourceClassInfo00 = ClusResourceClassInfo00(), public var li: ULong = 0uL)
 
-public data class CLUS_RESOURCE_CLASS_INFO_0_0(public var Anonymous: CLUS_RESOURCE_CLASS_INFO_0_0_0 = CLUS_RESOURCE_CLASS_INFO_0_0_0(), public var SubClass: UInt = 0u)
+public data class ClusResourceClassInfo00(public var anonymous: ClusResourceClassInfo000 = ClusResourceClassInfo000(), public var subClass: UInt = 0u)
 
-public data class CLUS_RESOURCE_CLASS_INFO_0_0_0(public var dw: UInt = 0u, public var rc: CLUSTER_RESOURCE_CLASS = 0)
+public data class ClusResourceClassInfo000(public var dw: UInt = 0u, public var rc: ClusterResourceClass = 0)
 
-public data class CLUS_SCSI_ADDRESS(public var Anonymous: CLUS_SCSI_ADDRESS_0 = CLUS_SCSI_ADDRESS_0())
+public data class ClusScsiAddress(public var anonymous: ClusScsiAddress0 = ClusScsiAddress0())
 
-public data class CLUS_SCSI_ADDRESS_0(public var Anonymous: CLUS_SCSI_ADDRESS_0_0 = CLUS_SCSI_ADDRESS_0_0(), public var dw: UInt = 0u)
+public data class ClusScsiAddress0(public var anonymous: ClusScsiAddress00 = ClusScsiAddress00(), public var dw: UInt = 0u)
 
-public data class CLUS_SCSI_ADDRESS_0_0(
-    public var PortNumber: UByte = 0u,
-    public var PathId: UByte = 0u,
-    public var TargetId: UByte = 0u,
-    public var Lun: UByte = 0u,
+public data class ClusScsiAddress00(
+    public var portNumber: UByte = 0u,
+    public var pathId: UByte = 0u,
+    public var targetId: UByte = 0u,
+    public var lun: UByte = 0u,
 )
 
-public data class CLUS_SET_MAINTENANCE_MODE_INPUT(
-    public var InMaintenance: BOOL = 0,
-    public var ExtraParameterSize: UInt = 0u,
-    public var ExtraParameter: UByteArray = UByteArray(1),
+public data class ClusSetMaintenanceModeInput(
+    public var inMaintenance: Bool = 0,
+    public var extraParameterSize: UInt = 0u,
+    public var extraParameter: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CLUS_SET_MAINTENANCE_MODE_INPUT) return false
-        if (this.InMaintenance != other.InMaintenance) return false
-        if (this.ExtraParameterSize != other.ExtraParameterSize) return false
-        if (!this.ExtraParameter.contentEquals(other.ExtraParameter)) return false
+        if (other !is ClusSetMaintenanceModeInput) return false
+        if (this.inMaintenance != other.inMaintenance) return false
+        if (this.extraParameterSize != other.extraParameterSize) return false
+        if (!this.extraParameter.contentEquals(other.extraParameter)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.InMaintenance.hashCode()
-        result = 31 * result + this.ExtraParameterSize.hashCode()
-        result = 31 * result + this.ExtraParameter.contentHashCode()
+        var result = this.inMaintenance.hashCode()
+        result = 31 * result + this.extraParameterSize.hashCode()
+        result = 31 * result + this.extraParameter.contentHashCode()
         return result
     }
 }
 
-public data class CLUS_SHARED_VOLUME_BACKUP_MODE(
-    public var BackupState: CLUSTER_SHARED_VOLUME_BACKUP_STATE = 0,
-    public var DelayTimerInSecs: UInt = 0u,
-    public var VolumeName: UShortArray = UShortArray(260),
+public data class ClusSharedVolumeBackupMode(
+    public var backupState: ClusterSharedVolumeBackupState = 0,
+    public var delayTimerInSecs: UInt = 0u,
+    public var volumeName: UShortArray = UShortArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CLUS_SHARED_VOLUME_BACKUP_MODE) return false
-        if (this.BackupState != other.BackupState) return false
-        if (this.DelayTimerInSecs != other.DelayTimerInSecs) return false
-        if (!this.VolumeName.contentEquals(other.VolumeName)) return false
+        if (other !is ClusSharedVolumeBackupMode) return false
+        if (this.backupState != other.backupState) return false
+        if (this.delayTimerInSecs != other.delayTimerInSecs) return false
+        if (!this.volumeName.contentEquals(other.volumeName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.BackupState.hashCode()
-        result = 31 * result + this.DelayTimerInSecs.hashCode()
-        result = 31 * result + this.VolumeName.contentHashCode()
+        var result = this.backupState.hashCode()
+        result = 31 * result + this.delayTimerInSecs.hashCode()
+        result = 31 * result + this.volumeName.contentHashCode()
         return result
     }
 }
 
-public data class CLUS_STARTING_PARAMS(
+public data class ClusStartingParams(
     public var dwSize: UInt = 0u,
-    public var bForm: BOOL = 0,
-    public var bFirst: BOOL = 0,
+    public var bForm: Bool = 0,
+    public var bFirst: Bool = 0,
 )
 
-public data class CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS(public var AvailDrivelettersMask: UInt = 0u)
+public data class ClusStorageGetAvailableDriveletters(public var availDrivelettersMask: UInt = 0u)
 
-public data class CLUS_STORAGE_REMAP_DRIVELETTER(public var CurrentDriveLetterMask: UInt = 0u, public var TargetDriveLetterMask: UInt = 0u)
+public data class ClusStorageRemapDriveletter(public var currentDriveLetterMask: UInt = 0u, public var targetDriveLetterMask: UInt = 0u)
 
-public data class CLUS_STORAGE_SET_DRIVELETTER(public var PartitionNumber: UInt = 0u, public var DriveLetterMask: UInt = 0u)
+public data class ClusStorageSetDriveletter(public var partitionNumber: UInt = 0u, public var driveLetterMask: UInt = 0u)
 
-public data class CLUS_WORKER(public var hThread: HANDLE = 0L, public var Terminate: BOOL = 0)
+public data class ClusWorker(public var hThread: Handle = null, public var terminate: Bool = 0)
 
-public data class CREATE_CLUSTER_CONFIG(
+public data class CreateClusterConfig(
     public var dwVersion: UInt = 0u,
-    public var lpszClusterName: PCWSTR = 0L,
+    public var lpszClusterName: Pcwstr = null,
     public var cNodes: UInt = 0u,
-    public var ppszNodeNames: Long = 0L,
+    public var ppszNodeNames: Pcwstr? = null,
     public var cIpEntries: UInt = 0u,
-    public var pIpEntries: Long = 0L,
+    public var pIpEntries: ClusterIpEntry? = null,
     public var fEmptyCluster: Boolean = false,
-    public var managementPointType: CLUSTER_MGMT_POINT_TYPE = 0,
-    public var managementPointResType: CLUSTER_MGMT_POINT_RESTYPE = 0,
+    public var managementPointType: ClusterMgmtPointType = 0,
+    public var managementPointResType: ClusterMgmtPointRestype = 0,
 )
 
-public data class CREATE_CLUSTER_NAME_ACCOUNT(
+public data class CreateClusterNameAccount(
     public var dwVersion: UInt = 0u,
-    public var lpszClusterName: PCWSTR = 0L,
+    public var lpszClusterName: Pcwstr = null,
     public var dwFlags: UInt = 0u,
-    public var pszUserName: PCWSTR = 0L,
-    public var pszPassword: PCWSTR = 0L,
-    public var pszDomain: PCWSTR = 0L,
-    public var managementPointType: CLUSTER_MGMT_POINT_TYPE = 0,
-    public var managementPointResType: CLUSTER_MGMT_POINT_RESTYPE = 0,
+    public var pszUserName: Pcwstr = null,
+    public var pszPassword: Pcwstr = null,
+    public var pszDomain: Pcwstr = null,
+    public var managementPointType: ClusterMgmtPointType = 0,
+    public var managementPointResType: ClusterMgmtPointRestype = 0,
     public var bUpgradeVCOs: Boolean = false,
 )
 
-public data class FILESHARE_CHANGE(public var Change: FILESHARE_CHANGE_ENUM = 0, public var ShareName: UShortArray = UShortArray(84)) {
+public data class FileshareChange(public var change: FileshareChangeEnum = 0, public var shareName: UShortArray = UShortArray(84)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is FILESHARE_CHANGE) return false
-        if (this.Change != other.Change) return false
-        if (!this.ShareName.contentEquals(other.ShareName)) return false
+        if (other !is FileshareChange) return false
+        if (this.change != other.change) return false
+        if (!this.shareName.contentEquals(other.shareName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Change.hashCode()
-        result = 31 * result + this.ShareName.contentHashCode()
+        var result = this.change.hashCode()
+        result = 31 * result + this.shareName.contentHashCode()
         return result
     }
 }
 
-public data class FILESHARE_CHANGE_LIST(public var NumEntries: UInt = 0u, public var ChangeEntry: List<FILESHARE_CHANGE> = List(1) { FILESHARE_CHANGE() })
+public data class FileshareChangeList(public var numEntries: UInt = 0u, public var changeEntry: List<FileshareChange> = List(1) { FileshareChange() })
 
-public data class GET_OPERATION_CONTEXT_PARAMS(
-    public var Size: UInt = 0u,
-    public var Version: UInt = 0u,
-    public var Type: RESDLL_CONTEXT_OPERATION_TYPE = 0,
-    public var Priority: UInt = 0u,
+public data class GetOperationContextParams(
+    public var size: UInt = 0u,
+    public var version: UInt = 0u,
+    public var type: ResdllContextOperationType = 0,
+    public var priority: UInt = 0u,
 )
 
-public data class GROUP_FAILURE_INFO(public var dwFailoverAttemptsRemaining: UInt = 0u, public var dwFailoverPeriodRemaining: UInt = 0u)
+public data class GroupFailureInfo(public var dwFailoverAttemptsRemaining: UInt = 0u, public var dwFailoverPeriodRemaining: UInt = 0u)
 
-public data class GROUP_FAILURE_INFO_BUFFER(public var dwVersion: UInt = 0u, public var Info: GROUP_FAILURE_INFO = GROUP_FAILURE_INFO())
+public data class GroupFailureInfoBuffer(public var dwVersion: UInt = 0u, public var info: GroupFailureInfo = GroupFailureInfo())
 
-public data class MONITOR_STATE(
-    public var LastUpdate: Long = 0L,
-    public var State: RESOURCE_MONITOR_STATE = 0,
-    public var ActiveResource: HANDLE = 0L,
-    public var ResmonStop: BOOL = 0,
+public data class MonitorState(
+    public var lastUpdate: Long = 0L,
+    public var state: ResourceMonitorState = 0,
+    public var activeResource: Handle = null,
+    public var resmonStop: Bool = 0,
 )
 
-public data class NOTIFY_FILTER_AND_TYPE(public var dwObjectType: UInt = 0u, public var FilterFlags: Long = 0L)
+public data class NotifyFilterAndType(public var dwObjectType: UInt = 0u, public var filterFlags: Long = 0L)
 
 public data class NodeUtilizationInfoElement(
-    public var Id: ULong = 0uL,
-    public var AvailableMemory: ULong = 0uL,
-    public var AvailableMemoryAfterReclamation: ULong = 0uL,
+    public var id: ULong = 0uL,
+    public var availableMemory: ULong = 0uL,
+    public var availableMemoryAfterReclamation: ULong = 0uL,
 )
 
-public data class POST_UPGRADE_VERSION_INFO(
+public data class PostUpgradeVersionInfo(
     public var newMajorVersion: UInt = 0u,
     public var newUpgradeVersion: UInt = 0u,
     public var oldMajorVersion: UInt = 0u,
@@ -1132,201 +1133,201 @@ public data class POST_UPGRADE_VERSION_INFO(
 )
 
 public data class PaxosTagCStruct(
-    public var __padding__PaxosTagVtable: ULong = 0uL,
-    public var __padding__NextEpochVtable: ULong = 0uL,
-    public var __padding__NextEpoch_DateTimeVtable: ULong = 0uL,
-    public var NextEpoch_DateTime_ticks: ULong = 0uL,
-    public var NextEpoch_Value: Int = 0,
-    public var __padding__BoundryNextEpoch: UInt = 0u,
-    public var __padding__EpochVtable: ULong = 0uL,
-    public var __padding__Epoch_DateTimeVtable: ULong = 0uL,
-    public var Epoch_DateTime_ticks: ULong = 0uL,
-    public var Epoch_Value: Int = 0,
-    public var __padding__BoundryEpoch: UInt = 0u,
-    public var Sequence: Int = 0,
-    public var __padding__BoundrySequence: UInt = 0u,
+    public var paddingPaxosTagVtable: ULong = 0uL,
+    public var paddingNextEpochVtable: ULong = 0uL,
+    public var paddingNextEpochDateTimeVtable: ULong = 0uL,
+    public var nextEpochDateTimeTicks: ULong = 0uL,
+    public var nextEpochValue: Int = 0,
+    public var paddingBoundryNextEpoch: UInt = 0u,
+    public var paddingEpochVtable: ULong = 0uL,
+    public var paddingEpochDateTimeVtable: ULong = 0uL,
+    public var epochDateTimeTicks: ULong = 0uL,
+    public var epochValue: Int = 0,
+    public var paddingBoundryEpoch: UInt = 0u,
+    public var sequence: Int = 0,
+    public var paddingBoundrySequence: UInt = 0u,
 )
 
-public data class RESOURCE_FAILURE_INFO(public var dwRestartAttemptsRemaining: UInt = 0u, public var dwRestartPeriodRemaining: UInt = 0u)
+public data class ResourceFailureInfo(public var dwRestartAttemptsRemaining: UInt = 0u, public var dwRestartPeriodRemaining: UInt = 0u)
 
-public data class RESOURCE_FAILURE_INFO_BUFFER(public var dwVersion: UInt = 0u, public var Info: RESOURCE_FAILURE_INFO = RESOURCE_FAILURE_INFO())
+public data class ResourceFailureInfoBuffer(public var dwVersion: UInt = 0u, public var info: ResourceFailureInfo = ResourceFailureInfo())
 
-public data class RESOURCE_STATUS(
-    public var ResourceState: CLUSTER_RESOURCE_STATE = 0,
-    public var CheckPoint: UInt = 0u,
-    public var WaitHint: UInt = 0u,
-    public var EventHandle: HANDLE = 0L,
+public data class ResourceStatus(
+    public var resourceState: ClusterResourceState = 0,
+    public var checkPoint: UInt = 0u,
+    public var waitHint: UInt = 0u,
+    public var eventHandle: Handle = null,
 )
 
-public data class RESOURCE_STATUS_EX(
-    public var ResourceState: CLUSTER_RESOURCE_STATE = 0,
-    public var CheckPoint: UInt = 0u,
-    public var EventHandle: HANDLE = 0L,
-    public var ApplicationSpecificErrorCode: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var WaitHint: UInt = 0u,
+public data class ResourceStatusEx(
+    public var resourceState: ClusterResourceState = 0,
+    public var checkPoint: UInt = 0u,
+    public var eventHandle: Handle = null,
+    public var applicationSpecificErrorCode: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var waitHint: UInt = 0u,
 )
 
-public data class RESOURCE_TERMINAL_FAILURE_INFO_BUFFER(public var isTerminalFailure: BOOL = 0, public var restartPeriodRemaining: UInt = 0u)
+public data class ResourceTerminalFailureInfoBuffer(public var isTerminalFailure: Bool = 0, public var restartPeriodRemaining: UInt = 0u)
 
-public data class RESUTIL_FILETIME_DATA(
-    public var Default: FILETIME = FILETIME(),
-    public var Minimum: FILETIME = FILETIME(),
-    public var Maximum: FILETIME = FILETIME(),
+public data class ResutilFiletimeData(
+    public var default: Filetime = Filetime(),
+    public var minimum: Filetime = Filetime(),
+    public var maximum: Filetime = Filetime(),
 )
 
-public data class RESUTIL_LARGEINT_DATA(
-    public var Default: Long = 0L,
-    public var Minimum: Long = 0L,
-    public var Maximum: Long = 0L,
+public data class ResutilLargeintData(
+    public var default: Long = 0L,
+    public var minimum: Long = 0L,
+    public var maximum: Long = 0L,
 )
 
-public data class RESUTIL_PROPERTY_ITEM(
-    public var Name: PWSTR = 0L,
-    public var KeyName: PWSTR = 0L,
-    public var Format: UInt = 0u,
-    public var Anonymous: RESUTIL_PROPERTY_ITEM_0 = RESUTIL_PROPERTY_ITEM_0(),
-    public var Minimum: UInt = 0u,
-    public var Maximum: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var Offset: UInt = 0u,
+public data class ResutilPropertyItem(
+    public var name: Pwstr = null,
+    public var keyName: Pwstr = null,
+    public var format: UInt = 0u,
+    public var anonymous: ResutilPropertyItem0 = ResutilPropertyItem0(),
+    public var minimum: UInt = 0u,
+    public var maximum: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var offset: UInt = 0u,
 )
 
-public data class RESUTIL_PROPERTY_ITEM_0(
-    public var DefaultPtr: ULong = 0uL,
-    public var Default: UInt = 0u,
-    public var lpDefault: Long = 0L,
-    public var LargeIntData: Long = 0L,
-    public var ULargeIntData: Long = 0L,
-    public var FileTimeData: Long = 0L,
+public data class ResutilPropertyItem0(
+    public var defaultPtr: Int = 0,
+    public var default: UInt = 0u,
+    public var lpDefault: COpaquePointer? = null,
+    public var largeIntData: ResutilLargeintData? = null,
+    public var uLargeIntData: ResutilUlargeintData? = null,
+    public var fileTimeData: ResutilFiletimeData? = null,
 )
 
-public data class RESUTIL_ULARGEINT_DATA(
-    public var Default: ULong = 0uL,
-    public var Minimum: ULong = 0uL,
-    public var Maximum: ULong = 0uL,
+public data class ResutilUlargeintData(
+    public var default: ULong = 0uL,
+    public var minimum: ULong = 0uL,
+    public var maximum: ULong = 0uL,
 )
 
-public data class ResourceUtilizationInfoElement(public var PhysicalNumaId: ULong = 0uL, public var CurrentMemory: ULong = 0uL)
+public data class ResourceUtilizationInfoElement(public var physicalNumaId: ULong = 0uL, public var currentMemory: ULong = 0uL)
 
-public data class SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP(
-    public var ReplicationGroupName: UShortArray = UShortArray(260),
-    public var Description: UShortArray = UShortArray(260),
-    public var LogPath: UShortArray = UShortArray(260),
-    public var MaxLogSizeInBytes: ULong = 0uL,
-    public var LogType: UShort = 0u,
-    public var ReplicationMode: UInt = 0u,
-    public var MinimumPartnersInSync: UInt = 0u,
-    public var EnableWriteConsistency: Boolean = false,
-    public var EnableEncryption: Boolean = false,
-    public var EnableCompression: Boolean = false,
-    public var CertificateThumbprint: UShortArray = UShortArray(260),
-    public var VolumeNameCount: UInt = 0u,
-    public var VolumeNames: UShortArray = UShortArray(260),
+public data class SrResourceTypeAddReplicationGroup(
+    public var replicationGroupName: UShortArray = UShortArray(260),
+    public var description: UShortArray = UShortArray(260),
+    public var logPath: UShortArray = UShortArray(260),
+    public var maxLogSizeInBytes: ULong = 0uL,
+    public var logType: UShort = 0u,
+    public var replicationMode: UInt = 0u,
+    public var minimumPartnersInSync: UInt = 0u,
+    public var enableWriteConsistency: Boolean = false,
+    public var enableEncryption: Boolean = false,
+    public var enableCompression: Boolean = false,
+    public var certificateThumbprint: UShortArray = UShortArray(260),
+    public var volumeNameCount: UInt = 0u,
+    public var volumeNames: UShortArray = UShortArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP) return false
-        if (!this.ReplicationGroupName.contentEquals(other.ReplicationGroupName)) return false
-        if (!this.Description.contentEquals(other.Description)) return false
-        if (!this.LogPath.contentEquals(other.LogPath)) return false
-        if (this.MaxLogSizeInBytes != other.MaxLogSizeInBytes) return false
-        if (this.LogType != other.LogType) return false
-        if (this.ReplicationMode != other.ReplicationMode) return false
-        if (this.MinimumPartnersInSync != other.MinimumPartnersInSync) return false
-        if (this.EnableWriteConsistency != other.EnableWriteConsistency) return false
-        if (this.EnableEncryption != other.EnableEncryption) return false
-        if (this.EnableCompression != other.EnableCompression) return false
-        if (!this.CertificateThumbprint.contentEquals(other.CertificateThumbprint)) return false
-        if (this.VolumeNameCount != other.VolumeNameCount) return false
-        if (!this.VolumeNames.contentEquals(other.VolumeNames)) return false
+        if (other !is SrResourceTypeAddReplicationGroup) return false
+        if (!this.replicationGroupName.contentEquals(other.replicationGroupName)) return false
+        if (!this.description.contentEquals(other.description)) return false
+        if (!this.logPath.contentEquals(other.logPath)) return false
+        if (this.maxLogSizeInBytes != other.maxLogSizeInBytes) return false
+        if (this.logType != other.logType) return false
+        if (this.replicationMode != other.replicationMode) return false
+        if (this.minimumPartnersInSync != other.minimumPartnersInSync) return false
+        if (this.enableWriteConsistency != other.enableWriteConsistency) return false
+        if (this.enableEncryption != other.enableEncryption) return false
+        if (this.enableCompression != other.enableCompression) return false
+        if (!this.certificateThumbprint.contentEquals(other.certificateThumbprint)) return false
+        if (this.volumeNameCount != other.volumeNameCount) return false
+        if (!this.volumeNames.contentEquals(other.volumeNames)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ReplicationGroupName.contentHashCode()
-        result = 31 * result + this.Description.contentHashCode()
-        result = 31 * result + this.LogPath.contentHashCode()
-        result = 31 * result + this.MaxLogSizeInBytes.hashCode()
-        result = 31 * result + this.LogType.hashCode()
-        result = 31 * result + this.ReplicationMode.hashCode()
-        result = 31 * result + this.MinimumPartnersInSync.hashCode()
-        result = 31 * result + this.EnableWriteConsistency.hashCode()
-        result = 31 * result + this.EnableEncryption.hashCode()
-        result = 31 * result + this.EnableCompression.hashCode()
-        result = 31 * result + this.CertificateThumbprint.contentHashCode()
-        result = 31 * result + this.VolumeNameCount.hashCode()
-        result = 31 * result + this.VolumeNames.contentHashCode()
+        var result = this.replicationGroupName.contentHashCode()
+        result = 31 * result + this.description.contentHashCode()
+        result = 31 * result + this.logPath.contentHashCode()
+        result = 31 * result + this.maxLogSizeInBytes.hashCode()
+        result = 31 * result + this.logType.hashCode()
+        result = 31 * result + this.replicationMode.hashCode()
+        result = 31 * result + this.minimumPartnersInSync.hashCode()
+        result = 31 * result + this.enableWriteConsistency.hashCode()
+        result = 31 * result + this.enableEncryption.hashCode()
+        result = 31 * result + this.enableCompression.hashCode()
+        result = 31 * result + this.certificateThumbprint.contentHashCode()
+        result = 31 * result + this.volumeNameCount.hashCode()
+        result = 31 * result + this.volumeNames.contentHashCode()
         return result
     }
 }
 
-public data class SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT(public var Result: UInt = 0u, public var ErrorString: UShortArray = UShortArray(260)) {
+public data class SrResourceTypeAddReplicationGroupResult(public var result: UInt = 0u, public var errorString: UShortArray = UShortArray(260)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT) return false
-        if (this.Result != other.Result) return false
-        if (!this.ErrorString.contentEquals(other.ErrorString)) return false
+        if (other !is SrResourceTypeAddReplicationGroupResult) return false
+        if (this.result != other.result) return false
+        if (!this.errorString.contentEquals(other.errorString)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Result.hashCode()
-        result = 31 * result + this.ErrorString.contentHashCode()
+        var result = this.result.hashCode()
+        result = 31 * result + this.errorString.contentHashCode()
         return result
     }
 }
 
-public data class SR_RESOURCE_TYPE_DISK_INFO(public var Reason: SR_DISK_REPLICATION_ELIGIBLE = 0, public var DiskGuid: GUID = GUID())
+public data class SrResourceTypeDiskInfo(public var reason: SrDiskReplicationEligible = 0, public var diskGuid: Guid = Guid())
 
-public data class SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT(public var Count: UShort = 0u, public var DiskInfo: List<SR_RESOURCE_TYPE_DISK_INFO> = List(1) { SR_RESOURCE_TYPE_DISK_INFO() })
+public data class SrResourceTypeEligibleDisksResult(public var count: UShort = 0u, public var diskInfo: List<SrResourceTypeDiskInfo> = List(1) { SrResourceTypeDiskInfo() })
 
-public data class SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS(public var DataDiskGuid: GUID = GUID(), public var IncludeOfflineDisks: Boolean = false)
+public data class SrResourceTypeQueryEligibleLogdisks(public var dataDiskGuid: Guid = Guid(), public var includeOfflineDisks: Boolean = false)
 
-public data class SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS(public var DataDiskGuid: GUID = GUID(), public var IncludeAvailableStoargeDisks: Boolean = false)
+public data class SrResourceTypeQueryEligibleSourceDatadisks(public var dataDiskGuid: Guid = Guid(), public var includeAvailableStoargeDisks: Boolean = false)
 
-public data class SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS(
-    public var SourceDataDiskGuid: GUID = GUID(),
-    public var TargetReplicationGroupGuid: GUID = GUID(),
-    public var SkipConnectivityCheck: Boolean = false,
-    public var IncludeOfflineDisks: Boolean = false,
+public data class SrResourceTypeQueryEligibleTargetDatadisks(
+    public var sourceDataDiskGuid: Guid = Guid(),
+    public var targetReplicationGroupGuid: Guid = Guid(),
+    public var skipConnectivityCheck: Boolean = false,
+    public var includeOfflineDisks: Boolean = false,
 )
 
-public data class SR_RESOURCE_TYPE_REPLICATED_DISK(
-    public var Type: SR_REPLICATED_DISK_TYPE = 0,
-    public var ClusterDiskResourceGuid: GUID = GUID(),
-    public var ReplicationGroupId: GUID = GUID(),
-    public var ReplicationGroupName: UShortArray = UShortArray(260),
+public data class SrResourceTypeReplicatedDisk(
+    public var type: SrReplicatedDiskType = 0,
+    public var clusterDiskResourceGuid: Guid = Guid(),
+    public var replicationGroupId: Guid = Guid(),
+    public var replicationGroupName: UShortArray = UShortArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SR_RESOURCE_TYPE_REPLICATED_DISK) return false
-        if (this.Type != other.Type) return false
-        if (this.ClusterDiskResourceGuid != other.ClusterDiskResourceGuid) return false
-        if (this.ReplicationGroupId != other.ReplicationGroupId) return false
-        if (!this.ReplicationGroupName.contentEquals(other.ReplicationGroupName)) return false
+        if (other !is SrResourceTypeReplicatedDisk) return false
+        if (this.type != other.type) return false
+        if (this.clusterDiskResourceGuid != other.clusterDiskResourceGuid) return false
+        if (this.replicationGroupId != other.replicationGroupId) return false
+        if (!this.replicationGroupName.contentEquals(other.replicationGroupName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Type.hashCode()
-        result = 31 * result + this.ClusterDiskResourceGuid.hashCode()
-        result = 31 * result + this.ReplicationGroupId.hashCode()
-        result = 31 * result + this.ReplicationGroupName.contentHashCode()
+        var result = this.type.hashCode()
+        result = 31 * result + this.clusterDiskResourceGuid.hashCode()
+        result = 31 * result + this.replicationGroupId.hashCode()
+        result = 31 * result + this.replicationGroupName.contentHashCode()
         return result
     }
 }
 
-public data class SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT(public var Count: UShort = 0u, public var ReplicatedDisks: List<SR_RESOURCE_TYPE_REPLICATED_DISK> = List(1) { SR_RESOURCE_TYPE_REPLICATED_DISK() })
+public data class SrResourceTypeReplicatedDisksResult(public var count: UShort = 0u, public var replicatedDisks: List<SrResourceTypeReplicatedDisk> = List(1) { SrResourceTypeReplicatedDisk() })
 
-public data class SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY(public var Count: UInt = 0u, public var PartitionArray: List<SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO> = List(1) { SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO() })
+public data class SrResourceTypeReplicatedPartitionArray(public var count: UInt = 0u, public var partitionArray: List<SrResourceTypeReplicatedPartitionInfo> = List(1) { SrResourceTypeReplicatedPartitionInfo() })
 
-public data class SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO(public var PartitionOffset: ULong = 0uL, public var Capabilities: UInt = 0u)
+public data class SrResourceTypeReplicatedPartitionInfo(public var partitionOffset: ULong = 0uL, public var capabilities: UInt = 0u)
 
-public data class WitnessTagHelper(public var Version: Int = 0, public var paxosToValidate: PaxosTagCStruct = PaxosTagCStruct())
+public data class WitnessTagHelper(public var version: Int = 0, public var paxosToValidate: PaxosTagCStruct = PaxosTagCStruct())
 
 public data class WitnessTagUpdateHelper(
-    public var Version: Int = 0,
+    public var version: Int = 0,
     public var paxosToSet: PaxosTagCStruct = PaxosTagCStruct(),
     public var paxosToValidate: PaxosTagCStruct = PaxosTagCStruct(),
 )

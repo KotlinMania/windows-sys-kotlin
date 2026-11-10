@@ -1,71 +1,72 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos
 
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
-public fun interface CBADMITRESULTFn {
-    public operator fun invoke(lpmhandle: LPM_HANDLE, requesthandle: RHANDLE, ulpcmactionflags: UInt, lpmerror: Int, policydecisionscount: Int, ppolicydecisions: Long): Long
+public fun interface CbadmitresultFn {
+    public operator fun invoke(lpmhandle: LpmHandle, requesthandle: Rhandle, ulpcmactionflags: UInt, lpmerror: Int, policydecisionscount: Int, ppolicydecisions: COpaquePointer?): COpaquePointer?
 }
 
-public typealias CBADMITRESULT = CBADMITRESULTFn?
+public typealias Cbadmitresult = CbadmitresultFn?
 
-public fun interface CBGETRSVPOBJECTSFn {
-    public operator fun invoke(lpmhandle: LPM_HANDLE, requesthandle: RHANDLE, lpmerror: Int, rsvpobjectscount: Int, pprsvpobjects: Long): Long
+public fun interface CbgetrsvpobjectsFn {
+    public operator fun invoke(lpmhandle: LpmHandle, requesthandle: Rhandle, lpmerror: Int, rsvpobjectscount: Int, pprsvpobjects: COpaquePointer?): COpaquePointer?
 }
 
-public typealias CBGETRSVPOBJECTS = CBGETRSVPOBJECTSFn?
+public typealias Cbgetrsvpobjects = CbgetrsvpobjectsFn?
 
 public typealias FilterType = Int
 
-public typealias LPM_HANDLE = Long
+public typealias LpmHandle = COpaquePointer?
 
-public fun interface PALLOCMEMFn {
-    public operator fun invoke(size: UInt): Long
+public fun interface PallocmemFn {
+    public operator fun invoke(size: UInt): COpaquePointer?
 }
 
-public typealias PALLOCMEM = PALLOCMEMFn?
+public typealias Pallocmem = PallocmemFn?
 
-public fun interface PFREEMEMFn {
-    public operator fun invoke(pv: Long)
+public fun interface PfreememFn {
+    public operator fun invoke(pv: COpaquePointer?)
 }
 
-public typealias PFREEMEM = PFREEMEMFn?
+public typealias Pfreemem = PfreememFn?
 
-public typealias QOS_FLOWRATE_REASON = Int
+public typealias QosFlowrateReason = Int
 
-public typealias QOS_NOTIFY_FLOW = Int
+public typealias QosNotifyFlow = Int
 
-public typealias QOS_QUERY_FLOW = Int
+public typealias QosQueryFlow = Int
 
-public typealias QOS_SET_FLOW = Int
+public typealias QosSetFlow = Int
 
-public typealias QOS_SHAPING = Int
+public typealias QosShaping = Int
 
-public typealias QOS_TRAFFIC_TYPE = Int
+public typealias QosTrafficType = Int
 
-public typealias RHANDLE = Long
+public typealias Rhandle = COpaquePointer?
 
-public fun interface TCI_ADD_FLOW_COMPLETE_HANDLERFn {
-    public operator fun invoke(clflowctx: HANDLE, status: UInt)
+public fun interface TciAddFlowCompleteHandlerFn {
+    public operator fun invoke(clflowctx: Handle, status: UInt)
 }
 
-public typealias TCI_ADD_FLOW_COMPLETE_HANDLER = TCI_ADD_FLOW_COMPLETE_HANDLERFn?
+public typealias TciAddFlowCompleteHandler = TciAddFlowCompleteHandlerFn?
 
-public fun interface TCI_DEL_FLOW_COMPLETE_HANDLERFn {
-    public operator fun invoke(clflowctx: HANDLE, status: UInt)
+public fun interface TciDelFlowCompleteHandlerFn {
+    public operator fun invoke(clflowctx: Handle, status: UInt)
 }
 
-public typealias TCI_DEL_FLOW_COMPLETE_HANDLER = TCI_DEL_FLOW_COMPLETE_HANDLERFn?
+public typealias TciDelFlowCompleteHandler = TciDelFlowCompleteHandlerFn?
 
-public fun interface TCI_MOD_FLOW_COMPLETE_HANDLERFn {
-    public operator fun invoke(clflowctx: HANDLE, status: UInt)
+public fun interface TciModFlowCompleteHandlerFn {
+    public operator fun invoke(clflowctx: Handle, status: UInt)
 }
 
-public typealias TCI_MOD_FLOW_COMPLETE_HANDLER = TCI_MOD_FLOW_COMPLETE_HANDLERFn?
+public typealias TciModFlowCompleteHandler = TciModFlowCompleteHandlerFn?
 
-public fun interface TCI_NOTIFY_HANDLERFn {
-    public operator fun invoke(clregctx: HANDLE, clifcctx: HANDLE, event: UInt, subcode: HANDLE, bufsize: UInt, buffer: Long)
+public fun interface TciNotifyHandlerFn {
+    public operator fun invoke(clregctx: Handle, clifcctx: Handle, event: UInt, subcode: Handle, bufsize: UInt, buffer: COpaquePointer?)
 }
 
-public typealias TCI_NOTIFY_HANDLER = TCI_NOTIFY_HANDLERFn?
+public typealias TciNotifyHandler = TciNotifyHandlerFn?
 
-public typealias int_serv_wkp = Int
+public typealias IntServWkp = Int

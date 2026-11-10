@@ -1,53 +1,55 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.system.grouppolicy
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.SYSTEMTIME
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Systemtime
+import io.github.kotlinmania.windowssys.windows.win32.system.com.Safearray
 
-public data class GPOBROWSEINFO(
+public data class Gpobrowseinfo(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var hwndOwner: HWND = 0L,
-    public var lpTitle: PWSTR = 0L,
-    public var lpInitialOU: PWSTR = 0L,
-    public var lpDSPath: PWSTR = 0L,
+    public var hwndOwner: Hwnd = null,
+    public var lpTitle: Pwstr = null,
+    public var lpInitialOU: Pwstr = null,
+    public var lpDSPath: Pwstr = null,
     public var dwDSPathSize: UInt = 0u,
-    public var lpName: PWSTR = 0L,
+    public var lpName: Pwstr = null,
     public var dwNameSize: UInt = 0u,
-    public var gpoType: GROUP_POLICY_OBJECT_TYPE = 0,
-    public var gpoHint: GROUP_POLICY_HINT_TYPE = 0,
+    public var gpoType: GroupPolicyObjectType = 0,
+    public var gpoHint: GroupPolicyHintType = 0,
 )
 
-public data class GROUP_POLICY_OBJECTA(
+public data class GroupPolicyObjecta(
     public var dwOptions: UInt = 0u,
     public var dwVersion: UInt = 0u,
-    public var lpDSPath: PSTR = 0L,
-    public var lpFileSysPath: PSTR = 0L,
-    public var lpDisplayName: PSTR = 0L,
+    public var lpDSPath: Pstr = null,
+    public var lpFileSysPath: Pstr = null,
+    public var lpDisplayName: Pstr = null,
     public var szGPOName: ByteArray = ByteArray(50),
-    public var GPOLink: GPO_LINK = 0,
-    public var lParam: LPARAM = 0L,
-    public var pNext: Long = 0L,
-    public var pPrev: Long = 0L,
-    public var lpExtensions: PSTR = 0L,
-    public var lParam2: LPARAM = 0L,
-    public var lpLink: PSTR = 0L,
+    public var gPOLink: GpoLink = 0,
+    public var lParam: Lparam = 0L,
+    public var pNext: GroupPolicyObjecta? = null,
+    public var pPrev: GroupPolicyObjecta? = null,
+    public var lpExtensions: Pstr = null,
+    public var lParam2: Lparam = 0L,
+    public var lpLink: Pstr = null,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is GROUP_POLICY_OBJECTA) return false
+        if (other !is GroupPolicyObjecta) return false
         if (this.dwOptions != other.dwOptions) return false
         if (this.dwVersion != other.dwVersion) return false
         if (this.lpDSPath != other.lpDSPath) return false
         if (this.lpFileSysPath != other.lpFileSysPath) return false
         if (this.lpDisplayName != other.lpDisplayName) return false
         if (!this.szGPOName.contentEquals(other.szGPOName)) return false
-        if (this.GPOLink != other.GPOLink) return false
+        if (this.gPOLink != other.gPOLink) return false
         if (this.lParam != other.lParam) return false
         if (this.pNext != other.pNext) return false
         if (this.pPrev != other.pPrev) return false
@@ -64,7 +66,7 @@ public data class GROUP_POLICY_OBJECTA(
         result = 31 * result + this.lpFileSysPath.hashCode()
         result = 31 * result + this.lpDisplayName.hashCode()
         result = 31 * result + this.szGPOName.contentHashCode()
-        result = 31 * result + this.GPOLink.hashCode()
+        result = 31 * result + this.gPOLink.hashCode()
         result = 31 * result + this.lParam.hashCode()
         result = 31 * result + this.pNext.hashCode()
         result = 31 * result + this.pPrev.hashCode()
@@ -75,31 +77,31 @@ public data class GROUP_POLICY_OBJECTA(
     }
 }
 
-public data class GROUP_POLICY_OBJECTW(
+public data class GroupPolicyObjectw(
     public var dwOptions: UInt = 0u,
     public var dwVersion: UInt = 0u,
-    public var lpDSPath: PWSTR = 0L,
-    public var lpFileSysPath: PWSTR = 0L,
-    public var lpDisplayName: PWSTR = 0L,
+    public var lpDSPath: Pwstr = null,
+    public var lpFileSysPath: Pwstr = null,
+    public var lpDisplayName: Pwstr = null,
     public var szGPOName: UShortArray = UShortArray(50),
-    public var GPOLink: GPO_LINK = 0,
-    public var lParam: LPARAM = 0L,
-    public var pNext: Long = 0L,
-    public var pPrev: Long = 0L,
-    public var lpExtensions: PWSTR = 0L,
-    public var lParam2: LPARAM = 0L,
-    public var lpLink: PWSTR = 0L,
+    public var gPOLink: GpoLink = 0,
+    public var lParam: Lparam = 0L,
+    public var pNext: GroupPolicyObjectw? = null,
+    public var pPrev: GroupPolicyObjectw? = null,
+    public var lpExtensions: Pwstr = null,
+    public var lParam2: Lparam = 0L,
+    public var lpLink: Pwstr = null,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is GROUP_POLICY_OBJECTW) return false
+        if (other !is GroupPolicyObjectw) return false
         if (this.dwOptions != other.dwOptions) return false
         if (this.dwVersion != other.dwVersion) return false
         if (this.lpDSPath != other.lpDSPath) return false
         if (this.lpFileSysPath != other.lpFileSysPath) return false
         if (this.lpDisplayName != other.lpDisplayName) return false
         if (!this.szGPOName.contentEquals(other.szGPOName)) return false
-        if (this.GPOLink != other.GPOLink) return false
+        if (this.gPOLink != other.gPOLink) return false
         if (this.lParam != other.lParam) return false
         if (this.pNext != other.pNext) return false
         if (this.pPrev != other.pPrev) return false
@@ -116,7 +118,7 @@ public data class GROUP_POLICY_OBJECTW(
         result = 31 * result + this.lpFileSysPath.hashCode()
         result = 31 * result + this.lpDisplayName.hashCode()
         result = 31 * result + this.szGPOName.contentHashCode()
-        result = 31 * result + this.GPOLink.hashCode()
+        result = 31 * result + this.gPOLink.hashCode()
         result = 31 * result + this.lParam.hashCode()
         result = 31 * result + this.pNext.hashCode()
         result = 31 * result + this.pPrev.hashCode()
@@ -127,60 +129,60 @@ public data class GROUP_POLICY_OBJECTW(
     }
 }
 
-public data class INSTALLDATA(public var Type: INSTALLSPECTYPE = 0, public var Spec: INSTALLSPEC = INSTALLSPEC())
+public data class Installdata(public var type: Installspectype = 0, public var spec: Installspec = Installspec())
 
-public data class INSTALLSPEC(
-    public var AppName: INSTALLSPEC_0 = INSTALLSPEC_0(),
-    public var FileExt: PWSTR = 0L,
-    public var ProgId: PWSTR = 0L,
-    public var COMClass: INSTALLSPEC_1 = INSTALLSPEC_1(),
+public data class Installspec(
+    public var appName: Installspec0 = Installspec0(),
+    public var fileExt: Pwstr = null,
+    public var progId: Pwstr = null,
+    public var cOMClass: Installspec1 = Installspec1(),
 )
 
-public data class INSTALLSPEC_0(public var Name: PWSTR = 0L, public var GPOId: GUID = GUID())
+public data class Installspec0(public var name: Pwstr = null, public var gPOId: Guid = Guid())
 
-public data class INSTALLSPEC_1(public var Clsid: GUID = GUID(), public var ClsCtx: UInt = 0u)
+public data class Installspec1(public var clsid: Guid = Guid(), public var clsCtx: UInt = 0u)
 
-public data class LOCALMANAGEDAPPLICATION(
-    public var pszDeploymentName: PWSTR = 0L,
-    public var pszPolicyName: PWSTR = 0L,
-    public var pszProductId: PWSTR = 0L,
+public data class Localmanagedapplication(
+    public var pszDeploymentName: Pwstr = null,
+    public var pszPolicyName: Pwstr = null,
+    public var pszProductId: Pwstr = null,
     public var dwState: UInt = 0u,
 )
 
-public data class MANAGEDAPPLICATION(
-    public var pszPackageName: PWSTR = 0L,
-    public var pszPublisher: PWSTR = 0L,
+public data class Managedapplication(
+    public var pszPackageName: Pwstr = null,
+    public var pszPublisher: Pwstr = null,
     public var dwVersionHi: UInt = 0u,
     public var dwVersionLo: UInt = 0u,
     public var dwRevision: UInt = 0u,
-    public var GpoId: GUID = GUID(),
-    public var pszPolicyName: PWSTR = 0L,
-    public var ProductId: GUID = GUID(),
-    public var Language: UShort = 0u,
-    public var pszOwner: PWSTR = 0L,
-    public var pszCompany: PWSTR = 0L,
-    public var pszComments: PWSTR = 0L,
-    public var pszContact: PWSTR = 0L,
-    public var pszSupportUrl: PWSTR = 0L,
+    public var gpoId: Guid = Guid(),
+    public var pszPolicyName: Pwstr = null,
+    public var productId: Guid = Guid(),
+    public var language: UShort = 0u,
+    public var pszOwner: Pwstr = null,
+    public var pszCompany: Pwstr = null,
+    public var pszComments: Pwstr = null,
+    public var pszContact: Pwstr = null,
+    public var pszSupportUrl: Pwstr = null,
     public var dwPathType: UInt = 0u,
-    public var bInstalled: BOOL = 0,
+    public var bInstalled: Bool = 0,
 )
 
-public data class POLICYSETTINGSTATUSINFO(
-    public var szKey: PWSTR = 0L,
-    public var szEventSource: PWSTR = 0L,
-    public var szEventLogName: PWSTR = 0L,
+public data class Policysettingstatusinfo(
+    public var szKey: Pwstr = null,
+    public var szEventSource: Pwstr = null,
+    public var szEventLogName: Pwstr = null,
     public var dwEventID: UInt = 0u,
     public var dwErrorCode: UInt = 0u,
-    public var status: SETTINGSTATUS = 0,
-    public var timeLogged: SYSTEMTIME = SYSTEMTIME(),
+    public var status: Settingstatus = 0,
+    public var timeLogged: Systemtime = Systemtime(),
 )
 
-public data class RSOP_TARGET(
-    public var pwszAccountName: PWSTR = 0L,
-    public var pwszNewSOM: PWSTR = 0L,
-    public var psaSecurityGroups: Long = 0L,
-    public var pRsopToken: Long = 0L,
-    public var pGPOList: Long = 0L,
-    public var pWbemServices: Long = 0L,
+public data class RsopTarget(
+    public var pwszAccountName: Pwstr = null,
+    public var pwszNewSOM: Pwstr = null,
+    public var psaSecurityGroups: Safearray? = null,
+    public var pRsopToken: COpaquePointer? = null,
+    public var pGPOList: GroupPolicyObjecta? = null,
+    public var pWbemServices: COpaquePointer? = null,
 )

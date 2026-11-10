@@ -1,182 +1,184 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.processsnapshotting
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.system.memory.MEMORY_BASIC_INFORMATION
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.Context
+import io.github.kotlinmania.windowssys.windows.win32.system.memory.MemoryBasicInformation
 
-public data class PSS_ALLOCATOR(
-    public var Context: Long = 0L,
-    public var AllocRoutine: Long = 0L,
-    public var FreeRoutine: Long = 0L,
+public data class PssAllocator(
+    public var context: COpaquePointer? = null,
+    public var allocRoutine: Int = 0,
+    public var freeRoutine: Int = 0,
 )
 
-public data class PSS_AUXILIARY_PAGES_INFORMATION(public var AuxPagesCaptured: UInt = 0u)
+public data class PssAuxiliaryPagesInformation(public var auxPagesCaptured: UInt = 0u)
 
-public data class PSS_AUXILIARY_PAGE_ENTRY(
-    public var Address: Long = 0L,
-    public var BasicInformation: MEMORY_BASIC_INFORMATION = MEMORY_BASIC_INFORMATION(),
-    public var CaptureTime: FILETIME = FILETIME(),
-    public var PageContents: Long = 0L,
-    public var PageSize: UInt = 0u,
+public data class PssAuxiliaryPageEntry(
+    public var address: COpaquePointer? = null,
+    public var basicInformation: MemoryBasicInformation = MemoryBasicInformation(),
+    public var captureTime: Filetime = Filetime(),
+    public var pageContents: COpaquePointer? = null,
+    public var pageSize: UInt = 0u,
 )
 
-public data class PSS_HANDLE_ENTRY(
-    public var Handle: HANDLE = 0L,
-    public var Flags: PSS_HANDLE_FLAGS = 0,
-    public var ObjectType: PSS_OBJECT_TYPE = 0,
-    public var CaptureTime: FILETIME = FILETIME(),
-    public var Attributes: UInt = 0u,
-    public var GrantedAccess: UInt = 0u,
-    public var HandleCount: UInt = 0u,
-    public var PointerCount: UInt = 0u,
-    public var PagedPoolCharge: UInt = 0u,
-    public var NonPagedPoolCharge: UInt = 0u,
-    public var CreationTime: FILETIME = FILETIME(),
-    public var TypeNameLength: UShort = 0u,
-    public var TypeName: PCWSTR = 0L,
-    public var ObjectNameLength: UShort = 0u,
-    public var ObjectName: PCWSTR = 0L,
-    public var TypeSpecificInformation: PSS_HANDLE_ENTRY_0 = PSS_HANDLE_ENTRY_0(),
+public data class PssHandleEntry(
+    public var handle: Handle = null,
+    public var flags: PssHandleFlags = 0,
+    public var objectType: PssObjectType = 0,
+    public var captureTime: Filetime = Filetime(),
+    public var attributes: UInt = 0u,
+    public var grantedAccess: UInt = 0u,
+    public var handleCount: UInt = 0u,
+    public var pointerCount: UInt = 0u,
+    public var pagedPoolCharge: UInt = 0u,
+    public var nonPagedPoolCharge: UInt = 0u,
+    public var creationTime: Filetime = Filetime(),
+    public var typeNameLength: UShort = 0u,
+    public var typeName: Pcwstr = null,
+    public var objectNameLength: UShort = 0u,
+    public var objectName: Pcwstr = null,
+    public var typeSpecificInformation: PssHandleEntry0 = PssHandleEntry0(),
 )
 
-public data class PSS_HANDLE_ENTRY_0(
-    public var Process: PSS_HANDLE_ENTRY_0_0 = PSS_HANDLE_ENTRY_0_0(),
-    public var Thread: PSS_HANDLE_ENTRY_0_1 = PSS_HANDLE_ENTRY_0_1(),
-    public var Mutant: PSS_HANDLE_ENTRY_0_2 = PSS_HANDLE_ENTRY_0_2(),
-    public var Event: PSS_HANDLE_ENTRY_0_3 = PSS_HANDLE_ENTRY_0_3(),
-    public var Section: PSS_HANDLE_ENTRY_0_4 = PSS_HANDLE_ENTRY_0_4(),
-    public var Semaphore: PSS_HANDLE_ENTRY_0_5 = PSS_HANDLE_ENTRY_0_5(),
+public data class PssHandleEntry0(
+    public var process: PssHandleEntry00 = PssHandleEntry00(),
+    public var thread: PssHandleEntry01 = PssHandleEntry01(),
+    public var mutant: PssHandleEntry02 = PssHandleEntry02(),
+    public var event: PssHandleEntry03 = PssHandleEntry03(),
+    public var section: PssHandleEntry04 = PssHandleEntry04(),
+    public var semaphore: PssHandleEntry05 = PssHandleEntry05(),
 )
 
-public data class PSS_HANDLE_ENTRY_0_3(public var ManualReset: BOOL = 0, public var Signaled: BOOL = 0)
+public data class PssHandleEntry03(public var manualReset: Bool = 0, public var signaled: Bool = 0)
 
-public data class PSS_HANDLE_ENTRY_0_2(
-    public var CurrentCount: Int = 0,
-    public var Abandoned: BOOL = 0,
-    public var OwnerProcessId: UInt = 0u,
-    public var OwnerThreadId: UInt = 0u,
+public data class PssHandleEntry02(
+    public var currentCount: Int = 0,
+    public var abandoned: Bool = 0,
+    public var ownerProcessId: UInt = 0u,
+    public var ownerThreadId: UInt = 0u,
 )
 
-public data class PSS_HANDLE_ENTRY_0_0(
-    public var ExitStatus: UInt = 0u,
-    public var PebBaseAddress: Long = 0L,
-    public var AffinityMask: ULong = 0uL,
-    public var BasePriority: Int = 0,
-    public var ProcessId: UInt = 0u,
-    public var ParentProcessId: UInt = 0u,
-    public var Flags: UInt = 0u,
+public data class PssHandleEntry00(
+    public var exitStatus: UInt = 0u,
+    public var pebBaseAddress: COpaquePointer? = null,
+    public var affinityMask: Int = 0,
+    public var basePriority: Int = 0,
+    public var processId: UInt = 0u,
+    public var parentProcessId: UInt = 0u,
+    public var flags: UInt = 0u,
 )
 
-public data class PSS_HANDLE_ENTRY_0_4(
-    public var BaseAddress: Long = 0L,
-    public var AllocationAttributes: UInt = 0u,
-    public var MaximumSize: Long = 0L,
+public data class PssHandleEntry04(
+    public var baseAddress: COpaquePointer? = null,
+    public var allocationAttributes: UInt = 0u,
+    public var maximumSize: Long = 0L,
 )
 
-public data class PSS_HANDLE_ENTRY_0_5(public var CurrentCount: Int = 0, public var MaximumCount: Int = 0)
+public data class PssHandleEntry05(public var currentCount: Int = 0, public var maximumCount: Int = 0)
 
-public data class PSS_HANDLE_ENTRY_0_1(
-    public var ExitStatus: UInt = 0u,
-    public var TebBaseAddress: Long = 0L,
-    public var ProcessId: UInt = 0u,
-    public var ThreadId: UInt = 0u,
-    public var AffinityMask: ULong = 0uL,
-    public var Priority: Int = 0,
-    public var BasePriority: Int = 0,
-    public var Win32StartAddress: Long = 0L,
+public data class PssHandleEntry01(
+    public var exitStatus: UInt = 0u,
+    public var tebBaseAddress: COpaquePointer? = null,
+    public var processId: UInt = 0u,
+    public var threadId: UInt = 0u,
+    public var affinityMask: Int = 0,
+    public var priority: Int = 0,
+    public var basePriority: Int = 0,
+    public var win32StartAddress: COpaquePointer? = null,
 )
 
-public data class PSS_HANDLE_INFORMATION(public var HandlesCaptured: UInt = 0u)
+public data class PssHandleInformation(public var handlesCaptured: UInt = 0u)
 
-public data class PSS_HANDLE_TRACE_INFORMATION(public var SectionHandle: HANDLE = 0L, public var Size: UInt = 0u)
+public data class PssHandleTraceInformation(public var sectionHandle: Handle = null, public var size: UInt = 0u)
 
-public data class PSS_PERFORMANCE_COUNTERS(
-    public var TotalCycleCount: ULong = 0uL,
-    public var TotalWallClockPeriod: ULong = 0uL,
-    public var VaCloneCycleCount: ULong = 0uL,
-    public var VaCloneWallClockPeriod: ULong = 0uL,
-    public var VaSpaceCycleCount: ULong = 0uL,
-    public var VaSpaceWallClockPeriod: ULong = 0uL,
-    public var AuxPagesCycleCount: ULong = 0uL,
-    public var AuxPagesWallClockPeriod: ULong = 0uL,
-    public var HandlesCycleCount: ULong = 0uL,
-    public var HandlesWallClockPeriod: ULong = 0uL,
-    public var ThreadsCycleCount: ULong = 0uL,
-    public var ThreadsWallClockPeriod: ULong = 0uL,
+public data class PssPerformanceCounters(
+    public var totalCycleCount: ULong = 0uL,
+    public var totalWallClockPeriod: ULong = 0uL,
+    public var vaCloneCycleCount: ULong = 0uL,
+    public var vaCloneWallClockPeriod: ULong = 0uL,
+    public var vaSpaceCycleCount: ULong = 0uL,
+    public var vaSpaceWallClockPeriod: ULong = 0uL,
+    public var auxPagesCycleCount: ULong = 0uL,
+    public var auxPagesWallClockPeriod: ULong = 0uL,
+    public var handlesCycleCount: ULong = 0uL,
+    public var handlesWallClockPeriod: ULong = 0uL,
+    public var threadsCycleCount: ULong = 0uL,
+    public var threadsWallClockPeriod: ULong = 0uL,
 )
 
-public class PSS_PROCESS_INFORMATION(
-    public var ExitStatus: UInt = 0u,
-    public var PebBaseAddress: Long = 0L,
-    public var AffinityMask: ULong = 0uL,
-    public var BasePriority: Int = 0,
-    public var ProcessId: UInt = 0u,
-    public var ParentProcessId: UInt = 0u,
-    public var Flags: PSS_PROCESS_FLAGS = 0,
-    public var CreateTime: FILETIME = FILETIME(),
-    public var ExitTime: FILETIME = FILETIME(),
-    public var KernelTime: FILETIME = FILETIME(),
-    public var UserTime: FILETIME = FILETIME(),
-    public var PriorityClass: UInt = 0u,
-    public var PeakVirtualSize: ULong = 0uL,
-    public var VirtualSize: ULong = 0uL,
-    public var PageFaultCount: UInt = 0u,
-    public var PeakWorkingSetSize: ULong = 0uL,
-    public var WorkingSetSize: ULong = 0uL,
-    public var QuotaPeakPagedPoolUsage: ULong = 0uL,
-    public var QuotaPagedPoolUsage: ULong = 0uL,
-    public var QuotaPeakNonPagedPoolUsage: ULong = 0uL,
-    public var QuotaNonPagedPoolUsage: ULong = 0uL,
-    public var PagefileUsage: ULong = 0uL,
-    public var PeakPagefileUsage: ULong = 0uL,
-    public var PrivateUsage: ULong = 0uL,
-    public var ExecuteFlags: UInt = 0u,
-    public var ImageFileName: UShortArray = UShortArray(260),
+public class PssProcessInformation(
+    public var exitStatus: UInt = 0u,
+    public var pebBaseAddress: COpaquePointer? = null,
+    public var affinityMask: Int = 0,
+    public var basePriority: Int = 0,
+    public var processId: UInt = 0u,
+    public var parentProcessId: UInt = 0u,
+    public var flags: PssProcessFlags = 0,
+    public var createTime: Filetime = Filetime(),
+    public var exitTime: Filetime = Filetime(),
+    public var kernelTime: Filetime = Filetime(),
+    public var userTime: Filetime = Filetime(),
+    public var priorityClass: UInt = 0u,
+    public var peakVirtualSize: Int = 0,
+    public var virtualSize: Int = 0,
+    public var pageFaultCount: UInt = 0u,
+    public var peakWorkingSetSize: Int = 0,
+    public var workingSetSize: Int = 0,
+    public var quotaPeakPagedPoolUsage: Int = 0,
+    public var quotaPagedPoolUsage: Int = 0,
+    public var quotaPeakNonPagedPoolUsage: Int = 0,
+    public var quotaNonPagedPoolUsage: Int = 0,
+    public var pagefileUsage: Int = 0,
+    public var peakPagefileUsage: Int = 0,
+    public var privateUsage: Int = 0,
+    public var executeFlags: UInt = 0u,
+    public var imageFileName: UShortArray = UShortArray(260),
 )
 
-public class PSS_THREAD_ENTRY(
-    public var ExitStatus: UInt = 0u,
-    public var TebBaseAddress: Long = 0L,
-    public var ProcessId: UInt = 0u,
-    public var ThreadId: UInt = 0u,
-    public var AffinityMask: ULong = 0uL,
-    public var Priority: Int = 0,
-    public var BasePriority: Int = 0,
-    public var LastSyscallFirstArgument: Long = 0L,
-    public var LastSyscallNumber: UShort = 0u,
-    public var CreateTime: FILETIME = FILETIME(),
-    public var ExitTime: FILETIME = FILETIME(),
-    public var KernelTime: FILETIME = FILETIME(),
-    public var UserTime: FILETIME = FILETIME(),
-    public var Win32StartAddress: Long = 0L,
-    public var CaptureTime: FILETIME = FILETIME(),
-    public var Flags: PSS_THREAD_FLAGS = 0,
-    public var SuspendCount: UShort = 0u,
-    public var SizeOfContextRecord: UShort = 0u,
-    public var ContextRecord: Long = 0L,
+public class PssThreadEntry(
+    public var exitStatus: UInt = 0u,
+    public var tebBaseAddress: COpaquePointer? = null,
+    public var processId: UInt = 0u,
+    public var threadId: UInt = 0u,
+    public var affinityMask: Int = 0,
+    public var priority: Int = 0,
+    public var basePriority: Int = 0,
+    public var lastSyscallFirstArgument: COpaquePointer? = null,
+    public var lastSyscallNumber: UShort = 0u,
+    public var createTime: Filetime = Filetime(),
+    public var exitTime: Filetime = Filetime(),
+    public var kernelTime: Filetime = Filetime(),
+    public var userTime: Filetime = Filetime(),
+    public var win32StartAddress: COpaquePointer? = null,
+    public var captureTime: Filetime = Filetime(),
+    public var flags: PssThreadFlags = 0,
+    public var suspendCount: UShort = 0u,
+    public var sizeOfContextRecord: UShort = 0u,
+    public var contextRecord: Context? = null,
 )
 
-public data class PSS_THREAD_INFORMATION(public var ThreadsCaptured: UInt = 0u, public var ContextLength: UInt = 0u)
+public data class PssThreadInformation(public var threadsCaptured: UInt = 0u, public var contextLength: UInt = 0u)
 
-public data class PSS_VA_CLONE_INFORMATION(public var VaCloneHandle: HANDLE = 0L)
+public data class PssVaCloneInformation(public var vaCloneHandle: Handle = null)
 
-public data class PSS_VA_SPACE_ENTRY(
-    public var BaseAddress: Long = 0L,
-    public var AllocationBase: Long = 0L,
-    public var AllocationProtect: UInt = 0u,
-    public var RegionSize: ULong = 0uL,
-    public var State: UInt = 0u,
-    public var Protect: UInt = 0u,
-    public var Type: UInt = 0u,
-    public var TimeDateStamp: UInt = 0u,
-    public var SizeOfImage: UInt = 0u,
-    public var ImageBase: Long = 0L,
-    public var CheckSum: UInt = 0u,
-    public var MappedFileNameLength: UShort = 0u,
-    public var MappedFileName: PCWSTR = 0L,
+public data class PssVaSpaceEntry(
+    public var baseAddress: COpaquePointer? = null,
+    public var allocationBase: COpaquePointer? = null,
+    public var allocationProtect: UInt = 0u,
+    public var regionSize: Int = 0,
+    public var state: UInt = 0u,
+    public var protect: UInt = 0u,
+    public var type: UInt = 0u,
+    public var timeDateStamp: UInt = 0u,
+    public var sizeOfImage: UInt = 0u,
+    public var imageBase: COpaquePointer? = null,
+    public var checkSum: UInt = 0u,
+    public var mappedFileNameLength: UShort = 0u,
+    public var mappedFileName: Pcwstr = null,
 )
 
-public data class PSS_VA_SPACE_INFORMATION(public var RegionCount: UInt = 0u)
+public data class PssVaSpaceInformation(public var regionCount: UInt = 0u)

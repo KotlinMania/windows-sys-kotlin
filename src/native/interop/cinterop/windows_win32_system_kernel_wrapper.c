@@ -15,7 +15,7 @@
 #endif
 #endif
 
-void* windowssys_windows_win32_system_kernel_RtlFirstEntrySList(void* listhead) {
+void* windowssys_windows_win32_system_kernel_rtlFirstEntrySList(void* listhead) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ void* windowssys_windows_win32_system_kernel_RtlFirstEntrySList(void* listhead) 
 #endif
 }
 
-void windowssys_windows_win32_system_kernel_RtlInitializeSListHead(void* listhead) {
+void windowssys_windows_win32_system_kernel_rtlInitializeSListHead(void* listhead) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -58,7 +58,7 @@ void windowssys_windows_win32_system_kernel_RtlInitializeSListHead(void* listhea
 #endif
 }
 
-void* windowssys_windows_win32_system_kernel_RtlInterlockedFlushSList(void* listhead) {
+void* windowssys_windows_win32_system_kernel_rtlInterlockedFlushSList(void* listhead) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -80,7 +80,7 @@ void* windowssys_windows_win32_system_kernel_RtlInterlockedFlushSList(void* list
 #endif
 }
 
-void* windowssys_windows_win32_system_kernel_RtlInterlockedPopEntrySList(void* listhead) {
+void* windowssys_windows_win32_system_kernel_rtlInterlockedPopEntrySList(void* listhead) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -102,7 +102,7 @@ void* windowssys_windows_win32_system_kernel_RtlInterlockedPopEntrySList(void* l
 #endif
 }
 
-void* windowssys_windows_win32_system_kernel_RtlInterlockedPushEntrySList(void* listhead, void* listentry) {
+void* windowssys_windows_win32_system_kernel_rtlInterlockedPushEntrySList(void* listhead, void* listentry) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -125,7 +125,7 @@ void* windowssys_windows_win32_system_kernel_RtlInterlockedPushEntrySList(void* 
 #endif
 }
 
-void* windowssys_windows_win32_system_kernel_RtlInterlockedPushListSListEx(void* listhead, void* list, void* listend, uint32_t count) {
+void* windowssys_windows_win32_system_kernel_rtlInterlockedPushListSListEx(void* listhead, void* list, void* listend, uint32_t count) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -150,7 +150,7 @@ void* windowssys_windows_win32_system_kernel_RtlInterlockedPushListSListEx(void*
 #endif
 }
 
-uint16_t windowssys_windows_win32_system_kernel_RtlQueryDepthSList(void* listhead) {
+uint16_t windowssys_windows_win32_system_kernel_rtlQueryDepthSList(void* listhead) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;

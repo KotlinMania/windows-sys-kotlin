@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1NetDfsAdd(JNIEnv* km_env, jclass km_clazz, jlong dfsentrypath, jlong servername, jlong sharename, jlong comment, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1netDfsAdd(JNIEnv* km_env, jclass km_clazz, jlong dfsentrypath, jlong servername, jlong sharename, jlong comment, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -40,7 +40,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1NetDfsAddFtRoot(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong rootshare, jlong ftdfsname, jlong comment, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1netDfsAddFtRoot(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong rootshare, jlong ftdfsname, jlong comment, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -62,7 +62,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1NetDfsAddRootTarget(JNIEnv* km_env, jclass km_clazz, jlong pdfspath, jlong ptargetpath, jint majorversion, jlong pcomment, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1netDfsAddRootTarget(JNIEnv* km_env, jclass km_clazz, jlong pdfspath, jlong ptargetpath, jint majorversion, jlong pcomment, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -84,7 +84,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1NetDfsAddStdRoot(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong rootshare, jlong comment, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1netDfsAddStdRoot(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong rootshare, jlong comment, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -105,7 +105,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1NetDfsEnum(JNIEnv* km_env, jclass km_clazz, jlong dfsname, jint level, jint prefmaxlen, jlong buffer, jlong entriesread, jlong resumehandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1netDfsEnum(JNIEnv* km_env, jclass km_clazz, jlong dfsname, jint level, jint prefmaxlen, jlong buffer, jlong entriesread, jlong resumehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -128,7 +128,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1NetDfsGetClientInfo(JNIEnv* km_env, jclass km_clazz, jlong dfsentrypath, jlong servername, jlong sharename, jint level, jlong buffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1netDfsGetClientInfo(JNIEnv* km_env, jclass km_clazz, jlong dfsentrypath, jlong servername, jlong sharename, jint level, jlong buffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -150,7 +150,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1NetDfsGetFtContainerSecurity(JNIEnv* km_env, jclass km_clazz, jlong domainname, jint securityinformation, jlong ppsecuritydescriptor, jlong lpcbsecuritydescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1netDfsGetFtContainerSecurity(JNIEnv* km_env, jclass km_clazz, jlong domainname, jint securityinformation, jlong ppsecuritydescriptor, jlong lpcbsecuritydescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -171,7 +171,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1NetDfsGetInfo(JNIEnv* km_env, jclass km_clazz, jlong dfsentrypath, jlong servername, jlong sharename, jint level, jlong buffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1netDfsGetInfo(JNIEnv* km_env, jclass km_clazz, jlong dfsentrypath, jlong servername, jlong sharename, jint level, jlong buffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -193,7 +193,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1NetDfsGetSecurity(JNIEnv* km_env, jclass km_clazz, jlong dfsentrypath, jint securityinformation, jlong ppsecuritydescriptor, jlong lpcbsecuritydescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1netDfsGetSecurity(JNIEnv* km_env, jclass km_clazz, jlong dfsentrypath, jint securityinformation, jlong ppsecuritydescriptor, jlong lpcbsecuritydescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -214,7 +214,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1NetDfsGetStdContainerSecurity(JNIEnv* km_env, jclass km_clazz, jlong machinename, jint securityinformation, jlong ppsecuritydescriptor, jlong lpcbsecuritydescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1netDfsGetStdContainerSecurity(JNIEnv* km_env, jclass km_clazz, jlong machinename, jint securityinformation, jlong ppsecuritydescriptor, jlong lpcbsecuritydescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -235,7 +235,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1NetDfsGetSupportedNamespaceVersion(JNIEnv* km_env, jclass km_clazz, jint origin, jlong pname, jlong ppversioninfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1netDfsGetSupportedNamespaceVersion(JNIEnv* km_env, jclass km_clazz, jint origin, jlong pname, jlong ppversioninfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -255,7 +255,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1NetDfsMove(JNIEnv* km_env, jclass km_clazz, jlong olddfsentrypath, jlong newdfsentrypath, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1netDfsMove(JNIEnv* km_env, jclass km_clazz, jlong olddfsentrypath, jlong newdfsentrypath, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -275,7 +275,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1NetDfsRemove(JNIEnv* km_env, jclass km_clazz, jlong dfsentrypath, jlong servername, jlong sharename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1netDfsRemove(JNIEnv* km_env, jclass km_clazz, jlong dfsentrypath, jlong servername, jlong sharename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -295,7 +295,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1NetDfsRemoveFtRoot(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong rootshare, jlong ftdfsname, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1netDfsRemoveFtRoot(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong rootshare, jlong ftdfsname, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -316,7 +316,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1NetDfsRemoveFtRootForced(JNIEnv* km_env, jclass km_clazz, jlong domainname, jlong servername, jlong rootshare, jlong ftdfsname, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1netDfsRemoveFtRootForced(JNIEnv* km_env, jclass km_clazz, jlong domainname, jlong servername, jlong rootshare, jlong ftdfsname, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -338,7 +338,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1NetDfsRemoveRootTarget(JNIEnv* km_env, jclass km_clazz, jlong pdfspath, jlong ptargetpath, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1netDfsRemoveRootTarget(JNIEnv* km_env, jclass km_clazz, jlong pdfspath, jlong ptargetpath, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -358,7 +358,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1NetDfsRemoveStdRoot(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong rootshare, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1netDfsRemoveStdRoot(JNIEnv* km_env, jclass km_clazz, jlong servername, jlong rootshare, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -378,7 +378,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1NetDfsSetClientInfo(JNIEnv* km_env, jclass km_clazz, jlong dfsentrypath, jlong servername, jlong sharename, jint level, jlong buffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1netDfsSetClientInfo(JNIEnv* km_env, jclass km_clazz, jlong dfsentrypath, jlong servername, jlong sharename, jint level, jlong buffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -400,7 +400,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1NetDfsSetFtContainerSecurity(JNIEnv* km_env, jclass km_clazz, jlong domainname, jint securityinformation, jlong psecuritydescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1netDfsSetFtContainerSecurity(JNIEnv* km_env, jclass km_clazz, jlong domainname, jint securityinformation, jlong psecuritydescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -420,7 +420,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1NetDfsSetInfo(JNIEnv* km_env, jclass km_clazz, jlong dfsentrypath, jlong servername, jlong sharename, jint level, jlong buffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1netDfsSetInfo(JNIEnv* km_env, jclass km_clazz, jlong dfsentrypath, jlong servername, jlong sharename, jint level, jlong buffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -442,7 +442,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1NetDfsSetSecurity(JNIEnv* km_env, jclass km_clazz, jlong dfsentrypath, jint securityinformation, jlong psecuritydescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1netDfsSetSecurity(JNIEnv* km_env, jclass km_clazz, jlong dfsentrypath, jint securityinformation, jlong psecuritydescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -462,7 +462,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1NetDfsSetStdContainerSecurity(JNIEnv* km_env, jclass km_clazz, jlong machinename, jint securityinformation, jlong psecuritydescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_distributedfilesystem_WindowsWin32StorageDistributedfilesystemJniBridge_windowssys_1windows_1win32_1storage_1distributedfilesystem_1netDfsSetStdContainerSecurity(JNIEnv* km_env, jclass km_clazz, jlong machinename, jint securityinformation, jlong psecuritydescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

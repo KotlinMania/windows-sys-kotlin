@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_system_time_EnumDynamicTimeZoneInformation(uint32_t dwindex, void* lptimezoneinformation) {
+uint32_t windowssys_windows_win32_system_time_enumDynamicTimeZoneInformation(uint32_t dwindex, void* lptimezoneinformation) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ uint32_t windowssys_windows_win32_system_time_EnumDynamicTimeZoneInformation(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_system_time_FileTimeToSystemTime(void* lpfiletime, void* lpsystemtime) {
+int32_t windowssys_windows_win32_system_time_fileTimeToSystemTime(void* lpfiletime, void* lpsystemtime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -61,7 +61,7 @@ int32_t windowssys_windows_win32_system_time_FileTimeToSystemTime(void* lpfileti
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_time_GetDynamicTimeZoneInformation(void* ptimezoneinformation) {
+uint32_t windowssys_windows_win32_system_time_getDynamicTimeZoneInformation(void* ptimezoneinformation) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -83,7 +83,7 @@ uint32_t windowssys_windows_win32_system_time_GetDynamicTimeZoneInformation(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_time_GetDynamicTimeZoneInformationEffectiveYears(void* lptimezoneinformation, void* firstyear, void* lastyear) {
+uint32_t windowssys_windows_win32_system_time_getDynamicTimeZoneInformationEffectiveYears(void* lptimezoneinformation, void* firstyear, void* lastyear) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -107,7 +107,7 @@ uint32_t windowssys_windows_win32_system_time_GetDynamicTimeZoneInformationEffec
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_time_GetTimeZoneInformation(void* lptimezoneinformation) {
+uint32_t windowssys_windows_win32_system_time_getTimeZoneInformation(void* lptimezoneinformation) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -129,7 +129,7 @@ uint32_t windowssys_windows_win32_system_time_GetTimeZoneInformation(void* lptim
 #endif
 }
 
-int32_t windowssys_windows_win32_system_time_GetTimeZoneInformationForYear(uint16_t wyear, void* pdtzi, void* ptzi) {
+int32_t windowssys_windows_win32_system_time_getTimeZoneInformationForYear(uint16_t wyear, void* pdtzi, void* ptzi) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -153,7 +153,7 @@ int32_t windowssys_windows_win32_system_time_GetTimeZoneInformationForYear(uint1
 #endif
 }
 
-int32_t windowssys_windows_win32_system_time_LocalFileTimeToLocalSystemTime(void* timezoneinformation, void* localfiletime, void* localsystemtime) {
+int32_t windowssys_windows_win32_system_time_localFileTimeToLocalSystemTime(void* timezoneinformation, void* localfiletime, void* localsystemtime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -177,7 +177,7 @@ int32_t windowssys_windows_win32_system_time_LocalFileTimeToLocalSystemTime(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_time_LocalSystemTimeToLocalFileTime(void* timezoneinformation, void* localsystemtime, void* localfiletime) {
+int32_t windowssys_windows_win32_system_time_localSystemTimeToLocalFileTime(void* timezoneinformation, void* localsystemtime, void* localfiletime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -201,7 +201,7 @@ int32_t windowssys_windows_win32_system_time_LocalSystemTimeToLocalFileTime(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_time_SetDynamicTimeZoneInformation(void* lptimezoneinformation) {
+int32_t windowssys_windows_win32_system_time_setDynamicTimeZoneInformation(void* lptimezoneinformation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -223,7 +223,7 @@ int32_t windowssys_windows_win32_system_time_SetDynamicTimeZoneInformation(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_time_SetTimeZoneInformation(void* lptimezoneinformation) {
+int32_t windowssys_windows_win32_system_time_setTimeZoneInformation(void* lptimezoneinformation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -245,7 +245,7 @@ int32_t windowssys_windows_win32_system_time_SetTimeZoneInformation(void* lptime
 #endif
 }
 
-int32_t windowssys_windows_win32_system_time_SystemTimeToFileTime(void* lpsystemtime, void* lpfiletime) {
+int32_t windowssys_windows_win32_system_time_systemTimeToFileTime(void* lpsystemtime, void* lpfiletime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -268,7 +268,7 @@ int32_t windowssys_windows_win32_system_time_SystemTimeToFileTime(void* lpsystem
 #endif
 }
 
-int32_t windowssys_windows_win32_system_time_SystemTimeToTzSpecificLocalTime(void* lptimezoneinformation, void* lpuniversaltime, void* lplocaltime) {
+int32_t windowssys_windows_win32_system_time_systemTimeToTzSpecificLocalTime(void* lptimezoneinformation, void* lpuniversaltime, void* lplocaltime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -292,7 +292,7 @@ int32_t windowssys_windows_win32_system_time_SystemTimeToTzSpecificLocalTime(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_time_SystemTimeToTzSpecificLocalTimeEx(void* lptimezoneinformation, void* lpuniversaltime, void* lplocaltime) {
+int32_t windowssys_windows_win32_system_time_systemTimeToTzSpecificLocalTimeEx(void* lptimezoneinformation, void* lpuniversaltime, void* lplocaltime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -316,7 +316,7 @@ int32_t windowssys_windows_win32_system_time_SystemTimeToTzSpecificLocalTimeEx(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_time_TzSpecificLocalTimeToSystemTime(void* lptimezoneinformation, void* lplocaltime, void* lpuniversaltime) {
+int32_t windowssys_windows_win32_system_time_tzSpecificLocalTimeToSystemTime(void* lptimezoneinformation, void* lplocaltime, void* lpuniversaltime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -340,7 +340,7 @@ int32_t windowssys_windows_win32_system_time_TzSpecificLocalTimeToSystemTime(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_time_TzSpecificLocalTimeToSystemTimeEx(void* lptimezoneinformation, void* lplocaltime, void* lpuniversaltime) {
+int32_t windowssys_windows_win32_system_time_tzSpecificLocalTimeToSystemTimeEx(void* lptimezoneinformation, void* lplocaltime, void* lpuniversaltime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

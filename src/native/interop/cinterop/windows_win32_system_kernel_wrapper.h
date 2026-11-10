@@ -9,13 +9,13 @@
 extern "C" {
 #endif
 
-void* windowssys_windows_win32_system_kernel_RtlFirstEntrySList(void* listhead);
-void windowssys_windows_win32_system_kernel_RtlInitializeSListHead(void* listhead);
-void* windowssys_windows_win32_system_kernel_RtlInterlockedFlushSList(void* listhead);
-void* windowssys_windows_win32_system_kernel_RtlInterlockedPopEntrySList(void* listhead);
-void* windowssys_windows_win32_system_kernel_RtlInterlockedPushEntrySList(void* listhead, void* listentry);
-void* windowssys_windows_win32_system_kernel_RtlInterlockedPushListSListEx(void* listhead, void* list, void* listend, uint32_t count);
-uint16_t windowssys_windows_win32_system_kernel_RtlQueryDepthSList(void* listhead);
+void* windowssys_windows_win32_system_kernel_rtlFirstEntrySList(void* listhead);
+void windowssys_windows_win32_system_kernel_rtlInitializeSListHead(void* listhead);
+void* windowssys_windows_win32_system_kernel_rtlInterlockedFlushSList(void* listhead);
+void* windowssys_windows_win32_system_kernel_rtlInterlockedPopEntrySList(void* listhead);
+void* windowssys_windows_win32_system_kernel_rtlInterlockedPushEntrySList(void* listhead, void* listentry);
+void* windowssys_windows_win32_system_kernel_rtlInterlockedPushListSListEx(void* listhead, void* list, void* listend, uint32_t count);
+uint16_t windowssys_windows_win32_system_kernel_rtlQueryDepthSList(void* listhead);
 
 #ifdef __cplusplus
 }

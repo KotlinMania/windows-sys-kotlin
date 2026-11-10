@@ -2,63 +2,64 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.magnification
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.RECT
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
 
-public actual fun MagGetColorEffect(hwnd: HWND, peffect: Long): BOOL =
-    0
+public actual fun magGetColorEffect(hwnd: Hwnd, peffect: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MagGetFullscreenColorEffect(peffect: Long): BOOL =
-    0
+public actual fun magGetFullscreenColorEffect(peffect: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MagGetFullscreenTransform(pmaglevel: Long, pxoffset: Long, pyoffset: Long): BOOL =
-    0
+public actual fun magGetFullscreenTransform(pmaglevel: COpaquePointer?, pxoffset: COpaquePointer?, pyoffset: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MagGetImageScalingCallback(hwnd: HWND): MagImageScalingCallback =
-    null
+public actual fun magGetImageScalingCallback(hwnd: Hwnd): MagImageScalingCallback =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MagGetInputTransform(pfenabled: Long, prectsource: Long, prectdest: Long): BOOL =
-    0
+public actual fun magGetInputTransform(pfenabled: COpaquePointer?, prectsource: COpaquePointer?, prectdest: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MagGetWindowFilterList(hwnd: HWND, pdwfiltermode: Long, count: Int, phwnd: Long): Int =
-    0
+public actual fun magGetWindowFilterList(hwnd: Hwnd, pdwfiltermode: COpaquePointer?, count: Int, phwnd: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MagGetWindowSource(hwnd: HWND, prect: Long): BOOL =
-    0
+public actual fun magGetWindowSource(hwnd: Hwnd, prect: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MagGetWindowTransform(hwnd: HWND, ptransform: Long): BOOL =
-    0
+public actual fun magGetWindowTransform(hwnd: Hwnd, ptransform: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MagInitialize(): BOOL =
-    0
+public actual fun magInitialize(): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MagSetColorEffect(hwnd: HWND, peffect: Long): BOOL =
-    0
+public actual fun magSetColorEffect(hwnd: Hwnd, peffect: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MagSetFullscreenColorEffect(peffect: Long): BOOL =
-    0
+public actual fun magSetFullscreenColorEffect(peffect: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MagSetFullscreenTransform(maglevel: Float, xoffset: Int, yoffset: Int): BOOL =
-    0
+public actual fun magSetFullscreenTransform(maglevel: Float, xoffset: Int, yoffset: Int): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MagSetImageScalingCallback(hwnd: HWND, callback: MagImageScalingCallback): BOOL =
-    0
+public actual fun magSetImageScalingCallback(hwnd: Hwnd, callback: MagImageScalingCallback): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MagSetInputTransform(fenabled: BOOL, prectsource: Long, prectdest: Long): BOOL =
-    0
+public actual fun magSetInputTransform(fenabled: Bool, prectsource: COpaquePointer?, prectdest: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MagSetWindowFilterList(hwnd: HWND, dwfiltermode: MW_FILTERMODE, count: Int, phwnd: Long): BOOL =
-    0
+public actual fun magSetWindowFilterList(hwnd: Hwnd, dwfiltermode: MwFiltermode, count: Int, phwnd: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MagSetWindowSource(hwnd: HWND, rect: RECT): BOOL =
-    0
+public actual fun magSetWindowSource(hwnd: Hwnd, rect: Rect): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MagSetWindowTransform(hwnd: HWND, ptransform: Long): BOOL =
-    0
+public actual fun magSetWindowTransform(hwnd: Hwnd, ptransform: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MagShowSystemCursor(fshowcursor: BOOL): BOOL =
-    0
+public actual fun magShowSystemCursor(fshowcursor: Bool): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MagUninitialize(): BOOL =
-    0
+public actual fun magUninitialize(): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

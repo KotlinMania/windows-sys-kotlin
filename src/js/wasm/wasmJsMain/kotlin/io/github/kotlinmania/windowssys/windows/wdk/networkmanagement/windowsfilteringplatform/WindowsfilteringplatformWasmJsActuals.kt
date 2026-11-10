@@ -1,457 +1,915 @@
-@file:OptIn(kotlin.ExperimentalUnsignedTypes::class)
+@file:OptIn(kotlin.ExperimentalUnsignedTypes::class, kotlin.js.ExperimentalWasmJsInterop::class)
 
 package io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.windowsfilteringplatform
 
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
-import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.FWPM_ENGINE_OPTION
-import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.FWPM_SERVICE_STATE
-import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.FwpmEngineOption
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.FwpmServiceState
+import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
 
-public actual fun FwpmBfeStateGet0(): FWPM_SERVICE_STATE =
-    0
+@JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
+private external fun _initWindowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon(): Boolean
 
-public actual fun FwpmBfeStateSubscribeChanges0(deviceobject: Long, callback: FWPM_SERVICE_STATE_CHANGE_CALLBACK0, context: Long, changehandle: Long): NTSTATUS =
-    0
+private val _windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable: Boolean = _initWindowsWdkNetworkmanagementWindowsfilteringplatformNapiAddon()
 
-public actual fun FwpmBfeStateUnsubscribeChanges0(changehandle: HANDLE): NTSTATUS =
-    0
+@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmBfeStateGet0()")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmBfeStateGet0(): Int
 
-public actual fun FwpmCalloutAdd0(enginehandle: HANDLE, callout: Long, sd: PSECURITY_DESCRIPTOR, id: Long): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmBfeStateSubscribeChanges0(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmBfeStateSubscribeChanges0(p0: String, p1: String, p2: String, p3: String): Int
 
-public actual fun FwpmCalloutCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): NTSTATUS =
-    0
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmBfeStateUnsubscribeChanges0(p0)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmBfeStateUnsubscribeChanges0(p0: String): Int
 
-public actual fun FwpmCalloutDeleteById0(enginehandle: HANDLE, id: UInt): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutAdd0(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutAdd0(p0: String, p1: String, p2: String, p3: String): Int
 
-public actual fun FwpmCalloutDeleteByKey0(enginehandle: HANDLE, key: Long): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutCreateEnumHandle0(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutCreateEnumHandle0(p0: String, p1: String, p2: String): Int
 
-public actual fun FwpmCalloutDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): NTSTATUS =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutDeleteById0(p0, p1)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutDeleteById0(p0: String, p1: Int): Int
 
-public actual fun FwpmCalloutEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutDeleteByKey0(p0, p1)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutDeleteByKey0(p0: String, p1: String): Int
 
-public actual fun FwpmCalloutGetById0(enginehandle: HANDLE, id: UInt, callout: Long): NTSTATUS =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutDestroyEnumHandle0(p0, p1)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutDestroyEnumHandle0(p0: String, p1: String): Int
 
-public actual fun FwpmCalloutGetByKey0(enginehandle: HANDLE, key: Long, callout: Long): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutEnum0(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutEnum0(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
 
-public actual fun FwpmCalloutGetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutGetById0(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutGetById0(p0: String, p1: Int, p2: String): Int
 
-public actual fun FwpmCalloutSetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutGetByKey0(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutGetByKey0(p0: String, p1: String, p2: String): Int
 
-public actual fun FwpmConnectionCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutGetSecurityInfoByKey0(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutGetSecurityInfoByKey0(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String, p7: String): Int
 
-public actual fun FwpmConnectionDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutSetSecurityInfoByKey0(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutSetSecurityInfoByKey0(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
 
-public actual fun FwpmConnectionEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionCreateEnumHandle0(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionCreateEnumHandle0(p0: String, p1: String, p2: String): Int
 
-public actual fun FwpmConnectionGetById0(enginehandle: HANDLE, id: ULong, connection: Long): NTSTATUS =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionDestroyEnumHandle0(p0, p1)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionDestroyEnumHandle0(p0: String, p1: String): Int
 
-public actual fun FwpmConnectionGetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionEnum0(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionEnum0(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
 
-public actual fun FwpmConnectionSetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionGetById0(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionGetById0(p0: String, p1: String, p2: String): Int
 
-public actual fun FwpmEngineClose0(enginehandle: HANDLE): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionGetSecurityInfo0(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionGetSecurityInfo0(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: String, p6: String): Int
 
-public actual fun FwpmEngineGetOption0(enginehandle: HANDLE, option: FWPM_ENGINE_OPTION, value: Long): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionSetSecurityInfo0(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionSetSecurityInfo0(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: String): Int
 
-public actual fun FwpmEngineGetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): NTSTATUS =
-    0
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineClose0(p0)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineClose0(p0: String): Int
 
-public actual fun FwpmEngineOpen0(servername: PCWSTR, authnservice: UInt, authidentity: Long, session: Long, enginehandle: Long): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineGetOption0(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineGetOption0(p0: String, p1: Int, p2: String): Int
 
-public actual fun FwpmEngineSetOption0(enginehandle: HANDLE, option: FWPM_ENGINE_OPTION, newvalue: Long): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineGetSecurityInfo0(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineGetSecurityInfo0(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: String, p6: String): Int
 
-public actual fun FwpmEngineSetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineOpen0(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineOpen0(p0: String, p1: Int, p2: String, p3: String, p4: String): Int
 
-public actual fun FwpmFilterAdd0(enginehandle: HANDLE, filter: Long, sd: PSECURITY_DESCRIPTOR, id: Long): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineSetOption0(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineSetOption0(p0: String, p1: Int, p2: String): Int
 
-public actual fun FwpmFilterCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineSetSecurityInfo0(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineSetSecurityInfo0(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: String): Int
 
-public actual fun FwpmFilterDeleteById0(enginehandle: HANDLE, id: ULong): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterAdd0(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterAdd0(p0: String, p1: String, p2: String, p3: String): Int
 
-public actual fun FwpmFilterDeleteByKey0(enginehandle: HANDLE, key: Long): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterCreateEnumHandle0(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterCreateEnumHandle0(p0: String, p1: String, p2: String): Int
 
-public actual fun FwpmFilterDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): NTSTATUS =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterDeleteById0(p0, p1)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterDeleteById0(p0: String, p1: String): Int
 
-public actual fun FwpmFilterEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterDeleteByKey0(p0, p1)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterDeleteByKey0(p0: String, p1: String): Int
 
-public actual fun FwpmFilterGetById0(enginehandle: HANDLE, id: ULong, filter: Long): NTSTATUS =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterDestroyEnumHandle0(p0, p1)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterDestroyEnumHandle0(p0: String, p1: String): Int
 
-public actual fun FwpmFilterGetByKey0(enginehandle: HANDLE, key: Long, filter: Long): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterEnum0(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterEnum0(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
 
-public actual fun FwpmFilterGetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterGetById0(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterGetById0(p0: String, p1: String, p2: String): Int
 
-public actual fun FwpmFilterSetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): NTSTATUS =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterGetByKey0(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterGetByKey0(p0: String, p1: String, p2: String): Int
 
-public actual fun FwpmFreeMemory0(p: Long) {
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterGetSecurityInfoByKey0(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterGetSecurityInfoByKey0(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String, p7: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterSetSecurityInfoByKey0(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterSetSecurityInfoByKey0(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFreeMemory0(p0)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFreeMemory0(p0: String)
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd0(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd0(p0: String, p1: Int, p2: String, p3: String, p4: Int, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd1(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd1(p0: String, p1: Int, p2: String, p3: String, p4: Int, p5: String, p6: String, p7: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd2(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd2(p0: String, p1: Int, p2: String, p3: String, p4: Int, p5: String, p6: String, p7: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd3(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd3(p0: String, p1: Int, p2: String, p3: String, p4: Int, p5: String, p6: String, p7: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelDeleteByKey0(p0, p1)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelDeleteByKey0(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerCreateEnumHandle0(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerCreateEnumHandle0(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerDestroyEnumHandle0(p0, p1)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerDestroyEnumHandle0(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerEnum0(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerEnum0(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerGetById0(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerGetById0(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerGetByKey0(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerGetByKey0(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerGetSecurityInfoByKey0(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerGetSecurityInfoByKey0(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String, p7: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerSetSecurityInfoByKey0(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerSetSecurityInfoByKey0(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventCreateEnumHandle0(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventCreateEnumHandle0(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventDestroyEnumHandle0(p0, p1)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventDestroyEnumHandle0(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum0(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum0(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum1(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum1(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum2(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum2(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum3(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum3(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum4(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum4(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum5(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum5(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventsGetSecurityInfo0(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventsGetSecurityInfo0(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventsSetSecurityInfo0(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventsSetSecurityInfo0(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderAdd0(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderAdd0(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd0(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd0(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd1(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd1(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd2(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd2(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd3(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd3(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextCreateEnumHandle0(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextCreateEnumHandle0(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextDeleteById0(p0, p1)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextDeleteById0(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextDeleteByKey0(p0, p1)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextDeleteByKey0(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextDestroyEnumHandle0(p0, p1)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextDestroyEnumHandle0(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum0(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum0(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum1(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum1(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum2(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum2(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum3(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum3(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById0(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById0(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById1(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById1(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById2(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById2(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById3(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById3(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey0(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey0(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey1(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey1(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey2(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey2(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey3(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey3(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetSecurityInfoByKey0(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetSecurityInfoByKey0(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String, p7: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextSetSecurityInfoByKey0(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextSetSecurityInfoByKey0(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderCreateEnumHandle0(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderCreateEnumHandle0(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderDeleteByKey0(p0, p1)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderDeleteByKey0(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderDestroyEnumHandle0(p0, p1)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderDestroyEnumHandle0(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderEnum0(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderEnum0(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderGetByKey0(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderGetByKey0(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderGetSecurityInfoByKey0(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderGetSecurityInfoByKey0(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String, p7: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderSetSecurityInfoByKey0(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderSetSecurityInfoByKey0(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSessionCreateEnumHandle0(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSessionCreateEnumHandle0(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSessionDestroyEnumHandle0(p0, p1)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSessionDestroyEnumHandle0(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSessionEnum0(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSessionEnum0(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerAdd0(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerAdd0(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerCreateEnumHandle0(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerCreateEnumHandle0(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerDeleteByKey0(p0, p1)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerDeleteByKey0(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerDestroyEnumHandle0(p0, p1)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerDestroyEnumHandle0(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerEnum0(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerEnum0(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerGetByKey0(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerGetByKey0(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerGetSecurityInfoByKey0(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerGetSecurityInfoByKey0(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String, p7: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerSetSecurityInfoByKey0(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerSetSecurityInfoByKey0(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmTransactionAbort0(p0)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmTransactionAbort0(p0: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmTransactionBegin0(p0, p1)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmTransactionBegin0(p0: String, p1: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmTransactionCommit0(p0)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmTransactionCommit0(p0: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmvSwitchEventsGetSecurityInfo0(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmvSwitchEventsGetSecurityInfo0(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmvSwitchEventsSetSecurityInfo0(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmvSwitchEventsSetSecurityInfo0(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospGetSecurityInfo0(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospGetSecurityInfo0(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospGetStatistics0(p0, p1)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospGetStatistics0(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospSetSecurityInfo0(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospSetSecurityInfo0(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospStateCreateEnumHandle0(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospStateCreateEnumHandle0(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospStateDestroyEnumHandle0(p0, p1)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospStateDestroyEnumHandle0(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospStateEnum0(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospStateEnum0(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecGetStatistics0(p0, p1)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecGetStatistics0(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecGetStatistics1(p0, p1)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecGetStatistics1(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextAddInbound0(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextAddInbound0(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextAddInbound1(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextAddInbound1(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextAddOutbound0(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextAddOutbound0(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextAddOutbound1(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextAddOutbound1(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextCreate0(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextCreate0(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextCreate1(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextCreate1(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextCreateEnumHandle0(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextCreateEnumHandle0(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextDeleteById0(p0, p1)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextDeleteById0(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextDestroyEnumHandle0(p0, p1)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextDestroyEnumHandle0(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextEnum0(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextEnum0(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextEnum1(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextEnum1(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextExpire0(p0, p1)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextExpire0(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextGetById0(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextGetById0(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextGetById1(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextGetById1(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextGetSpi0(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextGetSpi0(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextGetSpi1(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextGetSpi1(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextSetSpi0(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextSetSpi0(p0: String, p1: String, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextUpdate0(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextUpdate0(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaCreateEnumHandle0(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaCreateEnumHandle0(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaDbGetSecurityInfo0(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaDbGetSecurityInfo0(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaDbSetSecurityInfo0(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaDbSetSecurityInfo0(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaDestroyEnumHandle0(p0, p1)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaDestroyEnumHandle0(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaEnum0(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaEnum0(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaEnum1(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaEnum1(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextGetStatistics0(p0, p1)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextGetStatistics0(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextGetStatistics1(p0, p1)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextGetStatistics1(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaCreateEnumHandle0(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaCreateEnumHandle0(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaDbGetSecurityInfo0(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaDbGetSecurityInfo0(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaDbSetSecurityInfo0(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaDbSetSecurityInfo0(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaDeleteById0(p0, p1)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaDeleteById0(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaDestroyEnumHandle0(p0, p1)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaDestroyEnumHandle0(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaEnum0(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaEnum0(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaEnum1(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaEnum1(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaEnum2(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaEnum2(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaGetById0(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaGetById0(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaGetById1(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaGetById1(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaGetById2(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaGetById2(p0: String, p1: String, p2: String, p3: String): Int
+
+public actual fun fwpmBfeStateGet0(): FwpmServiceState =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmBfeStateGet0() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun fwpmBfeStateSubscribeChanges0(deviceobject: COpaquePointer?, callback: FwpmServiceStateChangeCallback0, context: COpaquePointer?, changehandle: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmBfeStateSubscribeChanges0((deviceobject?.value ?: 0L).toString(), 0L.toString(), (context?.value ?: 0L).toString(), (changehandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun fwpmBfeStateUnsubscribeChanges0(changehandle: Handle): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmBfeStateUnsubscribeChanges0((changehandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun fwpmCalloutAdd0(enginehandle: Handle, callout: COpaquePointer?, sd: PsecurityDescriptor, id: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutAdd0((enginehandle?.value ?: 0L).toString(), (callout?.value ?: 0L).toString(), (sd?.value ?: 0L).toString(), (id?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun fwpmCalloutCreateEnumHandle0(enginehandle: Handle, enumtemplate: COpaquePointer?, enumhandle: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutCreateEnumHandle0((enginehandle?.value ?: 0L).toString(), (enumtemplate?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun fwpmCalloutDeleteById0(enginehandle: Handle, id: UInt): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutDeleteById0((enginehandle?.value ?: 0L).toString(), id.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun fwpmCalloutDeleteByKey0(enginehandle: Handle, key: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutDeleteByKey0((enginehandle?.value ?: 0L).toString(), (key?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun fwpmCalloutDestroyEnumHandle0(enginehandle: Handle, enumhandle: Handle): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutDestroyEnumHandle0((enginehandle?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun fwpmCalloutEnum0(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutEnum0((enginehandle?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString(), numentriesrequested.toInt(), (entries?.value ?: 0L).toString(), (numentriesreturned?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun fwpmCalloutGetById0(enginehandle: Handle, id: UInt, callout: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutGetById0((enginehandle?.value ?: 0L).toString(), id.toInt(), (callout?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun fwpmCalloutGetByKey0(enginehandle: Handle, key: COpaquePointer?, callout: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutGetByKey0((enginehandle?.value ?: 0L).toString(), (key?.value ?: 0L).toString(), (callout?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun fwpmCalloutGetSecurityInfoByKey0(enginehandle: Handle, key: COpaquePointer?, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutGetSecurityInfoByKey0((enginehandle?.value ?: 0L).toString(), (key?.value ?: 0L).toString(), securityinfo.toInt(), (sidowner?.value ?: 0L).toString(), (sidgroup?.value ?: 0L).toString(), (dacl?.value ?: 0L).toString(), (sacl?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun fwpmCalloutSetSecurityInfoByKey0(enginehandle: Handle, key: COpaquePointer?, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutSetSecurityInfoByKey0((enginehandle?.value ?: 0L).toString(), (key?.value ?: 0L).toString(), securityinfo.toInt(), (sidowner?.value ?: 0L).toString(), (sidgroup?.value ?: 0L).toString(), (dacl?.value ?: 0L).toString(), (sacl?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun fwpmConnectionCreateEnumHandle0(enginehandle: Handle, enumtemplate: COpaquePointer?, enumhandle: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionCreateEnumHandle0((enginehandle?.value ?: 0L).toString(), (enumtemplate?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun fwpmConnectionDestroyEnumHandle0(enginehandle: Handle, enumhandle: Handle): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionDestroyEnumHandle0((enginehandle?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun fwpmConnectionEnum0(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionEnum0((enginehandle?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString(), numentriesrequested.toInt(), (entries?.value ?: 0L).toString(), (numentriesreturned?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun fwpmConnectionGetById0(enginehandle: Handle, id: ULong, connection: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionGetById0((enginehandle?.value ?: 0L).toString(), id.toString(), (connection?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun fwpmConnectionGetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionGetSecurityInfo0((enginehandle?.value ?: 0L).toString(), securityinfo.toInt(), (sidowner?.value ?: 0L).toString(), (sidgroup?.value ?: 0L).toString(), (dacl?.value ?: 0L).toString(), (sacl?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun fwpmConnectionSetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionSetSecurityInfo0((enginehandle?.value ?: 0L).toString(), securityinfo.toInt(), (sidowner?.value ?: 0L).toString(), (sidgroup?.value ?: 0L).toString(), (dacl?.value ?: 0L).toString(), (sacl?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun fwpmEngineClose0(enginehandle: Handle): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineClose0((enginehandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun fwpmEngineGetOption0(enginehandle: Handle, option: FwpmEngineOption, value: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineGetOption0((enginehandle?.value ?: 0L).toString(), option, (value?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun fwpmEngineGetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineGetSecurityInfo0((enginehandle?.value ?: 0L).toString(), securityinfo.toInt(), (sidowner?.value ?: 0L).toString(), (sidgroup?.value ?: 0L).toString(), (dacl?.value ?: 0L).toString(), (sacl?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun fwpmEngineOpen0(servername: Pcwstr, authnservice: UInt, authidentity: COpaquePointer?, session: COpaquePointer?, enginehandle: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineOpen0((servername?.value ?: 0L).toString(), authnservice.toInt(), (authidentity?.value ?: 0L).toString(), (session?.value ?: 0L).toString(), (enginehandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun fwpmEngineSetOption0(enginehandle: Handle, option: FwpmEngineOption, newvalue: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineSetOption0((enginehandle?.value ?: 0L).toString(), option, (newvalue?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun fwpmEngineSetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineSetSecurityInfo0((enginehandle?.value ?: 0L).toString(), securityinfo.toInt(), (sidowner?.value ?: 0L).toString(), (sidgroup?.value ?: 0L).toString(), (dacl?.value ?: 0L).toString(), (sacl?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun fwpmFilterAdd0(enginehandle: Handle, filter: COpaquePointer?, sd: PsecurityDescriptor, id: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterAdd0((enginehandle?.value ?: 0L).toString(), (filter?.value ?: 0L).toString(), (sd?.value ?: 0L).toString(), (id?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun fwpmFilterCreateEnumHandle0(enginehandle: Handle, enumtemplate: COpaquePointer?, enumhandle: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterCreateEnumHandle0((enginehandle?.value ?: 0L).toString(), (enumtemplate?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun fwpmFilterDeleteById0(enginehandle: Handle, id: ULong): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterDeleteById0((enginehandle?.value ?: 0L).toString(), id.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun fwpmFilterDeleteByKey0(enginehandle: Handle, key: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterDeleteByKey0((enginehandle?.value ?: 0L).toString(), (key?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun fwpmFilterDestroyEnumHandle0(enginehandle: Handle, enumhandle: Handle): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterDestroyEnumHandle0((enginehandle?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun fwpmFilterEnum0(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterEnum0((enginehandle?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString(), numentriesrequested.toInt(), (entries?.value ?: 0L).toString(), (numentriesreturned?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun fwpmFilterGetById0(enginehandle: Handle, id: ULong, filter: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterGetById0((enginehandle?.value ?: 0L).toString(), id.toString(), (filter?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun fwpmFilterGetByKey0(enginehandle: Handle, key: COpaquePointer?, filter: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterGetByKey0((enginehandle?.value ?: 0L).toString(), (key?.value ?: 0L).toString(), (filter?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun fwpmFilterGetSecurityInfoByKey0(enginehandle: Handle, key: COpaquePointer?, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterGetSecurityInfoByKey0((enginehandle?.value ?: 0L).toString(), (key?.value ?: 0L).toString(), securityinfo.toInt(), (sidowner?.value ?: 0L).toString(), (sidgroup?.value ?: 0L).toString(), (dacl?.value ?: 0L).toString(), (sacl?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun fwpmFilterSetSecurityInfoByKey0(enginehandle: Handle, key: COpaquePointer?, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterSetSecurityInfoByKey0((enginehandle?.value ?: 0L).toString(), (key?.value ?: 0L).toString(), securityinfo.toInt(), (sidowner?.value ?: 0L).toString(), (sidgroup?.value ?: 0L).toString(), (dacl?.value ?: 0L).toString(), (sacl?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun fwpmFreeMemory0(p: COpaquePointer?) {
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) {
+        _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFreeMemory0((p?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun FwpmIPsecTunnelAdd0(enginehandle: HANDLE, flags: UInt, mainmodepolicy: Long, tunnelpolicy: Long, numfilterconditions: UInt, filterconditions: Long, sd: PSECURITY_DESCRIPTOR): NTSTATUS =
-    0
+public actual fun fwpmIPsecTunnelAdd0(enginehandle: Handle, flags: UInt, mainmodepolicy: COpaquePointer?, tunnelpolicy: COpaquePointer?, numfilterconditions: UInt, filterconditions: COpaquePointer?, sd: PsecurityDescriptor): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd0((enginehandle?.value ?: 0L).toString(), flags.toInt(), (mainmodepolicy?.value ?: 0L).toString(), (tunnelpolicy?.value ?: 0L).toString(), numfilterconditions.toInt(), (filterconditions?.value ?: 0L).toString(), (sd?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmIPsecTunnelAdd1(enginehandle: HANDLE, flags: UInt, mainmodepolicy: Long, tunnelpolicy: Long, numfilterconditions: UInt, filterconditions: Long, keymodkey: Long, sd: PSECURITY_DESCRIPTOR): NTSTATUS =
-    0
+public actual fun fwpmIPsecTunnelAdd1(enginehandle: Handle, flags: UInt, mainmodepolicy: COpaquePointer?, tunnelpolicy: COpaquePointer?, numfilterconditions: UInt, filterconditions: COpaquePointer?, keymodkey: COpaquePointer?, sd: PsecurityDescriptor): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd1((enginehandle?.value ?: 0L).toString(), flags.toInt(), (mainmodepolicy?.value ?: 0L).toString(), (tunnelpolicy?.value ?: 0L).toString(), numfilterconditions.toInt(), (filterconditions?.value ?: 0L).toString(), (keymodkey?.value ?: 0L).toString(), (sd?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmIPsecTunnelAdd2(enginehandle: HANDLE, flags: UInt, mainmodepolicy: Long, tunnelpolicy: Long, numfilterconditions: UInt, filterconditions: Long, keymodkey: Long, sd: PSECURITY_DESCRIPTOR): NTSTATUS =
-    0
+public actual fun fwpmIPsecTunnelAdd2(enginehandle: Handle, flags: UInt, mainmodepolicy: COpaquePointer?, tunnelpolicy: COpaquePointer?, numfilterconditions: UInt, filterconditions: COpaquePointer?, keymodkey: COpaquePointer?, sd: PsecurityDescriptor): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd2((enginehandle?.value ?: 0L).toString(), flags.toInt(), (mainmodepolicy?.value ?: 0L).toString(), (tunnelpolicy?.value ?: 0L).toString(), numfilterconditions.toInt(), (filterconditions?.value ?: 0L).toString(), (keymodkey?.value ?: 0L).toString(), (sd?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmIPsecTunnelAdd3(enginehandle: HANDLE, flags: UInt, mainmodepolicy: Long, tunnelpolicy: Long, numfilterconditions: UInt, filterconditions: Long, keymodkey: Long, sd: PSECURITY_DESCRIPTOR): NTSTATUS =
-    0
+public actual fun fwpmIPsecTunnelAdd3(enginehandle: Handle, flags: UInt, mainmodepolicy: COpaquePointer?, tunnelpolicy: COpaquePointer?, numfilterconditions: UInt, filterconditions: COpaquePointer?, keymodkey: COpaquePointer?, sd: PsecurityDescriptor): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd3((enginehandle?.value ?: 0L).toString(), flags.toInt(), (mainmodepolicy?.value ?: 0L).toString(), (tunnelpolicy?.value ?: 0L).toString(), numfilterconditions.toInt(), (filterconditions?.value ?: 0L).toString(), (keymodkey?.value ?: 0L).toString(), (sd?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmIPsecTunnelDeleteByKey0(enginehandle: HANDLE, key: Long): NTSTATUS =
-    0
+public actual fun fwpmIPsecTunnelDeleteByKey0(enginehandle: Handle, key: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelDeleteByKey0((enginehandle?.value ?: 0L).toString(), (key?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmLayerCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): NTSTATUS =
-    0
+public actual fun fwpmLayerCreateEnumHandle0(enginehandle: Handle, enumtemplate: COpaquePointer?, enumhandle: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerCreateEnumHandle0((enginehandle?.value ?: 0L).toString(), (enumtemplate?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmLayerDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): NTSTATUS =
-    0
+public actual fun fwpmLayerDestroyEnumHandle0(enginehandle: Handle, enumhandle: Handle): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerDestroyEnumHandle0((enginehandle?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmLayerEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    0
+public actual fun fwpmLayerEnum0(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerEnum0((enginehandle?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString(), numentriesrequested.toInt(), (entries?.value ?: 0L).toString(), (numentriesreturned?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmLayerGetById0(enginehandle: HANDLE, id: UShort, layer: Long): NTSTATUS =
-    0
+public actual fun fwpmLayerGetById0(enginehandle: Handle, id: UShort, layer: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerGetById0((enginehandle?.value ?: 0L).toString(), id.toInt(), (layer?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmLayerGetByKey0(enginehandle: HANDLE, key: Long, layer: Long): NTSTATUS =
-    0
+public actual fun fwpmLayerGetByKey0(enginehandle: Handle, key: COpaquePointer?, layer: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerGetByKey0((enginehandle?.value ?: 0L).toString(), (key?.value ?: 0L).toString(), (layer?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmLayerGetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): NTSTATUS =
-    0
+public actual fun fwpmLayerGetSecurityInfoByKey0(enginehandle: Handle, key: COpaquePointer?, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerGetSecurityInfoByKey0((enginehandle?.value ?: 0L).toString(), (key?.value ?: 0L).toString(), securityinfo.toInt(), (sidowner?.value ?: 0L).toString(), (sidgroup?.value ?: 0L).toString(), (dacl?.value ?: 0L).toString(), (sacl?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmLayerSetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): NTSTATUS =
-    0
+public actual fun fwpmLayerSetSecurityInfoByKey0(enginehandle: Handle, key: COpaquePointer?, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerSetSecurityInfoByKey0((enginehandle?.value ?: 0L).toString(), (key?.value ?: 0L).toString(), securityinfo.toInt(), (sidowner?.value ?: 0L).toString(), (sidgroup?.value ?: 0L).toString(), (dacl?.value ?: 0L).toString(), (sacl?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmNetEventCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): NTSTATUS =
-    0
+public actual fun fwpmNetEventCreateEnumHandle0(enginehandle: Handle, enumtemplate: COpaquePointer?, enumhandle: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventCreateEnumHandle0((enginehandle?.value ?: 0L).toString(), (enumtemplate?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmNetEventDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): NTSTATUS =
-    0
+public actual fun fwpmNetEventDestroyEnumHandle0(enginehandle: Handle, enumhandle: Handle): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventDestroyEnumHandle0((enginehandle?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmNetEventEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    0
+public actual fun fwpmNetEventEnum0(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum0((enginehandle?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString(), numentriesrequested.toInt(), (entries?.value ?: 0L).toString(), (numentriesreturned?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmNetEventEnum1(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    0
+public actual fun fwpmNetEventEnum1(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum1((enginehandle?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString(), numentriesrequested.toInt(), (entries?.value ?: 0L).toString(), (numentriesreturned?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmNetEventEnum2(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    0
+public actual fun fwpmNetEventEnum2(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum2((enginehandle?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString(), numentriesrequested.toInt(), (entries?.value ?: 0L).toString(), (numentriesreturned?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmNetEventEnum3(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    0
+public actual fun fwpmNetEventEnum3(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum3((enginehandle?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString(), numentriesrequested.toInt(), (entries?.value ?: 0L).toString(), (numentriesreturned?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmNetEventEnum4(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    0
+public actual fun fwpmNetEventEnum4(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum4((enginehandle?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString(), numentriesrequested.toInt(), (entries?.value ?: 0L).toString(), (numentriesreturned?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmNetEventEnum5(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    0
+public actual fun fwpmNetEventEnum5(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum5((enginehandle?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString(), numentriesrequested.toInt(), (entries?.value ?: 0L).toString(), (numentriesreturned?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmNetEventsGetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): NTSTATUS =
-    0
+public actual fun fwpmNetEventsGetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventsGetSecurityInfo0((enginehandle?.value ?: 0L).toString(), securityinfo.toInt(), (sidowner?.value ?: 0L).toString(), (sidgroup?.value ?: 0L).toString(), (dacl?.value ?: 0L).toString(), (sacl?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmNetEventsSetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): NTSTATUS =
-    0
+public actual fun fwpmNetEventsSetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventsSetSecurityInfo0((enginehandle?.value ?: 0L).toString(), securityinfo.toInt(), (sidowner?.value ?: 0L).toString(), (sidgroup?.value ?: 0L).toString(), (dacl?.value ?: 0L).toString(), (sacl?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmProviderAdd0(enginehandle: HANDLE, provider: Long, sd: PSECURITY_DESCRIPTOR): NTSTATUS =
-    0
+public actual fun fwpmProviderAdd0(enginehandle: Handle, provider: COpaquePointer?, sd: PsecurityDescriptor): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderAdd0((enginehandle?.value ?: 0L).toString(), (provider?.value ?: 0L).toString(), (sd?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmProviderContextAdd0(enginehandle: HANDLE, providercontext: Long, sd: PSECURITY_DESCRIPTOR, id: Long): NTSTATUS =
-    0
+public actual fun fwpmProviderContextAdd0(enginehandle: Handle, providercontext: COpaquePointer?, sd: PsecurityDescriptor, id: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd0((enginehandle?.value ?: 0L).toString(), (providercontext?.value ?: 0L).toString(), (sd?.value ?: 0L).toString(), (id?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmProviderContextAdd1(enginehandle: HANDLE, providercontext: Long, sd: PSECURITY_DESCRIPTOR, id: Long): NTSTATUS =
-    0
+public actual fun fwpmProviderContextAdd1(enginehandle: Handle, providercontext: COpaquePointer?, sd: PsecurityDescriptor, id: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd1((enginehandle?.value ?: 0L).toString(), (providercontext?.value ?: 0L).toString(), (sd?.value ?: 0L).toString(), (id?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmProviderContextAdd2(enginehandle: HANDLE, providercontext: Long, sd: PSECURITY_DESCRIPTOR, id: Long): NTSTATUS =
-    0
+public actual fun fwpmProviderContextAdd2(enginehandle: Handle, providercontext: COpaquePointer?, sd: PsecurityDescriptor, id: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd2((enginehandle?.value ?: 0L).toString(), (providercontext?.value ?: 0L).toString(), (sd?.value ?: 0L).toString(), (id?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmProviderContextAdd3(enginehandle: HANDLE, providercontext: Long, sd: PSECURITY_DESCRIPTOR, id: Long): NTSTATUS =
-    0
+public actual fun fwpmProviderContextAdd3(enginehandle: Handle, providercontext: COpaquePointer?, sd: PsecurityDescriptor, id: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd3((enginehandle?.value ?: 0L).toString(), (providercontext?.value ?: 0L).toString(), (sd?.value ?: 0L).toString(), (id?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmProviderContextCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): NTSTATUS =
-    0
+public actual fun fwpmProviderContextCreateEnumHandle0(enginehandle: Handle, enumtemplate: COpaquePointer?, enumhandle: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextCreateEnumHandle0((enginehandle?.value ?: 0L).toString(), (enumtemplate?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmProviderContextDeleteById0(enginehandle: HANDLE, id: ULong): NTSTATUS =
-    0
+public actual fun fwpmProviderContextDeleteById0(enginehandle: Handle, id: ULong): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextDeleteById0((enginehandle?.value ?: 0L).toString(), id.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmProviderContextDeleteByKey0(enginehandle: HANDLE, key: Long): NTSTATUS =
-    0
+public actual fun fwpmProviderContextDeleteByKey0(enginehandle: Handle, key: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextDeleteByKey0((enginehandle?.value ?: 0L).toString(), (key?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmProviderContextDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): NTSTATUS =
-    0
+public actual fun fwpmProviderContextDestroyEnumHandle0(enginehandle: Handle, enumhandle: Handle): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextDestroyEnumHandle0((enginehandle?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmProviderContextEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    0
+public actual fun fwpmProviderContextEnum0(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum0((enginehandle?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString(), numentriesrequested.toInt(), (entries?.value ?: 0L).toString(), (numentriesreturned?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmProviderContextEnum1(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    0
+public actual fun fwpmProviderContextEnum1(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum1((enginehandle?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString(), numentriesrequested.toInt(), (entries?.value ?: 0L).toString(), (numentriesreturned?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmProviderContextEnum2(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    0
+public actual fun fwpmProviderContextEnum2(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum2((enginehandle?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString(), numentriesrequested.toInt(), (entries?.value ?: 0L).toString(), (numentriesreturned?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmProviderContextEnum3(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    0
+public actual fun fwpmProviderContextEnum3(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum3((enginehandle?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString(), numentriesrequested.toInt(), (entries?.value ?: 0L).toString(), (numentriesreturned?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmProviderContextGetById0(enginehandle: HANDLE, id: ULong, providercontext: Long): NTSTATUS =
-    0
+public actual fun fwpmProviderContextGetById0(enginehandle: Handle, id: ULong, providercontext: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById0((enginehandle?.value ?: 0L).toString(), id.toString(), (providercontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmProviderContextGetById1(enginehandle: HANDLE, id: ULong, providercontext: Long): NTSTATUS =
-    0
+public actual fun fwpmProviderContextGetById1(enginehandle: Handle, id: ULong, providercontext: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById1((enginehandle?.value ?: 0L).toString(), id.toString(), (providercontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmProviderContextGetById2(enginehandle: HANDLE, id: ULong, providercontext: Long): NTSTATUS =
-    0
+public actual fun fwpmProviderContextGetById2(enginehandle: Handle, id: ULong, providercontext: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById2((enginehandle?.value ?: 0L).toString(), id.toString(), (providercontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmProviderContextGetById3(enginehandle: HANDLE, id: ULong, providercontext: Long): NTSTATUS =
-    0
+public actual fun fwpmProviderContextGetById3(enginehandle: Handle, id: ULong, providercontext: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById3((enginehandle?.value ?: 0L).toString(), id.toString(), (providercontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmProviderContextGetByKey0(enginehandle: HANDLE, key: Long, providercontext: Long): NTSTATUS =
-    0
+public actual fun fwpmProviderContextGetByKey0(enginehandle: Handle, key: COpaquePointer?, providercontext: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey0((enginehandle?.value ?: 0L).toString(), (key?.value ?: 0L).toString(), (providercontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmProviderContextGetByKey1(enginehandle: HANDLE, key: Long, providercontext: Long): NTSTATUS =
-    0
+public actual fun fwpmProviderContextGetByKey1(enginehandle: Handle, key: COpaquePointer?, providercontext: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey1((enginehandle?.value ?: 0L).toString(), (key?.value ?: 0L).toString(), (providercontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmProviderContextGetByKey2(enginehandle: HANDLE, key: Long, providercontext: Long): NTSTATUS =
-    0
+public actual fun fwpmProviderContextGetByKey2(enginehandle: Handle, key: COpaquePointer?, providercontext: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey2((enginehandle?.value ?: 0L).toString(), (key?.value ?: 0L).toString(), (providercontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmProviderContextGetByKey3(enginehandle: HANDLE, key: Long, providercontext: Long): NTSTATUS =
-    0
+public actual fun fwpmProviderContextGetByKey3(enginehandle: Handle, key: COpaquePointer?, providercontext: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey3((enginehandle?.value ?: 0L).toString(), (key?.value ?: 0L).toString(), (providercontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmProviderContextGetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): NTSTATUS =
-    0
+public actual fun fwpmProviderContextGetSecurityInfoByKey0(enginehandle: Handle, key: COpaquePointer?, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetSecurityInfoByKey0((enginehandle?.value ?: 0L).toString(), (key?.value ?: 0L).toString(), securityinfo.toInt(), (sidowner?.value ?: 0L).toString(), (sidgroup?.value ?: 0L).toString(), (dacl?.value ?: 0L).toString(), (sacl?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmProviderContextSetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): NTSTATUS =
-    0
+public actual fun fwpmProviderContextSetSecurityInfoByKey0(enginehandle: Handle, key: COpaquePointer?, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextSetSecurityInfoByKey0((enginehandle?.value ?: 0L).toString(), (key?.value ?: 0L).toString(), securityinfo.toInt(), (sidowner?.value ?: 0L).toString(), (sidgroup?.value ?: 0L).toString(), (dacl?.value ?: 0L).toString(), (sacl?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmProviderCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): NTSTATUS =
-    0
+public actual fun fwpmProviderCreateEnumHandle0(enginehandle: Handle, enumtemplate: COpaquePointer?, enumhandle: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderCreateEnumHandle0((enginehandle?.value ?: 0L).toString(), (enumtemplate?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmProviderDeleteByKey0(enginehandle: HANDLE, key: Long): NTSTATUS =
-    0
+public actual fun fwpmProviderDeleteByKey0(enginehandle: Handle, key: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderDeleteByKey0((enginehandle?.value ?: 0L).toString(), (key?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmProviderDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): NTSTATUS =
-    0
+public actual fun fwpmProviderDestroyEnumHandle0(enginehandle: Handle, enumhandle: Handle): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderDestroyEnumHandle0((enginehandle?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmProviderEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    0
+public actual fun fwpmProviderEnum0(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderEnum0((enginehandle?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString(), numentriesrequested.toInt(), (entries?.value ?: 0L).toString(), (numentriesreturned?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmProviderGetByKey0(enginehandle: HANDLE, key: Long, provider: Long): NTSTATUS =
-    0
+public actual fun fwpmProviderGetByKey0(enginehandle: Handle, key: COpaquePointer?, provider: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderGetByKey0((enginehandle?.value ?: 0L).toString(), (key?.value ?: 0L).toString(), (provider?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmProviderGetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): NTSTATUS =
-    0
+public actual fun fwpmProviderGetSecurityInfoByKey0(enginehandle: Handle, key: COpaquePointer?, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderGetSecurityInfoByKey0((enginehandle?.value ?: 0L).toString(), (key?.value ?: 0L).toString(), securityinfo.toInt(), (sidowner?.value ?: 0L).toString(), (sidgroup?.value ?: 0L).toString(), (dacl?.value ?: 0L).toString(), (sacl?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmProviderSetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): NTSTATUS =
-    0
+public actual fun fwpmProviderSetSecurityInfoByKey0(enginehandle: Handle, key: COpaquePointer?, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderSetSecurityInfoByKey0((enginehandle?.value ?: 0L).toString(), (key?.value ?: 0L).toString(), securityinfo.toInt(), (sidowner?.value ?: 0L).toString(), (sidgroup?.value ?: 0L).toString(), (dacl?.value ?: 0L).toString(), (sacl?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmSessionCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): NTSTATUS =
-    0
+public actual fun fwpmSessionCreateEnumHandle0(enginehandle: Handle, enumtemplate: COpaquePointer?, enumhandle: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSessionCreateEnumHandle0((enginehandle?.value ?: 0L).toString(), (enumtemplate?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmSessionDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): NTSTATUS =
-    0
+public actual fun fwpmSessionDestroyEnumHandle0(enginehandle: Handle, enumhandle: Handle): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSessionDestroyEnumHandle0((enginehandle?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmSessionEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    0
+public actual fun fwpmSessionEnum0(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSessionEnum0((enginehandle?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString(), numentriesrequested.toInt(), (entries?.value ?: 0L).toString(), (numentriesreturned?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmSubLayerAdd0(enginehandle: HANDLE, sublayer: Long, sd: PSECURITY_DESCRIPTOR): NTSTATUS =
-    0
+public actual fun fwpmSubLayerAdd0(enginehandle: Handle, sublayer: COpaquePointer?, sd: PsecurityDescriptor): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerAdd0((enginehandle?.value ?: 0L).toString(), (sublayer?.value ?: 0L).toString(), (sd?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmSubLayerCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): NTSTATUS =
-    0
+public actual fun fwpmSubLayerCreateEnumHandle0(enginehandle: Handle, enumtemplate: COpaquePointer?, enumhandle: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerCreateEnumHandle0((enginehandle?.value ?: 0L).toString(), (enumtemplate?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmSubLayerDeleteByKey0(enginehandle: HANDLE, key: Long): NTSTATUS =
-    0
+public actual fun fwpmSubLayerDeleteByKey0(enginehandle: Handle, key: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerDeleteByKey0((enginehandle?.value ?: 0L).toString(), (key?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmSubLayerDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): NTSTATUS =
-    0
+public actual fun fwpmSubLayerDestroyEnumHandle0(enginehandle: Handle, enumhandle: Handle): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerDestroyEnumHandle0((enginehandle?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmSubLayerEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    0
+public actual fun fwpmSubLayerEnum0(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerEnum0((enginehandle?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString(), numentriesrequested.toInt(), (entries?.value ?: 0L).toString(), (numentriesreturned?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmSubLayerGetByKey0(enginehandle: HANDLE, key: Long, sublayer: Long): NTSTATUS =
-    0
+public actual fun fwpmSubLayerGetByKey0(enginehandle: Handle, key: COpaquePointer?, sublayer: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerGetByKey0((enginehandle?.value ?: 0L).toString(), (key?.value ?: 0L).toString(), (sublayer?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmSubLayerGetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): NTSTATUS =
-    0
+public actual fun fwpmSubLayerGetSecurityInfoByKey0(enginehandle: Handle, key: COpaquePointer?, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerGetSecurityInfoByKey0((enginehandle?.value ?: 0L).toString(), (key?.value ?: 0L).toString(), securityinfo.toInt(), (sidowner?.value ?: 0L).toString(), (sidgroup?.value ?: 0L).toString(), (dacl?.value ?: 0L).toString(), (sacl?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmSubLayerSetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): NTSTATUS =
-    0
+public actual fun fwpmSubLayerSetSecurityInfoByKey0(enginehandle: Handle, key: COpaquePointer?, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerSetSecurityInfoByKey0((enginehandle?.value ?: 0L).toString(), (key?.value ?: 0L).toString(), securityinfo.toInt(), (sidowner?.value ?: 0L).toString(), (sidgroup?.value ?: 0L).toString(), (dacl?.value ?: 0L).toString(), (sacl?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmTransactionAbort0(enginehandle: HANDLE): NTSTATUS =
-    0
+public actual fun fwpmTransactionAbort0(enginehandle: Handle): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmTransactionAbort0((enginehandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmTransactionBegin0(enginehandle: HANDLE, flags: UInt): NTSTATUS =
-    0
+public actual fun fwpmTransactionBegin0(enginehandle: Handle, flags: UInt): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmTransactionBegin0((enginehandle?.value ?: 0L).toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmTransactionCommit0(enginehandle: HANDLE): NTSTATUS =
-    0
+public actual fun fwpmTransactionCommit0(enginehandle: Handle): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmTransactionCommit0((enginehandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmvSwitchEventsGetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): NTSTATUS =
-    0
+public actual fun fwpmvSwitchEventsGetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmvSwitchEventsGetSecurityInfo0((enginehandle?.value ?: 0L).toString(), securityinfo.toInt(), (sidowner?.value ?: 0L).toString(), (sidgroup?.value ?: 0L).toString(), (dacl?.value ?: 0L).toString(), (sacl?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FwpmvSwitchEventsSetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): NTSTATUS =
-    0
+public actual fun fwpmvSwitchEventsSetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmvSwitchEventsSetSecurityInfo0((enginehandle?.value ?: 0L).toString(), securityinfo.toInt(), (sidowner?.value ?: 0L).toString(), (sidgroup?.value ?: 0L).toString(), (dacl?.value ?: 0L).toString(), (sacl?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IPsecDospGetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): NTSTATUS =
-    0
+public actual fun iPsecDospGetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospGetSecurityInfo0((enginehandle?.value ?: 0L).toString(), securityinfo.toInt(), (sidowner?.value ?: 0L).toString(), (sidgroup?.value ?: 0L).toString(), (dacl?.value ?: 0L).toString(), (sacl?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IPsecDospGetStatistics0(enginehandle: HANDLE, idpstatistics: Long): NTSTATUS =
-    0
+public actual fun iPsecDospGetStatistics0(enginehandle: Handle, idpstatistics: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospGetStatistics0((enginehandle?.value ?: 0L).toString(), (idpstatistics?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IPsecDospSetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): NTSTATUS =
-    0
+public actual fun iPsecDospSetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospSetSecurityInfo0((enginehandle?.value ?: 0L).toString(), securityinfo.toInt(), (sidowner?.value ?: 0L).toString(), (sidgroup?.value ?: 0L).toString(), (dacl?.value ?: 0L).toString(), (sacl?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IPsecDospStateCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): NTSTATUS =
-    0
+public actual fun iPsecDospStateCreateEnumHandle0(enginehandle: Handle, enumtemplate: COpaquePointer?, enumhandle: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospStateCreateEnumHandle0((enginehandle?.value ?: 0L).toString(), (enumtemplate?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IPsecDospStateDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): NTSTATUS =
-    0
+public actual fun iPsecDospStateDestroyEnumHandle0(enginehandle: Handle, enumhandle: Handle): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospStateDestroyEnumHandle0((enginehandle?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IPsecDospStateEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentries: Long): NTSTATUS =
-    0
+public actual fun iPsecDospStateEnum0(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentries: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospStateEnum0((enginehandle?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString(), numentriesrequested.toInt(), (entries?.value ?: 0L).toString(), (numentries?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IPsecGetStatistics0(enginehandle: HANDLE, ipsecstatistics: Long): NTSTATUS =
-    0
+public actual fun iPsecGetStatistics0(enginehandle: Handle, ipsecstatistics: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecGetStatistics0((enginehandle?.value ?: 0L).toString(), (ipsecstatistics?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IPsecGetStatistics1(enginehandle: HANDLE, ipsecstatistics: Long): NTSTATUS =
-    0
+public actual fun iPsecGetStatistics1(enginehandle: Handle, ipsecstatistics: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecGetStatistics1((enginehandle?.value ?: 0L).toString(), (ipsecstatistics?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IPsecSaContextAddInbound0(enginehandle: HANDLE, id: ULong, inboundbundle: Long): NTSTATUS =
-    0
+public actual fun iPsecSaContextAddInbound0(enginehandle: Handle, id: ULong, inboundbundle: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextAddInbound0((enginehandle?.value ?: 0L).toString(), id.toString(), (inboundbundle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IPsecSaContextAddInbound1(enginehandle: HANDLE, id: ULong, inboundbundle: Long): NTSTATUS =
-    0
+public actual fun iPsecSaContextAddInbound1(enginehandle: Handle, id: ULong, inboundbundle: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextAddInbound1((enginehandle?.value ?: 0L).toString(), id.toString(), (inboundbundle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IPsecSaContextAddOutbound0(enginehandle: HANDLE, id: ULong, outboundbundle: Long): NTSTATUS =
-    0
+public actual fun iPsecSaContextAddOutbound0(enginehandle: Handle, id: ULong, outboundbundle: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextAddOutbound0((enginehandle?.value ?: 0L).toString(), id.toString(), (outboundbundle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IPsecSaContextAddOutbound1(enginehandle: HANDLE, id: ULong, outboundbundle: Long): NTSTATUS =
-    0
+public actual fun iPsecSaContextAddOutbound1(enginehandle: Handle, id: ULong, outboundbundle: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextAddOutbound1((enginehandle?.value ?: 0L).toString(), id.toString(), (outboundbundle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IPsecSaContextCreate0(enginehandle: HANDLE, outboundtraffic: Long, inboundfilterid: Long, id: Long): NTSTATUS =
-    0
+public actual fun iPsecSaContextCreate0(enginehandle: Handle, outboundtraffic: COpaquePointer?, inboundfilterid: COpaquePointer?, id: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextCreate0((enginehandle?.value ?: 0L).toString(), (outboundtraffic?.value ?: 0L).toString(), (inboundfilterid?.value ?: 0L).toString(), (id?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IPsecSaContextCreate1(enginehandle: HANDLE, outboundtraffic: Long, virtualiftunnelinfo: Long, inboundfilterid: Long, id: Long): NTSTATUS =
-    0
+public actual fun iPsecSaContextCreate1(enginehandle: Handle, outboundtraffic: COpaquePointer?, virtualiftunnelinfo: COpaquePointer?, inboundfilterid: COpaquePointer?, id: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextCreate1((enginehandle?.value ?: 0L).toString(), (outboundtraffic?.value ?: 0L).toString(), (virtualiftunnelinfo?.value ?: 0L).toString(), (inboundfilterid?.value ?: 0L).toString(), (id?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IPsecSaContextCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): NTSTATUS =
-    0
+public actual fun iPsecSaContextCreateEnumHandle0(enginehandle: Handle, enumtemplate: COpaquePointer?, enumhandle: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextCreateEnumHandle0((enginehandle?.value ?: 0L).toString(), (enumtemplate?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IPsecSaContextDeleteById0(enginehandle: HANDLE, id: ULong): NTSTATUS =
-    0
+public actual fun iPsecSaContextDeleteById0(enginehandle: Handle, id: ULong): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextDeleteById0((enginehandle?.value ?: 0L).toString(), id.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IPsecSaContextDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): NTSTATUS =
-    0
+public actual fun iPsecSaContextDestroyEnumHandle0(enginehandle: Handle, enumhandle: Handle): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextDestroyEnumHandle0((enginehandle?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IPsecSaContextEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    0
+public actual fun iPsecSaContextEnum0(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextEnum0((enginehandle?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString(), numentriesrequested.toInt(), (entries?.value ?: 0L).toString(), (numentriesreturned?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IPsecSaContextEnum1(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    0
+public actual fun iPsecSaContextEnum1(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextEnum1((enginehandle?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString(), numentriesrequested.toInt(), (entries?.value ?: 0L).toString(), (numentriesreturned?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IPsecSaContextExpire0(enginehandle: HANDLE, id: ULong): NTSTATUS =
-    0
+public actual fun iPsecSaContextExpire0(enginehandle: Handle, id: ULong): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextExpire0((enginehandle?.value ?: 0L).toString(), id.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IPsecSaContextGetById0(enginehandle: HANDLE, id: ULong, sacontext: Long): NTSTATUS =
-    0
+public actual fun iPsecSaContextGetById0(enginehandle: Handle, id: ULong, sacontext: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextGetById0((enginehandle?.value ?: 0L).toString(), id.toString(), (sacontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IPsecSaContextGetById1(enginehandle: HANDLE, id: ULong, sacontext: Long): NTSTATUS =
-    0
+public actual fun iPsecSaContextGetById1(enginehandle: Handle, id: ULong, sacontext: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextGetById1((enginehandle?.value ?: 0L).toString(), id.toString(), (sacontext?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IPsecSaContextGetSpi0(enginehandle: HANDLE, id: ULong, getspi: Long, inboundspi: Long): NTSTATUS =
-    0
+public actual fun iPsecSaContextGetSpi0(enginehandle: Handle, id: ULong, getspi: COpaquePointer?, inboundspi: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextGetSpi0((enginehandle?.value ?: 0L).toString(), id.toString(), (getspi?.value ?: 0L).toString(), (inboundspi?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IPsecSaContextGetSpi1(enginehandle: HANDLE, id: ULong, getspi: Long, inboundspi: Long): NTSTATUS =
-    0
+public actual fun iPsecSaContextGetSpi1(enginehandle: Handle, id: ULong, getspi: COpaquePointer?, inboundspi: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextGetSpi1((enginehandle?.value ?: 0L).toString(), id.toString(), (getspi?.value ?: 0L).toString(), (inboundspi?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IPsecSaContextSetSpi0(enginehandle: HANDLE, id: ULong, getspi: Long, inboundspi: UInt): NTSTATUS =
-    0
+public actual fun iPsecSaContextSetSpi0(enginehandle: Handle, id: ULong, getspi: COpaquePointer?, inboundspi: UInt): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextSetSpi0((enginehandle?.value ?: 0L).toString(), id.toString(), (getspi?.value ?: 0L).toString(), inboundspi.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IPsecSaContextUpdate0(enginehandle: HANDLE, flags: ULong, newvalues: Long): NTSTATUS =
-    0
+public actual fun iPsecSaContextUpdate0(enginehandle: Handle, flags: ULong, newvalues: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextUpdate0((enginehandle?.value ?: 0L).toString(), flags.toString(), (newvalues?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IPsecSaCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): NTSTATUS =
-    0
+public actual fun iPsecSaCreateEnumHandle0(enginehandle: Handle, enumtemplate: COpaquePointer?, enumhandle: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaCreateEnumHandle0((enginehandle?.value ?: 0L).toString(), (enumtemplate?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IPsecSaDbGetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): NTSTATUS =
-    0
+public actual fun iPsecSaDbGetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaDbGetSecurityInfo0((enginehandle?.value ?: 0L).toString(), securityinfo.toInt(), (sidowner?.value ?: 0L).toString(), (sidgroup?.value ?: 0L).toString(), (dacl?.value ?: 0L).toString(), (sacl?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IPsecSaDbSetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): NTSTATUS =
-    0
+public actual fun iPsecSaDbSetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaDbSetSecurityInfo0((enginehandle?.value ?: 0L).toString(), securityinfo.toInt(), (sidowner?.value ?: 0L).toString(), (sidgroup?.value ?: 0L).toString(), (dacl?.value ?: 0L).toString(), (sacl?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IPsecSaDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): NTSTATUS =
-    0
+public actual fun iPsecSaDestroyEnumHandle0(enginehandle: Handle, enumhandle: Handle): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaDestroyEnumHandle0((enginehandle?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IPsecSaEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    0
+public actual fun iPsecSaEnum0(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaEnum0((enginehandle?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString(), numentriesrequested.toInt(), (entries?.value ?: 0L).toString(), (numentriesreturned?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IPsecSaEnum1(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    0
+public actual fun iPsecSaEnum1(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaEnum1((enginehandle?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString(), numentriesrequested.toInt(), (entries?.value ?: 0L).toString(), (numentriesreturned?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IkeextGetStatistics0(enginehandle: HANDLE, ikeextstatistics: Long): NTSTATUS =
-    0
+public actual fun ikeextGetStatistics0(enginehandle: Handle, ikeextstatistics: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextGetStatistics0((enginehandle?.value ?: 0L).toString(), (ikeextstatistics?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IkeextGetStatistics1(enginehandle: HANDLE, ikeextstatistics: Long): NTSTATUS =
-    0
+public actual fun ikeextGetStatistics1(enginehandle: Handle, ikeextstatistics: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextGetStatistics1((enginehandle?.value ?: 0L).toString(), (ikeextstatistics?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IkeextSaCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): NTSTATUS =
-    0
+public actual fun ikeextSaCreateEnumHandle0(enginehandle: Handle, enumtemplate: COpaquePointer?, enumhandle: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaCreateEnumHandle0((enginehandle?.value ?: 0L).toString(), (enumtemplate?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IkeextSaDbGetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): NTSTATUS =
-    0
+public actual fun ikeextSaDbGetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaDbGetSecurityInfo0((enginehandle?.value ?: 0L).toString(), securityinfo.toInt(), (sidowner?.value ?: 0L).toString(), (sidgroup?.value ?: 0L).toString(), (dacl?.value ?: 0L).toString(), (sacl?.value ?: 0L).toString(), (securitydescriptor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IkeextSaDbSetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): NTSTATUS =
-    0
+public actual fun ikeextSaDbSetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaDbSetSecurityInfo0((enginehandle?.value ?: 0L).toString(), securityinfo.toInt(), (sidowner?.value ?: 0L).toString(), (sidgroup?.value ?: 0L).toString(), (dacl?.value ?: 0L).toString(), (sacl?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IkeextSaDeleteById0(enginehandle: HANDLE, id: ULong): NTSTATUS =
-    0
+public actual fun ikeextSaDeleteById0(enginehandle: Handle, id: ULong): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaDeleteById0((enginehandle?.value ?: 0L).toString(), id.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IkeextSaDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): NTSTATUS =
-    0
+public actual fun ikeextSaDestroyEnumHandle0(enginehandle: Handle, enumhandle: Handle): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaDestroyEnumHandle0((enginehandle?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IkeextSaEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    0
+public actual fun ikeextSaEnum0(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaEnum0((enginehandle?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString(), numentriesrequested.toInt(), (entries?.value ?: 0L).toString(), (numentriesreturned?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IkeextSaEnum1(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    0
+public actual fun ikeextSaEnum1(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaEnum1((enginehandle?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString(), numentriesrequested.toInt(), (entries?.value ?: 0L).toString(), (numentriesreturned?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IkeextSaEnum2(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    0
+public actual fun ikeextSaEnum2(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaEnum2((enginehandle?.value ?: 0L).toString(), (enumhandle?.value ?: 0L).toString(), numentriesrequested.toInt(), (entries?.value ?: 0L).toString(), (numentriesreturned?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IkeextSaGetById0(enginehandle: HANDLE, id: ULong, sa: Long): NTSTATUS =
-    0
+public actual fun ikeextSaGetById0(enginehandle: Handle, id: ULong, sa: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaGetById0((enginehandle?.value ?: 0L).toString(), id.toString(), (sa?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IkeextSaGetById1(enginehandle: HANDLE, id: ULong, salookupcontext: Long, sa: Long): NTSTATUS =
-    0
+public actual fun ikeextSaGetById1(enginehandle: Handle, id: ULong, salookupcontext: COpaquePointer?, sa: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaGetById1((enginehandle?.value ?: 0L).toString(), id.toString(), (salookupcontext?.value ?: 0L).toString(), (sa?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IkeextSaGetById2(enginehandle: HANDLE, id: ULong, salookupcontext: Long, sa: Long): NTSTATUS =
-    0
+public actual fun ikeextSaGetById2(enginehandle: Handle, id: ULong, salookupcontext: COpaquePointer?, sa: COpaquePointer?): Ntstatus =
+    if (_windowsWdkNetworkmanagementWindowsfilteringplatformNapiAvailable) _wasm_windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaGetById2((enginehandle?.value ?: 0L).toString(), id.toString(), (salookupcontext?.value ?: 0L).toString(), (sa?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

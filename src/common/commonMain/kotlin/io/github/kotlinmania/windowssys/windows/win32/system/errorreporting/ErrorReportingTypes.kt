@@ -1,70 +1,71 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.errorreporting
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
 
 public typealias EFaultRepRetVal = Int
 
-public typealias HREPORT = Long
+public typealias Hreport = COpaquePointer?
 
-public typealias HREPORTSTORE = Long
+public typealias Hreportstore = COpaquePointer?
 
-public fun interface PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCHFn {
-    public operator fun invoke(pcontext: Long, pexceptioninformation: Long, pbiscustomdebugger: Long, pwszdebuggerlaunch: PWSTR, pchdebuggerlaunch: Long, pbisdebuggerautolaunch: Long): HRESULT
+public fun interface PfnWerRuntimeExceptionDebuggerLaunchFn {
+    public operator fun invoke(pcontext: COpaquePointer?, pexceptioninformation: COpaquePointer?, pbiscustomdebugger: COpaquePointer?, pwszdebuggerlaunch: Pwstr, pchdebuggerlaunch: COpaquePointer?, pbisdebuggerautolaunch: COpaquePointer?): Hresult
 }
 
-public typealias PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCH = PFN_WER_RUNTIME_EXCEPTION_DEBUGGER_LAUNCHFn?
+public typealias PfnWerRuntimeExceptionDebuggerLaunch = PfnWerRuntimeExceptionDebuggerLaunchFn?
 
-public fun interface PFN_WER_RUNTIME_EXCEPTION_EVENTFn {
-    public operator fun invoke(pcontext: Long, pexceptioninformation: Long, pbownershipclaimed: Long, pwszeventname: PWSTR, pchsize: Long, pdwsignaturecount: Long): HRESULT
+public fun interface PfnWerRuntimeExceptionEventFn {
+    public operator fun invoke(pcontext: COpaquePointer?, pexceptioninformation: COpaquePointer?, pbownershipclaimed: COpaquePointer?, pwszeventname: Pwstr, pchsize: COpaquePointer?, pdwsignaturecount: COpaquePointer?): Hresult
 }
 
-public typealias PFN_WER_RUNTIME_EXCEPTION_EVENT = PFN_WER_RUNTIME_EXCEPTION_EVENTFn?
+public typealias PfnWerRuntimeExceptionEvent = PfnWerRuntimeExceptionEventFn?
 
-public fun interface PFN_WER_RUNTIME_EXCEPTION_EVENT_SIGNATUREFn {
-    public operator fun invoke(pcontext: Long, pexceptioninformation: Long, dwindex: UInt, pwszname: PWSTR, pchname: Long, pwszvalue: PWSTR, pchvalue: Long): HRESULT
+public fun interface PfnWerRuntimeExceptionEventSignatureFn {
+    public operator fun invoke(pcontext: COpaquePointer?, pexceptioninformation: COpaquePointer?, dwindex: UInt, pwszname: Pwstr, pchname: COpaquePointer?, pwszvalue: Pwstr, pchvalue: COpaquePointer?): Hresult
 }
 
-public typealias PFN_WER_RUNTIME_EXCEPTION_EVENT_SIGNATURE = PFN_WER_RUNTIME_EXCEPTION_EVENT_SIGNATUREFn?
+public typealias PfnWerRuntimeExceptionEventSignature = PfnWerRuntimeExceptionEventSignatureFn?
 
-public typealias REPORT_STORE_TYPES = Int
+public typealias ReportStoreTypes = Int
 
-public typealias WER_CONSENT = Int
+public typealias WerConsent = Int
 
-public typealias WER_DUMP_TYPE = Int
+public typealias WerDumpType = Int
 
-public typealias WER_FAULT_REPORTING = UInt
+public typealias WerFaultReporting = UInt
 
-public typealias WER_FILE = UInt
+public typealias WerFile = UInt
 
-public typealias WER_FILE_TYPE = Int
+public typealias WerFileType = Int
 
-public typealias WER_REGISTER_FILE_TYPE = Int
+public typealias WerRegisterFileType = Int
 
-public typealias WER_REPORT_TYPE = Int
+public typealias WerReportType = Int
 
-public typealias WER_REPORT_UI = Int
+public typealias WerReportUi = Int
 
-public typealias WER_SUBMIT_FLAGS = UInt
+public typealias WerSubmitFlags = UInt
 
-public typealias WER_SUBMIT_RESULT = Int
+public typealias WerSubmitResult = Int
 
-public fun interface pfn_ADDEREXCLUDEDAPPLICATIONAFn {
-    public operator fun invoke(param0: PCSTR): EFaultRepRetVal
+public fun interface PfnAdderexcludedapplicationaFn {
+    public operator fun invoke(param0: Pcstr): EFaultRepRetVal
 }
 
-public typealias pfn_ADDEREXCLUDEDAPPLICATIONA = pfn_ADDEREXCLUDEDAPPLICATIONAFn?
+public typealias PfnAdderexcludedapplicationa = PfnAdderexcludedapplicationaFn?
 
-public fun interface pfn_ADDEREXCLUDEDAPPLICATIONWFn {
-    public operator fun invoke(param0: PCWSTR): EFaultRepRetVal
+public fun interface PfnAdderexcludedapplicationwFn {
+    public operator fun invoke(param0: Pcwstr): EFaultRepRetVal
 }
 
-public typealias pfn_ADDEREXCLUDEDAPPLICATIONW = pfn_ADDEREXCLUDEDAPPLICATIONWFn?
+public typealias PfnAdderexcludedapplicationw = PfnAdderexcludedapplicationwFn?
 
-public fun interface pfn_REPORTFAULTFn {
-    public operator fun invoke(param0: Long, param1: UInt): EFaultRepRetVal
+public fun interface PfnReportfaultFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: UInt): EFaultRepRetVal
 }
 
-public typealias pfn_REPORTFAULT = pfn_REPORTFAULTFn?
+public typealias PfnReportfault = PfnReportfaultFn?

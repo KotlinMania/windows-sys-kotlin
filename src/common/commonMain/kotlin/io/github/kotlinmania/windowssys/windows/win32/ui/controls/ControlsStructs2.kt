@@ -1,6 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.controls
 
-public data class USAGE_PROPERTIES(
+public data class UsageProperties(
     public var level: UShort = 0u,
     public var page: UShort = 0u,
     public var usage: UShort = 0u,
@@ -13,4 +13,4 @@ public data class USAGE_PROPERTIES(
     public var physicalMaximum: Int = 0,
 )
 
-public data class WTA_OPTIONS(public var dwFlags: UInt = 0u, public var dwMask: UInt = 0u)
+public data class WtaOptions(public var dwFlags: UInt = 0u, public var dwMask: UInt = 0u)

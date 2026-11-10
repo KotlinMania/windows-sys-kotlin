@@ -9,12 +9,12 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_win32_graphics_opengl_ChoosePixelFormat(void* hdc, void* ppfd);
-int32_t windowssys_windows_win32_graphics_opengl_DescribePixelFormat(void* hdc, int32_t ipixelformat, uint32_t nbytes, void* ppfd);
-uint32_t windowssys_windows_win32_graphics_opengl_GetEnhMetaFilePixelFormat(void* hemf, uint32_t cbbuffer, void* ppfd);
-int32_t windowssys_windows_win32_graphics_opengl_GetPixelFormat(void* hdc);
-int32_t windowssys_windows_win32_graphics_opengl_SetPixelFormat(void* hdc, int32_t format, void* ppfd);
-int32_t windowssys_windows_win32_graphics_opengl_SwapBuffers(void* param0);
+int32_t windowssys_windows_win32_graphics_opengl_choosePixelFormat(void* hdc, void* ppfd);
+int32_t windowssys_windows_win32_graphics_opengl_describePixelFormat(void* hdc, int32_t ipixelformat, uint32_t nbytes, void* ppfd);
+uint32_t windowssys_windows_win32_graphics_opengl_getEnhMetaFilePixelFormat(void* hemf, uint32_t cbbuffer, void* ppfd);
+int32_t windowssys_windows_win32_graphics_opengl_getPixelFormat(void* hdc);
+int32_t windowssys_windows_win32_graphics_opengl_setPixelFormat(void* hdc, int32_t format, void* ppfd);
+int32_t windowssys_windows_win32_graphics_opengl_swapBuffers(void* param0);
 void windowssys_windows_win32_graphics_opengl_glAccum(uint32_t op, float value);
 void windowssys_windows_win32_graphics_opengl_glAlphaFunc(uint32_t func, float ref);
 uint8_t windowssys_windows_win32_graphics_opengl_glAreTexturesResident(int32_t n, void* textures, void* residences);
@@ -411,6 +411,7 @@ int32_t windowssys_windows_win32_graphics_opengl_wglDescribeLayerPlane(void* par
 void* windowssys_windows_win32_graphics_opengl_wglGetCurrentContext(void);
 void* windowssys_windows_win32_graphics_opengl_wglGetCurrentDC(void);
 int32_t windowssys_windows_win32_graphics_opengl_wglGetLayerPaletteEntries(void* param0, int32_t param1, int32_t param2, int32_t param3, void* param4);
+void* windowssys_windows_win32_graphics_opengl_wglGetProcAddress(void* param0);
 int32_t windowssys_windows_win32_graphics_opengl_wglMakeCurrent(void* param0, void* param1);
 int32_t windowssys_windows_win32_graphics_opengl_wglRealizeLayerPalette(void* param0, int32_t param1, int32_t param2);
 int32_t windowssys_windows_win32_graphics_opengl_wglSetLayerPaletteEntries(void* param0, int32_t param1, int32_t param2, int32_t param3, void* param4);

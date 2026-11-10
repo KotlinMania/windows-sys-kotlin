@@ -1,1015 +1,1016 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.deviceanddriverinstallation
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.data.htmlhelp.PRIORITY
-import io.github.kotlinmania.windowssys.windows.win32.devices.properties.DEVPROPTYPE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.RECT
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
-import io.github.kotlinmania.windowssys.windows.win32.system.registry.HKEY
-import io.github.kotlinmania.windowssys.windows.win32.ui.controls.HPROPSHEETPAGE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.data.htmlhelp.Priority
+import io.github.kotlinmania.windowssys.windows.win32.devices.properties.Devproptype
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
+import io.github.kotlinmania.windowssys.windows.win32.system.registry.Hkey
+import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Hpropsheetpage
 
-public expect fun CMP_WaitNoPendingInstallEvents(dwtimeout: UInt): UInt
+public expect fun cmpWaitNoPendingInstallEvents(dwtimeout: UInt): UInt
 
-public expect fun CM_Add_Empty_Log_Conf(plclogconf: Long, dndevinst: UInt, priority: PRIORITY, ulflags: UInt): CONFIGRET
+public expect fun cmAddEmptyLogConf(plclogconf: COpaquePointer?, dndevinst: UInt, priority: Priority, ulflags: UInt): Configret
 
-public expect fun CM_Add_Empty_Log_Conf_Ex(plclogconf: Long, dndevinst: UInt, priority: PRIORITY, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmAddEmptyLogConfEx(plclogconf: COpaquePointer?, dndevinst: UInt, priority: Priority, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Add_IDA(dndevinst: UInt, pszid: PCSTR, ulflags: UInt): CONFIGRET
+public expect fun cmAddIda(dndevinst: UInt, pszid: Pcstr, ulflags: UInt): Configret
 
-public expect fun CM_Add_IDW(dndevinst: UInt, pszid: PCWSTR, ulflags: UInt): CONFIGRET
+public expect fun cmAddIdw(dndevinst: UInt, pszid: Pcwstr, ulflags: UInt): Configret
 
-public expect fun CM_Add_ID_ExA(dndevinst: UInt, pszid: PCSTR, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmAddIdExA(dndevinst: UInt, pszid: Pcstr, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Add_ID_ExW(dndevinst: UInt, pszid: PCWSTR, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmAddIdExW(dndevinst: UInt, pszid: Pcwstr, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Add_Range(ullstartvalue: ULong, ullendvalue: ULong, rlh: ULong, ulflags: UInt): CONFIGRET
+public expect fun cmAddRange(ullstartvalue: ULong, ullendvalue: ULong, rlh: ULong, ulflags: UInt): Configret
 
-public expect fun CM_Add_Res_Des(prdresdes: Long, lclogconf: ULong, resourceid: UInt, resourcedata: Long, resourcelen: UInt, ulflags: UInt): CONFIGRET
+public expect fun cmAddResDes(prdresdes: COpaquePointer?, lclogconf: ULong, resourceid: UInt, resourcedata: COpaquePointer?, resourcelen: UInt, ulflags: UInt): Configret
 
-public expect fun CM_Add_Res_Des_Ex(prdresdes: Long, lclogconf: ULong, resourceid: UInt, resourcedata: Long, resourcelen: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmAddResDesEx(prdresdes: COpaquePointer?, lclogconf: ULong, resourceid: UInt, resourcedata: COpaquePointer?, resourcelen: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Connect_MachineA(uncservername: PCSTR, phmachine: Long): CONFIGRET
+public expect fun cmConnectMachineA(uncservername: Pcstr, phmachine: COpaquePointer?): Configret
 
-public expect fun CM_Connect_MachineW(uncservername: PCWSTR, phmachine: Long): CONFIGRET
+public expect fun cmConnectMachineW(uncservername: Pcwstr, phmachine: COpaquePointer?): Configret
 
-public expect fun CM_Create_DevNodeA(pdndevinst: Long, pdeviceid: PCSTR, dnparent: UInt, ulflags: UInt): CONFIGRET
+public expect fun cmCreateDevNodeA(pdndevinst: COpaquePointer?, pdeviceid: Pcstr, dnparent: UInt, ulflags: UInt): Configret
 
-public expect fun CM_Create_DevNodeW(pdndevinst: Long, pdeviceid: PCWSTR, dnparent: UInt, ulflags: UInt): CONFIGRET
+public expect fun cmCreateDevNodeW(pdndevinst: COpaquePointer?, pdeviceid: Pcwstr, dnparent: UInt, ulflags: UInt): Configret
 
-public expect fun CM_Create_DevNode_ExA(pdndevinst: Long, pdeviceid: PCSTR, dnparent: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmCreateDevNodeExA(pdndevinst: COpaquePointer?, pdeviceid: Pcstr, dnparent: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Create_DevNode_ExW(pdndevinst: Long, pdeviceid: PCWSTR, dnparent: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmCreateDevNodeExW(pdndevinst: COpaquePointer?, pdeviceid: Pcwstr, dnparent: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Create_Range_List(prlh: Long, ulflags: UInt): CONFIGRET
+public expect fun cmCreateRangeList(prlh: COpaquePointer?, ulflags: UInt): Configret
 
-public expect fun CM_Delete_Class_Key(classguid: Long, ulflags: UInt): CONFIGRET
+public expect fun cmDeleteClassKey(classguid: COpaquePointer?, ulflags: UInt): Configret
 
-public expect fun CM_Delete_Class_Key_Ex(classguid: Long, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmDeleteClassKeyEx(classguid: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Delete_DevNode_Key(dndevnode: UInt, ulhardwareprofile: UInt, ulflags: UInt): CONFIGRET
+public expect fun cmDeleteDevNodeKey(dndevnode: UInt, ulhardwareprofile: UInt, ulflags: UInt): Configret
 
-public expect fun CM_Delete_DevNode_Key_Ex(dndevnode: UInt, ulhardwareprofile: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmDeleteDevNodeKeyEx(dndevnode: UInt, ulhardwareprofile: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Delete_Device_Interface_KeyA(pszdeviceinterface: PCSTR, ulflags: UInt): CONFIGRET
+public expect fun cmDeleteDeviceInterfaceKeyA(pszdeviceinterface: Pcstr, ulflags: UInt): Configret
 
-public expect fun CM_Delete_Device_Interface_KeyW(pszdeviceinterface: PCWSTR, ulflags: UInt): CONFIGRET
+public expect fun cmDeleteDeviceInterfaceKeyW(pszdeviceinterface: Pcwstr, ulflags: UInt): Configret
 
-public expect fun CM_Delete_Device_Interface_Key_ExA(pszdeviceinterface: PCSTR, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmDeleteDeviceInterfaceKeyExA(pszdeviceinterface: Pcstr, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Delete_Device_Interface_Key_ExW(pszdeviceinterface: PCWSTR, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmDeleteDeviceInterfaceKeyExW(pszdeviceinterface: Pcwstr, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Delete_Range(ullstartvalue: ULong, ullendvalue: ULong, rlh: ULong, ulflags: UInt): CONFIGRET
+public expect fun cmDeleteRange(ullstartvalue: ULong, ullendvalue: ULong, rlh: ULong, ulflags: UInt): Configret
 
-public expect fun CM_Detect_Resource_Conflict(dndevinst: UInt, resourceid: UInt, resourcedata: Long, resourcelen: UInt, pbconflictdetected: Long, ulflags: UInt): CONFIGRET
+public expect fun cmDetectResourceConflict(dndevinst: UInt, resourceid: UInt, resourcedata: COpaquePointer?, resourcelen: UInt, pbconflictdetected: COpaquePointer?, ulflags: UInt): Configret
 
-public expect fun CM_Detect_Resource_Conflict_Ex(dndevinst: UInt, resourceid: UInt, resourcedata: Long, resourcelen: UInt, pbconflictdetected: Long, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmDetectResourceConflictEx(dndevinst: UInt, resourceid: UInt, resourcedata: COpaquePointer?, resourcelen: UInt, pbconflictdetected: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Disable_DevNode(dndevinst: UInt, ulflags: UInt): CONFIGRET
+public expect fun cmDisableDevNode(dndevinst: UInt, ulflags: UInt): Configret
 
-public expect fun CM_Disable_DevNode_Ex(dndevinst: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmDisableDevNodeEx(dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Disconnect_Machine(hmachine: Long): CONFIGRET
+public expect fun cmDisconnectMachine(hmachine: Long): Configret
 
-public expect fun CM_Dup_Range_List(rlhold: ULong, rlhnew: ULong, ulflags: UInt): CONFIGRET
+public expect fun cmDupRangeList(rlhold: ULong, rlhnew: ULong, ulflags: UInt): Configret
 
-public expect fun CM_Enable_DevNode(dndevinst: UInt, ulflags: UInt): CONFIGRET
+public expect fun cmEnableDevNode(dndevinst: UInt, ulflags: UInt): Configret
 
-public expect fun CM_Enable_DevNode_Ex(dndevinst: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmEnableDevNodeEx(dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Enumerate_Classes(ulclassindex: UInt, classguid: Long, ulflags: CM_ENUMERATE_FLAGS): CONFIGRET
+public expect fun cmEnumerateClasses(ulclassindex: UInt, classguid: COpaquePointer?, ulflags: CmEnumerateFlags): Configret
 
-public expect fun CM_Enumerate_Classes_Ex(ulclassindex: UInt, classguid: Long, ulflags: CM_ENUMERATE_FLAGS, hmachine: Long): CONFIGRET
+public expect fun cmEnumerateClassesEx(ulclassindex: UInt, classguid: COpaquePointer?, ulflags: CmEnumerateFlags, hmachine: Long): Configret
 
-public expect fun CM_Enumerate_EnumeratorsA(ulenumindex: UInt, buffer: PSTR, pullength: Long, ulflags: UInt): CONFIGRET
+public expect fun cmEnumerateEnumeratorsA(ulenumindex: UInt, buffer: Pstr, pullength: COpaquePointer?, ulflags: UInt): Configret
 
-public expect fun CM_Enumerate_EnumeratorsW(ulenumindex: UInt, buffer: PWSTR, pullength: Long, ulflags: UInt): CONFIGRET
+public expect fun cmEnumerateEnumeratorsW(ulenumindex: UInt, buffer: Pwstr, pullength: COpaquePointer?, ulflags: UInt): Configret
 
-public expect fun CM_Enumerate_Enumerators_ExA(ulenumindex: UInt, buffer: PSTR, pullength: Long, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmEnumerateEnumeratorsExA(ulenumindex: UInt, buffer: Pstr, pullength: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Enumerate_Enumerators_ExW(ulenumindex: UInt, buffer: PWSTR, pullength: Long, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmEnumerateEnumeratorsExW(ulenumindex: UInt, buffer: Pwstr, pullength: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Find_Range(pullstart: Long, ullstart: ULong, ullength: UInt, ullalignment: ULong, ullend: ULong, rlh: ULong, ulflags: UInt): CONFIGRET
+public expect fun cmFindRange(pullstart: COpaquePointer?, ullstart: ULong, ullength: UInt, ullalignment: ULong, ullend: ULong, rlh: ULong, ulflags: UInt): Configret
 
-public expect fun CM_First_Range(rlh: ULong, pullstart: Long, pullend: Long, preelement: Long, ulflags: UInt): CONFIGRET
+public expect fun cmFirstRange(rlh: ULong, pullstart: COpaquePointer?, pullend: COpaquePointer?, preelement: COpaquePointer?, ulflags: UInt): Configret
 
-public expect fun CM_Free_Log_Conf(lclogconftobefreed: ULong, ulflags: UInt): CONFIGRET
+public expect fun cmFreeLogConf(lclogconftobefreed: ULong, ulflags: UInt): Configret
 
-public expect fun CM_Free_Log_Conf_Ex(lclogconftobefreed: ULong, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmFreeLogConfEx(lclogconftobefreed: ULong, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Free_Log_Conf_Handle(lclogconf: ULong): CONFIGRET
+public expect fun cmFreeLogConfHandle(lclogconf: ULong): Configret
 
-public expect fun CM_Free_Range_List(rlh: ULong, ulflags: UInt): CONFIGRET
+public expect fun cmFreeRangeList(rlh: ULong, ulflags: UInt): Configret
 
-public expect fun CM_Free_Res_Des(prdresdes: Long, rdresdes: ULong, ulflags: UInt): CONFIGRET
+public expect fun cmFreeResDes(prdresdes: COpaquePointer?, rdresdes: ULong, ulflags: UInt): Configret
 
-public expect fun CM_Free_Res_Des_Ex(prdresdes: Long, rdresdes: ULong, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmFreeResDesEx(prdresdes: COpaquePointer?, rdresdes: ULong, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Free_Res_Des_Handle(rdresdes: ULong): CONFIGRET
+public expect fun cmFreeResDesHandle(rdresdes: ULong): Configret
 
-public expect fun CM_Free_Resource_Conflict_Handle(clconflictlist: ULong): CONFIGRET
+public expect fun cmFreeResourceConflictHandle(clconflictlist: ULong): Configret
 
-public expect fun CM_Get_Child(pdndevinst: Long, dndevinst: UInt, ulflags: UInt): CONFIGRET
+public expect fun cmGetChild(pdndevinst: COpaquePointer?, dndevinst: UInt, ulflags: UInt): Configret
 
-public expect fun CM_Get_Child_Ex(pdndevinst: Long, dndevinst: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetChildEx(pdndevinst: COpaquePointer?, dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_Class_Key_NameA(classguid: Long, pszkeyname: PSTR, pullength: Long, ulflags: UInt): CONFIGRET
+public expect fun cmGetClassKeyNameA(classguid: COpaquePointer?, pszkeyname: Pstr, pullength: COpaquePointer?, ulflags: UInt): Configret
 
-public expect fun CM_Get_Class_Key_NameW(classguid: Long, pszkeyname: PWSTR, pullength: Long, ulflags: UInt): CONFIGRET
+public expect fun cmGetClassKeyNameW(classguid: COpaquePointer?, pszkeyname: Pwstr, pullength: COpaquePointer?, ulflags: UInt): Configret
 
-public expect fun CM_Get_Class_Key_Name_ExA(classguid: Long, pszkeyname: PSTR, pullength: Long, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetClassKeyNameExA(classguid: COpaquePointer?, pszkeyname: Pstr, pullength: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_Class_Key_Name_ExW(classguid: Long, pszkeyname: PWSTR, pullength: Long, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetClassKeyNameExW(classguid: COpaquePointer?, pszkeyname: Pwstr, pullength: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_Class_NameA(classguid: Long, buffer: PSTR, pullength: Long, ulflags: UInt): CONFIGRET
+public expect fun cmGetClassNameA(classguid: COpaquePointer?, buffer: Pstr, pullength: COpaquePointer?, ulflags: UInt): Configret
 
-public expect fun CM_Get_Class_NameW(classguid: Long, buffer: PWSTR, pullength: Long, ulflags: UInt): CONFIGRET
+public expect fun cmGetClassNameW(classguid: COpaquePointer?, buffer: Pwstr, pullength: COpaquePointer?, ulflags: UInt): Configret
 
-public expect fun CM_Get_Class_Name_ExA(classguid: Long, buffer: PSTR, pullength: Long, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetClassNameExA(classguid: COpaquePointer?, buffer: Pstr, pullength: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_Class_Name_ExW(classguid: Long, buffer: PWSTR, pullength: Long, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetClassNameExW(classguid: COpaquePointer?, buffer: Pwstr, pullength: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_Class_PropertyW(classguid: Long, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: Long, ulflags: UInt): CONFIGRET
+public expect fun cmGetClassPropertyW(classguid: COpaquePointer?, propertykey: COpaquePointer?, propertytype: COpaquePointer?, propertybuffer: COpaquePointer?, propertybuffersize: COpaquePointer?, ulflags: UInt): Configret
 
-public expect fun CM_Get_Class_Property_ExW(classguid: Long, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: Long, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetClassPropertyExW(classguid: COpaquePointer?, propertykey: COpaquePointer?, propertytype: COpaquePointer?, propertybuffer: COpaquePointer?, propertybuffersize: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_Class_Property_Keys(classguid: Long, propertykeyarray: Long, propertykeycount: Long, ulflags: UInt): CONFIGRET
+public expect fun cmGetClassPropertyKeys(classguid: COpaquePointer?, propertykeyarray: COpaquePointer?, propertykeycount: COpaquePointer?, ulflags: UInt): Configret
 
-public expect fun CM_Get_Class_Property_Keys_Ex(classguid: Long, propertykeyarray: Long, propertykeycount: Long, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetClassPropertyKeysEx(classguid: COpaquePointer?, propertykeyarray: COpaquePointer?, propertykeycount: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_Class_Registry_PropertyA(classguid: Long, ulproperty: UInt, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetClassRegistryPropertyA(classguid: COpaquePointer?, ulproperty: UInt, pulregdatatype: COpaquePointer?, buffer: COpaquePointer?, pullength: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_Class_Registry_PropertyW(classguid: Long, ulproperty: UInt, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetClassRegistryPropertyW(classguid: COpaquePointer?, ulproperty: UInt, pulregdatatype: COpaquePointer?, buffer: COpaquePointer?, pullength: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_Depth(puldepth: Long, dndevinst: UInt, ulflags: UInt): CONFIGRET
+public expect fun cmGetDepth(puldepth: COpaquePointer?, dndevinst: UInt, ulflags: UInt): Configret
 
-public expect fun CM_Get_Depth_Ex(puldepth: Long, dndevinst: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetDepthEx(puldepth: COpaquePointer?, dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_DevNode_Custom_PropertyA(dndevinst: UInt, pszcustompropertyname: PCSTR, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: UInt): CONFIGRET
+public expect fun cmGetDevNodeCustomPropertyA(dndevinst: UInt, pszcustompropertyname: Pcstr, pulregdatatype: COpaquePointer?, buffer: COpaquePointer?, pullength: COpaquePointer?, ulflags: UInt): Configret
 
-public expect fun CM_Get_DevNode_Custom_PropertyW(dndevinst: UInt, pszcustompropertyname: PCWSTR, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: UInt): CONFIGRET
+public expect fun cmGetDevNodeCustomPropertyW(dndevinst: UInt, pszcustompropertyname: Pcwstr, pulregdatatype: COpaquePointer?, buffer: COpaquePointer?, pullength: COpaquePointer?, ulflags: UInt): Configret
 
-public expect fun CM_Get_DevNode_Custom_Property_ExA(dndevinst: UInt, pszcustompropertyname: PCSTR, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetDevNodeCustomPropertyExA(dndevinst: UInt, pszcustompropertyname: Pcstr, pulregdatatype: COpaquePointer?, buffer: COpaquePointer?, pullength: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_DevNode_Custom_Property_ExW(dndevinst: UInt, pszcustompropertyname: PCWSTR, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetDevNodeCustomPropertyExW(dndevinst: UInt, pszcustompropertyname: Pcwstr, pulregdatatype: COpaquePointer?, buffer: COpaquePointer?, pullength: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_DevNode_PropertyW(dndevinst: UInt, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: Long, ulflags: UInt): CONFIGRET
+public expect fun cmGetDevNodePropertyW(dndevinst: UInt, propertykey: COpaquePointer?, propertytype: COpaquePointer?, propertybuffer: COpaquePointer?, propertybuffersize: COpaquePointer?, ulflags: UInt): Configret
 
-public expect fun CM_Get_DevNode_Property_ExW(dndevinst: UInt, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: Long, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetDevNodePropertyExW(dndevinst: UInt, propertykey: COpaquePointer?, propertytype: COpaquePointer?, propertybuffer: COpaquePointer?, propertybuffersize: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_DevNode_Property_Keys(dndevinst: UInt, propertykeyarray: Long, propertykeycount: Long, ulflags: UInt): CONFIGRET
+public expect fun cmGetDevNodePropertyKeys(dndevinst: UInt, propertykeyarray: COpaquePointer?, propertykeycount: COpaquePointer?, ulflags: UInt): Configret
 
-public expect fun CM_Get_DevNode_Property_Keys_Ex(dndevinst: UInt, propertykeyarray: Long, propertykeycount: Long, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetDevNodePropertyKeysEx(dndevinst: UInt, propertykeyarray: COpaquePointer?, propertykeycount: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_DevNode_Registry_PropertyA(dndevinst: UInt, ulproperty: UInt, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: UInt): CONFIGRET
+public expect fun cmGetDevNodeRegistryPropertyA(dndevinst: UInt, ulproperty: UInt, pulregdatatype: COpaquePointer?, buffer: COpaquePointer?, pullength: COpaquePointer?, ulflags: UInt): Configret
 
-public expect fun CM_Get_DevNode_Registry_PropertyW(dndevinst: UInt, ulproperty: UInt, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: UInt): CONFIGRET
+public expect fun cmGetDevNodeRegistryPropertyW(dndevinst: UInt, ulproperty: UInt, pulregdatatype: COpaquePointer?, buffer: COpaquePointer?, pullength: COpaquePointer?, ulflags: UInt): Configret
 
-public expect fun CM_Get_DevNode_Registry_Property_ExA(dndevinst: UInt, ulproperty: UInt, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetDevNodeRegistryPropertyExA(dndevinst: UInt, ulproperty: UInt, pulregdatatype: COpaquePointer?, buffer: COpaquePointer?, pullength: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_DevNode_Registry_Property_ExW(dndevinst: UInt, ulproperty: UInt, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetDevNodeRegistryPropertyExW(dndevinst: UInt, ulproperty: UInt, pulregdatatype: COpaquePointer?, buffer: COpaquePointer?, pullength: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_DevNode_Status(pulstatus: Long, pulproblemnumber: Long, dndevinst: UInt, ulflags: UInt): CONFIGRET
+public expect fun cmGetDevNodeStatus(pulstatus: COpaquePointer?, pulproblemnumber: COpaquePointer?, dndevinst: UInt, ulflags: UInt): Configret
 
-public expect fun CM_Get_DevNode_Status_Ex(pulstatus: Long, pulproblemnumber: Long, dndevinst: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetDevNodeStatusEx(pulstatus: COpaquePointer?, pulproblemnumber: COpaquePointer?, dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_Device_IDA(dndevinst: UInt, buffer: PSTR, bufferlen: UInt, ulflags: UInt): CONFIGRET
+public expect fun cmGetDeviceIda(dndevinst: UInt, buffer: Pstr, bufferlen: UInt, ulflags: UInt): Configret
 
-public expect fun CM_Get_Device_IDW(dndevinst: UInt, buffer: PWSTR, bufferlen: UInt, ulflags: UInt): CONFIGRET
+public expect fun cmGetDeviceIdw(dndevinst: UInt, buffer: Pwstr, bufferlen: UInt, ulflags: UInt): Configret
 
-public expect fun CM_Get_Device_ID_ExA(dndevinst: UInt, buffer: PSTR, bufferlen: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetDeviceIdExA(dndevinst: UInt, buffer: Pstr, bufferlen: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_Device_ID_ExW(dndevinst: UInt, buffer: PWSTR, bufferlen: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetDeviceIdExW(dndevinst: UInt, buffer: Pwstr, bufferlen: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_Device_ID_ListA(pszfilter: PCSTR, buffer: PSTR, bufferlen: UInt, ulflags: UInt): CONFIGRET
+public expect fun cmGetDeviceIdListA(pszfilter: Pcstr, buffer: Pstr, bufferlen: UInt, ulflags: UInt): Configret
 
-public expect fun CM_Get_Device_ID_ListW(pszfilter: PCWSTR, buffer: PWSTR, bufferlen: UInt, ulflags: UInt): CONFIGRET
+public expect fun cmGetDeviceIdListW(pszfilter: Pcwstr, buffer: Pwstr, bufferlen: UInt, ulflags: UInt): Configret
 
-public expect fun CM_Get_Device_ID_List_ExA(pszfilter: PCSTR, buffer: PSTR, bufferlen: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetDeviceIdListExA(pszfilter: Pcstr, buffer: Pstr, bufferlen: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_Device_ID_List_ExW(pszfilter: PCWSTR, buffer: PWSTR, bufferlen: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetDeviceIdListExW(pszfilter: Pcwstr, buffer: Pwstr, bufferlen: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_Device_ID_List_SizeA(pullen: Long, pszfilter: PCSTR, ulflags: UInt): CONFIGRET
+public expect fun cmGetDeviceIdListSizeA(pullen: COpaquePointer?, pszfilter: Pcstr, ulflags: UInt): Configret
 
-public expect fun CM_Get_Device_ID_List_SizeW(pullen: Long, pszfilter: PCWSTR, ulflags: UInt): CONFIGRET
+public expect fun cmGetDeviceIdListSizeW(pullen: COpaquePointer?, pszfilter: Pcwstr, ulflags: UInt): Configret
 
-public expect fun CM_Get_Device_ID_List_Size_ExA(pullen: Long, pszfilter: PCSTR, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetDeviceIdListSizeExA(pullen: COpaquePointer?, pszfilter: Pcstr, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_Device_ID_List_Size_ExW(pullen: Long, pszfilter: PCWSTR, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetDeviceIdListSizeExW(pullen: COpaquePointer?, pszfilter: Pcwstr, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_Device_ID_Size(pullen: Long, dndevinst: UInt, ulflags: UInt): CONFIGRET
+public expect fun cmGetDeviceIdSize(pullen: COpaquePointer?, dndevinst: UInt, ulflags: UInt): Configret
 
-public expect fun CM_Get_Device_ID_Size_Ex(pullen: Long, dndevinst: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetDeviceIdSizeEx(pullen: COpaquePointer?, dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_Device_Interface_AliasA(pszdeviceinterface: PCSTR, aliasinterfaceguid: Long, pszaliasdeviceinterface: PSTR, pullength: Long, ulflags: UInt): CONFIGRET
+public expect fun cmGetDeviceInterfaceAliasA(pszdeviceinterface: Pcstr, aliasinterfaceguid: COpaquePointer?, pszaliasdeviceinterface: Pstr, pullength: COpaquePointer?, ulflags: UInt): Configret
 
-public expect fun CM_Get_Device_Interface_AliasW(pszdeviceinterface: PCWSTR, aliasinterfaceguid: Long, pszaliasdeviceinterface: PWSTR, pullength: Long, ulflags: UInt): CONFIGRET
+public expect fun cmGetDeviceInterfaceAliasW(pszdeviceinterface: Pcwstr, aliasinterfaceguid: COpaquePointer?, pszaliasdeviceinterface: Pwstr, pullength: COpaquePointer?, ulflags: UInt): Configret
 
-public expect fun CM_Get_Device_Interface_Alias_ExA(pszdeviceinterface: PCSTR, aliasinterfaceguid: Long, pszaliasdeviceinterface: PSTR, pullength: Long, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetDeviceInterfaceAliasExA(pszdeviceinterface: Pcstr, aliasinterfaceguid: COpaquePointer?, pszaliasdeviceinterface: Pstr, pullength: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_Device_Interface_Alias_ExW(pszdeviceinterface: PCWSTR, aliasinterfaceguid: Long, pszaliasdeviceinterface: PWSTR, pullength: Long, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetDeviceInterfaceAliasExW(pszdeviceinterface: Pcwstr, aliasinterfaceguid: COpaquePointer?, pszaliasdeviceinterface: Pwstr, pullength: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_Device_Interface_ListA(interfaceclassguid: Long, pdeviceid: PCSTR, buffer: PSTR, bufferlen: UInt, ulflags: CM_GET_DEVICE_INTERFACE_LIST_FLAGS): CONFIGRET
+public expect fun cmGetDeviceInterfaceListA(interfaceclassguid: COpaquePointer?, pdeviceid: Pcstr, buffer: Pstr, bufferlen: UInt, ulflags: CmGetDeviceInterfaceListFlags): Configret
 
-public expect fun CM_Get_Device_Interface_ListW(interfaceclassguid: Long, pdeviceid: PCWSTR, buffer: PWSTR, bufferlen: UInt, ulflags: CM_GET_DEVICE_INTERFACE_LIST_FLAGS): CONFIGRET
+public expect fun cmGetDeviceInterfaceListW(interfaceclassguid: COpaquePointer?, pdeviceid: Pcwstr, buffer: Pwstr, bufferlen: UInt, ulflags: CmGetDeviceInterfaceListFlags): Configret
 
-public expect fun CM_Get_Device_Interface_List_ExA(interfaceclassguid: Long, pdeviceid: PCSTR, buffer: PSTR, bufferlen: UInt, ulflags: CM_GET_DEVICE_INTERFACE_LIST_FLAGS, hmachine: Long): CONFIGRET
+public expect fun cmGetDeviceInterfaceListExA(interfaceclassguid: COpaquePointer?, pdeviceid: Pcstr, buffer: Pstr, bufferlen: UInt, ulflags: CmGetDeviceInterfaceListFlags, hmachine: Long): Configret
 
-public expect fun CM_Get_Device_Interface_List_ExW(interfaceclassguid: Long, pdeviceid: PCWSTR, buffer: PWSTR, bufferlen: UInt, ulflags: CM_GET_DEVICE_INTERFACE_LIST_FLAGS, hmachine: Long): CONFIGRET
+public expect fun cmGetDeviceInterfaceListExW(interfaceclassguid: COpaquePointer?, pdeviceid: Pcwstr, buffer: Pwstr, bufferlen: UInt, ulflags: CmGetDeviceInterfaceListFlags, hmachine: Long): Configret
 
-public expect fun CM_Get_Device_Interface_List_SizeA(pullen: Long, interfaceclassguid: Long, pdeviceid: PCSTR, ulflags: CM_GET_DEVICE_INTERFACE_LIST_FLAGS): CONFIGRET
+public expect fun cmGetDeviceInterfaceListSizeA(pullen: COpaquePointer?, interfaceclassguid: COpaquePointer?, pdeviceid: Pcstr, ulflags: CmGetDeviceInterfaceListFlags): Configret
 
-public expect fun CM_Get_Device_Interface_List_SizeW(pullen: Long, interfaceclassguid: Long, pdeviceid: PCWSTR, ulflags: CM_GET_DEVICE_INTERFACE_LIST_FLAGS): CONFIGRET
+public expect fun cmGetDeviceInterfaceListSizeW(pullen: COpaquePointer?, interfaceclassguid: COpaquePointer?, pdeviceid: Pcwstr, ulflags: CmGetDeviceInterfaceListFlags): Configret
 
-public expect fun CM_Get_Device_Interface_List_Size_ExA(pullen: Long, interfaceclassguid: Long, pdeviceid: PCSTR, ulflags: CM_GET_DEVICE_INTERFACE_LIST_FLAGS, hmachine: Long): CONFIGRET
+public expect fun cmGetDeviceInterfaceListSizeExA(pullen: COpaquePointer?, interfaceclassguid: COpaquePointer?, pdeviceid: Pcstr, ulflags: CmGetDeviceInterfaceListFlags, hmachine: Long): Configret
 
-public expect fun CM_Get_Device_Interface_List_Size_ExW(pullen: Long, interfaceclassguid: Long, pdeviceid: PCWSTR, ulflags: CM_GET_DEVICE_INTERFACE_LIST_FLAGS, hmachine: Long): CONFIGRET
+public expect fun cmGetDeviceInterfaceListSizeExW(pullen: COpaquePointer?, interfaceclassguid: COpaquePointer?, pdeviceid: Pcwstr, ulflags: CmGetDeviceInterfaceListFlags, hmachine: Long): Configret
 
-public expect fun CM_Get_Device_Interface_PropertyW(pszdeviceinterface: PCWSTR, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: Long, ulflags: UInt): CONFIGRET
+public expect fun cmGetDeviceInterfacePropertyW(pszdeviceinterface: Pcwstr, propertykey: COpaquePointer?, propertytype: COpaquePointer?, propertybuffer: COpaquePointer?, propertybuffersize: COpaquePointer?, ulflags: UInt): Configret
 
-public expect fun CM_Get_Device_Interface_Property_ExW(pszdeviceinterface: PCWSTR, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: Long, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetDeviceInterfacePropertyExW(pszdeviceinterface: Pcwstr, propertykey: COpaquePointer?, propertytype: COpaquePointer?, propertybuffer: COpaquePointer?, propertybuffersize: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_Device_Interface_Property_KeysW(pszdeviceinterface: PCWSTR, propertykeyarray: Long, propertykeycount: Long, ulflags: UInt): CONFIGRET
+public expect fun cmGetDeviceInterfacePropertyKeysW(pszdeviceinterface: Pcwstr, propertykeyarray: COpaquePointer?, propertykeycount: COpaquePointer?, ulflags: UInt): Configret
 
-public expect fun CM_Get_Device_Interface_Property_Keys_ExW(pszdeviceinterface: PCWSTR, propertykeyarray: Long, propertykeycount: Long, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetDeviceInterfacePropertyKeysExW(pszdeviceinterface: Pcwstr, propertykeyarray: COpaquePointer?, propertykeycount: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_First_Log_Conf(plclogconf: Long, dndevinst: UInt, ulflags: CM_LOG_CONF): CONFIGRET
+public expect fun cmGetFirstLogConf(plclogconf: COpaquePointer?, dndevinst: UInt, ulflags: CmLogConf): Configret
 
-public expect fun CM_Get_First_Log_Conf_Ex(plclogconf: Long, dndevinst: UInt, ulflags: CM_LOG_CONF, hmachine: Long): CONFIGRET
+public expect fun cmGetFirstLogConfEx(plclogconf: COpaquePointer?, dndevinst: UInt, ulflags: CmLogConf, hmachine: Long): Configret
 
-public expect fun CM_Get_Global_State(pulstate: Long, ulflags: UInt): CONFIGRET
+public expect fun cmGetGlobalState(pulstate: COpaquePointer?, ulflags: UInt): Configret
 
-public expect fun CM_Get_Global_State_Ex(pulstate: Long, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetGlobalStateEx(pulstate: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_HW_Prof_FlagsA(pdeviceid: PCSTR, ulhardwareprofile: UInt, pulvalue: Long, ulflags: UInt): CONFIGRET
+public expect fun cmGetHwProfFlagsA(pdeviceid: Pcstr, ulhardwareprofile: UInt, pulvalue: COpaquePointer?, ulflags: UInt): Configret
 
-public expect fun CM_Get_HW_Prof_FlagsW(pdeviceid: PCWSTR, ulhardwareprofile: UInt, pulvalue: Long, ulflags: UInt): CONFIGRET
+public expect fun cmGetHwProfFlagsW(pdeviceid: Pcwstr, ulhardwareprofile: UInt, pulvalue: COpaquePointer?, ulflags: UInt): Configret
 
-public expect fun CM_Get_HW_Prof_Flags_ExA(pdeviceid: PCSTR, ulhardwareprofile: UInt, pulvalue: Long, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetHwProfFlagsExA(pdeviceid: Pcstr, ulhardwareprofile: UInt, pulvalue: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_HW_Prof_Flags_ExW(pdeviceid: PCWSTR, ulhardwareprofile: UInt, pulvalue: Long, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetHwProfFlagsExW(pdeviceid: Pcwstr, ulhardwareprofile: UInt, pulvalue: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_Hardware_Profile_InfoA(ulindex: UInt, phwprofileinfo: Long, ulflags: UInt): CONFIGRET
+public expect fun cmGetHardwareProfileInfoA(ulindex: UInt, phwprofileinfo: COpaquePointer?, ulflags: UInt): Configret
 
-public expect fun CM_Get_Hardware_Profile_InfoW(ulindex: UInt, phwprofileinfo: Long, ulflags: UInt): CONFIGRET
+public expect fun cmGetHardwareProfileInfoW(ulindex: UInt, phwprofileinfo: COpaquePointer?, ulflags: UInt): Configret
 
-public expect fun CM_Get_Hardware_Profile_Info_ExA(ulindex: UInt, phwprofileinfo: Long, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetHardwareProfileInfoExA(ulindex: UInt, phwprofileinfo: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_Hardware_Profile_Info_ExW(ulindex: UInt, phwprofileinfo: Long, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetHardwareProfileInfoExW(ulindex: UInt, phwprofileinfo: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_Log_Conf_Priority(lclogconf: ULong, ppriority: Long, ulflags: UInt): CONFIGRET
+public expect fun cmGetLogConfPriority(lclogconf: ULong, ppriority: COpaquePointer?, ulflags: UInt): Configret
 
-public expect fun CM_Get_Log_Conf_Priority_Ex(lclogconf: ULong, ppriority: Long, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetLogConfPriorityEx(lclogconf: ULong, ppriority: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_Next_Log_Conf(plclogconf: Long, lclogconf: ULong, ulflags: UInt): CONFIGRET
+public expect fun cmGetNextLogConf(plclogconf: COpaquePointer?, lclogconf: ULong, ulflags: UInt): Configret
 
-public expect fun CM_Get_Next_Log_Conf_Ex(plclogconf: Long, lclogconf: ULong, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetNextLogConfEx(plclogconf: COpaquePointer?, lclogconf: ULong, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_Next_Res_Des(prdresdes: Long, rdresdes: ULong, forresource: CM_RESTYPE, presourceid: Long, ulflags: UInt): CONFIGRET
+public expect fun cmGetNextResDes(prdresdes: COpaquePointer?, rdresdes: ULong, forresource: CmRestype, presourceid: COpaquePointer?, ulflags: UInt): Configret
 
-public expect fun CM_Get_Next_Res_Des_Ex(prdresdes: Long, rdresdes: ULong, forresource: CM_RESTYPE, presourceid: Long, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetNextResDesEx(prdresdes: COpaquePointer?, rdresdes: ULong, forresource: CmRestype, presourceid: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_Parent(pdndevinst: Long, dndevinst: UInt, ulflags: UInt): CONFIGRET
+public expect fun cmGetParent(pdndevinst: COpaquePointer?, dndevinst: UInt, ulflags: UInt): Configret
 
-public expect fun CM_Get_Parent_Ex(pdndevinst: Long, dndevinst: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetParentEx(pdndevinst: COpaquePointer?, dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_Res_Des_Data(rdresdes: ULong, buffer: Long, bufferlen: UInt, ulflags: UInt): CONFIGRET
+public expect fun cmGetResDesData(rdresdes: ULong, buffer: COpaquePointer?, bufferlen: UInt, ulflags: UInt): Configret
 
-public expect fun CM_Get_Res_Des_Data_Ex(rdresdes: ULong, buffer: Long, bufferlen: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetResDesDataEx(rdresdes: ULong, buffer: COpaquePointer?, bufferlen: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_Res_Des_Data_Size(pulsize: Long, rdresdes: ULong, ulflags: UInt): CONFIGRET
+public expect fun cmGetResDesDataSize(pulsize: COpaquePointer?, rdresdes: ULong, ulflags: UInt): Configret
 
-public expect fun CM_Get_Res_Des_Data_Size_Ex(pulsize: Long, rdresdes: ULong, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetResDesDataSizeEx(pulsize: COpaquePointer?, rdresdes: ULong, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_Resource_Conflict_Count(clconflictlist: ULong, pulcount: Long): CONFIGRET
+public expect fun cmGetResourceConflictCount(clconflictlist: ULong, pulcount: COpaquePointer?): Configret
 
-public expect fun CM_Get_Resource_Conflict_DetailsA(clconflictlist: ULong, ulindex: UInt, pconflictdetails: Long): CONFIGRET
+public expect fun cmGetResourceConflictDetailsA(clconflictlist: ULong, ulindex: UInt, pconflictdetails: COpaquePointer?): Configret
 
-public expect fun CM_Get_Resource_Conflict_DetailsW(clconflictlist: ULong, ulindex: UInt, pconflictdetails: Long): CONFIGRET
+public expect fun cmGetResourceConflictDetailsW(clconflictlist: ULong, ulindex: UInt, pconflictdetails: COpaquePointer?): Configret
 
-public expect fun CM_Get_Sibling(pdndevinst: Long, dndevinst: UInt, ulflags: UInt): CONFIGRET
+public expect fun cmGetSibling(pdndevinst: COpaquePointer?, dndevinst: UInt, ulflags: UInt): Configret
 
-public expect fun CM_Get_Sibling_Ex(pdndevinst: Long, dndevinst: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmGetSiblingEx(pdndevinst: COpaquePointer?, dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Get_Version(): UShort
+public expect fun cmGetVersion(): UShort
 
-public expect fun CM_Get_Version_Ex(hmachine: Long): UShort
+public expect fun cmGetVersionEx(hmachine: Long): UShort
 
-public expect fun CM_Intersect_Range_List(rlhold1: ULong, rlhold2: ULong, rlhnew: ULong, ulflags: UInt): CONFIGRET
+public expect fun cmIntersectRangeList(rlhold1: ULong, rlhold2: ULong, rlhnew: ULong, ulflags: UInt): Configret
 
-public expect fun CM_Invert_Range_List(rlhold: ULong, rlhnew: ULong, ullmaxvalue: ULong, ulflags: UInt): CONFIGRET
+public expect fun cmInvertRangeList(rlhold: ULong, rlhnew: ULong, ullmaxvalue: ULong, ulflags: UInt): Configret
 
-public expect fun CM_Is_Dock_Station_Present(pbpresent: Long): CONFIGRET
+public expect fun cmIsDockStationPresent(pbpresent: COpaquePointer?): Configret
 
-public expect fun CM_Is_Dock_Station_Present_Ex(pbpresent: Long, hmachine: Long): CONFIGRET
+public expect fun cmIsDockStationPresentEx(pbpresent: COpaquePointer?, hmachine: Long): Configret
 
-public expect fun CM_Is_Version_Available(wversion: UShort): BOOL
+public expect fun cmIsVersionAvailable(wversion: UShort): Bool
 
-public expect fun CM_Is_Version_Available_Ex(wversion: UShort, hmachine: Long): BOOL
+public expect fun cmIsVersionAvailableEx(wversion: UShort, hmachine: Long): Bool
 
-public expect fun CM_Locate_DevNodeA(pdndevinst: Long, pdeviceid: PCSTR, ulflags: CM_LOCATE_DEVNODE_FLAGS): CONFIGRET
+public expect fun cmLocateDevNodeA(pdndevinst: COpaquePointer?, pdeviceid: Pcstr, ulflags: CmLocateDevnodeFlags): Configret
 
-public expect fun CM_Locate_DevNodeW(pdndevinst: Long, pdeviceid: PCWSTR, ulflags: CM_LOCATE_DEVNODE_FLAGS): CONFIGRET
+public expect fun cmLocateDevNodeW(pdndevinst: COpaquePointer?, pdeviceid: Pcwstr, ulflags: CmLocateDevnodeFlags): Configret
 
-public expect fun CM_Locate_DevNode_ExA(pdndevinst: Long, pdeviceid: PCSTR, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmLocateDevNodeExA(pdndevinst: COpaquePointer?, pdeviceid: Pcstr, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Locate_DevNode_ExW(pdndevinst: Long, pdeviceid: PCWSTR, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmLocateDevNodeExW(pdndevinst: COpaquePointer?, pdeviceid: Pcwstr, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_MapCrToWin32Err(cmreturncode: CONFIGRET, defaulterr: UInt): UInt
+public expect fun cmMapCrToWin32Err(cmreturncode: Configret, defaulterr: UInt): UInt
 
-public expect fun CM_Merge_Range_List(rlhold1: ULong, rlhold2: ULong, rlhnew: ULong, ulflags: UInt): CONFIGRET
+public expect fun cmMergeRangeList(rlhold1: ULong, rlhold2: ULong, rlhnew: ULong, ulflags: UInt): Configret
 
-public expect fun CM_Modify_Res_Des(prdresdes: Long, rdresdes: ULong, resourceid: UInt, resourcedata: Long, resourcelen: UInt, ulflags: UInt): CONFIGRET
+public expect fun cmModifyResDes(prdresdes: COpaquePointer?, rdresdes: ULong, resourceid: UInt, resourcedata: COpaquePointer?, resourcelen: UInt, ulflags: UInt): Configret
 
-public expect fun CM_Modify_Res_Des_Ex(prdresdes: Long, rdresdes: ULong, resourceid: UInt, resourcedata: Long, resourcelen: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmModifyResDesEx(prdresdes: COpaquePointer?, rdresdes: ULong, resourceid: UInt, resourcedata: COpaquePointer?, resourcelen: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Move_DevNode(dnfromdevinst: UInt, dntodevinst: UInt, ulflags: UInt): CONFIGRET
+public expect fun cmMoveDevNode(dnfromdevinst: UInt, dntodevinst: UInt, ulflags: UInt): Configret
 
-public expect fun CM_Move_DevNode_Ex(dnfromdevinst: UInt, dntodevinst: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmMoveDevNodeEx(dnfromdevinst: UInt, dntodevinst: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Next_Range(preelement: Long, pullstart: Long, pullend: Long, ulflags: UInt): CONFIGRET
+public expect fun cmNextRange(preelement: COpaquePointer?, pullstart: COpaquePointer?, pullend: COpaquePointer?, ulflags: UInt): Configret
 
-public expect fun CM_Open_Class_KeyA(classguid: Long, pszclassname: PCSTR, samdesired: UInt, disposition: UInt, phkclass: Long, ulflags: UInt): CONFIGRET
+public expect fun cmOpenClassKeyA(classguid: COpaquePointer?, pszclassname: Pcstr, samdesired: UInt, disposition: UInt, phkclass: COpaquePointer?, ulflags: UInt): Configret
 
-public expect fun CM_Open_Class_KeyW(classguid: Long, pszclassname: PCWSTR, samdesired: UInt, disposition: UInt, phkclass: Long, ulflags: UInt): CONFIGRET
+public expect fun cmOpenClassKeyW(classguid: COpaquePointer?, pszclassname: Pcwstr, samdesired: UInt, disposition: UInt, phkclass: COpaquePointer?, ulflags: UInt): Configret
 
-public expect fun CM_Open_Class_Key_ExA(classguid: Long, pszclassname: PCSTR, samdesired: UInt, disposition: UInt, phkclass: Long, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmOpenClassKeyExA(classguid: COpaquePointer?, pszclassname: Pcstr, samdesired: UInt, disposition: UInt, phkclass: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Open_Class_Key_ExW(classguid: Long, pszclassname: PCWSTR, samdesired: UInt, disposition: UInt, phkclass: Long, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmOpenClassKeyExW(classguid: COpaquePointer?, pszclassname: Pcwstr, samdesired: UInt, disposition: UInt, phkclass: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Open_DevNode_Key(dndevnode: UInt, samdesired: UInt, ulhardwareprofile: UInt, disposition: UInt, phkdevice: Long, ulflags: UInt): CONFIGRET
+public expect fun cmOpenDevNodeKey(dndevnode: UInt, samdesired: UInt, ulhardwareprofile: UInt, disposition: UInt, phkdevice: COpaquePointer?, ulflags: UInt): Configret
 
-public expect fun CM_Open_DevNode_Key_Ex(dndevnode: UInt, samdesired: UInt, ulhardwareprofile: UInt, disposition: UInt, phkdevice: Long, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmOpenDevNodeKeyEx(dndevnode: UInt, samdesired: UInt, ulhardwareprofile: UInt, disposition: UInt, phkdevice: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Open_Device_Interface_KeyA(pszdeviceinterface: PCSTR, samdesired: UInt, disposition: UInt, phkdeviceinterface: Long, ulflags: UInt): CONFIGRET
+public expect fun cmOpenDeviceInterfaceKeyA(pszdeviceinterface: Pcstr, samdesired: UInt, disposition: UInt, phkdeviceinterface: COpaquePointer?, ulflags: UInt): Configret
 
-public expect fun CM_Open_Device_Interface_KeyW(pszdeviceinterface: PCWSTR, samdesired: UInt, disposition: UInt, phkdeviceinterface: Long, ulflags: UInt): CONFIGRET
+public expect fun cmOpenDeviceInterfaceKeyW(pszdeviceinterface: Pcwstr, samdesired: UInt, disposition: UInt, phkdeviceinterface: COpaquePointer?, ulflags: UInt): Configret
 
-public expect fun CM_Open_Device_Interface_Key_ExA(pszdeviceinterface: PCSTR, samdesired: UInt, disposition: UInt, phkdeviceinterface: Long, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmOpenDeviceInterfaceKeyExA(pszdeviceinterface: Pcstr, samdesired: UInt, disposition: UInt, phkdeviceinterface: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Open_Device_Interface_Key_ExW(pszdeviceinterface: PCWSTR, samdesired: UInt, disposition: UInt, phkdeviceinterface: Long, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmOpenDeviceInterfaceKeyExW(pszdeviceinterface: Pcwstr, samdesired: UInt, disposition: UInt, phkdeviceinterface: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Query_And_Remove_SubTreeA(dnancestor: UInt, pvetotype: Long, pszvetoname: PSTR, ulnamelength: UInt, ulflags: UInt): CONFIGRET
+public expect fun cmQueryAndRemoveSubTreeA(dnancestor: UInt, pvetotype: COpaquePointer?, pszvetoname: Pstr, ulnamelength: UInt, ulflags: UInt): Configret
 
-public expect fun CM_Query_And_Remove_SubTreeW(dnancestor: UInt, pvetotype: Long, pszvetoname: PWSTR, ulnamelength: UInt, ulflags: UInt): CONFIGRET
+public expect fun cmQueryAndRemoveSubTreeW(dnancestor: UInt, pvetotype: COpaquePointer?, pszvetoname: Pwstr, ulnamelength: UInt, ulflags: UInt): Configret
 
-public expect fun CM_Query_And_Remove_SubTree_ExA(dnancestor: UInt, pvetotype: Long, pszvetoname: PSTR, ulnamelength: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmQueryAndRemoveSubTreeExA(dnancestor: UInt, pvetotype: COpaquePointer?, pszvetoname: Pstr, ulnamelength: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Query_And_Remove_SubTree_ExW(dnancestor: UInt, pvetotype: Long, pszvetoname: PWSTR, ulnamelength: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmQueryAndRemoveSubTreeExW(dnancestor: UInt, pvetotype: COpaquePointer?, pszvetoname: Pwstr, ulnamelength: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Query_Arbitrator_Free_Data(pdata: Long, datalen: UInt, dndevinst: UInt, resourceid: UInt, ulflags: UInt): CONFIGRET
+public expect fun cmQueryArbitratorFreeData(pdata: COpaquePointer?, datalen: UInt, dndevinst: UInt, resourceid: UInt, ulflags: UInt): Configret
 
-public expect fun CM_Query_Arbitrator_Free_Data_Ex(pdata: Long, datalen: UInt, dndevinst: UInt, resourceid: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmQueryArbitratorFreeDataEx(pdata: COpaquePointer?, datalen: UInt, dndevinst: UInt, resourceid: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Query_Arbitrator_Free_Size(pulsize: Long, dndevinst: UInt, resourceid: UInt, ulflags: UInt): CONFIGRET
+public expect fun cmQueryArbitratorFreeSize(pulsize: COpaquePointer?, dndevinst: UInt, resourceid: UInt, ulflags: UInt): Configret
 
-public expect fun CM_Query_Arbitrator_Free_Size_Ex(pulsize: Long, dndevinst: UInt, resourceid: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmQueryArbitratorFreeSizeEx(pulsize: COpaquePointer?, dndevinst: UInt, resourceid: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Query_Remove_SubTree(dnancestor: UInt, ulflags: UInt): CONFIGRET
+public expect fun cmQueryRemoveSubTree(dnancestor: UInt, ulflags: UInt): Configret
 
-public expect fun CM_Query_Remove_SubTree_Ex(dnancestor: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmQueryRemoveSubTreeEx(dnancestor: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Query_Resource_Conflict_List(pclconflictlist: Long, dndevinst: UInt, resourceid: CM_RESTYPE, resourcedata: Long, resourcelen: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmQueryResourceConflictList(pclconflictlist: COpaquePointer?, dndevinst: UInt, resourceid: CmRestype, resourcedata: COpaquePointer?, resourcelen: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Reenumerate_DevNode(dndevinst: UInt, ulflags: CM_REENUMERATE_FLAGS): CONFIGRET
+public expect fun cmReenumerateDevNode(dndevinst: UInt, ulflags: CmReenumerateFlags): Configret
 
-public expect fun CM_Reenumerate_DevNode_Ex(dndevinst: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmReenumerateDevNodeEx(dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Register_Device_Driver(dndevinst: UInt, ulflags: UInt): CONFIGRET
+public expect fun cmRegisterDeviceDriver(dndevinst: UInt, ulflags: UInt): Configret
 
-public expect fun CM_Register_Device_Driver_Ex(dndevinst: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmRegisterDeviceDriverEx(dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Register_Device_InterfaceA(dndevinst: UInt, interfaceclassguid: Long, pszreference: PCSTR, pszdeviceinterface: PSTR, pullength: Long, ulflags: UInt): CONFIGRET
+public expect fun cmRegisterDeviceInterfaceA(dndevinst: UInt, interfaceclassguid: COpaquePointer?, pszreference: Pcstr, pszdeviceinterface: Pstr, pullength: COpaquePointer?, ulflags: UInt): Configret
 
-public expect fun CM_Register_Device_InterfaceW(dndevinst: UInt, interfaceclassguid: Long, pszreference: PCWSTR, pszdeviceinterface: PWSTR, pullength: Long, ulflags: UInt): CONFIGRET
+public expect fun cmRegisterDeviceInterfaceW(dndevinst: UInt, interfaceclassguid: COpaquePointer?, pszreference: Pcwstr, pszdeviceinterface: Pwstr, pullength: COpaquePointer?, ulflags: UInt): Configret
 
-public expect fun CM_Register_Device_Interface_ExA(dndevinst: UInt, interfaceclassguid: Long, pszreference: PCSTR, pszdeviceinterface: PSTR, pullength: Long, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmRegisterDeviceInterfaceExA(dndevinst: UInt, interfaceclassguid: COpaquePointer?, pszreference: Pcstr, pszdeviceinterface: Pstr, pullength: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Register_Device_Interface_ExW(dndevinst: UInt, interfaceclassguid: Long, pszreference: PCWSTR, pszdeviceinterface: PWSTR, pullength: Long, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmRegisterDeviceInterfaceExW(dndevinst: UInt, interfaceclassguid: COpaquePointer?, pszreference: Pcwstr, pszdeviceinterface: Pwstr, pullength: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Register_Notification(pfilter: Long, pcontext: Long, pcallback: PCM_NOTIFY_CALLBACK, pnotifycontext: Long): CONFIGRET
+public expect fun cmRegisterNotification(pfilter: COpaquePointer?, pcontext: COpaquePointer?, pcallback: PcmNotifyCallback, pnotifycontext: COpaquePointer?): Configret
 
-public expect fun CM_Remove_SubTree(dnancestor: UInt, ulflags: UInt): CONFIGRET
+public expect fun cmRemoveSubTree(dnancestor: UInt, ulflags: UInt): Configret
 
-public expect fun CM_Remove_SubTree_Ex(dnancestor: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmRemoveSubTreeEx(dnancestor: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Request_Device_EjectA(dndevinst: UInt, pvetotype: Long, pszvetoname: PSTR, ulnamelength: UInt, ulflags: UInt): CONFIGRET
+public expect fun cmRequestDeviceEjectA(dndevinst: UInt, pvetotype: COpaquePointer?, pszvetoname: Pstr, ulnamelength: UInt, ulflags: UInt): Configret
 
-public expect fun CM_Request_Device_EjectW(dndevinst: UInt, pvetotype: Long, pszvetoname: PWSTR, ulnamelength: UInt, ulflags: UInt): CONFIGRET
+public expect fun cmRequestDeviceEjectW(dndevinst: UInt, pvetotype: COpaquePointer?, pszvetoname: Pwstr, ulnamelength: UInt, ulflags: UInt): Configret
 
-public expect fun CM_Request_Device_Eject_ExA(dndevinst: UInt, pvetotype: Long, pszvetoname: PSTR, ulnamelength: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmRequestDeviceEjectExA(dndevinst: UInt, pvetotype: COpaquePointer?, pszvetoname: Pstr, ulnamelength: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Request_Device_Eject_ExW(dndevinst: UInt, pvetotype: Long, pszvetoname: PWSTR, ulnamelength: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmRequestDeviceEjectExW(dndevinst: UInt, pvetotype: COpaquePointer?, pszvetoname: Pwstr, ulnamelength: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Request_Eject_PC(): CONFIGRET
+public expect fun cmRequestEjectPc(): Configret
 
-public expect fun CM_Request_Eject_PC_Ex(hmachine: Long): CONFIGRET
+public expect fun cmRequestEjectPcEx(hmachine: Long): Configret
 
-public expect fun CM_Run_Detection(ulflags: UInt): CONFIGRET
+public expect fun cmRunDetection(ulflags: UInt): Configret
 
-public expect fun CM_Run_Detection_Ex(ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmRunDetectionEx(ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Set_Class_PropertyW(classguid: Long, propertykey: Long, propertytype: DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, ulflags: UInt): CONFIGRET
+public expect fun cmSetClassPropertyW(classguid: COpaquePointer?, propertykey: COpaquePointer?, propertytype: Devproptype, propertybuffer: COpaquePointer?, propertybuffersize: UInt, ulflags: UInt): Configret
 
-public expect fun CM_Set_Class_Property_ExW(classguid: Long, propertykey: Long, propertytype: DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmSetClassPropertyExW(classguid: COpaquePointer?, propertykey: COpaquePointer?, propertytype: Devproptype, propertybuffer: COpaquePointer?, propertybuffersize: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Set_Class_Registry_PropertyA(classguid: Long, ulproperty: UInt, buffer: Long, ullength: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmSetClassRegistryPropertyA(classguid: COpaquePointer?, ulproperty: UInt, buffer: COpaquePointer?, ullength: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Set_Class_Registry_PropertyW(classguid: Long, ulproperty: UInt, buffer: Long, ullength: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmSetClassRegistryPropertyW(classguid: COpaquePointer?, ulproperty: UInt, buffer: COpaquePointer?, ullength: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Set_DevNode_Problem(dndevinst: UInt, ulproblem: UInt, ulflags: UInt): CONFIGRET
+public expect fun cmSetDevNodeProblem(dndevinst: UInt, ulproblem: UInt, ulflags: UInt): Configret
 
-public expect fun CM_Set_DevNode_Problem_Ex(dndevinst: UInt, ulproblem: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmSetDevNodeProblemEx(dndevinst: UInt, ulproblem: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Set_DevNode_PropertyW(dndevinst: UInt, propertykey: Long, propertytype: DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, ulflags: UInt): CONFIGRET
+public expect fun cmSetDevNodePropertyW(dndevinst: UInt, propertykey: COpaquePointer?, propertytype: Devproptype, propertybuffer: COpaquePointer?, propertybuffersize: UInt, ulflags: UInt): Configret
 
-public expect fun CM_Set_DevNode_Property_ExW(dndevinst: UInt, propertykey: Long, propertytype: DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmSetDevNodePropertyExW(dndevinst: UInt, propertykey: COpaquePointer?, propertytype: Devproptype, propertybuffer: COpaquePointer?, propertybuffersize: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Set_DevNode_Registry_PropertyA(dndevinst: UInt, ulproperty: UInt, buffer: Long, ullength: UInt, ulflags: UInt): CONFIGRET
+public expect fun cmSetDevNodeRegistryPropertyA(dndevinst: UInt, ulproperty: UInt, buffer: COpaquePointer?, ullength: UInt, ulflags: UInt): Configret
 
-public expect fun CM_Set_DevNode_Registry_PropertyW(dndevinst: UInt, ulproperty: UInt, buffer: Long, ullength: UInt, ulflags: UInt): CONFIGRET
+public expect fun cmSetDevNodeRegistryPropertyW(dndevinst: UInt, ulproperty: UInt, buffer: COpaquePointer?, ullength: UInt, ulflags: UInt): Configret
 
-public expect fun CM_Set_DevNode_Registry_Property_ExA(dndevinst: UInt, ulproperty: UInt, buffer: Long, ullength: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmSetDevNodeRegistryPropertyExA(dndevinst: UInt, ulproperty: UInt, buffer: COpaquePointer?, ullength: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Set_DevNode_Registry_Property_ExW(dndevinst: UInt, ulproperty: UInt, buffer: Long, ullength: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmSetDevNodeRegistryPropertyExW(dndevinst: UInt, ulproperty: UInt, buffer: COpaquePointer?, ullength: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Set_Device_Interface_PropertyW(pszdeviceinterface: PCWSTR, propertykey: Long, propertytype: DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, ulflags: UInt): CONFIGRET
+public expect fun cmSetDeviceInterfacePropertyW(pszdeviceinterface: Pcwstr, propertykey: COpaquePointer?, propertytype: Devproptype, propertybuffer: COpaquePointer?, propertybuffersize: UInt, ulflags: UInt): Configret
 
-public expect fun CM_Set_Device_Interface_Property_ExW(pszdeviceinterface: PCWSTR, propertykey: Long, propertytype: DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmSetDeviceInterfacePropertyExW(pszdeviceinterface: Pcwstr, propertykey: COpaquePointer?, propertytype: Devproptype, propertybuffer: COpaquePointer?, propertybuffersize: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Set_HW_Prof(ulhardwareprofile: UInt, ulflags: UInt): CONFIGRET
+public expect fun cmSetHwProf(ulhardwareprofile: UInt, ulflags: UInt): Configret
 
-public expect fun CM_Set_HW_Prof_Ex(ulhardwareprofile: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmSetHwProfEx(ulhardwareprofile: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Set_HW_Prof_FlagsA(pdeviceid: PCSTR, ulconfig: UInt, ulvalue: UInt, ulflags: UInt): CONFIGRET
+public expect fun cmSetHwProfFlagsA(pdeviceid: Pcstr, ulconfig: UInt, ulvalue: UInt, ulflags: UInt): Configret
 
-public expect fun CM_Set_HW_Prof_FlagsW(pdeviceid: PCWSTR, ulconfig: UInt, ulvalue: UInt, ulflags: UInt): CONFIGRET
+public expect fun cmSetHwProfFlagsW(pdeviceid: Pcwstr, ulconfig: UInt, ulvalue: UInt, ulflags: UInt): Configret
 
-public expect fun CM_Set_HW_Prof_Flags_ExA(pdeviceid: PCSTR, ulconfig: UInt, ulvalue: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmSetHwProfFlagsExA(pdeviceid: Pcstr, ulconfig: UInt, ulvalue: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Set_HW_Prof_Flags_ExW(pdeviceid: PCWSTR, ulconfig: UInt, ulvalue: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmSetHwProfFlagsExW(pdeviceid: Pcwstr, ulconfig: UInt, ulvalue: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Setup_DevNode(dndevinst: UInt, ulflags: UInt): CONFIGRET
+public expect fun cmSetupDevNode(dndevinst: UInt, ulflags: UInt): Configret
 
-public expect fun CM_Setup_DevNode_Ex(dndevinst: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmSetupDevNodeEx(dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Test_Range_Available(ullstartvalue: ULong, ullendvalue: ULong, rlh: ULong, ulflags: UInt): CONFIGRET
+public expect fun cmTestRangeAvailable(ullstartvalue: ULong, ullendvalue: ULong, rlh: ULong, ulflags: UInt): Configret
 
-public expect fun CM_Uninstall_DevNode(dndevinst: UInt, ulflags: UInt): CONFIGRET
+public expect fun cmUninstallDevNode(dndevinst: UInt, ulflags: UInt): Configret
 
-public expect fun CM_Uninstall_DevNode_Ex(dndevinst: UInt, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmUninstallDevNodeEx(dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Unregister_Device_InterfaceA(pszdeviceinterface: PCSTR, ulflags: UInt): CONFIGRET
+public expect fun cmUnregisterDeviceInterfaceA(pszdeviceinterface: Pcstr, ulflags: UInt): Configret
 
-public expect fun CM_Unregister_Device_InterfaceW(pszdeviceinterface: PCWSTR, ulflags: UInt): CONFIGRET
+public expect fun cmUnregisterDeviceInterfaceW(pszdeviceinterface: Pcwstr, ulflags: UInt): Configret
 
-public expect fun CM_Unregister_Device_Interface_ExA(pszdeviceinterface: PCSTR, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmUnregisterDeviceInterfaceExA(pszdeviceinterface: Pcstr, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Unregister_Device_Interface_ExW(pszdeviceinterface: PCWSTR, ulflags: UInt, hmachine: Long): CONFIGRET
+public expect fun cmUnregisterDeviceInterfaceExW(pszdeviceinterface: Pcwstr, ulflags: UInt, hmachine: Long): Configret
 
-public expect fun CM_Unregister_Notification(notifycontext: HCMNOTIFICATION): CONFIGRET
+public expect fun cmUnregisterNotification(notifycontext: Hcmnotification): Configret
 
-public expect fun DiInstallDevice(hwndparent: HWND, deviceinfoset: HDEVINFO, deviceinfodata: Long, driverinfodata: Long, flags: DIINSTALLDEVICE_FLAGS, needreboot: Long): BOOL
+public expect fun diInstallDevice(hwndparent: Hwnd, deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, driverinfodata: COpaquePointer?, flags: DiinstalldeviceFlags, needreboot: COpaquePointer?): Bool
 
-public expect fun DiInstallDriverA(hwndparent: HWND, infpath: PCSTR, flags: DIINSTALLDRIVER_FLAGS, needreboot: Long): BOOL
+public expect fun diInstallDriverA(hwndparent: Hwnd, infpath: Pcstr, flags: DiinstalldriverFlags, needreboot: COpaquePointer?): Bool
 
-public expect fun DiInstallDriverW(hwndparent: HWND, infpath: PCWSTR, flags: DIINSTALLDRIVER_FLAGS, needreboot: Long): BOOL
+public expect fun diInstallDriverW(hwndparent: Hwnd, infpath: Pcwstr, flags: DiinstalldriverFlags, needreboot: COpaquePointer?): Bool
 
-public expect fun DiRollbackDriver(deviceinfoset: HDEVINFO, deviceinfodata: Long, hwndparent: HWND, flags: DIROLLBACKDRIVER_FLAGS, needreboot: Long): BOOL
+public expect fun diRollbackDriver(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, hwndparent: Hwnd, flags: DirollbackdriverFlags, needreboot: COpaquePointer?): Bool
 
-public expect fun DiShowUpdateDevice(hwndparent: HWND, deviceinfoset: HDEVINFO, deviceinfodata: Long, flags: UInt, needreboot: Long): BOOL
+public expect fun diShowUpdateDevice(hwndparent: Hwnd, deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, flags: UInt, needreboot: COpaquePointer?): Bool
 
-public expect fun DiShowUpdateDriver(hwndparent: HWND, filepath: PCWSTR, flags: UInt, needreboot: Long): BOOL
+public expect fun diShowUpdateDriver(hwndparent: Hwnd, filepath: Pcwstr, flags: UInt, needreboot: COpaquePointer?): Bool
 
-public expect fun DiUninstallDevice(hwndparent: HWND, deviceinfoset: HDEVINFO, deviceinfodata: Long, flags: UInt, needreboot: Long): BOOL
+public expect fun diUninstallDevice(hwndparent: Hwnd, deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, flags: UInt, needreboot: COpaquePointer?): Bool
 
-public expect fun DiUninstallDriverA(hwndparent: HWND, infpath: PCSTR, flags: DIUNINSTALLDRIVER_FLAGS, needreboot: Long): BOOL
+public expect fun diUninstallDriverA(hwndparent: Hwnd, infpath: Pcstr, flags: DiuninstalldriverFlags, needreboot: COpaquePointer?): Bool
 
-public expect fun DiUninstallDriverW(hwndparent: HWND, infpath: PCWSTR, flags: DIUNINSTALLDRIVER_FLAGS, needreboot: Long): BOOL
+public expect fun diUninstallDriverW(hwndparent: Hwnd, infpath: Pcwstr, flags: DiuninstalldriverFlags, needreboot: COpaquePointer?): Bool
 
-public expect fun InstallHinfSectionA(window: HWND, modulehandle: HINSTANCE, commandline: PCSTR, showcommand: Int)
+public expect fun installHinfSectionA(window: Hwnd, modulehandle: Hinstance, commandline: Pcstr, showcommand: Int)
 
-public expect fun InstallHinfSectionW(window: HWND, modulehandle: HINSTANCE, commandline: PCWSTR, showcommand: Int)
+public expect fun installHinfSectionW(window: Hwnd, modulehandle: Hinstance, commandline: Pcwstr, showcommand: Int)
 
-public expect fun SetupAddInstallSectionToDiskSpaceListA(diskspace: Long, infhandle: Long, layoutinfhandle: Long, sectionname: PCSTR, reserved1: Long, reserved2: UInt): BOOL
+public expect fun setupAddInstallSectionToDiskSpaceListA(diskspace: COpaquePointer?, infhandle: COpaquePointer?, layoutinfhandle: COpaquePointer?, sectionname: Pcstr, reserved1: COpaquePointer?, reserved2: UInt): Bool
 
-public expect fun SetupAddInstallSectionToDiskSpaceListW(diskspace: Long, infhandle: Long, layoutinfhandle: Long, sectionname: PCWSTR, reserved1: Long, reserved2: UInt): BOOL
+public expect fun setupAddInstallSectionToDiskSpaceListW(diskspace: COpaquePointer?, infhandle: COpaquePointer?, layoutinfhandle: COpaquePointer?, sectionname: Pcwstr, reserved1: COpaquePointer?, reserved2: UInt): Bool
 
-public expect fun SetupAddSectionToDiskSpaceListA(diskspace: Long, infhandle: Long, listinfhandle: Long, sectionname: PCSTR, operation: SETUP_FILE_OPERATION, reserved1: Long, reserved2: UInt): BOOL
+public expect fun setupAddSectionToDiskSpaceListA(diskspace: COpaquePointer?, infhandle: COpaquePointer?, listinfhandle: COpaquePointer?, sectionname: Pcstr, operation: SetupFileOperation, reserved1: COpaquePointer?, reserved2: UInt): Bool
 
-public expect fun SetupAddSectionToDiskSpaceListW(diskspace: Long, infhandle: Long, listinfhandle: Long, sectionname: PCWSTR, operation: SETUP_FILE_OPERATION, reserved1: Long, reserved2: UInt): BOOL
+public expect fun setupAddSectionToDiskSpaceListW(diskspace: COpaquePointer?, infhandle: COpaquePointer?, listinfhandle: COpaquePointer?, sectionname: Pcwstr, operation: SetupFileOperation, reserved1: COpaquePointer?, reserved2: UInt): Bool
 
-public expect fun SetupAddToDiskSpaceListA(diskspace: Long, targetfilespec: PCSTR, filesize: Long, operation: SETUP_FILE_OPERATION, reserved1: Long, reserved2: UInt): BOOL
+public expect fun setupAddToDiskSpaceListA(diskspace: COpaquePointer?, targetfilespec: Pcstr, filesize: Long, operation: SetupFileOperation, reserved1: COpaquePointer?, reserved2: UInt): Bool
 
-public expect fun SetupAddToDiskSpaceListW(diskspace: Long, targetfilespec: PCWSTR, filesize: Long, operation: SETUP_FILE_OPERATION, reserved1: Long, reserved2: UInt): BOOL
+public expect fun setupAddToDiskSpaceListW(diskspace: COpaquePointer?, targetfilespec: Pcwstr, filesize: Long, operation: SetupFileOperation, reserved1: COpaquePointer?, reserved2: UInt): Bool
 
-public expect fun SetupAddToSourceListA(flags: UInt, source: PCSTR): BOOL
+public expect fun setupAddToSourceListA(flags: UInt, source: Pcstr): Bool
 
-public expect fun SetupAddToSourceListW(flags: UInt, source: PCWSTR): BOOL
+public expect fun setupAddToSourceListW(flags: UInt, source: Pcwstr): Bool
 
-public expect fun SetupAdjustDiskSpaceListA(diskspace: Long, driveroot: PCSTR, amount: Long, reserved1: Long, reserved2: UInt): BOOL
+public expect fun setupAdjustDiskSpaceListA(diskspace: COpaquePointer?, driveroot: Pcstr, amount: Long, reserved1: COpaquePointer?, reserved2: UInt): Bool
 
-public expect fun SetupAdjustDiskSpaceListW(diskspace: Long, driveroot: PCWSTR, amount: Long, reserved1: Long, reserved2: UInt): BOOL
+public expect fun setupAdjustDiskSpaceListW(diskspace: COpaquePointer?, driveroot: Pcwstr, amount: Long, reserved1: COpaquePointer?, reserved2: UInt): Bool
 
-public expect fun SetupBackupErrorA(hwndparent: HWND, dialogtitle: PCSTR, sourcefile: PCSTR, targetfile: PCSTR, win32errorcode: UInt, style: UInt): UInt
+public expect fun setupBackupErrorA(hwndparent: Hwnd, dialogtitle: Pcstr, sourcefile: Pcstr, targetfile: Pcstr, win32errorcode: UInt, style: UInt): UInt
 
-public expect fun SetupBackupErrorW(hwndparent: HWND, dialogtitle: PCWSTR, sourcefile: PCWSTR, targetfile: PCWSTR, win32errorcode: UInt, style: UInt): UInt
+public expect fun setupBackupErrorW(hwndparent: Hwnd, dialogtitle: Pcwstr, sourcefile: Pcwstr, targetfile: Pcwstr, win32errorcode: UInt, style: UInt): UInt
 
-public expect fun SetupCancelTemporarySourceList(): BOOL
+public expect fun setupCancelTemporarySourceList(): Bool
 
-public expect fun SetupCloseFileQueue(queuehandle: Long): BOOL
+public expect fun setupCloseFileQueue(queuehandle: COpaquePointer?): Bool
 
-public expect fun SetupCloseInfFile(infhandle: Long)
+public expect fun setupCloseInfFile(infhandle: COpaquePointer?)
 
-public expect fun SetupCloseLog()
+public expect fun setupCloseLog()
 
-public expect fun SetupCommitFileQueueA(owner: HWND, queuehandle: Long, msghandler: PSP_FILE_CALLBACK_A, context: Long): BOOL
+public expect fun setupCommitFileQueueA(owner: Hwnd, queuehandle: COpaquePointer?, msghandler: PspFileCallbackA, context: COpaquePointer?): Bool
 
-public expect fun SetupCommitFileQueueW(owner: HWND, queuehandle: Long, msghandler: PSP_FILE_CALLBACK_W, context: Long): BOOL
+public expect fun setupCommitFileQueueW(owner: Hwnd, queuehandle: COpaquePointer?, msghandler: PspFileCallbackW, context: COpaquePointer?): Bool
 
-public expect fun SetupConfigureWmiFromInfSectionA(infhandle: Long, sectionname: PCSTR, flags: UInt): BOOL
+public expect fun setupConfigureWmiFromInfSectionA(infhandle: COpaquePointer?, sectionname: Pcstr, flags: UInt): Bool
 
-public expect fun SetupConfigureWmiFromInfSectionW(infhandle: Long, sectionname: PCWSTR, flags: UInt): BOOL
+public expect fun setupConfigureWmiFromInfSectionW(infhandle: COpaquePointer?, sectionname: Pcwstr, flags: UInt): Bool
 
-public expect fun SetupCopyErrorA(hwndparent: HWND, dialogtitle: PCSTR, diskname: PCSTR, pathtosource: PCSTR, sourcefile: PCSTR, targetpathfile: PCSTR, win32errorcode: UInt, style: UInt, pathbuffer: PSTR, pathbuffersize: UInt, pathrequiredsize: Long): UInt
+public expect fun setupCopyErrorA(hwndparent: Hwnd, dialogtitle: Pcstr, diskname: Pcstr, pathtosource: Pcstr, sourcefile: Pcstr, targetpathfile: Pcstr, win32errorcode: UInt, style: UInt, pathbuffer: Pstr, pathbuffersize: UInt, pathrequiredsize: COpaquePointer?): UInt
 
-public expect fun SetupCopyErrorW(hwndparent: HWND, dialogtitle: PCWSTR, diskname: PCWSTR, pathtosource: PCWSTR, sourcefile: PCWSTR, targetpathfile: PCWSTR, win32errorcode: UInt, style: UInt, pathbuffer: PWSTR, pathbuffersize: UInt, pathrequiredsize: Long): UInt
+public expect fun setupCopyErrorW(hwndparent: Hwnd, dialogtitle: Pcwstr, diskname: Pcwstr, pathtosource: Pcwstr, sourcefile: Pcwstr, targetpathfile: Pcwstr, win32errorcode: UInt, style: UInt, pathbuffer: Pwstr, pathbuffersize: UInt, pathrequiredsize: COpaquePointer?): UInt
 
-public expect fun SetupCopyOEMInfA(sourceinffilename: PCSTR, oemsourcemedialocation: PCSTR, oemsourcemediatype: OEM_SOURCE_MEDIA_TYPE, copystyle: SP_COPY_STYLE, destinationinffilename: PSTR, destinationinffilenamesize: UInt, requiredsize: Long, destinationinffilenamecomponent: Long): BOOL
+public expect fun setupCopyOEMInfA(sourceinffilename: Pcstr, oemsourcemedialocation: Pcstr, oemsourcemediatype: OemSourceMediaType, copystyle: SpCopyStyle, destinationinffilename: Pstr, destinationinffilenamesize: UInt, requiredsize: COpaquePointer?, destinationinffilenamecomponent: COpaquePointer?): Bool
 
-public expect fun SetupCopyOEMInfW(sourceinffilename: PCWSTR, oemsourcemedialocation: PCWSTR, oemsourcemediatype: OEM_SOURCE_MEDIA_TYPE, copystyle: SP_COPY_STYLE, destinationinffilename: PWSTR, destinationinffilenamesize: UInt, requiredsize: Long, destinationinffilenamecomponent: Long): BOOL
+public expect fun setupCopyOEMInfW(sourceinffilename: Pcwstr, oemsourcemedialocation: Pcwstr, oemsourcemediatype: OemSourceMediaType, copystyle: SpCopyStyle, destinationinffilename: Pwstr, destinationinffilenamesize: UInt, requiredsize: COpaquePointer?, destinationinffilenamecomponent: COpaquePointer?): Bool
 
-public expect fun SetupCreateDiskSpaceListA(reserved1: Long, reserved2: UInt, flags: UInt): Long
+public expect fun setupCreateDiskSpaceListA(reserved1: COpaquePointer?, reserved2: UInt, flags: UInt): COpaquePointer?
 
-public expect fun SetupCreateDiskSpaceListW(reserved1: Long, reserved2: UInt, flags: UInt): Long
+public expect fun setupCreateDiskSpaceListW(reserved1: COpaquePointer?, reserved2: UInt, flags: UInt): COpaquePointer?
 
-public expect fun SetupDecompressOrCopyFileA(sourcefilename: PCSTR, targetfilename: PCSTR, compressiontype: Long): UInt
+public expect fun setupDecompressOrCopyFileA(sourcefilename: Pcstr, targetfilename: Pcstr, compressiontype: COpaquePointer?): UInt
 
-public expect fun SetupDecompressOrCopyFileW(sourcefilename: PCWSTR, targetfilename: PCWSTR, compressiontype: Long): UInt
+public expect fun setupDecompressOrCopyFileW(sourcefilename: Pcwstr, targetfilename: Pcwstr, compressiontype: COpaquePointer?): UInt
 
-public expect fun SetupDefaultQueueCallbackA(context: Long, notification: UInt, param1: ULong, param2: ULong): UInt
+public expect fun setupDefaultQueueCallbackA(context: COpaquePointer?, notification: UInt, param1: ULong, param2: ULong): UInt
 
-public expect fun SetupDefaultQueueCallbackW(context: Long, notification: UInt, param1: ULong, param2: ULong): UInt
+public expect fun setupDefaultQueueCallbackW(context: COpaquePointer?, notification: UInt, param1: ULong, param2: ULong): UInt
 
-public expect fun SetupDeleteErrorA(hwndparent: HWND, dialogtitle: PCSTR, file: PCSTR, win32errorcode: UInt, style: UInt): UInt
+public expect fun setupDeleteErrorA(hwndparent: Hwnd, dialogtitle: Pcstr, file: Pcstr, win32errorcode: UInt, style: UInt): UInt
 
-public expect fun SetupDeleteErrorW(hwndparent: HWND, dialogtitle: PCWSTR, file: PCWSTR, win32errorcode: UInt, style: UInt): UInt
+public expect fun setupDeleteErrorW(hwndparent: Hwnd, dialogtitle: Pcwstr, file: Pcwstr, win32errorcode: UInt, style: UInt): UInt
 
-public expect fun SetupDestroyDiskSpaceList(diskspace: Long): BOOL
+public expect fun setupDestroyDiskSpaceList(diskspace: COpaquePointer?): Bool
 
-public expect fun SetupDiAskForOEMDisk(deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL
+public expect fun setupDiAskForOEMDisk(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?): Bool
 
-public expect fun SetupDiBuildClassInfoList(flags: UInt, classguidlist: Long, classguidlistsize: UInt, requiredsize: Long): BOOL
+public expect fun setupDiBuildClassInfoList(flags: UInt, classguidlist: COpaquePointer?, classguidlistsize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupDiBuildClassInfoListExA(flags: UInt, classguidlist: Long, classguidlistsize: UInt, requiredsize: Long, machinename: PCSTR, reserved: Long): BOOL
+public expect fun setupDiBuildClassInfoListExA(flags: UInt, classguidlist: COpaquePointer?, classguidlistsize: UInt, requiredsize: COpaquePointer?, machinename: Pcstr, reserved: COpaquePointer?): Bool
 
-public expect fun SetupDiBuildClassInfoListExW(flags: UInt, classguidlist: Long, classguidlistsize: UInt, requiredsize: Long, machinename: PCWSTR, reserved: Long): BOOL
+public expect fun setupDiBuildClassInfoListExW(flags: UInt, classguidlist: COpaquePointer?, classguidlistsize: UInt, requiredsize: COpaquePointer?, machinename: Pcwstr, reserved: COpaquePointer?): Bool
 
-public expect fun SetupDiBuildDriverInfoList(deviceinfoset: HDEVINFO, deviceinfodata: Long, drivertype: SETUP_DI_DRIVER_TYPE): BOOL
+public expect fun setupDiBuildDriverInfoList(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, drivertype: SetupDiDriverType): Bool
 
-public expect fun SetupDiCallClassInstaller(installfunction: DI_FUNCTION, deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL
+public expect fun setupDiCallClassInstaller(installfunction: DiFunction, deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?): Bool
 
-public expect fun SetupDiCancelDriverInfoSearch(deviceinfoset: HDEVINFO): BOOL
+public expect fun setupDiCancelDriverInfoSearch(deviceinfoset: Hdevinfo): Bool
 
-public expect fun SetupDiChangeState(deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL
+public expect fun setupDiChangeState(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?): Bool
 
-public expect fun SetupDiClassGuidsFromNameA(classname: PCSTR, classguidlist: Long, classguidlistsize: UInt, requiredsize: Long): BOOL
+public expect fun setupDiClassGuidsFromNameA(classname: Pcstr, classguidlist: COpaquePointer?, classguidlistsize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupDiClassGuidsFromNameExA(classname: PCSTR, classguidlist: Long, classguidlistsize: UInt, requiredsize: Long, machinename: PCSTR, reserved: Long): BOOL
+public expect fun setupDiClassGuidsFromNameExA(classname: Pcstr, classguidlist: COpaquePointer?, classguidlistsize: UInt, requiredsize: COpaquePointer?, machinename: Pcstr, reserved: COpaquePointer?): Bool
 
-public expect fun SetupDiClassGuidsFromNameExW(classname: PCWSTR, classguidlist: Long, classguidlistsize: UInt, requiredsize: Long, machinename: PCWSTR, reserved: Long): BOOL
+public expect fun setupDiClassGuidsFromNameExW(classname: Pcwstr, classguidlist: COpaquePointer?, classguidlistsize: UInt, requiredsize: COpaquePointer?, machinename: Pcwstr, reserved: COpaquePointer?): Bool
 
-public expect fun SetupDiClassGuidsFromNameW(classname: PCWSTR, classguidlist: Long, classguidlistsize: UInt, requiredsize: Long): BOOL
+public expect fun setupDiClassGuidsFromNameW(classname: Pcwstr, classguidlist: COpaquePointer?, classguidlistsize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupDiClassNameFromGuidA(classguid: Long, classname: PSTR, classnamesize: UInt, requiredsize: Long): BOOL
+public expect fun setupDiClassNameFromGuidA(classguid: COpaquePointer?, classname: Pstr, classnamesize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupDiClassNameFromGuidExA(classguid: Long, classname: PSTR, classnamesize: UInt, requiredsize: Long, machinename: PCSTR, reserved: Long): BOOL
+public expect fun setupDiClassNameFromGuidExA(classguid: COpaquePointer?, classname: Pstr, classnamesize: UInt, requiredsize: COpaquePointer?, machinename: Pcstr, reserved: COpaquePointer?): Bool
 
-public expect fun SetupDiClassNameFromGuidExW(classguid: Long, classname: PWSTR, classnamesize: UInt, requiredsize: Long, machinename: PCWSTR, reserved: Long): BOOL
+public expect fun setupDiClassNameFromGuidExW(classguid: COpaquePointer?, classname: Pwstr, classnamesize: UInt, requiredsize: COpaquePointer?, machinename: Pcwstr, reserved: COpaquePointer?): Bool
 
-public expect fun SetupDiClassNameFromGuidW(classguid: Long, classname: PWSTR, classnamesize: UInt, requiredsize: Long): BOOL
+public expect fun setupDiClassNameFromGuidW(classguid: COpaquePointer?, classname: Pwstr, classnamesize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupDiCreateDevRegKeyA(deviceinfoset: HDEVINFO, deviceinfodata: Long, scope: UInt, hwprofile: UInt, keytype: UInt, infhandle: Long, infsectionname: PCSTR): HKEY
+public expect fun setupDiCreateDevRegKeyA(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, scope: UInt, hwprofile: UInt, keytype: UInt, infhandle: COpaquePointer?, infsectionname: Pcstr): Hkey
 
-public expect fun SetupDiCreateDevRegKeyW(deviceinfoset: HDEVINFO, deviceinfodata: Long, scope: UInt, hwprofile: UInt, keytype: UInt, infhandle: Long, infsectionname: PCWSTR): HKEY
+public expect fun setupDiCreateDevRegKeyW(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, scope: UInt, hwprofile: UInt, keytype: UInt, infhandle: COpaquePointer?, infsectionname: Pcwstr): Hkey
 
-public expect fun SetupDiCreateDeviceInfoA(deviceinfoset: HDEVINFO, devicename: PCSTR, classguid: Long, devicedescription: PCSTR, hwndparent: HWND, creationflags: SETUP_DI_DEVICE_CREATION_FLAGS, deviceinfodata: Long): BOOL
+public expect fun setupDiCreateDeviceInfoA(deviceinfoset: Hdevinfo, devicename: Pcstr, classguid: COpaquePointer?, devicedescription: Pcstr, hwndparent: Hwnd, creationflags: SetupDiDeviceCreationFlags, deviceinfodata: COpaquePointer?): Bool
 
-public expect fun SetupDiCreateDeviceInfoList(classguid: Long, hwndparent: HWND): HDEVINFO
+public expect fun setupDiCreateDeviceInfoList(classguid: COpaquePointer?, hwndparent: Hwnd): Hdevinfo
 
-public expect fun SetupDiCreateDeviceInfoListExA(classguid: Long, hwndparent: HWND, machinename: PCSTR, reserved: Long): HDEVINFO
+public expect fun setupDiCreateDeviceInfoListExA(classguid: COpaquePointer?, hwndparent: Hwnd, machinename: Pcstr, reserved: COpaquePointer?): Hdevinfo
 
-public expect fun SetupDiCreateDeviceInfoListExW(classguid: Long, hwndparent: HWND, machinename: PCWSTR, reserved: Long): HDEVINFO
+public expect fun setupDiCreateDeviceInfoListExW(classguid: COpaquePointer?, hwndparent: Hwnd, machinename: Pcwstr, reserved: COpaquePointer?): Hdevinfo
 
-public expect fun SetupDiCreateDeviceInfoW(deviceinfoset: HDEVINFO, devicename: PCWSTR, classguid: Long, devicedescription: PCWSTR, hwndparent: HWND, creationflags: SETUP_DI_DEVICE_CREATION_FLAGS, deviceinfodata: Long): BOOL
+public expect fun setupDiCreateDeviceInfoW(deviceinfoset: Hdevinfo, devicename: Pcwstr, classguid: COpaquePointer?, devicedescription: Pcwstr, hwndparent: Hwnd, creationflags: SetupDiDeviceCreationFlags, deviceinfodata: COpaquePointer?): Bool
 
-public expect fun SetupDiCreateDeviceInterfaceA(deviceinfoset: HDEVINFO, deviceinfodata: Long, interfaceclassguid: Long, referencestring: PCSTR, creationflags: UInt, deviceinterfacedata: Long): BOOL
+public expect fun setupDiCreateDeviceInterfaceA(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, interfaceclassguid: COpaquePointer?, referencestring: Pcstr, creationflags: UInt, deviceinterfacedata: COpaquePointer?): Bool
 
-public expect fun SetupDiCreateDeviceInterfaceRegKeyA(deviceinfoset: HDEVINFO, deviceinterfacedata: Long, reserved: UInt, samdesired: UInt, infhandle: Long, infsectionname: PCSTR): HKEY
+public expect fun setupDiCreateDeviceInterfaceRegKeyA(deviceinfoset: Hdevinfo, deviceinterfacedata: COpaquePointer?, reserved: UInt, samdesired: UInt, infhandle: COpaquePointer?, infsectionname: Pcstr): Hkey
 
-public expect fun SetupDiCreateDeviceInterfaceRegKeyW(deviceinfoset: HDEVINFO, deviceinterfacedata: Long, reserved: UInt, samdesired: UInt, infhandle: Long, infsectionname: PCWSTR): HKEY
+public expect fun setupDiCreateDeviceInterfaceRegKeyW(deviceinfoset: Hdevinfo, deviceinterfacedata: COpaquePointer?, reserved: UInt, samdesired: UInt, infhandle: COpaquePointer?, infsectionname: Pcwstr): Hkey
 
-public expect fun SetupDiCreateDeviceInterfaceW(deviceinfoset: HDEVINFO, deviceinfodata: Long, interfaceclassguid: Long, referencestring: PCWSTR, creationflags: UInt, deviceinterfacedata: Long): BOOL
+public expect fun setupDiCreateDeviceInterfaceW(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, interfaceclassguid: COpaquePointer?, referencestring: Pcwstr, creationflags: UInt, deviceinterfacedata: COpaquePointer?): Bool
 
-public expect fun SetupDiDeleteDevRegKey(deviceinfoset: HDEVINFO, deviceinfodata: Long, scope: UInt, hwprofile: UInt, keytype: UInt): BOOL
+public expect fun setupDiDeleteDevRegKey(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, scope: UInt, hwprofile: UInt, keytype: UInt): Bool
 
-public expect fun SetupDiDeleteDeviceInfo(deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL
+public expect fun setupDiDeleteDeviceInfo(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?): Bool
 
-public expect fun SetupDiDeleteDeviceInterfaceData(deviceinfoset: HDEVINFO, deviceinterfacedata: Long): BOOL
+public expect fun setupDiDeleteDeviceInterfaceData(deviceinfoset: Hdevinfo, deviceinterfacedata: COpaquePointer?): Bool
 
-public expect fun SetupDiDeleteDeviceInterfaceRegKey(deviceinfoset: HDEVINFO, deviceinterfacedata: Long, reserved: UInt): BOOL
+public expect fun setupDiDeleteDeviceInterfaceRegKey(deviceinfoset: Hdevinfo, deviceinterfacedata: COpaquePointer?, reserved: UInt): Bool
 
-public expect fun SetupDiDestroyClassImageList(classimagelistdata: Long): BOOL
+public expect fun setupDiDestroyClassImageList(classimagelistdata: COpaquePointer?): Bool
 
-public expect fun SetupDiDestroyDeviceInfoList(deviceinfoset: HDEVINFO): BOOL
+public expect fun setupDiDestroyDeviceInfoList(deviceinfoset: Hdevinfo): Bool
 
-public expect fun SetupDiDestroyDriverInfoList(deviceinfoset: HDEVINFO, deviceinfodata: Long, drivertype: SETUP_DI_DRIVER_TYPE): BOOL
+public expect fun setupDiDestroyDriverInfoList(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, drivertype: SetupDiDriverType): Bool
 
-public expect fun SetupDiDrawMiniIcon(hdc: HDC, rc: RECT, miniiconindex: Int, flags: UInt): Int
+public expect fun setupDiDrawMiniIcon(hdc: Hdc, rc: Rect, miniiconindex: Int, flags: UInt): Int
 
-public expect fun SetupDiEnumDeviceInfo(deviceinfoset: HDEVINFO, memberindex: UInt, deviceinfodata: Long): BOOL
+public expect fun setupDiEnumDeviceInfo(deviceinfoset: Hdevinfo, memberindex: UInt, deviceinfodata: COpaquePointer?): Bool
 
-public expect fun SetupDiEnumDeviceInterfaces(deviceinfoset: HDEVINFO, deviceinfodata: Long, interfaceclassguid: Long, memberindex: UInt, deviceinterfacedata: Long): BOOL
+public expect fun setupDiEnumDeviceInterfaces(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, interfaceclassguid: COpaquePointer?, memberindex: UInt, deviceinterfacedata: COpaquePointer?): Bool
 
-public expect fun SetupDiEnumDriverInfoA(deviceinfoset: HDEVINFO, deviceinfodata: Long, drivertype: SETUP_DI_DRIVER_TYPE, memberindex: UInt, driverinfodata: Long): BOOL
+public expect fun setupDiEnumDriverInfoA(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, drivertype: SetupDiDriverType, memberindex: UInt, driverinfodata: COpaquePointer?): Bool
 
-public expect fun SetupDiEnumDriverInfoW(deviceinfoset: HDEVINFO, deviceinfodata: Long, drivertype: SETUP_DI_DRIVER_TYPE, memberindex: UInt, driverinfodata: Long): BOOL
+public expect fun setupDiEnumDriverInfoW(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, drivertype: SetupDiDriverType, memberindex: UInt, driverinfodata: COpaquePointer?): Bool
 
-public expect fun SetupDiGetActualModelsSectionA(context: Long, alternateplatforminfo: Long, infsectionwithext: PSTR, infsectionwithextsize: UInt, requiredsize: Long, reserved: Long): BOOL
+public expect fun setupDiGetActualModelsSectionA(context: COpaquePointer?, alternateplatforminfo: COpaquePointer?, infsectionwithext: Pstr, infsectionwithextsize: UInt, requiredsize: COpaquePointer?, reserved: COpaquePointer?): Bool
 
-public expect fun SetupDiGetActualModelsSectionW(context: Long, alternateplatforminfo: Long, infsectionwithext: PWSTR, infsectionwithextsize: UInt, requiredsize: Long, reserved: Long): BOOL
+public expect fun setupDiGetActualModelsSectionW(context: COpaquePointer?, alternateplatforminfo: COpaquePointer?, infsectionwithext: Pwstr, infsectionwithextsize: UInt, requiredsize: COpaquePointer?, reserved: COpaquePointer?): Bool
 
-public expect fun SetupDiGetActualSectionToInstallA(infhandle: Long, infsectionname: PCSTR, infsectionwithext: PSTR, infsectionwithextsize: UInt, requiredsize: Long, extension: Long): BOOL
+public expect fun setupDiGetActualSectionToInstallA(infhandle: COpaquePointer?, infsectionname: Pcstr, infsectionwithext: Pstr, infsectionwithextsize: UInt, requiredsize: COpaquePointer?, extension: COpaquePointer?): Bool
 
-public expect fun SetupDiGetActualSectionToInstallExA(infhandle: Long, infsectionname: PCSTR, alternateplatforminfo: Long, infsectionwithext: PSTR, infsectionwithextsize: UInt, requiredsize: Long, extension: Long, reserved: Long): BOOL
+public expect fun setupDiGetActualSectionToInstallExA(infhandle: COpaquePointer?, infsectionname: Pcstr, alternateplatforminfo: COpaquePointer?, infsectionwithext: Pstr, infsectionwithextsize: UInt, requiredsize: COpaquePointer?, extension: COpaquePointer?, reserved: COpaquePointer?): Bool
 
-public expect fun SetupDiGetActualSectionToInstallExW(infhandle: Long, infsectionname: PCWSTR, alternateplatforminfo: Long, infsectionwithext: PWSTR, infsectionwithextsize: UInt, requiredsize: Long, extension: Long, reserved: Long): BOOL
+public expect fun setupDiGetActualSectionToInstallExW(infhandle: COpaquePointer?, infsectionname: Pcwstr, alternateplatforminfo: COpaquePointer?, infsectionwithext: Pwstr, infsectionwithextsize: UInt, requiredsize: COpaquePointer?, extension: COpaquePointer?, reserved: COpaquePointer?): Bool
 
-public expect fun SetupDiGetActualSectionToInstallW(infhandle: Long, infsectionname: PCWSTR, infsectionwithext: PWSTR, infsectionwithextsize: UInt, requiredsize: Long, extension: Long): BOOL
+public expect fun setupDiGetActualSectionToInstallW(infhandle: COpaquePointer?, infsectionname: Pcwstr, infsectionwithext: Pwstr, infsectionwithextsize: UInt, requiredsize: COpaquePointer?, extension: COpaquePointer?): Bool
 
-public expect fun SetupDiGetClassBitmapIndex(classguid: Long, miniiconindex: Long): BOOL
+public expect fun setupDiGetClassBitmapIndex(classguid: COpaquePointer?, miniiconindex: COpaquePointer?): Bool
 
-public expect fun SetupDiGetClassDescriptionA(classguid: Long, classdescription: PSTR, classdescriptionsize: UInt, requiredsize: Long): BOOL
+public expect fun setupDiGetClassDescriptionA(classguid: COpaquePointer?, classdescription: Pstr, classdescriptionsize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupDiGetClassDescriptionExA(classguid: Long, classdescription: PSTR, classdescriptionsize: UInt, requiredsize: Long, machinename: PCSTR, reserved: Long): BOOL
+public expect fun setupDiGetClassDescriptionExA(classguid: COpaquePointer?, classdescription: Pstr, classdescriptionsize: UInt, requiredsize: COpaquePointer?, machinename: Pcstr, reserved: COpaquePointer?): Bool
 
-public expect fun SetupDiGetClassDescriptionExW(classguid: Long, classdescription: PWSTR, classdescriptionsize: UInt, requiredsize: Long, machinename: PCWSTR, reserved: Long): BOOL
+public expect fun setupDiGetClassDescriptionExW(classguid: COpaquePointer?, classdescription: Pwstr, classdescriptionsize: UInt, requiredsize: COpaquePointer?, machinename: Pcwstr, reserved: COpaquePointer?): Bool
 
-public expect fun SetupDiGetClassDescriptionW(classguid: Long, classdescription: PWSTR, classdescriptionsize: UInt, requiredsize: Long): BOOL
+public expect fun setupDiGetClassDescriptionW(classguid: COpaquePointer?, classdescription: Pwstr, classdescriptionsize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupDiGetClassDevPropertySheetsA(deviceinfoset: HDEVINFO, deviceinfodata: Long, propertysheetheader: Long, propertysheetheaderpagelistsize: UInt, requiredsize: Long, propertysheettype: UInt): BOOL
+public expect fun setupDiGetClassDevPropertySheetsA(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, propertysheetheader: COpaquePointer?, propertysheetheaderpagelistsize: UInt, requiredsize: COpaquePointer?, propertysheettype: UInt): Bool
 
-public expect fun SetupDiGetClassDevPropertySheetsW(deviceinfoset: HDEVINFO, deviceinfodata: Long, propertysheetheader: Long, propertysheetheaderpagelistsize: UInt, requiredsize: Long, propertysheettype: UInt): BOOL
+public expect fun setupDiGetClassDevPropertySheetsW(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, propertysheetheader: COpaquePointer?, propertysheetheaderpagelistsize: UInt, requiredsize: COpaquePointer?, propertysheettype: UInt): Bool
 
-public expect fun SetupDiGetClassDevsA(classguid: Long, enumerator: PCSTR, hwndparent: HWND, flags: SETUP_DI_GET_CLASS_DEVS_FLAGS): HDEVINFO
+public expect fun setupDiGetClassDevsA(classguid: COpaquePointer?, enumerator: Pcstr, hwndparent: Hwnd, flags: SetupDiGetClassDevsFlags): Hdevinfo
 
-public expect fun SetupDiGetClassDevsExA(classguid: Long, enumerator: PCSTR, hwndparent: HWND, flags: SETUP_DI_GET_CLASS_DEVS_FLAGS, deviceinfoset: HDEVINFO, machinename: PCSTR, reserved: Long): HDEVINFO
+public expect fun setupDiGetClassDevsExA(classguid: COpaquePointer?, enumerator: Pcstr, hwndparent: Hwnd, flags: SetupDiGetClassDevsFlags, deviceinfoset: Hdevinfo, machinename: Pcstr, reserved: COpaquePointer?): Hdevinfo
 
-public expect fun SetupDiGetClassDevsExW(classguid: Long, enumerator: PCWSTR, hwndparent: HWND, flags: SETUP_DI_GET_CLASS_DEVS_FLAGS, deviceinfoset: HDEVINFO, machinename: PCWSTR, reserved: Long): HDEVINFO
+public expect fun setupDiGetClassDevsExW(classguid: COpaquePointer?, enumerator: Pcwstr, hwndparent: Hwnd, flags: SetupDiGetClassDevsFlags, deviceinfoset: Hdevinfo, machinename: Pcwstr, reserved: COpaquePointer?): Hdevinfo
 
-public expect fun SetupDiGetClassDevsW(classguid: Long, enumerator: PCWSTR, hwndparent: HWND, flags: SETUP_DI_GET_CLASS_DEVS_FLAGS): HDEVINFO
+public expect fun setupDiGetClassDevsW(classguid: COpaquePointer?, enumerator: Pcwstr, hwndparent: Hwnd, flags: SetupDiGetClassDevsFlags): Hdevinfo
 
-public expect fun SetupDiGetClassImageIndex(classimagelistdata: Long, classguid: Long, imageindex: Long): BOOL
+public expect fun setupDiGetClassImageIndex(classimagelistdata: COpaquePointer?, classguid: COpaquePointer?, imageindex: COpaquePointer?): Bool
 
-public expect fun SetupDiGetClassImageList(classimagelistdata: Long): BOOL
+public expect fun setupDiGetClassImageList(classimagelistdata: COpaquePointer?): Bool
 
-public expect fun SetupDiGetClassImageListExA(classimagelistdata: Long, machinename: PCSTR, reserved: Long): BOOL
+public expect fun setupDiGetClassImageListExA(classimagelistdata: COpaquePointer?, machinename: Pcstr, reserved: COpaquePointer?): Bool
 
-public expect fun SetupDiGetClassImageListExW(classimagelistdata: Long, machinename: PCWSTR, reserved: Long): BOOL
+public expect fun setupDiGetClassImageListExW(classimagelistdata: COpaquePointer?, machinename: Pcwstr, reserved: COpaquePointer?): Bool
 
-public expect fun SetupDiGetClassInstallParamsA(deviceinfoset: HDEVINFO, deviceinfodata: Long, classinstallparams: Long, classinstallparamssize: UInt, requiredsize: Long): BOOL
+public expect fun setupDiGetClassInstallParamsA(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, classinstallparams: COpaquePointer?, classinstallparamssize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupDiGetClassInstallParamsW(deviceinfoset: HDEVINFO, deviceinfodata: Long, classinstallparams: Long, classinstallparamssize: UInt, requiredsize: Long): BOOL
+public expect fun setupDiGetClassInstallParamsW(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, classinstallparams: COpaquePointer?, classinstallparamssize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupDiGetClassPropertyExW(classguid: Long, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: UInt, requiredsize: Long, flags: UInt, machinename: PCWSTR, reserved: Long): BOOL
+public expect fun setupDiGetClassPropertyExW(classguid: COpaquePointer?, propertykey: COpaquePointer?, propertytype: COpaquePointer?, propertybuffer: COpaquePointer?, propertybuffersize: UInt, requiredsize: COpaquePointer?, flags: UInt, machinename: Pcwstr, reserved: COpaquePointer?): Bool
 
-public expect fun SetupDiGetClassPropertyKeys(classguid: Long, propertykeyarray: Long, propertykeycount: UInt, requiredpropertykeycount: Long, flags: UInt): BOOL
+public expect fun setupDiGetClassPropertyKeys(classguid: COpaquePointer?, propertykeyarray: COpaquePointer?, propertykeycount: UInt, requiredpropertykeycount: COpaquePointer?, flags: UInt): Bool
 
-public expect fun SetupDiGetClassPropertyKeysExW(classguid: Long, propertykeyarray: Long, propertykeycount: UInt, requiredpropertykeycount: Long, flags: UInt, machinename: PCWSTR, reserved: Long): BOOL
+public expect fun setupDiGetClassPropertyKeysExW(classguid: COpaquePointer?, propertykeyarray: COpaquePointer?, propertykeycount: UInt, requiredpropertykeycount: COpaquePointer?, flags: UInt, machinename: Pcwstr, reserved: COpaquePointer?): Bool
 
-public expect fun SetupDiGetClassPropertyW(classguid: Long, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: UInt, requiredsize: Long, flags: UInt): BOOL
+public expect fun setupDiGetClassPropertyW(classguid: COpaquePointer?, propertykey: COpaquePointer?, propertytype: COpaquePointer?, propertybuffer: COpaquePointer?, propertybuffersize: UInt, requiredsize: COpaquePointer?, flags: UInt): Bool
 
-public expect fun SetupDiGetClassRegistryPropertyA(classguid: Long, property: UInt, propertyregdatatype: Long, propertybuffer: Long, propertybuffersize: UInt, requiredsize: Long, machinename: PCSTR, reserved: Long): BOOL
+public expect fun setupDiGetClassRegistryPropertyA(classguid: COpaquePointer?, property: UInt, propertyregdatatype: COpaquePointer?, propertybuffer: COpaquePointer?, propertybuffersize: UInt, requiredsize: COpaquePointer?, machinename: Pcstr, reserved: COpaquePointer?): Bool
 
-public expect fun SetupDiGetClassRegistryPropertyW(classguid: Long, property: UInt, propertyregdatatype: Long, propertybuffer: Long, propertybuffersize: UInt, requiredsize: Long, machinename: PCWSTR, reserved: Long): BOOL
+public expect fun setupDiGetClassRegistryPropertyW(classguid: COpaquePointer?, property: UInt, propertyregdatatype: COpaquePointer?, propertybuffer: COpaquePointer?, propertybuffersize: UInt, requiredsize: COpaquePointer?, machinename: Pcwstr, reserved: COpaquePointer?): Bool
 
-public expect fun SetupDiGetCustomDevicePropertyA(deviceinfoset: HDEVINFO, deviceinfodata: Long, custompropertyname: PCSTR, flags: UInt, propertyregdatatype: Long, propertybuffer: Long, propertybuffersize: UInt, requiredsize: Long): BOOL
+public expect fun setupDiGetCustomDevicePropertyA(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, custompropertyname: Pcstr, flags: UInt, propertyregdatatype: COpaquePointer?, propertybuffer: COpaquePointer?, propertybuffersize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupDiGetCustomDevicePropertyW(deviceinfoset: HDEVINFO, deviceinfodata: Long, custompropertyname: PCWSTR, flags: UInt, propertyregdatatype: Long, propertybuffer: Long, propertybuffersize: UInt, requiredsize: Long): BOOL
+public expect fun setupDiGetCustomDevicePropertyW(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, custompropertyname: Pcwstr, flags: UInt, propertyregdatatype: COpaquePointer?, propertybuffer: COpaquePointer?, propertybuffersize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupDiGetDeviceInfoListClass(deviceinfoset: HDEVINFO, classguid: Long): BOOL
+public expect fun setupDiGetDeviceInfoListClass(deviceinfoset: Hdevinfo, classguid: COpaquePointer?): Bool
 
-public expect fun SetupDiGetDeviceInfoListDetailA(deviceinfoset: HDEVINFO, deviceinfosetdetaildata: Long): BOOL
+public expect fun setupDiGetDeviceInfoListDetailA(deviceinfoset: Hdevinfo, deviceinfosetdetaildata: COpaquePointer?): Bool
 
-public expect fun SetupDiGetDeviceInfoListDetailW(deviceinfoset: HDEVINFO, deviceinfosetdetaildata: Long): BOOL
+public expect fun setupDiGetDeviceInfoListDetailW(deviceinfoset: Hdevinfo, deviceinfosetdetaildata: COpaquePointer?): Bool
 
-public expect fun SetupDiGetDeviceInstallParamsA(deviceinfoset: HDEVINFO, deviceinfodata: Long, deviceinstallparams: Long): BOOL
+public expect fun setupDiGetDeviceInstallParamsA(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, deviceinstallparams: COpaquePointer?): Bool
 
-public expect fun SetupDiGetDeviceInstallParamsW(deviceinfoset: HDEVINFO, deviceinfodata: Long, deviceinstallparams: Long): BOOL
+public expect fun setupDiGetDeviceInstallParamsW(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, deviceinstallparams: COpaquePointer?): Bool
 
-public expect fun SetupDiGetDeviceInstanceIdA(deviceinfoset: HDEVINFO, deviceinfodata: Long, deviceinstanceid: PSTR, deviceinstanceidsize: UInt, requiredsize: Long): BOOL
+public expect fun setupDiGetDeviceInstanceIdA(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, deviceinstanceid: Pstr, deviceinstanceidsize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupDiGetDeviceInstanceIdW(deviceinfoset: HDEVINFO, deviceinfodata: Long, deviceinstanceid: PWSTR, deviceinstanceidsize: UInt, requiredsize: Long): BOOL
+public expect fun setupDiGetDeviceInstanceIdW(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, deviceinstanceid: Pwstr, deviceinstanceidsize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupDiGetDeviceInterfaceAlias(deviceinfoset: HDEVINFO, deviceinterfacedata: Long, aliasinterfaceclassguid: Long, aliasdeviceinterfacedata: Long): BOOL
+public expect fun setupDiGetDeviceInterfaceAlias(deviceinfoset: Hdevinfo, deviceinterfacedata: COpaquePointer?, aliasinterfaceclassguid: COpaquePointer?, aliasdeviceinterfacedata: COpaquePointer?): Bool
 
-public expect fun SetupDiGetDeviceInterfaceDetailA(deviceinfoset: HDEVINFO, deviceinterfacedata: Long, deviceinterfacedetaildata: Long, deviceinterfacedetaildatasize: UInt, requiredsize: Long, deviceinfodata: Long): BOOL
+public expect fun setupDiGetDeviceInterfaceDetailA(deviceinfoset: Hdevinfo, deviceinterfacedata: COpaquePointer?, deviceinterfacedetaildata: COpaquePointer?, deviceinterfacedetaildatasize: UInt, requiredsize: COpaquePointer?, deviceinfodata: COpaquePointer?): Bool
 
-public expect fun SetupDiGetDeviceInterfaceDetailW(deviceinfoset: HDEVINFO, deviceinterfacedata: Long, deviceinterfacedetaildata: Long, deviceinterfacedetaildatasize: UInt, requiredsize: Long, deviceinfodata: Long): BOOL
+public expect fun setupDiGetDeviceInterfaceDetailW(deviceinfoset: Hdevinfo, deviceinterfacedata: COpaquePointer?, deviceinterfacedetaildata: COpaquePointer?, deviceinterfacedetaildatasize: UInt, requiredsize: COpaquePointer?, deviceinfodata: COpaquePointer?): Bool
 
-public expect fun SetupDiGetDeviceInterfacePropertyKeys(deviceinfoset: HDEVINFO, deviceinterfacedata: Long, propertykeyarray: Long, propertykeycount: UInt, requiredpropertykeycount: Long, flags: UInt): BOOL
+public expect fun setupDiGetDeviceInterfacePropertyKeys(deviceinfoset: Hdevinfo, deviceinterfacedata: COpaquePointer?, propertykeyarray: COpaquePointer?, propertykeycount: UInt, requiredpropertykeycount: COpaquePointer?, flags: UInt): Bool
 
-public expect fun SetupDiGetDeviceInterfacePropertyW(deviceinfoset: HDEVINFO, deviceinterfacedata: Long, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: UInt, requiredsize: Long, flags: UInt): BOOL
+public expect fun setupDiGetDeviceInterfacePropertyW(deviceinfoset: Hdevinfo, deviceinterfacedata: COpaquePointer?, propertykey: COpaquePointer?, propertytype: COpaquePointer?, propertybuffer: COpaquePointer?, propertybuffersize: UInt, requiredsize: COpaquePointer?, flags: UInt): Bool
 
-public expect fun SetupDiGetDevicePropertyKeys(deviceinfoset: HDEVINFO, deviceinfodata: Long, propertykeyarray: Long, propertykeycount: UInt, requiredpropertykeycount: Long, flags: UInt): BOOL
+public expect fun setupDiGetDevicePropertyKeys(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, propertykeyarray: COpaquePointer?, propertykeycount: UInt, requiredpropertykeycount: COpaquePointer?, flags: UInt): Bool
 
-public expect fun SetupDiGetDevicePropertyW(deviceinfoset: HDEVINFO, deviceinfodata: Long, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: UInt, requiredsize: Long, flags: UInt): BOOL
+public expect fun setupDiGetDevicePropertyW(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, propertykey: COpaquePointer?, propertytype: COpaquePointer?, propertybuffer: COpaquePointer?, propertybuffersize: UInt, requiredsize: COpaquePointer?, flags: UInt): Bool
 
-public expect fun SetupDiGetDeviceRegistryPropertyA(deviceinfoset: HDEVINFO, deviceinfodata: Long, property: SETUP_DI_REGISTRY_PROPERTY, propertyregdatatype: Long, propertybuffer: Long, propertybuffersize: UInt, requiredsize: Long): BOOL
+public expect fun setupDiGetDeviceRegistryPropertyA(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, property: SetupDiRegistryProperty, propertyregdatatype: COpaquePointer?, propertybuffer: COpaquePointer?, propertybuffersize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupDiGetDeviceRegistryPropertyW(deviceinfoset: HDEVINFO, deviceinfodata: Long, property: SETUP_DI_REGISTRY_PROPERTY, propertyregdatatype: Long, propertybuffer: Long, propertybuffersize: UInt, requiredsize: Long): BOOL
+public expect fun setupDiGetDeviceRegistryPropertyW(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, property: SetupDiRegistryProperty, propertyregdatatype: COpaquePointer?, propertybuffer: COpaquePointer?, propertybuffersize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupDiGetDriverInfoDetailA(deviceinfoset: HDEVINFO, deviceinfodata: Long, driverinfodata: Long, driverinfodetaildata: Long, driverinfodetaildatasize: UInt, requiredsize: Long): BOOL
+public expect fun setupDiGetDriverInfoDetailA(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, driverinfodata: COpaquePointer?, driverinfodetaildata: COpaquePointer?, driverinfodetaildatasize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupDiGetDriverInfoDetailW(deviceinfoset: HDEVINFO, deviceinfodata: Long, driverinfodata: Long, driverinfodetaildata: Long, driverinfodetaildatasize: UInt, requiredsize: Long): BOOL
+public expect fun setupDiGetDriverInfoDetailW(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, driverinfodata: COpaquePointer?, driverinfodetaildata: COpaquePointer?, driverinfodetaildatasize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupDiGetDriverInstallParamsA(deviceinfoset: HDEVINFO, deviceinfodata: Long, driverinfodata: Long, driverinstallparams: Long): BOOL
+public expect fun setupDiGetDriverInstallParamsA(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, driverinfodata: COpaquePointer?, driverinstallparams: COpaquePointer?): Bool
 
-public expect fun SetupDiGetDriverInstallParamsW(deviceinfoset: HDEVINFO, deviceinfodata: Long, driverinfodata: Long, driverinstallparams: Long): BOOL
+public expect fun setupDiGetDriverInstallParamsW(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, driverinfodata: COpaquePointer?, driverinstallparams: COpaquePointer?): Bool
 
-public expect fun SetupDiGetHwProfileFriendlyNameA(hwprofile: UInt, friendlyname: PSTR, friendlynamesize: UInt, requiredsize: Long): BOOL
+public expect fun setupDiGetHwProfileFriendlyNameA(hwprofile: UInt, friendlyname: Pstr, friendlynamesize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupDiGetHwProfileFriendlyNameExA(hwprofile: UInt, friendlyname: PSTR, friendlynamesize: UInt, requiredsize: Long, machinename: PCSTR, reserved: Long): BOOL
+public expect fun setupDiGetHwProfileFriendlyNameExA(hwprofile: UInt, friendlyname: Pstr, friendlynamesize: UInt, requiredsize: COpaquePointer?, machinename: Pcstr, reserved: COpaquePointer?): Bool
 
-public expect fun SetupDiGetHwProfileFriendlyNameExW(hwprofile: UInt, friendlyname: PWSTR, friendlynamesize: UInt, requiredsize: Long, machinename: PCWSTR, reserved: Long): BOOL
+public expect fun setupDiGetHwProfileFriendlyNameExW(hwprofile: UInt, friendlyname: Pwstr, friendlynamesize: UInt, requiredsize: COpaquePointer?, machinename: Pcwstr, reserved: COpaquePointer?): Bool
 
-public expect fun SetupDiGetHwProfileFriendlyNameW(hwprofile: UInt, friendlyname: PWSTR, friendlynamesize: UInt, requiredsize: Long): BOOL
+public expect fun setupDiGetHwProfileFriendlyNameW(hwprofile: UInt, friendlyname: Pwstr, friendlynamesize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupDiGetHwProfileList(hwprofilelist: Long, hwprofilelistsize: UInt, requiredsize: Long, currentlyactiveindex: Long): BOOL
+public expect fun setupDiGetHwProfileList(hwprofilelist: COpaquePointer?, hwprofilelistsize: UInt, requiredsize: COpaquePointer?, currentlyactiveindex: COpaquePointer?): Bool
 
-public expect fun SetupDiGetHwProfileListExA(hwprofilelist: Long, hwprofilelistsize: UInt, requiredsize: Long, currentlyactiveindex: Long, machinename: PCSTR, reserved: Long): BOOL
+public expect fun setupDiGetHwProfileListExA(hwprofilelist: COpaquePointer?, hwprofilelistsize: UInt, requiredsize: COpaquePointer?, currentlyactiveindex: COpaquePointer?, machinename: Pcstr, reserved: COpaquePointer?): Bool
 
-public expect fun SetupDiGetHwProfileListExW(hwprofilelist: Long, hwprofilelistsize: UInt, requiredsize: Long, currentlyactiveindex: Long, machinename: PCWSTR, reserved: Long): BOOL
+public expect fun setupDiGetHwProfileListExW(hwprofilelist: COpaquePointer?, hwprofilelistsize: UInt, requiredsize: COpaquePointer?, currentlyactiveindex: COpaquePointer?, machinename: Pcwstr, reserved: COpaquePointer?): Bool
 
-public expect fun SetupDiGetINFClassA(infname: PCSTR, classguid: Long, classname: PSTR, classnamesize: UInt, requiredsize: Long): BOOL
+public expect fun setupDiGetINFClassA(infname: Pcstr, classguid: COpaquePointer?, classname: Pstr, classnamesize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupDiGetINFClassW(infname: PCWSTR, classguid: Long, classname: PWSTR, classnamesize: UInt, requiredsize: Long): BOOL
+public expect fun setupDiGetINFClassW(infname: Pcwstr, classguid: COpaquePointer?, classname: Pwstr, classnamesize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupDiGetSelectedDevice(deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL
+public expect fun setupDiGetSelectedDevice(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?): Bool
 
-public expect fun SetupDiGetSelectedDriverA(deviceinfoset: HDEVINFO, deviceinfodata: Long, driverinfodata: Long): BOOL
+public expect fun setupDiGetSelectedDriverA(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, driverinfodata: COpaquePointer?): Bool
 
-public expect fun SetupDiGetSelectedDriverW(deviceinfoset: HDEVINFO, deviceinfodata: Long, driverinfodata: Long): BOOL
+public expect fun setupDiGetSelectedDriverW(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, driverinfodata: COpaquePointer?): Bool
 
-public expect fun SetupDiGetWizardPage(deviceinfoset: HDEVINFO, deviceinfodata: Long, installwizarddata: Long, pagetype: UInt, flags: UInt): HPROPSHEETPAGE
+public expect fun setupDiGetWizardPage(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, installwizarddata: COpaquePointer?, pagetype: UInt, flags: UInt): Hpropsheetpage
 
-public expect fun SetupDiInstallClassA(hwndparent: HWND, inffilename: PCSTR, flags: UInt, filequeue: Long): BOOL
+public expect fun setupDiInstallClassA(hwndparent: Hwnd, inffilename: Pcstr, flags: UInt, filequeue: COpaquePointer?): Bool
 
-public expect fun SetupDiInstallClassExA(hwndparent: HWND, inffilename: PCSTR, flags: UInt, filequeue: Long, interfaceclassguid: Long, reserved1: Long, reserved2: Long): BOOL
+public expect fun setupDiInstallClassExA(hwndparent: Hwnd, inffilename: Pcstr, flags: UInt, filequeue: COpaquePointer?, interfaceclassguid: COpaquePointer?, reserved1: COpaquePointer?, reserved2: COpaquePointer?): Bool
 
-public expect fun SetupDiInstallClassExW(hwndparent: HWND, inffilename: PCWSTR, flags: UInt, filequeue: Long, interfaceclassguid: Long, reserved1: Long, reserved2: Long): BOOL
+public expect fun setupDiInstallClassExW(hwndparent: Hwnd, inffilename: Pcwstr, flags: UInt, filequeue: COpaquePointer?, interfaceclassguid: COpaquePointer?, reserved1: COpaquePointer?, reserved2: COpaquePointer?): Bool
 
-public expect fun SetupDiInstallClassW(hwndparent: HWND, inffilename: PCWSTR, flags: UInt, filequeue: Long): BOOL
+public expect fun setupDiInstallClassW(hwndparent: Hwnd, inffilename: Pcwstr, flags: UInt, filequeue: COpaquePointer?): Bool
 
-public expect fun SetupDiInstallDevice(deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL
+public expect fun setupDiInstallDevice(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?): Bool
 
-public expect fun SetupDiInstallDeviceInterfaces(deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL
+public expect fun setupDiInstallDeviceInterfaces(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?): Bool
 
-public expect fun SetupDiInstallDriverFiles(deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL
+public expect fun setupDiInstallDriverFiles(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?): Bool
 
-public expect fun SetupDiLoadClassIcon(classguid: Long, largeicon: Long, miniiconindex: Long): BOOL
+public expect fun setupDiLoadClassIcon(classguid: COpaquePointer?, largeicon: COpaquePointer?, miniiconindex: COpaquePointer?): Bool
 
-public expect fun SetupDiLoadDeviceIcon(deviceinfoset: HDEVINFO, deviceinfodata: Long, cxicon: UInt, cyicon: UInt, flags: UInt, hicon: Long): BOOL
+public expect fun setupDiLoadDeviceIcon(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, cxicon: UInt, cyicon: UInt, flags: UInt, hicon: COpaquePointer?): Bool
 
-public expect fun SetupDiOpenClassRegKey(classguid: Long, samdesired: UInt): HKEY
+public expect fun setupDiOpenClassRegKey(classguid: COpaquePointer?, samdesired: UInt): Hkey
 
-public expect fun SetupDiOpenClassRegKeyExA(classguid: Long, samdesired: UInt, flags: UInt, machinename: PCSTR, reserved: Long): HKEY
+public expect fun setupDiOpenClassRegKeyExA(classguid: COpaquePointer?, samdesired: UInt, flags: UInt, machinename: Pcstr, reserved: COpaquePointer?): Hkey
 
-public expect fun SetupDiOpenClassRegKeyExW(classguid: Long, samdesired: UInt, flags: UInt, machinename: PCWSTR, reserved: Long): HKEY
+public expect fun setupDiOpenClassRegKeyExW(classguid: COpaquePointer?, samdesired: UInt, flags: UInt, machinename: Pcwstr, reserved: COpaquePointer?): Hkey
 
-public expect fun SetupDiOpenDevRegKey(deviceinfoset: HDEVINFO, deviceinfodata: Long, scope: UInt, hwprofile: UInt, keytype: UInt, samdesired: UInt): HKEY
+public expect fun setupDiOpenDevRegKey(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, scope: UInt, hwprofile: UInt, keytype: UInt, samdesired: UInt): Hkey
 
-public expect fun SetupDiOpenDeviceInfoA(deviceinfoset: HDEVINFO, deviceinstanceid: PCSTR, hwndparent: HWND, openflags: UInt, deviceinfodata: Long): BOOL
+public expect fun setupDiOpenDeviceInfoA(deviceinfoset: Hdevinfo, deviceinstanceid: Pcstr, hwndparent: Hwnd, openflags: UInt, deviceinfodata: COpaquePointer?): Bool
 
-public expect fun SetupDiOpenDeviceInfoW(deviceinfoset: HDEVINFO, deviceinstanceid: PCWSTR, hwndparent: HWND, openflags: UInt, deviceinfodata: Long): BOOL
+public expect fun setupDiOpenDeviceInfoW(deviceinfoset: Hdevinfo, deviceinstanceid: Pcwstr, hwndparent: Hwnd, openflags: UInt, deviceinfodata: COpaquePointer?): Bool
 
-public expect fun SetupDiOpenDeviceInterfaceA(deviceinfoset: HDEVINFO, devicepath: PCSTR, openflags: UInt, deviceinterfacedata: Long): BOOL
+public expect fun setupDiOpenDeviceInterfaceA(deviceinfoset: Hdevinfo, devicepath: Pcstr, openflags: UInt, deviceinterfacedata: COpaquePointer?): Bool
 
-public expect fun SetupDiOpenDeviceInterfaceRegKey(deviceinfoset: HDEVINFO, deviceinterfacedata: Long, reserved: UInt, samdesired: UInt): HKEY
+public expect fun setupDiOpenDeviceInterfaceRegKey(deviceinfoset: Hdevinfo, deviceinterfacedata: COpaquePointer?, reserved: UInt, samdesired: UInt): Hkey
 
-public expect fun SetupDiOpenDeviceInterfaceW(deviceinfoset: HDEVINFO, devicepath: PCWSTR, openflags: UInt, deviceinterfacedata: Long): BOOL
+public expect fun setupDiOpenDeviceInterfaceW(deviceinfoset: Hdevinfo, devicepath: Pcwstr, openflags: UInt, deviceinterfacedata: COpaquePointer?): Bool
 
-public expect fun SetupDiRegisterCoDeviceInstallers(deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL
+public expect fun setupDiRegisterCoDeviceInstallers(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?): Bool
 
-public expect fun SetupDiRegisterDeviceInfo(deviceinfoset: HDEVINFO, deviceinfodata: Long, flags: UInt, compareproc: PSP_DETSIG_CMPPROC, comparecontext: Long, dupdeviceinfodata: Long): BOOL
+public expect fun setupDiRegisterDeviceInfo(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, flags: UInt, compareproc: PspDetsigCmpproc, comparecontext: COpaquePointer?, dupdeviceinfodata: COpaquePointer?): Bool
 
-public expect fun SetupDiRemoveDevice(deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL
+public expect fun setupDiRemoveDevice(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?): Bool
 
-public expect fun SetupDiRemoveDeviceInterface(deviceinfoset: HDEVINFO, deviceinterfacedata: Long): BOOL
+public expect fun setupDiRemoveDeviceInterface(deviceinfoset: Hdevinfo, deviceinterfacedata: COpaquePointer?): Bool
 
-public expect fun SetupDiRestartDevices(deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL
+public expect fun setupDiRestartDevices(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?): Bool
 
-public expect fun SetupDiSelectBestCompatDrv(deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL
+public expect fun setupDiSelectBestCompatDrv(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?): Bool
 
-public expect fun SetupDiSelectDevice(deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL
+public expect fun setupDiSelectDevice(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?): Bool
 
-public expect fun SetupDiSelectOEMDrv(hwndparent: HWND, deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL
+public expect fun setupDiSelectOEMDrv(hwndparent: Hwnd, deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?): Bool
 
-public expect fun SetupDiSetClassInstallParamsA(deviceinfoset: HDEVINFO, deviceinfodata: Long, classinstallparams: Long, classinstallparamssize: UInt): BOOL
+public expect fun setupDiSetClassInstallParamsA(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, classinstallparams: COpaquePointer?, classinstallparamssize: UInt): Bool
 
-public expect fun SetupDiSetClassInstallParamsW(deviceinfoset: HDEVINFO, deviceinfodata: Long, classinstallparams: Long, classinstallparamssize: UInt): BOOL
+public expect fun setupDiSetClassInstallParamsW(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, classinstallparams: COpaquePointer?, classinstallparamssize: UInt): Bool
 
-public expect fun SetupDiSetClassPropertyExW(classguid: Long, propertykey: Long, propertytype: DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, flags: UInt, machinename: PCWSTR, reserved: Long): BOOL
+public expect fun setupDiSetClassPropertyExW(classguid: COpaquePointer?, propertykey: COpaquePointer?, propertytype: Devproptype, propertybuffer: COpaquePointer?, propertybuffersize: UInt, flags: UInt, machinename: Pcwstr, reserved: COpaquePointer?): Bool
 
-public expect fun SetupDiSetClassPropertyW(classguid: Long, propertykey: Long, propertytype: DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, flags: UInt): BOOL
+public expect fun setupDiSetClassPropertyW(classguid: COpaquePointer?, propertykey: COpaquePointer?, propertytype: Devproptype, propertybuffer: COpaquePointer?, propertybuffersize: UInt, flags: UInt): Bool
 
-public expect fun SetupDiSetClassRegistryPropertyA(classguid: Long, property: UInt, propertybuffer: Long, propertybuffersize: UInt, machinename: PCSTR, reserved: Long): BOOL
+public expect fun setupDiSetClassRegistryPropertyA(classguid: COpaquePointer?, property: UInt, propertybuffer: COpaquePointer?, propertybuffersize: UInt, machinename: Pcstr, reserved: COpaquePointer?): Bool
 
-public expect fun SetupDiSetClassRegistryPropertyW(classguid: Long, property: UInt, propertybuffer: Long, propertybuffersize: UInt, machinename: PCWSTR, reserved: Long): BOOL
+public expect fun setupDiSetClassRegistryPropertyW(classguid: COpaquePointer?, property: UInt, propertybuffer: COpaquePointer?, propertybuffersize: UInt, machinename: Pcwstr, reserved: COpaquePointer?): Bool
 
-public expect fun SetupDiSetDeviceInstallParamsA(deviceinfoset: HDEVINFO, deviceinfodata: Long, deviceinstallparams: Long): BOOL
+public expect fun setupDiSetDeviceInstallParamsA(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, deviceinstallparams: COpaquePointer?): Bool
 
-public expect fun SetupDiSetDeviceInstallParamsW(deviceinfoset: HDEVINFO, deviceinfodata: Long, deviceinstallparams: Long): BOOL
+public expect fun setupDiSetDeviceInstallParamsW(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, deviceinstallparams: COpaquePointer?): Bool
 
-public expect fun SetupDiSetDeviceInterfaceDefault(deviceinfoset: HDEVINFO, deviceinterfacedata: Long, flags: UInt, reserved: Long): BOOL
+public expect fun setupDiSetDeviceInterfaceDefault(deviceinfoset: Hdevinfo, deviceinterfacedata: COpaquePointer?, flags: UInt, reserved: COpaquePointer?): Bool
 
-public expect fun SetupDiSetDeviceInterfacePropertyW(deviceinfoset: HDEVINFO, deviceinterfacedata: Long, propertykey: Long, propertytype: DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, flags: UInt): BOOL
+public expect fun setupDiSetDeviceInterfacePropertyW(deviceinfoset: Hdevinfo, deviceinterfacedata: COpaquePointer?, propertykey: COpaquePointer?, propertytype: Devproptype, propertybuffer: COpaquePointer?, propertybuffersize: UInt, flags: UInt): Bool
 
-public expect fun SetupDiSetDevicePropertyW(deviceinfoset: HDEVINFO, deviceinfodata: Long, propertykey: Long, propertytype: DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, flags: UInt): BOOL
+public expect fun setupDiSetDevicePropertyW(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, propertykey: COpaquePointer?, propertytype: Devproptype, propertybuffer: COpaquePointer?, propertybuffersize: UInt, flags: UInt): Bool
 
-public expect fun SetupDiSetDeviceRegistryPropertyA(deviceinfoset: HDEVINFO, deviceinfodata: Long, property: SETUP_DI_REGISTRY_PROPERTY, propertybuffer: Long, propertybuffersize: UInt): BOOL
+public expect fun setupDiSetDeviceRegistryPropertyA(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, property: SetupDiRegistryProperty, propertybuffer: COpaquePointer?, propertybuffersize: UInt): Bool
 
-public expect fun SetupDiSetDeviceRegistryPropertyW(deviceinfoset: HDEVINFO, deviceinfodata: Long, property: SETUP_DI_REGISTRY_PROPERTY, propertybuffer: Long, propertybuffersize: UInt): BOOL
+public expect fun setupDiSetDeviceRegistryPropertyW(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, property: SetupDiRegistryProperty, propertybuffer: COpaquePointer?, propertybuffersize: UInt): Bool
 
-public expect fun SetupDiSetDriverInstallParamsA(deviceinfoset: HDEVINFO, deviceinfodata: Long, driverinfodata: Long, driverinstallparams: Long): BOOL
+public expect fun setupDiSetDriverInstallParamsA(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, driverinfodata: COpaquePointer?, driverinstallparams: COpaquePointer?): Bool
 
-public expect fun SetupDiSetDriverInstallParamsW(deviceinfoset: HDEVINFO, deviceinfodata: Long, driverinfodata: Long, driverinstallparams: Long): BOOL
+public expect fun setupDiSetDriverInstallParamsW(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, driverinfodata: COpaquePointer?, driverinstallparams: COpaquePointer?): Bool
 
-public expect fun SetupDiSetSelectedDevice(deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL
+public expect fun setupDiSetSelectedDevice(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?): Bool
 
-public expect fun SetupDiSetSelectedDriverA(deviceinfoset: HDEVINFO, deviceinfodata: Long, driverinfodata: Long): BOOL
+public expect fun setupDiSetSelectedDriverA(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, driverinfodata: COpaquePointer?): Bool
 
-public expect fun SetupDiSetSelectedDriverW(deviceinfoset: HDEVINFO, deviceinfodata: Long, driverinfodata: Long): BOOL
+public expect fun setupDiSetSelectedDriverW(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, driverinfodata: COpaquePointer?): Bool
 
-public expect fun SetupDiUnremoveDevice(deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL
+public expect fun setupDiUnremoveDevice(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?): Bool
 
-public expect fun SetupDuplicateDiskSpaceListA(diskspace: Long, reserved1: Long, reserved2: UInt, flags: UInt): Long
+public expect fun setupDuplicateDiskSpaceListA(diskspace: COpaquePointer?, reserved1: COpaquePointer?, reserved2: UInt, flags: UInt): COpaquePointer?
 
-public expect fun SetupDuplicateDiskSpaceListW(diskspace: Long, reserved1: Long, reserved2: UInt, flags: UInt): Long
+public expect fun setupDuplicateDiskSpaceListW(diskspace: COpaquePointer?, reserved1: COpaquePointer?, reserved2: UInt, flags: UInt): COpaquePointer?
 
-public expect fun SetupEnumInfSectionsA(infhandle: Long, index: UInt, buffer: PSTR, size: UInt, sizeneeded: Long): BOOL
+public expect fun setupEnumInfSectionsA(infhandle: COpaquePointer?, index: UInt, buffer: Pstr, size: UInt, sizeneeded: COpaquePointer?): Bool
 
-public expect fun SetupEnumInfSectionsW(infhandle: Long, index: UInt, buffer: PWSTR, size: UInt, sizeneeded: Long): BOOL
+public expect fun setupEnumInfSectionsW(infhandle: COpaquePointer?, index: UInt, buffer: Pwstr, size: UInt, sizeneeded: COpaquePointer?): Bool
 
-public expect fun SetupFindFirstLineA(infhandle: Long, section: PCSTR, key: PCSTR, context: Long): BOOL
+public expect fun setupFindFirstLineA(infhandle: COpaquePointer?, section: Pcstr, key: Pcstr, context: COpaquePointer?): Bool
 
-public expect fun SetupFindFirstLineW(infhandle: Long, section: PCWSTR, key: PCWSTR, context: Long): BOOL
+public expect fun setupFindFirstLineW(infhandle: COpaquePointer?, section: Pcwstr, key: Pcwstr, context: COpaquePointer?): Bool
 
-public expect fun SetupFindNextLine(contextin: Long, contextout: Long): BOOL
+public expect fun setupFindNextLine(contextin: COpaquePointer?, contextout: COpaquePointer?): Bool
 
-public expect fun SetupFindNextMatchLineA(contextin: Long, key: PCSTR, contextout: Long): BOOL
+public expect fun setupFindNextMatchLineA(contextin: COpaquePointer?, key: Pcstr, contextout: COpaquePointer?): Bool
 
-public expect fun SetupFindNextMatchLineW(contextin: Long, key: PCWSTR, contextout: Long): BOOL
+public expect fun setupFindNextMatchLineW(contextin: COpaquePointer?, key: Pcwstr, contextout: COpaquePointer?): Bool
 
-public expect fun SetupFreeSourceListA(list: Long, count: UInt): BOOL
+public expect fun setupFreeSourceListA(list: COpaquePointer?, count: UInt): Bool
 
-public expect fun SetupFreeSourceListW(list: Long, count: UInt): BOOL
+public expect fun setupFreeSourceListW(list: COpaquePointer?, count: UInt): Bool
 
-public expect fun SetupGetBackupInformationA(queuehandle: Long, backupparams: Long): BOOL
+public expect fun setupGetBackupInformationA(queuehandle: COpaquePointer?, backupparams: COpaquePointer?): Bool
 
-public expect fun SetupGetBackupInformationW(queuehandle: Long, backupparams: Long): BOOL
+public expect fun setupGetBackupInformationW(queuehandle: COpaquePointer?, backupparams: COpaquePointer?): Bool
 
-public expect fun SetupGetBinaryField(context: Long, fieldindex: UInt, returnbuffer: Long, returnbuffersize: UInt, requiredsize: Long): BOOL
+public expect fun setupGetBinaryField(context: COpaquePointer?, fieldindex: UInt, returnbuffer: COpaquePointer?, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupGetFieldCount(context: Long): UInt
+public expect fun setupGetFieldCount(context: COpaquePointer?): UInt
 
-public expect fun SetupGetFileCompressionInfoA(sourcefilename: PCSTR, actualsourcefilename: Long, sourcefilesize: Long, targetfilesize: Long, compressiontype: Long): UInt
+public expect fun setupGetFileCompressionInfoA(sourcefilename: Pcstr, actualsourcefilename: COpaquePointer?, sourcefilesize: COpaquePointer?, targetfilesize: COpaquePointer?, compressiontype: COpaquePointer?): UInt
 
-public expect fun SetupGetFileCompressionInfoExA(sourcefilename: PCSTR, actualsourcefilenamebuffer: PCSTR, actualsourcefilenamebufferlen: UInt, requiredbufferlen: Long, sourcefilesize: Long, targetfilesize: Long, compressiontype: Long): BOOL
+public expect fun setupGetFileCompressionInfoExA(sourcefilename: Pcstr, actualsourcefilenamebuffer: Pcstr, actualsourcefilenamebufferlen: UInt, requiredbufferlen: COpaquePointer?, sourcefilesize: COpaquePointer?, targetfilesize: COpaquePointer?, compressiontype: COpaquePointer?): Bool
 
-public expect fun SetupGetFileCompressionInfoExW(sourcefilename: PCWSTR, actualsourcefilenamebuffer: PCWSTR, actualsourcefilenamebufferlen: UInt, requiredbufferlen: Long, sourcefilesize: Long, targetfilesize: Long, compressiontype: Long): BOOL
+public expect fun setupGetFileCompressionInfoExW(sourcefilename: Pcwstr, actualsourcefilenamebuffer: Pcwstr, actualsourcefilenamebufferlen: UInt, requiredbufferlen: COpaquePointer?, sourcefilesize: COpaquePointer?, targetfilesize: COpaquePointer?, compressiontype: COpaquePointer?): Bool
 
-public expect fun SetupGetFileCompressionInfoW(sourcefilename: PCWSTR, actualsourcefilename: Long, sourcefilesize: Long, targetfilesize: Long, compressiontype: Long): UInt
+public expect fun setupGetFileCompressionInfoW(sourcefilename: Pcwstr, actualsourcefilename: COpaquePointer?, sourcefilesize: COpaquePointer?, targetfilesize: COpaquePointer?, compressiontype: COpaquePointer?): UInt
 
-public expect fun SetupGetFileQueueCount(filequeue: Long, subqueuefileop: UInt, numoperations: Long): BOOL
+public expect fun setupGetFileQueueCount(filequeue: COpaquePointer?, subqueuefileop: UInt, numoperations: COpaquePointer?): Bool
 
-public expect fun SetupGetFileQueueFlags(filequeue: Long, flags: Long): BOOL
+public expect fun setupGetFileQueueFlags(filequeue: COpaquePointer?, flags: COpaquePointer?): Bool
 
-public expect fun SetupGetInfDriverStoreLocationA(filename: PCSTR, alternateplatforminfo: Long, localename: PCSTR, returnbuffer: PSTR, returnbuffersize: UInt, requiredsize: Long): BOOL
+public expect fun setupGetInfDriverStoreLocationA(filename: Pcstr, alternateplatforminfo: COpaquePointer?, localename: Pcstr, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupGetInfDriverStoreLocationW(filename: PCWSTR, alternateplatforminfo: Long, localename: PCWSTR, returnbuffer: PWSTR, returnbuffersize: UInt, requiredsize: Long): BOOL
+public expect fun setupGetInfDriverStoreLocationW(filename: Pcwstr, alternateplatforminfo: COpaquePointer?, localename: Pcwstr, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupGetInfFileListA(directorypath: PCSTR, infstyle: INF_STYLE, returnbuffer: PSTR, returnbuffersize: UInt, requiredsize: Long): BOOL
+public expect fun setupGetInfFileListA(directorypath: Pcstr, infstyle: InfStyle, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupGetInfFileListW(directorypath: PCWSTR, infstyle: INF_STYLE, returnbuffer: PWSTR, returnbuffersize: UInt, requiredsize: Long): BOOL
+public expect fun setupGetInfFileListW(directorypath: Pcwstr, infstyle: InfStyle, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupGetInfInformationA(infspec: Long, searchcontrol: UInt, returnbuffer: Long, returnbuffersize: UInt, requiredsize: Long): BOOL
+public expect fun setupGetInfInformationA(infspec: COpaquePointer?, searchcontrol: UInt, returnbuffer: COpaquePointer?, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupGetInfInformationW(infspec: Long, searchcontrol: UInt, returnbuffer: Long, returnbuffersize: UInt, requiredsize: Long): BOOL
+public expect fun setupGetInfInformationW(infspec: COpaquePointer?, searchcontrol: UInt, returnbuffer: COpaquePointer?, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupGetInfPublishedNameA(driverstorelocation: PCSTR, returnbuffer: PSTR, returnbuffersize: UInt, requiredsize: Long): BOOL
+public expect fun setupGetInfPublishedNameA(driverstorelocation: Pcstr, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupGetInfPublishedNameW(driverstorelocation: PCWSTR, returnbuffer: PWSTR, returnbuffersize: UInt, requiredsize: Long): BOOL
+public expect fun setupGetInfPublishedNameW(driverstorelocation: Pcwstr, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupGetIntField(context: Long, fieldindex: UInt, integervalue: Long): BOOL
+public expect fun setupGetIntField(context: COpaquePointer?, fieldindex: UInt, integervalue: COpaquePointer?): Bool
 
-public expect fun SetupGetLineByIndexA(infhandle: Long, section: PCSTR, index: UInt, context: Long): BOOL
+public expect fun setupGetLineByIndexA(infhandle: COpaquePointer?, section: Pcstr, index: UInt, context: COpaquePointer?): Bool
 
-public expect fun SetupGetLineByIndexW(infhandle: Long, section: PCWSTR, index: UInt, context: Long): BOOL
+public expect fun setupGetLineByIndexW(infhandle: COpaquePointer?, section: Pcwstr, index: UInt, context: COpaquePointer?): Bool
 
-public expect fun SetupGetLineCountA(infhandle: Long, section: PCSTR): Int
+public expect fun setupGetLineCountA(infhandle: COpaquePointer?, section: Pcstr): Int
 
-public expect fun SetupGetLineCountW(infhandle: Long, section: PCWSTR): Int
+public expect fun setupGetLineCountW(infhandle: COpaquePointer?, section: Pcwstr): Int
 
-public expect fun SetupGetLineTextA(context: Long, infhandle: Long, section: PCSTR, key: PCSTR, returnbuffer: PSTR, returnbuffersize: UInt, requiredsize: Long): BOOL
+public expect fun setupGetLineTextA(context: COpaquePointer?, infhandle: COpaquePointer?, section: Pcstr, key: Pcstr, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupGetLineTextW(context: Long, infhandle: Long, section: PCWSTR, key: PCWSTR, returnbuffer: PWSTR, returnbuffersize: UInt, requiredsize: Long): BOOL
+public expect fun setupGetLineTextW(context: COpaquePointer?, infhandle: COpaquePointer?, section: Pcwstr, key: Pcwstr, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupGetMultiSzFieldA(context: Long, fieldindex: UInt, returnbuffer: PSTR, returnbuffersize: UInt, requiredsize: Long): BOOL
+public expect fun setupGetMultiSzFieldA(context: COpaquePointer?, fieldindex: UInt, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupGetMultiSzFieldW(context: Long, fieldindex: UInt, returnbuffer: PWSTR, returnbuffersize: UInt, requiredsize: Long): BOOL
+public expect fun setupGetMultiSzFieldW(context: COpaquePointer?, fieldindex: UInt, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupGetNonInteractiveMode(): BOOL
+public expect fun setupGetNonInteractiveMode(): Bool
 
-public expect fun SetupGetSourceFileLocationA(infhandle: Long, infcontext: Long, filename: PCSTR, sourceid: Long, returnbuffer: PSTR, returnbuffersize: UInt, requiredsize: Long): BOOL
+public expect fun setupGetSourceFileLocationA(infhandle: COpaquePointer?, infcontext: COpaquePointer?, filename: Pcstr, sourceid: COpaquePointer?, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupGetSourceFileLocationW(infhandle: Long, infcontext: Long, filename: PCWSTR, sourceid: Long, returnbuffer: PWSTR, returnbuffersize: UInt, requiredsize: Long): BOOL
+public expect fun setupGetSourceFileLocationW(infhandle: COpaquePointer?, infcontext: COpaquePointer?, filename: Pcwstr, sourceid: COpaquePointer?, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupGetSourceFileSizeA(infhandle: Long, infcontext: Long, filename: PCSTR, section: PCSTR, filesize: Long, roundingfactor: UInt): BOOL
+public expect fun setupGetSourceFileSizeA(infhandle: COpaquePointer?, infcontext: COpaquePointer?, filename: Pcstr, section: Pcstr, filesize: COpaquePointer?, roundingfactor: UInt): Bool
 
-public expect fun SetupGetSourceFileSizeW(infhandle: Long, infcontext: Long, filename: PCWSTR, section: PCWSTR, filesize: Long, roundingfactor: UInt): BOOL
+public expect fun setupGetSourceFileSizeW(infhandle: COpaquePointer?, infcontext: COpaquePointer?, filename: Pcwstr, section: Pcwstr, filesize: COpaquePointer?, roundingfactor: UInt): Bool
 
-public expect fun SetupGetSourceInfoA(infhandle: Long, sourceid: UInt, infodesired: UInt, returnbuffer: PSTR, returnbuffersize: UInt, requiredsize: Long): BOOL
+public expect fun setupGetSourceInfoA(infhandle: COpaquePointer?, sourceid: UInt, infodesired: UInt, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupGetSourceInfoW(infhandle: Long, sourceid: UInt, infodesired: UInt, returnbuffer: PWSTR, returnbuffersize: UInt, requiredsize: Long): BOOL
+public expect fun setupGetSourceInfoW(infhandle: COpaquePointer?, sourceid: UInt, infodesired: UInt, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupGetStringFieldA(context: Long, fieldindex: UInt, returnbuffer: PSTR, returnbuffersize: UInt, requiredsize: Long): BOOL
+public expect fun setupGetStringFieldA(context: COpaquePointer?, fieldindex: UInt, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupGetStringFieldW(context: Long, fieldindex: UInt, returnbuffer: PWSTR, returnbuffersize: UInt, requiredsize: Long): BOOL
+public expect fun setupGetStringFieldW(context: COpaquePointer?, fieldindex: UInt, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupGetTargetPathA(infhandle: Long, infcontext: Long, section: PCSTR, returnbuffer: PSTR, returnbuffersize: UInt, requiredsize: Long): BOOL
+public expect fun setupGetTargetPathA(infhandle: COpaquePointer?, infcontext: COpaquePointer?, section: Pcstr, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupGetTargetPathW(infhandle: Long, infcontext: Long, section: PCWSTR, returnbuffer: PWSTR, returnbuffersize: UInt, requiredsize: Long): BOOL
+public expect fun setupGetTargetPathW(infhandle: COpaquePointer?, infcontext: COpaquePointer?, section: Pcwstr, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool
 
-public expect fun SetupGetThreadLogToken(): ULong
+public expect fun setupGetThreadLogToken(): ULong
 
-public expect fun SetupInitDefaultQueueCallback(ownerwindow: HWND): Long
+public expect fun setupInitDefaultQueueCallback(ownerwindow: Hwnd): COpaquePointer?
 
-public expect fun SetupInitDefaultQueueCallbackEx(ownerwindow: HWND, alternateprogresswindow: HWND, progressmessage: UInt, reserved1: UInt, reserved2: Long): Long
+public expect fun setupInitDefaultQueueCallbackEx(ownerwindow: Hwnd, alternateprogresswindow: Hwnd, progressmessage: UInt, reserved1: UInt, reserved2: COpaquePointer?): COpaquePointer?
 
-public expect fun SetupInitializeFileLogA(logfilename: PCSTR, flags: UInt): Long
+public expect fun setupInitializeFileLogA(logfilename: Pcstr, flags: UInt): COpaquePointer?
 
-public expect fun SetupInitializeFileLogW(logfilename: PCWSTR, flags: UInt): Long
+public expect fun setupInitializeFileLogW(logfilename: Pcwstr, flags: UInt): COpaquePointer?
 
-public expect fun SetupInstallFileA(infhandle: Long, infcontext: Long, sourcefile: PCSTR, sourcepathroot: PCSTR, destinationname: PCSTR, copystyle: SP_COPY_STYLE, copymsghandler: PSP_FILE_CALLBACK_A, context: Long): BOOL
+public expect fun setupInstallFileA(infhandle: COpaquePointer?, infcontext: COpaquePointer?, sourcefile: Pcstr, sourcepathroot: Pcstr, destinationname: Pcstr, copystyle: SpCopyStyle, copymsghandler: PspFileCallbackA, context: COpaquePointer?): Bool
 
-public expect fun SetupInstallFileExA(infhandle: Long, infcontext: Long, sourcefile: PCSTR, sourcepathroot: PCSTR, destinationname: PCSTR, copystyle: SP_COPY_STYLE, copymsghandler: PSP_FILE_CALLBACK_A, context: Long, filewasinuse: Long): BOOL
+public expect fun setupInstallFileExA(infhandle: COpaquePointer?, infcontext: COpaquePointer?, sourcefile: Pcstr, sourcepathroot: Pcstr, destinationname: Pcstr, copystyle: SpCopyStyle, copymsghandler: PspFileCallbackA, context: COpaquePointer?, filewasinuse: COpaquePointer?): Bool
 
-public expect fun SetupInstallFileExW(infhandle: Long, infcontext: Long, sourcefile: PCWSTR, sourcepathroot: PCWSTR, destinationname: PCWSTR, copystyle: SP_COPY_STYLE, copymsghandler: PSP_FILE_CALLBACK_W, context: Long, filewasinuse: Long): BOOL
+public expect fun setupInstallFileExW(infhandle: COpaquePointer?, infcontext: COpaquePointer?, sourcefile: Pcwstr, sourcepathroot: Pcwstr, destinationname: Pcwstr, copystyle: SpCopyStyle, copymsghandler: PspFileCallbackW, context: COpaquePointer?, filewasinuse: COpaquePointer?): Bool
 
-public expect fun SetupInstallFileW(infhandle: Long, infcontext: Long, sourcefile: PCWSTR, sourcepathroot: PCWSTR, destinationname: PCWSTR, copystyle: SP_COPY_STYLE, copymsghandler: PSP_FILE_CALLBACK_W, context: Long): BOOL
+public expect fun setupInstallFileW(infhandle: COpaquePointer?, infcontext: COpaquePointer?, sourcefile: Pcwstr, sourcepathroot: Pcwstr, destinationname: Pcwstr, copystyle: SpCopyStyle, copymsghandler: PspFileCallbackW, context: COpaquePointer?): Bool
 
-public expect fun SetupInstallFilesFromInfSectionA(infhandle: Long, layoutinfhandle: Long, filequeue: Long, sectionname: PCSTR, sourcerootpath: PCSTR, copyflags: UInt): BOOL
+public expect fun setupInstallFilesFromInfSectionA(infhandle: COpaquePointer?, layoutinfhandle: COpaquePointer?, filequeue: COpaquePointer?, sectionname: Pcstr, sourcerootpath: Pcstr, copyflags: UInt): Bool
 
-public expect fun SetupInstallFilesFromInfSectionW(infhandle: Long, layoutinfhandle: Long, filequeue: Long, sectionname: PCWSTR, sourcerootpath: PCWSTR, copyflags: UInt): BOOL
+public expect fun setupInstallFilesFromInfSectionW(infhandle: COpaquePointer?, layoutinfhandle: COpaquePointer?, filequeue: COpaquePointer?, sectionname: Pcwstr, sourcerootpath: Pcwstr, copyflags: UInt): Bool
 
-public expect fun SetupInstallFromInfSectionA(owner: HWND, infhandle: Long, sectionname: PCSTR, flags: UInt, relativekeyroot: HKEY, sourcerootpath: PCSTR, copyflags: UInt, msghandler: PSP_FILE_CALLBACK_A, context: Long, deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL
+public expect fun setupInstallFromInfSectionA(owner: Hwnd, infhandle: COpaquePointer?, sectionname: Pcstr, flags: UInt, relativekeyroot: Hkey, sourcerootpath: Pcstr, copyflags: UInt, msghandler: PspFileCallbackA, context: COpaquePointer?, deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?): Bool
 
-public expect fun SetupInstallFromInfSectionW(owner: HWND, infhandle: Long, sectionname: PCWSTR, flags: UInt, relativekeyroot: HKEY, sourcerootpath: PCWSTR, copyflags: UInt, msghandler: PSP_FILE_CALLBACK_W, context: Long, deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL
+public expect fun setupInstallFromInfSectionW(owner: Hwnd, infhandle: COpaquePointer?, sectionname: Pcwstr, flags: UInt, relativekeyroot: Hkey, sourcerootpath: Pcwstr, copyflags: UInt, msghandler: PspFileCallbackW, context: COpaquePointer?, deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?): Bool
 
-public expect fun SetupInstallServicesFromInfSectionA(infhandle: Long, sectionname: PCSTR, flags: SPSVCINST_FLAGS): BOOL
+public expect fun setupInstallServicesFromInfSectionA(infhandle: COpaquePointer?, sectionname: Pcstr, flags: SpsvcinstFlags): Bool
 
-public expect fun SetupInstallServicesFromInfSectionExA(infhandle: Long, sectionname: PCSTR, flags: SPSVCINST_FLAGS, deviceinfoset: HDEVINFO, deviceinfodata: Long, reserved1: Long, reserved2: Long): BOOL
+public expect fun setupInstallServicesFromInfSectionExA(infhandle: COpaquePointer?, sectionname: Pcstr, flags: SpsvcinstFlags, deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, reserved1: COpaquePointer?, reserved2: COpaquePointer?): Bool
 
-public expect fun SetupInstallServicesFromInfSectionExW(infhandle: Long, sectionname: PCWSTR, flags: SPSVCINST_FLAGS, deviceinfoset: HDEVINFO, deviceinfodata: Long, reserved1: Long, reserved2: Long): BOOL
+public expect fun setupInstallServicesFromInfSectionExW(infhandle: COpaquePointer?, sectionname: Pcwstr, flags: SpsvcinstFlags, deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, reserved1: COpaquePointer?, reserved2: COpaquePointer?): Bool
 
-public expect fun SetupInstallServicesFromInfSectionW(infhandle: Long, sectionname: PCWSTR, flags: SPSVCINST_FLAGS): BOOL
+public expect fun setupInstallServicesFromInfSectionW(infhandle: COpaquePointer?, sectionname: Pcwstr, flags: SpsvcinstFlags): Bool
 
-public expect fun SetupIterateCabinetA(cabinetfile: PCSTR, reserved: UInt, msghandler: PSP_FILE_CALLBACK_A, context: Long): BOOL
+public expect fun setupIterateCabinetA(cabinetfile: Pcstr, reserved: UInt, msghandler: PspFileCallbackA, context: COpaquePointer?): Bool
 
-public expect fun SetupIterateCabinetW(cabinetfile: PCWSTR, reserved: UInt, msghandler: PSP_FILE_CALLBACK_W, context: Long): BOOL
+public expect fun setupIterateCabinetW(cabinetfile: Pcwstr, reserved: UInt, msghandler: PspFileCallbackW, context: COpaquePointer?): Bool
 
-public expect fun SetupLogErrorA(messagestring: PCSTR, severity: UInt): BOOL
+public expect fun setupLogErrorA(messagestring: Pcstr, severity: UInt): Bool
 
-public expect fun SetupLogErrorW(messagestring: PCWSTR, severity: UInt): BOOL
+public expect fun setupLogErrorW(messagestring: Pcwstr, severity: UInt): Bool
 
-public expect fun SetupLogFileA(fileloghandle: Long, logsectionname: PCSTR, sourcefilename: PCSTR, targetfilename: PCSTR, checksum: UInt, disktagfile: PCSTR, diskdescription: PCSTR, otherinfo: PCSTR, flags: UInt): BOOL
+public expect fun setupLogFileA(fileloghandle: COpaquePointer?, logsectionname: Pcstr, sourcefilename: Pcstr, targetfilename: Pcstr, checksum: UInt, disktagfile: Pcstr, diskdescription: Pcstr, otherinfo: Pcstr, flags: UInt): Bool
 
-public expect fun SetupLogFileW(fileloghandle: Long, logsectionname: PCWSTR, sourcefilename: PCWSTR, targetfilename: PCWSTR, checksum: UInt, disktagfile: PCWSTR, diskdescription: PCWSTR, otherinfo: PCWSTR, flags: UInt): BOOL
+public expect fun setupLogFileW(fileloghandle: COpaquePointer?, logsectionname: Pcwstr, sourcefilename: Pcwstr, targetfilename: Pcwstr, checksum: UInt, disktagfile: Pcwstr, diskdescription: Pcwstr, otherinfo: Pcwstr, flags: UInt): Bool
 
-public expect fun SetupOpenAppendInfFileA(filename: PCSTR, infhandle: Long, errorline: Long): BOOL
+public expect fun setupOpenAppendInfFileA(filename: Pcstr, infhandle: COpaquePointer?, errorline: COpaquePointer?): Bool
 
-public expect fun SetupOpenAppendInfFileW(filename: PCWSTR, infhandle: Long, errorline: Long): BOOL
+public expect fun setupOpenAppendInfFileW(filename: Pcwstr, infhandle: COpaquePointer?, errorline: COpaquePointer?): Bool
 
-public expect fun SetupOpenFileQueue(): Long
+public expect fun setupOpenFileQueue(): COpaquePointer?
 
-public expect fun SetupOpenInfFileA(filename: PCSTR, infclass: PCSTR, infstyle: INF_STYLE, errorline: Long): Long
+public expect fun setupOpenInfFileA(filename: Pcstr, infclass: Pcstr, infstyle: InfStyle, errorline: COpaquePointer?): COpaquePointer?
 
-public expect fun SetupOpenInfFileW(filename: PCWSTR, infclass: PCWSTR, infstyle: INF_STYLE, errorline: Long): Long
+public expect fun setupOpenInfFileW(filename: Pcwstr, infclass: Pcwstr, infstyle: InfStyle, errorline: COpaquePointer?): COpaquePointer?
 
-public expect fun SetupOpenLog(erase: BOOL): BOOL
+public expect fun setupOpenLog(erase: Bool): Bool

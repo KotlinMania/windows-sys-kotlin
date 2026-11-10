@@ -1,12 +1,12 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.nfp
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.windows.win32.foundation.DEVPROPKEY
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Devpropkey
 
-public val DEVPKEY_NFP_Capabilities: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xfb3842cd9e2a4f83uL, 0x8fcc4b0761139ae9uL)), pid = 2u)
+public val DEVPKEY_NFP_CAPABILITIES: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xfb3842cd9e2a4f83uL, 0x8fcc4b0761139ae9uL)), pid = 2u)
 
-public val GUID_DEVINTERFACE_NFP: GUID = GUID.from_u128(U128(0xfb3842cd9e2a4f83uL, 0x8fcc4b0761139ae9uL))
+public val GUID_DEVINTERFACE_NFP: Guid = Guid.fromU128(U128(0xfb3842cd9e2a4f83uL, 0x8fcc4b0761139ae9uL))
 
 public val IOCTL_NFP_DISABLE: UInt = 5308492u
 

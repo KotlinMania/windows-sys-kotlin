@@ -1,903 +1,1827 @@
-@file:OptIn(kotlin.ExperimentalUnsignedTypes::class)
+@file:OptIn(kotlin.ExperimentalUnsignedTypes::class, kotlin.js.ExperimentalWasmJsInterop::class)
 
 package io.github.kotlinmania.windowssys.windows.win32.networking.wininet
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.WIN_HTTP_CREATE_URL_FLAGS
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.ALG_ID
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.WinHttpCreateUrlFlags
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.AlgId
 
-public actual fun AppCacheCheckManifest(pwszmasterurl: PCWSTR, pwszmanifesturl: PCWSTR, pbmanifestdata: Long, dwmanifestdatasize: UInt, pbmanifestresponseheaders: Long, dwmanifestresponseheaderssize: UInt, pestate: Long, phnewappcache: Long): UInt =
-    0u
+@JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
+private external fun _initWindowsWin32NetworkingWininetNapiAddon(): Boolean
 
-public actual fun AppCacheCloseHandle(happcache: Long) {
+private val _windowsWin32NetworkingWininetNapiAvailable: Boolean = _initWindowsWin32NetworkingWininetNapiAddon()
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_appCacheCheckManifest(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_appCacheCheckManifest(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: Int, p6: String, p7: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_appCacheCloseHandle(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_appCacheCloseHandle(p0: String)
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_appCacheCreateAndCommitFile(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_appCacheCreateAndCommitFile(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_appCacheDeleteGroup(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_appCacheDeleteGroup(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_appCacheDeleteIEGroup(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_appCacheDeleteIEGroup(p0: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_appCacheDuplicateHandle(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_appCacheDuplicateHandle(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_appCacheFinalize(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_appCacheFinalize(p0: String, p1: String, p2: Int, p3: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_appCacheFreeDownloadList(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_appCacheFreeDownloadList(p0: String)
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_appCacheFreeGroupList(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_appCacheFreeGroupList(p0: String)
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_appCacheGetDownloadList(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_appCacheGetDownloadList(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_appCacheGetFallbackUrl(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_appCacheGetFallbackUrl(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_appCacheGetGroupList(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_appCacheGetGroupList(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_appCacheGetIEGroupList(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_appCacheGetIEGroupList(p0: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_appCacheGetInfo(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_appCacheGetInfo(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_appCacheGetManifestUrl(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_appCacheGetManifestUrl(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_appCacheLookup(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_appCacheLookup(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_createMD5SSOHash(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_createMD5SSOHash(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_createUrlCacheContainerA(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_createUrlCacheContainerA(p0: String, p1: String, p2: String, p3: Int, p4: Int, p5: Int, p6: String, p7: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_createUrlCacheContainerW(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_createUrlCacheContainerW(p0: String, p1: String, p2: String, p3: Int, p4: Int, p5: Int, p6: String, p7: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_createUrlCacheEntryA(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_createUrlCacheEntryA(p0: String, p1: Int, p2: String, p3: String, p4: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_createUrlCacheEntryExW(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_createUrlCacheEntryExW(p0: String, p1: Int, p2: String, p3: String, p4: Int, p5: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_createUrlCacheEntryW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_createUrlCacheEntryW(p0: String, p1: Int, p2: String, p3: String, p4: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_createUrlCacheGroup(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_createUrlCacheGroup(p0: Int, p1: String): String
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_deleteIE3Cache(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_deleteIE3Cache(p0: String, p1: String, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_deleteUrlCacheContainerA(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_deleteUrlCacheContainerA(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_deleteUrlCacheContainerW(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_deleteUrlCacheContainerW(p0: String, p1: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_deleteUrlCacheEntry(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_deleteUrlCacheEntry(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_deleteUrlCacheEntryA(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_deleteUrlCacheEntryA(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_deleteUrlCacheEntryW(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_deleteUrlCacheEntryW(p0: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_deleteUrlCacheGroup(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_deleteUrlCacheGroup(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_deleteWpadCacheForNetworks(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_deleteWpadCacheForNetworks(p0: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_detectAutoProxyUrl(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_detectAutoProxyUrl(p0: String, p1: Int, p2: Int): Int
+
+@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_doConnectoidsExist()")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_doConnectoidsExist(): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_exportCookieFileA(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_exportCookieFileA(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_exportCookieFileW(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_exportCookieFileW(p0: String, p1: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_findCloseUrlCache(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_findCloseUrlCache(p0: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_findFirstUrlCacheContainerA(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_findFirstUrlCacheContainerA(p0: String, p1: String, p2: String, p3: Int): String
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_findFirstUrlCacheContainerW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_findFirstUrlCacheContainerW(p0: String, p1: String, p2: String, p3: Int): String
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryA(p0: String, p1: String, p2: String): String
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryExA(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryExA(p0: String, p1: Int, p2: Int, p3: String, p4: String, p5: String, p6: String, p7: String, p8: String): String
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryExW(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryExW(p0: String, p1: Int, p2: Int, p3: String, p4: String, p5: String, p6: String, p7: String, p8: String): String
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryW(p0: String, p1: String, p2: String): String
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_findFirstUrlCacheGroup(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_findFirstUrlCacheGroup(p0: Int, p1: Int, p2: String, p3: Int, p4: String, p5: String): String
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_findNextUrlCacheContainerA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_findNextUrlCacheContainerA(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_findNextUrlCacheContainerW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_findNextUrlCacheContainerW(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryA(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryExA(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryExA(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryExW(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryExW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryW(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_findNextUrlCacheGroup(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_findNextUrlCacheGroup(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_findP3PPolicySymbol(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_findP3PPolicySymbol(p0: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_freeUrlCacheSpaceA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_freeUrlCacheSpaceA(p0: String, p1: Int, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_freeUrlCacheSpaceW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_freeUrlCacheSpaceW(p0: String, p1: Int, p2: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_ftpCommandA(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_ftpCommandA(p0: String, p1: Int, p2: Int, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_ftpCommandW(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_ftpCommandW(p0: String, p1: Int, p2: Int, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_ftpCreateDirectoryA(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_ftpCreateDirectoryA(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_ftpCreateDirectoryW(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_ftpCreateDirectoryW(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_ftpDeleteFileA(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_ftpDeleteFileA(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_ftpDeleteFileW(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_ftpDeleteFileW(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_ftpFindFirstFileA(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_ftpFindFirstFileA(p0: String, p1: String, p2: String, p3: Int, p4: String): String
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_ftpFindFirstFileW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_ftpFindFirstFileW(p0: String, p1: String, p2: String, p3: Int, p4: String): String
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_ftpGetCurrentDirectoryA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_ftpGetCurrentDirectoryA(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_ftpGetCurrentDirectoryW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_ftpGetCurrentDirectoryW(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_ftpGetFileA(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_ftpGetFileA(p0: String, p1: String, p2: String, p3: Int, p4: Int, p5: Int, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_ftpGetFileEx(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_ftpGetFileEx(p0: String, p1: String, p2: String, p3: Int, p4: Int, p5: Int, p6: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_ftpGetFileSize(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_ftpGetFileSize(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_ftpGetFileW(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_ftpGetFileW(p0: String, p1: String, p2: String, p3: Int, p4: Int, p5: Int, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_ftpOpenFileA(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_ftpOpenFileA(p0: String, p1: String, p2: Int, p3: Int, p4: String): String
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_ftpOpenFileW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_ftpOpenFileW(p0: String, p1: String, p2: Int, p3: Int, p4: String): String
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_ftpPutFileA(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_ftpPutFileA(p0: String, p1: String, p2: String, p3: Int, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_ftpPutFileEx(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_ftpPutFileEx(p0: String, p1: String, p2: String, p3: Int, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_ftpPutFileW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_ftpPutFileW(p0: String, p1: String, p2: String, p3: Int, p4: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_ftpRemoveDirectoryA(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_ftpRemoveDirectoryA(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_ftpRemoveDirectoryW(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_ftpRemoveDirectoryW(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_ftpRenameFileA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_ftpRenameFileA(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_ftpRenameFileW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_ftpRenameFileW(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_ftpSetCurrentDirectoryA(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_ftpSetCurrentDirectoryA(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_ftpSetCurrentDirectoryW(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_ftpSetCurrentDirectoryW(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_getDiskInfoA(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_getDiskInfoA(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_getUrlCacheConfigInfoA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_getUrlCacheConfigInfoA(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_getUrlCacheConfigInfoW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_getUrlCacheConfigInfoW(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_getUrlCacheEntryBinaryBlob(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_getUrlCacheEntryBinaryBlob(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoA(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoExA(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoExA(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoExW(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoExW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoW(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_getUrlCacheGroupAttributeA(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_getUrlCacheGroupAttributeA(p0: String, p1: Int, p2: Int, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_getUrlCacheGroupAttributeW(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_getUrlCacheGroupAttributeW(p0: String, p1: Int, p2: Int, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_getUrlCacheHeaderData(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_getUrlCacheHeaderData(p0: Int, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_gopherCreateLocatorA(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_gopherCreateLocatorA(p0: String, p1: Int, p2: String, p3: String, p4: Int, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_gopherCreateLocatorW(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_gopherCreateLocatorW(p0: String, p1: Int, p2: String, p3: String, p4: Int, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_gopherFindFirstFileA(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_gopherFindFirstFileA(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String): String
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_gopherFindFirstFileW(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_gopherFindFirstFileW(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String): String
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_gopherGetAttributeA(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_gopherGetAttributeA(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String, p6: String, p7: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_gopherGetAttributeW(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_gopherGetAttributeW(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String, p6: String, p7: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_gopherGetLocatorTypeA(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_gopherGetLocatorTypeA(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_gopherGetLocatorTypeW(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_gopherGetLocatorTypeW(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_gopherOpenFileA(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_gopherOpenFileA(p0: String, p1: String, p2: String, p3: Int, p4: String): String
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_gopherOpenFileW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_gopherOpenFileW(p0: String, p1: String, p2: String, p3: Int, p4: String): String
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_httpAddRequestHeadersA(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_httpAddRequestHeadersA(p0: String, p1: String, p2: Int, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_httpAddRequestHeadersW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_httpAddRequestHeadersW(p0: String, p1: String, p2: Int, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_httpCheckDavComplianceA(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_httpCheckDavComplianceA(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_httpCheckDavComplianceW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_httpCheckDavComplianceW(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_httpCloseDependencyHandle(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_httpCloseDependencyHandle(p0: String)
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_httpDuplicateDependencyHandle(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_httpDuplicateDependencyHandle(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_httpEndRequestA(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_httpEndRequestA(p0: String, p1: String, p2: Int, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_httpEndRequestW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_httpEndRequestW(p0: String, p1: String, p2: Int, p3: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_httpGetServerCredentials(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_httpGetServerCredentials(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_httpIndicatePageLoadComplete(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_httpIndicatePageLoadComplete(p0: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_httpIsHostHstsEnabled(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_httpIsHostHstsEnabled(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_httpOpenDependencyHandle(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_httpOpenDependencyHandle(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_httpOpenRequestA(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_httpOpenRequestA(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: Int, p7: String): String
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_httpOpenRequestW(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_httpOpenRequestW(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: Int, p7: String): String
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_httpPushClose(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_httpPushClose(p0: String)
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_httpPushEnable(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_httpPushEnable(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_httpPushWait(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_httpPushWait(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_httpQueryInfoA(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_httpQueryInfoA(p0: String, p1: Int, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_httpQueryInfoW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_httpQueryInfoW(p0: String, p1: Int, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_httpSendRequestA(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_httpSendRequestA(p0: String, p1: String, p2: Int, p3: String, p4: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_httpSendRequestExA(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_httpSendRequestExA(p0: String, p1: String, p2: String, p3: Int, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_httpSendRequestExW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_httpSendRequestExW(p0: String, p1: String, p2: String, p3: Int, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_httpSendRequestW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_httpSendRequestW(p0: String, p1: String, p2: Int, p3: String, p4: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_httpWebSocketClose(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_httpWebSocketClose(p0: String, p1: Int, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_httpWebSocketCompleteUpgrade(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_httpWebSocketCompleteUpgrade(p0: String, p1: String): String
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_httpWebSocketQueryCloseStatus(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_httpWebSocketQueryCloseStatus(p0: String, p1: String, p2: String, p3: Int, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_httpWebSocketReceive(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_httpWebSocketReceive(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_httpWebSocketSend(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_httpWebSocketSend(p0: String, p1: Int, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_httpWebSocketShutdown(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_httpWebSocketShutdown(p0: String, p1: Int, p2: String, p3: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_importCookieFileA(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_importCookieFileA(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_importCookieFileW(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_importCookieFileW(p0: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_incrementUrlCacheHeaderData(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_incrementUrlCacheHeaderData(p0: Int, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internalInternetGetCookie(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internalInternetGetCookie(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetAlgIdToStringA(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetAlgIdToStringA(p0: Int, p1: String, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetAlgIdToStringW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetAlgIdToStringW(p0: Int, p1: String, p2: String, p3: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetAttemptConnect(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetAttemptConnect(p0: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetAutodial(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetAutodial(p0: Int, p1: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetAutodialHangup(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetAutodialHangup(p0: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetCanonicalizeUrlA(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetCanonicalizeUrlA(p0: String, p1: String, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetCanonicalizeUrlW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetCanonicalizeUrlW(p0: String, p1: String, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetCheckConnectionA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetCheckConnectionA(p0: String, p1: Int, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetCheckConnectionW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetCheckConnectionW(p0: String, p1: Int, p2: Int): Int
+
+@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetClearAllPerSiteCookieDecisions()")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetClearAllPerSiteCookieDecisions(): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetCloseHandle(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetCloseHandle(p0: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetCombineUrlA(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetCombineUrlA(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetCombineUrlW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetCombineUrlW(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetConfirmZoneCrossing(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetConfirmZoneCrossing(p0: String, p1: String, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetConfirmZoneCrossingA(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetConfirmZoneCrossingA(p0: String, p1: String, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetConfirmZoneCrossingW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetConfirmZoneCrossingW(p0: String, p1: String, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetConnectA(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetConnectA(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: Int, p6: Int, p7: String): String
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetConnectW(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetConnectW(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: Int, p6: Int, p7: String): String
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetConvertUrlFromWireToWideChar(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetConvertUrlFromWireToWideChar(p0: String, p1: Int, p2: String, p3: Int, p4: Int, p5: Int, p6: Int, p7: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetCrackUrlA(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetCrackUrlA(p0: String, p1: Int, p2: Int, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetCrackUrlW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetCrackUrlW(p0: String, p1: Int, p2: Int, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetCreateUrlA(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetCreateUrlA(p0: String, p1: Int, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetCreateUrlW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetCreateUrlW(p0: String, p1: Int, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetDial(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetDial(p0: String, p1: String, p2: Int, p3: String, p4: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetDialA(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetDialA(p0: String, p1: String, p2: Int, p3: String, p4: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetDialW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetDialW(p0: String, p1: String, p2: Int, p3: String, p4: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetEnumPerSiteCookieDecisionA(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetEnumPerSiteCookieDecisionA(p0: String, p1: String, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetEnumPerSiteCookieDecisionW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetEnumPerSiteCookieDecisionW(p0: String, p1: String, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetErrorDlg(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetErrorDlg(p0: String, p1: String, p2: Int, p3: Int, p4: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetFindNextFileA(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetFindNextFileA(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetFindNextFileW(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetFindNextFileW(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetFortezzaCommand(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetFortezzaCommand(p0: Int, p1: String, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetFreeCookies(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetFreeCookies(p0: String, p1: Int)
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetFreeProxyInfoList(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetFreeProxyInfoList(p0: String)
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetGetConnectedState(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetGetConnectedState(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetGetConnectedStateEx(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetGetConnectedStateEx(p0: String, p1: String, p2: Int, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetGetConnectedStateExA(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetGetConnectedStateExA(p0: String, p1: String, p2: Int, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetGetConnectedStateExW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetGetConnectedStateExW(p0: String, p1: String, p2: Int, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetGetCookieA(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetGetCookieA(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetGetCookieEx2(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetGetCookieEx2(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetGetCookieExA(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetGetCookieExA(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetGetCookieExW(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetGetCookieExW(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetGetCookieW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetGetCookieW(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetGetLastResponseInfoA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetGetLastResponseInfoA(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetGetLastResponseInfoW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetGetLastResponseInfoW(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetGetPerSiteCookieDecisionA(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetGetPerSiteCookieDecisionA(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetGetPerSiteCookieDecisionW(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetGetPerSiteCookieDecisionW(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetGetProxyForUrl(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetGetProxyForUrl(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetGetSecurityInfoByURL(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetGetSecurityInfoByURL(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetGetSecurityInfoByURLA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetGetSecurityInfoByURLA(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetGetSecurityInfoByURLW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetGetSecurityInfoByURLW(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetGoOnline(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetGoOnline(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetGoOnlineA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetGoOnlineA(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetGoOnlineW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetGoOnlineW(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetHangUp(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetHangUp(p0: String, p1: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetInitializeAutoProxyDll(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetInitializeAutoProxyDll(p0: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetLockRequestFile(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetLockRequestFile(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetOpenA(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetOpenA(p0: String, p1: Int, p2: String, p3: String, p4: Int): String
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetOpenUrlA(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetOpenUrlA(p0: String, p1: String, p2: String, p3: Int, p4: Int, p5: String): String
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetOpenUrlW(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetOpenUrlW(p0: String, p1: String, p2: String, p3: Int, p4: Int, p5: String): String
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetOpenW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetOpenW(p0: String, p1: Int, p2: String, p3: String, p4: Int): String
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetQueryDataAvailable(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetQueryDataAvailable(p0: String, p1: String, p2: Int, p3: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetQueryFortezzaStatus(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetQueryFortezzaStatus(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetQueryOptionA(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetQueryOptionA(p0: String, p1: Int, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetQueryOptionW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetQueryOptionW(p0: String, p1: Int, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetReadFile(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetReadFile(p0: String, p1: String, p2: Int, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetReadFileExA(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetReadFileExA(p0: String, p1: String, p2: Int, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetReadFileExW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetReadFileExW(p0: String, p1: String, p2: Int, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetSecurityProtocolToStringA(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetSecurityProtocolToStringA(p0: Int, p1: String, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetSecurityProtocolToStringW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetSecurityProtocolToStringW(p0: Int, p1: String, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetSetCookieA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetSetCookieA(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetSetCookieEx2(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetSetCookieEx2(p0: String, p1: String, p2: String, p3: Int, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetSetCookieExA(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetSetCookieExA(p0: String, p1: String, p2: String, p3: Int, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetSetCookieExW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetSetCookieExW(p0: String, p1: String, p2: String, p3: Int, p4: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetSetCookieW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetSetCookieW(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetSetDialState(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetSetDialState(p0: String, p1: Int, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetSetDialStateA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetSetDialStateA(p0: String, p1: Int, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetSetDialStateW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetSetDialStateW(p0: String, p1: Int, p2: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetSetFilePointer(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetSetFilePointer(p0: String, p1: Int, p2: String, p3: Int, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetSetOptionA(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetSetOptionA(p0: String, p1: Int, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetSetOptionExA(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetSetOptionExA(p0: String, p1: Int, p2: String, p3: Int, p4: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetSetOptionExW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetSetOptionExW(p0: String, p1: Int, p2: String, p3: Int, p4: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetSetOptionW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetSetOptionW(p0: String, p1: Int, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetSetPerSiteCookieDecisionA(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetSetPerSiteCookieDecisionA(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetSetPerSiteCookieDecisionW(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetSetPerSiteCookieDecisionW(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetSetStatusCallback(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetSetStatusCallback(p0: String, p1: String): String
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetSetStatusCallbackA(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetSetStatusCallbackA(p0: String, p1: String): String
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetSetStatusCallbackW(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetSetStatusCallbackW(p0: String, p1: String): String
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetShowSecurityInfoByURL(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetShowSecurityInfoByURL(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetShowSecurityInfoByURLA(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetShowSecurityInfoByURLA(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetShowSecurityInfoByURLW(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetShowSecurityInfoByURLW(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetTimeFromSystemTime(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetTimeFromSystemTime(p0: String, p1: Int, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetTimeFromSystemTimeA(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetTimeFromSystemTimeA(p0: String, p1: Int, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetTimeFromSystemTimeW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetTimeFromSystemTimeW(p0: String, p1: Int, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetTimeToSystemTime(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetTimeToSystemTime(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetTimeToSystemTimeA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetTimeToSystemTimeA(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetTimeToSystemTimeW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetTimeToSystemTimeW(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetUnlockRequestFile(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetUnlockRequestFile(p0: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetWriteFile(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetWriteFile(p0: String, p1: String, p2: Int, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetWriteFileExA(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetWriteFileExA(p0: String, p1: String, p2: Int, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_internetWriteFileExW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_internetWriteFileExW(p0: String, p1: String, p2: Int, p3: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_isDomainLegalCookieDomainA(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_isDomainLegalCookieDomainA(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_isDomainLegalCookieDomainW(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_isDomainLegalCookieDomainW(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_isHostInProxyBypassList(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_isHostInProxyBypassList(p0: Int, p1: String, p2: Int): Int
+
+@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_isProfilesEnabled()")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_isProfilesEnabled(): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_isUrlCacheEntryExpiredA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_isUrlCacheEntryExpiredA(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_isUrlCacheEntryExpiredW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_isUrlCacheEntryExpiredW(p0: String, p1: Int, p2: String): Int
+
+@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_loadUrlCacheContent()")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_loadUrlCacheContent(): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_parseX509EncodedCertificateForListBoxEntry(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_parseX509EncodedCertificateForListBoxEntry(p0: String, p1: Int, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_performOperationOverUrlCacheA(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_performOperationOverUrlCacheA(p0: String, p1: Int, p2: Int, p3: String, p4: String, p5: String, p6: String, p7: String, p8: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_privacyGetZonePreferenceW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_privacyGetZonePreferenceW(p0: Int, p1: Int, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_privacySetZonePreferenceW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_privacySetZonePreferenceW(p0: Int, p1: Int, p2: Int, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_readGuidsForConnectedNetworks(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_readGuidsForConnectedNetworks(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_readUrlCacheEntryStream(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_readUrlCacheEntryStream(p0: String, p1: Int, p2: String, p3: String, p4: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_readUrlCacheEntryStreamEx(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_readUrlCacheEntryStreamEx(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_registerUrlCacheNotification(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_registerUrlCacheNotification(p0: String, p1: Int, p2: String, p3: Int, p4: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_resumeSuspendedDownload(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_resumeSuspendedDownload(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryFileA(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryFileA(p0: String, p1: String, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryFileW(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryFileW(p0: String, p1: String, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryStreamA(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryStreamA(p0: String, p1: String, p2: String, p3: Int, p4: Int): String
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryStreamW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryStreamW(p0: String, p1: String, p2: String, p3: Int, p4: Int): String
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_runOnceUrlCache(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_runOnceUrlCache(p0: String, p1: String, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_setUrlCacheConfigInfoA(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_setUrlCacheConfigInfoA(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_setUrlCacheConfigInfoW(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_setUrlCacheConfigInfoW(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_setUrlCacheEntryGroup(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_setUrlCacheEntryGroup(p0: String, p1: Int, p2: String, p3: String, p4: Int, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_setUrlCacheEntryGroupA(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_setUrlCacheEntryGroupA(p0: String, p1: Int, p2: String, p3: String, p4: Int, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_setUrlCacheEntryGroupW(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_setUrlCacheEntryGroupW(p0: String, p1: Int, p2: String, p3: String, p4: Int, p5: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_setUrlCacheEntryInfoA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_setUrlCacheEntryInfoA(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_setUrlCacheEntryInfoW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_setUrlCacheEntryInfoW(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_setUrlCacheGroupAttributeA(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_setUrlCacheGroupAttributeA(p0: String, p1: Int, p2: Int, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_setUrlCacheGroupAttributeW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_setUrlCacheGroupAttributeW(p0: String, p1: Int, p2: Int, p3: String, p4: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_setUrlCacheHeaderData(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_setUrlCacheHeaderData(p0: Int, p1: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_showClientAuthCerts(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_showClientAuthCerts(p0: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_showSecurityInfo(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_showSecurityInfo(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_showX509EncodedCertificate(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_showX509EncodedCertificate(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryFile(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryFile(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryFileA(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryFileA(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryFileW(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryFileW(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryStream(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryStream(p0: String, p1: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_updateUrlCacheContentPath(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_updateUrlCacheContentPath(p0: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_urlCacheCheckEntriesExist(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_urlCacheCheckEntriesExist(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_urlCacheCloseEntryHandle(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_urlCacheCloseEntryHandle(p0: String)
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_urlCacheContainerSetEntryMaximumAge(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_urlCacheContainerSetEntryMaximumAge(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_urlCacheCreateContainer(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_urlCacheCreateContainer(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_urlCacheFindFirstEntry(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_urlCacheFindFirstEntry(p0: String, p1: Int, p2: Int, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_urlCacheFindNextEntry(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_urlCacheFindNextEntry(p0: String, p1: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_urlCacheFreeEntryInfo(p0)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_urlCacheFreeEntryInfo(p0: String)
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_urlCacheFreeGlobalSpace(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_urlCacheFreeGlobalSpace(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_urlCacheGetContentPaths(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_urlCacheGetContentPaths(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_urlCacheGetEntryInfo(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_urlCacheGetEntryInfo(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_urlCacheGetGlobalCacheSize(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_urlCacheGetGlobalCacheSize(p0: Int, p1: String, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_urlCacheGetGlobalLimit(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_urlCacheGetGlobalLimit(p0: Int, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_urlCacheReadEntryStream(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_urlCacheReadEntryStream(p0: String, p1: String, p2: String, p3: Int, p4: String): Int
+
+@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_urlCacheReloadSettings()")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_urlCacheReloadSettings(): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_urlCacheRetrieveEntryFile(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_urlCacheRetrieveEntryFile(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_urlCacheRetrieveEntryStream(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_urlCacheRetrieveEntryStream(p0: String, p1: String, p2: Int, p3: String, p4: String): Int
+
+@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_urlCacheServer()")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_urlCacheServer(): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_urlCacheSetGlobalLimit(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_urlCacheSetGlobalLimit(p0: Int, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_networking_wininet_urlCacheUpdateEntryExtraData(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_networking_wininet_urlCacheUpdateEntryExtraData(p0: String, p1: String, p2: String, p3: Int): Int
+
+public actual fun appCacheCheckManifest(pwszmasterurl: Pcwstr, pwszmanifesturl: Pcwstr, pbmanifestdata: COpaquePointer?, dwmanifestdatasize: UInt, pbmanifestresponseheaders: COpaquePointer?, dwmanifestresponseheaderssize: UInt, pestate: COpaquePointer?, phnewappcache: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_appCacheCheckManifest((pwszmasterurl?.value ?: 0L).toString(), (pwszmanifesturl?.value ?: 0L).toString(), (pbmanifestdata?.value ?: 0L).toString(), dwmanifestdatasize.toInt(), (pbmanifestresponseheaders?.value ?: 0L).toString(), dwmanifestresponseheaderssize.toInt(), (pestate?.value ?: 0L).toString(), (phnewappcache?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun appCacheCloseHandle(happcache: COpaquePointer?) {
+    if (_windowsWin32NetworkingWininetNapiAvailable) {
+        _wasm_windowssys_windows_win32_networking_wininet_appCacheCloseHandle((happcache?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun AppCacheCreateAndCommitFile(happcache: Long, pwszsourcefilepath: PCWSTR, pwszurl: PCWSTR, pbresponseheaders: Long, dwresponseheaderssize: UInt): UInt =
-    0u
+public actual fun appCacheCreateAndCommitFile(happcache: COpaquePointer?, pwszsourcefilepath: Pcwstr, pwszurl: Pcwstr, pbresponseheaders: COpaquePointer?, dwresponseheaderssize: UInt): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_appCacheCreateAndCommitFile((happcache?.value ?: 0L).toString(), (pwszsourcefilepath?.value ?: 0L).toString(), (pwszurl?.value ?: 0L).toString(), (pbresponseheaders?.value ?: 0L).toString(), dwresponseheaderssize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AppCacheDeleteGroup(pwszmanifesturl: PCWSTR): UInt =
-    0u
+public actual fun appCacheDeleteGroup(pwszmanifesturl: Pcwstr): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_appCacheDeleteGroup((pwszmanifesturl?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AppCacheDeleteIEGroup(pwszmanifesturl: PCWSTR): UInt =
-    0u
+public actual fun appCacheDeleteIEGroup(pwszmanifesturl: Pcwstr): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_appCacheDeleteIEGroup((pwszmanifesturl?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AppCacheDuplicateHandle(happcache: Long, phduplicatedappcache: Long): UInt =
-    0u
+public actual fun appCacheDuplicateHandle(happcache: COpaquePointer?, phduplicatedappcache: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_appCacheDuplicateHandle((happcache?.value ?: 0L).toString(), (phduplicatedappcache?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AppCacheFinalize(happcache: Long, pbmanifestdata: Long, dwmanifestdatasize: UInt, pestate: Long): UInt =
-    0u
+public actual fun appCacheFinalize(happcache: COpaquePointer?, pbmanifestdata: COpaquePointer?, dwmanifestdatasize: UInt, pestate: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_appCacheFinalize((happcache?.value ?: 0L).toString(), (pbmanifestdata?.value ?: 0L).toString(), dwmanifestdatasize.toInt(), (pestate?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AppCacheFreeDownloadList(pdownloadlist: Long) {
+public actual fun appCacheFreeDownloadList(pdownloadlist: COpaquePointer?) {
+    if (_windowsWin32NetworkingWininetNapiAvailable) {
+        _wasm_windowssys_windows_win32_networking_wininet_appCacheFreeDownloadList((pdownloadlist?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun AppCacheFreeGroupList(pappcachegrouplist: Long) {
+public actual fun appCacheFreeGroupList(pappcachegrouplist: COpaquePointer?) {
+    if (_windowsWin32NetworkingWininetNapiAvailable) {
+        _wasm_windowssys_windows_win32_networking_wininet_appCacheFreeGroupList((pappcachegrouplist?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun AppCacheFreeIESpace(ftcutoff: FILETIME): UInt =
-    0u
+public actual fun appCacheFreeIESpace(ftcutoff: Filetime): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AppCacheFreeSpace(ftcutoff: FILETIME): UInt =
-    0u
+public actual fun appCacheFreeSpace(ftcutoff: Filetime): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AppCacheGetDownloadList(happcache: Long, pdownloadlist: Long): UInt =
-    0u
+public actual fun appCacheGetDownloadList(happcache: COpaquePointer?, pdownloadlist: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_appCacheGetDownloadList((happcache?.value ?: 0L).toString(), (pdownloadlist?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AppCacheGetFallbackUrl(happcache: Long, pwszurl: PCWSTR, ppwszfallbackurl: Long): UInt =
-    0u
+public actual fun appCacheGetFallbackUrl(happcache: COpaquePointer?, pwszurl: Pcwstr, ppwszfallbackurl: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_appCacheGetFallbackUrl((happcache?.value ?: 0L).toString(), (pwszurl?.value ?: 0L).toString(), (ppwszfallbackurl?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AppCacheGetGroupList(pappcachegrouplist: Long): UInt =
-    0u
+public actual fun appCacheGetGroupList(pappcachegrouplist: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_appCacheGetGroupList((pappcachegrouplist?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AppCacheGetIEGroupList(pappcachegrouplist: Long): UInt =
-    0u
+public actual fun appCacheGetIEGroupList(pappcachegrouplist: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_appCacheGetIEGroupList((pappcachegrouplist?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AppCacheGetInfo(happcache: Long, pappcacheinfo: Long): UInt =
-    0u
+public actual fun appCacheGetInfo(happcache: COpaquePointer?, pappcacheinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_appCacheGetInfo((happcache?.value ?: 0L).toString(), (pappcacheinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AppCacheGetManifestUrl(happcache: Long, ppwszmanifesturl: Long): UInt =
-    0u
+public actual fun appCacheGetManifestUrl(happcache: COpaquePointer?, ppwszmanifesturl: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_appCacheGetManifestUrl((happcache?.value ?: 0L).toString(), (ppwszmanifesturl?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AppCacheLookup(pwszurl: PCWSTR, dwflags: UInt, phappcache: Long): UInt =
-    0u
+public actual fun appCacheLookup(pwszurl: Pcwstr, dwflags: UInt, phappcache: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_appCacheLookup((pwszurl?.value ?: 0L).toString(), dwflags.toInt(), (phappcache?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CommitUrlCacheEntryA(lpszurlname: PCSTR, lpszlocalfilename: PCSTR, expiretime: FILETIME, lastmodifiedtime: FILETIME, cacheentrytype: UInt, lpheaderinfo: Long, cchheaderinfo: UInt, lpszfileextension: PCSTR, lpszoriginalurl: PCSTR): BOOL =
-    0
+public actual fun commitUrlCacheEntryA(lpszurlname: Pcstr, lpszlocalfilename: Pcstr, expiretime: Filetime, lastmodifiedtime: Filetime, cacheentrytype: UInt, lpheaderinfo: COpaquePointer?, cchheaderinfo: UInt, lpszfileextension: Pcstr, lpszoriginalurl: Pcstr): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CommitUrlCacheEntryBinaryBlob(pwszurlname: PCWSTR, dwtype: UInt, ftexpiretime: FILETIME, ftmodifiedtime: FILETIME, pbblob: Long, cbblob: UInt): UInt =
-    0u
+public actual fun commitUrlCacheEntryBinaryBlob(pwszurlname: Pcwstr, dwtype: UInt, ftexpiretime: Filetime, ftmodifiedtime: Filetime, pbblob: COpaquePointer?, cbblob: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CommitUrlCacheEntryW(lpszurlname: PCWSTR, lpszlocalfilename: PCWSTR, expiretime: FILETIME, lastmodifiedtime: FILETIME, cacheentrytype: UInt, lpszheaderinfo: PCWSTR, cchheaderinfo: UInt, lpszfileextension: PCWSTR, lpszoriginalurl: PCWSTR): BOOL =
-    0
+public actual fun commitUrlCacheEntryW(lpszurlname: Pcwstr, lpszlocalfilename: Pcwstr, expiretime: Filetime, lastmodifiedtime: Filetime, cacheentrytype: UInt, lpszheaderinfo: Pcwstr, cchheaderinfo: UInt, lpszfileextension: Pcwstr, lpszoriginalurl: Pcwstr): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateMD5SSOHash(pszchallengeinfo: PCWSTR, pwszrealm: PCWSTR, pwsztarget: PCWSTR, pbhexhash: Long): BOOL =
-    0
+public actual fun createMD5SSOHash(pszchallengeinfo: Pcwstr, pwszrealm: Pcwstr, pwsztarget: Pcwstr, pbhexhash: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_createMD5SSOHash((pszchallengeinfo?.value ?: 0L).toString(), (pwszrealm?.value ?: 0L).toString(), (pwsztarget?.value ?: 0L).toString(), (pbhexhash?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateUrlCacheContainerA(name: PCSTR, lpcacheprefix: PCSTR, lpszcachepath: PCSTR, kbcachelimit: UInt, dwcontainertype: UInt, dwoptions: UInt, pvbuffer: Long, cbbuffer: Long): BOOL =
-    0
+public actual fun createUrlCacheContainerA(name: Pcstr, lpcacheprefix: Pcstr, lpszcachepath: Pcstr, kbcachelimit: UInt, dwcontainertype: UInt, dwoptions: UInt, pvbuffer: COpaquePointer?, cbbuffer: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_createUrlCacheContainerA((name?.value ?: 0L).toString(), (lpcacheprefix?.value ?: 0L).toString(), (lpszcachepath?.value ?: 0L).toString(), kbcachelimit.toInt(), dwcontainertype.toInt(), dwoptions.toInt(), (pvbuffer?.value ?: 0L).toString(), (cbbuffer?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateUrlCacheContainerW(name: PCWSTR, lpcacheprefix: PCWSTR, lpszcachepath: PCWSTR, kbcachelimit: UInt, dwcontainertype: UInt, dwoptions: UInt, pvbuffer: Long, cbbuffer: Long): BOOL =
-    0
+public actual fun createUrlCacheContainerW(name: Pcwstr, lpcacheprefix: Pcwstr, lpszcachepath: Pcwstr, kbcachelimit: UInt, dwcontainertype: UInt, dwoptions: UInt, pvbuffer: COpaquePointer?, cbbuffer: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_createUrlCacheContainerW((name?.value ?: 0L).toString(), (lpcacheprefix?.value ?: 0L).toString(), (lpszcachepath?.value ?: 0L).toString(), kbcachelimit.toInt(), dwcontainertype.toInt(), dwoptions.toInt(), (pvbuffer?.value ?: 0L).toString(), (cbbuffer?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateUrlCacheEntryA(lpszurlname: PCSTR, dwexpectedfilesize: UInt, lpszfileextension: PCSTR, lpszfilename: PSTR, dwreserved: UInt): BOOL =
-    0
+public actual fun createUrlCacheEntryA(lpszurlname: Pcstr, dwexpectedfilesize: UInt, lpszfileextension: Pcstr, lpszfilename: Pstr, dwreserved: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_createUrlCacheEntryA((lpszurlname?.value ?: 0L).toString(), dwexpectedfilesize.toInt(), (lpszfileextension?.value ?: 0L).toString(), (lpszfilename?.value ?: 0L).toString(), dwreserved.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateUrlCacheEntryExW(lpszurlname: PCWSTR, dwexpectedfilesize: UInt, lpszfileextension: PCWSTR, lpszfilename: PWSTR, dwreserved: UInt, fpreserveincomingfilename: BOOL): BOOL =
-    0
+public actual fun createUrlCacheEntryExW(lpszurlname: Pcwstr, dwexpectedfilesize: UInt, lpszfileextension: Pcwstr, lpszfilename: Pwstr, dwreserved: UInt, fpreserveincomingfilename: Bool): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_createUrlCacheEntryExW((lpszurlname?.value ?: 0L).toString(), dwexpectedfilesize.toInt(), (lpszfileextension?.value ?: 0L).toString(), (lpszfilename?.value ?: 0L).toString(), dwreserved.toInt(), fpreserveincomingfilename) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateUrlCacheEntryW(lpszurlname: PCWSTR, dwexpectedfilesize: UInt, lpszfileextension: PCWSTR, lpszfilename: PWSTR, dwreserved: UInt): BOOL =
-    0
+public actual fun createUrlCacheEntryW(lpszurlname: Pcwstr, dwexpectedfilesize: UInt, lpszfileextension: Pcwstr, lpszfilename: Pwstr, dwreserved: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_createUrlCacheEntryW((lpszurlname?.value ?: 0L).toString(), dwexpectedfilesize.toInt(), (lpszfileextension?.value ?: 0L).toString(), (lpszfilename?.value ?: 0L).toString(), dwreserved.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateUrlCacheGroup(dwflags: UInt, lpreserved: Long): Long =
-    0L
+public actual fun createUrlCacheGroup(dwflags: UInt, lpreserved: COpaquePointer?): Long =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_createUrlCacheGroup(dwflags.toInt(), (lpreserved?.value ?: 0L).toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteIE3Cache(hwnd: HWND, hinst: HINSTANCE, lpszcmd: PCSTR, ncmdshow: Int): UInt =
-    0u
+public actual fun deleteIE3Cache(hwnd: Hwnd, hinst: Hinstance, lpszcmd: Pcstr, ncmdshow: Int): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_deleteIE3Cache((hwnd?.value ?: 0L).toString(), (hinst?.value ?: 0L).toString(), (lpszcmd?.value ?: 0L).toString(), ncmdshow).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteUrlCacheContainerA(name: PCSTR, dwoptions: UInt): BOOL =
-    0
+public actual fun deleteUrlCacheContainerA(name: Pcstr, dwoptions: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_deleteUrlCacheContainerA((name?.value ?: 0L).toString(), dwoptions.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteUrlCacheContainerW(name: PCWSTR, dwoptions: UInt): BOOL =
-    0
+public actual fun deleteUrlCacheContainerW(name: Pcwstr, dwoptions: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_deleteUrlCacheContainerW((name?.value ?: 0L).toString(), dwoptions.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteUrlCacheEntry(lpszurlname: PCSTR): BOOL =
-    0
+public actual fun deleteUrlCacheEntry(lpszurlname: Pcstr): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_deleteUrlCacheEntry((lpszurlname?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteUrlCacheEntryA(lpszurlname: PCSTR): BOOL =
-    0
+public actual fun deleteUrlCacheEntryA(lpszurlname: Pcstr): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_deleteUrlCacheEntryA((lpszurlname?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteUrlCacheEntryW(lpszurlname: PCWSTR): BOOL =
-    0
+public actual fun deleteUrlCacheEntryW(lpszurlname: Pcwstr): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_deleteUrlCacheEntryW((lpszurlname?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteUrlCacheGroup(groupid: Long, dwflags: UInt, lpreserved: Long): BOOL =
-    0
+public actual fun deleteUrlCacheGroup(groupid: Long, dwflags: UInt, lpreserved: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_deleteUrlCacheGroup(groupid.toString(), dwflags.toInt(), (lpreserved?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteWpadCacheForNetworks(param0: WPAD_CACHE_DELETE): BOOL =
-    0
+public actual fun deleteWpadCacheForNetworks(param0: WpadCacheDelete): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_deleteWpadCacheForNetworks(param0) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DetectAutoProxyUrl(pszautoproxyurl: PSTR, cchautoproxyurl: UInt, dwdetectflags: PROXY_AUTO_DETECT_TYPE): BOOL =
-    0
+public actual fun detectAutoProxyUrl(pszautoproxyurl: Pstr, cchautoproxyurl: UInt, dwdetectflags: ProxyAutoDetectType): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_detectAutoProxyUrl((pszautoproxyurl?.value ?: 0L).toString(), cchautoproxyurl.toInt(), dwdetectflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DoConnectoidsExist(): BOOL =
-    0
+public actual fun doConnectoidsExist(): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_doConnectoidsExist() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ExportCookieFileA(szfilename: PCSTR, fappend: BOOL): BOOL =
-    0
+public actual fun exportCookieFileA(szfilename: Pcstr, fappend: Bool): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_exportCookieFileA((szfilename?.value ?: 0L).toString(), fappend) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ExportCookieFileW(szfilename: PCWSTR, fappend: BOOL): BOOL =
-    0
+public actual fun exportCookieFileW(szfilename: Pcwstr, fappend: Bool): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_exportCookieFileW((szfilename?.value ?: 0L).toString(), fappend) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindCloseUrlCache(henumhandle: HANDLE): BOOL =
-    0
+public actual fun findCloseUrlCache(henumhandle: Handle): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_findCloseUrlCache((henumhandle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindFirstUrlCacheContainerA(pdwmodified: Long, lpcontainerinfo: Long, lpcbcontainerinfo: Long, dwoptions: UInt): HANDLE =
-    0L
+public actual fun findFirstUrlCacheContainerA(pdwmodified: COpaquePointer?, lpcontainerinfo: COpaquePointer?, lpcbcontainerinfo: COpaquePointer?, dwoptions: UInt): Handle =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_findFirstUrlCacheContainerA((pdwmodified?.value ?: 0L).toString(), (lpcontainerinfo?.value ?: 0L).toString(), (lpcbcontainerinfo?.value ?: 0L).toString(), dwoptions.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindFirstUrlCacheContainerW(pdwmodified: Long, lpcontainerinfo: Long, lpcbcontainerinfo: Long, dwoptions: UInt): HANDLE =
-    0L
+public actual fun findFirstUrlCacheContainerW(pdwmodified: COpaquePointer?, lpcontainerinfo: COpaquePointer?, lpcbcontainerinfo: COpaquePointer?, dwoptions: UInt): Handle =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_findFirstUrlCacheContainerW((pdwmodified?.value ?: 0L).toString(), (lpcontainerinfo?.value ?: 0L).toString(), (lpcbcontainerinfo?.value ?: 0L).toString(), dwoptions.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindFirstUrlCacheEntryA(lpszurlsearchpattern: PCSTR, lpfirstcacheentryinfo: Long, lpcbcacheentryinfo: Long): HANDLE =
-    0L
+public actual fun findFirstUrlCacheEntryA(lpszurlsearchpattern: Pcstr, lpfirstcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?): Handle =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryA((lpszurlsearchpattern?.value ?: 0L).toString(), (lpfirstcacheentryinfo?.value ?: 0L).toString(), (lpcbcacheentryinfo?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindFirstUrlCacheEntryExA(lpszurlsearchpattern: PCSTR, dwflags: UInt, dwfilter: UInt, groupid: Long, lpfirstcacheentryinfo: Long, lpcbcacheentryinfo: Long, lpgroupattributes: Long, lpcbgroupattributes: Long, lpreserved: Long): HANDLE =
-    0L
+public actual fun findFirstUrlCacheEntryExA(lpszurlsearchpattern: Pcstr, dwflags: UInt, dwfilter: UInt, groupid: Long, lpfirstcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?, lpgroupattributes: COpaquePointer?, lpcbgroupattributes: COpaquePointer?, lpreserved: COpaquePointer?): Handle =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryExA((lpszurlsearchpattern?.value ?: 0L).toString(), dwflags.toInt(), dwfilter.toInt(), groupid.toString(), (lpfirstcacheentryinfo?.value ?: 0L).toString(), (lpcbcacheentryinfo?.value ?: 0L).toString(), (lpgroupattributes?.value ?: 0L).toString(), (lpcbgroupattributes?.value ?: 0L).toString(), (lpreserved?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindFirstUrlCacheEntryExW(lpszurlsearchpattern: PCWSTR, dwflags: UInt, dwfilter: UInt, groupid: Long, lpfirstcacheentryinfo: Long, lpcbcacheentryinfo: Long, lpgroupattributes: Long, lpcbgroupattributes: Long, lpreserved: Long): HANDLE =
-    0L
+public actual fun findFirstUrlCacheEntryExW(lpszurlsearchpattern: Pcwstr, dwflags: UInt, dwfilter: UInt, groupid: Long, lpfirstcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?, lpgroupattributes: COpaquePointer?, lpcbgroupattributes: COpaquePointer?, lpreserved: COpaquePointer?): Handle =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryExW((lpszurlsearchpattern?.value ?: 0L).toString(), dwflags.toInt(), dwfilter.toInt(), groupid.toString(), (lpfirstcacheentryinfo?.value ?: 0L).toString(), (lpcbcacheentryinfo?.value ?: 0L).toString(), (lpgroupattributes?.value ?: 0L).toString(), (lpcbgroupattributes?.value ?: 0L).toString(), (lpreserved?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindFirstUrlCacheEntryW(lpszurlsearchpattern: PCWSTR, lpfirstcacheentryinfo: Long, lpcbcacheentryinfo: Long): HANDLE =
-    0L
+public actual fun findFirstUrlCacheEntryW(lpszurlsearchpattern: Pcwstr, lpfirstcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?): Handle =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryW((lpszurlsearchpattern?.value ?: 0L).toString(), (lpfirstcacheentryinfo?.value ?: 0L).toString(), (lpcbcacheentryinfo?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindFirstUrlCacheGroup(dwflags: UInt, dwfilter: UInt, lpsearchcondition: Long, dwsearchcondition: UInt, lpgroupid: Long, lpreserved: Long): HANDLE =
-    0L
+public actual fun findFirstUrlCacheGroup(dwflags: UInt, dwfilter: UInt, lpsearchcondition: COpaquePointer?, dwsearchcondition: UInt, lpgroupid: COpaquePointer?, lpreserved: COpaquePointer?): Handle =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_findFirstUrlCacheGroup(dwflags.toInt(), dwfilter.toInt(), (lpsearchcondition?.value ?: 0L).toString(), dwsearchcondition.toInt(), (lpgroupid?.value ?: 0L).toString(), (lpreserved?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindNextUrlCacheContainerA(henumhandle: HANDLE, lpcontainerinfo: Long, lpcbcontainerinfo: Long): BOOL =
-    0
+public actual fun findNextUrlCacheContainerA(henumhandle: Handle, lpcontainerinfo: COpaquePointer?, lpcbcontainerinfo: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_findNextUrlCacheContainerA((henumhandle?.value ?: 0L).toString(), (lpcontainerinfo?.value ?: 0L).toString(), (lpcbcontainerinfo?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindNextUrlCacheContainerW(henumhandle: HANDLE, lpcontainerinfo: Long, lpcbcontainerinfo: Long): BOOL =
-    0
+public actual fun findNextUrlCacheContainerW(henumhandle: Handle, lpcontainerinfo: COpaquePointer?, lpcbcontainerinfo: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_findNextUrlCacheContainerW((henumhandle?.value ?: 0L).toString(), (lpcontainerinfo?.value ?: 0L).toString(), (lpcbcontainerinfo?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindNextUrlCacheEntryA(henumhandle: HANDLE, lpnextcacheentryinfo: Long, lpcbcacheentryinfo: Long): BOOL =
-    0
+public actual fun findNextUrlCacheEntryA(henumhandle: Handle, lpnextcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryA((henumhandle?.value ?: 0L).toString(), (lpnextcacheentryinfo?.value ?: 0L).toString(), (lpcbcacheentryinfo?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindNextUrlCacheEntryExA(henumhandle: HANDLE, lpnextcacheentryinfo: Long, lpcbcacheentryinfo: Long, lpgroupattributes: Long, lpcbgroupattributes: Long, lpreserved: Long): BOOL =
-    0
+public actual fun findNextUrlCacheEntryExA(henumhandle: Handle, lpnextcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?, lpgroupattributes: COpaquePointer?, lpcbgroupattributes: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryExA((henumhandle?.value ?: 0L).toString(), (lpnextcacheentryinfo?.value ?: 0L).toString(), (lpcbcacheentryinfo?.value ?: 0L).toString(), (lpgroupattributes?.value ?: 0L).toString(), (lpcbgroupattributes?.value ?: 0L).toString(), (lpreserved?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindNextUrlCacheEntryExW(henumhandle: HANDLE, lpnextcacheentryinfo: Long, lpcbcacheentryinfo: Long, lpgroupattributes: Long, lpcbgroupattributes: Long, lpreserved: Long): BOOL =
-    0
+public actual fun findNextUrlCacheEntryExW(henumhandle: Handle, lpnextcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?, lpgroupattributes: COpaquePointer?, lpcbgroupattributes: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryExW((henumhandle?.value ?: 0L).toString(), (lpnextcacheentryinfo?.value ?: 0L).toString(), (lpcbcacheentryinfo?.value ?: 0L).toString(), (lpgroupattributes?.value ?: 0L).toString(), (lpcbgroupattributes?.value ?: 0L).toString(), (lpreserved?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindNextUrlCacheEntryW(henumhandle: HANDLE, lpnextcacheentryinfo: Long, lpcbcacheentryinfo: Long): BOOL =
-    0
+public actual fun findNextUrlCacheEntryW(henumhandle: Handle, lpnextcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryW((henumhandle?.value ?: 0L).toString(), (lpnextcacheentryinfo?.value ?: 0L).toString(), (lpcbcacheentryinfo?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindNextUrlCacheGroup(hfind: HANDLE, lpgroupid: Long, lpreserved: Long): BOOL =
-    0
+public actual fun findNextUrlCacheGroup(hfind: Handle, lpgroupid: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_findNextUrlCacheGroup((hfind?.value ?: 0L).toString(), (lpgroupid?.value ?: 0L).toString(), (lpreserved?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindP3PPolicySymbol(pszsymbol: PCSTR): Int =
-    0
+public actual fun findP3PPolicySymbol(pszsymbol: Pcstr): Int =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_findP3PPolicySymbol((pszsymbol?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FreeUrlCacheSpaceA(lpszcachepath: PCSTR, dwsize: UInt, dwfilter: UInt): BOOL =
-    0
+public actual fun freeUrlCacheSpaceA(lpszcachepath: Pcstr, dwsize: UInt, dwfilter: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_freeUrlCacheSpaceA((lpszcachepath?.value ?: 0L).toString(), dwsize.toInt(), dwfilter.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FreeUrlCacheSpaceW(lpszcachepath: PCWSTR, dwsize: UInt, dwfilter: UInt): BOOL =
-    0
+public actual fun freeUrlCacheSpaceW(lpszcachepath: Pcwstr, dwsize: UInt, dwfilter: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_freeUrlCacheSpaceW((lpszcachepath?.value ?: 0L).toString(), dwsize.toInt(), dwfilter.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FtpCommandA(hconnect: Long, fexpectresponse: BOOL, dwflags: FTP_FLAGS, lpszcommand: PCSTR, dwcontext: ULong, phftpcommand: Long): BOOL =
-    0
+public actual fun ftpCommandA(hconnect: COpaquePointer?, fexpectresponse: Bool, dwflags: FtpFlags, lpszcommand: Pcstr, dwcontext: ULong, phftpcommand: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_ftpCommandA((hconnect?.value ?: 0L).toString(), fexpectresponse, dwflags.toInt(), (lpszcommand?.value ?: 0L).toString(), dwcontext.toString(), (phftpcommand?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FtpCommandW(hconnect: Long, fexpectresponse: BOOL, dwflags: FTP_FLAGS, lpszcommand: PCWSTR, dwcontext: ULong, phftpcommand: Long): BOOL =
-    0
+public actual fun ftpCommandW(hconnect: COpaquePointer?, fexpectresponse: Bool, dwflags: FtpFlags, lpszcommand: Pcwstr, dwcontext: ULong, phftpcommand: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_ftpCommandW((hconnect?.value ?: 0L).toString(), fexpectresponse, dwflags.toInt(), (lpszcommand?.value ?: 0L).toString(), dwcontext.toString(), (phftpcommand?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FtpCreateDirectoryA(hconnect: Long, lpszdirectory: PCSTR): BOOL =
-    0
+public actual fun ftpCreateDirectoryA(hconnect: COpaquePointer?, lpszdirectory: Pcstr): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_ftpCreateDirectoryA((hconnect?.value ?: 0L).toString(), (lpszdirectory?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FtpCreateDirectoryW(hconnect: Long, lpszdirectory: PCWSTR): BOOL =
-    0
+public actual fun ftpCreateDirectoryW(hconnect: COpaquePointer?, lpszdirectory: Pcwstr): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_ftpCreateDirectoryW((hconnect?.value ?: 0L).toString(), (lpszdirectory?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FtpDeleteFileA(hconnect: Long, lpszfilename: PCSTR): BOOL =
-    0
+public actual fun ftpDeleteFileA(hconnect: COpaquePointer?, lpszfilename: Pcstr): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_ftpDeleteFileA((hconnect?.value ?: 0L).toString(), (lpszfilename?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FtpDeleteFileW(hconnect: Long, lpszfilename: PCWSTR): BOOL =
-    0
+public actual fun ftpDeleteFileW(hconnect: COpaquePointer?, lpszfilename: Pcwstr): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_ftpDeleteFileW((hconnect?.value ?: 0L).toString(), (lpszfilename?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FtpFindFirstFileA(hconnect: Long, lpszsearchfile: PCSTR, lpfindfiledata: Long, dwflags: UInt, dwcontext: ULong): Long =
-    0L
+public actual fun ftpFindFirstFileA(hconnect: COpaquePointer?, lpszsearchfile: Pcstr, lpfindfiledata: COpaquePointer?, dwflags: UInt, dwcontext: ULong): COpaquePointer? =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_ftpFindFirstFileA((hconnect?.value ?: 0L).toString(), (lpszsearchfile?.value ?: 0L).toString(), (lpfindfiledata?.value ?: 0L).toString(), dwflags.toInt(), dwcontext.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FtpFindFirstFileW(hconnect: Long, lpszsearchfile: PCWSTR, lpfindfiledata: Long, dwflags: UInt, dwcontext: ULong): Long =
-    0L
+public actual fun ftpFindFirstFileW(hconnect: COpaquePointer?, lpszsearchfile: Pcwstr, lpfindfiledata: COpaquePointer?, dwflags: UInt, dwcontext: ULong): COpaquePointer? =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_ftpFindFirstFileW((hconnect?.value ?: 0L).toString(), (lpszsearchfile?.value ?: 0L).toString(), (lpfindfiledata?.value ?: 0L).toString(), dwflags.toInt(), dwcontext.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FtpGetCurrentDirectoryA(hconnect: Long, lpszcurrentdirectory: PSTR, lpdwcurrentdirectory: Long): BOOL =
-    0
+public actual fun ftpGetCurrentDirectoryA(hconnect: COpaquePointer?, lpszcurrentdirectory: Pstr, lpdwcurrentdirectory: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_ftpGetCurrentDirectoryA((hconnect?.value ?: 0L).toString(), (lpszcurrentdirectory?.value ?: 0L).toString(), (lpdwcurrentdirectory?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FtpGetCurrentDirectoryW(hconnect: Long, lpszcurrentdirectory: PWSTR, lpdwcurrentdirectory: Long): BOOL =
-    0
+public actual fun ftpGetCurrentDirectoryW(hconnect: COpaquePointer?, lpszcurrentdirectory: Pwstr, lpdwcurrentdirectory: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_ftpGetCurrentDirectoryW((hconnect?.value ?: 0L).toString(), (lpszcurrentdirectory?.value ?: 0L).toString(), (lpdwcurrentdirectory?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FtpGetFileA(hconnect: Long, lpszremotefile: PCSTR, lpsznewfile: PCSTR, ffailifexists: BOOL, dwflagsandattributes: UInt, dwflags: UInt, dwcontext: ULong): BOOL =
-    0
+public actual fun ftpGetFileA(hconnect: COpaquePointer?, lpszremotefile: Pcstr, lpsznewfile: Pcstr, ffailifexists: Bool, dwflagsandattributes: UInt, dwflags: UInt, dwcontext: ULong): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_ftpGetFileA((hconnect?.value ?: 0L).toString(), (lpszremotefile?.value ?: 0L).toString(), (lpsznewfile?.value ?: 0L).toString(), ffailifexists, dwflagsandattributes.toInt(), dwflags.toInt(), dwcontext.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FtpGetFileEx(hftpsession: Long, lpszremotefile: PCSTR, lpsznewfile: PCWSTR, ffailifexists: BOOL, dwflagsandattributes: UInt, dwflags: UInt, dwcontext: ULong): BOOL =
-    0
+public actual fun ftpGetFileEx(hftpsession: COpaquePointer?, lpszremotefile: Pcstr, lpsznewfile: Pcwstr, ffailifexists: Bool, dwflagsandattributes: UInt, dwflags: UInt, dwcontext: ULong): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_ftpGetFileEx((hftpsession?.value ?: 0L).toString(), (lpszremotefile?.value ?: 0L).toString(), (lpsznewfile?.value ?: 0L).toString(), ffailifexists, dwflagsandattributes.toInt(), dwflags.toInt(), dwcontext.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FtpGetFileSize(hfile: Long, lpdwfilesizehigh: Long): UInt =
-    0u
+public actual fun ftpGetFileSize(hfile: COpaquePointer?, lpdwfilesizehigh: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_ftpGetFileSize((hfile?.value ?: 0L).toString(), (lpdwfilesizehigh?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FtpGetFileW(hconnect: Long, lpszremotefile: PCWSTR, lpsznewfile: PCWSTR, ffailifexists: BOOL, dwflagsandattributes: UInt, dwflags: UInt, dwcontext: ULong): BOOL =
-    0
+public actual fun ftpGetFileW(hconnect: COpaquePointer?, lpszremotefile: Pcwstr, lpsznewfile: Pcwstr, ffailifexists: Bool, dwflagsandattributes: UInt, dwflags: UInt, dwcontext: ULong): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_ftpGetFileW((hconnect?.value ?: 0L).toString(), (lpszremotefile?.value ?: 0L).toString(), (lpsznewfile?.value ?: 0L).toString(), ffailifexists, dwflagsandattributes.toInt(), dwflags.toInt(), dwcontext.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FtpOpenFileA(hconnect: Long, lpszfilename: PCSTR, dwaccess: UInt, dwflags: FTP_FLAGS, dwcontext: ULong): Long =
-    0L
+public actual fun ftpOpenFileA(hconnect: COpaquePointer?, lpszfilename: Pcstr, dwaccess: UInt, dwflags: FtpFlags, dwcontext: ULong): COpaquePointer? =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_ftpOpenFileA((hconnect?.value ?: 0L).toString(), (lpszfilename?.value ?: 0L).toString(), dwaccess.toInt(), dwflags.toInt(), dwcontext.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FtpOpenFileW(hconnect: Long, lpszfilename: PCWSTR, dwaccess: UInt, dwflags: FTP_FLAGS, dwcontext: ULong): Long =
-    0L
+public actual fun ftpOpenFileW(hconnect: COpaquePointer?, lpszfilename: Pcwstr, dwaccess: UInt, dwflags: FtpFlags, dwcontext: ULong): COpaquePointer? =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_ftpOpenFileW((hconnect?.value ?: 0L).toString(), (lpszfilename?.value ?: 0L).toString(), dwaccess.toInt(), dwflags.toInt(), dwcontext.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FtpPutFileA(hconnect: Long, lpszlocalfile: PCSTR, lpsznewremotefile: PCSTR, dwflags: FTP_FLAGS, dwcontext: ULong): BOOL =
-    0
+public actual fun ftpPutFileA(hconnect: COpaquePointer?, lpszlocalfile: Pcstr, lpsznewremotefile: Pcstr, dwflags: FtpFlags, dwcontext: ULong): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_ftpPutFileA((hconnect?.value ?: 0L).toString(), (lpszlocalfile?.value ?: 0L).toString(), (lpsznewremotefile?.value ?: 0L).toString(), dwflags.toInt(), dwcontext.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FtpPutFileEx(hftpsession: Long, lpszlocalfile: PCWSTR, lpsznewremotefile: PCSTR, dwflags: UInt, dwcontext: ULong): BOOL =
-    0
+public actual fun ftpPutFileEx(hftpsession: COpaquePointer?, lpszlocalfile: Pcwstr, lpsznewremotefile: Pcstr, dwflags: UInt, dwcontext: ULong): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_ftpPutFileEx((hftpsession?.value ?: 0L).toString(), (lpszlocalfile?.value ?: 0L).toString(), (lpsznewremotefile?.value ?: 0L).toString(), dwflags.toInt(), dwcontext.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FtpPutFileW(hconnect: Long, lpszlocalfile: PCWSTR, lpsznewremotefile: PCWSTR, dwflags: FTP_FLAGS, dwcontext: ULong): BOOL =
-    0
+public actual fun ftpPutFileW(hconnect: COpaquePointer?, lpszlocalfile: Pcwstr, lpsznewremotefile: Pcwstr, dwflags: FtpFlags, dwcontext: ULong): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_ftpPutFileW((hconnect?.value ?: 0L).toString(), (lpszlocalfile?.value ?: 0L).toString(), (lpsznewremotefile?.value ?: 0L).toString(), dwflags.toInt(), dwcontext.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FtpRemoveDirectoryA(hconnect: Long, lpszdirectory: PCSTR): BOOL =
-    0
+public actual fun ftpRemoveDirectoryA(hconnect: COpaquePointer?, lpszdirectory: Pcstr): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_ftpRemoveDirectoryA((hconnect?.value ?: 0L).toString(), (lpszdirectory?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FtpRemoveDirectoryW(hconnect: Long, lpszdirectory: PCWSTR): BOOL =
-    0
+public actual fun ftpRemoveDirectoryW(hconnect: COpaquePointer?, lpszdirectory: Pcwstr): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_ftpRemoveDirectoryW((hconnect?.value ?: 0L).toString(), (lpszdirectory?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FtpRenameFileA(hconnect: Long, lpszexisting: PCSTR, lpsznew: PCSTR): BOOL =
-    0
+public actual fun ftpRenameFileA(hconnect: COpaquePointer?, lpszexisting: Pcstr, lpsznew: Pcstr): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_ftpRenameFileA((hconnect?.value ?: 0L).toString(), (lpszexisting?.value ?: 0L).toString(), (lpsznew?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FtpRenameFileW(hconnect: Long, lpszexisting: PCWSTR, lpsznew: PCWSTR): BOOL =
-    0
+public actual fun ftpRenameFileW(hconnect: COpaquePointer?, lpszexisting: Pcwstr, lpsznew: Pcwstr): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_ftpRenameFileW((hconnect?.value ?: 0L).toString(), (lpszexisting?.value ?: 0L).toString(), (lpsznew?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FtpSetCurrentDirectoryA(hconnect: Long, lpszdirectory: PCSTR): BOOL =
-    0
+public actual fun ftpSetCurrentDirectoryA(hconnect: COpaquePointer?, lpszdirectory: Pcstr): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_ftpSetCurrentDirectoryA((hconnect?.value ?: 0L).toString(), (lpszdirectory?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FtpSetCurrentDirectoryW(hconnect: Long, lpszdirectory: PCWSTR): BOOL =
-    0
+public actual fun ftpSetCurrentDirectoryW(hconnect: COpaquePointer?, lpszdirectory: Pcwstr): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_ftpSetCurrentDirectoryW((hconnect?.value ?: 0L).toString(), (lpszdirectory?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetDiskInfoA(pszpath: PCSTR, pdwclustersize: Long, pdlavail: Long, pdltotal: Long): BOOL =
-    0
+public actual fun getDiskInfoA(pszpath: Pcstr, pdwclustersize: COpaquePointer?, pdlavail: COpaquePointer?, pdltotal: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_getDiskInfoA((pszpath?.value ?: 0L).toString(), (pdwclustersize?.value ?: 0L).toString(), (pdlavail?.value ?: 0L).toString(), (pdltotal?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetUrlCacheConfigInfoA(lpcacheconfiginfo: Long, lpcbcacheconfiginfo: Long, dwfieldcontrol: CACHE_CONFIG): BOOL =
-    0
+public actual fun getUrlCacheConfigInfoA(lpcacheconfiginfo: COpaquePointer?, lpcbcacheconfiginfo: COpaquePointer?, dwfieldcontrol: CacheConfig): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_getUrlCacheConfigInfoA((lpcacheconfiginfo?.value ?: 0L).toString(), (lpcbcacheconfiginfo?.value ?: 0L).toString(), dwfieldcontrol.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetUrlCacheConfigInfoW(lpcacheconfiginfo: Long, lpcbcacheconfiginfo: Long, dwfieldcontrol: CACHE_CONFIG): BOOL =
-    0
+public actual fun getUrlCacheConfigInfoW(lpcacheconfiginfo: COpaquePointer?, lpcbcacheconfiginfo: COpaquePointer?, dwfieldcontrol: CacheConfig): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_getUrlCacheConfigInfoW((lpcacheconfiginfo?.value ?: 0L).toString(), (lpcbcacheconfiginfo?.value ?: 0L).toString(), dwfieldcontrol.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetUrlCacheEntryBinaryBlob(pwszurlname: PCWSTR, dwtype: Long, pftexpiretime: Long, pftaccesstime: Long, pftmodifiedtime: Long, ppbblob: Long, pcbblob: Long): UInt =
-    0u
+public actual fun getUrlCacheEntryBinaryBlob(pwszurlname: Pcwstr, dwtype: COpaquePointer?, pftexpiretime: COpaquePointer?, pftaccesstime: COpaquePointer?, pftmodifiedtime: COpaquePointer?, ppbblob: COpaquePointer?, pcbblob: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_getUrlCacheEntryBinaryBlob((pwszurlname?.value ?: 0L).toString(), (dwtype?.value ?: 0L).toString(), (pftexpiretime?.value ?: 0L).toString(), (pftaccesstime?.value ?: 0L).toString(), (pftmodifiedtime?.value ?: 0L).toString(), (ppbblob?.value ?: 0L).toString(), (pcbblob?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetUrlCacheEntryInfoA(lpszurlname: PCSTR, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long): BOOL =
-    0
+public actual fun getUrlCacheEntryInfoA(lpszurlname: Pcstr, lpcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoA((lpszurlname?.value ?: 0L).toString(), (lpcacheentryinfo?.value ?: 0L).toString(), (lpcbcacheentryinfo?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetUrlCacheEntryInfoExA(lpszurl: PCSTR, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long, lpszredirecturl: PCSTR, lpcbredirecturl: Long, lpreserved: Long, dwflags: UInt): BOOL =
-    0
+public actual fun getUrlCacheEntryInfoExA(lpszurl: Pcstr, lpcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?, lpszredirecturl: Pcstr, lpcbredirecturl: COpaquePointer?, lpreserved: COpaquePointer?, dwflags: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoExA((lpszurl?.value ?: 0L).toString(), (lpcacheentryinfo?.value ?: 0L).toString(), (lpcbcacheentryinfo?.value ?: 0L).toString(), (lpszredirecturl?.value ?: 0L).toString(), (lpcbredirecturl?.value ?: 0L).toString(), (lpreserved?.value ?: 0L).toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetUrlCacheEntryInfoExW(lpszurl: PCWSTR, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long, lpszredirecturl: PCWSTR, lpcbredirecturl: Long, lpreserved: Long, dwflags: UInt): BOOL =
-    0
+public actual fun getUrlCacheEntryInfoExW(lpszurl: Pcwstr, lpcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?, lpszredirecturl: Pcwstr, lpcbredirecturl: COpaquePointer?, lpreserved: COpaquePointer?, dwflags: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoExW((lpszurl?.value ?: 0L).toString(), (lpcacheentryinfo?.value ?: 0L).toString(), (lpcbcacheentryinfo?.value ?: 0L).toString(), (lpszredirecturl?.value ?: 0L).toString(), (lpcbredirecturl?.value ?: 0L).toString(), (lpreserved?.value ?: 0L).toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetUrlCacheEntryInfoW(lpszurlname: PCWSTR, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long): BOOL =
-    0
+public actual fun getUrlCacheEntryInfoW(lpszurlname: Pcwstr, lpcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoW((lpszurlname?.value ?: 0L).toString(), (lpcacheentryinfo?.value ?: 0L).toString(), (lpcbcacheentryinfo?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetUrlCacheGroupAttributeA(gid: Long, dwflags: UInt, dwattributes: UInt, lpgroupinfo: Long, lpcbgroupinfo: Long, lpreserved: Long): BOOL =
-    0
+public actual fun getUrlCacheGroupAttributeA(gid: Long, dwflags: UInt, dwattributes: UInt, lpgroupinfo: COpaquePointer?, lpcbgroupinfo: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_getUrlCacheGroupAttributeA(gid.toString(), dwflags.toInt(), dwattributes.toInt(), (lpgroupinfo?.value ?: 0L).toString(), (lpcbgroupinfo?.value ?: 0L).toString(), (lpreserved?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetUrlCacheGroupAttributeW(gid: Long, dwflags: UInt, dwattributes: UInt, lpgroupinfo: Long, lpcbgroupinfo: Long, lpreserved: Long): BOOL =
-    0
+public actual fun getUrlCacheGroupAttributeW(gid: Long, dwflags: UInt, dwattributes: UInt, lpgroupinfo: COpaquePointer?, lpcbgroupinfo: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_getUrlCacheGroupAttributeW(gid.toString(), dwflags.toInt(), dwattributes.toInt(), (lpgroupinfo?.value ?: 0L).toString(), (lpcbgroupinfo?.value ?: 0L).toString(), (lpreserved?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetUrlCacheHeaderData(nidx: UInt, lpdwdata: Long): BOOL =
-    0
+public actual fun getUrlCacheHeaderData(nidx: UInt, lpdwdata: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_getUrlCacheHeaderData(nidx.toInt(), (lpdwdata?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GopherCreateLocatorA(lpszhost: PCSTR, nserverport: UShort, lpszdisplaystring: PCSTR, lpszselectorstring: PCSTR, dwgophertype: UInt, lpszlocator: PSTR, lpdwbufferlength: Long): BOOL =
-    0
+public actual fun gopherCreateLocatorA(lpszhost: Pcstr, nserverport: UShort, lpszdisplaystring: Pcstr, lpszselectorstring: Pcstr, dwgophertype: UInt, lpszlocator: Pstr, lpdwbufferlength: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_gopherCreateLocatorA((lpszhost?.value ?: 0L).toString(), nserverport.toInt(), (lpszdisplaystring?.value ?: 0L).toString(), (lpszselectorstring?.value ?: 0L).toString(), dwgophertype.toInt(), (lpszlocator?.value ?: 0L).toString(), (lpdwbufferlength?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GopherCreateLocatorW(lpszhost: PCWSTR, nserverport: UShort, lpszdisplaystring: PCWSTR, lpszselectorstring: PCWSTR, dwgophertype: UInt, lpszlocator: PWSTR, lpdwbufferlength: Long): BOOL =
-    0
+public actual fun gopherCreateLocatorW(lpszhost: Pcwstr, nserverport: UShort, lpszdisplaystring: Pcwstr, lpszselectorstring: Pcwstr, dwgophertype: UInt, lpszlocator: Pwstr, lpdwbufferlength: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_gopherCreateLocatorW((lpszhost?.value ?: 0L).toString(), nserverport.toInt(), (lpszdisplaystring?.value ?: 0L).toString(), (lpszselectorstring?.value ?: 0L).toString(), dwgophertype.toInt(), (lpszlocator?.value ?: 0L).toString(), (lpdwbufferlength?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GopherFindFirstFileA(hconnect: Long, lpszlocator: PCSTR, lpszsearchstring: PCSTR, lpfinddata: Long, dwflags: UInt, dwcontext: ULong): Long =
-    0L
+public actual fun gopherFindFirstFileA(hconnect: COpaquePointer?, lpszlocator: Pcstr, lpszsearchstring: Pcstr, lpfinddata: COpaquePointer?, dwflags: UInt, dwcontext: ULong): COpaquePointer? =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_gopherFindFirstFileA((hconnect?.value ?: 0L).toString(), (lpszlocator?.value ?: 0L).toString(), (lpszsearchstring?.value ?: 0L).toString(), (lpfinddata?.value ?: 0L).toString(), dwflags.toInt(), dwcontext.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GopherFindFirstFileW(hconnect: Long, lpszlocator: PCWSTR, lpszsearchstring: PCWSTR, lpfinddata: Long, dwflags: UInt, dwcontext: ULong): Long =
-    0L
+public actual fun gopherFindFirstFileW(hconnect: COpaquePointer?, lpszlocator: Pcwstr, lpszsearchstring: Pcwstr, lpfinddata: COpaquePointer?, dwflags: UInt, dwcontext: ULong): COpaquePointer? =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_gopherFindFirstFileW((hconnect?.value ?: 0L).toString(), (lpszlocator?.value ?: 0L).toString(), (lpszsearchstring?.value ?: 0L).toString(), (lpfinddata?.value ?: 0L).toString(), dwflags.toInt(), dwcontext.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GopherGetAttributeA(hconnect: Long, lpszlocator: PCSTR, lpszattributename: PCSTR, lpbuffer: Long, dwbufferlength: UInt, lpdwcharactersreturned: Long, lpfnenumerator: GOPHER_ATTRIBUTE_ENUMERATOR, dwcontext: ULong): BOOL =
-    0
+public actual fun gopherGetAttributeA(hconnect: COpaquePointer?, lpszlocator: Pcstr, lpszattributename: Pcstr, lpbuffer: COpaquePointer?, dwbufferlength: UInt, lpdwcharactersreturned: COpaquePointer?, lpfnenumerator: GopherAttributeEnumerator, dwcontext: ULong): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_gopherGetAttributeA((hconnect?.value ?: 0L).toString(), (lpszlocator?.value ?: 0L).toString(), (lpszattributename?.value ?: 0L).toString(), (lpbuffer?.value ?: 0L).toString(), dwbufferlength.toInt(), (lpdwcharactersreturned?.value ?: 0L).toString(), 0L.toString(), dwcontext.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GopherGetAttributeW(hconnect: Long, lpszlocator: PCWSTR, lpszattributename: PCWSTR, lpbuffer: Long, dwbufferlength: UInt, lpdwcharactersreturned: Long, lpfnenumerator: GOPHER_ATTRIBUTE_ENUMERATOR, dwcontext: ULong): BOOL =
-    0
+public actual fun gopherGetAttributeW(hconnect: COpaquePointer?, lpszlocator: Pcwstr, lpszattributename: Pcwstr, lpbuffer: COpaquePointer?, dwbufferlength: UInt, lpdwcharactersreturned: COpaquePointer?, lpfnenumerator: GopherAttributeEnumerator, dwcontext: ULong): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_gopherGetAttributeW((hconnect?.value ?: 0L).toString(), (lpszlocator?.value ?: 0L).toString(), (lpszattributename?.value ?: 0L).toString(), (lpbuffer?.value ?: 0L).toString(), dwbufferlength.toInt(), (lpdwcharactersreturned?.value ?: 0L).toString(), 0L.toString(), dwcontext.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GopherGetLocatorTypeA(lpszlocator: PCSTR, lpdwgophertype: Long): BOOL =
-    0
+public actual fun gopherGetLocatorTypeA(lpszlocator: Pcstr, lpdwgophertype: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_gopherGetLocatorTypeA((lpszlocator?.value ?: 0L).toString(), (lpdwgophertype?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GopherGetLocatorTypeW(lpszlocator: PCWSTR, lpdwgophertype: Long): BOOL =
-    0
+public actual fun gopherGetLocatorTypeW(lpszlocator: Pcwstr, lpdwgophertype: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_gopherGetLocatorTypeW((lpszlocator?.value ?: 0L).toString(), (lpdwgophertype?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GopherOpenFileA(hconnect: Long, lpszlocator: PCSTR, lpszview: PCSTR, dwflags: UInt, dwcontext: ULong): Long =
-    0L
+public actual fun gopherOpenFileA(hconnect: COpaquePointer?, lpszlocator: Pcstr, lpszview: Pcstr, dwflags: UInt, dwcontext: ULong): COpaquePointer? =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_gopherOpenFileA((hconnect?.value ?: 0L).toString(), (lpszlocator?.value ?: 0L).toString(), (lpszview?.value ?: 0L).toString(), dwflags.toInt(), dwcontext.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GopherOpenFileW(hconnect: Long, lpszlocator: PCWSTR, lpszview: PCWSTR, dwflags: UInt, dwcontext: ULong): Long =
-    0L
+public actual fun gopherOpenFileW(hconnect: COpaquePointer?, lpszlocator: Pcwstr, lpszview: Pcwstr, dwflags: UInt, dwcontext: ULong): COpaquePointer? =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_gopherOpenFileW((hconnect?.value ?: 0L).toString(), (lpszlocator?.value ?: 0L).toString(), (lpszview?.value ?: 0L).toString(), dwflags.toInt(), dwcontext.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpAddRequestHeadersA(hrequest: Long, lpszheaders: PCSTR, dwheaderslength: UInt, dwmodifiers: HTTP_ADDREQ_FLAG): BOOL =
-    0
+public actual fun httpAddRequestHeadersA(hrequest: COpaquePointer?, lpszheaders: Pcstr, dwheaderslength: UInt, dwmodifiers: HttpAddreqFlag): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_httpAddRequestHeadersA((hrequest?.value ?: 0L).toString(), (lpszheaders?.value ?: 0L).toString(), dwheaderslength.toInt(), dwmodifiers.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpAddRequestHeadersW(hrequest: Long, lpszheaders: PCWSTR, dwheaderslength: UInt, dwmodifiers: HTTP_ADDREQ_FLAG): BOOL =
-    0
+public actual fun httpAddRequestHeadersW(hrequest: COpaquePointer?, lpszheaders: Pcwstr, dwheaderslength: UInt, dwmodifiers: HttpAddreqFlag): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_httpAddRequestHeadersW((hrequest?.value ?: 0L).toString(), (lpszheaders?.value ?: 0L).toString(), dwheaderslength.toInt(), dwmodifiers.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpCheckDavComplianceA(lpszurl: PCSTR, lpszcompliancetoken: PCSTR, lpffound: Long, hwnd: HWND, lpvreserved: Long): BOOL =
-    0
+public actual fun httpCheckDavComplianceA(lpszurl: Pcstr, lpszcompliancetoken: Pcstr, lpffound: COpaquePointer?, hwnd: Hwnd, lpvreserved: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_httpCheckDavComplianceA((lpszurl?.value ?: 0L).toString(), (lpszcompliancetoken?.value ?: 0L).toString(), (lpffound?.value ?: 0L).toString(), (hwnd?.value ?: 0L).toString(), (lpvreserved?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpCheckDavComplianceW(lpszurl: PCWSTR, lpszcompliancetoken: PCWSTR, lpffound: Long, hwnd: HWND, lpvreserved: Long): BOOL =
-    0
+public actual fun httpCheckDavComplianceW(lpszurl: Pcwstr, lpszcompliancetoken: Pcwstr, lpffound: COpaquePointer?, hwnd: Hwnd, lpvreserved: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_httpCheckDavComplianceW((lpszurl?.value ?: 0L).toString(), (lpszcompliancetoken?.value ?: 0L).toString(), (lpffound?.value ?: 0L).toString(), (hwnd?.value ?: 0L).toString(), (lpvreserved?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpCloseDependencyHandle(hdependencyhandle: Long) {
+public actual fun httpCloseDependencyHandle(hdependencyhandle: COpaquePointer?) {
+    if (_windowsWin32NetworkingWininetNapiAvailable) {
+        _wasm_windowssys_windows_win32_networking_wininet_httpCloseDependencyHandle((hdependencyhandle?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun HttpDuplicateDependencyHandle(hdependencyhandle: Long, phduplicateddependencyhandle: Long): UInt =
-    0u
+public actual fun httpDuplicateDependencyHandle(hdependencyhandle: COpaquePointer?, phduplicateddependencyhandle: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_httpDuplicateDependencyHandle((hdependencyhandle?.value ?: 0L).toString(), (phduplicateddependencyhandle?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpEndRequestA(hrequest: Long, lpbuffersout: Long, dwflags: UInt, dwcontext: ULong): BOOL =
-    0
+public actual fun httpEndRequestA(hrequest: COpaquePointer?, lpbuffersout: COpaquePointer?, dwflags: UInt, dwcontext: ULong): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_httpEndRequestA((hrequest?.value ?: 0L).toString(), (lpbuffersout?.value ?: 0L).toString(), dwflags.toInt(), dwcontext.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpEndRequestW(hrequest: Long, lpbuffersout: Long, dwflags: UInt, dwcontext: ULong): BOOL =
-    0
+public actual fun httpEndRequestW(hrequest: COpaquePointer?, lpbuffersout: COpaquePointer?, dwflags: UInt, dwcontext: ULong): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_httpEndRequestW((hrequest?.value ?: 0L).toString(), (lpbuffersout?.value ?: 0L).toString(), dwflags.toInt(), dwcontext.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpGetServerCredentials(pwszurl: PCWSTR, ppwszusername: Long, ppwszpassword: Long): UInt =
-    0u
+public actual fun httpGetServerCredentials(pwszurl: Pcwstr, ppwszusername: COpaquePointer?, ppwszpassword: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_httpGetServerCredentials((pwszurl?.value ?: 0L).toString(), (ppwszusername?.value ?: 0L).toString(), (ppwszpassword?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpIndicatePageLoadComplete(hdependencyhandle: Long): UInt =
-    0u
+public actual fun httpIndicatePageLoadComplete(hdependencyhandle: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_httpIndicatePageLoadComplete((hdependencyhandle?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpIsHostHstsEnabled(pcwszurl: PCWSTR, pfishsts: Long): UInt =
-    0u
+public actual fun httpIsHostHstsEnabled(pcwszurl: Pcwstr, pfishsts: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_httpIsHostHstsEnabled((pcwszurl?.value ?: 0L).toString(), (pfishsts?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpOpenDependencyHandle(hrequesthandle: Long, fbackground: BOOL, phdependencyhandle: Long): UInt =
-    0u
+public actual fun httpOpenDependencyHandle(hrequesthandle: COpaquePointer?, fbackground: Bool, phdependencyhandle: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_httpOpenDependencyHandle((hrequesthandle?.value ?: 0L).toString(), fbackground, (phdependencyhandle?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpOpenRequestA(hconnect: Long, lpszverb: PCSTR, lpszobjectname: PCSTR, lpszversion: PCSTR, lpszreferrer: PCSTR, lplpszaccepttypes: Long, dwflags: UInt, dwcontext: ULong): Long =
-    0L
+public actual fun httpOpenRequestA(hconnect: COpaquePointer?, lpszverb: Pcstr, lpszobjectname: Pcstr, lpszversion: Pcstr, lpszreferrer: Pcstr, lplpszaccepttypes: COpaquePointer?, dwflags: UInt, dwcontext: ULong): COpaquePointer? =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_httpOpenRequestA((hconnect?.value ?: 0L).toString(), (lpszverb?.value ?: 0L).toString(), (lpszobjectname?.value ?: 0L).toString(), (lpszversion?.value ?: 0L).toString(), (lpszreferrer?.value ?: 0L).toString(), (lplpszaccepttypes?.value ?: 0L).toString(), dwflags.toInt(), dwcontext.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpOpenRequestW(hconnect: Long, lpszverb: PCWSTR, lpszobjectname: PCWSTR, lpszversion: PCWSTR, lpszreferrer: PCWSTR, lplpszaccepttypes: Long, dwflags: UInt, dwcontext: ULong): Long =
-    0L
+public actual fun httpOpenRequestW(hconnect: COpaquePointer?, lpszverb: Pcwstr, lpszobjectname: Pcwstr, lpszversion: Pcwstr, lpszreferrer: Pcwstr, lplpszaccepttypes: COpaquePointer?, dwflags: UInt, dwcontext: ULong): COpaquePointer? =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_httpOpenRequestW((hconnect?.value ?: 0L).toString(), (lpszverb?.value ?: 0L).toString(), (lpszobjectname?.value ?: 0L).toString(), (lpszversion?.value ?: 0L).toString(), (lpszreferrer?.value ?: 0L).toString(), (lplpszaccepttypes?.value ?: 0L).toString(), dwflags.toInt(), dwcontext.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpPushClose(hwait: HTTP_PUSH_WAIT_HANDLE) {
+public actual fun httpPushClose(hwait: HttpPushWaitHandle) {
+    if (_windowsWin32NetworkingWininetNapiAvailable) {
+        _wasm_windowssys_windows_win32_networking_wininet_httpPushClose((hwait?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun HttpPushEnable(hrequest: Long, ptransportsetting: Long, phwait: Long): UInt =
-    0u
+public actual fun httpPushEnable(hrequest: COpaquePointer?, ptransportsetting: COpaquePointer?, phwait: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_httpPushEnable((hrequest?.value ?: 0L).toString(), (ptransportsetting?.value ?: 0L).toString(), (phwait?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpPushWait(hwait: HTTP_PUSH_WAIT_HANDLE, etype: HTTP_PUSH_WAIT_TYPE, pnotificationstatus: Long): UInt =
-    0u
+public actual fun httpPushWait(hwait: HttpPushWaitHandle, etype: HttpPushWaitType, pnotificationstatus: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_httpPushWait((hwait?.value ?: 0L).toString(), etype, (pnotificationstatus?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpQueryInfoA(hrequest: Long, dwinfolevel: UInt, lpbuffer: Long, lpdwbufferlength: Long, lpdwindex: Long): BOOL =
-    0
+public actual fun httpQueryInfoA(hrequest: COpaquePointer?, dwinfolevel: UInt, lpbuffer: COpaquePointer?, lpdwbufferlength: COpaquePointer?, lpdwindex: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_httpQueryInfoA((hrequest?.value ?: 0L).toString(), dwinfolevel.toInt(), (lpbuffer?.value ?: 0L).toString(), (lpdwbufferlength?.value ?: 0L).toString(), (lpdwindex?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpQueryInfoW(hrequest: Long, dwinfolevel: UInt, lpbuffer: Long, lpdwbufferlength: Long, lpdwindex: Long): BOOL =
-    0
+public actual fun httpQueryInfoW(hrequest: COpaquePointer?, dwinfolevel: UInt, lpbuffer: COpaquePointer?, lpdwbufferlength: COpaquePointer?, lpdwindex: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_httpQueryInfoW((hrequest?.value ?: 0L).toString(), dwinfolevel.toInt(), (lpbuffer?.value ?: 0L).toString(), (lpdwbufferlength?.value ?: 0L).toString(), (lpdwindex?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpSendRequestA(hrequest: Long, lpszheaders: PCSTR, dwheaderslength: UInt, lpoptional: Long, dwoptionallength: UInt): BOOL =
-    0
+public actual fun httpSendRequestA(hrequest: COpaquePointer?, lpszheaders: Pcstr, dwheaderslength: UInt, lpoptional: COpaquePointer?, dwoptionallength: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_httpSendRequestA((hrequest?.value ?: 0L).toString(), (lpszheaders?.value ?: 0L).toString(), dwheaderslength.toInt(), (lpoptional?.value ?: 0L).toString(), dwoptionallength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpSendRequestExA(hrequest: Long, lpbuffersin: Long, lpbuffersout: Long, dwflags: UInt, dwcontext: ULong): BOOL =
-    0
+public actual fun httpSendRequestExA(hrequest: COpaquePointer?, lpbuffersin: COpaquePointer?, lpbuffersout: COpaquePointer?, dwflags: UInt, dwcontext: ULong): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_httpSendRequestExA((hrequest?.value ?: 0L).toString(), (lpbuffersin?.value ?: 0L).toString(), (lpbuffersout?.value ?: 0L).toString(), dwflags.toInt(), dwcontext.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpSendRequestExW(hrequest: Long, lpbuffersin: Long, lpbuffersout: Long, dwflags: UInt, dwcontext: ULong): BOOL =
-    0
+public actual fun httpSendRequestExW(hrequest: COpaquePointer?, lpbuffersin: COpaquePointer?, lpbuffersout: COpaquePointer?, dwflags: UInt, dwcontext: ULong): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_httpSendRequestExW((hrequest?.value ?: 0L).toString(), (lpbuffersin?.value ?: 0L).toString(), (lpbuffersout?.value ?: 0L).toString(), dwflags.toInt(), dwcontext.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpSendRequestW(hrequest: Long, lpszheaders: PCWSTR, dwheaderslength: UInt, lpoptional: Long, dwoptionallength: UInt): BOOL =
-    0
+public actual fun httpSendRequestW(hrequest: COpaquePointer?, lpszheaders: Pcwstr, dwheaderslength: UInt, lpoptional: COpaquePointer?, dwoptionallength: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_httpSendRequestW((hrequest?.value ?: 0L).toString(), (lpszheaders?.value ?: 0L).toString(), dwheaderslength.toInt(), (lpoptional?.value ?: 0L).toString(), dwoptionallength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpWebSocketClose(hwebsocket: Long, usstatus: UShort, pvreason: Long, dwreasonlength: UInt): BOOL =
-    0
+public actual fun httpWebSocketClose(hwebsocket: COpaquePointer?, usstatus: UShort, pvreason: COpaquePointer?, dwreasonlength: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_httpWebSocketClose((hwebsocket?.value ?: 0L).toString(), usstatus.toInt(), (pvreason?.value ?: 0L).toString(), dwreasonlength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpWebSocketCompleteUpgrade(hrequest: Long, dwcontext: ULong): Long =
-    0L
+public actual fun httpWebSocketCompleteUpgrade(hrequest: COpaquePointer?, dwcontext: ULong): COpaquePointer? =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_httpWebSocketCompleteUpgrade((hrequest?.value ?: 0L).toString(), dwcontext.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpWebSocketQueryCloseStatus(hwebsocket: Long, pusstatus: Long, pvreason: Long, dwreasonlength: UInt, pdwreasonlengthconsumed: Long): BOOL =
-    0
+public actual fun httpWebSocketQueryCloseStatus(hwebsocket: COpaquePointer?, pusstatus: COpaquePointer?, pvreason: COpaquePointer?, dwreasonlength: UInt, pdwreasonlengthconsumed: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_httpWebSocketQueryCloseStatus((hwebsocket?.value ?: 0L).toString(), (pusstatus?.value ?: 0L).toString(), (pvreason?.value ?: 0L).toString(), dwreasonlength.toInt(), (pdwreasonlengthconsumed?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpWebSocketReceive(hwebsocket: Long, pvbuffer: Long, dwbufferlength: UInt, pdwbytesread: Long, pbuffertype: Long): BOOL =
-    0
+public actual fun httpWebSocketReceive(hwebsocket: COpaquePointer?, pvbuffer: COpaquePointer?, dwbufferlength: UInt, pdwbytesread: COpaquePointer?, pbuffertype: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_httpWebSocketReceive((hwebsocket?.value ?: 0L).toString(), (pvbuffer?.value ?: 0L).toString(), dwbufferlength.toInt(), (pdwbytesread?.value ?: 0L).toString(), (pbuffertype?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpWebSocketSend(hwebsocket: Long, buffertype: HTTP_WEB_SOCKET_BUFFER_TYPE, pvbuffer: Long, dwbufferlength: UInt): BOOL =
-    0
+public actual fun httpWebSocketSend(hwebsocket: COpaquePointer?, buffertype: HttpWebSocketBufferType, pvbuffer: COpaquePointer?, dwbufferlength: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_httpWebSocketSend((hwebsocket?.value ?: 0L).toString(), buffertype, (pvbuffer?.value ?: 0L).toString(), dwbufferlength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HttpWebSocketShutdown(hwebsocket: Long, usstatus: UShort, pvreason: Long, dwreasonlength: UInt): BOOL =
-    0
+public actual fun httpWebSocketShutdown(hwebsocket: COpaquePointer?, usstatus: UShort, pvreason: COpaquePointer?, dwreasonlength: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_httpWebSocketShutdown((hwebsocket?.value ?: 0L).toString(), usstatus.toInt(), (pvreason?.value ?: 0L).toString(), dwreasonlength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ImportCookieFileA(szfilename: PCSTR): BOOL =
-    0
+public actual fun importCookieFileA(szfilename: Pcstr): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_importCookieFileA((szfilename?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ImportCookieFileW(szfilename: PCWSTR): BOOL =
-    0
+public actual fun importCookieFileW(szfilename: Pcwstr): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_importCookieFileW((szfilename?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IncrementUrlCacheHeaderData(nidx: UInt, lpdwdata: Long): BOOL =
-    0
+public actual fun incrementUrlCacheHeaderData(nidx: UInt, lpdwdata: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_incrementUrlCacheHeaderData(nidx.toInt(), (lpdwdata?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternalInternetGetCookie(lpszurl: PCSTR, lpszcookiedata: PSTR, lpdwdatasize: Long): UInt =
-    0u
+public actual fun internalInternetGetCookie(lpszurl: Pcstr, lpszcookiedata: Pstr, lpdwdatasize: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internalInternetGetCookie((lpszurl?.value ?: 0L).toString(), (lpszcookiedata?.value ?: 0L).toString(), (lpdwdatasize?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetAlgIdToStringA(ai: ALG_ID, lpstr: PSTR, lpdwstrlength: Long, dwreserved: UInt): BOOL =
-    0
+public actual fun internetAlgIdToStringA(ai: AlgId, lpstr: Pstr, lpdwstrlength: COpaquePointer?, dwreserved: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetAlgIdToStringA(ai.toInt(), (lpstr?.value ?: 0L).toString(), (lpdwstrlength?.value ?: 0L).toString(), dwreserved.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetAlgIdToStringW(ai: ALG_ID, lpstr: PWSTR, lpdwstrlength: Long, dwreserved: UInt): BOOL =
-    0
+public actual fun internetAlgIdToStringW(ai: AlgId, lpstr: Pwstr, lpdwstrlength: COpaquePointer?, dwreserved: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetAlgIdToStringW(ai.toInt(), (lpstr?.value ?: 0L).toString(), (lpdwstrlength?.value ?: 0L).toString(), dwreserved.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetAttemptConnect(dwreserved: UInt): UInt =
-    0u
+public actual fun internetAttemptConnect(dwreserved: UInt): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetAttemptConnect(dwreserved.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetAutodial(dwflags: INTERNET_AUTODIAL, hwndparent: HWND): BOOL =
-    0
+public actual fun internetAutodial(dwflags: InternetAutodial, hwndparent: Hwnd): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetAutodial(dwflags.toInt(), (hwndparent?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetAutodialHangup(dwreserved: UInt): BOOL =
-    0
+public actual fun internetAutodialHangup(dwreserved: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetAutodialHangup(dwreserved.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetCanonicalizeUrlA(lpszurl: PCSTR, lpszbuffer: PSTR, lpdwbufferlength: Long, dwflags: UInt): BOOL =
-    0
+public actual fun internetCanonicalizeUrlA(lpszurl: Pcstr, lpszbuffer: Pstr, lpdwbufferlength: COpaquePointer?, dwflags: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetCanonicalizeUrlA((lpszurl?.value ?: 0L).toString(), (lpszbuffer?.value ?: 0L).toString(), (lpdwbufferlength?.value ?: 0L).toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetCanonicalizeUrlW(lpszurl: PCWSTR, lpszbuffer: PWSTR, lpdwbufferlength: Long, dwflags: UInt): BOOL =
-    0
+public actual fun internetCanonicalizeUrlW(lpszurl: Pcwstr, lpszbuffer: Pwstr, lpdwbufferlength: COpaquePointer?, dwflags: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetCanonicalizeUrlW((lpszurl?.value ?: 0L).toString(), (lpszbuffer?.value ?: 0L).toString(), (lpdwbufferlength?.value ?: 0L).toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetCheckConnectionA(lpszurl: PCSTR, dwflags: UInt, dwreserved: UInt): BOOL =
-    0
+public actual fun internetCheckConnectionA(lpszurl: Pcstr, dwflags: UInt, dwreserved: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetCheckConnectionA((lpszurl?.value ?: 0L).toString(), dwflags.toInt(), dwreserved.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetCheckConnectionW(lpszurl: PCWSTR, dwflags: UInt, dwreserved: UInt): BOOL =
-    0
+public actual fun internetCheckConnectionW(lpszurl: Pcwstr, dwflags: UInt, dwreserved: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetCheckConnectionW((lpszurl?.value ?: 0L).toString(), dwflags.toInt(), dwreserved.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetClearAllPerSiteCookieDecisions(): BOOL =
-    0
+public actual fun internetClearAllPerSiteCookieDecisions(): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetClearAllPerSiteCookieDecisions() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetCloseHandle(hinternet: Long): BOOL =
-    0
+public actual fun internetCloseHandle(hinternet: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetCloseHandle((hinternet?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetCombineUrlA(lpszbaseurl: PCSTR, lpszrelativeurl: PCSTR, lpszbuffer: PSTR, lpdwbufferlength: Long, dwflags: UInt): BOOL =
-    0
+public actual fun internetCombineUrlA(lpszbaseurl: Pcstr, lpszrelativeurl: Pcstr, lpszbuffer: Pstr, lpdwbufferlength: COpaquePointer?, dwflags: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetCombineUrlA((lpszbaseurl?.value ?: 0L).toString(), (lpszrelativeurl?.value ?: 0L).toString(), (lpszbuffer?.value ?: 0L).toString(), (lpdwbufferlength?.value ?: 0L).toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetCombineUrlW(lpszbaseurl: PCWSTR, lpszrelativeurl: PCWSTR, lpszbuffer: PWSTR, lpdwbufferlength: Long, dwflags: UInt): BOOL =
-    0
+public actual fun internetCombineUrlW(lpszbaseurl: Pcwstr, lpszrelativeurl: Pcwstr, lpszbuffer: Pwstr, lpdwbufferlength: COpaquePointer?, dwflags: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetCombineUrlW((lpszbaseurl?.value ?: 0L).toString(), (lpszrelativeurl?.value ?: 0L).toString(), (lpszbuffer?.value ?: 0L).toString(), (lpdwbufferlength?.value ?: 0L).toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetConfirmZoneCrossing(hwnd: HWND, szurlprev: PCSTR, szurlnew: PCSTR, bpost: BOOL): UInt =
-    0u
+public actual fun internetConfirmZoneCrossing(hwnd: Hwnd, szurlprev: Pcstr, szurlnew: Pcstr, bpost: Bool): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetConfirmZoneCrossing((hwnd?.value ?: 0L).toString(), (szurlprev?.value ?: 0L).toString(), (szurlnew?.value ?: 0L).toString(), bpost).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetConfirmZoneCrossingA(hwnd: HWND, szurlprev: PCSTR, szurlnew: PCSTR, bpost: BOOL): UInt =
-    0u
+public actual fun internetConfirmZoneCrossingA(hwnd: Hwnd, szurlprev: Pcstr, szurlnew: Pcstr, bpost: Bool): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetConfirmZoneCrossingA((hwnd?.value ?: 0L).toString(), (szurlprev?.value ?: 0L).toString(), (szurlnew?.value ?: 0L).toString(), bpost).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetConfirmZoneCrossingW(hwnd: HWND, szurlprev: PCWSTR, szurlnew: PCWSTR, bpost: BOOL): UInt =
-    0u
+public actual fun internetConfirmZoneCrossingW(hwnd: Hwnd, szurlprev: Pcwstr, szurlnew: Pcwstr, bpost: Bool): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetConfirmZoneCrossingW((hwnd?.value ?: 0L).toString(), (szurlprev?.value ?: 0L).toString(), (szurlnew?.value ?: 0L).toString(), bpost).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetConnectA(hinternet: Long, lpszservername: PCSTR, nserverport: UShort, lpszusername: PCSTR, lpszpassword: PCSTR, dwservice: UInt, dwflags: UInt, dwcontext: ULong): Long =
-    0L
+public actual fun internetConnectA(hinternet: COpaquePointer?, lpszservername: Pcstr, nserverport: UShort, lpszusername: Pcstr, lpszpassword: Pcstr, dwservice: UInt, dwflags: UInt, dwcontext: ULong): COpaquePointer? =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetConnectA((hinternet?.value ?: 0L).toString(), (lpszservername?.value ?: 0L).toString(), nserverport.toInt(), (lpszusername?.value ?: 0L).toString(), (lpszpassword?.value ?: 0L).toString(), dwservice.toInt(), dwflags.toInt(), dwcontext.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetConnectW(hinternet: Long, lpszservername: PCWSTR, nserverport: UShort, lpszusername: PCWSTR, lpszpassword: PCWSTR, dwservice: UInt, dwflags: UInt, dwcontext: ULong): Long =
-    0L
+public actual fun internetConnectW(hinternet: COpaquePointer?, lpszservername: Pcwstr, nserverport: UShort, lpszusername: Pcwstr, lpszpassword: Pcwstr, dwservice: UInt, dwflags: UInt, dwcontext: ULong): COpaquePointer? =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetConnectW((hinternet?.value ?: 0L).toString(), (lpszservername?.value ?: 0L).toString(), nserverport.toInt(), (lpszusername?.value ?: 0L).toString(), (lpszpassword?.value ?: 0L).toString(), dwservice.toInt(), dwflags.toInt(), dwcontext.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetConvertUrlFromWireToWideChar(pcszurl: PCSTR, cchurl: UInt, pcwszbaseurl: PCWSTR, dwcodepagehost: UInt, dwcodepagepath: UInt, fencodepathextra: BOOL, dwcodepageextra: UInt, ppwszconvertedurl: Long): UInt =
-    0u
+public actual fun internetConvertUrlFromWireToWideChar(pcszurl: Pcstr, cchurl: UInt, pcwszbaseurl: Pcwstr, dwcodepagehost: UInt, dwcodepagepath: UInt, fencodepathextra: Bool, dwcodepageextra: UInt, ppwszconvertedurl: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetConvertUrlFromWireToWideChar((pcszurl?.value ?: 0L).toString(), cchurl.toInt(), (pcwszbaseurl?.value ?: 0L).toString(), dwcodepagehost.toInt(), dwcodepagepath.toInt(), fencodepathextra, dwcodepageextra.toInt(), (ppwszconvertedurl?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetCrackUrlA(lpszurl: PCSTR, dwurllength: UInt, dwflags: WIN_HTTP_CREATE_URL_FLAGS, lpurlcomponents: Long): BOOL =
-    0
+public actual fun internetCrackUrlA(lpszurl: Pcstr, dwurllength: UInt, dwflags: WinHttpCreateUrlFlags, lpurlcomponents: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetCrackUrlA((lpszurl?.value ?: 0L).toString(), dwurllength.toInt(), dwflags.toInt(), (lpurlcomponents?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetCrackUrlW(lpszurl: PCWSTR, dwurllength: UInt, dwflags: WIN_HTTP_CREATE_URL_FLAGS, lpurlcomponents: Long): BOOL =
-    0
+public actual fun internetCrackUrlW(lpszurl: Pcwstr, dwurllength: UInt, dwflags: WinHttpCreateUrlFlags, lpurlcomponents: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetCrackUrlW((lpszurl?.value ?: 0L).toString(), dwurllength.toInt(), dwflags.toInt(), (lpurlcomponents?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetCreateUrlA(lpurlcomponents: Long, dwflags: UInt, lpszurl: PSTR, lpdwurllength: Long): BOOL =
-    0
+public actual fun internetCreateUrlA(lpurlcomponents: COpaquePointer?, dwflags: UInt, lpszurl: Pstr, lpdwurllength: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetCreateUrlA((lpurlcomponents?.value ?: 0L).toString(), dwflags.toInt(), (lpszurl?.value ?: 0L).toString(), (lpdwurllength?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetCreateUrlW(lpurlcomponents: Long, dwflags: UInt, lpszurl: PWSTR, lpdwurllength: Long): BOOL =
-    0
+public actual fun internetCreateUrlW(lpurlcomponents: COpaquePointer?, dwflags: UInt, lpszurl: Pwstr, lpdwurllength: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetCreateUrlW((lpurlcomponents?.value ?: 0L).toString(), dwflags.toInt(), (lpszurl?.value ?: 0L).toString(), (lpdwurllength?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetDial(hwndparent: HWND, lpszconnectoid: PCSTR, dwflags: UInt, lpdwconnection: Long, dwreserved: UInt): UInt =
-    0u
+public actual fun internetDial(hwndparent: Hwnd, lpszconnectoid: Pcstr, dwflags: UInt, lpdwconnection: COpaquePointer?, dwreserved: UInt): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetDial((hwndparent?.value ?: 0L).toString(), (lpszconnectoid?.value ?: 0L).toString(), dwflags.toInt(), (lpdwconnection?.value ?: 0L).toString(), dwreserved.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetDialA(hwndparent: HWND, lpszconnectoid: PCSTR, dwflags: UInt, lpdwconnection: Long, dwreserved: UInt): UInt =
-    0u
+public actual fun internetDialA(hwndparent: Hwnd, lpszconnectoid: Pcstr, dwflags: UInt, lpdwconnection: COpaquePointer?, dwreserved: UInt): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetDialA((hwndparent?.value ?: 0L).toString(), (lpszconnectoid?.value ?: 0L).toString(), dwflags.toInt(), (lpdwconnection?.value ?: 0L).toString(), dwreserved.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetDialW(hwndparent: HWND, lpszconnectoid: PCWSTR, dwflags: UInt, lpdwconnection: Long, dwreserved: UInt): UInt =
-    0u
+public actual fun internetDialW(hwndparent: Hwnd, lpszconnectoid: Pcwstr, dwflags: UInt, lpdwconnection: COpaquePointer?, dwreserved: UInt): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetDialW((hwndparent?.value ?: 0L).toString(), (lpszconnectoid?.value ?: 0L).toString(), dwflags.toInt(), (lpdwconnection?.value ?: 0L).toString(), dwreserved.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetEnumPerSiteCookieDecisionA(pszsitename: PSTR, pcsitenamesize: Long, pdwdecision: Long, dwindex: UInt): BOOL =
-    0
+public actual fun internetEnumPerSiteCookieDecisionA(pszsitename: Pstr, pcsitenamesize: COpaquePointer?, pdwdecision: COpaquePointer?, dwindex: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetEnumPerSiteCookieDecisionA((pszsitename?.value ?: 0L).toString(), (pcsitenamesize?.value ?: 0L).toString(), (pdwdecision?.value ?: 0L).toString(), dwindex.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetEnumPerSiteCookieDecisionW(pszsitename: PWSTR, pcsitenamesize: Long, pdwdecision: Long, dwindex: UInt): BOOL =
-    0
+public actual fun internetEnumPerSiteCookieDecisionW(pszsitename: Pwstr, pcsitenamesize: COpaquePointer?, pdwdecision: COpaquePointer?, dwindex: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetEnumPerSiteCookieDecisionW((pszsitename?.value ?: 0L).toString(), (pcsitenamesize?.value ?: 0L).toString(), (pdwdecision?.value ?: 0L).toString(), dwindex.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetErrorDlg(hwnd: HWND, hrequest: Long, dwerror: UInt, dwflags: UInt, lppvdata: Long): UInt =
-    0u
+public actual fun internetErrorDlg(hwnd: Hwnd, hrequest: COpaquePointer?, dwerror: UInt, dwflags: UInt, lppvdata: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetErrorDlg((hwnd?.value ?: 0L).toString(), (hrequest?.value ?: 0L).toString(), dwerror.toInt(), dwflags.toInt(), (lppvdata?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetFindNextFileA(hfind: Long, lpvfinddata: Long): BOOL =
-    0
+public actual fun internetFindNextFileA(hfind: COpaquePointer?, lpvfinddata: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetFindNextFileA((hfind?.value ?: 0L).toString(), (lpvfinddata?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetFindNextFileW(hfind: Long, lpvfinddata: Long): BOOL =
-    0
+public actual fun internetFindNextFileW(hfind: COpaquePointer?, lpvfinddata: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetFindNextFileW((hfind?.value ?: 0L).toString(), (lpvfinddata?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetFortezzaCommand(dwcommand: UInt, hwnd: HWND, dwreserved: ULong): BOOL =
-    0
+public actual fun internetFortezzaCommand(dwcommand: UInt, hwnd: Hwnd, dwreserved: ULong): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetFortezzaCommand(dwcommand.toInt(), (hwnd?.value ?: 0L).toString(), dwreserved.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetFreeCookies(pcookies: Long, dwcookiecount: UInt) {
+public actual fun internetFreeCookies(pcookies: COpaquePointer?, dwcookiecount: UInt) {
+    if (_windowsWin32NetworkingWininetNapiAvailable) {
+        _wasm_windowssys_windows_win32_networking_wininet_internetFreeCookies((pcookies?.value ?: 0L).toString(), dwcookiecount.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun InternetFreeProxyInfoList(pproxyinfolist: Long) {
+public actual fun internetFreeProxyInfoList(pproxyinfolist: COpaquePointer?) {
+    if (_windowsWin32NetworkingWininetNapiAvailable) {
+        _wasm_windowssys_windows_win32_networking_wininet_internetFreeProxyInfoList((pproxyinfolist?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun InternetGetConnectedState(lpdwflags: Long, dwreserved: UInt): BOOL =
-    0
+public actual fun internetGetConnectedState(lpdwflags: COpaquePointer?, dwreserved: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetGetConnectedState((lpdwflags?.value ?: 0L).toString(), dwreserved.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetGetConnectedStateEx(lpdwflags: Long, lpszconnectionname: PSTR, dwnamelen: UInt, dwreserved: UInt): BOOL =
-    0
+public actual fun internetGetConnectedStateEx(lpdwflags: COpaquePointer?, lpszconnectionname: Pstr, dwnamelen: UInt, dwreserved: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetGetConnectedStateEx((lpdwflags?.value ?: 0L).toString(), (lpszconnectionname?.value ?: 0L).toString(), dwnamelen.toInt(), dwreserved.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetGetConnectedStateExA(lpdwflags: Long, lpszconnectionname: PSTR, cchnamelen: UInt, dwreserved: UInt): BOOL =
-    0
+public actual fun internetGetConnectedStateExA(lpdwflags: COpaquePointer?, lpszconnectionname: Pstr, cchnamelen: UInt, dwreserved: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetGetConnectedStateExA((lpdwflags?.value ?: 0L).toString(), (lpszconnectionname?.value ?: 0L).toString(), cchnamelen.toInt(), dwreserved.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetGetConnectedStateExW(lpdwflags: Long, lpszconnectionname: PWSTR, cchnamelen: UInt, dwreserved: UInt): BOOL =
-    0
+public actual fun internetGetConnectedStateExW(lpdwflags: COpaquePointer?, lpszconnectionname: Pwstr, cchnamelen: UInt, dwreserved: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetGetConnectedStateExW((lpdwflags?.value ?: 0L).toString(), (lpszconnectionname?.value ?: 0L).toString(), cchnamelen.toInt(), dwreserved.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetGetCookieA(lpszurl: PCSTR, lpszcookiename: PCSTR, lpszcookiedata: PSTR, lpdwsize: Long): BOOL =
-    0
+public actual fun internetGetCookieA(lpszurl: Pcstr, lpszcookiename: Pcstr, lpszcookiedata: Pstr, lpdwsize: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetGetCookieA((lpszurl?.value ?: 0L).toString(), (lpszcookiename?.value ?: 0L).toString(), (lpszcookiedata?.value ?: 0L).toString(), (lpdwsize?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetGetCookieEx2(pcwszurl: PCWSTR, pcwszcookiename: PCWSTR, dwflags: UInt, ppcookies: Long, pdwcookiecount: Long): UInt =
-    0u
+public actual fun internetGetCookieEx2(pcwszurl: Pcwstr, pcwszcookiename: Pcwstr, dwflags: UInt, ppcookies: COpaquePointer?, pdwcookiecount: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetGetCookieEx2((pcwszurl?.value ?: 0L).toString(), (pcwszcookiename?.value ?: 0L).toString(), dwflags.toInt(), (ppcookies?.value ?: 0L).toString(), (pdwcookiecount?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetGetCookieExA(lpszurl: PCSTR, lpszcookiename: PCSTR, lpszcookiedata: PCSTR, lpdwsize: Long, dwflags: INTERNET_COOKIE_FLAGS, lpreserved: Long): BOOL =
-    0
+public actual fun internetGetCookieExA(lpszurl: Pcstr, lpszcookiename: Pcstr, lpszcookiedata: Pcstr, lpdwsize: COpaquePointer?, dwflags: InternetCookieFlags, lpreserved: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetGetCookieExA((lpszurl?.value ?: 0L).toString(), (lpszcookiename?.value ?: 0L).toString(), (lpszcookiedata?.value ?: 0L).toString(), (lpdwsize?.value ?: 0L).toString(), dwflags.toInt(), (lpreserved?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetGetCookieExW(lpszurl: PCWSTR, lpszcookiename: PCWSTR, lpszcookiedata: PCWSTR, lpdwsize: Long, dwflags: INTERNET_COOKIE_FLAGS, lpreserved: Long): BOOL =
-    0
+public actual fun internetGetCookieExW(lpszurl: Pcwstr, lpszcookiename: Pcwstr, lpszcookiedata: Pcwstr, lpdwsize: COpaquePointer?, dwflags: InternetCookieFlags, lpreserved: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetGetCookieExW((lpszurl?.value ?: 0L).toString(), (lpszcookiename?.value ?: 0L).toString(), (lpszcookiedata?.value ?: 0L).toString(), (lpdwsize?.value ?: 0L).toString(), dwflags.toInt(), (lpreserved?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetGetCookieW(lpszurl: PCWSTR, lpszcookiename: PCWSTR, lpszcookiedata: PWSTR, lpdwsize: Long): BOOL =
-    0
+public actual fun internetGetCookieW(lpszurl: Pcwstr, lpszcookiename: Pcwstr, lpszcookiedata: Pwstr, lpdwsize: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetGetCookieW((lpszurl?.value ?: 0L).toString(), (lpszcookiename?.value ?: 0L).toString(), (lpszcookiedata?.value ?: 0L).toString(), (lpdwsize?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetGetLastResponseInfoA(lpdwerror: Long, lpszbuffer: PSTR, lpdwbufferlength: Long): BOOL =
-    0
+public actual fun internetGetLastResponseInfoA(lpdwerror: COpaquePointer?, lpszbuffer: Pstr, lpdwbufferlength: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetGetLastResponseInfoA((lpdwerror?.value ?: 0L).toString(), (lpszbuffer?.value ?: 0L).toString(), (lpdwbufferlength?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetGetLastResponseInfoW(lpdwerror: Long, lpszbuffer: PWSTR, lpdwbufferlength: Long): BOOL =
-    0
+public actual fun internetGetLastResponseInfoW(lpdwerror: COpaquePointer?, lpszbuffer: Pwstr, lpdwbufferlength: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetGetLastResponseInfoW((lpdwerror?.value ?: 0L).toString(), (lpszbuffer?.value ?: 0L).toString(), (lpdwbufferlength?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetGetPerSiteCookieDecisionA(pchhostname: PCSTR, presult: Long): BOOL =
-    0
+public actual fun internetGetPerSiteCookieDecisionA(pchhostname: Pcstr, presult: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetGetPerSiteCookieDecisionA((pchhostname?.value ?: 0L).toString(), (presult?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetGetPerSiteCookieDecisionW(pchhostname: PCWSTR, presult: Long): BOOL =
-    0
+public actual fun internetGetPerSiteCookieDecisionW(pchhostname: Pcwstr, presult: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetGetPerSiteCookieDecisionW((pchhostname?.value ?: 0L).toString(), (presult?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetGetProxyForUrl(hinternet: Long, pcwszurl: PCWSTR, pproxyinfolist: Long): UInt =
-    0u
+public actual fun internetGetProxyForUrl(hinternet: COpaquePointer?, pcwszurl: Pcwstr, pproxyinfolist: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetGetProxyForUrl((hinternet?.value ?: 0L).toString(), (pcwszurl?.value ?: 0L).toString(), (pproxyinfolist?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetGetSecurityInfoByURL(lpszurl: PCSTR, ppcertchain: Long, pdwsecureflags: Long): BOOL =
-    0
+public actual fun internetGetSecurityInfoByURL(lpszurl: Pcstr, ppcertchain: COpaquePointer?, pdwsecureflags: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetGetSecurityInfoByURL((lpszurl?.value ?: 0L).toString(), (ppcertchain?.value ?: 0L).toString(), (pdwsecureflags?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetGetSecurityInfoByURLA(lpszurl: PCSTR, ppcertchain: Long, pdwsecureflags: Long): BOOL =
-    0
+public actual fun internetGetSecurityInfoByURLA(lpszurl: Pcstr, ppcertchain: COpaquePointer?, pdwsecureflags: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetGetSecurityInfoByURLA((lpszurl?.value ?: 0L).toString(), (ppcertchain?.value ?: 0L).toString(), (pdwsecureflags?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetGetSecurityInfoByURLW(lpszurl: PCWSTR, ppcertchain: Long, pdwsecureflags: Long): BOOL =
-    0
+public actual fun internetGetSecurityInfoByURLW(lpszurl: Pcwstr, ppcertchain: COpaquePointer?, pdwsecureflags: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetGetSecurityInfoByURLW((lpszurl?.value ?: 0L).toString(), (ppcertchain?.value ?: 0L).toString(), (pdwsecureflags?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetGoOnline(lpszurl: PCSTR, hwndparent: HWND, dwflags: UInt): BOOL =
-    0
+public actual fun internetGoOnline(lpszurl: Pcstr, hwndparent: Hwnd, dwflags: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetGoOnline((lpszurl?.value ?: 0L).toString(), (hwndparent?.value ?: 0L).toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetGoOnlineA(lpszurl: PCSTR, hwndparent: HWND, dwflags: UInt): BOOL =
-    0
+public actual fun internetGoOnlineA(lpszurl: Pcstr, hwndparent: Hwnd, dwflags: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetGoOnlineA((lpszurl?.value ?: 0L).toString(), (hwndparent?.value ?: 0L).toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetGoOnlineW(lpszurl: PCWSTR, hwndparent: HWND, dwflags: UInt): BOOL =
-    0
+public actual fun internetGoOnlineW(lpszurl: Pcwstr, hwndparent: Hwnd, dwflags: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetGoOnlineW((lpszurl?.value ?: 0L).toString(), (hwndparent?.value ?: 0L).toString(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetHangUp(dwconnection: ULong, dwreserved: UInt): UInt =
-    0u
+public actual fun internetHangUp(dwconnection: ULong, dwreserved: UInt): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetHangUp(dwconnection.toString(), dwreserved.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetInitializeAutoProxyDll(dwreserved: UInt): BOOL =
-    0
+public actual fun internetInitializeAutoProxyDll(dwreserved: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetInitializeAutoProxyDll(dwreserved.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetLockRequestFile(hinternet: Long, lphlockrequestinfo: Long): BOOL =
-    0
+public actual fun internetLockRequestFile(hinternet: COpaquePointer?, lphlockrequestinfo: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetLockRequestFile((hinternet?.value ?: 0L).toString(), (lphlockrequestinfo?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetOpenA(lpszagent: PCSTR, dwaccesstype: UInt, lpszproxy: PCSTR, lpszproxybypass: PCSTR, dwflags: UInt): Long =
-    0L
+public actual fun internetOpenA(lpszagent: Pcstr, dwaccesstype: UInt, lpszproxy: Pcstr, lpszproxybypass: Pcstr, dwflags: UInt): COpaquePointer? =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetOpenA((lpszagent?.value ?: 0L).toString(), dwaccesstype.toInt(), (lpszproxy?.value ?: 0L).toString(), (lpszproxybypass?.value ?: 0L).toString(), dwflags.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetOpenUrlA(hinternet: Long, lpszurl: PCSTR, lpszheaders: PCSTR, dwheaderslength: UInt, dwflags: UInt, dwcontext: ULong): Long =
-    0L
+public actual fun internetOpenUrlA(hinternet: COpaquePointer?, lpszurl: Pcstr, lpszheaders: Pcstr, dwheaderslength: UInt, dwflags: UInt, dwcontext: ULong): COpaquePointer? =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetOpenUrlA((hinternet?.value ?: 0L).toString(), (lpszurl?.value ?: 0L).toString(), (lpszheaders?.value ?: 0L).toString(), dwheaderslength.toInt(), dwflags.toInt(), dwcontext.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetOpenUrlW(hinternet: Long, lpszurl: PCWSTR, lpszheaders: PCWSTR, dwheaderslength: UInt, dwflags: UInt, dwcontext: ULong): Long =
-    0L
+public actual fun internetOpenUrlW(hinternet: COpaquePointer?, lpszurl: Pcwstr, lpszheaders: Pcwstr, dwheaderslength: UInt, dwflags: UInt, dwcontext: ULong): COpaquePointer? =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetOpenUrlW((hinternet?.value ?: 0L).toString(), (lpszurl?.value ?: 0L).toString(), (lpszheaders?.value ?: 0L).toString(), dwheaderslength.toInt(), dwflags.toInt(), dwcontext.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetOpenW(lpszagent: PCWSTR, dwaccesstype: UInt, lpszproxy: PCWSTR, lpszproxybypass: PCWSTR, dwflags: UInt): Long =
-    0L
+public actual fun internetOpenW(lpszagent: Pcwstr, dwaccesstype: UInt, lpszproxy: Pcwstr, lpszproxybypass: Pcwstr, dwflags: UInt): COpaquePointer? =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetOpenW((lpszagent?.value ?: 0L).toString(), dwaccesstype.toInt(), (lpszproxy?.value ?: 0L).toString(), (lpszproxybypass?.value ?: 0L).toString(), dwflags.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetQueryDataAvailable(hfile: Long, lpdwnumberofbytesavailable: Long, dwflags: UInt, dwcontext: ULong): BOOL =
-    0
+public actual fun internetQueryDataAvailable(hfile: COpaquePointer?, lpdwnumberofbytesavailable: COpaquePointer?, dwflags: UInt, dwcontext: ULong): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetQueryDataAvailable((hfile?.value ?: 0L).toString(), (lpdwnumberofbytesavailable?.value ?: 0L).toString(), dwflags.toInt(), dwcontext.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetQueryFortezzaStatus(pdwstatus: Long, dwreserved: ULong): BOOL =
-    0
+public actual fun internetQueryFortezzaStatus(pdwstatus: COpaquePointer?, dwreserved: ULong): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetQueryFortezzaStatus((pdwstatus?.value ?: 0L).toString(), dwreserved.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetQueryOptionA(hinternet: Long, dwoption: UInt, lpbuffer: Long, lpdwbufferlength: Long): BOOL =
-    0
+public actual fun internetQueryOptionA(hinternet: COpaquePointer?, dwoption: UInt, lpbuffer: COpaquePointer?, lpdwbufferlength: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetQueryOptionA((hinternet?.value ?: 0L).toString(), dwoption.toInt(), (lpbuffer?.value ?: 0L).toString(), (lpdwbufferlength?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetQueryOptionW(hinternet: Long, dwoption: UInt, lpbuffer: Long, lpdwbufferlength: Long): BOOL =
-    0
+public actual fun internetQueryOptionW(hinternet: COpaquePointer?, dwoption: UInt, lpbuffer: COpaquePointer?, lpdwbufferlength: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetQueryOptionW((hinternet?.value ?: 0L).toString(), dwoption.toInt(), (lpbuffer?.value ?: 0L).toString(), (lpdwbufferlength?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetReadFile(hfile: Long, lpbuffer: Long, dwnumberofbytestoread: UInt, lpdwnumberofbytesread: Long): BOOL =
-    0
+public actual fun internetReadFile(hfile: COpaquePointer?, lpbuffer: COpaquePointer?, dwnumberofbytestoread: UInt, lpdwnumberofbytesread: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetReadFile((hfile?.value ?: 0L).toString(), (lpbuffer?.value ?: 0L).toString(), dwnumberofbytestoread.toInt(), (lpdwnumberofbytesread?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetReadFileExA(hfile: Long, lpbuffersout: Long, dwflags: UInt, dwcontext: ULong): BOOL =
-    0
+public actual fun internetReadFileExA(hfile: COpaquePointer?, lpbuffersout: COpaquePointer?, dwflags: UInt, dwcontext: ULong): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetReadFileExA((hfile?.value ?: 0L).toString(), (lpbuffersout?.value ?: 0L).toString(), dwflags.toInt(), dwcontext.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetReadFileExW(hfile: Long, lpbuffersout: Long, dwflags: UInt, dwcontext: ULong): BOOL =
-    0
+public actual fun internetReadFileExW(hfile: COpaquePointer?, lpbuffersout: COpaquePointer?, dwflags: UInt, dwcontext: ULong): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetReadFileExW((hfile?.value ?: 0L).toString(), (lpbuffersout?.value ?: 0L).toString(), dwflags.toInt(), dwcontext.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetSecurityProtocolToStringA(dwprotocol: UInt, lpstr: PSTR, lpdwstrlength: Long, dwreserved: UInt): BOOL =
-    0
+public actual fun internetSecurityProtocolToStringA(dwprotocol: UInt, lpstr: Pstr, lpdwstrlength: COpaquePointer?, dwreserved: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetSecurityProtocolToStringA(dwprotocol.toInt(), (lpstr?.value ?: 0L).toString(), (lpdwstrlength?.value ?: 0L).toString(), dwreserved.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetSecurityProtocolToStringW(dwprotocol: UInt, lpstr: PWSTR, lpdwstrlength: Long, dwreserved: UInt): BOOL =
-    0
+public actual fun internetSecurityProtocolToStringW(dwprotocol: UInt, lpstr: Pwstr, lpdwstrlength: COpaquePointer?, dwreserved: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetSecurityProtocolToStringW(dwprotocol.toInt(), (lpstr?.value ?: 0L).toString(), (lpdwstrlength?.value ?: 0L).toString(), dwreserved.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetSetCookieA(lpszurl: PCSTR, lpszcookiename: PCSTR, lpszcookiedata: PCSTR): BOOL =
-    0
+public actual fun internetSetCookieA(lpszurl: Pcstr, lpszcookiename: Pcstr, lpszcookiedata: Pcstr): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetSetCookieA((lpszurl?.value ?: 0L).toString(), (lpszcookiename?.value ?: 0L).toString(), (lpszcookiedata?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetSetCookieEx2(pcwszurl: PCWSTR, pcookie: Long, pcwszp3ppolicy: PCWSTR, dwflags: UInt, pdwcookiestate: Long): UInt =
-    0u
+public actual fun internetSetCookieEx2(pcwszurl: Pcwstr, pcookie: COpaquePointer?, pcwszp3ppolicy: Pcwstr, dwflags: UInt, pdwcookiestate: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetSetCookieEx2((pcwszurl?.value ?: 0L).toString(), (pcookie?.value ?: 0L).toString(), (pcwszp3ppolicy?.value ?: 0L).toString(), dwflags.toInt(), (pdwcookiestate?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetSetCookieExA(lpszurl: PCSTR, lpszcookiename: PCSTR, lpszcookiedata: PCSTR, dwflags: UInt, dwreserved: ULong): UInt =
-    0u
+public actual fun internetSetCookieExA(lpszurl: Pcstr, lpszcookiename: Pcstr, lpszcookiedata: Pcstr, dwflags: UInt, dwreserved: ULong): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetSetCookieExA((lpszurl?.value ?: 0L).toString(), (lpszcookiename?.value ?: 0L).toString(), (lpszcookiedata?.value ?: 0L).toString(), dwflags.toInt(), dwreserved.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetSetCookieExW(lpszurl: PCWSTR, lpszcookiename: PCWSTR, lpszcookiedata: PCWSTR, dwflags: UInt, dwreserved: ULong): UInt =
-    0u
+public actual fun internetSetCookieExW(lpszurl: Pcwstr, lpszcookiename: Pcwstr, lpszcookiedata: Pcwstr, dwflags: UInt, dwreserved: ULong): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetSetCookieExW((lpszurl?.value ?: 0L).toString(), (lpszcookiename?.value ?: 0L).toString(), (lpszcookiedata?.value ?: 0L).toString(), dwflags.toInt(), dwreserved.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetSetCookieW(lpszurl: PCWSTR, lpszcookiename: PCWSTR, lpszcookiedata: PCWSTR): BOOL =
-    0
+public actual fun internetSetCookieW(lpszurl: Pcwstr, lpszcookiename: Pcwstr, lpszcookiedata: Pcwstr): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetSetCookieW((lpszurl?.value ?: 0L).toString(), (lpszcookiename?.value ?: 0L).toString(), (lpszcookiedata?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetSetDialState(lpszconnectoid: PCSTR, dwstate: UInt, dwreserved: UInt): BOOL =
-    0
+public actual fun internetSetDialState(lpszconnectoid: Pcstr, dwstate: UInt, dwreserved: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetSetDialState((lpszconnectoid?.value ?: 0L).toString(), dwstate.toInt(), dwreserved.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetSetDialStateA(lpszconnectoid: PCSTR, dwstate: UInt, dwreserved: UInt): BOOL =
-    0
+public actual fun internetSetDialStateA(lpszconnectoid: Pcstr, dwstate: UInt, dwreserved: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetSetDialStateA((lpszconnectoid?.value ?: 0L).toString(), dwstate.toInt(), dwreserved.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetSetDialStateW(lpszconnectoid: PCWSTR, dwstate: UInt, dwreserved: UInt): BOOL =
-    0
+public actual fun internetSetDialStateW(lpszconnectoid: Pcwstr, dwstate: UInt, dwreserved: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetSetDialStateW((lpszconnectoid?.value ?: 0L).toString(), dwstate.toInt(), dwreserved.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetSetFilePointer(hfile: Long, ldistancetomove: Int, lpdistancetomovehigh: Long, dwmovemethod: UInt, dwcontext: ULong): UInt =
-    0u
+public actual fun internetSetFilePointer(hfile: COpaquePointer?, ldistancetomove: Int, lpdistancetomovehigh: COpaquePointer?, dwmovemethod: UInt, dwcontext: ULong): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetSetFilePointer((hfile?.value ?: 0L).toString(), ldistancetomove, (lpdistancetomovehigh?.value ?: 0L).toString(), dwmovemethod.toInt(), dwcontext.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetSetOptionA(hinternet: Long, dwoption: UInt, lpbuffer: Long, dwbufferlength: UInt): BOOL =
-    0
+public actual fun internetSetOptionA(hinternet: COpaquePointer?, dwoption: UInt, lpbuffer: COpaquePointer?, dwbufferlength: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetSetOptionA((hinternet?.value ?: 0L).toString(), dwoption.toInt(), (lpbuffer?.value ?: 0L).toString(), dwbufferlength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetSetOptionExA(hinternet: Long, dwoption: UInt, lpbuffer: Long, dwbufferlength: UInt, dwflags: UInt): BOOL =
-    0
+public actual fun internetSetOptionExA(hinternet: COpaquePointer?, dwoption: UInt, lpbuffer: COpaquePointer?, dwbufferlength: UInt, dwflags: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetSetOptionExA((hinternet?.value ?: 0L).toString(), dwoption.toInt(), (lpbuffer?.value ?: 0L).toString(), dwbufferlength.toInt(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetSetOptionExW(hinternet: Long, dwoption: UInt, lpbuffer: Long, dwbufferlength: UInt, dwflags: UInt): BOOL =
-    0
+public actual fun internetSetOptionExW(hinternet: COpaquePointer?, dwoption: UInt, lpbuffer: COpaquePointer?, dwbufferlength: UInt, dwflags: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetSetOptionExW((hinternet?.value ?: 0L).toString(), dwoption.toInt(), (lpbuffer?.value ?: 0L).toString(), dwbufferlength.toInt(), dwflags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetSetOptionW(hinternet: Long, dwoption: UInt, lpbuffer: Long, dwbufferlength: UInt): BOOL =
-    0
+public actual fun internetSetOptionW(hinternet: COpaquePointer?, dwoption: UInt, lpbuffer: COpaquePointer?, dwbufferlength: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetSetOptionW((hinternet?.value ?: 0L).toString(), dwoption.toInt(), (lpbuffer?.value ?: 0L).toString(), dwbufferlength.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetSetPerSiteCookieDecisionA(pchhostname: PCSTR, dwdecision: UInt): BOOL =
-    0
+public actual fun internetSetPerSiteCookieDecisionA(pchhostname: Pcstr, dwdecision: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetSetPerSiteCookieDecisionA((pchhostname?.value ?: 0L).toString(), dwdecision.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetSetPerSiteCookieDecisionW(pchhostname: PCWSTR, dwdecision: UInt): BOOL =
-    0
+public actual fun internetSetPerSiteCookieDecisionW(pchhostname: Pcwstr, dwdecision: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetSetPerSiteCookieDecisionW((pchhostname?.value ?: 0L).toString(), dwdecision.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetSetStatusCallback(hinternet: Long, lpfninternetcallback: LPINTERNET_STATUS_CALLBACK): LPINTERNET_STATUS_CALLBACK =
-    null
+public actual fun internetSetStatusCallback(hinternet: COpaquePointer?, lpfninternetcallback: LpinternetStatusCallback): LpinternetStatusCallback =
+    if (_windowsWin32NetworkingWininetNapiAvailable) null else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetSetStatusCallbackA(hinternet: Long, lpfninternetcallback: LPINTERNET_STATUS_CALLBACK): LPINTERNET_STATUS_CALLBACK =
-    null
+public actual fun internetSetStatusCallbackA(hinternet: COpaquePointer?, lpfninternetcallback: LpinternetStatusCallback): LpinternetStatusCallback =
+    if (_windowsWin32NetworkingWininetNapiAvailable) null else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetSetStatusCallbackW(hinternet: Long, lpfninternetcallback: LPINTERNET_STATUS_CALLBACK): LPINTERNET_STATUS_CALLBACK =
-    null
+public actual fun internetSetStatusCallbackW(hinternet: COpaquePointer?, lpfninternetcallback: LpinternetStatusCallback): LpinternetStatusCallback =
+    if (_windowsWin32NetworkingWininetNapiAvailable) null else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetShowSecurityInfoByURL(lpszurl: PCSTR, hwndparent: HWND): BOOL =
-    0
+public actual fun internetShowSecurityInfoByURL(lpszurl: Pcstr, hwndparent: Hwnd): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetShowSecurityInfoByURL((lpszurl?.value ?: 0L).toString(), (hwndparent?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetShowSecurityInfoByURLA(lpszurl: PCSTR, hwndparent: HWND): BOOL =
-    0
+public actual fun internetShowSecurityInfoByURLA(lpszurl: Pcstr, hwndparent: Hwnd): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetShowSecurityInfoByURLA((lpszurl?.value ?: 0L).toString(), (hwndparent?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetShowSecurityInfoByURLW(lpszurl: PCWSTR, hwndparent: HWND): BOOL =
-    0
+public actual fun internetShowSecurityInfoByURLW(lpszurl: Pcwstr, hwndparent: Hwnd): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetShowSecurityInfoByURLW((lpszurl?.value ?: 0L).toString(), (hwndparent?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetTimeFromSystemTime(pst: Long, dwrfc: UInt, lpsztime: PSTR, cbtime: UInt): BOOL =
-    0
+public actual fun internetTimeFromSystemTime(pst: COpaquePointer?, dwrfc: UInt, lpsztime: Pstr, cbtime: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetTimeFromSystemTime((pst?.value ?: 0L).toString(), dwrfc.toInt(), (lpsztime?.value ?: 0L).toString(), cbtime.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetTimeFromSystemTimeA(pst: Long, dwrfc: UInt, lpsztime: PSTR, cbtime: UInt): BOOL =
-    0
+public actual fun internetTimeFromSystemTimeA(pst: COpaquePointer?, dwrfc: UInt, lpsztime: Pstr, cbtime: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetTimeFromSystemTimeA((pst?.value ?: 0L).toString(), dwrfc.toInt(), (lpsztime?.value ?: 0L).toString(), cbtime.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetTimeFromSystemTimeW(pst: Long, dwrfc: UInt, lpsztime: PWSTR, cbtime: UInt): BOOL =
-    0
+public actual fun internetTimeFromSystemTimeW(pst: COpaquePointer?, dwrfc: UInt, lpsztime: Pwstr, cbtime: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetTimeFromSystemTimeW((pst?.value ?: 0L).toString(), dwrfc.toInt(), (lpsztime?.value ?: 0L).toString(), cbtime.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetTimeToSystemTime(lpsztime: PCSTR, pst: Long, dwreserved: UInt): BOOL =
-    0
+public actual fun internetTimeToSystemTime(lpsztime: Pcstr, pst: COpaquePointer?, dwreserved: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetTimeToSystemTime((lpsztime?.value ?: 0L).toString(), (pst?.value ?: 0L).toString(), dwreserved.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetTimeToSystemTimeA(lpsztime: PCSTR, pst: Long, dwreserved: UInt): BOOL =
-    0
+public actual fun internetTimeToSystemTimeA(lpsztime: Pcstr, pst: COpaquePointer?, dwreserved: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetTimeToSystemTimeA((lpsztime?.value ?: 0L).toString(), (pst?.value ?: 0L).toString(), dwreserved.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetTimeToSystemTimeW(lpsztime: PCWSTR, pst: Long, dwreserved: UInt): BOOL =
-    0
+public actual fun internetTimeToSystemTimeW(lpsztime: Pcwstr, pst: COpaquePointer?, dwreserved: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetTimeToSystemTimeW((lpsztime?.value ?: 0L).toString(), (pst?.value ?: 0L).toString(), dwreserved.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetUnlockRequestFile(hlockrequestinfo: HANDLE): BOOL =
-    0
+public actual fun internetUnlockRequestFile(hlockrequestinfo: Handle): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetUnlockRequestFile((hlockrequestinfo?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetWriteFile(hfile: Long, lpbuffer: Long, dwnumberofbytestowrite: UInt, lpdwnumberofbyteswritten: Long): BOOL =
-    0
+public actual fun internetWriteFile(hfile: COpaquePointer?, lpbuffer: COpaquePointer?, dwnumberofbytestowrite: UInt, lpdwnumberofbyteswritten: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetWriteFile((hfile?.value ?: 0L).toString(), (lpbuffer?.value ?: 0L).toString(), dwnumberofbytestowrite.toInt(), (lpdwnumberofbyteswritten?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetWriteFileExA(hfile: Long, lpbuffersin: Long, dwflags: UInt, dwcontext: ULong): BOOL =
-    0
+public actual fun internetWriteFileExA(hfile: COpaquePointer?, lpbuffersin: COpaquePointer?, dwflags: UInt, dwcontext: ULong): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetWriteFileExA((hfile?.value ?: 0L).toString(), (lpbuffersin?.value ?: 0L).toString(), dwflags.toInt(), dwcontext.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternetWriteFileExW(hfile: Long, lpbuffersin: Long, dwflags: UInt, dwcontext: ULong): BOOL =
-    0
+public actual fun internetWriteFileExW(hfile: COpaquePointer?, lpbuffersin: COpaquePointer?, dwflags: UInt, dwcontext: ULong): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_internetWriteFileExW((hfile?.value ?: 0L).toString(), (lpbuffersin?.value ?: 0L).toString(), dwflags.toInt(), dwcontext.toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsDomainLegalCookieDomainA(pchdomain: PCSTR, pchfulldomain: PCSTR): BOOL =
-    0
+public actual fun isDomainLegalCookieDomainA(pchdomain: Pcstr, pchfulldomain: Pcstr): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_isDomainLegalCookieDomainA((pchdomain?.value ?: 0L).toString(), (pchfulldomain?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsDomainLegalCookieDomainW(pchdomain: PCWSTR, pchfulldomain: PCWSTR): BOOL =
-    0
+public actual fun isDomainLegalCookieDomainW(pchdomain: Pcwstr, pchfulldomain: Pcwstr): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_isDomainLegalCookieDomainW((pchdomain?.value ?: 0L).toString(), (pchfulldomain?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsHostInProxyBypassList(tscheme: INTERNET_SCHEME, lpszhost: PCSTR, cchhost: UInt): BOOL =
-    0
+public actual fun isHostInProxyBypassList(tscheme: InternetScheme, lpszhost: Pcstr, cchhost: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_isHostInProxyBypassList(tscheme, (lpszhost?.value ?: 0L).toString(), cchhost.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsProfilesEnabled(): BOOL =
-    0
+public actual fun isProfilesEnabled(): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_isProfilesEnabled() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsUrlCacheEntryExpiredA(lpszurlname: PCSTR, dwflags: UInt, pftlastmodified: Long): BOOL =
-    0
+public actual fun isUrlCacheEntryExpiredA(lpszurlname: Pcstr, dwflags: UInt, pftlastmodified: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_isUrlCacheEntryExpiredA((lpszurlname?.value ?: 0L).toString(), dwflags.toInt(), (pftlastmodified?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsUrlCacheEntryExpiredW(lpszurlname: PCWSTR, dwflags: UInt, pftlastmodified: Long): BOOL =
-    0
+public actual fun isUrlCacheEntryExpiredW(lpszurlname: Pcwstr, dwflags: UInt, pftlastmodified: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_isUrlCacheEntryExpiredW((lpszurlname?.value ?: 0L).toString(), dwflags.toInt(), (pftlastmodified?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LoadUrlCacheContent(): BOOL =
-    0
+public actual fun loadUrlCacheContent(): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_loadUrlCacheContent() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ParseX509EncodedCertificateForListBoxEntry(lpcert: Long, cbcert: UInt, lpszlistboxentry: PSTR, lpdwlistboxentry: Long): UInt =
-    0u
+public actual fun parseX509EncodedCertificateForListBoxEntry(lpcert: COpaquePointer?, cbcert: UInt, lpszlistboxentry: Pstr, lpdwlistboxentry: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_parseX509EncodedCertificateForListBoxEntry((lpcert?.value ?: 0L).toString(), cbcert.toInt(), (lpszlistboxentry?.value ?: 0L).toString(), (lpdwlistboxentry?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PerformOperationOverUrlCacheA(pszurlsearchpattern: PCSTR, dwflags: UInt, dwfilter: UInt, groupid: Long, preserved1: Long, pdwreserved2: Long, preserved3: Long, op: CACHE_OPERATOR, poperatordata: Long): BOOL =
-    0
+public actual fun performOperationOverUrlCacheA(pszurlsearchpattern: Pcstr, dwflags: UInt, dwfilter: UInt, groupid: Long, preserved1: COpaquePointer?, pdwreserved2: COpaquePointer?, preserved3: COpaquePointer?, op: CacheOperator, poperatordata: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_performOperationOverUrlCacheA((pszurlsearchpattern?.value ?: 0L).toString(), dwflags.toInt(), dwfilter.toInt(), groupid.toString(), (preserved1?.value ?: 0L).toString(), (pdwreserved2?.value ?: 0L).toString(), (preserved3?.value ?: 0L).toString(), 0L.toString(), (poperatordata?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PrivacyGetZonePreferenceW(dwzone: UInt, dwtype: UInt, pdwtemplate: Long, pszbuffer: PWSTR, pdwbufferlength: Long): UInt =
-    0u
+public actual fun privacyGetZonePreferenceW(dwzone: UInt, dwtype: UInt, pdwtemplate: COpaquePointer?, pszbuffer: Pwstr, pdwbufferlength: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_privacyGetZonePreferenceW(dwzone.toInt(), dwtype.toInt(), (pdwtemplate?.value ?: 0L).toString(), (pszbuffer?.value ?: 0L).toString(), (pdwbufferlength?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PrivacySetZonePreferenceW(dwzone: UInt, dwtype: UInt, dwtemplate: UInt, pszpreference: PCWSTR): UInt =
-    0u
+public actual fun privacySetZonePreferenceW(dwzone: UInt, dwtype: UInt, dwtemplate: UInt, pszpreference: Pcwstr): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_privacySetZonePreferenceW(dwzone.toInt(), dwtype.toInt(), dwtemplate.toInt(), (pszpreference?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ReadGuidsForConnectedNetworks(pcnetworks: Long, pppwsznetworkguids: Long, pppbstrnetworknames: Long, pppwszgwmacs: Long, pcgatewaymacs: Long, pdwflags: Long): BOOL =
-    0
+public actual fun readGuidsForConnectedNetworks(pcnetworks: COpaquePointer?, pppwsznetworkguids: COpaquePointer?, pppbstrnetworknames: COpaquePointer?, pppwszgwmacs: COpaquePointer?, pcgatewaymacs: COpaquePointer?, pdwflags: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_readGuidsForConnectedNetworks((pcnetworks?.value ?: 0L).toString(), (pppwsznetworkguids?.value ?: 0L).toString(), (pppbstrnetworknames?.value ?: 0L).toString(), (pppwszgwmacs?.value ?: 0L).toString(), (pcgatewaymacs?.value ?: 0L).toString(), (pdwflags?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ReadUrlCacheEntryStream(hurlcachestream: HANDLE, dwlocation: UInt, lpbuffer: Long, lpdwlen: Long, reserved: UInt): BOOL =
-    0
+public actual fun readUrlCacheEntryStream(hurlcachestream: Handle, dwlocation: UInt, lpbuffer: COpaquePointer?, lpdwlen: COpaquePointer?, reserved: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_readUrlCacheEntryStream((hurlcachestream?.value ?: 0L).toString(), dwlocation.toInt(), (lpbuffer?.value ?: 0L).toString(), (lpdwlen?.value ?: 0L).toString(), reserved.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ReadUrlCacheEntryStreamEx(hurlcachestream: HANDLE, qwlocation: ULong, lpbuffer: Long, lpdwlen: Long): BOOL =
-    0
+public actual fun readUrlCacheEntryStreamEx(hurlcachestream: Handle, qwlocation: ULong, lpbuffer: COpaquePointer?, lpdwlen: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_readUrlCacheEntryStreamEx((hurlcachestream?.value ?: 0L).toString(), qwlocation.toString(), (lpbuffer?.value ?: 0L).toString(), (lpdwlen?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RegisterUrlCacheNotification(hwnd: HWND, umsg: UInt, gid: Long, dwopsfilter: UInt, dwreserved: UInt): BOOL =
-    0
+public actual fun registerUrlCacheNotification(hwnd: Hwnd, umsg: UInt, gid: Long, dwopsfilter: UInt, dwreserved: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_registerUrlCacheNotification((hwnd?.value ?: 0L).toString(), umsg.toInt(), gid.toString(), dwopsfilter.toInt(), dwreserved.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResumeSuspendedDownload(hrequest: Long, dwresultcode: UInt): BOOL =
-    0
+public actual fun resumeSuspendedDownload(hrequest: COpaquePointer?, dwresultcode: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_resumeSuspendedDownload((hrequest?.value ?: 0L).toString(), dwresultcode.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RetrieveUrlCacheEntryFileA(lpszurlname: PCSTR, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long, dwreserved: UInt): BOOL =
-    0
+public actual fun retrieveUrlCacheEntryFileA(lpszurlname: Pcstr, lpcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?, dwreserved: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryFileA((lpszurlname?.value ?: 0L).toString(), (lpcacheentryinfo?.value ?: 0L).toString(), (lpcbcacheentryinfo?.value ?: 0L).toString(), dwreserved.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RetrieveUrlCacheEntryFileW(lpszurlname: PCWSTR, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long, dwreserved: UInt): BOOL =
-    0
+public actual fun retrieveUrlCacheEntryFileW(lpszurlname: Pcwstr, lpcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?, dwreserved: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryFileW((lpszurlname?.value ?: 0L).toString(), (lpcacheentryinfo?.value ?: 0L).toString(), (lpcbcacheentryinfo?.value ?: 0L).toString(), dwreserved.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RetrieveUrlCacheEntryStreamA(lpszurlname: PCSTR, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long, frandomread: BOOL, dwreserved: UInt): HANDLE =
-    0L
+public actual fun retrieveUrlCacheEntryStreamA(lpszurlname: Pcstr, lpcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?, frandomread: Bool, dwreserved: UInt): Handle =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryStreamA((lpszurlname?.value ?: 0L).toString(), (lpcacheentryinfo?.value ?: 0L).toString(), (lpcbcacheentryinfo?.value ?: 0L).toString(), frandomread, dwreserved.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RetrieveUrlCacheEntryStreamW(lpszurlname: PCWSTR, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long, frandomread: BOOL, dwreserved: UInt): HANDLE =
-    0L
+public actual fun retrieveUrlCacheEntryStreamW(lpszurlname: Pcwstr, lpcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?, frandomread: Bool, dwreserved: UInt): Handle =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryStreamW((lpszurlname?.value ?: 0L).toString(), (lpcacheentryinfo?.value ?: 0L).toString(), (lpcbcacheentryinfo?.value ?: 0L).toString(), frandomread, dwreserved.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RunOnceUrlCache(hwnd: HWND, hinst: HINSTANCE, lpszcmd: PCSTR, ncmdshow: Int): UInt =
-    0u
+public actual fun runOnceUrlCache(hwnd: Hwnd, hinst: Hinstance, lpszcmd: Pcstr, ncmdshow: Int): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_runOnceUrlCache((hwnd?.value ?: 0L).toString(), (hinst?.value ?: 0L).toString(), (lpszcmd?.value ?: 0L).toString(), ncmdshow).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetUrlCacheConfigInfoA(lpcacheconfiginfo: Long, dwfieldcontrol: UInt): BOOL =
-    0
+public actual fun setUrlCacheConfigInfoA(lpcacheconfiginfo: COpaquePointer?, dwfieldcontrol: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_setUrlCacheConfigInfoA((lpcacheconfiginfo?.value ?: 0L).toString(), dwfieldcontrol.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetUrlCacheConfigInfoW(lpcacheconfiginfo: Long, dwfieldcontrol: UInt): BOOL =
-    0
+public actual fun setUrlCacheConfigInfoW(lpcacheconfiginfo: COpaquePointer?, dwfieldcontrol: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_setUrlCacheConfigInfoW((lpcacheconfiginfo?.value ?: 0L).toString(), dwfieldcontrol.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetUrlCacheEntryGroup(lpszurlname: PCSTR, dwflags: UInt, groupid: Long, pbgroupattributes: Long, cbgroupattributes: UInt, lpreserved: Long): BOOL =
-    0
+public actual fun setUrlCacheEntryGroup(lpszurlname: Pcstr, dwflags: UInt, groupid: Long, pbgroupattributes: COpaquePointer?, cbgroupattributes: UInt, lpreserved: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_setUrlCacheEntryGroup((lpszurlname?.value ?: 0L).toString(), dwflags.toInt(), groupid.toString(), (pbgroupattributes?.value ?: 0L).toString(), cbgroupattributes.toInt(), (lpreserved?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetUrlCacheEntryGroupA(lpszurlname: PCSTR, dwflags: UInt, groupid: Long, pbgroupattributes: Long, cbgroupattributes: UInt, lpreserved: Long): BOOL =
-    0
+public actual fun setUrlCacheEntryGroupA(lpszurlname: Pcstr, dwflags: UInt, groupid: Long, pbgroupattributes: COpaquePointer?, cbgroupattributes: UInt, lpreserved: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_setUrlCacheEntryGroupA((lpszurlname?.value ?: 0L).toString(), dwflags.toInt(), groupid.toString(), (pbgroupattributes?.value ?: 0L).toString(), cbgroupattributes.toInt(), (lpreserved?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetUrlCacheEntryGroupW(lpszurlname: PCWSTR, dwflags: UInt, groupid: Long, pbgroupattributes: Long, cbgroupattributes: UInt, lpreserved: Long): BOOL =
-    0
+public actual fun setUrlCacheEntryGroupW(lpszurlname: Pcwstr, dwflags: UInt, groupid: Long, pbgroupattributes: COpaquePointer?, cbgroupattributes: UInt, lpreserved: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_setUrlCacheEntryGroupW((lpszurlname?.value ?: 0L).toString(), dwflags.toInt(), groupid.toString(), (pbgroupattributes?.value ?: 0L).toString(), cbgroupattributes.toInt(), (lpreserved?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetUrlCacheEntryInfoA(lpszurlname: PCSTR, lpcacheentryinfo: Long, dwfieldcontrol: UInt): BOOL =
-    0
+public actual fun setUrlCacheEntryInfoA(lpszurlname: Pcstr, lpcacheentryinfo: COpaquePointer?, dwfieldcontrol: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_setUrlCacheEntryInfoA((lpszurlname?.value ?: 0L).toString(), (lpcacheentryinfo?.value ?: 0L).toString(), dwfieldcontrol.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetUrlCacheEntryInfoW(lpszurlname: PCWSTR, lpcacheentryinfo: Long, dwfieldcontrol: UInt): BOOL =
-    0
+public actual fun setUrlCacheEntryInfoW(lpszurlname: Pcwstr, lpcacheentryinfo: COpaquePointer?, dwfieldcontrol: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_setUrlCacheEntryInfoW((lpszurlname?.value ?: 0L).toString(), (lpcacheentryinfo?.value ?: 0L).toString(), dwfieldcontrol.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetUrlCacheGroupAttributeA(gid: Long, dwflags: UInt, dwattributes: UInt, lpgroupinfo: Long, lpreserved: Long): BOOL =
-    0
+public actual fun setUrlCacheGroupAttributeA(gid: Long, dwflags: UInt, dwattributes: UInt, lpgroupinfo: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_setUrlCacheGroupAttributeA(gid.toString(), dwflags.toInt(), dwattributes.toInt(), (lpgroupinfo?.value ?: 0L).toString(), (lpreserved?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetUrlCacheGroupAttributeW(gid: Long, dwflags: UInt, dwattributes: UInt, lpgroupinfo: Long, lpreserved: Long): BOOL =
-    0
+public actual fun setUrlCacheGroupAttributeW(gid: Long, dwflags: UInt, dwattributes: UInt, lpgroupinfo: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_setUrlCacheGroupAttributeW(gid.toString(), dwflags.toInt(), dwattributes.toInt(), (lpgroupinfo?.value ?: 0L).toString(), (lpreserved?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetUrlCacheHeaderData(nidx: UInt, dwdata: UInt): BOOL =
-    0
+public actual fun setUrlCacheHeaderData(nidx: UInt, dwdata: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_setUrlCacheHeaderData(nidx.toInt(), dwdata.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ShowClientAuthCerts(hwndparent: HWND): UInt =
-    0u
+public actual fun showClientAuthCerts(hwndparent: Hwnd): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_showClientAuthCerts((hwndparent?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ShowSecurityInfo(hwndparent: HWND, psecurityinfo: Long): UInt =
-    0u
+public actual fun showSecurityInfo(hwndparent: Hwnd, psecurityinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_showSecurityInfo((hwndparent?.value ?: 0L).toString(), (psecurityinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ShowX509EncodedCertificate(hwndparent: HWND, lpcert: Long, cbcert: UInt): UInt =
-    0u
+public actual fun showX509EncodedCertificate(hwndparent: Hwnd, lpcert: COpaquePointer?, cbcert: UInt): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_showX509EncodedCertificate((hwndparent?.value ?: 0L).toString(), (lpcert?.value ?: 0L).toString(), cbcert.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UnlockUrlCacheEntryFile(lpszurlname: PCSTR, dwreserved: UInt): BOOL =
-    0
+public actual fun unlockUrlCacheEntryFile(lpszurlname: Pcstr, dwreserved: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryFile((lpszurlname?.value ?: 0L).toString(), dwreserved.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UnlockUrlCacheEntryFileA(lpszurlname: PCSTR, dwreserved: UInt): BOOL =
-    0
+public actual fun unlockUrlCacheEntryFileA(lpszurlname: Pcstr, dwreserved: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryFileA((lpszurlname?.value ?: 0L).toString(), dwreserved.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UnlockUrlCacheEntryFileW(lpszurlname: PCWSTR, dwreserved: UInt): BOOL =
-    0
+public actual fun unlockUrlCacheEntryFileW(lpszurlname: Pcwstr, dwreserved: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryFileW((lpszurlname?.value ?: 0L).toString(), dwreserved.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UnlockUrlCacheEntryStream(hurlcachestream: HANDLE, reserved: UInt): BOOL =
-    0
+public actual fun unlockUrlCacheEntryStream(hurlcachestream: Handle, reserved: UInt): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryStream((hurlcachestream?.value ?: 0L).toString(), reserved.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UpdateUrlCacheContentPath(sznewpath: PCSTR): BOOL =
-    0
+public actual fun updateUrlCacheContentPath(sznewpath: Pcstr): Bool =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_updateUrlCacheContentPath((sznewpath?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UrlCacheCheckEntriesExist(rgpwszurls: Long, centries: UInt, rgfexist: Long): UInt =
-    0u
+public actual fun urlCacheCheckEntriesExist(rgpwszurls: COpaquePointer?, centries: UInt, rgfexist: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_urlCacheCheckEntriesExist((rgpwszurls?.value ?: 0L).toString(), centries.toInt(), (rgfexist?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UrlCacheCloseEntryHandle(hentryfile: Long) {
+public actual fun urlCacheCloseEntryHandle(hentryfile: COpaquePointer?) {
+    if (_windowsWin32NetworkingWininetNapiAvailable) {
+        _wasm_windowssys_windows_win32_networking_wininet_urlCacheCloseEntryHandle((hentryfile?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun UrlCacheContainerSetEntryMaximumAge(pwszprefix: PCWSTR, dwentrymaxage: UInt): UInt =
-    0u
+public actual fun urlCacheContainerSetEntryMaximumAge(pwszprefix: Pcwstr, dwentrymaxage: UInt): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_urlCacheContainerSetEntryMaximumAge((pwszprefix?.value ?: 0L).toString(), dwentrymaxage.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UrlCacheCreateContainer(pwszname: PCWSTR, pwszprefix: PCWSTR, pwszdirectory: PCWSTR, ulllimit: ULong, dwoptions: UInt): UInt =
-    0u
+public actual fun urlCacheCreateContainer(pwszname: Pcwstr, pwszprefix: Pcwstr, pwszdirectory: Pcwstr, ulllimit: ULong, dwoptions: UInt): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_urlCacheCreateContainer((pwszname?.value ?: 0L).toString(), (pwszprefix?.value ?: 0L).toString(), (pwszdirectory?.value ?: 0L).toString(), ulllimit.toString(), dwoptions.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UrlCacheFindFirstEntry(pwszprefix: PCWSTR, dwflags: UInt, dwfilter: UInt, groupid: Long, pcacheentryinfo: Long, phfind: Long): UInt =
-    0u
+public actual fun urlCacheFindFirstEntry(pwszprefix: Pcwstr, dwflags: UInt, dwfilter: UInt, groupid: Long, pcacheentryinfo: COpaquePointer?, phfind: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_urlCacheFindFirstEntry((pwszprefix?.value ?: 0L).toString(), dwflags.toInt(), dwfilter.toInt(), groupid.toString(), (pcacheentryinfo?.value ?: 0L).toString(), (phfind?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UrlCacheFindNextEntry(hfind: HANDLE, pcacheentryinfo: Long): UInt =
-    0u
+public actual fun urlCacheFindNextEntry(hfind: Handle, pcacheentryinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_urlCacheFindNextEntry((hfind?.value ?: 0L).toString(), (pcacheentryinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UrlCacheFreeEntryInfo(pcacheentryinfo: Long) {
+public actual fun urlCacheFreeEntryInfo(pcacheentryinfo: COpaquePointer?) {
+    if (_windowsWin32NetworkingWininetNapiAvailable) {
+        _wasm_windowssys_windows_win32_networking_wininet_urlCacheFreeEntryInfo((pcacheentryinfo?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun UrlCacheFreeGlobalSpace(ulltargetsize: ULong, dwfilter: UInt): UInt =
-    0u
+public actual fun urlCacheFreeGlobalSpace(ulltargetsize: ULong, dwfilter: UInt): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_urlCacheFreeGlobalSpace(ulltargetsize.toString(), dwfilter.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UrlCacheGetContentPaths(pppwszdirectories: Long, pcdirectories: Long): UInt =
-    0u
+public actual fun urlCacheGetContentPaths(pppwszdirectories: COpaquePointer?, pcdirectories: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_urlCacheGetContentPaths((pppwszdirectories?.value ?: 0L).toString(), (pcdirectories?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UrlCacheGetEntryInfo(happcache: Long, pcwszurl: PCWSTR, pcacheentryinfo: Long): UInt =
-    0u
+public actual fun urlCacheGetEntryInfo(happcache: COpaquePointer?, pcwszurl: Pcwstr, pcacheentryinfo: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_urlCacheGetEntryInfo((happcache?.value ?: 0L).toString(), (pcwszurl?.value ?: 0L).toString(), (pcacheentryinfo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UrlCacheGetGlobalCacheSize(dwfilter: UInt, pullsize: Long, pulllimit: Long): UInt =
-    0u
+public actual fun urlCacheGetGlobalCacheSize(dwfilter: UInt, pullsize: COpaquePointer?, pulllimit: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_urlCacheGetGlobalCacheSize(dwfilter.toInt(), (pullsize?.value ?: 0L).toString(), (pulllimit?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UrlCacheGetGlobalLimit(limittype: URL_CACHE_LIMIT_TYPE, pulllimit: Long): UInt =
-    0u
+public actual fun urlCacheGetGlobalLimit(limittype: UrlCacheLimitType, pulllimit: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_urlCacheGetGlobalLimit(limittype, (pulllimit?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UrlCacheReadEntryStream(hurlcachestream: Long, ulllocation: ULong, pbuffer: Long, dwbufferlen: UInt, pdwbufferlen: Long): UInt =
-    0u
+public actual fun urlCacheReadEntryStream(hurlcachestream: COpaquePointer?, ulllocation: ULong, pbuffer: COpaquePointer?, dwbufferlen: UInt, pdwbufferlen: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_urlCacheReadEntryStream((hurlcachestream?.value ?: 0L).toString(), ulllocation.toString(), (pbuffer?.value ?: 0L).toString(), dwbufferlen.toInt(), (pdwbufferlen?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UrlCacheReloadSettings(): UInt =
-    0u
+public actual fun urlCacheReloadSettings(): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_urlCacheReloadSettings().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UrlCacheRetrieveEntryFile(happcache: Long, pcwszurl: PCWSTR, pcacheentryinfo: Long, phentryfile: Long): UInt =
-    0u
+public actual fun urlCacheRetrieveEntryFile(happcache: COpaquePointer?, pcwszurl: Pcwstr, pcacheentryinfo: COpaquePointer?, phentryfile: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_urlCacheRetrieveEntryFile((happcache?.value ?: 0L).toString(), (pcwszurl?.value ?: 0L).toString(), (pcacheentryinfo?.value ?: 0L).toString(), (phentryfile?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UrlCacheRetrieveEntryStream(happcache: Long, pcwszurl: PCWSTR, frandomread: BOOL, pcacheentryinfo: Long, phentrystream: Long): UInt =
-    0u
+public actual fun urlCacheRetrieveEntryStream(happcache: COpaquePointer?, pcwszurl: Pcwstr, frandomread: Bool, pcacheentryinfo: COpaquePointer?, phentrystream: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_urlCacheRetrieveEntryStream((happcache?.value ?: 0L).toString(), (pcwszurl?.value ?: 0L).toString(), frandomread, (pcacheentryinfo?.value ?: 0L).toString(), (phentrystream?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UrlCacheServer(): UInt =
-    0u
+public actual fun urlCacheServer(): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_urlCacheServer().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UrlCacheSetGlobalLimit(limittype: URL_CACHE_LIMIT_TYPE, ulllimit: ULong): UInt =
-    0u
+public actual fun urlCacheSetGlobalLimit(limittype: UrlCacheLimitType, ulllimit: ULong): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_urlCacheSetGlobalLimit(limittype, ulllimit.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UrlCacheUpdateEntryExtraData(happcache: Long, pcwszurl: PCWSTR, pbextradata: Long, cbextradata: UInt): UInt =
-    0u
+public actual fun urlCacheUpdateEntryExtraData(happcache: COpaquePointer?, pcwszurl: Pcwstr, pbextradata: COpaquePointer?, cbextradata: UInt): UInt =
+    if (_windowsWin32NetworkingWininetNapiAvailable) _wasm_windowssys_windows_win32_networking_wininet_urlCacheUpdateEntryExtraData((happcache?.value ?: 0L).toString(), (pcwszurl?.value ?: 0L).toString(), (pbextradata?.value ?: 0L).toString(), cbextradata.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")

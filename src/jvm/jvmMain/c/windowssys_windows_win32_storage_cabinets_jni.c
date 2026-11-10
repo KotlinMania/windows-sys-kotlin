@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cabinets_WindowsWin32StorageCabinetsJniBridge_windowssys_1windows_1win32_1storage_1cabinets_1FCIAddFile(JNIEnv* km_env, jclass km_clazz, jlong hfci, jlong pszsourcefile, jlong pszfilename, jint fexecute, jlong pfnfcignc, jlong pfnfcis, jlong pfnfcigoi, jshort typecompress) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cabinets_WindowsWin32StorageCabinetsJniBridge_windowssys_1windows_1win32_1storage_1cabinets_1fCIAddFile(JNIEnv* km_env, jclass km_clazz, jlong hfci, jlong pszsourcefile, jlong pszfilename, jint fexecute, jlong pfnfcignc, jlong pfnfcis, jlong pfnfcigoi, jshort typecompress) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -43,7 +43,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cabinets_WindowsWin32StorageCabinetsJniBridge_windowssys_1windows_1win32_1storage_1cabinets_1FCICreate(JNIEnv* km_env, jclass km_clazz, jlong perf, jlong pfnfcifp, jlong pfna, jlong pfnf, jlong pfnopen, jlong pfnread, jlong pfnwrite, jlong pfnclose, jlong pfnseek, jlong pfndelete, jlong pfnfcigtf, jlong pccab, jlong pv) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cabinets_WindowsWin32StorageCabinetsJniBridge_windowssys_1windows_1win32_1storage_1cabinets_1fCICreate(JNIEnv* km_env, jclass km_clazz, jlong perf, jlong pfnfcifp, jlong pfna, jlong pfnf, jlong pfnopen, jlong pfnread, jlong pfnwrite, jlong pfnclose, jlong pfnseek, jlong pfndelete, jlong pfnfcigtf, jlong pccab, jlong pv) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -73,7 +73,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stor
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cabinets_WindowsWin32StorageCabinetsJniBridge_windowssys_1windows_1win32_1storage_1cabinets_1FCIDestroy(JNIEnv* km_env, jclass km_clazz, jlong hfci) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cabinets_WindowsWin32StorageCabinetsJniBridge_windowssys_1windows_1win32_1storage_1cabinets_1fCIDestroy(JNIEnv* km_env, jclass km_clazz, jlong hfci) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -91,7 +91,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cabinets_WindowsWin32StorageCabinetsJniBridge_windowssys_1windows_1win32_1storage_1cabinets_1FCIFlushCabinet(JNIEnv* km_env, jclass km_clazz, jlong hfci, jint fgetnextcab, jlong pfnfcignc, jlong pfnfcis) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cabinets_WindowsWin32StorageCabinetsJniBridge_windowssys_1windows_1win32_1storage_1cabinets_1fCIFlushCabinet(JNIEnv* km_env, jclass km_clazz, jlong hfci, jint fgetnextcab, jlong pfnfcignc, jlong pfnfcis) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -112,7 +112,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cabinets_WindowsWin32StorageCabinetsJniBridge_windowssys_1windows_1win32_1storage_1cabinets_1FCIFlushFolder(JNIEnv* km_env, jclass km_clazz, jlong hfci, jlong pfnfcignc, jlong pfnfcis) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cabinets_WindowsWin32StorageCabinetsJniBridge_windowssys_1windows_1win32_1storage_1cabinets_1fCIFlushFolder(JNIEnv* km_env, jclass km_clazz, jlong hfci, jlong pfnfcignc, jlong pfnfcis) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -132,7 +132,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cabinets_WindowsWin32StorageCabinetsJniBridge_windowssys_1windows_1win32_1storage_1cabinets_1FDICopy(JNIEnv* km_env, jclass km_clazz, jlong hfdi, jlong pszcabinet, jlong pszcabpath, jint flags, jlong pfnfdin, jlong pfnfdid, jlong pvuser) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cabinets_WindowsWin32StorageCabinetsJniBridge_windowssys_1windows_1win32_1storage_1cabinets_1fDICopy(JNIEnv* km_env, jclass km_clazz, jlong hfdi, jlong pszcabinet, jlong pszcabpath, jint flags, jlong pfnfdin, jlong pfnfdid, jlong pvuser) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -156,7 +156,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cabinets_WindowsWin32StorageCabinetsJniBridge_windowssys_1windows_1win32_1storage_1cabinets_1FDICreate(JNIEnv* km_env, jclass km_clazz, jlong pfnalloc, jlong pfnfree, jlong pfnopen, jlong pfnread, jlong pfnwrite, jlong pfnclose, jlong pfnseek, jint cputype, jlong perf) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cabinets_WindowsWin32StorageCabinetsJniBridge_windowssys_1windows_1win32_1storage_1cabinets_1fDICreate(JNIEnv* km_env, jclass km_clazz, jlong pfnalloc, jlong pfnfree, jlong pfnopen, jlong pfnread, jlong pfnwrite, jlong pfnclose, jlong pfnseek, jint cputype, jlong perf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -182,7 +182,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stor
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cabinets_WindowsWin32StorageCabinetsJniBridge_windowssys_1windows_1win32_1storage_1cabinets_1FDIDestroy(JNIEnv* km_env, jclass km_clazz, jlong hfdi) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cabinets_WindowsWin32StorageCabinetsJniBridge_windowssys_1windows_1win32_1storage_1cabinets_1fDIDestroy(JNIEnv* km_env, jclass km_clazz, jlong hfdi) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -200,7 +200,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cabinets_WindowsWin32StorageCabinetsJniBridge_windowssys_1windows_1win32_1storage_1cabinets_1FDIIsCabinet(JNIEnv* km_env, jclass km_clazz, jlong hfdi, jlong hf, jlong pfdici) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cabinets_WindowsWin32StorageCabinetsJniBridge_windowssys_1windows_1win32_1storage_1cabinets_1fDIIsCabinet(JNIEnv* km_env, jclass km_clazz, jlong hfdi, jlong hf, jlong pfdici) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -220,7 +220,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cabinets_WindowsWin32StorageCabinetsJniBridge_windowssys_1windows_1win32_1storage_1cabinets_1FDITruncateCabinet(JNIEnv* km_env, jclass km_clazz, jlong hfdi, jlong pszcabinetname, jshort ifoldertodelete) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cabinets_WindowsWin32StorageCabinetsJniBridge_windowssys_1windows_1win32_1storage_1cabinets_1fDITruncateCabinet(JNIEnv* km_env, jclass km_clazz, jlong hfdi, jlong pszcabinetname, jshort ifoldertodelete) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

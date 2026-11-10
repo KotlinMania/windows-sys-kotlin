@@ -1,42 +1,43 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography
 
+import io.github.kotlinmania.windowssys.COpaquePointer
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
 
-public val CMSG_OID_CNG_EXPORT_KEY_TRANS_FUNC: PCSTR = s("CryptMsgDllCNGExportKeyTrans")
+public val CMSG_OID_CNG_EXPORT_KEY_TRANS_FUNC: Pcstr = s("CryptMsgDllCNGExportKeyTrans")
 
-public val CMSG_OID_CNG_GEN_CONTENT_ENCRYPT_KEY_FUNC: PCSTR = s("CryptMsgDllCNGGenContentEncryptKey")
+public val CMSG_OID_CNG_GEN_CONTENT_ENCRYPT_KEY_FUNC: Pcstr = s("CryptMsgDllCNGGenContentEncryptKey")
 
-public val CMSG_OID_CNG_IMPORT_CONTENT_ENCRYPT_KEY_FUNC: PCSTR = s("CryptMsgDllCNGImportContentEncryptKey")
+public val CMSG_OID_CNG_IMPORT_CONTENT_ENCRYPT_KEY_FUNC: Pcstr = s("CryptMsgDllCNGImportContentEncryptKey")
 
-public val CMSG_OID_CNG_IMPORT_KEY_AGREE_FUNC: PCSTR = s("CryptMsgDllCNGImportKeyAgree")
+public val CMSG_OID_CNG_IMPORT_KEY_AGREE_FUNC: Pcstr = s("CryptMsgDllCNGImportKeyAgree")
 
-public val CMSG_OID_CNG_IMPORT_KEY_TRANS_FUNC: PCSTR = s("CryptMsgDllCNGImportKeyTrans")
+public val CMSG_OID_CNG_IMPORT_KEY_TRANS_FUNC: Pcstr = s("CryptMsgDllCNGImportKeyTrans")
 
-public val CMSG_OID_EXPORT_ENCRYPT_KEY_FUNC: PCSTR = s("CryptMsgDllExportEncryptKey")
+public val CMSG_OID_EXPORT_ENCRYPT_KEY_FUNC: Pcstr = s("CryptMsgDllExportEncryptKey")
 
-public val CMSG_OID_EXPORT_KEY_AGREE_FUNC: PCSTR = s("CryptMsgDllExportKeyAgree")
+public val CMSG_OID_EXPORT_KEY_AGREE_FUNC: Pcstr = s("CryptMsgDllExportKeyAgree")
 
-public val CMSG_OID_EXPORT_KEY_TRANS_FUNC: PCSTR = s("CryptMsgDllExportKeyTrans")
+public val CMSG_OID_EXPORT_KEY_TRANS_FUNC: Pcstr = s("CryptMsgDllExportKeyTrans")
 
-public val CMSG_OID_EXPORT_MAIL_LIST_FUNC: PCSTR = s("CryptMsgDllExportMailList")
+public val CMSG_OID_EXPORT_MAIL_LIST_FUNC: Pcstr = s("CryptMsgDllExportMailList")
 
-public val CMSG_OID_GEN_CONTENT_ENCRYPT_KEY_FUNC: PCSTR = s("CryptMsgDllGenContentEncryptKey")
+public val CMSG_OID_GEN_CONTENT_ENCRYPT_KEY_FUNC: Pcstr = s("CryptMsgDllGenContentEncryptKey")
 
-public val CMSG_OID_GEN_ENCRYPT_KEY_FUNC: PCSTR = s("CryptMsgDllGenEncryptKey")
+public val CMSG_OID_GEN_ENCRYPT_KEY_FUNC: Pcstr = s("CryptMsgDllGenEncryptKey")
 
-public val CMSG_OID_IMPORT_ENCRYPT_KEY_FUNC: PCSTR = s("CryptMsgDllImportEncryptKey")
+public val CMSG_OID_IMPORT_ENCRYPT_KEY_FUNC: Pcstr = s("CryptMsgDllImportEncryptKey")
 
-public val CMSG_OID_IMPORT_KEY_AGREE_FUNC: PCSTR = s("CryptMsgDllImportKeyAgree")
+public val CMSG_OID_IMPORT_KEY_AGREE_FUNC: Pcstr = s("CryptMsgDllImportKeyAgree")
 
-public val CMSG_OID_IMPORT_KEY_TRANS_FUNC: PCSTR = s("CryptMsgDllImportKeyTrans")
+public val CMSG_OID_IMPORT_KEY_TRANS_FUNC: Pcstr = s("CryptMsgDllImportKeyTrans")
 
-public val CMSG_OID_IMPORT_MAIL_LIST_FUNC: PCSTR = s("CryptMsgDllImportMailList")
+public val CMSG_OID_IMPORT_MAIL_LIST_FUNC: Pcstr = s("CryptMsgDllImportMailList")
 
 public val CMSG_RC4_NO_SALT_FLAG: UInt = 1073741824u
 
@@ -46,9 +47,9 @@ public val CMSG_RECIPIENT_INDEX_PARAM: UInt = 18u
 
 public val CMSG_RECIPIENT_INFO_PARAM: UInt = 19u
 
-public val CMSG_SIGNED: CRYPT_MSG_TYPE = 2u
+public val CMSG_SIGNED: CryptMsgType = 2u
 
-public val CMSG_SIGNED_AND_ENVELOPED: CRYPT_MSG_TYPE = 4u
+public val CMSG_SIGNED_AND_ENVELOPED: CryptMsgType = 4u
 
 public val CMSG_SIGNED_DATA_CMS_VERSION: UInt = 3u
 
@@ -106,11 +107,11 @@ public val CMSG_VERIFY_SIGNER_PUBKEY: UInt = 1u
 
 public val CMSG_VERSION_PARAM: UInt = 30u
 
-public val CMS_SIGNER_INFO: PCSTR = 501.toLong()
+public val CMS_SIGNER_INFO: Pcstr = COpaquePointer(501.toLong())
 
-public val CNG_RSA_PRIVATE_KEY_BLOB: PCSTR = 83.toLong()
+public val CNG_RSA_PRIVATE_KEY_BLOB: Pcstr = COpaquePointer(83.toLong())
 
-public val CNG_RSA_PUBLIC_KEY_BLOB: PCSTR = 72.toLong()
+public val CNG_RSA_PUBLIC_KEY_BLOB: Pcstr = COpaquePointer(72.toLong())
 
 public val CONTAINER_INFO_CURRENT_VERSION: UInt = 1u
 
@@ -118,19 +119,19 @@ public val CONTAINER_MAP_DEFAULT_CONTAINER: UInt = 2u
 
 public val CONTAINER_MAP_VALID_CONTAINER: UInt = 1u
 
-public val CONTEXT_OID_CAPI2_ANY: PCSTR = 5.toLong()
+public val CONTEXT_OID_CAPI2_ANY: Pcstr = COpaquePointer(5.toLong())
 
-public val CONTEXT_OID_CERTIFICATE: PCSTR = 1.toLong()
+public val CONTEXT_OID_CERTIFICATE: Pcstr = COpaquePointer(1.toLong())
 
-public val CONTEXT_OID_CREATE_OBJECT_CONTEXT_FUNC: PCSTR = s("ContextDllCreateObjectContext")
+public val CONTEXT_OID_CREATE_OBJECT_CONTEXT_FUNC: Pcstr = s("ContextDllCreateObjectContext")
 
-public val CONTEXT_OID_CRL: PCSTR = 2.toLong()
+public val CONTEXT_OID_CRL: Pcstr = COpaquePointer(2.toLong())
 
-public val CONTEXT_OID_CTL: PCSTR = 3.toLong()
+public val CONTEXT_OID_CTL: Pcstr = COpaquePointer(3.toLong())
 
-public val CONTEXT_OID_OCSP_RESP: PCSTR = 6.toLong()
+public val CONTEXT_OID_OCSP_RESP: Pcstr = COpaquePointer(6.toLong())
 
-public val CONTEXT_OID_PKCS7: PCSTR = 4.toLong()
+public val CONTEXT_OID_PKCS7: Pcstr = COpaquePointer(4.toLong())
 
 public val CP_CACHE_MODE_GLOBAL_CACHE: UInt = 1u
 
@@ -138,77 +139,77 @@ public val CP_CACHE_MODE_NO_CACHE: UInt = 3u
 
 public val CP_CACHE_MODE_SESSION_ONLY: UInt = 2u
 
-public val CP_CARD_AUTHENTICATED_STATE: PCWSTR = w("Authenticated State")
+public val CP_CARD_AUTHENTICATED_STATE: Pcwstr = w("Authenticated State")
 
-public val CP_CARD_CACHE_MODE: PCWSTR = w("Cache Mode")
+public val CP_CARD_CACHE_MODE: Pcwstr = w("Cache Mode")
 
-public val CP_CARD_CAPABILITIES: PCWSTR = w("Capabilities")
+public val CP_CARD_CAPABILITIES: Pcwstr = w("Capabilities")
 
-public val CP_CARD_FREE_SPACE: PCWSTR = w("Free Space")
+public val CP_CARD_FREE_SPACE: Pcwstr = w("Free Space")
 
-public val CP_CARD_GUID: PCWSTR = w("Card Identifier")
+public val CP_CARD_GUID: Pcwstr = w("Card Identifier")
 
-public val CP_CARD_KEYSIZES: PCWSTR = w("Key Sizes")
+public val CP_CARD_KEYSIZES: Pcwstr = w("Key Sizes")
 
-public val CP_CARD_LIST_PINS: PCWSTR = w("PIN List")
+public val CP_CARD_LIST_PINS: Pcwstr = w("PIN List")
 
-public val CP_CARD_PIN_INFO: PCWSTR = w("PIN Information")
+public val CP_CARD_PIN_INFO: Pcwstr = w("PIN Information")
 
-public val CP_CARD_PIN_STRENGTH_CHANGE: PCWSTR = w("PIN Strength Change")
+public val CP_CARD_PIN_STRENGTH_CHANGE: Pcwstr = w("PIN Strength Change")
 
-public val CP_CARD_PIN_STRENGTH_UNBLOCK: PCWSTR = w("PIN Strength Unblock")
+public val CP_CARD_PIN_STRENGTH_UNBLOCK: Pcwstr = w("PIN Strength Unblock")
 
-public val CP_CARD_PIN_STRENGTH_VERIFY: PCWSTR = w("PIN Strength Verify")
+public val CP_CARD_PIN_STRENGTH_VERIFY: Pcwstr = w("PIN Strength Verify")
 
-public val CP_CARD_PIV: PCWSTR = w("PIV Card")
+public val CP_CARD_PIV: Pcwstr = w("PIV Card")
 
-public val CP_CARD_READ_ONLY: PCWSTR = w("Read Only Mode")
+public val CP_CARD_READ_ONLY: Pcwstr = w("Read Only Mode")
 
-public val CP_CARD_SERIAL_NO: PCWSTR = w("Card Serial Number")
+public val CP_CARD_SERIAL_NO: Pcwstr = w("Card Serial Number")
 
-public val CP_CHAINING_MODES: PCWSTR = w("Chaining Modes")
+public val CP_CHAINING_MODES: Pcwstr = w("Chaining Modes")
 
-public val CP_ENUM_ALGORITHMS: PCWSTR = w("Algorithms")
+public val CP_ENUM_ALGORITHMS: Pcwstr = w("Algorithms")
 
-public val CP_KEY_IMPORT_SUPPORT: PCWSTR = w("Key Import Support")
+public val CP_KEY_IMPORT_SUPPORT: Pcwstr = w("Key Import Support")
 
-public val CP_PADDING_SCHEMES: PCWSTR = w("Padding Schemes")
+public val CP_PADDING_SCHEMES: Pcwstr = w("Padding Schemes")
 
-public val CP_PARENT_WINDOW: PCWSTR = w("Parent Window")
+public val CP_PARENT_WINDOW: Pcwstr = w("Parent Window")
 
-public val CP_PIN_CONTEXT_STRING: PCWSTR = w("PIN Context String")
+public val CP_PIN_CONTEXT_STRING: Pcwstr = w("PIN Context String")
 
-public val CP_PIV_CARD_CAPABILITY_CONTAINER: PCWSTR = w("PIV CCC")
+public val CP_PIV_CARD_CAPABILITY_CONTAINER: Pcwstr = w("PIV CCC")
 
-public val CP_PIV_CARD_HOLDER_UNIQUE_IDENTIFIER: PCWSTR = w("PIV CHUID")
+public val CP_PIV_CARD_HOLDER_UNIQUE_IDENTIFIER: Pcwstr = w("PIV CHUID")
 
-public val CP_PIV_CARD_HOLDER_UNSIGNED_UNIQUE_IDENTIFIER: PCWSTR = w("PIV UCHUID")
+public val CP_PIV_CARD_HOLDER_UNSIGNED_UNIQUE_IDENTIFIER: Pcwstr = w("PIV UCHUID")
 
-public val CP_PIV_CERTIFICATE: PCWSTR = w("PIV Certificate")
+public val CP_PIV_CERTIFICATE: Pcwstr = w("PIV Certificate")
 
-public val CP_PIV_FACIAL_IMAGE: PCWSTR = w("PIV Facial Image")
+public val CP_PIV_FACIAL_IMAGE: Pcwstr = w("PIV Facial Image")
 
-public val CP_PIV_FINGERPRINT: PCWSTR = w("PIV Fingerprint")
+public val CP_PIV_FINGERPRINT: Pcwstr = w("PIV Fingerprint")
 
-public val CP_PIV_GENERATE_KEY: PCWSTR = w("PIV Generate Key")
+public val CP_PIV_GENERATE_KEY: Pcwstr = w("PIV Generate Key")
 
-public val CP_PIV_KEY_HISTORY_OBJECT: PCWSTR = w("PIV Key History Object")
+public val CP_PIV_KEY_HISTORY_OBJECT: Pcwstr = w("PIV Key History Object")
 
-public val CP_PIV_PRINTED_INFORMATION: PCWSTR = w("PIV Printed Information")
+public val CP_PIV_PRINTED_INFORMATION: Pcwstr = w("PIV Printed Information")
 
-public val CP_PIV_PUBLIC_KEY: PCWSTR = w("PIV Public Key")
+public val CP_PIV_PUBLIC_KEY: Pcwstr = w("PIV Public Key")
 
-public val CP_PIV_SECURITY_OBJECT: PCWSTR = w("PIV Security Object")
+public val CP_PIV_SECURITY_OBJECT: Pcwstr = w("PIV Security Object")
 
-public val CP_SUPPORTS_WIN_X509_ENROLLMENT: PCWSTR = w("Supports Windows x.509 Enrollment")
+public val CP_SUPPORTS_WIN_X509_ENROLLMENT: Pcwstr = w("Supports Windows x.509 Enrollment")
 
 public val CREDENTIAL_OID_PASSWORD_CREDENTIALS: Int = 2
 
-public val CREDENTIAL_OID_PASSWORD_CREDENTIALS_A: PCSTR = 1.toLong()
+public val CREDENTIAL_OID_PASSWORD_CREDENTIALS_A: Pcstr = COpaquePointer(1.toLong())
 
-public val CREDENTIAL_OID_PASSWORD_CREDENTIALS_W: PCSTR = 2.toLong()
+public val CREDENTIAL_OID_PASSWORD_CREDENTIALS_W: Pcstr = COpaquePointer(2.toLong())
 
-public val CRL_DIST_POINT_ERR_CRL_ISSUER_BIT: Int = -2147483648
+public val CRL_DIST_POINT_ERR_CRL_ISSUER_BIT: Int = -2147483648.toInt()
 
 public val CRL_DIST_POINT_ERR_INDEX_MASK: UInt = 127u
 
@@ -242,23 +243,23 @@ public val CRL_REASON_AA_COMPROMISE: UInt = 10u
 
 public val CRL_REASON_AA_COMPROMISE_FLAG: UInt = 128u
 
-public val CRL_REASON_AFFILIATION_CHANGED: CERT_REVOCATION_STATUS_REASON = 3u
+public val CRL_REASON_AFFILIATION_CHANGED: CertRevocationStatusReason = 3u
 
 public val CRL_REASON_AFFILIATION_CHANGED_FLAG: UInt = 16u
 
-public val CRL_REASON_CA_COMPROMISE: CERT_REVOCATION_STATUS_REASON = 2u
+public val CRL_REASON_CA_COMPROMISE: CertRevocationStatusReason = 2u
 
 public val CRL_REASON_CA_COMPROMISE_FLAG: UInt = 32u
 
-public val CRL_REASON_CERTIFICATE_HOLD: CERT_REVOCATION_STATUS_REASON = 6u
+public val CRL_REASON_CERTIFICATE_HOLD: CertRevocationStatusReason = 6u
 
 public val CRL_REASON_CERTIFICATE_HOLD_FLAG: UInt = 2u
 
-public val CRL_REASON_CESSATION_OF_OPERATION: CERT_REVOCATION_STATUS_REASON = 5u
+public val CRL_REASON_CESSATION_OF_OPERATION: CertRevocationStatusReason = 5u
 
 public val CRL_REASON_CESSATION_OF_OPERATION_FLAG: UInt = 4u
 
-public val CRL_REASON_KEY_COMPROMISE: CERT_REVOCATION_STATUS_REASON = 1u
+public val CRL_REASON_KEY_COMPROMISE: CertRevocationStatusReason = 1u
 
 public val CRL_REASON_KEY_COMPROMISE_FLAG: UInt = 64u
 
@@ -266,13 +267,13 @@ public val CRL_REASON_PRIVILEGE_WITHDRAWN: UInt = 9u
 
 public val CRL_REASON_PRIVILEGE_WITHDRAWN_FLAG: UInt = 1u
 
-public val CRL_REASON_REMOVE_FROM_CRL: CERT_REVOCATION_STATUS_REASON = 8u
+public val CRL_REASON_REMOVE_FROM_CRL: CertRevocationStatusReason = 8u
 
-public val CRL_REASON_SUPERSEDED: CERT_REVOCATION_STATUS_REASON = 4u
+public val CRL_REASON_SUPERSEDED: CertRevocationStatusReason = 4u
 
 public val CRL_REASON_SUPERSEDED_FLAG: UInt = 8u
 
-public val CRL_REASON_UNSPECIFIED: CERT_REVOCATION_STATUS_REASON = 0u
+public val CRL_REASON_UNSPECIFIED: CertRevocationStatusReason = 0u
 
 public val CRL_REASON_UNUSED_FLAG: UInt = 128u
 
@@ -286,75 +287,75 @@ public val CROSS_CERT_DIST_POINT_ERR_INDEX_SHIFT: UInt = 24u
 
 public val CRYPTNET_CACHED_OCSP_SWITCH_TO_CRL_COUNT_DEFAULT: UInt = 50u
 
-public val CRYPTNET_CACHED_OCSP_SWITCH_TO_CRL_COUNT_VALUE_NAME: PCWSTR = w("CryptnetCachedOcspSwitchToCrlCount")
+public val CRYPTNET_CACHED_OCSP_SWITCH_TO_CRL_COUNT_VALUE_NAME: Pcwstr = w("CryptnetCachedOcspSwitchToCrlCount")
 
 public val CRYPTNET_CRL_BEFORE_OCSP_ENABLE: UInt = 4294967295u
 
-public val CRYPTNET_CRL_PRE_FETCH_DISABLE_INFORMATION_EVENTS_VALUE_NAME: PCWSTR = w("DisableInformationEvents")
+public val CRYPTNET_CRL_PRE_FETCH_DISABLE_INFORMATION_EVENTS_VALUE_NAME: Pcwstr = w("DisableInformationEvents")
 
-public val CRYPTNET_CRL_PRE_FETCH_LOG_FILE_NAME_VALUE_NAME: PCWSTR = w("LogFileName")
+public val CRYPTNET_CRL_PRE_FETCH_LOG_FILE_NAME_VALUE_NAME: Pcwstr = w("LogFileName")
 
-public val CRYPTNET_CRL_PRE_FETCH_MAX_AGE_SECONDS_VALUE_NAME: PCWSTR = w("MaxAgeSeconds")
+public val CRYPTNET_CRL_PRE_FETCH_MAX_AGE_SECONDS_VALUE_NAME: Pcwstr = w("MaxAgeSeconds")
 
-public val CRYPTNET_CRL_PRE_FETCH_MIN_AFTER_NEXT_UPDATE_SECONDS_VALUE_NAME: PCWSTR = w("MinAfterNextUpdateSeconds")
+public val CRYPTNET_CRL_PRE_FETCH_MIN_AFTER_NEXT_UPDATE_SECONDS_VALUE_NAME: Pcwstr = w("MinAfterNextUpdateSeconds")
 
-public val CRYPTNET_CRL_PRE_FETCH_MIN_BEFORE_NEXT_UPDATE_SECONDS_VALUE_NAME: PCWSTR = w("MinBeforeNextUpdateSeconds")
+public val CRYPTNET_CRL_PRE_FETCH_MIN_BEFORE_NEXT_UPDATE_SECONDS_VALUE_NAME: Pcwstr = w("MinBeforeNextUpdateSeconds")
 
-public val CRYPTNET_CRL_PRE_FETCH_PROCESS_NAME_LIST_VALUE_NAME: PCWSTR = w("ProcessNameList")
+public val CRYPTNET_CRL_PRE_FETCH_PROCESS_NAME_LIST_VALUE_NAME: Pcwstr = w("ProcessNameList")
 
-public val CRYPTNET_CRL_PRE_FETCH_PUBLISH_BEFORE_NEXT_UPDATE_SECONDS_VALUE_NAME: PCWSTR = w("PublishBeforeNextUpdateSeconds")
+public val CRYPTNET_CRL_PRE_FETCH_PUBLISH_BEFORE_NEXT_UPDATE_SECONDS_VALUE_NAME: Pcwstr = w("PublishBeforeNextUpdateSeconds")
 
-public val CRYPTNET_CRL_PRE_FETCH_PUBLISH_RANDOM_INTERVAL_SECONDS_VALUE_NAME: PCWSTR = w("PublishRandomIntervalSeconds")
+public val CRYPTNET_CRL_PRE_FETCH_PUBLISH_RANDOM_INTERVAL_SECONDS_VALUE_NAME: Pcwstr = w("PublishRandomIntervalSeconds")
 
-public val CRYPTNET_CRL_PRE_FETCH_TIMEOUT_SECONDS_VALUE_NAME: PCWSTR = w("TimeoutSeconds")
+public val CRYPTNET_CRL_PRE_FETCH_TIMEOUT_SECONDS_VALUE_NAME: Pcwstr = w("TimeoutSeconds")
 
-public val CRYPTNET_CRL_PRE_FETCH_URL_LIST_VALUE_NAME: PCWSTR = w("PreFetchUrlList")
+public val CRYPTNET_CRL_PRE_FETCH_URL_LIST_VALUE_NAME: Pcwstr = w("PreFetchUrlList")
 
 public val CRYPTNET_MAX_CACHED_OCSP_PER_CRL_COUNT_DEFAULT: UInt = 500u
 
-public val CRYPTNET_MAX_CACHED_OCSP_PER_CRL_COUNT_VALUE_NAME: PCWSTR = w("CryptnetMaxCachedOcspPerCrlCount")
+public val CRYPTNET_MAX_CACHED_OCSP_PER_CRL_COUNT_VALUE_NAME: Pcwstr = w("CryptnetMaxCachedOcspPerCrlCount")
 
 public val CRYPTNET_OCSP_AFTER_CRL_DISABLE: UInt = 4294967295u
 
-public val CRYPTNET_PRE_FETCH_AFTER_CURRENT_TIME_PRE_FETCH_PERIOD_SECONDS_VALUE_NAME: PCWSTR = w("CryptnetPreFetchAfterCurrentTimePreFetchPeriodSeconds")
+public val CRYPTNET_PRE_FETCH_AFTER_CURRENT_TIME_PRE_FETCH_PERIOD_SECONDS_VALUE_NAME: Pcwstr = w("CryptnetPreFetchAfterCurrentTimePreFetchPeriodSeconds")
 
 public val CRYPTNET_PRE_FETCH_AFTER_PUBLISH_PRE_FETCH_DIVISOR_DEFAULT: UInt = 10u
 
-public val CRYPTNET_PRE_FETCH_AFTER_PUBLISH_PRE_FETCH_DIVISOR_VALUE_NAME: PCWSTR = w("CryptnetPreFetchAfterPublishPreFetchDivisor")
+public val CRYPTNET_PRE_FETCH_AFTER_PUBLISH_PRE_FETCH_DIVISOR_VALUE_NAME: Pcwstr = w("CryptnetPreFetchAfterPublishPreFetchDivisor")
 
 public val CRYPTNET_PRE_FETCH_BEFORE_NEXT_UPDATE_PRE_FETCH_DIVISOR_DEFAULT: UInt = 20u
 
-public val CRYPTNET_PRE_FETCH_BEFORE_NEXT_UPDATE_PRE_FETCH_DIVISOR_VALUE_NAME: PCWSTR = w("CryptnetPreFetchBeforeNextUpdatePreFetchDivisor")
+public val CRYPTNET_PRE_FETCH_BEFORE_NEXT_UPDATE_PRE_FETCH_DIVISOR_VALUE_NAME: Pcwstr = w("CryptnetPreFetchBeforeNextUpdatePreFetchDivisor")
 
-public val CRYPTNET_PRE_FETCH_MAX_AFTER_NEXT_UPDATE_PRE_FETCH_PERIOD_SECONDS_VALUE_NAME: PCWSTR = w("CryptnetPreFetchMaxAfterNextUpdatePreFetchPeriodSeconds")
+public val CRYPTNET_PRE_FETCH_MAX_AFTER_NEXT_UPDATE_PRE_FETCH_PERIOD_SECONDS_VALUE_NAME: Pcwstr = w("CryptnetPreFetchMaxAfterNextUpdatePreFetchPeriodSeconds")
 
-public val CRYPTNET_PRE_FETCH_MAX_MAX_AGE_SECONDS_VALUE_NAME: PCWSTR = w("CryptnetPreFetchMaxMaxAgeSeconds")
+public val CRYPTNET_PRE_FETCH_MAX_MAX_AGE_SECONDS_VALUE_NAME: Pcwstr = w("CryptnetPreFetchMaxMaxAgeSeconds")
 
-public val CRYPTNET_PRE_FETCH_MIN_AFTER_NEXT_UPDATE_PRE_FETCH_PERIOD_SECONDS_VALUE_NAME: PCWSTR = w("CryptnetPreFetchMinAfterNextUpdatePreFetchPeriodSeconds")
+public val CRYPTNET_PRE_FETCH_MIN_AFTER_NEXT_UPDATE_PRE_FETCH_PERIOD_SECONDS_VALUE_NAME: Pcwstr = w("CryptnetPreFetchMinAfterNextUpdatePreFetchPeriodSeconds")
 
-public val CRYPTNET_PRE_FETCH_MIN_BEFORE_NEXT_UPDATE_PRE_FETCH_PERIOD_SECONDS_VALUE_NAME: PCWSTR = w("CryptnetPreFetchMinBeforeNextUpdatePreFetchSeconds")
+public val CRYPTNET_PRE_FETCH_MIN_BEFORE_NEXT_UPDATE_PRE_FETCH_PERIOD_SECONDS_VALUE_NAME: Pcwstr = w("CryptnetPreFetchMinBeforeNextUpdatePreFetchSeconds")
 
-public val CRYPTNET_PRE_FETCH_MIN_MAX_AGE_SECONDS_VALUE_NAME: PCWSTR = w("CryptnetPreFetchMinMaxAgeSeconds")
+public val CRYPTNET_PRE_FETCH_MIN_MAX_AGE_SECONDS_VALUE_NAME: Pcwstr = w("CryptnetPreFetchMinMaxAgeSeconds")
 
-public val CRYPTNET_PRE_FETCH_MIN_OCSP_VALIDITY_PERIOD_SECONDS_VALUE_NAME: PCWSTR = w("CryptnetPreFetchMinOcspValidityPeriodSeconds")
+public val CRYPTNET_PRE_FETCH_MIN_OCSP_VALIDITY_PERIOD_SECONDS_VALUE_NAME: Pcwstr = w("CryptnetPreFetchMinOcspValidityPeriodSeconds")
 
-public val CRYPTNET_PRE_FETCH_RETRIEVAL_TIMEOUT_SECONDS_VALUE_NAME: PCWSTR = w("CryptnetPreFetchRetrievalTimeoutSeconds")
+public val CRYPTNET_PRE_FETCH_RETRIEVAL_TIMEOUT_SECONDS_VALUE_NAME: Pcwstr = w("CryptnetPreFetchRetrievalTimeoutSeconds")
 
 public val CRYPTNET_PRE_FETCH_SCAN_AFTER_TRIGGER_DELAY_SECONDS_DEFAULT: UInt = 60u
 
-public val CRYPTNET_PRE_FETCH_SCAN_AFTER_TRIGGER_DELAY_SECONDS_VALUE_NAME: PCWSTR = w("CryptnetPreFetchScanAfterTriggerDelaySeconds")
+public val CRYPTNET_PRE_FETCH_SCAN_AFTER_TRIGGER_DELAY_SECONDS_VALUE_NAME: Pcwstr = w("CryptnetPreFetchScanAfterTriggerDelaySeconds")
 
 public val CRYPTNET_PRE_FETCH_TRIGGER_DISABLE: UInt = 4294967295u
 
-public val CRYPTNET_PRE_FETCH_TRIGGER_PERIOD_SECONDS_VALUE_NAME: PCWSTR = w("CryptnetPreFetchTriggerPeriodSeconds")
+public val CRYPTNET_PRE_FETCH_TRIGGER_PERIOD_SECONDS_VALUE_NAME: Pcwstr = w("CryptnetPreFetchTriggerPeriodSeconds")
 
 public val CRYPTNET_PRE_FETCH_VALIDITY_PERIOD_AFTER_NEXT_UPDATE_PRE_FETCH_DIVISOR_DEFAULT: UInt = 10u
 
-public val CRYPTNET_PRE_FETCH_VALIDITY_PERIOD_AFTER_NEXT_UPDATE_PRE_FETCH_DIVISOR_VALUE_NAME: PCWSTR = w("CryptnetPreFetchValidityPeriodAfterNextUpdatePreFetchDivisor")
+public val CRYPTNET_PRE_FETCH_VALIDITY_PERIOD_AFTER_NEXT_UPDATE_PRE_FETCH_DIVISOR_VALUE_NAME: Pcwstr = w("CryptnetPreFetchValidityPeriodAfterNextUpdatePreFetchDivisor")
 
 public val CRYPTNET_URL_CACHE_DEFAULT_FLUSH: UInt = 0u
 
-public val CRYPTNET_URL_CACHE_DEFAULT_FLUSH_EXEMPT_SECONDS_VALUE_NAME: PCWSTR = w("CryptnetDefaultFlushExemptSeconds")
+public val CRYPTNET_URL_CACHE_DEFAULT_FLUSH_EXEMPT_SECONDS_VALUE_NAME: Pcwstr = w("CryptnetDefaultFlushExemptSeconds")
 
 public val CRYPTNET_URL_CACHE_DISABLE_FLUSH: UInt = 4294967295u
 
@@ -392,7 +393,7 @@ public val CRYPTPROTECT_CRED_REGENERATE: UInt = 128u
 
 public val CRYPTPROTECT_CRED_SYNC: UInt = 8u
 
-public val CRYPTPROTECT_DEFAULT_PROVIDER: GUID = GUID.from_u128(U128(0xdf9d8cd0150111d1uL, 0x8c7a00c04fc297ebuL))
+public val CRYPTPROTECT_DEFAULT_PROVIDER: Guid = Guid.fromU128(U128(0xdf9d8cd0150111d1uL, 0x8c7a00c04fc297ebuL))
 
 public val CRYPTPROTECT_FIRST_RESERVED_FLAGVAL: UInt = 268435455u
 
@@ -418,35 +419,35 @@ public val CRYPTPROTECT_VERIFY_PROTECTION: UInt = 64u
 
 public val CRYPT_ACCUMULATIVE_TIMEOUT: UInt = 2048u
 
-public val CRYPT_ACQUIRE_ALLOW_NCRYPT_KEY_FLAG: CRYPT_ACQUIRE_FLAGS = 65536u
+public val CRYPT_ACQUIRE_ALLOW_NCRYPT_KEY_FLAG: CryptAcquireFlags = 65536u
 
-public val CRYPT_ACQUIRE_CACHE_FLAG: CRYPT_ACQUIRE_FLAGS = 1u
+public val CRYPT_ACQUIRE_CACHE_FLAG: CryptAcquireFlags = 1u
 
-public val CRYPT_ACQUIRE_COMPARE_KEY_FLAG: CRYPT_ACQUIRE_FLAGS = 4u
+public val CRYPT_ACQUIRE_COMPARE_KEY_FLAG: CryptAcquireFlags = 4u
 
-public val CRYPT_ACQUIRE_NCRYPT_KEY_FLAGS_MASK: CRYPT_ACQUIRE_FLAGS = 458752u
+public val CRYPT_ACQUIRE_NCRYPT_KEY_FLAGS_MASK: CryptAcquireFlags = 458752u
 
-public val CRYPT_ACQUIRE_NO_HEALING: CRYPT_ACQUIRE_FLAGS = 8u
+public val CRYPT_ACQUIRE_NO_HEALING: CryptAcquireFlags = 8u
 
-public val CRYPT_ACQUIRE_ONLY_NCRYPT_KEY_FLAG: CRYPT_ACQUIRE_FLAGS = 262144u
+public val CRYPT_ACQUIRE_ONLY_NCRYPT_KEY_FLAG: CryptAcquireFlags = 262144u
 
-public val CRYPT_ACQUIRE_PREFER_NCRYPT_KEY_FLAG: CRYPT_ACQUIRE_FLAGS = 131072u
+public val CRYPT_ACQUIRE_PREFER_NCRYPT_KEY_FLAG: CryptAcquireFlags = 131072u
 
-public val CRYPT_ACQUIRE_SILENT_FLAG: CRYPT_ACQUIRE_FLAGS = 64u
+public val CRYPT_ACQUIRE_SILENT_FLAG: CryptAcquireFlags = 64u
 
-public val CRYPT_ACQUIRE_USE_PROV_INFO_FLAG: CRYPT_ACQUIRE_FLAGS = 2u
+public val CRYPT_ACQUIRE_USE_PROV_INFO_FLAG: CryptAcquireFlags = 2u
 
-public val CRYPT_ACQUIRE_WINDOW_HANDLE_FLAG: CRYPT_ACQUIRE_FLAGS = 128u
+public val CRYPT_ACQUIRE_WINDOW_HANDLE_FLAG: CryptAcquireFlags = 128u
 
 public val CRYPT_AIA_RETRIEVAL: UInt = 524288u
 
-public val CRYPT_ALL_FUNCTIONS: BCRYPT_RESOLVE_PROVIDERS_FLAGS = 1u
+public val CRYPT_ALL_FUNCTIONS: BcryptResolveProvidersFlags = 1u
 
-public val CRYPT_ALL_PROVIDERS: BCRYPT_RESOLVE_PROVIDERS_FLAGS = 2u
+public val CRYPT_ALL_PROVIDERS: BcryptResolveProvidersFlags = 2u
 
-public val CRYPT_ANY: BCRYPT_QUERY_PROVIDER_MODE = 4u
+public val CRYPT_ANY: BcryptQueryProviderMode = 4u
 
-public val CRYPT_ARCHIVABLE: CRYPT_KEY_FLAGS = 16384u
+public val CRYPT_ARCHIVABLE: CryptKeyFlags = 16384u
 
 public val CRYPT_ARCHIVE: UInt = 256u
 
@@ -454,19 +455,19 @@ public val CRYPT_ASN_ENCODING: UInt = 1u
 
 public val CRYPT_ASYNC_RETRIEVAL: UInt = 16u
 
-public val CRYPT_BLOB_VER3: CRYPT_KEY_FLAGS = 128u
+public val CRYPT_BLOB_VER3: CryptKeyFlags = 128u
 
 public val CRYPT_CACHE_ONLY_RETRIEVAL: UInt = 2u
 
 public val CRYPT_CHECK_FRESHNESS_TIME_VALIDITY: UInt = 1024u
 
-public val CRYPT_CREATE_IV: CRYPT_KEY_FLAGS = 512u
+public val CRYPT_CREATE_IV: CryptKeyFlags = 512u
 
 public val CRYPT_CREATE_NEW_FLUSH_ENTRY: UInt = 268435456u
 
-public val CRYPT_CREATE_SALT: CRYPT_KEY_FLAGS = 4u
+public val CRYPT_CREATE_SALT: CryptKeyFlags = 4u
 
-public val CRYPT_DATA_KEY: CRYPT_KEY_FLAGS = 2048u
+public val CRYPT_DATA_KEY: CryptKeyFlags = 2048u
 
 public val CRYPT_DECODE_ALLOC_FLAG: UInt = 32768u
 
@@ -488,17 +489,17 @@ public val CRYPT_DECRYPT_RSA_NO_PADDING_CHECK: UInt = 32u
 
 public val CRYPT_DEFAULT_CONTAINER_OPTIONAL: UInt = 128u
 
-public val CRYPT_DEFAULT_CONTEXT: PCWSTR = w("Default")
+public val CRYPT_DEFAULT_CONTEXT: Pcwstr = w("Default")
 
-public val CRYPT_DEFAULT_CONTEXT_AUTO_RELEASE_FLAG: CRYPT_DEFAULT_CONTEXT_FLAGS = 1u
+public val CRYPT_DEFAULT_CONTEXT_AUTO_RELEASE_FLAG: CryptDefaultContextFlags = 1u
 
-public val CRYPT_DEFAULT_CONTEXT_CERT_SIGN_OID: CRYPT_DEFAULT_CONTEXT_TYPE = 1u
+public val CRYPT_DEFAULT_CONTEXT_CERT_SIGN_OID: CryptDefaultContextType = 1u
 
-public val CRYPT_DEFAULT_CONTEXT_MULTI_CERT_SIGN_OID: CRYPT_DEFAULT_CONTEXT_TYPE = 2u
+public val CRYPT_DEFAULT_CONTEXT_MULTI_CERT_SIGN_OID: CryptDefaultContextType = 2u
 
-public val CRYPT_DEFAULT_CONTEXT_PROCESS_FLAG: CRYPT_DEFAULT_CONTEXT_FLAGS = 2u
+public val CRYPT_DEFAULT_CONTEXT_PROCESS_FLAG: CryptDefaultContextFlags = 2u
 
-public val CRYPT_DEFAULT_OID: PCSTR = s("DEFAULT")
+public val CRYPT_DEFAULT_OID: Pcstr = s("DEFAULT")
 
 public val CRYPT_DELETEKEYSET: UInt = 16u
 
@@ -506,9 +507,9 @@ public val CRYPT_DELETE_DEFAULT: UInt = 4u
 
 public val CRYPT_DELETE_KEYSET: UInt = 16u
 
-public val CRYPT_DESTROYKEY: CRYPT_KEY_FLAGS = 4u
+public val CRYPT_DESTROYKEY: CryptKeyFlags = 4u
 
-public val CRYPT_DOMAIN: BCRYPT_TABLE = 2u
+public val CRYPT_DOMAIN: BcryptTable = 2u
 
 public val CRYPT_DONT_CACHE_RESULT: UInt = 8u
 
@@ -518,17 +519,17 @@ public val CRYPT_DONT_VERIFY_SIGNATURE: UInt = 256u
 
 public val CRYPT_ECC_CMS_SHARED_INFO_SUPPPUBINFO_BYTE_LENGTH: UInt = 4u
 
-public val CRYPT_ECC_PRIVATE_KEY_INFO_v1: UInt = 1u
+public val CRYPT_ECC_PRIVATE_KEY_INFO_V1: UInt = 1u
 
 public val CRYPT_ENABLE_FILE_RETRIEVAL: UInt = 134217728u
 
 public val CRYPT_ENABLE_SSL_REVOCATION_RETRIEVAL: UInt = 8388608u
 
-public val CRYPT_ENCODE_ALLOC_FLAG: CRYPT_ENCODE_OBJECT_FLAGS = 32768u
+public val CRYPT_ENCODE_ALLOC_FLAG: CryptEncodeObjectFlags = 32768u
 
 public val CRYPT_ENCODE_DECODE_NONE: UInt = 0u
 
-public val CRYPT_ENCODE_ENABLE_PUNYCODE_FLAG: CRYPT_ENCODE_OBJECT_FLAGS = 131072u
+public val CRYPT_ENCODE_ENABLE_PUNYCODE_FLAG: CryptEncodeObjectFlags = 131072u
 
 public val CRYPT_ENCODE_ENABLE_UTF8PERCENT_FLAG: UInt = 262144u
 
@@ -540,11 +541,11 @@ public val CRYPT_ENCRYPT_ALG_OID_GROUP_ID: UInt = 2u
 
 public val CRYPT_ENHKEY_USAGE_OID_GROUP_ID: UInt = 7u
 
-public val CRYPT_EXCLUSIVE: CRYPT_CONTEXT_CONFIG_FLAGS = 1u
+public val CRYPT_EXCLUSIVE: CryptContextConfigFlags = 1u
 
 public val CRYPT_EXPORT: UInt = 4u
 
-public val CRYPT_EXPORTABLE: CRYPT_KEY_FLAGS = 1u
+public val CRYPT_EXPORTABLE: CryptKeyFlags = 1u
 
 public val CRYPT_EXPORT_KEY: UInt = 64u
 
@@ -556,11 +557,11 @@ public val CRYPT_FAILED: UInt = 0u
 
 public val CRYPT_FASTSGC: UInt = 2u
 
-public val CRYPT_FIND_MACHINE_KEYSET_FLAG: CRYPT_FIND_FLAGS = 2u
+public val CRYPT_FIND_MACHINE_KEYSET_FLAG: CryptFindFlags = 2u
 
-public val CRYPT_FIND_SILENT_KEYSET_FLAG: CRYPT_FIND_FLAGS = 64u
+public val CRYPT_FIND_SILENT_KEYSET_FLAG: CryptFindFlags = 64u
 
-public val CRYPT_FIND_USER_KEYSET_FLAG: CRYPT_FIND_FLAGS = 1u
+public val CRYPT_FIND_USER_KEYSET_FLAG: CryptFindFlags = 1u
 
 public val CRYPT_FIRST: UInt = 1u
 
@@ -578,7 +579,7 @@ public val CRYPT_FLAG_SSL3: UInt = 4u
 
 public val CRYPT_FLAG_TLS1: UInt = 8u
 
-public val CRYPT_FORCE_KEY_PROTECTION_HIGH: CRYPT_KEY_FLAGS = 32768u
+public val CRYPT_FORCE_KEY_PROTECTION_HIGH: CryptKeyFlags = 32768u
 
 public val CRYPT_FORMAT_COMMA: UInt = 4096u
 
@@ -606,13 +607,13 @@ public val CRYPT_FORMAT_X509: UInt = 2u
 
 public val CRYPT_GET_INSTALLED_OID_FUNC_FLAG: UInt = 1u
 
-public val CRYPT_GET_URL_FROM_AUTH_ATTRIBUTE: CRYPT_GET_URL_FLAGS = 8u
+public val CRYPT_GET_URL_FROM_AUTH_ATTRIBUTE: CryptGetUrlFlags = 8u
 
-public val CRYPT_GET_URL_FROM_EXTENSION: CRYPT_GET_URL_FLAGS = 2u
+public val CRYPT_GET_URL_FROM_EXTENSION: CryptGetUrlFlags = 2u
 
-public val CRYPT_GET_URL_FROM_PROPERTY: CRYPT_GET_URL_FLAGS = 1u
+public val CRYPT_GET_URL_FROM_PROPERTY: CryptGetUrlFlags = 1u
 
-public val CRYPT_GET_URL_FROM_UNAUTH_ATTRIBUTE: CRYPT_GET_URL_FLAGS = 4u
+public val CRYPT_GET_URL_FROM_UNAUTH_ATTRIBUTE: CryptGetUrlFlags = 4u
 
 public val CRYPT_HASH_ALG_OID_GROUP_ID: UInt = 1u
 
@@ -630,19 +631,19 @@ public val CRYPT_IMPL_UNKNOWN: UInt = 4u
 
 public val CRYPT_IMPORT_KEY: UInt = 128u
 
-public val CRYPT_INITIATOR: CRYPT_KEY_FLAGS = 64u
+public val CRYPT_INITIATOR: CryptKeyFlags = 64u
 
 public val CRYPT_INSTALL_OID_FUNC_BEFORE_FLAG: UInt = 1u
 
 public val CRYPT_INSTALL_OID_INFO_BEFORE_FLAG: UInt = 1u
 
-public val CRYPT_IPSEC_HMAC_KEY: CRYPT_KEY_FLAGS = 256u
+public val CRYPT_IPSEC_HMAC_KEY: CryptKeyFlags = 256u
 
 public val CRYPT_KDF_OID_GROUP_ID: UInt = 10u
 
 public val CRYPT_KEEP_TIME_VALID: UInt = 128u
 
-public val CRYPT_KEK: CRYPT_KEY_FLAGS = 1024u
+public val CRYPT_KEK: CryptKeyFlags = 1024u
 
 public val CRYPT_KEYID_ALLOC_FLAG: UInt = 32768u
 
@@ -652,7 +653,7 @@ public val CRYPT_KEYID_MACHINE_FLAG: UInt = 32u
 
 public val CRYPT_KEYID_SET_NEW_FLAG: UInt = 8192u
 
-public val CRYPT_KM: BCRYPT_QUERY_PROVIDER_MODE = 2u
+public val CRYPT_KM: BcryptQueryProviderMode = 2u
 
 public val CRYPT_LAST_ALG_OID_GROUP_ID: UInt = 4u
 
@@ -668,19 +669,19 @@ public val CRYPT_LDAP_SIGN_RETRIEVAL: UInt = 65536u
 
 public val CRYPT_LITTLE_ENDIAN: UInt = 1u
 
-public val CRYPT_LOCAL: BCRYPT_TABLE = 1u
+public val CRYPT_LOCAL: BcryptTable = 1u
 
 public val CRYPT_LOCALIZED_NAME_ENCODING_TYPE: UInt = 0u
 
-public val CRYPT_LOCALIZED_NAME_OID: PCSTR = s("LocalizedNames")
+public val CRYPT_LOCALIZED_NAME_OID: Pcstr = s("LocalizedNames")
 
 public val CRYPT_MAC: UInt = 32u
 
 public val CRYPT_MACHINE_DEFAULT: UInt = 1u
 
-public val CRYPT_MACHINE_KEYSET: CRYPT_KEY_FLAGS = 32u
+public val CRYPT_MACHINE_KEYSET: CryptKeyFlags = 32u
 
-public val CRYPT_MAC_RESOURCE: PCWSTR = w("#667")
+public val CRYPT_MAC_RESOURCE: Pcwstr = w("#667")
 
 public val CRYPT_MAC_RESOURCE_NUMBER: UInt = 667u
 
@@ -698,9 +699,9 @@ public val CRYPT_MESSAGE_KEYID_SIGNER_FLAG: UInt = 4u
 
 public val CRYPT_MESSAGE_SILENT_KEYSET_FLAG: UInt = 64u
 
-public val CRYPT_MIN_DEPENDENCIES: CRYPT_IMAGE_REF_FLAGS = 1u
+public val CRYPT_MIN_DEPENDENCIES: CryptImageRefFlags = 1u
 
-public val CRYPT_MM: BCRYPT_QUERY_PROVIDER_MODE = 3u
+public val CRYPT_MM: BcryptQueryProviderMode = 3u
 
 public val CRYPT_MODE_CBC: UInt = 1u
 
@@ -736,9 +737,9 @@ public val CRYPT_NO_AUTH_RETRIEVAL: UInt = 131072u
 
 public val CRYPT_NO_OCSP_FAILOVER_TO_CRL_RETRIEVAL: UInt = 33554432u
 
-public val CRYPT_NO_SALT: CRYPT_KEY_FLAGS = 16u
+public val CRYPT_NO_SALT: CryptKeyFlags = 16u
 
-public val CRYPT_OAEP: CRYPT_KEY_FLAGS = 64u
+public val CRYPT_OAEP: CryptKeyFlags = 64u
 
 public val CRYPT_OBJECT_LOCATOR_FIRST_RESERVED_USER_NAME_TYPE: UInt = 33u
 
@@ -746,13 +747,13 @@ public val CRYPT_OBJECT_LOCATOR_LAST_RESERVED_NAME_TYPE: UInt = 32u
 
 public val CRYPT_OBJECT_LOCATOR_LAST_RESERVED_USER_NAME_TYPE: UInt = 65535u
 
-public val CRYPT_OBJECT_LOCATOR_RELEASE_DLL_UNLOAD: CRYPT_OBJECT_LOCATOR_RELEASE_REASON = 4u
+public val CRYPT_OBJECT_LOCATOR_RELEASE_DLL_UNLOAD: CryptObjectLocatorReleaseReason = 4u
 
-public val CRYPT_OBJECT_LOCATOR_RELEASE_PROCESS_EXIT: CRYPT_OBJECT_LOCATOR_RELEASE_REASON = 3u
+public val CRYPT_OBJECT_LOCATOR_RELEASE_PROCESS_EXIT: CryptObjectLocatorReleaseReason = 3u
 
-public val CRYPT_OBJECT_LOCATOR_RELEASE_SERVICE_STOP: CRYPT_OBJECT_LOCATOR_RELEASE_REASON = 2u
+public val CRYPT_OBJECT_LOCATOR_RELEASE_SERVICE_STOP: CryptObjectLocatorReleaseReason = 2u
 
-public val CRYPT_OBJECT_LOCATOR_RELEASE_SYSTEM_SHUTDOWN: CRYPT_OBJECT_LOCATOR_RELEASE_REASON = 1u
+public val CRYPT_OBJECT_LOCATOR_RELEASE_SYSTEM_SHUTDOWN: CryptObjectLocatorReleaseReason = 1u
 
 public val CRYPT_OBJECT_LOCATOR_SPN_NAME_TYPE: UInt = 1u
 
@@ -760,43 +761,43 @@ public val CRYPT_OCSP_ONLY_RETRIEVAL: UInt = 16777216u
 
 public val CRYPT_OFFLINE_CHECK_RETRIEVAL: UInt = 16384u
 
-public val CRYPT_OID_CREATE_COM_OBJECT_FUNC: PCSTR = s("CryptDllCreateCOMObject")
+public val CRYPT_OID_CREATE_COM_OBJECT_FUNC: Pcstr = s("CryptDllCreateCOMObject")
 
-public val CRYPT_OID_DECODE_OBJECT_EX_FUNC: PCSTR = s("CryptDllDecodeObjectEx")
+public val CRYPT_OID_DECODE_OBJECT_EX_FUNC: Pcstr = s("CryptDllDecodeObjectEx")
 
-public val CRYPT_OID_DECODE_OBJECT_FUNC: PCSTR = s("CryptDllDecodeObject")
+public val CRYPT_OID_DECODE_OBJECT_FUNC: Pcstr = s("CryptDllDecodeObject")
 
 public val CRYPT_OID_DISABLE_SEARCH_DS_FLAG: UInt = 2147483648u
 
-public val CRYPT_OID_ENCODE_OBJECT_EX_FUNC: PCSTR = s("CryptDllEncodeObjectEx")
+public val CRYPT_OID_ENCODE_OBJECT_EX_FUNC: Pcstr = s("CryptDllEncodeObjectEx")
 
-public val CRYPT_OID_ENCODE_OBJECT_FUNC: PCSTR = s("CryptDllEncodeObject")
+public val CRYPT_OID_ENCODE_OBJECT_FUNC: Pcstr = s("CryptDllEncodeObject")
 
-public val CRYPT_OID_ENUM_PHYSICAL_STORE_FUNC: PCSTR = s("CertDllEnumPhysicalStore")
+public val CRYPT_OID_ENUM_PHYSICAL_STORE_FUNC: Pcstr = s("CertDllEnumPhysicalStore")
 
-public val CRYPT_OID_ENUM_SYSTEM_STORE_FUNC: PCSTR = s("CertDllEnumSystemStore")
+public val CRYPT_OID_ENUM_SYSTEM_STORE_FUNC: Pcstr = s("CertDllEnumSystemStore")
 
-public val CRYPT_OID_EXPORT_PRIVATE_KEY_INFO_FUNC: PCSTR = s("CryptDllExportPrivateKeyInfoEx")
+public val CRYPT_OID_EXPORT_PRIVATE_KEY_INFO_FUNC: Pcstr = s("CryptDllExportPrivateKeyInfoEx")
 
-public val CRYPT_OID_EXPORT_PUBLIC_KEY_INFO_EX2_FUNC: PCSTR = s("CryptDllExportPublicKeyInfoEx2")
+public val CRYPT_OID_EXPORT_PUBLIC_KEY_INFO_EX2_FUNC: Pcstr = s("CryptDllExportPublicKeyInfoEx2")
 
-public val CRYPT_OID_EXPORT_PUBLIC_KEY_INFO_FROM_BCRYPT_HANDLE_FUNC: PCSTR = s("CryptDllExportPublicKeyInfoFromBCryptKeyHandle")
+public val CRYPT_OID_EXPORT_PUBLIC_KEY_INFO_FROM_BCRYPT_HANDLE_FUNC: Pcstr = s("CryptDllExportPublicKeyInfoFromBCryptKeyHandle")
 
-public val CRYPT_OID_EXPORT_PUBLIC_KEY_INFO_FUNC: PCSTR = s("CryptDllExportPublicKeyInfoEx")
+public val CRYPT_OID_EXPORT_PUBLIC_KEY_INFO_FUNC: Pcstr = s("CryptDllExportPublicKeyInfoEx")
 
-public val CRYPT_OID_EXTRACT_ENCODED_SIGNATURE_PARAMETERS_FUNC: PCSTR = s("CryptDllExtractEncodedSignatureParameters")
+public val CRYPT_OID_EXTRACT_ENCODED_SIGNATURE_PARAMETERS_FUNC: Pcstr = s("CryptDllExtractEncodedSignatureParameters")
 
-public val CRYPT_OID_FIND_LOCALIZED_NAME_FUNC: PCSTR = s("CryptDllFindLocalizedName")
+public val CRYPT_OID_FIND_LOCALIZED_NAME_FUNC: Pcstr = s("CryptDllFindLocalizedName")
 
-public val CRYPT_OID_FIND_OID_INFO_FUNC: PCSTR = s("CryptDllFindOIDInfo")
+public val CRYPT_OID_FIND_OID_INFO_FUNC: Pcstr = s("CryptDllFindOIDInfo")
 
-public val CRYPT_OID_FORMAT_OBJECT_FUNC: PCSTR = s("CryptDllFormatObject")
+public val CRYPT_OID_FORMAT_OBJECT_FUNC: Pcstr = s("CryptDllFormatObject")
 
-public val CRYPT_OID_IMPORT_PRIVATE_KEY_INFO_FUNC: PCSTR = s("CryptDllImportPrivateKeyInfoEx")
+public val CRYPT_OID_IMPORT_PRIVATE_KEY_INFO_FUNC: Pcstr = s("CryptDllImportPrivateKeyInfoEx")
 
-public val CRYPT_OID_IMPORT_PUBLIC_KEY_INFO_EX2_FUNC: PCSTR = s("CryptDllImportPublicKeyInfoEx2")
+public val CRYPT_OID_IMPORT_PUBLIC_KEY_INFO_EX2_FUNC: Pcstr = s("CryptDllImportPublicKeyInfoEx2")
 
-public val CRYPT_OID_IMPORT_PUBLIC_KEY_INFO_FUNC: PCSTR = s("CryptDllImportPublicKeyInfoEx")
+public val CRYPT_OID_IMPORT_PUBLIC_KEY_INFO_FUNC: Pcstr = s("CryptDllImportPublicKeyInfoEx")
 
 public val CRYPT_OID_INFO_ALGID_KEY: UInt = 3u
 
@@ -804,21 +805,21 @@ public val CRYPT_OID_INFO_CNG_ALGID_KEY: UInt = 5u
 
 public val CRYPT_OID_INFO_CNG_SIGN_KEY: UInt = 6u
 
-public val CRYPT_OID_INFO_ECC_PARAMETERS_ALGORITHM: PCWSTR = w("CryptOIDInfoECCParameters")
+public val CRYPT_OID_INFO_ECC_PARAMETERS_ALGORITHM: Pcwstr = w("CryptOIDInfoECCParameters")
 
-public val CRYPT_OID_INFO_ECC_WRAP_PARAMETERS_ALGORITHM: PCWSTR = w("CryptOIDInfoECCWrapParameters")
+public val CRYPT_OID_INFO_ECC_WRAP_PARAMETERS_ALGORITHM: Pcwstr = w("CryptOIDInfoECCWrapParameters")
 
-public val CRYPT_OID_INFO_HASH_PARAMETERS_ALGORITHM: PCWSTR = w("CryptOIDInfoHashParameters")
+public val CRYPT_OID_INFO_HASH_PARAMETERS_ALGORITHM: Pcwstr = w("CryptOIDInfoHashParameters")
 
-public val CRYPT_OID_INFO_MGF1_PARAMETERS_ALGORITHM: PCWSTR = w("CryptOIDInfoMgf1Parameters")
+public val CRYPT_OID_INFO_MGF1_PARAMETERS_ALGORITHM: Pcwstr = w("CryptOIDInfoMgf1Parameters")
 
 public val CRYPT_OID_INFO_NAME_KEY: UInt = 2u
 
-public val CRYPT_OID_INFO_NO_PARAMETERS_ALGORITHM: PCWSTR = w("CryptOIDInfoNoParameters")
+public val CRYPT_OID_INFO_NO_PARAMETERS_ALGORITHM: Pcwstr = w("CryptOIDInfoNoParameters")
 
-public val CRYPT_OID_INFO_NO_SIGN_ALGORITHM: PCWSTR = w("CryptOIDInfoNoSign")
+public val CRYPT_OID_INFO_NO_SIGN_ALGORITHM: Pcwstr = w("CryptOIDInfoNoSign")
 
-public val CRYPT_OID_INFO_OAEP_PARAMETERS_ALGORITHM: PCWSTR = w("CryptOIDInfoOAEPParameters")
+public val CRYPT_OID_INFO_OAEP_PARAMETERS_ALGORITHM: Pcwstr = w("CryptOIDInfoOAEPParameters")
 
 public val CRYPT_OID_INFO_OID_GROUP_BIT_LEN_MASK: UInt = 268369920u
 
@@ -828,9 +829,9 @@ public val CRYPT_OID_INFO_OID_KEY: UInt = 1u
 
 public val CRYPT_OID_INFO_OID_KEY_FLAGS_MASK: UInt = 4294901760u
 
-public val CRYPT_OID_INFO_PUBKEY_ENCRYPT_KEY_FLAG: CRYPT_IMPORT_PUBLIC_KEY_FLAGS = 1073741824u
+public val CRYPT_OID_INFO_PUBKEY_ENCRYPT_KEY_FLAG: CryptImportPublicKeyFlags = 1073741824u
 
-public val CRYPT_OID_INFO_PUBKEY_SIGN_KEY_FLAG: CRYPT_IMPORT_PUBLIC_KEY_FLAGS = 2147483648u
+public val CRYPT_OID_INFO_PUBKEY_SIGN_KEY_FLAG: CryptImportPublicKeyFlags = 2147483648u
 
 public val CRYPT_OID_INFO_SIGN_KEY: UInt = 4u
 
@@ -838,9 +839,9 @@ public val CRYPT_OID_INHIBIT_SIGNATURE_FORMAT_FLAG: UInt = 1u
 
 public val CRYPT_OID_NO_NULL_ALGORITHM_PARA_FLAG: UInt = 4u
 
-public val CRYPT_OID_OPEN_STORE_PROV_FUNC: PCSTR = s("CertDllOpenStoreProv")
+public val CRYPT_OID_OPEN_STORE_PROV_FUNC: Pcstr = s("CertDllOpenStoreProv")
 
-public val CRYPT_OID_OPEN_SYSTEM_STORE_PROV_FUNC: PCSTR = s("CertDllOpenSystemStoreProv")
+public val CRYPT_OID_OPEN_SYSTEM_STORE_PROV_FUNC: Pcstr = s("CertDllOpenSystemStoreProv")
 
 public val CRYPT_OID_PREFER_CNG_ALGID_FLAG: UInt = 1073741824u
 
@@ -848,29 +849,29 @@ public val CRYPT_OID_PUBKEY_ENCRYPT_ONLY_FLAG: UInt = 1073741824u
 
 public val CRYPT_OID_PUBKEY_SIGN_ONLY_FLAG: UInt = 2147483648u
 
-public val CRYPT_OID_REGISTER_PHYSICAL_STORE_FUNC: PCSTR = s("CertDllRegisterPhysicalStore")
+public val CRYPT_OID_REGISTER_PHYSICAL_STORE_FUNC: Pcstr = s("CertDllRegisterPhysicalStore")
 
-public val CRYPT_OID_REGISTER_SYSTEM_STORE_FUNC: PCSTR = s("CertDllRegisterSystemStore")
+public val CRYPT_OID_REGISTER_SYSTEM_STORE_FUNC: Pcstr = s("CertDllRegisterSystemStore")
 
-public val CRYPT_OID_REGPATH: PCSTR = s("Software\\Microsoft\\Cryptography\\OID")
+public val CRYPT_OID_REGPATH: Pcstr = s("Software\\Microsoft\\Cryptography\\OID")
 
-public val CRYPT_OID_REG_DLL_VALUE_NAME: PCWSTR = w("Dll")
+public val CRYPT_OID_REG_DLL_VALUE_NAME: Pcwstr = w("Dll")
 
-public val CRYPT_OID_REG_ENCODING_TYPE_PREFIX: PCSTR = s("EncodingType ")
+public val CRYPT_OID_REG_ENCODING_TYPE_PREFIX: Pcstr = s("EncodingType ")
 
-public val CRYPT_OID_REG_FLAGS_VALUE_NAME: PCWSTR = w("CryptFlags")
+public val CRYPT_OID_REG_FLAGS_VALUE_NAME: Pcwstr = w("CryptFlags")
 
-public val CRYPT_OID_REG_FUNC_NAME_VALUE_NAME: PCWSTR = w("FuncName")
+public val CRYPT_OID_REG_FUNC_NAME_VALUE_NAME: Pcwstr = w("FuncName")
 
-public val CRYPT_OID_REG_FUNC_NAME_VALUE_NAME_A: PCSTR = s("FuncName")
+public val CRYPT_OID_REG_FUNC_NAME_VALUE_NAME_A: Pcstr = s("FuncName")
 
-public val CRYPT_OID_SIGN_AND_ENCODE_HASH_FUNC: PCSTR = s("CryptDllSignAndEncodeHash")
+public val CRYPT_OID_SIGN_AND_ENCODE_HASH_FUNC: Pcstr = s("CryptDllSignAndEncodeHash")
 
-public val CRYPT_OID_SYSTEM_STORE_LOCATION_VALUE_NAME: PCWSTR = w("SystemStoreLocation")
+public val CRYPT_OID_SYSTEM_STORE_LOCATION_VALUE_NAME: Pcwstr = w("SystemStoreLocation")
 
-public val CRYPT_OID_UNREGISTER_PHYSICAL_STORE_FUNC: PCSTR = s("CertDllUnregisterPhysicalStore")
+public val CRYPT_OID_UNREGISTER_PHYSICAL_STORE_FUNC: Pcstr = s("CertDllUnregisterPhysicalStore")
 
-public val CRYPT_OID_UNREGISTER_SYSTEM_STORE_FUNC: PCSTR = s("CertDllUnregisterSystemStore")
+public val CRYPT_OID_UNREGISTER_SYSTEM_STORE_FUNC: Pcstr = s("CertDllUnregisterSystemStore")
 
 public val CRYPT_OID_USE_CURVE_NAME_FOR_ENCODE_FLAG: UInt = 536870912u
 
@@ -878,35 +879,35 @@ public val CRYPT_OID_USE_CURVE_PARAMETERS_FOR_ENCODE_FLAG: UInt = 268435456u
 
 public val CRYPT_OID_USE_PUBKEY_PARA_FOR_PKCS7_FLAG: UInt = 2u
 
-public val CRYPT_OID_VERIFY_CERTIFICATE_CHAIN_POLICY_FUNC: PCSTR = s("CertDllVerifyCertificateChainPolicy")
+public val CRYPT_OID_VERIFY_CERTIFICATE_CHAIN_POLICY_FUNC: Pcstr = s("CertDllVerifyCertificateChainPolicy")
 
-public val CRYPT_OID_VERIFY_CTL_USAGE_FUNC: PCSTR = s("CertDllVerifyCTLUsage")
+public val CRYPT_OID_VERIFY_CTL_USAGE_FUNC: Pcstr = s("CertDllVerifyCTLUsage")
 
-public val CRYPT_OID_VERIFY_ENCODED_SIGNATURE_FUNC: PCSTR = s("CryptDllVerifyEncodedSignature")
+public val CRYPT_OID_VERIFY_ENCODED_SIGNATURE_FUNC: Pcstr = s("CryptDllVerifyEncodedSignature")
 
-public val CRYPT_OID_VERIFY_REVOCATION_FUNC: PCSTR = s("CertDllVerifyRevocation")
+public val CRYPT_OID_VERIFY_REVOCATION_FUNC: Pcstr = s("CertDllVerifyRevocation")
 
-public val CRYPT_ONLINE: CRYPT_KEY_FLAGS = 128u
+public val CRYPT_ONLINE: CryptKeyFlags = 128u
 
-public val CRYPT_OVERRIDE: CRYPT_CONTEXT_CONFIG_FLAGS = 65536u
+public val CRYPT_OVERRIDE: CryptContextConfigFlags = 65536u
 
 public val CRYPT_OVERWRITE: UInt = 1u
 
 public val CRYPT_OWF_REPL_LM_HASH: UInt = 1u
 
-public val CRYPT_PARAM_ASYNC_RETRIEVAL_COMPLETION: PCSTR = 1.toLong()
+public val CRYPT_PARAM_ASYNC_RETRIEVAL_COMPLETION: Pcstr = COpaquePointer(1.toLong())
 
-public val CRYPT_PARAM_CANCEL_ASYNC_RETRIEVAL: PCSTR = 2.toLong()
+public val CRYPT_PARAM_CANCEL_ASYNC_RETRIEVAL: Pcstr = COpaquePointer(2.toLong())
 
 public val CRYPT_POLICY_OID_GROUP_ID: UInt = 8u
 
-public val CRYPT_PREGEN: CRYPT_KEY_FLAGS = 64u
+public val CRYPT_PREGEN: CryptKeyFlags = 64u
 
 public val CRYPT_PRIORITY_BOTTOM: UInt = 4294967295u
 
 public val CRYPT_PRIORITY_TOP: UInt = 0u
 
-public val CRYPT_PROCESS_ISOLATE: CRYPT_IMAGE_REF_FLAGS = 65536u
+public val CRYPT_PROCESS_ISOLATE: CryptImageRefFlags = 65536u
 
 public val CRYPT_PROVIDER_IOCTL__GET_SCHANNEL_INTERFACE: UInt = 4145180u
 
@@ -932,7 +933,7 @@ public val CRYPT_RDN_ATTR_OID_GROUP_ID: UInt = 5u
 
 public val CRYPT_READ: UInt = 8u
 
-public val CRYPT_RECIPIENT: CRYPT_KEY_FLAGS = 16u
+public val CRYPT_RECIPIENT: CryptKeyFlags = 16u
 
 public val CRYPT_REGISTER_FIRST_INDEX: UInt = 0u
 
@@ -948,17 +949,17 @@ public val CRYPT_SEC_DESCR: UInt = 1u
 
 public val CRYPT_SERVER: UInt = 1024u
 
-public val CRYPT_SF: CRYPT_KEY_FLAGS = 256u
+public val CRYPT_SF: CryptKeyFlags = 256u
 
 public val CRYPT_SGC: UInt = 1u
 
-public val CRYPT_SGCKEY: CRYPT_KEY_FLAGS = 8192u
+public val CRYPT_SGCKEY: CryptKeyFlags = 8192u
 
 public val CRYPT_SGC_ENUM: UInt = 4u
 
 public val CRYPT_SIGN_ALG_OID_GROUP_ID: UInt = 4u
 
-public val CRYPT_SIG_RESOURCE: PCWSTR = w("#666")
+public val CRYPT_SIG_RESOURCE: Pcwstr = w("#666")
 
 public val CRYPT_SIG_RESOURCE_NUMBER: UInt = 666u
 
@@ -968,41 +969,41 @@ public val CRYPT_SILENT: UInt = 64u
 
 public val CRYPT_SORTED_CTL_ENCODE_HASHED_SUBJECT_IDENTIFIER_FLAG: UInt = 65536u
 
-public val CRYPT_SSL2_FALLBACK: CRYPT_KEY_FLAGS = 2u
+public val CRYPT_SSL2_FALLBACK: CryptKeyFlags = 2u
 
 public val CRYPT_STICKY_CACHE_RETRIEVAL: UInt = 4096u
 
-public val CRYPT_STRING_ANY: CRYPT_STRING = 7u
+public val CRYPT_STRING_ANY: CryptString = 7u
 
-public val CRYPT_STRING_BASE64: CRYPT_STRING = 1u
+public val CRYPT_STRING_BASE64: CryptString = 1u
 
-public val CRYPT_STRING_BASE64HEADER: CRYPT_STRING = 0u
+public val CRYPT_STRING_BASE64HEADER: CryptString = 0u
 
-public val CRYPT_STRING_BASE64REQUESTHEADER: CRYPT_STRING = 3u
+public val CRYPT_STRING_BASE64REQUESTHEADER: CryptString = 3u
 
 public val CRYPT_STRING_BASE64URI: UInt = 13u
 
-public val CRYPT_STRING_BASE64X509CRLHEADER: CRYPT_STRING = 9u
+public val CRYPT_STRING_BASE64X509CRLHEADER: CryptString = 9u
 
-public val CRYPT_STRING_BASE64_ANY: CRYPT_STRING = 6u
+public val CRYPT_STRING_BASE64_ANY: CryptString = 6u
 
-public val CRYPT_STRING_BINARY: CRYPT_STRING = 2u
+public val CRYPT_STRING_BINARY: CryptString = 2u
 
 public val CRYPT_STRING_ENCODEMASK: UInt = 255u
 
 public val CRYPT_STRING_HASHDATA: UInt = 268435456u
 
-public val CRYPT_STRING_HEX: CRYPT_STRING = 4u
+public val CRYPT_STRING_HEX: CryptString = 4u
 
-public val CRYPT_STRING_HEXADDR: CRYPT_STRING = 10u
+public val CRYPT_STRING_HEXADDR: CryptString = 10u
 
-public val CRYPT_STRING_HEXASCII: CRYPT_STRING = 5u
+public val CRYPT_STRING_HEXASCII: CryptString = 5u
 
-public val CRYPT_STRING_HEXASCIIADDR: CRYPT_STRING = 11u
+public val CRYPT_STRING_HEXASCIIADDR: CryptString = 11u
 
-public val CRYPT_STRING_HEXRAW: CRYPT_STRING = 12u
+public val CRYPT_STRING_HEXRAW: CryptString = 12u
 
-public val CRYPT_STRING_HEX_ANY: CRYPT_STRING = 8u
+public val CRYPT_STRING_HEX_ANY: CryptString = 8u
 
 public val CRYPT_STRING_NOCR: UInt = 2147483648u
 
@@ -1014,7 +1015,7 @@ public val CRYPT_STRING_RESERVED100: UInt = 256u
 
 public val CRYPT_STRING_RESERVED200: UInt = 512u
 
-public val CRYPT_STRING_STRICT: CRYPT_STRING = 536870912u
+public val CRYPT_STRING_STRICT: CryptString = 536870912u
 
 public val CRYPT_SUCCEED: UInt = 1u
 
@@ -1024,15 +1025,15 @@ public val CRYPT_TYPE2_FORMAT: UInt = 2u
 
 public val CRYPT_UI_PROMPT: UInt = 4u
 
-public val CRYPT_UM: BCRYPT_QUERY_PROVIDER_MODE = 1u
+public val CRYPT_UM: BcryptQueryProviderMode = 1u
 
 public val CRYPT_UNICODE_NAME_DECODE_DISABLE_IE4_UTF8_FLAG: UInt = 16777216u
 
-public val CRYPT_UNICODE_NAME_ENCODE_DISABLE_CHECK_TYPE_FLAG: CRYPT_ENCODE_OBJECT_FLAGS = 1073741824u
+public val CRYPT_UNICODE_NAME_ENCODE_DISABLE_CHECK_TYPE_FLAG: CryptEncodeObjectFlags = 1073741824u
 
-public val CRYPT_UNICODE_NAME_ENCODE_ENABLE_T61_UNICODE_FLAG: CRYPT_ENCODE_OBJECT_FLAGS = 2147483648u
+public val CRYPT_UNICODE_NAME_ENCODE_ENABLE_T61_UNICODE_FLAG: CryptEncodeObjectFlags = 2147483648u
 
-public val CRYPT_UNICODE_NAME_ENCODE_ENABLE_UTF8_UNICODE_FLAG: CRYPT_ENCODE_OBJECT_FLAGS = 536870912u
+public val CRYPT_UNICODE_NAME_ENCODE_ENABLE_UTF8_UNICODE_FLAG: CryptEncodeObjectFlags = 536870912u
 
 public val CRYPT_UNICODE_NAME_ENCODE_FORCE_UTF8_UNICODE_FLAG: UInt = 268435456u
 
@@ -1042,9 +1043,9 @@ public val CRYPT_USERDATA: UInt = 1u
 
 public val CRYPT_USER_DEFAULT: UInt = 2u
 
-public val CRYPT_USER_KEYSET: CRYPT_KEY_FLAGS = 4096u
+public val CRYPT_USER_KEYSET: CryptKeyFlags = 4096u
 
-public val CRYPT_USER_PROTECTED: CRYPT_KEY_FLAGS = 2u
+public val CRYPT_USER_PROTECTED: CryptKeyFlags = 2u
 
 public val CRYPT_USER_PROTECTED_STRONG: UInt = 1048576u
 
@@ -1052,7 +1053,7 @@ public val CRYPT_VERIFYCONTEXT: UInt = 4026531840u
 
 public val CRYPT_VERIFY_CERT_SIGN_CHECK_WEAK_HASH_FLAG: UInt = 8u
 
-public val CRYPT_VERIFY_CERT_SIGN_DISABLE_MD2_MD4_FLAG: CRYPT_VERIFY_CERT_FLAGS = 1u
+public val CRYPT_VERIFY_CERT_SIGN_DISABLE_MD2_MD4_FLAG: CryptVerifyCertFlags = 1u
 
 public val CRYPT_VERIFY_CERT_SIGN_ISSUER_CERT: UInt = 2u
 
@@ -1062,9 +1063,9 @@ public val CRYPT_VERIFY_CERT_SIGN_ISSUER_NULL: UInt = 4u
 
 public val CRYPT_VERIFY_CERT_SIGN_ISSUER_PUBKEY: UInt = 1u
 
-public val CRYPT_VERIFY_CERT_SIGN_RETURN_STRONG_PROPERTIES_FLAG: CRYPT_VERIFY_CERT_FLAGS = 4u
+public val CRYPT_VERIFY_CERT_SIGN_RETURN_STRONG_PROPERTIES_FLAG: CryptVerifyCertFlags = 4u
 
-public val CRYPT_VERIFY_CERT_SIGN_SET_STRONG_PROPERTIES_FLAG: CRYPT_VERIFY_CERT_FLAGS = 2u
+public val CRYPT_VERIFY_CERT_SIGN_SET_STRONG_PROPERTIES_FLAG: CryptVerifyCertFlags = 2u
 
 public val CRYPT_VERIFY_CERT_SIGN_SUBJECT_BLOB: UInt = 1u
 
@@ -1078,7 +1079,7 @@ public val CRYPT_VERIFY_CONTEXT_SIGNATURE: UInt = 32u
 
 public val CRYPT_VERIFY_DATA_HASH: UInt = 64u
 
-public val CRYPT_VOLATILE: CRYPT_KEY_FLAGS = 4096u
+public val CRYPT_VOLATILE: CryptKeyFlags = 4096u
 
 public val CRYPT_WIRE_ONLY_RETRIEVAL: UInt = 4u
 
@@ -1100,57 +1101,57 @@ public val CRYPT_XML_ALGORITHM_INFO_FIND_BY_URI: UInt = 1u
 
 public val CRYPT_XML_BLOB_MAX: UInt = 2147483640u
 
-public val CRYPT_XML_CHARSET_AUTO: CRYPT_XML_CHARSET = 0
+public val CRYPT_XML_CHARSET_AUTO: CryptXmlCharset = 0
 
-public val CRYPT_XML_CHARSET_UTF16BE: CRYPT_XML_CHARSET = 3
+public val CRYPT_XML_CHARSET_UTF16BE: CryptXmlCharset = 3
 
-public val CRYPT_XML_CHARSET_UTF16LE: CRYPT_XML_CHARSET = 2
+public val CRYPT_XML_CHARSET_UTF16LE: CryptXmlCharset = 2
 
-public val CRYPT_XML_CHARSET_UTF8: CRYPT_XML_CHARSET = 1
+public val CRYPT_XML_CHARSET_UTF8: CryptXmlCharset = 1
 
 public val CRYPT_XML_DIGEST_REFERENCE_DATA_TRANSFORMED: UInt = 1u
 
 public val CRYPT_XML_DIGEST_VALUE_MAX: UInt = 128u
 
-public val CRYPT_XML_E_ALGORITHM: HRESULT = 0x80092104u.toInt()
+public val CRYPT_XML_E_ALGORITHM: Hresult = 0x80092104u.toInt()
 
-public val CRYPT_XML_E_BASE: HRESULT = 0x80092100u.toInt()
+public val CRYPT_XML_E_BASE: Hresult = 0x80092100u.toInt()
 
-public val CRYPT_XML_E_ENCODING: HRESULT = 0x80092103u.toInt()
+public val CRYPT_XML_E_ENCODING: Hresult = 0x80092103u.toInt()
 
-public val CRYPT_XML_E_HANDLE: HRESULT = 0x80092106u.toInt()
+public val CRYPT_XML_E_HANDLE: Hresult = 0x80092106u.toInt()
 
-public val CRYPT_XML_E_HASH_FAILED: HRESULT = 0x8009210Bu.toInt()
+public val CRYPT_XML_E_HASH_FAILED: Hresult = 0x8009210Bu.toInt()
 
-public val CRYPT_XML_E_INVALID_DIGEST: HRESULT = 0x80092109u.toInt()
+public val CRYPT_XML_E_INVALID_DIGEST: Hresult = 0x80092109u.toInt()
 
-public val CRYPT_XML_E_INVALID_KEYVALUE: HRESULT = 0x8009210Fu.toInt()
+public val CRYPT_XML_E_INVALID_KEYVALUE: Hresult = 0x8009210Fu.toInt()
 
-public val CRYPT_XML_E_INVALID_SIGNATURE: HRESULT = 0x8009210Au.toInt()
+public val CRYPT_XML_E_INVALID_SIGNATURE: Hresult = 0x8009210Au.toInt()
 
-public val CRYPT_XML_E_LARGE: HRESULT = 0x80092101u.toInt()
+public val CRYPT_XML_E_LARGE: Hresult = 0x80092101u.toInt()
 
-public val CRYPT_XML_E_LAST: HRESULT = 0x80092112u.toInt()
+public val CRYPT_XML_E_LAST: Hresult = 0x80092112u.toInt()
 
-public val CRYPT_XML_E_NON_UNIQUE_ID: HRESULT = 0x80092112u.toInt()
+public val CRYPT_XML_E_NON_UNIQUE_ID: Hresult = 0x80092112u.toInt()
 
-public val CRYPT_XML_E_OPERATION: HRESULT = 0x80092107u.toInt()
+public val CRYPT_XML_E_OPERATION: Hresult = 0x80092107u.toInt()
 
-public val CRYPT_XML_E_SIGNER: HRESULT = 0x80092111u.toInt()
+public val CRYPT_XML_E_SIGNER: Hresult = 0x80092111u.toInt()
 
-public val CRYPT_XML_E_SIGN_FAILED: HRESULT = 0x8009210Cu.toInt()
+public val CRYPT_XML_E_SIGN_FAILED: Hresult = 0x8009210Cu.toInt()
 
-public val CRYPT_XML_E_TOO_MANY_SIGNATURES: HRESULT = 0x8009210Eu.toInt()
+public val CRYPT_XML_E_TOO_MANY_SIGNATURES: Hresult = 0x8009210Eu.toInt()
 
-public val CRYPT_XML_E_TOO_MANY_TRANSFORMS: HRESULT = 0x80092102u.toInt()
+public val CRYPT_XML_E_TOO_MANY_TRANSFORMS: Hresult = 0x80092102u.toInt()
 
-public val CRYPT_XML_E_TRANSFORM: HRESULT = 0x80092105u.toInt()
+public val CRYPT_XML_E_TRANSFORM: Hresult = 0x80092105u.toInt()
 
-public val CRYPT_XML_E_UNEXPECTED_XML: HRESULT = 0x80092110u.toInt()
+public val CRYPT_XML_E_UNEXPECTED_XML: Hresult = 0x80092110u.toInt()
 
-public val CRYPT_XML_E_UNRESOLVED_REFERENCE: HRESULT = 0x80092108u.toInt()
+public val CRYPT_XML_E_UNRESOLVED_REFERENCE: Hresult = 0x80092108u.toInt()
 
-public val CRYPT_XML_E_VERIFY_FAILED: HRESULT = 0x8009210Du.toInt()
+public val CRYPT_XML_E_VERIFY_FAILED: Hresult = 0x8009210Du.toInt()
 
 public val CRYPT_XML_FLAG_ADD_OBJECT_CREATE_COPY: UInt = 1u
 
@@ -1158,7 +1159,7 @@ public val CRYPT_XML_FLAG_ALWAYS_RETURN_ENCODED_OBJECT: UInt = 1073741824u
 
 public val CRYPT_XML_FLAG_CREATE_REFERENCE_AS_OBJECT: UInt = 1u
 
-public val CRYPT_XML_FLAG_DISABLE_EXTENSIONS: CRYPT_XML_FLAGS = 268435456u
+public val CRYPT_XML_FLAG_DISABLE_EXTENSIONS: CryptXmlFlags = 268435456u
 
 public val CRYPT_XML_FLAG_ECDSA_DSIG11: UInt = 67108864u
 
@@ -1166,49 +1167,49 @@ public val CRYPT_XML_FLAG_ENFORCE_ID_NAME_FORMAT: UInt = 134217728u
 
 public val CRYPT_XML_FLAG_ENFORCE_ID_NCNAME_FORMAT: UInt = 536870912u
 
-public val CRYPT_XML_FLAG_NO_SERIALIZE: CRYPT_XML_FLAGS = 2147483648u
+public val CRYPT_XML_FLAG_NO_SERIALIZE: CryptXmlFlags = 2147483648u
 
-public val CRYPT_XML_GROUP_ID_HASH: CRYPT_XML_GROUP_ID = 1u
+public val CRYPT_XML_GROUP_ID_HASH: CryptXmlGroupId = 1u
 
-public val CRYPT_XML_GROUP_ID_SIGN: CRYPT_XML_GROUP_ID = 2u
+public val CRYPT_XML_GROUP_ID_SIGN: CryptXmlGroupId = 2u
 
 public val CRYPT_XML_ID_MAX: UInt = 256u
 
-public val CRYPT_XML_KEYINFO_SPEC_ENCODED: CRYPT_XML_KEYINFO_SPEC = 1
+public val CRYPT_XML_KEYINFO_SPEC_ENCODED: CryptXmlKeyinfoSpec = 1
 
-public val CRYPT_XML_KEYINFO_SPEC_NONE: CRYPT_XML_KEYINFO_SPEC = 0
+public val CRYPT_XML_KEYINFO_SPEC_NONE: CryptXmlKeyinfoSpec = 0
 
-public val CRYPT_XML_KEYINFO_SPEC_PARAM: CRYPT_XML_KEYINFO_SPEC = 2
+public val CRYPT_XML_KEYINFO_SPEC_PARAM: CryptXmlKeyinfoSpec = 2
 
-public val CRYPT_XML_KEYINFO_TYPE_CUSTOM: CRYPT_XML_KEYINFO_TYPE = 5u
+public val CRYPT_XML_KEYINFO_TYPE_CUSTOM: CryptXmlKeyinfoType = 5u
 
-public val CRYPT_XML_KEYINFO_TYPE_KEYNAME: CRYPT_XML_KEYINFO_TYPE = 1u
+public val CRYPT_XML_KEYINFO_TYPE_KEYNAME: CryptXmlKeyinfoType = 1u
 
-public val CRYPT_XML_KEYINFO_TYPE_KEYVALUE: CRYPT_XML_KEYINFO_TYPE = 2u
+public val CRYPT_XML_KEYINFO_TYPE_KEYVALUE: CryptXmlKeyinfoType = 2u
 
-public val CRYPT_XML_KEYINFO_TYPE_RETRIEVAL: CRYPT_XML_KEYINFO_TYPE = 3u
+public val CRYPT_XML_KEYINFO_TYPE_RETRIEVAL: CryptXmlKeyinfoType = 3u
 
-public val CRYPT_XML_KEYINFO_TYPE_X509DATA: CRYPT_XML_KEYINFO_TYPE = 4u
+public val CRYPT_XML_KEYINFO_TYPE_X509DATA: CryptXmlKeyinfoType = 4u
 
-public val CRYPT_XML_KEY_VALUE_TYPE_CUSTOM: CRYPT_XML_KEY_VALUE_TYPE = 4u
+public val CRYPT_XML_KEY_VALUE_TYPE_CUSTOM: CryptXmlKeyValueType = 4u
 
-public val CRYPT_XML_KEY_VALUE_TYPE_DSA: CRYPT_XML_KEY_VALUE_TYPE = 1u
+public val CRYPT_XML_KEY_VALUE_TYPE_DSA: CryptXmlKeyValueType = 1u
 
-public val CRYPT_XML_KEY_VALUE_TYPE_ECDSA: CRYPT_XML_KEY_VALUE_TYPE = 3u
+public val CRYPT_XML_KEY_VALUE_TYPE_ECDSA: CryptXmlKeyValueType = 3u
 
-public val CRYPT_XML_KEY_VALUE_TYPE_RSA: CRYPT_XML_KEY_VALUE_TYPE = 2u
+public val CRYPT_XML_KEY_VALUE_TYPE_RSA: CryptXmlKeyValueType = 2u
 
 public val CRYPT_XML_OBJECTS_MAX: UInt = 256u
 
-public val CRYPT_XML_PROPERTY_DOC_DECLARATION: CRYPT_XML_PROPERTY_ID = 4
+public val CRYPT_XML_PROPERTY_DOC_DECLARATION: CryptXmlPropertyId = 4
 
-public val CRYPT_XML_PROPERTY_MAX_HEAP_SIZE: CRYPT_XML_PROPERTY_ID = 1
+public val CRYPT_XML_PROPERTY_MAX_HEAP_SIZE: CryptXmlPropertyId = 1
 
-public val CRYPT_XML_PROPERTY_MAX_SIGNATURES: CRYPT_XML_PROPERTY_ID = 3
+public val CRYPT_XML_PROPERTY_MAX_SIGNATURES: CryptXmlPropertyId = 3
 
-public val CRYPT_XML_PROPERTY_SIGNATURE_LOCATION: CRYPT_XML_PROPERTY_ID = 2
+public val CRYPT_XML_PROPERTY_SIGNATURE_LOCATION: CryptXmlPropertyId = 2
 
-public val CRYPT_XML_PROPERTY_XML_OUTPUT_CHARSET: CRYPT_XML_PROPERTY_ID = 5
+public val CRYPT_XML_PROPERTY_XML_OUTPUT_CHARSET: CryptXmlPropertyId = 5
 
 public val CRYPT_XML_REFERENCES_MAX: UInt = 32760u
 
@@ -1216,61 +1217,61 @@ public val CRYPT_XML_SIGNATURES_MAX: UInt = 16u
 
 public val CRYPT_XML_SIGNATURE_VALUE_MAX: UInt = 2048u
 
-public val CRYPT_XML_SIGN_ADD_KEYVALUE: CRYPT_XML_FLAGS = 1u
+public val CRYPT_XML_SIGN_ADD_KEYVALUE: CryptXmlFlags = 1u
 
-public val CRYPT_XML_STATUS_DIGESTING: CRYPT_XML_STATUS_INFO_STATUS = 4u
+public val CRYPT_XML_STATUS_DIGESTING: CryptXmlStatusInfoStatus = 4u
 
-public val CRYPT_XML_STATUS_DIGEST_VALID: CRYPT_XML_STATUS_INFO_STATUS = 8u
+public val CRYPT_XML_STATUS_DIGEST_VALID: CryptXmlStatusInfoStatus = 8u
 
-public val CRYPT_XML_STATUS_ERROR_DIGEST_INVALID: CRYPT_XML_STATUS_ERROR_STATUS = 2u
+public val CRYPT_XML_STATUS_ERROR_DIGEST_INVALID: CryptXmlStatusErrorStatus = 2u
 
-public val CRYPT_XML_STATUS_ERROR_KEYINFO_NOT_PARSED: CRYPT_XML_STATUS_ERROR_STATUS = 131072u
+public val CRYPT_XML_STATUS_ERROR_KEYINFO_NOT_PARSED: CryptXmlStatusErrorStatus = 131072u
 
-public val CRYPT_XML_STATUS_ERROR_NOT_RESOLVED: CRYPT_XML_STATUS_ERROR_STATUS = 1u
+public val CRYPT_XML_STATUS_ERROR_NOT_RESOLVED: CryptXmlStatusErrorStatus = 1u
 
-public val CRYPT_XML_STATUS_ERROR_NOT_SUPPORTED_ALGORITHM: CRYPT_XML_STATUS_ERROR_STATUS = 5u
+public val CRYPT_XML_STATUS_ERROR_NOT_SUPPORTED_ALGORITHM: CryptXmlStatusErrorStatus = 5u
 
-public val CRYPT_XML_STATUS_ERROR_NOT_SUPPORTED_TRANSFORM: CRYPT_XML_STATUS_ERROR_STATUS = 8u
+public val CRYPT_XML_STATUS_ERROR_NOT_SUPPORTED_TRANSFORM: CryptXmlStatusErrorStatus = 8u
 
-public val CRYPT_XML_STATUS_ERROR_SIGNATURE_INVALID: CRYPT_XML_STATUS_ERROR_STATUS = 65536u
+public val CRYPT_XML_STATUS_ERROR_SIGNATURE_INVALID: CryptXmlStatusErrorStatus = 65536u
 
-public val CRYPT_XML_STATUS_INTERNAL_REFERENCE: CRYPT_XML_STATUS_INFO_STATUS = 1u
+public val CRYPT_XML_STATUS_INTERNAL_REFERENCE: CryptXmlStatusInfoStatus = 1u
 
-public val CRYPT_XML_STATUS_KEY_AVAILABLE: CRYPT_XML_STATUS_INFO_STATUS = 2u
+public val CRYPT_XML_STATUS_KEY_AVAILABLE: CryptXmlStatusInfoStatus = 2u
 
 public val CRYPT_XML_STATUS_NO_ERROR: UInt = 0u
 
-public val CRYPT_XML_STATUS_OPENED_TO_ENCODE: CRYPT_XML_STATUS_INFO_STATUS = 2147483648u
+public val CRYPT_XML_STATUS_OPENED_TO_ENCODE: CryptXmlStatusInfoStatus = 2147483648u
 
-public val CRYPT_XML_STATUS_SIGNATURE_VALID: CRYPT_XML_STATUS_INFO_STATUS = 65536u
+public val CRYPT_XML_STATUS_SIGNATURE_VALID: CryptXmlStatusInfoStatus = 65536u
 
 public val CRYPT_XML_TRANSFORM_MAX: UInt = 16u
 
-public val CRYPT_XML_TRANSFORM_ON_NODESET: CRYPT_XML_TRANSFORM_FLAGS = 2u
+public val CRYPT_XML_TRANSFORM_ON_NODESET: CryptXmlTransformFlags = 2u
 
-public val CRYPT_XML_TRANSFORM_ON_STREAM: CRYPT_XML_TRANSFORM_FLAGS = 1u
+public val CRYPT_XML_TRANSFORM_ON_STREAM: CryptXmlTransformFlags = 1u
 
-public val CRYPT_XML_TRANSFORM_URI_QUERY_STRING: CRYPT_XML_TRANSFORM_FLAGS = 3u
+public val CRYPT_XML_TRANSFORM_URI_QUERY_STRING: CryptXmlTransformFlags = 3u
 
-public val CRYPT_XML_X509DATA_TYPE_CERTIFICATE: CRYPT_XML_X509DATA_TYPE = 4u
+public val CRYPT_XML_X509DATA_TYPE_CERTIFICATE: CryptXmlX509dataType = 4u
 
-public val CRYPT_XML_X509DATA_TYPE_CRL: CRYPT_XML_X509DATA_TYPE = 5u
+public val CRYPT_XML_X509DATA_TYPE_CRL: CryptXmlX509dataType = 5u
 
-public val CRYPT_XML_X509DATA_TYPE_CUSTOM: CRYPT_XML_X509DATA_TYPE = 6u
+public val CRYPT_XML_X509DATA_TYPE_CUSTOM: CryptXmlX509dataType = 6u
 
-public val CRYPT_XML_X509DATA_TYPE_ISSUER_SERIAL: CRYPT_XML_X509DATA_TYPE = 1u
+public val CRYPT_XML_X509DATA_TYPE_ISSUER_SERIAL: CryptXmlX509dataType = 1u
 
-public val CRYPT_XML_X509DATA_TYPE_SKI: CRYPT_XML_X509DATA_TYPE = 2u
+public val CRYPT_XML_X509DATA_TYPE_SKI: CryptXmlX509dataType = 2u
 
-public val CRYPT_XML_X509DATA_TYPE_SUBJECT_NAME: CRYPT_XML_X509DATA_TYPE = 3u
+public val CRYPT_XML_X509DATA_TYPE_SUBJECT_NAME: CryptXmlX509dataType = 3u
 
-public val CRYPT_Y_ONLY: CRYPT_KEY_FLAGS = 1u
+public val CRYPT_Y_ONLY: CryptKeyFlags = 1u
 
-public val CSF_AUTHENTICATE: PCWSTR = w("Authenticate")
+public val CSF_AUTHENTICATE: Pcwstr = w("Authenticate")
 
-public val CSF_CHANGE_AUTHENTICATOR: PCWSTR = w("Change Authenticator")
+public val CSF_CHANGE_AUTHENTICATOR: Pcwstr = w("Change Authenticator")
 
-public val CSF_IMPORT_KEYPAIR: PCWSTR = w("Import Key Pair")
+public val CSF_IMPORT_KEYPAIR: Pcwstr = w("Import Key Pair")
 
 public val CTL_ANY_SUBJECT_TYPE: UInt = 1u
 
@@ -1278,21 +1279,21 @@ public val CTL_CERT_SUBJECT_TYPE: UInt = 2u
 
 public val CTL_ENTRY_FROM_PROP_CHAIN_FLAG: UInt = 1u
 
-public val CTL_FIND_ANY: CERT_FIND_TYPE = 0u
+public val CTL_FIND_ANY: CertFindType = 0u
 
-public val CTL_FIND_EXISTING: CERT_FIND_TYPE = 5u
+public val CTL_FIND_EXISTING: CertFindType = 5u
 
-public val CTL_FIND_MD5_HASH: CERT_FIND_TYPE = 2u
+public val CTL_FIND_MD5_HASH: CertFindType = 2u
 
 public val CTL_FIND_NO_LIST_ID_CBDATA: UInt = 4294967295u
 
-public val CTL_FIND_SAME_USAGE_FLAG: CERT_FIND_TYPE = 1u
+public val CTL_FIND_SAME_USAGE_FLAG: CertFindType = 1u
 
-public val CTL_FIND_SHA1_HASH: CERT_FIND_TYPE = 1u
+public val CTL_FIND_SHA1_HASH: CertFindType = 1u
 
-public val CTL_FIND_SUBJECT: CERT_FIND_TYPE = 4u
+public val CTL_FIND_SUBJECT: CertFindType = 4u
 
-public val CTL_FIND_USAGE: CERT_FIND_TYPE = 3u
+public val CTL_FIND_USAGE: CertFindType = 3u
 
 public val CTL_V1: UInt = 0u
 
@@ -1300,29 +1301,29 @@ public val CUR_BLOB_VERSION: UInt = 2u
 
 public val CUR_OFFLOAD_VERSION: UInt = 1u
 
-public val ChallengeResponsePinType: SECRET_TYPE = 2
+public val CHALLENGE_RESPONSE_PIN_TYPE: SecretType = 2
 
-public val DSA_FIPS186_2: DSAFIPSVERSION_ENUM = 0
+public val DSA_FIPS186_2: DsafipsversionEnum = 0
 
-public val DSA_FIPS186_3: DSAFIPSVERSION_ENUM = 1
+public val DSA_FIPS186_3: DsafipsversionEnum = 1
 
-public val DSA_HASH_ALGORITHM_SHA1: HASHALGORITHM_ENUM = 0
+public val DSA_HASH_ALGORITHM_SHA1: HashalgorithmEnum = 0
 
-public val DSA_HASH_ALGORITHM_SHA256: HASHALGORITHM_ENUM = 1
+public val DSA_HASH_ALGORITHM_SHA256: HashalgorithmEnum = 1
 
-public val DSA_HASH_ALGORITHM_SHA512: HASHALGORITHM_ENUM = 2
+public val DSA_HASH_ALGORITHM_SHA512: HashalgorithmEnum = 2
 
 public val DTLS1_0_PROTOCOL_VERSION: UInt = 65279u
 
 public val DTLS1_2_PROTOCOL_VERSION: UInt = 65277u
 
-public val DigitalSignaturePin: SECRET_PURPOSE = 1
+public val DIGITAL_SIGNATURE_PIN: SecretPurpose = 1
 
-public val DirectionDecrypt: Direction = 2
+public val DIRECTION_DECRYPT: Direction = 2
 
-public val DirectionEncrypt: Direction = 1
+public val DIRECTION_ENCRYPT: Direction = 1
 
-public val ECC_CMS_SHARED_INFO: PCSTR = 77.toLong()
+public val ECC_CMS_SHARED_INFO: Pcstr = COpaquePointer(77.toLong())
 
 public val ENUM_CEPSETUPPROP_AUTHENTICATION: CEPSetupProperty = 0
 
@@ -1412,83 +1413,83 @@ public val ENUM_SETUPPROP_WEBCANAME: CASetupProperty = 16
 
 public val EXPORT_PRIVATE_KEYS: UInt = 4u
 
-public val EXPO_OFFLOAD_FUNC_NAME: PCSTR = s("OffloadModExpo")
+public val EXPO_OFFLOAD_FUNC_NAME: Pcstr = s("OffloadModExpo")
 
-public val EXPO_OFFLOAD_REG_VALUE: PCSTR = s("ExpoOffload")
+public val EXPO_OFFLOAD_REG_VALUE: Pcstr = s("ExpoOffload")
 
-public val E_ICARD_ARGUMENT: HRESULT = 0xC0050105u.toInt()
+public val E_ICARD_ARGUMENT: Hresult = 0xC0050105u.toInt()
 
-public val E_ICARD_COMMUNICATION: HRESULT = 0xC0050100u.toInt()
+public val E_ICARD_COMMUNICATION: Hresult = 0xC0050100u.toInt()
 
-public val E_ICARD_DATA_ACCESS: HRESULT = 0xC0050101u.toInt()
+public val E_ICARD_DATA_ACCESS: Hresult = 0xC0050101u.toInt()
 
-public val E_ICARD_EXPORT: HRESULT = 0xC0050102u.toInt()
+public val E_ICARD_EXPORT: Hresult = 0xC0050102u.toInt()
 
-public val E_ICARD_FAIL: HRESULT = 0xC0050115u.toInt()
+public val E_ICARD_FAIL: Hresult = 0xC0050115u.toInt()
 
-public val E_ICARD_FAILED_REQUIRED_CLAIMS: HRESULT = 0xC0050184u.toInt()
+public val E_ICARD_FAILED_REQUIRED_CLAIMS: Hresult = 0xC0050184u.toInt()
 
-public val E_ICARD_IDENTITY: HRESULT = 0xC0050103u.toInt()
+public val E_ICARD_IDENTITY: Hresult = 0xC0050103u.toInt()
 
-public val E_ICARD_IMPORT: HRESULT = 0xC0050104u.toInt()
+public val E_ICARD_IMPORT: Hresult = 0xC0050104u.toInt()
 
-public val E_ICARD_INFORMATIONCARD: HRESULT = 0xC0050107u.toInt()
+public val E_ICARD_INFORMATIONCARD: Hresult = 0xC0050107u.toInt()
 
-public val E_ICARD_INVALID_PROOF_KEY: HRESULT = 0xC0050182u.toInt()
+public val E_ICARD_INVALID_PROOF_KEY: Hresult = 0xC0050182u.toInt()
 
-public val E_ICARD_LOGOVALIDATION: HRESULT = 0xC0050109u.toInt()
+public val E_ICARD_LOGOVALIDATION: Hresult = 0xC0050109u.toInt()
 
-public val E_ICARD_MISSING_APPLIESTO: HRESULT = 0xC0050181u.toInt()
+public val E_ICARD_MISSING_APPLIESTO: Hresult = 0xC0050181u.toInt()
 
-public val E_ICARD_PASSWORDVALIDATION: HRESULT = 0xC005010Au.toInt()
+public val E_ICARD_PASSWORDVALIDATION: Hresult = 0xC005010Au.toInt()
 
-public val E_ICARD_POLICY: HRESULT = 0xC005010Bu.toInt()
+public val E_ICARD_POLICY: Hresult = 0xC005010Bu.toInt()
 
-public val E_ICARD_PROCESSDIED: HRESULT = 0xC005010Cu.toInt()
+public val E_ICARD_PROCESSDIED: Hresult = 0xC005010Cu.toInt()
 
-public val E_ICARD_REFRESH_REQUIRED: HRESULT = 0xC0050180u.toInt()
+public val E_ICARD_REFRESH_REQUIRED: Hresult = 0xC0050180u.toInt()
 
-public val E_ICARD_REQUEST: HRESULT = 0xC0050106u.toInt()
+public val E_ICARD_REQUEST: Hresult = 0xC0050106u.toInt()
 
-public val E_ICARD_SERVICE: HRESULT = 0xC005010Eu.toInt()
+public val E_ICARD_SERVICE: Hresult = 0xC005010Eu.toInt()
 
-public val E_ICARD_SERVICEBUSY: HRESULT = 0xC005010Du.toInt()
+public val E_ICARD_SERVICEBUSY: Hresult = 0xC005010Du.toInt()
 
-public val E_ICARD_SHUTTINGDOWN: HRESULT = 0xC005010Fu.toInt()
+public val E_ICARD_SHUTTINGDOWN: Hresult = 0xC005010Fu.toInt()
 
-public val E_ICARD_STOREKEY: HRESULT = 0xC0050108u.toInt()
+public val E_ICARD_STOREKEY: Hresult = 0xC0050108u.toInt()
 
-public val E_ICARD_STORE_IMPORT: HRESULT = 0xC0050114u.toInt()
+public val E_ICARD_STORE_IMPORT: Hresult = 0xC0050114u.toInt()
 
-public val E_ICARD_TOKENCREATION: HRESULT = 0xC0050110u.toInt()
+public val E_ICARD_TOKENCREATION: Hresult = 0xC0050110u.toInt()
 
-public val E_ICARD_TRUSTEXCHANGE: HRESULT = 0xC0050111u.toInt()
+public val E_ICARD_TRUSTEXCHANGE: Hresult = 0xC0050111u.toInt()
 
-public val E_ICARD_UI_INITIALIZATION: HRESULT = 0xC005011Au.toInt()
+public val E_ICARD_UI_INITIALIZATION: Hresult = 0xC005011Au.toInt()
 
-public val E_ICARD_UNKNOWN_REFERENCE: HRESULT = 0xC0050183u.toInt()
+public val E_ICARD_UNKNOWN_REFERENCE: Hresult = 0xC0050183u.toInt()
 
-public val E_ICARD_UNTRUSTED: HRESULT = 0xC0050112u.toInt()
+public val E_ICARD_UNTRUSTED: Hresult = 0xC0050112u.toInt()
 
-public val E_ICARD_USERCANCELLED: HRESULT = 0xC0050113u.toInt()
+public val E_ICARD_USERCANCELLED: Hresult = 0xC0050113u.toInt()
 
-public val EmptyPinType: SECRET_TYPE = 3
+public val EMPTY_PIN_TYPE: SecretType = 3
 
-public val EncryptionPin: SECRET_PURPOSE = 2
+public val ENCRYPTION_PIN: SecretPurpose = 2
 
-public val EveryoneReadAdminWriteAc: CARD_FILE_ACCESS_CONDITION = 3
+public val EVERYONE_READ_ADMIN_WRITE_AC: CardFileAccessCondition = 3
 
-public val EveryoneReadUserWriteAc: CARD_FILE_ACCESS_CONDITION = 1
+public val EVERYONE_READ_USER_WRITE_AC: CardFileAccessCondition = 1
 
-public val ExternalPinType: SECRET_TYPE = 1
+public val EXTERNAL_PIN_TYPE: SecretType = 1
 
 public val HP_ALGID: UInt = 1u
 
 public val HP_HASHSIZE: UInt = 4u
 
-public val HP_HASHVAL: CRYPT_SET_HASH_PARAM = 2u
+public val HP_HASHVAL: CryptSetHashParam = 2u
 
-public val HP_HMAC_INFO: CRYPT_SET_HASH_PARAM = 5u
+public val HP_HMAC_INFO: CryptSetHashParam = 5u
 
 public val HP_TLS1PRF_LABEL: UInt = 6u
 
@@ -1502,9 +1503,9 @@ public val IFX_RSA_KEYGEN_VUL_NOT_AFFECTED: UInt = 0u
 
 public val INTERNATIONAL_USAGE: UInt = 1u
 
-public val InvalidAc: CARD_FILE_ACCESS_CONDITION = 0
+public val INVALID_AC: CardFileAccessCondition = 0
 
-public val InvalidDirAc: CARD_DIRECTORY_ACCESS_CONDITION = 0
+public val INVALID_DIR_AC: CardDirectoryAccessCondition = 0
 
 public val KDF_ALGORITHMID: UInt = 8u
 
@@ -1556,11 +1557,11 @@ public val KEY_LENGTH_MASK: UInt = 4294901760u
 
 public val KP_ADMIN_PIN: UInt = 31u
 
-public val KP_ALGID: CRYPT_KEY_PARAM_ID = 7u
+public val KP_ALGID: CryptKeyParamId = 7u
 
-public val KP_BLOCKLEN: CRYPT_KEY_PARAM_ID = 8u
+public val KP_BLOCKLEN: CryptKeyParamId = 8u
 
-public val KP_CERTIFICATE: CRYPT_KEY_PARAM_ID = 26u
+public val KP_CERTIFICATE: CryptKeyParamId = 26u
 
 public val KP_CLEAR_KEY: UInt = 27u
 
@@ -1574,7 +1575,7 @@ public val KP_EFFECTIVE_KEYLEN: UInt = 19u
 
 public val KP_G: UInt = 12u
 
-public val KP_GET_USE_COUNT: CRYPT_KEY_PARAM_ID = 42u
+public val KP_GET_USE_COUNT: CryptKeyParamId = 42u
 
 public val KP_HIGHEST_VERSION: UInt = 41u
 
@@ -1584,7 +1585,7 @@ public val KP_IV: UInt = 1u
 
 public val KP_KEYEXCHANGE_PIN: UInt = 32u
 
-public val KP_KEYLEN: CRYPT_KEY_PARAM_ID = 9u
+public val KP_KEYLEN: CryptKeyParamId = 9u
 
 public val KP_KEYVAL: UInt = 30u
 
@@ -1598,7 +1599,7 @@ public val KP_P: UInt = 11u
 
 public val KP_PADDING: UInt = 3u
 
-public val KP_PERMISSIONS: CRYPT_KEY_PARAM_ID = 6u
+public val KP_PERMISSIONS: CryptKeyParamId = 6u
 
 public val KP_PIN_ID: UInt = 43u
 
@@ -1626,9 +1627,9 @@ public val KP_ROUNDS: UInt = 35u
 
 public val KP_RP: UInt = 23u
 
-public val KP_SALT: CRYPT_KEY_PARAM_ID = 2u
+public val KP_SALT: CryptKeyParamId = 2u
 
-public val KP_SALT_EX: CRYPT_KEY_PARAM_ID = 10u
+public val KP_SALT_EX: CryptKeyParamId = 10u
 
 public val KP_SCHANNEL_ALG: UInt = 20u
 
@@ -1642,39 +1643,39 @@ public val KP_X: UInt = 14u
 
 public val KP_Y: UInt = 15u
 
-public val KeyTypeHardware: CertKeyType = 6u
+public val KEY_TYPE_HARDWARE: CertKeyType = 6u
 
-public val KeyTypeOther: CertKeyType = 0u
+public val KEY_TYPE_OTHER: CertKeyType = 0u
 
-public val KeyTypePassport: CertKeyType = 3u
+public val KEY_TYPE_PASSPORT: CertKeyType = 3u
 
-public val KeyTypePassportRemote: CertKeyType = 4u
+public val KEY_TYPE_PASSPORT_REMOTE: CertKeyType = 4u
 
-public val KeyTypePassportSmartCard: CertKeyType = 5u
+public val KEY_TYPE_PASSPORT_SMART_CARD: CertKeyType = 5u
 
-public val KeyTypePhysicalSmartCard: CertKeyType = 2u
+public val KEY_TYPE_PHYSICAL_SMART_CARD: CertKeyType = 2u
 
-public val KeyTypeSelfSigned: CertKeyType = 8u
+public val KEY_TYPE_SELF_SIGNED: CertKeyType = 8u
 
-public val KeyTypeSoftware: CertKeyType = 7u
+public val KEY_TYPE_SOFTWARE: CertKeyType = 7u
 
-public val KeyTypeVirtualSmartCard: CertKeyType = 1u
+public val KEY_TYPE_VIRTUAL_SMART_CARD: CertKeyType = 1u
 
-public val LEGACY_DH_PRIVATE_BLOB: PCWSTR = w("CAPIDHPRIVATEBLOB")
+public val LEGACY_DH_PRIVATE_BLOB: Pcwstr = w("CAPIDHPRIVATEBLOB")
 
-public val LEGACY_DH_PUBLIC_BLOB: PCWSTR = w("CAPIDHPUBLICBLOB")
+public val LEGACY_DH_PUBLIC_BLOB: Pcwstr = w("CAPIDHPUBLICBLOB")
 
-public val LEGACY_DSA_PRIVATE_BLOB: PCWSTR = w("CAPIDSAPRIVATEBLOB")
+public val LEGACY_DSA_PRIVATE_BLOB: Pcwstr = w("CAPIDSAPRIVATEBLOB")
 
-public val LEGACY_DSA_PUBLIC_BLOB: PCWSTR = w("CAPIDSAPUBLICBLOB")
+public val LEGACY_DSA_PUBLIC_BLOB: Pcwstr = w("CAPIDSAPUBLICBLOB")
 
-public val LEGACY_DSA_V2_PRIVATE_BLOB: PCWSTR = w("V2CAPIDSAPRIVATEBLOB")
+public val LEGACY_DSA_V2_PRIVATE_BLOB: Pcwstr = w("V2CAPIDSAPRIVATEBLOB")
 
-public val LEGACY_DSA_V2_PUBLIC_BLOB: PCWSTR = w("V2CAPIDSAPUBLICBLOB")
+public val LEGACY_DSA_V2_PUBLIC_BLOB: Pcwstr = w("V2CAPIDSAPUBLICBLOB")
 
-public val LEGACY_RSAPRIVATE_BLOB: PCWSTR = w("CAPIPRIVATEBLOB")
+public val LEGACY_RSAPRIVATE_BLOB: Pcwstr = w("CAPIPRIVATEBLOB")
 
-public val LEGACY_RSAPUBLIC_BLOB: PCWSTR = w("CAPIPUBLICBLOB")
+public val LEGACY_RSAPUBLIC_BLOB: Pcwstr = w("CAPIPUBLICBLOB")
 
 public val MAXUIDLEN: UInt = 64u
 
@@ -1682,103 +1683,103 @@ public val MAX_CONTAINER_NAME_LEN: UInt = 39u
 
 public val MAX_PINS: UInt = 8u
 
-public val MICROSOFT_ROOT_CERT_CHAIN_POLICY_CHECK_APPLICATION_ROOT_FLAG: CERT_CHAIN_POLICY_FLAGS = 131072u
+public val MICROSOFT_ROOT_CERT_CHAIN_POLICY_CHECK_APPLICATION_ROOT_FLAG: CertChainPolicyFlags = 131072u
 
-public val MICROSOFT_ROOT_CERT_CHAIN_POLICY_DISABLE_FLIGHT_ROOT_FLAG: CERT_CHAIN_POLICY_FLAGS = 262144u
+public val MICROSOFT_ROOT_CERT_CHAIN_POLICY_DISABLE_FLIGHT_ROOT_FLAG: CertChainPolicyFlags = 262144u
 
-public val MICROSOFT_ROOT_CERT_CHAIN_POLICY_ENABLE_TEST_ROOT_FLAG: CERT_CHAIN_POLICY_FLAGS = 65536u
+public val MICROSOFT_ROOT_CERT_CHAIN_POLICY_ENABLE_TEST_ROOT_FLAG: CertChainPolicyFlags = 65536u
 
 public val MSCRYPT_ECC_MAX_CURVE_NAME_LENGTH: UInt = 255u
 
 public val MSCRYPT_ECC_MAX_OID_LENGTH: UInt = 255u
 
-public val MS_DEF_DH_SCHANNEL_PROV: PCWSTR = w("Microsoft DH SChannel Cryptographic Provider")
+public val MS_DEF_DH_SCHANNEL_PROV: Pcwstr = w("Microsoft DH SChannel Cryptographic Provider")
 
-public val MS_DEF_DH_SCHANNEL_PROV_A: PCSTR = s("Microsoft DH SChannel Cryptographic Provider")
+public val MS_DEF_DH_SCHANNEL_PROV_A: Pcstr = s("Microsoft DH SChannel Cryptographic Provider")
 
-public val MS_DEF_DH_SCHANNEL_PROV_W: PCWSTR = w("Microsoft DH SChannel Cryptographic Provider")
+public val MS_DEF_DH_SCHANNEL_PROV_W: Pcwstr = w("Microsoft DH SChannel Cryptographic Provider")
 
-public val MS_DEF_DSS_DH_PROV: PCWSTR = w("Microsoft Base DSS and Diffie-Hellman Cryptographic Provider")
+public val MS_DEF_DSS_DH_PROV: Pcwstr = w("Microsoft Base DSS and Diffie-Hellman Cryptographic Provider")
 
-public val MS_DEF_DSS_DH_PROV_A: PCSTR = s("Microsoft Base DSS and Diffie-Hellman Cryptographic Provider")
+public val MS_DEF_DSS_DH_PROV_A: Pcstr = s("Microsoft Base DSS and Diffie-Hellman Cryptographic Provider")
 
-public val MS_DEF_DSS_DH_PROV_W: PCWSTR = w("Microsoft Base DSS and Diffie-Hellman Cryptographic Provider")
+public val MS_DEF_DSS_DH_PROV_W: Pcwstr = w("Microsoft Base DSS and Diffie-Hellman Cryptographic Provider")
 
-public val MS_DEF_DSS_PROV: PCWSTR = w("Microsoft Base DSS Cryptographic Provider")
+public val MS_DEF_DSS_PROV: Pcwstr = w("Microsoft Base DSS Cryptographic Provider")
 
-public val MS_DEF_DSS_PROV_A: PCSTR = s("Microsoft Base DSS Cryptographic Provider")
+public val MS_DEF_DSS_PROV_A: Pcstr = s("Microsoft Base DSS Cryptographic Provider")
 
-public val MS_DEF_DSS_PROV_W: PCWSTR = w("Microsoft Base DSS Cryptographic Provider")
+public val MS_DEF_DSS_PROV_W: Pcwstr = w("Microsoft Base DSS Cryptographic Provider")
 
-public val MS_DEF_PROV: PCWSTR = w("Microsoft Base Cryptographic Provider v1.0")
+public val MS_DEF_PROV: Pcwstr = w("Microsoft Base Cryptographic Provider v1.0")
 
-public val MS_DEF_PROV_A: PCSTR = s("Microsoft Base Cryptographic Provider v1.0")
+public val MS_DEF_PROV_A: Pcstr = s("Microsoft Base Cryptographic Provider v1.0")
 
-public val MS_DEF_PROV_W: PCWSTR = w("Microsoft Base Cryptographic Provider v1.0")
+public val MS_DEF_PROV_W: Pcwstr = w("Microsoft Base Cryptographic Provider v1.0")
 
-public val MS_DEF_RSA_SCHANNEL_PROV: PCWSTR = w("Microsoft RSA SChannel Cryptographic Provider")
+public val MS_DEF_RSA_SCHANNEL_PROV: Pcwstr = w("Microsoft RSA SChannel Cryptographic Provider")
 
-public val MS_DEF_RSA_SCHANNEL_PROV_A: PCSTR = s("Microsoft RSA SChannel Cryptographic Provider")
+public val MS_DEF_RSA_SCHANNEL_PROV_A: Pcstr = s("Microsoft RSA SChannel Cryptographic Provider")
 
-public val MS_DEF_RSA_SCHANNEL_PROV_W: PCWSTR = w("Microsoft RSA SChannel Cryptographic Provider")
+public val MS_DEF_RSA_SCHANNEL_PROV_W: Pcwstr = w("Microsoft RSA SChannel Cryptographic Provider")
 
-public val MS_DEF_RSA_SIG_PROV: PCWSTR = w("Microsoft RSA Signature Cryptographic Provider")
+public val MS_DEF_RSA_SIG_PROV: Pcwstr = w("Microsoft RSA Signature Cryptographic Provider")
 
-public val MS_DEF_RSA_SIG_PROV_A: PCSTR = s("Microsoft RSA Signature Cryptographic Provider")
+public val MS_DEF_RSA_SIG_PROV_A: Pcstr = s("Microsoft RSA Signature Cryptographic Provider")
 
-public val MS_DEF_RSA_SIG_PROV_W: PCWSTR = w("Microsoft RSA Signature Cryptographic Provider")
+public val MS_DEF_RSA_SIG_PROV_W: Pcwstr = w("Microsoft RSA Signature Cryptographic Provider")
 
-public val MS_ENHANCED_PROV: PCWSTR = w("Microsoft Enhanced Cryptographic Provider v1.0")
+public val MS_ENHANCED_PROV: Pcwstr = w("Microsoft Enhanced Cryptographic Provider v1.0")
 
-public val MS_ENHANCED_PROV_A: PCSTR = s("Microsoft Enhanced Cryptographic Provider v1.0")
+public val MS_ENHANCED_PROV_A: Pcstr = s("Microsoft Enhanced Cryptographic Provider v1.0")
 
-public val MS_ENHANCED_PROV_W: PCWSTR = w("Microsoft Enhanced Cryptographic Provider v1.0")
+public val MS_ENHANCED_PROV_W: Pcwstr = w("Microsoft Enhanced Cryptographic Provider v1.0")
 
-public val MS_ENH_DSS_DH_PROV: PCWSTR = w("Microsoft Enhanced DSS and Diffie-Hellman Cryptographic Provider")
+public val MS_ENH_DSS_DH_PROV: Pcwstr = w("Microsoft Enhanced DSS and Diffie-Hellman Cryptographic Provider")
 
-public val MS_ENH_DSS_DH_PROV_A: PCSTR = s("Microsoft Enhanced DSS and Diffie-Hellman Cryptographic Provider")
+public val MS_ENH_DSS_DH_PROV_A: Pcstr = s("Microsoft Enhanced DSS and Diffie-Hellman Cryptographic Provider")
 
-public val MS_ENH_DSS_DH_PROV_W: PCWSTR = w("Microsoft Enhanced DSS and Diffie-Hellman Cryptographic Provider")
+public val MS_ENH_DSS_DH_PROV_W: Pcwstr = w("Microsoft Enhanced DSS and Diffie-Hellman Cryptographic Provider")
 
-public val MS_ENH_RSA_AES_PROV: PCWSTR = w("Microsoft Enhanced RSA and AES Cryptographic Provider")
+public val MS_ENH_RSA_AES_PROV: Pcwstr = w("Microsoft Enhanced RSA and AES Cryptographic Provider")
 
-public val MS_ENH_RSA_AES_PROV_A: PCSTR = s("Microsoft Enhanced RSA and AES Cryptographic Provider")
+public val MS_ENH_RSA_AES_PROV_A: Pcstr = s("Microsoft Enhanced RSA and AES Cryptographic Provider")
 
-public val MS_ENH_RSA_AES_PROV_W: PCWSTR = w("Microsoft Enhanced RSA and AES Cryptographic Provider")
+public val MS_ENH_RSA_AES_PROV_W: Pcwstr = w("Microsoft Enhanced RSA and AES Cryptographic Provider")
 
-public val MS_ENH_RSA_AES_PROV_XP: PCWSTR = w("Microsoft Enhanced RSA and AES Cryptographic Provider (Prototype)")
+public val MS_ENH_RSA_AES_PROV_XP: Pcwstr = w("Microsoft Enhanced RSA and AES Cryptographic Provider (Prototype)")
 
-public val MS_ENH_RSA_AES_PROV_XP_A: PCSTR = s("Microsoft Enhanced RSA and AES Cryptographic Provider (Prototype)")
+public val MS_ENH_RSA_AES_PROV_XP_A: Pcstr = s("Microsoft Enhanced RSA and AES Cryptographic Provider (Prototype)")
 
-public val MS_ENH_RSA_AES_PROV_XP_W: PCWSTR = w("Microsoft Enhanced RSA and AES Cryptographic Provider (Prototype)")
+public val MS_ENH_RSA_AES_PROV_XP_W: Pcwstr = w("Microsoft Enhanced RSA and AES Cryptographic Provider (Prototype)")
 
-public val MS_KEY_PROTECTION_PROVIDER: PCWSTR = w("Microsoft Key Protection Provider")
+public val MS_KEY_PROTECTION_PROVIDER: Pcwstr = w("Microsoft Key Protection Provider")
 
-public val MS_KEY_STORAGE_PROVIDER: PCWSTR = w("Microsoft Software Key Storage Provider")
+public val MS_KEY_STORAGE_PROVIDER: Pcwstr = w("Microsoft Software Key Storage Provider")
 
-public val MS_NGC_KEY_STORAGE_PROVIDER: PCWSTR = w("Microsoft Passport Key Storage Provider")
+public val MS_NGC_KEY_STORAGE_PROVIDER: Pcwstr = w("Microsoft Passport Key Storage Provider")
 
-public val MS_PLATFORM_CRYPTO_PROVIDER: PCWSTR = w("Microsoft Platform Crypto Provider")
+public val MS_PLATFORM_CRYPTO_PROVIDER: Pcwstr = w("Microsoft Platform Crypto Provider")
 
-public val MS_PLATFORM_KEY_STORAGE_PROVIDER: PCWSTR = w("Microsoft Platform Crypto Provider")
+public val MS_PLATFORM_KEY_STORAGE_PROVIDER: Pcwstr = w("Microsoft Platform Crypto Provider")
 
-public val MS_PRIMITIVE_PROVIDER: PCWSTR = w("Microsoft Primitive Provider")
+public val MS_PRIMITIVE_PROVIDER: Pcwstr = w("Microsoft Primitive Provider")
 
-public val MS_SCARD_PROV: PCWSTR = w("Microsoft Base Smart Card Crypto Provider")
+public val MS_SCARD_PROV: Pcwstr = w("Microsoft Base Smart Card Crypto Provider")
 
-public val MS_SCARD_PROV_A: PCSTR = s("Microsoft Base Smart Card Crypto Provider")
+public val MS_SCARD_PROV_A: Pcstr = s("Microsoft Base Smart Card Crypto Provider")
 
-public val MS_SCARD_PROV_W: PCWSTR = w("Microsoft Base Smart Card Crypto Provider")
+public val MS_SCARD_PROV_W: Pcwstr = w("Microsoft Base Smart Card Crypto Provider")
 
-public val MS_SCHANNEL_PROVIDER: PCWSTR = w("Microsoft SSL Protocol Provider")
+public val MS_SCHANNEL_PROVIDER: Pcwstr = w("Microsoft SSL Protocol Provider")
 
-public val MS_SMART_CARD_KEY_STORAGE_PROVIDER: PCWSTR = w("Microsoft Smart Card Key Storage Provider")
+public val MS_SMART_CARD_KEY_STORAGE_PROVIDER: Pcwstr = w("Microsoft Smart Card Key Storage Provider")
 
-public val MS_STRONG_PROV: PCWSTR = w("Microsoft Strong Cryptographic Provider")
+public val MS_STRONG_PROV: Pcwstr = w("Microsoft Strong Cryptographic Provider")
 
-public val MS_STRONG_PROV_A: PCSTR = s("Microsoft Strong Cryptographic Provider")
+public val MS_STRONG_PROV_A: Pcstr = s("Microsoft Strong Cryptographic Provider")
 
-public val MS_STRONG_PROV_W: PCWSTR = w("Microsoft Strong Cryptographic Provider")
+public val MS_STRONG_PROV_W: Pcwstr = w("Microsoft Strong Cryptographic Provider")
 
 public val NCRYPTBUFFER_ATTESTATIONSTATEMENT_BLOB: UInt = 51u
 
@@ -1850,17 +1851,17 @@ public val NCRYPTBUFFER_VERSION: UInt = 0u
 
 public val NCRYPTBUFFER_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS: UInt = 54u
 
-public val NCRYPT_3DES_112_ALGORITHM: PCWSTR = w("3DES_112")
+public val NCRYPT_3DES_112_ALGORITHM: Pcwstr = w("3DES_112")
 
-public val NCRYPT_3DES_ALGORITHM: PCWSTR = w("3DES")
+public val NCRYPT_3DES_ALGORITHM: Pcwstr = w("3DES")
 
-public val NCRYPT_AES_ALGORITHM: PCWSTR = w("AES")
+public val NCRYPT_AES_ALGORITHM: Pcwstr = w("AES")
 
-public val NCRYPT_AES_ALGORITHM_GROUP: PCWSTR = w("AES")
+public val NCRYPT_AES_ALGORITHM_GROUP: Pcwstr = w("AES")
 
-public val NCRYPT_ALGORITHM_GROUP_PROPERTY: PCWSTR = w("Algorithm Group")
+public val NCRYPT_ALGORITHM_GROUP_PROPERTY: Pcwstr = w("Algorithm Group")
 
-public val NCRYPT_ALGORITHM_PROPERTY: PCWSTR = w("Algorithm Name")
+public val NCRYPT_ALGORITHM_PROPERTY: Pcwstr = w("Algorithm Name")
 
 public val NCRYPT_ALLOW_ALL_USAGES: UInt = 16777215u
 
@@ -1882,39 +1883,39 @@ public val NCRYPT_ALLOW_SIGNING_FLAG: UInt = 2u
 
 public val NCRYPT_ALLOW_SILENT_KEY_ACCESS: UInt = 1u
 
-public val NCRYPT_ALTERNATE_KEY_STORAGE_LOCATION_PROPERTY: PCWSTR = w("PCP_ALTERNATE_KEY_STORAGE_LOCATION")
+public val NCRYPT_ALTERNATE_KEY_STORAGE_LOCATION_PROPERTY: Pcwstr = w("PCP_ALTERNATE_KEY_STORAGE_LOCATION")
 
-public val NCRYPT_ASSOCIATED_ECDH_KEY: PCWSTR = w("SmartCardAssociatedECDHKey")
+public val NCRYPT_ASSOCIATED_ECDH_KEY: Pcwstr = w("SmartCardAssociatedECDHKey")
 
-public val NCRYPT_ASYMMETRIC_ENCRYPTION_INTERFACE: NCRYPT_ALGORITHM_NAME_CLASS = 3u
+public val NCRYPT_ASYMMETRIC_ENCRYPTION_INTERFACE: NcryptAlgorithmNameClass = 3u
 
-public val NCRYPT_ASYMMETRIC_ENCRYPTION_OPERATION: NCRYPT_OPERATION = 4u
+public val NCRYPT_ASYMMETRIC_ENCRYPTION_OPERATION: NcryptOperation = 4u
 
 public val NCRYPT_ATTESTATION_FLAG: UInt = 32u
 
 public val NCRYPT_AUTHORITY_KEY_FLAG: UInt = 256u
 
-public val NCRYPT_AUTH_TAG_LENGTH: PCWSTR = w("AuthTagLength")
+public val NCRYPT_AUTH_TAG_LENGTH: Pcwstr = w("AuthTagLength")
 
-public val NCRYPT_BLOCK_LENGTH_PROPERTY: PCWSTR = w("Block Length")
+public val NCRYPT_BLOCK_LENGTH_PROPERTY: Pcwstr = w("Block Length")
 
-public val NCRYPT_CAPI_KDF_ALGORITHM: PCWSTR = w("CAPI_KDF")
+public val NCRYPT_CAPI_KDF_ALGORITHM: Pcwstr = w("CAPI_KDF")
 
-public val NCRYPT_CERTIFICATE_PROPERTY: PCWSTR = w("SmartCardKeyCertificate")
+public val NCRYPT_CERTIFICATE_PROPERTY: Pcwstr = w("SmartCardKeyCertificate")
 
-public val NCRYPT_CHAINING_MODE_PROPERTY: PCWSTR = w("Chaining Mode")
+public val NCRYPT_CHAINING_MODE_PROPERTY: Pcwstr = w("Chaining Mode")
 
-public val NCRYPT_CHANGEPASSWORD_PROPERTY: PCWSTR = w("PCP_CHANGEPASSWORD")
+public val NCRYPT_CHANGEPASSWORD_PROPERTY: Pcwstr = w("PCP_CHANGEPASSWORD")
 
 public val NCRYPT_CIPHER_BLOCK_PADDING_FLAG: UInt = 1u
 
-public val NCRYPT_CIPHER_KEY_BLOB: PCWSTR = w("CipherKeyBlob")
+public val NCRYPT_CIPHER_KEY_BLOB: Pcwstr = w("CipherKeyBlob")
 
 public val NCRYPT_CIPHER_KEY_BLOB_MAGIC: UInt = 1380470851u
 
 public val NCRYPT_CIPHER_NO_PADDING_FLAG: UInt = 0u
 
-public val NCRYPT_CIPHER_OPERATION: NCRYPT_OPERATION = 1u
+public val NCRYPT_CIPHER_OPERATION: NcryptOperation = 1u
 
 public val NCRYPT_CIPHER_OTHER_PADDING_FLAG: UInt = 2u
 
@@ -1932,57 +1933,57 @@ public val NCRYPT_CLAIM_VSM_KEY_ATTESTATION_STATEMENT: UInt = 4u
 
 public val NCRYPT_CLAIM_WEB_AUTH_SUBJECT_ONLY: UInt = 258u
 
-public val NCRYPT_DESCR_DELIMITER_AND: PCWSTR = w("AND")
+public val NCRYPT_DESCR_DELIMITER_AND: Pcwstr = w("AND")
 
-public val NCRYPT_DESCR_DELIMITER_OR: PCWSTR = w("OR")
+public val NCRYPT_DESCR_DELIMITER_OR: Pcwstr = w("OR")
 
-public val NCRYPT_DESCR_EQUAL: PCWSTR = w("=")
+public val NCRYPT_DESCR_EQUAL: Pcwstr = w("=")
 
-public val NCRYPT_DESX_ALGORITHM: PCWSTR = w("DESX")
+public val NCRYPT_DESX_ALGORITHM: Pcwstr = w("DESX")
 
-public val NCRYPT_DES_ALGORITHM: PCWSTR = w("DES")
+public val NCRYPT_DES_ALGORITHM: Pcwstr = w("DES")
 
-public val NCRYPT_DES_ALGORITHM_GROUP: PCWSTR = w("DES")
+public val NCRYPT_DES_ALGORITHM_GROUP: Pcwstr = w("DES")
 
-public val NCRYPT_DH_ALGORITHM: PCWSTR = w("DH")
+public val NCRYPT_DH_ALGORITHM: Pcwstr = w("DH")
 
-public val NCRYPT_DH_ALGORITHM_GROUP: PCWSTR = w("DH")
+public val NCRYPT_DH_ALGORITHM_GROUP: Pcwstr = w("DH")
 
-public val NCRYPT_DH_PARAMETERS_PROPERTY: PCWSTR = w("DHParameters")
+public val NCRYPT_DH_PARAMETERS_PROPERTY: Pcwstr = w("DHParameters")
 
-public val NCRYPT_DISMISS_UI_TIMEOUT_SEC_PROPERTY: PCWSTR = w("SmartCardDismissUITimeoutSeconds")
+public val NCRYPT_DISMISS_UI_TIMEOUT_SEC_PROPERTY: Pcwstr = w("SmartCardDismissUITimeoutSeconds")
 
 public val NCRYPT_DO_NOT_FINALIZE_FLAG: UInt = 1024u
 
-public val NCRYPT_DSA_ALGORITHM: PCWSTR = w("DSA")
+public val NCRYPT_DSA_ALGORITHM: Pcwstr = w("DSA")
 
-public val NCRYPT_DSA_ALGORITHM_GROUP: PCWSTR = w("DSA")
+public val NCRYPT_DSA_ALGORITHM_GROUP: Pcwstr = w("DSA")
 
-public val NCRYPT_ECC_CURVE_NAME_LIST_PROPERTY: PCWSTR = w("ECCCurveNameList")
+public val NCRYPT_ECC_CURVE_NAME_LIST_PROPERTY: Pcwstr = w("ECCCurveNameList")
 
-public val NCRYPT_ECC_CURVE_NAME_PROPERTY: PCWSTR = w("ECCCurveName")
+public val NCRYPT_ECC_CURVE_NAME_PROPERTY: Pcwstr = w("ECCCurveName")
 
-public val NCRYPT_ECC_PARAMETERS_PROPERTY: PCWSTR = w("ECCParameters")
+public val NCRYPT_ECC_PARAMETERS_PROPERTY: Pcwstr = w("ECCParameters")
 
-public val NCRYPT_ECDH_ALGORITHM: PCWSTR = w("ECDH")
+public val NCRYPT_ECDH_ALGORITHM: Pcwstr = w("ECDH")
 
-public val NCRYPT_ECDH_ALGORITHM_GROUP: PCWSTR = w("ECDH")
+public val NCRYPT_ECDH_ALGORITHM_GROUP: Pcwstr = w("ECDH")
 
-public val NCRYPT_ECDH_P256_ALGORITHM: PCWSTR = w("ECDH_P256")
+public val NCRYPT_ECDH_P256_ALGORITHM: Pcwstr = w("ECDH_P256")
 
-public val NCRYPT_ECDH_P384_ALGORITHM: PCWSTR = w("ECDH_P384")
+public val NCRYPT_ECDH_P384_ALGORITHM: Pcwstr = w("ECDH_P384")
 
-public val NCRYPT_ECDH_P521_ALGORITHM: PCWSTR = w("ECDH_P521")
+public val NCRYPT_ECDH_P521_ALGORITHM: Pcwstr = w("ECDH_P521")
 
-public val NCRYPT_ECDSA_ALGORITHM: PCWSTR = w("ECDSA")
+public val NCRYPT_ECDSA_ALGORITHM: Pcwstr = w("ECDSA")
 
-public val NCRYPT_ECDSA_ALGORITHM_GROUP: PCWSTR = w("ECDSA")
+public val NCRYPT_ECDSA_ALGORITHM_GROUP: Pcwstr = w("ECDSA")
 
-public val NCRYPT_ECDSA_P256_ALGORITHM: PCWSTR = w("ECDSA_P256")
+public val NCRYPT_ECDSA_P256_ALGORITHM: Pcwstr = w("ECDSA_P256")
 
-public val NCRYPT_ECDSA_P384_ALGORITHM: PCWSTR = w("ECDSA_P384")
+public val NCRYPT_ECDSA_P384_ALGORITHM: Pcwstr = w("ECDSA_P384")
 
-public val NCRYPT_ECDSA_P521_ALGORITHM: PCWSTR = w("ECDSA_P521")
+public val NCRYPT_ECDSA_P521_ALGORITHM: Pcwstr = w("ECDSA_P521")
 
 public val NCRYPT_EXPORTED_ISOLATED_KEY_HEADER_CURRENT_VERSION: UInt = 0u
 
@@ -1990,13 +1991,13 @@ public val NCRYPT_EXPORTED_ISOLATED_KEY_HEADER_V0: UInt = 0u
 
 public val NCRYPT_EXPORT_LEGACY_FLAG: UInt = 2048u
 
-public val NCRYPT_EXPORT_POLICY_PROPERTY: PCWSTR = w("Export Policy")
+public val NCRYPT_EXPORT_POLICY_PROPERTY: Pcwstr = w("Export Policy")
 
 public val NCRYPT_EXTENDED_ERRORS_FLAG: UInt = 268435456u
 
-public val NCRYPT_HASH_OPERATION: NCRYPT_OPERATION = 2u
+public val NCRYPT_HASH_OPERATION: NcryptOperation = 2u
 
-public val NCRYPT_HMAC_SHA256_ALGORITHM: PCWSTR = w("HMAC-SHA256")
+public val NCRYPT_HMAC_SHA256_ALGORITHM: Pcwstr = w("HMAC-SHA256")
 
 public val NCRYPT_IGNORE_DEVICE_STATE_FLAG: UInt = 4096u
 
@@ -2008,277 +2009,277 @@ public val NCRYPT_IMPL_REMOVABLE_FLAG: UInt = 8u
 
 public val NCRYPT_IMPL_SOFTWARE_FLAG: UInt = 2u
 
-public val NCRYPT_IMPL_TYPE_PROPERTY: PCWSTR = w("Impl Type")
+public val NCRYPT_IMPL_TYPE_PROPERTY: Pcwstr = w("Impl Type")
 
 public val NCRYPT_IMPL_VIRTUAL_ISOLATION_FLAG: UInt = 32u
 
-public val NCRYPT_INITIALIZATION_VECTOR: PCWSTR = w("IV")
+public val NCRYPT_INITIALIZATION_VECTOR: Pcwstr = w("IV")
 
 public val NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES_CURRENT_VERSION: UInt = 0u
 
 public val NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES_V0: UInt = 0u
 
-public val NCRYPT_ISOLATED_KEY_ENVELOPE_BLOB: PCWSTR = w("ISOLATED_KEY_ENVELOPE")
+public val NCRYPT_ISOLATED_KEY_ENVELOPE_BLOB: Pcwstr = w("ISOLATED_KEY_ENVELOPE")
 
 public val NCRYPT_ISOLATED_KEY_FLAG_CREATED_IN_ISOLATION: UInt = 1u
 
 public val NCRYPT_ISOLATED_KEY_FLAG_IMPORT_ONLY: UInt = 2u
 
-public val NCRYPT_KDF_KEY_BLOB: PCWSTR = w("KDFKeyBlob")
+public val NCRYPT_KDF_KEY_BLOB: Pcwstr = w("KDFKeyBlob")
 
 public val NCRYPT_KDF_KEY_BLOB_MAGIC: UInt = 826688587u
 
-public val NCRYPT_KDF_SECRET_VALUE: PCWSTR = w("KDFKeySecret")
+public val NCRYPT_KDF_SECRET_VALUE: Pcwstr = w("KDFKeySecret")
 
-public val NCRYPT_KEY_ACCESS_POLICY_PROPERTY: PCWSTR = w("Key Access Policy")
+public val NCRYPT_KEY_ACCESS_POLICY_PROPERTY: Pcwstr = w("Key Access Policy")
 
 public val NCRYPT_KEY_ACCESS_POLICY_VERSION: UInt = 1u
 
 public val NCRYPT_KEY_ATTEST_MAGIC: UInt = 1146110283u
 
-public val NCRYPT_KEY_DERIVATION_GROUP: PCWSTR = w("KEY_DERIVATION")
+public val NCRYPT_KEY_DERIVATION_GROUP: Pcwstr = w("KEY_DERIVATION")
 
 public val NCRYPT_KEY_DERIVATION_INTERFACE: UInt = 7u
 
 public val NCRYPT_KEY_DERIVATION_OPERATION: UInt = 64u
 
-public val NCRYPT_KEY_PROTECTION_ALGORITHM_CERTIFICATE: PCWSTR = w("CERTIFICATE")
+public val NCRYPT_KEY_PROTECTION_ALGORITHM_CERTIFICATE: Pcwstr = w("CERTIFICATE")
 
-public val NCRYPT_KEY_PROTECTION_ALGORITHM_LOCAL: PCWSTR = w("LOCAL")
+public val NCRYPT_KEY_PROTECTION_ALGORITHM_LOCAL: Pcwstr = w("LOCAL")
 
-public val NCRYPT_KEY_PROTECTION_ALGORITHM_LOCKEDCREDENTIALS: PCWSTR = w("LOCKEDCREDENTIALS")
+public val NCRYPT_KEY_PROTECTION_ALGORITHM_LOCKEDCREDENTIALS: Pcwstr = w("LOCKEDCREDENTIALS")
 
-public val NCRYPT_KEY_PROTECTION_ALGORITHM_SDDL: PCWSTR = w("SDDL")
+public val NCRYPT_KEY_PROTECTION_ALGORITHM_SDDL: Pcwstr = w("SDDL")
 
-public val NCRYPT_KEY_PROTECTION_ALGORITHM_SID: PCWSTR = w("SID")
+public val NCRYPT_KEY_PROTECTION_ALGORITHM_SID: Pcwstr = w("SID")
 
-public val NCRYPT_KEY_PROTECTION_ALGORITHM_WEBCREDENTIALS: PCWSTR = w("WEBCREDENTIALS")
+public val NCRYPT_KEY_PROTECTION_ALGORITHM_WEBCREDENTIALS: Pcwstr = w("WEBCREDENTIALS")
 
-public val NCRYPT_KEY_PROTECTION_CERT_CERTBLOB: PCWSTR = w("CertBlob")
+public val NCRYPT_KEY_PROTECTION_CERT_CERTBLOB: Pcwstr = w("CertBlob")
 
-public val NCRYPT_KEY_PROTECTION_CERT_HASHID: PCWSTR = w("HashId")
+public val NCRYPT_KEY_PROTECTION_CERT_HASHID: Pcwstr = w("HashId")
 
 public val NCRYPT_KEY_PROTECTION_INTERFACE: UInt = 65540u
 
-public val NCRYPT_KEY_PROTECTION_LOCAL_LOGON: PCWSTR = w("logon")
+public val NCRYPT_KEY_PROTECTION_LOCAL_LOGON: Pcwstr = w("logon")
 
-public val NCRYPT_KEY_PROTECTION_LOCAL_MACHINE: PCWSTR = w("machine")
+public val NCRYPT_KEY_PROTECTION_LOCAL_MACHINE: Pcwstr = w("machine")
 
-public val NCRYPT_KEY_PROTECTION_LOCAL_USER: PCWSTR = w("user")
+public val NCRYPT_KEY_PROTECTION_LOCAL_USER: Pcwstr = w("user")
 
-public val NCRYPT_KEY_STORAGE_ALGORITHM: PCWSTR = w("KEY_STORAGE")
+public val NCRYPT_KEY_STORAGE_ALGORITHM: Pcwstr = w("KEY_STORAGE")
 
-public val NCRYPT_KEY_STORAGE_INTERFACE: BCRYPT_INTERFACE = 65537u
+public val NCRYPT_KEY_STORAGE_INTERFACE: BcryptInterface = 65537u
 
-public val NCRYPT_KEY_TYPE_PROPERTY: PCWSTR = w("Key Type")
+public val NCRYPT_KEY_TYPE_PROPERTY: Pcwstr = w("Key Type")
 
-public val NCRYPT_KEY_USAGE_PROPERTY: PCWSTR = w("Key Usage")
+public val NCRYPT_KEY_USAGE_PROPERTY: Pcwstr = w("Key Usage")
 
-public val NCRYPT_LAST_MODIFIED_PROPERTY: PCWSTR = w("Modified")
+public val NCRYPT_LAST_MODIFIED_PROPERTY: Pcwstr = w("Modified")
 
-public val NCRYPT_LENGTHS_PROPERTY: PCWSTR = w("Lengths")
+public val NCRYPT_LENGTHS_PROPERTY: Pcwstr = w("Lengths")
 
-public val NCRYPT_LENGTH_PROPERTY: PCWSTR = w("Length")
+public val NCRYPT_LENGTH_PROPERTY: Pcwstr = w("Length")
 
-public val NCRYPT_MACHINE_KEY_FLAG: NCRYPT_FLAGS = 32u
+public val NCRYPT_MACHINE_KEY_FLAG: NcryptFlags = 32u
 
 public val NCRYPT_MAX_ALG_ID_LENGTH: UInt = 512u
 
 public val NCRYPT_MAX_KEY_NAME_LENGTH: UInt = 512u
 
-public val NCRYPT_MAX_NAME_LENGTH_PROPERTY: PCWSTR = w("Max Name Length")
+public val NCRYPT_MAX_NAME_LENGTH_PROPERTY: Pcwstr = w("Max Name Length")
 
 public val NCRYPT_MAX_PROPERTY_DATA: UInt = 1048576u
 
 public val NCRYPT_MAX_PROPERTY_NAME: UInt = 64u
 
-public val NCRYPT_MD2_ALGORITHM: PCWSTR = w("MD2")
+public val NCRYPT_MD2_ALGORITHM: Pcwstr = w("MD2")
 
-public val NCRYPT_MD4_ALGORITHM: PCWSTR = w("MD4")
+public val NCRYPT_MD4_ALGORITHM: Pcwstr = w("MD4")
 
-public val NCRYPT_MD5_ALGORITHM: PCWSTR = w("MD5")
+public val NCRYPT_MD5_ALGORITHM: Pcwstr = w("MD5")
 
 public val NCRYPT_NAMED_DESCRIPTOR_FLAG: UInt = 1u
 
-public val NCRYPT_NAME_PROPERTY: PCWSTR = w("Name")
+public val NCRYPT_NAME_PROPERTY: Pcwstr = w("Name")
 
 public val NCRYPT_NO_CACHED_PASSWORD: UInt = 16384u
 
-public val NCRYPT_NO_KEY_VALIDATION: NCRYPT_FLAGS = 8u
+public val NCRYPT_NO_KEY_VALIDATION: NcryptFlags = 8u
 
-public val NCRYPT_NO_PADDING_FLAG: NCRYPT_FLAGS = 1u
+public val NCRYPT_NO_PADDING_FLAG: NcryptFlags = 1u
 
-public val NCRYPT_OPAQUETRANSPORT_BLOB: PCWSTR = w("OpaqueTransport")
+public val NCRYPT_OPAQUETRANSPORT_BLOB: Pcwstr = w("OpaqueTransport")
 
-public val NCRYPT_OVERWRITE_KEY_FLAG: NCRYPT_FLAGS = 128u
+public val NCRYPT_OVERWRITE_KEY_FLAG: NcryptFlags = 128u
 
 public val NCRYPT_PAD_CIPHER_FLAG: UInt = 16u
 
-public val NCRYPT_PAD_OAEP_FLAG: NCRYPT_FLAGS = 4u
+public val NCRYPT_PAD_OAEP_FLAG: NcryptFlags = 4u
 
-public val NCRYPT_PAD_PKCS1_FLAG: NCRYPT_FLAGS = 2u
+public val NCRYPT_PAD_PKCS1_FLAG: NcryptFlags = 2u
 
-public val NCRYPT_PAD_PSS_FLAG: NCRYPT_FLAGS = 8u
+public val NCRYPT_PAD_PSS_FLAG: NcryptFlags = 8u
 
-public val NCRYPT_PBKDF2_ALGORITHM: PCWSTR = w("PBKDF2")
+public val NCRYPT_PBKDF2_ALGORITHM: Pcwstr = w("PBKDF2")
 
-public val NCRYPT_PCP_ALTERNATE_KEY_STORAGE_LOCATION_PROPERTY: PCWSTR = w("PCP_ALTERNATE_KEY_STORAGE_LOCATION")
+public val NCRYPT_PCP_ALTERNATE_KEY_STORAGE_LOCATION_PROPERTY: Pcwstr = w("PCP_ALTERNATE_KEY_STORAGE_LOCATION")
 
-public val NCRYPT_PCP_CHANGEPASSWORD_PROPERTY: PCWSTR = w("PCP_CHANGEPASSWORD")
+public val NCRYPT_PCP_CHANGEPASSWORD_PROPERTY: Pcwstr = w("PCP_CHANGEPASSWORD")
 
-public val NCRYPT_PCP_ECC_EKCERT_PROPERTY: PCWSTR = w("PCP_ECC_EKCERT")
+public val NCRYPT_PCP_ECC_EKCERT_PROPERTY: Pcwstr = w("PCP_ECC_EKCERT")
 
-public val NCRYPT_PCP_ECC_EKNVCERT_PROPERTY: PCWSTR = w("PCP_ECC_EKNVCERT")
+public val NCRYPT_PCP_ECC_EKNVCERT_PROPERTY: Pcwstr = w("PCP_ECC_EKNVCERT")
 
-public val NCRYPT_PCP_ECC_EKPUB_PROPERTY: PCWSTR = w("PCP_ECC_EKPUB")
+public val NCRYPT_PCP_ECC_EKPUB_PROPERTY: Pcwstr = w("PCP_ECC_EKPUB")
 
-public val NCRYPT_PCP_EKCERT_PROPERTY: PCWSTR = w("PCP_EKCERT")
+public val NCRYPT_PCP_EKCERT_PROPERTY: Pcwstr = w("PCP_EKCERT")
 
-public val NCRYPT_PCP_EKNVCERT_PROPERTY: PCWSTR = w("PCP_EKNVCERT")
+public val NCRYPT_PCP_EKNVCERT_PROPERTY: Pcwstr = w("PCP_EKNVCERT")
 
-public val NCRYPT_PCP_EKPUB_PROPERTY: PCWSTR = w("PCP_EKPUB")
+public val NCRYPT_PCP_EKPUB_PROPERTY: Pcwstr = w("PCP_EKPUB")
 
 public val NCRYPT_PCP_ENCRYPTION_KEY: UInt = 2u
 
-public val NCRYPT_PCP_EXPORT_ALLOWED_PROPERTY: PCWSTR = w("PCP_EXPORT_ALLOWED")
+public val NCRYPT_PCP_EXPORT_ALLOWED_PROPERTY: Pcwstr = w("PCP_EXPORT_ALLOWED")
 
 public val NCRYPT_PCP_HMACVERIFICATION_KEY: UInt = 16u
 
-public val NCRYPT_PCP_HMAC_AUTH_NONCE: PCWSTR = w("PCP_HMAC_AUTH_NONCE")
+public val NCRYPT_PCP_HMAC_AUTH_NONCE: Pcwstr = w("PCP_HMAC_AUTH_NONCE")
 
-public val NCRYPT_PCP_HMAC_AUTH_POLICYINFO: PCWSTR = w("PCP_HMAC_AUTH_POLICYINFO")
+public val NCRYPT_PCP_HMAC_AUTH_POLICYINFO: Pcwstr = w("PCP_HMAC_AUTH_POLICYINFO")
 
-public val NCRYPT_PCP_HMAC_AUTH_POLICYREF: PCWSTR = w("PCP_HMAC_AUTH_POLICYREF")
+public val NCRYPT_PCP_HMAC_AUTH_POLICYREF: Pcwstr = w("PCP_HMAC_AUTH_POLICYREF")
 
-public val NCRYPT_PCP_HMAC_AUTH_SIGNATURE: PCWSTR = w("PCP_HMAC_AUTH_SIGNATURE")
+public val NCRYPT_PCP_HMAC_AUTH_SIGNATURE: Pcwstr = w("PCP_HMAC_AUTH_SIGNATURE")
 
-public val NCRYPT_PCP_HMAC_AUTH_TICKET: PCWSTR = w("PCP_HMAC_AUTH_TICKET")
+public val NCRYPT_PCP_HMAC_AUTH_TICKET: Pcwstr = w("PCP_HMAC_AUTH_TICKET")
 
 public val NCRYPT_PCP_IDENTITY_KEY: UInt = 8u
 
-public val NCRYPT_PCP_INTERMEDIATE_CA_EKCERT_PROPERTY: PCWSTR = w("PCP_INTERMEDIATE_CA_EKCERT")
+public val NCRYPT_PCP_INTERMEDIATE_CA_EKCERT_PROPERTY: Pcwstr = w("PCP_INTERMEDIATE_CA_EKCERT")
 
-public val NCRYPT_PCP_KEYATTESTATION_PROPERTY: PCWSTR = w("PCP_TPM12_KEYATTESTATION")
+public val NCRYPT_PCP_KEYATTESTATION_PROPERTY: Pcwstr = w("PCP_TPM12_KEYATTESTATION")
 
-public val NCRYPT_PCP_KEY_CREATIONHASH_PROPERTY: PCWSTR = w("PCP_KEY_CREATIONHASH")
+public val NCRYPT_PCP_KEY_CREATIONHASH_PROPERTY: Pcwstr = w("PCP_KEY_CREATIONHASH")
 
-public val NCRYPT_PCP_KEY_CREATIONTICKET_PROPERTY: PCWSTR = w("PCP_KEY_CREATIONTICKET")
+public val NCRYPT_PCP_KEY_CREATIONTICKET_PROPERTY: Pcwstr = w("PCP_KEY_CREATIONTICKET")
 
-public val NCRYPT_PCP_KEY_USAGE_POLICY_PROPERTY: PCWSTR = w("PCP_KEY_USAGE_POLICY")
+public val NCRYPT_PCP_KEY_USAGE_POLICY_PROPERTY: Pcwstr = w("PCP_KEY_USAGE_POLICY")
 
-public val NCRYPT_PCP_MIGRATIONPASSWORD_PROPERTY: PCWSTR = w("PCP_MIGRATIONPASSWORD")
+public val NCRYPT_PCP_MIGRATIONPASSWORD_PROPERTY: Pcwstr = w("PCP_MIGRATIONPASSWORD")
 
-public val NCRYPT_PCP_NO_DA_PROTECTION_PROPERTY: PCWSTR = w("PCP_NO_DA_PROTECTION")
+public val NCRYPT_PCP_NO_DA_PROTECTION_PROPERTY: Pcwstr = w("PCP_NO_DA_PROTECTION")
 
-public val NCRYPT_PCP_PASSWORD_REQUIRED_PROPERTY: PCWSTR = w("PCP_PASSWORD_REQUIRED")
+public val NCRYPT_PCP_PASSWORD_REQUIRED_PROPERTY: Pcwstr = w("PCP_PASSWORD_REQUIRED")
 
-public val NCRYPT_PCP_PCRTABLE_ALGORITHM_PROPERTY: PCWSTR = w("PCP_PCRTABLE_ALGORITHM")
+public val NCRYPT_PCP_PCRTABLE_ALGORITHM_PROPERTY: Pcwstr = w("PCP_PCRTABLE_ALGORITHM")
 
-public val NCRYPT_PCP_PCRTABLE_PROPERTY: PCWSTR = w("PCP_PCRTABLE")
+public val NCRYPT_PCP_PCRTABLE_PROPERTY: Pcwstr = w("PCP_PCRTABLE")
 
-public val NCRYPT_PCP_PLATFORMHANDLE_PROPERTY: PCWSTR = w("PCP_PLATFORMHANDLE")
+public val NCRYPT_PCP_PLATFORMHANDLE_PROPERTY: Pcwstr = w("PCP_PLATFORMHANDLE")
 
-public val NCRYPT_PCP_PLATFORM_BINDING_PCRALGID_PROPERTY: PCWSTR = w("PCP_PLATFORM_BINDING_PCRALGID")
+public val NCRYPT_PCP_PLATFORM_BINDING_PCRALGID_PROPERTY: Pcwstr = w("PCP_PLATFORM_BINDING_PCRALGID")
 
-public val NCRYPT_PCP_PLATFORM_BINDING_PCRDIGESTLIST_PROPERTY: PCWSTR = w("PCP_PLATFORM_BINDING_PCRDIGESTLIST")
+public val NCRYPT_PCP_PLATFORM_BINDING_PCRDIGESTLIST_PROPERTY: Pcwstr = w("PCP_PLATFORM_BINDING_PCRDIGESTLIST")
 
-public val NCRYPT_PCP_PLATFORM_BINDING_PCRDIGEST_PROPERTY: PCWSTR = w("PCP_PLATFORM_BINDING_PCRDIGEST")
+public val NCRYPT_PCP_PLATFORM_BINDING_PCRDIGEST_PROPERTY: Pcwstr = w("PCP_PLATFORM_BINDING_PCRDIGEST")
 
-public val NCRYPT_PCP_PLATFORM_BINDING_PCRMASK_PROPERTY: PCWSTR = w("PCP_PLATFORM_BINDING_PCRMASK")
+public val NCRYPT_PCP_PLATFORM_BINDING_PCRMASK_PROPERTY: Pcwstr = w("PCP_PLATFORM_BINDING_PCRMASK")
 
-public val NCRYPT_PCP_PLATFORM_TYPE_PROPERTY: PCWSTR = w("PCP_PLATFORM_TYPE")
+public val NCRYPT_PCP_PLATFORM_TYPE_PROPERTY: Pcwstr = w("PCP_PLATFORM_TYPE")
 
-public val NCRYPT_PCP_PROVIDERHANDLE_PROPERTY: PCWSTR = w("PCP_PROVIDERMHANDLE")
+public val NCRYPT_PCP_PROVIDERHANDLE_PROPERTY: Pcwstr = w("PCP_PROVIDERMHANDLE")
 
-public val NCRYPT_PCP_PROVIDER_VERSION_PROPERTY: PCWSTR = w("PCP_PROVIDER_VERSION")
+public val NCRYPT_PCP_PROVIDER_VERSION_PROPERTY: Pcwstr = w("PCP_PROVIDER_VERSION")
 
-public val NCRYPT_PCP_PSS_SALT_SIZE_PROPERTY: PCWSTR = w("PSS Salt Size")
+public val NCRYPT_PCP_PSS_SALT_SIZE_PROPERTY: Pcwstr = w("PSS Salt Size")
 
-public val NCRYPT_PCP_RAW_POLICYDIGEST_PROPERTY: PCWSTR = w("PCP_RAW_POLICYDIGEST")
+public val NCRYPT_PCP_RAW_POLICYDIGEST_PROPERTY: Pcwstr = w("PCP_RAW_POLICYDIGEST")
 
-public val NCRYPT_PCP_RSA_EKCERT_PROPERTY: PCWSTR = w("PCP_RSA_EKCERT")
+public val NCRYPT_PCP_RSA_EKCERT_PROPERTY: Pcwstr = w("PCP_RSA_EKCERT")
 
-public val NCRYPT_PCP_RSA_EKNVCERT_PROPERTY: PCWSTR = w("PCP_RSA_EKNVCERT")
+public val NCRYPT_PCP_RSA_EKNVCERT_PROPERTY: Pcwstr = w("PCP_RSA_EKNVCERT")
 
-public val NCRYPT_PCP_RSA_EKPUB_PROPERTY: PCWSTR = w("PCP_RSA_EKPUB")
+public val NCRYPT_PCP_RSA_EKPUB_PROPERTY: Pcwstr = w("PCP_RSA_EKPUB")
 
-public val NCRYPT_PCP_RSA_SCHEME_HASH_ALG_PROPERTY: PCWSTR = w("PCP_RSA_SCHEME_HASH_ALG")
+public val NCRYPT_PCP_RSA_SCHEME_HASH_ALG_PROPERTY: Pcwstr = w("PCP_RSA_SCHEME_HASH_ALG")
 
-public val NCRYPT_PCP_RSA_SCHEME_PROPERTY: PCWSTR = w("PCP_RSA_SCHEME")
+public val NCRYPT_PCP_RSA_SCHEME_PROPERTY: Pcwstr = w("PCP_RSA_SCHEME")
 
-public val NCRYPT_PCP_SESSIONID_PROPERTY: PCWSTR = w("PCP_SESSIONID")
+public val NCRYPT_PCP_SESSIONID_PROPERTY: Pcwstr = w("PCP_SESSIONID")
 
 public val NCRYPT_PCP_SIGNATURE_KEY: UInt = 1u
 
-public val NCRYPT_PCP_SRKPUB_PROPERTY: PCWSTR = w("PCP_SRKPUB")
+public val NCRYPT_PCP_SRKPUB_PROPERTY: Pcwstr = w("PCP_SRKPUB")
 
-public val NCRYPT_PCP_STORAGEPARENT_PROPERTY: PCWSTR = w("PCP_STORAGEPARENT")
+public val NCRYPT_PCP_STORAGEPARENT_PROPERTY: Pcwstr = w("PCP_STORAGEPARENT")
 
 public val NCRYPT_PCP_STORAGE_KEY: UInt = 4u
 
-public val NCRYPT_PCP_SYMMETRIC_KEYBITS_PROPERTY: PCWSTR = w("PCP_SYMMETRIC_KEYBITS")
+public val NCRYPT_PCP_SYMMETRIC_KEYBITS_PROPERTY: Pcwstr = w("PCP_SYMMETRIC_KEYBITS")
 
-public val NCRYPT_PCP_TPM12_IDACTIVATION_PROPERTY: PCWSTR = w("PCP_TPM12_IDACTIVATION")
+public val NCRYPT_PCP_TPM12_IDACTIVATION_PROPERTY: Pcwstr = w("PCP_TPM12_IDACTIVATION")
 
-public val NCRYPT_PCP_TPM12_IDBINDING_DYNAMIC_PROPERTY: PCWSTR = w("PCP_TPM12_IDBINDING_DYNAMIC")
+public val NCRYPT_PCP_TPM12_IDBINDING_DYNAMIC_PROPERTY: Pcwstr = w("PCP_TPM12_IDBINDING_DYNAMIC")
 
-public val NCRYPT_PCP_TPM12_IDBINDING_PROPERTY: PCWSTR = w("PCP_TPM12_IDBINDING")
+public val NCRYPT_PCP_TPM12_IDBINDING_PROPERTY: Pcwstr = w("PCP_TPM12_IDBINDING")
 
-public val NCRYPT_PCP_TPM2BNAME_PROPERTY: PCWSTR = w("PCP_TPM2BNAME")
+public val NCRYPT_PCP_TPM2BNAME_PROPERTY: Pcwstr = w("PCP_TPM2BNAME")
 
-public val NCRYPT_PCP_TPM_FW_VERSION_PROPERTY: PCWSTR = w("PCP_TPM_FW_VERSION")
+public val NCRYPT_PCP_TPM_FW_VERSION_PROPERTY: Pcwstr = w("PCP_TPM_FW_VERSION")
 
-public val NCRYPT_PCP_TPM_IFX_RSA_KEYGEN_PROHIBITED_PROPERTY: PCWSTR = w("PCP_TPM_IFX_RSA_KEYGEN_PROHIBITED")
+public val NCRYPT_PCP_TPM_IFX_RSA_KEYGEN_PROHIBITED_PROPERTY: Pcwstr = w("PCP_TPM_IFX_RSA_KEYGEN_PROHIBITED")
 
-public val NCRYPT_PCP_TPM_IFX_RSA_KEYGEN_VULNERABILITY_PROPERTY: PCWSTR = w("PCP_TPM_IFX_RSA_KEYGEN_VULNERABILITY")
+public val NCRYPT_PCP_TPM_IFX_RSA_KEYGEN_VULNERABILITY_PROPERTY: Pcwstr = w("PCP_TPM_IFX_RSA_KEYGEN_VULNERABILITY")
 
-public val NCRYPT_PCP_TPM_MANUFACTURER_ID_PROPERTY: PCWSTR = w("PCP_TPM_MANUFACTURER_ID")
+public val NCRYPT_PCP_TPM_MANUFACTURER_ID_PROPERTY: Pcwstr = w("PCP_TPM_MANUFACTURER_ID")
 
-public val NCRYPT_PCP_TPM_VERSION_PROPERTY: PCWSTR = w("PCP_TPM_VERSION")
+public val NCRYPT_PCP_TPM_VERSION_PROPERTY: Pcwstr = w("PCP_TPM_VERSION")
 
-public val NCRYPT_PCP_USAGEAUTH_PROPERTY: PCWSTR = w("PCP_USAGEAUTH")
+public val NCRYPT_PCP_USAGEAUTH_PROPERTY: Pcwstr = w("PCP_USAGEAUTH")
 
-public val NCRYPT_PERSIST_FLAG: NCRYPT_FLAGS = 2147483648u
+public val NCRYPT_PERSIST_FLAG: NcryptFlags = 2147483648u
 
-public val NCRYPT_PERSIST_ONLY_FLAG: NCRYPT_FLAGS = 1073741824u
+public val NCRYPT_PERSIST_ONLY_FLAG: NcryptFlags = 1073741824u
 
-public val NCRYPT_PIN_CACHE_APPLICATION_IMAGE_PROPERTY: PCWSTR = w("PinCacheApplicationImage")
+public val NCRYPT_PIN_CACHE_APPLICATION_IMAGE_PROPERTY: Pcwstr = w("PinCacheApplicationImage")
 
-public val NCRYPT_PIN_CACHE_APPLICATION_STATUS_PROPERTY: PCWSTR = w("PinCacheApplicationStatus")
+public val NCRYPT_PIN_CACHE_APPLICATION_STATUS_PROPERTY: Pcwstr = w("PinCacheApplicationStatus")
 
 public val NCRYPT_PIN_CACHE_APPLICATION_TICKET_BYTE_LENGTH: UInt = 90u
 
-public val NCRYPT_PIN_CACHE_APPLICATION_TICKET_PROPERTY: PCWSTR = w("PinCacheApplicationTicket")
+public val NCRYPT_PIN_CACHE_APPLICATION_TICKET_PROPERTY: Pcwstr = w("PinCacheApplicationTicket")
 
 public val NCRYPT_PIN_CACHE_CLEAR_FOR_CALLING_PROCESS_OPTION: UInt = 1u
 
-public val NCRYPT_PIN_CACHE_CLEAR_PROPERTY: PCWSTR = w("PinCacheClear")
+public val NCRYPT_PIN_CACHE_CLEAR_PROPERTY: Pcwstr = w("PinCacheClear")
 
 public val NCRYPT_PIN_CACHE_DISABLE_DPL_FLAG: UInt = 1u
 
-public val NCRYPT_PIN_CACHE_FLAGS_PROPERTY: PCWSTR = w("PinCacheFlags")
+public val NCRYPT_PIN_CACHE_FLAGS_PROPERTY: Pcwstr = w("PinCacheFlags")
 
-public val NCRYPT_PIN_CACHE_FREE_APPLICATION_TICKET_PROPERTY: PCWSTR = w("PinCacheFreeApplicationTicket")
+public val NCRYPT_PIN_CACHE_FREE_APPLICATION_TICKET_PROPERTY: Pcwstr = w("PinCacheFreeApplicationTicket")
 
-public val NCRYPT_PIN_CACHE_IS_GESTURE_REQUIRED_PROPERTY: PCWSTR = w("PinCacheIsGestureRequired")
+public val NCRYPT_PIN_CACHE_IS_GESTURE_REQUIRED_PROPERTY: Pcwstr = w("PinCacheIsGestureRequired")
 
-public val NCRYPT_PIN_CACHE_PIN_PROPERTY: PCWSTR = w("PinCachePin")
+public val NCRYPT_PIN_CACHE_PIN_PROPERTY: Pcwstr = w("PinCachePin")
 
 public val NCRYPT_PIN_CACHE_REQUIRE_GESTURE_FLAG: UInt = 1u
 
-public val NCRYPT_PIN_PROMPT_PROPERTY: PCWSTR = w("SmartCardPinPrompt")
+public val NCRYPT_PIN_PROMPT_PROPERTY: Pcwstr = w("SmartCardPinPrompt")
 
-public val NCRYPT_PIN_PROPERTY: PCWSTR = w("SmartCardPin")
+public val NCRYPT_PIN_PROPERTY: Pcwstr = w("SmartCardPin")
 
-public val NCRYPT_PKCS7_ENVELOPE_BLOB: PCWSTR = w("PKCS7_ENVELOPE")
+public val NCRYPT_PKCS7_ENVELOPE_BLOB: Pcwstr = w("PKCS7_ENVELOPE")
 
-public val NCRYPT_PKCS8_PRIVATE_KEY_BLOB: PCWSTR = w("PKCS8_PRIVATEKEY")
+public val NCRYPT_PKCS8_PRIVATE_KEY_BLOB: Pcwstr = w("PKCS8_PRIVATEKEY")
 
 public val NCRYPT_PLATFORM_ATTEST_MAGIC: UInt = 1146110288u
 
 public val NCRYPT_PREFER_VIRTUAL_ISOLATION_FLAG: UInt = 65536u
 
-public val NCRYPT_PROTECTED_KEY_BLOB: PCWSTR = w("ProtectedKeyBlob")
+public val NCRYPT_PROTECTED_KEY_BLOB: Pcwstr = w("ProtectedKeyBlob")
 
 public val NCRYPT_PROTECTED_KEY_BLOB_MAGIC: UInt = 1263817296u
 
@@ -2286,73 +2287,73 @@ public val NCRYPT_PROTECTION_INFO_TYPE_DESCRIPTOR_STRING: UInt = 1u
 
 public val NCRYPT_PROTECT_TO_LOCAL_SYSTEM: UInt = 32768u
 
-public val NCRYPT_PROVIDER_HANDLE_PROPERTY: PCWSTR = w("Provider Handle")
+public val NCRYPT_PROVIDER_HANDLE_PROPERTY: Pcwstr = w("Provider Handle")
 
-public val NCRYPT_PUBLIC_LENGTH_PROPERTY: PCWSTR = w("PublicKeyLength")
+public val NCRYPT_PUBLIC_LENGTH_PROPERTY: Pcwstr = w("PublicKeyLength")
 
-public val NCRYPT_RC2_ALGORITHM: PCWSTR = w("RC2")
+public val NCRYPT_RC2_ALGORITHM: Pcwstr = w("RC2")
 
-public val NCRYPT_RC2_ALGORITHM_GROUP: PCWSTR = w("RC2")
+public val NCRYPT_RC2_ALGORITHM_GROUP: Pcwstr = w("RC2")
 
-public val NCRYPT_READER_ICON_PROPERTY: PCWSTR = w("SmartCardReaderIcon")
+public val NCRYPT_READER_ICON_PROPERTY: Pcwstr = w("SmartCardReaderIcon")
 
-public val NCRYPT_READER_PROPERTY: PCWSTR = w("SmartCardReader")
+public val NCRYPT_READER_PROPERTY: Pcwstr = w("SmartCardReader")
 
-public val NCRYPT_REGISTER_NOTIFY_FLAG: NCRYPT_FLAGS = 1u
+public val NCRYPT_REGISTER_NOTIFY_FLAG: NcryptFlags = 1u
 
 public val NCRYPT_REQUIRE_KDS_LRPC_BIND_FLAG: UInt = 536870912u
 
-public val NCRYPT_ROOT_CERTSTORE_PROPERTY: PCWSTR = w("SmartcardRootCertStore")
+public val NCRYPT_ROOT_CERTSTORE_PROPERTY: Pcwstr = w("SmartcardRootCertStore")
 
-public val NCRYPT_RSA_ALGORITHM: PCWSTR = w("RSA")
+public val NCRYPT_RSA_ALGORITHM: Pcwstr = w("RSA")
 
-public val NCRYPT_RSA_ALGORITHM_GROUP: PCWSTR = w("RSA")
+public val NCRYPT_RSA_ALGORITHM_GROUP: Pcwstr = w("RSA")
 
-public val NCRYPT_RSA_SIGN_ALGORITHM: PCWSTR = w("RSA_SIGN")
+public val NCRYPT_RSA_SIGN_ALGORITHM: Pcwstr = w("RSA_SIGN")
 
-public val NCRYPT_SCARD_NGC_KEY_NAME: PCWSTR = w("SmartCardNgcKeyName")
+public val NCRYPT_SCARD_NGC_KEY_NAME: Pcwstr = w("SmartCardNgcKeyName")
 
-public val NCRYPT_SCARD_PIN_ID: PCWSTR = w("SmartCardPinId")
+public val NCRYPT_SCARD_PIN_ID: Pcwstr = w("SmartCardPinId")
 
-public val NCRYPT_SCARD_PIN_INFO: PCWSTR = w("SmartCardPinInfo")
+public val NCRYPT_SCARD_PIN_INFO: Pcwstr = w("SmartCardPinInfo")
 
-public val NCRYPT_SCHANNEL_INTERFACE: BCRYPT_INTERFACE = 65538u
+public val NCRYPT_SCHANNEL_INTERFACE: BcryptInterface = 65538u
 
-public val NCRYPT_SCHANNEL_SIGNATURE_INTERFACE: BCRYPT_INTERFACE = 65539u
+public val NCRYPT_SCHANNEL_SIGNATURE_INTERFACE: BcryptInterface = 65539u
 
 public val NCRYPT_SEALING_FLAG: UInt = 256u
 
-public val NCRYPT_SECRET_AGREEMENT_INTERFACE: NCRYPT_ALGORITHM_NAME_CLASS = 4u
+public val NCRYPT_SECRET_AGREEMENT_INTERFACE: NcryptAlgorithmNameClass = 4u
 
-public val NCRYPT_SECRET_AGREEMENT_OPERATION: NCRYPT_OPERATION = 8u
+public val NCRYPT_SECRET_AGREEMENT_OPERATION: NcryptOperation = 8u
 
-public val NCRYPT_SECURE_PIN_PROPERTY: PCWSTR = w("SmartCardSecurePin")
+public val NCRYPT_SECURE_PIN_PROPERTY: Pcwstr = w("SmartCardSecurePin")
 
-public val NCRYPT_SECURITY_DESCR_PROPERTY: PCWSTR = w("Security Descr")
+public val NCRYPT_SECURITY_DESCR_PROPERTY: Pcwstr = w("Security Descr")
 
-public val NCRYPT_SECURITY_DESCR_SUPPORT_PROPERTY: PCWSTR = w("Security Descr Support")
+public val NCRYPT_SECURITY_DESCR_SUPPORT_PROPERTY: Pcwstr = w("Security Descr Support")
 
-public val NCRYPT_SHA1_ALGORITHM: PCWSTR = w("SHA1")
+public val NCRYPT_SHA1_ALGORITHM: Pcwstr = w("SHA1")
 
-public val NCRYPT_SHA256_ALGORITHM: PCWSTR = w("SHA256")
+public val NCRYPT_SHA256_ALGORITHM: Pcwstr = w("SHA256")
 
-public val NCRYPT_SHA384_ALGORITHM: PCWSTR = w("SHA384")
+public val NCRYPT_SHA384_ALGORITHM: Pcwstr = w("SHA384")
 
-public val NCRYPT_SHA512_ALGORITHM: PCWSTR = w("SHA512")
+public val NCRYPT_SHA512_ALGORITHM: Pcwstr = w("SHA512")
 
-public val NCRYPT_SIGNATURE_INTERFACE: NCRYPT_ALGORITHM_NAME_CLASS = 5u
+public val NCRYPT_SIGNATURE_INTERFACE: NcryptAlgorithmNameClass = 5u
 
-public val NCRYPT_SIGNATURE_LENGTH_PROPERTY: PCWSTR = w("SignatureLength")
+public val NCRYPT_SIGNATURE_LENGTH_PROPERTY: Pcwstr = w("SignatureLength")
 
-public val NCRYPT_SIGNATURE_OPERATION: NCRYPT_OPERATION = 16u
+public val NCRYPT_SIGNATURE_OPERATION: NcryptOperation = 16u
 
-public val NCRYPT_SILENT_FLAG: NCRYPT_FLAGS = 64u
+public val NCRYPT_SILENT_FLAG: NcryptFlags = 64u
 
-public val NCRYPT_SMARTCARD_GUID_PROPERTY: PCWSTR = w("SmartCardGuid")
+public val NCRYPT_SMARTCARD_GUID_PROPERTY: Pcwstr = w("SmartCardGuid")
 
-public val NCRYPT_SP800108_CTR_HMAC_ALGORITHM: PCWSTR = w("SP800_108_CTR_HMAC")
+public val NCRYPT_SP800108_CTR_HMAC_ALGORITHM: Pcwstr = w("SP800_108_CTR_HMAC")
 
-public val NCRYPT_SP80056A_CONCAT_ALGORITHM: PCWSTR = w("SP800_56A_CONCAT")
+public val NCRYPT_SP80056A_CONCAT_ALGORITHM: Pcwstr = w("SP800_56A_CONCAT")
 
 public val NCRYPT_SSL_CIPHER_LENGTHS_BLOCK_PADDING: UInt = 1u
 
@@ -2384,7 +2385,7 @@ public val NCRYPT_SSL_SIGN_USE_PSS_PADDING: UInt = 2u
 
 public val NCRYPT_TPM12_PROVIDER: UInt = 65536u
 
-public val NCRYPT_TPM_LOADABLE_KEY_BLOB: PCWSTR = w("PcpTpmProtectedKeyBlob")
+public val NCRYPT_TPM_LOADABLE_KEY_BLOB: Pcwstr = w("PcpTpmProtectedKeyBlob")
 
 public val NCRYPT_TPM_LOADABLE_KEY_BLOB_MAGIC: UInt = 1297371211u
 
@@ -2408,33 +2409,33 @@ public val NCRYPT_UI_FINGERPRINT_PROTECTION_FLAG: UInt = 4u
 
 public val NCRYPT_UI_FORCE_HIGH_PROTECTION_FLAG: UInt = 2u
 
-public val NCRYPT_UI_POLICY_PROPERTY: PCWSTR = w("UI Policy")
+public val NCRYPT_UI_POLICY_PROPERTY: Pcwstr = w("UI Policy")
 
 public val NCRYPT_UI_PROTECT_KEY_FLAG: UInt = 1u
 
-public val NCRYPT_UNIQUE_NAME_PROPERTY: PCWSTR = w("Unique Name")
+public val NCRYPT_UNIQUE_NAME_PROPERTY: Pcwstr = w("Unique Name")
 
-public val NCRYPT_UNPROTECT_NO_DECRYPT: NCRYPT_FLAGS = 1u
+public val NCRYPT_UNPROTECT_NO_DECRYPT: NcryptFlags = 1u
 
-public val NCRYPT_UNREGISTER_NOTIFY_FLAG: NCRYPT_FLAGS = 2u
+public val NCRYPT_UNREGISTER_NOTIFY_FLAG: NcryptFlags = 2u
 
-public val NCRYPT_USER_CERTSTORE_PROPERTY: PCWSTR = w("SmartCardUserCertStore")
+public val NCRYPT_USER_CERTSTORE_PROPERTY: Pcwstr = w("SmartCardUserCertStore")
 
-public val NCRYPT_USE_CONTEXT_PROPERTY: PCWSTR = w("Use Context")
+public val NCRYPT_USE_CONTEXT_PROPERTY: Pcwstr = w("Use Context")
 
-public val NCRYPT_USE_COUNT_ENABLED_PROPERTY: PCWSTR = w("Enabled Use Count")
+public val NCRYPT_USE_COUNT_ENABLED_PROPERTY: Pcwstr = w("Enabled Use Count")
 
-public val NCRYPT_USE_COUNT_PROPERTY: PCWSTR = w("Use Count")
+public val NCRYPT_USE_COUNT_PROPERTY: Pcwstr = w("Use Count")
 
 public val NCRYPT_USE_PER_BOOT_KEY_FLAG: UInt = 262144u
 
-public val NCRYPT_USE_PER_BOOT_KEY_PROPERTY: PCWSTR = w("Per Boot Key")
+public val NCRYPT_USE_PER_BOOT_KEY_PROPERTY: Pcwstr = w("Per Boot Key")
 
 public val NCRYPT_USE_VIRTUAL_ISOLATION_FLAG: UInt = 131072u
 
-public val NCRYPT_USE_VIRTUAL_ISOLATION_PROPERTY: PCWSTR = w("Virtual Iso")
+public val NCRYPT_USE_VIRTUAL_ISOLATION_PROPERTY: Pcwstr = w("Virtual Iso")
 
-public val NCRYPT_VERSION_PROPERTY: PCWSTR = w("Version")
+public val NCRYPT_VERSION_PROPERTY: Pcwstr = w("Version")
 
 public val NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS_CURRENT_VERSION: UInt = 0u
 
@@ -2444,9 +2445,9 @@ public val NCRYPT_VSM_KEY_ATTESTATION_STATEMENT_CURRENT_VERSION: UInt = 0u
 
 public val NCRYPT_VSM_KEY_ATTESTATION_STATEMENT_V0: UInt = 0u
 
-public val NCRYPT_WINDOW_HANDLE_PROPERTY: PCWSTR = w("HWND Handle")
+public val NCRYPT_WINDOW_HANDLE_PROPERTY: Pcwstr = w("HWND Handle")
 
-public val NCRYPT_WRITE_KEY_TO_LEGACY_STORE_FLAG: NCRYPT_FLAGS = 512u
+public val NCRYPT_WRITE_KEY_TO_LEGACY_STORE_FLAG: NcryptFlags = 512u
 
 public val NETSCAPE_SIGN_CA_CERT_TYPE: UInt = 1u
 
@@ -2462,7 +2463,7 @@ public val NETSCAPE_SSL_CLIENT_AUTH_CERT_TYPE: UInt = 128u
 
 public val NETSCAPE_SSL_SERVER_AUTH_CERT_TYPE: UInt = 64u
 
-public val NonRepudiationPin: SECRET_PURPOSE = 3
+public val NON_REPUDIATION_PIN: SecretPurpose = 3
 
 public val OCSP_BASIC_BY_KEY_RESPONDER_ID: UInt = 2u
 
@@ -2470,13 +2471,13 @@ public val OCSP_BASIC_BY_NAME_RESPONDER_ID: UInt = 1u
 
 public val OCSP_BASIC_GOOD_CERT_STATUS: UInt = 0u
 
-public val OCSP_BASIC_RESPONSE: PCSTR = 69.toLong()
+public val OCSP_BASIC_RESPONSE: Pcstr = COpaquePointer(69.toLong())
 
 public val OCSP_BASIC_RESPONSE_V1: UInt = 0u
 
 public val OCSP_BASIC_REVOKED_CERT_STATUS: UInt = 1u
 
-public val OCSP_BASIC_SIGNED_RESPONSE: PCSTR = 68.toLong()
+public val OCSP_BASIC_SIGNED_RESPONSE: Pcstr = COpaquePointer(68.toLong())
 
 public val OCSP_BASIC_UNKNOWN_CERT_STATUS: UInt = 2u
 
@@ -2484,13 +2485,13 @@ public val OCSP_INTERNAL_ERROR_RESPONSE: UInt = 2u
 
 public val OCSP_MALFORMED_REQUEST_RESPONSE: UInt = 1u
 
-public val OCSP_REQUEST: PCSTR = 66.toLong()
+public val OCSP_REQUEST: Pcstr = COpaquePointer(66.toLong())
 
 public val OCSP_REQUEST_V1: UInt = 0u
 
-public val OCSP_RESPONSE: PCSTR = 67.toLong()
+public val OCSP_RESPONSE: Pcstr = COpaquePointer(67.toLong())
 
-public val OCSP_SIGNED_REQUEST: PCSTR = 65.toLong()
+public val OCSP_SIGNED_REQUEST: Pcstr = COpaquePointer(65.toLong())
 
 public val OCSP_SIG_REQUIRED_RESPONSE: UInt = 5u
 
@@ -2516,17 +2517,17 @@ public val PIN_SET_ALL_ROLES: UInt = 255u
 
 public val PIN_SET_NONE: UInt = 0u
 
-public val PKCS12_ALLOW_OVERWRITE_KEY: CRYPT_KEY_FLAGS = 16384u
+public val PKCS12_ALLOW_OVERWRITE_KEY: CryptKeyFlags = 16384u
 
-public val PKCS12_ALWAYS_CNG_KSP: CRYPT_KEY_FLAGS = 512u
+public val PKCS12_ALWAYS_CNG_KSP: CryptKeyFlags = 512u
 
-public val PKCS12_CONFIG_REGPATH: PCWSTR = w("Software\\Microsoft\\Windows\\CurrentVersion\\PFX")
+public val PKCS12_CONFIG_REGPATH: Pcwstr = w("Software\\Microsoft\\Windows\\CurrentVersion\\PFX")
 
 public val PKCS12_DISABLE_ENCRYPT_CERTIFICATES: UInt = 256u
 
 public val PKCS12_ENCRYPT_CERTIFICATES: UInt = 512u
 
-public val PKCS12_ENCRYPT_CERTIFICATES_VALUE_NAME: PCWSTR = w("EncryptCertificates")
+public val PKCS12_ENCRYPT_CERTIFICATES_VALUE_NAME: Pcwstr = w("EncryptCertificates")
 
 public val PKCS12_EXPORT_ECC_CURVE_OID: UInt = 8192u
 
@@ -2542,31 +2543,31 @@ public val PKCS12_IMPORT_RESERVED_MASK: UInt = 4294901760u
 
 public val PKCS12_IMPORT_SILENT: UInt = 64u
 
-public val PKCS12_INCLUDE_EXTENDED_PROPERTIES: CRYPT_KEY_FLAGS = 16u
+public val PKCS12_INCLUDE_EXTENDED_PROPERTIES: CryptKeyFlags = 16u
 
-public val PKCS12_NO_PERSIST_KEY: CRYPT_KEY_FLAGS = 32768u
+public val PKCS12_NO_PERSIST_KEY: CryptKeyFlags = 32768u
 
 public val PKCS12_ONLY_CERTIFICATES: UInt = 1024u
 
-public val PKCS12_ONLY_CERTIFICATES_CONTAINER_NAME: PCWSTR = w("PfxContainer")
+public val PKCS12_ONLY_CERTIFICATES_CONTAINER_NAME: Pcwstr = w("PfxContainer")
 
-public val PKCS12_ONLY_CERTIFICATES_PROVIDER_NAME: PCWSTR = w("PfxProvider")
+public val PKCS12_ONLY_CERTIFICATES_PROVIDER_NAME: Pcwstr = w("PfxProvider")
 
 public val PKCS12_ONLY_CERTIFICATES_PROVIDER_TYPE: UInt = 0u
 
 public val PKCS12_ONLY_NOT_ENCRYPTED_CERTIFICATES: UInt = 2048u
 
-public val PKCS12_PBES2_ALG_AES256_SHA256: PCWSTR = w("AES256-SHA256")
+public val PKCS12_PBES2_ALG_AES256_SHA256: Pcwstr = w("AES256-SHA256")
 
-public val PKCS12_PBKDF2_ID_HMAC_SHA1: PCSTR = s("1.2.840.113549.2.7")
+public val PKCS12_PBKDF2_ID_HMAC_SHA1: Pcstr = s("1.2.840.113549.2.7")
 
-public val PKCS12_PBKDF2_ID_HMAC_SHA256: PCSTR = s("1.2.840.113549.2.9")
+public val PKCS12_PBKDF2_ID_HMAC_SHA256: Pcstr = s("1.2.840.113549.2.9")
 
-public val PKCS12_PBKDF2_ID_HMAC_SHA384: PCSTR = s("1.2.840.113549.2.10")
+public val PKCS12_PBKDF2_ID_HMAC_SHA384: Pcstr = s("1.2.840.113549.2.10")
 
-public val PKCS12_PBKDF2_ID_HMAC_SHA512: PCSTR = s("1.2.840.113549.2.11")
+public val PKCS12_PBKDF2_ID_HMAC_SHA512: Pcstr = s("1.2.840.113549.2.11")
 
-public val PKCS12_PREFER_CNG_KSP: CRYPT_KEY_FLAGS = 256u
+public val PKCS12_PREFER_CNG_KSP: CryptKeyFlags = 256u
 
 public val PKCS12_PROTECT_TO_DOMAIN_SIDS: UInt = 32u
 
@@ -2574,43 +2575,43 @@ public val PKCS12_VIRTUAL_ISOLATION_KEY: UInt = 65536u
 
 public val PKCS5_PADDING: UInt = 1u
 
-public val PKCS7_SIGNER_INFO: PCSTR = 500.toLong()
+public val PKCS7_SIGNER_INFO: Pcstr = COpaquePointer(500.toLong())
 
-public val PKCS_7_ASN_ENCODING: CERT_QUERY_ENCODING_TYPE = 65536u
+public val PKCS_7_ASN_ENCODING: CertQueryEncodingType = 65536u
 
 public val PKCS_7_NDR_ENCODING: UInt = 131072u
 
-public val PKCS_ATTRIBUTE: PCSTR = 22.toLong()
+public val PKCS_ATTRIBUTE: Pcstr = COpaquePointer(22.toLong())
 
-public val PKCS_ATTRIBUTES: PCSTR = 48.toLong()
+public val PKCS_ATTRIBUTES: Pcstr = COpaquePointer(48.toLong())
 
-public val PKCS_CONTENT_INFO: PCSTR = 33.toLong()
+public val PKCS_CONTENT_INFO: Pcstr = COpaquePointer(33.toLong())
 
-public val PKCS_CONTENT_INFO_SEQUENCE_OF_ANY: PCSTR = 23.toLong()
+public val PKCS_CONTENT_INFO_SEQUENCE_OF_ANY: Pcstr = COpaquePointer(23.toLong())
 
-public val PKCS_CTL: PCSTR = 37.toLong()
+public val PKCS_CTL: Pcstr = COpaquePointer(37.toLong())
 
-public val PKCS_ENCRYPTED_PRIVATE_KEY_INFO: PCSTR = 45.toLong()
+public val PKCS_ENCRYPTED_PRIVATE_KEY_INFO: Pcstr = COpaquePointer(45.toLong())
 
-public val PKCS_PRIVATE_KEY_INFO: PCSTR = 44.toLong()
+public val PKCS_PRIVATE_KEY_INFO: Pcstr = COpaquePointer(44.toLong())
 
-public val PKCS_RC2_CBC_PARAMETERS: PCSTR = 41.toLong()
+public val PKCS_RC2_CBC_PARAMETERS: Pcstr = COpaquePointer(41.toLong())
 
-public val PKCS_RSAES_OAEP_PARAMETERS: PCSTR = 76.toLong()
+public val PKCS_RSAES_OAEP_PARAMETERS: Pcstr = COpaquePointer(76.toLong())
 
-public val PKCS_RSA_PRIVATE_KEY: PCSTR = 43.toLong()
+public val PKCS_RSA_PRIVATE_KEY: Pcstr = COpaquePointer(43.toLong())
 
-public val PKCS_RSA_SSA_PSS_PARAMETERS: PCSTR = 75.toLong()
+public val PKCS_RSA_SSA_PSS_PARAMETERS: Pcstr = COpaquePointer(75.toLong())
 
 public val PKCS_RSA_SSA_PSS_TRAILER_FIELD_BC: UInt = 1u
 
-public val PKCS_SMIME_CAPABILITIES: PCSTR = 42.toLong()
+public val PKCS_SMIME_CAPABILITIES: Pcstr = COpaquePointer(42.toLong())
 
-public val PKCS_SORTED_CTL: PCSTR = 49.toLong()
+public val PKCS_SORTED_CTL: Pcstr = COpaquePointer(49.toLong())
 
-public val PKCS_TIME_REQUEST: PCSTR = 18.toLong()
+public val PKCS_TIME_REQUEST: Pcstr = COpaquePointer(18.toLong())
 
-public val PKCS_UTC_TIME: PCSTR = 17.toLong()
+public val PKCS_UTC_TIME: Pcstr = COpaquePointer(17.toLong())
 
 public val PLAINTEXTKEYBLOB: UInt = 8u
 
@@ -2622,7 +2623,7 @@ public val PP_CERTCHAIN: UInt = 9u
 
 public val PP_CHANGE_PASSWORD: UInt = 7u
 
-public val PP_CLIENT_HWND: CRYPT_SET_PROV_PARAM_ID = 1u
+public val PP_CLIENT_HWND: CryptSetProvParamId = 1u
 
 public val PP_CONTAINER: UInt = 6u
 
@@ -2630,7 +2631,7 @@ public val PP_CONTEXT_INFO: UInt = 11u
 
 public val PP_CRYPT_COUNT_KEY_USE: UInt = 41u
 
-public val PP_DELETEKEY: CRYPT_SET_PROV_PARAM_ID = 24u
+public val PP_DELETEKEY: CryptSetProvParamId = 24u
 
 public val PP_DISMISS_PIN_UI_SEC: UInt = 49u
 
@@ -2650,13 +2651,13 @@ public val PP_IMPTYPE: UInt = 3u
 
 public val PP_IS_PFX_EPHEMERAL: UInt = 50u
 
-public val PP_KEYEXCHANGE_ALG: CRYPT_SET_PROV_PARAM_ID = 14u
+public val PP_KEYEXCHANGE_ALG: CryptSetProvParamId = 14u
 
-public val PP_KEYEXCHANGE_KEYSIZE: CRYPT_SET_PROV_PARAM_ID = 12u
+public val PP_KEYEXCHANGE_KEYSIZE: CryptSetProvParamId = 12u
 
-public val PP_KEYEXCHANGE_PIN: CRYPT_SET_PROV_PARAM_ID = 32u
+public val PP_KEYEXCHANGE_PIN: CryptSetProvParamId = 32u
 
-public val PP_KEYSET_SEC_DESCR: CRYPT_SET_PROV_PARAM_ID = 8u
+public val PP_KEYSET_SEC_DESCR: CryptSetProvParamId = 8u
 
 public val PP_KEYSET_TYPE: UInt = 27u
 
@@ -2670,43 +2671,43 @@ public val PP_KEY_TYPE_SUBTYPE: UInt = 10u
 
 public val PP_NAME: UInt = 4u
 
-public val PP_PIN_PROMPT_STRING: CRYPT_SET_PROV_PARAM_ID = 44u
+public val PP_PIN_PROMPT_STRING: CryptSetProvParamId = 44u
 
 public val PP_PROVTYPE: UInt = 16u
 
-public val PP_ROOT_CERTSTORE: CRYPT_SET_PROV_PARAM_ID = 46u
+public val PP_ROOT_CERTSTORE: CryptSetProvParamId = 46u
 
-public val PP_SECURE_KEYEXCHANGE_PIN: CRYPT_SET_PROV_PARAM_ID = 47u
+public val PP_SECURE_KEYEXCHANGE_PIN: CryptSetProvParamId = 47u
 
-public val PP_SECURE_SIGNATURE_PIN: CRYPT_SET_PROV_PARAM_ID = 48u
+public val PP_SECURE_SIGNATURE_PIN: CryptSetProvParamId = 48u
 
 public val PP_SESSION_KEYSIZE: UInt = 20u
 
 public val PP_SGC_INFO: UInt = 37u
 
-public val PP_SIGNATURE_ALG: CRYPT_SET_PROV_PARAM_ID = 15u
+public val PP_SIGNATURE_ALG: CryptSetProvParamId = 15u
 
-public val PP_SIGNATURE_KEYSIZE: CRYPT_SET_PROV_PARAM_ID = 13u
+public val PP_SIGNATURE_KEYSIZE: CryptSetProvParamId = 13u
 
-public val PP_SIGNATURE_PIN: CRYPT_SET_PROV_PARAM_ID = 33u
+public val PP_SIGNATURE_PIN: CryptSetProvParamId = 33u
 
 public val PP_SIG_KEYSIZE_INC: UInt = 34u
 
 public val PP_SMARTCARD_GUID: UInt = 45u
 
-public val PP_SMARTCARD_READER: CRYPT_SET_PROV_PARAM_ID = 43u
+public val PP_SMARTCARD_READER: CryptSetProvParamId = 43u
 
 public val PP_SMARTCARD_READER_ICON: UInt = 47u
 
 public val PP_SYM_KEYSIZE: UInt = 19u
 
-public val PP_UI_PROMPT: CRYPT_SET_PROV_PARAM_ID = 21u
+public val PP_UI_PROMPT: CryptSetProvParamId = 21u
 
 public val PP_UNIQUE_CONTAINER: UInt = 36u
 
-public val PP_USER_CERTSTORE: CRYPT_SET_PROV_PARAM_ID = 42u
+public val PP_USER_CERTSTORE: CryptSetProvParamId = 42u
 
-public val PP_USE_HARDWARE_RNG: CRYPT_SET_PROV_PARAM_ID = 38u
+public val PP_USE_HARDWARE_RNG: CryptSetProvParamId = 38u
 
 public val PP_VERSION: UInt = 5u
 
@@ -2762,19 +2763,19 @@ public val PUBLICKEYBLOB: UInt = 6u
 
 public val PUBLICKEYBLOBEX: UInt = 10u
 
-public val PVK_TYPE_FILE_NAME: SIGNER_PRIVATE_KEY_CHOICE = 1u
+public val PVK_TYPE_FILE_NAME: SignerPrivateKeyChoice = 1u
 
-public val PVK_TYPE_KEYCONTAINER: SIGNER_PRIVATE_KEY_CHOICE = 2u
+public val PVK_TYPE_KEYCONTAINER: SignerPrivateKeyChoice = 2u
 
-public val PinCacheAlwaysPrompt: PIN_CACHE_POLICY_TYPE = 3
+public val PIN_CACHE_ALWAYS_PROMPT: PinCachePolicyType = 3
 
-public val PinCacheNone: PIN_CACHE_POLICY_TYPE = 2
+public val PIN_CACHE_NONE: PinCachePolicyType = 2
 
-public val PinCacheNormal: PIN_CACHE_POLICY_TYPE = 0
+public val PIN_CACHE_NORMAL: PinCachePolicyType = 0
 
-public val PinCacheTimed: PIN_CACHE_POLICY_TYPE = 1
+public val PIN_CACHE_TIMED: PinCachePolicyType = 1
 
-public val PrimaryCardPin: SECRET_PURPOSE = 5
+public val PRIMARY_CARD_PIN: SecretPurpose = 5
 
 public val RANDOM_PADDING: UInt = 2u
 
@@ -2786,7 +2787,7 @@ public val REPORT_NOT_ABLE_TO_EXPORT_PRIVATE_KEY: UInt = 2u
 
 public val REPORT_NO_PRIVATE_KEY: UInt = 1u
 
-public val REVOCATION_OID_CRL_REVOCATION: PCSTR = 1.toLong()
+public val REVOCATION_OID_CRL_REVOCATION: Pcstr = COpaquePointer(1.toLong())
 
 public val ROLE_ADMIN: UInt = 2u
 
@@ -2800,7 +2801,7 @@ public val ROLE_USER: UInt = 1u
 
 public val RSA1024BIT_KEY: UInt = 67108864u
 
-public val RSA_CSP_PUBLICKEYBLOB: PCSTR = 19.toLong()
+public val RSA_CSP_PUBLICKEYBLOB: Pcstr = COpaquePointer(19.toLong())
 
 public val SCARD_PROVIDER_CARD_MODULE: UInt = 2147483649u
 
@@ -2808,39 +2809,39 @@ public val SCHANNEL_ENC_KEY: UInt = 1u
 
 public val SCHANNEL_MAC_KEY: UInt = 0u
 
-public val SCHEME_OID_RETRIEVE_ENCODED_OBJECTW_FUNC: PCSTR = s("SchemeDllRetrieveEncodedObjectW")
+public val SCHEME_OID_RETRIEVE_ENCODED_OBJECTW_FUNC: Pcstr = s("SchemeDllRetrieveEncodedObjectW")
 
-public val SCHEME_OID_RETRIEVE_ENCODED_OBJECT_FUNC: PCSTR = s("SchemeDllRetrieveEncodedObject")
+public val SCHEME_OID_RETRIEVE_ENCODED_OBJECT_FUNC: Pcstr = s("SchemeDllRetrieveEncodedObject")
 
 public val SIGNATURE_RESOURCE_NUMBER: UInt = 666u
 
-public val SIGNER_AUTHCODE_ATTR: SIGNER_SIGNATURE_ATTRIBUTE_CHOICE = 1u
+public val SIGNER_AUTHCODE_ATTR: SignerSignatureAttributeChoice = 1u
 
-public val SIGNER_CERT_POLICY_CHAIN: SIGNER_CERT_POLICY = 2u
+public val SIGNER_CERT_POLICY_CHAIN: SignerCertPolicy = 2u
 
-public val SIGNER_CERT_POLICY_CHAIN_NO_ROOT: SIGNER_CERT_POLICY = 8u
+public val SIGNER_CERT_POLICY_CHAIN_NO_ROOT: SignerCertPolicy = 8u
 
-public val SIGNER_CERT_POLICY_SPC: SIGNER_CERT_POLICY = 4u
+public val SIGNER_CERT_POLICY_SPC: SignerCertPolicy = 4u
 
-public val SIGNER_CERT_POLICY_STORE: SIGNER_CERT_POLICY = 1u
+public val SIGNER_CERT_POLICY_STORE: SignerCertPolicy = 1u
 
-public val SIGNER_CERT_SPC_CHAIN: SIGNER_CERT_CHOICE = 3u
+public val SIGNER_CERT_SPC_CHAIN: SignerCertChoice = 3u
 
-public val SIGNER_CERT_SPC_FILE: SIGNER_CERT_CHOICE = 1u
+public val SIGNER_CERT_SPC_FILE: SignerCertChoice = 1u
 
-public val SIGNER_CERT_STORE: SIGNER_CERT_CHOICE = 2u
+public val SIGNER_CERT_STORE: SignerCertChoice = 2u
 
-public val SIGNER_NO_ATTR: SIGNER_SIGNATURE_ATTRIBUTE_CHOICE = 0u
+public val SIGNER_NO_ATTR: SignerSignatureAttributeChoice = 0u
 
-public val SIGNER_SUBJECT_BLOB: SIGNER_SUBJECT_CHOICE = 2u
+public val SIGNER_SUBJECT_BLOB: SignerSubjectChoice = 2u
 
-public val SIGNER_SUBJECT_FILE: SIGNER_SUBJECT_CHOICE = 1u
+public val SIGNER_SUBJECT_FILE: SignerSubjectChoice = 1u
 
-public val SIGNER_TIMESTAMP_AUTHENTICODE: SIGNER_TIMESTAMP_FLAGS = 1u
+public val SIGNER_TIMESTAMP_AUTHENTICODE: SignerTimestampFlags = 1u
 
-public val SIGNER_TIMESTAMP_RFC3161: SIGNER_TIMESTAMP_FLAGS = 2u
+public val SIGNER_TIMESTAMP_RFC3161: SignerTimestampFlags = 2u
 
-public val SIG_APPEND: SIGNER_SIGN_FLAGS = 4096u
+public val SIG_APPEND: SignerSignFlags = 4096u
 
 public val SIMPLEBLOB: UInt = 1u
 
@@ -2848,21 +2849,21 @@ public val SITE_PIN_RULES_ALL_SUBDOMAINS_FLAG: UInt = 1u
 
 public val SORTED_CTL_EXT_HASHED_SUBJECT_IDENTIFIER_FLAG: UInt = 1u
 
-public val SPC_DIGEST_GENERATE_FLAG: SIGNER_SIGN_FLAGS = 512u
+public val SPC_DIGEST_GENERATE_FLAG: SignerSignFlags = 512u
 
-public val SPC_DIGEST_SIGN_EX_FLAG: SIGNER_SIGN_FLAGS = 16384u
+public val SPC_DIGEST_SIGN_EX_FLAG: SignerSignFlags = 16384u
 
-public val SPC_DIGEST_SIGN_FLAG: SIGNER_SIGN_FLAGS = 1024u
+public val SPC_DIGEST_SIGN_FLAG: SignerSignFlags = 1024u
 
-public val SPC_EXC_PE_PAGE_HASHES_FLAG: SIGNER_SIGN_FLAGS = 16u
+public val SPC_EXC_PE_PAGE_HASHES_FLAG: SignerSignFlags = 16u
 
-public val SPC_INC_PE_DEBUG_INFO_FLAG: SIGNER_SIGN_FLAGS = 64u
+public val SPC_INC_PE_DEBUG_INFO_FLAG: SignerSignFlags = 64u
 
-public val SPC_INC_PE_IMPORT_ADDR_TABLE_FLAG: SIGNER_SIGN_FLAGS = 32u
+public val SPC_INC_PE_IMPORT_ADDR_TABLE_FLAG: SignerSignFlags = 32u
 
-public val SPC_INC_PE_PAGE_HASHES_FLAG: SIGNER_SIGN_FLAGS = 256u
+public val SPC_INC_PE_PAGE_HASHES_FLAG: SignerSignFlags = 256u
 
-public val SPC_INC_PE_RESOURCES_FLAG: SIGNER_SIGN_FLAGS = 128u
+public val SPC_INC_PE_RESOURCES_FLAG: SignerSignFlags = 128u
 
 public val SSL2_PROTOCOL_VERSION: UInt = 2u
 
@@ -2882,9 +2883,9 @@ public val SSL_CK_RC4_128_EXPORT40_WITH_MD5: UInt = 131200u
 
 public val SSL_CK_RC4_128_WITH_MD5: UInt = 65664u
 
-public val SSL_ECCPUBLIC_BLOB: PCWSTR = w("SSLECCPUBLICBLOB")
+public val SSL_ECCPUBLIC_BLOB: Pcwstr = w("SSLECCPUBLICBLOB")
 
-public val SSL_ECDSA_ALGORITHM: PCWSTR = w("ECDSA")
+public val SSL_ECDSA_ALGORITHM: Pcwstr = w("ECDSA")
 
 public val SSL_F12_ERROR_TEXT_LENGTH: UInt = 256u
 
@@ -2896,13 +2897,13 @@ public val SSL_HPKP_PKP_RO_HEADER_INDEX: UInt = 1u
 
 public val SSL_KEY_PIN_ERROR_TEXT_LENGTH: UInt = 512u
 
-public val SSL_KEY_TYPE_PROPERTY: PCWSTR = w("KEYTYPE")
+public val SSL_KEY_TYPE_PROPERTY: Pcwstr = w("KEYTYPE")
 
-public val SSL_OBJECT_LOCATOR_CERT_VALIDATION_CONFIG_FUNC: PCSTR = s("SslObjectLocatorInitializeCertValidationConfig")
+public val SSL_OBJECT_LOCATOR_CERT_VALIDATION_CONFIG_FUNC: Pcstr = s("SslObjectLocatorInitializeCertValidationConfig")
 
-public val SSL_OBJECT_LOCATOR_ISSUER_LIST_FUNC: PCSTR = s("SslObjectLocatorInitializeIssuerList")
+public val SSL_OBJECT_LOCATOR_ISSUER_LIST_FUNC: Pcstr = s("SslObjectLocatorInitializeIssuerList")
 
-public val SSL_OBJECT_LOCATOR_PFX_FUNC: PCSTR = s("SslObjectLocatorInitializePfx")
+public val SSL_OBJECT_LOCATOR_PFX_FUNC: Pcstr = s("SslObjectLocatorInitializePfx")
 
 public val SYMMETRICWRAPKEYBLOB: UInt = 11u
 
@@ -2924,53 +2925,53 @@ public val TIMESTAMP_FAILURE_SYSTEM_FAILURE: UInt = 25u
 
 public val TIMESTAMP_FAILURE_TIME_NOT_AVAILABLE: UInt = 14u
 
-public val TIMESTAMP_INFO: PCSTR = 80.toLong()
+public val TIMESTAMP_INFO: Pcstr = COpaquePointer(80.toLong())
 
 public val TIMESTAMP_NO_AUTH_RETRIEVAL: UInt = 131072u
 
-public val TIMESTAMP_REQUEST: PCSTR = 78.toLong()
+public val TIMESTAMP_REQUEST: Pcstr = COpaquePointer(78.toLong())
 
-public val TIMESTAMP_RESPONSE: PCSTR = 79.toLong()
+public val TIMESTAMP_RESPONSE: Pcstr = COpaquePointer(79.toLong())
 
-public val TIMESTAMP_STATUS_GRANTED: CRYPT_TIMESTAMP_RESPONSE_STATUS = 0u
+public val TIMESTAMP_STATUS_GRANTED: CryptTimestampResponseStatus = 0u
 
-public val TIMESTAMP_STATUS_GRANTED_WITH_MODS: CRYPT_TIMESTAMP_RESPONSE_STATUS = 1u
+public val TIMESTAMP_STATUS_GRANTED_WITH_MODS: CryptTimestampResponseStatus = 1u
 
-public val TIMESTAMP_STATUS_REJECTED: CRYPT_TIMESTAMP_RESPONSE_STATUS = 2u
+public val TIMESTAMP_STATUS_REJECTED: CryptTimestampResponseStatus = 2u
 
-public val TIMESTAMP_STATUS_REVOCATION_WARNING: CRYPT_TIMESTAMP_RESPONSE_STATUS = 4u
+public val TIMESTAMP_STATUS_REVOCATION_WARNING: CryptTimestampResponseStatus = 4u
 
-public val TIMESTAMP_STATUS_REVOKED: CRYPT_TIMESTAMP_RESPONSE_STATUS = 5u
+public val TIMESTAMP_STATUS_REVOKED: CryptTimestampResponseStatus = 5u
 
-public val TIMESTAMP_STATUS_WAITING: CRYPT_TIMESTAMP_RESPONSE_STATUS = 3u
+public val TIMESTAMP_STATUS_WAITING: CryptTimestampResponseStatus = 3u
 
 public val TIMESTAMP_VERIFY_CONTEXT_SIGNATURE: UInt = 32u
 
-public val TIMESTAMP_VERSION: CRYPT_TIMESTAMP_VERSION = 1u
+public val TIMESTAMP_VERSION: CryptTimestampVersion = 1u
 
-public val TIME_VALID_OID_FLUSH_CRL: PCSTR = 2.toLong()
+public val TIME_VALID_OID_FLUSH_CRL: Pcstr = COpaquePointer(2.toLong())
 
-public val TIME_VALID_OID_FLUSH_CRL_FROM_CERT: PCSTR = 3.toLong()
+public val TIME_VALID_OID_FLUSH_CRL_FROM_CERT: Pcstr = COpaquePointer(3.toLong())
 
-public val TIME_VALID_OID_FLUSH_CTL: PCSTR = 1.toLong()
+public val TIME_VALID_OID_FLUSH_CTL: Pcstr = COpaquePointer(1.toLong())
 
-public val TIME_VALID_OID_FLUSH_FRESHEST_CRL_FROM_CERT: PCSTR = 4.toLong()
+public val TIME_VALID_OID_FLUSH_FRESHEST_CRL_FROM_CERT: Pcstr = COpaquePointer(4.toLong())
 
-public val TIME_VALID_OID_FLUSH_FRESHEST_CRL_FROM_CRL: PCSTR = 5.toLong()
+public val TIME_VALID_OID_FLUSH_FRESHEST_CRL_FROM_CRL: Pcstr = COpaquePointer(5.toLong())
 
-public val TIME_VALID_OID_FLUSH_OBJECT_FUNC: PCSTR = s("TimeValidDllFlushObject")
+public val TIME_VALID_OID_FLUSH_OBJECT_FUNC: Pcstr = s("TimeValidDllFlushObject")
 
-public val TIME_VALID_OID_GET_CRL: PCSTR = 2.toLong()
+public val TIME_VALID_OID_GET_CRL: Pcstr = COpaquePointer(2.toLong())
 
-public val TIME_VALID_OID_GET_CRL_FROM_CERT: PCSTR = 3.toLong()
+public val TIME_VALID_OID_GET_CRL_FROM_CERT: Pcstr = COpaquePointer(3.toLong())
 
-public val TIME_VALID_OID_GET_CTL: PCSTR = 1.toLong()
+public val TIME_VALID_OID_GET_CTL: Pcstr = COpaquePointer(1.toLong())
 
-public val TIME_VALID_OID_GET_FRESHEST_CRL_FROM_CERT: PCSTR = 4.toLong()
+public val TIME_VALID_OID_GET_FRESHEST_CRL_FROM_CERT: Pcstr = COpaquePointer(4.toLong())
 
-public val TIME_VALID_OID_GET_FRESHEST_CRL_FROM_CRL: PCSTR = 5.toLong()
+public val TIME_VALID_OID_GET_FRESHEST_CRL_FROM_CRL: Pcstr = COpaquePointer(5.toLong())
 
-public val TIME_VALID_OID_GET_OBJECT_FUNC: PCSTR = s("TimeValidDllGetObject")
+public val TIME_VALID_OID_GET_OBJECT_FUNC: Pcstr = s("TimeValidDllGetObject")
 
 public val TLS1_0_PROTOCOL_VERSION: UInt = 769u
 

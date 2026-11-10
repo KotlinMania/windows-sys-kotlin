@@ -15,7 +15,7 @@
 #endif
 #endif
 
-void windowssys_windows_win32_system_com_structuredstorage_ClearPropVariantArray(void* rgpropvar, uint32_t cvars) {
+void windowssys_windows_win32_system_com_structuredstorage_clearPropVariantArray(void* rgpropvar, uint32_t cvars) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ void windowssys_windows_win32_system_com_structuredstorage_ClearPropVariantArray
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_CoGetInstanceFromFile(void* pserverinfo, void* pclsid, void* punkouter, uint32_t dwclsctx, uint32_t grfmode, void* pwszname, uint32_t dwcount, void* presults) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_coGetInstanceFromFile(void* pserverinfo, void* pclsid, void* punkouter, uint32_t dwclsctx, uint32_t grfmode, void* pwszname, uint32_t dwcount, void* presults) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -66,7 +66,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_CoGetInstanceFromF
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_CoGetInstanceFromIStorage(void* pserverinfo, void* pclsid, void* punkouter, uint32_t dwclsctx, void* pstg, uint32_t dwcount, void* presults) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_coGetInstanceFromIStorage(void* pserverinfo, void* pclsid, void* punkouter, uint32_t dwclsctx, void* pstg, uint32_t dwcount, void* presults) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -94,7 +94,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_CoGetInstanceFromI
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_CoGetInterfaceAndReleaseStream(void* pstm, void* iid, void* ppv) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_coGetInterfaceAndReleaseStream(void* pstm, void* iid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -118,7 +118,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_CoGetInterfaceAndR
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_CreateILockBytesOnHGlobal(void* hglobal, int32_t fdeleteonrelease, void* pplkbyt) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_createILockBytesOnHGlobal(void* hglobal, int32_t fdeleteonrelease, void* pplkbyt) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -142,7 +142,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_CreateILockBytesOn
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_CreateStreamOnHGlobal(void* hglobal, int32_t fdeleteonrelease, void* ppstm) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_createStreamOnHGlobal(void* hglobal, int32_t fdeleteonrelease, void* ppstm) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -166,7 +166,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_CreateStreamOnHGlo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_FmtIdToPropStgName(void* pfmtid, void* oszname) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_fmtIdToPropStgName(void* pfmtid, void* oszname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -189,7 +189,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_FmtIdToPropStgName
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_FreePropVariantArray(uint32_t cvariants, void* rgvars) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_freePropVariantArray(uint32_t cvariants, void* rgvars) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -212,7 +212,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_FreePropVariantArr
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_GetConvertStg(void* pstg) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_getConvertStg(void* pstg) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -234,7 +234,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_GetConvertStg(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_GetHGlobalFromILockBytes(void* plkbyt, void* phglobal) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_getHGlobalFromILockBytes(void* plkbyt, void* phglobal) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -257,7 +257,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_GetHGlobalFromILoc
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_GetHGlobalFromStream(void* pstm, void* phglobal) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_getHGlobalFromStream(void* pstm, void* phglobal) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -280,7 +280,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_GetHGlobalFromStre
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromBooleanVector(void* prgf, uint32_t celems, void* ppropvar) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromBooleanVector(void* prgf, uint32_t celems, void* ppropvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -304,7 +304,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFro
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromBuffer(void* pv, uint32_t cb, void* ppropvar) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromBuffer(void* pv, uint32_t cb, void* ppropvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -328,7 +328,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFro
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromCLSID(void* clsid, void* ppropvar) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromCLSID(void* clsid, void* ppropvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -351,7 +351,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFro
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromDoubleVector(void* prgn, uint32_t celems, void* ppropvar) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromDoubleVector(void* prgn, uint32_t celems, void* ppropvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -375,7 +375,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFro
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromFileTime(void* pftin, void* ppropvar) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromFileTime(void* pftin, void* ppropvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -398,7 +398,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFro
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromFileTimeVector(void* prgft, uint32_t celems, void* ppropvar) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromFileTimeVector(void* prgft, uint32_t celems, void* ppropvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -422,7 +422,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFro
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromGUIDAsString(void* guid, void* ppropvar) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromGUIDAsString(void* guid, void* ppropvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -445,7 +445,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFro
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromInt16Vector(void* prgn, uint32_t celems, void* ppropvar) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromInt16Vector(void* prgn, uint32_t celems, void* ppropvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -469,7 +469,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFro
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromInt32Vector(void* prgn, uint32_t celems, void* ppropvar) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromInt32Vector(void* prgn, uint32_t celems, void* ppropvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -493,7 +493,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFro
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromInt64Vector(void* prgn, uint32_t celems, void* ppropvar) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromInt64Vector(void* prgn, uint32_t celems, void* ppropvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -517,7 +517,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFro
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromPropVariantVectorElem(void* propvarin, uint32_t ielem, void* ppropvar) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromPropVariantVectorElem(void* propvarin, uint32_t ielem, void* ppropvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -541,7 +541,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFro
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromResource(void* hinst, uint32_t id, void* ppropvar) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromResource(void* hinst, uint32_t id, void* ppropvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -565,7 +565,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFro
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromStringAsVector(void* psz, void* ppropvar) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromStringAsVector(void* psz, void* ppropvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -588,7 +588,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFro
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromStringVector(void* prgsz, uint32_t celems, void* ppropvar) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromStringVector(void* prgsz, uint32_t celems, void* ppropvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -612,7 +612,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFro
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromUInt16Vector(void* prgn, uint32_t celems, void* ppropvar) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromUInt16Vector(void* prgn, uint32_t celems, void* ppropvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -636,7 +636,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFro
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromUInt32Vector(void* prgn, uint32_t celems, void* ppropvar) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromUInt32Vector(void* prgn, uint32_t celems, void* ppropvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -660,7 +660,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFro
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFromUInt64Vector(void* prgn, uint32_t celems, void* ppropvar) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_initPropVariantFromUInt64Vector(void* prgn, uint32_t celems, void* ppropvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -684,7 +684,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_InitPropVariantFro
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_InitPropVariantVectorFromPropVariant(void* propvarsingle, void* ppropvarvector) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_initPropVariantVectorFromPropVariant(void* propvarsingle, void* ppropvarvector) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -707,7 +707,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_InitPropVariantVec
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_OleConvertIStorageToOLESTREAM(void* pstg, void* lpolestream) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_oleConvertIStorageToOLESTREAM(void* pstg, void* lpolestream) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -730,7 +730,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_OleConvertIStorage
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_OleConvertIStorageToOLESTREAMEx(void* pstg, uint16_t cfformat, int32_t lwidth, int32_t lheight, uint32_t dwsize, void* pmedium, void* polestm) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_oleConvertIStorageToOLESTREAMEx(void* pstg, uint16_t cfformat, int32_t lwidth, int32_t lheight, uint32_t dwsize, void* pmedium, void* polestm) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint16_t, int32_t, int32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -758,7 +758,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_OleConvertIStorage
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_OleConvertOLESTREAMToIStorage(void* lpolestream, void* pstg, void* ptd) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_oleConvertOLESTREAMToIStorage(void* lpolestream, void* pstg, void* ptd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -782,7 +782,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_OleConvertOLESTREA
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_OleConvertOLESTREAMToIStorageEx(void* polestm, void* pstg, void* pcfformat, void* plwwidth, void* plheight, void* pdwsize, void* pmedium) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_oleConvertOLESTREAMToIStorageEx(void* polestm, void* pstg, void* pcfformat, void* plwwidth, void* plheight, void* pdwsize, void* pmedium) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -810,7 +810,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_OleConvertOLESTREA
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropStgNameToFmtId(void* oszname, void* pfmtid) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propStgNameToFmtId(void* oszname, void* pfmtid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -833,7 +833,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropStgNameToFmtId
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantChangeType(void* ppropvardest, void* propvarsrc, int32_t flags, uint16_t vt) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantChangeType(void* ppropvardest, void* propvarsrc, int32_t flags, uint16_t vt) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -858,7 +858,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantChangeT
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantClear(void* pvar) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantClear(void* pvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -880,7 +880,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantClear(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantCompareEx(void* propvar1, void* propvar2, int32_t unit, int32_t flags) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantCompareEx(void* propvar1, void* propvar2, int32_t unit, int32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -905,7 +905,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantCompare
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantCopy(void* pvardest, void* pvarsrc) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantCopy(void* pvardest, void* pvarsrc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -928,7 +928,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantCopy(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantGetBooleanElem(void* propvar, uint32_t ielem, void* pfval) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantGetBooleanElem(void* propvar, uint32_t ielem, void* pfval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -952,7 +952,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantGetBool
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantGetDoubleElem(void* propvar, uint32_t ielem, void* pnval) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantGetDoubleElem(void* propvar, uint32_t ielem, void* pnval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -976,7 +976,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantGetDoub
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantGetElementCount(void* propvar) {
+uint32_t windowssys_windows_win32_system_com_structuredstorage_propVariantGetElementCount(void* propvar) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -998,7 +998,7 @@ uint32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantGetEle
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantGetFileTimeElem(void* propvar, uint32_t ielem, void* pftval) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantGetFileTimeElem(void* propvar, uint32_t ielem, void* pftval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1022,7 +1022,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantGetFile
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantGetInt16Elem(void* propvar, uint32_t ielem, void* pnval) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantGetInt16Elem(void* propvar, uint32_t ielem, void* pnval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1046,7 +1046,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantGetInt1
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantGetInt32Elem(void* propvar, uint32_t ielem, void* pnval) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantGetInt32Elem(void* propvar, uint32_t ielem, void* pnval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1070,7 +1070,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantGetInt3
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantGetInt64Elem(void* propvar, uint32_t ielem, void* pnval) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantGetInt64Elem(void* propvar, uint32_t ielem, void* pnval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1094,7 +1094,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantGetInt6
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantGetStringElem(void* propvar, uint32_t ielem, void* ppszval) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantGetStringElem(void* propvar, uint32_t ielem, void* ppszval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1118,7 +1118,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantGetStri
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantGetUInt16Elem(void* propvar, uint32_t ielem, void* pnval) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantGetUInt16Elem(void* propvar, uint32_t ielem, void* pnval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1142,7 +1142,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantGetUInt
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantGetUInt32Elem(void* propvar, uint32_t ielem, void* pnval) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantGetUInt32Elem(void* propvar, uint32_t ielem, void* pnval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1166,7 +1166,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantGetUInt
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantGetUInt64Elem(void* propvar, uint32_t ielem, void* pnval) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantGetUInt64Elem(void* propvar, uint32_t ielem, void* pnval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1190,7 +1190,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantGetUInt
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToBSTR(void* propvar, void* pbstrout) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantToBSTR(void* propvar, void* pbstrout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1213,7 +1213,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToBSTR(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToBoolean(void* propvarin, void* pfret) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantToBoolean(void* propvarin, void* pfret) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1236,7 +1236,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToBoole
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToBooleanVector(void* propvar, void* prgf, uint32_t crgf, void* pcelem) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantToBooleanVector(void* propvar, void* prgf, uint32_t crgf, void* pcelem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1261,7 +1261,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToBoole
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToBooleanVectorAlloc(void* propvar, void* pprgf, void* pcelem) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantToBooleanVectorAlloc(void* propvar, void* pprgf, void* pcelem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1285,7 +1285,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToBoole
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToBooleanWithDefault(void* propvarin, int32_t fdefault) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantToBooleanWithDefault(void* propvarin, int32_t fdefault) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1308,7 +1308,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToBoole
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToBuffer(void* propvar, void* pv, uint32_t cb) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantToBuffer(void* propvar, void* pv, uint32_t cb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1332,7 +1332,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToBuffe
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToDouble(void* propvarin, void* pdblret) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantToDouble(void* propvarin, void* pdblret) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1355,7 +1355,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToDoubl
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToDoubleVector(void* propvar, void* prgn, uint32_t crgn, void* pcelem) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantToDoubleVector(void* propvar, void* prgn, uint32_t crgn, void* pcelem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1380,7 +1380,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToDoubl
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToDoubleVectorAlloc(void* propvar, void* pprgn, void* pcelem) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantToDoubleVectorAlloc(void* propvar, void* pprgn, void* pcelem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1404,7 +1404,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToDoubl
 #endif
 }
 
-double windowssys_windows_win32_system_com_structuredstorage_PropVariantToDoubleWithDefault(void* propvarin, double dbldefault) {
+double windowssys_windows_win32_system_com_structuredstorage_propVariantToDoubleWithDefault(void* propvarin, double dbldefault) {
 #ifdef _WIN32
     typedef double (__stdcall *km_fn_t)(void*, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -1427,7 +1427,7 @@ double windowssys_windows_win32_system_com_structuredstorage_PropVariantToDouble
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToFileTime(void* propvar, int32_t pstfout, void* pftout) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantToFileTime(void* propvar, int32_t pstfout, void* pftout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1451,7 +1451,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToFileT
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToFileTimeVector(void* propvar, void* prgft, uint32_t crgft, void* pcelem) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantToFileTimeVector(void* propvar, void* prgft, uint32_t crgft, void* pcelem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1476,7 +1476,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToFileT
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToFileTimeVectorAlloc(void* propvar, void* pprgft, void* pcelem) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantToFileTimeVectorAlloc(void* propvar, void* pprgft, void* pcelem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1500,7 +1500,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToFileT
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToGUID(void* propvar, void* pguid) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantToGUID(void* propvar, void* pguid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1523,7 +1523,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToGUID(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt16(void* propvarin, void* piret) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantToInt16(void* propvarin, void* piret) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1546,7 +1546,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt16
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt16Vector(void* propvar, void* prgn, uint32_t crgn, void* pcelem) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantToInt16Vector(void* propvar, void* prgn, uint32_t crgn, void* pcelem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1571,7 +1571,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt16
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt16VectorAlloc(void* propvar, void* pprgn, void* pcelem) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantToInt16VectorAlloc(void* propvar, void* pprgn, void* pcelem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1595,7 +1595,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt16
 #endif
 }
 
-int16_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt16WithDefault(void* propvarin, int16_t idefault) {
+int16_t windowssys_windows_win32_system_com_structuredstorage_propVariantToInt16WithDefault(void* propvarin, int16_t idefault) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1618,7 +1618,7 @@ int16_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt16
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt32(void* propvarin, void* plret) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantToInt32(void* propvarin, void* plret) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1641,7 +1641,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt32
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt32Vector(void* propvar, void* prgn, uint32_t crgn, void* pcelem) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantToInt32Vector(void* propvar, void* prgn, uint32_t crgn, void* pcelem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1666,7 +1666,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt32
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt32VectorAlloc(void* propvar, void* pprgn, void* pcelem) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantToInt32VectorAlloc(void* propvar, void* pprgn, void* pcelem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1690,7 +1690,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt32
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt32WithDefault(void* propvarin, int32_t ldefault) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantToInt32WithDefault(void* propvarin, int32_t ldefault) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1713,7 +1713,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt32
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt64(void* propvarin, void* pllret) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantToInt64(void* propvarin, void* pllret) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1736,7 +1736,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt64
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt64Vector(void* propvar, void* prgn, uint32_t crgn, void* pcelem) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantToInt64Vector(void* propvar, void* prgn, uint32_t crgn, void* pcelem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1761,7 +1761,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt64
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt64VectorAlloc(void* propvar, void* pprgn, void* pcelem) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantToInt64VectorAlloc(void* propvar, void* pprgn, void* pcelem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1785,7 +1785,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt64
 #endif
 }
 
-int64_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt64WithDefault(void* propvarin, int64_t lldefault) {
+int64_t windowssys_windows_win32_system_com_structuredstorage_propVariantToInt64WithDefault(void* propvarin, int64_t lldefault) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1808,7 +1808,7 @@ int64_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToInt64
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToString(void* propvar, void* psz, uint32_t cch) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantToString(void* propvar, void* psz, uint32_t cch) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1832,7 +1832,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToStrin
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToStringAlloc(void* propvar, void* ppszout) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantToStringAlloc(void* propvar, void* ppszout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1855,7 +1855,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToStrin
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToStringVector(void* propvar, void* prgsz, uint32_t crgsz, void* pcelem) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantToStringVector(void* propvar, void* prgsz, uint32_t crgsz, void* pcelem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1880,7 +1880,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToStrin
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToStringVectorAlloc(void* propvar, void* pprgsz, void* pcelem) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantToStringVectorAlloc(void* propvar, void* pprgsz, void* pcelem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1904,7 +1904,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToStrin
 #endif
 }
 
-void* windowssys_windows_win32_system_com_structuredstorage_PropVariantToStringWithDefault(void* propvarin, void* pszdefault) {
+void* windowssys_windows_win32_system_com_structuredstorage_propVariantToStringWithDefault(void* propvarin, void* pszdefault) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1927,7 +1927,7 @@ void* windowssys_windows_win32_system_com_structuredstorage_PropVariantToStringW
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt16(void* propvarin, void* puiret) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt16(void* propvarin, void* puiret) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1950,7 +1950,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt1
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt16Vector(void* propvar, void* prgn, uint32_t crgn, void* pcelem) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt16Vector(void* propvar, void* prgn, uint32_t crgn, void* pcelem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1975,7 +1975,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt1
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt16VectorAlloc(void* propvar, void* pprgn, void* pcelem) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt16VectorAlloc(void* propvar, void* pprgn, void* pcelem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1999,7 +1999,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt1
 #endif
 }
 
-uint16_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt16WithDefault(void* propvarin, uint16_t uidefault) {
+uint16_t windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt16WithDefault(void* propvarin, uint16_t uidefault) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2022,7 +2022,7 @@ uint16_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt32(void* propvarin, void* pulret) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt32(void* propvarin, void* pulret) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2045,7 +2045,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt3
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt32Vector(void* propvar, void* prgn, uint32_t crgn, void* pcelem) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt32Vector(void* propvar, void* prgn, uint32_t crgn, void* pcelem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2070,7 +2070,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt3
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt32VectorAlloc(void* propvar, void* pprgn, void* pcelem) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt32VectorAlloc(void* propvar, void* pprgn, void* pcelem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2094,7 +2094,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt3
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt32WithDefault(void* propvarin, uint32_t uldefault) {
+uint32_t windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt32WithDefault(void* propvarin, uint32_t uldefault) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2117,7 +2117,7 @@ uint32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt64(void* propvarin, void* pullret) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt64(void* propvarin, void* pullret) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2140,7 +2140,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt6
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt64Vector(void* propvar, void* prgn, uint32_t crgn, void* pcelem) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt64Vector(void* propvar, void* prgn, uint32_t crgn, void* pcelem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2165,7 +2165,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt6
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt64VectorAlloc(void* propvar, void* pprgn, void* pcelem) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt64VectorAlloc(void* propvar, void* pprgn, void* pcelem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2189,7 +2189,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt6
 #endif
 }
 
-uint64_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt64WithDefault(void* propvarin, uint64_t ulldefault) {
+uint64_t windowssys_windows_win32_system_com_structuredstorage_propVariantToUInt64WithDefault(void* propvarin, uint64_t ulldefault) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2212,7 +2212,7 @@ uint64_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToUInt
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToVariant(void* ppropvar, void* pvar) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantToVariant(void* ppropvar, void* pvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2235,7 +2235,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToVaria
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToWinRTPropertyValue(void* propvar, void* riid, void* ppv) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_propVariantToWinRTPropertyValue(void* propvar, void* riid, void* ppv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2259,7 +2259,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_PropVariantToWinRT
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_ReadClassStg(void* pstg, void* pclsid) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_readClassStg(void* pstg, void* pclsid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2282,7 +2282,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_ReadClassStg(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_ReadClassStm(void* pstm, void* pclsid) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_readClassStm(void* pstm, void* pclsid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2305,7 +2305,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_ReadClassStm(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_ReadFmtUserTypeStg(void* pstg, void* pcf, void* lplpszusertype) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_readFmtUserTypeStg(void* pstg, void* pcf, void* lplpszusertype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2329,7 +2329,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_ReadFmtUserTypeStg
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_SetConvertStg(void* pstg, int32_t fconvert) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_setConvertStg(void* pstg, int32_t fconvert) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2352,7 +2352,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_SetConvertStg(void
 #endif
 }
 
-bool windowssys_windows_win32_system_com_structuredstorage_StgConvertPropertyToVariant(void* pprop, uint16_t codepage, void* pvar, void* pma) {
+bool windowssys_windows_win32_system_com_structuredstorage_stgConvertPropertyToVariant(void* pprop, uint16_t codepage, void* pvar, void* pma) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, uint16_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2377,7 +2377,7 @@ bool windowssys_windows_win32_system_com_structuredstorage_StgConvertPropertyToV
 #endif
 }
 
-void* windowssys_windows_win32_system_com_structuredstorage_StgConvertVariantToProperty(void* pvar, uint16_t codepage, void* pprop, void* pcb, uint32_t pid, bool freserved, void* pcindirect) {
+void* windowssys_windows_win32_system_com_structuredstorage_stgConvertVariantToProperty(void* pvar, uint16_t codepage, void* pprop, void* pcb, uint32_t pid, bool freserved, void* pcindirect) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint16_t, void*, void*, uint32_t, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2405,7 +2405,7 @@ void* windowssys_windows_win32_system_com_structuredstorage_StgConvertVariantToP
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_StgCreateDocfile(void* pwcsname, uint32_t grfmode, uint32_t reserved, void* ppstgopen) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_stgCreateDocfile(void* pwcsname, uint32_t grfmode, uint32_t reserved, void* ppstgopen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2430,7 +2430,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_StgCreateDocfile(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_StgCreateDocfileOnILockBytes(void* plkbyt, uint32_t grfmode, uint32_t reserved, void* ppstgopen) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_stgCreateDocfileOnILockBytes(void* plkbyt, uint32_t grfmode, uint32_t reserved, void* ppstgopen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2455,7 +2455,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_StgCreateDocfileOn
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_StgCreatePropSetStg(void* pstorage, uint32_t dwreserved, void* pppropsetstg) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_stgCreatePropSetStg(void* pstorage, uint32_t dwreserved, void* pppropsetstg) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2479,7 +2479,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_StgCreatePropSetSt
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_StgCreatePropStg(void* punk, void* fmtid, void* pclsid, uint32_t grfflags, uint32_t dwreserved, void* pppropstg) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_stgCreatePropStg(void* punk, void* fmtid, void* pclsid, uint32_t grfflags, uint32_t dwreserved, void* pppropstg) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2506,7 +2506,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_StgCreatePropStg(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_StgCreateStorageEx(void* pwcsname, uint32_t grfmode, uint32_t stgfmt, uint32_t grfattrs, void* pstgoptions, void* psecuritydescriptor, void* riid, void* ppobjectopen) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_stgCreateStorageEx(void* pwcsname, uint32_t grfmode, uint32_t stgfmt, uint32_t grfattrs, void* pstgoptions, void* psecuritydescriptor, void* riid, void* ppobjectopen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2535,7 +2535,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_StgCreateStorageEx
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_StgDeserializePropVariant(void* pprop, uint32_t cbmax, void* ppropvar) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_stgDeserializePropVariant(void* pprop, uint32_t cbmax, void* ppropvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2559,7 +2559,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_StgDeserializeProp
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_StgGetIFillLockBytesOnFile(void* pwcsname, void* ppflb) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_stgGetIFillLockBytesOnFile(void* pwcsname, void* ppflb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2582,7 +2582,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_StgGetIFillLockByt
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_StgGetIFillLockBytesOnILockBytes(void* pilb, void* ppflb) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_stgGetIFillLockBytesOnILockBytes(void* pilb, void* ppflb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2605,7 +2605,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_StgGetIFillLockByt
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_StgIsStorageFile(void* pwcsname) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_stgIsStorageFile(void* pwcsname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2627,7 +2627,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_StgIsStorageFile(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_StgIsStorageILockBytes(void* plkbyt) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_stgIsStorageILockBytes(void* plkbyt) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2649,7 +2649,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_StgIsStorageILockB
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_StgOpenAsyncDocfileOnIFillLockBytes(void* pflb, uint32_t grfmode, uint32_t asyncflags, void* ppstgopen) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_stgOpenAsyncDocfileOnIFillLockBytes(void* pflb, uint32_t grfmode, uint32_t asyncflags, void* ppstgopen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2674,7 +2674,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_StgOpenAsyncDocfil
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_StgOpenLayoutDocfile(void* pwcsdfname, uint32_t grfmode, uint32_t reserved, void* ppstgopen) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_stgOpenLayoutDocfile(void* pwcsdfname, uint32_t grfmode, uint32_t reserved, void* ppstgopen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2699,7 +2699,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_StgOpenLayoutDocfi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_StgOpenPropStg(void* punk, void* fmtid, uint32_t grfflags, uint32_t dwreserved, void* pppropstg) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_stgOpenPropStg(void* punk, void* fmtid, uint32_t grfflags, uint32_t dwreserved, void* pppropstg) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2725,7 +2725,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_StgOpenPropStg(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_StgOpenStorage(void* pwcsname, void* pstgpriority, uint32_t grfmode, void* snbexclude, uint32_t reserved, void* ppstgopen) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_stgOpenStorage(void* pwcsname, void* pstgpriority, uint32_t grfmode, void* snbexclude, uint32_t reserved, void* ppstgopen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2752,7 +2752,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_StgOpenStorage(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_StgOpenStorageEx(void* pwcsname, uint32_t grfmode, uint32_t stgfmt, uint32_t grfattrs, void* pstgoptions, void* psecuritydescriptor, void* riid, void* ppobjectopen) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_stgOpenStorageEx(void* pwcsname, uint32_t grfmode, uint32_t stgfmt, uint32_t grfattrs, void* pstgoptions, void* psecuritydescriptor, void* riid, void* ppobjectopen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2781,7 +2781,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_StgOpenStorageEx(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_StgOpenStorageOnILockBytes(void* plkbyt, void* pstgpriority, uint32_t grfmode, void* snbexclude, uint32_t reserved, void* ppstgopen) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_stgOpenStorageOnILockBytes(void* plkbyt, void* pstgpriority, uint32_t grfmode, void* snbexclude, uint32_t reserved, void* ppstgopen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2808,7 +2808,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_StgOpenStorageOnIL
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_com_structuredstorage_StgPropertyLengthAsVariant(void* pprop, uint32_t cbprop, uint16_t codepage, uint8_t breserved) {
+uint32_t windowssys_windows_win32_system_com_structuredstorage_stgPropertyLengthAsVariant(void* pprop, uint32_t cbprop, uint16_t codepage, uint8_t breserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint16_t, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2833,7 +2833,7 @@ uint32_t windowssys_windows_win32_system_com_structuredstorage_StgPropertyLength
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_StgSerializePropVariant(void* ppropvar, void* ppprop, void* pcb) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_stgSerializePropVariant(void* ppropvar, void* ppprop, void* pcb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2857,7 +2857,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_StgSerializePropVa
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_StgSetTimes(void* lpszname, void* pctime, void* patime, void* pmtime) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_stgSetTimes(void* lpszname, void* pctime, void* patime, void* pmtime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2882,7 +2882,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_StgSetTimes(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_VariantToPropVariant(void* pvar, void* ppropvar) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_variantToPropVariant(void* pvar, void* ppropvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2905,7 +2905,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_VariantToPropVaria
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_WinRTPropertyValueToPropVariant(void* punkpropertyvalue, void* ppropvar) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_winRTPropertyValueToPropVariant(void* punkpropertyvalue, void* ppropvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2928,7 +2928,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_WinRTPropertyValue
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_WriteClassStg(void* pstg, void* rclsid) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_writeClassStg(void* pstg, void* rclsid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2951,7 +2951,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_WriteClassStg(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_WriteClassStm(void* pstm, void* rclsid) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_writeClassStm(void* pstm, void* rclsid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2974,7 +2974,7 @@ int32_t windowssys_windows_win32_system_com_structuredstorage_WriteClassStm(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_com_structuredstorage_WriteFmtUserTypeStg(void* pstg, uint16_t cf, void* lpszusertype) {
+int32_t windowssys_windows_win32_system_com_structuredstorage_writeFmtUserTypeStg(void* pstg, uint16_t cf, void* lpszusertype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;

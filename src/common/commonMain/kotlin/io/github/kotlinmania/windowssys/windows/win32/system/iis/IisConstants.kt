@@ -1,15 +1,15 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.iis
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
 
 public val ADMINDATA_MAX_NAME_LEN: UInt = 256u
 
-public val ALL_METADATA: METADATATYPES = 0
+public val ALL_METADATA: Metadatatypes = 0
 
 public val APPCTR_MD_ID_BEGIN_RESERVED: UInt = 57344u
 
@@ -29,25 +29,25 @@ public val ASP_MD_SERVER_BASE: UInt = 7000u
 
 public val ASP_MD_UT_APP: UInt = 101u
 
-public val BINARY_METADATA: METADATATYPES = 3
+public val BINARY_METADATA: Metadatatypes = 3
 
-public val CLSID_IImgCtx: GUID = GUID.from_u128(U128(0x3050f3d698b511cfuL, 0xbb8200aa00bdce0buL))
+public val CLSID_I_IMG_CTX: Guid = Guid.fromU128(U128(0x3050f3d698b511cfuL, 0xbb8200aa00bdce0buL))
 
-public val CLSID_IisServiceControl: GUID = GUID.from_u128(U128(0xe8fb8621588f11d2uL, 0x9d6100c04f79c5feuL))
+public val CLSID_IIS_SERVICE_CONTROL: Guid = Guid.fromU128(U128(0xe8fb8621588f11d2uL, 0x9d6100c04f79c5feuL))
 
-public val CLSID_MSAdminBase_W: GUID = GUID.from_u128(U128(0xa9e69610b80d11d0uL, 0xb9b900a0c922e750uL))
+public val CLSID_MS_ADMIN_BASE_W: Guid = Guid.fromU128(U128(0xa9e69610b80d11d0uL, 0xb9b900a0c922e750uL))
 
-public val CLSID_Request: GUID = GUID.from_u128(U128(0x920c25d025d911d0uL, 0xa55f00a0c90c2091uL))
+public val CLSID_REQUEST: Guid = Guid.fromU128(U128(0x920c25d025d911d0uL, 0xa55f00a0c90c2091uL))
 
-public val CLSID_Response: GUID = GUID.from_u128(U128(0x46e19ba025dd11d0uL, 0xa55f00a0c90c2091uL))
+public val CLSID_RESPONSE: Guid = Guid.fromU128(U128(0x46e19ba025dd11d0uL, 0xa55f00a0c90c2091uL))
 
-public val CLSID_ScriptingContext: GUID = GUID.from_u128(U128(0xd97a6da0a86811cfuL, 0x83ae11b0c90c2bd8uL))
+public val CLSID_SCRIPTING_CONTEXT: Guid = Guid.fromU128(U128(0xd97a6da0a86811cfuL, 0x83ae11b0c90c2bd8uL))
 
-public val CLSID_Server: GUID = GUID.from_u128(U128(0xa506d16025e011d0uL, 0xa55f00a0c90c2091uL))
+public val CLSID_SERVER: Guid = Guid.fromU128(U128(0xa506d16025e011d0uL, 0xa55f00a0c90c2091uL))
 
-public val CLSID_Session: GUID = GUID.from_u128(U128(0x509f8f2025de11d0uL, 0xa55f00a0c90c2091uL))
+public val CLSID_SESSION: Guid = Guid.fromU128(U128(0x509f8f2025de11d0uL, 0xa55f00a0c90c2091uL))
 
-public val CLSID_WamAdmin: GUID = GUID.from_u128(U128(0x61738644f19611d0uL, 0x995300c04fd919c1uL))
+public val CLSID_WAM_ADMIN: Guid = Guid.fromU128(U128(0x61738644f19611d0uL, 0x995300c04fd919c1uL))
 
 public val DISPID_HTTPREQUEST_ABORT: UInt = 12u
 
@@ -97,45 +97,45 @@ public val DWN_MIRRORIMAGE: UInt = 512u
 
 public val DWN_RAWIMAGE: UInt = 256u
 
-public val DWORD_METADATA: METADATATYPES = 1
+public val DWORD_METADATA: Metadatatypes = 1
 
-public val EXPANDSZ_METADATA: METADATATYPES = 4
+public val EXPANDSZ_METADATA: Metadatatypes = 4
 
 public val FP_MD_ID_BEGIN_RESERVED: UInt = 32768u
 
 public val FP_MD_ID_END_RESERVED: UInt = 36863u
 
-public val FTP_ACCESS_NONE: FTP_ACCESS = 0
+public val FTP_ACCESS_NONE: FtpAccess = 0
 
-public val FTP_ACCESS_READ: FTP_ACCESS = 1
+public val FTP_ACCESS_READ: FtpAccess = 1
 
-public val FTP_ACCESS_READ_WRITE: FTP_ACCESS = 3
+public val FTP_ACCESS_READ_WRITE: FtpAccess = 3
 
-public val FTP_ACCESS_WRITE: FTP_ACCESS = 2
+public val FTP_ACCESS_WRITE: FtpAccess = 2
 
-public val FTP_PROCESS_CLOSE_SESSION: FTP_PROCESS_STATUS = 1
+public val FTP_PROCESS_CLOSE_SESSION: FtpProcessStatus = 1
 
-public val FTP_PROCESS_CONTINUE: FTP_PROCESS_STATUS = 0
+public val FTP_PROCESS_CONTINUE: FtpProcessStatus = 0
 
-public val FTP_PROCESS_REJECT_COMMAND: FTP_PROCESS_STATUS = 3
+public val FTP_PROCESS_REJECT_COMMAND: FtpProcessStatus = 3
 
-public val FTP_PROCESS_TERMINATE_SESSION: FTP_PROCESS_STATUS = 2
+public val FTP_PROCESS_TERMINATE_SESSION: FtpProcessStatus = 2
 
-public val FtpProvider: GUID = GUID.from_u128(U128(0x70bdc66733b245f0uL, 0xac52c3ca46f7a656uL))
+public val FTP_PROVIDER: Guid = Guid.fromU128(U128(0x70bdc66733b245f0uL, 0xac52c3ca46f7a656uL))
 
-public val GUID_IIS_ALL_TRACE_PROVIDERS: GUID = GUID.from_u128(U128(0x0uL, 0x0uL))
+public val GUID_IIS_ALL_TRACE_PROVIDERS: Guid = Guid.fromU128(U128(0x0uL, 0x0uL))
 
-public val GUID_IIS_ASPNET_TRACE_PROVIDER: GUID = GUID.from_u128(U128(0xaff081fe02474275uL, 0x9c4e021f3dc1da35uL))
+public val GUID_IIS_ASPNET_TRACE_PROVIDER: Guid = Guid.fromU128(U128(0xaff081fe02474275uL, 0x9c4e021f3dc1da35uL))
 
-public val GUID_IIS_ASP_TRACE_TRACE_PROVIDER: GUID = GUID.from_u128(U128(0x6b94d9ab15e456euL, 0xa4ef37c984a2cb4buL))
+public val GUID_IIS_ASP_TRACE_TRACE_PROVIDER: Guid = Guid.fromU128(U128(0x6b94d9ab15e456euL, 0xa4ef37c984a2cb4buL))
 
-public val GUID_IIS_ISAPI_TRACE_PROVIDER: GUID = GUID.from_u128(U128(0xa1c2040e88404c31uL, 0xba119871031a19eauL))
+public val GUID_IIS_ISAPI_TRACE_PROVIDER: Guid = Guid.fromU128(U128(0xa1c2040e88404c31uL, 0xba119871031a19eauL))
 
-public val GUID_IIS_WWW_GLOBAL_TRACE_PROVIDER: GUID = GUID.from_u128(U128(0xd55d3bc9cba944dfuL, 0x827e132d3a4596c2uL))
+public val GUID_IIS_WWW_GLOBAL_TRACE_PROVIDER: Guid = Guid.fromU128(U128(0xd55d3bc9cba944dfuL, 0x827e132d3a4596c2uL))
 
-public val GUID_IIS_WWW_SERVER_TRACE_PROVIDER: GUID = GUID.from_u128(U128(0x3a2a4e844c214981uL, 0xae103fda0d9b0f83uL))
+public val GUID_IIS_WWW_SERVER_TRACE_PROVIDER: Guid = Guid.fromU128(U128(0x3a2a4e844c214981uL, 0xae103fda0d9b0f83uL))
 
-public val GUID_IIS_WWW_SERVER_V2_TRACE_PROVIDER: GUID = GUID.from_u128(U128(0xde4649c915e84feauL, 0x9d851cdda520c334uL))
+public val GUID_IIS_WWW_SERVER_V2_TRACE_PROVIDER: Guid = Guid.fromU128(U128(0xde4649c915e84feauL, 0x9d851cdda520c334uL))
 
 public val HSE_APPEND_LOG_PARAMETER: UInt = 1003u
 
@@ -309,123 +309,123 @@ public val HTTP_TRACE_LEVEL_END: UInt = 7u
 
 public val HTTP_TRACE_LEVEL_START: UInt = 6u
 
-public val HTTP_TRACE_TYPE_BOOL: HTTP_TRACE_TYPE = 11
+public val HTTP_TRACE_TYPE_BOOL: HttpTraceType = 11
 
-public val HTTP_TRACE_TYPE_BYTE: HTTP_TRACE_TYPE = 17
+public val HTTP_TRACE_TYPE_BYTE: HttpTraceType = 17
 
-public val HTTP_TRACE_TYPE_CHAR: HTTP_TRACE_TYPE = 16
+public val HTTP_TRACE_TYPE_CHAR: HttpTraceType = 16
 
-public val HTTP_TRACE_TYPE_LONG: HTTP_TRACE_TYPE = 3
+public val HTTP_TRACE_TYPE_LONG: HttpTraceType = 3
 
-public val HTTP_TRACE_TYPE_LONGLONG: HTTP_TRACE_TYPE = 20
+public val HTTP_TRACE_TYPE_LONGLONG: HttpTraceType = 20
 
-public val HTTP_TRACE_TYPE_LPCGUID: HTTP_TRACE_TYPE = 72
+public val HTTP_TRACE_TYPE_LPCGUID: HttpTraceType = 72
 
-public val HTTP_TRACE_TYPE_LPCSTR: HTTP_TRACE_TYPE = 30
+public val HTTP_TRACE_TYPE_LPCSTR: HttpTraceType = 30
 
-public val HTTP_TRACE_TYPE_LPCWSTR: HTTP_TRACE_TYPE = 31
+public val HTTP_TRACE_TYPE_LPCWSTR: HttpTraceType = 31
 
-public val HTTP_TRACE_TYPE_SHORT: HTTP_TRACE_TYPE = 2
+public val HTTP_TRACE_TYPE_SHORT: HttpTraceType = 2
 
-public val HTTP_TRACE_TYPE_ULONG: HTTP_TRACE_TYPE = 19
+public val HTTP_TRACE_TYPE_ULONG: HttpTraceType = 19
 
-public val HTTP_TRACE_TYPE_ULONGLONG: HTTP_TRACE_TYPE = 21
+public val HTTP_TRACE_TYPE_ULONGLONG: HttpTraceType = 21
 
-public val HTTP_TRACE_TYPE_USHORT: HTTP_TRACE_TYPE = 18
+public val HTTP_TRACE_TYPE_USHORT: HttpTraceType = 18
 
-public val IISADMIN_EXTENSIONS_CLSID_MD_KEY: PCWSTR = w("LM/IISADMIN/EXTENSIONS/DCOMCLSIDS")
+public val IISADMIN_EXTENSIONS_CLSID_MD_KEY: Pcwstr = w("LM/IISADMIN/EXTENSIONS/DCOMCLSIDS")
 
-public val IISADMIN_EXTENSIONS_CLSID_MD_KEYA: PCSTR = s("LM/IISADMIN/EXTENSIONS/DCOMCLSIDS")
+public val IISADMIN_EXTENSIONS_CLSID_MD_KEYA: Pcstr = s("LM/IISADMIN/EXTENSIONS/DCOMCLSIDS")
 
-public val IISADMIN_EXTENSIONS_CLSID_MD_KEYW: PCWSTR = w("LM/IISADMIN/EXTENSIONS/DCOMCLSIDS")
+public val IISADMIN_EXTENSIONS_CLSID_MD_KEYW: Pcwstr = w("LM/IISADMIN/EXTENSIONS/DCOMCLSIDS")
 
-public val IISADMIN_EXTENSIONS_REG_KEY: PCWSTR = w("SOFTWARE\\Microsoft\\InetStp\\Extensions")
+public val IISADMIN_EXTENSIONS_REG_KEY: Pcwstr = w("SOFTWARE\\Microsoft\\InetStp\\Extensions")
 
-public val IISADMIN_EXTENSIONS_REG_KEYA: PCSTR = s("SOFTWARE\\Microsoft\\InetStp\\Extensions")
+public val IISADMIN_EXTENSIONS_REG_KEYA: Pcstr = s("SOFTWARE\\Microsoft\\InetStp\\Extensions")
 
-public val IISADMIN_EXTENSIONS_REG_KEYW: PCWSTR = w("SOFTWARE\\Microsoft\\InetStp\\Extensions")
+public val IISADMIN_EXTENSIONS_REG_KEYW: Pcwstr = w("SOFTWARE\\Microsoft\\InetStp\\Extensions")
 
-public val IIS_CLASS_CERTMAPPER: PCSTR = s("IIsCertMapper")
+public val IIS_CLASS_CERTMAPPER: Pcstr = s("IIsCertMapper")
 
-public val IIS_CLASS_CERTMAPPER_W: PCWSTR = w("IIsCertMapper")
+public val IIS_CLASS_CERTMAPPER_W: Pcwstr = w("IIsCertMapper")
 
-public val IIS_CLASS_COMPRESS_SCHEME: PCSTR = s("IIsCompressionScheme")
+public val IIS_CLASS_COMPRESS_SCHEME: Pcstr = s("IIsCompressionScheme")
 
-public val IIS_CLASS_COMPRESS_SCHEMES: PCSTR = s("IIsCompressionSchemes")
+public val IIS_CLASS_COMPRESS_SCHEMES: Pcstr = s("IIsCompressionSchemes")
 
-public val IIS_CLASS_COMPRESS_SCHEMES_W: PCWSTR = w("IIsCompressionSchemes")
+public val IIS_CLASS_COMPRESS_SCHEMES_W: Pcwstr = w("IIsCompressionSchemes")
 
-public val IIS_CLASS_COMPRESS_SCHEME_W: PCWSTR = w("IIsCompressionScheme")
+public val IIS_CLASS_COMPRESS_SCHEME_W: Pcwstr = w("IIsCompressionScheme")
 
-public val IIS_CLASS_COMPUTER: PCSTR = s("IIsComputer")
+public val IIS_CLASS_COMPUTER: Pcstr = s("IIsComputer")
 
-public val IIS_CLASS_COMPUTER_W: PCWSTR = w("IIsComputer")
+public val IIS_CLASS_COMPUTER_W: Pcwstr = w("IIsComputer")
 
-public val IIS_CLASS_FILTER: PCSTR = s("IIsFilter")
+public val IIS_CLASS_FILTER: Pcstr = s("IIsFilter")
 
-public val IIS_CLASS_FILTERS: PCSTR = s("IIsFilters")
+public val IIS_CLASS_FILTERS: Pcstr = s("IIsFilters")
 
-public val IIS_CLASS_FILTERS_W: PCWSTR = w("IIsFilters")
+public val IIS_CLASS_FILTERS_W: Pcwstr = w("IIsFilters")
 
-public val IIS_CLASS_FILTER_W: PCWSTR = w("IIsFilter")
+public val IIS_CLASS_FILTER_W: Pcwstr = w("IIsFilter")
 
-public val IIS_CLASS_FTP_INFO: PCSTR = s("IIsFtpInfo")
+public val IIS_CLASS_FTP_INFO: Pcstr = s("IIsFtpInfo")
 
-public val IIS_CLASS_FTP_INFO_W: PCWSTR = w("IIsFtpInfo")
+public val IIS_CLASS_FTP_INFO_W: Pcwstr = w("IIsFtpInfo")
 
-public val IIS_CLASS_FTP_SERVER: PCSTR = s("IIsFtpServer")
+public val IIS_CLASS_FTP_SERVER: Pcstr = s("IIsFtpServer")
 
-public val IIS_CLASS_FTP_SERVER_W: PCWSTR = w("IIsFtpServer")
+public val IIS_CLASS_FTP_SERVER_W: Pcwstr = w("IIsFtpServer")
 
-public val IIS_CLASS_FTP_SERVICE: PCSTR = s("IIsFtpService")
+public val IIS_CLASS_FTP_SERVICE: Pcstr = s("IIsFtpService")
 
-public val IIS_CLASS_FTP_SERVICE_W: PCWSTR = w("IIsFtpService")
+public val IIS_CLASS_FTP_SERVICE_W: Pcwstr = w("IIsFtpService")
 
-public val IIS_CLASS_FTP_VDIR: PCSTR = s("IIsFtpVirtualDir")
+public val IIS_CLASS_FTP_VDIR: Pcstr = s("IIsFtpVirtualDir")
 
-public val IIS_CLASS_FTP_VDIR_W: PCWSTR = w("IIsFtpVirtualDir")
+public val IIS_CLASS_FTP_VDIR_W: Pcwstr = w("IIsFtpVirtualDir")
 
-public val IIS_CLASS_LOG_MODULE: PCSTR = s("IIsLogModule")
+public val IIS_CLASS_LOG_MODULE: Pcstr = s("IIsLogModule")
 
-public val IIS_CLASS_LOG_MODULES: PCSTR = s("IIsLogModules")
+public val IIS_CLASS_LOG_MODULES: Pcstr = s("IIsLogModules")
 
-public val IIS_CLASS_LOG_MODULES_W: PCWSTR = w("IIsLogModules")
+public val IIS_CLASS_LOG_MODULES_W: Pcwstr = w("IIsLogModules")
 
-public val IIS_CLASS_LOG_MODULE_W: PCWSTR = w("IIsLogModule")
+public val IIS_CLASS_LOG_MODULE_W: Pcwstr = w("IIsLogModule")
 
-public val IIS_CLASS_MIMEMAP: PCSTR = s("IIsMimeMap")
+public val IIS_CLASS_MIMEMAP: Pcstr = s("IIsMimeMap")
 
-public val IIS_CLASS_MIMEMAP_W: PCWSTR = w("IIsMimeMap")
+public val IIS_CLASS_MIMEMAP_W: Pcwstr = w("IIsMimeMap")
 
-public val IIS_CLASS_WEB_DIR: PCSTR = s("IIsWebDirectory")
+public val IIS_CLASS_WEB_DIR: Pcstr = s("IIsWebDirectory")
 
-public val IIS_CLASS_WEB_DIR_W: PCWSTR = w("IIsWebDirectory")
+public val IIS_CLASS_WEB_DIR_W: Pcwstr = w("IIsWebDirectory")
 
-public val IIS_CLASS_WEB_FILE: PCSTR = s("IIsWebFile")
+public val IIS_CLASS_WEB_FILE: Pcstr = s("IIsWebFile")
 
-public val IIS_CLASS_WEB_FILE_W: PCWSTR = w("IIsWebFile")
+public val IIS_CLASS_WEB_FILE_W: Pcwstr = w("IIsWebFile")
 
-public val IIS_CLASS_WEB_INFO: PCSTR = s("IIsWebInfo")
+public val IIS_CLASS_WEB_INFO: Pcstr = s("IIsWebInfo")
 
-public val IIS_CLASS_WEB_INFO_W: PCWSTR = w("IIsWebInfo")
+public val IIS_CLASS_WEB_INFO_W: Pcwstr = w("IIsWebInfo")
 
-public val IIS_CLASS_WEB_SERVER: PCSTR = s("IIsWebServer")
+public val IIS_CLASS_WEB_SERVER: Pcstr = s("IIsWebServer")
 
-public val IIS_CLASS_WEB_SERVER_W: PCWSTR = w("IIsWebServer")
+public val IIS_CLASS_WEB_SERVER_W: Pcwstr = w("IIsWebServer")
 
-public val IIS_CLASS_WEB_SERVICE: PCSTR = s("IIsWebService")
+public val IIS_CLASS_WEB_SERVICE: Pcstr = s("IIsWebService")
 
-public val IIS_CLASS_WEB_SERVICE_W: PCWSTR = w("IIsWebService")
+public val IIS_CLASS_WEB_SERVICE_W: Pcwstr = w("IIsWebService")
 
-public val IIS_CLASS_WEB_VDIR: PCSTR = s("IIsWebVirtualDir")
+public val IIS_CLASS_WEB_VDIR: Pcstr = s("IIsWebVirtualDir")
 
-public val IIS_CLASS_WEB_VDIR_W: PCWSTR = w("IIsWebVirtualDir")
+public val IIS_CLASS_WEB_VDIR_W: Pcwstr = w("IIsWebVirtualDir")
 
 public val IIS_MD_ADSI_METAID_BEGIN: UInt = 130000u
 
-public val IIS_MD_ADSI_SCHEMA_PATH_A: PCSTR = s("/Schema")
+public val IIS_MD_ADSI_SCHEMA_PATH_A: Pcstr = s("/Schema")
 
-public val IIS_MD_ADSI_SCHEMA_PATH_W: PCWSTR = w("/Schema")
+public val IIS_MD_ADSI_SCHEMA_PATH_W: Pcwstr = w("/Schema")
 
 public val IIS_MD_APPPOOL_BASE: UInt = 9000u
 
@@ -443,11 +443,11 @@ public val IIS_MD_ID_BEGIN_RESERVED: UInt = 1u
 
 public val IIS_MD_ID_END_RESERVED: UInt = 32767u
 
-public val IIS_MD_INSTANCE_ROOT: PCSTR = s("Root")
+public val IIS_MD_INSTANCE_ROOT: Pcstr = s("Root")
 
-public val IIS_MD_ISAPI_FILTERS: PCSTR = s("/Filters")
+public val IIS_MD_ISAPI_FILTERS: Pcstr = s("/Filters")
 
-public val IIS_MD_LOCAL_MACHINE_PATH: PCSTR = s("LM")
+public val IIS_MD_LOCAL_MACHINE_PATH: Pcstr = s("LM")
 
 public val IIS_MD_LOGCUSTOM_BASE: UInt = 4500u
 
@@ -461,7 +461,7 @@ public val IIS_MD_SERVER_BASE: UInt = 1000u
 
 public val IIS_MD_SSL_BASE: UInt = 5500u
 
-public val IIS_MD_SVC_INFO_PATH: PCSTR = s("Info")
+public val IIS_MD_SVC_INFO_PATH: Pcstr = s("Info")
 
 public val IIS_MD_UT_END_RESERVED: UInt = 2000u
 
@@ -473,9 +473,9 @@ public val IIS_MD_UT_WAM: UInt = 100u
 
 public val IIS_MD_VR_BASE: UInt = 3000u
 
-public val IIS_WEBSOCKET: PCWSTR = w("websockets")
+public val IIS_WEBSOCKET: Pcwstr = w("websockets")
 
-public val IIS_WEBSOCKET_SERVER_VARIABLE: PCSTR = s("IIS_WEBSOCK")
+public val IIS_WEBSOCKET_SERVER_VARIABLE: Pcstr = s("IIS_WEBSOCK")
 
 public val IMAP_MD_ID_BEGIN_RESERVED: UInt = 49152u
 
@@ -519,13 +519,13 @@ public val IMGTRANS_MASK: UInt = 536870912u
 
 public val IMGTRANS_OPAQUE: UInt = 536870912u
 
-public val INVALID_END_METADATA: METADATATYPES = 6
+public val INVALID_END_METADATA: Metadatatypes = 6
 
-public val LIBID_ASPTypeLibrary: GUID = GUID.from_u128(U128(0xd97a6da0a85c11cfuL, 0x83ae00a0c90c2bd8uL))
+public val LIBID_ASP_TYPE_LIBRARY: Guid = Guid.fromU128(U128(0xd97a6da0a85c11cfuL, 0x83ae00a0c90c2bd8uL))
 
-public val LIBID_IISRSTALib: GUID = GUID.from_u128(U128(0xe8fb8614588f11d2uL, 0x9d6100c04f79c5feuL))
+public val LIBID_IISRSTA_LIB: Guid = Guid.fromU128(U128(0xe8fb8614588f11d2uL, 0x9d6100c04f79c5feuL))
 
-public val LIBID_WAMREGLib: GUID = GUID.from_u128(U128(0x29822aa8f30211d0uL, 0x995300c04fd919c1uL))
+public val LIBID_WAMREG_LIB: Guid = Guid.fromU128(U128(0x29822aa8f30211d0uL, 0x995300c04fd919c1uL))
 
 public val MB_DONT_IMPERSONATE: UInt = 9033u
 
@@ -1027,7 +1027,7 @@ public val MD_CUSTOM_ERROR: UInt = 6008u
 
 public val MD_CUSTOM_ERROR_DESC: UInt = 2120u
 
-public val MD_DEFAULT_BACKUP_LOCATION: PCWSTR = w("MDBackUp")
+public val MD_DEFAULT_BACKUP_LOCATION: Pcwstr = w("MDBackUp")
 
 public val MD_DEFAULT_LOAD_FILE: UInt = 6006u
 
@@ -1429,9 +1429,9 @@ public val MD_IMPORT_MERGE: UInt = 4u
 
 public val MD_IMPORT_NODE_ONLY: UInt = 2u
 
-public val MD_INSERT_PATH_STRING: PCWSTR = w("<%INSERT_PATH%>")
+public val MD_INSERT_PATH_STRING: Pcwstr = w("<%INSERT_PATH%>")
 
-public val MD_INSERT_PATH_STRINGA: PCSTR = s("<%INSERT_PATH%>")
+public val MD_INSERT_PATH_STRINGA: Pcstr = s("<%INSERT_PATH%>")
 
 public val MD_IN_PROCESS_ISAPI_APPS: UInt = 2073u
 
@@ -1837,7 +1837,7 @@ public val MSCS_MD_ID_BEGIN_RESERVED: UInt = 53248u
 
 public val MSCS_MD_ID_END_RESERVED: UInt = 57343u
 
-public val MULTISZ_METADATA: METADATATYPES = 5
+public val MULTISZ_METADATA: Metadatatypes = 5
 
 public val NNTP_MD_ID_BEGIN_RESERVED: UInt = 45056u
 
@@ -1899,45 +1899,45 @@ public val SF_NOTIFY_SEND_RESPONSE: UInt = 64u
 
 public val SF_NOTIFY_URL_MAP: UInt = 4096u
 
-public val SF_PROPERTY_INSTANCE_NUM_ID: SF_PROPERTY_IIS = 1
+public val SF_PROPERTY_INSTANCE_NUM_ID: SfPropertyIis = 1
 
-public val SF_PROPERTY_SSL_CTXT: SF_PROPERTY_IIS = 0
+public val SF_PROPERTY_SSL_CTXT: SfPropertyIis = 0
 
-public val SF_REQ_ADD_HEADERS_ON_DENIAL: SF_REQ_TYPE = 1
+public val SF_REQ_ADD_HEADERS_ON_DENIAL: SfReqType = 1
 
-public val SF_REQ_DISABLE_NOTIFICATIONS: SF_REQ_TYPE = 8
+public val SF_REQ_DISABLE_NOTIFICATIONS: SfReqType = 8
 
-public val SF_REQ_GET_CONNID: SF_REQ_TYPE = 4
+public val SF_REQ_GET_CONNID: SfReqType = 4
 
-public val SF_REQ_GET_PROPERTY: SF_REQ_TYPE = 6
+public val SF_REQ_GET_PROPERTY: SfReqType = 6
 
-public val SF_REQ_NORMALIZE_URL: SF_REQ_TYPE = 7
+public val SF_REQ_NORMALIZE_URL: SfReqType = 7
 
-public val SF_REQ_SEND_RESPONSE_HEADER: SF_REQ_TYPE = 0
+public val SF_REQ_SEND_RESPONSE_HEADER: SfReqType = 0
 
-public val SF_REQ_SET_CERTIFICATE_INFO: SF_REQ_TYPE = 5
+public val SF_REQ_SET_CERTIFICATE_INFO: SfReqType = 5
 
-public val SF_REQ_SET_NEXT_READ_SIZE: SF_REQ_TYPE = 2
+public val SF_REQ_SET_NEXT_READ_SIZE: SfReqType = 2
 
-public val SF_REQ_SET_PROXY_INFO: SF_REQ_TYPE = 3
+public val SF_REQ_SET_PROXY_INFO: SfReqType = 3
 
-public val SF_STATUS_REQ_ERROR: SF_STATUS_TYPE = 134217732
+public val SF_STATUS_REQ_ERROR: SfStatusType = 134217732
 
-public val SF_STATUS_REQ_FINISHED: SF_STATUS_TYPE = 134217728
+public val SF_STATUS_REQ_FINISHED: SfStatusType = 134217728
 
-public val SF_STATUS_REQ_FINISHED_KEEP_CONN: SF_STATUS_TYPE = 134217729
+public val SF_STATUS_REQ_FINISHED_KEEP_CONN: SfStatusType = 134217729
 
-public val SF_STATUS_REQ_HANDLED_NOTIFICATION: SF_STATUS_TYPE = 134217731
+public val SF_STATUS_REQ_HANDLED_NOTIFICATION: SfStatusType = 134217731
 
-public val SF_STATUS_REQ_NEXT_NOTIFICATION: SF_STATUS_TYPE = 134217730
+public val SF_STATUS_REQ_NEXT_NOTIFICATION: SfStatusType = 134217730
 
-public val SF_STATUS_REQ_READ_NEXT: SF_STATUS_TYPE = 134217733
+public val SF_STATUS_REQ_READ_NEXT: SfStatusType = 134217733
 
 public val SMTP_MD_ID_BEGIN_RESERVED: UInt = 36864u
 
 public val SMTP_MD_ID_END_RESERVED: UInt = 40959u
 
-public val STRING_METADATA: METADATATYPES = 2
+public val STRING_METADATA: Metadatatypes = 2
 
 public val USER_MD_ID_BASE_RESERVED: UInt = 65535u
 
@@ -1949,10 +1949,10 @@ public val WAM_MD_SERVER_BASE: UInt = 7500u
 
 public val WEBDAV_MD_SERVER_BASE: UInt = 8500u
 
-public val WEB_CORE_ACTIVATE_DLL_ENTRY: PCSTR = s("WebCoreActivate")
+public val WEB_CORE_ACTIVATE_DLL_ENTRY: Pcstr = s("WebCoreActivate")
 
-public val WEB_CORE_DLL_NAME: PCWSTR = w("hwebcore.dll")
+public val WEB_CORE_DLL_NAME: Pcwstr = w("hwebcore.dll")
 
-public val WEB_CORE_SET_METADATA_DLL_ENTRY: PCSTR = s("WebCoreSetMetadata")
+public val WEB_CORE_SET_METADATA_DLL_ENTRY: Pcstr = s("WebCoreSetMetadata")
 
-public val WEB_CORE_SHUTDOWN_DLL_ENTRY: PCSTR = s("WebCoreShutdown")
+public val WEB_CORE_SHUTDOWN_DLL_ENTRY: Pcstr = s("WebCoreShutdown")

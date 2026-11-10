@@ -2,307 +2,308 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.power
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WIN32_ERROR
-import io.github.kotlinmania.windowssys.windows.win32.system.registry.HKEY
-import io.github.kotlinmania.windowssys.windows.win32.system.registry.REG_SAM_FLAGS
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.REGISTER_NOTIFICATION_FLAGS
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Win32Error
+import io.github.kotlinmania.windowssys.windows.win32.system.registry.Hkey
+import io.github.kotlinmania.windowssys.windows.win32.system.registry.RegSamFlags
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.RegisterNotificationFlags
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun CallNtPowerInformation(informationlevel: POWER_INFORMATION_LEVEL, inputbuffer: Long, inputbufferlength: UInt, outputbuffer: Long, outputbufferlength: UInt): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_CallNtPowerInformation(informationlevel, inputbuffer.toCPointer<ByteVar>(), inputbufferlength, outputbuffer.toCPointer<ByteVar>(), outputbufferlength)
+public actual fun callNtPowerInformation(informationlevel: PowerInformationLevel, inputbuffer: COpaquePointer?, inputbufferlength: UInt, outputbuffer: COpaquePointer?, outputbufferlength: UInt): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_callNtPowerInformation(informationlevel, inputbuffer?.value?.toCPointer<ByteVar>(), inputbufferlength, outputbuffer?.value?.toCPointer<ByteVar>(), outputbufferlength)
 
-public actual fun CanUserWritePwrScheme(): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_CanUserWritePwrScheme()
+public actual fun canUserWritePwrScheme(): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_canUserWritePwrScheme()
 
-public actual fun DeletePwrScheme(uiid: UInt): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_DeletePwrScheme(uiid)
+public actual fun deletePwrScheme(uiid: UInt): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_deletePwrScheme(uiid)
 
-public actual fun DevicePowerClose(): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_DevicePowerClose()
+public actual fun devicePowerClose(): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_devicePowerClose()
 
-public actual fun DevicePowerEnumDevices(queryindex: UInt, queryinterpretationflags: UInt, queryflags: UInt, preturnbuffer: Long, pbuffersize: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_DevicePowerEnumDevices(queryindex, queryinterpretationflags, queryflags, preturnbuffer.toCPointer<ByteVar>(), pbuffersize.toCPointer<ByteVar>())
+public actual fun devicePowerEnumDevices(queryindex: UInt, queryinterpretationflags: UInt, queryflags: UInt, preturnbuffer: COpaquePointer?, pbuffersize: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_devicePowerEnumDevices(queryindex, queryinterpretationflags, queryflags, preturnbuffer?.value?.toCPointer<ByteVar>(), pbuffersize?.value?.toCPointer<ByteVar>())
 
-public actual fun DevicePowerOpen(debugmask: UInt): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_DevicePowerOpen(debugmask)
+public actual fun devicePowerOpen(debugmask: UInt): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_devicePowerOpen(debugmask)
 
-public actual fun DevicePowerSetDeviceState(devicedescription: PCWSTR, setflags: UInt, setdata: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_DevicePowerSetDeviceState(devicedescription.toCPointer<ByteVar>(), setflags, setdata.toCPointer<ByteVar>())
+public actual fun devicePowerSetDeviceState(devicedescription: Pcwstr, setflags: UInt, setdata: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_devicePowerSetDeviceState(devicedescription?.value?.toCPointer<ByteVar>(), setflags, setdata?.value?.toCPointer<ByteVar>())
 
-public actual fun EnumPwrSchemes(lpfn: PWRSCHEMESENUMPROC, lparam: LPARAM): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_EnumPwrSchemes(lpfn.toLong().toCPointer<ByteVar>(), lparam)
+public actual fun enumPwrSchemes(lpfn: Pwrschemesenumproc, lparam: Lparam): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_enumPwrSchemes(0L.toCPointer<ByteVar>(), lparam)
 
-public actual fun GetActivePwrScheme(puiid: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_GetActivePwrScheme(puiid.toCPointer<ByteVar>())
+public actual fun getActivePwrScheme(puiid: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_getActivePwrScheme(puiid?.value?.toCPointer<ByteVar>())
 
-public actual fun GetCurrentPowerPolicies(pglobalpowerpolicy: Long, ppowerpolicy: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_GetCurrentPowerPolicies(pglobalpowerpolicy.toCPointer<ByteVar>(), ppowerpolicy.toCPointer<ByteVar>())
+public actual fun getCurrentPowerPolicies(pglobalpowerpolicy: COpaquePointer?, ppowerpolicy: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_getCurrentPowerPolicies(pglobalpowerpolicy?.value?.toCPointer<ByteVar>(), ppowerpolicy?.value?.toCPointer<ByteVar>())
 
-public actual fun GetDevicePowerState(hdevice: HANDLE, pfon: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_GetDevicePowerState(hdevice.toCPointer<ByteVar>(), pfon.toCPointer<ByteVar>())
+public actual fun getDevicePowerState(hdevice: Handle, pfon: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_getDevicePowerState(hdevice?.value?.toCPointer<ByteVar>(), pfon?.value?.toCPointer<ByteVar>())
 
-public actual fun GetPwrCapabilities(lpspc: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_GetPwrCapabilities(lpspc.toCPointer<ByteVar>())
+public actual fun getPwrCapabilities(lpspc: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_getPwrCapabilities(lpspc?.value?.toCPointer<ByteVar>())
 
-public actual fun GetPwrDiskSpindownRange(puimax: Long, puimin: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_GetPwrDiskSpindownRange(puimax.toCPointer<ByteVar>(), puimin.toCPointer<ByteVar>())
+public actual fun getPwrDiskSpindownRange(puimax: COpaquePointer?, puimin: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_getPwrDiskSpindownRange(puimax?.value?.toCPointer<ByteVar>(), puimin?.value?.toCPointer<ByteVar>())
 
-public actual fun GetSystemPowerStatus(lpsystempowerstatus: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_GetSystemPowerStatus(lpsystempowerstatus.toCPointer<ByteVar>())
+public actual fun getSystemPowerStatus(lpsystempowerstatus: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_getSystemPowerStatus(lpsystempowerstatus?.value?.toCPointer<ByteVar>())
 
-public actual fun IsAdminOverrideActive(papp: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_IsAdminOverrideActive(papp.toCPointer<ByteVar>())
+public actual fun isAdminOverrideActive(papp: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_isAdminOverrideActive(papp?.value?.toCPointer<ByteVar>())
 
-public actual fun IsPwrHibernateAllowed(): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_IsPwrHibernateAllowed()
+public actual fun isPwrHibernateAllowed(): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_isPwrHibernateAllowed()
 
-public actual fun IsPwrShutdownAllowed(): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_IsPwrShutdownAllowed()
+public actual fun isPwrShutdownAllowed(): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_isPwrShutdownAllowed()
 
-public actual fun IsPwrSuspendAllowed(): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_IsPwrSuspendAllowed()
+public actual fun isPwrSuspendAllowed(): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_isPwrSuspendAllowed()
 
-public actual fun IsSystemResumeAutomatic(): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_IsSystemResumeAutomatic()
+public actual fun isSystemResumeAutomatic(): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_isSystemResumeAutomatic()
 
-public actual fun PowerCanRestoreIndividualDefaultPowerScheme(schemeguid: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerCanRestoreIndividualDefaultPowerScheme(schemeguid.toCPointer<ByteVar>())
+public actual fun powerCanRestoreIndividualDefaultPowerScheme(schemeguid: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerCanRestoreIndividualDefaultPowerScheme(schemeguid?.value?.toCPointer<ByteVar>())
 
-public actual fun PowerClearRequest(powerrequest: HANDLE, requesttype: POWER_REQUEST_TYPE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerClearRequest(powerrequest.toCPointer<ByteVar>(), requesttype)
+public actual fun powerClearRequest(powerrequest: Handle, requesttype: PowerRequestType): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerClearRequest(powerrequest?.value?.toCPointer<ByteVar>(), requesttype)
 
-public actual fun PowerCreatePossibleSetting(rootsystempowerkey: HKEY, subgroupofpowersettingsguid: Long, powersettingguid: Long, possiblesettingindex: UInt): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerCreatePossibleSetting(rootsystempowerkey.toCPointer<ByteVar>(), subgroupofpowersettingsguid.toCPointer<ByteVar>(), powersettingguid.toCPointer<ByteVar>(), possiblesettingindex)
+public actual fun powerCreatePossibleSetting(rootsystempowerkey: Hkey, subgroupofpowersettingsguid: COpaquePointer?, powersettingguid: COpaquePointer?, possiblesettingindex: UInt): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerCreatePossibleSetting(rootsystempowerkey?.value?.toCPointer<ByteVar>(), subgroupofpowersettingsguid?.value?.toCPointer<ByteVar>(), powersettingguid?.value?.toCPointer<ByteVar>(), possiblesettingindex)
 
-public actual fun PowerCreateRequest(context: Long): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerCreateRequest(context.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun powerCreateRequest(context: COpaquePointer?): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerCreateRequest(context?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun PowerCreateSetting(rootsystempowerkey: HKEY, subgroupofpowersettingsguid: Long, powersettingguid: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerCreateSetting(rootsystempowerkey.toCPointer<ByteVar>(), subgroupofpowersettingsguid.toCPointer<ByteVar>(), powersettingguid.toCPointer<ByteVar>())
+public actual fun powerCreateSetting(rootsystempowerkey: Hkey, subgroupofpowersettingsguid: COpaquePointer?, powersettingguid: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerCreateSetting(rootsystempowerkey?.value?.toCPointer<ByteVar>(), subgroupofpowersettingsguid?.value?.toCPointer<ByteVar>(), powersettingguid?.value?.toCPointer<ByteVar>())
 
-public actual fun PowerDeleteScheme(rootpowerkey: HKEY, schemeguid: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerDeleteScheme(rootpowerkey.toCPointer<ByteVar>(), schemeguid.toCPointer<ByteVar>())
+public actual fun powerDeleteScheme(rootpowerkey: Hkey, schemeguid: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerDeleteScheme(rootpowerkey?.value?.toCPointer<ByteVar>(), schemeguid?.value?.toCPointer<ByteVar>())
 
-public actual fun PowerDeterminePlatformRole(): POWER_PLATFORM_ROLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerDeterminePlatformRole()
+public actual fun powerDeterminePlatformRole(): PowerPlatformRole =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerDeterminePlatformRole()
 
-public actual fun PowerDeterminePlatformRoleEx(version: POWER_PLATFORM_ROLE_VERSION): POWER_PLATFORM_ROLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerDeterminePlatformRoleEx(version)
+public actual fun powerDeterminePlatformRoleEx(version: PowerPlatformRoleVersion): PowerPlatformRole =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerDeterminePlatformRoleEx(version)
 
-public actual fun PowerDuplicateScheme(rootpowerkey: HKEY, sourceschemeguid: Long, destinationschemeguid: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerDuplicateScheme(rootpowerkey.toCPointer<ByteVar>(), sourceschemeguid.toCPointer<ByteVar>(), destinationschemeguid.toCPointer<ByteVar>())
+public actual fun powerDuplicateScheme(rootpowerkey: Hkey, sourceschemeguid: COpaquePointer?, destinationschemeguid: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerDuplicateScheme(rootpowerkey?.value?.toCPointer<ByteVar>(), sourceschemeguid?.value?.toCPointer<ByteVar>(), destinationschemeguid?.value?.toCPointer<ByteVar>())
 
-public actual fun PowerEnumerate(rootpowerkey: HKEY, schemeguid: Long, subgroupofpowersettingsguid: Long, accessflags: POWER_DATA_ACCESSOR, index: UInt, buffer: Long, buffersize: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerEnumerate(rootpowerkey.toCPointer<ByteVar>(), schemeguid.toCPointer<ByteVar>(), subgroupofpowersettingsguid.toCPointer<ByteVar>(), accessflags, index, buffer.toCPointer<ByteVar>(), buffersize.toCPointer<ByteVar>())
+public actual fun powerEnumerate(rootpowerkey: Hkey, schemeguid: COpaquePointer?, subgroupofpowersettingsguid: COpaquePointer?, accessflags: PowerDataAccessor, index: UInt, buffer: COpaquePointer?, buffersize: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerEnumerate(rootpowerkey?.value?.toCPointer<ByteVar>(), schemeguid?.value?.toCPointer<ByteVar>(), subgroupofpowersettingsguid?.value?.toCPointer<ByteVar>(), accessflags, index, buffer?.value?.toCPointer<ByteVar>(), buffersize?.value?.toCPointer<ByteVar>())
 
-public actual fun PowerGetActiveScheme(userrootpowerkey: HKEY, activepolicyguid: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerGetActiveScheme(userrootpowerkey.toCPointer<ByteVar>(), activepolicyguid.toCPointer<ByteVar>())
+public actual fun powerGetActiveScheme(userrootpowerkey: Hkey, activepolicyguid: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerGetActiveScheme(userrootpowerkey?.value?.toCPointer<ByteVar>(), activepolicyguid?.value?.toCPointer<ByteVar>())
 
-public actual fun PowerImportPowerScheme(rootpowerkey: HKEY, importfilenamepath: PCWSTR, destinationschemeguid: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerImportPowerScheme(rootpowerkey.toCPointer<ByteVar>(), importfilenamepath.toCPointer<ByteVar>(), destinationschemeguid.toCPointer<ByteVar>())
+public actual fun powerImportPowerScheme(rootpowerkey: Hkey, importfilenamepath: Pcwstr, destinationschemeguid: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerImportPowerScheme(rootpowerkey?.value?.toCPointer<ByteVar>(), importfilenamepath?.value?.toCPointer<ByteVar>(), destinationschemeguid?.value?.toCPointer<ByteVar>())
 
-public actual fun PowerIsSettingRangeDefined(subkeyguid: Long, settingguid: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerIsSettingRangeDefined(subkeyguid.toCPointer<ByteVar>(), settingguid.toCPointer<ByteVar>())
+public actual fun powerIsSettingRangeDefined(subkeyguid: COpaquePointer?, settingguid: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerIsSettingRangeDefined(subkeyguid?.value?.toCPointer<ByteVar>(), settingguid?.value?.toCPointer<ByteVar>())
 
-public actual fun PowerOpenSystemPowerKey(phsystempowerkey: Long, access: UInt, openexisting: BOOL): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerOpenSystemPowerKey(phsystempowerkey.toCPointer<ByteVar>(), access, openexisting)
+public actual fun powerOpenSystemPowerKey(phsystempowerkey: COpaquePointer?, access: UInt, openexisting: Bool): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerOpenSystemPowerKey(phsystempowerkey?.value?.toCPointer<ByteVar>(), access, openexisting)
 
-public actual fun PowerOpenUserPowerKey(phuserpowerkey: Long, access: UInt, openexisting: BOOL): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerOpenUserPowerKey(phuserpowerkey.toCPointer<ByteVar>(), access, openexisting)
+public actual fun powerOpenUserPowerKey(phuserpowerkey: COpaquePointer?, access: UInt, openexisting: Bool): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerOpenUserPowerKey(phuserpowerkey?.value?.toCPointer<ByteVar>(), access, openexisting)
 
-public actual fun PowerReadACDefaultIndex(rootpowerkey: HKEY, schemepersonalityguid: Long, subgroupofpowersettingsguid: Long, powersettingguid: Long, acdefaultindex: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerReadACDefaultIndex(rootpowerkey.toCPointer<ByteVar>(), schemepersonalityguid.toCPointer<ByteVar>(), subgroupofpowersettingsguid.toCPointer<ByteVar>(), powersettingguid.toCPointer<ByteVar>(), acdefaultindex.toCPointer<ByteVar>())
+public actual fun powerReadACDefaultIndex(rootpowerkey: Hkey, schemepersonalityguid: COpaquePointer?, subgroupofpowersettingsguid: COpaquePointer?, powersettingguid: COpaquePointer?, acdefaultindex: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerReadACDefaultIndex(rootpowerkey?.value?.toCPointer<ByteVar>(), schemepersonalityguid?.value?.toCPointer<ByteVar>(), subgroupofpowersettingsguid?.value?.toCPointer<ByteVar>(), powersettingguid?.value?.toCPointer<ByteVar>(), acdefaultindex?.value?.toCPointer<ByteVar>())
 
-public actual fun PowerReadACValue(rootpowerkey: HKEY, schemeguid: Long, subgroupofpowersettingsguid: Long, powersettingguid: Long, type: Long, buffer: Long, buffersize: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerReadACValue(rootpowerkey.toCPointer<ByteVar>(), schemeguid.toCPointer<ByteVar>(), subgroupofpowersettingsguid.toCPointer<ByteVar>(), powersettingguid.toCPointer<ByteVar>(), type.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), buffersize.toCPointer<ByteVar>())
+public actual fun powerReadACValue(rootpowerkey: Hkey, schemeguid: COpaquePointer?, subgroupofpowersettingsguid: COpaquePointer?, powersettingguid: COpaquePointer?, type: COpaquePointer?, buffer: COpaquePointer?, buffersize: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerReadACValue(rootpowerkey?.value?.toCPointer<ByteVar>(), schemeguid?.value?.toCPointer<ByteVar>(), subgroupofpowersettingsguid?.value?.toCPointer<ByteVar>(), powersettingguid?.value?.toCPointer<ByteVar>(), type?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), buffersize?.value?.toCPointer<ByteVar>())
 
-public actual fun PowerReadACValueIndex(rootpowerkey: HKEY, schemeguid: Long, subgroupofpowersettingsguid: Long, powersettingguid: Long, acvalueindex: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerReadACValueIndex(rootpowerkey.toCPointer<ByteVar>(), schemeguid.toCPointer<ByteVar>(), subgroupofpowersettingsguid.toCPointer<ByteVar>(), powersettingguid.toCPointer<ByteVar>(), acvalueindex.toCPointer<ByteVar>())
+public actual fun powerReadACValueIndex(rootpowerkey: Hkey, schemeguid: COpaquePointer?, subgroupofpowersettingsguid: COpaquePointer?, powersettingguid: COpaquePointer?, acvalueindex: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerReadACValueIndex(rootpowerkey?.value?.toCPointer<ByteVar>(), schemeguid?.value?.toCPointer<ByteVar>(), subgroupofpowersettingsguid?.value?.toCPointer<ByteVar>(), powersettingguid?.value?.toCPointer<ByteVar>(), acvalueindex?.value?.toCPointer<ByteVar>())
 
-public actual fun PowerReadDCDefaultIndex(rootpowerkey: HKEY, schemepersonalityguid: Long, subgroupofpowersettingsguid: Long, powersettingguid: Long, dcdefaultindex: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerReadDCDefaultIndex(rootpowerkey.toCPointer<ByteVar>(), schemepersonalityguid.toCPointer<ByteVar>(), subgroupofpowersettingsguid.toCPointer<ByteVar>(), powersettingguid.toCPointer<ByteVar>(), dcdefaultindex.toCPointer<ByteVar>())
+public actual fun powerReadDCDefaultIndex(rootpowerkey: Hkey, schemepersonalityguid: COpaquePointer?, subgroupofpowersettingsguid: COpaquePointer?, powersettingguid: COpaquePointer?, dcdefaultindex: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerReadDCDefaultIndex(rootpowerkey?.value?.toCPointer<ByteVar>(), schemepersonalityguid?.value?.toCPointer<ByteVar>(), subgroupofpowersettingsguid?.value?.toCPointer<ByteVar>(), powersettingguid?.value?.toCPointer<ByteVar>(), dcdefaultindex?.value?.toCPointer<ByteVar>())
 
-public actual fun PowerReadDCValue(rootpowerkey: HKEY, schemeguid: Long, subgroupofpowersettingsguid: Long, powersettingguid: Long, type: Long, buffer: Long, buffersize: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerReadDCValue(rootpowerkey.toCPointer<ByteVar>(), schemeguid.toCPointer<ByteVar>(), subgroupofpowersettingsguid.toCPointer<ByteVar>(), powersettingguid.toCPointer<ByteVar>(), type.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), buffersize.toCPointer<ByteVar>())
+public actual fun powerReadDCValue(rootpowerkey: Hkey, schemeguid: COpaquePointer?, subgroupofpowersettingsguid: COpaquePointer?, powersettingguid: COpaquePointer?, type: COpaquePointer?, buffer: COpaquePointer?, buffersize: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerReadDCValue(rootpowerkey?.value?.toCPointer<ByteVar>(), schemeguid?.value?.toCPointer<ByteVar>(), subgroupofpowersettingsguid?.value?.toCPointer<ByteVar>(), powersettingguid?.value?.toCPointer<ByteVar>(), type?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), buffersize?.value?.toCPointer<ByteVar>())
 
-public actual fun PowerReadDCValueIndex(rootpowerkey: HKEY, schemeguid: Long, subgroupofpowersettingsguid: Long, powersettingguid: Long, dcvalueindex: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerReadDCValueIndex(rootpowerkey.toCPointer<ByteVar>(), schemeguid.toCPointer<ByteVar>(), subgroupofpowersettingsguid.toCPointer<ByteVar>(), powersettingguid.toCPointer<ByteVar>(), dcvalueindex.toCPointer<ByteVar>())
+public actual fun powerReadDCValueIndex(rootpowerkey: Hkey, schemeguid: COpaquePointer?, subgroupofpowersettingsguid: COpaquePointer?, powersettingguid: COpaquePointer?, dcvalueindex: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerReadDCValueIndex(rootpowerkey?.value?.toCPointer<ByteVar>(), schemeguid?.value?.toCPointer<ByteVar>(), subgroupofpowersettingsguid?.value?.toCPointer<ByteVar>(), powersettingguid?.value?.toCPointer<ByteVar>(), dcvalueindex?.value?.toCPointer<ByteVar>())
 
-public actual fun PowerReadDescription(rootpowerkey: HKEY, schemeguid: Long, subgroupofpowersettingsguid: Long, powersettingguid: Long, buffer: Long, buffersize: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerReadDescription(rootpowerkey.toCPointer<ByteVar>(), schemeguid.toCPointer<ByteVar>(), subgroupofpowersettingsguid.toCPointer<ByteVar>(), powersettingguid.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), buffersize.toCPointer<ByteVar>())
+public actual fun powerReadDescription(rootpowerkey: Hkey, schemeguid: COpaquePointer?, subgroupofpowersettingsguid: COpaquePointer?, powersettingguid: COpaquePointer?, buffer: COpaquePointer?, buffersize: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerReadDescription(rootpowerkey?.value?.toCPointer<ByteVar>(), schemeguid?.value?.toCPointer<ByteVar>(), subgroupofpowersettingsguid?.value?.toCPointer<ByteVar>(), powersettingguid?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), buffersize?.value?.toCPointer<ByteVar>())
 
-public actual fun PowerReadFriendlyName(rootpowerkey: HKEY, schemeguid: Long, subgroupofpowersettingsguid: Long, powersettingguid: Long, buffer: Long, buffersize: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerReadFriendlyName(rootpowerkey.toCPointer<ByteVar>(), schemeguid.toCPointer<ByteVar>(), subgroupofpowersettingsguid.toCPointer<ByteVar>(), powersettingguid.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), buffersize.toCPointer<ByteVar>())
+public actual fun powerReadFriendlyName(rootpowerkey: Hkey, schemeguid: COpaquePointer?, subgroupofpowersettingsguid: COpaquePointer?, powersettingguid: COpaquePointer?, buffer: COpaquePointer?, buffersize: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerReadFriendlyName(rootpowerkey?.value?.toCPointer<ByteVar>(), schemeguid?.value?.toCPointer<ByteVar>(), subgroupofpowersettingsguid?.value?.toCPointer<ByteVar>(), powersettingguid?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), buffersize?.value?.toCPointer<ByteVar>())
 
-public actual fun PowerReadIconResourceSpecifier(rootpowerkey: HKEY, schemeguid: Long, subgroupofpowersettingsguid: Long, powersettingguid: Long, buffer: Long, buffersize: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerReadIconResourceSpecifier(rootpowerkey.toCPointer<ByteVar>(), schemeguid.toCPointer<ByteVar>(), subgroupofpowersettingsguid.toCPointer<ByteVar>(), powersettingguid.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), buffersize.toCPointer<ByteVar>())
+public actual fun powerReadIconResourceSpecifier(rootpowerkey: Hkey, schemeguid: COpaquePointer?, subgroupofpowersettingsguid: COpaquePointer?, powersettingguid: COpaquePointer?, buffer: COpaquePointer?, buffersize: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerReadIconResourceSpecifier(rootpowerkey?.value?.toCPointer<ByteVar>(), schemeguid?.value?.toCPointer<ByteVar>(), subgroupofpowersettingsguid?.value?.toCPointer<ByteVar>(), powersettingguid?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), buffersize?.value?.toCPointer<ByteVar>())
 
-public actual fun PowerReadPossibleDescription(rootpowerkey: HKEY, subgroupofpowersettingsguid: Long, powersettingguid: Long, possiblesettingindex: UInt, buffer: Long, buffersize: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerReadPossibleDescription(rootpowerkey.toCPointer<ByteVar>(), subgroupofpowersettingsguid.toCPointer<ByteVar>(), powersettingguid.toCPointer<ByteVar>(), possiblesettingindex, buffer.toCPointer<ByteVar>(), buffersize.toCPointer<ByteVar>())
+public actual fun powerReadPossibleDescription(rootpowerkey: Hkey, subgroupofpowersettingsguid: COpaquePointer?, powersettingguid: COpaquePointer?, possiblesettingindex: UInt, buffer: COpaquePointer?, buffersize: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerReadPossibleDescription(rootpowerkey?.value?.toCPointer<ByteVar>(), subgroupofpowersettingsguid?.value?.toCPointer<ByteVar>(), powersettingguid?.value?.toCPointer<ByteVar>(), possiblesettingindex, buffer?.value?.toCPointer<ByteVar>(), buffersize?.value?.toCPointer<ByteVar>())
 
-public actual fun PowerReadPossibleFriendlyName(rootpowerkey: HKEY, subgroupofpowersettingsguid: Long, powersettingguid: Long, possiblesettingindex: UInt, buffer: Long, buffersize: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerReadPossibleFriendlyName(rootpowerkey.toCPointer<ByteVar>(), subgroupofpowersettingsguid.toCPointer<ByteVar>(), powersettingguid.toCPointer<ByteVar>(), possiblesettingindex, buffer.toCPointer<ByteVar>(), buffersize.toCPointer<ByteVar>())
+public actual fun powerReadPossibleFriendlyName(rootpowerkey: Hkey, subgroupofpowersettingsguid: COpaquePointer?, powersettingguid: COpaquePointer?, possiblesettingindex: UInt, buffer: COpaquePointer?, buffersize: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerReadPossibleFriendlyName(rootpowerkey?.value?.toCPointer<ByteVar>(), subgroupofpowersettingsguid?.value?.toCPointer<ByteVar>(), powersettingguid?.value?.toCPointer<ByteVar>(), possiblesettingindex, buffer?.value?.toCPointer<ByteVar>(), buffersize?.value?.toCPointer<ByteVar>())
 
-public actual fun PowerReadPossibleValue(rootpowerkey: HKEY, subgroupofpowersettingsguid: Long, powersettingguid: Long, type: Long, possiblesettingindex: UInt, buffer: Long, buffersize: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerReadPossibleValue(rootpowerkey.toCPointer<ByteVar>(), subgroupofpowersettingsguid.toCPointer<ByteVar>(), powersettingguid.toCPointer<ByteVar>(), type.toCPointer<ByteVar>(), possiblesettingindex, buffer.toCPointer<ByteVar>(), buffersize.toCPointer<ByteVar>())
+public actual fun powerReadPossibleValue(rootpowerkey: Hkey, subgroupofpowersettingsguid: COpaquePointer?, powersettingguid: COpaquePointer?, type: COpaquePointer?, possiblesettingindex: UInt, buffer: COpaquePointer?, buffersize: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerReadPossibleValue(rootpowerkey?.value?.toCPointer<ByteVar>(), subgroupofpowersettingsguid?.value?.toCPointer<ByteVar>(), powersettingguid?.value?.toCPointer<ByteVar>(), type?.value?.toCPointer<ByteVar>(), possiblesettingindex, buffer?.value?.toCPointer<ByteVar>(), buffersize?.value?.toCPointer<ByteVar>())
 
-public actual fun PowerReadSettingAttributes(subgroupguid: Long, powersettingguid: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerReadSettingAttributes(subgroupguid.toCPointer<ByteVar>(), powersettingguid.toCPointer<ByteVar>())
+public actual fun powerReadSettingAttributes(subgroupguid: COpaquePointer?, powersettingguid: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerReadSettingAttributes(subgroupguid?.value?.toCPointer<ByteVar>(), powersettingguid?.value?.toCPointer<ByteVar>())
 
-public actual fun PowerReadValueIncrement(rootpowerkey: HKEY, subgroupofpowersettingsguid: Long, powersettingguid: Long, valueincrement: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerReadValueIncrement(rootpowerkey.toCPointer<ByteVar>(), subgroupofpowersettingsguid.toCPointer<ByteVar>(), powersettingguid.toCPointer<ByteVar>(), valueincrement.toCPointer<ByteVar>())
+public actual fun powerReadValueIncrement(rootpowerkey: Hkey, subgroupofpowersettingsguid: COpaquePointer?, powersettingguid: COpaquePointer?, valueincrement: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerReadValueIncrement(rootpowerkey?.value?.toCPointer<ByteVar>(), subgroupofpowersettingsguid?.value?.toCPointer<ByteVar>(), powersettingguid?.value?.toCPointer<ByteVar>(), valueincrement?.value?.toCPointer<ByteVar>())
 
-public actual fun PowerReadValueMax(rootpowerkey: HKEY, subgroupofpowersettingsguid: Long, powersettingguid: Long, valuemaximum: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerReadValueMax(rootpowerkey.toCPointer<ByteVar>(), subgroupofpowersettingsguid.toCPointer<ByteVar>(), powersettingguid.toCPointer<ByteVar>(), valuemaximum.toCPointer<ByteVar>())
+public actual fun powerReadValueMax(rootpowerkey: Hkey, subgroupofpowersettingsguid: COpaquePointer?, powersettingguid: COpaquePointer?, valuemaximum: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerReadValueMax(rootpowerkey?.value?.toCPointer<ByteVar>(), subgroupofpowersettingsguid?.value?.toCPointer<ByteVar>(), powersettingguid?.value?.toCPointer<ByteVar>(), valuemaximum?.value?.toCPointer<ByteVar>())
 
-public actual fun PowerReadValueMin(rootpowerkey: HKEY, subgroupofpowersettingsguid: Long, powersettingguid: Long, valueminimum: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerReadValueMin(rootpowerkey.toCPointer<ByteVar>(), subgroupofpowersettingsguid.toCPointer<ByteVar>(), powersettingguid.toCPointer<ByteVar>(), valueminimum.toCPointer<ByteVar>())
+public actual fun powerReadValueMin(rootpowerkey: Hkey, subgroupofpowersettingsguid: COpaquePointer?, powersettingguid: COpaquePointer?, valueminimum: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerReadValueMin(rootpowerkey?.value?.toCPointer<ByteVar>(), subgroupofpowersettingsguid?.value?.toCPointer<ByteVar>(), powersettingguid?.value?.toCPointer<ByteVar>(), valueminimum?.value?.toCPointer<ByteVar>())
 
-public actual fun PowerReadValueUnitsSpecifier(rootpowerkey: HKEY, subgroupofpowersettingsguid: Long, powersettingguid: Long, buffer: Long, buffersize: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerReadValueUnitsSpecifier(rootpowerkey.toCPointer<ByteVar>(), subgroupofpowersettingsguid.toCPointer<ByteVar>(), powersettingguid.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), buffersize.toCPointer<ByteVar>())
+public actual fun powerReadValueUnitsSpecifier(rootpowerkey: Hkey, subgroupofpowersettingsguid: COpaquePointer?, powersettingguid: COpaquePointer?, buffer: COpaquePointer?, buffersize: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerReadValueUnitsSpecifier(rootpowerkey?.value?.toCPointer<ByteVar>(), subgroupofpowersettingsguid?.value?.toCPointer<ByteVar>(), powersettingguid?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), buffersize?.value?.toCPointer<ByteVar>())
 
-public actual fun PowerRegisterForEffectivePowerModeNotifications(version: UInt, callback: EFFECTIVE_POWER_MODE_CALLBACK, context: Long, registrationhandle: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerRegisterForEffectivePowerModeNotifications(version, callback.toLong().toCPointer<ByteVar>(), context.toCPointer<ByteVar>(), registrationhandle.toCPointer<ByteVar>())
+public actual fun powerRegisterForEffectivePowerModeNotifications(version: UInt, callback: EffectivePowerModeCallback, context: COpaquePointer?, registrationhandle: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerRegisterForEffectivePowerModeNotifications(version, 0L.toCPointer<ByteVar>(), context?.value?.toCPointer<ByteVar>(), registrationhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun PowerRegisterSuspendResumeNotification(flags: REGISTER_NOTIFICATION_FLAGS, recipient: HANDLE, registrationhandle: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerRegisterSuspendResumeNotification(flags, recipient.toCPointer<ByteVar>(), registrationhandle.toCPointer<ByteVar>())
+public actual fun powerRegisterSuspendResumeNotification(flags: RegisterNotificationFlags, recipient: Handle, registrationhandle: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerRegisterSuspendResumeNotification(flags, recipient?.value?.toCPointer<ByteVar>(), registrationhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun PowerRemovePowerSetting(powersettingsubkeyguid: Long, powersettingguid: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerRemovePowerSetting(powersettingsubkeyguid.toCPointer<ByteVar>(), powersettingguid.toCPointer<ByteVar>())
+public actual fun powerRemovePowerSetting(powersettingsubkeyguid: COpaquePointer?, powersettingguid: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerRemovePowerSetting(powersettingsubkeyguid?.value?.toCPointer<ByteVar>(), powersettingguid?.value?.toCPointer<ByteVar>())
 
-public actual fun PowerReplaceDefaultPowerSchemes(): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerReplaceDefaultPowerSchemes()
+public actual fun powerReplaceDefaultPowerSchemes(): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerReplaceDefaultPowerSchemes()
 
-public actual fun PowerReportThermalEvent(event: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerReportThermalEvent(event.toCPointer<ByteVar>())
+public actual fun powerReportThermalEvent(event: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerReportThermalEvent(event?.value?.toCPointer<ByteVar>())
 
-public actual fun PowerRestoreDefaultPowerSchemes(): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerRestoreDefaultPowerSchemes()
+public actual fun powerRestoreDefaultPowerSchemes(): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerRestoreDefaultPowerSchemes()
 
-public actual fun PowerRestoreIndividualDefaultPowerScheme(schemeguid: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerRestoreIndividualDefaultPowerScheme(schemeguid.toCPointer<ByteVar>())
+public actual fun powerRestoreIndividualDefaultPowerScheme(schemeguid: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerRestoreIndividualDefaultPowerScheme(schemeguid?.value?.toCPointer<ByteVar>())
 
-public actual fun PowerSetActiveScheme(userrootpowerkey: HKEY, schemeguid: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerSetActiveScheme(userrootpowerkey.toCPointer<ByteVar>(), schemeguid.toCPointer<ByteVar>())
+public actual fun powerSetActiveScheme(userrootpowerkey: Hkey, schemeguid: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerSetActiveScheme(userrootpowerkey?.value?.toCPointer<ByteVar>(), schemeguid?.value?.toCPointer<ByteVar>())
 
-public actual fun PowerSetRequest(powerrequest: HANDLE, requesttype: POWER_REQUEST_TYPE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerSetRequest(powerrequest.toCPointer<ByteVar>(), requesttype)
+public actual fun powerSetRequest(powerrequest: Handle, requesttype: PowerRequestType): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerSetRequest(powerrequest?.value?.toCPointer<ByteVar>(), requesttype)
 
-public actual fun PowerSettingAccessCheck(accessflags: POWER_DATA_ACCESSOR, powerguid: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerSettingAccessCheck(accessflags, powerguid.toCPointer<ByteVar>())
+public actual fun powerSettingAccessCheck(accessflags: PowerDataAccessor, powerguid: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerSettingAccessCheck(accessflags, powerguid?.value?.toCPointer<ByteVar>())
 
-public actual fun PowerSettingAccessCheckEx(accessflags: POWER_DATA_ACCESSOR, powerguid: Long, accesstype: REG_SAM_FLAGS): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerSettingAccessCheckEx(accessflags, powerguid.toCPointer<ByteVar>(), accesstype)
+public actual fun powerSettingAccessCheckEx(accessflags: PowerDataAccessor, powerguid: COpaquePointer?, accesstype: RegSamFlags): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerSettingAccessCheckEx(accessflags, powerguid?.value?.toCPointer<ByteVar>(), accesstype)
 
-public actual fun PowerSettingRegisterNotification(settingguid: Long, flags: REGISTER_NOTIFICATION_FLAGS, recipient: HANDLE, registrationhandle: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerSettingRegisterNotification(settingguid.toCPointer<ByteVar>(), flags, recipient.toCPointer<ByteVar>(), registrationhandle.toCPointer<ByteVar>())
+public actual fun powerSettingRegisterNotification(settingguid: COpaquePointer?, flags: RegisterNotificationFlags, recipient: Handle, registrationhandle: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerSettingRegisterNotification(settingguid?.value?.toCPointer<ByteVar>(), flags, recipient?.value?.toCPointer<ByteVar>(), registrationhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun PowerSettingUnregisterNotification(registrationhandle: HPOWERNOTIFY): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerSettingUnregisterNotification(registrationhandle)
+public actual fun powerSettingUnregisterNotification(registrationhandle: Hpowernotify): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerSettingUnregisterNotification(registrationhandle.toLong())
 
-public actual fun PowerUnregisterFromEffectivePowerModeNotifications(registrationhandle: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerUnregisterFromEffectivePowerModeNotifications(registrationhandle.toCPointer<ByteVar>())
+public actual fun powerUnregisterFromEffectivePowerModeNotifications(registrationhandle: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerUnregisterFromEffectivePowerModeNotifications(registrationhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun PowerUnregisterSuspendResumeNotification(registrationhandle: HPOWERNOTIFY): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerUnregisterSuspendResumeNotification(registrationhandle)
+public actual fun powerUnregisterSuspendResumeNotification(registrationhandle: Hpowernotify): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerUnregisterSuspendResumeNotification(registrationhandle.toLong())
 
-public actual fun PowerWriteACDefaultIndex(rootsystempowerkey: HKEY, schemepersonalityguid: Long, subgroupofpowersettingsguid: Long, powersettingguid: Long, defaultacindex: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerWriteACDefaultIndex(rootsystempowerkey.toCPointer<ByteVar>(), schemepersonalityguid.toCPointer<ByteVar>(), subgroupofpowersettingsguid.toCPointer<ByteVar>(), powersettingguid.toCPointer<ByteVar>(), defaultacindex)
+public actual fun powerWriteACDefaultIndex(rootsystempowerkey: Hkey, schemepersonalityguid: COpaquePointer?, subgroupofpowersettingsguid: COpaquePointer?, powersettingguid: COpaquePointer?, defaultacindex: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerWriteACDefaultIndex(rootsystempowerkey?.value?.toCPointer<ByteVar>(), schemepersonalityguid?.value?.toCPointer<ByteVar>(), subgroupofpowersettingsguid?.value?.toCPointer<ByteVar>(), powersettingguid?.value?.toCPointer<ByteVar>(), defaultacindex)
 
-public actual fun PowerWriteACValueIndex(rootpowerkey: HKEY, schemeguid: Long, subgroupofpowersettingsguid: Long, powersettingguid: Long, acvalueindex: UInt): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerWriteACValueIndex(rootpowerkey.toCPointer<ByteVar>(), schemeguid.toCPointer<ByteVar>(), subgroupofpowersettingsguid.toCPointer<ByteVar>(), powersettingguid.toCPointer<ByteVar>(), acvalueindex)
+public actual fun powerWriteACValueIndex(rootpowerkey: Hkey, schemeguid: COpaquePointer?, subgroupofpowersettingsguid: COpaquePointer?, powersettingguid: COpaquePointer?, acvalueindex: UInt): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerWriteACValueIndex(rootpowerkey?.value?.toCPointer<ByteVar>(), schemeguid?.value?.toCPointer<ByteVar>(), subgroupofpowersettingsguid?.value?.toCPointer<ByteVar>(), powersettingguid?.value?.toCPointer<ByteVar>(), acvalueindex)
 
-public actual fun PowerWriteDCDefaultIndex(rootsystempowerkey: HKEY, schemepersonalityguid: Long, subgroupofpowersettingsguid: Long, powersettingguid: Long, defaultdcindex: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerWriteDCDefaultIndex(rootsystempowerkey.toCPointer<ByteVar>(), schemepersonalityguid.toCPointer<ByteVar>(), subgroupofpowersettingsguid.toCPointer<ByteVar>(), powersettingguid.toCPointer<ByteVar>(), defaultdcindex)
+public actual fun powerWriteDCDefaultIndex(rootsystempowerkey: Hkey, schemepersonalityguid: COpaquePointer?, subgroupofpowersettingsguid: COpaquePointer?, powersettingguid: COpaquePointer?, defaultdcindex: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerWriteDCDefaultIndex(rootsystempowerkey?.value?.toCPointer<ByteVar>(), schemepersonalityguid?.value?.toCPointer<ByteVar>(), subgroupofpowersettingsguid?.value?.toCPointer<ByteVar>(), powersettingguid?.value?.toCPointer<ByteVar>(), defaultdcindex)
 
-public actual fun PowerWriteDCValueIndex(rootpowerkey: HKEY, schemeguid: Long, subgroupofpowersettingsguid: Long, powersettingguid: Long, dcvalueindex: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerWriteDCValueIndex(rootpowerkey.toCPointer<ByteVar>(), schemeguid.toCPointer<ByteVar>(), subgroupofpowersettingsguid.toCPointer<ByteVar>(), powersettingguid.toCPointer<ByteVar>(), dcvalueindex)
+public actual fun powerWriteDCValueIndex(rootpowerkey: Hkey, schemeguid: COpaquePointer?, subgroupofpowersettingsguid: COpaquePointer?, powersettingguid: COpaquePointer?, dcvalueindex: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerWriteDCValueIndex(rootpowerkey?.value?.toCPointer<ByteVar>(), schemeguid?.value?.toCPointer<ByteVar>(), subgroupofpowersettingsguid?.value?.toCPointer<ByteVar>(), powersettingguid?.value?.toCPointer<ByteVar>(), dcvalueindex)
 
-public actual fun PowerWriteDescription(rootpowerkey: HKEY, schemeguid: Long, subgroupofpowersettingsguid: Long, powersettingguid: Long, buffer: Long, buffersize: UInt): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerWriteDescription(rootpowerkey.toCPointer<ByteVar>(), schemeguid.toCPointer<ByteVar>(), subgroupofpowersettingsguid.toCPointer<ByteVar>(), powersettingguid.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), buffersize)
+public actual fun powerWriteDescription(rootpowerkey: Hkey, schemeguid: COpaquePointer?, subgroupofpowersettingsguid: COpaquePointer?, powersettingguid: COpaquePointer?, buffer: COpaquePointer?, buffersize: UInt): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerWriteDescription(rootpowerkey?.value?.toCPointer<ByteVar>(), schemeguid?.value?.toCPointer<ByteVar>(), subgroupofpowersettingsguid?.value?.toCPointer<ByteVar>(), powersettingguid?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), buffersize)
 
-public actual fun PowerWriteFriendlyName(rootpowerkey: HKEY, schemeguid: Long, subgroupofpowersettingsguid: Long, powersettingguid: Long, buffer: Long, buffersize: UInt): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerWriteFriendlyName(rootpowerkey.toCPointer<ByteVar>(), schemeguid.toCPointer<ByteVar>(), subgroupofpowersettingsguid.toCPointer<ByteVar>(), powersettingguid.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), buffersize)
+public actual fun powerWriteFriendlyName(rootpowerkey: Hkey, schemeguid: COpaquePointer?, subgroupofpowersettingsguid: COpaquePointer?, powersettingguid: COpaquePointer?, buffer: COpaquePointer?, buffersize: UInt): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerWriteFriendlyName(rootpowerkey?.value?.toCPointer<ByteVar>(), schemeguid?.value?.toCPointer<ByteVar>(), subgroupofpowersettingsguid?.value?.toCPointer<ByteVar>(), powersettingguid?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), buffersize)
 
-public actual fun PowerWriteIconResourceSpecifier(rootpowerkey: HKEY, schemeguid: Long, subgroupofpowersettingsguid: Long, powersettingguid: Long, buffer: Long, buffersize: UInt): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerWriteIconResourceSpecifier(rootpowerkey.toCPointer<ByteVar>(), schemeguid.toCPointer<ByteVar>(), subgroupofpowersettingsguid.toCPointer<ByteVar>(), powersettingguid.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), buffersize)
+public actual fun powerWriteIconResourceSpecifier(rootpowerkey: Hkey, schemeguid: COpaquePointer?, subgroupofpowersettingsguid: COpaquePointer?, powersettingguid: COpaquePointer?, buffer: COpaquePointer?, buffersize: UInt): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerWriteIconResourceSpecifier(rootpowerkey?.value?.toCPointer<ByteVar>(), schemeguid?.value?.toCPointer<ByteVar>(), subgroupofpowersettingsguid?.value?.toCPointer<ByteVar>(), powersettingguid?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), buffersize)
 
-public actual fun PowerWritePossibleDescription(rootpowerkey: HKEY, subgroupofpowersettingsguid: Long, powersettingguid: Long, possiblesettingindex: UInt, buffer: Long, buffersize: UInt): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerWritePossibleDescription(rootpowerkey.toCPointer<ByteVar>(), subgroupofpowersettingsguid.toCPointer<ByteVar>(), powersettingguid.toCPointer<ByteVar>(), possiblesettingindex, buffer.toCPointer<ByteVar>(), buffersize)
+public actual fun powerWritePossibleDescription(rootpowerkey: Hkey, subgroupofpowersettingsguid: COpaquePointer?, powersettingguid: COpaquePointer?, possiblesettingindex: UInt, buffer: COpaquePointer?, buffersize: UInt): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerWritePossibleDescription(rootpowerkey?.value?.toCPointer<ByteVar>(), subgroupofpowersettingsguid?.value?.toCPointer<ByteVar>(), powersettingguid?.value?.toCPointer<ByteVar>(), possiblesettingindex, buffer?.value?.toCPointer<ByteVar>(), buffersize)
 
-public actual fun PowerWritePossibleFriendlyName(rootpowerkey: HKEY, subgroupofpowersettingsguid: Long, powersettingguid: Long, possiblesettingindex: UInt, buffer: Long, buffersize: UInt): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerWritePossibleFriendlyName(rootpowerkey.toCPointer<ByteVar>(), subgroupofpowersettingsguid.toCPointer<ByteVar>(), powersettingguid.toCPointer<ByteVar>(), possiblesettingindex, buffer.toCPointer<ByteVar>(), buffersize)
+public actual fun powerWritePossibleFriendlyName(rootpowerkey: Hkey, subgroupofpowersettingsguid: COpaquePointer?, powersettingguid: COpaquePointer?, possiblesettingindex: UInt, buffer: COpaquePointer?, buffersize: UInt): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerWritePossibleFriendlyName(rootpowerkey?.value?.toCPointer<ByteVar>(), subgroupofpowersettingsguid?.value?.toCPointer<ByteVar>(), powersettingguid?.value?.toCPointer<ByteVar>(), possiblesettingindex, buffer?.value?.toCPointer<ByteVar>(), buffersize)
 
-public actual fun PowerWritePossibleValue(rootpowerkey: HKEY, subgroupofpowersettingsguid: Long, powersettingguid: Long, type: UInt, possiblesettingindex: UInt, buffer: Long, buffersize: UInt): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerWritePossibleValue(rootpowerkey.toCPointer<ByteVar>(), subgroupofpowersettingsguid.toCPointer<ByteVar>(), powersettingguid.toCPointer<ByteVar>(), type, possiblesettingindex, buffer.toCPointer<ByteVar>(), buffersize)
+public actual fun powerWritePossibleValue(rootpowerkey: Hkey, subgroupofpowersettingsguid: COpaquePointer?, powersettingguid: COpaquePointer?, type: UInt, possiblesettingindex: UInt, buffer: COpaquePointer?, buffersize: UInt): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerWritePossibleValue(rootpowerkey?.value?.toCPointer<ByteVar>(), subgroupofpowersettingsguid?.value?.toCPointer<ByteVar>(), powersettingguid?.value?.toCPointer<ByteVar>(), type, possiblesettingindex, buffer?.value?.toCPointer<ByteVar>(), buffersize)
 
-public actual fun PowerWriteSettingAttributes(subgroupguid: Long, powersettingguid: Long, attributes: UInt): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerWriteSettingAttributes(subgroupguid.toCPointer<ByteVar>(), powersettingguid.toCPointer<ByteVar>(), attributes)
+public actual fun powerWriteSettingAttributes(subgroupguid: COpaquePointer?, powersettingguid: COpaquePointer?, attributes: UInt): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerWriteSettingAttributes(subgroupguid?.value?.toCPointer<ByteVar>(), powersettingguid?.value?.toCPointer<ByteVar>(), attributes)
 
-public actual fun PowerWriteValueIncrement(rootpowerkey: HKEY, subgroupofpowersettingsguid: Long, powersettingguid: Long, valueincrement: UInt): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerWriteValueIncrement(rootpowerkey.toCPointer<ByteVar>(), subgroupofpowersettingsguid.toCPointer<ByteVar>(), powersettingguid.toCPointer<ByteVar>(), valueincrement)
+public actual fun powerWriteValueIncrement(rootpowerkey: Hkey, subgroupofpowersettingsguid: COpaquePointer?, powersettingguid: COpaquePointer?, valueincrement: UInt): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerWriteValueIncrement(rootpowerkey?.value?.toCPointer<ByteVar>(), subgroupofpowersettingsguid?.value?.toCPointer<ByteVar>(), powersettingguid?.value?.toCPointer<ByteVar>(), valueincrement)
 
-public actual fun PowerWriteValueMax(rootpowerkey: HKEY, subgroupofpowersettingsguid: Long, powersettingguid: Long, valuemaximum: UInt): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerWriteValueMax(rootpowerkey.toCPointer<ByteVar>(), subgroupofpowersettingsguid.toCPointer<ByteVar>(), powersettingguid.toCPointer<ByteVar>(), valuemaximum)
+public actual fun powerWriteValueMax(rootpowerkey: Hkey, subgroupofpowersettingsguid: COpaquePointer?, powersettingguid: COpaquePointer?, valuemaximum: UInt): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerWriteValueMax(rootpowerkey?.value?.toCPointer<ByteVar>(), subgroupofpowersettingsguid?.value?.toCPointer<ByteVar>(), powersettingguid?.value?.toCPointer<ByteVar>(), valuemaximum)
 
-public actual fun PowerWriteValueMin(rootpowerkey: HKEY, subgroupofpowersettingsguid: Long, powersettingguid: Long, valueminimum: UInt): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerWriteValueMin(rootpowerkey.toCPointer<ByteVar>(), subgroupofpowersettingsguid.toCPointer<ByteVar>(), powersettingguid.toCPointer<ByteVar>(), valueminimum)
+public actual fun powerWriteValueMin(rootpowerkey: Hkey, subgroupofpowersettingsguid: COpaquePointer?, powersettingguid: COpaquePointer?, valueminimum: UInt): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerWriteValueMin(rootpowerkey?.value?.toCPointer<ByteVar>(), subgroupofpowersettingsguid?.value?.toCPointer<ByteVar>(), powersettingguid?.value?.toCPointer<ByteVar>(), valueminimum)
 
-public actual fun PowerWriteValueUnitsSpecifier(rootpowerkey: HKEY, subgroupofpowersettingsguid: Long, powersettingguid: Long, buffer: Long, buffersize: UInt): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_PowerWriteValueUnitsSpecifier(rootpowerkey.toCPointer<ByteVar>(), subgroupofpowersettingsguid.toCPointer<ByteVar>(), powersettingguid.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), buffersize)
+public actual fun powerWriteValueUnitsSpecifier(rootpowerkey: Hkey, subgroupofpowersettingsguid: COpaquePointer?, powersettingguid: COpaquePointer?, buffer: COpaquePointer?, buffersize: UInt): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_powerWriteValueUnitsSpecifier(rootpowerkey?.value?.toCPointer<ByteVar>(), subgroupofpowersettingsguid?.value?.toCPointer<ByteVar>(), powersettingguid?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), buffersize)
 
-public actual fun ReadGlobalPwrPolicy(pglobalpowerpolicy: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_ReadGlobalPwrPolicy(pglobalpowerpolicy.toCPointer<ByteVar>())
+public actual fun readGlobalPwrPolicy(pglobalpowerpolicy: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_readGlobalPwrPolicy(pglobalpowerpolicy?.value?.toCPointer<ByteVar>())
 
-public actual fun ReadProcessorPwrScheme(uiid: UInt, pmachineprocessorpowerpolicy: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_ReadProcessorPwrScheme(uiid, pmachineprocessorpowerpolicy.toCPointer<ByteVar>())
+public actual fun readProcessorPwrScheme(uiid: UInt, pmachineprocessorpowerpolicy: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_readProcessorPwrScheme(uiid, pmachineprocessorpowerpolicy?.value?.toCPointer<ByteVar>())
 
-public actual fun ReadPwrScheme(uiid: UInt, ppowerpolicy: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_ReadPwrScheme(uiid, ppowerpolicy.toCPointer<ByteVar>())
+public actual fun readPwrScheme(uiid: UInt, ppowerpolicy: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_readPwrScheme(uiid, ppowerpolicy?.value?.toCPointer<ByteVar>())
 
-public actual fun RegisterPowerSettingNotification(hrecipient: HANDLE, powersettingguid: Long, flags: REGISTER_NOTIFICATION_FLAGS): HPOWERNOTIFY =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_RegisterPowerSettingNotification(hrecipient.toCPointer<ByteVar>(), powersettingguid.toCPointer<ByteVar>(), flags)
+public actual fun registerPowerSettingNotification(hrecipient: Handle, powersettingguid: COpaquePointer?, flags: RegisterNotificationFlags): Hpowernotify =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_registerPowerSettingNotification(hrecipient?.value?.toCPointer<ByteVar>(), powersettingguid?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun RegisterSuspendResumeNotification(hrecipient: HANDLE, flags: REGISTER_NOTIFICATION_FLAGS): HPOWERNOTIFY =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_RegisterSuspendResumeNotification(hrecipient.toCPointer<ByteVar>(), flags)
+public actual fun registerSuspendResumeNotification(hrecipient: Handle, flags: RegisterNotificationFlags): Hpowernotify =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_registerSuspendResumeNotification(hrecipient?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun RequestWakeupLatency(latency: LATENCY_TIME): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_RequestWakeupLatency(latency)
+public actual fun requestWakeupLatency(latency: LatencyTime): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_requestWakeupLatency(latency)
 
-public actual fun SetActivePwrScheme(uiid: UInt, pglobalpowerpolicy: Long, ppowerpolicy: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_SetActivePwrScheme(uiid, pglobalpowerpolicy.toCPointer<ByteVar>(), ppowerpolicy.toCPointer<ByteVar>())
+public actual fun setActivePwrScheme(uiid: UInt, pglobalpowerpolicy: COpaquePointer?, ppowerpolicy: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_setActivePwrScheme(uiid, pglobalpowerpolicy?.value?.toCPointer<ByteVar>(), ppowerpolicy?.value?.toCPointer<ByteVar>())
 
-public actual fun SetSuspendState(bhibernate: Boolean, bforce: Boolean, bwakeupeventsdisabled: Boolean): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_SetSuspendState(bhibernate, bforce, bwakeupeventsdisabled)
+public actual fun setSuspendState(bhibernate: Boolean, bforce: Boolean, bwakeupeventsdisabled: Boolean): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_setSuspendState(bhibernate, bforce, bwakeupeventsdisabled)
 
-public actual fun SetSystemPowerState(fsuspend: BOOL, fforce: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_SetSystemPowerState(fsuspend, fforce)
+public actual fun setSystemPowerState(fsuspend: Bool, fforce: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_setSystemPowerState(fsuspend, fforce)
 
-public actual fun SetThreadExecutionState(esflags: EXECUTION_STATE): EXECUTION_STATE =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_SetThreadExecutionState(esflags)
+public actual fun setThreadExecutionState(esflags: ExecutionState): ExecutionState =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_setThreadExecutionState(esflags)
 
-public actual fun UnregisterPowerSettingNotification(handle: HPOWERNOTIFY): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_UnregisterPowerSettingNotification(handle)
+public actual fun unregisterPowerSettingNotification(handle: Hpowernotify): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_unregisterPowerSettingNotification(handle.toLong())
 
-public actual fun UnregisterSuspendResumeNotification(handle: HPOWERNOTIFY): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_UnregisterSuspendResumeNotification(handle)
+public actual fun unregisterSuspendResumeNotification(handle: Hpowernotify): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_unregisterSuspendResumeNotification(handle.toLong())
 
-public actual fun ValidatePowerPolicies(pglobalpowerpolicy: Long, ppowerpolicy: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_ValidatePowerPolicies(pglobalpowerpolicy.toCPointer<ByteVar>(), ppowerpolicy.toCPointer<ByteVar>())
+public actual fun validatePowerPolicies(pglobalpowerpolicy: COpaquePointer?, ppowerpolicy: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_validatePowerPolicies(pglobalpowerpolicy?.value?.toCPointer<ByteVar>(), ppowerpolicy?.value?.toCPointer<ByteVar>())
 
-public actual fun WriteGlobalPwrPolicy(pglobalpowerpolicy: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_WriteGlobalPwrPolicy(pglobalpowerpolicy.toCPointer<ByteVar>())
+public actual fun writeGlobalPwrPolicy(pglobalpowerpolicy: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_writeGlobalPwrPolicy(pglobalpowerpolicy?.value?.toCPointer<ByteVar>())
 
-public actual fun WriteProcessorPwrScheme(uiid: UInt, pmachineprocessorpowerpolicy: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_WriteProcessorPwrScheme(uiid, pmachineprocessorpowerpolicy.toCPointer<ByteVar>())
+public actual fun writeProcessorPwrScheme(uiid: UInt, pmachineprocessorpowerpolicy: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_writeProcessorPwrScheme(uiid, pmachineprocessorpowerpolicy?.value?.toCPointer<ByteVar>())
 
-public actual fun WritePwrScheme(puiid: Long, lpszschemename: PCWSTR, lpszdescription: PCWSTR, lpscheme: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_WritePwrScheme(puiid.toCPointer<ByteVar>(), lpszschemename.toCPointer<ByteVar>(), lpszdescription.toCPointer<ByteVar>(), lpscheme.toCPointer<ByteVar>())
+public actual fun writePwrScheme(puiid: COpaquePointer?, lpszschemename: Pcwstr, lpszdescription: Pcwstr, lpscheme: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.system.power.cinterop.windowssys_windows_win32_system_power_writePwrScheme(puiid?.value?.toCPointer<ByteVar>(), lpszschemename?.value?.toCPointer<ByteVar>(), lpszdescription?.value?.toCPointer<ByteVar>(), lpscheme?.value?.toCPointer<ByteVar>())

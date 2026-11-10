@@ -2,7 +2,7 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.ceip
 
-import io.github.kotlinmania.windowssys.core.BOOL
+import io.github.kotlinmania.windowssys.core.Bool
 
 private object WindowsWin32SystemDiagnosticsCeipJniBridge {
     init {
@@ -10,8 +10,8 @@ private object WindowsWin32SystemDiagnosticsCeipJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_diagnostics_ceip_CeipIsOptedIn(): Int
+    external fun windowssys_windows_win32_system_diagnostics_ceip_ceipIsOptedIn(): Int
 }
 
-public actual fun CeipIsOptedIn(): BOOL =
-    WindowsWin32SystemDiagnosticsCeipJniBridge.windowssys_windows_win32_system_diagnostics_ceip_CeipIsOptedIn()
+public actual fun ceipIsOptedIn(): Bool =
+    WindowsWin32SystemDiagnosticsCeipJniBridge.windowssys_windows_win32_system_diagnostics_ceip_ceipIsOptedIn()

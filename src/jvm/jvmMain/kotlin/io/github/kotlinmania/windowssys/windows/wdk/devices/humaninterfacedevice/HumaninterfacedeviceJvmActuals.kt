@@ -2,7 +2,8 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.devices.humaninterfacedevice
 
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
 
 private object WindowsWdkDevicesHumaninterfacedeviceJniBridge {
     init {
@@ -10,33 +11,33 @@ private object WindowsWdkDevicesHumaninterfacedeviceJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_wdk_devices_humaninterfacedevice_VhfAsyncOperationComplete(vhfoperationhandle: Long, completionstatus: Int): Int
+    external fun windowssys_windows_wdk_devices_humaninterfacedevice_vhfAsyncOperationComplete(vhfoperationhandle: Long, completionstatus: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_devices_humaninterfacedevice_VhfCreate(vhfconfig: Long, vhfhandle: Long): Int
+    external fun windowssys_windows_wdk_devices_humaninterfacedevice_vhfCreate(vhfconfig: Long, vhfhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_devices_humaninterfacedevice_VhfDelete(vhfhandle: Long, wait: Boolean)
+    external fun windowssys_windows_wdk_devices_humaninterfacedevice_vhfDelete(vhfhandle: Long, wait: Boolean)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_devices_humaninterfacedevice_VhfReadReportSubmit(vhfhandle: Long, hidtransferpacket: Long): Int
+    external fun windowssys_windows_wdk_devices_humaninterfacedevice_vhfReadReportSubmit(vhfhandle: Long, hidtransferpacket: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_devices_humaninterfacedevice_VhfStart(vhfhandle: Long): Int
+    external fun windowssys_windows_wdk_devices_humaninterfacedevice_vhfStart(vhfhandle: Long): Int
 }
 
-public actual fun VhfAsyncOperationComplete(vhfoperationhandle: Long, completionstatus: NTSTATUS): NTSTATUS =
-    WindowsWdkDevicesHumaninterfacedeviceJniBridge.windowssys_windows_wdk_devices_humaninterfacedevice_VhfAsyncOperationComplete(vhfoperationhandle, completionstatus)
+public actual fun vhfAsyncOperationComplete(vhfoperationhandle: COpaquePointer?, completionstatus: Ntstatus): Ntstatus =
+    WindowsWdkDevicesHumaninterfacedeviceJniBridge.windowssys_windows_wdk_devices_humaninterfacedevice_vhfAsyncOperationComplete((vhfoperationhandle?.value ?: 0L), completionstatus)
 
-public actual fun VhfCreate(vhfconfig: Long, vhfhandle: Long): NTSTATUS =
-    WindowsWdkDevicesHumaninterfacedeviceJniBridge.windowssys_windows_wdk_devices_humaninterfacedevice_VhfCreate(vhfconfig, vhfhandle)
+public actual fun vhfCreate(vhfconfig: COpaquePointer?, vhfhandle: COpaquePointer?): Ntstatus =
+    WindowsWdkDevicesHumaninterfacedeviceJniBridge.windowssys_windows_wdk_devices_humaninterfacedevice_vhfCreate((vhfconfig?.value ?: 0L), (vhfhandle?.value ?: 0L))
 
-public actual fun VhfDelete(vhfhandle: Long, wait: Boolean) {
-    WindowsWdkDevicesHumaninterfacedeviceJniBridge.windowssys_windows_wdk_devices_humaninterfacedevice_VhfDelete(vhfhandle, wait)
+public actual fun vhfDelete(vhfhandle: COpaquePointer?, wait: Boolean) {
+    WindowsWdkDevicesHumaninterfacedeviceJniBridge.windowssys_windows_wdk_devices_humaninterfacedevice_vhfDelete((vhfhandle?.value ?: 0L), wait)
 }
 
-public actual fun VhfReadReportSubmit(vhfhandle: Long, hidtransferpacket: Long): NTSTATUS =
-    WindowsWdkDevicesHumaninterfacedeviceJniBridge.windowssys_windows_wdk_devices_humaninterfacedevice_VhfReadReportSubmit(vhfhandle, hidtransferpacket)
+public actual fun vhfReadReportSubmit(vhfhandle: COpaquePointer?, hidtransferpacket: COpaquePointer?): Ntstatus =
+    WindowsWdkDevicesHumaninterfacedeviceJniBridge.windowssys_windows_wdk_devices_humaninterfacedevice_vhfReadReportSubmit((vhfhandle?.value ?: 0L), (hidtransferpacket?.value ?: 0L))
 
-public actual fun VhfStart(vhfhandle: Long): NTSTATUS =
-    WindowsWdkDevicesHumaninterfacedeviceJniBridge.windowssys_windows_wdk_devices_humaninterfacedevice_VhfStart(vhfhandle)
+public actual fun vhfStart(vhfhandle: COpaquePointer?): Ntstatus =
+    WindowsWdkDevicesHumaninterfacedeviceJniBridge.windowssys_windows_wdk_devices_humaninterfacedevice_vhfStart((vhfhandle?.value ?: 0L))

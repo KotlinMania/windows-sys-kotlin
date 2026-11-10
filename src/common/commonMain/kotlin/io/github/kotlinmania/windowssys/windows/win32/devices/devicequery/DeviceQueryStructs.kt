@@ -1,26 +1,27 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.devicequery
 
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.devices.properties.DEVPROPERTY
-import io.github.kotlinmania.windowssys.windows.win32.devices.properties.DEVPROPTYPE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.DEVPROPKEY
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.devices.properties.Devproperty
+import io.github.kotlinmania.windowssys.windows.win32.devices.properties.Devproptype
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Devpropkey
 
-public data class DEVPROP_FILTER_EXPRESSION(public var Operator: DEVPROP_OPERATOR = 0u, public var Property: DEVPROPERTY = DEVPROPERTY())
+public data class DevpropFilterExpression(public var operator: DevpropOperator = 0u, public var property: Devproperty = Devproperty())
 
-public data class DEV_OBJECT(
-    public var ObjectType: DEV_OBJECT_TYPE = 0,
-    public var pszObjectId: PCWSTR = 0L,
+public data class DevObject(
+    public var objectType: DevObjectType = 0,
+    public var pszObjectId: Pcwstr = null,
     public var cPropertyCount: UInt = 0u,
-    public var pProperties: Long = 0L,
+    public var pProperties: Devproperty? = null,
 )
 
-public data class DEV_QUERY_PARAMETER(
-    public var Key: DEVPROPKEY = DEVPROPKEY(),
-    public var Type: DEVPROPTYPE = 0u,
-    public var BufferSize: UInt = 0u,
-    public var Buffer: Long = 0L,
+public data class DevQueryParameter(
+    public var key: Devpropkey = Devpropkey(),
+    public var type: Devproptype = 0u,
+    public var bufferSize: UInt = 0u,
+    public var buffer: COpaquePointer? = null,
 )
 
-public data class DEV_QUERY_RESULT_ACTION_DATA(public var Action: DEV_QUERY_RESULT_ACTION = 0, public var Data: DEV_QUERY_RESULT_ACTION_DATA_0 = DEV_QUERY_RESULT_ACTION_DATA_0())
+public data class DevQueryResultActionData(public var action: DevQueryResultAction = 0, public var data: DevQueryResultActionData0 = DevQueryResultActionData0())
 
-public data class DEV_QUERY_RESULT_ACTION_DATA_0(public var State: DEV_QUERY_STATE = 0, public var DeviceObject: DEV_OBJECT = DEV_OBJECT())
+public data class DevQueryResultActionData0(public var state: DevQueryState = 0, public var deviceObject: DevObject = DevObject())

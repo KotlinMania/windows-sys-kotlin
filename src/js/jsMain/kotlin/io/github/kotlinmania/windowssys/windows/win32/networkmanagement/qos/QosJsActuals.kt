@@ -2,106 +2,107 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SOCKET
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.Socket
 
 private val _windowsWin32NetworkmanagementQosNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun QOSAddSocketToFlow(qoshandle: HANDLE, socket: SOCKET, destaddr: Long, traffictype: QOS_TRAFFIC_TYPE, flags: UInt, flowid: Long): BOOL =
-    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_QOSAddSocketToFlow(qoshandle.toString(), socket.toString(), destaddr.toString(), traffictype, flags.toInt(), flowid.toString()) as Int) else 0
+public actual fun qOSAddSocketToFlow(qoshandle: Handle, socket: Socket, destaddr: COpaquePointer?, traffictype: QosTrafficType, flags: UInt, flowid: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_qOSAddSocketToFlow((qoshandle?.value ?: 0L).toString(), socket.toString(), (destaddr?.value ?: 0L).toString(), traffictype, flags.toInt(), (flowid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QOSCancel(qoshandle: HANDLE, overlapped: Long): BOOL =
-    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_QOSCancel(qoshandle.toString(), overlapped.toString()) as Int) else 0
+public actual fun qOSCancel(qoshandle: Handle, overlapped: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_qOSCancel((qoshandle?.value ?: 0L).toString(), (overlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QOSCloseHandle(qoshandle: HANDLE): BOOL =
-    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_QOSCloseHandle(qoshandle.toString()) as Int) else 0
+public actual fun qOSCloseHandle(qoshandle: Handle): Bool =
+    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_qOSCloseHandle((qoshandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QOSCreateHandle(version: Long, qoshandle: Long): BOOL =
-    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_QOSCreateHandle(version.toString(), qoshandle.toString()) as Int) else 0
+public actual fun qOSCreateHandle(version: COpaquePointer?, qoshandle: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_qOSCreateHandle((version?.value ?: 0L).toString(), (qoshandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QOSEnumerateFlows(qoshandle: HANDLE, size: Long, buffer: Long): BOOL =
-    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_QOSEnumerateFlows(qoshandle.toString(), size.toString(), buffer.toString()) as Int) else 0
+public actual fun qOSEnumerateFlows(qoshandle: Handle, size: COpaquePointer?, buffer: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_qOSEnumerateFlows((qoshandle?.value ?: 0L).toString(), (size?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QOSNotifyFlow(qoshandle: HANDLE, flowid: UInt, operation: QOS_NOTIFY_FLOW, size: Long, buffer: Long, flags: UInt, overlapped: Long): BOOL =
-    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_QOSNotifyFlow(qoshandle.toString(), flowid.toInt(), operation, size.toString(), buffer.toString(), flags.toInt(), overlapped.toString()) as Int) else 0
+public actual fun qOSNotifyFlow(qoshandle: Handle, flowid: UInt, operation: QosNotifyFlow, size: COpaquePointer?, buffer: COpaquePointer?, flags: UInt, overlapped: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_qOSNotifyFlow((qoshandle?.value ?: 0L).toString(), flowid.toInt(), operation, (size?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), flags.toInt(), (overlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QOSQueryFlow(qoshandle: HANDLE, flowid: UInt, operation: QOS_QUERY_FLOW, size: Long, buffer: Long, flags: UInt, overlapped: Long): BOOL =
-    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_QOSQueryFlow(qoshandle.toString(), flowid.toInt(), operation, size.toString(), buffer.toString(), flags.toInt(), overlapped.toString()) as Int) else 0
+public actual fun qOSQueryFlow(qoshandle: Handle, flowid: UInt, operation: QosQueryFlow, size: COpaquePointer?, buffer: COpaquePointer?, flags: UInt, overlapped: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_qOSQueryFlow((qoshandle?.value ?: 0L).toString(), flowid.toInt(), operation, (size?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), flags.toInt(), (overlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QOSRemoveSocketFromFlow(qoshandle: HANDLE, socket: SOCKET, flowid: UInt, flags: UInt): BOOL =
-    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_QOSRemoveSocketFromFlow(qoshandle.toString(), socket.toString(), flowid.toInt(), flags.toInt()) as Int) else 0
+public actual fun qOSRemoveSocketFromFlow(qoshandle: Handle, socket: Socket, flowid: UInt, flags: UInt): Bool =
+    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_qOSRemoveSocketFromFlow((qoshandle?.value ?: 0L).toString(), socket.toString(), flowid.toInt(), flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QOSSetFlow(qoshandle: HANDLE, flowid: UInt, operation: QOS_SET_FLOW, size: UInt, buffer: Long, flags: UInt, overlapped: Long): BOOL =
-    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_QOSSetFlow(qoshandle.toString(), flowid.toInt(), operation, size.toInt(), buffer.toString(), flags.toInt(), overlapped.toString()) as Int) else 0
+public actual fun qOSSetFlow(qoshandle: Handle, flowid: UInt, operation: QosSetFlow, size: UInt, buffer: COpaquePointer?, flags: UInt, overlapped: COpaquePointer?): Bool =
+    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_qOSSetFlow((qoshandle?.value ?: 0L).toString(), flowid.toInt(), operation, size.toInt(), (buffer?.value ?: 0L).toString(), flags.toInt(), (overlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QOSStartTrackingClient(qoshandle: HANDLE, destaddr: Long, flags: UInt): BOOL =
-    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_QOSStartTrackingClient(qoshandle.toString(), destaddr.toString(), flags.toInt()) as Int) else 0
+public actual fun qOSStartTrackingClient(qoshandle: Handle, destaddr: COpaquePointer?, flags: UInt): Bool =
+    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_qOSStartTrackingClient((qoshandle?.value ?: 0L).toString(), (destaddr?.value ?: 0L).toString(), flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QOSStopTrackingClient(qoshandle: HANDLE, destaddr: Long, flags: UInt): BOOL =
-    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_QOSStopTrackingClient(qoshandle.toString(), destaddr.toString(), flags.toInt()) as Int) else 0
+public actual fun qOSStopTrackingClient(qoshandle: Handle, destaddr: COpaquePointer?, flags: UInt): Bool =
+    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_qOSStopTrackingClient((qoshandle?.value ?: 0L).toString(), (destaddr?.value ?: 0L).toString(), flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TcAddFilter(flowhandle: HANDLE, pgenericfilter: Long, pfilterhandle: Long): UInt =
-    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_TcAddFilter(flowhandle.toString(), pgenericfilter.toString(), pfilterhandle.toString()) as Int).toUInt() else 0u
+public actual fun tcAddFilter(flowhandle: Handle, pgenericfilter: COpaquePointer?, pfilterhandle: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_tcAddFilter((flowhandle?.value ?: 0L).toString(), (pgenericfilter?.value ?: 0L).toString(), (pfilterhandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TcAddFlow(ifchandle: HANDLE, clflowctx: HANDLE, flags: UInt, pgenericflow: Long, pflowhandle: Long): UInt =
-    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_TcAddFlow(ifchandle.toString(), clflowctx.toString(), flags.toInt(), pgenericflow.toString(), pflowhandle.toString()) as Int).toUInt() else 0u
+public actual fun tcAddFlow(ifchandle: Handle, clflowctx: Handle, flags: UInt, pgenericflow: COpaquePointer?, pflowhandle: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_tcAddFlow((ifchandle?.value ?: 0L).toString(), (clflowctx?.value ?: 0L).toString(), flags.toInt(), (pgenericflow?.value ?: 0L).toString(), (pflowhandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TcCloseInterface(ifchandle: HANDLE): UInt =
-    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_TcCloseInterface(ifchandle.toString()) as Int).toUInt() else 0u
+public actual fun tcCloseInterface(ifchandle: Handle): UInt =
+    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_tcCloseInterface((ifchandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TcDeleteFilter(filterhandle: HANDLE): UInt =
-    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_TcDeleteFilter(filterhandle.toString()) as Int).toUInt() else 0u
+public actual fun tcDeleteFilter(filterhandle: Handle): UInt =
+    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_tcDeleteFilter((filterhandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TcDeleteFlow(flowhandle: HANDLE): UInt =
-    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_TcDeleteFlow(flowhandle.toString()) as Int).toUInt() else 0u
+public actual fun tcDeleteFlow(flowhandle: Handle): UInt =
+    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_tcDeleteFlow((flowhandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TcDeregisterClient(clienthandle: HANDLE): UInt =
-    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_TcDeregisterClient(clienthandle.toString()) as Int).toUInt() else 0u
+public actual fun tcDeregisterClient(clienthandle: Handle): UInt =
+    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_tcDeregisterClient((clienthandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TcEnumerateFlows(ifchandle: HANDLE, penumhandle: Long, pflowcount: Long, pbufsize: Long, buffer: Long): UInt =
-    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_TcEnumerateFlows(ifchandle.toString(), penumhandle.toString(), pflowcount.toString(), pbufsize.toString(), buffer.toString()) as Int).toUInt() else 0u
+public actual fun tcEnumerateFlows(ifchandle: Handle, penumhandle: COpaquePointer?, pflowcount: COpaquePointer?, pbufsize: COpaquePointer?, buffer: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_tcEnumerateFlows((ifchandle?.value ?: 0L).toString(), (penumhandle?.value ?: 0L).toString(), (pflowcount?.value ?: 0L).toString(), (pbufsize?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TcEnumerateInterfaces(clienthandle: HANDLE, pbuffersize: Long, interfacebuffer: Long): UInt =
-    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_TcEnumerateInterfaces(clienthandle.toString(), pbuffersize.toString(), interfacebuffer.toString()) as Int).toUInt() else 0u
+public actual fun tcEnumerateInterfaces(clienthandle: Handle, pbuffersize: COpaquePointer?, interfacebuffer: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_tcEnumerateInterfaces((clienthandle?.value ?: 0L).toString(), (pbuffersize?.value ?: 0L).toString(), (interfacebuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TcGetFlowNameA(flowhandle: HANDLE, strsize: UInt, pflowname: PSTR): UInt =
-    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_TcGetFlowNameA(flowhandle.toString(), strsize.toInt(), pflowname.toString()) as Int).toUInt() else 0u
+public actual fun tcGetFlowNameA(flowhandle: Handle, strsize: UInt, pflowname: Pstr): UInt =
+    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_tcGetFlowNameA((flowhandle?.value ?: 0L).toString(), strsize.toInt(), (pflowname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TcGetFlowNameW(flowhandle: HANDLE, strsize: UInt, pflowname: PWSTR): UInt =
-    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_TcGetFlowNameW(flowhandle.toString(), strsize.toInt(), pflowname.toString()) as Int).toUInt() else 0u
+public actual fun tcGetFlowNameW(flowhandle: Handle, strsize: UInt, pflowname: Pwstr): UInt =
+    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_tcGetFlowNameW((flowhandle?.value ?: 0L).toString(), strsize.toInt(), (pflowname?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TcModifyFlow(flowhandle: HANDLE, pgenericflow: Long): UInt =
-    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_TcModifyFlow(flowhandle.toString(), pgenericflow.toString()) as Int).toUInt() else 0u
+public actual fun tcModifyFlow(flowhandle: Handle, pgenericflow: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_tcModifyFlow((flowhandle?.value ?: 0L).toString(), (pgenericflow?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TcOpenInterfaceA(pinterfacename: PCSTR, clienthandle: HANDLE, clifcctx: HANDLE, pifchandle: Long): UInt =
-    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_TcOpenInterfaceA(pinterfacename.toString(), clienthandle.toString(), clifcctx.toString(), pifchandle.toString()) as Int).toUInt() else 0u
+public actual fun tcOpenInterfaceA(pinterfacename: Pcstr, clienthandle: Handle, clifcctx: Handle, pifchandle: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_tcOpenInterfaceA((pinterfacename?.value ?: 0L).toString(), (clienthandle?.value ?: 0L).toString(), (clifcctx?.value ?: 0L).toString(), (pifchandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TcOpenInterfaceW(pinterfacename: PCWSTR, clienthandle: HANDLE, clifcctx: HANDLE, pifchandle: Long): UInt =
-    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_TcOpenInterfaceW(pinterfacename.toString(), clienthandle.toString(), clifcctx.toString(), pifchandle.toString()) as Int).toUInt() else 0u
+public actual fun tcOpenInterfaceW(pinterfacename: Pcwstr, clienthandle: Handle, clifcctx: Handle, pifchandle: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_tcOpenInterfaceW((pinterfacename?.value ?: 0L).toString(), (clienthandle?.value ?: 0L).toString(), (clifcctx?.value ?: 0L).toString(), (pifchandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TcQueryFlowA(pflowname: PCSTR, pguidparam: Long, pbuffersize: Long, buffer: Long): UInt =
-    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_TcQueryFlowA(pflowname.toString(), pguidparam.toString(), pbuffersize.toString(), buffer.toString()) as Int).toUInt() else 0u
+public actual fun tcQueryFlowA(pflowname: Pcstr, pguidparam: COpaquePointer?, pbuffersize: COpaquePointer?, buffer: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_tcQueryFlowA((pflowname?.value ?: 0L).toString(), (pguidparam?.value ?: 0L).toString(), (pbuffersize?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TcQueryFlowW(pflowname: PCWSTR, pguidparam: Long, pbuffersize: Long, buffer: Long): UInt =
-    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_TcQueryFlowW(pflowname.toString(), pguidparam.toString(), pbuffersize.toString(), buffer.toString()) as Int).toUInt() else 0u
+public actual fun tcQueryFlowW(pflowname: Pcwstr, pguidparam: COpaquePointer?, pbuffersize: COpaquePointer?, buffer: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_tcQueryFlowW((pflowname?.value ?: 0L).toString(), (pguidparam?.value ?: 0L).toString(), (pbuffersize?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TcQueryInterface(ifchandle: HANDLE, pguidparam: Long, notifychange: Boolean, pbuffersize: Long, buffer: Long): UInt =
-    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_TcQueryInterface(ifchandle.toString(), pguidparam.toString(), notifychange, pbuffersize.toString(), buffer.toString()) as Int).toUInt() else 0u
+public actual fun tcQueryInterface(ifchandle: Handle, pguidparam: COpaquePointer?, notifychange: Boolean, pbuffersize: COpaquePointer?, buffer: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_tcQueryInterface((ifchandle?.value ?: 0L).toString(), (pguidparam?.value ?: 0L).toString(), notifychange, (pbuffersize?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TcRegisterClient(tciversion: UInt, clregctx: HANDLE, clienthandlerlist: Long, pclienthandle: Long): UInt =
-    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_TcRegisterClient(tciversion.toInt(), clregctx.toString(), clienthandlerlist.toString(), pclienthandle.toString()) as Int).toUInt() else 0u
+public actual fun tcRegisterClient(tciversion: UInt, clregctx: Handle, clienthandlerlist: COpaquePointer?, pclienthandle: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_tcRegisterClient(tciversion.toInt(), (clregctx?.value ?: 0L).toString(), (clienthandlerlist?.value ?: 0L).toString(), (pclienthandle?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TcSetFlowA(pflowname: PCSTR, pguidparam: Long, buffersize: UInt, buffer: Long): UInt =
-    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_TcSetFlowA(pflowname.toString(), pguidparam.toString(), buffersize.toInt(), buffer.toString()) as Int).toUInt() else 0u
+public actual fun tcSetFlowA(pflowname: Pcstr, pguidparam: COpaquePointer?, buffersize: UInt, buffer: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_tcSetFlowA((pflowname?.value ?: 0L).toString(), (pguidparam?.value ?: 0L).toString(), buffersize.toInt(), (buffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TcSetFlowW(pflowname: PCWSTR, pguidparam: Long, buffersize: UInt, buffer: Long): UInt =
-    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_TcSetFlowW(pflowname.toString(), pguidparam.toString(), buffersize.toInt(), buffer.toString()) as Int).toUInt() else 0u
+public actual fun tcSetFlowW(pflowname: Pcwstr, pguidparam: COpaquePointer?, buffersize: UInt, buffer: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_tcSetFlowW((pflowname?.value ?: 0L).toString(), (pguidparam?.value ?: 0L).toString(), buffersize.toInt(), (buffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TcSetInterface(ifchandle: HANDLE, pguidparam: Long, buffersize: UInt, buffer: Long): UInt =
-    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_TcSetInterface(ifchandle.toString(), pguidparam.toString(), buffersize.toInt(), buffer.toString()) as Int).toUInt() else 0u
+public actual fun tcSetInterface(ifchandle: Handle, pguidparam: COpaquePointer?, buffersize: UInt, buffer: COpaquePointer?): UInt =
+    if (_windowsWin32NetworkmanagementQosNapiAddon != null) (_windowsWin32NetworkmanagementQosNapiAddon.windowssys_windows_win32_networkmanagement_qos_tcSetInterface((ifchandle?.value ?: 0L).toString(), (pguidparam?.value ?: 0L).toString(), buffersize.toInt(), (buffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")

@@ -1,36 +1,38 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.ui.input.ime
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.RECT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HBITMAP
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.LOGFONTA
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.LOGFONTW
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.HICON
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbitmap
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Logfonta
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Logfontw
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hicon
 
-public data class APPLETIDLIST(public var count: Int = 0, public var pIIDList: Long = 0L)
+public data class Appletidlist(public var count: Int = 0, public var pIIDList: Guid? = null)
 
-public data class APPLYCANDEXPARAM(
+public data class Applycandexparam(
     public var dwSize: UInt = 0u,
-    public var lpwstrDisplay: PWSTR = 0L,
-    public var lpwstrReading: PWSTR = 0L,
+    public var lpwstrDisplay: Pwstr = null,
+    public var lpwstrReading: Pwstr = null,
     public var dwReserved: UInt = 0u,
 )
 
-public data class CANDIDATEFORM(
+public data class Candidateform(
     public var dwIndex: UInt = 0u,
     public var dwStyle: UInt = 0u,
-    public var ptCurrentPos: POINT = POINT(),
-    public var rcArea: RECT = RECT(),
+    public var ptCurrentPos: Point = Point(),
+    public var rcArea: Rect = Rect(),
 )
 
-public data class CANDIDATEINFO(
+public data class Candidateinfo(
     public var dwSize: UInt = 0u,
     public var dwCount: UInt = 0u,
     public var dwOffset: UIntArray = UIntArray(32),
@@ -39,7 +41,7 @@ public data class CANDIDATEINFO(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CANDIDATEINFO) return false
+        if (other !is Candidateinfo) return false
         if (this.dwSize != other.dwSize) return false
         if (this.dwCount != other.dwCount) return false
         if (!this.dwOffset.contentEquals(other.dwOffset)) return false
@@ -58,7 +60,7 @@ public data class CANDIDATEINFO(
     }
 }
 
-public data class CANDIDATELIST(
+public data class Candidatelist(
     public var dwSize: UInt = 0u,
     public var dwStyle: UInt = 0u,
     public var dwCount: UInt = 0u,
@@ -69,7 +71,7 @@ public data class CANDIDATELIST(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CANDIDATELIST) return false
+        if (other !is Candidatelist) return false
         if (this.dwSize != other.dwSize) return false
         if (this.dwStyle != other.dwStyle) return false
         if (this.dwCount != other.dwCount) return false
@@ -92,13 +94,13 @@ public data class CANDIDATELIST(
     }
 }
 
-public data class COMPOSITIONFORM(
+public data class Compositionform(
     public var dwStyle: UInt = 0u,
-    public var ptCurrentPos: POINT = POINT(),
-    public var rcArea: RECT = RECT(),
+    public var ptCurrentPos: Point = Point(),
+    public var rcArea: Rect = Rect(),
 )
 
-public class COMPOSITIONSTRING(
+public class Compositionstring(
     public var dwSize: UInt = 0u,
     public var dwCompReadAttrLen: UInt = 0u,
     public var dwCompReadAttrOffset: UInt = 0u,
@@ -126,7 +128,7 @@ public class COMPOSITIONSTRING(
     public var dwPrivateOffset: UInt = 0u,
 )
 
-public data class GUIDELINE(
+public data class Guideline(
     public var dwSize: UInt = 0u,
     public var dwLevel: UInt = 0u,
     public var dwIndex: UInt = 0u,
@@ -136,20 +138,20 @@ public data class GUIDELINE(
     public var dwPrivateOffset: UInt = 0u,
 )
 
-public data class IMEAPPLETCFG(
+public data class Imeappletcfg(
     public var dwConfig: UInt = 0u,
     public var wchTitle: UShortArray = UShortArray(64),
     public var wchTitleFontFace: UShortArray = UShortArray(32),
     public var dwCharSet: UInt = 0u,
     public var iCategory: Int = 0,
-    public var hIcon: HICON = 0L,
+    public var hIcon: Hicon = null,
     public var langID: UShort = 0u,
     public var dummy: UShort = 0u,
-    public var lReserved1: LPARAM = 0L,
+    public var lReserved1: Lparam = 0L,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IMEAPPLETCFG) return false
+        if (other !is Imeappletcfg) return false
         if (this.dwConfig != other.dwConfig) return false
         if (!this.wchTitle.contentEquals(other.wchTitle)) return false
         if (!this.wchTitleFontFace.contentEquals(other.wchTitleFontFace)) return false
@@ -176,8 +178,8 @@ public data class IMEAPPLETCFG(
     }
 }
 
-public data class IMEAPPLETUI(
-    public var hwnd: HWND = 0L,
+public data class Imeappletui(
+    public var hwnd: Hwnd = null,
     public var dwStyle: UInt = 0u,
     public var width: Int = 0,
     public var height: Int = 0,
@@ -185,21 +187,21 @@ public data class IMEAPPLETUI(
     public var minHeight: Int = 0,
     public var maxWidth: Int = 0,
     public var maxHeight: Int = 0,
-    public var lReserved1: LPARAM = 0L,
-    public var lReserved2: LPARAM = 0L,
+    public var lReserved1: Lparam = 0L,
+    public var lReserved2: Lparam = 0L,
 )
 
-public data class IMECHARINFO(public var wch: UShort = 0u, public var dwCharInfo: UInt = 0u)
+public data class Imecharinfo(public var wch: UShort = 0u, public var dwCharInfo: UInt = 0u)
 
-public data class IMECHARPOSITION(
+public data class Imecharposition(
     public var dwSize: UInt = 0u,
     public var dwCharPos: UInt = 0u,
-    public var pt: POINT = POINT(),
+    public var pt: Point = Point(),
     public var cLineHeight: UInt = 0u,
-    public var rcDocument: RECT = RECT(),
+    public var rcDocument: Rect = Rect(),
 )
 
-public data class IMECOMPOSITIONSTRINGINFO(
+public data class Imecompositionstringinfo(
     public var iCompStrLen: Int = 0,
     public var iCaretPos: Int = 0,
     public var iEditStart: Int = 0,
@@ -208,27 +210,27 @@ public data class IMECOMPOSITIONSTRINGINFO(
     public var iTargetLen: Int = 0,
 )
 
-public data class IMEDLG(
+public data class Imedlg(
     public var cbIMEDLG: Int = 0,
-    public var hwnd: HWND = 0L,
-    public var lpwstrWord: PWSTR = 0L,
+    public var hwnd: Hwnd = null,
+    public var lpwstrWord: Pwstr = null,
     public var nTabId: Int = 0,
 )
 
-public data class IMEDP(
-    public var wrdModifier: IMEWRD = IMEWRD(),
-    public var wrdModifiee: IMEWRD = IMEWRD(),
-    public var relID: IMEREL = 0,
+public data class Imedp(
+    public var wrdModifier: Imewrd = Imewrd(),
+    public var wrdModifiee: Imewrd = Imewrd(),
+    public var relID: Imerel = 0,
 )
 
-public data class IMEFAREASTINFO(
+public data class Imefareastinfo(
     public var dwSize: UInt = 0u,
     public var dwType: UInt = 0u,
     public var dwData: UIntArray = UIntArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IMEFAREASTINFO) return false
+        if (other !is Imefareastinfo) return false
         if (this.dwSize != other.dwSize) return false
         if (this.dwType != other.dwType) return false
         if (!this.dwData.contentEquals(other.dwData)) return false
@@ -243,7 +245,7 @@ public data class IMEFAREASTINFO(
     }
 }
 
-public data class IMEINFO(
+public data class Imeinfo(
     public var dwPrivateDataSize: UInt = 0u,
     public var fdwProperty: UInt = 0u,
     public var fdwConversionCaps: UInt = 0u,
@@ -253,22 +255,22 @@ public data class IMEINFO(
     public var fdwSelectCaps: UInt = 0u,
 )
 
-public data class IMEITEM(
+public data class Imeitem(
     public var cbSize: Int = 0,
     public var iType: Int = 0,
-    public var lpItemData: Long = 0L,
+    public var lpItemData: COpaquePointer? = null,
 )
 
-public data class IMEITEMCANDIDATE(public var uCount: UInt = 0u, public var imeItem: List<IMEITEM> = List(1) { IMEITEM() })
+public data class Imeitemcandidate(public var uCount: UInt = 0u, public var imeItem: List<Imeitem> = List(1) { Imeitem() })
 
-public data class IMEKMS(
+public data class Imekms(
     public var cbSize: Int = 0,
-    public var hIMC: HIMC = 0L,
+    public var hIMC: Himc = null,
     public var cKeyList: UInt = 0u,
-    public var pKeyList: Long = 0L,
+    public var pKeyList: Imekmskey? = null,
 )
 
-public data class IMEKMSFUNCDESC(
+public data class Imekmsfuncdesc(
     public var cbSize: Int = 0,
     public var idLang: UShort = 0u,
     public var dwControl: UInt = 0u,
@@ -276,7 +278,7 @@ public data class IMEKMSFUNCDESC(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IMEKMSFUNCDESC) return false
+        if (other !is Imekmsfuncdesc) return false
         if (this.cbSize != other.cbSize) return false
         if (this.idLang != other.idLang) return false
         if (this.dwControl != other.dwControl) return false
@@ -293,28 +295,28 @@ public data class IMEKMSFUNCDESC(
     }
 }
 
-public data class IMEKMSINIT(public var cbSize: Int = 0, public var hWnd: HWND = 0L)
+public data class Imekmsinit(public var cbSize: Int = 0, public var hWnd: Hwnd = null)
 
-public data class IMEKMSINVK(
+public data class Imekmsinvk(
     public var cbSize: Int = 0,
-    public var hIMC: HIMC = 0L,
+    public var hIMC: Himc = null,
     public var dwControl: UInt = 0u,
 )
 
-public data class IMEKMSKEY(
+public data class Imekmskey(
     public var dwStatus: UInt = 0u,
     public var dwCompStatus: UInt = 0u,
     public var dwVKEY: UInt = 0u,
-    public var Anonymous1: IMEKMSKEY_0 = IMEKMSKEY_0(),
-    public var Anonymous2: IMEKMSKEY_1 = IMEKMSKEY_1(),
+    public var anonymous1: Imekmskey0 = Imekmskey0(),
+    public var anonymous2: Imekmskey1 = Imekmskey1(),
 )
 
-public data class IMEKMSKEY_0(public var dwControl: UInt = 0u, public var dwNotUsed: UInt = 0u)
+public data class Imekmskey0(public var dwControl: UInt = 0u, public var dwNotUsed: UInt = 0u)
 
-public data class IMEKMSKEY_1(public var pwszDscr: UShortArray = UShortArray(31), public var pwszNoUse: UShortArray = UShortArray(31)) {
+public data class Imekmskey1(public var pwszDscr: UShortArray = UShortArray(31), public var pwszNoUse: UShortArray = UShortArray(31)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IMEKMSKEY_1) return false
+        if (other !is Imekmskey1) return false
         if (!this.pwszDscr.contentEquals(other.pwszDscr)) return false
         if (!this.pwszNoUse.contentEquals(other.pwszNoUse)) return false
         return true
@@ -327,36 +329,36 @@ public data class IMEKMSKEY_1(public var pwszDscr: UShortArray = UShortArray(31)
     }
 }
 
-public data class IMEKMSKMP(
+public data class Imekmskmp(
     public var cbSize: Int = 0,
-    public var hIMC: HIMC = 0L,
+    public var hIMC: Himc = null,
     public var idLang: UShort = 0u,
     public var wVKStart: UShort = 0u,
     public var wVKEnd: UShort = 0u,
     public var cKeyList: Int = 0,
-    public var pKeyList: Long = 0L,
+    public var pKeyList: Imekmskey? = null,
 )
 
-public data class IMEKMSNTFY(
+public data class Imekmsntfy(
     public var cbSize: Int = 0,
-    public var hIMC: HIMC = 0L,
-    public var fSelect: BOOL = 0,
+    public var hIMC: Himc = null,
+    public var fSelect: Bool = 0,
 )
 
-public data class IMEMENUITEMINFOA(
+public data class Imemenuiteminfoa(
     public var cbSize: UInt = 0u,
     public var fType: UInt = 0u,
     public var fState: UInt = 0u,
     public var wID: UInt = 0u,
-    public var hbmpChecked: HBITMAP = 0L,
-    public var hbmpUnchecked: HBITMAP = 0L,
+    public var hbmpChecked: Hbitmap = null,
+    public var hbmpUnchecked: Hbitmap = null,
     public var dwItemData: UInt = 0u,
     public var szString: ByteArray = ByteArray(80),
-    public var hbmpItem: HBITMAP = 0L,
+    public var hbmpItem: Hbitmap = null,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IMEMENUITEMINFOA) return false
+        if (other !is Imemenuiteminfoa) return false
         if (this.cbSize != other.cbSize) return false
         if (this.fType != other.fType) return false
         if (this.fState != other.fState) return false
@@ -383,20 +385,20 @@ public data class IMEMENUITEMINFOA(
     }
 }
 
-public data class IMEMENUITEMINFOW(
+public data class Imemenuiteminfow(
     public var cbSize: UInt = 0u,
     public var fType: UInt = 0u,
     public var fState: UInt = 0u,
     public var wID: UInt = 0u,
-    public var hbmpChecked: HBITMAP = 0L,
-    public var hbmpUnchecked: HBITMAP = 0L,
+    public var hbmpChecked: Hbitmap = null,
+    public var hbmpUnchecked: Hbitmap = null,
     public var dwItemData: UInt = 0u,
     public var szString: UShortArray = UShortArray(80),
-    public var hbmpItem: HBITMAP = 0L,
+    public var hbmpItem: Hbitmap = null,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IMEMENUITEMINFOW) return false
+        if (other !is Imemenuiteminfow) return false
         if (this.cbSize != other.cbSize) return false
         if (this.fType != other.fType) return false
         if (this.fState != other.fState) return false
@@ -423,7 +425,7 @@ public data class IMEMENUITEMINFOW(
     }
 }
 
-public data class IMESHF(
+public data class Imeshf(
     public var cbShf: UShort = 0u,
     public var verDic: UShort = 0u,
     public var szTitle: ByteArray = ByteArray(48),
@@ -432,7 +434,7 @@ public data class IMESHF(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IMESHF) return false
+        if (other !is Imeshf) return false
         if (this.cbShf != other.cbShf) return false
         if (this.verDic != other.verDic) return false
         if (!this.szTitle.contentEquals(other.szTitle)) return false
@@ -451,70 +453,34 @@ public data class IMESHF(
     }
 }
 
-public data class IMESTRINGCANDIDATE(public var uCount: UInt = 0u, public var lpwstr: LongArray = LongArray(1)) {
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (other !is IMESTRINGCANDIDATE) return false
-        if (this.uCount != other.uCount) return false
-        if (!this.lpwstr.contentEquals(other.lpwstr)) return false
-        return true
-    }
+public data class Imestringcandidate(public var uCount: UInt = 0u, public var lpwstr: List<COpaquePointer> = List(1) { COpaquePointer(0L) })
 
-    override fun hashCode(): Int {
-        var result = this.uCount.hashCode()
-        result = 31 * result + this.lpwstr.contentHashCode()
-        return result
-    }
-}
-
-public data class IMESTRINGCANDIDATEINFO(
+public data class Imestringcandidateinfo(
     public var dwFarEastId: UInt = 0u,
-    public var lpFarEastInfo: Long = 0L,
+    public var lpFarEastInfo: Imefareastinfo? = null,
     public var fInfoMask: UInt = 0u,
     public var iSelIndex: Int = 0,
     public var uCount: UInt = 0u,
-    public var lpwstr: LongArray = LongArray(1),
-) {
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (other !is IMESTRINGCANDIDATEINFO) return false
-        if (this.dwFarEastId != other.dwFarEastId) return false
-        if (this.lpFarEastInfo != other.lpFarEastInfo) return false
-        if (this.fInfoMask != other.fInfoMask) return false
-        if (this.iSelIndex != other.iSelIndex) return false
-        if (this.uCount != other.uCount) return false
-        if (!this.lpwstr.contentEquals(other.lpwstr)) return false
-        return true
-    }
+    public var lpwstr: List<COpaquePointer> = List(1) { COpaquePointer(0L) },
+)
 
-    override fun hashCode(): Int {
-        var result = this.dwFarEastId.hashCode()
-        result = 31 * result + this.lpFarEastInfo.hashCode()
-        result = 31 * result + this.fInfoMask.hashCode()
-        result = 31 * result + this.iSelIndex.hashCode()
-        result = 31 * result + this.uCount.hashCode()
-        result = 31 * result + this.lpwstr.contentHashCode()
-        return result
-    }
-}
+public data class Imestringinfo(public var dwFarEastId: UInt = 0u, public var lpwstr: Pwstr = null)
 
-public data class IMESTRINGINFO(public var dwFarEastId: UInt = 0u, public var lpwstr: PWSTR = 0L)
-
-public data class IMEWRD(
-    public var pwchReading: PWSTR = 0L,
-    public var pwchDisplay: PWSTR = 0L,
-    public var Anonymous: IMEWRD_0 = IMEWRD_0(),
+public data class Imewrd(
+    public var pwchReading: Pwstr = null,
+    public var pwchDisplay: Pwstr = null,
+    public var anonymous: Imewrd0 = Imewrd0(),
     public var rgulAttrs: UIntArray = UIntArray(2),
     public var cbComment: Int = 0,
-    public var uct: IMEUCT = 0,
-    public var pvComment: Long = 0L,
+    public var uct: Imeuct = 0,
+    public var pvComment: COpaquePointer? = null,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IMEWRD) return false
+        if (other !is Imewrd) return false
         if (this.pwchReading != other.pwchReading) return false
         if (this.pwchDisplay != other.pwchDisplay) return false
-        if (this.Anonymous != other.Anonymous) return false
+        if (this.anonymous != other.anonymous) return false
         if (!this.rgulAttrs.contentEquals(other.rgulAttrs)) return false
         if (this.cbComment != other.cbComment) return false
         if (this.uct != other.uct) return false
@@ -525,7 +491,7 @@ public data class IMEWRD(
     override fun hashCode(): Int {
         var result = this.pwchReading.hashCode()
         result = 31 * result + this.pwchDisplay.hashCode()
-        result = 31 * result + this.Anonymous.hashCode()
+        result = 31 * result + this.anonymous.hashCode()
         result = 31 * result + this.rgulAttrs.contentHashCode()
         result = 31 * result + this.cbComment.hashCode()
         result = 31 * result + this.uct.hashCode()
@@ -534,63 +500,63 @@ public data class IMEWRD(
     }
 }
 
-public data class IMEWRD_0(public var ulPos: UInt = 0u, public var Anonymous: IMEWRD_0_0 = IMEWRD_0_0())
+public data class Imewrd0(public var ulPos: UInt = 0u, public var anonymous: Imewrd00 = Imewrd00())
 
-public data class IMEWRD_0_0(public var nPos1: UShort = 0u, public var nPos2: UShort = 0u)
+public data class Imewrd00(public var nPos1: UShort = 0u, public var nPos2: UShort = 0u)
 
-public class INPUTCONTEXT(
-    public var hWnd: HWND = 0L,
-    public var fOpen: BOOL = 0,
-    public var ptStatusWndPos: POINT = POINT(),
-    public var ptSoftKbdPos: POINT = POINT(),
+public class Inputcontext(
+    public var hWnd: Hwnd = null,
+    public var fOpen: Bool = 0,
+    public var ptStatusWndPos: Point = Point(),
+    public var ptSoftKbdPos: Point = Point(),
     public var fdwConversion: UInt = 0u,
     public var fdwSentence: UInt = 0u,
-    public var lfFont: INPUTCONTEXT_0 = INPUTCONTEXT_0(),
-    public var cfCompForm: COMPOSITIONFORM = COMPOSITIONFORM(),
-    public var cfCandForm: List<CANDIDATEFORM> = List(4) { CANDIDATEFORM() },
-    public var hCompStr: HIMCC = 0L,
-    public var hCandInfo: HIMCC = 0L,
-    public var hGuideLine: HIMCC = 0L,
-    public var hPrivate: HIMCC = 0L,
+    public var lfFont: Inputcontext0 = Inputcontext0(),
+    public var cfCompForm: Compositionform = Compositionform(),
+    public var cfCandForm: List<Candidateform> = List(4) { Candidateform() },
+    public var hCompStr: Himcc = null,
+    public var hCandInfo: Himcc = null,
+    public var hGuideLine: Himcc = null,
+    public var hPrivate: Himcc = null,
     public var dwNumMsgBuf: UInt = 0u,
-    public var hMsgBuf: HIMCC = 0L,
+    public var hMsgBuf: Himcc = null,
     public var fdwInit: UInt = 0u,
     public var dwReserve: UIntArray = UIntArray(3),
 )
 
-public data class INPUTCONTEXT_0(public var A: LOGFONTA = LOGFONTA(), public var W: LOGFONTW = LOGFONTW())
+public data class Inputcontext0(public var a: Logfonta = Logfonta(), public var w: Logfontw = Logfontw())
 
-public data class MORRSLT(
+public data class Morrslt(
     public var dwSize: UInt = 0u,
-    public var pwchOutput: PWSTR = 0L,
+    public var pwchOutput: Pwstr = null,
     public var cchOutput: UShort = 0u,
-    public var Anonymous1: MORRSLT_0 = MORRSLT_0(),
-    public var Anonymous2: MORRSLT_1 = MORRSLT_1(),
-    public var pchInputPos: Long = 0L,
-    public var pchOutputIdxWDD: Long = 0L,
-    public var Anonymous3: MORRSLT_2 = MORRSLT_2(),
-    public var paMonoRubyPos: Long = 0L,
-    public var pWDD: Long = 0L,
+    public var anonymous1: Morrslt0 = Morrslt0(),
+    public var anonymous2: Morrslt1 = Morrslt1(),
+    public var pchInputPos: UShort? = null,
+    public var pchOutputIdxWDD: UShort? = null,
+    public var anonymous3: Morrslt2 = Morrslt2(),
+    public var paMonoRubyPos: UShort? = null,
+    public var pWDD: Wdd? = null,
     public var cWDD: Int = 0,
-    public var pPrivate: Long = 0L,
-    public var BLKBuff: UShortArray = UShortArray(1),
+    public var pPrivate: COpaquePointer? = null,
+    public var bLKBuff: UShortArray = UShortArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MORRSLT) return false
+        if (other !is Morrslt) return false
         if (this.dwSize != other.dwSize) return false
         if (this.pwchOutput != other.pwchOutput) return false
         if (this.cchOutput != other.cchOutput) return false
-        if (this.Anonymous1 != other.Anonymous1) return false
-        if (this.Anonymous2 != other.Anonymous2) return false
+        if (this.anonymous1 != other.anonymous1) return false
+        if (this.anonymous2 != other.anonymous2) return false
         if (this.pchInputPos != other.pchInputPos) return false
         if (this.pchOutputIdxWDD != other.pchOutputIdxWDD) return false
-        if (this.Anonymous3 != other.Anonymous3) return false
+        if (this.anonymous3 != other.anonymous3) return false
         if (this.paMonoRubyPos != other.paMonoRubyPos) return false
         if (this.pWDD != other.pWDD) return false
         if (this.cWDD != other.cWDD) return false
         if (this.pPrivate != other.pPrivate) return false
-        if (!this.BLKBuff.contentEquals(other.BLKBuff)) return false
+        if (!this.bLKBuff.contentEquals(other.bLKBuff)) return false
         return true
     }
 
@@ -598,29 +564,29 @@ public data class MORRSLT(
         var result = this.dwSize.hashCode()
         result = 31 * result + this.pwchOutput.hashCode()
         result = 31 * result + this.cchOutput.hashCode()
-        result = 31 * result + this.Anonymous1.hashCode()
-        result = 31 * result + this.Anonymous2.hashCode()
+        result = 31 * result + this.anonymous1.hashCode()
+        result = 31 * result + this.anonymous2.hashCode()
         result = 31 * result + this.pchInputPos.hashCode()
         result = 31 * result + this.pchOutputIdxWDD.hashCode()
-        result = 31 * result + this.Anonymous3.hashCode()
+        result = 31 * result + this.anonymous3.hashCode()
         result = 31 * result + this.paMonoRubyPos.hashCode()
         result = 31 * result + this.pWDD.hashCode()
         result = 31 * result + this.cWDD.hashCode()
         result = 31 * result + this.pPrivate.hashCode()
-        result = 31 * result + this.BLKBuff.contentHashCode()
+        result = 31 * result + this.bLKBuff.contentHashCode()
         return result
     }
 }
 
-public data class MORRSLT_0(public var pwchRead: PWSTR = 0L, public var pwchComp: PWSTR = 0L)
+public data class Morrslt0(public var pwchRead: Pwstr = null, public var pwchComp: Pwstr = null)
 
-public data class MORRSLT_1(public var cchRead: UShort = 0u, public var cchComp: UShort = 0u)
+public data class Morrslt1(public var cchRead: UShort = 0u, public var cchComp: UShort = 0u)
 
-public data class MORRSLT_2(public var pchReadIdxWDD: Long = 0L, public var pchCompIdxWDD: Long = 0L)
+public data class Morrslt2(public var pchReadIdxWDD: UShort? = null, public var pchCompIdxWDD: UShort? = null)
 
-public data class POSTBL(public var nPos: UShort = 0u, public var szName: Long = 0L)
+public data class Postbl(public var nPos: UShort = 0u, public var szName: COpaquePointer? = null)
 
-public data class RECONVERTSTRING(
+public data class Reconvertstring(
     public var dwSize: UInt = 0u,
     public var dwVersion: UInt = 0u,
     public var dwStrLen: UInt = 0u,
@@ -631,14 +597,14 @@ public data class RECONVERTSTRING(
     public var dwTargetStrOffset: UInt = 0u,
 )
 
-public data class REGISTERWORDA(public var lpReading: PSTR = 0L, public var lpWord: PSTR = 0L)
+public data class Registerworda(public var lpReading: Pstr = null, public var lpWord: Pstr = null)
 
-public data class REGISTERWORDW(public var lpReading: PWSTR = 0L, public var lpWord: PWSTR = 0L)
+public data class Registerwordw(public var lpReading: Pwstr = null, public var lpWord: Pwstr = null)
 
-public data class SOFTKBDDATA(public var uCount: UInt = 0u, public var wCode: UShortArray = UShortArray(256)) {
+public data class Softkbddata(public var uCount: UInt = 0u, public var wCode: UShortArray = UShortArray(256)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SOFTKBDDATA) return false
+        if (other !is Softkbddata) return false
         if (this.uCount != other.uCount) return false
         if (!this.wCode.contentEquals(other.wCode)) return false
         return true
@@ -651,10 +617,10 @@ public data class SOFTKBDDATA(public var uCount: UInt = 0u, public var wCode: US
     }
 }
 
-public data class STYLEBUFA(public var dwStyle: UInt = 0u, public var szDescription: ByteArray = ByteArray(32)) {
+public data class Stylebufa(public var dwStyle: UInt = 0u, public var szDescription: ByteArray = ByteArray(32)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STYLEBUFA) return false
+        if (other !is Stylebufa) return false
         if (this.dwStyle != other.dwStyle) return false
         if (!this.szDescription.contentEquals(other.szDescription)) return false
         return true
@@ -667,10 +633,10 @@ public data class STYLEBUFA(public var dwStyle: UInt = 0u, public var szDescript
     }
 }
 
-public data class STYLEBUFW(public var dwStyle: UInt = 0u, public var szDescription: UShortArray = UShortArray(32)) {
+public data class Stylebufw(public var dwStyle: UInt = 0u, public var szDescription: UShortArray = UShortArray(32)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STYLEBUFW) return false
+        if (other !is Stylebufw) return false
         if (this.dwStyle != other.dwStyle) return false
         if (!this.szDescription.contentEquals(other.szDescription)) return false
         return true
@@ -683,25 +649,25 @@ public data class STYLEBUFW(public var dwStyle: UInt = 0u, public var szDescript
     }
 }
 
-public data class TRANSMSG(
+public data class Transmsg(
     public var message: UInt = 0u,
-    public var wParam: WPARAM = 0uL,
-    public var lParam: LPARAM = 0L,
+    public var wParam: Wparam = 0uL,
+    public var lParam: Lparam = 0L,
 )
 
-public data class TRANSMSGLIST(public var uMsgCount: UInt = 0u, public var TransMsg: List<TRANSMSG> = List(1) { TRANSMSG() })
+public data class Transmsglist(public var uMsgCount: UInt = 0u, public var transMsg: List<Transmsg> = List(1) { Transmsg() })
 
-public data class WDD(
+public data class Wdd(
     public var wDispPos: UShort = 0u,
-    public var Anonymous1: WDD_0 = WDD_0(),
+    public var anonymous1: Wdd0 = Wdd0(),
     public var cchDisp: UShort = 0u,
-    public var Anonymous2: WDD_1 = WDD_1(),
-    public var WDD_nReserve1: UInt = 0u,
+    public var anonymous2: Wdd1 = Wdd1(),
+    public var wddNReserve1: UInt = 0u,
     public var nPos: UShort = 0u,
-    public var _bitfield: UShort = 0u,
-    public var pReserved: Long = 0L,
+    public var bitfield: UShort = 0u,
+    public var pReserved: COpaquePointer? = null,
 )
 
-public data class WDD_0(public var wReadPos: UShort = 0u, public var wCompPos: UShort = 0u)
+public data class Wdd0(public var wReadPos: UShort = 0u, public var wCompPos: UShort = 0u)
 
-public data class WDD_1(public var cchRead: UShort = 0u, public var cchComp: UShort = 0u)
+public data class Wdd1(public var cchRead: UShort = 0u, public var cchComp: UShort = 0u)

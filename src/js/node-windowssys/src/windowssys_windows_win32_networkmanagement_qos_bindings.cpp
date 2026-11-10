@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_qos_QOSAddSocketToFlow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_qos_qOSAddSocketToFlow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* qoshandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t arg_1_socket = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -79,7 +79,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_QOSAddSocketTo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_qos_QOSCancel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_qos_qOSCancel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* qoshandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* overlapped = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -99,7 +99,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_QOSCancel_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_qos_QOSCloseHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_qos_qOSCloseHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* qoshandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -117,7 +117,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_QOSCloseHandle
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_qos_QOSCreateHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_qos_qOSCreateHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* version = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* qoshandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -137,7 +137,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_QOSCreateHandl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_qos_QOSEnumerateFlows_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_qos_qOSEnumerateFlows_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* qoshandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* size = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -159,7 +159,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_QOSEnumerateFl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_qos_QOSNotifyFlow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_qos_qOSNotifyFlow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* qoshandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flowid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -189,7 +189,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_QOSNotifyFlow_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_qos_QOSQueryFlow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_qos_qOSQueryFlow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* qoshandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flowid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -219,7 +219,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_QOSQueryFlow_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_qos_QOSRemoveSocketFromFlow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_qos_qOSRemoveSocketFromFlow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* qoshandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t arg_1_socket = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -243,7 +243,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_QOSRemoveSocke
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_qos_QOSSetFlow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_qos_qOSSetFlow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* qoshandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flowid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -273,7 +273,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_QOSSetFlow_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_qos_QOSStartTrackingClient_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_qos_qOSStartTrackingClient_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* qoshandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* destaddr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -295,7 +295,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_QOSStartTracki
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_qos_QOSStopTrackingClient_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_qos_qOSStopTrackingClient_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* qoshandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* destaddr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -317,7 +317,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_QOSStopTrackin
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcAddFilter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcAddFilter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* flowhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pgenericfilter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -339,7 +339,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcAddFilter_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcAddFlow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcAddFlow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ifchandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* clflowctx = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -365,7 +365,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcAddFlow_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcCloseInterface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcCloseInterface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ifchandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -383,7 +383,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcCloseInterfa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcDeleteFilter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcDeleteFilter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filterhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -401,7 +401,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcDeleteFilter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcDeleteFlow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcDeleteFlow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* flowhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -419,7 +419,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcDeleteFlow_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcDeregisterClient_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcDeregisterClient_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* clienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -437,7 +437,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcDeregisterCl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcEnumerateFlows_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcEnumerateFlows_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ifchandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* penumhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -463,7 +463,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcEnumerateFlo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcEnumerateInterfaces_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcEnumerateInterfaces_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* clienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbuffersize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -485,7 +485,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcEnumerateInt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcGetFlowNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcGetFlowNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* flowhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t strsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -507,7 +507,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcGetFlowNameA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcGetFlowNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcGetFlowNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* flowhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t strsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -529,7 +529,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcGetFlowNameW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcModifyFlow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcModifyFlow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* flowhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pgenericflow = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -549,7 +549,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcModifyFlow_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcOpenInterfaceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcOpenInterfaceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pinterfacename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* clienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -573,7 +573,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcOpenInterfac
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcOpenInterfaceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcOpenInterfaceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pinterfacename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* clienthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -597,7 +597,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcOpenInterfac
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcQueryFlowA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcQueryFlowA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pflowname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pguidparam = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -621,7 +621,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcQueryFlowA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcQueryFlowW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcQueryFlowW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pflowname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pguidparam = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -645,7 +645,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcQueryFlowW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcQueryInterface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcQueryInterface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ifchandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pguidparam = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -671,7 +671,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcQueryInterfa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcRegisterClient_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcRegisterClient_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t tciversion = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* clregctx = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -695,7 +695,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcRegisterClie
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcSetFlowA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcSetFlowA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pflowname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pguidparam = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -719,7 +719,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcSetFlowA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcSetFlowW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcSetFlowW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pflowname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pguidparam = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -743,7 +743,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcSetFlowW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcSetInterface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcSetInterface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ifchandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pguidparam = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -768,37 +768,37 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_TcSetInterface
 }
 
 static void register_windows_win32_networkmanagement_qos_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_networkmanagement_qos_QOSAddSocketToFlow", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_QOSAddSocketToFlow_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_qos_QOSCancel", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_QOSCancel_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_qos_QOSCloseHandle", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_QOSCloseHandle_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_qos_QOSCreateHandle", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_QOSCreateHandle_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_qos_QOSEnumerateFlows", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_QOSEnumerateFlows_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_qos_QOSNotifyFlow", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_QOSNotifyFlow_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_qos_QOSQueryFlow", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_QOSQueryFlow_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_qos_QOSRemoveSocketFromFlow", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_QOSRemoveSocketFromFlow_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_qos_QOSSetFlow", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_QOSSetFlow_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_qos_QOSStartTrackingClient", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_QOSStartTrackingClient_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_qos_QOSStopTrackingClient", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_QOSStopTrackingClient_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_qos_TcAddFilter", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_TcAddFilter_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_qos_TcAddFlow", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_TcAddFlow_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_qos_TcCloseInterface", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_TcCloseInterface_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_qos_TcDeleteFilter", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_TcDeleteFilter_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_qos_TcDeleteFlow", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_TcDeleteFlow_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_qos_TcDeregisterClient", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_TcDeregisterClient_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_qos_TcEnumerateFlows", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_TcEnumerateFlows_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_qos_TcEnumerateInterfaces", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_TcEnumerateInterfaces_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_qos_TcGetFlowNameA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_TcGetFlowNameA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_qos_TcGetFlowNameW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_TcGetFlowNameW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_qos_TcModifyFlow", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_TcModifyFlow_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_qos_TcOpenInterfaceA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_TcOpenInterfaceA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_qos_TcOpenInterfaceW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_TcOpenInterfaceW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_qos_TcQueryFlowA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_TcQueryFlowA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_qos_TcQueryFlowW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_TcQueryFlowW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_qos_TcQueryInterface", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_TcQueryInterface_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_qos_TcRegisterClient", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_TcRegisterClient_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_qos_TcSetFlowA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_TcSetFlowA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_qos_TcSetFlowW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_TcSetFlowW_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_qos_TcSetInterface", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_TcSetInterface_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_qos_qOSAddSocketToFlow", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_qOSAddSocketToFlow_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_qos_qOSCancel", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_qOSCancel_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_qos_qOSCloseHandle", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_qOSCloseHandle_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_qos_qOSCreateHandle", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_qOSCreateHandle_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_qos_qOSEnumerateFlows", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_qOSEnumerateFlows_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_qos_qOSNotifyFlow", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_qOSNotifyFlow_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_qos_qOSQueryFlow", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_qOSQueryFlow_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_qos_qOSRemoveSocketFromFlow", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_qOSRemoveSocketFromFlow_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_qos_qOSSetFlow", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_qOSSetFlow_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_qos_qOSStartTrackingClient", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_qOSStartTrackingClient_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_qos_qOSStopTrackingClient", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_qOSStopTrackingClient_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_qos_tcAddFilter", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_tcAddFilter_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_qos_tcAddFlow", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_tcAddFlow_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_qos_tcCloseInterface", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_tcCloseInterface_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_qos_tcDeleteFilter", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_tcDeleteFilter_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_qos_tcDeleteFlow", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_tcDeleteFlow_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_qos_tcDeregisterClient", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_tcDeregisterClient_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_qos_tcEnumerateFlows", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_tcEnumerateFlows_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_qos_tcEnumerateInterfaces", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_tcEnumerateInterfaces_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_qos_tcGetFlowNameA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_tcGetFlowNameA_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_qos_tcGetFlowNameW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_tcGetFlowNameW_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_qos_tcModifyFlow", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_tcModifyFlow_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_qos_tcOpenInterfaceA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_tcOpenInterfaceA_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_qos_tcOpenInterfaceW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_tcOpenInterfaceW_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_qos_tcQueryFlowA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_tcQueryFlowA_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_qos_tcQueryFlowW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_tcQueryFlowW_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_qos_tcQueryInterface", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_tcQueryInterface_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_qos_tcRegisterClient", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_tcRegisterClient_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_qos_tcSetFlowA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_tcSetFlowA_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_qos_tcSetFlowW", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_tcSetFlowW_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_qos_tcSetInterface", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_qos_tcSetInterface_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_networkmanagement_qos_napi, nullptr };

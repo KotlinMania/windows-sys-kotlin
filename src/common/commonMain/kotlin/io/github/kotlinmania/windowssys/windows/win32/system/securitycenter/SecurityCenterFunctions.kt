@@ -1,17 +1,18 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.securitycenter
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.system.threading.LPTHREAD_START_ROUTINE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.system.threading.LpthreadStartRoutine
 
-public expect fun WscGetAntiMalwareUri(ppszuri: Long): HRESULT
+public expect fun wscGetAntiMalwareUri(ppszuri: COpaquePointer?): Hresult
 
-public expect fun WscGetSecurityProviderHealth(providers: UInt, phealth: Long): HRESULT
+public expect fun wscGetSecurityProviderHealth(providers: UInt, phealth: COpaquePointer?): Hresult
 
-public expect fun WscQueryAntiMalwareUri(): HRESULT
+public expect fun wscQueryAntiMalwareUri(): Hresult
 
-public expect fun WscRegisterForChanges(reserved: Long, phcallbackregistration: Long, lpcallbackaddress: LPTHREAD_START_ROUTINE, pcontext: Long): HRESULT
+public expect fun wscRegisterForChanges(reserved: COpaquePointer?, phcallbackregistration: COpaquePointer?, lpcallbackaddress: LpthreadStartRoutine, pcontext: COpaquePointer?): Hresult
 
-public expect fun WscRegisterForUserNotifications(): HRESULT
+public expect fun wscRegisterForUserNotifications(): Hresult
 
-public expect fun WscUnRegisterChanges(hregistrationhandle: HANDLE): HRESULT
+public expect fun wscUnRegisterChanges(hregistrationhandle: Handle): Hresult

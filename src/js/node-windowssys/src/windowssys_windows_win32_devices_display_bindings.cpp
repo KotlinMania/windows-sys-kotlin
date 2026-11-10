@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_BRUSHOBJ_hGetColorTransform_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_brushobjHGetColorTransform_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -69,7 +69,7 @@ static Napi::Value windowssys_windows_win32_devices_display_BRUSHOBJ_hGetColorTr
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_BRUSHOBJ_pvAllocRbrush_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_brushobjPvAllocRbrush_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cj = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -89,7 +89,7 @@ static Napi::Value windowssys_windows_win32_devices_display_BRUSHOBJ_pvAllocRbru
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_BRUSHOBJ_pvGetRbrush_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_brushobjPvGetRbrush_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -107,7 +107,7 @@ static Napi::Value windowssys_windows_win32_devices_display_BRUSHOBJ_pvGetRbrush
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_BRUSHOBJ_ulGetBrushColor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_brushobjUlGetBrushColor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -125,7 +125,7 @@ static Napi::Value windowssys_windows_win32_devices_display_BRUSHOBJ_ulGetBrushC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_CLIPOBJ_bEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_clipobjBEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pco = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cj = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -147,7 +147,7 @@ static Napi::Value windowssys_windows_win32_devices_display_CLIPOBJ_bEnum_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_CLIPOBJ_cEnumStart_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_clipobjCEnumStart_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pco = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t ball = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -173,7 +173,7 @@ static Napi::Value windowssys_windows_win32_devices_display_CLIPOBJ_cEnumStart_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_CLIPOBJ_ppoGetPath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_clipobjPpoGetPath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pco = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -191,7 +191,7 @@ static Napi::Value windowssys_windows_win32_devices_display_CLIPOBJ_ppoGetPath_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_CapabilitiesRequestAndCapabilitiesReply_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_capabilitiesRequestAndCapabilitiesReply_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszasciicapabilitiesstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -213,7 +213,7 @@ static Napi::Value windowssys_windows_win32_devices_display_CapabilitiesRequestA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_DegaussMonitor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_degaussMonitor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -231,7 +231,7 @@ static Napi::Value windowssys_windows_win32_devices_display_DegaussMonitor_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_DestroyPhysicalMonitor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_destroyPhysicalMonitor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -249,7 +249,7 @@ static Napi::Value windowssys_windows_win32_devices_display_DestroyPhysicalMonit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_DestroyPhysicalMonitors_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_destroyPhysicalMonitors_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwphysicalmonitorarraysize = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pphysicalmonitorarray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -269,7 +269,7 @@ static Napi::Value windowssys_windows_win32_devices_display_DestroyPhysicalMonit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_DisplayConfigGetDeviceInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_displayConfigGetDeviceInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* requestpacket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -287,7 +287,7 @@ static Napi::Value windowssys_windows_win32_devices_display_DisplayConfigGetDevi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_DisplayConfigSetDeviceInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_displayConfigSetDeviceInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* setpacket = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -305,7 +305,7 @@ static Napi::Value windowssys_windows_win32_devices_display_DisplayConfigSetDevi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngAcquireSemaphore_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engAcquireSemaphore_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -322,7 +322,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngAcquireSemaphore_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngAlphaBlend_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engAlphaBlend_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psodest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psosrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -352,7 +352,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngAlphaBlend_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngAssociateSurface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engAssociateSurface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsurf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hdev = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -374,7 +374,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngAssociateSurface_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngBitBlt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engBitBlt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psotrg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psosrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -412,7 +412,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngBitBlt_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngCheckAbort_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engCheckAbort_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pso = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -430,7 +430,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngCheckAbort_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngComputeGlyphSet_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engComputeGlyphSet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t ncodepage = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t nfirstchar = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -452,7 +452,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngComputeGlyphSet_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngCopyBits_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engCopyBits_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psodest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psosrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -480,7 +480,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngCopyBits_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngCreateClip_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engCreateClip_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -496,7 +496,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngCreateClip_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngCreatePalette_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engCreatePalette_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t imode = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t ccolors = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -524,7 +524,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngCreatePalette_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngCreateSemaphore_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engCreateSemaphore_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -540,7 +540,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngCreateSemaphore_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngDeleteClip_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engDeleteClip_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pco = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -557,7 +557,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngDeleteClip_napi(c
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngDeletePalette_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engDeletePalette_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hpal = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -575,7 +575,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngDeletePalette_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngDeletePath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engDeletePath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -592,7 +592,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngDeletePath_napi(c
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngDeleteSemaphore_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engDeleteSemaphore_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -609,7 +609,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngDeleteSemaphore_n
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngDeleteSurface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engDeleteSurface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsurf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -627,7 +627,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngDeleteSurface_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngEraseSurface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engEraseSurface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pso = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prcl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -649,7 +649,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngEraseSurface_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngFillPath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engFillPath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pso = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -679,7 +679,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngFillPath_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngFindResource_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engFindResource_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* h = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t iname = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -703,7 +703,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngFindResource_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngFreeModule_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engFreeModule_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* h = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -720,7 +720,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngFreeModule_napi(c
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngGetCurrentCodePage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engGetCurrentCodePage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* oemcodepage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ansicodepage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -739,7 +739,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngGetCurrentCodePag
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngGetDriverName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engGetDriverName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdev = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -757,7 +757,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngGetDriverName_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngGetPrinterDataFileName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engGetPrinterDataFileName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdev = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -775,7 +775,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngGetPrinterDataFil
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngGradientFill_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engGradientFill_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psodest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pco = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -811,7 +811,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngGradientFill_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngLineTo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engLineTo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pso = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pco = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -845,7 +845,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngLineTo_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngLoadModule_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engLoadModule_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -863,7 +863,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngLoadModule_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngLockSurface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engLockSurface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsurf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -881,7 +881,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngLockSurface_napi(
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngMarkBandingSurface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engMarkBandingSurface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsurf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -899,7 +899,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngMarkBandingSurfac
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngMultiByteToUnicodeN_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engMultiByteToUnicodeN_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* unicodestring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t maxbytesinunicodestring = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -924,7 +924,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngMultiByteToUnicod
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngMultiByteToWideChar_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engMultiByteToWideChar_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t codepage = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* widecharstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -950,7 +950,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngMultiByteToWideCh
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngPaint_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engPaint_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pso = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pco = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -976,7 +976,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngPaint_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngPlgBlt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engPlgBlt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psotrg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psosrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1014,7 +1014,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngPlgBlt_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngQueryEMFInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engQueryEMFInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdev = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pemfinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1034,7 +1034,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngQueryEMFInfo_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngQueryLocalTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engQueryLocalTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1051,7 +1051,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngQueryLocalTime_na
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngReleaseSemaphore_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engReleaseSemaphore_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1068,7 +1068,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngReleaseSemaphore_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngStretchBlt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engStretchBlt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psodest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psosrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1106,7 +1106,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngStretchBlt_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngStretchBltROP_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engStretchBltROP_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psodest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psosrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1148,7 +1148,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngStretchBltROP_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngStrokeAndFillPath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engStrokeAndFillPath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pso = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1184,7 +1184,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngStrokeAndFillPath
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngStrokePath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engStrokePath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pso = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1216,7 +1216,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngStrokePath_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngTextOut_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engTextOut_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pso = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pstro = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1252,7 +1252,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngTextOut_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngTransparentBlt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engTransparentBlt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psodst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psosrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1284,7 +1284,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngTransparentBlt_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngUnicodeToMultiByteN_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engUnicodeToMultiByteN_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* multibytestring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t maxbytesinmultibytestring = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1309,7 +1309,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngUnicodeToMultiByt
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngUnlockSurface_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engUnlockSurface_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pso = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1326,7 +1326,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngUnlockSurface_nap
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_EngWideCharToMultiByte_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_engWideCharToMultiByte_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t codepage = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* widecharstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1352,7 +1352,7 @@ static Napi::Value windowssys_windows_win32_devices_display_EngWideCharToMultiBy
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_FONTOBJ_cGetAllGlyphHandles_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_fontobjCGetAllGlyphHandles_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1372,7 +1372,7 @@ static Napi::Value windowssys_windows_win32_devices_display_FONTOBJ_cGetAllGlyph
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_FONTOBJ_cGetGlyphs_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_fontobjCGetGlyphs_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t imode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1398,7 +1398,7 @@ static Napi::Value windowssys_windows_win32_devices_display_FONTOBJ_cGetGlyphs_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_FONTOBJ_pQueryGlyphAttrs_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_fontobjPQueryGlyphAttrs_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t imode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1418,7 +1418,7 @@ static Napi::Value windowssys_windows_win32_devices_display_FONTOBJ_pQueryGlyphA
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_FONTOBJ_pfdg_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_fontobjPfdg_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1436,7 +1436,7 @@ static Napi::Value windowssys_windows_win32_devices_display_FONTOBJ_pfdg_napi(co
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_FONTOBJ_pifi_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_fontobjPifi_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1454,7 +1454,7 @@ static Napi::Value windowssys_windows_win32_devices_display_FONTOBJ_pifi_napi(co
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_FONTOBJ_pvTrueTypeFontFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_fontobjPvTrueTypeFontFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcjfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1474,7 +1474,7 @@ static Napi::Value windowssys_windows_win32_devices_display_FONTOBJ_pvTrueTypeFo
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_FONTOBJ_pxoGetXform_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_fontobjPxoGetXform_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1492,7 +1492,7 @@ static Napi::Value windowssys_windows_win32_devices_display_FONTOBJ_pxoGetXform_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_FONTOBJ_vGetInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_fontobjVGetInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cjsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1513,7 +1513,7 @@ static Napi::Value windowssys_windows_win32_devices_display_FONTOBJ_vGetInfo_nap
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_GetAutoRotationState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_getAutoRotationState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1531,7 +1531,7 @@ static Napi::Value windowssys_windows_win32_devices_display_GetAutoRotationState
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_GetCapabilitiesStringLength_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_getCapabilitiesStringLength_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwcapabilitiesstringlengthincharacters = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1551,7 +1551,7 @@ static Napi::Value windowssys_windows_win32_devices_display_GetCapabilitiesStrin
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_GetDisplayAutoRotationPreferences_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_getDisplayAutoRotationPreferences_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* porientation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1569,7 +1569,7 @@ static Napi::Value windowssys_windows_win32_devices_display_GetDisplayAutoRotati
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_GetDisplayConfigBufferSizes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_getDisplayConfigBufferSizes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* numpatharrayelements = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1591,7 +1591,7 @@ static Napi::Value windowssys_windows_win32_devices_display_GetDisplayConfigBuff
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_GetMonitorBrightness_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_getMonitorBrightness_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwminimumbrightness = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1615,7 +1615,7 @@ static Napi::Value windowssys_windows_win32_devices_display_GetMonitorBrightness
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_GetMonitorCapabilities_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_getMonitorCapabilities_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwmonitorcapabilities = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1637,7 +1637,7 @@ static Napi::Value windowssys_windows_win32_devices_display_GetMonitorCapabiliti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_GetMonitorColorTemperature_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_getMonitorColorTemperature_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pctcurrentcolortemperature = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1657,7 +1657,7 @@ static Napi::Value windowssys_windows_win32_devices_display_GetMonitorColorTempe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_GetMonitorContrast_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_getMonitorContrast_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwminimumcontrast = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1681,7 +1681,7 @@ static Napi::Value windowssys_windows_win32_devices_display_GetMonitorContrast_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_GetMonitorDisplayAreaPosition_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_getMonitorDisplayAreaPosition_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t ptpositiontype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1707,7 +1707,7 @@ static Napi::Value windowssys_windows_win32_devices_display_GetMonitorDisplayAre
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_GetMonitorDisplayAreaSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_getMonitorDisplayAreaSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t stsizetype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1733,7 +1733,7 @@ static Napi::Value windowssys_windows_win32_devices_display_GetMonitorDisplayAre
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_GetMonitorRedGreenOrBlueDrive_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_getMonitorRedGreenOrBlueDrive_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t dtdrivetype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1759,7 +1759,7 @@ static Napi::Value windowssys_windows_win32_devices_display_GetMonitorRedGreenOr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_GetMonitorRedGreenOrBlueGain_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_getMonitorRedGreenOrBlueGain_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t gtgaintype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1785,7 +1785,7 @@ static Napi::Value windowssys_windows_win32_devices_display_GetMonitorRedGreenOr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_GetMonitorTechnologyType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_getMonitorTechnologyType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdtydisplaytechnologytype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1805,7 +1805,7 @@ static Napi::Value windowssys_windows_win32_devices_display_GetMonitorTechnology
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_GetNumberOfPhysicalMonitorsFromHMONITOR_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_getNumberOfPhysicalMonitorsFromHMONITOR_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwnumberofphysicalmonitors = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1825,7 +1825,7 @@ static Napi::Value windowssys_windows_win32_devices_display_GetNumberOfPhysicalM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_GetPhysicalMonitorsFromHMONITOR_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_getPhysicalMonitorsFromHMONITOR_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwphysicalmonitorarraysize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1847,7 +1847,7 @@ static Napi::Value windowssys_windows_win32_devices_display_GetPhysicalMonitorsF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_GetTimingReport_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_getTimingReport_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pmtrmonitortimingreport = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1867,7 +1867,7 @@ static Napi::Value windowssys_windows_win32_devices_display_GetTimingReport_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_GetVCPFeatureAndVCPFeatureReply_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_getVCPFeatureAndVCPFeatureReply_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint8_t bvcpcode = static_cast<uint8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1893,7 +1893,7 @@ static Napi::Value windowssys_windows_win32_devices_display_GetVCPFeatureAndVCPF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_HT_Get8BPPFormatPalette_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_htGet8BppformatPalette_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppaletteentry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t redgamma = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1917,7 +1917,7 @@ static Napi::Value windowssys_windows_win32_devices_display_HT_Get8BPPFormatPale
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_HT_Get8BPPMaskPalette_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_htGet8BppmaskPalette_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppaletteentry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t use8bppmaskpal = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1945,7 +1945,7 @@ static Napi::Value windowssys_windows_win32_devices_display_HT_Get8BPPMaskPalett
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_PATHOBJ_bEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_pathobjBEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1965,7 +1965,7 @@ static Napi::Value windowssys_windows_win32_devices_display_PATHOBJ_bEnum_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_PATHOBJ_bEnumClipLines_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_pathobjBEnumClipLines_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cb = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1987,7 +1987,7 @@ static Napi::Value windowssys_windows_win32_devices_display_PATHOBJ_bEnumClipLin
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_PATHOBJ_vEnumStart_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_pathobjVEnumStart_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2004,7 +2004,7 @@ static Napi::Value windowssys_windows_win32_devices_display_PATHOBJ_vEnumStart_n
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_PATHOBJ_vEnumStartClipLines_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_pathobjVEnumStartClipLines_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pco = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2027,7 +2027,7 @@ static Napi::Value windowssys_windows_win32_devices_display_PATHOBJ_vEnumStartCl
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_PATHOBJ_vGetBounds_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_pathobjVGetBounds_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prectfx = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2046,7 +2046,7 @@ static Napi::Value windowssys_windows_win32_devices_display_PATHOBJ_vGetBounds_n
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_QueryDisplayConfig_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_queryDisplayConfig_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* numpatharrayelements = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2074,7 +2074,7 @@ static Napi::Value windowssys_windows_win32_devices_display_QueryDisplayConfig_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_RestoreMonitorFactoryColorDefaults_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_restoreMonitorFactoryColorDefaults_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2092,7 +2092,7 @@ static Napi::Value windowssys_windows_win32_devices_display_RestoreMonitorFactor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_RestoreMonitorFactoryDefaults_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_restoreMonitorFactoryDefaults_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2110,7 +2110,7 @@ static Napi::Value windowssys_windows_win32_devices_display_RestoreMonitorFactor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_STROBJ_bEnum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_strobjBEnum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstro = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2132,7 +2132,7 @@ static Napi::Value windowssys_windows_win32_devices_display_STROBJ_bEnum_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_STROBJ_bEnumPositionsOnly_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_strobjBEnumPositionsOnly_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstro = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2154,7 +2154,7 @@ static Napi::Value windowssys_windows_win32_devices_display_STROBJ_bEnumPosition
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_STROBJ_bGetAdvanceWidths_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_strobjBGetAdvanceWidths_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pso = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ifirst = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2178,7 +2178,7 @@ static Napi::Value windowssys_windows_win32_devices_display_STROBJ_bGetAdvanceWi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_STROBJ_dwGetCodePage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_strobjDwGetCodePage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstro = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2196,7 +2196,7 @@ static Napi::Value windowssys_windows_win32_devices_display_STROBJ_dwGetCodePage
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_STROBJ_vEnumStart_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_strobjVEnumStart_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstro = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2213,7 +2213,7 @@ static Napi::Value windowssys_windows_win32_devices_display_STROBJ_vEnumStart_na
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_SaveCurrentMonitorSettings_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_saveCurrentMonitorSettings_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2231,7 +2231,7 @@ static Napi::Value windowssys_windows_win32_devices_display_SaveCurrentMonitorSe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_SaveCurrentSettings_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_saveCurrentSettings_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2249,7 +2249,7 @@ static Napi::Value windowssys_windows_win32_devices_display_SaveCurrentSettings_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_SetDisplayAutoRotationPreferences_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_setDisplayAutoRotationPreferences_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t orientation = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -2267,7 +2267,7 @@ static Napi::Value windowssys_windows_win32_devices_display_SetDisplayAutoRotati
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_SetDisplayConfig_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_setDisplayConfig_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t numpatharrayelements = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* patharray = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2293,7 +2293,7 @@ static Napi::Value windowssys_windows_win32_devices_display_SetDisplayConfig_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_SetMonitorBrightness_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_setMonitorBrightness_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwnewbrightness = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2313,7 +2313,7 @@ static Napi::Value windowssys_windows_win32_devices_display_SetMonitorBrightness
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_SetMonitorColorTemperature_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_setMonitorColorTemperature_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t ctcurrentcolortemperature = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2333,7 +2333,7 @@ static Napi::Value windowssys_windows_win32_devices_display_SetMonitorColorTempe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_SetMonitorContrast_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_setMonitorContrast_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwnewcontrast = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2353,7 +2353,7 @@ static Napi::Value windowssys_windows_win32_devices_display_SetMonitorContrast_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_SetMonitorDisplayAreaPosition_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_setMonitorDisplayAreaPosition_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t ptpositiontype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2375,7 +2375,7 @@ static Napi::Value windowssys_windows_win32_devices_display_SetMonitorDisplayAre
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_SetMonitorDisplayAreaSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_setMonitorDisplayAreaSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t stsizetype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2397,7 +2397,7 @@ static Napi::Value windowssys_windows_win32_devices_display_SetMonitorDisplayAre
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_SetMonitorRedGreenOrBlueDrive_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_setMonitorRedGreenOrBlueDrive_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t dtdrivetype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2419,7 +2419,7 @@ static Napi::Value windowssys_windows_win32_devices_display_SetMonitorRedGreenOr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_SetMonitorRedGreenOrBlueGain_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_setMonitorRedGreenOrBlueGain_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t gtgaintype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2441,7 +2441,7 @@ static Napi::Value windowssys_windows_win32_devices_display_SetMonitorRedGreenOr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_SetVCPFeature_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_setVCPFeature_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmonitor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint8_t bvcpcode = static_cast<uint8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2463,7 +2463,7 @@ static Napi::Value windowssys_windows_win32_devices_display_SetVCPFeature_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_XFORMOBJ_bApplyXform_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_xformobjBApplyXform_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pxo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t imode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2489,7 +2489,7 @@ static Napi::Value windowssys_windows_win32_devices_display_XFORMOBJ_bApplyXform
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_XFORMOBJ_iGetXform_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_xformobjIGetXform_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pxo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pxform = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2509,7 +2509,7 @@ static Napi::Value windowssys_windows_win32_devices_display_XFORMOBJ_iGetXform_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_XLATEOBJ_cGetPalette_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_xlateobjCGetPalette_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pxlo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ipal = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2533,7 +2533,7 @@ static Napi::Value windowssys_windows_win32_devices_display_XLATEOBJ_cGetPalette
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_XLATEOBJ_hGetColorTransform_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_xlateobjHGetColorTransform_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pxlo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2551,7 +2551,7 @@ static Napi::Value windowssys_windows_win32_devices_display_XLATEOBJ_hGetColorTr
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_XLATEOBJ_iXlate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_xlateobjIXlate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pxlo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t icolor = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2571,7 +2571,7 @@ static Napi::Value windowssys_windows_win32_devices_display_XLATEOBJ_iXlate_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_display_XLATEOBJ_piVector_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_display_xlateobjPiVector_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pxlo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2590,120 +2590,120 @@ static Napi::Value windowssys_windows_win32_devices_display_XLATEOBJ_piVector_na
 }
 
 static void register_windows_win32_devices_display_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_devices_display_BRUSHOBJ_hGetColorTransform", Napi::Function::New(env, windowssys_windows_win32_devices_display_BRUSHOBJ_hGetColorTransform_napi));
-    exports.Set("windowssys_windows_win32_devices_display_BRUSHOBJ_pvAllocRbrush", Napi::Function::New(env, windowssys_windows_win32_devices_display_BRUSHOBJ_pvAllocRbrush_napi));
-    exports.Set("windowssys_windows_win32_devices_display_BRUSHOBJ_pvGetRbrush", Napi::Function::New(env, windowssys_windows_win32_devices_display_BRUSHOBJ_pvGetRbrush_napi));
-    exports.Set("windowssys_windows_win32_devices_display_BRUSHOBJ_ulGetBrushColor", Napi::Function::New(env, windowssys_windows_win32_devices_display_BRUSHOBJ_ulGetBrushColor_napi));
-    exports.Set("windowssys_windows_win32_devices_display_CLIPOBJ_bEnum", Napi::Function::New(env, windowssys_windows_win32_devices_display_CLIPOBJ_bEnum_napi));
-    exports.Set("windowssys_windows_win32_devices_display_CLIPOBJ_cEnumStart", Napi::Function::New(env, windowssys_windows_win32_devices_display_CLIPOBJ_cEnumStart_napi));
-    exports.Set("windowssys_windows_win32_devices_display_CLIPOBJ_ppoGetPath", Napi::Function::New(env, windowssys_windows_win32_devices_display_CLIPOBJ_ppoGetPath_napi));
-    exports.Set("windowssys_windows_win32_devices_display_CapabilitiesRequestAndCapabilitiesReply", Napi::Function::New(env, windowssys_windows_win32_devices_display_CapabilitiesRequestAndCapabilitiesReply_napi));
-    exports.Set("windowssys_windows_win32_devices_display_DegaussMonitor", Napi::Function::New(env, windowssys_windows_win32_devices_display_DegaussMonitor_napi));
-    exports.Set("windowssys_windows_win32_devices_display_DestroyPhysicalMonitor", Napi::Function::New(env, windowssys_windows_win32_devices_display_DestroyPhysicalMonitor_napi));
-    exports.Set("windowssys_windows_win32_devices_display_DestroyPhysicalMonitors", Napi::Function::New(env, windowssys_windows_win32_devices_display_DestroyPhysicalMonitors_napi));
-    exports.Set("windowssys_windows_win32_devices_display_DisplayConfigGetDeviceInfo", Napi::Function::New(env, windowssys_windows_win32_devices_display_DisplayConfigGetDeviceInfo_napi));
-    exports.Set("windowssys_windows_win32_devices_display_DisplayConfigSetDeviceInfo", Napi::Function::New(env, windowssys_windows_win32_devices_display_DisplayConfigSetDeviceInfo_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngAcquireSemaphore", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngAcquireSemaphore_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngAlphaBlend", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngAlphaBlend_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngAssociateSurface", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngAssociateSurface_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngBitBlt", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngBitBlt_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngCheckAbort", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngCheckAbort_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngComputeGlyphSet", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngComputeGlyphSet_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngCopyBits", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngCopyBits_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngCreateClip", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngCreateClip_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngCreatePalette", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngCreatePalette_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngCreateSemaphore", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngCreateSemaphore_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngDeleteClip", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngDeleteClip_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngDeletePalette", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngDeletePalette_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngDeletePath", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngDeletePath_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngDeleteSemaphore", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngDeleteSemaphore_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngDeleteSurface", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngDeleteSurface_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngEraseSurface", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngEraseSurface_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngFillPath", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngFillPath_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngFindResource", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngFindResource_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngFreeModule", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngFreeModule_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngGetCurrentCodePage", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngGetCurrentCodePage_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngGetDriverName", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngGetDriverName_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngGetPrinterDataFileName", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngGetPrinterDataFileName_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngGradientFill", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngGradientFill_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngLineTo", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngLineTo_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngLoadModule", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngLoadModule_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngLockSurface", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngLockSurface_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngMarkBandingSurface", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngMarkBandingSurface_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngMultiByteToUnicodeN", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngMultiByteToUnicodeN_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngMultiByteToWideChar", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngMultiByteToWideChar_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngPaint", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngPaint_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngPlgBlt", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngPlgBlt_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngQueryEMFInfo", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngQueryEMFInfo_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngQueryLocalTime", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngQueryLocalTime_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngReleaseSemaphore", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngReleaseSemaphore_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngStretchBlt", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngStretchBlt_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngStretchBltROP", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngStretchBltROP_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngStrokeAndFillPath", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngStrokeAndFillPath_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngStrokePath", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngStrokePath_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngTextOut", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngTextOut_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngTransparentBlt", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngTransparentBlt_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngUnicodeToMultiByteN", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngUnicodeToMultiByteN_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngUnlockSurface", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngUnlockSurface_napi));
-    exports.Set("windowssys_windows_win32_devices_display_EngWideCharToMultiByte", Napi::Function::New(env, windowssys_windows_win32_devices_display_EngWideCharToMultiByte_napi));
-    exports.Set("windowssys_windows_win32_devices_display_FONTOBJ_cGetAllGlyphHandles", Napi::Function::New(env, windowssys_windows_win32_devices_display_FONTOBJ_cGetAllGlyphHandles_napi));
-    exports.Set("windowssys_windows_win32_devices_display_FONTOBJ_cGetGlyphs", Napi::Function::New(env, windowssys_windows_win32_devices_display_FONTOBJ_cGetGlyphs_napi));
-    exports.Set("windowssys_windows_win32_devices_display_FONTOBJ_pQueryGlyphAttrs", Napi::Function::New(env, windowssys_windows_win32_devices_display_FONTOBJ_pQueryGlyphAttrs_napi));
-    exports.Set("windowssys_windows_win32_devices_display_FONTOBJ_pfdg", Napi::Function::New(env, windowssys_windows_win32_devices_display_FONTOBJ_pfdg_napi));
-    exports.Set("windowssys_windows_win32_devices_display_FONTOBJ_pifi", Napi::Function::New(env, windowssys_windows_win32_devices_display_FONTOBJ_pifi_napi));
-    exports.Set("windowssys_windows_win32_devices_display_FONTOBJ_pvTrueTypeFontFile", Napi::Function::New(env, windowssys_windows_win32_devices_display_FONTOBJ_pvTrueTypeFontFile_napi));
-    exports.Set("windowssys_windows_win32_devices_display_FONTOBJ_pxoGetXform", Napi::Function::New(env, windowssys_windows_win32_devices_display_FONTOBJ_pxoGetXform_napi));
-    exports.Set("windowssys_windows_win32_devices_display_FONTOBJ_vGetInfo", Napi::Function::New(env, windowssys_windows_win32_devices_display_FONTOBJ_vGetInfo_napi));
-    exports.Set("windowssys_windows_win32_devices_display_GetAutoRotationState", Napi::Function::New(env, windowssys_windows_win32_devices_display_GetAutoRotationState_napi));
-    exports.Set("windowssys_windows_win32_devices_display_GetCapabilitiesStringLength", Napi::Function::New(env, windowssys_windows_win32_devices_display_GetCapabilitiesStringLength_napi));
-    exports.Set("windowssys_windows_win32_devices_display_GetDisplayAutoRotationPreferences", Napi::Function::New(env, windowssys_windows_win32_devices_display_GetDisplayAutoRotationPreferences_napi));
-    exports.Set("windowssys_windows_win32_devices_display_GetDisplayConfigBufferSizes", Napi::Function::New(env, windowssys_windows_win32_devices_display_GetDisplayConfigBufferSizes_napi));
-    exports.Set("windowssys_windows_win32_devices_display_GetMonitorBrightness", Napi::Function::New(env, windowssys_windows_win32_devices_display_GetMonitorBrightness_napi));
-    exports.Set("windowssys_windows_win32_devices_display_GetMonitorCapabilities", Napi::Function::New(env, windowssys_windows_win32_devices_display_GetMonitorCapabilities_napi));
-    exports.Set("windowssys_windows_win32_devices_display_GetMonitorColorTemperature", Napi::Function::New(env, windowssys_windows_win32_devices_display_GetMonitorColorTemperature_napi));
-    exports.Set("windowssys_windows_win32_devices_display_GetMonitorContrast", Napi::Function::New(env, windowssys_windows_win32_devices_display_GetMonitorContrast_napi));
-    exports.Set("windowssys_windows_win32_devices_display_GetMonitorDisplayAreaPosition", Napi::Function::New(env, windowssys_windows_win32_devices_display_GetMonitorDisplayAreaPosition_napi));
-    exports.Set("windowssys_windows_win32_devices_display_GetMonitorDisplayAreaSize", Napi::Function::New(env, windowssys_windows_win32_devices_display_GetMonitorDisplayAreaSize_napi));
-    exports.Set("windowssys_windows_win32_devices_display_GetMonitorRedGreenOrBlueDrive", Napi::Function::New(env, windowssys_windows_win32_devices_display_GetMonitorRedGreenOrBlueDrive_napi));
-    exports.Set("windowssys_windows_win32_devices_display_GetMonitorRedGreenOrBlueGain", Napi::Function::New(env, windowssys_windows_win32_devices_display_GetMonitorRedGreenOrBlueGain_napi));
-    exports.Set("windowssys_windows_win32_devices_display_GetMonitorTechnologyType", Napi::Function::New(env, windowssys_windows_win32_devices_display_GetMonitorTechnologyType_napi));
-    exports.Set("windowssys_windows_win32_devices_display_GetNumberOfPhysicalMonitorsFromHMONITOR", Napi::Function::New(env, windowssys_windows_win32_devices_display_GetNumberOfPhysicalMonitorsFromHMONITOR_napi));
-    exports.Set("windowssys_windows_win32_devices_display_GetPhysicalMonitorsFromHMONITOR", Napi::Function::New(env, windowssys_windows_win32_devices_display_GetPhysicalMonitorsFromHMONITOR_napi));
-    exports.Set("windowssys_windows_win32_devices_display_GetTimingReport", Napi::Function::New(env, windowssys_windows_win32_devices_display_GetTimingReport_napi));
-    exports.Set("windowssys_windows_win32_devices_display_GetVCPFeatureAndVCPFeatureReply", Napi::Function::New(env, windowssys_windows_win32_devices_display_GetVCPFeatureAndVCPFeatureReply_napi));
-    exports.Set("windowssys_windows_win32_devices_display_HT_Get8BPPFormatPalette", Napi::Function::New(env, windowssys_windows_win32_devices_display_HT_Get8BPPFormatPalette_napi));
-    exports.Set("windowssys_windows_win32_devices_display_HT_Get8BPPMaskPalette", Napi::Function::New(env, windowssys_windows_win32_devices_display_HT_Get8BPPMaskPalette_napi));
-    exports.Set("windowssys_windows_win32_devices_display_PATHOBJ_bEnum", Napi::Function::New(env, windowssys_windows_win32_devices_display_PATHOBJ_bEnum_napi));
-    exports.Set("windowssys_windows_win32_devices_display_PATHOBJ_bEnumClipLines", Napi::Function::New(env, windowssys_windows_win32_devices_display_PATHOBJ_bEnumClipLines_napi));
-    exports.Set("windowssys_windows_win32_devices_display_PATHOBJ_vEnumStart", Napi::Function::New(env, windowssys_windows_win32_devices_display_PATHOBJ_vEnumStart_napi));
-    exports.Set("windowssys_windows_win32_devices_display_PATHOBJ_vEnumStartClipLines", Napi::Function::New(env, windowssys_windows_win32_devices_display_PATHOBJ_vEnumStartClipLines_napi));
-    exports.Set("windowssys_windows_win32_devices_display_PATHOBJ_vGetBounds", Napi::Function::New(env, windowssys_windows_win32_devices_display_PATHOBJ_vGetBounds_napi));
-    exports.Set("windowssys_windows_win32_devices_display_QueryDisplayConfig", Napi::Function::New(env, windowssys_windows_win32_devices_display_QueryDisplayConfig_napi));
-    exports.Set("windowssys_windows_win32_devices_display_RestoreMonitorFactoryColorDefaults", Napi::Function::New(env, windowssys_windows_win32_devices_display_RestoreMonitorFactoryColorDefaults_napi));
-    exports.Set("windowssys_windows_win32_devices_display_RestoreMonitorFactoryDefaults", Napi::Function::New(env, windowssys_windows_win32_devices_display_RestoreMonitorFactoryDefaults_napi));
-    exports.Set("windowssys_windows_win32_devices_display_STROBJ_bEnum", Napi::Function::New(env, windowssys_windows_win32_devices_display_STROBJ_bEnum_napi));
-    exports.Set("windowssys_windows_win32_devices_display_STROBJ_bEnumPositionsOnly", Napi::Function::New(env, windowssys_windows_win32_devices_display_STROBJ_bEnumPositionsOnly_napi));
-    exports.Set("windowssys_windows_win32_devices_display_STROBJ_bGetAdvanceWidths", Napi::Function::New(env, windowssys_windows_win32_devices_display_STROBJ_bGetAdvanceWidths_napi));
-    exports.Set("windowssys_windows_win32_devices_display_STROBJ_dwGetCodePage", Napi::Function::New(env, windowssys_windows_win32_devices_display_STROBJ_dwGetCodePage_napi));
-    exports.Set("windowssys_windows_win32_devices_display_STROBJ_vEnumStart", Napi::Function::New(env, windowssys_windows_win32_devices_display_STROBJ_vEnumStart_napi));
-    exports.Set("windowssys_windows_win32_devices_display_SaveCurrentMonitorSettings", Napi::Function::New(env, windowssys_windows_win32_devices_display_SaveCurrentMonitorSettings_napi));
-    exports.Set("windowssys_windows_win32_devices_display_SaveCurrentSettings", Napi::Function::New(env, windowssys_windows_win32_devices_display_SaveCurrentSettings_napi));
-    exports.Set("windowssys_windows_win32_devices_display_SetDisplayAutoRotationPreferences", Napi::Function::New(env, windowssys_windows_win32_devices_display_SetDisplayAutoRotationPreferences_napi));
-    exports.Set("windowssys_windows_win32_devices_display_SetDisplayConfig", Napi::Function::New(env, windowssys_windows_win32_devices_display_SetDisplayConfig_napi));
-    exports.Set("windowssys_windows_win32_devices_display_SetMonitorBrightness", Napi::Function::New(env, windowssys_windows_win32_devices_display_SetMonitorBrightness_napi));
-    exports.Set("windowssys_windows_win32_devices_display_SetMonitorColorTemperature", Napi::Function::New(env, windowssys_windows_win32_devices_display_SetMonitorColorTemperature_napi));
-    exports.Set("windowssys_windows_win32_devices_display_SetMonitorContrast", Napi::Function::New(env, windowssys_windows_win32_devices_display_SetMonitorContrast_napi));
-    exports.Set("windowssys_windows_win32_devices_display_SetMonitorDisplayAreaPosition", Napi::Function::New(env, windowssys_windows_win32_devices_display_SetMonitorDisplayAreaPosition_napi));
-    exports.Set("windowssys_windows_win32_devices_display_SetMonitorDisplayAreaSize", Napi::Function::New(env, windowssys_windows_win32_devices_display_SetMonitorDisplayAreaSize_napi));
-    exports.Set("windowssys_windows_win32_devices_display_SetMonitorRedGreenOrBlueDrive", Napi::Function::New(env, windowssys_windows_win32_devices_display_SetMonitorRedGreenOrBlueDrive_napi));
-    exports.Set("windowssys_windows_win32_devices_display_SetMonitorRedGreenOrBlueGain", Napi::Function::New(env, windowssys_windows_win32_devices_display_SetMonitorRedGreenOrBlueGain_napi));
-    exports.Set("windowssys_windows_win32_devices_display_SetVCPFeature", Napi::Function::New(env, windowssys_windows_win32_devices_display_SetVCPFeature_napi));
-    exports.Set("windowssys_windows_win32_devices_display_XFORMOBJ_bApplyXform", Napi::Function::New(env, windowssys_windows_win32_devices_display_XFORMOBJ_bApplyXform_napi));
-    exports.Set("windowssys_windows_win32_devices_display_XFORMOBJ_iGetXform", Napi::Function::New(env, windowssys_windows_win32_devices_display_XFORMOBJ_iGetXform_napi));
-    exports.Set("windowssys_windows_win32_devices_display_XLATEOBJ_cGetPalette", Napi::Function::New(env, windowssys_windows_win32_devices_display_XLATEOBJ_cGetPalette_napi));
-    exports.Set("windowssys_windows_win32_devices_display_XLATEOBJ_hGetColorTransform", Napi::Function::New(env, windowssys_windows_win32_devices_display_XLATEOBJ_hGetColorTransform_napi));
-    exports.Set("windowssys_windows_win32_devices_display_XLATEOBJ_iXlate", Napi::Function::New(env, windowssys_windows_win32_devices_display_XLATEOBJ_iXlate_napi));
-    exports.Set("windowssys_windows_win32_devices_display_XLATEOBJ_piVector", Napi::Function::New(env, windowssys_windows_win32_devices_display_XLATEOBJ_piVector_napi));
+    exports.Set("windowssys_windows_win32_devices_display_brushobjHGetColorTransform", Napi::Function::New(env, windowssys_windows_win32_devices_display_brushobjHGetColorTransform_napi));
+    exports.Set("windowssys_windows_win32_devices_display_brushobjPvAllocRbrush", Napi::Function::New(env, windowssys_windows_win32_devices_display_brushobjPvAllocRbrush_napi));
+    exports.Set("windowssys_windows_win32_devices_display_brushobjPvGetRbrush", Napi::Function::New(env, windowssys_windows_win32_devices_display_brushobjPvGetRbrush_napi));
+    exports.Set("windowssys_windows_win32_devices_display_brushobjUlGetBrushColor", Napi::Function::New(env, windowssys_windows_win32_devices_display_brushobjUlGetBrushColor_napi));
+    exports.Set("windowssys_windows_win32_devices_display_clipobjBEnum", Napi::Function::New(env, windowssys_windows_win32_devices_display_clipobjBEnum_napi));
+    exports.Set("windowssys_windows_win32_devices_display_clipobjCEnumStart", Napi::Function::New(env, windowssys_windows_win32_devices_display_clipobjCEnumStart_napi));
+    exports.Set("windowssys_windows_win32_devices_display_clipobjPpoGetPath", Napi::Function::New(env, windowssys_windows_win32_devices_display_clipobjPpoGetPath_napi));
+    exports.Set("windowssys_windows_win32_devices_display_capabilitiesRequestAndCapabilitiesReply", Napi::Function::New(env, windowssys_windows_win32_devices_display_capabilitiesRequestAndCapabilitiesReply_napi));
+    exports.Set("windowssys_windows_win32_devices_display_degaussMonitor", Napi::Function::New(env, windowssys_windows_win32_devices_display_degaussMonitor_napi));
+    exports.Set("windowssys_windows_win32_devices_display_destroyPhysicalMonitor", Napi::Function::New(env, windowssys_windows_win32_devices_display_destroyPhysicalMonitor_napi));
+    exports.Set("windowssys_windows_win32_devices_display_destroyPhysicalMonitors", Napi::Function::New(env, windowssys_windows_win32_devices_display_destroyPhysicalMonitors_napi));
+    exports.Set("windowssys_windows_win32_devices_display_displayConfigGetDeviceInfo", Napi::Function::New(env, windowssys_windows_win32_devices_display_displayConfigGetDeviceInfo_napi));
+    exports.Set("windowssys_windows_win32_devices_display_displayConfigSetDeviceInfo", Napi::Function::New(env, windowssys_windows_win32_devices_display_displayConfigSetDeviceInfo_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engAcquireSemaphore", Napi::Function::New(env, windowssys_windows_win32_devices_display_engAcquireSemaphore_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engAlphaBlend", Napi::Function::New(env, windowssys_windows_win32_devices_display_engAlphaBlend_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engAssociateSurface", Napi::Function::New(env, windowssys_windows_win32_devices_display_engAssociateSurface_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engBitBlt", Napi::Function::New(env, windowssys_windows_win32_devices_display_engBitBlt_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engCheckAbort", Napi::Function::New(env, windowssys_windows_win32_devices_display_engCheckAbort_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engComputeGlyphSet", Napi::Function::New(env, windowssys_windows_win32_devices_display_engComputeGlyphSet_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engCopyBits", Napi::Function::New(env, windowssys_windows_win32_devices_display_engCopyBits_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engCreateClip", Napi::Function::New(env, windowssys_windows_win32_devices_display_engCreateClip_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engCreatePalette", Napi::Function::New(env, windowssys_windows_win32_devices_display_engCreatePalette_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engCreateSemaphore", Napi::Function::New(env, windowssys_windows_win32_devices_display_engCreateSemaphore_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engDeleteClip", Napi::Function::New(env, windowssys_windows_win32_devices_display_engDeleteClip_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engDeletePalette", Napi::Function::New(env, windowssys_windows_win32_devices_display_engDeletePalette_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engDeletePath", Napi::Function::New(env, windowssys_windows_win32_devices_display_engDeletePath_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engDeleteSemaphore", Napi::Function::New(env, windowssys_windows_win32_devices_display_engDeleteSemaphore_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engDeleteSurface", Napi::Function::New(env, windowssys_windows_win32_devices_display_engDeleteSurface_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engEraseSurface", Napi::Function::New(env, windowssys_windows_win32_devices_display_engEraseSurface_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engFillPath", Napi::Function::New(env, windowssys_windows_win32_devices_display_engFillPath_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engFindResource", Napi::Function::New(env, windowssys_windows_win32_devices_display_engFindResource_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engFreeModule", Napi::Function::New(env, windowssys_windows_win32_devices_display_engFreeModule_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engGetCurrentCodePage", Napi::Function::New(env, windowssys_windows_win32_devices_display_engGetCurrentCodePage_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engGetDriverName", Napi::Function::New(env, windowssys_windows_win32_devices_display_engGetDriverName_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engGetPrinterDataFileName", Napi::Function::New(env, windowssys_windows_win32_devices_display_engGetPrinterDataFileName_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engGradientFill", Napi::Function::New(env, windowssys_windows_win32_devices_display_engGradientFill_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engLineTo", Napi::Function::New(env, windowssys_windows_win32_devices_display_engLineTo_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engLoadModule", Napi::Function::New(env, windowssys_windows_win32_devices_display_engLoadModule_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engLockSurface", Napi::Function::New(env, windowssys_windows_win32_devices_display_engLockSurface_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engMarkBandingSurface", Napi::Function::New(env, windowssys_windows_win32_devices_display_engMarkBandingSurface_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engMultiByteToUnicodeN", Napi::Function::New(env, windowssys_windows_win32_devices_display_engMultiByteToUnicodeN_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engMultiByteToWideChar", Napi::Function::New(env, windowssys_windows_win32_devices_display_engMultiByteToWideChar_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engPaint", Napi::Function::New(env, windowssys_windows_win32_devices_display_engPaint_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engPlgBlt", Napi::Function::New(env, windowssys_windows_win32_devices_display_engPlgBlt_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engQueryEMFInfo", Napi::Function::New(env, windowssys_windows_win32_devices_display_engQueryEMFInfo_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engQueryLocalTime", Napi::Function::New(env, windowssys_windows_win32_devices_display_engQueryLocalTime_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engReleaseSemaphore", Napi::Function::New(env, windowssys_windows_win32_devices_display_engReleaseSemaphore_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engStretchBlt", Napi::Function::New(env, windowssys_windows_win32_devices_display_engStretchBlt_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engStretchBltROP", Napi::Function::New(env, windowssys_windows_win32_devices_display_engStretchBltROP_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engStrokeAndFillPath", Napi::Function::New(env, windowssys_windows_win32_devices_display_engStrokeAndFillPath_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engStrokePath", Napi::Function::New(env, windowssys_windows_win32_devices_display_engStrokePath_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engTextOut", Napi::Function::New(env, windowssys_windows_win32_devices_display_engTextOut_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engTransparentBlt", Napi::Function::New(env, windowssys_windows_win32_devices_display_engTransparentBlt_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engUnicodeToMultiByteN", Napi::Function::New(env, windowssys_windows_win32_devices_display_engUnicodeToMultiByteN_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engUnlockSurface", Napi::Function::New(env, windowssys_windows_win32_devices_display_engUnlockSurface_napi));
+    exports.Set("windowssys_windows_win32_devices_display_engWideCharToMultiByte", Napi::Function::New(env, windowssys_windows_win32_devices_display_engWideCharToMultiByte_napi));
+    exports.Set("windowssys_windows_win32_devices_display_fontobjCGetAllGlyphHandles", Napi::Function::New(env, windowssys_windows_win32_devices_display_fontobjCGetAllGlyphHandles_napi));
+    exports.Set("windowssys_windows_win32_devices_display_fontobjCGetGlyphs", Napi::Function::New(env, windowssys_windows_win32_devices_display_fontobjCGetGlyphs_napi));
+    exports.Set("windowssys_windows_win32_devices_display_fontobjPQueryGlyphAttrs", Napi::Function::New(env, windowssys_windows_win32_devices_display_fontobjPQueryGlyphAttrs_napi));
+    exports.Set("windowssys_windows_win32_devices_display_fontobjPfdg", Napi::Function::New(env, windowssys_windows_win32_devices_display_fontobjPfdg_napi));
+    exports.Set("windowssys_windows_win32_devices_display_fontobjPifi", Napi::Function::New(env, windowssys_windows_win32_devices_display_fontobjPifi_napi));
+    exports.Set("windowssys_windows_win32_devices_display_fontobjPvTrueTypeFontFile", Napi::Function::New(env, windowssys_windows_win32_devices_display_fontobjPvTrueTypeFontFile_napi));
+    exports.Set("windowssys_windows_win32_devices_display_fontobjPxoGetXform", Napi::Function::New(env, windowssys_windows_win32_devices_display_fontobjPxoGetXform_napi));
+    exports.Set("windowssys_windows_win32_devices_display_fontobjVGetInfo", Napi::Function::New(env, windowssys_windows_win32_devices_display_fontobjVGetInfo_napi));
+    exports.Set("windowssys_windows_win32_devices_display_getAutoRotationState", Napi::Function::New(env, windowssys_windows_win32_devices_display_getAutoRotationState_napi));
+    exports.Set("windowssys_windows_win32_devices_display_getCapabilitiesStringLength", Napi::Function::New(env, windowssys_windows_win32_devices_display_getCapabilitiesStringLength_napi));
+    exports.Set("windowssys_windows_win32_devices_display_getDisplayAutoRotationPreferences", Napi::Function::New(env, windowssys_windows_win32_devices_display_getDisplayAutoRotationPreferences_napi));
+    exports.Set("windowssys_windows_win32_devices_display_getDisplayConfigBufferSizes", Napi::Function::New(env, windowssys_windows_win32_devices_display_getDisplayConfigBufferSizes_napi));
+    exports.Set("windowssys_windows_win32_devices_display_getMonitorBrightness", Napi::Function::New(env, windowssys_windows_win32_devices_display_getMonitorBrightness_napi));
+    exports.Set("windowssys_windows_win32_devices_display_getMonitorCapabilities", Napi::Function::New(env, windowssys_windows_win32_devices_display_getMonitorCapabilities_napi));
+    exports.Set("windowssys_windows_win32_devices_display_getMonitorColorTemperature", Napi::Function::New(env, windowssys_windows_win32_devices_display_getMonitorColorTemperature_napi));
+    exports.Set("windowssys_windows_win32_devices_display_getMonitorContrast", Napi::Function::New(env, windowssys_windows_win32_devices_display_getMonitorContrast_napi));
+    exports.Set("windowssys_windows_win32_devices_display_getMonitorDisplayAreaPosition", Napi::Function::New(env, windowssys_windows_win32_devices_display_getMonitorDisplayAreaPosition_napi));
+    exports.Set("windowssys_windows_win32_devices_display_getMonitorDisplayAreaSize", Napi::Function::New(env, windowssys_windows_win32_devices_display_getMonitorDisplayAreaSize_napi));
+    exports.Set("windowssys_windows_win32_devices_display_getMonitorRedGreenOrBlueDrive", Napi::Function::New(env, windowssys_windows_win32_devices_display_getMonitorRedGreenOrBlueDrive_napi));
+    exports.Set("windowssys_windows_win32_devices_display_getMonitorRedGreenOrBlueGain", Napi::Function::New(env, windowssys_windows_win32_devices_display_getMonitorRedGreenOrBlueGain_napi));
+    exports.Set("windowssys_windows_win32_devices_display_getMonitorTechnologyType", Napi::Function::New(env, windowssys_windows_win32_devices_display_getMonitorTechnologyType_napi));
+    exports.Set("windowssys_windows_win32_devices_display_getNumberOfPhysicalMonitorsFromHMONITOR", Napi::Function::New(env, windowssys_windows_win32_devices_display_getNumberOfPhysicalMonitorsFromHMONITOR_napi));
+    exports.Set("windowssys_windows_win32_devices_display_getPhysicalMonitorsFromHMONITOR", Napi::Function::New(env, windowssys_windows_win32_devices_display_getPhysicalMonitorsFromHMONITOR_napi));
+    exports.Set("windowssys_windows_win32_devices_display_getTimingReport", Napi::Function::New(env, windowssys_windows_win32_devices_display_getTimingReport_napi));
+    exports.Set("windowssys_windows_win32_devices_display_getVCPFeatureAndVCPFeatureReply", Napi::Function::New(env, windowssys_windows_win32_devices_display_getVCPFeatureAndVCPFeatureReply_napi));
+    exports.Set("windowssys_windows_win32_devices_display_htGet8BppformatPalette", Napi::Function::New(env, windowssys_windows_win32_devices_display_htGet8BppformatPalette_napi));
+    exports.Set("windowssys_windows_win32_devices_display_htGet8BppmaskPalette", Napi::Function::New(env, windowssys_windows_win32_devices_display_htGet8BppmaskPalette_napi));
+    exports.Set("windowssys_windows_win32_devices_display_pathobjBEnum", Napi::Function::New(env, windowssys_windows_win32_devices_display_pathobjBEnum_napi));
+    exports.Set("windowssys_windows_win32_devices_display_pathobjBEnumClipLines", Napi::Function::New(env, windowssys_windows_win32_devices_display_pathobjBEnumClipLines_napi));
+    exports.Set("windowssys_windows_win32_devices_display_pathobjVEnumStart", Napi::Function::New(env, windowssys_windows_win32_devices_display_pathobjVEnumStart_napi));
+    exports.Set("windowssys_windows_win32_devices_display_pathobjVEnumStartClipLines", Napi::Function::New(env, windowssys_windows_win32_devices_display_pathobjVEnumStartClipLines_napi));
+    exports.Set("windowssys_windows_win32_devices_display_pathobjVGetBounds", Napi::Function::New(env, windowssys_windows_win32_devices_display_pathobjVGetBounds_napi));
+    exports.Set("windowssys_windows_win32_devices_display_queryDisplayConfig", Napi::Function::New(env, windowssys_windows_win32_devices_display_queryDisplayConfig_napi));
+    exports.Set("windowssys_windows_win32_devices_display_restoreMonitorFactoryColorDefaults", Napi::Function::New(env, windowssys_windows_win32_devices_display_restoreMonitorFactoryColorDefaults_napi));
+    exports.Set("windowssys_windows_win32_devices_display_restoreMonitorFactoryDefaults", Napi::Function::New(env, windowssys_windows_win32_devices_display_restoreMonitorFactoryDefaults_napi));
+    exports.Set("windowssys_windows_win32_devices_display_strobjBEnum", Napi::Function::New(env, windowssys_windows_win32_devices_display_strobjBEnum_napi));
+    exports.Set("windowssys_windows_win32_devices_display_strobjBEnumPositionsOnly", Napi::Function::New(env, windowssys_windows_win32_devices_display_strobjBEnumPositionsOnly_napi));
+    exports.Set("windowssys_windows_win32_devices_display_strobjBGetAdvanceWidths", Napi::Function::New(env, windowssys_windows_win32_devices_display_strobjBGetAdvanceWidths_napi));
+    exports.Set("windowssys_windows_win32_devices_display_strobjDwGetCodePage", Napi::Function::New(env, windowssys_windows_win32_devices_display_strobjDwGetCodePage_napi));
+    exports.Set("windowssys_windows_win32_devices_display_strobjVEnumStart", Napi::Function::New(env, windowssys_windows_win32_devices_display_strobjVEnumStart_napi));
+    exports.Set("windowssys_windows_win32_devices_display_saveCurrentMonitorSettings", Napi::Function::New(env, windowssys_windows_win32_devices_display_saveCurrentMonitorSettings_napi));
+    exports.Set("windowssys_windows_win32_devices_display_saveCurrentSettings", Napi::Function::New(env, windowssys_windows_win32_devices_display_saveCurrentSettings_napi));
+    exports.Set("windowssys_windows_win32_devices_display_setDisplayAutoRotationPreferences", Napi::Function::New(env, windowssys_windows_win32_devices_display_setDisplayAutoRotationPreferences_napi));
+    exports.Set("windowssys_windows_win32_devices_display_setDisplayConfig", Napi::Function::New(env, windowssys_windows_win32_devices_display_setDisplayConfig_napi));
+    exports.Set("windowssys_windows_win32_devices_display_setMonitorBrightness", Napi::Function::New(env, windowssys_windows_win32_devices_display_setMonitorBrightness_napi));
+    exports.Set("windowssys_windows_win32_devices_display_setMonitorColorTemperature", Napi::Function::New(env, windowssys_windows_win32_devices_display_setMonitorColorTemperature_napi));
+    exports.Set("windowssys_windows_win32_devices_display_setMonitorContrast", Napi::Function::New(env, windowssys_windows_win32_devices_display_setMonitorContrast_napi));
+    exports.Set("windowssys_windows_win32_devices_display_setMonitorDisplayAreaPosition", Napi::Function::New(env, windowssys_windows_win32_devices_display_setMonitorDisplayAreaPosition_napi));
+    exports.Set("windowssys_windows_win32_devices_display_setMonitorDisplayAreaSize", Napi::Function::New(env, windowssys_windows_win32_devices_display_setMonitorDisplayAreaSize_napi));
+    exports.Set("windowssys_windows_win32_devices_display_setMonitorRedGreenOrBlueDrive", Napi::Function::New(env, windowssys_windows_win32_devices_display_setMonitorRedGreenOrBlueDrive_napi));
+    exports.Set("windowssys_windows_win32_devices_display_setMonitorRedGreenOrBlueGain", Napi::Function::New(env, windowssys_windows_win32_devices_display_setMonitorRedGreenOrBlueGain_napi));
+    exports.Set("windowssys_windows_win32_devices_display_setVCPFeature", Napi::Function::New(env, windowssys_windows_win32_devices_display_setVCPFeature_napi));
+    exports.Set("windowssys_windows_win32_devices_display_xformobjBApplyXform", Napi::Function::New(env, windowssys_windows_win32_devices_display_xformobjBApplyXform_napi));
+    exports.Set("windowssys_windows_win32_devices_display_xformobjIGetXform", Napi::Function::New(env, windowssys_windows_win32_devices_display_xformobjIGetXform_napi));
+    exports.Set("windowssys_windows_win32_devices_display_xlateobjCGetPalette", Napi::Function::New(env, windowssys_windows_win32_devices_display_xlateobjCGetPalette_napi));
+    exports.Set("windowssys_windows_win32_devices_display_xlateobjHGetColorTransform", Napi::Function::New(env, windowssys_windows_win32_devices_display_xlateobjHGetColorTransform_napi));
+    exports.Set("windowssys_windows_win32_devices_display_xlateobjIXlate", Napi::Function::New(env, windowssys_windows_win32_devices_display_xlateobjIXlate_napi));
+    exports.Set("windowssys_windows_win32_devices_display_xlateobjPiVector", Napi::Function::New(env, windowssys_windows_win32_devices_display_xlateobjPiVector_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_devices_display_napi, nullptr };

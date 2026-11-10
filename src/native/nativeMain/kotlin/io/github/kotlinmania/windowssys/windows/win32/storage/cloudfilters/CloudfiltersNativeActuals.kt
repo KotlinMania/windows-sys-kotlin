@@ -2,121 +2,122 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_INFO_BY_HANDLE_CLASS
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FileInfoByHandleClass
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun CfCloseHandle(filehandle: HANDLE) {
-    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_CfCloseHandle(filehandle.toCPointer<ByteVar>())
+public actual fun cfCloseHandle(filehandle: Handle) {
+    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_cfCloseHandle(filehandle?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun CfConnectSyncRoot(syncrootpath: PCWSTR, callbacktable: Long, callbackcontext: Long, connectflags: CF_CONNECT_FLAGS, connectionkey: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_CfConnectSyncRoot(syncrootpath.toCPointer<ByteVar>(), callbacktable.toCPointer<ByteVar>(), callbackcontext.toCPointer<ByteVar>(), connectflags, connectionkey.toCPointer<ByteVar>())
+public actual fun cfConnectSyncRoot(syncrootpath: Pcwstr, callbacktable: COpaquePointer?, callbackcontext: COpaquePointer?, connectflags: CfConnectFlags, connectionkey: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_cfConnectSyncRoot(syncrootpath?.value?.toCPointer<ByteVar>(), callbacktable?.value?.toCPointer<ByteVar>(), callbackcontext?.value?.toCPointer<ByteVar>(), connectflags, connectionkey?.value?.toCPointer<ByteVar>())
 
-public actual fun CfConvertToPlaceholder(filehandle: HANDLE, fileidentity: Long, fileidentitylength: UInt, convertflags: CF_CONVERT_FLAGS, convertusn: Long, overlapped: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_CfConvertToPlaceholder(filehandle.toCPointer<ByteVar>(), fileidentity.toCPointer<ByteVar>(), fileidentitylength, convertflags, convertusn.toCPointer<ByteVar>(), overlapped.toCPointer<ByteVar>())
+public actual fun cfConvertToPlaceholder(filehandle: Handle, fileidentity: COpaquePointer?, fileidentitylength: UInt, convertflags: CfConvertFlags, convertusn: COpaquePointer?, overlapped: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_cfConvertToPlaceholder(filehandle?.value?.toCPointer<ByteVar>(), fileidentity?.value?.toCPointer<ByteVar>(), fileidentitylength, convertflags, convertusn?.value?.toCPointer<ByteVar>(), overlapped?.value?.toCPointer<ByteVar>())
 
-public actual fun CfCreatePlaceholders(basedirectorypath: PCWSTR, placeholderarray: Long, placeholdercount: UInt, createflags: CF_CREATE_FLAGS, entriesprocessed: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_CfCreatePlaceholders(basedirectorypath.toCPointer<ByteVar>(), placeholderarray.toCPointer<ByteVar>(), placeholdercount, createflags, entriesprocessed.toCPointer<ByteVar>())
+public actual fun cfCreatePlaceholders(basedirectorypath: Pcwstr, placeholderarray: COpaquePointer?, placeholdercount: UInt, createflags: CfCreateFlags, entriesprocessed: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_cfCreatePlaceholders(basedirectorypath?.value?.toCPointer<ByteVar>(), placeholderarray?.value?.toCPointer<ByteVar>(), placeholdercount, createflags, entriesprocessed?.value?.toCPointer<ByteVar>())
 
-public actual fun CfDehydratePlaceholder(filehandle: HANDLE, startingoffset: Long, length: Long, dehydrateflags: CF_DEHYDRATE_FLAGS, overlapped: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_CfDehydratePlaceholder(filehandle.toCPointer<ByteVar>(), startingoffset, length, dehydrateflags, overlapped.toCPointer<ByteVar>())
+public actual fun cfDehydratePlaceholder(filehandle: Handle, startingoffset: Long, length: Long, dehydrateflags: CfDehydrateFlags, overlapped: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_cfDehydratePlaceholder(filehandle?.value?.toCPointer<ByteVar>(), startingoffset, length, dehydrateflags, overlapped?.value?.toCPointer<ByteVar>())
 
-public actual fun CfDisconnectSyncRoot(connectionkey: CF_CONNECTION_KEY): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_CfDisconnectSyncRoot(connectionkey)
+public actual fun cfDisconnectSyncRoot(connectionkey: CfConnectionKey): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_cfDisconnectSyncRoot(connectionkey)
 
-public actual fun CfExecute(opinfo: Long, opparams: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_CfExecute(opinfo.toCPointer<ByteVar>(), opparams.toCPointer<ByteVar>())
+public actual fun cfExecute(opinfo: COpaquePointer?, opparams: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_cfExecute(opinfo?.value?.toCPointer<ByteVar>(), opparams?.value?.toCPointer<ByteVar>())
 
-public actual fun CfGetCorrelationVector(filehandle: HANDLE, correlationvector: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_CfGetCorrelationVector(filehandle.toCPointer<ByteVar>(), correlationvector.toCPointer<ByteVar>())
+public actual fun cfGetCorrelationVector(filehandle: Handle, correlationvector: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_cfGetCorrelationVector(filehandle?.value?.toCPointer<ByteVar>(), correlationvector?.value?.toCPointer<ByteVar>())
 
-public actual fun CfGetPlaceholderInfo(filehandle: HANDLE, infoclass: CF_PLACEHOLDER_INFO_CLASS, infobuffer: Long, infobufferlength: UInt, returnedlength: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_CfGetPlaceholderInfo(filehandle.toCPointer<ByteVar>(), infoclass, infobuffer.toCPointer<ByteVar>(), infobufferlength, returnedlength.toCPointer<ByteVar>())
+public actual fun cfGetPlaceholderInfo(filehandle: Handle, infoclass: CfPlaceholderInfoClass, infobuffer: COpaquePointer?, infobufferlength: UInt, returnedlength: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderInfo(filehandle?.value?.toCPointer<ByteVar>(), infoclass, infobuffer?.value?.toCPointer<ByteVar>(), infobufferlength, returnedlength?.value?.toCPointer<ByteVar>())
 
-public actual fun CfGetPlaceholderRangeInfo(filehandle: HANDLE, infoclass: CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset: Long, length: Long, infobuffer: Long, infobufferlength: UInt, returnedlength: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_CfGetPlaceholderRangeInfo(filehandle.toCPointer<ByteVar>(), infoclass, startingoffset, length, infobuffer.toCPointer<ByteVar>(), infobufferlength, returnedlength.toCPointer<ByteVar>())
+public actual fun cfGetPlaceholderRangeInfo(filehandle: Handle, infoclass: CfPlaceholderRangeInfoClass, startingoffset: Long, length: Long, infobuffer: COpaquePointer?, infobufferlength: UInt, returnedlength: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderRangeInfo(filehandle?.value?.toCPointer<ByteVar>(), infoclass, startingoffset, length, infobuffer?.value?.toCPointer<ByteVar>(), infobufferlength, returnedlength?.value?.toCPointer<ByteVar>())
 
-public actual fun CfGetPlaceholderRangeInfoForHydration(connectionkey: CF_CONNECTION_KEY, transferkey: Long, fileid: Long, infoclass: CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset: Long, rangelength: Long, infobuffer: Long, infobuffersize: UInt, infobufferwritten: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_CfGetPlaceholderRangeInfoForHydration(connectionkey, transferkey, fileid, infoclass, startingoffset, rangelength, infobuffer.toCPointer<ByteVar>(), infobuffersize, infobufferwritten.toCPointer<ByteVar>())
+public actual fun cfGetPlaceholderRangeInfoForHydration(connectionkey: CfConnectionKey, transferkey: Long, fileid: Long, infoclass: CfPlaceholderRangeInfoClass, startingoffset: Long, rangelength: Long, infobuffer: COpaquePointer?, infobuffersize: UInt, infobufferwritten: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderRangeInfoForHydration(connectionkey, transferkey, fileid, infoclass, startingoffset, rangelength, infobuffer?.value?.toCPointer<ByteVar>(), infobuffersize, infobufferwritten?.value?.toCPointer<ByteVar>())
 
-public actual fun CfGetPlaceholderStateFromAttributeTag(fileattributes: UInt, reparsetag: UInt): CF_PLACEHOLDER_STATE =
-    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_CfGetPlaceholderStateFromAttributeTag(fileattributes, reparsetag)
+public actual fun cfGetPlaceholderStateFromAttributeTag(fileattributes: UInt, reparsetag: UInt): CfPlaceholderState =
+    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderStateFromAttributeTag(fileattributes, reparsetag)
 
-public actual fun CfGetPlaceholderStateFromFileInfo(infobuffer: Long, infoclass: FILE_INFO_BY_HANDLE_CLASS): CF_PLACEHOLDER_STATE =
-    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_CfGetPlaceholderStateFromFileInfo(infobuffer.toCPointer<ByteVar>(), infoclass)
+public actual fun cfGetPlaceholderStateFromFileInfo(infobuffer: COpaquePointer?, infoclass: FileInfoByHandleClass): CfPlaceholderState =
+    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderStateFromFileInfo(infobuffer?.value?.toCPointer<ByteVar>(), infoclass)
 
-public actual fun CfGetPlaceholderStateFromFindData(finddata: Long): CF_PLACEHOLDER_STATE =
-    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_CfGetPlaceholderStateFromFindData(finddata.toCPointer<ByteVar>())
+public actual fun cfGetPlaceholderStateFromFindData(finddata: COpaquePointer?): CfPlaceholderState =
+    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholderStateFromFindData(finddata?.value?.toCPointer<ByteVar>())
 
-public actual fun CfGetPlatformInfo(platformversion: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_CfGetPlatformInfo(platformversion.toCPointer<ByteVar>())
+public actual fun cfGetPlatformInfo(platformversion: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_cfGetPlatformInfo(platformversion?.value?.toCPointer<ByteVar>())
 
-public actual fun CfGetSyncRootInfoByHandle(filehandle: HANDLE, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: Long, infobufferlength: UInt, returnedlength: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_CfGetSyncRootInfoByHandle(filehandle.toCPointer<ByteVar>(), infoclass, infobuffer.toCPointer<ByteVar>(), infobufferlength, returnedlength.toCPointer<ByteVar>())
+public actual fun cfGetSyncRootInfoByHandle(filehandle: Handle, infoclass: CfSyncRootInfoClass, infobuffer: COpaquePointer?, infobufferlength: UInt, returnedlength: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_cfGetSyncRootInfoByHandle(filehandle?.value?.toCPointer<ByteVar>(), infoclass, infobuffer?.value?.toCPointer<ByteVar>(), infobufferlength, returnedlength?.value?.toCPointer<ByteVar>())
 
-public actual fun CfGetSyncRootInfoByPath(filepath: PCWSTR, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: Long, infobufferlength: UInt, returnedlength: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_CfGetSyncRootInfoByPath(filepath.toCPointer<ByteVar>(), infoclass, infobuffer.toCPointer<ByteVar>(), infobufferlength, returnedlength.toCPointer<ByteVar>())
+public actual fun cfGetSyncRootInfoByPath(filepath: Pcwstr, infoclass: CfSyncRootInfoClass, infobuffer: COpaquePointer?, infobufferlength: UInt, returnedlength: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_cfGetSyncRootInfoByPath(filepath?.value?.toCPointer<ByteVar>(), infoclass, infobuffer?.value?.toCPointer<ByteVar>(), infobufferlength, returnedlength?.value?.toCPointer<ByteVar>())
 
-public actual fun CfGetTransferKey(filehandle: HANDLE, transferkey: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_CfGetTransferKey(filehandle.toCPointer<ByteVar>(), transferkey.toCPointer<ByteVar>())
+public actual fun cfGetTransferKey(filehandle: Handle, transferkey: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_cfGetTransferKey(filehandle?.value?.toCPointer<ByteVar>(), transferkey?.value?.toCPointer<ByteVar>())
 
-public actual fun CfGetWin32HandleFromProtectedHandle(protectedhandle: HANDLE): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_CfGetWin32HandleFromProtectedHandle(protectedhandle.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun cfGetWin32HandleFromProtectedHandle(protectedhandle: Handle): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_cfGetWin32HandleFromProtectedHandle(protectedhandle?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CfHydratePlaceholder(filehandle: HANDLE, startingoffset: Long, length: Long, hydrateflags: CF_HYDRATE_FLAGS, overlapped: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_CfHydratePlaceholder(filehandle.toCPointer<ByteVar>(), startingoffset, length, hydrateflags, overlapped.toCPointer<ByteVar>())
+public actual fun cfHydratePlaceholder(filehandle: Handle, startingoffset: Long, length: Long, hydrateflags: CfHydrateFlags, overlapped: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_cfHydratePlaceholder(filehandle?.value?.toCPointer<ByteVar>(), startingoffset, length, hydrateflags, overlapped?.value?.toCPointer<ByteVar>())
 
-public actual fun CfOpenFileWithOplock(filepath: PCWSTR, flags: CF_OPEN_FILE_FLAGS, protectedhandle: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_CfOpenFileWithOplock(filepath.toCPointer<ByteVar>(), flags, protectedhandle.toCPointer<ByteVar>())
+public actual fun cfOpenFileWithOplock(filepath: Pcwstr, flags: CfOpenFileFlags, protectedhandle: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_cfOpenFileWithOplock(filepath?.value?.toCPointer<ByteVar>(), flags, protectedhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun CfQuerySyncProviderStatus(connectionkey: CF_CONNECTION_KEY, providerstatus: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_CfQuerySyncProviderStatus(connectionkey, providerstatus.toCPointer<ByteVar>())
+public actual fun cfQuerySyncProviderStatus(connectionkey: CfConnectionKey, providerstatus: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_cfQuerySyncProviderStatus(connectionkey, providerstatus?.value?.toCPointer<ByteVar>())
 
-public actual fun CfReferenceProtectedHandle(protectedhandle: HANDLE): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_CfReferenceProtectedHandle(protectedhandle.toCPointer<ByteVar>())
+public actual fun cfReferenceProtectedHandle(protectedhandle: Handle): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_cfReferenceProtectedHandle(protectedhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun CfRegisterSyncRoot(syncrootpath: PCWSTR, registration: Long, policies: Long, registerflags: CF_REGISTER_FLAGS): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_CfRegisterSyncRoot(syncrootpath.toCPointer<ByteVar>(), registration.toCPointer<ByteVar>(), policies.toCPointer<ByteVar>(), registerflags)
+public actual fun cfRegisterSyncRoot(syncrootpath: Pcwstr, registration: COpaquePointer?, policies: COpaquePointer?, registerflags: CfRegisterFlags): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_cfRegisterSyncRoot(syncrootpath?.value?.toCPointer<ByteVar>(), registration?.value?.toCPointer<ByteVar>(), policies?.value?.toCPointer<ByteVar>(), registerflags)
 
-public actual fun CfReleaseProtectedHandle(protectedhandle: HANDLE) {
-    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_CfReleaseProtectedHandle(protectedhandle.toCPointer<ByteVar>())
+public actual fun cfReleaseProtectedHandle(protectedhandle: Handle) {
+    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_cfReleaseProtectedHandle(protectedhandle?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun CfReleaseTransferKey(filehandle: HANDLE, transferkey: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_CfReleaseTransferKey(filehandle.toCPointer<ByteVar>(), transferkey.toCPointer<ByteVar>())
+public actual fun cfReleaseTransferKey(filehandle: Handle, transferkey: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_cfReleaseTransferKey(filehandle?.value?.toCPointer<ByteVar>(), transferkey?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun CfReportProviderProgress(connectionkey: CF_CONNECTION_KEY, transferkey: Long, providerprogresstotal: Long, providerprogresscompleted: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_CfReportProviderProgress(connectionkey, transferkey, providerprogresstotal, providerprogresscompleted)
+public actual fun cfReportProviderProgress(connectionkey: CfConnectionKey, transferkey: Long, providerprogresstotal: Long, providerprogresscompleted: Long): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_cfReportProviderProgress(connectionkey, transferkey, providerprogresstotal, providerprogresscompleted)
 
-public actual fun CfReportProviderProgress2(connectionkey: CF_CONNECTION_KEY, transferkey: Long, requestkey: Long, providerprogresstotal: Long, providerprogresscompleted: Long, targetsessionid: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_CfReportProviderProgress2(connectionkey, transferkey, requestkey, providerprogresstotal, providerprogresscompleted, targetsessionid)
+public actual fun cfReportProviderProgress2(connectionkey: CfConnectionKey, transferkey: Long, requestkey: Long, providerprogresstotal: Long, providerprogresscompleted: Long, targetsessionid: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_cfReportProviderProgress2(connectionkey, transferkey, requestkey, providerprogresstotal, providerprogresscompleted, targetsessionid)
 
-public actual fun CfReportSyncStatus(syncrootpath: PCWSTR, syncstatus: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_CfReportSyncStatus(syncrootpath.toCPointer<ByteVar>(), syncstatus.toCPointer<ByteVar>())
+public actual fun cfReportSyncStatus(syncrootpath: Pcwstr, syncstatus: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_cfReportSyncStatus(syncrootpath?.value?.toCPointer<ByteVar>(), syncstatus?.value?.toCPointer<ByteVar>())
 
-public actual fun CfRevertPlaceholder(filehandle: HANDLE, revertflags: CF_REVERT_FLAGS, overlapped: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_CfRevertPlaceholder(filehandle.toCPointer<ByteVar>(), revertflags, overlapped.toCPointer<ByteVar>())
+public actual fun cfRevertPlaceholder(filehandle: Handle, revertflags: CfRevertFlags, overlapped: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_cfRevertPlaceholder(filehandle?.value?.toCPointer<ByteVar>(), revertflags, overlapped?.value?.toCPointer<ByteVar>())
 
-public actual fun CfSetCorrelationVector(filehandle: HANDLE, correlationvector: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_CfSetCorrelationVector(filehandle.toCPointer<ByteVar>(), correlationvector.toCPointer<ByteVar>())
+public actual fun cfSetCorrelationVector(filehandle: Handle, correlationvector: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_cfSetCorrelationVector(filehandle?.value?.toCPointer<ByteVar>(), correlationvector?.value?.toCPointer<ByteVar>())
 
-public actual fun CfSetInSyncState(filehandle: HANDLE, insyncstate: CF_IN_SYNC_STATE, insyncflags: CF_SET_IN_SYNC_FLAGS, insyncusn: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_CfSetInSyncState(filehandle.toCPointer<ByteVar>(), insyncstate, insyncflags, insyncusn.toCPointer<ByteVar>())
+public actual fun cfSetInSyncState(filehandle: Handle, insyncstate: CfInSyncState, insyncflags: CfSetInSyncFlags, insyncusn: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_cfSetInSyncState(filehandle?.value?.toCPointer<ByteVar>(), insyncstate, insyncflags, insyncusn?.value?.toCPointer<ByteVar>())
 
-public actual fun CfSetPinState(filehandle: HANDLE, pinstate: CF_PIN_STATE, pinflags: CF_SET_PIN_FLAGS, overlapped: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_CfSetPinState(filehandle.toCPointer<ByteVar>(), pinstate, pinflags, overlapped.toCPointer<ByteVar>())
+public actual fun cfSetPinState(filehandle: Handle, pinstate: CfPinState, pinflags: CfSetPinFlags, overlapped: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_cfSetPinState(filehandle?.value?.toCPointer<ByteVar>(), pinstate, pinflags, overlapped?.value?.toCPointer<ByteVar>())
 
-public actual fun CfUnregisterSyncRoot(syncrootpath: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_CfUnregisterSyncRoot(syncrootpath.toCPointer<ByteVar>())
+public actual fun cfUnregisterSyncRoot(syncrootpath: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_cfUnregisterSyncRoot(syncrootpath?.value?.toCPointer<ByteVar>())
 
-public actual fun CfUpdatePlaceholder(filehandle: HANDLE, fsmetadata: Long, fileidentity: Long, fileidentitylength: UInt, dehydraterangearray: Long, dehydraterangecount: UInt, updateflags: CF_UPDATE_FLAGS, updateusn: Long, overlapped: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_CfUpdatePlaceholder(filehandle.toCPointer<ByteVar>(), fsmetadata.toCPointer<ByteVar>(), fileidentity.toCPointer<ByteVar>(), fileidentitylength, dehydraterangearray.toCPointer<ByteVar>(), dehydraterangecount, updateflags, updateusn.toCPointer<ByteVar>(), overlapped.toCPointer<ByteVar>())
+public actual fun cfUpdatePlaceholder(filehandle: Handle, fsmetadata: COpaquePointer?, fileidentity: COpaquePointer?, fileidentitylength: UInt, dehydraterangearray: COpaquePointer?, dehydraterangecount: UInt, updateflags: CfUpdateFlags, updateusn: COpaquePointer?, overlapped: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_cfUpdatePlaceholder(filehandle?.value?.toCPointer<ByteVar>(), fsmetadata?.value?.toCPointer<ByteVar>(), fileidentity?.value?.toCPointer<ByteVar>(), fileidentitylength, dehydraterangearray?.value?.toCPointer<ByteVar>(), dehydraterangecount, updateflags, updateusn?.value?.toCPointer<ByteVar>(), overlapped?.value?.toCPointer<ByteVar>())
 
-public actual fun CfUpdateSyncProviderStatus(connectionkey: CF_CONNECTION_KEY, providerstatus: CF_SYNC_PROVIDER_STATUS): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_CfUpdateSyncProviderStatus(connectionkey, providerstatus)
+public actual fun cfUpdateSyncProviderStatus(connectionkey: CfConnectionKey, providerstatus: CfSyncProviderStatus): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.storage.cloudfilters.cinterop.windowssys_windows_win32_storage_cloudfilters_cfUpdateSyncProviderStatus(connectionkey, providerstatus)

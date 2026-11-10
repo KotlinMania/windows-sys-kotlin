@@ -2,167 +2,170 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.libraryloader
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FARPROC
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HGLOBAL
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HMODULE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HRSRC
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Farproc
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hglobal
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hmodule
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hrsrc
 
 private val _windowsWin32SystemLibraryloaderNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun AddDllDirectory(newdirectory: PCWSTR): Long =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_AddDllDirectory(newdirectory.toString()) as String).toLong() else 0L
+public actual fun addDllDirectory(newdirectory: Pcwstr): COpaquePointer? =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_addDllDirectory((newdirectory?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BeginUpdateResourceA(pfilename: PCSTR, bdeleteexistingresources: BOOL): HANDLE =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_BeginUpdateResourceA(pfilename.toString(), bdeleteexistingresources) as String).toLong() else 0L
+public actual fun beginUpdateResourceA(pfilename: Pcstr, bdeleteexistingresources: Bool): Handle =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_beginUpdateResourceA((pfilename?.value ?: 0L).toString(), bdeleteexistingresources) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BeginUpdateResourceW(pfilename: PCWSTR, bdeleteexistingresources: BOOL): HANDLE =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_BeginUpdateResourceW(pfilename.toString(), bdeleteexistingresources) as String).toLong() else 0L
+public actual fun beginUpdateResourceW(pfilename: Pcwstr, bdeleteexistingresources: Bool): Handle =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_beginUpdateResourceW((pfilename?.value ?: 0L).toString(), bdeleteexistingresources) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DisableThreadLibraryCalls(hlibmodule: HMODULE): BOOL =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_DisableThreadLibraryCalls(hlibmodule.toString()) as Int) else 0
+public actual fun disableThreadLibraryCalls(hlibmodule: Hmodule): Bool =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_disableThreadLibraryCalls((hlibmodule?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EndUpdateResourceA(hupdate: HANDLE, fdiscard: BOOL): BOOL =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_EndUpdateResourceA(hupdate.toString(), fdiscard) as Int) else 0
+public actual fun endUpdateResourceA(hupdate: Handle, fdiscard: Bool): Bool =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_endUpdateResourceA((hupdate?.value ?: 0L).toString(), fdiscard) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EndUpdateResourceW(hupdate: HANDLE, fdiscard: BOOL): BOOL =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_EndUpdateResourceW(hupdate.toString(), fdiscard) as Int) else 0
+public actual fun endUpdateResourceW(hupdate: Handle, fdiscard: Bool): Bool =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_endUpdateResourceW((hupdate?.value ?: 0L).toString(), fdiscard) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumResourceLanguagesA(hmodule: HMODULE, lptype: PCSTR, lpname: PCSTR, lpenumfunc: ENUMRESLANGPROCA, lparam: Long): BOOL =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_EnumResourceLanguagesA(hmodule.toString(), lptype.toString(), lpname.toString(), lpenumfunc.toLong().toString(), lparam.toString()) as Int) else 0
+public actual fun enumResourceLanguagesA(hmodule: Hmodule, lptype: Pcstr, lpname: Pcstr, lpenumfunc: Enumreslangproca, lparam: Long): Bool =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_enumResourceLanguagesA((hmodule?.value ?: 0L).toString(), (lptype?.value ?: 0L).toString(), (lpname?.value ?: 0L).toString(), 0L.toString(), lparam.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumResourceLanguagesExA(hmodule: HMODULE, lptype: PCSTR, lpname: PCSTR, lpenumfunc: ENUMRESLANGPROCA, lparam: Long, dwflags: UInt, langid: UShort): BOOL =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_EnumResourceLanguagesExA(hmodule.toString(), lptype.toString(), lpname.toString(), lpenumfunc.toLong().toString(), lparam.toString(), dwflags.toInt(), langid.toInt()) as Int) else 0
+public actual fun enumResourceLanguagesExA(hmodule: Hmodule, lptype: Pcstr, lpname: Pcstr, lpenumfunc: Enumreslangproca, lparam: Long, dwflags: UInt, langid: UShort): Bool =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_enumResourceLanguagesExA((hmodule?.value ?: 0L).toString(), (lptype?.value ?: 0L).toString(), (lpname?.value ?: 0L).toString(), 0L.toString(), lparam.toString(), dwflags.toInt(), langid.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumResourceLanguagesExW(hmodule: HMODULE, lptype: PCWSTR, lpname: PCWSTR, lpenumfunc: ENUMRESLANGPROCW, lparam: Long, dwflags: UInt, langid: UShort): BOOL =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_EnumResourceLanguagesExW(hmodule.toString(), lptype.toString(), lpname.toString(), lpenumfunc.toLong().toString(), lparam.toString(), dwflags.toInt(), langid.toInt()) as Int) else 0
+public actual fun enumResourceLanguagesExW(hmodule: Hmodule, lptype: Pcwstr, lpname: Pcwstr, lpenumfunc: Enumreslangprocw, lparam: Long, dwflags: UInt, langid: UShort): Bool =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_enumResourceLanguagesExW((hmodule?.value ?: 0L).toString(), (lptype?.value ?: 0L).toString(), (lpname?.value ?: 0L).toString(), 0L.toString(), lparam.toString(), dwflags.toInt(), langid.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumResourceLanguagesW(hmodule: HMODULE, lptype: PCWSTR, lpname: PCWSTR, lpenumfunc: ENUMRESLANGPROCW, lparam: Long): BOOL =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_EnumResourceLanguagesW(hmodule.toString(), lptype.toString(), lpname.toString(), lpenumfunc.toLong().toString(), lparam.toString()) as Int) else 0
+public actual fun enumResourceLanguagesW(hmodule: Hmodule, lptype: Pcwstr, lpname: Pcwstr, lpenumfunc: Enumreslangprocw, lparam: Long): Bool =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_enumResourceLanguagesW((hmodule?.value ?: 0L).toString(), (lptype?.value ?: 0L).toString(), (lpname?.value ?: 0L).toString(), 0L.toString(), lparam.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumResourceNamesA(hmodule: HMODULE, lptype: PCSTR, lpenumfunc: ENUMRESNAMEPROCA, lparam: Long): BOOL =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_EnumResourceNamesA(hmodule.toString(), lptype.toString(), lpenumfunc.toLong().toString(), lparam.toString()) as Int) else 0
+public actual fun enumResourceNamesA(hmodule: Hmodule, lptype: Pcstr, lpenumfunc: Enumresnameproca, lparam: Long): Bool =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_enumResourceNamesA((hmodule?.value ?: 0L).toString(), (lptype?.value ?: 0L).toString(), 0L.toString(), lparam.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumResourceNamesExA(hmodule: HMODULE, lptype: PCSTR, lpenumfunc: ENUMRESNAMEPROCA, lparam: Long, dwflags: UInt, langid: UShort): BOOL =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_EnumResourceNamesExA(hmodule.toString(), lptype.toString(), lpenumfunc.toLong().toString(), lparam.toString(), dwflags.toInt(), langid.toInt()) as Int) else 0
+public actual fun enumResourceNamesExA(hmodule: Hmodule, lptype: Pcstr, lpenumfunc: Enumresnameproca, lparam: Long, dwflags: UInt, langid: UShort): Bool =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_enumResourceNamesExA((hmodule?.value ?: 0L).toString(), (lptype?.value ?: 0L).toString(), 0L.toString(), lparam.toString(), dwflags.toInt(), langid.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumResourceNamesExW(hmodule: HMODULE, lptype: PCWSTR, lpenumfunc: ENUMRESNAMEPROCW, lparam: Long, dwflags: UInt, langid: UShort): BOOL =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_EnumResourceNamesExW(hmodule.toString(), lptype.toString(), lpenumfunc.toLong().toString(), lparam.toString(), dwflags.toInt(), langid.toInt()) as Int) else 0
+public actual fun enumResourceNamesExW(hmodule: Hmodule, lptype: Pcwstr, lpenumfunc: Enumresnameprocw, lparam: Long, dwflags: UInt, langid: UShort): Bool =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_enumResourceNamesExW((hmodule?.value ?: 0L).toString(), (lptype?.value ?: 0L).toString(), 0L.toString(), lparam.toString(), dwflags.toInt(), langid.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumResourceNamesW(hmodule: HMODULE, lptype: PCWSTR, lpenumfunc: ENUMRESNAMEPROCW, lparam: Long): BOOL =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_EnumResourceNamesW(hmodule.toString(), lptype.toString(), lpenumfunc.toLong().toString(), lparam.toString()) as Int) else 0
+public actual fun enumResourceNamesW(hmodule: Hmodule, lptype: Pcwstr, lpenumfunc: Enumresnameprocw, lparam: Long): Bool =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_enumResourceNamesW((hmodule?.value ?: 0L).toString(), (lptype?.value ?: 0L).toString(), 0L.toString(), lparam.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumResourceTypesA(hmodule: HMODULE, lpenumfunc: ENUMRESTYPEPROCA, lparam: Long): BOOL =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_EnumResourceTypesA(hmodule.toString(), lpenumfunc.toLong().toString(), lparam.toString()) as Int) else 0
+public actual fun enumResourceTypesA(hmodule: Hmodule, lpenumfunc: Enumrestypeproca, lparam: Long): Bool =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_enumResourceTypesA((hmodule?.value ?: 0L).toString(), 0L.toString(), lparam.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumResourceTypesExA(hmodule: HMODULE, lpenumfunc: ENUMRESTYPEPROCA, lparam: Long, dwflags: UInt, langid: UShort): BOOL =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_EnumResourceTypesExA(hmodule.toString(), lpenumfunc.toLong().toString(), lparam.toString(), dwflags.toInt(), langid.toInt()) as Int) else 0
+public actual fun enumResourceTypesExA(hmodule: Hmodule, lpenumfunc: Enumrestypeproca, lparam: Long, dwflags: UInt, langid: UShort): Bool =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_enumResourceTypesExA((hmodule?.value ?: 0L).toString(), 0L.toString(), lparam.toString(), dwflags.toInt(), langid.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumResourceTypesExW(hmodule: HMODULE, lpenumfunc: ENUMRESTYPEPROCW, lparam: Long, dwflags: UInt, langid: UShort): BOOL =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_EnumResourceTypesExW(hmodule.toString(), lpenumfunc.toLong().toString(), lparam.toString(), dwflags.toInt(), langid.toInt()) as Int) else 0
+public actual fun enumResourceTypesExW(hmodule: Hmodule, lpenumfunc: Enumrestypeprocw, lparam: Long, dwflags: UInt, langid: UShort): Bool =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_enumResourceTypesExW((hmodule?.value ?: 0L).toString(), 0L.toString(), lparam.toString(), dwflags.toInt(), langid.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumResourceTypesW(hmodule: HMODULE, lpenumfunc: ENUMRESTYPEPROCW, lparam: Long): BOOL =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_EnumResourceTypesW(hmodule.toString(), lpenumfunc.toLong().toString(), lparam.toString()) as Int) else 0
+public actual fun enumResourceTypesW(hmodule: Hmodule, lpenumfunc: Enumrestypeprocw, lparam: Long): Bool =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_enumResourceTypesW((hmodule?.value ?: 0L).toString(), 0L.toString(), lparam.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindResourceA(hmodule: HMODULE, lpname: PCSTR, lptype: PCSTR): HRSRC =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_FindResourceA(hmodule.toString(), lpname.toString(), lptype.toString()) as String).toLong() else 0L
+public actual fun findResourceA(hmodule: Hmodule, lpname: Pcstr, lptype: Pcstr): Hrsrc =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_findResourceA((hmodule?.value ?: 0L).toString(), (lpname?.value ?: 0L).toString(), (lptype?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindResourceExA(hmodule: HMODULE, lptype: PCSTR, lpname: PCSTR, wlanguage: UShort): HRSRC =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_FindResourceExA(hmodule.toString(), lptype.toString(), lpname.toString(), wlanguage.toInt()) as String).toLong() else 0L
+public actual fun findResourceExA(hmodule: Hmodule, lptype: Pcstr, lpname: Pcstr, wlanguage: UShort): Hrsrc =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_findResourceExA((hmodule?.value ?: 0L).toString(), (lptype?.value ?: 0L).toString(), (lpname?.value ?: 0L).toString(), wlanguage.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindResourceExW(hmodule: HMODULE, lptype: PCWSTR, lpname: PCWSTR, wlanguage: UShort): HRSRC =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_FindResourceExW(hmodule.toString(), lptype.toString(), lpname.toString(), wlanguage.toInt()) as String).toLong() else 0L
+public actual fun findResourceExW(hmodule: Hmodule, lptype: Pcwstr, lpname: Pcwstr, wlanguage: UShort): Hrsrc =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_findResourceExW((hmodule?.value ?: 0L).toString(), (lptype?.value ?: 0L).toString(), (lpname?.value ?: 0L).toString(), wlanguage.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindResourceW(hmodule: HMODULE, lpname: PCWSTR, lptype: PCWSTR): HRSRC =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_FindResourceW(hmodule.toString(), lpname.toString(), lptype.toString()) as String).toLong() else 0L
+public actual fun findResourceW(hmodule: Hmodule, lpname: Pcwstr, lptype: Pcwstr): Hrsrc =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_findResourceW((hmodule?.value ?: 0L).toString(), (lpname?.value ?: 0L).toString(), (lptype?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FreeLibraryAndExitThread(hlibmodule: HMODULE, dwexitcode: UInt): Nothing {
+public actual fun freeLibraryAndExitThread(hlibmodule: Hmodule, dwexitcode: UInt): Nothing {
     if (_windowsWin32SystemLibraryloaderNapiAddon != null) {
-        _windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_FreeLibraryAndExitThread(hlibmodule.toString(), dwexitcode.toInt())
+        _windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_freeLibraryAndExitThread((hlibmodule?.value ?: 0L).toString(), dwexitcode.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
-    error("Unreachable noreturn C function FreeLibraryAndExitThread")
+    error("Unreachable noreturn C function freeLibraryAndExitThread")
 }
 
-public actual fun FreeResource(hresdata: HGLOBAL): BOOL =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_FreeResource(hresdata.toString()) as Int) else 0
+public actual fun freeResource(hresdata: Hglobal): Bool =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_freeResource((hresdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetDllDirectoryA(nbufferlength: UInt, lpbuffer: PSTR): UInt =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_GetDllDirectoryA(nbufferlength.toInt(), lpbuffer.toString()) as Int).toUInt() else 0u
+public actual fun getDllDirectoryA(nbufferlength: UInt, lpbuffer: Pstr): UInt =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_getDllDirectoryA(nbufferlength.toInt(), (lpbuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetDllDirectoryW(nbufferlength: UInt, lpbuffer: PWSTR): UInt =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_GetDllDirectoryW(nbufferlength.toInt(), lpbuffer.toString()) as Int).toUInt() else 0u
+public actual fun getDllDirectoryW(nbufferlength: UInt, lpbuffer: Pwstr): UInt =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_getDllDirectoryW(nbufferlength.toInt(), (lpbuffer?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetModuleFileNameA(hmodule: HMODULE, lpfilename: PSTR, nsize: UInt): UInt =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_GetModuleFileNameA(hmodule.toString(), lpfilename.toString(), nsize.toInt()) as Int).toUInt() else 0u
+public actual fun getModuleFileNameA(hmodule: Hmodule, lpfilename: Pstr, nsize: UInt): UInt =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_getModuleFileNameA((hmodule?.value ?: 0L).toString(), (lpfilename?.value ?: 0L).toString(), nsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetModuleFileNameW(hmodule: HMODULE, lpfilename: PWSTR, nsize: UInt): UInt =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_GetModuleFileNameW(hmodule.toString(), lpfilename.toString(), nsize.toInt()) as Int).toUInt() else 0u
+public actual fun getModuleFileNameW(hmodule: Hmodule, lpfilename: Pwstr, nsize: UInt): UInt =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_getModuleFileNameW((hmodule?.value ?: 0L).toString(), (lpfilename?.value ?: 0L).toString(), nsize.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetModuleHandleA(lpmodulename: PCSTR): HMODULE =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_GetModuleHandleA(lpmodulename.toString()) as String).toLong() else 0L
+public actual fun getModuleHandleA(lpmodulename: Pcstr): Hmodule =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_getModuleHandleA((lpmodulename?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetModuleHandleExA(dwflags: UInt, lpmodulename: PCSTR, phmodule: Long): BOOL =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_GetModuleHandleExA(dwflags.toInt(), lpmodulename.toString(), phmodule.toString()) as Int) else 0
+public actual fun getModuleHandleExA(dwflags: UInt, lpmodulename: Pcstr, phmodule: COpaquePointer?): Bool =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_getModuleHandleExA(dwflags.toInt(), (lpmodulename?.value ?: 0L).toString(), (phmodule?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetModuleHandleExW(dwflags: UInt, lpmodulename: PCWSTR, phmodule: Long): BOOL =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_GetModuleHandleExW(dwflags.toInt(), lpmodulename.toString(), phmodule.toString()) as Int) else 0
+public actual fun getModuleHandleExW(dwflags: UInt, lpmodulename: Pcwstr, phmodule: COpaquePointer?): Bool =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_getModuleHandleExW(dwflags.toInt(), (lpmodulename?.value ?: 0L).toString(), (phmodule?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetModuleHandleW(lpmodulename: PCWSTR): HMODULE =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_GetModuleHandleW(lpmodulename.toString()) as String).toLong() else 0L
+public actual fun getModuleHandleW(lpmodulename: Pcwstr): Hmodule =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_getModuleHandleW((lpmodulename?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetProcAddress(hmodule: HMODULE, lpprocname: PCSTR): FARPROC =
-    null
+public actual fun getProcAddress(hmodule: Hmodule, lpprocname: Pcstr): Farproc =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LoadLibraryA(lplibfilename: PCSTR): HMODULE =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_LoadLibraryA(lplibfilename.toString()) as String).toLong() else 0L
+public actual fun loadLibraryA(lplibfilename: Pcstr): Hmodule =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_loadLibraryA((lplibfilename?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LoadLibraryExA(lplibfilename: PCSTR, hfile: HANDLE, dwflags: LOAD_LIBRARY_FLAGS): HMODULE =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_LoadLibraryExA(lplibfilename.toString(), hfile.toString(), dwflags.toInt()) as String).toLong() else 0L
+public actual fun loadLibraryExA(lplibfilename: Pcstr, hfile: Handle, dwflags: LoadLibraryFlags): Hmodule =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_loadLibraryExA((lplibfilename?.value ?: 0L).toString(), (hfile?.value ?: 0L).toString(), dwflags.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LoadLibraryExW(lplibfilename: PCWSTR, hfile: HANDLE, dwflags: LOAD_LIBRARY_FLAGS): HMODULE =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_LoadLibraryExW(lplibfilename.toString(), hfile.toString(), dwflags.toInt()) as String).toLong() else 0L
+public actual fun loadLibraryExW(lplibfilename: Pcwstr, hfile: Handle, dwflags: LoadLibraryFlags): Hmodule =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_loadLibraryExW((lplibfilename?.value ?: 0L).toString(), (hfile?.value ?: 0L).toString(), dwflags.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LoadLibraryW(lplibfilename: PCWSTR): HMODULE =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_LoadLibraryW(lplibfilename.toString()) as String).toLong() else 0L
+public actual fun loadLibraryW(lplibfilename: Pcwstr): Hmodule =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_loadLibraryW((lplibfilename?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LoadModule(lpmodulename: PCSTR, lpparameterblock: Long): UInt =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_LoadModule(lpmodulename.toString(), lpparameterblock.toString()) as Int).toUInt() else 0u
+public actual fun loadModule(lpmodulename: Pcstr, lpparameterblock: COpaquePointer?): UInt =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_loadModule((lpmodulename?.value ?: 0L).toString(), (lpparameterblock?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LoadPackagedLibrary(lpwlibfilename: PCWSTR, reserved: UInt): HMODULE =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_LoadPackagedLibrary(lpwlibfilename.toString(), reserved.toInt()) as String).toLong() else 0L
+public actual fun loadPackagedLibrary(lpwlibfilename: Pcwstr, reserved: UInt): Hmodule =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_loadPackagedLibrary((lpwlibfilename?.value ?: 0L).toString(), reserved.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LoadResource(hmodule: HMODULE, hresinfo: HRSRC): HGLOBAL =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_LoadResource(hmodule.toString(), hresinfo.toString()) as String).toLong() else 0L
+public actual fun loadResource(hmodule: Hmodule, hresinfo: Hrsrc): Hglobal =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_loadResource((hmodule?.value ?: 0L).toString(), (hresinfo?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LockResource(hresdata: HGLOBAL): Long =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_LockResource(hresdata.toString()) as String).toLong() else 0L
+public actual fun lockResource(hresdata: Hglobal): COpaquePointer? =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_lockResource((hresdata?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QueryOptionalDelayLoadedAPI(hparentmodule: HMODULE, lpdllname: PCSTR, lpprocname: PCSTR, reserved: UInt): BOOL =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_QueryOptionalDelayLoadedAPI(hparentmodule.toString(), lpdllname.toString(), lpprocname.toString(), reserved.toInt()) as Int) else 0
+public actual fun queryOptionalDelayLoadedAPI(hparentmodule: Hmodule, lpdllname: Pcstr, lpprocname: Pcstr, reserved: UInt): Bool =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_queryOptionalDelayLoadedAPI((hparentmodule?.value ?: 0L).toString(), (lpdllname?.value ?: 0L).toString(), (lpprocname?.value ?: 0L).toString(), reserved.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RemoveDllDirectory(cookie: Long): BOOL =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_RemoveDllDirectory(cookie.toString()) as Int) else 0
+public actual fun removeDllDirectory(cookie: COpaquePointer?): Bool =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_removeDllDirectory((cookie?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetDefaultDllDirectories(directoryflags: LOAD_LIBRARY_FLAGS): BOOL =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_SetDefaultDllDirectories(directoryflags.toInt()) as Int) else 0
+public actual fun setDefaultDllDirectories(directoryflags: LoadLibraryFlags): Bool =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_setDefaultDllDirectories(directoryflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetDllDirectoryA(lppathname: PCSTR): BOOL =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_SetDllDirectoryA(lppathname.toString()) as Int) else 0
+public actual fun setDllDirectoryA(lppathname: Pcstr): Bool =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_setDllDirectoryA((lppathname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetDllDirectoryW(lppathname: PCWSTR): BOOL =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_SetDllDirectoryW(lppathname.toString()) as Int) else 0
+public actual fun setDllDirectoryW(lppathname: Pcwstr): Bool =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_setDllDirectoryW((lppathname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SizeofResource(hmodule: HMODULE, hresinfo: HRSRC): UInt =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_SizeofResource(hmodule.toString(), hresinfo.toString()) as Int).toUInt() else 0u
+public actual fun sizeofResource(hmodule: Hmodule, hresinfo: Hrsrc): UInt =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_sizeofResource((hmodule?.value ?: 0L).toString(), (hresinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UpdateResourceA(hupdate: HANDLE, lptype: PCSTR, lpname: PCSTR, wlanguage: UShort, lpdata: Long, cb: UInt): BOOL =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_UpdateResourceA(hupdate.toString(), lptype.toString(), lpname.toString(), wlanguage.toInt(), lpdata.toString(), cb.toInt()) as Int) else 0
+public actual fun updateResourceA(hupdate: Handle, lptype: Pcstr, lpname: Pcstr, wlanguage: UShort, lpdata: COpaquePointer?, cb: UInt): Bool =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_updateResourceA((hupdate?.value ?: 0L).toString(), (lptype?.value ?: 0L).toString(), (lpname?.value ?: 0L).toString(), wlanguage.toInt(), (lpdata?.value ?: 0L).toString(), cb.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UpdateResourceW(hupdate: HANDLE, lptype: PCWSTR, lpname: PCWSTR, wlanguage: UShort, lpdata: Long, cb: UInt): BOOL =
-    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_UpdateResourceW(hupdate.toString(), lptype.toString(), lpname.toString(), wlanguage.toInt(), lpdata.toString(), cb.toInt()) as Int) else 0
+public actual fun updateResourceW(hupdate: Handle, lptype: Pcwstr, lpname: Pcwstr, wlanguage: UShort, lpdata: COpaquePointer?, cb: UInt): Bool =
+    if (_windowsWin32SystemLibraryloaderNapiAddon != null) (_windowsWin32SystemLibraryloaderNapiAddon.windowssys_windows_win32_system_libraryloader_updateResourceW((hupdate?.value ?: 0L).toString(), (lptype?.value ?: 0L).toString(), (lpname?.value ?: 0L).toString(), wlanguage.toInt(), (lpdata?.value ?: 0L).toString(), cb.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

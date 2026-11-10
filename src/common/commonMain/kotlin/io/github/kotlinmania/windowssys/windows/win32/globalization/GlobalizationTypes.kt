@@ -1,214 +1,215 @@
 package io.github.kotlinmania.windowssys.windows.win32.globalization
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 
-public typealias CALDATETIME_DATEUNIT = Int
+public typealias CaldatetimeDateunit = Int
 
-public fun interface CALINFO_ENUMPROCAFn {
-    public operator fun invoke(param0: PCSTR): BOOL
+public fun interface CalinfoEnumprocaFn {
+    public operator fun invoke(param0: Pcstr): Bool
 }
 
-public typealias CALINFO_ENUMPROCA = CALINFO_ENUMPROCAFn?
+public typealias CalinfoEnumproca = CalinfoEnumprocaFn?
 
-public fun interface CALINFO_ENUMPROCEXAFn {
-    public operator fun invoke(param0: PCSTR, param1: UInt): BOOL
+public fun interface CalinfoEnumprocexaFn {
+    public operator fun invoke(param0: Pcstr, param1: UInt): Bool
 }
 
-public typealias CALINFO_ENUMPROCEXA = CALINFO_ENUMPROCEXAFn?
+public typealias CalinfoEnumprocexa = CalinfoEnumprocexaFn?
 
-public fun interface CALINFO_ENUMPROCEXEXFn {
-    public operator fun invoke(param0: PCWSTR, param1: UInt, param2: PCWSTR, param3: LPARAM): BOOL
+public fun interface CalinfoEnumprocexexFn {
+    public operator fun invoke(param0: Pcwstr, param1: UInt, param2: Pcwstr, param3: Lparam): Bool
 }
 
-public typealias CALINFO_ENUMPROCEXEX = CALINFO_ENUMPROCEXEXFn?
+public typealias CalinfoEnumprocexex = CalinfoEnumprocexexFn?
 
-public fun interface CALINFO_ENUMPROCEXWFn {
-    public operator fun invoke(param0: PCWSTR, param1: UInt): BOOL
+public fun interface CalinfoEnumprocexwFn {
+    public operator fun invoke(param0: Pcwstr, param1: UInt): Bool
 }
 
-public typealias CALINFO_ENUMPROCEXW = CALINFO_ENUMPROCEXWFn?
+public typealias CalinfoEnumprocexw = CalinfoEnumprocexwFn?
 
-public fun interface CALINFO_ENUMPROCWFn {
-    public operator fun invoke(param0: PCWSTR): BOOL
+public fun interface CalinfoEnumprocwFn {
+    public operator fun invoke(param0: Pcwstr): Bool
 }
 
-public typealias CALINFO_ENUMPROCW = CALINFO_ENUMPROCWFn?
+public typealias CalinfoEnumprocw = CalinfoEnumprocwFn?
 
-public fun interface CODEPAGE_ENUMPROCAFn {
-    public operator fun invoke(param0: PCSTR): BOOL
+public fun interface CodepageEnumprocaFn {
+    public operator fun invoke(param0: Pcstr): Bool
 }
 
-public typealias CODEPAGE_ENUMPROCA = CODEPAGE_ENUMPROCAFn?
+public typealias CodepageEnumproca = CodepageEnumprocaFn?
 
-public fun interface CODEPAGE_ENUMPROCWFn {
-    public operator fun invoke(param0: PCWSTR): BOOL
+public fun interface CodepageEnumprocwFn {
+    public operator fun invoke(param0: Pcwstr): Bool
 }
 
-public typealias CODEPAGE_ENUMPROCW = CODEPAGE_ENUMPROCWFn?
+public typealias CodepageEnumprocw = CodepageEnumprocwFn?
 
-public typealias COMPARESTRING_RESULT = Int
+public typealias ComparestringResult = Int
 
-public typealias COMPARE_STRING_FLAGS = UInt
+public typealias CompareStringFlags = UInt
 
-public typealias CORRECTIVE_ACTION = Int
+public typealias CorrectiveAction = Int
 
-public fun interface DATEFMT_ENUMPROCAFn {
-    public operator fun invoke(param0: PCSTR): BOOL
+public fun interface DatefmtEnumprocaFn {
+    public operator fun invoke(param0: Pcstr): Bool
 }
 
-public typealias DATEFMT_ENUMPROCA = DATEFMT_ENUMPROCAFn?
+public typealias DatefmtEnumproca = DatefmtEnumprocaFn?
 
-public fun interface DATEFMT_ENUMPROCEXAFn {
-    public operator fun invoke(param0: PCSTR, param1: UInt): BOOL
+public fun interface DatefmtEnumprocexaFn {
+    public operator fun invoke(param0: Pcstr, param1: UInt): Bool
 }
 
-public typealias DATEFMT_ENUMPROCEXA = DATEFMT_ENUMPROCEXAFn?
+public typealias DatefmtEnumprocexa = DatefmtEnumprocexaFn?
 
-public fun interface DATEFMT_ENUMPROCEXEXFn {
-    public operator fun invoke(param0: PCWSTR, param1: UInt, param2: LPARAM): BOOL
+public fun interface DatefmtEnumprocexexFn {
+    public operator fun invoke(param0: Pcwstr, param1: UInt, param2: Lparam): Bool
 }
 
-public typealias DATEFMT_ENUMPROCEXEX = DATEFMT_ENUMPROCEXEXFn?
+public typealias DatefmtEnumprocexex = DatefmtEnumprocexexFn?
 
-public fun interface DATEFMT_ENUMPROCEXWFn {
-    public operator fun invoke(param0: PCWSTR, param1: UInt): BOOL
+public fun interface DatefmtEnumprocexwFn {
+    public operator fun invoke(param0: Pcwstr, param1: UInt): Bool
 }
 
-public typealias DATEFMT_ENUMPROCEXW = DATEFMT_ENUMPROCEXWFn?
+public typealias DatefmtEnumprocexw = DatefmtEnumprocexwFn?
 
-public fun interface DATEFMT_ENUMPROCWFn {
-    public operator fun invoke(param0: PCWSTR): BOOL
+public fun interface DatefmtEnumprocwFn {
+    public operator fun invoke(param0: Pcwstr): Bool
 }
 
-public typealias DATEFMT_ENUMPROCW = DATEFMT_ENUMPROCWFn?
+public typealias DatefmtEnumprocw = DatefmtEnumprocwFn?
 
-public typealias ENUM_DATE_FORMATS_FLAGS = UInt
+public typealias EnumDateFormatsFlags = UInt
 
-public typealias ENUM_SYSTEM_CODE_PAGES_FLAGS = UInt
+public typealias EnumSystemCodePagesFlags = UInt
 
-public typealias ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS = UInt
+public typealias EnumSystemLanguageGroupsFlags = UInt
 
-public typealias FOLD_STRING_MAP_FLAGS = UInt
+public typealias FoldStringMapFlags = UInt
 
-public fun interface GEO_ENUMNAMEPROCFn {
-    public operator fun invoke(param0: PCWSTR, param1: LPARAM): BOOL
+public fun interface GeoEnumnameprocFn {
+    public operator fun invoke(param0: Pcwstr, param1: Lparam): Bool
 }
 
-public typealias GEO_ENUMNAMEPROC = GEO_ENUMNAMEPROCFn?
+public typealias GeoEnumnameproc = GeoEnumnameprocFn?
 
-public fun interface GEO_ENUMPROCFn {
-    public operator fun invoke(param0: Int): BOOL
+public fun interface GeoEnumprocFn {
+    public operator fun invoke(param0: Int): Bool
 }
 
-public typealias GEO_ENUMPROC = GEO_ENUMPROCFn?
+public typealias GeoEnumproc = GeoEnumprocFn?
 
-public typealias HSAVEDUILANGUAGES = Long
+public typealias Hsaveduilanguages = COpaquePointer?
 
-public typealias IS_TEXT_UNICODE_RESULT = UInt
+public typealias IsTextUnicodeResult = UInt
 
-public typealias IS_VALID_LOCALE_FLAGS = UInt
+public typealias IsValidLocaleFlags = UInt
 
-public fun interface LANGGROUPLOCALE_ENUMPROCAFn {
-    public operator fun invoke(param0: UInt, param1: UInt, param2: PCSTR, param3: Long): BOOL
+public fun interface LanggrouplocaleEnumprocaFn {
+    public operator fun invoke(param0: UInt, param1: UInt, param2: Pcstr, param3: Long): Bool
 }
 
-public typealias LANGGROUPLOCALE_ENUMPROCA = LANGGROUPLOCALE_ENUMPROCAFn?
+public typealias LanggrouplocaleEnumproca = LanggrouplocaleEnumprocaFn?
 
-public fun interface LANGGROUPLOCALE_ENUMPROCWFn {
-    public operator fun invoke(param0: UInt, param1: UInt, param2: PCWSTR, param3: Long): BOOL
+public fun interface LanggrouplocaleEnumprocwFn {
+    public operator fun invoke(param0: UInt, param1: UInt, param2: Pcwstr, param3: Long): Bool
 }
 
-public typealias LANGGROUPLOCALE_ENUMPROCW = LANGGROUPLOCALE_ENUMPROCWFn?
+public typealias LanggrouplocaleEnumprocw = LanggrouplocaleEnumprocwFn?
 
-public fun interface LANGUAGEGROUP_ENUMPROCAFn {
-    public operator fun invoke(param0: UInt, param1: PCSTR, param2: PCSTR, param3: UInt, param4: Long): BOOL
+public fun interface LanguagegroupEnumprocaFn {
+    public operator fun invoke(param0: UInt, param1: Pcstr, param2: Pcstr, param3: UInt, param4: Long): Bool
 }
 
-public typealias LANGUAGEGROUP_ENUMPROCA = LANGUAGEGROUP_ENUMPROCAFn?
+public typealias LanguagegroupEnumproca = LanguagegroupEnumprocaFn?
 
-public fun interface LANGUAGEGROUP_ENUMPROCWFn {
-    public operator fun invoke(param0: UInt, param1: PCWSTR, param2: PCWSTR, param3: UInt, param4: Long): BOOL
+public fun interface LanguagegroupEnumprocwFn {
+    public operator fun invoke(param0: UInt, param1: Pcwstr, param2: Pcwstr, param3: UInt, param4: Long): Bool
 }
 
-public typealias LANGUAGEGROUP_ENUMPROCW = LANGUAGEGROUP_ENUMPROCWFn?
+public typealias LanguagegroupEnumprocw = LanguagegroupEnumprocwFn?
 
-public fun interface LOCALE_ENUMPROCAFn {
-    public operator fun invoke(param0: PCSTR): BOOL
+public fun interface LocaleEnumprocaFn {
+    public operator fun invoke(param0: Pcstr): Bool
 }
 
-public typealias LOCALE_ENUMPROCA = LOCALE_ENUMPROCAFn?
+public typealias LocaleEnumproca = LocaleEnumprocaFn?
 
-public fun interface LOCALE_ENUMPROCEXFn {
-    public operator fun invoke(param0: PCWSTR, param1: UInt, param2: LPARAM): BOOL
+public fun interface LocaleEnumprocexFn {
+    public operator fun invoke(param0: Pcwstr, param1: UInt, param2: Lparam): Bool
 }
 
-public typealias LOCALE_ENUMPROCEX = LOCALE_ENUMPROCEXFn?
+public typealias LocaleEnumprocex = LocaleEnumprocexFn?
 
-public fun interface LOCALE_ENUMPROCWFn {
-    public operator fun invoke(param0: PCWSTR): BOOL
+public fun interface LocaleEnumprocwFn {
+    public operator fun invoke(param0: Pcwstr): Bool
 }
 
-public typealias LOCALE_ENUMPROCW = LOCALE_ENUMPROCWFn?
+public typealias LocaleEnumprocw = LocaleEnumprocwFn?
 
-public typealias MIMECONTF = Int
+public typealias Mimecontf = Int
 
-public typealias MLCONVCHAR = Int
+public typealias Mlconvchar = Int
 
-public typealias MLCP = Int
+public typealias Mlcp = Int
 
-public typealias MLDETECTCP = Int
+public typealias Mldetectcp = Int
 
-public typealias MLSTR_FLAGS = Int
+public typealias MlstrFlags = Int
 
-public typealias MULTI_BYTE_TO_WIDE_CHAR_FLAGS = UInt
+public typealias MultiByteToWideCharFlags = UInt
 
-public typealias NORM_FORM = Int
+public typealias NormForm = Int
 
-public fun interface PFN_MAPPINGCALLBACKPROCFn {
-    public operator fun invoke(pbag: Long, data: Long, dwdatasize: UInt, result: HRESULT)
+public fun interface PfnMappingcallbackprocFn {
+    public operator fun invoke(pbag: COpaquePointer?, data: COpaquePointer?, dwdatasize: UInt, result: Hresult)
 }
 
-public typealias PFN_MAPPINGCALLBACKPROC = PFN_MAPPINGCALLBACKPROCFn?
+public typealias PfnMappingcallbackproc = PfnMappingcallbackprocFn?
 
-public typealias SCRIPTCONTF = Int
+public typealias Scriptcontf = Int
 
-public typealias SCRIPTFONTCONTF = Int
+public typealias Scriptfontcontf = Int
 
-public typealias SCRIPT_IS_COMPLEX_FLAGS = UInt
+public typealias ScriptIsComplexFlags = UInt
 
-public typealias SCRIPT_JUSTIFY = Int
+public typealias ScriptJustify = Int
 
-public typealias SYSGEOCLASS = Int
+public typealias Sysgeoclass = Int
 
-public typealias SYSGEOTYPE = Int
+public typealias Sysgeotype = Int
 
-public typealias SYSNLS_FUNCTION = Int
+public typealias SysnlsFunction = Int
 
-public fun interface TIMEFMT_ENUMPROCAFn {
-    public operator fun invoke(param0: PCSTR): BOOL
+public fun interface TimefmtEnumprocaFn {
+    public operator fun invoke(param0: Pcstr): Bool
 }
 
-public typealias TIMEFMT_ENUMPROCA = TIMEFMT_ENUMPROCAFn?
+public typealias TimefmtEnumproca = TimefmtEnumprocaFn?
 
-public fun interface TIMEFMT_ENUMPROCEXFn {
-    public operator fun invoke(param0: PCWSTR, param1: LPARAM): BOOL
+public fun interface TimefmtEnumprocexFn {
+    public operator fun invoke(param0: Pcwstr, param1: Lparam): Bool
 }
 
-public typealias TIMEFMT_ENUMPROCEX = TIMEFMT_ENUMPROCEXFn?
+public typealias TimefmtEnumprocex = TimefmtEnumprocexFn?
 
-public fun interface TIMEFMT_ENUMPROCWFn {
-    public operator fun invoke(param0: PCWSTR): BOOL
+public fun interface TimefmtEnumprocwFn {
+    public operator fun invoke(param0: Pcwstr): Bool
 }
 
-public typealias TIMEFMT_ENUMPROCW = TIMEFMT_ENUMPROCWFn?
+public typealias TimefmtEnumprocw = TimefmtEnumprocwFn?
 
-public typealias TIME_FORMAT_FLAGS = UInt
+public typealias TimeFormatFlags = UInt
 
-public typealias TRANSLATE_CHARSET_INFO_FLAGS = UInt
+public typealias TranslateCharsetInfoFlags = UInt
 
 public typealias UAcceptResult = Int
 
@@ -217,7 +218,7 @@ public typealias UAlphabeticIndexLabelType = Int
 public typealias UBiDi = Long
 
 public fun interface UBiDiClassCallbackFn {
-    public operator fun invoke(context: Long, c: Int): UCharDirection
+    public operator fun invoke(context: COpaquePointer?, c: Int): UCharDirection
 }
 
 public typealias UBiDiClassCallback = UBiDiClassCallbackFn?
@@ -247,7 +248,7 @@ public typealias UCPMap = Long
 public typealias UCPMapRangeOption = Int
 
 public fun interface UCPMapValueFilterFn {
-    public operator fun invoke(context: Long, value: UInt): UInt
+    public operator fun invoke(context: COpaquePointer?, value: UInt): UInt
 }
 
 public typealias UCPMapValueFilter = UCPMapValueFilterFn?
@@ -283,49 +284,49 @@ public typealias UCharCategory = Int
 public typealias UCharDirection = Int
 
 public fun interface UCharEnumTypeRangeFn {
-    public operator fun invoke(context: Long, start: Int, limit: Int, type: UCharCategory): Byte
+    public operator fun invoke(context: COpaquePointer?, start: Int, limit: Int, type: UCharCategory): Byte
 }
 
 public typealias UCharEnumTypeRange = UCharEnumTypeRangeFn?
 
 public fun interface UCharIteratorCurrentFn {
-    public operator fun invoke(iter: Long): Int
+    public operator fun invoke(iter: COpaquePointer?): Int
 }
 
 public typealias UCharIteratorCurrent = UCharIteratorCurrentFn?
 
 public fun interface UCharIteratorGetIndexFn {
-    public operator fun invoke(iter: Long, origin: UCharIteratorOrigin): Int
+    public operator fun invoke(iter: COpaquePointer?, origin: UCharIteratorOrigin): Int
 }
 
 public typealias UCharIteratorGetIndex = UCharIteratorGetIndexFn?
 
 public fun interface UCharIteratorGetStateFn {
-    public operator fun invoke(iter: Long): UInt
+    public operator fun invoke(iter: COpaquePointer?): UInt
 }
 
 public typealias UCharIteratorGetState = UCharIteratorGetStateFn?
 
 public fun interface UCharIteratorHasNextFn {
-    public operator fun invoke(iter: Long): Byte
+    public operator fun invoke(iter: COpaquePointer?): Byte
 }
 
 public typealias UCharIteratorHasNext = UCharIteratorHasNextFn?
 
 public fun interface UCharIteratorHasPreviousFn {
-    public operator fun invoke(iter: Long): Byte
+    public operator fun invoke(iter: COpaquePointer?): Byte
 }
 
 public typealias UCharIteratorHasPrevious = UCharIteratorHasPreviousFn?
 
 public fun interface UCharIteratorMoveFn {
-    public operator fun invoke(iter: Long, delta: Int, origin: UCharIteratorOrigin): Int
+    public operator fun invoke(iter: COpaquePointer?, delta: Int, origin: UCharIteratorOrigin): Int
 }
 
 public typealias UCharIteratorMove = UCharIteratorMoveFn?
 
 public fun interface UCharIteratorNextFn {
-    public operator fun invoke(iter: Long): Int
+    public operator fun invoke(iter: COpaquePointer?): Int
 }
 
 public typealias UCharIteratorNext = UCharIteratorNextFn?
@@ -333,19 +334,19 @@ public typealias UCharIteratorNext = UCharIteratorNextFn?
 public typealias UCharIteratorOrigin = Int
 
 public fun interface UCharIteratorPreviousFn {
-    public operator fun invoke(iter: Long): Int
+    public operator fun invoke(iter: COpaquePointer?): Int
 }
 
 public typealias UCharIteratorPrevious = UCharIteratorPreviousFn?
 
 public fun interface UCharIteratorReservedFn {
-    public operator fun invoke(iter: Long, something: Int): Int
+    public operator fun invoke(iter: COpaquePointer?, something: Int): Int
 }
 
 public typealias UCharIteratorReserved = UCharIteratorReservedFn?
 
 public fun interface UCharIteratorSetStateFn {
-    public operator fun invoke(iter: Long, state: UInt, perrorcode: Long)
+    public operator fun invoke(iter: COpaquePointer?, state: UInt, perrorcode: COpaquePointer?)
 }
 
 public typealias UCharIteratorSetState = UCharIteratorSetStateFn?
@@ -379,7 +380,7 @@ public typealias UConverter = Long
 public typealias UConverterCallbackReason = Int
 
 public fun interface UConverterFromUCallbackFn {
-    public operator fun invoke(context: Long, args: Long, codeunits: Long, length: Int, codepoint: Int, reason: UConverterCallbackReason, perrorcode: Long)
+    public operator fun invoke(context: COpaquePointer?, args: COpaquePointer?, codeunits: COpaquePointer?, length: Int, codepoint: Int, reason: UConverterCallbackReason, perrorcode: COpaquePointer?)
 }
 
 public typealias UConverterFromUCallback = UConverterFromUCallbackFn?
@@ -389,7 +390,7 @@ public typealias UConverterPlatform = Int
 public typealias UConverterSelector = Long
 
 public fun interface UConverterToUCallbackFn {
-    public operator fun invoke(context: Long, args: Long, codeunits: PCSTR, length: Int, reason: UConverterCallbackReason, perrorcode: Long)
+    public operator fun invoke(context: COpaquePointer?, args: COpaquePointer?, codeunits: Pcstr, length: Int, reason: UConverterCallbackReason, perrorcode: COpaquePointer?)
 }
 
 public typealias UConverterToUCallback = UConverterToUCallbackFn?
@@ -447,7 +448,7 @@ public typealias UDisplayContextType = Int
 public typealias UEastAsianWidth = Int
 
 public fun interface UEnumCharNamesFnFn {
-    public operator fun invoke(context: Long, code: Int, namechoice: UCharNameChoice, name: PCSTR, length: Int): Byte
+    public operator fun invoke(context: COpaquePointer?, code: Int, namechoice: UCharNameChoice, name: Pcstr, length: Int): Byte
 }
 
 public typealias UEnumCharNamesFn = UEnumCharNamesFnFn?
@@ -484,19 +485,19 @@ public typealias UHangulSyllableType = Int
 
 public typealias UHashtable = Long
 
-public typealias UIDNA = Long
+public typealias Uidna = Long
 
-public fun interface UILANGUAGE_ENUMPROCAFn {
-    public operator fun invoke(param0: PCSTR, param1: Long): BOOL
+public fun interface UilanguageEnumprocaFn {
+    public operator fun invoke(param0: Pcstr, param1: Long): Bool
 }
 
-public typealias UILANGUAGE_ENUMPROCA = UILANGUAGE_ENUMPROCAFn?
+public typealias UilanguageEnumproca = UilanguageEnumprocaFn?
 
-public fun interface UILANGUAGE_ENUMPROCWFn {
-    public operator fun invoke(param0: PCWSTR, param1: Long): BOOL
+public fun interface UilanguageEnumprocwFn {
+    public operator fun invoke(param0: Pcwstr, param1: Long): Bool
 }
 
-public typealias UILANGUAGE_ENUMPROCW = UILANGUAGE_ENUMPROCWFn?
+public typealias UilanguageEnumprocw = UilanguageEnumprocwFn?
 
 public typealias UIndicPositionalCategory = Int
 
@@ -537,19 +538,19 @@ public typealias UMeasureFormatWidth = Int
 public typealias UMeasurementSystem = Int
 
 public fun interface UMemAllocFnFn {
-    public operator fun invoke(context: Long, size: ULong): Long
+    public operator fun invoke(context: COpaquePointer?, size: ULong): COpaquePointer?
 }
 
 public typealias UMemAllocFn = UMemAllocFnFn?
 
 public fun interface UMemFreeFnFn {
-    public operator fun invoke(context: Long, mem: Long)
+    public operator fun invoke(context: COpaquePointer?, mem: COpaquePointer?)
 }
 
 public typealias UMemFreeFn = UMemFreeFnFn?
 
 public fun interface UMemReallocFnFn {
-    public operator fun invoke(context: Long, mem: Long, size: ULong): Long
+    public operator fun invoke(context: COpaquePointer?, mem: COpaquePointer?, size: ULong): COpaquePointer?
 }
 
 public typealias UMemReallocFn = UMemReallocFnFn?
@@ -562,11 +563,11 @@ public typealias UMessagePatternPartType = Int
 
 public typealias UMutableCPTrie = Long
 
-public fun interface UNESCAPE_CHAR_ATFn {
-    public operator fun invoke(offset: Int, context: Long): UShort
+public fun interface UnescapeCharAtFn {
+    public operator fun invoke(offset: Int, context: COpaquePointer?): UShort
 }
 
-public typealias UNESCAPE_CHAR_AT = UNESCAPE_CHAR_ATFn?
+public typealias UnescapeCharAt = UnescapeCharAtFn?
 
 public typealias UNormalization2Mode = Int
 
@@ -623,13 +624,13 @@ public typealias UProperty = Int
 public typealias UPropertyNameChoice = Int
 
 public fun interface URegexFindProgressCallbackFn {
-    public operator fun invoke(context: Long, matchindex: Long): Byte
+    public operator fun invoke(context: COpaquePointer?, matchindex: Long): Byte
 }
 
 public typealias URegexFindProgressCallback = URegexFindProgressCallbackFn?
 
 public fun interface URegexMatchCallbackFn {
-    public operator fun invoke(context: Long, steps: Int): Byte
+    public operator fun invoke(context: COpaquePointer?, steps: Int): Byte
 }
 
 public typealias URegexMatchCallback = URegexMatchCallbackFn?
@@ -679,7 +680,7 @@ public typealias USpoofChecker = Long
 public typealias USpoofChecks = Int
 
 public fun interface UStringCaseMapperFn {
-    public operator fun invoke(csm: Long, dest: Long, destcapacity: Int, src: Long, srclength: Int, perrorcode: Long): Int
+    public operator fun invoke(csm: COpaquePointer?, dest: COpaquePointer?, destcapacity: Int, src: COpaquePointer?, srclength: Int, perrorcode: COpaquePointer?): Int
 }
 
 public typealias UStringCaseMapper = UStringCaseMapperFn?
@@ -697,55 +698,55 @@ public typealias UStringTrieResult = Int
 public typealias USystemTimeZoneType = Int
 
 public fun interface UTextAccessFn {
-    public operator fun invoke(ut: Long, nativeindex: Long, forward: Byte): Byte
+    public operator fun invoke(ut: COpaquePointer?, nativeindex: Long, forward: Byte): Byte
 }
 
 public typealias UTextAccess = UTextAccessFn?
 
 public fun interface UTextCloneFn {
-    public operator fun invoke(dest: Long, src: Long, deep: Byte, status: Long): Long
+    public operator fun invoke(dest: COpaquePointer?, src: COpaquePointer?, deep: Byte, status: COpaquePointer?): COpaquePointer?
 }
 
 public typealias UTextClone = UTextCloneFn?
 
 public fun interface UTextCloseFn {
-    public operator fun invoke(ut: Long)
+    public operator fun invoke(ut: COpaquePointer?)
 }
 
 public typealias UTextClose = UTextCloseFn?
 
 public fun interface UTextCopyFn {
-    public operator fun invoke(ut: Long, nativestart: Long, nativelimit: Long, nativedest: Long, move: Byte, status: Long)
+    public operator fun invoke(ut: COpaquePointer?, nativestart: Long, nativelimit: Long, nativedest: Long, move: Byte, status: COpaquePointer?)
 }
 
 public typealias UTextCopy = UTextCopyFn?
 
 public fun interface UTextExtractFn {
-    public operator fun invoke(ut: Long, nativestart: Long, nativelimit: Long, dest: Long, destcapacity: Int, status: Long): Int
+    public operator fun invoke(ut: COpaquePointer?, nativestart: Long, nativelimit: Long, dest: COpaquePointer?, destcapacity: Int, status: COpaquePointer?): Int
 }
 
 public typealias UTextExtract = UTextExtractFn?
 
 public fun interface UTextMapNativeIndexToUTF16Fn {
-    public operator fun invoke(ut: Long, nativeindex: Long): Int
+    public operator fun invoke(ut: COpaquePointer?, nativeindex: Long): Int
 }
 
 public typealias UTextMapNativeIndexToUTF16 = UTextMapNativeIndexToUTF16Fn?
 
 public fun interface UTextMapOffsetToNativeFn {
-    public operator fun invoke(ut: Long): Long
+    public operator fun invoke(ut: COpaquePointer?): Long
 }
 
 public typealias UTextMapOffsetToNative = UTextMapOffsetToNativeFn?
 
 public fun interface UTextNativeLengthFn {
-    public operator fun invoke(ut: Long): Long
+    public operator fun invoke(ut: COpaquePointer?): Long
 }
 
 public typealias UTextNativeLength = UTextNativeLengthFn?
 
 public fun interface UTextReplaceFn {
-    public operator fun invoke(ut: Long, nativestart: Long, nativelimit: Long, replacementtext: Long, replacmentlength: Int, status: Long): Int
+    public operator fun invoke(ut: COpaquePointer?, nativestart: Long, nativelimit: Long, replacementtext: COpaquePointer?, replacmentlength: Int, status: COpaquePointer?): Int
 }
 
 public typealias UTextReplace = UTextReplaceFn?
@@ -765,19 +766,19 @@ public typealias UTimeZoneNameType = Int
 public typealias UTimeZoneTransitionType = Int
 
 public fun interface UTraceDataFn {
-    public operator fun invoke(context: Long, fnnumber: Int, level: Int, fmt: PCSTR, args: Long)
+    public operator fun invoke(context: COpaquePointer?, fnnumber: Int, level: Int, fmt: Pcstr, args: COpaquePointer?)
 }
 
 public typealias UTraceData = UTraceDataFn?
 
 public fun interface UTraceEntryFn {
-    public operator fun invoke(context: Long, fnnumber: Int)
+    public operator fun invoke(context: COpaquePointer?, fnnumber: Int)
 }
 
 public typealias UTraceEntry = UTraceEntryFn?
 
 public fun interface UTraceExitFn {
-    public operator fun invoke(context: Long, fnnumber: Int, fmt: PCSTR, args: Long)
+    public operator fun invoke(context: COpaquePointer?, fnnumber: Int, fmt: Pcstr, args: COpaquePointer?)
 }
 
 public typealias UTraceExit = UTraceExitFn?
@@ -794,4 +795,4 @@ public typealias UWordBreak = Int
 
 public typealias UWordBreakValues = Int
 
-public typealias WORDLIST_TYPE = Int
+public typealias WordlistType = Int

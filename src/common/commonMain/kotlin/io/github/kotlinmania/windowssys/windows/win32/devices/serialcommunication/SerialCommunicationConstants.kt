@@ -1,8 +1,8 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.serialcommunication
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.windows.win32.foundation.DEVPROPKEY
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Devpropkey
 
 public val CDB_REPORT_BITS: UInt = 0u
 
@@ -12,11 +12,11 @@ public val COMDB_MAX_PORTS_ARBITRATED: UInt = 4096u
 
 public val COMDB_MIN_PORTS_ARBITRATED: UInt = 256u
 
-public val DEVPKEY_DeviceInterface_Serial_PortName: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x4c6bf15c4c034aacuL, 0x91f564c0f852bcf4uL)), pid = 4u)
+public val DEVPKEY_DEVICE_INTERFACE_SERIAL_PORT_NAME: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x4c6bf15c4c034aacuL, 0x91f564c0f852bcf4uL)), pid = 4u)
 
-public val DEVPKEY_DeviceInterface_Serial_UsbProductId: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x4c6bf15c4c034aacuL, 0x91f564c0f852bcf4uL)), pid = 3u)
+public val DEVPKEY_DEVICE_INTERFACE_SERIAL_USB_PRODUCT_ID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x4c6bf15c4c034aacuL, 0x91f564c0f852bcf4uL)), pid = 3u)
 
-public val DEVPKEY_DeviceInterface_Serial_UsbVendorId: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x4c6bf15c4c034aacuL, 0x91f564c0f852bcf4uL)), pid = 2u)
+public val DEVPKEY_DEVICE_INTERFACE_SERIAL_USB_VENDOR_ID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x4c6bf15c4c034aacuL, 0x91f564c0f852bcf4uL)), pid = 2u)
 
 public val EVEN_PARITY: UInt = 2u
 
@@ -142,13 +142,13 @@ public val SERIAL_EV_RXFLAG: UInt = 2u
 
 public val SERIAL_EV_TXEMPTY: UInt = 4u
 
-public val SERIAL_LSRMST_ESCAPE: UShort = 0u
+public val SERIAL_LSRMST_ESCAPE: UShort = 0u.toUShort()
 
-public val SERIAL_LSRMST_LSR_DATA: UShort = 1u
+public val SERIAL_LSRMST_LSR_DATA: UShort = 1u.toUShort()
 
-public val SERIAL_LSRMST_LSR_NODATA: UShort = 2u
+public val SERIAL_LSRMST_LSR_NODATA: UShort = 2u.toUShort()
 
-public val SERIAL_LSRMST_MST: UShort = 3u
+public val SERIAL_LSRMST_MST: UShort = 3u.toUShort()
 
 public val SERIAL_PURGE_RXABORT: UInt = 2u
 
@@ -166,8 +166,8 @@ public val STOP_BITS_2: UInt = 2u
 
 public val STOP_BIT_1: UInt = 0u
 
-public val SerenumFirstHalf: SERENUM_PORTION = 0
+public val SERENUM_FIRST_HALF: SerenumPortion = 0
 
-public val SerenumSecondHalf: SERENUM_PORTION = 1
+public val SERENUM_SECOND_HALF: SerenumPortion = 1
 
-public val SerenumWhole: SERENUM_PORTION = 2
+public val SERENUM_WHOLE: SerenumPortion = 2

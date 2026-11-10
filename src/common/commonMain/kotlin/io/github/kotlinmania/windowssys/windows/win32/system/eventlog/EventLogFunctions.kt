@@ -1,118 +1,119 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.eventlog
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.security.PSID
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.security.Psid
 
-public expect fun BackupEventLogA(heventlog: HANDLE, lpbackupfilename: PCSTR): BOOL
+public expect fun backupEventLogA(heventlog: Handle, lpbackupfilename: Pcstr): Bool
 
-public expect fun BackupEventLogW(heventlog: HANDLE, lpbackupfilename: PCWSTR): BOOL
+public expect fun backupEventLogW(heventlog: Handle, lpbackupfilename: Pcwstr): Bool
 
-public expect fun ClearEventLogA(heventlog: HANDLE, lpbackupfilename: PCSTR): BOOL
+public expect fun clearEventLogA(heventlog: Handle, lpbackupfilename: Pcstr): Bool
 
-public expect fun ClearEventLogW(heventlog: HANDLE, lpbackupfilename: PCWSTR): BOOL
+public expect fun clearEventLogW(heventlog: Handle, lpbackupfilename: Pcwstr): Bool
 
-public expect fun CloseEventLog(heventlog: HANDLE): BOOL
+public expect fun closeEventLog(heventlog: Handle): Bool
 
-public expect fun DeregisterEventSource(heventlog: HANDLE): BOOL
+public expect fun deregisterEventSource(heventlog: Handle): Bool
 
-public expect fun EvtArchiveExportedLog(session: EVT_HANDLE, logfilepath: PCWSTR, locale: UInt, flags: UInt): BOOL
+public expect fun evtArchiveExportedLog(session: EvtHandle, logfilepath: Pcwstr, locale: UInt, flags: UInt): Bool
 
-public expect fun EvtCancel(obj: EVT_HANDLE): BOOL
+public expect fun evtCancel(obj: EvtHandle): Bool
 
-public expect fun EvtClearLog(session: EVT_HANDLE, channelpath: PCWSTR, targetfilepath: PCWSTR, flags: UInt): BOOL
+public expect fun evtClearLog(session: EvtHandle, channelpath: Pcwstr, targetfilepath: Pcwstr, flags: UInt): Bool
 
-public expect fun EvtClose(obj: EVT_HANDLE): BOOL
+public expect fun evtClose(obj: EvtHandle): Bool
 
-public expect fun EvtCreateBookmark(bookmarkxml: PCWSTR): EVT_HANDLE
+public expect fun evtCreateBookmark(bookmarkxml: Pcwstr): EvtHandle
 
-public expect fun EvtCreateRenderContext(valuepathscount: UInt, valuepaths: Long, flags: UInt): EVT_HANDLE
+public expect fun evtCreateRenderContext(valuepathscount: UInt, valuepaths: COpaquePointer?, flags: UInt): EvtHandle
 
-public expect fun EvtExportLog(session: EVT_HANDLE, path: PCWSTR, query: PCWSTR, targetfilepath: PCWSTR, flags: UInt): BOOL
+public expect fun evtExportLog(session: EvtHandle, path: Pcwstr, query: Pcwstr, targetfilepath: Pcwstr, flags: UInt): Bool
 
-public expect fun EvtFormatMessage(publishermetadata: EVT_HANDLE, event: EVT_HANDLE, messageid: UInt, valuecount: UInt, values: Long, flags: UInt, buffersize: UInt, buffer: PWSTR, bufferused: Long): BOOL
+public expect fun evtFormatMessage(publishermetadata: EvtHandle, event: EvtHandle, messageid: UInt, valuecount: UInt, values: COpaquePointer?, flags: UInt, buffersize: UInt, buffer: Pwstr, bufferused: COpaquePointer?): Bool
 
-public expect fun EvtGetChannelConfigProperty(channelconfig: EVT_HANDLE, propertyid: EVT_CHANNEL_CONFIG_PROPERTY_ID, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: Long, propertyvaluebufferused: Long): BOOL
+public expect fun evtGetChannelConfigProperty(channelconfig: EvtHandle, propertyid: EvtChannelConfigPropertyId, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: COpaquePointer?, propertyvaluebufferused: COpaquePointer?): Bool
 
-public expect fun EvtGetEventInfo(event: EVT_HANDLE, propertyid: EVT_EVENT_PROPERTY_ID, propertyvaluebuffersize: UInt, propertyvaluebuffer: Long, propertyvaluebufferused: Long): BOOL
+public expect fun evtGetEventInfo(event: EvtHandle, propertyid: EvtEventPropertyId, propertyvaluebuffersize: UInt, propertyvaluebuffer: COpaquePointer?, propertyvaluebufferused: COpaquePointer?): Bool
 
-public expect fun EvtGetEventMetadataProperty(eventmetadata: EVT_HANDLE, propertyid: EVT_EVENT_METADATA_PROPERTY_ID, flags: UInt, eventmetadatapropertybuffersize: UInt, eventmetadatapropertybuffer: Long, eventmetadatapropertybufferused: Long): BOOL
+public expect fun evtGetEventMetadataProperty(eventmetadata: EvtHandle, propertyid: EvtEventMetadataPropertyId, flags: UInt, eventmetadatapropertybuffersize: UInt, eventmetadatapropertybuffer: COpaquePointer?, eventmetadatapropertybufferused: COpaquePointer?): Bool
 
-public expect fun EvtGetExtendedStatus(buffersize: UInt, buffer: PWSTR, bufferused: Long): UInt
+public expect fun evtGetExtendedStatus(buffersize: UInt, buffer: Pwstr, bufferused: COpaquePointer?): UInt
 
-public expect fun EvtGetLogInfo(log: EVT_HANDLE, propertyid: EVT_LOG_PROPERTY_ID, propertyvaluebuffersize: UInt, propertyvaluebuffer: Long, propertyvaluebufferused: Long): BOOL
+public expect fun evtGetLogInfo(log: EvtHandle, propertyid: EvtLogPropertyId, propertyvaluebuffersize: UInt, propertyvaluebuffer: COpaquePointer?, propertyvaluebufferused: COpaquePointer?): Bool
 
-public expect fun EvtGetObjectArrayProperty(objectarray: Long, propertyid: UInt, arrayindex: UInt, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: Long, propertyvaluebufferused: Long): BOOL
+public expect fun evtGetObjectArrayProperty(objectarray: Long, propertyid: UInt, arrayindex: UInt, flags: UInt, propertyvaluebuffersize: UInt, propertyvaluebuffer: COpaquePointer?, propertyvaluebufferused: COpaquePointer?): Bool
 
-public expect fun EvtGetObjectArraySize(objectarray: Long, objectarraysize: Long): BOOL
+public expect fun evtGetObjectArraySize(objectarray: Long, objectarraysize: COpaquePointer?): Bool
 
-public expect fun EvtGetPublisherMetadataProperty(publishermetadata: EVT_HANDLE, propertyid: EVT_PUBLISHER_METADATA_PROPERTY_ID, flags: UInt, publishermetadatapropertybuffersize: UInt, publishermetadatapropertybuffer: Long, publishermetadatapropertybufferused: Long): BOOL
+public expect fun evtGetPublisherMetadataProperty(publishermetadata: EvtHandle, propertyid: EvtPublisherMetadataPropertyId, flags: UInt, publishermetadatapropertybuffersize: UInt, publishermetadatapropertybuffer: COpaquePointer?, publishermetadatapropertybufferused: COpaquePointer?): Bool
 
-public expect fun EvtGetQueryInfo(queryorsubscription: EVT_HANDLE, propertyid: EVT_QUERY_PROPERTY_ID, propertyvaluebuffersize: UInt, propertyvaluebuffer: Long, propertyvaluebufferused: Long): BOOL
+public expect fun evtGetQueryInfo(queryorsubscription: EvtHandle, propertyid: EvtQueryPropertyId, propertyvaluebuffersize: UInt, propertyvaluebuffer: COpaquePointer?, propertyvaluebufferused: COpaquePointer?): Bool
 
-public expect fun EvtNext(resultset: EVT_HANDLE, eventssize: UInt, events: Long, timeout: UInt, flags: UInt, returned: Long): BOOL
+public expect fun evtNext(resultset: EvtHandle, eventssize: UInt, events: COpaquePointer?, timeout: UInt, flags: UInt, returned: COpaquePointer?): Bool
 
-public expect fun EvtNextChannelPath(channelenum: EVT_HANDLE, channelpathbuffersize: UInt, channelpathbuffer: PWSTR, channelpathbufferused: Long): BOOL
+public expect fun evtNextChannelPath(channelenum: EvtHandle, channelpathbuffersize: UInt, channelpathbuffer: Pwstr, channelpathbufferused: COpaquePointer?): Bool
 
-public expect fun EvtNextEventMetadata(eventmetadataenum: EVT_HANDLE, flags: UInt): EVT_HANDLE
+public expect fun evtNextEventMetadata(eventmetadataenum: EvtHandle, flags: UInt): EvtHandle
 
-public expect fun EvtNextPublisherId(publisherenum: EVT_HANDLE, publisheridbuffersize: UInt, publisheridbuffer: PWSTR, publisheridbufferused: Long): BOOL
+public expect fun evtNextPublisherId(publisherenum: EvtHandle, publisheridbuffersize: UInt, publisheridbuffer: Pwstr, publisheridbufferused: COpaquePointer?): Bool
 
-public expect fun EvtOpenChannelConfig(session: EVT_HANDLE, channelpath: PCWSTR, flags: UInt): EVT_HANDLE
+public expect fun evtOpenChannelConfig(session: EvtHandle, channelpath: Pcwstr, flags: UInt): EvtHandle
 
-public expect fun EvtOpenChannelEnum(session: EVT_HANDLE, flags: UInt): EVT_HANDLE
+public expect fun evtOpenChannelEnum(session: EvtHandle, flags: UInt): EvtHandle
 
-public expect fun EvtOpenEventMetadataEnum(publishermetadata: EVT_HANDLE, flags: UInt): EVT_HANDLE
+public expect fun evtOpenEventMetadataEnum(publishermetadata: EvtHandle, flags: UInt): EvtHandle
 
-public expect fun EvtOpenLog(session: EVT_HANDLE, path: PCWSTR, flags: UInt): EVT_HANDLE
+public expect fun evtOpenLog(session: EvtHandle, path: Pcwstr, flags: UInt): EvtHandle
 
-public expect fun EvtOpenPublisherEnum(session: EVT_HANDLE, flags: UInt): EVT_HANDLE
+public expect fun evtOpenPublisherEnum(session: EvtHandle, flags: UInt): EvtHandle
 
-public expect fun EvtOpenPublisherMetadata(session: EVT_HANDLE, publisherid: PCWSTR, logfilepath: PCWSTR, locale: UInt, flags: UInt): EVT_HANDLE
+public expect fun evtOpenPublisherMetadata(session: EvtHandle, publisherid: Pcwstr, logfilepath: Pcwstr, locale: UInt, flags: UInt): EvtHandle
 
-public expect fun EvtOpenSession(loginclass: EVT_LOGIN_CLASS, login: Long, timeout: UInt, flags: UInt): EVT_HANDLE
+public expect fun evtOpenSession(loginclass: EvtLoginClass, login: COpaquePointer?, timeout: UInt, flags: UInt): EvtHandle
 
-public expect fun EvtQuery(session: EVT_HANDLE, path: PCWSTR, query: PCWSTR, flags: UInt): EVT_HANDLE
+public expect fun evtQuery(session: EvtHandle, path: Pcwstr, query: Pcwstr, flags: UInt): EvtHandle
 
-public expect fun EvtRender(context: EVT_HANDLE, fragment: EVT_HANDLE, flags: UInt, buffersize: UInt, buffer: Long, bufferused: Long, propertycount: Long): BOOL
+public expect fun evtRender(context: EvtHandle, fragment: EvtHandle, flags: UInt, buffersize: UInt, buffer: COpaquePointer?, bufferused: COpaquePointer?, propertycount: COpaquePointer?): Bool
 
-public expect fun EvtSaveChannelConfig(channelconfig: EVT_HANDLE, flags: UInt): BOOL
+public expect fun evtSaveChannelConfig(channelconfig: EvtHandle, flags: UInt): Bool
 
-public expect fun EvtSeek(resultset: EVT_HANDLE, position: Long, bookmark: EVT_HANDLE, timeout: UInt, flags: UInt): BOOL
+public expect fun evtSeek(resultset: EvtHandle, position: Long, bookmark: EvtHandle, timeout: UInt, flags: UInt): Bool
 
-public expect fun EvtSetChannelConfigProperty(channelconfig: EVT_HANDLE, propertyid: EVT_CHANNEL_CONFIG_PROPERTY_ID, flags: UInt, propertyvalue: Long): BOOL
+public expect fun evtSetChannelConfigProperty(channelconfig: EvtHandle, propertyid: EvtChannelConfigPropertyId, flags: UInt, propertyvalue: COpaquePointer?): Bool
 
-public expect fun EvtSubscribe(session: EVT_HANDLE, signalevent: HANDLE, channelpath: PCWSTR, query: PCWSTR, bookmark: EVT_HANDLE, context: Long, callback: EVT_SUBSCRIBE_CALLBACK, flags: UInt): EVT_HANDLE
+public expect fun evtSubscribe(session: EvtHandle, signalevent: Handle, channelpath: Pcwstr, query: Pcwstr, bookmark: EvtHandle, context: COpaquePointer?, callback: EvtSubscribeCallback, flags: UInt): EvtHandle
 
-public expect fun EvtUpdateBookmark(bookmark: EVT_HANDLE, event: EVT_HANDLE): BOOL
+public expect fun evtUpdateBookmark(bookmark: EvtHandle, event: EvtHandle): Bool
 
-public expect fun GetEventLogInformation(heventlog: HANDLE, dwinfolevel: UInt, lpbuffer: Long, cbbufsize: UInt, pcbbytesneeded: Long): BOOL
+public expect fun getEventLogInformation(heventlog: Handle, dwinfolevel: UInt, lpbuffer: COpaquePointer?, cbbufsize: UInt, pcbbytesneeded: COpaquePointer?): Bool
 
-public expect fun GetNumberOfEventLogRecords(heventlog: HANDLE, numberofrecords: Long): BOOL
+public expect fun getNumberOfEventLogRecords(heventlog: Handle, numberofrecords: COpaquePointer?): Bool
 
-public expect fun GetOldestEventLogRecord(heventlog: HANDLE, oldestrecord: Long): BOOL
+public expect fun getOldestEventLogRecord(heventlog: Handle, oldestrecord: COpaquePointer?): Bool
 
-public expect fun NotifyChangeEventLog(heventlog: HANDLE, hevent: HANDLE): BOOL
+public expect fun notifyChangeEventLog(heventlog: Handle, hevent: Handle): Bool
 
-public expect fun OpenBackupEventLogA(lpuncservername: PCSTR, lpfilename: PCSTR): HANDLE
+public expect fun openBackupEventLogA(lpuncservername: Pcstr, lpfilename: Pcstr): Handle
 
-public expect fun OpenBackupEventLogW(lpuncservername: PCWSTR, lpfilename: PCWSTR): HANDLE
+public expect fun openBackupEventLogW(lpuncservername: Pcwstr, lpfilename: Pcwstr): Handle
 
-public expect fun OpenEventLogA(lpuncservername: PCSTR, lpsourcename: PCSTR): HANDLE
+public expect fun openEventLogA(lpuncservername: Pcstr, lpsourcename: Pcstr): Handle
 
-public expect fun OpenEventLogW(lpuncservername: PCWSTR, lpsourcename: PCWSTR): HANDLE
+public expect fun openEventLogW(lpuncservername: Pcwstr, lpsourcename: Pcwstr): Handle
 
-public expect fun ReadEventLogA(heventlog: HANDLE, dwreadflags: READ_EVENT_LOG_READ_FLAGS, dwrecordoffset: UInt, lpbuffer: Long, nnumberofbytestoread: UInt, pnbytesread: Long, pnminnumberofbytesneeded: Long): BOOL
+public expect fun readEventLogA(heventlog: Handle, dwreadflags: ReadEventLogReadFlags, dwrecordoffset: UInt, lpbuffer: COpaquePointer?, nnumberofbytestoread: UInt, pnbytesread: COpaquePointer?, pnminnumberofbytesneeded: COpaquePointer?): Bool
 
-public expect fun ReadEventLogW(heventlog: HANDLE, dwreadflags: READ_EVENT_LOG_READ_FLAGS, dwrecordoffset: UInt, lpbuffer: Long, nnumberofbytestoread: UInt, pnbytesread: Long, pnminnumberofbytesneeded: Long): BOOL
+public expect fun readEventLogW(heventlog: Handle, dwreadflags: ReadEventLogReadFlags, dwrecordoffset: UInt, lpbuffer: COpaquePointer?, nnumberofbytestoread: UInt, pnbytesread: COpaquePointer?, pnminnumberofbytesneeded: COpaquePointer?): Bool
 
-public expect fun RegisterEventSourceA(lpuncservername: PCSTR, lpsourcename: PCSTR): HANDLE
+public expect fun registerEventSourceA(lpuncservername: Pcstr, lpsourcename: Pcstr): Handle
 
-public expect fun RegisterEventSourceW(lpuncservername: PCWSTR, lpsourcename: PCWSTR): HANDLE
+public expect fun registerEventSourceW(lpuncservername: Pcwstr, lpsourcename: Pcwstr): Handle
 
-public expect fun ReportEventA(heventlog: HANDLE, wtype: REPORT_EVENT_TYPE, wcategory: UShort, dweventid: UInt, lpusersid: PSID, wnumstrings: UShort, dwdatasize: UInt, lpstrings: Long, lprawdata: Long): BOOL
+public expect fun reportEventA(heventlog: Handle, wtype: ReportEventType, wcategory: UShort, dweventid: UInt, lpusersid: Psid, wnumstrings: UShort, dwdatasize: UInt, lpstrings: COpaquePointer?, lprawdata: COpaquePointer?): Bool
 
-public expect fun ReportEventW(heventlog: HANDLE, wtype: REPORT_EVENT_TYPE, wcategory: UShort, dweventid: UInt, lpusersid: PSID, wnumstrings: UShort, dwdatasize: UInt, lpstrings: Long, lprawdata: Long): BOOL
+public expect fun reportEventW(heventlog: Handle, wtype: ReportEventType, wcategory: UShort, dweventid: UInt, lpusersid: Psid, wnumstrings: UShort, dwdatasize: UInt, lpstrings: COpaquePointer?, lprawdata: COpaquePointer?): Bool

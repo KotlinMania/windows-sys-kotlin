@@ -1,16 +1,17 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.enumeration.pnp
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
 
-public typealias HSWDEVICE = Long
+public typealias Hswdevice = COpaquePointer?
 
-public typealias SW_DEVICE_CAPABILITIES = Int
+public typealias SwDeviceCapabilities = Int
 
-public fun interface SW_DEVICE_CREATE_CALLBACKFn {
-    public operator fun invoke(hswdevice: HSWDEVICE, createresult: HRESULT, pcontext: Long, pszdeviceinstanceid: PCWSTR)
+public fun interface SwDeviceCreateCallbackFn {
+    public operator fun invoke(hswdevice: Hswdevice, createresult: Hresult, pcontext: COpaquePointer?, pszdeviceinstanceid: Pcwstr)
 }
 
-public typealias SW_DEVICE_CREATE_CALLBACK = SW_DEVICE_CREATE_CALLBACKFn?
+public typealias SwDeviceCreateCallback = SwDeviceCreateCallbackFn?
 
-public typealias SW_DEVICE_LIFETIME = Int
+public typealias SwDeviceLifetime = Int

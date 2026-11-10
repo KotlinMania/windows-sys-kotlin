@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_security_isolation_CreateAppContainerProfile(void* pszappcontainername, void* pszdisplayname, void* pszdescription, void* pcapabilities, uint32_t dwcapabilitycount, void* ppsidappcontainersid) {
+int32_t windowssys_windows_win32_security_isolation_createAppContainerProfile(void* pszappcontainername, void* pszdisplayname, void* pszdescription, void* pcapabilities, uint32_t dwcapabilitycount, void* ppsidappcontainersid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -42,7 +42,7 @@ int32_t windowssys_windows_win32_security_isolation_CreateAppContainerProfile(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_security_isolation_DeleteAppContainerProfile(void* pszappcontainername) {
+int32_t windowssys_windows_win32_security_isolation_deleteAppContainerProfile(void* pszappcontainername) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -64,7 +64,7 @@ int32_t windowssys_windows_win32_security_isolation_DeleteAppContainerProfile(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_security_isolation_DeriveAppContainerSidFromAppContainerName(void* pszappcontainername, void* ppsidappcontainersid) {
+int32_t windowssys_windows_win32_security_isolation_deriveAppContainerSidFromAppContainerName(void* pszappcontainername, void* ppsidappcontainersid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -87,7 +87,7 @@ int32_t windowssys_windows_win32_security_isolation_DeriveAppContainerSidFromApp
 #endif
 }
 
-int32_t windowssys_windows_win32_security_isolation_DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(void* psidappcontainersid, void* pszrestrictedappcontainername, void* ppsidrestrictedappcontainersid) {
+int32_t windowssys_windows_win32_security_isolation_deriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName(void* psidappcontainersid, void* pszrestrictedappcontainername, void* ppsidrestrictedappcontainersid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -111,7 +111,7 @@ int32_t windowssys_windows_win32_security_isolation_DeriveRestrictedAppContainer
 #endif
 }
 
-int32_t windowssys_windows_win32_security_isolation_GetAppContainerFolderPath(void* pszappcontainersid, void* ppszpath) {
+int32_t windowssys_windows_win32_security_isolation_getAppContainerFolderPath(void* pszappcontainersid, void* ppszpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -134,7 +134,7 @@ int32_t windowssys_windows_win32_security_isolation_GetAppContainerFolderPath(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_security_isolation_GetAppContainerNamedObjectPath(void* token, void* appcontainersid, uint32_t objectpathlength, void* objectpath, void* returnlength) {
+int32_t windowssys_windows_win32_security_isolation_getAppContainerNamedObjectPath(void* token, void* appcontainersid, uint32_t objectpathlength, void* objectpath, void* returnlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -160,7 +160,7 @@ int32_t windowssys_windows_win32_security_isolation_GetAppContainerNamedObjectPa
 #endif
 }
 
-int32_t windowssys_windows_win32_security_isolation_GetAppContainerRegistryLocation(uint32_t desiredaccess, void* phappcontainerkey) {
+int32_t windowssys_windows_win32_security_isolation_getAppContainerRegistryLocation(uint32_t desiredaccess, void* phappcontainerkey) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -183,7 +183,7 @@ int32_t windowssys_windows_win32_security_isolation_GetAppContainerRegistryLocat
 #endif
 }
 
-int32_t windowssys_windows_win32_security_isolation_IsCrossIsolatedEnvironmentClipboardContent(void* iscrossisolatedenvironmentclipboardcontent) {
+int32_t windowssys_windows_win32_security_isolation_isCrossIsolatedEnvironmentClipboardContent(void* iscrossisolatedenvironmentclipboardcontent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -205,7 +205,7 @@ int32_t windowssys_windows_win32_security_isolation_IsCrossIsolatedEnvironmentCl
 #endif
 }
 
-int32_t windowssys_windows_win32_security_isolation_IsProcessInIsolatedContainer(void* isprocessinisolatedcontainer) {
+int32_t windowssys_windows_win32_security_isolation_isProcessInIsolatedContainer(void* isprocessinisolatedcontainer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -227,7 +227,7 @@ int32_t windowssys_windows_win32_security_isolation_IsProcessInIsolatedContainer
 #endif
 }
 
-int32_t windowssys_windows_win32_security_isolation_IsProcessInIsolatedWindowsEnvironment(void* isprocessinisolatedwindowsenvironment) {
+int32_t windowssys_windows_win32_security_isolation_isProcessInIsolatedWindowsEnvironment(void* isprocessinisolatedwindowsenvironment) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -249,7 +249,7 @@ int32_t windowssys_windows_win32_security_isolation_IsProcessInIsolatedWindowsEn
 #endif
 }
 
-int32_t windowssys_windows_win32_security_isolation_IsProcessInWDAGContainer(void* reserved, void* isprocessinwdagcontainer) {
+int32_t windowssys_windows_win32_security_isolation_isProcessInWDAGContainer(void* reserved, void* isprocessinwdagcontainer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;

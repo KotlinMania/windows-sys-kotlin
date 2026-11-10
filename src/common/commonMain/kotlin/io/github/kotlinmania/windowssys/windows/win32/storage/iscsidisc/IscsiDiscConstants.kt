@@ -1,8 +1,8 @@
 package io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCSTR
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcstr
 import io.github.kotlinmania.windowssys.core.s
 
 public val ATA_FLAGS_48BIT_COMMAND: UInt = 8u
@@ -17,7 +17,7 @@ public val ATA_FLAGS_NO_MULTIPLE: UInt = 32u
 
 public val ATA_FLAGS_USE_DMA: UInt = 16u
 
-public val DD_SCSI_DEVICE_NAME: PCSTR = s("\\Device\\ScsiPort")
+public val DD_SCSI_DEVICE_NAME: Pcstr = s("\\Device\\ScsiPort")
 
 public val DUMP_DRIVER_NAME_LENGTH: UInt = 15u
 
@@ -37,7 +37,7 @@ public val DUMP_POINTERS_VERSION_3: UInt = 3u
 
 public val DUMP_POINTERS_VERSION_4: UInt = 4u
 
-public val DiscoveryMechanisms: TARGET_INFORMATION_CLASS = 2
+public val DISCOVERY_MECHANISMS: TargetInformationClass = 2
 
 public val FILE_DEVICE_SCSI: UInt = 27u
 
@@ -121,15 +121,15 @@ public val HYBRID_STATUS_OUTPUT_BUFFER_TOO_SMALL: UInt = 3u
 
 public val HYBRID_STATUS_SUCCESS: UInt = 0u
 
-public val ID_FQDN: PCSTR = s("2")
+public val ID_FQDN: Pcstr = s("2")
 
-public val ID_IPV4_ADDR: PCSTR = s("1")
+public val ID_IPV4_ADDR: Pcstr = s("1")
 
-public val ID_IPV6_ADDR: PCSTR = s("5")
+public val ID_IPV6_ADDR: Pcstr = s("5")
 
-public val ID_USER_FQDN: PCSTR = s("3")
+public val ID_USER_FQDN: Pcstr = s("3")
 
-public val IKE_AUTHENTICATION_PRESHARED_KEY_METHOD: IKE_AUTHENTICATION_METHOD = 1
+public val IKE_AUTHENTICATION_PRESHARED_KEY_METHOD: IkeAuthenticationMethod = 1
 
 public val IOCTL_ATA_MINIPORT: UInt = 315444u
 
@@ -141,27 +141,27 @@ public val IOCTL_IDE_PASS_THROUGH: UInt = 315432u
 
 public val IOCTL_MINIPORT_PROCESS_SERVICE_IRP: UInt = 315448u
 
-public val IOCTL_MINIPORT_SIGNATURE_DSM_GENERAL: PCSTR = s("MPDSMGEN")
+public val IOCTL_MINIPORT_SIGNATURE_DSM_GENERAL: Pcstr = s("MPDSMGEN")
 
-public val IOCTL_MINIPORT_SIGNATURE_DSM_NOTIFICATION: PCSTR = s("MPDSM   ")
+public val IOCTL_MINIPORT_SIGNATURE_DSM_NOTIFICATION: Pcstr = s("MPDSM   ")
 
-public val IOCTL_MINIPORT_SIGNATURE_ENDURANCE_INFO: PCSTR = s("ENDURINF")
+public val IOCTL_MINIPORT_SIGNATURE_ENDURANCE_INFO: Pcstr = s("ENDURINF")
 
-public val IOCTL_MINIPORT_SIGNATURE_FIRMWARE: PCSTR = s("FIRMWARE")
+public val IOCTL_MINIPORT_SIGNATURE_FIRMWARE: Pcstr = s("FIRMWARE")
 
-public val IOCTL_MINIPORT_SIGNATURE_HYBRDISK: PCSTR = s("HYBRDISK")
+public val IOCTL_MINIPORT_SIGNATURE_HYBRDISK: Pcstr = s("HYBRDISK")
 
-public val IOCTL_MINIPORT_SIGNATURE_QUERY_PHYSICAL_TOPOLOGY: PCSTR = s("TOPOLOGY")
+public val IOCTL_MINIPORT_SIGNATURE_QUERY_PHYSICAL_TOPOLOGY: Pcstr = s("TOPOLOGY")
 
-public val IOCTL_MINIPORT_SIGNATURE_QUERY_PROTOCOL: PCSTR = s("PROTOCOL")
+public val IOCTL_MINIPORT_SIGNATURE_QUERY_PROTOCOL: Pcstr = s("PROTOCOL")
 
-public val IOCTL_MINIPORT_SIGNATURE_QUERY_TEMPERATURE: PCSTR = s("TEMPERAT")
+public val IOCTL_MINIPORT_SIGNATURE_QUERY_TEMPERATURE: Pcstr = s("TEMPERAT")
 
-public val IOCTL_MINIPORT_SIGNATURE_SCSIDISK: PCSTR = s("SCSIDISK")
+public val IOCTL_MINIPORT_SIGNATURE_SCSIDISK: Pcstr = s("SCSIDISK")
 
-public val IOCTL_MINIPORT_SIGNATURE_SET_PROTOCOL: PCSTR = s("SETPROTO")
+public val IOCTL_MINIPORT_SIGNATURE_SET_PROTOCOL: Pcstr = s("SETPROTO")
 
-public val IOCTL_MINIPORT_SIGNATURE_SET_TEMPERATURE_THRESHOLD: PCSTR = s("SETTEMPT")
+public val IOCTL_MINIPORT_SIGNATURE_SET_TEMPERATURE_THRESHOLD: Pcstr = s("SETTEMPT")
 
 public val IOCTL_MPIO_PASS_THROUGH_PATH: UInt = 315452u
 
@@ -195,11 +195,11 @@ public val IOCTL_SCSI_PASS_THROUGH_EX: UInt = 315460u
 
 public val IOCTL_SCSI_RESCAN_BUS: UInt = 266268u
 
-public val ISCSI_CHAP_AUTH_TYPE: ISCSI_AUTH_TYPES = 1
+public val ISCSI_CHAP_AUTH_TYPE: IscsiAuthTypes = 1
 
-public val ISCSI_DIGEST_TYPE_CRC32C: ISCSI_DIGEST_TYPES = 1
+public val ISCSI_DIGEST_TYPE_CRC32C: IscsiDigestTypes = 1
 
-public val ISCSI_DIGEST_TYPE_NONE: ISCSI_DIGEST_TYPES = 0
+public val ISCSI_DIGEST_TYPE_NONE: IscsiDigestTypes = 0
 
 public val ISCSI_LOGIN_FLAG_ALLOW_PORTAL_HOPPING: UInt = 8u
 
@@ -213,51 +213,51 @@ public val ISCSI_LOGIN_FLAG_USE_RADIUS_RESPONSE: UInt = 16u
 
 public val ISCSI_LOGIN_FLAG_USE_RADIUS_VERIFICATION: UInt = 32u
 
-public val ISCSI_LOGIN_OPTIONS_AUTH_TYPE: PCSTR = s("0x00000080")
+public val ISCSI_LOGIN_OPTIONS_AUTH_TYPE: Pcstr = s("0x00000080")
 
-public val ISCSI_LOGIN_OPTIONS_DATA_DIGEST: PCSTR = s("0x00000002")
+public val ISCSI_LOGIN_OPTIONS_DATA_DIGEST: Pcstr = s("0x00000002")
 
-public val ISCSI_LOGIN_OPTIONS_DEFAULT_TIME_2_RETAIN: PCSTR = s("0x00000010")
+public val ISCSI_LOGIN_OPTIONS_DEFAULT_TIME_2_RETAIN: Pcstr = s("0x00000010")
 
-public val ISCSI_LOGIN_OPTIONS_DEFAULT_TIME_2_WAIT: PCSTR = s("0x00000008")
+public val ISCSI_LOGIN_OPTIONS_DEFAULT_TIME_2_WAIT: Pcstr = s("0x00000008")
 
-public val ISCSI_LOGIN_OPTIONS_HEADER_DIGEST: PCSTR = s("0x00000001")
+public val ISCSI_LOGIN_OPTIONS_HEADER_DIGEST: Pcstr = s("0x00000001")
 
-public val ISCSI_LOGIN_OPTIONS_MAXIMUM_CONNECTIONS: PCSTR = s("0x00000004")
+public val ISCSI_LOGIN_OPTIONS_MAXIMUM_CONNECTIONS: Pcstr = s("0x00000004")
 
-public val ISCSI_LOGIN_OPTIONS_PASSWORD: PCSTR = s("0x00000040")
+public val ISCSI_LOGIN_OPTIONS_PASSWORD: Pcstr = s("0x00000040")
 
-public val ISCSI_LOGIN_OPTIONS_USERNAME: PCSTR = s("0x00000020")
+public val ISCSI_LOGIN_OPTIONS_USERNAME: Pcstr = s("0x00000020")
 
 public val ISCSI_LOGIN_OPTIONS_VERSION: UInt = 0u
 
-public val ISCSI_MUTUAL_CHAP_AUTH_TYPE: ISCSI_AUTH_TYPES = 2
+public val ISCSI_MUTUAL_CHAP_AUTH_TYPE: IscsiAuthTypes = 2
 
-public val ISCSI_NO_AUTH_TYPE: ISCSI_AUTH_TYPES = 0
+public val ISCSI_NO_AUTH_TYPE: IscsiAuthTypes = 0
 
-public val ISCSI_SECURITY_FLAG_AGGRESSIVE_MODE_ENABLED: PCSTR = s("0x00000008")
+public val ISCSI_SECURITY_FLAG_AGGRESSIVE_MODE_ENABLED: Pcstr = s("0x00000008")
 
-public val ISCSI_SECURITY_FLAG_IKE_IPSEC_ENABLED: PCSTR = s("0x00000002")
+public val ISCSI_SECURITY_FLAG_IKE_IPSEC_ENABLED: Pcstr = s("0x00000002")
 
-public val ISCSI_SECURITY_FLAG_MAIN_MODE_ENABLED: PCSTR = s("0x00000004")
+public val ISCSI_SECURITY_FLAG_MAIN_MODE_ENABLED: Pcstr = s("0x00000004")
 
-public val ISCSI_SECURITY_FLAG_PFS_ENABLED: PCSTR = s("0x00000010")
+public val ISCSI_SECURITY_FLAG_PFS_ENABLED: Pcstr = s("0x00000010")
 
-public val ISCSI_SECURITY_FLAG_TRANSPORT_MODE_PREFERRED: PCSTR = s("0x00000020")
+public val ISCSI_SECURITY_FLAG_TRANSPORT_MODE_PREFERRED: Pcstr = s("0x00000020")
 
-public val ISCSI_SECURITY_FLAG_TUNNEL_MODE_PREFERRED: PCSTR = s("0x00000040")
+public val ISCSI_SECURITY_FLAG_TUNNEL_MODE_PREFERRED: Pcstr = s("0x00000040")
 
-public val ISCSI_SECURITY_FLAG_VALID: PCSTR = s("0x00000001")
+public val ISCSI_SECURITY_FLAG_VALID: Pcstr = s("0x00000001")
 
 public val ISCSI_TARGET_FLAG_HIDE_STATIC_TARGET: UInt = 2u
 
 public val ISCSI_TARGET_FLAG_MERGE_TARGET_INFORMATION: UInt = 4u
 
-public val ISCSI_TCP_PROTOCOL_TYPE: TARGETPROTOCOLTYPE = 0
+public val ISCSI_TCP_PROTOCOL_TYPE: Targetprotocoltype = 0
 
-public val InitiatorName: TARGET_INFORMATION_CLASS = 5
+public val INITIATOR_NAME: TargetInformationClass = 5
 
-public val LoginOptions: TARGET_INFORMATION_CLASS = 7
+public val LOGIN_OPTIONS: TargetInformationClass = 7
 
 public val MAX_ISCSI_ALIAS_LEN: UInt = 255u
 
@@ -299,17 +299,17 @@ public val MPIO_IOCTL_FLAG_USE_PATHID: UInt = 1u
 
 public val MPIO_IOCTL_FLAG_USE_SCSIADDRESS: UInt = 2u
 
-public val MpStorageDiagnosticLevelDefault: MP_STORAGE_DIAGNOSTIC_LEVEL = 0
+public val MP_STORAGE_DIAGNOSTIC_LEVEL_DEFAULT: MpStorageDiagnosticLevel = 0
 
-public val MpStorageDiagnosticLevelMax: MP_STORAGE_DIAGNOSTIC_LEVEL = 1
+public val MP_STORAGE_DIAGNOSTIC_LEVEL_MAX: MpStorageDiagnosticLevel = 1
 
-public val MpStorageDiagnosticTargetTypeHbaFirmware: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = 3
+public val MP_STORAGE_DIAGNOSTIC_TARGET_TYPE_HBA_FIRMWARE: MpStorageDiagnosticTargetType = 3
 
-public val MpStorageDiagnosticTargetTypeMax: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = 4
+public val MP_STORAGE_DIAGNOSTIC_TARGET_TYPE_MAX: MpStorageDiagnosticTargetType = 4
 
-public val MpStorageDiagnosticTargetTypeMiniport: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = 2
+public val MP_STORAGE_DIAGNOSTIC_TARGET_TYPE_MINIPORT: MpStorageDiagnosticTargetType = 2
 
-public val MpStorageDiagnosticTargetTypeUndefined: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = 0
+public val MP_STORAGE_DIAGNOSTIC_TARGET_TYPE_UNDEFINED: MpStorageDiagnosticTargetType = 0
 
 public val NRB_FUNCTION_ADD_LBAS_PINNED_SET: UInt = 16u
 
@@ -357,39 +357,39 @@ public val NRB_OUTPUT_DATA_UNDERRUN: UInt = 6u
 
 public val NRB_SUCCESS: UInt = 0u
 
-public val NVSEPWriteCacheTypeNone: NV_SEP_WRITE_CACHE_TYPE = 1
+public val NVSEP_WRITE_CACHE_TYPE_NONE: NvSepWriteCacheType = 1
 
-public val NVSEPWriteCacheTypeUnknown: NV_SEP_WRITE_CACHE_TYPE = 0
+public val NVSEP_WRITE_CACHE_TYPE_UNKNOWN: NvSepWriteCacheType = 0
 
-public val NVSEPWriteCacheTypeWriteBack: NV_SEP_WRITE_CACHE_TYPE = 2
+public val NVSEP_WRITE_CACHE_TYPE_WRITE_BACK: NvSepWriteCacheType = 2
 
-public val NVSEPWriteCacheTypeWriteThrough: NV_SEP_WRITE_CACHE_TYPE = 3
+public val NVSEP_WRITE_CACHE_TYPE_WRITE_THROUGH: NvSepWriteCacheType = 3
 
 public val NV_SEP_CACHE_PARAMETER_VERSION: UInt = 1u
 
 public val NV_SEP_CACHE_PARAMETER_VERSION_1: UInt = 1u
 
-public val NvCacheStatusDisabled: NVCACHE_STATUS = 2
+public val NV_CACHE_STATUS_DISABLED: NvcacheStatus = 2
 
-public val NvCacheStatusDisabling: NVCACHE_STATUS = 1
+public val NV_CACHE_STATUS_DISABLING: NvcacheStatus = 1
 
-public val NvCacheStatusEnabled: NVCACHE_STATUS = 3
+public val NV_CACHE_STATUS_ENABLED: NvcacheStatus = 3
 
-public val NvCacheStatusUnknown: NVCACHE_STATUS = 0
+public val NV_CACHE_STATUS_UNKNOWN: NvcacheStatus = 0
 
-public val NvCacheTypeNone: NVCACHE_TYPE = 1
+public val NV_CACHE_TYPE_NONE: NvcacheType = 1
 
-public val NvCacheTypeUnknown: NVCACHE_TYPE = 0
+public val NV_CACHE_TYPE_UNKNOWN: NvcacheType = 0
 
-public val NvCacheTypeWriteBack: NVCACHE_TYPE = 2
+public val NV_CACHE_TYPE_WRITE_BACK: NvcacheType = 2
 
-public val NvCacheTypeWriteThrough: NVCACHE_TYPE = 3
+public val NV_CACHE_TYPE_WRITE_THROUGH: NvcacheType = 3
 
-public val PersistentTargetMappings: TARGET_INFORMATION_CLASS = 4
+public val PERSISTENT_TARGET_MAPPINGS: TargetInformationClass = 4
 
-public val PortalGroups: TARGET_INFORMATION_CLASS = 3
+public val PORTAL_GROUPS: TargetInformationClass = 3
 
-public val ProtocolType: TARGET_INFORMATION_CLASS = 0
+public val PROTOCOL_TYPE: TargetInformationClass = 0
 
 public val SCSI_IOCTL_DATA_BIDIRECTIONAL: UInt = 3u
 
@@ -427,10 +427,10 @@ public val STORAGE_FIRMWARE_INFO_STRUCTURE_VERSION_V2: UInt = 2u
 
 public val STORAGE_FIRMWARE_SLOT_INFO_V2_REVISION_LENGTH: UInt = 16u
 
-public val ScsiRawInterfaceGuid: GUID = GUID.from_u128(U128(0x53f56309b6bf11d0uL, 0x94f200a0c91efb8buL))
+public val SCSI_RAW_INTERFACE_GUID: Guid = Guid.fromU128(U128(0x53f56309b6bf11d0uL, 0x94f200a0c91efb8buL))
 
-public val TargetAlias: TARGET_INFORMATION_CLASS = 1
+public val TARGET_ALIAS: TargetInformationClass = 1
 
-public val TargetFlags: TARGET_INFORMATION_CLASS = 6
+public val TARGET_FLAGS: TargetInformationClass = 6
 
-public val WmiScsiAddressGuid: GUID = GUID.from_u128(U128(0x53f5630fb6bf11d0uL, 0x94f200a0c91efb8buL))
+public val WMI_SCSI_ADDRESS_GUID: Guid = Guid.fromU128(U128(0x53f5630fb6bf11d0uL, 0x94f200a0c91efb8buL))

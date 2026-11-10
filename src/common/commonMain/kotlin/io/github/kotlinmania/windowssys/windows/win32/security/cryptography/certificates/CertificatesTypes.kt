@@ -1,10 +1,11 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 
-public typealias ADDED_CERT_TYPE = Int
+public typealias AddedCertType = Int
 
 public typealias AlgorithmFlags = Int
 
@@ -14,49 +15,49 @@ public typealias AlgorithmType = Int
 
 public typealias AlternativeNameType = Int
 
-public typealias CERTADMIN_GET_ROLES_FLAGS = UInt
+public typealias CertadminGetRolesFlags = UInt
 
-public typealias CERTENROLL_OBJECTID = Int
+public typealias CertenrollObjectid = Int
 
-public typealias CERTENROLL_PROPERTYID = Int
+public typealias CertenrollPropertyid = Int
 
-public typealias CERT_ALT_NAME = Int
+public typealias CertAltName = Int
 
-public typealias CERT_CREATE_REQUEST_FLAGS = Int
+public typealias CertCreateRequestFlags = Int
 
-public typealias CERT_DELETE_ROW_FLAGS = Int
+public typealias CertDeleteRowFlags = Int
 
-public typealias CERT_EXIT_EVENT_MASK = UInt
+public typealias CertExitEventMask = UInt
 
-public typealias CERT_GET_CONFIG_FLAGS = Int
+public typealias CertGetConfigFlags = Int
 
-public typealias CERT_IMPORT_FLAGS = Int
+public typealias CertImportFlags = Int
 
-public typealias CERT_PROPERTY_TYPE = Int
+public typealias CertPropertyType = Int
 
-public typealias CERT_REQUEST_OUT_TYPE = Int
+public typealias CertRequestOutType = Int
 
-public typealias CERT_VIEW_COLUMN_INDEX = Int
+public typealias CertViewColumnIndex = Int
 
-public typealias CERT_VIEW_SEEK_OPERATOR_FLAGS = Int
+public typealias CertViewSeekOperatorFlags = Int
 
 public typealias CRLRevocationReason = Int
 
-public typealias CR_DISP = UInt
+public typealias CrDisp = UInt
 
-public typealias CSBACKUP_TYPE = UInt
+public typealias CsbackupType = UInt
 
-public typealias CVRC_COLUMN = Int
+public typealias CvrcColumn = Int
 
-public typealias CVRC_TABLE = Int
+public typealias CvrcTable = Int
 
 public typealias CommitTemplateFlags = Int
 
 public typealias DelayRetryAction = Int
 
-public typealias ENUM_CATYPES = Int
+public typealias EnumCatypes = Int
 
-public typealias ENUM_CERT_COLUMN_VALUE_FLAGS = Int
+public typealias EnumCertColumnValueFlags = Int
 
 public typealias EncodingType = Int
 
@@ -74,121 +75,121 @@ public typealias EnrollmentSelectionStatus = Int
 
 public typealias EnrollmentTemplateProperty = Int
 
-public fun interface FNCERTSRVBACKUPCLOSEFn {
-    public operator fun invoke(hbc: Long): HRESULT
+public fun interface FncertsrvbackupcloseFn {
+    public operator fun invoke(hbc: COpaquePointer?): Hresult
 }
 
-public typealias FNCERTSRVBACKUPCLOSE = FNCERTSRVBACKUPCLOSEFn?
+public typealias Fncertsrvbackupclose = FncertsrvbackupcloseFn?
 
-public fun interface FNCERTSRVBACKUPENDFn {
-    public operator fun invoke(hbc: Long): HRESULT
+public fun interface FncertsrvbackupendFn {
+    public operator fun invoke(hbc: COpaquePointer?): Hresult
 }
 
-public typealias FNCERTSRVBACKUPEND = FNCERTSRVBACKUPENDFn?
+public typealias Fncertsrvbackupend = FncertsrvbackupendFn?
 
-public fun interface FNCERTSRVBACKUPFREEFn {
-    public operator fun invoke(pv: Long)
+public fun interface FncertsrvbackupfreeFn {
+    public operator fun invoke(pv: COpaquePointer?)
 }
 
-public typealias FNCERTSRVBACKUPFREE = FNCERTSRVBACKUPFREEFn?
+public typealias Fncertsrvbackupfree = FncertsrvbackupfreeFn?
 
-public fun interface FNCERTSRVBACKUPGETBACKUPLOGSWFn {
-    public operator fun invoke(hbc: Long, ppwszzbackuplogfiles: Long, pcbsize: Long): HRESULT
+public fun interface FncertsrvbackupgetbackuplogswFn {
+    public operator fun invoke(hbc: COpaquePointer?, ppwszzbackuplogfiles: COpaquePointer?, pcbsize: COpaquePointer?): Hresult
 }
 
-public typealias FNCERTSRVBACKUPGETBACKUPLOGSW = FNCERTSRVBACKUPGETBACKUPLOGSWFn?
+public typealias Fncertsrvbackupgetbackuplogsw = FncertsrvbackupgetbackuplogswFn?
 
-public fun interface FNCERTSRVBACKUPGETDATABASENAMESWFn {
-    public operator fun invoke(hbc: Long, ppwszzattachmentinformation: Long, pcbsize: Long): HRESULT
+public fun interface FncertsrvbackupgetdatabasenameswFn {
+    public operator fun invoke(hbc: COpaquePointer?, ppwszzattachmentinformation: COpaquePointer?, pcbsize: COpaquePointer?): Hresult
 }
 
-public typealias FNCERTSRVBACKUPGETDATABASENAMESW = FNCERTSRVBACKUPGETDATABASENAMESWFn?
+public typealias Fncertsrvbackupgetdatabasenamesw = FncertsrvbackupgetdatabasenameswFn?
 
-public fun interface FNCERTSRVBACKUPGETDYNAMICFILELISTWFn {
-    public operator fun invoke(hbc: Long, ppwszzfilelist: Long, pcbsize: Long): HRESULT
+public fun interface FncertsrvbackupgetdynamicfilelistwFn {
+    public operator fun invoke(hbc: COpaquePointer?, ppwszzfilelist: COpaquePointer?, pcbsize: COpaquePointer?): Hresult
 }
 
-public typealias FNCERTSRVBACKUPGETDYNAMICFILELISTW = FNCERTSRVBACKUPGETDYNAMICFILELISTWFn?
+public typealias Fncertsrvbackupgetdynamicfilelistw = FncertsrvbackupgetdynamicfilelistwFn?
 
-public fun interface FNCERTSRVBACKUPOPENFILEWFn {
-    public operator fun invoke(hbc: Long, pwszattachmentname: PCWSTR, cbreadhintsize: UInt, plifilesize: Long): HRESULT
+public fun interface FncertsrvbackupopenfilewFn {
+    public operator fun invoke(hbc: COpaquePointer?, pwszattachmentname: Pcwstr, cbreadhintsize: UInt, plifilesize: COpaquePointer?): Hresult
 }
 
-public typealias FNCERTSRVBACKUPOPENFILEW = FNCERTSRVBACKUPOPENFILEWFn?
+public typealias Fncertsrvbackupopenfilew = FncertsrvbackupopenfilewFn?
 
-public fun interface FNCERTSRVBACKUPPREPAREWFn {
-    public operator fun invoke(pwszservername: PCWSTR, grbitjet: UInt, dwbackupflags: UInt, phbc: Long): HRESULT
+public fun interface FncertsrvbackuppreparewFn {
+    public operator fun invoke(pwszservername: Pcwstr, grbitjet: UInt, dwbackupflags: UInt, phbc: COpaquePointer?): Hresult
 }
 
-public typealias FNCERTSRVBACKUPPREPAREW = FNCERTSRVBACKUPPREPAREWFn?
+public typealias Fncertsrvbackuppreparew = FncertsrvbackuppreparewFn?
 
-public fun interface FNCERTSRVBACKUPREADFn {
-    public operator fun invoke(hbc: Long, pvbuffer: Long, cbbuffer: UInt, pcbread: Long): HRESULT
+public fun interface FncertsrvbackupreadFn {
+    public operator fun invoke(hbc: COpaquePointer?, pvbuffer: COpaquePointer?, cbbuffer: UInt, pcbread: COpaquePointer?): Hresult
 }
 
-public typealias FNCERTSRVBACKUPREAD = FNCERTSRVBACKUPREADFn?
+public typealias Fncertsrvbackupread = FncertsrvbackupreadFn?
 
-public fun interface FNCERTSRVBACKUPTRUNCATELOGSFn {
-    public operator fun invoke(hbc: Long): HRESULT
+public fun interface FncertsrvbackuptruncatelogsFn {
+    public operator fun invoke(hbc: COpaquePointer?): Hresult
 }
 
-public typealias FNCERTSRVBACKUPTRUNCATELOGS = FNCERTSRVBACKUPTRUNCATELOGSFn?
+public typealias Fncertsrvbackuptruncatelogs = FncertsrvbackuptruncatelogsFn?
 
-public fun interface FNCERTSRVISSERVERONLINEWFn {
-    public operator fun invoke(pwszservername: PCWSTR, pfserveronline: Long): HRESULT
+public fun interface FncertsrvisserveronlinewFn {
+    public operator fun invoke(pwszservername: Pcwstr, pfserveronline: COpaquePointer?): Hresult
 }
 
-public typealias FNCERTSRVISSERVERONLINEW = FNCERTSRVISSERVERONLINEWFn?
+public typealias Fncertsrvisserveronlinew = FncertsrvisserveronlinewFn?
 
-public fun interface FNCERTSRVRESTOREENDFn {
-    public operator fun invoke(hbc: Long): HRESULT
+public fun interface FncertsrvrestoreendFn {
+    public operator fun invoke(hbc: COpaquePointer?): Hresult
 }
 
-public typealias FNCERTSRVRESTOREEND = FNCERTSRVRESTOREENDFn?
+public typealias Fncertsrvrestoreend = FncertsrvrestoreendFn?
 
-public fun interface FNCERTSRVRESTOREGETDATABASELOCATIONSWFn {
-    public operator fun invoke(hbc: Long, ppwszzdatabaselocationlist: Long, pcbsize: Long): HRESULT
+public fun interface FncertsrvrestoregetdatabaselocationswFn {
+    public operator fun invoke(hbc: COpaquePointer?, ppwszzdatabaselocationlist: COpaquePointer?, pcbsize: COpaquePointer?): Hresult
 }
 
-public typealias FNCERTSRVRESTOREGETDATABASELOCATIONSW = FNCERTSRVRESTOREGETDATABASELOCATIONSWFn?
+public typealias Fncertsrvrestoregetdatabaselocationsw = FncertsrvrestoregetdatabaselocationswFn?
 
-public fun interface FNCERTSRVRESTOREPREPAREWFn {
-    public operator fun invoke(pwszservername: PCWSTR, dwrestoreflags: UInt, phbc: Long): HRESULT
+public fun interface FncertsrvrestorepreparewFn {
+    public operator fun invoke(pwszservername: Pcwstr, dwrestoreflags: UInt, phbc: COpaquePointer?): Hresult
 }
 
-public typealias FNCERTSRVRESTOREPREPAREW = FNCERTSRVRESTOREPREPAREWFn?
+public typealias Fncertsrvrestorepreparew = FncertsrvrestorepreparewFn?
 
-public fun interface FNCERTSRVRESTOREREGISTERCOMPLETEFn {
-    public operator fun invoke(hbc: Long, hrrestorestate: HRESULT): HRESULT
+public fun interface FncertsrvrestoreregistercompleteFn {
+    public operator fun invoke(hbc: COpaquePointer?, hrrestorestate: Hresult): Hresult
 }
 
-public typealias FNCERTSRVRESTOREREGISTERCOMPLETE = FNCERTSRVRESTOREREGISTERCOMPLETEFn?
+public typealias Fncertsrvrestoreregistercomplete = FncertsrvrestoreregistercompleteFn?
 
-public fun interface FNCERTSRVRESTOREREGISTERWFn {
-    public operator fun invoke(hbc: Long, pwszcheckpointfilepath: PCWSTR, pwszlogpath: PCWSTR, rgrstmap: Long, crstmap: Int, pwszbackuplogpath: PCWSTR, genlow: UInt, genhigh: UInt): HRESULT
+public fun interface FncertsrvrestoreregisterwFn {
+    public operator fun invoke(hbc: COpaquePointer?, pwszcheckpointfilepath: Pcwstr, pwszlogpath: Pcwstr, rgrstmap: COpaquePointer?, crstmap: Int, pwszbackuplogpath: Pcwstr, genlow: UInt, genhigh: UInt): Hresult
 }
 
-public typealias FNCERTSRVRESTOREREGISTERW = FNCERTSRVRESTOREREGISTERWFn?
+public typealias Fncertsrvrestoreregisterw = FncertsrvrestoreregisterwFn?
 
-public fun interface FNCERTSRVSERVERCONTROLWFn {
-    public operator fun invoke(pwszservername: PCWSTR, dwcontrolflags: UInt, pcbout: Long, ppbout: Long): HRESULT
+public fun interface FncertsrvservercontrolwFn {
+    public operator fun invoke(pwszservername: Pcwstr, dwcontrolflags: UInt, pcbout: COpaquePointer?, ppbout: COpaquePointer?): Hresult
 }
 
-public typealias FNCERTSRVSERVERCONTROLW = FNCERTSRVSERVERCONTROLWFn?
+public typealias Fncertsrvservercontrolw = FncertsrvservercontrolwFn?
 
-public fun interface FNIMPORTPFXTOPROVIDERFn {
-    public operator fun invoke(hwndparent: HWND, pbpfx: Long, cbpfx: UInt, importflags: ImportPFXFlags, pwszpassword: PCWSTR, pwszprovidername: PCWSTR, pwszreadername: PCWSTR, pwszcontainernameprefix: PCWSTR, pwszpin: PCWSTR, pwszfriendlyname: PCWSTR, pccertout: Long, prgpcertout: Long): HRESULT
+public fun interface FnimportpfxtoproviderFn {
+    public operator fun invoke(hwndparent: Hwnd, pbpfx: COpaquePointer?, cbpfx: UInt, importflags: ImportPFXFlags, pwszpassword: Pcwstr, pwszprovidername: Pcwstr, pwszreadername: Pcwstr, pwszcontainernameprefix: Pcwstr, pwszpin: Pcwstr, pwszfriendlyname: Pcwstr, pccertout: COpaquePointer?, prgpcertout: COpaquePointer?): Hresult
 }
 
-public typealias FNIMPORTPFXTOPROVIDER = FNIMPORTPFXTOPROVIDERFn?
+public typealias Fnimportpfxtoprovider = FnimportpfxtoproviderFn?
 
-public fun interface FNIMPORTPFXTOPROVIDERFREEDATAFn {
-    public operator fun invoke(ccert: UInt, rgpcert: Long)
+public fun interface FnimportpfxtoproviderfreedataFn {
+    public operator fun invoke(ccert: UInt, rgpcert: COpaquePointer?)
 }
 
-public typealias FNIMPORTPFXTOPROVIDERFREEDATA = FNIMPORTPFXTOPROVIDERFREEDATAFn?
+public typealias Fnimportpfxtoproviderfreedata = FnimportpfxtoproviderfreedataFn?
 
-public typealias FULL_RESPONSE_PROPERTY_ID = Int
+public typealias FullResponsePropertyId = Int
 
 public typealias ImportPFXFlags = Int
 
@@ -208,7 +209,7 @@ public typealias ObjectIdGroupId = Int
 
 public typealias ObjectIdPublicKeyFlags = Int
 
-public typealias PENDING_REQUEST_DESIRED_PROPERTY = Int
+public typealias PendingRequestDesiredProperty = Int
 
 public typealias PFXExportOptions = Int
 
@@ -274,6 +275,6 @@ public typealias X509SCEPMessageType = Int
 
 public typealias X509SCEPProcessMessageFlags = Int
 
-public typealias XEKL_KEYSIZE = Int
+public typealias XeklKeysize = Int
 
-public typealias XEKL_KEYSPEC = Int
+public typealias XeklKeyspec = Int

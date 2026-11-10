@@ -2,97 +2,98 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext
 
-import io.github.kotlinmania.windowssys.core.HRESULT
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
 
 private val _windowsWin32UiInteractioncontextNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun AddPointerInteractionContext(interactioncontext: HINTERACTIONCONTEXT, pointerid: UInt): HRESULT =
-    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_AddPointerInteractionContext(interactioncontext.toString(), pointerid.toInt()) as Int) else 0
+public actual fun addPointerInteractionContext(interactioncontext: Hinteractioncontext, pointerid: UInt): Hresult =
+    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_addPointerInteractionContext((interactioncontext?.value ?: 0L).toString(), pointerid.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BufferPointerPacketsInteractionContext(interactioncontext: HINTERACTIONCONTEXT, entriescount: UInt, pointerinfo: Long): HRESULT =
-    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_BufferPointerPacketsInteractionContext(interactioncontext.toString(), entriescount.toInt(), pointerinfo.toString()) as Int) else 0
+public actual fun bufferPointerPacketsInteractionContext(interactioncontext: Hinteractioncontext, entriescount: UInt, pointerinfo: COpaquePointer?): Hresult =
+    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_bufferPointerPacketsInteractionContext((interactioncontext?.value ?: 0L).toString(), entriescount.toInt(), (pointerinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateInteractionContext(interactioncontext: Long): HRESULT =
-    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_CreateInteractionContext(interactioncontext.toString()) as Int) else 0
+public actual fun createInteractionContext(interactioncontext: COpaquePointer?): Hresult =
+    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_createInteractionContext((interactioncontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DestroyInteractionContext(interactioncontext: HINTERACTIONCONTEXT): HRESULT =
-    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_DestroyInteractionContext(interactioncontext.toString()) as Int) else 0
+public actual fun destroyInteractionContext(interactioncontext: Hinteractioncontext): Hresult =
+    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_destroyInteractionContext((interactioncontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCrossSlideParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, threshold: CROSS_SLIDE_THRESHOLD, distance: Long): HRESULT =
-    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_GetCrossSlideParameterInteractionContext(interactioncontext.toString(), threshold, distance.toString()) as Int) else 0
+public actual fun getCrossSlideParameterInteractionContext(interactioncontext: Hinteractioncontext, threshold: CrossSlideThreshold, distance: COpaquePointer?): Hresult =
+    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_getCrossSlideParameterInteractionContext((interactioncontext?.value ?: 0L).toString(), threshold, (distance?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetHoldParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: HOLD_PARAMETER, value: Long): HRESULT =
-    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_GetHoldParameterInteractionContext(interactioncontext.toString(), parameter, value.toString()) as Int) else 0
+public actual fun getHoldParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: HoldParameter, value: COpaquePointer?): Hresult =
+    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_getHoldParameterInteractionContext((interactioncontext?.value ?: 0L).toString(), parameter, (value?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetInertiaParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, inertiaparameter: INERTIA_PARAMETER, value: Long): HRESULT =
-    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_GetInertiaParameterInteractionContext(interactioncontext.toString(), inertiaparameter, value.toString()) as Int) else 0
+public actual fun getInertiaParameterInteractionContext(interactioncontext: Hinteractioncontext, inertiaparameter: InertiaParameter, value: COpaquePointer?): Hresult =
+    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_getInertiaParameterInteractionContext((interactioncontext?.value ?: 0L).toString(), inertiaparameter, (value?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetInteractionConfigurationInteractionContext(interactioncontext: HINTERACTIONCONTEXT, configurationcount: UInt, configuration: Long): HRESULT =
-    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_GetInteractionConfigurationInteractionContext(interactioncontext.toString(), configurationcount.toInt(), configuration.toString()) as Int) else 0
+public actual fun getInteractionConfigurationInteractionContext(interactioncontext: Hinteractioncontext, configurationcount: UInt, configuration: COpaquePointer?): Hresult =
+    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_getInteractionConfigurationInteractionContext((interactioncontext?.value ?: 0L).toString(), configurationcount.toInt(), (configuration?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetMouseWheelParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: MOUSE_WHEEL_PARAMETER, value: Long): HRESULT =
-    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_GetMouseWheelParameterInteractionContext(interactioncontext.toString(), parameter, value.toString()) as Int) else 0
+public actual fun getMouseWheelParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: MouseWheelParameter, value: COpaquePointer?): Hresult =
+    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_getMouseWheelParameterInteractionContext((interactioncontext?.value ?: 0L).toString(), parameter, (value?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPropertyInteractionContext(interactioncontext: HINTERACTIONCONTEXT, contextproperty: INTERACTION_CONTEXT_PROPERTY, value: Long): HRESULT =
-    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_GetPropertyInteractionContext(interactioncontext.toString(), contextproperty, value.toString()) as Int) else 0
+public actual fun getPropertyInteractionContext(interactioncontext: Hinteractioncontext, contextproperty: InteractionContextProperty, value: COpaquePointer?): Hresult =
+    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_getPropertyInteractionContext((interactioncontext?.value ?: 0L).toString(), contextproperty, (value?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetStateInteractionContext(interactioncontext: HINTERACTIONCONTEXT, pointerinfo: Long, state: Long): HRESULT =
-    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_GetStateInteractionContext(interactioncontext.toString(), pointerinfo.toString(), state.toString()) as Int) else 0
+public actual fun getStateInteractionContext(interactioncontext: Hinteractioncontext, pointerinfo: COpaquePointer?, state: COpaquePointer?): Hresult =
+    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_getStateInteractionContext((interactioncontext?.value ?: 0L).toString(), (pointerinfo?.value ?: 0L).toString(), (state?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetTapParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: TAP_PARAMETER, value: Long): HRESULT =
-    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_GetTapParameterInteractionContext(interactioncontext.toString(), parameter, value.toString()) as Int) else 0
+public actual fun getTapParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: TapParameter, value: COpaquePointer?): Hresult =
+    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_getTapParameterInteractionContext((interactioncontext?.value ?: 0L).toString(), parameter, (value?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetTranslationParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: TRANSLATION_PARAMETER, value: Long): HRESULT =
-    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_GetTranslationParameterInteractionContext(interactioncontext.toString(), parameter, value.toString()) as Int) else 0
+public actual fun getTranslationParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: TranslationParameter, value: COpaquePointer?): Hresult =
+    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_getTranslationParameterInteractionContext((interactioncontext?.value ?: 0L).toString(), parameter, (value?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ProcessBufferedPacketsInteractionContext(interactioncontext: HINTERACTIONCONTEXT): HRESULT =
-    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_ProcessBufferedPacketsInteractionContext(interactioncontext.toString()) as Int) else 0
+public actual fun processBufferedPacketsInteractionContext(interactioncontext: Hinteractioncontext): Hresult =
+    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_processBufferedPacketsInteractionContext((interactioncontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ProcessInertiaInteractionContext(interactioncontext: HINTERACTIONCONTEXT): HRESULT =
-    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_ProcessInertiaInteractionContext(interactioncontext.toString()) as Int) else 0
+public actual fun processInertiaInteractionContext(interactioncontext: Hinteractioncontext): Hresult =
+    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_processInertiaInteractionContext((interactioncontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ProcessPointerFramesInteractionContext(interactioncontext: HINTERACTIONCONTEXT, entriescount: UInt, pointercount: UInt, pointerinfo: Long): HRESULT =
-    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_ProcessPointerFramesInteractionContext(interactioncontext.toString(), entriescount.toInt(), pointercount.toInt(), pointerinfo.toString()) as Int) else 0
+public actual fun processPointerFramesInteractionContext(interactioncontext: Hinteractioncontext, entriescount: UInt, pointercount: UInt, pointerinfo: COpaquePointer?): Hresult =
+    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_processPointerFramesInteractionContext((interactioncontext?.value ?: 0L).toString(), entriescount.toInt(), pointercount.toInt(), (pointerinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RegisterOutputCallbackInteractionContext(interactioncontext: HINTERACTIONCONTEXT, outputcallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK, clientdata: Long): HRESULT =
-    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_RegisterOutputCallbackInteractionContext(interactioncontext.toString(), outputcallback.toLong().toString(), clientdata.toString()) as Int) else 0
+public actual fun registerOutputCallbackInteractionContext(interactioncontext: Hinteractioncontext, outputcallback: InteractionContextOutputCallback, clientdata: COpaquePointer?): Hresult =
+    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_registerOutputCallbackInteractionContext((interactioncontext?.value ?: 0L).toString(), 0L.toString(), (clientdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RegisterOutputCallbackInteractionContext2(interactioncontext: HINTERACTIONCONTEXT, outputcallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK2, clientdata: Long): HRESULT =
-    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_RegisterOutputCallbackInteractionContext2(interactioncontext.toString(), outputcallback.toLong().toString(), clientdata.toString()) as Int) else 0
+public actual fun registerOutputCallbackInteractionContext2(interactioncontext: Hinteractioncontext, outputcallback: InteractionContextOutputCallback2, clientdata: COpaquePointer?): Hresult =
+    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_registerOutputCallbackInteractionContext2((interactioncontext?.value ?: 0L).toString(), 0L.toString(), (clientdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RemovePointerInteractionContext(interactioncontext: HINTERACTIONCONTEXT, pointerid: UInt): HRESULT =
-    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_RemovePointerInteractionContext(interactioncontext.toString(), pointerid.toInt()) as Int) else 0
+public actual fun removePointerInteractionContext(interactioncontext: Hinteractioncontext, pointerid: UInt): Hresult =
+    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_removePointerInteractionContext((interactioncontext?.value ?: 0L).toString(), pointerid.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ResetInteractionContext(interactioncontext: HINTERACTIONCONTEXT): HRESULT =
-    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_ResetInteractionContext(interactioncontext.toString()) as Int) else 0
+public actual fun resetInteractionContext(interactioncontext: Hinteractioncontext): Hresult =
+    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_resetInteractionContext((interactioncontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetCrossSlideParametersInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parametercount: UInt, crossslideparameters: Long): HRESULT =
-    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_SetCrossSlideParametersInteractionContext(interactioncontext.toString(), parametercount.toInt(), crossslideparameters.toString()) as Int) else 0
+public actual fun setCrossSlideParametersInteractionContext(interactioncontext: Hinteractioncontext, parametercount: UInt, crossslideparameters: COpaquePointer?): Hresult =
+    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_setCrossSlideParametersInteractionContext((interactioncontext?.value ?: 0L).toString(), parametercount.toInt(), (crossslideparameters?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetHoldParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: HOLD_PARAMETER, value: Float): HRESULT =
-    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_SetHoldParameterInteractionContext(interactioncontext.toString(), parameter, value.toDouble()) as Int) else 0
+public actual fun setHoldParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: HoldParameter, value: Float): Hresult =
+    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_setHoldParameterInteractionContext((interactioncontext?.value ?: 0L).toString(), parameter, value.toDouble()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetInertiaParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, inertiaparameter: INERTIA_PARAMETER, value: Float): HRESULT =
-    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_SetInertiaParameterInteractionContext(interactioncontext.toString(), inertiaparameter, value.toDouble()) as Int) else 0
+public actual fun setInertiaParameterInteractionContext(interactioncontext: Hinteractioncontext, inertiaparameter: InertiaParameter, value: Float): Hresult =
+    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_setInertiaParameterInteractionContext((interactioncontext?.value ?: 0L).toString(), inertiaparameter, value.toDouble()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetInteractionConfigurationInteractionContext(interactioncontext: HINTERACTIONCONTEXT, configurationcount: UInt, configuration: Long): HRESULT =
-    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_SetInteractionConfigurationInteractionContext(interactioncontext.toString(), configurationcount.toInt(), configuration.toString()) as Int) else 0
+public actual fun setInteractionConfigurationInteractionContext(interactioncontext: Hinteractioncontext, configurationcount: UInt, configuration: COpaquePointer?): Hresult =
+    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_setInteractionConfigurationInteractionContext((interactioncontext?.value ?: 0L).toString(), configurationcount.toInt(), (configuration?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetMouseWheelParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: MOUSE_WHEEL_PARAMETER, value: Float): HRESULT =
-    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_SetMouseWheelParameterInteractionContext(interactioncontext.toString(), parameter, value.toDouble()) as Int) else 0
+public actual fun setMouseWheelParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: MouseWheelParameter, value: Float): Hresult =
+    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_setMouseWheelParameterInteractionContext((interactioncontext?.value ?: 0L).toString(), parameter, value.toDouble()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetPivotInteractionContext(interactioncontext: HINTERACTIONCONTEXT, x: Float, y: Float, radius: Float): HRESULT =
-    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_SetPivotInteractionContext(interactioncontext.toString(), x.toDouble(), y.toDouble(), radius.toDouble()) as Int) else 0
+public actual fun setPivotInteractionContext(interactioncontext: Hinteractioncontext, x: Float, y: Float, radius: Float): Hresult =
+    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_setPivotInteractionContext((interactioncontext?.value ?: 0L).toString(), x.toDouble(), y.toDouble(), radius.toDouble()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetPropertyInteractionContext(interactioncontext: HINTERACTIONCONTEXT, contextproperty: INTERACTION_CONTEXT_PROPERTY, value: UInt): HRESULT =
-    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_SetPropertyInteractionContext(interactioncontext.toString(), contextproperty, value.toInt()) as Int) else 0
+public actual fun setPropertyInteractionContext(interactioncontext: Hinteractioncontext, contextproperty: InteractionContextProperty, value: UInt): Hresult =
+    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_setPropertyInteractionContext((interactioncontext?.value ?: 0L).toString(), contextproperty, value.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetTapParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: TAP_PARAMETER, value: Float): HRESULT =
-    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_SetTapParameterInteractionContext(interactioncontext.toString(), parameter, value.toDouble()) as Int) else 0
+public actual fun setTapParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: TapParameter, value: Float): Hresult =
+    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_setTapParameterInteractionContext((interactioncontext?.value ?: 0L).toString(), parameter, value.toDouble()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetTranslationParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: TRANSLATION_PARAMETER, value: Float): HRESULT =
-    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_SetTranslationParameterInteractionContext(interactioncontext.toString(), parameter, value.toDouble()) as Int) else 0
+public actual fun setTranslationParameterInteractionContext(interactioncontext: Hinteractioncontext, parameter: TranslationParameter, value: Float): Hresult =
+    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_setTranslationParameterInteractionContext((interactioncontext?.value ?: 0L).toString(), parameter, value.toDouble()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun StopInteractionContext(interactioncontext: HINTERACTIONCONTEXT): HRESULT =
-    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_StopInteractionContext(interactioncontext.toString()) as Int) else 0
+public actual fun stopInteractionContext(interactioncontext: Hinteractioncontext): Hresult =
+    if (_windowsWin32UiInteractioncontextNapiAddon != null) (_windowsWin32UiInteractioncontextNapiAddon.windowssys_windows_win32_ui_interactioncontext_stopInteractionContext((interactioncontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

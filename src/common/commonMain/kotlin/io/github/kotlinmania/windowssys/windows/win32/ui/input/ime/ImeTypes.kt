@@ -1,83 +1,84 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.input.ime
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
 
-public typealias GET_CONVERSION_LIST_FLAG = UInt
+public typealias GetConversionListFlag = UInt
 
-public typealias GET_GUIDE_LINE_TYPE = UInt
+public typealias GetGuideLineType = UInt
 
-public typealias HIMC = Long
+public typealias Himc = COpaquePointer?
 
-public typealias HIMCC = Long
+public typealias Himcc = COpaquePointer?
 
-public fun interface IMCENUMPROCFn {
-    public operator fun invoke(param0: HIMC, param1: LPARAM): BOOL
+public fun interface ImcenumprocFn {
+    public operator fun invoke(param0: Himc, param1: Lparam): Bool
 }
 
-public typealias IMCENUMPROC = IMCENUMPROCFn?
+public typealias Imcenumproc = ImcenumprocFn?
 
-public typealias IMEFMT = Int
+public typealias Imefmt = Int
 
-public typealias IMEREG = Int
+public typealias Imereg = Int
 
-public typealias IMEREL = Int
+public typealias Imerel = Int
 
-public typealias IMEUCT = Int
+public typealias Imeuct = Int
 
-public typealias IME_COMPOSITION_STRING = UInt
+public typealias ImeCompositionString = UInt
 
-public typealias IME_CONVERSION_MODE = UInt
+public typealias ImeConversionMode = UInt
 
-public typealias IME_ESCAPE = UInt
+public typealias ImeEscape = UInt
 
-public typealias IME_HOTKEY_IDENTIFIER = UInt
+public typealias ImeHotkeyIdentifier = UInt
 
-public typealias IME_PAD_REQUEST_FLAGS = UInt
+public typealias ImePadRequestFlags = UInt
 
-public typealias IME_SENTENCE_MODE = UInt
+public typealias ImeSentenceMode = UInt
 
-public typealias NOTIFY_IME_ACTION = UInt
+public typealias NotifyImeAction = UInt
 
-public typealias NOTIFY_IME_INDEX = UInt
+public typealias NotifyImeIndex = UInt
 
-public fun interface PFNLOGFn {
-    public operator fun invoke(param0: Long, param1: HRESULT): BOOL
+public fun interface PfnlogFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: Hresult): Bool
 }
 
-public typealias PFNLOG = PFNLOGFn?
+public typealias Pfnlog = PfnlogFn?
 
-public fun interface REGISTERWORDENUMPROCAFn {
-    public operator fun invoke(lpszreading: PCSTR, param1: UInt, lpszstring: PCSTR, param3: Long): Int
+public fun interface RegisterwordenumprocaFn {
+    public operator fun invoke(lpszreading: Pcstr, param1: UInt, lpszstring: Pcstr, param3: COpaquePointer?): Int
 }
 
-public typealias REGISTERWORDENUMPROCA = REGISTERWORDENUMPROCAFn?
+public typealias Registerwordenumproca = RegisterwordenumprocaFn?
 
-public fun interface REGISTERWORDENUMPROCWFn {
-    public operator fun invoke(lpszreading: PCWSTR, param1: UInt, lpszstring: PCWSTR, param3: Long): Int
+public fun interface RegisterwordenumprocwFn {
+    public operator fun invoke(lpszreading: Pcwstr, param1: UInt, lpszstring: Pcwstr, param3: COpaquePointer?): Int
 }
 
-public typealias REGISTERWORDENUMPROCW = REGISTERWORDENUMPROCWFn?
+public typealias Registerwordenumprocw = RegisterwordenumprocwFn?
 
-public typealias SET_COMPOSITION_STRING_TYPE = UInt
+public typealias SetCompositionStringType = UInt
 
-public fun interface fpCreateIFECommonInstanceTypeFn {
-    public operator fun invoke(ppvobj: Long): HRESULT
+public fun interface FpCreateIfecommonInstanceTypeFn {
+    public operator fun invoke(ppvobj: COpaquePointer?): Hresult
 }
 
-public typealias fpCreateIFECommonInstanceType = fpCreateIFECommonInstanceTypeFn?
+public typealias FpCreateIfecommonInstanceType = FpCreateIfecommonInstanceTypeFn?
 
-public fun interface fpCreateIFEDictionaryInstanceTypeFn {
-    public operator fun invoke(ppvobj: Long): HRESULT
+public fun interface FpCreateIfedictionaryInstanceTypeFn {
+    public operator fun invoke(ppvobj: COpaquePointer?): Hresult
 }
 
-public typealias fpCreateIFEDictionaryInstanceType = fpCreateIFEDictionaryInstanceTypeFn?
+public typealias FpCreateIfedictionaryInstanceType = FpCreateIfedictionaryInstanceTypeFn?
 
-public fun interface fpCreateIFELanguageInstanceTypeFn {
-    public operator fun invoke(clsid: Long, ppvobj: Long): HRESULT
+public fun interface FpCreateIfelanguageInstanceTypeFn {
+    public operator fun invoke(clsid: COpaquePointer?, ppvobj: COpaquePointer?): Hresult
 }
 
-public typealias fpCreateIFELanguageInstanceType = fpCreateIFELanguageInstanceTypeFn?
+public typealias FpCreateIfelanguageInstanceType = FpCreateIfelanguageInstanceTypeFn?

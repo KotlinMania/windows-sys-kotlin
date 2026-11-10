@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_serialcommunication_WindowsWin32DevicesSerialcommunicationJniBridge_windowssys_1windows_1win32_1devices_1serialcommunication_1ComDBClaimNextFreePort(JNIEnv* km_env, jclass km_clazz, jlong hcomdb, jlong comnumber) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_serialcommunication_WindowsWin32DevicesSerialcommunicationJniBridge_windowssys_1windows_1win32_1devices_1serialcommunication_1comDBClaimNextFreePort(JNIEnv* km_env, jclass km_clazz, jlong hcomdb, jlong comnumber) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -37,7 +37,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_serialcommunication_WindowsWin32DevicesSerialcommunicationJniBridge_windowssys_1windows_1win32_1devices_1serialcommunication_1ComDBClaimPort(JNIEnv* km_env, jclass km_clazz, jlong hcomdb, jint comnumber, jint forceclaim, jlong forced) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_serialcommunication_WindowsWin32DevicesSerialcommunicationJniBridge_windowssys_1windows_1win32_1devices_1serialcommunication_1comDBClaimPort(JNIEnv* km_env, jclass km_clazz, jlong hcomdb, jint comnumber, jint forceclaim, jlong forced) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -58,7 +58,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_serialcommunication_WindowsWin32DevicesSerialcommunicationJniBridge_windowssys_1windows_1win32_1devices_1serialcommunication_1ComDBClose(JNIEnv* km_env, jclass km_clazz, jlong hcomdb) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_serialcommunication_WindowsWin32DevicesSerialcommunicationJniBridge_windowssys_1windows_1win32_1devices_1serialcommunication_1comDBClose(JNIEnv* km_env, jclass km_clazz, jlong hcomdb) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -76,7 +76,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_serialcommunication_WindowsWin32DevicesSerialcommunicationJniBridge_windowssys_1windows_1win32_1devices_1serialcommunication_1ComDBGetCurrentPortUsage(JNIEnv* km_env, jclass km_clazz, jlong hcomdb, jlong buffer, jint buffersize, jint reporttype, jlong maxportsreported) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_serialcommunication_WindowsWin32DevicesSerialcommunicationJniBridge_windowssys_1windows_1win32_1devices_1serialcommunication_1comDBGetCurrentPortUsage(JNIEnv* km_env, jclass km_clazz, jlong hcomdb, jlong buffer, jint buffersize, jint reporttype, jlong maxportsreported) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -98,7 +98,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_serialcommunication_WindowsWin32DevicesSerialcommunicationJniBridge_windowssys_1windows_1win32_1devices_1serialcommunication_1ComDBOpen(JNIEnv* km_env, jclass km_clazz, jlong phcomdb) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_serialcommunication_WindowsWin32DevicesSerialcommunicationJniBridge_windowssys_1windows_1win32_1devices_1serialcommunication_1comDBOpen(JNIEnv* km_env, jclass km_clazz, jlong phcomdb) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -116,7 +116,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_serialcommunication_WindowsWin32DevicesSerialcommunicationJniBridge_windowssys_1windows_1win32_1devices_1serialcommunication_1ComDBReleasePort(JNIEnv* km_env, jclass km_clazz, jlong hcomdb, jint comnumber) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_serialcommunication_WindowsWin32DevicesSerialcommunicationJniBridge_windowssys_1windows_1win32_1devices_1serialcommunication_1comDBReleasePort(JNIEnv* km_env, jclass km_clazz, jlong hcomdb, jint comnumber) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -135,7 +135,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_serialcommunication_WindowsWin32DevicesSerialcommunicationJniBridge_windowssys_1windows_1win32_1devices_1serialcommunication_1ComDBResizeDatabase(JNIEnv* km_env, jclass km_clazz, jlong hcomdb, jint newsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_serialcommunication_WindowsWin32DevicesSerialcommunicationJniBridge_windowssys_1windows_1win32_1devices_1serialcommunication_1comDBResizeDatabase(JNIEnv* km_env, jclass km_clazz, jlong hcomdb, jint newsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

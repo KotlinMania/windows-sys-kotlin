@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_security_AccessCheck(void* psecuritydescriptor, void* clienttoken, uint32_t desiredaccess, void* genericmapping, void* privilegeset, void* privilegesetlength, void* grantedaccess, void* accessstatus) {
+int32_t windowssys_windows_win32_security_accessCheck(void* psecuritydescriptor, void* clienttoken, uint32_t desiredaccess, void* genericmapping, void* privilegeset, void* privilegesetlength, void* grantedaccess, void* accessstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -44,7 +44,7 @@ int32_t windowssys_windows_win32_security_AccessCheck(void* psecuritydescriptor,
 #endif
 }
 
-int32_t windowssys_windows_win32_security_AccessCheckAndAuditAlarmA(void* subsystemname, void* handleid, void* objecttypename, void* objectname, void* securitydescriptor, uint32_t desiredaccess, void* genericmapping, int32_t objectcreation, void* grantedaccess, void* accessstatus, void* pfgenerateonclose) {
+int32_t windowssys_windows_win32_security_accessCheckAndAuditAlarmA(void* subsystemname, void* handleid, void* objecttypename, void* objectname, void* securitydescriptor, uint32_t desiredaccess, void* genericmapping, int32_t objectcreation, void* grantedaccess, void* accessstatus, void* pfgenerateonclose) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -76,7 +76,7 @@ int32_t windowssys_windows_win32_security_AccessCheckAndAuditAlarmA(void* subsys
 #endif
 }
 
-int32_t windowssys_windows_win32_security_AccessCheckAndAuditAlarmW(void* subsystemname, void* handleid, void* objecttypename, void* objectname, void* securitydescriptor, uint32_t desiredaccess, void* genericmapping, int32_t objectcreation, void* grantedaccess, void* accessstatus, void* pfgenerateonclose) {
+int32_t windowssys_windows_win32_security_accessCheckAndAuditAlarmW(void* subsystemname, void* handleid, void* objecttypename, void* objectname, void* securitydescriptor, uint32_t desiredaccess, void* genericmapping, int32_t objectcreation, void* grantedaccess, void* accessstatus, void* pfgenerateonclose) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -108,7 +108,7 @@ int32_t windowssys_windows_win32_security_AccessCheckAndAuditAlarmW(void* subsys
 #endif
 }
 
-int32_t windowssys_windows_win32_security_AccessCheckByType(void* psecuritydescriptor, void* principalselfsid, void* clienttoken, uint32_t desiredaccess, void* objecttypelist, uint32_t objecttypelistlength, void* genericmapping, void* privilegeset, void* privilegesetlength, void* grantedaccess, void* accessstatus) {
+int32_t windowssys_windows_win32_security_accessCheckByType(void* psecuritydescriptor, void* principalselfsid, void* clienttoken, uint32_t desiredaccess, void* objecttypelist, uint32_t objecttypelistlength, void* genericmapping, void* privilegeset, void* privilegesetlength, void* grantedaccess, void* accessstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -140,7 +140,7 @@ int32_t windowssys_windows_win32_security_AccessCheckByType(void* psecuritydescr
 #endif
 }
 
-int32_t windowssys_windows_win32_security_AccessCheckByTypeAndAuditAlarmA(void* subsystemname, void* handleid, void* objecttypename, void* objectname, void* securitydescriptor, void* principalselfsid, uint32_t desiredaccess, int32_t audittype, uint32_t flags, void* objecttypelist, uint32_t objecttypelistlength, void* genericmapping, int32_t objectcreation, void* grantedaccess, void* accessstatus, void* pfgenerateonclose) {
+int32_t windowssys_windows_win32_security_accessCheckByTypeAndAuditAlarmA(void* subsystemname, void* handleid, void* objecttypename, void* objectname, void* securitydescriptor, void* principalselfsid, uint32_t desiredaccess, int32_t audittype, uint32_t flags, void* objecttypelist, uint32_t objecttypelistlength, void* genericmapping, int32_t objectcreation, void* grantedaccess, void* accessstatus, void* pfgenerateonclose) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, int32_t, uint32_t, void*, uint32_t, void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -177,7 +177,7 @@ int32_t windowssys_windows_win32_security_AccessCheckByTypeAndAuditAlarmA(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_security_AccessCheckByTypeAndAuditAlarmW(void* subsystemname, void* handleid, void* objecttypename, void* objectname, void* securitydescriptor, void* principalselfsid, uint32_t desiredaccess, int32_t audittype, uint32_t flags, void* objecttypelist, uint32_t objecttypelistlength, void* genericmapping, int32_t objectcreation, void* grantedaccess, void* accessstatus, void* pfgenerateonclose) {
+int32_t windowssys_windows_win32_security_accessCheckByTypeAndAuditAlarmW(void* subsystemname, void* handleid, void* objecttypename, void* objectname, void* securitydescriptor, void* principalselfsid, uint32_t desiredaccess, int32_t audittype, uint32_t flags, void* objecttypelist, uint32_t objecttypelistlength, void* genericmapping, int32_t objectcreation, void* grantedaccess, void* accessstatus, void* pfgenerateonclose) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, int32_t, uint32_t, void*, uint32_t, void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -214,7 +214,7 @@ int32_t windowssys_windows_win32_security_AccessCheckByTypeAndAuditAlarmW(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_security_AccessCheckByTypeResultList(void* psecuritydescriptor, void* principalselfsid, void* clienttoken, uint32_t desiredaccess, void* objecttypelist, uint32_t objecttypelistlength, void* genericmapping, void* privilegeset, void* privilegesetlength, void* grantedaccesslist, void* accessstatuslist) {
+int32_t windowssys_windows_win32_security_accessCheckByTypeResultList(void* psecuritydescriptor, void* principalselfsid, void* clienttoken, uint32_t desiredaccess, void* objecttypelist, uint32_t objecttypelistlength, void* genericmapping, void* privilegeset, void* privilegesetlength, void* grantedaccesslist, void* accessstatuslist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -246,7 +246,7 @@ int32_t windowssys_windows_win32_security_AccessCheckByTypeResultList(void* psec
 #endif
 }
 
-int32_t windowssys_windows_win32_security_AccessCheckByTypeResultListAndAuditAlarmA(void* subsystemname, void* handleid, void* objecttypename, void* objectname, void* securitydescriptor, void* principalselfsid, uint32_t desiredaccess, int32_t audittype, uint32_t flags, void* objecttypelist, uint32_t objecttypelistlength, void* genericmapping, int32_t objectcreation, void* grantedaccess, void* accessstatuslist, void* pfgenerateonclose) {
+int32_t windowssys_windows_win32_security_accessCheckByTypeResultListAndAuditAlarmA(void* subsystemname, void* handleid, void* objecttypename, void* objectname, void* securitydescriptor, void* principalselfsid, uint32_t desiredaccess, int32_t audittype, uint32_t flags, void* objecttypelist, uint32_t objecttypelistlength, void* genericmapping, int32_t objectcreation, void* grantedaccess, void* accessstatuslist, void* pfgenerateonclose) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, int32_t, uint32_t, void*, uint32_t, void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -283,7 +283,7 @@ int32_t windowssys_windows_win32_security_AccessCheckByTypeResultListAndAuditAla
 #endif
 }
 
-int32_t windowssys_windows_win32_security_AccessCheckByTypeResultListAndAuditAlarmByHandleA(void* subsystemname, void* handleid, void* clienttoken, void* objecttypename, void* objectname, void* securitydescriptor, void* principalselfsid, uint32_t desiredaccess, int32_t audittype, uint32_t flags, void* objecttypelist, uint32_t objecttypelistlength, void* genericmapping, int32_t objectcreation, void* grantedaccess, void* accessstatuslist, void* pfgenerateonclose) {
+int32_t windowssys_windows_win32_security_accessCheckByTypeResultListAndAuditAlarmByHandleA(void* subsystemname, void* handleid, void* clienttoken, void* objecttypename, void* objectname, void* securitydescriptor, void* principalselfsid, uint32_t desiredaccess, int32_t audittype, uint32_t flags, void* objecttypelist, uint32_t objecttypelistlength, void* genericmapping, int32_t objectcreation, void* grantedaccess, void* accessstatuslist, void* pfgenerateonclose) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, uint32_t, int32_t, uint32_t, void*, uint32_t, void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -321,7 +321,7 @@ int32_t windowssys_windows_win32_security_AccessCheckByTypeResultListAndAuditAla
 #endif
 }
 
-int32_t windowssys_windows_win32_security_AccessCheckByTypeResultListAndAuditAlarmByHandleW(void* subsystemname, void* handleid, void* clienttoken, void* objecttypename, void* objectname, void* securitydescriptor, void* principalselfsid, uint32_t desiredaccess, int32_t audittype, uint32_t flags, void* objecttypelist, uint32_t objecttypelistlength, void* genericmapping, int32_t objectcreation, void* grantedaccesslist, void* accessstatuslist, void* pfgenerateonclose) {
+int32_t windowssys_windows_win32_security_accessCheckByTypeResultListAndAuditAlarmByHandleW(void* subsystemname, void* handleid, void* clienttoken, void* objecttypename, void* objectname, void* securitydescriptor, void* principalselfsid, uint32_t desiredaccess, int32_t audittype, uint32_t flags, void* objecttypelist, uint32_t objecttypelistlength, void* genericmapping, int32_t objectcreation, void* grantedaccesslist, void* accessstatuslist, void* pfgenerateonclose) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, uint32_t, int32_t, uint32_t, void*, uint32_t, void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -359,7 +359,7 @@ int32_t windowssys_windows_win32_security_AccessCheckByTypeResultListAndAuditAla
 #endif
 }
 
-int32_t windowssys_windows_win32_security_AccessCheckByTypeResultListAndAuditAlarmW(void* subsystemname, void* handleid, void* objecttypename, void* objectname, void* securitydescriptor, void* principalselfsid, uint32_t desiredaccess, int32_t audittype, uint32_t flags, void* objecttypelist, uint32_t objecttypelistlength, void* genericmapping, int32_t objectcreation, void* grantedaccesslist, void* accessstatuslist, void* pfgenerateonclose) {
+int32_t windowssys_windows_win32_security_accessCheckByTypeResultListAndAuditAlarmW(void* subsystemname, void* handleid, void* objecttypename, void* objectname, void* securitydescriptor, void* principalselfsid, uint32_t desiredaccess, int32_t audittype, uint32_t flags, void* objecttypelist, uint32_t objecttypelistlength, void* genericmapping, int32_t objectcreation, void* grantedaccesslist, void* accessstatuslist, void* pfgenerateonclose) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, int32_t, uint32_t, void*, uint32_t, void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -396,7 +396,7 @@ int32_t windowssys_windows_win32_security_AccessCheckByTypeResultListAndAuditAla
 #endif
 }
 
-int32_t windowssys_windows_win32_security_AddAccessAllowedAce(void* pacl, uint32_t dwacerevision, uint32_t accessmask, void* psid) {
+int32_t windowssys_windows_win32_security_addAccessAllowedAce(void* pacl, uint32_t dwacerevision, uint32_t accessmask, void* psid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -421,7 +421,7 @@ int32_t windowssys_windows_win32_security_AddAccessAllowedAce(void* pacl, uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_security_AddAccessAllowedAceEx(void* pacl, uint32_t dwacerevision, uint32_t aceflags, uint32_t accessmask, void* psid) {
+int32_t windowssys_windows_win32_security_addAccessAllowedAceEx(void* pacl, uint32_t dwacerevision, uint32_t aceflags, uint32_t accessmask, void* psid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -447,7 +447,7 @@ int32_t windowssys_windows_win32_security_AddAccessAllowedAceEx(void* pacl, uint
 #endif
 }
 
-int32_t windowssys_windows_win32_security_AddAccessAllowedObjectAce(void* pacl, uint32_t dwacerevision, uint32_t aceflags, uint32_t accessmask, void* objecttypeguid, void* inheritedobjecttypeguid, void* psid) {
+int32_t windowssys_windows_win32_security_addAccessAllowedObjectAce(void* pacl, uint32_t dwacerevision, uint32_t aceflags, uint32_t accessmask, void* objecttypeguid, void* inheritedobjecttypeguid, void* psid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -475,7 +475,7 @@ int32_t windowssys_windows_win32_security_AddAccessAllowedObjectAce(void* pacl, 
 #endif
 }
 
-int32_t windowssys_windows_win32_security_AddAccessDeniedAce(void* pacl, uint32_t dwacerevision, uint32_t accessmask, void* psid) {
+int32_t windowssys_windows_win32_security_addAccessDeniedAce(void* pacl, uint32_t dwacerevision, uint32_t accessmask, void* psid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -500,7 +500,7 @@ int32_t windowssys_windows_win32_security_AddAccessDeniedAce(void* pacl, uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_security_AddAccessDeniedAceEx(void* pacl, uint32_t dwacerevision, uint32_t aceflags, uint32_t accessmask, void* psid) {
+int32_t windowssys_windows_win32_security_addAccessDeniedAceEx(void* pacl, uint32_t dwacerevision, uint32_t aceflags, uint32_t accessmask, void* psid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -526,7 +526,7 @@ int32_t windowssys_windows_win32_security_AddAccessDeniedAceEx(void* pacl, uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_security_AddAccessDeniedObjectAce(void* pacl, uint32_t dwacerevision, uint32_t aceflags, uint32_t accessmask, void* objecttypeguid, void* inheritedobjecttypeguid, void* psid) {
+int32_t windowssys_windows_win32_security_addAccessDeniedObjectAce(void* pacl, uint32_t dwacerevision, uint32_t aceflags, uint32_t accessmask, void* objecttypeguid, void* inheritedobjecttypeguid, void* psid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -554,7 +554,7 @@ int32_t windowssys_windows_win32_security_AddAccessDeniedObjectAce(void* pacl, u
 #endif
 }
 
-int32_t windowssys_windows_win32_security_AddAce(void* pacl, uint32_t dwacerevision, uint32_t dwstartingaceindex, void* pacelist, uint32_t nacelistlength) {
+int32_t windowssys_windows_win32_security_addAce(void* pacl, uint32_t dwacerevision, uint32_t dwstartingaceindex, void* pacelist, uint32_t nacelistlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -580,7 +580,7 @@ int32_t windowssys_windows_win32_security_AddAce(void* pacl, uint32_t dwacerevis
 #endif
 }
 
-int32_t windowssys_windows_win32_security_AddAuditAccessAce(void* pacl, uint32_t dwacerevision, uint32_t dwaccessmask, void* psid, int32_t bauditsuccess, int32_t bauditfailure) {
+int32_t windowssys_windows_win32_security_addAuditAccessAce(void* pacl, uint32_t dwacerevision, uint32_t dwaccessmask, void* psid, int32_t bauditsuccess, int32_t bauditfailure) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -607,7 +607,7 @@ int32_t windowssys_windows_win32_security_AddAuditAccessAce(void* pacl, uint32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_security_AddAuditAccessAceEx(void* pacl, uint32_t dwacerevision, uint32_t aceflags, uint32_t dwaccessmask, void* psid, int32_t bauditsuccess, int32_t bauditfailure) {
+int32_t windowssys_windows_win32_security_addAuditAccessAceEx(void* pacl, uint32_t dwacerevision, uint32_t aceflags, uint32_t dwaccessmask, void* psid, int32_t bauditsuccess, int32_t bauditfailure) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -635,7 +635,7 @@ int32_t windowssys_windows_win32_security_AddAuditAccessAceEx(void* pacl, uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_security_AddAuditAccessObjectAce(void* pacl, uint32_t dwacerevision, uint32_t aceflags, uint32_t accessmask, void* objecttypeguid, void* inheritedobjecttypeguid, void* psid, int32_t bauditsuccess, int32_t bauditfailure) {
+int32_t windowssys_windows_win32_security_addAuditAccessObjectAce(void* pacl, uint32_t dwacerevision, uint32_t aceflags, uint32_t accessmask, void* objecttypeguid, void* inheritedobjecttypeguid, void* psid, int32_t bauditsuccess, int32_t bauditfailure) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*, void*, void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -665,7 +665,7 @@ int32_t windowssys_windows_win32_security_AddAuditAccessObjectAce(void* pacl, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_security_AddConditionalAce(void* pacl, uint32_t dwacerevision, uint32_t aceflags, uint8_t acetype, uint32_t accessmask, void* psid, void* conditionstr, void* returnlength) {
+int32_t windowssys_windows_win32_security_addConditionalAce(void* pacl, uint32_t dwacerevision, uint32_t aceflags, uint8_t acetype, uint32_t accessmask, void* psid, void* conditionstr, void* returnlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint8_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -694,7 +694,7 @@ int32_t windowssys_windows_win32_security_AddConditionalAce(void* pacl, uint32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_security_AddMandatoryAce(void* pacl, uint32_t dwacerevision, uint32_t aceflags, uint32_t mandatorypolicy, void* plabelsid) {
+int32_t windowssys_windows_win32_security_addMandatoryAce(void* pacl, uint32_t dwacerevision, uint32_t aceflags, uint32_t mandatorypolicy, void* plabelsid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -720,7 +720,7 @@ int32_t windowssys_windows_win32_security_AddMandatoryAce(void* pacl, uint32_t d
 #endif
 }
 
-int32_t windowssys_windows_win32_security_AddResourceAttributeAce(void* pacl, uint32_t dwacerevision, uint32_t aceflags, uint32_t accessmask, void* psid, void* pattributeinfo, void* preturnlength) {
+int32_t windowssys_windows_win32_security_addResourceAttributeAce(void* pacl, uint32_t dwacerevision, uint32_t aceflags, uint32_t accessmask, void* psid, void* pattributeinfo, void* preturnlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -748,7 +748,7 @@ int32_t windowssys_windows_win32_security_AddResourceAttributeAce(void* pacl, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_security_AddScopedPolicyIDAce(void* pacl, uint32_t dwacerevision, uint32_t aceflags, uint32_t accessmask, void* psid) {
+int32_t windowssys_windows_win32_security_addScopedPolicyIDAce(void* pacl, uint32_t dwacerevision, uint32_t aceflags, uint32_t accessmask, void* psid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -774,7 +774,7 @@ int32_t windowssys_windows_win32_security_AddScopedPolicyIDAce(void* pacl, uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_security_AdjustTokenGroups(void* tokenhandle, int32_t resettodefault, void* newstate, uint32_t bufferlength, void* previousstate, void* returnlength) {
+int32_t windowssys_windows_win32_security_adjustTokenGroups(void* tokenhandle, int32_t resettodefault, void* newstate, uint32_t bufferlength, void* previousstate, void* returnlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -801,7 +801,7 @@ int32_t windowssys_windows_win32_security_AdjustTokenGroups(void* tokenhandle, i
 #endif
 }
 
-int32_t windowssys_windows_win32_security_AdjustTokenPrivileges(void* tokenhandle, int32_t disableallprivileges, void* newstate, uint32_t bufferlength, void* previousstate, void* returnlength) {
+int32_t windowssys_windows_win32_security_adjustTokenPrivileges(void* tokenhandle, int32_t disableallprivileges, void* newstate, uint32_t bufferlength, void* previousstate, void* returnlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -828,7 +828,7 @@ int32_t windowssys_windows_win32_security_AdjustTokenPrivileges(void* tokenhandl
 #endif
 }
 
-int32_t windowssys_windows_win32_security_AllocateAndInitializeSid(void* pidentifierauthority, uint8_t nsubauthoritycount, uint32_t nsubauthority0, uint32_t nsubauthority1, uint32_t nsubauthority2, uint32_t nsubauthority3, uint32_t nsubauthority4, uint32_t nsubauthority5, uint32_t nsubauthority6, uint32_t nsubauthority7, void* psid) {
+int32_t windowssys_windows_win32_security_allocateAndInitializeSid(void* pidentifierauthority, uint8_t nsubauthoritycount, uint32_t nsubauthority0, uint32_t nsubauthority1, uint32_t nsubauthority2, uint32_t nsubauthority3, uint32_t nsubauthority4, uint32_t nsubauthority5, uint32_t nsubauthority6, uint32_t nsubauthority7, void* psid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint8_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -860,7 +860,7 @@ int32_t windowssys_windows_win32_security_AllocateAndInitializeSid(void* pidenti
 #endif
 }
 
-int32_t windowssys_windows_win32_security_AllocateLocallyUniqueId(void* luid) {
+int32_t windowssys_windows_win32_security_allocateLocallyUniqueId(void* luid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -882,7 +882,7 @@ int32_t windowssys_windows_win32_security_AllocateLocallyUniqueId(void* luid) {
 #endif
 }
 
-int32_t windowssys_windows_win32_security_AreAllAccessesGranted(uint32_t grantedaccess, uint32_t desiredaccess) {
+int32_t windowssys_windows_win32_security_areAllAccessesGranted(uint32_t grantedaccess, uint32_t desiredaccess) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -905,7 +905,7 @@ int32_t windowssys_windows_win32_security_AreAllAccessesGranted(uint32_t granted
 #endif
 }
 
-int32_t windowssys_windows_win32_security_AreAnyAccessesGranted(uint32_t grantedaccess, uint32_t desiredaccess) {
+int32_t windowssys_windows_win32_security_areAnyAccessesGranted(uint32_t grantedaccess, uint32_t desiredaccess) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -928,7 +928,7 @@ int32_t windowssys_windows_win32_security_AreAnyAccessesGranted(uint32_t granted
 #endif
 }
 
-int32_t windowssys_windows_win32_security_CheckTokenCapability(void* tokenhandle, void* capabilitysidtocheck, void* hascapability) {
+int32_t windowssys_windows_win32_security_checkTokenCapability(void* tokenhandle, void* capabilitysidtocheck, void* hascapability) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -952,7 +952,7 @@ int32_t windowssys_windows_win32_security_CheckTokenCapability(void* tokenhandle
 #endif
 }
 
-int32_t windowssys_windows_win32_security_CheckTokenMembership(void* tokenhandle, void* sidtocheck, void* ismember) {
+int32_t windowssys_windows_win32_security_checkTokenMembership(void* tokenhandle, void* sidtocheck, void* ismember) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -976,7 +976,7 @@ int32_t windowssys_windows_win32_security_CheckTokenMembership(void* tokenhandle
 #endif
 }
 
-int32_t windowssys_windows_win32_security_CheckTokenMembershipEx(void* tokenhandle, void* sidtocheck, uint32_t flags, void* ismember) {
+int32_t windowssys_windows_win32_security_checkTokenMembershipEx(void* tokenhandle, void* sidtocheck, uint32_t flags, void* ismember) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1001,7 +1001,7 @@ int32_t windowssys_windows_win32_security_CheckTokenMembershipEx(void* tokenhand
 #endif
 }
 
-int32_t windowssys_windows_win32_security_ConvertToAutoInheritPrivateObjectSecurity(void* parentdescriptor, void* currentsecuritydescriptor, void* newsecuritydescriptor, void* objecttype, bool isdirectoryobject, void* genericmapping) {
+int32_t windowssys_windows_win32_security_convertToAutoInheritPrivateObjectSecurity(void* parentdescriptor, void* currentsecuritydescriptor, void* newsecuritydescriptor, void* objecttype, bool isdirectoryobject, void* genericmapping) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1028,7 +1028,7 @@ int32_t windowssys_windows_win32_security_ConvertToAutoInheritPrivateObjectSecur
 #endif
 }
 
-int32_t windowssys_windows_win32_security_CopySid(uint32_t ndestinationsidlength, void* pdestinationsid, void* psourcesid) {
+int32_t windowssys_windows_win32_security_copySid(uint32_t ndestinationsidlength, void* pdestinationsid, void* psourcesid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1052,7 +1052,7 @@ int32_t windowssys_windows_win32_security_CopySid(uint32_t ndestinationsidlength
 #endif
 }
 
-int32_t windowssys_windows_win32_security_CreatePrivateObjectSecurity(void* parentdescriptor, void* creatordescriptor, void* newdescriptor, int32_t isdirectoryobject, void* token, void* genericmapping) {
+int32_t windowssys_windows_win32_security_createPrivateObjectSecurity(void* parentdescriptor, void* creatordescriptor, void* newdescriptor, int32_t isdirectoryobject, void* token, void* genericmapping) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1079,7 +1079,7 @@ int32_t windowssys_windows_win32_security_CreatePrivateObjectSecurity(void* pare
 #endif
 }
 
-int32_t windowssys_windows_win32_security_CreatePrivateObjectSecurityEx(void* parentdescriptor, void* creatordescriptor, void* newdescriptor, void* objecttype, int32_t iscontainerobject, uint32_t autoinheritflags, void* token, void* genericmapping) {
+int32_t windowssys_windows_win32_security_createPrivateObjectSecurityEx(void* parentdescriptor, void* creatordescriptor, void* newdescriptor, void* objecttype, int32_t iscontainerobject, uint32_t autoinheritflags, void* token, void* genericmapping) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1108,7 +1108,7 @@ int32_t windowssys_windows_win32_security_CreatePrivateObjectSecurityEx(void* pa
 #endif
 }
 
-int32_t windowssys_windows_win32_security_CreatePrivateObjectSecurityWithMultipleInheritance(void* parentdescriptor, void* creatordescriptor, void* newdescriptor, void* objecttypes, uint32_t guidcount, int32_t iscontainerobject, uint32_t autoinheritflags, void* token, void* genericmapping) {
+int32_t windowssys_windows_win32_security_createPrivateObjectSecurityWithMultipleInheritance(void* parentdescriptor, void* creatordescriptor, void* newdescriptor, void* objecttypes, uint32_t guidcount, int32_t iscontainerobject, uint32_t autoinheritflags, void* token, void* genericmapping) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, int32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1138,7 +1138,7 @@ int32_t windowssys_windows_win32_security_CreatePrivateObjectSecurityWithMultipl
 #endif
 }
 
-int32_t windowssys_windows_win32_security_CreateRestrictedToken(void* existingtokenhandle, uint32_t flags, uint32_t disablesidcount, void* sidstodisable, uint32_t deleteprivilegecount, void* privilegestodelete, uint32_t restrictedsidcount, void* sidstorestrict, void* newtokenhandle) {
+int32_t windowssys_windows_win32_security_createRestrictedToken(void* existingtokenhandle, uint32_t flags, uint32_t disablesidcount, void* sidstodisable, uint32_t deleteprivilegecount, void* privilegestodelete, uint32_t restrictedsidcount, void* sidstorestrict, void* newtokenhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1168,7 +1168,7 @@ int32_t windowssys_windows_win32_security_CreateRestrictedToken(void* existingto
 #endif
 }
 
-int32_t windowssys_windows_win32_security_CreateWellKnownSid(int32_t wellknownsidtype, void* domainsid, void* psid, void* cbsid) {
+int32_t windowssys_windows_win32_security_createWellKnownSid(int32_t wellknownsidtype, void* domainsid, void* psid, void* cbsid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1193,7 +1193,7 @@ int32_t windowssys_windows_win32_security_CreateWellKnownSid(int32_t wellknownsi
 #endif
 }
 
-int32_t windowssys_windows_win32_security_DeleteAce(void* pacl, uint32_t dwaceindex) {
+int32_t windowssys_windows_win32_security_deleteAce(void* pacl, uint32_t dwaceindex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1216,7 +1216,7 @@ int32_t windowssys_windows_win32_security_DeleteAce(void* pacl, uint32_t dwacein
 #endif
 }
 
-int32_t windowssys_windows_win32_security_DeriveCapabilitySidsFromName(void* capname, void* capabilitygroupsids, void* capabilitygroupsidcount, void* capabilitysids, void* capabilitysidcount) {
+int32_t windowssys_windows_win32_security_deriveCapabilitySidsFromName(void* capname, void* capabilitygroupsids, void* capabilitygroupsidcount, void* capabilitysids, void* capabilitysidcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1242,7 +1242,7 @@ int32_t windowssys_windows_win32_security_DeriveCapabilitySidsFromName(void* cap
 #endif
 }
 
-int32_t windowssys_windows_win32_security_DestroyPrivateObjectSecurity(void* objectdescriptor) {
+int32_t windowssys_windows_win32_security_destroyPrivateObjectSecurity(void* objectdescriptor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1264,7 +1264,7 @@ int32_t windowssys_windows_win32_security_DestroyPrivateObjectSecurity(void* obj
 #endif
 }
 
-int32_t windowssys_windows_win32_security_DuplicateToken(void* existingtokenhandle, int32_t impersonationlevel, void* duplicatetokenhandle) {
+int32_t windowssys_windows_win32_security_duplicateToken(void* existingtokenhandle, int32_t impersonationlevel, void* duplicatetokenhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1288,7 +1288,7 @@ int32_t windowssys_windows_win32_security_DuplicateToken(void* existingtokenhand
 #endif
 }
 
-int32_t windowssys_windows_win32_security_DuplicateTokenEx(void* hexistingtoken, uint32_t dwdesiredaccess, void* lptokenattributes, int32_t impersonationlevel, int32_t tokentype, void* phnewtoken) {
+int32_t windowssys_windows_win32_security_duplicateTokenEx(void* hexistingtoken, uint32_t dwdesiredaccess, void* lptokenattributes, int32_t impersonationlevel, int32_t tokentype, void* phnewtoken) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1315,7 +1315,7 @@ int32_t windowssys_windows_win32_security_DuplicateTokenEx(void* hexistingtoken,
 #endif
 }
 
-int32_t windowssys_windows_win32_security_EqualDomainSid(void* psid1, void* psid2, void* pfequal) {
+int32_t windowssys_windows_win32_security_equalDomainSid(void* psid1, void* psid2, void* pfequal) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1339,7 +1339,7 @@ int32_t windowssys_windows_win32_security_EqualDomainSid(void* psid1, void* psid
 #endif
 }
 
-int32_t windowssys_windows_win32_security_EqualPrefixSid(void* psid1, void* psid2) {
+int32_t windowssys_windows_win32_security_equalPrefixSid(void* psid1, void* psid2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1362,7 +1362,7 @@ int32_t windowssys_windows_win32_security_EqualPrefixSid(void* psid1, void* psid
 #endif
 }
 
-int32_t windowssys_windows_win32_security_EqualSid(void* psid1, void* psid2) {
+int32_t windowssys_windows_win32_security_equalSid(void* psid1, void* psid2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1385,7 +1385,7 @@ int32_t windowssys_windows_win32_security_EqualSid(void* psid1, void* psid2) {
 #endif
 }
 
-int32_t windowssys_windows_win32_security_FindFirstFreeAce(void* pacl, void* pace) {
+int32_t windowssys_windows_win32_security_findFirstFreeAce(void* pacl, void* pace) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1408,7 +1408,7 @@ int32_t windowssys_windows_win32_security_FindFirstFreeAce(void* pacl, void* pac
 #endif
 }
 
-void* windowssys_windows_win32_security_FreeSid(void* psid) {
+void* windowssys_windows_win32_security_freeSid(void* psid) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1430,7 +1430,7 @@ void* windowssys_windows_win32_security_FreeSid(void* psid) {
 #endif
 }
 
-int32_t windowssys_windows_win32_security_GetAce(void* pacl, uint32_t dwaceindex, void* pace) {
+int32_t windowssys_windows_win32_security_getAce(void* pacl, uint32_t dwaceindex, void* pace) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1454,7 +1454,7 @@ int32_t windowssys_windows_win32_security_GetAce(void* pacl, uint32_t dwaceindex
 #endif
 }
 
-int32_t windowssys_windows_win32_security_GetAclInformation(void* pacl, void* paclinformation, uint32_t naclinformationlength, int32_t dwaclinformationclass) {
+int32_t windowssys_windows_win32_security_getAclInformation(void* pacl, void* paclinformation, uint32_t naclinformationlength, int32_t dwaclinformationclass) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1479,7 +1479,7 @@ int32_t windowssys_windows_win32_security_GetAclInformation(void* pacl, void* pa
 #endif
 }
 
-int32_t windowssys_windows_win32_security_GetAppContainerAce(void* acl, uint32_t startingaceindex, void* appcontainerace, void* appcontaineraceindex) {
+int32_t windowssys_windows_win32_security_getAppContainerAce(void* acl, uint32_t startingaceindex, void* appcontainerace, void* appcontaineraceindex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1504,7 +1504,7 @@ int32_t windowssys_windows_win32_security_GetAppContainerAce(void* acl, uint32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_security_GetCachedSigningLevel(void* file, void* flags, void* signinglevel, void* thumbprint, void* thumbprintsize, void* thumbprintalgorithm) {
+int32_t windowssys_windows_win32_security_getCachedSigningLevel(void* file, void* flags, void* signinglevel, void* thumbprint, void* thumbprintsize, void* thumbprintalgorithm) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1531,7 +1531,7 @@ int32_t windowssys_windows_win32_security_GetCachedSigningLevel(void* file, void
 #endif
 }
 
-int32_t windowssys_windows_win32_security_GetFileSecurityA(void* lpfilename, uint32_t requestedinformation, void* psecuritydescriptor, uint32_t nlength, void* lpnlengthneeded) {
+int32_t windowssys_windows_win32_security_getFileSecurityA(void* lpfilename, uint32_t requestedinformation, void* psecuritydescriptor, uint32_t nlength, void* lpnlengthneeded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1557,7 +1557,7 @@ int32_t windowssys_windows_win32_security_GetFileSecurityA(void* lpfilename, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_security_GetFileSecurityW(void* lpfilename, uint32_t requestedinformation, void* psecuritydescriptor, uint32_t nlength, void* lpnlengthneeded) {
+int32_t windowssys_windows_win32_security_getFileSecurityW(void* lpfilename, uint32_t requestedinformation, void* psecuritydescriptor, uint32_t nlength, void* lpnlengthneeded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1583,7 +1583,7 @@ int32_t windowssys_windows_win32_security_GetFileSecurityW(void* lpfilename, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_security_GetKernelObjectSecurity(void* handle, uint32_t requestedinformation, void* psecuritydescriptor, uint32_t nlength, void* lpnlengthneeded) {
+int32_t windowssys_windows_win32_security_getKernelObjectSecurity(void* handle, uint32_t requestedinformation, void* psecuritydescriptor, uint32_t nlength, void* lpnlengthneeded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1609,7 +1609,7 @@ int32_t windowssys_windows_win32_security_GetKernelObjectSecurity(void* handle, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_GetLengthSid(void* psid) {
+uint32_t windowssys_windows_win32_security_getLengthSid(void* psid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1631,7 +1631,7 @@ uint32_t windowssys_windows_win32_security_GetLengthSid(void* psid) {
 #endif
 }
 
-int32_t windowssys_windows_win32_security_GetPrivateObjectSecurity(void* objectdescriptor, uint32_t securityinformation, void* resultantdescriptor, uint32_t descriptorlength, void* returnlength) {
+int32_t windowssys_windows_win32_security_getPrivateObjectSecurity(void* objectdescriptor, uint32_t securityinformation, void* resultantdescriptor, uint32_t descriptorlength, void* returnlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1657,7 +1657,7 @@ int32_t windowssys_windows_win32_security_GetPrivateObjectSecurity(void* objectd
 #endif
 }
 
-int32_t windowssys_windows_win32_security_GetSecurityDescriptorControl(void* psecuritydescriptor, void* pcontrol, void* lpdwrevision) {
+int32_t windowssys_windows_win32_security_getSecurityDescriptorControl(void* psecuritydescriptor, void* pcontrol, void* lpdwrevision) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1681,7 +1681,7 @@ int32_t windowssys_windows_win32_security_GetSecurityDescriptorControl(void* pse
 #endif
 }
 
-int32_t windowssys_windows_win32_security_GetSecurityDescriptorDacl(void* psecuritydescriptor, void* lpbdaclpresent, void* pdacl, void* lpbdacldefaulted) {
+int32_t windowssys_windows_win32_security_getSecurityDescriptorDacl(void* psecuritydescriptor, void* lpbdaclpresent, void* pdacl, void* lpbdacldefaulted) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1706,7 +1706,7 @@ int32_t windowssys_windows_win32_security_GetSecurityDescriptorDacl(void* psecur
 #endif
 }
 
-int32_t windowssys_windows_win32_security_GetSecurityDescriptorGroup(void* psecuritydescriptor, void* pgroup, void* lpbgroupdefaulted) {
+int32_t windowssys_windows_win32_security_getSecurityDescriptorGroup(void* psecuritydescriptor, void* pgroup, void* lpbgroupdefaulted) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1730,7 +1730,7 @@ int32_t windowssys_windows_win32_security_GetSecurityDescriptorGroup(void* psecu
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_GetSecurityDescriptorLength(void* psecuritydescriptor) {
+uint32_t windowssys_windows_win32_security_getSecurityDescriptorLength(void* psecuritydescriptor) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1752,7 +1752,7 @@ uint32_t windowssys_windows_win32_security_GetSecurityDescriptorLength(void* pse
 #endif
 }
 
-int32_t windowssys_windows_win32_security_GetSecurityDescriptorOwner(void* psecuritydescriptor, void* powner, void* lpbownerdefaulted) {
+int32_t windowssys_windows_win32_security_getSecurityDescriptorOwner(void* psecuritydescriptor, void* powner, void* lpbownerdefaulted) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1776,7 +1776,7 @@ int32_t windowssys_windows_win32_security_GetSecurityDescriptorOwner(void* psecu
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_GetSecurityDescriptorRMControl(void* securitydescriptor, void* rmcontrol) {
+uint32_t windowssys_windows_win32_security_getSecurityDescriptorRMControl(void* securitydescriptor, void* rmcontrol) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1799,7 +1799,7 @@ uint32_t windowssys_windows_win32_security_GetSecurityDescriptorRMControl(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_security_GetSecurityDescriptorSacl(void* psecuritydescriptor, void* lpbsaclpresent, void* psacl, void* lpbsacldefaulted) {
+int32_t windowssys_windows_win32_security_getSecurityDescriptorSacl(void* psecuritydescriptor, void* lpbsaclpresent, void* psacl, void* lpbsacldefaulted) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1824,7 +1824,7 @@ int32_t windowssys_windows_win32_security_GetSecurityDescriptorSacl(void* psecur
 #endif
 }
 
-void* windowssys_windows_win32_security_GetSidIdentifierAuthority(void* psid) {
+void* windowssys_windows_win32_security_getSidIdentifierAuthority(void* psid) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1846,7 +1846,7 @@ void* windowssys_windows_win32_security_GetSidIdentifierAuthority(void* psid) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_GetSidLengthRequired(uint8_t nsubauthoritycount) {
+uint32_t windowssys_windows_win32_security_getSidLengthRequired(uint8_t nsubauthoritycount) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1868,7 +1868,7 @@ uint32_t windowssys_windows_win32_security_GetSidLengthRequired(uint8_t nsubauth
 #endif
 }
 
-void* windowssys_windows_win32_security_GetSidSubAuthority(void* psid, uint32_t nsubauthority) {
+void* windowssys_windows_win32_security_getSidSubAuthority(void* psid, uint32_t nsubauthority) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1891,7 +1891,7 @@ void* windowssys_windows_win32_security_GetSidSubAuthority(void* psid, uint32_t 
 #endif
 }
 
-void* windowssys_windows_win32_security_GetSidSubAuthorityCount(void* psid) {
+void* windowssys_windows_win32_security_getSidSubAuthorityCount(void* psid) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1913,7 +1913,7 @@ void* windowssys_windows_win32_security_GetSidSubAuthorityCount(void* psid) {
 #endif
 }
 
-int32_t windowssys_windows_win32_security_GetTokenInformation(void* tokenhandle, int32_t tokeninformationclass, void* tokeninformation, uint32_t tokeninformationlength, void* returnlength) {
+int32_t windowssys_windows_win32_security_getTokenInformation(void* tokenhandle, int32_t tokeninformationclass, void* tokeninformation, uint32_t tokeninformationlength, void* returnlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1939,7 +1939,7 @@ int32_t windowssys_windows_win32_security_GetTokenInformation(void* tokenhandle,
 #endif
 }
 
-int32_t windowssys_windows_win32_security_GetUserObjectSecurity(void* hobj, void* psirequested, void* psid, uint32_t nlength, void* lpnlengthneeded) {
+int32_t windowssys_windows_win32_security_getUserObjectSecurity(void* hobj, void* psirequested, void* psid, uint32_t nlength, void* lpnlengthneeded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1965,7 +1965,7 @@ int32_t windowssys_windows_win32_security_GetUserObjectSecurity(void* hobj, void
 #endif
 }
 
-int32_t windowssys_windows_win32_security_GetWindowsAccountDomainSid(void* psid, void* pdomainsid, void* cbdomainsid) {
+int32_t windowssys_windows_win32_security_getWindowsAccountDomainSid(void* psid, void* pdomainsid, void* cbdomainsid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1989,7 +1989,7 @@ int32_t windowssys_windows_win32_security_GetWindowsAccountDomainSid(void* psid,
 #endif
 }
 
-int32_t windowssys_windows_win32_security_ImpersonateAnonymousToken(void* threadhandle) {
+int32_t windowssys_windows_win32_security_impersonateAnonymousToken(void* threadhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2011,7 +2011,7 @@ int32_t windowssys_windows_win32_security_ImpersonateAnonymousToken(void* thread
 #endif
 }
 
-int32_t windowssys_windows_win32_security_ImpersonateLoggedOnUser(void* htoken) {
+int32_t windowssys_windows_win32_security_impersonateLoggedOnUser(void* htoken) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2033,7 +2033,7 @@ int32_t windowssys_windows_win32_security_ImpersonateLoggedOnUser(void* htoken) 
 #endif
 }
 
-int32_t windowssys_windows_win32_security_ImpersonateSelf(int32_t impersonationlevel) {
+int32_t windowssys_windows_win32_security_impersonateSelf(int32_t impersonationlevel) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2055,7 +2055,7 @@ int32_t windowssys_windows_win32_security_ImpersonateSelf(int32_t impersonationl
 #endif
 }
 
-int32_t windowssys_windows_win32_security_InitializeAcl(void* pacl, uint32_t nacllength, uint32_t dwaclrevision) {
+int32_t windowssys_windows_win32_security_initializeAcl(void* pacl, uint32_t nacllength, uint32_t dwaclrevision) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2079,7 +2079,7 @@ int32_t windowssys_windows_win32_security_InitializeAcl(void* pacl, uint32_t nac
 #endif
 }
 
-int32_t windowssys_windows_win32_security_InitializeSecurityDescriptor(void* psecuritydescriptor, uint32_t dwrevision) {
+int32_t windowssys_windows_win32_security_initializeSecurityDescriptor(void* psecuritydescriptor, uint32_t dwrevision) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2102,7 +2102,7 @@ int32_t windowssys_windows_win32_security_InitializeSecurityDescriptor(void* pse
 #endif
 }
 
-int32_t windowssys_windows_win32_security_InitializeSid(void* sid, void* pidentifierauthority, uint8_t nsubauthoritycount) {
+int32_t windowssys_windows_win32_security_initializeSid(void* sid, void* pidentifierauthority, uint8_t nsubauthoritycount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2126,7 +2126,7 @@ int32_t windowssys_windows_win32_security_InitializeSid(void* sid, void* pidenti
 #endif
 }
 
-int32_t windowssys_windows_win32_security_IsTokenRestricted(void* tokenhandle) {
+int32_t windowssys_windows_win32_security_isTokenRestricted(void* tokenhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2148,7 +2148,7 @@ int32_t windowssys_windows_win32_security_IsTokenRestricted(void* tokenhandle) {
 #endif
 }
 
-int32_t windowssys_windows_win32_security_IsValidAcl(void* pacl) {
+int32_t windowssys_windows_win32_security_isValidAcl(void* pacl) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2170,7 +2170,7 @@ int32_t windowssys_windows_win32_security_IsValidAcl(void* pacl) {
 #endif
 }
 
-int32_t windowssys_windows_win32_security_IsValidSecurityDescriptor(void* psecuritydescriptor) {
+int32_t windowssys_windows_win32_security_isValidSecurityDescriptor(void* psecuritydescriptor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2192,7 +2192,7 @@ int32_t windowssys_windows_win32_security_IsValidSecurityDescriptor(void* psecur
 #endif
 }
 
-int32_t windowssys_windows_win32_security_IsValidSid(void* psid) {
+int32_t windowssys_windows_win32_security_isValidSid(void* psid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2214,7 +2214,7 @@ int32_t windowssys_windows_win32_security_IsValidSid(void* psid) {
 #endif
 }
 
-int32_t windowssys_windows_win32_security_IsWellKnownSid(void* psid, int32_t wellknownsidtype) {
+int32_t windowssys_windows_win32_security_isWellKnownSid(void* psid, int32_t wellknownsidtype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2237,7 +2237,7 @@ int32_t windowssys_windows_win32_security_IsWellKnownSid(void* psid, int32_t wel
 #endif
 }
 
-int32_t windowssys_windows_win32_security_LogonUserA(void* lpszusername, void* lpszdomain, void* lpszpassword, uint32_t dwlogontype, uint32_t dwlogonprovider, void* phtoken) {
+int32_t windowssys_windows_win32_security_logonUserA(void* lpszusername, void* lpszdomain, void* lpszpassword, uint32_t dwlogontype, uint32_t dwlogonprovider, void* phtoken) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2264,7 +2264,7 @@ int32_t windowssys_windows_win32_security_LogonUserA(void* lpszusername, void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_security_LogonUserExA(void* lpszusername, void* lpszdomain, void* lpszpassword, uint32_t dwlogontype, uint32_t dwlogonprovider, void* phtoken, void* pplogonsid, void* ppprofilebuffer, void* pdwprofilelength, void* pquotalimits) {
+int32_t windowssys_windows_win32_security_logonUserExA(void* lpszusername, void* lpszdomain, void* lpszpassword, uint32_t dwlogontype, uint32_t dwlogonprovider, void* phtoken, void* pplogonsid, void* ppprofilebuffer, void* pdwprofilelength, void* pquotalimits) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2295,7 +2295,7 @@ int32_t windowssys_windows_win32_security_LogonUserExA(void* lpszusername, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_security_LogonUserExW(void* lpszusername, void* lpszdomain, void* lpszpassword, uint32_t dwlogontype, uint32_t dwlogonprovider, void* phtoken, void* pplogonsid, void* ppprofilebuffer, void* pdwprofilelength, void* pquotalimits) {
+int32_t windowssys_windows_win32_security_logonUserExW(void* lpszusername, void* lpszdomain, void* lpszpassword, uint32_t dwlogontype, uint32_t dwlogonprovider, void* phtoken, void* pplogonsid, void* ppprofilebuffer, void* pdwprofilelength, void* pquotalimits) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2326,7 +2326,7 @@ int32_t windowssys_windows_win32_security_LogonUserExW(void* lpszusername, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_security_LogonUserW(void* lpszusername, void* lpszdomain, void* lpszpassword, uint32_t dwlogontype, uint32_t dwlogonprovider, void* phtoken) {
+int32_t windowssys_windows_win32_security_logonUserW(void* lpszusername, void* lpszdomain, void* lpszpassword, uint32_t dwlogontype, uint32_t dwlogonprovider, void* phtoken) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2353,7 +2353,7 @@ int32_t windowssys_windows_win32_security_LogonUserW(void* lpszusername, void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_security_LookupAccountNameA(void* lpsystemname, void* lpaccountname, void* sid, void* cbsid, void* referenceddomainname, void* cchreferenceddomainname, void* peuse) {
+int32_t windowssys_windows_win32_security_lookupAccountNameA(void* lpsystemname, void* lpaccountname, void* sid, void* cbsid, void* referenceddomainname, void* cchreferenceddomainname, void* peuse) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2381,7 +2381,7 @@ int32_t windowssys_windows_win32_security_LookupAccountNameA(void* lpsystemname,
 #endif
 }
 
-int32_t windowssys_windows_win32_security_LookupAccountNameW(void* lpsystemname, void* lpaccountname, void* sid, void* cbsid, void* referenceddomainname, void* cchreferenceddomainname, void* peuse) {
+int32_t windowssys_windows_win32_security_lookupAccountNameW(void* lpsystemname, void* lpaccountname, void* sid, void* cbsid, void* referenceddomainname, void* cchreferenceddomainname, void* peuse) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2409,7 +2409,7 @@ int32_t windowssys_windows_win32_security_LookupAccountNameW(void* lpsystemname,
 #endif
 }
 
-int32_t windowssys_windows_win32_security_LookupAccountSidA(void* lpsystemname, void* sid, void* name, void* cchname, void* referenceddomainname, void* cchreferenceddomainname, void* peuse) {
+int32_t windowssys_windows_win32_security_lookupAccountSidA(void* lpsystemname, void* sid, void* name, void* cchname, void* referenceddomainname, void* cchreferenceddomainname, void* peuse) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2437,7 +2437,7 @@ int32_t windowssys_windows_win32_security_LookupAccountSidA(void* lpsystemname, 
 #endif
 }
 
-int32_t windowssys_windows_win32_security_LookupAccountSidW(void* lpsystemname, void* sid, void* name, void* cchname, void* referenceddomainname, void* cchreferenceddomainname, void* peuse) {
+int32_t windowssys_windows_win32_security_lookupAccountSidW(void* lpsystemname, void* sid, void* name, void* cchname, void* referenceddomainname, void* cchreferenceddomainname, void* peuse) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2465,7 +2465,7 @@ int32_t windowssys_windows_win32_security_LookupAccountSidW(void* lpsystemname, 
 #endif
 }
 
-int32_t windowssys_windows_win32_security_LookupPrivilegeDisplayNameA(void* lpsystemname, void* lpname, void* lpdisplayname, void* cchdisplayname, void* lplanguageid) {
+int32_t windowssys_windows_win32_security_lookupPrivilegeDisplayNameA(void* lpsystemname, void* lpname, void* lpdisplayname, void* cchdisplayname, void* lplanguageid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2491,7 +2491,7 @@ int32_t windowssys_windows_win32_security_LookupPrivilegeDisplayNameA(void* lpsy
 #endif
 }
 
-int32_t windowssys_windows_win32_security_LookupPrivilegeDisplayNameW(void* lpsystemname, void* lpname, void* lpdisplayname, void* cchdisplayname, void* lplanguageid) {
+int32_t windowssys_windows_win32_security_lookupPrivilegeDisplayNameW(void* lpsystemname, void* lpname, void* lpdisplayname, void* cchdisplayname, void* lplanguageid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2517,7 +2517,7 @@ int32_t windowssys_windows_win32_security_LookupPrivilegeDisplayNameW(void* lpsy
 #endif
 }
 
-int32_t windowssys_windows_win32_security_LookupPrivilegeNameA(void* lpsystemname, void* lpluid, void* lpname, void* cchname) {
+int32_t windowssys_windows_win32_security_lookupPrivilegeNameA(void* lpsystemname, void* lpluid, void* lpname, void* cchname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2542,7 +2542,7 @@ int32_t windowssys_windows_win32_security_LookupPrivilegeNameA(void* lpsystemnam
 #endif
 }
 
-int32_t windowssys_windows_win32_security_LookupPrivilegeNameW(void* lpsystemname, void* lpluid, void* lpname, void* cchname) {
+int32_t windowssys_windows_win32_security_lookupPrivilegeNameW(void* lpsystemname, void* lpluid, void* lpname, void* cchname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2567,7 +2567,7 @@ int32_t windowssys_windows_win32_security_LookupPrivilegeNameW(void* lpsystemnam
 #endif
 }
 
-int32_t windowssys_windows_win32_security_LookupPrivilegeValueA(void* lpsystemname, void* lpname, void* lpluid) {
+int32_t windowssys_windows_win32_security_lookupPrivilegeValueA(void* lpsystemname, void* lpname, void* lpluid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2591,7 +2591,7 @@ int32_t windowssys_windows_win32_security_LookupPrivilegeValueA(void* lpsystemna
 #endif
 }
 
-int32_t windowssys_windows_win32_security_LookupPrivilegeValueW(void* lpsystemname, void* lpname, void* lpluid) {
+int32_t windowssys_windows_win32_security_lookupPrivilegeValueW(void* lpsystemname, void* lpname, void* lpluid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2615,7 +2615,7 @@ int32_t windowssys_windows_win32_security_LookupPrivilegeValueW(void* lpsystemna
 #endif
 }
 
-int32_t windowssys_windows_win32_security_MakeAbsoluteSD(void* pselfrelativesecuritydescriptor, void* pabsolutesecuritydescriptor, void* lpdwabsolutesecuritydescriptorsize, void* pdacl, void* lpdwdaclsize, void* psacl, void* lpdwsaclsize, void* powner, void* lpdwownersize, void* pprimarygroup, void* lpdwprimarygroupsize) {
+int32_t windowssys_windows_win32_security_makeAbsoluteSD(void* pselfrelativesecuritydescriptor, void* pabsolutesecuritydescriptor, void* lpdwabsolutesecuritydescriptorsize, void* pdacl, void* lpdwdaclsize, void* psacl, void* lpdwsaclsize, void* powner, void* lpdwownersize, void* pprimarygroup, void* lpdwprimarygroupsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2647,7 +2647,7 @@ int32_t windowssys_windows_win32_security_MakeAbsoluteSD(void* pselfrelativesecu
 #endif
 }
 
-int32_t windowssys_windows_win32_security_MakeSelfRelativeSD(void* pabsolutesecuritydescriptor, void* pselfrelativesecuritydescriptor, void* lpdwbufferlength) {
+int32_t windowssys_windows_win32_security_makeSelfRelativeSD(void* pabsolutesecuritydescriptor, void* pselfrelativesecuritydescriptor, void* lpdwbufferlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2671,7 +2671,7 @@ int32_t windowssys_windows_win32_security_MakeSelfRelativeSD(void* pabsolutesecu
 #endif
 }
 
-void windowssys_windows_win32_security_MapGenericMask(void* accessmask, void* genericmapping) {
+void windowssys_windows_win32_security_mapGenericMask(void* accessmask, void* genericmapping) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2693,7 +2693,7 @@ void windowssys_windows_win32_security_MapGenericMask(void* accessmask, void* ge
 #endif
 }
 
-int32_t windowssys_windows_win32_security_ObjectCloseAuditAlarmA(void* subsystemname, void* handleid, int32_t generateonclose) {
+int32_t windowssys_windows_win32_security_objectCloseAuditAlarmA(void* subsystemname, void* handleid, int32_t generateonclose) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2717,7 +2717,7 @@ int32_t windowssys_windows_win32_security_ObjectCloseAuditAlarmA(void* subsystem
 #endif
 }
 
-int32_t windowssys_windows_win32_security_ObjectCloseAuditAlarmW(void* subsystemname, void* handleid, int32_t generateonclose) {
+int32_t windowssys_windows_win32_security_objectCloseAuditAlarmW(void* subsystemname, void* handleid, int32_t generateonclose) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2741,7 +2741,7 @@ int32_t windowssys_windows_win32_security_ObjectCloseAuditAlarmW(void* subsystem
 #endif
 }
 
-int32_t windowssys_windows_win32_security_ObjectDeleteAuditAlarmA(void* subsystemname, void* handleid, int32_t generateonclose) {
+int32_t windowssys_windows_win32_security_objectDeleteAuditAlarmA(void* subsystemname, void* handleid, int32_t generateonclose) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2765,7 +2765,7 @@ int32_t windowssys_windows_win32_security_ObjectDeleteAuditAlarmA(void* subsyste
 #endif
 }
 
-int32_t windowssys_windows_win32_security_ObjectDeleteAuditAlarmW(void* subsystemname, void* handleid, int32_t generateonclose) {
+int32_t windowssys_windows_win32_security_objectDeleteAuditAlarmW(void* subsystemname, void* handleid, int32_t generateonclose) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2789,7 +2789,7 @@ int32_t windowssys_windows_win32_security_ObjectDeleteAuditAlarmW(void* subsyste
 #endif
 }
 
-int32_t windowssys_windows_win32_security_ObjectOpenAuditAlarmA(void* subsystemname, void* handleid, void* objecttypename, void* objectname, void* psecuritydescriptor, void* clienttoken, uint32_t desiredaccess, uint32_t grantedaccess, void* privileges, int32_t objectcreation, int32_t accessgranted, void* generateonclose) {
+int32_t windowssys_windows_win32_security_objectOpenAuditAlarmA(void* subsystemname, void* handleid, void* objecttypename, void* objectname, void* psecuritydescriptor, void* clienttoken, uint32_t desiredaccess, uint32_t grantedaccess, void* privileges, int32_t objectcreation, int32_t accessgranted, void* generateonclose) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, uint32_t, void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2822,7 +2822,7 @@ int32_t windowssys_windows_win32_security_ObjectOpenAuditAlarmA(void* subsystemn
 #endif
 }
 
-int32_t windowssys_windows_win32_security_ObjectOpenAuditAlarmW(void* subsystemname, void* handleid, void* objecttypename, void* objectname, void* psecuritydescriptor, void* clienttoken, uint32_t desiredaccess, uint32_t grantedaccess, void* privileges, int32_t objectcreation, int32_t accessgranted, void* generateonclose) {
+int32_t windowssys_windows_win32_security_objectOpenAuditAlarmW(void* subsystemname, void* handleid, void* objecttypename, void* objectname, void* psecuritydescriptor, void* clienttoken, uint32_t desiredaccess, uint32_t grantedaccess, void* privileges, int32_t objectcreation, int32_t accessgranted, void* generateonclose) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, uint32_t, void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2855,7 +2855,7 @@ int32_t windowssys_windows_win32_security_ObjectOpenAuditAlarmW(void* subsystemn
 #endif
 }
 
-int32_t windowssys_windows_win32_security_ObjectPrivilegeAuditAlarmA(void* subsystemname, void* handleid, void* clienttoken, uint32_t desiredaccess, void* privileges, int32_t accessgranted) {
+int32_t windowssys_windows_win32_security_objectPrivilegeAuditAlarmA(void* subsystemname, void* handleid, void* clienttoken, uint32_t desiredaccess, void* privileges, int32_t accessgranted) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2882,7 +2882,7 @@ int32_t windowssys_windows_win32_security_ObjectPrivilegeAuditAlarmA(void* subsy
 #endif
 }
 
-int32_t windowssys_windows_win32_security_ObjectPrivilegeAuditAlarmW(void* subsystemname, void* handleid, void* clienttoken, uint32_t desiredaccess, void* privileges, int32_t accessgranted) {
+int32_t windowssys_windows_win32_security_objectPrivilegeAuditAlarmW(void* subsystemname, void* handleid, void* clienttoken, uint32_t desiredaccess, void* privileges, int32_t accessgranted) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2909,7 +2909,7 @@ int32_t windowssys_windows_win32_security_ObjectPrivilegeAuditAlarmW(void* subsy
 #endif
 }
 
-int32_t windowssys_windows_win32_security_PrivilegeCheck(void* clienttoken, void* requiredprivileges, void* pfresult) {
+int32_t windowssys_windows_win32_security_privilegeCheck(void* clienttoken, void* requiredprivileges, void* pfresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2933,7 +2933,7 @@ int32_t windowssys_windows_win32_security_PrivilegeCheck(void* clienttoken, void
 #endif
 }
 
-int32_t windowssys_windows_win32_security_PrivilegedServiceAuditAlarmA(void* subsystemname, void* servicename, void* clienttoken, void* privileges, int32_t accessgranted) {
+int32_t windowssys_windows_win32_security_privilegedServiceAuditAlarmA(void* subsystemname, void* servicename, void* clienttoken, void* privileges, int32_t accessgranted) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2959,7 +2959,7 @@ int32_t windowssys_windows_win32_security_PrivilegedServiceAuditAlarmA(void* sub
 #endif
 }
 
-int32_t windowssys_windows_win32_security_PrivilegedServiceAuditAlarmW(void* subsystemname, void* servicename, void* clienttoken, void* privileges, int32_t accessgranted) {
+int32_t windowssys_windows_win32_security_privilegedServiceAuditAlarmW(void* subsystemname, void* servicename, void* clienttoken, void* privileges, int32_t accessgranted) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2985,7 +2985,7 @@ int32_t windowssys_windows_win32_security_PrivilegedServiceAuditAlarmW(void* sub
 #endif
 }
 
-void windowssys_windows_win32_security_QuerySecurityAccessMask(uint32_t securityinformation, void* desiredaccess) {
+void windowssys_windows_win32_security_querySecurityAccessMask(uint32_t securityinformation, void* desiredaccess) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3007,7 +3007,7 @@ void windowssys_windows_win32_security_QuerySecurityAccessMask(uint32_t security
 #endif
 }
 
-int32_t windowssys_windows_win32_security_RevertToSelf(void) {
+int32_t windowssys_windows_win32_security_revertToSelf(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -3028,7 +3028,7 @@ int32_t windowssys_windows_win32_security_RevertToSelf(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_security_RtlConvertSidToUnicodeString(void* unicodestring, void* sid, bool allocatedestinationstring) {
+int32_t windowssys_windows_win32_security_rtlConvertSidToUnicodeString(void* unicodestring, void* sid, bool allocatedestinationstring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -3052,7 +3052,7 @@ int32_t windowssys_windows_win32_security_RtlConvertSidToUnicodeString(void* uni
 #endif
 }
 
-bool windowssys_windows_win32_security_RtlNormalizeSecurityDescriptor(void* securitydescriptor, uint32_t securitydescriptorlength, void* newsecuritydescriptor, void* newsecuritydescriptorlength, bool checkonly) {
+bool windowssys_windows_win32_security_rtlNormalizeSecurityDescriptor(void* securitydescriptor, uint32_t securitydescriptorlength, void* newsecuritydescriptor, void* newsecuritydescriptorlength, bool checkonly) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -3078,7 +3078,7 @@ bool windowssys_windows_win32_security_RtlNormalizeSecurityDescriptor(void* secu
 #endif
 }
 
-int32_t windowssys_windows_win32_security_SetAclInformation(void* pacl, void* paclinformation, uint32_t naclinformationlength, int32_t dwaclinformationclass) {
+int32_t windowssys_windows_win32_security_setAclInformation(void* pacl, void* paclinformation, uint32_t naclinformationlength, int32_t dwaclinformationclass) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3103,7 +3103,7 @@ int32_t windowssys_windows_win32_security_SetAclInformation(void* pacl, void* pa
 #endif
 }
 
-int32_t windowssys_windows_win32_security_SetCachedSigningLevel(void* sourcefiles, uint32_t sourcefilecount, uint32_t flags, void* targetfile) {
+int32_t windowssys_windows_win32_security_setCachedSigningLevel(void* sourcefiles, uint32_t sourcefilecount, uint32_t flags, void* targetfile) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3128,7 +3128,7 @@ int32_t windowssys_windows_win32_security_SetCachedSigningLevel(void* sourcefile
 #endif
 }
 
-int32_t windowssys_windows_win32_security_SetFileSecurityA(void* lpfilename, uint32_t securityinformation, void* psecuritydescriptor) {
+int32_t windowssys_windows_win32_security_setFileSecurityA(void* lpfilename, uint32_t securityinformation, void* psecuritydescriptor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3152,7 +3152,7 @@ int32_t windowssys_windows_win32_security_SetFileSecurityA(void* lpfilename, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_security_SetFileSecurityW(void* lpfilename, uint32_t securityinformation, void* psecuritydescriptor) {
+int32_t windowssys_windows_win32_security_setFileSecurityW(void* lpfilename, uint32_t securityinformation, void* psecuritydescriptor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3176,7 +3176,7 @@ int32_t windowssys_windows_win32_security_SetFileSecurityW(void* lpfilename, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_security_SetKernelObjectSecurity(void* handle, uint32_t securityinformation, void* securitydescriptor) {
+int32_t windowssys_windows_win32_security_setKernelObjectSecurity(void* handle, uint32_t securityinformation, void* securitydescriptor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3200,7 +3200,7 @@ int32_t windowssys_windows_win32_security_SetKernelObjectSecurity(void* handle, 
 #endif
 }
 
-int32_t windowssys_windows_win32_security_SetPrivateObjectSecurity(uint32_t securityinformation, void* modificationdescriptor, void* objectssecuritydescriptor, void* genericmapping, void* token) {
+int32_t windowssys_windows_win32_security_setPrivateObjectSecurity(uint32_t securityinformation, void* modificationdescriptor, void* objectssecuritydescriptor, void* genericmapping, void* token) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3226,7 +3226,7 @@ int32_t windowssys_windows_win32_security_SetPrivateObjectSecurity(uint32_t secu
 #endif
 }
 
-int32_t windowssys_windows_win32_security_SetPrivateObjectSecurityEx(uint32_t securityinformation, void* modificationdescriptor, void* objectssecuritydescriptor, uint32_t autoinheritflags, void* genericmapping, void* token) {
+int32_t windowssys_windows_win32_security_setPrivateObjectSecurityEx(uint32_t securityinformation, void* modificationdescriptor, void* objectssecuritydescriptor, uint32_t autoinheritflags, void* genericmapping, void* token) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3253,7 +3253,7 @@ int32_t windowssys_windows_win32_security_SetPrivateObjectSecurityEx(uint32_t se
 #endif
 }
 
-void windowssys_windows_win32_security_SetSecurityAccessMask(uint32_t securityinformation, void* desiredaccess) {
+void windowssys_windows_win32_security_setSecurityAccessMask(uint32_t securityinformation, void* desiredaccess) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3275,7 +3275,7 @@ void windowssys_windows_win32_security_SetSecurityAccessMask(uint32_t securityin
 #endif
 }
 
-int32_t windowssys_windows_win32_security_SetSecurityDescriptorControl(void* psecuritydescriptor, uint16_t controlbitsofinterest, uint16_t controlbitstoset) {
+int32_t windowssys_windows_win32_security_setSecurityDescriptorControl(void* psecuritydescriptor, uint16_t controlbitsofinterest, uint16_t controlbitstoset) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint16_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3299,7 +3299,7 @@ int32_t windowssys_windows_win32_security_SetSecurityDescriptorControl(void* pse
 #endif
 }
 
-int32_t windowssys_windows_win32_security_SetSecurityDescriptorDacl(void* psecuritydescriptor, int32_t bdaclpresent, void* pdacl, int32_t bdacldefaulted) {
+int32_t windowssys_windows_win32_security_setSecurityDescriptorDacl(void* psecuritydescriptor, int32_t bdaclpresent, void* pdacl, int32_t bdacldefaulted) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3324,7 +3324,7 @@ int32_t windowssys_windows_win32_security_SetSecurityDescriptorDacl(void* psecur
 #endif
 }
 
-int32_t windowssys_windows_win32_security_SetSecurityDescriptorGroup(void* psecuritydescriptor, void* pgroup, int32_t bgroupdefaulted) {
+int32_t windowssys_windows_win32_security_setSecurityDescriptorGroup(void* psecuritydescriptor, void* pgroup, int32_t bgroupdefaulted) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3348,7 +3348,7 @@ int32_t windowssys_windows_win32_security_SetSecurityDescriptorGroup(void* psecu
 #endif
 }
 
-int32_t windowssys_windows_win32_security_SetSecurityDescriptorOwner(void* psecuritydescriptor, void* powner, int32_t bownerdefaulted) {
+int32_t windowssys_windows_win32_security_setSecurityDescriptorOwner(void* psecuritydescriptor, void* powner, int32_t bownerdefaulted) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3372,7 +3372,7 @@ int32_t windowssys_windows_win32_security_SetSecurityDescriptorOwner(void* psecu
 #endif
 }
 
-uint32_t windowssys_windows_win32_security_SetSecurityDescriptorRMControl(void* securitydescriptor, void* rmcontrol) {
+uint32_t windowssys_windows_win32_security_setSecurityDescriptorRMControl(void* securitydescriptor, void* rmcontrol) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3395,7 +3395,7 @@ uint32_t windowssys_windows_win32_security_SetSecurityDescriptorRMControl(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_security_SetSecurityDescriptorSacl(void* psecuritydescriptor, int32_t bsaclpresent, void* psacl, int32_t bsacldefaulted) {
+int32_t windowssys_windows_win32_security_setSecurityDescriptorSacl(void* psecuritydescriptor, int32_t bsaclpresent, void* psacl, int32_t bsacldefaulted) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3420,7 +3420,7 @@ int32_t windowssys_windows_win32_security_SetSecurityDescriptorSacl(void* psecur
 #endif
 }
 
-int32_t windowssys_windows_win32_security_SetTokenInformation(void* tokenhandle, int32_t tokeninformationclass, void* tokeninformation, uint32_t tokeninformationlength) {
+int32_t windowssys_windows_win32_security_setTokenInformation(void* tokenhandle, int32_t tokeninformationclass, void* tokeninformation, uint32_t tokeninformationlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3445,7 +3445,7 @@ int32_t windowssys_windows_win32_security_SetTokenInformation(void* tokenhandle,
 #endif
 }
 
-int32_t windowssys_windows_win32_security_SetUserObjectSecurity(void* hobj, void* psirequested, void* psid) {
+int32_t windowssys_windows_win32_security_setUserObjectSecurity(void* hobj, void* psirequested, void* psid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

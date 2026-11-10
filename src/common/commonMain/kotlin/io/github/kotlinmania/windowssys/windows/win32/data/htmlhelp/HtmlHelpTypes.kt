@@ -1,13 +1,15 @@
 package io.github.kotlinmania.windowssys.windows.win32.data.htmlhelp
 
-public typealias HH_GPROPID = Int
+import io.github.kotlinmania.windowssys.COpaquePointer
 
-public typealias HTML_HELP_COMMAND = Int
+public typealias HhGpropid = Int
 
-public fun interface PFNCOLHEAPFREEFn {
-    public operator fun invoke(param0: Long): Int
+public typealias HtmlHelpCommand = Int
+
+public fun interface PfncolheapfreeFn {
+    public operator fun invoke(param0: COpaquePointer?): Int
 }
 
-public typealias PFNCOLHEAPFREE = PFNCOLHEAPFREEFn?
+public typealias Pfncolheapfree = PfncolheapfreeFn?
 
-public typealias PRIORITY = Int
+public typealias Priority = Int

@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsAddResourceToOperation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsAddResourceToOperation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* operation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t type = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -75,7 +75,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsAddResou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsAttachLayerStorageFilter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsAttachLayerStorageFilter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* layerpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* layerdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -95,7 +95,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsAttachLa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsCancelOperation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsCancelOperation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* operation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -113,7 +113,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsCancelOp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsCloseComputeSystem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsCloseComputeSystem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* computesystem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -130,7 +130,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsCloseCom
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsCloseOperation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsCloseOperation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* operation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -147,7 +147,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsCloseOpe
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsCloseProcess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsCloseProcess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* process = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -164,7 +164,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsClosePro
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsCrashComputeSystem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsCrashComputeSystem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* computesystem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* operation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -186,7 +186,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsCrashCom
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsCreateComputeSystem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsCreateComputeSystem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* id = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* configuration = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -212,7 +212,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsCreateCo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsCreateComputeSystemInNamespace_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsCreateComputeSystemInNamespace_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* idnamespace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* id = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -240,7 +240,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsCreateCo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsCreateEmptyGuestStateFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsCreateEmptyGuestStateFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* gueststatefilepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -258,7 +258,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsCreateEm
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsCreateEmptyRuntimeStateFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsCreateEmptyRuntimeStateFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* runtimestatefilepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -276,7 +276,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsCreateEm
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsCreateOperation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsCreateOperation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* callback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -296,7 +296,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsCreateOp
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsCreateOperationWithNotifications_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsCreateOperationWithNotifications_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t eventtypes = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -318,7 +318,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsCreateOp
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsCreateProcess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsCreateProcess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* computesystem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* processparameters = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -344,7 +344,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsCreatePr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsDestroyLayer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsDestroyLayer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* layerpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -362,7 +362,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsDestroyL
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsDetachLayerStorageFilter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsDetachLayerStorageFilter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* layerpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -380,7 +380,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsDetachLa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsEnumerateComputeSystems_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsEnumerateComputeSystems_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* query = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* operation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -400,7 +400,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsEnumerat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsEnumerateComputeSystemsInNamespace_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsEnumerateComputeSystemsInNamespace_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* idnamespace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* query = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -422,7 +422,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsEnumerat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsExportLayer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsExportLayer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* layerpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* exportfolderpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -446,7 +446,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsExportLa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsExportLegacyWritableLayer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsExportLegacyWritableLayer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* writablelayermountpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* writablelayerfolderpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -470,7 +470,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsExportLe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsFormatWritableLayerVhd_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsFormatWritableLayerVhd_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vhdhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -488,7 +488,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsFormatWr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsGetComputeSystemFromOperation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsGetComputeSystemFromOperation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* operation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -506,7 +506,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsGetCompu
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsGetComputeSystemProperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsGetComputeSystemProperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* computesystem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* operation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -528,7 +528,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsGetCompu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsGetLayerVhdMountPath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsGetLayerVhdMountPath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vhdhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* mountpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -548,7 +548,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsGetLayer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsGetOperationContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsGetOperationContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* operation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -566,7 +566,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsGetOpera
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsGetOperationId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsGetOperationId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* operation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -584,7 +584,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsGetOpera
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsGetOperationResult_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsGetOperationResult_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* operation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* resultdocument = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -604,7 +604,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsGetOpera
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsGetOperationResultAndProcessInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsGetOperationResultAndProcessInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* operation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* processinformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -626,7 +626,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsGetOpera
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsGetOperationType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsGetOperationType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* operation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -644,7 +644,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsGetOpera
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsGetProcessFromOperation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsGetProcessFromOperation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* operation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -662,7 +662,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsGetProce
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsGetProcessInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsGetProcessInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* process = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* operation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -682,7 +682,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsGetProce
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsGetProcessProperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsGetProcessProperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* process = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* operation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -704,7 +704,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsGetProce
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsGetProcessorCompatibilityFromSavedState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsGetProcessorCompatibilityFromSavedState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* runtimefilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* processorfeaturesstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -724,7 +724,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsGetProce
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsGetServiceProperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsGetServiceProperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propertyquery = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* result = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -744,7 +744,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsGetServi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsGrantVmAccess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsGrantVmAccess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* filepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -764,7 +764,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsGrantVmA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsGrantVmGroupAccess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsGrantVmGroupAccess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -782,7 +782,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsGrantVmG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsImportLayer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsImportLayer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* layerpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sourcefolderpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -804,7 +804,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsImportLa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsInitializeLegacyWritableLayer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsInitializeLegacyWritableLayer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* writablelayermountpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* writablelayerfolderpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -828,7 +828,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsInitiali
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsInitializeWritableLayer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsInitializeWritableLayer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* writablelayerpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* layerdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -850,7 +850,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsInitiali
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsModifyComputeSystem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsModifyComputeSystem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* computesystem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* operation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -874,7 +874,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsModifyCo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsModifyProcess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsModifyProcess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* process = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* operation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -896,7 +896,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsModifyPr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsModifyServiceSettings_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsModifyServiceSettings_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* settings = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* result = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -916,7 +916,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsModifySe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsOpenComputeSystem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsOpenComputeSystem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* id = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t requestedaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -938,7 +938,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsOpenComp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsOpenComputeSystemInNamespace_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsOpenComputeSystemInNamespace_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* idnamespace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* id = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -962,7 +962,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsOpenComp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsOpenProcess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsOpenProcess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* computesystem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t processid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -986,7 +986,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsOpenProc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsPauseComputeSystem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsPauseComputeSystem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* computesystem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* operation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1008,7 +1008,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsPauseCom
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsResumeComputeSystem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsResumeComputeSystem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* computesystem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* operation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1030,7 +1030,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsResumeCo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsRevokeVmAccess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsRevokeVmAccess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vmid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* filepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1050,7 +1050,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsRevokeVm
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsRevokeVmGroupAccess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsRevokeVmGroupAccess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* filepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1068,7 +1068,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsRevokeVm
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsSaveComputeSystem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsSaveComputeSystem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* computesystem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* operation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1090,7 +1090,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsSaveComp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsSetComputeSystemCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsSetComputeSystemCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* computesystem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t callbackoptions = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1114,7 +1114,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsSetCompu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsSetOperationCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsSetOperationCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* operation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1136,7 +1136,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsSetOpera
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsSetOperationContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsSetOperationContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* operation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1156,7 +1156,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsSetOpera
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsSetProcessCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsSetProcessCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* process = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t callbackoptions = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1180,7 +1180,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsSetProce
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsSetupBaseOSLayer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsSetupBaseOSLayer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* layerpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* vhdhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1202,7 +1202,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsSetupBas
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsSetupBaseOSVolume_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsSetupBaseOSVolume_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* layerpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* volumepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1224,7 +1224,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsSetupBas
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsShutDownComputeSystem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsShutDownComputeSystem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* computesystem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* operation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1246,7 +1246,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsShutDown
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsSignalProcess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsSignalProcess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* process = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* operation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1268,7 +1268,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsSignalPr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsStartComputeSystem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsStartComputeSystem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* computesystem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* operation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1290,7 +1290,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsStartCom
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsSubmitWerReport_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsSubmitWerReport_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* settings = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1308,7 +1308,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsSubmitWe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsTerminateComputeSystem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsTerminateComputeSystem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* computesystem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* operation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1330,7 +1330,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsTerminat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsTerminateProcess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsTerminateProcess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* process = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* operation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1352,7 +1352,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsTerminat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsWaitForComputeSystemExit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsWaitForComputeSystemExit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* computesystem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t timeoutms = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1374,7 +1374,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsWaitForC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsWaitForOperationResult_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsWaitForOperationResult_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* operation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t timeoutms = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1396,7 +1396,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsWaitForO
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsWaitForOperationResultAndProcessInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsWaitForOperationResultAndProcessInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* operation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t timeoutms = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1420,7 +1420,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsWaitForO
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsWaitForProcessExit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputesystem_hcsWaitForProcessExit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* computesystem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t timeoutms = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1443,72 +1443,72 @@ static Napi::Value windowssys_windows_win32_system_hostcomputesystem_HcsWaitForP
 }
 
 static void register_windows_win32_system_hostcomputesystem_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsAddResourceToOperation", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsAddResourceToOperation_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsAttachLayerStorageFilter", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsAttachLayerStorageFilter_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsCancelOperation", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsCancelOperation_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsCloseComputeSystem", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsCloseComputeSystem_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsCloseOperation", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsCloseOperation_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsCloseProcess", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsCloseProcess_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsCrashComputeSystem", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsCrashComputeSystem_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsCreateComputeSystem", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsCreateComputeSystem_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsCreateComputeSystemInNamespace", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsCreateComputeSystemInNamespace_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsCreateEmptyGuestStateFile", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsCreateEmptyGuestStateFile_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsCreateEmptyRuntimeStateFile", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsCreateEmptyRuntimeStateFile_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsCreateOperation", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsCreateOperation_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsCreateOperationWithNotifications", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsCreateOperationWithNotifications_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsCreateProcess", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsCreateProcess_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsDestroyLayer", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsDestroyLayer_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsDetachLayerStorageFilter", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsDetachLayerStorageFilter_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsEnumerateComputeSystems", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsEnumerateComputeSystems_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsEnumerateComputeSystemsInNamespace", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsEnumerateComputeSystemsInNamespace_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsExportLayer", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsExportLayer_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsExportLegacyWritableLayer", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsExportLegacyWritableLayer_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsFormatWritableLayerVhd", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsFormatWritableLayerVhd_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsGetComputeSystemFromOperation", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsGetComputeSystemFromOperation_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsGetComputeSystemProperties", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsGetComputeSystemProperties_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsGetLayerVhdMountPath", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsGetLayerVhdMountPath_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsGetOperationContext", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsGetOperationContext_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsGetOperationId", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsGetOperationId_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsGetOperationResult", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsGetOperationResult_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsGetOperationResultAndProcessInfo", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsGetOperationResultAndProcessInfo_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsGetOperationType", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsGetOperationType_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsGetProcessFromOperation", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsGetProcessFromOperation_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsGetProcessInfo", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsGetProcessInfo_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsGetProcessProperties", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsGetProcessProperties_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsGetProcessorCompatibilityFromSavedState", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsGetProcessorCompatibilityFromSavedState_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsGetServiceProperties", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsGetServiceProperties_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsGrantVmAccess", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsGrantVmAccess_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsGrantVmGroupAccess", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsGrantVmGroupAccess_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsImportLayer", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsImportLayer_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsInitializeLegacyWritableLayer", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsInitializeLegacyWritableLayer_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsInitializeWritableLayer", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsInitializeWritableLayer_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsModifyComputeSystem", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsModifyComputeSystem_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsModifyProcess", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsModifyProcess_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsModifyServiceSettings", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsModifyServiceSettings_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsOpenComputeSystem", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsOpenComputeSystem_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsOpenComputeSystemInNamespace", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsOpenComputeSystemInNamespace_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsOpenProcess", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsOpenProcess_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsPauseComputeSystem", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsPauseComputeSystem_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsResumeComputeSystem", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsResumeComputeSystem_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsRevokeVmAccess", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsRevokeVmAccess_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsRevokeVmGroupAccess", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsRevokeVmGroupAccess_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsSaveComputeSystem", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsSaveComputeSystem_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsSetComputeSystemCallback", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsSetComputeSystemCallback_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsSetOperationCallback", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsSetOperationCallback_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsSetOperationContext", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsSetOperationContext_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsSetProcessCallback", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsSetProcessCallback_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsSetupBaseOSLayer", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsSetupBaseOSLayer_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsSetupBaseOSVolume", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsSetupBaseOSVolume_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsShutDownComputeSystem", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsShutDownComputeSystem_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsSignalProcess", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsSignalProcess_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsStartComputeSystem", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsStartComputeSystem_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsSubmitWerReport", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsSubmitWerReport_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsTerminateComputeSystem", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsTerminateComputeSystem_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsTerminateProcess", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsTerminateProcess_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsWaitForComputeSystemExit", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsWaitForComputeSystemExit_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsWaitForOperationResult", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsWaitForOperationResult_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsWaitForOperationResultAndProcessInfo", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsWaitForOperationResultAndProcessInfo_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputesystem_HcsWaitForProcessExit", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_HcsWaitForProcessExit_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsAddResourceToOperation", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsAddResourceToOperation_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsAttachLayerStorageFilter", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsAttachLayerStorageFilter_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsCancelOperation", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsCancelOperation_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsCloseComputeSystem", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsCloseComputeSystem_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsCloseOperation", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsCloseOperation_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsCloseProcess", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsCloseProcess_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsCrashComputeSystem", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsCrashComputeSystem_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsCreateComputeSystem", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsCreateComputeSystem_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsCreateComputeSystemInNamespace", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsCreateComputeSystemInNamespace_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsCreateEmptyGuestStateFile", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsCreateEmptyGuestStateFile_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsCreateEmptyRuntimeStateFile", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsCreateEmptyRuntimeStateFile_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsCreateOperation", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsCreateOperation_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsCreateOperationWithNotifications", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsCreateOperationWithNotifications_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsCreateProcess", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsCreateProcess_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsDestroyLayer", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsDestroyLayer_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsDetachLayerStorageFilter", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsDetachLayerStorageFilter_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsEnumerateComputeSystems", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsEnumerateComputeSystems_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsEnumerateComputeSystemsInNamespace", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsEnumerateComputeSystemsInNamespace_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsExportLayer", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsExportLayer_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsExportLegacyWritableLayer", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsExportLegacyWritableLayer_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsFormatWritableLayerVhd", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsFormatWritableLayerVhd_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsGetComputeSystemFromOperation", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsGetComputeSystemFromOperation_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsGetComputeSystemProperties", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsGetComputeSystemProperties_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsGetLayerVhdMountPath", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsGetLayerVhdMountPath_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsGetOperationContext", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsGetOperationContext_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsGetOperationId", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsGetOperationId_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsGetOperationResult", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsGetOperationResult_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsGetOperationResultAndProcessInfo", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsGetOperationResultAndProcessInfo_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsGetOperationType", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsGetOperationType_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsGetProcessFromOperation", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsGetProcessFromOperation_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsGetProcessInfo", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsGetProcessInfo_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsGetProcessProperties", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsGetProcessProperties_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsGetProcessorCompatibilityFromSavedState", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsGetProcessorCompatibilityFromSavedState_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsGetServiceProperties", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsGetServiceProperties_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsGrantVmAccess", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsGrantVmAccess_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsGrantVmGroupAccess", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsGrantVmGroupAccess_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsImportLayer", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsImportLayer_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsInitializeLegacyWritableLayer", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsInitializeLegacyWritableLayer_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsInitializeWritableLayer", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsInitializeWritableLayer_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsModifyComputeSystem", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsModifyComputeSystem_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsModifyProcess", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsModifyProcess_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsModifyServiceSettings", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsModifyServiceSettings_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsOpenComputeSystem", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsOpenComputeSystem_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsOpenComputeSystemInNamespace", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsOpenComputeSystemInNamespace_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsOpenProcess", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsOpenProcess_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsPauseComputeSystem", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsPauseComputeSystem_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsResumeComputeSystem", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsResumeComputeSystem_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsRevokeVmAccess", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsRevokeVmAccess_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsRevokeVmGroupAccess", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsRevokeVmGroupAccess_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsSaveComputeSystem", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsSaveComputeSystem_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsSetComputeSystemCallback", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsSetComputeSystemCallback_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsSetOperationCallback", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsSetOperationCallback_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsSetOperationContext", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsSetOperationContext_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsSetProcessCallback", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsSetProcessCallback_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsSetupBaseOSLayer", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsSetupBaseOSLayer_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsSetupBaseOSVolume", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsSetupBaseOSVolume_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsShutDownComputeSystem", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsShutDownComputeSystem_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsSignalProcess", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsSignalProcess_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsStartComputeSystem", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsStartComputeSystem_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsSubmitWerReport", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsSubmitWerReport_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsTerminateComputeSystem", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsTerminateComputeSystem_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsTerminateProcess", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsTerminateProcess_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsWaitForComputeSystemExit", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsWaitForComputeSystemExit_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsWaitForOperationResult", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsWaitForOperationResult_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsWaitForOperationResultAndProcessInfo", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsWaitForOperationResultAndProcessInfo_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputesystem_hcsWaitForProcessExit", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputesystem_hcsWaitForProcessExit_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_hostcomputesystem_napi, nullptr };

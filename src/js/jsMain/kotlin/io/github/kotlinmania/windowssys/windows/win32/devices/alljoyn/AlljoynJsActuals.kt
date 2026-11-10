@@ -2,1915 +2,2095 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.alljoyn
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
 private val _windowsWin32DevicesAlljoynNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun AllJoynAcceptBusConnection(serverbushandle: HANDLE, abortevent: HANDLE): UInt =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_AllJoynAcceptBusConnection(serverbushandle.toString(), abortevent.toString()) as Int).toUInt() else 0u
+public actual fun allJoynAcceptBusConnection(serverbushandle: Handle, abortevent: Handle): UInt =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_allJoynAcceptBusConnection((serverbushandle?.value ?: 0L).toString(), (abortevent?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AllJoynCloseBusHandle(bushandle: HANDLE): BOOL =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_AllJoynCloseBusHandle(bushandle.toString()) as Int) else 0
+public actual fun allJoynCloseBusHandle(bushandle: Handle): Bool =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_allJoynCloseBusHandle((bushandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AllJoynConnectToBus(connectionspec: PCWSTR): HANDLE =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_AllJoynConnectToBus(connectionspec.toString()) as String).toLong() else 0L
+public actual fun allJoynConnectToBus(connectionspec: Pcwstr): Handle =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_allJoynConnectToBus((connectionspec?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AllJoynCreateBus(outbuffersize: UInt, inbuffersize: UInt, lpsecurityattributes: Long): HANDLE =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_AllJoynCreateBus(outbuffersize.toInt(), inbuffersize.toInt(), lpsecurityattributes.toString()) as String).toLong() else 0L
+public actual fun allJoynCreateBus(outbuffersize: UInt, inbuffersize: UInt, lpsecurityattributes: COpaquePointer?): Handle =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_allJoynCreateBus(outbuffersize.toInt(), inbuffersize.toInt(), (lpsecurityattributes?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AllJoynEnumEvents(connectedbushandle: HANDLE, eventtoreset: HANDLE, eventtypes: Long): BOOL =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_AllJoynEnumEvents(connectedbushandle.toString(), eventtoreset.toString(), eventtypes.toString()) as Int) else 0
+public actual fun allJoynEnumEvents(connectedbushandle: Handle, eventtoreset: Handle, eventtypes: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_allJoynEnumEvents((connectedbushandle?.value ?: 0L).toString(), (eventtoreset?.value ?: 0L).toString(), (eventtypes?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AllJoynEventSelect(connectedbushandle: HANDLE, eventhandle: HANDLE, eventtypes: UInt): BOOL =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_AllJoynEventSelect(connectedbushandle.toString(), eventhandle.toString(), eventtypes.toInt()) as Int) else 0
+public actual fun allJoynEventSelect(connectedbushandle: Handle, eventhandle: Handle, eventtypes: UInt): Bool =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_allJoynEventSelect((connectedbushandle?.value ?: 0L).toString(), (eventhandle?.value ?: 0L).toString(), eventtypes.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AllJoynReceiveFromBus(connectedbushandle: HANDLE, buffer: Long, bytestoread: UInt, bytestransferred: Long, reserved: Long): BOOL =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_AllJoynReceiveFromBus(connectedbushandle.toString(), buffer.toString(), bytestoread.toInt(), bytestransferred.toString(), reserved.toString()) as Int) else 0
+public actual fun allJoynReceiveFromBus(connectedbushandle: Handle, buffer: COpaquePointer?, bytestoread: UInt, bytestransferred: COpaquePointer?, reserved: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_allJoynReceiveFromBus((connectedbushandle?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), bytestoread.toInt(), (bytestransferred?.value ?: 0L).toString(), (reserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AllJoynSendToBus(connectedbushandle: HANDLE, buffer: Long, bytestowrite: UInt, bytestransferred: Long, reserved: Long): BOOL =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_AllJoynSendToBus(connectedbushandle.toString(), buffer.toString(), bytestowrite.toInt(), bytestransferred.toString(), reserved.toString()) as Int) else 0
+public actual fun allJoynSendToBus(connectedbushandle: Handle, buffer: COpaquePointer?, bytestowrite: UInt, bytestransferred: COpaquePointer?, reserved: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_allJoynSendToBus((connectedbushandle?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), bytestowrite.toInt(), (bytestransferred?.value ?: 0L).toString(), (reserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun QCC_StatusText(status: QStatus): PCSTR =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_QCC_StatusText(status) as String).toLong() else 0L
+public actual fun qccStatusText(status: QStatus): Pcstr =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_qccStatusText(status) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_create(defaultlanguage: PCSTR): alljoyn_aboutdata =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_create(defaultlanguage.toString()) as String).toLong() else 0L
+public actual fun alljoynAboutdataCreate(defaultlanguage: Pcstr): AlljoynAboutdata =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreate((defaultlanguage?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_create_empty(): alljoyn_aboutdata =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_create_empty() as String).toLong() else 0L
+public actual fun alljoynAboutdataCreateEmpty(): AlljoynAboutdata =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreateEmpty() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_create_full(arg: alljoyn_msgarg, language: PCSTR): alljoyn_aboutdata =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_create_full(arg.toString(), language.toString()) as String).toLong() else 0L
+public actual fun alljoynAboutdataCreateFull(arg: AlljoynMsgarg, language: Pcstr): AlljoynAboutdata =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreateFull(arg.toString(), (language?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_createfrommsgarg(data: alljoyn_aboutdata, arg: alljoyn_msgarg, language: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_createfrommsgarg(data.toString(), arg.toString(), language.toString()) as Int) else 0
+public actual fun alljoynAboutdataCreatefrommsgarg(data: AlljoynAboutdata, arg: AlljoynMsgarg, language: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreatefrommsgarg(data.toString(), arg.toString(), (language?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_createfromxml(data: alljoyn_aboutdata, aboutdataxml: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_createfromxml(data.toString(), aboutdataxml.toString()) as Int) else 0
+public actual fun alljoynAboutdataCreatefromxml(data: AlljoynAboutdata, aboutdataxml: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCreatefromxml(data.toString(), (aboutdataxml?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_destroy(data: alljoyn_aboutdata) {
+public actual fun alljoynAboutdataDestroy(data: AlljoynAboutdata) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_destroy(data.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataDestroy(data.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_aboutdata_getaboutdata(data: alljoyn_aboutdata, msgarg: alljoyn_msgarg, language: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getaboutdata(data.toString(), msgarg.toString(), language.toString()) as Int) else 0
+public actual fun alljoynAboutdataGetaboutdata(data: AlljoynAboutdata, msgarg: AlljoynMsgarg, language: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetaboutdata(data.toString(), msgarg.toString(), (language?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_getajsoftwareversion(data: alljoyn_aboutdata, ajsoftwareversion: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getajsoftwareversion(data.toString(), ajsoftwareversion.toString()) as Int) else 0
+public actual fun alljoynAboutdataGetajsoftwareversion(data: AlljoynAboutdata, ajsoftwareversion: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetajsoftwareversion(data.toString(), (ajsoftwareversion?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_getannouncedaboutdata(data: alljoyn_aboutdata, msgarg: alljoyn_msgarg): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getannouncedaboutdata(data.toString(), msgarg.toString()) as Int) else 0
+public actual fun alljoynAboutdataGetannouncedaboutdata(data: AlljoynAboutdata, msgarg: AlljoynMsgarg): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetannouncedaboutdata(data.toString(), msgarg.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_getappid(data: alljoyn_aboutdata, appid: Long, num: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getappid(data.toString(), appid.toString(), num.toString()) as Int) else 0
+public actual fun alljoynAboutdataGetappid(data: AlljoynAboutdata, appid: COpaquePointer?, num: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetappid(data.toString(), (appid?.value ?: 0L).toString(), (num?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_getappname(data: alljoyn_aboutdata, appname: Long, language: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getappname(data.toString(), appname.toString(), language.toString()) as Int) else 0
+public actual fun alljoynAboutdataGetappname(data: AlljoynAboutdata, appname: COpaquePointer?, language: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetappname(data.toString(), (appname?.value ?: 0L).toString(), (language?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_getdateofmanufacture(data: alljoyn_aboutdata, dateofmanufacture: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getdateofmanufacture(data.toString(), dateofmanufacture.toString()) as Int) else 0
+public actual fun alljoynAboutdataGetdateofmanufacture(data: AlljoynAboutdata, dateofmanufacture: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdateofmanufacture(data.toString(), (dateofmanufacture?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_getdefaultlanguage(data: alljoyn_aboutdata, defaultlanguage: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getdefaultlanguage(data.toString(), defaultlanguage.toString()) as Int) else 0
+public actual fun alljoynAboutdataGetdefaultlanguage(data: AlljoynAboutdata, defaultlanguage: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdefaultlanguage(data.toString(), (defaultlanguage?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_getdescription(data: alljoyn_aboutdata, description: Long, language: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getdescription(data.toString(), description.toString(), language.toString()) as Int) else 0
+public actual fun alljoynAboutdataGetdescription(data: AlljoynAboutdata, description: COpaquePointer?, language: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdescription(data.toString(), (description?.value ?: 0L).toString(), (language?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_getdeviceid(data: alljoyn_aboutdata, deviceid: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getdeviceid(data.toString(), deviceid.toString()) as Int) else 0
+public actual fun alljoynAboutdataGetdeviceid(data: AlljoynAboutdata, deviceid: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdeviceid(data.toString(), (deviceid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_getdevicename(data: alljoyn_aboutdata, devicename: Long, language: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getdevicename(data.toString(), devicename.toString(), language.toString()) as Int) else 0
+public actual fun alljoynAboutdataGetdevicename(data: AlljoynAboutdata, devicename: COpaquePointer?, language: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetdevicename(data.toString(), (devicename?.value ?: 0L).toString(), (language?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_getfield(data: alljoyn_aboutdata, name: PCSTR, value: Long, language: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getfield(data.toString(), name.toString(), value.toString(), language.toString()) as Int) else 0
+public actual fun alljoynAboutdataGetfield(data: AlljoynAboutdata, name: Pcstr, value: COpaquePointer?, language: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetfield(data.toString(), (name?.value ?: 0L).toString(), (value?.value ?: 0L).toString(), (language?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_getfields(data: alljoyn_aboutdata, fields: Long, num_fields: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getfields(data.toString(), fields.toString(), num_fields.toString()) as String).toULong() else 0uL
+public actual fun alljoynAboutdataGetfields(data: AlljoynAboutdata, fields: COpaquePointer?, numFields: ULong): ULong =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetfields(data.toString(), (fields?.value ?: 0L).toString(), numFields.toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_getfieldsignature(data: alljoyn_aboutdata, fieldname: PCSTR): PCSTR =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getfieldsignature(data.toString(), fieldname.toString()) as String).toLong() else 0L
+public actual fun alljoynAboutdataGetfieldsignature(data: AlljoynAboutdata, fieldname: Pcstr): Pcstr =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetfieldsignature(data.toString(), (fieldname?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_gethardwareversion(data: alljoyn_aboutdata, hardwareversion: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_gethardwareversion(data.toString(), hardwareversion.toString()) as Int) else 0
+public actual fun alljoynAboutdataGethardwareversion(data: AlljoynAboutdata, hardwareversion: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGethardwareversion(data.toString(), (hardwareversion?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_getmanufacturer(data: alljoyn_aboutdata, manufacturer: Long, language: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getmanufacturer(data.toString(), manufacturer.toString(), language.toString()) as Int) else 0
+public actual fun alljoynAboutdataGetmanufacturer(data: AlljoynAboutdata, manufacturer: COpaquePointer?, language: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetmanufacturer(data.toString(), (manufacturer?.value ?: 0L).toString(), (language?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_getmodelnumber(data: alljoyn_aboutdata, modelnumber: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getmodelnumber(data.toString(), modelnumber.toString()) as Int) else 0
+public actual fun alljoynAboutdataGetmodelnumber(data: AlljoynAboutdata, modelnumber: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetmodelnumber(data.toString(), (modelnumber?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_getsoftwareversion(data: alljoyn_aboutdata, softwareversion: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getsoftwareversion(data.toString(), softwareversion.toString()) as Int) else 0
+public actual fun alljoynAboutdataGetsoftwareversion(data: AlljoynAboutdata, softwareversion: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetsoftwareversion(data.toString(), (softwareversion?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_getsupportedlanguages(data: alljoyn_aboutdata, languagetags: Long, num: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getsupportedlanguages(data.toString(), languagetags.toString(), num.toString()) as String).toULong() else 0uL
+public actual fun alljoynAboutdataGetsupportedlanguages(data: AlljoynAboutdata, languagetags: COpaquePointer?, num: ULong): ULong =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetsupportedlanguages(data.toString(), (languagetags?.value ?: 0L).toString(), num.toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_getsupporturl(data: alljoyn_aboutdata, supporturl: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_getsupporturl(data.toString(), supporturl.toString()) as Int) else 0
+public actual fun alljoynAboutdataGetsupporturl(data: AlljoynAboutdata, supporturl: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetsupporturl(data.toString(), (supporturl?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_isfieldannounced(data: alljoyn_aboutdata, fieldname: PCSTR): UByte =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_isfieldannounced(data.toString(), fieldname.toString()) as Int).toUByte() else 0u
+public actual fun alljoynAboutdataIsfieldannounced(data: AlljoynAboutdata, fieldname: Pcstr): UByte =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsfieldannounced(data.toString(), (fieldname?.value ?: 0L).toString()) as Int).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_isfieldlocalized(data: alljoyn_aboutdata, fieldname: PCSTR): UByte =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_isfieldlocalized(data.toString(), fieldname.toString()) as Int).toUByte() else 0u
+public actual fun alljoynAboutdataIsfieldlocalized(data: AlljoynAboutdata, fieldname: Pcstr): UByte =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsfieldlocalized(data.toString(), (fieldname?.value ?: 0L).toString()) as Int).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_isfieldrequired(data: alljoyn_aboutdata, fieldname: PCSTR): UByte =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_isfieldrequired(data.toString(), fieldname.toString()) as Int).toUByte() else 0u
+public actual fun alljoynAboutdataIsfieldrequired(data: AlljoynAboutdata, fieldname: Pcstr): UByte =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsfieldrequired(data.toString(), (fieldname?.value ?: 0L).toString()) as Int).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_isvalid(data: alljoyn_aboutdata, language: PCSTR): UByte =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_isvalid(data.toString(), language.toString()) as Int).toUByte() else 0u
+public actual fun alljoynAboutdataIsvalid(data: AlljoynAboutdata, language: Pcstr): UByte =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsvalid(data.toString(), (language?.value ?: 0L).toString()) as Int).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_setappid(data: alljoyn_aboutdata, appid: Long, num: ULong): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setappid(data.toString(), appid.toString(), num.toString()) as Int) else 0
+public actual fun alljoynAboutdataSetappid(data: AlljoynAboutdata, appid: COpaquePointer?, num: ULong): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetappid(data.toString(), (appid?.value ?: 0L).toString(), num.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_setappid_fromstring(data: alljoyn_aboutdata, appid: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setappid_fromstring(data.toString(), appid.toString()) as Int) else 0
+public actual fun alljoynAboutdataSetappidFromstring(data: AlljoynAboutdata, appid: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetappidFromstring(data.toString(), (appid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_setappname(data: alljoyn_aboutdata, appname: PCSTR, language: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setappname(data.toString(), appname.toString(), language.toString()) as Int) else 0
+public actual fun alljoynAboutdataSetappname(data: AlljoynAboutdata, appname: Pcstr, language: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetappname(data.toString(), (appname?.value ?: 0L).toString(), (language?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_setdateofmanufacture(data: alljoyn_aboutdata, dateofmanufacture: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setdateofmanufacture(data.toString(), dateofmanufacture.toString()) as Int) else 0
+public actual fun alljoynAboutdataSetdateofmanufacture(data: AlljoynAboutdata, dateofmanufacture: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdateofmanufacture(data.toString(), (dateofmanufacture?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_setdefaultlanguage(data: alljoyn_aboutdata, defaultlanguage: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setdefaultlanguage(data.toString(), defaultlanguage.toString()) as Int) else 0
+public actual fun alljoynAboutdataSetdefaultlanguage(data: AlljoynAboutdata, defaultlanguage: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdefaultlanguage(data.toString(), (defaultlanguage?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_setdescription(data: alljoyn_aboutdata, description: PCSTR, language: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setdescription(data.toString(), description.toString(), language.toString()) as Int) else 0
+public actual fun alljoynAboutdataSetdescription(data: AlljoynAboutdata, description: Pcstr, language: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdescription(data.toString(), (description?.value ?: 0L).toString(), (language?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_setdeviceid(data: alljoyn_aboutdata, deviceid: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setdeviceid(data.toString(), deviceid.toString()) as Int) else 0
+public actual fun alljoynAboutdataSetdeviceid(data: AlljoynAboutdata, deviceid: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdeviceid(data.toString(), (deviceid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_setdevicename(data: alljoyn_aboutdata, devicename: PCSTR, language: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setdevicename(data.toString(), devicename.toString(), language.toString()) as Int) else 0
+public actual fun alljoynAboutdataSetdevicename(data: AlljoynAboutdata, devicename: Pcstr, language: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetdevicename(data.toString(), (devicename?.value ?: 0L).toString(), (language?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_setfield(data: alljoyn_aboutdata, name: PCSTR, value: alljoyn_msgarg, language: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setfield(data.toString(), name.toString(), value.toString(), language.toString()) as Int) else 0
+public actual fun alljoynAboutdataSetfield(data: AlljoynAboutdata, name: Pcstr, value: AlljoynMsgarg, language: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetfield(data.toString(), (name?.value ?: 0L).toString(), value.toString(), (language?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_sethardwareversion(data: alljoyn_aboutdata, hardwareversion: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_sethardwareversion(data.toString(), hardwareversion.toString()) as Int) else 0
+public actual fun alljoynAboutdataSethardwareversion(data: AlljoynAboutdata, hardwareversion: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSethardwareversion(data.toString(), (hardwareversion?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_setmanufacturer(data: alljoyn_aboutdata, manufacturer: PCSTR, language: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setmanufacturer(data.toString(), manufacturer.toString(), language.toString()) as Int) else 0
+public actual fun alljoynAboutdataSetmanufacturer(data: AlljoynAboutdata, manufacturer: Pcstr, language: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetmanufacturer(data.toString(), (manufacturer?.value ?: 0L).toString(), (language?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_setmodelnumber(data: alljoyn_aboutdata, modelnumber: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setmodelnumber(data.toString(), modelnumber.toString()) as Int) else 0
+public actual fun alljoynAboutdataSetmodelnumber(data: AlljoynAboutdata, modelnumber: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetmodelnumber(data.toString(), (modelnumber?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_setsoftwareversion(data: alljoyn_aboutdata, softwareversion: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setsoftwareversion(data.toString(), softwareversion.toString()) as Int) else 0
+public actual fun alljoynAboutdataSetsoftwareversion(data: AlljoynAboutdata, softwareversion: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetsoftwareversion(data.toString(), (softwareversion?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_setsupportedlanguage(data: alljoyn_aboutdata, language: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setsupportedlanguage(data.toString(), language.toString()) as Int) else 0
+public actual fun alljoynAboutdataSetsupportedlanguage(data: AlljoynAboutdata, language: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetsupportedlanguage(data.toString(), (language?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdata_setsupporturl(data: alljoyn_aboutdata, supporturl: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdata_setsupporturl(data.toString(), supporturl.toString()) as Int) else 0
+public actual fun alljoynAboutdataSetsupporturl(data: AlljoynAboutdata, supporturl: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetsupporturl(data.toString(), (supporturl?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdatalistener_create(callbacks: Long, context: Long): alljoyn_aboutdatalistener =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdatalistener_create(callbacks.toString(), context.toString()) as String).toLong() else 0L
+public actual fun alljoynAboutdatalistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynAboutdatalistener =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdatalistenerCreate((callbacks?.value ?: 0L).toString(), (context?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutdatalistener_destroy(listener: alljoyn_aboutdatalistener) {
+public actual fun alljoynAboutdatalistenerDestroy(listener: AlljoynAboutdatalistener) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutdatalistener_destroy(listener.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutdatalistenerDestroy(listener.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_abouticon_clear(icon: alljoyn_abouticon) {
+public actual fun alljoynAbouticonClear(icon: AlljoynAbouticon) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_abouticon_clear(icon.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAbouticonClear(icon.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_abouticon_create(): alljoyn_abouticon =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_abouticon_create() as String).toLong() else 0L
+public actual fun alljoynAbouticonCreate(): AlljoynAbouticon =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAbouticonCreate() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_abouticon_destroy(icon: alljoyn_abouticon) {
+public actual fun alljoynAbouticonDestroy(icon: AlljoynAbouticon) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_abouticon_destroy(icon.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAbouticonDestroy(icon.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_abouticon_getcontent(icon: alljoyn_abouticon, data: Long, size: Long) {
+public actual fun alljoynAbouticonGetcontent(icon: AlljoynAbouticon, data: COpaquePointer?, size: COpaquePointer?) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_abouticon_getcontent(icon.toString(), data.toString(), size.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAbouticonGetcontent(icon.toString(), (data?.value ?: 0L).toString(), (size?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_abouticon_geturl(icon: alljoyn_abouticon, type: Long, url: Long) {
+public actual fun alljoynAbouticonGeturl(icon: AlljoynAbouticon, type: COpaquePointer?, url: COpaquePointer?) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_abouticon_geturl(icon.toString(), type.toString(), url.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAbouticonGeturl(icon.toString(), (type?.value ?: 0L).toString(), (url?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_abouticon_setcontent(icon: alljoyn_abouticon, type: PCSTR, data: Long, csize: ULong, ownsdata: UByte): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_abouticon_setcontent(icon.toString(), type.toString(), data.toString(), csize.toString(), ownsdata.toInt()) as Int) else 0
+public actual fun alljoynAbouticonSetcontent(icon: AlljoynAbouticon, type: Pcstr, data: COpaquePointer?, csize: ULong, ownsdata: UByte): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAbouticonSetcontent(icon.toString(), (type?.value ?: 0L).toString(), (data?.value ?: 0L).toString(), csize.toString(), ownsdata.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_abouticon_setcontent_frommsgarg(icon: alljoyn_abouticon, arg: alljoyn_msgarg): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_abouticon_setcontent_frommsgarg(icon.toString(), arg.toString()) as Int) else 0
+public actual fun alljoynAbouticonSetcontentFrommsgarg(icon: AlljoynAbouticon, arg: AlljoynMsgarg): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAbouticonSetcontentFrommsgarg(icon.toString(), arg.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_abouticon_seturl(icon: alljoyn_abouticon, type: PCSTR, url: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_abouticon_seturl(icon.toString(), type.toString(), url.toString()) as Int) else 0
+public actual fun alljoynAbouticonSeturl(icon: AlljoynAbouticon, type: Pcstr, url: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAbouticonSeturl(icon.toString(), (type?.value ?: 0L).toString(), (url?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_abouticonobj_create(bus: alljoyn_busattachment, icon: alljoyn_abouticon): alljoyn_abouticonobj =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_abouticonobj_create(bus.toString(), icon.toString()) as String).toLong() else 0L
+public actual fun alljoynAbouticonobjCreate(bus: AlljoynBusattachment, icon: AlljoynAbouticon): AlljoynAbouticonobj =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAbouticonobjCreate(bus.toString(), icon.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_abouticonobj_destroy(icon: alljoyn_abouticonobj) {
+public actual fun alljoynAbouticonobjDestroy(icon: AlljoynAbouticonobj) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_abouticonobj_destroy(icon.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAbouticonobjDestroy(icon.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_abouticonproxy_create(bus: alljoyn_busattachment, busname: PCSTR, sessionid: UInt): alljoyn_abouticonproxy =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_abouticonproxy_create(bus.toString(), busname.toString(), sessionid.toInt()) as String).toLong() else 0L
+public actual fun alljoynAbouticonproxyCreate(bus: AlljoynBusattachment, busname: Pcstr, sessionid: UInt): AlljoynAbouticonproxy =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyCreate(bus.toString(), (busname?.value ?: 0L).toString(), sessionid.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_abouticonproxy_destroy(proxy: alljoyn_abouticonproxy) {
+public actual fun alljoynAbouticonproxyDestroy(proxy: AlljoynAbouticonproxy) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_abouticonproxy_destroy(proxy.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyDestroy(proxy.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_abouticonproxy_geticon(proxy: alljoyn_abouticonproxy, icon: alljoyn_abouticon): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_abouticonproxy_geticon(proxy.toString(), icon.toString()) as Int) else 0
+public actual fun alljoynAbouticonproxyGeticon(proxy: AlljoynAbouticonproxy, icon: AlljoynAbouticon): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyGeticon(proxy.toString(), icon.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_abouticonproxy_getversion(proxy: alljoyn_abouticonproxy, version: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_abouticonproxy_getversion(proxy.toString(), version.toString()) as Int) else 0
+public actual fun alljoynAbouticonproxyGetversion(proxy: AlljoynAbouticonproxy, version: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAbouticonproxyGetversion(proxy.toString(), (version?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutlistener_create(callback: Long, context: Long): alljoyn_aboutlistener =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutlistener_create(callback.toString(), context.toString()) as String).toLong() else 0L
+public actual fun alljoynAboutlistenerCreate(callback: COpaquePointer?, context: COpaquePointer?): AlljoynAboutlistener =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutlistenerCreate((callback?.value ?: 0L).toString(), (context?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutlistener_destroy(listener: alljoyn_aboutlistener) {
+public actual fun alljoynAboutlistenerDestroy(listener: AlljoynAboutlistener) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutlistener_destroy(listener.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutlistenerDestroy(listener.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_aboutobj_announce(obj: alljoyn_aboutobj, sessionport: UShort, aboutdata: alljoyn_aboutdata): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobj_announce(obj.toString(), sessionport.toInt(), aboutdata.toString()) as Int) else 0
+public actual fun alljoynAboutobjAnnounce(obj: AlljoynAboutobj, sessionport: UShort, aboutdata: AlljoynAboutdata): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutobjAnnounce(obj.toString(), sessionport.toInt(), aboutdata.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutobj_announce_using_datalistener(obj: alljoyn_aboutobj, sessionport: UShort, aboutlistener: alljoyn_aboutdatalistener): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobj_announce_using_datalistener(obj.toString(), sessionport.toInt(), aboutlistener.toString()) as Int) else 0
+public actual fun alljoynAboutobjAnnounceUsingDatalistener(obj: AlljoynAboutobj, sessionport: UShort, aboutlistener: AlljoynAboutdatalistener): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutobjAnnounceUsingDatalistener(obj.toString(), sessionport.toInt(), aboutlistener.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutobj_create(bus: alljoyn_busattachment, isannounced: alljoyn_about_announceflag): alljoyn_aboutobj =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobj_create(bus.toString(), isannounced) as String).toLong() else 0L
+public actual fun alljoynAboutobjCreate(bus: AlljoynBusattachment, isannounced: AlljoynAboutAnnounceflag): AlljoynAboutobj =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutobjCreate(bus.toString(), isannounced) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutobj_destroy(obj: alljoyn_aboutobj) {
+public actual fun alljoynAboutobjDestroy(obj: AlljoynAboutobj) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobj_destroy(obj.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutobjDestroy(obj.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_aboutobj_unannounce(obj: alljoyn_aboutobj): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobj_unannounce(obj.toString()) as Int) else 0
+public actual fun alljoynAboutobjUnannounce(obj: AlljoynAboutobj): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutobjUnannounce(obj.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutobjectdescription_clear(description: alljoyn_aboutobjectdescription) {
+public actual fun alljoynAboutobjectdescriptionClear(description: AlljoynAboutobjectdescription) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_clear(description.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionClear(description.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_aboutobjectdescription_create(): alljoyn_aboutobjectdescription =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_create() as String).toLong() else 0L
+public actual fun alljoynAboutobjectdescriptionCreate(): AlljoynAboutobjectdescription =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionCreate() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutobjectdescription_create_full(arg: alljoyn_msgarg): alljoyn_aboutobjectdescription =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_create_full(arg.toString()) as String).toLong() else 0L
+public actual fun alljoynAboutobjectdescriptionCreateFull(arg: AlljoynMsgarg): AlljoynAboutobjectdescription =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionCreateFull(arg.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutobjectdescription_createfrommsgarg(description: alljoyn_aboutobjectdescription, arg: alljoyn_msgarg): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_createfrommsgarg(description.toString(), arg.toString()) as Int) else 0
+public actual fun alljoynAboutobjectdescriptionCreatefrommsgarg(description: AlljoynAboutobjectdescription, arg: AlljoynMsgarg): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionCreatefrommsgarg(description.toString(), arg.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutobjectdescription_destroy(description: alljoyn_aboutobjectdescription) {
+public actual fun alljoynAboutobjectdescriptionDestroy(description: AlljoynAboutobjectdescription) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_destroy(description.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionDestroy(description.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_aboutobjectdescription_getinterfacepaths(description: alljoyn_aboutobjectdescription, interfacename: PCSTR, paths: Long, numpaths: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_getinterfacepaths(description.toString(), interfacename.toString(), paths.toString(), numpaths.toString()) as String).toULong() else 0uL
+public actual fun alljoynAboutobjectdescriptionGetinterfacepaths(description: AlljoynAboutobjectdescription, interfacename: Pcstr, paths: COpaquePointer?, numpaths: ULong): ULong =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetinterfacepaths(description.toString(), (interfacename?.value ?: 0L).toString(), (paths?.value ?: 0L).toString(), numpaths.toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutobjectdescription_getinterfaces(description: alljoyn_aboutobjectdescription, path: PCSTR, interfaces: Long, numinterfaces: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_getinterfaces(description.toString(), path.toString(), interfaces.toString(), numinterfaces.toString()) as String).toULong() else 0uL
+public actual fun alljoynAboutobjectdescriptionGetinterfaces(description: AlljoynAboutobjectdescription, path: Pcstr, interfaces: COpaquePointer?, numinterfaces: ULong): ULong =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetinterfaces(description.toString(), (path?.value ?: 0L).toString(), (interfaces?.value ?: 0L).toString(), numinterfaces.toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutobjectdescription_getmsgarg(description: alljoyn_aboutobjectdescription, msgarg: alljoyn_msgarg): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_getmsgarg(description.toString(), msgarg.toString()) as Int) else 0
+public actual fun alljoynAboutobjectdescriptionGetmsgarg(description: AlljoynAboutobjectdescription, msgarg: AlljoynMsgarg): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetmsgarg(description.toString(), msgarg.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutobjectdescription_getpaths(description: alljoyn_aboutobjectdescription, paths: Long, numpaths: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_getpaths(description.toString(), paths.toString(), numpaths.toString()) as String).toULong() else 0uL
+public actual fun alljoynAboutobjectdescriptionGetpaths(description: AlljoynAboutobjectdescription, paths: COpaquePointer?, numpaths: ULong): ULong =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionGetpaths(description.toString(), (paths?.value ?: 0L).toString(), numpaths.toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutobjectdescription_hasinterface(description: alljoyn_aboutobjectdescription, interfacename: PCSTR): UByte =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_hasinterface(description.toString(), interfacename.toString()) as Int).toUByte() else 0u
+public actual fun alljoynAboutobjectdescriptionHasinterface(description: AlljoynAboutobjectdescription, interfacename: Pcstr): UByte =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionHasinterface(description.toString(), (interfacename?.value ?: 0L).toString()) as Int).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutobjectdescription_hasinterfaceatpath(description: alljoyn_aboutobjectdescription, path: PCSTR, interfacename: PCSTR): UByte =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_hasinterfaceatpath(description.toString(), path.toString(), interfacename.toString()) as Int).toUByte() else 0u
+public actual fun alljoynAboutobjectdescriptionHasinterfaceatpath(description: AlljoynAboutobjectdescription, path: Pcstr, interfacename: Pcstr): UByte =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionHasinterfaceatpath(description.toString(), (path?.value ?: 0L).toString(), (interfacename?.value ?: 0L).toString()) as Int).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutobjectdescription_haspath(description: alljoyn_aboutobjectdescription, path: PCSTR): UByte =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutobjectdescription_haspath(description.toString(), path.toString()) as Int).toUByte() else 0u
+public actual fun alljoynAboutobjectdescriptionHaspath(description: AlljoynAboutobjectdescription, path: Pcstr): UByte =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectdescriptionHaspath(description.toString(), (path?.value ?: 0L).toString()) as Int).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutproxy_create(bus: alljoyn_busattachment, busname: PCSTR, sessionid: UInt): alljoyn_aboutproxy =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutproxy_create(bus.toString(), busname.toString(), sessionid.toInt()) as String).toLong() else 0L
+public actual fun alljoynAboutproxyCreate(bus: AlljoynBusattachment, busname: Pcstr, sessionid: UInt): AlljoynAboutproxy =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyCreate(bus.toString(), (busname?.value ?: 0L).toString(), sessionid.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutproxy_destroy(proxy: alljoyn_aboutproxy) {
+public actual fun alljoynAboutproxyDestroy(proxy: AlljoynAboutproxy) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutproxy_destroy(proxy.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyDestroy(proxy.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_aboutproxy_getaboutdata(proxy: alljoyn_aboutproxy, language: PCSTR, data: alljoyn_msgarg): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutproxy_getaboutdata(proxy.toString(), language.toString(), data.toString()) as Int) else 0
+public actual fun alljoynAboutproxyGetaboutdata(proxy: AlljoynAboutproxy, language: Pcstr, data: AlljoynMsgarg): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyGetaboutdata(proxy.toString(), (language?.value ?: 0L).toString(), data.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutproxy_getobjectdescription(proxy: alljoyn_aboutproxy, objectdesc: alljoyn_msgarg): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutproxy_getobjectdescription(proxy.toString(), objectdesc.toString()) as Int) else 0
+public actual fun alljoynAboutproxyGetobjectdescription(proxy: AlljoynAboutproxy, objectdesc: AlljoynMsgarg): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyGetobjectdescription(proxy.toString(), objectdesc.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_aboutproxy_getversion(proxy: alljoyn_aboutproxy, version: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_aboutproxy_getversion(proxy.toString(), version.toString()) as Int) else 0
+public actual fun alljoynAboutproxyGetversion(proxy: AlljoynAboutproxy, version: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyGetversion(proxy.toString(), (version?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_applicationstatelistener_create(callbacks: Long, context: Long): alljoyn_applicationstatelistener =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_applicationstatelistener_create(callbacks.toString(), context.toString()) as String).toLong() else 0L
+public actual fun alljoynApplicationstatelistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynApplicationstatelistener =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynApplicationstatelistenerCreate((callbacks?.value ?: 0L).toString(), (context?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_applicationstatelistener_destroy(listener: alljoyn_applicationstatelistener) {
+public actual fun alljoynApplicationstatelistenerDestroy(listener: AlljoynApplicationstatelistener) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_applicationstatelistener_destroy(listener.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynApplicationstatelistenerDestroy(listener.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_authlistener_create(callbacks: Long, context: Long): alljoyn_authlistener =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_authlistener_create(callbacks.toString(), context.toString()) as String).toLong() else 0L
+public actual fun alljoynAuthlistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynAuthlistener =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerCreate((callbacks?.value ?: 0L).toString(), (context?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_authlistener_destroy(listener: alljoyn_authlistener) {
+public actual fun alljoynAuthlistenerDestroy(listener: AlljoynAuthlistener) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_authlistener_destroy(listener.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerDestroy(listener.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_authlistener_requestcredentialsresponse(listener: alljoyn_authlistener, authcontext: Long, accept: Int, credentials: alljoyn_credentials): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_authlistener_requestcredentialsresponse(listener.toString(), authcontext.toString(), accept, credentials.toString()) as Int) else 0
+public actual fun alljoynAuthlistenerRequestcredentialsresponse(listener: AlljoynAuthlistener, authcontext: COpaquePointer?, accept: Int, credentials: AlljoynCredentials): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerRequestcredentialsresponse(listener.toString(), (authcontext?.value ?: 0L).toString(), accept, credentials.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_authlistener_setsharedsecret(listener: alljoyn_authlistener, sharedsecret: Long, sharedsecretsize: ULong): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_authlistener_setsharedsecret(listener.toString(), sharedsecret.toString(), sharedsecretsize.toString()) as Int) else 0
+public actual fun alljoynAuthlistenerSetsharedsecret(listener: AlljoynAuthlistener, sharedsecret: COpaquePointer?, sharedsecretsize: ULong): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerSetsharedsecret(listener.toString(), (sharedsecret?.value ?: 0L).toString(), sharedsecretsize.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_authlistener_verifycredentialsresponse(listener: alljoyn_authlistener, authcontext: Long, accept: Int): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_authlistener_verifycredentialsresponse(listener.toString(), authcontext.toString(), accept) as Int) else 0
+public actual fun alljoynAuthlistenerVerifycredentialsresponse(listener: AlljoynAuthlistener, authcontext: COpaquePointer?, accept: Int): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerVerifycredentialsresponse(listener.toString(), (authcontext?.value ?: 0L).toString(), accept) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_authlistenerasync_create(callbacks: Long, context: Long): alljoyn_authlistener =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_authlistenerasync_create(callbacks.toString(), context.toString()) as String).toLong() else 0L
+public actual fun alljoynAuthlistenerasyncCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynAuthlistener =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerasyncCreate((callbacks?.value ?: 0L).toString(), (context?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_authlistenerasync_destroy(listener: alljoyn_authlistener) {
+public actual fun alljoynAuthlistenerasyncDestroy(listener: AlljoynAuthlistener) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_authlistenerasync_destroy(listener.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerasyncDestroy(listener.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_autopinger_adddestination(autopinger: alljoyn_autopinger, group: PCSTR, destination: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_adddestination(autopinger.toString(), group.toString(), destination.toString()) as Int) else 0
+public actual fun alljoynAutopingerAdddestination(autopinger: AlljoynAutopinger, group: Pcstr, destination: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAutopingerAdddestination(autopinger.toString(), (group?.value ?: 0L).toString(), (destination?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_autopinger_addpinggroup(autopinger: alljoyn_autopinger, group: PCSTR, listener: alljoyn_pinglistener, pinginterval: UInt) {
+public actual fun alljoynAutopingerAddpinggroup(autopinger: AlljoynAutopinger, group: Pcstr, listener: AlljoynPinglistener, pinginterval: UInt) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_addpinggroup(autopinger.toString(), group.toString(), listener.toString(), pinginterval.toInt())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAutopingerAddpinggroup(autopinger.toString(), (group?.value ?: 0L).toString(), listener.toString(), pinginterval.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_autopinger_create(bus: alljoyn_busattachment): alljoyn_autopinger =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_create(bus.toString()) as String).toLong() else 0L
+public actual fun alljoynAutopingerCreate(bus: AlljoynBusattachment): AlljoynAutopinger =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAutopingerCreate(bus.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_autopinger_destroy(autopinger: alljoyn_autopinger) {
+public actual fun alljoynAutopingerDestroy(autopinger: AlljoynAutopinger) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_destroy(autopinger.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAutopingerDestroy(autopinger.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_autopinger_pause(autopinger: alljoyn_autopinger) {
+public actual fun alljoynAutopingerPause(autopinger: AlljoynAutopinger) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_pause(autopinger.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAutopingerPause(autopinger.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_autopinger_removedestination(autopinger: alljoyn_autopinger, group: PCSTR, destination: PCSTR, removeall: Int): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_removedestination(autopinger.toString(), group.toString(), destination.toString(), removeall) as Int) else 0
+public actual fun alljoynAutopingerRemovedestination(autopinger: AlljoynAutopinger, group: Pcstr, destination: Pcstr, removeall: Int): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAutopingerRemovedestination(autopinger.toString(), (group?.value ?: 0L).toString(), (destination?.value ?: 0L).toString(), removeall) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_autopinger_removepinggroup(autopinger: alljoyn_autopinger, group: PCSTR) {
+public actual fun alljoynAutopingerRemovepinggroup(autopinger: AlljoynAutopinger, group: Pcstr) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_removepinggroup(autopinger.toString(), group.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAutopingerRemovepinggroup(autopinger.toString(), (group?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_autopinger_resume(autopinger: alljoyn_autopinger) {
+public actual fun alljoynAutopingerResume(autopinger: AlljoynAutopinger) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_resume(autopinger.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAutopingerResume(autopinger.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_autopinger_setpinginterval(autopinger: alljoyn_autopinger, group: PCSTR, pinginterval: UInt): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_autopinger_setpinginterval(autopinger.toString(), group.toString(), pinginterval.toInt()) as Int) else 0
+public actual fun alljoynAutopingerSetpinginterval(autopinger: AlljoynAutopinger, group: Pcstr, pinginterval: UInt): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynAutopingerSetpinginterval(autopinger.toString(), (group?.value ?: 0L).toString(), pinginterval.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_addlogonentry(bus: alljoyn_busattachment, authmechanism: PCSTR, username: PCSTR, password: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_addlogonentry(bus.toString(), authmechanism.toString(), username.toString(), password.toString()) as Int) else 0
+public actual fun alljoynBusattachmentAddlogonentry(bus: AlljoynBusattachment, authmechanism: Pcstr, username: Pcstr, password: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentAddlogonentry(bus.toString(), (authmechanism?.value ?: 0L).toString(), (username?.value ?: 0L).toString(), (password?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_addmatch(bus: alljoyn_busattachment, rule: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_addmatch(bus.toString(), rule.toString()) as Int) else 0
+public actual fun alljoynBusattachmentAddmatch(bus: AlljoynBusattachment, rule: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentAddmatch(bus.toString(), (rule?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_advertisename(bus: alljoyn_busattachment, name: PCSTR, transports: UShort): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_advertisename(bus.toString(), name.toString(), transports.toInt()) as Int) else 0
+public actual fun alljoynBusattachmentAdvertisename(bus: AlljoynBusattachment, name: Pcstr, transports: UShort): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentAdvertisename(bus.toString(), (name?.value ?: 0L).toString(), transports.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_bindsessionport(bus: alljoyn_busattachment, sessionport: Long, opts: alljoyn_sessionopts, listener: alljoyn_sessionportlistener): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_bindsessionport(bus.toString(), sessionport.toString(), opts.toString(), listener.toString()) as Int) else 0
+public actual fun alljoynBusattachmentBindsessionport(bus: AlljoynBusattachment, sessionport: COpaquePointer?, opts: AlljoynSessionopts, listener: AlljoynSessionportlistener): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentBindsessionport(bus.toString(), (sessionport?.value ?: 0L).toString(), opts.toString(), listener.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_canceladvertisename(bus: alljoyn_busattachment, name: PCSTR, transports: UShort): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_canceladvertisename(bus.toString(), name.toString(), transports.toInt()) as Int) else 0
+public actual fun alljoynBusattachmentCanceladvertisename(bus: AlljoynBusattachment, name: Pcstr, transports: UShort): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCanceladvertisename(bus.toString(), (name?.value ?: 0L).toString(), transports.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_cancelfindadvertisedname(bus: alljoyn_busattachment, nameprefix: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_cancelfindadvertisedname(bus.toString(), nameprefix.toString()) as Int) else 0
+public actual fun alljoynBusattachmentCancelfindadvertisedname(bus: AlljoynBusattachment, nameprefix: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCancelfindadvertisedname(bus.toString(), (nameprefix?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_cancelfindadvertisednamebytransport(bus: alljoyn_busattachment, nameprefix: PCSTR, transports: UShort): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_cancelfindadvertisednamebytransport(bus.toString(), nameprefix.toString(), transports.toInt()) as Int) else 0
+public actual fun alljoynBusattachmentCancelfindadvertisednamebytransport(bus: AlljoynBusattachment, nameprefix: Pcstr, transports: UShort): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCancelfindadvertisednamebytransport(bus.toString(), (nameprefix?.value ?: 0L).toString(), transports.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_cancelwhoimplements_interface(bus: alljoyn_busattachment, implementsinterface: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_cancelwhoimplements_interface(bus.toString(), implementsinterface.toString()) as Int) else 0
+public actual fun alljoynBusattachmentCancelwhoimplementsInterface(bus: AlljoynBusattachment, implementsinterface: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCancelwhoimplementsInterface(bus.toString(), (implementsinterface?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_cancelwhoimplements_interfaces(bus: alljoyn_busattachment, implementsinterfaces: Long, numberinterfaces: ULong): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_cancelwhoimplements_interfaces(bus.toString(), implementsinterfaces.toString(), numberinterfaces.toString()) as Int) else 0
+public actual fun alljoynBusattachmentCancelwhoimplementsInterfaces(bus: AlljoynBusattachment, implementsinterfaces: COpaquePointer?, numberinterfaces: ULong): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCancelwhoimplementsInterfaces(bus.toString(), (implementsinterfaces?.value ?: 0L).toString(), numberinterfaces.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_clearkeys(bus: alljoyn_busattachment, guid: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_clearkeys(bus.toString(), guid.toString()) as Int) else 0
+public actual fun alljoynBusattachmentClearkeys(bus: AlljoynBusattachment, guid: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentClearkeys(bus.toString(), (guid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_clearkeystore(bus: alljoyn_busattachment) {
+public actual fun alljoynBusattachmentClearkeystore(bus: AlljoynBusattachment) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_clearkeystore(bus.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentClearkeystore(bus.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_busattachment_connect(bus: alljoyn_busattachment, connectspec: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_connect(bus.toString(), connectspec.toString()) as Int) else 0
+public actual fun alljoynBusattachmentConnect(bus: AlljoynBusattachment, connectspec: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentConnect(bus.toString(), (connectspec?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_create(applicationname: PCSTR, allowremotemessages: Int): alljoyn_busattachment =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_create(applicationname.toString(), allowremotemessages) as String).toLong() else 0L
+public actual fun alljoynBusattachmentCreate(applicationname: Pcstr, allowremotemessages: Int): AlljoynBusattachment =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreate((applicationname?.value ?: 0L).toString(), allowremotemessages) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_create_concurrency(applicationname: PCSTR, allowremotemessages: Int, concurrency: UInt): alljoyn_busattachment =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_create_concurrency(applicationname.toString(), allowremotemessages, concurrency.toInt()) as String).toLong() else 0L
+public actual fun alljoynBusattachmentCreateConcurrency(applicationname: Pcstr, allowremotemessages: Int, concurrency: UInt): AlljoynBusattachment =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreateConcurrency((applicationname?.value ?: 0L).toString(), allowremotemessages, concurrency.toInt()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_createinterface(bus: alljoyn_busattachment, name: PCSTR, iface: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_createinterface(bus.toString(), name.toString(), iface.toString()) as Int) else 0
+public actual fun alljoynBusattachmentCreateinterface(bus: AlljoynBusattachment, name: Pcstr, iface: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreateinterface(bus.toString(), (name?.value ?: 0L).toString(), (iface?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_createinterface_secure(bus: alljoyn_busattachment, name: PCSTR, iface: Long, secpolicy: alljoyn_interfacedescription_securitypolicy): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_createinterface_secure(bus.toString(), name.toString(), iface.toString(), secpolicy) as Int) else 0
+public actual fun alljoynBusattachmentCreateinterfaceSecure(bus: AlljoynBusattachment, name: Pcstr, iface: COpaquePointer?, secpolicy: AlljoynInterfacedescriptionSecuritypolicy): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreateinterfaceSecure(bus.toString(), (name?.value ?: 0L).toString(), (iface?.value ?: 0L).toString(), secpolicy) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_createinterfacesfromxml(bus: alljoyn_busattachment, xml: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_createinterfacesfromxml(bus.toString(), xml.toString()) as Int) else 0
+public actual fun alljoynBusattachmentCreateinterfacesfromxml(bus: AlljoynBusattachment, xml: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentCreateinterfacesfromxml(bus.toString(), (xml?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_deletedefaultkeystore(applicationname: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_deletedefaultkeystore(applicationname.toString()) as Int) else 0
+public actual fun alljoynBusattachmentDeletedefaultkeystore(applicationname: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDeletedefaultkeystore((applicationname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_deleteinterface(bus: alljoyn_busattachment, iface: alljoyn_interfacedescription): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_deleteinterface(bus.toString(), iface.toString()) as Int) else 0
+public actual fun alljoynBusattachmentDeleteinterface(bus: AlljoynBusattachment, iface: AlljoynInterfacedescription): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDeleteinterface(bus.toString(), iface.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_destroy(bus: alljoyn_busattachment) {
+public actual fun alljoynBusattachmentDestroy(bus: AlljoynBusattachment) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_destroy(bus.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDestroy(bus.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_busattachment_disconnect(bus: alljoyn_busattachment, unused: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_disconnect(bus.toString(), unused.toString()) as Int) else 0
+public actual fun alljoynBusattachmentDisconnect(bus: AlljoynBusattachment, unused: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentDisconnect(bus.toString(), (unused?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_enableconcurrentcallbacks(bus: alljoyn_busattachment) {
+public actual fun alljoynBusattachmentEnableconcurrentcallbacks(bus: AlljoynBusattachment) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_enableconcurrentcallbacks(bus.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentEnableconcurrentcallbacks(bus.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_busattachment_enablepeersecurity(bus: alljoyn_busattachment, authmechanisms: PCSTR, listener: alljoyn_authlistener, keystorefilename: PCSTR, isshared: Int): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_enablepeersecurity(bus.toString(), authmechanisms.toString(), listener.toString(), keystorefilename.toString(), isshared) as Int) else 0
+public actual fun alljoynBusattachmentEnablepeersecurity(bus: AlljoynBusattachment, authmechanisms: Pcstr, listener: AlljoynAuthlistener, keystorefilename: Pcstr, isshared: Int): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentEnablepeersecurity(bus.toString(), (authmechanisms?.value ?: 0L).toString(), listener.toString(), (keystorefilename?.value ?: 0L).toString(), isshared) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_enablepeersecuritywithpermissionconfigurationlistener(bus: alljoyn_busattachment, authmechanisms: PCSTR, authlistener: alljoyn_authlistener, keystorefilename: PCSTR, isshared: Int, permissionconfigurationlistener: alljoyn_permissionconfigurationlistener): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_enablepeersecuritywithpermissionconfigurationlistener(bus.toString(), authmechanisms.toString(), authlistener.toString(), keystorefilename.toString(), isshared, permissionconfigurationlistener.toString()) as Int) else 0
+public actual fun alljoynBusattachmentEnablepeersecuritywithpermissionconfigurationlistener(bus: AlljoynBusattachment, authmechanisms: Pcstr, authlistener: AlljoynAuthlistener, keystorefilename: Pcstr, isshared: Int, permissionconfigurationlistener: AlljoynPermissionconfigurationlistener): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentEnablepeersecuritywithpermissionconfigurationlistener(bus.toString(), (authmechanisms?.value ?: 0L).toString(), authlistener.toString(), (keystorefilename?.value ?: 0L).toString(), isshared, permissionconfigurationlistener.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_findadvertisedname(bus: alljoyn_busattachment, nameprefix: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_findadvertisedname(bus.toString(), nameprefix.toString()) as Int) else 0
+public actual fun alljoynBusattachmentFindadvertisedname(bus: AlljoynBusattachment, nameprefix: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentFindadvertisedname(bus.toString(), (nameprefix?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_findadvertisednamebytransport(bus: alljoyn_busattachment, nameprefix: PCSTR, transports: UShort): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_findadvertisednamebytransport(bus.toString(), nameprefix.toString(), transports.toInt()) as Int) else 0
+public actual fun alljoynBusattachmentFindadvertisednamebytransport(bus: AlljoynBusattachment, nameprefix: Pcstr, transports: UShort): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentFindadvertisednamebytransport(bus.toString(), (nameprefix?.value ?: 0L).toString(), transports.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_getalljoyndebugobj(bus: alljoyn_busattachment): alljoyn_proxybusobject =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getalljoyndebugobj(bus.toString()) as String).toLong() else 0L
+public actual fun alljoynBusattachmentGetalljoyndebugobj(bus: AlljoynBusattachment): AlljoynProxybusobject =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetalljoyndebugobj(bus.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_getalljoynproxyobj(bus: alljoyn_busattachment): alljoyn_proxybusobject =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getalljoynproxyobj(bus.toString()) as String).toLong() else 0L
+public actual fun alljoynBusattachmentGetalljoynproxyobj(bus: AlljoynBusattachment): AlljoynProxybusobject =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetalljoynproxyobj(bus.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_getconcurrency(bus: alljoyn_busattachment): UInt =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getconcurrency(bus.toString()) as Int).toUInt() else 0u
+public actual fun alljoynBusattachmentGetconcurrency(bus: AlljoynBusattachment): UInt =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetconcurrency(bus.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_getconnectspec(bus: alljoyn_busattachment): PCSTR =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getconnectspec(bus.toString()) as String).toLong() else 0L
+public actual fun alljoynBusattachmentGetconnectspec(bus: AlljoynBusattachment): Pcstr =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetconnectspec(bus.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_getdbusproxyobj(bus: alljoyn_busattachment): alljoyn_proxybusobject =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getdbusproxyobj(bus.toString()) as String).toLong() else 0L
+public actual fun alljoynBusattachmentGetdbusproxyobj(bus: AlljoynBusattachment): AlljoynProxybusobject =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetdbusproxyobj(bus.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_getglobalguidstring(bus: alljoyn_busattachment): PCSTR =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getglobalguidstring(bus.toString()) as String).toLong() else 0L
+public actual fun alljoynBusattachmentGetglobalguidstring(bus: AlljoynBusattachment): Pcstr =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetglobalguidstring(bus.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_getinterface(bus: alljoyn_busattachment, name: PCSTR): alljoyn_interfacedescription =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getinterface(bus.toString(), name.toString()) as String).toLong() else 0L
+public actual fun alljoynBusattachmentGetinterface(bus: AlljoynBusattachment, name: Pcstr): AlljoynInterfacedescription =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetinterface(bus.toString(), (name?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_getinterfaces(bus: alljoyn_busattachment, ifaces: Long, numifaces: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getinterfaces(bus.toString(), ifaces.toString(), numifaces.toString()) as String).toULong() else 0uL
+public actual fun alljoynBusattachmentGetinterfaces(bus: AlljoynBusattachment, ifaces: COpaquePointer?, numifaces: ULong): ULong =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetinterfaces(bus.toString(), (ifaces?.value ?: 0L).toString(), numifaces.toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_getkeyexpiration(bus: alljoyn_busattachment, guid: PCSTR, timeout: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getkeyexpiration(bus.toString(), guid.toString(), timeout.toString()) as Int) else 0
+public actual fun alljoynBusattachmentGetkeyexpiration(bus: AlljoynBusattachment, guid: Pcstr, timeout: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetkeyexpiration(bus.toString(), (guid?.value ?: 0L).toString(), (timeout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_getpeerguid(bus: alljoyn_busattachment, name: PCSTR, guid: PCSTR, guidsz: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getpeerguid(bus.toString(), name.toString(), guid.toString(), guidsz.toString()) as Int) else 0
+public actual fun alljoynBusattachmentGetpeerguid(bus: AlljoynBusattachment, name: Pcstr, guid: Pcstr, guidsz: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetpeerguid(bus.toString(), (name?.value ?: 0L).toString(), (guid?.value ?: 0L).toString(), (guidsz?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_getpermissionconfigurator(bus: alljoyn_busattachment): alljoyn_permissionconfigurator =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getpermissionconfigurator(bus.toString()) as String).toLong() else 0L
+public actual fun alljoynBusattachmentGetpermissionconfigurator(bus: AlljoynBusattachment): AlljoynPermissionconfigurator =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetpermissionconfigurator(bus.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_gettimestamp(): UInt =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_gettimestamp() as Int).toUInt() else 0u
+public actual fun alljoynBusattachmentGettimestamp(): UInt =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGettimestamp() as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_getuniquename(bus: alljoyn_busattachment): PCSTR =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_getuniquename(bus.toString()) as String).toLong() else 0L
+public actual fun alljoynBusattachmentGetuniquename(bus: AlljoynBusattachment): Pcstr =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentGetuniquename(bus.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_isconnected(bus: alljoyn_busattachment): Int =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_isconnected(bus.toString()) as Int) else 0
+public actual fun alljoynBusattachmentIsconnected(bus: AlljoynBusattachment): Int =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentIsconnected(bus.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_ispeersecurityenabled(bus: alljoyn_busattachment): Int =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_ispeersecurityenabled(bus.toString()) as Int) else 0
+public actual fun alljoynBusattachmentIspeersecurityenabled(bus: AlljoynBusattachment): Int =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentIspeersecurityenabled(bus.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_isstarted(bus: alljoyn_busattachment): Int =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_isstarted(bus.toString()) as Int) else 0
+public actual fun alljoynBusattachmentIsstarted(bus: AlljoynBusattachment): Int =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentIsstarted(bus.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_isstopping(bus: alljoyn_busattachment): Int =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_isstopping(bus.toString()) as Int) else 0
+public actual fun alljoynBusattachmentIsstopping(bus: AlljoynBusattachment): Int =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentIsstopping(bus.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_join(bus: alljoyn_busattachment): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_join(bus.toString()) as Int) else 0
+public actual fun alljoynBusattachmentJoin(bus: AlljoynBusattachment): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentJoin(bus.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_joinsession(bus: alljoyn_busattachment, sessionhost: PCSTR, sessionport: UShort, listener: alljoyn_sessionlistener, sessionid: Long, opts: alljoyn_sessionopts): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_joinsession(bus.toString(), sessionhost.toString(), sessionport.toInt(), listener.toString(), sessionid.toString(), opts.toString()) as Int) else 0
+public actual fun alljoynBusattachmentJoinsession(bus: AlljoynBusattachment, sessionhost: Pcstr, sessionport: UShort, listener: AlljoynSessionlistener, sessionid: COpaquePointer?, opts: AlljoynSessionopts): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentJoinsession(bus.toString(), (sessionhost?.value ?: 0L).toString(), sessionport.toInt(), listener.toString(), (sessionid?.value ?: 0L).toString(), opts.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_joinsessionasync(bus: alljoyn_busattachment, sessionhost: PCSTR, sessionport: UShort, listener: alljoyn_sessionlistener, opts: alljoyn_sessionopts, callback: alljoyn_busattachment_joinsessioncb_ptr, context: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_joinsessionasync(bus.toString(), sessionhost.toString(), sessionport.toInt(), listener.toString(), opts.toString(), callback.toLong().toString(), context.toString()) as Int) else 0
+public actual fun alljoynBusattachmentJoinsessionasync(bus: AlljoynBusattachment, sessionhost: Pcstr, sessionport: UShort, listener: AlljoynSessionlistener, opts: AlljoynSessionopts, callback: AlljoynBusattachmentJoinsessioncbPtr, context: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentJoinsessionasync(bus.toString(), (sessionhost?.value ?: 0L).toString(), sessionport.toInt(), listener.toString(), opts.toString(), 0L.toString(), (context?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_leavesession(bus: alljoyn_busattachment, sessionid: UInt): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_leavesession(bus.toString(), sessionid.toInt()) as Int) else 0
+public actual fun alljoynBusattachmentLeavesession(bus: AlljoynBusattachment, sessionid: UInt): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentLeavesession(bus.toString(), sessionid.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_namehasowner(bus: alljoyn_busattachment, name: PCSTR, hasowner: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_namehasowner(bus.toString(), name.toString(), hasowner.toString()) as Int) else 0
+public actual fun alljoynBusattachmentNamehasowner(bus: AlljoynBusattachment, name: Pcstr, hasowner: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentNamehasowner(bus.toString(), (name?.value ?: 0L).toString(), (hasowner?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_ping(bus: alljoyn_busattachment, name: PCSTR, timeout: UInt): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_ping(bus.toString(), name.toString(), timeout.toInt()) as Int) else 0
+public actual fun alljoynBusattachmentPing(bus: AlljoynBusattachment, name: Pcstr, timeout: UInt): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentPing(bus.toString(), (name?.value ?: 0L).toString(), timeout.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_registeraboutlistener(bus: alljoyn_busattachment, aboutlistener: alljoyn_aboutlistener) {
+public actual fun alljoynBusattachmentRegisteraboutlistener(bus: AlljoynBusattachment, aboutlistener: AlljoynAboutlistener) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_registeraboutlistener(bus.toString(), aboutlistener.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisteraboutlistener(bus.toString(), aboutlistener.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_busattachment_registerapplicationstatelistener(bus: alljoyn_busattachment, listener: alljoyn_applicationstatelistener): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_registerapplicationstatelistener(bus.toString(), listener.toString()) as Int) else 0
+public actual fun alljoynBusattachmentRegisterapplicationstatelistener(bus: AlljoynBusattachment, listener: AlljoynApplicationstatelistener): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterapplicationstatelistener(bus.toString(), listener.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_registerbuslistener(bus: alljoyn_busattachment, listener: alljoyn_buslistener) {
+public actual fun alljoynBusattachmentRegisterbuslistener(bus: AlljoynBusattachment, listener: AlljoynBuslistener) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_registerbuslistener(bus.toString(), listener.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterbuslistener(bus.toString(), listener.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_busattachment_registerbusobject(bus: alljoyn_busattachment, obj: alljoyn_busobject): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_registerbusobject(bus.toString(), obj.toString()) as Int) else 0
+public actual fun alljoynBusattachmentRegisterbusobject(bus: AlljoynBusattachment, obj: AlljoynBusobject): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterbusobject(bus.toString(), obj.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_registerbusobject_secure(bus: alljoyn_busattachment, obj: alljoyn_busobject): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_registerbusobject_secure(bus.toString(), obj.toString()) as Int) else 0
+public actual fun alljoynBusattachmentRegisterbusobjectSecure(bus: AlljoynBusattachment, obj: AlljoynBusobject): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterbusobjectSecure(bus.toString(), obj.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_registerkeystorelistener(bus: alljoyn_busattachment, listener: alljoyn_keystorelistener): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_registerkeystorelistener(bus.toString(), listener.toString()) as Int) else 0
+public actual fun alljoynBusattachmentRegisterkeystorelistener(bus: AlljoynBusattachment, listener: AlljoynKeystorelistener): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRegisterkeystorelistener(bus.toString(), listener.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_registersignalhandler(bus: alljoyn_busattachment, signal_handler: alljoyn_messagereceiver_signalhandler_ptr, member: alljoyn_interfacedescription_member, srcpath: PCSTR): QStatus =
-    0
+public actual fun alljoynBusattachmentRegistersignalhandler(bus: AlljoynBusattachment, signalHandler: AlljoynMessagereceiverSignalhandlerPtr, member: AlljoynInterfacedescriptionMember, srcpath: Pcstr): QStatus =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_registersignalhandlerwithrule(bus: alljoyn_busattachment, signal_handler: alljoyn_messagereceiver_signalhandler_ptr, member: alljoyn_interfacedescription_member, matchrule: PCSTR): QStatus =
-    0
+public actual fun alljoynBusattachmentRegistersignalhandlerwithrule(bus: AlljoynBusattachment, signalHandler: AlljoynMessagereceiverSignalhandlerPtr, member: AlljoynInterfacedescriptionMember, matchrule: Pcstr): QStatus =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_releasename(bus: alljoyn_busattachment, name: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_releasename(bus.toString(), name.toString()) as Int) else 0
+public actual fun alljoynBusattachmentReleasename(bus: AlljoynBusattachment, name: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentReleasename(bus.toString(), (name?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_reloadkeystore(bus: alljoyn_busattachment): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_reloadkeystore(bus.toString()) as Int) else 0
+public actual fun alljoynBusattachmentReloadkeystore(bus: AlljoynBusattachment): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentReloadkeystore(bus.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_removematch(bus: alljoyn_busattachment, rule: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_removematch(bus.toString(), rule.toString()) as Int) else 0
+public actual fun alljoynBusattachmentRemovematch(bus: AlljoynBusattachment, rule: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRemovematch(bus.toString(), (rule?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_removesessionmember(bus: alljoyn_busattachment, sessionid: UInt, membername: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_removesessionmember(bus.toString(), sessionid.toInt(), membername.toString()) as Int) else 0
+public actual fun alljoynBusattachmentRemovesessionmember(bus: AlljoynBusattachment, sessionid: UInt, membername: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRemovesessionmember(bus.toString(), sessionid.toInt(), (membername?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_requestname(bus: alljoyn_busattachment, requestedname: PCSTR, flags: UInt): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_requestname(bus.toString(), requestedname.toString(), flags.toInt()) as Int) else 0
+public actual fun alljoynBusattachmentRequestname(bus: AlljoynBusattachment, requestedname: Pcstr, flags: UInt): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentRequestname(bus.toString(), (requestedname?.value ?: 0L).toString(), flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_secureconnection(bus: alljoyn_busattachment, name: PCSTR, forceauth: Int): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_secureconnection(bus.toString(), name.toString(), forceauth) as Int) else 0
+public actual fun alljoynBusattachmentSecureconnection(bus: AlljoynBusattachment, name: Pcstr, forceauth: Int): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSecureconnection(bus.toString(), (name?.value ?: 0L).toString(), forceauth) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_secureconnectionasync(bus: alljoyn_busattachment, name: PCSTR, forceauth: Int): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_secureconnectionasync(bus.toString(), name.toString(), forceauth) as Int) else 0
+public actual fun alljoynBusattachmentSecureconnectionasync(bus: AlljoynBusattachment, name: Pcstr, forceauth: Int): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSecureconnectionasync(bus.toString(), (name?.value ?: 0L).toString(), forceauth) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_setdaemondebug(bus: alljoyn_busattachment, module: PCSTR, level: UInt): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_setdaemondebug(bus.toString(), module.toString(), level.toInt()) as Int) else 0
+public actual fun alljoynBusattachmentSetdaemondebug(bus: AlljoynBusattachment, module: Pcstr, level: UInt): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetdaemondebug(bus.toString(), (module?.value ?: 0L).toString(), level.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_setkeyexpiration(bus: alljoyn_busattachment, guid: PCSTR, timeout: UInt): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_setkeyexpiration(bus.toString(), guid.toString(), timeout.toInt()) as Int) else 0
+public actual fun alljoynBusattachmentSetkeyexpiration(bus: AlljoynBusattachment, guid: Pcstr, timeout: UInt): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetkeyexpiration(bus.toString(), (guid?.value ?: 0L).toString(), timeout.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_setlinktimeout(bus: alljoyn_busattachment, sessionid: UInt, linktimeout: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_setlinktimeout(bus.toString(), sessionid.toInt(), linktimeout.toString()) as Int) else 0
+public actual fun alljoynBusattachmentSetlinktimeout(bus: AlljoynBusattachment, sessionid: UInt, linktimeout: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetlinktimeout(bus.toString(), sessionid.toInt(), (linktimeout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_setlinktimeoutasync(bus: alljoyn_busattachment, sessionid: UInt, linktimeout: UInt, callback: alljoyn_busattachment_setlinktimeoutcb_ptr, context: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_setlinktimeoutasync(bus.toString(), sessionid.toInt(), linktimeout.toInt(), callback.toLong().toString(), context.toString()) as Int) else 0
+public actual fun alljoynBusattachmentSetlinktimeoutasync(bus: AlljoynBusattachment, sessionid: UInt, linktimeout: UInt, callback: AlljoynBusattachmentSetlinktimeoutcbPtr, context: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetlinktimeoutasync(bus.toString(), sessionid.toInt(), linktimeout.toInt(), 0L.toString(), (context?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_setsessionlistener(bus: alljoyn_busattachment, sessionid: UInt, listener: alljoyn_sessionlistener): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_setsessionlistener(bus.toString(), sessionid.toInt(), listener.toString()) as Int) else 0
+public actual fun alljoynBusattachmentSetsessionlistener(bus: AlljoynBusattachment, sessionid: UInt, listener: AlljoynSessionlistener): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentSetsessionlistener(bus.toString(), sessionid.toInt(), listener.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_start(bus: alljoyn_busattachment): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_start(bus.toString()) as Int) else 0
+public actual fun alljoynBusattachmentStart(bus: AlljoynBusattachment): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentStart(bus.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_stop(bus: alljoyn_busattachment): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_stop(bus.toString()) as Int) else 0
+public actual fun alljoynBusattachmentStop(bus: AlljoynBusattachment): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentStop(bus.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_unbindsessionport(bus: alljoyn_busattachment, sessionport: UShort): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_unbindsessionport(bus.toString(), sessionport.toInt()) as Int) else 0
+public actual fun alljoynBusattachmentUnbindsessionport(bus: AlljoynBusattachment, sessionport: UShort): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnbindsessionport(bus.toString(), sessionport.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_unregisteraboutlistener(bus: alljoyn_busattachment, aboutlistener: alljoyn_aboutlistener) {
+public actual fun alljoynBusattachmentUnregisteraboutlistener(bus: AlljoynBusattachment, aboutlistener: AlljoynAboutlistener) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_unregisteraboutlistener(bus.toString(), aboutlistener.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisteraboutlistener(bus.toString(), aboutlistener.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_busattachment_unregisterallaboutlisteners(bus: alljoyn_busattachment) {
+public actual fun alljoynBusattachmentUnregisterallaboutlisteners(bus: AlljoynBusattachment) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_unregisterallaboutlisteners(bus.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterallaboutlisteners(bus.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_busattachment_unregisterallhandlers(bus: alljoyn_busattachment): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_unregisterallhandlers(bus.toString()) as Int) else 0
+public actual fun alljoynBusattachmentUnregisterallhandlers(bus: AlljoynBusattachment): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterallhandlers(bus.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_unregisterapplicationstatelistener(bus: alljoyn_busattachment, listener: alljoyn_applicationstatelistener): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_unregisterapplicationstatelistener(bus.toString(), listener.toString()) as Int) else 0
+public actual fun alljoynBusattachmentUnregisterapplicationstatelistener(bus: AlljoynBusattachment, listener: AlljoynApplicationstatelistener): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterapplicationstatelistener(bus.toString(), listener.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_unregisterbuslistener(bus: alljoyn_busattachment, listener: alljoyn_buslistener) {
+public actual fun alljoynBusattachmentUnregisterbuslistener(bus: AlljoynBusattachment, listener: AlljoynBuslistener) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_unregisterbuslistener(bus.toString(), listener.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterbuslistener(bus.toString(), listener.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_busattachment_unregisterbusobject(bus: alljoyn_busattachment, obj: alljoyn_busobject) {
+public actual fun alljoynBusattachmentUnregisterbusobject(bus: AlljoynBusattachment, obj: AlljoynBusobject) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_unregisterbusobject(bus.toString(), obj.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentUnregisterbusobject(bus.toString(), obj.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_busattachment_unregistersignalhandler(bus: alljoyn_busattachment, signal_handler: alljoyn_messagereceiver_signalhandler_ptr, member: alljoyn_interfacedescription_member, srcpath: PCSTR): QStatus =
-    0
+public actual fun alljoynBusattachmentUnregistersignalhandler(bus: AlljoynBusattachment, signalHandler: AlljoynMessagereceiverSignalhandlerPtr, member: AlljoynInterfacedescriptionMember, srcpath: Pcstr): QStatus =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_unregistersignalhandlerwithrule(bus: alljoyn_busattachment, signal_handler: alljoyn_messagereceiver_signalhandler_ptr, member: alljoyn_interfacedescription_member, matchrule: PCSTR): QStatus =
-    0
+public actual fun alljoynBusattachmentUnregistersignalhandlerwithrule(bus: AlljoynBusattachment, signalHandler: AlljoynMessagereceiverSignalhandlerPtr, member: AlljoynInterfacedescriptionMember, matchrule: Pcstr): QStatus =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_whoimplements_interface(bus: alljoyn_busattachment, implementsinterface: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_whoimplements_interface(bus.toString(), implementsinterface.toString()) as Int) else 0
+public actual fun alljoynBusattachmentWhoimplementsInterface(bus: AlljoynBusattachment, implementsinterface: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentWhoimplementsInterface(bus.toString(), (implementsinterface?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busattachment_whoimplements_interfaces(bus: alljoyn_busattachment, implementsinterfaces: Long, numberinterfaces: ULong): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busattachment_whoimplements_interfaces(bus.toString(), implementsinterfaces.toString(), numberinterfaces.toString()) as Int) else 0
+public actual fun alljoynBusattachmentWhoimplementsInterfaces(bus: AlljoynBusattachment, implementsinterfaces: COpaquePointer?, numberinterfaces: ULong): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusattachmentWhoimplementsInterfaces(bus.toString(), (implementsinterfaces?.value ?: 0L).toString(), numberinterfaces.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_buslistener_create(callbacks: Long, context: Long): alljoyn_buslistener =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_buslistener_create(callbacks.toString(), context.toString()) as String).toLong() else 0L
+public actual fun alljoynBuslistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynBuslistener =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBuslistenerCreate((callbacks?.value ?: 0L).toString(), (context?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_buslistener_destroy(listener: alljoyn_buslistener) {
+public actual fun alljoynBuslistenerDestroy(listener: AlljoynBuslistener) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_buslistener_destroy(listener.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBuslistenerDestroy(listener.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_busobject_addinterface(bus: alljoyn_busobject, iface: alljoyn_interfacedescription): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_addinterface(bus.toString(), iface.toString()) as Int) else 0
+public actual fun alljoynBusobjectAddinterface(bus: AlljoynBusobject, iface: AlljoynInterfacedescription): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusobjectAddinterface(bus.toString(), iface.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busobject_addinterface_announced(bus: alljoyn_busobject, iface: alljoyn_interfacedescription): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_addinterface_announced(bus.toString(), iface.toString()) as Int) else 0
+public actual fun alljoynBusobjectAddinterfaceAnnounced(bus: AlljoynBusobject, iface: AlljoynInterfacedescription): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusobjectAddinterfaceAnnounced(bus.toString(), iface.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busobject_addmethodhandler(bus: alljoyn_busobject, member: alljoyn_interfacedescription_member, handler: alljoyn_messagereceiver_methodhandler_ptr, context: Long): QStatus =
-    0
+public actual fun alljoynBusobjectAddmethodhandler(bus: AlljoynBusobject, member: AlljoynInterfacedescriptionMember, handler: AlljoynMessagereceiverMethodhandlerPtr, context: COpaquePointer?): QStatus =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busobject_addmethodhandlers(bus: alljoyn_busobject, entries: Long, numentries: ULong): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_addmethodhandlers(bus.toString(), entries.toString(), numentries.toString()) as Int) else 0
+public actual fun alljoynBusobjectAddmethodhandlers(bus: AlljoynBusobject, entries: COpaquePointer?, numentries: ULong): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusobjectAddmethodhandlers(bus.toString(), (entries?.value ?: 0L).toString(), numentries.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busobject_cancelsessionlessmessage(bus: alljoyn_busobject, msg: alljoyn_message): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_cancelsessionlessmessage(bus.toString(), msg.toString()) as Int) else 0
+public actual fun alljoynBusobjectCancelsessionlessmessage(bus: AlljoynBusobject, msg: AlljoynMessage): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusobjectCancelsessionlessmessage(bus.toString(), msg.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busobject_cancelsessionlessmessage_serial(bus: alljoyn_busobject, serialnumber: UInt): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_cancelsessionlessmessage_serial(bus.toString(), serialnumber.toInt()) as Int) else 0
+public actual fun alljoynBusobjectCancelsessionlessmessageSerial(bus: AlljoynBusobject, serialnumber: UInt): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusobjectCancelsessionlessmessageSerial(bus.toString(), serialnumber.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busobject_create(path: PCSTR, isplaceholder: Int, callbacks_in: Long, context_in: Long): alljoyn_busobject =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_create(path.toString(), isplaceholder, callbacks_in.toString(), context_in.toString()) as String).toLong() else 0L
+public actual fun alljoynBusobjectCreate(path: Pcstr, isplaceholder: Int, callbacksIn: COpaquePointer?, contextIn: COpaquePointer?): AlljoynBusobject =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusobjectCreate((path?.value ?: 0L).toString(), isplaceholder, (callbacksIn?.value ?: 0L).toString(), (contextIn?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busobject_destroy(bus: alljoyn_busobject) {
+public actual fun alljoynBusobjectDestroy(bus: AlljoynBusobject) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_destroy(bus.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusobjectDestroy(bus.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_busobject_emitpropertieschanged(bus: alljoyn_busobject, ifcname: PCSTR, propnames: Long, numprops: ULong, id: UInt) {
+public actual fun alljoynBusobjectEmitpropertieschanged(bus: AlljoynBusobject, ifcname: Pcstr, propnames: COpaquePointer?, numprops: ULong, id: UInt) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_emitpropertieschanged(bus.toString(), ifcname.toString(), propnames.toString(), numprops.toString(), id.toInt())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusobjectEmitpropertieschanged(bus.toString(), (ifcname?.value ?: 0L).toString(), (propnames?.value ?: 0L).toString(), numprops.toString(), id.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_busobject_emitpropertychanged(bus: alljoyn_busobject, ifcname: PCSTR, propname: PCSTR, value: alljoyn_msgarg, id: UInt) {
+public actual fun alljoynBusobjectEmitpropertychanged(bus: AlljoynBusobject, ifcname: Pcstr, propname: Pcstr, value: AlljoynMsgarg, id: UInt) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_emitpropertychanged(bus.toString(), ifcname.toString(), propname.toString(), value.toString(), id.toInt())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusobjectEmitpropertychanged(bus.toString(), (ifcname?.value ?: 0L).toString(), (propname?.value ?: 0L).toString(), value.toString(), id.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_busobject_getannouncedinterfacenames(bus: alljoyn_busobject, interfaces: Long, numinterfaces: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_getannouncedinterfacenames(bus.toString(), interfaces.toString(), numinterfaces.toString()) as String).toULong() else 0uL
+public actual fun alljoynBusobjectGetannouncedinterfacenames(bus: AlljoynBusobject, interfaces: COpaquePointer?, numinterfaces: ULong): ULong =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGetannouncedinterfacenames(bus.toString(), (interfaces?.value ?: 0L).toString(), numinterfaces.toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busobject_getbusattachment(bus: alljoyn_busobject): alljoyn_busattachment =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_getbusattachment(bus.toString()) as String).toLong() else 0L
+public actual fun alljoynBusobjectGetbusattachment(bus: AlljoynBusobject): AlljoynBusattachment =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGetbusattachment(bus.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busobject_getname(bus: alljoyn_busobject, buffer: PCSTR, buffersz: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_getname(bus.toString(), buffer.toString(), buffersz.toString()) as String).toULong() else 0uL
+public actual fun alljoynBusobjectGetname(bus: AlljoynBusobject, buffer: Pcstr, buffersz: ULong): ULong =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGetname(bus.toString(), (buffer?.value ?: 0L).toString(), buffersz.toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busobject_getpath(bus: alljoyn_busobject): PCSTR =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_getpath(bus.toString()) as String).toLong() else 0L
+public actual fun alljoynBusobjectGetpath(bus: AlljoynBusobject): Pcstr =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGetpath(bus.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busobject_issecure(bus: alljoyn_busobject): Int =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_issecure(bus.toString()) as Int) else 0
+public actual fun alljoynBusobjectIssecure(bus: AlljoynBusobject): Int =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusobjectIssecure(bus.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busobject_methodreply_args(bus: alljoyn_busobject, msg: alljoyn_message, args: alljoyn_msgarg, numargs: ULong): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_methodreply_args(bus.toString(), msg.toString(), args.toString(), numargs.toString()) as Int) else 0
+public actual fun alljoynBusobjectMethodreplyArgs(bus: AlljoynBusobject, msg: AlljoynMessage, args: AlljoynMsgarg, numargs: ULong): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusobjectMethodreplyArgs(bus.toString(), msg.toString(), args.toString(), numargs.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busobject_methodreply_err(bus: alljoyn_busobject, msg: alljoyn_message, error: PCSTR, errormessage: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_methodreply_err(bus.toString(), msg.toString(), error.toString(), errormessage.toString()) as Int) else 0
+public actual fun alljoynBusobjectMethodreplyErr(bus: AlljoynBusobject, msg: AlljoynMessage, error: Pcstr, errormessage: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusobjectMethodreplyErr(bus.toString(), msg.toString(), (error?.value ?: 0L).toString(), (errormessage?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busobject_methodreply_status(bus: alljoyn_busobject, msg: alljoyn_message, status: QStatus): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_methodreply_status(bus.toString(), msg.toString(), status) as Int) else 0
+public actual fun alljoynBusobjectMethodreplyStatus(bus: AlljoynBusobject, msg: AlljoynMessage, status: QStatus): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusobjectMethodreplyStatus(bus.toString(), msg.toString(), status) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busobject_setannounceflag(bus: alljoyn_busobject, iface: alljoyn_interfacedescription, isannounced: alljoyn_about_announceflag): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_busobject_setannounceflag(bus.toString(), iface.toString(), isannounced) as Int) else 0
+public actual fun alljoynBusobjectSetannounceflag(bus: AlljoynBusobject, iface: AlljoynInterfacedescription, isannounced: AlljoynAboutAnnounceflag): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynBusobjectSetannounceflag(bus.toString(), iface.toString(), isannounced) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_busobject_signal(bus: alljoyn_busobject, destination: PCSTR, sessionid: UInt, signal: alljoyn_interfacedescription_member, args: alljoyn_msgarg, numargs: ULong, timetolive: UShort, flags: UByte, msg: alljoyn_message): QStatus =
-    0
+public actual fun alljoynBusobjectSignal(bus: AlljoynBusobject, destination: Pcstr, sessionid: UInt, signal: AlljoynInterfacedescriptionMember, args: AlljoynMsgarg, numargs: ULong, timetolive: UShort, flags: UByte, msg: AlljoynMessage): QStatus =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_credentials_clear(cred: alljoyn_credentials) {
+public actual fun alljoynCredentialsClear(cred: AlljoynCredentials) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_clear(cred.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynCredentialsClear(cred.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_credentials_create(): alljoyn_credentials =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_create() as String).toLong() else 0L
+public actual fun alljoynCredentialsCreate(): AlljoynCredentials =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynCredentialsCreate() as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_credentials_destroy(cred: alljoyn_credentials) {
+public actual fun alljoynCredentialsDestroy(cred: AlljoynCredentials) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_destroy(cred.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynCredentialsDestroy(cred.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_credentials_getcertchain(cred: alljoyn_credentials): PCSTR =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_getcertchain(cred.toString()) as String).toLong() else 0L
+public actual fun alljoynCredentialsGetcertchain(cred: AlljoynCredentials): Pcstr =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetcertchain(cred.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_credentials_getexpiration(cred: alljoyn_credentials): UInt =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_getexpiration(cred.toString()) as Int).toUInt() else 0u
+public actual fun alljoynCredentialsGetexpiration(cred: AlljoynCredentials): UInt =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetexpiration(cred.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_credentials_getlogonentry(cred: alljoyn_credentials): PCSTR =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_getlogonentry(cred.toString()) as String).toLong() else 0L
+public actual fun alljoynCredentialsGetlogonentry(cred: AlljoynCredentials): Pcstr =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetlogonentry(cred.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_credentials_getpassword(cred: alljoyn_credentials): PCSTR =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_getpassword(cred.toString()) as String).toLong() else 0L
+public actual fun alljoynCredentialsGetpassword(cred: AlljoynCredentials): Pcstr =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetpassword(cred.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_credentials_getprivateKey(cred: alljoyn_credentials): PCSTR =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_getprivateKey(cred.toString()) as String).toLong() else 0L
+public actual fun alljoynCredentialsGetprivateKey(cred: AlljoynCredentials): Pcstr =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetprivateKey(cred.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_credentials_getusername(cred: alljoyn_credentials): PCSTR =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_getusername(cred.toString()) as String).toLong() else 0L
+public actual fun alljoynCredentialsGetusername(cred: AlljoynCredentials): Pcstr =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGetusername(cred.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_credentials_isset(cred: alljoyn_credentials, creds: UShort): Int =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_isset(cred.toString(), creds.toInt()) as Int) else 0
+public actual fun alljoynCredentialsIsset(cred: AlljoynCredentials, creds: UShort): Int =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynCredentialsIsset(cred.toString(), creds.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_credentials_setcertchain(cred: alljoyn_credentials, certchain: PCSTR) {
+public actual fun alljoynCredentialsSetcertchain(cred: AlljoynCredentials, certchain: Pcstr) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_setcertchain(cred.toString(), certchain.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetcertchain(cred.toString(), (certchain?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_credentials_setexpiration(cred: alljoyn_credentials, expiration: UInt) {
+public actual fun alljoynCredentialsSetexpiration(cred: AlljoynCredentials, expiration: UInt) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_setexpiration(cred.toString(), expiration.toInt())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetexpiration(cred.toString(), expiration.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_credentials_setlogonentry(cred: alljoyn_credentials, logonentry: PCSTR) {
+public actual fun alljoynCredentialsSetlogonentry(cred: AlljoynCredentials, logonentry: Pcstr) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_setlogonentry(cred.toString(), logonentry.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetlogonentry(cred.toString(), (logonentry?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_credentials_setpassword(cred: alljoyn_credentials, pwd: PCSTR) {
+public actual fun alljoynCredentialsSetpassword(cred: AlljoynCredentials, pwd: Pcstr) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_setpassword(cred.toString(), pwd.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetpassword(cred.toString(), (pwd?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_credentials_setprivatekey(cred: alljoyn_credentials, pk: PCSTR) {
+public actual fun alljoynCredentialsSetprivatekey(cred: AlljoynCredentials, pk: Pcstr) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_setprivatekey(cred.toString(), pk.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetprivatekey(cred.toString(), (pk?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_credentials_setusername(cred: alljoyn_credentials, username: PCSTR) {
+public actual fun alljoynCredentialsSetusername(cred: AlljoynCredentials, username: Pcstr) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_credentials_setusername(cred.toString(), username.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSetusername(cred.toString(), (username?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_getbuildinfo(): PCSTR =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_getbuildinfo() as String).toLong() else 0L
+public actual fun alljoynGetbuildinfo(): Pcstr =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynGetbuildinfo() as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_getnumericversion(): UInt =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_getnumericversion() as Int).toUInt() else 0u
+public actual fun alljoynGetnumericversion(): UInt =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynGetnumericversion() as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_getversion(): PCSTR =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_getversion() as String).toLong() else 0L
+public actual fun alljoynGetversion(): Pcstr =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynGetversion() as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_init(): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_init() as Int) else 0
+public actual fun alljoynInit(): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInit() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_activate(iface: alljoyn_interfacedescription) {
+public actual fun alljoynInterfacedescriptionActivate(iface: AlljoynInterfacedescription) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_activate(iface.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionActivate(iface.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_interfacedescription_addannotation(iface: alljoyn_interfacedescription, name: PCSTR, value: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_addannotation(iface.toString(), name.toString(), value.toString()) as Int) else 0
+public actual fun alljoynInterfacedescriptionAddannotation(iface: AlljoynInterfacedescription, name: Pcstr, value: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddannotation(iface.toString(), (name?.value ?: 0L).toString(), (value?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_addargannotation(iface: alljoyn_interfacedescription, member: PCSTR, argname: PCSTR, name: PCSTR, value: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_addargannotation(iface.toString(), member.toString(), argname.toString(), name.toString(), value.toString()) as Int) else 0
+public actual fun alljoynInterfacedescriptionAddargannotation(iface: AlljoynInterfacedescription, member: Pcstr, argname: Pcstr, name: Pcstr, value: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddargannotation(iface.toString(), (member?.value ?: 0L).toString(), (argname?.value ?: 0L).toString(), (name?.value ?: 0L).toString(), (value?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_addmember(iface: alljoyn_interfacedescription, type: alljoyn_messagetype, name: PCSTR, inputsig: PCSTR, outsig: PCSTR, argnames: PCSTR, annotation: UByte): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_addmember(iface.toString(), type, name.toString(), inputsig.toString(), outsig.toString(), argnames.toString(), annotation.toInt()) as Int) else 0
+public actual fun alljoynInterfacedescriptionAddmember(iface: AlljoynInterfacedescription, type: AlljoynMessagetype, name: Pcstr, inputsig: Pcstr, outsig: Pcstr, argnames: Pcstr, annotation: UByte): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddmember(iface.toString(), type, (name?.value ?: 0L).toString(), (inputsig?.value ?: 0L).toString(), (outsig?.value ?: 0L).toString(), (argnames?.value ?: 0L).toString(), annotation.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_addmemberannotation(iface: alljoyn_interfacedescription, member: PCSTR, name: PCSTR, value: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_addmemberannotation(iface.toString(), member.toString(), name.toString(), value.toString()) as Int) else 0
+public actual fun alljoynInterfacedescriptionAddmemberannotation(iface: AlljoynInterfacedescription, member: Pcstr, name: Pcstr, value: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddmemberannotation(iface.toString(), (member?.value ?: 0L).toString(), (name?.value ?: 0L).toString(), (value?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_addmethod(iface: alljoyn_interfacedescription, name: PCSTR, inputsig: PCSTR, outsig: PCSTR, argnames: PCSTR, annotation: UByte, accessperms: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_addmethod(iface.toString(), name.toString(), inputsig.toString(), outsig.toString(), argnames.toString(), annotation.toInt(), accessperms.toString()) as Int) else 0
+public actual fun alljoynInterfacedescriptionAddmethod(iface: AlljoynInterfacedescription, name: Pcstr, inputsig: Pcstr, outsig: Pcstr, argnames: Pcstr, annotation: UByte, accessperms: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddmethod(iface.toString(), (name?.value ?: 0L).toString(), (inputsig?.value ?: 0L).toString(), (outsig?.value ?: 0L).toString(), (argnames?.value ?: 0L).toString(), annotation.toInt(), (accessperms?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_addproperty(iface: alljoyn_interfacedescription, name: PCSTR, signature: PCSTR, access: UByte): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_addproperty(iface.toString(), name.toString(), signature.toString(), access.toInt()) as Int) else 0
+public actual fun alljoynInterfacedescriptionAddproperty(iface: AlljoynInterfacedescription, name: Pcstr, signature: Pcstr, access: UByte): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddproperty(iface.toString(), (name?.value ?: 0L).toString(), (signature?.value ?: 0L).toString(), access.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_addpropertyannotation(iface: alljoyn_interfacedescription, property: PCSTR, name: PCSTR, value: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_addpropertyannotation(iface.toString(), property.toString(), name.toString(), value.toString()) as Int) else 0
+public actual fun alljoynInterfacedescriptionAddpropertyannotation(iface: AlljoynInterfacedescription, property: Pcstr, name: Pcstr, value: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddpropertyannotation(iface.toString(), (property?.value ?: 0L).toString(), (name?.value ?: 0L).toString(), (value?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_addsignal(iface: alljoyn_interfacedescription, name: PCSTR, sig: PCSTR, argnames: PCSTR, annotation: UByte, accessperms: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_addsignal(iface.toString(), name.toString(), sig.toString(), argnames.toString(), annotation.toInt(), accessperms.toString()) as Int) else 0
+public actual fun alljoynInterfacedescriptionAddsignal(iface: AlljoynInterfacedescription, name: Pcstr, sig: Pcstr, argnames: Pcstr, annotation: UByte, accessperms: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionAddsignal(iface.toString(), (name?.value ?: 0L).toString(), (sig?.value ?: 0L).toString(), (argnames?.value ?: 0L).toString(), annotation.toInt(), (accessperms?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_eql(one: alljoyn_interfacedescription, other: alljoyn_interfacedescription): Int =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_eql(one.toString(), other.toString()) as Int) else 0
+public actual fun alljoynInterfacedescriptionEql(one: AlljoynInterfacedescription, other: AlljoynInterfacedescription): Int =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionEql(one.toString(), other.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_getannotation(iface: alljoyn_interfacedescription, name: PCSTR, value: PCSTR, value_size: Long): Int =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getannotation(iface.toString(), name.toString(), value.toString(), value_size.toString()) as Int) else 0
+public actual fun alljoynInterfacedescriptionGetannotation(iface: AlljoynInterfacedescription, name: Pcstr, value: Pcstr, valueSize: COpaquePointer?): Int =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetannotation(iface.toString(), (name?.value ?: 0L).toString(), (value?.value ?: 0L).toString(), (valueSize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_getannotationatindex(iface: alljoyn_interfacedescription, index: ULong, name: PCSTR, name_size: Long, value: PCSTR, value_size: Long) {
+public actual fun alljoynInterfacedescriptionGetannotationatindex(iface: AlljoynInterfacedescription, index: ULong, name: Pcstr, nameSize: COpaquePointer?, value: Pcstr, valueSize: COpaquePointer?) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getannotationatindex(iface.toString(), index.toString(), name.toString(), name_size.toString(), value.toString(), value_size.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetannotationatindex(iface.toString(), index.toString(), (name?.value ?: 0L).toString(), (nameSize?.value ?: 0L).toString(), (value?.value ?: 0L).toString(), (valueSize?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_interfacedescription_getannotationscount(iface: alljoyn_interfacedescription): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getannotationscount(iface.toString()) as String).toULong() else 0uL
+public actual fun alljoynInterfacedescriptionGetannotationscount(iface: AlljoynInterfacedescription): ULong =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetannotationscount(iface.toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_getargdescriptionforlanguage(iface: alljoyn_interfacedescription, member: PCSTR, arg: PCSTR, description: PCSTR, maxlanguagelength: ULong, languagetag: PCSTR): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getargdescriptionforlanguage(iface.toString(), member.toString(), arg.toString(), description.toString(), maxlanguagelength.toString(), languagetag.toString()) as String).toULong() else 0uL
+public actual fun alljoynInterfacedescriptionGetargdescriptionforlanguage(iface: AlljoynInterfacedescription, member: Pcstr, arg: Pcstr, description: Pcstr, maxlanguagelength: ULong, languagetag: Pcstr): ULong =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetargdescriptionforlanguage(iface.toString(), (member?.value ?: 0L).toString(), (arg?.value ?: 0L).toString(), (description?.value ?: 0L).toString(), maxlanguagelength.toString(), (languagetag?.value ?: 0L).toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_getdescriptionforlanguage(iface: alljoyn_interfacedescription, description: PCSTR, maxlanguagelength: ULong, languagetag: PCSTR): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getdescriptionforlanguage(iface.toString(), description.toString(), maxlanguagelength.toString(), languagetag.toString()) as String).toULong() else 0uL
+public actual fun alljoynInterfacedescriptionGetdescriptionforlanguage(iface: AlljoynInterfacedescription, description: Pcstr, maxlanguagelength: ULong, languagetag: Pcstr): ULong =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetdescriptionforlanguage(iface.toString(), (description?.value ?: 0L).toString(), maxlanguagelength.toString(), (languagetag?.value ?: 0L).toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_getdescriptionlanguages(iface: alljoyn_interfacedescription, languages: Long, size: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getdescriptionlanguages(iface.toString(), languages.toString(), size.toString()) as String).toULong() else 0uL
+public actual fun alljoynInterfacedescriptionGetdescriptionlanguages(iface: AlljoynInterfacedescription, languages: COpaquePointer?, size: ULong): ULong =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetdescriptionlanguages(iface.toString(), (languages?.value ?: 0L).toString(), size.toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_getdescriptionlanguages2(iface: alljoyn_interfacedescription, languages: PCSTR, languagessize: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getdescriptionlanguages2(iface.toString(), languages.toString(), languagessize.toString()) as String).toULong() else 0uL
+public actual fun alljoynInterfacedescriptionGetdescriptionlanguages2(iface: AlljoynInterfacedescription, languages: Pcstr, languagessize: ULong): ULong =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetdescriptionlanguages2(iface.toString(), (languages?.value ?: 0L).toString(), languagessize.toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_getdescriptiontranslationcallback(iface: alljoyn_interfacedescription): alljoyn_interfacedescription_translation_callback_ptr =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getdescriptiontranslationcallback(iface.toString()) as String).toLong() else null
+public actual fun alljoynInterfacedescriptionGetdescriptiontranslationcallback(iface: AlljoynInterfacedescription): AlljoynInterfacedescriptionTranslationCallbackPtr =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) null else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_getmember(iface: alljoyn_interfacedescription, name: PCSTR, member: Long): Int =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getmember(iface.toString(), name.toString(), member.toString()) as Int) else 0
+public actual fun alljoynInterfacedescriptionGetmember(iface: AlljoynInterfacedescription, name: Pcstr, member: COpaquePointer?): Int =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmember(iface.toString(), (name?.value ?: 0L).toString(), (member?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_getmemberannotation(iface: alljoyn_interfacedescription, member: PCSTR, name: PCSTR, value: PCSTR, value_size: Long): Int =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getmemberannotation(iface.toString(), member.toString(), name.toString(), value.toString(), value_size.toString()) as Int) else 0
+public actual fun alljoynInterfacedescriptionGetmemberannotation(iface: AlljoynInterfacedescription, member: Pcstr, name: Pcstr, value: Pcstr, valueSize: COpaquePointer?): Int =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmemberannotation(iface.toString(), (member?.value ?: 0L).toString(), (name?.value ?: 0L).toString(), (value?.value ?: 0L).toString(), (valueSize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_getmemberargannotation(iface: alljoyn_interfacedescription, member: PCSTR, argname: PCSTR, name: PCSTR, value: PCSTR, value_size: Long): Int =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getmemberargannotation(iface.toString(), member.toString(), argname.toString(), name.toString(), value.toString(), value_size.toString()) as Int) else 0
+public actual fun alljoynInterfacedescriptionGetmemberargannotation(iface: AlljoynInterfacedescription, member: Pcstr, argname: Pcstr, name: Pcstr, value: Pcstr, valueSize: COpaquePointer?): Int =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmemberargannotation(iface.toString(), (member?.value ?: 0L).toString(), (argname?.value ?: 0L).toString(), (name?.value ?: 0L).toString(), (value?.value ?: 0L).toString(), (valueSize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_getmemberdescriptionforlanguage(iface: alljoyn_interfacedescription, member: PCSTR, description: PCSTR, maxlanguagelength: ULong, languagetag: PCSTR): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getmemberdescriptionforlanguage(iface.toString(), member.toString(), description.toString(), maxlanguagelength.toString(), languagetag.toString()) as String).toULong() else 0uL
+public actual fun alljoynInterfacedescriptionGetmemberdescriptionforlanguage(iface: AlljoynInterfacedescription, member: Pcstr, description: Pcstr, maxlanguagelength: ULong, languagetag: Pcstr): ULong =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmemberdescriptionforlanguage(iface.toString(), (member?.value ?: 0L).toString(), (description?.value ?: 0L).toString(), maxlanguagelength.toString(), (languagetag?.value ?: 0L).toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_getmembers(iface: alljoyn_interfacedescription, members: Long, nummembers: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getmembers(iface.toString(), members.toString(), nummembers.toString()) as String).toULong() else 0uL
+public actual fun alljoynInterfacedescriptionGetmembers(iface: AlljoynInterfacedescription, members: COpaquePointer?, nummembers: ULong): ULong =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmembers(iface.toString(), (members?.value ?: 0L).toString(), nummembers.toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_getmethod(iface: alljoyn_interfacedescription, name: PCSTR, member: Long): Int =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getmethod(iface.toString(), name.toString(), member.toString()) as Int) else 0
+public actual fun alljoynInterfacedescriptionGetmethod(iface: AlljoynInterfacedescription, name: Pcstr, member: COpaquePointer?): Int =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetmethod(iface.toString(), (name?.value ?: 0L).toString(), (member?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_getname(iface: alljoyn_interfacedescription): PCSTR =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getname(iface.toString()) as String).toLong() else 0L
+public actual fun alljoynInterfacedescriptionGetname(iface: AlljoynInterfacedescription): Pcstr =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetname(iface.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_getproperties(iface: alljoyn_interfacedescription, props: Long, numprops: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getproperties(iface.toString(), props.toString(), numprops.toString()) as String).toULong() else 0uL
+public actual fun alljoynInterfacedescriptionGetproperties(iface: AlljoynInterfacedescription, props: COpaquePointer?, numprops: ULong): ULong =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetproperties(iface.toString(), (props?.value ?: 0L).toString(), numprops.toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_getproperty(iface: alljoyn_interfacedescription, name: PCSTR, property: Long): Int =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getproperty(iface.toString(), name.toString(), property.toString()) as Int) else 0
+public actual fun alljoynInterfacedescriptionGetproperty(iface: AlljoynInterfacedescription, name: Pcstr, property: COpaquePointer?): Int =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetproperty(iface.toString(), (name?.value ?: 0L).toString(), (property?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_getpropertyannotation(iface: alljoyn_interfacedescription, property: PCSTR, name: PCSTR, value: PCSTR, str_size: Long): Int =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getpropertyannotation(iface.toString(), property.toString(), name.toString(), value.toString(), str_size.toString()) as Int) else 0
+public actual fun alljoynInterfacedescriptionGetpropertyannotation(iface: AlljoynInterfacedescription, property: Pcstr, name: Pcstr, value: Pcstr, strSize: COpaquePointer?): Int =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetpropertyannotation(iface.toString(), (property?.value ?: 0L).toString(), (name?.value ?: 0L).toString(), (value?.value ?: 0L).toString(), (strSize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_getpropertydescriptionforlanguage(iface: alljoyn_interfacedescription, property: PCSTR, description: PCSTR, maxlanguagelength: ULong, languagetag: PCSTR): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getpropertydescriptionforlanguage(iface.toString(), property.toString(), description.toString(), maxlanguagelength.toString(), languagetag.toString()) as String).toULong() else 0uL
+public actual fun alljoynInterfacedescriptionGetpropertydescriptionforlanguage(iface: AlljoynInterfacedescription, property: Pcstr, description: Pcstr, maxlanguagelength: ULong, languagetag: Pcstr): ULong =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetpropertydescriptionforlanguage(iface.toString(), (property?.value ?: 0L).toString(), (description?.value ?: 0L).toString(), maxlanguagelength.toString(), (languagetag?.value ?: 0L).toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_getsecuritypolicy(iface: alljoyn_interfacedescription): alljoyn_interfacedescription_securitypolicy =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getsecuritypolicy(iface.toString()) as Int) else 0
+public actual fun alljoynInterfacedescriptionGetsecuritypolicy(iface: AlljoynInterfacedescription): AlljoynInterfacedescriptionSecuritypolicy =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetsecuritypolicy(iface.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_getsignal(iface: alljoyn_interfacedescription, name: PCSTR, member: Long): Int =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_getsignal(iface.toString(), name.toString(), member.toString()) as Int) else 0
+public actual fun alljoynInterfacedescriptionGetsignal(iface: AlljoynInterfacedescription, name: Pcstr, member: COpaquePointer?): Int =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionGetsignal(iface.toString(), (name?.value ?: 0L).toString(), (member?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_hasdescription(iface: alljoyn_interfacedescription): Int =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_hasdescription(iface.toString()) as Int) else 0
+public actual fun alljoynInterfacedescriptionHasdescription(iface: AlljoynInterfacedescription): Int =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasdescription(iface.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_hasmember(iface: alljoyn_interfacedescription, name: PCSTR, insig: PCSTR, outsig: PCSTR): Int =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_hasmember(iface.toString(), name.toString(), insig.toString(), outsig.toString()) as Int) else 0
+public actual fun alljoynInterfacedescriptionHasmember(iface: AlljoynInterfacedescription, name: Pcstr, insig: Pcstr, outsig: Pcstr): Int =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasmember(iface.toString(), (name?.value ?: 0L).toString(), (insig?.value ?: 0L).toString(), (outsig?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_hasproperties(iface: alljoyn_interfacedescription): Int =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_hasproperties(iface.toString()) as Int) else 0
+public actual fun alljoynInterfacedescriptionHasproperties(iface: AlljoynInterfacedescription): Int =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasproperties(iface.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_hasproperty(iface: alljoyn_interfacedescription, name: PCSTR): Int =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_hasproperty(iface.toString(), name.toString()) as Int) else 0
+public actual fun alljoynInterfacedescriptionHasproperty(iface: AlljoynInterfacedescription, name: Pcstr): Int =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionHasproperty(iface.toString(), (name?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_introspect(iface: alljoyn_interfacedescription, str: PCSTR, buf: ULong, indent: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_introspect(iface.toString(), str.toString(), buf.toString(), indent.toString()) as String).toULong() else 0uL
+public actual fun alljoynInterfacedescriptionIntrospect(iface: AlljoynInterfacedescription, str: Pcstr, buf: ULong, indent: ULong): ULong =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionIntrospect(iface.toString(), (str?.value ?: 0L).toString(), buf.toString(), indent.toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_issecure(iface: alljoyn_interfacedescription): Int =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_issecure(iface.toString()) as Int) else 0
+public actual fun alljoynInterfacedescriptionIssecure(iface: AlljoynInterfacedescription): Int =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionIssecure(iface.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_member_eql(one: alljoyn_interfacedescription_member, other: alljoyn_interfacedescription_member): Int =
-    0
+public actual fun alljoynInterfacedescriptionMemberEql(one: AlljoynInterfacedescriptionMember, other: AlljoynInterfacedescriptionMember): Int =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_member_getannotation(member: alljoyn_interfacedescription_member, name: PCSTR, value: PCSTR, value_size: Long): Int =
-    0
+public actual fun alljoynInterfacedescriptionMemberGetannotation(member: AlljoynInterfacedescriptionMember, name: Pcstr, value: Pcstr, valueSize: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_member_getannotationatindex(member: alljoyn_interfacedescription_member, index: ULong, name: PCSTR, name_size: Long, value: PCSTR, value_size: Long) {
+public actual fun alljoynInterfacedescriptionMemberGetannotationatindex(member: AlljoynInterfacedescriptionMember, index: ULong, name: Pcstr, nameSize: COpaquePointer?, value: Pcstr, valueSize: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI addon is not available")
 }
 
-public actual fun alljoyn_interfacedescription_member_getannotationscount(member: alljoyn_interfacedescription_member): ULong =
-    0uL
+public actual fun alljoynInterfacedescriptionMemberGetannotationscount(member: AlljoynInterfacedescriptionMember): ULong =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_member_getargannotation(member: alljoyn_interfacedescription_member, argname: PCSTR, name: PCSTR, value: PCSTR, value_size: Long): Int =
-    0
+public actual fun alljoynInterfacedescriptionMemberGetargannotation(member: AlljoynInterfacedescriptionMember, argname: Pcstr, name: Pcstr, value: Pcstr, valueSize: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_member_getargannotationatindex(member: alljoyn_interfacedescription_member, argname: PCSTR, index: ULong, name: PCSTR, name_size: Long, value: PCSTR, value_size: Long) {
+public actual fun alljoynInterfacedescriptionMemberGetargannotationatindex(member: AlljoynInterfacedescriptionMember, argname: Pcstr, index: ULong, name: Pcstr, nameSize: COpaquePointer?, value: Pcstr, valueSize: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI addon is not available")
 }
 
-public actual fun alljoyn_interfacedescription_member_getargannotationscount(member: alljoyn_interfacedescription_member, argname: PCSTR): ULong =
-    0uL
+public actual fun alljoynInterfacedescriptionMemberGetargannotationscount(member: AlljoynInterfacedescriptionMember, argname: Pcstr): ULong =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_property_eql(one: alljoyn_interfacedescription_property, other: alljoyn_interfacedescription_property): Int =
-    0
+public actual fun alljoynInterfacedescriptionPropertyEql(one: AlljoynInterfacedescriptionProperty, other: AlljoynInterfacedescriptionProperty): Int =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_property_getannotation(property: alljoyn_interfacedescription_property, name: PCSTR, value: PCSTR, value_size: Long): Int =
-    0
+public actual fun alljoynInterfacedescriptionPropertyGetannotation(property: AlljoynInterfacedescriptionProperty, name: Pcstr, value: Pcstr, valueSize: COpaquePointer?): Int =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_property_getannotationatindex(property: alljoyn_interfacedescription_property, index: ULong, name: PCSTR, name_size: Long, value: PCSTR, value_size: Long) {
+public actual fun alljoynInterfacedescriptionPropertyGetannotationatindex(property: AlljoynInterfacedescriptionProperty, index: ULong, name: Pcstr, nameSize: COpaquePointer?, value: Pcstr, valueSize: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI addon is not available")
 }
 
-public actual fun alljoyn_interfacedescription_property_getannotationscount(property: alljoyn_interfacedescription_property): ULong =
-    0uL
+public actual fun alljoynInterfacedescriptionPropertyGetannotationscount(property: AlljoynInterfacedescriptionProperty): ULong =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_setargdescription(iface: alljoyn_interfacedescription, member: PCSTR, argname: PCSTR, description: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setargdescription(iface.toString(), member.toString(), argname.toString(), description.toString()) as Int) else 0
+public actual fun alljoynInterfacedescriptionSetargdescription(iface: AlljoynInterfacedescription, member: Pcstr, argname: Pcstr, description: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetargdescription(iface.toString(), (member?.value ?: 0L).toString(), (argname?.value ?: 0L).toString(), (description?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_setargdescriptionforlanguage(iface: alljoyn_interfacedescription, member: PCSTR, arg: PCSTR, description: PCSTR, languagetag: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setargdescriptionforlanguage(iface.toString(), member.toString(), arg.toString(), description.toString(), languagetag.toString()) as Int) else 0
+public actual fun alljoynInterfacedescriptionSetargdescriptionforlanguage(iface: AlljoynInterfacedescription, member: Pcstr, arg: Pcstr, description: Pcstr, languagetag: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetargdescriptionforlanguage(iface.toString(), (member?.value ?: 0L).toString(), (arg?.value ?: 0L).toString(), (description?.value ?: 0L).toString(), (languagetag?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_setdescription(iface: alljoyn_interfacedescription, description: PCSTR) {
+public actual fun alljoynInterfacedescriptionSetdescription(iface: AlljoynInterfacedescription, description: Pcstr) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setdescription(iface.toString(), description.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescription(iface.toString(), (description?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_interfacedescription_setdescriptionforlanguage(iface: alljoyn_interfacedescription, description: PCSTR, languagetag: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setdescriptionforlanguage(iface.toString(), description.toString(), languagetag.toString()) as Int) else 0
+public actual fun alljoynInterfacedescriptionSetdescriptionforlanguage(iface: AlljoynInterfacedescription, description: Pcstr, languagetag: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescriptionforlanguage(iface.toString(), (description?.value ?: 0L).toString(), (languagetag?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_setdescriptionlanguage(iface: alljoyn_interfacedescription, language: PCSTR) {
+public actual fun alljoynInterfacedescriptionSetdescriptionlanguage(iface: AlljoynInterfacedescription, language: Pcstr) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setdescriptionlanguage(iface.toString(), language.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescriptionlanguage(iface.toString(), (language?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_interfacedescription_setdescriptiontranslationcallback(iface: alljoyn_interfacedescription, translationcallback: alljoyn_interfacedescription_translation_callback_ptr) {
+public actual fun alljoynInterfacedescriptionSetdescriptiontranslationcallback(iface: AlljoynInterfacedescription, translationcallback: AlljoynInterfacedescriptionTranslationCallbackPtr) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setdescriptiontranslationcallback(iface.toString(), translationcallback.toLong().toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetdescriptiontranslationcallback(iface.toString(), 0L.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_interfacedescription_setmemberdescription(iface: alljoyn_interfacedescription, member: PCSTR, description: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setmemberdescription(iface.toString(), member.toString(), description.toString()) as Int) else 0
+public actual fun alljoynInterfacedescriptionSetmemberdescription(iface: AlljoynInterfacedescription, member: Pcstr, description: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetmemberdescription(iface.toString(), (member?.value ?: 0L).toString(), (description?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_setmemberdescriptionforlanguage(iface: alljoyn_interfacedescription, member: PCSTR, description: PCSTR, languagetag: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setmemberdescriptionforlanguage(iface.toString(), member.toString(), description.toString(), languagetag.toString()) as Int) else 0
+public actual fun alljoynInterfacedescriptionSetmemberdescriptionforlanguage(iface: AlljoynInterfacedescription, member: Pcstr, description: Pcstr, languagetag: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetmemberdescriptionforlanguage(iface.toString(), (member?.value ?: 0L).toString(), (description?.value ?: 0L).toString(), (languagetag?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_setpropertydescription(iface: alljoyn_interfacedescription, name: PCSTR, description: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setpropertydescription(iface.toString(), name.toString(), description.toString()) as Int) else 0
+public actual fun alljoynInterfacedescriptionSetpropertydescription(iface: AlljoynInterfacedescription, name: Pcstr, description: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetpropertydescription(iface.toString(), (name?.value ?: 0L).toString(), (description?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_interfacedescription_setpropertydescriptionforlanguage(iface: alljoyn_interfacedescription, name: PCSTR, description: PCSTR, languagetag: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_interfacedescription_setpropertydescriptionforlanguage(iface.toString(), name.toString(), description.toString(), languagetag.toString()) as Int) else 0
+public actual fun alljoynInterfacedescriptionSetpropertydescriptionforlanguage(iface: AlljoynInterfacedescription, name: Pcstr, description: Pcstr, languagetag: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynInterfacedescriptionSetpropertydescriptionforlanguage(iface.toString(), (name?.value ?: 0L).toString(), (description?.value ?: 0L).toString(), (languagetag?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_keystorelistener_create(callbacks: Long, context: Long): alljoyn_keystorelistener =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_keystorelistener_create(callbacks.toString(), context.toString()) as String).toLong() else 0L
+public actual fun alljoynKeystorelistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynKeystorelistener =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerCreate((callbacks?.value ?: 0L).toString(), (context?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_keystorelistener_destroy(listener: alljoyn_keystorelistener) {
+public actual fun alljoynKeystorelistenerDestroy(listener: AlljoynKeystorelistener) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_keystorelistener_destroy(listener.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerDestroy(listener.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_keystorelistener_getkeys(listener: alljoyn_keystorelistener, keystore: alljoyn_keystore, sink: PCSTR, sink_sz: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_keystorelistener_getkeys(listener.toString(), keystore.toString(), sink.toString(), sink_sz.toString()) as Int) else 0
+public actual fun alljoynKeystorelistenerGetkeys(listener: AlljoynKeystorelistener, keystore: AlljoynKeystore, sink: Pcstr, sinkSz: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerGetkeys(listener.toString(), keystore.toString(), (sink?.value ?: 0L).toString(), (sinkSz?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_keystorelistener_putkeys(listener: alljoyn_keystorelistener, keystore: alljoyn_keystore, source: PCSTR, password: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_keystorelistener_putkeys(listener.toString(), keystore.toString(), source.toString(), password.toString()) as Int) else 0
+public actual fun alljoynKeystorelistenerPutkeys(listener: AlljoynKeystorelistener, keystore: AlljoynKeystore, source: Pcstr, password: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerPutkeys(listener.toString(), keystore.toString(), (source?.value ?: 0L).toString(), (password?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_keystorelistener_with_synchronization_create(callbacks: Long, context: Long): alljoyn_keystorelistener =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_keystorelistener_with_synchronization_create(callbacks.toString(), context.toString()) as String).toLong() else 0L
+public actual fun alljoynKeystorelistenerWithSynchronizationCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynKeystorelistener =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynKeystorelistenerWithSynchronizationCreate((callbacks?.value ?: 0L).toString(), (context?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_message_create(bus: alljoyn_busattachment): alljoyn_message =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_message_create(bus.toString()) as String).toLong() else 0L
+public actual fun alljoynMessageCreate(bus: AlljoynBusattachment): AlljoynMessage =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMessageCreate(bus.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_message_description(msg: alljoyn_message, str: PCSTR, buf: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_message_description(msg.toString(), str.toString(), buf.toString()) as String).toULong() else 0uL
+public actual fun alljoynMessageDescription(msg: AlljoynMessage, str: Pcstr, buf: ULong): ULong =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMessageDescription(msg.toString(), (str?.value ?: 0L).toString(), buf.toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_message_destroy(msg: alljoyn_message) {
+public actual fun alljoynMessageDestroy(msg: AlljoynMessage) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_message_destroy(msg.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMessageDestroy(msg.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_message_eql(one: alljoyn_message, other: alljoyn_message): Int =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_message_eql(one.toString(), other.toString()) as Int) else 0
+public actual fun alljoynMessageEql(one: AlljoynMessage, other: AlljoynMessage): Int =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMessageEql(one.toString(), other.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_message_getarg(msg: alljoyn_message, argn: ULong): alljoyn_msgarg =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_message_getarg(msg.toString(), argn.toString()) as String).toLong() else 0L
+public actual fun alljoynMessageGetarg(msg: AlljoynMessage, argn: ULong): AlljoynMsgarg =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMessageGetarg(msg.toString(), argn.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_message_getargs(msg: alljoyn_message, numargs: Long, args: Long) {
+public actual fun alljoynMessageGetargs(msg: AlljoynMessage, numargs: COpaquePointer?, args: COpaquePointer?) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_message_getargs(msg.toString(), numargs.toString(), args.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMessageGetargs(msg.toString(), (numargs?.value ?: 0L).toString(), (args?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_message_getauthmechanism(msg: alljoyn_message): PCSTR =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_message_getauthmechanism(msg.toString()) as String).toLong() else 0L
+public actual fun alljoynMessageGetauthmechanism(msg: AlljoynMessage): Pcstr =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMessageGetauthmechanism(msg.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_message_getcallserial(msg: alljoyn_message): UInt =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_message_getcallserial(msg.toString()) as Int).toUInt() else 0u
+public actual fun alljoynMessageGetcallserial(msg: AlljoynMessage): UInt =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMessageGetcallserial(msg.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_message_getcompressiontoken(msg: alljoyn_message): UInt =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_message_getcompressiontoken(msg.toString()) as Int).toUInt() else 0u
+public actual fun alljoynMessageGetcompressiontoken(msg: AlljoynMessage): UInt =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMessageGetcompressiontoken(msg.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_message_getdestination(msg: alljoyn_message): PCSTR =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_message_getdestination(msg.toString()) as String).toLong() else 0L
+public actual fun alljoynMessageGetdestination(msg: AlljoynMessage): Pcstr =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMessageGetdestination(msg.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_message_geterrorname(msg: alljoyn_message, errormessage: PCSTR, errormessage_size: Long): PCSTR =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_message_geterrorname(msg.toString(), errormessage.toString(), errormessage_size.toString()) as String).toLong() else 0L
+public actual fun alljoynMessageGeterrorname(msg: AlljoynMessage, errormessage: Pcstr, errormessageSize: COpaquePointer?): Pcstr =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMessageGeterrorname(msg.toString(), (errormessage?.value ?: 0L).toString(), (errormessageSize?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_message_getflags(msg: alljoyn_message): UByte =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_message_getflags(msg.toString()) as Int).toUByte() else 0u
+public actual fun alljoynMessageGetflags(msg: AlljoynMessage): UByte =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMessageGetflags(msg.toString()) as Int).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_message_getinterface(msg: alljoyn_message): PCSTR =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_message_getinterface(msg.toString()) as String).toLong() else 0L
+public actual fun alljoynMessageGetinterface(msg: AlljoynMessage): Pcstr =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMessageGetinterface(msg.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_message_getmembername(msg: alljoyn_message): PCSTR =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_message_getmembername(msg.toString()) as String).toLong() else 0L
+public actual fun alljoynMessageGetmembername(msg: AlljoynMessage): Pcstr =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMessageGetmembername(msg.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_message_getobjectpath(msg: alljoyn_message): PCSTR =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_message_getobjectpath(msg.toString()) as String).toLong() else 0L
+public actual fun alljoynMessageGetobjectpath(msg: AlljoynMessage): Pcstr =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMessageGetobjectpath(msg.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_message_getreceiveendpointname(msg: alljoyn_message): PCSTR =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_message_getreceiveendpointname(msg.toString()) as String).toLong() else 0L
+public actual fun alljoynMessageGetreceiveendpointname(msg: AlljoynMessage): Pcstr =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMessageGetreceiveendpointname(msg.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_message_getreplyserial(msg: alljoyn_message): UInt =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_message_getreplyserial(msg.toString()) as Int).toUInt() else 0u
+public actual fun alljoynMessageGetreplyserial(msg: AlljoynMessage): UInt =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMessageGetreplyserial(msg.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_message_getsender(msg: alljoyn_message): PCSTR =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_message_getsender(msg.toString()) as String).toLong() else 0L
+public actual fun alljoynMessageGetsender(msg: AlljoynMessage): Pcstr =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMessageGetsender(msg.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_message_getsessionid(msg: alljoyn_message): UInt =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_message_getsessionid(msg.toString()) as Int).toUInt() else 0u
+public actual fun alljoynMessageGetsessionid(msg: AlljoynMessage): UInt =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMessageGetsessionid(msg.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_message_getsignature(msg: alljoyn_message): PCSTR =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_message_getsignature(msg.toString()) as String).toLong() else 0L
+public actual fun alljoynMessageGetsignature(msg: AlljoynMessage): Pcstr =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMessageGetsignature(msg.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_message_gettimestamp(msg: alljoyn_message): UInt =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_message_gettimestamp(msg.toString()) as Int).toUInt() else 0u
+public actual fun alljoynMessageGettimestamp(msg: AlljoynMessage): UInt =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMessageGettimestamp(msg.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_message_gettype(msg: alljoyn_message): alljoyn_messagetype =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_message_gettype(msg.toString()) as Int) else 0
+public actual fun alljoynMessageGettype(msg: AlljoynMessage): AlljoynMessagetype =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMessageGettype(msg.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_message_isbroadcastsignal(msg: alljoyn_message): Int =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_message_isbroadcastsignal(msg.toString()) as Int) else 0
+public actual fun alljoynMessageIsbroadcastsignal(msg: AlljoynMessage): Int =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMessageIsbroadcastsignal(msg.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_message_isencrypted(msg: alljoyn_message): Int =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_message_isencrypted(msg.toString()) as Int) else 0
+public actual fun alljoynMessageIsencrypted(msg: AlljoynMessage): Int =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMessageIsencrypted(msg.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_message_isexpired(msg: alljoyn_message, tillexpirems: Long): Int =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_message_isexpired(msg.toString(), tillexpirems.toString()) as Int) else 0
+public actual fun alljoynMessageIsexpired(msg: AlljoynMessage, tillexpirems: COpaquePointer?): Int =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMessageIsexpired(msg.toString(), (tillexpirems?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_message_isglobalbroadcast(msg: alljoyn_message): Int =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_message_isglobalbroadcast(msg.toString()) as Int) else 0
+public actual fun alljoynMessageIsglobalbroadcast(msg: AlljoynMessage): Int =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMessageIsglobalbroadcast(msg.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_message_issessionless(msg: alljoyn_message): Int =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_message_issessionless(msg.toString()) as Int) else 0
+public actual fun alljoynMessageIssessionless(msg: AlljoynMessage): Int =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMessageIssessionless(msg.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_message_isunreliable(msg: alljoyn_message): Int =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_message_isunreliable(msg.toString()) as Int) else 0
+public actual fun alljoynMessageIsunreliable(msg: AlljoynMessage): Int =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMessageIsunreliable(msg.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_message_parseargs(msg: alljoyn_message, signature: PCSTR): QStatus =
-    0
+public actual fun alljoynMessageParseargs(msg: AlljoynMessage, signature: Pcstr, vararg variadicArgs: Long): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMessageParseargs(msg.toString(), (signature?.value ?: 0L).toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_message_setendianess(endian: Byte) {
+public actual fun alljoynMessageSetendianess(endian: Byte) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_message_setendianess(endian.toInt())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMessageSetendianess(endian.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_message_tostring(msg: alljoyn_message, str: PCSTR, buf: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_message_tostring(msg.toString(), str.toString(), buf.toString()) as String).toULong() else 0uL
+public actual fun alljoynMessageTostring(msg: AlljoynMessage, str: Pcstr, buf: ULong): ULong =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMessageTostring(msg.toString(), (str?.value ?: 0L).toString(), buf.toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_array_create(size: ULong): alljoyn_msgarg =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_array_create(size.toString()) as String).toLong() else 0L
+public actual fun alljoynMsgargArrayCreate(size: ULong): AlljoynMsgarg =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayCreate(size.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_array_element(arg: alljoyn_msgarg, index: ULong): alljoyn_msgarg =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_array_element(arg.toString(), index.toString()) as String).toLong() else 0L
+public actual fun alljoynMsgargArrayElement(arg: AlljoynMsgarg, index: ULong): AlljoynMsgarg =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayElement(arg.toString(), index.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_array_get(args: alljoyn_msgarg, numargs: ULong, signature: PCSTR): QStatus =
-    0
+public actual fun alljoynMsgargArrayGet(args: AlljoynMsgarg, numargs: ULong, signature: Pcstr, vararg variadicArgs: Long): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayGet(args.toString(), numargs.toString(), (signature?.value ?: 0L).toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_array_set(args: alljoyn_msgarg, numargs: Long, signature: PCSTR): QStatus =
-    0
+public actual fun alljoynMsgargArraySet(args: AlljoynMsgarg, numargs: COpaquePointer?, signature: Pcstr, vararg variadicArgs: Long): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargArraySet(args.toString(), (numargs?.value ?: 0L).toString(), (signature?.value ?: 0L).toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_array_set_offset(args: alljoyn_msgarg, argoffset: ULong, numargs: Long, signature: PCSTR): QStatus =
-    0
+public actual fun alljoynMsgargArraySetOffset(args: AlljoynMsgarg, argoffset: ULong, numargs: COpaquePointer?, signature: Pcstr, vararg variadicArgs: Long): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargArraySetOffset(args.toString(), argoffset.toString(), (numargs?.value ?: 0L).toString(), (signature?.value ?: 0L).toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_array_signature(values: alljoyn_msgarg, numvalues: ULong, str: PCSTR, buf: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_array_signature(values.toString(), numvalues.toString(), str.toString(), buf.toString()) as String).toULong() else 0uL
+public actual fun alljoynMsgargArraySignature(values: AlljoynMsgarg, numvalues: ULong, str: Pcstr, buf: ULong): ULong =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargArraySignature(values.toString(), numvalues.toString(), (str?.value ?: 0L).toString(), buf.toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_array_tostring(args: alljoyn_msgarg, numargs: ULong, str: PCSTR, buf: ULong, indent: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_array_tostring(args.toString(), numargs.toString(), str.toString(), buf.toString(), indent.toString()) as String).toULong() else 0uL
+public actual fun alljoynMsgargArrayTostring(args: AlljoynMsgarg, numargs: ULong, str: Pcstr, buf: ULong, indent: ULong): ULong =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayTostring(args.toString(), numargs.toString(), (str?.value ?: 0L).toString(), buf.toString(), indent.toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_clear(arg: alljoyn_msgarg) {
+public actual fun alljoynMsgargClear(arg: AlljoynMsgarg) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_clear(arg.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargClear(arg.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_msgarg_clone(destination: alljoyn_msgarg, source: alljoyn_msgarg) {
+public actual fun alljoynMsgargClone(destination: AlljoynMsgarg, source: AlljoynMsgarg) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_clone(destination.toString(), source.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargClone(destination.toString(), source.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_msgarg_copy(source: alljoyn_msgarg): alljoyn_msgarg =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_copy(source.toString()) as String).toLong() else 0L
+public actual fun alljoynMsgargCopy(source: AlljoynMsgarg): AlljoynMsgarg =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargCopy(source.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_create(): alljoyn_msgarg =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_create() as String).toLong() else 0L
+public actual fun alljoynMsgargCreate(): AlljoynMsgarg =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargCreate() as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_create_and_set(signature: PCSTR): alljoyn_msgarg =
-    0L
+public actual fun alljoynMsgargCreateAndSet(signature: Pcstr, vararg variadicArgs: Long): AlljoynMsgarg =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargCreateAndSet((signature?.value ?: 0L).toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_destroy(arg: alljoyn_msgarg) {
+public actual fun alljoynMsgargDestroy(arg: AlljoynMsgarg) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_destroy(arg.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargDestroy(arg.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_msgarg_equal(lhv: alljoyn_msgarg, rhv: alljoyn_msgarg): Int =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_equal(lhv.toString(), rhv.toString()) as Int) else 0
+public actual fun alljoynMsgargEqual(lhv: AlljoynMsgarg, rhv: AlljoynMsgarg): Int =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargEqual(lhv.toString(), rhv.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_get(arg: alljoyn_msgarg, signature: PCSTR): QStatus =
-    0
+public actual fun alljoynMsgargGet(arg: AlljoynMsgarg, signature: Pcstr, vararg variadicArgs: Long): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGet(arg.toString(), (signature?.value ?: 0L).toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_get_array_element(arg: alljoyn_msgarg, index: ULong, element: Long) {
+public actual fun alljoynMsgargGetArrayElement(arg: AlljoynMsgarg, index: ULong, element: COpaquePointer?) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_array_element(arg.toString(), index.toString(), element.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetArrayElement(arg.toString(), index.toString(), (element?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_msgarg_get_array_elementsignature(arg: alljoyn_msgarg, index: ULong): PCSTR =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_array_elementsignature(arg.toString(), index.toString()) as String).toLong() else 0L
+public actual fun alljoynMsgargGetArrayElementsignature(arg: AlljoynMsgarg, index: ULong): Pcstr =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetArrayElementsignature(arg.toString(), index.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_get_array_numberofelements(arg: alljoyn_msgarg): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_array_numberofelements(arg.toString()) as String).toULong() else 0uL
+public actual fun alljoynMsgargGetArrayNumberofelements(arg: AlljoynMsgarg): ULong =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetArrayNumberofelements(arg.toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_get_bool(arg: alljoyn_msgarg, b: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_bool(arg.toString(), b.toString()) as Int) else 0
+public actual fun alljoynMsgargGetBool(arg: AlljoynMsgarg, b: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetBool(arg.toString(), (b?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_get_bool_array(arg: alljoyn_msgarg, length: Long, ab: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_bool_array(arg.toString(), length.toString(), ab.toString()) as Int) else 0
+public actual fun alljoynMsgargGetBoolArray(arg: AlljoynMsgarg, length: COpaquePointer?, ab: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetBoolArray(arg.toString(), (length?.value ?: 0L).toString(), (ab?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_get_double(arg: alljoyn_msgarg, d: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_double(arg.toString(), d.toString()) as Int) else 0
+public actual fun alljoynMsgargGetDouble(arg: AlljoynMsgarg, d: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetDouble(arg.toString(), (d?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_get_double_array(arg: alljoyn_msgarg, length: Long, ad: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_double_array(arg.toString(), length.toString(), ad.toString()) as Int) else 0
+public actual fun alljoynMsgargGetDoubleArray(arg: AlljoynMsgarg, length: COpaquePointer?, ad: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetDoubleArray(arg.toString(), (length?.value ?: 0L).toString(), (ad?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_get_int16(arg: alljoyn_msgarg, n: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_int16(arg.toString(), n.toString()) as Int) else 0
+public actual fun alljoynMsgargGetInt16(arg: AlljoynMsgarg, n: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt16(arg.toString(), (n?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_get_int16_array(arg: alljoyn_msgarg, length: Long, an: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_int16_array(arg.toString(), length.toString(), an.toString()) as Int) else 0
+public actual fun alljoynMsgargGetInt16Array(arg: AlljoynMsgarg, length: COpaquePointer?, an: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt16Array(arg.toString(), (length?.value ?: 0L).toString(), (an?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_get_int32(arg: alljoyn_msgarg, i: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_int32(arg.toString(), i.toString()) as Int) else 0
+public actual fun alljoynMsgargGetInt32(arg: AlljoynMsgarg, i: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt32(arg.toString(), (i?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_get_int32_array(arg: alljoyn_msgarg, length: Long, ai: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_int32_array(arg.toString(), length.toString(), ai.toString()) as Int) else 0
+public actual fun alljoynMsgargGetInt32Array(arg: AlljoynMsgarg, length: COpaquePointer?, ai: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt32Array(arg.toString(), (length?.value ?: 0L).toString(), (ai?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_get_int64(arg: alljoyn_msgarg, x: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_int64(arg.toString(), x.toString()) as Int) else 0
+public actual fun alljoynMsgargGetInt64(arg: AlljoynMsgarg, x: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt64(arg.toString(), (x?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_get_int64_array(arg: alljoyn_msgarg, length: Long, ax: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_int64_array(arg.toString(), length.toString(), ax.toString()) as Int) else 0
+public actual fun alljoynMsgargGetInt64Array(arg: AlljoynMsgarg, length: COpaquePointer?, ax: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt64Array(arg.toString(), (length?.value ?: 0L).toString(), (ax?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_get_objectpath(arg: alljoyn_msgarg, o: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_objectpath(arg.toString(), o.toString()) as Int) else 0
+public actual fun alljoynMsgargGetObjectpath(arg: AlljoynMsgarg, o: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetObjectpath(arg.toString(), (o?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_get_signature(arg: alljoyn_msgarg, g: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_signature(arg.toString(), g.toString()) as Int) else 0
+public actual fun alljoynMsgargGetSignature(arg: AlljoynMsgarg, g: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetSignature(arg.toString(), (g?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_get_string(arg: alljoyn_msgarg, s: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_string(arg.toString(), s.toString()) as Int) else 0
+public actual fun alljoynMsgargGetString(arg: AlljoynMsgarg, s: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetString(arg.toString(), (s?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_get_uint16(arg: alljoyn_msgarg, q: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_uint16(arg.toString(), q.toString()) as Int) else 0
+public actual fun alljoynMsgargGetUint16(arg: AlljoynMsgarg, q: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint16(arg.toString(), (q?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_get_uint16_array(arg: alljoyn_msgarg, length: Long, aq: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_uint16_array(arg.toString(), length.toString(), aq.toString()) as Int) else 0
+public actual fun alljoynMsgargGetUint16Array(arg: AlljoynMsgarg, length: COpaquePointer?, aq: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint16Array(arg.toString(), (length?.value ?: 0L).toString(), (aq?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_get_uint32(arg: alljoyn_msgarg, u: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_uint32(arg.toString(), u.toString()) as Int) else 0
+public actual fun alljoynMsgargGetUint32(arg: AlljoynMsgarg, u: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint32(arg.toString(), (u?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_get_uint32_array(arg: alljoyn_msgarg, length: Long, au: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_uint32_array(arg.toString(), length.toString(), au.toString()) as Int) else 0
+public actual fun alljoynMsgargGetUint32Array(arg: AlljoynMsgarg, length: COpaquePointer?, au: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint32Array(arg.toString(), (length?.value ?: 0L).toString(), (au?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_get_uint64(arg: alljoyn_msgarg, t: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_uint64(arg.toString(), t.toString()) as Int) else 0
+public actual fun alljoynMsgargGetUint64(arg: AlljoynMsgarg, t: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint64(arg.toString(), (t?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_get_uint64_array(arg: alljoyn_msgarg, length: Long, at: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_uint64_array(arg.toString(), length.toString(), at.toString()) as Int) else 0
+public actual fun alljoynMsgargGetUint64Array(arg: AlljoynMsgarg, length: COpaquePointer?, at: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint64Array(arg.toString(), (length?.value ?: 0L).toString(), (at?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_get_uint8(arg: alljoyn_msgarg, y: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_uint8(arg.toString(), y.toString()) as Int) else 0
+public actual fun alljoynMsgargGetUint8(arg: AlljoynMsgarg, y: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint8(arg.toString(), (y?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_get_uint8_array(arg: alljoyn_msgarg, length: Long, ay: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_uint8_array(arg.toString(), length.toString(), ay.toString()) as Int) else 0
+public actual fun alljoynMsgargGetUint8Array(arg: AlljoynMsgarg, length: COpaquePointer?, ay: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint8Array(arg.toString(), (length?.value ?: 0L).toString(), (ay?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_get_variant(arg: alljoyn_msgarg, v: alljoyn_msgarg): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_variant(arg.toString(), v.toString()) as Int) else 0
+public actual fun alljoynMsgargGetVariant(arg: AlljoynMsgarg, v: AlljoynMsgarg): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetVariant(arg.toString(), v.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_get_variant_array(arg: alljoyn_msgarg, signature: PCSTR, length: Long, av: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_get_variant_array(arg.toString(), signature.toString(), length.toString(), av.toString()) as Int) else 0
+public actual fun alljoynMsgargGetVariantArray(arg: AlljoynMsgarg, signature: Pcstr, length: COpaquePointer?, av: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetVariantArray(arg.toString(), (signature?.value ?: 0L).toString(), (length?.value ?: 0L).toString(), (av?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_getdictelement(arg: alljoyn_msgarg, elemsig: PCSTR): QStatus =
-    0
+public actual fun alljoynMsgargGetdictelement(arg: AlljoynMsgarg, elemsig: Pcstr, vararg variadicArgs: Long): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetdictelement(arg.toString(), (elemsig?.value ?: 0L).toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_getkey(arg: alljoyn_msgarg): alljoyn_msgarg =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_getkey(arg.toString()) as String).toLong() else 0L
+public actual fun alljoynMsgargGetkey(arg: AlljoynMsgarg): AlljoynMsgarg =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetkey(arg.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_getmember(arg: alljoyn_msgarg, index: ULong): alljoyn_msgarg =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_getmember(arg.toString(), index.toString()) as String).toLong() else 0L
+public actual fun alljoynMsgargGetmember(arg: AlljoynMsgarg, index: ULong): AlljoynMsgarg =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetmember(arg.toString(), index.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_getnummembers(arg: alljoyn_msgarg): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_getnummembers(arg.toString()) as String).toULong() else 0uL
+public actual fun alljoynMsgargGetnummembers(arg: AlljoynMsgarg): ULong =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetnummembers(arg.toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_gettype(arg: alljoyn_msgarg): alljoyn_typeid =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_gettype(arg.toString()) as Int) else 0
+public actual fun alljoynMsgargGettype(arg: AlljoynMsgarg): AlljoynTypeid =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGettype(arg.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_getvalue(arg: alljoyn_msgarg): alljoyn_msgarg =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_getvalue(arg.toString()) as String).toLong() else 0L
+public actual fun alljoynMsgargGetvalue(arg: AlljoynMsgarg): AlljoynMsgarg =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetvalue(arg.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_hassignature(arg: alljoyn_msgarg, signature: PCSTR): Int =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_hassignature(arg.toString(), signature.toString()) as Int) else 0
+public actual fun alljoynMsgargHassignature(arg: AlljoynMsgarg, signature: Pcstr): Int =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargHassignature(arg.toString(), (signature?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_set(arg: alljoyn_msgarg, signature: PCSTR): QStatus =
-    0
+public actual fun alljoynMsgargSet(arg: AlljoynMsgarg, signature: Pcstr, vararg variadicArgs: Long): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSet(arg.toString(), (signature?.value ?: 0L).toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_set_and_stabilize(arg: alljoyn_msgarg, signature: PCSTR): QStatus =
-    0
+public actual fun alljoynMsgargSetAndStabilize(arg: AlljoynMsgarg, signature: Pcstr, vararg variadicArgs: Long): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetAndStabilize(arg.toString(), (signature?.value ?: 0L).toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_set_bool(arg: alljoyn_msgarg, b: Int): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_bool(arg.toString(), b) as Int) else 0
+public actual fun alljoynMsgargSetBool(arg: AlljoynMsgarg, b: Int): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetBool(arg.toString(), b) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_set_bool_array(arg: alljoyn_msgarg, length: ULong, ab: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_bool_array(arg.toString(), length.toString(), ab.toString()) as Int) else 0
+public actual fun alljoynMsgargSetBoolArray(arg: AlljoynMsgarg, length: ULong, ab: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetBoolArray(arg.toString(), length.toString(), (ab?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_set_double(arg: alljoyn_msgarg, d: Double): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_double(arg.toString(), d) as Int) else 0
+public actual fun alljoynMsgargSetDouble(arg: AlljoynMsgarg, d: Double): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetDouble(arg.toString(), d) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_set_double_array(arg: alljoyn_msgarg, length: ULong, ad: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_double_array(arg.toString(), length.toString(), ad.toString()) as Int) else 0
+public actual fun alljoynMsgargSetDoubleArray(arg: AlljoynMsgarg, length: ULong, ad: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetDoubleArray(arg.toString(), length.toString(), (ad?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_set_int16(arg: alljoyn_msgarg, n: Short): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_int16(arg.toString(), n.toInt()) as Int) else 0
+public actual fun alljoynMsgargSetInt16(arg: AlljoynMsgarg, n: Short): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt16(arg.toString(), n.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_set_int16_array(arg: alljoyn_msgarg, length: ULong, an: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_int16_array(arg.toString(), length.toString(), an.toString()) as Int) else 0
+public actual fun alljoynMsgargSetInt16Array(arg: AlljoynMsgarg, length: ULong, an: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt16Array(arg.toString(), length.toString(), (an?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_set_int32(arg: alljoyn_msgarg, i: Int): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_int32(arg.toString(), i) as Int) else 0
+public actual fun alljoynMsgargSetInt32(arg: AlljoynMsgarg, i: Int): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt32(arg.toString(), i) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_set_int32_array(arg: alljoyn_msgarg, length: ULong, ai: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_int32_array(arg.toString(), length.toString(), ai.toString()) as Int) else 0
+public actual fun alljoynMsgargSetInt32Array(arg: AlljoynMsgarg, length: ULong, ai: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt32Array(arg.toString(), length.toString(), (ai?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_set_int64(arg: alljoyn_msgarg, x: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_int64(arg.toString(), x.toString()) as Int) else 0
+public actual fun alljoynMsgargSetInt64(arg: AlljoynMsgarg, x: Long): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt64(arg.toString(), x.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_set_int64_array(arg: alljoyn_msgarg, length: ULong, ax: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_int64_array(arg.toString(), length.toString(), ax.toString()) as Int) else 0
+public actual fun alljoynMsgargSetInt64Array(arg: AlljoynMsgarg, length: ULong, ax: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt64Array(arg.toString(), length.toString(), (ax?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_set_objectpath(arg: alljoyn_msgarg, o: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_objectpath(arg.toString(), o.toString()) as Int) else 0
+public actual fun alljoynMsgargSetObjectpath(arg: AlljoynMsgarg, o: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetObjectpath(arg.toString(), (o?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_set_objectpath_array(arg: alljoyn_msgarg, length: ULong, ao: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_objectpath_array(arg.toString(), length.toString(), ao.toString()) as Int) else 0
+public actual fun alljoynMsgargSetObjectpathArray(arg: AlljoynMsgarg, length: ULong, ao: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetObjectpathArray(arg.toString(), length.toString(), (ao?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_set_signature(arg: alljoyn_msgarg, g: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_signature(arg.toString(), g.toString()) as Int) else 0
+public actual fun alljoynMsgargSetSignature(arg: AlljoynMsgarg, g: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetSignature(arg.toString(), (g?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_set_signature_array(arg: alljoyn_msgarg, length: ULong, ag: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_signature_array(arg.toString(), length.toString(), ag.toString()) as Int) else 0
+public actual fun alljoynMsgargSetSignatureArray(arg: AlljoynMsgarg, length: ULong, ag: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetSignatureArray(arg.toString(), length.toString(), (ag?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_set_string(arg: alljoyn_msgarg, s: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_string(arg.toString(), s.toString()) as Int) else 0
+public actual fun alljoynMsgargSetString(arg: AlljoynMsgarg, s: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetString(arg.toString(), (s?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_set_string_array(arg: alljoyn_msgarg, length: ULong, asTarget: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_string_array(arg.toString(), length.toString(), asTarget.toString()) as Int) else 0
+public actual fun alljoynMsgargSetStringArray(arg: AlljoynMsgarg, length: ULong, asTarget: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetStringArray(arg.toString(), length.toString(), (asTarget?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_set_uint16(arg: alljoyn_msgarg, q: UShort): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_uint16(arg.toString(), q.toInt()) as Int) else 0
+public actual fun alljoynMsgargSetUint16(arg: AlljoynMsgarg, q: UShort): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint16(arg.toString(), q.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_set_uint16_array(arg: alljoyn_msgarg, length: ULong, aq: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_uint16_array(arg.toString(), length.toString(), aq.toString()) as Int) else 0
+public actual fun alljoynMsgargSetUint16Array(arg: AlljoynMsgarg, length: ULong, aq: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint16Array(arg.toString(), length.toString(), (aq?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_set_uint32(arg: alljoyn_msgarg, u: UInt): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_uint32(arg.toString(), u.toInt()) as Int) else 0
+public actual fun alljoynMsgargSetUint32(arg: AlljoynMsgarg, u: UInt): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint32(arg.toString(), u.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_set_uint32_array(arg: alljoyn_msgarg, length: ULong, au: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_uint32_array(arg.toString(), length.toString(), au.toString()) as Int) else 0
+public actual fun alljoynMsgargSetUint32Array(arg: AlljoynMsgarg, length: ULong, au: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint32Array(arg.toString(), length.toString(), (au?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_set_uint64(arg: alljoyn_msgarg, t: ULong): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_uint64(arg.toString(), t.toString()) as Int) else 0
+public actual fun alljoynMsgargSetUint64(arg: AlljoynMsgarg, t: ULong): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint64(arg.toString(), t.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_set_uint64_array(arg: alljoyn_msgarg, length: ULong, at: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_uint64_array(arg.toString(), length.toString(), at.toString()) as Int) else 0
+public actual fun alljoynMsgargSetUint64Array(arg: AlljoynMsgarg, length: ULong, at: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint64Array(arg.toString(), length.toString(), (at?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_set_uint8(arg: alljoyn_msgarg, y: UByte): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_uint8(arg.toString(), y.toInt()) as Int) else 0
+public actual fun alljoynMsgargSetUint8(arg: AlljoynMsgarg, y: UByte): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint8(arg.toString(), y.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_set_uint8_array(arg: alljoyn_msgarg, length: ULong, ay: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_set_uint8_array(arg.toString(), length.toString(), ay.toString()) as Int) else 0
+public actual fun alljoynMsgargSetUint8Array(arg: AlljoynMsgarg, length: ULong, ay: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint8Array(arg.toString(), length.toString(), (ay?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_setdictentry(arg: alljoyn_msgarg, key: alljoyn_msgarg, value: alljoyn_msgarg): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_setdictentry(arg.toString(), key.toString(), value.toString()) as Int) else 0
+public actual fun alljoynMsgargSetdictentry(arg: AlljoynMsgarg, key: AlljoynMsgarg, value: AlljoynMsgarg): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetdictentry(arg.toString(), key.toString(), value.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_setstruct(arg: alljoyn_msgarg, struct_members: alljoyn_msgarg, num_members: ULong): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_setstruct(arg.toString(), struct_members.toString(), num_members.toString()) as Int) else 0
+public actual fun alljoynMsgargSetstruct(arg: AlljoynMsgarg, structMembers: AlljoynMsgarg, numMembers: ULong): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetstruct(arg.toString(), structMembers.toString(), numMembers.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_signature(arg: alljoyn_msgarg, str: PCSTR, buf: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_signature(arg.toString(), str.toString(), buf.toString()) as String).toULong() else 0uL
+public actual fun alljoynMsgargSignature(arg: AlljoynMsgarg, str: Pcstr, buf: ULong): ULong =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargSignature(arg.toString(), (str?.value ?: 0L).toString(), buf.toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_msgarg_stabilize(arg: alljoyn_msgarg) {
+public actual fun alljoynMsgargStabilize(arg: AlljoynMsgarg) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_stabilize(arg.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargStabilize(arg.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_msgarg_tostring(arg: alljoyn_msgarg, str: PCSTR, buf: ULong, indent: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_msgarg_tostring(arg.toString(), str.toString(), buf.toString(), indent.toString()) as String).toULong() else 0uL
+public actual fun alljoynMsgargTostring(arg: AlljoynMsgarg, str: Pcstr, buf: ULong, indent: ULong): ULong =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynMsgargTostring(arg.toString(), (str?.value ?: 0L).toString(), buf.toString(), indent.toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_observer_create(bus: alljoyn_busattachment, mandatoryinterfaces: Long, nummandatoryinterfaces: ULong): alljoyn_observer =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_observer_create(bus.toString(), mandatoryinterfaces.toString(), nummandatoryinterfaces.toString()) as String).toLong() else 0L
+public actual fun alljoynObserverCreate(bus: AlljoynBusattachment, mandatoryinterfaces: COpaquePointer?, nummandatoryinterfaces: ULong): AlljoynObserver =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynObserverCreate(bus.toString(), (mandatoryinterfaces?.value ?: 0L).toString(), nummandatoryinterfaces.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_observer_destroy(observer: alljoyn_observer) {
+public actual fun alljoynObserverDestroy(observer: AlljoynObserver) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_observer_destroy(observer.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynObserverDestroy(observer.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_observer_get(observer: alljoyn_observer, uniquebusname: PCSTR, objectpath: PCSTR): alljoyn_proxybusobject_ref =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_observer_get(observer.toString(), uniquebusname.toString(), objectpath.toString()) as String).toLong() else 0L
+public actual fun alljoynObserverGet(observer: AlljoynObserver, uniquebusname: Pcstr, objectpath: Pcstr): AlljoynProxybusobjectRef =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynObserverGet(observer.toString(), (uniquebusname?.value ?: 0L).toString(), (objectpath?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_observer_getfirst(observer: alljoyn_observer): alljoyn_proxybusobject_ref =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_observer_getfirst(observer.toString()) as String).toLong() else 0L
+public actual fun alljoynObserverGetfirst(observer: AlljoynObserver): AlljoynProxybusobjectRef =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynObserverGetfirst(observer.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_observer_getnext(observer: alljoyn_observer, proxyref: alljoyn_proxybusobject_ref): alljoyn_proxybusobject_ref =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_observer_getnext(observer.toString(), proxyref.toString()) as String).toLong() else 0L
+public actual fun alljoynObserverGetnext(observer: AlljoynObserver, proxyref: AlljoynProxybusobjectRef): AlljoynProxybusobjectRef =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynObserverGetnext(observer.toString(), proxyref.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_observer_registerlistener(observer: alljoyn_observer, listener: alljoyn_observerlistener, triggeronexisting: Int) {
+public actual fun alljoynObserverRegisterlistener(observer: AlljoynObserver, listener: AlljoynObserverlistener, triggeronexisting: Int) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_observer_registerlistener(observer.toString(), listener.toString(), triggeronexisting)
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynObserverRegisterlistener(observer.toString(), listener.toString(), triggeronexisting)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_observer_unregisteralllisteners(observer: alljoyn_observer) {
+public actual fun alljoynObserverUnregisteralllisteners(observer: AlljoynObserver) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_observer_unregisteralllisteners(observer.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynObserverUnregisteralllisteners(observer.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_observer_unregisterlistener(observer: alljoyn_observer, listener: alljoyn_observerlistener) {
+public actual fun alljoynObserverUnregisterlistener(observer: AlljoynObserver, listener: AlljoynObserverlistener) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_observer_unregisterlistener(observer.toString(), listener.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynObserverUnregisterlistener(observer.toString(), listener.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_observerlistener_create(callback: Long, context: Long): alljoyn_observerlistener =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_observerlistener_create(callback.toString(), context.toString()) as String).toLong() else 0L
+public actual fun alljoynObserverlistenerCreate(callback: COpaquePointer?, context: COpaquePointer?): AlljoynObserverlistener =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynObserverlistenerCreate((callback?.value ?: 0L).toString(), (context?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_observerlistener_destroy(listener: alljoyn_observerlistener) {
+public actual fun alljoynObserverlistenerDestroy(listener: AlljoynObserverlistener) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_observerlistener_destroy(listener.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynObserverlistenerDestroy(listener.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_passwordmanager_setcredentials(authmechanism: PCSTR, password: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_passwordmanager_setcredentials(authmechanism.toString(), password.toString()) as Int) else 0
+public actual fun alljoynPasswordmanagerSetcredentials(authmechanism: Pcstr, password: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynPasswordmanagerSetcredentials((authmechanism?.value ?: 0L).toString(), (password?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_permissionconfigurationlistener_create(callbacks: Long, context: Long): alljoyn_permissionconfigurationlistener =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurationlistener_create(callbacks.toString(), context.toString()) as String).toLong() else 0L
+public actual fun alljoynPermissionconfigurationlistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynPermissionconfigurationlistener =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfigurationlistenerCreate((callbacks?.value ?: 0L).toString(), (context?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_permissionconfigurationlistener_destroy(listener: alljoyn_permissionconfigurationlistener) {
+public actual fun alljoynPermissionconfigurationlistenerDestroy(listener: AlljoynPermissionconfigurationlistener) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurationlistener_destroy(listener.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfigurationlistenerDestroy(listener.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_permissionconfigurator_certificatechain_destroy(certificatechain: Long) {
+public actual fun alljoynPermissionconfiguratorCertificatechainDestroy(certificatechain: COpaquePointer?) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_certificatechain_destroy(certificatechain.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorCertificatechainDestroy((certificatechain?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_permissionconfigurator_certificateid_cleanup(certificateid: Long) {
+public actual fun alljoynPermissionconfiguratorCertificateidCleanup(certificateid: COpaquePointer?) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_certificateid_cleanup(certificateid.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorCertificateidCleanup((certificateid?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_permissionconfigurator_certificateidarray_cleanup(certificateidarray: Long) {
+public actual fun alljoynPermissionconfiguratorCertificateidarrayCleanup(certificateidarray: COpaquePointer?) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_certificateidarray_cleanup(certificateidarray.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorCertificateidarrayCleanup((certificateidarray?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_permissionconfigurator_claim(configurator: alljoyn_permissionconfigurator, cakey: Long, identitycertificatechain: Long, groupid: Long, groupsize: ULong, groupauthority: Long, manifestsxmls: Long, manifestscount: ULong): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_claim(configurator.toString(), cakey.toString(), identitycertificatechain.toString(), groupid.toString(), groupsize.toString(), groupauthority.toString(), manifestsxmls.toString(), manifestscount.toString()) as Int) else 0
+public actual fun alljoynPermissionconfiguratorClaim(configurator: AlljoynPermissionconfigurator, cakey: COpaquePointer?, identitycertificatechain: COpaquePointer?, groupid: COpaquePointer?, groupsize: ULong, groupauthority: COpaquePointer?, manifestsxmls: COpaquePointer?, manifestscount: ULong): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorClaim(configurator.toString(), (cakey?.value ?: 0L).toString(), (identitycertificatechain?.value ?: 0L).toString(), (groupid?.value ?: 0L).toString(), groupsize.toString(), (groupauthority?.value ?: 0L).toString(), (manifestsxmls?.value ?: 0L).toString(), manifestscount.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_permissionconfigurator_endmanagement(configurator: alljoyn_permissionconfigurator): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_endmanagement(configurator.toString()) as Int) else 0
+public actual fun alljoynPermissionconfiguratorEndmanagement(configurator: AlljoynPermissionconfigurator): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorEndmanagement(configurator.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_permissionconfigurator_getapplicationstate(configurator: alljoyn_permissionconfigurator, state: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getapplicationstate(configurator.toString(), state.toString()) as Int) else 0
+public actual fun alljoynPermissionconfiguratorGetapplicationstate(configurator: AlljoynPermissionconfigurator, state: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetapplicationstate(configurator.toString(), (state?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_permissionconfigurator_getclaimcapabilities(configurator: alljoyn_permissionconfigurator, claimcapabilities: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getclaimcapabilities(configurator.toString(), claimcapabilities.toString()) as Int) else 0
+public actual fun alljoynPermissionconfiguratorGetclaimcapabilities(configurator: AlljoynPermissionconfigurator, claimcapabilities: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetclaimcapabilities(configurator.toString(), (claimcapabilities?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_permissionconfigurator_getclaimcapabilitiesadditionalinfo(configurator: alljoyn_permissionconfigurator, additionalinfo: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getclaimcapabilitiesadditionalinfo(configurator.toString(), additionalinfo.toString()) as Int) else 0
+public actual fun alljoynPermissionconfiguratorGetclaimcapabilitiesadditionalinfo(configurator: AlljoynPermissionconfigurator, additionalinfo: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetclaimcapabilitiesadditionalinfo(configurator.toString(), (additionalinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_permissionconfigurator_getdefaultclaimcapabilities(): UShort =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getdefaultclaimcapabilities() as Int).toUShort() else 0u
+public actual fun alljoynPermissionconfiguratorGetdefaultclaimcapabilities(): UShort =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetdefaultclaimcapabilities() as Int).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_permissionconfigurator_getdefaultpolicy(configurator: alljoyn_permissionconfigurator, policyxml: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getdefaultpolicy(configurator.toString(), policyxml.toString()) as Int) else 0
+public actual fun alljoynPermissionconfiguratorGetdefaultpolicy(configurator: AlljoynPermissionconfigurator, policyxml: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetdefaultpolicy(configurator.toString(), (policyxml?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_permissionconfigurator_getidentity(configurator: alljoyn_permissionconfigurator, identitycertificatechain: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getidentity(configurator.toString(), identitycertificatechain.toString()) as Int) else 0
+public actual fun alljoynPermissionconfiguratorGetidentity(configurator: AlljoynPermissionconfigurator, identitycertificatechain: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetidentity(configurator.toString(), (identitycertificatechain?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_permissionconfigurator_getidentitycertificateid(configurator: alljoyn_permissionconfigurator, certificateid: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getidentitycertificateid(configurator.toString(), certificateid.toString()) as Int) else 0
+public actual fun alljoynPermissionconfiguratorGetidentitycertificateid(configurator: AlljoynPermissionconfigurator, certificateid: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetidentitycertificateid(configurator.toString(), (certificateid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_permissionconfigurator_getmanifests(configurator: alljoyn_permissionconfigurator, manifestarray: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getmanifests(configurator.toString(), manifestarray.toString()) as Int) else 0
+public actual fun alljoynPermissionconfiguratorGetmanifests(configurator: AlljoynPermissionconfigurator, manifestarray: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetmanifests(configurator.toString(), (manifestarray?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_permissionconfigurator_getmanifesttemplate(configurator: alljoyn_permissionconfigurator, manifesttemplatexml: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getmanifesttemplate(configurator.toString(), manifesttemplatexml.toString()) as Int) else 0
+public actual fun alljoynPermissionconfiguratorGetmanifesttemplate(configurator: AlljoynPermissionconfigurator, manifesttemplatexml: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetmanifesttemplate(configurator.toString(), (manifesttemplatexml?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_permissionconfigurator_getmembershipsummaries(configurator: alljoyn_permissionconfigurator, certificateids: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getmembershipsummaries(configurator.toString(), certificateids.toString()) as Int) else 0
+public actual fun alljoynPermissionconfiguratorGetmembershipsummaries(configurator: AlljoynPermissionconfigurator, certificateids: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetmembershipsummaries(configurator.toString(), (certificateids?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_permissionconfigurator_getpolicy(configurator: alljoyn_permissionconfigurator, policyxml: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getpolicy(configurator.toString(), policyxml.toString()) as Int) else 0
+public actual fun alljoynPermissionconfiguratorGetpolicy(configurator: AlljoynPermissionconfigurator, policyxml: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetpolicy(configurator.toString(), (policyxml?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_permissionconfigurator_getpublickey(configurator: alljoyn_permissionconfigurator, publickey: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_getpublickey(configurator.toString(), publickey.toString()) as Int) else 0
+public actual fun alljoynPermissionconfiguratorGetpublickey(configurator: AlljoynPermissionconfigurator, publickey: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorGetpublickey(configurator.toString(), (publickey?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_permissionconfigurator_installmanifests(configurator: alljoyn_permissionconfigurator, manifestsxmls: Long, manifestscount: ULong, append: Int): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_installmanifests(configurator.toString(), manifestsxmls.toString(), manifestscount.toString(), append) as Int) else 0
+public actual fun alljoynPermissionconfiguratorInstallmanifests(configurator: AlljoynPermissionconfigurator, manifestsxmls: COpaquePointer?, manifestscount: ULong, append: Int): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorInstallmanifests(configurator.toString(), (manifestsxmls?.value ?: 0L).toString(), manifestscount.toString(), append) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_permissionconfigurator_installmembership(configurator: alljoyn_permissionconfigurator, membershipcertificatechain: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_installmembership(configurator.toString(), membershipcertificatechain.toString()) as Int) else 0
+public actual fun alljoynPermissionconfiguratorInstallmembership(configurator: AlljoynPermissionconfigurator, membershipcertificatechain: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorInstallmembership(configurator.toString(), (membershipcertificatechain?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_permissionconfigurator_manifestarray_cleanup(manifestarray: Long) {
+public actual fun alljoynPermissionconfiguratorManifestarrayCleanup(manifestarray: COpaquePointer?) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_manifestarray_cleanup(manifestarray.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorManifestarrayCleanup((manifestarray?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_permissionconfigurator_manifesttemplate_destroy(manifesttemplatexml: Long) {
+public actual fun alljoynPermissionconfiguratorManifesttemplateDestroy(manifesttemplatexml: COpaquePointer?) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_manifesttemplate_destroy(manifesttemplatexml.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorManifesttemplateDestroy((manifesttemplatexml?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_permissionconfigurator_policy_destroy(policyxml: Long) {
+public actual fun alljoynPermissionconfiguratorPolicyDestroy(policyxml: COpaquePointer?) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_policy_destroy(policyxml.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorPolicyDestroy((policyxml?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_permissionconfigurator_publickey_destroy(publickey: Long) {
+public actual fun alljoynPermissionconfiguratorPublickeyDestroy(publickey: COpaquePointer?) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_publickey_destroy(publickey.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorPublickeyDestroy((publickey?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_permissionconfigurator_removemembership(configurator: alljoyn_permissionconfigurator, serial: Long, seriallen: ULong, issuerpublickey: Long, issueraki: Long, issuerakilen: ULong): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_removemembership(configurator.toString(), serial.toString(), seriallen.toString(), issuerpublickey.toString(), issueraki.toString(), issuerakilen.toString()) as Int) else 0
+public actual fun alljoynPermissionconfiguratorRemovemembership(configurator: AlljoynPermissionconfigurator, serial: COpaquePointer?, seriallen: ULong, issuerpublickey: COpaquePointer?, issueraki: COpaquePointer?, issuerakilen: ULong): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorRemovemembership(configurator.toString(), (serial?.value ?: 0L).toString(), seriallen.toString(), (issuerpublickey?.value ?: 0L).toString(), (issueraki?.value ?: 0L).toString(), issuerakilen.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_permissionconfigurator_reset(configurator: alljoyn_permissionconfigurator): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_reset(configurator.toString()) as Int) else 0
+public actual fun alljoynPermissionconfiguratorReset(configurator: AlljoynPermissionconfigurator): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorReset(configurator.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_permissionconfigurator_resetpolicy(configurator: alljoyn_permissionconfigurator): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_resetpolicy(configurator.toString()) as Int) else 0
+public actual fun alljoynPermissionconfiguratorResetpolicy(configurator: AlljoynPermissionconfigurator): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorResetpolicy(configurator.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_permissionconfigurator_setapplicationstate(configurator: alljoyn_permissionconfigurator, state: alljoyn_applicationstate): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_setapplicationstate(configurator.toString(), state) as Int) else 0
+public actual fun alljoynPermissionconfiguratorSetapplicationstate(configurator: AlljoynPermissionconfigurator, state: AlljoynApplicationstate): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetapplicationstate(configurator.toString(), state) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_permissionconfigurator_setclaimcapabilities(configurator: alljoyn_permissionconfigurator, claimcapabilities: UShort): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_setclaimcapabilities(configurator.toString(), claimcapabilities.toInt()) as Int) else 0
+public actual fun alljoynPermissionconfiguratorSetclaimcapabilities(configurator: AlljoynPermissionconfigurator, claimcapabilities: UShort): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetclaimcapabilities(configurator.toString(), claimcapabilities.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_permissionconfigurator_setclaimcapabilitiesadditionalinfo(configurator: alljoyn_permissionconfigurator, additionalinfo: UShort): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_setclaimcapabilitiesadditionalinfo(configurator.toString(), additionalinfo.toInt()) as Int) else 0
+public actual fun alljoynPermissionconfiguratorSetclaimcapabilitiesadditionalinfo(configurator: AlljoynPermissionconfigurator, additionalinfo: UShort): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetclaimcapabilitiesadditionalinfo(configurator.toString(), additionalinfo.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_permissionconfigurator_setmanifesttemplatefromxml(configurator: alljoyn_permissionconfigurator, manifesttemplatexml: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_setmanifesttemplatefromxml(configurator.toString(), manifesttemplatexml.toString()) as Int) else 0
+public actual fun alljoynPermissionconfiguratorSetmanifesttemplatefromxml(configurator: AlljoynPermissionconfigurator, manifesttemplatexml: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorSetmanifesttemplatefromxml(configurator.toString(), (manifesttemplatexml?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_permissionconfigurator_startmanagement(configurator: alljoyn_permissionconfigurator): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_startmanagement(configurator.toString()) as Int) else 0
+public actual fun alljoynPermissionconfiguratorStartmanagement(configurator: AlljoynPermissionconfigurator): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorStartmanagement(configurator.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_permissionconfigurator_updateidentity(configurator: alljoyn_permissionconfigurator, identitycertificatechain: Long, manifestsxmls: Long, manifestscount: ULong): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_updateidentity(configurator.toString(), identitycertificatechain.toString(), manifestsxmls.toString(), manifestscount.toString()) as Int) else 0
+public actual fun alljoynPermissionconfiguratorUpdateidentity(configurator: AlljoynPermissionconfigurator, identitycertificatechain: COpaquePointer?, manifestsxmls: COpaquePointer?, manifestscount: ULong): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorUpdateidentity(configurator.toString(), (identitycertificatechain?.value ?: 0L).toString(), (manifestsxmls?.value ?: 0L).toString(), manifestscount.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_permissionconfigurator_updatepolicy(configurator: alljoyn_permissionconfigurator, policyxml: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_permissionconfigurator_updatepolicy(configurator.toString(), policyxml.toString()) as Int) else 0
+public actual fun alljoynPermissionconfiguratorUpdatepolicy(configurator: AlljoynPermissionconfigurator, policyxml: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynPermissionconfiguratorUpdatepolicy(configurator.toString(), (policyxml?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_pinglistener_create(callback: Long, context: Long): alljoyn_pinglistener =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_pinglistener_create(callback.toString(), context.toString()) as String).toLong() else 0L
+public actual fun alljoynPinglistenerCreate(callback: COpaquePointer?, context: COpaquePointer?): AlljoynPinglistener =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynPinglistenerCreate((callback?.value ?: 0L).toString(), (context?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_pinglistener_destroy(listener: alljoyn_pinglistener) {
+public actual fun alljoynPinglistenerDestroy(listener: AlljoynPinglistener) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_pinglistener_destroy(listener.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynPinglistenerDestroy(listener.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_proxybusobject_addchild(proxyobj: alljoyn_proxybusobject, child: alljoyn_proxybusobject): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_addchild(proxyobj.toString(), child.toString()) as Int) else 0
+public actual fun alljoynProxybusobjectAddchild(proxyobj: AlljoynProxybusobject, child: AlljoynProxybusobject): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectAddchild(proxyobj.toString(), child.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_proxybusobject_addinterface(proxyobj: alljoyn_proxybusobject, iface: alljoyn_interfacedescription): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_addinterface(proxyobj.toString(), iface.toString()) as Int) else 0
+public actual fun alljoynProxybusobjectAddinterface(proxyobj: AlljoynProxybusobject, iface: AlljoynInterfacedescription): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectAddinterface(proxyobj.toString(), iface.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_proxybusobject_addinterface_by_name(proxyobj: alljoyn_proxybusobject, name: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_addinterface_by_name(proxyobj.toString(), name.toString()) as Int) else 0
+public actual fun alljoynProxybusobjectAddinterfaceByName(proxyobj: AlljoynProxybusobject, name: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectAddinterfaceByName(proxyobj.toString(), (name?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_proxybusobject_copy(source: alljoyn_proxybusobject): alljoyn_proxybusobject =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_copy(source.toString()) as String).toLong() else 0L
+public actual fun alljoynProxybusobjectCopy(source: AlljoynProxybusobject): AlljoynProxybusobject =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectCopy(source.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_proxybusobject_create(bus: alljoyn_busattachment, service: PCSTR, path: PCSTR, sessionid: UInt): alljoyn_proxybusobject =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_create(bus.toString(), service.toString(), path.toString(), sessionid.toInt()) as String).toLong() else 0L
+public actual fun alljoynProxybusobjectCreate(bus: AlljoynBusattachment, service: Pcstr, path: Pcstr, sessionid: UInt): AlljoynProxybusobject =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectCreate(bus.toString(), (service?.value ?: 0L).toString(), (path?.value ?: 0L).toString(), sessionid.toInt()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_proxybusobject_create_secure(bus: alljoyn_busattachment, service: PCSTR, path: PCSTR, sessionid: UInt): alljoyn_proxybusobject =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_create_secure(bus.toString(), service.toString(), path.toString(), sessionid.toInt()) as String).toLong() else 0L
+public actual fun alljoynProxybusobjectCreateSecure(bus: AlljoynBusattachment, service: Pcstr, path: Pcstr, sessionid: UInt): AlljoynProxybusobject =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectCreateSecure(bus.toString(), (service?.value ?: 0L).toString(), (path?.value ?: 0L).toString(), sessionid.toInt()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_proxybusobject_destroy(proxyobj: alljoyn_proxybusobject) {
+public actual fun alljoynProxybusobjectDestroy(proxyobj: AlljoynProxybusobject) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_destroy(proxyobj.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectDestroy(proxyobj.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_proxybusobject_enablepropertycaching(proxyobj: alljoyn_proxybusobject) {
+public actual fun alljoynProxybusobjectEnablepropertycaching(proxyobj: AlljoynProxybusobject) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_enablepropertycaching(proxyobj.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectEnablepropertycaching(proxyobj.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_proxybusobject_getallproperties(proxyobj: alljoyn_proxybusobject, iface: PCSTR, values: alljoyn_msgarg): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getallproperties(proxyobj.toString(), iface.toString(), values.toString()) as Int) else 0
+public actual fun alljoynProxybusobjectGetallproperties(proxyobj: AlljoynProxybusobject, iface: Pcstr, values: AlljoynMsgarg): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetallproperties(proxyobj.toString(), (iface?.value ?: 0L).toString(), values.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_proxybusobject_getallpropertiesasync(proxyobj: alljoyn_proxybusobject, iface: PCSTR, callback: alljoyn_proxybusobject_listener_getallpropertiescb_ptr, timeout: UInt, context: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getallpropertiesasync(proxyobj.toString(), iface.toString(), callback.toLong().toString(), timeout.toInt(), context.toString()) as Int) else 0
+public actual fun alljoynProxybusobjectGetallpropertiesasync(proxyobj: AlljoynProxybusobject, iface: Pcstr, callback: AlljoynProxybusobjectListenerGetallpropertiescbPtr, timeout: UInt, context: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetallpropertiesasync(proxyobj.toString(), (iface?.value ?: 0L).toString(), 0L.toString(), timeout.toInt(), (context?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_proxybusobject_getchild(proxyobj: alljoyn_proxybusobject, path: PCSTR): alljoyn_proxybusobject =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getchild(proxyobj.toString(), path.toString()) as String).toLong() else 0L
+public actual fun alljoynProxybusobjectGetchild(proxyobj: AlljoynProxybusobject, path: Pcstr): AlljoynProxybusobject =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetchild(proxyobj.toString(), (path?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_proxybusobject_getchildren(proxyobj: alljoyn_proxybusobject, children: Long, numchildren: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getchildren(proxyobj.toString(), children.toString(), numchildren.toString()) as String).toULong() else 0uL
+public actual fun alljoynProxybusobjectGetchildren(proxyobj: AlljoynProxybusobject, children: COpaquePointer?, numchildren: ULong): ULong =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetchildren(proxyobj.toString(), (children?.value ?: 0L).toString(), numchildren.toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_proxybusobject_getinterface(proxyobj: alljoyn_proxybusobject, iface: PCSTR): alljoyn_interfacedescription =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getinterface(proxyobj.toString(), iface.toString()) as String).toLong() else 0L
+public actual fun alljoynProxybusobjectGetinterface(proxyobj: AlljoynProxybusobject, iface: Pcstr): AlljoynInterfacedescription =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetinterface(proxyobj.toString(), (iface?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_proxybusobject_getinterfaces(proxyobj: alljoyn_proxybusobject, ifaces: Long, numifaces: ULong): ULong =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getinterfaces(proxyobj.toString(), ifaces.toString(), numifaces.toString()) as String).toULong() else 0uL
+public actual fun alljoynProxybusobjectGetinterfaces(proxyobj: AlljoynProxybusobject, ifaces: COpaquePointer?, numifaces: ULong): ULong =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetinterfaces(proxyobj.toString(), (ifaces?.value ?: 0L).toString(), numifaces.toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_proxybusobject_getpath(proxyobj: alljoyn_proxybusobject): PCSTR =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getpath(proxyobj.toString()) as String).toLong() else 0L
+public actual fun alljoynProxybusobjectGetpath(proxyobj: AlljoynProxybusobject): Pcstr =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetpath(proxyobj.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_proxybusobject_getproperty(proxyobj: alljoyn_proxybusobject, iface: PCSTR, property: PCSTR, value: alljoyn_msgarg): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getproperty(proxyobj.toString(), iface.toString(), property.toString(), value.toString()) as Int) else 0
+public actual fun alljoynProxybusobjectGetproperty(proxyobj: AlljoynProxybusobject, iface: Pcstr, property: Pcstr, value: AlljoynMsgarg): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetproperty(proxyobj.toString(), (iface?.value ?: 0L).toString(), (property?.value ?: 0L).toString(), value.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_proxybusobject_getpropertyasync(proxyobj: alljoyn_proxybusobject, iface: PCSTR, property: PCSTR, callback: alljoyn_proxybusobject_listener_getpropertycb_ptr, timeout: UInt, context: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getpropertyasync(proxyobj.toString(), iface.toString(), property.toString(), callback.toLong().toString(), timeout.toInt(), context.toString()) as Int) else 0
+public actual fun alljoynProxybusobjectGetpropertyasync(proxyobj: AlljoynProxybusobject, iface: Pcstr, property: Pcstr, callback: AlljoynProxybusobjectListenerGetpropertycbPtr, timeout: UInt, context: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetpropertyasync(proxyobj.toString(), (iface?.value ?: 0L).toString(), (property?.value ?: 0L).toString(), 0L.toString(), timeout.toInt(), (context?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_proxybusobject_getservicename(proxyobj: alljoyn_proxybusobject): PCSTR =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getservicename(proxyobj.toString()) as String).toLong() else 0L
+public actual fun alljoynProxybusobjectGetservicename(proxyobj: AlljoynProxybusobject): Pcstr =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetservicename(proxyobj.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_proxybusobject_getsessionid(proxyobj: alljoyn_proxybusobject): UInt =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getsessionid(proxyobj.toString()) as Int).toUInt() else 0u
+public actual fun alljoynProxybusobjectGetsessionid(proxyobj: AlljoynProxybusobject): UInt =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetsessionid(proxyobj.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_proxybusobject_getuniquename(proxyobj: alljoyn_proxybusobject): PCSTR =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_getuniquename(proxyobj.toString()) as String).toLong() else 0L
+public actual fun alljoynProxybusobjectGetuniquename(proxyobj: AlljoynProxybusobject): Pcstr =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectGetuniquename(proxyobj.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_proxybusobject_implementsinterface(proxyobj: alljoyn_proxybusobject, iface: PCSTR): Int =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_implementsinterface(proxyobj.toString(), iface.toString()) as Int) else 0
+public actual fun alljoynProxybusobjectImplementsinterface(proxyobj: AlljoynProxybusobject, iface: Pcstr): Int =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectImplementsinterface(proxyobj.toString(), (iface?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_proxybusobject_introspectremoteobject(proxyobj: alljoyn_proxybusobject): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_introspectremoteobject(proxyobj.toString()) as Int) else 0
+public actual fun alljoynProxybusobjectIntrospectremoteobject(proxyobj: AlljoynProxybusobject): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectIntrospectremoteobject(proxyobj.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_proxybusobject_introspectremoteobjectasync(proxyobj: alljoyn_proxybusobject, callback: alljoyn_proxybusobject_listener_introspectcb_ptr, context: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_introspectremoteobjectasync(proxyobj.toString(), callback.toLong().toString(), context.toString()) as Int) else 0
+public actual fun alljoynProxybusobjectIntrospectremoteobjectasync(proxyobj: AlljoynProxybusobject, callback: AlljoynProxybusobjectListenerIntrospectcbPtr, context: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectIntrospectremoteobjectasync(proxyobj.toString(), 0L.toString(), (context?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_proxybusobject_issecure(proxyobj: alljoyn_proxybusobject): Int =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_issecure(proxyobj.toString()) as Int) else 0
+public actual fun alljoynProxybusobjectIssecure(proxyobj: AlljoynProxybusobject): Int =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectIssecure(proxyobj.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_proxybusobject_isvalid(proxyobj: alljoyn_proxybusobject): Int =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_isvalid(proxyobj.toString()) as Int) else 0
+public actual fun alljoynProxybusobjectIsvalid(proxyobj: AlljoynProxybusobject): Int =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectIsvalid(proxyobj.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_proxybusobject_methodcall(proxyobj: alljoyn_proxybusobject, ifacename: PCSTR, methodname: PCSTR, args: alljoyn_msgarg, numargs: ULong, replymsg: alljoyn_message, timeout: UInt, flags: UByte): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_methodcall(proxyobj.toString(), ifacename.toString(), methodname.toString(), args.toString(), numargs.toString(), replymsg.toString(), timeout.toInt(), flags.toInt()) as Int) else 0
+public actual fun alljoynProxybusobjectMethodcall(proxyobj: AlljoynProxybusobject, ifacename: Pcstr, methodname: Pcstr, args: AlljoynMsgarg, numargs: ULong, replymsg: AlljoynMessage, timeout: UInt, flags: UByte): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectMethodcall(proxyobj.toString(), (ifacename?.value ?: 0L).toString(), (methodname?.value ?: 0L).toString(), args.toString(), numargs.toString(), replymsg.toString(), timeout.toInt(), flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_proxybusobject_methodcall_member(proxyobj: alljoyn_proxybusobject, method: alljoyn_interfacedescription_member, args: alljoyn_msgarg, numargs: ULong, replymsg: alljoyn_message, timeout: UInt, flags: UByte): QStatus =
-    0
+public actual fun alljoynProxybusobjectMethodcallMember(proxyobj: AlljoynProxybusobject, method: AlljoynInterfacedescriptionMember, args: AlljoynMsgarg, numargs: ULong, replymsg: AlljoynMessage, timeout: UInt, flags: UByte): QStatus =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_proxybusobject_methodcall_member_noreply(proxyobj: alljoyn_proxybusobject, method: alljoyn_interfacedescription_member, args: alljoyn_msgarg, numargs: ULong, flags: UByte): QStatus =
-    0
+public actual fun alljoynProxybusobjectMethodcallMemberNoreply(proxyobj: AlljoynProxybusobject, method: AlljoynInterfacedescriptionMember, args: AlljoynMsgarg, numargs: ULong, flags: UByte): QStatus =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_proxybusobject_methodcall_noreply(proxyobj: alljoyn_proxybusobject, ifacename: PCSTR, methodname: PCSTR, args: alljoyn_msgarg, numargs: ULong, flags: UByte): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_methodcall_noreply(proxyobj.toString(), ifacename.toString(), methodname.toString(), args.toString(), numargs.toString(), flags.toInt()) as Int) else 0
+public actual fun alljoynProxybusobjectMethodcallNoreply(proxyobj: AlljoynProxybusobject, ifacename: Pcstr, methodname: Pcstr, args: AlljoynMsgarg, numargs: ULong, flags: UByte): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectMethodcallNoreply(proxyobj.toString(), (ifacename?.value ?: 0L).toString(), (methodname?.value ?: 0L).toString(), args.toString(), numargs.toString(), flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_proxybusobject_methodcallasync(proxyobj: alljoyn_proxybusobject, ifacename: PCSTR, methodname: PCSTR, replyfunc: alljoyn_messagereceiver_replyhandler_ptr, args: alljoyn_msgarg, numargs: ULong, context: Long, timeout: UInt, flags: UByte): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_methodcallasync(proxyobj.toString(), ifacename.toString(), methodname.toString(), replyfunc.toLong().toString(), args.toString(), numargs.toString(), context.toString(), timeout.toInt(), flags.toInt()) as Int) else 0
+public actual fun alljoynProxybusobjectMethodcallasync(proxyobj: AlljoynProxybusobject, ifacename: Pcstr, methodname: Pcstr, replyfunc: AlljoynMessagereceiverReplyhandlerPtr, args: AlljoynMsgarg, numargs: ULong, context: COpaquePointer?, timeout: UInt, flags: UByte): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectMethodcallasync(proxyobj.toString(), (ifacename?.value ?: 0L).toString(), (methodname?.value ?: 0L).toString(), 0L.toString(), args.toString(), numargs.toString(), (context?.value ?: 0L).toString(), timeout.toInt(), flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_proxybusobject_methodcallasync_member(proxyobj: alljoyn_proxybusobject, method: alljoyn_interfacedescription_member, replyfunc: alljoyn_messagereceiver_replyhandler_ptr, args: alljoyn_msgarg, numargs: ULong, context: Long, timeout: UInt, flags: UByte): QStatus =
-    0
+public actual fun alljoynProxybusobjectMethodcallasyncMember(proxyobj: AlljoynProxybusobject, method: AlljoynInterfacedescriptionMember, replyfunc: AlljoynMessagereceiverReplyhandlerPtr, args: AlljoynMsgarg, numargs: ULong, context: COpaquePointer?, timeout: UInt, flags: UByte): QStatus =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_proxybusobject_parsexml(proxyobj: alljoyn_proxybusobject, xml: PCSTR, identifier: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_parsexml(proxyobj.toString(), xml.toString(), identifier.toString()) as Int) else 0
+public actual fun alljoynProxybusobjectParsexml(proxyobj: AlljoynProxybusobject, xml: Pcstr, identifier: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectParsexml(proxyobj.toString(), (xml?.value ?: 0L).toString(), (identifier?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_proxybusobject_ref_create(proxy: alljoyn_proxybusobject): alljoyn_proxybusobject_ref =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_ref_create(proxy.toString()) as String).toLong() else 0L
+public actual fun alljoynProxybusobjectRefCreate(proxy: AlljoynProxybusobject): AlljoynProxybusobjectRef =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRefCreate(proxy.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_proxybusobject_ref_decref(ref: alljoyn_proxybusobject_ref) {
+public actual fun alljoynProxybusobjectRefDecref(ref: AlljoynProxybusobjectRef) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_ref_decref(ref.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRefDecref(ref.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_proxybusobject_ref_get(ref: alljoyn_proxybusobject_ref): alljoyn_proxybusobject =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_ref_get(ref.toString()) as String).toLong() else 0L
+public actual fun alljoynProxybusobjectRefGet(ref: AlljoynProxybusobjectRef): AlljoynProxybusobject =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRefGet(ref.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_proxybusobject_ref_incref(ref: alljoyn_proxybusobject_ref) {
+public actual fun alljoynProxybusobjectRefIncref(ref: AlljoynProxybusobjectRef) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_ref_incref(ref.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRefIncref(ref.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_proxybusobject_registerpropertieschangedlistener(proxyobj: alljoyn_proxybusobject, iface: PCSTR, properties: Long, numproperties: ULong, callback: alljoyn_proxybusobject_listener_propertieschanged_ptr, context: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_registerpropertieschangedlistener(proxyobj.toString(), iface.toString(), properties.toString(), numproperties.toString(), callback.toLong().toString(), context.toString()) as Int) else 0
+public actual fun alljoynProxybusobjectRegisterpropertieschangedlistener(proxyobj: AlljoynProxybusobject, iface: Pcstr, properties: COpaquePointer?, numproperties: ULong, callback: AlljoynProxybusobjectListenerPropertieschangedPtr, context: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRegisterpropertieschangedlistener(proxyobj.toString(), (iface?.value ?: 0L).toString(), (properties?.value ?: 0L).toString(), numproperties.toString(), 0L.toString(), (context?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_proxybusobject_removechild(proxyobj: alljoyn_proxybusobject, path: PCSTR): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_removechild(proxyobj.toString(), path.toString()) as Int) else 0
+public actual fun alljoynProxybusobjectRemovechild(proxyobj: AlljoynProxybusobject, path: Pcstr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectRemovechild(proxyobj.toString(), (path?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_proxybusobject_secureconnection(proxyobj: alljoyn_proxybusobject, forceauth: Int): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_secureconnection(proxyobj.toString(), forceauth) as Int) else 0
+public actual fun alljoynProxybusobjectSecureconnection(proxyobj: AlljoynProxybusobject, forceauth: Int): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectSecureconnection(proxyobj.toString(), forceauth) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_proxybusobject_secureconnectionasync(proxyobj: alljoyn_proxybusobject, forceauth: Int): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_secureconnectionasync(proxyobj.toString(), forceauth) as Int) else 0
+public actual fun alljoynProxybusobjectSecureconnectionasync(proxyobj: AlljoynProxybusobject, forceauth: Int): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectSecureconnectionasync(proxyobj.toString(), forceauth) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_proxybusobject_setproperty(proxyobj: alljoyn_proxybusobject, iface: PCSTR, property: PCSTR, value: alljoyn_msgarg): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_setproperty(proxyobj.toString(), iface.toString(), property.toString(), value.toString()) as Int) else 0
+public actual fun alljoynProxybusobjectSetproperty(proxyobj: AlljoynProxybusobject, iface: Pcstr, property: Pcstr, value: AlljoynMsgarg): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectSetproperty(proxyobj.toString(), (iface?.value ?: 0L).toString(), (property?.value ?: 0L).toString(), value.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_proxybusobject_setpropertyasync(proxyobj: alljoyn_proxybusobject, iface: PCSTR, property: PCSTR, value: alljoyn_msgarg, callback: alljoyn_proxybusobject_listener_setpropertycb_ptr, timeout: UInt, context: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_setpropertyasync(proxyobj.toString(), iface.toString(), property.toString(), value.toString(), callback.toLong().toString(), timeout.toInt(), context.toString()) as Int) else 0
+public actual fun alljoynProxybusobjectSetpropertyasync(proxyobj: AlljoynProxybusobject, iface: Pcstr, property: Pcstr, value: AlljoynMsgarg, callback: AlljoynProxybusobjectListenerSetpropertycbPtr, timeout: UInt, context: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectSetpropertyasync(proxyobj.toString(), (iface?.value ?: 0L).toString(), (property?.value ?: 0L).toString(), value.toString(), 0L.toString(), timeout.toInt(), (context?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_proxybusobject_unregisterpropertieschangedlistener(proxyobj: alljoyn_proxybusobject, iface: PCSTR, callback: alljoyn_proxybusobject_listener_propertieschanged_ptr): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_proxybusobject_unregisterpropertieschangedlistener(proxyobj.toString(), iface.toString(), callback.toLong().toString()) as Int) else 0
+public actual fun alljoynProxybusobjectUnregisterpropertieschangedlistener(proxyobj: AlljoynProxybusobject, iface: Pcstr, callback: AlljoynProxybusobjectListenerPropertieschangedPtr): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjectUnregisterpropertieschangedlistener(proxyobj.toString(), (iface?.value ?: 0L).toString(), 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_routerinit(): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_routerinit() as Int) else 0
+public actual fun alljoynRouterinit(): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynRouterinit() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_routerinitwithconfig(configxml: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_routerinitwithconfig(configxml.toString()) as Int) else 0
+public actual fun alljoynRouterinitwithconfig(configxml: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynRouterinitwithconfig((configxml?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_routershutdown(): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_routershutdown() as Int) else 0
+public actual fun alljoynRoutershutdown(): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynRoutershutdown() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_securityapplicationproxy_claim(proxy: alljoyn_securityapplicationproxy, cakey: Long, identitycertificatechain: Long, groupid: Long, groupsize: ULong, groupauthority: Long, manifestsxmls: Long, manifestscount: ULong): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_claim(proxy.toString(), cakey.toString(), identitycertificatechain.toString(), groupid.toString(), groupsize.toString(), groupauthority.toString(), manifestsxmls.toString(), manifestscount.toString()) as Int) else 0
+public actual fun alljoynSecurityapplicationproxyClaim(proxy: AlljoynSecurityapplicationproxy, cakey: COpaquePointer?, identitycertificatechain: COpaquePointer?, groupid: COpaquePointer?, groupsize: ULong, groupauthority: COpaquePointer?, manifestsxmls: COpaquePointer?, manifestscount: ULong): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyClaim(proxy.toString(), (cakey?.value ?: 0L).toString(), (identitycertificatechain?.value ?: 0L).toString(), (groupid?.value ?: 0L).toString(), groupsize.toString(), (groupauthority?.value ?: 0L).toString(), (manifestsxmls?.value ?: 0L).toString(), manifestscount.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_securityapplicationproxy_computemanifestdigest(unsignedmanifestxml: Long, identitycertificatepem: Long, digest: Long, digestsize: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_computemanifestdigest(unsignedmanifestxml.toString(), identitycertificatepem.toString(), digest.toString(), digestsize.toString()) as Int) else 0
+public actual fun alljoynSecurityapplicationproxyComputemanifestdigest(unsignedmanifestxml: COpaquePointer?, identitycertificatepem: COpaquePointer?, digest: COpaquePointer?, digestsize: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyComputemanifestdigest((unsignedmanifestxml?.value ?: 0L).toString(), (identitycertificatepem?.value ?: 0L).toString(), (digest?.value ?: 0L).toString(), (digestsize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_securityapplicationproxy_create(bus: alljoyn_busattachment, appbusname: Long, sessionid: UInt): alljoyn_securityapplicationproxy =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_create(bus.toString(), appbusname.toString(), sessionid.toInt()) as String).toLong() else 0L
+public actual fun alljoynSecurityapplicationproxyCreate(bus: AlljoynBusattachment, appbusname: COpaquePointer?, sessionid: UInt): AlljoynSecurityapplicationproxy =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyCreate(bus.toString(), (appbusname?.value ?: 0L).toString(), sessionid.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_securityapplicationproxy_destroy(proxy: alljoyn_securityapplicationproxy) {
+public actual fun alljoynSecurityapplicationproxyDestroy(proxy: AlljoynSecurityapplicationproxy) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_destroy(proxy.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyDestroy(proxy.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_securityapplicationproxy_digest_destroy(digest: Long) {
+public actual fun alljoynSecurityapplicationproxyDigestDestroy(digest: COpaquePointer?) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_digest_destroy(digest.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyDigestDestroy((digest?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_securityapplicationproxy_eccpublickey_destroy(eccpublickey: Long) {
+public actual fun alljoynSecurityapplicationproxyEccpublickeyDestroy(eccpublickey: COpaquePointer?) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_eccpublickey_destroy(eccpublickey.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyEccpublickeyDestroy((eccpublickey?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_securityapplicationproxy_endmanagement(proxy: alljoyn_securityapplicationproxy): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_endmanagement(proxy.toString()) as Int) else 0
+public actual fun alljoynSecurityapplicationproxyEndmanagement(proxy: AlljoynSecurityapplicationproxy): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyEndmanagement(proxy.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_securityapplicationproxy_getapplicationstate(proxy: alljoyn_securityapplicationproxy, applicationstate: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_getapplicationstate(proxy.toString(), applicationstate.toString()) as Int) else 0
+public actual fun alljoynSecurityapplicationproxyGetapplicationstate(proxy: AlljoynSecurityapplicationproxy, applicationstate: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetapplicationstate(proxy.toString(), (applicationstate?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_securityapplicationproxy_getclaimcapabilities(proxy: alljoyn_securityapplicationproxy, capabilities: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_getclaimcapabilities(proxy.toString(), capabilities.toString()) as Int) else 0
+public actual fun alljoynSecurityapplicationproxyGetclaimcapabilities(proxy: AlljoynSecurityapplicationproxy, capabilities: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetclaimcapabilities(proxy.toString(), (capabilities?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_securityapplicationproxy_getclaimcapabilitiesadditionalinfo(proxy: alljoyn_securityapplicationproxy, additionalinfo: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_getclaimcapabilitiesadditionalinfo(proxy.toString(), additionalinfo.toString()) as Int) else 0
+public actual fun alljoynSecurityapplicationproxyGetclaimcapabilitiesadditionalinfo(proxy: AlljoynSecurityapplicationproxy, additionalinfo: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetclaimcapabilitiesadditionalinfo(proxy.toString(), (additionalinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_securityapplicationproxy_getdefaultpolicy(proxy: alljoyn_securityapplicationproxy, policyxml: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_getdefaultpolicy(proxy.toString(), policyxml.toString()) as Int) else 0
+public actual fun alljoynSecurityapplicationproxyGetdefaultpolicy(proxy: AlljoynSecurityapplicationproxy, policyxml: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetdefaultpolicy(proxy.toString(), (policyxml?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_securityapplicationproxy_geteccpublickey(proxy: alljoyn_securityapplicationproxy, eccpublickey: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_geteccpublickey(proxy.toString(), eccpublickey.toString()) as Int) else 0
+public actual fun alljoynSecurityapplicationproxyGeteccpublickey(proxy: AlljoynSecurityapplicationproxy, eccpublickey: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGeteccpublickey(proxy.toString(), (eccpublickey?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_securityapplicationproxy_getmanifesttemplate(proxy: alljoyn_securityapplicationproxy, manifesttemplatexml: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_getmanifesttemplate(proxy.toString(), manifesttemplatexml.toString()) as Int) else 0
+public actual fun alljoynSecurityapplicationproxyGetmanifesttemplate(proxy: AlljoynSecurityapplicationproxy, manifesttemplatexml: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetmanifesttemplate(proxy.toString(), (manifesttemplatexml?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_securityapplicationproxy_getpermissionmanagementsessionport(): UShort =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_getpermissionmanagementsessionport() as Int).toUShort() else 0u
+public actual fun alljoynSecurityapplicationproxyGetpermissionmanagementsessionport(): UShort =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetpermissionmanagementsessionport() as Int).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_securityapplicationproxy_getpolicy(proxy: alljoyn_securityapplicationproxy, policyxml: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_getpolicy(proxy.toString(), policyxml.toString()) as Int) else 0
+public actual fun alljoynSecurityapplicationproxyGetpolicy(proxy: AlljoynSecurityapplicationproxy, policyxml: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyGetpolicy(proxy.toString(), (policyxml?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_securityapplicationproxy_installmembership(proxy: alljoyn_securityapplicationproxy, membershipcertificatechain: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_installmembership(proxy.toString(), membershipcertificatechain.toString()) as Int) else 0
+public actual fun alljoynSecurityapplicationproxyInstallmembership(proxy: AlljoynSecurityapplicationproxy, membershipcertificatechain: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyInstallmembership(proxy.toString(), (membershipcertificatechain?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_securityapplicationproxy_manifest_destroy(signedmanifestxml: Long) {
+public actual fun alljoynSecurityapplicationproxyManifestDestroy(signedmanifestxml: COpaquePointer?) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_manifest_destroy(signedmanifestxml.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyManifestDestroy((signedmanifestxml?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_securityapplicationproxy_manifesttemplate_destroy(manifesttemplatexml: Long) {
+public actual fun alljoynSecurityapplicationproxyManifesttemplateDestroy(manifesttemplatexml: COpaquePointer?) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_manifesttemplate_destroy(manifesttemplatexml.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyManifesttemplateDestroy((manifesttemplatexml?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_securityapplicationproxy_policy_destroy(policyxml: Long) {
+public actual fun alljoynSecurityapplicationproxyPolicyDestroy(policyxml: COpaquePointer?) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_policy_destroy(policyxml.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyPolicyDestroy((policyxml?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_securityapplicationproxy_reset(proxy: alljoyn_securityapplicationproxy): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_reset(proxy.toString()) as Int) else 0
+public actual fun alljoynSecurityapplicationproxyReset(proxy: AlljoynSecurityapplicationproxy): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyReset(proxy.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_securityapplicationproxy_resetpolicy(proxy: alljoyn_securityapplicationproxy): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_resetpolicy(proxy.toString()) as Int) else 0
+public actual fun alljoynSecurityapplicationproxyResetpolicy(proxy: AlljoynSecurityapplicationproxy): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyResetpolicy(proxy.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_securityapplicationproxy_setmanifestsignature(unsignedmanifestxml: Long, identitycertificatepem: Long, signature: Long, signaturesize: ULong, signedmanifestxml: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_setmanifestsignature(unsignedmanifestxml.toString(), identitycertificatepem.toString(), signature.toString(), signaturesize.toString(), signedmanifestxml.toString()) as Int) else 0
+public actual fun alljoynSecurityapplicationproxySetmanifestsignature(unsignedmanifestxml: COpaquePointer?, identitycertificatepem: COpaquePointer?, signature: COpaquePointer?, signaturesize: ULong, signedmanifestxml: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxySetmanifestsignature((unsignedmanifestxml?.value ?: 0L).toString(), (identitycertificatepem?.value ?: 0L).toString(), (signature?.value ?: 0L).toString(), signaturesize.toString(), (signedmanifestxml?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_securityapplicationproxy_signmanifest(unsignedmanifestxml: Long, identitycertificatepem: Long, signingprivatekeypem: Long, signedmanifestxml: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_signmanifest(unsignedmanifestxml.toString(), identitycertificatepem.toString(), signingprivatekeypem.toString(), signedmanifestxml.toString()) as Int) else 0
+public actual fun alljoynSecurityapplicationproxySignmanifest(unsignedmanifestxml: COpaquePointer?, identitycertificatepem: COpaquePointer?, signingprivatekeypem: COpaquePointer?, signedmanifestxml: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxySignmanifest((unsignedmanifestxml?.value ?: 0L).toString(), (identitycertificatepem?.value ?: 0L).toString(), (signingprivatekeypem?.value ?: 0L).toString(), (signedmanifestxml?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_securityapplicationproxy_startmanagement(proxy: alljoyn_securityapplicationproxy): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_startmanagement(proxy.toString()) as Int) else 0
+public actual fun alljoynSecurityapplicationproxyStartmanagement(proxy: AlljoynSecurityapplicationproxy): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyStartmanagement(proxy.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_securityapplicationproxy_updateidentity(proxy: alljoyn_securityapplicationproxy, identitycertificatechain: Long, manifestsxmls: Long, manifestscount: ULong): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_updateidentity(proxy.toString(), identitycertificatechain.toString(), manifestsxmls.toString(), manifestscount.toString()) as Int) else 0
+public actual fun alljoynSecurityapplicationproxyUpdateidentity(proxy: AlljoynSecurityapplicationproxy, identitycertificatechain: COpaquePointer?, manifestsxmls: COpaquePointer?, manifestscount: ULong): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyUpdateidentity(proxy.toString(), (identitycertificatechain?.value ?: 0L).toString(), (manifestsxmls?.value ?: 0L).toString(), manifestscount.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_securityapplicationproxy_updatepolicy(proxy: alljoyn_securityapplicationproxy, policyxml: Long): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_securityapplicationproxy_updatepolicy(proxy.toString(), policyxml.toString()) as Int) else 0
+public actual fun alljoynSecurityapplicationproxyUpdatepolicy(proxy: AlljoynSecurityapplicationproxy, policyxml: COpaquePointer?): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSecurityapplicationproxyUpdatepolicy(proxy.toString(), (policyxml?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_sessionlistener_create(callbacks: Long, context: Long): alljoyn_sessionlistener =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_sessionlistener_create(callbacks.toString(), context.toString()) as String).toLong() else 0L
+public actual fun alljoynSessionlistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynSessionlistener =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSessionlistenerCreate((callbacks?.value ?: 0L).toString(), (context?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_sessionlistener_destroy(listener: alljoyn_sessionlistener) {
+public actual fun alljoynSessionlistenerDestroy(listener: AlljoynSessionlistener) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_sessionlistener_destroy(listener.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSessionlistenerDestroy(listener.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_sessionopts_cmp(one: alljoyn_sessionopts, other: alljoyn_sessionopts): Int =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_cmp(one.toString(), other.toString()) as Int) else 0
+public actual fun alljoynSessionoptsCmp(one: AlljoynSessionopts, other: AlljoynSessionopts): Int =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsCmp(one.toString(), other.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_sessionopts_create(traffic: UByte, ismultipoint: Int, proximity: UByte, transports: UShort): alljoyn_sessionopts =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_create(traffic.toInt(), ismultipoint, proximity.toInt(), transports.toInt()) as String).toLong() else 0L
+public actual fun alljoynSessionoptsCreate(traffic: UByte, ismultipoint: Int, proximity: UByte, transports: UShort): AlljoynSessionopts =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsCreate(traffic.toInt(), ismultipoint, proximity.toInt(), transports.toInt()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_sessionopts_destroy(opts: alljoyn_sessionopts) {
+public actual fun alljoynSessionoptsDestroy(opts: AlljoynSessionopts) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_destroy(opts.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsDestroy(opts.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_sessionopts_get_multipoint(opts: alljoyn_sessionopts): Int =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_get_multipoint(opts.toString()) as Int) else 0
+public actual fun alljoynSessionoptsGetMultipoint(opts: AlljoynSessionopts): Int =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGetMultipoint(opts.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_sessionopts_get_proximity(opts: alljoyn_sessionopts): UByte =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_get_proximity(opts.toString()) as Int).toUByte() else 0u
+public actual fun alljoynSessionoptsGetProximity(opts: AlljoynSessionopts): UByte =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGetProximity(opts.toString()) as Int).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_sessionopts_get_traffic(opts: alljoyn_sessionopts): UByte =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_get_traffic(opts.toString()) as Int).toUByte() else 0u
+public actual fun alljoynSessionoptsGetTraffic(opts: AlljoynSessionopts): UByte =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGetTraffic(opts.toString()) as Int).toUByte() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_sessionopts_get_transports(opts: alljoyn_sessionopts): UShort =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_get_transports(opts.toString()) as Int).toUShort() else 0u
+public actual fun alljoynSessionoptsGetTransports(opts: AlljoynSessionopts): UShort =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGetTransports(opts.toString()) as Int).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_sessionopts_iscompatible(one: alljoyn_sessionopts, other: alljoyn_sessionopts): Int =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_iscompatible(one.toString(), other.toString()) as Int) else 0
+public actual fun alljoynSessionoptsIscompatible(one: AlljoynSessionopts, other: AlljoynSessionopts): Int =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsIscompatible(one.toString(), other.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_sessionopts_set_multipoint(opts: alljoyn_sessionopts, ismultipoint: Int) {
+public actual fun alljoynSessionoptsSetMultipoint(opts: AlljoynSessionopts, ismultipoint: Int) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_set_multipoint(opts.toString(), ismultipoint)
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSetMultipoint(opts.toString(), ismultipoint)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_sessionopts_set_proximity(opts: alljoyn_sessionopts, proximity: UByte) {
+public actual fun alljoynSessionoptsSetProximity(opts: AlljoynSessionopts, proximity: UByte) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_set_proximity(opts.toString(), proximity.toInt())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSetProximity(opts.toString(), proximity.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_sessionopts_set_traffic(opts: alljoyn_sessionopts, traffic: UByte) {
+public actual fun alljoynSessionoptsSetTraffic(opts: AlljoynSessionopts, traffic: UByte) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_set_traffic(opts.toString(), traffic.toInt())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSetTraffic(opts.toString(), traffic.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_sessionopts_set_transports(opts: alljoyn_sessionopts, transports: UShort) {
+public actual fun alljoynSessionoptsSetTransports(opts: AlljoynSessionopts, transports: UShort) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_sessionopts_set_transports(opts.toString(), transports.toInt())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSetTransports(opts.toString(), transports.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_sessionportlistener_create(callbacks: Long, context: Long): alljoyn_sessionportlistener =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_sessionportlistener_create(callbacks.toString(), context.toString()) as String).toLong() else 0L
+public actual fun alljoynSessionportlistenerCreate(callbacks: COpaquePointer?, context: COpaquePointer?): AlljoynSessionportlistener =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSessionportlistenerCreate((callbacks?.value ?: 0L).toString(), (context?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_sessionportlistener_destroy(listener: alljoyn_sessionportlistener) {
+public actual fun alljoynSessionportlistenerDestroy(listener: AlljoynSessionportlistener) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_sessionportlistener_destroy(listener.toString())
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynSessionportlistenerDestroy(listener.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun alljoyn_shutdown(): QStatus =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_shutdown() as Int) else 0
+public actual fun alljoynShutdown(): QStatus =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynShutdown() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_unity_deferred_callbacks_process(): Int =
-    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_unity_deferred_callbacks_process() as Int) else 0
+public actual fun alljoynUnityDeferredCallbacksProcess(): Int =
+    if (_windowsWin32DevicesAlljoynNapiAddon != null) (_windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynUnityDeferredCallbacksProcess() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun alljoyn_unity_set_deferred_callback_mainthread_only(mainthread_only: Int) {
+public actual fun alljoynUnitySetDeferredCallbackMainthreadOnly(mainthreadOnly: Int) {
     if (_windowsWin32DevicesAlljoynNapiAddon != null) {
-        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoyn_unity_set_deferred_callback_mainthread_only(mainthread_only)
+        _windowsWin32DevicesAlljoynNapiAddon.windowssys_windows_win32_devices_alljoyn_alljoynUnitySetDeferredCallbackMainthreadOnly(mainthreadOnly)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }

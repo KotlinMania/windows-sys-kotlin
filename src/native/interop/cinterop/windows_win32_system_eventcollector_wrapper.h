@@ -9,21 +9,21 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_win32_system_eventcollector_EcClose(int64_t object);
-int32_t windowssys_windows_win32_system_eventcollector_EcDeleteSubscription(void* subscriptionname, uint32_t flags);
-int32_t windowssys_windows_win32_system_eventcollector_EcEnumNextSubscription(int64_t subscriptionenum, uint32_t subscriptionnamebuffersize, void* subscriptionnamebuffer, void* subscriptionnamebufferused);
-int32_t windowssys_windows_win32_system_eventcollector_EcGetObjectArrayProperty(int64_t objectarray, int32_t propertyid, uint32_t arrayindex, uint32_t flags, uint32_t propertyvaluebuffersize, void* propertyvaluebuffer, void* propertyvaluebufferused);
-int32_t windowssys_windows_win32_system_eventcollector_EcGetObjectArraySize(int64_t objectarray, void* objectarraysize);
-int32_t windowssys_windows_win32_system_eventcollector_EcGetSubscriptionProperty(int64_t subscription, int32_t propertyid, uint32_t flags, uint32_t propertyvaluebuffersize, void* propertyvaluebuffer, void* propertyvaluebufferused);
-int32_t windowssys_windows_win32_system_eventcollector_EcGetSubscriptionRunTimeStatus(void* subscriptionname, int32_t statusinfoid, void* eventsourcename, uint32_t flags, uint32_t statusvaluebuffersize, void* statusvaluebuffer, void* statusvaluebufferused);
-int32_t windowssys_windows_win32_system_eventcollector_EcInsertObjectArrayElement(int64_t objectarray, uint32_t arrayindex);
-int64_t windowssys_windows_win32_system_eventcollector_EcOpenSubscription(void* subscriptionname, uint32_t accessmask, uint32_t flags);
-int64_t windowssys_windows_win32_system_eventcollector_EcOpenSubscriptionEnum(uint32_t flags);
-int32_t windowssys_windows_win32_system_eventcollector_EcRemoveObjectArrayElement(int64_t objectarray, uint32_t arrayindex);
-int32_t windowssys_windows_win32_system_eventcollector_EcRetrySubscription(void* subscriptionname, void* eventsourcename, uint32_t flags);
-int32_t windowssys_windows_win32_system_eventcollector_EcSaveSubscription(int64_t subscription, uint32_t flags);
-int32_t windowssys_windows_win32_system_eventcollector_EcSetObjectArrayProperty(int64_t objectarray, int32_t propertyid, uint32_t arrayindex, uint32_t flags, void* propertyvalue);
-int32_t windowssys_windows_win32_system_eventcollector_EcSetSubscriptionProperty(int64_t subscription, int32_t propertyid, uint32_t flags, void* propertyvalue);
+int32_t windowssys_windows_win32_system_eventcollector_ecClose(int64_t object);
+int32_t windowssys_windows_win32_system_eventcollector_ecDeleteSubscription(void* subscriptionname, uint32_t flags);
+int32_t windowssys_windows_win32_system_eventcollector_ecEnumNextSubscription(int64_t subscriptionenum, uint32_t subscriptionnamebuffersize, void* subscriptionnamebuffer, void* subscriptionnamebufferused);
+int32_t windowssys_windows_win32_system_eventcollector_ecGetObjectArrayProperty(int64_t objectarray, int32_t propertyid, uint32_t arrayindex, uint32_t flags, uint32_t propertyvaluebuffersize, void* propertyvaluebuffer, void* propertyvaluebufferused);
+int32_t windowssys_windows_win32_system_eventcollector_ecGetObjectArraySize(int64_t objectarray, void* objectarraysize);
+int32_t windowssys_windows_win32_system_eventcollector_ecGetSubscriptionProperty(int64_t subscription, int32_t propertyid, uint32_t flags, uint32_t propertyvaluebuffersize, void* propertyvaluebuffer, void* propertyvaluebufferused);
+int32_t windowssys_windows_win32_system_eventcollector_ecGetSubscriptionRunTimeStatus(void* subscriptionname, int32_t statusinfoid, void* eventsourcename, uint32_t flags, uint32_t statusvaluebuffersize, void* statusvaluebuffer, void* statusvaluebufferused);
+int32_t windowssys_windows_win32_system_eventcollector_ecInsertObjectArrayElement(int64_t objectarray, uint32_t arrayindex);
+int64_t windowssys_windows_win32_system_eventcollector_ecOpenSubscription(void* subscriptionname, uint32_t accessmask, uint32_t flags);
+int64_t windowssys_windows_win32_system_eventcollector_ecOpenSubscriptionEnum(uint32_t flags);
+int32_t windowssys_windows_win32_system_eventcollector_ecRemoveObjectArrayElement(int64_t objectarray, uint32_t arrayindex);
+int32_t windowssys_windows_win32_system_eventcollector_ecRetrySubscription(void* subscriptionname, void* eventsourcename, uint32_t flags);
+int32_t windowssys_windows_win32_system_eventcollector_ecSaveSubscription(int64_t subscription, uint32_t flags);
+int32_t windowssys_windows_win32_system_eventcollector_ecSetObjectArrayProperty(int64_t objectarray, int32_t propertyid, uint32_t arrayindex, uint32_t flags, void* propertyvalue);
+int32_t windowssys_windows_win32_system_eventcollector_ecSetSubscriptionProperty(int64_t subscription, int32_t propertyid, uint32_t flags, void* propertyvalue);
 
 #ifdef __cplusplus
 }

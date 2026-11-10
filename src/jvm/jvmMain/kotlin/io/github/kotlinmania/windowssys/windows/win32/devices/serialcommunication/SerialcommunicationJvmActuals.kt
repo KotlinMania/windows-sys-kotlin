@@ -2,7 +2,8 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.serialcommunication
 
-import io.github.kotlinmania.windowssys.core.BOOL
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
 
 private object WindowsWin32DevicesSerialcommunicationJniBridge {
     init {
@@ -10,44 +11,44 @@ private object WindowsWin32DevicesSerialcommunicationJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_serialcommunication_ComDBClaimNextFreePort(hcomdb: Long, comnumber: Long): Int
+    external fun windowssys_windows_win32_devices_serialcommunication_comDBClaimNextFreePort(hcomdb: Long, comnumber: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_serialcommunication_ComDBClaimPort(hcomdb: Long, comnumber: Int, forceclaim: Int, forced: Long): Int
+    external fun windowssys_windows_win32_devices_serialcommunication_comDBClaimPort(hcomdb: Long, comnumber: Int, forceclaim: Int, forced: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_serialcommunication_ComDBClose(hcomdb: Long): Int
+    external fun windowssys_windows_win32_devices_serialcommunication_comDBClose(hcomdb: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_serialcommunication_ComDBGetCurrentPortUsage(hcomdb: Long, buffer: Long, buffersize: Int, reporttype: Int, maxportsreported: Long): Int
+    external fun windowssys_windows_win32_devices_serialcommunication_comDBGetCurrentPortUsage(hcomdb: Long, buffer: Long, buffersize: Int, reporttype: Int, maxportsreported: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_serialcommunication_ComDBOpen(phcomdb: Long): Int
+    external fun windowssys_windows_win32_devices_serialcommunication_comDBOpen(phcomdb: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_serialcommunication_ComDBReleasePort(hcomdb: Long, comnumber: Int): Int
+    external fun windowssys_windows_win32_devices_serialcommunication_comDBReleasePort(hcomdb: Long, comnumber: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_serialcommunication_ComDBResizeDatabase(hcomdb: Long, newsize: Int): Int
+    external fun windowssys_windows_win32_devices_serialcommunication_comDBResizeDatabase(hcomdb: Long, newsize: Int): Int
 }
 
-public actual fun ComDBClaimNextFreePort(hcomdb: HCOMDB, comnumber: Long): Int =
-    WindowsWin32DevicesSerialcommunicationJniBridge.windowssys_windows_win32_devices_serialcommunication_ComDBClaimNextFreePort(hcomdb, comnumber)
+public actual fun comDBClaimNextFreePort(hcomdb: Hcomdb, comnumber: COpaquePointer?): Int =
+    WindowsWin32DevicesSerialcommunicationJniBridge.windowssys_windows_win32_devices_serialcommunication_comDBClaimNextFreePort((hcomdb?.value ?: 0L), (comnumber?.value ?: 0L))
 
-public actual fun ComDBClaimPort(hcomdb: HCOMDB, comnumber: UInt, forceclaim: BOOL, forced: Long): Int =
-    WindowsWin32DevicesSerialcommunicationJniBridge.windowssys_windows_win32_devices_serialcommunication_ComDBClaimPort(hcomdb, comnumber.toInt(), forceclaim, forced)
+public actual fun comDBClaimPort(hcomdb: Hcomdb, comnumber: UInt, forceclaim: Bool, forced: COpaquePointer?): Int =
+    WindowsWin32DevicesSerialcommunicationJniBridge.windowssys_windows_win32_devices_serialcommunication_comDBClaimPort((hcomdb?.value ?: 0L), comnumber.toInt(), forceclaim, (forced?.value ?: 0L))
 
-public actual fun ComDBClose(hcomdb: HCOMDB): Int =
-    WindowsWin32DevicesSerialcommunicationJniBridge.windowssys_windows_win32_devices_serialcommunication_ComDBClose(hcomdb)
+public actual fun comDBClose(hcomdb: Hcomdb): Int =
+    WindowsWin32DevicesSerialcommunicationJniBridge.windowssys_windows_win32_devices_serialcommunication_comDBClose((hcomdb?.value ?: 0L))
 
-public actual fun ComDBGetCurrentPortUsage(hcomdb: HCOMDB, buffer: Long, buffersize: UInt, reporttype: UInt, maxportsreported: Long): Int =
-    WindowsWin32DevicesSerialcommunicationJniBridge.windowssys_windows_win32_devices_serialcommunication_ComDBGetCurrentPortUsage(hcomdb, buffer, buffersize.toInt(), reporttype.toInt(), maxportsreported)
+public actual fun comDBGetCurrentPortUsage(hcomdb: Hcomdb, buffer: COpaquePointer?, buffersize: UInt, reporttype: UInt, maxportsreported: COpaquePointer?): Int =
+    WindowsWin32DevicesSerialcommunicationJniBridge.windowssys_windows_win32_devices_serialcommunication_comDBGetCurrentPortUsage((hcomdb?.value ?: 0L), (buffer?.value ?: 0L), buffersize.toInt(), reporttype.toInt(), (maxportsreported?.value ?: 0L))
 
-public actual fun ComDBOpen(phcomdb: Long): Int =
-    WindowsWin32DevicesSerialcommunicationJniBridge.windowssys_windows_win32_devices_serialcommunication_ComDBOpen(phcomdb)
+public actual fun comDBOpen(phcomdb: COpaquePointer?): Int =
+    WindowsWin32DevicesSerialcommunicationJniBridge.windowssys_windows_win32_devices_serialcommunication_comDBOpen((phcomdb?.value ?: 0L))
 
-public actual fun ComDBReleasePort(hcomdb: HCOMDB, comnumber: UInt): Int =
-    WindowsWin32DevicesSerialcommunicationJniBridge.windowssys_windows_win32_devices_serialcommunication_ComDBReleasePort(hcomdb, comnumber.toInt())
+public actual fun comDBReleasePort(hcomdb: Hcomdb, comnumber: UInt): Int =
+    WindowsWin32DevicesSerialcommunicationJniBridge.windowssys_windows_win32_devices_serialcommunication_comDBReleasePort((hcomdb?.value ?: 0L), comnumber.toInt())
 
-public actual fun ComDBResizeDatabase(hcomdb: HCOMDB, newsize: UInt): Int =
-    WindowsWin32DevicesSerialcommunicationJniBridge.windowssys_windows_win32_devices_serialcommunication_ComDBResizeDatabase(hcomdb, newsize.toInt())
+public actual fun comDBResizeDatabase(hcomdb: Hcomdb, newsize: UInt): Int =
+    WindowsWin32DevicesSerialcommunicationJniBridge.windowssys_windows_win32_devices_serialcommunication_comDBResizeDatabase((hcomdb?.value ?: 0L), newsize.toInt())

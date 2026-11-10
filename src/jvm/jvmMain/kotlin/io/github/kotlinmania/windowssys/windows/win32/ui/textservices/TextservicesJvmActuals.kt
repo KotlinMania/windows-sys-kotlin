@@ -2,9 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.textservices
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
 private object WindowsWin32UiTextservicesJniBridge {
     init {
@@ -12,20 +12,20 @@ private object WindowsWin32UiTextservicesJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_textservices_DoMsCtfMonitor(dwflags: Int, heventforservicestop: Long): Int
+    external fun windowssys_windows_win32_ui_textservices_doMsCtfMonitor(dwflags: Int, heventforservicestop: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_textservices_InitLocalMsCtfMonitor(dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_textservices_initLocalMsCtfMonitor(dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_textservices_UninitLocalMsCtfMonitor(): Int
+    external fun windowssys_windows_win32_ui_textservices_uninitLocalMsCtfMonitor(): Int
 }
 
-public actual fun DoMsCtfMonitor(dwflags: UInt, heventforservicestop: HANDLE): BOOL =
-    WindowsWin32UiTextservicesJniBridge.windowssys_windows_win32_ui_textservices_DoMsCtfMonitor(dwflags.toInt(), heventforservicestop)
+public actual fun doMsCtfMonitor(dwflags: UInt, heventforservicestop: Handle): Bool =
+    WindowsWin32UiTextservicesJniBridge.windowssys_windows_win32_ui_textservices_doMsCtfMonitor(dwflags.toInt(), (heventforservicestop?.value ?: 0L))
 
-public actual fun InitLocalMsCtfMonitor(dwflags: UInt): HRESULT =
-    WindowsWin32UiTextservicesJniBridge.windowssys_windows_win32_ui_textservices_InitLocalMsCtfMonitor(dwflags.toInt())
+public actual fun initLocalMsCtfMonitor(dwflags: UInt): Hresult =
+    WindowsWin32UiTextservicesJniBridge.windowssys_windows_win32_ui_textservices_initLocalMsCtfMonitor(dwflags.toInt())
 
-public actual fun UninitLocalMsCtfMonitor(): HRESULT =
-    WindowsWin32UiTextservicesJniBridge.windowssys_windows_win32_ui_textservices_UninitLocalMsCtfMonitor()
+public actual fun uninitLocalMsCtfMonitor(): Hresult =
+    WindowsWin32UiTextservicesJniBridge.windowssys_windows_win32_ui_textservices_uninitLocalMsCtfMonitor()

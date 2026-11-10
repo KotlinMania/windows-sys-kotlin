@@ -1,121 +1,122 @@
 package io.github.kotlinmania.windowssys.windows.win32.networking.wininet
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 
-public typealias APP_CACHE_FINALIZE_STATE = Int
+public typealias AppCacheFinalizeState = Int
 
-public typealias APP_CACHE_STATE = Int
+public typealias AppCacheState = Int
 
-public typealias CACHE_CONFIG = UInt
+public typealias CacheConfig = UInt
 
-public fun interface CACHE_OPERATORFn {
-    public operator fun invoke(pcei: Long, pcbcei: Long, popdata: Long): BOOL
+public fun interface CacheOperatorFn {
+    public operator fun invoke(pcei: COpaquePointer?, pcbcei: COpaquePointer?, popdata: COpaquePointer?): Bool
 }
 
-public typealias CACHE_OPERATOR = CACHE_OPERATORFn?
+public typealias CacheOperator = CacheOperatorFn?
 
-public typealias FORTCMD = Int
+public typealias Fortcmd = Int
 
-public typealias FORTSTAT = Int
+public typealias Fortstat = Int
 
-public typealias FTP_FLAGS = UInt
+public typealias FtpFlags = UInt
 
-public fun interface GOPHER_ATTRIBUTE_ENUMERATORFn {
-    public operator fun invoke(lpattributeinfo: Long, dwerror: UInt): BOOL
+public fun interface GopherAttributeEnumeratorFn {
+    public operator fun invoke(lpattributeinfo: COpaquePointer?, dwerror: UInt): Bool
 }
 
-public typealias GOPHER_ATTRIBUTE_ENUMERATOR = GOPHER_ATTRIBUTE_ENUMERATORFn?
+public typealias GopherAttributeEnumerator = GopherAttributeEnumeratorFn?
 
-public typealias GOPHER_TYPE = UInt
+public typealias GopherType = UInt
 
-public typealias HTTP_ADDREQ_FLAG = UInt
+public typealias HttpAddreqFlag = UInt
 
-public fun interface HTTP_POLICY_EXTENSION_INITFn {
-    public operator fun invoke(version: HTTP_POLICY_EXTENSION_VERSION, type: HTTP_POLICY_EXTENSION_TYPE, pvdata: Long, cbdata: UInt): UInt
+public fun interface HttpPolicyExtensionInitFn {
+    public operator fun invoke(version: HttpPolicyExtensionVersion, type: HttpPolicyExtensionType, pvdata: COpaquePointer?, cbdata: UInt): UInt
 }
 
-public typealias HTTP_POLICY_EXTENSION_INIT = HTTP_POLICY_EXTENSION_INITFn?
+public typealias HttpPolicyExtensionInit = HttpPolicyExtensionInitFn?
 
-public fun interface HTTP_POLICY_EXTENSION_SHUTDOWNFn {
-    public operator fun invoke(type: HTTP_POLICY_EXTENSION_TYPE): UInt
+public fun interface HttpPolicyExtensionShutdownFn {
+    public operator fun invoke(type: HttpPolicyExtensionType): UInt
 }
 
-public typealias HTTP_POLICY_EXTENSION_SHUTDOWN = HTTP_POLICY_EXTENSION_SHUTDOWNFn?
+public typealias HttpPolicyExtensionShutdown = HttpPolicyExtensionShutdownFn?
 
-public typealias HTTP_POLICY_EXTENSION_TYPE = Int
+public typealias HttpPolicyExtensionType = Int
 
-public typealias HTTP_POLICY_EXTENSION_VERSION = Int
+public typealias HttpPolicyExtensionVersion = Int
 
-public typealias HTTP_PUSH_WAIT_HANDLE = Long
+public typealias HttpPushWaitHandle = COpaquePointer?
 
-public typealias HTTP_PUSH_WAIT_TYPE = Int
+public typealias HttpPushWaitType = Int
 
-public typealias HTTP_WEB_SOCKET_BUFFER_TYPE = Int
+public typealias HttpWebSocketBufferType = Int
 
-public typealias HTTP_WEB_SOCKET_CLOSE_STATUS = Int
+public typealias HttpWebSocketCloseStatus = Int
 
-public typealias HTTP_WEB_SOCKET_OPERATION = Int
+public typealias HttpWebSocketOperation = Int
 
-public typealias INTERNET_ACCESS_TYPE = UInt
+public typealias InternetAccessType = UInt
 
-public typealias INTERNET_AUTODIAL = UInt
+public typealias InternetAutodial = UInt
 
-public typealias INTERNET_CONNECTION = UInt
+public typealias InternetConnection = UInt
 
-public typealias INTERNET_COOKIE_FLAGS = UInt
+public typealias InternetCookieFlags = UInt
 
-public typealias INTERNET_PER_CONN = UInt
+public typealias InternetPerConn = UInt
 
-public typealias INTERNET_SCHEME = Int
+public typealias InternetScheme = Int
 
-public typealias INTERNET_STATE = UInt
+public typealias InternetState = UInt
 
 public typealias InternetCookieState = Int
 
-public fun interface LPINTERNET_STATUS_CALLBACKFn {
-    public operator fun invoke(hinternet: Long, dwcontext: ULong, dwinternetstatus: UInt, lpvstatusinformation: Long, dwstatusinformationlength: UInt)
+public fun interface LpinternetStatusCallbackFn {
+    public operator fun invoke(hinternet: COpaquePointer?, dwcontext: ULong, dwinternetstatus: UInt, lpvstatusinformation: COpaquePointer?, dwstatusinformationlength: UInt)
 }
 
-public typealias LPINTERNET_STATUS_CALLBACK = LPINTERNET_STATUS_CALLBACKFn?
+public typealias LpinternetStatusCallback = LpinternetStatusCallbackFn?
 
-public fun interface PFN_AUTH_NOTIFYFn {
-    public operator fun invoke(param0: ULong, param1: UInt, param2: Long): UInt
+public fun interface PfnAuthNotifyFn {
+    public operator fun invoke(param0: ULong, param1: UInt, param2: COpaquePointer?): UInt
 }
 
-public typealias PFN_AUTH_NOTIFY = PFN_AUTH_NOTIFYFn?
+public typealias PfnAuthNotify = PfnAuthNotifyFn?
 
-public fun interface PFN_DIAL_HANDLERFn {
-    public operator fun invoke(param0: HWND, param1: PCSTR, param2: UInt, param3: Long): UInt
+public fun interface PfnDialHandlerFn {
+    public operator fun invoke(param0: Hwnd, param1: Pcstr, param2: UInt, param3: COpaquePointer?): UInt
 }
 
-public typealias PFN_DIAL_HANDLER = PFN_DIAL_HANDLERFn?
+public typealias PfnDialHandler = PfnDialHandlerFn?
 
-public typealias PROXY_AUTO_DETECT_TYPE = UInt
+public typealias ProxyAutoDetectType = UInt
 
-public typealias REQUEST_TIMES = Int
+public typealias RequestTimes = Int
 
-public typealias URL_CACHE_LIMIT_TYPE = Int
+public typealias UrlCacheLimitType = Int
 
-public typealias WININET_SYNC_MODE = Int
+public typealias WininetSyncMode = Int
 
-public typealias WPAD_CACHE_DELETE = Int
+public typealias WpadCacheDelete = Int
 
-public fun interface pfnInternetDeInitializeAutoProxyDllFn {
-    public operator fun invoke(lpszmime: PCSTR, dwreserved: UInt): BOOL
+public fun interface PfnInternetDeInitializeAutoProxyDllFn {
+    public operator fun invoke(lpszmime: Pcstr, dwreserved: UInt): Bool
 }
 
-public typealias pfnInternetDeInitializeAutoProxyDll = pfnInternetDeInitializeAutoProxyDllFn?
+public typealias PfnInternetDeInitializeAutoProxyDll = PfnInternetDeInitializeAutoProxyDllFn?
 
-public fun interface pfnInternetGetProxyInfoFn {
-    public operator fun invoke(lpszurl: PCSTR, dwurllength: UInt, lpszurlhostname: PCSTR, dwurlhostnamelength: UInt, lplpszproxyhostname: Long, lpdwproxyhostnamelength: Long): BOOL
+public fun interface PfnInternetGetProxyInfoFn {
+    public operator fun invoke(lpszurl: Pcstr, dwurllength: UInt, lpszurlhostname: Pcstr, dwurlhostnamelength: UInt, lplpszproxyhostname: COpaquePointer?, lpdwproxyhostnamelength: COpaquePointer?): Bool
 }
 
-public typealias pfnInternetGetProxyInfo = pfnInternetGetProxyInfoFn?
+public typealias PfnInternetGetProxyInfo = PfnInternetGetProxyInfoFn?
 
-public fun interface pfnInternetInitializeAutoProxyDllFn {
-    public operator fun invoke(dwversion: UInt, lpszdownloadedtempfile: PCSTR, lpszmime: PCSTR, lpautoproxycallbacks: Long, lpautoproxyscriptbuffer: Long): BOOL
+public fun interface PfnInternetInitializeAutoProxyDllFn {
+    public operator fun invoke(dwversion: UInt, lpszdownloadedtempfile: Pcstr, lpszmime: Pcstr, lpautoproxycallbacks: COpaquePointer?, lpautoproxyscriptbuffer: COpaquePointer?): Bool
 }
 
-public typealias pfnInternetInitializeAutoProxyDll = pfnInternetInitializeAutoProxyDllFn?
+public typealias PfnInternetInitializeAutoProxyDll = PfnInternetInitializeAutoProxyDllFn?

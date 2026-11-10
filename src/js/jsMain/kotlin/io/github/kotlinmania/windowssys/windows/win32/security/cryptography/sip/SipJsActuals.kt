@@ -2,46 +2,47 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography.sip
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CERT_QUERY_ENCODING_TYPE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertQueryEncodingType
 
 private val _windowsWin32SecurityCryptographySipNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun CryptSIPAddProvider(psnewprov: Long): BOOL =
-    if (_windowsWin32SecurityCryptographySipNapiAddon != null) (_windowsWin32SecurityCryptographySipNapiAddon.windowssys_windows_win32_security_cryptography_sip_CryptSIPAddProvider(psnewprov.toString()) as Int) else 0
+public actual fun cryptSIPAddProvider(psnewprov: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographySipNapiAddon != null) (_windowsWin32SecurityCryptographySipNapiAddon.windowssys_windows_win32_security_cryptography_sip_cryptSIPAddProvider((psnewprov?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptSIPCreateIndirectData(psubjectinfo: Long, pcbindirectdata: Long, pindirectdata: Long): BOOL =
-    if (_windowsWin32SecurityCryptographySipNapiAddon != null) (_windowsWin32SecurityCryptographySipNapiAddon.windowssys_windows_win32_security_cryptography_sip_CryptSIPCreateIndirectData(psubjectinfo.toString(), pcbindirectdata.toString(), pindirectdata.toString()) as Int) else 0
+public actual fun cryptSIPCreateIndirectData(psubjectinfo: COpaquePointer?, pcbindirectdata: COpaquePointer?, pindirectdata: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographySipNapiAddon != null) (_windowsWin32SecurityCryptographySipNapiAddon.windowssys_windows_win32_security_cryptography_sip_cryptSIPCreateIndirectData((psubjectinfo?.value ?: 0L).toString(), (pcbindirectdata?.value ?: 0L).toString(), (pindirectdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptSIPGetCaps(psubjinfo: Long, pcaps: Long): BOOL =
-    if (_windowsWin32SecurityCryptographySipNapiAddon != null) (_windowsWin32SecurityCryptographySipNapiAddon.windowssys_windows_win32_security_cryptography_sip_CryptSIPGetCaps(psubjinfo.toString(), pcaps.toString()) as Int) else 0
+public actual fun cryptSIPGetCaps(psubjinfo: COpaquePointer?, pcaps: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographySipNapiAddon != null) (_windowsWin32SecurityCryptographySipNapiAddon.windowssys_windows_win32_security_cryptography_sip_cryptSIPGetCaps((psubjinfo?.value ?: 0L).toString(), (pcaps?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptSIPGetSealedDigest(psubjectinfo: Long, psig: Long, dwsig: UInt, pbdigest: Long, pcbdigest: Long): BOOL =
-    if (_windowsWin32SecurityCryptographySipNapiAddon != null) (_windowsWin32SecurityCryptographySipNapiAddon.windowssys_windows_win32_security_cryptography_sip_CryptSIPGetSealedDigest(psubjectinfo.toString(), psig.toString(), dwsig.toInt(), pbdigest.toString(), pcbdigest.toString()) as Int) else 0
+public actual fun cryptSIPGetSealedDigest(psubjectinfo: COpaquePointer?, psig: COpaquePointer?, dwsig: UInt, pbdigest: COpaquePointer?, pcbdigest: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographySipNapiAddon != null) (_windowsWin32SecurityCryptographySipNapiAddon.windowssys_windows_win32_security_cryptography_sip_cryptSIPGetSealedDigest((psubjectinfo?.value ?: 0L).toString(), (psig?.value ?: 0L).toString(), dwsig.toInt(), (pbdigest?.value ?: 0L).toString(), (pcbdigest?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptSIPGetSignedDataMsg(psubjectinfo: Long, pdwencodingtype: Long, dwindex: UInt, pcbsigneddatamsg: Long, pbsigneddatamsg: Long): BOOL =
-    if (_windowsWin32SecurityCryptographySipNapiAddon != null) (_windowsWin32SecurityCryptographySipNapiAddon.windowssys_windows_win32_security_cryptography_sip_CryptSIPGetSignedDataMsg(psubjectinfo.toString(), pdwencodingtype.toString(), dwindex.toInt(), pcbsigneddatamsg.toString(), pbsigneddatamsg.toString()) as Int) else 0
+public actual fun cryptSIPGetSignedDataMsg(psubjectinfo: COpaquePointer?, pdwencodingtype: COpaquePointer?, dwindex: UInt, pcbsigneddatamsg: COpaquePointer?, pbsigneddatamsg: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographySipNapiAddon != null) (_windowsWin32SecurityCryptographySipNapiAddon.windowssys_windows_win32_security_cryptography_sip_cryptSIPGetSignedDataMsg((psubjectinfo?.value ?: 0L).toString(), (pdwencodingtype?.value ?: 0L).toString(), dwindex.toInt(), (pcbsigneddatamsg?.value ?: 0L).toString(), (pbsigneddatamsg?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptSIPLoad(pgsubject: Long, dwflags: UInt, psipdispatch: Long): BOOL =
-    if (_windowsWin32SecurityCryptographySipNapiAddon != null) (_windowsWin32SecurityCryptographySipNapiAddon.windowssys_windows_win32_security_cryptography_sip_CryptSIPLoad(pgsubject.toString(), dwflags.toInt(), psipdispatch.toString()) as Int) else 0
+public actual fun cryptSIPLoad(pgsubject: COpaquePointer?, dwflags: UInt, psipdispatch: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographySipNapiAddon != null) (_windowsWin32SecurityCryptographySipNapiAddon.windowssys_windows_win32_security_cryptography_sip_cryptSIPLoad((pgsubject?.value ?: 0L).toString(), dwflags.toInt(), (psipdispatch?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptSIPPutSignedDataMsg(psubjectinfo: Long, dwencodingtype: CERT_QUERY_ENCODING_TYPE, pdwindex: Long, cbsigneddatamsg: UInt, pbsigneddatamsg: Long): BOOL =
-    if (_windowsWin32SecurityCryptographySipNapiAddon != null) (_windowsWin32SecurityCryptographySipNapiAddon.windowssys_windows_win32_security_cryptography_sip_CryptSIPPutSignedDataMsg(psubjectinfo.toString(), dwencodingtype.toInt(), pdwindex.toString(), cbsigneddatamsg.toInt(), pbsigneddatamsg.toString()) as Int) else 0
+public actual fun cryptSIPPutSignedDataMsg(psubjectinfo: COpaquePointer?, dwencodingtype: CertQueryEncodingType, pdwindex: COpaquePointer?, cbsigneddatamsg: UInt, pbsigneddatamsg: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographySipNapiAddon != null) (_windowsWin32SecurityCryptographySipNapiAddon.windowssys_windows_win32_security_cryptography_sip_cryptSIPPutSignedDataMsg((psubjectinfo?.value ?: 0L).toString(), dwencodingtype.toInt(), (pdwindex?.value ?: 0L).toString(), cbsigneddatamsg.toInt(), (pbsigneddatamsg?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptSIPRemoveProvider(pgprov: Long): BOOL =
-    if (_windowsWin32SecurityCryptographySipNapiAddon != null) (_windowsWin32SecurityCryptographySipNapiAddon.windowssys_windows_win32_security_cryptography_sip_CryptSIPRemoveProvider(pgprov.toString()) as Int) else 0
+public actual fun cryptSIPRemoveProvider(pgprov: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographySipNapiAddon != null) (_windowsWin32SecurityCryptographySipNapiAddon.windowssys_windows_win32_security_cryptography_sip_cryptSIPRemoveProvider((pgprov?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptSIPRemoveSignedDataMsg(psubjectinfo: Long, dwindex: UInt): BOOL =
-    if (_windowsWin32SecurityCryptographySipNapiAddon != null) (_windowsWin32SecurityCryptographySipNapiAddon.windowssys_windows_win32_security_cryptography_sip_CryptSIPRemoveSignedDataMsg(psubjectinfo.toString(), dwindex.toInt()) as Int) else 0
+public actual fun cryptSIPRemoveSignedDataMsg(psubjectinfo: COpaquePointer?, dwindex: UInt): Bool =
+    if (_windowsWin32SecurityCryptographySipNapiAddon != null) (_windowsWin32SecurityCryptographySipNapiAddon.windowssys_windows_win32_security_cryptography_sip_cryptSIPRemoveSignedDataMsg((psubjectinfo?.value ?: 0L).toString(), dwindex.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptSIPRetrieveSubjectGuid(filename: PCWSTR, hfilein: HANDLE, pgsubject: Long): BOOL =
-    if (_windowsWin32SecurityCryptographySipNapiAddon != null) (_windowsWin32SecurityCryptographySipNapiAddon.windowssys_windows_win32_security_cryptography_sip_CryptSIPRetrieveSubjectGuid(filename.toString(), hfilein.toString(), pgsubject.toString()) as Int) else 0
+public actual fun cryptSIPRetrieveSubjectGuid(filename: Pcwstr, hfilein: Handle, pgsubject: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographySipNapiAddon != null) (_windowsWin32SecurityCryptographySipNapiAddon.windowssys_windows_win32_security_cryptography_sip_cryptSIPRetrieveSubjectGuid((filename?.value ?: 0L).toString(), (hfilein?.value ?: 0L).toString(), (pgsubject?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptSIPRetrieveSubjectGuidForCatalogFile(filename: PCWSTR, hfilein: HANDLE, pgsubject: Long): BOOL =
-    if (_windowsWin32SecurityCryptographySipNapiAddon != null) (_windowsWin32SecurityCryptographySipNapiAddon.windowssys_windows_win32_security_cryptography_sip_CryptSIPRetrieveSubjectGuidForCatalogFile(filename.toString(), hfilein.toString(), pgsubject.toString()) as Int) else 0
+public actual fun cryptSIPRetrieveSubjectGuidForCatalogFile(filename: Pcwstr, hfilein: Handle, pgsubject: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographySipNapiAddon != null) (_windowsWin32SecurityCryptographySipNapiAddon.windowssys_windows_win32_security_cryptography_sip_cryptSIPRetrieveSubjectGuidForCatalogFile((filename?.value ?: 0L).toString(), (hfilein?.value ?: 0L).toString(), (pgsubject?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptSIPVerifyIndirectData(psubjectinfo: Long, pindirectdata: Long): BOOL =
-    if (_windowsWin32SecurityCryptographySipNapiAddon != null) (_windowsWin32SecurityCryptographySipNapiAddon.windowssys_windows_win32_security_cryptography_sip_CryptSIPVerifyIndirectData(psubjectinfo.toString(), pindirectdata.toString()) as Int) else 0
+public actual fun cryptSIPVerifyIndirectData(psubjectinfo: COpaquePointer?, pindirectdata: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographySipNapiAddon != null) (_windowsWin32SecurityCryptographySipNapiAddon.windowssys_windows_win32_security_cryptography_sip_cryptSIPVerifyIndirectData((psubjectinfo?.value ?: 0L).toString(), (pindirectdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

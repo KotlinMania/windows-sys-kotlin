@@ -1,1016 +1,1017 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.networking.winsock
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LUID
-import io.github.kotlinmania.windowssys.windows.win32.system.com.BLOB
-import io.github.kotlinmania.windowssys.windows.win32.system.kernel.COMPARTMENT_ID
-import io.github.kotlinmania.windowssys.windows.win32.system.kernel.PROCESSOR_NUMBER
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Luid
+import io.github.kotlinmania.windowssys.windows.win32.system.com.Blob
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.CompartmentId
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.ProcessorNumber
 
-public data class AAL5_PARAMETERS(
-    public var ForwardMaxCPCSSDUSize: UInt = 0u,
-    public var BackwardMaxCPCSSDUSize: UInt = 0u,
-    public var Mode: UByte = 0u,
-    public var SSCSType: UByte = 0u,
+public data class Aal5Parameters(
+    public var forwardMaxCPCSSDUSize: UInt = 0u,
+    public var backwardMaxCPCSSDUSize: UInt = 0u,
+    public var mode: UByte = 0u,
+    public var sSCSType: UByte = 0u,
 )
 
-public data class AALUSER_PARAMETERS(public var UserDefined: UInt = 0u)
+public data class AaluserParameters(public var userDefined: UInt = 0u)
 
-public data class AAL_PARAMETERS_IE(public var AALType: AAL_TYPE = 0, public var AALSpecificParameters: AAL_PARAMETERS_IE_0 = AAL_PARAMETERS_IE_0())
+public data class AalParametersIe(public var aALType: AalType = 0, public var aALSpecificParameters: AalParametersIe0 = AalParametersIe0())
 
-public data class AAL_PARAMETERS_IE_0(public var AAL5Parameters: AAL5_PARAMETERS = AAL5_PARAMETERS(), public var AALUserParameters: AALUSER_PARAMETERS = AALUSER_PARAMETERS())
+public data class AalParametersIe0(public var aAL5Parameters: Aal5Parameters = Aal5Parameters(), public var aALUserParameters: AaluserParameters = AaluserParameters())
 
-public data class ADDRINFOA(
-    public var ai_flags: Int = 0,
-    public var ai_family: Int = 0,
-    public var ai_socktype: Int = 0,
-    public var ai_protocol: Int = 0,
-    public var ai_addrlen: ULong = 0uL,
-    public var ai_canonname: PSTR = 0L,
-    public var ai_addr: Long = 0L,
-    public var ai_next: Long = 0L,
+public data class Addrinfoa(
+    public var aiFlags: Int = 0,
+    public var aiFamily: Int = 0,
+    public var aiSocktype: Int = 0,
+    public var aiProtocol: Int = 0,
+    public var aiAddrlen: Int = 0,
+    public var aiCanonname: Pstr = null,
+    public var aiAddr: Sockaddr? = null,
+    public var aiNext: Addrinfoa? = null,
 )
 
-public data class ADDRINFOEX2A(
-    public var ai_flags: Int = 0,
-    public var ai_family: Int = 0,
-    public var ai_socktype: Int = 0,
-    public var ai_protocol: Int = 0,
-    public var ai_addrlen: ULong = 0uL,
-    public var ai_canonname: PSTR = 0L,
-    public var ai_addr: Long = 0L,
-    public var ai_blob: Long = 0L,
-    public var ai_bloblen: ULong = 0uL,
-    public var ai_provider: Long = 0L,
-    public var ai_next: Long = 0L,
-    public var ai_version: Int = 0,
-    public var ai_fqdn: PSTR = 0L,
+public data class Addrinfoex2a(
+    public var aiFlags: Int = 0,
+    public var aiFamily: Int = 0,
+    public var aiSocktype: Int = 0,
+    public var aiProtocol: Int = 0,
+    public var aiAddrlen: Int = 0,
+    public var aiCanonname: Pstr = null,
+    public var aiAddr: Sockaddr? = null,
+    public var aiBlob: COpaquePointer? = null,
+    public var aiBloblen: Int = 0,
+    public var aiProvider: Guid? = null,
+    public var aiNext: Addrinfoex2a? = null,
+    public var aiVersion: Int = 0,
+    public var aiFqdn: Pstr = null,
 )
 
-public data class ADDRINFOEX2W(
-    public var ai_flags: Int = 0,
-    public var ai_family: Int = 0,
-    public var ai_socktype: Int = 0,
-    public var ai_protocol: Int = 0,
-    public var ai_addrlen: ULong = 0uL,
-    public var ai_canonname: PWSTR = 0L,
-    public var ai_addr: Long = 0L,
-    public var ai_blob: Long = 0L,
-    public var ai_bloblen: ULong = 0uL,
-    public var ai_provider: Long = 0L,
-    public var ai_next: Long = 0L,
-    public var ai_version: Int = 0,
-    public var ai_fqdn: PWSTR = 0L,
+public data class Addrinfoex2w(
+    public var aiFlags: Int = 0,
+    public var aiFamily: Int = 0,
+    public var aiSocktype: Int = 0,
+    public var aiProtocol: Int = 0,
+    public var aiAddrlen: Int = 0,
+    public var aiCanonname: Pwstr = null,
+    public var aiAddr: Sockaddr? = null,
+    public var aiBlob: COpaquePointer? = null,
+    public var aiBloblen: Int = 0,
+    public var aiProvider: Guid? = null,
+    public var aiNext: Addrinfoex2w? = null,
+    public var aiVersion: Int = 0,
+    public var aiFqdn: Pwstr = null,
 )
 
-public data class ADDRINFOEX3(
-    public var ai_flags: Int = 0,
-    public var ai_family: Int = 0,
-    public var ai_socktype: Int = 0,
-    public var ai_protocol: Int = 0,
-    public var ai_addrlen: ULong = 0uL,
-    public var ai_canonname: PWSTR = 0L,
-    public var ai_addr: Long = 0L,
-    public var ai_blob: Long = 0L,
-    public var ai_bloblen: ULong = 0uL,
-    public var ai_provider: Long = 0L,
-    public var ai_next: Long = 0L,
-    public var ai_version: Int = 0,
-    public var ai_fqdn: PWSTR = 0L,
-    public var ai_interfaceindex: Int = 0,
+public data class Addrinfoex3(
+    public var aiFlags: Int = 0,
+    public var aiFamily: Int = 0,
+    public var aiSocktype: Int = 0,
+    public var aiProtocol: Int = 0,
+    public var aiAddrlen: Int = 0,
+    public var aiCanonname: Pwstr = null,
+    public var aiAddr: Sockaddr? = null,
+    public var aiBlob: COpaquePointer? = null,
+    public var aiBloblen: Int = 0,
+    public var aiProvider: Guid? = null,
+    public var aiNext: Addrinfoex3? = null,
+    public var aiVersion: Int = 0,
+    public var aiFqdn: Pwstr = null,
+    public var aiInterfaceindex: Int = 0,
 )
 
-public data class ADDRINFOEX4(
-    public var ai_flags: Int = 0,
-    public var ai_family: Int = 0,
-    public var ai_socktype: Int = 0,
-    public var ai_protocol: Int = 0,
-    public var ai_addrlen: ULong = 0uL,
-    public var ai_canonname: PWSTR = 0L,
-    public var ai_addr: Long = 0L,
-    public var ai_blob: Long = 0L,
-    public var ai_bloblen: ULong = 0uL,
-    public var ai_provider: Long = 0L,
-    public var ai_next: Long = 0L,
-    public var ai_version: Int = 0,
-    public var ai_fqdn: PWSTR = 0L,
-    public var ai_interfaceindex: Int = 0,
-    public var ai_resolutionhandle: HANDLE = 0L,
+public data class Addrinfoex4(
+    public var aiFlags: Int = 0,
+    public var aiFamily: Int = 0,
+    public var aiSocktype: Int = 0,
+    public var aiProtocol: Int = 0,
+    public var aiAddrlen: Int = 0,
+    public var aiCanonname: Pwstr = null,
+    public var aiAddr: Sockaddr? = null,
+    public var aiBlob: COpaquePointer? = null,
+    public var aiBloblen: Int = 0,
+    public var aiProvider: Guid? = null,
+    public var aiNext: Addrinfoex4? = null,
+    public var aiVersion: Int = 0,
+    public var aiFqdn: Pwstr = null,
+    public var aiInterfaceindex: Int = 0,
+    public var aiResolutionhandle: Handle = null,
 )
 
-public data class ADDRINFOEX5(
-    public var ai_flags: Int = 0,
-    public var ai_family: Int = 0,
-    public var ai_socktype: Int = 0,
-    public var ai_protocol: Int = 0,
-    public var ai_addrlen: ULong = 0uL,
-    public var ai_canonname: PWSTR = 0L,
-    public var ai_addr: Long = 0L,
-    public var ai_blob: Long = 0L,
-    public var ai_bloblen: ULong = 0uL,
-    public var ai_provider: Long = 0L,
-    public var ai_next: Long = 0L,
-    public var ai_version: Int = 0,
-    public var ai_fqdn: PWSTR = 0L,
-    public var ai_interfaceindex: Int = 0,
-    public var ai_resolutionhandle: HANDLE = 0L,
-    public var ai_ttl: UInt = 0u,
+public data class Addrinfoex5(
+    public var aiFlags: Int = 0,
+    public var aiFamily: Int = 0,
+    public var aiSocktype: Int = 0,
+    public var aiProtocol: Int = 0,
+    public var aiAddrlen: Int = 0,
+    public var aiCanonname: Pwstr = null,
+    public var aiAddr: Sockaddr? = null,
+    public var aiBlob: COpaquePointer? = null,
+    public var aiBloblen: Int = 0,
+    public var aiProvider: Guid? = null,
+    public var aiNext: Addrinfoex5? = null,
+    public var aiVersion: Int = 0,
+    public var aiFqdn: Pwstr = null,
+    public var aiInterfaceindex: Int = 0,
+    public var aiResolutionhandle: Handle = null,
+    public var aiTtl: UInt = 0u,
 )
 
-public class ADDRINFOEX6(
-    public var ai_flags: Int = 0,
-    public var ai_family: Int = 0,
-    public var ai_socktype: Int = 0,
-    public var ai_protocol: Int = 0,
-    public var ai_addrlen: ULong = 0uL,
-    public var ai_canonname: PWSTR = 0L,
-    public var ai_addr: Long = 0L,
-    public var ai_blob: Long = 0L,
-    public var ai_bloblen: ULong = 0uL,
-    public var ai_provider: Long = 0L,
-    public var ai_next: Long = 0L,
-    public var ai_version: Int = 0,
-    public var ai_fqdn: PWSTR = 0L,
-    public var ai_interfaceindex: Int = 0,
-    public var ai_resolutionhandle: HANDLE = 0L,
-    public var ai_ttl: UInt = 0u,
-    public var ai_numservers: UInt = 0u,
-    public var ai_servers: Long = 0L,
-    public var ai_responseflags: ULong = 0uL,
+public class Addrinfoex6(
+    public var aiFlags: Int = 0,
+    public var aiFamily: Int = 0,
+    public var aiSocktype: Int = 0,
+    public var aiProtocol: Int = 0,
+    public var aiAddrlen: Int = 0,
+    public var aiCanonname: Pwstr = null,
+    public var aiAddr: Sockaddr? = null,
+    public var aiBlob: COpaquePointer? = null,
+    public var aiBloblen: Int = 0,
+    public var aiProvider: Guid? = null,
+    public var aiNext: Addrinfoex5? = null,
+    public var aiVersion: Int = 0,
+    public var aiFqdn: Pwstr = null,
+    public var aiInterfaceindex: Int = 0,
+    public var aiResolutionhandle: Handle = null,
+    public var aiTtl: UInt = 0u,
+    public var aiNumservers: UInt = 0u,
+    public var aiServers: AddrinfoDnsServer? = null,
+    public var aiResponseflags: ULong = 0uL,
 )
 
-public data class ADDRINFOEXA(
-    public var ai_flags: Int = 0,
-    public var ai_family: Int = 0,
-    public var ai_socktype: Int = 0,
-    public var ai_protocol: Int = 0,
-    public var ai_addrlen: ULong = 0uL,
-    public var ai_canonname: PSTR = 0L,
-    public var ai_addr: Long = 0L,
-    public var ai_blob: Long = 0L,
-    public var ai_bloblen: ULong = 0uL,
-    public var ai_provider: Long = 0L,
-    public var ai_next: Long = 0L,
+public data class Addrinfoexa(
+    public var aiFlags: Int = 0,
+    public var aiFamily: Int = 0,
+    public var aiSocktype: Int = 0,
+    public var aiProtocol: Int = 0,
+    public var aiAddrlen: Int = 0,
+    public var aiCanonname: Pstr = null,
+    public var aiAddr: Sockaddr? = null,
+    public var aiBlob: COpaquePointer? = null,
+    public var aiBloblen: Int = 0,
+    public var aiProvider: Guid? = null,
+    public var aiNext: Addrinfoexa? = null,
 )
 
-public data class ADDRINFOEXW(
-    public var ai_flags: Int = 0,
-    public var ai_family: Int = 0,
-    public var ai_socktype: Int = 0,
-    public var ai_protocol: Int = 0,
-    public var ai_addrlen: ULong = 0uL,
-    public var ai_canonname: PWSTR = 0L,
-    public var ai_addr: Long = 0L,
-    public var ai_blob: Long = 0L,
-    public var ai_bloblen: ULong = 0uL,
-    public var ai_provider: Long = 0L,
-    public var ai_next: Long = 0L,
+public data class Addrinfoexw(
+    public var aiFlags: Int = 0,
+    public var aiFamily: Int = 0,
+    public var aiSocktype: Int = 0,
+    public var aiProtocol: Int = 0,
+    public var aiAddrlen: Int = 0,
+    public var aiCanonname: Pwstr = null,
+    public var aiAddr: Sockaddr? = null,
+    public var aiBlob: COpaquePointer? = null,
+    public var aiBloblen: Int = 0,
+    public var aiProvider: Guid? = null,
+    public var aiNext: Addrinfoexw? = null,
 )
 
-public data class ADDRINFOW(
-    public var ai_flags: Int = 0,
-    public var ai_family: Int = 0,
-    public var ai_socktype: Int = 0,
-    public var ai_protocol: Int = 0,
-    public var ai_addrlen: ULong = 0uL,
-    public var ai_canonname: PWSTR = 0L,
-    public var ai_addr: Long = 0L,
-    public var ai_next: Long = 0L,
+public data class Addrinfow(
+    public var aiFlags: Int = 0,
+    public var aiFamily: Int = 0,
+    public var aiSocktype: Int = 0,
+    public var aiProtocol: Int = 0,
+    public var aiAddrlen: Int = 0,
+    public var aiCanonname: Pwstr = null,
+    public var aiAddr: Sockaddr? = null,
+    public var aiNext: Addrinfow? = null,
 )
 
-public data class ADDRINFO_DNS_SERVER(
-    public var ai_servertype: UInt = 0u,
-    public var ai_flags: ULong = 0uL,
-    public var ai_addrlen: UInt = 0u,
-    public var ai_addr: Long = 0L,
-    public var Anonymous: ADDRINFO_DNS_SERVER_0 = ADDRINFO_DNS_SERVER_0(),
+public data class AddrinfoDnsServer(
+    public var aiServertype: UInt = 0u,
+    public var aiFlags: ULong = 0uL,
+    public var aiAddrlen: UInt = 0u,
+    public var aiAddr: Sockaddr? = null,
+    public var anonymous: AddrinfoDnsServer0 = AddrinfoDnsServer0(),
 )
 
-public data class ADDRINFO_DNS_SERVER_0(public var ai_template: PWSTR = 0L)
+public data class AddrinfoDnsServer0(public var aiTemplate: Pwstr = null)
 
-public data class AFPROTOCOLS(public var iAddressFamily: Int = 0, public var iProtocol: Int = 0)
+public data class Afprotocols(public var iAddressFamily: Int = 0, public var iProtocol: Int = 0)
 
-public data class ARP_HEADER(
-    public var HardwareAddressSpace: UShort = 0u,
-    public var ProtocolAddressSpace: UShort = 0u,
-    public var HardwareAddressLength: UByte = 0u,
-    public var ProtocolAddressLength: UByte = 0u,
-    public var Opcode: UShort = 0u,
-    public var SenderHardwareAddress: UByteArray = UByteArray(1),
+public data class ArpHeader(
+    public var hardwareAddressSpace: UShort = 0u,
+    public var protocolAddressSpace: UShort = 0u,
+    public var hardwareAddressLength: UByte = 0u,
+    public var protocolAddressLength: UByte = 0u,
+    public var opcode: UShort = 0u,
+    public var senderHardwareAddress: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is ARP_HEADER) return false
-        if (this.HardwareAddressSpace != other.HardwareAddressSpace) return false
-        if (this.ProtocolAddressSpace != other.ProtocolAddressSpace) return false
-        if (this.HardwareAddressLength != other.HardwareAddressLength) return false
-        if (this.ProtocolAddressLength != other.ProtocolAddressLength) return false
-        if (this.Opcode != other.Opcode) return false
-        if (!this.SenderHardwareAddress.contentEquals(other.SenderHardwareAddress)) return false
+        if (other !is ArpHeader) return false
+        if (this.hardwareAddressSpace != other.hardwareAddressSpace) return false
+        if (this.protocolAddressSpace != other.protocolAddressSpace) return false
+        if (this.hardwareAddressLength != other.hardwareAddressLength) return false
+        if (this.protocolAddressLength != other.protocolAddressLength) return false
+        if (this.opcode != other.opcode) return false
+        if (!this.senderHardwareAddress.contentEquals(other.senderHardwareAddress)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.HardwareAddressSpace.hashCode()
-        result = 31 * result + this.ProtocolAddressSpace.hashCode()
-        result = 31 * result + this.HardwareAddressLength.hashCode()
-        result = 31 * result + this.ProtocolAddressLength.hashCode()
-        result = 31 * result + this.Opcode.hashCode()
-        result = 31 * result + this.SenderHardwareAddress.contentHashCode()
+        var result = this.hardwareAddressSpace.hashCode()
+        result = 31 * result + this.protocolAddressSpace.hashCode()
+        result = 31 * result + this.hardwareAddressLength.hashCode()
+        result = 31 * result + this.protocolAddressLength.hashCode()
+        result = 31 * result + this.opcode.hashCode()
+        result = 31 * result + this.senderHardwareAddress.contentHashCode()
         return result
     }
 }
 
-public data class ASSOCIATE_NAMERES_CONTEXT_INPUT(public var TransportSettingId: TRANSPORT_SETTING_ID = TRANSPORT_SETTING_ID(), public var Handle: ULong = 0uL)
+public data class AssociateNameresContextInput(public var transportSettingId: TransportSettingId = TransportSettingId(), public var handle: ULong = 0uL)
 
-public data class ATM_ADDRESS(
-    public var AddressType: UInt = 0u,
-    public var NumofDigits: UInt = 0u,
-    public var Addr: UByteArray = UByteArray(20),
+public data class AtmAddress(
+    public var addressType: UInt = 0u,
+    public var numofDigits: UInt = 0u,
+    public var addr: UByteArray = UByteArray(20),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is ATM_ADDRESS) return false
-        if (this.AddressType != other.AddressType) return false
-        if (this.NumofDigits != other.NumofDigits) return false
-        if (!this.Addr.contentEquals(other.Addr)) return false
+        if (other !is AtmAddress) return false
+        if (this.addressType != other.addressType) return false
+        if (this.numofDigits != other.numofDigits) return false
+        if (!this.addr.contentEquals(other.addr)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.AddressType.hashCode()
-        result = 31 * result + this.NumofDigits.hashCode()
-        result = 31 * result + this.Addr.contentHashCode()
+        var result = this.addressType.hashCode()
+        result = 31 * result + this.numofDigits.hashCode()
+        result = 31 * result + this.addr.contentHashCode()
         return result
     }
 }
 
-public data class ATM_BHLI(
-    public var HighLayerInfoType: UInt = 0u,
-    public var HighLayerInfoLength: UInt = 0u,
-    public var HighLayerInfo: UByteArray = UByteArray(8),
+public data class AtmBhli(
+    public var highLayerInfoType: UInt = 0u,
+    public var highLayerInfoLength: UInt = 0u,
+    public var highLayerInfo: UByteArray = UByteArray(8),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is ATM_BHLI) return false
-        if (this.HighLayerInfoType != other.HighLayerInfoType) return false
-        if (this.HighLayerInfoLength != other.HighLayerInfoLength) return false
-        if (!this.HighLayerInfo.contentEquals(other.HighLayerInfo)) return false
+        if (other !is AtmBhli) return false
+        if (this.highLayerInfoType != other.highLayerInfoType) return false
+        if (this.highLayerInfoLength != other.highLayerInfoLength) return false
+        if (!this.highLayerInfo.contentEquals(other.highLayerInfo)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.HighLayerInfoType.hashCode()
-        result = 31 * result + this.HighLayerInfoLength.hashCode()
-        result = 31 * result + this.HighLayerInfo.contentHashCode()
+        var result = this.highLayerInfoType.hashCode()
+        result = 31 * result + this.highLayerInfoLength.hashCode()
+        result = 31 * result + this.highLayerInfo.contentHashCode()
         return result
     }
 }
 
-public data class ATM_BLLI(
-    public var Layer2Protocol: UInt = 0u,
-    public var Layer2UserSpecifiedProtocol: UInt = 0u,
-    public var Layer3Protocol: UInt = 0u,
-    public var Layer3UserSpecifiedProtocol: UInt = 0u,
-    public var Layer3IPI: UInt = 0u,
-    public var SnapID: UByteArray = UByteArray(5),
+public data class AtmBlli(
+    public var layer2Protocol: UInt = 0u,
+    public var layer2UserSpecifiedProtocol: UInt = 0u,
+    public var layer3Protocol: UInt = 0u,
+    public var layer3UserSpecifiedProtocol: UInt = 0u,
+    public var layer3IPI: UInt = 0u,
+    public var snapID: UByteArray = UByteArray(5),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is ATM_BLLI) return false
-        if (this.Layer2Protocol != other.Layer2Protocol) return false
-        if (this.Layer2UserSpecifiedProtocol != other.Layer2UserSpecifiedProtocol) return false
-        if (this.Layer3Protocol != other.Layer3Protocol) return false
-        if (this.Layer3UserSpecifiedProtocol != other.Layer3UserSpecifiedProtocol) return false
-        if (this.Layer3IPI != other.Layer3IPI) return false
-        if (!this.SnapID.contentEquals(other.SnapID)) return false
+        if (other !is AtmBlli) return false
+        if (this.layer2Protocol != other.layer2Protocol) return false
+        if (this.layer2UserSpecifiedProtocol != other.layer2UserSpecifiedProtocol) return false
+        if (this.layer3Protocol != other.layer3Protocol) return false
+        if (this.layer3UserSpecifiedProtocol != other.layer3UserSpecifiedProtocol) return false
+        if (this.layer3IPI != other.layer3IPI) return false
+        if (!this.snapID.contentEquals(other.snapID)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Layer2Protocol.hashCode()
-        result = 31 * result + this.Layer2UserSpecifiedProtocol.hashCode()
-        result = 31 * result + this.Layer3Protocol.hashCode()
-        result = 31 * result + this.Layer3UserSpecifiedProtocol.hashCode()
-        result = 31 * result + this.Layer3IPI.hashCode()
-        result = 31 * result + this.SnapID.contentHashCode()
+        var result = this.layer2Protocol.hashCode()
+        result = 31 * result + this.layer2UserSpecifiedProtocol.hashCode()
+        result = 31 * result + this.layer3Protocol.hashCode()
+        result = 31 * result + this.layer3UserSpecifiedProtocol.hashCode()
+        result = 31 * result + this.layer3IPI.hashCode()
+        result = 31 * result + this.snapID.contentHashCode()
         return result
     }
 }
 
-public data class ATM_BLLI_IE(
-    public var Layer2Protocol: UInt = 0u,
-    public var Layer2Mode: UByte = 0u,
-    public var Layer2WindowSize: UByte = 0u,
-    public var Layer2UserSpecifiedProtocol: UInt = 0u,
-    public var Layer3Protocol: UInt = 0u,
-    public var Layer3Mode: UByte = 0u,
-    public var Layer3DefaultPacketSize: UByte = 0u,
-    public var Layer3PacketWindowSize: UByte = 0u,
-    public var Layer3UserSpecifiedProtocol: UInt = 0u,
-    public var Layer3IPI: UInt = 0u,
-    public var SnapID: UByteArray = UByteArray(5),
+public data class AtmBlliIe(
+    public var layer2Protocol: UInt = 0u,
+    public var layer2Mode: UByte = 0u,
+    public var layer2WindowSize: UByte = 0u,
+    public var layer2UserSpecifiedProtocol: UInt = 0u,
+    public var layer3Protocol: UInt = 0u,
+    public var layer3Mode: UByte = 0u,
+    public var layer3DefaultPacketSize: UByte = 0u,
+    public var layer3PacketWindowSize: UByte = 0u,
+    public var layer3UserSpecifiedProtocol: UInt = 0u,
+    public var layer3IPI: UInt = 0u,
+    public var snapID: UByteArray = UByteArray(5),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is ATM_BLLI_IE) return false
-        if (this.Layer2Protocol != other.Layer2Protocol) return false
-        if (this.Layer2Mode != other.Layer2Mode) return false
-        if (this.Layer2WindowSize != other.Layer2WindowSize) return false
-        if (this.Layer2UserSpecifiedProtocol != other.Layer2UserSpecifiedProtocol) return false
-        if (this.Layer3Protocol != other.Layer3Protocol) return false
-        if (this.Layer3Mode != other.Layer3Mode) return false
-        if (this.Layer3DefaultPacketSize != other.Layer3DefaultPacketSize) return false
-        if (this.Layer3PacketWindowSize != other.Layer3PacketWindowSize) return false
-        if (this.Layer3UserSpecifiedProtocol != other.Layer3UserSpecifiedProtocol) return false
-        if (this.Layer3IPI != other.Layer3IPI) return false
-        if (!this.SnapID.contentEquals(other.SnapID)) return false
+        if (other !is AtmBlliIe) return false
+        if (this.layer2Protocol != other.layer2Protocol) return false
+        if (this.layer2Mode != other.layer2Mode) return false
+        if (this.layer2WindowSize != other.layer2WindowSize) return false
+        if (this.layer2UserSpecifiedProtocol != other.layer2UserSpecifiedProtocol) return false
+        if (this.layer3Protocol != other.layer3Protocol) return false
+        if (this.layer3Mode != other.layer3Mode) return false
+        if (this.layer3DefaultPacketSize != other.layer3DefaultPacketSize) return false
+        if (this.layer3PacketWindowSize != other.layer3PacketWindowSize) return false
+        if (this.layer3UserSpecifiedProtocol != other.layer3UserSpecifiedProtocol) return false
+        if (this.layer3IPI != other.layer3IPI) return false
+        if (!this.snapID.contentEquals(other.snapID)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Layer2Protocol.hashCode()
-        result = 31 * result + this.Layer2Mode.hashCode()
-        result = 31 * result + this.Layer2WindowSize.hashCode()
-        result = 31 * result + this.Layer2UserSpecifiedProtocol.hashCode()
-        result = 31 * result + this.Layer3Protocol.hashCode()
-        result = 31 * result + this.Layer3Mode.hashCode()
-        result = 31 * result + this.Layer3DefaultPacketSize.hashCode()
-        result = 31 * result + this.Layer3PacketWindowSize.hashCode()
-        result = 31 * result + this.Layer3UserSpecifiedProtocol.hashCode()
-        result = 31 * result + this.Layer3IPI.hashCode()
-        result = 31 * result + this.SnapID.contentHashCode()
+        var result = this.layer2Protocol.hashCode()
+        result = 31 * result + this.layer2Mode.hashCode()
+        result = 31 * result + this.layer2WindowSize.hashCode()
+        result = 31 * result + this.layer2UserSpecifiedProtocol.hashCode()
+        result = 31 * result + this.layer3Protocol.hashCode()
+        result = 31 * result + this.layer3Mode.hashCode()
+        result = 31 * result + this.layer3DefaultPacketSize.hashCode()
+        result = 31 * result + this.layer3PacketWindowSize.hashCode()
+        result = 31 * result + this.layer3UserSpecifiedProtocol.hashCode()
+        result = 31 * result + this.layer3IPI.hashCode()
+        result = 31 * result + this.snapID.contentHashCode()
         return result
     }
 }
 
-public data class ATM_BROADBAND_BEARER_CAPABILITY_IE(
-    public var BearerClass: UByte = 0u,
-    public var TrafficType: UByte = 0u,
-    public var TimingRequirements: UByte = 0u,
-    public var ClippingSusceptability: UByte = 0u,
-    public var UserPlaneConnectionConfig: UByte = 0u,
+public data class AtmBroadbandBearerCapabilityIe(
+    public var bearerClass: UByte = 0u,
+    public var trafficType: UByte = 0u,
+    public var timingRequirements: UByte = 0u,
+    public var clippingSusceptability: UByte = 0u,
+    public var userPlaneConnectionConfig: UByte = 0u,
 )
 
-public data class ATM_CALLING_PARTY_NUMBER_IE(
-    public var ATM_Number: ATM_ADDRESS = ATM_ADDRESS(),
-    public var Presentation_Indication: UByte = 0u,
-    public var Screening_Indicator: UByte = 0u,
+public data class AtmCallingPartyNumberIe(
+    public var atmNumber: AtmAddress = AtmAddress(),
+    public var presentationIndication: UByte = 0u,
+    public var screeningIndicator: UByte = 0u,
 )
 
-public data class ATM_CAUSE_IE(
-    public var Location: UByte = 0u,
-    public var Cause: UByte = 0u,
-    public var DiagnosticsLength: UByte = 0u,
-    public var Diagnostics: UByteArray = UByteArray(4),
+public data class AtmCauseIe(
+    public var location: UByte = 0u,
+    public var cause: UByte = 0u,
+    public var diagnosticsLength: UByte = 0u,
+    public var diagnostics: UByteArray = UByteArray(4),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is ATM_CAUSE_IE) return false
-        if (this.Location != other.Location) return false
-        if (this.Cause != other.Cause) return false
-        if (this.DiagnosticsLength != other.DiagnosticsLength) return false
-        if (!this.Diagnostics.contentEquals(other.Diagnostics)) return false
+        if (other !is AtmCauseIe) return false
+        if (this.location != other.location) return false
+        if (this.cause != other.cause) return false
+        if (this.diagnosticsLength != other.diagnosticsLength) return false
+        if (!this.diagnostics.contentEquals(other.diagnostics)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Location.hashCode()
-        result = 31 * result + this.Cause.hashCode()
-        result = 31 * result + this.DiagnosticsLength.hashCode()
-        result = 31 * result + this.Diagnostics.contentHashCode()
+        var result = this.location.hashCode()
+        result = 31 * result + this.cause.hashCode()
+        result = 31 * result + this.diagnosticsLength.hashCode()
+        result = 31 * result + this.diagnostics.contentHashCode()
         return result
     }
 }
 
-public data class ATM_CONNECTION_ID(
-    public var DeviceNumber: UInt = 0u,
-    public var VPI: UInt = 0u,
-    public var VCI: UInt = 0u,
+public data class AtmConnectionId(
+    public var deviceNumber: UInt = 0u,
+    public var vpi: UInt = 0u,
+    public var vci: UInt = 0u,
 )
 
-public data class ATM_PVC_PARAMS(public var PvcConnectionId: ATM_CONNECTION_ID = ATM_CONNECTION_ID(), public var PvcQos: QOS = QOS())
+public data class AtmPvcParams(public var pvcConnectionId: AtmConnectionId = AtmConnectionId(), public var pvcQos: Qos = Qos())
 
-public data class ATM_QOS_CLASS_IE(public var QOSClassForward: UByte = 0u, public var QOSClassBackward: UByte = 0u)
+public data class AtmQosClassIe(public var qOSClassForward: UByte = 0u, public var qOSClassBackward: UByte = 0u)
 
-public data class ATM_TD(
-    public var PeakCellRate_CLP0: UInt = 0u,
-    public var PeakCellRate_CLP01: UInt = 0u,
-    public var SustainableCellRate_CLP0: UInt = 0u,
-    public var SustainableCellRate_CLP01: UInt = 0u,
-    public var MaxBurstSize_CLP0: UInt = 0u,
-    public var MaxBurstSize_CLP01: UInt = 0u,
-    public var Tagging: BOOL = 0,
+public data class AtmTd(
+    public var peakCellRateClp0: UInt = 0u,
+    public var peakCellRateClp01: UInt = 0u,
+    public var sustainableCellRateClp0: UInt = 0u,
+    public var sustainableCellRateClp01: UInt = 0u,
+    public var maxBurstSizeClp0: UInt = 0u,
+    public var maxBurstSizeClp01: UInt = 0u,
+    public var tagging: Bool = 0,
 )
 
-public data class ATM_TRAFFIC_DESCRIPTOR_IE(
-    public var Forward: ATM_TD = ATM_TD(),
-    public var Backward: ATM_TD = ATM_TD(),
-    public var BestEffort: BOOL = 0,
+public data class AtmTrafficDescriptorIe(
+    public var forward: AtmTd = AtmTd(),
+    public var backward: AtmTd = AtmTd(),
+    public var bestEffort: Bool = 0,
 )
 
-public data class ATM_TRANSIT_NETWORK_SELECTION_IE(
-    public var TypeOfNetworkId: UByte = 0u,
-    public var NetworkIdPlan: UByte = 0u,
-    public var NetworkIdLength: UByte = 0u,
-    public var NetworkId: UByteArray = UByteArray(1),
+public data class AtmTransitNetworkSelectionIe(
+    public var typeOfNetworkId: UByte = 0u,
+    public var networkIdPlan: UByte = 0u,
+    public var networkIdLength: UByte = 0u,
+    public var networkId: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is ATM_TRANSIT_NETWORK_SELECTION_IE) return false
-        if (this.TypeOfNetworkId != other.TypeOfNetworkId) return false
-        if (this.NetworkIdPlan != other.NetworkIdPlan) return false
-        if (this.NetworkIdLength != other.NetworkIdLength) return false
-        if (!this.NetworkId.contentEquals(other.NetworkId)) return false
+        if (other !is AtmTransitNetworkSelectionIe) return false
+        if (this.typeOfNetworkId != other.typeOfNetworkId) return false
+        if (this.networkIdPlan != other.networkIdPlan) return false
+        if (this.networkIdLength != other.networkIdLength) return false
+        if (!this.networkId.contentEquals(other.networkId)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.TypeOfNetworkId.hashCode()
-        result = 31 * result + this.NetworkIdPlan.hashCode()
-        result = 31 * result + this.NetworkIdLength.hashCode()
-        result = 31 * result + this.NetworkId.contentHashCode()
+        var result = this.typeOfNetworkId.hashCode()
+        result = 31 * result + this.networkIdPlan.hashCode()
+        result = 31 * result + this.networkIdLength.hashCode()
+        result = 31 * result + this.networkId.contentHashCode()
         return result
     }
 }
 
-public data class CMSGHDR(
-    public var cmsg_len: ULong = 0uL,
-    public var cmsg_level: Int = 0,
-    public var cmsg_type: Int = 0,
+public data class Cmsghdr(
+    public var cmsgLen: Int = 0,
+    public var cmsgLevel: Int = 0,
+    public var cmsgType: Int = 0,
 )
 
-public data class CSADDR_INFO(
-    public var LocalAddr: SOCKET_ADDRESS = SOCKET_ADDRESS(),
-    public var RemoteAddr: SOCKET_ADDRESS = SOCKET_ADDRESS(),
+public data class CsaddrInfo(
+    public var localAddr: SocketAddress = SocketAddress(),
+    public var remoteAddr: SocketAddress = SocketAddress(),
     public var iSocketType: Int = 0,
     public var iProtocol: Int = 0,
 )
 
-public data class DL_EI48(public var Byte: UByteArray = UByteArray(3)) {
+public data class DlEi48(public var byte: UByteArray = UByteArray(3)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DL_EI48) return false
-        if (!this.Byte.contentEquals(other.Byte)) return false
+        if (other !is DlEi48) return false
+        if (!this.byte.contentEquals(other.byte)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        return this.Byte.contentHashCode()
+        return this.byte.contentHashCode()
     }
 }
 
-public data class DL_EI64(public var Byte: UByteArray = UByteArray(5)) {
+public data class DlEi64(public var byte: UByteArray = UByteArray(5)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DL_EI64) return false
-        if (!this.Byte.contentEquals(other.Byte)) return false
+        if (other !is DlEi64) return false
+        if (!this.byte.contentEquals(other.byte)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        return this.Byte.contentHashCode()
+        return this.byte.contentHashCode()
     }
 }
 
-public data class DL_EUI48(public var Byte: UByteArray = UByteArray(6), public var Anonymous: DL_EUI48_0 = DL_EUI48_0()) {
+public data class DlEui48(public var byte: UByteArray = UByteArray(6), public var anonymous: DlEui480 = DlEui480()) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DL_EUI48) return false
-        if (!this.Byte.contentEquals(other.Byte)) return false
-        if (this.Anonymous != other.Anonymous) return false
+        if (other !is DlEui48) return false
+        if (!this.byte.contentEquals(other.byte)) return false
+        if (this.anonymous != other.anonymous) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Byte.contentHashCode()
-        result = 31 * result + this.Anonymous.hashCode()
+        var result = this.byte.contentHashCode()
+        result = 31 * result + this.anonymous.hashCode()
         return result
     }
 }
 
-public data class DL_EUI48_0(public var Oui: DL_OUI = DL_OUI(), public var Ei48: DL_EI48 = DL_EI48())
+public data class DlEui480(public var oui: DlOui = DlOui(), public var ei48: DlEi48 = DlEi48())
 
-public data class DL_EUI64(
-    public var Byte: UByteArray = UByteArray(8),
-    public var Value: ULong = 0uL,
-    public var Anonymous: DL_EUI64_0 = DL_EUI64_0(),
+public data class DlEui64(
+    public var byte: UByteArray = UByteArray(8),
+    public var value: ULong = 0uL,
+    public var anonymous: DlEui640 = DlEui640(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DL_EUI64) return false
-        if (!this.Byte.contentEquals(other.Byte)) return false
-        if (this.Value != other.Value) return false
-        if (this.Anonymous != other.Anonymous) return false
+        if (other !is DlEui64) return false
+        if (!this.byte.contentEquals(other.byte)) return false
+        if (this.value != other.value) return false
+        if (this.anonymous != other.anonymous) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Byte.contentHashCode()
-        result = 31 * result + this.Value.hashCode()
-        result = 31 * result + this.Anonymous.hashCode()
+        var result = this.byte.contentHashCode()
+        result = 31 * result + this.value.hashCode()
+        result = 31 * result + this.anonymous.hashCode()
         return result
     }
 }
 
-public data class DL_EUI64_0(public var Oui: DL_OUI = DL_OUI(), public var Anonymous: DL_EUI64_0_0 = DL_EUI64_0_0())
+public data class DlEui640(public var oui: DlOui = DlOui(), public var anonymous: DlEui6400 = DlEui6400())
 
-public data class DL_EUI64_0_0(public var Ei64: DL_EI64 = DL_EI64(), public var Anonymous: DL_EUI64_0_0_0 = DL_EUI64_0_0_0())
+public data class DlEui6400(public var ei64: DlEi64 = DlEi64(), public var anonymous: DlEui64000 = DlEui64000())
 
-public data class DL_EUI64_0_0_0(
-    public var Type: UByte = 0u,
-    public var Tse: UByte = 0u,
-    public var Ei48: DL_EI48 = DL_EI48(),
+public data class DlEui64000(
+    public var type: UByte = 0u,
+    public var tse: UByte = 0u,
+    public var ei48: DlEi48 = DlEi48(),
 )
 
-public data class DL_OUI(public var Byte: UByteArray = UByteArray(3), public var Anonymous: DL_OUI_0 = DL_OUI_0()) {
+public data class DlOui(public var byte: UByteArray = UByteArray(3), public var anonymous: DlOui0 = DlOui0()) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DL_OUI) return false
-        if (!this.Byte.contentEquals(other.Byte)) return false
-        if (this.Anonymous != other.Anonymous) return false
+        if (other !is DlOui) return false
+        if (!this.byte.contentEquals(other.byte)) return false
+        if (this.anonymous != other.anonymous) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Byte.contentHashCode()
-        result = 31 * result + this.Anonymous.hashCode()
+        var result = this.byte.contentHashCode()
+        result = 31 * result + this.anonymous.hashCode()
         return result
     }
 }
 
-public data class DL_OUI_0(public var _bitfield: UByte = 0u)
+public data class DlOui0(public var bitfield: UByte = 0u)
 
-public data class DL_TEREDO_ADDRESS(public var Reserved: UByteArray = UByteArray(6), public var Anonymous: DL_TEREDO_ADDRESS_0 = DL_TEREDO_ADDRESS_0()) {
+public data class DlTeredoAddress(public var reserved: UByteArray = UByteArray(6), public var anonymous: DlTeredoAddress0 = DlTeredoAddress0()) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DL_TEREDO_ADDRESS) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
-        if (this.Anonymous != other.Anonymous) return false
+        if (other !is DlTeredoAddress) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
+        if (this.anonymous != other.anonymous) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Reserved.contentHashCode()
-        result = 31 * result + this.Anonymous.hashCode()
+        var result = this.reserved.contentHashCode()
+        result = 31 * result + this.anonymous.hashCode()
         return result
     }
 }
 
-public data class DL_TEREDO_ADDRESS_0(public var Eui64: DL_EUI64 = DL_EUI64(), public var Anonymous: DL_TEREDO_ADDRESS_0_0 = DL_TEREDO_ADDRESS_0_0())
+public data class DlTeredoAddress0(public var eui64: DlEui64 = DlEui64(), public var anonymous: DlTeredoAddress00 = DlTeredoAddress00())
 
-public data class DL_TEREDO_ADDRESS_0_0(
-    public var Flags: UShort = 0u,
-    public var MappedPort: UShort = 0u,
-    public var MappedAddress: IN_ADDR = IN_ADDR(),
+public data class DlTeredoAddress00(
+    public var flags: UShort = 0u,
+    public var mappedPort: UShort = 0u,
+    public var mappedAddress: InAddr = InAddr(),
 )
 
-public data class DL_TEREDO_ADDRESS_PRV(public var Reserved: UByteArray = UByteArray(6), public var Anonymous: DL_TEREDO_ADDRESS_PRV_0 = DL_TEREDO_ADDRESS_PRV_0()) {
+public data class DlTeredoAddressPrv(public var reserved: UByteArray = UByteArray(6), public var anonymous: DlTeredoAddressPrv0 = DlTeredoAddressPrv0()) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DL_TEREDO_ADDRESS_PRV) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
-        if (this.Anonymous != other.Anonymous) return false
+        if (other !is DlTeredoAddressPrv) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
+        if (this.anonymous != other.anonymous) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Reserved.contentHashCode()
-        result = 31 * result + this.Anonymous.hashCode()
+        var result = this.reserved.contentHashCode()
+        result = 31 * result + this.anonymous.hashCode()
         return result
     }
 }
 
-public data class DL_TEREDO_ADDRESS_PRV_0(public var Eui64: DL_EUI64 = DL_EUI64(), public var Anonymous: DL_TEREDO_ADDRESS_PRV_0_0 = DL_TEREDO_ADDRESS_PRV_0_0())
+public data class DlTeredoAddressPrv0(public var eui64: DlEui64 = DlEui64(), public var anonymous: DlTeredoAddressPrv00 = DlTeredoAddressPrv00())
 
-public data class DL_TEREDO_ADDRESS_PRV_0_0(
-    public var Flags: UShort = 0u,
-    public var MappedPort: UShort = 0u,
-    public var MappedAddress: IN_ADDR = IN_ADDR(),
-    public var LocalAddress: IN_ADDR = IN_ADDR(),
-    public var InterfaceIndex: UInt = 0u,
-    public var LocalPort: UShort = 0u,
-    public var DlDestination: DL_EUI48 = DL_EUI48(),
+public data class DlTeredoAddressPrv00(
+    public var flags: UShort = 0u,
+    public var mappedPort: UShort = 0u,
+    public var mappedAddress: InAddr = InAddr(),
+    public var localAddress: InAddr = InAddr(),
+    public var interfaceIndex: UInt = 0u,
+    public var localPort: UShort = 0u,
+    public var dlDestination: DlEui48 = DlEui48(),
 )
 
-public data class DL_TUNNEL_ADDRESS(
-    public var CompartmentId: COMPARTMENT_ID = 0,
-    public var ScopeId: SCOPE_ID = SCOPE_ID(),
-    public var IpAddress: UByteArray = UByteArray(1),
+public data class DlTunnelAddress(
+    public var compartmentId: CompartmentId = 0,
+    public var scopeId: ScopeId = ScopeId(),
+    public var ipAddress: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DL_TUNNEL_ADDRESS) return false
-        if (this.CompartmentId != other.CompartmentId) return false
-        if (this.ScopeId != other.ScopeId) return false
-        if (!this.IpAddress.contentEquals(other.IpAddress)) return false
+        if (other !is DlTunnelAddress) return false
+        if (this.compartmentId != other.compartmentId) return false
+        if (this.scopeId != other.scopeId) return false
+        if (!this.ipAddress.contentEquals(other.ipAddress)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.CompartmentId.hashCode()
-        result = 31 * result + this.ScopeId.hashCode()
-        result = 31 * result + this.IpAddress.contentHashCode()
+        var result = this.compartmentId.hashCode()
+        result = 31 * result + this.scopeId.hashCode()
+        result = 31 * result + this.ipAddress.contentHashCode()
         return result
     }
 }
 
-public data class ETHERNET_HEADER(
-    public var Destination: DL_EUI48 = DL_EUI48(),
-    public var Source: DL_EUI48 = DL_EUI48(),
-    public var Anonymous: ETHERNET_HEADER_0 = ETHERNET_HEADER_0(),
+public data class EthernetHeader(
+    public var destination: DlEui48 = DlEui48(),
+    public var source: DlEui48 = DlEui48(),
+    public var anonymous: EthernetHeader0 = EthernetHeader0(),
 )
 
-public data class ETHERNET_HEADER_0(public var Type: UShort = 0u, public var Length: UShort = 0u)
+public data class EthernetHeader0(public var type: UShort = 0u, public var length: UShort = 0u)
 
-public data class FD_SET(public var fd_count: UInt = 0u, public var fd_array: ULongArray = ULongArray(64)) {
+public data class FdSet(public var fdCount: UInt = 0u, public var fdArray: ULongArray = ULongArray(64)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is FD_SET) return false
-        if (this.fd_count != other.fd_count) return false
-        if (!this.fd_array.contentEquals(other.fd_array)) return false
+        if (other !is FdSet) return false
+        if (this.fdCount != other.fdCount) return false
+        if (!this.fdArray.contentEquals(other.fdArray)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.fd_count.hashCode()
-        result = 31 * result + this.fd_array.contentHashCode()
+        var result = this.fdCount.hashCode()
+        result = 31 * result + this.fdArray.contentHashCode()
         return result
     }
 }
 
-public data class FLOWSPEC(
-    public var TokenRate: UInt = 0u,
-    public var TokenBucketSize: UInt = 0u,
-    public var PeakBandwidth: UInt = 0u,
-    public var Latency: UInt = 0u,
-    public var DelayVariation: UInt = 0u,
-    public var ServiceType: UInt = 0u,
-    public var MaxSduSize: UInt = 0u,
-    public var MinimumPolicedSize: UInt = 0u,
+public data class Flowspec(
+    public var tokenRate: UInt = 0u,
+    public var tokenBucketSize: UInt = 0u,
+    public var peakBandwidth: UInt = 0u,
+    public var latency: UInt = 0u,
+    public var delayVariation: UInt = 0u,
+    public var serviceType: UInt = 0u,
+    public var maxSduSize: UInt = 0u,
+    public var minimumPolicedSize: UInt = 0u,
 )
 
-public data class GROUP_FILTER(
-    public var gf_interface: UInt = 0u,
-    public var gf_group: SOCKADDR_STORAGE = SOCKADDR_STORAGE(),
-    public var gf_fmode: MULTICAST_MODE_TYPE = 0,
-    public var gf_numsrc: UInt = 0u,
-    public var gf_slist: List<SOCKADDR_STORAGE> = List(1) { SOCKADDR_STORAGE() },
+public data class GroupFilter(
+    public var gfInterface: UInt = 0u,
+    public var gfGroup: SockaddrStorage = SockaddrStorage(),
+    public var gfFmode: MulticastModeType = 0,
+    public var gfNumsrc: UInt = 0u,
+    public var gfSlist: List<SockaddrStorage> = List(1) { SockaddrStorage() },
 )
 
-public data class GROUP_REQ(public var gr_interface: UInt = 0u, public var gr_group: SOCKADDR_STORAGE = SOCKADDR_STORAGE())
+public data class GroupReq(public var grInterface: UInt = 0u, public var grGroup: SockaddrStorage = SockaddrStorage())
 
-public data class GROUP_SOURCE_REQ(
-    public var gsr_interface: UInt = 0u,
-    public var gsr_group: SOCKADDR_STORAGE = SOCKADDR_STORAGE(),
-    public var gsr_source: SOCKADDR_STORAGE = SOCKADDR_STORAGE(),
+public data class GroupSourceReq(
+    public var gsrInterface: UInt = 0u,
+    public var gsrGroup: SockaddrStorage = SockaddrStorage(),
+    public var gsrSource: SockaddrStorage = SockaddrStorage(),
 )
 
-public data class HOSTENT(
-    public var h_name: PSTR = 0L,
-    public var h_aliases: Long = 0L,
-    public var h_addrtype: Short = 0,
-    public var h_length: Short = 0,
-    public var h_addr_list: Long = 0L,
+public data class Hostent(
+    public var hName: Pstr = null,
+    public var hAliases: COpaquePointer? = null,
+    public var hAddrtype: Short = 0,
+    public var hLength: Short = 0,
+    public var hAddrList: COpaquePointer? = null,
 )
 
-public data class ICMPV4_ADDRESS_MASK_MESSAGE(public var Header: ICMP_MESSAGE = ICMP_MESSAGE(), public var AddressMask: UInt = 0u)
+public data class Icmpv4AddressMaskMessage(public var header: IcmpMessage = IcmpMessage(), public var addressMask: UInt = 0u)
 
-public data class ICMPV4_ROUTER_ADVERT_ENTRY(public var RouterAdvertAddr: IN_ADDR = IN_ADDR(), public var PreferenceLevel: Int = 0)
+public data class Icmpv4RouterAdvertEntry(public var routerAdvertAddr: InAddr = InAddr(), public var preferenceLevel: Int = 0)
 
-public data class ICMPV4_ROUTER_ADVERT_HEADER(public var RaHeader: ICMP_MESSAGE = ICMP_MESSAGE())
+public data class Icmpv4RouterAdvertHeader(public var raHeader: IcmpMessage = IcmpMessage())
 
-public data class ICMPV4_ROUTER_SOLICIT(public var RsHeader: ICMP_MESSAGE = ICMP_MESSAGE())
+public data class Icmpv4RouterSolicit(public var rsHeader: IcmpMessage = IcmpMessage())
 
-public data class ICMPV4_TIMESTAMP_MESSAGE(
-    public var Header: ICMP_MESSAGE = ICMP_MESSAGE(),
-    public var OriginateTimestamp: UInt = 0u,
-    public var ReceiveTimestamp: UInt = 0u,
-    public var TransmitTimestamp: UInt = 0u,
+public data class Icmpv4TimestampMessage(
+    public var header: IcmpMessage = IcmpMessage(),
+    public var originateTimestamp: UInt = 0u,
+    public var receiveTimestamp: UInt = 0u,
+    public var transmitTimestamp: UInt = 0u,
 )
 
-public data class ICMP_ERROR_INFO(
-    public var srcaddress: SOCKADDR_INET = SOCKADDR_INET(),
-    public var protocol: IPPROTO = 0,
+public data class IcmpErrorInfo(
+    public var srcaddress: SockaddrInet = SockaddrInet(),
+    public var protocol: Ipproto = 0,
     public var type: UByte = 0u,
     public var code: UByte = 0u,
 )
 
-public data class ICMP_HEADER(
-    public var Type: UByte = 0u,
-    public var Code: UByte = 0u,
-    public var Checksum: UShort = 0u,
+public data class IcmpHeader(
+    public var type: UByte = 0u,
+    public var code: UByte = 0u,
+    public var checksum: UShort = 0u,
 )
 
-public data class ICMP_MESSAGE(public var Header: ICMP_HEADER = ICMP_HEADER(), public var Data: ICMP_MESSAGE_0 = ICMP_MESSAGE_0())
+public data class IcmpMessage(public var header: IcmpHeader = IcmpHeader(), public var data: IcmpMessage0 = IcmpMessage0())
 
-public data class ICMP_MESSAGE_0(
-    public var Data32: UIntArray = UIntArray(1),
-    public var Data16: UShortArray = UShortArray(2),
-    public var Data8: UByteArray = UByteArray(4),
+public data class IcmpMessage0(
+    public var data32: UIntArray = UIntArray(1),
+    public var data16: UShortArray = UShortArray(2),
+    public var data8: UByteArray = UByteArray(4),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is ICMP_MESSAGE_0) return false
-        if (!this.Data32.contentEquals(other.Data32)) return false
-        if (!this.Data16.contentEquals(other.Data16)) return false
-        if (!this.Data8.contentEquals(other.Data8)) return false
+        if (other !is IcmpMessage0) return false
+        if (!this.data32.contentEquals(other.data32)) return false
+        if (!this.data16.contentEquals(other.data16)) return false
+        if (!this.data8.contentEquals(other.data8)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Data32.contentHashCode()
-        result = 31 * result + this.Data16.contentHashCode()
-        result = 31 * result + this.Data8.contentHashCode()
+        var result = this.data32.contentHashCode()
+        result = 31 * result + this.data16.contentHashCode()
+        result = 31 * result + this.data8.contentHashCode()
         return result
     }
 }
 
-public data class IGMPV3_QUERY_HEADER(
-    public var Type: UByte = 0u,
-    public var Anonymous1: IGMPV3_QUERY_HEADER_0 = IGMPV3_QUERY_HEADER_0(),
-    public var Checksum: UShort = 0u,
-    public var MulticastAddress: IN_ADDR = IN_ADDR(),
-    public var _bitfield: UByte = 0u,
-    public var Anonymous2: IGMPV3_QUERY_HEADER_1 = IGMPV3_QUERY_HEADER_1(),
-    public var SourceCount: UShort = 0u,
+public data class Igmpv3QueryHeader(
+    public var type: UByte = 0u,
+    public var anonymous1: Igmpv3QueryHeader0 = Igmpv3QueryHeader0(),
+    public var checksum: UShort = 0u,
+    public var multicastAddress: InAddr = InAddr(),
+    public var bitfield: UByte = 0u,
+    public var anonymous2: Igmpv3QueryHeader1 = Igmpv3QueryHeader1(),
+    public var sourceCount: UShort = 0u,
 )
 
-public data class IGMPV3_QUERY_HEADER_0(public var MaxRespCode: UByte = 0u, public var Anonymous: IGMPV3_QUERY_HEADER_0_0 = IGMPV3_QUERY_HEADER_0_0())
+public data class Igmpv3QueryHeader0(public var maxRespCode: UByte = 0u, public var anonymous: Igmpv3QueryHeader00 = Igmpv3QueryHeader00())
 
-public data class IGMPV3_QUERY_HEADER_0_0(public var _bitfield: UByte = 0u)
+public data class Igmpv3QueryHeader00(public var bitfield: UByte = 0u)
 
-public data class IGMPV3_QUERY_HEADER_1(public var QueriersQueryInterfaceCode: UByte = 0u, public var Anonymous: IGMPV3_QUERY_HEADER_1_0 = IGMPV3_QUERY_HEADER_1_0())
+public data class Igmpv3QueryHeader1(public var queriersQueryInterfaceCode: UByte = 0u, public var anonymous: Igmpv3QueryHeader10 = Igmpv3QueryHeader10())
 
-public data class IGMPV3_QUERY_HEADER_1_0(public var _bitfield: UByte = 0u)
+public data class Igmpv3QueryHeader10(public var bitfield: UByte = 0u)
 
-public data class IGMPV3_REPORT_HEADER(
-    public var Type: UByte = 0u,
-    public var Reserved: UByte = 0u,
-    public var Checksum: UShort = 0u,
-    public var Reserved2: UShort = 0u,
-    public var RecordCount: UShort = 0u,
+public data class Igmpv3ReportHeader(
+    public var type: UByte = 0u,
+    public var reserved: UByte = 0u,
+    public var checksum: UShort = 0u,
+    public var reserved2: UShort = 0u,
+    public var recordCount: UShort = 0u,
 )
 
-public data class IGMPV3_REPORT_RECORD_HEADER(
-    public var Type: UByte = 0u,
-    public var AuxillaryDataLength: UByte = 0u,
-    public var SourceCount: UShort = 0u,
-    public var MulticastAddress: IN_ADDR = IN_ADDR(),
+public data class Igmpv3ReportRecordHeader(
+    public var type: UByte = 0u,
+    public var auxillaryDataLength: UByte = 0u,
+    public var sourceCount: UShort = 0u,
+    public var multicastAddress: InAddr = InAddr(),
 )
 
-public data class IGMP_HEADER(
-    public var Anonymous1: IGMP_HEADER_0 = IGMP_HEADER_0(),
-    public var Anonymous2: IGMP_HEADER_1 = IGMP_HEADER_1(),
-    public var Checksum: UShort = 0u,
-    public var MulticastAddress: IN_ADDR = IN_ADDR(),
+public data class IgmpHeader(
+    public var anonymous1: IgmpHeader0 = IgmpHeader0(),
+    public var anonymous2: IgmpHeader1 = IgmpHeader1(),
+    public var checksum: UShort = 0u,
+    public var multicastAddress: InAddr = InAddr(),
 )
 
-public data class IGMP_HEADER_0(public var Anonymous: IGMP_HEADER_0_0 = IGMP_HEADER_0_0(), public var VersionType: UByte = 0u)
+public data class IgmpHeader0(public var anonymous: IgmpHeader00 = IgmpHeader00(), public var versionType: UByte = 0u)
 
-public data class IGMP_HEADER_0_0(public var _bitfield: UByte = 0u)
+public data class IgmpHeader00(public var bitfield: UByte = 0u)
 
-public data class IGMP_HEADER_1(
-    public var Reserved: UByte = 0u,
-    public var MaxRespTime: UByte = 0u,
-    public var Code: UByte = 0u,
+public data class IgmpHeader1(
+    public var reserved: UByte = 0u,
+    public var maxRespTime: UByte = 0u,
+    public var code: UByte = 0u,
 )
 
-public data class IN6_ADDR(public var u: IN6_ADDR_0 = IN6_ADDR_0())
+public data class In6Addr(public var u: In6Addr0 = In6Addr0())
 
-public data class IN6_ADDR_0(public var Byte: UByteArray = UByteArray(16), public var Word: UShortArray = UShortArray(8)) {
+public data class In6Addr0(public var byte: UByteArray = UByteArray(16), public var word: UShortArray = UShortArray(8)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IN6_ADDR_0) return false
-        if (!this.Byte.contentEquals(other.Byte)) return false
-        if (!this.Word.contentEquals(other.Word)) return false
+        if (other !is In6Addr0) return false
+        if (!this.byte.contentEquals(other.byte)) return false
+        if (!this.word.contentEquals(other.word)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Byte.contentHashCode()
-        result = 31 * result + this.Word.contentHashCode()
+        var result = this.byte.contentHashCode()
+        result = 31 * result + this.word.contentHashCode()
         return result
     }
 }
 
-public data class IN6_PKTINFO(public var ipi6_addr: IN6_ADDR = IN6_ADDR(), public var ipi6_ifindex: UInt = 0u)
+public data class In6Pktinfo(public var ipi6Addr: In6Addr = In6Addr(), public var ipi6Ifindex: UInt = 0u)
 
-public data class IN6_PKTINFO_EX(public var pkt_info: IN6_PKTINFO = IN6_PKTINFO(), public var scope_id: SCOPE_ID = SCOPE_ID())
+public data class In6PktinfoEx(public var pktInfo: In6Pktinfo = In6Pktinfo(), public var scopeId: ScopeId = ScopeId())
 
-public data class INET_PORT_RANGE(public var StartPort: UShort = 0u, public var NumberOfPorts: UShort = 0u)
+public data class InetPortRange(public var startPort: UShort = 0u, public var numberOfPorts: UShort = 0u)
 
-public data class INET_PORT_RESERVATION_INFORMATION(public var OwningPid: UInt = 0u)
+public data class InetPortReservationInformation(public var owningPid: UInt = 0u)
 
-public data class INET_PORT_RESERVATION_INSTANCE(public var Reservation: INET_PORT_RANGE = INET_PORT_RANGE(), public var Token: INET_PORT_RESERVATION_TOKEN = INET_PORT_RESERVATION_TOKEN())
+public data class InetPortReservationInstance(public var reservation: InetPortRange = InetPortRange(), public var token: InetPortReservationToken = InetPortReservationToken())
 
-public data class INET_PORT_RESERVATION_TOKEN(public var Token: ULong = 0uL)
+public data class InetPortReservationToken(public var token: ULong = 0uL)
 
-public data class INTERFACE_INFO(
+public data class InterfaceInfo(
     public var iiFlags: UInt = 0u,
-    public var iiAddress: sockaddr_gen = sockaddr_gen(),
-    public var iiBroadcastAddress: sockaddr_gen = sockaddr_gen(),
-    public var iiNetmask: sockaddr_gen = sockaddr_gen(),
+    public var iiAddress: SockaddrGen = SockaddrGen(),
+    public var iiBroadcastAddress: SockaddrGen = SockaddrGen(),
+    public var iiNetmask: SockaddrGen = SockaddrGen(),
 )
 
-public data class INTERFACE_INFO_EX(
+public data class InterfaceInfoEx(
     public var iiFlags: UInt = 0u,
-    public var iiAddress: SOCKET_ADDRESS = SOCKET_ADDRESS(),
-    public var iiBroadcastAddress: SOCKET_ADDRESS = SOCKET_ADDRESS(),
-    public var iiNetmask: SOCKET_ADDRESS = SOCKET_ADDRESS(),
+    public var iiAddress: SocketAddress = SocketAddress(),
+    public var iiBroadcastAddress: SocketAddress = SocketAddress(),
+    public var iiNetmask: SocketAddress = SocketAddress(),
 )
 
-public data class IN_ADDR(public var S_un: IN_ADDR_0 = IN_ADDR_0())
+public data class InAddr(public var sUn: InAddr0 = InAddr0())
 
-public data class IN_ADDR_0(
-    public var S_un_b: IN_ADDR_0_0 = IN_ADDR_0_0(),
-    public var S_un_w: IN_ADDR_0_1 = IN_ADDR_0_1(),
-    public var S_addr: UInt = 0u,
+public data class InAddr0(
+    public var sUnB: InAddr00 = InAddr00(),
+    public var sUnW: InAddr01 = InAddr01(),
+    public var sAddr: UInt = 0u,
 )
 
-public data class IN_ADDR_0_0(
-    public var s_b1: UByte = 0u,
-    public var s_b2: UByte = 0u,
-    public var s_b3: UByte = 0u,
-    public var s_b4: UByte = 0u,
+public data class InAddr00(
+    public var sB1: UByte = 0u,
+    public var sB2: UByte = 0u,
+    public var sB3: UByte = 0u,
+    public var sB4: UByte = 0u,
 )
 
-public data class IN_ADDR_0_1(public var s_w1: UShort = 0u, public var s_w2: UShort = 0u)
+public data class InAddr01(public var sW1: UShort = 0u, public var sW2: UShort = 0u)
 
-public data class IN_PKTINFO(public var ipi_addr: IN_ADDR = IN_ADDR(), public var ipi_ifindex: UInt = 0u)
+public data class InPktinfo(public var ipiAddr: InAddr = InAddr(), public var ipiIfindex: UInt = 0u)
 
-public data class IN_PKTINFO_EX(public var pkt_info: IN_PKTINFO = IN_PKTINFO(), public var scope_id: SCOPE_ID = SCOPE_ID())
+public data class InPktinfoEx(public var pktInfo: InPktinfo = InPktinfo(), public var scopeId: ScopeId = ScopeId())
 
-public data class IN_RECVERR(
-    public var protocol: IPPROTO = 0,
+public data class InRecverr(
+    public var protocol: Ipproto = 0,
     public var info: UInt = 0u,
     public var type: UByte = 0u,
     public var code: UByte = 0u,
 )
 
-public data class IPTLS_METADATA(public var SequenceNumber: ULong = 0uL)
+public data class IptlsMetadata(public var sequenceNumber: ULong = 0uL)
 
-public data class IPV4_HEADER(
-    public var Anonymous1: IPV4_HEADER_0 = IPV4_HEADER_0(),
-    public var Anonymous2: IPV4_HEADER_1 = IPV4_HEADER_1(),
-    public var TotalLength: UShort = 0u,
-    public var Identification: UShort = 0u,
-    public var Anonymous3: IPV4_HEADER_2 = IPV4_HEADER_2(),
-    public var TimeToLive: UByte = 0u,
-    public var Protocol: UByte = 0u,
-    public var HeaderChecksum: UShort = 0u,
-    public var SourceAddress: IN_ADDR = IN_ADDR(),
-    public var DestinationAddress: IN_ADDR = IN_ADDR(),
+public data class Ipv4Header(
+    public var anonymous1: Ipv4Header0 = Ipv4Header0(),
+    public var anonymous2: Ipv4Header1 = Ipv4Header1(),
+    public var totalLength: UShort = 0u,
+    public var identification: UShort = 0u,
+    public var anonymous3: Ipv4Header2 = Ipv4Header2(),
+    public var timeToLive: UByte = 0u,
+    public var protocol: UByte = 0u,
+    public var headerChecksum: UShort = 0u,
+    public var sourceAddress: InAddr = InAddr(),
+    public var destinationAddress: InAddr = InAddr(),
 )
 
-public data class IPV4_HEADER_0(public var VersionAndHeaderLength: UByte = 0u, public var Anonymous: IPV4_HEADER_0_0 = IPV4_HEADER_0_0())
+public data class Ipv4Header0(public var versionAndHeaderLength: UByte = 0u, public var anonymous: Ipv4Header00 = Ipv4Header00())
 
-public data class IPV4_HEADER_0_0(public var _bitfield: UByte = 0u)
+public data class Ipv4Header00(public var bitfield: UByte = 0u)
 
-public data class IPV4_HEADER_1(public var TypeOfServiceAndEcnField: UByte = 0u, public var Anonymous: IPV4_HEADER_1_0 = IPV4_HEADER_1_0())
+public data class Ipv4Header1(public var typeOfServiceAndEcnField: UByte = 0u, public var anonymous: Ipv4Header10 = Ipv4Header10())
 
-public data class IPV4_HEADER_1_0(public var _bitfield: UByte = 0u)
+public data class Ipv4Header10(public var bitfield: UByte = 0u)
 
-public data class IPV4_HEADER_2(public var FlagsAndOffset: UShort = 0u, public var Anonymous: IPV4_HEADER_2_0 = IPV4_HEADER_2_0())
+public data class Ipv4Header2(public var flagsAndOffset: UShort = 0u, public var anonymous: Ipv4Header20 = Ipv4Header20())
 
-public data class IPV4_HEADER_2_0(public var _bitfield: UShort = 0u)
+public data class Ipv4Header20(public var bitfield: UShort = 0u)
 
-public data class IPV4_OPTION_HEADER(public var Anonymous: IPV4_OPTION_HEADER_0 = IPV4_OPTION_HEADER_0(), public var OptionLength: UByte = 0u)
+public data class Ipv4OptionHeader(public var anonymous: Ipv4OptionHeader0 = Ipv4OptionHeader0(), public var optionLength: UByte = 0u)
 
-public data class IPV4_OPTION_HEADER_0(public var OptionType: UByte = 0u, public var Anonymous: IPV4_OPTION_HEADER_0_0 = IPV4_OPTION_HEADER_0_0())
+public data class Ipv4OptionHeader0(public var optionType: UByte = 0u, public var anonymous: Ipv4OptionHeader00 = Ipv4OptionHeader00())
 
-public data class IPV4_OPTION_HEADER_0_0(public var _bitfield: UByte = 0u)
+public data class Ipv4OptionHeader00(public var bitfield: UByte = 0u)
 
-public data class IPV4_ROUTING_HEADER(public var OptionHeader: IPV4_OPTION_HEADER = IPV4_OPTION_HEADER(), public var Pointer: UByte = 0u)
+public data class Ipv4RoutingHeader(public var optionHeader: Ipv4OptionHeader = Ipv4OptionHeader(), public var pointer: UByte = 0u)
 
-public data class IPV4_TIMESTAMP_OPTION(
-    public var OptionHeader: IPV4_OPTION_HEADER = IPV4_OPTION_HEADER(),
-    public var Pointer: UByte = 0u,
-    public var Anonymous: IPV4_TIMESTAMP_OPTION_0 = IPV4_TIMESTAMP_OPTION_0(),
+public data class Ipv4TimestampOption(
+    public var optionHeader: Ipv4OptionHeader = Ipv4OptionHeader(),
+    public var pointer: UByte = 0u,
+    public var anonymous: Ipv4TimestampOption0 = Ipv4TimestampOption0(),
 )
 
-public data class IPV4_TIMESTAMP_OPTION_0(public var FlagsOverflow: UByte = 0u, public var Anonymous: IPV4_TIMESTAMP_OPTION_0_0 = IPV4_TIMESTAMP_OPTION_0_0())
+public data class Ipv4TimestampOption0(public var flagsOverflow: UByte = 0u, public var anonymous: Ipv4TimestampOption00 = Ipv4TimestampOption00())
 
-public data class IPV4_TIMESTAMP_OPTION_0_0(public var _bitfield: UByte = 0u)
+public data class Ipv4TimestampOption00(public var bitfield: UByte = 0u)
 
-public data class IPV6_EXTENSION_HEADER(public var NextHeader: UByte = 0u, public var Length: UByte = 0u)
+public data class Ipv6ExtensionHeader(public var nextHeader: UByte = 0u, public var length: UByte = 0u)
 
-public data class IPV6_FRAGMENT_HEADER(
-    public var NextHeader: UByte = 0u,
-    public var Reserved: UByte = 0u,
-    public var Anonymous: IPV6_FRAGMENT_HEADER_0 = IPV6_FRAGMENT_HEADER_0(),
-    public var Id: UInt = 0u,
+public data class Ipv6FragmentHeader(
+    public var nextHeader: UByte = 0u,
+    public var reserved: UByte = 0u,
+    public var anonymous: Ipv6FragmentHeader0 = Ipv6FragmentHeader0(),
+    public var id: UInt = 0u,
 )
 
-public data class IPV6_FRAGMENT_HEADER_0(public var Anonymous: IPV6_FRAGMENT_HEADER_0_0 = IPV6_FRAGMENT_HEADER_0_0(), public var OffsetAndFlags: UShort = 0u)
+public data class Ipv6FragmentHeader0(public var anonymous: Ipv6FragmentHeader00 = Ipv6FragmentHeader00(), public var offsetAndFlags: UShort = 0u)
 
-public data class IPV6_FRAGMENT_HEADER_0_0(public var _bitfield: UShort = 0u)
+public data class Ipv6FragmentHeader00(public var bitfield: UShort = 0u)
 
-public data class IPV6_HEADER(
-    public var Anonymous: IPV6_HEADER_0 = IPV6_HEADER_0(),
-    public var PayloadLength: UShort = 0u,
-    public var NextHeader: UByte = 0u,
-    public var HopLimit: UByte = 0u,
-    public var SourceAddress: IN6_ADDR = IN6_ADDR(),
-    public var DestinationAddress: IN6_ADDR = IN6_ADDR(),
+public data class Ipv6Header(
+    public var anonymous: Ipv6Header0 = Ipv6Header0(),
+    public var payloadLength: UShort = 0u,
+    public var nextHeader: UByte = 0u,
+    public var hopLimit: UByte = 0u,
+    public var sourceAddress: In6Addr = In6Addr(),
+    public var destinationAddress: In6Addr = In6Addr(),
 )
 
-public data class IPV6_HEADER_0(public var VersionClassFlow: UInt = 0u, public var Anonymous: IPV6_HEADER_0_0 = IPV6_HEADER_0_0())
+public data class Ipv6Header0(public var versionClassFlow: UInt = 0u, public var anonymous: Ipv6Header00 = Ipv6Header00())
 
-public data class IPV6_HEADER_0_0(public var _bitfield: UInt = 0u)
+public data class Ipv6Header00(public var bitfield: UInt = 0u)
 
-public data class IPV6_MREQ(public var ipv6mr_multiaddr: IN6_ADDR = IN6_ADDR(), public var ipv6mr_interface: UInt = 0u)
+public data class Ipv6Mreq(public var ipv6mrMultiaddr: In6Addr = In6Addr(), public var ipv6mrInterface: UInt = 0u)
 
-public data class IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS(public var Anonymous: IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS_0 = IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS_0(), public var Value: UInt = 0u)
+public data class Ipv6NeighborAdvertisementFlags(public var anonymous: Ipv6NeighborAdvertisementFlags0 = Ipv6NeighborAdvertisementFlags0(), public var value: UInt = 0u)
 
-public data class IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS_0(public var _bitfield: UByte = 0u, public var Reserved2: UByteArray = UByteArray(3)) {
+public data class Ipv6NeighborAdvertisementFlags0(public var bitfield: UByte = 0u, public var reserved2: UByteArray = UByteArray(3)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS_0) return false
-        if (this._bitfield != other._bitfield) return false
-        if (!this.Reserved2.contentEquals(other.Reserved2)) return false
+        if (other !is Ipv6NeighborAdvertisementFlags0) return false
+        if (this.bitfield != other.bitfield) return false
+        if (!this.reserved2.contentEquals(other.reserved2)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this._bitfield.hashCode()
-        result = 31 * result + this.Reserved2.contentHashCode()
+        var result = this.bitfield.hashCode()
+        result = 31 * result + this.reserved2.contentHashCode()
         return result
     }
 }
 
-public data class IPV6_OPTION_HEADER(public var Type: UByte = 0u, public var DataLength: UByte = 0u)
+public data class Ipv6OptionHeader(public var type: UByte = 0u, public var dataLength: UByte = 0u)
 
-public data class IPV6_OPTION_JUMBOGRAM(public var Header: IPV6_OPTION_HEADER = IPV6_OPTION_HEADER(), public var JumbogramLength: UByteArray = UByteArray(4)) {
+public data class Ipv6OptionJumbogram(public var header: Ipv6OptionHeader = Ipv6OptionHeader(), public var jumbogramLength: UByteArray = UByteArray(4)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IPV6_OPTION_JUMBOGRAM) return false
-        if (this.Header != other.Header) return false
-        if (!this.JumbogramLength.contentEquals(other.JumbogramLength)) return false
+        if (other !is Ipv6OptionJumbogram) return false
+        if (this.header != other.header) return false
+        if (!this.jumbogramLength.contentEquals(other.jumbogramLength)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Header.hashCode()
-        result = 31 * result + this.JumbogramLength.contentHashCode()
+        var result = this.header.hashCode()
+        result = 31 * result + this.jumbogramLength.contentHashCode()
         return result
     }
 }
 
-public data class IPV6_OPTION_ROUTER_ALERT(public var Header: IPV6_OPTION_HEADER = IPV6_OPTION_HEADER(), public var Value: UByteArray = UByteArray(2)) {
+public data class Ipv6OptionRouterAlert(public var header: Ipv6OptionHeader = Ipv6OptionHeader(), public var value: UByteArray = UByteArray(2)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IPV6_OPTION_ROUTER_ALERT) return false
-        if (this.Header != other.Header) return false
-        if (!this.Value.contentEquals(other.Value)) return false
+        if (other !is Ipv6OptionRouterAlert) return false
+        if (this.header != other.header) return false
+        if (!this.value.contentEquals(other.value)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Header.hashCode()
-        result = 31 * result + this.Value.contentHashCode()
+        var result = this.header.hashCode()
+        result = 31 * result + this.value.contentHashCode()
         return result
     }
 }
 
-public data class IPV6_ROUTER_ADVERTISEMENT_FLAGS(public var Anonymous: IPV6_ROUTER_ADVERTISEMENT_FLAGS_0 = IPV6_ROUTER_ADVERTISEMENT_FLAGS_0(), public var Value: UByte = 0u)
+public data class Ipv6RouterAdvertisementFlags(public var anonymous: Ipv6RouterAdvertisementFlags0 = Ipv6RouterAdvertisementFlags0(), public var value: UByte = 0u)
 
-public data class IPV6_ROUTER_ADVERTISEMENT_FLAGS_0(public var _bitfield: UByte = 0u)
+public data class Ipv6RouterAdvertisementFlags0(public var bitfield: UByte = 0u)
 
-public data class IPV6_ROUTING_HEADER(
-    public var NextHeader: UByte = 0u,
-    public var Length: UByte = 0u,
-    public var RoutingType: UByte = 0u,
-    public var SegmentsLeft: UByte = 0u,
-    public var Reserved: UByteArray = UByteArray(4),
+public data class Ipv6RoutingHeader(
+    public var nextHeader: UByte = 0u,
+    public var length: UByte = 0u,
+    public var routingType: UByte = 0u,
+    public var segmentsLeft: UByte = 0u,
+    public var reserved: UByteArray = UByteArray(4),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IPV6_ROUTING_HEADER) return false
-        if (this.NextHeader != other.NextHeader) return false
-        if (this.Length != other.Length) return false
-        if (this.RoutingType != other.RoutingType) return false
-        if (this.SegmentsLeft != other.SegmentsLeft) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
+        if (other !is Ipv6RoutingHeader) return false
+        if (this.nextHeader != other.nextHeader) return false
+        if (this.length != other.length) return false
+        if (this.routingType != other.routingType) return false
+        if (this.segmentsLeft != other.segmentsLeft) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.NextHeader.hashCode()
-        result = 31 * result + this.Length.hashCode()
-        result = 31 * result + this.RoutingType.hashCode()
-        result = 31 * result + this.SegmentsLeft.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
+        var result = this.nextHeader.hashCode()
+        result = 31 * result + this.length.hashCode()
+        result = 31 * result + this.routingType.hashCode()
+        result = 31 * result + this.segmentsLeft.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
         return result
     }
 }
 
-public data class IPX_ADDRESS_DATA(
+public data class IpxAddressData(
     public var adapternum: Int = 0,
     public var netnum: UByteArray = UByteArray(4),
     public var nodenum: UByteArray = UByteArray(6),
@@ -1021,7 +1022,7 @@ public data class IPX_ADDRESS_DATA(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IPX_ADDRESS_DATA) return false
+        if (other !is IpxAddressData) return false
         if (this.adapternum != other.adapternum) return false
         if (!this.netnum.contentEquals(other.netnum)) return false
         if (!this.nodenum.contentEquals(other.nodenum)) return false
@@ -1044,7 +1045,7 @@ public data class IPX_ADDRESS_DATA(
     }
 }
 
-public data class IPX_NETNUM_DATA(
+public data class IpxNetnumData(
     public var netnum: UByteArray = UByteArray(4),
     public var hopcount: UShort = 0u,
     public var netdelay: UShort = 0u,
@@ -1053,7 +1054,7 @@ public data class IPX_NETNUM_DATA(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IPX_NETNUM_DATA) return false
+        if (other !is IpxNetnumData) return false
         if (!this.netnum.contentEquals(other.netnum)) return false
         if (this.hopcount != other.hopcount) return false
         if (this.netdelay != other.netdelay) return false
@@ -1072,46 +1073,46 @@ public data class IPX_NETNUM_DATA(
     }
 }
 
-public class IPX_SPXCONNSTATUS_DATA(
-    public var ConnectionState: UByte = 0u,
-    public var WatchDogActive: UByte = 0u,
-    public var LocalConnectionId: UShort = 0u,
-    public var RemoteConnectionId: UShort = 0u,
-    public var LocalSequenceNumber: UShort = 0u,
-    public var LocalAckNumber: UShort = 0u,
-    public var LocalAllocNumber: UShort = 0u,
-    public var RemoteAckNumber: UShort = 0u,
-    public var RemoteAllocNumber: UShort = 0u,
-    public var LocalSocket: UShort = 0u,
-    public var ImmediateAddress: UByteArray = UByteArray(6),
-    public var RemoteNetwork: UByteArray = UByteArray(4),
-    public var RemoteNode: UByteArray = UByteArray(6),
-    public var RemoteSocket: UShort = 0u,
-    public var RetransmissionCount: UShort = 0u,
-    public var EstimatedRoundTripDelay: UShort = 0u,
-    public var RetransmittedPackets: UShort = 0u,
-    public var SuppressedPacket: UShort = 0u,
+public class IpxSpxconnstatusData(
+    public var connectionState: UByte = 0u,
+    public var watchDogActive: UByte = 0u,
+    public var localConnectionId: UShort = 0u,
+    public var remoteConnectionId: UShort = 0u,
+    public var localSequenceNumber: UShort = 0u,
+    public var localAckNumber: UShort = 0u,
+    public var localAllocNumber: UShort = 0u,
+    public var remoteAckNumber: UShort = 0u,
+    public var remoteAllocNumber: UShort = 0u,
+    public var localSocket: UShort = 0u,
+    public var immediateAddress: UByteArray = UByteArray(6),
+    public var remoteNetwork: UByteArray = UByteArray(4),
+    public var remoteNode: UByteArray = UByteArray(6),
+    public var remoteSocket: UShort = 0u,
+    public var retransmissionCount: UShort = 0u,
+    public var estimatedRoundTripDelay: UShort = 0u,
+    public var retransmittedPackets: UShort = 0u,
+    public var suppressedPacket: UShort = 0u,
 )
 
-public data class IP_MREQ(public var imr_multiaddr: IN_ADDR = IN_ADDR(), public var imr_interface: IN_ADDR = IN_ADDR())
+public data class IpMreq(public var imrMultiaddr: InAddr = InAddr(), public var imrInterface: InAddr = InAddr())
 
-public data class IP_MREQ_SOURCE(
-    public var imr_multiaddr: IN_ADDR = IN_ADDR(),
-    public var imr_sourceaddr: IN_ADDR = IN_ADDR(),
-    public var imr_interface: IN_ADDR = IN_ADDR(),
+public data class IpMreqSource(
+    public var imrMultiaddr: InAddr = InAddr(),
+    public var imrSourceaddr: InAddr = InAddr(),
+    public var imrInterface: InAddr = InAddr(),
 )
 
-public data class IP_MSFILTER(
-    public var imsf_multiaddr: IN_ADDR = IN_ADDR(),
-    public var imsf_interface: IN_ADDR = IN_ADDR(),
-    public var imsf_fmode: MULTICAST_MODE_TYPE = 0,
-    public var imsf_numsrc: UInt = 0u,
-    public var imsf_slist: List<IN_ADDR> = List(1) { IN_ADDR() },
+public data class IpMsfilter(
+    public var imsfMultiaddr: InAddr = InAddr(),
+    public var imsfInterface: InAddr = InAddr(),
+    public var imsfFmode: MulticastModeType = 0,
+    public var imsfNumsrc: UInt = 0u,
+    public var imsfSlist: List<InAddr> = List(1) { InAddr() },
 )
 
-public data class LINGER(public var l_onoff: UShort = 0u, public var l_linger: UShort = 0u)
+public data class Linger(public var lOnoff: UShort = 0u, public var lLinger: UShort = 0u)
 
-public data class LM_IRPARMS(
+public data class LmIrparms(
     public var nTXDataBytes: UInt = 0u,
     public var nRXDataBytes: UInt = 0u,
     public var nBaudRate: UInt = 0u,
@@ -1122,198 +1123,198 @@ public data class LM_IRPARMS(
     public var nRXPackets: UByte = 0u,
 )
 
-public data class MLDV2_QUERY_HEADER(
-    public var IcmpHeader: ICMP_HEADER = ICMP_HEADER(),
-    public var Anonymous1: MLDV2_QUERY_HEADER_0 = MLDV2_QUERY_HEADER_0(),
-    public var Reserved: UShort = 0u,
-    public var MulticastAddress: IN6_ADDR = IN6_ADDR(),
-    public var _bitfield: UByte = 0u,
-    public var Anonymous2: MLDV2_QUERY_HEADER_1 = MLDV2_QUERY_HEADER_1(),
-    public var SourceCount: UShort = 0u,
+public data class Mldv2QueryHeader(
+    public var icmpHeader: IcmpHeader = IcmpHeader(),
+    public var anonymous1: Mldv2QueryHeader0 = Mldv2QueryHeader0(),
+    public var reserved: UShort = 0u,
+    public var multicastAddress: In6Addr = In6Addr(),
+    public var bitfield: UByte = 0u,
+    public var anonymous2: Mldv2QueryHeader1 = Mldv2QueryHeader1(),
+    public var sourceCount: UShort = 0u,
 )
 
-public data class MLDV2_QUERY_HEADER_0(public var MaxRespCode: UShort = 0u, public var Anonymous: MLDV2_QUERY_HEADER_0_0 = MLDV2_QUERY_HEADER_0_0())
+public data class Mldv2QueryHeader0(public var maxRespCode: UShort = 0u, public var anonymous: Mldv2QueryHeader00 = Mldv2QueryHeader00())
 
-public data class MLDV2_QUERY_HEADER_0_0(public var _bitfield: UShort = 0u)
+public data class Mldv2QueryHeader00(public var bitfield: UShort = 0u)
 
-public data class MLDV2_QUERY_HEADER_1(public var QueriersQueryInterfaceCode: UByte = 0u, public var Anonymous: MLDV2_QUERY_HEADER_1_0 = MLDV2_QUERY_HEADER_1_0())
+public data class Mldv2QueryHeader1(public var queriersQueryInterfaceCode: UByte = 0u, public var anonymous: Mldv2QueryHeader10 = Mldv2QueryHeader10())
 
-public data class MLDV2_QUERY_HEADER_1_0(public var _bitfield: UByte = 0u)
+public data class Mldv2QueryHeader10(public var bitfield: UByte = 0u)
 
-public data class MLDV2_REPORT_HEADER(
-    public var IcmpHeader: ICMP_HEADER = ICMP_HEADER(),
-    public var Reserved: UShort = 0u,
-    public var RecordCount: UShort = 0u,
+public data class Mldv2ReportHeader(
+    public var icmpHeader: IcmpHeader = IcmpHeader(),
+    public var reserved: UShort = 0u,
+    public var recordCount: UShort = 0u,
 )
 
-public data class MLDV2_REPORT_RECORD_HEADER(
-    public var Type: UByte = 0u,
-    public var AuxillaryDataLength: UByte = 0u,
-    public var SourceCount: UShort = 0u,
-    public var MulticastAddress: IN6_ADDR = IN6_ADDR(),
+public data class Mldv2ReportRecordHeader(
+    public var type: UByte = 0u,
+    public var auxillaryDataLength: UByte = 0u,
+    public var sourceCount: UShort = 0u,
+    public var multicastAddress: In6Addr = In6Addr(),
 )
 
-public data class MLD_HEADER(
-    public var IcmpHeader: ICMP_HEADER = ICMP_HEADER(),
-    public var MaxRespTime: UShort = 0u,
-    public var Reserved: UShort = 0u,
-    public var MulticastAddress: IN6_ADDR = IN6_ADDR(),
+public data class MldHeader(
+    public var icmpHeader: IcmpHeader = IcmpHeader(),
+    public var maxRespTime: UShort = 0u,
+    public var reserved: UShort = 0u,
+    public var multicastAddress: In6Addr = In6Addr(),
 )
 
-public data class NAPI_DOMAIN_DESCRIPTION_BLOB(
-    public var AuthLevel: UInt = 0u,
+public data class NapiDomainDescriptionBlob(
+    public var authLevel: UInt = 0u,
     public var cchDomainName: UInt = 0u,
-    public var OffsetNextDomainDescription: UInt = 0u,
-    public var OffsetThisDomainName: UInt = 0u,
+    public var offsetNextDomainDescription: UInt = 0u,
+    public var offsetThisDomainName: UInt = 0u,
 )
 
-public data class NAPI_PROVIDER_INSTALLATION_BLOB(
+public data class NapiProviderInstallationBlob(
     public var dwVersion: UInt = 0u,
     public var dwProviderType: UInt = 0u,
     public var fSupportsWildCard: UInt = 0u,
     public var cDomains: UInt = 0u,
-    public var OffsetFirstDomain: UInt = 0u,
+    public var offsetFirstDomain: UInt = 0u,
 )
 
-public data class ND_NEIGHBOR_ADVERT_HEADER(public var nd_na_hdr: ICMP_MESSAGE = ICMP_MESSAGE(), public var nd_na_target: IN6_ADDR = IN6_ADDR())
+public data class NdNeighborAdvertHeader(public var ndNaHdr: IcmpMessage = IcmpMessage(), public var ndNaTarget: In6Addr = In6Addr())
 
-public data class ND_NEIGHBOR_SOLICIT_HEADER(public var nd_ns_hdr: ICMP_MESSAGE = ICMP_MESSAGE(), public var nd_ns_target: IN6_ADDR = IN6_ADDR())
+public data class NdNeighborSolicitHeader(public var ndNsHdr: IcmpMessage = IcmpMessage(), public var ndNsTarget: In6Addr = In6Addr())
 
-public data class ND_OPTION_DNSSL(
-    public var nd_opt_dnssl_type: UByte = 0u,
-    public var nd_opt_dnssl_len: UByte = 0u,
-    public var nd_opt_dnssl_reserved: UShort = 0u,
-    public var nd_opt_dnssl_lifetime: UInt = 0u,
+public data class NdOptionDnssl(
+    public var ndOptDnsslType: UByte = 0u,
+    public var ndOptDnsslLen: UByte = 0u,
+    public var ndOptDnsslReserved: UShort = 0u,
+    public var ndOptDnsslLifetime: UInt = 0u,
 )
 
-public data class ND_OPTION_HDR(public var nd_opt_type: UByte = 0u, public var nd_opt_len: UByte = 0u)
+public data class NdOptionHdr(public var ndOptType: UByte = 0u, public var ndOptLen: UByte = 0u)
 
-public data class ND_OPTION_MTU(
-    public var nd_opt_mtu_type: UByte = 0u,
-    public var nd_opt_mtu_len: UByte = 0u,
-    public var nd_opt_mtu_reserved: UShort = 0u,
-    public var nd_opt_mtu_mtu: UInt = 0u,
+public data class NdOptionMtu(
+    public var ndOptMtuType: UByte = 0u,
+    public var ndOptMtuLen: UByte = 0u,
+    public var ndOptMtuReserved: UShort = 0u,
+    public var ndOptMtuMtu: UInt = 0u,
 )
 
-public data class ND_OPTION_PREFIX_INFO(
-    public var nd_opt_pi_type: UByte = 0u,
-    public var nd_opt_pi_len: UByte = 0u,
-    public var nd_opt_pi_prefix_len: UByte = 0u,
-    public var Anonymous1: ND_OPTION_PREFIX_INFO_0 = ND_OPTION_PREFIX_INFO_0(),
-    public var nd_opt_pi_valid_time: UInt = 0u,
-    public var nd_opt_pi_preferred_time: UInt = 0u,
-    public var Anonymous2: ND_OPTION_PREFIX_INFO_1 = ND_OPTION_PREFIX_INFO_1(),
-    public var nd_opt_pi_prefix: IN6_ADDR = IN6_ADDR(),
+public data class NdOptionPrefixInfo(
+    public var ndOptPiType: UByte = 0u,
+    public var ndOptPiLen: UByte = 0u,
+    public var ndOptPiPrefixLen: UByte = 0u,
+    public var anonymous1: NdOptionPrefixInfo0 = NdOptionPrefixInfo0(),
+    public var ndOptPiValidTime: UInt = 0u,
+    public var ndOptPiPreferredTime: UInt = 0u,
+    public var anonymous2: NdOptionPrefixInfo1 = NdOptionPrefixInfo1(),
+    public var ndOptPiPrefix: In6Addr = In6Addr(),
 )
 
-public data class ND_OPTION_PREFIX_INFO_0(public var nd_opt_pi_flags_reserved: UByte = 0u, public var Flags: ND_OPTION_PREFIX_INFO_0_0 = ND_OPTION_PREFIX_INFO_0_0())
+public data class NdOptionPrefixInfo0(public var ndOptPiFlagsReserved: UByte = 0u, public var flags: NdOptionPrefixInfo00 = NdOptionPrefixInfo00())
 
-public data class ND_OPTION_PREFIX_INFO_0_0(public var _bitfield: UByte = 0u)
+public data class NdOptionPrefixInfo00(public var bitfield: UByte = 0u)
 
-public data class ND_OPTION_PREFIX_INFO_1(public var nd_opt_pi_reserved2: UInt = 0u, public var Anonymous: ND_OPTION_PREFIX_INFO_1_0 = ND_OPTION_PREFIX_INFO_1_0())
+public data class NdOptionPrefixInfo1(public var ndOptPiReserved2: UInt = 0u, public var anonymous: NdOptionPrefixInfo10 = NdOptionPrefixInfo10())
 
-public data class ND_OPTION_PREFIX_INFO_1_0(public var nd_opt_pi_reserved3: UByteArray = UByteArray(3), public var nd_opt_pi_site_prefix_len: UByte = 0u) {
+public data class NdOptionPrefixInfo10(public var ndOptPiReserved3: UByteArray = UByteArray(3), public var ndOptPiSitePrefixLen: UByte = 0u) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is ND_OPTION_PREFIX_INFO_1_0) return false
-        if (!this.nd_opt_pi_reserved3.contentEquals(other.nd_opt_pi_reserved3)) return false
-        if (this.nd_opt_pi_site_prefix_len != other.nd_opt_pi_site_prefix_len) return false
+        if (other !is NdOptionPrefixInfo10) return false
+        if (!this.ndOptPiReserved3.contentEquals(other.ndOptPiReserved3)) return false
+        if (this.ndOptPiSitePrefixLen != other.ndOptPiSitePrefixLen) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.nd_opt_pi_reserved3.contentHashCode()
-        result = 31 * result + this.nd_opt_pi_site_prefix_len.hashCode()
+        var result = this.ndOptPiReserved3.contentHashCode()
+        result = 31 * result + this.ndOptPiSitePrefixLen.hashCode()
         return result
     }
 }
 
-public data class ND_OPTION_RDNSS(
-    public var nd_opt_rdnss_type: UByte = 0u,
-    public var nd_opt_rdnss_len: UByte = 0u,
-    public var nd_opt_rdnss_reserved: UShort = 0u,
-    public var nd_opt_rdnss_lifetime: UInt = 0u,
+public data class NdOptionRdnss(
+    public var ndOptRdnssType: UByte = 0u,
+    public var ndOptRdnssLen: UByte = 0u,
+    public var ndOptRdnssReserved: UShort = 0u,
+    public var ndOptRdnssLifetime: UInt = 0u,
 )
 
-public data class ND_OPTION_RD_HDR(
-    public var nd_opt_rh_type: UByte = 0u,
-    public var nd_opt_rh_len: UByte = 0u,
-    public var nd_opt_rh_reserved1: UShort = 0u,
-    public var nd_opt_rh_reserved2: UInt = 0u,
+public data class NdOptionRdHdr(
+    public var ndOptRhType: UByte = 0u,
+    public var ndOptRhLen: UByte = 0u,
+    public var ndOptRhReserved1: UShort = 0u,
+    public var ndOptRhReserved2: UInt = 0u,
 )
 
-public data class ND_OPTION_ROUTE_INFO(
-    public var nd_opt_ri_type: UByte = 0u,
-    public var nd_opt_ri_len: UByte = 0u,
-    public var nd_opt_ri_prefix_len: UByte = 0u,
-    public var Anonymous: ND_OPTION_ROUTE_INFO_0 = ND_OPTION_ROUTE_INFO_0(),
-    public var nd_opt_ri_route_lifetime: UInt = 0u,
-    public var nd_opt_ri_prefix: IN6_ADDR = IN6_ADDR(),
+public data class NdOptionRouteInfo(
+    public var ndOptRiType: UByte = 0u,
+    public var ndOptRiLen: UByte = 0u,
+    public var ndOptRiPrefixLen: UByte = 0u,
+    public var anonymous: NdOptionRouteInfo0 = NdOptionRouteInfo0(),
+    public var ndOptRiRouteLifetime: UInt = 0u,
+    public var ndOptRiPrefix: In6Addr = In6Addr(),
 )
 
-public data class ND_OPTION_ROUTE_INFO_0(public var nd_opt_ri_flags_reserved: UByte = 0u, public var Flags: ND_OPTION_ROUTE_INFO_0_0 = ND_OPTION_ROUTE_INFO_0_0())
+public data class NdOptionRouteInfo0(public var ndOptRiFlagsReserved: UByte = 0u, public var flags: NdOptionRouteInfo00 = NdOptionRouteInfo00())
 
-public data class ND_OPTION_ROUTE_INFO_0_0(public var _bitfield: UByte = 0u)
+public data class NdOptionRouteInfo00(public var bitfield: UByte = 0u)
 
-public data class ND_REDIRECT_HEADER(
-    public var nd_rd_hdr: ICMP_MESSAGE = ICMP_MESSAGE(),
-    public var nd_rd_target: IN6_ADDR = IN6_ADDR(),
-    public var nd_rd_dst: IN6_ADDR = IN6_ADDR(),
+public data class NdRedirectHeader(
+    public var ndRdHdr: IcmpMessage = IcmpMessage(),
+    public var ndRdTarget: In6Addr = In6Addr(),
+    public var ndRdDst: In6Addr = In6Addr(),
 )
 
-public data class ND_ROUTER_ADVERT_HEADER(
-    public var nd_ra_hdr: ICMP_MESSAGE = ICMP_MESSAGE(),
-    public var nd_ra_reachable: UInt = 0u,
-    public var nd_ra_retransmit: UInt = 0u,
+public data class NdRouterAdvertHeader(
+    public var ndRaHdr: IcmpMessage = IcmpMessage(),
+    public var ndRaReachable: UInt = 0u,
+    public var ndRaRetransmit: UInt = 0u,
 )
 
-public data class ND_ROUTER_SOLICIT_HEADER(public var nd_rs_hdr: ICMP_MESSAGE = ICMP_MESSAGE())
+public data class NdRouterSolicitHeader(public var ndRsHdr: IcmpMessage = IcmpMessage())
 
-public data class NETRESOURCE2A(
+public data class Netresource2a(
     public var dwScope: UInt = 0u,
     public var dwType: UInt = 0u,
     public var dwUsage: UInt = 0u,
     public var dwDisplayType: UInt = 0u,
-    public var lpLocalName: PSTR = 0L,
-    public var lpRemoteName: PSTR = 0L,
-    public var lpComment: PSTR = 0L,
-    public var ns_info: NS_INFOA = NS_INFOA(),
-    public var ServiceType: GUID = GUID(),
+    public var lpLocalName: Pstr = null,
+    public var lpRemoteName: Pstr = null,
+    public var lpComment: Pstr = null,
+    public var nsInfo: NsInfoa = NsInfoa(),
+    public var serviceType: Guid = Guid(),
     public var dwProtocols: UInt = 0u,
-    public var lpiProtocols: Long = 0L,
+    public var lpiProtocols: Int? = null,
 )
 
-public data class NETRESOURCE2W(
+public data class Netresource2w(
     public var dwScope: UInt = 0u,
     public var dwType: UInt = 0u,
     public var dwUsage: UInt = 0u,
     public var dwDisplayType: UInt = 0u,
-    public var lpLocalName: PWSTR = 0L,
-    public var lpRemoteName: PWSTR = 0L,
-    public var lpComment: PWSTR = 0L,
-    public var ns_info: NS_INFOA = NS_INFOA(),
-    public var ServiceType: GUID = GUID(),
+    public var lpLocalName: Pwstr = null,
+    public var lpRemoteName: Pwstr = null,
+    public var lpComment: Pwstr = null,
+    public var nsInfo: NsInfoa = NsInfoa(),
+    public var serviceType: Guid = Guid(),
     public var dwProtocols: UInt = 0u,
-    public var lpiProtocols: Long = 0L,
+    public var lpiProtocols: Int? = null,
 )
 
-public data class NLA_BLOB(public var header: NLA_BLOB_0 = NLA_BLOB_0(), public var data: NLA_BLOB_1 = NLA_BLOB_1())
+public data class NlaBlob(public var header: NlaBlob0 = NlaBlob0(), public var data: NlaBlob1 = NlaBlob1())
 
-public data class NLA_BLOB_1(
+public data class NlaBlob1(
     public var rawData: ByteArray = ByteArray(1),
-    public var interfaceData: NLA_BLOB_1_0 = NLA_BLOB_1_0(),
-    public var locationData: NLA_BLOB_1_1 = NLA_BLOB_1_1(),
-    public var connectivity: NLA_BLOB_1_2 = NLA_BLOB_1_2(),
-    public var ICS: NLA_BLOB_1_3 = NLA_BLOB_1_3(),
+    public var interfaceData: NlaBlob10 = NlaBlob10(),
+    public var locationData: NlaBlob11 = NlaBlob11(),
+    public var connectivity: NlaBlob12 = NlaBlob12(),
+    public var ics: NlaBlob13 = NlaBlob13(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NLA_BLOB_1) return false
+        if (other !is NlaBlob1) return false
         if (!this.rawData.contentEquals(other.rawData)) return false
         if (this.interfaceData != other.interfaceData) return false
         if (this.locationData != other.locationData) return false
         if (this.connectivity != other.connectivity) return false
-        if (this.ICS != other.ICS) return false
+        if (this.ics != other.ics) return false
         return true
     }
 
@@ -1322,14 +1323,14 @@ public data class NLA_BLOB_1(
         result = 31 * result + this.interfaceData.hashCode()
         result = 31 * result + this.locationData.hashCode()
         result = 31 * result + this.connectivity.hashCode()
-        result = 31 * result + this.ICS.hashCode()
+        result = 31 * result + this.ics.hashCode()
         return result
     }
 }
 
-public data class NLA_BLOB_1_3(public var remote: NLA_BLOB_1_3_0 = NLA_BLOB_1_3_0())
+public data class NlaBlob13(public var remote: NlaBlob130 = NlaBlob130())
 
-public data class NLA_BLOB_1_3_0(
+public data class NlaBlob130(
     public var speed: UInt = 0u,
     public var type: UInt = 0u,
     public var state: UInt = 0u,
@@ -1338,7 +1339,7 @@ public data class NLA_BLOB_1_3_0(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NLA_BLOB_1_3_0) return false
+        if (other !is NlaBlob130) return false
         if (this.speed != other.speed) return false
         if (this.type != other.type) return false
         if (this.state != other.state) return false
@@ -1357,16 +1358,16 @@ public data class NLA_BLOB_1_3_0(
     }
 }
 
-public data class NLA_BLOB_1_2(public var type: NLA_CONNECTIVITY_TYPE = 0, public var internet: NLA_INTERNET = 0)
+public data class NlaBlob12(public var type: NlaConnectivityType = 0, public var internet: NlaInternet = 0)
 
-public data class NLA_BLOB_1_0(
+public data class NlaBlob10(
     public var dwType: UInt = 0u,
     public var dwSpeed: UInt = 0u,
     public var adapterName: ByteArray = ByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NLA_BLOB_1_0) return false
+        if (other !is NlaBlob10) return false
         if (this.dwType != other.dwType) return false
         if (this.dwSpeed != other.dwSpeed) return false
         if (!this.adapterName.contentEquals(other.adapterName)) return false
@@ -1381,10 +1382,10 @@ public data class NLA_BLOB_1_0(
     }
 }
 
-public data class NLA_BLOB_1_1(public var information: ByteArray = ByteArray(1)) {
+public data class NlaBlob11(public var information: ByteArray = ByteArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NLA_BLOB_1_1) return false
+        if (other !is NlaBlob11) return false
         if (!this.information.contentEquals(other.information)) return false
         return true
     }
@@ -1394,89 +1395,89 @@ public data class NLA_BLOB_1_1(public var information: ByteArray = ByteArray(1))
     }
 }
 
-public data class NLA_BLOB_0(
-    public var type: NLA_BLOB_DATA_TYPE = 0,
+public data class NlaBlob0(
+    public var type: NlaBlobDataType = 0,
     public var dwSize: UInt = 0u,
     public var nextOffset: UInt = 0u,
 )
 
-public data class NL_BANDWIDTH_INFORMATION(
-    public var Bandwidth: ULong = 0uL,
-    public var Instability: ULong = 0uL,
-    public var BandwidthPeaked: Boolean = false,
+public data class NlBandwidthInformation(
+    public var bandwidth: ULong = 0uL,
+    public var instability: ULong = 0uL,
+    public var bandwidthPeaked: Boolean = false,
 )
 
-public data class NL_INTERFACE_OFFLOAD_ROD(public var _bitfield: UByte = 0u)
+public data class NlInterfaceOffloadRod(public var bitfield: UByte = 0u)
 
-public data class NL_NETWORK_CONNECTIVITY_HINT(
-    public var ConnectivityLevel: NL_NETWORK_CONNECTIVITY_LEVEL_HINT = 0,
-    public var ConnectivityCost: NL_NETWORK_CONNECTIVITY_COST_HINT = 0,
-    public var ApproachingDataLimit: Boolean = false,
-    public var OverDataLimit: Boolean = false,
-    public var Roaming: Boolean = false,
+public data class NlNetworkConnectivityHint(
+    public var connectivityLevel: NlNetworkConnectivityLevelHint = 0,
+    public var connectivityCost: NlNetworkConnectivityCostHint = 0,
+    public var approachingDataLimit: Boolean = false,
+    public var overDataLimit: Boolean = false,
+    public var roaming: Boolean = false,
 )
 
-public data class NL_PATH_BANDWIDTH_ROD(
-    public var Bandwidth: ULong = 0uL,
-    public var Instability: ULong = 0uL,
-    public var BandwidthPeaked: Boolean = false,
+public data class NlPathBandwidthRod(
+    public var bandwidth: ULong = 0uL,
+    public var instability: ULong = 0uL,
+    public var bandwidthPeaked: Boolean = false,
 )
 
-public data class NPI_MODULEID(
-    public var Length: UShort = 0u,
-    public var Type: NPI_MODULEID_TYPE = 0,
-    public var Anonymous: NPI_MODULEID_0 = NPI_MODULEID_0(),
+public data class NpiModuleid(
+    public var length: UShort = 0u,
+    public var type: NpiModuleidType = 0,
+    public var anonymous: NpiModuleid0 = NpiModuleid0(),
 )
 
-public data class NPI_MODULEID_0(public var Guid: GUID = GUID(), public var IfLuid: LUID = LUID())
+public data class NpiModuleid0(public var guid: Guid = Guid(), public var ifLuid: Luid = Luid())
 
-public data class NSPV2_ROUTINE(
+public data class Nspv2Routine(
     public var cbSize: UInt = 0u,
     public var dwMajorVersion: UInt = 0u,
     public var dwMinorVersion: UInt = 0u,
-    public var NSPv2Startup: LPNSPV2STARTUP = null,
-    public var NSPv2Cleanup: LPNSPV2CLEANUP = null,
-    public var NSPv2LookupServiceBegin: LPNSPV2LOOKUPSERVICEBEGIN = null,
-    public var NSPv2LookupServiceNextEx: LPNSPV2LOOKUPSERVICENEXTEX = null,
-    public var NSPv2LookupServiceEnd: LPNSPV2LOOKUPSERVICEEND = null,
-    public var NSPv2SetServiceEx: LPNSPV2SETSERVICEEX = null,
-    public var NSPv2ClientSessionRundown: LPNSPV2CLIENTSESSIONRUNDOWN = null,
+    public var nSPv2Startup: Lpnspv2startup = null,
+    public var nSPv2Cleanup: Lpnspv2cleanup = null,
+    public var nSPv2LookupServiceBegin: Lpnspv2lookupservicebegin = null,
+    public var nSPv2LookupServiceNextEx: Lpnspv2lookupservicenextex = null,
+    public var nSPv2LookupServiceEnd: Lpnspv2lookupserviceend = null,
+    public var nSPv2SetServiceEx: Lpnspv2setserviceex = null,
+    public var nSPv2ClientSessionRundown: Lpnspv2clientsessionrundown = null,
 )
 
-public data class NSP_ROUTINE(
+public data class NspRoutine(
     public var cbSize: UInt = 0u,
     public var dwMajorVersion: UInt = 0u,
     public var dwMinorVersion: UInt = 0u,
-    public var NSPCleanup: LPNSPCLEANUP = null,
-    public var NSPLookupServiceBegin: LPNSPLOOKUPSERVICEBEGIN = null,
-    public var NSPLookupServiceNext: LPNSPLOOKUPSERVICENEXT = null,
-    public var NSPLookupServiceEnd: LPNSPLOOKUPSERVICEEND = null,
-    public var NSPSetService: LPNSPSETSERVICE = null,
-    public var NSPInstallServiceClass: LPNSPINSTALLSERVICECLASS = null,
-    public var NSPRemoveServiceClass: LPNSPREMOVESERVICECLASS = null,
-    public var NSPGetServiceClassInfo: LPNSPGETSERVICECLASSINFO = null,
-    public var NSPIoctl: LPNSPIOCTL = null,
+    public var nSPCleanup: Lpnspcleanup = null,
+    public var nSPLookupServiceBegin: Lpnsplookupservicebegin = null,
+    public var nSPLookupServiceNext: Lpnsplookupservicenext = null,
+    public var nSPLookupServiceEnd: Lpnsplookupserviceend = null,
+    public var nSPSetService: Lpnspsetservice = null,
+    public var nSPInstallServiceClass: Lpnspinstallserviceclass = null,
+    public var nSPRemoveServiceClass: Lpnspremoveserviceclass = null,
+    public var nSPGetServiceClassInfo: Lpnspgetserviceclassinfo = null,
+    public var nSPIoctl: Lpnspioctl = null,
 )
 
-public data class NS_INFOA(
+public data class NsInfoa(
     public var dwNameSpace: UInt = 0u,
     public var dwNameSpaceFlags: UInt = 0u,
-    public var lpNameSpace: PSTR = 0L,
+    public var lpNameSpace: Pstr = null,
 )
 
-public data class NS_INFOW(
+public data class NsInfow(
     public var dwNameSpace: UInt = 0u,
     public var dwNameSpaceFlags: UInt = 0u,
-    public var lpNameSpace: PWSTR = 0L,
+    public var lpNameSpace: Pwstr = null,
 )
 
-public data class NS_SERVICE_INFOA(public var dwNameSpace: UInt = 0u, public var ServiceInfo: SERVICE_INFOA = SERVICE_INFOA())
+public data class NsServiceInfoa(public var dwNameSpace: UInt = 0u, public var serviceInfo: ServiceInfoa = ServiceInfoa())
 
-public data class NS_SERVICE_INFOW(public var dwNameSpace: UInt = 0u, public var ServiceInfo: SERVICE_INFOW = SERVICE_INFOW())
+public data class NsServiceInfow(public var dwNameSpace: UInt = 0u, public var serviceInfo: ServiceInfow = ServiceInfow())
 
-public data class PRIORITY_STATUS(public var Sender: SOCKET_PRIORITY_HINT = 0, public var Receiver: SOCKET_PRIORITY_HINT = 0)
+public data class PriorityStatus(public var sender: SocketPriorityHint = 0, public var receiver: SocketPriorityHint = 0)
 
-public data class PROTOCOL_INFOA(
+public data class ProtocolInfoa(
     public var dwServiceFlags: UInt = 0u,
     public var iAddressFamily: Int = 0,
     public var iMaxSockAddr: Int = 0,
@@ -1484,10 +1485,10 @@ public data class PROTOCOL_INFOA(
     public var iSocketType: Int = 0,
     public var iProtocol: Int = 0,
     public var dwMessageSize: UInt = 0u,
-    public var lpProtocol: PSTR = 0L,
+    public var lpProtocol: Pstr = null,
 )
 
-public data class PROTOCOL_INFOW(
+public data class ProtocolInfow(
     public var dwServiceFlags: UInt = 0u,
     public var iAddressFamily: Int = 0,
     public var iMaxSockAddr: Int = 0,
@@ -1495,226 +1496,226 @@ public data class PROTOCOL_INFOW(
     public var iSocketType: Int = 0,
     public var iProtocol: Int = 0,
     public var dwMessageSize: UInt = 0u,
-    public var lpProtocol: PWSTR = 0L,
+    public var lpProtocol: Pwstr = null,
 )
 
-public data class PROTOENT(
-    public var p_name: PSTR = 0L,
-    public var p_aliases: Long = 0L,
-    public var p_proto: Short = 0,
+public data class Protoent(
+    public var pName: Pstr = null,
+    public var pAliases: COpaquePointer? = null,
+    public var pProto: Short = 0,
 )
 
-public data class Q2931_IE(
-    public var IEType: Q2931_IE_TYPE = 0,
-    public var IELength: UInt = 0u,
-    public var IE: UByteArray = UByteArray(1),
+public data class Q2931Ie(
+    public var iEType: Q2931IeType = 0,
+    public var iELength: UInt = 0u,
+    public var ie: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is Q2931_IE) return false
-        if (this.IEType != other.IEType) return false
-        if (this.IELength != other.IELength) return false
-        if (!this.IE.contentEquals(other.IE)) return false
+        if (other !is Q2931Ie) return false
+        if (this.iEType != other.iEType) return false
+        if (this.iELength != other.iELength) return false
+        if (!this.ie.contentEquals(other.ie)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.IEType.hashCode()
-        result = 31 * result + this.IELength.hashCode()
-        result = 31 * result + this.IE.contentHashCode()
+        var result = this.iEType.hashCode()
+        result = 31 * result + this.iELength.hashCode()
+        result = 31 * result + this.ie.contentHashCode()
         return result
     }
 }
 
-public data class QOS(
-    public var SendingFlowspec: FLOWSPEC = FLOWSPEC(),
-    public var ReceivingFlowspec: FLOWSPEC = FLOWSPEC(),
-    public var ProviderSpecific: WSABUF = WSABUF(),
+public data class Qos(
+    public var sendingFlowspec: Flowspec = Flowspec(),
+    public var receivingFlowspec: Flowspec = Flowspec(),
+    public var providerSpecific: Wsabuf = Wsabuf(),
 )
 
-public data class RCVALL_IF(public var Mode: RCVALL_VALUE = 0, public var Interface: UInt = 0u)
+public data class RcvallIf(public var mode: RcvallValue = 0, public var iface: UInt = 0u)
 
-public data class REAL_TIME_NOTIFICATION_SETTING_INPUT(public var TransportSettingId: TRANSPORT_SETTING_ID = TRANSPORT_SETTING_ID(), public var BrokerEventGuid: GUID = GUID())
+public data class RealTimeNotificationSettingInput(public var transportSettingId: TransportSettingId = TransportSettingId(), public var brokerEventGuid: Guid = Guid())
 
-public data class REAL_TIME_NOTIFICATION_SETTING_INPUT_EX(
-    public var TransportSettingId: TRANSPORT_SETTING_ID = TRANSPORT_SETTING_ID(),
-    public var BrokerEventGuid: GUID = GUID(),
-    public var Unmark: Boolean = false,
+public data class RealTimeNotificationSettingInputEx(
+    public var transportSettingId: TransportSettingId = TransportSettingId(),
+    public var brokerEventGuid: Guid = Guid(),
+    public var unmark: Boolean = false,
 )
 
-public data class REAL_TIME_NOTIFICATION_SETTING_OUTPUT(public var ChannelStatus: CONTROL_CHANNEL_TRIGGER_STATUS = 0)
+public data class RealTimeNotificationSettingOutput(public var channelStatus: ControlChannelTriggerStatus = 0)
 
-public data class RIORESULT(
-    public var Status: Int = 0,
-    public var BytesTransferred: UInt = 0u,
-    public var SocketContext: ULong = 0uL,
-    public var RequestContext: ULong = 0uL,
+public data class Rioresult(
+    public var status: Int = 0,
+    public var bytesTransferred: UInt = 0u,
+    public var socketContext: ULong = 0uL,
+    public var requestContext: ULong = 0uL,
 )
 
-public data class RIO_BUF(
-    public var BufferId: RIO_BUFFERID = 0L,
-    public var Offset: UInt = 0u,
-    public var Length: UInt = 0u,
+public data class RioBuf(
+    public var bufferId: RioBufferid = 0,
+    public var offset: UInt = 0u,
+    public var length: UInt = 0u,
 )
 
-public data class RIO_CMSG_BUFFER(public var TotalLength: UInt = 0u)
+public data class RioCmsgBuffer(public var totalLength: UInt = 0u)
 
-public data class RIO_EXTENSION_FUNCTION_TABLE(
+public data class RioExtensionFunctionTable(
     public var cbSize: UInt = 0u,
-    public var RIOReceive: LPFN_RIORECEIVE = null,
-    public var RIOReceiveEx: LPFN_RIORECEIVEEX = null,
-    public var RIOSend: LPFN_RIOSEND = null,
-    public var RIOSendEx: LPFN_RIOSENDEX = null,
-    public var RIOCloseCompletionQueue: LPFN_RIOCLOSECOMPLETIONQUEUE = null,
-    public var RIOCreateCompletionQueue: LPFN_RIOCREATECOMPLETIONQUEUE = null,
-    public var RIOCreateRequestQueue: LPFN_RIOCREATEREQUESTQUEUE = null,
-    public var RIODequeueCompletion: LPFN_RIODEQUEUECOMPLETION = null,
-    public var RIODeregisterBuffer: LPFN_RIODEREGISTERBUFFER = null,
-    public var RIONotify: LPFN_RIONOTIFY = null,
-    public var RIORegisterBuffer: LPFN_RIOREGISTERBUFFER = null,
-    public var RIOResizeCompletionQueue: LPFN_RIORESIZECOMPLETIONQUEUE = null,
-    public var RIOResizeRequestQueue: LPFN_RIORESIZEREQUESTQUEUE = null,
+    public var rIOReceive: LpfnRioreceive = null,
+    public var rIOReceiveEx: LpfnRioreceiveex = null,
+    public var rIOSend: LpfnRiosend = null,
+    public var rIOSendEx: LpfnRiosendex = null,
+    public var rIOCloseCompletionQueue: LpfnRioclosecompletionqueue = null,
+    public var rIOCreateCompletionQueue: LpfnRiocreatecompletionqueue = null,
+    public var rIOCreateRequestQueue: LpfnRiocreaterequestqueue = null,
+    public var rIODequeueCompletion: LpfnRiodequeuecompletion = null,
+    public var rIODeregisterBuffer: LpfnRioderegisterbuffer = null,
+    public var rIONotify: LpfnRionotify = null,
+    public var rIORegisterBuffer: LpfnRioregisterbuffer = null,
+    public var rIOResizeCompletionQueue: LpfnRioresizecompletionqueue = null,
+    public var rIOResizeRequestQueue: LpfnRioresizerequestqueue = null,
 )
 
-public data class RIO_NOTIFICATION_COMPLETION(public var Type: RIO_NOTIFICATION_COMPLETION_TYPE = 0, public var Anonymous: RIO_NOTIFICATION_COMPLETION_0 = RIO_NOTIFICATION_COMPLETION_0())
+public data class RioNotificationCompletion(public var type: RioNotificationCompletionType = 0, public var anonymous: RioNotificationCompletion0 = RioNotificationCompletion0())
 
-public data class RIO_NOTIFICATION_COMPLETION_0(public var Event: RIO_NOTIFICATION_COMPLETION_0_0 = RIO_NOTIFICATION_COMPLETION_0_0(), public var Iocp: RIO_NOTIFICATION_COMPLETION_0_1 = RIO_NOTIFICATION_COMPLETION_0_1())
+public data class RioNotificationCompletion0(public var event: RioNotificationCompletion00 = RioNotificationCompletion00(), public var iocp: RioNotificationCompletion01 = RioNotificationCompletion01())
 
-public data class RIO_NOTIFICATION_COMPLETION_0_0(public var EventHandle: HANDLE = 0L, public var NotifyReset: BOOL = 0)
+public data class RioNotificationCompletion00(public var eventHandle: Handle = null, public var notifyReset: Bool = 0)
 
-public data class RIO_NOTIFICATION_COMPLETION_0_1(
-    public var IocpHandle: HANDLE = 0L,
-    public var CompletionKey: Long = 0L,
-    public var Overlapped: Long = 0L,
+public data class RioNotificationCompletion01(
+    public var iocpHandle: Handle = null,
+    public var completionKey: COpaquePointer? = null,
+    public var overlapped: COpaquePointer? = null,
 )
 
-public data class RM_FEC_INFO(
-    public var FECBlockSize: UShort = 0u,
-    public var FECProActivePackets: UShort = 0u,
-    public var FECGroupSize: UByte = 0u,
+public data class RmFecInfo(
+    public var fECBlockSize: UShort = 0u,
+    public var fECProActivePackets: UShort = 0u,
+    public var fECGroupSize: UByte = 0u,
     public var fFECOnDemandParityEnabled: Boolean = false,
 )
 
-public class RM_RECEIVER_STATS(
-    public var NumODataPacketsReceived: ULong = 0uL,
-    public var NumRDataPacketsReceived: ULong = 0uL,
-    public var NumDuplicateDataPackets: ULong = 0uL,
-    public var DataBytesReceived: ULong = 0uL,
-    public var TotalBytesReceived: ULong = 0uL,
-    public var RateKBitsPerSecOverall: ULong = 0uL,
-    public var RateKBitsPerSecLast: ULong = 0uL,
-    public var TrailingEdgeSeqId: ULong = 0uL,
-    public var LeadingEdgeSeqId: ULong = 0uL,
-    public var AverageSequencesInWindow: ULong = 0uL,
-    public var MinSequencesInWindow: ULong = 0uL,
-    public var MaxSequencesInWindow: ULong = 0uL,
-    public var FirstNakSequenceNumber: ULong = 0uL,
-    public var NumPendingNaks: ULong = 0uL,
-    public var NumOutstandingNaks: ULong = 0uL,
-    public var NumDataPacketsBuffered: ULong = 0uL,
-    public var TotalSelectiveNaksSent: ULong = 0uL,
-    public var TotalParityNaksSent: ULong = 0uL,
+public class RmReceiverStats(
+    public var numODataPacketsReceived: ULong = 0uL,
+    public var numRDataPacketsReceived: ULong = 0uL,
+    public var numDuplicateDataPackets: ULong = 0uL,
+    public var dataBytesReceived: ULong = 0uL,
+    public var totalBytesReceived: ULong = 0uL,
+    public var rateKBitsPerSecOverall: ULong = 0uL,
+    public var rateKBitsPerSecLast: ULong = 0uL,
+    public var trailingEdgeSeqId: ULong = 0uL,
+    public var leadingEdgeSeqId: ULong = 0uL,
+    public var averageSequencesInWindow: ULong = 0uL,
+    public var minSequencesInWindow: ULong = 0uL,
+    public var maxSequencesInWindow: ULong = 0uL,
+    public var firstNakSequenceNumber: ULong = 0uL,
+    public var numPendingNaks: ULong = 0uL,
+    public var numOutstandingNaks: ULong = 0uL,
+    public var numDataPacketsBuffered: ULong = 0uL,
+    public var totalSelectiveNaksSent: ULong = 0uL,
+    public var totalParityNaksSent: ULong = 0uL,
 )
 
-public data class RM_SENDER_STATS(
-    public var DataBytesSent: ULong = 0uL,
-    public var TotalBytesSent: ULong = 0uL,
-    public var NaksReceived: ULong = 0uL,
-    public var NaksReceivedTooLate: ULong = 0uL,
-    public var NumOutstandingNaks: ULong = 0uL,
-    public var NumNaksAfterRData: ULong = 0uL,
-    public var RepairPacketsSent: ULong = 0uL,
-    public var BufferSpaceAvailable: ULong = 0uL,
-    public var TrailingEdgeSeqId: ULong = 0uL,
-    public var LeadingEdgeSeqId: ULong = 0uL,
-    public var RateKBitsPerSecOverall: ULong = 0uL,
-    public var RateKBitsPerSecLast: ULong = 0uL,
-    public var TotalODataPacketsSent: ULong = 0uL,
+public data class RmSenderStats(
+    public var dataBytesSent: ULong = 0uL,
+    public var totalBytesSent: ULong = 0uL,
+    public var naksReceived: ULong = 0uL,
+    public var naksReceivedTooLate: ULong = 0uL,
+    public var numOutstandingNaks: ULong = 0uL,
+    public var numNaksAfterRData: ULong = 0uL,
+    public var repairPacketsSent: ULong = 0uL,
+    public var bufferSpaceAvailable: ULong = 0uL,
+    public var trailingEdgeSeqId: ULong = 0uL,
+    public var leadingEdgeSeqId: ULong = 0uL,
+    public var rateKBitsPerSecOverall: ULong = 0uL,
+    public var rateKBitsPerSecLast: ULong = 0uL,
+    public var totalODataPacketsSent: ULong = 0uL,
 )
 
-public data class RM_SEND_WINDOW(
-    public var RateKbitsPerSec: UInt = 0u,
-    public var WindowSizeInMSecs: UInt = 0u,
-    public var WindowSizeInBytes: UInt = 0u,
+public data class RmSendWindow(
+    public var rateKbitsPerSec: UInt = 0u,
+    public var windowSizeInMSecs: UInt = 0u,
+    public var windowSizeInBytes: UInt = 0u,
 )
 
-public data class RSS_SCALABILITY_INFO(public var RssEnabled: Boolean = false)
+public data class RssScalabilityInfo(public var rssEnabled: Boolean = false)
 
-public data class SCOPE_ID(public var Anonymous: SCOPE_ID_0 = SCOPE_ID_0())
+public data class ScopeId(public var anonymous: ScopeId0 = ScopeId0())
 
-public data class SCOPE_ID_0(public var Anonymous: SCOPE_ID_0_0 = SCOPE_ID_0_0(), public var Value: UInt = 0u)
+public data class ScopeId0(public var anonymous: ScopeId00 = ScopeId00(), public var value: UInt = 0u)
 
-public data class SCOPE_ID_0_0(public var _bitfield: UInt = 0u)
+public data class ScopeId00(public var bitfield: UInt = 0u)
 
-public data class SERVENT(
-    public var s_name: PSTR = 0L,
-    public var s_aliases: Long = 0L,
-    public var s_proto: PSTR = 0L,
-    public var s_port: Short = 0,
+public data class Servent(
+    public var sName: Pstr = null,
+    public var sAliases: COpaquePointer? = null,
+    public var sProto: Pstr = null,
+    public var sPort: Short = 0,
 )
 
-public data class SERVICE_ADDRESS(
+public data class ServiceAddress(
     public var dwAddressType: UInt = 0u,
     public var dwAddressFlags: UInt = 0u,
     public var dwAddressLength: UInt = 0u,
     public var dwPrincipalLength: UInt = 0u,
-    public var lpAddress: Long = 0L,
-    public var lpPrincipal: Long = 0L,
+    public var lpAddress: COpaquePointer? = null,
+    public var lpPrincipal: COpaquePointer? = null,
 )
 
-public data class SERVICE_ADDRESSES(public var dwAddressCount: UInt = 0u, public var Addresses: List<SERVICE_ADDRESS> = List(1) { SERVICE_ADDRESS() })
+public data class ServiceAddresses(public var dwAddressCount: UInt = 0u, public var addresses: List<ServiceAddress> = List(1) { ServiceAddress() })
 
-public data class SERVICE_ASYNC_INFO(
-    public var lpServiceCallbackProc: LPSERVICE_CALLBACK_PROC = null,
-    public var lParam: LPARAM = 0L,
-    public var hAsyncTaskHandle: HANDLE = 0L,
+public data class ServiceAsyncInfo(
+    public var lpServiceCallbackProc: LpserviceCallbackProc = null,
+    public var lParam: Lparam = 0L,
+    public var hAsyncTaskHandle: Handle = null,
 )
 
-public data class SERVICE_INFOA(
-    public var lpServiceType: Long = 0L,
-    public var lpServiceName: PSTR = 0L,
-    public var lpComment: PSTR = 0L,
-    public var lpLocale: PSTR = 0L,
-    public var dwDisplayHint: RESOURCE_DISPLAY_TYPE = 0u,
+public data class ServiceInfoa(
+    public var lpServiceType: Guid? = null,
+    public var lpServiceName: Pstr = null,
+    public var lpComment: Pstr = null,
+    public var lpLocale: Pstr = null,
+    public var dwDisplayHint: ResourceDisplayType = 0u,
     public var dwVersion: UInt = 0u,
     public var dwTime: UInt = 0u,
-    public var lpMachineName: PSTR = 0L,
-    public var lpServiceAddress: Long = 0L,
-    public var ServiceSpecificInfo: BLOB = BLOB(),
+    public var lpMachineName: Pstr = null,
+    public var lpServiceAddress: ServiceAddresses? = null,
+    public var serviceSpecificInfo: Blob = Blob(),
 )
 
-public data class SERVICE_INFOW(
-    public var lpServiceType: Long = 0L,
-    public var lpServiceName: PWSTR = 0L,
-    public var lpComment: PWSTR = 0L,
-    public var lpLocale: PWSTR = 0L,
-    public var dwDisplayHint: RESOURCE_DISPLAY_TYPE = 0u,
+public data class ServiceInfow(
+    public var lpServiceType: Guid? = null,
+    public var lpServiceName: Pwstr = null,
+    public var lpComment: Pwstr = null,
+    public var lpLocale: Pwstr = null,
+    public var dwDisplayHint: ResourceDisplayType = 0u,
     public var dwVersion: UInt = 0u,
     public var dwTime: UInt = 0u,
-    public var lpMachineName: PWSTR = 0L,
-    public var lpServiceAddress: Long = 0L,
-    public var ServiceSpecificInfo: BLOB = BLOB(),
+    public var lpMachineName: Pwstr = null,
+    public var lpServiceAddress: ServiceAddresses? = null,
+    public var serviceSpecificInfo: Blob = Blob(),
 )
 
-public data class SERVICE_TYPE_INFO(
+public data class ServiceTypeInfo(
     public var dwTypeNameOffset: UInt = 0u,
     public var dwValueCount: UInt = 0u,
-    public var Values: List<SERVICE_TYPE_VALUE> = List(1) { SERVICE_TYPE_VALUE() },
+    public var values: List<ServiceTypeValue> = List(1) { ServiceTypeValue() },
 )
 
-public data class SERVICE_TYPE_INFO_ABSA(
-    public var lpTypeName: PSTR = 0L,
+public data class ServiceTypeInfoAbsa(
+    public var lpTypeName: Pstr = null,
     public var dwValueCount: UInt = 0u,
-    public var Values: List<SERVICE_TYPE_VALUE_ABSA> = List(1) { SERVICE_TYPE_VALUE_ABSA() },
+    public var values: List<ServiceTypeValueAbsa> = List(1) { ServiceTypeValueAbsa() },
 )
 
-public data class SERVICE_TYPE_INFO_ABSW(
-    public var lpTypeName: PWSTR = 0L,
+public data class ServiceTypeInfoAbsw(
+    public var lpTypeName: Pwstr = null,
     public var dwValueCount: UInt = 0u,
-    public var Values: List<SERVICE_TYPE_VALUE_ABSW> = List(1) { SERVICE_TYPE_VALUE_ABSW() },
+    public var values: List<ServiceTypeValueAbsw> = List(1) { ServiceTypeValueAbsw() },
 )
 
-public data class SERVICE_TYPE_VALUE(
+public data class ServiceTypeValue(
     public var dwNameSpace: UInt = 0u,
     public var dwValueType: UInt = 0u,
     public var dwValueSize: UInt = 0u,
@@ -1722,179 +1723,179 @@ public data class SERVICE_TYPE_VALUE(
     public var dwValueOffset: UInt = 0u,
 )
 
-public data class SERVICE_TYPE_VALUE_ABSA(
+public data class ServiceTypeValueAbsa(
     public var dwNameSpace: UInt = 0u,
     public var dwValueType: UInt = 0u,
     public var dwValueSize: UInt = 0u,
-    public var lpValueName: PSTR = 0L,
-    public var lpValue: Long = 0L,
+    public var lpValueName: Pstr = null,
+    public var lpValue: COpaquePointer? = null,
 )
 
-public data class SERVICE_TYPE_VALUE_ABSW(
+public data class ServiceTypeValueAbsw(
     public var dwNameSpace: UInt = 0u,
     public var dwValueType: UInt = 0u,
     public var dwValueSize: UInt = 0u,
-    public var lpValueName: PWSTR = 0L,
-    public var lpValue: Long = 0L,
+    public var lpValueName: Pwstr = null,
+    public var lpValue: COpaquePointer? = null,
 )
 
-public data class SNAP_HEADER(
-    public var Dsap: UByte = 0u,
-    public var Ssap: UByte = 0u,
-    public var Control: UByte = 0u,
-    public var Oui: UByteArray = UByteArray(3),
-    public var Type: UShort = 0u,
+public data class SnapHeader(
+    public var dsap: UByte = 0u,
+    public var ssap: UByte = 0u,
+    public var control: UByte = 0u,
+    public var oui: UByteArray = UByteArray(3),
+    public var type: UShort = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SNAP_HEADER) return false
-        if (this.Dsap != other.Dsap) return false
-        if (this.Ssap != other.Ssap) return false
-        if (this.Control != other.Control) return false
-        if (!this.Oui.contentEquals(other.Oui)) return false
-        if (this.Type != other.Type) return false
+        if (other !is SnapHeader) return false
+        if (this.dsap != other.dsap) return false
+        if (this.ssap != other.ssap) return false
+        if (this.control != other.control) return false
+        if (!this.oui.contentEquals(other.oui)) return false
+        if (this.type != other.type) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Dsap.hashCode()
-        result = 31 * result + this.Ssap.hashCode()
-        result = 31 * result + this.Control.hashCode()
-        result = 31 * result + this.Oui.contentHashCode()
-        result = 31 * result + this.Type.hashCode()
+        var result = this.dsap.hashCode()
+        result = 31 * result + this.ssap.hashCode()
+        result = 31 * result + this.control.hashCode()
+        result = 31 * result + this.oui.contentHashCode()
+        result = 31 * result + this.type.hashCode()
         return result
     }
 }
 
-public data class SOCKADDR(public var sa_family: ADDRESS_FAMILY = 0u, public var sa_data: ByteArray = ByteArray(14)) {
+public data class Sockaddr(public var saFamily: AddressFamily = 0u, public var saData: ByteArray = ByteArray(14)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SOCKADDR) return false
-        if (this.sa_family != other.sa_family) return false
-        if (!this.sa_data.contentEquals(other.sa_data)) return false
+        if (other !is Sockaddr) return false
+        if (this.saFamily != other.saFamily) return false
+        if (!this.saData.contentEquals(other.saData)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.sa_family.hashCode()
-        result = 31 * result + this.sa_data.contentHashCode()
+        var result = this.saFamily.hashCode()
+        result = 31 * result + this.saData.contentHashCode()
         return result
     }
 }
 
-public data class SOCKADDR_ATM(
-    public var satm_family: UShort = 0u,
-    public var satm_number: ATM_ADDRESS = ATM_ADDRESS(),
-    public var satm_blli: ATM_BLLI = ATM_BLLI(),
-    public var satm_bhli: ATM_BHLI = ATM_BHLI(),
+public data class SockaddrAtm(
+    public var satmFamily: UShort = 0u,
+    public var satmNumber: AtmAddress = AtmAddress(),
+    public var satmBlli: AtmBlli = AtmBlli(),
+    public var satmBhli: AtmBhli = AtmBhli(),
 )
 
-public data class SOCKADDR_DL(
-    public var sdl_family: ADDRESS_FAMILY = 0u,
-    public var sdl_data: UByteArray = UByteArray(8),
-    public var sdl_zero: UByteArray = UByteArray(4),
+public data class SockaddrDl(
+    public var sdlFamily: AddressFamily = 0u,
+    public var sdlData: UByteArray = UByteArray(8),
+    public var sdlZero: UByteArray = UByteArray(4),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SOCKADDR_DL) return false
-        if (this.sdl_family != other.sdl_family) return false
-        if (!this.sdl_data.contentEquals(other.sdl_data)) return false
-        if (!this.sdl_zero.contentEquals(other.sdl_zero)) return false
+        if (other !is SockaddrDl) return false
+        if (this.sdlFamily != other.sdlFamily) return false
+        if (!this.sdlData.contentEquals(other.sdlData)) return false
+        if (!this.sdlZero.contentEquals(other.sdlZero)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.sdl_family.hashCode()
-        result = 31 * result + this.sdl_data.contentHashCode()
-        result = 31 * result + this.sdl_zero.contentHashCode()
+        var result = this.sdlFamily.hashCode()
+        result = 31 * result + this.sdlData.contentHashCode()
+        result = 31 * result + this.sdlZero.contentHashCode()
         return result
     }
 }
 
-public data class SOCKADDR_IN(
-    public var sin_family: ADDRESS_FAMILY = 0u,
-    public var sin_port: UShort = 0u,
-    public var sin_addr: IN_ADDR = IN_ADDR(),
-    public var sin_zero: ByteArray = ByteArray(8),
+public data class SockaddrIn(
+    public var sinFamily: AddressFamily = 0u,
+    public var sinPort: UShort = 0u,
+    public var sinAddr: InAddr = InAddr(),
+    public var sinZero: ByteArray = ByteArray(8),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SOCKADDR_IN) return false
-        if (this.sin_family != other.sin_family) return false
-        if (this.sin_port != other.sin_port) return false
-        if (this.sin_addr != other.sin_addr) return false
-        if (!this.sin_zero.contentEquals(other.sin_zero)) return false
+        if (other !is SockaddrIn) return false
+        if (this.sinFamily != other.sinFamily) return false
+        if (this.sinPort != other.sinPort) return false
+        if (this.sinAddr != other.sinAddr) return false
+        if (!this.sinZero.contentEquals(other.sinZero)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.sin_family.hashCode()
-        result = 31 * result + this.sin_port.hashCode()
-        result = 31 * result + this.sin_addr.hashCode()
-        result = 31 * result + this.sin_zero.contentHashCode()
+        var result = this.sinFamily.hashCode()
+        result = 31 * result + this.sinPort.hashCode()
+        result = 31 * result + this.sinAddr.hashCode()
+        result = 31 * result + this.sinZero.contentHashCode()
         return result
     }
 }
 
-public data class SOCKADDR_IN6(
-    public var sin6_family: ADDRESS_FAMILY = 0u,
-    public var sin6_port: UShort = 0u,
-    public var sin6_flowinfo: UInt = 0u,
-    public var sin6_addr: IN6_ADDR = IN6_ADDR(),
-    public var Anonymous: SOCKADDR_IN6_0 = SOCKADDR_IN6_0(),
+public data class SockaddrIn6(
+    public var sin6Family: AddressFamily = 0u,
+    public var sin6Port: UShort = 0u,
+    public var sin6Flowinfo: UInt = 0u,
+    public var sin6Addr: In6Addr = In6Addr(),
+    public var anonymous: SockaddrIn60 = SockaddrIn60(),
 )
 
-public data class SOCKADDR_IN6_0(public var sin6_scope_id: UInt = 0u, public var sin6_scope_struct: SCOPE_ID = SCOPE_ID())
+public data class SockaddrIn60(public var sin6ScopeId: UInt = 0u, public var sin6ScopeStruct: ScopeId = ScopeId())
 
-public data class SOCKADDR_IN6_PAIR(public var SourceAddress: Long = 0L, public var DestinationAddress: Long = 0L)
+public data class SockaddrIn6Pair(public var sourceAddress: SockaddrIn6? = null, public var destinationAddress: SockaddrIn6? = null)
 
-public data class SOCKADDR_IN6_W2KSP1(
-    public var sin6_family: Short = 0,
-    public var sin6_port: UShort = 0u,
-    public var sin6_flowinfo: UInt = 0u,
-    public var sin6_addr: IN6_ADDR = IN6_ADDR(),
-    public var sin6_scope_id: UInt = 0u,
+public data class SockaddrIn6W2ksp1(
+    public var sin6Family: Short = 0,
+    public var sin6Port: UShort = 0u,
+    public var sin6Flowinfo: UInt = 0u,
+    public var sin6Addr: In6Addr = In6Addr(),
+    public var sin6ScopeId: UInt = 0u,
 )
 
-public data class SOCKADDR_INET(
-    public var Ipv4: SOCKADDR_IN = SOCKADDR_IN(),
-    public var Ipv6: SOCKADDR_IN6 = SOCKADDR_IN6(),
-    public var si_family: ADDRESS_FAMILY = 0u,
+public data class SockaddrInet(
+    public var ipv4: SockaddrIn = SockaddrIn(),
+    public var ipv6: SockaddrIn6 = SockaddrIn6(),
+    public var siFamily: AddressFamily = 0u,
 )
 
-public data class SOCKADDR_IPX(
-    public var sa_family: Short = 0,
-    public var sa_netnum: ByteArray = ByteArray(4),
-    public var sa_nodenum: ByteArray = ByteArray(6),
-    public var sa_socket: UShort = 0u,
+public data class SockaddrIpx(
+    public var saFamily: Short = 0,
+    public var saNetnum: ByteArray = ByteArray(4),
+    public var saNodenum: ByteArray = ByteArray(6),
+    public var saSocket: UShort = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SOCKADDR_IPX) return false
-        if (this.sa_family != other.sa_family) return false
-        if (!this.sa_netnum.contentEquals(other.sa_netnum)) return false
-        if (!this.sa_nodenum.contentEquals(other.sa_nodenum)) return false
-        if (this.sa_socket != other.sa_socket) return false
+        if (other !is SockaddrIpx) return false
+        if (this.saFamily != other.saFamily) return false
+        if (!this.saNetnum.contentEquals(other.saNetnum)) return false
+        if (!this.saNodenum.contentEquals(other.saNodenum)) return false
+        if (this.saSocket != other.saSocket) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.sa_family.hashCode()
-        result = 31 * result + this.sa_netnum.contentHashCode()
-        result = 31 * result + this.sa_nodenum.contentHashCode()
-        result = 31 * result + this.sa_socket.hashCode()
+        var result = this.saFamily.hashCode()
+        result = 31 * result + this.saNetnum.contentHashCode()
+        result = 31 * result + this.saNodenum.contentHashCode()
+        result = 31 * result + this.saSocket.hashCode()
         return result
     }
 }
 
-public data class SOCKADDR_IRDA(
+public data class SockaddrIrda(
     public var irdaAddressFamily: UShort = 0u,
     public var irdaDeviceID: UByteArray = UByteArray(4),
     public var irdaServiceName: ByteArray = ByteArray(25),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SOCKADDR_IRDA) return false
+        if (other !is SockaddrIrda) return false
         if (this.irdaAddressFamily != other.irdaAddressFamily) return false
         if (!this.irdaDeviceID.contentEquals(other.irdaDeviceID)) return false
         if (!this.irdaServiceName.contentEquals(other.irdaServiceName)) return false
@@ -1909,136 +1910,136 @@ public data class SOCKADDR_IRDA(
     }
 }
 
-public data class SOCKADDR_NB(
-    public var snb_family: Short = 0,
-    public var snb_type: UShort = 0u,
-    public var snb_name: ByteArray = ByteArray(16),
+public data class SockaddrNb(
+    public var snbFamily: Short = 0,
+    public var snbType: UShort = 0u,
+    public var snbName: ByteArray = ByteArray(16),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SOCKADDR_NB) return false
-        if (this.snb_family != other.snb_family) return false
-        if (this.snb_type != other.snb_type) return false
-        if (!this.snb_name.contentEquals(other.snb_name)) return false
+        if (other !is SockaddrNb) return false
+        if (this.snbFamily != other.snbFamily) return false
+        if (this.snbType != other.snbType) return false
+        if (!this.snbName.contentEquals(other.snbName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.snb_family.hashCode()
-        result = 31 * result + this.snb_type.hashCode()
-        result = 31 * result + this.snb_name.contentHashCode()
+        var result = this.snbFamily.hashCode()
+        result = 31 * result + this.snbType.hashCode()
+        result = 31 * result + this.snbName.contentHashCode()
         return result
     }
 }
 
-public data class SOCKADDR_STORAGE(
-    public var ss_family: ADDRESS_FAMILY = 0u,
-    public var __ss_pad1: ByteArray = ByteArray(6),
-    public var __ss_align: Long = 0L,
-    public var __ss_pad2: ByteArray = ByteArray(112),
+public data class SockaddrStorage(
+    public var ssFamily: AddressFamily = 0u,
+    public var ssPad1: ByteArray = ByteArray(6),
+    public var ssAlign: Long = 0L,
+    public var ssPad2: ByteArray = ByteArray(112),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SOCKADDR_STORAGE) return false
-        if (this.ss_family != other.ss_family) return false
-        if (!this.__ss_pad1.contentEquals(other.__ss_pad1)) return false
-        if (this.__ss_align != other.__ss_align) return false
-        if (!this.__ss_pad2.contentEquals(other.__ss_pad2)) return false
+        if (other !is SockaddrStorage) return false
+        if (this.ssFamily != other.ssFamily) return false
+        if (!this.ssPad1.contentEquals(other.ssPad1)) return false
+        if (this.ssAlign != other.ssAlign) return false
+        if (!this.ssPad2.contentEquals(other.ssPad2)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ss_family.hashCode()
-        result = 31 * result + this.__ss_pad1.contentHashCode()
-        result = 31 * result + this.__ss_align.hashCode()
-        result = 31 * result + this.__ss_pad2.contentHashCode()
+        var result = this.ssFamily.hashCode()
+        result = 31 * result + this.ssPad1.contentHashCode()
+        result = 31 * result + this.ssAlign.hashCode()
+        result = 31 * result + this.ssPad2.contentHashCode()
         return result
     }
 }
 
-public data class SOCKADDR_STORAGE_XP(
-    public var ss_family: Short = 0,
-    public var __ss_pad1: ByteArray = ByteArray(6),
-    public var __ss_align: Long = 0L,
-    public var __ss_pad2: ByteArray = ByteArray(112),
+public data class SockaddrStorageXp(
+    public var ssFamily: Short = 0,
+    public var ssPad1: ByteArray = ByteArray(6),
+    public var ssAlign: Long = 0L,
+    public var ssPad2: ByteArray = ByteArray(112),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SOCKADDR_STORAGE_XP) return false
-        if (this.ss_family != other.ss_family) return false
-        if (!this.__ss_pad1.contentEquals(other.__ss_pad1)) return false
-        if (this.__ss_align != other.__ss_align) return false
-        if (!this.__ss_pad2.contentEquals(other.__ss_pad2)) return false
+        if (other !is SockaddrStorageXp) return false
+        if (this.ssFamily != other.ssFamily) return false
+        if (!this.ssPad1.contentEquals(other.ssPad1)) return false
+        if (this.ssAlign != other.ssAlign) return false
+        if (!this.ssPad2.contentEquals(other.ssPad2)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ss_family.hashCode()
-        result = 31 * result + this.__ss_pad1.contentHashCode()
-        result = 31 * result + this.__ss_align.hashCode()
-        result = 31 * result + this.__ss_pad2.contentHashCode()
+        var result = this.ssFamily.hashCode()
+        result = 31 * result + this.ssPad1.contentHashCode()
+        result = 31 * result + this.ssAlign.hashCode()
+        result = 31 * result + this.ssPad2.contentHashCode()
         return result
     }
 }
 
-public data class SOCKADDR_TP(
-    public var tp_family: UShort = 0u,
-    public var tp_addr_type: UShort = 0u,
-    public var tp_taddr_len: UShort = 0u,
-    public var tp_tsel_len: UShort = 0u,
-    public var tp_addr: UByteArray = UByteArray(64),
+public data class SockaddrTp(
+    public var tpFamily: UShort = 0u,
+    public var tpAddrType: UShort = 0u,
+    public var tpTaddrLen: UShort = 0u,
+    public var tpTselLen: UShort = 0u,
+    public var tpAddr: UByteArray = UByteArray(64),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SOCKADDR_TP) return false
-        if (this.tp_family != other.tp_family) return false
-        if (this.tp_addr_type != other.tp_addr_type) return false
-        if (this.tp_taddr_len != other.tp_taddr_len) return false
-        if (this.tp_tsel_len != other.tp_tsel_len) return false
-        if (!this.tp_addr.contentEquals(other.tp_addr)) return false
+        if (other !is SockaddrTp) return false
+        if (this.tpFamily != other.tpFamily) return false
+        if (this.tpAddrType != other.tpAddrType) return false
+        if (this.tpTaddrLen != other.tpTaddrLen) return false
+        if (this.tpTselLen != other.tpTselLen) return false
+        if (!this.tpAddr.contentEquals(other.tpAddr)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.tp_family.hashCode()
-        result = 31 * result + this.tp_addr_type.hashCode()
-        result = 31 * result + this.tp_taddr_len.hashCode()
-        result = 31 * result + this.tp_tsel_len.hashCode()
-        result = 31 * result + this.tp_addr.contentHashCode()
+        var result = this.tpFamily.hashCode()
+        result = 31 * result + this.tpAddrType.hashCode()
+        result = 31 * result + this.tpTaddrLen.hashCode()
+        result = 31 * result + this.tpTselLen.hashCode()
+        result = 31 * result + this.tpAddr.contentHashCode()
         return result
     }
 }
 
-public data class SOCKADDR_UN(public var sun_family: ADDRESS_FAMILY = 0u, public var sun_path: ByteArray = ByteArray(108)) {
+public data class SockaddrUn(public var sunFamily: AddressFamily = 0u, public var sunPath: ByteArray = ByteArray(108)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SOCKADDR_UN) return false
-        if (this.sun_family != other.sun_family) return false
-        if (!this.sun_path.contentEquals(other.sun_path)) return false
+        if (other !is SockaddrUn) return false
+        if (this.sunFamily != other.sunFamily) return false
+        if (!this.sunPath.contentEquals(other.sunPath)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.sun_family.hashCode()
-        result = 31 * result + this.sun_path.contentHashCode()
+        var result = this.sunFamily.hashCode()
+        result = 31 * result + this.sunPath.contentHashCode()
         return result
     }
 }
 
-public data class SOCKADDR_VNS(
-    public var sin_family: UShort = 0u,
-    public var net_address: UByteArray = UByteArray(4),
-    public var subnet_addr: UByteArray = UByteArray(2),
+public data class SockaddrVns(
+    public var sinFamily: UShort = 0u,
+    public var netAddress: UByteArray = UByteArray(4),
+    public var subnetAddr: UByteArray = UByteArray(2),
     public var port: UByteArray = UByteArray(2),
     public var hops: UByte = 0u,
     public var filler: UByteArray = UByteArray(5),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SOCKADDR_VNS) return false
-        if (this.sin_family != other.sin_family) return false
-        if (!this.net_address.contentEquals(other.net_address)) return false
-        if (!this.subnet_addr.contentEquals(other.subnet_addr)) return false
+        if (other !is SockaddrVns) return false
+        if (this.sinFamily != other.sinFamily) return false
+        if (!this.netAddress.contentEquals(other.netAddress)) return false
+        if (!this.subnetAddr.contentEquals(other.subnetAddr)) return false
         if (!this.port.contentEquals(other.port)) return false
         if (this.hops != other.hops) return false
         if (!this.filler.contentEquals(other.filler)) return false
@@ -2046,9 +2047,9 @@ public data class SOCKADDR_VNS(
     }
 
     override fun hashCode(): Int {
-        var result = this.sin_family.hashCode()
-        result = 31 * result + this.net_address.contentHashCode()
-        result = 31 * result + this.subnet_addr.contentHashCode()
+        var result = this.sinFamily.hashCode()
+        result = 31 * result + this.netAddress.contentHashCode()
+        result = 31 * result + this.subnetAddr.contentHashCode()
         result = 31 * result + this.port.contentHashCode()
         result = 31 * result + this.hops.hashCode()
         result = 31 * result + this.filler.contentHashCode()
@@ -2056,71 +2057,71 @@ public data class SOCKADDR_VNS(
     }
 }
 
-public data class SOCKET_ADDRESS(public var lpSockaddr: Long = 0L, public var iSockaddrLength: Int = 0)
+public data class SocketAddress(public var lpSockaddr: Sockaddr? = null, public var iSockaddrLength: Int = 0)
 
-public data class SOCKET_ADDRESS_LIST(public var iAddressCount: Int = 0, public var Address: List<SOCKET_ADDRESS> = List(1) { SOCKET_ADDRESS() })
+public data class SocketAddressList(public var iAddressCount: Int = 0, public var address: List<SocketAddress> = List(1) { SocketAddress() })
 
-public data class SOCKET_PEER_TARGET_NAME(
-    public var SecurityProtocol: SOCKET_SECURITY_PROTOCOL = 0,
-    public var PeerAddress: SOCKADDR_STORAGE = SOCKADDR_STORAGE(),
-    public var PeerTargetNameStringLen: UInt = 0u,
-    public var AllStrings: UShortArray = UShortArray(1),
+public data class SocketPeerTargetName(
+    public var securityProtocol: SocketSecurityProtocol = 0,
+    public var peerAddress: SockaddrStorage = SockaddrStorage(),
+    public var peerTargetNameStringLen: UInt = 0u,
+    public var allStrings: UShortArray = UShortArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SOCKET_PEER_TARGET_NAME) return false
-        if (this.SecurityProtocol != other.SecurityProtocol) return false
-        if (this.PeerAddress != other.PeerAddress) return false
-        if (this.PeerTargetNameStringLen != other.PeerTargetNameStringLen) return false
-        if (!this.AllStrings.contentEquals(other.AllStrings)) return false
+        if (other !is SocketPeerTargetName) return false
+        if (this.securityProtocol != other.securityProtocol) return false
+        if (this.peerAddress != other.peerAddress) return false
+        if (this.peerTargetNameStringLen != other.peerTargetNameStringLen) return false
+        if (!this.allStrings.contentEquals(other.allStrings)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.SecurityProtocol.hashCode()
-        result = 31 * result + this.PeerAddress.hashCode()
-        result = 31 * result + this.PeerTargetNameStringLen.hashCode()
-        result = 31 * result + this.AllStrings.contentHashCode()
+        var result = this.securityProtocol.hashCode()
+        result = 31 * result + this.peerAddress.hashCode()
+        result = 31 * result + this.peerTargetNameStringLen.hashCode()
+        result = 31 * result + this.allStrings.contentHashCode()
         return result
     }
 }
 
-public data class SOCKET_PROCESSOR_AFFINITY(
-    public var Processor: PROCESSOR_NUMBER = PROCESSOR_NUMBER(),
-    public var NumaNodeId: UShort = 0u,
-    public var Reserved: UShort = 0u,
+public data class SocketProcessorAffinity(
+    public var processor: ProcessorNumber = ProcessorNumber(),
+    public var numaNodeId: UShort = 0u,
+    public var reserved: UShort = 0u,
 )
 
-public data class SOCKET_SECURITY_QUERY_INFO(
-    public var SecurityProtocol: SOCKET_SECURITY_PROTOCOL = 0,
-    public var Flags: UInt = 0u,
-    public var PeerApplicationAccessTokenHandle: ULong = 0uL,
-    public var PeerMachineAccessTokenHandle: ULong = 0uL,
+public data class SocketSecurityQueryInfo(
+    public var securityProtocol: SocketSecurityProtocol = 0,
+    public var flags: UInt = 0u,
+    public var peerApplicationAccessTokenHandle: ULong = 0uL,
+    public var peerMachineAccessTokenHandle: ULong = 0uL,
 )
 
-public data class SOCKET_SECURITY_QUERY_INFO_IPSEC2(
-    public var SecurityProtocol: SOCKET_SECURITY_PROTOCOL = 0,
-    public var Flags: UInt = 0u,
-    public var PeerApplicationAccessTokenHandle: ULong = 0uL,
-    public var PeerMachineAccessTokenHandle: ULong = 0uL,
-    public var MmSaId: ULong = 0uL,
-    public var QmSaId: ULong = 0uL,
-    public var NegotiationWinerr: UInt = 0u,
-    public var SaLookupContext: GUID = GUID(),
+public data class SocketSecurityQueryInfoIpsec2(
+    public var securityProtocol: SocketSecurityProtocol = 0,
+    public var flags: UInt = 0u,
+    public var peerApplicationAccessTokenHandle: ULong = 0uL,
+    public var peerMachineAccessTokenHandle: ULong = 0uL,
+    public var mmSaId: ULong = 0uL,
+    public var qmSaId: ULong = 0uL,
+    public var negotiationWinerr: UInt = 0u,
+    public var saLookupContext: Guid = Guid(),
 )
 
-public data class SOCKET_SECURITY_QUERY_TEMPLATE(
-    public var SecurityProtocol: SOCKET_SECURITY_PROTOCOL = 0,
-    public var PeerAddress: SOCKADDR_STORAGE = SOCKADDR_STORAGE(),
-    public var PeerTokenAccessMask: UInt = 0u,
+public data class SocketSecurityQueryTemplate(
+    public var securityProtocol: SocketSecurityProtocol = 0,
+    public var peerAddress: SockaddrStorage = SockaddrStorage(),
+    public var peerTokenAccessMask: UInt = 0u,
 )
 
-public data class SOCKET_SECURITY_QUERY_TEMPLATE_IPSEC2(
-    public var SecurityProtocol: SOCKET_SECURITY_PROTOCOL = 0,
-    public var PeerAddress: SOCKADDR_STORAGE = SOCKADDR_STORAGE(),
-    public var PeerTokenAccessMask: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var FieldMask: UInt = 0u,
+public data class SocketSecurityQueryTemplateIpsec2(
+    public var securityProtocol: SocketSecurityProtocol = 0,
+    public var peerAddress: SockaddrStorage = SockaddrStorage(),
+    public var peerTokenAccessMask: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var fieldMask: UInt = 0u,
 )
 
-public data class SOCKET_SECURITY_SETTINGS(public var SecurityProtocol: SOCKET_SECURITY_PROTOCOL = 0, public var SecurityFlags: UInt = 0u)
+public data class SocketSecuritySettings(public var securityProtocol: SocketSecurityProtocol = 0, public var securityFlags: UInt = 0u)

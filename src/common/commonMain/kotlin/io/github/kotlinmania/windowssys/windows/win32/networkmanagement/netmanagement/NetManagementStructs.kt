@@ -1,325 +1,327 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netmanagement
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
-import io.github.kotlinmania.windowssys.windows.win32.security.PSID
-import io.github.kotlinmania.windowssys.windows.win32.security.SID_NAME_USE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
+import io.github.kotlinmania.windowssys.windows.win32.security.Psid
+import io.github.kotlinmania.windowssys.windows.win32.security.SidNameUse
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertContext
 
-public data class ACCESS_INFO_0(public var acc0_resource_name: PWSTR = 0L)
+public data class AccessInfo0(public var acc0ResourceName: Pwstr = null)
 
-public data class ACCESS_INFO_1(
-    public var acc1_resource_name: PWSTR = 0L,
-    public var acc1_attr: UInt = 0u,
-    public var acc1_count: UInt = 0u,
+public data class AccessInfo1(
+    public var acc1ResourceName: Pwstr = null,
+    public var acc1Attr: UInt = 0u,
+    public var acc1Count: UInt = 0u,
 )
 
-public data class ACCESS_INFO_1002(public var acc1002_attr: UInt = 0u)
+public data class AccessInfo1002(public var acc1002Attr: UInt = 0u)
 
-public data class ACCESS_LIST(public var acl_ugname: PWSTR = 0L, public var acl_access: UInt = 0u)
+public data class AccessList(public var aclUgname: Pwstr = null, public var aclAccess: UInt = 0u)
 
-public data class ADMIN_OTHER_INFO(public var alrtad_errcode: UInt = 0u, public var alrtad_numstrings: UInt = 0u)
+public data class AdminOtherInfo(public var alrtadErrcode: UInt = 0u, public var alrtadNumstrings: UInt = 0u)
 
-public data class AE_ACCLIM(
-    public var ae_al_compname: UInt = 0u,
-    public var ae_al_username: UInt = 0u,
-    public var ae_al_resname: UInt = 0u,
-    public var ae_al_limit: UInt = 0u,
+public data class AeAcclim(
+    public var aeAlCompname: UInt = 0u,
+    public var aeAlUsername: UInt = 0u,
+    public var aeAlResname: UInt = 0u,
+    public var aeAlLimit: UInt = 0u,
 )
 
-public data class AE_ACLMOD(
-    public var ae_am_compname: UInt = 0u,
-    public var ae_am_username: UInt = 0u,
-    public var ae_am_resname: UInt = 0u,
-    public var ae_am_action: UInt = 0u,
-    public var ae_am_datalen: UInt = 0u,
+public data class AeAclmod(
+    public var aeAmCompname: UInt = 0u,
+    public var aeAmUsername: UInt = 0u,
+    public var aeAmResname: UInt = 0u,
+    public var aeAmAction: UInt = 0u,
+    public var aeAmDatalen: UInt = 0u,
 )
 
-public data class AE_CLOSEFILE(
-    public var ae_cf_compname: UInt = 0u,
-    public var ae_cf_username: UInt = 0u,
-    public var ae_cf_resname: UInt = 0u,
-    public var ae_cf_fileid: UInt = 0u,
-    public var ae_cf_duration: UInt = 0u,
-    public var ae_cf_reason: UInt = 0u,
+public data class AeClosefile(
+    public var aeCfCompname: UInt = 0u,
+    public var aeCfUsername: UInt = 0u,
+    public var aeCfResname: UInt = 0u,
+    public var aeCfFileid: UInt = 0u,
+    public var aeCfDuration: UInt = 0u,
+    public var aeCfReason: UInt = 0u,
 )
 
-public data class AE_CONNREJ(
-    public var ae_cr_compname: UInt = 0u,
-    public var ae_cr_username: UInt = 0u,
-    public var ae_cr_netname: UInt = 0u,
-    public var ae_cr_reason: UInt = 0u,
+public data class AeConnrej(
+    public var aeCrCompname: UInt = 0u,
+    public var aeCrUsername: UInt = 0u,
+    public var aeCrNetname: UInt = 0u,
+    public var aeCrReason: UInt = 0u,
 )
 
-public data class AE_CONNSTART(
-    public var ae_ct_compname: UInt = 0u,
-    public var ae_ct_username: UInt = 0u,
-    public var ae_ct_netname: UInt = 0u,
-    public var ae_ct_connid: UInt = 0u,
+public data class AeConnstart(
+    public var aeCtCompname: UInt = 0u,
+    public var aeCtUsername: UInt = 0u,
+    public var aeCtNetname: UInt = 0u,
+    public var aeCtConnid: UInt = 0u,
 )
 
-public data class AE_CONNSTOP(
-    public var ae_cp_compname: UInt = 0u,
-    public var ae_cp_username: UInt = 0u,
-    public var ae_cp_netname: UInt = 0u,
-    public var ae_cp_connid: UInt = 0u,
-    public var ae_cp_reason: UInt = 0u,
+public data class AeConnstop(
+    public var aeCpCompname: UInt = 0u,
+    public var aeCpUsername: UInt = 0u,
+    public var aeCpNetname: UInt = 0u,
+    public var aeCpConnid: UInt = 0u,
+    public var aeCpReason: UInt = 0u,
 )
 
-public data class AE_GENERIC(
-    public var ae_ge_msgfile: UInt = 0u,
-    public var ae_ge_msgnum: UInt = 0u,
-    public var ae_ge_params: UInt = 0u,
-    public var ae_ge_param1: UInt = 0u,
-    public var ae_ge_param2: UInt = 0u,
-    public var ae_ge_param3: UInt = 0u,
-    public var ae_ge_param4: UInt = 0u,
-    public var ae_ge_param5: UInt = 0u,
-    public var ae_ge_param6: UInt = 0u,
-    public var ae_ge_param7: UInt = 0u,
-    public var ae_ge_param8: UInt = 0u,
-    public var ae_ge_param9: UInt = 0u,
+public data class AeGeneric(
+    public var aeGeMsgfile: UInt = 0u,
+    public var aeGeMsgnum: UInt = 0u,
+    public var aeGeParams: UInt = 0u,
+    public var aeGeParam1: UInt = 0u,
+    public var aeGeParam2: UInt = 0u,
+    public var aeGeParam3: UInt = 0u,
+    public var aeGeParam4: UInt = 0u,
+    public var aeGeParam5: UInt = 0u,
+    public var aeGeParam6: UInt = 0u,
+    public var aeGeParam7: UInt = 0u,
+    public var aeGeParam8: UInt = 0u,
+    public var aeGeParam9: UInt = 0u,
 )
 
-public data class AE_LOCKOUT(
-    public var ae_lk_compname: UInt = 0u,
-    public var ae_lk_username: UInt = 0u,
-    public var ae_lk_action: UInt = 0u,
-    public var ae_lk_bad_pw_count: UInt = 0u,
+public data class AeLockout(
+    public var aeLkCompname: UInt = 0u,
+    public var aeLkUsername: UInt = 0u,
+    public var aeLkAction: UInt = 0u,
+    public var aeLkBadPwCount: UInt = 0u,
 )
 
-public data class AE_NETLOGOFF(
-    public var ae_nf_compname: UInt = 0u,
-    public var ae_nf_username: UInt = 0u,
-    public var ae_nf_reserved1: UInt = 0u,
-    public var ae_nf_reserved2: UInt = 0u,
+public data class AeNetlogoff(
+    public var aeNfCompname: UInt = 0u,
+    public var aeNfUsername: UInt = 0u,
+    public var aeNfReserved1: UInt = 0u,
+    public var aeNfReserved2: UInt = 0u,
 )
 
-public data class AE_NETLOGON(
-    public var ae_no_compname: UInt = 0u,
-    public var ae_no_username: UInt = 0u,
-    public var ae_no_privilege: UInt = 0u,
-    public var ae_no_authflags: UInt = 0u,
+public data class AeNetlogon(
+    public var aeNoCompname: UInt = 0u,
+    public var aeNoUsername: UInt = 0u,
+    public var aeNoPrivilege: UInt = 0u,
+    public var aeNoAuthflags: UInt = 0u,
 )
 
-public data class AE_RESACCESS(
-    public var ae_ra_compname: UInt = 0u,
-    public var ae_ra_username: UInt = 0u,
-    public var ae_ra_resname: UInt = 0u,
-    public var ae_ra_operation: UInt = 0u,
-    public var ae_ra_returncode: UInt = 0u,
-    public var ae_ra_restype: UInt = 0u,
-    public var ae_ra_fileid: UInt = 0u,
+public data class AeResaccess(
+    public var aeRaCompname: UInt = 0u,
+    public var aeRaUsername: UInt = 0u,
+    public var aeRaResname: UInt = 0u,
+    public var aeRaOperation: UInt = 0u,
+    public var aeRaReturncode: UInt = 0u,
+    public var aeRaRestype: UInt = 0u,
+    public var aeRaFileid: UInt = 0u,
 )
 
-public data class AE_RESACCESSREJ(
-    public var ae_rr_compname: UInt = 0u,
-    public var ae_rr_username: UInt = 0u,
-    public var ae_rr_resname: UInt = 0u,
-    public var ae_rr_operation: UInt = 0u,
+public data class AeResaccessrej(
+    public var aeRrCompname: UInt = 0u,
+    public var aeRrUsername: UInt = 0u,
+    public var aeRrResname: UInt = 0u,
+    public var aeRrOperation: UInt = 0u,
 )
 
-public data class AE_SERVICESTAT(
-    public var ae_ss_compname: UInt = 0u,
-    public var ae_ss_username: UInt = 0u,
-    public var ae_ss_svcname: UInt = 0u,
-    public var ae_ss_status: UInt = 0u,
-    public var ae_ss_code: UInt = 0u,
-    public var ae_ss_text: UInt = 0u,
-    public var ae_ss_returnval: UInt = 0u,
+public data class AeServicestat(
+    public var aeSsCompname: UInt = 0u,
+    public var aeSsUsername: UInt = 0u,
+    public var aeSsSvcname: UInt = 0u,
+    public var aeSsStatus: UInt = 0u,
+    public var aeSsCode: UInt = 0u,
+    public var aeSsText: UInt = 0u,
+    public var aeSsReturnval: UInt = 0u,
 )
 
-public data class AE_SESSLOGOFF(
-    public var ae_sf_compname: UInt = 0u,
-    public var ae_sf_username: UInt = 0u,
-    public var ae_sf_reason: UInt = 0u,
+public data class AeSesslogoff(
+    public var aeSfCompname: UInt = 0u,
+    public var aeSfUsername: UInt = 0u,
+    public var aeSfReason: UInt = 0u,
 )
 
-public data class AE_SESSLOGON(
-    public var ae_so_compname: UInt = 0u,
-    public var ae_so_username: UInt = 0u,
-    public var ae_so_privilege: UInt = 0u,
+public data class AeSesslogon(
+    public var aeSoCompname: UInt = 0u,
+    public var aeSoUsername: UInt = 0u,
+    public var aeSoPrivilege: UInt = 0u,
 )
 
-public data class AE_SESSPWERR(public var ae_sp_compname: UInt = 0u, public var ae_sp_username: UInt = 0u)
+public data class AeSesspwerr(public var aeSpCompname: UInt = 0u, public var aeSpUsername: UInt = 0u)
 
-public data class AE_SRVSTATUS(public var ae_sv_status: UInt = 0u)
+public data class AeSrvstatus(public var aeSvStatus: UInt = 0u)
 
-public data class AE_UASMOD(
-    public var ae_um_compname: UInt = 0u,
-    public var ae_um_username: UInt = 0u,
-    public var ae_um_resname: UInt = 0u,
-    public var ae_um_rectype: UInt = 0u,
-    public var ae_um_action: UInt = 0u,
-    public var ae_um_datalen: UInt = 0u,
+public data class AeUasmod(
+    public var aeUmCompname: UInt = 0u,
+    public var aeUmUsername: UInt = 0u,
+    public var aeUmResname: UInt = 0u,
+    public var aeUmRectype: UInt = 0u,
+    public var aeUmAction: UInt = 0u,
+    public var aeUmDatalen: UInt = 0u,
 )
 
-public data class AT_ENUM(
-    public var JobId: UInt = 0u,
-    public var JobTime: ULong = 0uL,
-    public var DaysOfMonth: UInt = 0u,
-    public var DaysOfWeek: UByte = 0u,
-    public var Flags: UByte = 0u,
-    public var Command: PWSTR = 0L,
+public data class AtEnum(
+    public var jobId: UInt = 0u,
+    public var jobTime: Int = 0,
+    public var daysOfMonth: UInt = 0u,
+    public var daysOfWeek: UByte = 0u,
+    public var flags: UByte = 0u,
+    public var command: Pwstr = null,
 )
 
-public data class AT_INFO(
-    public var JobTime: ULong = 0uL,
-    public var DaysOfMonth: UInt = 0u,
-    public var DaysOfWeek: UByte = 0u,
-    public var Flags: UByte = 0u,
-    public var Command: PWSTR = 0L,
+public data class AtInfo(
+    public var jobTime: Int = 0,
+    public var daysOfMonth: UInt = 0u,
+    public var daysOfWeek: UByte = 0u,
+    public var flags: UByte = 0u,
+    public var command: Pwstr = null,
 )
 
-public data class AUDIT_ENTRY(
-    public var ae_len: UInt = 0u,
-    public var ae_reserved: UInt = 0u,
-    public var ae_time: UInt = 0u,
-    public var ae_type: UInt = 0u,
-    public var ae_data_offset: UInt = 0u,
-    public var ae_data_size: UInt = 0u,
+public data class AuditEntry(
+    public var aeLen: UInt = 0u,
+    public var aeReserved: UInt = 0u,
+    public var aeTime: UInt = 0u,
+    public var aeType: UInt = 0u,
+    public var aeDataOffset: UInt = 0u,
+    public var aeDataSize: UInt = 0u,
 )
 
-public data class CONFIG_INFO_0(public var cfgi0_key: PWSTR = 0L, public var cfgi0_data: PWSTR = 0L)
+public data class ConfigInfo0(public var cfgi0Key: Pwstr = null, public var cfgi0Data: Pwstr = null)
 
-public data class DSREG_JOIN_INFO(
-    public var joinType: DSREG_JOIN_TYPE = 0,
-    public var pJoinCertificate: Long = 0L,
-    public var pszDeviceId: PWSTR = 0L,
-    public var pszIdpDomain: PWSTR = 0L,
-    public var pszTenantId: PWSTR = 0L,
-    public var pszJoinUserEmail: PWSTR = 0L,
-    public var pszTenantDisplayName: PWSTR = 0L,
-    public var pszMdmEnrollmentUrl: PWSTR = 0L,
-    public var pszMdmTermsOfUseUrl: PWSTR = 0L,
-    public var pszMdmComplianceUrl: PWSTR = 0L,
-    public var pszUserSettingSyncUrl: PWSTR = 0L,
-    public var pUserInfo: Long = 0L,
+public data class DsregJoinInfo(
+    public var joinType: DsregJoinType = 0,
+    public var pJoinCertificate: CertContext? = null,
+    public var pszDeviceId: Pwstr = null,
+    public var pszIdpDomain: Pwstr = null,
+    public var pszTenantId: Pwstr = null,
+    public var pszJoinUserEmail: Pwstr = null,
+    public var pszTenantDisplayName: Pwstr = null,
+    public var pszMdmEnrollmentUrl: Pwstr = null,
+    public var pszMdmTermsOfUseUrl: Pwstr = null,
+    public var pszMdmComplianceUrl: Pwstr = null,
+    public var pszUserSettingSyncUrl: Pwstr = null,
+    public var pUserInfo: DsregUserInfo? = null,
 )
 
-public data class DSREG_USER_INFO(
-    public var pszUserEmail: PWSTR = 0L,
-    public var pszUserKeyId: PWSTR = 0L,
-    public var pszUserKeyName: PWSTR = 0L,
+public data class DsregUserInfo(
+    public var pszUserEmail: Pwstr = null,
+    public var pszUserKeyId: Pwstr = null,
+    public var pszUserKeyName: Pwstr = null,
 )
 
-public data class ERRLOG_OTHER_INFO(public var alrter_errcode: UInt = 0u, public var alrter_offset: UInt = 0u)
+public data class ErrlogOtherInfo(public var alrterErrcode: UInt = 0u, public var alrterOffset: UInt = 0u)
 
-public data class ERROR_LOG(
-    public var el_len: UInt = 0u,
-    public var el_reserved: UInt = 0u,
-    public var el_time: UInt = 0u,
-    public var el_error: UInt = 0u,
-    public var el_name: PWSTR = 0L,
-    public var el_text: PWSTR = 0L,
-    public var el_data: Long = 0L,
-    public var el_data_size: UInt = 0u,
-    public var el_nstrings: UInt = 0u,
+public data class ErrorLog(
+    public var elLen: UInt = 0u,
+    public var elReserved: UInt = 0u,
+    public var elTime: UInt = 0u,
+    public var elError: UInt = 0u,
+    public var elName: Pwstr = null,
+    public var elText: Pwstr = null,
+    public var elData: COpaquePointer? = null,
+    public var elDataSize: UInt = 0u,
+    public var elNstrings: UInt = 0u,
 )
 
-public data class FLAT_STRING(
-    public var MaximumLength: Short = 0,
-    public var Length: Short = 0,
-    public var Buffer: ByteArray = ByteArray(1),
+public data class FlatString(
+    public var maximumLength: Short = 0,
+    public var length: Short = 0,
+    public var buffer: ByteArray = ByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is FLAT_STRING) return false
-        if (this.MaximumLength != other.MaximumLength) return false
-        if (this.Length != other.Length) return false
-        if (!this.Buffer.contentEquals(other.Buffer)) return false
+        if (other !is FlatString) return false
+        if (this.maximumLength != other.maximumLength) return false
+        if (this.length != other.length) return false
+        if (!this.buffer.contentEquals(other.buffer)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.MaximumLength.hashCode()
-        result = 31 * result + this.Length.hashCode()
-        result = 31 * result + this.Buffer.contentHashCode()
+        var result = this.maximumLength.hashCode()
+        result = 31 * result + this.length.hashCode()
+        result = 31 * result + this.buffer.contentHashCode()
         return result
     }
 }
 
-public data class GROUP_INFO_0(public var grpi0_name: PWSTR = 0L)
+public data class GroupInfo0(public var grpi0Name: Pwstr = null)
 
-public data class GROUP_INFO_1(public var grpi1_name: PWSTR = 0L, public var grpi1_comment: PWSTR = 0L)
+public data class GroupInfo1(public var grpi1Name: Pwstr = null, public var grpi1Comment: Pwstr = null)
 
-public data class GROUP_INFO_1002(public var grpi1002_comment: PWSTR = 0L)
+public data class GroupInfo1002(public var grpi1002Comment: Pwstr = null)
 
-public data class GROUP_INFO_1005(public var grpi1005_attributes: UInt = 0u)
+public data class GroupInfo1005(public var grpi1005Attributes: UInt = 0u)
 
-public data class GROUP_INFO_2(
-    public var grpi2_name: PWSTR = 0L,
-    public var grpi2_comment: PWSTR = 0L,
-    public var grpi2_group_id: UInt = 0u,
-    public var grpi2_attributes: UInt = 0u,
+public data class GroupInfo2(
+    public var grpi2Name: Pwstr = null,
+    public var grpi2Comment: Pwstr = null,
+    public var grpi2GroupId: UInt = 0u,
+    public var grpi2Attributes: UInt = 0u,
 )
 
-public data class GROUP_INFO_3(
-    public var grpi3_name: PWSTR = 0L,
-    public var grpi3_comment: PWSTR = 0L,
-    public var grpi3_group_sid: PSID = 0L,
-    public var grpi3_attributes: UInt = 0u,
+public data class GroupInfo3(
+    public var grpi3Name: Pwstr = null,
+    public var grpi3Comment: Pwstr = null,
+    public var grpi3GroupSid: Psid = null,
+    public var grpi3Attributes: UInt = 0u,
 )
 
-public data class GROUP_USERS_INFO_0(public var grui0_name: PWSTR = 0L)
+public data class GroupUsersInfo0(public var grui0Name: Pwstr = null)
 
-public data class GROUP_USERS_INFO_1(public var grui1_name: PWSTR = 0L, public var grui1_attributes: UInt = 0u)
+public data class GroupUsersInfo1(public var grui1Name: Pwstr = null, public var grui1Attributes: UInt = 0u)
 
-public data class HARDWARE_ADDRESS(public var Address: UByteArray = UByteArray(6)) {
+public data class HardwareAddress(public var address: UByteArray = UByteArray(6)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is HARDWARE_ADDRESS) return false
-        if (!this.Address.contentEquals(other.Address)) return false
+        if (other !is HardwareAddress) return false
+        if (!this.address.contentEquals(other.address)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        return this.Address.contentHashCode()
+        return this.address.contentHashCode()
     }
 }
 
-public data class HLOG(
+public data class Hlog(
     public var time: UInt = 0u,
-    public var last_flags: UInt = 0u,
+    public var lastFlags: UInt = 0u,
     public var offset: UInt = 0u,
-    public var rec_offset: UInt = 0u,
+    public var recOffset: UInt = 0u,
 )
 
-public data class LOCALGROUP_INFO_0(public var lgrpi0_name: PWSTR = 0L)
+public data class LocalgroupInfo0(public var lgrpi0Name: Pwstr = null)
 
-public data class LOCALGROUP_INFO_1(public var lgrpi1_name: PWSTR = 0L, public var lgrpi1_comment: PWSTR = 0L)
+public data class LocalgroupInfo1(public var lgrpi1Name: Pwstr = null, public var lgrpi1Comment: Pwstr = null)
 
-public data class LOCALGROUP_INFO_1002(public var lgrpi1002_comment: PWSTR = 0L)
+public data class LocalgroupInfo1002(public var lgrpi1002Comment: Pwstr = null)
 
-public data class LOCALGROUP_MEMBERS_INFO_0(public var lgrmi0_sid: PSID = 0L)
+public data class LocalgroupMembersInfo0(public var lgrmi0Sid: Psid = null)
 
-public data class LOCALGROUP_MEMBERS_INFO_1(
-    public var lgrmi1_sid: PSID = 0L,
-    public var lgrmi1_sidusage: SID_NAME_USE = 0,
-    public var lgrmi1_name: PWSTR = 0L,
+public data class LocalgroupMembersInfo1(
+    public var lgrmi1Sid: Psid = null,
+    public var lgrmi1Sidusage: SidNameUse = 0,
+    public var lgrmi1Name: Pwstr = null,
 )
 
-public data class LOCALGROUP_MEMBERS_INFO_2(
-    public var lgrmi2_sid: PSID = 0L,
-    public var lgrmi2_sidusage: SID_NAME_USE = 0,
-    public var lgrmi2_domainandname: PWSTR = 0L,
+public data class LocalgroupMembersInfo2(
+    public var lgrmi2Sid: Psid = null,
+    public var lgrmi2Sidusage: SidNameUse = 0,
+    public var lgrmi2Domainandname: Pwstr = null,
 )
 
-public data class LOCALGROUP_MEMBERS_INFO_3(public var lgrmi3_domainandname: PWSTR = 0L)
+public data class LocalgroupMembersInfo3(public var lgrmi3Domainandname: Pwstr = null)
 
-public data class LOCALGROUP_USERS_INFO_0(public var lgrui0_name: PWSTR = 0L)
+public data class LocalgroupUsersInfo0(public var lgrui0Name: Pwstr = null)
 
-public data class MPR_PROTOCOL_0(
+public data class MprProtocol0(
     public var dwProtocolId: UInt = 0u,
     public var wszProtocol: UShortArray = UShortArray(41),
     public var wszDLLName: UShortArray = UShortArray(49),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MPR_PROTOCOL_0) return false
+        if (other !is MprProtocol0) return false
         if (this.dwProtocolId != other.dwProtocolId) return false
         if (!this.wszProtocol.contentEquals(other.wszProtocol)) return false
         if (!this.wszDLLName.contentEquals(other.wszDLLName)) return false
@@ -334,134 +336,134 @@ public data class MPR_PROTOCOL_0(
     }
 }
 
-public data class MSA_INFO_0(public var State: MSA_INFO_STATE = 0)
+public data class MsaInfo0(public var state: MsaInfoState = 0)
 
-public data class MSG_INFO_0(public var msgi0_name: PWSTR = 0L)
+public data class MsgInfo0(public var msgi0Name: Pwstr = null)
 
-public data class MSG_INFO_1(
-    public var msgi1_name: PWSTR = 0L,
-    public var msgi1_forward_flag: UInt = 0u,
-    public var msgi1_forward: PWSTR = 0L,
+public data class MsgInfo1(
+    public var msgi1Name: Pwstr = null,
+    public var msgi1ForwardFlag: UInt = 0u,
+    public var msgi1Forward: Pwstr = null,
 )
 
-public data class NETLOGON_INFO_1(public var netlog1_flags: UInt = 0u, public var netlog1_pdc_connection_status: UInt = 0u)
+public data class NetlogonInfo1(public var netlog1Flags: UInt = 0u, public var netlog1PdcConnectionStatus: UInt = 0u)
 
-public data class NETLOGON_INFO_2(
-    public var netlog2_flags: UInt = 0u,
-    public var netlog2_pdc_connection_status: UInt = 0u,
-    public var netlog2_trusted_dc_name: PWSTR = 0L,
-    public var netlog2_tc_connection_status: UInt = 0u,
+public data class NetlogonInfo2(
+    public var netlog2Flags: UInt = 0u,
+    public var netlog2PdcConnectionStatus: UInt = 0u,
+    public var netlog2TrustedDcName: Pwstr = null,
+    public var netlog2TcConnectionStatus: UInt = 0u,
 )
 
-public data class NETLOGON_INFO_3(
-    public var netlog3_flags: UInt = 0u,
-    public var netlog3_logon_attempts: UInt = 0u,
-    public var netlog3_reserved1: UInt = 0u,
-    public var netlog3_reserved2: UInt = 0u,
-    public var netlog3_reserved3: UInt = 0u,
-    public var netlog3_reserved4: UInt = 0u,
-    public var netlog3_reserved5: UInt = 0u,
+public data class NetlogonInfo3(
+    public var netlog3Flags: UInt = 0u,
+    public var netlog3LogonAttempts: UInt = 0u,
+    public var netlog3Reserved1: UInt = 0u,
+    public var netlog3Reserved2: UInt = 0u,
+    public var netlog3Reserved3: UInt = 0u,
+    public var netlog3Reserved4: UInt = 0u,
+    public var netlog3Reserved5: UInt = 0u,
 )
 
-public data class NETLOGON_INFO_4(public var netlog4_trusted_dc_name: PWSTR = 0L, public var netlog4_trusted_domain_name: PWSTR = 0L)
+public data class NetlogonInfo4(public var netlog4TrustedDcName: Pwstr = null, public var netlog4TrustedDomainName: Pwstr = null)
 
-public data class NETSETUP_PROVISIONING_PARAMS(
+public data class NetsetupProvisioningParams(
     public var dwVersion: UInt = 0u,
-    public var lpDomain: PCWSTR = 0L,
-    public var lpHostName: PCWSTR = 0L,
-    public var lpMachineAccountOU: PCWSTR = 0L,
-    public var lpDcName: PCWSTR = 0L,
-    public var dwProvisionOptions: NETSETUP_PROVISION = 0u,
-    public var aCertTemplateNames: Long = 0L,
+    public var lpDomain: Pcwstr = null,
+    public var lpHostName: Pcwstr = null,
+    public var lpMachineAccountOU: Pcwstr = null,
+    public var lpDcName: Pcwstr = null,
+    public var dwProvisionOptions: NetsetupProvision = 0u,
+    public var aCertTemplateNames: Pcwstr? = null,
     public var cCertTemplateNames: UInt = 0u,
-    public var aMachinePolicyNames: Long = 0L,
+    public var aMachinePolicyNames: Pcwstr? = null,
     public var cMachinePolicyNames: UInt = 0u,
-    public var aMachinePolicyPaths: Long = 0L,
+    public var aMachinePolicyPaths: Pcwstr? = null,
     public var cMachinePolicyPaths: UInt = 0u,
-    public var lpNetbiosName: PWSTR = 0L,
-    public var lpSiteName: PWSTR = 0L,
-    public var lpPrimaryDNSDomain: PWSTR = 0L,
+    public var lpNetbiosName: Pwstr = null,
+    public var lpSiteName: Pwstr = null,
+    public var lpPrimaryDNSDomain: Pwstr = null,
 )
 
-public data class NETWORK_NAME(public var Name: FLAT_STRING = FLAT_STRING())
+public data class NetworkName(public var name: FlatString = FlatString())
 
-public data class NET_DISPLAY_GROUP(
-    public var grpi3_name: PWSTR = 0L,
-    public var grpi3_comment: PWSTR = 0L,
-    public var grpi3_group_id: UInt = 0u,
-    public var grpi3_attributes: UInt = 0u,
-    public var grpi3_next_index: UInt = 0u,
+public data class NetDisplayGroup(
+    public var grpi3Name: Pwstr = null,
+    public var grpi3Comment: Pwstr = null,
+    public var grpi3GroupId: UInt = 0u,
+    public var grpi3Attributes: UInt = 0u,
+    public var grpi3NextIndex: UInt = 0u,
 )
 
-public data class NET_DISPLAY_MACHINE(
-    public var usri2_name: PWSTR = 0L,
-    public var usri2_comment: PWSTR = 0L,
-    public var usri2_flags: USER_ACCOUNT_FLAGS = 0u,
-    public var usri2_user_id: UInt = 0u,
-    public var usri2_next_index: UInt = 0u,
+public data class NetDisplayMachine(
+    public var usri2Name: Pwstr = null,
+    public var usri2Comment: Pwstr = null,
+    public var usri2Flags: UserAccountFlags = 0u,
+    public var usri2UserId: UInt = 0u,
+    public var usri2NextIndex: UInt = 0u,
 )
 
-public data class NET_DISPLAY_USER(
-    public var usri1_name: PWSTR = 0L,
-    public var usri1_comment: PWSTR = 0L,
-    public var usri1_flags: USER_ACCOUNT_FLAGS = 0u,
-    public var usri1_full_name: PWSTR = 0L,
-    public var usri1_user_id: UInt = 0u,
-    public var usri1_next_index: UInt = 0u,
+public data class NetDisplayUser(
+    public var usri1Name: Pwstr = null,
+    public var usri1Comment: Pwstr = null,
+    public var usri1Flags: UserAccountFlags = 0u,
+    public var usri1FullName: Pwstr = null,
+    public var usri1UserId: UInt = 0u,
+    public var usri1NextIndex: UInt = 0u,
 )
 
-public data class NET_VALIDATE_AUTHENTICATION_INPUT_ARG(public var InputPersistedFields: NET_VALIDATE_PERSISTED_FIELDS = NET_VALIDATE_PERSISTED_FIELDS(), public var PasswordMatched: Boolean = false)
+public data class NetValidateAuthenticationInputArg(public var inputPersistedFields: NetValidatePersistedFields = NetValidatePersistedFields(), public var passwordMatched: Boolean = false)
 
-public data class NET_VALIDATE_OUTPUT_ARG(public var ChangedPersistedFields: NET_VALIDATE_PERSISTED_FIELDS = NET_VALIDATE_PERSISTED_FIELDS(), public var ValidationStatus: UInt = 0u)
+public data class NetValidateOutputArg(public var changedPersistedFields: NetValidatePersistedFields = NetValidatePersistedFields(), public var validationStatus: UInt = 0u)
 
-public data class NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG(
-    public var InputPersistedFields: NET_VALIDATE_PERSISTED_FIELDS = NET_VALIDATE_PERSISTED_FIELDS(),
-    public var ClearPassword: PWSTR = 0L,
-    public var UserAccountName: PWSTR = 0L,
-    public var HashedPassword: NET_VALIDATE_PASSWORD_HASH = NET_VALIDATE_PASSWORD_HASH(),
-    public var PasswordMatch: Boolean = false,
+public data class NetValidatePasswordChangeInputArg(
+    public var inputPersistedFields: NetValidatePersistedFields = NetValidatePersistedFields(),
+    public var clearPassword: Pwstr = null,
+    public var userAccountName: Pwstr = null,
+    public var hashedPassword: NetValidatePasswordHash = NetValidatePasswordHash(),
+    public var passwordMatch: Boolean = false,
 )
 
-public data class NET_VALIDATE_PASSWORD_HASH(public var Length: UInt = 0u, public var Hash: Long = 0L)
+public data class NetValidatePasswordHash(public var length: UInt = 0u, public var hash: COpaquePointer? = null)
 
-public data class NET_VALIDATE_PASSWORD_RESET_INPUT_ARG(
-    public var InputPersistedFields: NET_VALIDATE_PERSISTED_FIELDS = NET_VALIDATE_PERSISTED_FIELDS(),
-    public var ClearPassword: PWSTR = 0L,
-    public var UserAccountName: PWSTR = 0L,
-    public var HashedPassword: NET_VALIDATE_PASSWORD_HASH = NET_VALIDATE_PASSWORD_HASH(),
-    public var PasswordMustChangeAtNextLogon: Boolean = false,
-    public var ClearLockout: Boolean = false,
+public data class NetValidatePasswordResetInputArg(
+    public var inputPersistedFields: NetValidatePersistedFields = NetValidatePersistedFields(),
+    public var clearPassword: Pwstr = null,
+    public var userAccountName: Pwstr = null,
+    public var hashedPassword: NetValidatePasswordHash = NetValidatePasswordHash(),
+    public var passwordMustChangeAtNextLogon: Boolean = false,
+    public var clearLockout: Boolean = false,
 )
 
-public data class NET_VALIDATE_PERSISTED_FIELDS(
-    public var PresentFields: UInt = 0u,
-    public var PasswordLastSet: FILETIME = FILETIME(),
-    public var BadPasswordTime: FILETIME = FILETIME(),
-    public var LockoutTime: FILETIME = FILETIME(),
-    public var BadPasswordCount: UInt = 0u,
-    public var PasswordHistoryLength: UInt = 0u,
-    public var PasswordHistory: Long = 0L,
+public data class NetValidatePersistedFields(
+    public var presentFields: UInt = 0u,
+    public var passwordLastSet: Filetime = Filetime(),
+    public var badPasswordTime: Filetime = Filetime(),
+    public var lockoutTime: Filetime = Filetime(),
+    public var badPasswordCount: UInt = 0u,
+    public var passwordHistoryLength: UInt = 0u,
+    public var passwordHistory: NetValidatePasswordHash? = null,
 )
 
-public data class OBO_TOKEN(
-    public var Type: OBO_TOKEN_TYPE = 0,
-    public var pncc: Long = 0L,
-    public var pszwManufacturer: PCWSTR = 0L,
-    public var pszwProduct: PCWSTR = 0L,
-    public var pszwDisplayName: PCWSTR = 0L,
-    public var fRegistered: BOOL = 0,
+public data class OboToken(
+    public var type: OboTokenType = 0,
+    public var pncc: COpaquePointer? = null,
+    public var pszwManufacturer: Pcwstr = null,
+    public var pszwProduct: Pcwstr = null,
+    public var pszwDisplayName: Pcwstr = null,
+    public var fRegistered: Bool = 0,
 )
 
-public data class PRINT_OTHER_INFO(
-    public var alrtpr_jobid: UInt = 0u,
-    public var alrtpr_status: UInt = 0u,
-    public var alrtpr_submitted: UInt = 0u,
-    public var alrtpr_size: UInt = 0u,
+public data class PrintOtherInfo(
+    public var alrtprJobid: UInt = 0u,
+    public var alrtprStatus: UInt = 0u,
+    public var alrtprSubmitted: UInt = 0u,
+    public var alrtprSize: UInt = 0u,
 )
 
-public data class RASCON_IPUI(
-    public var guidConnection: GUID = GUID(),
-    public var fIPv6Cfg: BOOL = 0,
+public data class RasconIpui(
+    public var guidConnection: Guid = Guid(),
+    public var fIPv6Cfg: Bool = 0,
     public var dwFlags: UInt = 0u,
     public var pszwIpAddr: UShortArray = UShortArray(16),
     public var pszwDnsAddr: UShortArray = UShortArray(16),
@@ -478,7 +480,7 @@ public data class RASCON_IPUI(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is RASCON_IPUI) return false
+        if (other !is RasconIpui) return false
         if (this.guidConnection != other.guidConnection) return false
         if (this.fIPv6Cfg != other.fIPv6Cfg) return false
         if (this.dwFlags != other.dwFlags) return false
@@ -517,983 +519,983 @@ public data class RASCON_IPUI(
     }
 }
 
-public data class REPL_EDIR_INFO_0(public var rped0_dirname: PWSTR = 0L)
+public data class ReplEdirInfo0(public var rped0Dirname: Pwstr = null)
 
-public data class REPL_EDIR_INFO_1(
-    public var rped1_dirname: PWSTR = 0L,
-    public var rped1_integrity: UInt = 0u,
-    public var rped1_extent: UInt = 0u,
+public data class ReplEdirInfo1(
+    public var rped1Dirname: Pwstr = null,
+    public var rped1Integrity: UInt = 0u,
+    public var rped1Extent: UInt = 0u,
 )
 
-public data class REPL_EDIR_INFO_1000(public var rped1000_integrity: UInt = 0u)
+public data class ReplEdirInfo1000(public var rped1000Integrity: UInt = 0u)
 
-public data class REPL_EDIR_INFO_1001(public var rped1001_extent: UInt = 0u)
+public data class ReplEdirInfo1001(public var rped1001Extent: UInt = 0u)
 
-public data class REPL_EDIR_INFO_2(
-    public var rped2_dirname: PWSTR = 0L,
-    public var rped2_integrity: UInt = 0u,
-    public var rped2_extent: UInt = 0u,
-    public var rped2_lockcount: UInt = 0u,
-    public var rped2_locktime: UInt = 0u,
+public data class ReplEdirInfo2(
+    public var rped2Dirname: Pwstr = null,
+    public var rped2Integrity: UInt = 0u,
+    public var rped2Extent: UInt = 0u,
+    public var rped2Lockcount: UInt = 0u,
+    public var rped2Locktime: UInt = 0u,
 )
 
-public data class REPL_IDIR_INFO_0(public var rpid0_dirname: PWSTR = 0L)
+public data class ReplIdirInfo0(public var rpid0Dirname: Pwstr = null)
 
-public data class REPL_IDIR_INFO_1(
-    public var rpid1_dirname: PWSTR = 0L,
-    public var rpid1_state: UInt = 0u,
-    public var rpid1_mastername: PWSTR = 0L,
-    public var rpid1_last_update_time: UInt = 0u,
-    public var rpid1_lockcount: UInt = 0u,
-    public var rpid1_locktime: UInt = 0u,
+public data class ReplIdirInfo1(
+    public var rpid1Dirname: Pwstr = null,
+    public var rpid1State: UInt = 0u,
+    public var rpid1Mastername: Pwstr = null,
+    public var rpid1LastUpdateTime: UInt = 0u,
+    public var rpid1Lockcount: UInt = 0u,
+    public var rpid1Locktime: UInt = 0u,
 )
 
-public data class REPL_INFO_0(
-    public var rp0_role: UInt = 0u,
-    public var rp0_exportpath: PWSTR = 0L,
-    public var rp0_exportlist: PWSTR = 0L,
-    public var rp0_importpath: PWSTR = 0L,
-    public var rp0_importlist: PWSTR = 0L,
-    public var rp0_logonusername: PWSTR = 0L,
-    public var rp0_interval: UInt = 0u,
-    public var rp0_pulse: UInt = 0u,
-    public var rp0_guardtime: UInt = 0u,
-    public var rp0_random: UInt = 0u,
+public data class ReplInfo0(
+    public var rp0Role: UInt = 0u,
+    public var rp0Exportpath: Pwstr = null,
+    public var rp0Exportlist: Pwstr = null,
+    public var rp0Importpath: Pwstr = null,
+    public var rp0Importlist: Pwstr = null,
+    public var rp0Logonusername: Pwstr = null,
+    public var rp0Interval: UInt = 0u,
+    public var rp0Pulse: UInt = 0u,
+    public var rp0Guardtime: UInt = 0u,
+    public var rp0Random: UInt = 0u,
 )
 
-public data class REPL_INFO_1000(public var rp1000_interval: UInt = 0u)
+public data class ReplInfo1000(public var rp1000Interval: UInt = 0u)
 
-public data class REPL_INFO_1001(public var rp1001_pulse: UInt = 0u)
+public data class ReplInfo1001(public var rp1001Pulse: UInt = 0u)
 
-public data class REPL_INFO_1002(public var rp1002_guardtime: UInt = 0u)
+public data class ReplInfo1002(public var rp1002Guardtime: UInt = 0u)
 
-public data class REPL_INFO_1003(public var rp1003_random: UInt = 0u)
+public data class ReplInfo1003(public var rp1003Random: UInt = 0u)
 
-public data class RTR_INFO_BLOCK_HEADER(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var TocEntriesCount: UInt = 0u,
-    public var TocEntry: List<RTR_TOC_ENTRY> = List(1) { RTR_TOC_ENTRY() },
+public data class RtrInfoBlockHeader(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var tocEntriesCount: UInt = 0u,
+    public var tocEntry: List<RtrTocEntry> = List(1) { RtrTocEntry() },
 )
 
-public data class RTR_TOC_ENTRY(
-    public var InfoType: UInt = 0u,
-    public var InfoSize: UInt = 0u,
-    public var Count: UInt = 0u,
-    public var Offset: UInt = 0u,
+public data class RtrTocEntry(
+    public var infoType: UInt = 0u,
+    public var infoSize: UInt = 0u,
+    public var count: UInt = 0u,
+    public var offset: UInt = 0u,
 )
 
-public data class SERVER_INFO_100(public var sv100_platform_id: UInt = 0u, public var sv100_name: PWSTR = 0L)
+public data class ServerInfo100(public var sv100PlatformId: UInt = 0u, public var sv100Name: Pwstr = null)
 
-public data class SERVER_INFO_1005(public var sv1005_comment: PWSTR = 0L)
+public data class ServerInfo1005(public var sv1005Comment: Pwstr = null)
 
-public data class SERVER_INFO_101(
-    public var sv101_platform_id: UInt = 0u,
-    public var sv101_name: PWSTR = 0L,
-    public var sv101_version_major: UInt = 0u,
-    public var sv101_version_minor: UInt = 0u,
-    public var sv101_type: NET_SERVER_TYPE = 0u,
-    public var sv101_comment: PWSTR = 0L,
+public data class ServerInfo101(
+    public var sv101PlatformId: UInt = 0u,
+    public var sv101Name: Pwstr = null,
+    public var sv101VersionMajor: UInt = 0u,
+    public var sv101VersionMinor: UInt = 0u,
+    public var sv101Type: NetServerType = 0u,
+    public var sv101Comment: Pwstr = null,
 )
 
-public data class SERVER_INFO_1010(public var sv1010_disc: Int = 0)
+public data class ServerInfo1010(public var sv1010Disc: Int = 0)
 
-public data class SERVER_INFO_1016(public var sv1016_hidden: SERVER_INFO_HIDDEN = 0)
+public data class ServerInfo1016(public var sv1016Hidden: ServerInfoHidden = 0)
 
-public data class SERVER_INFO_1017(public var sv1017_announce: UInt = 0u)
+public data class ServerInfo1017(public var sv1017Announce: UInt = 0u)
 
-public data class SERVER_INFO_1018(public var sv1018_anndelta: UInt = 0u)
+public data class ServerInfo1018(public var sv1018Anndelta: UInt = 0u)
 
-public data class SERVER_INFO_102(
-    public var sv102_platform_id: UInt = 0u,
-    public var sv102_name: PWSTR = 0L,
-    public var sv102_version_major: UInt = 0u,
-    public var sv102_version_minor: UInt = 0u,
-    public var sv102_type: NET_SERVER_TYPE = 0u,
-    public var sv102_comment: PWSTR = 0L,
-    public var sv102_users: UInt = 0u,
-    public var sv102_disc: Int = 0,
-    public var sv102_hidden: SERVER_INFO_HIDDEN = 0,
-    public var sv102_announce: UInt = 0u,
-    public var sv102_anndelta: UInt = 0u,
-    public var sv102_licenses: UInt = 0u,
-    public var sv102_userpath: PWSTR = 0L,
+public data class ServerInfo102(
+    public var sv102PlatformId: UInt = 0u,
+    public var sv102Name: Pwstr = null,
+    public var sv102VersionMajor: UInt = 0u,
+    public var sv102VersionMinor: UInt = 0u,
+    public var sv102Type: NetServerType = 0u,
+    public var sv102Comment: Pwstr = null,
+    public var sv102Users: UInt = 0u,
+    public var sv102Disc: Int = 0,
+    public var sv102Hidden: ServerInfoHidden = 0,
+    public var sv102Announce: UInt = 0u,
+    public var sv102Anndelta: UInt = 0u,
+    public var sv102Licenses: UInt = 0u,
+    public var sv102Userpath: Pwstr = null,
 )
 
-public data class SERVER_INFO_103(
-    public var sv103_platform_id: UInt = 0u,
-    public var sv103_name: PWSTR = 0L,
-    public var sv103_version_major: UInt = 0u,
-    public var sv103_version_minor: UInt = 0u,
-    public var sv103_type: UInt = 0u,
-    public var sv103_comment: PWSTR = 0L,
-    public var sv103_users: UInt = 0u,
-    public var sv103_disc: Int = 0,
-    public var sv103_hidden: BOOL = 0,
-    public var sv103_announce: UInt = 0u,
-    public var sv103_anndelta: UInt = 0u,
-    public var sv103_licenses: UInt = 0u,
-    public var sv103_userpath: PWSTR = 0L,
-    public var sv103_capabilities: UInt = 0u,
+public data class ServerInfo103(
+    public var sv103PlatformId: UInt = 0u,
+    public var sv103Name: Pwstr = null,
+    public var sv103VersionMajor: UInt = 0u,
+    public var sv103VersionMinor: UInt = 0u,
+    public var sv103Type: UInt = 0u,
+    public var sv103Comment: Pwstr = null,
+    public var sv103Users: UInt = 0u,
+    public var sv103Disc: Int = 0,
+    public var sv103Hidden: Bool = 0,
+    public var sv103Announce: UInt = 0u,
+    public var sv103Anndelta: UInt = 0u,
+    public var sv103Licenses: UInt = 0u,
+    public var sv103Userpath: Pwstr = null,
+    public var sv103Capabilities: UInt = 0u,
 )
 
-public data class SERVER_INFO_1107(public var sv1107_users: UInt = 0u)
+public data class ServerInfo1107(public var sv1107Users: UInt = 0u)
 
-public data class SERVER_INFO_1501(public var sv1501_sessopens: UInt = 0u)
+public data class ServerInfo1501(public var sv1501Sessopens: UInt = 0u)
 
-public data class SERVER_INFO_1502(public var sv1502_sessvcs: UInt = 0u)
+public data class ServerInfo1502(public var sv1502Sessvcs: UInt = 0u)
 
-public data class SERVER_INFO_1503(public var sv1503_opensearch: UInt = 0u)
+public data class ServerInfo1503(public var sv1503Opensearch: UInt = 0u)
 
-public data class SERVER_INFO_1506(public var sv1506_maxworkitems: UInt = 0u)
+public data class ServerInfo1506(public var sv1506Maxworkitems: UInt = 0u)
 
-public data class SERVER_INFO_1509(public var sv1509_maxrawbuflen: UInt = 0u)
+public data class ServerInfo1509(public var sv1509Maxrawbuflen: UInt = 0u)
 
-public data class SERVER_INFO_1510(public var sv1510_sessusers: UInt = 0u)
+public data class ServerInfo1510(public var sv1510Sessusers: UInt = 0u)
 
-public data class SERVER_INFO_1511(public var sv1511_sessconns: UInt = 0u)
+public data class ServerInfo1511(public var sv1511Sessconns: UInt = 0u)
 
-public data class SERVER_INFO_1512(public var sv1512_maxnonpagedmemoryusage: UInt = 0u)
+public data class ServerInfo1512(public var sv1512Maxnonpagedmemoryusage: UInt = 0u)
 
-public data class SERVER_INFO_1513(public var sv1513_maxpagedmemoryusage: UInt = 0u)
+public data class ServerInfo1513(public var sv1513Maxpagedmemoryusage: UInt = 0u)
 
-public data class SERVER_INFO_1514(public var sv1514_enablesoftcompat: BOOL = 0)
+public data class ServerInfo1514(public var sv1514Enablesoftcompat: Bool = 0)
 
-public data class SERVER_INFO_1515(public var sv1515_enableforcedlogoff: BOOL = 0)
+public data class ServerInfo1515(public var sv1515Enableforcedlogoff: Bool = 0)
 
-public data class SERVER_INFO_1516(public var sv1516_timesource: BOOL = 0)
+public data class ServerInfo1516(public var sv1516Timesource: Bool = 0)
 
-public data class SERVER_INFO_1518(public var sv1518_lmannounce: BOOL = 0)
+public data class ServerInfo1518(public var sv1518Lmannounce: Bool = 0)
 
-public data class SERVER_INFO_1520(public var sv1520_maxcopyreadlen: UInt = 0u)
+public data class ServerInfo1520(public var sv1520Maxcopyreadlen: UInt = 0u)
 
-public data class SERVER_INFO_1521(public var sv1521_maxcopywritelen: UInt = 0u)
+public data class ServerInfo1521(public var sv1521Maxcopywritelen: UInt = 0u)
 
-public data class SERVER_INFO_1522(public var sv1522_minkeepsearch: UInt = 0u)
+public data class ServerInfo1522(public var sv1522Minkeepsearch: UInt = 0u)
 
-public data class SERVER_INFO_1523(public var sv1523_maxkeepsearch: UInt = 0u)
+public data class ServerInfo1523(public var sv1523Maxkeepsearch: UInt = 0u)
 
-public data class SERVER_INFO_1524(public var sv1524_minkeepcomplsearch: UInt = 0u)
+public data class ServerInfo1524(public var sv1524Minkeepcomplsearch: UInt = 0u)
 
-public data class SERVER_INFO_1525(public var sv1525_maxkeepcomplsearch: UInt = 0u)
+public data class ServerInfo1525(public var sv1525Maxkeepcomplsearch: UInt = 0u)
 
-public data class SERVER_INFO_1528(public var sv1528_scavtimeout: UInt = 0u)
+public data class ServerInfo1528(public var sv1528Scavtimeout: UInt = 0u)
 
-public data class SERVER_INFO_1529(public var sv1529_minrcvqueue: UInt = 0u)
+public data class ServerInfo1529(public var sv1529Minrcvqueue: UInt = 0u)
 
-public data class SERVER_INFO_1530(public var sv1530_minfreeworkitems: UInt = 0u)
+public data class ServerInfo1530(public var sv1530Minfreeworkitems: UInt = 0u)
 
-public data class SERVER_INFO_1533(public var sv1533_maxmpxct: UInt = 0u)
+public data class ServerInfo1533(public var sv1533Maxmpxct: UInt = 0u)
 
-public data class SERVER_INFO_1534(public var sv1534_oplockbreakwait: UInt = 0u)
+public data class ServerInfo1534(public var sv1534Oplockbreakwait: UInt = 0u)
 
-public data class SERVER_INFO_1535(public var sv1535_oplockbreakresponsewait: UInt = 0u)
+public data class ServerInfo1535(public var sv1535Oplockbreakresponsewait: UInt = 0u)
 
-public data class SERVER_INFO_1536(public var sv1536_enableoplocks: BOOL = 0)
+public data class ServerInfo1536(public var sv1536Enableoplocks: Bool = 0)
 
-public data class SERVER_INFO_1537(public var sv1537_enableoplockforceclose: BOOL = 0)
+public data class ServerInfo1537(public var sv1537Enableoplockforceclose: Bool = 0)
 
-public data class SERVER_INFO_1538(public var sv1538_enablefcbopens: BOOL = 0)
+public data class ServerInfo1538(public var sv1538Enablefcbopens: Bool = 0)
 
-public data class SERVER_INFO_1539(public var sv1539_enableraw: BOOL = 0)
+public data class ServerInfo1539(public var sv1539Enableraw: Bool = 0)
 
-public data class SERVER_INFO_1540(public var sv1540_enablesharednetdrives: BOOL = 0)
+public data class ServerInfo1540(public var sv1540Enablesharednetdrives: Bool = 0)
 
-public data class SERVER_INFO_1541(public var sv1541_minfreeconnections: BOOL = 0)
+public data class ServerInfo1541(public var sv1541Minfreeconnections: Bool = 0)
 
-public data class SERVER_INFO_1542(public var sv1542_maxfreeconnections: BOOL = 0)
+public data class ServerInfo1542(public var sv1542Maxfreeconnections: Bool = 0)
 
-public data class SERVER_INFO_1543(public var sv1543_initsesstable: UInt = 0u)
+public data class ServerInfo1543(public var sv1543Initsesstable: UInt = 0u)
 
-public data class SERVER_INFO_1544(public var sv1544_initconntable: UInt = 0u)
+public data class ServerInfo1544(public var sv1544Initconntable: UInt = 0u)
 
-public data class SERVER_INFO_1545(public var sv1545_initfiletable: UInt = 0u)
+public data class ServerInfo1545(public var sv1545Initfiletable: UInt = 0u)
 
-public data class SERVER_INFO_1546(public var sv1546_initsearchtable: UInt = 0u)
+public data class ServerInfo1546(public var sv1546Initsearchtable: UInt = 0u)
 
-public data class SERVER_INFO_1547(public var sv1547_alertschedule: UInt = 0u)
+public data class ServerInfo1547(public var sv1547Alertschedule: UInt = 0u)
 
-public data class SERVER_INFO_1548(public var sv1548_errorthreshold: UInt = 0u)
+public data class ServerInfo1548(public var sv1548Errorthreshold: UInt = 0u)
 
-public data class SERVER_INFO_1549(public var sv1549_networkerrorthreshold: UInt = 0u)
+public data class ServerInfo1549(public var sv1549Networkerrorthreshold: UInt = 0u)
 
-public data class SERVER_INFO_1550(public var sv1550_diskspacethreshold: UInt = 0u)
+public data class ServerInfo1550(public var sv1550Diskspacethreshold: UInt = 0u)
 
-public data class SERVER_INFO_1552(public var sv1552_maxlinkdelay: UInt = 0u)
+public data class ServerInfo1552(public var sv1552Maxlinkdelay: UInt = 0u)
 
-public data class SERVER_INFO_1553(public var sv1553_minlinkthroughput: UInt = 0u)
+public data class ServerInfo1553(public var sv1553Minlinkthroughput: UInt = 0u)
 
-public data class SERVER_INFO_1554(public var sv1554_linkinfovalidtime: UInt = 0u)
+public data class ServerInfo1554(public var sv1554Linkinfovalidtime: UInt = 0u)
 
-public data class SERVER_INFO_1555(public var sv1555_scavqosinfoupdatetime: UInt = 0u)
+public data class ServerInfo1555(public var sv1555Scavqosinfoupdatetime: UInt = 0u)
 
-public data class SERVER_INFO_1556(public var sv1556_maxworkitemidletime: UInt = 0u)
+public data class ServerInfo1556(public var sv1556Maxworkitemidletime: UInt = 0u)
 
-public data class SERVER_INFO_1557(public var sv1557_maxrawworkitems: UInt = 0u)
+public data class ServerInfo1557(public var sv1557Maxrawworkitems: UInt = 0u)
 
-public data class SERVER_INFO_1560(public var sv1560_producttype: UInt = 0u)
+public data class ServerInfo1560(public var sv1560Producttype: UInt = 0u)
 
-public data class SERVER_INFO_1561(public var sv1561_serversize: UInt = 0u)
+public data class ServerInfo1561(public var sv1561Serversize: UInt = 0u)
 
-public data class SERVER_INFO_1562(public var sv1562_connectionlessautodisc: UInt = 0u)
+public data class ServerInfo1562(public var sv1562Connectionlessautodisc: UInt = 0u)
 
-public data class SERVER_INFO_1563(public var sv1563_sharingviolationretries: UInt = 0u)
+public data class ServerInfo1563(public var sv1563Sharingviolationretries: UInt = 0u)
 
-public data class SERVER_INFO_1564(public var sv1564_sharingviolationdelay: UInt = 0u)
+public data class ServerInfo1564(public var sv1564Sharingviolationdelay: UInt = 0u)
 
-public data class SERVER_INFO_1565(public var sv1565_maxglobalopensearch: UInt = 0u)
+public data class ServerInfo1565(public var sv1565Maxglobalopensearch: UInt = 0u)
 
-public data class SERVER_INFO_1566(public var sv1566_removeduplicatesearches: BOOL = 0)
+public data class ServerInfo1566(public var sv1566Removeduplicatesearches: Bool = 0)
 
-public data class SERVER_INFO_1567(public var sv1567_lockviolationretries: UInt = 0u)
+public data class ServerInfo1567(public var sv1567Lockviolationretries: UInt = 0u)
 
-public data class SERVER_INFO_1568(public var sv1568_lockviolationoffset: UInt = 0u)
+public data class ServerInfo1568(public var sv1568Lockviolationoffset: UInt = 0u)
 
-public data class SERVER_INFO_1569(public var sv1569_lockviolationdelay: UInt = 0u)
+public data class ServerInfo1569(public var sv1569Lockviolationdelay: UInt = 0u)
 
-public data class SERVER_INFO_1570(public var sv1570_mdlreadswitchover: UInt = 0u)
+public data class ServerInfo1570(public var sv1570Mdlreadswitchover: UInt = 0u)
 
-public data class SERVER_INFO_1571(public var sv1571_cachedopenlimit: UInt = 0u)
+public data class ServerInfo1571(public var sv1571Cachedopenlimit: UInt = 0u)
 
-public data class SERVER_INFO_1572(public var sv1572_criticalthreads: UInt = 0u)
+public data class ServerInfo1572(public var sv1572Criticalthreads: UInt = 0u)
 
-public data class SERVER_INFO_1573(public var sv1573_restrictnullsessaccess: UInt = 0u)
+public data class ServerInfo1573(public var sv1573Restrictnullsessaccess: UInt = 0u)
 
-public data class SERVER_INFO_1574(public var sv1574_enablewfw311directipx: UInt = 0u)
+public data class ServerInfo1574(public var sv1574Enablewfw311directipx: UInt = 0u)
 
-public data class SERVER_INFO_1575(public var sv1575_otherqueueaffinity: UInt = 0u)
+public data class ServerInfo1575(public var sv1575Otherqueueaffinity: UInt = 0u)
 
-public data class SERVER_INFO_1576(public var sv1576_queuesamplesecs: UInt = 0u)
+public data class ServerInfo1576(public var sv1576Queuesamplesecs: UInt = 0u)
 
-public data class SERVER_INFO_1577(public var sv1577_balancecount: UInt = 0u)
+public data class ServerInfo1577(public var sv1577Balancecount: UInt = 0u)
 
-public data class SERVER_INFO_1578(public var sv1578_preferredaffinity: UInt = 0u)
+public data class ServerInfo1578(public var sv1578Preferredaffinity: UInt = 0u)
 
-public data class SERVER_INFO_1579(public var sv1579_maxfreerfcbs: UInt = 0u)
+public data class ServerInfo1579(public var sv1579Maxfreerfcbs: UInt = 0u)
 
-public data class SERVER_INFO_1580(public var sv1580_maxfreemfcbs: UInt = 0u)
+public data class ServerInfo1580(public var sv1580Maxfreemfcbs: UInt = 0u)
 
-public data class SERVER_INFO_1581(public var sv1581_maxfreemlcbs: UInt = 0u)
+public data class ServerInfo1581(public var sv1581Maxfreemlcbs: UInt = 0u)
 
-public data class SERVER_INFO_1582(public var sv1582_maxfreepagedpoolchunks: UInt = 0u)
+public data class ServerInfo1582(public var sv1582Maxfreepagedpoolchunks: UInt = 0u)
 
-public data class SERVER_INFO_1583(public var sv1583_minpagedpoolchunksize: UInt = 0u)
+public data class ServerInfo1583(public var sv1583Minpagedpoolchunksize: UInt = 0u)
 
-public data class SERVER_INFO_1584(public var sv1584_maxpagedpoolchunksize: UInt = 0u)
+public data class ServerInfo1584(public var sv1584Maxpagedpoolchunksize: UInt = 0u)
 
-public data class SERVER_INFO_1585(public var sv1585_sendsfrompreferredprocessor: BOOL = 0)
+public data class ServerInfo1585(public var sv1585Sendsfrompreferredprocessor: Bool = 0)
 
-public data class SERVER_INFO_1586(public var sv1586_maxthreadsperqueue: UInt = 0u)
+public data class ServerInfo1586(public var sv1586Maxthreadsperqueue: UInt = 0u)
 
-public data class SERVER_INFO_1587(public var sv1587_cacheddirectorylimit: UInt = 0u)
+public data class ServerInfo1587(public var sv1587Cacheddirectorylimit: UInt = 0u)
 
-public data class SERVER_INFO_1588(public var sv1588_maxcopylength: UInt = 0u)
+public data class ServerInfo1588(public var sv1588Maxcopylength: UInt = 0u)
 
-public data class SERVER_INFO_1590(public var sv1590_enablecompression: UInt = 0u)
+public data class ServerInfo1590(public var sv1590Enablecompression: UInt = 0u)
 
-public data class SERVER_INFO_1591(public var sv1591_autosharewks: UInt = 0u)
+public data class ServerInfo1591(public var sv1591Autosharewks: UInt = 0u)
 
-public data class SERVER_INFO_1592(public var sv1592_autosharewks: UInt = 0u)
+public data class ServerInfo1592(public var sv1592Autosharewks: UInt = 0u)
 
-public data class SERVER_INFO_1593(public var sv1593_enablesecuritysignature: UInt = 0u)
+public data class ServerInfo1593(public var sv1593Enablesecuritysignature: UInt = 0u)
 
-public data class SERVER_INFO_1594(public var sv1594_requiresecuritysignature: UInt = 0u)
+public data class ServerInfo1594(public var sv1594Requiresecuritysignature: UInt = 0u)
 
-public data class SERVER_INFO_1595(public var sv1595_minclientbuffersize: UInt = 0u)
+public data class ServerInfo1595(public var sv1595Minclientbuffersize: UInt = 0u)
 
-public data class SERVER_INFO_1596(public var sv1596_ConnectionNoSessionsTimeout: UInt = 0u)
+public data class ServerInfo1596(public var sv1596ConnectionNoSessionsTimeout: UInt = 0u)
 
-public data class SERVER_INFO_1597(public var sv1597_IdleThreadTimeOut: UInt = 0u)
+public data class ServerInfo1597(public var sv1597IdleThreadTimeOut: UInt = 0u)
 
-public data class SERVER_INFO_1598(public var sv1598_enableW9xsecuritysignature: UInt = 0u)
+public data class ServerInfo1598(public var sv1598EnableW9xsecuritysignature: UInt = 0u)
 
-public data class SERVER_INFO_1599(public var sv1598_enforcekerberosreauthentication: Boolean = false)
+public data class ServerInfo1599(public var sv1598Enforcekerberosreauthentication: Boolean = false)
 
-public data class SERVER_INFO_1600(public var sv1598_disabledos: Boolean = false)
+public data class ServerInfo1600(public var sv1598Disabledos: Boolean = false)
 
-public data class SERVER_INFO_1601(public var sv1598_lowdiskspaceminimum: UInt = 0u)
+public data class ServerInfo1601(public var sv1598Lowdiskspaceminimum: UInt = 0u)
 
-public data class SERVER_INFO_1602(public var sv_1598_disablestrictnamechecking: BOOL = 0)
+public data class ServerInfo1602(public var sv1598Disablestrictnamechecking: Bool = 0)
 
-public class SERVER_INFO_402(
-    public var sv402_ulist_mtime: UInt = 0u,
-    public var sv402_glist_mtime: UInt = 0u,
-    public var sv402_alist_mtime: UInt = 0u,
-    public var sv402_alerts: PWSTR = 0L,
-    public var sv402_security: SERVER_INFO_SECURITY = 0u,
-    public var sv402_numadmin: UInt = 0u,
-    public var sv402_lanmask: UInt = 0u,
-    public var sv402_guestacct: PWSTR = 0L,
-    public var sv402_chdevs: UInt = 0u,
-    public var sv402_chdevq: UInt = 0u,
-    public var sv402_chdevjobs: UInt = 0u,
-    public var sv402_connections: UInt = 0u,
-    public var sv402_shares: UInt = 0u,
-    public var sv402_openfiles: UInt = 0u,
-    public var sv402_sessopens: UInt = 0u,
-    public var sv402_sessvcs: UInt = 0u,
-    public var sv402_sessreqs: UInt = 0u,
-    public var sv402_opensearch: UInt = 0u,
-    public var sv402_activelocks: UInt = 0u,
-    public var sv402_numreqbuf: UInt = 0u,
-    public var sv402_sizreqbuf: UInt = 0u,
-    public var sv402_numbigbuf: UInt = 0u,
-    public var sv402_numfiletasks: UInt = 0u,
-    public var sv402_alertsched: UInt = 0u,
-    public var sv402_erroralert: UInt = 0u,
-    public var sv402_logonalert: UInt = 0u,
-    public var sv402_accessalert: UInt = 0u,
-    public var sv402_diskalert: UInt = 0u,
-    public var sv402_netioalert: UInt = 0u,
-    public var sv402_maxauditsz: UInt = 0u,
-    public var sv402_srvheuristics: PWSTR = 0L,
+public class ServerInfo402(
+    public var sv402UlistMtime: UInt = 0u,
+    public var sv402GlistMtime: UInt = 0u,
+    public var sv402AlistMtime: UInt = 0u,
+    public var sv402Alerts: Pwstr = null,
+    public var sv402Security: ServerInfoSecurity = 0u,
+    public var sv402Numadmin: UInt = 0u,
+    public var sv402Lanmask: UInt = 0u,
+    public var sv402Guestacct: Pwstr = null,
+    public var sv402Chdevs: UInt = 0u,
+    public var sv402Chdevq: UInt = 0u,
+    public var sv402Chdevjobs: UInt = 0u,
+    public var sv402Connections: UInt = 0u,
+    public var sv402Shares: UInt = 0u,
+    public var sv402Openfiles: UInt = 0u,
+    public var sv402Sessopens: UInt = 0u,
+    public var sv402Sessvcs: UInt = 0u,
+    public var sv402Sessreqs: UInt = 0u,
+    public var sv402Opensearch: UInt = 0u,
+    public var sv402Activelocks: UInt = 0u,
+    public var sv402Numreqbuf: UInt = 0u,
+    public var sv402Sizreqbuf: UInt = 0u,
+    public var sv402Numbigbuf: UInt = 0u,
+    public var sv402Numfiletasks: UInt = 0u,
+    public var sv402Alertsched: UInt = 0u,
+    public var sv402Erroralert: UInt = 0u,
+    public var sv402Logonalert: UInt = 0u,
+    public var sv402Accessalert: UInt = 0u,
+    public var sv402Diskalert: UInt = 0u,
+    public var sv402Netioalert: UInt = 0u,
+    public var sv402Maxauditsz: UInt = 0u,
+    public var sv402Srvheuristics: Pwstr = null,
 )
 
-public class SERVER_INFO_403(
-    public var sv403_ulist_mtime: UInt = 0u,
-    public var sv403_glist_mtime: UInt = 0u,
-    public var sv403_alist_mtime: UInt = 0u,
-    public var sv403_alerts: PWSTR = 0L,
-    public var sv403_security: SERVER_INFO_SECURITY = 0u,
-    public var sv403_numadmin: UInt = 0u,
-    public var sv403_lanmask: UInt = 0u,
-    public var sv403_guestacct: PWSTR = 0L,
-    public var sv403_chdevs: UInt = 0u,
-    public var sv403_chdevq: UInt = 0u,
-    public var sv403_chdevjobs: UInt = 0u,
-    public var sv403_connections: UInt = 0u,
-    public var sv403_shares: UInt = 0u,
-    public var sv403_openfiles: UInt = 0u,
-    public var sv403_sessopens: UInt = 0u,
-    public var sv403_sessvcs: UInt = 0u,
-    public var sv403_sessreqs: UInt = 0u,
-    public var sv403_opensearch: UInt = 0u,
-    public var sv403_activelocks: UInt = 0u,
-    public var sv403_numreqbuf: UInt = 0u,
-    public var sv403_sizreqbuf: UInt = 0u,
-    public var sv403_numbigbuf: UInt = 0u,
-    public var sv403_numfiletasks: UInt = 0u,
-    public var sv403_alertsched: UInt = 0u,
-    public var sv403_erroralert: UInt = 0u,
-    public var sv403_logonalert: UInt = 0u,
-    public var sv403_accessalert: UInt = 0u,
-    public var sv403_diskalert: UInt = 0u,
-    public var sv403_netioalert: UInt = 0u,
-    public var sv403_maxauditsz: UInt = 0u,
-    public var sv403_srvheuristics: PWSTR = 0L,
-    public var sv403_auditedevents: UInt = 0u,
-    public var sv403_autoprofile: UInt = 0u,
-    public var sv403_autopath: PWSTR = 0L,
+public class ServerInfo403(
+    public var sv403UlistMtime: UInt = 0u,
+    public var sv403GlistMtime: UInt = 0u,
+    public var sv403AlistMtime: UInt = 0u,
+    public var sv403Alerts: Pwstr = null,
+    public var sv403Security: ServerInfoSecurity = 0u,
+    public var sv403Numadmin: UInt = 0u,
+    public var sv403Lanmask: UInt = 0u,
+    public var sv403Guestacct: Pwstr = null,
+    public var sv403Chdevs: UInt = 0u,
+    public var sv403Chdevq: UInt = 0u,
+    public var sv403Chdevjobs: UInt = 0u,
+    public var sv403Connections: UInt = 0u,
+    public var sv403Shares: UInt = 0u,
+    public var sv403Openfiles: UInt = 0u,
+    public var sv403Sessopens: UInt = 0u,
+    public var sv403Sessvcs: UInt = 0u,
+    public var sv403Sessreqs: UInt = 0u,
+    public var sv403Opensearch: UInt = 0u,
+    public var sv403Activelocks: UInt = 0u,
+    public var sv403Numreqbuf: UInt = 0u,
+    public var sv403Sizreqbuf: UInt = 0u,
+    public var sv403Numbigbuf: UInt = 0u,
+    public var sv403Numfiletasks: UInt = 0u,
+    public var sv403Alertsched: UInt = 0u,
+    public var sv403Erroralert: UInt = 0u,
+    public var sv403Logonalert: UInt = 0u,
+    public var sv403Accessalert: UInt = 0u,
+    public var sv403Diskalert: UInt = 0u,
+    public var sv403Netioalert: UInt = 0u,
+    public var sv403Maxauditsz: UInt = 0u,
+    public var sv403Srvheuristics: Pwstr = null,
+    public var sv403Auditedevents: UInt = 0u,
+    public var sv403Autoprofile: UInt = 0u,
+    public var sv403Autopath: Pwstr = null,
 )
 
-public class SERVER_INFO_502(
-    public var sv502_sessopens: UInt = 0u,
-    public var sv502_sessvcs: UInt = 0u,
-    public var sv502_opensearch: UInt = 0u,
-    public var sv502_sizreqbuf: UInt = 0u,
-    public var sv502_initworkitems: UInt = 0u,
-    public var sv502_maxworkitems: UInt = 0u,
-    public var sv502_rawworkitems: UInt = 0u,
-    public var sv502_irpstacksize: UInt = 0u,
-    public var sv502_maxrawbuflen: UInt = 0u,
-    public var sv502_sessusers: UInt = 0u,
-    public var sv502_sessconns: UInt = 0u,
-    public var sv502_maxpagedmemoryusage: UInt = 0u,
-    public var sv502_maxnonpagedmemoryusage: UInt = 0u,
-    public var sv502_enablesoftcompat: BOOL = 0,
-    public var sv502_enableforcedlogoff: BOOL = 0,
-    public var sv502_timesource: BOOL = 0,
-    public var sv502_acceptdownlevelapis: BOOL = 0,
-    public var sv502_lmannounce: BOOL = 0,
+public class ServerInfo502(
+    public var sv502Sessopens: UInt = 0u,
+    public var sv502Sessvcs: UInt = 0u,
+    public var sv502Opensearch: UInt = 0u,
+    public var sv502Sizreqbuf: UInt = 0u,
+    public var sv502Initworkitems: UInt = 0u,
+    public var sv502Maxworkitems: UInt = 0u,
+    public var sv502Rawworkitems: UInt = 0u,
+    public var sv502Irpstacksize: UInt = 0u,
+    public var sv502Maxrawbuflen: UInt = 0u,
+    public var sv502Sessusers: UInt = 0u,
+    public var sv502Sessconns: UInt = 0u,
+    public var sv502Maxpagedmemoryusage: UInt = 0u,
+    public var sv502Maxnonpagedmemoryusage: UInt = 0u,
+    public var sv502Enablesoftcompat: Bool = 0,
+    public var sv502Enableforcedlogoff: Bool = 0,
+    public var sv502Timesource: Bool = 0,
+    public var sv502Acceptdownlevelapis: Bool = 0,
+    public var sv502Lmannounce: Bool = 0,
 )
 
-public class SERVER_INFO_503(
-    public var sv503_sessopens: UInt = 0u,
-    public var sv503_sessvcs: UInt = 0u,
-    public var sv503_opensearch: UInt = 0u,
-    public var sv503_sizreqbuf: UInt = 0u,
-    public var sv503_initworkitems: UInt = 0u,
-    public var sv503_maxworkitems: UInt = 0u,
-    public var sv503_rawworkitems: UInt = 0u,
-    public var sv503_irpstacksize: UInt = 0u,
-    public var sv503_maxrawbuflen: UInt = 0u,
-    public var sv503_sessusers: UInt = 0u,
-    public var sv503_sessconns: UInt = 0u,
-    public var sv503_maxpagedmemoryusage: UInt = 0u,
-    public var sv503_maxnonpagedmemoryusage: UInt = 0u,
-    public var sv503_enablesoftcompat: BOOL = 0,
-    public var sv503_enableforcedlogoff: BOOL = 0,
-    public var sv503_timesource: BOOL = 0,
-    public var sv503_acceptdownlevelapis: BOOL = 0,
-    public var sv503_lmannounce: BOOL = 0,
-    public var sv503_domain: PWSTR = 0L,
-    public var sv503_maxcopyreadlen: UInt = 0u,
-    public var sv503_maxcopywritelen: UInt = 0u,
-    public var sv503_minkeepsearch: UInt = 0u,
-    public var sv503_maxkeepsearch: UInt = 0u,
-    public var sv503_minkeepcomplsearch: UInt = 0u,
-    public var sv503_maxkeepcomplsearch: UInt = 0u,
-    public var sv503_threadcountadd: UInt = 0u,
-    public var sv503_numblockthreads: UInt = 0u,
-    public var sv503_scavtimeout: UInt = 0u,
-    public var sv503_minrcvqueue: UInt = 0u,
-    public var sv503_minfreeworkitems: UInt = 0u,
-    public var sv503_xactmemsize: UInt = 0u,
-    public var sv503_threadpriority: UInt = 0u,
-    public var sv503_maxmpxct: UInt = 0u,
-    public var sv503_oplockbreakwait: UInt = 0u,
-    public var sv503_oplockbreakresponsewait: UInt = 0u,
-    public var sv503_enableoplocks: BOOL = 0,
-    public var sv503_enableoplockforceclose: BOOL = 0,
-    public var sv503_enablefcbopens: BOOL = 0,
-    public var sv503_enableraw: BOOL = 0,
-    public var sv503_enablesharednetdrives: BOOL = 0,
-    public var sv503_minfreeconnections: UInt = 0u,
-    public var sv503_maxfreeconnections: UInt = 0u,
+public class ServerInfo503(
+    public var sv503Sessopens: UInt = 0u,
+    public var sv503Sessvcs: UInt = 0u,
+    public var sv503Opensearch: UInt = 0u,
+    public var sv503Sizreqbuf: UInt = 0u,
+    public var sv503Initworkitems: UInt = 0u,
+    public var sv503Maxworkitems: UInt = 0u,
+    public var sv503Rawworkitems: UInt = 0u,
+    public var sv503Irpstacksize: UInt = 0u,
+    public var sv503Maxrawbuflen: UInt = 0u,
+    public var sv503Sessusers: UInt = 0u,
+    public var sv503Sessconns: UInt = 0u,
+    public var sv503Maxpagedmemoryusage: UInt = 0u,
+    public var sv503Maxnonpagedmemoryusage: UInt = 0u,
+    public var sv503Enablesoftcompat: Bool = 0,
+    public var sv503Enableforcedlogoff: Bool = 0,
+    public var sv503Timesource: Bool = 0,
+    public var sv503Acceptdownlevelapis: Bool = 0,
+    public var sv503Lmannounce: Bool = 0,
+    public var sv503Domain: Pwstr = null,
+    public var sv503Maxcopyreadlen: UInt = 0u,
+    public var sv503Maxcopywritelen: UInt = 0u,
+    public var sv503Minkeepsearch: UInt = 0u,
+    public var sv503Maxkeepsearch: UInt = 0u,
+    public var sv503Minkeepcomplsearch: UInt = 0u,
+    public var sv503Maxkeepcomplsearch: UInt = 0u,
+    public var sv503Threadcountadd: UInt = 0u,
+    public var sv503Numblockthreads: UInt = 0u,
+    public var sv503Scavtimeout: UInt = 0u,
+    public var sv503Minrcvqueue: UInt = 0u,
+    public var sv503Minfreeworkitems: UInt = 0u,
+    public var sv503Xactmemsize: UInt = 0u,
+    public var sv503Threadpriority: UInt = 0u,
+    public var sv503Maxmpxct: UInt = 0u,
+    public var sv503Oplockbreakwait: UInt = 0u,
+    public var sv503Oplockbreakresponsewait: UInt = 0u,
+    public var sv503Enableoplocks: Bool = 0,
+    public var sv503Enableoplockforceclose: Bool = 0,
+    public var sv503Enablefcbopens: Bool = 0,
+    public var sv503Enableraw: Bool = 0,
+    public var sv503Enablesharednetdrives: Bool = 0,
+    public var sv503Minfreeconnections: UInt = 0u,
+    public var sv503Maxfreeconnections: UInt = 0u,
 )
 
-public class SERVER_INFO_598(
-    public var sv598_maxrawworkitems: UInt = 0u,
-    public var sv598_maxthreadsperqueue: UInt = 0u,
-    public var sv598_producttype: UInt = 0u,
-    public var sv598_serversize: UInt = 0u,
-    public var sv598_connectionlessautodisc: UInt = 0u,
-    public var sv598_sharingviolationretries: UInt = 0u,
-    public var sv598_sharingviolationdelay: UInt = 0u,
-    public var sv598_maxglobalopensearch: UInt = 0u,
-    public var sv598_removeduplicatesearches: UInt = 0u,
-    public var sv598_lockviolationoffset: UInt = 0u,
-    public var sv598_lockviolationdelay: UInt = 0u,
-    public var sv598_mdlreadswitchover: UInt = 0u,
-    public var sv598_cachedopenlimit: UInt = 0u,
-    public var sv598_otherqueueaffinity: UInt = 0u,
-    public var sv598_restrictnullsessaccess: BOOL = 0,
-    public var sv598_enablewfw311directipx: BOOL = 0,
-    public var sv598_queuesamplesecs: UInt = 0u,
-    public var sv598_balancecount: UInt = 0u,
-    public var sv598_preferredaffinity: UInt = 0u,
-    public var sv598_maxfreerfcbs: UInt = 0u,
-    public var sv598_maxfreemfcbs: UInt = 0u,
-    public var sv598_maxfreelfcbs: UInt = 0u,
-    public var sv598_maxfreepagedpoolchunks: UInt = 0u,
-    public var sv598_minpagedpoolchunksize: UInt = 0u,
-    public var sv598_maxpagedpoolchunksize: UInt = 0u,
-    public var sv598_sendsfrompreferredprocessor: BOOL = 0,
-    public var sv598_cacheddirectorylimit: UInt = 0u,
-    public var sv598_maxcopylength: UInt = 0u,
-    public var sv598_enablecompression: BOOL = 0,
-    public var sv598_autosharewks: BOOL = 0,
-    public var sv598_autoshareserver: BOOL = 0,
-    public var sv598_enablesecuritysignature: BOOL = 0,
-    public var sv598_requiresecuritysignature: BOOL = 0,
-    public var sv598_minclientbuffersize: UInt = 0u,
-    public var sv598_serverguid: GUID = GUID(),
-    public var sv598_ConnectionNoSessionsTimeout: UInt = 0u,
-    public var sv598_IdleThreadTimeOut: UInt = 0u,
-    public var sv598_enableW9xsecuritysignature: BOOL = 0,
-    public var sv598_enforcekerberosreauthentication: BOOL = 0,
-    public var sv598_disabledos: BOOL = 0,
-    public var sv598_lowdiskspaceminimum: UInt = 0u,
-    public var sv598_disablestrictnamechecking: BOOL = 0,
-    public var sv598_enableauthenticateusersharing: BOOL = 0,
+public class ServerInfo598(
+    public var sv598Maxrawworkitems: UInt = 0u,
+    public var sv598Maxthreadsperqueue: UInt = 0u,
+    public var sv598Producttype: UInt = 0u,
+    public var sv598Serversize: UInt = 0u,
+    public var sv598Connectionlessautodisc: UInt = 0u,
+    public var sv598Sharingviolationretries: UInt = 0u,
+    public var sv598Sharingviolationdelay: UInt = 0u,
+    public var sv598Maxglobalopensearch: UInt = 0u,
+    public var sv598Removeduplicatesearches: UInt = 0u,
+    public var sv598Lockviolationoffset: UInt = 0u,
+    public var sv598Lockviolationdelay: UInt = 0u,
+    public var sv598Mdlreadswitchover: UInt = 0u,
+    public var sv598Cachedopenlimit: UInt = 0u,
+    public var sv598Otherqueueaffinity: UInt = 0u,
+    public var sv598Restrictnullsessaccess: Bool = 0,
+    public var sv598Enablewfw311directipx: Bool = 0,
+    public var sv598Queuesamplesecs: UInt = 0u,
+    public var sv598Balancecount: UInt = 0u,
+    public var sv598Preferredaffinity: UInt = 0u,
+    public var sv598Maxfreerfcbs: UInt = 0u,
+    public var sv598Maxfreemfcbs: UInt = 0u,
+    public var sv598Maxfreelfcbs: UInt = 0u,
+    public var sv598Maxfreepagedpoolchunks: UInt = 0u,
+    public var sv598Minpagedpoolchunksize: UInt = 0u,
+    public var sv598Maxpagedpoolchunksize: UInt = 0u,
+    public var sv598Sendsfrompreferredprocessor: Bool = 0,
+    public var sv598Cacheddirectorylimit: UInt = 0u,
+    public var sv598Maxcopylength: UInt = 0u,
+    public var sv598Enablecompression: Bool = 0,
+    public var sv598Autosharewks: Bool = 0,
+    public var sv598Autoshareserver: Bool = 0,
+    public var sv598Enablesecuritysignature: Bool = 0,
+    public var sv598Requiresecuritysignature: Bool = 0,
+    public var sv598Minclientbuffersize: UInt = 0u,
+    public var sv598Serverguid: Guid = Guid(),
+    public var sv598ConnectionNoSessionsTimeout: UInt = 0u,
+    public var sv598IdleThreadTimeOut: UInt = 0u,
+    public var sv598EnableW9xsecuritysignature: Bool = 0,
+    public var sv598Enforcekerberosreauthentication: Bool = 0,
+    public var sv598Disabledos: Bool = 0,
+    public var sv598Lowdiskspaceminimum: UInt = 0u,
+    public var sv598Disablestrictnamechecking: Bool = 0,
+    public var sv598Enableauthenticateusersharing: Bool = 0,
 )
 
-public class SERVER_INFO_599(
-    public var sv599_sessopens: UInt = 0u,
-    public var sv599_sessvcs: UInt = 0u,
-    public var sv599_opensearch: UInt = 0u,
-    public var sv599_sizreqbuf: UInt = 0u,
-    public var sv599_initworkitems: UInt = 0u,
-    public var sv599_maxworkitems: UInt = 0u,
-    public var sv599_rawworkitems: UInt = 0u,
-    public var sv599_irpstacksize: UInt = 0u,
-    public var sv599_maxrawbuflen: UInt = 0u,
-    public var sv599_sessusers: UInt = 0u,
-    public var sv599_sessconns: UInt = 0u,
-    public var sv599_maxpagedmemoryusage: UInt = 0u,
-    public var sv599_maxnonpagedmemoryusage: UInt = 0u,
-    public var sv599_enablesoftcompat: BOOL = 0,
-    public var sv599_enableforcedlogoff: BOOL = 0,
-    public var sv599_timesource: BOOL = 0,
-    public var sv599_acceptdownlevelapis: BOOL = 0,
-    public var sv599_lmannounce: BOOL = 0,
-    public var sv599_domain: PWSTR = 0L,
-    public var sv599_maxcopyreadlen: UInt = 0u,
-    public var sv599_maxcopywritelen: UInt = 0u,
-    public var sv599_minkeepsearch: UInt = 0u,
-    public var sv599_maxkeepsearch: UInt = 0u,
-    public var sv599_minkeepcomplsearch: UInt = 0u,
-    public var sv599_maxkeepcomplsearch: UInt = 0u,
-    public var sv599_threadcountadd: UInt = 0u,
-    public var sv599_numblockthreads: UInt = 0u,
-    public var sv599_scavtimeout: UInt = 0u,
-    public var sv599_minrcvqueue: UInt = 0u,
-    public var sv599_minfreeworkitems: UInt = 0u,
-    public var sv599_xactmemsize: UInt = 0u,
-    public var sv599_threadpriority: UInt = 0u,
-    public var sv599_maxmpxct: UInt = 0u,
-    public var sv599_oplockbreakwait: UInt = 0u,
-    public var sv599_oplockbreakresponsewait: UInt = 0u,
-    public var sv599_enableoplocks: BOOL = 0,
-    public var sv599_enableoplockforceclose: BOOL = 0,
-    public var sv599_enablefcbopens: BOOL = 0,
-    public var sv599_enableraw: BOOL = 0,
-    public var sv599_enablesharednetdrives: BOOL = 0,
-    public var sv599_minfreeconnections: UInt = 0u,
-    public var sv599_maxfreeconnections: UInt = 0u,
-    public var sv599_initsesstable: UInt = 0u,
-    public var sv599_initconntable: UInt = 0u,
-    public var sv599_initfiletable: UInt = 0u,
-    public var sv599_initsearchtable: UInt = 0u,
-    public var sv599_alertschedule: UInt = 0u,
-    public var sv599_errorthreshold: UInt = 0u,
-    public var sv599_networkerrorthreshold: UInt = 0u,
-    public var sv599_diskspacethreshold: UInt = 0u,
-    public var sv599_reserved: UInt = 0u,
-    public var sv599_maxlinkdelay: UInt = 0u,
-    public var sv599_minlinkthroughput: UInt = 0u,
-    public var sv599_linkinfovalidtime: UInt = 0u,
-    public var sv599_scavqosinfoupdatetime: UInt = 0u,
-    public var sv599_maxworkitemidletime: UInt = 0u,
+public class ServerInfo599(
+    public var sv599Sessopens: UInt = 0u,
+    public var sv599Sessvcs: UInt = 0u,
+    public var sv599Opensearch: UInt = 0u,
+    public var sv599Sizreqbuf: UInt = 0u,
+    public var sv599Initworkitems: UInt = 0u,
+    public var sv599Maxworkitems: UInt = 0u,
+    public var sv599Rawworkitems: UInt = 0u,
+    public var sv599Irpstacksize: UInt = 0u,
+    public var sv599Maxrawbuflen: UInt = 0u,
+    public var sv599Sessusers: UInt = 0u,
+    public var sv599Sessconns: UInt = 0u,
+    public var sv599Maxpagedmemoryusage: UInt = 0u,
+    public var sv599Maxnonpagedmemoryusage: UInt = 0u,
+    public var sv599Enablesoftcompat: Bool = 0,
+    public var sv599Enableforcedlogoff: Bool = 0,
+    public var sv599Timesource: Bool = 0,
+    public var sv599Acceptdownlevelapis: Bool = 0,
+    public var sv599Lmannounce: Bool = 0,
+    public var sv599Domain: Pwstr = null,
+    public var sv599Maxcopyreadlen: UInt = 0u,
+    public var sv599Maxcopywritelen: UInt = 0u,
+    public var sv599Minkeepsearch: UInt = 0u,
+    public var sv599Maxkeepsearch: UInt = 0u,
+    public var sv599Minkeepcomplsearch: UInt = 0u,
+    public var sv599Maxkeepcomplsearch: UInt = 0u,
+    public var sv599Threadcountadd: UInt = 0u,
+    public var sv599Numblockthreads: UInt = 0u,
+    public var sv599Scavtimeout: UInt = 0u,
+    public var sv599Minrcvqueue: UInt = 0u,
+    public var sv599Minfreeworkitems: UInt = 0u,
+    public var sv599Xactmemsize: UInt = 0u,
+    public var sv599Threadpriority: UInt = 0u,
+    public var sv599Maxmpxct: UInt = 0u,
+    public var sv599Oplockbreakwait: UInt = 0u,
+    public var sv599Oplockbreakresponsewait: UInt = 0u,
+    public var sv599Enableoplocks: Bool = 0,
+    public var sv599Enableoplockforceclose: Bool = 0,
+    public var sv599Enablefcbopens: Bool = 0,
+    public var sv599Enableraw: Bool = 0,
+    public var sv599Enablesharednetdrives: Bool = 0,
+    public var sv599Minfreeconnections: UInt = 0u,
+    public var sv599Maxfreeconnections: UInt = 0u,
+    public var sv599Initsesstable: UInt = 0u,
+    public var sv599Initconntable: UInt = 0u,
+    public var sv599Initfiletable: UInt = 0u,
+    public var sv599Initsearchtable: UInt = 0u,
+    public var sv599Alertschedule: UInt = 0u,
+    public var sv599Errorthreshold: UInt = 0u,
+    public var sv599Networkerrorthreshold: UInt = 0u,
+    public var sv599Diskspacethreshold: UInt = 0u,
+    public var sv599Reserved: UInt = 0u,
+    public var sv599Maxlinkdelay: UInt = 0u,
+    public var sv599Minlinkthroughput: UInt = 0u,
+    public var sv599Linkinfovalidtime: UInt = 0u,
+    public var sv599Scavqosinfoupdatetime: UInt = 0u,
+    public var sv599Maxworkitemidletime: UInt = 0u,
 )
 
-public data class SERVER_TRANSPORT_INFO_0(
-    public var svti0_numberofvcs: UInt = 0u,
-    public var svti0_transportname: PWSTR = 0L,
-    public var svti0_transportaddress: Long = 0L,
-    public var svti0_transportaddresslength: UInt = 0u,
-    public var svti0_networkaddress: PWSTR = 0L,
+public data class ServerTransportInfo0(
+    public var svti0Numberofvcs: UInt = 0u,
+    public var svti0Transportname: Pwstr = null,
+    public var svti0Transportaddress: COpaquePointer? = null,
+    public var svti0Transportaddresslength: UInt = 0u,
+    public var svti0Networkaddress: Pwstr = null,
 )
 
-public data class SERVER_TRANSPORT_INFO_1(
-    public var svti1_numberofvcs: UInt = 0u,
-    public var svti1_transportname: PWSTR = 0L,
-    public var svti1_transportaddress: Long = 0L,
-    public var svti1_transportaddresslength: UInt = 0u,
-    public var svti1_networkaddress: PWSTR = 0L,
-    public var svti1_domain: PWSTR = 0L,
+public data class ServerTransportInfo1(
+    public var svti1Numberofvcs: UInt = 0u,
+    public var svti1Transportname: Pwstr = null,
+    public var svti1Transportaddress: COpaquePointer? = null,
+    public var svti1Transportaddresslength: UInt = 0u,
+    public var svti1Networkaddress: Pwstr = null,
+    public var svti1Domain: Pwstr = null,
 )
 
-public data class SERVER_TRANSPORT_INFO_2(
-    public var svti2_numberofvcs: UInt = 0u,
-    public var svti2_transportname: PWSTR = 0L,
-    public var svti2_transportaddress: Long = 0L,
-    public var svti2_transportaddresslength: UInt = 0u,
-    public var svti2_networkaddress: PWSTR = 0L,
-    public var svti2_domain: PWSTR = 0L,
-    public var svti2_flags: UInt = 0u,
+public data class ServerTransportInfo2(
+    public var svti2Numberofvcs: UInt = 0u,
+    public var svti2Transportname: Pwstr = null,
+    public var svti2Transportaddress: COpaquePointer? = null,
+    public var svti2Transportaddresslength: UInt = 0u,
+    public var svti2Networkaddress: Pwstr = null,
+    public var svti2Domain: Pwstr = null,
+    public var svti2Flags: UInt = 0u,
 )
 
-public data class SERVER_TRANSPORT_INFO_3(
-    public var svti3_numberofvcs: UInt = 0u,
-    public var svti3_transportname: PWSTR = 0L,
-    public var svti3_transportaddress: Long = 0L,
-    public var svti3_transportaddresslength: UInt = 0u,
-    public var svti3_networkaddress: PWSTR = 0L,
-    public var svti3_domain: PWSTR = 0L,
-    public var svti3_flags: UInt = 0u,
-    public var svti3_passwordlength: UInt = 0u,
-    public var svti3_password: UByteArray = UByteArray(256),
+public data class ServerTransportInfo3(
+    public var svti3Numberofvcs: UInt = 0u,
+    public var svti3Transportname: Pwstr = null,
+    public var svti3Transportaddress: COpaquePointer? = null,
+    public var svti3Transportaddresslength: UInt = 0u,
+    public var svti3Networkaddress: Pwstr = null,
+    public var svti3Domain: Pwstr = null,
+    public var svti3Flags: UInt = 0u,
+    public var svti3Passwordlength: UInt = 0u,
+    public var svti3Password: UByteArray = UByteArray(256),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SERVER_TRANSPORT_INFO_3) return false
-        if (this.svti3_numberofvcs != other.svti3_numberofvcs) return false
-        if (this.svti3_transportname != other.svti3_transportname) return false
-        if (this.svti3_transportaddress != other.svti3_transportaddress) return false
-        if (this.svti3_transportaddresslength != other.svti3_transportaddresslength) return false
-        if (this.svti3_networkaddress != other.svti3_networkaddress) return false
-        if (this.svti3_domain != other.svti3_domain) return false
-        if (this.svti3_flags != other.svti3_flags) return false
-        if (this.svti3_passwordlength != other.svti3_passwordlength) return false
-        if (!this.svti3_password.contentEquals(other.svti3_password)) return false
+        if (other !is ServerTransportInfo3) return false
+        if (this.svti3Numberofvcs != other.svti3Numberofvcs) return false
+        if (this.svti3Transportname != other.svti3Transportname) return false
+        if (this.svti3Transportaddress != other.svti3Transportaddress) return false
+        if (this.svti3Transportaddresslength != other.svti3Transportaddresslength) return false
+        if (this.svti3Networkaddress != other.svti3Networkaddress) return false
+        if (this.svti3Domain != other.svti3Domain) return false
+        if (this.svti3Flags != other.svti3Flags) return false
+        if (this.svti3Passwordlength != other.svti3Passwordlength) return false
+        if (!this.svti3Password.contentEquals(other.svti3Password)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.svti3_numberofvcs.hashCode()
-        result = 31 * result + this.svti3_transportname.hashCode()
-        result = 31 * result + this.svti3_transportaddress.hashCode()
-        result = 31 * result + this.svti3_transportaddresslength.hashCode()
-        result = 31 * result + this.svti3_networkaddress.hashCode()
-        result = 31 * result + this.svti3_domain.hashCode()
-        result = 31 * result + this.svti3_flags.hashCode()
-        result = 31 * result + this.svti3_passwordlength.hashCode()
-        result = 31 * result + this.svti3_password.contentHashCode()
+        var result = this.svti3Numberofvcs.hashCode()
+        result = 31 * result + this.svti3Transportname.hashCode()
+        result = 31 * result + this.svti3Transportaddress.hashCode()
+        result = 31 * result + this.svti3Transportaddresslength.hashCode()
+        result = 31 * result + this.svti3Networkaddress.hashCode()
+        result = 31 * result + this.svti3Domain.hashCode()
+        result = 31 * result + this.svti3Flags.hashCode()
+        result = 31 * result + this.svti3Passwordlength.hashCode()
+        result = 31 * result + this.svti3Password.contentHashCode()
         return result
     }
 }
 
-public data class SERVICE_INFO_0(public var svci0_name: PWSTR = 0L)
+public data class ServiceInfo0(public var svci0Name: Pwstr = null)
 
-public data class SERVICE_INFO_1(
-    public var svci1_name: PWSTR = 0L,
-    public var svci1_status: UInt = 0u,
-    public var svci1_code: UInt = 0u,
-    public var svci1_pid: UInt = 0u,
+public data class ServiceInfo1(
+    public var svci1Name: Pwstr = null,
+    public var svci1Status: UInt = 0u,
+    public var svci1Code: UInt = 0u,
+    public var svci1Pid: UInt = 0u,
 )
 
-public data class SERVICE_INFO_2(
-    public var svci2_name: PWSTR = 0L,
-    public var svci2_status: UInt = 0u,
-    public var svci2_code: UInt = 0u,
-    public var svci2_pid: UInt = 0u,
-    public var svci2_text: PWSTR = 0L,
-    public var svci2_specific_error: UInt = 0u,
-    public var svci2_display_name: PWSTR = 0L,
+public data class ServiceInfo2(
+    public var svci2Name: Pwstr = null,
+    public var svci2Status: UInt = 0u,
+    public var svci2Code: UInt = 0u,
+    public var svci2Pid: UInt = 0u,
+    public var svci2Text: Pwstr = null,
+    public var svci2SpecificError: UInt = 0u,
+    public var svci2DisplayName: Pwstr = null,
 )
 
-public data class SMB_COMPRESSION_INFO(
-    public var Switch: Boolean = false,
-    public var Reserved1: UByte = 0u,
-    public var Reserved2: UShort = 0u,
-    public var Reserved3: UInt = 0u,
+public data class SmbCompressionInfo(
+    public var switch: Boolean = false,
+    public var reserved1: UByte = 0u,
+    public var reserved2: UShort = 0u,
+    public var reserved3: UInt = 0u,
 )
 
-public data class SMB_TREE_CONNECT_PARAMETERS(
-    public var EABufferOffset: UInt = 0u,
-    public var EABufferLen: UInt = 0u,
-    public var CreateOptions: UInt = 0u,
-    public var TreeConnectAttributes: UInt = 0u,
+public data class SmbTreeConnectParameters(
+    public var eABufferOffset: UInt = 0u,
+    public var eABufferLen: UInt = 0u,
+    public var createOptions: UInt = 0u,
+    public var treeConnectAttributes: UInt = 0u,
 )
 
-public data class SMB_USE_OPTION_COMPRESSION_PARAMETERS(
-    public var Tag: UInt = 0u,
-    public var Length: UShort = 0u,
-    public var Reserved: UShort = 0u,
+public data class SmbUseOptionCompressionParameters(
+    public var tag: UInt = 0u,
+    public var length: UShort = 0u,
+    public var reserved: UShort = 0u,
 )
 
-public data class STD_ALERT(
-    public var alrt_timestamp: UInt = 0u,
-    public var alrt_eventname: UShortArray = UShortArray(17),
-    public var alrt_servicename: UShortArray = UShortArray(81),
+public data class StdAlert(
+    public var alrtTimestamp: UInt = 0u,
+    public var alrtEventname: UShortArray = UShortArray(17),
+    public var alrtServicename: UShortArray = UShortArray(81),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is STD_ALERT) return false
-        if (this.alrt_timestamp != other.alrt_timestamp) return false
-        if (!this.alrt_eventname.contentEquals(other.alrt_eventname)) return false
-        if (!this.alrt_servicename.contentEquals(other.alrt_servicename)) return false
+        if (other !is StdAlert) return false
+        if (this.alrtTimestamp != other.alrtTimestamp) return false
+        if (!this.alrtEventname.contentEquals(other.alrtEventname)) return false
+        if (!this.alrtServicename.contentEquals(other.alrtServicename)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.alrt_timestamp.hashCode()
-        result = 31 * result + this.alrt_eventname.contentHashCode()
-        result = 31 * result + this.alrt_servicename.contentHashCode()
+        var result = this.alrtTimestamp.hashCode()
+        result = 31 * result + this.alrtEventname.contentHashCode()
+        result = 31 * result + this.alrtServicename.contentHashCode()
         return result
     }
 }
 
-public data class TIME_OF_DAY_INFO(
-    public var tod_elapsedt: UInt = 0u,
-    public var tod_msecs: UInt = 0u,
-    public var tod_hours: UInt = 0u,
-    public var tod_mins: UInt = 0u,
-    public var tod_secs: UInt = 0u,
-    public var tod_hunds: UInt = 0u,
-    public var tod_timezone: Int = 0,
-    public var tod_tinterval: UInt = 0u,
-    public var tod_day: UInt = 0u,
-    public var tod_month: UInt = 0u,
-    public var tod_year: UInt = 0u,
-    public var tod_weekday: UInt = 0u,
+public data class TimeOfDayInfo(
+    public var todElapsedt: UInt = 0u,
+    public var todMsecs: UInt = 0u,
+    public var todHours: UInt = 0u,
+    public var todMins: UInt = 0u,
+    public var todSecs: UInt = 0u,
+    public var todHunds: UInt = 0u,
+    public var todTimezone: Int = 0,
+    public var todTinterval: UInt = 0u,
+    public var todDay: UInt = 0u,
+    public var todMonth: UInt = 0u,
+    public var todYear: UInt = 0u,
+    public var todWeekday: UInt = 0u,
 )
 
-public data class TRANSPORT_INFO(public var Type: TRANSPORT_TYPE = 0, public var SkipCertificateCheck: Boolean = false)
+public data class TransportInfo(public var type: TransportType = 0, public var skipCertificateCheck: Boolean = false)
 
-public data class USER_INFO_0(public var usri0_name: PWSTR = 0L)
+public data class UserInfo0(public var usri0Name: Pwstr = null)
 
-public data class USER_INFO_1(
-    public var usri1_name: PWSTR = 0L,
-    public var usri1_password: PWSTR = 0L,
-    public var usri1_password_age: UInt = 0u,
-    public var usri1_priv: USER_PRIV = 0u,
-    public var usri1_home_dir: PWSTR = 0L,
-    public var usri1_comment: PWSTR = 0L,
-    public var usri1_flags: USER_ACCOUNT_FLAGS = 0u,
-    public var usri1_script_path: PWSTR = 0L,
+public data class UserInfo1(
+    public var usri1Name: Pwstr = null,
+    public var usri1Password: Pwstr = null,
+    public var usri1PasswordAge: UInt = 0u,
+    public var usri1Priv: UserPriv = 0u,
+    public var usri1HomeDir: Pwstr = null,
+    public var usri1Comment: Pwstr = null,
+    public var usri1Flags: UserAccountFlags = 0u,
+    public var usri1ScriptPath: Pwstr = null,
 )
 
-public data class USER_INFO_10(
-    public var usri10_name: PWSTR = 0L,
-    public var usri10_comment: PWSTR = 0L,
-    public var usri10_usr_comment: PWSTR = 0L,
-    public var usri10_full_name: PWSTR = 0L,
+public data class UserInfo10(
+    public var usri10Name: Pwstr = null,
+    public var usri10Comment: Pwstr = null,
+    public var usri10UsrComment: Pwstr = null,
+    public var usri10FullName: Pwstr = null,
 )
 
-public data class USER_INFO_1003(public var usri1003_password: PWSTR = 0L)
+public data class UserInfo1003(public var usri1003Password: Pwstr = null)
 
-public data class USER_INFO_1005(public var usri1005_priv: USER_PRIV = 0u)
+public data class UserInfo1005(public var usri1005Priv: UserPriv = 0u)
 
-public data class USER_INFO_1006(public var usri1006_home_dir: PWSTR = 0L)
+public data class UserInfo1006(public var usri1006HomeDir: Pwstr = null)
 
-public data class USER_INFO_1007(public var usri1007_comment: PWSTR = 0L)
+public data class UserInfo1007(public var usri1007Comment: Pwstr = null)
 
-public data class USER_INFO_1008(public var usri1008_flags: USER_ACCOUNT_FLAGS = 0u)
+public data class UserInfo1008(public var usri1008Flags: UserAccountFlags = 0u)
 
-public data class USER_INFO_1009(public var usri1009_script_path: PWSTR = 0L)
+public data class UserInfo1009(public var usri1009ScriptPath: Pwstr = null)
 
-public data class USER_INFO_1010(public var usri1010_auth_flags: AF_OP = 0u)
+public data class UserInfo1010(public var usri1010AuthFlags: AfOp = 0u)
 
-public data class USER_INFO_1011(public var usri1011_full_name: PWSTR = 0L)
+public data class UserInfo1011(public var usri1011FullName: Pwstr = null)
 
-public data class USER_INFO_1012(public var usri1012_usr_comment: PWSTR = 0L)
+public data class UserInfo1012(public var usri1012UsrComment: Pwstr = null)
 
-public data class USER_INFO_1013(public var usri1013_parms: PWSTR = 0L)
+public data class UserInfo1013(public var usri1013Parms: Pwstr = null)
 
-public data class USER_INFO_1014(public var usri1014_workstations: PWSTR = 0L)
+public data class UserInfo1014(public var usri1014Workstations: Pwstr = null)
 
-public data class USER_INFO_1017(public var usri1017_acct_expires: UInt = 0u)
+public data class UserInfo1017(public var usri1017AcctExpires: UInt = 0u)
 
-public data class USER_INFO_1018(public var usri1018_max_storage: UInt = 0u)
+public data class UserInfo1018(public var usri1018MaxStorage: UInt = 0u)
 
-public data class USER_INFO_1020(public var usri1020_units_per_week: UInt = 0u, public var usri1020_logon_hours: Long = 0L)
+public data class UserInfo1020(public var usri1020UnitsPerWeek: UInt = 0u, public var usri1020LogonHours: COpaquePointer? = null)
 
-public data class USER_INFO_1023(public var usri1023_logon_server: PWSTR = 0L)
+public data class UserInfo1023(public var usri1023LogonServer: Pwstr = null)
 
-public data class USER_INFO_1024(public var usri1024_country_code: UInt = 0u)
+public data class UserInfo1024(public var usri1024CountryCode: UInt = 0u)
 
-public data class USER_INFO_1025(public var usri1025_code_page: UInt = 0u)
+public data class UserInfo1025(public var usri1025CodePage: UInt = 0u)
 
-public data class USER_INFO_1051(public var usri1051_primary_group_id: UInt = 0u)
+public data class UserInfo1051(public var usri1051PrimaryGroupId: UInt = 0u)
 
-public data class USER_INFO_1052(public var usri1052_profile: PWSTR = 0L)
+public data class UserInfo1052(public var usri1052Profile: Pwstr = null)
 
-public data class USER_INFO_1053(public var usri1053_home_dir_drive: PWSTR = 0L)
+public data class UserInfo1053(public var usri1053HomeDirDrive: Pwstr = null)
 
-public class USER_INFO_11(
-    public var usri11_name: PWSTR = 0L,
-    public var usri11_comment: PWSTR = 0L,
-    public var usri11_usr_comment: PWSTR = 0L,
-    public var usri11_full_name: PWSTR = 0L,
-    public var usri11_priv: USER_PRIV = 0u,
-    public var usri11_auth_flags: AF_OP = 0u,
-    public var usri11_password_age: UInt = 0u,
-    public var usri11_home_dir: PWSTR = 0L,
-    public var usri11_parms: PWSTR = 0L,
-    public var usri11_last_logon: UInt = 0u,
-    public var usri11_last_logoff: UInt = 0u,
-    public var usri11_bad_pw_count: UInt = 0u,
-    public var usri11_num_logons: UInt = 0u,
-    public var usri11_logon_server: PWSTR = 0L,
-    public var usri11_country_code: UInt = 0u,
-    public var usri11_workstations: PWSTR = 0L,
-    public var usri11_max_storage: UInt = 0u,
-    public var usri11_units_per_week: UInt = 0u,
-    public var usri11_logon_hours: Long = 0L,
-    public var usri11_code_page: UInt = 0u,
+public class UserInfo11(
+    public var usri11Name: Pwstr = null,
+    public var usri11Comment: Pwstr = null,
+    public var usri11UsrComment: Pwstr = null,
+    public var usri11FullName: Pwstr = null,
+    public var usri11Priv: UserPriv = 0u,
+    public var usri11AuthFlags: AfOp = 0u,
+    public var usri11PasswordAge: UInt = 0u,
+    public var usri11HomeDir: Pwstr = null,
+    public var usri11Parms: Pwstr = null,
+    public var usri11LastLogon: UInt = 0u,
+    public var usri11LastLogoff: UInt = 0u,
+    public var usri11BadPwCount: UInt = 0u,
+    public var usri11NumLogons: UInt = 0u,
+    public var usri11LogonServer: Pwstr = null,
+    public var usri11CountryCode: UInt = 0u,
+    public var usri11Workstations: Pwstr = null,
+    public var usri11MaxStorage: UInt = 0u,
+    public var usri11UnitsPerWeek: UInt = 0u,
+    public var usri11LogonHours: COpaquePointer? = null,
+    public var usri11CodePage: UInt = 0u,
 )
 
-public class USER_INFO_2(
-    public var usri2_name: PWSTR = 0L,
-    public var usri2_password: PWSTR = 0L,
-    public var usri2_password_age: UInt = 0u,
-    public var usri2_priv: USER_PRIV = 0u,
-    public var usri2_home_dir: PWSTR = 0L,
-    public var usri2_comment: PWSTR = 0L,
-    public var usri2_flags: USER_ACCOUNT_FLAGS = 0u,
-    public var usri2_script_path: PWSTR = 0L,
-    public var usri2_auth_flags: AF_OP = 0u,
-    public var usri2_full_name: PWSTR = 0L,
-    public var usri2_usr_comment: PWSTR = 0L,
-    public var usri2_parms: PWSTR = 0L,
-    public var usri2_workstations: PWSTR = 0L,
-    public var usri2_last_logon: UInt = 0u,
-    public var usri2_last_logoff: UInt = 0u,
-    public var usri2_acct_expires: UInt = 0u,
-    public var usri2_max_storage: UInt = 0u,
-    public var usri2_units_per_week: UInt = 0u,
-    public var usri2_logon_hours: Long = 0L,
-    public var usri2_bad_pw_count: UInt = 0u,
-    public var usri2_num_logons: UInt = 0u,
-    public var usri2_logon_server: PWSTR = 0L,
-    public var usri2_country_code: UInt = 0u,
-    public var usri2_code_page: UInt = 0u,
+public class UserInfo2(
+    public var usri2Name: Pwstr = null,
+    public var usri2Password: Pwstr = null,
+    public var usri2PasswordAge: UInt = 0u,
+    public var usri2Priv: UserPriv = 0u,
+    public var usri2HomeDir: Pwstr = null,
+    public var usri2Comment: Pwstr = null,
+    public var usri2Flags: UserAccountFlags = 0u,
+    public var usri2ScriptPath: Pwstr = null,
+    public var usri2AuthFlags: AfOp = 0u,
+    public var usri2FullName: Pwstr = null,
+    public var usri2UsrComment: Pwstr = null,
+    public var usri2Parms: Pwstr = null,
+    public var usri2Workstations: Pwstr = null,
+    public var usri2LastLogon: UInt = 0u,
+    public var usri2LastLogoff: UInt = 0u,
+    public var usri2AcctExpires: UInt = 0u,
+    public var usri2MaxStorage: UInt = 0u,
+    public var usri2UnitsPerWeek: UInt = 0u,
+    public var usri2LogonHours: COpaquePointer? = null,
+    public var usri2BadPwCount: UInt = 0u,
+    public var usri2NumLogons: UInt = 0u,
+    public var usri2LogonServer: Pwstr = null,
+    public var usri2CountryCode: UInt = 0u,
+    public var usri2CodePage: UInt = 0u,
 )
 
-public data class USER_INFO_20(
-    public var usri20_name: PWSTR = 0L,
-    public var usri20_full_name: PWSTR = 0L,
-    public var usri20_comment: PWSTR = 0L,
-    public var usri20_flags: USER_ACCOUNT_FLAGS = 0u,
-    public var usri20_user_id: UInt = 0u,
+public data class UserInfo20(
+    public var usri20Name: Pwstr = null,
+    public var usri20FullName: Pwstr = null,
+    public var usri20Comment: Pwstr = null,
+    public var usri20Flags: UserAccountFlags = 0u,
+    public var usri20UserId: UInt = 0u,
 )
 
-public data class USER_INFO_21(public var usri21_password: UByteArray = UByteArray(16)) {
+public data class UserInfo21(public var usri21Password: UByteArray = UByteArray(16)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is USER_INFO_21) return false
-        if (!this.usri21_password.contentEquals(other.usri21_password)) return false
+        if (other !is UserInfo21) return false
+        if (!this.usri21Password.contentEquals(other.usri21Password)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        return this.usri21_password.contentHashCode()
+        return this.usri21Password.contentHashCode()
     }
 }
 
-public class USER_INFO_22(
-    public var usri22_name: PWSTR = 0L,
-    public var usri22_password: UByteArray = UByteArray(16),
-    public var usri22_password_age: UInt = 0u,
-    public var usri22_priv: USER_PRIV = 0u,
-    public var usri22_home_dir: PWSTR = 0L,
-    public var usri22_comment: PWSTR = 0L,
-    public var usri22_flags: USER_ACCOUNT_FLAGS = 0u,
-    public var usri22_script_path: PWSTR = 0L,
-    public var usri22_auth_flags: AF_OP = 0u,
-    public var usri22_full_name: PWSTR = 0L,
-    public var usri22_usr_comment: PWSTR = 0L,
-    public var usri22_parms: PWSTR = 0L,
-    public var usri22_workstations: PWSTR = 0L,
-    public var usri22_last_logon: UInt = 0u,
-    public var usri22_last_logoff: UInt = 0u,
-    public var usri22_acct_expires: UInt = 0u,
-    public var usri22_max_storage: UInt = 0u,
-    public var usri22_units_per_week: UInt = 0u,
-    public var usri22_logon_hours: Long = 0L,
-    public var usri22_bad_pw_count: UInt = 0u,
-    public var usri22_num_logons: UInt = 0u,
-    public var usri22_logon_server: PWSTR = 0L,
-    public var usri22_country_code: UInt = 0u,
-    public var usri22_code_page: UInt = 0u,
+public class UserInfo22(
+    public var usri22Name: Pwstr = null,
+    public var usri22Password: UByteArray = UByteArray(16),
+    public var usri22PasswordAge: UInt = 0u,
+    public var usri22Priv: UserPriv = 0u,
+    public var usri22HomeDir: Pwstr = null,
+    public var usri22Comment: Pwstr = null,
+    public var usri22Flags: UserAccountFlags = 0u,
+    public var usri22ScriptPath: Pwstr = null,
+    public var usri22AuthFlags: AfOp = 0u,
+    public var usri22FullName: Pwstr = null,
+    public var usri22UsrComment: Pwstr = null,
+    public var usri22Parms: Pwstr = null,
+    public var usri22Workstations: Pwstr = null,
+    public var usri22LastLogon: UInt = 0u,
+    public var usri22LastLogoff: UInt = 0u,
+    public var usri22AcctExpires: UInt = 0u,
+    public var usri22MaxStorage: UInt = 0u,
+    public var usri22UnitsPerWeek: UInt = 0u,
+    public var usri22LogonHours: COpaquePointer? = null,
+    public var usri22BadPwCount: UInt = 0u,
+    public var usri22NumLogons: UInt = 0u,
+    public var usri22LogonServer: Pwstr = null,
+    public var usri22CountryCode: UInt = 0u,
+    public var usri22CodePage: UInt = 0u,
 )
 
-public data class USER_INFO_23(
-    public var usri23_name: PWSTR = 0L,
-    public var usri23_full_name: PWSTR = 0L,
-    public var usri23_comment: PWSTR = 0L,
-    public var usri23_flags: USER_ACCOUNT_FLAGS = 0u,
-    public var usri23_user_sid: PSID = 0L,
+public data class UserInfo23(
+    public var usri23Name: Pwstr = null,
+    public var usri23FullName: Pwstr = null,
+    public var usri23Comment: Pwstr = null,
+    public var usri23Flags: UserAccountFlags = 0u,
+    public var usri23UserSid: Psid = null,
 )
 
-public data class USER_INFO_24(
-    public var usri24_internet_identity: BOOL = 0,
-    public var usri24_flags: UInt = 0u,
-    public var usri24_internet_provider_name: PWSTR = 0L,
-    public var usri24_internet_principal_name: PWSTR = 0L,
-    public var usri24_user_sid: PSID = 0L,
+public data class UserInfo24(
+    public var usri24InternetIdentity: Bool = 0,
+    public var usri24Flags: UInt = 0u,
+    public var usri24InternetProviderName: Pwstr = null,
+    public var usri24InternetPrincipalName: Pwstr = null,
+    public var usri24UserSid: Psid = null,
 )
 
-public class USER_INFO_3(
-    public var usri3_name: PWSTR = 0L,
-    public var usri3_password: PWSTR = 0L,
-    public var usri3_password_age: UInt = 0u,
-    public var usri3_priv: USER_PRIV = 0u,
-    public var usri3_home_dir: PWSTR = 0L,
-    public var usri3_comment: PWSTR = 0L,
-    public var usri3_flags: USER_ACCOUNT_FLAGS = 0u,
-    public var usri3_script_path: PWSTR = 0L,
-    public var usri3_auth_flags: AF_OP = 0u,
-    public var usri3_full_name: PWSTR = 0L,
-    public var usri3_usr_comment: PWSTR = 0L,
-    public var usri3_parms: PWSTR = 0L,
-    public var usri3_workstations: PWSTR = 0L,
-    public var usri3_last_logon: UInt = 0u,
-    public var usri3_last_logoff: UInt = 0u,
-    public var usri3_acct_expires: UInt = 0u,
-    public var usri3_max_storage: UInt = 0u,
-    public var usri3_units_per_week: UInt = 0u,
-    public var usri3_logon_hours: Long = 0L,
-    public var usri3_bad_pw_count: UInt = 0u,
-    public var usri3_num_logons: UInt = 0u,
-    public var usri3_logon_server: PWSTR = 0L,
-    public var usri3_country_code: UInt = 0u,
-    public var usri3_code_page: UInt = 0u,
-    public var usri3_user_id: UInt = 0u,
-    public var usri3_primary_group_id: UInt = 0u,
-    public var usri3_profile: PWSTR = 0L,
-    public var usri3_home_dir_drive: PWSTR = 0L,
-    public var usri3_password_expired: UInt = 0u,
+public class UserInfo3(
+    public var usri3Name: Pwstr = null,
+    public var usri3Password: Pwstr = null,
+    public var usri3PasswordAge: UInt = 0u,
+    public var usri3Priv: UserPriv = 0u,
+    public var usri3HomeDir: Pwstr = null,
+    public var usri3Comment: Pwstr = null,
+    public var usri3Flags: UserAccountFlags = 0u,
+    public var usri3ScriptPath: Pwstr = null,
+    public var usri3AuthFlags: AfOp = 0u,
+    public var usri3FullName: Pwstr = null,
+    public var usri3UsrComment: Pwstr = null,
+    public var usri3Parms: Pwstr = null,
+    public var usri3Workstations: Pwstr = null,
+    public var usri3LastLogon: UInt = 0u,
+    public var usri3LastLogoff: UInt = 0u,
+    public var usri3AcctExpires: UInt = 0u,
+    public var usri3MaxStorage: UInt = 0u,
+    public var usri3UnitsPerWeek: UInt = 0u,
+    public var usri3LogonHours: COpaquePointer? = null,
+    public var usri3BadPwCount: UInt = 0u,
+    public var usri3NumLogons: UInt = 0u,
+    public var usri3LogonServer: Pwstr = null,
+    public var usri3CountryCode: UInt = 0u,
+    public var usri3CodePage: UInt = 0u,
+    public var usri3UserId: UInt = 0u,
+    public var usri3PrimaryGroupId: UInt = 0u,
+    public var usri3Profile: Pwstr = null,
+    public var usri3HomeDirDrive: Pwstr = null,
+    public var usri3PasswordExpired: UInt = 0u,
 )
 
-public class USER_INFO_4(
-    public var usri4_name: PWSTR = 0L,
-    public var usri4_password: PWSTR = 0L,
-    public var usri4_password_age: UInt = 0u,
-    public var usri4_priv: USER_PRIV = 0u,
-    public var usri4_home_dir: PWSTR = 0L,
-    public var usri4_comment: PWSTR = 0L,
-    public var usri4_flags: USER_ACCOUNT_FLAGS = 0u,
-    public var usri4_script_path: PWSTR = 0L,
-    public var usri4_auth_flags: AF_OP = 0u,
-    public var usri4_full_name: PWSTR = 0L,
-    public var usri4_usr_comment: PWSTR = 0L,
-    public var usri4_parms: PWSTR = 0L,
-    public var usri4_workstations: PWSTR = 0L,
-    public var usri4_last_logon: UInt = 0u,
-    public var usri4_last_logoff: UInt = 0u,
-    public var usri4_acct_expires: UInt = 0u,
-    public var usri4_max_storage: UInt = 0u,
-    public var usri4_units_per_week: UInt = 0u,
-    public var usri4_logon_hours: Long = 0L,
-    public var usri4_bad_pw_count: UInt = 0u,
-    public var usri4_num_logons: UInt = 0u,
-    public var usri4_logon_server: PWSTR = 0L,
-    public var usri4_country_code: UInt = 0u,
-    public var usri4_code_page: UInt = 0u,
-    public var usri4_user_sid: PSID = 0L,
-    public var usri4_primary_group_id: UInt = 0u,
-    public var usri4_profile: PWSTR = 0L,
-    public var usri4_home_dir_drive: PWSTR = 0L,
-    public var usri4_password_expired: UInt = 0u,
+public class UserInfo4(
+    public var usri4Name: Pwstr = null,
+    public var usri4Password: Pwstr = null,
+    public var usri4PasswordAge: UInt = 0u,
+    public var usri4Priv: UserPriv = 0u,
+    public var usri4HomeDir: Pwstr = null,
+    public var usri4Comment: Pwstr = null,
+    public var usri4Flags: UserAccountFlags = 0u,
+    public var usri4ScriptPath: Pwstr = null,
+    public var usri4AuthFlags: AfOp = 0u,
+    public var usri4FullName: Pwstr = null,
+    public var usri4UsrComment: Pwstr = null,
+    public var usri4Parms: Pwstr = null,
+    public var usri4Workstations: Pwstr = null,
+    public var usri4LastLogon: UInt = 0u,
+    public var usri4LastLogoff: UInt = 0u,
+    public var usri4AcctExpires: UInt = 0u,
+    public var usri4MaxStorage: UInt = 0u,
+    public var usri4UnitsPerWeek: UInt = 0u,
+    public var usri4LogonHours: COpaquePointer? = null,
+    public var usri4BadPwCount: UInt = 0u,
+    public var usri4NumLogons: UInt = 0u,
+    public var usri4LogonServer: Pwstr = null,
+    public var usri4CountryCode: UInt = 0u,
+    public var usri4CodePage: UInt = 0u,
+    public var usri4UserSid: Psid = null,
+    public var usri4PrimaryGroupId: UInt = 0u,
+    public var usri4Profile: Pwstr = null,
+    public var usri4HomeDirDrive: Pwstr = null,
+    public var usri4PasswordExpired: UInt = 0u,
 )
 
-public data class USER_MODALS_INFO_0(
-    public var usrmod0_min_passwd_len: UInt = 0u,
-    public var usrmod0_max_passwd_age: UInt = 0u,
-    public var usrmod0_min_passwd_age: UInt = 0u,
-    public var usrmod0_force_logoff: UInt = 0u,
-    public var usrmod0_password_hist_len: UInt = 0u,
+public data class UserModalsInfo0(
+    public var usrmod0MinPasswdLen: UInt = 0u,
+    public var usrmod0MaxPasswdAge: UInt = 0u,
+    public var usrmod0MinPasswdAge: UInt = 0u,
+    public var usrmod0ForceLogoff: UInt = 0u,
+    public var usrmod0PasswordHistLen: UInt = 0u,
 )
 
-public data class USER_MODALS_INFO_1(public var usrmod1_role: UInt = 0u, public var usrmod1_primary: PWSTR = 0L)
+public data class UserModalsInfo1(public var usrmod1Role: UInt = 0u, public var usrmod1Primary: Pwstr = null)
 
-public data class USER_MODALS_INFO_1001(public var usrmod1001_min_passwd_len: UInt = 0u)
+public data class UserModalsInfo1001(public var usrmod1001MinPasswdLen: UInt = 0u)
 
-public data class USER_MODALS_INFO_1002(public var usrmod1002_max_passwd_age: UInt = 0u)
+public data class UserModalsInfo1002(public var usrmod1002MaxPasswdAge: UInt = 0u)
 
-public data class USER_MODALS_INFO_1003(public var usrmod1003_min_passwd_age: UInt = 0u)
+public data class UserModalsInfo1003(public var usrmod1003MinPasswdAge: UInt = 0u)
 
-public data class USER_MODALS_INFO_1004(public var usrmod1004_force_logoff: UInt = 0u)
+public data class UserModalsInfo1004(public var usrmod1004ForceLogoff: UInt = 0u)
 
-public data class USER_MODALS_INFO_1005(public var usrmod1005_password_hist_len: UInt = 0u)
+public data class UserModalsInfo1005(public var usrmod1005PasswordHistLen: UInt = 0u)
 
-public data class USER_MODALS_INFO_1006(public var usrmod1006_role: USER_MODALS_ROLES = 0u)
+public data class UserModalsInfo1006(public var usrmod1006Role: UserModalsRoles = 0u)
 
-public data class USER_MODALS_INFO_1007(public var usrmod1007_primary: PWSTR = 0L)
+public data class UserModalsInfo1007(public var usrmod1007Primary: Pwstr = null)
 
-public data class USER_MODALS_INFO_2(public var usrmod2_domain_name: PWSTR = 0L, public var usrmod2_domain_id: PSID = 0L)
+public data class UserModalsInfo2(public var usrmod2DomainName: Pwstr = null, public var usrmod2DomainId: Psid = null)
 
-public data class USER_MODALS_INFO_3(
-    public var usrmod3_lockout_duration: UInt = 0u,
-    public var usrmod3_lockout_observation_window: UInt = 0u,
-    public var usrmod3_lockout_threshold: UInt = 0u,
+public data class UserModalsInfo3(
+    public var usrmod3LockoutDuration: UInt = 0u,
+    public var usrmod3LockoutObservationWindow: UInt = 0u,
+    public var usrmod3LockoutThreshold: UInt = 0u,
 )
 
-public data class USER_OTHER_INFO(public var alrtus_errcode: UInt = 0u, public var alrtus_numstrings: UInt = 0u)
+public data class UserOtherInfo(public var alrtusErrcode: UInt = 0u, public var alrtusNumstrings: UInt = 0u)
 
-public data class USE_INFO_0(public var ui0_local: PWSTR = 0L, public var ui0_remote: PWSTR = 0L)
+public data class UseInfo0(public var ui0Local: Pwstr = null, public var ui0Remote: Pwstr = null)
 
-public data class USE_INFO_1(
-    public var ui1_local: PWSTR = 0L,
-    public var ui1_remote: PWSTR = 0L,
-    public var ui1_password: PWSTR = 0L,
-    public var ui1_status: UInt = 0u,
-    public var ui1_asg_type: USE_INFO_ASG_TYPE = 0u,
-    public var ui1_refcount: UInt = 0u,
-    public var ui1_usecount: UInt = 0u,
+public data class UseInfo1(
+    public var ui1Local: Pwstr = null,
+    public var ui1Remote: Pwstr = null,
+    public var ui1Password: Pwstr = null,
+    public var ui1Status: UInt = 0u,
+    public var ui1AsgType: UseInfoAsgType = 0u,
+    public var ui1Refcount: UInt = 0u,
+    public var ui1Usecount: UInt = 0u,
 )
 
-public data class USE_INFO_2(
-    public var ui2_local: PWSTR = 0L,
-    public var ui2_remote: PWSTR = 0L,
-    public var ui2_password: PWSTR = 0L,
-    public var ui2_status: UInt = 0u,
-    public var ui2_asg_type: USE_INFO_ASG_TYPE = 0u,
-    public var ui2_refcount: UInt = 0u,
-    public var ui2_usecount: UInt = 0u,
-    public var ui2_username: PWSTR = 0L,
-    public var ui2_domainname: PWSTR = 0L,
+public data class UseInfo2(
+    public var ui2Local: Pwstr = null,
+    public var ui2Remote: Pwstr = null,
+    public var ui2Password: Pwstr = null,
+    public var ui2Status: UInt = 0u,
+    public var ui2AsgType: UseInfoAsgType = 0u,
+    public var ui2Refcount: UInt = 0u,
+    public var ui2Usecount: UInt = 0u,
+    public var ui2Username: Pwstr = null,
+    public var ui2Domainname: Pwstr = null,
 )

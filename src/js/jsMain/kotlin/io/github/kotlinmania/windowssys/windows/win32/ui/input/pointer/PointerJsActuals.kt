@@ -2,93 +2,94 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.input.pointer
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.ui.controls.HSYNTHETICPOINTERDEVICE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Hsyntheticpointerdevice
 
 private val _windowsWin32UiInputPointerNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun EnableMouseInPointer(fenable: BOOL): BOOL =
-    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_EnableMouseInPointer(fenable) as Int) else 0
+public actual fun enableMouseInPointer(fenable: Bool): Bool =
+    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_enableMouseInPointer(fenable) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPointerCursorId(pointerid: UInt, cursorid: Long): BOOL =
-    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_GetPointerCursorId(pointerid.toInt(), cursorid.toString()) as Int) else 0
+public actual fun getPointerCursorId(pointerid: UInt, cursorid: COpaquePointer?): Bool =
+    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_getPointerCursorId(pointerid.toInt(), (cursorid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPointerDevice(device: HANDLE, pointerdevice: Long): BOOL =
-    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_GetPointerDevice(device.toString(), pointerdevice.toString()) as Int) else 0
+public actual fun getPointerDevice(device: Handle, pointerdevice: COpaquePointer?): Bool =
+    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_getPointerDevice((device?.value ?: 0L).toString(), (pointerdevice?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPointerDeviceCursors(device: HANDLE, cursorcount: Long, devicecursors: Long): BOOL =
-    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_GetPointerDeviceCursors(device.toString(), cursorcount.toString(), devicecursors.toString()) as Int) else 0
+public actual fun getPointerDeviceCursors(device: Handle, cursorcount: COpaquePointer?, devicecursors: COpaquePointer?): Bool =
+    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_getPointerDeviceCursors((device?.value ?: 0L).toString(), (cursorcount?.value ?: 0L).toString(), (devicecursors?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPointerDeviceProperties(device: HANDLE, propertycount: Long, pointerproperties: Long): BOOL =
-    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_GetPointerDeviceProperties(device.toString(), propertycount.toString(), pointerproperties.toString()) as Int) else 0
+public actual fun getPointerDeviceProperties(device: Handle, propertycount: COpaquePointer?, pointerproperties: COpaquePointer?): Bool =
+    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_getPointerDeviceProperties((device?.value ?: 0L).toString(), (propertycount?.value ?: 0L).toString(), (pointerproperties?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPointerDeviceRects(device: HANDLE, pointerdevicerect: Long, displayrect: Long): BOOL =
-    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_GetPointerDeviceRects(device.toString(), pointerdevicerect.toString(), displayrect.toString()) as Int) else 0
+public actual fun getPointerDeviceRects(device: Handle, pointerdevicerect: COpaquePointer?, displayrect: COpaquePointer?): Bool =
+    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_getPointerDeviceRects((device?.value ?: 0L).toString(), (pointerdevicerect?.value ?: 0L).toString(), (displayrect?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPointerDevices(devicecount: Long, pointerdevices: Long): BOOL =
-    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_GetPointerDevices(devicecount.toString(), pointerdevices.toString()) as Int) else 0
+public actual fun getPointerDevices(devicecount: COpaquePointer?, pointerdevices: COpaquePointer?): Bool =
+    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_getPointerDevices((devicecount?.value ?: 0L).toString(), (pointerdevices?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPointerFrameInfo(pointerid: UInt, pointercount: Long, pointerinfo: Long): BOOL =
-    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_GetPointerFrameInfo(pointerid.toInt(), pointercount.toString(), pointerinfo.toString()) as Int) else 0
+public actual fun getPointerFrameInfo(pointerid: UInt, pointercount: COpaquePointer?, pointerinfo: COpaquePointer?): Bool =
+    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_getPointerFrameInfo(pointerid.toInt(), (pointercount?.value ?: 0L).toString(), (pointerinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPointerFrameInfoHistory(pointerid: UInt, entriescount: Long, pointercount: Long, pointerinfo: Long): BOOL =
-    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_GetPointerFrameInfoHistory(pointerid.toInt(), entriescount.toString(), pointercount.toString(), pointerinfo.toString()) as Int) else 0
+public actual fun getPointerFrameInfoHistory(pointerid: UInt, entriescount: COpaquePointer?, pointercount: COpaquePointer?, pointerinfo: COpaquePointer?): Bool =
+    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_getPointerFrameInfoHistory(pointerid.toInt(), (entriescount?.value ?: 0L).toString(), (pointercount?.value ?: 0L).toString(), (pointerinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPointerFramePenInfo(pointerid: UInt, pointercount: Long, peninfo: Long): BOOL =
-    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_GetPointerFramePenInfo(pointerid.toInt(), pointercount.toString(), peninfo.toString()) as Int) else 0
+public actual fun getPointerFramePenInfo(pointerid: UInt, pointercount: COpaquePointer?, peninfo: COpaquePointer?): Bool =
+    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_getPointerFramePenInfo(pointerid.toInt(), (pointercount?.value ?: 0L).toString(), (peninfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPointerFramePenInfoHistory(pointerid: UInt, entriescount: Long, pointercount: Long, peninfo: Long): BOOL =
-    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_GetPointerFramePenInfoHistory(pointerid.toInt(), entriescount.toString(), pointercount.toString(), peninfo.toString()) as Int) else 0
+public actual fun getPointerFramePenInfoHistory(pointerid: UInt, entriescount: COpaquePointer?, pointercount: COpaquePointer?, peninfo: COpaquePointer?): Bool =
+    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_getPointerFramePenInfoHistory(pointerid.toInt(), (entriescount?.value ?: 0L).toString(), (pointercount?.value ?: 0L).toString(), (peninfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPointerFrameTouchInfo(pointerid: UInt, pointercount: Long, touchinfo: Long): BOOL =
-    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_GetPointerFrameTouchInfo(pointerid.toInt(), pointercount.toString(), touchinfo.toString()) as Int) else 0
+public actual fun getPointerFrameTouchInfo(pointerid: UInt, pointercount: COpaquePointer?, touchinfo: COpaquePointer?): Bool =
+    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_getPointerFrameTouchInfo(pointerid.toInt(), (pointercount?.value ?: 0L).toString(), (touchinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPointerFrameTouchInfoHistory(pointerid: UInt, entriescount: Long, pointercount: Long, touchinfo: Long): BOOL =
-    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_GetPointerFrameTouchInfoHistory(pointerid.toInt(), entriescount.toString(), pointercount.toString(), touchinfo.toString()) as Int) else 0
+public actual fun getPointerFrameTouchInfoHistory(pointerid: UInt, entriescount: COpaquePointer?, pointercount: COpaquePointer?, touchinfo: COpaquePointer?): Bool =
+    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_getPointerFrameTouchInfoHistory(pointerid.toInt(), (entriescount?.value ?: 0L).toString(), (pointercount?.value ?: 0L).toString(), (touchinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPointerInfo(pointerid: UInt, pointerinfo: Long): BOOL =
-    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_GetPointerInfo(pointerid.toInt(), pointerinfo.toString()) as Int) else 0
+public actual fun getPointerInfo(pointerid: UInt, pointerinfo: COpaquePointer?): Bool =
+    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_getPointerInfo(pointerid.toInt(), (pointerinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPointerInfoHistory(pointerid: UInt, entriescount: Long, pointerinfo: Long): BOOL =
-    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_GetPointerInfoHistory(pointerid.toInt(), entriescount.toString(), pointerinfo.toString()) as Int) else 0
+public actual fun getPointerInfoHistory(pointerid: UInt, entriescount: COpaquePointer?, pointerinfo: COpaquePointer?): Bool =
+    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_getPointerInfoHistory(pointerid.toInt(), (entriescount?.value ?: 0L).toString(), (pointerinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPointerInputTransform(pointerid: UInt, historycount: UInt, inputtransform: Long): BOOL =
-    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_GetPointerInputTransform(pointerid.toInt(), historycount.toInt(), inputtransform.toString()) as Int) else 0
+public actual fun getPointerInputTransform(pointerid: UInt, historycount: UInt, inputtransform: COpaquePointer?): Bool =
+    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_getPointerInputTransform(pointerid.toInt(), historycount.toInt(), (inputtransform?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPointerPenInfo(pointerid: UInt, peninfo: Long): BOOL =
-    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_GetPointerPenInfo(pointerid.toInt(), peninfo.toString()) as Int) else 0
+public actual fun getPointerPenInfo(pointerid: UInt, peninfo: COpaquePointer?): Bool =
+    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_getPointerPenInfo(pointerid.toInt(), (peninfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPointerPenInfoHistory(pointerid: UInt, entriescount: Long, peninfo: Long): BOOL =
-    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_GetPointerPenInfoHistory(pointerid.toInt(), entriescount.toString(), peninfo.toString()) as Int) else 0
+public actual fun getPointerPenInfoHistory(pointerid: UInt, entriescount: COpaquePointer?, peninfo: COpaquePointer?): Bool =
+    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_getPointerPenInfoHistory(pointerid.toInt(), (entriescount?.value ?: 0L).toString(), (peninfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPointerTouchInfo(pointerid: UInt, touchinfo: Long): BOOL =
-    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_GetPointerTouchInfo(pointerid.toInt(), touchinfo.toString()) as Int) else 0
+public actual fun getPointerTouchInfo(pointerid: UInt, touchinfo: COpaquePointer?): Bool =
+    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_getPointerTouchInfo(pointerid.toInt(), (touchinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPointerTouchInfoHistory(pointerid: UInt, entriescount: Long, touchinfo: Long): BOOL =
-    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_GetPointerTouchInfoHistory(pointerid.toInt(), entriescount.toString(), touchinfo.toString()) as Int) else 0
+public actual fun getPointerTouchInfoHistory(pointerid: UInt, entriescount: COpaquePointer?, touchinfo: COpaquePointer?): Bool =
+    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_getPointerTouchInfoHistory(pointerid.toInt(), (entriescount?.value ?: 0L).toString(), (touchinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPointerType(pointerid: UInt, pointertype: Long): BOOL =
-    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_GetPointerType(pointerid.toInt(), pointertype.toString()) as Int) else 0
+public actual fun getPointerType(pointerid: UInt, pointertype: COpaquePointer?): Bool =
+    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_getPointerType(pointerid.toInt(), (pointertype?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetRawPointerDeviceData(pointerid: UInt, historycount: UInt, propertiescount: UInt, pproperties: Long, pvalues: Long): BOOL =
-    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_GetRawPointerDeviceData(pointerid.toInt(), historycount.toInt(), propertiescount.toInt(), pproperties.toString(), pvalues.toString()) as Int) else 0
+public actual fun getRawPointerDeviceData(pointerid: UInt, historycount: UInt, propertiescount: UInt, pproperties: COpaquePointer?, pvalues: COpaquePointer?): Bool =
+    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_getRawPointerDeviceData(pointerid.toInt(), historycount.toInt(), propertiescount.toInt(), (pproperties?.value ?: 0L).toString(), (pvalues?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetUnpredictedMessagePos(): UInt =
-    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_GetUnpredictedMessagePos() as Int).toUInt() else 0u
+public actual fun getUnpredictedMessagePos(): UInt =
+    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_getUnpredictedMessagePos() as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InitializeTouchInjection(maxcount: UInt, dwmode: TOUCH_FEEDBACK_MODE): BOOL =
-    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_InitializeTouchInjection(maxcount.toInt(), dwmode.toInt()) as Int) else 0
+public actual fun initializeTouchInjection(maxcount: UInt, dwmode: TouchFeedbackMode): Bool =
+    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_initializeTouchInjection(maxcount.toInt(), dwmode.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InjectSyntheticPointerInput(device: HSYNTHETICPOINTERDEVICE, pointerinfo: Long, count: UInt): BOOL =
-    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_InjectSyntheticPointerInput(device.toString(), pointerinfo.toString(), count.toInt()) as Int) else 0
+public actual fun injectSyntheticPointerInput(device: Hsyntheticpointerdevice, pointerinfo: COpaquePointer?, count: UInt): Bool =
+    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_injectSyntheticPointerInput((device?.value ?: 0L).toString(), (pointerinfo?.value ?: 0L).toString(), count.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InjectTouchInput(count: UInt, contacts: Long): BOOL =
-    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_InjectTouchInput(count.toInt(), contacts.toString()) as Int) else 0
+public actual fun injectTouchInput(count: UInt, contacts: COpaquePointer?): Bool =
+    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_injectTouchInput(count.toInt(), (contacts?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsMouseInPointerEnabled(): BOOL =
-    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_IsMouseInPointerEnabled() as Int) else 0
+public actual fun isMouseInPointerEnabled(): Bool =
+    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_isMouseInPointerEnabled() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SkipPointerFrameMessages(pointerid: UInt): BOOL =
-    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_SkipPointerFrameMessages(pointerid.toInt()) as Int) else 0
+public actual fun skipPointerFrameMessages(pointerid: UInt): Bool =
+    if (_windowsWin32UiInputPointerNapiAddon != null) (_windowsWin32UiInputPointerNapiAddon.windowssys_windows_win32_ui_input_pointer_skipPointerFrameMessages(pointerid.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

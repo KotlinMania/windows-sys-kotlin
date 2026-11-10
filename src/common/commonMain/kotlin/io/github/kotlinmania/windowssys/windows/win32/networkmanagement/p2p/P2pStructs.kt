@@ -1,502 +1,504 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SOCKADDR_IN6
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SOCKADDR_STORAGE
-import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SOCKET_ADDRESS
-import io.github.kotlinmania.windowssys.windows.win32.system.com.BLOB
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SockaddrIn6
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SockaddrStorage
+import io.github.kotlinmania.windowssys.windows.win32.networking.winsock.SocketAddress
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CertPublicKeyInfo
+import io.github.kotlinmania.windowssys.windows.win32.system.com.Blob
 
-public data class DRT_ADDRESS(
-    public var socketAddress: SOCKADDR_STORAGE = SOCKADDR_STORAGE(),
+public data class DrtAddress(
+    public var socketAddress: SockaddrStorage = SockaddrStorage(),
     public var flags: UInt = 0u,
     public var nearness: Int = 0,
     public var latency: UInt = 0u,
 )
 
-public data class DRT_ADDRESS_LIST(public var AddressCount: UInt = 0u, public var AddressList: List<DRT_ADDRESS> = List(1) { DRT_ADDRESS() })
+public data class DrtAddressList(public var addressCount: UInt = 0u, public var addressList: List<DrtAddress> = List(1) { DrtAddress() })
 
-public data class DRT_BOOTSTRAP_PROVIDER(
-    public var pvContext: Long = 0L,
-    public var Attach: Long = 0L,
-    public var Detach: Long = 0L,
-    public var InitResolve: Long = 0L,
-    public var IssueResolve: Long = 0L,
-    public var EndResolve: Long = 0L,
-    public var Register: Long = 0L,
-    public var Unregister: Long = 0L,
+public data class DrtBootstrapProvider(
+    public var pvContext: COpaquePointer? = null,
+    public var attach: Int = 0,
+    public var detach: Int = 0,
+    public var initResolve: Int = 0,
+    public var issueResolve: Int = 0,
+    public var endResolve: Int = 0,
+    public var register: Int = 0,
+    public var unregister: Int = 0,
 )
 
-public data class DRT_DATA(public var cb: UInt = 0u, public var pb: Long = 0L)
+public data class DrtData(public var cb: UInt = 0u, public var pb: COpaquePointer? = null)
 
-public data class DRT_EVENT_DATA(
-    public var type: DRT_EVENT_TYPE = 0,
-    public var hr: HRESULT = 0,
-    public var pvContext: Long = 0L,
-    public var Anonymous: DRT_EVENT_DATA_0 = DRT_EVENT_DATA_0(),
+public data class DrtEventData(
+    public var type: DrtEventType = 0,
+    public var hr: Hresult = 0,
+    public var pvContext: COpaquePointer? = null,
+    public var anonymous: DrtEventData0 = DrtEventData0(),
 )
 
-public data class DRT_EVENT_DATA_0(
-    public var leafsetKeyChange: DRT_EVENT_DATA_0_0 = DRT_EVENT_DATA_0_0(),
-    public var registrationStateChange: DRT_EVENT_DATA_0_1 = DRT_EVENT_DATA_0_1(),
-    public var statusChange: DRT_EVENT_DATA_0_2 = DRT_EVENT_DATA_0_2(),
+public data class DrtEventData0(
+    public var leafsetKeyChange: DrtEventData00 = DrtEventData00(),
+    public var registrationStateChange: DrtEventData01 = DrtEventData01(),
+    public var statusChange: DrtEventData02 = DrtEventData02(),
 )
 
-public data class DRT_EVENT_DATA_0_0(
-    public var change: DRT_LEAFSET_KEY_CHANGE_TYPE = 0,
-    public var localKey: DRT_DATA = DRT_DATA(),
-    public var remoteKey: DRT_DATA = DRT_DATA(),
+public data class DrtEventData00(
+    public var change: DrtLeafsetKeyChangeType = 0,
+    public var localKey: DrtData = DrtData(),
+    public var remoteKey: DrtData = DrtData(),
 )
 
-public data class DRT_EVENT_DATA_0_1(public var state: DRT_REGISTRATION_STATE = 0, public var localKey: DRT_DATA = DRT_DATA())
+public data class DrtEventData01(public var state: DrtRegistrationState = 0, public var localKey: DrtData = DrtData())
 
-public data class DRT_EVENT_DATA_0_2(public var status: DRT_STATUS = 0, public var bootstrapAddresses: DRT_EVENT_DATA_0_2_0 = DRT_EVENT_DATA_0_2_0())
+public data class DrtEventData02(public var status: DrtStatus = 0, public var bootstrapAddresses: DrtEventData020 = DrtEventData020())
 
-public data class DRT_EVENT_DATA_0_2_0(public var cntAddress: UInt = 0u, public var pAddresses: Long = 0L)
+public data class DrtEventData020(public var cntAddress: UInt = 0u, public var pAddresses: SockaddrStorage? = null)
 
-public data class DRT_REGISTRATION(public var key: DRT_DATA = DRT_DATA(), public var appData: DRT_DATA = DRT_DATA())
+public data class DrtRegistration(public var key: DrtData = DrtData(), public var appData: DrtData = DrtData())
 
-public data class DRT_SEARCH_INFO(
+public data class DrtSearchInfo(
     public var dwSize: UInt = 0u,
-    public var fIterative: BOOL = 0,
-    public var fAllowCurrentInstanceMatch: BOOL = 0,
-    public var fAnyMatchInRange: BOOL = 0,
+    public var fIterative: Bool = 0,
+    public var fAllowCurrentInstanceMatch: Bool = 0,
+    public var fAnyMatchInRange: Bool = 0,
     public var cMaxEndpoints: UInt = 0u,
-    public var pMaximumKey: Long = 0L,
-    public var pMinimumKey: Long = 0L,
+    public var pMaximumKey: DrtData? = null,
+    public var pMinimumKey: DrtData? = null,
 )
 
-public data class DRT_SEARCH_RESULT(
+public data class DrtSearchResult(
     public var dwSize: UInt = 0u,
-    public var type: DRT_MATCH_TYPE = 0,
-    public var pvContext: Long = 0L,
-    public var registration: DRT_REGISTRATION = DRT_REGISTRATION(),
+    public var type: DrtMatchType = 0,
+    public var pvContext: COpaquePointer? = null,
+    public var registration: DrtRegistration = DrtRegistration(),
 )
 
-public data class DRT_SECURITY_PROVIDER(
-    public var pvContext: Long = 0L,
-    public var Attach: Long = 0L,
-    public var Detach: Long = 0L,
-    public var RegisterKey: Long = 0L,
-    public var UnregisterKey: Long = 0L,
-    public var ValidateAndUnpackPayload: Long = 0L,
-    public var SecureAndPackPayload: Long = 0L,
-    public var FreeData: Long = 0L,
-    public var EncryptData: Long = 0L,
-    public var DecryptData: Long = 0L,
-    public var GetSerializedCredential: Long = 0L,
-    public var ValidateRemoteCredential: Long = 0L,
-    public var SignData: Long = 0L,
-    public var VerifyData: Long = 0L,
+public data class DrtSecurityProvider(
+    public var pvContext: COpaquePointer? = null,
+    public var attach: Int = 0,
+    public var detach: Int = 0,
+    public var registerKey: Int = 0,
+    public var unregisterKey: Int = 0,
+    public var validateAndUnpackPayload: Int = 0,
+    public var secureAndPackPayload: Int = 0,
+    public var freeData: Int = 0,
+    public var encryptData: Int = 0,
+    public var decryptData: Int = 0,
+    public var getSerializedCredential: Int = 0,
+    public var validateRemoteCredential: Int = 0,
+    public var signData: Int = 0,
+    public var verifyData: Int = 0,
 )
 
-public data class DRT_SETTINGS(
+public data class DrtSettings(
     public var dwSize: UInt = 0u,
     public var cbKey: UInt = 0u,
     public var bProtocolMajorVersion: UByte = 0u,
     public var bProtocolMinorVersion: UByte = 0u,
     public var ulMaxRoutingAddresses: UInt = 0u,
-    public var pwzDrtInstancePrefix: PWSTR = 0L,
-    public var hTransport: Long = 0L,
-    public var pSecurityProvider: Long = 0L,
-    public var pBootstrapProvider: Long = 0L,
-    public var eSecurityMode: DRT_SECURITY_MODE = 0,
+    public var pwzDrtInstancePrefix: Pwstr = null,
+    public var hTransport: COpaquePointer? = null,
+    public var pSecurityProvider: DrtSecurityProvider? = null,
+    public var pBootstrapProvider: DrtBootstrapProvider? = null,
+    public var eSecurityMode: DrtSecurityMode = 0,
 )
 
-public data class PEERDIST_CLIENT_BASIC_INFO(public var fFlashCrowd: BOOL = 0)
+public data class PeerdistClientBasicInfo(public var fFlashCrowd: Bool = 0)
 
-public data class PEERDIST_CONTENT_TAG(public var Data: UByteArray = UByteArray(16)) {
+public data class PeerdistContentTag(public var data: UByteArray = UByteArray(16)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is PEERDIST_CONTENT_TAG) return false
-        if (!this.Data.contentEquals(other.Data)) return false
+        if (other !is PeerdistContentTag) return false
+        if (!this.data.contentEquals(other.data)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        return this.Data.contentHashCode()
+        return this.data.contentHashCode()
     }
 }
 
-public data class PEERDIST_PUBLICATION_OPTIONS(public var dwVersion: UInt = 0u, public var dwFlags: UInt = 0u)
+public data class PeerdistPublicationOptions(public var dwVersion: UInt = 0u, public var dwFlags: UInt = 0u)
 
-public data class PEERDIST_RETRIEVAL_OPTIONS(
+public data class PeerdistRetrievalOptions(
     public var cbSize: UInt = 0u,
     public var dwContentInfoMinVersion: UInt = 0u,
     public var dwContentInfoMaxVersion: UInt = 0u,
     public var dwReserved: UInt = 0u,
 )
 
-public data class PEERDIST_STATUS_INFO(
+public data class PeerdistStatusInfo(
     public var cbSize: UInt = 0u,
-    public var status: PEERDIST_STATUS = 0,
-    public var dwMinVer: PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE = 0u,
-    public var dwMaxVer: PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE = 0u,
+    public var status: PeerdistStatus = 0,
+    public var dwMinVer: PeerdistRetrievalOptionsContentinfoVersionValue = 0u,
+    public var dwMaxVer: PeerdistRetrievalOptionsContentinfoVersionValue = 0u,
 )
 
-public data class PEER_ADDRESS(public var dwSize: UInt = 0u, public var sin6: SOCKADDR_IN6 = SOCKADDR_IN6())
+public data class PeerAddress(public var dwSize: UInt = 0u, public var sin6: SockaddrIn6 = SockaddrIn6())
 
-public data class PEER_APPLICATION(
-    public var id: GUID = GUID(),
-    public var data: PEER_DATA = PEER_DATA(),
-    public var pwzDescription: PWSTR = 0L,
+public data class PeerApplication(
+    public var id: Guid = Guid(),
+    public var data: PeerData = PeerData(),
+    public var pwzDescription: Pwstr = null,
 )
 
-public data class PEER_APPLICATION_REGISTRATION_INFO(
-    public var application: PEER_APPLICATION = PEER_APPLICATION(),
-    public var pwzApplicationToLaunch: PWSTR = 0L,
-    public var pwzApplicationArguments: PWSTR = 0L,
+public data class PeerApplicationRegistrationInfo(
+    public var application: PeerApplication = PeerApplication(),
+    public var pwzApplicationToLaunch: Pwstr = null,
+    public var pwzApplicationArguments: Pwstr = null,
     public var dwPublicationScope: UInt = 0u,
 )
 
-public data class PEER_APP_LAUNCH_INFO(
-    public var pContact: Long = 0L,
-    public var pEndpoint: Long = 0L,
-    public var pInvitation: Long = 0L,
+public data class PeerAppLaunchInfo(
+    public var pContact: PeerContact? = null,
+    public var pEndpoint: PeerEndpoint? = null,
+    public var pInvitation: PeerInvitation? = null,
 )
 
-public data class PEER_COLLAB_EVENT_DATA(public var eventType: PEER_COLLAB_EVENT_TYPE = 0, public var Anonymous: PEER_COLLAB_EVENT_DATA_0 = PEER_COLLAB_EVENT_DATA_0())
+public data class PeerCollabEventData(public var eventType: PeerCollabEventType = 0, public var anonymous: PeerCollabEventData0 = PeerCollabEventData0())
 
-public data class PEER_COLLAB_EVENT_DATA_0(
-    public var watchListChangedData: PEER_EVENT_WATCHLIST_CHANGED_DATA = PEER_EVENT_WATCHLIST_CHANGED_DATA(),
-    public var presenceChangedData: PEER_EVENT_PRESENCE_CHANGED_DATA = PEER_EVENT_PRESENCE_CHANGED_DATA(),
-    public var applicationChangedData: PEER_EVENT_APPLICATION_CHANGED_DATA = PEER_EVENT_APPLICATION_CHANGED_DATA(),
-    public var objectChangedData: PEER_EVENT_OBJECT_CHANGED_DATA = PEER_EVENT_OBJECT_CHANGED_DATA(),
-    public var endpointChangedData: PEER_EVENT_ENDPOINT_CHANGED_DATA = PEER_EVENT_ENDPOINT_CHANGED_DATA(),
-    public var peopleNearMeChangedData: PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA = PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA(),
-    public var requestStatusChangedData: PEER_EVENT_REQUEST_STATUS_CHANGED_DATA = PEER_EVENT_REQUEST_STATUS_CHANGED_DATA(),
+public data class PeerCollabEventData0(
+    public var watchListChangedData: PeerEventWatchlistChangedData = PeerEventWatchlistChangedData(),
+    public var presenceChangedData: PeerEventPresenceChangedData = PeerEventPresenceChangedData(),
+    public var applicationChangedData: PeerEventApplicationChangedData = PeerEventApplicationChangedData(),
+    public var objectChangedData: PeerEventObjectChangedData = PeerEventObjectChangedData(),
+    public var endpointChangedData: PeerEventEndpointChangedData = PeerEventEndpointChangedData(),
+    public var peopleNearMeChangedData: PeerEventPeopleNearMeChangedData = PeerEventPeopleNearMeChangedData(),
+    public var requestStatusChangedData: PeerEventRequestStatusChangedData = PeerEventRequestStatusChangedData(),
 )
 
-public data class PEER_COLLAB_EVENT_REGISTRATION(public var eventType: PEER_COLLAB_EVENT_TYPE = 0, public var pInstance: Long = 0L)
+public data class PeerCollabEventRegistration(public var eventType: PeerCollabEventType = 0, public var pInstance: Guid? = null)
 
-public data class PEER_CONNECTION_INFO(
+public data class PeerConnectionInfo(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
     public var ullConnectionId: ULong = 0uL,
     public var ullNodeId: ULong = 0uL,
-    public var pwzPeerId: PWSTR = 0L,
-    public var address: PEER_ADDRESS = PEER_ADDRESS(),
+    public var pwzPeerId: Pwstr = null,
+    public var address: PeerAddress = PeerAddress(),
 )
 
-public data class PEER_CONTACT(
-    public var pwzPeerName: PWSTR = 0L,
-    public var pwzNickName: PWSTR = 0L,
-    public var pwzDisplayName: PWSTR = 0L,
-    public var pwzEmailAddress: PWSTR = 0L,
-    public var fWatch: BOOL = 0,
-    public var WatcherPermissions: PEER_WATCH_PERMISSION = 0,
-    public var credentials: PEER_DATA = PEER_DATA(),
+public data class PeerContact(
+    public var pwzPeerName: Pwstr = null,
+    public var pwzNickName: Pwstr = null,
+    public var pwzDisplayName: Pwstr = null,
+    public var pwzEmailAddress: Pwstr = null,
+    public var fWatch: Bool = 0,
+    public var watcherPermissions: PeerWatchPermission = 0,
+    public var credentials: PeerData = PeerData(),
 )
 
-public data class PEER_CREDENTIAL_INFO(
+public data class PeerCredentialInfo(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var pwzFriendlyName: PWSTR = 0L,
-    public var pPublicKey: Long = 0L,
-    public var pwzIssuerPeerName: PWSTR = 0L,
-    public var pwzIssuerFriendlyName: PWSTR = 0L,
-    public var ftValidityStart: FILETIME = FILETIME(),
-    public var ftValidityEnd: FILETIME = FILETIME(),
+    public var pwzFriendlyName: Pwstr = null,
+    public var pPublicKey: CertPublicKeyInfo? = null,
+    public var pwzIssuerPeerName: Pwstr = null,
+    public var pwzIssuerFriendlyName: Pwstr = null,
+    public var ftValidityStart: Filetime = Filetime(),
+    public var ftValidityEnd: Filetime = Filetime(),
     public var cRoles: UInt = 0u,
-    public var pRoles: Long = 0L,
+    public var pRoles: Guid? = null,
 )
 
-public data class PEER_DATA(public var cbData: UInt = 0u, public var pbData: Long = 0L)
+public data class PeerData(public var cbData: UInt = 0u, public var pbData: COpaquePointer? = null)
 
-public data class PEER_ENDPOINT(public var address: PEER_ADDRESS = PEER_ADDRESS(), public var pwzEndpointName: PWSTR = 0L)
+public data class PeerEndpoint(public var address: PeerAddress = PeerAddress(), public var pwzEndpointName: Pwstr = null)
 
-public data class PEER_EVENT_APPLICATION_CHANGED_DATA(
-    public var pContact: Long = 0L,
-    public var pEndpoint: Long = 0L,
-    public var changeType: PEER_CHANGE_TYPE = 0,
-    public var pApplication: Long = 0L,
+public data class PeerEventApplicationChangedData(
+    public var pContact: PeerContact? = null,
+    public var pEndpoint: PeerEndpoint? = null,
+    public var changeType: PeerChangeType = 0,
+    public var pApplication: PeerApplication? = null,
 )
 
-public data class PEER_EVENT_CONNECTION_CHANGE_DATA(
+public data class PeerEventConnectionChangeData(
     public var dwSize: UInt = 0u,
-    public var status: PEER_CONNECTION_STATUS = 0,
+    public var status: PeerConnectionStatus = 0,
     public var ullConnectionId: ULong = 0uL,
     public var ullNodeId: ULong = 0uL,
     public var ullNextConnectionId: ULong = 0uL,
-    public var hrConnectionFailedReason: HRESULT = 0,
+    public var hrConnectionFailedReason: Hresult = 0,
 )
 
-public data class PEER_EVENT_ENDPOINT_CHANGED_DATA(public var pContact: Long = 0L, public var pEndpoint: Long = 0L)
+public data class PeerEventEndpointChangedData(public var pContact: PeerContact? = null, public var pEndpoint: PeerEndpoint? = null)
 
-public data class PEER_EVENT_INCOMING_DATA(
+public data class PeerEventIncomingData(
     public var dwSize: UInt = 0u,
     public var ullConnectionId: ULong = 0uL,
-    public var type: GUID = GUID(),
-    public var data: PEER_DATA = PEER_DATA(),
+    public var type: Guid = Guid(),
+    public var data: PeerData = PeerData(),
 )
 
-public data class PEER_EVENT_MEMBER_CHANGE_DATA(
+public data class PeerEventMemberChangeData(
     public var dwSize: UInt = 0u,
-    public var changeType: PEER_MEMBER_CHANGE_TYPE = 0,
-    public var pwzIdentity: PWSTR = 0L,
+    public var changeType: PeerMemberChangeType = 0,
+    public var pwzIdentity: Pwstr = null,
 )
 
-public data class PEER_EVENT_NODE_CHANGE_DATA(
+public data class PeerEventNodeChangeData(
     public var dwSize: UInt = 0u,
-    public var changeType: PEER_NODE_CHANGE_TYPE = 0,
+    public var changeType: PeerNodeChangeType = 0,
     public var ullNodeId: ULong = 0uL,
-    public var pwzPeerId: PWSTR = 0L,
+    public var pwzPeerId: Pwstr = null,
 )
 
-public data class PEER_EVENT_OBJECT_CHANGED_DATA(
-    public var pContact: Long = 0L,
-    public var pEndpoint: Long = 0L,
-    public var changeType: PEER_CHANGE_TYPE = 0,
-    public var pObject: Long = 0L,
+public data class PeerEventObjectChangedData(
+    public var pContact: PeerContact? = null,
+    public var pEndpoint: PeerEndpoint? = null,
+    public var changeType: PeerChangeType = 0,
+    public var pObject: PeerObject? = null,
 )
 
-public data class PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA(public var changeType: PEER_CHANGE_TYPE = 0, public var pPeopleNearMe: Long = 0L)
+public data class PeerEventPeopleNearMeChangedData(public var changeType: PeerChangeType = 0, public var pPeopleNearMe: PeerPeopleNearMe? = null)
 
-public data class PEER_EVENT_PRESENCE_CHANGED_DATA(
-    public var pContact: Long = 0L,
-    public var pEndpoint: Long = 0L,
-    public var changeType: PEER_CHANGE_TYPE = 0,
-    public var pPresenceInfo: Long = 0L,
+public data class PeerEventPresenceChangedData(
+    public var pContact: PeerContact? = null,
+    public var pEndpoint: PeerEndpoint? = null,
+    public var changeType: PeerChangeType = 0,
+    public var pPresenceInfo: PeerPresenceInfo? = null,
 )
 
-public data class PEER_EVENT_RECORD_CHANGE_DATA(
+public data class PeerEventRecordChangeData(
     public var dwSize: UInt = 0u,
-    public var changeType: PEER_RECORD_CHANGE_TYPE = 0,
-    public var recordId: GUID = GUID(),
-    public var recordType: GUID = GUID(),
+    public var changeType: PeerRecordChangeType = 0,
+    public var recordId: Guid = Guid(),
+    public var recordType: Guid = Guid(),
 )
 
-public data class PEER_EVENT_REQUEST_STATUS_CHANGED_DATA(public var pEndpoint: Long = 0L, public var hrChange: HRESULT = 0)
+public data class PeerEventRequestStatusChangedData(public var pEndpoint: PeerEndpoint? = null, public var hrChange: Hresult = 0)
 
-public data class PEER_EVENT_SYNCHRONIZED_DATA(public var dwSize: UInt = 0u, public var recordType: GUID = GUID())
+public data class PeerEventSynchronizedData(public var dwSize: UInt = 0u, public var recordType: Guid = Guid())
 
-public data class PEER_EVENT_WATCHLIST_CHANGED_DATA(public var pContact: Long = 0L, public var changeType: PEER_CHANGE_TYPE = 0)
+public data class PeerEventWatchlistChangedData(public var pContact: PeerContact? = null, public var changeType: PeerChangeType = 0)
 
-public data class PEER_GRAPH_EVENT_DATA(public var eventType: PEER_GRAPH_EVENT_TYPE = 0, public var Anonymous: PEER_GRAPH_EVENT_DATA_0 = PEER_GRAPH_EVENT_DATA_0())
+public data class PeerGraphEventData(public var eventType: PeerGraphEventType = 0, public var anonymous: PeerGraphEventData0 = PeerGraphEventData0())
 
-public data class PEER_GRAPH_EVENT_DATA_0(
-    public var dwStatus: PEER_GRAPH_STATUS_FLAGS = 0,
-    public var incomingData: PEER_EVENT_INCOMING_DATA = PEER_EVENT_INCOMING_DATA(),
-    public var recordChangeData: PEER_EVENT_RECORD_CHANGE_DATA = PEER_EVENT_RECORD_CHANGE_DATA(),
-    public var connectionChangeData: PEER_EVENT_CONNECTION_CHANGE_DATA = PEER_EVENT_CONNECTION_CHANGE_DATA(),
-    public var nodeChangeData: PEER_EVENT_NODE_CHANGE_DATA = PEER_EVENT_NODE_CHANGE_DATA(),
-    public var synchronizedData: PEER_EVENT_SYNCHRONIZED_DATA = PEER_EVENT_SYNCHRONIZED_DATA(),
+public data class PeerGraphEventData0(
+    public var dwStatus: PeerGraphStatusFlags = 0,
+    public var incomingData: PeerEventIncomingData = PeerEventIncomingData(),
+    public var recordChangeData: PeerEventRecordChangeData = PeerEventRecordChangeData(),
+    public var connectionChangeData: PeerEventConnectionChangeData = PeerEventConnectionChangeData(),
+    public var nodeChangeData: PeerEventNodeChangeData = PeerEventNodeChangeData(),
+    public var synchronizedData: PeerEventSynchronizedData = PeerEventSynchronizedData(),
 )
 
-public data class PEER_GRAPH_EVENT_REGISTRATION(public var eventType: PEER_GRAPH_EVENT_TYPE = 0, public var pType: Long = 0L)
+public data class PeerGraphEventRegistration(public var eventType: PeerGraphEventType = 0, public var pType: Guid? = null)
 
-public data class PEER_GRAPH_PROPERTIES(
+public data class PeerGraphProperties(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
     public var dwScope: UInt = 0u,
     public var dwMaxRecordSize: UInt = 0u,
-    public var pwzGraphId: PWSTR = 0L,
-    public var pwzCreatorId: PWSTR = 0L,
-    public var pwzFriendlyName: PWSTR = 0L,
-    public var pwzComment: PWSTR = 0L,
+    public var pwzGraphId: Pwstr = null,
+    public var pwzCreatorId: Pwstr = null,
+    public var pwzFriendlyName: Pwstr = null,
+    public var pwzComment: Pwstr = null,
     public var ulPresenceLifetime: UInt = 0u,
     public var cPresenceMax: UInt = 0u,
 )
 
-public data class PEER_GROUP_EVENT_DATA(public var eventType: PEER_GROUP_EVENT_TYPE = 0, public var Anonymous: PEER_GROUP_EVENT_DATA_0 = PEER_GROUP_EVENT_DATA_0())
+public data class PeerGroupEventData(public var eventType: PeerGroupEventType = 0, public var anonymous: PeerGroupEventData0 = PeerGroupEventData0())
 
-public data class PEER_GROUP_EVENT_DATA_0(
-    public var dwStatus: PEER_GROUP_STATUS = 0,
-    public var incomingData: PEER_EVENT_INCOMING_DATA = PEER_EVENT_INCOMING_DATA(),
-    public var recordChangeData: PEER_EVENT_RECORD_CHANGE_DATA = PEER_EVENT_RECORD_CHANGE_DATA(),
-    public var connectionChangeData: PEER_EVENT_CONNECTION_CHANGE_DATA = PEER_EVENT_CONNECTION_CHANGE_DATA(),
-    public var memberChangeData: PEER_EVENT_MEMBER_CHANGE_DATA = PEER_EVENT_MEMBER_CHANGE_DATA(),
-    public var hrConnectionFailedReason: HRESULT = 0,
+public data class PeerGroupEventData0(
+    public var dwStatus: PeerGroupStatus = 0,
+    public var incomingData: PeerEventIncomingData = PeerEventIncomingData(),
+    public var recordChangeData: PeerEventRecordChangeData = PeerEventRecordChangeData(),
+    public var connectionChangeData: PeerEventConnectionChangeData = PeerEventConnectionChangeData(),
+    public var memberChangeData: PeerEventMemberChangeData = PeerEventMemberChangeData(),
+    public var hrConnectionFailedReason: Hresult = 0,
 )
 
-public data class PEER_GROUP_EVENT_REGISTRATION(public var eventType: PEER_GROUP_EVENT_TYPE = 0, public var pType: Long = 0L)
+public data class PeerGroupEventRegistration(public var eventType: PeerGroupEventType = 0, public var pType: Guid? = null)
 
-public data class PEER_GROUP_PROPERTIES(
+public data class PeerGroupProperties(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var pwzCloud: PWSTR = 0L,
-    public var pwzClassifier: PWSTR = 0L,
-    public var pwzGroupPeerName: PWSTR = 0L,
-    public var pwzCreatorPeerName: PWSTR = 0L,
-    public var pwzFriendlyName: PWSTR = 0L,
-    public var pwzComment: PWSTR = 0L,
+    public var pwzCloud: Pwstr = null,
+    public var pwzClassifier: Pwstr = null,
+    public var pwzGroupPeerName: Pwstr = null,
+    public var pwzCreatorPeerName: Pwstr = null,
+    public var pwzFriendlyName: Pwstr = null,
+    public var pwzComment: Pwstr = null,
     public var ulMemberDataLifetime: UInt = 0u,
     public var ulPresenceLifetime: UInt = 0u,
     public var dwAuthenticationSchemes: UInt = 0u,
-    public var pwzGroupPassword: PWSTR = 0L,
-    public var groupPasswordRole: GUID = GUID(),
+    public var pwzGroupPassword: Pwstr = null,
+    public var groupPasswordRole: Guid = Guid(),
 )
 
-public data class PEER_INVITATION(
-    public var applicationId: GUID = GUID(),
-    public var applicationData: PEER_DATA = PEER_DATA(),
-    public var pwzMessage: PWSTR = 0L,
+public data class PeerInvitation(
+    public var applicationId: Guid = Guid(),
+    public var applicationData: PeerData = PeerData(),
+    public var pwzMessage: Pwstr = null,
 )
 
-public class PEER_INVITATION_INFO(
+public class PeerInvitationInfo(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var pwzCloudName: PWSTR = 0L,
+    public var pwzCloudName: Pwstr = null,
     public var dwScope: UInt = 0u,
     public var dwCloudFlags: UInt = 0u,
-    public var pwzGroupPeerName: PWSTR = 0L,
-    public var pwzIssuerPeerName: PWSTR = 0L,
-    public var pwzSubjectPeerName: PWSTR = 0L,
-    public var pwzGroupFriendlyName: PWSTR = 0L,
-    public var pwzIssuerFriendlyName: PWSTR = 0L,
-    public var pwzSubjectFriendlyName: PWSTR = 0L,
-    public var ftValidityStart: FILETIME = FILETIME(),
-    public var ftValidityEnd: FILETIME = FILETIME(),
+    public var pwzGroupPeerName: Pwstr = null,
+    public var pwzIssuerPeerName: Pwstr = null,
+    public var pwzSubjectPeerName: Pwstr = null,
+    public var pwzGroupFriendlyName: Pwstr = null,
+    public var pwzIssuerFriendlyName: Pwstr = null,
+    public var pwzSubjectFriendlyName: Pwstr = null,
+    public var ftValidityStart: Filetime = Filetime(),
+    public var ftValidityEnd: Filetime = Filetime(),
     public var cRoles: UInt = 0u,
-    public var pRoles: Long = 0L,
+    public var pRoles: Guid? = null,
     public var cClassifiers: UInt = 0u,
-    public var ppwzClassifiers: Long = 0L,
-    public var pSubjectPublicKey: Long = 0L,
-    public var authScheme: PEER_GROUP_AUTHENTICATION_SCHEME = 0,
+    public var ppwzClassifiers: Pwstr? = null,
+    public var pSubjectPublicKey: CertPublicKeyInfo? = null,
+    public var authScheme: PeerGroupAuthenticationScheme = 0,
 )
 
-public data class PEER_INVITATION_RESPONSE(
-    public var action: PEER_INVITATION_RESPONSE_TYPE = 0,
-    public var pwzMessage: PWSTR = 0L,
-    public var hrExtendedInfo: HRESULT = 0,
+public data class PeerInvitationResponse(
+    public var action: PeerInvitationResponseType = 0,
+    public var pwzMessage: Pwstr = null,
+    public var hrExtendedInfo: Hresult = 0,
 )
 
-public data class PEER_MEMBER(
+public data class PeerMember(
     public var dwSize: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var pwzIdentity: PWSTR = 0L,
-    public var pwzAttributes: PWSTR = 0L,
+    public var pwzIdentity: Pwstr = null,
+    public var pwzAttributes: Pwstr = null,
     public var ullNodeId: ULong = 0uL,
     public var cAddresses: UInt = 0u,
-    public var pAddresses: Long = 0L,
-    public var pCredentialInfo: Long = 0L,
+    public var pAddresses: PeerAddress? = null,
+    public var pCredentialInfo: PeerCredentialInfo? = null,
 )
 
-public data class PEER_NAME_PAIR(
+public data class PeerNamePair(
     public var dwSize: UInt = 0u,
-    public var pwzPeerName: PWSTR = 0L,
-    public var pwzFriendlyName: PWSTR = 0L,
+    public var pwzPeerName: Pwstr = null,
+    public var pwzFriendlyName: Pwstr = null,
 )
 
-public data class PEER_NODE_INFO(
+public data class PeerNodeInfo(
     public var dwSize: UInt = 0u,
     public var ullNodeId: ULong = 0uL,
-    public var pwzPeerId: PWSTR = 0L,
+    public var pwzPeerId: Pwstr = null,
     public var cAddresses: UInt = 0u,
-    public var pAddresses: Long = 0L,
-    public var pwzAttributes: PWSTR = 0L,
+    public var pAddresses: PeerAddress? = null,
+    public var pwzAttributes: Pwstr = null,
 )
 
-public data class PEER_OBJECT(
-    public var id: GUID = GUID(),
-    public var data: PEER_DATA = PEER_DATA(),
+public data class PeerObject(
+    public var id: Guid = Guid(),
+    public var data: PeerData = PeerData(),
     public var dwPublicationScope: UInt = 0u,
 )
 
-public data class PEER_PEOPLE_NEAR_ME(
-    public var pwzNickName: PWSTR = 0L,
-    public var endpoint: PEER_ENDPOINT = PEER_ENDPOINT(),
-    public var id: GUID = GUID(),
+public data class PeerPeopleNearMe(
+    public var pwzNickName: Pwstr = null,
+    public var endpoint: PeerEndpoint = PeerEndpoint(),
+    public var id: Guid = Guid(),
 )
 
-public data class PEER_PNRP_CLOUD_INFO(
-    public var pwzCloudName: PWSTR = 0L,
-    public var dwScope: PNRP_SCOPE = 0,
+public data class PeerPnrpCloudInfo(
+    public var pwzCloudName: Pwstr = null,
+    public var dwScope: PnrpScope = 0,
     public var dwScopeId: UInt = 0u,
 )
 
-public data class PEER_PNRP_ENDPOINT_INFO(
-    public var pwzPeerName: PWSTR = 0L,
+public data class PeerPnrpEndpointInfo(
+    public var pwzPeerName: Pwstr = null,
     public var cAddresses: UInt = 0u,
-    public var ppAddresses: Long = 0L,
-    public var pwzComment: PWSTR = 0L,
-    public var payload: PEER_DATA = PEER_DATA(),
+    public var ppAddresses: COpaquePointer? = null,
+    public var pwzComment: Pwstr = null,
+    public var payload: PeerData = PeerData(),
 )
 
-public data class PEER_PNRP_REGISTRATION_INFO(
-    public var pwzCloudName: PWSTR = 0L,
-    public var pwzPublishingIdentity: PWSTR = 0L,
+public data class PeerPnrpRegistrationInfo(
+    public var pwzCloudName: Pwstr = null,
+    public var pwzPublishingIdentity: Pwstr = null,
     public var cAddresses: UInt = 0u,
-    public var ppAddresses: Long = 0L,
+    public var ppAddresses: COpaquePointer? = null,
     public var wPort: UShort = 0u,
-    public var pwzComment: PWSTR = 0L,
-    public var payload: PEER_DATA = PEER_DATA(),
+    public var pwzComment: Pwstr = null,
+    public var payload: PeerData = PeerData(),
 )
 
-public data class PEER_PRESENCE_INFO(public var status: PEER_PRESENCE_STATUS = 0, public var pwzDescriptiveText: PWSTR = 0L)
+public data class PeerPresenceInfo(public var status: PeerPresenceStatus = 0, public var pwzDescriptiveText: Pwstr = null)
 
-public data class PEER_RECORD(
+public data class PeerRecord(
     public var dwSize: UInt = 0u,
-    public var type: GUID = GUID(),
-    public var id: GUID = GUID(),
+    public var type: Guid = Guid(),
+    public var id: Guid = Guid(),
     public var dwVersion: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var pwzCreatorId: PWSTR = 0L,
-    public var pwzModifiedById: PWSTR = 0L,
-    public var pwzAttributes: PWSTR = 0L,
-    public var ftCreation: FILETIME = FILETIME(),
-    public var ftExpiration: FILETIME = FILETIME(),
-    public var ftLastModified: FILETIME = FILETIME(),
-    public var securityData: PEER_DATA = PEER_DATA(),
-    public var data: PEER_DATA = PEER_DATA(),
+    public var pwzCreatorId: Pwstr = null,
+    public var pwzModifiedById: Pwstr = null,
+    public var pwzAttributes: Pwstr = null,
+    public var ftCreation: Filetime = Filetime(),
+    public var ftExpiration: Filetime = Filetime(),
+    public var ftLastModified: Filetime = Filetime(),
+    public var securityData: PeerData = PeerData(),
+    public var data: PeerData = PeerData(),
 )
 
-public data class PEER_SECURITY_INTERFACE(
+public data class PeerSecurityInterface(
     public var dwSize: UInt = 0u,
-    public var pwzSspFilename: PWSTR = 0L,
-    public var pwzPackageName: PWSTR = 0L,
+    public var pwzSspFilename: Pwstr = null,
+    public var pwzPackageName: Pwstr = null,
     public var cbSecurityInfo: UInt = 0u,
-    public var pbSecurityInfo: Long = 0L,
-    public var pvContext: Long = 0L,
-    public var pfnValidateRecord: PFNPEER_VALIDATE_RECORD = null,
-    public var pfnSecureRecord: PFNPEER_SECURE_RECORD = null,
-    public var pfnFreeSecurityData: PFNPEER_FREE_SECURITY_DATA = null,
-    public var pfnAuthFailed: PFNPEER_ON_PASSWORD_AUTH_FAILED = null,
+    public var pbSecurityInfo: COpaquePointer? = null,
+    public var pvContext: COpaquePointer? = null,
+    public var pfnValidateRecord: PfnpeerValidateRecord = null,
+    public var pfnSecureRecord: PfnpeerSecureRecord = null,
+    public var pfnFreeSecurityData: PfnpeerFreeSecurityData = null,
+    public var pfnAuthFailed: PfnpeerOnPasswordAuthFailed = null,
 )
 
-public data class PEER_VERSION_DATA(public var wVersion: UShort = 0u, public var wHighestVersion: UShort = 0u)
+public data class PeerVersionData(public var wVersion: UShort = 0u, public var wHighestVersion: UShort = 0u)
 
-public data class PNRPCLOUDINFO(
+public data class Pnrpcloudinfo(
     public var dwSize: UInt = 0u,
-    public var Cloud: PNRP_CLOUD_ID = PNRP_CLOUD_ID(),
-    public var enCloudState: PNRP_CLOUD_STATE = 0,
-    public var enCloudFlags: PNRP_CLOUD_FLAGS = 0,
+    public var cloud: PnrpCloudId = PnrpCloudId(),
+    public var enCloudState: PnrpCloudState = 0,
+    public var enCloudFlags: PnrpCloudFlags = 0,
 )
 
-public data class PNRPINFO_V1(
+public data class PnrpinfoV1(
     public var dwSize: UInt = 0u,
-    public var lpwszIdentity: PWSTR = 0L,
+    public var lpwszIdentity: Pwstr = null,
     public var nMaxResolve: UInt = 0u,
     public var dwTimeout: UInt = 0u,
     public var dwLifetime: UInt = 0u,
-    public var enResolveCriteria: PNRP_RESOLVE_CRITERIA = 0,
+    public var enResolveCriteria: PnrpResolveCriteria = 0,
     public var dwFlags: UInt = 0u,
-    public var saHint: SOCKET_ADDRESS = SOCKET_ADDRESS(),
-    public var enNameState: PNRP_REGISTERED_ID_STATE = 0,
+    public var saHint: SocketAddress = SocketAddress(),
+    public var enNameState: PnrpRegisteredIdState = 0,
 )
 
-public data class PNRPINFO_V2(
+public data class PnrpinfoV2(
     public var dwSize: UInt = 0u,
-    public var lpwszIdentity: PWSTR = 0L,
+    public var lpwszIdentity: Pwstr = null,
     public var nMaxResolve: UInt = 0u,
     public var dwTimeout: UInt = 0u,
     public var dwLifetime: UInt = 0u,
-    public var enResolveCriteria: PNRP_RESOLVE_CRITERIA = 0,
+    public var enResolveCriteria: PnrpResolveCriteria = 0,
     public var dwFlags: UInt = 0u,
-    public var saHint: SOCKET_ADDRESS = SOCKET_ADDRESS(),
-    public var enNameState: PNRP_REGISTERED_ID_STATE = 0,
-    public var enExtendedPayloadType: PNRP_EXTENDED_PAYLOAD_TYPE = 0,
-    public var Anonymous: PNRPINFO_V2_0 = PNRPINFO_V2_0(),
+    public var saHint: SocketAddress = SocketAddress(),
+    public var enNameState: PnrpRegisteredIdState = 0,
+    public var enExtendedPayloadType: PnrpExtendedPayloadType = 0,
+    public var anonymous: PnrpinfoV20 = PnrpinfoV20(),
 )
 
-public data class PNRPINFO_V2_0(public var blobPayload: BLOB = BLOB(), public var pwszPayload: PWSTR = 0L)
+public data class PnrpinfoV20(public var blobPayload: Blob = Blob(), public var pwszPayload: Pwstr = null)
 
-public data class PNRP_CLOUD_ID(
-    public var AddressFamily: Int = 0,
-    public var Scope: PNRP_SCOPE = 0,
-    public var ScopeId: UInt = 0u,
+public data class PnrpCloudId(
+    public var addressFamily: Int = 0,
+    public var scope: PnrpScope = 0,
+    public var scopeId: UInt = 0u,
 )

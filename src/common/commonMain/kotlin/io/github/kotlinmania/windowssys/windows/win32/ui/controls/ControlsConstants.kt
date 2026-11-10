@@ -1,51 +1,51 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.controls
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
 
-public val ABS_DOWNDISABLED: ARROWBTNSTATES = 8
+public val ABS_DOWNDISABLED: Arrowbtnstates = 8
 
-public val ABS_DOWNHOT: ARROWBTNSTATES = 6
+public val ABS_DOWNHOT: Arrowbtnstates = 6
 
-public val ABS_DOWNHOVER: ARROWBTNSTATES = 18
+public val ABS_DOWNHOVER: Arrowbtnstates = 18
 
-public val ABS_DOWNNORMAL: ARROWBTNSTATES = 5
+public val ABS_DOWNNORMAL: Arrowbtnstates = 5
 
-public val ABS_DOWNPRESSED: ARROWBTNSTATES = 7
+public val ABS_DOWNPRESSED: Arrowbtnstates = 7
 
-public val ABS_LEFTDISABLED: ARROWBTNSTATES = 12
+public val ABS_LEFTDISABLED: Arrowbtnstates = 12
 
-public val ABS_LEFTHOT: ARROWBTNSTATES = 10
+public val ABS_LEFTHOT: Arrowbtnstates = 10
 
-public val ABS_LEFTHOVER: ARROWBTNSTATES = 19
+public val ABS_LEFTHOVER: Arrowbtnstates = 19
 
-public val ABS_LEFTNORMAL: ARROWBTNSTATES = 9
+public val ABS_LEFTNORMAL: Arrowbtnstates = 9
 
-public val ABS_LEFTPRESSED: ARROWBTNSTATES = 11
+public val ABS_LEFTPRESSED: Arrowbtnstates = 11
 
-public val ABS_RIGHTDISABLED: ARROWBTNSTATES = 16
+public val ABS_RIGHTDISABLED: Arrowbtnstates = 16
 
-public val ABS_RIGHTHOT: ARROWBTNSTATES = 14
+public val ABS_RIGHTHOT: Arrowbtnstates = 14
 
-public val ABS_RIGHTHOVER: ARROWBTNSTATES = 20
+public val ABS_RIGHTHOVER: Arrowbtnstates = 20
 
-public val ABS_RIGHTNORMAL: ARROWBTNSTATES = 13
+public val ABS_RIGHTNORMAL: Arrowbtnstates = 13
 
-public val ABS_RIGHTPRESSED: ARROWBTNSTATES = 15
+public val ABS_RIGHTPRESSED: Arrowbtnstates = 15
 
-public val ABS_UPDISABLED: ARROWBTNSTATES = 4
+public val ABS_UPDISABLED: Arrowbtnstates = 4
 
-public val ABS_UPHOT: ARROWBTNSTATES = 2
+public val ABS_UPHOT: Arrowbtnstates = 2
 
-public val ABS_UPHOVER: ARROWBTNSTATES = 17
+public val ABS_UPHOVER: Arrowbtnstates = 17
 
-public val ABS_UPNORMAL: ARROWBTNSTATES = 1
+public val ABS_UPNORMAL: Arrowbtnstates = 1
 
-public val ABS_UPPRESSED: ARROWBTNSTATES = 3
+public val ABS_UPPRESSED: Arrowbtnstates = 3
 
 public val ACM_ISPLAYING: UInt = 1128u
 
@@ -71,35 +71,35 @@ public val ACS_TIMER: UInt = 8u
 
 public val ACS_TRANSPARENT: UInt = 2u
 
-public val ALLOW_CONTROLS: SET_THEME_APP_PROPERTIES_FLAGS = 2u
+public val ALLOW_CONTROLS: SetThemeAppPropertiesFlags = 2u
 
-public val ALLOW_NONCLIENT: SET_THEME_APP_PROPERTIES_FLAGS = 1u
+public val ALLOW_NONCLIENT: SetThemeAppPropertiesFlags = 1u
 
-public val ALLOW_WEBCONTENT: SET_THEME_APP_PROPERTIES_FLAGS = 4u
+public val ALLOW_WEBCONTENT: SetThemeAppPropertiesFlags = 4u
 
-public val ANIMATE_CLASS: PCWSTR = w("SysAnimate32")
+public val ANIMATE_CLASS: Pcwstr = w("SysAnimate32")
 
-public val ANIMATE_CLASSA: PCSTR = s("SysAnimate32")
+public val ANIMATE_CLASSA: Pcstr = s("SysAnimate32")
 
-public val ANIMATE_CLASSW: PCWSTR = w("SysAnimate32")
+public val ANIMATE_CLASSW: Pcwstr = w("SysAnimate32")
 
-public val AW_BUTTON: AEROWIZARDPARTS = 5
+public val AW_BUTTON: Aerowizardparts = 5
 
-public val AW_COMMANDAREA: AEROWIZARDPARTS = 4
+public val AW_COMMANDAREA: Aerowizardparts = 4
 
-public val AW_CONTENTAREA: AEROWIZARDPARTS = 3
+public val AW_CONTENTAREA: Aerowizardparts = 3
 
-public val AW_HEADERAREA: AEROWIZARDPARTS = 2
+public val AW_HEADERAREA: Aerowizardparts = 2
 
-public val AW_S_CONTENTAREA_NOMARGIN: CONTENTAREASTATES = 1
+public val AW_S_CONTENTAREA_NOMARGIN: Contentareastates = 1
 
-public val AW_S_HEADERAREA_NOMARGIN: HEADERAREASTATES = 1
+public val AW_S_HEADERAREA_NOMARGIN: Headerareastates = 1
 
-public val AW_S_TITLEBAR_ACTIVE: TITLEBARSTATES = 1
+public val AW_S_TITLEBAR_ACTIVE: Titlebarstates = 1
 
-public val AW_S_TITLEBAR_INACTIVE: TITLEBARSTATES = 2
+public val AW_S_TITLEBAR_INACTIVE: Titlebarstates = 2
 
-public val AW_TITLEBAR: AEROWIZARDPARTS = 1
+public val AW_TITLEBAR: Aerowizardparts = 1
 
 public val BCM_FIRST: UInt = 5632u
 
@@ -151,59 +151,59 @@ public val BCSS_NOSPLIT: UInt = 1u
 
 public val BCSS_STRETCH: UInt = 2u
 
-public val BPAS_CUBIC: BP_ANIMATIONSTYLE = 2
+public val BPAS_CUBIC: BpAnimationstyle = 2
 
-public val BPAS_LINEAR: BP_ANIMATIONSTYLE = 1
+public val BPAS_LINEAR: BpAnimationstyle = 1
 
-public val BPAS_NONE: BP_ANIMATIONSTYLE = 0
+public val BPAS_NONE: BpAnimationstyle = 0
 
-public val BPAS_SINE: BP_ANIMATIONSTYLE = 3
+public val BPAS_SINE: BpAnimationstyle = 3
 
-public val BPBF_COMPATIBLEBITMAP: BP_BUFFERFORMAT = 0
+public val BPBF_COMPATIBLEBITMAP: BpBufferformat = 0
 
-public val BPBF_DIB: BP_BUFFERFORMAT = 1
+public val BPBF_DIB: BpBufferformat = 1
 
-public val BPBF_TOPDOWNDIB: BP_BUFFERFORMAT = 2
+public val BPBF_TOPDOWNDIB: BpBufferformat = 2
 
-public val BPBF_TOPDOWNMONODIB: BP_BUFFERFORMAT = 3
+public val BPBF_TOPDOWNMONODIB: BpBufferformat = 3
 
-public val BPPF_ERASE: BP_PAINTPARAMS_FLAGS = 1u
+public val BPPF_ERASE: BpPaintparamsFlags = 1u
 
-public val BPPF_NOCLIP: BP_PAINTPARAMS_FLAGS = 2u
+public val BPPF_NOCLIP: BpPaintparamsFlags = 2u
 
-public val BPPF_NONCLIENT: BP_PAINTPARAMS_FLAGS = 4u
+public val BPPF_NONCLIENT: BpPaintparamsFlags = 4u
 
-public val BP_CHECKBOX: BUTTONPARTS = 3
+public val BP_CHECKBOX: Buttonparts = 3
 
-public val BP_CHECKBOX_HCDISABLED: BUTTONPARTS = 9
+public val BP_CHECKBOX_HCDISABLED: Buttonparts = 9
 
-public val BP_COMMANDLINK: BUTTONPARTS = 6
+public val BP_COMMANDLINK: Buttonparts = 6
 
-public val BP_COMMANDLINKGLYPH: BUTTONPARTS = 7
+public val BP_COMMANDLINKGLYPH: Buttonparts = 7
 
-public val BP_GROUPBOX: BUTTONPARTS = 4
+public val BP_GROUPBOX: Buttonparts = 4
 
-public val BP_GROUPBOX_HCDISABLED: BUTTONPARTS = 10
+public val BP_GROUPBOX_HCDISABLED: Buttonparts = 10
 
-public val BP_PUSHBUTTON: BUTTONPARTS = 1
+public val BP_PUSHBUTTON: Buttonparts = 1
 
-public val BP_PUSHBUTTONDROPDOWN: BUTTONPARTS = 11
+public val BP_PUSHBUTTONDROPDOWN: Buttonparts = 11
 
-public val BP_RADIOBUTTON: BUTTONPARTS = 2
+public val BP_RADIOBUTTON: Buttonparts = 2
 
-public val BP_RADIOBUTTON_HCDISABLED: BUTTONPARTS = 8
+public val BP_RADIOBUTTON_HCDISABLED: Buttonparts = 8
 
-public val BP_USERBUTTON: BUTTONPARTS = 5
+public val BP_USERBUTTON: Buttonparts = 5
 
-public val BST_CHECKED: DLG_BUTTON_CHECK_STATE = 1u
+public val BST_CHECKED: DlgButtonCheckState = 1u
 
 public val BST_DROPDOWNPUSHED: UInt = 1024u
 
 public val BST_HOT: UInt = 512u
 
-public val BST_INDETERMINATE: DLG_BUTTON_CHECK_STATE = 2u
+public val BST_INDETERMINATE: DlgButtonCheckState = 2u
 
-public val BST_UNCHECKED: DLG_BUTTON_CHECK_STATE = 0u
+public val BST_UNCHECKED: DlgButtonCheckState = 0u
 
 public val BS_COMMANDLINK: Int = 14
 
@@ -231,67 +231,67 @@ public val BTNS_SHOWTEXT: UInt = 64u
 
 public val BTNS_WHOLEDROPDOWN: UInt = 128u
 
-public val BT_BORDERFILL: BGTYPE = 1
+public val BT_BORDERFILL: Bgtype = 1
 
-public val BT_ELLIPSE: BORDERTYPE = 2
+public val BT_ELLIPSE: Bordertype = 2
 
-public val BT_IMAGEFILE: BGTYPE = 0
+public val BT_IMAGEFILE: Bgtype = 0
 
-public val BT_NONE: BGTYPE = 2
+public val BT_NONE: Bgtype = 2
 
-public val BT_RECT: BORDERTYPE = 0
+public val BT_RECT: Bordertype = 0
 
-public val BT_ROUNDRECT: BORDERTYPE = 1
+public val BT_ROUNDRECT: Bordertype = 1
 
-public val BUTTON_IMAGELIST_ALIGN_BOTTOM: BUTTON_IMAGELIST_ALIGN = 3u
+public val BUTTON_IMAGELIST_ALIGN_BOTTOM: ButtonImagelistAlign = 3u
 
-public val BUTTON_IMAGELIST_ALIGN_CENTER: BUTTON_IMAGELIST_ALIGN = 4u
+public val BUTTON_IMAGELIST_ALIGN_CENTER: ButtonImagelistAlign = 4u
 
-public val BUTTON_IMAGELIST_ALIGN_LEFT: BUTTON_IMAGELIST_ALIGN = 0u
+public val BUTTON_IMAGELIST_ALIGN_LEFT: ButtonImagelistAlign = 0u
 
-public val BUTTON_IMAGELIST_ALIGN_RIGHT: BUTTON_IMAGELIST_ALIGN = 1u
+public val BUTTON_IMAGELIST_ALIGN_RIGHT: ButtonImagelistAlign = 1u
 
-public val BUTTON_IMAGELIST_ALIGN_TOP: BUTTON_IMAGELIST_ALIGN = 2u
+public val BUTTON_IMAGELIST_ALIGN_TOP: ButtonImagelistAlign = 2u
 
-public val CA_CENTER: CONTENTALIGNMENT = 1
+public val CA_CENTER: Contentalignment = 1
 
-public val CA_LEFT: CONTENTALIGNMENT = 0
+public val CA_LEFT: Contentalignment = 0
 
-public val CA_RIGHT: CONTENTALIGNMENT = 2
+public val CA_RIGHT: Contentalignment = 2
 
-public val CBB_DISABLED: BORDERSTATES = 4
+public val CBB_DISABLED: Borderstates = 4
 
-public val CBB_FOCUSED: BORDERSTATES = 3
+public val CBB_FOCUSED: Borderstates = 3
 
-public val CBB_HOT: BORDERSTATES = 2
+public val CBB_HOT: Borderstates = 2
 
-public val CBB_NORMAL: BORDERSTATES = 1
+public val CBB_NORMAL: Borderstates = 1
 
-public val CBCB_DISABLED: CUEBANNERSTATES = 4
+public val CBCB_DISABLED: Cuebannerstates = 4
 
-public val CBCB_HOT: CUEBANNERSTATES = 2
+public val CBCB_HOT: Cuebannerstates = 2
 
-public val CBCB_NORMAL: CUEBANNERSTATES = 1
+public val CBCB_NORMAL: Cuebannerstates = 1
 
-public val CBCB_PRESSED: CUEBANNERSTATES = 3
+public val CBCB_PRESSED: Cuebannerstates = 3
 
-public val CBDI_HIGHLIGHTED: DROPDOWNITEMSTATES = 2
+public val CBDI_HIGHLIGHTED: Dropdownitemstates = 2
 
-public val CBDI_NORMAL: DROPDOWNITEMSTATES = 1
+public val CBDI_NORMAL: Dropdownitemstates = 1
 
-public val CBEIF_DI_SETITEM: COMBOBOX_EX_ITEM_FLAGS = 268435456u
+public val CBEIF_DI_SETITEM: ComboboxExItemFlags = 268435456u
 
-public val CBEIF_IMAGE: COMBOBOX_EX_ITEM_FLAGS = 2u
+public val CBEIF_IMAGE: ComboboxExItemFlags = 2u
 
-public val CBEIF_INDENT: COMBOBOX_EX_ITEM_FLAGS = 16u
+public val CBEIF_INDENT: ComboboxExItemFlags = 16u
 
-public val CBEIF_LPARAM: COMBOBOX_EX_ITEM_FLAGS = 32u
+public val CBEIF_LPARAM: ComboboxExItemFlags = 32u
 
-public val CBEIF_OVERLAY: COMBOBOX_EX_ITEM_FLAGS = 8u
+public val CBEIF_OVERLAY: ComboboxExItemFlags = 8u
 
-public val CBEIF_SELECTEDIMAGE: COMBOBOX_EX_ITEM_FLAGS = 4u
+public val CBEIF_SELECTEDIMAGE: ComboboxExItemFlags = 4u
 
-public val CBEIF_TEXT: COMBOBOX_EX_ITEM_FLAGS = 1u
+public val CBEIF_TEXT: ComboboxExItemFlags = 1u
 
 public val CBEMAXSTRLEN: UInt = 260u
 
@@ -385,93 +385,93 @@ public val CBES_EX_TEXTENDELLIPSIS: UInt = 32u
 
 public val CBM_FIRST: UInt = 5888u
 
-public val CBRO_DISABLED: READONLYSTATES = 4
+public val CBRO_DISABLED: Readonlystates = 4
 
-public val CBRO_HOT: READONLYSTATES = 2
+public val CBRO_HOT: Readonlystates = 2
 
-public val CBRO_NORMAL: READONLYSTATES = 1
+public val CBRO_NORMAL: Readonlystates = 1
 
-public val CBRO_PRESSED: READONLYSTATES = 3
+public val CBRO_PRESSED: Readonlystates = 3
 
-public val CBS_CHECKEDDISABLED: CHECKBOXSTATES = 8
+public val CBS_CHECKEDDISABLED: Checkboxstates = 8
 
-public val CBS_CHECKEDHOT: CHECKBOXSTATES = 6
+public val CBS_CHECKEDHOT: Checkboxstates = 6
 
-public val CBS_CHECKEDNORMAL: CHECKBOXSTATES = 5
+public val CBS_CHECKEDNORMAL: Checkboxstates = 5
 
-public val CBS_CHECKEDPRESSED: CHECKBOXSTATES = 7
+public val CBS_CHECKEDPRESSED: Checkboxstates = 7
 
-public val CBS_DISABLED: CLOSEBUTTONSTATES = 4
+public val CBS_DISABLED: Closebuttonstates = 4
 
-public val CBS_EXCLUDEDDISABLED: CHECKBOXSTATES = 20
+public val CBS_EXCLUDEDDISABLED: Checkboxstates = 20
 
-public val CBS_EXCLUDEDHOT: CHECKBOXSTATES = 18
+public val CBS_EXCLUDEDHOT: Checkboxstates = 18
 
-public val CBS_EXCLUDEDNORMAL: CHECKBOXSTATES = 17
+public val CBS_EXCLUDEDNORMAL: Checkboxstates = 17
 
-public val CBS_EXCLUDEDPRESSED: CHECKBOXSTATES = 19
+public val CBS_EXCLUDEDPRESSED: Checkboxstates = 19
 
-public val CBS_HOT: CLOSEBUTTONSTATES = 2
+public val CBS_HOT: Closebuttonstates = 2
 
-public val CBS_IMPLICITDISABLED: CHECKBOXSTATES = 16
+public val CBS_IMPLICITDISABLED: Checkboxstates = 16
 
-public val CBS_IMPLICITHOT: CHECKBOXSTATES = 14
+public val CBS_IMPLICITHOT: Checkboxstates = 14
 
-public val CBS_IMPLICITNORMAL: CHECKBOXSTATES = 13
+public val CBS_IMPLICITNORMAL: Checkboxstates = 13
 
-public val CBS_IMPLICITPRESSED: CHECKBOXSTATES = 15
+public val CBS_IMPLICITPRESSED: Checkboxstates = 15
 
-public val CBS_MIXEDDISABLED: CHECKBOXSTATES = 12
+public val CBS_MIXEDDISABLED: Checkboxstates = 12
 
-public val CBS_MIXEDHOT: CHECKBOXSTATES = 10
+public val CBS_MIXEDHOT: Checkboxstates = 10
 
-public val CBS_MIXEDNORMAL: CHECKBOXSTATES = 9
+public val CBS_MIXEDNORMAL: Checkboxstates = 9
 
-public val CBS_MIXEDPRESSED: CHECKBOXSTATES = 11
+public val CBS_MIXEDPRESSED: Checkboxstates = 11
 
-public val CBS_NORMAL: CLOSEBUTTONSTATES = 1
+public val CBS_NORMAL: Closebuttonstates = 1
 
-public val CBS_PUSHED: CLOSEBUTTONSTATES = 3
+public val CBS_PUSHED: Closebuttonstates = 3
 
-public val CBS_UNCHECKEDDISABLED: CHECKBOXSTATES = 4
+public val CBS_UNCHECKEDDISABLED: Checkboxstates = 4
 
-public val CBS_UNCHECKEDHOT: CHECKBOXSTATES = 2
+public val CBS_UNCHECKEDHOT: Checkboxstates = 2
 
-public val CBS_UNCHECKEDNORMAL: CHECKBOXSTATES = 1
+public val CBS_UNCHECKEDNORMAL: Checkboxstates = 1
 
-public val CBS_UNCHECKEDPRESSED: CHECKBOXSTATES = 3
+public val CBS_UNCHECKEDPRESSED: Checkboxstates = 3
 
-public val CBTBS_DISABLED: TRANSPARENTBACKGROUNDSTATES = 3
+public val CBTBS_DISABLED: Transparentbackgroundstates = 3
 
-public val CBTBS_FOCUSED: TRANSPARENTBACKGROUNDSTATES = 4
+public val CBTBS_FOCUSED: Transparentbackgroundstates = 4
 
-public val CBTBS_HOT: TRANSPARENTBACKGROUNDSTATES = 2
+public val CBTBS_HOT: Transparentbackgroundstates = 2
 
-public val CBTBS_NORMAL: TRANSPARENTBACKGROUNDSTATES = 1
+public val CBTBS_NORMAL: Transparentbackgroundstates = 1
 
-public val CBXSL_DISABLED: DROPDOWNBUTTONLEFTSTATES = 4
+public val CBXSL_DISABLED: Dropdownbuttonleftstates = 4
 
-public val CBXSL_HOT: DROPDOWNBUTTONLEFTSTATES = 2
+public val CBXSL_HOT: Dropdownbuttonleftstates = 2
 
-public val CBXSL_NORMAL: DROPDOWNBUTTONLEFTSTATES = 1
+public val CBXSL_NORMAL: Dropdownbuttonleftstates = 1
 
-public val CBXSL_PRESSED: DROPDOWNBUTTONLEFTSTATES = 3
+public val CBXSL_PRESSED: Dropdownbuttonleftstates = 3
 
-public val CBXSR_DISABLED: DROPDOWNBUTTONRIGHTSTATES = 4
+public val CBXSR_DISABLED: Dropdownbuttonrightstates = 4
 
-public val CBXSR_HOT: DROPDOWNBUTTONRIGHTSTATES = 2
+public val CBXSR_HOT: Dropdownbuttonrightstates = 2
 
-public val CBXSR_NORMAL: DROPDOWNBUTTONRIGHTSTATES = 1
+public val CBXSR_NORMAL: Dropdownbuttonrightstates = 1
 
-public val CBXSR_PRESSED: DROPDOWNBUTTONRIGHTSTATES = 3
+public val CBXSR_PRESSED: Dropdownbuttonrightstates = 3
 
-public val CBXS_DISABLED: COMBOBOXSTYLESTATES = 4
+public val CBXS_DISABLED: Comboboxstylestates = 4
 
-public val CBXS_HOT: COMBOBOXSTYLESTATES = 2
+public val CBXS_HOT: Comboboxstylestates = 2
 
-public val CBXS_NORMAL: COMBOBOXSTYLESTATES = 1
+public val CBXS_NORMAL: Comboboxstylestates = 1
 
-public val CBXS_PRESSED: COMBOBOXSTYLESTATES = 3
+public val CBXS_PRESSED: Comboboxstylestates = 3
 
 public val CB_GETCUEBANNER: UInt = 5892u
 
@@ -533,49 +533,49 @@ public val CCS_VERT: Int = 128
 
 public val CDDS_ITEM: UInt = 65536u
 
-public val CDDS_ITEMPOSTERASE: NMCUSTOMDRAW_DRAW_STAGE = 65540u
+public val CDDS_ITEMPOSTERASE: NmcustomdrawDrawStage = 65540u
 
-public val CDDS_ITEMPOSTPAINT: NMCUSTOMDRAW_DRAW_STAGE = 65538u
+public val CDDS_ITEMPOSTPAINT: NmcustomdrawDrawStage = 65538u
 
-public val CDDS_ITEMPREERASE: NMCUSTOMDRAW_DRAW_STAGE = 65539u
+public val CDDS_ITEMPREERASE: NmcustomdrawDrawStage = 65539u
 
-public val CDDS_ITEMPREPAINT: NMCUSTOMDRAW_DRAW_STAGE = 65537u
+public val CDDS_ITEMPREPAINT: NmcustomdrawDrawStage = 65537u
 
 public val CDDS_POSTERASE: UInt = 4u
 
-public val CDDS_POSTPAINT: NMCUSTOMDRAW_DRAW_STAGE = 2u
+public val CDDS_POSTPAINT: NmcustomdrawDrawStage = 2u
 
-public val CDDS_PREERASE: NMCUSTOMDRAW_DRAW_STAGE = 3u
+public val CDDS_PREERASE: NmcustomdrawDrawStage = 3u
 
-public val CDDS_PREPAINT: NMCUSTOMDRAW_DRAW_STAGE = 1u
+public val CDDS_PREPAINT: NmcustomdrawDrawStage = 1u
 
-public val CDDS_SUBITEM: NMCUSTOMDRAW_DRAW_STAGE = 131072u
+public val CDDS_SUBITEM: NmcustomdrawDrawStage = 131072u
 
-public val CDIS_CHECKED: NMCUSTOMDRAW_DRAW_STATE_FLAGS = 8u
+public val CDIS_CHECKED: NmcustomdrawDrawStateFlags = 8u
 
-public val CDIS_DEFAULT: NMCUSTOMDRAW_DRAW_STATE_FLAGS = 32u
+public val CDIS_DEFAULT: NmcustomdrawDrawStateFlags = 32u
 
-public val CDIS_DISABLED: NMCUSTOMDRAW_DRAW_STATE_FLAGS = 4u
+public val CDIS_DISABLED: NmcustomdrawDrawStateFlags = 4u
 
-public val CDIS_DROPHILITED: NMCUSTOMDRAW_DRAW_STATE_FLAGS = 4096u
+public val CDIS_DROPHILITED: NmcustomdrawDrawStateFlags = 4096u
 
-public val CDIS_FOCUS: NMCUSTOMDRAW_DRAW_STATE_FLAGS = 16u
+public val CDIS_FOCUS: NmcustomdrawDrawStateFlags = 16u
 
-public val CDIS_GRAYED: NMCUSTOMDRAW_DRAW_STATE_FLAGS = 2u
+public val CDIS_GRAYED: NmcustomdrawDrawStateFlags = 2u
 
-public val CDIS_HOT: NMCUSTOMDRAW_DRAW_STATE_FLAGS = 64u
+public val CDIS_HOT: NmcustomdrawDrawStateFlags = 64u
 
-public val CDIS_INDETERMINATE: NMCUSTOMDRAW_DRAW_STATE_FLAGS = 256u
+public val CDIS_INDETERMINATE: NmcustomdrawDrawStateFlags = 256u
 
-public val CDIS_MARKED: NMCUSTOMDRAW_DRAW_STATE_FLAGS = 128u
+public val CDIS_MARKED: NmcustomdrawDrawStateFlags = 128u
 
-public val CDIS_NEARHOT: NMCUSTOMDRAW_DRAW_STATE_FLAGS = 1024u
+public val CDIS_NEARHOT: NmcustomdrawDrawStateFlags = 1024u
 
-public val CDIS_OTHERSIDEHOT: NMCUSTOMDRAW_DRAW_STATE_FLAGS = 2048u
+public val CDIS_OTHERSIDEHOT: NmcustomdrawDrawStateFlags = 2048u
 
-public val CDIS_SELECTED: NMCUSTOMDRAW_DRAW_STATE_FLAGS = 1u
+public val CDIS_SELECTED: NmcustomdrawDrawStateFlags = 1u
 
-public val CDIS_SHOWKEYBOARDCUES: NMCUSTOMDRAW_DRAW_STATE_FLAGS = 512u
+public val CDIS_SHOWKEYBOARDCUES: NmcustomdrawDrawStateFlags = 512u
 
 public val CDN_FIRST: UInt = 4294966695u
 
@@ -599,19 +599,19 @@ public val CDRF_SKIPDEFAULT: UInt = 4u
 
 public val CDRF_SKIPPOSTPAINT: UInt = 256u
 
-public val CHEVSV_HOT: CHEVRONVERTSTATES = 2
+public val CHEVSV_HOT: Chevronvertstates = 2
 
-public val CHEVSV_NORMAL: CHEVRONVERTSTATES = 1
+public val CHEVSV_NORMAL: Chevronvertstates = 1
 
-public val CHEVSV_PRESSED: CHEVRONVERTSTATES = 3
+public val CHEVSV_PRESSED: Chevronvertstates = 3
 
-public val CHEVS_HOT: CHEVRONSTATES = 2
+public val CHEVS_HOT: Chevronstates = 2
 
-public val CHEVS_NORMAL: CHEVRONSTATES = 1
+public val CHEVS_NORMAL: Chevronstates = 1
 
-public val CHEVS_PRESSED: CHEVRONSTATES = 3
+public val CHEVS_PRESSED: Chevronstates = 3
 
-public val CLP_TIME: CLOCKPARTS = 1
+public val CLP_TIME: Clockparts = 1
 
 public val CLR_DEFAULT: Int = -16777216
 
@@ -619,245 +619,245 @@ public val CLR_HILIGHT: Int = -16777216
 
 public val CLR_NONE: Int = -1
 
-public val CLS_HOT: CLOCKSTATES = 2
+public val CLS_HOT: Clockstates = 2
 
-public val CLS_NORMAL: CLOCKSTATES = 1
+public val CLS_NORMAL: Clockstates = 1
 
-public val CLS_PRESSED: CLOCKSTATES = 3
+public val CLS_PRESSED: Clockstates = 3
 
 public val CMB_MASKED: UInt = 2u
 
-public val CMDLGS_DEFAULTED: COMMANDLINKGLYPHSTATES = 5
+public val CMDLGS_DEFAULTED: Commandlinkglyphstates = 5
 
-public val CMDLGS_DISABLED: COMMANDLINKGLYPHSTATES = 4
+public val CMDLGS_DISABLED: Commandlinkglyphstates = 4
 
-public val CMDLGS_HOT: COMMANDLINKGLYPHSTATES = 2
+public val CMDLGS_HOT: Commandlinkglyphstates = 2
 
-public val CMDLGS_NORMAL: COMMANDLINKGLYPHSTATES = 1
+public val CMDLGS_NORMAL: Commandlinkglyphstates = 1
 
-public val CMDLGS_PRESSED: COMMANDLINKGLYPHSTATES = 3
+public val CMDLGS_PRESSED: Commandlinkglyphstates = 3
 
-public val CMDLS_DEFAULTED: COMMANDLINKSTATES = 5
+public val CMDLS_DEFAULTED: Commandlinkstates = 5
 
-public val CMDLS_DEFAULTED_ANIMATING: COMMANDLINKSTATES = 6
+public val CMDLS_DEFAULTED_ANIMATING: Commandlinkstates = 6
 
-public val CMDLS_DISABLED: COMMANDLINKSTATES = 4
+public val CMDLS_DISABLED: Commandlinkstates = 4
 
-public val CMDLS_HOT: COMMANDLINKSTATES = 2
+public val CMDLS_HOT: Commandlinkstates = 2
 
-public val CMDLS_NORMAL: COMMANDLINKSTATES = 1
+public val CMDLS_NORMAL: Commandlinkstates = 1
 
-public val CMDLS_PRESSED: COMMANDLINKSTATES = 3
+public val CMDLS_PRESSED: Commandlinkstates = 3
 
 public val COLORMGMTDLGORD: UInt = 1551u
 
 public val COMCTL32_VERSION: UInt = 6u
 
-public val CPANEL_BANNERAREA: CONTROLPANELPARTS = 18
+public val CPANEL_BANNERAREA: Controlpanelparts = 18
 
-public val CPANEL_BODYTEXT: CONTROLPANELPARTS = 6
+public val CPANEL_BODYTEXT: Controlpanelparts = 6
 
-public val CPANEL_BODYTITLE: CONTROLPANELPARTS = 19
+public val CPANEL_BODYTITLE: Controlpanelparts = 19
 
-public val CPANEL_BUTTON: CONTROLPANELPARTS = 14
+public val CPANEL_BUTTON: Controlpanelparts = 14
 
-public val CPANEL_CONTENTLINK: CONTROLPANELPARTS = 10
+public val CPANEL_CONTENTLINK: Controlpanelparts = 10
 
-public val CPANEL_CONTENTPANE: CONTROLPANELPARTS = 2
+public val CPANEL_CONTENTPANE: Controlpanelparts = 2
 
-public val CPANEL_CONTENTPANELABEL: CONTROLPANELPARTS = 4
+public val CPANEL_CONTENTPANELABEL: Controlpanelparts = 4
 
-public val CPANEL_CONTENTPANELINE: CONTROLPANELPARTS = 17
+public val CPANEL_CONTENTPANELINE: Controlpanelparts = 17
 
-public val CPANEL_GROUPTEXT: CONTROLPANELPARTS = 9
+public val CPANEL_GROUPTEXT: Controlpanelparts = 9
 
-public val CPANEL_HELPLINK: CONTROLPANELPARTS = 7
+public val CPANEL_HELPLINK: Controlpanelparts = 7
 
-public val CPANEL_LARGECOMMANDAREA: CONTROLPANELPARTS = 12
+public val CPANEL_LARGECOMMANDAREA: Controlpanelparts = 12
 
-public val CPANEL_MESSAGETEXT: CONTROLPANELPARTS = 15
+public val CPANEL_MESSAGETEXT: Controlpanelparts = 15
 
-public val CPANEL_NAVIGATIONPANE: CONTROLPANELPARTS = 1
+public val CPANEL_NAVIGATIONPANE: Controlpanelparts = 1
 
-public val CPANEL_NAVIGATIONPANELABEL: CONTROLPANELPARTS = 3
+public val CPANEL_NAVIGATIONPANELABEL: Controlpanelparts = 3
 
-public val CPANEL_NAVIGATIONPANELINE: CONTROLPANELPARTS = 16
+public val CPANEL_NAVIGATIONPANELINE: Controlpanelparts = 16
 
-public val CPANEL_SECTIONTITLELINK: CONTROLPANELPARTS = 11
+public val CPANEL_SECTIONTITLELINK: Controlpanelparts = 11
 
-public val CPANEL_SMALLCOMMANDAREA: CONTROLPANELPARTS = 13
+public val CPANEL_SMALLCOMMANDAREA: Controlpanelparts = 13
 
-public val CPANEL_TASKLINK: CONTROLPANELPARTS = 8
+public val CPANEL_TASKLINK: Controlpanelparts = 8
 
-public val CPANEL_TITLE: CONTROLPANELPARTS = 5
+public val CPANEL_TITLE: Controlpanelparts = 5
 
-public val CPCL_DISABLED: CONTENTLINKSTATES = 4
+public val CPCL_DISABLED: Contentlinkstates = 4
 
-public val CPCL_HOT: CONTENTLINKSTATES = 2
+public val CPCL_HOT: Contentlinkstates = 2
 
-public val CPCL_NORMAL: CONTENTLINKSTATES = 1
+public val CPCL_NORMAL: Contentlinkstates = 1
 
-public val CPCL_PRESSED: CONTENTLINKSTATES = 3
+public val CPCL_PRESSED: Contentlinkstates = 3
 
-public val CPHL_DISABLED: HELPLINKSTATES = 4
+public val CPHL_DISABLED: Helplinkstates = 4
 
-public val CPHL_HOT: HELPLINKSTATES = 2
+public val CPHL_HOT: Helplinkstates = 2
 
-public val CPHL_NORMAL: HELPLINKSTATES = 1
+public val CPHL_NORMAL: Helplinkstates = 1
 
-public val CPHL_PRESSED: HELPLINKSTATES = 3
+public val CPHL_PRESSED: Helplinkstates = 3
 
-public val CPSTL_HOT: SECTIONTITLELINKSTATES = 2
+public val CPSTL_HOT: Sectiontitlelinkstates = 2
 
-public val CPSTL_NORMAL: SECTIONTITLELINKSTATES = 1
+public val CPSTL_NORMAL: Sectiontitlelinkstates = 1
 
-public val CPTL_DISABLED: TASKLINKSTATES = 4
+public val CPTL_DISABLED: Tasklinkstates = 4
 
-public val CPTL_HOT: TASKLINKSTATES = 2
+public val CPTL_HOT: Tasklinkstates = 2
 
-public val CPTL_NORMAL: TASKLINKSTATES = 1
+public val CPTL_NORMAL: Tasklinkstates = 1
 
-public val CPTL_PAGE: TASKLINKSTATES = 5
+public val CPTL_PAGE: Tasklinkstates = 5
 
-public val CPTL_PRESSED: TASKLINKSTATES = 3
+public val CPTL_PRESSED: Tasklinkstates = 3
 
-public val CP_BACKGROUND: COMBOBOXPARTS = 2
+public val CP_BACKGROUND: Comboboxparts = 2
 
-public val CP_BORDER: COMBOBOXPARTS = 4
+public val CP_BORDER: Comboboxparts = 4
 
-public val CP_CUEBANNER: COMBOBOXPARTS = 8
+public val CP_CUEBANNER: Comboboxparts = 8
 
-public val CP_DROPDOWNBUTTON: COMBOBOXPARTS = 1
+public val CP_DROPDOWNBUTTON: Comboboxparts = 1
 
-public val CP_DROPDOWNBUTTONLEFT: COMBOBOXPARTS = 7
+public val CP_DROPDOWNBUTTONLEFT: Comboboxparts = 7
 
-public val CP_DROPDOWNBUTTONRIGHT: COMBOBOXPARTS = 6
+public val CP_DROPDOWNBUTTONRIGHT: Comboboxparts = 6
 
-public val CP_DROPDOWNITEM: COMBOBOXPARTS = 9
+public val CP_DROPDOWNITEM: Comboboxparts = 9
 
-public val CP_READONLY: COMBOBOXPARTS = 5
+public val CP_READONLY: Comboboxparts = 5
 
-public val CP_TRANSPARENTBACKGROUND: COMBOBOXPARTS = 3
+public val CP_TRANSPARENTBACKGROUND: Comboboxparts = 3
 
-public val CSST_TAB: COMMUNICATIONSPARTS = 1
+public val CSST_TAB: Communicationsparts = 1
 
-public val CSTB_HOT: TABSTATES = 2
+public val CSTB_HOT: Tabstates = 2
 
-public val CSTB_NORMAL: TABSTATES = 1
+public val CSTB_NORMAL: Tabstates = 1
 
-public val CSTB_SELECTED: TABSTATES = 3
+public val CSTB_SELECTED: Tabstates = 3
 
-public val CS_ACTIVE: CAPTIONSTATES = 1
+public val CS_ACTIVE: Captionstates = 1
 
-public val CS_DISABLED: CAPTIONSTATES = 3
+public val CS_DISABLED: Captionstates = 3
 
-public val CS_INACTIVE: CAPTIONSTATES = 2
+public val CS_INACTIVE: Captionstates = 2
 
-public val DATETIMEPICK_CLASS: PCWSTR = w("SysDateTimePick32")
+public val DATETIMEPICK_CLASS: Pcwstr = w("SysDateTimePick32")
 
-public val DATETIMEPICK_CLASSA: PCSTR = s("SysDateTimePick32")
+public val DATETIMEPICK_CLASSA: Pcstr = s("SysDateTimePick32")
 
-public val DATETIMEPICK_CLASSW: PCWSTR = w("SysDateTimePick32")
+public val DATETIMEPICK_CLASSW: Pcwstr = w("SysDateTimePick32")
 
 public val DA_ERR: Int = -1
 
 public val DA_LAST: UInt = 2147483647u
 
-public val DDCOPY_HIGHLIGHT: COPYSTATES = 1
+public val DDCOPY_HIGHLIGHT: Copystates = 1
 
-public val DDCOPY_NOHIGHLIGHT: COPYSTATES = 2
+public val DDCOPY_NOHIGHLIGHT: Copystates = 2
 
-public val DDCREATELINK_HIGHLIGHT: CREATELINKSTATES = 1
+public val DDCREATELINK_HIGHLIGHT: Createlinkstates = 1
 
-public val DDCREATELINK_NOHIGHLIGHT: CREATELINKSTATES = 2
+public val DDCREATELINK_NOHIGHLIGHT: Createlinkstates = 2
 
-public val DDL_ARCHIVE: DLG_DIR_LIST_FILE_TYPE = 32u
+public val DDL_ARCHIVE: DlgDirListFileType = 32u
 
-public val DDL_DIRECTORY: DLG_DIR_LIST_FILE_TYPE = 16u
+public val DDL_DIRECTORY: DlgDirListFileType = 16u
 
-public val DDL_DRIVES: DLG_DIR_LIST_FILE_TYPE = 16384u
+public val DDL_DRIVES: DlgDirListFileType = 16384u
 
-public val DDL_EXCLUSIVE: DLG_DIR_LIST_FILE_TYPE = 32768u
+public val DDL_EXCLUSIVE: DlgDirListFileType = 32768u
 
-public val DDL_HIDDEN: DLG_DIR_LIST_FILE_TYPE = 2u
+public val DDL_HIDDEN: DlgDirListFileType = 2u
 
-public val DDL_POSTMSGS: DLG_DIR_LIST_FILE_TYPE = 8192u
+public val DDL_POSTMSGS: DlgDirListFileType = 8192u
 
-public val DDL_READONLY: DLG_DIR_LIST_FILE_TYPE = 1u
+public val DDL_READONLY: DlgDirListFileType = 1u
 
-public val DDL_READWRITE: DLG_DIR_LIST_FILE_TYPE = 0u
+public val DDL_READWRITE: DlgDirListFileType = 0u
 
-public val DDL_SYSTEM: DLG_DIR_LIST_FILE_TYPE = 4u
+public val DDL_SYSTEM: DlgDirListFileType = 4u
 
-public val DDMOVE_HIGHLIGHT: MOVESTATES = 1
+public val DDMOVE_HIGHLIGHT: Movestates = 1
 
-public val DDMOVE_NOHIGHLIGHT: MOVESTATES = 2
+public val DDMOVE_NOHIGHLIGHT: Movestates = 2
 
-public val DDNONE_HIGHLIGHT: NONESTATES = 1
+public val DDNONE_HIGHLIGHT: Nonestates = 1
 
-public val DDNONE_NOHIGHLIGHT: NONESTATES = 2
+public val DDNONE_NOHIGHLIGHT: Nonestates = 2
 
-public val DDUPDATEMETADATA_HIGHLIGHT: UPDATEMETADATASTATES = 1
+public val DDUPDATEMETADATA_HIGHLIGHT: Updatemetadatastates = 1
 
-public val DDUPDATEMETADATA_NOHIGHLIGHT: UPDATEMETADATASTATES = 2
+public val DDUPDATEMETADATA_NOHIGHLIGHT: Updatemetadatastates = 2
 
-public val DDWARNING_HIGHLIGHT: WARNINGSTATES = 1
+public val DDWARNING_HIGHLIGHT: Warningstates = 1
 
-public val DDWARNING_NOHIGHLIGHT: WARNINGSTATES = 2
+public val DDWARNING_NOHIGHLIGHT: Warningstates = 2
 
-public val DD_COPY: DRAGDROPPARTS = 1
+public val DD_COPY: Dragdropparts = 1
 
-public val DD_CREATELINK: DRAGDROPPARTS = 4
+public val DD_CREATELINK: Dragdropparts = 4
 
-public val DD_IMAGEBG: DRAGDROPPARTS = 7
+public val DD_IMAGEBG: Dragdropparts = 7
 
-public val DD_MOVE: DRAGDROPPARTS = 2
+public val DD_MOVE: Dragdropparts = 2
 
-public val DD_NONE: DRAGDROPPARTS = 6
+public val DD_NONE: Dragdropparts = 6
 
-public val DD_TEXTBG: DRAGDROPPARTS = 8
+public val DD_TEXTBG: Dragdropparts = 8
 
-public val DD_UPDATEMETADATA: DRAGDROPPARTS = 3
+public val DD_UPDATEMETADATA: Dragdropparts = 3
 
-public val DD_WARNING: DRAGDROPPARTS = 5
+public val DD_WARNING: Dragdropparts = 5
 
-public val DL_BEGINDRAG: DRAGLISTINFO_NOTIFICATION_FLAGS = 1157u
+public val DL_BEGINDRAG: DraglistinfoNotificationFlags = 1157u
 
-public val DL_CANCELDRAG: DRAGLISTINFO_NOTIFICATION_FLAGS = 1160u
+public val DL_CANCELDRAG: DraglistinfoNotificationFlags = 1160u
 
 public val DL_COPYCURSOR: UInt = 2u
 
 public val DL_CURSORSET: UInt = 0u
 
-public val DL_DRAGGING: DRAGLISTINFO_NOTIFICATION_FLAGS = 1158u
+public val DL_DRAGGING: DraglistinfoNotificationFlags = 1158u
 
-public val DL_DROPPED: DRAGLISTINFO_NOTIFICATION_FLAGS = 1159u
+public val DL_DROPPED: DraglistinfoNotificationFlags = 1159u
 
 public val DL_MOVECURSOR: UInt = 3u
 
 public val DL_STOPCURSOR: UInt = 1u
 
-public val DNHZS_DISABLED: DOWNHORZSTATES = 4
+public val DNHZS_DISABLED: Downhorzstates = 4
 
-public val DNHZS_HOT: DOWNHORZSTATES = 2
+public val DNHZS_HOT: Downhorzstates = 2
 
-public val DNHZS_NORMAL: DOWNHORZSTATES = 1
+public val DNHZS_NORMAL: Downhorzstates = 1
 
-public val DNHZS_PRESSED: DOWNHORZSTATES = 3
+public val DNHZS_PRESSED: Downhorzstates = 3
 
-public val DNS_DISABLED: DOWNSTATES = 4
+public val DNS_DISABLED: Downstates = 4
 
-public val DNS_HOT: DOWNSTATES = 2
+public val DNS_HOT: Downstates = 2
 
-public val DNS_NORMAL: DOWNSTATES = 1
+public val DNS_NORMAL: Downstates = 1
 
-public val DNS_PRESSED: DOWNSTATES = 3
+public val DNS_PRESSED: Downstates = 3
 
-public val DPAMM_DELETE: DPAMM_MESSAGE = 2u
+public val DPAMM_DELETE: DpammMessage = 2u
 
-public val DPAMM_INSERT: DPAMM_MESSAGE = 3u
+public val DPAMM_INSERT: DpammMessage = 3u
 
-public val DPAMM_MERGE: DPAMM_MESSAGE = 1u
+public val DPAMM_MERGE: DpammMessage = 1u
 
 public val DPAM_INTERSECT: UInt = 8u
 
@@ -877,35 +877,35 @@ public val DPA_APPEND: UInt = 2147483647u
 
 public val DPA_ERR: Int = -1
 
-public val DPDB_DISABLED: DATEBORDERSTATES = 4
+public val DPDB_DISABLED: Dateborderstates = 4
 
-public val DPDB_FOCUSED: DATEBORDERSTATES = 3
+public val DPDB_FOCUSED: Dateborderstates = 3
 
-public val DPDB_HOT: DATEBORDERSTATES = 2
+public val DPDB_HOT: Dateborderstates = 2
 
-public val DPDB_NORMAL: DATEBORDERSTATES = 1
+public val DPDB_NORMAL: Dateborderstates = 1
 
-public val DPDT_DISABLED: DATETEXTSTATES = 2
+public val DPDT_DISABLED: Datetextstates = 2
 
-public val DPDT_NORMAL: DATETEXTSTATES = 1
+public val DPDT_NORMAL: Datetextstates = 1
 
-public val DPDT_SELECTED: DATETEXTSTATES = 3
+public val DPDT_SELECTED: Datetextstates = 3
 
-public val DPSCBR_DISABLED: SHOWCALENDARBUTTONRIGHTSTATES = 4
+public val DPSCBR_DISABLED: Showcalendarbuttonrightstates = 4
 
-public val DPSCBR_HOT: SHOWCALENDARBUTTONRIGHTSTATES = 2
+public val DPSCBR_HOT: Showcalendarbuttonrightstates = 2
 
-public val DPSCBR_NORMAL: SHOWCALENDARBUTTONRIGHTSTATES = 1
+public val DPSCBR_NORMAL: Showcalendarbuttonrightstates = 1
 
-public val DPSCBR_PRESSED: SHOWCALENDARBUTTONRIGHTSTATES = 3
+public val DPSCBR_PRESSED: Showcalendarbuttonrightstates = 3
 
-public val DP_DATEBORDER: DATEPICKERPARTS = 2
+public val DP_DATEBORDER: Datepickerparts = 2
 
-public val DP_DATETEXT: DATEPICKERPARTS = 1
+public val DP_DATETEXT: Datepickerparts = 1
 
-public val DP_SHOWCALENDARBUTTONRIGHT: DATEPICKERPARTS = 3
+public val DP_SHOWCALENDARBUTTONRIGHT: Datepickerparts = 3
 
-public val DRAGLISTMSGSTRING: PCWSTR = w("commctrl_DragListMsg")
+public val DRAGLISTMSGSTRING: Pcwstr = w("commctrl_DragListMsg")
 
 public val DSA_APPEND: UInt = 2147483647u
 
@@ -999,11 +999,11 @@ public val DTN_WMKEYDOWNA: UInt = 4294966539u
 
 public val DTN_WMKEYDOWNW: UInt = 4294966552u
 
-public val DTPB_USECTLCOLORSTATIC: DRAW_THEME_PARENT_BACKGROUND_FLAGS = 2u
+public val DTPB_USECTLCOLORSTATIC: DrawThemeParentBackgroundFlags = 2u
 
-public val DTPB_USEERASEBKGND: DRAW_THEME_PARENT_BACKGROUND_FLAGS = 4u
+public val DTPB_USEERASEBKGND: DrawThemeParentBackgroundFlags = 4u
 
-public val DTPB_WINDOWDC: DRAW_THEME_PARENT_BACKGROUND_FLAGS = 1u
+public val DTPB_WINDOWDC: DrawThemeParentBackgroundFlags = 1u
 
 public val DTS_APPCANPARSE: UInt = 16u
 
@@ -1021,153 +1021,153 @@ public val DTS_TIMEFORMAT: UInt = 9u
 
 public val DTS_UPDOWN: UInt = 1u
 
-public val DTT_APPLYOVERLAY: DTTOPTS_FLAGS = 1024u
+public val DTT_APPLYOVERLAY: DttoptsFlags = 1024u
 
-public val DTT_BORDERCOLOR: DTTOPTS_FLAGS = 2u
+public val DTT_BORDERCOLOR: DttoptsFlags = 2u
 
-public val DTT_BORDERSIZE: DTTOPTS_FLAGS = 32u
+public val DTT_BORDERSIZE: DttoptsFlags = 32u
 
-public val DTT_CALCRECT: DTTOPTS_FLAGS = 512u
+public val DTT_CALCRECT: DttoptsFlags = 512u
 
-public val DTT_CALLBACK: DTTOPTS_FLAGS = 4096u
+public val DTT_CALLBACK: DttoptsFlags = 4096u
 
-public val DTT_COLORPROP: DTTOPTS_FLAGS = 128u
+public val DTT_COLORPROP: DttoptsFlags = 128u
 
-public val DTT_COMPOSITED: DTTOPTS_FLAGS = 8192u
+public val DTT_COMPOSITED: DttoptsFlags = 8192u
 
 public val DTT_FLAGS2VALIDBITS: UInt = 1u
 
-public val DTT_FONTPROP: DTTOPTS_FLAGS = 64u
+public val DTT_FONTPROP: DttoptsFlags = 64u
 
-public val DTT_GLOWSIZE: DTTOPTS_FLAGS = 2048u
+public val DTT_GLOWSIZE: DttoptsFlags = 2048u
 
 public val DTT_GRAYED: UInt = 1u
 
-public val DTT_SHADOWCOLOR: DTTOPTS_FLAGS = 4u
+public val DTT_SHADOWCOLOR: DttoptsFlags = 4u
 
-public val DTT_SHADOWOFFSET: DTTOPTS_FLAGS = 16u
+public val DTT_SHADOWOFFSET: DttoptsFlags = 16u
 
-public val DTT_SHADOWTYPE: DTTOPTS_FLAGS = 8u
+public val DTT_SHADOWTYPE: DttoptsFlags = 8u
 
-public val DTT_STATEID: DTTOPTS_FLAGS = 256u
+public val DTT_STATEID: DttoptsFlags = 256u
 
-public val DTT_TEXTCOLOR: DTTOPTS_FLAGS = 1u
+public val DTT_TEXTCOLOR: DttoptsFlags = 1u
 
-public val DTT_VALIDBITS: DTTOPTS_FLAGS = 12287u
+public val DTT_VALIDBITS: DttoptsFlags = 12287u
 
-public val EBHC_HOT: HEADERCLOSESTATES = 2
+public val EBHC_HOT: Headerclosestates = 2
 
-public val EBHC_NORMAL: HEADERCLOSESTATES = 1
+public val EBHC_NORMAL: Headerclosestates = 1
 
-public val EBHC_PRESSED: HEADERCLOSESTATES = 3
+public val EBHC_PRESSED: Headerclosestates = 3
 
-public val EBHP_HOT: HEADERPINSTATES = 2
+public val EBHP_HOT: Headerpinstates = 2
 
-public val EBHP_NORMAL: HEADERPINSTATES = 1
+public val EBHP_NORMAL: Headerpinstates = 1
 
-public val EBHP_PRESSED: HEADERPINSTATES = 3
+public val EBHP_PRESSED: Headerpinstates = 3
 
-public val EBHP_SELECTEDHOT: HEADERPINSTATES = 5
+public val EBHP_SELECTEDHOT: Headerpinstates = 5
 
-public val EBHP_SELECTEDNORMAL: HEADERPINSTATES = 4
+public val EBHP_SELECTEDNORMAL: Headerpinstates = 4
 
-public val EBHP_SELECTEDPRESSED: HEADERPINSTATES = 6
+public val EBHP_SELECTEDPRESSED: Headerpinstates = 6
 
-public val EBM_HOT: IEBARMENUSTATES = 2
+public val EBM_HOT: Iebarmenustates = 2
 
-public val EBM_NORMAL: IEBARMENUSTATES = 1
+public val EBM_NORMAL: Iebarmenustates = 1
 
-public val EBM_PRESSED: IEBARMENUSTATES = 3
+public val EBM_PRESSED: Iebarmenustates = 3
 
-public val EBNGC_HOT: NORMALGROUPCOLLAPSESTATES = 2
+public val EBNGC_HOT: Normalgroupcollapsestates = 2
 
-public val EBNGC_NORMAL: NORMALGROUPCOLLAPSESTATES = 1
+public val EBNGC_NORMAL: Normalgroupcollapsestates = 1
 
-public val EBNGC_PRESSED: NORMALGROUPCOLLAPSESTATES = 3
+public val EBNGC_PRESSED: Normalgroupcollapsestates = 3
 
-public val EBNGE_HOT: NORMALGROUPEXPANDSTATES = 2
+public val EBNGE_HOT: Normalgroupexpandstates = 2
 
-public val EBNGE_NORMAL: NORMALGROUPEXPANDSTATES = 1
+public val EBNGE_NORMAL: Normalgroupexpandstates = 1
 
-public val EBNGE_PRESSED: NORMALGROUPEXPANDSTATES = 3
+public val EBNGE_PRESSED: Normalgroupexpandstates = 3
 
-public val EBP_HEADERBACKGROUND: EXPLORERBARPARTS = 1
+public val EBP_HEADERBACKGROUND: Explorerbarparts = 1
 
-public val EBP_HEADERCLOSE: EXPLORERBARPARTS = 2
+public val EBP_HEADERCLOSE: Explorerbarparts = 2
 
-public val EBP_HEADERPIN: EXPLORERBARPARTS = 3
+public val EBP_HEADERPIN: Explorerbarparts = 3
 
-public val EBP_IEBARMENU: EXPLORERBARPARTS = 4
+public val EBP_IEBARMENU: Explorerbarparts = 4
 
-public val EBP_NORMALGROUPBACKGROUND: EXPLORERBARPARTS = 5
+public val EBP_NORMALGROUPBACKGROUND: Explorerbarparts = 5
 
-public val EBP_NORMALGROUPCOLLAPSE: EXPLORERBARPARTS = 6
+public val EBP_NORMALGROUPCOLLAPSE: Explorerbarparts = 6
 
-public val EBP_NORMALGROUPEXPAND: EXPLORERBARPARTS = 7
+public val EBP_NORMALGROUPEXPAND: Explorerbarparts = 7
 
-public val EBP_NORMALGROUPHEAD: EXPLORERBARPARTS = 8
+public val EBP_NORMALGROUPHEAD: Explorerbarparts = 8
 
-public val EBP_SPECIALGROUPBACKGROUND: EXPLORERBARPARTS = 9
+public val EBP_SPECIALGROUPBACKGROUND: Explorerbarparts = 9
 
-public val EBP_SPECIALGROUPCOLLAPSE: EXPLORERBARPARTS = 10
+public val EBP_SPECIALGROUPCOLLAPSE: Explorerbarparts = 10
 
-public val EBP_SPECIALGROUPEXPAND: EXPLORERBARPARTS = 11
+public val EBP_SPECIALGROUPEXPAND: Explorerbarparts = 11
 
-public val EBP_SPECIALGROUPHEAD: EXPLORERBARPARTS = 12
+public val EBP_SPECIALGROUPHEAD: Explorerbarparts = 12
 
-public val EBSGC_HOT: SPECIALGROUPCOLLAPSESTATES = 2
+public val EBSGC_HOT: Specialgroupcollapsestates = 2
 
-public val EBSGC_NORMAL: SPECIALGROUPCOLLAPSESTATES = 1
+public val EBSGC_NORMAL: Specialgroupcollapsestates = 1
 
-public val EBSGC_PRESSED: SPECIALGROUPCOLLAPSESTATES = 3
+public val EBSGC_PRESSED: Specialgroupcollapsestates = 3
 
-public val EBSGE_HOT: SPECIALGROUPEXPANDSTATES = 2
+public val EBSGE_HOT: Specialgroupexpandstates = 2
 
-public val EBSGE_NORMAL: SPECIALGROUPEXPANDSTATES = 1
+public val EBSGE_NORMAL: Specialgroupexpandstates = 1
 
-public val EBSGE_PRESSED: SPECIALGROUPEXPANDSTATES = 3
+public val EBSGE_PRESSED: Specialgroupexpandstates = 3
 
-public val EBS_ASSIST: BACKGROUNDSTATES = 6
+public val EBS_ASSIST: Backgroundstates = 6
 
-public val EBS_DISABLED: BACKGROUNDSTATES = 3
+public val EBS_DISABLED: Backgroundstates = 3
 
-public val EBS_FOCUSED: BACKGROUNDSTATES = 4
+public val EBS_FOCUSED: Backgroundstates = 4
 
-public val EBS_HOT: BACKGROUNDSTATES = 2
+public val EBS_HOT: Backgroundstates = 2
 
-public val EBS_NORMAL: BACKGROUNDSTATES = 1
+public val EBS_NORMAL: Backgroundstates = 1
 
-public val EBS_READONLY: BACKGROUNDSTATES = 5
+public val EBS_READONLY: Backgroundstates = 5
 
-public val EBWBS_DISABLED: BACKGROUNDWITHBORDERSTATES = 3
+public val EBWBS_DISABLED: Backgroundwithborderstates = 3
 
-public val EBWBS_FOCUSED: BACKGROUNDWITHBORDERSTATES = 4
+public val EBWBS_FOCUSED: Backgroundwithborderstates = 4
 
-public val EBWBS_HOT: BACKGROUNDWITHBORDERSTATES = 2
+public val EBWBS_HOT: Backgroundwithborderstates = 2
 
-public val EBWBS_NORMAL: BACKGROUNDWITHBORDERSTATES = 1
+public val EBWBS_NORMAL: Backgroundwithborderstates = 1
 
 public val ECM_FIRST: UInt = 5376u
 
-public val EC_ENDOFLINE_CR: EC_ENDOFLINE = 2
+public val EC_ENDOFLINE_CR: EcEndofline = 2
 
-public val EC_ENDOFLINE_CRLF: EC_ENDOFLINE = 1
+public val EC_ENDOFLINE_CRLF: EcEndofline = 1
 
-public val EC_ENDOFLINE_DETECTFROMCONTENT: EC_ENDOFLINE = 0
+public val EC_ENDOFLINE_DETECTFROMCONTENT: EcEndofline = 0
 
-public val EC_ENDOFLINE_LF: EC_ENDOFLINE = 3
+public val EC_ENDOFLINE_LF: EcEndofline = 3
 
-public val EC_SEARCHWEB_ENTRYPOINT_CONTEXTMENU: EC_SEARCHWEB_ENTRYPOINT = 1
+public val EC_SEARCHWEB_ENTRYPOINT_CONTEXTMENU: EcSearchwebEntrypoint = 1
 
-public val EC_SEARCHWEB_ENTRYPOINT_EXTERNAL: EC_SEARCHWEB_ENTRYPOINT = 0
+public val EC_SEARCHWEB_ENTRYPOINT_EXTERNAL: EcSearchwebEntrypoint = 0
 
-public val EMF_CENTERED: NMLVEMPTYMARKUP_FLAGS = 1u
+public val EMF_CENTERED: NmlvemptymarkupFlags = 1u
 
-public val EMP_MARKUPTEXT: EMPTYMARKUPPARTS = 1
+public val EMP_MARKUPTEXT: Emptymarkupparts = 1
 
-public val EMT_LINKTEXT: MARKUPTEXTSTATES = 2
+public val EMT_LINKTEXT: Markuptextstates = 2
 
-public val EMT_NORMALTEXT: MARKUPTEXTSTATES = 1
+public val EMT_NORMALTEXT: Markuptextstates = 1
 
 public val EM_CANUNDO: UInt = 198u
 
@@ -1297,71 +1297,71 @@ public val EN_LAST: UInt = 4294965756u
 
 public val EN_SEARCHWEB: UInt = 4294965776u
 
-public val EPSHV_DISABLED: EDITBORDER_HVSCROLLSTATES = 4
+public val EPSHV_DISABLED: EditborderHvscrollstates = 4
 
-public val EPSHV_FOCUSED: EDITBORDER_HVSCROLLSTATES = 3
+public val EPSHV_FOCUSED: EditborderHvscrollstates = 3
 
-public val EPSHV_HOT: EDITBORDER_HVSCROLLSTATES = 2
+public val EPSHV_HOT: EditborderHvscrollstates = 2
 
-public val EPSHV_NORMAL: EDITBORDER_HVSCROLLSTATES = 1
+public val EPSHV_NORMAL: EditborderHvscrollstates = 1
 
-public val EPSH_DISABLED: EDITBORDER_HSCROLLSTATES = 4
+public val EPSH_DISABLED: EditborderHscrollstates = 4
 
-public val EPSH_FOCUSED: EDITBORDER_HSCROLLSTATES = 3
+public val EPSH_FOCUSED: EditborderHscrollstates = 3
 
-public val EPSH_HOT: EDITBORDER_HSCROLLSTATES = 2
+public val EPSH_HOT: EditborderHscrollstates = 2
 
-public val EPSH_NORMAL: EDITBORDER_HSCROLLSTATES = 1
+public val EPSH_NORMAL: EditborderHscrollstates = 1
 
-public val EPSN_DISABLED: EDITBORDER_NOSCROLLSTATES = 4
+public val EPSN_DISABLED: EditborderNoscrollstates = 4
 
-public val EPSN_FOCUSED: EDITBORDER_NOSCROLLSTATES = 3
+public val EPSN_FOCUSED: EditborderNoscrollstates = 3
 
-public val EPSN_HOT: EDITBORDER_NOSCROLLSTATES = 2
+public val EPSN_HOT: EditborderNoscrollstates = 2
 
-public val EPSN_NORMAL: EDITBORDER_NOSCROLLSTATES = 1
+public val EPSN_NORMAL: EditborderNoscrollstates = 1
 
-public val EPSV_DISABLED: EDITBORDER_VSCROLLSTATES = 4
+public val EPSV_DISABLED: EditborderVscrollstates = 4
 
-public val EPSV_FOCUSED: EDITBORDER_VSCROLLSTATES = 3
+public val EPSV_FOCUSED: EditborderVscrollstates = 3
 
-public val EPSV_HOT: EDITBORDER_VSCROLLSTATES = 2
+public val EPSV_HOT: EditborderVscrollstates = 2
 
-public val EPSV_NORMAL: EDITBORDER_VSCROLLSTATES = 1
+public val EPSV_NORMAL: EditborderVscrollstates = 1
 
-public val EP_BACKGROUND: EDITPARTS = 3
+public val EP_BACKGROUND: Editparts = 3
 
-public val EP_BACKGROUNDWITHBORDER: EDITPARTS = 5
+public val EP_BACKGROUNDWITHBORDER: Editparts = 5
 
-public val EP_CARET: EDITPARTS = 2
+public val EP_CARET: Editparts = 2
 
-public val EP_EDITBORDER_HSCROLL: EDITPARTS = 7
+public val EP_EDITBORDER_HSCROLL: Editparts = 7
 
-public val EP_EDITBORDER_HVSCROLL: EDITPARTS = 9
+public val EP_EDITBORDER_HVSCROLL: Editparts = 9
 
-public val EP_EDITBORDER_NOSCROLL: EDITPARTS = 6
+public val EP_EDITBORDER_NOSCROLL: Editparts = 6
 
-public val EP_EDITBORDER_VSCROLL: EDITPARTS = 8
+public val EP_EDITBORDER_VSCROLL: Editparts = 8
 
-public val EP_EDITTEXT: EDITPARTS = 1
+public val EP_EDITTEXT: Editparts = 1
 
-public val EP_PASSWORD: EDITPARTS = 4
+public val EP_PASSWORD: Editparts = 4
 
-public val ESB_DISABLE_BOTH: ENABLE_SCROLL_BAR_ARROWS = 3u
+public val ESB_DISABLE_BOTH: EnableScrollBarArrows = 3u
 
-public val ESB_DISABLE_DOWN: ENABLE_SCROLL_BAR_ARROWS = 2u
+public val ESB_DISABLE_DOWN: EnableScrollBarArrows = 2u
 
-public val ESB_DISABLE_LEFT: ENABLE_SCROLL_BAR_ARROWS = 1u
+public val ESB_DISABLE_LEFT: EnableScrollBarArrows = 1u
 
-public val ESB_DISABLE_LTUP: ENABLE_SCROLL_BAR_ARROWS = 1u
+public val ESB_DISABLE_LTUP: EnableScrollBarArrows = 1u
 
-public val ESB_DISABLE_RIGHT: ENABLE_SCROLL_BAR_ARROWS = 2u
+public val ESB_DISABLE_RIGHT: EnableScrollBarArrows = 2u
 
-public val ESB_DISABLE_RTDN: ENABLE_SCROLL_BAR_ARROWS = 2u
+public val ESB_DISABLE_RTDN: EnableScrollBarArrows = 2u
 
-public val ESB_DISABLE_UP: ENABLE_SCROLL_BAR_ARROWS = 1u
+public val ESB_DISABLE_UP: EnableScrollBarArrows = 1u
 
-public val ESB_ENABLE_BOTH: ENABLE_SCROLL_BAR_ARROWS = 0u
+public val ESB_ENABLE_BOTH: EnableScrollBarArrows = 0u
 
 public val ES_EX_ALLOWEOL_CR: Int = 1
 
@@ -1379,85 +1379,85 @@ public val ETDT_USEAEROWIZARDTABTEXTURE: UInt = 8u
 
 public val ETDT_USETABTEXTURE: UInt = 4u
 
-public val ETS_ASSIST: EDITTEXTSTATES = 7
+public val ETS_ASSIST: Edittextstates = 7
 
-public val ETS_CUEBANNER: EDITTEXTSTATES = 8
+public val ETS_CUEBANNER: Edittextstates = 8
 
-public val ETS_DISABLED: EDITTEXTSTATES = 4
+public val ETS_DISABLED: Edittextstates = 4
 
-public val ETS_FOCUSED: EDITTEXTSTATES = 5
+public val ETS_FOCUSED: Edittextstates = 5
 
-public val ETS_HOT: EDITTEXTSTATES = 2
+public val ETS_HOT: Edittextstates = 2
 
-public val ETS_NORMAL: EDITTEXTSTATES = 1
+public val ETS_NORMAL: Edittextstates = 1
 
-public val ETS_READONLY: EDITTEXTSTATES = 6
+public val ETS_READONLY: Edittextstates = 6
 
-public val ETS_SELECTED: EDITTEXTSTATES = 3
+public val ETS_SELECTED: Edittextstates = 3
 
-public val FBS_EMPHASIZED: BODYSTATES = 2
+public val FBS_EMPHASIZED: Bodystates = 2
 
-public val FBS_NORMAL: BODYSTATES = 1
+public val FBS_NORMAL: Bodystates = 1
 
-public val FEEDBACK_GESTURE_PRESSANDTAP: FEEDBACK_TYPE = 11
+public val FEEDBACK_GESTURE_PRESSANDTAP: FeedbackType = 11
 
-public val FEEDBACK_MAX: FEEDBACK_TYPE = -1
+public val FEEDBACK_MAX: FeedbackType = -1
 
-public val FEEDBACK_PEN_BARRELVISUALIZATION: FEEDBACK_TYPE = 2
+public val FEEDBACK_PEN_BARRELVISUALIZATION: FeedbackType = 2
 
-public val FEEDBACK_PEN_DOUBLETAP: FEEDBACK_TYPE = 4
+public val FEEDBACK_PEN_DOUBLETAP: FeedbackType = 4
 
-public val FEEDBACK_PEN_PRESSANDHOLD: FEEDBACK_TYPE = 5
+public val FEEDBACK_PEN_PRESSANDHOLD: FeedbackType = 5
 
-public val FEEDBACK_PEN_RIGHTTAP: FEEDBACK_TYPE = 6
+public val FEEDBACK_PEN_RIGHTTAP: FeedbackType = 6
 
-public val FEEDBACK_PEN_TAP: FEEDBACK_TYPE = 3
+public val FEEDBACK_PEN_TAP: FeedbackType = 3
 
-public val FEEDBACK_TOUCH_CONTACTVISUALIZATION: FEEDBACK_TYPE = 1
+public val FEEDBACK_TOUCH_CONTACTVISUALIZATION: FeedbackType = 1
 
-public val FEEDBACK_TOUCH_DOUBLETAP: FEEDBACK_TYPE = 8
+public val FEEDBACK_TOUCH_DOUBLETAP: FeedbackType = 8
 
-public val FEEDBACK_TOUCH_PRESSANDHOLD: FEEDBACK_TYPE = 9
+public val FEEDBACK_TOUCH_PRESSANDHOLD: FeedbackType = 9
 
-public val FEEDBACK_TOUCH_RIGHTTAP: FEEDBACK_TYPE = 10
+public val FEEDBACK_TOUCH_RIGHTTAP: FeedbackType = 10
 
-public val FEEDBACK_TOUCH_TAP: FEEDBACK_TYPE = 7
+public val FEEDBACK_TOUCH_TAP: FeedbackType = 7
 
 public val FILEOPENORD: UInt = 1536u
 
 public val FINDDLGORD: UInt = 1540u
 
-public val FLH_HOVER: LINKHEADERSTATES = 2
+public val FLH_HOVER: Linkheaderstates = 2
 
-public val FLH_NORMAL: LINKHEADERSTATES = 1
+public val FLH_NORMAL: Linkheaderstates = 1
 
-public val FLS_DISABLED: LABELSTATES = 4
+public val FLS_DISABLED: Labelstates = 4
 
-public val FLS_EMPHASIZED: LABELSTATES = 3
+public val FLS_EMPHASIZED: Labelstates = 3
 
-public val FLS_NORMAL: LABELSTATES = 1
+public val FLS_NORMAL: Labelstates = 1
 
-public val FLS_SELECTED: LABELSTATES = 2
+public val FLS_SELECTED: Labelstates = 2
 
-public val FLYOUTLINK_HOVER: LINKSTATES = 2
+public val FLYOUTLINK_HOVER: Linkstates = 2
 
-public val FLYOUTLINK_NORMAL: LINKSTATES = 1
+public val FLYOUTLINK_NORMAL: Linkstates = 1
 
-public val FLYOUT_BODY: FLYOUTPARTS = 2
+public val FLYOUT_BODY: Flyoutparts = 2
 
-public val FLYOUT_DIVIDER: FLYOUTPARTS = 5
+public val FLYOUT_DIVIDER: Flyoutparts = 5
 
-public val FLYOUT_HEADER: FLYOUTPARTS = 1
+public val FLYOUT_HEADER: Flyoutparts = 1
 
-public val FLYOUT_LABEL: FLYOUTPARTS = 3
+public val FLYOUT_LABEL: Flyoutparts = 3
 
-public val FLYOUT_LINK: FLYOUTPARTS = 4
+public val FLYOUT_LINK: Flyoutparts = 4
 
-public val FLYOUT_LINKAREA: FLYOUTPARTS = 7
+public val FLYOUT_LINKAREA: Flyoutparts = 7
 
-public val FLYOUT_LINKHEADER: FLYOUTPARTS = 8
+public val FLYOUT_LINKHEADER: Flyoutparts = 8
 
-public val FLYOUT_WINDOW: FLYOUTPARTS = 6
+public val FLYOUT_WINDOW: Flyoutparts = 6
 
 public val FONTDLGORD: UInt = 1542u
 
@@ -1465,17 +1465,17 @@ public val FORMATDLGORD30: UInt = 1544u
 
 public val FORMATDLGORD31: UInt = 1543u
 
-public val FRB_ACTIVE: FRAMEBOTTOMSTATES = 1
+public val FRB_ACTIVE: Framebottomstates = 1
 
-public val FRB_INACTIVE: FRAMEBOTTOMSTATES = 2
+public val FRB_INACTIVE: Framebottomstates = 2
 
-public val FRL_ACTIVE: FRAMELEFTSTATES = 1
+public val FRL_ACTIVE: Frameleftstates = 1
 
-public val FRL_INACTIVE: FRAMELEFTSTATES = 2
+public val FRL_INACTIVE: Frameleftstates = 2
 
-public val FRR_ACTIVE: FRAMERIGHTSTATES = 1
+public val FRR_ACTIVE: Framerightstates = 1
 
-public val FRR_INACTIVE: FRAMERIGHTSTATES = 2
+public val FRR_INACTIVE: Framerightstates = 2
 
 public val FSB_ENCARTA_MODE: UInt = 1u
 
@@ -1483,29 +1483,29 @@ public val FSB_FLAT_MODE: UInt = 2u
 
 public val FSB_REGULAR_MODE: UInt = 0u
 
-public val FS_ACTIVE: FRAMESTATES = 1
+public val FS_ACTIVE: Framestates = 1
 
-public val FS_INACTIVE: FRAMESTATES = 2
+public val FS_INACTIVE: Framestates = 2
 
-public val FT_HORZGRADIENT: FILLTYPE = 2
+public val FT_HORZGRADIENT: Filltype = 2
 
-public val FT_RADIALGRADIENT: FILLTYPE = 3
+public val FT_RADIALGRADIENT: Filltype = 3
 
-public val FT_SOLID: FILLTYPE = 0
+public val FT_SOLID: Filltype = 0
 
-public val FT_TILEIMAGE: FILLTYPE = 4
+public val FT_TILEIMAGE: Filltype = 4
 
-public val FT_VERTGRADIENT: FILLTYPE = 1
+public val FT_VERTGRADIENT: Filltype = 1
 
-public val GBF_COPY: GET_THEME_BITMAP_FLAGS = 2u
+public val GBF_COPY: GetThemeBitmapFlags = 2u
 
-public val GBF_DIRECT: GET_THEME_BITMAP_FLAGS = 1u
+public val GBF_DIRECT: GetThemeBitmapFlags = 1u
 
-public val GBF_VALIDBITS: GET_THEME_BITMAP_FLAGS = 3u
+public val GBF_VALIDBITS: GetThemeBitmapFlags = 3u
 
-public val GBS_DISABLED: GROUPBOXSTATES = 2
+public val GBS_DISABLED: Groupboxstates = 2
 
-public val GBS_NORMAL: GROUPBOXSTATES = 1
+public val GBS_NORMAL: Groupboxstates = 1
 
 public val GDTR_MAX: UInt = 2u
 
@@ -1513,123 +1513,123 @@ public val GDTR_MIN: UInt = 1u
 
 public val GDT_ERROR: Int = -1
 
-public val GDT_NONE: NMDATETIMECHANGE_FLAGS = 1u
+public val GDT_NONE: NmdatetimechangeFlags = 1u
 
-public val GDT_VALID: NMDATETIMECHANGE_FLAGS = 0u
+public val GDT_VALID: NmdatetimechangeFlags = 0u
 
-public val GFST_DPI: GLYPHFONTSIZINGTYPE = 2
+public val GFST_DPI: Glyphfontsizingtype = 2
 
-public val GFST_NONE: GLYPHFONTSIZINGTYPE = 0
+public val GFST_NONE: Glyphfontsizingtype = 0
 
-public val GFST_SIZE: GLYPHFONTSIZINGTYPE = 1
+public val GFST_SIZE: Glyphfontsizingtype = 1
 
-public val GLPS_CLOSED: GLYPHSTATES = 1
+public val GLPS_CLOSED: Glyphstates = 1
 
-public val GLPS_OPENED: GLYPHSTATES = 2
+public val GLPS_OPENED: Glyphstates = 2
 
 public val GMR_DAYSTATE: UInt = 1u
 
 public val GMR_VISIBLE: UInt = 0u
 
-public val GT_FONTGLYPH: GLYPHTYPE = 2
+public val GT_FONTGLYPH: Glyphtype = 2
 
-public val GT_IMAGEGLYPH: GLYPHTYPE = 1
+public val GT_IMAGEGLYPH: Glyphtype = 1
 
-public val GT_NONE: GLYPHTYPE = 0
+public val GT_NONE: Glyphtype = 0
 
-public val HA_CENTER: HALIGN = 1
+public val HA_CENTER: Halign = 1
 
-public val HA_LEFT: HALIGN = 0
+public val HA_LEFT: Halign = 0
 
-public val HA_RIGHT: HALIGN = 2
+public val HA_RIGHT: Halign = 2
 
-public val HBG_DETAILS: HEADERSTYLESTATES = 1
+public val HBG_DETAILS: Headerstylestates = 1
 
-public val HBG_ICON: HEADERSTYLESTATES = 2
+public val HBG_ICON: Headerstylestates = 2
 
-public val HBS_DISABLED: HELPBUTTONSTATES = 4
+public val HBS_DISABLED: Helpbuttonstates = 4
 
-public val HBS_HOT: HELPBUTTONSTATES = 2
+public val HBS_HOT: Helpbuttonstates = 2
 
-public val HBS_NORMAL: HELPBUTTONSTATES = 1
+public val HBS_NORMAL: Helpbuttonstates = 1
 
-public val HBS_PUSHED: HELPBUTTONSTATES = 3
+public val HBS_PUSHED: Helpbuttonstates = 3
 
-public val HDDFS_HOT: HEADERDROPDOWNFILTERSTATES = 3
+public val HDDFS_HOT: Headerdropdownfilterstates = 3
 
-public val HDDFS_NORMAL: HEADERDROPDOWNFILTERSTATES = 1
+public val HDDFS_NORMAL: Headerdropdownfilterstates = 1
 
-public val HDDFS_SOFTHOT: HEADERDROPDOWNFILTERSTATES = 2
+public val HDDFS_SOFTHOT: Headerdropdownfilterstates = 2
 
-public val HDDS_HOT: HEADERDROPDOWNSTATES = 3
+public val HDDS_HOT: Headerdropdownstates = 3
 
-public val HDDS_NORMAL: HEADERDROPDOWNSTATES = 1
+public val HDDS_NORMAL: Headerdropdownstates = 1
 
-public val HDDS_SOFTHOT: HEADERDROPDOWNSTATES = 2
+public val HDDS_SOFTHOT: Headerdropdownstates = 2
 
-public val HDFT_HASNOVALUE: HEADER_CONTROL_FORMAT_TYPE = 32768u
+public val HDFT_HASNOVALUE: HeaderControlFormatType = 32768u
 
-public val HDFT_ISDATE: HEADER_CONTROL_FORMAT_TYPE = 2u
+public val HDFT_ISDATE: HeaderControlFormatType = 2u
 
-public val HDFT_ISNUMBER: HEADER_CONTROL_FORMAT_TYPE = 1u
+public val HDFT_ISNUMBER: HeaderControlFormatType = 1u
 
-public val HDFT_ISSTRING: HEADER_CONTROL_FORMAT_TYPE = 0u
+public val HDFT_ISSTRING: HeaderControlFormatType = 0u
 
-public val HDF_BITMAP: HEADER_CONTROL_FORMAT_FLAGS = 8192
+public val HDF_BITMAP: HeaderControlFormatFlags = 8192
 
-public val HDF_BITMAP_ON_RIGHT: HEADER_CONTROL_FORMAT_FLAGS = 4096
+public val HDF_BITMAP_ON_RIGHT: HeaderControlFormatFlags = 4096
 
-public val HDF_CENTER: HEADER_CONTROL_FORMAT_FLAGS = 2
+public val HDF_CENTER: HeaderControlFormatFlags = 2
 
-public val HDF_CHECKBOX: HEADER_CONTROL_FORMAT_FLAGS = 64
+public val HDF_CHECKBOX: HeaderControlFormatFlags = 64
 
-public val HDF_CHECKED: HEADER_CONTROL_FORMAT_FLAGS = 128
+public val HDF_CHECKED: HeaderControlFormatFlags = 128
 
-public val HDF_FIXEDWIDTH: HEADER_CONTROL_FORMAT_FLAGS = 256
+public val HDF_FIXEDWIDTH: HeaderControlFormatFlags = 256
 
-public val HDF_IMAGE: HEADER_CONTROL_FORMAT_FLAGS = 2048
+public val HDF_IMAGE: HeaderControlFormatFlags = 2048
 
-public val HDF_JUSTIFYMASK: HEADER_CONTROL_FORMAT_FLAGS = 3
+public val HDF_JUSTIFYMASK: HeaderControlFormatFlags = 3
 
-public val HDF_LEFT: HEADER_CONTROL_FORMAT_FLAGS = 0
+public val HDF_LEFT: HeaderControlFormatFlags = 0
 
-public val HDF_OWNERDRAW: HEADER_CONTROL_FORMAT_FLAGS = 32768
+public val HDF_OWNERDRAW: HeaderControlFormatFlags = 32768
 
-public val HDF_RIGHT: HEADER_CONTROL_FORMAT_FLAGS = 1
+public val HDF_RIGHT: HeaderControlFormatFlags = 1
 
-public val HDF_RTLREADING: HEADER_CONTROL_FORMAT_FLAGS = 4
+public val HDF_RTLREADING: HeaderControlFormatFlags = 4
 
-public val HDF_SORTDOWN: HEADER_CONTROL_FORMAT_FLAGS = 512
+public val HDF_SORTDOWN: HeaderControlFormatFlags = 512
 
-public val HDF_SORTUP: HEADER_CONTROL_FORMAT_FLAGS = 1024
+public val HDF_SORTUP: HeaderControlFormatFlags = 1024
 
-public val HDF_SPLITBUTTON: HEADER_CONTROL_FORMAT_FLAGS = 16777216
+public val HDF_SPLITBUTTON: HeaderControlFormatFlags = 16777216
 
-public val HDF_STRING: HEADER_CONTROL_FORMAT_FLAGS = 16384
+public val HDF_STRING: HeaderControlFormatFlags = 16384
 
-public val HDIS_FOCUSED: HEADER_CONTROL_FORMAT_STATE = 1u
+public val HDIS_FOCUSED: HeaderControlFormatState = 1u
 
-public val HDI_BITMAP: HDI_MASK = 16u
+public val HDI_BITMAP: HdiMask = 16u
 
-public val HDI_DI_SETITEM: HDI_MASK = 64u
+public val HDI_DI_SETITEM: HdiMask = 64u
 
-public val HDI_FILTER: HDI_MASK = 256u
+public val HDI_FILTER: HdiMask = 256u
 
-public val HDI_FORMAT: HDI_MASK = 4u
+public val HDI_FORMAT: HdiMask = 4u
 
-public val HDI_HEIGHT: HDI_MASK = 1u
+public val HDI_HEIGHT: HdiMask = 1u
 
-public val HDI_IMAGE: HDI_MASK = 32u
+public val HDI_IMAGE: HdiMask = 32u
 
-public val HDI_LPARAM: HDI_MASK = 8u
+public val HDI_LPARAM: HdiMask = 8u
 
-public val HDI_ORDER: HDI_MASK = 128u
+public val HDI_ORDER: HdiMask = 128u
 
-public val HDI_STATE: HDI_MASK = 512u
+public val HDI_STATE: HdiMask = 512u
 
-public val HDI_TEXT: HDI_MASK = 2u
+public val HDI_TEXT: HdiMask = 2u
 
-public val HDI_WIDTH: HDI_MASK = 1u
+public val HDI_WIDTH: HdiMask = 1u
 
 public val HDM_CLEARFILTER: UInt = 4632u
 
@@ -1801,73 +1801,73 @@ public val HDS_NOSIZING: UInt = 2048u
 
 public val HDS_OVERFLOW: UInt = 4096u
 
-public val HEADER_CONTROL_NOTIFICATION_BUTTON_LEFT: HEADER_CONTROL_NOTIFICATION_BUTTON = 0
+public val HEADER_CONTROL_NOTIFICATION_BUTTON_LEFT: HeaderControlNotificationButton = 0
 
-public val HEADER_CONTROL_NOTIFICATION_BUTTON_MIDDLE: HEADER_CONTROL_NOTIFICATION_BUTTON = 2
+public val HEADER_CONTROL_NOTIFICATION_BUTTON_MIDDLE: HeaderControlNotificationButton = 2
 
-public val HEADER_CONTROL_NOTIFICATION_BUTTON_RIGHT: HEADER_CONTROL_NOTIFICATION_BUTTON = 1
+public val HEADER_CONTROL_NOTIFICATION_BUTTON_RIGHT: HeaderControlNotificationButton = 1
 
-public val HGLPS_CLOSED: HOTGLYPHSTATES = 1
+public val HGLPS_CLOSED: Hotglyphstates = 1
 
-public val HGLPS_OPENED: HOTGLYPHSTATES = 2
+public val HGLPS_OPENED: Hotglyphstates = 2
 
-public val HHT_ABOVE: HEADER_HITTEST_INFO_FLAGS = 256u
+public val HHT_ABOVE: HeaderHittestInfoFlags = 256u
 
-public val HHT_BELOW: HEADER_HITTEST_INFO_FLAGS = 512u
+public val HHT_BELOW: HeaderHittestInfoFlags = 512u
 
-public val HHT_NOWHERE: HEADER_HITTEST_INFO_FLAGS = 1u
+public val HHT_NOWHERE: HeaderHittestInfoFlags = 1u
 
-public val HHT_ONDIVIDER: HEADER_HITTEST_INFO_FLAGS = 4u
+public val HHT_ONDIVIDER: HeaderHittestInfoFlags = 4u
 
-public val HHT_ONDIVOPEN: HEADER_HITTEST_INFO_FLAGS = 8u
+public val HHT_ONDIVOPEN: HeaderHittestInfoFlags = 8u
 
-public val HHT_ONDROPDOWN: HEADER_HITTEST_INFO_FLAGS = 8192u
+public val HHT_ONDROPDOWN: HeaderHittestInfoFlags = 8192u
 
-public val HHT_ONFILTER: HEADER_HITTEST_INFO_FLAGS = 16u
+public val HHT_ONFILTER: HeaderHittestInfoFlags = 16u
 
-public val HHT_ONFILTERBUTTON: HEADER_HITTEST_INFO_FLAGS = 32u
+public val HHT_ONFILTERBUTTON: HeaderHittestInfoFlags = 32u
 
-public val HHT_ONHEADER: HEADER_HITTEST_INFO_FLAGS = 2u
+public val HHT_ONHEADER: HeaderHittestInfoFlags = 2u
 
-public val HHT_ONITEMSTATEICON: HEADER_HITTEST_INFO_FLAGS = 4096u
+public val HHT_ONITEMSTATEICON: HeaderHittestInfoFlags = 4096u
 
-public val HHT_ONOVERFLOW: HEADER_HITTEST_INFO_FLAGS = 16384u
+public val HHT_ONOVERFLOW: HeaderHittestInfoFlags = 16384u
 
-public val HHT_TOLEFT: HEADER_HITTEST_INFO_FLAGS = 2048u
+public val HHT_TOLEFT: HeaderHittestInfoFlags = 2048u
 
-public val HHT_TORIGHT: HEADER_HITTEST_INFO_FLAGS = 1024u
+public val HHT_TORIGHT: HeaderHittestInfoFlags = 1024u
 
-public val HICF_ACCELERATOR: NMTBHOTITEM_FLAGS = 4u
+public val HICF_ACCELERATOR: NmtbhotitemFlags = 4u
 
-public val HICF_ARROWKEYS: NMTBHOTITEM_FLAGS = 2u
+public val HICF_ARROWKEYS: NmtbhotitemFlags = 2u
 
-public val HICF_DUPACCEL: NMTBHOTITEM_FLAGS = 8u
+public val HICF_DUPACCEL: NmtbhotitemFlags = 8u
 
-public val HICF_ENTERING: NMTBHOTITEM_FLAGS = 16u
+public val HICF_ENTERING: NmtbhotitemFlags = 16u
 
-public val HICF_LEAVING: NMTBHOTITEM_FLAGS = 32u
+public val HICF_LEAVING: NmtbhotitemFlags = 32u
 
-public val HICF_LMOUSE: NMTBHOTITEM_FLAGS = 128u
+public val HICF_LMOUSE: NmtbhotitemFlags = 128u
 
-public val HICF_MOUSE: NMTBHOTITEM_FLAGS = 1u
+public val HICF_MOUSE: NmtbhotitemFlags = 1u
 
-public val HICF_OTHER: NMTBHOTITEM_FLAGS = 0u
+public val HICF_OTHER: NmtbhotitemFlags = 0u
 
-public val HICF_RESELECT: NMTBHOTITEM_FLAGS = 64u
+public val HICF_RESELECT: NmtbhotitemFlags = 64u
 
-public val HICF_TOGGLEDROPDOWN: NMTBHOTITEM_FLAGS = 256u
+public val HICF_TOGGLEDROPDOWN: NmtbhotitemFlags = 256u
 
-public val HILS_HOT: HEADERITEMLEFTSTATES = 2
+public val HILS_HOT: Headeritemleftstates = 2
 
-public val HILS_NORMAL: HEADERITEMLEFTSTATES = 1
+public val HILS_NORMAL: Headeritemleftstates = 1
 
-public val HILS_PRESSED: HEADERITEMLEFTSTATES = 3
+public val HILS_PRESSED: Headeritemleftstates = 3
 
-public val HIRS_HOT: HEADERITEMRIGHTSTATES = 2
+public val HIRS_HOT: Headeritemrightstates = 2
 
-public val HIRS_NORMAL: HEADERITEMRIGHTSTATES = 1
+public val HIRS_NORMAL: Headeritemrightstates = 1
 
-public val HIRS_PRESSED: HEADERITEMRIGHTSTATES = 3
+public val HIRS_PRESSED: Headeritemrightstates = 3
 
 public val HIST_ADDTOFAVORITES: UInt = 3u
 
@@ -1879,29 +1879,29 @@ public val HIST_FORWARD: UInt = 1u
 
 public val HIST_VIEWTREE: UInt = 4u
 
-public val HIS_HOT: HEADERITEMSTATES = 2
+public val HIS_HOT: Headeritemstates = 2
 
-public val HIS_ICONHOT: HEADERITEMSTATES = 8
+public val HIS_ICONHOT: Headeritemstates = 8
 
-public val HIS_ICONNORMAL: HEADERITEMSTATES = 7
+public val HIS_ICONNORMAL: Headeritemstates = 7
 
-public val HIS_ICONPRESSED: HEADERITEMSTATES = 9
+public val HIS_ICONPRESSED: Headeritemstates = 9
 
-public val HIS_ICONSORTEDHOT: HEADERITEMSTATES = 11
+public val HIS_ICONSORTEDHOT: Headeritemstates = 11
 
-public val HIS_ICONSORTEDNORMAL: HEADERITEMSTATES = 10
+public val HIS_ICONSORTEDNORMAL: Headeritemstates = 10
 
-public val HIS_ICONSORTEDPRESSED: HEADERITEMSTATES = 12
+public val HIS_ICONSORTEDPRESSED: Headeritemstates = 12
 
-public val HIS_NORMAL: HEADERITEMSTATES = 1
+public val HIS_NORMAL: Headeritemstates = 1
 
-public val HIS_PRESSED: HEADERITEMSTATES = 3
+public val HIS_PRESSED: Headeritemstates = 3
 
-public val HIS_SORTEDHOT: HEADERITEMSTATES = 5
+public val HIS_SORTEDHOT: Headeritemstates = 5
 
-public val HIS_SORTEDNORMAL: HEADERITEMSTATES = 4
+public val HIS_SORTEDNORMAL: Headeritemstates = 4
 
-public val HIS_SORTEDPRESSED: HEADERITEMSTATES = 6
+public val HIS_SORTEDPRESSED: Headeritemstates = 6
 
 public val HKCOMB_A: UInt = 8u
 
@@ -1925,13 +1925,13 @@ public val HKM_SETHOTKEY: UInt = 1025u
 
 public val HKM_SETRULES: UInt = 1027u
 
-public val HLS_LINKTEXT: HYPERLINKSTATES = 2
+public val HLS_LINKTEXT: Hyperlinkstates = 2
 
-public val HLS_NORMALTEXT: HYPERLINKSTATES = 1
+public val HLS_NORMALTEXT: Hyperlinkstates = 1
 
-public val HOFS_HOT: HEADEROVERFLOWSTATES = 2
+public val HOFS_HOT: Headeroverflowstates = 2
 
-public val HOFS_NORMAL: HEADEROVERFLOWSTATES = 1
+public val HOFS_NORMAL: Headeroverflowstates = 1
 
 public val HOTKEYF_ALT: UInt = 4u
 
@@ -1941,111 +1941,111 @@ public val HOTKEYF_EXT: UInt = 8u
 
 public val HOTKEYF_SHIFT: UInt = 1u
 
-public val HOTKEY_CLASS: PCWSTR = w("msctls_hotkey32")
+public val HOTKEY_CLASS: Pcwstr = w("msctls_hotkey32")
 
-public val HOTKEY_CLASSA: PCSTR = s("msctls_hotkey32")
+public val HOTKEY_CLASSA: Pcstr = s("msctls_hotkey32")
 
-public val HOTKEY_CLASSW: PCWSTR = w("msctls_hotkey32")
+public val HOTKEY_CLASSW: Pcwstr = w("msctls_hotkey32")
 
 public val HOVER_DEFAULT: UInt = 4294967295u
 
-public val HP_HEADERDROPDOWN: HEADERPARTS = 5
+public val HP_HEADERDROPDOWN: Headerparts = 5
 
-public val HP_HEADERDROPDOWNFILTER: HEADERPARTS = 6
+public val HP_HEADERDROPDOWNFILTER: Headerparts = 6
 
-public val HP_HEADERITEM: HEADERPARTS = 1
+public val HP_HEADERITEM: Headerparts = 1
 
-public val HP_HEADERITEMLEFT: HEADERPARTS = 2
+public val HP_HEADERITEMLEFT: Headerparts = 2
 
-public val HP_HEADERITEMRIGHT: HEADERPARTS = 3
+public val HP_HEADERITEMRIGHT: Headerparts = 3
 
-public val HP_HEADEROVERFLOW: HEADERPARTS = 7
+public val HP_HEADEROVERFLOW: Headerparts = 7
 
-public val HP_HEADERSORTARROW: HEADERPARTS = 4
+public val HP_HEADERSORTARROW: Headerparts = 4
 
-public val HSAS_SORTEDDOWN: HEADERSORTARROWSTATES = 2
+public val HSAS_SORTEDDOWN: Headersortarrowstates = 2
 
-public val HSAS_SORTEDUP: HEADERSORTARROWSTATES = 1
+public val HSAS_SORTEDUP: Headersortarrowstates = 1
 
-public val HSS_DISABLED: HORZSCROLLSTATES = 4
+public val HSS_DISABLED: Horzscrollstates = 4
 
-public val HSS_HOT: HORZSCROLLSTATES = 2
+public val HSS_HOT: Horzscrollstates = 2
 
-public val HSS_NORMAL: HORZSCROLLSTATES = 1
+public val HSS_NORMAL: Horzscrollstates = 1
 
-public val HSS_PUSHED: HORZSCROLLSTATES = 3
+public val HSS_PUSHED: Horzscrollstates = 3
 
-public val HTS_DISABLED: HORZTHUMBSTATES = 4
+public val HTS_DISABLED: Horzthumbstates = 4
 
-public val HTS_HOT: HORZTHUMBSTATES = 2
+public val HTS_HOT: Horzthumbstates = 2
 
-public val HTS_NORMAL: HORZTHUMBSTATES = 1
+public val HTS_NORMAL: Horzthumbstates = 1
 
-public val HTS_PUSHED: HORZTHUMBSTATES = 3
+public val HTS_PUSHED: Horzthumbstates = 3
 
-public val HTTB_BACKGROUNDSEG: HIT_TEST_BACKGROUND_OPTIONS = 0u
+public val HTTB_BACKGROUNDSEG: HitTestBackgroundOptions = 0u
 
-public val HTTB_CAPTION: HIT_TEST_BACKGROUND_OPTIONS = 4u
+public val HTTB_CAPTION: HitTestBackgroundOptions = 4u
 
-public val HTTB_FIXEDBORDER: HIT_TEST_BACKGROUND_OPTIONS = 2u
+public val HTTB_FIXEDBORDER: HitTestBackgroundOptions = 2u
 
-public val HTTB_RESIZINGBORDER: HIT_TEST_BACKGROUND_OPTIONS = 240u
+public val HTTB_RESIZINGBORDER: HitTestBackgroundOptions = 240u
 
-public val HTTB_RESIZINGBORDER_BOTTOM: HIT_TEST_BACKGROUND_OPTIONS = 128u
+public val HTTB_RESIZINGBORDER_BOTTOM: HitTestBackgroundOptions = 128u
 
-public val HTTB_RESIZINGBORDER_LEFT: HIT_TEST_BACKGROUND_OPTIONS = 16u
+public val HTTB_RESIZINGBORDER_LEFT: HitTestBackgroundOptions = 16u
 
-public val HTTB_RESIZINGBORDER_RIGHT: HIT_TEST_BACKGROUND_OPTIONS = 64u
+public val HTTB_RESIZINGBORDER_RIGHT: HitTestBackgroundOptions = 64u
 
-public val HTTB_RESIZINGBORDER_TOP: HIT_TEST_BACKGROUND_OPTIONS = 32u
+public val HTTB_RESIZINGBORDER_TOP: HitTestBackgroundOptions = 32u
 
-public val HTTB_SIZINGTEMPLATE: HIT_TEST_BACKGROUND_OPTIONS = 256u
+public val HTTB_SIZINGTEMPLATE: HitTestBackgroundOptions = 256u
 
-public val HTTB_SYSTEMSIZINGMARGINS: HIT_TEST_BACKGROUND_OPTIONS = 512u
+public val HTTB_SYSTEMSIZINGMARGINS: HitTestBackgroundOptions = 512u
 
-public val ICC_ANIMATE_CLASS: INITCOMMONCONTROLSEX_ICC = 128u
+public val ICC_ANIMATE_CLASS: InitcommoncontrolsexIcc = 128u
 
-public val ICC_BAR_CLASSES: INITCOMMONCONTROLSEX_ICC = 4u
+public val ICC_BAR_CLASSES: InitcommoncontrolsexIcc = 4u
 
-public val ICC_COOL_CLASSES: INITCOMMONCONTROLSEX_ICC = 1024u
+public val ICC_COOL_CLASSES: InitcommoncontrolsexIcc = 1024u
 
-public val ICC_DATE_CLASSES: INITCOMMONCONTROLSEX_ICC = 256u
+public val ICC_DATE_CLASSES: InitcommoncontrolsexIcc = 256u
 
-public val ICC_HOTKEY_CLASS: INITCOMMONCONTROLSEX_ICC = 64u
+public val ICC_HOTKEY_CLASS: InitcommoncontrolsexIcc = 64u
 
-public val ICC_INTERNET_CLASSES: INITCOMMONCONTROLSEX_ICC = 2048u
+public val ICC_INTERNET_CLASSES: InitcommoncontrolsexIcc = 2048u
 
-public val ICC_LINK_CLASS: INITCOMMONCONTROLSEX_ICC = 32768u
+public val ICC_LINK_CLASS: InitcommoncontrolsexIcc = 32768u
 
-public val ICC_LISTVIEW_CLASSES: INITCOMMONCONTROLSEX_ICC = 1u
+public val ICC_LISTVIEW_CLASSES: InitcommoncontrolsexIcc = 1u
 
-public val ICC_NATIVEFNTCTL_CLASS: INITCOMMONCONTROLSEX_ICC = 8192u
+public val ICC_NATIVEFNTCTL_CLASS: InitcommoncontrolsexIcc = 8192u
 
-public val ICC_PAGESCROLLER_CLASS: INITCOMMONCONTROLSEX_ICC = 4096u
+public val ICC_PAGESCROLLER_CLASS: InitcommoncontrolsexIcc = 4096u
 
-public val ICC_PROGRESS_CLASS: INITCOMMONCONTROLSEX_ICC = 32u
+public val ICC_PROGRESS_CLASS: InitcommoncontrolsexIcc = 32u
 
-public val ICC_STANDARD_CLASSES: INITCOMMONCONTROLSEX_ICC = 16384u
+public val ICC_STANDARD_CLASSES: InitcommoncontrolsexIcc = 16384u
 
-public val ICC_TAB_CLASSES: INITCOMMONCONTROLSEX_ICC = 8u
+public val ICC_TAB_CLASSES: InitcommoncontrolsexIcc = 8u
 
-public val ICC_TREEVIEW_CLASSES: INITCOMMONCONTROLSEX_ICC = 2u
+public val ICC_TREEVIEW_CLASSES: InitcommoncontrolsexIcc = 2u
 
-public val ICC_UPDOWN_CLASS: INITCOMMONCONTROLSEX_ICC = 16u
+public val ICC_UPDOWN_CLASS: InitcommoncontrolsexIcc = 16u
 
-public val ICC_USEREX_CLASSES: INITCOMMONCONTROLSEX_ICC = 512u
+public val ICC_USEREX_CLASSES: InitcommoncontrolsexIcc = 512u
 
-public val ICC_WIN95_CLASSES: INITCOMMONCONTROLSEX_ICC = 255u
+public val ICC_WIN95_CLASSES: InitcommoncontrolsexIcc = 255u
 
-public val ICE_ALPHA: ICONEFFECT = 4
+public val ICE_ALPHA: Iconeffect = 4
 
-public val ICE_GLOW: ICONEFFECT = 1
+public val ICE_GLOW: Iconeffect = 1
 
-public val ICE_NONE: ICONEFFECT = 0
+public val ICE_NONE: Iconeffect = 0
 
-public val ICE_PULSE: ICONEFFECT = 3
+public val ICE_PULSE: Iconeffect = 3
 
-public val ICE_SHADOW: ICONEFFECT = 2
+public val ICE_SHADOW: Iconeffect = 2
 
 public val IDB_HIST_DISABLED: UInt = 14u
 
@@ -2071,35 +2071,35 @@ public val IDC_MANAGE_LINK: UInt = 1592u
 
 public val ID_PSRESTARTWINDOWS: UInt = 2u
 
-public val ILCF_MOVE: IMAGE_LIST_COPY_FLAGS = 0u
+public val ILCF_MOVE: ImageListCopyFlags = 0u
 
-public val ILCF_SWAP: IMAGE_LIST_COPY_FLAGS = 1u
+public val ILCF_SWAP: ImageListCopyFlags = 1u
 
-public val ILC_COLOR: IMAGELIST_CREATION_FLAGS = 0u
+public val ILC_COLOR: ImagelistCreationFlags = 0u
 
-public val ILC_COLOR16: IMAGELIST_CREATION_FLAGS = 16u
+public val ILC_COLOR16: ImagelistCreationFlags = 16u
 
-public val ILC_COLOR24: IMAGELIST_CREATION_FLAGS = 24u
+public val ILC_COLOR24: ImagelistCreationFlags = 24u
 
-public val ILC_COLOR32: IMAGELIST_CREATION_FLAGS = 32u
+public val ILC_COLOR32: ImagelistCreationFlags = 32u
 
-public val ILC_COLOR4: IMAGELIST_CREATION_FLAGS = 4u
+public val ILC_COLOR4: ImagelistCreationFlags = 4u
 
-public val ILC_COLOR8: IMAGELIST_CREATION_FLAGS = 8u
+public val ILC_COLOR8: ImagelistCreationFlags = 8u
 
-public val ILC_COLORDDB: IMAGELIST_CREATION_FLAGS = 254u
+public val ILC_COLORDDB: ImagelistCreationFlags = 254u
 
-public val ILC_HIGHQUALITYSCALE: IMAGELIST_CREATION_FLAGS = 131072u
+public val ILC_HIGHQUALITYSCALE: ImagelistCreationFlags = 131072u
 
-public val ILC_MASK: IMAGELIST_CREATION_FLAGS = 1u
+public val ILC_MASK: ImagelistCreationFlags = 1u
 
-public val ILC_MIRROR: IMAGELIST_CREATION_FLAGS = 8192u
+public val ILC_MIRROR: ImagelistCreationFlags = 8192u
 
-public val ILC_ORIGINALSIZE: IMAGELIST_CREATION_FLAGS = 65536u
+public val ILC_ORIGINALSIZE: ImagelistCreationFlags = 65536u
 
-public val ILC_PALETTE: IMAGELIST_CREATION_FLAGS = 2048u
+public val ILC_PALETTE: ImagelistCreationFlags = 2048u
 
-public val ILC_PERITEMMIRROR: IMAGELIST_CREATION_FLAGS = 32768u
+public val ILC_PERITEMMIRROR: ImagelistCreationFlags = 32768u
 
 public val ILDI_PURGE: UInt = 1u
 
@@ -2113,35 +2113,35 @@ public val ILDRF_IMAGELOWQUALITY: UInt = 1u
 
 public val ILDRF_OVERLAYLOWQUALITY: UInt = 16u
 
-public val ILD_ASYNC: IMAGE_LIST_DRAW_STYLE = 32768u
+public val ILD_ASYNC: ImageListDrawStyle = 32768u
 
-public val ILD_BLEND: IMAGE_LIST_DRAW_STYLE = 4u
+public val ILD_BLEND: ImageListDrawStyle = 4u
 
-public val ILD_BLEND25: IMAGE_LIST_DRAW_STYLE = 2u
+public val ILD_BLEND25: ImageListDrawStyle = 2u
 
-public val ILD_BLEND50: IMAGE_LIST_DRAW_STYLE = 4u
+public val ILD_BLEND50: ImageListDrawStyle = 4u
 
-public val ILD_DPISCALE: IMAGE_LIST_DRAW_STYLE = 16384u
+public val ILD_DPISCALE: ImageListDrawStyle = 16384u
 
-public val ILD_FOCUS: IMAGE_LIST_DRAW_STYLE = 2u
+public val ILD_FOCUS: ImageListDrawStyle = 2u
 
-public val ILD_IMAGE: IMAGE_LIST_DRAW_STYLE = 32u
+public val ILD_IMAGE: ImageListDrawStyle = 32u
 
-public val ILD_MASK: IMAGE_LIST_DRAW_STYLE = 16u
+public val ILD_MASK: ImageListDrawStyle = 16u
 
-public val ILD_NORMAL: IMAGE_LIST_DRAW_STYLE = 0u
+public val ILD_NORMAL: ImageListDrawStyle = 0u
 
-public val ILD_OVERLAYMASK: IMAGE_LIST_DRAW_STYLE = 3840u
+public val ILD_OVERLAYMASK: ImageListDrawStyle = 3840u
 
-public val ILD_PRESERVEALPHA: IMAGE_LIST_DRAW_STYLE = 4096u
+public val ILD_PRESERVEALPHA: ImageListDrawStyle = 4096u
 
-public val ILD_ROP: IMAGE_LIST_DRAW_STYLE = 64u
+public val ILD_ROP: ImageListDrawStyle = 64u
 
-public val ILD_SCALE: IMAGE_LIST_DRAW_STYLE = 8192u
+public val ILD_SCALE: ImageListDrawStyle = 8192u
 
-public val ILD_SELECTED: IMAGE_LIST_DRAW_STYLE = 4u
+public val ILD_SELECTED: ImageListDrawStyle = 4u
 
-public val ILD_TRANSPARENT: IMAGE_LIST_DRAW_STYLE = 1u
+public val ILD_TRANSPARENT: ImageListDrawStyle = 1u
 
 public val ILFIP_ALWAYS: UInt = 0u
 
@@ -2155,13 +2155,13 @@ public val ILGT_ASYNC: UInt = 1u
 
 public val ILGT_NORMAL: UInt = 0u
 
-public val ILIF_ALPHA: IMAGE_LIST_ITEM_FLAGS = 1u
+public val ILIF_ALPHA: ImageListItemFlags = 1u
 
-public val ILIF_LOWQUALITY: IMAGE_LIST_ITEM_FLAGS = 2u
+public val ILIF_LOWQUALITY: ImageListItemFlags = 2u
 
-public val ILP_DOWNLEVEL: IMAGE_LIST_WRITE_STREAM_FLAGS = 1u
+public val ILP_DOWNLEVEL: ImageListWriteStreamFlags = 1u
 
-public val ILP_NORMAL: IMAGE_LIST_WRITE_STREAM_FLAGS = 0u
+public val ILP_NORMAL: ImageListWriteStreamFlags = 0u
 
 public val ILR_DEFAULT: UInt = 0u
 
@@ -2191,9 +2191,9 @@ public val ILS_SATURATE: UInt = 4u
 
 public val ILS_SHADOW: UInt = 2u
 
-public val IL_HORIZONTAL: IMAGELAYOUT = 1
+public val IL_HORIZONTAL: Imagelayout = 1
 
-public val IL_VERTICAL: IMAGELAYOUT = 0
+public val IL_VERTICAL: Imagelayout = 0
 
 public val INFOTIPSIZE: UInt = 1024u
 
@@ -2217,19 +2217,19 @@ public val IPN_FIRST: UInt = 4294966436u
 
 public val IPN_LAST: UInt = 4294966417u
 
-public val IST_DPI: IMAGESELECTTYPE = 2
+public val IST_DPI: Imageselecttype = 2
 
-public val IST_NONE: IMAGESELECTTYPE = 0
+public val IST_NONE: Imageselecttype = 0
 
-public val IST_SIZE: IMAGESELECTTYPE = 1
+public val IST_SIZE: Imageselecttype = 1
 
-public val I_CHILDRENAUTO: TVITEMEXW_CHILDREN = -2
+public val I_CHILDRENAUTO: TvitemexwChildren = -2
 
-public val I_CHILDRENCALLBACK: TVITEMEXW_CHILDREN = -1
+public val I_CHILDRENCALLBACK: TvitemexwChildren = -1
 
-public val I_GROUPIDCALLBACK: LVITEMA_GROUP_ID = -1
+public val I_GROUPIDCALLBACK: LvitemaGroupId = -1
 
-public val I_GROUPIDNONE: LVITEMA_GROUP_ID = -2
+public val I_GROUPIDNONE: LvitemaGroupId = -2
 
 public val I_IMAGECALLBACK: Int = -1
 
@@ -2237,95 +2237,95 @@ public val I_IMAGENONE: Int = -2
 
 public val I_INDENTCALLBACK: Int = -1
 
-public val I_ONE_OR_MORE: TVITEMEXW_CHILDREN = 1
+public val I_ONE_OR_MORE: TvitemexwChildren = 1
 
-public val I_ZERO: TVITEMEXW_CHILDREN = 0
+public val I_ZERO: TvitemexwChildren = 0
 
-public val ImageList: GUID = GUID.from_u128(U128(0x7c476ba202b148f4uL, 0x8048b24619ddc058uL))
+public val IMAGE_LIST: Guid = Guid.fromU128(U128(0x7c476ba202b148f4uL, 0x8048b24619ddc058uL))
 
-public val LBCP_BORDER_HSCROLL: LISTBOXPARTS = 1
+public val LBCP_BORDER_HSCROLL: Listboxparts = 1
 
-public val LBCP_BORDER_HVSCROLL: LISTBOXPARTS = 2
+public val LBCP_BORDER_HVSCROLL: Listboxparts = 2
 
-public val LBCP_BORDER_NOSCROLL: LISTBOXPARTS = 3
+public val LBCP_BORDER_NOSCROLL: Listboxparts = 3
 
-public val LBCP_BORDER_VSCROLL: LISTBOXPARTS = 4
+public val LBCP_BORDER_VSCROLL: Listboxparts = 4
 
-public val LBCP_ITEM: LISTBOXPARTS = 5
+public val LBCP_ITEM: Listboxparts = 5
 
-public val LBPSHV_DISABLED: BORDER_HVSCROLLSTATES = 4
+public val LBPSHV_DISABLED: BorderHvscrollstates = 4
 
-public val LBPSHV_FOCUSED: BORDER_HVSCROLLSTATES = 2
+public val LBPSHV_FOCUSED: BorderHvscrollstates = 2
 
-public val LBPSHV_HOT: BORDER_HVSCROLLSTATES = 3
+public val LBPSHV_HOT: BorderHvscrollstates = 3
 
-public val LBPSHV_NORMAL: BORDER_HVSCROLLSTATES = 1
+public val LBPSHV_NORMAL: BorderHvscrollstates = 1
 
-public val LBPSH_DISABLED: BORDER_HSCROLLSTATES = 4
+public val LBPSH_DISABLED: BorderHscrollstates = 4
 
-public val LBPSH_FOCUSED: BORDER_HSCROLLSTATES = 2
+public val LBPSH_FOCUSED: BorderHscrollstates = 2
 
-public val LBPSH_HOT: BORDER_HSCROLLSTATES = 3
+public val LBPSH_HOT: BorderHscrollstates = 3
 
-public val LBPSH_NORMAL: BORDER_HSCROLLSTATES = 1
+public val LBPSH_NORMAL: BorderHscrollstates = 1
 
-public val LBPSI_HOT: ITEMSTATES = 1
+public val LBPSI_HOT: Itemstates = 1
 
-public val LBPSI_HOTSELECTED: ITEMSTATES = 2
+public val LBPSI_HOTSELECTED: Itemstates = 2
 
-public val LBPSI_SELECTED: ITEMSTATES = 3
+public val LBPSI_SELECTED: Itemstates = 3
 
-public val LBPSI_SELECTEDNOTFOCUS: ITEMSTATES = 4
+public val LBPSI_SELECTEDNOTFOCUS: Itemstates = 4
 
-public val LBPSN_DISABLED: BORDER_NOSCROLLSTATES = 4
+public val LBPSN_DISABLED: BorderNoscrollstates = 4
 
-public val LBPSN_FOCUSED: BORDER_NOSCROLLSTATES = 2
+public val LBPSN_FOCUSED: BorderNoscrollstates = 2
 
-public val LBPSN_HOT: BORDER_NOSCROLLSTATES = 3
+public val LBPSN_HOT: BorderNoscrollstates = 3
 
-public val LBPSN_NORMAL: BORDER_NOSCROLLSTATES = 1
+public val LBPSN_NORMAL: BorderNoscrollstates = 1
 
-public val LBPSV_DISABLED: BORDER_VSCROLLSTATES = 4
+public val LBPSV_DISABLED: BorderVscrollstates = 4
 
-public val LBPSV_FOCUSED: BORDER_VSCROLLSTATES = 2
+public val LBPSV_FOCUSED: BorderVscrollstates = 2
 
-public val LBPSV_HOT: BORDER_VSCROLLSTATES = 3
+public val LBPSV_HOT: BorderVscrollstates = 3
 
-public val LBPSV_NORMAL: BORDER_VSCROLLSTATES = 1
+public val LBPSV_NORMAL: BorderVscrollstates = 1
 
-public val LIF_ITEMID: LIST_ITEM_FLAGS = 4u
+public val LIF_ITEMID: ListItemFlags = 4u
 
-public val LIF_ITEMINDEX: LIST_ITEM_FLAGS = 1u
+public val LIF_ITEMINDEX: ListItemFlags = 1u
 
-public val LIF_STATE: LIST_ITEM_FLAGS = 2u
+public val LIF_STATE: ListItemFlags = 2u
 
-public val LIF_URL: LIST_ITEM_FLAGS = 8u
+public val LIF_URL: ListItemFlags = 8u
 
-public val LIM_LARGE: _LI_METRIC = 1
+public val LIM_LARGE: LiMetric = 1
 
-public val LIM_SMALL: _LI_METRIC = 0
+public val LIM_SMALL: LiMetric = 0
 
-public val LISS_DISABLED: LISTITEMSTATES = 4
+public val LISS_DISABLED: Listitemstates = 4
 
-public val LISS_HOT: LISTITEMSTATES = 2
+public val LISS_HOT: Listitemstates = 2
 
-public val LISS_HOTSELECTED: LISTITEMSTATES = 6
+public val LISS_HOTSELECTED: Listitemstates = 6
 
-public val LISS_NORMAL: LISTITEMSTATES = 1
+public val LISS_NORMAL: Listitemstates = 1
 
-public val LISS_SELECTED: LISTITEMSTATES = 3
+public val LISS_SELECTED: Listitemstates = 3
 
-public val LISS_SELECTEDNOTFOCUS: LISTITEMSTATES = 5
+public val LISS_SELECTEDNOTFOCUS: Listitemstates = 5
 
-public val LIS_DEFAULTCOLORS: LIST_ITEM_STATE_FLAGS = 16u
+public val LIS_DEFAULTCOLORS: ListItemStateFlags = 16u
 
-public val LIS_ENABLED: LIST_ITEM_STATE_FLAGS = 2u
+public val LIS_ENABLED: ListItemStateFlags = 2u
 
-public val LIS_FOCUSED: LIST_ITEM_STATE_FLAGS = 1u
+public val LIS_FOCUSED: ListItemStateFlags = 1u
 
-public val LIS_HOTTRACK: LIST_ITEM_STATE_FLAGS = 8u
+public val LIS_HOTTRACK: ListItemStateFlags = 8u
 
-public val LIS_VISITED: LIST_ITEM_STATE_FLAGS = 4u
+public val LIS_VISITED: ListItemStateFlags = 4u
 
 public val LM_GETIDEALHEIGHT: UInt = 1793u
 
@@ -2337,7 +2337,7 @@ public val LM_HITTEST: UInt = 1792u
 
 public val LM_SETITEM: UInt = 1794u
 
-public val LP_HYPERLINK: LINKPARTS = 1
+public val LP_HYPERLINK: Linkparts = 1
 
 public val LVA_ALIGNLEFT: UInt = 1u
 
@@ -2347,159 +2347,159 @@ public val LVA_DEFAULT: UInt = 0u
 
 public val LVA_SNAPTOGRID: UInt = 5u
 
-public val LVBKIF_FLAG_ALPHABLEND: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = 536870912u
+public val LVBKIF_FLAG_ALPHABLEND: ListViewBackgroundImageFlags = 536870912u
 
-public val LVBKIF_FLAG_TILEOFFSET: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = 256u
+public val LVBKIF_FLAG_TILEOFFSET: ListViewBackgroundImageFlags = 256u
 
-public val LVBKIF_SOURCE_HBITMAP: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = 1u
+public val LVBKIF_SOURCE_HBITMAP: ListViewBackgroundImageFlags = 1u
 
-public val LVBKIF_SOURCE_MASK: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = 3u
+public val LVBKIF_SOURCE_MASK: ListViewBackgroundImageFlags = 3u
 
-public val LVBKIF_SOURCE_NONE: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = 0u
+public val LVBKIF_SOURCE_NONE: ListViewBackgroundImageFlags = 0u
 
-public val LVBKIF_SOURCE_URL: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = 2u
+public val LVBKIF_SOURCE_URL: ListViewBackgroundImageFlags = 2u
 
-public val LVBKIF_STYLE_MASK: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = 16u
+public val LVBKIF_STYLE_MASK: ListViewBackgroundImageFlags = 16u
 
-public val LVBKIF_STYLE_NORMAL: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = 0u
+public val LVBKIF_STYLE_NORMAL: ListViewBackgroundImageFlags = 0u
 
-public val LVBKIF_STYLE_TILE: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = 16u
+public val LVBKIF_STYLE_TILE: ListViewBackgroundImageFlags = 16u
 
-public val LVBKIF_TYPE_WATERMARK: LIST_VIEW_BACKGROUND_IMAGE_FLAGS = 268435456u
+public val LVBKIF_TYPE_WATERMARK: ListViewBackgroundImageFlags = 268435456u
 
-public val LVCB_HOVER: COLLAPSEBUTTONSTATES = 2
+public val LVCB_HOVER: Collapsebuttonstates = 2
 
-public val LVCB_NORMAL: COLLAPSEBUTTONSTATES = 1
+public val LVCB_NORMAL: Collapsebuttonstates = 1
 
-public val LVCB_PUSHED: COLLAPSEBUTTONSTATES = 3
+public val LVCB_PUSHED: Collapsebuttonstates = 3
 
-public val LVCDI_GROUP: NMLVCUSTOMDRAW_ITEM_TYPE = 1u
+public val LVCDI_GROUP: NmlvcustomdrawItemType = 1u
 
-public val LVCDI_ITEM: NMLVCUSTOMDRAW_ITEM_TYPE = 0u
+public val LVCDI_ITEM: NmlvcustomdrawItemType = 0u
 
-public val LVCDI_ITEMSLIST: NMLVCUSTOMDRAW_ITEM_TYPE = 2u
+public val LVCDI_ITEMSLIST: NmlvcustomdrawItemType = 2u
 
 public val LVCDRF_NOGROUPFRAME: UInt = 131072u
 
 public val LVCDRF_NOSELECT: UInt = 65536u
 
-public val LVCFMT_BITMAP_ON_RIGHT: LVCOLUMNW_FORMAT = 4096
+public val LVCFMT_BITMAP_ON_RIGHT: LvcolumnwFormat = 4096
 
-public val LVCFMT_CENTER: LVCOLUMNW_FORMAT = 2
+public val LVCFMT_CENTER: LvcolumnwFormat = 2
 
-public val LVCFMT_COL_HAS_IMAGES: LVCOLUMNW_FORMAT = 32768
+public val LVCFMT_COL_HAS_IMAGES: LvcolumnwFormat = 32768
 
-public val LVCFMT_FILL: LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS = 2097152
+public val LVCFMT_FILL: ListViewItemColumnFormatFlags = 2097152
 
-public val LVCFMT_FIXED_RATIO: LVCOLUMNW_FORMAT = 524288
+public val LVCFMT_FIXED_RATIO: LvcolumnwFormat = 524288
 
-public val LVCFMT_FIXED_WIDTH: LVCOLUMNW_FORMAT = 256
+public val LVCFMT_FIXED_WIDTH: LvcolumnwFormat = 256
 
-public val LVCFMT_IMAGE: LVCOLUMNW_FORMAT = 2048
+public val LVCFMT_IMAGE: LvcolumnwFormat = 2048
 
-public val LVCFMT_JUSTIFYMASK: LVCOLUMNW_FORMAT = 3
+public val LVCFMT_JUSTIFYMASK: LvcolumnwFormat = 3
 
-public val LVCFMT_LEFT: LVCOLUMNW_FORMAT = 0
+public val LVCFMT_LEFT: LvcolumnwFormat = 0
 
-public val LVCFMT_LINE_BREAK: LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS = 1048576
+public val LVCFMT_LINE_BREAK: ListViewItemColumnFormatFlags = 1048576
 
-public val LVCFMT_NO_DPI_SCALE: LVCOLUMNW_FORMAT = 262144
+public val LVCFMT_NO_DPI_SCALE: LvcolumnwFormat = 262144
 
-public val LVCFMT_NO_TITLE: LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS = 8388608
+public val LVCFMT_NO_TITLE: ListViewItemColumnFormatFlags = 8388608
 
-public val LVCFMT_RIGHT: LVCOLUMNW_FORMAT = 1
+public val LVCFMT_RIGHT: LvcolumnwFormat = 1
 
-public val LVCFMT_SPLITBUTTON: LVCOLUMNW_FORMAT = 16777216
+public val LVCFMT_SPLITBUTTON: LvcolumnwFormat = 16777216
 
-public val LVCFMT_TILE_PLACEMENTMASK: LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS = 3145728
+public val LVCFMT_TILE_PLACEMENTMASK: ListViewItemColumnFormatFlags = 3145728
 
-public val LVCFMT_WRAP: LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS = 4194304
+public val LVCFMT_WRAP: ListViewItemColumnFormatFlags = 4194304
 
-public val LVCF_DEFAULTWIDTH: LVCOLUMNW_MASK = 128u
+public val LVCF_DEFAULTWIDTH: LvcolumnwMask = 128u
 
-public val LVCF_FMT: LVCOLUMNW_MASK = 1u
+public val LVCF_FMT: LvcolumnwMask = 1u
 
-public val LVCF_IDEALWIDTH: LVCOLUMNW_MASK = 256u
+public val LVCF_IDEALWIDTH: LvcolumnwMask = 256u
 
-public val LVCF_IMAGE: LVCOLUMNW_MASK = 16u
+public val LVCF_IMAGE: LvcolumnwMask = 16u
 
-public val LVCF_MINWIDTH: LVCOLUMNW_MASK = 64u
+public val LVCF_MINWIDTH: LvcolumnwMask = 64u
 
-public val LVCF_ORDER: LVCOLUMNW_MASK = 32u
+public val LVCF_ORDER: LvcolumnwMask = 32u
 
-public val LVCF_SUBITEM: LVCOLUMNW_MASK = 8u
+public val LVCF_SUBITEM: LvcolumnwMask = 8u
 
-public val LVCF_TEXT: LVCOLUMNW_MASK = 4u
+public val LVCF_TEXT: LvcolumnwMask = 4u
 
-public val LVCF_WIDTH: LVCOLUMNW_MASK = 2u
+public val LVCF_WIDTH: LvcolumnwMask = 2u
 
-public val LVEB_HOVER: EXPANDBUTTONSTATES = 2
+public val LVEB_HOVER: Expandbuttonstates = 2
 
-public val LVEB_NORMAL: EXPANDBUTTONSTATES = 1
+public val LVEB_NORMAL: Expandbuttonstates = 1
 
-public val LVEB_PUSHED: EXPANDBUTTONSTATES = 3
+public val LVEB_PUSHED: Expandbuttonstates = 3
 
 public val LVFF_ITEMCOUNT: UInt = 1u
 
-public val LVFIF_STATE: LVFOOTERITEM_MASK = 2u
+public val LVFIF_STATE: LvfooteritemMask = 2u
 
-public val LVFIF_TEXT: LVFOOTERITEM_MASK = 1u
+public val LVFIF_TEXT: LvfooteritemMask = 1u
 
 public val LVFIS_FOCUSED: UInt = 1u
 
-public val LVFI_NEARESTXY: LVFINDINFOW_FLAGS = 64u
+public val LVFI_NEARESTXY: LvfindinfowFlags = 64u
 
-public val LVFI_PARAM: LVFINDINFOW_FLAGS = 1u
+public val LVFI_PARAM: LvfindinfowFlags = 1u
 
-public val LVFI_PARTIAL: LVFINDINFOW_FLAGS = 8u
+public val LVFI_PARTIAL: LvfindinfowFlags = 8u
 
-public val LVFI_STRING: LVFINDINFOW_FLAGS = 2u
+public val LVFI_STRING: LvfindinfowFlags = 2u
 
-public val LVFI_SUBSTRING: LVFINDINFOW_FLAGS = 4u
+public val LVFI_SUBSTRING: LvfindinfowFlags = 4u
 
-public val LVFI_WRAP: LVFINDINFOW_FLAGS = 32u
+public val LVFI_WRAP: LvfindinfowFlags = 32u
 
-public val LVGA_FOOTER_CENTER: LIST_VIEW_GROUP_ALIGN_FLAGS = 16u
+public val LVGA_FOOTER_CENTER: ListViewGroupAlignFlags = 16u
 
-public val LVGA_FOOTER_LEFT: LIST_VIEW_GROUP_ALIGN_FLAGS = 8u
+public val LVGA_FOOTER_LEFT: ListViewGroupAlignFlags = 8u
 
-public val LVGA_FOOTER_RIGHT: LIST_VIEW_GROUP_ALIGN_FLAGS = 32u
+public val LVGA_FOOTER_RIGHT: ListViewGroupAlignFlags = 32u
 
-public val LVGA_HEADER_CENTER: LIST_VIEW_GROUP_ALIGN_FLAGS = 2u
+public val LVGA_HEADER_CENTER: ListViewGroupAlignFlags = 2u
 
-public val LVGA_HEADER_LEFT: LIST_VIEW_GROUP_ALIGN_FLAGS = 1u
+public val LVGA_HEADER_LEFT: ListViewGroupAlignFlags = 1u
 
-public val LVGA_HEADER_RIGHT: LIST_VIEW_GROUP_ALIGN_FLAGS = 4u
+public val LVGA_HEADER_RIGHT: ListViewGroupAlignFlags = 4u
 
-public val LVGF_ALIGN: LVGROUP_MASK = 8u
+public val LVGF_ALIGN: LvgroupMask = 8u
 
-public val LVGF_DESCRIPTIONBOTTOM: LVGROUP_MASK = 2048u
+public val LVGF_DESCRIPTIONBOTTOM: LvgroupMask = 2048u
 
-public val LVGF_DESCRIPTIONTOP: LVGROUP_MASK = 1024u
+public val LVGF_DESCRIPTIONTOP: LvgroupMask = 1024u
 
-public val LVGF_EXTENDEDIMAGE: LVGROUP_MASK = 8192u
+public val LVGF_EXTENDEDIMAGE: LvgroupMask = 8192u
 
-public val LVGF_FOOTER: LVGROUP_MASK = 2u
+public val LVGF_FOOTER: LvgroupMask = 2u
 
-public val LVGF_GROUPID: LVGROUP_MASK = 16u
+public val LVGF_GROUPID: LvgroupMask = 16u
 
-public val LVGF_HEADER: LVGROUP_MASK = 1u
+public val LVGF_HEADER: LvgroupMask = 1u
 
-public val LVGF_ITEMS: LVGROUP_MASK = 16384u
+public val LVGF_ITEMS: LvgroupMask = 16384u
 
-public val LVGF_NONE: LVGROUP_MASK = 0u
+public val LVGF_NONE: LvgroupMask = 0u
 
-public val LVGF_STATE: LVGROUP_MASK = 4u
+public val LVGF_STATE: LvgroupMask = 4u
 
-public val LVGF_SUBSET: LVGROUP_MASK = 32768u
+public val LVGF_SUBSET: LvgroupMask = 32768u
 
-public val LVGF_SUBSETITEMS: LVGROUP_MASK = 65536u
+public val LVGF_SUBSETITEMS: LvgroupMask = 65536u
 
-public val LVGF_SUBTITLE: LVGROUP_MASK = 256u
+public val LVGF_SUBTITLE: LvgroupMask = 256u
 
-public val LVGF_TASK: LVGROUP_MASK = 512u
+public val LVGF_TASK: LvgroupMask = 512u
 
-public val LVGF_TITLEIMAGE: LVGROUP_MASK = 4096u
+public val LVGF_TITLEIMAGE: LvgroupMask = 4096u
 
 public val LVGGR_GROUP: UInt = 0u
 
@@ -2509,73 +2509,73 @@ public val LVGGR_LABEL: UInt = 2u
 
 public val LVGGR_SUBSETLINK: UInt = 3u
 
-public val LVGHL_CLOSE: GROUPHEADERLINESTATES = 9
+public val LVGHL_CLOSE: Groupheaderlinestates = 9
 
-public val LVGHL_CLOSEHOT: GROUPHEADERLINESTATES = 10
+public val LVGHL_CLOSEHOT: Groupheaderlinestates = 10
 
-public val LVGHL_CLOSEMIXEDSELECTION: GROUPHEADERLINESTATES = 15
+public val LVGHL_CLOSEMIXEDSELECTION: Groupheaderlinestates = 15
 
-public val LVGHL_CLOSEMIXEDSELECTIONHOT: GROUPHEADERLINESTATES = 16
+public val LVGHL_CLOSEMIXEDSELECTIONHOT: Groupheaderlinestates = 16
 
-public val LVGHL_CLOSESELECTED: GROUPHEADERLINESTATES = 11
+public val LVGHL_CLOSESELECTED: Groupheaderlinestates = 11
 
-public val LVGHL_CLOSESELECTEDHOT: GROUPHEADERLINESTATES = 12
+public val LVGHL_CLOSESELECTEDHOT: Groupheaderlinestates = 12
 
-public val LVGHL_CLOSESELECTEDNOTFOCUSED: GROUPHEADERLINESTATES = 13
+public val LVGHL_CLOSESELECTEDNOTFOCUSED: Groupheaderlinestates = 13
 
-public val LVGHL_CLOSESELECTEDNOTFOCUSEDHOT: GROUPHEADERLINESTATES = 14
+public val LVGHL_CLOSESELECTEDNOTFOCUSEDHOT: Groupheaderlinestates = 14
 
-public val LVGHL_OPEN: GROUPHEADERLINESTATES = 1
+public val LVGHL_OPEN: Groupheaderlinestates = 1
 
-public val LVGHL_OPENHOT: GROUPHEADERLINESTATES = 2
+public val LVGHL_OPENHOT: Groupheaderlinestates = 2
 
-public val LVGHL_OPENMIXEDSELECTION: GROUPHEADERLINESTATES = 7
+public val LVGHL_OPENMIXEDSELECTION: Groupheaderlinestates = 7
 
-public val LVGHL_OPENMIXEDSELECTIONHOT: GROUPHEADERLINESTATES = 8
+public val LVGHL_OPENMIXEDSELECTIONHOT: Groupheaderlinestates = 8
 
-public val LVGHL_OPENSELECTED: GROUPHEADERLINESTATES = 3
+public val LVGHL_OPENSELECTED: Groupheaderlinestates = 3
 
-public val LVGHL_OPENSELECTEDHOT: GROUPHEADERLINESTATES = 4
+public val LVGHL_OPENSELECTEDHOT: Groupheaderlinestates = 4
 
-public val LVGHL_OPENSELECTEDNOTFOCUSED: GROUPHEADERLINESTATES = 5
+public val LVGHL_OPENSELECTEDNOTFOCUSED: Groupheaderlinestates = 5
 
-public val LVGHL_OPENSELECTEDNOTFOCUSEDHOT: GROUPHEADERLINESTATES = 6
+public val LVGHL_OPENSELECTEDNOTFOCUSEDHOT: Groupheaderlinestates = 6
 
-public val LVGH_CLOSE: GROUPHEADERSTATES = 9
+public val LVGH_CLOSE: Groupheaderstates = 9
 
-public val LVGH_CLOSEHOT: GROUPHEADERSTATES = 10
+public val LVGH_CLOSEHOT: Groupheaderstates = 10
 
-public val LVGH_CLOSEMIXEDSELECTION: GROUPHEADERSTATES = 15
+public val LVGH_CLOSEMIXEDSELECTION: Groupheaderstates = 15
 
-public val LVGH_CLOSEMIXEDSELECTIONHOT: GROUPHEADERSTATES = 16
+public val LVGH_CLOSEMIXEDSELECTIONHOT: Groupheaderstates = 16
 
-public val LVGH_CLOSESELECTED: GROUPHEADERSTATES = 11
+public val LVGH_CLOSESELECTED: Groupheaderstates = 11
 
-public val LVGH_CLOSESELECTEDHOT: GROUPHEADERSTATES = 12
+public val LVGH_CLOSESELECTEDHOT: Groupheaderstates = 12
 
-public val LVGH_CLOSESELECTEDNOTFOCUSED: GROUPHEADERSTATES = 13
+public val LVGH_CLOSESELECTEDNOTFOCUSED: Groupheaderstates = 13
 
-public val LVGH_CLOSESELECTEDNOTFOCUSEDHOT: GROUPHEADERSTATES = 14
+public val LVGH_CLOSESELECTEDNOTFOCUSEDHOT: Groupheaderstates = 14
 
-public val LVGH_OPEN: GROUPHEADERSTATES = 1
+public val LVGH_OPEN: Groupheaderstates = 1
 
-public val LVGH_OPENHOT: GROUPHEADERSTATES = 2
+public val LVGH_OPENHOT: Groupheaderstates = 2
 
-public val LVGH_OPENMIXEDSELECTION: GROUPHEADERSTATES = 7
+public val LVGH_OPENMIXEDSELECTION: Groupheaderstates = 7
 
-public val LVGH_OPENMIXEDSELECTIONHOT: GROUPHEADERSTATES = 8
+public val LVGH_OPENMIXEDSELECTIONHOT: Groupheaderstates = 8
 
-public val LVGH_OPENSELECTED: GROUPHEADERSTATES = 3
+public val LVGH_OPENSELECTED: Groupheaderstates = 3
 
-public val LVGH_OPENSELECTEDHOT: GROUPHEADERSTATES = 4
+public val LVGH_OPENSELECTEDHOT: Groupheaderstates = 4
 
-public val LVGH_OPENSELECTEDNOTFOCUSED: GROUPHEADERSTATES = 5
+public val LVGH_OPENSELECTEDNOTFOCUSED: Groupheaderstates = 5
 
-public val LVGH_OPENSELECTEDNOTFOCUSEDHOT: GROUPHEADERSTATES = 6
+public val LVGH_OPENSELECTEDNOTFOCUSEDHOT: Groupheaderstates = 6
 
-public val LVGIT_UNFOLDED: NMLVGETINFOTIP_FLAGS = 1u
+public val LVGIT_UNFOLDED: NmlvgetinfotipFlags = 1u
 
-public val LVGIT_ZERO: NMLVGETINFOTIP_FLAGS = 0u
+public val LVGIT_ZERO: NmlvgetinfotipFlags = 0u
 
 public val LVGMF_BORDERCOLOR: UInt = 2u
 
@@ -2585,77 +2585,77 @@ public val LVGMF_NONE: UInt = 0u
 
 public val LVGMF_TEXTCOLOR: UInt = 4u
 
-public val LVGS_COLLAPSED: LIST_VIEW_GROUP_STATE_FLAGS = 1u
+public val LVGS_COLLAPSED: ListViewGroupStateFlags = 1u
 
-public val LVGS_COLLAPSIBLE: LIST_VIEW_GROUP_STATE_FLAGS = 8u
+public val LVGS_COLLAPSIBLE: ListViewGroupStateFlags = 8u
 
-public val LVGS_FOCUSED: LIST_VIEW_GROUP_STATE_FLAGS = 16u
+public val LVGS_FOCUSED: ListViewGroupStateFlags = 16u
 
-public val LVGS_HIDDEN: LIST_VIEW_GROUP_STATE_FLAGS = 2u
+public val LVGS_HIDDEN: ListViewGroupStateFlags = 2u
 
-public val LVGS_NOHEADER: LIST_VIEW_GROUP_STATE_FLAGS = 4u
+public val LVGS_NOHEADER: ListViewGroupStateFlags = 4u
 
-public val LVGS_NORMAL: LIST_VIEW_GROUP_STATE_FLAGS = 0u
+public val LVGS_NORMAL: ListViewGroupStateFlags = 0u
 
-public val LVGS_SELECTED: LIST_VIEW_GROUP_STATE_FLAGS = 32u
+public val LVGS_SELECTED: ListViewGroupStateFlags = 32u
 
-public val LVGS_SUBSETED: LIST_VIEW_GROUP_STATE_FLAGS = 64u
+public val LVGS_SUBSETED: ListViewGroupStateFlags = 64u
 
-public val LVGS_SUBSETLINKFOCUSED: LIST_VIEW_GROUP_STATE_FLAGS = 128u
+public val LVGS_SUBSETLINKFOCUSED: ListViewGroupStateFlags = 128u
 
-public val LVHT_ABOVE: LVHITTESTINFO_FLAGS = 8u
+public val LVHT_ABOVE: LvhittestinfoFlags = 8u
 
-public val LVHT_BELOW: LVHITTESTINFO_FLAGS = 16u
+public val LVHT_BELOW: LvhittestinfoFlags = 16u
 
-public val LVHT_EX_FOOTER: LVHITTESTINFO_FLAGS = 134217728u
+public val LVHT_EX_FOOTER: LvhittestinfoFlags = 134217728u
 
-public val LVHT_EX_GROUP: LVHITTESTINFO_FLAGS = 4076863488u
+public val LVHT_EX_GROUP: LvhittestinfoFlags = 4076863488u
 
-public val LVHT_EX_GROUP_BACKGROUND: LVHITTESTINFO_FLAGS = 2147483648u
+public val LVHT_EX_GROUP_BACKGROUND: LvhittestinfoFlags = 2147483648u
 
-public val LVHT_EX_GROUP_COLLAPSE: LVHITTESTINFO_FLAGS = 1073741824u
+public val LVHT_EX_GROUP_COLLAPSE: LvhittestinfoFlags = 1073741824u
 
-public val LVHT_EX_GROUP_FOOTER: LVHITTESTINFO_FLAGS = 536870912u
+public val LVHT_EX_GROUP_FOOTER: LvhittestinfoFlags = 536870912u
 
-public val LVHT_EX_GROUP_HEADER: LVHITTESTINFO_FLAGS = 268435456u
+public val LVHT_EX_GROUP_HEADER: LvhittestinfoFlags = 268435456u
 
-public val LVHT_EX_GROUP_STATEICON: LVHITTESTINFO_FLAGS = 16777216u
+public val LVHT_EX_GROUP_STATEICON: LvhittestinfoFlags = 16777216u
 
-public val LVHT_EX_GROUP_SUBSETLINK: LVHITTESTINFO_FLAGS = 33554432u
+public val LVHT_EX_GROUP_SUBSETLINK: LvhittestinfoFlags = 33554432u
 
-public val LVHT_EX_ONCONTENTS: LVHITTESTINFO_FLAGS = 67108864u
+public val LVHT_EX_ONCONTENTS: LvhittestinfoFlags = 67108864u
 
-public val LVHT_NOWHERE: LVHITTESTINFO_FLAGS = 1u
+public val LVHT_NOWHERE: LvhittestinfoFlags = 1u
 
-public val LVHT_ONITEMICON: LVHITTESTINFO_FLAGS = 2u
+public val LVHT_ONITEMICON: LvhittestinfoFlags = 2u
 
-public val LVHT_ONITEMLABEL: LVHITTESTINFO_FLAGS = 4u
+public val LVHT_ONITEMLABEL: LvhittestinfoFlags = 4u
 
-public val LVHT_ONITEMSTATEICON: LVHITTESTINFO_FLAGS = 8u
+public val LVHT_ONITEMSTATEICON: LvhittestinfoFlags = 8u
 
-public val LVHT_TOLEFT: LVHITTESTINFO_FLAGS = 64u
+public val LVHT_TOLEFT: LvhittestinfoFlags = 64u
 
-public val LVHT_TORIGHT: LVHITTESTINFO_FLAGS = 32u
+public val LVHT_TORIGHT: LvhittestinfoFlags = 32u
 
-public val LVIF_COLFMT: LIST_VIEW_ITEM_FLAGS = 65536u
+public val LVIF_COLFMT: ListViewItemFlags = 65536u
 
-public val LVIF_COLUMNS: LIST_VIEW_ITEM_FLAGS = 512u
+public val LVIF_COLUMNS: ListViewItemFlags = 512u
 
-public val LVIF_DI_SETITEM: LIST_VIEW_ITEM_FLAGS = 4096u
+public val LVIF_DI_SETITEM: ListViewItemFlags = 4096u
 
-public val LVIF_GROUPID: LIST_VIEW_ITEM_FLAGS = 256u
+public val LVIF_GROUPID: ListViewItemFlags = 256u
 
-public val LVIF_IMAGE: LIST_VIEW_ITEM_FLAGS = 2u
+public val LVIF_IMAGE: ListViewItemFlags = 2u
 
-public val LVIF_INDENT: LIST_VIEW_ITEM_FLAGS = 16u
+public val LVIF_INDENT: ListViewItemFlags = 16u
 
-public val LVIF_NORECOMPUTE: LIST_VIEW_ITEM_FLAGS = 2048u
+public val LVIF_NORECOMPUTE: ListViewItemFlags = 2048u
 
-public val LVIF_PARAM: LIST_VIEW_ITEM_FLAGS = 4u
+public val LVIF_PARAM: ListViewItemFlags = 4u
 
-public val LVIF_STATE: LIST_VIEW_ITEM_FLAGS = 8u
+public val LVIF_STATE: ListViewItemFlags = 8u
 
-public val LVIF_TEXT: LIST_VIEW_ITEM_FLAGS = 1u
+public val LVIF_TEXT: ListViewItemFlags = 1u
 
 public val LVIM_AFTER: UInt = 1u
 
@@ -2667,21 +2667,21 @@ public val LVIR_LABEL: UInt = 2u
 
 public val LVIR_SELECTBOUNDS: UInt = 3u
 
-public val LVIS_ACTIVATING: LIST_VIEW_ITEM_STATE_FLAGS = 32u
+public val LVIS_ACTIVATING: ListViewItemStateFlags = 32u
 
-public val LVIS_CUT: LIST_VIEW_ITEM_STATE_FLAGS = 4u
+public val LVIS_CUT: ListViewItemStateFlags = 4u
 
-public val LVIS_DROPHILITED: LIST_VIEW_ITEM_STATE_FLAGS = 8u
+public val LVIS_DROPHILITED: ListViewItemStateFlags = 8u
 
-public val LVIS_FOCUSED: LIST_VIEW_ITEM_STATE_FLAGS = 1u
+public val LVIS_FOCUSED: ListViewItemStateFlags = 1u
 
-public val LVIS_GLOW: LIST_VIEW_ITEM_STATE_FLAGS = 16u
+public val LVIS_GLOW: ListViewItemStateFlags = 16u
 
-public val LVIS_OVERLAYMASK: LIST_VIEW_ITEM_STATE_FLAGS = 3840u
+public val LVIS_OVERLAYMASK: ListViewItemStateFlags = 3840u
 
-public val LVIS_SELECTED: LIST_VIEW_ITEM_STATE_FLAGS = 2u
+public val LVIS_SELECTED: ListViewItemStateFlags = 2u
 
-public val LVIS_STATEIMAGEMASK: LIST_VIEW_ITEM_STATE_FLAGS = 61440u
+public val LVIS_STATEIMAGEMASK: ListViewItemStateFlags = 61440u
 
 public val LVKF_ALT: UInt = 1u
 

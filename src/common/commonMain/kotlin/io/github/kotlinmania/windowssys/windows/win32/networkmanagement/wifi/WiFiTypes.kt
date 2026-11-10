@@ -1,467 +1,468 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
-public typealias CH_DESCRIPTION_TYPE = Int
+public typealias ChDescriptionType = Int
 
-public typealias DEVPROP_PCIDEVICE_ACSCOMPATIBLEUPHIERARCHY = UInt
+public typealias DevpropPcideviceAcscompatibleuphierarchy = UInt
 
-public typealias DEVPROP_PCIDEVICE_ACSSUPPORT = UInt
+public typealias DevpropPcideviceAcssupport = UInt
 
-public typealias DEVPROP_PCIDEVICE_CURRENTSPEEDANDMODE = UInt
+public typealias DevpropPcideviceCurrentspeedandmode = UInt
 
-public typealias DEVPROP_PCIDEVICE_DEVICEBRIDGETYPE = UInt
+public typealias DevpropPcideviceDevicebridgetype = UInt
 
-public typealias DEVPROP_PCIDEVICE_INTERRUPTTYPE = UInt
+public typealias DevpropPcideviceInterrupttype = UInt
 
-public typealias DEVPROP_PCIDEVICE_SRIOVSUPPORT = UInt
+public typealias DevpropPcideviceSriovsupport = UInt
 
-public typealias DEVPROP_PCIEXPRESSDEVICE_LINKSPEED = UInt
+public typealias DevpropPciexpressdeviceLinkspeed = UInt
 
-public typealias DEVPROP_PCIEXPRESSDEVICE_LINKWIDTH = UInt
+public typealias DevpropPciexpressdeviceLinkwidth = UInt
 
-public typealias DEVPROP_PCIEXPRESSDEVICE_PAYLOADORREQUESTSIZE = UInt
+public typealias DevpropPciexpressdevicePayloadorrequestsize = UInt
 
-public typealias DEVPROP_PCIEXPRESSDEVICE_SPEC_VERSION = UInt
+public typealias DevpropPciexpressdeviceSpecVersion = UInt
 
-public typealias DEVPROP_PCIROOTBUS_BUSWIDTH = UInt
+public typealias DevpropPcirootbusBuswidth = UInt
 
-public typealias DEVPROP_PCIROOTBUS_CURRENTSPEEDANDMODE = UInt
+public typealias DevpropPcirootbusCurrentspeedandmode = UInt
 
-public typealias DEVPROP_PCIROOTBUS_SECONDARYINTERFACE = UInt
+public typealias DevpropPcirootbusSecondaryinterface = UInt
 
-public typealias DEVPROP_PCIROOTBUS_SUPPORTEDSPEEDSANDMODES = UInt
+public typealias DevpropPcirootbusSupportedspeedsandmodes = UInt
 
-public fun interface DOT11EXTIHV_ADAPTER_RESETFn {
-    public operator fun invoke(hihvextadapter: HANDLE): UInt
+public fun interface Dot11extihvAdapterResetFn {
+    public operator fun invoke(hihvextadapter: Handle): UInt
 }
 
-public typealias DOT11EXTIHV_ADAPTER_RESET = DOT11EXTIHV_ADAPTER_RESETFn?
+public typealias Dot11extihvAdapterReset = Dot11extihvAdapterResetFn?
 
-public fun interface DOT11EXTIHV_CONTROLFn {
-    public operator fun invoke(hihvextadapter: HANDLE, dwinbuffersize: UInt, pinbuffer: Long, dwoutbuffersize: UInt, poutbuffer: Long, pdwbytesreturned: Long): UInt
+public fun interface Dot11extihvControlFn {
+    public operator fun invoke(hihvextadapter: Handle, dwinbuffersize: UInt, pinbuffer: COpaquePointer?, dwoutbuffersize: UInt, poutbuffer: COpaquePointer?, pdwbytesreturned: COpaquePointer?): UInt
 }
 
-public typealias DOT11EXTIHV_CONTROL = DOT11EXTIHV_CONTROLFn?
+public typealias Dot11extihvControl = Dot11extihvControlFn?
 
-public fun interface DOT11EXTIHV_CREATE_DISCOVERY_PROFILESFn {
-    public operator fun invoke(hihvextadapter: HANDLE, binsecure: BOOL, pihvprofileparams: Long, pconnectablebssid: Long, pihvdiscoveryprofilelist: Long, pdwreasoncode: Long): UInt
+public fun interface Dot11extihvCreateDiscoveryProfilesFn {
+    public operator fun invoke(hihvextadapter: Handle, binsecure: Bool, pihvprofileparams: COpaquePointer?, pconnectablebssid: COpaquePointer?, pihvdiscoveryprofilelist: COpaquePointer?, pdwreasoncode: COpaquePointer?): UInt
 }
 
-public typealias DOT11EXTIHV_CREATE_DISCOVERY_PROFILES = DOT11EXTIHV_CREATE_DISCOVERY_PROFILESFn?
+public typealias Dot11extihvCreateDiscoveryProfiles = Dot11extihvCreateDiscoveryProfilesFn?
 
-public fun interface DOT11EXTIHV_DEINIT_ADAPTERFn {
-    public operator fun invoke(hihvextadapter: HANDLE)
+public fun interface Dot11extihvDeinitAdapterFn {
+    public operator fun invoke(hihvextadapter: Handle)
 }
 
-public typealias DOT11EXTIHV_DEINIT_ADAPTER = DOT11EXTIHV_DEINIT_ADAPTERFn?
+public typealias Dot11extihvDeinitAdapter = Dot11extihvDeinitAdapterFn?
 
-public fun interface DOT11EXTIHV_DEINIT_SERVICEFn {
+public fun interface Dot11extihvDeinitServiceFn {
     public operator fun invoke()
 }
 
-public typealias DOT11EXTIHV_DEINIT_SERVICE = DOT11EXTIHV_DEINIT_SERVICEFn?
+public typealias Dot11extihvDeinitService = Dot11extihvDeinitServiceFn?
 
-public fun interface DOT11EXTIHV_GET_VERSION_INFOFn {
-    public operator fun invoke(pdot11ihvversioninfo: Long): UInt
+public fun interface Dot11extihvGetVersionInfoFn {
+    public operator fun invoke(pdot11ihvversioninfo: COpaquePointer?): UInt
 }
 
-public typealias DOT11EXTIHV_GET_VERSION_INFO = DOT11EXTIHV_GET_VERSION_INFOFn?
+public typealias Dot11extihvGetVersionInfo = Dot11extihvGetVersionInfoFn?
 
-public fun interface DOT11EXTIHV_INIT_ADAPTERFn {
-    public operator fun invoke(pdot11adapter: Long, hdot11svchandle: HANDLE, phihvextadapter: Long): UInt
+public fun interface Dot11extihvInitAdapterFn {
+    public operator fun invoke(pdot11adapter: COpaquePointer?, hdot11svchandle: Handle, phihvextadapter: COpaquePointer?): UInt
 }
 
-public typealias DOT11EXTIHV_INIT_ADAPTER = DOT11EXTIHV_INIT_ADAPTERFn?
+public typealias Dot11extihvInitAdapter = Dot11extihvInitAdapterFn?
 
-public fun interface DOT11EXTIHV_INIT_SERVICEFn {
-    public operator fun invoke(dwvernumused: UInt, pdot11extapi: Long, pvreserved: Long, pdot11ihvhandlers: Long): UInt
+public fun interface Dot11extihvInitServiceFn {
+    public operator fun invoke(dwvernumused: UInt, pdot11extapi: COpaquePointer?, pvreserved: COpaquePointer?, pdot11ihvhandlers: COpaquePointer?): UInt
 }
 
-public typealias DOT11EXTIHV_INIT_SERVICE = DOT11EXTIHV_INIT_SERVICEFn?
+public typealias Dot11extihvInitService = Dot11extihvInitServiceFn?
 
-public fun interface DOT11EXTIHV_INIT_VIRTUAL_STATIONFn {
-    public operator fun invoke(pdot11extvsapi: Long, pvreserved: Long): UInt
+public fun interface Dot11extihvInitVirtualStationFn {
+    public operator fun invoke(pdot11extvsapi: COpaquePointer?, pvreserved: COpaquePointer?): UInt
 }
 
-public typealias DOT11EXTIHV_INIT_VIRTUAL_STATION = DOT11EXTIHV_INIT_VIRTUAL_STATIONFn?
+public typealias Dot11extihvInitVirtualStation = Dot11extihvInitVirtualStationFn?
 
-public fun interface DOT11EXTIHV_IS_UI_REQUEST_PENDINGFn {
-    public operator fun invoke(guiduirequest: GUID, pbisrequestpending: Long): UInt
+public fun interface Dot11extihvIsUiRequestPendingFn {
+    public operator fun invoke(guiduirequest: Guid, pbisrequestpending: COpaquePointer?): UInt
 }
 
-public typealias DOT11EXTIHV_IS_UI_REQUEST_PENDING = DOT11EXTIHV_IS_UI_REQUEST_PENDINGFn?
+public typealias Dot11extihvIsUiRequestPending = Dot11extihvIsUiRequestPendingFn?
 
-public fun interface DOT11EXTIHV_ONEX_INDICATE_RESULTFn {
-    public operator fun invoke(hihvextadapter: HANDLE, msonexresult: DOT11_MSONEX_RESULT, pdot11msonexresultparams: Long): UInt
+public fun interface Dot11extihvOnexIndicateResultFn {
+    public operator fun invoke(hihvextadapter: Handle, msonexresult: Dot11MsonexResult, pdot11msonexresultparams: COpaquePointer?): UInt
 }
 
-public typealias DOT11EXTIHV_ONEX_INDICATE_RESULT = DOT11EXTIHV_ONEX_INDICATE_RESULTFn?
+public typealias Dot11extihvOnexIndicateResult = Dot11extihvOnexIndicateResultFn?
 
-public fun interface DOT11EXTIHV_PERFORM_CAPABILITY_MATCHFn {
-    public operator fun invoke(hihvextadapter: HANDLE, pihvprofileparams: Long, pihvconnprofile: Long, pihvsecprofile: Long, pconnectablebssid: Long, pdwreasoncode: Long): UInt
+public fun interface Dot11extihvPerformCapabilityMatchFn {
+    public operator fun invoke(hihvextadapter: Handle, pihvprofileparams: COpaquePointer?, pihvconnprofile: COpaquePointer?, pihvsecprofile: COpaquePointer?, pconnectablebssid: COpaquePointer?, pdwreasoncode: COpaquePointer?): UInt
 }
 
-public typealias DOT11EXTIHV_PERFORM_CAPABILITY_MATCH = DOT11EXTIHV_PERFORM_CAPABILITY_MATCHFn?
+public typealias Dot11extihvPerformCapabilityMatch = Dot11extihvPerformCapabilityMatchFn?
 
-public fun interface DOT11EXTIHV_PERFORM_POST_ASSOCIATEFn {
-    public operator fun invoke(hihvextadapter: HANDLE, hsecuritysessionid: HANDLE, pportstate: Long, udot11assocparamsbytes: UInt, pdot11assocparams: Long): UInt
+public fun interface Dot11extihvPerformPostAssociateFn {
+    public operator fun invoke(hihvextadapter: Handle, hsecuritysessionid: Handle, pportstate: COpaquePointer?, udot11assocparamsbytes: UInt, pdot11assocparams: COpaquePointer?): UInt
 }
 
-public typealias DOT11EXTIHV_PERFORM_POST_ASSOCIATE = DOT11EXTIHV_PERFORM_POST_ASSOCIATEFn?
+public typealias Dot11extihvPerformPostAssociate = Dot11extihvPerformPostAssociateFn?
 
-public fun interface DOT11EXTIHV_PERFORM_PRE_ASSOCIATEFn {
-    public operator fun invoke(hihvextadapter: HANDLE, hconnectsession: HANDLE, pihvprofileparams: Long, pihvconnprofile: Long, pihvsecprofile: Long, pconnectablebssid: Long, pdwreasoncode: Long): UInt
+public fun interface Dot11extihvPerformPreAssociateFn {
+    public operator fun invoke(hihvextadapter: Handle, hconnectsession: Handle, pihvprofileparams: COpaquePointer?, pihvconnprofile: COpaquePointer?, pihvsecprofile: COpaquePointer?, pconnectablebssid: COpaquePointer?, pdwreasoncode: COpaquePointer?): UInt
 }
 
-public typealias DOT11EXTIHV_PERFORM_PRE_ASSOCIATE = DOT11EXTIHV_PERFORM_PRE_ASSOCIATEFn?
+public typealias Dot11extihvPerformPreAssociate = Dot11extihvPerformPreAssociateFn?
 
-public fun interface DOT11EXTIHV_PROCESS_SESSION_CHANGEFn {
-    public operator fun invoke(ueventtype: UInt, psessionnotification: Long): UInt
+public fun interface Dot11extihvProcessSessionChangeFn {
+    public operator fun invoke(ueventtype: UInt, psessionnotification: COpaquePointer?): UInt
 }
 
-public typealias DOT11EXTIHV_PROCESS_SESSION_CHANGE = DOT11EXTIHV_PROCESS_SESSION_CHANGEFn?
+public typealias Dot11extihvProcessSessionChange = Dot11extihvProcessSessionChangeFn?
 
-public fun interface DOT11EXTIHV_PROCESS_UI_RESPONSEFn {
-    public operator fun invoke(guiduirequest: GUID, dwbytecount: UInt, pvresponsebuffer: Long): UInt
+public fun interface Dot11extihvProcessUiResponseFn {
+    public operator fun invoke(guiduirequest: Guid, dwbytecount: UInt, pvresponsebuffer: COpaquePointer?): UInt
 }
 
-public typealias DOT11EXTIHV_PROCESS_UI_RESPONSE = DOT11EXTIHV_PROCESS_UI_RESPONSEFn?
+public typealias Dot11extihvProcessUiResponse = Dot11extihvProcessUiResponseFn?
 
-public fun interface DOT11EXTIHV_QUERY_UI_REQUESTFn {
-    public operator fun invoke(hihvextadapter: HANDLE, connectionphase: DOT11EXT_IHV_CONNECTION_PHASE, ppihvuirequest: Long): UInt
+public fun interface Dot11extihvQueryUiRequestFn {
+    public operator fun invoke(hihvextadapter: Handle, connectionphase: Dot11extIhvConnectionPhase, ppihvuirequest: COpaquePointer?): UInt
 }
 
-public typealias DOT11EXTIHV_QUERY_UI_REQUEST = DOT11EXTIHV_QUERY_UI_REQUESTFn?
+public typealias Dot11extihvQueryUiRequest = Dot11extihvQueryUiRequestFn?
 
-public fun interface DOT11EXTIHV_RECEIVE_INDICATIONFn {
-    public operator fun invoke(hihvextadapter: HANDLE, indicationtype: DOT11EXT_IHV_INDICATION_TYPE, ubufferlength: UInt, pvbuffer: Long): UInt
+public fun interface Dot11extihvReceiveIndicationFn {
+    public operator fun invoke(hihvextadapter: Handle, indicationtype: Dot11extIhvIndicationType, ubufferlength: UInt, pvbuffer: COpaquePointer?): UInt
 }
 
-public typealias DOT11EXTIHV_RECEIVE_INDICATION = DOT11EXTIHV_RECEIVE_INDICATIONFn?
+public typealias Dot11extihvReceiveIndication = Dot11extihvReceiveIndicationFn?
 
-public fun interface DOT11EXTIHV_RECEIVE_PACKETFn {
-    public operator fun invoke(hihvextadapter: HANDLE, dwinbuffersize: UInt, pvinbuffer: Long): UInt
+public fun interface Dot11extihvReceivePacketFn {
+    public operator fun invoke(hihvextadapter: Handle, dwinbuffersize: UInt, pvinbuffer: COpaquePointer?): UInt
 }
 
-public typealias DOT11EXTIHV_RECEIVE_PACKET = DOT11EXTIHV_RECEIVE_PACKETFn?
+public typealias Dot11extihvReceivePacket = Dot11extihvReceivePacketFn?
 
-public fun interface DOT11EXTIHV_SEND_PACKET_COMPLETIONFn {
-    public operator fun invoke(hsendcompletion: HANDLE): UInt
+public fun interface Dot11extihvSendPacketCompletionFn {
+    public operator fun invoke(hsendcompletion: Handle): UInt
 }
 
-public typealias DOT11EXTIHV_SEND_PACKET_COMPLETION = DOT11EXTIHV_SEND_PACKET_COMPLETIONFn?
+public typealias Dot11extihvSendPacketCompletion = Dot11extihvSendPacketCompletionFn?
 
-public fun interface DOT11EXTIHV_STOP_POST_ASSOCIATEFn {
-    public operator fun invoke(hihvextadapter: HANDLE, ppeer: Long, dot11assocstatus: UInt): UInt
+public fun interface Dot11extihvStopPostAssociateFn {
+    public operator fun invoke(hihvextadapter: Handle, ppeer: COpaquePointer?, dot11assocstatus: UInt): UInt
 }
 
-public typealias DOT11EXTIHV_STOP_POST_ASSOCIATE = DOT11EXTIHV_STOP_POST_ASSOCIATEFn?
+public typealias Dot11extihvStopPostAssociate = Dot11extihvStopPostAssociateFn?
 
-public fun interface DOT11EXTIHV_VALIDATE_PROFILEFn {
-    public operator fun invoke(hihvextadapter: HANDLE, pihvprofileparams: Long, pihvconnprofile: Long, pihvsecprofile: Long, pdwreasoncode: Long): UInt
+public fun interface Dot11extihvValidateProfileFn {
+    public operator fun invoke(hihvextadapter: Handle, pihvprofileparams: COpaquePointer?, pihvconnprofile: COpaquePointer?, pihvsecprofile: COpaquePointer?, pdwreasoncode: COpaquePointer?): UInt
 }
 
-public typealias DOT11EXTIHV_VALIDATE_PROFILE = DOT11EXTIHV_VALIDATE_PROFILEFn?
+public typealias Dot11extihvValidateProfile = Dot11extihvValidateProfileFn?
 
-public fun interface DOT11EXT_ALLOCATE_BUFFERFn {
-    public operator fun invoke(dwbytecount: UInt, ppvbuffer: Long): UInt
+public fun interface Dot11extAllocateBufferFn {
+    public operator fun invoke(dwbytecount: UInt, ppvbuffer: COpaquePointer?): UInt
 }
 
-public typealias DOT11EXT_ALLOCATE_BUFFER = DOT11EXT_ALLOCATE_BUFFERFn?
+public typealias Dot11extAllocateBuffer = Dot11extAllocateBufferFn?
 
-public fun interface DOT11EXT_FREE_BUFFERFn {
-    public operator fun invoke(pvmemory: Long)
+public fun interface Dot11extFreeBufferFn {
+    public operator fun invoke(pvmemory: COpaquePointer?)
 }
 
-public typealias DOT11EXT_FREE_BUFFER = DOT11EXT_FREE_BUFFERFn?
+public typealias Dot11extFreeBuffer = Dot11extFreeBufferFn?
 
-public fun interface DOT11EXT_GET_PROFILE_CUSTOM_USER_DATAFn {
-    public operator fun invoke(hdot11svchandle: HANDLE, hconnectsession: HANDLE, dwsessionid: UInt, pdwdatasize: Long, ppvdata: Long): UInt
+public fun interface Dot11extGetProfileCustomUserDataFn {
+    public operator fun invoke(hdot11svchandle: Handle, hconnectsession: Handle, dwsessionid: UInt, pdwdatasize: COpaquePointer?, ppvdata: COpaquePointer?): UInt
 }
 
-public typealias DOT11EXT_GET_PROFILE_CUSTOM_USER_DATA = DOT11EXT_GET_PROFILE_CUSTOM_USER_DATAFn?
+public typealias Dot11extGetProfileCustomUserData = Dot11extGetProfileCustomUserDataFn?
 
-public typealias DOT11EXT_IHV_CONNECTION_PHASE = Int
+public typealias Dot11extIhvConnectionPhase = Int
 
-public typealias DOT11EXT_IHV_INDICATION_TYPE = Int
+public typealias Dot11extIhvIndicationType = Int
 
-public fun interface DOT11EXT_NIC_SPECIFIC_EXTENSIONFn {
-    public operator fun invoke(hdot11svchandle: HANDLE, dwinbuffersize: UInt, pvinbuffer: Long, pdwoutbuffersize: Long, pvoutbuffer: Long): UInt
+public fun interface Dot11extNicSpecificExtensionFn {
+    public operator fun invoke(hdot11svchandle: Handle, dwinbuffersize: UInt, pvinbuffer: COpaquePointer?, pdwoutbuffersize: COpaquePointer?, pvoutbuffer: COpaquePointer?): UInt
 }
 
-public typealias DOT11EXT_NIC_SPECIFIC_EXTENSION = DOT11EXT_NIC_SPECIFIC_EXTENSIONFn?
+public typealias Dot11extNicSpecificExtension = Dot11extNicSpecificExtensionFn?
 
-public fun interface DOT11EXT_ONEX_STARTFn {
-    public operator fun invoke(hdot11svchandle: HANDLE, peapattributes: Long): UInt
+public fun interface Dot11extOnexStartFn {
+    public operator fun invoke(hdot11svchandle: Handle, peapattributes: COpaquePointer?): UInt
 }
 
-public typealias DOT11EXT_ONEX_START = DOT11EXT_ONEX_STARTFn?
+public typealias Dot11extOnexStart = Dot11extOnexStartFn?
 
-public fun interface DOT11EXT_ONEX_STOPFn {
-    public operator fun invoke(hdot11svchandle: HANDLE): UInt
+public fun interface Dot11extOnexStopFn {
+    public operator fun invoke(hdot11svchandle: Handle): UInt
 }
 
-public typealias DOT11EXT_ONEX_STOP = DOT11EXT_ONEX_STOPFn?
+public typealias Dot11extOnexStop = Dot11extOnexStopFn?
 
-public fun interface DOT11EXT_POST_ASSOCIATE_COMPLETIONFn {
-    public operator fun invoke(hdot11svchandle: HANDLE, hsecuritysessionid: HANDLE, ppeer: Long, dwreasoncode: UInt, dwwin32error: UInt): UInt
+public fun interface Dot11extPostAssociateCompletionFn {
+    public operator fun invoke(hdot11svchandle: Handle, hsecuritysessionid: Handle, ppeer: COpaquePointer?, dwreasoncode: UInt, dwwin32error: UInt): UInt
 }
 
-public typealias DOT11EXT_POST_ASSOCIATE_COMPLETION = DOT11EXT_POST_ASSOCIATE_COMPLETIONFn?
+public typealias Dot11extPostAssociateCompletion = Dot11extPostAssociateCompletionFn?
 
-public fun interface DOT11EXT_PRE_ASSOCIATE_COMPLETIONFn {
-    public operator fun invoke(hdot11svchandle: HANDLE, hconnectsession: HANDLE, dwreasoncode: UInt, dwwin32error: UInt): UInt
+public fun interface Dot11extPreAssociateCompletionFn {
+    public operator fun invoke(hdot11svchandle: Handle, hconnectsession: Handle, dwreasoncode: UInt, dwwin32error: UInt): UInt
 }
 
-public typealias DOT11EXT_PRE_ASSOCIATE_COMPLETION = DOT11EXT_PRE_ASSOCIATE_COMPLETIONFn?
+public typealias Dot11extPreAssociateCompletion = Dot11extPreAssociateCompletionFn?
 
-public fun interface DOT11EXT_PROCESS_ONEX_PACKETFn {
-    public operator fun invoke(hdot11svchandle: HANDLE, dwinpacketsize: UInt, pvinpacket: Long): UInt
+public fun interface Dot11extProcessOnexPacketFn {
+    public operator fun invoke(hdot11svchandle: Handle, dwinpacketsize: UInt, pvinpacket: COpaquePointer?): UInt
 }
 
-public typealias DOT11EXT_PROCESS_ONEX_PACKET = DOT11EXT_PROCESS_ONEX_PACKETFn?
+public typealias Dot11extProcessOnexPacket = Dot11extProcessOnexPacketFn?
 
-public fun interface DOT11EXT_QUERY_VIRTUAL_STATION_PROPERTIESFn {
-    public operator fun invoke(hdot11svchandle: HANDLE, pbisvirtualstation: Long, pgprimary: Long, pvreserved: Long): UInt
+public fun interface Dot11extQueryVirtualStationPropertiesFn {
+    public operator fun invoke(hdot11svchandle: Handle, pbisvirtualstation: COpaquePointer?, pgprimary: COpaquePointer?, pvreserved: COpaquePointer?): UInt
 }
 
-public typealias DOT11EXT_QUERY_VIRTUAL_STATION_PROPERTIES = DOT11EXT_QUERY_VIRTUAL_STATION_PROPERTIESFn?
+public typealias Dot11extQueryVirtualStationProperties = Dot11extQueryVirtualStationPropertiesFn?
 
-public fun interface DOT11EXT_RELEASE_VIRTUAL_STATIONFn {
-    public operator fun invoke(hdot11primaryhandle: HANDLE, pvreserved: Long): UInt
+public fun interface Dot11extReleaseVirtualStationFn {
+    public operator fun invoke(hdot11primaryhandle: Handle, pvreserved: COpaquePointer?): UInt
 }
 
-public typealias DOT11EXT_RELEASE_VIRTUAL_STATION = DOT11EXT_RELEASE_VIRTUAL_STATIONFn?
+public typealias Dot11extReleaseVirtualStation = Dot11extReleaseVirtualStationFn?
 
-public fun interface DOT11EXT_REQUEST_VIRTUAL_STATIONFn {
-    public operator fun invoke(hdot11primaryhandle: HANDLE, pvreserved: Long): UInt
+public fun interface Dot11extRequestVirtualStationFn {
+    public operator fun invoke(hdot11primaryhandle: Handle, pvreserved: COpaquePointer?): UInt
 }
 
-public typealias DOT11EXT_REQUEST_VIRTUAL_STATION = DOT11EXT_REQUEST_VIRTUAL_STATIONFn?
+public typealias Dot11extRequestVirtualStation = Dot11extRequestVirtualStationFn?
 
-public fun interface DOT11EXT_SEND_NOTIFICATIONFn {
-    public operator fun invoke(hdot11svchandle: HANDLE, pnotificationdata: Long): UInt
+public fun interface Dot11extSendNotificationFn {
+    public operator fun invoke(hdot11svchandle: Handle, pnotificationdata: COpaquePointer?): UInt
 }
 
-public typealias DOT11EXT_SEND_NOTIFICATION = DOT11EXT_SEND_NOTIFICATIONFn?
+public typealias Dot11extSendNotification = Dot11extSendNotificationFn?
 
-public fun interface DOT11EXT_SEND_PACKETFn {
-    public operator fun invoke(hdot11svchandle: HANDLE, upacketlen: UInt, pvpacket: Long, hsendcompletion: HANDLE): UInt
+public fun interface Dot11extSendPacketFn {
+    public operator fun invoke(hdot11svchandle: Handle, upacketlen: UInt, pvpacket: COpaquePointer?, hsendcompletion: Handle): UInt
 }
 
-public typealias DOT11EXT_SEND_PACKET = DOT11EXT_SEND_PACKETFn?
+public typealias Dot11extSendPacket = Dot11extSendPacketFn?
 
-public fun interface DOT11EXT_SEND_UI_REQUESTFn {
-    public operator fun invoke(hdot11svchandle: HANDLE, pihvuirequest: Long): UInt
+public fun interface Dot11extSendUiRequestFn {
+    public operator fun invoke(hdot11svchandle: Handle, pihvuirequest: COpaquePointer?): UInt
 }
 
-public typealias DOT11EXT_SEND_UI_REQUEST = DOT11EXT_SEND_UI_REQUESTFn?
+public typealias Dot11extSendUiRequest = Dot11extSendUiRequestFn?
 
-public fun interface DOT11EXT_SET_AUTH_ALGORITHMFn {
-    public operator fun invoke(hdot11svchandle: HANDLE, dwauthalgo: UInt): UInt
+public fun interface Dot11extSetAuthAlgorithmFn {
+    public operator fun invoke(hdot11svchandle: Handle, dwauthalgo: UInt): UInt
 }
 
-public typealias DOT11EXT_SET_AUTH_ALGORITHM = DOT11EXT_SET_AUTH_ALGORITHMFn?
+public typealias Dot11extSetAuthAlgorithm = Dot11extSetAuthAlgorithmFn?
 
-public fun interface DOT11EXT_SET_CURRENT_PROFILEFn {
-    public operator fun invoke(hdot11svchandle: HANDLE, hconnectsession: HANDLE, pihvconnprofile: Long, pihvsecprofile: Long): UInt
+public fun interface Dot11extSetCurrentProfileFn {
+    public operator fun invoke(hdot11svchandle: Handle, hconnectsession: Handle, pihvconnprofile: COpaquePointer?, pihvsecprofile: COpaquePointer?): UInt
 }
 
-public typealias DOT11EXT_SET_CURRENT_PROFILE = DOT11EXT_SET_CURRENT_PROFILEFn?
+public typealias Dot11extSetCurrentProfile = Dot11extSetCurrentProfileFn?
 
-public fun interface DOT11EXT_SET_DEFAULT_KEYFn {
-    public operator fun invoke(hdot11svchandle: HANDLE, pkey: Long, dot11direction: DOT11_DIRECTION): UInt
+public fun interface Dot11extSetDefaultKeyFn {
+    public operator fun invoke(hdot11svchandle: Handle, pkey: COpaquePointer?, dot11direction: Dot11Direction): UInt
 }
 
-public typealias DOT11EXT_SET_DEFAULT_KEY = DOT11EXT_SET_DEFAULT_KEYFn?
+public typealias Dot11extSetDefaultKey = Dot11extSetDefaultKeyFn?
 
-public fun interface DOT11EXT_SET_DEFAULT_KEY_IDFn {
-    public operator fun invoke(hdot11svchandle: HANDLE, udefaultkeyid: UInt): UInt
+public fun interface Dot11extSetDefaultKeyIdFn {
+    public operator fun invoke(hdot11svchandle: Handle, udefaultkeyid: UInt): UInt
 }
 
-public typealias DOT11EXT_SET_DEFAULT_KEY_ID = DOT11EXT_SET_DEFAULT_KEY_IDFn?
+public typealias Dot11extSetDefaultKeyId = Dot11extSetDefaultKeyIdFn?
 
-public fun interface DOT11EXT_SET_ETHERTYPE_HANDLINGFn {
-    public operator fun invoke(hdot11svchandle: HANDLE, umaxbacklog: UInt, unumofexemption: UInt, pexemption: Long, unumofregistration: UInt, pusregistration: Long): UInt
+public fun interface Dot11extSetEthertypeHandlingFn {
+    public operator fun invoke(hdot11svchandle: Handle, umaxbacklog: UInt, unumofexemption: UInt, pexemption: COpaquePointer?, unumofregistration: UInt, pusregistration: COpaquePointer?): UInt
 }
 
-public typealias DOT11EXT_SET_ETHERTYPE_HANDLING = DOT11EXT_SET_ETHERTYPE_HANDLINGFn?
+public typealias Dot11extSetEthertypeHandling = Dot11extSetEthertypeHandlingFn?
 
-public fun interface DOT11EXT_SET_EXCLUDE_UNENCRYPTEDFn {
-    public operator fun invoke(hdot11svchandle: HANDLE, bexcludeunencrypted: BOOL): UInt
+public fun interface Dot11extSetExcludeUnencryptedFn {
+    public operator fun invoke(hdot11svchandle: Handle, bexcludeunencrypted: Bool): UInt
 }
 
-public typealias DOT11EXT_SET_EXCLUDE_UNENCRYPTED = DOT11EXT_SET_EXCLUDE_UNENCRYPTEDFn?
+public typealias Dot11extSetExcludeUnencrypted = Dot11extSetExcludeUnencryptedFn?
 
-public fun interface DOT11EXT_SET_KEY_MAPPING_KEYFn {
-    public operator fun invoke(hdot11svchandle: HANDLE, pkey: Long): UInt
+public fun interface Dot11extSetKeyMappingKeyFn {
+    public operator fun invoke(hdot11svchandle: Handle, pkey: COpaquePointer?): UInt
 }
 
-public typealias DOT11EXT_SET_KEY_MAPPING_KEY = DOT11EXT_SET_KEY_MAPPING_KEYFn?
+public typealias Dot11extSetKeyMappingKey = Dot11extSetKeyMappingKeyFn?
 
-public fun interface DOT11EXT_SET_MULTICAST_CIPHER_ALGORITHMFn {
-    public operator fun invoke(hdot11svchandle: HANDLE, dwmulticastcipheralgo: UInt): UInt
+public fun interface Dot11extSetMulticastCipherAlgorithmFn {
+    public operator fun invoke(hdot11svchandle: Handle, dwmulticastcipheralgo: UInt): UInt
 }
 
-public typealias DOT11EXT_SET_MULTICAST_CIPHER_ALGORITHM = DOT11EXT_SET_MULTICAST_CIPHER_ALGORITHMFn?
+public typealias Dot11extSetMulticastCipherAlgorithm = Dot11extSetMulticastCipherAlgorithmFn?
 
-public fun interface DOT11EXT_SET_PROFILE_CUSTOM_USER_DATAFn {
-    public operator fun invoke(hdot11svchandle: HANDLE, hconnectsession: HANDLE, dwsessionid: UInt, dwdatasize: UInt, pvdata: Long): UInt
+public fun interface Dot11extSetProfileCustomUserDataFn {
+    public operator fun invoke(hdot11svchandle: Handle, hconnectsession: Handle, dwsessionid: UInt, dwdatasize: UInt, pvdata: COpaquePointer?): UInt
 }
 
-public typealias DOT11EXT_SET_PROFILE_CUSTOM_USER_DATA = DOT11EXT_SET_PROFILE_CUSTOM_USER_DATAFn?
+public typealias Dot11extSetProfileCustomUserData = Dot11extSetProfileCustomUserDataFn?
 
-public fun interface DOT11EXT_SET_UNICAST_CIPHER_ALGORITHMFn {
-    public operator fun invoke(hdot11svchandle: HANDLE, dwunicastcipheralgo: UInt): UInt
+public fun interface Dot11extSetUnicastCipherAlgorithmFn {
+    public operator fun invoke(hdot11svchandle: Handle, dwunicastcipheralgo: UInt): UInt
 }
 
-public typealias DOT11EXT_SET_UNICAST_CIPHER_ALGORITHM = DOT11EXT_SET_UNICAST_CIPHER_ALGORITHMFn?
+public typealias Dot11extSetUnicastCipherAlgorithm = Dot11extSetUnicastCipherAlgorithmFn?
 
-public fun interface DOT11EXT_SET_VIRTUAL_STATION_AP_PROPERTIESFn {
-    public operator fun invoke(hdot11svchandle: HANDLE, hconnectsession: HANDLE, dwnumproperties: UInt, pproperties: Long, pvreserved: Long): UInt
+public fun interface Dot11extSetVirtualStationApPropertiesFn {
+    public operator fun invoke(hdot11svchandle: Handle, hconnectsession: Handle, dwnumproperties: UInt, pproperties: COpaquePointer?, pvreserved: COpaquePointer?): UInt
 }
 
-public typealias DOT11EXT_SET_VIRTUAL_STATION_AP_PROPERTIES = DOT11EXT_SET_VIRTUAL_STATION_AP_PROPERTIESFn?
+public typealias Dot11extSetVirtualStationApProperties = Dot11extSetVirtualStationApPropertiesFn?
 
-public typealias DOT11_AC_PARAM = Int
+public typealias Dot11AcParam = Int
 
-public typealias DOT11_ADHOC_AUTH_ALGORITHM = Int
+public typealias Dot11AdhocAuthAlgorithm = Int
 
-public typealias DOT11_ADHOC_CIPHER_ALGORITHM = Int
+public typealias Dot11AdhocCipherAlgorithm = Int
 
-public typealias DOT11_ADHOC_CONNECT_FAIL_REASON = Int
+public typealias Dot11AdhocConnectFailReason = Int
 
-public typealias DOT11_ADHOC_NETWORK_CONNECTION_STATUS = Int
+public typealias Dot11AdhocNetworkConnectionStatus = Int
 
-public typealias DOT11_ANQP_QUERY_RESULT = Int
+public typealias Dot11AnqpQueryResult = Int
 
-public typealias DOT11_ASSOCIATION_STATE = Int
+public typealias Dot11AssociationState = Int
 
-public typealias DOT11_AUTH_ALGORITHM = Int
+public typealias Dot11AuthAlgorithm = Int
 
-public typealias DOT11_BAND = Int
+public typealias Dot11Band = Int
 
-public typealias DOT11_BSS_TYPE = Int
+public typealias Dot11BssType = Int
 
-public typealias DOT11_CIPHER_ALGORITHM = Int
+public typealias Dot11CipherAlgorithm = Int
 
-public typealias DOT11_DIRECTION = Int
+public typealias Dot11Direction = Int
 
-public typealias DOT11_DIVERSITY_SUPPORT = Int
+public typealias Dot11DiversitySupport = Int
 
-public typealias DOT11_DS_INFO = Int
+public typealias Dot11DsInfo = Int
 
-public typealias DOT11_HOP_ALGO_ADOPTED = Int
+public typealias Dot11HopAlgoAdopted = Int
 
-public typealias DOT11_KEY_DIRECTION = Int
+public typealias Dot11KeyDirection = Int
 
-public typealias DOT11_MANUFACTURING_CALLBACK_TYPE = Int
+public typealias Dot11ManufacturingCallbackType = Int
 
-public typealias DOT11_MANUFACTURING_SELF_TEST_TYPE = Int
+public typealias Dot11ManufacturingSelfTestType = Int
 
-public typealias DOT11_MANUFACTURING_TEST_TYPE = Int
+public typealias Dot11ManufacturingTestType = Int
 
-public typealias DOT11_MSONEX_RESULT = Int
+public typealias Dot11MsonexResult = Int
 
-public typealias DOT11_OFFLOAD_TYPE = Int
+public typealias Dot11OffloadType = Int
 
-public typealias DOT11_PHY_TYPE = Int
+public typealias Dot11PhyType = Int
 
-public typealias DOT11_POWER_MODE = Int
+public typealias Dot11PowerMode = Int
 
-public typealias DOT11_POWER_MODE_REASON = Int
+public typealias Dot11PowerModeReason = Int
 
-public typealias DOT11_RADIO_STATE = Int
+public typealias Dot11RadioState = Int
 
-public typealias DOT11_RESET_TYPE = Int
+public typealias Dot11ResetType = Int
 
-public typealias DOT11_SCAN_TYPE = Int
+public typealias Dot11ScanType = Int
 
-public typealias DOT11_TEMP_TYPE = Int
+public typealias Dot11TempType = Int
 
-public typealias DOT11_UPDATE_IE_OP = Int
+public typealias Dot11UpdateIeOp = Int
 
-public typealias DOT11_WFD_DISCOVER_TYPE = Int
+public typealias Dot11WfdDiscoverType = Int
 
-public typealias DOT11_WFD_SCAN_TYPE = Int
+public typealias Dot11WfdScanType = Int
 
-public typealias DOT11_WPS_CONFIG_METHOD = Int
+public typealias Dot11WpsConfigMethod = Int
 
-public typealias DOT11_WPS_DEVICE_PASSWORD_ID = Int
+public typealias Dot11WpsDevicePasswordId = Int
 
-public typealias ONEX_AUTH_IDENTITY = Int
+public typealias OnexAuthIdentity = Int
 
-public typealias ONEX_AUTH_RESTART_REASON = Int
+public typealias OnexAuthRestartReason = Int
 
-public typealias ONEX_AUTH_STATUS = Int
+public typealias OnexAuthStatus = Int
 
-public typealias ONEX_EAP_METHOD_BACKEND_SUPPORT = Int
+public typealias OnexEapMethodBackendSupport = Int
 
-public typealias ONEX_NOTIFICATION_TYPE = Int
+public typealias OnexNotificationType = Int
 
-public typealias ONEX_REASON_CODE = Int
+public typealias OnexReasonCode = Int
 
-public fun interface WFD_OPEN_SESSION_COMPLETE_CALLBACKFn {
-    public operator fun invoke(hsessionhandle: HANDLE, pvcontext: Long, guidsessioninterface: GUID, dwerror: UInt, dwreasoncode: UInt)
+public fun interface WfdOpenSessionCompleteCallbackFn {
+    public operator fun invoke(hsessionhandle: Handle, pvcontext: COpaquePointer?, guidsessioninterface: Guid, dwerror: UInt, dwreasoncode: UInt)
 }
 
-public typealias WFD_OPEN_SESSION_COMPLETE_CALLBACK = WFD_OPEN_SESSION_COMPLETE_CALLBACKFn?
+public typealias WfdOpenSessionCompleteCallback = WfdOpenSessionCompleteCallbackFn?
 
-public typealias WFD_ROLE_TYPE = Int
+public typealias WfdRoleType = Int
 
-public typealias WLAN_ADHOC_NETWORK_STATE = Int
+public typealias WlanAdhocNetworkState = Int
 
-public typealias WLAN_AUTOCONF_OPCODE = Int
+public typealias WlanAutoconfOpcode = Int
 
-public typealias WLAN_CONNECTION_MODE = Int
+public typealias WlanConnectionMode = Int
 
-public typealias WLAN_CONNECTION_NOTIFICATION_FLAGS = UInt
+public typealias WlanConnectionNotificationFlags = UInt
 
-public typealias WLAN_FILTER_LIST_TYPE = Int
+public typealias WlanFilterListType = Int
 
-public typealias WLAN_HOSTED_NETWORK_NOTIFICATION_CODE = Int
+public typealias WlanHostedNetworkNotificationCode = Int
 
-public typealias WLAN_HOSTED_NETWORK_OPCODE = Int
+public typealias WlanHostedNetworkOpcode = Int
 
-public typealias WLAN_HOSTED_NETWORK_PEER_AUTH_STATE = Int
+public typealias WlanHostedNetworkPeerAuthState = Int
 
-public typealias WLAN_HOSTED_NETWORK_REASON = Int
+public typealias WlanHostedNetworkReason = Int
 
-public typealias WLAN_HOSTED_NETWORK_STATE = Int
+public typealias WlanHostedNetworkState = Int
 
-public typealias WLAN_IHV_CONTROL_TYPE = Int
+public typealias WlanIhvControlType = Int
 
-public typealias WLAN_INTERFACE_STATE = Int
+public typealias WlanInterfaceState = Int
 
-public typealias WLAN_INTERFACE_TYPE = Int
+public typealias WlanInterfaceType = Int
 
-public typealias WLAN_INTF_OPCODE = Int
+public typealias WlanIntfOpcode = Int
 
-public typealias WLAN_NOTIFICATION_ACM = Int
+public typealias WlanNotificationAcm = Int
 
-public fun interface WLAN_NOTIFICATION_CALLBACKFn {
-    public operator fun invoke(param0: Long, param1: Long)
+public fun interface WlanNotificationCallbackFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?)
 }
 
-public typealias WLAN_NOTIFICATION_CALLBACK = WLAN_NOTIFICATION_CALLBACKFn?
+public typealias WlanNotificationCallback = WlanNotificationCallbackFn?
 
-public typealias WLAN_NOTIFICATION_MSM = Int
+public typealias WlanNotificationMsm = Int
 
-public typealias WLAN_NOTIFICATION_SECURITY = Int
+public typealias WlanNotificationSecurity = Int
 
-public typealias WLAN_NOTIFICATION_SOURCES = UInt
+public typealias WlanNotificationSources = UInt
 
-public typealias WLAN_OPCODE_VALUE_TYPE = Int
+public typealias WlanOpcodeValueType = Int
 
-public typealias WLAN_OPERATIONAL_STATE = Int
+public typealias WlanOperationalState = Int
 
-public typealias WLAN_POWER_SETTING = Int
+public typealias WlanPowerSetting = Int
 
-public typealias WLAN_SECURABLE_OBJECT = Int
+public typealias WlanSecurableObject = Int
 
-public typealias WLAN_SET_EAPHOST_FLAGS = UInt
+public typealias WlanSetEaphostFlags = UInt
 
-public typealias WL_DISPLAY_PAGES = Int
+public typealias WlDisplayPages = Int

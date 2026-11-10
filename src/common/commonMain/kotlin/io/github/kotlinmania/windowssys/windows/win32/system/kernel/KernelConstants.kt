@@ -1,30 +1,30 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.kernel
 
-public val BackOffice: SUITE_TYPE = 2
+public val BACK_OFFICE: SuiteType = 2
 
-public val Blade: SUITE_TYPE = 10
+public val BLADE: SuiteType = 10
 
-public val CommunicationServer: SUITE_TYPE = 3
+public val COMMUNICATION_SERVER: SuiteType = 3
 
-public val ComputeServer: SUITE_TYPE = 14
+public val COMPUTE_SERVER: SuiteType = 14
 
-public val DEFAULT_COMPARTMENT_ID: COMPARTMENT_ID = 1
+public val DEFAULT_COMPARTMENT_ID: CompartmentId = 1
 
-public val DataCenter: SUITE_TYPE = 7
+public val DATA_CENTER: SuiteType = 7
 
-public val EmbeddedNT: SUITE_TYPE = 6
+public val EMBEDDED_NT: SuiteType = 6
 
-public val EmbeddedRestricted: SUITE_TYPE = 11
+public val EMBEDDED_RESTRICTED: SuiteType = 11
 
-public val Enterprise: SUITE_TYPE = 1
+public val ENTERPRISE: SuiteType = 1
 
-public val ExceptionCollidedUnwind: EXCEPTION_DISPOSITION = 3
+public val EXCEPTION_COLLIDED_UNWIND: ExceptionDisposition = 3
 
-public val ExceptionContinueExecution: EXCEPTION_DISPOSITION = 0
+public val EXCEPTION_CONTINUE_EXECUTION: ExceptionDisposition = 0
 
-public val ExceptionContinueSearch: EXCEPTION_DISPOSITION = 1
+public val EXCEPTION_CONTINUE_SEARCH: ExceptionDisposition = 1
 
-public val ExceptionNestedException: EXCEPTION_DISPOSITION = 2
+public val EXCEPTION_NESTED_EXCEPTION: ExceptionDisposition = 2
 
 public val MAXUCHAR: UInt = 255u
 
@@ -32,56 +32,56 @@ public val MAXULONG: UInt = 4294967295u
 
 public val MAXUSHORT: UInt = 65535u
 
-public val MaxSuiteType: SUITE_TYPE = 18
+public val MAX_SUITE_TYPE: SuiteType = 18
 
-public val MultiUserTS: SUITE_TYPE = 17
+public val MULTI_USER_TS: SuiteType = 17
 
 public val NULL64: UInt = 0u
 
-public val NotificationEvent: EVENT_TYPE = 0
+public val NOTIFICATION_EVENT: EventType = 0
 
-public val NotificationTimer: TIMER_TYPE = 0
+public val NOTIFICATION_TIMER: TimerType = 0
 
-public val NtProductLanManNt: NT_PRODUCT_TYPE = 2
+public val NT_PRODUCT_LAN_MAN_NT: NtProductType = 2
 
-public val NtProductServer: NT_PRODUCT_TYPE = 3
+public val NT_PRODUCT_SERVER: NtProductType = 3
 
-public val NtProductWinNt: NT_PRODUCT_TYPE = 1
+public val NT_PRODUCT_WIN_NT: NtProductType = 1
 
 public val OBJ_HANDLE_TAGBITS: Int = 3
 
-public val Personal: SUITE_TYPE = 9
+public val PERSONAL: SuiteType = 9
 
-public val PhoneNT: SUITE_TYPE = 16
+public val PHONE_NT: SuiteType = 16
 
 public val RTL_BALANCED_NODE_RESERVED_PARENT_MASK: UInt = 3u
 
-public val SecurityAppliance: SUITE_TYPE = 12
+public val SECURITY_APPLIANCE: SuiteType = 12
 
-public val SingleUserTS: SUITE_TYPE = 8
+public val SINGLE_USER_TS: SuiteType = 8
 
-public val SmallBusiness: SUITE_TYPE = 0
+public val SMALL_BUSINESS: SuiteType = 0
 
-public val SmallBusinessRestricted: SUITE_TYPE = 5
+public val SMALL_BUSINESS_RESTRICTED: SuiteType = 5
 
-public val StorageServer: SUITE_TYPE = 13
+public val STORAGE_SERVER: SuiteType = 13
 
-public val SynchronizationEvent: EVENT_TYPE = 1
+public val SYNCHRONIZATION_EVENT: EventType = 1
 
-public val SynchronizationTimer: TIMER_TYPE = 1
+public val SYNCHRONIZATION_TIMER: TimerType = 1
 
-public val TerminalServer: SUITE_TYPE = 4
+public val TERMINAL_SERVER: SuiteType = 4
 
-public val UNSPECIFIED_COMPARTMENT_ID: COMPARTMENT_ID = 0
+public val UNSPECIFIED_COMPARTMENT_ID: CompartmentId = 0
 
-public val WHServer: SUITE_TYPE = 15
+public val WH_SERVER: SuiteType = 15
 
-public val WaitAll: WAIT_TYPE = 0
+public val WAIT_ALL: WaitType = 0
 
-public val WaitAny: WAIT_TYPE = 1
+public val WAIT_ANY: WaitType = 1
 
-public val WaitDequeue: WAIT_TYPE = 3
+public val WAIT_DEQUEUE: WaitType = 3
 
-public val WaitDpc: WAIT_TYPE = 4
+public val WAIT_DPC: WaitType = 4
 
-public val WaitNotification: WAIT_TYPE = 2
+public val WAIT_NOTIFICATION: WaitType = 2

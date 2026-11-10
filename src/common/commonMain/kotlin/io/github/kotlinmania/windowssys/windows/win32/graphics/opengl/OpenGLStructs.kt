@@ -1,19 +1,19 @@
 package io.github.kotlinmania.windowssys.windows.win32.graphics.opengl
 
-import io.github.kotlinmania.windowssys.windows.win32.foundation.COLORREF
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.EMR
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Colorref
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Emr
 
-public data class EMRPIXELFORMAT(public var emr: EMR = EMR(), public var pfd: PIXELFORMATDESCRIPTOR = PIXELFORMATDESCRIPTOR())
+public data class Emrpixelformat(public var emr: Emr = Emr(), public var pfd: Pixelformatdescriptor = Pixelformatdescriptor())
 
-public data class GLYPHMETRICSFLOAT(
+public data class Glyphmetricsfloat(
     public var gmfBlackBoxX: Float = 0.0f,
     public var gmfBlackBoxY: Float = 0.0f,
-    public var gmfptGlyphOrigin: POINTFLOAT = POINTFLOAT(),
+    public var gmfptGlyphOrigin: Pointfloat = Pointfloat(),
     public var gmfCellIncX: Float = 0.0f,
     public var gmfCellIncY: Float = 0.0f,
 )
 
-public class LAYERPLANEDESCRIPTOR(
+public class Layerplanedescriptor(
     public var nSize: UShort = 0u,
     public var nVersion: UShort = 0u,
     public var dwFlags: UInt = 0u,
@@ -37,14 +37,14 @@ public class LAYERPLANEDESCRIPTOR(
     public var cAuxBuffers: UByte = 0u,
     public var iLayerPlane: UByte = 0u,
     public var bReserved: UByte = 0u,
-    public var crTransparent: COLORREF = 0u,
+    public var crTransparent: Colorref = 0u,
 )
 
-public class PIXELFORMATDESCRIPTOR(
+public class Pixelformatdescriptor(
     public var nSize: UShort = 0u,
     public var nVersion: UShort = 0u,
-    public var dwFlags: PFD_FLAGS = 0u,
-    public var iPixelType: PFD_PIXEL_TYPE = 0u,
+    public var dwFlags: PfdFlags = 0u,
+    public var iPixelType: PfdPixelType = 0u,
     public var cColorBits: UByte = 0u,
     public var cRedBits: UByte = 0u,
     public var cRedShift: UByte = 0u,
@@ -69,4 +69,4 @@ public class PIXELFORMATDESCRIPTOR(
     public var dwDamageMask: UInt = 0u,
 )
 
-public data class POINTFLOAT(public var x: Float = 0.0f, public var y: Float = 0.0f)
+public data class Pointfloat(public var x: Float = 0.0f, public var y: Float = 0.0f)

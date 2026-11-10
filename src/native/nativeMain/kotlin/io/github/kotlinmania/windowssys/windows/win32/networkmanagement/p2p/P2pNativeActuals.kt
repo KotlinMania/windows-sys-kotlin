@@ -2,619 +2,620 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun DrtClose(hdrt: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_DrtClose(hdrt.toCPointer<ByteVar>())
+public actual fun drtClose(hdrt: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_drtClose(hdrt?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun DrtContinueSearch(hsearchcontext: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_DrtContinueSearch(hsearchcontext.toCPointer<ByteVar>())
+public actual fun drtContinueSearch(hsearchcontext: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_drtContinueSearch(hsearchcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun DrtCreateDerivedKey(plocalcert: Long, pkey: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_DrtCreateDerivedKey(plocalcert.toCPointer<ByteVar>(), pkey.toCPointer<ByteVar>())
+public actual fun drtCreateDerivedKey(plocalcert: COpaquePointer?, pkey: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_drtCreateDerivedKey(plocalcert?.value?.toCPointer<ByteVar>(), pkey?.value?.toCPointer<ByteVar>())
 
-public actual fun DrtCreateDerivedKeySecurityProvider(prootcert: Long, plocalcert: Long, ppsecurityprovider: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_DrtCreateDerivedKeySecurityProvider(prootcert.toCPointer<ByteVar>(), plocalcert.toCPointer<ByteVar>(), ppsecurityprovider.toCPointer<ByteVar>())
+public actual fun drtCreateDerivedKeySecurityProvider(prootcert: COpaquePointer?, plocalcert: COpaquePointer?, ppsecurityprovider: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_drtCreateDerivedKeySecurityProvider(prootcert?.value?.toCPointer<ByteVar>(), plocalcert?.value?.toCPointer<ByteVar>(), ppsecurityprovider?.value?.toCPointer<ByteVar>())
 
-public actual fun DrtCreateDnsBootstrapResolver(port: UShort, pwszaddress: PCWSTR, ppmodule: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_DrtCreateDnsBootstrapResolver(port, pwszaddress.toCPointer<ByteVar>(), ppmodule.toCPointer<ByteVar>())
+public actual fun drtCreateDnsBootstrapResolver(port: UShort, pwszaddress: Pcwstr, ppmodule: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_drtCreateDnsBootstrapResolver(port, pwszaddress?.value?.toCPointer<ByteVar>(), ppmodule?.value?.toCPointer<ByteVar>())
 
-public actual fun DrtCreateIpv6UdpTransport(scope: DRT_SCOPE, dwscopeid: UInt, dwlocalitythreshold: UInt, pwport: Long, phtransport: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_DrtCreateIpv6UdpTransport(scope, dwscopeid, dwlocalitythreshold, pwport.toCPointer<ByteVar>(), phtransport.toCPointer<ByteVar>())
+public actual fun drtCreateIpv6UdpTransport(scope: DrtScope, dwscopeid: UInt, dwlocalitythreshold: UInt, pwport: COpaquePointer?, phtransport: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_drtCreateIpv6UdpTransport(scope, dwscopeid, dwlocalitythreshold, pwport?.value?.toCPointer<ByteVar>(), phtransport?.value?.toCPointer<ByteVar>())
 
-public actual fun DrtCreateNullSecurityProvider(ppsecurityprovider: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_DrtCreateNullSecurityProvider(ppsecurityprovider.toCPointer<ByteVar>())
+public actual fun drtCreateNullSecurityProvider(ppsecurityprovider: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_drtCreateNullSecurityProvider(ppsecurityprovider?.value?.toCPointer<ByteVar>())
 
-public actual fun DrtCreatePnrpBootstrapResolver(fpublish: BOOL, pwzpeername: PCWSTR, pwzcloudname: PCWSTR, pwzpublishingidentity: PCWSTR, ppresolver: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_DrtCreatePnrpBootstrapResolver(fpublish, pwzpeername.toCPointer<ByteVar>(), pwzcloudname.toCPointer<ByteVar>(), pwzpublishingidentity.toCPointer<ByteVar>(), ppresolver.toCPointer<ByteVar>())
+public actual fun drtCreatePnrpBootstrapResolver(fpublish: Bool, pwzpeername: Pcwstr, pwzcloudname: Pcwstr, pwzpublishingidentity: Pcwstr, ppresolver: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_drtCreatePnrpBootstrapResolver(fpublish, pwzpeername?.value?.toCPointer<ByteVar>(), pwzcloudname?.value?.toCPointer<ByteVar>(), pwzpublishingidentity?.value?.toCPointer<ByteVar>(), ppresolver?.value?.toCPointer<ByteVar>())
 
-public actual fun DrtDeleteDerivedKeySecurityProvider(psecurityprovider: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_DrtDeleteDerivedKeySecurityProvider(psecurityprovider.toCPointer<ByteVar>())
+public actual fun drtDeleteDerivedKeySecurityProvider(psecurityprovider: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_drtDeleteDerivedKeySecurityProvider(psecurityprovider?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun DrtDeleteDnsBootstrapResolver(presolver: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_DrtDeleteDnsBootstrapResolver(presolver.toCPointer<ByteVar>())
+public actual fun drtDeleteDnsBootstrapResolver(presolver: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_drtDeleteDnsBootstrapResolver(presolver?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun DrtDeleteIpv6UdpTransport(htransport: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_DrtDeleteIpv6UdpTransport(htransport.toCPointer<ByteVar>())
+public actual fun drtDeleteIpv6UdpTransport(htransport: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_drtDeleteIpv6UdpTransport(htransport?.value?.toCPointer<ByteVar>())
 
-public actual fun DrtDeleteNullSecurityProvider(psecurityprovider: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_DrtDeleteNullSecurityProvider(psecurityprovider.toCPointer<ByteVar>())
+public actual fun drtDeleteNullSecurityProvider(psecurityprovider: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_drtDeleteNullSecurityProvider(psecurityprovider?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun DrtDeletePnrpBootstrapResolver(presolver: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_DrtDeletePnrpBootstrapResolver(presolver.toCPointer<ByteVar>())
+public actual fun drtDeletePnrpBootstrapResolver(presolver: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_drtDeletePnrpBootstrapResolver(presolver?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun DrtEndSearch(hsearchcontext: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_DrtEndSearch(hsearchcontext.toCPointer<ByteVar>())
+public actual fun drtEndSearch(hsearchcontext: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_drtEndSearch(hsearchcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun DrtGetEventData(hdrt: Long, uleventdatalen: UInt, peventdata: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_DrtGetEventData(hdrt.toCPointer<ByteVar>(), uleventdatalen, peventdata.toCPointer<ByteVar>())
+public actual fun drtGetEventData(hdrt: COpaquePointer?, uleventdatalen: UInt, peventdata: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_drtGetEventData(hdrt?.value?.toCPointer<ByteVar>(), uleventdatalen, peventdata?.value?.toCPointer<ByteVar>())
 
-public actual fun DrtGetEventDataSize(hdrt: Long, puleventdatalen: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_DrtGetEventDataSize(hdrt.toCPointer<ByteVar>(), puleventdatalen.toCPointer<ByteVar>())
+public actual fun drtGetEventDataSize(hdrt: COpaquePointer?, puleventdatalen: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_drtGetEventDataSize(hdrt?.value?.toCPointer<ByteVar>(), puleventdatalen?.value?.toCPointer<ByteVar>())
 
-public actual fun DrtGetInstanceName(hdrt: Long, ulcbinstancenamesize: UInt, pwzdrtinstancename: PWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_DrtGetInstanceName(hdrt.toCPointer<ByteVar>(), ulcbinstancenamesize, pwzdrtinstancename.toCPointer<ByteVar>())
+public actual fun drtGetInstanceName(hdrt: COpaquePointer?, ulcbinstancenamesize: UInt, pwzdrtinstancename: Pwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_drtGetInstanceName(hdrt?.value?.toCPointer<ByteVar>(), ulcbinstancenamesize, pwzdrtinstancename?.value?.toCPointer<ByteVar>())
 
-public actual fun DrtGetInstanceNameSize(hdrt: Long, pulcbinstancenamesize: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_DrtGetInstanceNameSize(hdrt.toCPointer<ByteVar>(), pulcbinstancenamesize.toCPointer<ByteVar>())
+public actual fun drtGetInstanceNameSize(hdrt: COpaquePointer?, pulcbinstancenamesize: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_drtGetInstanceNameSize(hdrt?.value?.toCPointer<ByteVar>(), pulcbinstancenamesize?.value?.toCPointer<ByteVar>())
 
-public actual fun DrtGetSearchPath(hsearchcontext: Long, ulsearchpathsize: UInt, psearchpath: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_DrtGetSearchPath(hsearchcontext.toCPointer<ByteVar>(), ulsearchpathsize, psearchpath.toCPointer<ByteVar>())
+public actual fun drtGetSearchPath(hsearchcontext: COpaquePointer?, ulsearchpathsize: UInt, psearchpath: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_drtGetSearchPath(hsearchcontext?.value?.toCPointer<ByteVar>(), ulsearchpathsize, psearchpath?.value?.toCPointer<ByteVar>())
 
-public actual fun DrtGetSearchPathSize(hsearchcontext: Long, pulsearchpathsize: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_DrtGetSearchPathSize(hsearchcontext.toCPointer<ByteVar>(), pulsearchpathsize.toCPointer<ByteVar>())
+public actual fun drtGetSearchPathSize(hsearchcontext: COpaquePointer?, pulsearchpathsize: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_drtGetSearchPathSize(hsearchcontext?.value?.toCPointer<ByteVar>(), pulsearchpathsize?.value?.toCPointer<ByteVar>())
 
-public actual fun DrtGetSearchResult(hsearchcontext: Long, ulsearchresultsize: UInt, psearchresult: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_DrtGetSearchResult(hsearchcontext.toCPointer<ByteVar>(), ulsearchresultsize, psearchresult.toCPointer<ByteVar>())
+public actual fun drtGetSearchResult(hsearchcontext: COpaquePointer?, ulsearchresultsize: UInt, psearchresult: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_drtGetSearchResult(hsearchcontext?.value?.toCPointer<ByteVar>(), ulsearchresultsize, psearchresult?.value?.toCPointer<ByteVar>())
 
-public actual fun DrtGetSearchResultSize(hsearchcontext: Long, pulsearchresultsize: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_DrtGetSearchResultSize(hsearchcontext.toCPointer<ByteVar>(), pulsearchresultsize.toCPointer<ByteVar>())
+public actual fun drtGetSearchResultSize(hsearchcontext: COpaquePointer?, pulsearchresultsize: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_drtGetSearchResultSize(hsearchcontext?.value?.toCPointer<ByteVar>(), pulsearchresultsize?.value?.toCPointer<ByteVar>())
 
-public actual fun DrtOpen(psettings: Long, hevent: HANDLE, pvcontext: Long, phdrt: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_DrtOpen(psettings.toCPointer<ByteVar>(), hevent.toCPointer<ByteVar>(), pvcontext.toCPointer<ByteVar>(), phdrt.toCPointer<ByteVar>())
+public actual fun drtOpen(psettings: COpaquePointer?, hevent: Handle, pvcontext: COpaquePointer?, phdrt: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_drtOpen(psettings?.value?.toCPointer<ByteVar>(), hevent?.value?.toCPointer<ByteVar>(), pvcontext?.value?.toCPointer<ByteVar>(), phdrt?.value?.toCPointer<ByteVar>())
 
-public actual fun DrtRegisterKey(hdrt: Long, pregistration: Long, pvkeycontext: Long, phkeyregistration: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_DrtRegisterKey(hdrt.toCPointer<ByteVar>(), pregistration.toCPointer<ByteVar>(), pvkeycontext.toCPointer<ByteVar>(), phkeyregistration.toCPointer<ByteVar>())
+public actual fun drtRegisterKey(hdrt: COpaquePointer?, pregistration: COpaquePointer?, pvkeycontext: COpaquePointer?, phkeyregistration: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_drtRegisterKey(hdrt?.value?.toCPointer<ByteVar>(), pregistration?.value?.toCPointer<ByteVar>(), pvkeycontext?.value?.toCPointer<ByteVar>(), phkeyregistration?.value?.toCPointer<ByteVar>())
 
-public actual fun DrtStartSearch(hdrt: Long, pkey: Long, pinfo: Long, timeout: UInt, hevent: HANDLE, pvcontext: Long, hsearchcontext: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_DrtStartSearch(hdrt.toCPointer<ByteVar>(), pkey.toCPointer<ByteVar>(), pinfo.toCPointer<ByteVar>(), timeout, hevent.toCPointer<ByteVar>(), pvcontext.toCPointer<ByteVar>(), hsearchcontext.toCPointer<ByteVar>())
+public actual fun drtStartSearch(hdrt: COpaquePointer?, pkey: COpaquePointer?, pinfo: COpaquePointer?, timeout: UInt, hevent: Handle, pvcontext: COpaquePointer?, hsearchcontext: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_drtStartSearch(hdrt?.value?.toCPointer<ByteVar>(), pkey?.value?.toCPointer<ByteVar>(), pinfo?.value?.toCPointer<ByteVar>(), timeout, hevent?.value?.toCPointer<ByteVar>(), pvcontext?.value?.toCPointer<ByteVar>(), hsearchcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun DrtUnregisterKey(hkeyregistration: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_DrtUnregisterKey(hkeyregistration.toCPointer<ByteVar>())
+public actual fun drtUnregisterKey(hkeyregistration: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_drtUnregisterKey(hkeyregistration?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun DrtUpdateKey(hkeyregistration: Long, pappdata: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_DrtUpdateKey(hkeyregistration.toCPointer<ByteVar>(), pappdata.toCPointer<ByteVar>())
+public actual fun drtUpdateKey(hkeyregistration: COpaquePointer?, pappdata: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_drtUpdateKey(hkeyregistration?.value?.toCPointer<ByteVar>(), pappdata?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerCollabAddContact(pwzcontactdata: PCWSTR, ppcontact: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabAddContact(pwzcontactdata.toCPointer<ByteVar>(), ppcontact.toCPointer<ByteVar>())
+public actual fun peerCollabAddContact(pwzcontactdata: Pcwstr, ppcontact: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabAddContact(pwzcontactdata?.value?.toCPointer<ByteVar>(), ppcontact?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerCollabAsyncInviteContact(pccontact: Long, pcendpoint: Long, pcinvitation: Long, hevent: HANDLE, phinvitation: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabAsyncInviteContact(pccontact.toCPointer<ByteVar>(), pcendpoint.toCPointer<ByteVar>(), pcinvitation.toCPointer<ByteVar>(), hevent.toCPointer<ByteVar>(), phinvitation.toCPointer<ByteVar>())
+public actual fun peerCollabAsyncInviteContact(pccontact: COpaquePointer?, pcendpoint: COpaquePointer?, pcinvitation: COpaquePointer?, hevent: Handle, phinvitation: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabAsyncInviteContact(pccontact?.value?.toCPointer<ByteVar>(), pcendpoint?.value?.toCPointer<ByteVar>(), pcinvitation?.value?.toCPointer<ByteVar>(), hevent?.value?.toCPointer<ByteVar>(), phinvitation?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerCollabAsyncInviteEndpoint(pcendpoint: Long, pcinvitation: Long, hevent: HANDLE, phinvitation: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabAsyncInviteEndpoint(pcendpoint.toCPointer<ByteVar>(), pcinvitation.toCPointer<ByteVar>(), hevent.toCPointer<ByteVar>(), phinvitation.toCPointer<ByteVar>())
+public actual fun peerCollabAsyncInviteEndpoint(pcendpoint: COpaquePointer?, pcinvitation: COpaquePointer?, hevent: Handle, phinvitation: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabAsyncInviteEndpoint(pcendpoint?.value?.toCPointer<ByteVar>(), pcinvitation?.value?.toCPointer<ByteVar>(), hevent?.value?.toCPointer<ByteVar>(), phinvitation?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerCollabCancelInvitation(hinvitation: HANDLE): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabCancelInvitation(hinvitation.toCPointer<ByteVar>())
+public actual fun peerCollabCancelInvitation(hinvitation: Handle): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabCancelInvitation(hinvitation?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerCollabCloseHandle(hinvitation: HANDLE): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabCloseHandle(hinvitation.toCPointer<ByteVar>())
+public actual fun peerCollabCloseHandle(hinvitation: Handle): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabCloseHandle(hinvitation?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerCollabDeleteContact(pwzpeername: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabDeleteContact(pwzpeername.toCPointer<ByteVar>())
+public actual fun peerCollabDeleteContact(pwzpeername: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabDeleteContact(pwzpeername?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerCollabDeleteEndpointData(pcendpoint: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabDeleteEndpointData(pcendpoint.toCPointer<ByteVar>())
+public actual fun peerCollabDeleteEndpointData(pcendpoint: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabDeleteEndpointData(pcendpoint?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerCollabDeleteObject(pobjectid: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabDeleteObject(pobjectid.toCPointer<ByteVar>())
+public actual fun peerCollabDeleteObject(pobjectid: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabDeleteObject(pobjectid?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerCollabEnumApplicationRegistrationInfo(registrationtype: PEER_APPLICATION_REGISTRATION_TYPE, phpeerenum: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabEnumApplicationRegistrationInfo(registrationtype, phpeerenum.toCPointer<ByteVar>())
+public actual fun peerCollabEnumApplicationRegistrationInfo(registrationtype: PeerApplicationRegistrationType, phpeerenum: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumApplicationRegistrationInfo(registrationtype, phpeerenum?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerCollabEnumApplications(pcendpoint: Long, papplicationid: Long, phpeerenum: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabEnumApplications(pcendpoint.toCPointer<ByteVar>(), papplicationid.toCPointer<ByteVar>(), phpeerenum.toCPointer<ByteVar>())
+public actual fun peerCollabEnumApplications(pcendpoint: COpaquePointer?, papplicationid: COpaquePointer?, phpeerenum: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumApplications(pcendpoint?.value?.toCPointer<ByteVar>(), papplicationid?.value?.toCPointer<ByteVar>(), phpeerenum?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerCollabEnumContacts(phpeerenum: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabEnumContacts(phpeerenum.toCPointer<ByteVar>())
+public actual fun peerCollabEnumContacts(phpeerenum: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumContacts(phpeerenum?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerCollabEnumEndpoints(pccontact: Long, phpeerenum: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabEnumEndpoints(pccontact.toCPointer<ByteVar>(), phpeerenum.toCPointer<ByteVar>())
+public actual fun peerCollabEnumEndpoints(pccontact: COpaquePointer?, phpeerenum: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumEndpoints(pccontact?.value?.toCPointer<ByteVar>(), phpeerenum?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerCollabEnumObjects(pcendpoint: Long, pobjectid: Long, phpeerenum: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabEnumObjects(pcendpoint.toCPointer<ByteVar>(), pobjectid.toCPointer<ByteVar>(), phpeerenum.toCPointer<ByteVar>())
+public actual fun peerCollabEnumObjects(pcendpoint: COpaquePointer?, pobjectid: COpaquePointer?, phpeerenum: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumObjects(pcendpoint?.value?.toCPointer<ByteVar>(), pobjectid?.value?.toCPointer<ByteVar>(), phpeerenum?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerCollabEnumPeopleNearMe(phpeerenum: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabEnumPeopleNearMe(phpeerenum.toCPointer<ByteVar>())
+public actual fun peerCollabEnumPeopleNearMe(phpeerenum: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumPeopleNearMe(phpeerenum?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerCollabExportContact(pwzpeername: PCWSTR, ppwzcontactdata: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabExportContact(pwzpeername.toCPointer<ByteVar>(), ppwzcontactdata.toCPointer<ByteVar>())
+public actual fun peerCollabExportContact(pwzpeername: Pcwstr, ppwzcontactdata: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabExportContact(pwzpeername?.value?.toCPointer<ByteVar>(), ppwzcontactdata?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerCollabGetAppLaunchInfo(pplaunchinfo: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetAppLaunchInfo(pplaunchinfo.toCPointer<ByteVar>())
+public actual fun peerCollabGetAppLaunchInfo(pplaunchinfo: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabGetAppLaunchInfo(pplaunchinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerCollabGetApplicationRegistrationInfo(papplicationid: Long, registrationtype: PEER_APPLICATION_REGISTRATION_TYPE, ppapplication: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetApplicationRegistrationInfo(papplicationid.toCPointer<ByteVar>(), registrationtype, ppapplication.toCPointer<ByteVar>())
+public actual fun peerCollabGetApplicationRegistrationInfo(papplicationid: COpaquePointer?, registrationtype: PeerApplicationRegistrationType, ppapplication: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabGetApplicationRegistrationInfo(papplicationid?.value?.toCPointer<ByteVar>(), registrationtype, ppapplication?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerCollabGetContact(pwzpeername: PCWSTR, ppcontact: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetContact(pwzpeername.toCPointer<ByteVar>(), ppcontact.toCPointer<ByteVar>())
+public actual fun peerCollabGetContact(pwzpeername: Pcwstr, ppcontact: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabGetContact(pwzpeername?.value?.toCPointer<ByteVar>(), ppcontact?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerCollabGetEndpointName(ppwzendpointname: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetEndpointName(ppwzendpointname.toCPointer<ByteVar>())
+public actual fun peerCollabGetEndpointName(ppwzendpointname: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabGetEndpointName(ppwzendpointname?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerCollabGetEventData(hpeerevent: Long, ppeventdata: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetEventData(hpeerevent.toCPointer<ByteVar>(), ppeventdata.toCPointer<ByteVar>())
+public actual fun peerCollabGetEventData(hpeerevent: COpaquePointer?, ppeventdata: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabGetEventData(hpeerevent?.value?.toCPointer<ByteVar>(), ppeventdata?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerCollabGetInvitationResponse(hinvitation: HANDLE, ppinvitationresponse: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetInvitationResponse(hinvitation.toCPointer<ByteVar>(), ppinvitationresponse.toCPointer<ByteVar>())
+public actual fun peerCollabGetInvitationResponse(hinvitation: Handle, ppinvitationresponse: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabGetInvitationResponse(hinvitation?.value?.toCPointer<ByteVar>(), ppinvitationresponse?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerCollabGetPresenceInfo(pcendpoint: Long, pppresenceinfo: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetPresenceInfo(pcendpoint.toCPointer<ByteVar>(), pppresenceinfo.toCPointer<ByteVar>())
+public actual fun peerCollabGetPresenceInfo(pcendpoint: COpaquePointer?, pppresenceinfo: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabGetPresenceInfo(pcendpoint?.value?.toCPointer<ByteVar>(), pppresenceinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerCollabGetSigninOptions(pdwsigninoptions: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetSigninOptions(pdwsigninoptions.toCPointer<ByteVar>())
+public actual fun peerCollabGetSigninOptions(pdwsigninoptions: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabGetSigninOptions(pdwsigninoptions?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerCollabInviteContact(pccontact: Long, pcendpoint: Long, pcinvitation: Long, ppresponse: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabInviteContact(pccontact.toCPointer<ByteVar>(), pcendpoint.toCPointer<ByteVar>(), pcinvitation.toCPointer<ByteVar>(), ppresponse.toCPointer<ByteVar>())
+public actual fun peerCollabInviteContact(pccontact: COpaquePointer?, pcendpoint: COpaquePointer?, pcinvitation: COpaquePointer?, ppresponse: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabInviteContact(pccontact?.value?.toCPointer<ByteVar>(), pcendpoint?.value?.toCPointer<ByteVar>(), pcinvitation?.value?.toCPointer<ByteVar>(), ppresponse?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerCollabInviteEndpoint(pcendpoint: Long, pcinvitation: Long, ppresponse: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabInviteEndpoint(pcendpoint.toCPointer<ByteVar>(), pcinvitation.toCPointer<ByteVar>(), ppresponse.toCPointer<ByteVar>())
+public actual fun peerCollabInviteEndpoint(pcendpoint: COpaquePointer?, pcinvitation: COpaquePointer?, ppresponse: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabInviteEndpoint(pcendpoint?.value?.toCPointer<ByteVar>(), pcinvitation?.value?.toCPointer<ByteVar>(), ppresponse?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerCollabParseContact(pwzcontactdata: PCWSTR, ppcontact: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabParseContact(pwzcontactdata.toCPointer<ByteVar>(), ppcontact.toCPointer<ByteVar>())
+public actual fun peerCollabParseContact(pwzcontactdata: Pcwstr, ppcontact: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabParseContact(pwzcontactdata?.value?.toCPointer<ByteVar>(), ppcontact?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerCollabQueryContactData(pcendpoint: Long, ppwzcontactdata: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabQueryContactData(pcendpoint.toCPointer<ByteVar>(), ppwzcontactdata.toCPointer<ByteVar>())
+public actual fun peerCollabQueryContactData(pcendpoint: COpaquePointer?, ppwzcontactdata: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabQueryContactData(pcendpoint?.value?.toCPointer<ByteVar>(), ppwzcontactdata?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerCollabRefreshEndpointData(pcendpoint: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabRefreshEndpointData(pcendpoint.toCPointer<ByteVar>())
+public actual fun peerCollabRefreshEndpointData(pcendpoint: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabRefreshEndpointData(pcendpoint?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerCollabRegisterApplication(pcapplication: Long, registrationtype: PEER_APPLICATION_REGISTRATION_TYPE): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabRegisterApplication(pcapplication.toCPointer<ByteVar>(), registrationtype)
+public actual fun peerCollabRegisterApplication(pcapplication: COpaquePointer?, registrationtype: PeerApplicationRegistrationType): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabRegisterApplication(pcapplication?.value?.toCPointer<ByteVar>(), registrationtype)
 
-public actual fun PeerCollabRegisterEvent(hevent: HANDLE, ceventregistration: UInt, peventregistrations: Long, phpeerevent: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabRegisterEvent(hevent.toCPointer<ByteVar>(), ceventregistration, peventregistrations.toCPointer<ByteVar>(), phpeerevent.toCPointer<ByteVar>())
+public actual fun peerCollabRegisterEvent(hevent: Handle, ceventregistration: UInt, peventregistrations: COpaquePointer?, phpeerevent: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabRegisterEvent(hevent?.value?.toCPointer<ByteVar>(), ceventregistration, peventregistrations?.value?.toCPointer<ByteVar>(), phpeerevent?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerCollabSetEndpointName(pwzendpointname: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabSetEndpointName(pwzendpointname.toCPointer<ByteVar>())
+public actual fun peerCollabSetEndpointName(pwzendpointname: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabSetEndpointName(pwzendpointname?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerCollabSetObject(pcobject: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabSetObject(pcobject.toCPointer<ByteVar>())
+public actual fun peerCollabSetObject(pcobject: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabSetObject(pcobject?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerCollabSetPresenceInfo(pcpresenceinfo: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabSetPresenceInfo(pcpresenceinfo.toCPointer<ByteVar>())
+public actual fun peerCollabSetPresenceInfo(pcpresenceinfo: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabSetPresenceInfo(pcpresenceinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerCollabShutdown(): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabShutdown()
+public actual fun peerCollabShutdown(): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabShutdown()
 
-public actual fun PeerCollabSignin(hwndparent: HWND, dwsigninoptions: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabSignin(hwndparent.toCPointer<ByteVar>(), dwsigninoptions)
+public actual fun peerCollabSignin(hwndparent: Hwnd, dwsigninoptions: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabSignin(hwndparent?.value?.toCPointer<ByteVar>(), dwsigninoptions)
 
-public actual fun PeerCollabSignout(dwsigninoptions: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabSignout(dwsigninoptions)
+public actual fun peerCollabSignout(dwsigninoptions: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabSignout(dwsigninoptions)
 
-public actual fun PeerCollabStartup(wversionrequested: UShort): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabStartup(wversionrequested)
+public actual fun peerCollabStartup(wversionrequested: UShort): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabStartup(wversionrequested)
 
-public actual fun PeerCollabSubscribeEndpointData(pcendpoint: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabSubscribeEndpointData(pcendpoint.toCPointer<ByteVar>())
+public actual fun peerCollabSubscribeEndpointData(pcendpoint: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabSubscribeEndpointData(pcendpoint?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerCollabUnregisterApplication(papplicationid: Long, registrationtype: PEER_APPLICATION_REGISTRATION_TYPE): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabUnregisterApplication(papplicationid.toCPointer<ByteVar>(), registrationtype)
+public actual fun peerCollabUnregisterApplication(papplicationid: COpaquePointer?, registrationtype: PeerApplicationRegistrationType): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabUnregisterApplication(papplicationid?.value?.toCPointer<ByteVar>(), registrationtype)
 
-public actual fun PeerCollabUnregisterEvent(hpeerevent: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabUnregisterEvent(hpeerevent.toCPointer<ByteVar>())
+public actual fun peerCollabUnregisterEvent(hpeerevent: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabUnregisterEvent(hpeerevent?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerCollabUnsubscribeEndpointData(pcendpoint: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabUnsubscribeEndpointData(pcendpoint.toCPointer<ByteVar>())
+public actual fun peerCollabUnsubscribeEndpointData(pcendpoint: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabUnsubscribeEndpointData(pcendpoint?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerCollabUpdateContact(pcontact: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCollabUpdateContact(pcontact.toCPointer<ByteVar>())
+public actual fun peerCollabUpdateContact(pcontact: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCollabUpdateContact(pcontact?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerCreatePeerName(pwzidentity: PCWSTR, pwzclassifier: PCWSTR, ppwzpeername: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerCreatePeerName(pwzidentity.toCPointer<ByteVar>(), pwzclassifier.toCPointer<ByteVar>(), ppwzpeername.toCPointer<ByteVar>())
+public actual fun peerCreatePeerName(pwzidentity: Pcwstr, pwzclassifier: Pcwstr, ppwzpeername: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerCreatePeerName(pwzidentity?.value?.toCPointer<ByteVar>(), pwzclassifier?.value?.toCPointer<ByteVar>(), ppwzpeername?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerDistClientAddContentInformation(hpeerdist: Long, hcontenthandle: Long, cbnumberofbytes: UInt, pbuffer: Long, lpoverlapped: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerDistClientAddContentInformation(hpeerdist, hcontenthandle, cbnumberofbytes, pbuffer.toCPointer<ByteVar>(), lpoverlapped.toCPointer<ByteVar>())
+public actual fun peerDistClientAddContentInformation(hpeerdist: Long, hcontenthandle: Long, cbnumberofbytes: UInt, pbuffer: COpaquePointer?, lpoverlapped: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerDistClientAddContentInformation(hpeerdist, hcontenthandle, cbnumberofbytes, pbuffer?.value?.toCPointer<ByteVar>(), lpoverlapped?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerDistClientAddData(hpeerdist: Long, hcontenthandle: Long, cbnumberofbytes: UInt, pbuffer: Long, lpoverlapped: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerDistClientAddData(hpeerdist, hcontenthandle, cbnumberofbytes, pbuffer.toCPointer<ByteVar>(), lpoverlapped.toCPointer<ByteVar>())
+public actual fun peerDistClientAddData(hpeerdist: Long, hcontenthandle: Long, cbnumberofbytes: UInt, pbuffer: COpaquePointer?, lpoverlapped: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerDistClientAddData(hpeerdist, hcontenthandle, cbnumberofbytes, pbuffer?.value?.toCPointer<ByteVar>(), lpoverlapped?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerDistClientBlockRead(hpeerdist: Long, hcontenthandle: Long, cbmaxnumberofbytes: UInt, pbuffer: Long, dwtimeoutinmilliseconds: UInt, lpoverlapped: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerDistClientBlockRead(hpeerdist, hcontenthandle, cbmaxnumberofbytes, pbuffer.toCPointer<ByteVar>(), dwtimeoutinmilliseconds, lpoverlapped.toCPointer<ByteVar>())
+public actual fun peerDistClientBlockRead(hpeerdist: Long, hcontenthandle: Long, cbmaxnumberofbytes: UInt, pbuffer: COpaquePointer?, dwtimeoutinmilliseconds: UInt, lpoverlapped: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerDistClientBlockRead(hpeerdist, hcontenthandle, cbmaxnumberofbytes, pbuffer?.value?.toCPointer<ByteVar>(), dwtimeoutinmilliseconds, lpoverlapped?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerDistClientCancelAsyncOperation(hpeerdist: Long, hcontenthandle: Long, poverlapped: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerDistClientCancelAsyncOperation(hpeerdist, hcontenthandle, poverlapped.toCPointer<ByteVar>())
+public actual fun peerDistClientCancelAsyncOperation(hpeerdist: Long, hcontenthandle: Long, poverlapped: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerDistClientCancelAsyncOperation(hpeerdist, hcontenthandle, poverlapped?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerDistClientCloseContent(hpeerdist: Long, hcontenthandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerDistClientCloseContent(hpeerdist, hcontenthandle)
+public actual fun peerDistClientCloseContent(hpeerdist: Long, hcontenthandle: Long): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerDistClientCloseContent(hpeerdist, hcontenthandle)
 
-public actual fun PeerDistClientCompleteContentInformation(hpeerdist: Long, hcontenthandle: Long, lpoverlapped: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerDistClientCompleteContentInformation(hpeerdist, hcontenthandle, lpoverlapped.toCPointer<ByteVar>())
+public actual fun peerDistClientCompleteContentInformation(hpeerdist: Long, hcontenthandle: Long, lpoverlapped: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerDistClientCompleteContentInformation(hpeerdist, hcontenthandle, lpoverlapped?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerDistClientFlushContent(hpeerdist: Long, pcontenttag: Long, hcompletionport: HANDLE, ulcompletionkey: ULong, lpoverlapped: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerDistClientFlushContent(hpeerdist, pcontenttag.toCPointer<ByteVar>(), hcompletionport.toCPointer<ByteVar>(), ulcompletionkey, lpoverlapped.toCPointer<ByteVar>())
+public actual fun peerDistClientFlushContent(hpeerdist: Long, pcontenttag: COpaquePointer?, hcompletionport: Handle, ulcompletionkey: ULong, lpoverlapped: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerDistClientFlushContent(hpeerdist, pcontenttag?.value?.toCPointer<ByteVar>(), hcompletionport?.value?.toCPointer<ByteVar>(), ulcompletionkey, lpoverlapped?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerDistClientGetInformationByHandle(hpeerdist: Long, hcontenthandle: Long, peerdistclientinfoclass: PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS, dwbuffersize: UInt, lpinformation: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerDistClientGetInformationByHandle(hpeerdist, hcontenthandle, peerdistclientinfoclass, dwbuffersize, lpinformation.toCPointer<ByteVar>())
+public actual fun peerDistClientGetInformationByHandle(hpeerdist: Long, hcontenthandle: Long, peerdistclientinfoclass: PeerdistClientInfoByHandleClass, dwbuffersize: UInt, lpinformation: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerDistClientGetInformationByHandle(hpeerdist, hcontenthandle, peerdistclientinfoclass, dwbuffersize, lpinformation?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerDistClientOpenContent(hpeerdist: Long, pcontenttag: Long, hcompletionport: HANDLE, ulcompletionkey: ULong, phcontenthandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerDistClientOpenContent(hpeerdist, pcontenttag.toCPointer<ByteVar>(), hcompletionport.toCPointer<ByteVar>(), ulcompletionkey, phcontenthandle.toCPointer<ByteVar>())
+public actual fun peerDistClientOpenContent(hpeerdist: Long, pcontenttag: COpaquePointer?, hcompletionport: Handle, ulcompletionkey: ULong, phcontenthandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerDistClientOpenContent(hpeerdist, pcontenttag?.value?.toCPointer<ByteVar>(), hcompletionport?.value?.toCPointer<ByteVar>(), ulcompletionkey, phcontenthandle?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerDistClientStreamRead(hpeerdist: Long, hcontenthandle: Long, cbmaxnumberofbytes: UInt, pbuffer: Long, dwtimeoutinmilliseconds: UInt, lpoverlapped: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerDistClientStreamRead(hpeerdist, hcontenthandle, cbmaxnumberofbytes, pbuffer.toCPointer<ByteVar>(), dwtimeoutinmilliseconds, lpoverlapped.toCPointer<ByteVar>())
+public actual fun peerDistClientStreamRead(hpeerdist: Long, hcontenthandle: Long, cbmaxnumberofbytes: UInt, pbuffer: COpaquePointer?, dwtimeoutinmilliseconds: UInt, lpoverlapped: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerDistClientStreamRead(hpeerdist, hcontenthandle, cbmaxnumberofbytes, pbuffer?.value?.toCPointer<ByteVar>(), dwtimeoutinmilliseconds, lpoverlapped?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerDistGetOverlappedResult(lpoverlapped: Long, lpnumberofbytestransferred: Long, bwait: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerDistGetOverlappedResult(lpoverlapped.toCPointer<ByteVar>(), lpnumberofbytestransferred.toCPointer<ByteVar>(), bwait)
+public actual fun peerDistGetOverlappedResult(lpoverlapped: COpaquePointer?, lpnumberofbytestransferred: COpaquePointer?, bwait: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerDistGetOverlappedResult(lpoverlapped?.value?.toCPointer<ByteVar>(), lpnumberofbytestransferred?.value?.toCPointer<ByteVar>(), bwait)
 
-public actual fun PeerDistGetStatus(hpeerdist: Long, ppeerdiststatus: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerDistGetStatus(hpeerdist, ppeerdiststatus.toCPointer<ByteVar>())
+public actual fun peerDistGetStatus(hpeerdist: Long, ppeerdiststatus: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerDistGetStatus(hpeerdist, ppeerdiststatus?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerDistGetStatusEx(hpeerdist: Long, ppeerdiststatus: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerDistGetStatusEx(hpeerdist, ppeerdiststatus.toCPointer<ByteVar>())
+public actual fun peerDistGetStatusEx(hpeerdist: Long, ppeerdiststatus: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerDistGetStatusEx(hpeerdist, ppeerdiststatus?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerDistRegisterForStatusChangeNotification(hpeerdist: Long, hcompletionport: HANDLE, ulcompletionkey: ULong, lpoverlapped: Long, ppeerdiststatus: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerDistRegisterForStatusChangeNotification(hpeerdist, hcompletionport.toCPointer<ByteVar>(), ulcompletionkey, lpoverlapped.toCPointer<ByteVar>(), ppeerdiststatus.toCPointer<ByteVar>())
+public actual fun peerDistRegisterForStatusChangeNotification(hpeerdist: Long, hcompletionport: Handle, ulcompletionkey: ULong, lpoverlapped: COpaquePointer?, ppeerdiststatus: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerDistRegisterForStatusChangeNotification(hpeerdist, hcompletionport?.value?.toCPointer<ByteVar>(), ulcompletionkey, lpoverlapped?.value?.toCPointer<ByteVar>(), ppeerdiststatus?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerDistRegisterForStatusChangeNotificationEx(hpeerdist: Long, hcompletionport: HANDLE, ulcompletionkey: ULong, lpoverlapped: Long, ppeerdiststatus: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerDistRegisterForStatusChangeNotificationEx(hpeerdist, hcompletionport.toCPointer<ByteVar>(), ulcompletionkey, lpoverlapped.toCPointer<ByteVar>(), ppeerdiststatus.toCPointer<ByteVar>())
+public actual fun peerDistRegisterForStatusChangeNotificationEx(hpeerdist: Long, hcompletionport: Handle, ulcompletionkey: ULong, lpoverlapped: COpaquePointer?, ppeerdiststatus: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerDistRegisterForStatusChangeNotificationEx(hpeerdist, hcompletionport?.value?.toCPointer<ByteVar>(), ulcompletionkey, lpoverlapped?.value?.toCPointer<ByteVar>(), ppeerdiststatus?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerDistServerCancelAsyncOperation(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: Long, poverlapped: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerDistServerCancelAsyncOperation(hpeerdist, cbcontentidentifier, pcontentidentifier.toCPointer<ByteVar>(), poverlapped.toCPointer<ByteVar>())
+public actual fun peerDistServerCancelAsyncOperation(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: COpaquePointer?, poverlapped: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerDistServerCancelAsyncOperation(hpeerdist, cbcontentidentifier, pcontentidentifier?.value?.toCPointer<ByteVar>(), poverlapped?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerDistServerCloseContentInformation(hpeerdist: Long, hcontentinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerDistServerCloseContentInformation(hpeerdist, hcontentinfo)
+public actual fun peerDistServerCloseContentInformation(hpeerdist: Long, hcontentinfo: Long): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerDistServerCloseContentInformation(hpeerdist, hcontentinfo)
 
-public actual fun PeerDistServerCloseStreamHandle(hpeerdist: Long, hstream: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerDistServerCloseStreamHandle(hpeerdist, hstream)
+public actual fun peerDistServerCloseStreamHandle(hpeerdist: Long, hstream: Long): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerDistServerCloseStreamHandle(hpeerdist, hstream)
 
-public actual fun PeerDistServerOpenContentInformation(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: Long, ullcontentoffset: ULong, cbcontentlength: ULong, hcompletionport: HANDLE, ulcompletionkey: ULong, phcontentinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerDistServerOpenContentInformation(hpeerdist, cbcontentidentifier, pcontentidentifier.toCPointer<ByteVar>(), ullcontentoffset, cbcontentlength, hcompletionport.toCPointer<ByteVar>(), ulcompletionkey, phcontentinfo.toCPointer<ByteVar>())
+public actual fun peerDistServerOpenContentInformation(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: COpaquePointer?, ullcontentoffset: ULong, cbcontentlength: ULong, hcompletionport: Handle, ulcompletionkey: ULong, phcontentinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerDistServerOpenContentInformation(hpeerdist, cbcontentidentifier, pcontentidentifier?.value?.toCPointer<ByteVar>(), ullcontentoffset, cbcontentlength, hcompletionport?.value?.toCPointer<ByteVar>(), ulcompletionkey, phcontentinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerDistServerOpenContentInformationEx(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: Long, ullcontentoffset: ULong, cbcontentlength: ULong, pretrievaloptions: Long, hcompletionport: HANDLE, ulcompletionkey: ULong, phcontentinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerDistServerOpenContentInformationEx(hpeerdist, cbcontentidentifier, pcontentidentifier.toCPointer<ByteVar>(), ullcontentoffset, cbcontentlength, pretrievaloptions.toCPointer<ByteVar>(), hcompletionport.toCPointer<ByteVar>(), ulcompletionkey, phcontentinfo.toCPointer<ByteVar>())
+public actual fun peerDistServerOpenContentInformationEx(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: COpaquePointer?, ullcontentoffset: ULong, cbcontentlength: ULong, pretrievaloptions: COpaquePointer?, hcompletionport: Handle, ulcompletionkey: ULong, phcontentinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerDistServerOpenContentInformationEx(hpeerdist, cbcontentidentifier, pcontentidentifier?.value?.toCPointer<ByteVar>(), ullcontentoffset, cbcontentlength, pretrievaloptions?.value?.toCPointer<ByteVar>(), hcompletionport?.value?.toCPointer<ByteVar>(), ulcompletionkey, phcontentinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerDistServerPublishAddToStream(hpeerdist: Long, hstream: Long, cbnumberofbytes: UInt, pbuffer: Long, lpoverlapped: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerDistServerPublishAddToStream(hpeerdist, hstream, cbnumberofbytes, pbuffer.toCPointer<ByteVar>(), lpoverlapped.toCPointer<ByteVar>())
+public actual fun peerDistServerPublishAddToStream(hpeerdist: Long, hstream: Long, cbnumberofbytes: UInt, pbuffer: COpaquePointer?, lpoverlapped: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerDistServerPublishAddToStream(hpeerdist, hstream, cbnumberofbytes, pbuffer?.value?.toCPointer<ByteVar>(), lpoverlapped?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerDistServerPublishCompleteStream(hpeerdist: Long, hstream: Long, lpoverlapped: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerDistServerPublishCompleteStream(hpeerdist, hstream, lpoverlapped.toCPointer<ByteVar>())
+public actual fun peerDistServerPublishCompleteStream(hpeerdist: Long, hstream: Long, lpoverlapped: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerDistServerPublishCompleteStream(hpeerdist, hstream, lpoverlapped?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerDistServerPublishStream(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: Long, cbcontentlength: ULong, ppublishoptions: Long, hcompletionport: HANDLE, ulcompletionkey: ULong, phstream: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerDistServerPublishStream(hpeerdist, cbcontentidentifier, pcontentidentifier.toCPointer<ByteVar>(), cbcontentlength, ppublishoptions.toCPointer<ByteVar>(), hcompletionport.toCPointer<ByteVar>(), ulcompletionkey, phstream.toCPointer<ByteVar>())
+public actual fun peerDistServerPublishStream(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: COpaquePointer?, cbcontentlength: ULong, ppublishoptions: COpaquePointer?, hcompletionport: Handle, ulcompletionkey: ULong, phstream: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerDistServerPublishStream(hpeerdist, cbcontentidentifier, pcontentidentifier?.value?.toCPointer<ByteVar>(), cbcontentlength, ppublishoptions?.value?.toCPointer<ByteVar>(), hcompletionport?.value?.toCPointer<ByteVar>(), ulcompletionkey, phstream?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerDistServerRetrieveContentInformation(hpeerdist: Long, hcontentinfo: Long, cbmaxnumberofbytes: UInt, pbuffer: Long, lpoverlapped: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerDistServerRetrieveContentInformation(hpeerdist, hcontentinfo, cbmaxnumberofbytes, pbuffer.toCPointer<ByteVar>(), lpoverlapped.toCPointer<ByteVar>())
+public actual fun peerDistServerRetrieveContentInformation(hpeerdist: Long, hcontentinfo: Long, cbmaxnumberofbytes: UInt, pbuffer: COpaquePointer?, lpoverlapped: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerDistServerRetrieveContentInformation(hpeerdist, hcontentinfo, cbmaxnumberofbytes, pbuffer?.value?.toCPointer<ByteVar>(), lpoverlapped?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerDistServerUnpublish(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerDistServerUnpublish(hpeerdist, cbcontentidentifier, pcontentidentifier.toCPointer<ByteVar>())
+public actual fun peerDistServerUnpublish(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerDistServerUnpublish(hpeerdist, cbcontentidentifier, pcontentidentifier?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerDistShutdown(hpeerdist: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerDistShutdown(hpeerdist)
+public actual fun peerDistShutdown(hpeerdist: Long): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerDistShutdown(hpeerdist)
 
-public actual fun PeerDistStartup(dwversionrequested: UInt, phpeerdist: Long, pdwsupportedversion: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerDistStartup(dwversionrequested, phpeerdist.toCPointer<ByteVar>(), pdwsupportedversion.toCPointer<ByteVar>())
+public actual fun peerDistStartup(dwversionrequested: UInt, phpeerdist: COpaquePointer?, pdwsupportedversion: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerDistStartup(dwversionrequested, phpeerdist?.value?.toCPointer<ByteVar>(), pdwsupportedversion?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerDistUnregisterForStatusChangeNotification(hpeerdist: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerDistUnregisterForStatusChangeNotification(hpeerdist)
+public actual fun peerDistUnregisterForStatusChangeNotification(hpeerdist: Long): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerDistUnregisterForStatusChangeNotification(hpeerdist)
 
-public actual fun PeerEndEnumeration(hpeerenum: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerEndEnumeration(hpeerenum.toCPointer<ByteVar>())
+public actual fun peerEndEnumeration(hpeerenum: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerEndEnumeration(hpeerenum?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerEnumGroups(pwzidentity: PCWSTR, phpeerenum: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerEnumGroups(pwzidentity.toCPointer<ByteVar>(), phpeerenum.toCPointer<ByteVar>())
+public actual fun peerEnumGroups(pwzidentity: Pcwstr, phpeerenum: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerEnumGroups(pwzidentity?.value?.toCPointer<ByteVar>(), phpeerenum?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerEnumIdentities(phpeerenum: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerEnumIdentities(phpeerenum.toCPointer<ByteVar>())
+public actual fun peerEnumIdentities(phpeerenum: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerEnumIdentities(phpeerenum?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerFreeData(pvdata: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerFreeData(pvdata.toCPointer<ByteVar>())
+public actual fun peerFreeData(pvdata: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerFreeData(pvdata?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun PeerGetItemCount(hpeerenum: Long, pcount: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGetItemCount(hpeerenum.toCPointer<ByteVar>(), pcount.toCPointer<ByteVar>())
+public actual fun peerGetItemCount(hpeerenum: COpaquePointer?, pcount: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGetItemCount(hpeerenum?.value?.toCPointer<ByteVar>(), pcount?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGetNextItem(hpeerenum: Long, pcount: Long, pppvitems: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGetNextItem(hpeerenum.toCPointer<ByteVar>(), pcount.toCPointer<ByteVar>(), pppvitems.toCPointer<ByteVar>())
+public actual fun peerGetNextItem(hpeerenum: COpaquePointer?, pcount: COpaquePointer?, pppvitems: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGetNextItem(hpeerenum?.value?.toCPointer<ByteVar>(), pcount?.value?.toCPointer<ByteVar>(), pppvitems?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGraphAddRecord(hgraph: Long, precord: Long, precordid: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGraphAddRecord(hgraph.toCPointer<ByteVar>(), precord.toCPointer<ByteVar>(), precordid.toCPointer<ByteVar>())
+public actual fun peerGraphAddRecord(hgraph: COpaquePointer?, precord: COpaquePointer?, precordid: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGraphAddRecord(hgraph?.value?.toCPointer<ByteVar>(), precord?.value?.toCPointer<ByteVar>(), precordid?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGraphClose(hgraph: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGraphClose(hgraph.toCPointer<ByteVar>())
+public actual fun peerGraphClose(hgraph: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGraphClose(hgraph?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGraphCloseDirectConnection(hgraph: Long, ullconnectionid: ULong): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGraphCloseDirectConnection(hgraph.toCPointer<ByteVar>(), ullconnectionid)
+public actual fun peerGraphCloseDirectConnection(hgraph: COpaquePointer?, ullconnectionid: ULong): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGraphCloseDirectConnection(hgraph?.value?.toCPointer<ByteVar>(), ullconnectionid)
 
-public actual fun PeerGraphConnect(hgraph: Long, pwzpeerid: PCWSTR, paddress: Long, pullconnectionid: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGraphConnect(hgraph.toCPointer<ByteVar>(), pwzpeerid.toCPointer<ByteVar>(), paddress.toCPointer<ByteVar>(), pullconnectionid.toCPointer<ByteVar>())
+public actual fun peerGraphConnect(hgraph: COpaquePointer?, pwzpeerid: Pcwstr, paddress: COpaquePointer?, pullconnectionid: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGraphConnect(hgraph?.value?.toCPointer<ByteVar>(), pwzpeerid?.value?.toCPointer<ByteVar>(), paddress?.value?.toCPointer<ByteVar>(), pullconnectionid?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGraphCreate(pgraphproperties: Long, pwzdatabasename: PCWSTR, psecurityinterface: Long, phgraph: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGraphCreate(pgraphproperties.toCPointer<ByteVar>(), pwzdatabasename.toCPointer<ByteVar>(), psecurityinterface.toCPointer<ByteVar>(), phgraph.toCPointer<ByteVar>())
+public actual fun peerGraphCreate(pgraphproperties: COpaquePointer?, pwzdatabasename: Pcwstr, psecurityinterface: COpaquePointer?, phgraph: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGraphCreate(pgraphproperties?.value?.toCPointer<ByteVar>(), pwzdatabasename?.value?.toCPointer<ByteVar>(), psecurityinterface?.value?.toCPointer<ByteVar>(), phgraph?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGraphDelete(pwzgraphid: PCWSTR, pwzpeerid: PCWSTR, pwzdatabasename: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGraphDelete(pwzgraphid.toCPointer<ByteVar>(), pwzpeerid.toCPointer<ByteVar>(), pwzdatabasename.toCPointer<ByteVar>())
+public actual fun peerGraphDelete(pwzgraphid: Pcwstr, pwzpeerid: Pcwstr, pwzdatabasename: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGraphDelete(pwzgraphid?.value?.toCPointer<ByteVar>(), pwzpeerid?.value?.toCPointer<ByteVar>(), pwzdatabasename?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGraphDeleteRecord(hgraph: Long, precordid: Long, flocal: BOOL): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGraphDeleteRecord(hgraph.toCPointer<ByteVar>(), precordid.toCPointer<ByteVar>(), flocal)
+public actual fun peerGraphDeleteRecord(hgraph: COpaquePointer?, precordid: COpaquePointer?, flocal: Bool): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGraphDeleteRecord(hgraph?.value?.toCPointer<ByteVar>(), precordid?.value?.toCPointer<ByteVar>(), flocal)
 
-public actual fun PeerGraphEndEnumeration(hpeerenum: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGraphEndEnumeration(hpeerenum.toCPointer<ByteVar>())
+public actual fun peerGraphEndEnumeration(hpeerenum: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGraphEndEnumeration(hpeerenum?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGraphEnumConnections(hgraph: Long, dwflags: UInt, phpeerenum: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGraphEnumConnections(hgraph.toCPointer<ByteVar>(), dwflags, phpeerenum.toCPointer<ByteVar>())
+public actual fun peerGraphEnumConnections(hgraph: COpaquePointer?, dwflags: UInt, phpeerenum: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGraphEnumConnections(hgraph?.value?.toCPointer<ByteVar>(), dwflags, phpeerenum?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGraphEnumNodes(hgraph: Long, pwzpeerid: PCWSTR, phpeerenum: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGraphEnumNodes(hgraph.toCPointer<ByteVar>(), pwzpeerid.toCPointer<ByteVar>(), phpeerenum.toCPointer<ByteVar>())
+public actual fun peerGraphEnumNodes(hgraph: COpaquePointer?, pwzpeerid: Pcwstr, phpeerenum: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGraphEnumNodes(hgraph?.value?.toCPointer<ByteVar>(), pwzpeerid?.value?.toCPointer<ByteVar>(), phpeerenum?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGraphEnumRecords(hgraph: Long, precordtype: Long, pwzpeerid: PCWSTR, phpeerenum: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGraphEnumRecords(hgraph.toCPointer<ByteVar>(), precordtype.toCPointer<ByteVar>(), pwzpeerid.toCPointer<ByteVar>(), phpeerenum.toCPointer<ByteVar>())
+public actual fun peerGraphEnumRecords(hgraph: COpaquePointer?, precordtype: COpaquePointer?, pwzpeerid: Pcwstr, phpeerenum: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGraphEnumRecords(hgraph?.value?.toCPointer<ByteVar>(), precordtype?.value?.toCPointer<ByteVar>(), pwzpeerid?.value?.toCPointer<ByteVar>(), phpeerenum?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGraphExportDatabase(hgraph: Long, pwzfilepath: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGraphExportDatabase(hgraph.toCPointer<ByteVar>(), pwzfilepath.toCPointer<ByteVar>())
+public actual fun peerGraphExportDatabase(hgraph: COpaquePointer?, pwzfilepath: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGraphExportDatabase(hgraph?.value?.toCPointer<ByteVar>(), pwzfilepath?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGraphFreeData(pvdata: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGraphFreeData(pvdata.toCPointer<ByteVar>())
+public actual fun peerGraphFreeData(pvdata: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGraphFreeData(pvdata?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun PeerGraphGetEventData(hpeerevent: Long, ppeventdata: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetEventData(hpeerevent.toCPointer<ByteVar>(), ppeventdata.toCPointer<ByteVar>())
+public actual fun peerGraphGetEventData(hpeerevent: COpaquePointer?, ppeventdata: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGraphGetEventData(hpeerevent?.value?.toCPointer<ByteVar>(), ppeventdata?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGraphGetItemCount(hpeerenum: Long, pcount: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetItemCount(hpeerenum.toCPointer<ByteVar>(), pcount.toCPointer<ByteVar>())
+public actual fun peerGraphGetItemCount(hpeerenum: COpaquePointer?, pcount: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGraphGetItemCount(hpeerenum?.value?.toCPointer<ByteVar>(), pcount?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGraphGetNextItem(hpeerenum: Long, pcount: Long, pppvitems: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetNextItem(hpeerenum.toCPointer<ByteVar>(), pcount.toCPointer<ByteVar>(), pppvitems.toCPointer<ByteVar>())
+public actual fun peerGraphGetNextItem(hpeerenum: COpaquePointer?, pcount: COpaquePointer?, pppvitems: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGraphGetNextItem(hpeerenum?.value?.toCPointer<ByteVar>(), pcount?.value?.toCPointer<ByteVar>(), pppvitems?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGraphGetNodeInfo(hgraph: Long, ullnodeid: ULong, ppnodeinfo: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetNodeInfo(hgraph.toCPointer<ByteVar>(), ullnodeid, ppnodeinfo.toCPointer<ByteVar>())
+public actual fun peerGraphGetNodeInfo(hgraph: COpaquePointer?, ullnodeid: ULong, ppnodeinfo: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGraphGetNodeInfo(hgraph?.value?.toCPointer<ByteVar>(), ullnodeid, ppnodeinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGraphGetProperties(hgraph: Long, ppgraphproperties: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetProperties(hgraph.toCPointer<ByteVar>(), ppgraphproperties.toCPointer<ByteVar>())
+public actual fun peerGraphGetProperties(hgraph: COpaquePointer?, ppgraphproperties: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGraphGetProperties(hgraph?.value?.toCPointer<ByteVar>(), ppgraphproperties?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGraphGetRecord(hgraph: Long, precordid: Long, pprecord: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetRecord(hgraph.toCPointer<ByteVar>(), precordid.toCPointer<ByteVar>(), pprecord.toCPointer<ByteVar>())
+public actual fun peerGraphGetRecord(hgraph: COpaquePointer?, precordid: COpaquePointer?, pprecord: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGraphGetRecord(hgraph?.value?.toCPointer<ByteVar>(), precordid?.value?.toCPointer<ByteVar>(), pprecord?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGraphGetStatus(hgraph: Long, pdwstatus: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetStatus(hgraph.toCPointer<ByteVar>(), pdwstatus.toCPointer<ByteVar>())
+public actual fun peerGraphGetStatus(hgraph: COpaquePointer?, pdwstatus: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGraphGetStatus(hgraph?.value?.toCPointer<ByteVar>(), pdwstatus?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGraphImportDatabase(hgraph: Long, pwzfilepath: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGraphImportDatabase(hgraph.toCPointer<ByteVar>(), pwzfilepath.toCPointer<ByteVar>())
+public actual fun peerGraphImportDatabase(hgraph: COpaquePointer?, pwzfilepath: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGraphImportDatabase(hgraph?.value?.toCPointer<ByteVar>(), pwzfilepath?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGraphListen(hgraph: Long, dwscope: UInt, dwscopeid: UInt, wport: UShort): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGraphListen(hgraph.toCPointer<ByteVar>(), dwscope, dwscopeid, wport)
+public actual fun peerGraphListen(hgraph: COpaquePointer?, dwscope: UInt, dwscopeid: UInt, wport: UShort): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGraphListen(hgraph?.value?.toCPointer<ByteVar>(), dwscope, dwscopeid, wport)
 
-public actual fun PeerGraphOpen(pwzgraphid: PCWSTR, pwzpeerid: PCWSTR, pwzdatabasename: PCWSTR, psecurityinterface: Long, crecordtypesyncprecedence: UInt, precordtypesyncprecedence: Long, phgraph: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGraphOpen(pwzgraphid.toCPointer<ByteVar>(), pwzpeerid.toCPointer<ByteVar>(), pwzdatabasename.toCPointer<ByteVar>(), psecurityinterface.toCPointer<ByteVar>(), crecordtypesyncprecedence, precordtypesyncprecedence.toCPointer<ByteVar>(), phgraph.toCPointer<ByteVar>())
+public actual fun peerGraphOpen(pwzgraphid: Pcwstr, pwzpeerid: Pcwstr, pwzdatabasename: Pcwstr, psecurityinterface: COpaquePointer?, crecordtypesyncprecedence: UInt, precordtypesyncprecedence: COpaquePointer?, phgraph: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGraphOpen(pwzgraphid?.value?.toCPointer<ByteVar>(), pwzpeerid?.value?.toCPointer<ByteVar>(), pwzdatabasename?.value?.toCPointer<ByteVar>(), psecurityinterface?.value?.toCPointer<ByteVar>(), crecordtypesyncprecedence, precordtypesyncprecedence?.value?.toCPointer<ByteVar>(), phgraph?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGraphOpenDirectConnection(hgraph: Long, pwzpeerid: PCWSTR, paddress: Long, pullconnectionid: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGraphOpenDirectConnection(hgraph.toCPointer<ByteVar>(), pwzpeerid.toCPointer<ByteVar>(), paddress.toCPointer<ByteVar>(), pullconnectionid.toCPointer<ByteVar>())
+public actual fun peerGraphOpenDirectConnection(hgraph: COpaquePointer?, pwzpeerid: Pcwstr, paddress: COpaquePointer?, pullconnectionid: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGraphOpenDirectConnection(hgraph?.value?.toCPointer<ByteVar>(), pwzpeerid?.value?.toCPointer<ByteVar>(), paddress?.value?.toCPointer<ByteVar>(), pullconnectionid?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGraphPeerTimeToUniversalTime(hgraph: Long, pftpeertime: Long, pftuniversaltime: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGraphPeerTimeToUniversalTime(hgraph.toCPointer<ByteVar>(), pftpeertime.toCPointer<ByteVar>(), pftuniversaltime.toCPointer<ByteVar>())
+public actual fun peerGraphPeerTimeToUniversalTime(hgraph: COpaquePointer?, pftpeertime: COpaquePointer?, pftuniversaltime: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGraphPeerTimeToUniversalTime(hgraph?.value?.toCPointer<ByteVar>(), pftpeertime?.value?.toCPointer<ByteVar>(), pftuniversaltime?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGraphRegisterEvent(hgraph: Long, hevent: HANDLE, ceventregistrations: UInt, peventregistrations: Long, phpeerevent: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGraphRegisterEvent(hgraph.toCPointer<ByteVar>(), hevent.toCPointer<ByteVar>(), ceventregistrations, peventregistrations.toCPointer<ByteVar>(), phpeerevent.toCPointer<ByteVar>())
+public actual fun peerGraphRegisterEvent(hgraph: COpaquePointer?, hevent: Handle, ceventregistrations: UInt, peventregistrations: COpaquePointer?, phpeerevent: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGraphRegisterEvent(hgraph?.value?.toCPointer<ByteVar>(), hevent?.value?.toCPointer<ByteVar>(), ceventregistrations, peventregistrations?.value?.toCPointer<ByteVar>(), phpeerevent?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGraphSearchRecords(hgraph: Long, pwzcriteria: PCWSTR, phpeerenum: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGraphSearchRecords(hgraph.toCPointer<ByteVar>(), pwzcriteria.toCPointer<ByteVar>(), phpeerenum.toCPointer<ByteVar>())
+public actual fun peerGraphSearchRecords(hgraph: COpaquePointer?, pwzcriteria: Pcwstr, phpeerenum: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGraphSearchRecords(hgraph?.value?.toCPointer<ByteVar>(), pwzcriteria?.value?.toCPointer<ByteVar>(), phpeerenum?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGraphSendData(hgraph: Long, ullconnectionid: ULong, ptype: Long, cbdata: UInt, pvdata: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGraphSendData(hgraph.toCPointer<ByteVar>(), ullconnectionid, ptype.toCPointer<ByteVar>(), cbdata, pvdata.toCPointer<ByteVar>())
+public actual fun peerGraphSendData(hgraph: COpaquePointer?, ullconnectionid: ULong, ptype: COpaquePointer?, cbdata: UInt, pvdata: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGraphSendData(hgraph?.value?.toCPointer<ByteVar>(), ullconnectionid, ptype?.value?.toCPointer<ByteVar>(), cbdata, pvdata?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGraphSetNodeAttributes(hgraph: Long, pwzattributes: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGraphSetNodeAttributes(hgraph.toCPointer<ByteVar>(), pwzattributes.toCPointer<ByteVar>())
+public actual fun peerGraphSetNodeAttributes(hgraph: COpaquePointer?, pwzattributes: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGraphSetNodeAttributes(hgraph?.value?.toCPointer<ByteVar>(), pwzattributes?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGraphSetPresence(hgraph: Long, fpresent: BOOL): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGraphSetPresence(hgraph.toCPointer<ByteVar>(), fpresent)
+public actual fun peerGraphSetPresence(hgraph: COpaquePointer?, fpresent: Bool): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGraphSetPresence(hgraph?.value?.toCPointer<ByteVar>(), fpresent)
 
-public actual fun PeerGraphSetProperties(hgraph: Long, pgraphproperties: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGraphSetProperties(hgraph.toCPointer<ByteVar>(), pgraphproperties.toCPointer<ByteVar>())
+public actual fun peerGraphSetProperties(hgraph: COpaquePointer?, pgraphproperties: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGraphSetProperties(hgraph?.value?.toCPointer<ByteVar>(), pgraphproperties?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGraphShutdown(): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGraphShutdown()
+public actual fun peerGraphShutdown(): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGraphShutdown()
 
-public actual fun PeerGraphStartup(wversionrequested: UShort, pversiondata: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGraphStartup(wversionrequested, pversiondata.toCPointer<ByteVar>())
+public actual fun peerGraphStartup(wversionrequested: UShort, pversiondata: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGraphStartup(wversionrequested, pversiondata?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGraphUniversalTimeToPeerTime(hgraph: Long, pftuniversaltime: Long, pftpeertime: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGraphUniversalTimeToPeerTime(hgraph.toCPointer<ByteVar>(), pftuniversaltime.toCPointer<ByteVar>(), pftpeertime.toCPointer<ByteVar>())
+public actual fun peerGraphUniversalTimeToPeerTime(hgraph: COpaquePointer?, pftuniversaltime: COpaquePointer?, pftpeertime: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGraphUniversalTimeToPeerTime(hgraph?.value?.toCPointer<ByteVar>(), pftuniversaltime?.value?.toCPointer<ByteVar>(), pftpeertime?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGraphUnregisterEvent(hpeerevent: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGraphUnregisterEvent(hpeerevent.toCPointer<ByteVar>())
+public actual fun peerGraphUnregisterEvent(hpeerevent: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGraphUnregisterEvent(hpeerevent?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGraphUpdateRecord(hgraph: Long, precord: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGraphUpdateRecord(hgraph.toCPointer<ByteVar>(), precord.toCPointer<ByteVar>())
+public actual fun peerGraphUpdateRecord(hgraph: COpaquePointer?, precord: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGraphUpdateRecord(hgraph?.value?.toCPointer<ByteVar>(), precord?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGraphValidateDeferredRecords(hgraph: Long, crecordids: UInt, precordids: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGraphValidateDeferredRecords(hgraph.toCPointer<ByteVar>(), crecordids, precordids.toCPointer<ByteVar>())
+public actual fun peerGraphValidateDeferredRecords(hgraph: COpaquePointer?, crecordids: UInt, precordids: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGraphValidateDeferredRecords(hgraph?.value?.toCPointer<ByteVar>(), crecordids, precordids?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGroupAddRecord(hgroup: Long, precord: Long, precordid: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGroupAddRecord(hgroup.toCPointer<ByteVar>(), precord.toCPointer<ByteVar>(), precordid.toCPointer<ByteVar>())
+public actual fun peerGroupAddRecord(hgroup: COpaquePointer?, precord: COpaquePointer?, precordid: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGroupAddRecord(hgroup?.value?.toCPointer<ByteVar>(), precord?.value?.toCPointer<ByteVar>(), precordid?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGroupClose(hgroup: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGroupClose(hgroup.toCPointer<ByteVar>())
+public actual fun peerGroupClose(hgroup: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGroupClose(hgroup?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGroupCloseDirectConnection(hgroup: Long, ullconnectionid: ULong): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGroupCloseDirectConnection(hgroup.toCPointer<ByteVar>(), ullconnectionid)
+public actual fun peerGroupCloseDirectConnection(hgroup: COpaquePointer?, ullconnectionid: ULong): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGroupCloseDirectConnection(hgroup?.value?.toCPointer<ByteVar>(), ullconnectionid)
 
-public actual fun PeerGroupConnect(hgroup: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGroupConnect(hgroup.toCPointer<ByteVar>())
+public actual fun peerGroupConnect(hgroup: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGroupConnect(hgroup?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGroupConnectByAddress(hgroup: Long, caddresses: UInt, paddresses: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGroupConnectByAddress(hgroup.toCPointer<ByteVar>(), caddresses, paddresses.toCPointer<ByteVar>())
+public actual fun peerGroupConnectByAddress(hgroup: COpaquePointer?, caddresses: UInt, paddresses: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGroupConnectByAddress(hgroup?.value?.toCPointer<ByteVar>(), caddresses, paddresses?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGroupCreate(pproperties: Long, phgroup: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGroupCreate(pproperties.toCPointer<ByteVar>(), phgroup.toCPointer<ByteVar>())
+public actual fun peerGroupCreate(pproperties: COpaquePointer?, phgroup: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGroupCreate(pproperties?.value?.toCPointer<ByteVar>(), phgroup?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGroupCreateInvitation(hgroup: Long, pwzidentityinfo: PCWSTR, pftexpiration: Long, croles: UInt, proles: Long, ppwzinvitation: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGroupCreateInvitation(hgroup.toCPointer<ByteVar>(), pwzidentityinfo.toCPointer<ByteVar>(), pftexpiration.toCPointer<ByteVar>(), croles, proles.toCPointer<ByteVar>(), ppwzinvitation.toCPointer<ByteVar>())
+public actual fun peerGroupCreateInvitation(hgroup: COpaquePointer?, pwzidentityinfo: Pcwstr, pftexpiration: COpaquePointer?, croles: UInt, proles: COpaquePointer?, ppwzinvitation: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGroupCreateInvitation(hgroup?.value?.toCPointer<ByteVar>(), pwzidentityinfo?.value?.toCPointer<ByteVar>(), pftexpiration?.value?.toCPointer<ByteVar>(), croles, proles?.value?.toCPointer<ByteVar>(), ppwzinvitation?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGroupCreatePasswordInvitation(hgroup: Long, ppwzinvitation: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGroupCreatePasswordInvitation(hgroup.toCPointer<ByteVar>(), ppwzinvitation.toCPointer<ByteVar>())
+public actual fun peerGroupCreatePasswordInvitation(hgroup: COpaquePointer?, ppwzinvitation: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGroupCreatePasswordInvitation(hgroup?.value?.toCPointer<ByteVar>(), ppwzinvitation?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGroupDelete(pwzidentity: PCWSTR, pwzgrouppeername: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGroupDelete(pwzidentity.toCPointer<ByteVar>(), pwzgrouppeername.toCPointer<ByteVar>())
+public actual fun peerGroupDelete(pwzidentity: Pcwstr, pwzgrouppeername: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGroupDelete(pwzidentity?.value?.toCPointer<ByteVar>(), pwzgrouppeername?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGroupDeleteRecord(hgroup: Long, precordid: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGroupDeleteRecord(hgroup.toCPointer<ByteVar>(), precordid.toCPointer<ByteVar>())
+public actual fun peerGroupDeleteRecord(hgroup: COpaquePointer?, precordid: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGroupDeleteRecord(hgroup?.value?.toCPointer<ByteVar>(), precordid?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGroupEnumConnections(hgroup: Long, dwflags: UInt, phpeerenum: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGroupEnumConnections(hgroup.toCPointer<ByteVar>(), dwflags, phpeerenum.toCPointer<ByteVar>())
+public actual fun peerGroupEnumConnections(hgroup: COpaquePointer?, dwflags: UInt, phpeerenum: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGroupEnumConnections(hgroup?.value?.toCPointer<ByteVar>(), dwflags, phpeerenum?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGroupEnumMembers(hgroup: Long, dwflags: UInt, pwzidentity: PCWSTR, phpeerenum: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGroupEnumMembers(hgroup.toCPointer<ByteVar>(), dwflags, pwzidentity.toCPointer<ByteVar>(), phpeerenum.toCPointer<ByteVar>())
+public actual fun peerGroupEnumMembers(hgroup: COpaquePointer?, dwflags: UInt, pwzidentity: Pcwstr, phpeerenum: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGroupEnumMembers(hgroup?.value?.toCPointer<ByteVar>(), dwflags, pwzidentity?.value?.toCPointer<ByteVar>(), phpeerenum?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGroupEnumRecords(hgroup: Long, precordtype: Long, phpeerenum: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGroupEnumRecords(hgroup.toCPointer<ByteVar>(), precordtype.toCPointer<ByteVar>(), phpeerenum.toCPointer<ByteVar>())
+public actual fun peerGroupEnumRecords(hgroup: COpaquePointer?, precordtype: COpaquePointer?, phpeerenum: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGroupEnumRecords(hgroup?.value?.toCPointer<ByteVar>(), precordtype?.value?.toCPointer<ByteVar>(), phpeerenum?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGroupExportConfig(hgroup: Long, pwzpassword: PCWSTR, ppwzxml: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGroupExportConfig(hgroup.toCPointer<ByteVar>(), pwzpassword.toCPointer<ByteVar>(), ppwzxml.toCPointer<ByteVar>())
+public actual fun peerGroupExportConfig(hgroup: COpaquePointer?, pwzpassword: Pcwstr, ppwzxml: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGroupExportConfig(hgroup?.value?.toCPointer<ByteVar>(), pwzpassword?.value?.toCPointer<ByteVar>(), ppwzxml?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGroupExportDatabase(hgroup: Long, pwzfilepath: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGroupExportDatabase(hgroup.toCPointer<ByteVar>(), pwzfilepath.toCPointer<ByteVar>())
+public actual fun peerGroupExportDatabase(hgroup: COpaquePointer?, pwzfilepath: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGroupExportDatabase(hgroup?.value?.toCPointer<ByteVar>(), pwzfilepath?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGroupGetEventData(hpeerevent: Long, ppeventdata: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGroupGetEventData(hpeerevent.toCPointer<ByteVar>(), ppeventdata.toCPointer<ByteVar>())
+public actual fun peerGroupGetEventData(hpeerevent: COpaquePointer?, ppeventdata: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGroupGetEventData(hpeerevent?.value?.toCPointer<ByteVar>(), ppeventdata?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGroupGetProperties(hgroup: Long, ppproperties: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGroupGetProperties(hgroup.toCPointer<ByteVar>(), ppproperties.toCPointer<ByteVar>())
+public actual fun peerGroupGetProperties(hgroup: COpaquePointer?, ppproperties: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGroupGetProperties(hgroup?.value?.toCPointer<ByteVar>(), ppproperties?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGroupGetRecord(hgroup: Long, precordid: Long, pprecord: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGroupGetRecord(hgroup.toCPointer<ByteVar>(), precordid.toCPointer<ByteVar>(), pprecord.toCPointer<ByteVar>())
+public actual fun peerGroupGetRecord(hgroup: COpaquePointer?, precordid: COpaquePointer?, pprecord: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGroupGetRecord(hgroup?.value?.toCPointer<ByteVar>(), precordid?.value?.toCPointer<ByteVar>(), pprecord?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGroupGetStatus(hgroup: Long, pdwstatus: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGroupGetStatus(hgroup.toCPointer<ByteVar>(), pdwstatus.toCPointer<ByteVar>())
+public actual fun peerGroupGetStatus(hgroup: COpaquePointer?, pdwstatus: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGroupGetStatus(hgroup?.value?.toCPointer<ByteVar>(), pdwstatus?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGroupImportConfig(pwzxml: PCWSTR, pwzpassword: PCWSTR, foverwrite: BOOL, ppwzidentity: Long, ppwzgroup: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGroupImportConfig(pwzxml.toCPointer<ByteVar>(), pwzpassword.toCPointer<ByteVar>(), foverwrite, ppwzidentity.toCPointer<ByteVar>(), ppwzgroup.toCPointer<ByteVar>())
+public actual fun peerGroupImportConfig(pwzxml: Pcwstr, pwzpassword: Pcwstr, foverwrite: Bool, ppwzidentity: COpaquePointer?, ppwzgroup: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGroupImportConfig(pwzxml?.value?.toCPointer<ByteVar>(), pwzpassword?.value?.toCPointer<ByteVar>(), foverwrite, ppwzidentity?.value?.toCPointer<ByteVar>(), ppwzgroup?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGroupImportDatabase(hgroup: Long, pwzfilepath: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGroupImportDatabase(hgroup.toCPointer<ByteVar>(), pwzfilepath.toCPointer<ByteVar>())
+public actual fun peerGroupImportDatabase(hgroup: COpaquePointer?, pwzfilepath: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGroupImportDatabase(hgroup?.value?.toCPointer<ByteVar>(), pwzfilepath?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGroupIssueCredentials(hgroup: Long, pwzsubjectidentity: PCWSTR, pcredentialinfo: Long, dwflags: UInt, ppwzinvitation: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGroupIssueCredentials(hgroup.toCPointer<ByteVar>(), pwzsubjectidentity.toCPointer<ByteVar>(), pcredentialinfo.toCPointer<ByteVar>(), dwflags, ppwzinvitation.toCPointer<ByteVar>())
+public actual fun peerGroupIssueCredentials(hgroup: COpaquePointer?, pwzsubjectidentity: Pcwstr, pcredentialinfo: COpaquePointer?, dwflags: UInt, ppwzinvitation: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGroupIssueCredentials(hgroup?.value?.toCPointer<ByteVar>(), pwzsubjectidentity?.value?.toCPointer<ByteVar>(), pcredentialinfo?.value?.toCPointer<ByteVar>(), dwflags, ppwzinvitation?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGroupJoin(pwzidentity: PCWSTR, pwzinvitation: PCWSTR, pwzcloud: PCWSTR, phgroup: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGroupJoin(pwzidentity.toCPointer<ByteVar>(), pwzinvitation.toCPointer<ByteVar>(), pwzcloud.toCPointer<ByteVar>(), phgroup.toCPointer<ByteVar>())
+public actual fun peerGroupJoin(pwzidentity: Pcwstr, pwzinvitation: Pcwstr, pwzcloud: Pcwstr, phgroup: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGroupJoin(pwzidentity?.value?.toCPointer<ByteVar>(), pwzinvitation?.value?.toCPointer<ByteVar>(), pwzcloud?.value?.toCPointer<ByteVar>(), phgroup?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGroupOpen(pwzidentity: PCWSTR, pwzgrouppeername: PCWSTR, pwzcloud: PCWSTR, phgroup: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGroupOpen(pwzidentity.toCPointer<ByteVar>(), pwzgrouppeername.toCPointer<ByteVar>(), pwzcloud.toCPointer<ByteVar>(), phgroup.toCPointer<ByteVar>())
+public actual fun peerGroupOpen(pwzidentity: Pcwstr, pwzgrouppeername: Pcwstr, pwzcloud: Pcwstr, phgroup: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGroupOpen(pwzidentity?.value?.toCPointer<ByteVar>(), pwzgrouppeername?.value?.toCPointer<ByteVar>(), pwzcloud?.value?.toCPointer<ByteVar>(), phgroup?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGroupOpenDirectConnection(hgroup: Long, pwzidentity: PCWSTR, paddress: Long, pullconnectionid: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGroupOpenDirectConnection(hgroup.toCPointer<ByteVar>(), pwzidentity.toCPointer<ByteVar>(), paddress.toCPointer<ByteVar>(), pullconnectionid.toCPointer<ByteVar>())
+public actual fun peerGroupOpenDirectConnection(hgroup: COpaquePointer?, pwzidentity: Pcwstr, paddress: COpaquePointer?, pullconnectionid: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGroupOpenDirectConnection(hgroup?.value?.toCPointer<ByteVar>(), pwzidentity?.value?.toCPointer<ByteVar>(), paddress?.value?.toCPointer<ByteVar>(), pullconnectionid?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGroupParseInvitation(pwzinvitation: PCWSTR, ppinvitationinfo: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGroupParseInvitation(pwzinvitation.toCPointer<ByteVar>(), ppinvitationinfo.toCPointer<ByteVar>())
+public actual fun peerGroupParseInvitation(pwzinvitation: Pcwstr, ppinvitationinfo: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGroupParseInvitation(pwzinvitation?.value?.toCPointer<ByteVar>(), ppinvitationinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGroupPasswordJoin(pwzidentity: PCWSTR, pwzinvitation: PCWSTR, pwzpassword: PCWSTR, pwzcloud: PCWSTR, phgroup: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGroupPasswordJoin(pwzidentity.toCPointer<ByteVar>(), pwzinvitation.toCPointer<ByteVar>(), pwzpassword.toCPointer<ByteVar>(), pwzcloud.toCPointer<ByteVar>(), phgroup.toCPointer<ByteVar>())
+public actual fun peerGroupPasswordJoin(pwzidentity: Pcwstr, pwzinvitation: Pcwstr, pwzpassword: Pcwstr, pwzcloud: Pcwstr, phgroup: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGroupPasswordJoin(pwzidentity?.value?.toCPointer<ByteVar>(), pwzinvitation?.value?.toCPointer<ByteVar>(), pwzpassword?.value?.toCPointer<ByteVar>(), pwzcloud?.value?.toCPointer<ByteVar>(), phgroup?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGroupPeerTimeToUniversalTime(hgroup: Long, pftpeertime: Long, pftuniversaltime: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGroupPeerTimeToUniversalTime(hgroup.toCPointer<ByteVar>(), pftpeertime.toCPointer<ByteVar>(), pftuniversaltime.toCPointer<ByteVar>())
+public actual fun peerGroupPeerTimeToUniversalTime(hgroup: COpaquePointer?, pftpeertime: COpaquePointer?, pftuniversaltime: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGroupPeerTimeToUniversalTime(hgroup?.value?.toCPointer<ByteVar>(), pftpeertime?.value?.toCPointer<ByteVar>(), pftuniversaltime?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGroupRegisterEvent(hgroup: Long, hevent: HANDLE, ceventregistration: UInt, peventregistrations: Long, phpeerevent: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGroupRegisterEvent(hgroup.toCPointer<ByteVar>(), hevent.toCPointer<ByteVar>(), ceventregistration, peventregistrations.toCPointer<ByteVar>(), phpeerevent.toCPointer<ByteVar>())
+public actual fun peerGroupRegisterEvent(hgroup: COpaquePointer?, hevent: Handle, ceventregistration: UInt, peventregistrations: COpaquePointer?, phpeerevent: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGroupRegisterEvent(hgroup?.value?.toCPointer<ByteVar>(), hevent?.value?.toCPointer<ByteVar>(), ceventregistration, peventregistrations?.value?.toCPointer<ByteVar>(), phpeerevent?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGroupResumePasswordAuthentication(hgroup: Long, hpeereventhandle: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGroupResumePasswordAuthentication(hgroup.toCPointer<ByteVar>(), hpeereventhandle.toCPointer<ByteVar>())
+public actual fun peerGroupResumePasswordAuthentication(hgroup: COpaquePointer?, hpeereventhandle: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGroupResumePasswordAuthentication(hgroup?.value?.toCPointer<ByteVar>(), hpeereventhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGroupSearchRecords(hgroup: Long, pwzcriteria: PCWSTR, phpeerenum: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGroupSearchRecords(hgroup.toCPointer<ByteVar>(), pwzcriteria.toCPointer<ByteVar>(), phpeerenum.toCPointer<ByteVar>())
+public actual fun peerGroupSearchRecords(hgroup: COpaquePointer?, pwzcriteria: Pcwstr, phpeerenum: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGroupSearchRecords(hgroup?.value?.toCPointer<ByteVar>(), pwzcriteria?.value?.toCPointer<ByteVar>(), phpeerenum?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGroupSendData(hgroup: Long, ullconnectionid: ULong, ptype: Long, cbdata: UInt, pvdata: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGroupSendData(hgroup.toCPointer<ByteVar>(), ullconnectionid, ptype.toCPointer<ByteVar>(), cbdata, pvdata.toCPointer<ByteVar>())
+public actual fun peerGroupSendData(hgroup: COpaquePointer?, ullconnectionid: ULong, ptype: COpaquePointer?, cbdata: UInt, pvdata: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGroupSendData(hgroup?.value?.toCPointer<ByteVar>(), ullconnectionid, ptype?.value?.toCPointer<ByteVar>(), cbdata, pvdata?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGroupSetProperties(hgroup: Long, pproperties: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGroupSetProperties(hgroup.toCPointer<ByteVar>(), pproperties.toCPointer<ByteVar>())
+public actual fun peerGroupSetProperties(hgroup: COpaquePointer?, pproperties: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGroupSetProperties(hgroup?.value?.toCPointer<ByteVar>(), pproperties?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGroupShutdown(): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGroupShutdown()
+public actual fun peerGroupShutdown(): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGroupShutdown()
 
-public actual fun PeerGroupStartup(wversionrequested: UShort, pversiondata: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGroupStartup(wversionrequested, pversiondata.toCPointer<ByteVar>())
+public actual fun peerGroupStartup(wversionrequested: UShort, pversiondata: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGroupStartup(wversionrequested, pversiondata?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGroupUniversalTimeToPeerTime(hgroup: Long, pftuniversaltime: Long, pftpeertime: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGroupUniversalTimeToPeerTime(hgroup.toCPointer<ByteVar>(), pftuniversaltime.toCPointer<ByteVar>(), pftpeertime.toCPointer<ByteVar>())
+public actual fun peerGroupUniversalTimeToPeerTime(hgroup: COpaquePointer?, pftuniversaltime: COpaquePointer?, pftpeertime: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGroupUniversalTimeToPeerTime(hgroup?.value?.toCPointer<ByteVar>(), pftuniversaltime?.value?.toCPointer<ByteVar>(), pftpeertime?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGroupUnregisterEvent(hpeerevent: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGroupUnregisterEvent(hpeerevent.toCPointer<ByteVar>())
+public actual fun peerGroupUnregisterEvent(hpeerevent: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGroupUnregisterEvent(hpeerevent?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerGroupUpdateRecord(hgroup: Long, precord: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerGroupUpdateRecord(hgroup.toCPointer<ByteVar>(), precord.toCPointer<ByteVar>())
+public actual fun peerGroupUpdateRecord(hgroup: COpaquePointer?, precord: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerGroupUpdateRecord(hgroup?.value?.toCPointer<ByteVar>(), precord?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerHostNameToPeerName(pwzhostname: PCWSTR, ppwzpeername: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerHostNameToPeerName(pwzhostname.toCPointer<ByteVar>(), ppwzpeername.toCPointer<ByteVar>())
+public actual fun peerHostNameToPeerName(pwzhostname: Pcwstr, ppwzpeername: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerHostNameToPeerName(pwzhostname?.value?.toCPointer<ByteVar>(), ppwzpeername?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerIdentityCreate(pwzclassifier: PCWSTR, pwzfriendlyname: PCWSTR, hcryptprov: ULong, ppwzidentity: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerIdentityCreate(pwzclassifier.toCPointer<ByteVar>(), pwzfriendlyname.toCPointer<ByteVar>(), hcryptprov, ppwzidentity.toCPointer<ByteVar>())
+public actual fun peerIdentityCreate(pwzclassifier: Pcwstr, pwzfriendlyname: Pcwstr, hcryptprov: ULong, ppwzidentity: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerIdentityCreate(pwzclassifier?.value?.toCPointer<ByteVar>(), pwzfriendlyname?.value?.toCPointer<ByteVar>(), hcryptprov, ppwzidentity?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerIdentityDelete(pwzidentity: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerIdentityDelete(pwzidentity.toCPointer<ByteVar>())
+public actual fun peerIdentityDelete(pwzidentity: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerIdentityDelete(pwzidentity?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerIdentityExport(pwzidentity: PCWSTR, pwzpassword: PCWSTR, ppwzexportxml: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerIdentityExport(pwzidentity.toCPointer<ByteVar>(), pwzpassword.toCPointer<ByteVar>(), ppwzexportxml.toCPointer<ByteVar>())
+public actual fun peerIdentityExport(pwzidentity: Pcwstr, pwzpassword: Pcwstr, ppwzexportxml: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerIdentityExport(pwzidentity?.value?.toCPointer<ByteVar>(), pwzpassword?.value?.toCPointer<ByteVar>(), ppwzexportxml?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerIdentityGetCryptKey(pwzidentity: PCWSTR, phcryptprov: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerIdentityGetCryptKey(pwzidentity.toCPointer<ByteVar>(), phcryptprov.toCPointer<ByteVar>())
+public actual fun peerIdentityGetCryptKey(pwzidentity: Pcwstr, phcryptprov: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerIdentityGetCryptKey(pwzidentity?.value?.toCPointer<ByteVar>(), phcryptprov?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerIdentityGetDefault(ppwzpeername: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerIdentityGetDefault(ppwzpeername.toCPointer<ByteVar>())
+public actual fun peerIdentityGetDefault(ppwzpeername: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerIdentityGetDefault(ppwzpeername?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerIdentityGetFriendlyName(pwzidentity: PCWSTR, ppwzfriendlyname: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerIdentityGetFriendlyName(pwzidentity.toCPointer<ByteVar>(), ppwzfriendlyname.toCPointer<ByteVar>())
+public actual fun peerIdentityGetFriendlyName(pwzidentity: Pcwstr, ppwzfriendlyname: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerIdentityGetFriendlyName(pwzidentity?.value?.toCPointer<ByteVar>(), ppwzfriendlyname?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerIdentityGetXML(pwzidentity: PCWSTR, ppwzidentityxml: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerIdentityGetXML(pwzidentity.toCPointer<ByteVar>(), ppwzidentityxml.toCPointer<ByteVar>())
+public actual fun peerIdentityGetXML(pwzidentity: Pcwstr, ppwzidentityxml: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerIdentityGetXML(pwzidentity?.value?.toCPointer<ByteVar>(), ppwzidentityxml?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerIdentityImport(pwzimportxml: PCWSTR, pwzpassword: PCWSTR, ppwzidentity: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerIdentityImport(pwzimportxml.toCPointer<ByteVar>(), pwzpassword.toCPointer<ByteVar>(), ppwzidentity.toCPointer<ByteVar>())
+public actual fun peerIdentityImport(pwzimportxml: Pcwstr, pwzpassword: Pcwstr, ppwzidentity: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerIdentityImport(pwzimportxml?.value?.toCPointer<ByteVar>(), pwzpassword?.value?.toCPointer<ByteVar>(), ppwzidentity?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerIdentitySetFriendlyName(pwzidentity: PCWSTR, pwzfriendlyname: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerIdentitySetFriendlyName(pwzidentity.toCPointer<ByteVar>(), pwzfriendlyname.toCPointer<ByteVar>())
+public actual fun peerIdentitySetFriendlyName(pwzidentity: Pcwstr, pwzfriendlyname: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerIdentitySetFriendlyName(pwzidentity?.value?.toCPointer<ByteVar>(), pwzfriendlyname?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerNameToPeerHostName(pwzpeername: PCWSTR, ppwzhostname: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerNameToPeerHostName(pwzpeername.toCPointer<ByteVar>(), ppwzhostname.toCPointer<ByteVar>())
+public actual fun peerNameToPeerHostName(pwzpeername: Pcwstr, ppwzhostname: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerNameToPeerHostName(pwzpeername?.value?.toCPointer<ByteVar>(), ppwzhostname?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerPnrpEndResolve(hresolve: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerPnrpEndResolve(hresolve.toCPointer<ByteVar>())
+public actual fun peerPnrpEndResolve(hresolve: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerPnrpEndResolve(hresolve?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerPnrpGetCloudInfo(pcnumclouds: Long, ppcloudinfo: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerPnrpGetCloudInfo(pcnumclouds.toCPointer<ByteVar>(), ppcloudinfo.toCPointer<ByteVar>())
+public actual fun peerPnrpGetCloudInfo(pcnumclouds: COpaquePointer?, ppcloudinfo: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerPnrpGetCloudInfo(pcnumclouds?.value?.toCPointer<ByteVar>(), ppcloudinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerPnrpGetEndpoint(hresolve: Long, ppendpoint: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerPnrpGetEndpoint(hresolve.toCPointer<ByteVar>(), ppendpoint.toCPointer<ByteVar>())
+public actual fun peerPnrpGetEndpoint(hresolve: COpaquePointer?, ppendpoint: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerPnrpGetEndpoint(hresolve?.value?.toCPointer<ByteVar>(), ppendpoint?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerPnrpRegister(pcwzpeername: PCWSTR, pregistrationinfo: Long, phregistration: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerPnrpRegister(pcwzpeername.toCPointer<ByteVar>(), pregistrationinfo.toCPointer<ByteVar>(), phregistration.toCPointer<ByteVar>())
+public actual fun peerPnrpRegister(pcwzpeername: Pcwstr, pregistrationinfo: COpaquePointer?, phregistration: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerPnrpRegister(pcwzpeername?.value?.toCPointer<ByteVar>(), pregistrationinfo?.value?.toCPointer<ByteVar>(), phregistration?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerPnrpResolve(pcwzpeername: PCWSTR, pcwzcloudname: PCWSTR, pcendpoints: Long, ppendpoints: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerPnrpResolve(pcwzpeername.toCPointer<ByteVar>(), pcwzcloudname.toCPointer<ByteVar>(), pcendpoints.toCPointer<ByteVar>(), ppendpoints.toCPointer<ByteVar>())
+public actual fun peerPnrpResolve(pcwzpeername: Pcwstr, pcwzcloudname: Pcwstr, pcendpoints: COpaquePointer?, ppendpoints: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerPnrpResolve(pcwzpeername?.value?.toCPointer<ByteVar>(), pcwzcloudname?.value?.toCPointer<ByteVar>(), pcendpoints?.value?.toCPointer<ByteVar>(), ppendpoints?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerPnrpShutdown(): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerPnrpShutdown()
+public actual fun peerPnrpShutdown(): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerPnrpShutdown()
 
-public actual fun PeerPnrpStartResolve(pcwzpeername: PCWSTR, pcwzcloudname: PCWSTR, cmaxendpoints: UInt, hevent: HANDLE, phresolve: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerPnrpStartResolve(pcwzpeername.toCPointer<ByteVar>(), pcwzcloudname.toCPointer<ByteVar>(), cmaxendpoints, hevent.toCPointer<ByteVar>(), phresolve.toCPointer<ByteVar>())
+public actual fun peerPnrpStartResolve(pcwzpeername: Pcwstr, pcwzcloudname: Pcwstr, cmaxendpoints: UInt, hevent: Handle, phresolve: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerPnrpStartResolve(pcwzpeername?.value?.toCPointer<ByteVar>(), pcwzcloudname?.value?.toCPointer<ByteVar>(), cmaxendpoints, hevent?.value?.toCPointer<ByteVar>(), phresolve?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerPnrpStartup(wversionrequested: UShort): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerPnrpStartup(wversionrequested)
+public actual fun peerPnrpStartup(wversionrequested: UShort): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerPnrpStartup(wversionrequested)
 
-public actual fun PeerPnrpUnregister(hregistration: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerPnrpUnregister(hregistration.toCPointer<ByteVar>())
+public actual fun peerPnrpUnregister(hregistration: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerPnrpUnregister(hregistration?.value?.toCPointer<ByteVar>())
 
-public actual fun PeerPnrpUpdateRegistration(hregistration: Long, pregistrationinfo: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_PeerPnrpUpdateRegistration(hregistration.toCPointer<ByteVar>(), pregistrationinfo.toCPointer<ByteVar>())
+public actual fun peerPnrpUpdateRegistration(hregistration: COpaquePointer?, pregistrationinfo: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p.cinterop.windowssys_windows_win32_networkmanagement_p2p_peerPnrpUpdateRegistration(hregistration?.value?.toCPointer<ByteVar>(), pregistrationinfo?.value?.toCPointer<ByteVar>())

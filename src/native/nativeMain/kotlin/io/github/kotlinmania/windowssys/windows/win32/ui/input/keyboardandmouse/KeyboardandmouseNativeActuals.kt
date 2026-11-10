@@ -2,171 +2,169 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun ActivateKeyboardLayout(hkl: HKL, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS): HKL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_ActivateKeyboardLayout(hkl.toCPointer<ByteVar>(), flags)?.toLong() ?: 0L
+public actual fun activateKeyboardLayout(hkl: Hkl, flags: ActivateKeyboardLayoutFlags): Hkl =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_activateKeyboardLayout(hkl?.value?.toCPointer<ByteVar>(), flags)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun BlockInput(fblockit: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_BlockInput(fblockit)
+public actual fun blockInput(fblockit: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_blockInput(fblockit)
 
-public actual fun DragDetect(hwnd: HWND, pt: POINT): BOOL =
+public actual fun dragDetect(hwnd: Hwnd, pt: Point): Bool =
     0
 
-public actual fun EnableWindow(hwnd: HWND, benable: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_EnableWindow(hwnd.toCPointer<ByteVar>(), benable)
+public actual fun enableWindow(hwnd: Hwnd, benable: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_enableWindow(hwnd?.value?.toCPointer<ByteVar>(), benable)
 
-public actual fun GetActiveWindow(): HWND =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_GetActiveWindow()?.toLong() ?: 0L
+public actual fun getActiveWindow(): Hwnd =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_getActiveWindow()?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GetAsyncKeyState(vkey: Int): Short =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_GetAsyncKeyState(vkey)
+public actual fun getAsyncKeyState(vkey: Int): Short =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_getAsyncKeyState(vkey)
 
-public actual fun GetCapture(): HWND =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_GetCapture()?.toLong() ?: 0L
+public actual fun getCapture(): Hwnd =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_getCapture()?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GetDoubleClickTime(): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_GetDoubleClickTime()
+public actual fun getDoubleClickTime(): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_getDoubleClickTime()
 
-public actual fun GetFocus(): HWND =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_GetFocus()?.toLong() ?: 0L
+public actual fun getFocus(): Hwnd =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_getFocus()?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GetKBCodePage(): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_GetKBCodePage()
+public actual fun getKBCodePage(): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_getKBCodePage()
 
-public actual fun GetKeyNameTextA(lparam: Int, lpstring: PSTR, cchsize: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyNameTextA(lparam, lpstring.toCPointer<ByteVar>(), cchsize)
+public actual fun getKeyNameTextA(lparam: Int, lpstring: Pstr, cchsize: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_getKeyNameTextA(lparam, lpstring?.value?.toCPointer<ByteVar>(), cchsize)
 
-public actual fun GetKeyNameTextW(lparam: Int, lpstring: PWSTR, cchsize: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyNameTextW(lparam, lpstring.toCPointer<ByteVar>(), cchsize)
+public actual fun getKeyNameTextW(lparam: Int, lpstring: Pwstr, cchsize: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_getKeyNameTextW(lparam, lpstring?.value?.toCPointer<ByteVar>(), cchsize)
 
-public actual fun GetKeyState(nvirtkey: Int): Short =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyState(nvirtkey)
+public actual fun getKeyState(nvirtkey: Int): Short =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_getKeyState(nvirtkey)
 
-public actual fun GetKeyboardLayout(idthread: UInt): HKL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardLayout(idthread)?.toLong() ?: 0L
+public actual fun getKeyboardLayout(idthread: UInt): Hkl =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardLayout(idthread)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GetKeyboardLayoutList(nbuff: Int, lplist: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardLayoutList(nbuff, lplist.toCPointer<ByteVar>())
+public actual fun getKeyboardLayoutList(nbuff: Int, lplist: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardLayoutList(nbuff, lplist?.value?.toCPointer<ByteVar>())
 
-public actual fun GetKeyboardLayoutNameA(pwszklid: PSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardLayoutNameA(pwszklid.toCPointer<ByteVar>())
+public actual fun getKeyboardLayoutNameA(pwszklid: Pstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardLayoutNameA(pwszklid?.value?.toCPointer<ByteVar>())
 
-public actual fun GetKeyboardLayoutNameW(pwszklid: PWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardLayoutNameW(pwszklid.toCPointer<ByteVar>())
+public actual fun getKeyboardLayoutNameW(pwszklid: Pwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardLayoutNameW(pwszklid?.value?.toCPointer<ByteVar>())
 
-public actual fun GetKeyboardState(lpkeystate: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardState(lpkeystate.toCPointer<ByteVar>())
+public actual fun getKeyboardState(lpkeystate: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardState(lpkeystate?.value?.toCPointer<ByteVar>())
 
-public actual fun GetKeyboardType(ntypeflag: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardType(ntypeflag)
+public actual fun getKeyboardType(ntypeflag: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardType(ntypeflag)
 
-public actual fun GetLastInputInfo(plii: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_GetLastInputInfo(plii.toCPointer<ByteVar>())
+public actual fun getLastInputInfo(plii: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_getLastInputInfo(plii?.value?.toCPointer<ByteVar>())
 
-public actual fun GetMouseMovePointsEx(cbsize: UInt, lppt: Long, lpptbuf: Long, nbufpoints: Int, resolution: GET_MOUSE_MOVE_POINTS_EX_RESOLUTION): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_GetMouseMovePointsEx(cbsize, lppt.toCPointer<ByteVar>(), lpptbuf.toCPointer<ByteVar>(), nbufpoints, resolution)
+public actual fun getMouseMovePointsEx(cbsize: UInt, lppt: COpaquePointer?, lpptbuf: COpaquePointer?, nbufpoints: Int, resolution: GetMouseMovePointsExResolution): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_getMouseMovePointsEx(cbsize, lppt?.value?.toCPointer<ByteVar>(), lpptbuf?.value?.toCPointer<ByteVar>(), nbufpoints, resolution)
 
-public actual fun IsWindowEnabled(hwnd: HWND): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_IsWindowEnabled(hwnd.toCPointer<ByteVar>())
+public actual fun isWindowEnabled(hwnd: Hwnd): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_isWindowEnabled(hwnd?.value?.toCPointer<ByteVar>())
 
-public actual fun LoadKeyboardLayoutA(pwszklid: PCSTR, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS): HKL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_LoadKeyboardLayoutA(pwszklid.toCPointer<ByteVar>(), flags)?.toLong() ?: 0L
+public actual fun loadKeyboardLayoutA(pwszklid: Pcstr, flags: ActivateKeyboardLayoutFlags): Hkl =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_loadKeyboardLayoutA(pwszklid?.value?.toCPointer<ByteVar>(), flags)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun LoadKeyboardLayoutW(pwszklid: PCWSTR, flags: ACTIVATE_KEYBOARD_LAYOUT_FLAGS): HKL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_LoadKeyboardLayoutW(pwszklid.toCPointer<ByteVar>(), flags)?.toLong() ?: 0L
+public actual fun loadKeyboardLayoutW(pwszklid: Pcwstr, flags: ActivateKeyboardLayoutFlags): Hkl =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_loadKeyboardLayoutW(pwszklid?.value?.toCPointer<ByteVar>(), flags)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun MapVirtualKeyA(ucode: UInt, umaptype: MAP_VIRTUAL_KEY_TYPE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtualKeyA(ucode, umaptype)
+public actual fun mapVirtualKeyA(ucode: UInt, umaptype: MapVirtualKeyType): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_mapVirtualKeyA(ucode, umaptype)
 
-public actual fun MapVirtualKeyExA(ucode: UInt, umaptype: MAP_VIRTUAL_KEY_TYPE, dwhkl: HKL): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtualKeyExA(ucode, umaptype, dwhkl.toCPointer<ByteVar>())
+public actual fun mapVirtualKeyExA(ucode: UInt, umaptype: MapVirtualKeyType, dwhkl: Hkl): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_mapVirtualKeyExA(ucode, umaptype, dwhkl?.value?.toCPointer<ByteVar>())
 
-public actual fun MapVirtualKeyExW(ucode: UInt, umaptype: MAP_VIRTUAL_KEY_TYPE, dwhkl: HKL): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtualKeyExW(ucode, umaptype, dwhkl.toCPointer<ByteVar>())
+public actual fun mapVirtualKeyExW(ucode: UInt, umaptype: MapVirtualKeyType, dwhkl: Hkl): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_mapVirtualKeyExW(ucode, umaptype, dwhkl?.value?.toCPointer<ByteVar>())
 
-public actual fun MapVirtualKeyW(ucode: UInt, umaptype: MAP_VIRTUAL_KEY_TYPE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtualKeyW(ucode, umaptype)
+public actual fun mapVirtualKeyW(ucode: UInt, umaptype: MapVirtualKeyType): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_mapVirtualKeyW(ucode, umaptype)
 
-public actual fun OemKeyScan(woemchar: UShort): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_OemKeyScan(woemchar)
+public actual fun oemKeyScan(woemchar: UShort): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_oemKeyScan(woemchar)
 
-public actual fun RegisterHotKey(hwnd: HWND, id: Int, fsmodifiers: HOT_KEY_MODIFIERS, vk: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_RegisterHotKey(hwnd.toCPointer<ByteVar>(), id, fsmodifiers, vk)
+public actual fun registerHotKey(hwnd: Hwnd, id: Int, fsmodifiers: HotKeyModifiers, vk: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_registerHotKey(hwnd?.value?.toCPointer<ByteVar>(), id, fsmodifiers, vk)
 
-public actual fun ReleaseCapture(): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_ReleaseCapture()
+public actual fun releaseCapture(): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_releaseCapture()
 
-public actual fun SendInput(cinputs: UInt, pinputs: Long, cbsize: Int): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_SendInput(cinputs, pinputs.toCPointer<ByteVar>(), cbsize)
+public actual fun sendInput(cinputs: UInt, pinputs: COpaquePointer?, cbsize: Int): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_sendInput(cinputs, pinputs?.value?.toCPointer<ByteVar>(), cbsize)
 
-public actual fun SetActiveWindow(hwnd: HWND): HWND =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_SetActiveWindow(hwnd.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun setActiveWindow(hwnd: Hwnd): Hwnd =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_setActiveWindow(hwnd?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun SetCapture(hwnd: HWND): HWND =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_SetCapture(hwnd.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun setCapture(hwnd: Hwnd): Hwnd =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_setCapture(hwnd?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun SetDoubleClickTime(param0: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_SetDoubleClickTime(param0)
+public actual fun setDoubleClickTime(param0: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_setDoubleClickTime(param0)
 
-public actual fun SetFocus(hwnd: HWND): HWND =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_SetFocus(hwnd.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun setFocus(hwnd: Hwnd): Hwnd =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_setFocus(hwnd?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun SetKeyboardState(lpkeystate: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_SetKeyboardState(lpkeystate.toCPointer<ByteVar>())
+public actual fun setKeyboardState(lpkeystate: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_setKeyboardState(lpkeystate?.value?.toCPointer<ByteVar>())
 
-public actual fun SwapMouseButton(fswap: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_SwapMouseButton(fswap)
+public actual fun swapMouseButton(fswap: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_swapMouseButton(fswap)
 
-public actual fun ToAscii(uvirtkey: UInt, uscancode: UInt, lpkeystate: Long, lpchar: Long, uflags: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_ToAscii(uvirtkey, uscancode, lpkeystate.toCPointer<ByteVar>(), lpchar.toCPointer<ByteVar>(), uflags)
+public actual fun toAscii(uvirtkey: UInt, uscancode: UInt, lpkeystate: COpaquePointer?, lpchar: COpaquePointer?, uflags: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_toAscii(uvirtkey, uscancode, lpkeystate?.value?.toCPointer<ByteVar>(), lpchar?.value?.toCPointer<ByteVar>(), uflags)
 
-public actual fun ToAsciiEx(uvirtkey: UInt, uscancode: UInt, lpkeystate: Long, lpchar: Long, uflags: UInt, dwhkl: HKL): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_ToAsciiEx(uvirtkey, uscancode, lpkeystate.toCPointer<ByteVar>(), lpchar.toCPointer<ByteVar>(), uflags, dwhkl.toCPointer<ByteVar>())
+public actual fun toAsciiEx(uvirtkey: UInt, uscancode: UInt, lpkeystate: COpaquePointer?, lpchar: COpaquePointer?, uflags: UInt, dwhkl: Hkl): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_toAsciiEx(uvirtkey, uscancode, lpkeystate?.value?.toCPointer<ByteVar>(), lpchar?.value?.toCPointer<ByteVar>(), uflags, dwhkl?.value?.toCPointer<ByteVar>())
 
-public actual fun ToUnicode(wvirtkey: UInt, wscancode: UInt, lpkeystate: Long, pwszbuff: PWSTR, cchbuff: Int, wflags: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_ToUnicode(wvirtkey, wscancode, lpkeystate.toCPointer<ByteVar>(), pwszbuff.toCPointer<ByteVar>(), cchbuff, wflags)
+public actual fun toUnicode(wvirtkey: UInt, wscancode: UInt, lpkeystate: COpaquePointer?, pwszbuff: Pwstr, cchbuff: Int, wflags: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_toUnicode(wvirtkey, wscancode, lpkeystate?.value?.toCPointer<ByteVar>(), pwszbuff?.value?.toCPointer<ByteVar>(), cchbuff, wflags)
 
-public actual fun ToUnicodeEx(wvirtkey: UInt, wscancode: UInt, lpkeystate: Long, pwszbuff: PWSTR, cchbuff: Int, wflags: UInt, dwhkl: HKL): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_ToUnicodeEx(wvirtkey, wscancode, lpkeystate.toCPointer<ByteVar>(), pwszbuff.toCPointer<ByteVar>(), cchbuff, wflags, dwhkl.toCPointer<ByteVar>())
+public actual fun toUnicodeEx(wvirtkey: UInt, wscancode: UInt, lpkeystate: COpaquePointer?, pwszbuff: Pwstr, cchbuff: Int, wflags: UInt, dwhkl: Hkl): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_toUnicodeEx(wvirtkey, wscancode, lpkeystate?.value?.toCPointer<ByteVar>(), pwszbuff?.value?.toCPointer<ByteVar>(), cchbuff, wflags, dwhkl?.value?.toCPointer<ByteVar>())
 
-public actual fun TrackMouseEvent(lpeventtrack: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_TrackMouseEvent(lpeventtrack.toCPointer<ByteVar>())
+public actual fun trackMouseEvent(lpeventtrack: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_trackMouseEvent(lpeventtrack?.value?.toCPointer<ByteVar>())
 
-public actual fun UnloadKeyboardLayout(hkl: HKL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_UnloadKeyboardLayout(hkl.toCPointer<ByteVar>())
+public actual fun unloadKeyboardLayout(hkl: Hkl): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_unloadKeyboardLayout(hkl?.value?.toCPointer<ByteVar>())
 
-public actual fun UnregisterHotKey(hwnd: HWND, id: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_UnregisterHotKey(hwnd.toCPointer<ByteVar>(), id)
+public actual fun unregisterHotKey(hwnd: Hwnd, id: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_unregisterHotKey(hwnd?.value?.toCPointer<ByteVar>(), id)
 
-public actual fun VkKeyScanA(ch: Byte): Short =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanA(ch)
+public actual fun vkKeyScanA(ch: Byte): Short =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_vkKeyScanA(ch)
 
-public actual fun VkKeyScanExA(ch: Byte, dwhkl: HKL): Short =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanExA(ch, dwhkl.toCPointer<ByteVar>())
+public actual fun vkKeyScanExA(ch: Byte, dwhkl: Hkl): Short =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_vkKeyScanExA(ch, dwhkl?.value?.toCPointer<ByteVar>())
 
-public actual fun VkKeyScanExW(ch: UShort, dwhkl: HKL): Short =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanExW(ch, dwhkl.toCPointer<ByteVar>())
+public actual fun vkKeyScanExW(ch: UShort, dwhkl: Hkl): Short =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_vkKeyScanExW(ch, dwhkl?.value?.toCPointer<ByteVar>())
 
-public actual fun VkKeyScanW(ch: UShort): Short =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanW(ch)
+public actual fun vkKeyScanW(ch: UShort): Short =
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_vkKeyScanW(ch)
 
-public actual fun _TrackMouseEvent(lpeventtrack: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse__TrackMouseEvent(lpeventtrack.toCPointer<ByteVar>())
-
-public actual fun keybd_event(bvk: UByte, bscan: UByte, dwflags: KEYBD_EVENT_FLAGS, dwextrainfo: ULong) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_keybd_event(bvk, bscan, dwflags, dwextrainfo)
+public actual fun keybdEvent(bvk: UByte, bscan: UByte, dwflags: KeybdEventFlags, dwextrainfo: ULong) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_keybdEvent(bvk, bscan, dwflags, dwextrainfo)
 }
 
-public actual fun mouse_event(dwflags: MOUSE_EVENT_FLAGS, dx: Int, dy: Int, dwdata: Int, dwextrainfo: ULong) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_mouse_event(dwflags, dx, dy, dwdata, dwextrainfo)
+public actual fun mouseEvent(dwflags: MouseEventFlags, dx: Int, dy: Int, dwdata: Int, dwextrainfo: ULong) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.cinterop.windowssys_windows_win32_ui_input_keyboardandmouse_mouseEvent(dwflags, dx, dy, dwdata, dwextrainfo)
 }

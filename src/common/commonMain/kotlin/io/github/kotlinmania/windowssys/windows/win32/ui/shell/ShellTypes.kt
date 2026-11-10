@@ -1,511 +1,512 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.shell
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LRESULT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
 
-public typealias ACENUMOPTION = Int
+public typealias Acenumoption = Int
 
-public typealias ACTIVATEOPTIONS = Int
+public typealias Activateoptions = Int
 
-public typealias ADJACENT_DISPLAY_EDGES = Int
+public typealias AdjacentDisplayEdges = Int
 
-public typealias AHE_TYPE = Int
+public typealias AheType = Int
 
-public typealias AHTYPE = Int
+public typealias Ahtype = Int
 
-public typealias APPACTIONFLAGS = Int
+public typealias Appactionflags = Int
 
-public typealias APPDOCLISTTYPE = Int
+public typealias Appdoclisttype = Int
 
-public typealias APPINFODATAFLAGS = Int
+public typealias Appinfodataflags = Int
 
-public fun interface APPLET_PROCFn {
-    public operator fun invoke(hwndcpl: HWND, msg: UInt, lparam1: LPARAM, lparam2: LPARAM): Int
+public fun interface AppletProcFn {
+    public operator fun invoke(hwndcpl: Hwnd, msg: UInt, lparam1: Lparam, lparam2: Lparam): Int
 }
 
-public typealias APPLET_PROC = APPLET_PROCFn?
+public typealias AppletProc = AppletProcFn?
 
-public typealias APPLICATION_VIEW_MIN_WIDTH = Int
+public typealias ApplicationViewMinWidth = Int
 
-public typealias APPLICATION_VIEW_ORIENTATION = Int
+public typealias ApplicationViewOrientation = Int
 
-public typealias APPLICATION_VIEW_SIZE_PREFERENCE = Int
+public typealias ApplicationViewSizePreference = Int
 
-public typealias APPLICATION_VIEW_STATE = Int
+public typealias ApplicationViewState = Int
 
-public typealias ASSOCCLASS = Int
+public typealias Assocclass = Int
 
-public typealias ASSOCDATA = Int
+public typealias Assocdata = Int
 
-public typealias ASSOCENUM = Int
+public typealias Assocenum = Int
 
-public typealias ASSOCF = UInt
+public typealias Assocf = UInt
 
-public typealias ASSOCIATIONLEVEL = Int
+public typealias Associationlevel = Int
 
-public typealias ASSOCIATIONTYPE = Int
+public typealias Associationtype = Int
 
-public typealias ASSOCKEY = Int
+public typealias Assockey = Int
 
-public typealias ASSOCSTR = Int
+public typealias Assocstr = Int
 
-public typealias ASSOC_FILTER = Int
+public typealias AssocFilter = Int
 
-public typealias ATTACHMENT_ACTION = Int
+public typealias AttachmentAction = Int
 
-public typealias ATTACHMENT_PROMPT = Int
+public typealias AttachmentPrompt = Int
 
-public typealias AUTOCOMPLETELISTOPTIONS = Int
+public typealias Autocompletelistoptions = Int
 
-public typealias AUTOCOMPLETEOPTIONS = Int
+public typealias Autocompleteoptions = Int
 
-public typealias BANDSITECID = Int
+public typealias Bandsitecid = Int
 
-public typealias BANNER_NOTIFICATION_EVENT = Int
+public typealias BannerNotificationEvent = Int
 
-public fun interface BFFCALLBACKFn {
-    public operator fun invoke(hwnd: HWND, umsg: UInt, lparam: LPARAM, lpdata: LPARAM): Int
+public fun interface BffcallbackFn {
+    public operator fun invoke(hwnd: Hwnd, umsg: UInt, lparam: Lparam, lpdata: Lparam): Int
 }
 
-public typealias BFFCALLBACK = BFFCALLBACKFn?
+public typealias Bffcallback = BffcallbackFn?
 
-public typealias BNSTATE = Int
+public typealias Bnstate = Int
 
 public typealias BrowserNavConstants = Int
 
-public typealias CATEGORYINFO_FLAGS = Int
+public typealias CategoryinfoFlags = Int
 
-public typealias CATSORT_FLAGS = Int
+public typealias CatsortFlags = Int
 
-public typealias CDBURNINGEXTENSIONRET = Int
+public typealias Cdburningextensionret = Int
 
-public typealias CDCONTROLSTATEF = Int
+public typealias Cdcontrolstatef = Int
 
-public typealias CM_ENUM_FLAGS = Int
+public typealias CmEnumFlags = Int
 
-public typealias CM_MASK = Int
+public typealias CmMask = Int
 
-public typealias CM_SET_WIDTH_VALUE = Int
+public typealias CmSetWidthValue = Int
 
-public typealias CM_STATE = Int
+public typealias CmState = Int
 
-public typealias CPVIEW = Int
+public typealias Cpview = Int
 
-public typealias CREDENTIAL_PROVIDER_ACCOUNT_OPTIONS = Int
+public typealias CredentialProviderAccountOptions = Int
 
-public typealias CREDENTIAL_PROVIDER_CREDENTIAL_FIELD_OPTIONS = Int
+public typealias CredentialProviderCredentialFieldOptions = Int
 
-public typealias CREDENTIAL_PROVIDER_FIELD_INTERACTIVE_STATE = Int
+public typealias CredentialProviderFieldInteractiveState = Int
 
-public typealias CREDENTIAL_PROVIDER_FIELD_STATE = Int
+public typealias CredentialProviderFieldState = Int
 
-public typealias CREDENTIAL_PROVIDER_FIELD_TYPE = Int
+public typealias CredentialProviderFieldType = Int
 
-public typealias CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE = Int
+public typealias CredentialProviderGetSerializationResponse = Int
 
-public typealias CREDENTIAL_PROVIDER_STATUS_ICON = Int
+public typealias CredentialProviderStatusIcon = Int
 
-public typealias CREDENTIAL_PROVIDER_USAGE_SCENARIO = Int
+public typealias CredentialProviderUsageScenario = Int
 
 public typealias CommandStateChangeConstants = Int
 
-public typealias DATAOBJ_GET_ITEM_FLAGS = Int
+public typealias DataobjGetItemFlags = Int
 
-public typealias DEFAULTSAVEFOLDERTYPE = Int
+public typealias Defaultsavefoldertype = Int
 
-public typealias DEFAULT_FOLDER_MENU_RESTRICTIONS = Int
+public typealias DefaultFolderMenuRestrictions = Int
 
-public typealias DEF_SHARE_ID = Int
+public typealias DefShareId = Int
 
-public typealias DESKBANDCID = Int
+public typealias Deskbandcid = Int
 
-public typealias DESKTOP_SLIDESHOW_DIRECTION = Int
+public typealias DesktopSlideshowDirection = Int
 
-public typealias DESKTOP_SLIDESHOW_OPTIONS = Int
+public typealias DesktopSlideshowOptions = Int
 
-public typealias DESKTOP_SLIDESHOW_STATE = Int
+public typealias DesktopSlideshowState = Int
 
-public typealias DESKTOP_WALLPAPER_POSITION = Int
+public typealias DesktopWallpaperPosition = Int
 
-public typealias DFM_CMD = Int
+public typealias DfmCmd = Int
 
-public typealias DFM_MESSAGE_ID = Int
+public typealias DfmMessageId = Int
 
-public typealias DISPLAY_DEVICE_TYPE = Int
+public typealias DisplayDeviceType = Int
 
-public fun interface DLLGETVERSIONPROCFn {
-    public operator fun invoke(param0: Long): HRESULT
+public fun interface DllgetversionprocFn {
+    public operator fun invoke(param0: COpaquePointer?): Hresult
 }
 
-public typealias DLLGETVERSIONPROC = DLLGETVERSIONPROCFn?
+public typealias Dllgetversionproc = DllgetversionprocFn?
 
-public typealias DROPIMAGETYPE = Int
+public typealias Dropimagetype = Int
 
-public typealias DSH_FLAGS = Int
+public typealias DshFlags = Int
 
-public typealias EC_HOST_UI_MODE = Int
+public typealias EcHostUiMode = Int
 
-public typealias EDGE_GESTURE_KIND = Int
+public typealias EdgeGestureKind = Int
 
-public typealias EXPLORER_BROWSER_FILL_FLAGS = Int
+public typealias ExplorerBrowserFillFlags = Int
 
-public typealias EXPLORER_BROWSER_OPTIONS = Int
+public typealias ExplorerBrowserOptions = Int
 
-public typealias FDAP = Int
+public typealias Fdap = Int
 
-public typealias FDE_OVERWRITE_RESPONSE = Int
+public typealias FdeOverwriteResponse = Int
 
-public typealias FDE_SHAREVIOLATION_RESPONSE = Int
+public typealias FdeShareviolationResponse = Int
 
-public typealias FD_FLAGS = Int
+public typealias FdFlags = Int
 
-public typealias FFFP_MODE = Int
+public typealias FffpMode = Int
 
-public typealias FILEOPENDIALOGOPTIONS = UInt
+public typealias Fileopendialogoptions = UInt
 
-public typealias FILEOPERATION_FLAGS = UInt
+public typealias FileoperationFlags = UInt
 
-public typealias FILETYPEATTRIBUTEFLAGS = Int
+public typealias Filetypeattributeflags = Int
 
-public typealias FILE_OPERATION_FLAGS2 = Int
+public typealias FileOperationFlags2 = Int
 
-public typealias FILE_USAGE_TYPE = Int
+public typealias FileUsageType = Int
 
-public typealias FLYOUT_PLACEMENT = Int
+public typealias FlyoutPlacement = Int
 
-public typealias FOLDERFLAGS = Int
+public typealias Folderflags = Int
 
-public typealias FOLDERLOGICALVIEWMODE = Int
+public typealias Folderlogicalviewmode = Int
 
-public typealias FOLDERVIEWMODE = Int
+public typealias Folderviewmode = Int
 
-public typealias FOLDERVIEWOPTIONS = Int
+public typealias Folderviewoptions = Int
 
-public typealias FOLDER_ENUM_MODE = Int
+public typealias FolderEnumMode = Int
 
-public typealias FVTEXTTYPE = Int
+public typealias Fvtexttype = Int
 
-public typealias GPFIDL_FLAGS = UInt
+public typealias GpfidlFlags = UInt
 
-public typealias HDROP = Long
+public typealias Hdrop = COpaquePointer?
 
-public typealias HELP_INFO_TYPE = Int
+public typealias HelpInfoType = Int
 
-public typealias HLBWIF_FLAGS = Int
+public typealias HlbwifFlags = Int
 
-public typealias HLFNAMEF = Int
+public typealias Hlfnamef = Int
 
-public typealias HLID_INFO = UInt
+public typealias HlidInfo = UInt
 
-public typealias HLINKGETREF = Int
+public typealias Hlinkgetref = Int
 
-public typealias HLINKMISC = Int
+public typealias Hlinkmisc = Int
 
-public typealias HLINKSETF = Int
+public typealias Hlinksetf = Int
 
-public typealias HLINKWHICHMK = Int
+public typealias Hlinkwhichmk = Int
 
-public typealias HLNF = UInt
+public typealias Hlnf = UInt
 
-public typealias HLQF_INFO = Int
+public typealias HlqfInfo = Int
 
-public typealias HLSHORTCUTF = Int
+public typealias Hlshortcutf = Int
 
-public typealias HLSR = Int
+public typealias Hlsr = Int
 
-public typealias HLTB_INFO = Int
+public typealias HltbInfo = Int
 
-public typealias HLTRANSLATEF = Int
+public typealias Hltranslatef = Int
 
-public typealias HOMEGROUPSHARINGCHOICES = Int
+public typealias Homegroupsharingchoices = Int
 
-public typealias HPSXA = Long
+public typealias Hpsxa = COpaquePointer?
 
-public typealias IEPDNFLAGS = Int
+public typealias Iepdnflags = Int
 
-public typealias IESHORTCUTFLAGS = Int
+public typealias Ieshortcutflags = Int
 
-public typealias IURL_INVOKECOMMAND_FLAGS = Int
+public typealias IurlInvokecommandFlags = Int
 
-public typealias IURL_SETURL_FLAGS = Int
+public typealias IurlSeturlFlags = Int
 
-public typealias KF_CATEGORY = Int
+public typealias KfCategory = Int
 
-public typealias KNOWNDESTCATEGORY = Int
+public typealias Knowndestcategory = Int
 
-public typealias KNOWN_FOLDER_FLAG = Int
+public typealias KnownFolderFlag = Int
 
-public typealias LIBRARYFOLDERFILTER = Int
+public typealias Libraryfolderfilter = Int
 
-public typealias LIBRARYMANAGEDIALOGOPTIONS = Int
+public typealias Librarymanagedialogoptions = Int
 
-public typealias LIBRARYOPTIONFLAGS = Int
+public typealias Libraryoptionflags = Int
 
-public typealias LIBRARYSAVEFLAGS = Int
+public typealias Librarysaveflags = Int
 
-public fun interface LPFNDFMCALLBACKFn {
-    public operator fun invoke(psf: Long, hwnd: HWND, pdtobj: Long, umsg: UInt, wparam: WPARAM, lparam: LPARAM): HRESULT
+public fun interface LpfndfmcallbackFn {
+    public operator fun invoke(psf: COpaquePointer?, hwnd: Hwnd, pdtobj: COpaquePointer?, umsg: UInt, wparam: Wparam, lparam: Lparam): Hresult
 }
 
-public typealias LPFNDFMCALLBACK = LPFNDFMCALLBACKFn?
+public typealias Lpfndfmcallback = LpfndfmcallbackFn?
 
-public fun interface LPFNVIEWCALLBACKFn {
-    public operator fun invoke(psvouter: Long, psf: Long, hwndmain: HWND, umsg: UInt, wparam: WPARAM, lparam: LPARAM): HRESULT
+public fun interface LpfnviewcallbackFn {
+    public operator fun invoke(psvouter: COpaquePointer?, psf: COpaquePointer?, hwndmain: Hwnd, umsg: UInt, wparam: Wparam, lparam: Lparam): Hresult
 }
 
-public typealias LPFNVIEWCALLBACK = LPFNVIEWCALLBACKFn?
+public typealias Lpfnviewcallback = LpfnviewcallbackFn?
 
-public typealias MENUBANDHANDLERCID = Int
+public typealias Menubandhandlercid = Int
 
-public typealias MENUPOPUPPOPUPFLAGS = Int
+public typealias Menupopuppopupflags = Int
 
-public typealias MENUPOPUPSELECT = Int
+public typealias Menupopupselect = Int
 
-public typealias MERGE_UPDATE_STATUS = Int
+public typealias MergeUpdateStatus = Int
 
-public typealias MIMEASSOCIATIONDIALOG_IN_FLAGS = Int
+public typealias MimeassociationdialogInFlags = Int
 
-public typealias MM_FLAGS = UInt
+public typealias MmFlags = UInt
 
-public typealias MONITOR_APP_VISIBILITY = Int
+public typealias MonitorAppVisibility = Int
 
-public typealias NAMESPACEWALKFLAG = Int
+public typealias Namespacewalkflag = Int
 
-public typealias NATIVE_DISPLAY_ORIENTATION = Int
+public typealias NativeDisplayOrientation = Int
 
-public typealias NOTIFY_ICON_DATA_FLAGS = UInt
+public typealias NotifyIconDataFlags = UInt
 
-public typealias NOTIFY_ICON_INFOTIP_FLAGS = UInt
+public typealias NotifyIconInfotipFlags = UInt
 
-public typealias NOTIFY_ICON_MESSAGE = UInt
+public typealias NotifyIconMessage = UInt
 
-public typealias NOTIFY_ICON_STATE = UInt
+public typealias NotifyIconState = UInt
 
-public typealias NSTCFOLDERCAPABILITIES = Int
+public typealias Nstcfoldercapabilities = Int
 
-public typealias NSTCGNI = Int
+public typealias Nstcgni = Int
 
-public typealias NSTCSTYLE2 = Int
+public typealias Nstcstyle2 = Int
 
-public typealias NWMF = Int
+public typealias Nwmf = Int
 
 public typealias NewProcessCauseConstants = Int
 
-public typealias OPEN_AS_INFO_FLAGS = Int
+public typealias OpenAsInfoFlags = Int
 
 public typealias OS = UInt
 
 public typealias OfflineFolderStatus = Int
 
-public typealias PACKAGE_EXECUTION_STATE = Int
+public typealias PackageExecutionState = Int
 
-public fun interface PAPPCONSTRAIN_CHANGE_ROUTINEFn {
-    public operator fun invoke(constrained: Boolean, context: Long)
+public fun interface PappconstrainChangeRoutineFn {
+    public operator fun invoke(constrained: Boolean, context: COpaquePointer?)
 }
 
-public typealias PAPPCONSTRAIN_CHANGE_ROUTINE = PAPPCONSTRAIN_CHANGE_ROUTINEFn?
+public typealias PappconstrainChangeRoutine = PappconstrainChangeRoutineFn?
 
-public typealias PAPPCONSTRAIN_REGISTRATION = Long
+public typealias PappconstrainRegistration = Long
 
-public fun interface PAPPSTATE_CHANGE_ROUTINEFn {
-    public operator fun invoke(quiesced: Boolean, context: Long)
+public fun interface PappstateChangeRoutineFn {
+    public operator fun invoke(quiesced: Boolean, context: COpaquePointer?)
 }
 
-public typealias PAPPSTATE_CHANGE_ROUTINE = PAPPSTATE_CHANGE_ROUTINEFn?
+public typealias PappstateChangeRoutine = PappstateChangeRoutineFn?
 
-public typealias PAPPSTATE_REGISTRATION = Long
+public typealias PappstateRegistration = Long
 
-public typealias PATHCCH_OPTIONS = UInt
+public typealias PathcchOptions = UInt
 
-public typealias PCS_RET = UInt
+public typealias PcsRet = UInt
 
-public fun interface PFNCANSHAREFOLDERWFn {
-    public operator fun invoke(pszpath: PCWSTR): HRESULT
+public fun interface PfncansharefolderwFn {
+    public operator fun invoke(pszpath: Pcwstr): Hresult
 }
 
-public typealias PFNCANSHAREFOLDERW = PFNCANSHAREFOLDERWFn?
+public typealias Pfncansharefolderw = PfncansharefolderwFn?
 
-public fun interface PFNSHOWSHAREFOLDERUIWFn {
-    public operator fun invoke(hwndparent: HWND, pszpath: PCWSTR): HRESULT
+public fun interface PfnshowsharefolderuiwFn {
+    public operator fun invoke(hwndparent: Hwnd, pszpath: Pcwstr): Hresult
 }
 
-public typealias PFNSHOWSHAREFOLDERUIW = PFNSHOWSHAREFOLDERUIWFn?
+public typealias Pfnshowsharefolderuiw = PfnshowsharefolderuiwFn?
 
-public typealias PIDISF_FLAGS = Int
+public typealias PidisfFlags = Int
 
-public typealias PIDISM_OPTIONS = Int
+public typealias PidismOptions = Int
 
-public typealias PIDISR_INFO = Int
+public typealias PidisrInfo = Int
 
-public typealias PID_INTSITE = Int
+public typealias PidIntsite = Int
 
-public typealias PID_IS = Int
+public typealias PidIs = Int
 
-public typealias PRF_FLAGS = Int
+public typealias PrfFlags = Int
 
-public typealias PUBAPPINFOFLAGS = Int
+public typealias Pubappinfoflags = Int
 
-public typealias QITIPF_FLAGS = Int
+public typealias QitipfFlags = Int
 
-public typealias QUERY_USER_NOTIFICATION_STATE = Int
+public typealias QueryUserNotificationState = Int
 
-public typealias RESTRICTIONS = Int
+public typealias Restrictions = Int
 
 public typealias RefreshConstants = Int
 
-public typealias SCALE_CHANGE_FLAGS = Int
+public typealias ScaleChangeFlags = Int
 
-public typealias SCNRT_STATUS = Int
+public typealias ScnrtStatus = Int
 
-public typealias SECURELOCKCODE = Int
+public typealias Securelockcode = Int
 
-public typealias SFBS_FLAGS = Int
+public typealias SfbsFlags = Int
 
-public typealias SFVM_MESSAGE_ID = Int
+public typealias SfvmMessageId = Int
 
-public typealias SFVS_SELECT = Int
+public typealias SfvsSelect = Int
 
-public typealias SHARD = Int
+public typealias Shard = Int
 
-public typealias SHARE_ROLE = Int
+public typealias ShareRole = Int
 
-public typealias SHCNE_ID = UInt
+public typealias ShcneId = UInt
 
-public typealias SHCNF_FLAGS = UInt
+public typealias ShcnfFlags = UInt
 
-public typealias SHCNRF_SOURCE = Int
+public typealias ShcnrfSource = Int
 
-public typealias SHDID_ID = Int
+public typealias ShdidId = Int
 
-public typealias SHELLBROWSERSHOWCONTROL = Int
+public typealias Shellbrowsershowcontrol = Int
 
-public typealias SHELL_AUTOCOMPLETE_FLAGS = UInt
+public typealias ShellAutocompleteFlags = UInt
 
-public typealias SHELL_LINK_DATA_FLAGS = Int
+public typealias ShellLinkDataFlags = Int
 
-public typealias SHELL_UI_COMPONENT = Int
+public typealias ShellUiComponent = Int
 
-public typealias SHFMT_ID = UInt
+public typealias ShfmtId = UInt
 
-public typealias SHFMT_OPT = Int
+public typealias ShfmtOpt = Int
 
-public typealias SHFMT_RET = UInt
+public typealias ShfmtRet = UInt
 
-public typealias SHGDFIL_FORMAT = Int
+public typealias ShgdfilFormat = Int
 
-public typealias SHGDNF = UInt
+public typealias Shgdnf = UInt
 
-public typealias SHGFI_FLAGS = UInt
+public typealias ShgfiFlags = UInt
 
-public typealias SHGFP_TYPE = Int
+public typealias ShgfpType = Int
 
-public typealias SHGLOBALCOUNTER = Int
+public typealias Shglobalcounter = Int
 
-public typealias SHGSI_FLAGS = UInt
+public typealias ShgsiFlags = UInt
 
-public typealias SHOP_TYPE = Int
+public typealias ShopType = Int
 
-public typealias SHREGDEL_FLAGS = Int
+public typealias ShregdelFlags = Int
 
-public typealias SHREGENUM_FLAGS = Int
+public typealias ShregenumFlags = Int
 
-public typealias SHSTOCKICONID = Int
+public typealias Shstockiconid = Int
 
-public typealias SIATTRIBFLAGS = Int
+public typealias Siattribflags = Int
 
-public typealias SIGDN = Int
+public typealias Sigdn = Int
 
-public typealias SIIGBF = Int
+public typealias Siigbf = Int
 
-public typealias SLGP_FLAGS = Int
+public typealias SlgpFlags = Int
 
-public typealias SLR_FLAGS = Int
+public typealias SlrFlags = Int
 
-public typealias SMINFOFLAGS = Int
+public typealias Sminfoflags = Int
 
-public typealias SMINFOMASK = Int
+public typealias Sminfomask = Int
 
-public typealias SMINFOTYPE = Int
+public typealias Sminfotype = Int
 
-public typealias SORTDIRECTION = Int
+public typealias Sortdirection = Int
 
-public typealias SORT_ORDER_TYPE = Int
+public typealias SortOrderType = Int
 
-public typealias SPACTION = Int
+public typealias Spaction = Int
 
-public typealias SPTEXT = Int
+public typealias Sptext = Int
 
-public typealias SSF_MASK = UInt
+public typealias SsfMask = UInt
 
-public typealias STGOP = Int
+public typealias Stgop = Int
 
-public typealias STORAGE_PROVIDER_FILE_FLAGS = Int
+public typealias StorageProviderFileFlags = Int
 
-public typealias STPFLAG = Int
+public typealias Stpflag = Int
 
-public fun interface SUBCLASSPROCFn {
-    public operator fun invoke(hwnd: HWND, umsg: UInt, wparam: WPARAM, lparam: LPARAM, uidsubclass: ULong, dwrefdata: ULong): LRESULT
+public fun interface SubclassprocFn {
+    public operator fun invoke(hwnd: Hwnd, umsg: UInt, wparam: Wparam, lparam: Lparam, uidsubclass: ULong, dwrefdata: ULong): Lresult
 }
 
-public typealias SUBCLASSPROC = SUBCLASSPROCFn?
+public typealias Subclassproc = SubclassprocFn?
 
-public typealias SVUIA_STATUS = Int
+public typealias SvuiaStatus = Int
 
-public typealias SYNCMGRERRORFLAGS = Int
+public typealias Syncmgrerrorflags = Int
 
-public typealias SYNCMGRFLAG = Int
+public typealias Syncmgrflag = Int
 
-public typealias SYNCMGRHANDLERFLAGS = Int
+public typealias Syncmgrhandlerflags = Int
 
-public typealias SYNCMGRINVOKEFLAGS = Int
+public typealias Syncmgrinvokeflags = Int
 
-public typealias SYNCMGRITEMFLAGS = Int
+public typealias Syncmgritemflags = Int
 
-public typealias SYNCMGRITEMSTATE = Int
+public typealias Syncmgritemstate = Int
 
-public typealias SYNCMGRLOGLEVEL = Int
+public typealias Syncmgrloglevel = Int
 
-public typealias SYNCMGRREGISTERFLAGS = Int
+public typealias Syncmgrregisterflags = Int
 
-public typealias SYNCMGRSTATUS = Int
+public typealias Syncmgrstatus = Int
 
-public typealias SYNCMGR_CANCEL_REQUEST = Int
+public typealias SyncmgrCancelRequest = Int
 
-public typealias SYNCMGR_CONFLICT_ITEM_TYPE = Int
+public typealias SyncmgrConflictItemType = Int
 
-public typealias SYNCMGR_CONTROL_FLAGS = Int
+public typealias SyncmgrControlFlags = Int
 
-public typealias SYNCMGR_EVENT_FLAGS = Int
+public typealias SyncmgrEventFlags = Int
 
-public typealias SYNCMGR_EVENT_LEVEL = Int
+public typealias SyncmgrEventLevel = Int
 
-public typealias SYNCMGR_HANDLER_CAPABILITIES = Int
+public typealias SyncmgrHandlerCapabilities = Int
 
-public typealias SYNCMGR_HANDLER_POLICIES = Int
+public typealias SyncmgrHandlerPolicies = Int
 
-public typealias SYNCMGR_HANDLER_TYPE = Int
+public typealias SyncmgrHandlerType = Int
 
-public typealias SYNCMGR_ITEM_CAPABILITIES = Int
+public typealias SyncmgrItemCapabilities = Int
 
-public typealias SYNCMGR_ITEM_POLICIES = Int
+public typealias SyncmgrItemPolicies = Int
 
-public typealias SYNCMGR_PRESENTER_CHOICE = Int
+public typealias SyncmgrPresenterChoice = Int
 
-public typealias SYNCMGR_PRESENTER_NEXT_STEP = Int
+public typealias SyncmgrPresenterNextStep = Int
 
-public typealias SYNCMGR_PROGRESS_STATUS = Int
+public typealias SyncmgrProgressStatus = Int
 
-public typealias SYNCMGR_RESOLUTION_ABILITIES = Int
+public typealias SyncmgrResolutionAbilities = Int
 
-public typealias SYNCMGR_RESOLUTION_FEEDBACK = Int
+public typealias SyncmgrResolutionFeedback = Int
 
-public typealias SYNCMGR_SYNC_CONTROL_FLAGS = Int
+public typealias SyncmgrSyncControlFlags = Int
 
-public typealias SYNCMGR_UPDATE_REASON = Int
+public typealias SyncmgrUpdateReason = Int
 
 public typealias SecureLockIconConstants = Int
 
@@ -517,94 +518,94 @@ public typealias ShellWindowFindWindowOptions = Int
 
 public typealias ShellWindowTypeConstants = Int
 
-public typealias TBPFLAG = Int
+public typealias Tbpflag = Int
 
-public typealias THUMBBUTTONFLAGS = Int
+public typealias Thumbbuttonflags = Int
 
-public typealias THUMBBUTTONMASK = Int
+public typealias Thumbbuttonmask = Int
 
-public typealias TI_FLAGS = Int
+public typealias TiFlags = Int
 
-public typealias TLENUMF = Int
+public typealias Tlenumf = Int
 
-public typealias TRANSLATEURL_IN_FLAGS = Int
+public typealias TranslateurlInFlags = Int
 
 public typealias ThumbnailStreamCacheOptions = Int
 
-public typealias UNDOCK_REASON = Int
+public typealias UndockReason = Int
 
-public typealias URLASSOCIATIONDIALOG_IN_FLAGS = Int
+public typealias UrlassociationdialogInFlags = Int
 
-public typealias URLIS = Int
+public typealias Urlis = Int
 
-public typealias URL_PART = Int
+public typealias UrlPart = Int
 
-public typealias URL_SCHEME = Int
+public typealias UrlScheme = Int
 
-public typealias VALIDATEUNC_OPTION = Int
+public typealias ValidateuncOption = Int
 
-public typealias VPCOLORFLAGS = Int
+public typealias Vpcolorflags = Int
 
-public typealias VPWATERMARKFLAGS = Int
+public typealias Vpwatermarkflags = Int
 
-public typealias WTS_ALPHATYPE = Int
+public typealias WtsAlphatype = Int
 
-public typealias WTS_CACHEFLAGS = Int
+public typealias WtsCacheflags = Int
 
-public typealias WTS_CONTEXTFLAGS = Int
+public typealias WtsContextflags = Int
 
-public typealias WTS_FLAGS = Int
+public typealias WtsFlags = Int
 
-public typealias _BROWSERFRAMEOPTIONS = Int
+public typealias Browserframeoptions = Int
 
-public typealias _CDBE_ACTIONS = Int
+public typealias CdbeActions = Int
 
-public typealias _EXPCMDFLAGS = Int
+public typealias Expcmdflags = Int
 
-public typealias _EXPCMDSTATE = Int
+public typealias Expcmdstate = Int
 
-public typealias _EXPLORERPANESTATE = Int
+public typealias Explorerpanestate = Int
 
-public typealias _EXPPS = Int
+public typealias Expps = Int
 
-public typealias _KF_DEFINITION_FLAGS = Int
+public typealias KfDefinitionFlags = Int
 
-public typealias _KF_REDIRECTION_CAPABILITIES = Int
+public typealias KfRedirectionCapabilities = Int
 
-public typealias _KF_REDIRECT_FLAGS = Int
+public typealias KfRedirectFlags = Int
 
-public typealias _NMCII_FLAGS = Int
+public typealias NmciiFlags = Int
 
-public typealias _NMCSAEI_FLAGS = Int
+public typealias NmcsaeiFlags = Int
 
-public typealias _NSTCECLICKTYPE = Int
+public typealias Nstceclicktype = Int
 
-public typealias _NSTCEHITTEST = Int
+public typealias Nstcehittest = Int
 
-public typealias _NSTCITEMSTATE = Int
+public typealias Nstcitemstate = Int
 
-public typealias _NSTCROOTSTYLE = Int
+public typealias Nstcrootstyle = Int
 
-public typealias _NSTCSTYLE = Int
+public typealias Nstcstyle = Int
 
-public typealias _OPPROGDLGF = Int
+public typealias Opprogdlgf = Int
 
-public typealias _PDMODE = Int
+public typealias Pdmode = Int
 
-public typealias _SHCONTF = Int
+public typealias Shcontf = Int
 
-public typealias _SICHINTF = Int
+public typealias Sichintf = Int
 
-public typealias _SPBEGINF = Int
+public typealias Spbeginf = Int
 
-public typealias _SPINITF = Int
+public typealias Spinitf = Int
 
-public typealias _SV3CVW3_FLAGS = Int
+public typealias Sv3cvw3Flags = Int
 
-public typealias _SVGIO = Int
+public typealias Svgio = Int
 
-public typealias _SVSIF = Int
+public typealias Svsif = Int
 
-public typealias _TRANSFER_ADVISE_STATE = Int
+public typealias TransferAdviseState = Int
 
-public typealias _TRANSFER_SOURCE_FLAGS = Int
+public typealias TransferSourceFlags = Int

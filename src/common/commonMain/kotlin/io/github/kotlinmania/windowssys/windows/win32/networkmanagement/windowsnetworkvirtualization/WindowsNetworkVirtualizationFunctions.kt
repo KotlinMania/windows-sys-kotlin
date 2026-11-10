@@ -1,7 +1,8 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsnetworkvirtualization
 
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
-public expect fun WnvOpen(): HANDLE
+public expect fun wnvOpen(): Handle
 
-public expect fun WnvRequestNotification(wnvhandle: HANDLE, notificationparam: Long, overlapped: Long, bytestransferred: Long): UInt
+public expect fun wnvRequestNotification(wnvhandle: Handle, notificationparam: COpaquePointer?, overlapped: COpaquePointer?, bytestransferred: COpaquePointer?): UInt

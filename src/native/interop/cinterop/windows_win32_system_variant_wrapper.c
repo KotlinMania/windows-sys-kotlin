@@ -15,7 +15,7 @@
 #endif
 #endif
 
-void windowssys_windows_win32_system_variant_ClearVariantArray(void* pvars, uint32_t cvars) {
+void windowssys_windows_win32_system_variant_clearVariantArray(void* pvars, uint32_t cvars) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ void windowssys_windows_win32_system_variant_ClearVariantArray(void* pvars, uint
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_DosDateTimeToVariantTime(uint16_t wdosdate, uint16_t wdostime, void* pvtime) {
+int32_t windowssys_windows_win32_system_variant_dosDateTimeToVariantTime(uint16_t wdosdate, uint16_t wdostime, void* pvtime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -61,7 +61,7 @@ int32_t windowssys_windows_win32_system_variant_DosDateTimeToVariantTime(uint16_
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_InitVariantFromBooleanArray(void* prgf, uint32_t celems, void* pvar) {
+int32_t windowssys_windows_win32_system_variant_initVariantFromBooleanArray(void* prgf, uint32_t celems, void* pvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -85,7 +85,7 @@ int32_t windowssys_windows_win32_system_variant_InitVariantFromBooleanArray(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_InitVariantFromBuffer(void* pv, uint32_t cb, void* pvar) {
+int32_t windowssys_windows_win32_system_variant_initVariantFromBuffer(void* pv, uint32_t cb, void* pvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -109,7 +109,7 @@ int32_t windowssys_windows_win32_system_variant_InitVariantFromBuffer(void* pv, 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_InitVariantFromDoubleArray(void* prgn, uint32_t celems, void* pvar) {
+int32_t windowssys_windows_win32_system_variant_initVariantFromDoubleArray(void* prgn, uint32_t celems, void* pvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -133,7 +133,7 @@ int32_t windowssys_windows_win32_system_variant_InitVariantFromDoubleArray(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_InitVariantFromFileTime(void* pft, void* pvar) {
+int32_t windowssys_windows_win32_system_variant_initVariantFromFileTime(void* pft, void* pvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -156,7 +156,7 @@ int32_t windowssys_windows_win32_system_variant_InitVariantFromFileTime(void* pf
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_InitVariantFromFileTimeArray(void* prgft, uint32_t celems, void* pvar) {
+int32_t windowssys_windows_win32_system_variant_initVariantFromFileTimeArray(void* prgft, uint32_t celems, void* pvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -180,7 +180,7 @@ int32_t windowssys_windows_win32_system_variant_InitVariantFromFileTimeArray(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_InitVariantFromGUIDAsString(void* guid, void* pvar) {
+int32_t windowssys_windows_win32_system_variant_initVariantFromGUIDAsString(void* guid, void* pvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -203,7 +203,7 @@ int32_t windowssys_windows_win32_system_variant_InitVariantFromGUIDAsString(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_InitVariantFromInt16Array(void* prgn, uint32_t celems, void* pvar) {
+int32_t windowssys_windows_win32_system_variant_initVariantFromInt16Array(void* prgn, uint32_t celems, void* pvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -227,7 +227,7 @@ int32_t windowssys_windows_win32_system_variant_InitVariantFromInt16Array(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_InitVariantFromInt32Array(void* prgn, uint32_t celems, void* pvar) {
+int32_t windowssys_windows_win32_system_variant_initVariantFromInt32Array(void* prgn, uint32_t celems, void* pvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -251,7 +251,7 @@ int32_t windowssys_windows_win32_system_variant_InitVariantFromInt32Array(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_InitVariantFromInt64Array(void* prgn, uint32_t celems, void* pvar) {
+int32_t windowssys_windows_win32_system_variant_initVariantFromInt64Array(void* prgn, uint32_t celems, void* pvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -275,7 +275,7 @@ int32_t windowssys_windows_win32_system_variant_InitVariantFromInt64Array(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_InitVariantFromResource(void* hinst, uint32_t id, void* pvar) {
+int32_t windowssys_windows_win32_system_variant_initVariantFromResource(void* hinst, uint32_t id, void* pvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -299,7 +299,7 @@ int32_t windowssys_windows_win32_system_variant_InitVariantFromResource(void* hi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_InitVariantFromStringArray(void* prgsz, uint32_t celems, void* pvar) {
+int32_t windowssys_windows_win32_system_variant_initVariantFromStringArray(void* prgsz, uint32_t celems, void* pvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -323,7 +323,7 @@ int32_t windowssys_windows_win32_system_variant_InitVariantFromStringArray(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_InitVariantFromUInt16Array(void* prgn, uint32_t celems, void* pvar) {
+int32_t windowssys_windows_win32_system_variant_initVariantFromUInt16Array(void* prgn, uint32_t celems, void* pvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -347,7 +347,7 @@ int32_t windowssys_windows_win32_system_variant_InitVariantFromUInt16Array(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_InitVariantFromUInt32Array(void* prgn, uint32_t celems, void* pvar) {
+int32_t windowssys_windows_win32_system_variant_initVariantFromUInt32Array(void* prgn, uint32_t celems, void* pvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -371,7 +371,7 @@ int32_t windowssys_windows_win32_system_variant_InitVariantFromUInt32Array(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_InitVariantFromUInt64Array(void* prgn, uint32_t celems, void* pvar) {
+int32_t windowssys_windows_win32_system_variant_initVariantFromUInt64Array(void* prgn, uint32_t celems, void* pvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -395,7 +395,7 @@ int32_t windowssys_windows_win32_system_variant_InitVariantFromUInt64Array(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_InitVariantFromVariantArrayElem(void* varin, uint32_t ielem, void* pvar) {
+int32_t windowssys_windows_win32_system_variant_initVariantFromVariantArrayElem(void* varin, uint32_t ielem, void* pvar) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -419,7 +419,7 @@ int32_t windowssys_windows_win32_system_variant_InitVariantFromVariantArrayElem(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_SystemTimeToVariantTime(void* lpsystemtime, void* pvtime) {
+int32_t windowssys_windows_win32_system_variant_systemTimeToVariantTime(void* lpsystemtime, void* pvtime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -442,7 +442,7 @@ int32_t windowssys_windows_win32_system_variant_SystemTimeToVariantTime(void* lp
 #endif
 }
 
-void windowssys_windows_win32_system_variant_VARIANT_UserFree(void* param0, void* param1) {
+void windowssys_windows_win32_system_variant_variantUserFree(void* param0, void* param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -464,7 +464,7 @@ void windowssys_windows_win32_system_variant_VARIANT_UserFree(void* param0, void
 #endif
 }
 
-void windowssys_windows_win32_system_variant_VARIANT_UserFree64(void* param0, void* param1) {
+void windowssys_windows_win32_system_variant_variantUserFree64(void* param0, void* param1) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -486,7 +486,7 @@ void windowssys_windows_win32_system_variant_VARIANT_UserFree64(void* param0, vo
 #endif
 }
 
-void* windowssys_windows_win32_system_variant_VARIANT_UserMarshal(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_variant_variantUserMarshal(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -510,7 +510,7 @@ void* windowssys_windows_win32_system_variant_VARIANT_UserMarshal(void* param0, 
 #endif
 }
 
-void* windowssys_windows_win32_system_variant_VARIANT_UserMarshal64(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_variant_variantUserMarshal64(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -534,7 +534,7 @@ void* windowssys_windows_win32_system_variant_VARIANT_UserMarshal64(void* param0
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_variant_VARIANT_UserSize(void* param0, uint32_t param1, void* param2) {
+uint32_t windowssys_windows_win32_system_variant_variantUserSize(void* param0, uint32_t param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -558,7 +558,7 @@ uint32_t windowssys_windows_win32_system_variant_VARIANT_UserSize(void* param0, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_variant_VARIANT_UserSize64(void* param0, uint32_t param1, void* param2) {
+uint32_t windowssys_windows_win32_system_variant_variantUserSize64(void* param0, uint32_t param1, void* param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -582,7 +582,7 @@ uint32_t windowssys_windows_win32_system_variant_VARIANT_UserSize64(void* param0
 #endif
 }
 
-void* windowssys_windows_win32_system_variant_VARIANT_UserUnmarshal(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_variant_variantUserUnmarshal(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -606,7 +606,7 @@ void* windowssys_windows_win32_system_variant_VARIANT_UserUnmarshal(void* param0
 #endif
 }
 
-void* windowssys_windows_win32_system_variant_VARIANT_UserUnmarshal64(void* param0, void* param1, void* param2) {
+void* windowssys_windows_win32_system_variant_variantUserUnmarshal64(void* param0, void* param1, void* param2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -630,7 +630,7 @@ void* windowssys_windows_win32_system_variant_VARIANT_UserUnmarshal64(void* para
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantChangeType(void* pvargdest, void* pvarsrc, uint16_t wflags, uint16_t vt) {
+int32_t windowssys_windows_win32_system_variant_variantChangeType(void* pvargdest, void* pvarsrc, uint16_t wflags, uint16_t vt) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint16_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -655,7 +655,7 @@ int32_t windowssys_windows_win32_system_variant_VariantChangeType(void* pvargdes
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantChangeTypeEx(void* pvargdest, void* pvarsrc, uint32_t lcid, uint16_t wflags, uint16_t vt) {
+int32_t windowssys_windows_win32_system_variant_variantChangeTypeEx(void* pvargdest, void* pvarsrc, uint32_t lcid, uint16_t wflags, uint16_t vt) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint16_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -681,7 +681,7 @@ int32_t windowssys_windows_win32_system_variant_VariantChangeTypeEx(void* pvargd
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantClear(void* pvarg) {
+int32_t windowssys_windows_win32_system_variant_variantClear(void* pvarg) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -703,7 +703,7 @@ int32_t windowssys_windows_win32_system_variant_VariantClear(void* pvarg) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantCompare(void* var1, void* var2) {
+int32_t windowssys_windows_win32_system_variant_variantCompare(void* var1, void* var2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -726,7 +726,7 @@ int32_t windowssys_windows_win32_system_variant_VariantCompare(void* var1, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantCopy(void* pvargdest, void* pvargsrc) {
+int32_t windowssys_windows_win32_system_variant_variantCopy(void* pvargdest, void* pvargsrc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -749,7 +749,7 @@ int32_t windowssys_windows_win32_system_variant_VariantCopy(void* pvargdest, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantCopyInd(void* pvardest, void* pvargsrc) {
+int32_t windowssys_windows_win32_system_variant_variantCopyInd(void* pvardest, void* pvargsrc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -772,7 +772,7 @@ int32_t windowssys_windows_win32_system_variant_VariantCopyInd(void* pvardest, v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantGetBooleanElem(void* var, uint32_t ielem, void* pfval) {
+int32_t windowssys_windows_win32_system_variant_variantGetBooleanElem(void* var, uint32_t ielem, void* pfval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -796,7 +796,7 @@ int32_t windowssys_windows_win32_system_variant_VariantGetBooleanElem(void* var,
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantGetDoubleElem(void* var, uint32_t ielem, void* pnval) {
+int32_t windowssys_windows_win32_system_variant_variantGetDoubleElem(void* var, uint32_t ielem, void* pnval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -820,7 +820,7 @@ int32_t windowssys_windows_win32_system_variant_VariantGetDoubleElem(void* var, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_variant_VariantGetElementCount(void* varin) {
+uint32_t windowssys_windows_win32_system_variant_variantGetElementCount(void* varin) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -842,7 +842,7 @@ uint32_t windowssys_windows_win32_system_variant_VariantGetElementCount(void* va
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantGetInt16Elem(void* var, uint32_t ielem, void* pnval) {
+int32_t windowssys_windows_win32_system_variant_variantGetInt16Elem(void* var, uint32_t ielem, void* pnval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -866,7 +866,7 @@ int32_t windowssys_windows_win32_system_variant_VariantGetInt16Elem(void* var, u
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantGetInt32Elem(void* var, uint32_t ielem, void* pnval) {
+int32_t windowssys_windows_win32_system_variant_variantGetInt32Elem(void* var, uint32_t ielem, void* pnval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -890,7 +890,7 @@ int32_t windowssys_windows_win32_system_variant_VariantGetInt32Elem(void* var, u
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantGetInt64Elem(void* var, uint32_t ielem, void* pnval) {
+int32_t windowssys_windows_win32_system_variant_variantGetInt64Elem(void* var, uint32_t ielem, void* pnval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -914,7 +914,7 @@ int32_t windowssys_windows_win32_system_variant_VariantGetInt64Elem(void* var, u
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantGetStringElem(void* var, uint32_t ielem, void* ppszval) {
+int32_t windowssys_windows_win32_system_variant_variantGetStringElem(void* var, uint32_t ielem, void* ppszval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -938,7 +938,7 @@ int32_t windowssys_windows_win32_system_variant_VariantGetStringElem(void* var, 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantGetUInt16Elem(void* var, uint32_t ielem, void* pnval) {
+int32_t windowssys_windows_win32_system_variant_variantGetUInt16Elem(void* var, uint32_t ielem, void* pnval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -962,7 +962,7 @@ int32_t windowssys_windows_win32_system_variant_VariantGetUInt16Elem(void* var, 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantGetUInt32Elem(void* var, uint32_t ielem, void* pnval) {
+int32_t windowssys_windows_win32_system_variant_variantGetUInt32Elem(void* var, uint32_t ielem, void* pnval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -986,7 +986,7 @@ int32_t windowssys_windows_win32_system_variant_VariantGetUInt32Elem(void* var, 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantGetUInt64Elem(void* var, uint32_t ielem, void* pnval) {
+int32_t windowssys_windows_win32_system_variant_variantGetUInt64Elem(void* var, uint32_t ielem, void* pnval) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1010,7 +1010,7 @@ int32_t windowssys_windows_win32_system_variant_VariantGetUInt64Elem(void* var, 
 #endif
 }
 
-void windowssys_windows_win32_system_variant_VariantInit(void* pvarg) {
+void windowssys_windows_win32_system_variant_variantInit(void* pvarg) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1031,7 +1031,7 @@ void windowssys_windows_win32_system_variant_VariantInit(void* pvarg) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantTimeToDosDateTime(double vtime, void* pwdosdate, void* pwdostime) {
+int32_t windowssys_windows_win32_system_variant_variantTimeToDosDateTime(double vtime, void* pwdosdate, void* pwdostime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(double, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1055,7 +1055,7 @@ int32_t windowssys_windows_win32_system_variant_VariantTimeToDosDateTime(double 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantTimeToSystemTime(double vtime, void* lpsystemtime) {
+int32_t windowssys_windows_win32_system_variant_variantTimeToSystemTime(double vtime, void* lpsystemtime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(double, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1078,7 +1078,7 @@ int32_t windowssys_windows_win32_system_variant_VariantTimeToSystemTime(double v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantToBoolean(void* varin, void* pfret) {
+int32_t windowssys_windows_win32_system_variant_variantToBoolean(void* varin, void* pfret) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1101,7 +1101,7 @@ int32_t windowssys_windows_win32_system_variant_VariantToBoolean(void* varin, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantToBooleanArray(void* var, void* prgf, uint32_t crgn, void* pcelem) {
+int32_t windowssys_windows_win32_system_variant_variantToBooleanArray(void* var, void* prgf, uint32_t crgn, void* pcelem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1126,7 +1126,7 @@ int32_t windowssys_windows_win32_system_variant_VariantToBooleanArray(void* var,
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantToBooleanArrayAlloc(void* var, void* pprgf, void* pcelem) {
+int32_t windowssys_windows_win32_system_variant_variantToBooleanArrayAlloc(void* var, void* pprgf, void* pcelem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1150,7 +1150,7 @@ int32_t windowssys_windows_win32_system_variant_VariantToBooleanArrayAlloc(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantToBooleanWithDefault(void* varin, int32_t fdefault) {
+int32_t windowssys_windows_win32_system_variant_variantToBooleanWithDefault(void* varin, int32_t fdefault) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1173,7 +1173,7 @@ int32_t windowssys_windows_win32_system_variant_VariantToBooleanWithDefault(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantToBuffer(void* varin, void* pv, uint32_t cb) {
+int32_t windowssys_windows_win32_system_variant_variantToBuffer(void* varin, void* pv, uint32_t cb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1197,7 +1197,7 @@ int32_t windowssys_windows_win32_system_variant_VariantToBuffer(void* varin, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantToDosDateTime(void* varin, void* pwdate, void* pwtime) {
+int32_t windowssys_windows_win32_system_variant_variantToDosDateTime(void* varin, void* pwdate, void* pwtime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1221,7 +1221,7 @@ int32_t windowssys_windows_win32_system_variant_VariantToDosDateTime(void* varin
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantToDouble(void* varin, void* pdblret) {
+int32_t windowssys_windows_win32_system_variant_variantToDouble(void* varin, void* pdblret) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1244,7 +1244,7 @@ int32_t windowssys_windows_win32_system_variant_VariantToDouble(void* varin, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantToDoubleArray(void* var, void* prgn, uint32_t crgn, void* pcelem) {
+int32_t windowssys_windows_win32_system_variant_variantToDoubleArray(void* var, void* prgn, uint32_t crgn, void* pcelem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1269,7 +1269,7 @@ int32_t windowssys_windows_win32_system_variant_VariantToDoubleArray(void* var, 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantToDoubleArrayAlloc(void* var, void* pprgn, void* pcelem) {
+int32_t windowssys_windows_win32_system_variant_variantToDoubleArrayAlloc(void* var, void* pprgn, void* pcelem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1293,7 +1293,7 @@ int32_t windowssys_windows_win32_system_variant_VariantToDoubleArrayAlloc(void* 
 #endif
 }
 
-double windowssys_windows_win32_system_variant_VariantToDoubleWithDefault(void* varin, double dbldefault) {
+double windowssys_windows_win32_system_variant_variantToDoubleWithDefault(void* varin, double dbldefault) {
 #ifdef _WIN32
     typedef double (__stdcall *km_fn_t)(void*, double);
     static km_fn_t km_fn_ptr = NULL;
@@ -1316,7 +1316,7 @@ double windowssys_windows_win32_system_variant_VariantToDoubleWithDefault(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantToFileTime(void* varin, int32_t stfout, void* pftout) {
+int32_t windowssys_windows_win32_system_variant_variantToFileTime(void* varin, int32_t stfout, void* pftout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1340,7 +1340,7 @@ int32_t windowssys_windows_win32_system_variant_VariantToFileTime(void* varin, i
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantToGUID(void* varin, void* pguid) {
+int32_t windowssys_windows_win32_system_variant_variantToGUID(void* varin, void* pguid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1363,7 +1363,7 @@ int32_t windowssys_windows_win32_system_variant_VariantToGUID(void* varin, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantToInt16(void* varin, void* piret) {
+int32_t windowssys_windows_win32_system_variant_variantToInt16(void* varin, void* piret) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1386,7 +1386,7 @@ int32_t windowssys_windows_win32_system_variant_VariantToInt16(void* varin, void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantToInt16Array(void* var, void* prgn, uint32_t crgn, void* pcelem) {
+int32_t windowssys_windows_win32_system_variant_variantToInt16Array(void* var, void* prgn, uint32_t crgn, void* pcelem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1411,7 +1411,7 @@ int32_t windowssys_windows_win32_system_variant_VariantToInt16Array(void* var, v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantToInt16ArrayAlloc(void* var, void* pprgn, void* pcelem) {
+int32_t windowssys_windows_win32_system_variant_variantToInt16ArrayAlloc(void* var, void* pprgn, void* pcelem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1435,7 +1435,7 @@ int32_t windowssys_windows_win32_system_variant_VariantToInt16ArrayAlloc(void* v
 #endif
 }
 
-int16_t windowssys_windows_win32_system_variant_VariantToInt16WithDefault(void* varin, int16_t idefault) {
+int16_t windowssys_windows_win32_system_variant_variantToInt16WithDefault(void* varin, int16_t idefault) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(void*, int16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1458,7 +1458,7 @@ int16_t windowssys_windows_win32_system_variant_VariantToInt16WithDefault(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantToInt32(void* varin, void* plret) {
+int32_t windowssys_windows_win32_system_variant_variantToInt32(void* varin, void* plret) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1481,7 +1481,7 @@ int32_t windowssys_windows_win32_system_variant_VariantToInt32(void* varin, void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantToInt32Array(void* var, void* prgn, uint32_t crgn, void* pcelem) {
+int32_t windowssys_windows_win32_system_variant_variantToInt32Array(void* var, void* prgn, uint32_t crgn, void* pcelem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1506,7 +1506,7 @@ int32_t windowssys_windows_win32_system_variant_VariantToInt32Array(void* var, v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantToInt32ArrayAlloc(void* var, void* pprgn, void* pcelem) {
+int32_t windowssys_windows_win32_system_variant_variantToInt32ArrayAlloc(void* var, void* pprgn, void* pcelem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1530,7 +1530,7 @@ int32_t windowssys_windows_win32_system_variant_VariantToInt32ArrayAlloc(void* v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantToInt32WithDefault(void* varin, int32_t ldefault) {
+int32_t windowssys_windows_win32_system_variant_variantToInt32WithDefault(void* varin, int32_t ldefault) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1553,7 +1553,7 @@ int32_t windowssys_windows_win32_system_variant_VariantToInt32WithDefault(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantToInt64(void* varin, void* pllret) {
+int32_t windowssys_windows_win32_system_variant_variantToInt64(void* varin, void* pllret) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1576,7 +1576,7 @@ int32_t windowssys_windows_win32_system_variant_VariantToInt64(void* varin, void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantToInt64Array(void* var, void* prgn, uint32_t crgn, void* pcelem) {
+int32_t windowssys_windows_win32_system_variant_variantToInt64Array(void* var, void* prgn, uint32_t crgn, void* pcelem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1601,7 +1601,7 @@ int32_t windowssys_windows_win32_system_variant_VariantToInt64Array(void* var, v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantToInt64ArrayAlloc(void* var, void* pprgn, void* pcelem) {
+int32_t windowssys_windows_win32_system_variant_variantToInt64ArrayAlloc(void* var, void* pprgn, void* pcelem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1625,7 +1625,7 @@ int32_t windowssys_windows_win32_system_variant_VariantToInt64ArrayAlloc(void* v
 #endif
 }
 
-int64_t windowssys_windows_win32_system_variant_VariantToInt64WithDefault(void* varin, int64_t lldefault) {
+int64_t windowssys_windows_win32_system_variant_variantToInt64WithDefault(void* varin, int64_t lldefault) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1648,7 +1648,7 @@ int64_t windowssys_windows_win32_system_variant_VariantToInt64WithDefault(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantToString(void* varin, void* pszbuf, uint32_t cchbuf) {
+int32_t windowssys_windows_win32_system_variant_variantToString(void* varin, void* pszbuf, uint32_t cchbuf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1672,7 +1672,7 @@ int32_t windowssys_windows_win32_system_variant_VariantToString(void* varin, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantToStringAlloc(void* varin, void* ppszbuf) {
+int32_t windowssys_windows_win32_system_variant_variantToStringAlloc(void* varin, void* ppszbuf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1695,7 +1695,7 @@ int32_t windowssys_windows_win32_system_variant_VariantToStringAlloc(void* varin
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantToStringArray(void* var, void* prgsz, uint32_t crgsz, void* pcelem) {
+int32_t windowssys_windows_win32_system_variant_variantToStringArray(void* var, void* prgsz, uint32_t crgsz, void* pcelem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1720,7 +1720,7 @@ int32_t windowssys_windows_win32_system_variant_VariantToStringArray(void* var, 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantToStringArrayAlloc(void* var, void* pprgsz, void* pcelem) {
+int32_t windowssys_windows_win32_system_variant_variantToStringArrayAlloc(void* var, void* pprgsz, void* pcelem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1744,7 +1744,7 @@ int32_t windowssys_windows_win32_system_variant_VariantToStringArrayAlloc(void* 
 #endif
 }
 
-void* windowssys_windows_win32_system_variant_VariantToStringWithDefault(void* varin, void* pszdefault) {
+void* windowssys_windows_win32_system_variant_variantToStringWithDefault(void* varin, void* pszdefault) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1767,7 +1767,7 @@ void* windowssys_windows_win32_system_variant_VariantToStringWithDefault(void* v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantToUInt16(void* varin, void* puiret) {
+int32_t windowssys_windows_win32_system_variant_variantToUInt16(void* varin, void* puiret) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1790,7 +1790,7 @@ int32_t windowssys_windows_win32_system_variant_VariantToUInt16(void* varin, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantToUInt16Array(void* var, void* prgn, uint32_t crgn, void* pcelem) {
+int32_t windowssys_windows_win32_system_variant_variantToUInt16Array(void* var, void* prgn, uint32_t crgn, void* pcelem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1815,7 +1815,7 @@ int32_t windowssys_windows_win32_system_variant_VariantToUInt16Array(void* var, 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantToUInt16ArrayAlloc(void* var, void* pprgn, void* pcelem) {
+int32_t windowssys_windows_win32_system_variant_variantToUInt16ArrayAlloc(void* var, void* pprgn, void* pcelem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1839,7 +1839,7 @@ int32_t windowssys_windows_win32_system_variant_VariantToUInt16ArrayAlloc(void* 
 #endif
 }
 
-uint16_t windowssys_windows_win32_system_variant_VariantToUInt16WithDefault(void* varin, uint16_t uidefault) {
+uint16_t windowssys_windows_win32_system_variant_variantToUInt16WithDefault(void* varin, uint16_t uidefault) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1862,7 +1862,7 @@ uint16_t windowssys_windows_win32_system_variant_VariantToUInt16WithDefault(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantToUInt32(void* varin, void* pulret) {
+int32_t windowssys_windows_win32_system_variant_variantToUInt32(void* varin, void* pulret) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1885,7 +1885,7 @@ int32_t windowssys_windows_win32_system_variant_VariantToUInt32(void* varin, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantToUInt32Array(void* var, void* prgn, uint32_t crgn, void* pcelem) {
+int32_t windowssys_windows_win32_system_variant_variantToUInt32Array(void* var, void* prgn, uint32_t crgn, void* pcelem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1910,7 +1910,7 @@ int32_t windowssys_windows_win32_system_variant_VariantToUInt32Array(void* var, 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantToUInt32ArrayAlloc(void* var, void* pprgn, void* pcelem) {
+int32_t windowssys_windows_win32_system_variant_variantToUInt32ArrayAlloc(void* var, void* pprgn, void* pcelem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1934,7 +1934,7 @@ int32_t windowssys_windows_win32_system_variant_VariantToUInt32ArrayAlloc(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_variant_VariantToUInt32WithDefault(void* varin, uint32_t uldefault) {
+uint32_t windowssys_windows_win32_system_variant_variantToUInt32WithDefault(void* varin, uint32_t uldefault) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1957,7 +1957,7 @@ uint32_t windowssys_windows_win32_system_variant_VariantToUInt32WithDefault(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantToUInt64(void* varin, void* pullret) {
+int32_t windowssys_windows_win32_system_variant_variantToUInt64(void* varin, void* pullret) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1980,7 +1980,7 @@ int32_t windowssys_windows_win32_system_variant_VariantToUInt64(void* varin, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantToUInt64Array(void* var, void* prgn, uint32_t crgn, void* pcelem) {
+int32_t windowssys_windows_win32_system_variant_variantToUInt64Array(void* var, void* prgn, uint32_t crgn, void* pcelem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2005,7 +2005,7 @@ int32_t windowssys_windows_win32_system_variant_VariantToUInt64Array(void* var, 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_variant_VariantToUInt64ArrayAlloc(void* var, void* pprgn, void* pcelem) {
+int32_t windowssys_windows_win32_system_variant_variantToUInt64ArrayAlloc(void* var, void* pprgn, void* pcelem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2029,7 +2029,7 @@ int32_t windowssys_windows_win32_system_variant_VariantToUInt64ArrayAlloc(void* 
 #endif
 }
 
-uint64_t windowssys_windows_win32_system_variant_VariantToUInt64WithDefault(void* varin, uint64_t ulldefault) {
+uint64_t windowssys_windows_win32_system_variant_variantToUInt64WithDefault(void* varin, uint64_t ulldefault) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;

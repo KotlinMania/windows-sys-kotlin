@@ -22,39 +22,39 @@ public val DVD_SECTOR_PROTECTED: UInt = 32u
 
 public val DVD_SECTOR_PROTECT_MASK: UInt = 32u
 
-public val DiscControlBlockList: DISC_CONTROL_BLOCK_TYPE = -1
+public val DISC_CONTROL_BLOCK_LIST: DiscControlBlockType = -1
 
-public val DvdAsf: DVD_KEY_TYPE = 5
+public val DVD_ASF: DvdKeyType = 5
 
-public val DvdBCADescriptor: DVD_STRUCTURE_FORMAT = 3
+public val DVD_BCA_DESCRIPTOR: DvdStructureFormat = 3
 
-public val DvdBusKey1: DVD_KEY_TYPE = 2
+public val DVD_BUS_KEY1: DvdKeyType = 2
 
-public val DvdBusKey2: DVD_KEY_TYPE = 3
+public val DVD_BUS_KEY2: DvdKeyType = 3
 
-public val DvdChallengeKey: DVD_KEY_TYPE = 1
+public val DVD_CHALLENGE_KEY: DvdKeyType = 1
 
-public val DvdCopyrightDescriptor: DVD_STRUCTURE_FORMAT = 1
+public val DVD_COPYRIGHT_DESCRIPTOR: DvdStructureFormat = 1
 
-public val DvdDiskKey: DVD_KEY_TYPE = 128
+public val DVD_DISK_KEY: DvdKeyType = 128
 
-public val DvdDiskKeyDescriptor: DVD_STRUCTURE_FORMAT = 2
+public val DVD_DISK_KEY_DESCRIPTOR: DvdStructureFormat = 2
 
-public val DvdGetRpcKey: DVD_KEY_TYPE = 8
+public val DVD_GET_RPC_KEY: DvdKeyType = 8
 
-public val DvdInvalidateAGID: DVD_KEY_TYPE = 63
+public val DVD_INVALIDATE_AGID: DvdKeyType = 63
 
-public val DvdManufacturerDescriptor: DVD_STRUCTURE_FORMAT = 4
+public val DVD_MANUFACTURER_DESCRIPTOR: DvdStructureFormat = 4
 
-public val DvdMaxDescriptor: DVD_STRUCTURE_FORMAT = 5
+public val DVD_MAX_DESCRIPTOR: DvdStructureFormat = 5
 
-public val DvdPhysicalDescriptor: DVD_STRUCTURE_FORMAT = 0
+public val DVD_PHYSICAL_DESCRIPTOR: DvdStructureFormat = 0
 
-public val DvdSetRpcKey: DVD_KEY_TYPE = 6
+public val DVD_SET_RPC_KEY: DvdKeyType = 6
 
-public val DvdTitleKey: DVD_KEY_TYPE = 4
+public val DVD_TITLE_KEY: DvdKeyType = 4
 
-public val FormattingDiscControlBlock: DISC_CONTROL_BLOCK_TYPE = 1178878720
+public val FORMATTING_DISC_CONTROL_BLOCK: DiscControlBlockType = 1178878720
 
 public val IOCTL_AACS_END_SESSION: UInt = 3363020u
 
@@ -102,6 +102,6 @@ public val IOCTL_DVD_START_SESSION: UInt = 3362816u
 
 public val IOCTL_STORAGE_SET_READ_AHEAD: UInt = 2966528u
 
-public val SessionInfoDiscControlBlock: DISC_CONTROL_BLOCK_TYPE = 1396982528
+public val SESSION_INFO_DISC_CONTROL_BLOCK: DiscControlBlockType = 1396982528
 
-public val WriteInhibitDiscControlBlock: DISC_CONTROL_BLOCK_TYPE = 1464091392
+public val WRITE_INHIBIT_DISC_CONTROL_BLOCK: DiscControlBlockType = 1464091392

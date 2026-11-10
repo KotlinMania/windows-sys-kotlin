@@ -1,1902 +1,3804 @@
-@file:OptIn(kotlin.ExperimentalUnsignedTypes::class)
+@file:OptIn(kotlin.ExperimentalUnsignedTypes::class, kotlin.js.ExperimentalWasmJsInterop::class)
 
 package io.github.kotlinmania.windowssys.windows.win32.graphics.gdiplus
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HBITMAP
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HENHMETAFILE
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HMETAFILE
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HPALETTE
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HRGN
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.HICON
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbitmap
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Henhmetafile
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hmetafile
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hpalette
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hrgn
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Hicon
 
-public actual fun GdipAddPathArc(path: Long, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
-    0
+@JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
+private external fun _initWindowsWin32GraphicsGdiplusNapiAddon(): Boolean
 
-public actual fun GdipAddPathArcI(path: Long, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
-    0
+private val _windowsWin32GraphicsGdiplusNapiAvailable: Boolean = _initWindowsWin32GraphicsGdiplusNapiAddon()
 
-public actual fun GdipAddPathBezier(path: Long, x1: Float, y1: Float, x2: Float, y2: Float, x3: Float, y3: Float, x4: Float, y4: Float): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipAddPathArc(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathArc(p0: String, p1: Double, p2: Double, p3: Double, p4: Double, p5: Double, p6: Double): Int
 
-public actual fun GdipAddPathBezierI(path: Long, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int, x4: Int, y4: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipAddPathArcI(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathArcI(p0: String, p1: Int, p2: Int, p3: Int, p4: Int, p5: Double, p6: Double): Int
 
-public actual fun GdipAddPathBeziers(path: Long, points: Long, count: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipAddPathBezier(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathBezier(p0: String, p1: Double, p2: Double, p3: Double, p4: Double, p5: Double, p6: Double, p7: Double, p8: Double): Int
 
-public actual fun GdipAddPathBeziersI(path: Long, points: Long, count: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipAddPathBezierI(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathBezierI(p0: String, p1: Int, p2: Int, p3: Int, p4: Int, p5: Int, p6: Int, p7: Int, p8: Int): Int
 
-public actual fun GdipAddPathClosedCurve(path: Long, points: Long, count: Int): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipAddPathBeziers(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathBeziers(p0: String, p1: String, p2: Int): Int
 
-public actual fun GdipAddPathClosedCurve2(path: Long, points: Long, count: Int, tension: Float): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipAddPathBeziersI(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathBeziersI(p0: String, p1: String, p2: Int): Int
 
-public actual fun GdipAddPathClosedCurve2I(path: Long, points: Long, count: Int, tension: Float): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipAddPathClosedCurve(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathClosedCurve(p0: String, p1: String, p2: Int): Int
 
-public actual fun GdipAddPathClosedCurveI(path: Long, points: Long, count: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipAddPathClosedCurve2(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathClosedCurve2(p0: String, p1: String, p2: Int, p3: Double): Int
 
-public actual fun GdipAddPathCurve(path: Long, points: Long, count: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipAddPathClosedCurve2I(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathClosedCurve2I(p0: String, p1: String, p2: Int, p3: Double): Int
 
-public actual fun GdipAddPathCurve2(path: Long, points: Long, count: Int, tension: Float): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipAddPathClosedCurveI(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathClosedCurveI(p0: String, p1: String, p2: Int): Int
 
-public actual fun GdipAddPathCurve2I(path: Long, points: Long, count: Int, tension: Float): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipAddPathCurve(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathCurve(p0: String, p1: String, p2: Int): Int
 
-public actual fun GdipAddPathCurve3(path: Long, points: Long, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipAddPathCurve2(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathCurve2(p0: String, p1: String, p2: Int, p3: Double): Int
 
-public actual fun GdipAddPathCurve3I(path: Long, points: Long, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipAddPathCurve2I(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathCurve2I(p0: String, p1: String, p2: Int, p3: Double): Int
 
-public actual fun GdipAddPathCurveI(path: Long, points: Long, count: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipAddPathCurve3(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathCurve3(p0: String, p1: String, p2: Int, p3: Int, p4: Int, p5: Double): Int
 
-public actual fun GdipAddPathEllipse(path: Long, x: Float, y: Float, width: Float, height: Float): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipAddPathCurve3I(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathCurve3I(p0: String, p1: String, p2: Int, p3: Int, p4: Int, p5: Double): Int
 
-public actual fun GdipAddPathEllipseI(path: Long, x: Int, y: Int, width: Int, height: Int): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipAddPathCurveI(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathCurveI(p0: String, p1: String, p2: Int): Int
 
-public actual fun GdipAddPathLine(path: Long, x1: Float, y1: Float, x2: Float, y2: Float): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipAddPathEllipse(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathEllipse(p0: String, p1: Double, p2: Double, p3: Double, p4: Double): Int
 
-public actual fun GdipAddPathLine2(path: Long, points: Long, count: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipAddPathEllipseI(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathEllipseI(p0: String, p1: Int, p2: Int, p3: Int, p4: Int): Int
 
-public actual fun GdipAddPathLine2I(path: Long, points: Long, count: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipAddPathLine(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathLine(p0: String, p1: Double, p2: Double, p3: Double, p4: Double): Int
 
-public actual fun GdipAddPathLineI(path: Long, x1: Int, y1: Int, x2: Int, y2: Int): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipAddPathLine2(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathLine2(p0: String, p1: String, p2: Int): Int
 
-public actual fun GdipAddPathPath(path: Long, addingpath: Long, connect: BOOL): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipAddPathLine2I(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathLine2I(p0: String, p1: String, p2: Int): Int
 
-public actual fun GdipAddPathPie(path: Long, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipAddPathLineI(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathLineI(p0: String, p1: Int, p2: Int, p3: Int, p4: Int): Int
 
-public actual fun GdipAddPathPieI(path: Long, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipAddPathPath(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathPath(p0: String, p1: String, p2: Int): Int
 
-public actual fun GdipAddPathPolygon(path: Long, points: Long, count: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipAddPathPie(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathPie(p0: String, p1: Double, p2: Double, p3: Double, p4: Double, p5: Double, p6: Double): Int
 
-public actual fun GdipAddPathPolygonI(path: Long, points: Long, count: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipAddPathPieI(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathPieI(p0: String, p1: Int, p2: Int, p3: Int, p4: Int, p5: Double, p6: Double): Int
 
-public actual fun GdipAddPathRectangle(path: Long, x: Float, y: Float, width: Float, height: Float): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipAddPathPolygon(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathPolygon(p0: String, p1: String, p2: Int): Int
 
-public actual fun GdipAddPathRectangleI(path: Long, x: Int, y: Int, width: Int, height: Int): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipAddPathPolygonI(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathPolygonI(p0: String, p1: String, p2: Int): Int
 
-public actual fun GdipAddPathRectangles(path: Long, rects: Long, count: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipAddPathRectangle(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathRectangle(p0: String, p1: Double, p2: Double, p3: Double, p4: Double): Int
 
-public actual fun GdipAddPathRectanglesI(path: Long, rects: Long, count: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipAddPathRectangleI(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathRectangleI(p0: String, p1: Int, p2: Int, p3: Int, p4: Int): Int
 
-public actual fun GdipAddPathString(path: Long, string: PCWSTR, length: Int, family: Long, style: Int, emsize: Float, layoutrect: Long, format: Long): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipAddPathRectangles(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathRectangles(p0: String, p1: String, p2: Int): Int
 
-public actual fun GdipAddPathStringI(path: Long, string: PCWSTR, length: Int, family: Long, style: Int, emsize: Float, layoutrect: Long, format: Long): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipAddPathRectanglesI(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathRectanglesI(p0: String, p1: String, p2: Int): Int
 
-public actual fun GdipAlloc(size: ULong): Long =
-    0L
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipAddPathString(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathString(p0: String, p1: String, p2: Int, p3: String, p4: Int, p5: Double, p6: String, p7: String): Int
 
-public actual fun GdipBeginContainer(graphics: Long, dstrect: Long, srcrect: Long, unit: Unit, state: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipAddPathStringI(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathStringI(p0: String, p1: String, p2: Int, p3: String, p4: Int, p5: Double, p6: String, p7: String): Int
 
-public actual fun GdipBeginContainer2(graphics: Long, state: Long): Status =
-    0
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipAlloc(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAlloc(p0: String): String
 
-public actual fun GdipBeginContainerI(graphics: Long, dstrect: Long, srcrect: Long, unit: Unit, state: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipBeginContainer(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipBeginContainer(p0: String, p1: String, p2: String, p3: Int, p4: String): Int
 
-public actual fun GdipBitmapApplyEffect(bitmap: Long, effect: Long, roi: Long, useauxdata: BOOL, auxdata: Long, auxdatasize: Long): Status =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipBeginContainer2(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipBeginContainer2(p0: String, p1: String): Int
 
-public actual fun GdipBitmapConvertFormat(pinputbitmap: Long, format: Int, dithertype: DitherType, palettetype: PaletteType, palette: Long, alphathresholdpercent: Float): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipBeginContainerI(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipBeginContainerI(p0: String, p1: String, p2: String, p3: Int, p4: String): Int
 
-public actual fun GdipBitmapCreateApplyEffect(inputbitmaps: Long, numinputs: Int, effect: Long, roi: Long, outputrect: Long, outputbitmap: Long, useauxdata: BOOL, auxdata: Long, auxdatasize: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipBitmapApplyEffect(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipBitmapApplyEffect(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String): Int
 
-public actual fun GdipBitmapGetHistogram(bitmap: Long, format: HistogramFormat, numberofentries: UInt, channel0: Long, channel1: Long, channel2: Long, channel3: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipBitmapConvertFormat(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipBitmapConvertFormat(p0: String, p1: Int, p2: Int, p3: Int, p4: String, p5: Double): Int
 
-public actual fun GdipBitmapGetHistogramSize(format: HistogramFormat, numberofentries: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipBitmapCreateApplyEffect(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipBitmapCreateApplyEffect(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: String, p6: Int, p7: String, p8: String): Int
 
-public actual fun GdipBitmapGetPixel(bitmap: Long, x: Int, y: Int, color: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipBitmapGetHistogram(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipBitmapGetHistogram(p0: String, p1: Int, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
 
-public actual fun GdipBitmapLockBits(bitmap: Long, rect: Long, flags: UInt, format: Int, lockedbitmapdata: Long): Status =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipBitmapGetHistogramSize(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipBitmapGetHistogramSize(p0: Int, p1: String): Int
 
-public actual fun GdipBitmapSetPixel(bitmap: Long, x: Int, y: Int, color: UInt): Status =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipBitmapGetPixel(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipBitmapGetPixel(p0: String, p1: Int, p2: Int, p3: String): Int
 
-public actual fun GdipBitmapSetResolution(bitmap: Long, xdpi: Float, ydpi: Float): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipBitmapLockBits(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipBitmapLockBits(p0: String, p1: String, p2: Int, p3: Int, p4: String): Int
 
-public actual fun GdipBitmapUnlockBits(bitmap: Long, lockedbitmapdata: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipBitmapSetPixel(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipBitmapSetPixel(p0: String, p1: Int, p2: Int, p3: Int): Int
 
-public actual fun GdipClearPathMarkers(path: Long): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipBitmapSetResolution(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipBitmapSetResolution(p0: String, p1: Double, p2: Double): Int
 
-public actual fun GdipCloneBitmapArea(x: Float, y: Float, width: Float, height: Float, format: Int, srcbitmap: Long, dstbitmap: Long): Status =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipBitmapUnlockBits(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipBitmapUnlockBits(p0: String, p1: String): Int
 
-public actual fun GdipCloneBitmapAreaI(x: Int, y: Int, width: Int, height: Int, format: Int, srcbitmap: Long, dstbitmap: Long): Status =
-    0
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipClearPathMarkers(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipClearPathMarkers(p0: String): Int
 
-public actual fun GdipCloneBrush(brush: Long, clonebrush: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCloneBitmapArea(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCloneBitmapArea(p0: Double, p1: Double, p2: Double, p3: Double, p4: Int, p5: String, p6: String): Int
 
-public actual fun GdipCloneCustomLineCap(customcap: Long, clonedcap: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCloneBitmapAreaI(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCloneBitmapAreaI(p0: Int, p1: Int, p2: Int, p3: Int, p4: Int, p5: String, p6: String): Int
 
-public actual fun GdipCloneFont(font: Long, clonefont: Long): Status =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCloneBrush(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCloneBrush(p0: String, p1: String): Int
 
-public actual fun GdipCloneFontFamily(fontfamily: Long, clonedfontfamily: Long): Status =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCloneCustomLineCap(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCloneCustomLineCap(p0: String, p1: String): Int
 
-public actual fun GdipCloneImage(image: Long, cloneimage: Long): Status =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCloneFont(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCloneFont(p0: String, p1: String): Int
 
-public actual fun GdipCloneImageAttributes(imageattr: Long, cloneimageattr: Long): Status =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCloneFontFamily(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCloneFontFamily(p0: String, p1: String): Int
 
-public actual fun GdipCloneMatrix(matrix: Long, clonematrix: Long): Status =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCloneImage(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCloneImage(p0: String, p1: String): Int
 
-public actual fun GdipClonePath(path: Long, clonepath: Long): Status =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCloneImageAttributes(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCloneImageAttributes(p0: String, p1: String): Int
 
-public actual fun GdipClonePen(pen: Long, clonepen: Long): Status =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCloneMatrix(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCloneMatrix(p0: String, p1: String): Int
 
-public actual fun GdipCloneRegion(region: Long, cloneregion: Long): Status =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipClonePath(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipClonePath(p0: String, p1: String): Int
 
-public actual fun GdipCloneStringFormat(format: Long, newformat: Long): Status =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipClonePen(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipClonePen(p0: String, p1: String): Int
 
-public actual fun GdipClosePathFigure(path: Long): Status =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCloneRegion(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCloneRegion(p0: String, p1: String): Int
 
-public actual fun GdipClosePathFigures(path: Long): Status =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCloneStringFormat(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCloneStringFormat(p0: String, p1: String): Int
 
-public actual fun GdipCombineRegionPath(region: Long, path: Long, combinemode: CombineMode): Status =
-    0
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipClosePathFigure(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipClosePathFigure(p0: String): Int
 
-public actual fun GdipCombineRegionRect(region: Long, rect: Long, combinemode: CombineMode): Status =
-    0
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipClosePathFigures(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipClosePathFigures(p0: String): Int
 
-public actual fun GdipCombineRegionRectI(region: Long, rect: Long, combinemode: CombineMode): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCombineRegionPath(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCombineRegionPath(p0: String, p1: String, p2: Int): Int
 
-public actual fun GdipCombineRegionRegion(region: Long, region2: Long, combinemode: CombineMode): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCombineRegionRect(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCombineRegionRect(p0: String, p1: String, p2: Int): Int
 
-public actual fun GdipComment(graphics: Long, sizedata: UInt, data: Long): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCombineRegionRectI(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCombineRegionRectI(p0: String, p1: String, p2: Int): Int
 
-public actual fun GdipConvertToEmfPlus(refgraphics: Long, metafile: Long, conversionfailureflag: Long, emftype: EmfType, description: PCWSTR, out_metafile: Long): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCombineRegionRegion(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCombineRegionRegion(p0: String, p1: String, p2: Int): Int
 
-public actual fun GdipConvertToEmfPlusToFile(refgraphics: Long, metafile: Long, conversionfailureflag: Long, filename: PCWSTR, emftype: EmfType, description: PCWSTR, out_metafile: Long): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipComment(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipComment(p0: String, p1: Int, p2: String): Int
 
-public actual fun GdipConvertToEmfPlusToStream(refgraphics: Long, metafile: Long, conversionfailureflag: Long, stream: Long, emftype: EmfType, description: PCWSTR, out_metafile: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipConvertToEmfPlus(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipConvertToEmfPlus(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String): Int
 
-public actual fun GdipCreateAdjustableArrowCap(height: Float, width: Float, isfilled: BOOL, cap: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipConvertToEmfPlusToFile(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipConvertToEmfPlusToFile(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String, p6: String): Int
 
-public actual fun GdipCreateBitmapFromFile(filename: PCWSTR, bitmap: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipConvertToEmfPlusToStream(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipConvertToEmfPlusToStream(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String, p6: String): Int
 
-public actual fun GdipCreateBitmapFromFileICM(filename: PCWSTR, bitmap: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateAdjustableArrowCap(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateAdjustableArrowCap(p0: Double, p1: Double, p2: Int, p3: String): Int
 
-public actual fun GdipCreateBitmapFromGdiDib(gdibitmapinfo: Long, gdibitmapdata: Long, bitmap: Long): Status =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromFile(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromFile(p0: String, p1: String): Int
 
-public actual fun GdipCreateBitmapFromGraphics(width: Int, height: Int, target: Long, bitmap: Long): Status =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromFileICM(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromFileICM(p0: String, p1: String): Int
 
-public actual fun GdipCreateBitmapFromHBITMAP(hbm: HBITMAP, hpal: HPALETTE, bitmap: Long): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromGdiDib(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromGdiDib(p0: String, p1: String, p2: String): Int
 
-public actual fun GdipCreateBitmapFromHICON(hicon: HICON, bitmap: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromGraphics(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromGraphics(p0: Int, p1: Int, p2: String, p3: String): Int
 
-public actual fun GdipCreateBitmapFromResource(hinstance: HINSTANCE, lpbitmapname: PCWSTR, bitmap: Long): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromHBITMAP(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromHBITMAP(p0: String, p1: String, p2: String): Int
 
-public actual fun GdipCreateBitmapFromScan0(width: Int, height: Int, stride: Int, format: Int, scan0: Long, bitmap: Long): Status =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromHICON(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromHICON(p0: String, p1: String): Int
 
-public actual fun GdipCreateBitmapFromStream(stream: Long, bitmap: Long): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromResource(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromResource(p0: String, p1: String, p2: String): Int
 
-public actual fun GdipCreateBitmapFromStreamICM(stream: Long, bitmap: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromScan0(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromScan0(p0: Int, p1: Int, p2: Int, p3: Int, p4: String, p5: String): Int
 
-public actual fun GdipCreateCachedBitmap(bitmap: Long, graphics: Long, cachedbitmap: Long): Status =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromStream(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromStream(p0: String, p1: String): Int
 
-public actual fun GdipCreateCustomLineCap(fillpath: Long, strokepath: Long, basecap: LineCap, baseinset: Float, customcap: Long): Status =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromStreamICM(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromStreamICM(p0: String, p1: String): Int
 
-public actual fun GdipCreateEffect(guid: GUID, effect: Long): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateCachedBitmap(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateCachedBitmap(p0: String, p1: String, p2: String): Int
 
-public actual fun GdipCreateFont(fontfamily: Long, emsize: Float, style: Int, unit: Unit, font: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateCustomLineCap(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateCustomLineCap(p0: String, p1: String, p2: Int, p3: Double, p4: String): Int
 
-public actual fun GdipCreateFontFamilyFromName(name: PCWSTR, fontcollection: Long, fontfamily: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateFont(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateFont(p0: String, p1: Double, p2: Int, p3: Int, p4: String): Int
 
-public actual fun GdipCreateFontFromDC(hdc: HDC, font: Long): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateFontFamilyFromName(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateFontFamilyFromName(p0: String, p1: String, p2: String): Int
 
-public actual fun GdipCreateFontFromLogfontA(hdc: HDC, logfont: Long, font: Long): Status =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateFontFromDC(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateFontFromDC(p0: String, p1: String): Int
 
-public actual fun GdipCreateFontFromLogfontW(hdc: HDC, logfont: Long, font: Long): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateFontFromLogfontA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateFontFromLogfontA(p0: String, p1: String, p2: String): Int
 
-public actual fun GdipCreateFromHDC(hdc: HDC, graphics: Long): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateFontFromLogfontW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateFontFromLogfontW(p0: String, p1: String, p2: String): Int
 
-public actual fun GdipCreateFromHDC2(hdc: HDC, hdevice: HANDLE, graphics: Long): Status =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateFromHDC(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateFromHDC(p0: String, p1: String): Int
 
-public actual fun GdipCreateFromHWND(hwnd: HWND, graphics: Long): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateFromHDC2(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateFromHDC2(p0: String, p1: String, p2: String): Int
 
-public actual fun GdipCreateFromHWNDICM(hwnd: HWND, graphics: Long): Status =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateFromHWND(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateFromHWND(p0: String, p1: String): Int
 
-public actual fun GdipCreateHBITMAPFromBitmap(bitmap: Long, hbmreturn: Long, background: UInt): Status =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateFromHWNDICM(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateFromHWNDICM(p0: String, p1: String): Int
 
-public actual fun GdipCreateHICONFromBitmap(bitmap: Long, hbmreturn: Long): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateHBITMAPFromBitmap(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateHBITMAPFromBitmap(p0: String, p1: String, p2: Int): Int
 
-public actual fun GdipCreateHalftonePalette(): HPALETTE =
-    0L
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateHICONFromBitmap(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateHICONFromBitmap(p0: String, p1: String): Int
 
-public actual fun GdipCreateHatchBrush(hatchstyle: HatchStyle, forecol: UInt, backcol: UInt, brush: Long): Status =
-    0
+@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateHalftonePalette()")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateHalftonePalette(): String
 
-public actual fun GdipCreateImageAttributes(imageattr: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateHatchBrush(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateHatchBrush(p0: Int, p1: Int, p2: Int, p3: String): Int
 
-public actual fun GdipCreateLineBrush(point1: Long, point2: Long, color1: UInt, color2: UInt, wrapmode: WrapMode, linegradient: Long): Status =
-    0
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateImageAttributes(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateImageAttributes(p0: String): Int
 
-public actual fun GdipCreateLineBrushFromRect(rect: Long, color1: UInt, color2: UInt, mode: LinearGradientMode, wrapmode: WrapMode, linegradient: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateLineBrush(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateLineBrush(p0: String, p1: String, p2: Int, p3: Int, p4: Int, p5: String): Int
 
-public actual fun GdipCreateLineBrushFromRectI(rect: Long, color1: UInt, color2: UInt, mode: LinearGradientMode, wrapmode: WrapMode, linegradient: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateLineBrushFromRect(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateLineBrushFromRect(p0: String, p1: Int, p2: Int, p3: Int, p4: Int, p5: String): Int
 
-public actual fun GdipCreateLineBrushFromRectWithAngle(rect: Long, color1: UInt, color2: UInt, angle: Float, isanglescalable: BOOL, wrapmode: WrapMode, linegradient: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateLineBrushFromRectI(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateLineBrushFromRectI(p0: String, p1: Int, p2: Int, p3: Int, p4: Int, p5: String): Int
 
-public actual fun GdipCreateLineBrushFromRectWithAngleI(rect: Long, color1: UInt, color2: UInt, angle: Float, isanglescalable: BOOL, wrapmode: WrapMode, linegradient: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateLineBrushFromRectWithAngle(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateLineBrushFromRectWithAngle(p0: String, p1: Int, p2: Int, p3: Double, p4: Int, p5: Int, p6: String): Int
 
-public actual fun GdipCreateLineBrushI(point1: Long, point2: Long, color1: UInt, color2: UInt, wrapmode: WrapMode, linegradient: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateLineBrushFromRectWithAngleI(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateLineBrushFromRectWithAngleI(p0: String, p1: Int, p2: Int, p3: Double, p4: Int, p5: Int, p6: String): Int
 
-public actual fun GdipCreateMatrix(matrix: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateLineBrushI(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateLineBrushI(p0: String, p1: String, p2: Int, p3: Int, p4: Int, p5: String): Int
 
-public actual fun GdipCreateMatrix2(m11: Float, m12: Float, m21: Float, m22: Float, dx: Float, dy: Float, matrix: Long): Status =
-    0
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateMatrix(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateMatrix(p0: String): Int
 
-public actual fun GdipCreateMatrix3(rect: Long, dstplg: Long, matrix: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateMatrix2(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateMatrix2(p0: Double, p1: Double, p2: Double, p3: Double, p4: Double, p5: Double, p6: String): Int
 
-public actual fun GdipCreateMatrix3I(rect: Long, dstplg: Long, matrix: Long): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateMatrix3(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateMatrix3(p0: String, p1: String, p2: String): Int
 
-public actual fun GdipCreateMetafileFromEmf(hemf: HENHMETAFILE, deleteemf: BOOL, metafile: Long): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateMatrix3I(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateMatrix3I(p0: String, p1: String, p2: String): Int
 
-public actual fun GdipCreateMetafileFromFile(file: PCWSTR, metafile: Long): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateMetafileFromEmf(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateMetafileFromEmf(p0: String, p1: Int, p2: String): Int
 
-public actual fun GdipCreateMetafileFromStream(stream: Long, metafile: Long): Status =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateMetafileFromFile(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateMetafileFromFile(p0: String, p1: String): Int
 
-public actual fun GdipCreateMetafileFromWmf(hwmf: HMETAFILE, deletewmf: BOOL, wmfplaceablefileheader: Long, metafile: Long): Status =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateMetafileFromStream(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateMetafileFromStream(p0: String, p1: String): Int
 
-public actual fun GdipCreateMetafileFromWmfFile(file: PCWSTR, wmfplaceablefileheader: Long, metafile: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateMetafileFromWmf(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateMetafileFromWmf(p0: String, p1: Int, p2: String, p3: String): Int
 
-public actual fun GdipCreatePath(brushmode: FillMode, path: Long): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateMetafileFromWmfFile(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateMetafileFromWmfFile(p0: String, p1: String, p2: String): Int
 
-public actual fun GdipCreatePath2(param0: Long, param1: Long, param2: Int, param3: FillMode, path: Long): Status =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreatePath(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreatePath(p0: Int, p1: String): Int
 
-public actual fun GdipCreatePath2I(param0: Long, param1: Long, param2: Int, param3: FillMode, path: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreatePath2(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreatePath2(p0: String, p1: String, p2: Int, p3: Int, p4: String): Int
 
-public actual fun GdipCreatePathGradient(points: Long, count: Int, wrapmode: WrapMode, polygradient: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreatePath2I(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreatePath2I(p0: String, p1: String, p2: Int, p3: Int, p4: String): Int
 
-public actual fun GdipCreatePathGradientFromPath(path: Long, polygradient: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreatePathGradient(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreatePathGradient(p0: String, p1: Int, p2: Int, p3: String): Int
 
-public actual fun GdipCreatePathGradientI(points: Long, count: Int, wrapmode: WrapMode, polygradient: Long): Status =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreatePathGradientFromPath(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreatePathGradientFromPath(p0: String, p1: String): Int
 
-public actual fun GdipCreatePathIter(iterator: Long, path: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreatePathGradientI(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreatePathGradientI(p0: String, p1: Int, p2: Int, p3: String): Int
 
-public actual fun GdipCreatePen1(color: UInt, width: Float, unit: Unit, pen: Long): Status =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreatePathIter(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreatePathIter(p0: String, p1: String): Int
 
-public actual fun GdipCreatePen2(brush: Long, width: Float, unit: Unit, pen: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreatePen1(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreatePen1(p0: Int, p1: Double, p2: Int, p3: String): Int
 
-public actual fun GdipCreateRegion(region: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreatePen2(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreatePen2(p0: String, p1: Double, p2: Int, p3: String): Int
 
-public actual fun GdipCreateRegionHrgn(hrgn: HRGN, region: Long): Status =
-    0
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateRegion(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateRegion(p0: String): Int
 
-public actual fun GdipCreateRegionPath(path: Long, region: Long): Status =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateRegionHrgn(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateRegionHrgn(p0: String, p1: String): Int
 
-public actual fun GdipCreateRegionRect(rect: Long, region: Long): Status =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateRegionPath(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateRegionPath(p0: String, p1: String): Int
 
-public actual fun GdipCreateRegionRectI(rect: Long, region: Long): Status =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateRegionRect(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateRegionRect(p0: String, p1: String): Int
 
-public actual fun GdipCreateRegionRgnData(regiondata: Long, size: Int, region: Long): Status =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateRegionRectI(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateRegionRectI(p0: String, p1: String): Int
 
-public actual fun GdipCreateSolidFill(color: UInt, brush: Long): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateRegionRgnData(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateRegionRgnData(p0: String, p1: Int, p2: String): Int
 
-public actual fun GdipCreateStreamOnFile(filename: PCWSTR, access: UInt, stream: Long): Status =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateSolidFill(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateSolidFill(p0: Int, p1: String): Int
 
-public actual fun GdipCreateStringFormat(formatattributes: Int, language: UShort, format: Long): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateStreamOnFile(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateStreamOnFile(p0: String, p1: Int, p2: String): Int
 
-public actual fun GdipCreateTexture(image: Long, wrapmode: WrapMode, texture: Long): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateStringFormat(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateStringFormat(p0: Int, p1: Int, p2: String): Int
 
-public actual fun GdipCreateTexture2(image: Long, wrapmode: WrapMode, x: Float, y: Float, width: Float, height: Float, texture: Long): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateTexture(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateTexture(p0: String, p1: Int, p2: String): Int
 
-public actual fun GdipCreateTexture2I(image: Long, wrapmode: WrapMode, x: Int, y: Int, width: Int, height: Int, texture: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateTexture2(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateTexture2(p0: String, p1: Int, p2: Double, p3: Double, p4: Double, p5: Double, p6: String): Int
 
-public actual fun GdipCreateTextureIA(image: Long, imageattributes: Long, x: Float, y: Float, width: Float, height: Float, texture: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateTexture2I(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateTexture2I(p0: String, p1: Int, p2: Int, p3: Int, p4: Int, p5: Int, p6: String): Int
 
-public actual fun GdipCreateTextureIAI(image: Long, imageattributes: Long, x: Int, y: Int, width: Int, height: Int, texture: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateTextureIA(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateTextureIA(p0: String, p1: String, p2: Double, p3: Double, p4: Double, p5: Double, p6: String): Int
 
-public actual fun GdipDeleteBrush(brush: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipCreateTextureIAI(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateTextureIAI(p0: String, p1: String, p2: Int, p3: Int, p4: Int, p5: Int, p6: String): Int
 
-public actual fun GdipDeleteCachedBitmap(cachedbitmap: Long): Status =
-    0
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDeleteBrush(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDeleteBrush(p0: String): Int
 
-public actual fun GdipDeleteCustomLineCap(customcap: Long): Status =
-    0
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDeleteCachedBitmap(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDeleteCachedBitmap(p0: String): Int
 
-public actual fun GdipDeleteEffect(effect: Long): Status =
-    0
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDeleteCustomLineCap(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDeleteCustomLineCap(p0: String): Int
 
-public actual fun GdipDeleteFont(font: Long): Status =
-    0
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDeleteEffect(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDeleteEffect(p0: String): Int
 
-public actual fun GdipDeleteFontFamily(fontfamily: Long): Status =
-    0
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDeleteFont(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDeleteFont(p0: String): Int
 
-public actual fun GdipDeleteGraphics(graphics: Long): Status =
-    0
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDeleteFontFamily(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDeleteFontFamily(p0: String): Int
 
-public actual fun GdipDeleteMatrix(matrix: Long): Status =
-    0
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDeleteGraphics(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDeleteGraphics(p0: String): Int
 
-public actual fun GdipDeletePath(path: Long): Status =
-    0
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDeleteMatrix(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDeleteMatrix(p0: String): Int
 
-public actual fun GdipDeletePathIter(iterator: Long): Status =
-    0
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDeletePath(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDeletePath(p0: String): Int
 
-public actual fun GdipDeletePen(pen: Long): Status =
-    0
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDeletePathIter(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDeletePathIter(p0: String): Int
 
-public actual fun GdipDeletePrivateFontCollection(fontcollection: Long): Status =
-    0
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDeletePen(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDeletePen(p0: String): Int
 
-public actual fun GdipDeleteRegion(region: Long): Status =
-    0
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDeletePrivateFontCollection(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDeletePrivateFontCollection(p0: String): Int
 
-public actual fun GdipDeleteStringFormat(format: Long): Status =
-    0
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDeleteRegion(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDeleteRegion(p0: String): Int
 
-public actual fun GdipDisposeImage(image: Long): Status =
-    0
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDeleteStringFormat(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDeleteStringFormat(p0: String): Int
 
-public actual fun GdipDisposeImageAttributes(imageattr: Long): Status =
-    0
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDisposeImage(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDisposeImage(p0: String): Int
 
-public actual fun GdipDrawArc(graphics: Long, pen: Long, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
-    0
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDisposeImageAttributes(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDisposeImageAttributes(p0: String): Int
 
-public actual fun GdipDrawArcI(graphics: Long, pen: Long, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawArc(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawArc(p0: String, p1: String, p2: Double, p3: Double, p4: Double, p5: Double, p6: Double, p7: Double): Int
 
-public actual fun GdipDrawBezier(graphics: Long, pen: Long, x1: Float, y1: Float, x2: Float, y2: Float, x3: Float, y3: Float, x4: Float, y4: Float): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawArcI(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawArcI(p0: String, p1: String, p2: Int, p3: Int, p4: Int, p5: Int, p6: Double, p7: Double): Int
 
-public actual fun GdipDrawBezierI(graphics: Long, pen: Long, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int, x4: Int, y4: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawBezier(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawBezier(p0: String, p1: String, p2: Double, p3: Double, p4: Double, p5: Double, p6: Double, p7: Double, p8: Double, p9: Double): Int
 
-public actual fun GdipDrawBeziers(graphics: Long, pen: Long, points: Long, count: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawBezierI(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawBezierI(p0: String, p1: String, p2: Int, p3: Int, p4: Int, p5: Int, p6: Int, p7: Int, p8: Int, p9: Int): Int
 
-public actual fun GdipDrawBeziersI(graphics: Long, pen: Long, points: Long, count: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawBeziers(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawBeziers(p0: String, p1: String, p2: String, p3: Int): Int
 
-public actual fun GdipDrawCachedBitmap(graphics: Long, cachedbitmap: Long, x: Int, y: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawBeziersI(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawBeziersI(p0: String, p1: String, p2: String, p3: Int): Int
 
-public actual fun GdipDrawClosedCurve(graphics: Long, pen: Long, points: Long, count: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawCachedBitmap(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawCachedBitmap(p0: String, p1: String, p2: Int, p3: Int): Int
 
-public actual fun GdipDrawClosedCurve2(graphics: Long, pen: Long, points: Long, count: Int, tension: Float): Status =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawClosedCurve(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawClosedCurve(p0: String, p1: String, p2: String, p3: Int): Int
 
-public actual fun GdipDrawClosedCurve2I(graphics: Long, pen: Long, points: Long, count: Int, tension: Float): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawClosedCurve2(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawClosedCurve2(p0: String, p1: String, p2: String, p3: Int, p4: Double): Int
 
-public actual fun GdipDrawClosedCurveI(graphics: Long, pen: Long, points: Long, count: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawClosedCurve2I(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawClosedCurve2I(p0: String, p1: String, p2: String, p3: Int, p4: Double): Int
 
-public actual fun GdipDrawCurve(graphics: Long, pen: Long, points: Long, count: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawClosedCurveI(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawClosedCurveI(p0: String, p1: String, p2: String, p3: Int): Int
 
-public actual fun GdipDrawCurve2(graphics: Long, pen: Long, points: Long, count: Int, tension: Float): Status =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawCurve(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawCurve(p0: String, p1: String, p2: String, p3: Int): Int
 
-public actual fun GdipDrawCurve2I(graphics: Long, pen: Long, points: Long, count: Int, tension: Float): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawCurve2(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawCurve2(p0: String, p1: String, p2: String, p3: Int, p4: Double): Int
 
-public actual fun GdipDrawCurve3(graphics: Long, pen: Long, points: Long, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawCurve2I(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawCurve2I(p0: String, p1: String, p2: String, p3: Int, p4: Double): Int
 
-public actual fun GdipDrawCurve3I(graphics: Long, pen: Long, points: Long, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawCurve3(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawCurve3(p0: String, p1: String, p2: String, p3: Int, p4: Int, p5: Int, p6: Double): Int
 
-public actual fun GdipDrawCurveI(graphics: Long, pen: Long, points: Long, count: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawCurve3I(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawCurve3I(p0: String, p1: String, p2: String, p3: Int, p4: Int, p5: Int, p6: Double): Int
 
-public actual fun GdipDrawDriverString(graphics: Long, text: Long, length: Int, font: Long, brush: Long, positions: Long, flags: Int, matrix: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawCurveI(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawCurveI(p0: String, p1: String, p2: String, p3: Int): Int
 
-public actual fun GdipDrawEllipse(graphics: Long, pen: Long, x: Float, y: Float, width: Float, height: Float): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawDriverString(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawDriverString(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: Int, p7: String): Int
 
-public actual fun GdipDrawEllipseI(graphics: Long, pen: Long, x: Int, y: Int, width: Int, height: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawEllipse(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawEllipse(p0: String, p1: String, p2: Double, p3: Double, p4: Double, p5: Double): Int
 
-public actual fun GdipDrawImage(graphics: Long, image: Long, x: Float, y: Float): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawEllipseI(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawEllipseI(p0: String, p1: String, p2: Int, p3: Int, p4: Int, p5: Int): Int
 
-public actual fun GdipDrawImageFX(graphics: Long, image: Long, source: Long, xform: Long, effect: Long, imageattributes: Long, srcunit: Unit): Status =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawImage(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawImage(p0: String, p1: String, p2: Double, p3: Double): Int
 
-public actual fun GdipDrawImageI(graphics: Long, image: Long, x: Int, y: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawImageFX(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawImageFX(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: Int): Int
 
-public actual fun GdipDrawImagePointRect(graphics: Long, image: Long, x: Float, y: Float, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, srcunit: Unit): Status =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawImageI(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawImageI(p0: String, p1: String, p2: Int, p3: Int): Int
 
-public actual fun GdipDrawImagePointRectI(graphics: Long, image: Long, x: Int, y: Int, srcx: Int, srcy: Int, srcwidth: Int, srcheight: Int, srcunit: Unit): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawImagePointRect(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawImagePointRect(p0: String, p1: String, p2: Double, p3: Double, p4: Double, p5: Double, p6: Double, p7: Double, p8: Int): Int
 
-public actual fun GdipDrawImagePoints(graphics: Long, image: Long, dstpoints: Long, count: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawImagePointRectI(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawImagePointRectI(p0: String, p1: String, p2: Int, p3: Int, p4: Int, p5: Int, p6: Int, p7: Int, p8: Int): Int
 
-public actual fun GdipDrawImagePointsI(graphics: Long, image: Long, dstpoints: Long, count: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawImagePoints(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawImagePoints(p0: String, p1: String, p2: String, p3: Int): Int
 
-public actual fun GdipDrawImagePointsRect(graphics: Long, image: Long, points: Long, count: Int, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, srcunit: Unit, imageattributes: Long, callback: Long, callbackdata: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawImagePointsI(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawImagePointsI(p0: String, p1: String, p2: String, p3: Int): Int
 
-public actual fun GdipDrawImagePointsRectI(graphics: Long, image: Long, points: Long, count: Int, srcx: Int, srcy: Int, srcwidth: Int, srcheight: Int, srcunit: Unit, imageattributes: Long, callback: Long, callbackdata: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawImagePointsRect(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawImagePointsRect(p0: String, p1: String, p2: String, p3: Int, p4: Double, p5: Double, p6: Double, p7: Double, p8: Int, p9: String, p10: String, p11: String): Int
 
-public actual fun GdipDrawImageRect(graphics: Long, image: Long, x: Float, y: Float, width: Float, height: Float): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawImagePointsRectI(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawImagePointsRectI(p0: String, p1: String, p2: String, p3: Int, p4: Int, p5: Int, p6: Int, p7: Int, p8: Int, p9: String, p10: String, p11: String): Int
 
-public actual fun GdipDrawImageRectI(graphics: Long, image: Long, x: Int, y: Int, width: Int, height: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawImageRect(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawImageRect(p0: String, p1: String, p2: Double, p3: Double, p4: Double, p5: Double): Int
 
-public actual fun GdipDrawImageRectRect(graphics: Long, image: Long, dstx: Float, dsty: Float, dstwidth: Float, dstheight: Float, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, srcunit: Unit, imageattributes: Long, callback: Long, callbackdata: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawImageRectI(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawImageRectI(p0: String, p1: String, p2: Int, p3: Int, p4: Int, p5: Int): Int
 
-public actual fun GdipDrawImageRectRectI(graphics: Long, image: Long, dstx: Int, dsty: Int, dstwidth: Int, dstheight: Int, srcx: Int, srcy: Int, srcwidth: Int, srcheight: Int, srcunit: Unit, imageattributes: Long, callback: Long, callbackdata: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawImageRectRect(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawImageRectRect(p0: String, p1: String, p2: Double, p3: Double, p4: Double, p5: Double, p6: Double, p7: Double, p8: Double, p9: Double, p10: Int, p11: String, p12: String, p13: String): Int
 
-public actual fun GdipDrawLine(graphics: Long, pen: Long, x1: Float, y1: Float, x2: Float, y2: Float): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawImageRectRectI(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawImageRectRectI(p0: String, p1: String, p2: Int, p3: Int, p4: Int, p5: Int, p6: Int, p7: Int, p8: Int, p9: Int, p10: Int, p11: String, p12: String, p13: String): Int
 
-public actual fun GdipDrawLineI(graphics: Long, pen: Long, x1: Int, y1: Int, x2: Int, y2: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawLine(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawLine(p0: String, p1: String, p2: Double, p3: Double, p4: Double, p5: Double): Int
 
-public actual fun GdipDrawLines(graphics: Long, pen: Long, points: Long, count: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawLineI(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawLineI(p0: String, p1: String, p2: Int, p3: Int, p4: Int, p5: Int): Int
 
-public actual fun GdipDrawLinesI(graphics: Long, pen: Long, points: Long, count: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawLines(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawLines(p0: String, p1: String, p2: String, p3: Int): Int
 
-public actual fun GdipDrawPath(graphics: Long, pen: Long, path: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawLinesI(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawLinesI(p0: String, p1: String, p2: String, p3: Int): Int
 
-public actual fun GdipDrawPie(graphics: Long, pen: Long, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawPath(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawPath(p0: String, p1: String, p2: String): Int
 
-public actual fun GdipDrawPieI(graphics: Long, pen: Long, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawPie(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawPie(p0: String, p1: String, p2: Double, p3: Double, p4: Double, p5: Double, p6: Double, p7: Double): Int
 
-public actual fun GdipDrawPolygon(graphics: Long, pen: Long, points: Long, count: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawPieI(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawPieI(p0: String, p1: String, p2: Int, p3: Int, p4: Int, p5: Int, p6: Double, p7: Double): Int
 
-public actual fun GdipDrawPolygonI(graphics: Long, pen: Long, points: Long, count: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawPolygon(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawPolygon(p0: String, p1: String, p2: String, p3: Int): Int
 
-public actual fun GdipDrawRectangle(graphics: Long, pen: Long, x: Float, y: Float, width: Float, height: Float): Status =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawPolygonI(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawPolygonI(p0: String, p1: String, p2: String, p3: Int): Int
 
-public actual fun GdipDrawRectangleI(graphics: Long, pen: Long, x: Int, y: Int, width: Int, height: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawRectangle(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawRectangle(p0: String, p1: String, p2: Double, p3: Double, p4: Double, p5: Double): Int
 
-public actual fun GdipDrawRectangles(graphics: Long, pen: Long, rects: Long, count: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawRectangleI(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawRectangleI(p0: String, p1: String, p2: Int, p3: Int, p4: Int, p5: Int): Int
 
-public actual fun GdipDrawRectanglesI(graphics: Long, pen: Long, rects: Long, count: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawRectangles(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawRectangles(p0: String, p1: String, p2: String, p3: Int): Int
 
-public actual fun GdipDrawString(graphics: Long, string: PCWSTR, length: Int, font: Long, layoutrect: Long, stringformat: Long, brush: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawRectanglesI(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawRectanglesI(p0: String, p1: String, p2: String, p3: Int): Int
 
-public actual fun GdipEmfToWmfBits(hemf: HENHMETAFILE, cbdata16: UInt, pdata16: Long, imapmode: Int, eflags: Int): UInt =
-    0u
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipDrawString(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawString(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String): Int
 
-public actual fun GdipEndContainer(graphics: Long, state: UInt): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipEmfToWmfBits(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipEmfToWmfBits(p0: String, p1: Int, p2: String, p3: Int, p4: Int): Int
 
-public actual fun GdipEnumerateMetafileDestPoint(graphics: Long, metafile: Long, destpoint: Long, callback: Long, callbackdata: Long, imageattributes: Long): Status =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipEndContainer(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipEndContainer(p0: String, p1: Int): Int
 
-public actual fun GdipEnumerateMetafileDestPointI(graphics: Long, metafile: Long, destpoint: Long, callback: Long, callbackdata: Long, imageattributes: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileDestPoint(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileDestPoint(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
 
-public actual fun GdipEnumerateMetafileDestPoints(graphics: Long, metafile: Long, destpoints: Long, count: Int, callback: Long, callbackdata: Long, imageattributes: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileDestPointI(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileDestPointI(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
 
-public actual fun GdipEnumerateMetafileDestPointsI(graphics: Long, metafile: Long, destpoints: Long, count: Int, callback: Long, callbackdata: Long, imageattributes: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileDestPoints(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileDestPoints(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String, p6: String): Int
 
-public actual fun GdipEnumerateMetafileDestRect(graphics: Long, metafile: Long, destrect: Long, callback: Long, callbackdata: Long, imageattributes: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileDestPointsI(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileDestPointsI(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: String, p6: String): Int
 
-public actual fun GdipEnumerateMetafileDestRectI(graphics: Long, metafile: Long, destrect: Long, callback: Long, callbackdata: Long, imageattributes: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileDestRect(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileDestRect(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
 
-public actual fun GdipEnumerateMetafileSrcRectDestPoint(graphics: Long, metafile: Long, destpoint: Long, srcrect: Long, srcunit: Unit, callback: Long, callbackdata: Long, imageattributes: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileDestRectI(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileDestRectI(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
 
-public actual fun GdipEnumerateMetafileSrcRectDestPointI(graphics: Long, metafile: Long, destpoint: Long, srcrect: Long, srcunit: Unit, callback: Long, callbackdata: Long, imageattributes: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileSrcRectDestPoint(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileSrcRectDestPoint(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String, p6: String, p7: String): Int
 
-public actual fun GdipEnumerateMetafileSrcRectDestPoints(graphics: Long, metafile: Long, destpoints: Long, count: Int, srcrect: Long, srcunit: Unit, callback: Long, callbackdata: Long, imageattributes: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileSrcRectDestPointI(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileSrcRectDestPointI(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String, p6: String, p7: String): Int
 
-public actual fun GdipEnumerateMetafileSrcRectDestPointsI(graphics: Long, metafile: Long, destpoints: Long, count: Int, srcrect: Long, srcunit: Unit, callback: Long, callbackdata: Long, imageattributes: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileSrcRectDestPoints(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileSrcRectDestPoints(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: Int, p6: String, p7: String, p8: String): Int
 
-public actual fun GdipEnumerateMetafileSrcRectDestRect(graphics: Long, metafile: Long, destrect: Long, srcrect: Long, srcunit: Unit, callback: Long, callbackdata: Long, imageattributes: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileSrcRectDestPointsI(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileSrcRectDestPointsI(p0: String, p1: String, p2: String, p3: Int, p4: String, p5: Int, p6: String, p7: String, p8: String): Int
 
-public actual fun GdipEnumerateMetafileSrcRectDestRectI(graphics: Long, metafile: Long, destrect: Long, srcrect: Long, srcunit: Unit, callback: Long, callbackdata: Long, imageattributes: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileSrcRectDestRect(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileSrcRectDestRect(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String, p6: String, p7: String): Int
 
-public actual fun GdipFillClosedCurve(graphics: Long, brush: Long, points: Long, count: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileSrcRectDestRectI(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileSrcRectDestRectI(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String, p6: String, p7: String): Int
 
-public actual fun GdipFillClosedCurve2(graphics: Long, brush: Long, points: Long, count: Int, tension: Float, fillmode: FillMode): Status =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipFillClosedCurve(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFillClosedCurve(p0: String, p1: String, p2: String, p3: Int): Int
 
-public actual fun GdipFillClosedCurve2I(graphics: Long, brush: Long, points: Long, count: Int, tension: Float, fillmode: FillMode): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipFillClosedCurve2(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFillClosedCurve2(p0: String, p1: String, p2: String, p3: Int, p4: Double, p5: Int): Int
 
-public actual fun GdipFillClosedCurveI(graphics: Long, brush: Long, points: Long, count: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipFillClosedCurve2I(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFillClosedCurve2I(p0: String, p1: String, p2: String, p3: Int, p4: Double, p5: Int): Int
 
-public actual fun GdipFillEllipse(graphics: Long, brush: Long, x: Float, y: Float, width: Float, height: Float): Status =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipFillClosedCurveI(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFillClosedCurveI(p0: String, p1: String, p2: String, p3: Int): Int
 
-public actual fun GdipFillEllipseI(graphics: Long, brush: Long, x: Int, y: Int, width: Int, height: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipFillEllipse(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFillEllipse(p0: String, p1: String, p2: Double, p3: Double, p4: Double, p5: Double): Int
 
-public actual fun GdipFillPath(graphics: Long, brush: Long, path: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipFillEllipseI(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFillEllipseI(p0: String, p1: String, p2: Int, p3: Int, p4: Int, p5: Int): Int
 
-public actual fun GdipFillPie(graphics: Long, brush: Long, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipFillPath(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFillPath(p0: String, p1: String, p2: String): Int
 
-public actual fun GdipFillPieI(graphics: Long, brush: Long, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipFillPie(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFillPie(p0: String, p1: String, p2: Double, p3: Double, p4: Double, p5: Double, p6: Double, p7: Double): Int
 
-public actual fun GdipFillPolygon(graphics: Long, brush: Long, points: Long, count: Int, fillmode: FillMode): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipFillPieI(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFillPieI(p0: String, p1: String, p2: Int, p3: Int, p4: Int, p5: Int, p6: Double, p7: Double): Int
 
-public actual fun GdipFillPolygon2(graphics: Long, brush: Long, points: Long, count: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipFillPolygon(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFillPolygon(p0: String, p1: String, p2: String, p3: Int, p4: Int): Int
 
-public actual fun GdipFillPolygon2I(graphics: Long, brush: Long, points: Long, count: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipFillPolygon2(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFillPolygon2(p0: String, p1: String, p2: String, p3: Int): Int
 
-public actual fun GdipFillPolygonI(graphics: Long, brush: Long, points: Long, count: Int, fillmode: FillMode): Status =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipFillPolygon2I(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFillPolygon2I(p0: String, p1: String, p2: String, p3: Int): Int
 
-public actual fun GdipFillRectangle(graphics: Long, brush: Long, x: Float, y: Float, width: Float, height: Float): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipFillPolygonI(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFillPolygonI(p0: String, p1: String, p2: String, p3: Int, p4: Int): Int
 
-public actual fun GdipFillRectangleI(graphics: Long, brush: Long, x: Int, y: Int, width: Int, height: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipFillRectangle(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFillRectangle(p0: String, p1: String, p2: Double, p3: Double, p4: Double, p5: Double): Int
 
-public actual fun GdipFillRectangles(graphics: Long, brush: Long, rects: Long, count: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipFillRectangleI(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFillRectangleI(p0: String, p1: String, p2: Int, p3: Int, p4: Int, p5: Int): Int
 
-public actual fun GdipFillRectanglesI(graphics: Long, brush: Long, rects: Long, count: Int): Status =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipFillRectangles(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFillRectangles(p0: String, p1: String, p2: String, p3: Int): Int
 
-public actual fun GdipFillRegion(graphics: Long, brush: Long, region: Long): Status =
-    0
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipFillRectanglesI(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFillRectanglesI(p0: String, p1: String, p2: String, p3: Int): Int
 
-public actual fun GdipFindFirstImageItem(image: Long, item: Long): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipFillRegion(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFillRegion(p0: String, p1: String, p2: String): Int
 
-public actual fun GdipFindNextImageItem(image: Long, item: Long): Status =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipFindFirstImageItem(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFindFirstImageItem(p0: String, p1: String): Int
 
-public actual fun GdipFlattenPath(path: Long, matrix: Long, flatness: Float): Status =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipFindNextImageItem(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFindNextImageItem(p0: String, p1: String): Int
 
-public actual fun GdipFlush(graphics: Long, intention: FlushIntention): Status =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipFlattenPath(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFlattenPath(p0: String, p1: String, p2: Double): Int
 
-public actual fun GdipFree(ptr: Long) {
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipFlush(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFlush(p0: String, p1: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipFree(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFree(p0: String)
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetAdjustableArrowCapFillState(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetAdjustableArrowCapFillState(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetAdjustableArrowCapHeight(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetAdjustableArrowCapHeight(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetAdjustableArrowCapMiddleInset(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetAdjustableArrowCapMiddleInset(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetAdjustableArrowCapWidth(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetAdjustableArrowCapWidth(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetAllPropertyItems(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetAllPropertyItems(p0: String, p1: Int, p2: Int, p3: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetBrushType(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetBrushType(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetCellAscent(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetCellAscent(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetCellDescent(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetCellDescent(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetClip(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetClip(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetClipBounds(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetClipBounds(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetClipBoundsI(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetClipBoundsI(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetCompositingMode(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetCompositingMode(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetCompositingQuality(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetCompositingQuality(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetCustomLineCapBaseCap(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetCustomLineCapBaseCap(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetCustomLineCapBaseInset(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetCustomLineCapBaseInset(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetCustomLineCapStrokeCaps(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetCustomLineCapStrokeCaps(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetCustomLineCapStrokeJoin(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetCustomLineCapStrokeJoin(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetCustomLineCapType(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetCustomLineCapType(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetCustomLineCapWidthScale(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetCustomLineCapWidthScale(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetDC(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetDC(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetDpiX(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetDpiX(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetDpiY(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetDpiY(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetEffectParameterSize(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetEffectParameterSize(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetEffectParameters(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetEffectParameters(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetEmHeight(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetEmHeight(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetEncoderParameterList(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetEncoderParameterList(p0: String, p1: String, p2: Int, p3: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetEncoderParameterListSize(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetEncoderParameterListSize(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetFamily(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetFamily(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetFamilyName(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetFamilyName(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetFontCollectionFamilyCount(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetFontCollectionFamilyCount(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetFontCollectionFamilyList(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetFontCollectionFamilyList(p0: String, p1: Int, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetFontHeight(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetFontHeight(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetFontHeightGivenDPI(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetFontHeightGivenDPI(p0: String, p1: Double, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetFontSize(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetFontSize(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetFontStyle(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetFontStyle(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetFontUnit(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetFontUnit(p0: String, p1: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetGenericFontFamilyMonospace(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetGenericFontFamilyMonospace(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetGenericFontFamilySansSerif(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetGenericFontFamilySansSerif(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetGenericFontFamilySerif(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetGenericFontFamilySerif(p0: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetHatchBackgroundColor(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetHatchBackgroundColor(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetHatchForegroundColor(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetHatchForegroundColor(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetHatchStyle(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetHatchStyle(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetHemfFromMetafile(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetHemfFromMetafile(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetImageAttributesAdjustedPalette(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImageAttributesAdjustedPalette(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetImageBounds(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImageBounds(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetImageDecoders(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImageDecoders(p0: Int, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetImageDecodersSize(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImageDecodersSize(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetImageDimension(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImageDimension(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetImageEncoders(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImageEncoders(p0: Int, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetImageEncodersSize(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImageEncodersSize(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetImageFlags(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImageFlags(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetImageGraphicsContext(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImageGraphicsContext(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetImageHeight(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImageHeight(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetImageHorizontalResolution(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImageHorizontalResolution(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetImageItemData(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImageItemData(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetImagePalette(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImagePalette(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetImagePaletteSize(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImagePaletteSize(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetImagePixelFormat(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImagePixelFormat(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetImageRawFormat(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImageRawFormat(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetImageThumbnail(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImageThumbnail(p0: String, p1: Int, p2: Int, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetImageType(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImageType(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetImageVerticalResolution(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImageVerticalResolution(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetImageWidth(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImageWidth(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetInterpolationMode(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetInterpolationMode(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetLineBlend(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetLineBlend(p0: String, p1: String, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetLineBlendCount(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetLineBlendCount(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetLineColors(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetLineColors(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetLineGammaCorrection(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetLineGammaCorrection(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetLinePresetBlend(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetLinePresetBlend(p0: String, p1: String, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetLinePresetBlendCount(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetLinePresetBlendCount(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetLineRect(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetLineRect(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetLineRectI(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetLineRectI(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetLineSpacing(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetLineSpacing(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetLineTransform(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetLineTransform(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetLineWrapMode(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetLineWrapMode(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetLogFontA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetLogFontA(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetLogFontW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetLogFontW(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetMatrixElements(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetMatrixElements(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetMetafileDownLevelRasterizationLimit(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetMetafileDownLevelRasterizationLimit(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetMetafileHeaderFromEmf(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetMetafileHeaderFromEmf(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetMetafileHeaderFromFile(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetMetafileHeaderFromFile(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetMetafileHeaderFromMetafile(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetMetafileHeaderFromMetafile(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetMetafileHeaderFromStream(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetMetafileHeaderFromStream(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetMetafileHeaderFromWmf(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetMetafileHeaderFromWmf(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetNearestColor(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetNearestColor(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPageScale(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPageScale(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPageUnit(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPageUnit(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPathData(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathData(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPathFillMode(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathFillMode(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientBlend(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientBlend(p0: String, p1: String, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientBlendCount(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientBlendCount(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientCenterColor(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientCenterColor(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientCenterPoint(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientCenterPoint(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientCenterPointI(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientCenterPointI(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientFocusScales(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientFocusScales(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientGammaCorrection(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientGammaCorrection(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientPath(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientPath(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientPointCount(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientPointCount(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientPresetBlend(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientPresetBlend(p0: String, p1: String, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientPresetBlendCount(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientPresetBlendCount(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientRect(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientRect(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientRectI(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientRectI(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientSurroundColorCount(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientSurroundColorCount(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientSurroundColorsWithCount(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientSurroundColorsWithCount(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientTransform(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientTransform(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientWrapMode(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientWrapMode(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPathLastPoint(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathLastPoint(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPathPoints(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathPoints(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPathPointsI(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathPointsI(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPathTypes(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathTypes(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPathWorldBounds(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathWorldBounds(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPathWorldBoundsI(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathWorldBoundsI(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPenBrushFill(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenBrushFill(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPenColor(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenColor(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPenCompoundArray(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenCompoundArray(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPenCompoundCount(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenCompoundCount(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPenCustomEndCap(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenCustomEndCap(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPenCustomStartCap(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenCustomStartCap(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPenDashArray(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenDashArray(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPenDashCap197819(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenDashCap197819(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPenDashCount(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenDashCount(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPenDashOffset(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenDashOffset(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPenDashStyle(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenDashStyle(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPenEndCap(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenEndCap(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPenFillType(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenFillType(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPenLineJoin(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenLineJoin(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPenMiterLimit(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenMiterLimit(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPenMode(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenMode(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPenStartCap(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenStartCap(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPenTransform(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenTransform(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPenUnit(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenUnit(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPenWidth(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenWidth(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPixelOffsetMode(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPixelOffsetMode(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPointCount(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPointCount(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPropertyCount(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPropertyCount(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPropertyIdList(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPropertyIdList(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPropertyItem(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPropertyItem(p0: String, p1: Int, p2: Int, p3: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPropertyItemSize(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPropertyItemSize(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetPropertySize(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPropertySize(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetRegionBounds(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetRegionBounds(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetRegionBoundsI(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetRegionBoundsI(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetRegionData(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetRegionData(p0: String, p1: String, p2: Int, p3: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetRegionDataSize(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetRegionDataSize(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetRegionHRgn(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetRegionHRgn(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetRegionScans(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetRegionScans(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetRegionScansCount(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetRegionScansCount(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetRegionScansI(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetRegionScansI(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetRenderingOrigin(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetRenderingOrigin(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetSmoothingMode(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetSmoothingMode(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetSolidFillColor(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetSolidFillColor(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetStringFormatAlign(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetStringFormatAlign(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetStringFormatDigitSubstitution(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetStringFormatDigitSubstitution(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetStringFormatFlags(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetStringFormatFlags(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetStringFormatHotkeyPrefix(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetStringFormatHotkeyPrefix(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetStringFormatLineAlign(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetStringFormatLineAlign(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetStringFormatMeasurableCharacterRangeCount(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetStringFormatMeasurableCharacterRangeCount(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetStringFormatTabStopCount(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetStringFormatTabStopCount(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetStringFormatTabStops(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetStringFormatTabStops(p0: String, p1: Int, p2: String, p3: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetStringFormatTrimming(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetStringFormatTrimming(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetTextContrast(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetTextContrast(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetTextRenderingHint(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetTextRenderingHint(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetTextureImage(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetTextureImage(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetTextureTransform(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetTextureTransform(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetTextureWrapMode(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetTextureWrapMode(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetVisibleClipBounds(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetVisibleClipBounds(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetVisibleClipBoundsI(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetVisibleClipBoundsI(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGetWorldTransform(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetWorldTransform(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGraphicsClear(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGraphicsClear(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipGraphicsSetAbort(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGraphicsSetAbort(p0: String, p1: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipImageForceValidation(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipImageForceValidation(p0: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipImageGetFrameCount(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipImageGetFrameCount(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipImageGetFrameDimensionsCount(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipImageGetFrameDimensionsCount(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipImageGetFrameDimensionsList(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipImageGetFrameDimensionsList(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipImageRotateFlip(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipImageRotateFlip(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipImageSelectActiveFrame(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipImageSelectActiveFrame(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipImageSetAbort(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipImageSetAbort(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipInitializePalette(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipInitializePalette(p0: String, p1: Int, p2: Int, p3: Int, p4: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipInvertMatrix(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipInvertMatrix(p0: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipIsClipEmpty(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsClipEmpty(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipIsEmptyRegion(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsEmptyRegion(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipIsEqualRegion(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsEqualRegion(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipIsInfiniteRegion(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsInfiniteRegion(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipIsMatrixEqual(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsMatrixEqual(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipIsMatrixIdentity(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsMatrixIdentity(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipIsMatrixInvertible(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsMatrixInvertible(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipIsOutlineVisiblePathPoint(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsOutlineVisiblePathPoint(p0: String, p1: Double, p2: Double, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipIsOutlineVisiblePathPointI(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsOutlineVisiblePathPointI(p0: String, p1: Int, p2: Int, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipIsStyleAvailable(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsStyleAvailable(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipIsVisibleClipEmpty(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsVisibleClipEmpty(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipIsVisiblePathPoint(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsVisiblePathPoint(p0: String, p1: Double, p2: Double, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipIsVisiblePathPointI(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsVisiblePathPointI(p0: String, p1: Int, p2: Int, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipIsVisiblePoint(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsVisiblePoint(p0: String, p1: Double, p2: Double, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipIsVisiblePointI(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsVisiblePointI(p0: String, p1: Int, p2: Int, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipIsVisibleRect(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsVisibleRect(p0: String, p1: Double, p2: Double, p3: Double, p4: Double, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipIsVisibleRectI(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsVisibleRectI(p0: String, p1: Int, p2: Int, p3: Int, p4: Int, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipIsVisibleRegionPoint(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsVisibleRegionPoint(p0: String, p1: Double, p2: Double, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipIsVisibleRegionPointI(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsVisibleRegionPointI(p0: String, p1: Int, p2: Int, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipIsVisibleRegionRect(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsVisibleRegionRect(p0: String, p1: Double, p2: Double, p3: Double, p4: Double, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipIsVisibleRegionRectI(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsVisibleRegionRectI(p0: String, p1: Int, p2: Int, p3: Int, p4: Int, p5: String, p6: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipLoadImageFromFile(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipLoadImageFromFile(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipLoadImageFromFileICM(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipLoadImageFromFileICM(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipLoadImageFromStream(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipLoadImageFromStream(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipLoadImageFromStreamICM(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipLoadImageFromStreamICM(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipMeasureCharacterRanges(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipMeasureCharacterRanges(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: Int, p7: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipMeasureDriverString(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipMeasureDriverString(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: Int, p6: String, p7: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipMeasureString(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipMeasureString(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: String, p6: String, p7: String, p8: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipMultiplyLineTransform(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipMultiplyLineTransform(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipMultiplyMatrix(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipMultiplyMatrix(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipMultiplyPathGradientTransform(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipMultiplyPathGradientTransform(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipMultiplyPenTransform(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipMultiplyPenTransform(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipMultiplyTextureTransform(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipMultiplyTextureTransform(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipMultiplyWorldTransform(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipMultiplyWorldTransform(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipNewInstalledFontCollection(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipNewInstalledFontCollection(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipNewPrivateFontCollection(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipNewPrivateFontCollection(p0: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipPathIterCopyData(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipPathIterCopyData(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipPathIterEnumerate(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipPathIterEnumerate(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipPathIterGetCount(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipPathIterGetCount(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipPathIterGetSubpathCount(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipPathIterGetSubpathCount(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipPathIterHasCurve(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipPathIterHasCurve(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipPathIterIsValid(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipPathIterIsValid(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipPathIterNextMarker(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipPathIterNextMarker(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipPathIterNextMarkerPath(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipPathIterNextMarkerPath(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipPathIterNextPathType(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipPathIterNextPathType(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipPathIterNextSubpath(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipPathIterNextSubpath(p0: String, p1: String, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipPathIterNextSubpathPath(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipPathIterNextSubpathPath(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipPathIterRewind(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipPathIterRewind(p0: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipPlayMetafileRecord(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipPlayMetafileRecord(p0: String, p1: Int, p2: Int, p3: Int, p4: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipPrivateAddFontFile(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipPrivateAddFontFile(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipPrivateAddMemoryFont(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipPrivateAddMemoryFont(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipRecordMetafile(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipRecordMetafile(p0: String, p1: Int, p2: String, p3: Int, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipRecordMetafileFileName(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipRecordMetafileFileName(p0: String, p1: String, p2: Int, p3: String, p4: Int, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipRecordMetafileFileNameI(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipRecordMetafileFileNameI(p0: String, p1: String, p2: Int, p3: String, p4: Int, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipRecordMetafileI(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipRecordMetafileI(p0: String, p1: Int, p2: String, p3: Int, p4: String, p5: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipRecordMetafileStream(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipRecordMetafileStream(p0: String, p1: String, p2: Int, p3: String, p4: Int, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipRecordMetafileStreamI(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipRecordMetafileStreamI(p0: String, p1: String, p2: Int, p3: String, p4: Int, p5: String, p6: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipReleaseDC(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipReleaseDC(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipRemovePropertyItem(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipRemovePropertyItem(p0: String, p1: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipResetClip(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipResetClip(p0: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipResetImageAttributes(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipResetImageAttributes(p0: String, p1: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipResetLineTransform(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipResetLineTransform(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipResetPageTransform(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipResetPageTransform(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipResetPath(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipResetPath(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipResetPathGradientTransform(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipResetPathGradientTransform(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipResetPenTransform(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipResetPenTransform(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipResetTextureTransform(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipResetTextureTransform(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipResetWorldTransform(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipResetWorldTransform(p0: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipRestoreGraphics(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipRestoreGraphics(p0: String, p1: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipReversePath(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipReversePath(p0: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipRotateLineTransform(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipRotateLineTransform(p0: String, p1: Double, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipRotateMatrix(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipRotateMatrix(p0: String, p1: Double, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipRotatePathGradientTransform(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipRotatePathGradientTransform(p0: String, p1: Double, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipRotatePenTransform(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipRotatePenTransform(p0: String, p1: Double, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipRotateTextureTransform(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipRotateTextureTransform(p0: String, p1: Double, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipRotateWorldTransform(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipRotateWorldTransform(p0: String, p1: Double, p2: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSaveAdd(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSaveAdd(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSaveAddImage(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSaveAddImage(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSaveGraphics(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSaveGraphics(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSaveImageToFile(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSaveImageToFile(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSaveImageToStream(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSaveImageToStream(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipScaleLineTransform(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipScaleLineTransform(p0: String, p1: Double, p2: Double, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipScaleMatrix(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipScaleMatrix(p0: String, p1: Double, p2: Double, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipScalePathGradientTransform(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipScalePathGradientTransform(p0: String, p1: Double, p2: Double, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipScalePenTransform(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipScalePenTransform(p0: String, p1: Double, p2: Double, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipScaleTextureTransform(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipScaleTextureTransform(p0: String, p1: Double, p2: Double, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipScaleWorldTransform(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipScaleWorldTransform(p0: String, p1: Double, p2: Double, p3: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetAdjustableArrowCapFillState(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetAdjustableArrowCapFillState(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetAdjustableArrowCapHeight(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetAdjustableArrowCapHeight(p0: String, p1: Double): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetAdjustableArrowCapMiddleInset(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetAdjustableArrowCapMiddleInset(p0: String, p1: Double): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetAdjustableArrowCapWidth(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetAdjustableArrowCapWidth(p0: String, p1: Double): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetClipGraphics(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetClipGraphics(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetClipHrgn(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetClipHrgn(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetClipPath(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetClipPath(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetClipRect(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetClipRect(p0: String, p1: Double, p2: Double, p3: Double, p4: Double, p5: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetClipRectI(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetClipRectI(p0: String, p1: Int, p2: Int, p3: Int, p4: Int, p5: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetClipRegion(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetClipRegion(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetCompositingMode(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetCompositingMode(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetCompositingQuality(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetCompositingQuality(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetCustomLineCapBaseCap(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetCustomLineCapBaseCap(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetCustomLineCapBaseInset(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetCustomLineCapBaseInset(p0: String, p1: Double): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetCustomLineCapStrokeCaps(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetCustomLineCapStrokeCaps(p0: String, p1: Int, p2: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetCustomLineCapStrokeJoin(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetCustomLineCapStrokeJoin(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetCustomLineCapWidthScale(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetCustomLineCapWidthScale(p0: String, p1: Double): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetEffectParameters(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetEffectParameters(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetEmpty(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetEmpty(p0: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesCachedBackground(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesCachedBackground(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesColorKeys(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesColorKeys(p0: String, p1: Int, p2: Int, p3: Int, p4: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesColorMatrix(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesColorMatrix(p0: String, p1: Int, p2: Int, p3: String, p4: String, p5: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesGamma(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesGamma(p0: String, p1: Int, p2: Int, p3: Double): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesNoOp(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesNoOp(p0: String, p1: Int, p2: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesOutputChannel(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesOutputChannel(p0: String, p1: Int, p2: Int, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesOutputChannelColorProfile(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesOutputChannelColorProfile(p0: String, p1: Int, p2: Int, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesRemapTable(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesRemapTable(p0: String, p1: Int, p2: Int, p3: Int, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesThreshold(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesThreshold(p0: String, p1: Int, p2: Int, p3: Double): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesToIdentity(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesToIdentity(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesWrapMode(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesWrapMode(p0: String, p1: Int, p2: Int, p3: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetImagePalette(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetImagePalette(p0: String, p1: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetInfinite(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetInfinite(p0: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetInterpolationMode(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetInterpolationMode(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetLineBlend(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetLineBlend(p0: String, p1: String, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetLineColors(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetLineColors(p0: String, p1: Int, p2: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetLineGammaCorrection(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetLineGammaCorrection(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetLineLinearBlend(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetLineLinearBlend(p0: String, p1: Double, p2: Double): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetLinePresetBlend(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetLinePresetBlend(p0: String, p1: String, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetLineSigmaBlend(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetLineSigmaBlend(p0: String, p1: Double, p2: Double): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetLineTransform(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetLineTransform(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetLineWrapMode(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetLineWrapMode(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetMatrixElements(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetMatrixElements(p0: String, p1: Double, p2: Double, p3: Double, p4: Double, p5: Double, p6: Double): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetMetafileDownLevelRasterizationLimit(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetMetafileDownLevelRasterizationLimit(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetPageScale(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPageScale(p0: String, p1: Double): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetPageUnit(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPageUnit(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetPathFillMode(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPathFillMode(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientBlend(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientBlend(p0: String, p1: String, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientCenterColor(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientCenterColor(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientCenterPoint(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientCenterPoint(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientCenterPointI(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientCenterPointI(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientFocusScales(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientFocusScales(p0: String, p1: Double, p2: Double): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientGammaCorrection(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientGammaCorrection(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientLinearBlend(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientLinearBlend(p0: String, p1: Double, p2: Double): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientPath(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientPath(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientPresetBlend(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientPresetBlend(p0: String, p1: String, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientSigmaBlend(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientSigmaBlend(p0: String, p1: Double, p2: Double): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientSurroundColorsWithCount(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientSurroundColorsWithCount(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientTransform(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientTransform(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientWrapMode(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientWrapMode(p0: String, p1: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetPathMarker(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPathMarker(p0: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetPenBrushFill(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPenBrushFill(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetPenColor(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPenColor(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetPenCompoundArray(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPenCompoundArray(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetPenCustomEndCap(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPenCustomEndCap(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetPenCustomStartCap(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPenCustomStartCap(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetPenDashArray(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPenDashArray(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetPenDashCap197819(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPenDashCap197819(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetPenDashOffset(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPenDashOffset(p0: String, p1: Double): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetPenDashStyle(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPenDashStyle(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetPenEndCap(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPenEndCap(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetPenLineCap197819(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPenLineCap197819(p0: String, p1: Int, p2: Int, p3: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetPenLineJoin(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPenLineJoin(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetPenMiterLimit(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPenMiterLimit(p0: String, p1: Double): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetPenMode(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPenMode(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetPenStartCap(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPenStartCap(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetPenTransform(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPenTransform(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetPenUnit(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPenUnit(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetPenWidth(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPenWidth(p0: String, p1: Double): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetPixelOffsetMode(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPixelOffsetMode(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetPropertyItem(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPropertyItem(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetRenderingOrigin(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetRenderingOrigin(p0: String, p1: Int, p2: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetSmoothingMode(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetSmoothingMode(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetSolidFillColor(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetSolidFillColor(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetStringFormatAlign(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetStringFormatAlign(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetStringFormatDigitSubstitution(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetStringFormatDigitSubstitution(p0: String, p1: Int, p2: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetStringFormatFlags(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetStringFormatFlags(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetStringFormatHotkeyPrefix(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetStringFormatHotkeyPrefix(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetStringFormatLineAlign(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetStringFormatLineAlign(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetStringFormatMeasurableCharacterRanges(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetStringFormatMeasurableCharacterRanges(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetStringFormatTabStops(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetStringFormatTabStops(p0: String, p1: Double, p2: Int, p3: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetStringFormatTrimming(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetStringFormatTrimming(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetTextContrast(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetTextContrast(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetTextRenderingHint(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetTextRenderingHint(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetTextureTransform(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetTextureTransform(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetTextureWrapMode(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetTextureWrapMode(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipSetWorldTransform(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetWorldTransform(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipShearMatrix(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipShearMatrix(p0: String, p1: Double, p2: Double, p3: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipStartPathFigure(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipStartPathFigure(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipStringFormatGetGenericDefault(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipStringFormatGetGenericDefault(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipStringFormatGetGenericTypographic(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipStringFormatGetGenericTypographic(p0: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipTestControl(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipTestControl(p0: Int, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipTransformMatrixPoints(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipTransformMatrixPoints(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipTransformMatrixPointsI(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipTransformMatrixPointsI(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipTransformPath(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipTransformPath(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipTransformPoints(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipTransformPoints(p0: String, p1: Int, p2: Int, p3: String, p4: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipTransformPointsI(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipTransformPointsI(p0: String, p1: Int, p2: Int, p3: String, p4: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipTransformRegion(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipTransformRegion(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipTranslateClip(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipTranslateClip(p0: String, p1: Double, p2: Double): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipTranslateClipI(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipTranslateClipI(p0: String, p1: Int, p2: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipTranslateLineTransform(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipTranslateLineTransform(p0: String, p1: Double, p2: Double, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipTranslateMatrix(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipTranslateMatrix(p0: String, p1: Double, p2: Double, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipTranslatePathGradientTransform(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipTranslatePathGradientTransform(p0: String, p1: Double, p2: Double, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipTranslatePenTransform(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipTranslatePenTransform(p0: String, p1: Double, p2: Double, p3: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipTranslateRegion(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipTranslateRegion(p0: String, p1: Double, p2: Double): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipTranslateRegionI(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipTranslateRegionI(p0: String, p1: Int, p2: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipTranslateTextureTransform(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipTranslateTextureTransform(p0: String, p1: Double, p2: Double, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipTranslateWorldTransform(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipTranslateWorldTransform(p0: String, p1: Double, p2: Double, p3: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipVectorTransformMatrixPoints(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipVectorTransformMatrixPoints(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipVectorTransformMatrixPointsI(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipVectorTransformMatrixPointsI(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipWarpPath(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipWarpPath(p0: String, p1: String, p2: String, p3: Int, p4: Double, p5: Double, p6: Double, p7: Double, p8: Int, p9: Double): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipWidenPath(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipWidenPath(p0: String, p1: String, p2: String, p3: Double): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdipWindingModeOutline(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdipWindingModeOutline(p0: String, p1: String, p2: Double): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdiplusNotificationHook(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdiplusNotificationHook(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdiplusNotificationUnhook(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdiplusNotificationUnhook(p0: String)
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdiplusShutdown(p0)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdiplusShutdown(p0: String)
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_graphics_gdiplus_gdiplusStartup(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_graphics_gdiplus_gdiplusStartup(p0: String, p1: String, p2: String): Int
+
+public actual fun gdipAddPathArc(path: COpaquePointer?, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathArc((path?.value ?: 0L).toString(), x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble(), startangle.toDouble(), sweepangle.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipAddPathArcI(path: COpaquePointer?, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathArcI((path?.value ?: 0L).toString(), x, y, width, height, startangle.toDouble(), sweepangle.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipAddPathBezier(path: COpaquePointer?, x1: Float, y1: Float, x2: Float, y2: Float, x3: Float, y3: Float, x4: Float, y4: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathBezier((path?.value ?: 0L).toString(), x1.toDouble(), y1.toDouble(), x2.toDouble(), y2.toDouble(), x3.toDouble(), y3.toDouble(), x4.toDouble(), y4.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipAddPathBezierI(path: COpaquePointer?, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int, x4: Int, y4: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathBezierI((path?.value ?: 0L).toString(), x1, y1, x2, y2, x3, y3, x4, y4) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipAddPathBeziers(path: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathBeziers((path?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipAddPathBeziersI(path: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathBeziersI((path?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipAddPathClosedCurve(path: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathClosedCurve((path?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipAddPathClosedCurve2(path: COpaquePointer?, points: COpaquePointer?, count: Int, tension: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathClosedCurve2((path?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count, tension.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipAddPathClosedCurve2I(path: COpaquePointer?, points: COpaquePointer?, count: Int, tension: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathClosedCurve2I((path?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count, tension.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipAddPathClosedCurveI(path: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathClosedCurveI((path?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipAddPathCurve(path: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathCurve((path?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipAddPathCurve2(path: COpaquePointer?, points: COpaquePointer?, count: Int, tension: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathCurve2((path?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count, tension.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipAddPathCurve2I(path: COpaquePointer?, points: COpaquePointer?, count: Int, tension: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathCurve2I((path?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count, tension.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipAddPathCurve3(path: COpaquePointer?, points: COpaquePointer?, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathCurve3((path?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count, offset, numberofsegments, tension.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipAddPathCurve3I(path: COpaquePointer?, points: COpaquePointer?, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathCurve3I((path?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count, offset, numberofsegments, tension.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipAddPathCurveI(path: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathCurveI((path?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipAddPathEllipse(path: COpaquePointer?, x: Float, y: Float, width: Float, height: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathEllipse((path?.value ?: 0L).toString(), x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipAddPathEllipseI(path: COpaquePointer?, x: Int, y: Int, width: Int, height: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathEllipseI((path?.value ?: 0L).toString(), x, y, width, height) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipAddPathLine(path: COpaquePointer?, x1: Float, y1: Float, x2: Float, y2: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathLine((path?.value ?: 0L).toString(), x1.toDouble(), y1.toDouble(), x2.toDouble(), y2.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipAddPathLine2(path: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathLine2((path?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipAddPathLine2I(path: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathLine2I((path?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipAddPathLineI(path: COpaquePointer?, x1: Int, y1: Int, x2: Int, y2: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathLineI((path?.value ?: 0L).toString(), x1, y1, x2, y2) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipAddPathPath(path: COpaquePointer?, addingpath: COpaquePointer?, connect: Bool): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathPath((path?.value ?: 0L).toString(), (addingpath?.value ?: 0L).toString(), connect) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipAddPathPie(path: COpaquePointer?, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathPie((path?.value ?: 0L).toString(), x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble(), startangle.toDouble(), sweepangle.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipAddPathPieI(path: COpaquePointer?, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathPieI((path?.value ?: 0L).toString(), x, y, width, height, startangle.toDouble(), sweepangle.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipAddPathPolygon(path: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathPolygon((path?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipAddPathPolygonI(path: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathPolygonI((path?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipAddPathRectangle(path: COpaquePointer?, x: Float, y: Float, width: Float, height: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathRectangle((path?.value ?: 0L).toString(), x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipAddPathRectangleI(path: COpaquePointer?, x: Int, y: Int, width: Int, height: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathRectangleI((path?.value ?: 0L).toString(), x, y, width, height) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipAddPathRectangles(path: COpaquePointer?, rects: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathRectangles((path?.value ?: 0L).toString(), (rects?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipAddPathRectanglesI(path: COpaquePointer?, rects: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathRectanglesI((path?.value ?: 0L).toString(), (rects?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipAddPathString(path: COpaquePointer?, string: Pcwstr, length: Int, family: COpaquePointer?, style: Int, emsize: Float, layoutrect: COpaquePointer?, format: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathString((path?.value ?: 0L).toString(), (string?.value ?: 0L).toString(), length, (family?.value ?: 0L).toString(), style, emsize.toDouble(), (layoutrect?.value ?: 0L).toString(), (format?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipAddPathStringI(path: COpaquePointer?, string: Pcwstr, length: Int, family: COpaquePointer?, style: Int, emsize: Float, layoutrect: COpaquePointer?, format: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAddPathStringI((path?.value ?: 0L).toString(), (string?.value ?: 0L).toString(), length, (family?.value ?: 0L).toString(), style, emsize.toDouble(), (layoutrect?.value ?: 0L).toString(), (format?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipAlloc(size: ULong): COpaquePointer? =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipAlloc(size.toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipBeginContainer(graphics: COpaquePointer?, dstrect: COpaquePointer?, srcrect: COpaquePointer?, unit: Unit, state: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipBeginContainer((graphics?.value ?: 0L).toString(), (dstrect?.value ?: 0L).toString(), (srcrect?.value ?: 0L).toString(), unit, (state?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipBeginContainer2(graphics: COpaquePointer?, state: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipBeginContainer2((graphics?.value ?: 0L).toString(), (state?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipBeginContainerI(graphics: COpaquePointer?, dstrect: COpaquePointer?, srcrect: COpaquePointer?, unit: Unit, state: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipBeginContainerI((graphics?.value ?: 0L).toString(), (dstrect?.value ?: 0L).toString(), (srcrect?.value ?: 0L).toString(), unit, (state?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipBitmapApplyEffect(bitmap: COpaquePointer?, effect: COpaquePointer?, roi: COpaquePointer?, useauxdata: Bool, auxdata: COpaquePointer?, auxdatasize: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipBitmapApplyEffect((bitmap?.value ?: 0L).toString(), (effect?.value ?: 0L).toString(), (roi?.value ?: 0L).toString(), useauxdata, (auxdata?.value ?: 0L).toString(), (auxdatasize?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipBitmapConvertFormat(pinputbitmap: COpaquePointer?, format: Int, dithertype: DitherType, palettetype: PaletteType, palette: COpaquePointer?, alphathresholdpercent: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipBitmapConvertFormat((pinputbitmap?.value ?: 0L).toString(), format, dithertype, palettetype, (palette?.value ?: 0L).toString(), alphathresholdpercent.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipBitmapCreateApplyEffect(inputbitmaps: COpaquePointer?, numinputs: Int, effect: COpaquePointer?, roi: COpaquePointer?, outputrect: COpaquePointer?, outputbitmap: COpaquePointer?, useauxdata: Bool, auxdata: COpaquePointer?, auxdatasize: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipBitmapCreateApplyEffect((inputbitmaps?.value ?: 0L).toString(), numinputs, (effect?.value ?: 0L).toString(), (roi?.value ?: 0L).toString(), (outputrect?.value ?: 0L).toString(), (outputbitmap?.value ?: 0L).toString(), useauxdata, (auxdata?.value ?: 0L).toString(), (auxdatasize?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipBitmapGetHistogram(bitmap: COpaquePointer?, format: HistogramFormat, numberofentries: UInt, channel0: COpaquePointer?, channel1: COpaquePointer?, channel2: COpaquePointer?, channel3: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipBitmapGetHistogram((bitmap?.value ?: 0L).toString(), format, numberofentries.toInt(), (channel0?.value ?: 0L).toString(), (channel1?.value ?: 0L).toString(), (channel2?.value ?: 0L).toString(), (channel3?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipBitmapGetHistogramSize(format: HistogramFormat, numberofentries: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipBitmapGetHistogramSize(format, (numberofentries?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipBitmapGetPixel(bitmap: COpaquePointer?, x: Int, y: Int, color: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipBitmapGetPixel((bitmap?.value ?: 0L).toString(), x, y, (color?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipBitmapLockBits(bitmap: COpaquePointer?, rect: COpaquePointer?, flags: UInt, format: Int, lockedbitmapdata: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipBitmapLockBits((bitmap?.value ?: 0L).toString(), (rect?.value ?: 0L).toString(), flags.toInt(), format, (lockedbitmapdata?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipBitmapSetPixel(bitmap: COpaquePointer?, x: Int, y: Int, color: UInt): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipBitmapSetPixel((bitmap?.value ?: 0L).toString(), x, y, color.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipBitmapSetResolution(bitmap: COpaquePointer?, xdpi: Float, ydpi: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipBitmapSetResolution((bitmap?.value ?: 0L).toString(), xdpi.toDouble(), ydpi.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipBitmapUnlockBits(bitmap: COpaquePointer?, lockedbitmapdata: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipBitmapUnlockBits((bitmap?.value ?: 0L).toString(), (lockedbitmapdata?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipClearPathMarkers(path: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipClearPathMarkers((path?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCloneBitmapArea(x: Float, y: Float, width: Float, height: Float, format: Int, srcbitmap: COpaquePointer?, dstbitmap: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCloneBitmapArea(x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble(), format, (srcbitmap?.value ?: 0L).toString(), (dstbitmap?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCloneBitmapAreaI(x: Int, y: Int, width: Int, height: Int, format: Int, srcbitmap: COpaquePointer?, dstbitmap: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCloneBitmapAreaI(x, y, width, height, format, (srcbitmap?.value ?: 0L).toString(), (dstbitmap?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCloneBrush(brush: COpaquePointer?, clonebrush: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCloneBrush((brush?.value ?: 0L).toString(), (clonebrush?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCloneCustomLineCap(customcap: COpaquePointer?, clonedcap: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCloneCustomLineCap((customcap?.value ?: 0L).toString(), (clonedcap?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCloneFont(font: COpaquePointer?, clonefont: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCloneFont((font?.value ?: 0L).toString(), (clonefont?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCloneFontFamily(fontfamily: COpaquePointer?, clonedfontfamily: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCloneFontFamily((fontfamily?.value ?: 0L).toString(), (clonedfontfamily?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCloneImage(image: COpaquePointer?, cloneimage: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCloneImage((image?.value ?: 0L).toString(), (cloneimage?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCloneImageAttributes(imageattr: COpaquePointer?, cloneimageattr: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCloneImageAttributes((imageattr?.value ?: 0L).toString(), (cloneimageattr?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCloneMatrix(matrix: COpaquePointer?, clonematrix: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCloneMatrix((matrix?.value ?: 0L).toString(), (clonematrix?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipClonePath(path: COpaquePointer?, clonepath: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipClonePath((path?.value ?: 0L).toString(), (clonepath?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipClonePen(pen: COpaquePointer?, clonepen: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipClonePen((pen?.value ?: 0L).toString(), (clonepen?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCloneRegion(region: COpaquePointer?, cloneregion: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCloneRegion((region?.value ?: 0L).toString(), (cloneregion?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCloneStringFormat(format: COpaquePointer?, newformat: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCloneStringFormat((format?.value ?: 0L).toString(), (newformat?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipClosePathFigure(path: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipClosePathFigure((path?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipClosePathFigures(path: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipClosePathFigures((path?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCombineRegionPath(region: COpaquePointer?, path: COpaquePointer?, combinemode: CombineMode): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCombineRegionPath((region?.value ?: 0L).toString(), (path?.value ?: 0L).toString(), combinemode) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCombineRegionRect(region: COpaquePointer?, rect: COpaquePointer?, combinemode: CombineMode): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCombineRegionRect((region?.value ?: 0L).toString(), (rect?.value ?: 0L).toString(), combinemode) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCombineRegionRectI(region: COpaquePointer?, rect: COpaquePointer?, combinemode: CombineMode): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCombineRegionRectI((region?.value ?: 0L).toString(), (rect?.value ?: 0L).toString(), combinemode) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCombineRegionRegion(region: COpaquePointer?, region2: COpaquePointer?, combinemode: CombineMode): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCombineRegionRegion((region?.value ?: 0L).toString(), (region2?.value ?: 0L).toString(), combinemode) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipComment(graphics: COpaquePointer?, sizedata: UInt, data: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipComment((graphics?.value ?: 0L).toString(), sizedata.toInt(), (data?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipConvertToEmfPlus(refgraphics: COpaquePointer?, metafile: COpaquePointer?, conversionfailureflag: COpaquePointer?, emftype: EmfType, description: Pcwstr, outMetafile: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipConvertToEmfPlus((refgraphics?.value ?: 0L).toString(), (metafile?.value ?: 0L).toString(), (conversionfailureflag?.value ?: 0L).toString(), emftype, (description?.value ?: 0L).toString(), (outMetafile?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipConvertToEmfPlusToFile(refgraphics: COpaquePointer?, metafile: COpaquePointer?, conversionfailureflag: COpaquePointer?, filename: Pcwstr, emftype: EmfType, description: Pcwstr, outMetafile: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipConvertToEmfPlusToFile((refgraphics?.value ?: 0L).toString(), (metafile?.value ?: 0L).toString(), (conversionfailureflag?.value ?: 0L).toString(), (filename?.value ?: 0L).toString(), emftype, (description?.value ?: 0L).toString(), (outMetafile?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipConvertToEmfPlusToStream(refgraphics: COpaquePointer?, metafile: COpaquePointer?, conversionfailureflag: COpaquePointer?, stream: COpaquePointer?, emftype: EmfType, description: Pcwstr, outMetafile: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipConvertToEmfPlusToStream((refgraphics?.value ?: 0L).toString(), (metafile?.value ?: 0L).toString(), (conversionfailureflag?.value ?: 0L).toString(), (stream?.value ?: 0L).toString(), emftype, (description?.value ?: 0L).toString(), (outMetafile?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateAdjustableArrowCap(height: Float, width: Float, isfilled: Bool, cap: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateAdjustableArrowCap(height.toDouble(), width.toDouble(), isfilled, (cap?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateBitmapFromFile(filename: Pcwstr, bitmap: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromFile((filename?.value ?: 0L).toString(), (bitmap?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateBitmapFromFileICM(filename: Pcwstr, bitmap: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromFileICM((filename?.value ?: 0L).toString(), (bitmap?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateBitmapFromGdiDib(gdibitmapinfo: COpaquePointer?, gdibitmapdata: COpaquePointer?, bitmap: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromGdiDib((gdibitmapinfo?.value ?: 0L).toString(), (gdibitmapdata?.value ?: 0L).toString(), (bitmap?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateBitmapFromGraphics(width: Int, height: Int, target: COpaquePointer?, bitmap: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromGraphics(width, height, (target?.value ?: 0L).toString(), (bitmap?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateBitmapFromHBITMAP(hbm: Hbitmap, hpal: Hpalette, bitmap: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromHBITMAP((hbm?.value ?: 0L).toString(), (hpal?.value ?: 0L).toString(), (bitmap?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateBitmapFromHICON(hicon: Hicon, bitmap: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromHICON((hicon?.value ?: 0L).toString(), (bitmap?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateBitmapFromResource(hinstance: Hinstance, lpbitmapname: Pcwstr, bitmap: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromResource((hinstance?.value ?: 0L).toString(), (lpbitmapname?.value ?: 0L).toString(), (bitmap?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateBitmapFromScan0(width: Int, height: Int, stride: Int, format: Int, scan0: COpaquePointer?, bitmap: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromScan0(width, height, stride, format, (scan0?.value ?: 0L).toString(), (bitmap?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateBitmapFromStream(stream: COpaquePointer?, bitmap: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromStream((stream?.value ?: 0L).toString(), (bitmap?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateBitmapFromStreamICM(stream: COpaquePointer?, bitmap: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateBitmapFromStreamICM((stream?.value ?: 0L).toString(), (bitmap?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateCachedBitmap(bitmap: COpaquePointer?, graphics: COpaquePointer?, cachedbitmap: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateCachedBitmap((bitmap?.value ?: 0L).toString(), (graphics?.value ?: 0L).toString(), (cachedbitmap?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateCustomLineCap(fillpath: COpaquePointer?, strokepath: COpaquePointer?, basecap: LineCap, baseinset: Float, customcap: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateCustomLineCap((fillpath?.value ?: 0L).toString(), (strokepath?.value ?: 0L).toString(), basecap, baseinset.toDouble(), (customcap?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateEffect(guid: Guid, effect: COpaquePointer?): Status =
+    throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateFont(fontfamily: COpaquePointer?, emsize: Float, style: Int, unit: Unit, font: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateFont((fontfamily?.value ?: 0L).toString(), emsize.toDouble(), style, unit, (font?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateFontFamilyFromName(name: Pcwstr, fontcollection: COpaquePointer?, fontfamily: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateFontFamilyFromName((name?.value ?: 0L).toString(), (fontcollection?.value ?: 0L).toString(), (fontfamily?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateFontFromDC(hdc: Hdc, font: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateFontFromDC((hdc?.value ?: 0L).toString(), (font?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateFontFromLogfontA(hdc: Hdc, logfont: COpaquePointer?, font: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateFontFromLogfontA((hdc?.value ?: 0L).toString(), (logfont?.value ?: 0L).toString(), (font?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateFontFromLogfontW(hdc: Hdc, logfont: COpaquePointer?, font: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateFontFromLogfontW((hdc?.value ?: 0L).toString(), (logfont?.value ?: 0L).toString(), (font?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateFromHDC(hdc: Hdc, graphics: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateFromHDC((hdc?.value ?: 0L).toString(), (graphics?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateFromHDC2(hdc: Hdc, hdevice: Handle, graphics: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateFromHDC2((hdc?.value ?: 0L).toString(), (hdevice?.value ?: 0L).toString(), (graphics?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateFromHWND(hwnd: Hwnd, graphics: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateFromHWND((hwnd?.value ?: 0L).toString(), (graphics?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateFromHWNDICM(hwnd: Hwnd, graphics: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateFromHWNDICM((hwnd?.value ?: 0L).toString(), (graphics?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateHBITMAPFromBitmap(bitmap: COpaquePointer?, hbmreturn: COpaquePointer?, background: UInt): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateHBITMAPFromBitmap((bitmap?.value ?: 0L).toString(), (hbmreturn?.value ?: 0L).toString(), background.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateHICONFromBitmap(bitmap: COpaquePointer?, hbmreturn: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateHICONFromBitmap((bitmap?.value ?: 0L).toString(), (hbmreturn?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateHalftonePalette(): Hpalette =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateHalftonePalette().toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateHatchBrush(hatchstyle: HatchStyle, forecol: UInt, backcol: UInt, brush: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateHatchBrush(hatchstyle, forecol.toInt(), backcol.toInt(), (brush?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateImageAttributes(imageattr: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateImageAttributes((imageattr?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateLineBrush(point1: COpaquePointer?, point2: COpaquePointer?, color1: UInt, color2: UInt, wrapmode: WrapMode, linegradient: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateLineBrush((point1?.value ?: 0L).toString(), (point2?.value ?: 0L).toString(), color1.toInt(), color2.toInt(), wrapmode, (linegradient?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateLineBrushFromRect(rect: COpaquePointer?, color1: UInt, color2: UInt, mode: LinearGradientMode, wrapmode: WrapMode, linegradient: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateLineBrushFromRect((rect?.value ?: 0L).toString(), color1.toInt(), color2.toInt(), mode, wrapmode, (linegradient?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateLineBrushFromRectI(rect: COpaquePointer?, color1: UInt, color2: UInt, mode: LinearGradientMode, wrapmode: WrapMode, linegradient: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateLineBrushFromRectI((rect?.value ?: 0L).toString(), color1.toInt(), color2.toInt(), mode, wrapmode, (linegradient?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateLineBrushFromRectWithAngle(rect: COpaquePointer?, color1: UInt, color2: UInt, angle: Float, isanglescalable: Bool, wrapmode: WrapMode, linegradient: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateLineBrushFromRectWithAngle((rect?.value ?: 0L).toString(), color1.toInt(), color2.toInt(), angle.toDouble(), isanglescalable, wrapmode, (linegradient?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateLineBrushFromRectWithAngleI(rect: COpaquePointer?, color1: UInt, color2: UInt, angle: Float, isanglescalable: Bool, wrapmode: WrapMode, linegradient: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateLineBrushFromRectWithAngleI((rect?.value ?: 0L).toString(), color1.toInt(), color2.toInt(), angle.toDouble(), isanglescalable, wrapmode, (linegradient?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateLineBrushI(point1: COpaquePointer?, point2: COpaquePointer?, color1: UInt, color2: UInt, wrapmode: WrapMode, linegradient: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateLineBrushI((point1?.value ?: 0L).toString(), (point2?.value ?: 0L).toString(), color1.toInt(), color2.toInt(), wrapmode, (linegradient?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateMatrix(matrix: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateMatrix((matrix?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateMatrix2(m11: Float, m12: Float, m21: Float, m22: Float, dx: Float, dy: Float, matrix: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateMatrix2(m11.toDouble(), m12.toDouble(), m21.toDouble(), m22.toDouble(), dx.toDouble(), dy.toDouble(), (matrix?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateMatrix3(rect: COpaquePointer?, dstplg: COpaquePointer?, matrix: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateMatrix3((rect?.value ?: 0L).toString(), (dstplg?.value ?: 0L).toString(), (matrix?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateMatrix3I(rect: COpaquePointer?, dstplg: COpaquePointer?, matrix: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateMatrix3I((rect?.value ?: 0L).toString(), (dstplg?.value ?: 0L).toString(), (matrix?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateMetafileFromEmf(hemf: Henhmetafile, deleteemf: Bool, metafile: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateMetafileFromEmf((hemf?.value ?: 0L).toString(), deleteemf, (metafile?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateMetafileFromFile(file: Pcwstr, metafile: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateMetafileFromFile((file?.value ?: 0L).toString(), (metafile?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateMetafileFromStream(stream: COpaquePointer?, metafile: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateMetafileFromStream((stream?.value ?: 0L).toString(), (metafile?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateMetafileFromWmf(hwmf: Hmetafile, deletewmf: Bool, wmfplaceablefileheader: COpaquePointer?, metafile: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateMetafileFromWmf((hwmf?.value ?: 0L).toString(), deletewmf, (wmfplaceablefileheader?.value ?: 0L).toString(), (metafile?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateMetafileFromWmfFile(file: Pcwstr, wmfplaceablefileheader: COpaquePointer?, metafile: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateMetafileFromWmfFile((file?.value ?: 0L).toString(), (wmfplaceablefileheader?.value ?: 0L).toString(), (metafile?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreatePath(brushmode: FillMode, path: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreatePath(brushmode, (path?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreatePath2(param0: COpaquePointer?, param1: COpaquePointer?, param2: Int, param3: FillMode, path: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreatePath2((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), param2, param3, (path?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreatePath2I(param0: COpaquePointer?, param1: COpaquePointer?, param2: Int, param3: FillMode, path: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreatePath2I((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), param2, param3, (path?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreatePathGradient(points: COpaquePointer?, count: Int, wrapmode: WrapMode, polygradient: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreatePathGradient((points?.value ?: 0L).toString(), count, wrapmode, (polygradient?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreatePathGradientFromPath(path: COpaquePointer?, polygradient: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreatePathGradientFromPath((path?.value ?: 0L).toString(), (polygradient?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreatePathGradientI(points: COpaquePointer?, count: Int, wrapmode: WrapMode, polygradient: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreatePathGradientI((points?.value ?: 0L).toString(), count, wrapmode, (polygradient?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreatePathIter(iterator: COpaquePointer?, path: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreatePathIter((iterator?.value ?: 0L).toString(), (path?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreatePen1(color: UInt, width: Float, unit: Unit, pen: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreatePen1(color.toInt(), width.toDouble(), unit, (pen?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreatePen2(brush: COpaquePointer?, width: Float, unit: Unit, pen: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreatePen2((brush?.value ?: 0L).toString(), width.toDouble(), unit, (pen?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateRegion(region: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateRegion((region?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateRegionHrgn(hrgn: Hrgn, region: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateRegionHrgn((hrgn?.value ?: 0L).toString(), (region?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateRegionPath(path: COpaquePointer?, region: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateRegionPath((path?.value ?: 0L).toString(), (region?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateRegionRect(rect: COpaquePointer?, region: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateRegionRect((rect?.value ?: 0L).toString(), (region?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateRegionRectI(rect: COpaquePointer?, region: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateRegionRectI((rect?.value ?: 0L).toString(), (region?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateRegionRgnData(regiondata: COpaquePointer?, size: Int, region: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateRegionRgnData((regiondata?.value ?: 0L).toString(), size, (region?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateSolidFill(color: UInt, brush: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateSolidFill(color.toInt(), (brush?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateStreamOnFile(filename: Pcwstr, access: UInt, stream: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateStreamOnFile((filename?.value ?: 0L).toString(), access.toInt(), (stream?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateStringFormat(formatattributes: Int, language: UShort, format: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateStringFormat(formatattributes, language.toInt(), (format?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateTexture(image: COpaquePointer?, wrapmode: WrapMode, texture: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateTexture((image?.value ?: 0L).toString(), wrapmode, (texture?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateTexture2(image: COpaquePointer?, wrapmode: WrapMode, x: Float, y: Float, width: Float, height: Float, texture: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateTexture2((image?.value ?: 0L).toString(), wrapmode, x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble(), (texture?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateTexture2I(image: COpaquePointer?, wrapmode: WrapMode, x: Int, y: Int, width: Int, height: Int, texture: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateTexture2I((image?.value ?: 0L).toString(), wrapmode, x, y, width, height, (texture?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateTextureIA(image: COpaquePointer?, imageattributes: COpaquePointer?, x: Float, y: Float, width: Float, height: Float, texture: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateTextureIA((image?.value ?: 0L).toString(), (imageattributes?.value ?: 0L).toString(), x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble(), (texture?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipCreateTextureIAI(image: COpaquePointer?, imageattributes: COpaquePointer?, x: Int, y: Int, width: Int, height: Int, texture: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipCreateTextureIAI((image?.value ?: 0L).toString(), (imageattributes?.value ?: 0L).toString(), x, y, width, height, (texture?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDeleteBrush(brush: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDeleteBrush((brush?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDeleteCachedBitmap(cachedbitmap: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDeleteCachedBitmap((cachedbitmap?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDeleteCustomLineCap(customcap: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDeleteCustomLineCap((customcap?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDeleteEffect(effect: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDeleteEffect((effect?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDeleteFont(font: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDeleteFont((font?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDeleteFontFamily(fontfamily: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDeleteFontFamily((fontfamily?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDeleteGraphics(graphics: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDeleteGraphics((graphics?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDeleteMatrix(matrix: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDeleteMatrix((matrix?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDeletePath(path: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDeletePath((path?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDeletePathIter(iterator: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDeletePathIter((iterator?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDeletePen(pen: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDeletePen((pen?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDeletePrivateFontCollection(fontcollection: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDeletePrivateFontCollection((fontcollection?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDeleteRegion(region: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDeleteRegion((region?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDeleteStringFormat(format: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDeleteStringFormat((format?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDisposeImage(image: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDisposeImage((image?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDisposeImageAttributes(imageattr: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDisposeImageAttributes((imageattr?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawArc(graphics: COpaquePointer?, pen: COpaquePointer?, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawArc((graphics?.value ?: 0L).toString(), (pen?.value ?: 0L).toString(), x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble(), startangle.toDouble(), sweepangle.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawArcI(graphics: COpaquePointer?, pen: COpaquePointer?, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawArcI((graphics?.value ?: 0L).toString(), (pen?.value ?: 0L).toString(), x, y, width, height, startangle.toDouble(), sweepangle.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawBezier(graphics: COpaquePointer?, pen: COpaquePointer?, x1: Float, y1: Float, x2: Float, y2: Float, x3: Float, y3: Float, x4: Float, y4: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawBezier((graphics?.value ?: 0L).toString(), (pen?.value ?: 0L).toString(), x1.toDouble(), y1.toDouble(), x2.toDouble(), y2.toDouble(), x3.toDouble(), y3.toDouble(), x4.toDouble(), y4.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawBezierI(graphics: COpaquePointer?, pen: COpaquePointer?, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int, x4: Int, y4: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawBezierI((graphics?.value ?: 0L).toString(), (pen?.value ?: 0L).toString(), x1, y1, x2, y2, x3, y3, x4, y4) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawBeziers(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawBeziers((graphics?.value ?: 0L).toString(), (pen?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawBeziersI(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawBeziersI((graphics?.value ?: 0L).toString(), (pen?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawCachedBitmap(graphics: COpaquePointer?, cachedbitmap: COpaquePointer?, x: Int, y: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawCachedBitmap((graphics?.value ?: 0L).toString(), (cachedbitmap?.value ?: 0L).toString(), x, y) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawClosedCurve(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawClosedCurve((graphics?.value ?: 0L).toString(), (pen?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawClosedCurve2(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int, tension: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawClosedCurve2((graphics?.value ?: 0L).toString(), (pen?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count, tension.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawClosedCurve2I(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int, tension: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawClosedCurve2I((graphics?.value ?: 0L).toString(), (pen?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count, tension.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawClosedCurveI(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawClosedCurveI((graphics?.value ?: 0L).toString(), (pen?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawCurve(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawCurve((graphics?.value ?: 0L).toString(), (pen?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawCurve2(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int, tension: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawCurve2((graphics?.value ?: 0L).toString(), (pen?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count, tension.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawCurve2I(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int, tension: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawCurve2I((graphics?.value ?: 0L).toString(), (pen?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count, tension.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawCurve3(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawCurve3((graphics?.value ?: 0L).toString(), (pen?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count, offset, numberofsegments, tension.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawCurve3I(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int, offset: Int, numberofsegments: Int, tension: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawCurve3I((graphics?.value ?: 0L).toString(), (pen?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count, offset, numberofsegments, tension.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawCurveI(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawCurveI((graphics?.value ?: 0L).toString(), (pen?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawDriverString(graphics: COpaquePointer?, text: COpaquePointer?, length: Int, font: COpaquePointer?, brush: COpaquePointer?, positions: COpaquePointer?, flags: Int, matrix: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawDriverString((graphics?.value ?: 0L).toString(), (text?.value ?: 0L).toString(), length, (font?.value ?: 0L).toString(), (brush?.value ?: 0L).toString(), (positions?.value ?: 0L).toString(), flags, (matrix?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawEllipse(graphics: COpaquePointer?, pen: COpaquePointer?, x: Float, y: Float, width: Float, height: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawEllipse((graphics?.value ?: 0L).toString(), (pen?.value ?: 0L).toString(), x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawEllipseI(graphics: COpaquePointer?, pen: COpaquePointer?, x: Int, y: Int, width: Int, height: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawEllipseI((graphics?.value ?: 0L).toString(), (pen?.value ?: 0L).toString(), x, y, width, height) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawImage(graphics: COpaquePointer?, image: COpaquePointer?, x: Float, y: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawImage((graphics?.value ?: 0L).toString(), (image?.value ?: 0L).toString(), x.toDouble(), y.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawImageFX(graphics: COpaquePointer?, image: COpaquePointer?, source: COpaquePointer?, xform: COpaquePointer?, effect: COpaquePointer?, imageattributes: COpaquePointer?, srcunit: Unit): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawImageFX((graphics?.value ?: 0L).toString(), (image?.value ?: 0L).toString(), (source?.value ?: 0L).toString(), (xform?.value ?: 0L).toString(), (effect?.value ?: 0L).toString(), (imageattributes?.value ?: 0L).toString(), srcunit) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawImageI(graphics: COpaquePointer?, image: COpaquePointer?, x: Int, y: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawImageI((graphics?.value ?: 0L).toString(), (image?.value ?: 0L).toString(), x, y) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawImagePointRect(graphics: COpaquePointer?, image: COpaquePointer?, x: Float, y: Float, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, srcunit: Unit): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawImagePointRect((graphics?.value ?: 0L).toString(), (image?.value ?: 0L).toString(), x.toDouble(), y.toDouble(), srcx.toDouble(), srcy.toDouble(), srcwidth.toDouble(), srcheight.toDouble(), srcunit) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawImagePointRectI(graphics: COpaquePointer?, image: COpaquePointer?, x: Int, y: Int, srcx: Int, srcy: Int, srcwidth: Int, srcheight: Int, srcunit: Unit): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawImagePointRectI((graphics?.value ?: 0L).toString(), (image?.value ?: 0L).toString(), x, y, srcx, srcy, srcwidth, srcheight, srcunit) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawImagePoints(graphics: COpaquePointer?, image: COpaquePointer?, dstpoints: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawImagePoints((graphics?.value ?: 0L).toString(), (image?.value ?: 0L).toString(), (dstpoints?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawImagePointsI(graphics: COpaquePointer?, image: COpaquePointer?, dstpoints: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawImagePointsI((graphics?.value ?: 0L).toString(), (image?.value ?: 0L).toString(), (dstpoints?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawImagePointsRect(graphics: COpaquePointer?, image: COpaquePointer?, points: COpaquePointer?, count: Int, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, srcunit: Unit, imageattributes: COpaquePointer?, callback: Long, callbackdata: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawImagePointsRect((graphics?.value ?: 0L).toString(), (image?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count, srcx.toDouble(), srcy.toDouble(), srcwidth.toDouble(), srcheight.toDouble(), srcunit, (imageattributes?.value ?: 0L).toString(), callback.toString(), (callbackdata?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawImagePointsRectI(graphics: COpaquePointer?, image: COpaquePointer?, points: COpaquePointer?, count: Int, srcx: Int, srcy: Int, srcwidth: Int, srcheight: Int, srcunit: Unit, imageattributes: COpaquePointer?, callback: Long, callbackdata: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawImagePointsRectI((graphics?.value ?: 0L).toString(), (image?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count, srcx, srcy, srcwidth, srcheight, srcunit, (imageattributes?.value ?: 0L).toString(), callback.toString(), (callbackdata?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawImageRect(graphics: COpaquePointer?, image: COpaquePointer?, x: Float, y: Float, width: Float, height: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawImageRect((graphics?.value ?: 0L).toString(), (image?.value ?: 0L).toString(), x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawImageRectI(graphics: COpaquePointer?, image: COpaquePointer?, x: Int, y: Int, width: Int, height: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawImageRectI((graphics?.value ?: 0L).toString(), (image?.value ?: 0L).toString(), x, y, width, height) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawImageRectRect(graphics: COpaquePointer?, image: COpaquePointer?, dstx: Float, dsty: Float, dstwidth: Float, dstheight: Float, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, srcunit: Unit, imageattributes: COpaquePointer?, callback: Long, callbackdata: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawImageRectRect((graphics?.value ?: 0L).toString(), (image?.value ?: 0L).toString(), dstx.toDouble(), dsty.toDouble(), dstwidth.toDouble(), dstheight.toDouble(), srcx.toDouble(), srcy.toDouble(), srcwidth.toDouble(), srcheight.toDouble(), srcunit, (imageattributes?.value ?: 0L).toString(), callback.toString(), (callbackdata?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawImageRectRectI(graphics: COpaquePointer?, image: COpaquePointer?, dstx: Int, dsty: Int, dstwidth: Int, dstheight: Int, srcx: Int, srcy: Int, srcwidth: Int, srcheight: Int, srcunit: Unit, imageattributes: COpaquePointer?, callback: Long, callbackdata: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawImageRectRectI((graphics?.value ?: 0L).toString(), (image?.value ?: 0L).toString(), dstx, dsty, dstwidth, dstheight, srcx, srcy, srcwidth, srcheight, srcunit, (imageattributes?.value ?: 0L).toString(), callback.toString(), (callbackdata?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawLine(graphics: COpaquePointer?, pen: COpaquePointer?, x1: Float, y1: Float, x2: Float, y2: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawLine((graphics?.value ?: 0L).toString(), (pen?.value ?: 0L).toString(), x1.toDouble(), y1.toDouble(), x2.toDouble(), y2.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawLineI(graphics: COpaquePointer?, pen: COpaquePointer?, x1: Int, y1: Int, x2: Int, y2: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawLineI((graphics?.value ?: 0L).toString(), (pen?.value ?: 0L).toString(), x1, y1, x2, y2) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawLines(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawLines((graphics?.value ?: 0L).toString(), (pen?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawLinesI(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawLinesI((graphics?.value ?: 0L).toString(), (pen?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawPath(graphics: COpaquePointer?, pen: COpaquePointer?, path: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawPath((graphics?.value ?: 0L).toString(), (pen?.value ?: 0L).toString(), (path?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawPie(graphics: COpaquePointer?, pen: COpaquePointer?, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawPie((graphics?.value ?: 0L).toString(), (pen?.value ?: 0L).toString(), x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble(), startangle.toDouble(), sweepangle.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawPieI(graphics: COpaquePointer?, pen: COpaquePointer?, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawPieI((graphics?.value ?: 0L).toString(), (pen?.value ?: 0L).toString(), x, y, width, height, startangle.toDouble(), sweepangle.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawPolygon(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawPolygon((graphics?.value ?: 0L).toString(), (pen?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawPolygonI(graphics: COpaquePointer?, pen: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawPolygonI((graphics?.value ?: 0L).toString(), (pen?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawRectangle(graphics: COpaquePointer?, pen: COpaquePointer?, x: Float, y: Float, width: Float, height: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawRectangle((graphics?.value ?: 0L).toString(), (pen?.value ?: 0L).toString(), x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawRectangleI(graphics: COpaquePointer?, pen: COpaquePointer?, x: Int, y: Int, width: Int, height: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawRectangleI((graphics?.value ?: 0L).toString(), (pen?.value ?: 0L).toString(), x, y, width, height) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawRectangles(graphics: COpaquePointer?, pen: COpaquePointer?, rects: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawRectangles((graphics?.value ?: 0L).toString(), (pen?.value ?: 0L).toString(), (rects?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawRectanglesI(graphics: COpaquePointer?, pen: COpaquePointer?, rects: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawRectanglesI((graphics?.value ?: 0L).toString(), (pen?.value ?: 0L).toString(), (rects?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipDrawString(graphics: COpaquePointer?, string: Pcwstr, length: Int, font: COpaquePointer?, layoutrect: COpaquePointer?, stringformat: COpaquePointer?, brush: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipDrawString((graphics?.value ?: 0L).toString(), (string?.value ?: 0L).toString(), length, (font?.value ?: 0L).toString(), (layoutrect?.value ?: 0L).toString(), (stringformat?.value ?: 0L).toString(), (brush?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipEmfToWmfBits(hemf: Henhmetafile, cbdata16: UInt, pdata16: COpaquePointer?, imapmode: Int, eflags: Int): UInt =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipEmfToWmfBits((hemf?.value ?: 0L).toString(), cbdata16.toInt(), (pdata16?.value ?: 0L).toString(), imapmode, eflags).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipEndContainer(graphics: COpaquePointer?, state: UInt): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipEndContainer((graphics?.value ?: 0L).toString(), state.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipEnumerateMetafileDestPoint(graphics: COpaquePointer?, metafile: COpaquePointer?, destpoint: COpaquePointer?, callback: Long, callbackdata: COpaquePointer?, imageattributes: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileDestPoint((graphics?.value ?: 0L).toString(), (metafile?.value ?: 0L).toString(), (destpoint?.value ?: 0L).toString(), callback.toString(), (callbackdata?.value ?: 0L).toString(), (imageattributes?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipEnumerateMetafileDestPointI(graphics: COpaquePointer?, metafile: COpaquePointer?, destpoint: COpaquePointer?, callback: Long, callbackdata: COpaquePointer?, imageattributes: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileDestPointI((graphics?.value ?: 0L).toString(), (metafile?.value ?: 0L).toString(), (destpoint?.value ?: 0L).toString(), callback.toString(), (callbackdata?.value ?: 0L).toString(), (imageattributes?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipEnumerateMetafileDestPoints(graphics: COpaquePointer?, metafile: COpaquePointer?, destpoints: COpaquePointer?, count: Int, callback: Long, callbackdata: COpaquePointer?, imageattributes: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileDestPoints((graphics?.value ?: 0L).toString(), (metafile?.value ?: 0L).toString(), (destpoints?.value ?: 0L).toString(), count, callback.toString(), (callbackdata?.value ?: 0L).toString(), (imageattributes?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipEnumerateMetafileDestPointsI(graphics: COpaquePointer?, metafile: COpaquePointer?, destpoints: COpaquePointer?, count: Int, callback: Long, callbackdata: COpaquePointer?, imageattributes: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileDestPointsI((graphics?.value ?: 0L).toString(), (metafile?.value ?: 0L).toString(), (destpoints?.value ?: 0L).toString(), count, callback.toString(), (callbackdata?.value ?: 0L).toString(), (imageattributes?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipEnumerateMetafileDestRect(graphics: COpaquePointer?, metafile: COpaquePointer?, destrect: COpaquePointer?, callback: Long, callbackdata: COpaquePointer?, imageattributes: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileDestRect((graphics?.value ?: 0L).toString(), (metafile?.value ?: 0L).toString(), (destrect?.value ?: 0L).toString(), callback.toString(), (callbackdata?.value ?: 0L).toString(), (imageattributes?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipEnumerateMetafileDestRectI(graphics: COpaquePointer?, metafile: COpaquePointer?, destrect: COpaquePointer?, callback: Long, callbackdata: COpaquePointer?, imageattributes: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileDestRectI((graphics?.value ?: 0L).toString(), (metafile?.value ?: 0L).toString(), (destrect?.value ?: 0L).toString(), callback.toString(), (callbackdata?.value ?: 0L).toString(), (imageattributes?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipEnumerateMetafileSrcRectDestPoint(graphics: COpaquePointer?, metafile: COpaquePointer?, destpoint: COpaquePointer?, srcrect: COpaquePointer?, srcunit: Unit, callback: Long, callbackdata: COpaquePointer?, imageattributes: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileSrcRectDestPoint((graphics?.value ?: 0L).toString(), (metafile?.value ?: 0L).toString(), (destpoint?.value ?: 0L).toString(), (srcrect?.value ?: 0L).toString(), srcunit, callback.toString(), (callbackdata?.value ?: 0L).toString(), (imageattributes?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipEnumerateMetafileSrcRectDestPointI(graphics: COpaquePointer?, metafile: COpaquePointer?, destpoint: COpaquePointer?, srcrect: COpaquePointer?, srcunit: Unit, callback: Long, callbackdata: COpaquePointer?, imageattributes: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileSrcRectDestPointI((graphics?.value ?: 0L).toString(), (metafile?.value ?: 0L).toString(), (destpoint?.value ?: 0L).toString(), (srcrect?.value ?: 0L).toString(), srcunit, callback.toString(), (callbackdata?.value ?: 0L).toString(), (imageattributes?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipEnumerateMetafileSrcRectDestPoints(graphics: COpaquePointer?, metafile: COpaquePointer?, destpoints: COpaquePointer?, count: Int, srcrect: COpaquePointer?, srcunit: Unit, callback: Long, callbackdata: COpaquePointer?, imageattributes: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileSrcRectDestPoints((graphics?.value ?: 0L).toString(), (metafile?.value ?: 0L).toString(), (destpoints?.value ?: 0L).toString(), count, (srcrect?.value ?: 0L).toString(), srcunit, callback.toString(), (callbackdata?.value ?: 0L).toString(), (imageattributes?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipEnumerateMetafileSrcRectDestPointsI(graphics: COpaquePointer?, metafile: COpaquePointer?, destpoints: COpaquePointer?, count: Int, srcrect: COpaquePointer?, srcunit: Unit, callback: Long, callbackdata: COpaquePointer?, imageattributes: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileSrcRectDestPointsI((graphics?.value ?: 0L).toString(), (metafile?.value ?: 0L).toString(), (destpoints?.value ?: 0L).toString(), count, (srcrect?.value ?: 0L).toString(), srcunit, callback.toString(), (callbackdata?.value ?: 0L).toString(), (imageattributes?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipEnumerateMetafileSrcRectDestRect(graphics: COpaquePointer?, metafile: COpaquePointer?, destrect: COpaquePointer?, srcrect: COpaquePointer?, srcunit: Unit, callback: Long, callbackdata: COpaquePointer?, imageattributes: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileSrcRectDestRect((graphics?.value ?: 0L).toString(), (metafile?.value ?: 0L).toString(), (destrect?.value ?: 0L).toString(), (srcrect?.value ?: 0L).toString(), srcunit, callback.toString(), (callbackdata?.value ?: 0L).toString(), (imageattributes?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipEnumerateMetafileSrcRectDestRectI(graphics: COpaquePointer?, metafile: COpaquePointer?, destrect: COpaquePointer?, srcrect: COpaquePointer?, srcunit: Unit, callback: Long, callbackdata: COpaquePointer?, imageattributes: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipEnumerateMetafileSrcRectDestRectI((graphics?.value ?: 0L).toString(), (metafile?.value ?: 0L).toString(), (destrect?.value ?: 0L).toString(), (srcrect?.value ?: 0L).toString(), srcunit, callback.toString(), (callbackdata?.value ?: 0L).toString(), (imageattributes?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipFillClosedCurve(graphics: COpaquePointer?, brush: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFillClosedCurve((graphics?.value ?: 0L).toString(), (brush?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipFillClosedCurve2(graphics: COpaquePointer?, brush: COpaquePointer?, points: COpaquePointer?, count: Int, tension: Float, fillmode: FillMode): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFillClosedCurve2((graphics?.value ?: 0L).toString(), (brush?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count, tension.toDouble(), fillmode) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipFillClosedCurve2I(graphics: COpaquePointer?, brush: COpaquePointer?, points: COpaquePointer?, count: Int, tension: Float, fillmode: FillMode): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFillClosedCurve2I((graphics?.value ?: 0L).toString(), (brush?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count, tension.toDouble(), fillmode) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipFillClosedCurveI(graphics: COpaquePointer?, brush: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFillClosedCurveI((graphics?.value ?: 0L).toString(), (brush?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipFillEllipse(graphics: COpaquePointer?, brush: COpaquePointer?, x: Float, y: Float, width: Float, height: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFillEllipse((graphics?.value ?: 0L).toString(), (brush?.value ?: 0L).toString(), x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipFillEllipseI(graphics: COpaquePointer?, brush: COpaquePointer?, x: Int, y: Int, width: Int, height: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFillEllipseI((graphics?.value ?: 0L).toString(), (brush?.value ?: 0L).toString(), x, y, width, height) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipFillPath(graphics: COpaquePointer?, brush: COpaquePointer?, path: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFillPath((graphics?.value ?: 0L).toString(), (brush?.value ?: 0L).toString(), (path?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipFillPie(graphics: COpaquePointer?, brush: COpaquePointer?, x: Float, y: Float, width: Float, height: Float, startangle: Float, sweepangle: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFillPie((graphics?.value ?: 0L).toString(), (brush?.value ?: 0L).toString(), x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble(), startangle.toDouble(), sweepangle.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipFillPieI(graphics: COpaquePointer?, brush: COpaquePointer?, x: Int, y: Int, width: Int, height: Int, startangle: Float, sweepangle: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFillPieI((graphics?.value ?: 0L).toString(), (brush?.value ?: 0L).toString(), x, y, width, height, startangle.toDouble(), sweepangle.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipFillPolygon(graphics: COpaquePointer?, brush: COpaquePointer?, points: COpaquePointer?, count: Int, fillmode: FillMode): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFillPolygon((graphics?.value ?: 0L).toString(), (brush?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count, fillmode) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipFillPolygon2(graphics: COpaquePointer?, brush: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFillPolygon2((graphics?.value ?: 0L).toString(), (brush?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipFillPolygon2I(graphics: COpaquePointer?, brush: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFillPolygon2I((graphics?.value ?: 0L).toString(), (brush?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipFillPolygonI(graphics: COpaquePointer?, brush: COpaquePointer?, points: COpaquePointer?, count: Int, fillmode: FillMode): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFillPolygonI((graphics?.value ?: 0L).toString(), (brush?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count, fillmode) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipFillRectangle(graphics: COpaquePointer?, brush: COpaquePointer?, x: Float, y: Float, width: Float, height: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFillRectangle((graphics?.value ?: 0L).toString(), (brush?.value ?: 0L).toString(), x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipFillRectangleI(graphics: COpaquePointer?, brush: COpaquePointer?, x: Int, y: Int, width: Int, height: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFillRectangleI((graphics?.value ?: 0L).toString(), (brush?.value ?: 0L).toString(), x, y, width, height) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipFillRectangles(graphics: COpaquePointer?, brush: COpaquePointer?, rects: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFillRectangles((graphics?.value ?: 0L).toString(), (brush?.value ?: 0L).toString(), (rects?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipFillRectanglesI(graphics: COpaquePointer?, brush: COpaquePointer?, rects: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFillRectanglesI((graphics?.value ?: 0L).toString(), (brush?.value ?: 0L).toString(), (rects?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipFillRegion(graphics: COpaquePointer?, brush: COpaquePointer?, region: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFillRegion((graphics?.value ?: 0L).toString(), (brush?.value ?: 0L).toString(), (region?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipFindFirstImageItem(image: COpaquePointer?, item: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFindFirstImageItem((image?.value ?: 0L).toString(), (item?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipFindNextImageItem(image: COpaquePointer?, item: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFindNextImageItem((image?.value ?: 0L).toString(), (item?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipFlattenPath(path: COpaquePointer?, matrix: COpaquePointer?, flatness: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFlattenPath((path?.value ?: 0L).toString(), (matrix?.value ?: 0L).toString(), flatness.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipFlush(graphics: COpaquePointer?, intention: FlushIntention): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFlush((graphics?.value ?: 0L).toString(), intention) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun gdipFree(ptr: COpaquePointer?) {
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) {
+        _wasm_windowssys_windows_win32_graphics_gdiplus_gdipFree((ptr?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun GdipGetAdjustableArrowCapFillState(cap: Long, fillstate: Long): Status =
-    0
+public actual fun gdipGetAdjustableArrowCapFillState(cap: COpaquePointer?, fillstate: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetAdjustableArrowCapFillState((cap?.value ?: 0L).toString(), (fillstate?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetAdjustableArrowCapHeight(cap: Long, height: Long): Status =
-    0
+public actual fun gdipGetAdjustableArrowCapHeight(cap: COpaquePointer?, height: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetAdjustableArrowCapHeight((cap?.value ?: 0L).toString(), (height?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetAdjustableArrowCapMiddleInset(cap: Long, middleinset: Long): Status =
-    0
+public actual fun gdipGetAdjustableArrowCapMiddleInset(cap: COpaquePointer?, middleinset: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetAdjustableArrowCapMiddleInset((cap?.value ?: 0L).toString(), (middleinset?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetAdjustableArrowCapWidth(cap: Long, width: Long): Status =
-    0
+public actual fun gdipGetAdjustableArrowCapWidth(cap: COpaquePointer?, width: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetAdjustableArrowCapWidth((cap?.value ?: 0L).toString(), (width?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetAllPropertyItems(image: Long, totalbuffersize: UInt, numproperties: UInt, allitems: Long): Status =
-    0
+public actual fun gdipGetAllPropertyItems(image: COpaquePointer?, totalbuffersize: UInt, numproperties: UInt, allitems: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetAllPropertyItems((image?.value ?: 0L).toString(), totalbuffersize.toInt(), numproperties.toInt(), (allitems?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetBrushType(brush: Long, type: Long): Status =
-    0
+public actual fun gdipGetBrushType(brush: COpaquePointer?, type: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetBrushType((brush?.value ?: 0L).toString(), (type?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetCellAscent(family: Long, style: Int, cellascent: Long): Status =
-    0
+public actual fun gdipGetCellAscent(family: COpaquePointer?, style: Int, cellascent: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetCellAscent((family?.value ?: 0L).toString(), style, (cellascent?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetCellDescent(family: Long, style: Int, celldescent: Long): Status =
-    0
+public actual fun gdipGetCellDescent(family: COpaquePointer?, style: Int, celldescent: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetCellDescent((family?.value ?: 0L).toString(), style, (celldescent?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetClip(graphics: Long, region: Long): Status =
-    0
+public actual fun gdipGetClip(graphics: COpaquePointer?, region: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetClip((graphics?.value ?: 0L).toString(), (region?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetClipBounds(graphics: Long, rect: Long): Status =
-    0
+public actual fun gdipGetClipBounds(graphics: COpaquePointer?, rect: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetClipBounds((graphics?.value ?: 0L).toString(), (rect?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetClipBoundsI(graphics: Long, rect: Long): Status =
-    0
+public actual fun gdipGetClipBoundsI(graphics: COpaquePointer?, rect: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetClipBoundsI((graphics?.value ?: 0L).toString(), (rect?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetCompositingMode(graphics: Long, compositingmode: Long): Status =
-    0
+public actual fun gdipGetCompositingMode(graphics: COpaquePointer?, compositingmode: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetCompositingMode((graphics?.value ?: 0L).toString(), (compositingmode?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetCompositingQuality(graphics: Long, compositingquality: Long): Status =
-    0
+public actual fun gdipGetCompositingQuality(graphics: COpaquePointer?, compositingquality: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetCompositingQuality((graphics?.value ?: 0L).toString(), (compositingquality?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetCustomLineCapBaseCap(customcap: Long, basecap: Long): Status =
-    0
+public actual fun gdipGetCustomLineCapBaseCap(customcap: COpaquePointer?, basecap: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetCustomLineCapBaseCap((customcap?.value ?: 0L).toString(), (basecap?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetCustomLineCapBaseInset(customcap: Long, inset: Long): Status =
-    0
+public actual fun gdipGetCustomLineCapBaseInset(customcap: COpaquePointer?, inset: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetCustomLineCapBaseInset((customcap?.value ?: 0L).toString(), (inset?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetCustomLineCapStrokeCaps(customcap: Long, startcap: Long, endcap: Long): Status =
-    0
+public actual fun gdipGetCustomLineCapStrokeCaps(customcap: COpaquePointer?, startcap: COpaquePointer?, endcap: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetCustomLineCapStrokeCaps((customcap?.value ?: 0L).toString(), (startcap?.value ?: 0L).toString(), (endcap?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetCustomLineCapStrokeJoin(customcap: Long, linejoin: Long): Status =
-    0
+public actual fun gdipGetCustomLineCapStrokeJoin(customcap: COpaquePointer?, linejoin: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetCustomLineCapStrokeJoin((customcap?.value ?: 0L).toString(), (linejoin?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetCustomLineCapType(customcap: Long, captype: Long): Status =
-    0
+public actual fun gdipGetCustomLineCapType(customcap: COpaquePointer?, captype: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetCustomLineCapType((customcap?.value ?: 0L).toString(), (captype?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetCustomLineCapWidthScale(customcap: Long, widthscale: Long): Status =
-    0
+public actual fun gdipGetCustomLineCapWidthScale(customcap: COpaquePointer?, widthscale: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetCustomLineCapWidthScale((customcap?.value ?: 0L).toString(), (widthscale?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetDC(graphics: Long, hdc: Long): Status =
-    0
+public actual fun gdipGetDC(graphics: COpaquePointer?, hdc: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetDC((graphics?.value ?: 0L).toString(), (hdc?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetDpiX(graphics: Long, dpi: Long): Status =
-    0
+public actual fun gdipGetDpiX(graphics: COpaquePointer?, dpi: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetDpiX((graphics?.value ?: 0L).toString(), (dpi?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetDpiY(graphics: Long, dpi: Long): Status =
-    0
+public actual fun gdipGetDpiY(graphics: COpaquePointer?, dpi: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetDpiY((graphics?.value ?: 0L).toString(), (dpi?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetEffectParameterSize(effect: Long, size: Long): Status =
-    0
+public actual fun gdipGetEffectParameterSize(effect: COpaquePointer?, size: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetEffectParameterSize((effect?.value ?: 0L).toString(), (size?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetEffectParameters(effect: Long, size: Long, params: Long): Status =
-    0
+public actual fun gdipGetEffectParameters(effect: COpaquePointer?, size: COpaquePointer?, params: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetEffectParameters((effect?.value ?: 0L).toString(), (size?.value ?: 0L).toString(), (params?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetEmHeight(family: Long, style: Int, emheight: Long): Status =
-    0
+public actual fun gdipGetEmHeight(family: COpaquePointer?, style: Int, emheight: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetEmHeight((family?.value ?: 0L).toString(), style, (emheight?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetEncoderParameterList(image: Long, clsidencoder: Long, size: UInt, buffer: Long): Status =
-    0
+public actual fun gdipGetEncoderParameterList(image: COpaquePointer?, clsidencoder: COpaquePointer?, size: UInt, buffer: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetEncoderParameterList((image?.value ?: 0L).toString(), (clsidencoder?.value ?: 0L).toString(), size.toInt(), (buffer?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetEncoderParameterListSize(image: Long, clsidencoder: Long, size: Long): Status =
-    0
+public actual fun gdipGetEncoderParameterListSize(image: COpaquePointer?, clsidencoder: COpaquePointer?, size: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetEncoderParameterListSize((image?.value ?: 0L).toString(), (clsidencoder?.value ?: 0L).toString(), (size?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetFamily(font: Long, family: Long): Status =
-    0
+public actual fun gdipGetFamily(font: COpaquePointer?, family: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetFamily((font?.value ?: 0L).toString(), (family?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetFamilyName(family: Long, name: PWSTR, language: UShort): Status =
-    0
+public actual fun gdipGetFamilyName(family: COpaquePointer?, name: Pwstr, language: UShort): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetFamilyName((family?.value ?: 0L).toString(), (name?.value ?: 0L).toString(), language.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetFontCollectionFamilyCount(fontcollection: Long, numfound: Long): Status =
-    0
+public actual fun gdipGetFontCollectionFamilyCount(fontcollection: COpaquePointer?, numfound: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetFontCollectionFamilyCount((fontcollection?.value ?: 0L).toString(), (numfound?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetFontCollectionFamilyList(fontcollection: Long, numsought: Int, gpfamilies: Long, numfound: Long): Status =
-    0
+public actual fun gdipGetFontCollectionFamilyList(fontcollection: COpaquePointer?, numsought: Int, gpfamilies: COpaquePointer?, numfound: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetFontCollectionFamilyList((fontcollection?.value ?: 0L).toString(), numsought, (gpfamilies?.value ?: 0L).toString(), (numfound?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetFontHeight(font: Long, graphics: Long, height: Long): Status =
-    0
+public actual fun gdipGetFontHeight(font: COpaquePointer?, graphics: COpaquePointer?, height: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetFontHeight((font?.value ?: 0L).toString(), (graphics?.value ?: 0L).toString(), (height?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetFontHeightGivenDPI(font: Long, dpi: Float, height: Long): Status =
-    0
+public actual fun gdipGetFontHeightGivenDPI(font: COpaquePointer?, dpi: Float, height: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetFontHeightGivenDPI((font?.value ?: 0L).toString(), dpi.toDouble(), (height?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetFontSize(font: Long, size: Long): Status =
-    0
+public actual fun gdipGetFontSize(font: COpaquePointer?, size: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetFontSize((font?.value ?: 0L).toString(), (size?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetFontStyle(font: Long, style: Long): Status =
-    0
+public actual fun gdipGetFontStyle(font: COpaquePointer?, style: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetFontStyle((font?.value ?: 0L).toString(), (style?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetFontUnit(font: Long, unit: Long): Status =
-    0
+public actual fun gdipGetFontUnit(font: COpaquePointer?, unit: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetFontUnit((font?.value ?: 0L).toString(), (unit?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetGenericFontFamilyMonospace(nativefamily: Long): Status =
-    0
+public actual fun gdipGetGenericFontFamilyMonospace(nativefamily: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetGenericFontFamilyMonospace((nativefamily?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetGenericFontFamilySansSerif(nativefamily: Long): Status =
-    0
+public actual fun gdipGetGenericFontFamilySansSerif(nativefamily: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetGenericFontFamilySansSerif((nativefamily?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetGenericFontFamilySerif(nativefamily: Long): Status =
-    0
+public actual fun gdipGetGenericFontFamilySerif(nativefamily: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetGenericFontFamilySerif((nativefamily?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetHatchBackgroundColor(brush: Long, backcol: Long): Status =
-    0
+public actual fun gdipGetHatchBackgroundColor(brush: COpaquePointer?, backcol: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetHatchBackgroundColor((brush?.value ?: 0L).toString(), (backcol?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetHatchForegroundColor(brush: Long, forecol: Long): Status =
-    0
+public actual fun gdipGetHatchForegroundColor(brush: COpaquePointer?, forecol: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetHatchForegroundColor((brush?.value ?: 0L).toString(), (forecol?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetHatchStyle(brush: Long, hatchstyle: Long): Status =
-    0
+public actual fun gdipGetHatchStyle(brush: COpaquePointer?, hatchstyle: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetHatchStyle((brush?.value ?: 0L).toString(), (hatchstyle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetHemfFromMetafile(metafile: Long, hemf: Long): Status =
-    0
+public actual fun gdipGetHemfFromMetafile(metafile: COpaquePointer?, hemf: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetHemfFromMetafile((metafile?.value ?: 0L).toString(), (hemf?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetImageAttributesAdjustedPalette(imageattr: Long, colorpalette: Long, coloradjusttype: ColorAdjustType): Status =
-    0
+public actual fun gdipGetImageAttributesAdjustedPalette(imageattr: COpaquePointer?, colorpalette: COpaquePointer?, coloradjusttype: ColorAdjustType): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImageAttributesAdjustedPalette((imageattr?.value ?: 0L).toString(), (colorpalette?.value ?: 0L).toString(), coloradjusttype) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetImageBounds(image: Long, srcrect: Long, srcunit: Long): Status =
-    0
+public actual fun gdipGetImageBounds(image: COpaquePointer?, srcrect: COpaquePointer?, srcunit: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImageBounds((image?.value ?: 0L).toString(), (srcrect?.value ?: 0L).toString(), (srcunit?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetImageDecoders(numdecoders: UInt, size: UInt, decoders: Long): Status =
-    0
+public actual fun gdipGetImageDecoders(numdecoders: UInt, size: UInt, decoders: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImageDecoders(numdecoders.toInt(), size.toInt(), (decoders?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetImageDecodersSize(numdecoders: Long, size: Long): Status =
-    0
+public actual fun gdipGetImageDecodersSize(numdecoders: COpaquePointer?, size: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImageDecodersSize((numdecoders?.value ?: 0L).toString(), (size?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetImageDimension(image: Long, width: Long, height: Long): Status =
-    0
+public actual fun gdipGetImageDimension(image: COpaquePointer?, width: COpaquePointer?, height: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImageDimension((image?.value ?: 0L).toString(), (width?.value ?: 0L).toString(), (height?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetImageEncoders(numencoders: UInt, size: UInt, encoders: Long): Status =
-    0
+public actual fun gdipGetImageEncoders(numencoders: UInt, size: UInt, encoders: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImageEncoders(numencoders.toInt(), size.toInt(), (encoders?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetImageEncodersSize(numencoders: Long, size: Long): Status =
-    0
+public actual fun gdipGetImageEncodersSize(numencoders: COpaquePointer?, size: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImageEncodersSize((numencoders?.value ?: 0L).toString(), (size?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetImageFlags(image: Long, flags: Long): Status =
-    0
+public actual fun gdipGetImageFlags(image: COpaquePointer?, flags: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImageFlags((image?.value ?: 0L).toString(), (flags?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetImageGraphicsContext(image: Long, graphics: Long): Status =
-    0
+public actual fun gdipGetImageGraphicsContext(image: COpaquePointer?, graphics: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImageGraphicsContext((image?.value ?: 0L).toString(), (graphics?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetImageHeight(image: Long, height: Long): Status =
-    0
+public actual fun gdipGetImageHeight(image: COpaquePointer?, height: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImageHeight((image?.value ?: 0L).toString(), (height?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetImageHorizontalResolution(image: Long, resolution: Long): Status =
-    0
+public actual fun gdipGetImageHorizontalResolution(image: COpaquePointer?, resolution: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImageHorizontalResolution((image?.value ?: 0L).toString(), (resolution?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetImageItemData(image: Long, item: Long): Status =
-    0
+public actual fun gdipGetImageItemData(image: COpaquePointer?, item: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImageItemData((image?.value ?: 0L).toString(), (item?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetImagePalette(image: Long, palette: Long, size: Int): Status =
-    0
+public actual fun gdipGetImagePalette(image: COpaquePointer?, palette: COpaquePointer?, size: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImagePalette((image?.value ?: 0L).toString(), (palette?.value ?: 0L).toString(), size) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetImagePaletteSize(image: Long, size: Long): Status =
-    0
+public actual fun gdipGetImagePaletteSize(image: COpaquePointer?, size: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImagePaletteSize((image?.value ?: 0L).toString(), (size?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetImagePixelFormat(image: Long, format: Long): Status =
-    0
+public actual fun gdipGetImagePixelFormat(image: COpaquePointer?, format: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImagePixelFormat((image?.value ?: 0L).toString(), (format?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetImageRawFormat(image: Long, format: Long): Status =
-    0
+public actual fun gdipGetImageRawFormat(image: COpaquePointer?, format: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImageRawFormat((image?.value ?: 0L).toString(), (format?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetImageThumbnail(image: Long, thumbwidth: UInt, thumbheight: UInt, thumbimage: Long, callback: Long, callbackdata: Long): Status =
-    0
+public actual fun gdipGetImageThumbnail(image: COpaquePointer?, thumbwidth: UInt, thumbheight: UInt, thumbimage: COpaquePointer?, callback: Long, callbackdata: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImageThumbnail((image?.value ?: 0L).toString(), thumbwidth.toInt(), thumbheight.toInt(), (thumbimage?.value ?: 0L).toString(), callback.toString(), (callbackdata?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetImageType(image: Long, type: Long): Status =
-    0
+public actual fun gdipGetImageType(image: COpaquePointer?, type: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImageType((image?.value ?: 0L).toString(), (type?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetImageVerticalResolution(image: Long, resolution: Long): Status =
-    0
+public actual fun gdipGetImageVerticalResolution(image: COpaquePointer?, resolution: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImageVerticalResolution((image?.value ?: 0L).toString(), (resolution?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetImageWidth(image: Long, width: Long): Status =
-    0
+public actual fun gdipGetImageWidth(image: COpaquePointer?, width: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetImageWidth((image?.value ?: 0L).toString(), (width?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetInterpolationMode(graphics: Long, interpolationmode: Long): Status =
-    0
+public actual fun gdipGetInterpolationMode(graphics: COpaquePointer?, interpolationmode: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetInterpolationMode((graphics?.value ?: 0L).toString(), (interpolationmode?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetLineBlend(brush: Long, blend: Long, positions: Long, count: Int): Status =
-    0
+public actual fun gdipGetLineBlend(brush: COpaquePointer?, blend: COpaquePointer?, positions: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetLineBlend((brush?.value ?: 0L).toString(), (blend?.value ?: 0L).toString(), (positions?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetLineBlendCount(brush: Long, count: Long): Status =
-    0
+public actual fun gdipGetLineBlendCount(brush: COpaquePointer?, count: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetLineBlendCount((brush?.value ?: 0L).toString(), (count?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetLineColors(brush: Long, colors: Long): Status =
-    0
+public actual fun gdipGetLineColors(brush: COpaquePointer?, colors: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetLineColors((brush?.value ?: 0L).toString(), (colors?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetLineGammaCorrection(brush: Long, usegammacorrection: Long): Status =
-    0
+public actual fun gdipGetLineGammaCorrection(brush: COpaquePointer?, usegammacorrection: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetLineGammaCorrection((brush?.value ?: 0L).toString(), (usegammacorrection?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetLinePresetBlend(brush: Long, blend: Long, positions: Long, count: Int): Status =
-    0
+public actual fun gdipGetLinePresetBlend(brush: COpaquePointer?, blend: COpaquePointer?, positions: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetLinePresetBlend((brush?.value ?: 0L).toString(), (blend?.value ?: 0L).toString(), (positions?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetLinePresetBlendCount(brush: Long, count: Long): Status =
-    0
+public actual fun gdipGetLinePresetBlendCount(brush: COpaquePointer?, count: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetLinePresetBlendCount((brush?.value ?: 0L).toString(), (count?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetLineRect(brush: Long, rect: Long): Status =
-    0
+public actual fun gdipGetLineRect(brush: COpaquePointer?, rect: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetLineRect((brush?.value ?: 0L).toString(), (rect?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetLineRectI(brush: Long, rect: Long): Status =
-    0
+public actual fun gdipGetLineRectI(brush: COpaquePointer?, rect: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetLineRectI((brush?.value ?: 0L).toString(), (rect?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetLineSpacing(family: Long, style: Int, linespacing: Long): Status =
-    0
+public actual fun gdipGetLineSpacing(family: COpaquePointer?, style: Int, linespacing: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetLineSpacing((family?.value ?: 0L).toString(), style, (linespacing?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetLineTransform(brush: Long, matrix: Long): Status =
-    0
+public actual fun gdipGetLineTransform(brush: COpaquePointer?, matrix: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetLineTransform((brush?.value ?: 0L).toString(), (matrix?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetLineWrapMode(brush: Long, wrapmode: Long): Status =
-    0
+public actual fun gdipGetLineWrapMode(brush: COpaquePointer?, wrapmode: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetLineWrapMode((brush?.value ?: 0L).toString(), (wrapmode?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetLogFontA(font: Long, graphics: Long, logfonta: Long): Status =
-    0
+public actual fun gdipGetLogFontA(font: COpaquePointer?, graphics: COpaquePointer?, logfonta: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetLogFontA((font?.value ?: 0L).toString(), (graphics?.value ?: 0L).toString(), (logfonta?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetLogFontW(font: Long, graphics: Long, logfontw: Long): Status =
-    0
+public actual fun gdipGetLogFontW(font: COpaquePointer?, graphics: COpaquePointer?, logfontw: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetLogFontW((font?.value ?: 0L).toString(), (graphics?.value ?: 0L).toString(), (logfontw?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetMatrixElements(matrix: Long, matrixout: Long): Status =
-    0
+public actual fun gdipGetMatrixElements(matrix: COpaquePointer?, matrixout: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetMatrixElements((matrix?.value ?: 0L).toString(), (matrixout?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetMetafileDownLevelRasterizationLimit(metafile: Long, metafilerasterizationlimitdpi: Long): Status =
-    0
+public actual fun gdipGetMetafileDownLevelRasterizationLimit(metafile: COpaquePointer?, metafilerasterizationlimitdpi: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetMetafileDownLevelRasterizationLimit((metafile?.value ?: 0L).toString(), (metafilerasterizationlimitdpi?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetMetafileHeaderFromEmf(hemf: HENHMETAFILE, header: Long): Status =
-    0
+public actual fun gdipGetMetafileHeaderFromEmf(hemf: Henhmetafile, header: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetMetafileHeaderFromEmf((hemf?.value ?: 0L).toString(), (header?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetMetafileHeaderFromFile(filename: PCWSTR, header: Long): Status =
-    0
+public actual fun gdipGetMetafileHeaderFromFile(filename: Pcwstr, header: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetMetafileHeaderFromFile((filename?.value ?: 0L).toString(), (header?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetMetafileHeaderFromMetafile(metafile: Long, header: Long): Status =
-    0
+public actual fun gdipGetMetafileHeaderFromMetafile(metafile: COpaquePointer?, header: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetMetafileHeaderFromMetafile((metafile?.value ?: 0L).toString(), (header?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetMetafileHeaderFromStream(stream: Long, header: Long): Status =
-    0
+public actual fun gdipGetMetafileHeaderFromStream(stream: COpaquePointer?, header: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetMetafileHeaderFromStream((stream?.value ?: 0L).toString(), (header?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetMetafileHeaderFromWmf(hwmf: HMETAFILE, wmfplaceablefileheader: Long, header: Long): Status =
-    0
+public actual fun gdipGetMetafileHeaderFromWmf(hwmf: Hmetafile, wmfplaceablefileheader: COpaquePointer?, header: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetMetafileHeaderFromWmf((hwmf?.value ?: 0L).toString(), (wmfplaceablefileheader?.value ?: 0L).toString(), (header?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetNearestColor(graphics: Long, argb: Long): Status =
-    0
+public actual fun gdipGetNearestColor(graphics: COpaquePointer?, argb: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetNearestColor((graphics?.value ?: 0L).toString(), (argb?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPageScale(graphics: Long, scale: Long): Status =
-    0
+public actual fun gdipGetPageScale(graphics: COpaquePointer?, scale: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPageScale((graphics?.value ?: 0L).toString(), (scale?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPageUnit(graphics: Long, unit: Long): Status =
-    0
+public actual fun gdipGetPageUnit(graphics: COpaquePointer?, unit: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPageUnit((graphics?.value ?: 0L).toString(), (unit?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPathData(path: Long, pathdata: Long): Status =
-    0
+public actual fun gdipGetPathData(path: COpaquePointer?, pathdata: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathData((path?.value ?: 0L).toString(), (pathdata?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPathFillMode(path: Long, fillmode: Long): Status =
-    0
+public actual fun gdipGetPathFillMode(path: COpaquePointer?, fillmode: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathFillMode((path?.value ?: 0L).toString(), (fillmode?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPathGradientBlend(brush: Long, blend: Long, positions: Long, count: Int): Status =
-    0
+public actual fun gdipGetPathGradientBlend(brush: COpaquePointer?, blend: COpaquePointer?, positions: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientBlend((brush?.value ?: 0L).toString(), (blend?.value ?: 0L).toString(), (positions?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPathGradientBlendCount(brush: Long, count: Long): Status =
-    0
+public actual fun gdipGetPathGradientBlendCount(brush: COpaquePointer?, count: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientBlendCount((brush?.value ?: 0L).toString(), (count?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPathGradientCenterColor(brush: Long, colors: Long): Status =
-    0
+public actual fun gdipGetPathGradientCenterColor(brush: COpaquePointer?, colors: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientCenterColor((brush?.value ?: 0L).toString(), (colors?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPathGradientCenterPoint(brush: Long, points: Long): Status =
-    0
+public actual fun gdipGetPathGradientCenterPoint(brush: COpaquePointer?, points: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientCenterPoint((brush?.value ?: 0L).toString(), (points?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPathGradientCenterPointI(brush: Long, points: Long): Status =
-    0
+public actual fun gdipGetPathGradientCenterPointI(brush: COpaquePointer?, points: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientCenterPointI((brush?.value ?: 0L).toString(), (points?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPathGradientFocusScales(brush: Long, xscale: Long, yscale: Long): Status =
-    0
+public actual fun gdipGetPathGradientFocusScales(brush: COpaquePointer?, xscale: COpaquePointer?, yscale: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientFocusScales((brush?.value ?: 0L).toString(), (xscale?.value ?: 0L).toString(), (yscale?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPathGradientGammaCorrection(brush: Long, usegammacorrection: Long): Status =
-    0
+public actual fun gdipGetPathGradientGammaCorrection(brush: COpaquePointer?, usegammacorrection: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientGammaCorrection((brush?.value ?: 0L).toString(), (usegammacorrection?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPathGradientPath(brush: Long, path: Long): Status =
-    0
+public actual fun gdipGetPathGradientPath(brush: COpaquePointer?, path: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientPath((brush?.value ?: 0L).toString(), (path?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPathGradientPointCount(brush: Long, count: Long): Status =
-    0
+public actual fun gdipGetPathGradientPointCount(brush: COpaquePointer?, count: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientPointCount((brush?.value ?: 0L).toString(), (count?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPathGradientPresetBlend(brush: Long, blend: Long, positions: Long, count: Int): Status =
-    0
+public actual fun gdipGetPathGradientPresetBlend(brush: COpaquePointer?, blend: COpaquePointer?, positions: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientPresetBlend((brush?.value ?: 0L).toString(), (blend?.value ?: 0L).toString(), (positions?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPathGradientPresetBlendCount(brush: Long, count: Long): Status =
-    0
+public actual fun gdipGetPathGradientPresetBlendCount(brush: COpaquePointer?, count: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientPresetBlendCount((brush?.value ?: 0L).toString(), (count?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPathGradientRect(brush: Long, rect: Long): Status =
-    0
+public actual fun gdipGetPathGradientRect(brush: COpaquePointer?, rect: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientRect((brush?.value ?: 0L).toString(), (rect?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPathGradientRectI(brush: Long, rect: Long): Status =
-    0
+public actual fun gdipGetPathGradientRectI(brush: COpaquePointer?, rect: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientRectI((brush?.value ?: 0L).toString(), (rect?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPathGradientSurroundColorCount(brush: Long, count: Long): Status =
-    0
+public actual fun gdipGetPathGradientSurroundColorCount(brush: COpaquePointer?, count: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientSurroundColorCount((brush?.value ?: 0L).toString(), (count?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPathGradientSurroundColorsWithCount(brush: Long, color: Long, count: Long): Status =
-    0
+public actual fun gdipGetPathGradientSurroundColorsWithCount(brush: COpaquePointer?, color: COpaquePointer?, count: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientSurroundColorsWithCount((brush?.value ?: 0L).toString(), (color?.value ?: 0L).toString(), (count?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPathGradientTransform(brush: Long, matrix: Long): Status =
-    0
+public actual fun gdipGetPathGradientTransform(brush: COpaquePointer?, matrix: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientTransform((brush?.value ?: 0L).toString(), (matrix?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPathGradientWrapMode(brush: Long, wrapmode: Long): Status =
-    0
+public actual fun gdipGetPathGradientWrapMode(brush: COpaquePointer?, wrapmode: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathGradientWrapMode((brush?.value ?: 0L).toString(), (wrapmode?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPathLastPoint(path: Long, lastpoint: Long): Status =
-    0
+public actual fun gdipGetPathLastPoint(path: COpaquePointer?, lastpoint: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathLastPoint((path?.value ?: 0L).toString(), (lastpoint?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPathPoints(param0: Long, points: Long, count: Int): Status =
-    0
+public actual fun gdipGetPathPoints(param0: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathPoints((param0?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPathPointsI(param0: Long, points: Long, count: Int): Status =
-    0
+public actual fun gdipGetPathPointsI(param0: COpaquePointer?, points: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathPointsI((param0?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPathTypes(path: Long, types: Long, count: Int): Status =
-    0
+public actual fun gdipGetPathTypes(path: COpaquePointer?, types: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathTypes((path?.value ?: 0L).toString(), (types?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPathWorldBounds(path: Long, bounds: Long, matrix: Long, pen: Long): Status =
-    0
+public actual fun gdipGetPathWorldBounds(path: COpaquePointer?, bounds: COpaquePointer?, matrix: COpaquePointer?, pen: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathWorldBounds((path?.value ?: 0L).toString(), (bounds?.value ?: 0L).toString(), (matrix?.value ?: 0L).toString(), (pen?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPathWorldBoundsI(path: Long, bounds: Long, matrix: Long, pen: Long): Status =
-    0
+public actual fun gdipGetPathWorldBoundsI(path: COpaquePointer?, bounds: COpaquePointer?, matrix: COpaquePointer?, pen: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPathWorldBoundsI((path?.value ?: 0L).toString(), (bounds?.value ?: 0L).toString(), (matrix?.value ?: 0L).toString(), (pen?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPenBrushFill(pen: Long, brush: Long): Status =
-    0
+public actual fun gdipGetPenBrushFill(pen: COpaquePointer?, brush: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenBrushFill((pen?.value ?: 0L).toString(), (brush?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPenColor(pen: Long, argb: Long): Status =
-    0
+public actual fun gdipGetPenColor(pen: COpaquePointer?, argb: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenColor((pen?.value ?: 0L).toString(), (argb?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPenCompoundArray(pen: Long, dash: Long, count: Int): Status =
-    0
+public actual fun gdipGetPenCompoundArray(pen: COpaquePointer?, dash: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenCompoundArray((pen?.value ?: 0L).toString(), (dash?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPenCompoundCount(pen: Long, count: Long): Status =
-    0
+public actual fun gdipGetPenCompoundCount(pen: COpaquePointer?, count: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenCompoundCount((pen?.value ?: 0L).toString(), (count?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPenCustomEndCap(pen: Long, customcap: Long): Status =
-    0
+public actual fun gdipGetPenCustomEndCap(pen: COpaquePointer?, customcap: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenCustomEndCap((pen?.value ?: 0L).toString(), (customcap?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPenCustomStartCap(pen: Long, customcap: Long): Status =
-    0
+public actual fun gdipGetPenCustomStartCap(pen: COpaquePointer?, customcap: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenCustomStartCap((pen?.value ?: 0L).toString(), (customcap?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPenDashArray(pen: Long, dash: Long, count: Int): Status =
-    0
+public actual fun gdipGetPenDashArray(pen: COpaquePointer?, dash: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenDashArray((pen?.value ?: 0L).toString(), (dash?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPenDashCap197819(pen: Long, dashcap: Long): Status =
-    0
+public actual fun gdipGetPenDashCap197819(pen: COpaquePointer?, dashcap: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenDashCap197819((pen?.value ?: 0L).toString(), (dashcap?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPenDashCount(pen: Long, count: Long): Status =
-    0
+public actual fun gdipGetPenDashCount(pen: COpaquePointer?, count: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenDashCount((pen?.value ?: 0L).toString(), (count?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPenDashOffset(pen: Long, offset: Long): Status =
-    0
+public actual fun gdipGetPenDashOffset(pen: COpaquePointer?, offset: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenDashOffset((pen?.value ?: 0L).toString(), (offset?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPenDashStyle(pen: Long, dashstyle: Long): Status =
-    0
+public actual fun gdipGetPenDashStyle(pen: COpaquePointer?, dashstyle: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenDashStyle((pen?.value ?: 0L).toString(), (dashstyle?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPenEndCap(pen: Long, endcap: Long): Status =
-    0
+public actual fun gdipGetPenEndCap(pen: COpaquePointer?, endcap: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenEndCap((pen?.value ?: 0L).toString(), (endcap?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPenFillType(pen: Long, type: Long): Status =
-    0
+public actual fun gdipGetPenFillType(pen: COpaquePointer?, type: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenFillType((pen?.value ?: 0L).toString(), (type?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPenLineJoin(pen: Long, linejoin: Long): Status =
-    0
+public actual fun gdipGetPenLineJoin(pen: COpaquePointer?, linejoin: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenLineJoin((pen?.value ?: 0L).toString(), (linejoin?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPenMiterLimit(pen: Long, miterlimit: Long): Status =
-    0
+public actual fun gdipGetPenMiterLimit(pen: COpaquePointer?, miterlimit: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenMiterLimit((pen?.value ?: 0L).toString(), (miterlimit?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPenMode(pen: Long, penmode: Long): Status =
-    0
+public actual fun gdipGetPenMode(pen: COpaquePointer?, penmode: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenMode((pen?.value ?: 0L).toString(), (penmode?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPenStartCap(pen: Long, startcap: Long): Status =
-    0
+public actual fun gdipGetPenStartCap(pen: COpaquePointer?, startcap: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenStartCap((pen?.value ?: 0L).toString(), (startcap?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPenTransform(pen: Long, matrix: Long): Status =
-    0
+public actual fun gdipGetPenTransform(pen: COpaquePointer?, matrix: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenTransform((pen?.value ?: 0L).toString(), (matrix?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPenUnit(pen: Long, unit: Long): Status =
-    0
+public actual fun gdipGetPenUnit(pen: COpaquePointer?, unit: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenUnit((pen?.value ?: 0L).toString(), (unit?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPenWidth(pen: Long, width: Long): Status =
-    0
+public actual fun gdipGetPenWidth(pen: COpaquePointer?, width: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPenWidth((pen?.value ?: 0L).toString(), (width?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPixelOffsetMode(graphics: Long, pixeloffsetmode: Long): Status =
-    0
+public actual fun gdipGetPixelOffsetMode(graphics: COpaquePointer?, pixeloffsetmode: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPixelOffsetMode((graphics?.value ?: 0L).toString(), (pixeloffsetmode?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPointCount(path: Long, count: Long): Status =
-    0
+public actual fun gdipGetPointCount(path: COpaquePointer?, count: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPointCount((path?.value ?: 0L).toString(), (count?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPropertyCount(image: Long, numofproperty: Long): Status =
-    0
+public actual fun gdipGetPropertyCount(image: COpaquePointer?, numofproperty: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPropertyCount((image?.value ?: 0L).toString(), (numofproperty?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPropertyIdList(image: Long, numofproperty: UInt, list: Long): Status =
-    0
+public actual fun gdipGetPropertyIdList(image: COpaquePointer?, numofproperty: UInt, list: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPropertyIdList((image?.value ?: 0L).toString(), numofproperty.toInt(), (list?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPropertyItem(image: Long, propid: UInt, propsize: UInt, buffer: Long): Status =
-    0
+public actual fun gdipGetPropertyItem(image: COpaquePointer?, propid: UInt, propsize: UInt, buffer: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPropertyItem((image?.value ?: 0L).toString(), propid.toInt(), propsize.toInt(), (buffer?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPropertyItemSize(image: Long, propid: UInt, size: Long): Status =
-    0
+public actual fun gdipGetPropertyItemSize(image: COpaquePointer?, propid: UInt, size: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPropertyItemSize((image?.value ?: 0L).toString(), propid.toInt(), (size?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetPropertySize(image: Long, totalbuffersize: Long, numproperties: Long): Status =
-    0
+public actual fun gdipGetPropertySize(image: COpaquePointer?, totalbuffersize: COpaquePointer?, numproperties: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetPropertySize((image?.value ?: 0L).toString(), (totalbuffersize?.value ?: 0L).toString(), (numproperties?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetRegionBounds(region: Long, graphics: Long, rect: Long): Status =
-    0
+public actual fun gdipGetRegionBounds(region: COpaquePointer?, graphics: COpaquePointer?, rect: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetRegionBounds((region?.value ?: 0L).toString(), (graphics?.value ?: 0L).toString(), (rect?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetRegionBoundsI(region: Long, graphics: Long, rect: Long): Status =
-    0
+public actual fun gdipGetRegionBoundsI(region: COpaquePointer?, graphics: COpaquePointer?, rect: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetRegionBoundsI((region?.value ?: 0L).toString(), (graphics?.value ?: 0L).toString(), (rect?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetRegionData(region: Long, buffer: Long, buffersize: UInt, sizefilled: Long): Status =
-    0
+public actual fun gdipGetRegionData(region: COpaquePointer?, buffer: COpaquePointer?, buffersize: UInt, sizefilled: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetRegionData((region?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), buffersize.toInt(), (sizefilled?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetRegionDataSize(region: Long, buffersize: Long): Status =
-    0
+public actual fun gdipGetRegionDataSize(region: COpaquePointer?, buffersize: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetRegionDataSize((region?.value ?: 0L).toString(), (buffersize?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetRegionHRgn(region: Long, graphics: Long, hrgn: Long): Status =
-    0
+public actual fun gdipGetRegionHRgn(region: COpaquePointer?, graphics: COpaquePointer?, hrgn: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetRegionHRgn((region?.value ?: 0L).toString(), (graphics?.value ?: 0L).toString(), (hrgn?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetRegionScans(region: Long, rects: Long, count: Long, matrix: Long): Status =
-    0
+public actual fun gdipGetRegionScans(region: COpaquePointer?, rects: COpaquePointer?, count: COpaquePointer?, matrix: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetRegionScans((region?.value ?: 0L).toString(), (rects?.value ?: 0L).toString(), (count?.value ?: 0L).toString(), (matrix?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetRegionScansCount(region: Long, count: Long, matrix: Long): Status =
-    0
+public actual fun gdipGetRegionScansCount(region: COpaquePointer?, count: COpaquePointer?, matrix: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetRegionScansCount((region?.value ?: 0L).toString(), (count?.value ?: 0L).toString(), (matrix?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetRegionScansI(region: Long, rects: Long, count: Long, matrix: Long): Status =
-    0
+public actual fun gdipGetRegionScansI(region: COpaquePointer?, rects: COpaquePointer?, count: COpaquePointer?, matrix: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetRegionScansI((region?.value ?: 0L).toString(), (rects?.value ?: 0L).toString(), (count?.value ?: 0L).toString(), (matrix?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetRenderingOrigin(graphics: Long, x: Long, y: Long): Status =
-    0
+public actual fun gdipGetRenderingOrigin(graphics: COpaquePointer?, x: COpaquePointer?, y: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetRenderingOrigin((graphics?.value ?: 0L).toString(), (x?.value ?: 0L).toString(), (y?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetSmoothingMode(graphics: Long, smoothingmode: Long): Status =
-    0
+public actual fun gdipGetSmoothingMode(graphics: COpaquePointer?, smoothingmode: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetSmoothingMode((graphics?.value ?: 0L).toString(), (smoothingmode?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetSolidFillColor(brush: Long, color: Long): Status =
-    0
+public actual fun gdipGetSolidFillColor(brush: COpaquePointer?, color: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetSolidFillColor((brush?.value ?: 0L).toString(), (color?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetStringFormatAlign(format: Long, align: Long): Status =
-    0
+public actual fun gdipGetStringFormatAlign(format: COpaquePointer?, align: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetStringFormatAlign((format?.value ?: 0L).toString(), (align?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetStringFormatDigitSubstitution(format: Long, language: Long, substitute: Long): Status =
-    0
+public actual fun gdipGetStringFormatDigitSubstitution(format: COpaquePointer?, language: COpaquePointer?, substitute: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetStringFormatDigitSubstitution((format?.value ?: 0L).toString(), (language?.value ?: 0L).toString(), (substitute?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetStringFormatFlags(format: Long, flags: Long): Status =
-    0
+public actual fun gdipGetStringFormatFlags(format: COpaquePointer?, flags: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetStringFormatFlags((format?.value ?: 0L).toString(), (flags?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetStringFormatHotkeyPrefix(format: Long, hotkeyprefix: Long): Status =
-    0
+public actual fun gdipGetStringFormatHotkeyPrefix(format: COpaquePointer?, hotkeyprefix: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetStringFormatHotkeyPrefix((format?.value ?: 0L).toString(), (hotkeyprefix?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetStringFormatLineAlign(format: Long, align: Long): Status =
-    0
+public actual fun gdipGetStringFormatLineAlign(format: COpaquePointer?, align: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetStringFormatLineAlign((format?.value ?: 0L).toString(), (align?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetStringFormatMeasurableCharacterRangeCount(format: Long, count: Long): Status =
-    0
+public actual fun gdipGetStringFormatMeasurableCharacterRangeCount(format: COpaquePointer?, count: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetStringFormatMeasurableCharacterRangeCount((format?.value ?: 0L).toString(), (count?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetStringFormatTabStopCount(format: Long, count: Long): Status =
-    0
+public actual fun gdipGetStringFormatTabStopCount(format: COpaquePointer?, count: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetStringFormatTabStopCount((format?.value ?: 0L).toString(), (count?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetStringFormatTabStops(format: Long, count: Int, firsttaboffset: Long, tabstops: Long): Status =
-    0
+public actual fun gdipGetStringFormatTabStops(format: COpaquePointer?, count: Int, firsttaboffset: COpaquePointer?, tabstops: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetStringFormatTabStops((format?.value ?: 0L).toString(), count, (firsttaboffset?.value ?: 0L).toString(), (tabstops?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetStringFormatTrimming(format: Long, trimming: Long): Status =
-    0
+public actual fun gdipGetStringFormatTrimming(format: COpaquePointer?, trimming: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetStringFormatTrimming((format?.value ?: 0L).toString(), (trimming?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetTextContrast(graphics: Long, contrast: Long): Status =
-    0
+public actual fun gdipGetTextContrast(graphics: COpaquePointer?, contrast: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetTextContrast((graphics?.value ?: 0L).toString(), (contrast?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetTextRenderingHint(graphics: Long, mode: Long): Status =
-    0
+public actual fun gdipGetTextRenderingHint(graphics: COpaquePointer?, mode: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetTextRenderingHint((graphics?.value ?: 0L).toString(), (mode?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetTextureImage(brush: Long, image: Long): Status =
-    0
+public actual fun gdipGetTextureImage(brush: COpaquePointer?, image: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetTextureImage((brush?.value ?: 0L).toString(), (image?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetTextureTransform(brush: Long, matrix: Long): Status =
-    0
+public actual fun gdipGetTextureTransform(brush: COpaquePointer?, matrix: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetTextureTransform((brush?.value ?: 0L).toString(), (matrix?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetTextureWrapMode(brush: Long, wrapmode: Long): Status =
-    0
+public actual fun gdipGetTextureWrapMode(brush: COpaquePointer?, wrapmode: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetTextureWrapMode((brush?.value ?: 0L).toString(), (wrapmode?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetVisibleClipBounds(graphics: Long, rect: Long): Status =
-    0
+public actual fun gdipGetVisibleClipBounds(graphics: COpaquePointer?, rect: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetVisibleClipBounds((graphics?.value ?: 0L).toString(), (rect?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetVisibleClipBoundsI(graphics: Long, rect: Long): Status =
-    0
+public actual fun gdipGetVisibleClipBoundsI(graphics: COpaquePointer?, rect: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetVisibleClipBoundsI((graphics?.value ?: 0L).toString(), (rect?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGetWorldTransform(graphics: Long, matrix: Long): Status =
-    0
+public actual fun gdipGetWorldTransform(graphics: COpaquePointer?, matrix: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGetWorldTransform((graphics?.value ?: 0L).toString(), (matrix?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGraphicsClear(graphics: Long, color: UInt): Status =
-    0
+public actual fun gdipGraphicsClear(graphics: COpaquePointer?, color: UInt): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGraphicsClear((graphics?.value ?: 0L).toString(), color.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipGraphicsSetAbort(pgraphics: Long, piabort: Long): Status =
-    0
+public actual fun gdipGraphicsSetAbort(pgraphics: COpaquePointer?, piabort: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipGraphicsSetAbort((pgraphics?.value ?: 0L).toString(), (piabort?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipImageForceValidation(image: Long): Status =
-    0
+public actual fun gdipImageForceValidation(image: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipImageForceValidation((image?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipImageGetFrameCount(image: Long, dimensionid: Long, count: Long): Status =
-    0
+public actual fun gdipImageGetFrameCount(image: COpaquePointer?, dimensionid: COpaquePointer?, count: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipImageGetFrameCount((image?.value ?: 0L).toString(), (dimensionid?.value ?: 0L).toString(), (count?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipImageGetFrameDimensionsCount(image: Long, count: Long): Status =
-    0
+public actual fun gdipImageGetFrameDimensionsCount(image: COpaquePointer?, count: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipImageGetFrameDimensionsCount((image?.value ?: 0L).toString(), (count?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipImageGetFrameDimensionsList(image: Long, dimensionids: Long, count: UInt): Status =
-    0
+public actual fun gdipImageGetFrameDimensionsList(image: COpaquePointer?, dimensionids: COpaquePointer?, count: UInt): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipImageGetFrameDimensionsList((image?.value ?: 0L).toString(), (dimensionids?.value ?: 0L).toString(), count.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipImageRotateFlip(image: Long, rftype: RotateFlipType): Status =
-    0
+public actual fun gdipImageRotateFlip(image: COpaquePointer?, rftype: RotateFlipType): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipImageRotateFlip((image?.value ?: 0L).toString(), rftype) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipImageSelectActiveFrame(image: Long, dimensionid: Long, frameindex: UInt): Status =
-    0
+public actual fun gdipImageSelectActiveFrame(image: COpaquePointer?, dimensionid: COpaquePointer?, frameindex: UInt): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipImageSelectActiveFrame((image?.value ?: 0L).toString(), (dimensionid?.value ?: 0L).toString(), frameindex.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipImageSetAbort(pimage: Long, piabort: Long): Status =
-    0
+public actual fun gdipImageSetAbort(pimage: COpaquePointer?, piabort: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipImageSetAbort((pimage?.value ?: 0L).toString(), (piabort?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipInitializePalette(palette: Long, palettetype: PaletteType, optimalcolors: Int, usetransparentcolor: BOOL, bitmap: Long): Status =
-    0
+public actual fun gdipInitializePalette(palette: COpaquePointer?, palettetype: PaletteType, optimalcolors: Int, usetransparentcolor: Bool, bitmap: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipInitializePalette((palette?.value ?: 0L).toString(), palettetype, optimalcolors, usetransparentcolor, (bitmap?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipInvertMatrix(matrix: Long): Status =
-    0
+public actual fun gdipInvertMatrix(matrix: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipInvertMatrix((matrix?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipIsClipEmpty(graphics: Long, result: Long): Status =
-    0
+public actual fun gdipIsClipEmpty(graphics: COpaquePointer?, result: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsClipEmpty((graphics?.value ?: 0L).toString(), (result?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipIsEmptyRegion(region: Long, graphics: Long, result: Long): Status =
-    0
+public actual fun gdipIsEmptyRegion(region: COpaquePointer?, graphics: COpaquePointer?, result: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsEmptyRegion((region?.value ?: 0L).toString(), (graphics?.value ?: 0L).toString(), (result?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipIsEqualRegion(region: Long, region2: Long, graphics: Long, result: Long): Status =
-    0
+public actual fun gdipIsEqualRegion(region: COpaquePointer?, region2: COpaquePointer?, graphics: COpaquePointer?, result: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsEqualRegion((region?.value ?: 0L).toString(), (region2?.value ?: 0L).toString(), (graphics?.value ?: 0L).toString(), (result?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipIsInfiniteRegion(region: Long, graphics: Long, result: Long): Status =
-    0
+public actual fun gdipIsInfiniteRegion(region: COpaquePointer?, graphics: COpaquePointer?, result: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsInfiniteRegion((region?.value ?: 0L).toString(), (graphics?.value ?: 0L).toString(), (result?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipIsMatrixEqual(matrix: Long, matrix2: Long, result: Long): Status =
-    0
+public actual fun gdipIsMatrixEqual(matrix: COpaquePointer?, matrix2: COpaquePointer?, result: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsMatrixEqual((matrix?.value ?: 0L).toString(), (matrix2?.value ?: 0L).toString(), (result?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipIsMatrixIdentity(matrix: Long, result: Long): Status =
-    0
+public actual fun gdipIsMatrixIdentity(matrix: COpaquePointer?, result: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsMatrixIdentity((matrix?.value ?: 0L).toString(), (result?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipIsMatrixInvertible(matrix: Long, result: Long): Status =
-    0
+public actual fun gdipIsMatrixInvertible(matrix: COpaquePointer?, result: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsMatrixInvertible((matrix?.value ?: 0L).toString(), (result?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipIsOutlineVisiblePathPoint(path: Long, x: Float, y: Float, pen: Long, graphics: Long, result: Long): Status =
-    0
+public actual fun gdipIsOutlineVisiblePathPoint(path: COpaquePointer?, x: Float, y: Float, pen: COpaquePointer?, graphics: COpaquePointer?, result: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsOutlineVisiblePathPoint((path?.value ?: 0L).toString(), x.toDouble(), y.toDouble(), (pen?.value ?: 0L).toString(), (graphics?.value ?: 0L).toString(), (result?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipIsOutlineVisiblePathPointI(path: Long, x: Int, y: Int, pen: Long, graphics: Long, result: Long): Status =
-    0
+public actual fun gdipIsOutlineVisiblePathPointI(path: COpaquePointer?, x: Int, y: Int, pen: COpaquePointer?, graphics: COpaquePointer?, result: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsOutlineVisiblePathPointI((path?.value ?: 0L).toString(), x, y, (pen?.value ?: 0L).toString(), (graphics?.value ?: 0L).toString(), (result?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipIsStyleAvailable(family: Long, style: Int, isstyleavailable: Long): Status =
-    0
+public actual fun gdipIsStyleAvailable(family: COpaquePointer?, style: Int, isstyleavailable: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsStyleAvailable((family?.value ?: 0L).toString(), style, (isstyleavailable?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipIsVisibleClipEmpty(graphics: Long, result: Long): Status =
-    0
+public actual fun gdipIsVisibleClipEmpty(graphics: COpaquePointer?, result: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsVisibleClipEmpty((graphics?.value ?: 0L).toString(), (result?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipIsVisiblePathPoint(path: Long, x: Float, y: Float, graphics: Long, result: Long): Status =
-    0
+public actual fun gdipIsVisiblePathPoint(path: COpaquePointer?, x: Float, y: Float, graphics: COpaquePointer?, result: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsVisiblePathPoint((path?.value ?: 0L).toString(), x.toDouble(), y.toDouble(), (graphics?.value ?: 0L).toString(), (result?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipIsVisiblePathPointI(path: Long, x: Int, y: Int, graphics: Long, result: Long): Status =
-    0
+public actual fun gdipIsVisiblePathPointI(path: COpaquePointer?, x: Int, y: Int, graphics: COpaquePointer?, result: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsVisiblePathPointI((path?.value ?: 0L).toString(), x, y, (graphics?.value ?: 0L).toString(), (result?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipIsVisiblePoint(graphics: Long, x: Float, y: Float, result: Long): Status =
-    0
+public actual fun gdipIsVisiblePoint(graphics: COpaquePointer?, x: Float, y: Float, result: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsVisiblePoint((graphics?.value ?: 0L).toString(), x.toDouble(), y.toDouble(), (result?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipIsVisiblePointI(graphics: Long, x: Int, y: Int, result: Long): Status =
-    0
+public actual fun gdipIsVisiblePointI(graphics: COpaquePointer?, x: Int, y: Int, result: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsVisiblePointI((graphics?.value ?: 0L).toString(), x, y, (result?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipIsVisibleRect(graphics: Long, x: Float, y: Float, width: Float, height: Float, result: Long): Status =
-    0
+public actual fun gdipIsVisibleRect(graphics: COpaquePointer?, x: Float, y: Float, width: Float, height: Float, result: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsVisibleRect((graphics?.value ?: 0L).toString(), x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble(), (result?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipIsVisibleRectI(graphics: Long, x: Int, y: Int, width: Int, height: Int, result: Long): Status =
-    0
+public actual fun gdipIsVisibleRectI(graphics: COpaquePointer?, x: Int, y: Int, width: Int, height: Int, result: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsVisibleRectI((graphics?.value ?: 0L).toString(), x, y, width, height, (result?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipIsVisibleRegionPoint(region: Long, x: Float, y: Float, graphics: Long, result: Long): Status =
-    0
+public actual fun gdipIsVisibleRegionPoint(region: COpaquePointer?, x: Float, y: Float, graphics: COpaquePointer?, result: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsVisibleRegionPoint((region?.value ?: 0L).toString(), x.toDouble(), y.toDouble(), (graphics?.value ?: 0L).toString(), (result?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipIsVisibleRegionPointI(region: Long, x: Int, y: Int, graphics: Long, result: Long): Status =
-    0
+public actual fun gdipIsVisibleRegionPointI(region: COpaquePointer?, x: Int, y: Int, graphics: COpaquePointer?, result: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsVisibleRegionPointI((region?.value ?: 0L).toString(), x, y, (graphics?.value ?: 0L).toString(), (result?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipIsVisibleRegionRect(region: Long, x: Float, y: Float, width: Float, height: Float, graphics: Long, result: Long): Status =
-    0
+public actual fun gdipIsVisibleRegionRect(region: COpaquePointer?, x: Float, y: Float, width: Float, height: Float, graphics: COpaquePointer?, result: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsVisibleRegionRect((region?.value ?: 0L).toString(), x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble(), (graphics?.value ?: 0L).toString(), (result?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipIsVisibleRegionRectI(region: Long, x: Int, y: Int, width: Int, height: Int, graphics: Long, result: Long): Status =
-    0
+public actual fun gdipIsVisibleRegionRectI(region: COpaquePointer?, x: Int, y: Int, width: Int, height: Int, graphics: COpaquePointer?, result: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipIsVisibleRegionRectI((region?.value ?: 0L).toString(), x, y, width, height, (graphics?.value ?: 0L).toString(), (result?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipLoadImageFromFile(filename: PCWSTR, image: Long): Status =
-    0
+public actual fun gdipLoadImageFromFile(filename: Pcwstr, image: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipLoadImageFromFile((filename?.value ?: 0L).toString(), (image?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipLoadImageFromFileICM(filename: PCWSTR, image: Long): Status =
-    0
+public actual fun gdipLoadImageFromFileICM(filename: Pcwstr, image: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipLoadImageFromFileICM((filename?.value ?: 0L).toString(), (image?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipLoadImageFromStream(stream: Long, image: Long): Status =
-    0
+public actual fun gdipLoadImageFromStream(stream: COpaquePointer?, image: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipLoadImageFromStream((stream?.value ?: 0L).toString(), (image?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipLoadImageFromStreamICM(stream: Long, image: Long): Status =
-    0
+public actual fun gdipLoadImageFromStreamICM(stream: COpaquePointer?, image: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipLoadImageFromStreamICM((stream?.value ?: 0L).toString(), (image?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipMeasureCharacterRanges(graphics: Long, string: PCWSTR, length: Int, font: Long, layoutrect: Long, stringformat: Long, regioncount: Int, regions: Long): Status =
-    0
+public actual fun gdipMeasureCharacterRanges(graphics: COpaquePointer?, string: Pcwstr, length: Int, font: COpaquePointer?, layoutrect: COpaquePointer?, stringformat: COpaquePointer?, regioncount: Int, regions: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipMeasureCharacterRanges((graphics?.value ?: 0L).toString(), (string?.value ?: 0L).toString(), length, (font?.value ?: 0L).toString(), (layoutrect?.value ?: 0L).toString(), (stringformat?.value ?: 0L).toString(), regioncount, (regions?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipMeasureDriverString(graphics: Long, text: Long, length: Int, font: Long, positions: Long, flags: Int, matrix: Long, boundingbox: Long): Status =
-    0
+public actual fun gdipMeasureDriverString(graphics: COpaquePointer?, text: COpaquePointer?, length: Int, font: COpaquePointer?, positions: COpaquePointer?, flags: Int, matrix: COpaquePointer?, boundingbox: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipMeasureDriverString((graphics?.value ?: 0L).toString(), (text?.value ?: 0L).toString(), length, (font?.value ?: 0L).toString(), (positions?.value ?: 0L).toString(), flags, (matrix?.value ?: 0L).toString(), (boundingbox?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipMeasureString(graphics: Long, string: PCWSTR, length: Int, font: Long, layoutrect: Long, stringformat: Long, boundingbox: Long, codepointsfitted: Long, linesfilled: Long): Status =
-    0
+public actual fun gdipMeasureString(graphics: COpaquePointer?, string: Pcwstr, length: Int, font: COpaquePointer?, layoutrect: COpaquePointer?, stringformat: COpaquePointer?, boundingbox: COpaquePointer?, codepointsfitted: COpaquePointer?, linesfilled: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipMeasureString((graphics?.value ?: 0L).toString(), (string?.value ?: 0L).toString(), length, (font?.value ?: 0L).toString(), (layoutrect?.value ?: 0L).toString(), (stringformat?.value ?: 0L).toString(), (boundingbox?.value ?: 0L).toString(), (codepointsfitted?.value ?: 0L).toString(), (linesfilled?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipMultiplyLineTransform(brush: Long, matrix: Long, order: MatrixOrder): Status =
-    0
+public actual fun gdipMultiplyLineTransform(brush: COpaquePointer?, matrix: COpaquePointer?, order: MatrixOrder): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipMultiplyLineTransform((brush?.value ?: 0L).toString(), (matrix?.value ?: 0L).toString(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipMultiplyMatrix(matrix: Long, matrix2: Long, order: MatrixOrder): Status =
-    0
+public actual fun gdipMultiplyMatrix(matrix: COpaquePointer?, matrix2: COpaquePointer?, order: MatrixOrder): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipMultiplyMatrix((matrix?.value ?: 0L).toString(), (matrix2?.value ?: 0L).toString(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipMultiplyPathGradientTransform(brush: Long, matrix: Long, order: MatrixOrder): Status =
-    0
+public actual fun gdipMultiplyPathGradientTransform(brush: COpaquePointer?, matrix: COpaquePointer?, order: MatrixOrder): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipMultiplyPathGradientTransform((brush?.value ?: 0L).toString(), (matrix?.value ?: 0L).toString(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipMultiplyPenTransform(pen: Long, matrix: Long, order: MatrixOrder): Status =
-    0
+public actual fun gdipMultiplyPenTransform(pen: COpaquePointer?, matrix: COpaquePointer?, order: MatrixOrder): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipMultiplyPenTransform((pen?.value ?: 0L).toString(), (matrix?.value ?: 0L).toString(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipMultiplyTextureTransform(brush: Long, matrix: Long, order: MatrixOrder): Status =
-    0
+public actual fun gdipMultiplyTextureTransform(brush: COpaquePointer?, matrix: COpaquePointer?, order: MatrixOrder): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipMultiplyTextureTransform((brush?.value ?: 0L).toString(), (matrix?.value ?: 0L).toString(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipMultiplyWorldTransform(graphics: Long, matrix: Long, order: MatrixOrder): Status =
-    0
+public actual fun gdipMultiplyWorldTransform(graphics: COpaquePointer?, matrix: COpaquePointer?, order: MatrixOrder): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipMultiplyWorldTransform((graphics?.value ?: 0L).toString(), (matrix?.value ?: 0L).toString(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipNewInstalledFontCollection(fontcollection: Long): Status =
-    0
+public actual fun gdipNewInstalledFontCollection(fontcollection: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipNewInstalledFontCollection((fontcollection?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipNewPrivateFontCollection(fontcollection: Long): Status =
-    0
+public actual fun gdipNewPrivateFontCollection(fontcollection: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipNewPrivateFontCollection((fontcollection?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipPathIterCopyData(iterator: Long, resultcount: Long, points: Long, types: Long, startindex: Int, endindex: Int): Status =
-    0
+public actual fun gdipPathIterCopyData(iterator: COpaquePointer?, resultcount: COpaquePointer?, points: COpaquePointer?, types: COpaquePointer?, startindex: Int, endindex: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipPathIterCopyData((iterator?.value ?: 0L).toString(), (resultcount?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), (types?.value ?: 0L).toString(), startindex, endindex) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipPathIterEnumerate(iterator: Long, resultcount: Long, points: Long, types: Long, count: Int): Status =
-    0
+public actual fun gdipPathIterEnumerate(iterator: COpaquePointer?, resultcount: COpaquePointer?, points: COpaquePointer?, types: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipPathIterEnumerate((iterator?.value ?: 0L).toString(), (resultcount?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), (types?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipPathIterGetCount(iterator: Long, count: Long): Status =
-    0
+public actual fun gdipPathIterGetCount(iterator: COpaquePointer?, count: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipPathIterGetCount((iterator?.value ?: 0L).toString(), (count?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipPathIterGetSubpathCount(iterator: Long, count: Long): Status =
-    0
+public actual fun gdipPathIterGetSubpathCount(iterator: COpaquePointer?, count: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipPathIterGetSubpathCount((iterator?.value ?: 0L).toString(), (count?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipPathIterHasCurve(iterator: Long, hascurve: Long): Status =
-    0
+public actual fun gdipPathIterHasCurve(iterator: COpaquePointer?, hascurve: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipPathIterHasCurve((iterator?.value ?: 0L).toString(), (hascurve?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipPathIterIsValid(iterator: Long, valid: Long): Status =
-    0
+public actual fun gdipPathIterIsValid(iterator: COpaquePointer?, valid: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipPathIterIsValid((iterator?.value ?: 0L).toString(), (valid?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipPathIterNextMarker(iterator: Long, resultcount: Long, startindex: Long, endindex: Long): Status =
-    0
+public actual fun gdipPathIterNextMarker(iterator: COpaquePointer?, resultcount: COpaquePointer?, startindex: COpaquePointer?, endindex: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipPathIterNextMarker((iterator?.value ?: 0L).toString(), (resultcount?.value ?: 0L).toString(), (startindex?.value ?: 0L).toString(), (endindex?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipPathIterNextMarkerPath(iterator: Long, resultcount: Long, path: Long): Status =
-    0
+public actual fun gdipPathIterNextMarkerPath(iterator: COpaquePointer?, resultcount: COpaquePointer?, path: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipPathIterNextMarkerPath((iterator?.value ?: 0L).toString(), (resultcount?.value ?: 0L).toString(), (path?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipPathIterNextPathType(iterator: Long, resultcount: Long, pathtype: Long, startindex: Long, endindex: Long): Status =
-    0
+public actual fun gdipPathIterNextPathType(iterator: COpaquePointer?, resultcount: COpaquePointer?, pathtype: COpaquePointer?, startindex: COpaquePointer?, endindex: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipPathIterNextPathType((iterator?.value ?: 0L).toString(), (resultcount?.value ?: 0L).toString(), (pathtype?.value ?: 0L).toString(), (startindex?.value ?: 0L).toString(), (endindex?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipPathIterNextSubpath(iterator: Long, resultcount: Long, startindex: Long, endindex: Long, isclosed: Long): Status =
-    0
+public actual fun gdipPathIterNextSubpath(iterator: COpaquePointer?, resultcount: COpaquePointer?, startindex: COpaquePointer?, endindex: COpaquePointer?, isclosed: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipPathIterNextSubpath((iterator?.value ?: 0L).toString(), (resultcount?.value ?: 0L).toString(), (startindex?.value ?: 0L).toString(), (endindex?.value ?: 0L).toString(), (isclosed?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipPathIterNextSubpathPath(iterator: Long, resultcount: Long, path: Long, isclosed: Long): Status =
-    0
+public actual fun gdipPathIterNextSubpathPath(iterator: COpaquePointer?, resultcount: COpaquePointer?, path: COpaquePointer?, isclosed: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipPathIterNextSubpathPath((iterator?.value ?: 0L).toString(), (resultcount?.value ?: 0L).toString(), (path?.value ?: 0L).toString(), (isclosed?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipPathIterRewind(iterator: Long): Status =
-    0
+public actual fun gdipPathIterRewind(iterator: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipPathIterRewind((iterator?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipPlayMetafileRecord(metafile: Long, recordtype: EmfPlusRecordType, flags: UInt, datasize: UInt, data: Long): Status =
-    0
+public actual fun gdipPlayMetafileRecord(metafile: COpaquePointer?, recordtype: EmfPlusRecordType, flags: UInt, datasize: UInt, data: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipPlayMetafileRecord((metafile?.value ?: 0L).toString(), recordtype, flags.toInt(), datasize.toInt(), (data?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipPrivateAddFontFile(fontcollection: Long, filename: PCWSTR): Status =
-    0
+public actual fun gdipPrivateAddFontFile(fontcollection: COpaquePointer?, filename: Pcwstr): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipPrivateAddFontFile((fontcollection?.value ?: 0L).toString(), (filename?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipPrivateAddMemoryFont(fontcollection: Long, memory: Long, length: Int): Status =
-    0
+public actual fun gdipPrivateAddMemoryFont(fontcollection: COpaquePointer?, memory: COpaquePointer?, length: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipPrivateAddMemoryFont((fontcollection?.value ?: 0L).toString(), (memory?.value ?: 0L).toString(), length) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipRecordMetafile(referencehdc: HDC, type: EmfType, framerect: Long, frameunit: MetafileFrameUnit, description: PCWSTR, metafile: Long): Status =
-    0
+public actual fun gdipRecordMetafile(referencehdc: Hdc, type: EmfType, framerect: COpaquePointer?, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipRecordMetafile((referencehdc?.value ?: 0L).toString(), type, (framerect?.value ?: 0L).toString(), frameunit, (description?.value ?: 0L).toString(), (metafile?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipRecordMetafileFileName(filename: PCWSTR, referencehdc: HDC, type: EmfType, framerect: Long, frameunit: MetafileFrameUnit, description: PCWSTR, metafile: Long): Status =
-    0
+public actual fun gdipRecordMetafileFileName(filename: Pcwstr, referencehdc: Hdc, type: EmfType, framerect: COpaquePointer?, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipRecordMetafileFileName((filename?.value ?: 0L).toString(), (referencehdc?.value ?: 0L).toString(), type, (framerect?.value ?: 0L).toString(), frameunit, (description?.value ?: 0L).toString(), (metafile?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipRecordMetafileFileNameI(filename: PCWSTR, referencehdc: HDC, type: EmfType, framerect: Long, frameunit: MetafileFrameUnit, description: PCWSTR, metafile: Long): Status =
-    0
+public actual fun gdipRecordMetafileFileNameI(filename: Pcwstr, referencehdc: Hdc, type: EmfType, framerect: COpaquePointer?, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipRecordMetafileFileNameI((filename?.value ?: 0L).toString(), (referencehdc?.value ?: 0L).toString(), type, (framerect?.value ?: 0L).toString(), frameunit, (description?.value ?: 0L).toString(), (metafile?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipRecordMetafileI(referencehdc: HDC, type: EmfType, framerect: Long, frameunit: MetafileFrameUnit, description: PCWSTR, metafile: Long): Status =
-    0
+public actual fun gdipRecordMetafileI(referencehdc: Hdc, type: EmfType, framerect: COpaquePointer?, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipRecordMetafileI((referencehdc?.value ?: 0L).toString(), type, (framerect?.value ?: 0L).toString(), frameunit, (description?.value ?: 0L).toString(), (metafile?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipRecordMetafileStream(stream: Long, referencehdc: HDC, type: EmfType, framerect: Long, frameunit: MetafileFrameUnit, description: PCWSTR, metafile: Long): Status =
-    0
+public actual fun gdipRecordMetafileStream(stream: COpaquePointer?, referencehdc: Hdc, type: EmfType, framerect: COpaquePointer?, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipRecordMetafileStream((stream?.value ?: 0L).toString(), (referencehdc?.value ?: 0L).toString(), type, (framerect?.value ?: 0L).toString(), frameunit, (description?.value ?: 0L).toString(), (metafile?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipRecordMetafileStreamI(stream: Long, referencehdc: HDC, type: EmfType, framerect: Long, frameunit: MetafileFrameUnit, description: PCWSTR, metafile: Long): Status =
-    0
+public actual fun gdipRecordMetafileStreamI(stream: COpaquePointer?, referencehdc: Hdc, type: EmfType, framerect: COpaquePointer?, frameunit: MetafileFrameUnit, description: Pcwstr, metafile: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipRecordMetafileStreamI((stream?.value ?: 0L).toString(), (referencehdc?.value ?: 0L).toString(), type, (framerect?.value ?: 0L).toString(), frameunit, (description?.value ?: 0L).toString(), (metafile?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipReleaseDC(graphics: Long, hdc: HDC): Status =
-    0
+public actual fun gdipReleaseDC(graphics: COpaquePointer?, hdc: Hdc): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipReleaseDC((graphics?.value ?: 0L).toString(), (hdc?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipRemovePropertyItem(image: Long, propid: UInt): Status =
-    0
+public actual fun gdipRemovePropertyItem(image: COpaquePointer?, propid: UInt): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipRemovePropertyItem((image?.value ?: 0L).toString(), propid.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipResetClip(graphics: Long): Status =
-    0
+public actual fun gdipResetClip(graphics: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipResetClip((graphics?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipResetImageAttributes(imageattr: Long, type: ColorAdjustType): Status =
-    0
+public actual fun gdipResetImageAttributes(imageattr: COpaquePointer?, type: ColorAdjustType): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipResetImageAttributes((imageattr?.value ?: 0L).toString(), type) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipResetLineTransform(brush: Long): Status =
-    0
+public actual fun gdipResetLineTransform(brush: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipResetLineTransform((brush?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipResetPageTransform(graphics: Long): Status =
-    0
+public actual fun gdipResetPageTransform(graphics: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipResetPageTransform((graphics?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipResetPath(path: Long): Status =
-    0
+public actual fun gdipResetPath(path: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipResetPath((path?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipResetPathGradientTransform(brush: Long): Status =
-    0
+public actual fun gdipResetPathGradientTransform(brush: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipResetPathGradientTransform((brush?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipResetPenTransform(pen: Long): Status =
-    0
+public actual fun gdipResetPenTransform(pen: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipResetPenTransform((pen?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipResetTextureTransform(brush: Long): Status =
-    0
+public actual fun gdipResetTextureTransform(brush: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipResetTextureTransform((brush?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipResetWorldTransform(graphics: Long): Status =
-    0
+public actual fun gdipResetWorldTransform(graphics: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipResetWorldTransform((graphics?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipRestoreGraphics(graphics: Long, state: UInt): Status =
-    0
+public actual fun gdipRestoreGraphics(graphics: COpaquePointer?, state: UInt): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipRestoreGraphics((graphics?.value ?: 0L).toString(), state.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipReversePath(path: Long): Status =
-    0
+public actual fun gdipReversePath(path: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipReversePath((path?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipRotateLineTransform(brush: Long, angle: Float, order: MatrixOrder): Status =
-    0
+public actual fun gdipRotateLineTransform(brush: COpaquePointer?, angle: Float, order: MatrixOrder): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipRotateLineTransform((brush?.value ?: 0L).toString(), angle.toDouble(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipRotateMatrix(matrix: Long, angle: Float, order: MatrixOrder): Status =
-    0
+public actual fun gdipRotateMatrix(matrix: COpaquePointer?, angle: Float, order: MatrixOrder): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipRotateMatrix((matrix?.value ?: 0L).toString(), angle.toDouble(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipRotatePathGradientTransform(brush: Long, angle: Float, order: MatrixOrder): Status =
-    0
+public actual fun gdipRotatePathGradientTransform(brush: COpaquePointer?, angle: Float, order: MatrixOrder): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipRotatePathGradientTransform((brush?.value ?: 0L).toString(), angle.toDouble(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipRotatePenTransform(pen: Long, angle: Float, order: MatrixOrder): Status =
-    0
+public actual fun gdipRotatePenTransform(pen: COpaquePointer?, angle: Float, order: MatrixOrder): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipRotatePenTransform((pen?.value ?: 0L).toString(), angle.toDouble(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipRotateTextureTransform(brush: Long, angle: Float, order: MatrixOrder): Status =
-    0
+public actual fun gdipRotateTextureTransform(brush: COpaquePointer?, angle: Float, order: MatrixOrder): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipRotateTextureTransform((brush?.value ?: 0L).toString(), angle.toDouble(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipRotateWorldTransform(graphics: Long, angle: Float, order: MatrixOrder): Status =
-    0
+public actual fun gdipRotateWorldTransform(graphics: COpaquePointer?, angle: Float, order: MatrixOrder): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipRotateWorldTransform((graphics?.value ?: 0L).toString(), angle.toDouble(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSaveAdd(image: Long, encoderparams: Long): Status =
-    0
+public actual fun gdipSaveAdd(image: COpaquePointer?, encoderparams: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSaveAdd((image?.value ?: 0L).toString(), (encoderparams?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSaveAddImage(image: Long, newimage: Long, encoderparams: Long): Status =
-    0
+public actual fun gdipSaveAddImage(image: COpaquePointer?, newimage: COpaquePointer?, encoderparams: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSaveAddImage((image?.value ?: 0L).toString(), (newimage?.value ?: 0L).toString(), (encoderparams?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSaveGraphics(graphics: Long, state: Long): Status =
-    0
+public actual fun gdipSaveGraphics(graphics: COpaquePointer?, state: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSaveGraphics((graphics?.value ?: 0L).toString(), (state?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSaveImageToFile(image: Long, filename: PCWSTR, clsidencoder: Long, encoderparams: Long): Status =
-    0
+public actual fun gdipSaveImageToFile(image: COpaquePointer?, filename: Pcwstr, clsidencoder: COpaquePointer?, encoderparams: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSaveImageToFile((image?.value ?: 0L).toString(), (filename?.value ?: 0L).toString(), (clsidencoder?.value ?: 0L).toString(), (encoderparams?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSaveImageToStream(image: Long, stream: Long, clsidencoder: Long, encoderparams: Long): Status =
-    0
+public actual fun gdipSaveImageToStream(image: COpaquePointer?, stream: COpaquePointer?, clsidencoder: COpaquePointer?, encoderparams: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSaveImageToStream((image?.value ?: 0L).toString(), (stream?.value ?: 0L).toString(), (clsidencoder?.value ?: 0L).toString(), (encoderparams?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipScaleLineTransform(brush: Long, sx: Float, sy: Float, order: MatrixOrder): Status =
-    0
+public actual fun gdipScaleLineTransform(brush: COpaquePointer?, sx: Float, sy: Float, order: MatrixOrder): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipScaleLineTransform((brush?.value ?: 0L).toString(), sx.toDouble(), sy.toDouble(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipScaleMatrix(matrix: Long, scalex: Float, scaley: Float, order: MatrixOrder): Status =
-    0
+public actual fun gdipScaleMatrix(matrix: COpaquePointer?, scalex: Float, scaley: Float, order: MatrixOrder): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipScaleMatrix((matrix?.value ?: 0L).toString(), scalex.toDouble(), scaley.toDouble(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipScalePathGradientTransform(brush: Long, sx: Float, sy: Float, order: MatrixOrder): Status =
-    0
+public actual fun gdipScalePathGradientTransform(brush: COpaquePointer?, sx: Float, sy: Float, order: MatrixOrder): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipScalePathGradientTransform((brush?.value ?: 0L).toString(), sx.toDouble(), sy.toDouble(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipScalePenTransform(pen: Long, sx: Float, sy: Float, order: MatrixOrder): Status =
-    0
+public actual fun gdipScalePenTransform(pen: COpaquePointer?, sx: Float, sy: Float, order: MatrixOrder): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipScalePenTransform((pen?.value ?: 0L).toString(), sx.toDouble(), sy.toDouble(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipScaleTextureTransform(brush: Long, sx: Float, sy: Float, order: MatrixOrder): Status =
-    0
+public actual fun gdipScaleTextureTransform(brush: COpaquePointer?, sx: Float, sy: Float, order: MatrixOrder): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipScaleTextureTransform((brush?.value ?: 0L).toString(), sx.toDouble(), sy.toDouble(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipScaleWorldTransform(graphics: Long, sx: Float, sy: Float, order: MatrixOrder): Status =
-    0
+public actual fun gdipScaleWorldTransform(graphics: COpaquePointer?, sx: Float, sy: Float, order: MatrixOrder): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipScaleWorldTransform((graphics?.value ?: 0L).toString(), sx.toDouble(), sy.toDouble(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetAdjustableArrowCapFillState(cap: Long, fillstate: BOOL): Status =
-    0
+public actual fun gdipSetAdjustableArrowCapFillState(cap: COpaquePointer?, fillstate: Bool): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetAdjustableArrowCapFillState((cap?.value ?: 0L).toString(), fillstate) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetAdjustableArrowCapHeight(cap: Long, height: Float): Status =
-    0
+public actual fun gdipSetAdjustableArrowCapHeight(cap: COpaquePointer?, height: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetAdjustableArrowCapHeight((cap?.value ?: 0L).toString(), height.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetAdjustableArrowCapMiddleInset(cap: Long, middleinset: Float): Status =
-    0
+public actual fun gdipSetAdjustableArrowCapMiddleInset(cap: COpaquePointer?, middleinset: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetAdjustableArrowCapMiddleInset((cap?.value ?: 0L).toString(), middleinset.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetAdjustableArrowCapWidth(cap: Long, width: Float): Status =
-    0
+public actual fun gdipSetAdjustableArrowCapWidth(cap: COpaquePointer?, width: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetAdjustableArrowCapWidth((cap?.value ?: 0L).toString(), width.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetClipGraphics(graphics: Long, srcgraphics: Long, combinemode: CombineMode): Status =
-    0
+public actual fun gdipSetClipGraphics(graphics: COpaquePointer?, srcgraphics: COpaquePointer?, combinemode: CombineMode): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetClipGraphics((graphics?.value ?: 0L).toString(), (srcgraphics?.value ?: 0L).toString(), combinemode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetClipHrgn(graphics: Long, hrgn: HRGN, combinemode: CombineMode): Status =
-    0
+public actual fun gdipSetClipHrgn(graphics: COpaquePointer?, hrgn: Hrgn, combinemode: CombineMode): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetClipHrgn((graphics?.value ?: 0L).toString(), (hrgn?.value ?: 0L).toString(), combinemode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetClipPath(graphics: Long, path: Long, combinemode: CombineMode): Status =
-    0
+public actual fun gdipSetClipPath(graphics: COpaquePointer?, path: COpaquePointer?, combinemode: CombineMode): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetClipPath((graphics?.value ?: 0L).toString(), (path?.value ?: 0L).toString(), combinemode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetClipRect(graphics: Long, x: Float, y: Float, width: Float, height: Float, combinemode: CombineMode): Status =
-    0
+public actual fun gdipSetClipRect(graphics: COpaquePointer?, x: Float, y: Float, width: Float, height: Float, combinemode: CombineMode): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetClipRect((graphics?.value ?: 0L).toString(), x.toDouble(), y.toDouble(), width.toDouble(), height.toDouble(), combinemode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetClipRectI(graphics: Long, x: Int, y: Int, width: Int, height: Int, combinemode: CombineMode): Status =
-    0
+public actual fun gdipSetClipRectI(graphics: COpaquePointer?, x: Int, y: Int, width: Int, height: Int, combinemode: CombineMode): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetClipRectI((graphics?.value ?: 0L).toString(), x, y, width, height, combinemode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetClipRegion(graphics: Long, region: Long, combinemode: CombineMode): Status =
-    0
+public actual fun gdipSetClipRegion(graphics: COpaquePointer?, region: COpaquePointer?, combinemode: CombineMode): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetClipRegion((graphics?.value ?: 0L).toString(), (region?.value ?: 0L).toString(), combinemode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetCompositingMode(graphics: Long, compositingmode: CompositingMode): Status =
-    0
+public actual fun gdipSetCompositingMode(graphics: COpaquePointer?, compositingmode: CompositingMode): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetCompositingMode((graphics?.value ?: 0L).toString(), compositingmode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetCompositingQuality(graphics: Long, compositingquality: CompositingQuality): Status =
-    0
+public actual fun gdipSetCompositingQuality(graphics: COpaquePointer?, compositingquality: CompositingQuality): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetCompositingQuality((graphics?.value ?: 0L).toString(), compositingquality) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetCustomLineCapBaseCap(customcap: Long, basecap: LineCap): Status =
-    0
+public actual fun gdipSetCustomLineCapBaseCap(customcap: COpaquePointer?, basecap: LineCap): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetCustomLineCapBaseCap((customcap?.value ?: 0L).toString(), basecap) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetCustomLineCapBaseInset(customcap: Long, inset: Float): Status =
-    0
+public actual fun gdipSetCustomLineCapBaseInset(customcap: COpaquePointer?, inset: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetCustomLineCapBaseInset((customcap?.value ?: 0L).toString(), inset.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetCustomLineCapStrokeCaps(customcap: Long, startcap: LineCap, endcap: LineCap): Status =
-    0
+public actual fun gdipSetCustomLineCapStrokeCaps(customcap: COpaquePointer?, startcap: LineCap, endcap: LineCap): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetCustomLineCapStrokeCaps((customcap?.value ?: 0L).toString(), startcap, endcap) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetCustomLineCapStrokeJoin(customcap: Long, linejoin: LineJoin): Status =
-    0
+public actual fun gdipSetCustomLineCapStrokeJoin(customcap: COpaquePointer?, linejoin: LineJoin): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetCustomLineCapStrokeJoin((customcap?.value ?: 0L).toString(), linejoin) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetCustomLineCapWidthScale(customcap: Long, widthscale: Float): Status =
-    0
+public actual fun gdipSetCustomLineCapWidthScale(customcap: COpaquePointer?, widthscale: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetCustomLineCapWidthScale((customcap?.value ?: 0L).toString(), widthscale.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetEffectParameters(effect: Long, params: Long, size: UInt): Status =
-    0
+public actual fun gdipSetEffectParameters(effect: COpaquePointer?, params: COpaquePointer?, size: UInt): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetEffectParameters((effect?.value ?: 0L).toString(), (params?.value ?: 0L).toString(), size.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetEmpty(region: Long): Status =
-    0
+public actual fun gdipSetEmpty(region: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetEmpty((region?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetImageAttributesCachedBackground(imageattr: Long, enableflag: BOOL): Status =
-    0
+public actual fun gdipSetImageAttributesCachedBackground(imageattr: COpaquePointer?, enableflag: Bool): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesCachedBackground((imageattr?.value ?: 0L).toString(), enableflag) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetImageAttributesColorKeys(imageattr: Long, type: ColorAdjustType, enableflag: BOOL, colorlow: UInt, colorhigh: UInt): Status =
-    0
+public actual fun gdipSetImageAttributesColorKeys(imageattr: COpaquePointer?, type: ColorAdjustType, enableflag: Bool, colorlow: UInt, colorhigh: UInt): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesColorKeys((imageattr?.value ?: 0L).toString(), type, enableflag, colorlow.toInt(), colorhigh.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetImageAttributesColorMatrix(imageattr: Long, type: ColorAdjustType, enableflag: BOOL, colormatrix: Long, graymatrix: Long, flags: ColorMatrixFlags): Status =
-    0
+public actual fun gdipSetImageAttributesColorMatrix(imageattr: COpaquePointer?, type: ColorAdjustType, enableflag: Bool, colormatrix: COpaquePointer?, graymatrix: COpaquePointer?, flags: ColorMatrixFlags): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesColorMatrix((imageattr?.value ?: 0L).toString(), type, enableflag, (colormatrix?.value ?: 0L).toString(), (graymatrix?.value ?: 0L).toString(), flags) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetImageAttributesGamma(imageattr: Long, type: ColorAdjustType, enableflag: BOOL, gamma: Float): Status =
-    0
+public actual fun gdipSetImageAttributesGamma(imageattr: COpaquePointer?, type: ColorAdjustType, enableflag: Bool, gamma: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesGamma((imageattr?.value ?: 0L).toString(), type, enableflag, gamma.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetImageAttributesNoOp(imageattr: Long, type: ColorAdjustType, enableflag: BOOL): Status =
-    0
+public actual fun gdipSetImageAttributesNoOp(imageattr: COpaquePointer?, type: ColorAdjustType, enableflag: Bool): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesNoOp((imageattr?.value ?: 0L).toString(), type, enableflag) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetImageAttributesOutputChannel(imageattr: Long, type: ColorAdjustType, enableflag: BOOL, channelflags: ColorChannelFlags): Status =
-    0
+public actual fun gdipSetImageAttributesOutputChannel(imageattr: COpaquePointer?, type: ColorAdjustType, enableflag: Bool, channelflags: ColorChannelFlags): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesOutputChannel((imageattr?.value ?: 0L).toString(), type, enableflag, channelflags) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetImageAttributesOutputChannelColorProfile(imageattr: Long, type: ColorAdjustType, enableflag: BOOL, colorprofilefilename: PCWSTR): Status =
-    0
+public actual fun gdipSetImageAttributesOutputChannelColorProfile(imageattr: COpaquePointer?, type: ColorAdjustType, enableflag: Bool, colorprofilefilename: Pcwstr): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesOutputChannelColorProfile((imageattr?.value ?: 0L).toString(), type, enableflag, (colorprofilefilename?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetImageAttributesRemapTable(imageattr: Long, type: ColorAdjustType, enableflag: BOOL, mapsize: UInt, map: Long): Status =
-    0
+public actual fun gdipSetImageAttributesRemapTable(imageattr: COpaquePointer?, type: ColorAdjustType, enableflag: Bool, mapsize: UInt, map: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesRemapTable((imageattr?.value ?: 0L).toString(), type, enableflag, mapsize.toInt(), (map?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetImageAttributesThreshold(imageattr: Long, type: ColorAdjustType, enableflag: BOOL, threshold: Float): Status =
-    0
+public actual fun gdipSetImageAttributesThreshold(imageattr: COpaquePointer?, type: ColorAdjustType, enableflag: Bool, threshold: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesThreshold((imageattr?.value ?: 0L).toString(), type, enableflag, threshold.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetImageAttributesToIdentity(imageattr: Long, type: ColorAdjustType): Status =
-    0
+public actual fun gdipSetImageAttributesToIdentity(imageattr: COpaquePointer?, type: ColorAdjustType): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesToIdentity((imageattr?.value ?: 0L).toString(), type) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetImageAttributesWrapMode(imageattr: Long, wrap: WrapMode, argb: UInt, clamp: BOOL): Status =
-    0
+public actual fun gdipSetImageAttributesWrapMode(imageattr: COpaquePointer?, wrap: WrapMode, argb: UInt, clamp: Bool): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetImageAttributesWrapMode((imageattr?.value ?: 0L).toString(), wrap, argb.toInt(), clamp) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetImagePalette(image: Long, palette: Long): Status =
-    0
+public actual fun gdipSetImagePalette(image: COpaquePointer?, palette: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetImagePalette((image?.value ?: 0L).toString(), (palette?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetInfinite(region: Long): Status =
-    0
+public actual fun gdipSetInfinite(region: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetInfinite((region?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetInterpolationMode(graphics: Long, interpolationmode: InterpolationMode): Status =
-    0
+public actual fun gdipSetInterpolationMode(graphics: COpaquePointer?, interpolationmode: InterpolationMode): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetInterpolationMode((graphics?.value ?: 0L).toString(), interpolationmode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetLineBlend(brush: Long, blend: Long, positions: Long, count: Int): Status =
-    0
+public actual fun gdipSetLineBlend(brush: COpaquePointer?, blend: COpaquePointer?, positions: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetLineBlend((brush?.value ?: 0L).toString(), (blend?.value ?: 0L).toString(), (positions?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetLineColors(brush: Long, color1: UInt, color2: UInt): Status =
-    0
+public actual fun gdipSetLineColors(brush: COpaquePointer?, color1: UInt, color2: UInt): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetLineColors((brush?.value ?: 0L).toString(), color1.toInt(), color2.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetLineGammaCorrection(brush: Long, usegammacorrection: BOOL): Status =
-    0
+public actual fun gdipSetLineGammaCorrection(brush: COpaquePointer?, usegammacorrection: Bool): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetLineGammaCorrection((brush?.value ?: 0L).toString(), usegammacorrection) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetLineLinearBlend(brush: Long, focus: Float, scale: Float): Status =
-    0
+public actual fun gdipSetLineLinearBlend(brush: COpaquePointer?, focus: Float, scale: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetLineLinearBlend((brush?.value ?: 0L).toString(), focus.toDouble(), scale.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetLinePresetBlend(brush: Long, blend: Long, positions: Long, count: Int): Status =
-    0
+public actual fun gdipSetLinePresetBlend(brush: COpaquePointer?, blend: COpaquePointer?, positions: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetLinePresetBlend((brush?.value ?: 0L).toString(), (blend?.value ?: 0L).toString(), (positions?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetLineSigmaBlend(brush: Long, focus: Float, scale: Float): Status =
-    0
+public actual fun gdipSetLineSigmaBlend(brush: COpaquePointer?, focus: Float, scale: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetLineSigmaBlend((brush?.value ?: 0L).toString(), focus.toDouble(), scale.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetLineTransform(brush: Long, matrix: Long): Status =
-    0
+public actual fun gdipSetLineTransform(brush: COpaquePointer?, matrix: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetLineTransform((brush?.value ?: 0L).toString(), (matrix?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetLineWrapMode(brush: Long, wrapmode: WrapMode): Status =
-    0
+public actual fun gdipSetLineWrapMode(brush: COpaquePointer?, wrapmode: WrapMode): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetLineWrapMode((brush?.value ?: 0L).toString(), wrapmode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetMatrixElements(matrix: Long, m11: Float, m12: Float, m21: Float, m22: Float, dx: Float, dy: Float): Status =
-    0
+public actual fun gdipSetMatrixElements(matrix: COpaquePointer?, m11: Float, m12: Float, m21: Float, m22: Float, dx: Float, dy: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetMatrixElements((matrix?.value ?: 0L).toString(), m11.toDouble(), m12.toDouble(), m21.toDouble(), m22.toDouble(), dx.toDouble(), dy.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetMetafileDownLevelRasterizationLimit(metafile: Long, metafilerasterizationlimitdpi: UInt): Status =
-    0
+public actual fun gdipSetMetafileDownLevelRasterizationLimit(metafile: COpaquePointer?, metafilerasterizationlimitdpi: UInt): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetMetafileDownLevelRasterizationLimit((metafile?.value ?: 0L).toString(), metafilerasterizationlimitdpi.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetPageScale(graphics: Long, scale: Float): Status =
-    0
+public actual fun gdipSetPageScale(graphics: COpaquePointer?, scale: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPageScale((graphics?.value ?: 0L).toString(), scale.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetPageUnit(graphics: Long, unit: Unit): Status =
-    0
+public actual fun gdipSetPageUnit(graphics: COpaquePointer?, unit: Unit): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPageUnit((graphics?.value ?: 0L).toString(), unit) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetPathFillMode(path: Long, fillmode: FillMode): Status =
-    0
+public actual fun gdipSetPathFillMode(path: COpaquePointer?, fillmode: FillMode): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPathFillMode((path?.value ?: 0L).toString(), fillmode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetPathGradientBlend(brush: Long, blend: Long, positions: Long, count: Int): Status =
-    0
+public actual fun gdipSetPathGradientBlend(brush: COpaquePointer?, blend: COpaquePointer?, positions: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientBlend((brush?.value ?: 0L).toString(), (blend?.value ?: 0L).toString(), (positions?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetPathGradientCenterColor(brush: Long, colors: UInt): Status =
-    0
+public actual fun gdipSetPathGradientCenterColor(brush: COpaquePointer?, colors: UInt): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientCenterColor((brush?.value ?: 0L).toString(), colors.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetPathGradientCenterPoint(brush: Long, points: Long): Status =
-    0
+public actual fun gdipSetPathGradientCenterPoint(brush: COpaquePointer?, points: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientCenterPoint((brush?.value ?: 0L).toString(), (points?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetPathGradientCenterPointI(brush: Long, points: Long): Status =
-    0
+public actual fun gdipSetPathGradientCenterPointI(brush: COpaquePointer?, points: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientCenterPointI((brush?.value ?: 0L).toString(), (points?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetPathGradientFocusScales(brush: Long, xscale: Float, yscale: Float): Status =
-    0
+public actual fun gdipSetPathGradientFocusScales(brush: COpaquePointer?, xscale: Float, yscale: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientFocusScales((brush?.value ?: 0L).toString(), xscale.toDouble(), yscale.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetPathGradientGammaCorrection(brush: Long, usegammacorrection: BOOL): Status =
-    0
+public actual fun gdipSetPathGradientGammaCorrection(brush: COpaquePointer?, usegammacorrection: Bool): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientGammaCorrection((brush?.value ?: 0L).toString(), usegammacorrection) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetPathGradientLinearBlend(brush: Long, focus: Float, scale: Float): Status =
-    0
+public actual fun gdipSetPathGradientLinearBlend(brush: COpaquePointer?, focus: Float, scale: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientLinearBlend((brush?.value ?: 0L).toString(), focus.toDouble(), scale.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetPathGradientPath(brush: Long, path: Long): Status =
-    0
+public actual fun gdipSetPathGradientPath(brush: COpaquePointer?, path: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientPath((brush?.value ?: 0L).toString(), (path?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetPathGradientPresetBlend(brush: Long, blend: Long, positions: Long, count: Int): Status =
-    0
+public actual fun gdipSetPathGradientPresetBlend(brush: COpaquePointer?, blend: COpaquePointer?, positions: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientPresetBlend((brush?.value ?: 0L).toString(), (blend?.value ?: 0L).toString(), (positions?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetPathGradientSigmaBlend(brush: Long, focus: Float, scale: Float): Status =
-    0
+public actual fun gdipSetPathGradientSigmaBlend(brush: COpaquePointer?, focus: Float, scale: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientSigmaBlend((brush?.value ?: 0L).toString(), focus.toDouble(), scale.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetPathGradientSurroundColorsWithCount(brush: Long, color: Long, count: Long): Status =
-    0
+public actual fun gdipSetPathGradientSurroundColorsWithCount(brush: COpaquePointer?, color: COpaquePointer?, count: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientSurroundColorsWithCount((brush?.value ?: 0L).toString(), (color?.value ?: 0L).toString(), (count?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetPathGradientTransform(brush: Long, matrix: Long): Status =
-    0
+public actual fun gdipSetPathGradientTransform(brush: COpaquePointer?, matrix: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientTransform((brush?.value ?: 0L).toString(), (matrix?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetPathGradientWrapMode(brush: Long, wrapmode: WrapMode): Status =
-    0
+public actual fun gdipSetPathGradientWrapMode(brush: COpaquePointer?, wrapmode: WrapMode): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPathGradientWrapMode((brush?.value ?: 0L).toString(), wrapmode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetPathMarker(path: Long): Status =
-    0
+public actual fun gdipSetPathMarker(path: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPathMarker((path?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetPenBrushFill(pen: Long, brush: Long): Status =
-    0
+public actual fun gdipSetPenBrushFill(pen: COpaquePointer?, brush: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPenBrushFill((pen?.value ?: 0L).toString(), (brush?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetPenColor(pen: Long, argb: UInt): Status =
-    0
+public actual fun gdipSetPenColor(pen: COpaquePointer?, argb: UInt): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPenColor((pen?.value ?: 0L).toString(), argb.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetPenCompoundArray(pen: Long, dash: Long, count: Int): Status =
-    0
+public actual fun gdipSetPenCompoundArray(pen: COpaquePointer?, dash: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPenCompoundArray((pen?.value ?: 0L).toString(), (dash?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetPenCustomEndCap(pen: Long, customcap: Long): Status =
-    0
+public actual fun gdipSetPenCustomEndCap(pen: COpaquePointer?, customcap: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPenCustomEndCap((pen?.value ?: 0L).toString(), (customcap?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetPenCustomStartCap(pen: Long, customcap: Long): Status =
-    0
+public actual fun gdipSetPenCustomStartCap(pen: COpaquePointer?, customcap: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPenCustomStartCap((pen?.value ?: 0L).toString(), (customcap?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetPenDashArray(pen: Long, dash: Long, count: Int): Status =
-    0
+public actual fun gdipSetPenDashArray(pen: COpaquePointer?, dash: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPenDashArray((pen?.value ?: 0L).toString(), (dash?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetPenDashCap197819(pen: Long, dashcap: DashCap): Status =
-    0
+public actual fun gdipSetPenDashCap197819(pen: COpaquePointer?, dashcap: DashCap): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPenDashCap197819((pen?.value ?: 0L).toString(), dashcap) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetPenDashOffset(pen: Long, offset: Float): Status =
-    0
+public actual fun gdipSetPenDashOffset(pen: COpaquePointer?, offset: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPenDashOffset((pen?.value ?: 0L).toString(), offset.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetPenDashStyle(pen: Long, dashstyle: DashStyle): Status =
-    0
+public actual fun gdipSetPenDashStyle(pen: COpaquePointer?, dashstyle: DashStyle): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPenDashStyle((pen?.value ?: 0L).toString(), dashstyle) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetPenEndCap(pen: Long, endcap: LineCap): Status =
-    0
+public actual fun gdipSetPenEndCap(pen: COpaquePointer?, endcap: LineCap): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPenEndCap((pen?.value ?: 0L).toString(), endcap) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetPenLineCap197819(pen: Long, startcap: LineCap, endcap: LineCap, dashcap: DashCap): Status =
-    0
+public actual fun gdipSetPenLineCap197819(pen: COpaquePointer?, startcap: LineCap, endcap: LineCap, dashcap: DashCap): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPenLineCap197819((pen?.value ?: 0L).toString(), startcap, endcap, dashcap) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetPenLineJoin(pen: Long, linejoin: LineJoin): Status =
-    0
+public actual fun gdipSetPenLineJoin(pen: COpaquePointer?, linejoin: LineJoin): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPenLineJoin((pen?.value ?: 0L).toString(), linejoin) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetPenMiterLimit(pen: Long, miterlimit: Float): Status =
-    0
+public actual fun gdipSetPenMiterLimit(pen: COpaquePointer?, miterlimit: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPenMiterLimit((pen?.value ?: 0L).toString(), miterlimit.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetPenMode(pen: Long, penmode: PenAlignment): Status =
-    0
+public actual fun gdipSetPenMode(pen: COpaquePointer?, penmode: PenAlignment): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPenMode((pen?.value ?: 0L).toString(), penmode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetPenStartCap(pen: Long, startcap: LineCap): Status =
-    0
+public actual fun gdipSetPenStartCap(pen: COpaquePointer?, startcap: LineCap): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPenStartCap((pen?.value ?: 0L).toString(), startcap) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetPenTransform(pen: Long, matrix: Long): Status =
-    0
+public actual fun gdipSetPenTransform(pen: COpaquePointer?, matrix: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPenTransform((pen?.value ?: 0L).toString(), (matrix?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetPenUnit(pen: Long, unit: Unit): Status =
-    0
+public actual fun gdipSetPenUnit(pen: COpaquePointer?, unit: Unit): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPenUnit((pen?.value ?: 0L).toString(), unit) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetPenWidth(pen: Long, width: Float): Status =
-    0
+public actual fun gdipSetPenWidth(pen: COpaquePointer?, width: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPenWidth((pen?.value ?: 0L).toString(), width.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetPixelOffsetMode(graphics: Long, pixeloffsetmode: PixelOffsetMode): Status =
-    0
+public actual fun gdipSetPixelOffsetMode(graphics: COpaquePointer?, pixeloffsetmode: PixelOffsetMode): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPixelOffsetMode((graphics?.value ?: 0L).toString(), pixeloffsetmode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetPropertyItem(image: Long, item: Long): Status =
-    0
+public actual fun gdipSetPropertyItem(image: COpaquePointer?, item: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetPropertyItem((image?.value ?: 0L).toString(), (item?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetRenderingOrigin(graphics: Long, x: Int, y: Int): Status =
-    0
+public actual fun gdipSetRenderingOrigin(graphics: COpaquePointer?, x: Int, y: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetRenderingOrigin((graphics?.value ?: 0L).toString(), x, y) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetSmoothingMode(graphics: Long, smoothingmode: SmoothingMode): Status =
-    0
+public actual fun gdipSetSmoothingMode(graphics: COpaquePointer?, smoothingmode: SmoothingMode): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetSmoothingMode((graphics?.value ?: 0L).toString(), smoothingmode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetSolidFillColor(brush: Long, color: UInt): Status =
-    0
+public actual fun gdipSetSolidFillColor(brush: COpaquePointer?, color: UInt): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetSolidFillColor((brush?.value ?: 0L).toString(), color.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetStringFormatAlign(format: Long, align: StringAlignment): Status =
-    0
+public actual fun gdipSetStringFormatAlign(format: COpaquePointer?, align: StringAlignment): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetStringFormatAlign((format?.value ?: 0L).toString(), align) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetStringFormatDigitSubstitution(format: Long, language: UShort, substitute: StringDigitSubstitute): Status =
-    0
+public actual fun gdipSetStringFormatDigitSubstitution(format: COpaquePointer?, language: UShort, substitute: StringDigitSubstitute): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetStringFormatDigitSubstitution((format?.value ?: 0L).toString(), language.toInt(), substitute) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetStringFormatFlags(format: Long, flags: Int): Status =
-    0
+public actual fun gdipSetStringFormatFlags(format: COpaquePointer?, flags: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetStringFormatFlags((format?.value ?: 0L).toString(), flags) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetStringFormatHotkeyPrefix(format: Long, hotkeyprefix: Int): Status =
-    0
+public actual fun gdipSetStringFormatHotkeyPrefix(format: COpaquePointer?, hotkeyprefix: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetStringFormatHotkeyPrefix((format?.value ?: 0L).toString(), hotkeyprefix) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetStringFormatLineAlign(format: Long, align: StringAlignment): Status =
-    0
+public actual fun gdipSetStringFormatLineAlign(format: COpaquePointer?, align: StringAlignment): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetStringFormatLineAlign((format?.value ?: 0L).toString(), align) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetStringFormatMeasurableCharacterRanges(format: Long, rangecount: Int, ranges: Long): Status =
-    0
+public actual fun gdipSetStringFormatMeasurableCharacterRanges(format: COpaquePointer?, rangecount: Int, ranges: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetStringFormatMeasurableCharacterRanges((format?.value ?: 0L).toString(), rangecount, (ranges?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetStringFormatTabStops(format: Long, firsttaboffset: Float, count: Int, tabstops: Long): Status =
-    0
+public actual fun gdipSetStringFormatTabStops(format: COpaquePointer?, firsttaboffset: Float, count: Int, tabstops: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetStringFormatTabStops((format?.value ?: 0L).toString(), firsttaboffset.toDouble(), count, (tabstops?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetStringFormatTrimming(format: Long, trimming: StringTrimming): Status =
-    0
+public actual fun gdipSetStringFormatTrimming(format: COpaquePointer?, trimming: StringTrimming): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetStringFormatTrimming((format?.value ?: 0L).toString(), trimming) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetTextContrast(graphics: Long, contrast: UInt): Status =
-    0
+public actual fun gdipSetTextContrast(graphics: COpaquePointer?, contrast: UInt): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetTextContrast((graphics?.value ?: 0L).toString(), contrast.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetTextRenderingHint(graphics: Long, mode: TextRenderingHint): Status =
-    0
+public actual fun gdipSetTextRenderingHint(graphics: COpaquePointer?, mode: TextRenderingHint): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetTextRenderingHint((graphics?.value ?: 0L).toString(), mode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetTextureTransform(brush: Long, matrix: Long): Status =
-    0
+public actual fun gdipSetTextureTransform(brush: COpaquePointer?, matrix: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetTextureTransform((brush?.value ?: 0L).toString(), (matrix?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetTextureWrapMode(brush: Long, wrapmode: WrapMode): Status =
-    0
+public actual fun gdipSetTextureWrapMode(brush: COpaquePointer?, wrapmode: WrapMode): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetTextureWrapMode((brush?.value ?: 0L).toString(), wrapmode) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipSetWorldTransform(graphics: Long, matrix: Long): Status =
-    0
+public actual fun gdipSetWorldTransform(graphics: COpaquePointer?, matrix: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipSetWorldTransform((graphics?.value ?: 0L).toString(), (matrix?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipShearMatrix(matrix: Long, shearx: Float, sheary: Float, order: MatrixOrder): Status =
-    0
+public actual fun gdipShearMatrix(matrix: COpaquePointer?, shearx: Float, sheary: Float, order: MatrixOrder): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipShearMatrix((matrix?.value ?: 0L).toString(), shearx.toDouble(), sheary.toDouble(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipStartPathFigure(path: Long): Status =
-    0
+public actual fun gdipStartPathFigure(path: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipStartPathFigure((path?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipStringFormatGetGenericDefault(format: Long): Status =
-    0
+public actual fun gdipStringFormatGetGenericDefault(format: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipStringFormatGetGenericDefault((format?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipStringFormatGetGenericTypographic(format: Long): Status =
-    0
+public actual fun gdipStringFormatGetGenericTypographic(format: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipStringFormatGetGenericTypographic((format?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipTestControl(control: GpTestControlEnum, param1: Long): Status =
-    0
+public actual fun gdipTestControl(control: GpTestControlEnum, param1: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipTestControl(control, (param1?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipTransformMatrixPoints(matrix: Long, pts: Long, count: Int): Status =
-    0
+public actual fun gdipTransformMatrixPoints(matrix: COpaquePointer?, pts: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipTransformMatrixPoints((matrix?.value ?: 0L).toString(), (pts?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipTransformMatrixPointsI(matrix: Long, pts: Long, count: Int): Status =
-    0
+public actual fun gdipTransformMatrixPointsI(matrix: COpaquePointer?, pts: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipTransformMatrixPointsI((matrix?.value ?: 0L).toString(), (pts?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipTransformPath(path: Long, matrix: Long): Status =
-    0
+public actual fun gdipTransformPath(path: COpaquePointer?, matrix: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipTransformPath((path?.value ?: 0L).toString(), (matrix?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipTransformPoints(graphics: Long, destspace: CoordinateSpace, srcspace: CoordinateSpace, points: Long, count: Int): Status =
-    0
+public actual fun gdipTransformPoints(graphics: COpaquePointer?, destspace: CoordinateSpace, srcspace: CoordinateSpace, points: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipTransformPoints((graphics?.value ?: 0L).toString(), destspace, srcspace, (points?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipTransformPointsI(graphics: Long, destspace: CoordinateSpace, srcspace: CoordinateSpace, points: Long, count: Int): Status =
-    0
+public actual fun gdipTransformPointsI(graphics: COpaquePointer?, destspace: CoordinateSpace, srcspace: CoordinateSpace, points: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipTransformPointsI((graphics?.value ?: 0L).toString(), destspace, srcspace, (points?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipTransformRegion(region: Long, matrix: Long): Status =
-    0
+public actual fun gdipTransformRegion(region: COpaquePointer?, matrix: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipTransformRegion((region?.value ?: 0L).toString(), (matrix?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipTranslateClip(graphics: Long, dx: Float, dy: Float): Status =
-    0
+public actual fun gdipTranslateClip(graphics: COpaquePointer?, dx: Float, dy: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipTranslateClip((graphics?.value ?: 0L).toString(), dx.toDouble(), dy.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipTranslateClipI(graphics: Long, dx: Int, dy: Int): Status =
-    0
+public actual fun gdipTranslateClipI(graphics: COpaquePointer?, dx: Int, dy: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipTranslateClipI((graphics?.value ?: 0L).toString(), dx, dy) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipTranslateLineTransform(brush: Long, dx: Float, dy: Float, order: MatrixOrder): Status =
-    0
+public actual fun gdipTranslateLineTransform(brush: COpaquePointer?, dx: Float, dy: Float, order: MatrixOrder): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipTranslateLineTransform((brush?.value ?: 0L).toString(), dx.toDouble(), dy.toDouble(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipTranslateMatrix(matrix: Long, offsetx: Float, offsety: Float, order: MatrixOrder): Status =
-    0
+public actual fun gdipTranslateMatrix(matrix: COpaquePointer?, offsetx: Float, offsety: Float, order: MatrixOrder): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipTranslateMatrix((matrix?.value ?: 0L).toString(), offsetx.toDouble(), offsety.toDouble(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipTranslatePathGradientTransform(brush: Long, dx: Float, dy: Float, order: MatrixOrder): Status =
-    0
+public actual fun gdipTranslatePathGradientTransform(brush: COpaquePointer?, dx: Float, dy: Float, order: MatrixOrder): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipTranslatePathGradientTransform((brush?.value ?: 0L).toString(), dx.toDouble(), dy.toDouble(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipTranslatePenTransform(pen: Long, dx: Float, dy: Float, order: MatrixOrder): Status =
-    0
+public actual fun gdipTranslatePenTransform(pen: COpaquePointer?, dx: Float, dy: Float, order: MatrixOrder): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipTranslatePenTransform((pen?.value ?: 0L).toString(), dx.toDouble(), dy.toDouble(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipTranslateRegion(region: Long, dx: Float, dy: Float): Status =
-    0
+public actual fun gdipTranslateRegion(region: COpaquePointer?, dx: Float, dy: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipTranslateRegion((region?.value ?: 0L).toString(), dx.toDouble(), dy.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipTranslateRegionI(region: Long, dx: Int, dy: Int): Status =
-    0
+public actual fun gdipTranslateRegionI(region: COpaquePointer?, dx: Int, dy: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipTranslateRegionI((region?.value ?: 0L).toString(), dx, dy) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipTranslateTextureTransform(brush: Long, dx: Float, dy: Float, order: MatrixOrder): Status =
-    0
+public actual fun gdipTranslateTextureTransform(brush: COpaquePointer?, dx: Float, dy: Float, order: MatrixOrder): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipTranslateTextureTransform((brush?.value ?: 0L).toString(), dx.toDouble(), dy.toDouble(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipTranslateWorldTransform(graphics: Long, dx: Float, dy: Float, order: MatrixOrder): Status =
-    0
+public actual fun gdipTranslateWorldTransform(graphics: COpaquePointer?, dx: Float, dy: Float, order: MatrixOrder): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipTranslateWorldTransform((graphics?.value ?: 0L).toString(), dx.toDouble(), dy.toDouble(), order) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipVectorTransformMatrixPoints(matrix: Long, pts: Long, count: Int): Status =
-    0
+public actual fun gdipVectorTransformMatrixPoints(matrix: COpaquePointer?, pts: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipVectorTransformMatrixPoints((matrix?.value ?: 0L).toString(), (pts?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipVectorTransformMatrixPointsI(matrix: Long, pts: Long, count: Int): Status =
-    0
+public actual fun gdipVectorTransformMatrixPointsI(matrix: COpaquePointer?, pts: COpaquePointer?, count: Int): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipVectorTransformMatrixPointsI((matrix?.value ?: 0L).toString(), (pts?.value ?: 0L).toString(), count) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipWarpPath(path: Long, matrix: Long, points: Long, count: Int, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, warpmode: WarpMode, flatness: Float): Status =
-    0
+public actual fun gdipWarpPath(path: COpaquePointer?, matrix: COpaquePointer?, points: COpaquePointer?, count: Int, srcx: Float, srcy: Float, srcwidth: Float, srcheight: Float, warpmode: WarpMode, flatness: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipWarpPath((path?.value ?: 0L).toString(), (matrix?.value ?: 0L).toString(), (points?.value ?: 0L).toString(), count, srcx.toDouble(), srcy.toDouble(), srcwidth.toDouble(), srcheight.toDouble(), warpmode, flatness.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipWidenPath(nativepath: Long, pen: Long, matrix: Long, flatness: Float): Status =
-    0
+public actual fun gdipWidenPath(nativepath: COpaquePointer?, pen: COpaquePointer?, matrix: COpaquePointer?, flatness: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipWidenPath((nativepath?.value ?: 0L).toString(), (pen?.value ?: 0L).toString(), (matrix?.value ?: 0L).toString(), flatness.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdipWindingModeOutline(path: Long, matrix: Long, flatness: Float): Status =
-    0
+public actual fun gdipWindingModeOutline(path: COpaquePointer?, matrix: COpaquePointer?, flatness: Float): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdipWindingModeOutline((path?.value ?: 0L).toString(), (matrix?.value ?: 0L).toString(), flatness.toDouble()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdiplusNotificationHook(token: Long): Status =
-    0
+public actual fun gdiplusNotificationHook(token: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdiplusNotificationHook((token?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GdiplusNotificationUnhook(token: ULong) {
+public actual fun gdiplusNotificationUnhook(token: ULong) {
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) {
+        _wasm_windowssys_windows_win32_graphics_gdiplus_gdiplusNotificationUnhook(token.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun GdiplusShutdown(token: ULong) {
+public actual fun gdiplusShutdown(token: ULong) {
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) {
+        _wasm_windowssys_windows_win32_graphics_gdiplus_gdiplusShutdown(token.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun GdiplusStartup(token: Long, input: Long, output: Long): Status =
-    0
+public actual fun gdiplusStartup(token: COpaquePointer?, input: COpaquePointer?, output: COpaquePointer?): Status =
+    if (_windowsWin32GraphicsGdiplusNapiAvailable) _wasm_windowssys_windows_win32_graphics_gdiplus_gdiplusStartup((token?.value ?: 0L).toString(), (input?.value ?: 0L).toString(), (output?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")

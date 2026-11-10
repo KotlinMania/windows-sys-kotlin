@@ -2,12 +2,13 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
 
 private object WindowsWin32DevicesHumaninterfacedeviceJniBridge {
     init {
@@ -15,285 +16,285 @@ private object WindowsWin32DevicesHumaninterfacedeviceJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_DirectInput8Create(hinst: Long, dwversion: Int, riidltf: Long, ppvout: Long, punkouter: Long): Int
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_directInput8Create(hinst: Long, dwversion: Int, riidltf: Long, ppvout: Long, punkouter: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidD_FlushQueue(hiddeviceobject: Long): Boolean
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidDFlushQueue(hiddeviceobject: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidD_FreePreparsedData(preparseddata: Long): Boolean
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidDFreePreparsedData(preparseddata: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetAttributes(hiddeviceobject: Long, attributes: Long): Boolean
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidDGetAttributes(hiddeviceobject: Long, attributes: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetConfiguration(hiddeviceobject: Long, configuration: Long, configurationlength: Int): Boolean
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidDGetConfiguration(hiddeviceobject: Long, configuration: Long, configurationlength: Int): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetFeature(hiddeviceobject: Long, reportbuffer: Long, reportbufferlength: Int): Boolean
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidDGetFeature(hiddeviceobject: Long, reportbuffer: Long, reportbufferlength: Int): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetHidGuid(hidguid: Long)
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidDGetHidGuid(hidguid: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetIndexedString(hiddeviceobject: Long, stringindex: Int, buffer: Long, bufferlength: Int): Boolean
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidDGetIndexedString(hiddeviceobject: Long, stringindex: Int, buffer: Long, bufferlength: Int): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetInputReport(hiddeviceobject: Long, reportbuffer: Long, reportbufferlength: Int): Boolean
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidDGetInputReport(hiddeviceobject: Long, reportbuffer: Long, reportbufferlength: Int): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetManufacturerString(hiddeviceobject: Long, buffer: Long, bufferlength: Int): Boolean
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidDGetManufacturerString(hiddeviceobject: Long, buffer: Long, bufferlength: Int): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetMsGenreDescriptor(hiddeviceobject: Long, buffer: Long, bufferlength: Int): Boolean
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidDGetMsGenreDescriptor(hiddeviceobject: Long, buffer: Long, bufferlength: Int): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetNumInputBuffers(hiddeviceobject: Long, numberbuffers: Long): Boolean
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidDGetNumInputBuffers(hiddeviceobject: Long, numberbuffers: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetPhysicalDescriptor(hiddeviceobject: Long, buffer: Long, bufferlength: Int): Boolean
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidDGetPhysicalDescriptor(hiddeviceobject: Long, buffer: Long, bufferlength: Int): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetPreparsedData(hiddeviceobject: Long, preparseddata: Long): Boolean
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidDGetPreparsedData(hiddeviceobject: Long, preparseddata: Long): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetProductString(hiddeviceobject: Long, buffer: Long, bufferlength: Int): Boolean
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidDGetProductString(hiddeviceobject: Long, buffer: Long, bufferlength: Int): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetSerialNumberString(hiddeviceobject: Long, buffer: Long, bufferlength: Int): Boolean
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidDGetSerialNumberString(hiddeviceobject: Long, buffer: Long, bufferlength: Int): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidD_SetConfiguration(hiddeviceobject: Long, configuration: Long, configurationlength: Int): Boolean
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidDSetConfiguration(hiddeviceobject: Long, configuration: Long, configurationlength: Int): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidD_SetFeature(hiddeviceobject: Long, reportbuffer: Long, reportbufferlength: Int): Boolean
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidDSetFeature(hiddeviceobject: Long, reportbuffer: Long, reportbufferlength: Int): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidD_SetNumInputBuffers(hiddeviceobject: Long, numberbuffers: Int): Boolean
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidDSetNumInputBuffers(hiddeviceobject: Long, numberbuffers: Int): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidD_SetOutputReport(hiddeviceobject: Long, reportbuffer: Long, reportbufferlength: Int): Boolean
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidDSetOutputReport(hiddeviceobject: Long, reportbuffer: Long, reportbufferlength: Int): Boolean
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetButtonArray(reporttype: Int, usagepage: Short, linkcollection: Short, usage: Short, buttondata: Long, buttondatalength: Long, preparseddata: Long, report: Long, reportlength: Int): Int
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidPGetButtonArray(reporttype: Int, usagepage: Short, linkcollection: Short, usage: Short, buttondata: Long, buttondatalength: Long, preparseddata: Long, report: Long, reportlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetButtonCaps(reporttype: Int, buttoncaps: Long, buttoncapslength: Long, preparseddata: Long): Int
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidPGetButtonCaps(reporttype: Int, buttoncaps: Long, buttoncapslength: Long, preparseddata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetCaps(preparseddata: Long, capabilities: Long): Int
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidPGetCaps(preparseddata: Long, capabilities: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetData(reporttype: Int, datalist: Long, datalength: Long, preparseddata: Long, report: Long, reportlength: Int): Int
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidPGetData(reporttype: Int, datalist: Long, datalength: Long, preparseddata: Long, report: Long, reportlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetExtendedAttributes(reporttype: Int, dataindex: Short, preparseddata: Long, attributes: Long, lengthattributes: Long): Int
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidPGetExtendedAttributes(reporttype: Int, dataindex: Short, preparseddata: Long, attributes: Long, lengthattributes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetLinkCollectionNodes(linkcollectionnodes: Long, linkcollectionnodeslength: Long, preparseddata: Long): Int
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidPGetLinkCollectionNodes(linkcollectionnodes: Long, linkcollectionnodeslength: Long, preparseddata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetScaledUsageValue(reporttype: Int, usagepage: Short, linkcollection: Short, usage: Short, usagevalue: Long, preparseddata: Long, report: Long, reportlength: Int): Int
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidPGetScaledUsageValue(reporttype: Int, usagepage: Short, linkcollection: Short, usage: Short, usagevalue: Long, preparseddata: Long, report: Long, reportlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetSpecificButtonCaps(reporttype: Int, usagepage: Short, linkcollection: Short, usage: Short, buttoncaps: Long, buttoncapslength: Long, preparseddata: Long): Int
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidPGetSpecificButtonCaps(reporttype: Int, usagepage: Short, linkcollection: Short, usage: Short, buttoncaps: Long, buttoncapslength: Long, preparseddata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetSpecificValueCaps(reporttype: Int, usagepage: Short, linkcollection: Short, usage: Short, valuecaps: Long, valuecapslength: Long, preparseddata: Long): Int
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidPGetSpecificValueCaps(reporttype: Int, usagepage: Short, linkcollection: Short, usage: Short, valuecaps: Long, valuecapslength: Long, preparseddata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetUsageValue(reporttype: Int, usagepage: Short, linkcollection: Short, usage: Short, usagevalue: Long, preparseddata: Long, report: Long, reportlength: Int): Int
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidPGetUsageValue(reporttype: Int, usagepage: Short, linkcollection: Short, usage: Short, usagevalue: Long, preparseddata: Long, report: Long, reportlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetUsageValueArray(reporttype: Int, usagepage: Short, linkcollection: Short, usage: Short, usagevalue: Long, usagevaluebytelength: Short, preparseddata: Long, report: Long, reportlength: Int): Int
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidPGetUsageValueArray(reporttype: Int, usagepage: Short, linkcollection: Short, usage: Short, usagevalue: Long, usagevaluebytelength: Short, preparseddata: Long, report: Long, reportlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetUsages(reporttype: Int, usagepage: Short, linkcollection: Short, usagelist: Long, usagelength: Long, preparseddata: Long, report: Long, reportlength: Int): Int
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidPGetUsages(reporttype: Int, usagepage: Short, linkcollection: Short, usagelist: Long, usagelength: Long, preparseddata: Long, report: Long, reportlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetUsagesEx(reporttype: Int, linkcollection: Short, buttonlist: Long, usagelength: Long, preparseddata: Long, report: Long, reportlength: Int): Int
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidPGetUsagesEx(reporttype: Int, linkcollection: Short, buttonlist: Long, usagelength: Long, preparseddata: Long, report: Long, reportlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetValueCaps(reporttype: Int, valuecaps: Long, valuecapslength: Long, preparseddata: Long): Int
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidPGetValueCaps(reporttype: Int, valuecaps: Long, valuecapslength: Long, preparseddata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidP_InitializeReportForID(reporttype: Int, reportid: Byte, preparseddata: Long, report: Long, reportlength: Int): Int
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidPInitializeReportForId(reporttype: Int, reportid: Byte, preparseddata: Long, report: Long, reportlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidP_MaxDataListLength(reporttype: Int, preparseddata: Long): Int
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidPMaxDataListLength(reporttype: Int, preparseddata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidP_MaxUsageListLength(reporttype: Int, usagepage: Short, preparseddata: Long): Int
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidPMaxUsageListLength(reporttype: Int, usagepage: Short, preparseddata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidP_SetButtonArray(reporttype: Int, usagepage: Short, linkcollection: Short, usage: Short, buttondata: Long, buttondatalength: Short, preparseddata: Long, report: Long, reportlength: Int): Int
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidPSetButtonArray(reporttype: Int, usagepage: Short, linkcollection: Short, usage: Short, buttondata: Long, buttondatalength: Short, preparseddata: Long, report: Long, reportlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidP_SetData(reporttype: Int, datalist: Long, datalength: Long, preparseddata: Long, report: Long, reportlength: Int): Int
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidPSetData(reporttype: Int, datalist: Long, datalength: Long, preparseddata: Long, report: Long, reportlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidP_SetScaledUsageValue(reporttype: Int, usagepage: Short, linkcollection: Short, usage: Short, usagevalue: Int, preparseddata: Long, report: Long, reportlength: Int): Int
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidPSetScaledUsageValue(reporttype: Int, usagepage: Short, linkcollection: Short, usage: Short, usagevalue: Int, preparseddata: Long, report: Long, reportlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidP_SetUsageValue(reporttype: Int, usagepage: Short, linkcollection: Short, usage: Short, usagevalue: Int, preparseddata: Long, report: Long, reportlength: Int): Int
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidPSetUsageValue(reporttype: Int, usagepage: Short, linkcollection: Short, usage: Short, usagevalue: Int, preparseddata: Long, report: Long, reportlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidP_SetUsageValueArray(reporttype: Int, usagepage: Short, linkcollection: Short, usage: Short, usagevalue: Long, usagevaluebytelength: Short, preparseddata: Long, report: Long, reportlength: Int): Int
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidPSetUsageValueArray(reporttype: Int, usagepage: Short, linkcollection: Short, usage: Short, usagevalue: Long, usagevaluebytelength: Short, preparseddata: Long, report: Long, reportlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidP_SetUsages(reporttype: Int, usagepage: Short, linkcollection: Short, usagelist: Long, usagelength: Long, preparseddata: Long, report: Long, reportlength: Int): Int
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidPSetUsages(reporttype: Int, usagepage: Short, linkcollection: Short, usagelist: Long, usagelength: Long, preparseddata: Long, report: Long, reportlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidP_TranslateUsagesToI8042ScanCodes(changedusagelist: Long, usagelistlength: Int, keyaction: Int, modifierstate: Long, insertcodesprocedure: Long, insertcodescontext: Long): Int
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidPTranslateUsagesToI8042ScanCodes(changedusagelist: Long, usagelistlength: Int, keyaction: Int, modifierstate: Long, insertcodesprocedure: Long, insertcodescontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidP_UnsetUsages(reporttype: Int, usagepage: Short, linkcollection: Short, usagelist: Long, usagelength: Long, preparseddata: Long, report: Long, reportlength: Int): Int
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidPUnsetUsages(reporttype: Int, usagepage: Short, linkcollection: Short, usagelist: Long, usagelength: Long, preparseddata: Long, report: Long, reportlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_humaninterfacedevice_HidP_UsageListDifference(previoususagelist: Long, currentusagelist: Long, breakusagelist: Long, makeusagelist: Long, usagelistlength: Int): Int
+    external fun windowssys_windows_win32_devices_humaninterfacedevice_hidPUsageListDifference(previoususagelist: Long, currentusagelist: Long, breakusagelist: Long, makeusagelist: Long, usagelistlength: Int): Int
 
     @JvmStatic
     external fun windowssys_windows_win32_devices_humaninterfacedevice_joyConfigChanged(dwflags: Int): Int
 }
 
-public actual fun DirectInput8Create(hinst: HINSTANCE, dwversion: UInt, riidltf: Long, ppvout: Long, punkouter: Long): HRESULT =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_DirectInput8Create(hinst, dwversion.toInt(), riidltf, ppvout, punkouter)
+public actual fun directInput8Create(hinst: Hinstance, dwversion: UInt, riidltf: COpaquePointer?, ppvout: COpaquePointer?, punkouter: COpaquePointer?): Hresult =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_directInput8Create((hinst?.value ?: 0L), dwversion.toInt(), (riidltf?.value ?: 0L), (ppvout?.value ?: 0L), (punkouter?.value ?: 0L))
 
-public actual fun HidD_FlushQueue(hiddeviceobject: HANDLE): Boolean =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidD_FlushQueue(hiddeviceobject)
+public actual fun hidDFlushQueue(hiddeviceobject: Handle): Boolean =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidDFlushQueue((hiddeviceobject?.value ?: 0L))
 
-public actual fun HidD_FreePreparsedData(preparseddata: PHIDP_PREPARSED_DATA): Boolean =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidD_FreePreparsedData(preparseddata)
+public actual fun hidDFreePreparsedData(preparseddata: PhidpPreparsedData): Boolean =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidDFreePreparsedData(preparseddata.toLong())
 
-public actual fun HidD_GetAttributes(hiddeviceobject: HANDLE, attributes: Long): Boolean =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetAttributes(hiddeviceobject, attributes)
+public actual fun hidDGetAttributes(hiddeviceobject: Handle, attributes: COpaquePointer?): Boolean =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidDGetAttributes((hiddeviceobject?.value ?: 0L), (attributes?.value ?: 0L))
 
-public actual fun HidD_GetConfiguration(hiddeviceobject: HANDLE, configuration: Long, configurationlength: UInt): Boolean =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetConfiguration(hiddeviceobject, configuration, configurationlength.toInt())
+public actual fun hidDGetConfiguration(hiddeviceobject: Handle, configuration: COpaquePointer?, configurationlength: UInt): Boolean =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidDGetConfiguration((hiddeviceobject?.value ?: 0L), (configuration?.value ?: 0L), configurationlength.toInt())
 
-public actual fun HidD_GetFeature(hiddeviceobject: HANDLE, reportbuffer: Long, reportbufferlength: UInt): Boolean =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetFeature(hiddeviceobject, reportbuffer, reportbufferlength.toInt())
+public actual fun hidDGetFeature(hiddeviceobject: Handle, reportbuffer: COpaquePointer?, reportbufferlength: UInt): Boolean =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidDGetFeature((hiddeviceobject?.value ?: 0L), (reportbuffer?.value ?: 0L), reportbufferlength.toInt())
 
-public actual fun HidD_GetHidGuid(hidguid: Long) {
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetHidGuid(hidguid)
+public actual fun hidDGetHidGuid(hidguid: COpaquePointer?) {
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidDGetHidGuid((hidguid?.value ?: 0L))
 }
 
-public actual fun HidD_GetIndexedString(hiddeviceobject: HANDLE, stringindex: UInt, buffer: Long, bufferlength: UInt): Boolean =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetIndexedString(hiddeviceobject, stringindex.toInt(), buffer, bufferlength.toInt())
+public actual fun hidDGetIndexedString(hiddeviceobject: Handle, stringindex: UInt, buffer: COpaquePointer?, bufferlength: UInt): Boolean =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidDGetIndexedString((hiddeviceobject?.value ?: 0L), stringindex.toInt(), (buffer?.value ?: 0L), bufferlength.toInt())
 
-public actual fun HidD_GetInputReport(hiddeviceobject: HANDLE, reportbuffer: Long, reportbufferlength: UInt): Boolean =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetInputReport(hiddeviceobject, reportbuffer, reportbufferlength.toInt())
+public actual fun hidDGetInputReport(hiddeviceobject: Handle, reportbuffer: COpaquePointer?, reportbufferlength: UInt): Boolean =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidDGetInputReport((hiddeviceobject?.value ?: 0L), (reportbuffer?.value ?: 0L), reportbufferlength.toInt())
 
-public actual fun HidD_GetManufacturerString(hiddeviceobject: HANDLE, buffer: Long, bufferlength: UInt): Boolean =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetManufacturerString(hiddeviceobject, buffer, bufferlength.toInt())
+public actual fun hidDGetManufacturerString(hiddeviceobject: Handle, buffer: COpaquePointer?, bufferlength: UInt): Boolean =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidDGetManufacturerString((hiddeviceobject?.value ?: 0L), (buffer?.value ?: 0L), bufferlength.toInt())
 
-public actual fun HidD_GetMsGenreDescriptor(hiddeviceobject: HANDLE, buffer: Long, bufferlength: UInt): Boolean =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetMsGenreDescriptor(hiddeviceobject, buffer, bufferlength.toInt())
+public actual fun hidDGetMsGenreDescriptor(hiddeviceobject: Handle, buffer: COpaquePointer?, bufferlength: UInt): Boolean =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidDGetMsGenreDescriptor((hiddeviceobject?.value ?: 0L), (buffer?.value ?: 0L), bufferlength.toInt())
 
-public actual fun HidD_GetNumInputBuffers(hiddeviceobject: HANDLE, numberbuffers: Long): Boolean =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetNumInputBuffers(hiddeviceobject, numberbuffers)
+public actual fun hidDGetNumInputBuffers(hiddeviceobject: Handle, numberbuffers: COpaquePointer?): Boolean =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidDGetNumInputBuffers((hiddeviceobject?.value ?: 0L), (numberbuffers?.value ?: 0L))
 
-public actual fun HidD_GetPhysicalDescriptor(hiddeviceobject: HANDLE, buffer: Long, bufferlength: UInt): Boolean =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetPhysicalDescriptor(hiddeviceobject, buffer, bufferlength.toInt())
+public actual fun hidDGetPhysicalDescriptor(hiddeviceobject: Handle, buffer: COpaquePointer?, bufferlength: UInt): Boolean =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidDGetPhysicalDescriptor((hiddeviceobject?.value ?: 0L), (buffer?.value ?: 0L), bufferlength.toInt())
 
-public actual fun HidD_GetPreparsedData(hiddeviceobject: HANDLE, preparseddata: Long): Boolean =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetPreparsedData(hiddeviceobject, preparseddata)
+public actual fun hidDGetPreparsedData(hiddeviceobject: Handle, preparseddata: COpaquePointer?): Boolean =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidDGetPreparsedData((hiddeviceobject?.value ?: 0L), (preparseddata?.value ?: 0L))
 
-public actual fun HidD_GetProductString(hiddeviceobject: HANDLE, buffer: Long, bufferlength: UInt): Boolean =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetProductString(hiddeviceobject, buffer, bufferlength.toInt())
+public actual fun hidDGetProductString(hiddeviceobject: Handle, buffer: COpaquePointer?, bufferlength: UInt): Boolean =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidDGetProductString((hiddeviceobject?.value ?: 0L), (buffer?.value ?: 0L), bufferlength.toInt())
 
-public actual fun HidD_GetSerialNumberString(hiddeviceobject: HANDLE, buffer: Long, bufferlength: UInt): Boolean =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidD_GetSerialNumberString(hiddeviceobject, buffer, bufferlength.toInt())
+public actual fun hidDGetSerialNumberString(hiddeviceobject: Handle, buffer: COpaquePointer?, bufferlength: UInt): Boolean =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidDGetSerialNumberString((hiddeviceobject?.value ?: 0L), (buffer?.value ?: 0L), bufferlength.toInt())
 
-public actual fun HidD_SetConfiguration(hiddeviceobject: HANDLE, configuration: Long, configurationlength: UInt): Boolean =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidD_SetConfiguration(hiddeviceobject, configuration, configurationlength.toInt())
+public actual fun hidDSetConfiguration(hiddeviceobject: Handle, configuration: COpaquePointer?, configurationlength: UInt): Boolean =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidDSetConfiguration((hiddeviceobject?.value ?: 0L), (configuration?.value ?: 0L), configurationlength.toInt())
 
-public actual fun HidD_SetFeature(hiddeviceobject: HANDLE, reportbuffer: Long, reportbufferlength: UInt): Boolean =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidD_SetFeature(hiddeviceobject, reportbuffer, reportbufferlength.toInt())
+public actual fun hidDSetFeature(hiddeviceobject: Handle, reportbuffer: COpaquePointer?, reportbufferlength: UInt): Boolean =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidDSetFeature((hiddeviceobject?.value ?: 0L), (reportbuffer?.value ?: 0L), reportbufferlength.toInt())
 
-public actual fun HidD_SetNumInputBuffers(hiddeviceobject: HANDLE, numberbuffers: UInt): Boolean =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidD_SetNumInputBuffers(hiddeviceobject, numberbuffers.toInt())
+public actual fun hidDSetNumInputBuffers(hiddeviceobject: Handle, numberbuffers: UInt): Boolean =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidDSetNumInputBuffers((hiddeviceobject?.value ?: 0L), numberbuffers.toInt())
 
-public actual fun HidD_SetOutputReport(hiddeviceobject: HANDLE, reportbuffer: Long, reportbufferlength: UInt): Boolean =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidD_SetOutputReport(hiddeviceobject, reportbuffer, reportbufferlength.toInt())
+public actual fun hidDSetOutputReport(hiddeviceobject: Handle, reportbuffer: COpaquePointer?, reportbufferlength: UInt): Boolean =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidDSetOutputReport((hiddeviceobject?.value ?: 0L), (reportbuffer?.value ?: 0L), reportbufferlength.toInt())
 
-public actual fun HidP_GetButtonArray(reporttype: HIDP_REPORT_TYPE, usagepage: UShort, linkcollection: UShort, usage: UShort, buttondata: Long, buttondatalength: Long, preparseddata: PHIDP_PREPARSED_DATA, report: PCSTR, reportlength: UInt): NTSTATUS =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetButtonArray(reporttype, usagepage.toShort(), linkcollection.toShort(), usage.toShort(), buttondata, buttondatalength, preparseddata, report, reportlength.toInt())
+public actual fun hidPGetButtonArray(reporttype: HidpReportType, usagepage: UShort, linkcollection: UShort, usage: UShort, buttondata: COpaquePointer?, buttondatalength: COpaquePointer?, preparseddata: PhidpPreparsedData, report: Pcstr, reportlength: UInt): Ntstatus =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidPGetButtonArray(reporttype, usagepage.toShort(), linkcollection.toShort(), usage.toShort(), (buttondata?.value ?: 0L), (buttondatalength?.value ?: 0L), preparseddata.toLong(), (report?.value ?: 0L), reportlength.toInt())
 
-public actual fun HidP_GetButtonCaps(reporttype: HIDP_REPORT_TYPE, buttoncaps: Long, buttoncapslength: Long, preparseddata: PHIDP_PREPARSED_DATA): NTSTATUS =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetButtonCaps(reporttype, buttoncaps, buttoncapslength, preparseddata)
+public actual fun hidPGetButtonCaps(reporttype: HidpReportType, buttoncaps: COpaquePointer?, buttoncapslength: COpaquePointer?, preparseddata: PhidpPreparsedData): Ntstatus =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidPGetButtonCaps(reporttype, (buttoncaps?.value ?: 0L), (buttoncapslength?.value ?: 0L), preparseddata.toLong())
 
-public actual fun HidP_GetCaps(preparseddata: PHIDP_PREPARSED_DATA, capabilities: Long): NTSTATUS =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetCaps(preparseddata, capabilities)
+public actual fun hidPGetCaps(preparseddata: PhidpPreparsedData, capabilities: COpaquePointer?): Ntstatus =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidPGetCaps(preparseddata.toLong(), (capabilities?.value ?: 0L))
 
-public actual fun HidP_GetData(reporttype: HIDP_REPORT_TYPE, datalist: Long, datalength: Long, preparseddata: PHIDP_PREPARSED_DATA, report: PSTR, reportlength: UInt): NTSTATUS =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetData(reporttype, datalist, datalength, preparseddata, report, reportlength.toInt())
+public actual fun hidPGetData(reporttype: HidpReportType, datalist: COpaquePointer?, datalength: COpaquePointer?, preparseddata: PhidpPreparsedData, report: Pstr, reportlength: UInt): Ntstatus =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidPGetData(reporttype, (datalist?.value ?: 0L), (datalength?.value ?: 0L), preparseddata.toLong(), (report?.value ?: 0L), reportlength.toInt())
 
-public actual fun HidP_GetExtendedAttributes(reporttype: HIDP_REPORT_TYPE, dataindex: UShort, preparseddata: PHIDP_PREPARSED_DATA, attributes: Long, lengthattributes: Long): NTSTATUS =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetExtendedAttributes(reporttype, dataindex.toShort(), preparseddata, attributes, lengthattributes)
+public actual fun hidPGetExtendedAttributes(reporttype: HidpReportType, dataindex: UShort, preparseddata: PhidpPreparsedData, attributes: COpaquePointer?, lengthattributes: COpaquePointer?): Ntstatus =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidPGetExtendedAttributes(reporttype, dataindex.toShort(), preparseddata.toLong(), (attributes?.value ?: 0L), (lengthattributes?.value ?: 0L))
 
-public actual fun HidP_GetLinkCollectionNodes(linkcollectionnodes: Long, linkcollectionnodeslength: Long, preparseddata: PHIDP_PREPARSED_DATA): NTSTATUS =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetLinkCollectionNodes(linkcollectionnodes, linkcollectionnodeslength, preparseddata)
+public actual fun hidPGetLinkCollectionNodes(linkcollectionnodes: COpaquePointer?, linkcollectionnodeslength: COpaquePointer?, preparseddata: PhidpPreparsedData): Ntstatus =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidPGetLinkCollectionNodes((linkcollectionnodes?.value ?: 0L), (linkcollectionnodeslength?.value ?: 0L), preparseddata.toLong())
 
-public actual fun HidP_GetScaledUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: UShort, linkcollection: UShort, usage: UShort, usagevalue: Long, preparseddata: PHIDP_PREPARSED_DATA, report: PCSTR, reportlength: UInt): NTSTATUS =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetScaledUsageValue(reporttype, usagepage.toShort(), linkcollection.toShort(), usage.toShort(), usagevalue, preparseddata, report, reportlength.toInt())
+public actual fun hidPGetScaledUsageValue(reporttype: HidpReportType, usagepage: UShort, linkcollection: UShort, usage: UShort, usagevalue: COpaquePointer?, preparseddata: PhidpPreparsedData, report: Pcstr, reportlength: UInt): Ntstatus =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidPGetScaledUsageValue(reporttype, usagepage.toShort(), linkcollection.toShort(), usage.toShort(), (usagevalue?.value ?: 0L), preparseddata.toLong(), (report?.value ?: 0L), reportlength.toInt())
 
-public actual fun HidP_GetSpecificButtonCaps(reporttype: HIDP_REPORT_TYPE, usagepage: UShort, linkcollection: UShort, usage: UShort, buttoncaps: Long, buttoncapslength: Long, preparseddata: PHIDP_PREPARSED_DATA): NTSTATUS =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetSpecificButtonCaps(reporttype, usagepage.toShort(), linkcollection.toShort(), usage.toShort(), buttoncaps, buttoncapslength, preparseddata)
+public actual fun hidPGetSpecificButtonCaps(reporttype: HidpReportType, usagepage: UShort, linkcollection: UShort, usage: UShort, buttoncaps: COpaquePointer?, buttoncapslength: COpaquePointer?, preparseddata: PhidpPreparsedData): Ntstatus =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidPGetSpecificButtonCaps(reporttype, usagepage.toShort(), linkcollection.toShort(), usage.toShort(), (buttoncaps?.value ?: 0L), (buttoncapslength?.value ?: 0L), preparseddata.toLong())
 
-public actual fun HidP_GetSpecificValueCaps(reporttype: HIDP_REPORT_TYPE, usagepage: UShort, linkcollection: UShort, usage: UShort, valuecaps: Long, valuecapslength: Long, preparseddata: PHIDP_PREPARSED_DATA): NTSTATUS =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetSpecificValueCaps(reporttype, usagepage.toShort(), linkcollection.toShort(), usage.toShort(), valuecaps, valuecapslength, preparseddata)
+public actual fun hidPGetSpecificValueCaps(reporttype: HidpReportType, usagepage: UShort, linkcollection: UShort, usage: UShort, valuecaps: COpaquePointer?, valuecapslength: COpaquePointer?, preparseddata: PhidpPreparsedData): Ntstatus =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidPGetSpecificValueCaps(reporttype, usagepage.toShort(), linkcollection.toShort(), usage.toShort(), (valuecaps?.value ?: 0L), (valuecapslength?.value ?: 0L), preparseddata.toLong())
 
-public actual fun HidP_GetUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: UShort, linkcollection: UShort, usage: UShort, usagevalue: Long, preparseddata: PHIDP_PREPARSED_DATA, report: PCSTR, reportlength: UInt): NTSTATUS =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetUsageValue(reporttype, usagepage.toShort(), linkcollection.toShort(), usage.toShort(), usagevalue, preparseddata, report, reportlength.toInt())
+public actual fun hidPGetUsageValue(reporttype: HidpReportType, usagepage: UShort, linkcollection: UShort, usage: UShort, usagevalue: COpaquePointer?, preparseddata: PhidpPreparsedData, report: Pcstr, reportlength: UInt): Ntstatus =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidPGetUsageValue(reporttype, usagepage.toShort(), linkcollection.toShort(), usage.toShort(), (usagevalue?.value ?: 0L), preparseddata.toLong(), (report?.value ?: 0L), reportlength.toInt())
 
-public actual fun HidP_GetUsageValueArray(reporttype: HIDP_REPORT_TYPE, usagepage: UShort, linkcollection: UShort, usage: UShort, usagevalue: PSTR, usagevaluebytelength: UShort, preparseddata: PHIDP_PREPARSED_DATA, report: PCSTR, reportlength: UInt): NTSTATUS =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetUsageValueArray(reporttype, usagepage.toShort(), linkcollection.toShort(), usage.toShort(), usagevalue, usagevaluebytelength.toShort(), preparseddata, report, reportlength.toInt())
+public actual fun hidPGetUsageValueArray(reporttype: HidpReportType, usagepage: UShort, linkcollection: UShort, usage: UShort, usagevalue: Pstr, usagevaluebytelength: UShort, preparseddata: PhidpPreparsedData, report: Pcstr, reportlength: UInt): Ntstatus =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidPGetUsageValueArray(reporttype, usagepage.toShort(), linkcollection.toShort(), usage.toShort(), (usagevalue?.value ?: 0L), usagevaluebytelength.toShort(), preparseddata.toLong(), (report?.value ?: 0L), reportlength.toInt())
 
-public actual fun HidP_GetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: UShort, linkcollection: UShort, usagelist: Long, usagelength: Long, preparseddata: PHIDP_PREPARSED_DATA, report: PSTR, reportlength: UInt): NTSTATUS =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetUsages(reporttype, usagepage.toShort(), linkcollection.toShort(), usagelist, usagelength, preparseddata, report, reportlength.toInt())
+public actual fun hidPGetUsages(reporttype: HidpReportType, usagepage: UShort, linkcollection: UShort, usagelist: COpaquePointer?, usagelength: COpaquePointer?, preparseddata: PhidpPreparsedData, report: Pstr, reportlength: UInt): Ntstatus =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidPGetUsages(reporttype, usagepage.toShort(), linkcollection.toShort(), (usagelist?.value ?: 0L), (usagelength?.value ?: 0L), preparseddata.toLong(), (report?.value ?: 0L), reportlength.toInt())
 
-public actual fun HidP_GetUsagesEx(reporttype: HIDP_REPORT_TYPE, linkcollection: UShort, buttonlist: Long, usagelength: Long, preparseddata: PHIDP_PREPARSED_DATA, report: PCSTR, reportlength: UInt): NTSTATUS =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetUsagesEx(reporttype, linkcollection.toShort(), buttonlist, usagelength, preparseddata, report, reportlength.toInt())
+public actual fun hidPGetUsagesEx(reporttype: HidpReportType, linkcollection: UShort, buttonlist: COpaquePointer?, usagelength: COpaquePointer?, preparseddata: PhidpPreparsedData, report: Pcstr, reportlength: UInt): Ntstatus =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidPGetUsagesEx(reporttype, linkcollection.toShort(), (buttonlist?.value ?: 0L), (usagelength?.value ?: 0L), preparseddata.toLong(), (report?.value ?: 0L), reportlength.toInt())
 
-public actual fun HidP_GetValueCaps(reporttype: HIDP_REPORT_TYPE, valuecaps: Long, valuecapslength: Long, preparseddata: PHIDP_PREPARSED_DATA): NTSTATUS =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidP_GetValueCaps(reporttype, valuecaps, valuecapslength, preparseddata)
+public actual fun hidPGetValueCaps(reporttype: HidpReportType, valuecaps: COpaquePointer?, valuecapslength: COpaquePointer?, preparseddata: PhidpPreparsedData): Ntstatus =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidPGetValueCaps(reporttype, (valuecaps?.value ?: 0L), (valuecapslength?.value ?: 0L), preparseddata.toLong())
 
-public actual fun HidP_InitializeReportForID(reporttype: HIDP_REPORT_TYPE, reportid: UByte, preparseddata: PHIDP_PREPARSED_DATA, report: PSTR, reportlength: UInt): NTSTATUS =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidP_InitializeReportForID(reporttype, reportid.toByte(), preparseddata, report, reportlength.toInt())
+public actual fun hidPInitializeReportForId(reporttype: HidpReportType, reportid: UByte, preparseddata: PhidpPreparsedData, report: Pstr, reportlength: UInt): Ntstatus =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidPInitializeReportForId(reporttype, reportid.toByte(), preparseddata.toLong(), (report?.value ?: 0L), reportlength.toInt())
 
-public actual fun HidP_MaxDataListLength(reporttype: HIDP_REPORT_TYPE, preparseddata: PHIDP_PREPARSED_DATA): UInt =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidP_MaxDataListLength(reporttype, preparseddata).toUInt()
+public actual fun hidPMaxDataListLength(reporttype: HidpReportType, preparseddata: PhidpPreparsedData): UInt =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidPMaxDataListLength(reporttype, preparseddata.toLong()).toUInt()
 
-public actual fun HidP_MaxUsageListLength(reporttype: HIDP_REPORT_TYPE, usagepage: UShort, preparseddata: PHIDP_PREPARSED_DATA): UInt =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidP_MaxUsageListLength(reporttype, usagepage.toShort(), preparseddata).toUInt()
+public actual fun hidPMaxUsageListLength(reporttype: HidpReportType, usagepage: UShort, preparseddata: PhidpPreparsedData): UInt =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidPMaxUsageListLength(reporttype, usagepage.toShort(), preparseddata.toLong()).toUInt()
 
-public actual fun HidP_SetButtonArray(reporttype: HIDP_REPORT_TYPE, usagepage: UShort, linkcollection: UShort, usage: UShort, buttondata: Long, buttondatalength: UShort, preparseddata: PHIDP_PREPARSED_DATA, report: PSTR, reportlength: UInt): NTSTATUS =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidP_SetButtonArray(reporttype, usagepage.toShort(), linkcollection.toShort(), usage.toShort(), buttondata, buttondatalength.toShort(), preparseddata, report, reportlength.toInt())
+public actual fun hidPSetButtonArray(reporttype: HidpReportType, usagepage: UShort, linkcollection: UShort, usage: UShort, buttondata: COpaquePointer?, buttondatalength: UShort, preparseddata: PhidpPreparsedData, report: Pstr, reportlength: UInt): Ntstatus =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidPSetButtonArray(reporttype, usagepage.toShort(), linkcollection.toShort(), usage.toShort(), (buttondata?.value ?: 0L), buttondatalength.toShort(), preparseddata.toLong(), (report?.value ?: 0L), reportlength.toInt())
 
-public actual fun HidP_SetData(reporttype: HIDP_REPORT_TYPE, datalist: Long, datalength: Long, preparseddata: PHIDP_PREPARSED_DATA, report: PCSTR, reportlength: UInt): NTSTATUS =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidP_SetData(reporttype, datalist, datalength, preparseddata, report, reportlength.toInt())
+public actual fun hidPSetData(reporttype: HidpReportType, datalist: COpaquePointer?, datalength: COpaquePointer?, preparseddata: PhidpPreparsedData, report: Pcstr, reportlength: UInt): Ntstatus =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidPSetData(reporttype, (datalist?.value ?: 0L), (datalength?.value ?: 0L), preparseddata.toLong(), (report?.value ?: 0L), reportlength.toInt())
 
-public actual fun HidP_SetScaledUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: UShort, linkcollection: UShort, usage: UShort, usagevalue: Int, preparseddata: PHIDP_PREPARSED_DATA, report: PSTR, reportlength: UInt): NTSTATUS =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidP_SetScaledUsageValue(reporttype, usagepage.toShort(), linkcollection.toShort(), usage.toShort(), usagevalue, preparseddata, report, reportlength.toInt())
+public actual fun hidPSetScaledUsageValue(reporttype: HidpReportType, usagepage: UShort, linkcollection: UShort, usage: UShort, usagevalue: Int, preparseddata: PhidpPreparsedData, report: Pstr, reportlength: UInt): Ntstatus =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidPSetScaledUsageValue(reporttype, usagepage.toShort(), linkcollection.toShort(), usage.toShort(), usagevalue, preparseddata.toLong(), (report?.value ?: 0L), reportlength.toInt())
 
-public actual fun HidP_SetUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: UShort, linkcollection: UShort, usage: UShort, usagevalue: UInt, preparseddata: PHIDP_PREPARSED_DATA, report: PSTR, reportlength: UInt): NTSTATUS =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidP_SetUsageValue(reporttype, usagepage.toShort(), linkcollection.toShort(), usage.toShort(), usagevalue.toInt(), preparseddata, report, reportlength.toInt())
+public actual fun hidPSetUsageValue(reporttype: HidpReportType, usagepage: UShort, linkcollection: UShort, usage: UShort, usagevalue: UInt, preparseddata: PhidpPreparsedData, report: Pstr, reportlength: UInt): Ntstatus =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidPSetUsageValue(reporttype, usagepage.toShort(), linkcollection.toShort(), usage.toShort(), usagevalue.toInt(), preparseddata.toLong(), (report?.value ?: 0L), reportlength.toInt())
 
-public actual fun HidP_SetUsageValueArray(reporttype: HIDP_REPORT_TYPE, usagepage: UShort, linkcollection: UShort, usage: UShort, usagevalue: PCSTR, usagevaluebytelength: UShort, preparseddata: PHIDP_PREPARSED_DATA, report: PSTR, reportlength: UInt): NTSTATUS =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidP_SetUsageValueArray(reporttype, usagepage.toShort(), linkcollection.toShort(), usage.toShort(), usagevalue, usagevaluebytelength.toShort(), preparseddata, report, reportlength.toInt())
+public actual fun hidPSetUsageValueArray(reporttype: HidpReportType, usagepage: UShort, linkcollection: UShort, usage: UShort, usagevalue: Pcstr, usagevaluebytelength: UShort, preparseddata: PhidpPreparsedData, report: Pstr, reportlength: UInt): Ntstatus =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidPSetUsageValueArray(reporttype, usagepage.toShort(), linkcollection.toShort(), usage.toShort(), (usagevalue?.value ?: 0L), usagevaluebytelength.toShort(), preparseddata.toLong(), (report?.value ?: 0L), reportlength.toInt())
 
-public actual fun HidP_SetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: UShort, linkcollection: UShort, usagelist: Long, usagelength: Long, preparseddata: PHIDP_PREPARSED_DATA, report: PCSTR, reportlength: UInt): NTSTATUS =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidP_SetUsages(reporttype, usagepage.toShort(), linkcollection.toShort(), usagelist, usagelength, preparseddata, report, reportlength.toInt())
+public actual fun hidPSetUsages(reporttype: HidpReportType, usagepage: UShort, linkcollection: UShort, usagelist: COpaquePointer?, usagelength: COpaquePointer?, preparseddata: PhidpPreparsedData, report: Pcstr, reportlength: UInt): Ntstatus =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidPSetUsages(reporttype, usagepage.toShort(), linkcollection.toShort(), (usagelist?.value ?: 0L), (usagelength?.value ?: 0L), preparseddata.toLong(), (report?.value ?: 0L), reportlength.toInt())
 
-public actual fun HidP_TranslateUsagesToI8042ScanCodes(changedusagelist: Long, usagelistlength: UInt, keyaction: HIDP_KEYBOARD_DIRECTION, modifierstate: Long, insertcodesprocedure: PHIDP_INSERT_SCANCODES, insertcodescontext: Long): NTSTATUS =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidP_TranslateUsagesToI8042ScanCodes(changedusagelist, usagelistlength.toInt(), keyaction, modifierstate, insertcodesprocedure.toLong(), insertcodescontext)
+public actual fun hidPTranslateUsagesToI8042ScanCodes(changedusagelist: COpaquePointer?, usagelistlength: UInt, keyaction: HidpKeyboardDirection, modifierstate: COpaquePointer?, insertcodesprocedure: PhidpInsertScancodes, insertcodescontext: COpaquePointer?): Ntstatus =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidPTranslateUsagesToI8042ScanCodes((changedusagelist?.value ?: 0L), usagelistlength.toInt(), keyaction, (modifierstate?.value ?: 0L), 0L, (insertcodescontext?.value ?: 0L))
 
-public actual fun HidP_UnsetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: UShort, linkcollection: UShort, usagelist: Long, usagelength: Long, preparseddata: PHIDP_PREPARSED_DATA, report: PCSTR, reportlength: UInt): NTSTATUS =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidP_UnsetUsages(reporttype, usagepage.toShort(), linkcollection.toShort(), usagelist, usagelength, preparseddata, report, reportlength.toInt())
+public actual fun hidPUnsetUsages(reporttype: HidpReportType, usagepage: UShort, linkcollection: UShort, usagelist: COpaquePointer?, usagelength: COpaquePointer?, preparseddata: PhidpPreparsedData, report: Pcstr, reportlength: UInt): Ntstatus =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidPUnsetUsages(reporttype, usagepage.toShort(), linkcollection.toShort(), (usagelist?.value ?: 0L), (usagelength?.value ?: 0L), preparseddata.toLong(), (report?.value ?: 0L), reportlength.toInt())
 
-public actual fun HidP_UsageListDifference(previoususagelist: Long, currentusagelist: Long, breakusagelist: Long, makeusagelist: Long, usagelistlength: UInt): NTSTATUS =
-    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_HidP_UsageListDifference(previoususagelist, currentusagelist, breakusagelist, makeusagelist, usagelistlength.toInt())
+public actual fun hidPUsageListDifference(previoususagelist: COpaquePointer?, currentusagelist: COpaquePointer?, breakusagelist: COpaquePointer?, makeusagelist: COpaquePointer?, usagelistlength: UInt): Ntstatus =
+    WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_hidPUsageListDifference((previoususagelist?.value ?: 0L), (currentusagelist?.value ?: 0L), (breakusagelist?.value ?: 0L), (makeusagelist?.value ?: 0L), usagelistlength.toInt())
 
 public actual fun joyConfigChanged(dwflags: UInt): UInt =
     WindowsWin32DevicesHumaninterfacedeviceJniBridge.windowssys_windows_win32_devices_humaninterfacedevice_joyConfigChanged(dwflags.toInt()).toUInt()

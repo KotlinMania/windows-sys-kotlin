@@ -2,52 +2,55 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.enterprisedata
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
 
 private val _windowsWin32SecurityEnterprisedataNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun ProtectFileToEnterpriseIdentity(fileorfolderpath: PCWSTR, identity: PCWSTR): HRESULT =
-    if (_windowsWin32SecurityEnterprisedataNapiAddon != null) (_windowsWin32SecurityEnterprisedataNapiAddon.windowssys_windows_win32_security_enterprisedata_ProtectFileToEnterpriseIdentity(fileorfolderpath.toString(), identity.toString()) as Int) else 0
+public actual fun protectFileToEnterpriseIdentity(fileorfolderpath: Pcwstr, identity: Pcwstr): Hresult =
+    if (_windowsWin32SecurityEnterprisedataNapiAddon != null) (_windowsWin32SecurityEnterprisedataNapiAddon.windowssys_windows_win32_security_enterprisedata_protectFileToEnterpriseIdentity((fileorfolderpath?.value ?: 0L).toString(), (identity?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SrpCloseThreadNetworkContext(threadnetworkcontext: Long): HRESULT =
-    if (_windowsWin32SecurityEnterprisedataNapiAddon != null) (_windowsWin32SecurityEnterprisedataNapiAddon.windowssys_windows_win32_security_enterprisedata_SrpCloseThreadNetworkContext(threadnetworkcontext.toString()) as Int) else 0
+public actual fun srpCloseThreadNetworkContext(threadnetworkcontext: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityEnterprisedataNapiAddon != null) (_windowsWin32SecurityEnterprisedataNapiAddon.windowssys_windows_win32_security_enterprisedata_srpCloseThreadNetworkContext((threadnetworkcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SrpCreateThreadNetworkContext(enterpriseid: PCWSTR, threadnetworkcontext: Long): HRESULT =
-    if (_windowsWin32SecurityEnterprisedataNapiAddon != null) (_windowsWin32SecurityEnterprisedataNapiAddon.windowssys_windows_win32_security_enterprisedata_SrpCreateThreadNetworkContext(enterpriseid.toString(), threadnetworkcontext.toString()) as Int) else 0
+public actual fun srpCreateThreadNetworkContext(enterpriseid: Pcwstr, threadnetworkcontext: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityEnterprisedataNapiAddon != null) (_windowsWin32SecurityEnterprisedataNapiAddon.windowssys_windows_win32_security_enterprisedata_srpCreateThreadNetworkContext((enterpriseid?.value ?: 0L).toString(), (threadnetworkcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SrpDisablePermissiveModeFileEncryption(): HRESULT =
-    if (_windowsWin32SecurityEnterprisedataNapiAddon != null) (_windowsWin32SecurityEnterprisedataNapiAddon.windowssys_windows_win32_security_enterprisedata_SrpDisablePermissiveModeFileEncryption() as Int) else 0
+public actual fun srpDisablePermissiveModeFileEncryption(): Hresult =
+    if (_windowsWin32SecurityEnterprisedataNapiAddon != null) (_windowsWin32SecurityEnterprisedataNapiAddon.windowssys_windows_win32_security_enterprisedata_srpDisablePermissiveModeFileEncryption() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SrpDoesPolicyAllowAppExecution(packageid: Long, isallowed: Long): HRESULT =
-    if (_windowsWin32SecurityEnterprisedataNapiAddon != null) (_windowsWin32SecurityEnterprisedataNapiAddon.windowssys_windows_win32_security_enterprisedata_SrpDoesPolicyAllowAppExecution(packageid.toString(), isallowed.toString()) as Int) else 0
+public actual fun srpDoesPolicyAllowAppExecution(packageid: COpaquePointer?, isallowed: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityEnterprisedataNapiAddon != null) (_windowsWin32SecurityEnterprisedataNapiAddon.windowssys_windows_win32_security_enterprisedata_srpDoesPolicyAllowAppExecution((packageid?.value ?: 0L).toString(), (isallowed?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SrpEnablePermissiveModeFileEncryption(enterpriseid: PCWSTR): HRESULT =
-    if (_windowsWin32SecurityEnterprisedataNapiAddon != null) (_windowsWin32SecurityEnterprisedataNapiAddon.windowssys_windows_win32_security_enterprisedata_SrpEnablePermissiveModeFileEncryption(enterpriseid.toString()) as Int) else 0
+public actual fun srpEnablePermissiveModeFileEncryption(enterpriseid: Pcwstr): Hresult =
+    if (_windowsWin32SecurityEnterprisedataNapiAddon != null) (_windowsWin32SecurityEnterprisedataNapiAddon.windowssys_windows_win32_security_enterprisedata_srpEnablePermissiveModeFileEncryption((enterpriseid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SrpGetEnterpriseIds(tokenhandle: HANDLE, numberofbytes: Long, enterpriseids: Long, enterpriseidcount: Long): HRESULT =
-    if (_windowsWin32SecurityEnterprisedataNapiAddon != null) (_windowsWin32SecurityEnterprisedataNapiAddon.windowssys_windows_win32_security_enterprisedata_SrpGetEnterpriseIds(tokenhandle.toString(), numberofbytes.toString(), enterpriseids.toString(), enterpriseidcount.toString()) as Int) else 0
+public actual fun srpGetEnterpriseIds(tokenhandle: Handle, numberofbytes: COpaquePointer?, enterpriseids: COpaquePointer?, enterpriseidcount: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityEnterprisedataNapiAddon != null) (_windowsWin32SecurityEnterprisedataNapiAddon.windowssys_windows_win32_security_enterprisedata_srpGetEnterpriseIds((tokenhandle?.value ?: 0L).toString(), (numberofbytes?.value ?: 0L).toString(), (enterpriseids?.value ?: 0L).toString(), (enterpriseidcount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SrpGetEnterprisePolicy(tokenhandle: HANDLE, policyflags: Long): HRESULT =
-    if (_windowsWin32SecurityEnterprisedataNapiAddon != null) (_windowsWin32SecurityEnterprisedataNapiAddon.windowssys_windows_win32_security_enterprisedata_SrpGetEnterprisePolicy(tokenhandle.toString(), policyflags.toString()) as Int) else 0
+public actual fun srpGetEnterprisePolicy(tokenhandle: Handle, policyflags: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityEnterprisedataNapiAddon != null) (_windowsWin32SecurityEnterprisedataNapiAddon.windowssys_windows_win32_security_enterprisedata_srpGetEnterprisePolicy((tokenhandle?.value ?: 0L).toString(), (policyflags?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SrpHostingInitialize(version: SRPHOSTING_VERSION, type: SRPHOSTING_TYPE, pvdata: Long, cbdata: UInt): HRESULT =
-    if (_windowsWin32SecurityEnterprisedataNapiAddon != null) (_windowsWin32SecurityEnterprisedataNapiAddon.windowssys_windows_win32_security_enterprisedata_SrpHostingInitialize(version, type, pvdata.toString(), cbdata.toInt()) as Int) else 0
+public actual fun srpHostingInitialize(version: SrphostingVersion, type: SrphostingType, pvdata: COpaquePointer?, cbdata: UInt): Hresult =
+    if (_windowsWin32SecurityEnterprisedataNapiAddon != null) (_windowsWin32SecurityEnterprisedataNapiAddon.windowssys_windows_win32_security_enterprisedata_srpHostingInitialize(version, type, (pvdata?.value ?: 0L).toString(), cbdata.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SrpHostingTerminate(type: SRPHOSTING_TYPE) {
+public actual fun srpHostingTerminate(type: SrphostingType) {
     if (_windowsWin32SecurityEnterprisedataNapiAddon != null) {
-        _windowsWin32SecurityEnterprisedataNapiAddon.windowssys_windows_win32_security_enterprisedata_SrpHostingTerminate(type)
+        _windowsWin32SecurityEnterprisedataNapiAddon.windowssys_windows_win32_security_enterprisedata_srpHostingTerminate(type)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SrpIsTokenService(tokenhandle: HANDLE, istokenservice: Long): NTSTATUS =
-    if (_windowsWin32SecurityEnterprisedataNapiAddon != null) (_windowsWin32SecurityEnterprisedataNapiAddon.windowssys_windows_win32_security_enterprisedata_SrpIsTokenService(tokenhandle.toString(), istokenservice.toString()) as Int) else 0
+public actual fun srpIsTokenService(tokenhandle: Handle, istokenservice: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityEnterprisedataNapiAddon != null) (_windowsWin32SecurityEnterprisedataNapiAddon.windowssys_windows_win32_security_enterprisedata_srpIsTokenService((tokenhandle?.value ?: 0L).toString(), (istokenservice?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SrpSetTokenEnterpriseId(tokenhandle: HANDLE, enterpriseid: PCWSTR): HRESULT =
-    if (_windowsWin32SecurityEnterprisedataNapiAddon != null) (_windowsWin32SecurityEnterprisedataNapiAddon.windowssys_windows_win32_security_enterprisedata_SrpSetTokenEnterpriseId(tokenhandle.toString(), enterpriseid.toString()) as Int) else 0
+public actual fun srpSetTokenEnterpriseId(tokenhandle: Handle, enterpriseid: Pcwstr): Hresult =
+    if (_windowsWin32SecurityEnterprisedataNapiAddon != null) (_windowsWin32SecurityEnterprisedataNapiAddon.windowssys_windows_win32_security_enterprisedata_srpSetTokenEnterpriseId((tokenhandle?.value ?: 0L).toString(), (enterpriseid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UnprotectFile(fileorfolderpath: PCWSTR, options: Long): HRESULT =
-    if (_windowsWin32SecurityEnterprisedataNapiAddon != null) (_windowsWin32SecurityEnterprisedataNapiAddon.windowssys_windows_win32_security_enterprisedata_UnprotectFile(fileorfolderpath.toString(), options.toString()) as Int) else 0
+public actual fun unprotectFile(fileorfolderpath: Pcwstr, options: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityEnterprisedataNapiAddon != null) (_windowsWin32SecurityEnterprisedataNapiAddon.windowssys_windows_win32_security_enterprisedata_unprotectFile((fileorfolderpath?.value ?: 0L).toString(), (options?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

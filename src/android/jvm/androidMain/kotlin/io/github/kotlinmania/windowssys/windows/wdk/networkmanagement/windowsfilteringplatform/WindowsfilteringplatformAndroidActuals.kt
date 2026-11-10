@@ -2,12 +2,13 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.windowsfilteringplatform
 
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
-import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.FWPM_ENGINE_OPTION
-import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.FWPM_SERVICE_STATE
-import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.FwpmEngineOption
+import io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform.FwpmServiceState
+import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
 
 private object WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge {
     init {
@@ -15,897 +16,897 @@ private object WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmBfeStateGet0(): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmBfeStateGet0(): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmBfeStateSubscribeChanges0(deviceobject: Long, callback: Long, context: Long, changehandle: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmBfeStateSubscribeChanges0(deviceobject: Long, callback: Long, context: Long, changehandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmBfeStateUnsubscribeChanges0(changehandle: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmBfeStateUnsubscribeChanges0(changehandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutAdd0(enginehandle: Long, callout: Long, sd: Long, id: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutAdd0(enginehandle: Long, callout: Long, sd: Long, id: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutCreateEnumHandle0(enginehandle: Long, enumtemplate: Long, enumhandle: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutCreateEnumHandle0(enginehandle: Long, enumtemplate: Long, enumhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutDeleteById0(enginehandle: Long, id: Int): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutDeleteById0(enginehandle: Long, id: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutDeleteByKey0(enginehandle: Long, key: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutDeleteByKey0(enginehandle: Long, key: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutDestroyEnumHandle0(enginehandle: Long, enumhandle: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutDestroyEnumHandle0(enginehandle: Long, enumhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutEnum0(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutEnum0(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutGetById0(enginehandle: Long, id: Int, callout: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutGetById0(enginehandle: Long, id: Int, callout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutGetByKey0(enginehandle: Long, key: Long, callout: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutGetByKey0(enginehandle: Long, key: Long, callout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutGetSecurityInfoByKey0(enginehandle: Long, key: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutGetSecurityInfoByKey0(enginehandle: Long, key: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutSetSecurityInfoByKey0(enginehandle: Long, key: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutSetSecurityInfoByKey0(enginehandle: Long, key: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmConnectionCreateEnumHandle0(enginehandle: Long, enumtemplate: Long, enumhandle: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionCreateEnumHandle0(enginehandle: Long, enumtemplate: Long, enumhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmConnectionDestroyEnumHandle0(enginehandle: Long, enumhandle: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionDestroyEnumHandle0(enginehandle: Long, enumhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmConnectionEnum0(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionEnum0(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmConnectionGetById0(enginehandle: Long, id: Long, connection: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionGetById0(enginehandle: Long, id: Long, connection: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmConnectionGetSecurityInfo0(enginehandle: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionGetSecurityInfo0(enginehandle: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmConnectionSetSecurityInfo0(enginehandle: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionSetSecurityInfo0(enginehandle: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmEngineClose0(enginehandle: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineClose0(enginehandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmEngineGetOption0(enginehandle: Long, option: Int, value: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineGetOption0(enginehandle: Long, option: Int, value: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmEngineGetSecurityInfo0(enginehandle: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineGetSecurityInfo0(enginehandle: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmEngineOpen0(servername: Long, authnservice: Int, authidentity: Long, session: Long, enginehandle: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineOpen0(servername: Long, authnservice: Int, authidentity: Long, session: Long, enginehandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmEngineSetOption0(enginehandle: Long, option: Int, newvalue: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineSetOption0(enginehandle: Long, option: Int, newvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmEngineSetSecurityInfo0(enginehandle: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineSetSecurityInfo0(enginehandle: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterAdd0(enginehandle: Long, filter: Long, sd: Long, id: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterAdd0(enginehandle: Long, filter: Long, sd: Long, id: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterCreateEnumHandle0(enginehandle: Long, enumtemplate: Long, enumhandle: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterCreateEnumHandle0(enginehandle: Long, enumtemplate: Long, enumhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterDeleteById0(enginehandle: Long, id: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterDeleteById0(enginehandle: Long, id: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterDeleteByKey0(enginehandle: Long, key: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterDeleteByKey0(enginehandle: Long, key: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterDestroyEnumHandle0(enginehandle: Long, enumhandle: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterDestroyEnumHandle0(enginehandle: Long, enumhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterEnum0(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterEnum0(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterGetById0(enginehandle: Long, id: Long, filter: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterGetById0(enginehandle: Long, id: Long, filter: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterGetByKey0(enginehandle: Long, key: Long, filter: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterGetByKey0(enginehandle: Long, key: Long, filter: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterGetSecurityInfoByKey0(enginehandle: Long, key: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterGetSecurityInfoByKey0(enginehandle: Long, key: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterSetSecurityInfoByKey0(enginehandle: Long, key: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterSetSecurityInfoByKey0(enginehandle: Long, key: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFreeMemory0(p: Long)
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFreeMemory0(p: Long)
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelAdd0(enginehandle: Long, flags: Int, mainmodepolicy: Long, tunnelpolicy: Long, numfilterconditions: Int, filterconditions: Long, sd: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd0(enginehandle: Long, flags: Int, mainmodepolicy: Long, tunnelpolicy: Long, numfilterconditions: Int, filterconditions: Long, sd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelAdd1(enginehandle: Long, flags: Int, mainmodepolicy: Long, tunnelpolicy: Long, numfilterconditions: Int, filterconditions: Long, keymodkey: Long, sd: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd1(enginehandle: Long, flags: Int, mainmodepolicy: Long, tunnelpolicy: Long, numfilterconditions: Int, filterconditions: Long, keymodkey: Long, sd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelAdd2(enginehandle: Long, flags: Int, mainmodepolicy: Long, tunnelpolicy: Long, numfilterconditions: Int, filterconditions: Long, keymodkey: Long, sd: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd2(enginehandle: Long, flags: Int, mainmodepolicy: Long, tunnelpolicy: Long, numfilterconditions: Int, filterconditions: Long, keymodkey: Long, sd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelAdd3(enginehandle: Long, flags: Int, mainmodepolicy: Long, tunnelpolicy: Long, numfilterconditions: Int, filterconditions: Long, keymodkey: Long, sd: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd3(enginehandle: Long, flags: Int, mainmodepolicy: Long, tunnelpolicy: Long, numfilterconditions: Int, filterconditions: Long, keymodkey: Long, sd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelDeleteByKey0(enginehandle: Long, key: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelDeleteByKey0(enginehandle: Long, key: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerCreateEnumHandle0(enginehandle: Long, enumtemplate: Long, enumhandle: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerCreateEnumHandle0(enginehandle: Long, enumtemplate: Long, enumhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerDestroyEnumHandle0(enginehandle: Long, enumhandle: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerDestroyEnumHandle0(enginehandle: Long, enumhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerEnum0(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerEnum0(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerGetById0(enginehandle: Long, id: Short, layer: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerGetById0(enginehandle: Long, id: Short, layer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerGetByKey0(enginehandle: Long, key: Long, layer: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerGetByKey0(enginehandle: Long, key: Long, layer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerGetSecurityInfoByKey0(enginehandle: Long, key: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerGetSecurityInfoByKey0(enginehandle: Long, key: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerSetSecurityInfoByKey0(enginehandle: Long, key: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerSetSecurityInfoByKey0(enginehandle: Long, key: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventCreateEnumHandle0(enginehandle: Long, enumtemplate: Long, enumhandle: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventCreateEnumHandle0(enginehandle: Long, enumtemplate: Long, enumhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventDestroyEnumHandle0(enginehandle: Long, enumhandle: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventDestroyEnumHandle0(enginehandle: Long, enumhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum0(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum0(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum1(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum1(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum2(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum2(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum3(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum3(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum4(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum4(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum5(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum5(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventsGetSecurityInfo0(enginehandle: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventsGetSecurityInfo0(enginehandle: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventsSetSecurityInfo0(enginehandle: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventsSetSecurityInfo0(enginehandle: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderAdd0(enginehandle: Long, provider: Long, sd: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderAdd0(enginehandle: Long, provider: Long, sd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextAdd0(enginehandle: Long, providercontext: Long, sd: Long, id: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd0(enginehandle: Long, providercontext: Long, sd: Long, id: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextAdd1(enginehandle: Long, providercontext: Long, sd: Long, id: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd1(enginehandle: Long, providercontext: Long, sd: Long, id: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextAdd2(enginehandle: Long, providercontext: Long, sd: Long, id: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd2(enginehandle: Long, providercontext: Long, sd: Long, id: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextAdd3(enginehandle: Long, providercontext: Long, sd: Long, id: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd3(enginehandle: Long, providercontext: Long, sd: Long, id: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextCreateEnumHandle0(enginehandle: Long, enumtemplate: Long, enumhandle: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextCreateEnumHandle0(enginehandle: Long, enumtemplate: Long, enumhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextDeleteById0(enginehandle: Long, id: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextDeleteById0(enginehandle: Long, id: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextDeleteByKey0(enginehandle: Long, key: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextDeleteByKey0(enginehandle: Long, key: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextDestroyEnumHandle0(enginehandle: Long, enumhandle: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextDestroyEnumHandle0(enginehandle: Long, enumhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextEnum0(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum0(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextEnum1(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum1(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextEnum2(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum2(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextEnum3(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum3(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetById0(enginehandle: Long, id: Long, providercontext: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById0(enginehandle: Long, id: Long, providercontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetById1(enginehandle: Long, id: Long, providercontext: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById1(enginehandle: Long, id: Long, providercontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetById2(enginehandle: Long, id: Long, providercontext: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById2(enginehandle: Long, id: Long, providercontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetById3(enginehandle: Long, id: Long, providercontext: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById3(enginehandle: Long, id: Long, providercontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetByKey0(enginehandle: Long, key: Long, providercontext: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey0(enginehandle: Long, key: Long, providercontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetByKey1(enginehandle: Long, key: Long, providercontext: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey1(enginehandle: Long, key: Long, providercontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetByKey2(enginehandle: Long, key: Long, providercontext: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey2(enginehandle: Long, key: Long, providercontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetByKey3(enginehandle: Long, key: Long, providercontext: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey3(enginehandle: Long, key: Long, providercontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetSecurityInfoByKey0(enginehandle: Long, key: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetSecurityInfoByKey0(enginehandle: Long, key: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextSetSecurityInfoByKey0(enginehandle: Long, key: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextSetSecurityInfoByKey0(enginehandle: Long, key: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderCreateEnumHandle0(enginehandle: Long, enumtemplate: Long, enumhandle: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderCreateEnumHandle0(enginehandle: Long, enumtemplate: Long, enumhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderDeleteByKey0(enginehandle: Long, key: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderDeleteByKey0(enginehandle: Long, key: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderDestroyEnumHandle0(enginehandle: Long, enumhandle: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderDestroyEnumHandle0(enginehandle: Long, enumhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderEnum0(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderEnum0(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderGetByKey0(enginehandle: Long, key: Long, provider: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderGetByKey0(enginehandle: Long, key: Long, provider: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderGetSecurityInfoByKey0(enginehandle: Long, key: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderGetSecurityInfoByKey0(enginehandle: Long, key: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderSetSecurityInfoByKey0(enginehandle: Long, key: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderSetSecurityInfoByKey0(enginehandle: Long, key: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSessionCreateEnumHandle0(enginehandle: Long, enumtemplate: Long, enumhandle: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSessionCreateEnumHandle0(enginehandle: Long, enumtemplate: Long, enumhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSessionDestroyEnumHandle0(enginehandle: Long, enumhandle: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSessionDestroyEnumHandle0(enginehandle: Long, enumhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSessionEnum0(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSessionEnum0(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerAdd0(enginehandle: Long, sublayer: Long, sd: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerAdd0(enginehandle: Long, sublayer: Long, sd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerCreateEnumHandle0(enginehandle: Long, enumtemplate: Long, enumhandle: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerCreateEnumHandle0(enginehandle: Long, enumtemplate: Long, enumhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerDeleteByKey0(enginehandle: Long, key: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerDeleteByKey0(enginehandle: Long, key: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerDestroyEnumHandle0(enginehandle: Long, enumhandle: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerDestroyEnumHandle0(enginehandle: Long, enumhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerEnum0(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerEnum0(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerGetByKey0(enginehandle: Long, key: Long, sublayer: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerGetByKey0(enginehandle: Long, key: Long, sublayer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerGetSecurityInfoByKey0(enginehandle: Long, key: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerGetSecurityInfoByKey0(enginehandle: Long, key: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerSetSecurityInfoByKey0(enginehandle: Long, key: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerSetSecurityInfoByKey0(enginehandle: Long, key: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmTransactionAbort0(enginehandle: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmTransactionAbort0(enginehandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmTransactionBegin0(enginehandle: Long, flags: Int): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmTransactionBegin0(enginehandle: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmTransactionCommit0(enginehandle: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmTransactionCommit0(enginehandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmvSwitchEventsGetSecurityInfo0(enginehandle: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmvSwitchEventsGetSecurityInfo0(enginehandle: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmvSwitchEventsSetSecurityInfo0(enginehandle: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmvSwitchEventsSetSecurityInfo0(enginehandle: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecDospGetSecurityInfo0(enginehandle: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospGetSecurityInfo0(enginehandle: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecDospGetStatistics0(enginehandle: Long, idpstatistics: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospGetStatistics0(enginehandle: Long, idpstatistics: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecDospSetSecurityInfo0(enginehandle: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospSetSecurityInfo0(enginehandle: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecDospStateCreateEnumHandle0(enginehandle: Long, enumtemplate: Long, enumhandle: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospStateCreateEnumHandle0(enginehandle: Long, enumtemplate: Long, enumhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecDospStateDestroyEnumHandle0(enginehandle: Long, enumhandle: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospStateDestroyEnumHandle0(enginehandle: Long, enumhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecDospStateEnum0(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentries: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospStateEnum0(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentries: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecGetStatistics0(enginehandle: Long, ipsecstatistics: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecGetStatistics0(enginehandle: Long, ipsecstatistics: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecGetStatistics1(enginehandle: Long, ipsecstatistics: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecGetStatistics1(enginehandle: Long, ipsecstatistics: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextAddInbound0(enginehandle: Long, id: Long, inboundbundle: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextAddInbound0(enginehandle: Long, id: Long, inboundbundle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextAddInbound1(enginehandle: Long, id: Long, inboundbundle: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextAddInbound1(enginehandle: Long, id: Long, inboundbundle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextAddOutbound0(enginehandle: Long, id: Long, outboundbundle: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextAddOutbound0(enginehandle: Long, id: Long, outboundbundle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextAddOutbound1(enginehandle: Long, id: Long, outboundbundle: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextAddOutbound1(enginehandle: Long, id: Long, outboundbundle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextCreate0(enginehandle: Long, outboundtraffic: Long, inboundfilterid: Long, id: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextCreate0(enginehandle: Long, outboundtraffic: Long, inboundfilterid: Long, id: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextCreate1(enginehandle: Long, outboundtraffic: Long, virtualiftunnelinfo: Long, inboundfilterid: Long, id: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextCreate1(enginehandle: Long, outboundtraffic: Long, virtualiftunnelinfo: Long, inboundfilterid: Long, id: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextCreateEnumHandle0(enginehandle: Long, enumtemplate: Long, enumhandle: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextCreateEnumHandle0(enginehandle: Long, enumtemplate: Long, enumhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextDeleteById0(enginehandle: Long, id: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextDeleteById0(enginehandle: Long, id: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextDestroyEnumHandle0(enginehandle: Long, enumhandle: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextDestroyEnumHandle0(enginehandle: Long, enumhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextEnum0(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextEnum0(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextEnum1(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextEnum1(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextExpire0(enginehandle: Long, id: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextExpire0(enginehandle: Long, id: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextGetById0(enginehandle: Long, id: Long, sacontext: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextGetById0(enginehandle: Long, id: Long, sacontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextGetById1(enginehandle: Long, id: Long, sacontext: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextGetById1(enginehandle: Long, id: Long, sacontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextGetSpi0(enginehandle: Long, id: Long, getspi: Long, inboundspi: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextGetSpi0(enginehandle: Long, id: Long, getspi: Long, inboundspi: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextGetSpi1(enginehandle: Long, id: Long, getspi: Long, inboundspi: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextGetSpi1(enginehandle: Long, id: Long, getspi: Long, inboundspi: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextSetSpi0(enginehandle: Long, id: Long, getspi: Long, inboundspi: Int): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextSetSpi0(enginehandle: Long, id: Long, getspi: Long, inboundspi: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextUpdate0(enginehandle: Long, flags: Long, newvalues: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextUpdate0(enginehandle: Long, flags: Long, newvalues: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaCreateEnumHandle0(enginehandle: Long, enumtemplate: Long, enumhandle: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaCreateEnumHandle0(enginehandle: Long, enumtemplate: Long, enumhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaDbGetSecurityInfo0(enginehandle: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaDbGetSecurityInfo0(enginehandle: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaDbSetSecurityInfo0(enginehandle: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaDbSetSecurityInfo0(enginehandle: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaDestroyEnumHandle0(enginehandle: Long, enumhandle: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaDestroyEnumHandle0(enginehandle: Long, enumhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaEnum0(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaEnum0(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaEnum1(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaEnum1(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextGetStatistics0(enginehandle: Long, ikeextstatistics: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextGetStatistics0(enginehandle: Long, ikeextstatistics: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextGetStatistics1(enginehandle: Long, ikeextstatistics: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextGetStatistics1(enginehandle: Long, ikeextstatistics: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaCreateEnumHandle0(enginehandle: Long, enumtemplate: Long, enumhandle: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaCreateEnumHandle0(enginehandle: Long, enumtemplate: Long, enumhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaDbGetSecurityInfo0(enginehandle: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaDbGetSecurityInfo0(enginehandle: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaDbSetSecurityInfo0(enginehandle: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaDbSetSecurityInfo0(enginehandle: Long, securityinfo: Int, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaDeleteById0(enginehandle: Long, id: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaDeleteById0(enginehandle: Long, id: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaDestroyEnumHandle0(enginehandle: Long, enumhandle: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaDestroyEnumHandle0(enginehandle: Long, enumhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaEnum0(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaEnum0(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaEnum1(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaEnum1(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaEnum2(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaEnum2(enginehandle: Long, enumhandle: Long, numentriesrequested: Int, entries: Long, numentriesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaGetById0(enginehandle: Long, id: Long, sa: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaGetById0(enginehandle: Long, id: Long, sa: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaGetById1(enginehandle: Long, id: Long, salookupcontext: Long, sa: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaGetById1(enginehandle: Long, id: Long, salookupcontext: Long, sa: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaGetById2(enginehandle: Long, id: Long, salookupcontext: Long, sa: Long): Int
+    external fun windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaGetById2(enginehandle: Long, id: Long, salookupcontext: Long, sa: Long): Int
 }
 
-public actual fun FwpmBfeStateGet0(): FWPM_SERVICE_STATE =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmBfeStateGet0()
+public actual fun fwpmBfeStateGet0(): FwpmServiceState =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmBfeStateGet0()
 
-public actual fun FwpmBfeStateSubscribeChanges0(deviceobject: Long, callback: FWPM_SERVICE_STATE_CHANGE_CALLBACK0, context: Long, changehandle: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmBfeStateSubscribeChanges0(deviceobject, callback.toLong(), context, changehandle)
+public actual fun fwpmBfeStateSubscribeChanges0(deviceobject: COpaquePointer?, callback: FwpmServiceStateChangeCallback0, context: COpaquePointer?, changehandle: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmBfeStateSubscribeChanges0((deviceobject?.value ?: 0L), 0L, (context?.value ?: 0L), (changehandle?.value ?: 0L))
 
-public actual fun FwpmBfeStateUnsubscribeChanges0(changehandle: HANDLE): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmBfeStateUnsubscribeChanges0(changehandle)
+public actual fun fwpmBfeStateUnsubscribeChanges0(changehandle: Handle): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmBfeStateUnsubscribeChanges0((changehandle?.value ?: 0L))
 
-public actual fun FwpmCalloutAdd0(enginehandle: HANDLE, callout: Long, sd: PSECURITY_DESCRIPTOR, id: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutAdd0(enginehandle, callout, sd, id)
+public actual fun fwpmCalloutAdd0(enginehandle: Handle, callout: COpaquePointer?, sd: PsecurityDescriptor, id: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutAdd0((enginehandle?.value ?: 0L), (callout?.value ?: 0L), (sd?.value ?: 0L), (id?.value ?: 0L))
 
-public actual fun FwpmCalloutCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutCreateEnumHandle0(enginehandle, enumtemplate, enumhandle)
+public actual fun fwpmCalloutCreateEnumHandle0(enginehandle: Handle, enumtemplate: COpaquePointer?, enumhandle: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutCreateEnumHandle0((enginehandle?.value ?: 0L), (enumtemplate?.value ?: 0L), (enumhandle?.value ?: 0L))
 
-public actual fun FwpmCalloutDeleteById0(enginehandle: HANDLE, id: UInt): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutDeleteById0(enginehandle, id.toInt())
+public actual fun fwpmCalloutDeleteById0(enginehandle: Handle, id: UInt): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutDeleteById0((enginehandle?.value ?: 0L), id.toInt())
 
-public actual fun FwpmCalloutDeleteByKey0(enginehandle: HANDLE, key: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutDeleteByKey0(enginehandle, key)
+public actual fun fwpmCalloutDeleteByKey0(enginehandle: Handle, key: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutDeleteByKey0((enginehandle?.value ?: 0L), (key?.value ?: 0L))
 
-public actual fun FwpmCalloutDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutDestroyEnumHandle0(enginehandle, enumhandle)
+public actual fun fwpmCalloutDestroyEnumHandle0(enginehandle: Handle, enumhandle: Handle): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutDestroyEnumHandle0((enginehandle?.value ?: 0L), (enumhandle?.value ?: 0L))
 
-public actual fun FwpmCalloutEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutEnum0(enginehandle, enumhandle, numentriesrequested.toInt(), entries, numentriesreturned)
+public actual fun fwpmCalloutEnum0(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutEnum0((enginehandle?.value ?: 0L), (enumhandle?.value ?: 0L), numentriesrequested.toInt(), (entries?.value ?: 0L), (numentriesreturned?.value ?: 0L))
 
-public actual fun FwpmCalloutGetById0(enginehandle: HANDLE, id: UInt, callout: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutGetById0(enginehandle, id.toInt(), callout)
+public actual fun fwpmCalloutGetById0(enginehandle: Handle, id: UInt, callout: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutGetById0((enginehandle?.value ?: 0L), id.toInt(), (callout?.value ?: 0L))
 
-public actual fun FwpmCalloutGetByKey0(enginehandle: HANDLE, key: Long, callout: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutGetByKey0(enginehandle, key, callout)
+public actual fun fwpmCalloutGetByKey0(enginehandle: Handle, key: COpaquePointer?, callout: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutGetByKey0((enginehandle?.value ?: 0L), (key?.value ?: 0L), (callout?.value ?: 0L))
 
-public actual fun FwpmCalloutGetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutGetSecurityInfoByKey0(enginehandle, key, securityinfo.toInt(), sidowner, sidgroup, dacl, sacl, securitydescriptor)
+public actual fun fwpmCalloutGetSecurityInfoByKey0(enginehandle: Handle, key: COpaquePointer?, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutGetSecurityInfoByKey0((enginehandle?.value ?: 0L), (key?.value ?: 0L), securityinfo.toInt(), (sidowner?.value ?: 0L), (sidgroup?.value ?: 0L), (dacl?.value ?: 0L), (sacl?.value ?: 0L), (securitydescriptor?.value ?: 0L))
 
-public actual fun FwpmCalloutSetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmCalloutSetSecurityInfoByKey0(enginehandle, key, securityinfo.toInt(), sidowner, sidgroup, dacl, sacl)
+public actual fun fwpmCalloutSetSecurityInfoByKey0(enginehandle: Handle, key: COpaquePointer?, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmCalloutSetSecurityInfoByKey0((enginehandle?.value ?: 0L), (key?.value ?: 0L), securityinfo.toInt(), (sidowner?.value ?: 0L), (sidgroup?.value ?: 0L), (dacl?.value ?: 0L), (sacl?.value ?: 0L))
 
-public actual fun FwpmConnectionCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmConnectionCreateEnumHandle0(enginehandle, enumtemplate, enumhandle)
+public actual fun fwpmConnectionCreateEnumHandle0(enginehandle: Handle, enumtemplate: COpaquePointer?, enumhandle: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionCreateEnumHandle0((enginehandle?.value ?: 0L), (enumtemplate?.value ?: 0L), (enumhandle?.value ?: 0L))
 
-public actual fun FwpmConnectionDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmConnectionDestroyEnumHandle0(enginehandle, enumhandle)
+public actual fun fwpmConnectionDestroyEnumHandle0(enginehandle: Handle, enumhandle: Handle): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionDestroyEnumHandle0((enginehandle?.value ?: 0L), (enumhandle?.value ?: 0L))
 
-public actual fun FwpmConnectionEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmConnectionEnum0(enginehandle, enumhandle, numentriesrequested.toInt(), entries, numentriesreturned)
+public actual fun fwpmConnectionEnum0(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionEnum0((enginehandle?.value ?: 0L), (enumhandle?.value ?: 0L), numentriesrequested.toInt(), (entries?.value ?: 0L), (numentriesreturned?.value ?: 0L))
 
-public actual fun FwpmConnectionGetById0(enginehandle: HANDLE, id: ULong, connection: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmConnectionGetById0(enginehandle, id.toLong(), connection)
+public actual fun fwpmConnectionGetById0(enginehandle: Handle, id: ULong, connection: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionGetById0((enginehandle?.value ?: 0L), id.toLong(), (connection?.value ?: 0L))
 
-public actual fun FwpmConnectionGetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmConnectionGetSecurityInfo0(enginehandle, securityinfo.toInt(), sidowner, sidgroup, dacl, sacl, securitydescriptor)
+public actual fun fwpmConnectionGetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionGetSecurityInfo0((enginehandle?.value ?: 0L), securityinfo.toInt(), (sidowner?.value ?: 0L), (sidgroup?.value ?: 0L), (dacl?.value ?: 0L), (sacl?.value ?: 0L), (securitydescriptor?.value ?: 0L))
 
-public actual fun FwpmConnectionSetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmConnectionSetSecurityInfo0(enginehandle, securityinfo.toInt(), sidowner, sidgroup, dacl, sacl)
+public actual fun fwpmConnectionSetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmConnectionSetSecurityInfo0((enginehandle?.value ?: 0L), securityinfo.toInt(), (sidowner?.value ?: 0L), (sidgroup?.value ?: 0L), (dacl?.value ?: 0L), (sacl?.value ?: 0L))
 
-public actual fun FwpmEngineClose0(enginehandle: HANDLE): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmEngineClose0(enginehandle)
+public actual fun fwpmEngineClose0(enginehandle: Handle): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineClose0((enginehandle?.value ?: 0L))
 
-public actual fun FwpmEngineGetOption0(enginehandle: HANDLE, option: FWPM_ENGINE_OPTION, value: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmEngineGetOption0(enginehandle, option, value)
+public actual fun fwpmEngineGetOption0(enginehandle: Handle, option: FwpmEngineOption, value: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineGetOption0((enginehandle?.value ?: 0L), option, (value?.value ?: 0L))
 
-public actual fun FwpmEngineGetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmEngineGetSecurityInfo0(enginehandle, securityinfo.toInt(), sidowner, sidgroup, dacl, sacl, securitydescriptor)
+public actual fun fwpmEngineGetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineGetSecurityInfo0((enginehandle?.value ?: 0L), securityinfo.toInt(), (sidowner?.value ?: 0L), (sidgroup?.value ?: 0L), (dacl?.value ?: 0L), (sacl?.value ?: 0L), (securitydescriptor?.value ?: 0L))
 
-public actual fun FwpmEngineOpen0(servername: PCWSTR, authnservice: UInt, authidentity: Long, session: Long, enginehandle: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmEngineOpen0(servername, authnservice.toInt(), authidentity, session, enginehandle)
+public actual fun fwpmEngineOpen0(servername: Pcwstr, authnservice: UInt, authidentity: COpaquePointer?, session: COpaquePointer?, enginehandle: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineOpen0((servername?.value ?: 0L), authnservice.toInt(), (authidentity?.value ?: 0L), (session?.value ?: 0L), (enginehandle?.value ?: 0L))
 
-public actual fun FwpmEngineSetOption0(enginehandle: HANDLE, option: FWPM_ENGINE_OPTION, newvalue: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmEngineSetOption0(enginehandle, option, newvalue)
+public actual fun fwpmEngineSetOption0(enginehandle: Handle, option: FwpmEngineOption, newvalue: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineSetOption0((enginehandle?.value ?: 0L), option, (newvalue?.value ?: 0L))
 
-public actual fun FwpmEngineSetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmEngineSetSecurityInfo0(enginehandle, securityinfo.toInt(), sidowner, sidgroup, dacl, sacl)
+public actual fun fwpmEngineSetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmEngineSetSecurityInfo0((enginehandle?.value ?: 0L), securityinfo.toInt(), (sidowner?.value ?: 0L), (sidgroup?.value ?: 0L), (dacl?.value ?: 0L), (sacl?.value ?: 0L))
 
-public actual fun FwpmFilterAdd0(enginehandle: HANDLE, filter: Long, sd: PSECURITY_DESCRIPTOR, id: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterAdd0(enginehandle, filter, sd, id)
+public actual fun fwpmFilterAdd0(enginehandle: Handle, filter: COpaquePointer?, sd: PsecurityDescriptor, id: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterAdd0((enginehandle?.value ?: 0L), (filter?.value ?: 0L), (sd?.value ?: 0L), (id?.value ?: 0L))
 
-public actual fun FwpmFilterCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterCreateEnumHandle0(enginehandle, enumtemplate, enumhandle)
+public actual fun fwpmFilterCreateEnumHandle0(enginehandle: Handle, enumtemplate: COpaquePointer?, enumhandle: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterCreateEnumHandle0((enginehandle?.value ?: 0L), (enumtemplate?.value ?: 0L), (enumhandle?.value ?: 0L))
 
-public actual fun FwpmFilterDeleteById0(enginehandle: HANDLE, id: ULong): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterDeleteById0(enginehandle, id.toLong())
+public actual fun fwpmFilterDeleteById0(enginehandle: Handle, id: ULong): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterDeleteById0((enginehandle?.value ?: 0L), id.toLong())
 
-public actual fun FwpmFilterDeleteByKey0(enginehandle: HANDLE, key: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterDeleteByKey0(enginehandle, key)
+public actual fun fwpmFilterDeleteByKey0(enginehandle: Handle, key: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterDeleteByKey0((enginehandle?.value ?: 0L), (key?.value ?: 0L))
 
-public actual fun FwpmFilterDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterDestroyEnumHandle0(enginehandle, enumhandle)
+public actual fun fwpmFilterDestroyEnumHandle0(enginehandle: Handle, enumhandle: Handle): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterDestroyEnumHandle0((enginehandle?.value ?: 0L), (enumhandle?.value ?: 0L))
 
-public actual fun FwpmFilterEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterEnum0(enginehandle, enumhandle, numentriesrequested.toInt(), entries, numentriesreturned)
+public actual fun fwpmFilterEnum0(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterEnum0((enginehandle?.value ?: 0L), (enumhandle?.value ?: 0L), numentriesrequested.toInt(), (entries?.value ?: 0L), (numentriesreturned?.value ?: 0L))
 
-public actual fun FwpmFilterGetById0(enginehandle: HANDLE, id: ULong, filter: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterGetById0(enginehandle, id.toLong(), filter)
+public actual fun fwpmFilterGetById0(enginehandle: Handle, id: ULong, filter: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterGetById0((enginehandle?.value ?: 0L), id.toLong(), (filter?.value ?: 0L))
 
-public actual fun FwpmFilterGetByKey0(enginehandle: HANDLE, key: Long, filter: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterGetByKey0(enginehandle, key, filter)
+public actual fun fwpmFilterGetByKey0(enginehandle: Handle, key: COpaquePointer?, filter: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterGetByKey0((enginehandle?.value ?: 0L), (key?.value ?: 0L), (filter?.value ?: 0L))
 
-public actual fun FwpmFilterGetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterGetSecurityInfoByKey0(enginehandle, key, securityinfo.toInt(), sidowner, sidgroup, dacl, sacl, securitydescriptor)
+public actual fun fwpmFilterGetSecurityInfoByKey0(enginehandle: Handle, key: COpaquePointer?, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterGetSecurityInfoByKey0((enginehandle?.value ?: 0L), (key?.value ?: 0L), securityinfo.toInt(), (sidowner?.value ?: 0L), (sidgroup?.value ?: 0L), (dacl?.value ?: 0L), (sacl?.value ?: 0L), (securitydescriptor?.value ?: 0L))
 
-public actual fun FwpmFilterSetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFilterSetSecurityInfoByKey0(enginehandle, key, securityinfo.toInt(), sidowner, sidgroup, dacl, sacl)
+public actual fun fwpmFilterSetSecurityInfoByKey0(enginehandle: Handle, key: COpaquePointer?, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFilterSetSecurityInfoByKey0((enginehandle?.value ?: 0L), (key?.value ?: 0L), securityinfo.toInt(), (sidowner?.value ?: 0L), (sidgroup?.value ?: 0L), (dacl?.value ?: 0L), (sacl?.value ?: 0L))
 
-public actual fun FwpmFreeMemory0(p: Long) {
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmFreeMemory0(p)
+public actual fun fwpmFreeMemory0(p: COpaquePointer?) {
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmFreeMemory0((p?.value ?: 0L))
 }
 
-public actual fun FwpmIPsecTunnelAdd0(enginehandle: HANDLE, flags: UInt, mainmodepolicy: Long, tunnelpolicy: Long, numfilterconditions: UInt, filterconditions: Long, sd: PSECURITY_DESCRIPTOR): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelAdd0(enginehandle, flags.toInt(), mainmodepolicy, tunnelpolicy, numfilterconditions.toInt(), filterconditions, sd)
+public actual fun fwpmIPsecTunnelAdd0(enginehandle: Handle, flags: UInt, mainmodepolicy: COpaquePointer?, tunnelpolicy: COpaquePointer?, numfilterconditions: UInt, filterconditions: COpaquePointer?, sd: PsecurityDescriptor): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd0((enginehandle?.value ?: 0L), flags.toInt(), (mainmodepolicy?.value ?: 0L), (tunnelpolicy?.value ?: 0L), numfilterconditions.toInt(), (filterconditions?.value ?: 0L), (sd?.value ?: 0L))
 
-public actual fun FwpmIPsecTunnelAdd1(enginehandle: HANDLE, flags: UInt, mainmodepolicy: Long, tunnelpolicy: Long, numfilterconditions: UInt, filterconditions: Long, keymodkey: Long, sd: PSECURITY_DESCRIPTOR): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelAdd1(enginehandle, flags.toInt(), mainmodepolicy, tunnelpolicy, numfilterconditions.toInt(), filterconditions, keymodkey, sd)
+public actual fun fwpmIPsecTunnelAdd1(enginehandle: Handle, flags: UInt, mainmodepolicy: COpaquePointer?, tunnelpolicy: COpaquePointer?, numfilterconditions: UInt, filterconditions: COpaquePointer?, keymodkey: COpaquePointer?, sd: PsecurityDescriptor): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd1((enginehandle?.value ?: 0L), flags.toInt(), (mainmodepolicy?.value ?: 0L), (tunnelpolicy?.value ?: 0L), numfilterconditions.toInt(), (filterconditions?.value ?: 0L), (keymodkey?.value ?: 0L), (sd?.value ?: 0L))
 
-public actual fun FwpmIPsecTunnelAdd2(enginehandle: HANDLE, flags: UInt, mainmodepolicy: Long, tunnelpolicy: Long, numfilterconditions: UInt, filterconditions: Long, keymodkey: Long, sd: PSECURITY_DESCRIPTOR): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelAdd2(enginehandle, flags.toInt(), mainmodepolicy, tunnelpolicy, numfilterconditions.toInt(), filterconditions, keymodkey, sd)
+public actual fun fwpmIPsecTunnelAdd2(enginehandle: Handle, flags: UInt, mainmodepolicy: COpaquePointer?, tunnelpolicy: COpaquePointer?, numfilterconditions: UInt, filterconditions: COpaquePointer?, keymodkey: COpaquePointer?, sd: PsecurityDescriptor): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd2((enginehandle?.value ?: 0L), flags.toInt(), (mainmodepolicy?.value ?: 0L), (tunnelpolicy?.value ?: 0L), numfilterconditions.toInt(), (filterconditions?.value ?: 0L), (keymodkey?.value ?: 0L), (sd?.value ?: 0L))
 
-public actual fun FwpmIPsecTunnelAdd3(enginehandle: HANDLE, flags: UInt, mainmodepolicy: Long, tunnelpolicy: Long, numfilterconditions: UInt, filterconditions: Long, keymodkey: Long, sd: PSECURITY_DESCRIPTOR): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelAdd3(enginehandle, flags.toInt(), mainmodepolicy, tunnelpolicy, numfilterconditions.toInt(), filterconditions, keymodkey, sd)
+public actual fun fwpmIPsecTunnelAdd3(enginehandle: Handle, flags: UInt, mainmodepolicy: COpaquePointer?, tunnelpolicy: COpaquePointer?, numfilterconditions: UInt, filterconditions: COpaquePointer?, keymodkey: COpaquePointer?, sd: PsecurityDescriptor): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelAdd3((enginehandle?.value ?: 0L), flags.toInt(), (mainmodepolicy?.value ?: 0L), (tunnelpolicy?.value ?: 0L), numfilterconditions.toInt(), (filterconditions?.value ?: 0L), (keymodkey?.value ?: 0L), (sd?.value ?: 0L))
 
-public actual fun FwpmIPsecTunnelDeleteByKey0(enginehandle: HANDLE, key: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmIPsecTunnelDeleteByKey0(enginehandle, key)
+public actual fun fwpmIPsecTunnelDeleteByKey0(enginehandle: Handle, key: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmIPsecTunnelDeleteByKey0((enginehandle?.value ?: 0L), (key?.value ?: 0L))
 
-public actual fun FwpmLayerCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerCreateEnumHandle0(enginehandle, enumtemplate, enumhandle)
+public actual fun fwpmLayerCreateEnumHandle0(enginehandle: Handle, enumtemplate: COpaquePointer?, enumhandle: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerCreateEnumHandle0((enginehandle?.value ?: 0L), (enumtemplate?.value ?: 0L), (enumhandle?.value ?: 0L))
 
-public actual fun FwpmLayerDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerDestroyEnumHandle0(enginehandle, enumhandle)
+public actual fun fwpmLayerDestroyEnumHandle0(enginehandle: Handle, enumhandle: Handle): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerDestroyEnumHandle0((enginehandle?.value ?: 0L), (enumhandle?.value ?: 0L))
 
-public actual fun FwpmLayerEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerEnum0(enginehandle, enumhandle, numentriesrequested.toInt(), entries, numentriesreturned)
+public actual fun fwpmLayerEnum0(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerEnum0((enginehandle?.value ?: 0L), (enumhandle?.value ?: 0L), numentriesrequested.toInt(), (entries?.value ?: 0L), (numentriesreturned?.value ?: 0L))
 
-public actual fun FwpmLayerGetById0(enginehandle: HANDLE, id: UShort, layer: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerGetById0(enginehandle, id.toShort(), layer)
+public actual fun fwpmLayerGetById0(enginehandle: Handle, id: UShort, layer: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerGetById0((enginehandle?.value ?: 0L), id.toShort(), (layer?.value ?: 0L))
 
-public actual fun FwpmLayerGetByKey0(enginehandle: HANDLE, key: Long, layer: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerGetByKey0(enginehandle, key, layer)
+public actual fun fwpmLayerGetByKey0(enginehandle: Handle, key: COpaquePointer?, layer: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerGetByKey0((enginehandle?.value ?: 0L), (key?.value ?: 0L), (layer?.value ?: 0L))
 
-public actual fun FwpmLayerGetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerGetSecurityInfoByKey0(enginehandle, key, securityinfo.toInt(), sidowner, sidgroup, dacl, sacl, securitydescriptor)
+public actual fun fwpmLayerGetSecurityInfoByKey0(enginehandle: Handle, key: COpaquePointer?, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerGetSecurityInfoByKey0((enginehandle?.value ?: 0L), (key?.value ?: 0L), securityinfo.toInt(), (sidowner?.value ?: 0L), (sidgroup?.value ?: 0L), (dacl?.value ?: 0L), (sacl?.value ?: 0L), (securitydescriptor?.value ?: 0L))
 
-public actual fun FwpmLayerSetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmLayerSetSecurityInfoByKey0(enginehandle, key, securityinfo.toInt(), sidowner, sidgroup, dacl, sacl)
+public actual fun fwpmLayerSetSecurityInfoByKey0(enginehandle: Handle, key: COpaquePointer?, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmLayerSetSecurityInfoByKey0((enginehandle?.value ?: 0L), (key?.value ?: 0L), securityinfo.toInt(), (sidowner?.value ?: 0L), (sidgroup?.value ?: 0L), (dacl?.value ?: 0L), (sacl?.value ?: 0L))
 
-public actual fun FwpmNetEventCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventCreateEnumHandle0(enginehandle, enumtemplate, enumhandle)
+public actual fun fwpmNetEventCreateEnumHandle0(enginehandle: Handle, enumtemplate: COpaquePointer?, enumhandle: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventCreateEnumHandle0((enginehandle?.value ?: 0L), (enumtemplate?.value ?: 0L), (enumhandle?.value ?: 0L))
 
-public actual fun FwpmNetEventDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventDestroyEnumHandle0(enginehandle, enumhandle)
+public actual fun fwpmNetEventDestroyEnumHandle0(enginehandle: Handle, enumhandle: Handle): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventDestroyEnumHandle0((enginehandle?.value ?: 0L), (enumhandle?.value ?: 0L))
 
-public actual fun FwpmNetEventEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum0(enginehandle, enumhandle, numentriesrequested.toInt(), entries, numentriesreturned)
+public actual fun fwpmNetEventEnum0(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum0((enginehandle?.value ?: 0L), (enumhandle?.value ?: 0L), numentriesrequested.toInt(), (entries?.value ?: 0L), (numentriesreturned?.value ?: 0L))
 
-public actual fun FwpmNetEventEnum1(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum1(enginehandle, enumhandle, numentriesrequested.toInt(), entries, numentriesreturned)
+public actual fun fwpmNetEventEnum1(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum1((enginehandle?.value ?: 0L), (enumhandle?.value ?: 0L), numentriesrequested.toInt(), (entries?.value ?: 0L), (numentriesreturned?.value ?: 0L))
 
-public actual fun FwpmNetEventEnum2(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum2(enginehandle, enumhandle, numentriesrequested.toInt(), entries, numentriesreturned)
+public actual fun fwpmNetEventEnum2(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum2((enginehandle?.value ?: 0L), (enumhandle?.value ?: 0L), numentriesrequested.toInt(), (entries?.value ?: 0L), (numentriesreturned?.value ?: 0L))
 
-public actual fun FwpmNetEventEnum3(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum3(enginehandle, enumhandle, numentriesrequested.toInt(), entries, numentriesreturned)
+public actual fun fwpmNetEventEnum3(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum3((enginehandle?.value ?: 0L), (enumhandle?.value ?: 0L), numentriesrequested.toInt(), (entries?.value ?: 0L), (numentriesreturned?.value ?: 0L))
 
-public actual fun FwpmNetEventEnum4(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum4(enginehandle, enumhandle, numentriesrequested.toInt(), entries, numentriesreturned)
+public actual fun fwpmNetEventEnum4(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum4((enginehandle?.value ?: 0L), (enumhandle?.value ?: 0L), numentriesrequested.toInt(), (entries?.value ?: 0L), (numentriesreturned?.value ?: 0L))
 
-public actual fun FwpmNetEventEnum5(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventEnum5(enginehandle, enumhandle, numentriesrequested.toInt(), entries, numentriesreturned)
+public actual fun fwpmNetEventEnum5(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventEnum5((enginehandle?.value ?: 0L), (enumhandle?.value ?: 0L), numentriesrequested.toInt(), (entries?.value ?: 0L), (numentriesreturned?.value ?: 0L))
 
-public actual fun FwpmNetEventsGetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventsGetSecurityInfo0(enginehandle, securityinfo.toInt(), sidowner, sidgroup, dacl, sacl, securitydescriptor)
+public actual fun fwpmNetEventsGetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventsGetSecurityInfo0((enginehandle?.value ?: 0L), securityinfo.toInt(), (sidowner?.value ?: 0L), (sidgroup?.value ?: 0L), (dacl?.value ?: 0L), (sacl?.value ?: 0L), (securitydescriptor?.value ?: 0L))
 
-public actual fun FwpmNetEventsSetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmNetEventsSetSecurityInfo0(enginehandle, securityinfo.toInt(), sidowner, sidgroup, dacl, sacl)
+public actual fun fwpmNetEventsSetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmNetEventsSetSecurityInfo0((enginehandle?.value ?: 0L), securityinfo.toInt(), (sidowner?.value ?: 0L), (sidgroup?.value ?: 0L), (dacl?.value ?: 0L), (sacl?.value ?: 0L))
 
-public actual fun FwpmProviderAdd0(enginehandle: HANDLE, provider: Long, sd: PSECURITY_DESCRIPTOR): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderAdd0(enginehandle, provider, sd)
+public actual fun fwpmProviderAdd0(enginehandle: Handle, provider: COpaquePointer?, sd: PsecurityDescriptor): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderAdd0((enginehandle?.value ?: 0L), (provider?.value ?: 0L), (sd?.value ?: 0L))
 
-public actual fun FwpmProviderContextAdd0(enginehandle: HANDLE, providercontext: Long, sd: PSECURITY_DESCRIPTOR, id: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextAdd0(enginehandle, providercontext, sd, id)
+public actual fun fwpmProviderContextAdd0(enginehandle: Handle, providercontext: COpaquePointer?, sd: PsecurityDescriptor, id: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd0((enginehandle?.value ?: 0L), (providercontext?.value ?: 0L), (sd?.value ?: 0L), (id?.value ?: 0L))
 
-public actual fun FwpmProviderContextAdd1(enginehandle: HANDLE, providercontext: Long, sd: PSECURITY_DESCRIPTOR, id: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextAdd1(enginehandle, providercontext, sd, id)
+public actual fun fwpmProviderContextAdd1(enginehandle: Handle, providercontext: COpaquePointer?, sd: PsecurityDescriptor, id: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd1((enginehandle?.value ?: 0L), (providercontext?.value ?: 0L), (sd?.value ?: 0L), (id?.value ?: 0L))
 
-public actual fun FwpmProviderContextAdd2(enginehandle: HANDLE, providercontext: Long, sd: PSECURITY_DESCRIPTOR, id: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextAdd2(enginehandle, providercontext, sd, id)
+public actual fun fwpmProviderContextAdd2(enginehandle: Handle, providercontext: COpaquePointer?, sd: PsecurityDescriptor, id: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd2((enginehandle?.value ?: 0L), (providercontext?.value ?: 0L), (sd?.value ?: 0L), (id?.value ?: 0L))
 
-public actual fun FwpmProviderContextAdd3(enginehandle: HANDLE, providercontext: Long, sd: PSECURITY_DESCRIPTOR, id: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextAdd3(enginehandle, providercontext, sd, id)
+public actual fun fwpmProviderContextAdd3(enginehandle: Handle, providercontext: COpaquePointer?, sd: PsecurityDescriptor, id: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextAdd3((enginehandle?.value ?: 0L), (providercontext?.value ?: 0L), (sd?.value ?: 0L), (id?.value ?: 0L))
 
-public actual fun FwpmProviderContextCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextCreateEnumHandle0(enginehandle, enumtemplate, enumhandle)
+public actual fun fwpmProviderContextCreateEnumHandle0(enginehandle: Handle, enumtemplate: COpaquePointer?, enumhandle: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextCreateEnumHandle0((enginehandle?.value ?: 0L), (enumtemplate?.value ?: 0L), (enumhandle?.value ?: 0L))
 
-public actual fun FwpmProviderContextDeleteById0(enginehandle: HANDLE, id: ULong): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextDeleteById0(enginehandle, id.toLong())
+public actual fun fwpmProviderContextDeleteById0(enginehandle: Handle, id: ULong): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextDeleteById0((enginehandle?.value ?: 0L), id.toLong())
 
-public actual fun FwpmProviderContextDeleteByKey0(enginehandle: HANDLE, key: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextDeleteByKey0(enginehandle, key)
+public actual fun fwpmProviderContextDeleteByKey0(enginehandle: Handle, key: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextDeleteByKey0((enginehandle?.value ?: 0L), (key?.value ?: 0L))
 
-public actual fun FwpmProviderContextDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextDestroyEnumHandle0(enginehandle, enumhandle)
+public actual fun fwpmProviderContextDestroyEnumHandle0(enginehandle: Handle, enumhandle: Handle): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextDestroyEnumHandle0((enginehandle?.value ?: 0L), (enumhandle?.value ?: 0L))
 
-public actual fun FwpmProviderContextEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextEnum0(enginehandle, enumhandle, numentriesrequested.toInt(), entries, numentriesreturned)
+public actual fun fwpmProviderContextEnum0(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum0((enginehandle?.value ?: 0L), (enumhandle?.value ?: 0L), numentriesrequested.toInt(), (entries?.value ?: 0L), (numentriesreturned?.value ?: 0L))
 
-public actual fun FwpmProviderContextEnum1(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextEnum1(enginehandle, enumhandle, numentriesrequested.toInt(), entries, numentriesreturned)
+public actual fun fwpmProviderContextEnum1(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum1((enginehandle?.value ?: 0L), (enumhandle?.value ?: 0L), numentriesrequested.toInt(), (entries?.value ?: 0L), (numentriesreturned?.value ?: 0L))
 
-public actual fun FwpmProviderContextEnum2(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextEnum2(enginehandle, enumhandle, numentriesrequested.toInt(), entries, numentriesreturned)
+public actual fun fwpmProviderContextEnum2(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum2((enginehandle?.value ?: 0L), (enumhandle?.value ?: 0L), numentriesrequested.toInt(), (entries?.value ?: 0L), (numentriesreturned?.value ?: 0L))
 
-public actual fun FwpmProviderContextEnum3(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextEnum3(enginehandle, enumhandle, numentriesrequested.toInt(), entries, numentriesreturned)
+public actual fun fwpmProviderContextEnum3(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextEnum3((enginehandle?.value ?: 0L), (enumhandle?.value ?: 0L), numentriesrequested.toInt(), (entries?.value ?: 0L), (numentriesreturned?.value ?: 0L))
 
-public actual fun FwpmProviderContextGetById0(enginehandle: HANDLE, id: ULong, providercontext: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetById0(enginehandle, id.toLong(), providercontext)
+public actual fun fwpmProviderContextGetById0(enginehandle: Handle, id: ULong, providercontext: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById0((enginehandle?.value ?: 0L), id.toLong(), (providercontext?.value ?: 0L))
 
-public actual fun FwpmProviderContextGetById1(enginehandle: HANDLE, id: ULong, providercontext: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetById1(enginehandle, id.toLong(), providercontext)
+public actual fun fwpmProviderContextGetById1(enginehandle: Handle, id: ULong, providercontext: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById1((enginehandle?.value ?: 0L), id.toLong(), (providercontext?.value ?: 0L))
 
-public actual fun FwpmProviderContextGetById2(enginehandle: HANDLE, id: ULong, providercontext: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetById2(enginehandle, id.toLong(), providercontext)
+public actual fun fwpmProviderContextGetById2(enginehandle: Handle, id: ULong, providercontext: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById2((enginehandle?.value ?: 0L), id.toLong(), (providercontext?.value ?: 0L))
 
-public actual fun FwpmProviderContextGetById3(enginehandle: HANDLE, id: ULong, providercontext: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetById3(enginehandle, id.toLong(), providercontext)
+public actual fun fwpmProviderContextGetById3(enginehandle: Handle, id: ULong, providercontext: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetById3((enginehandle?.value ?: 0L), id.toLong(), (providercontext?.value ?: 0L))
 
-public actual fun FwpmProviderContextGetByKey0(enginehandle: HANDLE, key: Long, providercontext: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetByKey0(enginehandle, key, providercontext)
+public actual fun fwpmProviderContextGetByKey0(enginehandle: Handle, key: COpaquePointer?, providercontext: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey0((enginehandle?.value ?: 0L), (key?.value ?: 0L), (providercontext?.value ?: 0L))
 
-public actual fun FwpmProviderContextGetByKey1(enginehandle: HANDLE, key: Long, providercontext: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetByKey1(enginehandle, key, providercontext)
+public actual fun fwpmProviderContextGetByKey1(enginehandle: Handle, key: COpaquePointer?, providercontext: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey1((enginehandle?.value ?: 0L), (key?.value ?: 0L), (providercontext?.value ?: 0L))
 
-public actual fun FwpmProviderContextGetByKey2(enginehandle: HANDLE, key: Long, providercontext: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetByKey2(enginehandle, key, providercontext)
+public actual fun fwpmProviderContextGetByKey2(enginehandle: Handle, key: COpaquePointer?, providercontext: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey2((enginehandle?.value ?: 0L), (key?.value ?: 0L), (providercontext?.value ?: 0L))
 
-public actual fun FwpmProviderContextGetByKey3(enginehandle: HANDLE, key: Long, providercontext: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetByKey3(enginehandle, key, providercontext)
+public actual fun fwpmProviderContextGetByKey3(enginehandle: Handle, key: COpaquePointer?, providercontext: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetByKey3((enginehandle?.value ?: 0L), (key?.value ?: 0L), (providercontext?.value ?: 0L))
 
-public actual fun FwpmProviderContextGetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextGetSecurityInfoByKey0(enginehandle, key, securityinfo.toInt(), sidowner, sidgroup, dacl, sacl, securitydescriptor)
+public actual fun fwpmProviderContextGetSecurityInfoByKey0(enginehandle: Handle, key: COpaquePointer?, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextGetSecurityInfoByKey0((enginehandle?.value ?: 0L), (key?.value ?: 0L), securityinfo.toInt(), (sidowner?.value ?: 0L), (sidgroup?.value ?: 0L), (dacl?.value ?: 0L), (sacl?.value ?: 0L), (securitydescriptor?.value ?: 0L))
 
-public actual fun FwpmProviderContextSetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderContextSetSecurityInfoByKey0(enginehandle, key, securityinfo.toInt(), sidowner, sidgroup, dacl, sacl)
+public actual fun fwpmProviderContextSetSecurityInfoByKey0(enginehandle: Handle, key: COpaquePointer?, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderContextSetSecurityInfoByKey0((enginehandle?.value ?: 0L), (key?.value ?: 0L), securityinfo.toInt(), (sidowner?.value ?: 0L), (sidgroup?.value ?: 0L), (dacl?.value ?: 0L), (sacl?.value ?: 0L))
 
-public actual fun FwpmProviderCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderCreateEnumHandle0(enginehandle, enumtemplate, enumhandle)
+public actual fun fwpmProviderCreateEnumHandle0(enginehandle: Handle, enumtemplate: COpaquePointer?, enumhandle: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderCreateEnumHandle0((enginehandle?.value ?: 0L), (enumtemplate?.value ?: 0L), (enumhandle?.value ?: 0L))
 
-public actual fun FwpmProviderDeleteByKey0(enginehandle: HANDLE, key: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderDeleteByKey0(enginehandle, key)
+public actual fun fwpmProviderDeleteByKey0(enginehandle: Handle, key: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderDeleteByKey0((enginehandle?.value ?: 0L), (key?.value ?: 0L))
 
-public actual fun FwpmProviderDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderDestroyEnumHandle0(enginehandle, enumhandle)
+public actual fun fwpmProviderDestroyEnumHandle0(enginehandle: Handle, enumhandle: Handle): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderDestroyEnumHandle0((enginehandle?.value ?: 0L), (enumhandle?.value ?: 0L))
 
-public actual fun FwpmProviderEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderEnum0(enginehandle, enumhandle, numentriesrequested.toInt(), entries, numentriesreturned)
+public actual fun fwpmProviderEnum0(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderEnum0((enginehandle?.value ?: 0L), (enumhandle?.value ?: 0L), numentriesrequested.toInt(), (entries?.value ?: 0L), (numentriesreturned?.value ?: 0L))
 
-public actual fun FwpmProviderGetByKey0(enginehandle: HANDLE, key: Long, provider: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderGetByKey0(enginehandle, key, provider)
+public actual fun fwpmProviderGetByKey0(enginehandle: Handle, key: COpaquePointer?, provider: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderGetByKey0((enginehandle?.value ?: 0L), (key?.value ?: 0L), (provider?.value ?: 0L))
 
-public actual fun FwpmProviderGetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderGetSecurityInfoByKey0(enginehandle, key, securityinfo.toInt(), sidowner, sidgroup, dacl, sacl, securitydescriptor)
+public actual fun fwpmProviderGetSecurityInfoByKey0(enginehandle: Handle, key: COpaquePointer?, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderGetSecurityInfoByKey0((enginehandle?.value ?: 0L), (key?.value ?: 0L), securityinfo.toInt(), (sidowner?.value ?: 0L), (sidgroup?.value ?: 0L), (dacl?.value ?: 0L), (sacl?.value ?: 0L), (securitydescriptor?.value ?: 0L))
 
-public actual fun FwpmProviderSetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmProviderSetSecurityInfoByKey0(enginehandle, key, securityinfo.toInt(), sidowner, sidgroup, dacl, sacl)
+public actual fun fwpmProviderSetSecurityInfoByKey0(enginehandle: Handle, key: COpaquePointer?, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmProviderSetSecurityInfoByKey0((enginehandle?.value ?: 0L), (key?.value ?: 0L), securityinfo.toInt(), (sidowner?.value ?: 0L), (sidgroup?.value ?: 0L), (dacl?.value ?: 0L), (sacl?.value ?: 0L))
 
-public actual fun FwpmSessionCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSessionCreateEnumHandle0(enginehandle, enumtemplate, enumhandle)
+public actual fun fwpmSessionCreateEnumHandle0(enginehandle: Handle, enumtemplate: COpaquePointer?, enumhandle: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSessionCreateEnumHandle0((enginehandle?.value ?: 0L), (enumtemplate?.value ?: 0L), (enumhandle?.value ?: 0L))
 
-public actual fun FwpmSessionDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSessionDestroyEnumHandle0(enginehandle, enumhandle)
+public actual fun fwpmSessionDestroyEnumHandle0(enginehandle: Handle, enumhandle: Handle): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSessionDestroyEnumHandle0((enginehandle?.value ?: 0L), (enumhandle?.value ?: 0L))
 
-public actual fun FwpmSessionEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSessionEnum0(enginehandle, enumhandle, numentriesrequested.toInt(), entries, numentriesreturned)
+public actual fun fwpmSessionEnum0(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSessionEnum0((enginehandle?.value ?: 0L), (enumhandle?.value ?: 0L), numentriesrequested.toInt(), (entries?.value ?: 0L), (numentriesreturned?.value ?: 0L))
 
-public actual fun FwpmSubLayerAdd0(enginehandle: HANDLE, sublayer: Long, sd: PSECURITY_DESCRIPTOR): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerAdd0(enginehandle, sublayer, sd)
+public actual fun fwpmSubLayerAdd0(enginehandle: Handle, sublayer: COpaquePointer?, sd: PsecurityDescriptor): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerAdd0((enginehandle?.value ?: 0L), (sublayer?.value ?: 0L), (sd?.value ?: 0L))
 
-public actual fun FwpmSubLayerCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerCreateEnumHandle0(enginehandle, enumtemplate, enumhandle)
+public actual fun fwpmSubLayerCreateEnumHandle0(enginehandle: Handle, enumtemplate: COpaquePointer?, enumhandle: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerCreateEnumHandle0((enginehandle?.value ?: 0L), (enumtemplate?.value ?: 0L), (enumhandle?.value ?: 0L))
 
-public actual fun FwpmSubLayerDeleteByKey0(enginehandle: HANDLE, key: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerDeleteByKey0(enginehandle, key)
+public actual fun fwpmSubLayerDeleteByKey0(enginehandle: Handle, key: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerDeleteByKey0((enginehandle?.value ?: 0L), (key?.value ?: 0L))
 
-public actual fun FwpmSubLayerDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerDestroyEnumHandle0(enginehandle, enumhandle)
+public actual fun fwpmSubLayerDestroyEnumHandle0(enginehandle: Handle, enumhandle: Handle): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerDestroyEnumHandle0((enginehandle?.value ?: 0L), (enumhandle?.value ?: 0L))
 
-public actual fun FwpmSubLayerEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerEnum0(enginehandle, enumhandle, numentriesrequested.toInt(), entries, numentriesreturned)
+public actual fun fwpmSubLayerEnum0(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerEnum0((enginehandle?.value ?: 0L), (enumhandle?.value ?: 0L), numentriesrequested.toInt(), (entries?.value ?: 0L), (numentriesreturned?.value ?: 0L))
 
-public actual fun FwpmSubLayerGetByKey0(enginehandle: HANDLE, key: Long, sublayer: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerGetByKey0(enginehandle, key, sublayer)
+public actual fun fwpmSubLayerGetByKey0(enginehandle: Handle, key: COpaquePointer?, sublayer: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerGetByKey0((enginehandle?.value ?: 0L), (key?.value ?: 0L), (sublayer?.value ?: 0L))
 
-public actual fun FwpmSubLayerGetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerGetSecurityInfoByKey0(enginehandle, key, securityinfo.toInt(), sidowner, sidgroup, dacl, sacl, securitydescriptor)
+public actual fun fwpmSubLayerGetSecurityInfoByKey0(enginehandle: Handle, key: COpaquePointer?, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerGetSecurityInfoByKey0((enginehandle?.value ?: 0L), (key?.value ?: 0L), securityinfo.toInt(), (sidowner?.value ?: 0L), (sidgroup?.value ?: 0L), (dacl?.value ?: 0L), (sacl?.value ?: 0L), (securitydescriptor?.value ?: 0L))
 
-public actual fun FwpmSubLayerSetSecurityInfoByKey0(enginehandle: HANDLE, key: Long, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmSubLayerSetSecurityInfoByKey0(enginehandle, key, securityinfo.toInt(), sidowner, sidgroup, dacl, sacl)
+public actual fun fwpmSubLayerSetSecurityInfoByKey0(enginehandle: Handle, key: COpaquePointer?, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmSubLayerSetSecurityInfoByKey0((enginehandle?.value ?: 0L), (key?.value ?: 0L), securityinfo.toInt(), (sidowner?.value ?: 0L), (sidgroup?.value ?: 0L), (dacl?.value ?: 0L), (sacl?.value ?: 0L))
 
-public actual fun FwpmTransactionAbort0(enginehandle: HANDLE): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmTransactionAbort0(enginehandle)
+public actual fun fwpmTransactionAbort0(enginehandle: Handle): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmTransactionAbort0((enginehandle?.value ?: 0L))
 
-public actual fun FwpmTransactionBegin0(enginehandle: HANDLE, flags: UInt): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmTransactionBegin0(enginehandle, flags.toInt())
+public actual fun fwpmTransactionBegin0(enginehandle: Handle, flags: UInt): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmTransactionBegin0((enginehandle?.value ?: 0L), flags.toInt())
 
-public actual fun FwpmTransactionCommit0(enginehandle: HANDLE): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmTransactionCommit0(enginehandle)
+public actual fun fwpmTransactionCommit0(enginehandle: Handle): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmTransactionCommit0((enginehandle?.value ?: 0L))
 
-public actual fun FwpmvSwitchEventsGetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmvSwitchEventsGetSecurityInfo0(enginehandle, securityinfo.toInt(), sidowner, sidgroup, dacl, sacl, securitydescriptor)
+public actual fun fwpmvSwitchEventsGetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmvSwitchEventsGetSecurityInfo0((enginehandle?.value ?: 0L), securityinfo.toInt(), (sidowner?.value ?: 0L), (sidgroup?.value ?: 0L), (dacl?.value ?: 0L), (sacl?.value ?: 0L), (securitydescriptor?.value ?: 0L))
 
-public actual fun FwpmvSwitchEventsSetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_FwpmvSwitchEventsSetSecurityInfo0(enginehandle, securityinfo.toInt(), sidowner, sidgroup, dacl, sacl)
+public actual fun fwpmvSwitchEventsSetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_fwpmvSwitchEventsSetSecurityInfo0((enginehandle?.value ?: 0L), securityinfo.toInt(), (sidowner?.value ?: 0L), (sidgroup?.value ?: 0L), (dacl?.value ?: 0L), (sacl?.value ?: 0L))
 
-public actual fun IPsecDospGetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecDospGetSecurityInfo0(enginehandle, securityinfo.toInt(), sidowner, sidgroup, dacl, sacl, securitydescriptor)
+public actual fun iPsecDospGetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospGetSecurityInfo0((enginehandle?.value ?: 0L), securityinfo.toInt(), (sidowner?.value ?: 0L), (sidgroup?.value ?: 0L), (dacl?.value ?: 0L), (sacl?.value ?: 0L), (securitydescriptor?.value ?: 0L))
 
-public actual fun IPsecDospGetStatistics0(enginehandle: HANDLE, idpstatistics: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecDospGetStatistics0(enginehandle, idpstatistics)
+public actual fun iPsecDospGetStatistics0(enginehandle: Handle, idpstatistics: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospGetStatistics0((enginehandle?.value ?: 0L), (idpstatistics?.value ?: 0L))
 
-public actual fun IPsecDospSetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecDospSetSecurityInfo0(enginehandle, securityinfo.toInt(), sidowner, sidgroup, dacl, sacl)
+public actual fun iPsecDospSetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospSetSecurityInfo0((enginehandle?.value ?: 0L), securityinfo.toInt(), (sidowner?.value ?: 0L), (sidgroup?.value ?: 0L), (dacl?.value ?: 0L), (sacl?.value ?: 0L))
 
-public actual fun IPsecDospStateCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecDospStateCreateEnumHandle0(enginehandle, enumtemplate, enumhandle)
+public actual fun iPsecDospStateCreateEnumHandle0(enginehandle: Handle, enumtemplate: COpaquePointer?, enumhandle: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospStateCreateEnumHandle0((enginehandle?.value ?: 0L), (enumtemplate?.value ?: 0L), (enumhandle?.value ?: 0L))
 
-public actual fun IPsecDospStateDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecDospStateDestroyEnumHandle0(enginehandle, enumhandle)
+public actual fun iPsecDospStateDestroyEnumHandle0(enginehandle: Handle, enumhandle: Handle): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospStateDestroyEnumHandle0((enginehandle?.value ?: 0L), (enumhandle?.value ?: 0L))
 
-public actual fun IPsecDospStateEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentries: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecDospStateEnum0(enginehandle, enumhandle, numentriesrequested.toInt(), entries, numentries)
+public actual fun iPsecDospStateEnum0(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentries: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecDospStateEnum0((enginehandle?.value ?: 0L), (enumhandle?.value ?: 0L), numentriesrequested.toInt(), (entries?.value ?: 0L), (numentries?.value ?: 0L))
 
-public actual fun IPsecGetStatistics0(enginehandle: HANDLE, ipsecstatistics: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecGetStatistics0(enginehandle, ipsecstatistics)
+public actual fun iPsecGetStatistics0(enginehandle: Handle, ipsecstatistics: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecGetStatistics0((enginehandle?.value ?: 0L), (ipsecstatistics?.value ?: 0L))
 
-public actual fun IPsecGetStatistics1(enginehandle: HANDLE, ipsecstatistics: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecGetStatistics1(enginehandle, ipsecstatistics)
+public actual fun iPsecGetStatistics1(enginehandle: Handle, ipsecstatistics: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecGetStatistics1((enginehandle?.value ?: 0L), (ipsecstatistics?.value ?: 0L))
 
-public actual fun IPsecSaContextAddInbound0(enginehandle: HANDLE, id: ULong, inboundbundle: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextAddInbound0(enginehandle, id.toLong(), inboundbundle)
+public actual fun iPsecSaContextAddInbound0(enginehandle: Handle, id: ULong, inboundbundle: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextAddInbound0((enginehandle?.value ?: 0L), id.toLong(), (inboundbundle?.value ?: 0L))
 
-public actual fun IPsecSaContextAddInbound1(enginehandle: HANDLE, id: ULong, inboundbundle: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextAddInbound1(enginehandle, id.toLong(), inboundbundle)
+public actual fun iPsecSaContextAddInbound1(enginehandle: Handle, id: ULong, inboundbundle: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextAddInbound1((enginehandle?.value ?: 0L), id.toLong(), (inboundbundle?.value ?: 0L))
 
-public actual fun IPsecSaContextAddOutbound0(enginehandle: HANDLE, id: ULong, outboundbundle: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextAddOutbound0(enginehandle, id.toLong(), outboundbundle)
+public actual fun iPsecSaContextAddOutbound0(enginehandle: Handle, id: ULong, outboundbundle: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextAddOutbound0((enginehandle?.value ?: 0L), id.toLong(), (outboundbundle?.value ?: 0L))
 
-public actual fun IPsecSaContextAddOutbound1(enginehandle: HANDLE, id: ULong, outboundbundle: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextAddOutbound1(enginehandle, id.toLong(), outboundbundle)
+public actual fun iPsecSaContextAddOutbound1(enginehandle: Handle, id: ULong, outboundbundle: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextAddOutbound1((enginehandle?.value ?: 0L), id.toLong(), (outboundbundle?.value ?: 0L))
 
-public actual fun IPsecSaContextCreate0(enginehandle: HANDLE, outboundtraffic: Long, inboundfilterid: Long, id: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextCreate0(enginehandle, outboundtraffic, inboundfilterid, id)
+public actual fun iPsecSaContextCreate0(enginehandle: Handle, outboundtraffic: COpaquePointer?, inboundfilterid: COpaquePointer?, id: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextCreate0((enginehandle?.value ?: 0L), (outboundtraffic?.value ?: 0L), (inboundfilterid?.value ?: 0L), (id?.value ?: 0L))
 
-public actual fun IPsecSaContextCreate1(enginehandle: HANDLE, outboundtraffic: Long, virtualiftunnelinfo: Long, inboundfilterid: Long, id: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextCreate1(enginehandle, outboundtraffic, virtualiftunnelinfo, inboundfilterid, id)
+public actual fun iPsecSaContextCreate1(enginehandle: Handle, outboundtraffic: COpaquePointer?, virtualiftunnelinfo: COpaquePointer?, inboundfilterid: COpaquePointer?, id: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextCreate1((enginehandle?.value ?: 0L), (outboundtraffic?.value ?: 0L), (virtualiftunnelinfo?.value ?: 0L), (inboundfilterid?.value ?: 0L), (id?.value ?: 0L))
 
-public actual fun IPsecSaContextCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextCreateEnumHandle0(enginehandle, enumtemplate, enumhandle)
+public actual fun iPsecSaContextCreateEnumHandle0(enginehandle: Handle, enumtemplate: COpaquePointer?, enumhandle: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextCreateEnumHandle0((enginehandle?.value ?: 0L), (enumtemplate?.value ?: 0L), (enumhandle?.value ?: 0L))
 
-public actual fun IPsecSaContextDeleteById0(enginehandle: HANDLE, id: ULong): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextDeleteById0(enginehandle, id.toLong())
+public actual fun iPsecSaContextDeleteById0(enginehandle: Handle, id: ULong): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextDeleteById0((enginehandle?.value ?: 0L), id.toLong())
 
-public actual fun IPsecSaContextDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextDestroyEnumHandle0(enginehandle, enumhandle)
+public actual fun iPsecSaContextDestroyEnumHandle0(enginehandle: Handle, enumhandle: Handle): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextDestroyEnumHandle0((enginehandle?.value ?: 0L), (enumhandle?.value ?: 0L))
 
-public actual fun IPsecSaContextEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextEnum0(enginehandle, enumhandle, numentriesrequested.toInt(), entries, numentriesreturned)
+public actual fun iPsecSaContextEnum0(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextEnum0((enginehandle?.value ?: 0L), (enumhandle?.value ?: 0L), numentriesrequested.toInt(), (entries?.value ?: 0L), (numentriesreturned?.value ?: 0L))
 
-public actual fun IPsecSaContextEnum1(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextEnum1(enginehandle, enumhandle, numentriesrequested.toInt(), entries, numentriesreturned)
+public actual fun iPsecSaContextEnum1(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextEnum1((enginehandle?.value ?: 0L), (enumhandle?.value ?: 0L), numentriesrequested.toInt(), (entries?.value ?: 0L), (numentriesreturned?.value ?: 0L))
 
-public actual fun IPsecSaContextExpire0(enginehandle: HANDLE, id: ULong): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextExpire0(enginehandle, id.toLong())
+public actual fun iPsecSaContextExpire0(enginehandle: Handle, id: ULong): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextExpire0((enginehandle?.value ?: 0L), id.toLong())
 
-public actual fun IPsecSaContextGetById0(enginehandle: HANDLE, id: ULong, sacontext: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextGetById0(enginehandle, id.toLong(), sacontext)
+public actual fun iPsecSaContextGetById0(enginehandle: Handle, id: ULong, sacontext: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextGetById0((enginehandle?.value ?: 0L), id.toLong(), (sacontext?.value ?: 0L))
 
-public actual fun IPsecSaContextGetById1(enginehandle: HANDLE, id: ULong, sacontext: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextGetById1(enginehandle, id.toLong(), sacontext)
+public actual fun iPsecSaContextGetById1(enginehandle: Handle, id: ULong, sacontext: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextGetById1((enginehandle?.value ?: 0L), id.toLong(), (sacontext?.value ?: 0L))
 
-public actual fun IPsecSaContextGetSpi0(enginehandle: HANDLE, id: ULong, getspi: Long, inboundspi: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextGetSpi0(enginehandle, id.toLong(), getspi, inboundspi)
+public actual fun iPsecSaContextGetSpi0(enginehandle: Handle, id: ULong, getspi: COpaquePointer?, inboundspi: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextGetSpi0((enginehandle?.value ?: 0L), id.toLong(), (getspi?.value ?: 0L), (inboundspi?.value ?: 0L))
 
-public actual fun IPsecSaContextGetSpi1(enginehandle: HANDLE, id: ULong, getspi: Long, inboundspi: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextGetSpi1(enginehandle, id.toLong(), getspi, inboundspi)
+public actual fun iPsecSaContextGetSpi1(enginehandle: Handle, id: ULong, getspi: COpaquePointer?, inboundspi: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextGetSpi1((enginehandle?.value ?: 0L), id.toLong(), (getspi?.value ?: 0L), (inboundspi?.value ?: 0L))
 
-public actual fun IPsecSaContextSetSpi0(enginehandle: HANDLE, id: ULong, getspi: Long, inboundspi: UInt): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextSetSpi0(enginehandle, id.toLong(), getspi, inboundspi.toInt())
+public actual fun iPsecSaContextSetSpi0(enginehandle: Handle, id: ULong, getspi: COpaquePointer?, inboundspi: UInt): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextSetSpi0((enginehandle?.value ?: 0L), id.toLong(), (getspi?.value ?: 0L), inboundspi.toInt())
 
-public actual fun IPsecSaContextUpdate0(enginehandle: HANDLE, flags: ULong, newvalues: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaContextUpdate0(enginehandle, flags.toLong(), newvalues)
+public actual fun iPsecSaContextUpdate0(enginehandle: Handle, flags: ULong, newvalues: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaContextUpdate0((enginehandle?.value ?: 0L), flags.toLong(), (newvalues?.value ?: 0L))
 
-public actual fun IPsecSaCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaCreateEnumHandle0(enginehandle, enumtemplate, enumhandle)
+public actual fun iPsecSaCreateEnumHandle0(enginehandle: Handle, enumtemplate: COpaquePointer?, enumhandle: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaCreateEnumHandle0((enginehandle?.value ?: 0L), (enumtemplate?.value ?: 0L), (enumhandle?.value ?: 0L))
 
-public actual fun IPsecSaDbGetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaDbGetSecurityInfo0(enginehandle, securityinfo.toInt(), sidowner, sidgroup, dacl, sacl, securitydescriptor)
+public actual fun iPsecSaDbGetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaDbGetSecurityInfo0((enginehandle?.value ?: 0L), securityinfo.toInt(), (sidowner?.value ?: 0L), (sidgroup?.value ?: 0L), (dacl?.value ?: 0L), (sacl?.value ?: 0L), (securitydescriptor?.value ?: 0L))
 
-public actual fun IPsecSaDbSetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaDbSetSecurityInfo0(enginehandle, securityinfo.toInt(), sidowner, sidgroup, dacl, sacl)
+public actual fun iPsecSaDbSetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaDbSetSecurityInfo0((enginehandle?.value ?: 0L), securityinfo.toInt(), (sidowner?.value ?: 0L), (sidgroup?.value ?: 0L), (dacl?.value ?: 0L), (sacl?.value ?: 0L))
 
-public actual fun IPsecSaDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaDestroyEnumHandle0(enginehandle, enumhandle)
+public actual fun iPsecSaDestroyEnumHandle0(enginehandle: Handle, enumhandle: Handle): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaDestroyEnumHandle0((enginehandle?.value ?: 0L), (enumhandle?.value ?: 0L))
 
-public actual fun IPsecSaEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaEnum0(enginehandle, enumhandle, numentriesrequested.toInt(), entries, numentriesreturned)
+public actual fun iPsecSaEnum0(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaEnum0((enginehandle?.value ?: 0L), (enumhandle?.value ?: 0L), numentriesrequested.toInt(), (entries?.value ?: 0L), (numentriesreturned?.value ?: 0L))
 
-public actual fun IPsecSaEnum1(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IPsecSaEnum1(enginehandle, enumhandle, numentriesrequested.toInt(), entries, numentriesreturned)
+public actual fun iPsecSaEnum1(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_iPsecSaEnum1((enginehandle?.value ?: 0L), (enumhandle?.value ?: 0L), numentriesrequested.toInt(), (entries?.value ?: 0L), (numentriesreturned?.value ?: 0L))
 
-public actual fun IkeextGetStatistics0(enginehandle: HANDLE, ikeextstatistics: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextGetStatistics0(enginehandle, ikeextstatistics)
+public actual fun ikeextGetStatistics0(enginehandle: Handle, ikeextstatistics: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextGetStatistics0((enginehandle?.value ?: 0L), (ikeextstatistics?.value ?: 0L))
 
-public actual fun IkeextGetStatistics1(enginehandle: HANDLE, ikeextstatistics: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextGetStatistics1(enginehandle, ikeextstatistics)
+public actual fun ikeextGetStatistics1(enginehandle: Handle, ikeextstatistics: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextGetStatistics1((enginehandle?.value ?: 0L), (ikeextstatistics?.value ?: 0L))
 
-public actual fun IkeextSaCreateEnumHandle0(enginehandle: HANDLE, enumtemplate: Long, enumhandle: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaCreateEnumHandle0(enginehandle, enumtemplate, enumhandle)
+public actual fun ikeextSaCreateEnumHandle0(enginehandle: Handle, enumtemplate: COpaquePointer?, enumhandle: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaCreateEnumHandle0((enginehandle?.value ?: 0L), (enumtemplate?.value ?: 0L), (enumhandle?.value ?: 0L))
 
-public actual fun IkeextSaDbGetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long, securitydescriptor: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaDbGetSecurityInfo0(enginehandle, securityinfo.toInt(), sidowner, sidgroup, dacl, sacl, securitydescriptor)
+public actual fun ikeextSaDbGetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?, securitydescriptor: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaDbGetSecurityInfo0((enginehandle?.value ?: 0L), securityinfo.toInt(), (sidowner?.value ?: 0L), (sidgroup?.value ?: 0L), (dacl?.value ?: 0L), (sacl?.value ?: 0L), (securitydescriptor?.value ?: 0L))
 
-public actual fun IkeextSaDbSetSecurityInfo0(enginehandle: HANDLE, securityinfo: UInt, sidowner: Long, sidgroup: Long, dacl: Long, sacl: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaDbSetSecurityInfo0(enginehandle, securityinfo.toInt(), sidowner, sidgroup, dacl, sacl)
+public actual fun ikeextSaDbSetSecurityInfo0(enginehandle: Handle, securityinfo: UInt, sidowner: COpaquePointer?, sidgroup: COpaquePointer?, dacl: COpaquePointer?, sacl: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaDbSetSecurityInfo0((enginehandle?.value ?: 0L), securityinfo.toInt(), (sidowner?.value ?: 0L), (sidgroup?.value ?: 0L), (dacl?.value ?: 0L), (sacl?.value ?: 0L))
 
-public actual fun IkeextSaDeleteById0(enginehandle: HANDLE, id: ULong): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaDeleteById0(enginehandle, id.toLong())
+public actual fun ikeextSaDeleteById0(enginehandle: Handle, id: ULong): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaDeleteById0((enginehandle?.value ?: 0L), id.toLong())
 
-public actual fun IkeextSaDestroyEnumHandle0(enginehandle: HANDLE, enumhandle: HANDLE): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaDestroyEnumHandle0(enginehandle, enumhandle)
+public actual fun ikeextSaDestroyEnumHandle0(enginehandle: Handle, enumhandle: Handle): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaDestroyEnumHandle0((enginehandle?.value ?: 0L), (enumhandle?.value ?: 0L))
 
-public actual fun IkeextSaEnum0(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaEnum0(enginehandle, enumhandle, numentriesrequested.toInt(), entries, numentriesreturned)
+public actual fun ikeextSaEnum0(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaEnum0((enginehandle?.value ?: 0L), (enumhandle?.value ?: 0L), numentriesrequested.toInt(), (entries?.value ?: 0L), (numentriesreturned?.value ?: 0L))
 
-public actual fun IkeextSaEnum1(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaEnum1(enginehandle, enumhandle, numentriesrequested.toInt(), entries, numentriesreturned)
+public actual fun ikeextSaEnum1(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaEnum1((enginehandle?.value ?: 0L), (enumhandle?.value ?: 0L), numentriesrequested.toInt(), (entries?.value ?: 0L), (numentriesreturned?.value ?: 0L))
 
-public actual fun IkeextSaEnum2(enginehandle: HANDLE, enumhandle: HANDLE, numentriesrequested: UInt, entries: Long, numentriesreturned: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaEnum2(enginehandle, enumhandle, numentriesrequested.toInt(), entries, numentriesreturned)
+public actual fun ikeextSaEnum2(enginehandle: Handle, enumhandle: Handle, numentriesrequested: UInt, entries: COpaquePointer?, numentriesreturned: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaEnum2((enginehandle?.value ?: 0L), (enumhandle?.value ?: 0L), numentriesrequested.toInt(), (entries?.value ?: 0L), (numentriesreturned?.value ?: 0L))
 
-public actual fun IkeextSaGetById0(enginehandle: HANDLE, id: ULong, sa: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaGetById0(enginehandle, id.toLong(), sa)
+public actual fun ikeextSaGetById0(enginehandle: Handle, id: ULong, sa: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaGetById0((enginehandle?.value ?: 0L), id.toLong(), (sa?.value ?: 0L))
 
-public actual fun IkeextSaGetById1(enginehandle: HANDLE, id: ULong, salookupcontext: Long, sa: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaGetById1(enginehandle, id.toLong(), salookupcontext, sa)
+public actual fun ikeextSaGetById1(enginehandle: Handle, id: ULong, salookupcontext: COpaquePointer?, sa: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaGetById1((enginehandle?.value ?: 0L), id.toLong(), (salookupcontext?.value ?: 0L), (sa?.value ?: 0L))
 
-public actual fun IkeextSaGetById2(enginehandle: HANDLE, id: ULong, salookupcontext: Long, sa: Long): NTSTATUS =
-    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_IkeextSaGetById2(enginehandle, id.toLong(), salookupcontext, sa)
+public actual fun ikeextSaGetById2(enginehandle: Handle, id: ULong, salookupcontext: COpaquePointer?, sa: COpaquePointer?): Ntstatus =
+    WindowsWdkNetworkmanagementWindowsfilteringplatformJniBridge.windowssys_windows_wdk_networkmanagement_windowsfilteringplatform_ikeextSaGetById2((enginehandle?.value ?: 0L), id.toLong(), (salookupcontext?.value ?: 0L), (sa?.value ?: 0L))

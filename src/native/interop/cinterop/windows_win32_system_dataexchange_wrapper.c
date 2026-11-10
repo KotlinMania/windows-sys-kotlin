@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint16_t windowssys_windows_win32_system_dataexchange_AddAtomA(void* lpstring) {
+uint16_t windowssys_windows_win32_system_dataexchange_addAtomA(void* lpstring) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ uint16_t windowssys_windows_win32_system_dataexchange_AddAtomA(void* lpstring) {
 #endif
 }
 
-uint16_t windowssys_windows_win32_system_dataexchange_AddAtomW(void* lpstring) {
+uint16_t windowssys_windows_win32_system_dataexchange_addAtomW(void* lpstring) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -59,7 +59,7 @@ uint16_t windowssys_windows_win32_system_dataexchange_AddAtomW(void* lpstring) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_dataexchange_AddClipboardFormatListener(void* hwnd) {
+int32_t windowssys_windows_win32_system_dataexchange_addClipboardFormatListener(void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -81,7 +81,7 @@ int32_t windowssys_windows_win32_system_dataexchange_AddClipboardFormatListener(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_dataexchange_ChangeClipboardChain(void* hwndremove, void* hwndnewnext) {
+int32_t windowssys_windows_win32_system_dataexchange_changeClipboardChain(void* hwndremove, void* hwndnewnext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -104,7 +104,7 @@ int32_t windowssys_windows_win32_system_dataexchange_ChangeClipboardChain(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_dataexchange_CloseClipboard(void) {
+int32_t windowssys_windows_win32_system_dataexchange_closeClipboard(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -125,7 +125,7 @@ int32_t windowssys_windows_win32_system_dataexchange_CloseClipboard(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_dataexchange_CountClipboardFormats(void) {
+int32_t windowssys_windows_win32_system_dataexchange_countClipboardFormats(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -146,7 +146,7 @@ int32_t windowssys_windows_win32_system_dataexchange_CountClipboardFormats(void)
 #endif
 }
 
-int32_t windowssys_windows_win32_system_dataexchange_DdeAbandonTransaction(uint32_t idinst, void* hconv, uint32_t idtransaction) {
+int32_t windowssys_windows_win32_system_dataexchange_ddeAbandonTransaction(uint32_t idinst, void* hconv, uint32_t idtransaction) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -170,7 +170,7 @@ int32_t windowssys_windows_win32_system_dataexchange_DdeAbandonTransaction(uint3
 #endif
 }
 
-void* windowssys_windows_win32_system_dataexchange_DdeAccessData(void* hdata, void* pcbdatasize) {
+void* windowssys_windows_win32_system_dataexchange_ddeAccessData(void* hdata, void* pcbdatasize) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -193,7 +193,7 @@ void* windowssys_windows_win32_system_dataexchange_DdeAccessData(void* hdata, vo
 #endif
 }
 
-void* windowssys_windows_win32_system_dataexchange_DdeAddData(void* hdata, void* psrc, uint32_t cb, uint32_t cboff) {
+void* windowssys_windows_win32_system_dataexchange_ddeAddData(void* hdata, void* psrc, uint32_t cb, uint32_t cboff) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -218,7 +218,7 @@ void* windowssys_windows_win32_system_dataexchange_DdeAddData(void* hdata, void*
 #endif
 }
 
-void* windowssys_windows_win32_system_dataexchange_DdeClientTransaction(void* pdata, uint32_t cbdata, void* hconv, void* hszitem, uint32_t wfmt, uint32_t wtype, uint32_t dwtimeout, void* pdwresult) {
+void* windowssys_windows_win32_system_dataexchange_ddeClientTransaction(void* pdata, uint32_t cbdata, void* hconv, void* hszitem, uint32_t wfmt, uint32_t wtype, uint32_t dwtimeout, void* pdwresult) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -247,7 +247,7 @@ void* windowssys_windows_win32_system_dataexchange_DdeClientTransaction(void* pd
 #endif
 }
 
-int32_t windowssys_windows_win32_system_dataexchange_DdeCmpStringHandles(void* hsz1, void* hsz2) {
+int32_t windowssys_windows_win32_system_dataexchange_ddeCmpStringHandles(void* hsz1, void* hsz2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -270,7 +270,7 @@ int32_t windowssys_windows_win32_system_dataexchange_DdeCmpStringHandles(void* h
 #endif
 }
 
-void* windowssys_windows_win32_system_dataexchange_DdeConnect(uint32_t idinst, void* hszservice, void* hsztopic, void* pcc) {
+void* windowssys_windows_win32_system_dataexchange_ddeConnect(uint32_t idinst, void* hszservice, void* hsztopic, void* pcc) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -295,7 +295,7 @@ void* windowssys_windows_win32_system_dataexchange_DdeConnect(uint32_t idinst, v
 #endif
 }
 
-void* windowssys_windows_win32_system_dataexchange_DdeConnectList(uint32_t idinst, void* hszservice, void* hsztopic, void* hconvlist, void* pcc) {
+void* windowssys_windows_win32_system_dataexchange_ddeConnectList(uint32_t idinst, void* hszservice, void* hsztopic, void* hconvlist, void* pcc) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -321,7 +321,7 @@ void* windowssys_windows_win32_system_dataexchange_DdeConnectList(uint32_t idins
 #endif
 }
 
-void* windowssys_windows_win32_system_dataexchange_DdeCreateDataHandle(uint32_t idinst, void* psrc, uint32_t cb, uint32_t cboff, void* hszitem, uint32_t wfmt, uint32_t afcmd) {
+void* windowssys_windows_win32_system_dataexchange_ddeCreateDataHandle(uint32_t idinst, void* psrc, uint32_t cb, uint32_t cboff, void* hszitem, uint32_t wfmt, uint32_t afcmd) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -349,7 +349,7 @@ void* windowssys_windows_win32_system_dataexchange_DdeCreateDataHandle(uint32_t 
 #endif
 }
 
-void* windowssys_windows_win32_system_dataexchange_DdeCreateStringHandleA(uint32_t idinst, void* psz, int32_t icodepage) {
+void* windowssys_windows_win32_system_dataexchange_ddeCreateStringHandleA(uint32_t idinst, void* psz, int32_t icodepage) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -373,7 +373,7 @@ void* windowssys_windows_win32_system_dataexchange_DdeCreateStringHandleA(uint32
 #endif
 }
 
-void* windowssys_windows_win32_system_dataexchange_DdeCreateStringHandleW(uint32_t idinst, void* psz, int32_t icodepage) {
+void* windowssys_windows_win32_system_dataexchange_ddeCreateStringHandleW(uint32_t idinst, void* psz, int32_t icodepage) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -397,7 +397,7 @@ void* windowssys_windows_win32_system_dataexchange_DdeCreateStringHandleW(uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_system_dataexchange_DdeDisconnect(void* hconv) {
+int32_t windowssys_windows_win32_system_dataexchange_ddeDisconnect(void* hconv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -419,7 +419,7 @@ int32_t windowssys_windows_win32_system_dataexchange_DdeDisconnect(void* hconv) 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_dataexchange_DdeDisconnectList(void* hconvlist) {
+int32_t windowssys_windows_win32_system_dataexchange_ddeDisconnectList(void* hconvlist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -441,7 +441,7 @@ int32_t windowssys_windows_win32_system_dataexchange_DdeDisconnectList(void* hco
 #endif
 }
 
-int32_t windowssys_windows_win32_system_dataexchange_DdeEnableCallback(uint32_t idinst, void* hconv, uint32_t wcmd) {
+int32_t windowssys_windows_win32_system_dataexchange_ddeEnableCallback(uint32_t idinst, void* hconv, uint32_t wcmd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -465,7 +465,7 @@ int32_t windowssys_windows_win32_system_dataexchange_DdeEnableCallback(uint32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_dataexchange_DdeFreeDataHandle(void* hdata) {
+int32_t windowssys_windows_win32_system_dataexchange_ddeFreeDataHandle(void* hdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -487,7 +487,7 @@ int32_t windowssys_windows_win32_system_dataexchange_DdeFreeDataHandle(void* hda
 #endif
 }
 
-int32_t windowssys_windows_win32_system_dataexchange_DdeFreeStringHandle(uint32_t idinst, void* hsz) {
+int32_t windowssys_windows_win32_system_dataexchange_ddeFreeStringHandle(uint32_t idinst, void* hsz) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -510,7 +510,7 @@ int32_t windowssys_windows_win32_system_dataexchange_DdeFreeStringHandle(uint32_
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_dataexchange_DdeGetData(void* hdata, void* pdst, uint32_t cbmax, uint32_t cboff) {
+uint32_t windowssys_windows_win32_system_dataexchange_ddeGetData(void* hdata, void* pdst, uint32_t cbmax, uint32_t cboff) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -535,7 +535,7 @@ uint32_t windowssys_windows_win32_system_dataexchange_DdeGetData(void* hdata, vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_dataexchange_DdeGetLastError(uint32_t idinst) {
+uint32_t windowssys_windows_win32_system_dataexchange_ddeGetLastError(uint32_t idinst) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -557,7 +557,7 @@ uint32_t windowssys_windows_win32_system_dataexchange_DdeGetLastError(uint32_t i
 #endif
 }
 
-int32_t windowssys_windows_win32_system_dataexchange_DdeImpersonateClient(void* hconv) {
+int32_t windowssys_windows_win32_system_dataexchange_ddeImpersonateClient(void* hconv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -579,7 +579,7 @@ int32_t windowssys_windows_win32_system_dataexchange_DdeImpersonateClient(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_dataexchange_DdeInitializeA(void* pidinst, void* pfncallback, uint32_t afcmd, uint32_t ulres) {
+uint32_t windowssys_windows_win32_system_dataexchange_ddeInitializeA(void* pidinst, void* pfncallback, uint32_t afcmd, uint32_t ulres) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -604,7 +604,7 @@ uint32_t windowssys_windows_win32_system_dataexchange_DdeInitializeA(void* pidin
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_dataexchange_DdeInitializeW(void* pidinst, void* pfncallback, uint32_t afcmd, uint32_t ulres) {
+uint32_t windowssys_windows_win32_system_dataexchange_ddeInitializeW(void* pidinst, void* pfncallback, uint32_t afcmd, uint32_t ulres) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -629,7 +629,7 @@ uint32_t windowssys_windows_win32_system_dataexchange_DdeInitializeW(void* pidin
 #endif
 }
 
-int32_t windowssys_windows_win32_system_dataexchange_DdeKeepStringHandle(uint32_t idinst, void* hsz) {
+int32_t windowssys_windows_win32_system_dataexchange_ddeKeepStringHandle(uint32_t idinst, void* hsz) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -652,7 +652,7 @@ int32_t windowssys_windows_win32_system_dataexchange_DdeKeepStringHandle(uint32_
 #endif
 }
 
-void* windowssys_windows_win32_system_dataexchange_DdeNameService(uint32_t idinst, void* hsz1, void* hsz2, uint32_t afcmd) {
+void* windowssys_windows_win32_system_dataexchange_ddeNameService(uint32_t idinst, void* hsz1, void* hsz2, uint32_t afcmd) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -677,7 +677,7 @@ void* windowssys_windows_win32_system_dataexchange_DdeNameService(uint32_t idins
 #endif
 }
 
-int32_t windowssys_windows_win32_system_dataexchange_DdePostAdvise(uint32_t idinst, void* hsztopic, void* hszitem) {
+int32_t windowssys_windows_win32_system_dataexchange_ddePostAdvise(uint32_t idinst, void* hsztopic, void* hszitem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -701,7 +701,7 @@ int32_t windowssys_windows_win32_system_dataexchange_DdePostAdvise(uint32_t idin
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_dataexchange_DdeQueryConvInfo(void* hconv, uint32_t idtransaction, void* pconvinfo) {
+uint32_t windowssys_windows_win32_system_dataexchange_ddeQueryConvInfo(void* hconv, uint32_t idtransaction, void* pconvinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -725,7 +725,7 @@ uint32_t windowssys_windows_win32_system_dataexchange_DdeQueryConvInfo(void* hco
 #endif
 }
 
-void* windowssys_windows_win32_system_dataexchange_DdeQueryNextServer(void* hconvlist, void* hconvprev) {
+void* windowssys_windows_win32_system_dataexchange_ddeQueryNextServer(void* hconvlist, void* hconvprev) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -748,7 +748,7 @@ void* windowssys_windows_win32_system_dataexchange_DdeQueryNextServer(void* hcon
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_dataexchange_DdeQueryStringA(uint32_t idinst, void* hsz, void* psz, uint32_t cchmax, int32_t icodepage) {
+uint32_t windowssys_windows_win32_system_dataexchange_ddeQueryStringA(uint32_t idinst, void* hsz, void* psz, uint32_t cchmax, int32_t icodepage) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -774,7 +774,7 @@ uint32_t windowssys_windows_win32_system_dataexchange_DdeQueryStringA(uint32_t i
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_dataexchange_DdeQueryStringW(uint32_t idinst, void* hsz, void* psz, uint32_t cchmax, int32_t icodepage) {
+uint32_t windowssys_windows_win32_system_dataexchange_ddeQueryStringW(uint32_t idinst, void* hsz, void* psz, uint32_t cchmax, int32_t icodepage) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -800,7 +800,7 @@ uint32_t windowssys_windows_win32_system_dataexchange_DdeQueryStringW(uint32_t i
 #endif
 }
 
-void* windowssys_windows_win32_system_dataexchange_DdeReconnect(void* hconv) {
+void* windowssys_windows_win32_system_dataexchange_ddeReconnect(void* hconv) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -822,7 +822,7 @@ void* windowssys_windows_win32_system_dataexchange_DdeReconnect(void* hconv) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_dataexchange_DdeSetQualityOfService(void* hwndclient, void* pqosnew, void* pqosprev) {
+int32_t windowssys_windows_win32_system_dataexchange_ddeSetQualityOfService(void* hwndclient, void* pqosnew, void* pqosprev) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -846,7 +846,7 @@ int32_t windowssys_windows_win32_system_dataexchange_DdeSetQualityOfService(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_dataexchange_DdeSetUserHandle(void* hconv, uint32_t id, uint64_t huser) {
+int32_t windowssys_windows_win32_system_dataexchange_ddeSetUserHandle(void* hconv, uint32_t id, uint64_t huser) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -870,7 +870,7 @@ int32_t windowssys_windows_win32_system_dataexchange_DdeSetUserHandle(void* hcon
 #endif
 }
 
-int32_t windowssys_windows_win32_system_dataexchange_DdeUnaccessData(void* hdata) {
+int32_t windowssys_windows_win32_system_dataexchange_ddeUnaccessData(void* hdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -892,7 +892,7 @@ int32_t windowssys_windows_win32_system_dataexchange_DdeUnaccessData(void* hdata
 #endif
 }
 
-int32_t windowssys_windows_win32_system_dataexchange_DdeUninitialize(uint32_t idinst) {
+int32_t windowssys_windows_win32_system_dataexchange_ddeUninitialize(uint32_t idinst) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -914,7 +914,7 @@ int32_t windowssys_windows_win32_system_dataexchange_DdeUninitialize(uint32_t id
 #endif
 }
 
-uint16_t windowssys_windows_win32_system_dataexchange_DeleteAtom(uint16_t natom) {
+uint16_t windowssys_windows_win32_system_dataexchange_deleteAtom(uint16_t natom) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -936,7 +936,7 @@ uint16_t windowssys_windows_win32_system_dataexchange_DeleteAtom(uint16_t natom)
 #endif
 }
 
-int32_t windowssys_windows_win32_system_dataexchange_EmptyClipboard(void) {
+int32_t windowssys_windows_win32_system_dataexchange_emptyClipboard(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -957,7 +957,7 @@ int32_t windowssys_windows_win32_system_dataexchange_EmptyClipboard(void) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_dataexchange_EnumClipboardFormats(uint32_t format) {
+uint32_t windowssys_windows_win32_system_dataexchange_enumClipboardFormats(uint32_t format) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -979,7 +979,7 @@ uint32_t windowssys_windows_win32_system_dataexchange_EnumClipboardFormats(uint3
 #endif
 }
 
-uint16_t windowssys_windows_win32_system_dataexchange_FindAtomA(void* lpstring) {
+uint16_t windowssys_windows_win32_system_dataexchange_findAtomA(void* lpstring) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1001,7 +1001,7 @@ uint16_t windowssys_windows_win32_system_dataexchange_FindAtomA(void* lpstring) 
 #endif
 }
 
-uint16_t windowssys_windows_win32_system_dataexchange_FindAtomW(void* lpstring) {
+uint16_t windowssys_windows_win32_system_dataexchange_findAtomW(void* lpstring) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1023,7 +1023,7 @@ uint16_t windowssys_windows_win32_system_dataexchange_FindAtomW(void* lpstring) 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_dataexchange_FreeDDElParam(uint32_t msg, int64_t lparam) {
+int32_t windowssys_windows_win32_system_dataexchange_freeDDElParam(uint32_t msg, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1046,7 +1046,7 @@ int32_t windowssys_windows_win32_system_dataexchange_FreeDDElParam(uint32_t msg,
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_dataexchange_GetAtomNameA(uint16_t natom, void* lpbuffer, int32_t nsize) {
+uint32_t windowssys_windows_win32_system_dataexchange_getAtomNameA(uint16_t natom, void* lpbuffer, int32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint16_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1070,7 +1070,7 @@ uint32_t windowssys_windows_win32_system_dataexchange_GetAtomNameA(uint16_t nato
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_dataexchange_GetAtomNameW(uint16_t natom, void* lpbuffer, int32_t nsize) {
+uint32_t windowssys_windows_win32_system_dataexchange_getAtomNameW(uint16_t natom, void* lpbuffer, int32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint16_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1094,7 +1094,7 @@ uint32_t windowssys_windows_win32_system_dataexchange_GetAtomNameW(uint16_t nato
 #endif
 }
 
-void* windowssys_windows_win32_system_dataexchange_GetClipboardData(uint32_t uformat) {
+void* windowssys_windows_win32_system_dataexchange_getClipboardData(uint32_t uformat) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1116,7 +1116,7 @@ void* windowssys_windows_win32_system_dataexchange_GetClipboardData(uint32_t ufo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_dataexchange_GetClipboardFormatNameA(uint32_t format, void* lpszformatname, int32_t cchmaxcount) {
+int32_t windowssys_windows_win32_system_dataexchange_getClipboardFormatNameA(uint32_t format, void* lpszformatname, int32_t cchmaxcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1140,7 +1140,7 @@ int32_t windowssys_windows_win32_system_dataexchange_GetClipboardFormatNameA(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_system_dataexchange_GetClipboardFormatNameW(uint32_t format, void* lpszformatname, int32_t cchmaxcount) {
+int32_t windowssys_windows_win32_system_dataexchange_getClipboardFormatNameW(uint32_t format, void* lpszformatname, int32_t cchmaxcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1164,7 +1164,7 @@ int32_t windowssys_windows_win32_system_dataexchange_GetClipboardFormatNameW(uin
 #endif
 }
 
-void* windowssys_windows_win32_system_dataexchange_GetClipboardOwner(void) {
+void* windowssys_windows_win32_system_dataexchange_getClipboardOwner(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1185,7 +1185,7 @@ void* windowssys_windows_win32_system_dataexchange_GetClipboardOwner(void) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_dataexchange_GetClipboardSequenceNumber(void) {
+uint32_t windowssys_windows_win32_system_dataexchange_getClipboardSequenceNumber(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1206,7 +1206,7 @@ uint32_t windowssys_windows_win32_system_dataexchange_GetClipboardSequenceNumber
 #endif
 }
 
-void* windowssys_windows_win32_system_dataexchange_GetClipboardViewer(void) {
+void* windowssys_windows_win32_system_dataexchange_getClipboardViewer(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1227,7 +1227,7 @@ void* windowssys_windows_win32_system_dataexchange_GetClipboardViewer(void) {
 #endif
 }
 
-void* windowssys_windows_win32_system_dataexchange_GetOpenClipboardWindow(void) {
+void* windowssys_windows_win32_system_dataexchange_getOpenClipboardWindow(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1248,7 +1248,7 @@ void* windowssys_windows_win32_system_dataexchange_GetOpenClipboardWindow(void) 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_dataexchange_GetPriorityClipboardFormat(void* paformatprioritylist, int32_t cformats) {
+int32_t windowssys_windows_win32_system_dataexchange_getPriorityClipboardFormat(void* paformatprioritylist, int32_t cformats) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1271,7 +1271,7 @@ int32_t windowssys_windows_win32_system_dataexchange_GetPriorityClipboardFormat(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_dataexchange_GetUpdatedClipboardFormats(void* lpuiformats, uint32_t cformats, void* pcformatsout) {
+int32_t windowssys_windows_win32_system_dataexchange_getUpdatedClipboardFormats(void* lpuiformats, uint32_t cformats, void* pcformatsout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1295,7 +1295,7 @@ int32_t windowssys_windows_win32_system_dataexchange_GetUpdatedClipboardFormats(
 #endif
 }
 
-uint16_t windowssys_windows_win32_system_dataexchange_GlobalAddAtomA(void* lpstring) {
+uint16_t windowssys_windows_win32_system_dataexchange_globalAddAtomA(void* lpstring) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1317,7 +1317,7 @@ uint16_t windowssys_windows_win32_system_dataexchange_GlobalAddAtomA(void* lpstr
 #endif
 }
 
-uint16_t windowssys_windows_win32_system_dataexchange_GlobalAddAtomExA(void* lpstring, uint32_t flags) {
+uint16_t windowssys_windows_win32_system_dataexchange_globalAddAtomExA(void* lpstring, uint32_t flags) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1340,7 +1340,7 @@ uint16_t windowssys_windows_win32_system_dataexchange_GlobalAddAtomExA(void* lps
 #endif
 }
 
-uint16_t windowssys_windows_win32_system_dataexchange_GlobalAddAtomExW(void* lpstring, uint32_t flags) {
+uint16_t windowssys_windows_win32_system_dataexchange_globalAddAtomExW(void* lpstring, uint32_t flags) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1363,7 +1363,7 @@ uint16_t windowssys_windows_win32_system_dataexchange_GlobalAddAtomExW(void* lps
 #endif
 }
 
-uint16_t windowssys_windows_win32_system_dataexchange_GlobalAddAtomW(void* lpstring) {
+uint16_t windowssys_windows_win32_system_dataexchange_globalAddAtomW(void* lpstring) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1385,7 +1385,7 @@ uint16_t windowssys_windows_win32_system_dataexchange_GlobalAddAtomW(void* lpstr
 #endif
 }
 
-uint16_t windowssys_windows_win32_system_dataexchange_GlobalDeleteAtom(uint16_t natom) {
+uint16_t windowssys_windows_win32_system_dataexchange_globalDeleteAtom(uint16_t natom) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1407,7 +1407,7 @@ uint16_t windowssys_windows_win32_system_dataexchange_GlobalDeleteAtom(uint16_t 
 #endif
 }
 
-uint16_t windowssys_windows_win32_system_dataexchange_GlobalFindAtomA(void* lpstring) {
+uint16_t windowssys_windows_win32_system_dataexchange_globalFindAtomA(void* lpstring) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1429,7 +1429,7 @@ uint16_t windowssys_windows_win32_system_dataexchange_GlobalFindAtomA(void* lpst
 #endif
 }
 
-uint16_t windowssys_windows_win32_system_dataexchange_GlobalFindAtomW(void* lpstring) {
+uint16_t windowssys_windows_win32_system_dataexchange_globalFindAtomW(void* lpstring) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1451,7 +1451,7 @@ uint16_t windowssys_windows_win32_system_dataexchange_GlobalFindAtomW(void* lpst
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_dataexchange_GlobalGetAtomNameA(uint16_t natom, void* lpbuffer, int32_t nsize) {
+uint32_t windowssys_windows_win32_system_dataexchange_globalGetAtomNameA(uint16_t natom, void* lpbuffer, int32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint16_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1475,7 +1475,7 @@ uint32_t windowssys_windows_win32_system_dataexchange_GlobalGetAtomNameA(uint16_
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_dataexchange_GlobalGetAtomNameW(uint16_t natom, void* lpbuffer, int32_t nsize) {
+uint32_t windowssys_windows_win32_system_dataexchange_globalGetAtomNameW(uint16_t natom, void* lpbuffer, int32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint16_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1499,7 +1499,7 @@ uint32_t windowssys_windows_win32_system_dataexchange_GlobalGetAtomNameW(uint16_
 #endif
 }
 
-int32_t windowssys_windows_win32_system_dataexchange_ImpersonateDdeClientWindow(void* hwndclient, void* hwndserver) {
+int32_t windowssys_windows_win32_system_dataexchange_impersonateDdeClientWindow(void* hwndclient, void* hwndserver) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1522,7 +1522,7 @@ int32_t windowssys_windows_win32_system_dataexchange_ImpersonateDdeClientWindow(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_dataexchange_InitAtomTable(uint32_t nsize) {
+int32_t windowssys_windows_win32_system_dataexchange_initAtomTable(uint32_t nsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1544,7 +1544,7 @@ int32_t windowssys_windows_win32_system_dataexchange_InitAtomTable(uint32_t nsiz
 #endif
 }
 
-int32_t windowssys_windows_win32_system_dataexchange_IsClipboardFormatAvailable(uint32_t format) {
+int32_t windowssys_windows_win32_system_dataexchange_isClipboardFormatAvailable(uint32_t format) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1566,7 +1566,7 @@ int32_t windowssys_windows_win32_system_dataexchange_IsClipboardFormatAvailable(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_dataexchange_OpenClipboard(void* hwndnewowner) {
+int32_t windowssys_windows_win32_system_dataexchange_openClipboard(void* hwndnewowner) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1588,7 +1588,7 @@ int32_t windowssys_windows_win32_system_dataexchange_OpenClipboard(void* hwndnew
 #endif
 }
 
-int64_t windowssys_windows_win32_system_dataexchange_PackDDElParam(uint32_t msg, uint64_t uilo, uint64_t uihi) {
+int64_t windowssys_windows_win32_system_dataexchange_packDDElParam(uint32_t msg, uint64_t uilo, uint64_t uihi) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(uint32_t, uint64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1612,7 +1612,7 @@ int64_t windowssys_windows_win32_system_dataexchange_PackDDElParam(uint32_t msg,
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_dataexchange_RegisterClipboardFormatA(void* lpszformat) {
+uint32_t windowssys_windows_win32_system_dataexchange_registerClipboardFormatA(void* lpszformat) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1634,7 +1634,7 @@ uint32_t windowssys_windows_win32_system_dataexchange_RegisterClipboardFormatA(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_dataexchange_RegisterClipboardFormatW(void* lpszformat) {
+uint32_t windowssys_windows_win32_system_dataexchange_registerClipboardFormatW(void* lpszformat) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1656,7 +1656,7 @@ uint32_t windowssys_windows_win32_system_dataexchange_RegisterClipboardFormatW(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_dataexchange_RemoveClipboardFormatListener(void* hwnd) {
+int32_t windowssys_windows_win32_system_dataexchange_removeClipboardFormatListener(void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1678,7 +1678,7 @@ int32_t windowssys_windows_win32_system_dataexchange_RemoveClipboardFormatListen
 #endif
 }
 
-int64_t windowssys_windows_win32_system_dataexchange_ReuseDDElParam(int64_t lparam, uint32_t msgin, uint32_t msgout, uint64_t uilo, uint64_t uihi) {
+int64_t windowssys_windows_win32_system_dataexchange_reuseDDElParam(int64_t lparam, uint32_t msgin, uint32_t msgout, uint64_t uilo, uint64_t uihi) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t, uint32_t, uint32_t, uint64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1704,7 +1704,7 @@ int64_t windowssys_windows_win32_system_dataexchange_ReuseDDElParam(int64_t lpar
 #endif
 }
 
-void* windowssys_windows_win32_system_dataexchange_SetClipboardData(uint32_t uformat, void* hmem) {
+void* windowssys_windows_win32_system_dataexchange_setClipboardData(uint32_t uformat, void* hmem) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1727,7 +1727,7 @@ void* windowssys_windows_win32_system_dataexchange_SetClipboardData(uint32_t ufo
 #endif
 }
 
-void* windowssys_windows_win32_system_dataexchange_SetClipboardViewer(void* hwndnewviewer) {
+void* windowssys_windows_win32_system_dataexchange_setClipboardViewer(void* hwndnewviewer) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1749,7 +1749,7 @@ void* windowssys_windows_win32_system_dataexchange_SetClipboardViewer(void* hwnd
 #endif
 }
 
-void* windowssys_windows_win32_system_dataexchange_SetWinMetaFileBits(uint32_t nsize, void* lpmeta16data, void* hdcref, void* lpmfp) {
+void* windowssys_windows_win32_system_dataexchange_setWinMetaFileBits(uint32_t nsize, void* lpmeta16data, void* hdcref, void* lpmfp) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1774,7 +1774,7 @@ void* windowssys_windows_win32_system_dataexchange_SetWinMetaFileBits(uint32_t n
 #endif
 }
 
-int32_t windowssys_windows_win32_system_dataexchange_UnpackDDElParam(uint32_t msg, int64_t lparam, void* puilo, void* puihi) {
+int32_t windowssys_windows_win32_system_dataexchange_unpackDDElParam(uint32_t msg, int64_t lparam, void* puilo, void* puihi) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

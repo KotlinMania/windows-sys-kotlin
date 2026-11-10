@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_wdk_foundation_NtClose(void* handle) {
+int32_t windowssys_windows_wdk_foundation_ntClose(void* handle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ int32_t windowssys_windows_wdk_foundation_NtClose(void* handle) {
 #endif
 }
 
-int32_t windowssys_windows_wdk_foundation_NtQueryObject(void* handle, int32_t objectinformationclass, void* objectinformation, uint32_t objectinformationlength, void* returnlength) {
+int32_t windowssys_windows_wdk_foundation_ntQueryObject(void* handle, int32_t objectinformationclass, void* objectinformation, uint32_t objectinformationlength, void* returnlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;

@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_iis_GetExtensionVersion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_iis_getExtensionVersion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -69,7 +69,7 @@ static Napi::Value windowssys_windows_win32_system_iis_GetExtensionVersion_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_iis_GetFilterVersion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_iis_getFilterVersion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -87,7 +87,7 @@ static Napi::Value windowssys_windows_win32_system_iis_GetFilterVersion_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_iis_HttpExtensionProc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_iis_httpExtensionProc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pecb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -105,7 +105,7 @@ static Napi::Value windowssys_windows_win32_system_iis_HttpExtensionProc_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_iis_HttpFilterProc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_iis_httpFilterProc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t notificationtype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -128,10 +128,10 @@ static Napi::Value windowssys_windows_win32_system_iis_HttpFilterProc_napi(const
 }
 
 static void register_windows_win32_system_iis_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_iis_GetExtensionVersion", Napi::Function::New(env, windowssys_windows_win32_system_iis_GetExtensionVersion_napi));
-    exports.Set("windowssys_windows_win32_system_iis_GetFilterVersion", Napi::Function::New(env, windowssys_windows_win32_system_iis_GetFilterVersion_napi));
-    exports.Set("windowssys_windows_win32_system_iis_HttpExtensionProc", Napi::Function::New(env, windowssys_windows_win32_system_iis_HttpExtensionProc_napi));
-    exports.Set("windowssys_windows_win32_system_iis_HttpFilterProc", Napi::Function::New(env, windowssys_windows_win32_system_iis_HttpFilterProc_napi));
+    exports.Set("windowssys_windows_win32_system_iis_getExtensionVersion", Napi::Function::New(env, windowssys_windows_win32_system_iis_getExtensionVersion_napi));
+    exports.Set("windowssys_windows_win32_system_iis_getFilterVersion", Napi::Function::New(env, windowssys_windows_win32_system_iis_getFilterVersion_napi));
+    exports.Set("windowssys_windows_win32_system_iis_httpExtensionProc", Napi::Function::New(env, windowssys_windows_win32_system_iis_httpExtensionProc_napi));
+    exports.Set("windowssys_windows_win32_system_iis_httpFilterProc", Napi::Function::New(env, windowssys_windows_win32_system_iis_httpFilterProc_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_iis_napi, nullptr };

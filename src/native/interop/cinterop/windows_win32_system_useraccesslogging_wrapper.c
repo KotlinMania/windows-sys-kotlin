@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_system_useraccesslogging_UalInstrument(void* data) {
+int32_t windowssys_windows_win32_system_useraccesslogging_ualInstrument(void* data) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ int32_t windowssys_windows_win32_system_useraccesslogging_UalInstrument(void* da
 #endif
 }
 
-int32_t windowssys_windows_win32_system_useraccesslogging_UalRegisterProduct(void* wszproductname, void* wszrolename, void* wszguid) {
+int32_t windowssys_windows_win32_system_useraccesslogging_ualRegisterProduct(void* wszproductname, void* wszrolename, void* wszguid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -61,7 +61,7 @@ int32_t windowssys_windows_win32_system_useraccesslogging_UalRegisterProduct(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_useraccesslogging_UalStart(void* data) {
+int32_t windowssys_windows_win32_system_useraccesslogging_ualStart(void* data) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -83,7 +83,7 @@ int32_t windowssys_windows_win32_system_useraccesslogging_UalStart(void* data) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_useraccesslogging_UalStop(void* data) {
+int32_t windowssys_windows_win32_system_useraccesslogging_ualStop(void* data) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;

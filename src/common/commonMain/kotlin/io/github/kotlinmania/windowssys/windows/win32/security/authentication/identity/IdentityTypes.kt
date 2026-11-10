@@ -1,1379 +1,1380 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LUID
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
-import io.github.kotlinmania.windowssys.windows.win32.security.PSID
-import io.github.kotlinmania.windowssys.windows.win32.security.SECURITY_IMPERSONATION_LEVEL
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CRYPT_INTEGER_BLOB
-import io.github.kotlinmania.windowssys.windows.win32.system.threading.LPTHREAD_START_ROUTINE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Luid
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
+import io.github.kotlinmania.windowssys.windows.win32.security.Psid
+import io.github.kotlinmania.windowssys.windows.win32.security.SecurityImpersonationLevel
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.CryptIntegerBlob
+import io.github.kotlinmania.windowssys.windows.win32.system.threading.LpthreadStartRoutine
 
-public fun interface ACCEPT_SECURITY_CONTEXT_FNFn {
-    public operator fun invoke(param0: Long, param1: Long, param2: Long, param3: UInt, param4: UInt, param5: Long, param6: Long, param7: Long, param8: Long): HRESULT
+public fun interface AcceptSecurityContextFnFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?, param3: UInt, param4: UInt, param5: COpaquePointer?, param6: COpaquePointer?, param7: COpaquePointer?, param8: COpaquePointer?): Hresult
 }
 
-public typealias ACCEPT_SECURITY_CONTEXT_FN = ACCEPT_SECURITY_CONTEXT_FNFn?
+public typealias AcceptSecurityContextFn = AcceptSecurityContextFnFn?
 
-public fun interface ACQUIRE_CREDENTIALS_HANDLE_FN_AFn {
-    public operator fun invoke(param0: Long, param1: Long, param2: UInt, param3: Long, param4: Long, param5: SEC_GET_KEY_FN, param6: Long, param7: Long, param8: Long): HRESULT
+public fun interface AcquireCredentialsHandleFnAFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?, param2: UInt, param3: COpaquePointer?, param4: COpaquePointer?, param5: SecGetKeyFn, param6: COpaquePointer?, param7: COpaquePointer?, param8: COpaquePointer?): Hresult
 }
 
-public typealias ACQUIRE_CREDENTIALS_HANDLE_FN_A = ACQUIRE_CREDENTIALS_HANDLE_FN_AFn?
+public typealias AcquireCredentialsHandleFnA = AcquireCredentialsHandleFnAFn?
 
-public fun interface ACQUIRE_CREDENTIALS_HANDLE_FN_WFn {
-    public operator fun invoke(param0: Long, param1: Long, param2: UInt, param3: Long, param4: Long, param5: SEC_GET_KEY_FN, param6: Long, param7: Long, param8: Long): HRESULT
+public fun interface AcquireCredentialsHandleFnWFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?, param2: UInt, param3: COpaquePointer?, param4: COpaquePointer?, param5: SecGetKeyFn, param6: COpaquePointer?, param7: COpaquePointer?, param8: COpaquePointer?): Hresult
 }
 
-public typealias ACQUIRE_CREDENTIALS_HANDLE_FN_W = ACQUIRE_CREDENTIALS_HANDLE_FN_WFn?
+public typealias AcquireCredentialsHandleFnW = AcquireCredentialsHandleFnWFn?
 
-public fun interface ADD_CREDENTIALS_FN_AFn {
-    public operator fun invoke(param0: Long, param1: Long, param2: Long, param3: UInt, param4: Long, param5: SEC_GET_KEY_FN, param6: Long, param7: Long): HRESULT
+public fun interface AddCredentialsFnAFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?, param3: UInt, param4: COpaquePointer?, param5: SecGetKeyFn, param6: COpaquePointer?, param7: COpaquePointer?): Hresult
 }
 
-public typealias ADD_CREDENTIALS_FN_A = ADD_CREDENTIALS_FN_AFn?
+public typealias AddCredentialsFnA = AddCredentialsFnAFn?
 
-public fun interface ADD_CREDENTIALS_FN_WFn {
-    public operator fun invoke(param0: Long, param1: Long, param2: Long, param3: UInt, param4: Long, param5: SEC_GET_KEY_FN, param6: Long, param7: Long): HRESULT
+public fun interface AddCredentialsFnWFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?, param3: UInt, param4: COpaquePointer?, param5: SecGetKeyFn, param6: COpaquePointer?, param7: COpaquePointer?): Hresult
 }
 
-public typealias ADD_CREDENTIALS_FN_W = ADD_CREDENTIALS_FN_WFn?
+public typealias AddCredentialsFnW = AddCredentialsFnWFn?
 
-public fun interface APPLY_CONTROL_TOKEN_FNFn {
-    public operator fun invoke(param0: Long, param1: Long): HRESULT
+public fun interface ApplyControlTokenFnFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?): Hresult
 }
 
-public typealias APPLY_CONTROL_TOKEN_FN = APPLY_CONTROL_TOKEN_FNFn?
+public typealias ApplyControlTokenFn = ApplyControlTokenFnFn?
 
-public typealias ASC_REQ_FLAGS = UInt
+public typealias AscReqFlags = UInt
 
-public typealias ASC_REQ_HIGH_FLAGS = ULong
+public typealias AscReqHighFlags = ULong
 
-public fun interface CHANGE_PASSWORD_FN_AFn {
-    public operator fun invoke(param0: Long, param1: Long, param2: Long, param3: Long, param4: Long, param5: Boolean, param6: UInt, param7: Long): HRESULT
+public fun interface ChangePasswordFnAFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?, param3: COpaquePointer?, param4: COpaquePointer?, param5: Boolean, param6: UInt, param7: COpaquePointer?): Hresult
 }
 
-public typealias CHANGE_PASSWORD_FN_A = CHANGE_PASSWORD_FN_AFn?
+public typealias ChangePasswordFnA = ChangePasswordFnAFn?
 
-public fun interface CHANGE_PASSWORD_FN_WFn {
-    public operator fun invoke(param0: Long, param1: Long, param2: Long, param3: Long, param4: Long, param5: Boolean, param6: UInt, param7: Long): HRESULT
+public fun interface ChangePasswordFnWFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?, param3: COpaquePointer?, param4: COpaquePointer?, param5: Boolean, param6: UInt, param7: COpaquePointer?): Hresult
 }
 
-public typealias CHANGE_PASSWORD_FN_W = CHANGE_PASSWORD_FN_WFn?
+public typealias ChangePasswordFnW = ChangePasswordFnWFn?
 
-public fun interface COMPLETE_AUTH_TOKEN_FNFn {
-    public operator fun invoke(param0: Long, param1: Long): HRESULT
+public fun interface CompleteAuthTokenFnFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?): Hresult
 }
 
-public typealias COMPLETE_AUTH_TOKEN_FN = COMPLETE_AUTH_TOKEN_FNFn?
+public typealias CompleteAuthTokenFn = CompleteAuthTokenFnFn?
 
-public typealias CRED_FETCH = Int
+public typealias CredFetch = Int
 
 public fun interface CredFreeCredentialsFnFn {
-    public operator fun invoke(count: UInt, credentials: Long)
+    public operator fun invoke(count: UInt, credentials: COpaquePointer?)
 }
 
 public typealias CredFreeCredentialsFn = CredFreeCredentialsFnFn?
 
 public fun interface CredReadDomainCredentialsFnFn {
-    public operator fun invoke(logonid: Long, credflags: UInt, targetinfo: Long, flags: UInt, count: Long, credential: Long): NTSTATUS
+    public operator fun invoke(logonid: COpaquePointer?, credflags: UInt, targetinfo: COpaquePointer?, flags: UInt, count: COpaquePointer?, credential: COpaquePointer?): Ntstatus
 }
 
 public typealias CredReadDomainCredentialsFn = CredReadDomainCredentialsFnFn?
 
 public fun interface CredReadFnFn {
-    public operator fun invoke(logonid: Long, credflags: UInt, targetname: PCWSTR, type: UInt, flags: UInt, credential: Long): NTSTATUS
+    public operator fun invoke(logonid: COpaquePointer?, credflags: UInt, targetname: Pcwstr, type: UInt, flags: UInt, credential: COpaquePointer?): Ntstatus
 }
 
 public typealias CredReadFn = CredReadFnFn?
 
 public fun interface CredWriteFnFn {
-    public operator fun invoke(logonid: Long, credflags: UInt, credential: Long, flags: UInt): NTSTATUS
+    public operator fun invoke(logonid: COpaquePointer?, credflags: UInt, credential: COpaquePointer?, flags: UInt): Ntstatus
 }
 
 public typealias CredWriteFn = CredWriteFnFn?
 
 public fun interface CrediUnmarshalandDecodeStringFnFn {
-    public operator fun invoke(marshaledstring: PCWSTR, blob: Long, blobsize: Long, isfailurefatal: Long): NTSTATUS
+    public operator fun invoke(marshaledstring: Pcwstr, blob: COpaquePointer?, blobsize: COpaquePointer?, isfailurefatal: COpaquePointer?): Ntstatus
 }
 
 public typealias CrediUnmarshalandDecodeStringFn = CrediUnmarshalandDecodeStringFnFn?
 
-public fun interface DECRYPT_MESSAGE_FNFn {
-    public operator fun invoke(param0: Long, param1: Long, param2: UInt, param3: Long): HRESULT
+public fun interface DecryptMessageFnFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?, param2: UInt, param3: COpaquePointer?): Hresult
 }
 
-public typealias DECRYPT_MESSAGE_FN = DECRYPT_MESSAGE_FNFn?
+public typealias DecryptMessageFn = DecryptMessageFnFn?
 
-public fun interface DELETE_SECURITY_CONTEXT_FNFn {
-    public operator fun invoke(param0: Long): HRESULT
+public fun interface DeleteSecurityContextFnFn {
+    public operator fun invoke(param0: COpaquePointer?): Hresult
 }
 
-public typealias DELETE_SECURITY_CONTEXT_FN = DELETE_SECURITY_CONTEXT_FNFn?
+public typealias DeleteSecurityContextFn = DeleteSecurityContextFnFn?
 
-public typealias DOMAIN_PASSWORD_PROPERTIES = UInt
+public typealias DomainPasswordProperties = UInt
 
-public fun interface ENCRYPT_MESSAGE_FNFn {
-    public operator fun invoke(param0: Long, param1: UInt, param2: Long, param3: UInt): HRESULT
+public fun interface EncryptMessageFnFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?, param3: UInt): Hresult
 }
 
-public typealias ENCRYPT_MESSAGE_FN = ENCRYPT_MESSAGE_FNFn?
+public typealias EncryptMessageFn = EncryptMessageFnFn?
 
-public fun interface ENUMERATE_SECURITY_PACKAGES_FN_AFn {
-    public operator fun invoke(param0: Long, param1: Long): HRESULT
+public fun interface EnumerateSecurityPackagesFnAFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?): Hresult
 }
 
-public typealias ENUMERATE_SECURITY_PACKAGES_FN_A = ENUMERATE_SECURITY_PACKAGES_FN_AFn?
+public typealias EnumerateSecurityPackagesFnA = EnumerateSecurityPackagesFnAFn?
 
-public fun interface ENUMERATE_SECURITY_PACKAGES_FN_WFn {
-    public operator fun invoke(param0: Long, param1: Long): HRESULT
+public fun interface EnumerateSecurityPackagesFnWFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?): Hresult
 }
 
-public typealias ENUMERATE_SECURITY_PACKAGES_FN_W = ENUMERATE_SECURITY_PACKAGES_FN_WFn?
+public typealias EnumerateSecurityPackagesFnW = EnumerateSecurityPackagesFnWFn?
 
-public typealias EXPORT_SECURITY_CONTEXT_FLAGS = UInt
+public typealias ExportSecurityContextFlags = UInt
 
-public fun interface EXPORT_SECURITY_CONTEXT_FNFn {
-    public operator fun invoke(param0: Long, param1: UInt, param2: Long, param3: Long): HRESULT
+public fun interface ExportSecurityContextFnFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?, param3: COpaquePointer?): Hresult
 }
 
-public typealias EXPORT_SECURITY_CONTEXT_FN = EXPORT_SECURITY_CONTEXT_FNFn?
+public typealias ExportSecurityContextFn = ExportSecurityContextFnFn?
 
-public typealias EXTENDED_NAME_FORMAT = Int
+public typealias ExtendedNameFormat = Int
 
-public fun interface FREE_CONTEXT_BUFFER_FNFn {
-    public operator fun invoke(param0: Long): HRESULT
+public fun interface FreeContextBufferFnFn {
+    public operator fun invoke(param0: COpaquePointer?): Hresult
 }
 
-public typealias FREE_CONTEXT_BUFFER_FN = FREE_CONTEXT_BUFFER_FNFn?
+public typealias FreeContextBufferFn = FreeContextBufferFnFn?
 
-public fun interface FREE_CREDENTIALS_HANDLE_FNFn {
-    public operator fun invoke(param0: Long): HRESULT
+public fun interface FreeCredentialsHandleFnFn {
+    public operator fun invoke(param0: COpaquePointer?): Hresult
 }
 
-public typealias FREE_CREDENTIALS_HANDLE_FN = FREE_CREDENTIALS_HANDLE_FNFn?
+public typealias FreeCredentialsHandleFn = FreeCredentialsHandleFnFn?
 
-public fun interface IMPERSONATE_SECURITY_CONTEXT_FNFn {
-    public operator fun invoke(param0: Long): HRESULT
+public fun interface ImpersonateSecurityContextFnFn {
+    public operator fun invoke(param0: COpaquePointer?): Hresult
 }
 
-public typealias IMPERSONATE_SECURITY_CONTEXT_FN = IMPERSONATE_SECURITY_CONTEXT_FNFn?
+public typealias ImpersonateSecurityContextFn = ImpersonateSecurityContextFnFn?
 
-public fun interface IMPORT_SECURITY_CONTEXT_FN_AFn {
-    public operator fun invoke(param0: Long, param1: Long, param2: Long, param3: Long): HRESULT
+public fun interface ImportSecurityContextFnAFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?, param3: COpaquePointer?): Hresult
 }
 
-public typealias IMPORT_SECURITY_CONTEXT_FN_A = IMPORT_SECURITY_CONTEXT_FN_AFn?
+public typealias ImportSecurityContextFnA = ImportSecurityContextFnAFn?
 
-public fun interface IMPORT_SECURITY_CONTEXT_FN_WFn {
-    public operator fun invoke(param0: Long, param1: Long, param2: Long, param3: Long): HRESULT
+public fun interface ImportSecurityContextFnWFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?, param3: COpaquePointer?): Hresult
 }
 
-public typealias IMPORT_SECURITY_CONTEXT_FN_W = IMPORT_SECURITY_CONTEXT_FN_WFn?
+public typealias ImportSecurityContextFnW = ImportSecurityContextFnWFn?
 
-public fun interface INITIALIZE_SECURITY_CONTEXT_FN_AFn {
-    public operator fun invoke(param0: Long, param1: Long, param2: Long, param3: UInt, param4: UInt, param5: UInt, param6: Long, param7: UInt, param8: Long, param9: Long, param10: Long, param11: Long): HRESULT
+public fun interface InitializeSecurityContextFnAFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?, param3: UInt, param4: UInt, param5: UInt, param6: COpaquePointer?, param7: UInt, param8: COpaquePointer?, param9: COpaquePointer?, param10: COpaquePointer?, param11: COpaquePointer?): Hresult
 }
 
-public typealias INITIALIZE_SECURITY_CONTEXT_FN_A = INITIALIZE_SECURITY_CONTEXT_FN_AFn?
+public typealias InitializeSecurityContextFnA = InitializeSecurityContextFnAFn?
 
-public fun interface INITIALIZE_SECURITY_CONTEXT_FN_WFn {
-    public operator fun invoke(param0: Long, param1: Long, param2: Long, param3: UInt, param4: UInt, param5: UInt, param6: Long, param7: UInt, param8: Long, param9: Long, param10: Long, param11: Long): HRESULT
+public fun interface InitializeSecurityContextFnWFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?, param3: UInt, param4: UInt, param5: UInt, param6: COpaquePointer?, param7: UInt, param8: COpaquePointer?, param9: COpaquePointer?, param10: COpaquePointer?, param11: COpaquePointer?): Hresult
 }
 
-public typealias INITIALIZE_SECURITY_CONTEXT_FN_W = INITIALIZE_SECURITY_CONTEXT_FN_WFn?
+public typealias InitializeSecurityContextFnW = InitializeSecurityContextFnWFn?
 
-public fun interface INIT_SECURITY_INTERFACE_AFn {
-    public operator fun invoke(): Long
+public fun interface InitSecurityInterfaceAFn {
+    public operator fun invoke(): COpaquePointer?
 }
 
-public typealias INIT_SECURITY_INTERFACE_A = INIT_SECURITY_INTERFACE_AFn?
+public typealias InitSecurityInterfaceA = InitSecurityInterfaceAFn?
 
-public fun interface INIT_SECURITY_INTERFACE_WFn {
-    public operator fun invoke(): Long
+public fun interface InitSecurityInterfaceWFn {
+    public operator fun invoke(): COpaquePointer?
 }
 
-public typealias INIT_SECURITY_INTERFACE_W = INIT_SECURITY_INTERFACE_WFn?
+public typealias InitSecurityInterfaceW = InitSecurityInterfaceWFn?
 
-public typealias ISC_REQ_FLAGS = UInt
+public typealias IscReqFlags = UInt
 
-public typealias ISC_REQ_HIGH_FLAGS = ULong
+public typealias IscReqHighFlags = ULong
 
-public typealias KERB_ADDRESS_TYPE = UInt
+public typealias KerbAddressType = UInt
 
-public typealias KERB_CERTIFICATE_INFO_TYPE = Int
+public typealias KerbCertificateInfoType = Int
 
-public typealias KERB_CRYPTO_KEY_TYPE = Int
+public typealias KerbCryptoKeyType = Int
 
-public typealias KERB_LOGON_SUBMIT_TYPE = Int
+public typealias KerbLogonSubmitType = Int
 
-public typealias KERB_PROFILE_BUFFER_TYPE = Int
+public typealias KerbProfileBufferType = Int
 
-public typealias KERB_PROTOCOL_MESSAGE_TYPE = Int
+public typealias KerbProtocolMessageType = Int
 
-public typealias KERB_REQUEST_FLAGS = UInt
+public typealias KerbRequestFlags = UInt
 
-public typealias KERB_TICKET_FLAGS = UInt
+public typealias KerbTicketFlags = UInt
 
-public typealias KSEC_CONTEXT_TYPE = Int
+public typealias KsecContextType = Int
 
 public fun interface KspCompleteTokenFnFn {
-    public operator fun invoke(contextid: ULong, token: Long): NTSTATUS
+    public operator fun invoke(contextid: ULong, token: COpaquePointer?): Ntstatus
 }
 
 public typealias KspCompleteTokenFn = KspCompleteTokenFnFn?
 
 public fun interface KspDeleteContextFnFn {
-    public operator fun invoke(contextid: ULong, lsacontextid: Long): NTSTATUS
+    public operator fun invoke(contextid: ULong, lsacontextid: COpaquePointer?): Ntstatus
 }
 
 public typealias KspDeleteContextFn = KspDeleteContextFnFn?
 
 public fun interface KspGetTokenFnFn {
-    public operator fun invoke(contextid: ULong, impersonationtoken: Long, rawtoken: Long): NTSTATUS
+    public operator fun invoke(contextid: ULong, impersonationtoken: COpaquePointer?, rawtoken: COpaquePointer?): Ntstatus
 }
 
 public typealias KspGetTokenFn = KspGetTokenFnFn?
 
 public fun interface KspInitContextFnFn {
-    public operator fun invoke(contextid: ULong, contextdata: Long, newcontextid: Long): NTSTATUS
+    public operator fun invoke(contextid: ULong, contextdata: COpaquePointer?, newcontextid: COpaquePointer?): Ntstatus
 }
 
 public typealias KspInitContextFn = KspInitContextFnFn?
 
 public fun interface KspInitPackageFnFn {
-    public operator fun invoke(functiontable: Long): NTSTATUS
+    public operator fun invoke(functiontable: COpaquePointer?): Ntstatus
 }
 
 public typealias KspInitPackageFn = KspInitPackageFnFn?
 
 public fun interface KspMakeSignatureFnFn {
-    public operator fun invoke(contextid: ULong, fqop: UInt, message: Long, messageseqno: UInt): NTSTATUS
+    public operator fun invoke(contextid: ULong, fqop: UInt, message: COpaquePointer?, messageseqno: UInt): Ntstatus
 }
 
 public typealias KspMakeSignatureFn = KspMakeSignatureFnFn?
 
 public fun interface KspMapHandleFnFn {
-    public operator fun invoke(contextid: ULong, lsacontextid: Long): NTSTATUS
+    public operator fun invoke(contextid: ULong, lsacontextid: COpaquePointer?): Ntstatus
 }
 
 public typealias KspMapHandleFn = KspMapHandleFnFn?
 
 public fun interface KspQueryAttributesFnFn {
-    public operator fun invoke(contextid: ULong, attribute: UInt, buffer: Long): NTSTATUS
+    public operator fun invoke(contextid: ULong, attribute: UInt, buffer: COpaquePointer?): Ntstatus
 }
 
 public typealias KspQueryAttributesFn = KspQueryAttributesFnFn?
 
 public fun interface KspSealMessageFnFn {
-    public operator fun invoke(contextid: ULong, fqop: UInt, message: Long, messageseqno: UInt): NTSTATUS
+    public operator fun invoke(contextid: ULong, fqop: UInt, message: COpaquePointer?, messageseqno: UInt): Ntstatus
 }
 
 public typealias KspSealMessageFn = KspSealMessageFnFn?
 
 public fun interface KspSerializeAuthDataFnFn {
-    public operator fun invoke(pvauthdata: Long, size: Long, serializeddata: Long): NTSTATUS
+    public operator fun invoke(pvauthdata: COpaquePointer?, size: COpaquePointer?, serializeddata: COpaquePointer?): Ntstatus
 }
 
 public typealias KspSerializeAuthDataFn = KspSerializeAuthDataFnFn?
 
 public fun interface KspSetPagingModeFnFn {
-    public operator fun invoke(pagingmode: Boolean): NTSTATUS
+    public operator fun invoke(pagingmode: Boolean): Ntstatus
 }
 
 public typealias KspSetPagingModeFn = KspSetPagingModeFnFn?
 
 public fun interface KspUnsealMessageFnFn {
-    public operator fun invoke(contextid: ULong, message: Long, messageseqno: UInt, pfqop: Long): NTSTATUS
+    public operator fun invoke(contextid: ULong, message: COpaquePointer?, messageseqno: UInt, pfqop: COpaquePointer?): Ntstatus
 }
 
 public typealias KspUnsealMessageFn = KspUnsealMessageFnFn?
 
 public fun interface KspVerifySignatureFnFn {
-    public operator fun invoke(contextid: ULong, message: Long, messageseqno: UInt, pfqop: Long): NTSTATUS
+    public operator fun invoke(contextid: ULong, message: COpaquePointer?, messageseqno: UInt, pfqop: COpaquePointer?): Ntstatus
 }
 
 public typealias KspVerifySignatureFn = KspVerifySignatureFnFn?
 
-public fun interface LSA_AP_POST_LOGON_USERFn {
-    public operator fun invoke(postlogonuserinfo: Long): NTSTATUS
+public fun interface LsaApPostLogonUserFn {
+    public operator fun invoke(postlogonuserinfo: COpaquePointer?): Ntstatus
 }
 
-public typealias LSA_AP_POST_LOGON_USER = LSA_AP_POST_LOGON_USERFn?
+public typealias LsaApPostLogonUser = LsaApPostLogonUserFn?
 
-public typealias LSA_AUTH_INFORMATION_AUTH_TYPE = UInt
+public typealias LsaAuthInformationAuthType = UInt
 
-public typealias LSA_FOREST_TRUST_COLLISION_RECORD_TYPE = Int
+public typealias LsaForestTrustCollisionRecordType = Int
 
-public typealias LSA_FOREST_TRUST_RECORD_TYPE = Int
+public typealias LsaForestTrustRecordType = Int
 
-public typealias LSA_HANDLE = Long
+public typealias LsaHandle = Long
 
-public typealias LSA_LOOKUP_DOMAIN_INFO_CLASS = Int
+public typealias LsaLookupDomainInfoClass = Int
 
-public typealias LSA_TOKEN_INFORMATION_TYPE = Int
+public typealias LsaTokenInformationType = Int
 
-public fun interface MAKE_SIGNATURE_FNFn {
-    public operator fun invoke(param0: Long, param1: UInt, param2: Long, param3: UInt): HRESULT
+public fun interface MakeSignatureFnFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?, param3: UInt): Hresult
 }
 
-public typealias MAKE_SIGNATURE_FN = MAKE_SIGNATURE_FNFn?
+public typealias MakeSignatureFn = MakeSignatureFnFn?
 
-public typealias MSV1_0 = UInt
+public typealias Msv10 = UInt
 
-public typealias MSV1_0_AVID = Int
+public typealias Msv10Avid = Int
 
-public typealias MSV1_0_CREDENTIAL_KEY_TYPE = Int
+public typealias Msv10CredentialKeyType = Int
 
-public typealias MSV1_0_LOGON_SUBMIT_TYPE = Int
+public typealias Msv10LogonSubmitType = Int
 
-public typealias MSV1_0_PROFILE_BUFFER_TYPE = Int
+public typealias Msv10ProfileBufferType = Int
 
-public typealias MSV1_0_PROTOCOL_MESSAGE_TYPE = Int
+public typealias Msv10ProtocolMessageType = Int
 
-public typealias MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = UInt
+public typealias MsvSubauthLogonParameterControl = UInt
 
-public typealias MSV_SUB_AUTHENTICATION_FILTER = UInt
+public typealias MsvSubAuthenticationFilter = UInt
 
-public typealias MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS = UInt
+public typealias MsvSupplementalCredentialFlags = UInt
 
-public typealias NEGOTIATE_MESSAGES = Int
+public typealias NegotiateMessages = Int
 
-public typealias NETLOGON_LOGON_INFO_CLASS = Int
+public typealias NetlogonLogonInfoClass = Int
 
-public fun interface PKSEC_CREATE_CONTEXT_LISTFn {
-    public operator fun invoke(type: KSEC_CONTEXT_TYPE): Long
+public fun interface PksecCreateContextListFn {
+    public operator fun invoke(type: KsecContextType): COpaquePointer?
 }
 
-public typealias PKSEC_CREATE_CONTEXT_LIST = PKSEC_CREATE_CONTEXT_LISTFn?
+public typealias PksecCreateContextList = PksecCreateContextListFn?
 
-public fun interface PKSEC_DEREFERENCE_LIST_ENTRYFn {
-    public operator fun invoke(entry: Long, delete: Long)
+public fun interface PksecDereferenceListEntryFn {
+    public operator fun invoke(entry: COpaquePointer?, delete: COpaquePointer?)
 }
 
-public typealias PKSEC_DEREFERENCE_LIST_ENTRY = PKSEC_DEREFERENCE_LIST_ENTRYFn?
+public typealias PksecDereferenceListEntry = PksecDereferenceListEntryFn?
 
-public fun interface PKSEC_INSERT_LIST_ENTRYFn {
-    public operator fun invoke(list: Long, entry: Long)
+public fun interface PksecInsertListEntryFn {
+    public operator fun invoke(list: COpaquePointer?, entry: COpaquePointer?)
 }
 
-public typealias PKSEC_INSERT_LIST_ENTRY = PKSEC_INSERT_LIST_ENTRYFn?
+public typealias PksecInsertListEntry = PksecInsertListEntryFn?
 
-public fun interface PKSEC_LOCATE_PKG_BY_IDFn {
-    public operator fun invoke(packageid: UInt): Long
+public fun interface PksecLocatePkgByIdFn {
+    public operator fun invoke(packageid: UInt): COpaquePointer?
 }
 
-public typealias PKSEC_LOCATE_PKG_BY_ID = PKSEC_LOCATE_PKG_BY_IDFn?
+public typealias PksecLocatePkgById = PksecLocatePkgByIdFn?
 
-public fun interface PKSEC_REFERENCE_LIST_ENTRYFn {
-    public operator fun invoke(entry: Long, signature: UInt, removenoref: Boolean): NTSTATUS
+public fun interface PksecReferenceListEntryFn {
+    public operator fun invoke(entry: COpaquePointer?, signature: UInt, removenoref: Boolean): Ntstatus
 }
 
-public typealias PKSEC_REFERENCE_LIST_ENTRY = PKSEC_REFERENCE_LIST_ENTRYFn?
+public typealias PksecReferenceListEntry = PksecReferenceListEntryFn?
 
-public fun interface PKSEC_SERIALIZE_SCHANNEL_AUTH_DATAFn {
-    public operator fun invoke(pvauthdata: Long, size: Long, serializeddata: Long): NTSTATUS
+public fun interface PksecSerializeSchannelAuthDataFn {
+    public operator fun invoke(pvauthdata: COpaquePointer?, size: COpaquePointer?, serializeddata: COpaquePointer?): Ntstatus
 }
 
-public typealias PKSEC_SERIALIZE_SCHANNEL_AUTH_DATA = PKSEC_SERIALIZE_SCHANNEL_AUTH_DATAFn?
+public typealias PksecSerializeSchannelAuthData = PksecSerializeSchannelAuthDataFn?
 
-public fun interface PKSEC_SERIALIZE_WINNT_AUTH_DATAFn {
-    public operator fun invoke(pvauthdata: Long, size: Long, serializeddata: Long): NTSTATUS
+public fun interface PksecSerializeWinntAuthDataFn {
+    public operator fun invoke(pvauthdata: COpaquePointer?, size: COpaquePointer?, serializeddata: COpaquePointer?): Ntstatus
 }
 
-public typealias PKSEC_SERIALIZE_WINNT_AUTH_DATA = PKSEC_SERIALIZE_WINNT_AUTH_DATAFn?
+public typealias PksecSerializeWinntAuthData = PksecSerializeWinntAuthDataFn?
 
-public typealias PKU2U_LOGON_SUBMIT_TYPE = Int
+public typealias Pku2uLogonSubmitType = Int
 
-public fun interface PLSA_ADD_CREDENTIALFn {
-    public operator fun invoke(logonid: Long, authenticationpackage: UInt, primarykeyvalue: Long, credentials: Long): NTSTATUS
+public fun interface PlsaAddCredentialFn {
+    public operator fun invoke(logonid: COpaquePointer?, authenticationpackage: UInt, primarykeyvalue: COpaquePointer?, credentials: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_ADD_CREDENTIAL = PLSA_ADD_CREDENTIALFn?
+public typealias PlsaAddCredential = PlsaAddCredentialFn?
 
-public fun interface PLSA_ALLOCATE_CLIENT_BUFFERFn {
-    public operator fun invoke(clientrequest: Long, lengthrequired: UInt, clientbaseaddress: Long): NTSTATUS
+public fun interface PlsaAllocateClientBufferFn {
+    public operator fun invoke(clientrequest: COpaquePointer?, lengthrequired: UInt, clientbaseaddress: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_ALLOCATE_CLIENT_BUFFER = PLSA_ALLOCATE_CLIENT_BUFFERFn?
+public typealias PlsaAllocateClientBuffer = PlsaAllocateClientBufferFn?
 
-public fun interface PLSA_ALLOCATE_LSA_HEAPFn {
-    public operator fun invoke(length: UInt): Long
+public fun interface PlsaAllocateLsaHeapFn {
+    public operator fun invoke(length: UInt): COpaquePointer?
 }
 
-public typealias PLSA_ALLOCATE_LSA_HEAP = PLSA_ALLOCATE_LSA_HEAPFn?
+public typealias PlsaAllocateLsaHeap = PlsaAllocateLsaHeapFn?
 
-public fun interface PLSA_ALLOCATE_PRIVATE_HEAPFn {
-    public operator fun invoke(length: ULong): Long
+public fun interface PlsaAllocatePrivateHeapFn {
+    public operator fun invoke(length: ULong): COpaquePointer?
 }
 
-public typealias PLSA_ALLOCATE_PRIVATE_HEAP = PLSA_ALLOCATE_PRIVATE_HEAPFn?
+public typealias PlsaAllocatePrivateHeap = PlsaAllocatePrivateHeapFn?
 
-public fun interface PLSA_ALLOCATE_SHARED_MEMORYFn {
-    public operator fun invoke(sharedmem: Long, size: UInt): Long
+public fun interface PlsaAllocateSharedMemoryFn {
+    public operator fun invoke(sharedmem: COpaquePointer?, size: UInt): COpaquePointer?
 }
 
-public typealias PLSA_ALLOCATE_SHARED_MEMORY = PLSA_ALLOCATE_SHARED_MEMORYFn?
+public typealias PlsaAllocateSharedMemory = PlsaAllocateSharedMemoryFn?
 
-public fun interface PLSA_AP_CALL_PACKAGEFn {
-    public operator fun invoke(clientrequest: Long, protocolsubmitbuffer: Long, clientbufferbase: Long, submitbufferlength: UInt, protocolreturnbuffer: Long, returnbufferlength: Long, protocolstatus: Long): NTSTATUS
+public fun interface PlsaApCallPackageFn {
+    public operator fun invoke(clientrequest: COpaquePointer?, protocolsubmitbuffer: COpaquePointer?, clientbufferbase: COpaquePointer?, submitbufferlength: UInt, protocolreturnbuffer: COpaquePointer?, returnbufferlength: COpaquePointer?, protocolstatus: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_AP_CALL_PACKAGE = PLSA_AP_CALL_PACKAGEFn?
+public typealias PlsaApCallPackage = PlsaApCallPackageFn?
 
-public fun interface PLSA_AP_CALL_PACKAGE_PASSTHROUGHFn {
-    public operator fun invoke(clientrequest: Long, protocolsubmitbuffer: Long, clientbufferbase: Long, submitbufferlength: UInt, protocolreturnbuffer: Long, returnbufferlength: Long, protocolstatus: Long): NTSTATUS
+public fun interface PlsaApCallPackagePassthroughFn {
+    public operator fun invoke(clientrequest: COpaquePointer?, protocolsubmitbuffer: COpaquePointer?, clientbufferbase: COpaquePointer?, submitbufferlength: UInt, protocolreturnbuffer: COpaquePointer?, returnbufferlength: COpaquePointer?, protocolstatus: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_AP_CALL_PACKAGE_PASSTHROUGH = PLSA_AP_CALL_PACKAGE_PASSTHROUGHFn?
+public typealias PlsaApCallPackagePassthrough = PlsaApCallPackagePassthroughFn?
 
-public fun interface PLSA_AP_INITIALIZE_PACKAGEFn {
-    public operator fun invoke(authenticationpackageid: UInt, lsadispatchtable: Long, database: Long, confidentiality: Long, authenticationpackagename: Long): NTSTATUS
+public fun interface PlsaApInitializePackageFn {
+    public operator fun invoke(authenticationpackageid: UInt, lsadispatchtable: COpaquePointer?, database: COpaquePointer?, confidentiality: COpaquePointer?, authenticationpackagename: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_AP_INITIALIZE_PACKAGE = PLSA_AP_INITIALIZE_PACKAGEFn?
+public typealias PlsaApInitializePackage = PlsaApInitializePackageFn?
 
-public fun interface PLSA_AP_LOGON_TERMINATEDFn {
-    public operator fun invoke(logonid: Long)
+public fun interface PlsaApLogonTerminatedFn {
+    public operator fun invoke(logonid: COpaquePointer?)
 }
 
-public typealias PLSA_AP_LOGON_TERMINATED = PLSA_AP_LOGON_TERMINATEDFn?
+public typealias PlsaApLogonTerminated = PlsaApLogonTerminatedFn?
 
-public fun interface PLSA_AP_LOGON_USERFn {
-    public operator fun invoke(clientrequest: Long, logontype: SECURITY_LOGON_TYPE, authenticationinformation: Long, clientauthenticationbase: Long, authenticationinformationlength: UInt, profilebuffer: Long, profilebufferlength: Long, logonid: Long, substatus: Long, tokeninformationtype: Long, tokeninformation: Long, accountname: Long, authenticatingauthority: Long): NTSTATUS
+public fun interface PlsaApLogonUserFn {
+    public operator fun invoke(clientrequest: COpaquePointer?, logontype: SecurityLogonType, authenticationinformation: COpaquePointer?, clientauthenticationbase: COpaquePointer?, authenticationinformationlength: UInt, profilebuffer: COpaquePointer?, profilebufferlength: COpaquePointer?, logonid: COpaquePointer?, substatus: COpaquePointer?, tokeninformationtype: COpaquePointer?, tokeninformation: COpaquePointer?, accountname: COpaquePointer?, authenticatingauthority: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_AP_LOGON_USER = PLSA_AP_LOGON_USERFn?
+public typealias PlsaApLogonUser = PlsaApLogonUserFn?
 
-public fun interface PLSA_AP_LOGON_USER_EXFn {
-    public operator fun invoke(clientrequest: Long, logontype: SECURITY_LOGON_TYPE, authenticationinformation: Long, clientauthenticationbase: Long, authenticationinformationlength: UInt, profilebuffer: Long, profilebufferlength: Long, logonid: Long, substatus: Long, tokeninformationtype: Long, tokeninformation: Long, accountname: Long, authenticatingauthority: Long, machinename: Long): NTSTATUS
+public fun interface PlsaApLogonUserExFn {
+    public operator fun invoke(clientrequest: COpaquePointer?, logontype: SecurityLogonType, authenticationinformation: COpaquePointer?, clientauthenticationbase: COpaquePointer?, authenticationinformationlength: UInt, profilebuffer: COpaquePointer?, profilebufferlength: COpaquePointer?, logonid: COpaquePointer?, substatus: COpaquePointer?, tokeninformationtype: COpaquePointer?, tokeninformation: COpaquePointer?, accountname: COpaquePointer?, authenticatingauthority: COpaquePointer?, machinename: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_AP_LOGON_USER_EX = PLSA_AP_LOGON_USER_EXFn?
+public typealias PlsaApLogonUserEx = PlsaApLogonUserExFn?
 
-public fun interface PLSA_AP_LOGON_USER_EX2Fn {
-    public operator fun invoke(clientrequest: Long, logontype: SECURITY_LOGON_TYPE, protocolsubmitbuffer: Long, clientbufferbase: Long, submitbuffersize: UInt, profilebuffer: Long, profilebuffersize: Long, logonid: Long, substatus: Long, tokeninformationtype: Long, tokeninformation: Long, accountname: Long, authenticatingauthority: Long, machinename: Long, primarycredentials: Long, supplementalcredentials: Long): NTSTATUS
+public fun interface PlsaApLogonUserEx2Fn {
+    public operator fun invoke(clientrequest: COpaquePointer?, logontype: SecurityLogonType, protocolsubmitbuffer: COpaquePointer?, clientbufferbase: COpaquePointer?, submitbuffersize: UInt, profilebuffer: COpaquePointer?, profilebuffersize: COpaquePointer?, logonid: COpaquePointer?, substatus: COpaquePointer?, tokeninformationtype: COpaquePointer?, tokeninformation: COpaquePointer?, accountname: COpaquePointer?, authenticatingauthority: COpaquePointer?, machinename: COpaquePointer?, primarycredentials: COpaquePointer?, supplementalcredentials: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_AP_LOGON_USER_EX2 = PLSA_AP_LOGON_USER_EX2Fn?
+public typealias PlsaApLogonUserEx2 = PlsaApLogonUserEx2Fn?
 
-public fun interface PLSA_AP_LOGON_USER_EX3Fn {
-    public operator fun invoke(clientrequest: Long, logontype: SECURITY_LOGON_TYPE, protocolsubmitbuffer: Long, clientbufferbase: Long, submitbuffersize: UInt, surrogatelogon: Long, profilebuffer: Long, profilebuffersize: Long, logonid: Long, substatus: Long, tokeninformationtype: Long, tokeninformation: Long, accountname: Long, authenticatingauthority: Long, machinename: Long, primarycredentials: Long, supplementalcredentials: Long): NTSTATUS
+public fun interface PlsaApLogonUserEx3Fn {
+    public operator fun invoke(clientrequest: COpaquePointer?, logontype: SecurityLogonType, protocolsubmitbuffer: COpaquePointer?, clientbufferbase: COpaquePointer?, submitbuffersize: UInt, surrogatelogon: COpaquePointer?, profilebuffer: COpaquePointer?, profilebuffersize: COpaquePointer?, logonid: COpaquePointer?, substatus: COpaquePointer?, tokeninformationtype: COpaquePointer?, tokeninformation: COpaquePointer?, accountname: COpaquePointer?, authenticatingauthority: COpaquePointer?, machinename: COpaquePointer?, primarycredentials: COpaquePointer?, supplementalcredentials: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_AP_LOGON_USER_EX3 = PLSA_AP_LOGON_USER_EX3Fn?
+public typealias PlsaApLogonUserEx3 = PlsaApLogonUserEx3Fn?
 
-public fun interface PLSA_AP_POST_LOGON_USER_SURROGATEFn {
-    public operator fun invoke(clientrequest: Long, logontype: SECURITY_LOGON_TYPE, protocolsubmitbuffer: Long, clientbufferbase: Long, submitbuffersize: UInt, surrogatelogon: Long, profilebuffer: Long, profilebuffersize: UInt, logonid: Long, status: NTSTATUS, substatus: NTSTATUS, tokeninformationtype: LSA_TOKEN_INFORMATION_TYPE, tokeninformation: Long, accountname: Long, authenticatingauthority: Long, machinename: Long, primarycredentials: Long, supplementalcredentials: Long): NTSTATUS
+public fun interface PlsaApPostLogonUserSurrogateFn {
+    public operator fun invoke(clientrequest: COpaquePointer?, logontype: SecurityLogonType, protocolsubmitbuffer: COpaquePointer?, clientbufferbase: COpaquePointer?, submitbuffersize: UInt, surrogatelogon: COpaquePointer?, profilebuffer: COpaquePointer?, profilebuffersize: UInt, logonid: COpaquePointer?, status: Ntstatus, substatus: Ntstatus, tokeninformationtype: LsaTokenInformationType, tokeninformation: COpaquePointer?, accountname: COpaquePointer?, authenticatingauthority: COpaquePointer?, machinename: COpaquePointer?, primarycredentials: COpaquePointer?, supplementalcredentials: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_AP_POST_LOGON_USER_SURROGATE = PLSA_AP_POST_LOGON_USER_SURROGATEFn?
+public typealias PlsaApPostLogonUserSurrogate = PlsaApPostLogonUserSurrogateFn?
 
-public fun interface PLSA_AP_PRE_LOGON_USER_SURROGATEFn {
-    public operator fun invoke(clientrequest: Long, logontype: SECURITY_LOGON_TYPE, protocolsubmitbuffer: Long, clientbufferbase: Long, submitbuffersize: UInt, surrogatelogon: Long, substatus: Long): NTSTATUS
+public fun interface PlsaApPreLogonUserSurrogateFn {
+    public operator fun invoke(clientrequest: COpaquePointer?, logontype: SecurityLogonType, protocolsubmitbuffer: COpaquePointer?, clientbufferbase: COpaquePointer?, submitbuffersize: UInt, surrogatelogon: COpaquePointer?, substatus: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_AP_PRE_LOGON_USER_SURROGATE = PLSA_AP_PRE_LOGON_USER_SURROGATEFn?
+public typealias PlsaApPreLogonUserSurrogate = PlsaApPreLogonUserSurrogateFn?
 
-public fun interface PLSA_AUDIT_ACCOUNT_LOGONFn {
-    public operator fun invoke(auditid: UInt, success: Boolean, source: Long, clientname: Long, mappedname: Long, status: NTSTATUS): NTSTATUS
+public fun interface PlsaAuditAccountLogonFn {
+    public operator fun invoke(auditid: UInt, success: Boolean, source: COpaquePointer?, clientname: COpaquePointer?, mappedname: COpaquePointer?, status: Ntstatus): Ntstatus
 }
 
-public typealias PLSA_AUDIT_ACCOUNT_LOGON = PLSA_AUDIT_ACCOUNT_LOGONFn?
+public typealias PlsaAuditAccountLogon = PlsaAuditAccountLogonFn?
 
-public fun interface PLSA_AUDIT_LOGONFn {
-    public operator fun invoke(status: NTSTATUS, substatus: NTSTATUS, accountname: Long, authenticatingauthority: Long, workstationname: Long, usersid: PSID, logontype: SECURITY_LOGON_TYPE, tokensource: Long, logonid: Long)
+public fun interface PlsaAuditLogonFn {
+    public operator fun invoke(status: Ntstatus, substatus: Ntstatus, accountname: COpaquePointer?, authenticatingauthority: COpaquePointer?, workstationname: COpaquePointer?, usersid: Psid, logontype: SecurityLogonType, tokensource: COpaquePointer?, logonid: COpaquePointer?)
 }
 
-public typealias PLSA_AUDIT_LOGON = PLSA_AUDIT_LOGONFn?
+public typealias PlsaAuditLogon = PlsaAuditLogonFn?
 
-public fun interface PLSA_AUDIT_LOGON_EXFn {
-    public operator fun invoke(status: NTSTATUS, substatus: NTSTATUS, accountname: Long, authenticatingauthority: Long, workstationname: Long, usersid: PSID, logontype: SECURITY_LOGON_TYPE, impersonationlevel: SECURITY_IMPERSONATION_LEVEL, tokensource: Long, logonid: Long)
+public fun interface PlsaAuditLogonExFn {
+    public operator fun invoke(status: Ntstatus, substatus: Ntstatus, accountname: COpaquePointer?, authenticatingauthority: COpaquePointer?, workstationname: COpaquePointer?, usersid: Psid, logontype: SecurityLogonType, impersonationlevel: SecurityImpersonationLevel, tokensource: COpaquePointer?, logonid: COpaquePointer?)
 }
 
-public typealias PLSA_AUDIT_LOGON_EX = PLSA_AUDIT_LOGON_EXFn?
+public typealias PlsaAuditLogonEx = PlsaAuditLogonExFn?
 
-public fun interface PLSA_CALLBACK_FUNCTIONFn {
-    public operator fun invoke(argument1: ULong, argument2: ULong, inputbuffer: Long, outputbuffer: Long): NTSTATUS
+public fun interface PlsaCallbackFunctionFn {
+    public operator fun invoke(argument1: ULong, argument2: ULong, inputbuffer: COpaquePointer?, outputbuffer: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_CALLBACK_FUNCTION = PLSA_CALLBACK_FUNCTIONFn?
+public typealias PlsaCallbackFunction = PlsaCallbackFunctionFn?
 
-public fun interface PLSA_CALL_PACKAGEFn {
-    public operator fun invoke(authenticationpackage: Long, protocolsubmitbuffer: Long, submitbufferlength: UInt, protocolreturnbuffer: Long, returnbufferlength: Long, protocolstatus: Long): NTSTATUS
+public fun interface PlsaCallPackageFn {
+    public operator fun invoke(authenticationpackage: COpaquePointer?, protocolsubmitbuffer: COpaquePointer?, submitbufferlength: UInt, protocolreturnbuffer: COpaquePointer?, returnbufferlength: COpaquePointer?, protocolstatus: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_CALL_PACKAGE = PLSA_CALL_PACKAGEFn?
+public typealias PlsaCallPackage = PlsaCallPackageFn?
 
-public fun interface PLSA_CALL_PACKAGEEXFn {
-    public operator fun invoke(authenticationpackage: Long, clientbufferbase: Long, protocolsubmitbuffer: Long, submitbufferlength: UInt, protocolreturnbuffer: Long, returnbufferlength: Long, protocolstatus: Long): NTSTATUS
+public fun interface PlsaCallPackageexFn {
+    public operator fun invoke(authenticationpackage: COpaquePointer?, clientbufferbase: COpaquePointer?, protocolsubmitbuffer: COpaquePointer?, submitbufferlength: UInt, protocolreturnbuffer: COpaquePointer?, returnbufferlength: COpaquePointer?, protocolstatus: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_CALL_PACKAGEEX = PLSA_CALL_PACKAGEEXFn?
+public typealias PlsaCallPackageex = PlsaCallPackageexFn?
 
-public fun interface PLSA_CALL_PACKAGE_PASSTHROUGHFn {
-    public operator fun invoke(authenticationpackage: Long, clientbufferbase: Long, protocolsubmitbuffer: Long, submitbufferlength: UInt, protocolreturnbuffer: Long, returnbufferlength: Long, protocolstatus: Long): NTSTATUS
+public fun interface PlsaCallPackagePassthroughFn {
+    public operator fun invoke(authenticationpackage: COpaquePointer?, clientbufferbase: COpaquePointer?, protocolsubmitbuffer: COpaquePointer?, submitbufferlength: UInt, protocolreturnbuffer: COpaquePointer?, returnbufferlength: COpaquePointer?, protocolstatus: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_CALL_PACKAGE_PASSTHROUGH = PLSA_CALL_PACKAGE_PASSTHROUGHFn?
+public typealias PlsaCallPackagePassthrough = PlsaCallPackagePassthroughFn?
 
-public fun interface PLSA_CANCEL_NOTIFICATIONFn {
-    public operator fun invoke(notifyhandle: HANDLE): NTSTATUS
+public fun interface PlsaCancelNotificationFn {
+    public operator fun invoke(notifyhandle: Handle): Ntstatus
 }
 
-public typealias PLSA_CANCEL_NOTIFICATION = PLSA_CANCEL_NOTIFICATIONFn?
+public typealias PlsaCancelNotification = PlsaCancelNotificationFn?
 
-public fun interface PLSA_CHECK_PROTECTED_USER_BY_TOKENFn {
-    public operator fun invoke(usertoken: HANDLE, protecteduser: Long): NTSTATUS
+public fun interface PlsaCheckProtectedUserByTokenFn {
+    public operator fun invoke(usertoken: Handle, protecteduser: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_CHECK_PROTECTED_USER_BY_TOKEN = PLSA_CHECK_PROTECTED_USER_BY_TOKENFn?
+public typealias PlsaCheckProtectedUserByToken = PlsaCheckProtectedUserByTokenFn?
 
-public fun interface PLSA_CLIENT_CALLBACKFn {
-    public operator fun invoke(callback: PCSTR, argument1: ULong, argument2: ULong, input: Long, output: Long): NTSTATUS
+public fun interface PlsaClientCallbackFn {
+    public operator fun invoke(callback: Pcstr, argument1: ULong, argument2: ULong, input: COpaquePointer?, output: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_CLIENT_CALLBACK = PLSA_CLIENT_CALLBACKFn?
+public typealias PlsaClientCallback = PlsaClientCallbackFn?
 
-public fun interface PLSA_CLOSE_SAM_USERFn {
-    public operator fun invoke(userhandle: Long): NTSTATUS
+public fun interface PlsaCloseSamUserFn {
+    public operator fun invoke(userhandle: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_CLOSE_SAM_USER = PLSA_CLOSE_SAM_USERFn?
+public typealias PlsaCloseSamUser = PlsaCloseSamUserFn?
 
-public fun interface PLSA_CONVERT_AUTH_DATA_TO_TOKENFn {
-    public operator fun invoke(userauthdata: Long, userauthdatasize: UInt, impersonationlevel: SECURITY_IMPERSONATION_LEVEL, tokensource: Long, logontype: SECURITY_LOGON_TYPE, authorityname: Long, token: Long, logonid: Long, accountname: Long, substatus: Long): NTSTATUS
+public fun interface PlsaConvertAuthDataToTokenFn {
+    public operator fun invoke(userauthdata: COpaquePointer?, userauthdatasize: UInt, impersonationlevel: SecurityImpersonationLevel, tokensource: COpaquePointer?, logontype: SecurityLogonType, authorityname: COpaquePointer?, token: COpaquePointer?, logonid: COpaquePointer?, accountname: COpaquePointer?, substatus: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_CONVERT_AUTH_DATA_TO_TOKEN = PLSA_CONVERT_AUTH_DATA_TO_TOKENFn?
+public typealias PlsaConvertAuthDataToToken = PlsaConvertAuthDataToTokenFn?
 
-public fun interface PLSA_COPY_FROM_CLIENT_BUFFERFn {
-    public operator fun invoke(clientrequest: Long, length: UInt, buffertocopy: Long, clientbaseaddress: Long): NTSTATUS
+public fun interface PlsaCopyFromClientBufferFn {
+    public operator fun invoke(clientrequest: COpaquePointer?, length: UInt, buffertocopy: COpaquePointer?, clientbaseaddress: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_COPY_FROM_CLIENT_BUFFER = PLSA_COPY_FROM_CLIENT_BUFFERFn?
+public typealias PlsaCopyFromClientBuffer = PlsaCopyFromClientBufferFn?
 
-public fun interface PLSA_COPY_TO_CLIENT_BUFFERFn {
-    public operator fun invoke(clientrequest: Long, length: UInt, clientbaseaddress: Long, buffertocopy: Long): NTSTATUS
+public fun interface PlsaCopyToClientBufferFn {
+    public operator fun invoke(clientrequest: COpaquePointer?, length: UInt, clientbaseaddress: COpaquePointer?, buffertocopy: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_COPY_TO_CLIENT_BUFFER = PLSA_COPY_TO_CLIENT_BUFFERFn?
+public typealias PlsaCopyToClientBuffer = PlsaCopyToClientBufferFn?
 
-public fun interface PLSA_CRACK_SINGLE_NAMEFn {
-    public operator fun invoke(formatoffered: UInt, performatgc: Boolean, nameinput: Long, prefix: Long, requestedformat: UInt, crackedname: Long, dnsdomainname: Long, substatus: Long): NTSTATUS
+public fun interface PlsaCrackSingleNameFn {
+    public operator fun invoke(formatoffered: UInt, performatgc: Boolean, nameinput: COpaquePointer?, prefix: COpaquePointer?, requestedformat: UInt, crackedname: COpaquePointer?, dnsdomainname: COpaquePointer?, substatus: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_CRACK_SINGLE_NAME = PLSA_CRACK_SINGLE_NAMEFn?
+public typealias PlsaCrackSingleName = PlsaCrackSingleNameFn?
 
-public fun interface PLSA_CREATE_LOGON_SESSIONFn {
-    public operator fun invoke(logonid: Long): NTSTATUS
+public fun interface PlsaCreateLogonSessionFn {
+    public operator fun invoke(logonid: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_CREATE_LOGON_SESSION = PLSA_CREATE_LOGON_SESSIONFn?
+public typealias PlsaCreateLogonSession = PlsaCreateLogonSessionFn?
 
-public fun interface PLSA_CREATE_SHARED_MEMORYFn {
-    public operator fun invoke(maxsize: UInt, initialsize: UInt): Long
+public fun interface PlsaCreateSharedMemoryFn {
+    public operator fun invoke(maxsize: UInt, initialsize: UInt): COpaquePointer?
 }
 
-public typealias PLSA_CREATE_SHARED_MEMORY = PLSA_CREATE_SHARED_MEMORYFn?
+public typealias PlsaCreateSharedMemory = PlsaCreateSharedMemoryFn?
 
-public fun interface PLSA_CREATE_THREADFn {
-    public operator fun invoke(securityattributes: Long, stacksize: UInt, startfunction: LPTHREAD_START_ROUTINE, threadparameter: Long, creationflags: UInt, threadid: Long): HANDLE
+public fun interface PlsaCreateThreadFn {
+    public operator fun invoke(securityattributes: COpaquePointer?, stacksize: UInt, startfunction: LpthreadStartRoutine, threadparameter: COpaquePointer?, creationflags: UInt, threadid: COpaquePointer?): Handle
 }
 
-public typealias PLSA_CREATE_THREAD = PLSA_CREATE_THREADFn?
+public typealias PlsaCreateThread = PlsaCreateThreadFn?
 
-public fun interface PLSA_CREATE_TOKENFn {
-    public operator fun invoke(logonid: Long, tokensource: Long, logontype: SECURITY_LOGON_TYPE, impersonationlevel: SECURITY_IMPERSONATION_LEVEL, tokeninformationtype: LSA_TOKEN_INFORMATION_TYPE, tokeninformation: Long, tokengroups: Long, accountname: Long, authorityname: Long, workstation: Long, profilepath: Long, token: Long, substatus: Long): NTSTATUS
+public fun interface PlsaCreateTokenFn {
+    public operator fun invoke(logonid: COpaquePointer?, tokensource: COpaquePointer?, logontype: SecurityLogonType, impersonationlevel: SecurityImpersonationLevel, tokeninformationtype: LsaTokenInformationType, tokeninformation: COpaquePointer?, tokengroups: COpaquePointer?, accountname: COpaquePointer?, authorityname: COpaquePointer?, workstation: COpaquePointer?, profilepath: COpaquePointer?, token: COpaquePointer?, substatus: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_CREATE_TOKEN = PLSA_CREATE_TOKENFn?
+public typealias PlsaCreateToken = PlsaCreateTokenFn?
 
-public fun interface PLSA_CREATE_TOKEN_EXFn {
-    public operator fun invoke(logonid: Long, tokensource: Long, logontype: SECURITY_LOGON_TYPE, impersonationlevel: SECURITY_IMPERSONATION_LEVEL, tokeninformationtype: LSA_TOKEN_INFORMATION_TYPE, tokeninformation: Long, tokengroups: Long, workstation: Long, profilepath: Long, sessioninformation: Long, sessioninformationtype: SECPKG_SESSIONINFO_TYPE, token: Long, substatus: Long): NTSTATUS
+public fun interface PlsaCreateTokenExFn {
+    public operator fun invoke(logonid: COpaquePointer?, tokensource: COpaquePointer?, logontype: SecurityLogonType, impersonationlevel: SecurityImpersonationLevel, tokeninformationtype: LsaTokenInformationType, tokeninformation: COpaquePointer?, tokengroups: COpaquePointer?, workstation: COpaquePointer?, profilepath: COpaquePointer?, sessioninformation: COpaquePointer?, sessioninformationtype: SecpkgSessioninfoType, token: COpaquePointer?, substatus: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_CREATE_TOKEN_EX = PLSA_CREATE_TOKEN_EXFn?
+public typealias PlsaCreateTokenEx = PlsaCreateTokenExFn?
 
-public fun interface PLSA_DELETE_CREDENTIALFn {
-    public operator fun invoke(logonid: Long, authenticationpackage: UInt, primarykeyvalue: Long): NTSTATUS
+public fun interface PlsaDeleteCredentialFn {
+    public operator fun invoke(logonid: COpaquePointer?, authenticationpackage: UInt, primarykeyvalue: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_DELETE_CREDENTIAL = PLSA_DELETE_CREDENTIALFn?
+public typealias PlsaDeleteCredential = PlsaDeleteCredentialFn?
 
-public fun interface PLSA_DELETE_LOGON_SESSIONFn {
-    public operator fun invoke(logonid: Long): NTSTATUS
+public fun interface PlsaDeleteLogonSessionFn {
+    public operator fun invoke(logonid: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_DELETE_LOGON_SESSION = PLSA_DELETE_LOGON_SESSIONFn?
+public typealias PlsaDeleteLogonSession = PlsaDeleteLogonSessionFn?
 
-public fun interface PLSA_DELETE_SHARED_MEMORYFn {
-    public operator fun invoke(sharedmem: Long): Boolean
+public fun interface PlsaDeleteSharedMemoryFn {
+    public operator fun invoke(sharedmem: COpaquePointer?): Boolean
 }
 
-public typealias PLSA_DELETE_SHARED_MEMORY = PLSA_DELETE_SHARED_MEMORYFn?
+public typealias PlsaDeleteSharedMemory = PlsaDeleteSharedMemoryFn?
 
-public fun interface PLSA_DUPLICATE_HANDLEFn {
-    public operator fun invoke(sourcehandle: HANDLE, destionationhandle: Long): NTSTATUS
+public fun interface PlsaDuplicateHandleFn {
+    public operator fun invoke(sourcehandle: Handle, destionationhandle: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_DUPLICATE_HANDLE = PLSA_DUPLICATE_HANDLEFn?
+public typealias PlsaDuplicateHandle = PlsaDuplicateHandleFn?
 
-public fun interface PLSA_EXPAND_AUTH_DATA_FOR_DOMAINFn {
-    public operator fun invoke(userauthdata: Long, userauthdatasize: UInt, reserved: Long, expandedauthdata: Long, expandedauthdatasize: Long): NTSTATUS
+public fun interface PlsaExpandAuthDataForDomainFn {
+    public operator fun invoke(userauthdata: COpaquePointer?, userauthdatasize: UInt, reserved: COpaquePointer?, expandedauthdata: COpaquePointer?, expandedauthdatasize: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_EXPAND_AUTH_DATA_FOR_DOMAIN = PLSA_EXPAND_AUTH_DATA_FOR_DOMAINFn?
+public typealias PlsaExpandAuthDataForDomain = PlsaExpandAuthDataForDomainFn?
 
-public fun interface PLSA_FREE_CLIENT_BUFFERFn {
-    public operator fun invoke(clientrequest: Long, clientbaseaddress: Long): NTSTATUS
+public fun interface PlsaFreeClientBufferFn {
+    public operator fun invoke(clientrequest: COpaquePointer?, clientbaseaddress: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_FREE_CLIENT_BUFFER = PLSA_FREE_CLIENT_BUFFERFn?
+public typealias PlsaFreeClientBuffer = PlsaFreeClientBufferFn?
 
-public fun interface PLSA_FREE_LSA_HEAPFn {
-    public operator fun invoke(base: Long)
+public fun interface PlsaFreeLsaHeapFn {
+    public operator fun invoke(base: COpaquePointer?)
 }
 
-public typealias PLSA_FREE_LSA_HEAP = PLSA_FREE_LSA_HEAPFn?
+public typealias PlsaFreeLsaHeap = PlsaFreeLsaHeapFn?
 
-public fun interface PLSA_FREE_PRIVATE_HEAPFn {
-    public operator fun invoke(base: Long)
+public fun interface PlsaFreePrivateHeapFn {
+    public operator fun invoke(base: COpaquePointer?)
 }
 
-public typealias PLSA_FREE_PRIVATE_HEAP = PLSA_FREE_PRIVATE_HEAPFn?
+public typealias PlsaFreePrivateHeap = PlsaFreePrivateHeapFn?
 
-public fun interface PLSA_FREE_SHARED_MEMORYFn {
-    public operator fun invoke(sharedmem: Long, memory: Long)
+public fun interface PlsaFreeSharedMemoryFn {
+    public operator fun invoke(sharedmem: COpaquePointer?, memory: COpaquePointer?)
 }
 
-public typealias PLSA_FREE_SHARED_MEMORY = PLSA_FREE_SHARED_MEMORYFn?
+public typealias PlsaFreeSharedMemory = PlsaFreeSharedMemoryFn?
 
-public fun interface PLSA_GET_APP_MODE_INFOFn {
-    public operator fun invoke(userfunction: Long, argument1: Long, argument2: Long, userdata: Long, returntolsa: Long): NTSTATUS
+public fun interface PlsaGetAppModeInfoFn {
+    public operator fun invoke(userfunction: COpaquePointer?, argument1: COpaquePointer?, argument2: COpaquePointer?, userdata: COpaquePointer?, returntolsa: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_GET_APP_MODE_INFO = PLSA_GET_APP_MODE_INFOFn?
+public typealias PlsaGetAppModeInfo = PlsaGetAppModeInfoFn?
 
-public fun interface PLSA_GET_AUTH_DATA_FOR_USERFn {
-    public operator fun invoke(name: Long, nametype: SECPKG_NAME_TYPE, prefix: Long, userauthdata: Long, userauthdatasize: Long, userflatname: Long): NTSTATUS
+public fun interface PlsaGetAuthDataForUserFn {
+    public operator fun invoke(name: COpaquePointer?, nametype: SecpkgNameType, prefix: COpaquePointer?, userauthdata: COpaquePointer?, userauthdatasize: COpaquePointer?, userflatname: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_GET_AUTH_DATA_FOR_USER = PLSA_GET_AUTH_DATA_FOR_USERFn?
+public typealias PlsaGetAuthDataForUser = PlsaGetAuthDataForUserFn?
 
-public fun interface PLSA_GET_CALL_INFOFn {
-    public operator fun invoke(info: Long): Boolean
+public fun interface PlsaGetCallInfoFn {
+    public operator fun invoke(info: COpaquePointer?): Boolean
 }
 
-public typealias PLSA_GET_CALL_INFO = PLSA_GET_CALL_INFOFn?
+public typealias PlsaGetCallInfo = PlsaGetCallInfoFn?
 
-public fun interface PLSA_GET_CLIENT_INFOFn {
-    public operator fun invoke(clientinfo: Long): NTSTATUS
+public fun interface PlsaGetClientInfoFn {
+    public operator fun invoke(clientinfo: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_GET_CLIENT_INFO = PLSA_GET_CLIENT_INFOFn?
+public typealias PlsaGetClientInfo = PlsaGetClientInfoFn?
 
-public fun interface PLSA_GET_CLIENT_INFO_EXFn {
-    public operator fun invoke(clientinfo: Long, structsize: UInt): NTSTATUS
+public fun interface PlsaGetClientInfoExFn {
+    public operator fun invoke(clientinfo: COpaquePointer?, structsize: UInt): Ntstatus
 }
 
-public typealias PLSA_GET_CLIENT_INFO_EX = PLSA_GET_CLIENT_INFO_EXFn?
+public typealias PlsaGetClientInfoEx = PlsaGetClientInfoExFn?
 
-public fun interface PLSA_GET_CREDENTIALSFn {
-    public operator fun invoke(logonid: Long, authenticationpackage: UInt, querycontext: Long, retrieveallcredentials: Boolean, primarykeyvalue: Long, primarykeylength: Long, credentials: Long): NTSTATUS
+public fun interface PlsaGetCredentialsFn {
+    public operator fun invoke(logonid: COpaquePointer?, authenticationpackage: UInt, querycontext: COpaquePointer?, retrieveallcredentials: Boolean, primarykeyvalue: COpaquePointer?, primarykeylength: COpaquePointer?, credentials: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_GET_CREDENTIALS = PLSA_GET_CREDENTIALSFn?
+public typealias PlsaGetCredentials = PlsaGetCredentialsFn?
 
-public fun interface PLSA_GET_EXTENDED_CALL_FLAGSFn {
-    public operator fun invoke(flags: Long): NTSTATUS
+public fun interface PlsaGetExtendedCallFlagsFn {
+    public operator fun invoke(flags: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_GET_EXTENDED_CALL_FLAGS = PLSA_GET_EXTENDED_CALL_FLAGSFn?
+public typealias PlsaGetExtendedCallFlags = PlsaGetExtendedCallFlagsFn?
 
-public fun interface PLSA_GET_SERVICE_ACCOUNT_PASSWORDFn {
-    public operator fun invoke(accountname: Long, domainname: Long, credfetch: CRED_FETCH, filetimeexpiry: Long, currentpassword: Long, previouspassword: Long, filetimecurrpwdvalidforoutbound: Long): NTSTATUS
+public fun interface PlsaGetServiceAccountPasswordFn {
+    public operator fun invoke(accountname: COpaquePointer?, domainname: COpaquePointer?, credfetch: CredFetch, filetimeexpiry: COpaquePointer?, currentpassword: COpaquePointer?, previouspassword: COpaquePointer?, filetimecurrpwdvalidforoutbound: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_GET_SERVICE_ACCOUNT_PASSWORD = PLSA_GET_SERVICE_ACCOUNT_PASSWORDFn?
+public typealias PlsaGetServiceAccountPassword = PlsaGetServiceAccountPasswordFn?
 
-public fun interface PLSA_GET_USER_AUTH_DATAFn {
-    public operator fun invoke(userhandle: Long, userauthdata: Long, userauthdatasize: Long): NTSTATUS
+public fun interface PlsaGetUserAuthDataFn {
+    public operator fun invoke(userhandle: COpaquePointer?, userauthdata: COpaquePointer?, userauthdatasize: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_GET_USER_AUTH_DATA = PLSA_GET_USER_AUTH_DATAFn?
+public typealias PlsaGetUserAuthData = PlsaGetUserAuthDataFn?
 
-public fun interface PLSA_GET_USER_CREDENTIALSFn {
-    public operator fun invoke(userhandle: Long, primarycreds: Long, primarycredssize: Long, supplementalcreds: Long, supplementalcredssize: Long): NTSTATUS
+public fun interface PlsaGetUserCredentialsFn {
+    public operator fun invoke(userhandle: COpaquePointer?, primarycreds: COpaquePointer?, primarycredssize: COpaquePointer?, supplementalcreds: COpaquePointer?, supplementalcredssize: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_GET_USER_CREDENTIALS = PLSA_GET_USER_CREDENTIALSFn?
+public typealias PlsaGetUserCredentials = PlsaGetUserCredentialsFn?
 
-public fun interface PLSA_IMPERSONATE_CLIENTFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PlsaImpersonateClientFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PLSA_IMPERSONATE_CLIENT = PLSA_IMPERSONATE_CLIENTFn?
+public typealias PlsaImpersonateClient = PlsaImpersonateClientFn?
 
-public fun interface PLSA_LOCATE_PKG_BY_IDFn {
-    public operator fun invoke(packgeid: UInt): Long
+public fun interface PlsaLocatePkgByIdFn {
+    public operator fun invoke(packgeid: UInt): COpaquePointer?
 }
 
-public typealias PLSA_LOCATE_PKG_BY_ID = PLSA_LOCATE_PKG_BY_IDFn?
+public typealias PlsaLocatePkgById = PlsaLocatePkgByIdFn?
 
-public fun interface PLSA_MAP_BUFFERFn {
-    public operator fun invoke(inputbuffer: Long, outputbuffer: Long): NTSTATUS
+public fun interface PlsaMapBufferFn {
+    public operator fun invoke(inputbuffer: COpaquePointer?, outputbuffer: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_MAP_BUFFER = PLSA_MAP_BUFFERFn?
+public typealias PlsaMapBuffer = PlsaMapBufferFn?
 
-public fun interface PLSA_OPEN_SAM_USERFn {
-    public operator fun invoke(name: Long, nametype: SECPKG_NAME_TYPE, prefix: Long, allowguest: Boolean, reserved: UInt, userhandle: Long): NTSTATUS
+public fun interface PlsaOpenSamUserFn {
+    public operator fun invoke(name: COpaquePointer?, nametype: SecpkgNameType, prefix: COpaquePointer?, allowguest: Boolean, reserved: UInt, userhandle: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_OPEN_SAM_USER = PLSA_OPEN_SAM_USERFn?
+public typealias PlsaOpenSamUser = PlsaOpenSamUserFn?
 
-public fun interface PLSA_OPEN_TOKEN_BY_LOGON_IDFn {
-    public operator fun invoke(logonid: Long, rettokenhandle: Long): NTSTATUS
+public fun interface PlsaOpenTokenByLogonIdFn {
+    public operator fun invoke(logonid: COpaquePointer?, rettokenhandle: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_OPEN_TOKEN_BY_LOGON_ID = PLSA_OPEN_TOKEN_BY_LOGON_IDFn?
+public typealias PlsaOpenTokenByLogonId = PlsaOpenTokenByLogonIdFn?
 
-public fun interface PLSA_PROTECT_MEMORYFn {
-    public operator fun invoke(buffer: Long, buffersize: UInt)
+public fun interface PlsaProtectMemoryFn {
+    public operator fun invoke(buffer: COpaquePointer?, buffersize: UInt)
 }
 
-public typealias PLSA_PROTECT_MEMORY = PLSA_PROTECT_MEMORYFn?
+public typealias PlsaProtectMemory = PlsaProtectMemoryFn?
 
-public fun interface PLSA_QUERY_CLIENT_REQUESTFn {
-    public operator fun invoke(clientrequest: Long, querytype: UInt, replybuffer: Long): NTSTATUS
+public fun interface PlsaQueryClientRequestFn {
+    public operator fun invoke(clientrequest: COpaquePointer?, querytype: UInt, replybuffer: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_QUERY_CLIENT_REQUEST = PLSA_QUERY_CLIENT_REQUESTFn?
+public typealias PlsaQueryClientRequest = PlsaQueryClientRequestFn?
 
-public fun interface PLSA_REDIRECTED_LOGON_CALLBACKFn {
-    public operator fun invoke(redirectedlogonhandle: HANDLE, buffer: Long, bufferlength: UInt, returnbuffer: Long, returnbufferlength: Long): NTSTATUS
+public fun interface PlsaRedirectedLogonCallbackFn {
+    public operator fun invoke(redirectedlogonhandle: Handle, buffer: COpaquePointer?, bufferlength: UInt, returnbuffer: COpaquePointer?, returnbufferlength: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_REDIRECTED_LOGON_CALLBACK = PLSA_REDIRECTED_LOGON_CALLBACKFn?
+public typealias PlsaRedirectedLogonCallback = PlsaRedirectedLogonCallbackFn?
 
-public fun interface PLSA_REDIRECTED_LOGON_CLEANUP_CALLBACKFn {
-    public operator fun invoke(redirectedlogonhandle: HANDLE)
+public fun interface PlsaRedirectedLogonCleanupCallbackFn {
+    public operator fun invoke(redirectedlogonhandle: Handle)
 }
 
-public typealias PLSA_REDIRECTED_LOGON_CLEANUP_CALLBACK = PLSA_REDIRECTED_LOGON_CLEANUP_CALLBACKFn?
+public typealias PlsaRedirectedLogonCleanupCallback = PlsaRedirectedLogonCleanupCallbackFn?
 
-public fun interface PLSA_REDIRECTED_LOGON_GET_LOGON_CREDSFn {
-    public operator fun invoke(redirectedlogonhandle: HANDLE, logonbuffer: Long, logonbufferlength: Long): NTSTATUS
+public fun interface PlsaRedirectedLogonGetLogonCredsFn {
+    public operator fun invoke(redirectedlogonhandle: Handle, logonbuffer: COpaquePointer?, logonbufferlength: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_REDIRECTED_LOGON_GET_LOGON_CREDS = PLSA_REDIRECTED_LOGON_GET_LOGON_CREDSFn?
+public typealias PlsaRedirectedLogonGetLogonCreds = PlsaRedirectedLogonGetLogonCredsFn?
 
-public fun interface PLSA_REDIRECTED_LOGON_GET_SIDFn {
-    public operator fun invoke(redirectedlogonhandle: HANDLE, sid: Long): NTSTATUS
+public fun interface PlsaRedirectedLogonGetSidFn {
+    public operator fun invoke(redirectedlogonhandle: Handle, sid: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_REDIRECTED_LOGON_GET_SID = PLSA_REDIRECTED_LOGON_GET_SIDFn?
+public typealias PlsaRedirectedLogonGetSid = PlsaRedirectedLogonGetSidFn?
 
-public fun interface PLSA_REDIRECTED_LOGON_GET_SUPP_CREDSFn {
-    public operator fun invoke(redirectedlogonhandle: HANDLE, supplementalcredentials: Long): NTSTATUS
+public fun interface PlsaRedirectedLogonGetSuppCredsFn {
+    public operator fun invoke(redirectedlogonhandle: Handle, supplementalcredentials: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_REDIRECTED_LOGON_GET_SUPP_CREDS = PLSA_REDIRECTED_LOGON_GET_SUPP_CREDSFn?
+public typealias PlsaRedirectedLogonGetSuppCreds = PlsaRedirectedLogonGetSuppCredsFn?
 
-public fun interface PLSA_REDIRECTED_LOGON_INITFn {
-    public operator fun invoke(redirectedlogonhandle: HANDLE, packagename: Long, sessionid: UInt, logonid: Long): NTSTATUS
+public fun interface PlsaRedirectedLogonInitFn {
+    public operator fun invoke(redirectedlogonhandle: Handle, packagename: COpaquePointer?, sessionid: UInt, logonid: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_REDIRECTED_LOGON_INIT = PLSA_REDIRECTED_LOGON_INITFn?
+public typealias PlsaRedirectedLogonInit = PlsaRedirectedLogonInitFn?
 
-public fun interface PLSA_REGISTER_CALLBACKFn {
-    public operator fun invoke(callbackid: UInt, callback: PLSA_CALLBACK_FUNCTION): NTSTATUS
+public fun interface PlsaRegisterCallbackFn {
+    public operator fun invoke(callbackid: UInt, callback: PlsaCallbackFunction): Ntstatus
 }
 
-public typealias PLSA_REGISTER_CALLBACK = PLSA_REGISTER_CALLBACKFn?
+public typealias PlsaRegisterCallback = PlsaRegisterCallbackFn?
 
-public fun interface PLSA_REGISTER_NOTIFICATIONFn {
-    public operator fun invoke(startfunction: LPTHREAD_START_ROUTINE, parameter: Long, notificationtype: UInt, notificationclass: UInt, notificationflags: UInt, intervalminutes: UInt, waitevent: HANDLE): HANDLE
+public fun interface PlsaRegisterNotificationFn {
+    public operator fun invoke(startfunction: LpthreadStartRoutine, parameter: COpaquePointer?, notificationtype: UInt, notificationclass: UInt, notificationflags: UInt, intervalminutes: UInt, waitevent: Handle): Handle
 }
 
-public typealias PLSA_REGISTER_NOTIFICATION = PLSA_REGISTER_NOTIFICATIONFn?
+public typealias PlsaRegisterNotification = PlsaRegisterNotificationFn?
 
-public fun interface PLSA_SAVE_SUPPLEMENTAL_CREDENTIALSFn {
-    public operator fun invoke(logonid: Long, supplementalcredsize: UInt, supplementalcreds: Long, synchronous: Boolean): NTSTATUS
+public fun interface PlsaSaveSupplementalCredentialsFn {
+    public operator fun invoke(logonid: COpaquePointer?, supplementalcredsize: UInt, supplementalcreds: COpaquePointer?, synchronous: Boolean): Ntstatus
 }
 
-public typealias PLSA_SAVE_SUPPLEMENTAL_CREDENTIALS = PLSA_SAVE_SUPPLEMENTAL_CREDENTIALSFn?
+public typealias PlsaSaveSupplementalCredentials = PlsaSaveSupplementalCredentialsFn?
 
-public fun interface PLSA_SET_APP_MODE_INFOFn {
-    public operator fun invoke(userfunction: UInt, argument1: ULong, argument2: ULong, userdata: Long, returntolsa: Boolean): NTSTATUS
+public fun interface PlsaSetAppModeInfoFn {
+    public operator fun invoke(userfunction: UInt, argument1: ULong, argument2: ULong, userdata: COpaquePointer?, returntolsa: Boolean): Ntstatus
 }
 
-public typealias PLSA_SET_APP_MODE_INFO = PLSA_SET_APP_MODE_INFOFn?
+public typealias PlsaSetAppModeInfo = PlsaSetAppModeInfoFn?
 
-public fun interface PLSA_UNLOAD_PACKAGEFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PlsaUnloadPackageFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PLSA_UNLOAD_PACKAGE = PLSA_UNLOAD_PACKAGEFn?
+public typealias PlsaUnloadPackage = PlsaUnloadPackageFn?
 
-public fun interface PLSA_UPDATE_PRIMARY_CREDENTIALSFn {
-    public operator fun invoke(primarycredentials: Long, credentials: Long): NTSTATUS
+public fun interface PlsaUpdatePrimaryCredentialsFn {
+    public operator fun invoke(primarycredentials: COpaquePointer?, credentials: COpaquePointer?): Ntstatus
 }
 
-public typealias PLSA_UPDATE_PRIMARY_CREDENTIALS = PLSA_UPDATE_PRIMARY_CREDENTIALSFn?
+public typealias PlsaUpdatePrimaryCredentials = PlsaUpdatePrimaryCredentialsFn?
 
-public typealias POLICY_AUDIT_EVENT_TYPE = Int
+public typealias PolicyAuditEventType = Int
 
-public typealias POLICY_DOMAIN_INFORMATION_CLASS = Int
+public typealias PolicyDomainInformationClass = Int
 
-public typealias POLICY_INFORMATION_CLASS = Int
+public typealias PolicyInformationClass = Int
 
-public typealias POLICY_LSA_SERVER_ROLE = Int
+public typealias PolicyLsaServerRole = Int
 
-public typealias POLICY_NOTIFICATION_INFORMATION_CLASS = Int
+public typealias PolicyNotificationInformationClass = Int
 
-public fun interface PSAM_CREDENTIAL_UPDATE_FREE_ROUTINEFn {
-    public operator fun invoke(p: Long)
+public fun interface PsamCredentialUpdateFreeRoutineFn {
+    public operator fun invoke(p: COpaquePointer?)
 }
 
-public typealias PSAM_CREDENTIAL_UPDATE_FREE_ROUTINE = PSAM_CREDENTIAL_UPDATE_FREE_ROUTINEFn?
+public typealias PsamCredentialUpdateFreeRoutine = PsamCredentialUpdateFreeRoutineFn?
 
-public fun interface PSAM_CREDENTIAL_UPDATE_NOTIFY_ROUTINEFn {
-    public operator fun invoke(clearpassword: Long, oldcredentials: Long, oldcredentialsize: UInt, useraccountcontrol: UInt, upn: Long, username: Long, netbiosdomainname: Long, dnsdomainname: Long, newcredentials: Long, newcredentialsize: Long): NTSTATUS
+public fun interface PsamCredentialUpdateNotifyRoutineFn {
+    public operator fun invoke(clearpassword: COpaquePointer?, oldcredentials: COpaquePointer?, oldcredentialsize: UInt, useraccountcontrol: UInt, upn: COpaquePointer?, username: COpaquePointer?, netbiosdomainname: COpaquePointer?, dnsdomainname: COpaquePointer?, newcredentials: COpaquePointer?, newcredentialsize: COpaquePointer?): Ntstatus
 }
 
-public typealias PSAM_CREDENTIAL_UPDATE_NOTIFY_ROUTINE = PSAM_CREDENTIAL_UPDATE_NOTIFY_ROUTINEFn?
+public typealias PsamCredentialUpdateNotifyRoutine = PsamCredentialUpdateNotifyRoutineFn?
 
-public fun interface PSAM_CREDENTIAL_UPDATE_REGISTER_MAPPED_ENTRYPOINTS_ROUTINEFn {
-    public operator fun invoke(table: Long): NTSTATUS
+public fun interface PsamCredentialUpdateRegisterMappedEntrypointsRoutineFn {
+    public operator fun invoke(table: COpaquePointer?): Ntstatus
 }
 
-public typealias PSAM_CREDENTIAL_UPDATE_REGISTER_MAPPED_ENTRYPOINTS_ROUTINE = PSAM_CREDENTIAL_UPDATE_REGISTER_MAPPED_ENTRYPOINTS_ROUTINEFn?
+public typealias PsamCredentialUpdateRegisterMappedEntrypointsRoutine = PsamCredentialUpdateRegisterMappedEntrypointsRoutineFn?
 
-public fun interface PSAM_CREDENTIAL_UPDATE_REGISTER_ROUTINEFn {
-    public operator fun invoke(credentialname: Long): Boolean
+public fun interface PsamCredentialUpdateRegisterRoutineFn {
+    public operator fun invoke(credentialname: COpaquePointer?): Boolean
 }
 
-public typealias PSAM_CREDENTIAL_UPDATE_REGISTER_ROUTINE = PSAM_CREDENTIAL_UPDATE_REGISTER_ROUTINEFn?
+public typealias PsamCredentialUpdateRegisterRoutine = PsamCredentialUpdateRegisterRoutineFn?
 
-public fun interface PSAM_INIT_NOTIFICATION_ROUTINEFn {
+public fun interface PsamInitNotificationRoutineFn {
     public operator fun invoke(): Boolean
 }
 
-public typealias PSAM_INIT_NOTIFICATION_ROUTINE = PSAM_INIT_NOTIFICATION_ROUTINEFn?
+public typealias PsamInitNotificationRoutine = PsamInitNotificationRoutineFn?
 
-public fun interface PSAM_PASSWORD_FILTER_ROUTINEFn {
-    public operator fun invoke(accountname: Long, fullname: Long, password: Long, setoperation: Boolean): Boolean
+public fun interface PsamPasswordFilterRoutineFn {
+    public operator fun invoke(accountname: COpaquePointer?, fullname: COpaquePointer?, password: COpaquePointer?, setoperation: Boolean): Boolean
 }
 
-public typealias PSAM_PASSWORD_FILTER_ROUTINE = PSAM_PASSWORD_FILTER_ROUTINEFn?
+public typealias PsamPasswordFilterRoutine = PsamPasswordFilterRoutineFn?
 
-public fun interface PSAM_PASSWORD_NOTIFICATION_ROUTINEFn {
-    public operator fun invoke(username: Long, relativeid: UInt, newpassword: Long): NTSTATUS
+public fun interface PsamPasswordNotificationRoutineFn {
+    public operator fun invoke(username: COpaquePointer?, relativeid: UInt, newpassword: COpaquePointer?): Ntstatus
 }
 
-public typealias PSAM_PASSWORD_NOTIFICATION_ROUTINE = PSAM_PASSWORD_NOTIFICATION_ROUTINEFn?
+public typealias PsamPasswordNotificationRoutine = PsamPasswordNotificationRoutineFn?
 
-public fun interface QUERY_CONTEXT_ATTRIBUTES_EX_FN_AFn {
-    public operator fun invoke(param0: Long, param1: UInt, param2: Long, param3: UInt): HRESULT
+public fun interface QueryContextAttributesExFnAFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?, param3: UInt): Hresult
 }
 
-public typealias QUERY_CONTEXT_ATTRIBUTES_EX_FN_A = QUERY_CONTEXT_ATTRIBUTES_EX_FN_AFn?
+public typealias QueryContextAttributesExFnA = QueryContextAttributesExFnAFn?
 
-public fun interface QUERY_CONTEXT_ATTRIBUTES_EX_FN_WFn {
-    public operator fun invoke(param0: Long, param1: UInt, param2: Long, param3: UInt): HRESULT
+public fun interface QueryContextAttributesExFnWFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?, param3: UInt): Hresult
 }
 
-public typealias QUERY_CONTEXT_ATTRIBUTES_EX_FN_W = QUERY_CONTEXT_ATTRIBUTES_EX_FN_WFn?
+public typealias QueryContextAttributesExFnW = QueryContextAttributesExFnWFn?
 
-public fun interface QUERY_CONTEXT_ATTRIBUTES_FN_AFn {
-    public operator fun invoke(param0: Long, param1: UInt, param2: Long): HRESULT
+public fun interface QueryContextAttributesFnAFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): Hresult
 }
 
-public typealias QUERY_CONTEXT_ATTRIBUTES_FN_A = QUERY_CONTEXT_ATTRIBUTES_FN_AFn?
+public typealias QueryContextAttributesFnA = QueryContextAttributesFnAFn?
 
-public fun interface QUERY_CONTEXT_ATTRIBUTES_FN_WFn {
-    public operator fun invoke(param0: Long, param1: UInt, param2: Long): HRESULT
+public fun interface QueryContextAttributesFnWFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): Hresult
 }
 
-public typealias QUERY_CONTEXT_ATTRIBUTES_FN_W = QUERY_CONTEXT_ATTRIBUTES_FN_WFn?
+public typealias QueryContextAttributesFnW = QueryContextAttributesFnWFn?
 
-public fun interface QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_AFn {
-    public operator fun invoke(param0: Long, param1: UInt, param2: Long, param3: UInt): HRESULT
+public fun interface QueryCredentialsAttributesExFnAFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?, param3: UInt): Hresult
 }
 
-public typealias QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_A = QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_AFn?
+public typealias QueryCredentialsAttributesExFnA = QueryCredentialsAttributesExFnAFn?
 
-public fun interface QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_WFn {
-    public operator fun invoke(param0: Long, param1: UInt, param2: Long, param3: UInt): HRESULT
+public fun interface QueryCredentialsAttributesExFnWFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?, param3: UInt): Hresult
 }
 
-public typealias QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_W = QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_WFn?
+public typealias QueryCredentialsAttributesExFnW = QueryCredentialsAttributesExFnWFn?
 
-public fun interface QUERY_CREDENTIALS_ATTRIBUTES_FN_AFn {
-    public operator fun invoke(param0: Long, param1: UInt, param2: Long): HRESULT
+public fun interface QueryCredentialsAttributesFnAFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): Hresult
 }
 
-public typealias QUERY_CREDENTIALS_ATTRIBUTES_FN_A = QUERY_CREDENTIALS_ATTRIBUTES_FN_AFn?
+public typealias QueryCredentialsAttributesFnA = QueryCredentialsAttributesFnAFn?
 
-public fun interface QUERY_CREDENTIALS_ATTRIBUTES_FN_WFn {
-    public operator fun invoke(param0: Long, param1: UInt, param2: Long): HRESULT
+public fun interface QueryCredentialsAttributesFnWFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): Hresult
 }
 
-public typealias QUERY_CREDENTIALS_ATTRIBUTES_FN_W = QUERY_CREDENTIALS_ATTRIBUTES_FN_WFn?
+public typealias QueryCredentialsAttributesFnW = QueryCredentialsAttributesFnWFn?
 
-public fun interface QUERY_SECURITY_CONTEXT_TOKEN_FNFn {
-    public operator fun invoke(param0: Long, param1: Long): HRESULT
+public fun interface QuerySecurityContextTokenFnFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?): Hresult
 }
 
-public typealias QUERY_SECURITY_CONTEXT_TOKEN_FN = QUERY_SECURITY_CONTEXT_TOKEN_FNFn?
+public typealias QuerySecurityContextTokenFn = QuerySecurityContextTokenFnFn?
 
-public fun interface QUERY_SECURITY_PACKAGE_INFO_FN_AFn {
-    public operator fun invoke(param0: Long, param1: Long): HRESULT
+public fun interface QuerySecurityPackageInfoFnAFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?): Hresult
 }
 
-public typealias QUERY_SECURITY_PACKAGE_INFO_FN_A = QUERY_SECURITY_PACKAGE_INFO_FN_AFn?
+public typealias QuerySecurityPackageInfoFnA = QuerySecurityPackageInfoFnAFn?
 
-public fun interface QUERY_SECURITY_PACKAGE_INFO_FN_WFn {
-    public operator fun invoke(param0: Long, param1: Long): HRESULT
+public fun interface QuerySecurityPackageInfoFnWFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?): Hresult
 }
 
-public typealias QUERY_SECURITY_PACKAGE_INFO_FN_W = QUERY_SECURITY_PACKAGE_INFO_FN_WFn?
+public typealias QuerySecurityPackageInfoFnW = QuerySecurityPackageInfoFnWFn?
 
-public fun interface REVERT_SECURITY_CONTEXT_FNFn {
-    public operator fun invoke(param0: Long): HRESULT
+public fun interface RevertSecurityContextFnFn {
+    public operator fun invoke(param0: COpaquePointer?): Hresult
 }
 
-public typealias REVERT_SECURITY_CONTEXT_FN = REVERT_SECURITY_CONTEXT_FNFn?
+public typealias RevertSecurityContextFn = RevertSecurityContextFnFn?
 
-public typealias SASL_AUTHZID_STATE = Int
+public typealias SaslAuthzidState = Int
 
-public typealias SCHANNEL_ALERT_TOKEN_ALERT_TYPE = UInt
+public typealias SchannelAlertTokenAlertType = UInt
 
-public typealias SCHANNEL_CRED_FLAGS = UInt
+public typealias SchannelCredFlags = UInt
 
-public typealias SCHANNEL_SESSION_TOKEN_FLAGS = UInt
+public typealias SchannelSessionTokenFlags = UInt
 
-public typealias SECPKG_ATTR = UInt
+public typealias SecpkgAttr = UInt
 
-public typealias SECPKG_ATTR_LCT_STATUS = Int
+public typealias SecpkgAttrLctStatus = Int
 
-public typealias SECPKG_CALL_PACKAGE_MESSAGE_TYPE = Int
+public typealias SecpkgCallPackageMessageType = Int
 
-public typealias SECPKG_CRED = UInt
+public typealias SecpkgCred = UInt
 
-public typealias SECPKG_CRED_CLASS = Int
+public typealias SecpkgCredClass = Int
 
-public typealias SECPKG_EXTENDED_INFORMATION_CLASS = Int
+public typealias SecpkgExtendedInformationClass = Int
 
-public typealias SECPKG_NAME_TYPE = Int
+public typealias SecpkgNameType = Int
 
-public typealias SECPKG_PACKAGE_CHANGE_TYPE = UInt
+public typealias SecpkgPackageChangeType = UInt
 
-public typealias SECPKG_SESSIONINFO_TYPE = Int
+public typealias SecpkgSessioninfoType = Int
 
-public typealias SECURITY_PACKAGE_OPTIONS_TYPE = UInt
+public typealias SecurityPackageOptionsType = UInt
 
-public typealias SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT = Int
+public typealias SecApplicationProtocolNegotiationExt = Int
 
-public typealias SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS = Int
+public typealias SecApplicationProtocolNegotiationStatus = Int
 
-public fun interface SEC_GET_KEY_FNFn {
-    public operator fun invoke(arg: Long, principal: Long, keyver: UInt, key: Long, status: Long)
+public fun interface SecGetKeyFnFn {
+    public operator fun invoke(arg: COpaquePointer?, principal: COpaquePointer?, keyver: UInt, key: COpaquePointer?, status: COpaquePointer?)
 }
 
-public typealias SEC_GET_KEY_FN = SEC_GET_KEY_FNFn?
+public typealias SecGetKeyFn = SecGetKeyFnFn?
 
-public typealias SEC_TRAFFIC_SECRET_TYPE = Int
+public typealias SecTrafficSecretType = Int
 
-public fun interface SET_CONTEXT_ATTRIBUTES_FN_AFn {
-    public operator fun invoke(param0: Long, param1: UInt, param2: Long, param3: UInt): HRESULT
+public fun interface SetContextAttributesFnAFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?, param3: UInt): Hresult
 }
 
-public typealias SET_CONTEXT_ATTRIBUTES_FN_A = SET_CONTEXT_ATTRIBUTES_FN_AFn?
+public typealias SetContextAttributesFnA = SetContextAttributesFnAFn?
 
-public fun interface SET_CONTEXT_ATTRIBUTES_FN_WFn {
-    public operator fun invoke(param0: Long, param1: UInt, param2: Long, param3: UInt): HRESULT
+public fun interface SetContextAttributesFnWFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?, param3: UInt): Hresult
 }
 
-public typealias SET_CONTEXT_ATTRIBUTES_FN_W = SET_CONTEXT_ATTRIBUTES_FN_WFn?
+public typealias SetContextAttributesFnW = SetContextAttributesFnWFn?
 
-public fun interface SET_CREDENTIALS_ATTRIBUTES_FN_AFn {
-    public operator fun invoke(param0: Long, param1: UInt, param2: Long, param3: UInt): HRESULT
+public fun interface SetCredentialsAttributesFnAFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?, param3: UInt): Hresult
 }
 
-public typealias SET_CREDENTIALS_ATTRIBUTES_FN_A = SET_CREDENTIALS_ATTRIBUTES_FN_AFn?
+public typealias SetCredentialsAttributesFnA = SetCredentialsAttributesFnAFn?
 
-public fun interface SET_CREDENTIALS_ATTRIBUTES_FN_WFn {
-    public operator fun invoke(param0: Long, param1: UInt, param2: Long, param3: UInt): HRESULT
+public fun interface SetCredentialsAttributesFnWFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?, param3: UInt): Hresult
 }
 
-public typealias SET_CREDENTIALS_ATTRIBUTES_FN_W = SET_CREDENTIALS_ATTRIBUTES_FN_WFn?
+public typealias SetCredentialsAttributesFnW = SetCredentialsAttributesFnWFn?
 
-public typealias SE_ADT_PARAMETER_TYPE = Int
+public typealias SeAdtParameterType = Int
 
-public typealias SLDATATYPE = UInt
+public typealias Sldatatype = UInt
 
-public typealias SLIDTYPE = Int
+public typealias Slidtype = Int
 
-public typealias SLLICENSINGSTATUS = Int
+public typealias Sllicensingstatus = Int
 
-public typealias SLREFERRALTYPE = Int
+public typealias Slreferraltype = Int
 
-public typealias SL_ACTIVATION_TYPE = Int
+public typealias SlActivationType = Int
 
-public typealias SL_GENUINE_STATE = Int
+public typealias SlGenuineState = Int
 
-public fun interface SSL_CRACK_CERTIFICATE_FNFn {
-    public operator fun invoke(pbcertificate: Long, cbcertificate: UInt, verifysignature: BOOL, ppcertificate: Long): BOOL
+public fun interface SslCrackCertificateFnFn {
+    public operator fun invoke(pbcertificate: COpaquePointer?, cbcertificate: UInt, verifysignature: Bool, ppcertificate: COpaquePointer?): Bool
 }
 
-public typealias SSL_CRACK_CERTIFICATE_FN = SSL_CRACK_CERTIFICATE_FNFn?
+public typealias SslCrackCertificateFn = SslCrackCertificateFnFn?
 
-public fun interface SSL_EMPTY_CACHE_FN_AFn {
-    public operator fun invoke(psztargetname: PCSTR, dwflags: UInt): BOOL
+public fun interface SslEmptyCacheFnAFn {
+    public operator fun invoke(psztargetname: Pcstr, dwflags: UInt): Bool
 }
 
-public typealias SSL_EMPTY_CACHE_FN_A = SSL_EMPTY_CACHE_FN_AFn?
+public typealias SslEmptyCacheFnA = SslEmptyCacheFnAFn?
 
-public fun interface SSL_EMPTY_CACHE_FN_WFn {
-    public operator fun invoke(psztargetname: PCWSTR, dwflags: UInt): BOOL
+public fun interface SslEmptyCacheFnWFn {
+    public operator fun invoke(psztargetname: Pcwstr, dwflags: UInt): Bool
 }
 
-public typealias SSL_EMPTY_CACHE_FN_W = SSL_EMPTY_CACHE_FN_WFn?
+public typealias SslEmptyCacheFnW = SslEmptyCacheFnWFn?
 
-public fun interface SSL_FREE_CERTIFICATE_FNFn {
-    public operator fun invoke(pcertificate: Long)
+public fun interface SslFreeCertificateFnFn {
+    public operator fun invoke(pcertificate: COpaquePointer?)
 }
 
-public typealias SSL_FREE_CERTIFICATE_FN = SSL_FREE_CERTIFICATE_FNFn?
+public typealias SslFreeCertificateFn = SslFreeCertificateFnFn?
 
 public typealias SchGetExtensionsOptions = Int
 
 public typealias SecDelegationType = Int
 
 public fun interface SpAcceptCredentialsFnFn {
-    public operator fun invoke(logontype: SECURITY_LOGON_TYPE, accountname: Long, primarycredentials: Long, supplementalcredentials: Long): NTSTATUS
+    public operator fun invoke(logontype: SecurityLogonType, accountname: COpaquePointer?, primarycredentials: COpaquePointer?, supplementalcredentials: COpaquePointer?): Ntstatus
 }
 
 public typealias SpAcceptCredentialsFn = SpAcceptCredentialsFnFn?
 
 public fun interface SpAcceptLsaModeContextFnFn {
-    public operator fun invoke(credentialhandle: ULong, contexthandle: ULong, inputbuffer: Long, contextrequirements: UInt, targetdatarep: UInt, newcontexthandle: Long, outputbuffer: Long, contextattributes: Long, expirationtime: Long, mappedcontext: Long, contextdata: Long): NTSTATUS
+    public operator fun invoke(credentialhandle: ULong, contexthandle: ULong, inputbuffer: COpaquePointer?, contextrequirements: UInt, targetdatarep: UInt, newcontexthandle: COpaquePointer?, outputbuffer: COpaquePointer?, contextattributes: COpaquePointer?, expirationtime: COpaquePointer?, mappedcontext: COpaquePointer?, contextdata: COpaquePointer?): Ntstatus
 }
 
 public typealias SpAcceptLsaModeContextFn = SpAcceptLsaModeContextFnFn?
 
 public fun interface SpAcquireCredentialsHandleFnFn {
-    public operator fun invoke(principalname: Long, credentialuseflags: UInt, logonid: Long, authorizationdata: Long, getkeyfunciton: Long, getkeyargument: Long, credentialhandle: Long, expirationtime: Long): NTSTATUS
+    public operator fun invoke(principalname: COpaquePointer?, credentialuseflags: UInt, logonid: COpaquePointer?, authorizationdata: COpaquePointer?, getkeyfunciton: COpaquePointer?, getkeyargument: COpaquePointer?, credentialhandle: COpaquePointer?, expirationtime: COpaquePointer?): Ntstatus
 }
 
 public typealias SpAcquireCredentialsHandleFn = SpAcquireCredentialsHandleFnFn?
 
 public fun interface SpAddCredentialsFnFn {
-    public operator fun invoke(credentialhandle: ULong, principalname: Long, pkg: Long, credentialuseflags: UInt, authorizationdata: Long, getkeyfunciton: Long, getkeyargument: Long, expirationtime: Long): NTSTATUS
+    public operator fun invoke(credentialhandle: ULong, principalname: COpaquePointer?, pkg: COpaquePointer?, credentialuseflags: UInt, authorizationdata: COpaquePointer?, getkeyfunciton: COpaquePointer?, getkeyargument: COpaquePointer?, expirationtime: COpaquePointer?): Ntstatus
 }
 
 public typealias SpAddCredentialsFn = SpAddCredentialsFnFn?
 
 public fun interface SpApplyControlTokenFnFn {
-    public operator fun invoke(contexthandle: ULong, controltoken: Long): NTSTATUS
+    public operator fun invoke(contexthandle: ULong, controltoken: COpaquePointer?): Ntstatus
 }
 
 public typealias SpApplyControlTokenFn = SpApplyControlTokenFnFn?
 
 public fun interface SpChangeAccountPasswordFnFn {
-    public operator fun invoke(pdomainname: Long, paccountname: Long, poldpassword: Long, pnewpassword: Long, impersonating: Boolean, poutput: Long): NTSTATUS
+    public operator fun invoke(pdomainname: COpaquePointer?, paccountname: COpaquePointer?, poldpassword: COpaquePointer?, pnewpassword: COpaquePointer?, impersonating: Boolean, poutput: COpaquePointer?): Ntstatus
 }
 
 public typealias SpChangeAccountPasswordFn = SpChangeAccountPasswordFnFn?
 
 public fun interface SpCompleteAuthTokenFnFn {
-    public operator fun invoke(contexthandle: ULong, inputbuffer: Long): NTSTATUS
+    public operator fun invoke(contexthandle: ULong, inputbuffer: COpaquePointer?): Ntstatus
 }
 
 public typealias SpCompleteAuthTokenFn = SpCompleteAuthTokenFnFn?
 
 public fun interface SpDeleteContextFnFn {
-    public operator fun invoke(contexthandle: ULong): NTSTATUS
+    public operator fun invoke(contexthandle: ULong): Ntstatus
 }
 
 public typealias SpDeleteContextFn = SpDeleteContextFnFn?
 
 public fun interface SpDeleteCredentialsFnFn {
-    public operator fun invoke(credentialhandle: ULong, key: Long): NTSTATUS
+    public operator fun invoke(credentialhandle: ULong, key: COpaquePointer?): Ntstatus
 }
 
 public typealias SpDeleteCredentialsFn = SpDeleteCredentialsFnFn?
 
 public fun interface SpExchangeMetaDataFnFn {
-    public operator fun invoke(credentialhandle: ULong, targetname: Long, contextrequirements: UInt, metadatalength: UInt, metadata: Long, contexthandle: Long): NTSTATUS
+    public operator fun invoke(credentialhandle: ULong, targetname: COpaquePointer?, contextrequirements: UInt, metadatalength: UInt, metadata: COpaquePointer?, contexthandle: COpaquePointer?): Ntstatus
 }
 
 public typealias SpExchangeMetaDataFn = SpExchangeMetaDataFnFn?
 
 public fun interface SpExportSecurityContextFnFn {
-    public operator fun invoke(phcontext: ULong, fflags: UInt, ppackedcontext: Long, ptoken: Long): NTSTATUS
+    public operator fun invoke(phcontext: ULong, fflags: UInt, ppackedcontext: COpaquePointer?, ptoken: COpaquePointer?): Ntstatus
 }
 
 public typealias SpExportSecurityContextFn = SpExportSecurityContextFnFn?
 
 public fun interface SpExtractTargetInfoFnFn {
-    public operator fun invoke(clientrequest: Long, protocolsubmitbuffer: Long, clientbufferbase: Long, submitbufferlength: UInt, ppvtargetinfo: Long, pcbtargetinfo: Long): NTSTATUS
+    public operator fun invoke(clientrequest: COpaquePointer?, protocolsubmitbuffer: COpaquePointer?, clientbufferbase: COpaquePointer?, submitbufferlength: UInt, ppvtargetinfo: COpaquePointer?, pcbtargetinfo: COpaquePointer?): Ntstatus
 }
 
 public typealias SpExtractTargetInfoFn = SpExtractTargetInfoFnFn?
 
 public fun interface SpFormatCredentialsFnFn {
-    public operator fun invoke(credentials: Long, formattedcredentials: Long): NTSTATUS
+    public operator fun invoke(credentials: COpaquePointer?, formattedcredentials: COpaquePointer?): Ntstatus
 }
 
 public typealias SpFormatCredentialsFn = SpFormatCredentialsFnFn?
 
 public fun interface SpFreeCredentialsHandleFnFn {
-    public operator fun invoke(credentialhandle: ULong): NTSTATUS
+    public operator fun invoke(credentialhandle: ULong): Ntstatus
 }
 
 public typealias SpFreeCredentialsHandleFn = SpFreeCredentialsHandleFnFn?
 
 public fun interface SpGetContextTokenFnFn {
-    public operator fun invoke(contexthandle: ULong, impersonationtoken: Long): NTSTATUS
+    public operator fun invoke(contexthandle: ULong, impersonationtoken: COpaquePointer?): Ntstatus
 }
 
 public typealias SpGetContextTokenFn = SpGetContextTokenFnFn?
 
 public fun interface SpGetCredUIContextFnFn {
-    public operator fun invoke(contexthandle: ULong, credtype: Long, flatcreduicontextlength: Long, flatcreduicontext: Long): NTSTATUS
+    public operator fun invoke(contexthandle: ULong, credtype: COpaquePointer?, flatcreduicontextlength: COpaquePointer?, flatcreduicontext: COpaquePointer?): Ntstatus
 }
 
 public typealias SpGetCredUIContextFn = SpGetCredUIContextFnFn?
 
 public fun interface SpGetCredentialsFnFn {
-    public operator fun invoke(credentialhandle: ULong, credentials: Long): NTSTATUS
+    public operator fun invoke(credentialhandle: ULong, credentials: COpaquePointer?): Ntstatus
 }
 
 public typealias SpGetCredentialsFn = SpGetCredentialsFnFn?
 
 public fun interface SpGetExtendedInformationFnFn {
-    public operator fun invoke(cls: SECPKG_EXTENDED_INFORMATION_CLASS, ppinformation: Long): NTSTATUS
+    public operator fun invoke(cls: SecpkgExtendedInformationClass, ppinformation: COpaquePointer?): Ntstatus
 }
 
 public typealias SpGetExtendedInformationFn = SpGetExtendedInformationFnFn?
 
 public fun interface SpGetInfoFnFn {
-    public operator fun invoke(packageinfo: Long): NTSTATUS
+    public operator fun invoke(packageinfo: COpaquePointer?): Ntstatus
 }
 
 public typealias SpGetInfoFn = SpGetInfoFnFn?
 
 public fun interface SpGetRemoteCredGuardLogonBufferFnFn {
-    public operator fun invoke(credhandle: ULong, contexthandle: ULong, targetname: Long, redirectedlogonhandle: Long, callback: Long, cleanupcallback: Long, logonbuffersize: Long, logonbuffer: Long): NTSTATUS
+    public operator fun invoke(credhandle: ULong, contexthandle: ULong, targetname: COpaquePointer?, redirectedlogonhandle: COpaquePointer?, callback: COpaquePointer?, cleanupcallback: COpaquePointer?, logonbuffersize: COpaquePointer?, logonbuffer: COpaquePointer?): Ntstatus
 }
 
 public typealias SpGetRemoteCredGuardLogonBufferFn = SpGetRemoteCredGuardLogonBufferFnFn?
 
 public fun interface SpGetRemoteCredGuardSupplementalCredsFnFn {
-    public operator fun invoke(credhandle: ULong, targetname: Long, redirectedlogonhandle: Long, callback: Long, cleanupcallback: Long, supplementalcredssize: Long, supplementalcreds: Long): NTSTATUS
+    public operator fun invoke(credhandle: ULong, targetname: COpaquePointer?, redirectedlogonhandle: COpaquePointer?, callback: COpaquePointer?, cleanupcallback: COpaquePointer?, supplementalcredssize: COpaquePointer?, supplementalcreds: COpaquePointer?): Ntstatus
 }
 
 public typealias SpGetRemoteCredGuardSupplementalCredsFn = SpGetRemoteCredGuardSupplementalCredsFnFn?
 
 public fun interface SpGetTbalSupplementalCredsFnFn {
-    public operator fun invoke(logonid: LUID, supplementalcredssize: Long, supplementalcreds: Long): NTSTATUS
+    public operator fun invoke(logonid: Luid, supplementalcredssize: COpaquePointer?, supplementalcreds: COpaquePointer?): Ntstatus
 }
 
 public typealias SpGetTbalSupplementalCredsFn = SpGetTbalSupplementalCredsFnFn?
 
 public fun interface SpGetUserInfoFnFn {
-    public operator fun invoke(logonid: Long, flags: UInt, userdata: Long): NTSTATUS
+    public operator fun invoke(logonid: COpaquePointer?, flags: UInt, userdata: COpaquePointer?): Ntstatus
 }
 
 public typealias SpGetUserInfoFn = SpGetUserInfoFnFn?
 
 public fun interface SpImportSecurityContextFnFn {
-    public operator fun invoke(ppackedcontext: Long, token: HANDLE, phcontext: Long): NTSTATUS
+    public operator fun invoke(ppackedcontext: COpaquePointer?, token: Handle, phcontext: COpaquePointer?): Ntstatus
 }
 
 public typealias SpImportSecurityContextFn = SpImportSecurityContextFnFn?
 
 public fun interface SpInitLsaModeContextFnFn {
-    public operator fun invoke(credentialhandle: ULong, contexthandle: ULong, targetname: Long, contextrequirements: UInt, targetdatarep: UInt, inputbuffers: Long, newcontexthandle: Long, outputbuffers: Long, contextattributes: Long, expirationtime: Long, mappedcontext: Long, contextdata: Long): NTSTATUS
+    public operator fun invoke(credentialhandle: ULong, contexthandle: ULong, targetname: COpaquePointer?, contextrequirements: UInt, targetdatarep: UInt, inputbuffers: COpaquePointer?, newcontexthandle: COpaquePointer?, outputbuffers: COpaquePointer?, contextattributes: COpaquePointer?, expirationtime: COpaquePointer?, mappedcontext: COpaquePointer?, contextdata: COpaquePointer?): Ntstatus
 }
 
 public typealias SpInitLsaModeContextFn = SpInitLsaModeContextFnFn?
 
 public fun interface SpInitUserModeContextFnFn {
-    public operator fun invoke(contexthandle: ULong, packedcontext: Long): NTSTATUS
+    public operator fun invoke(contexthandle: ULong, packedcontext: COpaquePointer?): Ntstatus
 }
 
 public typealias SpInitUserModeContextFn = SpInitUserModeContextFnFn?
 
 public fun interface SpInitializeFnFn {
-    public operator fun invoke(packageid: ULong, parameters: Long, functiontable: Long): NTSTATUS
+    public operator fun invoke(packageid: ULong, parameters: COpaquePointer?, functiontable: COpaquePointer?): Ntstatus
 }
 
 public typealias SpInitializeFn = SpInitializeFnFn?
 
 public fun interface SpInstanceInitFnFn {
-    public operator fun invoke(version: UInt, functiontable: Long, userfunctions: Long): NTSTATUS
+    public operator fun invoke(version: UInt, functiontable: COpaquePointer?, userfunctions: COpaquePointer?): Ntstatus
 }
 
 public typealias SpInstanceInitFn = SpInstanceInitFnFn?
 
 public fun interface SpLsaModeInitializeFnFn {
-    public operator fun invoke(lsaversion: UInt, packageversion: Long, pptables: Long, pctables: Long): NTSTATUS
+    public operator fun invoke(lsaversion: UInt, packageversion: COpaquePointer?, pptables: COpaquePointer?, pctables: COpaquePointer?): Ntstatus
 }
 
 public typealias SpLsaModeInitializeFn = SpLsaModeInitializeFnFn?
 
 public fun interface SpMakeSignatureFnFn {
-    public operator fun invoke(contexthandle: ULong, qualityofprotection: UInt, messagebuffers: Long, messagesequencenumber: UInt): NTSTATUS
+    public operator fun invoke(contexthandle: ULong, qualityofprotection: UInt, messagebuffers: COpaquePointer?, messagesequencenumber: UInt): Ntstatus
 }
 
 public typealias SpMakeSignatureFn = SpMakeSignatureFnFn?
 
 public fun interface SpMarshalAttributeDataFnFn {
-    public operator fun invoke(attributeinfo: UInt, attribute: UInt, attributedatasize: UInt, attributedata: Long, marshaledattributedatasize: Long, marshaledattributedata: Long): NTSTATUS
+    public operator fun invoke(attributeinfo: UInt, attribute: UInt, attributedatasize: UInt, attributedata: COpaquePointer?, marshaledattributedatasize: COpaquePointer?, marshaledattributedata: COpaquePointer?): Ntstatus
 }
 
 public typealias SpMarshalAttributeDataFn = SpMarshalAttributeDataFnFn?
 
 public fun interface SpMarshallSupplementalCredsFnFn {
-    public operator fun invoke(credentialsize: UInt, credentials: Long, marshalledcredsize: Long, marshalledcreds: Long): NTSTATUS
+    public operator fun invoke(credentialsize: UInt, credentials: COpaquePointer?, marshalledcredsize: COpaquePointer?, marshalledcreds: COpaquePointer?): Ntstatus
 }
 
 public typealias SpMarshallSupplementalCredsFn = SpMarshallSupplementalCredsFnFn?
 
 public fun interface SpQueryContextAttributesFnFn {
-    public operator fun invoke(contexthandle: ULong, contextattribute: UInt, buffer: Long): NTSTATUS
+    public operator fun invoke(contexthandle: ULong, contextattribute: UInt, buffer: COpaquePointer?): Ntstatus
 }
 
 public typealias SpQueryContextAttributesFn = SpQueryContextAttributesFnFn?
 
 public fun interface SpQueryCredentialsAttributesFnFn {
-    public operator fun invoke(credentialhandle: ULong, credentialattribute: UInt, buffer: Long): NTSTATUS
+    public operator fun invoke(credentialhandle: ULong, credentialattribute: UInt, buffer: COpaquePointer?): Ntstatus
 }
 
 public typealias SpQueryCredentialsAttributesFn = SpQueryCredentialsAttributesFnFn?
 
 public fun interface SpQueryMetaDataFnFn {
-    public operator fun invoke(credentialhandle: ULong, targetname: Long, contextrequirements: UInt, metadatalength: Long, metadata: Long, contexthandle: Long): NTSTATUS
+    public operator fun invoke(credentialhandle: ULong, targetname: COpaquePointer?, contextrequirements: UInt, metadatalength: COpaquePointer?, metadata: COpaquePointer?, contexthandle: COpaquePointer?): Ntstatus
 }
 
 public typealias SpQueryMetaDataFn = SpQueryMetaDataFnFn?
 
 public fun interface SpSaveCredentialsFnFn {
-    public operator fun invoke(credentialhandle: ULong, credentials: Long): NTSTATUS
+    public operator fun invoke(credentialhandle: ULong, credentials: COpaquePointer?): Ntstatus
 }
 
 public typealias SpSaveCredentialsFn = SpSaveCredentialsFnFn?
 
 public fun interface SpSealMessageFnFn {
-    public operator fun invoke(contexthandle: ULong, qualityofprotection: UInt, messagebuffers: Long, messagesequencenumber: UInt): NTSTATUS
+    public operator fun invoke(contexthandle: ULong, qualityofprotection: UInt, messagebuffers: COpaquePointer?, messagesequencenumber: UInt): Ntstatus
 }
 
 public typealias SpSealMessageFn = SpSealMessageFnFn?
 
 public fun interface SpSetContextAttributesFnFn {
-    public operator fun invoke(contexthandle: ULong, contextattribute: UInt, buffer: Long, buffersize: UInt): NTSTATUS
+    public operator fun invoke(contexthandle: ULong, contextattribute: UInt, buffer: COpaquePointer?, buffersize: UInt): Ntstatus
 }
 
 public typealias SpSetContextAttributesFn = SpSetContextAttributesFnFn?
 
 public fun interface SpSetCredentialsAttributesFnFn {
-    public operator fun invoke(credentialhandle: ULong, credentialattribute: UInt, buffer: Long, buffersize: UInt): NTSTATUS
+    public operator fun invoke(credentialhandle: ULong, credentialattribute: UInt, buffer: COpaquePointer?, buffersize: UInt): Ntstatus
 }
 
 public typealias SpSetCredentialsAttributesFn = SpSetCredentialsAttributesFnFn?
 
 public fun interface SpSetExtendedInformationFnFn {
-    public operator fun invoke(cls: SECPKG_EXTENDED_INFORMATION_CLASS, info: Long): NTSTATUS
+    public operator fun invoke(cls: SecpkgExtendedInformationClass, info: COpaquePointer?): Ntstatus
 }
 
 public typealias SpSetExtendedInformationFn = SpSetExtendedInformationFnFn?
 
 public fun interface SpShutdownFnFn {
-    public operator fun invoke(): NTSTATUS
+    public operator fun invoke(): Ntstatus
 }
 
 public typealias SpShutdownFn = SpShutdownFnFn?
 
 public fun interface SpUnsealMessageFnFn {
-    public operator fun invoke(contexthandle: ULong, messagebuffers: Long, messagesequencenumber: UInt, qualityofprotection: Long): NTSTATUS
+    public operator fun invoke(contexthandle: ULong, messagebuffers: COpaquePointer?, messagesequencenumber: UInt, qualityofprotection: COpaquePointer?): Ntstatus
 }
 
 public typealias SpUnsealMessageFn = SpUnsealMessageFnFn?
 
 public fun interface SpUpdateCredentialsFnFn {
-    public operator fun invoke(contexthandle: ULong, credtype: Long, flatcreduicontextlength: UInt, flatcreduicontext: Long): NTSTATUS
+    public operator fun invoke(contexthandle: ULong, credtype: COpaquePointer?, flatcreduicontextlength: UInt, flatcreduicontext: COpaquePointer?): Ntstatus
 }
 
 public typealias SpUpdateCredentialsFn = SpUpdateCredentialsFnFn?
 
 public fun interface SpUserModeInitializeFnFn {
-    public operator fun invoke(lsaversion: UInt, packageversion: Long, pptables: Long, pctables: Long): NTSTATUS
+    public operator fun invoke(lsaversion: UInt, packageversion: COpaquePointer?, pptables: COpaquePointer?, pctables: COpaquePointer?): Ntstatus
 }
 
 public typealias SpUserModeInitializeFn = SpUserModeInitializeFnFn?
 
 public fun interface SpValidateTargetInfoFnFn {
-    public operator fun invoke(clientrequest: Long, protocolsubmitbuffer: Long, clientbufferbase: Long, submitbufferlength: UInt, targetinfo: Long): NTSTATUS
+    public operator fun invoke(clientrequest: COpaquePointer?, protocolsubmitbuffer: COpaquePointer?, clientbufferbase: COpaquePointer?, submitbufferlength: UInt, targetinfo: COpaquePointer?): Ntstatus
 }
 
 public typealias SpValidateTargetInfoFn = SpValidateTargetInfoFnFn?
 
 public fun interface SpVerifySignatureFnFn {
-    public operator fun invoke(contexthandle: ULong, messagebuffers: Long, messagesequencenumber: UInt, qualityofprotection: Long): NTSTATUS
+    public operator fun invoke(contexthandle: ULong, messagebuffers: COpaquePointer?, messagesequencenumber: UInt, qualityofprotection: COpaquePointer?): Ntstatus
 }
 
 public typealias SpVerifySignatureFn = SpVerifySignatureFnFn?
 
 public fun interface SslDeserializeCertificateStoreFnFn {
-    public operator fun invoke(serializedcertificatestore: CRYPT_INTEGER_BLOB, ppcertcontext: Long): HRESULT
+    public operator fun invoke(serializedcertificatestore: CryptIntegerBlob, ppcertcontext: COpaquePointer?): Hresult
 }
 
 public typealias SslDeserializeCertificateStoreFn = SslDeserializeCertificateStoreFnFn?
 
 public fun interface SslGetExtensionsFnFn {
-    public operator fun invoke(clienthello: Long, clienthellobytesize: UInt, genericextensions: Long, genericextensionscount: UByte, bytestoread: Long, flags: SchGetExtensionsOptions): HRESULT
+    public operator fun invoke(clienthello: COpaquePointer?, clienthellobytesize: UInt, genericextensions: COpaquePointer?, genericextensionscount: UByte, bytestoread: COpaquePointer?, flags: SchGetExtensionsOptions): Hresult
 }
 
 public typealias SslGetExtensionsFn = SslGetExtensionsFnFn?
 
 public fun interface SslGetServerIdentityFnFn {
-    public operator fun invoke(clienthello: Long, clienthellosize: UInt, serveridentity: Long, serveridentitysize: Long, flags: UInt): HRESULT
+    public operator fun invoke(clienthello: COpaquePointer?, clienthellosize: UInt, serveridentity: COpaquePointer?, serveridentitysize: COpaquePointer?, flags: UInt): Hresult
 }
 
 public typealias SslGetServerIdentityFn = SslGetServerIdentityFnFn?
 
-public typealias TOKENBINDING_EXTENSION_FORMAT = Int
+public typealias TokenbindingExtensionFormat = Int
 
-public typealias TOKENBINDING_KEY_PARAMETERS_TYPE = Int
+public typealias TokenbindingKeyParametersType = Int
 
-public typealias TOKENBINDING_TYPE = Int
+public typealias TokenbindingType = Int
 
-public typealias TRUSTED_DOMAIN_TRUST_ATTRIBUTES = UInt
+public typealias TrustedDomainTrustAttributes = UInt
 
-public typealias TRUSTED_DOMAIN_TRUST_DIRECTION = UInt
+public typealias TrustedDomainTrustDirection = UInt
 
-public typealias TRUSTED_DOMAIN_TRUST_TYPE = UInt
+public typealias TrustedDomainTrustType = UInt
 
-public typealias TRUSTED_INFORMATION_CLASS = Int
+public typealias TrustedInformationClass = Int
 
-public fun interface VERIFY_SIGNATURE_FNFn {
-    public operator fun invoke(param0: Long, param1: Long, param2: UInt, param3: Long): HRESULT
+public fun interface VerifySignatureFnFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?, param2: UInt, param3: COpaquePointer?): Hresult
 }
 
-public typealias VERIFY_SIGNATURE_FN = VERIFY_SIGNATURE_FNFn?
+public typealias VerifySignatureFn = VerifySignatureFnFn?
 
-public typealias _HMAPPER = Long
+public typealias Hmapper = Long
 
-public typealias eTlsAlgorithmUsage = Int
+public typealias ETlsAlgorithmUsage = Int
 
-public typealias eTlsHashAlgorithm = Int
+public typealias ETlsHashAlgorithm = Int
 
-public typealias eTlsSignatureAlgorithm = Int
+public typealias ETlsSignatureAlgorithm = Int

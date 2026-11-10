@@ -2,39 +2,40 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.applocker
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.security.SAFER_LEVEL_HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.security.SaferLevelHandle
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun SaferCloseLevel(hlevelhandle: SAFER_LEVEL_HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.applocker.cinterop.windowssys_windows_win32_security_applocker_SaferCloseLevel(hlevelhandle.toCPointer<ByteVar>())
+public actual fun saferCloseLevel(hlevelhandle: SaferLevelHandle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.applocker.cinterop.windowssys_windows_win32_security_applocker_saferCloseLevel(hlevelhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun SaferComputeTokenFromLevel(levelhandle: SAFER_LEVEL_HANDLE, inaccesstoken: HANDLE, outaccesstoken: Long, dwflags: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS, lpreserved: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.applocker.cinterop.windowssys_windows_win32_security_applocker_SaferComputeTokenFromLevel(levelhandle.toCPointer<ByteVar>(), inaccesstoken.toCPointer<ByteVar>(), outaccesstoken.toCPointer<ByteVar>(), dwflags, lpreserved.toCPointer<ByteVar>())
+public actual fun saferComputeTokenFromLevel(levelhandle: SaferLevelHandle, inaccesstoken: Handle, outaccesstoken: COpaquePointer?, dwflags: SaferComputeTokenFromLevelFlags, lpreserved: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.applocker.cinterop.windowssys_windows_win32_security_applocker_saferComputeTokenFromLevel(levelhandle?.value?.toCPointer<ByteVar>(), inaccesstoken?.value?.toCPointer<ByteVar>(), outaccesstoken?.value?.toCPointer<ByteVar>(), dwflags, lpreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun SaferCreateLevel(dwscopeid: UInt, dwlevelid: UInt, openflags: UInt, plevelhandle: Long, lpreserved: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.applocker.cinterop.windowssys_windows_win32_security_applocker_SaferCreateLevel(dwscopeid, dwlevelid, openflags, plevelhandle.toCPointer<ByteVar>(), lpreserved.toCPointer<ByteVar>())
+public actual fun saferCreateLevel(dwscopeid: UInt, dwlevelid: UInt, openflags: UInt, plevelhandle: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.applocker.cinterop.windowssys_windows_win32_security_applocker_saferCreateLevel(dwscopeid, dwlevelid, openflags, plevelhandle?.value?.toCPointer<ByteVar>(), lpreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun SaferGetLevelInformation(levelhandle: SAFER_LEVEL_HANDLE, dwinfotype: SAFER_OBJECT_INFO_CLASS, lpquerybuffer: Long, dwinbuffersize: UInt, lpdwoutbuffersize: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.applocker.cinterop.windowssys_windows_win32_security_applocker_SaferGetLevelInformation(levelhandle.toCPointer<ByteVar>(), dwinfotype, lpquerybuffer.toCPointer<ByteVar>(), dwinbuffersize, lpdwoutbuffersize.toCPointer<ByteVar>())
+public actual fun saferGetLevelInformation(levelhandle: SaferLevelHandle, dwinfotype: SaferObjectInfoClass, lpquerybuffer: COpaquePointer?, dwinbuffersize: UInt, lpdwoutbuffersize: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.applocker.cinterop.windowssys_windows_win32_security_applocker_saferGetLevelInformation(levelhandle?.value?.toCPointer<ByteVar>(), dwinfotype, lpquerybuffer?.value?.toCPointer<ByteVar>(), dwinbuffersize, lpdwoutbuffersize?.value?.toCPointer<ByteVar>())
 
-public actual fun SaferGetPolicyInformation(dwscopeid: UInt, saferpolicyinfoclass: SAFER_POLICY_INFO_CLASS, infobuffersize: UInt, infobuffer: Long, infobufferretsize: Long, lpreserved: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.applocker.cinterop.windowssys_windows_win32_security_applocker_SaferGetPolicyInformation(dwscopeid, saferpolicyinfoclass, infobuffersize, infobuffer.toCPointer<ByteVar>(), infobufferretsize.toCPointer<ByteVar>(), lpreserved.toCPointer<ByteVar>())
+public actual fun saferGetPolicyInformation(dwscopeid: UInt, saferpolicyinfoclass: SaferPolicyInfoClass, infobuffersize: UInt, infobuffer: COpaquePointer?, infobufferretsize: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.applocker.cinterop.windowssys_windows_win32_security_applocker_saferGetPolicyInformation(dwscopeid, saferpolicyinfoclass, infobuffersize, infobuffer?.value?.toCPointer<ByteVar>(), infobufferretsize?.value?.toCPointer<ByteVar>(), lpreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun SaferIdentifyLevel(dwnumproperties: UInt, pcodeproperties: Long, plevelhandle: Long, lpreserved: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.applocker.cinterop.windowssys_windows_win32_security_applocker_SaferIdentifyLevel(dwnumproperties, pcodeproperties.toCPointer<ByteVar>(), plevelhandle.toCPointer<ByteVar>(), lpreserved.toCPointer<ByteVar>())
+public actual fun saferIdentifyLevel(dwnumproperties: UInt, pcodeproperties: COpaquePointer?, plevelhandle: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.applocker.cinterop.windowssys_windows_win32_security_applocker_saferIdentifyLevel(dwnumproperties, pcodeproperties?.value?.toCPointer<ByteVar>(), plevelhandle?.value?.toCPointer<ByteVar>(), lpreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun SaferRecordEventLogEntry(hlevel: SAFER_LEVEL_HANDLE, sztargetpath: PCWSTR, lpreserved: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.applocker.cinterop.windowssys_windows_win32_security_applocker_SaferRecordEventLogEntry(hlevel.toCPointer<ByteVar>(), sztargetpath.toCPointer<ByteVar>(), lpreserved.toCPointer<ByteVar>())
+public actual fun saferRecordEventLogEntry(hlevel: SaferLevelHandle, sztargetpath: Pcwstr, lpreserved: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.applocker.cinterop.windowssys_windows_win32_security_applocker_saferRecordEventLogEntry(hlevel?.value?.toCPointer<ByteVar>(), sztargetpath?.value?.toCPointer<ByteVar>(), lpreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun SaferSetLevelInformation(levelhandle: SAFER_LEVEL_HANDLE, dwinfotype: SAFER_OBJECT_INFO_CLASS, lpquerybuffer: Long, dwinbuffersize: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.applocker.cinterop.windowssys_windows_win32_security_applocker_SaferSetLevelInformation(levelhandle.toCPointer<ByteVar>(), dwinfotype, lpquerybuffer.toCPointer<ByteVar>(), dwinbuffersize)
+public actual fun saferSetLevelInformation(levelhandle: SaferLevelHandle, dwinfotype: SaferObjectInfoClass, lpquerybuffer: COpaquePointer?, dwinbuffersize: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.applocker.cinterop.windowssys_windows_win32_security_applocker_saferSetLevelInformation(levelhandle?.value?.toCPointer<ByteVar>(), dwinfotype, lpquerybuffer?.value?.toCPointer<ByteVar>(), dwinbuffersize)
 
-public actual fun SaferSetPolicyInformation(dwscopeid: UInt, saferpolicyinfoclass: SAFER_POLICY_INFO_CLASS, infobuffersize: UInt, infobuffer: Long, lpreserved: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.applocker.cinterop.windowssys_windows_win32_security_applocker_SaferSetPolicyInformation(dwscopeid, saferpolicyinfoclass, infobuffersize, infobuffer.toCPointer<ByteVar>(), lpreserved.toCPointer<ByteVar>())
+public actual fun saferSetPolicyInformation(dwscopeid: UInt, saferpolicyinfoclass: SaferPolicyInfoClass, infobuffersize: UInt, infobuffer: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.applocker.cinterop.windowssys_windows_win32_security_applocker_saferSetPolicyInformation(dwscopeid, saferpolicyinfoclass, infobuffersize, infobuffer?.value?.toCPointer<ByteVar>(), lpreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun SaferiIsExecutableFileType(szfullpathname: PCWSTR, bfromshellexecute: Boolean): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.security.applocker.cinterop.windowssys_windows_win32_security_applocker_SaferiIsExecutableFileType(szfullpathname.toCPointer<ByteVar>(), bfromshellexecute)
+public actual fun saferiIsExecutableFileType(szfullpathname: Pcwstr, bfromshellexecute: Boolean): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.security.applocker.cinterop.windowssys_windows_win32_security_applocker_saferiIsExecutableFileType(szfullpathname?.value?.toCPointer<ByteVar>(), bfromshellexecute)

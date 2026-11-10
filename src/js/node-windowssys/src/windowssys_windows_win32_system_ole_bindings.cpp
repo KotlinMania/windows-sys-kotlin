@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_BstrFromVector_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_bstrFromVector_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psa = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbstr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -71,7 +71,7 @@ static Napi::Value windowssys_windows_win32_system_ole_BstrFromVector_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_ClearCustData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_clearCustData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcustdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -88,7 +88,7 @@ static Napi::Value windowssys_windows_win32_system_ole_ClearCustData_napi(const 
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_CreateDispTypeInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_createDispTypeInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pidata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -110,7 +110,7 @@ static Napi::Value windowssys_windows_win32_system_ole_CreateDispTypeInfo_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_CreateErrorInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_createErrorInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pperrinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -128,7 +128,7 @@ static Napi::Value windowssys_windows_win32_system_ole_CreateErrorInfo_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_CreateOleAdviseHolder_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_createOleAdviseHolder_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppoaholder = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -146,7 +146,7 @@ static Napi::Value windowssys_windows_win32_system_ole_CreateOleAdviseHolder_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_CreateStdDispatch_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_createStdDispatch_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punkouter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvthis = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -170,7 +170,7 @@ static Napi::Value windowssys_windows_win32_system_ole_CreateStdDispatch_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_CreateTypeLib_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_createTypeLib_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t syskind = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -192,7 +192,7 @@ static Napi::Value windowssys_windows_win32_system_ole_CreateTypeLib_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_CreateTypeLib2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_createTypeLib2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t syskind = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* szfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -214,7 +214,7 @@ static Napi::Value windowssys_windows_win32_system_ole_CreateTypeLib2_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_DispCallFunc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_dispCallFunc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t ovft = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -246,7 +246,7 @@ static Napi::Value windowssys_windows_win32_system_ole_DispCallFunc_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_DispGetIDsOfNames_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_dispGetIDsOfNames_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ptinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* rgsznames = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -270,7 +270,7 @@ static Napi::Value windowssys_windows_win32_system_ole_DispGetIDsOfNames_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_DispGetParam_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_dispGetParam_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdispparams = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t position = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -296,9 +296,9 @@ static Napi::Value windowssys_windows_win32_system_ole_DispGetParam_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_DispInvoke_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_dispInvoke_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
-    void* _this = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* arg_0_this = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ptinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
     int32_t dispidmember = static_cast<int32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
     uint16_t wflags = static_cast<uint16_t>(km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0);
@@ -313,9 +313,9 @@ static Napi::Value windowssys_windows_win32_system_ole_DispInvoke_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DispInvoke")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(_this, ptinfo, dispidmember, wflags, pparams, pvarresult, pexcepinfo, puargerr) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg_0_this, ptinfo, dispidmember, wflags, pparams, pvarresult, pexcepinfo, puargerr) : -1;
 #else
-    (void)_this;
+    (void)arg_0_this;
     (void)ptinfo;
     (void)dispidmember;
     (void)wflags;
@@ -328,7 +328,7 @@ static Napi::Value windowssys_windows_win32_system_ole_DispInvoke_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_DoDragDrop_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_doDragDrop_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdataobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdropsource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -352,7 +352,7 @@ static Napi::Value windowssys_windows_win32_system_ole_DoDragDrop_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_GetActiveObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_getActiveObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvreserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -374,7 +374,7 @@ static Napi::Value windowssys_windows_win32_system_ole_GetActiveObject_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_GetAltMonthNames_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_getAltMonthNames_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* prgp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -394,7 +394,7 @@ static Napi::Value windowssys_windows_win32_system_ole_GetAltMonthNames_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_GetRecordInfoFromGuids_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_getRecordInfoFromGuids_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rguidtypelib = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uvermajor = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -422,7 +422,7 @@ static Napi::Value windowssys_windows_win32_system_ole_GetRecordInfoFromGuids_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_GetRecordInfoFromTypeInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_getRecordInfoFromTypeInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ptypeinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprecinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -442,7 +442,7 @@ static Napi::Value windowssys_windows_win32_system_ole_GetRecordInfoFromTypeInfo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_HRGN_UserFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_hrgnUserFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -461,7 +461,7 @@ static Napi::Value windowssys_windows_win32_system_ole_HRGN_UserFree_napi(const 
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_HRGN_UserFree64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_hrgnUserFree64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -480,7 +480,7 @@ static Napi::Value windowssys_windows_win32_system_ole_HRGN_UserFree64_napi(cons
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_HRGN_UserMarshal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_hrgnUserMarshal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -502,7 +502,7 @@ static Napi::Value windowssys_windows_win32_system_ole_HRGN_UserMarshal_napi(con
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_HRGN_UserMarshal64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_hrgnUserMarshal64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -524,7 +524,7 @@ static Napi::Value windowssys_windows_win32_system_ole_HRGN_UserMarshal64_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_HRGN_UserSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_hrgnUserSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -546,7 +546,7 @@ static Napi::Value windowssys_windows_win32_system_ole_HRGN_UserSize_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_HRGN_UserSize64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_hrgnUserSize64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -568,7 +568,7 @@ static Napi::Value windowssys_windows_win32_system_ole_HRGN_UserSize64_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_HRGN_UserUnmarshal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_hrgnUserUnmarshal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -590,7 +590,7 @@ static Napi::Value windowssys_windows_win32_system_ole_HRGN_UserUnmarshal_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_HRGN_UserUnmarshal64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_hrgnUserUnmarshal64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -612,7 +612,7 @@ static Napi::Value windowssys_windows_win32_system_ole_HRGN_UserUnmarshal64_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_IsAccelerator_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_isAccelerator_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* haccel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t caccelentries = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -636,7 +636,7 @@ static Napi::Value windowssys_windows_win32_system_ole_IsAccelerator_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_LHashValOfNameSys_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_lHashValOfNameSys_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t syskind = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -658,7 +658,7 @@ static Napi::Value windowssys_windows_win32_system_ole_LHashValOfNameSys_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_LHashValOfNameSysA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_lHashValOfNameSysA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t syskind = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -680,7 +680,7 @@ static Napi::Value windowssys_windows_win32_system_ole_LHashValOfNameSysA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_LoadRegTypeLib_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_loadRegTypeLib_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t wvermajor = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -706,7 +706,7 @@ static Napi::Value windowssys_windows_win32_system_ole_LoadRegTypeLib_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_LoadTypeLib_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_loadTypeLib_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pptlib = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -726,7 +726,7 @@ static Napi::Value windowssys_windows_win32_system_ole_LoadTypeLib_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_LoadTypeLibEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_loadTypeLibEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t regkind = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -748,7 +748,7 @@ static Napi::Value windowssys_windows_win32_system_ole_LoadTypeLibEx_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OaBuildVersion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oaBuildVersion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -764,7 +764,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OaBuildVersion_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OaEnablePerUserTLibRegistration_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oaEnablePerUserTLibRegistration_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
@@ -779,7 +779,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OaEnablePerUserTLibRegist
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleBuildVersion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleBuildVersion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -795,7 +795,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleBuildVersion_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleConvertOLESTREAMToIStorage2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleConvertOLESTREAMToIStorage2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpolestream = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pstg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -823,7 +823,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleConvertOLESTREAMToISto
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleConvertOLESTREAMToIStorageEx2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleConvertOLESTREAMToIStorageEx2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* polestm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pstg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -859,7 +859,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleConvertOLESTREAMToISto
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleCreate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -889,7 +889,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleCreate_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleCreateDefaultHandler_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleCreateDefaultHandler_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* clsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* punkouter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -913,7 +913,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleCreateDefaultHandler_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleCreateEmbeddingHelper_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleCreateEmbeddingHelper_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* clsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* punkouter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -941,7 +941,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleCreateEmbeddingHelper_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleCreateEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleCreateEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -981,7 +981,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleCreateEx_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleCreateFontIndirect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleCreateFontIndirect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfontdesc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1003,7 +1003,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleCreateFontIndirect_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleCreateFromData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleCreateFromData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psrcdataobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1033,7 +1033,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleCreateFromData_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleCreateFromDataEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleCreateFromDataEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psrcdataobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1073,7 +1073,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleCreateFromDataEx_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleCreateFromFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleCreateFromFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1105,7 +1105,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleCreateFromFile_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleCreateFromFileEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleCreateFromFileEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1147,7 +1147,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleCreateFromFileEx_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleCreateLink_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleCreateLink_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmklinksrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1177,7 +1177,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleCreateLink_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleCreateLinkEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleCreateLinkEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmklinksrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1217,7 +1217,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleCreateLinkEx_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleCreateLinkFromData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleCreateLinkFromData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psrcdataobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1247,7 +1247,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleCreateLinkFromData_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleCreateLinkFromDataEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleCreateLinkFromDataEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psrcdataobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1287,7 +1287,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleCreateLinkFromDataEx_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleCreateLinkToFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleCreateLinkToFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1317,7 +1317,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleCreateLinkToFile_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleCreateLinkToFileEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleCreateLinkToFileEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1357,7 +1357,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleCreateLinkToFileEx_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleCreateMenuDescriptor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleCreateMenuDescriptor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmenucombined = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpmenuwidths = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1377,7 +1377,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleCreateMenuDescriptor_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleCreatePictureIndirect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleCreatePictureIndirect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lppictdesc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1401,7 +1401,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleCreatePictureIndirect_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleCreatePropertyFrame_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleCreatePropertyFrame_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t x = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1439,7 +1439,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleCreatePropertyFrame_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleCreatePropertyFrameIndirect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleCreatePropertyFrameIndirect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpparams = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1457,7 +1457,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleCreatePropertyFrameInd
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleCreateStaticFromData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleCreateStaticFromData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psrcdataobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* iid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1487,7 +1487,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleCreateStaticFromData_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleDestroyMenuDescriptor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleDestroyMenuDescriptor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t holemenu = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1505,7 +1505,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleDestroyMenuDescriptor_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleDoAutoConvert_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleDoAutoConvert_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pclsidnew = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1525,7 +1525,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleDoAutoConvert_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleDraw_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleDraw_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punknown = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwaspect = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1549,7 +1549,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleDraw_napi(const Napi::
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleDuplicateData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleDuplicateData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t cfformat = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1571,7 +1571,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleDuplicateData_napi(con
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleFlushClipboard_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleFlushClipboard_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -1587,7 +1587,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleFlushClipboard_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleGetAutoConvert_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleGetAutoConvert_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* clsidold = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pclsidnew = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1607,7 +1607,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleGetAutoConvert_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleGetClipboard_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleGetClipboard_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppdataobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1625,7 +1625,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleGetClipboard_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleGetClipboardWithEnterpriseInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleGetClipboardWithEnterpriseInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* dataobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dataenterpriseid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1651,7 +1651,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleGetClipboardWithEnterp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleGetIconOfClass_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleGetIconOfClass_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszlabel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1673,7 +1673,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleGetIconOfClass_napi(co
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleGetIconOfFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleGetIconOfFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fusefileaslabel = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1693,7 +1693,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleGetIconOfFile_napi(con
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleIconToCursor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleIconToCursor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinstexe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hicon = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1713,7 +1713,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleIconToCursor_napi(cons
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleInitialize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleInitialize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvreserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1731,7 +1731,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleInitialize_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleIsCurrentClipboard_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleIsCurrentClipboard_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdataobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1749,7 +1749,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleIsCurrentClipboard_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleIsRunning_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleIsRunning_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1767,7 +1767,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleIsRunning_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleLoad_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleLoad_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1791,7 +1791,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleLoad_napi(const Napi::
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleLoadFromStream_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleLoadFromStream_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* iidinterface = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1813,7 +1813,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleLoadFromStream_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleLoadPicture_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleLoadPicture_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpstream = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t lsize = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1839,7 +1839,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleLoadPicture_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleLoadPictureEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleLoadPictureEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpstream = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t lsize = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1871,7 +1871,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleLoadPictureEx_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleLoadPicturePath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleLoadPicturePath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szurlorpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* punkcaller = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1899,7 +1899,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleLoadPicturePath_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleLockRunning_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleLockRunning_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punknown = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t flock = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1921,7 +1921,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleLockRunning_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleMetafilePictFromIconAndLabel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleMetafilePictFromIconAndLabel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hicon = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszlabel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1945,7 +1945,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleMetafilePictFromIconAn
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleNoteObjectVisible_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleNoteObjectVisible_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punknown = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fvisible = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1965,7 +1965,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleNoteObjectVisible_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleQueryCreateFromData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleQueryCreateFromData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psrcdataobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1983,7 +1983,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleQueryCreateFromData_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleQueryLinkFromData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleQueryLinkFromData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psrcdataobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2001,7 +2001,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleQueryLinkFromData_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleRegEnumFormatEtc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleRegEnumFormatEtc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* clsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwdirection = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2023,7 +2023,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleRegEnumFormatEtc_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleRegEnumVerbs_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleRegEnumVerbs_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* clsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppenum = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2043,7 +2043,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleRegEnumVerbs_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleRegGetMiscStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleRegGetMiscStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* clsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwaspect = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2065,7 +2065,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleRegGetMiscStatus_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleRegGetUserType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleRegGetUserType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* clsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwformoftype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2087,7 +2087,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleRegGetUserType_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleRun_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleRun_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punknown = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2105,7 +2105,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleRun_napi(const Napi::C
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleSave_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleSave_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pps = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pstg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2127,7 +2127,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleSave_napi(const Napi::
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleSavePictureFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleSavePictureFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpdisppicture = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* bstrfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2147,7 +2147,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleSavePictureFile_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleSaveToStream_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleSaveToStream_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppstm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pstm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2167,7 +2167,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleSaveToStream_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleSetAutoConvert_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleSetAutoConvert_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* clsidold = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* clsidnew = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2187,7 +2187,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleSetAutoConvert_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleSetClipboard_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleSetClipboard_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdataobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2205,7 +2205,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleSetClipboard_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleSetContainedObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleSetContainedObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punknown = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fcontained = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2225,7 +2225,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleSetContainedObject_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleSetMenuDescriptor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleSetMenuDescriptor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t holemenu = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hwndframe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2251,7 +2251,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleSetMenuDescriptor_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleTranslateAccelerator_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleTranslateAccelerator_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpframe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpframeinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2273,7 +2273,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleTranslateAccelerator_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleTranslateColor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleTranslateColor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t clr = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hpal = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2295,7 +2295,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleTranslateColor_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleUIAddVerbMenuA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleUIAddVerbMenuA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpoleobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszshorttype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2329,7 +2329,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleUIAddVerbMenuA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleUIAddVerbMenuW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleUIAddVerbMenuW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpoleobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszshorttype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2363,7 +2363,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleUIAddVerbMenuW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleUIBusyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleUIBusyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2381,7 +2381,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleUIBusyA_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleUIBusyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleUIBusyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2399,7 +2399,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleUIBusyW_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleUICanConvertOrActivateAs_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleUICanConvertOrActivateAs_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fislinkedobject = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2421,7 +2421,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleUICanConvertOrActivate
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleUIChangeIconA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleUIChangeIconA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2439,7 +2439,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleUIChangeIconA_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleUIChangeIconW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleUIChangeIconW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2457,7 +2457,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleUIChangeIconW_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleUIChangeSourceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleUIChangeSourceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2475,7 +2475,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleUIChangeSourceA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleUIChangeSourceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleUIChangeSourceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2493,7 +2493,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleUIChangeSourceW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleUIConvertA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleUIConvertA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2511,7 +2511,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleUIConvertA_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleUIConvertW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleUIConvertW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2529,7 +2529,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleUIConvertW_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleUIEditLinksA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleUIEditLinksA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2547,7 +2547,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleUIEditLinksA_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleUIEditLinksW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleUIEditLinksW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2565,7 +2565,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleUIEditLinksW_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleUIInsertObjectA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleUIInsertObjectA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2583,7 +2583,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleUIInsertObjectA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleUIInsertObjectW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleUIInsertObjectW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2601,7 +2601,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleUIInsertObjectW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleUIObjectPropertiesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleUIObjectPropertiesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2619,7 +2619,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleUIObjectPropertiesA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleUIObjectPropertiesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleUIObjectPropertiesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2637,7 +2637,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleUIObjectPropertiesW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleUIPasteSpecialA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleUIPasteSpecialA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2655,7 +2655,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleUIPasteSpecialA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleUIPasteSpecialW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleUIPasteSpecialW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2673,7 +2673,77 @@ static Napi::Value windowssys_windows_win32_system_ole_OleUIPasteSpecialW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleUIUpdateLinksA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleUIPromptUserA_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    int32_t ntemplate = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
+    void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    int32_t km_vac = km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0;
+    int64_t km_va0 = km_info.Length() > 3 ? km_napi_arg_i64(km_info[3]) : 0;
+    int64_t km_va1 = km_info.Length() > 4 ? km_napi_arg_i64(km_info[4]) : 0;
+    int64_t km_va2 = km_info.Length() > 5 ? km_napi_arg_i64(km_info[5]) : 0;
+    int64_t km_va3 = km_info.Length() > 6 ? km_napi_arg_i64(km_info[6]) : 0;
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(int32_t, void*, ...);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("oledlg.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OleUIPromptUserA")));
+    }
+    int32_t km_res = -1;
+    if (km_fn_ptr != nullptr) {
+        switch (km_vac) {
+            case 0: km_res = km_fn_ptr(ntemplate, hwndparent); break;
+            case 1: km_res = km_fn_ptr(ntemplate, hwndparent, static_cast<intptr_t>(km_va0)); break;
+            case 2: km_res = km_fn_ptr(ntemplate, hwndparent, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1)); break;
+            case 3: km_res = km_fn_ptr(ntemplate, hwndparent, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
+            default: km_res = km_fn_ptr(ntemplate, hwndparent, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
+        }
+    }
+#else
+    (void)ntemplate;
+    (void)hwndparent;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_ole_oleUIPromptUserW_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    int32_t ntemplate = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
+    void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    int32_t km_vac = km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0;
+    int64_t km_va0 = km_info.Length() > 3 ? km_napi_arg_i64(km_info[3]) : 0;
+    int64_t km_va1 = km_info.Length() > 4 ? km_napi_arg_i64(km_info[4]) : 0;
+    int64_t km_va2 = km_info.Length() > 5 ? km_napi_arg_i64(km_info[5]) : 0;
+    int64_t km_va3 = km_info.Length() > 6 ? km_napi_arg_i64(km_info[6]) : 0;
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(int32_t, void*, ...);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("oledlg.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OleUIPromptUserW")));
+    }
+    int32_t km_res = -1;
+    if (km_fn_ptr != nullptr) {
+        switch (km_vac) {
+            case 0: km_res = km_fn_ptr(ntemplate, hwndparent); break;
+            case 1: km_res = km_fn_ptr(ntemplate, hwndparent, static_cast<intptr_t>(km_va0)); break;
+            case 2: km_res = km_fn_ptr(ntemplate, hwndparent, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1)); break;
+            case 3: km_res = km_fn_ptr(ntemplate, hwndparent, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
+            default: km_res = km_fn_ptr(ntemplate, hwndparent, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
+        }
+    }
+#else
+    (void)ntemplate;
+    (void)hwndparent;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_system_ole_oleUIUpdateLinksA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpoleuilinkcntr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2697,7 +2767,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleUIUpdateLinksA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleUIUpdateLinksW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleUIUpdateLinksW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpoleuilinkcntr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2721,7 +2791,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleUIUpdateLinksW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_OleUninitialize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_oleUninitialize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
@@ -2736,7 +2806,7 @@ static Napi::Value windowssys_windows_win32_system_ole_OleUninitialize_napi(cons
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_QueryPathOfRegTypeLib_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_queryPathOfRegTypeLib_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* guid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t wmaj = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2762,7 +2832,7 @@ static Napi::Value windowssys_windows_win32_system_ole_QueryPathOfRegTypeLib_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_RegisterActiveObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_registerActiveObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* rclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2786,7 +2856,7 @@ static Napi::Value windowssys_windows_win32_system_ole_RegisterActiveObject_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_RegisterDragDrop_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_registerDragDrop_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdroptarget = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2806,7 +2876,7 @@ static Napi::Value windowssys_windows_win32_system_ole_RegisterDragDrop_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_RegisterTypeLib_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_registerTypeLib_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ptlib = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szfullpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2828,7 +2898,7 @@ static Napi::Value windowssys_windows_win32_system_ole_RegisterTypeLib_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_RegisterTypeLibForUser_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_registerTypeLibForUser_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ptlib = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szfullpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2850,7 +2920,7 @@ static Napi::Value windowssys_windows_win32_system_ole_RegisterTypeLibForUser_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_ReleaseStgMedium_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_releaseStgMedium_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2867,7 +2937,7 @@ static Napi::Value windowssys_windows_win32_system_ole_ReleaseStgMedium_napi(con
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_RevokeActiveObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_revokeActiveObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwregister = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pvreserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2887,7 +2957,7 @@ static Napi::Value windowssys_windows_win32_system_ole_RevokeActiveObject_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_RevokeDragDrop_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_revokeDragDrop_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2905,7 +2975,7 @@ static Napi::Value windowssys_windows_win32_system_ole_RevokeDragDrop_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_SafeArrayAccessData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_safeArrayAccessData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psa = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppvdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2925,7 +2995,7 @@ static Napi::Value windowssys_windows_win32_system_ole_SafeArrayAccessData_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_SafeArrayAddRef_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_safeArrayAddRef_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psa = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppdatatorelease = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2945,7 +3015,7 @@ static Napi::Value windowssys_windows_win32_system_ole_SafeArrayAddRef_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_SafeArrayAllocData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_safeArrayAllocData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psa = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2963,7 +3033,7 @@ static Napi::Value windowssys_windows_win32_system_ole_SafeArrayAllocData_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_SafeArrayAllocDescriptor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_safeArrayAllocDescriptor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t cdims = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* ppsaout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2983,7 +3053,7 @@ static Napi::Value windowssys_windows_win32_system_ole_SafeArrayAllocDescriptor_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_SafeArrayAllocDescriptorEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_safeArrayAllocDescriptorEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t vt = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t cdims = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3005,7 +3075,7 @@ static Napi::Value windowssys_windows_win32_system_ole_SafeArrayAllocDescriptorE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_SafeArrayCopy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_safeArrayCopy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psa = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppsaout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3025,7 +3095,7 @@ static Napi::Value windowssys_windows_win32_system_ole_SafeArrayCopy_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_SafeArrayCopyData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_safeArrayCopyData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psasource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psatarget = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3045,7 +3115,7 @@ static Napi::Value windowssys_windows_win32_system_ole_SafeArrayCopyData_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_SafeArrayCreate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_safeArrayCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t vt = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t cdims = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3067,7 +3137,7 @@ static Napi::Value windowssys_windows_win32_system_ole_SafeArrayCreate_napi(cons
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_SafeArrayCreateEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_safeArrayCreateEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t vt = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t cdims = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3091,7 +3161,7 @@ static Napi::Value windowssys_windows_win32_system_ole_SafeArrayCreateEx_napi(co
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_SafeArrayCreateVector_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_safeArrayCreateVector_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t vt = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t llbound = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3113,7 +3183,7 @@ static Napi::Value windowssys_windows_win32_system_ole_SafeArrayCreateVector_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_SafeArrayCreateVectorEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_safeArrayCreateVectorEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t vt = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t llbound = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3137,7 +3207,7 @@ static Napi::Value windowssys_windows_win32_system_ole_SafeArrayCreateVectorEx_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_SafeArrayDestroy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_safeArrayDestroy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psa = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3155,7 +3225,7 @@ static Napi::Value windowssys_windows_win32_system_ole_SafeArrayDestroy_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_SafeArrayDestroyData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_safeArrayDestroyData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psa = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3173,7 +3243,7 @@ static Napi::Value windowssys_windows_win32_system_ole_SafeArrayDestroyData_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_SafeArrayDestroyDescriptor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_safeArrayDestroyDescriptor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psa = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3191,7 +3261,7 @@ static Napi::Value windowssys_windows_win32_system_ole_SafeArrayDestroyDescripto
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_SafeArrayGetDim_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_safeArrayGetDim_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psa = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3209,7 +3279,7 @@ static Napi::Value windowssys_windows_win32_system_ole_SafeArrayGetDim_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_SafeArrayGetElement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_safeArrayGetElement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psa = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* rgindices = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3231,7 +3301,7 @@ static Napi::Value windowssys_windows_win32_system_ole_SafeArrayGetElement_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_SafeArrayGetElemsize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_safeArrayGetElemsize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psa = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3249,7 +3319,7 @@ static Napi::Value windowssys_windows_win32_system_ole_SafeArrayGetElemsize_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_SafeArrayGetIID_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_safeArrayGetIID_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psa = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3269,7 +3339,7 @@ static Napi::Value windowssys_windows_win32_system_ole_SafeArrayGetIID_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_SafeArrayGetLBound_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_safeArrayGetLBound_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psa = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ndim = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3291,7 +3361,7 @@ static Napi::Value windowssys_windows_win32_system_ole_SafeArrayGetLBound_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_SafeArrayGetRecordInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_safeArrayGetRecordInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psa = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3311,7 +3381,7 @@ static Napi::Value windowssys_windows_win32_system_ole_SafeArrayGetRecordInfo_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_SafeArrayGetUBound_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_safeArrayGetUBound_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psa = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ndim = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3333,7 +3403,7 @@ static Napi::Value windowssys_windows_win32_system_ole_SafeArrayGetUBound_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_SafeArrayGetVartype_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_safeArrayGetVartype_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psa = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3353,7 +3423,7 @@ static Napi::Value windowssys_windows_win32_system_ole_SafeArrayGetVartype_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_SafeArrayLock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_safeArrayLock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psa = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3371,7 +3441,7 @@ static Napi::Value windowssys_windows_win32_system_ole_SafeArrayLock_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_SafeArrayPtrOfIndex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_safeArrayPtrOfIndex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psa = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* rgindices = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3393,7 +3463,7 @@ static Napi::Value windowssys_windows_win32_system_ole_SafeArrayPtrOfIndex_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_SafeArrayPutElement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_safeArrayPutElement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psa = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* rgindices = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3415,7 +3485,7 @@ static Napi::Value windowssys_windows_win32_system_ole_SafeArrayPutElement_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_SafeArrayRedim_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_safeArrayRedim_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psa = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psaboundnew = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3435,7 +3505,7 @@ static Napi::Value windowssys_windows_win32_system_ole_SafeArrayRedim_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_SafeArrayReleaseData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_safeArrayReleaseData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3452,7 +3522,7 @@ static Napi::Value windowssys_windows_win32_system_ole_SafeArrayReleaseData_napi
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_SafeArrayReleaseDescriptor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_safeArrayReleaseDescriptor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psa = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3469,7 +3539,7 @@ static Napi::Value windowssys_windows_win32_system_ole_SafeArrayReleaseDescripto
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_SafeArraySetIID_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_safeArraySetIID_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psa = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* guid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3489,7 +3559,7 @@ static Napi::Value windowssys_windows_win32_system_ole_SafeArraySetIID_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_SafeArraySetRecordInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_safeArraySetRecordInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psa = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3509,7 +3579,7 @@ static Napi::Value windowssys_windows_win32_system_ole_SafeArraySetRecordInfo_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_SafeArrayUnaccessData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_safeArrayUnaccessData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psa = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3527,7 +3597,7 @@ static Napi::Value windowssys_windows_win32_system_ole_SafeArrayUnaccessData_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_SafeArrayUnlock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_safeArrayUnlock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psa = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3545,7 +3615,7 @@ static Napi::Value windowssys_windows_win32_system_ole_SafeArrayUnlock_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_UnRegisterTypeLib_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_unRegisterTypeLib_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* libid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t wvermajor = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3571,7 +3641,7 @@ static Napi::Value windowssys_windows_win32_system_ole_UnRegisterTypeLib_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_UnRegisterTypeLibForUser_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_unRegisterTypeLibForUser_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* libid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t wmajorvernum = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3597,7 +3667,7 @@ static Napi::Value windowssys_windows_win32_system_ole_UnRegisterTypeLibForUser_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarAbs_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varAbs_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvarin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvarresult = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3617,7 +3687,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarAbs_napi(const Napi::C
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarAdd_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varAdd_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvarleft = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvarright = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3639,7 +3709,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarAdd_napi(const Napi::C
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarAnd_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varAnd_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvarleft = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvarright = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3661,7 +3731,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarAnd_napi(const Napi::C
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarBoolFromDate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varBoolFromDate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     double datein = km_info.Length() > 0 ? km_info[0].ToNumber().DoubleValue() : 0.0;
     void* pboolout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3681,7 +3751,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarBoolFromDate_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarBoolFromDec_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varBoolFromDec_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdecin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pboolout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3701,7 +3771,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarBoolFromDec_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarBoolFromDisp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varBoolFromDisp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdispin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3723,7 +3793,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarBoolFromDisp_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarBoolFromI1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varBoolFromI1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int8_t cin = static_cast<int8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pboolout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3743,7 +3813,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarBoolFromI1_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarBoolFromI2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varBoolFromI2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t arg_0_sin = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pboolout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3763,7 +3833,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarBoolFromI2_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarBoolFromI4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varBoolFromI4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t lin = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pboolout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3783,7 +3853,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarBoolFromI4_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarBoolFromI8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varBoolFromI8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t i64in = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pboolout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3803,7 +3873,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarBoolFromI8_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarBoolFromR4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varBoolFromR4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     float fltin = km_info.Length() > 0 ? km_info[0].ToNumber().FloatValue() : 0.0f;
     void* pboolout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3823,7 +3893,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarBoolFromR4_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarBoolFromR8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varBoolFromR8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     double dblin = km_info.Length() > 0 ? km_info[0].ToNumber().DoubleValue() : 0.0;
     void* pboolout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3843,7 +3913,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarBoolFromR8_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarBoolFromStr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varBoolFromStr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* strin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3867,7 +3937,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarBoolFromStr_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarBoolFromUI1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varBoolFromUI1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint8_t bin = static_cast<uint8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pboolout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3887,7 +3957,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarBoolFromUI1_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarBoolFromUI2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varBoolFromUI2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t uiin = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pboolout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3907,7 +3977,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarBoolFromUI2_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarBoolFromUI4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varBoolFromUI4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ulin = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pboolout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3927,7 +3997,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarBoolFromUI4_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarBoolFromUI8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varBoolFromUI8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t i64in = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* pboolout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3947,7 +4017,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarBoolFromUI8_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarBstrCat_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varBstrCat_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* bstrleft = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* bstrright = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3969,7 +4039,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarBstrCat_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarBstrCmp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varBstrCmp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* bstrleft = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* bstrright = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3993,7 +4063,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarBstrCmp_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarBstrFromBool_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varBstrFromBool_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t boolin = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4017,7 +4087,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarBstrFromBool_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarBstrFromDate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varBstrFromDate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     double datein = km_info.Length() > 0 ? km_info[0].ToNumber().DoubleValue() : 0.0;
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4041,7 +4111,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarBstrFromDate_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarBstrFromDec_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varBstrFromDec_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdecin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4065,7 +4135,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarBstrFromDec_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarBstrFromDisp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varBstrFromDisp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdispin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4089,7 +4159,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarBstrFromDisp_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarBstrFromI1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varBstrFromI1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int8_t cin = static_cast<int8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4113,7 +4183,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarBstrFromI1_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarBstrFromI2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varBstrFromI2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t ival = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4137,7 +4207,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarBstrFromI2_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarBstrFromI4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varBstrFromI4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t lin = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4161,7 +4231,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarBstrFromI4_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarBstrFromI8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varBstrFromI8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t i64in = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4185,7 +4255,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarBstrFromI8_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarBstrFromR4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varBstrFromR4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     float fltin = km_info.Length() > 0 ? km_info[0].ToNumber().FloatValue() : 0.0f;
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4209,7 +4279,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarBstrFromR4_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarBstrFromR8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varBstrFromR8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     double dblin = km_info.Length() > 0 ? km_info[0].ToNumber().DoubleValue() : 0.0;
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4233,7 +4303,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarBstrFromR8_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarBstrFromUI1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varBstrFromUI1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint8_t bval = static_cast<uint8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4257,7 +4327,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarBstrFromUI1_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarBstrFromUI2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varBstrFromUI2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t uiin = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4281,7 +4351,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarBstrFromUI2_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarBstrFromUI4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varBstrFromUI4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ulin = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4305,7 +4375,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarBstrFromUI4_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarBstrFromUI8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varBstrFromUI8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t ui64in = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4329,7 +4399,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarBstrFromUI8_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarCat_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varCat_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvarleft = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvarright = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4351,7 +4421,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarCat_napi(const Napi::C
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarCmp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varCmp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvarleft = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvarright = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4375,7 +4445,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarCmp_napi(const Napi::C
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarCyFromBool_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varCyFromBool_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t boolin = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pcyout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4395,7 +4465,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarCyFromBool_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarCyFromDate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varCyFromDate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     double datein = km_info.Length() > 0 ? km_info[0].ToNumber().DoubleValue() : 0.0;
     void* pcyout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4415,7 +4485,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarCyFromDate_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarCyFromDec_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varCyFromDec_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdecin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcyout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4435,7 +4505,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarCyFromDec_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarCyFromDisp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varCyFromDisp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdispin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4457,7 +4527,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarCyFromDisp_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarCyFromI1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varCyFromI1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int8_t cin = static_cast<int8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pcyout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4477,7 +4547,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarCyFromI1_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarCyFromI2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varCyFromI2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t arg_0_sin = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pcyout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4497,7 +4567,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarCyFromI2_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarCyFromI4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varCyFromI4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t lin = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pcyout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4517,7 +4587,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarCyFromI4_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarCyFromI8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varCyFromI8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t i64in = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pcyout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4537,7 +4607,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarCyFromI8_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarCyFromR4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varCyFromR4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     float fltin = km_info.Length() > 0 ? km_info[0].ToNumber().FloatValue() : 0.0f;
     void* pcyout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4557,7 +4627,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarCyFromR4_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarCyFromR8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varCyFromR8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     double dblin = km_info.Length() > 0 ? km_info[0].ToNumber().DoubleValue() : 0.0;
     void* pcyout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4577,7 +4647,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarCyFromR8_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarCyFromStr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varCyFromStr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* strin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4601,7 +4671,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarCyFromStr_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarCyFromUI1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varCyFromUI1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint8_t bin = static_cast<uint8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pcyout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4621,7 +4691,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarCyFromUI1_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarCyFromUI2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varCyFromUI2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t uiin = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pcyout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4641,7 +4711,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarCyFromUI2_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarCyFromUI4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varCyFromUI4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ulin = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pcyout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4661,7 +4731,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarCyFromUI4_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarCyFromUI8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varCyFromUI8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t ui64in = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* pcyout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4681,7 +4751,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarCyFromUI8_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDateFromBool_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDateFromBool_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t boolin = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pdateout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4701,7 +4771,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDateFromBool_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDateFromDec_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDateFromDec_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdecin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdateout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4721,7 +4791,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDateFromDec_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDateFromDisp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDateFromDisp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdispin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4743,7 +4813,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDateFromDisp_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDateFromI1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDateFromI1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int8_t cin = static_cast<int8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pdateout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4763,7 +4833,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDateFromI1_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDateFromI2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDateFromI2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t arg_0_sin = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pdateout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4783,7 +4853,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDateFromI2_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDateFromI4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDateFromI4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t lin = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pdateout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4803,7 +4873,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDateFromI4_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDateFromI8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDateFromI8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t i64in = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pdateout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4823,7 +4893,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDateFromI8_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDateFromR4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDateFromR4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     float fltin = km_info.Length() > 0 ? km_info[0].ToNumber().FloatValue() : 0.0f;
     void* pdateout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4843,7 +4913,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDateFromR4_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDateFromR8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDateFromR8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     double dblin = km_info.Length() > 0 ? km_info[0].ToNumber().DoubleValue() : 0.0;
     void* pdateout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4863,7 +4933,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDateFromR8_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDateFromStr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDateFromStr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* strin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4887,7 +4957,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDateFromStr_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDateFromUI1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDateFromUI1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint8_t bin = static_cast<uint8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pdateout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4907,7 +4977,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDateFromUI1_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDateFromUI2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDateFromUI2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t uiin = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pdateout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4927,7 +4997,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDateFromUI2_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDateFromUI4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDateFromUI4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ulin = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pdateout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4947,7 +5017,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDateFromUI4_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDateFromUI8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDateFromUI8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t ui64in = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* pdateout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4967,7 +5037,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDateFromUI8_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDateFromUdate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDateFromUdate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pudatein = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4989,7 +5059,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDateFromUdate_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDateFromUdateEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDateFromUdateEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pudatein = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5013,7 +5083,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDateFromUdateEx_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDecAbs_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDecAbs_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdecin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdecresult = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5033,7 +5103,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDecAbs_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDecAdd_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDecAdd_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdecleft = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdecright = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5055,7 +5125,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDecAdd_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDecCmp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDecCmp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdecleft = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdecright = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5075,7 +5145,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDecCmp_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDecCmpR8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDecCmpR8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdecleft = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     double dblright = km_info.Length() > 1 ? km_info[1].ToNumber().DoubleValue() : 0.0;
@@ -5095,7 +5165,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDecCmpR8_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDecDiv_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDecDiv_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdecleft = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdecright = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5117,7 +5187,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDecDiv_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDecFix_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDecFix_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdecin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdecresult = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5137,7 +5207,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDecFix_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDecFromBool_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDecFromBool_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t boolin = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pdecout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5157,7 +5227,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDecFromBool_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDecFromDate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDecFromDate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     double datein = km_info.Length() > 0 ? km_info[0].ToNumber().DoubleValue() : 0.0;
     void* pdecout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5177,7 +5247,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDecFromDate_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDecFromDisp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDecFromDisp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdispin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5199,7 +5269,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDecFromDisp_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDecFromI1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDecFromI1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int8_t cin = static_cast<int8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pdecout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5219,7 +5289,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDecFromI1_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDecFromI2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDecFromI2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t uiin = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pdecout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5239,7 +5309,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDecFromI2_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDecFromI4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDecFromI4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t lin = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pdecout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5259,7 +5329,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDecFromI4_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDecFromI8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDecFromI8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t i64in = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pdecout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5279,7 +5349,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDecFromI8_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDecFromR4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDecFromR4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     float fltin = km_info.Length() > 0 ? km_info[0].ToNumber().FloatValue() : 0.0f;
     void* pdecout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5299,7 +5369,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDecFromR4_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDecFromR8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDecFromR8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     double dblin = km_info.Length() > 0 ? km_info[0].ToNumber().DoubleValue() : 0.0;
     void* pdecout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5319,7 +5389,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDecFromR8_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDecFromStr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDecFromStr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* strin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5343,7 +5413,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDecFromStr_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDecFromUI1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDecFromUI1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint8_t bin = static_cast<uint8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pdecout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5363,7 +5433,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDecFromUI1_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDecFromUI2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDecFromUI2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t uiin = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pdecout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5383,7 +5453,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDecFromUI2_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDecFromUI4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDecFromUI4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ulin = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pdecout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5403,7 +5473,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDecFromUI4_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDecFromUI8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDecFromUI8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t ui64in = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* pdecout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5423,7 +5493,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDecFromUI8_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDecInt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDecInt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdecin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdecresult = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5443,7 +5513,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDecInt_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDecMul_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDecMul_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdecleft = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdecright = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5465,7 +5535,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDecMul_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDecNeg_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDecNeg_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdecin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdecresult = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5485,7 +5555,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDecNeg_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDecRound_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDecRound_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdecin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t cdecimals = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5507,7 +5577,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDecRound_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDecSub_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDecSub_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdecleft = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdecright = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5529,7 +5599,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDecSub_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarDiv_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varDiv_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvarleft = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvarright = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5551,7 +5621,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarDiv_napi(const Napi::C
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarEqv_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varEqv_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvarleft = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvarright = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5573,7 +5643,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarEqv_napi(const Napi::C
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarFix_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varFix_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvarin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvarresult = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5593,7 +5663,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarFix_napi(const Napi::C
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarFormat_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varFormat_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvarin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pstrformat = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5621,7 +5691,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarFormat_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarFormatCurrency_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varFormatCurrency_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvarin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t inumdig = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5651,7 +5721,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarFormatCurrency_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarFormatDateTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varFormatDateTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvarin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t inamedformat = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5675,7 +5745,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarFormatDateTime_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarFormatFromTokens_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varFormatFromTokens_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvarin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pstrformat = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5703,7 +5773,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarFormatFromTokens_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarFormatNumber_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varFormatNumber_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvarin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t inumdig = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5733,7 +5803,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarFormatNumber_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarFormatPercent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varFormatPercent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvarin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t inumdig = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5763,7 +5833,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarFormatPercent_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI1FromBool_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI1FromBool_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t boolin = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pcout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5783,7 +5853,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI1FromBool_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI1FromDate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI1FromDate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     double datein = km_info.Length() > 0 ? km_info[0].ToNumber().DoubleValue() : 0.0;
     void* pcout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5803,7 +5873,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI1FromDate_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI1FromDec_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI1FromDec_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdecin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5823,7 +5893,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI1FromDec_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI1FromDisp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI1FromDisp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdispin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5845,7 +5915,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI1FromDisp_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI1FromI2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI1FromI2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t uiin = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pcout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5865,7 +5935,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI1FromI2_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI1FromI4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI1FromI4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t lin = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pcout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5885,7 +5955,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI1FromI4_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI1FromI8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI1FromI8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t i64in = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pcout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5905,7 +5975,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI1FromI8_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI1FromR4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI1FromR4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     float fltin = km_info.Length() > 0 ? km_info[0].ToNumber().FloatValue() : 0.0f;
     void* pcout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5925,7 +5995,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI1FromR4_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI1FromR8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI1FromR8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     double dblin = km_info.Length() > 0 ? km_info[0].ToNumber().DoubleValue() : 0.0;
     void* pcout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5945,7 +6015,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI1FromR8_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI1FromStr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI1FromStr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* strin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5969,7 +6039,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI1FromStr_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI1FromUI1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI1FromUI1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint8_t bin = static_cast<uint8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pcout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5989,7 +6059,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI1FromUI1_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI1FromUI2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI1FromUI2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t uiin = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pcout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6009,7 +6079,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI1FromUI2_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI1FromUI4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI1FromUI4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ulin = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pcout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6029,7 +6099,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI1FromUI4_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI1FromUI8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI1FromUI8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t i64in = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* pcout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6049,7 +6119,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI1FromUI8_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI2FromBool_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI2FromBool_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t boolin = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* psout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6069,7 +6139,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI2FromBool_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI2FromDate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI2FromDate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     double datein = km_info.Length() > 0 ? km_info[0].ToNumber().DoubleValue() : 0.0;
     void* psout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6089,7 +6159,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI2FromDate_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI2FromDec_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI2FromDec_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdecin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6109,7 +6179,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI2FromDec_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI2FromDisp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI2FromDisp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdispin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6131,7 +6201,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI2FromDisp_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI2FromI1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI2FromI1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int8_t cin = static_cast<int8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* psout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6151,7 +6221,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI2FromI1_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI2FromI4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI2FromI4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t lin = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* psout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6171,7 +6241,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI2FromI4_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI2FromI8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI2FromI8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t i64in = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* psout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6191,7 +6261,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI2FromI8_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI2FromR4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI2FromR4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     float fltin = km_info.Length() > 0 ? km_info[0].ToNumber().FloatValue() : 0.0f;
     void* psout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6211,7 +6281,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI2FromR4_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI2FromR8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI2FromR8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     double dblin = km_info.Length() > 0 ? km_info[0].ToNumber().DoubleValue() : 0.0;
     void* psout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6231,7 +6301,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI2FromR8_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI2FromStr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI2FromStr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* strin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6255,7 +6325,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI2FromStr_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI2FromUI1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI2FromUI1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint8_t bin = static_cast<uint8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* psout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6275,7 +6345,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI2FromUI1_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI2FromUI2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI2FromUI2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t uiin = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* psout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6295,7 +6365,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI2FromUI2_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI2FromUI4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI2FromUI4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ulin = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* psout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6315,7 +6385,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI2FromUI4_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI2FromUI8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI2FromUI8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t ui64in = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* psout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6335,7 +6405,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI2FromUI8_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI4FromBool_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI4FromBool_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t boolin = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* plout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6355,7 +6425,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI4FromBool_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI4FromDate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI4FromDate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     double datein = km_info.Length() > 0 ? km_info[0].ToNumber().DoubleValue() : 0.0;
     void* plout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6375,7 +6445,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI4FromDate_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI4FromDec_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI4FromDec_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdecin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* plout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6395,7 +6465,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI4FromDec_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI4FromDisp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI4FromDisp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdispin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6417,7 +6487,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI4FromDisp_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI4FromI1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI4FromI1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int8_t cin = static_cast<int8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* plout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6437,7 +6507,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI4FromI1_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI4FromI2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI4FromI2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t arg_0_sin = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* plout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6457,7 +6527,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI4FromI2_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI4FromI8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI4FromI8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t i64in = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* plout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6477,7 +6547,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI4FromI8_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI4FromR4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI4FromR4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     float fltin = km_info.Length() > 0 ? km_info[0].ToNumber().FloatValue() : 0.0f;
     void* plout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6497,7 +6567,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI4FromR4_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI4FromR8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI4FromR8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     double dblin = km_info.Length() > 0 ? km_info[0].ToNumber().DoubleValue() : 0.0;
     void* plout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6517,7 +6587,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI4FromR8_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI4FromStr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI4FromStr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* strin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6541,7 +6611,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI4FromStr_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI4FromUI1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI4FromUI1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint8_t bin = static_cast<uint8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* plout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6561,7 +6631,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI4FromUI1_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI4FromUI2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI4FromUI2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t uiin = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* plout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6581,7 +6651,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI4FromUI2_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI4FromUI4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI4FromUI4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ulin = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* plout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6601,7 +6671,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI4FromUI4_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI4FromUI8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI4FromUI8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t ui64in = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* plout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6621,7 +6691,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI4FromUI8_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI8FromBool_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI8FromBool_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t boolin = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pi64out = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6641,7 +6711,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI8FromBool_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI8FromDate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI8FromDate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     double datein = km_info.Length() > 0 ? km_info[0].ToNumber().DoubleValue() : 0.0;
     void* pi64out = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6661,7 +6731,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI8FromDate_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI8FromDec_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI8FromDec_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdecin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pi64out = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6681,7 +6751,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI8FromDec_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI8FromDisp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI8FromDisp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdispin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6703,7 +6773,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI8FromDisp_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI8FromI1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI8FromI1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int8_t cin = static_cast<int8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pi64out = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6723,7 +6793,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI8FromI1_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI8FromI2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI8FromI2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t arg_0_sin = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pi64out = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6743,7 +6813,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI8FromI2_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI8FromR4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI8FromR4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     float fltin = km_info.Length() > 0 ? km_info[0].ToNumber().FloatValue() : 0.0f;
     void* pi64out = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6763,7 +6833,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI8FromR4_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI8FromR8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI8FromR8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     double dblin = km_info.Length() > 0 ? km_info[0].ToNumber().DoubleValue() : 0.0;
     void* pi64out = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6783,7 +6853,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI8FromR8_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI8FromStr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI8FromStr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* strin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6807,7 +6877,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI8FromStr_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI8FromUI1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI8FromUI1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint8_t bin = static_cast<uint8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pi64out = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6827,7 +6897,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI8FromUI1_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI8FromUI2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI8FromUI2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t uiin = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pi64out = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6847,7 +6917,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI8FromUI2_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI8FromUI4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI8FromUI4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ulin = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pi64out = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6867,7 +6937,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI8FromUI4_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarI8FromUI8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varI8FromUI8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t ui64in = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* pi64out = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6887,7 +6957,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarI8FromUI8_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarIdiv_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varIdiv_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvarleft = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvarright = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6909,7 +6979,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarIdiv_napi(const Napi::
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarImp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varImp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvarleft = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvarright = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6931,7 +7001,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarImp_napi(const Napi::C
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarInt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varInt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvarin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvarresult = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6951,7 +7021,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarInt_napi(const Napi::C
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarMod_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varMod_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvarleft = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvarright = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6973,7 +7043,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarMod_napi(const Napi::C
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarMonthName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varMonthName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t imonth = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t fabbrev = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6997,7 +7067,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarMonthName_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarMul_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varMul_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvarleft = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvarright = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7019,7 +7089,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarMul_napi(const Napi::C
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarNeg_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varNeg_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvarin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvarresult = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7039,7 +7109,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarNeg_napi(const Napi::C
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarNot_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varNot_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvarin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvarresult = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7059,7 +7129,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarNot_napi(const Napi::C
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarNumFromParseNum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varNumFromParseNum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pnumprs = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* rgbdig = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7083,7 +7153,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarNumFromParseNum_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarOr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varOr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvarleft = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvarright = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7105,7 +7175,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarOr_napi(const Napi::Ca
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarParseNumFromStr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varParseNumFromStr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* strin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7131,7 +7201,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarParseNumFromStr_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarPow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varPow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvarleft = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvarright = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7153,7 +7223,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarPow_napi(const Napi::C
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarR4CmpR8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varR4CmpR8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     float fltleft = km_info.Length() > 0 ? km_info[0].ToNumber().FloatValue() : 0.0f;
     double dblright = km_info.Length() > 1 ? km_info[1].ToNumber().DoubleValue() : 0.0;
@@ -7173,7 +7243,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarR4CmpR8_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarR4FromBool_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varR4FromBool_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t boolin = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pfltout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7193,7 +7263,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarR4FromBool_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarR4FromDate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varR4FromDate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     double datein = km_info.Length() > 0 ? km_info[0].ToNumber().DoubleValue() : 0.0;
     void* pfltout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7213,7 +7283,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarR4FromDate_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarR4FromDec_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varR4FromDec_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdecin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfltout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7233,7 +7303,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarR4FromDec_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarR4FromDisp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varR4FromDisp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdispin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7255,7 +7325,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarR4FromDisp_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarR4FromI1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varR4FromI1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int8_t cin = static_cast<int8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pfltout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7275,7 +7345,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarR4FromI1_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarR4FromI2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varR4FromI2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t arg_0_sin = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pfltout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7295,7 +7365,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarR4FromI2_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarR4FromI4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varR4FromI4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t lin = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pfltout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7315,7 +7385,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarR4FromI4_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarR4FromI8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varR4FromI8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t i64in = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pfltout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7335,7 +7405,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarR4FromI8_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarR4FromR8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varR4FromR8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     double dblin = km_info.Length() > 0 ? km_info[0].ToNumber().DoubleValue() : 0.0;
     void* pfltout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7355,7 +7425,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarR4FromR8_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarR4FromStr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varR4FromStr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* strin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7379,7 +7449,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarR4FromStr_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarR4FromUI1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varR4FromUI1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint8_t bin = static_cast<uint8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pfltout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7399,7 +7469,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarR4FromUI1_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarR4FromUI2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varR4FromUI2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t uiin = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pfltout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7419,7 +7489,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarR4FromUI2_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarR4FromUI4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varR4FromUI4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ulin = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pfltout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7439,7 +7509,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarR4FromUI4_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarR4FromUI8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varR4FromUI8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t ui64in = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* pfltout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7459,7 +7529,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarR4FromUI8_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarR8FromBool_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varR8FromBool_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t boolin = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pdblout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7479,7 +7549,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarR8FromBool_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarR8FromDate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varR8FromDate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     double datein = km_info.Length() > 0 ? km_info[0].ToNumber().DoubleValue() : 0.0;
     void* pdblout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7499,7 +7569,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarR8FromDate_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarR8FromDec_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varR8FromDec_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdecin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdblout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7519,7 +7589,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarR8FromDec_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarR8FromDisp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varR8FromDisp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdispin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7541,7 +7611,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarR8FromDisp_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarR8FromI1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varR8FromI1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int8_t cin = static_cast<int8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pdblout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7561,7 +7631,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarR8FromI1_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarR8FromI2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varR8FromI2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t arg_0_sin = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pdblout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7581,7 +7651,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarR8FromI2_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarR8FromI4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varR8FromI4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t lin = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pdblout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7601,7 +7671,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarR8FromI4_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarR8FromI8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varR8FromI8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t i64in = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pdblout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7621,7 +7691,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarR8FromI8_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarR8FromR4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varR8FromR4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     float fltin = km_info.Length() > 0 ? km_info[0].ToNumber().FloatValue() : 0.0f;
     void* pdblout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7641,7 +7711,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarR8FromR4_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarR8FromStr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varR8FromStr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* strin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7665,7 +7735,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarR8FromStr_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarR8FromUI1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varR8FromUI1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint8_t bin = static_cast<uint8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pdblout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7685,7 +7755,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarR8FromUI1_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarR8FromUI2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varR8FromUI2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t uiin = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pdblout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7705,7 +7775,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarR8FromUI2_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarR8FromUI4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varR8FromUI4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ulin = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pdblout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7725,7 +7795,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarR8FromUI4_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarR8FromUI8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varR8FromUI8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t ui64in = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* pdblout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7745,7 +7815,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarR8FromUI8_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarR8Pow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varR8Pow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     double dblleft = km_info.Length() > 0 ? km_info[0].ToNumber().DoubleValue() : 0.0;
     double dblright = km_info.Length() > 1 ? km_info[1].ToNumber().DoubleValue() : 0.0;
@@ -7767,7 +7837,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarR8Pow_napi(const Napi:
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarR8Round_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varR8Round_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     double dblin = km_info.Length() > 0 ? km_info[0].ToNumber().DoubleValue() : 0.0;
     int32_t cdecimals = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7789,7 +7859,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarR8Round_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarRound_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varRound_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvarin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t cdecimals = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7811,7 +7881,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarRound_napi(const Napi:
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarSub_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varSub_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvarleft = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvarright = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7833,7 +7903,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarSub_napi(const Napi::C
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarTokenizeFormatString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varTokenizeFormatString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstrformat = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* rgbtok = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7863,7 +7933,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarTokenizeFormatString_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI1FromBool_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI1FromBool_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t boolin = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pbout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7883,7 +7953,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI1FromBool_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI1FromDate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI1FromDate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     double datein = km_info.Length() > 0 ? km_info[0].ToNumber().DoubleValue() : 0.0;
     void* pbout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7903,7 +7973,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI1FromDate_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI1FromDec_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI1FromDec_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdecin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7923,7 +7993,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI1FromDec_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI1FromDisp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI1FromDisp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdispin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7945,7 +8015,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI1FromDisp_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI1FromI1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI1FromI1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int8_t cin = static_cast<int8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pbout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7965,7 +8035,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI1FromI1_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI1FromI2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI1FromI2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t arg_0_sin = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pbout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7985,7 +8055,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI1FromI2_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI1FromI4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI1FromI4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t lin = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pbout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8005,7 +8075,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI1FromI4_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI1FromI8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI1FromI8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t i64in = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pbout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8025,7 +8095,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI1FromI8_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI1FromR4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI1FromR4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     float fltin = km_info.Length() > 0 ? km_info[0].ToNumber().FloatValue() : 0.0f;
     void* pbout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8045,7 +8115,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI1FromR4_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI1FromR8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI1FromR8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     double dblin = km_info.Length() > 0 ? km_info[0].ToNumber().DoubleValue() : 0.0;
     void* pbout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8065,7 +8135,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI1FromR8_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI1FromStr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI1FromStr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* strin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8089,7 +8159,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI1FromStr_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI1FromUI2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI1FromUI2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t uiin = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pbout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8109,7 +8179,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI1FromUI2_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI1FromUI4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI1FromUI4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ulin = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pbout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8129,7 +8199,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI1FromUI4_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI1FromUI8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI1FromUI8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t ui64in = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* pbout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8149,7 +8219,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI1FromUI8_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI2FromBool_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI2FromBool_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t boolin = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* puiout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8169,7 +8239,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI2FromBool_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI2FromDate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI2FromDate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     double datein = km_info.Length() > 0 ? km_info[0].ToNumber().DoubleValue() : 0.0;
     void* puiout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8189,7 +8259,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI2FromDate_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI2FromDec_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI2FromDec_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdecin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* puiout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8209,7 +8279,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI2FromDec_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI2FromDisp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI2FromDisp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdispin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8231,7 +8301,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI2FromDisp_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI2FromI1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI2FromI1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int8_t cin = static_cast<int8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* puiout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8251,7 +8321,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI2FromI1_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI2FromI2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI2FromI2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t uiin = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* puiout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8271,7 +8341,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI2FromI2_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI2FromI4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI2FromI4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t lin = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* puiout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8291,7 +8361,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI2FromI4_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI2FromI8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI2FromI8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t i64in = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* puiout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8311,7 +8381,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI2FromI8_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI2FromR4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI2FromR4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     float fltin = km_info.Length() > 0 ? km_info[0].ToNumber().FloatValue() : 0.0f;
     void* puiout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8331,7 +8401,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI2FromR4_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI2FromR8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI2FromR8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     double dblin = km_info.Length() > 0 ? km_info[0].ToNumber().DoubleValue() : 0.0;
     void* puiout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8351,7 +8421,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI2FromR8_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI2FromStr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI2FromStr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* strin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8375,7 +8445,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI2FromStr_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI2FromUI1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI2FromUI1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint8_t bin = static_cast<uint8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* puiout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8395,7 +8465,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI2FromUI1_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI2FromUI4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI2FromUI4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ulin = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* puiout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8415,7 +8485,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI2FromUI4_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI2FromUI8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI2FromUI8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t i64in = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* puiout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8435,7 +8505,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI2FromUI8_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI4FromBool_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI4FromBool_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t boolin = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pulout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8455,7 +8525,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI4FromBool_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI4FromDate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI4FromDate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     double datein = km_info.Length() > 0 ? km_info[0].ToNumber().DoubleValue() : 0.0;
     void* pulout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8475,7 +8545,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI4FromDate_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI4FromDec_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI4FromDec_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdecin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pulout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8495,7 +8565,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI4FromDec_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI4FromDisp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI4FromDisp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdispin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8517,7 +8587,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI4FromDisp_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI4FromI1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI4FromI1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int8_t cin = static_cast<int8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pulout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8537,7 +8607,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI4FromI1_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI4FromI2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI4FromI2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t uiin = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pulout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8557,7 +8627,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI4FromI2_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI4FromI4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI4FromI4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t lin = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pulout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8577,7 +8647,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI4FromI4_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI4FromI8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI4FromI8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t i64in = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* plout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8597,7 +8667,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI4FromI8_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI4FromR4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI4FromR4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     float fltin = km_info.Length() > 0 ? km_info[0].ToNumber().FloatValue() : 0.0f;
     void* pulout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8617,7 +8687,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI4FromR4_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI4FromR8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI4FromR8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     double dblin = km_info.Length() > 0 ? km_info[0].ToNumber().DoubleValue() : 0.0;
     void* pulout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8637,7 +8707,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI4FromR8_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI4FromStr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI4FromStr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* strin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8661,7 +8731,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI4FromStr_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI4FromUI1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI4FromUI1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint8_t bin = static_cast<uint8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pulout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8681,7 +8751,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI4FromUI1_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI4FromUI2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI4FromUI2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t uiin = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pulout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8701,7 +8771,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI4FromUI2_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI4FromUI8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI4FromUI8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t ui64in = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* plout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8721,7 +8791,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI4FromUI8_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI8FromBool_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI8FromBool_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t boolin = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pi64out = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8741,7 +8811,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI8FromBool_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI8FromDate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI8FromDate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     double datein = km_info.Length() > 0 ? km_info[0].ToNumber().DoubleValue() : 0.0;
     void* pi64out = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8761,7 +8831,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI8FromDate_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI8FromDec_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI8FromDec_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdecin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pi64out = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8781,7 +8851,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI8FromDec_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI8FromDisp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI8FromDisp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdispin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8803,7 +8873,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI8FromDisp_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI8FromI1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI8FromI1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int8_t cin = static_cast<int8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pi64out = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8823,7 +8893,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI8FromI1_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI8FromI2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI8FromI2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int16_t arg_0_sin = static_cast<int16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pi64out = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8843,7 +8913,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI8FromI2_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI8FromI8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI8FromI8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t ui64in = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pi64out = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8863,7 +8933,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI8FromI8_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI8FromR4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI8FromR4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     float fltin = km_info.Length() > 0 ? km_info[0].ToNumber().FloatValue() : 0.0f;
     void* pi64out = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8883,7 +8953,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI8FromR4_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI8FromR8_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI8FromR8_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     double dblin = km_info.Length() > 0 ? km_info[0].ToNumber().DoubleValue() : 0.0;
     void* pi64out = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8903,7 +8973,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI8FromR8_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI8FromStr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI8FromStr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* strin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t lcid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8927,7 +8997,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI8FromStr_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI8FromUI1_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI8FromUI1_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint8_t bin = static_cast<uint8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pi64out = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8947,7 +9017,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI8FromUI1_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI8FromUI2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI8FromUI2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t uiin = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pi64out = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8967,7 +9037,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI8FromUI2_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUI8FromUI4_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUI8FromUI4_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ulin = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pi64out = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8987,7 +9057,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUI8FromUI4_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarUdateFromDate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varUdateFromDate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     double datein = km_info.Length() > 0 ? km_info[0].ToNumber().DoubleValue() : 0.0;
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9009,7 +9079,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarUdateFromDate_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarWeekdayName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varWeekdayName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t iweekday = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t fabbrev = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9035,7 +9105,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarWeekdayName_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VarXor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_varXor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvarleft = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvarright = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9057,7 +9127,7 @@ static Napi::Value windowssys_windows_win32_system_ole_VarXor_napi(const Napi::C
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_ole_VectorFromBstr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_ole_vectorFromBstr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* bstr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppsa = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9078,424 +9148,426 @@ static Napi::Value windowssys_windows_win32_system_ole_VectorFromBstr_napi(const
 }
 
 static void register_windows_win32_system_ole_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_ole_BstrFromVector", Napi::Function::New(env, windowssys_windows_win32_system_ole_BstrFromVector_napi));
-    exports.Set("windowssys_windows_win32_system_ole_ClearCustData", Napi::Function::New(env, windowssys_windows_win32_system_ole_ClearCustData_napi));
-    exports.Set("windowssys_windows_win32_system_ole_CreateDispTypeInfo", Napi::Function::New(env, windowssys_windows_win32_system_ole_CreateDispTypeInfo_napi));
-    exports.Set("windowssys_windows_win32_system_ole_CreateErrorInfo", Napi::Function::New(env, windowssys_windows_win32_system_ole_CreateErrorInfo_napi));
-    exports.Set("windowssys_windows_win32_system_ole_CreateOleAdviseHolder", Napi::Function::New(env, windowssys_windows_win32_system_ole_CreateOleAdviseHolder_napi));
-    exports.Set("windowssys_windows_win32_system_ole_CreateStdDispatch", Napi::Function::New(env, windowssys_windows_win32_system_ole_CreateStdDispatch_napi));
-    exports.Set("windowssys_windows_win32_system_ole_CreateTypeLib", Napi::Function::New(env, windowssys_windows_win32_system_ole_CreateTypeLib_napi));
-    exports.Set("windowssys_windows_win32_system_ole_CreateTypeLib2", Napi::Function::New(env, windowssys_windows_win32_system_ole_CreateTypeLib2_napi));
-    exports.Set("windowssys_windows_win32_system_ole_DispCallFunc", Napi::Function::New(env, windowssys_windows_win32_system_ole_DispCallFunc_napi));
-    exports.Set("windowssys_windows_win32_system_ole_DispGetIDsOfNames", Napi::Function::New(env, windowssys_windows_win32_system_ole_DispGetIDsOfNames_napi));
-    exports.Set("windowssys_windows_win32_system_ole_DispGetParam", Napi::Function::New(env, windowssys_windows_win32_system_ole_DispGetParam_napi));
-    exports.Set("windowssys_windows_win32_system_ole_DispInvoke", Napi::Function::New(env, windowssys_windows_win32_system_ole_DispInvoke_napi));
-    exports.Set("windowssys_windows_win32_system_ole_DoDragDrop", Napi::Function::New(env, windowssys_windows_win32_system_ole_DoDragDrop_napi));
-    exports.Set("windowssys_windows_win32_system_ole_GetActiveObject", Napi::Function::New(env, windowssys_windows_win32_system_ole_GetActiveObject_napi));
-    exports.Set("windowssys_windows_win32_system_ole_GetAltMonthNames", Napi::Function::New(env, windowssys_windows_win32_system_ole_GetAltMonthNames_napi));
-    exports.Set("windowssys_windows_win32_system_ole_GetRecordInfoFromGuids", Napi::Function::New(env, windowssys_windows_win32_system_ole_GetRecordInfoFromGuids_napi));
-    exports.Set("windowssys_windows_win32_system_ole_GetRecordInfoFromTypeInfo", Napi::Function::New(env, windowssys_windows_win32_system_ole_GetRecordInfoFromTypeInfo_napi));
-    exports.Set("windowssys_windows_win32_system_ole_HRGN_UserFree", Napi::Function::New(env, windowssys_windows_win32_system_ole_HRGN_UserFree_napi));
-    exports.Set("windowssys_windows_win32_system_ole_HRGN_UserFree64", Napi::Function::New(env, windowssys_windows_win32_system_ole_HRGN_UserFree64_napi));
-    exports.Set("windowssys_windows_win32_system_ole_HRGN_UserMarshal", Napi::Function::New(env, windowssys_windows_win32_system_ole_HRGN_UserMarshal_napi));
-    exports.Set("windowssys_windows_win32_system_ole_HRGN_UserMarshal64", Napi::Function::New(env, windowssys_windows_win32_system_ole_HRGN_UserMarshal64_napi));
-    exports.Set("windowssys_windows_win32_system_ole_HRGN_UserSize", Napi::Function::New(env, windowssys_windows_win32_system_ole_HRGN_UserSize_napi));
-    exports.Set("windowssys_windows_win32_system_ole_HRGN_UserSize64", Napi::Function::New(env, windowssys_windows_win32_system_ole_HRGN_UserSize64_napi));
-    exports.Set("windowssys_windows_win32_system_ole_HRGN_UserUnmarshal", Napi::Function::New(env, windowssys_windows_win32_system_ole_HRGN_UserUnmarshal_napi));
-    exports.Set("windowssys_windows_win32_system_ole_HRGN_UserUnmarshal64", Napi::Function::New(env, windowssys_windows_win32_system_ole_HRGN_UserUnmarshal64_napi));
-    exports.Set("windowssys_windows_win32_system_ole_IsAccelerator", Napi::Function::New(env, windowssys_windows_win32_system_ole_IsAccelerator_napi));
-    exports.Set("windowssys_windows_win32_system_ole_LHashValOfNameSys", Napi::Function::New(env, windowssys_windows_win32_system_ole_LHashValOfNameSys_napi));
-    exports.Set("windowssys_windows_win32_system_ole_LHashValOfNameSysA", Napi::Function::New(env, windowssys_windows_win32_system_ole_LHashValOfNameSysA_napi));
-    exports.Set("windowssys_windows_win32_system_ole_LoadRegTypeLib", Napi::Function::New(env, windowssys_windows_win32_system_ole_LoadRegTypeLib_napi));
-    exports.Set("windowssys_windows_win32_system_ole_LoadTypeLib", Napi::Function::New(env, windowssys_windows_win32_system_ole_LoadTypeLib_napi));
-    exports.Set("windowssys_windows_win32_system_ole_LoadTypeLibEx", Napi::Function::New(env, windowssys_windows_win32_system_ole_LoadTypeLibEx_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OaBuildVersion", Napi::Function::New(env, windowssys_windows_win32_system_ole_OaBuildVersion_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OaEnablePerUserTLibRegistration", Napi::Function::New(env, windowssys_windows_win32_system_ole_OaEnablePerUserTLibRegistration_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleBuildVersion", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleBuildVersion_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleConvertOLESTREAMToIStorage2", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleConvertOLESTREAMToIStorage2_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleConvertOLESTREAMToIStorageEx2", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleConvertOLESTREAMToIStorageEx2_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleCreate", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleCreate_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleCreateDefaultHandler", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleCreateDefaultHandler_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleCreateEmbeddingHelper", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleCreateEmbeddingHelper_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleCreateEx", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleCreateEx_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleCreateFontIndirect", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleCreateFontIndirect_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleCreateFromData", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleCreateFromData_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleCreateFromDataEx", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleCreateFromDataEx_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleCreateFromFile", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleCreateFromFile_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleCreateFromFileEx", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleCreateFromFileEx_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleCreateLink", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleCreateLink_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleCreateLinkEx", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleCreateLinkEx_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleCreateLinkFromData", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleCreateLinkFromData_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleCreateLinkFromDataEx", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleCreateLinkFromDataEx_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleCreateLinkToFile", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleCreateLinkToFile_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleCreateLinkToFileEx", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleCreateLinkToFileEx_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleCreateMenuDescriptor", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleCreateMenuDescriptor_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleCreatePictureIndirect", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleCreatePictureIndirect_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleCreatePropertyFrame", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleCreatePropertyFrame_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleCreatePropertyFrameIndirect", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleCreatePropertyFrameIndirect_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleCreateStaticFromData", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleCreateStaticFromData_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleDestroyMenuDescriptor", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleDestroyMenuDescriptor_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleDoAutoConvert", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleDoAutoConvert_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleDraw", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleDraw_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleDuplicateData", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleDuplicateData_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleFlushClipboard", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleFlushClipboard_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleGetAutoConvert", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleGetAutoConvert_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleGetClipboard", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleGetClipboard_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleGetClipboardWithEnterpriseInfo", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleGetClipboardWithEnterpriseInfo_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleGetIconOfClass", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleGetIconOfClass_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleGetIconOfFile", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleGetIconOfFile_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleIconToCursor", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleIconToCursor_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleInitialize", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleInitialize_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleIsCurrentClipboard", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleIsCurrentClipboard_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleIsRunning", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleIsRunning_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleLoad", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleLoad_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleLoadFromStream", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleLoadFromStream_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleLoadPicture", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleLoadPicture_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleLoadPictureEx", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleLoadPictureEx_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleLoadPicturePath", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleLoadPicturePath_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleLockRunning", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleLockRunning_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleMetafilePictFromIconAndLabel", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleMetafilePictFromIconAndLabel_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleNoteObjectVisible", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleNoteObjectVisible_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleQueryCreateFromData", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleQueryCreateFromData_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleQueryLinkFromData", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleQueryLinkFromData_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleRegEnumFormatEtc", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleRegEnumFormatEtc_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleRegEnumVerbs", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleRegEnumVerbs_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleRegGetMiscStatus", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleRegGetMiscStatus_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleRegGetUserType", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleRegGetUserType_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleRun", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleRun_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleSave", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleSave_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleSavePictureFile", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleSavePictureFile_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleSaveToStream", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleSaveToStream_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleSetAutoConvert", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleSetAutoConvert_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleSetClipboard", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleSetClipboard_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleSetContainedObject", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleSetContainedObject_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleSetMenuDescriptor", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleSetMenuDescriptor_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleTranslateAccelerator", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleTranslateAccelerator_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleTranslateColor", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleTranslateColor_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleUIAddVerbMenuA", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleUIAddVerbMenuA_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleUIAddVerbMenuW", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleUIAddVerbMenuW_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleUIBusyA", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleUIBusyA_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleUIBusyW", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleUIBusyW_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleUICanConvertOrActivateAs", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleUICanConvertOrActivateAs_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleUIChangeIconA", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleUIChangeIconA_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleUIChangeIconW", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleUIChangeIconW_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleUIChangeSourceA", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleUIChangeSourceA_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleUIChangeSourceW", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleUIChangeSourceW_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleUIConvertA", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleUIConvertA_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleUIConvertW", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleUIConvertW_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleUIEditLinksA", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleUIEditLinksA_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleUIEditLinksW", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleUIEditLinksW_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleUIInsertObjectA", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleUIInsertObjectA_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleUIInsertObjectW", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleUIInsertObjectW_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleUIObjectPropertiesA", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleUIObjectPropertiesA_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleUIObjectPropertiesW", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleUIObjectPropertiesW_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleUIPasteSpecialA", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleUIPasteSpecialA_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleUIPasteSpecialW", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleUIPasteSpecialW_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleUIUpdateLinksA", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleUIUpdateLinksA_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleUIUpdateLinksW", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleUIUpdateLinksW_napi));
-    exports.Set("windowssys_windows_win32_system_ole_OleUninitialize", Napi::Function::New(env, windowssys_windows_win32_system_ole_OleUninitialize_napi));
-    exports.Set("windowssys_windows_win32_system_ole_QueryPathOfRegTypeLib", Napi::Function::New(env, windowssys_windows_win32_system_ole_QueryPathOfRegTypeLib_napi));
-    exports.Set("windowssys_windows_win32_system_ole_RegisterActiveObject", Napi::Function::New(env, windowssys_windows_win32_system_ole_RegisterActiveObject_napi));
-    exports.Set("windowssys_windows_win32_system_ole_RegisterDragDrop", Napi::Function::New(env, windowssys_windows_win32_system_ole_RegisterDragDrop_napi));
-    exports.Set("windowssys_windows_win32_system_ole_RegisterTypeLib", Napi::Function::New(env, windowssys_windows_win32_system_ole_RegisterTypeLib_napi));
-    exports.Set("windowssys_windows_win32_system_ole_RegisterTypeLibForUser", Napi::Function::New(env, windowssys_windows_win32_system_ole_RegisterTypeLibForUser_napi));
-    exports.Set("windowssys_windows_win32_system_ole_ReleaseStgMedium", Napi::Function::New(env, windowssys_windows_win32_system_ole_ReleaseStgMedium_napi));
-    exports.Set("windowssys_windows_win32_system_ole_RevokeActiveObject", Napi::Function::New(env, windowssys_windows_win32_system_ole_RevokeActiveObject_napi));
-    exports.Set("windowssys_windows_win32_system_ole_RevokeDragDrop", Napi::Function::New(env, windowssys_windows_win32_system_ole_RevokeDragDrop_napi));
-    exports.Set("windowssys_windows_win32_system_ole_SafeArrayAccessData", Napi::Function::New(env, windowssys_windows_win32_system_ole_SafeArrayAccessData_napi));
-    exports.Set("windowssys_windows_win32_system_ole_SafeArrayAddRef", Napi::Function::New(env, windowssys_windows_win32_system_ole_SafeArrayAddRef_napi));
-    exports.Set("windowssys_windows_win32_system_ole_SafeArrayAllocData", Napi::Function::New(env, windowssys_windows_win32_system_ole_SafeArrayAllocData_napi));
-    exports.Set("windowssys_windows_win32_system_ole_SafeArrayAllocDescriptor", Napi::Function::New(env, windowssys_windows_win32_system_ole_SafeArrayAllocDescriptor_napi));
-    exports.Set("windowssys_windows_win32_system_ole_SafeArrayAllocDescriptorEx", Napi::Function::New(env, windowssys_windows_win32_system_ole_SafeArrayAllocDescriptorEx_napi));
-    exports.Set("windowssys_windows_win32_system_ole_SafeArrayCopy", Napi::Function::New(env, windowssys_windows_win32_system_ole_SafeArrayCopy_napi));
-    exports.Set("windowssys_windows_win32_system_ole_SafeArrayCopyData", Napi::Function::New(env, windowssys_windows_win32_system_ole_SafeArrayCopyData_napi));
-    exports.Set("windowssys_windows_win32_system_ole_SafeArrayCreate", Napi::Function::New(env, windowssys_windows_win32_system_ole_SafeArrayCreate_napi));
-    exports.Set("windowssys_windows_win32_system_ole_SafeArrayCreateEx", Napi::Function::New(env, windowssys_windows_win32_system_ole_SafeArrayCreateEx_napi));
-    exports.Set("windowssys_windows_win32_system_ole_SafeArrayCreateVector", Napi::Function::New(env, windowssys_windows_win32_system_ole_SafeArrayCreateVector_napi));
-    exports.Set("windowssys_windows_win32_system_ole_SafeArrayCreateVectorEx", Napi::Function::New(env, windowssys_windows_win32_system_ole_SafeArrayCreateVectorEx_napi));
-    exports.Set("windowssys_windows_win32_system_ole_SafeArrayDestroy", Napi::Function::New(env, windowssys_windows_win32_system_ole_SafeArrayDestroy_napi));
-    exports.Set("windowssys_windows_win32_system_ole_SafeArrayDestroyData", Napi::Function::New(env, windowssys_windows_win32_system_ole_SafeArrayDestroyData_napi));
-    exports.Set("windowssys_windows_win32_system_ole_SafeArrayDestroyDescriptor", Napi::Function::New(env, windowssys_windows_win32_system_ole_SafeArrayDestroyDescriptor_napi));
-    exports.Set("windowssys_windows_win32_system_ole_SafeArrayGetDim", Napi::Function::New(env, windowssys_windows_win32_system_ole_SafeArrayGetDim_napi));
-    exports.Set("windowssys_windows_win32_system_ole_SafeArrayGetElement", Napi::Function::New(env, windowssys_windows_win32_system_ole_SafeArrayGetElement_napi));
-    exports.Set("windowssys_windows_win32_system_ole_SafeArrayGetElemsize", Napi::Function::New(env, windowssys_windows_win32_system_ole_SafeArrayGetElemsize_napi));
-    exports.Set("windowssys_windows_win32_system_ole_SafeArrayGetIID", Napi::Function::New(env, windowssys_windows_win32_system_ole_SafeArrayGetIID_napi));
-    exports.Set("windowssys_windows_win32_system_ole_SafeArrayGetLBound", Napi::Function::New(env, windowssys_windows_win32_system_ole_SafeArrayGetLBound_napi));
-    exports.Set("windowssys_windows_win32_system_ole_SafeArrayGetRecordInfo", Napi::Function::New(env, windowssys_windows_win32_system_ole_SafeArrayGetRecordInfo_napi));
-    exports.Set("windowssys_windows_win32_system_ole_SafeArrayGetUBound", Napi::Function::New(env, windowssys_windows_win32_system_ole_SafeArrayGetUBound_napi));
-    exports.Set("windowssys_windows_win32_system_ole_SafeArrayGetVartype", Napi::Function::New(env, windowssys_windows_win32_system_ole_SafeArrayGetVartype_napi));
-    exports.Set("windowssys_windows_win32_system_ole_SafeArrayLock", Napi::Function::New(env, windowssys_windows_win32_system_ole_SafeArrayLock_napi));
-    exports.Set("windowssys_windows_win32_system_ole_SafeArrayPtrOfIndex", Napi::Function::New(env, windowssys_windows_win32_system_ole_SafeArrayPtrOfIndex_napi));
-    exports.Set("windowssys_windows_win32_system_ole_SafeArrayPutElement", Napi::Function::New(env, windowssys_windows_win32_system_ole_SafeArrayPutElement_napi));
-    exports.Set("windowssys_windows_win32_system_ole_SafeArrayRedim", Napi::Function::New(env, windowssys_windows_win32_system_ole_SafeArrayRedim_napi));
-    exports.Set("windowssys_windows_win32_system_ole_SafeArrayReleaseData", Napi::Function::New(env, windowssys_windows_win32_system_ole_SafeArrayReleaseData_napi));
-    exports.Set("windowssys_windows_win32_system_ole_SafeArrayReleaseDescriptor", Napi::Function::New(env, windowssys_windows_win32_system_ole_SafeArrayReleaseDescriptor_napi));
-    exports.Set("windowssys_windows_win32_system_ole_SafeArraySetIID", Napi::Function::New(env, windowssys_windows_win32_system_ole_SafeArraySetIID_napi));
-    exports.Set("windowssys_windows_win32_system_ole_SafeArraySetRecordInfo", Napi::Function::New(env, windowssys_windows_win32_system_ole_SafeArraySetRecordInfo_napi));
-    exports.Set("windowssys_windows_win32_system_ole_SafeArrayUnaccessData", Napi::Function::New(env, windowssys_windows_win32_system_ole_SafeArrayUnaccessData_napi));
-    exports.Set("windowssys_windows_win32_system_ole_SafeArrayUnlock", Napi::Function::New(env, windowssys_windows_win32_system_ole_SafeArrayUnlock_napi));
-    exports.Set("windowssys_windows_win32_system_ole_UnRegisterTypeLib", Napi::Function::New(env, windowssys_windows_win32_system_ole_UnRegisterTypeLib_napi));
-    exports.Set("windowssys_windows_win32_system_ole_UnRegisterTypeLibForUser", Napi::Function::New(env, windowssys_windows_win32_system_ole_UnRegisterTypeLibForUser_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarAbs", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarAbs_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarAdd", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarAdd_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarAnd", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarAnd_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarBoolFromDate", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarBoolFromDate_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarBoolFromDec", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarBoolFromDec_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarBoolFromDisp", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarBoolFromDisp_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarBoolFromI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarBoolFromI1_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarBoolFromI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarBoolFromI2_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarBoolFromI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarBoolFromI4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarBoolFromI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarBoolFromI8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarBoolFromR4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarBoolFromR4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarBoolFromR8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarBoolFromR8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarBoolFromStr", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarBoolFromStr_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarBoolFromUI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarBoolFromUI1_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarBoolFromUI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarBoolFromUI2_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarBoolFromUI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarBoolFromUI4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarBoolFromUI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarBoolFromUI8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarBstrCat", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarBstrCat_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarBstrCmp", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarBstrCmp_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarBstrFromBool", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarBstrFromBool_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarBstrFromDate", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarBstrFromDate_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarBstrFromDec", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarBstrFromDec_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarBstrFromDisp", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarBstrFromDisp_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarBstrFromI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarBstrFromI1_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarBstrFromI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarBstrFromI2_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarBstrFromI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarBstrFromI4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarBstrFromI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarBstrFromI8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarBstrFromR4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarBstrFromR4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarBstrFromR8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarBstrFromR8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarBstrFromUI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarBstrFromUI1_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarBstrFromUI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarBstrFromUI2_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarBstrFromUI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarBstrFromUI4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarBstrFromUI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarBstrFromUI8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarCat", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarCat_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarCmp", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarCmp_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarCyFromBool", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarCyFromBool_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarCyFromDate", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarCyFromDate_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarCyFromDec", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarCyFromDec_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarCyFromDisp", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarCyFromDisp_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarCyFromI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarCyFromI1_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarCyFromI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarCyFromI2_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarCyFromI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarCyFromI4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarCyFromI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarCyFromI8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarCyFromR4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarCyFromR4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarCyFromR8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarCyFromR8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarCyFromStr", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarCyFromStr_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarCyFromUI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarCyFromUI1_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarCyFromUI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarCyFromUI2_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarCyFromUI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarCyFromUI4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarCyFromUI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarCyFromUI8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDateFromBool", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDateFromBool_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDateFromDec", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDateFromDec_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDateFromDisp", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDateFromDisp_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDateFromI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDateFromI1_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDateFromI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDateFromI2_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDateFromI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDateFromI4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDateFromI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDateFromI8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDateFromR4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDateFromR4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDateFromR8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDateFromR8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDateFromStr", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDateFromStr_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDateFromUI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDateFromUI1_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDateFromUI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDateFromUI2_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDateFromUI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDateFromUI4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDateFromUI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDateFromUI8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDateFromUdate", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDateFromUdate_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDateFromUdateEx", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDateFromUdateEx_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDecAbs", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDecAbs_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDecAdd", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDecAdd_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDecCmp", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDecCmp_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDecCmpR8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDecCmpR8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDecDiv", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDecDiv_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDecFix", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDecFix_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDecFromBool", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDecFromBool_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDecFromDate", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDecFromDate_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDecFromDisp", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDecFromDisp_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDecFromI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDecFromI1_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDecFromI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDecFromI2_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDecFromI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDecFromI4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDecFromI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDecFromI8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDecFromR4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDecFromR4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDecFromR8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDecFromR8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDecFromStr", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDecFromStr_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDecFromUI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDecFromUI1_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDecFromUI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDecFromUI2_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDecFromUI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDecFromUI4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDecFromUI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDecFromUI8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDecInt", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDecInt_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDecMul", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDecMul_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDecNeg", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDecNeg_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDecRound", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDecRound_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDecSub", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDecSub_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarDiv", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarDiv_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarEqv", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarEqv_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarFix", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarFix_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarFormat", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarFormat_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarFormatCurrency", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarFormatCurrency_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarFormatDateTime", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarFormatDateTime_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarFormatFromTokens", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarFormatFromTokens_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarFormatNumber", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarFormatNumber_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarFormatPercent", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarFormatPercent_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI1FromBool", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI1FromBool_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI1FromDate", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI1FromDate_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI1FromDec", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI1FromDec_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI1FromDisp", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI1FromDisp_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI1FromI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI1FromI2_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI1FromI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI1FromI4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI1FromI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI1FromI8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI1FromR4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI1FromR4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI1FromR8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI1FromR8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI1FromStr", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI1FromStr_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI1FromUI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI1FromUI1_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI1FromUI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI1FromUI2_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI1FromUI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI1FromUI4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI1FromUI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI1FromUI8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI2FromBool", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI2FromBool_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI2FromDate", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI2FromDate_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI2FromDec", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI2FromDec_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI2FromDisp", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI2FromDisp_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI2FromI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI2FromI1_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI2FromI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI2FromI4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI2FromI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI2FromI8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI2FromR4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI2FromR4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI2FromR8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI2FromR8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI2FromStr", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI2FromStr_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI2FromUI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI2FromUI1_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI2FromUI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI2FromUI2_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI2FromUI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI2FromUI4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI2FromUI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI2FromUI8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI4FromBool", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI4FromBool_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI4FromDate", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI4FromDate_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI4FromDec", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI4FromDec_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI4FromDisp", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI4FromDisp_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI4FromI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI4FromI1_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI4FromI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI4FromI2_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI4FromI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI4FromI8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI4FromR4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI4FromR4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI4FromR8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI4FromR8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI4FromStr", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI4FromStr_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI4FromUI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI4FromUI1_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI4FromUI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI4FromUI2_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI4FromUI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI4FromUI4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI4FromUI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI4FromUI8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI8FromBool", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI8FromBool_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI8FromDate", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI8FromDate_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI8FromDec", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI8FromDec_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI8FromDisp", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI8FromDisp_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI8FromI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI8FromI1_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI8FromI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI8FromI2_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI8FromR4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI8FromR4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI8FromR8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI8FromR8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI8FromStr", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI8FromStr_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI8FromUI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI8FromUI1_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI8FromUI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI8FromUI2_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI8FromUI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI8FromUI4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarI8FromUI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarI8FromUI8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarIdiv", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarIdiv_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarImp", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarImp_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarInt", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarInt_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarMod", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarMod_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarMonthName", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarMonthName_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarMul", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarMul_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarNeg", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarNeg_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarNot", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarNot_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarNumFromParseNum", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarNumFromParseNum_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarOr", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarOr_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarParseNumFromStr", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarParseNumFromStr_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarPow", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarPow_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarR4CmpR8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarR4CmpR8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarR4FromBool", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarR4FromBool_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarR4FromDate", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarR4FromDate_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarR4FromDec", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarR4FromDec_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarR4FromDisp", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarR4FromDisp_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarR4FromI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarR4FromI1_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarR4FromI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarR4FromI2_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarR4FromI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarR4FromI4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarR4FromI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarR4FromI8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarR4FromR8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarR4FromR8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarR4FromStr", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarR4FromStr_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarR4FromUI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarR4FromUI1_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarR4FromUI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarR4FromUI2_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarR4FromUI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarR4FromUI4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarR4FromUI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarR4FromUI8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarR8FromBool", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarR8FromBool_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarR8FromDate", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarR8FromDate_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarR8FromDec", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarR8FromDec_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarR8FromDisp", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarR8FromDisp_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarR8FromI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarR8FromI1_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarR8FromI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarR8FromI2_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarR8FromI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarR8FromI4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarR8FromI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarR8FromI8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarR8FromR4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarR8FromR4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarR8FromStr", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarR8FromStr_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarR8FromUI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarR8FromUI1_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarR8FromUI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarR8FromUI2_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarR8FromUI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarR8FromUI4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarR8FromUI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarR8FromUI8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarR8Pow", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarR8Pow_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarR8Round", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarR8Round_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarRound", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarRound_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarSub", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarSub_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarTokenizeFormatString", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarTokenizeFormatString_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI1FromBool", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI1FromBool_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI1FromDate", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI1FromDate_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI1FromDec", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI1FromDec_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI1FromDisp", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI1FromDisp_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI1FromI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI1FromI1_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI1FromI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI1FromI2_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI1FromI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI1FromI4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI1FromI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI1FromI8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI1FromR4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI1FromR4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI1FromR8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI1FromR8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI1FromStr", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI1FromStr_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI1FromUI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI1FromUI2_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI1FromUI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI1FromUI4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI1FromUI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI1FromUI8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI2FromBool", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI2FromBool_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI2FromDate", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI2FromDate_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI2FromDec", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI2FromDec_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI2FromDisp", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI2FromDisp_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI2FromI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI2FromI1_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI2FromI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI2FromI2_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI2FromI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI2FromI4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI2FromI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI2FromI8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI2FromR4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI2FromR4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI2FromR8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI2FromR8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI2FromStr", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI2FromStr_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI2FromUI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI2FromUI1_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI2FromUI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI2FromUI4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI2FromUI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI2FromUI8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI4FromBool", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI4FromBool_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI4FromDate", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI4FromDate_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI4FromDec", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI4FromDec_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI4FromDisp", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI4FromDisp_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI4FromI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI4FromI1_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI4FromI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI4FromI2_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI4FromI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI4FromI4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI4FromI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI4FromI8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI4FromR4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI4FromR4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI4FromR8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI4FromR8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI4FromStr", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI4FromStr_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI4FromUI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI4FromUI1_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI4FromUI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI4FromUI2_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI4FromUI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI4FromUI8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI8FromBool", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI8FromBool_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI8FromDate", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI8FromDate_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI8FromDec", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI8FromDec_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI8FromDisp", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI8FromDisp_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI8FromI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI8FromI1_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI8FromI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI8FromI2_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI8FromI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI8FromI8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI8FromR4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI8FromR4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI8FromR8", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI8FromR8_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI8FromStr", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI8FromStr_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI8FromUI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI8FromUI1_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI8FromUI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI8FromUI2_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUI8FromUI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUI8FromUI4_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarUdateFromDate", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarUdateFromDate_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarWeekdayName", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarWeekdayName_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VarXor", Napi::Function::New(env, windowssys_windows_win32_system_ole_VarXor_napi));
-    exports.Set("windowssys_windows_win32_system_ole_VectorFromBstr", Napi::Function::New(env, windowssys_windows_win32_system_ole_VectorFromBstr_napi));
+    exports.Set("windowssys_windows_win32_system_ole_bstrFromVector", Napi::Function::New(env, windowssys_windows_win32_system_ole_bstrFromVector_napi));
+    exports.Set("windowssys_windows_win32_system_ole_clearCustData", Napi::Function::New(env, windowssys_windows_win32_system_ole_clearCustData_napi));
+    exports.Set("windowssys_windows_win32_system_ole_createDispTypeInfo", Napi::Function::New(env, windowssys_windows_win32_system_ole_createDispTypeInfo_napi));
+    exports.Set("windowssys_windows_win32_system_ole_createErrorInfo", Napi::Function::New(env, windowssys_windows_win32_system_ole_createErrorInfo_napi));
+    exports.Set("windowssys_windows_win32_system_ole_createOleAdviseHolder", Napi::Function::New(env, windowssys_windows_win32_system_ole_createOleAdviseHolder_napi));
+    exports.Set("windowssys_windows_win32_system_ole_createStdDispatch", Napi::Function::New(env, windowssys_windows_win32_system_ole_createStdDispatch_napi));
+    exports.Set("windowssys_windows_win32_system_ole_createTypeLib", Napi::Function::New(env, windowssys_windows_win32_system_ole_createTypeLib_napi));
+    exports.Set("windowssys_windows_win32_system_ole_createTypeLib2", Napi::Function::New(env, windowssys_windows_win32_system_ole_createTypeLib2_napi));
+    exports.Set("windowssys_windows_win32_system_ole_dispCallFunc", Napi::Function::New(env, windowssys_windows_win32_system_ole_dispCallFunc_napi));
+    exports.Set("windowssys_windows_win32_system_ole_dispGetIDsOfNames", Napi::Function::New(env, windowssys_windows_win32_system_ole_dispGetIDsOfNames_napi));
+    exports.Set("windowssys_windows_win32_system_ole_dispGetParam", Napi::Function::New(env, windowssys_windows_win32_system_ole_dispGetParam_napi));
+    exports.Set("windowssys_windows_win32_system_ole_dispInvoke", Napi::Function::New(env, windowssys_windows_win32_system_ole_dispInvoke_napi));
+    exports.Set("windowssys_windows_win32_system_ole_doDragDrop", Napi::Function::New(env, windowssys_windows_win32_system_ole_doDragDrop_napi));
+    exports.Set("windowssys_windows_win32_system_ole_getActiveObject", Napi::Function::New(env, windowssys_windows_win32_system_ole_getActiveObject_napi));
+    exports.Set("windowssys_windows_win32_system_ole_getAltMonthNames", Napi::Function::New(env, windowssys_windows_win32_system_ole_getAltMonthNames_napi));
+    exports.Set("windowssys_windows_win32_system_ole_getRecordInfoFromGuids", Napi::Function::New(env, windowssys_windows_win32_system_ole_getRecordInfoFromGuids_napi));
+    exports.Set("windowssys_windows_win32_system_ole_getRecordInfoFromTypeInfo", Napi::Function::New(env, windowssys_windows_win32_system_ole_getRecordInfoFromTypeInfo_napi));
+    exports.Set("windowssys_windows_win32_system_ole_hrgnUserFree", Napi::Function::New(env, windowssys_windows_win32_system_ole_hrgnUserFree_napi));
+    exports.Set("windowssys_windows_win32_system_ole_hrgnUserFree64", Napi::Function::New(env, windowssys_windows_win32_system_ole_hrgnUserFree64_napi));
+    exports.Set("windowssys_windows_win32_system_ole_hrgnUserMarshal", Napi::Function::New(env, windowssys_windows_win32_system_ole_hrgnUserMarshal_napi));
+    exports.Set("windowssys_windows_win32_system_ole_hrgnUserMarshal64", Napi::Function::New(env, windowssys_windows_win32_system_ole_hrgnUserMarshal64_napi));
+    exports.Set("windowssys_windows_win32_system_ole_hrgnUserSize", Napi::Function::New(env, windowssys_windows_win32_system_ole_hrgnUserSize_napi));
+    exports.Set("windowssys_windows_win32_system_ole_hrgnUserSize64", Napi::Function::New(env, windowssys_windows_win32_system_ole_hrgnUserSize64_napi));
+    exports.Set("windowssys_windows_win32_system_ole_hrgnUserUnmarshal", Napi::Function::New(env, windowssys_windows_win32_system_ole_hrgnUserUnmarshal_napi));
+    exports.Set("windowssys_windows_win32_system_ole_hrgnUserUnmarshal64", Napi::Function::New(env, windowssys_windows_win32_system_ole_hrgnUserUnmarshal64_napi));
+    exports.Set("windowssys_windows_win32_system_ole_isAccelerator", Napi::Function::New(env, windowssys_windows_win32_system_ole_isAccelerator_napi));
+    exports.Set("windowssys_windows_win32_system_ole_lHashValOfNameSys", Napi::Function::New(env, windowssys_windows_win32_system_ole_lHashValOfNameSys_napi));
+    exports.Set("windowssys_windows_win32_system_ole_lHashValOfNameSysA", Napi::Function::New(env, windowssys_windows_win32_system_ole_lHashValOfNameSysA_napi));
+    exports.Set("windowssys_windows_win32_system_ole_loadRegTypeLib", Napi::Function::New(env, windowssys_windows_win32_system_ole_loadRegTypeLib_napi));
+    exports.Set("windowssys_windows_win32_system_ole_loadTypeLib", Napi::Function::New(env, windowssys_windows_win32_system_ole_loadTypeLib_napi));
+    exports.Set("windowssys_windows_win32_system_ole_loadTypeLibEx", Napi::Function::New(env, windowssys_windows_win32_system_ole_loadTypeLibEx_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oaBuildVersion", Napi::Function::New(env, windowssys_windows_win32_system_ole_oaBuildVersion_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oaEnablePerUserTLibRegistration", Napi::Function::New(env, windowssys_windows_win32_system_ole_oaEnablePerUserTLibRegistration_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleBuildVersion", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleBuildVersion_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleConvertOLESTREAMToIStorage2", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleConvertOLESTREAMToIStorage2_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleConvertOLESTREAMToIStorageEx2", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleConvertOLESTREAMToIStorageEx2_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleCreate", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleCreate_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleCreateDefaultHandler", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleCreateDefaultHandler_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleCreateEmbeddingHelper", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleCreateEmbeddingHelper_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleCreateEx", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleCreateEx_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleCreateFontIndirect", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleCreateFontIndirect_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleCreateFromData", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleCreateFromData_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleCreateFromDataEx", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleCreateFromDataEx_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleCreateFromFile", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleCreateFromFile_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleCreateFromFileEx", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleCreateFromFileEx_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleCreateLink", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleCreateLink_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleCreateLinkEx", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleCreateLinkEx_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleCreateLinkFromData", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleCreateLinkFromData_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleCreateLinkFromDataEx", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleCreateLinkFromDataEx_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleCreateLinkToFile", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleCreateLinkToFile_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleCreateLinkToFileEx", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleCreateLinkToFileEx_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleCreateMenuDescriptor", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleCreateMenuDescriptor_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleCreatePictureIndirect", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleCreatePictureIndirect_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleCreatePropertyFrame", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleCreatePropertyFrame_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleCreatePropertyFrameIndirect", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleCreatePropertyFrameIndirect_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleCreateStaticFromData", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleCreateStaticFromData_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleDestroyMenuDescriptor", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleDestroyMenuDescriptor_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleDoAutoConvert", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleDoAutoConvert_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleDraw", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleDraw_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleDuplicateData", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleDuplicateData_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleFlushClipboard", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleFlushClipboard_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleGetAutoConvert", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleGetAutoConvert_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleGetClipboard", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleGetClipboard_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleGetClipboardWithEnterpriseInfo", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleGetClipboardWithEnterpriseInfo_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleGetIconOfClass", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleGetIconOfClass_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleGetIconOfFile", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleGetIconOfFile_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleIconToCursor", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleIconToCursor_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleInitialize", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleInitialize_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleIsCurrentClipboard", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleIsCurrentClipboard_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleIsRunning", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleIsRunning_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleLoad", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleLoad_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleLoadFromStream", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleLoadFromStream_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleLoadPicture", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleLoadPicture_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleLoadPictureEx", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleLoadPictureEx_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleLoadPicturePath", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleLoadPicturePath_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleLockRunning", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleLockRunning_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleMetafilePictFromIconAndLabel", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleMetafilePictFromIconAndLabel_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleNoteObjectVisible", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleNoteObjectVisible_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleQueryCreateFromData", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleQueryCreateFromData_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleQueryLinkFromData", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleQueryLinkFromData_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleRegEnumFormatEtc", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleRegEnumFormatEtc_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleRegEnumVerbs", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleRegEnumVerbs_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleRegGetMiscStatus", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleRegGetMiscStatus_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleRegGetUserType", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleRegGetUserType_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleRun", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleRun_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleSave", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleSave_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleSavePictureFile", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleSavePictureFile_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleSaveToStream", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleSaveToStream_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleSetAutoConvert", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleSetAutoConvert_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleSetClipboard", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleSetClipboard_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleSetContainedObject", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleSetContainedObject_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleSetMenuDescriptor", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleSetMenuDescriptor_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleTranslateAccelerator", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleTranslateAccelerator_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleTranslateColor", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleTranslateColor_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleUIAddVerbMenuA", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleUIAddVerbMenuA_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleUIAddVerbMenuW", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleUIAddVerbMenuW_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleUIBusyA", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleUIBusyA_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleUIBusyW", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleUIBusyW_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleUICanConvertOrActivateAs", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleUICanConvertOrActivateAs_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleUIChangeIconA", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleUIChangeIconA_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleUIChangeIconW", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleUIChangeIconW_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleUIChangeSourceA", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleUIChangeSourceA_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleUIChangeSourceW", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleUIChangeSourceW_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleUIConvertA", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleUIConvertA_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleUIConvertW", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleUIConvertW_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleUIEditLinksA", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleUIEditLinksA_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleUIEditLinksW", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleUIEditLinksW_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleUIInsertObjectA", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleUIInsertObjectA_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleUIInsertObjectW", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleUIInsertObjectW_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleUIObjectPropertiesA", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleUIObjectPropertiesA_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleUIObjectPropertiesW", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleUIObjectPropertiesW_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleUIPasteSpecialA", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleUIPasteSpecialA_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleUIPasteSpecialW", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleUIPasteSpecialW_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleUIPromptUserA", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleUIPromptUserA_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleUIPromptUserW", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleUIPromptUserW_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleUIUpdateLinksA", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleUIUpdateLinksA_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleUIUpdateLinksW", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleUIUpdateLinksW_napi));
+    exports.Set("windowssys_windows_win32_system_ole_oleUninitialize", Napi::Function::New(env, windowssys_windows_win32_system_ole_oleUninitialize_napi));
+    exports.Set("windowssys_windows_win32_system_ole_queryPathOfRegTypeLib", Napi::Function::New(env, windowssys_windows_win32_system_ole_queryPathOfRegTypeLib_napi));
+    exports.Set("windowssys_windows_win32_system_ole_registerActiveObject", Napi::Function::New(env, windowssys_windows_win32_system_ole_registerActiveObject_napi));
+    exports.Set("windowssys_windows_win32_system_ole_registerDragDrop", Napi::Function::New(env, windowssys_windows_win32_system_ole_registerDragDrop_napi));
+    exports.Set("windowssys_windows_win32_system_ole_registerTypeLib", Napi::Function::New(env, windowssys_windows_win32_system_ole_registerTypeLib_napi));
+    exports.Set("windowssys_windows_win32_system_ole_registerTypeLibForUser", Napi::Function::New(env, windowssys_windows_win32_system_ole_registerTypeLibForUser_napi));
+    exports.Set("windowssys_windows_win32_system_ole_releaseStgMedium", Napi::Function::New(env, windowssys_windows_win32_system_ole_releaseStgMedium_napi));
+    exports.Set("windowssys_windows_win32_system_ole_revokeActiveObject", Napi::Function::New(env, windowssys_windows_win32_system_ole_revokeActiveObject_napi));
+    exports.Set("windowssys_windows_win32_system_ole_revokeDragDrop", Napi::Function::New(env, windowssys_windows_win32_system_ole_revokeDragDrop_napi));
+    exports.Set("windowssys_windows_win32_system_ole_safeArrayAccessData", Napi::Function::New(env, windowssys_windows_win32_system_ole_safeArrayAccessData_napi));
+    exports.Set("windowssys_windows_win32_system_ole_safeArrayAddRef", Napi::Function::New(env, windowssys_windows_win32_system_ole_safeArrayAddRef_napi));
+    exports.Set("windowssys_windows_win32_system_ole_safeArrayAllocData", Napi::Function::New(env, windowssys_windows_win32_system_ole_safeArrayAllocData_napi));
+    exports.Set("windowssys_windows_win32_system_ole_safeArrayAllocDescriptor", Napi::Function::New(env, windowssys_windows_win32_system_ole_safeArrayAllocDescriptor_napi));
+    exports.Set("windowssys_windows_win32_system_ole_safeArrayAllocDescriptorEx", Napi::Function::New(env, windowssys_windows_win32_system_ole_safeArrayAllocDescriptorEx_napi));
+    exports.Set("windowssys_windows_win32_system_ole_safeArrayCopy", Napi::Function::New(env, windowssys_windows_win32_system_ole_safeArrayCopy_napi));
+    exports.Set("windowssys_windows_win32_system_ole_safeArrayCopyData", Napi::Function::New(env, windowssys_windows_win32_system_ole_safeArrayCopyData_napi));
+    exports.Set("windowssys_windows_win32_system_ole_safeArrayCreate", Napi::Function::New(env, windowssys_windows_win32_system_ole_safeArrayCreate_napi));
+    exports.Set("windowssys_windows_win32_system_ole_safeArrayCreateEx", Napi::Function::New(env, windowssys_windows_win32_system_ole_safeArrayCreateEx_napi));
+    exports.Set("windowssys_windows_win32_system_ole_safeArrayCreateVector", Napi::Function::New(env, windowssys_windows_win32_system_ole_safeArrayCreateVector_napi));
+    exports.Set("windowssys_windows_win32_system_ole_safeArrayCreateVectorEx", Napi::Function::New(env, windowssys_windows_win32_system_ole_safeArrayCreateVectorEx_napi));
+    exports.Set("windowssys_windows_win32_system_ole_safeArrayDestroy", Napi::Function::New(env, windowssys_windows_win32_system_ole_safeArrayDestroy_napi));
+    exports.Set("windowssys_windows_win32_system_ole_safeArrayDestroyData", Napi::Function::New(env, windowssys_windows_win32_system_ole_safeArrayDestroyData_napi));
+    exports.Set("windowssys_windows_win32_system_ole_safeArrayDestroyDescriptor", Napi::Function::New(env, windowssys_windows_win32_system_ole_safeArrayDestroyDescriptor_napi));
+    exports.Set("windowssys_windows_win32_system_ole_safeArrayGetDim", Napi::Function::New(env, windowssys_windows_win32_system_ole_safeArrayGetDim_napi));
+    exports.Set("windowssys_windows_win32_system_ole_safeArrayGetElement", Napi::Function::New(env, windowssys_windows_win32_system_ole_safeArrayGetElement_napi));
+    exports.Set("windowssys_windows_win32_system_ole_safeArrayGetElemsize", Napi::Function::New(env, windowssys_windows_win32_system_ole_safeArrayGetElemsize_napi));
+    exports.Set("windowssys_windows_win32_system_ole_safeArrayGetIID", Napi::Function::New(env, windowssys_windows_win32_system_ole_safeArrayGetIID_napi));
+    exports.Set("windowssys_windows_win32_system_ole_safeArrayGetLBound", Napi::Function::New(env, windowssys_windows_win32_system_ole_safeArrayGetLBound_napi));
+    exports.Set("windowssys_windows_win32_system_ole_safeArrayGetRecordInfo", Napi::Function::New(env, windowssys_windows_win32_system_ole_safeArrayGetRecordInfo_napi));
+    exports.Set("windowssys_windows_win32_system_ole_safeArrayGetUBound", Napi::Function::New(env, windowssys_windows_win32_system_ole_safeArrayGetUBound_napi));
+    exports.Set("windowssys_windows_win32_system_ole_safeArrayGetVartype", Napi::Function::New(env, windowssys_windows_win32_system_ole_safeArrayGetVartype_napi));
+    exports.Set("windowssys_windows_win32_system_ole_safeArrayLock", Napi::Function::New(env, windowssys_windows_win32_system_ole_safeArrayLock_napi));
+    exports.Set("windowssys_windows_win32_system_ole_safeArrayPtrOfIndex", Napi::Function::New(env, windowssys_windows_win32_system_ole_safeArrayPtrOfIndex_napi));
+    exports.Set("windowssys_windows_win32_system_ole_safeArrayPutElement", Napi::Function::New(env, windowssys_windows_win32_system_ole_safeArrayPutElement_napi));
+    exports.Set("windowssys_windows_win32_system_ole_safeArrayRedim", Napi::Function::New(env, windowssys_windows_win32_system_ole_safeArrayRedim_napi));
+    exports.Set("windowssys_windows_win32_system_ole_safeArrayReleaseData", Napi::Function::New(env, windowssys_windows_win32_system_ole_safeArrayReleaseData_napi));
+    exports.Set("windowssys_windows_win32_system_ole_safeArrayReleaseDescriptor", Napi::Function::New(env, windowssys_windows_win32_system_ole_safeArrayReleaseDescriptor_napi));
+    exports.Set("windowssys_windows_win32_system_ole_safeArraySetIID", Napi::Function::New(env, windowssys_windows_win32_system_ole_safeArraySetIID_napi));
+    exports.Set("windowssys_windows_win32_system_ole_safeArraySetRecordInfo", Napi::Function::New(env, windowssys_windows_win32_system_ole_safeArraySetRecordInfo_napi));
+    exports.Set("windowssys_windows_win32_system_ole_safeArrayUnaccessData", Napi::Function::New(env, windowssys_windows_win32_system_ole_safeArrayUnaccessData_napi));
+    exports.Set("windowssys_windows_win32_system_ole_safeArrayUnlock", Napi::Function::New(env, windowssys_windows_win32_system_ole_safeArrayUnlock_napi));
+    exports.Set("windowssys_windows_win32_system_ole_unRegisterTypeLib", Napi::Function::New(env, windowssys_windows_win32_system_ole_unRegisterTypeLib_napi));
+    exports.Set("windowssys_windows_win32_system_ole_unRegisterTypeLibForUser", Napi::Function::New(env, windowssys_windows_win32_system_ole_unRegisterTypeLibForUser_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varAbs", Napi::Function::New(env, windowssys_windows_win32_system_ole_varAbs_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varAdd", Napi::Function::New(env, windowssys_windows_win32_system_ole_varAdd_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varAnd", Napi::Function::New(env, windowssys_windows_win32_system_ole_varAnd_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varBoolFromDate", Napi::Function::New(env, windowssys_windows_win32_system_ole_varBoolFromDate_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varBoolFromDec", Napi::Function::New(env, windowssys_windows_win32_system_ole_varBoolFromDec_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varBoolFromDisp", Napi::Function::New(env, windowssys_windows_win32_system_ole_varBoolFromDisp_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varBoolFromI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_varBoolFromI1_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varBoolFromI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_varBoolFromI2_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varBoolFromI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varBoolFromI4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varBoolFromI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varBoolFromI8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varBoolFromR4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varBoolFromR4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varBoolFromR8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varBoolFromR8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varBoolFromStr", Napi::Function::New(env, windowssys_windows_win32_system_ole_varBoolFromStr_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varBoolFromUI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_varBoolFromUI1_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varBoolFromUI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_varBoolFromUI2_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varBoolFromUI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varBoolFromUI4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varBoolFromUI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varBoolFromUI8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varBstrCat", Napi::Function::New(env, windowssys_windows_win32_system_ole_varBstrCat_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varBstrCmp", Napi::Function::New(env, windowssys_windows_win32_system_ole_varBstrCmp_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varBstrFromBool", Napi::Function::New(env, windowssys_windows_win32_system_ole_varBstrFromBool_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varBstrFromDate", Napi::Function::New(env, windowssys_windows_win32_system_ole_varBstrFromDate_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varBstrFromDec", Napi::Function::New(env, windowssys_windows_win32_system_ole_varBstrFromDec_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varBstrFromDisp", Napi::Function::New(env, windowssys_windows_win32_system_ole_varBstrFromDisp_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varBstrFromI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_varBstrFromI1_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varBstrFromI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_varBstrFromI2_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varBstrFromI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varBstrFromI4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varBstrFromI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varBstrFromI8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varBstrFromR4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varBstrFromR4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varBstrFromR8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varBstrFromR8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varBstrFromUI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_varBstrFromUI1_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varBstrFromUI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_varBstrFromUI2_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varBstrFromUI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varBstrFromUI4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varBstrFromUI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varBstrFromUI8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varCat", Napi::Function::New(env, windowssys_windows_win32_system_ole_varCat_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varCmp", Napi::Function::New(env, windowssys_windows_win32_system_ole_varCmp_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varCyFromBool", Napi::Function::New(env, windowssys_windows_win32_system_ole_varCyFromBool_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varCyFromDate", Napi::Function::New(env, windowssys_windows_win32_system_ole_varCyFromDate_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varCyFromDec", Napi::Function::New(env, windowssys_windows_win32_system_ole_varCyFromDec_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varCyFromDisp", Napi::Function::New(env, windowssys_windows_win32_system_ole_varCyFromDisp_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varCyFromI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_varCyFromI1_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varCyFromI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_varCyFromI2_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varCyFromI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varCyFromI4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varCyFromI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varCyFromI8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varCyFromR4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varCyFromR4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varCyFromR8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varCyFromR8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varCyFromStr", Napi::Function::New(env, windowssys_windows_win32_system_ole_varCyFromStr_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varCyFromUI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_varCyFromUI1_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varCyFromUI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_varCyFromUI2_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varCyFromUI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varCyFromUI4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varCyFromUI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varCyFromUI8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDateFromBool", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDateFromBool_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDateFromDec", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDateFromDec_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDateFromDisp", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDateFromDisp_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDateFromI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDateFromI1_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDateFromI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDateFromI2_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDateFromI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDateFromI4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDateFromI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDateFromI8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDateFromR4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDateFromR4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDateFromR8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDateFromR8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDateFromStr", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDateFromStr_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDateFromUI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDateFromUI1_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDateFromUI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDateFromUI2_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDateFromUI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDateFromUI4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDateFromUI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDateFromUI8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDateFromUdate", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDateFromUdate_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDateFromUdateEx", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDateFromUdateEx_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDecAbs", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDecAbs_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDecAdd", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDecAdd_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDecCmp", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDecCmp_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDecCmpR8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDecCmpR8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDecDiv", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDecDiv_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDecFix", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDecFix_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDecFromBool", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDecFromBool_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDecFromDate", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDecFromDate_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDecFromDisp", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDecFromDisp_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDecFromI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDecFromI1_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDecFromI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDecFromI2_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDecFromI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDecFromI4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDecFromI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDecFromI8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDecFromR4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDecFromR4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDecFromR8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDecFromR8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDecFromStr", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDecFromStr_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDecFromUI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDecFromUI1_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDecFromUI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDecFromUI2_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDecFromUI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDecFromUI4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDecFromUI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDecFromUI8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDecInt", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDecInt_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDecMul", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDecMul_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDecNeg", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDecNeg_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDecRound", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDecRound_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDecSub", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDecSub_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varDiv", Napi::Function::New(env, windowssys_windows_win32_system_ole_varDiv_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varEqv", Napi::Function::New(env, windowssys_windows_win32_system_ole_varEqv_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varFix", Napi::Function::New(env, windowssys_windows_win32_system_ole_varFix_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varFormat", Napi::Function::New(env, windowssys_windows_win32_system_ole_varFormat_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varFormatCurrency", Napi::Function::New(env, windowssys_windows_win32_system_ole_varFormatCurrency_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varFormatDateTime", Napi::Function::New(env, windowssys_windows_win32_system_ole_varFormatDateTime_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varFormatFromTokens", Napi::Function::New(env, windowssys_windows_win32_system_ole_varFormatFromTokens_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varFormatNumber", Napi::Function::New(env, windowssys_windows_win32_system_ole_varFormatNumber_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varFormatPercent", Napi::Function::New(env, windowssys_windows_win32_system_ole_varFormatPercent_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI1FromBool", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI1FromBool_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI1FromDate", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI1FromDate_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI1FromDec", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI1FromDec_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI1FromDisp", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI1FromDisp_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI1FromI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI1FromI2_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI1FromI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI1FromI4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI1FromI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI1FromI8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI1FromR4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI1FromR4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI1FromR8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI1FromR8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI1FromStr", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI1FromStr_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI1FromUI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI1FromUI1_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI1FromUI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI1FromUI2_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI1FromUI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI1FromUI4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI1FromUI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI1FromUI8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI2FromBool", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI2FromBool_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI2FromDate", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI2FromDate_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI2FromDec", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI2FromDec_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI2FromDisp", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI2FromDisp_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI2FromI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI2FromI1_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI2FromI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI2FromI4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI2FromI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI2FromI8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI2FromR4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI2FromR4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI2FromR8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI2FromR8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI2FromStr", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI2FromStr_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI2FromUI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI2FromUI1_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI2FromUI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI2FromUI2_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI2FromUI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI2FromUI4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI2FromUI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI2FromUI8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI4FromBool", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI4FromBool_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI4FromDate", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI4FromDate_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI4FromDec", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI4FromDec_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI4FromDisp", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI4FromDisp_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI4FromI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI4FromI1_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI4FromI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI4FromI2_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI4FromI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI4FromI8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI4FromR4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI4FromR4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI4FromR8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI4FromR8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI4FromStr", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI4FromStr_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI4FromUI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI4FromUI1_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI4FromUI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI4FromUI2_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI4FromUI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI4FromUI4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI4FromUI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI4FromUI8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI8FromBool", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI8FromBool_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI8FromDate", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI8FromDate_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI8FromDec", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI8FromDec_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI8FromDisp", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI8FromDisp_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI8FromI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI8FromI1_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI8FromI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI8FromI2_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI8FromR4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI8FromR4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI8FromR8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI8FromR8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI8FromStr", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI8FromStr_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI8FromUI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI8FromUI1_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI8FromUI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI8FromUI2_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI8FromUI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI8FromUI4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varI8FromUI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varI8FromUI8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varIdiv", Napi::Function::New(env, windowssys_windows_win32_system_ole_varIdiv_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varImp", Napi::Function::New(env, windowssys_windows_win32_system_ole_varImp_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varInt", Napi::Function::New(env, windowssys_windows_win32_system_ole_varInt_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varMod", Napi::Function::New(env, windowssys_windows_win32_system_ole_varMod_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varMonthName", Napi::Function::New(env, windowssys_windows_win32_system_ole_varMonthName_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varMul", Napi::Function::New(env, windowssys_windows_win32_system_ole_varMul_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varNeg", Napi::Function::New(env, windowssys_windows_win32_system_ole_varNeg_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varNot", Napi::Function::New(env, windowssys_windows_win32_system_ole_varNot_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varNumFromParseNum", Napi::Function::New(env, windowssys_windows_win32_system_ole_varNumFromParseNum_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varOr", Napi::Function::New(env, windowssys_windows_win32_system_ole_varOr_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varParseNumFromStr", Napi::Function::New(env, windowssys_windows_win32_system_ole_varParseNumFromStr_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varPow", Napi::Function::New(env, windowssys_windows_win32_system_ole_varPow_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varR4CmpR8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varR4CmpR8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varR4FromBool", Napi::Function::New(env, windowssys_windows_win32_system_ole_varR4FromBool_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varR4FromDate", Napi::Function::New(env, windowssys_windows_win32_system_ole_varR4FromDate_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varR4FromDec", Napi::Function::New(env, windowssys_windows_win32_system_ole_varR4FromDec_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varR4FromDisp", Napi::Function::New(env, windowssys_windows_win32_system_ole_varR4FromDisp_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varR4FromI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_varR4FromI1_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varR4FromI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_varR4FromI2_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varR4FromI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varR4FromI4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varR4FromI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varR4FromI8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varR4FromR8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varR4FromR8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varR4FromStr", Napi::Function::New(env, windowssys_windows_win32_system_ole_varR4FromStr_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varR4FromUI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_varR4FromUI1_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varR4FromUI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_varR4FromUI2_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varR4FromUI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varR4FromUI4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varR4FromUI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varR4FromUI8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varR8FromBool", Napi::Function::New(env, windowssys_windows_win32_system_ole_varR8FromBool_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varR8FromDate", Napi::Function::New(env, windowssys_windows_win32_system_ole_varR8FromDate_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varR8FromDec", Napi::Function::New(env, windowssys_windows_win32_system_ole_varR8FromDec_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varR8FromDisp", Napi::Function::New(env, windowssys_windows_win32_system_ole_varR8FromDisp_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varR8FromI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_varR8FromI1_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varR8FromI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_varR8FromI2_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varR8FromI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varR8FromI4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varR8FromI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varR8FromI8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varR8FromR4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varR8FromR4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varR8FromStr", Napi::Function::New(env, windowssys_windows_win32_system_ole_varR8FromStr_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varR8FromUI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_varR8FromUI1_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varR8FromUI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_varR8FromUI2_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varR8FromUI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varR8FromUI4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varR8FromUI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varR8FromUI8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varR8Pow", Napi::Function::New(env, windowssys_windows_win32_system_ole_varR8Pow_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varR8Round", Napi::Function::New(env, windowssys_windows_win32_system_ole_varR8Round_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varRound", Napi::Function::New(env, windowssys_windows_win32_system_ole_varRound_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varSub", Napi::Function::New(env, windowssys_windows_win32_system_ole_varSub_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varTokenizeFormatString", Napi::Function::New(env, windowssys_windows_win32_system_ole_varTokenizeFormatString_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI1FromBool", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI1FromBool_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI1FromDate", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI1FromDate_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI1FromDec", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI1FromDec_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI1FromDisp", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI1FromDisp_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI1FromI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI1FromI1_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI1FromI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI1FromI2_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI1FromI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI1FromI4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI1FromI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI1FromI8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI1FromR4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI1FromR4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI1FromR8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI1FromR8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI1FromStr", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI1FromStr_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI1FromUI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI1FromUI2_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI1FromUI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI1FromUI4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI1FromUI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI1FromUI8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI2FromBool", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI2FromBool_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI2FromDate", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI2FromDate_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI2FromDec", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI2FromDec_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI2FromDisp", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI2FromDisp_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI2FromI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI2FromI1_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI2FromI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI2FromI2_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI2FromI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI2FromI4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI2FromI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI2FromI8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI2FromR4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI2FromR4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI2FromR8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI2FromR8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI2FromStr", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI2FromStr_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI2FromUI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI2FromUI1_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI2FromUI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI2FromUI4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI2FromUI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI2FromUI8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI4FromBool", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI4FromBool_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI4FromDate", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI4FromDate_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI4FromDec", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI4FromDec_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI4FromDisp", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI4FromDisp_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI4FromI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI4FromI1_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI4FromI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI4FromI2_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI4FromI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI4FromI4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI4FromI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI4FromI8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI4FromR4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI4FromR4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI4FromR8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI4FromR8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI4FromStr", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI4FromStr_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI4FromUI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI4FromUI1_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI4FromUI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI4FromUI2_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI4FromUI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI4FromUI8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI8FromBool", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI8FromBool_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI8FromDate", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI8FromDate_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI8FromDec", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI8FromDec_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI8FromDisp", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI8FromDisp_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI8FromI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI8FromI1_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI8FromI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI8FromI2_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI8FromI8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI8FromI8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI8FromR4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI8FromR4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI8FromR8", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI8FromR8_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI8FromStr", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI8FromStr_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI8FromUI1", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI8FromUI1_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI8FromUI2", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI8FromUI2_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUI8FromUI4", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUI8FromUI4_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varUdateFromDate", Napi::Function::New(env, windowssys_windows_win32_system_ole_varUdateFromDate_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varWeekdayName", Napi::Function::New(env, windowssys_windows_win32_system_ole_varWeekdayName_napi));
+    exports.Set("windowssys_windows_win32_system_ole_varXor", Napi::Function::New(env, windowssys_windows_win32_system_ole_varXor_napi));
+    exports.Set("windowssys_windows_win32_system_ole_vectorFromBstr", Napi::Function::New(env, windowssys_windows_win32_system_ole_vectorFromBstr_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_ole_napi, nullptr };

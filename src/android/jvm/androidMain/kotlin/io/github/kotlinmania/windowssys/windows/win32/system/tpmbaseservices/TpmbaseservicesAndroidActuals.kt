@@ -2,9 +2,10 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.tpmbaseservices
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pwstr
 
 private object WindowsWin32SystemTpmbaseservicesJniBridge {
     init {
@@ -12,86 +13,86 @@ private object WindowsWin32SystemTpmbaseservicesJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_tpmbaseservices_GetDeviceID(pbwindowsaik: Long, cbwindowsaik: Int, pcbresult: Long, pfprotectedbytpm: Long): Int
+    external fun windowssys_windows_win32_system_tpmbaseservices_getDeviceID(pbwindowsaik: Long, cbwindowsaik: Int, pcbresult: Long, pfprotectedbytpm: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_tpmbaseservices_GetDeviceIDString(pszwindowsaik: Long, cchwindowsaik: Int, pcchresult: Long, pfprotectedbytpm: Long): Int
+    external fun windowssys_windows_win32_system_tpmbaseservices_getDeviceIDString(pszwindowsaik: Long, cchwindowsaik: Int, pcchresult: Long, pfprotectedbytpm: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_tpmbaseservices_Tbsi_Context_Create(pcontextparams: Long, phcontext: Long): Int
+    external fun windowssys_windows_win32_system_tpmbaseservices_tbsiContextCreate(pcontextparams: Long, phcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_tpmbaseservices_Tbsi_Create_Windows_Key(keyhandle: Int): Int
+    external fun windowssys_windows_win32_system_tpmbaseservices_tbsiCreateWindowsKey(keyhandle: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_tpmbaseservices_Tbsi_GetDeviceInfo(size: Int, info: Long): Int
+    external fun windowssys_windows_win32_system_tpmbaseservices_tbsiGetDeviceInfo(size: Int, info: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_tpmbaseservices_Tbsi_Get_OwnerAuth(hcontext: Long, ownerauthtype: Int, poutputbuf: Long, poutputbuflen: Long): Int
+    external fun windowssys_windows_win32_system_tpmbaseservices_tbsiGetOwnerAuth(hcontext: Long, ownerauthtype: Int, poutputbuf: Long, poutputbuflen: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_tpmbaseservices_Tbsi_Get_TCG_Log(hcontext: Long, poutputbuf: Long, poutputbuflen: Long): Int
+    external fun windowssys_windows_win32_system_tpmbaseservices_tbsiGetTcgLog(hcontext: Long, poutputbuf: Long, poutputbuflen: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_tpmbaseservices_Tbsi_Get_TCG_Log_Ex(logtype: Int, pboutput: Long, pcboutput: Long): Int
+    external fun windowssys_windows_win32_system_tpmbaseservices_tbsiGetTcgLogEx(logtype: Int, pboutput: Long, pcboutput: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_tpmbaseservices_Tbsi_Is_Tpm_Present(): Int
+    external fun windowssys_windows_win32_system_tpmbaseservices_tbsiIsTpmPresent(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_tpmbaseservices_Tbsi_Physical_Presence_Command(hcontext: Long, pabinput: Long, cbinput: Int, paboutput: Long, pcboutput: Long): Int
+    external fun windowssys_windows_win32_system_tpmbaseservices_tbsiPhysicalPresenceCommand(hcontext: Long, pabinput: Long, cbinput: Int, paboutput: Long, pcboutput: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_tpmbaseservices_Tbsi_Revoke_Attestation(): Int
+    external fun windowssys_windows_win32_system_tpmbaseservices_tbsiRevokeAttestation(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_tpmbaseservices_Tbsip_Cancel_Commands(hcontext: Long): Int
+    external fun windowssys_windows_win32_system_tpmbaseservices_tbsipCancelCommands(hcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_tpmbaseservices_Tbsip_Context_Close(hcontext: Long): Int
+    external fun windowssys_windows_win32_system_tpmbaseservices_tbsipContextClose(hcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_tpmbaseservices_Tbsip_Submit_Command(hcontext: Long, locality: Int, priority: Int, pabcommand: Long, cbcommand: Int, pabresult: Long, pcbresult: Long): Int
+    external fun windowssys_windows_win32_system_tpmbaseservices_tbsipSubmitCommand(hcontext: Long, locality: Int, priority: Int, pabcommand: Long, cbcommand: Int, pabresult: Long, pcbresult: Long): Int
 }
 
-public actual fun GetDeviceID(pbwindowsaik: Long, cbwindowsaik: UInt, pcbresult: Long, pfprotectedbytpm: Long): HRESULT =
-    WindowsWin32SystemTpmbaseservicesJniBridge.windowssys_windows_win32_system_tpmbaseservices_GetDeviceID(pbwindowsaik, cbwindowsaik.toInt(), pcbresult, pfprotectedbytpm)
+public actual fun getDeviceID(pbwindowsaik: COpaquePointer?, cbwindowsaik: UInt, pcbresult: COpaquePointer?, pfprotectedbytpm: COpaquePointer?): Hresult =
+    WindowsWin32SystemTpmbaseservicesJniBridge.windowssys_windows_win32_system_tpmbaseservices_getDeviceID((pbwindowsaik?.value ?: 0L), cbwindowsaik.toInt(), (pcbresult?.value ?: 0L), (pfprotectedbytpm?.value ?: 0L))
 
-public actual fun GetDeviceIDString(pszwindowsaik: PWSTR, cchwindowsaik: UInt, pcchresult: Long, pfprotectedbytpm: Long): HRESULT =
-    WindowsWin32SystemTpmbaseservicesJniBridge.windowssys_windows_win32_system_tpmbaseservices_GetDeviceIDString(pszwindowsaik, cchwindowsaik.toInt(), pcchresult, pfprotectedbytpm)
+public actual fun getDeviceIDString(pszwindowsaik: Pwstr, cchwindowsaik: UInt, pcchresult: COpaquePointer?, pfprotectedbytpm: COpaquePointer?): Hresult =
+    WindowsWin32SystemTpmbaseservicesJniBridge.windowssys_windows_win32_system_tpmbaseservices_getDeviceIDString((pszwindowsaik?.value ?: 0L), cchwindowsaik.toInt(), (pcchresult?.value ?: 0L), (pfprotectedbytpm?.value ?: 0L))
 
-public actual fun Tbsi_Context_Create(pcontextparams: Long, phcontext: Long): UInt =
-    WindowsWin32SystemTpmbaseservicesJniBridge.windowssys_windows_win32_system_tpmbaseservices_Tbsi_Context_Create(pcontextparams, phcontext).toUInt()
+public actual fun tbsiContextCreate(pcontextparams: COpaquePointer?, phcontext: COpaquePointer?): UInt =
+    WindowsWin32SystemTpmbaseservicesJniBridge.windowssys_windows_win32_system_tpmbaseservices_tbsiContextCreate((pcontextparams?.value ?: 0L), (phcontext?.value ?: 0L)).toUInt()
 
-public actual fun Tbsi_Create_Windows_Key(keyhandle: UInt): UInt =
-    WindowsWin32SystemTpmbaseservicesJniBridge.windowssys_windows_win32_system_tpmbaseservices_Tbsi_Create_Windows_Key(keyhandle.toInt()).toUInt()
+public actual fun tbsiCreateWindowsKey(keyhandle: UInt): UInt =
+    WindowsWin32SystemTpmbaseservicesJniBridge.windowssys_windows_win32_system_tpmbaseservices_tbsiCreateWindowsKey(keyhandle.toInt()).toUInt()
 
-public actual fun Tbsi_GetDeviceInfo(size: UInt, info: Long): UInt =
-    WindowsWin32SystemTpmbaseservicesJniBridge.windowssys_windows_win32_system_tpmbaseservices_Tbsi_GetDeviceInfo(size.toInt(), info).toUInt()
+public actual fun tbsiGetDeviceInfo(size: UInt, info: COpaquePointer?): UInt =
+    WindowsWin32SystemTpmbaseservicesJniBridge.windowssys_windows_win32_system_tpmbaseservices_tbsiGetDeviceInfo(size.toInt(), (info?.value ?: 0L)).toUInt()
 
-public actual fun Tbsi_Get_OwnerAuth(hcontext: Long, ownerauthtype: UInt, poutputbuf: Long, poutputbuflen: Long): UInt =
-    WindowsWin32SystemTpmbaseservicesJniBridge.windowssys_windows_win32_system_tpmbaseservices_Tbsi_Get_OwnerAuth(hcontext, ownerauthtype.toInt(), poutputbuf, poutputbuflen).toUInt()
+public actual fun tbsiGetOwnerAuth(hcontext: COpaquePointer?, ownerauthtype: UInt, poutputbuf: COpaquePointer?, poutputbuflen: COpaquePointer?): UInt =
+    WindowsWin32SystemTpmbaseservicesJniBridge.windowssys_windows_win32_system_tpmbaseservices_tbsiGetOwnerAuth((hcontext?.value ?: 0L), ownerauthtype.toInt(), (poutputbuf?.value ?: 0L), (poutputbuflen?.value ?: 0L)).toUInt()
 
-public actual fun Tbsi_Get_TCG_Log(hcontext: Long, poutputbuf: Long, poutputbuflen: Long): UInt =
-    WindowsWin32SystemTpmbaseservicesJniBridge.windowssys_windows_win32_system_tpmbaseservices_Tbsi_Get_TCG_Log(hcontext, poutputbuf, poutputbuflen).toUInt()
+public actual fun tbsiGetTcgLog(hcontext: COpaquePointer?, poutputbuf: COpaquePointer?, poutputbuflen: COpaquePointer?): UInt =
+    WindowsWin32SystemTpmbaseservicesJniBridge.windowssys_windows_win32_system_tpmbaseservices_tbsiGetTcgLog((hcontext?.value ?: 0L), (poutputbuf?.value ?: 0L), (poutputbuflen?.value ?: 0L)).toUInt()
 
-public actual fun Tbsi_Get_TCG_Log_Ex(logtype: UInt, pboutput: Long, pcboutput: Long): UInt =
-    WindowsWin32SystemTpmbaseservicesJniBridge.windowssys_windows_win32_system_tpmbaseservices_Tbsi_Get_TCG_Log_Ex(logtype.toInt(), pboutput, pcboutput).toUInt()
+public actual fun tbsiGetTcgLogEx(logtype: UInt, pboutput: COpaquePointer?, pcboutput: COpaquePointer?): UInt =
+    WindowsWin32SystemTpmbaseservicesJniBridge.windowssys_windows_win32_system_tpmbaseservices_tbsiGetTcgLogEx(logtype.toInt(), (pboutput?.value ?: 0L), (pcboutput?.value ?: 0L)).toUInt()
 
-public actual fun Tbsi_Is_Tpm_Present(): BOOL =
-    WindowsWin32SystemTpmbaseservicesJniBridge.windowssys_windows_win32_system_tpmbaseservices_Tbsi_Is_Tpm_Present()
+public actual fun tbsiIsTpmPresent(): Bool =
+    WindowsWin32SystemTpmbaseservicesJniBridge.windowssys_windows_win32_system_tpmbaseservices_tbsiIsTpmPresent()
 
-public actual fun Tbsi_Physical_Presence_Command(hcontext: Long, pabinput: Long, cbinput: UInt, paboutput: Long, pcboutput: Long): UInt =
-    WindowsWin32SystemTpmbaseservicesJniBridge.windowssys_windows_win32_system_tpmbaseservices_Tbsi_Physical_Presence_Command(hcontext, pabinput, cbinput.toInt(), paboutput, pcboutput).toUInt()
+public actual fun tbsiPhysicalPresenceCommand(hcontext: COpaquePointer?, pabinput: COpaquePointer?, cbinput: UInt, paboutput: COpaquePointer?, pcboutput: COpaquePointer?): UInt =
+    WindowsWin32SystemTpmbaseservicesJniBridge.windowssys_windows_win32_system_tpmbaseservices_tbsiPhysicalPresenceCommand((hcontext?.value ?: 0L), (pabinput?.value ?: 0L), cbinput.toInt(), (paboutput?.value ?: 0L), (pcboutput?.value ?: 0L)).toUInt()
 
-public actual fun Tbsi_Revoke_Attestation(): UInt =
-    WindowsWin32SystemTpmbaseservicesJniBridge.windowssys_windows_win32_system_tpmbaseservices_Tbsi_Revoke_Attestation().toUInt()
+public actual fun tbsiRevokeAttestation(): UInt =
+    WindowsWin32SystemTpmbaseservicesJniBridge.windowssys_windows_win32_system_tpmbaseservices_tbsiRevokeAttestation().toUInt()
 
-public actual fun Tbsip_Cancel_Commands(hcontext: Long): UInt =
-    WindowsWin32SystemTpmbaseservicesJniBridge.windowssys_windows_win32_system_tpmbaseservices_Tbsip_Cancel_Commands(hcontext).toUInt()
+public actual fun tbsipCancelCommands(hcontext: COpaquePointer?): UInt =
+    WindowsWin32SystemTpmbaseservicesJniBridge.windowssys_windows_win32_system_tpmbaseservices_tbsipCancelCommands((hcontext?.value ?: 0L)).toUInt()
 
-public actual fun Tbsip_Context_Close(hcontext: Long): UInt =
-    WindowsWin32SystemTpmbaseservicesJniBridge.windowssys_windows_win32_system_tpmbaseservices_Tbsip_Context_Close(hcontext).toUInt()
+public actual fun tbsipContextClose(hcontext: COpaquePointer?): UInt =
+    WindowsWin32SystemTpmbaseservicesJniBridge.windowssys_windows_win32_system_tpmbaseservices_tbsipContextClose((hcontext?.value ?: 0L)).toUInt()
 
-public actual fun Tbsip_Submit_Command(hcontext: Long, locality: TBS_COMMAND_LOCALITY, priority: TBS_COMMAND_PRIORITY, pabcommand: Long, cbcommand: UInt, pabresult: Long, pcbresult: Long): UInt =
-    WindowsWin32SystemTpmbaseservicesJniBridge.windowssys_windows_win32_system_tpmbaseservices_Tbsip_Submit_Command(hcontext, locality.toInt(), priority.toInt(), pabcommand, cbcommand.toInt(), pabresult, pcbresult).toUInt()
+public actual fun tbsipSubmitCommand(hcontext: COpaquePointer?, locality: TbsCommandLocality, priority: TbsCommandPriority, pabcommand: COpaquePointer?, cbcommand: UInt, pabresult: COpaquePointer?, pcbresult: COpaquePointer?): UInt =
+    WindowsWin32SystemTpmbaseservicesJniBridge.windowssys_windows_win32_system_tpmbaseservices_tbsipSubmitCommand((hcontext?.value ?: 0L), locality.toInt(), priority.toInt(), (pabcommand?.value ?: 0L), cbcommand.toInt(), (pabresult?.value ?: 0L), (pcbresult?.value ?: 0L)).toUInt()

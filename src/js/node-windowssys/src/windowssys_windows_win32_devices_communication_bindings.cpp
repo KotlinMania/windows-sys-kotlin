@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_devices_communication_BuildCommDCBA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_communication_buildCommDCBA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpdef = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -71,7 +71,7 @@ static Napi::Value windowssys_windows_win32_devices_communication_BuildCommDCBA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_communication_BuildCommDCBAndTimeoutsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_communication_buildCommDCBAndTimeoutsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpdef = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -93,7 +93,7 @@ static Napi::Value windowssys_windows_win32_devices_communication_BuildCommDCBAn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_communication_BuildCommDCBAndTimeoutsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_communication_buildCommDCBAndTimeoutsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpdef = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -115,7 +115,7 @@ static Napi::Value windowssys_windows_win32_devices_communication_BuildCommDCBAn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_communication_BuildCommDCBW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_communication_buildCommDCBW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpdef = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -135,7 +135,7 @@ static Napi::Value windowssys_windows_win32_devices_communication_BuildCommDCBW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_communication_ClearCommBreak_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_communication_clearCommBreak_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -153,7 +153,7 @@ static Napi::Value windowssys_windows_win32_devices_communication_ClearCommBreak
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_communication_ClearCommError_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_communication_clearCommError_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lperrors = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -175,7 +175,7 @@ static Napi::Value windowssys_windows_win32_devices_communication_ClearCommError
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_communication_CommConfigDialogA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_communication_commConfigDialogA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -197,7 +197,7 @@ static Napi::Value windowssys_windows_win32_devices_communication_CommConfigDial
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_communication_CommConfigDialogW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_communication_commConfigDialogW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -219,7 +219,7 @@ static Napi::Value windowssys_windows_win32_devices_communication_CommConfigDial
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_communication_EscapeCommFunction_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_communication_escapeCommFunction_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwfunc = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -239,7 +239,7 @@ static Napi::Value windowssys_windows_win32_devices_communication_EscapeCommFunc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_communication_GetCommConfig_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_communication_getCommConfig_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcommdev = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -261,7 +261,7 @@ static Napi::Value windowssys_windows_win32_devices_communication_GetCommConfig_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_communication_GetCommMask_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_communication_getCommMask_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpevtmask = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -281,7 +281,7 @@ static Napi::Value windowssys_windows_win32_devices_communication_GetCommMask_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_communication_GetCommModemStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_communication_getCommModemStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpmodemstat = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -301,7 +301,7 @@ static Napi::Value windowssys_windows_win32_devices_communication_GetCommModemSt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_communication_GetCommPorts_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_communication_getCommPorts_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpportnumbers = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uportnumberscount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -323,7 +323,7 @@ static Napi::Value windowssys_windows_win32_devices_communication_GetCommPorts_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_communication_GetCommProperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_communication_getCommProperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcommprop = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -343,7 +343,7 @@ static Napi::Value windowssys_windows_win32_devices_communication_GetCommPropert
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_communication_GetCommState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_communication_getCommState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -363,7 +363,7 @@ static Napi::Value windowssys_windows_win32_devices_communication_GetCommState_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_communication_GetCommTimeouts_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_communication_getCommTimeouts_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcommtimeouts = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -383,7 +383,7 @@ static Napi::Value windowssys_windows_win32_devices_communication_GetCommTimeout
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_communication_GetDefaultCommConfigA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_communication_getDefaultCommConfigA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -405,7 +405,7 @@ static Napi::Value windowssys_windows_win32_devices_communication_GetDefaultComm
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_communication_GetDefaultCommConfigW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_communication_getDefaultCommConfigW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -427,7 +427,7 @@ static Napi::Value windowssys_windows_win32_devices_communication_GetDefaultComm
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_communication_OpenCommPort_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_communication_openCommPort_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t uportnumber = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwdesiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -449,7 +449,7 @@ static Napi::Value windowssys_windows_win32_devices_communication_OpenCommPort_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_devices_communication_PurgeComm_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_communication_purgeComm_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -469,7 +469,7 @@ static Napi::Value windowssys_windows_win32_devices_communication_PurgeComm_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_communication_SetCommBreak_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_communication_setCommBreak_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -487,7 +487,7 @@ static Napi::Value windowssys_windows_win32_devices_communication_SetCommBreak_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_communication_SetCommConfig_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_communication_setCommConfig_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcommdev = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -509,7 +509,7 @@ static Napi::Value windowssys_windows_win32_devices_communication_SetCommConfig_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_communication_SetCommMask_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_communication_setCommMask_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwevtmask = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -529,7 +529,7 @@ static Napi::Value windowssys_windows_win32_devices_communication_SetCommMask_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_communication_SetCommState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_communication_setCommState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdcb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -549,7 +549,7 @@ static Napi::Value windowssys_windows_win32_devices_communication_SetCommState_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_communication_SetCommTimeouts_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_communication_setCommTimeouts_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcommtimeouts = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -569,7 +569,7 @@ static Napi::Value windowssys_windows_win32_devices_communication_SetCommTimeout
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_communication_SetDefaultCommConfigA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_communication_setDefaultCommConfigA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -591,7 +591,7 @@ static Napi::Value windowssys_windows_win32_devices_communication_SetDefaultComm
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_communication_SetDefaultCommConfigW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_communication_setDefaultCommConfigW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -613,7 +613,7 @@ static Napi::Value windowssys_windows_win32_devices_communication_SetDefaultComm
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_communication_SetupComm_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_communication_setupComm_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwinqueue = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -635,7 +635,7 @@ static Napi::Value windowssys_windows_win32_devices_communication_SetupComm_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_communication_TransmitCommChar_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_communication_transmitCommChar_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int8_t cchar = static_cast<int8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -655,7 +655,7 @@ static Napi::Value windowssys_windows_win32_devices_communication_TransmitCommCh
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_communication_WaitCommEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_communication_waitCommEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpevtmask = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -678,36 +678,36 @@ static Napi::Value windowssys_windows_win32_devices_communication_WaitCommEvent_
 }
 
 static void register_windows_win32_devices_communication_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_devices_communication_BuildCommDCBA", Napi::Function::New(env, windowssys_windows_win32_devices_communication_BuildCommDCBA_napi));
-    exports.Set("windowssys_windows_win32_devices_communication_BuildCommDCBAndTimeoutsA", Napi::Function::New(env, windowssys_windows_win32_devices_communication_BuildCommDCBAndTimeoutsA_napi));
-    exports.Set("windowssys_windows_win32_devices_communication_BuildCommDCBAndTimeoutsW", Napi::Function::New(env, windowssys_windows_win32_devices_communication_BuildCommDCBAndTimeoutsW_napi));
-    exports.Set("windowssys_windows_win32_devices_communication_BuildCommDCBW", Napi::Function::New(env, windowssys_windows_win32_devices_communication_BuildCommDCBW_napi));
-    exports.Set("windowssys_windows_win32_devices_communication_ClearCommBreak", Napi::Function::New(env, windowssys_windows_win32_devices_communication_ClearCommBreak_napi));
-    exports.Set("windowssys_windows_win32_devices_communication_ClearCommError", Napi::Function::New(env, windowssys_windows_win32_devices_communication_ClearCommError_napi));
-    exports.Set("windowssys_windows_win32_devices_communication_CommConfigDialogA", Napi::Function::New(env, windowssys_windows_win32_devices_communication_CommConfigDialogA_napi));
-    exports.Set("windowssys_windows_win32_devices_communication_CommConfigDialogW", Napi::Function::New(env, windowssys_windows_win32_devices_communication_CommConfigDialogW_napi));
-    exports.Set("windowssys_windows_win32_devices_communication_EscapeCommFunction", Napi::Function::New(env, windowssys_windows_win32_devices_communication_EscapeCommFunction_napi));
-    exports.Set("windowssys_windows_win32_devices_communication_GetCommConfig", Napi::Function::New(env, windowssys_windows_win32_devices_communication_GetCommConfig_napi));
-    exports.Set("windowssys_windows_win32_devices_communication_GetCommMask", Napi::Function::New(env, windowssys_windows_win32_devices_communication_GetCommMask_napi));
-    exports.Set("windowssys_windows_win32_devices_communication_GetCommModemStatus", Napi::Function::New(env, windowssys_windows_win32_devices_communication_GetCommModemStatus_napi));
-    exports.Set("windowssys_windows_win32_devices_communication_GetCommPorts", Napi::Function::New(env, windowssys_windows_win32_devices_communication_GetCommPorts_napi));
-    exports.Set("windowssys_windows_win32_devices_communication_GetCommProperties", Napi::Function::New(env, windowssys_windows_win32_devices_communication_GetCommProperties_napi));
-    exports.Set("windowssys_windows_win32_devices_communication_GetCommState", Napi::Function::New(env, windowssys_windows_win32_devices_communication_GetCommState_napi));
-    exports.Set("windowssys_windows_win32_devices_communication_GetCommTimeouts", Napi::Function::New(env, windowssys_windows_win32_devices_communication_GetCommTimeouts_napi));
-    exports.Set("windowssys_windows_win32_devices_communication_GetDefaultCommConfigA", Napi::Function::New(env, windowssys_windows_win32_devices_communication_GetDefaultCommConfigA_napi));
-    exports.Set("windowssys_windows_win32_devices_communication_GetDefaultCommConfigW", Napi::Function::New(env, windowssys_windows_win32_devices_communication_GetDefaultCommConfigW_napi));
-    exports.Set("windowssys_windows_win32_devices_communication_OpenCommPort", Napi::Function::New(env, windowssys_windows_win32_devices_communication_OpenCommPort_napi));
-    exports.Set("windowssys_windows_win32_devices_communication_PurgeComm", Napi::Function::New(env, windowssys_windows_win32_devices_communication_PurgeComm_napi));
-    exports.Set("windowssys_windows_win32_devices_communication_SetCommBreak", Napi::Function::New(env, windowssys_windows_win32_devices_communication_SetCommBreak_napi));
-    exports.Set("windowssys_windows_win32_devices_communication_SetCommConfig", Napi::Function::New(env, windowssys_windows_win32_devices_communication_SetCommConfig_napi));
-    exports.Set("windowssys_windows_win32_devices_communication_SetCommMask", Napi::Function::New(env, windowssys_windows_win32_devices_communication_SetCommMask_napi));
-    exports.Set("windowssys_windows_win32_devices_communication_SetCommState", Napi::Function::New(env, windowssys_windows_win32_devices_communication_SetCommState_napi));
-    exports.Set("windowssys_windows_win32_devices_communication_SetCommTimeouts", Napi::Function::New(env, windowssys_windows_win32_devices_communication_SetCommTimeouts_napi));
-    exports.Set("windowssys_windows_win32_devices_communication_SetDefaultCommConfigA", Napi::Function::New(env, windowssys_windows_win32_devices_communication_SetDefaultCommConfigA_napi));
-    exports.Set("windowssys_windows_win32_devices_communication_SetDefaultCommConfigW", Napi::Function::New(env, windowssys_windows_win32_devices_communication_SetDefaultCommConfigW_napi));
-    exports.Set("windowssys_windows_win32_devices_communication_SetupComm", Napi::Function::New(env, windowssys_windows_win32_devices_communication_SetupComm_napi));
-    exports.Set("windowssys_windows_win32_devices_communication_TransmitCommChar", Napi::Function::New(env, windowssys_windows_win32_devices_communication_TransmitCommChar_napi));
-    exports.Set("windowssys_windows_win32_devices_communication_WaitCommEvent", Napi::Function::New(env, windowssys_windows_win32_devices_communication_WaitCommEvent_napi));
+    exports.Set("windowssys_windows_win32_devices_communication_buildCommDCBA", Napi::Function::New(env, windowssys_windows_win32_devices_communication_buildCommDCBA_napi));
+    exports.Set("windowssys_windows_win32_devices_communication_buildCommDCBAndTimeoutsA", Napi::Function::New(env, windowssys_windows_win32_devices_communication_buildCommDCBAndTimeoutsA_napi));
+    exports.Set("windowssys_windows_win32_devices_communication_buildCommDCBAndTimeoutsW", Napi::Function::New(env, windowssys_windows_win32_devices_communication_buildCommDCBAndTimeoutsW_napi));
+    exports.Set("windowssys_windows_win32_devices_communication_buildCommDCBW", Napi::Function::New(env, windowssys_windows_win32_devices_communication_buildCommDCBW_napi));
+    exports.Set("windowssys_windows_win32_devices_communication_clearCommBreak", Napi::Function::New(env, windowssys_windows_win32_devices_communication_clearCommBreak_napi));
+    exports.Set("windowssys_windows_win32_devices_communication_clearCommError", Napi::Function::New(env, windowssys_windows_win32_devices_communication_clearCommError_napi));
+    exports.Set("windowssys_windows_win32_devices_communication_commConfigDialogA", Napi::Function::New(env, windowssys_windows_win32_devices_communication_commConfigDialogA_napi));
+    exports.Set("windowssys_windows_win32_devices_communication_commConfigDialogW", Napi::Function::New(env, windowssys_windows_win32_devices_communication_commConfigDialogW_napi));
+    exports.Set("windowssys_windows_win32_devices_communication_escapeCommFunction", Napi::Function::New(env, windowssys_windows_win32_devices_communication_escapeCommFunction_napi));
+    exports.Set("windowssys_windows_win32_devices_communication_getCommConfig", Napi::Function::New(env, windowssys_windows_win32_devices_communication_getCommConfig_napi));
+    exports.Set("windowssys_windows_win32_devices_communication_getCommMask", Napi::Function::New(env, windowssys_windows_win32_devices_communication_getCommMask_napi));
+    exports.Set("windowssys_windows_win32_devices_communication_getCommModemStatus", Napi::Function::New(env, windowssys_windows_win32_devices_communication_getCommModemStatus_napi));
+    exports.Set("windowssys_windows_win32_devices_communication_getCommPorts", Napi::Function::New(env, windowssys_windows_win32_devices_communication_getCommPorts_napi));
+    exports.Set("windowssys_windows_win32_devices_communication_getCommProperties", Napi::Function::New(env, windowssys_windows_win32_devices_communication_getCommProperties_napi));
+    exports.Set("windowssys_windows_win32_devices_communication_getCommState", Napi::Function::New(env, windowssys_windows_win32_devices_communication_getCommState_napi));
+    exports.Set("windowssys_windows_win32_devices_communication_getCommTimeouts", Napi::Function::New(env, windowssys_windows_win32_devices_communication_getCommTimeouts_napi));
+    exports.Set("windowssys_windows_win32_devices_communication_getDefaultCommConfigA", Napi::Function::New(env, windowssys_windows_win32_devices_communication_getDefaultCommConfigA_napi));
+    exports.Set("windowssys_windows_win32_devices_communication_getDefaultCommConfigW", Napi::Function::New(env, windowssys_windows_win32_devices_communication_getDefaultCommConfigW_napi));
+    exports.Set("windowssys_windows_win32_devices_communication_openCommPort", Napi::Function::New(env, windowssys_windows_win32_devices_communication_openCommPort_napi));
+    exports.Set("windowssys_windows_win32_devices_communication_purgeComm", Napi::Function::New(env, windowssys_windows_win32_devices_communication_purgeComm_napi));
+    exports.Set("windowssys_windows_win32_devices_communication_setCommBreak", Napi::Function::New(env, windowssys_windows_win32_devices_communication_setCommBreak_napi));
+    exports.Set("windowssys_windows_win32_devices_communication_setCommConfig", Napi::Function::New(env, windowssys_windows_win32_devices_communication_setCommConfig_napi));
+    exports.Set("windowssys_windows_win32_devices_communication_setCommMask", Napi::Function::New(env, windowssys_windows_win32_devices_communication_setCommMask_napi));
+    exports.Set("windowssys_windows_win32_devices_communication_setCommState", Napi::Function::New(env, windowssys_windows_win32_devices_communication_setCommState_napi));
+    exports.Set("windowssys_windows_win32_devices_communication_setCommTimeouts", Napi::Function::New(env, windowssys_windows_win32_devices_communication_setCommTimeouts_napi));
+    exports.Set("windowssys_windows_win32_devices_communication_setDefaultCommConfigA", Napi::Function::New(env, windowssys_windows_win32_devices_communication_setDefaultCommConfigA_napi));
+    exports.Set("windowssys_windows_win32_devices_communication_setDefaultCommConfigW", Napi::Function::New(env, windowssys_windows_win32_devices_communication_setDefaultCommConfigW_napi));
+    exports.Set("windowssys_windows_win32_devices_communication_setupComm", Napi::Function::New(env, windowssys_windows_win32_devices_communication_setupComm_napi));
+    exports.Set("windowssys_windows_win32_devices_communication_transmitCommChar", Napi::Function::New(env, windowssys_windows_win32_devices_communication_transmitCommChar_napi));
+    exports.Set("windowssys_windows_win32_devices_communication_waitCommEvent", Napi::Function::New(env, windowssys_windows_win32_devices_communication_waitCommEvent_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_devices_communication_napi, nullptr };

@@ -1,83 +1,84 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.environment
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
-public expect fun CallEnclave(lproutine: Long, lpparameter: Long, fwaitforthread: BOOL, lpreturnvalue: Long): BOOL
+public expect fun callEnclave(lproutine: Long, lpparameter: COpaquePointer?, fwaitforthread: Bool, lpreturnvalue: COpaquePointer?): Bool
 
-public expect fun CreateEnclave(hprocess: HANDLE, lpaddress: Long, dwsize: ULong, dwinitialcommitment: ULong, flenclavetype: UInt, lpenclaveinformation: Long, dwinfolength: UInt, lpenclaveerror: Long): Long
+public expect fun createEnclave(hprocess: Handle, lpaddress: COpaquePointer?, dwsize: ULong, dwinitialcommitment: ULong, flenclavetype: UInt, lpenclaveinformation: COpaquePointer?, dwinfolength: UInt, lpenclaveerror: COpaquePointer?): COpaquePointer?
 
-public expect fun CreateEnvironmentBlock(lpenvironment: Long, htoken: HANDLE, binherit: BOOL): BOOL
+public expect fun createEnvironmentBlock(lpenvironment: COpaquePointer?, htoken: Handle, binherit: Bool): Bool
 
-public expect fun DeleteEnclave(lpaddress: Long): BOOL
+public expect fun deleteEnclave(lpaddress: COpaquePointer?): Bool
 
-public expect fun DestroyEnvironmentBlock(lpenvironment: Long): BOOL
+public expect fun destroyEnvironmentBlock(lpenvironment: COpaquePointer?): Bool
 
-public expect fun EnclaveGetAttestationReport(enclavedata: Long, report: Long, buffersize: UInt, outputsize: Long): HRESULT
+public expect fun enclaveGetAttestationReport(enclavedata: COpaquePointer?, report: COpaquePointer?, buffersize: UInt, outputsize: COpaquePointer?): Hresult
 
-public expect fun EnclaveGetEnclaveInformation(informationsize: UInt, enclaveinformation: Long): HRESULT
+public expect fun enclaveGetEnclaveInformation(informationsize: UInt, enclaveinformation: COpaquePointer?): Hresult
 
-public expect fun EnclaveSealData(datatoencrypt: Long, datatoencryptsize: UInt, identitypolicy: ENCLAVE_SEALING_IDENTITY_POLICY, runtimepolicy: UInt, protectedblob: Long, buffersize: UInt, protectedblobsize: Long): HRESULT
+public expect fun enclaveSealData(datatoencrypt: COpaquePointer?, datatoencryptsize: UInt, identitypolicy: EnclaveSealingIdentityPolicy, runtimepolicy: UInt, protectedblob: COpaquePointer?, buffersize: UInt, protectedblobsize: COpaquePointer?): Hresult
 
-public expect fun EnclaveUnsealData(protectedblob: Long, protectedblobsize: UInt, decrypteddata: Long, buffersize: UInt, decrypteddatasize: Long, sealingidentity: Long, unsealingflags: Long): HRESULT
+public expect fun enclaveUnsealData(protectedblob: COpaquePointer?, protectedblobsize: UInt, decrypteddata: COpaquePointer?, buffersize: UInt, decrypteddatasize: COpaquePointer?, sealingidentity: COpaquePointer?, unsealingflags: COpaquePointer?): Hresult
 
-public expect fun EnclaveVerifyAttestationReport(enclavetype: UInt, report: Long, reportsize: UInt): HRESULT
+public expect fun enclaveVerifyAttestationReport(enclavetype: UInt, report: COpaquePointer?, reportsize: UInt): Hresult
 
-public expect fun ExpandEnvironmentStringsA(lpsrc: PCSTR, lpdst: PSTR, nsize: UInt): UInt
+public expect fun expandEnvironmentStringsA(lpsrc: Pcstr, lpdst: Pstr, nsize: UInt): UInt
 
-public expect fun ExpandEnvironmentStringsForUserA(htoken: HANDLE, lpsrc: PCSTR, lpdest: PSTR, dwsize: UInt): BOOL
+public expect fun expandEnvironmentStringsForUserA(htoken: Handle, lpsrc: Pcstr, lpdest: Pstr, dwsize: UInt): Bool
 
-public expect fun ExpandEnvironmentStringsForUserW(htoken: HANDLE, lpsrc: PCWSTR, lpdest: PWSTR, dwsize: UInt): BOOL
+public expect fun expandEnvironmentStringsForUserW(htoken: Handle, lpsrc: Pcwstr, lpdest: Pwstr, dwsize: UInt): Bool
 
-public expect fun ExpandEnvironmentStringsW(lpsrc: PCWSTR, lpdst: PWSTR, nsize: UInt): UInt
+public expect fun expandEnvironmentStringsW(lpsrc: Pcwstr, lpdst: Pwstr, nsize: UInt): UInt
 
-public expect fun FreeEnvironmentStringsA(penv: PCSTR): BOOL
+public expect fun freeEnvironmentStringsA(penv: Pcstr): Bool
 
-public expect fun FreeEnvironmentStringsW(penv: PCWSTR): BOOL
+public expect fun freeEnvironmentStringsW(penv: Pcwstr): Bool
 
-public expect fun GetCommandLineA(): PCSTR
+public expect fun getCommandLineA(): Pcstr
 
-public expect fun GetCommandLineW(): PCWSTR
+public expect fun getCommandLineW(): Pcwstr
 
-public expect fun GetCurrentDirectoryA(nbufferlength: UInt, lpbuffer: PSTR): UInt
+public expect fun getCurrentDirectoryA(nbufferlength: UInt, lpbuffer: Pstr): UInt
 
-public expect fun GetCurrentDirectoryW(nbufferlength: UInt, lpbuffer: PWSTR): UInt
+public expect fun getCurrentDirectoryW(nbufferlength: UInt, lpbuffer: Pwstr): UInt
 
-public expect fun GetEnvironmentStrings(): PSTR
+public expect fun getEnvironmentStrings(): Pstr
 
-public expect fun GetEnvironmentStringsW(): PWSTR
+public expect fun getEnvironmentStringsW(): Pwstr
 
-public expect fun GetEnvironmentVariableA(lpname: PCSTR, lpbuffer: PSTR, nsize: UInt): UInt
+public expect fun getEnvironmentVariableA(lpname: Pcstr, lpbuffer: Pstr, nsize: UInt): UInt
 
-public expect fun GetEnvironmentVariableW(lpname: PCWSTR, lpbuffer: PWSTR, nsize: UInt): UInt
+public expect fun getEnvironmentVariableW(lpname: Pcwstr, lpbuffer: Pwstr, nsize: UInt): UInt
 
-public expect fun InitializeEnclave(hprocess: HANDLE, lpaddress: Long, lpenclaveinformation: Long, dwinfolength: UInt, lpenclaveerror: Long): BOOL
+public expect fun initializeEnclave(hprocess: Handle, lpaddress: COpaquePointer?, lpenclaveinformation: COpaquePointer?, dwinfolength: UInt, lpenclaveerror: COpaquePointer?): Bool
 
-public expect fun IsEnclaveTypeSupported(flenclavetype: UInt): BOOL
+public expect fun isEnclaveTypeSupported(flenclavetype: UInt): Bool
 
-public expect fun LoadEnclaveData(hprocess: HANDLE, lpaddress: Long, lpbuffer: Long, nsize: ULong, flprotect: UInt, lppageinformation: Long, dwinfolength: UInt, lpnumberofbyteswritten: Long, lpenclaveerror: Long): BOOL
+public expect fun loadEnclaveData(hprocess: Handle, lpaddress: COpaquePointer?, lpbuffer: COpaquePointer?, nsize: ULong, flprotect: UInt, lppageinformation: COpaquePointer?, dwinfolength: UInt, lpnumberofbyteswritten: COpaquePointer?, lpenclaveerror: COpaquePointer?): Bool
 
-public expect fun LoadEnclaveImageA(lpenclaveaddress: Long, lpimagename: PCSTR): BOOL
+public expect fun loadEnclaveImageA(lpenclaveaddress: COpaquePointer?, lpimagename: Pcstr): Bool
 
-public expect fun LoadEnclaveImageW(lpenclaveaddress: Long, lpimagename: PCWSTR): BOOL
+public expect fun loadEnclaveImageW(lpenclaveaddress: COpaquePointer?, lpimagename: Pcwstr): Bool
 
-public expect fun NeedCurrentDirectoryForExePathA(exename: PCSTR): BOOL
+public expect fun needCurrentDirectoryForExePathA(exename: Pcstr): Bool
 
-public expect fun NeedCurrentDirectoryForExePathW(exename: PCWSTR): BOOL
+public expect fun needCurrentDirectoryForExePathW(exename: Pcwstr): Bool
 
-public expect fun SetCurrentDirectoryA(lppathname: PCSTR): BOOL
+public expect fun setCurrentDirectoryA(lppathname: Pcstr): Bool
 
-public expect fun SetCurrentDirectoryW(lppathname: PCWSTR): BOOL
+public expect fun setCurrentDirectoryW(lppathname: Pcwstr): Bool
 
-public expect fun SetEnvironmentStringsW(newenvironment: PCWSTR): BOOL
+public expect fun setEnvironmentStringsW(newenvironment: Pcwstr): Bool
 
-public expect fun SetEnvironmentVariableA(lpname: PCSTR, lpvalue: PCSTR): BOOL
+public expect fun setEnvironmentVariableA(lpname: Pcstr, lpvalue: Pcstr): Bool
 
-public expect fun SetEnvironmentVariableW(lpname: PCWSTR, lpvalue: PCWSTR): BOOL
+public expect fun setEnvironmentVariableW(lpname: Pcwstr, lpvalue: Pcwstr): Bool
 
-public expect fun TerminateEnclave(lpaddress: Long, fwait: BOOL): BOOL
+public expect fun terminateEnclave(lpaddress: COpaquePointer?, fwait: Bool): Bool

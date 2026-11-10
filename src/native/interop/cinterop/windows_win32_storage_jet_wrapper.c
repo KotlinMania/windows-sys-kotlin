@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_storage_jet_JetAddColumnA(uint64_t sesid, uint64_t tableid, void* szcolumnname, void* pcolumndef, void* pvdefault, uint32_t cbdefault, void* pcolumnid) {
+int32_t windowssys_windows_win32_storage_jet_jetAddColumnA(uint64_t sesid, uint64_t tableid, void* szcolumnname, void* pcolumndef, void* pvdefault, uint32_t cbdefault, void* pcolumnid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -43,7 +43,7 @@ int32_t windowssys_windows_win32_storage_jet_JetAddColumnA(uint64_t sesid, uint6
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetAddColumnW(uint64_t sesid, uint64_t tableid, void* szcolumnname, void* pcolumndef, void* pvdefault, uint32_t cbdefault, void* pcolumnid) {
+int32_t windowssys_windows_win32_storage_jet_jetAddColumnW(uint64_t sesid, uint64_t tableid, void* szcolumnname, void* pcolumndef, void* pvdefault, uint32_t cbdefault, void* pcolumnid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -71,7 +71,7 @@ int32_t windowssys_windows_win32_storage_jet_JetAddColumnW(uint64_t sesid, uint6
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetAttachDatabase2A(uint64_t sesid, void* szfilename, uint32_t cpgdatabasesizemax, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetAttachDatabase2A(uint64_t sesid, void* szfilename, uint32_t cpgdatabasesizemax, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -96,7 +96,7 @@ int32_t windowssys_windows_win32_storage_jet_JetAttachDatabase2A(uint64_t sesid,
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetAttachDatabase2W(uint64_t sesid, void* szfilename, uint32_t cpgdatabasesizemax, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetAttachDatabase2W(uint64_t sesid, void* szfilename, uint32_t cpgdatabasesizemax, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -121,7 +121,7 @@ int32_t windowssys_windows_win32_storage_jet_JetAttachDatabase2W(uint64_t sesid,
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetAttachDatabaseA(uint64_t sesid, void* szfilename, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetAttachDatabaseA(uint64_t sesid, void* szfilename, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -145,7 +145,7 @@ int32_t windowssys_windows_win32_storage_jet_JetAttachDatabaseA(uint64_t sesid, 
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetAttachDatabaseW(uint64_t sesid, void* szfilename, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetAttachDatabaseW(uint64_t sesid, void* szfilename, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -169,7 +169,7 @@ int32_t windowssys_windows_win32_storage_jet_JetAttachDatabaseW(uint64_t sesid, 
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetBackupA(void* szbackuppath, uint32_t grbit, void* pfnstatus) {
+int32_t windowssys_windows_win32_storage_jet_jetBackupA(void* szbackuppath, uint32_t grbit, void* pfnstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -193,7 +193,7 @@ int32_t windowssys_windows_win32_storage_jet_JetBackupA(void* szbackuppath, uint
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetBackupInstanceA(uint64_t instance, void* szbackuppath, uint32_t grbit, void* pfnstatus) {
+int32_t windowssys_windows_win32_storage_jet_jetBackupInstanceA(uint64_t instance, void* szbackuppath, uint32_t grbit, void* pfnstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -218,7 +218,7 @@ int32_t windowssys_windows_win32_storage_jet_JetBackupInstanceA(uint64_t instanc
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetBackupInstanceW(uint64_t instance, void* szbackuppath, uint32_t grbit, void* pfnstatus) {
+int32_t windowssys_windows_win32_storage_jet_jetBackupInstanceW(uint64_t instance, void* szbackuppath, uint32_t grbit, void* pfnstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -243,7 +243,7 @@ int32_t windowssys_windows_win32_storage_jet_JetBackupInstanceW(uint64_t instanc
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetBackupW(void* szbackuppath, uint32_t grbit, void* pfnstatus) {
+int32_t windowssys_windows_win32_storage_jet_jetBackupW(void* szbackuppath, uint32_t grbit, void* pfnstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -267,7 +267,7 @@ int32_t windowssys_windows_win32_storage_jet_JetBackupW(void* szbackuppath, uint
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetBeginExternalBackup(uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetBeginExternalBackup(uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -289,7 +289,7 @@ int32_t windowssys_windows_win32_storage_jet_JetBeginExternalBackup(uint32_t grb
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetBeginExternalBackupInstance(uint64_t instance, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetBeginExternalBackupInstance(uint64_t instance, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -312,7 +312,7 @@ int32_t windowssys_windows_win32_storage_jet_JetBeginExternalBackupInstance(uint
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetBeginSessionA(uint64_t instance, void* psesid, void* szusername, void* szpassword) {
+int32_t windowssys_windows_win32_storage_jet_jetBeginSessionA(uint64_t instance, void* psesid, void* szusername, void* szpassword) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -337,7 +337,7 @@ int32_t windowssys_windows_win32_storage_jet_JetBeginSessionA(uint64_t instance,
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetBeginSessionW(uint64_t instance, void* psesid, void* szusername, void* szpassword) {
+int32_t windowssys_windows_win32_storage_jet_jetBeginSessionW(uint64_t instance, void* psesid, void* szusername, void* szpassword) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -362,7 +362,7 @@ int32_t windowssys_windows_win32_storage_jet_JetBeginSessionW(uint64_t instance,
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetBeginTransaction(uint64_t sesid) {
+int32_t windowssys_windows_win32_storage_jet_jetBeginTransaction(uint64_t sesid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -384,7 +384,7 @@ int32_t windowssys_windows_win32_storage_jet_JetBeginTransaction(uint64_t sesid)
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetBeginTransaction2(uint64_t sesid, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetBeginTransaction2(uint64_t sesid, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -407,7 +407,7 @@ int32_t windowssys_windows_win32_storage_jet_JetBeginTransaction2(uint64_t sesid
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetBeginTransaction3(uint64_t sesid, int64_t trxid, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetBeginTransaction3(uint64_t sesid, int64_t trxid, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -431,7 +431,7 @@ int32_t windowssys_windows_win32_storage_jet_JetBeginTransaction3(uint64_t sesid
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetCloseDatabase(uint64_t sesid, uint32_t dbid, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetCloseDatabase(uint64_t sesid, uint32_t dbid, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -455,7 +455,7 @@ int32_t windowssys_windows_win32_storage_jet_JetCloseDatabase(uint64_t sesid, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetCloseFile(uint64_t hffile) {
+int32_t windowssys_windows_win32_storage_jet_jetCloseFile(uint64_t hffile) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -477,7 +477,7 @@ int32_t windowssys_windows_win32_storage_jet_JetCloseFile(uint64_t hffile) {
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetCloseFileInstance(uint64_t instance, uint64_t hffile) {
+int32_t windowssys_windows_win32_storage_jet_jetCloseFileInstance(uint64_t instance, uint64_t hffile) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -500,7 +500,7 @@ int32_t windowssys_windows_win32_storage_jet_JetCloseFileInstance(uint64_t insta
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetCloseTable(uint64_t sesid, uint64_t tableid) {
+int32_t windowssys_windows_win32_storage_jet_jetCloseTable(uint64_t sesid, uint64_t tableid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -523,7 +523,7 @@ int32_t windowssys_windows_win32_storage_jet_JetCloseTable(uint64_t sesid, uint6
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetCommitTransaction(uint64_t sesid, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetCommitTransaction(uint64_t sesid, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -546,7 +546,7 @@ int32_t windowssys_windows_win32_storage_jet_JetCommitTransaction(uint64_t sesid
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetCommitTransaction2(uint64_t sesid, uint32_t grbit, uint32_t cmsecdurablecommit, void* pcommitid) {
+int32_t windowssys_windows_win32_storage_jet_jetCommitTransaction2(uint64_t sesid, uint32_t grbit, uint32_t cmsecdurablecommit, void* pcommitid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -571,7 +571,7 @@ int32_t windowssys_windows_win32_storage_jet_JetCommitTransaction2(uint64_t sesi
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetCompactA(uint64_t sesid, void* szdatabasesrc, void* szdatabasedest, void* pfnstatus, void* pconvert, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetCompactA(uint64_t sesid, void* szdatabasesrc, void* szdatabasedest, void* pfnstatus, void* pconvert, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -598,7 +598,7 @@ int32_t windowssys_windows_win32_storage_jet_JetCompactA(uint64_t sesid, void* s
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetCompactW(uint64_t sesid, void* szdatabasesrc, void* szdatabasedest, void* pfnstatus, void* pconvert, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetCompactW(uint64_t sesid, void* szdatabasesrc, void* szdatabasedest, void* pfnstatus, void* pconvert, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -625,7 +625,7 @@ int32_t windowssys_windows_win32_storage_jet_JetCompactW(uint64_t sesid, void* s
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetComputeStats(uint64_t sesid, uint64_t tableid) {
+int32_t windowssys_windows_win32_storage_jet_jetComputeStats(uint64_t sesid, uint64_t tableid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -648,7 +648,7 @@ int32_t windowssys_windows_win32_storage_jet_JetComputeStats(uint64_t sesid, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetConfigureProcessForCrashDump(uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetConfigureProcessForCrashDump(uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -670,7 +670,7 @@ int32_t windowssys_windows_win32_storage_jet_JetConfigureProcessForCrashDump(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetCreateDatabase2A(uint64_t sesid, void* szfilename, uint32_t cpgdatabasesizemax, void* pdbid, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetCreateDatabase2A(uint64_t sesid, void* szfilename, uint32_t cpgdatabasesizemax, void* pdbid, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -696,7 +696,7 @@ int32_t windowssys_windows_win32_storage_jet_JetCreateDatabase2A(uint64_t sesid,
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetCreateDatabase2W(uint64_t sesid, void* szfilename, uint32_t cpgdatabasesizemax, void* pdbid, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetCreateDatabase2W(uint64_t sesid, void* szfilename, uint32_t cpgdatabasesizemax, void* pdbid, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -722,7 +722,7 @@ int32_t windowssys_windows_win32_storage_jet_JetCreateDatabase2W(uint64_t sesid,
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetCreateDatabaseA(uint64_t sesid, void* szfilename, void* szconnect, void* pdbid, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetCreateDatabaseA(uint64_t sesid, void* szfilename, void* szconnect, void* pdbid, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -748,7 +748,7 @@ int32_t windowssys_windows_win32_storage_jet_JetCreateDatabaseA(uint64_t sesid, 
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetCreateDatabaseW(uint64_t sesid, void* szfilename, void* szconnect, void* pdbid, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetCreateDatabaseW(uint64_t sesid, void* szfilename, void* szconnect, void* pdbid, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -774,7 +774,7 @@ int32_t windowssys_windows_win32_storage_jet_JetCreateDatabaseW(uint64_t sesid, 
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetCreateIndex2A(uint64_t sesid, uint64_t tableid, void* pindexcreate, uint32_t cindexcreate) {
+int32_t windowssys_windows_win32_storage_jet_jetCreateIndex2A(uint64_t sesid, uint64_t tableid, void* pindexcreate, uint32_t cindexcreate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -799,7 +799,7 @@ int32_t windowssys_windows_win32_storage_jet_JetCreateIndex2A(uint64_t sesid, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetCreateIndex2W(uint64_t sesid, uint64_t tableid, void* pindexcreate, uint32_t cindexcreate) {
+int32_t windowssys_windows_win32_storage_jet_jetCreateIndex2W(uint64_t sesid, uint64_t tableid, void* pindexcreate, uint32_t cindexcreate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -824,7 +824,7 @@ int32_t windowssys_windows_win32_storage_jet_JetCreateIndex2W(uint64_t sesid, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetCreateIndex3A(uint64_t sesid, uint64_t tableid, void* pindexcreate, uint32_t cindexcreate) {
+int32_t windowssys_windows_win32_storage_jet_jetCreateIndex3A(uint64_t sesid, uint64_t tableid, void* pindexcreate, uint32_t cindexcreate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -849,7 +849,7 @@ int32_t windowssys_windows_win32_storage_jet_JetCreateIndex3A(uint64_t sesid, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetCreateIndex3W(uint64_t sesid, uint64_t tableid, void* pindexcreate, uint32_t cindexcreate) {
+int32_t windowssys_windows_win32_storage_jet_jetCreateIndex3W(uint64_t sesid, uint64_t tableid, void* pindexcreate, uint32_t cindexcreate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -874,7 +874,7 @@ int32_t windowssys_windows_win32_storage_jet_JetCreateIndex3W(uint64_t sesid, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetCreateIndex4A(uint64_t sesid, uint64_t tableid, void* pindexcreate, uint32_t cindexcreate) {
+int32_t windowssys_windows_win32_storage_jet_jetCreateIndex4A(uint64_t sesid, uint64_t tableid, void* pindexcreate, uint32_t cindexcreate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -899,7 +899,7 @@ int32_t windowssys_windows_win32_storage_jet_JetCreateIndex4A(uint64_t sesid, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetCreateIndex4W(uint64_t sesid, uint64_t tableid, void* pindexcreate, uint32_t cindexcreate) {
+int32_t windowssys_windows_win32_storage_jet_jetCreateIndex4W(uint64_t sesid, uint64_t tableid, void* pindexcreate, uint32_t cindexcreate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -924,7 +924,7 @@ int32_t windowssys_windows_win32_storage_jet_JetCreateIndex4W(uint64_t sesid, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetCreateIndexA(uint64_t sesid, uint64_t tableid, void* szindexname, uint32_t grbit, void* szkey, uint32_t cbkey, uint32_t ldensity) {
+int32_t windowssys_windows_win32_storage_jet_jetCreateIndexA(uint64_t sesid, uint64_t tableid, void* szindexname, uint32_t grbit, void* szkey, uint32_t cbkey, uint32_t ldensity) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -952,7 +952,7 @@ int32_t windowssys_windows_win32_storage_jet_JetCreateIndexA(uint64_t sesid, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetCreateIndexW(uint64_t sesid, uint64_t tableid, void* szindexname, uint32_t grbit, void* szkey, uint32_t cbkey, uint32_t ldensity) {
+int32_t windowssys_windows_win32_storage_jet_jetCreateIndexW(uint64_t sesid, uint64_t tableid, void* szindexname, uint32_t grbit, void* szkey, uint32_t cbkey, uint32_t ldensity) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -980,7 +980,7 @@ int32_t windowssys_windows_win32_storage_jet_JetCreateIndexW(uint64_t sesid, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetCreateInstance2A(void* pinstance, void* szinstancename, void* szdisplayname, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetCreateInstance2A(void* pinstance, void* szinstancename, void* szdisplayname, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1005,7 +1005,7 @@ int32_t windowssys_windows_win32_storage_jet_JetCreateInstance2A(void* pinstance
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetCreateInstance2W(void* pinstance, void* szinstancename, void* szdisplayname, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetCreateInstance2W(void* pinstance, void* szinstancename, void* szdisplayname, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1030,7 +1030,7 @@ int32_t windowssys_windows_win32_storage_jet_JetCreateInstance2W(void* pinstance
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetCreateInstanceA(void* pinstance, void* szinstancename) {
+int32_t windowssys_windows_win32_storage_jet_jetCreateInstanceA(void* pinstance, void* szinstancename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1053,7 +1053,7 @@ int32_t windowssys_windows_win32_storage_jet_JetCreateInstanceA(void* pinstance,
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetCreateInstanceW(void* pinstance, void* szinstancename) {
+int32_t windowssys_windows_win32_storage_jet_jetCreateInstanceW(void* pinstance, void* szinstancename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1076,7 +1076,7 @@ int32_t windowssys_windows_win32_storage_jet_JetCreateInstanceW(void* pinstance,
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetCreateTableA(uint64_t sesid, uint32_t dbid, void* sztablename, uint32_t lpages, uint32_t ldensity, void* ptableid) {
+int32_t windowssys_windows_win32_storage_jet_jetCreateTableA(uint64_t sesid, uint32_t dbid, void* sztablename, uint32_t lpages, uint32_t ldensity, void* ptableid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1103,7 +1103,7 @@ int32_t windowssys_windows_win32_storage_jet_JetCreateTableA(uint64_t sesid, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetCreateTableColumnIndex2A(uint64_t sesid, uint32_t dbid, void* ptablecreate) {
+int32_t windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex2A(uint64_t sesid, uint32_t dbid, void* ptablecreate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1127,7 +1127,7 @@ int32_t windowssys_windows_win32_storage_jet_JetCreateTableColumnIndex2A(uint64_
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetCreateTableColumnIndex2W(uint64_t sesid, uint32_t dbid, void* ptablecreate) {
+int32_t windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex2W(uint64_t sesid, uint32_t dbid, void* ptablecreate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1151,7 +1151,7 @@ int32_t windowssys_windows_win32_storage_jet_JetCreateTableColumnIndex2W(uint64_
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetCreateTableColumnIndex3A(uint64_t sesid, uint32_t dbid, void* ptablecreate) {
+int32_t windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex3A(uint64_t sesid, uint32_t dbid, void* ptablecreate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1175,7 +1175,7 @@ int32_t windowssys_windows_win32_storage_jet_JetCreateTableColumnIndex3A(uint64_
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetCreateTableColumnIndex3W(uint64_t sesid, uint32_t dbid, void* ptablecreate) {
+int32_t windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex3W(uint64_t sesid, uint32_t dbid, void* ptablecreate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1199,7 +1199,7 @@ int32_t windowssys_windows_win32_storage_jet_JetCreateTableColumnIndex3W(uint64_
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetCreateTableColumnIndex4A(uint64_t sesid, uint32_t dbid, void* ptablecreate) {
+int32_t windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex4A(uint64_t sesid, uint32_t dbid, void* ptablecreate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1223,7 +1223,7 @@ int32_t windowssys_windows_win32_storage_jet_JetCreateTableColumnIndex4A(uint64_
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetCreateTableColumnIndex4W(uint64_t sesid, uint32_t dbid, void* ptablecreate) {
+int32_t windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex4W(uint64_t sesid, uint32_t dbid, void* ptablecreate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1247,7 +1247,7 @@ int32_t windowssys_windows_win32_storage_jet_JetCreateTableColumnIndex4W(uint64_
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetCreateTableColumnIndexA(uint64_t sesid, uint32_t dbid, void* ptablecreate) {
+int32_t windowssys_windows_win32_storage_jet_jetCreateTableColumnIndexA(uint64_t sesid, uint32_t dbid, void* ptablecreate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1271,7 +1271,7 @@ int32_t windowssys_windows_win32_storage_jet_JetCreateTableColumnIndexA(uint64_t
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetCreateTableColumnIndexW(uint64_t sesid, uint32_t dbid, void* ptablecreate) {
+int32_t windowssys_windows_win32_storage_jet_jetCreateTableColumnIndexW(uint64_t sesid, uint32_t dbid, void* ptablecreate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1295,7 +1295,7 @@ int32_t windowssys_windows_win32_storage_jet_JetCreateTableColumnIndexW(uint64_t
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetCreateTableW(uint64_t sesid, uint32_t dbid, void* sztablename, uint32_t lpages, uint32_t ldensity, void* ptableid) {
+int32_t windowssys_windows_win32_storage_jet_jetCreateTableW(uint64_t sesid, uint32_t dbid, void* sztablename, uint32_t lpages, uint32_t ldensity, void* ptableid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1322,7 +1322,7 @@ int32_t windowssys_windows_win32_storage_jet_JetCreateTableW(uint64_t sesid, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetDefragment2A(uint64_t sesid, uint32_t dbid, void* sztablename, void* pcpasses, void* pcseconds, void* callback, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetDefragment2A(uint64_t sesid, uint32_t dbid, void* sztablename, void* pcpasses, void* pcseconds, void* callback, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1350,7 +1350,7 @@ int32_t windowssys_windows_win32_storage_jet_JetDefragment2A(uint64_t sesid, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetDefragment2W(uint64_t sesid, uint32_t dbid, void* sztablename, void* pcpasses, void* pcseconds, void* callback, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetDefragment2W(uint64_t sesid, uint32_t dbid, void* sztablename, void* pcpasses, void* pcseconds, void* callback, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1378,7 +1378,7 @@ int32_t windowssys_windows_win32_storage_jet_JetDefragment2W(uint64_t sesid, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetDefragment3A(uint64_t sesid, void* szdatabasename, void* sztablename, void* pcpasses, void* pcseconds, void* callback, void* pvcontext, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetDefragment3A(uint64_t sesid, void* szdatabasename, void* sztablename, void* pcpasses, void* pcseconds, void* callback, void* pvcontext, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1407,7 +1407,7 @@ int32_t windowssys_windows_win32_storage_jet_JetDefragment3A(uint64_t sesid, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetDefragment3W(uint64_t sesid, void* szdatabasename, void* sztablename, void* pcpasses, void* pcseconds, void* callback, void* pvcontext, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetDefragment3W(uint64_t sesid, void* szdatabasename, void* sztablename, void* pcpasses, void* pcseconds, void* callback, void* pvcontext, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1436,7 +1436,7 @@ int32_t windowssys_windows_win32_storage_jet_JetDefragment3W(uint64_t sesid, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetDefragmentA(uint64_t sesid, uint32_t dbid, void* sztablename, void* pcpasses, void* pcseconds, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetDefragmentA(uint64_t sesid, uint32_t dbid, void* sztablename, void* pcpasses, void* pcseconds, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1463,7 +1463,7 @@ int32_t windowssys_windows_win32_storage_jet_JetDefragmentA(uint64_t sesid, uint
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetDefragmentW(uint64_t sesid, uint32_t dbid, void* sztablename, void* pcpasses, void* pcseconds, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetDefragmentW(uint64_t sesid, uint32_t dbid, void* sztablename, void* pcpasses, void* pcseconds, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1490,7 +1490,7 @@ int32_t windowssys_windows_win32_storage_jet_JetDefragmentW(uint64_t sesid, uint
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetDelete(uint64_t sesid, uint64_t tableid) {
+int32_t windowssys_windows_win32_storage_jet_jetDelete(uint64_t sesid, uint64_t tableid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1513,7 +1513,7 @@ int32_t windowssys_windows_win32_storage_jet_JetDelete(uint64_t sesid, uint64_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetDeleteColumn2A(uint64_t sesid, uint64_t tableid, void* szcolumnname, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetDeleteColumn2A(uint64_t sesid, uint64_t tableid, void* szcolumnname, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1538,7 +1538,7 @@ int32_t windowssys_windows_win32_storage_jet_JetDeleteColumn2A(uint64_t sesid, u
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetDeleteColumn2W(uint64_t sesid, uint64_t tableid, void* szcolumnname, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetDeleteColumn2W(uint64_t sesid, uint64_t tableid, void* szcolumnname, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1563,7 +1563,7 @@ int32_t windowssys_windows_win32_storage_jet_JetDeleteColumn2W(uint64_t sesid, u
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetDeleteColumnA(uint64_t sesid, uint64_t tableid, void* szcolumnname) {
+int32_t windowssys_windows_win32_storage_jet_jetDeleteColumnA(uint64_t sesid, uint64_t tableid, void* szcolumnname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1587,7 +1587,7 @@ int32_t windowssys_windows_win32_storage_jet_JetDeleteColumnA(uint64_t sesid, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetDeleteColumnW(uint64_t sesid, uint64_t tableid, void* szcolumnname) {
+int32_t windowssys_windows_win32_storage_jet_jetDeleteColumnW(uint64_t sesid, uint64_t tableid, void* szcolumnname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1611,7 +1611,7 @@ int32_t windowssys_windows_win32_storage_jet_JetDeleteColumnW(uint64_t sesid, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetDeleteIndexA(uint64_t sesid, uint64_t tableid, void* szindexname) {
+int32_t windowssys_windows_win32_storage_jet_jetDeleteIndexA(uint64_t sesid, uint64_t tableid, void* szindexname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1635,7 +1635,7 @@ int32_t windowssys_windows_win32_storage_jet_JetDeleteIndexA(uint64_t sesid, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetDeleteIndexW(uint64_t sesid, uint64_t tableid, void* szindexname) {
+int32_t windowssys_windows_win32_storage_jet_jetDeleteIndexW(uint64_t sesid, uint64_t tableid, void* szindexname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1659,7 +1659,7 @@ int32_t windowssys_windows_win32_storage_jet_JetDeleteIndexW(uint64_t sesid, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetDeleteTableA(uint64_t sesid, uint32_t dbid, void* sztablename) {
+int32_t windowssys_windows_win32_storage_jet_jetDeleteTableA(uint64_t sesid, uint32_t dbid, void* sztablename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1683,7 +1683,7 @@ int32_t windowssys_windows_win32_storage_jet_JetDeleteTableA(uint64_t sesid, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetDeleteTableW(uint64_t sesid, uint32_t dbid, void* sztablename) {
+int32_t windowssys_windows_win32_storage_jet_jetDeleteTableW(uint64_t sesid, uint32_t dbid, void* sztablename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1707,7 +1707,7 @@ int32_t windowssys_windows_win32_storage_jet_JetDeleteTableW(uint64_t sesid, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetDetachDatabase2A(uint64_t sesid, void* szfilename, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetDetachDatabase2A(uint64_t sesid, void* szfilename, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1731,7 +1731,7 @@ int32_t windowssys_windows_win32_storage_jet_JetDetachDatabase2A(uint64_t sesid,
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetDetachDatabase2W(uint64_t sesid, void* szfilename, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetDetachDatabase2W(uint64_t sesid, void* szfilename, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1755,7 +1755,7 @@ int32_t windowssys_windows_win32_storage_jet_JetDetachDatabase2W(uint64_t sesid,
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetDetachDatabaseA(uint64_t sesid, void* szfilename) {
+int32_t windowssys_windows_win32_storage_jet_jetDetachDatabaseA(uint64_t sesid, void* szfilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1778,7 +1778,7 @@ int32_t windowssys_windows_win32_storage_jet_JetDetachDatabaseA(uint64_t sesid, 
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetDetachDatabaseW(uint64_t sesid, void* szfilename) {
+int32_t windowssys_windows_win32_storage_jet_jetDetachDatabaseW(uint64_t sesid, void* szfilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1801,7 +1801,7 @@ int32_t windowssys_windows_win32_storage_jet_JetDetachDatabaseW(uint64_t sesid, 
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetDupCursor(uint64_t sesid, uint64_t tableid, void* ptableid, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetDupCursor(uint64_t sesid, uint64_t tableid, void* ptableid, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1826,7 +1826,7 @@ int32_t windowssys_windows_win32_storage_jet_JetDupCursor(uint64_t sesid, uint64
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetDupSession(uint64_t sesid, void* psesid) {
+int32_t windowssys_windows_win32_storage_jet_jetDupSession(uint64_t sesid, void* psesid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1849,7 +1849,7 @@ int32_t windowssys_windows_win32_storage_jet_JetDupSession(uint64_t sesid, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetEnableMultiInstanceA(void* psetsysparam, uint32_t csetsysparam, void* pcsetsucceed) {
+int32_t windowssys_windows_win32_storage_jet_jetEnableMultiInstanceA(void* psetsysparam, uint32_t csetsysparam, void* pcsetsucceed) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1873,7 +1873,7 @@ int32_t windowssys_windows_win32_storage_jet_JetEnableMultiInstanceA(void* psets
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetEnableMultiInstanceW(void* psetsysparam, uint32_t csetsysparam, void* pcsetsucceed) {
+int32_t windowssys_windows_win32_storage_jet_jetEnableMultiInstanceW(void* psetsysparam, uint32_t csetsysparam, void* pcsetsucceed) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1897,7 +1897,7 @@ int32_t windowssys_windows_win32_storage_jet_JetEnableMultiInstanceW(void* psets
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetEndExternalBackup(void) {
+int32_t windowssys_windows_win32_storage_jet_jetEndExternalBackup(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1918,7 +1918,7 @@ int32_t windowssys_windows_win32_storage_jet_JetEndExternalBackup(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetEndExternalBackupInstance(uint64_t instance) {
+int32_t windowssys_windows_win32_storage_jet_jetEndExternalBackupInstance(uint64_t instance) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1940,7 +1940,7 @@ int32_t windowssys_windows_win32_storage_jet_JetEndExternalBackupInstance(uint64
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetEndExternalBackupInstance2(uint64_t instance, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetEndExternalBackupInstance2(uint64_t instance, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1963,7 +1963,7 @@ int32_t windowssys_windows_win32_storage_jet_JetEndExternalBackupInstance2(uint6
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetEndSession(uint64_t sesid, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetEndSession(uint64_t sesid, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1986,7 +1986,7 @@ int32_t windowssys_windows_win32_storage_jet_JetEndSession(uint64_t sesid, uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetEnumerateColumns(uint64_t sesid, uint64_t tableid, uint32_t cenumcolumnid, void* rgenumcolumnid, void* pcenumcolumn, void* prgenumcolumn, void* pfnrealloc, void* pvrealloccontext, uint32_t cbdatamost, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetEnumerateColumns(uint64_t sesid, uint64_t tableid, uint32_t cenumcolumnid, void* rgenumcolumnid, void* pcenumcolumn, void* prgenumcolumn, void* pfnrealloc, void* pvrealloccontext, uint32_t cbdatamost, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, uint32_t, void*, void*, void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2017,7 +2017,7 @@ int32_t windowssys_windows_win32_storage_jet_JetEnumerateColumns(uint64_t sesid,
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetEscrowUpdate(uint64_t sesid, uint64_t tableid, uint32_t columnid, void* pv, uint32_t cbmax, void* pvold, uint32_t cboldmax, void* pcboldactual, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetEscrowUpdate(uint64_t sesid, uint64_t tableid, uint32_t columnid, void* pv, uint32_t cbmax, void* pvold, uint32_t cboldmax, void* pcboldactual, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, uint32_t, void*, uint32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2047,7 +2047,7 @@ int32_t windowssys_windows_win32_storage_jet_JetEscrowUpdate(uint64_t sesid, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetExternalRestore2A(void* szcheckpointfilepath, void* szlogpath, void* rgrstmap, int32_t crstfilemap, void* szbackuplogpath, void* ploginfo, void* sztargetinstancename, void* sztargetinstancelogpath, void* sztargetinstancecheckpointpath, void* pfn) {
+int32_t windowssys_windows_win32_storage_jet_jetExternalRestore2A(void* szcheckpointfilepath, void* szlogpath, void* rgrstmap, int32_t crstfilemap, void* szbackuplogpath, void* ploginfo, void* sztargetinstancename, void* sztargetinstancelogpath, void* sztargetinstancecheckpointpath, void* pfn) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2078,7 +2078,7 @@ int32_t windowssys_windows_win32_storage_jet_JetExternalRestore2A(void* szcheckp
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetExternalRestore2W(void* szcheckpointfilepath, void* szlogpath, void* rgrstmap, int32_t crstfilemap, void* szbackuplogpath, void* ploginfo, void* sztargetinstancename, void* sztargetinstancelogpath, void* sztargetinstancecheckpointpath, void* pfn) {
+int32_t windowssys_windows_win32_storage_jet_jetExternalRestore2W(void* szcheckpointfilepath, void* szlogpath, void* rgrstmap, int32_t crstfilemap, void* szbackuplogpath, void* ploginfo, void* sztargetinstancename, void* sztargetinstancelogpath, void* sztargetinstancecheckpointpath, void* pfn) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2109,7 +2109,7 @@ int32_t windowssys_windows_win32_storage_jet_JetExternalRestore2W(void* szcheckp
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetExternalRestoreA(void* szcheckpointfilepath, void* szlogpath, void* rgrstmap, int32_t crstfilemap, void* szbackuplogpath, int32_t genlow, int32_t genhigh, void* pfn) {
+int32_t windowssys_windows_win32_storage_jet_jetExternalRestoreA(void* szcheckpointfilepath, void* szlogpath, void* rgrstmap, int32_t crstfilemap, void* szbackuplogpath, int32_t genlow, int32_t genhigh, void* pfn) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2138,7 +2138,7 @@ int32_t windowssys_windows_win32_storage_jet_JetExternalRestoreA(void* szcheckpo
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetExternalRestoreW(void* szcheckpointfilepath, void* szlogpath, void* rgrstmap, int32_t crstfilemap, void* szbackuplogpath, int32_t genlow, int32_t genhigh, void* pfn) {
+int32_t windowssys_windows_win32_storage_jet_jetExternalRestoreW(void* szcheckpointfilepath, void* szlogpath, void* rgrstmap, int32_t crstfilemap, void* szbackuplogpath, int32_t genlow, int32_t genhigh, void* pfn) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2167,7 +2167,7 @@ int32_t windowssys_windows_win32_storage_jet_JetExternalRestoreW(void* szcheckpo
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetFreeBuffer(void* pbbuf) {
+int32_t windowssys_windows_win32_storage_jet_jetFreeBuffer(void* pbbuf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2189,7 +2189,7 @@ int32_t windowssys_windows_win32_storage_jet_JetFreeBuffer(void* pbbuf) {
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetAttachInfoA(void* szzdatabases, uint32_t cbmax, void* pcbactual) {
+int32_t windowssys_windows_win32_storage_jet_jetGetAttachInfoA(void* szzdatabases, uint32_t cbmax, void* pcbactual) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2213,7 +2213,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetAttachInfoA(void* szzdatabase
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetAttachInfoInstanceA(uint64_t instance, void* szzdatabases, uint32_t cbmax, void* pcbactual) {
+int32_t windowssys_windows_win32_storage_jet_jetGetAttachInfoInstanceA(uint64_t instance, void* szzdatabases, uint32_t cbmax, void* pcbactual) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2238,7 +2238,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetAttachInfoInstanceA(uint64_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetAttachInfoInstanceW(uint64_t instance, void* szzdatabases, uint32_t cbmax, void* pcbactual) {
+int32_t windowssys_windows_win32_storage_jet_jetGetAttachInfoInstanceW(uint64_t instance, void* szzdatabases, uint32_t cbmax, void* pcbactual) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2263,7 +2263,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetAttachInfoInstanceW(uint64_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetAttachInfoW(void* wszzdatabases, uint32_t cbmax, void* pcbactual) {
+int32_t windowssys_windows_win32_storage_jet_jetGetAttachInfoW(void* wszzdatabases, uint32_t cbmax, void* pcbactual) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2287,7 +2287,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetAttachInfoW(void* wszzdatabas
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetBookmark(uint64_t sesid, uint64_t tableid, void* pvbookmark, uint32_t cbmax, void* pcbactual) {
+int32_t windowssys_windows_win32_storage_jet_jetGetBookmark(uint64_t sesid, uint64_t tableid, void* pvbookmark, uint32_t cbmax, void* pcbactual) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2313,7 +2313,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetBookmark(uint64_t sesid, uint
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetColumnInfoA(uint64_t sesid, uint32_t dbid, void* sztablename, void* pcolumnnameorid, void* pvresult, uint32_t cbmax, uint32_t infolevel) {
+int32_t windowssys_windows_win32_storage_jet_jetGetColumnInfoA(uint64_t sesid, uint32_t dbid, void* sztablename, void* pcolumnnameorid, void* pvresult, uint32_t cbmax, uint32_t infolevel) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2341,7 +2341,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetColumnInfoA(uint64_t sesid, u
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetColumnInfoW(uint64_t sesid, uint32_t dbid, void* sztablename, void* pwcolumnnameorid, void* pvresult, uint32_t cbmax, uint32_t infolevel) {
+int32_t windowssys_windows_win32_storage_jet_jetGetColumnInfoW(uint64_t sesid, uint32_t dbid, void* sztablename, void* pwcolumnnameorid, void* pvresult, uint32_t cbmax, uint32_t infolevel) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2369,7 +2369,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetColumnInfoW(uint64_t sesid, u
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetCurrentIndexA(uint64_t sesid, uint64_t tableid, void* szindexname, uint32_t cbindexname) {
+int32_t windowssys_windows_win32_storage_jet_jetGetCurrentIndexA(uint64_t sesid, uint64_t tableid, void* szindexname, uint32_t cbindexname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2394,7 +2394,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetCurrentIndexA(uint64_t sesid,
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetCurrentIndexW(uint64_t sesid, uint64_t tableid, void* szindexname, uint32_t cbindexname) {
+int32_t windowssys_windows_win32_storage_jet_jetGetCurrentIndexW(uint64_t sesid, uint64_t tableid, void* szindexname, uint32_t cbindexname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2419,7 +2419,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetCurrentIndexW(uint64_t sesid,
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetCursorInfo(uint64_t sesid, uint64_t tableid, void* pvresult, uint32_t cbmax, uint32_t infolevel) {
+int32_t windowssys_windows_win32_storage_jet_jetGetCursorInfo(uint64_t sesid, uint64_t tableid, void* pvresult, uint32_t cbmax, uint32_t infolevel) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2445,7 +2445,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetCursorInfo(uint64_t sesid, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetDatabaseFileInfoA(void* szdatabasename, void* pvresult, uint32_t cbmax, uint32_t infolevel) {
+int32_t windowssys_windows_win32_storage_jet_jetGetDatabaseFileInfoA(void* szdatabasename, void* pvresult, uint32_t cbmax, uint32_t infolevel) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2470,7 +2470,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetDatabaseFileInfoA(void* szdat
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetDatabaseFileInfoW(void* szdatabasename, void* pvresult, uint32_t cbmax, uint32_t infolevel) {
+int32_t windowssys_windows_win32_storage_jet_jetGetDatabaseFileInfoW(void* szdatabasename, void* pvresult, uint32_t cbmax, uint32_t infolevel) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2495,7 +2495,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetDatabaseFileInfoW(void* szdat
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetDatabaseInfoA(uint64_t sesid, uint32_t dbid, void* pvresult, uint32_t cbmax, uint32_t infolevel) {
+int32_t windowssys_windows_win32_storage_jet_jetGetDatabaseInfoA(uint64_t sesid, uint32_t dbid, void* pvresult, uint32_t cbmax, uint32_t infolevel) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2521,7 +2521,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetDatabaseInfoA(uint64_t sesid,
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetDatabaseInfoW(uint64_t sesid, uint32_t dbid, void* pvresult, uint32_t cbmax, uint32_t infolevel) {
+int32_t windowssys_windows_win32_storage_jet_jetGetDatabaseInfoW(uint64_t sesid, uint32_t dbid, void* pvresult, uint32_t cbmax, uint32_t infolevel) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2547,7 +2547,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetDatabaseInfoW(uint64_t sesid,
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetErrorInfoW(void* pvcontext, void* pvresult, uint32_t cbmax, uint32_t infolevel, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetGetErrorInfoW(void* pvcontext, void* pvresult, uint32_t cbmax, uint32_t infolevel, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2573,7 +2573,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetErrorInfoW(void* pvcontext, v
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetIndexInfoA(uint64_t sesid, uint32_t dbid, void* sztablename, void* szindexname, void* pvresult, uint32_t cbresult, uint32_t infolevel) {
+int32_t windowssys_windows_win32_storage_jet_jetGetIndexInfoA(uint64_t sesid, uint32_t dbid, void* sztablename, void* szindexname, void* pvresult, uint32_t cbresult, uint32_t infolevel) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2601,7 +2601,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetIndexInfoA(uint64_t sesid, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetIndexInfoW(uint64_t sesid, uint32_t dbid, void* sztablename, void* szindexname, void* pvresult, uint32_t cbresult, uint32_t infolevel) {
+int32_t windowssys_windows_win32_storage_jet_jetGetIndexInfoW(uint64_t sesid, uint32_t dbid, void* sztablename, void* szindexname, void* pvresult, uint32_t cbresult, uint32_t infolevel) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2629,7 +2629,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetIndexInfoW(uint64_t sesid, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetInstanceInfoA(void* pcinstanceinfo, void* painstanceinfo) {
+int32_t windowssys_windows_win32_storage_jet_jetGetInstanceInfoA(void* pcinstanceinfo, void* painstanceinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2652,7 +2652,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetInstanceInfoA(void* pcinstanc
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetInstanceInfoW(void* pcinstanceinfo, void* painstanceinfo) {
+int32_t windowssys_windows_win32_storage_jet_jetGetInstanceInfoW(void* pcinstanceinfo, void* painstanceinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2675,7 +2675,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetInstanceInfoW(void* pcinstanc
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetInstanceMiscInfo(uint64_t instance, void* pvresult, uint32_t cbmax, uint32_t infolevel) {
+int32_t windowssys_windows_win32_storage_jet_jetGetInstanceMiscInfo(uint64_t instance, void* pvresult, uint32_t cbmax, uint32_t infolevel) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2700,7 +2700,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetInstanceMiscInfo(uint64_t ins
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetLS(uint64_t sesid, uint64_t tableid, void* pls, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetGetLS(uint64_t sesid, uint64_t tableid, void* pls, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2725,7 +2725,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetLS(uint64_t sesid, uint64_t t
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetLock(uint64_t sesid, uint64_t tableid, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetGetLock(uint64_t sesid, uint64_t tableid, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2749,7 +2749,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetLock(uint64_t sesid, uint64_t
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetLogInfoA(void* szzlogs, uint32_t cbmax, void* pcbactual) {
+int32_t windowssys_windows_win32_storage_jet_jetGetLogInfoA(void* szzlogs, uint32_t cbmax, void* pcbactual) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2773,7 +2773,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetLogInfoA(void* szzlogs, uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetLogInfoInstance2A(uint64_t instance, void* szzlogs, uint32_t cbmax, void* pcbactual, void* ploginfo) {
+int32_t windowssys_windows_win32_storage_jet_jetGetLogInfoInstance2A(uint64_t instance, void* szzlogs, uint32_t cbmax, void* pcbactual, void* ploginfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2799,7 +2799,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetLogInfoInstance2A(uint64_t in
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetLogInfoInstance2W(uint64_t instance, void* wszzlogs, uint32_t cbmax, void* pcbactual, void* ploginfo) {
+int32_t windowssys_windows_win32_storage_jet_jetGetLogInfoInstance2W(uint64_t instance, void* wszzlogs, uint32_t cbmax, void* pcbactual, void* ploginfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2825,7 +2825,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetLogInfoInstance2W(uint64_t in
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetLogInfoInstanceA(uint64_t instance, void* szzlogs, uint32_t cbmax, void* pcbactual) {
+int32_t windowssys_windows_win32_storage_jet_jetGetLogInfoInstanceA(uint64_t instance, void* szzlogs, uint32_t cbmax, void* pcbactual) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2850,7 +2850,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetLogInfoInstanceA(uint64_t ins
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetLogInfoInstanceW(uint64_t instance, void* wszzlogs, uint32_t cbmax, void* pcbactual) {
+int32_t windowssys_windows_win32_storage_jet_jetGetLogInfoInstanceW(uint64_t instance, void* wszzlogs, uint32_t cbmax, void* pcbactual) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2875,7 +2875,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetLogInfoInstanceW(uint64_t ins
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetLogInfoW(void* szzlogs, uint32_t cbmax, void* pcbactual) {
+int32_t windowssys_windows_win32_storage_jet_jetGetLogInfoW(void* szzlogs, uint32_t cbmax, void* pcbactual) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2899,7 +2899,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetLogInfoW(void* szzlogs, uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetObjectInfoA(uint64_t sesid, uint32_t dbid, uint32_t objtyp, void* szcontainername, void* szobjectname, void* pvresult, uint32_t cbmax, uint32_t infolevel) {
+int32_t windowssys_windows_win32_storage_jet_jetGetObjectInfoA(uint64_t sesid, uint32_t dbid, uint32_t objtyp, void* szcontainername, void* szobjectname, void* pvresult, uint32_t cbmax, uint32_t infolevel) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, uint32_t, void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2928,7 +2928,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetObjectInfoA(uint64_t sesid, u
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetObjectInfoW(uint64_t sesid, uint32_t dbid, uint32_t objtyp, void* szcontainername, void* szobjectname, void* pvresult, uint32_t cbmax, uint32_t infolevel) {
+int32_t windowssys_windows_win32_storage_jet_jetGetObjectInfoW(uint64_t sesid, uint32_t dbid, uint32_t objtyp, void* szcontainername, void* szobjectname, void* pvresult, uint32_t cbmax, uint32_t infolevel) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, uint32_t, void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2957,7 +2957,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetObjectInfoW(uint64_t sesid, u
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetRecordPosition(uint64_t sesid, uint64_t tableid, void* precpos, uint32_t cbrecpos) {
+int32_t windowssys_windows_win32_storage_jet_jetGetRecordPosition(uint64_t sesid, uint64_t tableid, void* precpos, uint32_t cbrecpos) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2982,7 +2982,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetRecordPosition(uint64_t sesid
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetRecordSize(uint64_t sesid, uint64_t tableid, void* precsize, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetGetRecordSize(uint64_t sesid, uint64_t tableid, void* precsize, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3007,7 +3007,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetRecordSize(uint64_t sesid, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetRecordSize2(uint64_t sesid, uint64_t tableid, void* precsize, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetGetRecordSize2(uint64_t sesid, uint64_t tableid, void* precsize, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3032,7 +3032,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetRecordSize2(uint64_t sesid, u
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetSecondaryIndexBookmark(uint64_t sesid, uint64_t tableid, void* pvsecondarykey, uint32_t cbsecondarykeymax, void* pcbsecondarykeyactual, void* pvprimarybookmark, uint32_t cbprimarybookmarkmax, void* pcbprimarybookmarkactual, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetGetSecondaryIndexBookmark(uint64_t sesid, uint64_t tableid, void* pvsecondarykey, uint32_t cbsecondarykeymax, void* pcbsecondarykeyactual, void* pvprimarybookmark, uint32_t cbprimarybookmarkmax, void* pcbprimarybookmarkactual, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3062,7 +3062,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetSecondaryIndexBookmark(uint64
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetSessionParameter(uint64_t sesid, uint32_t sesparamid, void* pvparam, uint32_t cbparammax, void* pcbparamactual) {
+int32_t windowssys_windows_win32_storage_jet_jetGetSessionParameter(uint64_t sesid, uint32_t sesparamid, void* pvparam, uint32_t cbparammax, void* pcbparamactual) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3088,7 +3088,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetSessionParameter(uint64_t ses
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetSystemParameterA(uint64_t instance, uint64_t sesid, uint32_t paramid, void* plparam, void* szparam, uint32_t cbmax) {
+int32_t windowssys_windows_win32_storage_jet_jetGetSystemParameterA(uint64_t instance, uint64_t sesid, uint32_t paramid, void* plparam, void* szparam, uint32_t cbmax) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3115,7 +3115,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetSystemParameterA(uint64_t ins
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetSystemParameterW(uint64_t instance, uint64_t sesid, uint32_t paramid, void* plparam, void* szparam, uint32_t cbmax) {
+int32_t windowssys_windows_win32_storage_jet_jetGetSystemParameterW(uint64_t instance, uint64_t sesid, uint32_t paramid, void* plparam, void* szparam, uint32_t cbmax) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3142,7 +3142,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetSystemParameterW(uint64_t ins
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetTableColumnInfoA(uint64_t sesid, uint64_t tableid, void* szcolumnname, void* pvresult, uint32_t cbmax, uint32_t infolevel) {
+int32_t windowssys_windows_win32_storage_jet_jetGetTableColumnInfoA(uint64_t sesid, uint64_t tableid, void* szcolumnname, void* pvresult, uint32_t cbmax, uint32_t infolevel) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3169,7 +3169,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetTableColumnInfoA(uint64_t ses
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetTableColumnInfoW(uint64_t sesid, uint64_t tableid, void* szcolumnname, void* pvresult, uint32_t cbmax, uint32_t infolevel) {
+int32_t windowssys_windows_win32_storage_jet_jetGetTableColumnInfoW(uint64_t sesid, uint64_t tableid, void* szcolumnname, void* pvresult, uint32_t cbmax, uint32_t infolevel) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3196,7 +3196,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetTableColumnInfoW(uint64_t ses
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetTableIndexInfoA(uint64_t sesid, uint64_t tableid, void* szindexname, void* pvresult, uint32_t cbresult, uint32_t infolevel) {
+int32_t windowssys_windows_win32_storage_jet_jetGetTableIndexInfoA(uint64_t sesid, uint64_t tableid, void* szindexname, void* pvresult, uint32_t cbresult, uint32_t infolevel) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3223,7 +3223,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetTableIndexInfoA(uint64_t sesi
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetTableIndexInfoW(uint64_t sesid, uint64_t tableid, void* szindexname, void* pvresult, uint32_t cbresult, uint32_t infolevel) {
+int32_t windowssys_windows_win32_storage_jet_jetGetTableIndexInfoW(uint64_t sesid, uint64_t tableid, void* szindexname, void* pvresult, uint32_t cbresult, uint32_t infolevel) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3250,7 +3250,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetTableIndexInfoW(uint64_t sesi
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetTableInfoA(uint64_t sesid, uint64_t tableid, void* pvresult, uint32_t cbmax, uint32_t infolevel) {
+int32_t windowssys_windows_win32_storage_jet_jetGetTableInfoA(uint64_t sesid, uint64_t tableid, void* pvresult, uint32_t cbmax, uint32_t infolevel) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3276,7 +3276,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetTableInfoA(uint64_t sesid, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetTableInfoW(uint64_t sesid, uint64_t tableid, void* pvresult, uint32_t cbmax, uint32_t infolevel) {
+int32_t windowssys_windows_win32_storage_jet_jetGetTableInfoW(uint64_t sesid, uint64_t tableid, void* pvresult, uint32_t cbmax, uint32_t infolevel) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3302,7 +3302,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetTableInfoW(uint64_t sesid, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetThreadStats(void* pvresult, uint32_t cbmax) {
+int32_t windowssys_windows_win32_storage_jet_jetGetThreadStats(void* pvresult, uint32_t cbmax) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3325,7 +3325,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetThreadStats(void* pvresult, u
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetTruncateLogInfoInstanceA(uint64_t instance, void* szzlogs, uint32_t cbmax, void* pcbactual) {
+int32_t windowssys_windows_win32_storage_jet_jetGetTruncateLogInfoInstanceA(uint64_t instance, void* szzlogs, uint32_t cbmax, void* pcbactual) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3350,7 +3350,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetTruncateLogInfoInstanceA(uint
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetTruncateLogInfoInstanceW(uint64_t instance, void* wszzlogs, uint32_t cbmax, void* pcbactual) {
+int32_t windowssys_windows_win32_storage_jet_jetGetTruncateLogInfoInstanceW(uint64_t instance, void* wszzlogs, uint32_t cbmax, void* pcbactual) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3375,7 +3375,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetTruncateLogInfoInstanceW(uint
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGetVersion(uint64_t sesid, void* pwversion) {
+int32_t windowssys_windows_win32_storage_jet_jetGetVersion(uint64_t sesid, void* pwversion) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3398,7 +3398,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGetVersion(uint64_t sesid, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGotoBookmark(uint64_t sesid, uint64_t tableid, void* pvbookmark, uint32_t cbbookmark) {
+int32_t windowssys_windows_win32_storage_jet_jetGotoBookmark(uint64_t sesid, uint64_t tableid, void* pvbookmark, uint32_t cbbookmark) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3423,7 +3423,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGotoBookmark(uint64_t sesid, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGotoPosition(uint64_t sesid, uint64_t tableid, void* precpos) {
+int32_t windowssys_windows_win32_storage_jet_jetGotoPosition(uint64_t sesid, uint64_t tableid, void* precpos) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3447,7 +3447,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGotoPosition(uint64_t sesid, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGotoSecondaryIndexBookmark(uint64_t sesid, uint64_t tableid, void* pvsecondarykey, uint32_t cbsecondarykey, void* pvprimarybookmark, uint32_t cbprimarybookmark, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetGotoSecondaryIndexBookmark(uint64_t sesid, uint64_t tableid, void* pvsecondarykey, uint32_t cbsecondarykey, void* pvprimarybookmark, uint32_t cbprimarybookmark, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3475,7 +3475,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGotoSecondaryIndexBookmark(uint6
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetGrowDatabase(uint64_t sesid, uint32_t dbid, uint32_t cpg, void* pcpgreal) {
+int32_t windowssys_windows_win32_storage_jet_jetGrowDatabase(uint64_t sesid, uint32_t dbid, uint32_t cpg, void* pcpgreal) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3500,7 +3500,7 @@ int32_t windowssys_windows_win32_storage_jet_JetGrowDatabase(uint64_t sesid, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetIdle(uint64_t sesid, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetIdle(uint64_t sesid, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3523,7 +3523,7 @@ int32_t windowssys_windows_win32_storage_jet_JetIdle(uint64_t sesid, uint32_t gr
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetIndexRecordCount(uint64_t sesid, uint64_t tableid, void* pcrec, uint32_t crecmax) {
+int32_t windowssys_windows_win32_storage_jet_jetIndexRecordCount(uint64_t sesid, uint64_t tableid, void* pcrec, uint32_t crecmax) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3548,7 +3548,7 @@ int32_t windowssys_windows_win32_storage_jet_JetIndexRecordCount(uint64_t sesid,
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetInit(void* pinstance) {
+int32_t windowssys_windows_win32_storage_jet_jetInit(void* pinstance) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3570,7 +3570,7 @@ int32_t windowssys_windows_win32_storage_jet_JetInit(void* pinstance) {
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetInit2(void* pinstance, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetInit2(void* pinstance, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3593,7 +3593,7 @@ int32_t windowssys_windows_win32_storage_jet_JetInit2(void* pinstance, uint32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetInit3A(void* pinstance, void* prstinfo, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetInit3A(void* pinstance, void* prstinfo, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3617,7 +3617,7 @@ int32_t windowssys_windows_win32_storage_jet_JetInit3A(void* pinstance, void* pr
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetInit3W(void* pinstance, void* prstinfo, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetInit3W(void* pinstance, void* prstinfo, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3641,7 +3641,7 @@ int32_t windowssys_windows_win32_storage_jet_JetInit3W(void* pinstance, void* pr
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetIntersectIndexes(uint64_t sesid, void* rgindexrange, uint32_t cindexrange, void* precordlist, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetIntersectIndexes(uint64_t sesid, void* rgindexrange, uint32_t cindexrange, void* precordlist, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3667,7 +3667,7 @@ int32_t windowssys_windows_win32_storage_jet_JetIntersectIndexes(uint64_t sesid,
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetMakeKey(uint64_t sesid, uint64_t tableid, void* pvdata, uint32_t cbdata, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetMakeKey(uint64_t sesid, uint64_t tableid, void* pvdata, uint32_t cbdata, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3693,7 +3693,7 @@ int32_t windowssys_windows_win32_storage_jet_JetMakeKey(uint64_t sesid, uint64_t
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetMove(uint64_t sesid, uint64_t tableid, int32_t crow, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetMove(uint64_t sesid, uint64_t tableid, int32_t crow, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3718,7 +3718,7 @@ int32_t windowssys_windows_win32_storage_jet_JetMove(uint64_t sesid, uint64_t ta
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetOSSnapshotAbort(uint64_t snapid, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetOSSnapshotAbort(uint64_t snapid, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3741,7 +3741,7 @@ int32_t windowssys_windows_win32_storage_jet_JetOSSnapshotAbort(uint64_t snapid,
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetOSSnapshotEnd(uint64_t snapid, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetOSSnapshotEnd(uint64_t snapid, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3764,7 +3764,7 @@ int32_t windowssys_windows_win32_storage_jet_JetOSSnapshotEnd(uint64_t snapid, u
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetOSSnapshotFreezeA(uint64_t snapid, void* pcinstanceinfo, void* painstanceinfo, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetOSSnapshotFreezeA(uint64_t snapid, void* pcinstanceinfo, void* painstanceinfo, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3789,7 +3789,7 @@ int32_t windowssys_windows_win32_storage_jet_JetOSSnapshotFreezeA(uint64_t snapi
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetOSSnapshotFreezeW(uint64_t snapid, void* pcinstanceinfo, void* painstanceinfo, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetOSSnapshotFreezeW(uint64_t snapid, void* pcinstanceinfo, void* painstanceinfo, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3814,7 +3814,7 @@ int32_t windowssys_windows_win32_storage_jet_JetOSSnapshotFreezeW(uint64_t snapi
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetOSSnapshotGetFreezeInfoA(uint64_t snapid, void* pcinstanceinfo, void* painstanceinfo, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetOSSnapshotGetFreezeInfoA(uint64_t snapid, void* pcinstanceinfo, void* painstanceinfo, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3839,7 +3839,7 @@ int32_t windowssys_windows_win32_storage_jet_JetOSSnapshotGetFreezeInfoA(uint64_
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetOSSnapshotGetFreezeInfoW(uint64_t snapid, void* pcinstanceinfo, void* painstanceinfo, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetOSSnapshotGetFreezeInfoW(uint64_t snapid, void* pcinstanceinfo, void* painstanceinfo, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3864,7 +3864,7 @@ int32_t windowssys_windows_win32_storage_jet_JetOSSnapshotGetFreezeInfoW(uint64_
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetOSSnapshotPrepare(void* psnapid, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetOSSnapshotPrepare(void* psnapid, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3887,7 +3887,7 @@ int32_t windowssys_windows_win32_storage_jet_JetOSSnapshotPrepare(void* psnapid,
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetOSSnapshotPrepareInstance(uint64_t snapid, uint64_t instance, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetOSSnapshotPrepareInstance(uint64_t snapid, uint64_t instance, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3911,7 +3911,7 @@ int32_t windowssys_windows_win32_storage_jet_JetOSSnapshotPrepareInstance(uint64
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetOSSnapshotThaw(uint64_t snapid, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetOSSnapshotThaw(uint64_t snapid, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3934,7 +3934,7 @@ int32_t windowssys_windows_win32_storage_jet_JetOSSnapshotThaw(uint64_t snapid, 
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetOSSnapshotTruncateLog(uint64_t snapid, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetOSSnapshotTruncateLog(uint64_t snapid, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3957,7 +3957,7 @@ int32_t windowssys_windows_win32_storage_jet_JetOSSnapshotTruncateLog(uint64_t s
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetOSSnapshotTruncateLogInstance(uint64_t snapid, uint64_t instance, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetOSSnapshotTruncateLogInstance(uint64_t snapid, uint64_t instance, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3981,7 +3981,7 @@ int32_t windowssys_windows_win32_storage_jet_JetOSSnapshotTruncateLogInstance(ui
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetOpenDatabaseA(uint64_t sesid, void* szfilename, void* szconnect, void* pdbid, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetOpenDatabaseA(uint64_t sesid, void* szfilename, void* szconnect, void* pdbid, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4007,7 +4007,7 @@ int32_t windowssys_windows_win32_storage_jet_JetOpenDatabaseA(uint64_t sesid, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetOpenDatabaseW(uint64_t sesid, void* szfilename, void* szconnect, void* pdbid, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetOpenDatabaseW(uint64_t sesid, void* szfilename, void* szconnect, void* pdbid, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4033,7 +4033,7 @@ int32_t windowssys_windows_win32_storage_jet_JetOpenDatabaseW(uint64_t sesid, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetOpenFileA(void* szfilename, void* phffile, void* pulfilesizelow, void* pulfilesizehigh) {
+int32_t windowssys_windows_win32_storage_jet_jetOpenFileA(void* szfilename, void* phffile, void* pulfilesizelow, void* pulfilesizehigh) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4058,7 +4058,7 @@ int32_t windowssys_windows_win32_storage_jet_JetOpenFileA(void* szfilename, void
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetOpenFileInstanceA(uint64_t instance, void* szfilename, void* phffile, void* pulfilesizelow, void* pulfilesizehigh) {
+int32_t windowssys_windows_win32_storage_jet_jetOpenFileInstanceA(uint64_t instance, void* szfilename, void* phffile, void* pulfilesizelow, void* pulfilesizehigh) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4084,7 +4084,7 @@ int32_t windowssys_windows_win32_storage_jet_JetOpenFileInstanceA(uint64_t insta
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetOpenFileInstanceW(uint64_t instance, void* szfilename, void* phffile, void* pulfilesizelow, void* pulfilesizehigh) {
+int32_t windowssys_windows_win32_storage_jet_jetOpenFileInstanceW(uint64_t instance, void* szfilename, void* phffile, void* pulfilesizelow, void* pulfilesizehigh) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4110,7 +4110,7 @@ int32_t windowssys_windows_win32_storage_jet_JetOpenFileInstanceW(uint64_t insta
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetOpenFileW(void* szfilename, void* phffile, void* pulfilesizelow, void* pulfilesizehigh) {
+int32_t windowssys_windows_win32_storage_jet_jetOpenFileW(void* szfilename, void* phffile, void* pulfilesizelow, void* pulfilesizehigh) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4135,7 +4135,7 @@ int32_t windowssys_windows_win32_storage_jet_JetOpenFileW(void* szfilename, void
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetOpenTableA(uint64_t sesid, uint32_t dbid, void* sztablename, void* pvparameters, uint32_t cbparameters, uint32_t grbit, void* ptableid) {
+int32_t windowssys_windows_win32_storage_jet_jetOpenTableA(uint64_t sesid, uint32_t dbid, void* sztablename, void* pvparameters, uint32_t cbparameters, uint32_t grbit, void* ptableid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4163,7 +4163,7 @@ int32_t windowssys_windows_win32_storage_jet_JetOpenTableA(uint64_t sesid, uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetOpenTableW(uint64_t sesid, uint32_t dbid, void* sztablename, void* pvparameters, uint32_t cbparameters, uint32_t grbit, void* ptableid) {
+int32_t windowssys_windows_win32_storage_jet_jetOpenTableW(uint64_t sesid, uint32_t dbid, void* sztablename, void* pvparameters, uint32_t cbparameters, uint32_t grbit, void* ptableid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4191,7 +4191,7 @@ int32_t windowssys_windows_win32_storage_jet_JetOpenTableW(uint64_t sesid, uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetOpenTempTable(uint64_t sesid, void* prgcolumndef, uint32_t ccolumn, uint32_t grbit, void* ptableid, void* prgcolumnid) {
+int32_t windowssys_windows_win32_storage_jet_jetOpenTempTable(uint64_t sesid, void* prgcolumndef, uint32_t ccolumn, uint32_t grbit, void* ptableid, void* prgcolumnid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4218,7 +4218,7 @@ int32_t windowssys_windows_win32_storage_jet_JetOpenTempTable(uint64_t sesid, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetOpenTempTable2(uint64_t sesid, void* prgcolumndef, uint32_t ccolumn, uint32_t lcid, uint32_t grbit, void* ptableid, void* prgcolumnid) {
+int32_t windowssys_windows_win32_storage_jet_jetOpenTempTable2(uint64_t sesid, void* prgcolumndef, uint32_t ccolumn, uint32_t lcid, uint32_t grbit, void* ptableid, void* prgcolumnid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4246,7 +4246,7 @@ int32_t windowssys_windows_win32_storage_jet_JetOpenTempTable2(uint64_t sesid, v
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetOpenTempTable3(uint64_t sesid, void* prgcolumndef, uint32_t ccolumn, void* pidxunicode, uint32_t grbit, void* ptableid, void* prgcolumnid) {
+int32_t windowssys_windows_win32_storage_jet_jetOpenTempTable3(uint64_t sesid, void* prgcolumndef, uint32_t ccolumn, void* pidxunicode, uint32_t grbit, void* ptableid, void* prgcolumnid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4274,7 +4274,7 @@ int32_t windowssys_windows_win32_storage_jet_JetOpenTempTable3(uint64_t sesid, v
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetOpenTemporaryTable(uint64_t sesid, void* popentemporarytable) {
+int32_t windowssys_windows_win32_storage_jet_jetOpenTemporaryTable(uint64_t sesid, void* popentemporarytable) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4297,7 +4297,7 @@ int32_t windowssys_windows_win32_storage_jet_JetOpenTemporaryTable(uint64_t sesi
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetOpenTemporaryTable2(uint64_t sesid, void* popentemporarytable) {
+int32_t windowssys_windows_win32_storage_jet_jetOpenTemporaryTable2(uint64_t sesid, void* popentemporarytable) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4320,7 +4320,7 @@ int32_t windowssys_windows_win32_storage_jet_JetOpenTemporaryTable2(uint64_t ses
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetPrepareUpdate(uint64_t sesid, uint64_t tableid, uint32_t prep) {
+int32_t windowssys_windows_win32_storage_jet_jetPrepareUpdate(uint64_t sesid, uint64_t tableid, uint32_t prep) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4344,7 +4344,7 @@ int32_t windowssys_windows_win32_storage_jet_JetPrepareUpdate(uint64_t sesid, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetPrereadIndexRanges(uint64_t sesid, uint64_t tableid, void* rgindexranges, uint32_t cindexranges, void* pcrangespreread, void* rgcolumnidpreread, uint32_t ccolumnidpreread, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetPrereadIndexRanges(uint64_t sesid, uint64_t tableid, void* rgindexranges, uint32_t cindexranges, void* pcrangespreread, void* rgcolumnidpreread, uint32_t ccolumnidpreread, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4373,7 +4373,7 @@ int32_t windowssys_windows_win32_storage_jet_JetPrereadIndexRanges(uint64_t sesi
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetPrereadKeys(uint64_t sesid, uint64_t tableid, void* rgpvkeys, void* rgcbkeys, int32_t ckeys, void* pckeyspreread, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetPrereadKeys(uint64_t sesid, uint64_t tableid, void* rgpvkeys, void* rgcbkeys, int32_t ckeys, void* pckeyspreread, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4401,7 +4401,7 @@ int32_t windowssys_windows_win32_storage_jet_JetPrereadKeys(uint64_t sesid, uint
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetReadFile(uint64_t hffile, void* pv, uint32_t cb, void* pcbactual) {
+int32_t windowssys_windows_win32_storage_jet_jetReadFile(uint64_t hffile, void* pv, uint32_t cb, void* pcbactual) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4426,7 +4426,7 @@ int32_t windowssys_windows_win32_storage_jet_JetReadFile(uint64_t hffile, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetReadFileInstance(uint64_t instance, uint64_t hffile, void* pv, uint32_t cb, void* pcbactual) {
+int32_t windowssys_windows_win32_storage_jet_jetReadFileInstance(uint64_t instance, uint64_t hffile, void* pv, uint32_t cb, void* pcbactual) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4452,7 +4452,7 @@ int32_t windowssys_windows_win32_storage_jet_JetReadFileInstance(uint64_t instan
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetRegisterCallback(uint64_t sesid, uint64_t tableid, uint32_t cbtyp, void* pcallback, void* pvcontext, void* phcallbackid) {
+int32_t windowssys_windows_win32_storage_jet_jetRegisterCallback(uint64_t sesid, uint64_t tableid, uint32_t cbtyp, void* pcallback, void* pvcontext, void* phcallbackid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4479,7 +4479,7 @@ int32_t windowssys_windows_win32_storage_jet_JetRegisterCallback(uint64_t sesid,
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetRenameColumnA(uint64_t sesid, uint64_t tableid, void* szname, void* sznamenew, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetRenameColumnA(uint64_t sesid, uint64_t tableid, void* szname, void* sznamenew, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4505,7 +4505,7 @@ int32_t windowssys_windows_win32_storage_jet_JetRenameColumnA(uint64_t sesid, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetRenameColumnW(uint64_t sesid, uint64_t tableid, void* szname, void* sznamenew, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetRenameColumnW(uint64_t sesid, uint64_t tableid, void* szname, void* sznamenew, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4531,7 +4531,7 @@ int32_t windowssys_windows_win32_storage_jet_JetRenameColumnW(uint64_t sesid, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetRenameTableA(uint64_t sesid, uint32_t dbid, void* szname, void* sznamenew) {
+int32_t windowssys_windows_win32_storage_jet_jetRenameTableA(uint64_t sesid, uint32_t dbid, void* szname, void* sznamenew) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4556,7 +4556,7 @@ int32_t windowssys_windows_win32_storage_jet_JetRenameTableA(uint64_t sesid, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetRenameTableW(uint64_t sesid, uint32_t dbid, void* szname, void* sznamenew) {
+int32_t windowssys_windows_win32_storage_jet_jetRenameTableW(uint64_t sesid, uint32_t dbid, void* szname, void* sznamenew) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4581,7 +4581,7 @@ int32_t windowssys_windows_win32_storage_jet_JetRenameTableW(uint64_t sesid, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetResetSessionContext(uint64_t sesid) {
+int32_t windowssys_windows_win32_storage_jet_jetResetSessionContext(uint64_t sesid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4603,7 +4603,7 @@ int32_t windowssys_windows_win32_storage_jet_JetResetSessionContext(uint64_t ses
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetResetTableSequential(uint64_t sesid, uint64_t tableid, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetResetTableSequential(uint64_t sesid, uint64_t tableid, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4627,7 +4627,7 @@ int32_t windowssys_windows_win32_storage_jet_JetResetTableSequential(uint64_t se
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetResizeDatabase(uint64_t sesid, uint32_t dbid, uint32_t cpgtarget, void* pcpgactual, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetResizeDatabase(uint64_t sesid, uint32_t dbid, uint32_t cpgtarget, void* pcpgactual, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4653,7 +4653,7 @@ int32_t windowssys_windows_win32_storage_jet_JetResizeDatabase(uint64_t sesid, u
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetRestore2A(void* sz, void* szdest, void* pfn) {
+int32_t windowssys_windows_win32_storage_jet_jetRestore2A(void* sz, void* szdest, void* pfn) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4677,7 +4677,7 @@ int32_t windowssys_windows_win32_storage_jet_JetRestore2A(void* sz, void* szdest
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetRestore2W(void* sz, void* szdest, void* pfn) {
+int32_t windowssys_windows_win32_storage_jet_jetRestore2W(void* sz, void* szdest, void* pfn) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4701,7 +4701,7 @@ int32_t windowssys_windows_win32_storage_jet_JetRestore2W(void* sz, void* szdest
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetRestoreA(void* szsource, void* pfn) {
+int32_t windowssys_windows_win32_storage_jet_jetRestoreA(void* szsource, void* pfn) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4724,7 +4724,7 @@ int32_t windowssys_windows_win32_storage_jet_JetRestoreA(void* szsource, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetRestoreInstanceA(uint64_t instance, void* sz, void* szdest, void* pfn) {
+int32_t windowssys_windows_win32_storage_jet_jetRestoreInstanceA(uint64_t instance, void* sz, void* szdest, void* pfn) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4749,7 +4749,7 @@ int32_t windowssys_windows_win32_storage_jet_JetRestoreInstanceA(uint64_t instan
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetRestoreInstanceW(uint64_t instance, void* sz, void* szdest, void* pfn) {
+int32_t windowssys_windows_win32_storage_jet_jetRestoreInstanceW(uint64_t instance, void* sz, void* szdest, void* pfn) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4774,7 +4774,7 @@ int32_t windowssys_windows_win32_storage_jet_JetRestoreInstanceW(uint64_t instan
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetRestoreW(void* szsource, void* pfn) {
+int32_t windowssys_windows_win32_storage_jet_jetRestoreW(void* szsource, void* pfn) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4797,7 +4797,7 @@ int32_t windowssys_windows_win32_storage_jet_JetRestoreW(void* szsource, void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetRetrieveColumn(uint64_t sesid, uint64_t tableid, uint32_t columnid, void* pvdata, uint32_t cbdata, void* pcbactual, uint32_t grbit, void* pretinfo) {
+int32_t windowssys_windows_win32_storage_jet_jetRetrieveColumn(uint64_t sesid, uint64_t tableid, uint32_t columnid, void* pvdata, uint32_t cbdata, void* pcbactual, uint32_t grbit, void* pretinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, uint32_t, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4826,7 +4826,7 @@ int32_t windowssys_windows_win32_storage_jet_JetRetrieveColumn(uint64_t sesid, u
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetRetrieveColumns(uint64_t sesid, uint64_t tableid, void* pretrievecolumn, uint32_t cretrievecolumn) {
+int32_t windowssys_windows_win32_storage_jet_jetRetrieveColumns(uint64_t sesid, uint64_t tableid, void* pretrievecolumn, uint32_t cretrievecolumn) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4851,7 +4851,7 @@ int32_t windowssys_windows_win32_storage_jet_JetRetrieveColumns(uint64_t sesid, 
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetRetrieveKey(uint64_t sesid, uint64_t tableid, void* pvkey, uint32_t cbmax, void* pcbactual, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetRetrieveKey(uint64_t sesid, uint64_t tableid, void* pvkey, uint32_t cbmax, void* pcbactual, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4878,7 +4878,7 @@ int32_t windowssys_windows_win32_storage_jet_JetRetrieveKey(uint64_t sesid, uint
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetRollback(uint64_t sesid, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetRollback(uint64_t sesid, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4901,7 +4901,7 @@ int32_t windowssys_windows_win32_storage_jet_JetRollback(uint64_t sesid, uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetSeek(uint64_t sesid, uint64_t tableid, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetSeek(uint64_t sesid, uint64_t tableid, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4925,7 +4925,7 @@ int32_t windowssys_windows_win32_storage_jet_JetSeek(uint64_t sesid, uint64_t ta
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetSetColumn(uint64_t sesid, uint64_t tableid, uint32_t columnid, void* pvdata, uint32_t cbdata, uint32_t grbit, void* psetinfo) {
+int32_t windowssys_windows_win32_storage_jet_jetSetColumn(uint64_t sesid, uint64_t tableid, uint32_t columnid, void* pvdata, uint32_t cbdata, uint32_t grbit, void* psetinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, uint32_t, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4953,7 +4953,7 @@ int32_t windowssys_windows_win32_storage_jet_JetSetColumn(uint64_t sesid, uint64
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetSetColumnDefaultValueA(uint64_t sesid, uint32_t dbid, void* sztablename, void* szcolumnname, void* pvdata, uint32_t cbdata, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetSetColumnDefaultValueA(uint64_t sesid, uint32_t dbid, void* sztablename, void* szcolumnname, void* pvdata, uint32_t cbdata, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4981,7 +4981,7 @@ int32_t windowssys_windows_win32_storage_jet_JetSetColumnDefaultValueA(uint64_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetSetColumnDefaultValueW(uint64_t sesid, uint32_t dbid, void* sztablename, void* szcolumnname, void* pvdata, uint32_t cbdata, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetSetColumnDefaultValueW(uint64_t sesid, uint32_t dbid, void* sztablename, void* szcolumnname, void* pvdata, uint32_t cbdata, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5009,7 +5009,7 @@ int32_t windowssys_windows_win32_storage_jet_JetSetColumnDefaultValueW(uint64_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetSetColumns(uint64_t sesid, uint64_t tableid, void* psetcolumn, uint32_t csetcolumn) {
+int32_t windowssys_windows_win32_storage_jet_jetSetColumns(uint64_t sesid, uint64_t tableid, void* psetcolumn, uint32_t csetcolumn) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5034,7 +5034,7 @@ int32_t windowssys_windows_win32_storage_jet_JetSetColumns(uint64_t sesid, uint6
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetSetCurrentIndex2A(uint64_t sesid, uint64_t tableid, void* szindexname, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetSetCurrentIndex2A(uint64_t sesid, uint64_t tableid, void* szindexname, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5059,7 +5059,7 @@ int32_t windowssys_windows_win32_storage_jet_JetSetCurrentIndex2A(uint64_t sesid
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetSetCurrentIndex2W(uint64_t sesid, uint64_t tableid, void* szindexname, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetSetCurrentIndex2W(uint64_t sesid, uint64_t tableid, void* szindexname, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5084,7 +5084,7 @@ int32_t windowssys_windows_win32_storage_jet_JetSetCurrentIndex2W(uint64_t sesid
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetSetCurrentIndex3A(uint64_t sesid, uint64_t tableid, void* szindexname, uint32_t grbit, uint32_t itagsequence) {
+int32_t windowssys_windows_win32_storage_jet_jetSetCurrentIndex3A(uint64_t sesid, uint64_t tableid, void* szindexname, uint32_t grbit, uint32_t itagsequence) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5110,7 +5110,7 @@ int32_t windowssys_windows_win32_storage_jet_JetSetCurrentIndex3A(uint64_t sesid
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetSetCurrentIndex3W(uint64_t sesid, uint64_t tableid, void* szindexname, uint32_t grbit, uint32_t itagsequence) {
+int32_t windowssys_windows_win32_storage_jet_jetSetCurrentIndex3W(uint64_t sesid, uint64_t tableid, void* szindexname, uint32_t grbit, uint32_t itagsequence) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5136,7 +5136,7 @@ int32_t windowssys_windows_win32_storage_jet_JetSetCurrentIndex3W(uint64_t sesid
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetSetCurrentIndex4A(uint64_t sesid, uint64_t tableid, void* szindexname, void* pindexid, uint32_t grbit, uint32_t itagsequence) {
+int32_t windowssys_windows_win32_storage_jet_jetSetCurrentIndex4A(uint64_t sesid, uint64_t tableid, void* szindexname, void* pindexid, uint32_t grbit, uint32_t itagsequence) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5163,7 +5163,7 @@ int32_t windowssys_windows_win32_storage_jet_JetSetCurrentIndex4A(uint64_t sesid
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetSetCurrentIndex4W(uint64_t sesid, uint64_t tableid, void* szindexname, void* pindexid, uint32_t grbit, uint32_t itagsequence) {
+int32_t windowssys_windows_win32_storage_jet_jetSetCurrentIndex4W(uint64_t sesid, uint64_t tableid, void* szindexname, void* pindexid, uint32_t grbit, uint32_t itagsequence) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5190,7 +5190,7 @@ int32_t windowssys_windows_win32_storage_jet_JetSetCurrentIndex4W(uint64_t sesid
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetSetCurrentIndexA(uint64_t sesid, uint64_t tableid, void* szindexname) {
+int32_t windowssys_windows_win32_storage_jet_jetSetCurrentIndexA(uint64_t sesid, uint64_t tableid, void* szindexname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5214,7 +5214,7 @@ int32_t windowssys_windows_win32_storage_jet_JetSetCurrentIndexA(uint64_t sesid,
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetSetCurrentIndexW(uint64_t sesid, uint64_t tableid, void* szindexname) {
+int32_t windowssys_windows_win32_storage_jet_jetSetCurrentIndexW(uint64_t sesid, uint64_t tableid, void* szindexname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5238,7 +5238,7 @@ int32_t windowssys_windows_win32_storage_jet_JetSetCurrentIndexW(uint64_t sesid,
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetSetCursorFilter(uint64_t sesid, uint64_t tableid, void* rgcolumnfilters, uint32_t ccolumnfilters, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetSetCursorFilter(uint64_t sesid, uint64_t tableid, void* rgcolumnfilters, uint32_t ccolumnfilters, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5264,7 +5264,7 @@ int32_t windowssys_windows_win32_storage_jet_JetSetCursorFilter(uint64_t sesid, 
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetSetDatabaseSizeA(uint64_t sesid, void* szdatabasename, uint32_t cpg, void* pcpgreal) {
+int32_t windowssys_windows_win32_storage_jet_jetSetDatabaseSizeA(uint64_t sesid, void* szdatabasename, uint32_t cpg, void* pcpgreal) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5289,7 +5289,7 @@ int32_t windowssys_windows_win32_storage_jet_JetSetDatabaseSizeA(uint64_t sesid,
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetSetDatabaseSizeW(uint64_t sesid, void* szdatabasename, uint32_t cpg, void* pcpgreal) {
+int32_t windowssys_windows_win32_storage_jet_jetSetDatabaseSizeW(uint64_t sesid, void* szdatabasename, uint32_t cpg, void* pcpgreal) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5314,7 +5314,7 @@ int32_t windowssys_windows_win32_storage_jet_JetSetDatabaseSizeW(uint64_t sesid,
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetSetIndexRange(uint64_t sesid, uint64_t tableidsrc, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetSetIndexRange(uint64_t sesid, uint64_t tableidsrc, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5338,7 +5338,7 @@ int32_t windowssys_windows_win32_storage_jet_JetSetIndexRange(uint64_t sesid, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetSetLS(uint64_t sesid, uint64_t tableid, uint64_t ls, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetSetLS(uint64_t sesid, uint64_t tableid, uint64_t ls, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5363,7 +5363,7 @@ int32_t windowssys_windows_win32_storage_jet_JetSetLS(uint64_t sesid, uint64_t t
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetSetSessionContext(uint64_t sesid, uint64_t ulcontext) {
+int32_t windowssys_windows_win32_storage_jet_jetSetSessionContext(uint64_t sesid, uint64_t ulcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5386,7 +5386,7 @@ int32_t windowssys_windows_win32_storage_jet_JetSetSessionContext(uint64_t sesid
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetSetSessionParameter(uint64_t sesid, uint32_t sesparamid, void* pvparam, uint32_t cbparam) {
+int32_t windowssys_windows_win32_storage_jet_jetSetSessionParameter(uint64_t sesid, uint32_t sesparamid, void* pvparam, uint32_t cbparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5411,7 +5411,7 @@ int32_t windowssys_windows_win32_storage_jet_JetSetSessionParameter(uint64_t ses
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetSetSystemParameterA(void* pinstance, uint64_t sesid, uint32_t paramid, uint64_t lparam, void* szparam) {
+int32_t windowssys_windows_win32_storage_jet_jetSetSystemParameterA(void* pinstance, uint64_t sesid, uint32_t paramid, uint64_t lparam, void* szparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5437,7 +5437,7 @@ int32_t windowssys_windows_win32_storage_jet_JetSetSystemParameterA(void* pinsta
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetSetSystemParameterW(void* pinstance, uint64_t sesid, uint32_t paramid, uint64_t lparam, void* szparam) {
+int32_t windowssys_windows_win32_storage_jet_jetSetSystemParameterW(void* pinstance, uint64_t sesid, uint32_t paramid, uint64_t lparam, void* szparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5463,7 +5463,7 @@ int32_t windowssys_windows_win32_storage_jet_JetSetSystemParameterW(void* pinsta
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetSetTableSequential(uint64_t sesid, uint64_t tableid, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetSetTableSequential(uint64_t sesid, uint64_t tableid, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5487,7 +5487,7 @@ int32_t windowssys_windows_win32_storage_jet_JetSetTableSequential(uint64_t sesi
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetStopBackup(void) {
+int32_t windowssys_windows_win32_storage_jet_jetStopBackup(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -5508,7 +5508,7 @@ int32_t windowssys_windows_win32_storage_jet_JetStopBackup(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetStopBackupInstance(uint64_t instance) {
+int32_t windowssys_windows_win32_storage_jet_jetStopBackupInstance(uint64_t instance) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5530,7 +5530,7 @@ int32_t windowssys_windows_win32_storage_jet_JetStopBackupInstance(uint64_t inst
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetStopService(void) {
+int32_t windowssys_windows_win32_storage_jet_jetStopService(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -5551,7 +5551,7 @@ int32_t windowssys_windows_win32_storage_jet_JetStopService(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetStopServiceInstance(uint64_t instance) {
+int32_t windowssys_windows_win32_storage_jet_jetStopServiceInstance(uint64_t instance) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5573,7 +5573,7 @@ int32_t windowssys_windows_win32_storage_jet_JetStopServiceInstance(uint64_t ins
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetStopServiceInstance2(uint64_t instance, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetStopServiceInstance2(uint64_t instance, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5596,7 +5596,7 @@ int32_t windowssys_windows_win32_storage_jet_JetStopServiceInstance2(uint64_t in
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetTerm(uint64_t instance) {
+int32_t windowssys_windows_win32_storage_jet_jetTerm(uint64_t instance) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5618,7 +5618,7 @@ int32_t windowssys_windows_win32_storage_jet_JetTerm(uint64_t instance) {
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetTerm2(uint64_t instance, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetTerm2(uint64_t instance, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5641,7 +5641,7 @@ int32_t windowssys_windows_win32_storage_jet_JetTerm2(uint64_t instance, uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetTruncateLog(void) {
+int32_t windowssys_windows_win32_storage_jet_jetTruncateLog(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -5662,7 +5662,7 @@ int32_t windowssys_windows_win32_storage_jet_JetTruncateLog(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetTruncateLogInstance(uint64_t instance) {
+int32_t windowssys_windows_win32_storage_jet_jetTruncateLogInstance(uint64_t instance) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5684,7 +5684,7 @@ int32_t windowssys_windows_win32_storage_jet_JetTruncateLogInstance(uint64_t ins
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetUnregisterCallback(uint64_t sesid, uint64_t tableid, uint32_t cbtyp, uint64_t hcallbackid) {
+int32_t windowssys_windows_win32_storage_jet_jetUnregisterCallback(uint64_t sesid, uint64_t tableid, uint32_t cbtyp, uint64_t hcallbackid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5709,7 +5709,7 @@ int32_t windowssys_windows_win32_storage_jet_JetUnregisterCallback(uint64_t sesi
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetUpdate(uint64_t sesid, uint64_t tableid, void* pvbookmark, uint32_t cbbookmark, void* pcbactual) {
+int32_t windowssys_windows_win32_storage_jet_jetUpdate(uint64_t sesid, uint64_t tableid, void* pvbookmark, uint32_t cbbookmark, void* pcbactual) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5735,7 +5735,7 @@ int32_t windowssys_windows_win32_storage_jet_JetUpdate(uint64_t sesid, uint64_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_jet_JetUpdate2(uint64_t sesid, uint64_t tableid, void* pvbookmark, uint32_t cbbookmark, void* pcbactual, uint32_t grbit) {
+int32_t windowssys_windows_win32_storage_jet_jetUpdate2(uint64_t sesid, uint64_t tableid, void* pvbookmark, uint32_t cbbookmark, void* pcbactual, uint32_t grbit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;

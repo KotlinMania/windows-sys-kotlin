@@ -2,23 +2,26 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.kernel
 
-public actual fun RtlFirstEntrySList(listhead: Long): Long =
-    0L
+import io.github.kotlinmania.windowssys.COpaquePointer
 
-public actual fun RtlInitializeSListHead(listhead: Long) {
+public actual fun rtlFirstEntrySList(listhead: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+
+public actual fun rtlInitializeSListHead(listhead: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun RtlInterlockedFlushSList(listhead: Long): Long =
-    0L
+public actual fun rtlInterlockedFlushSList(listhead: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RtlInterlockedPopEntrySList(listhead: Long): Long =
-    0L
+public actual fun rtlInterlockedPopEntrySList(listhead: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RtlInterlockedPushEntrySList(listhead: Long, listentry: Long): Long =
-    0L
+public actual fun rtlInterlockedPushEntrySList(listhead: COpaquePointer?, listentry: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RtlInterlockedPushListSListEx(listhead: Long, list: Long, listend: Long, count: UInt): Long =
-    0L
+public actual fun rtlInterlockedPushListSListEx(listhead: COpaquePointer?, list: COpaquePointer?, listend: COpaquePointer?, count: UInt): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RtlQueryDepthSList(listhead: Long): UShort =
-    0u
+public actual fun rtlQueryDepthSList(listhead: COpaquePointer?): UShort =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

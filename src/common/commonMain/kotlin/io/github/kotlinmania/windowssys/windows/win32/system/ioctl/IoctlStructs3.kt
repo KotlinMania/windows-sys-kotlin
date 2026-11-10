@@ -1,114 +1,114 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.system.ioctl
 
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FILE_ID_128
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.windows.win32.storage.filesystem.FileId128
 
-public data class USN_TRACK_MODIFIED_RANGES(
-    public var Flags: UInt = 0u,
-    public var Unused: UInt = 0u,
-    public var ChunkSize: ULong = 0uL,
-    public var FileSizeThreshold: Long = 0L,
+public data class UsnTrackModifiedRanges(
+    public var flags: UInt = 0u,
+    public var unused: UInt = 0u,
+    public var chunkSize: ULong = 0uL,
+    public var fileSizeThreshold: Long = 0L,
 )
 
-public data class VERIFY_INFORMATION(public var StartingOffset: Long = 0L, public var Length: UInt = 0u)
+public data class VerifyInformation(public var startingOffset: Long = 0L, public var length: UInt = 0u)
 
-public data class VIRTUALIZATION_INSTANCE_INFO_INPUT(public var NumberOfWorkerThreads: UInt = 0u, public var Flags: UInt = 0u)
+public data class VirtualizationInstanceInfoInput(public var numberOfWorkerThreads: UInt = 0u, public var flags: UInt = 0u)
 
-public data class VIRTUALIZATION_INSTANCE_INFO_INPUT_EX(
-    public var HeaderSize: UShort = 0u,
-    public var Flags: UInt = 0u,
-    public var NotificationInfoSize: UInt = 0u,
-    public var NotificationInfoOffset: UShort = 0u,
-    public var ProviderMajorVersion: UShort = 0u,
+public data class VirtualizationInstanceInfoInputEx(
+    public var headerSize: UShort = 0u,
+    public var flags: UInt = 0u,
+    public var notificationInfoSize: UInt = 0u,
+    public var notificationInfoOffset: UShort = 0u,
+    public var providerMajorVersion: UShort = 0u,
 )
 
-public data class VIRTUALIZATION_INSTANCE_INFO_OUTPUT(public var VirtualizationInstanceID: GUID = GUID())
+public data class VirtualizationInstanceInfoOutput(public var virtualizationInstanceID: Guid = Guid())
 
-public data class VIRTUAL_STORAGE_SET_BEHAVIOR_INPUT(public var Size: UInt = 0u, public var BehaviorCode: VIRTUAL_STORAGE_BEHAVIOR_CODE = 0)
+public data class VirtualStorageSetBehaviorInput(public var size: UInt = 0u, public var behaviorCode: VirtualStorageBehaviorCode = 0)
 
-public data class VOLUME_BITMAP_BUFFER(
-    public var StartingLcn: Long = 0L,
-    public var BitmapSize: Long = 0L,
-    public var Buffer: UByteArray = UByteArray(1),
+public data class VolumeBitmapBuffer(
+    public var startingLcn: Long = 0L,
+    public var bitmapSize: Long = 0L,
+    public var buffer: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is VOLUME_BITMAP_BUFFER) return false
-        if (this.StartingLcn != other.StartingLcn) return false
-        if (this.BitmapSize != other.BitmapSize) return false
-        if (!this.Buffer.contentEquals(other.Buffer)) return false
+        if (other !is VolumeBitmapBuffer) return false
+        if (this.startingLcn != other.startingLcn) return false
+        if (this.bitmapSize != other.bitmapSize) return false
+        if (!this.buffer.contentEquals(other.buffer)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.StartingLcn.hashCode()
-        result = 31 * result + this.BitmapSize.hashCode()
-        result = 31 * result + this.Buffer.contentHashCode()
+        var result = this.startingLcn.hashCode()
+        result = 31 * result + this.bitmapSize.hashCode()
+        result = 31 * result + this.buffer.contentHashCode()
         return result
     }
 }
 
-public data class VOLUME_DISK_EXTENTS(public var NumberOfDiskExtents: UInt = 0u, public var Extents: List<DISK_EXTENT> = List(1) { DISK_EXTENT() })
+public data class VolumeDiskExtents(public var numberOfDiskExtents: UInt = 0u, public var extents: List<DiskExtent> = List(1) { DiskExtent() })
 
-public data class VOLUME_GET_GPT_ATTRIBUTES_INFORMATION(public var GptAttributes: ULong = 0uL)
+public data class VolumeGetGptAttributesInformation(public var gptAttributes: ULong = 0uL)
 
-public data class WIM_PROVIDER_ADD_OVERLAY_INPUT(
-    public var WimType: UInt = 0u,
-    public var WimIndex: UInt = 0u,
-    public var WimFileNameOffset: UInt = 0u,
-    public var WimFileNameLength: UInt = 0u,
+public data class WimProviderAddOverlayInput(
+    public var wimType: UInt = 0u,
+    public var wimIndex: UInt = 0u,
+    public var wimFileNameOffset: UInt = 0u,
+    public var wimFileNameLength: UInt = 0u,
 )
 
-public data class WIM_PROVIDER_EXTERNAL_INFO(
-    public var Version: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var DataSourceId: Long = 0L,
-    public var ResourceHash: UByteArray = UByteArray(20),
+public data class WimProviderExternalInfo(
+    public var version: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var dataSourceId: Long = 0L,
+    public var resourceHash: UByteArray = UByteArray(20),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is WIM_PROVIDER_EXTERNAL_INFO) return false
-        if (this.Version != other.Version) return false
-        if (this.Flags != other.Flags) return false
-        if (this.DataSourceId != other.DataSourceId) return false
-        if (!this.ResourceHash.contentEquals(other.ResourceHash)) return false
+        if (other !is WimProviderExternalInfo) return false
+        if (this.version != other.version) return false
+        if (this.flags != other.flags) return false
+        if (this.dataSourceId != other.dataSourceId) return false
+        if (!this.resourceHash.contentEquals(other.resourceHash)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Version.hashCode()
-        result = 31 * result + this.Flags.hashCode()
-        result = 31 * result + this.DataSourceId.hashCode()
-        result = 31 * result + this.ResourceHash.contentHashCode()
+        var result = this.version.hashCode()
+        result = 31 * result + this.flags.hashCode()
+        result = 31 * result + this.dataSourceId.hashCode()
+        result = 31 * result + this.resourceHash.contentHashCode()
         return result
     }
 }
 
-public data class WIM_PROVIDER_OVERLAY_ENTRY(
-    public var NextEntryOffset: UInt = 0u,
-    public var DataSourceId: Long = 0L,
-    public var WimGuid: GUID = GUID(),
-    public var WimFileNameOffset: UInt = 0u,
-    public var WimType: UInt = 0u,
-    public var WimIndex: UInt = 0u,
-    public var Flags: UInt = 0u,
+public data class WimProviderOverlayEntry(
+    public var nextEntryOffset: UInt = 0u,
+    public var dataSourceId: Long = 0L,
+    public var wimGuid: Guid = Guid(),
+    public var wimFileNameOffset: UInt = 0u,
+    public var wimType: UInt = 0u,
+    public var wimIndex: UInt = 0u,
+    public var flags: UInt = 0u,
 )
 
-public data class WIM_PROVIDER_REMOVE_OVERLAY_INPUT(public var DataSourceId: Long = 0L)
+public data class WimProviderRemoveOverlayInput(public var dataSourceId: Long = 0L)
 
-public data class WIM_PROVIDER_SUSPEND_OVERLAY_INPUT(public var DataSourceId: Long = 0L)
+public data class WimProviderSuspendOverlayInput(public var dataSourceId: Long = 0L)
 
-public data class WIM_PROVIDER_UPDATE_OVERLAY_INPUT(
-    public var DataSourceId: Long = 0L,
-    public var WimFileNameOffset: UInt = 0u,
-    public var WimFileNameLength: UInt = 0u,
+public data class WimProviderUpdateOverlayInput(
+    public var dataSourceId: Long = 0L,
+    public var wimFileNameOffset: UInt = 0u,
+    public var wimFileNameLength: UInt = 0u,
 )
 
-public data class WOF_EXTERNAL_FILE_ID(public var FileId: FILE_ID_128 = FILE_ID_128())
+public data class WofExternalFileId(public var fileId: FileId128 = FileId128())
 
-public data class WOF_EXTERNAL_INFO(public var Version: UInt = 0u, public var Provider: UInt = 0u)
+public data class WofExternalInfo(public var version: UInt = 0u, public var provider: UInt = 0u)
 
-public data class WOF_VERSION_INFO(public var WofVersion: UInt = 0u)
+public data class WofVersionInfo(public var wofVersion: UInt = 0u)
 
-public data class WRITE_USN_REASON_INPUT(public var Flags: UInt = 0u, public var UsnReasonToWrite: UInt = 0u)
+public data class WriteUsnReasonInput(public var flags: UInt = 0u, public var usnReasonToWrite: UInt = 0u)

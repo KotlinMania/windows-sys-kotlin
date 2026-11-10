@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1AllJoynAcceptBusConnection(JNIEnv* km_env, jclass km_clazz, jlong serverbushandle, jlong abortevent) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1allJoynAcceptBusConnection(JNIEnv* km_env, jclass km_clazz, jlong serverbushandle, jlong abortevent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -37,7 +37,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1AllJoynCloseBusHandle(JNIEnv* km_env, jclass km_clazz, jlong bushandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1allJoynCloseBusHandle(JNIEnv* km_env, jclass km_clazz, jlong bushandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -55,7 +55,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1AllJoynConnectToBus(JNIEnv* km_env, jclass km_clazz, jlong connectionspec) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1allJoynConnectToBus(JNIEnv* km_env, jclass km_clazz, jlong connectionspec) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -73,7 +73,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1AllJoynCreateBus(JNIEnv* km_env, jclass km_clazz, jint outbuffersize, jint inbuffersize, jlong lpsecurityattributes) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1allJoynCreateBus(JNIEnv* km_env, jclass km_clazz, jint outbuffersize, jint inbuffersize, jlong lpsecurityattributes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -93,7 +93,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1AllJoynEnumEvents(JNIEnv* km_env, jclass km_clazz, jlong connectedbushandle, jlong eventtoreset, jlong eventtypes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1allJoynEnumEvents(JNIEnv* km_env, jclass km_clazz, jlong connectedbushandle, jlong eventtoreset, jlong eventtypes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -113,7 +113,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1AllJoynEventSelect(JNIEnv* km_env, jclass km_clazz, jlong connectedbushandle, jlong eventhandle, jint eventtypes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1allJoynEventSelect(JNIEnv* km_env, jclass km_clazz, jlong connectedbushandle, jlong eventhandle, jint eventtypes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -133,7 +133,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1AllJoynReceiveFromBus(JNIEnv* km_env, jclass km_clazz, jlong connectedbushandle, jlong buffer, jint bytestoread, jlong bytestransferred, jlong reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1allJoynReceiveFromBus(JNIEnv* km_env, jclass km_clazz, jlong connectedbushandle, jlong buffer, jint bytestoread, jlong bytestransferred, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -155,7 +155,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1AllJoynSendToBus(JNIEnv* km_env, jclass km_clazz, jlong connectedbushandle, jlong buffer, jint bytestowrite, jlong bytestransferred, jlong reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1allJoynSendToBus(JNIEnv* km_env, jclass km_clazz, jlong connectedbushandle, jlong buffer, jint bytestowrite, jlong bytestransferred, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -177,7 +177,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1QCC_1StatusText(JNIEnv* km_env, jclass km_clazz, jint status) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1qccStatusText(JNIEnv* km_env, jclass km_clazz, jint status) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -195,61 +195,61 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1create(JNIEnv* km_env, jclass km_clazz, jlong defaultlanguage) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataCreate(JNIEnv* km_env, jclass km_clazz, jlong defaultlanguage) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*);
+    typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "alljoyn_aboutdata_create");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)defaultlanguage) : -1;
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)defaultlanguage) : -1;
 #else
     (void)defaultlanguage;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return (jlong)km_res;
+    return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1create_1empty(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataCreateEmpty(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void);
+    typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "alljoyn_aboutdata_create_empty");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr() : -1;
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr() : -1;
 #else
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return (jlong)km_res;
+    return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1create_1full(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong language) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataCreateFull(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong language) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int64_t, void*);
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "alljoyn_aboutdata_create_full");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)arg, (void*)(uintptr_t)language) : -1;
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)arg, (void*)(uintptr_t)language) : -1;
 #else
     (void)arg;
     (void)language;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return (jlong)km_res;
+    return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1createfrommsgarg(JNIEnv* km_env, jclass km_clazz, jlong data, jlong arg, jlong language) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataCreatefrommsgarg(JNIEnv* km_env, jclass km_clazz, jlong data, jlong arg, jlong language) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -269,7 +269,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1createfromxml(JNIEnv* km_env, jclass km_clazz, jlong data, jlong aboutdataxml) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataCreatefromxml(JNIEnv* km_env, jclass km_clazz, jlong data, jlong aboutdataxml) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -288,7 +288,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1destroy(JNIEnv* km_env, jclass km_clazz, jlong data) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataDestroy(JNIEnv* km_env, jclass km_clazz, jlong data) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -304,7 +304,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1getaboutdata(JNIEnv* km_env, jclass km_clazz, jlong data, jlong msgarg, jlong language) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataGetaboutdata(JNIEnv* km_env, jclass km_clazz, jlong data, jlong msgarg, jlong language) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -324,7 +324,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1getajsoftwareversion(JNIEnv* km_env, jclass km_clazz, jlong data, jlong ajsoftwareversion) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataGetajsoftwareversion(JNIEnv* km_env, jclass km_clazz, jlong data, jlong ajsoftwareversion) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -343,7 +343,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1getannouncedaboutdata(JNIEnv* km_env, jclass km_clazz, jlong data, jlong msgarg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataGetannouncedaboutdata(JNIEnv* km_env, jclass km_clazz, jlong data, jlong msgarg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -362,7 +362,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1getappid(JNIEnv* km_env, jclass km_clazz, jlong data, jlong appid, jlong num) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataGetappid(JNIEnv* km_env, jclass km_clazz, jlong data, jlong appid, jlong num) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -382,7 +382,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1getappname(JNIEnv* km_env, jclass km_clazz, jlong data, jlong appname, jlong language) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataGetappname(JNIEnv* km_env, jclass km_clazz, jlong data, jlong appname, jlong language) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -402,7 +402,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1getdateofmanufacture(JNIEnv* km_env, jclass km_clazz, jlong data, jlong dateofmanufacture) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataGetdateofmanufacture(JNIEnv* km_env, jclass km_clazz, jlong data, jlong dateofmanufacture) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -421,7 +421,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1getdefaultlanguage(JNIEnv* km_env, jclass km_clazz, jlong data, jlong defaultlanguage) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataGetdefaultlanguage(JNIEnv* km_env, jclass km_clazz, jlong data, jlong defaultlanguage) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -440,7 +440,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1getdescription(JNIEnv* km_env, jclass km_clazz, jlong data, jlong description, jlong language) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataGetdescription(JNIEnv* km_env, jclass km_clazz, jlong data, jlong description, jlong language) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -460,7 +460,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1getdeviceid(JNIEnv* km_env, jclass km_clazz, jlong data, jlong deviceid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataGetdeviceid(JNIEnv* km_env, jclass km_clazz, jlong data, jlong deviceid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -479,7 +479,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1getdevicename(JNIEnv* km_env, jclass km_clazz, jlong data, jlong devicename, jlong language) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataGetdevicename(JNIEnv* km_env, jclass km_clazz, jlong data, jlong devicename, jlong language) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -499,7 +499,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1getfield(JNIEnv* km_env, jclass km_clazz, jlong data, jlong name, jlong value, jlong language) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataGetfield(JNIEnv* km_env, jclass km_clazz, jlong data, jlong name, jlong value, jlong language) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -520,7 +520,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1getfields(JNIEnv* km_env, jclass km_clazz, jlong data, jlong fields, jlong num_fields) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataGetfields(JNIEnv* km_env, jclass km_clazz, jlong data, jlong fields, jlong num_fields) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -540,7 +540,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1getfieldsignature(JNIEnv* km_env, jclass km_clazz, jlong data, jlong fieldname) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataGetfieldsignature(JNIEnv* km_env, jclass km_clazz, jlong data, jlong fieldname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -559,7 +559,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1gethardwareversion(JNIEnv* km_env, jclass km_clazz, jlong data, jlong hardwareversion) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataGethardwareversion(JNIEnv* km_env, jclass km_clazz, jlong data, jlong hardwareversion) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -578,7 +578,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1getmanufacturer(JNIEnv* km_env, jclass km_clazz, jlong data, jlong manufacturer, jlong language) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataGetmanufacturer(JNIEnv* km_env, jclass km_clazz, jlong data, jlong manufacturer, jlong language) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -598,7 +598,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1getmodelnumber(JNIEnv* km_env, jclass km_clazz, jlong data, jlong modelnumber) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataGetmodelnumber(JNIEnv* km_env, jclass km_clazz, jlong data, jlong modelnumber) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -617,7 +617,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1getsoftwareversion(JNIEnv* km_env, jclass km_clazz, jlong data, jlong softwareversion) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataGetsoftwareversion(JNIEnv* km_env, jclass km_clazz, jlong data, jlong softwareversion) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -636,7 +636,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1getsupportedlanguages(JNIEnv* km_env, jclass km_clazz, jlong data, jlong languagetags, jlong num) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataGetsupportedlanguages(JNIEnv* km_env, jclass km_clazz, jlong data, jlong languagetags, jlong num) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -656,7 +656,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1getsupporturl(JNIEnv* km_env, jclass km_clazz, jlong data, jlong supporturl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataGetsupporturl(JNIEnv* km_env, jclass km_clazz, jlong data, jlong supporturl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -675,7 +675,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1isfieldannounced(JNIEnv* km_env, jclass km_clazz, jlong data, jlong fieldname) {
+JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataIsfieldannounced(JNIEnv* km_env, jclass km_clazz, jlong data, jlong fieldname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -694,7 +694,7 @@ JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jbyte)km_res;
 }
 
-JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1isfieldlocalized(JNIEnv* km_env, jclass km_clazz, jlong data, jlong fieldname) {
+JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataIsfieldlocalized(JNIEnv* km_env, jclass km_clazz, jlong data, jlong fieldname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -713,7 +713,7 @@ JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jbyte)km_res;
 }
 
-JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1isfieldrequired(JNIEnv* km_env, jclass km_clazz, jlong data, jlong fieldname) {
+JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataIsfieldrequired(JNIEnv* km_env, jclass km_clazz, jlong data, jlong fieldname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -732,7 +732,7 @@ JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jbyte)km_res;
 }
 
-JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1isvalid(JNIEnv* km_env, jclass km_clazz, jlong data, jlong language) {
+JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataIsvalid(JNIEnv* km_env, jclass km_clazz, jlong data, jlong language) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -751,7 +751,7 @@ JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jbyte)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1setappid(JNIEnv* km_env, jclass km_clazz, jlong data, jlong appid, jlong num) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataSetappid(JNIEnv* km_env, jclass km_clazz, jlong data, jlong appid, jlong num) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -771,7 +771,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1setappid_1fromstring(JNIEnv* km_env, jclass km_clazz, jlong data, jlong appid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataSetappidFromstring(JNIEnv* km_env, jclass km_clazz, jlong data, jlong appid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -790,7 +790,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1setappname(JNIEnv* km_env, jclass km_clazz, jlong data, jlong appname, jlong language) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataSetappname(JNIEnv* km_env, jclass km_clazz, jlong data, jlong appname, jlong language) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -810,7 +810,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1setdateofmanufacture(JNIEnv* km_env, jclass km_clazz, jlong data, jlong dateofmanufacture) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataSetdateofmanufacture(JNIEnv* km_env, jclass km_clazz, jlong data, jlong dateofmanufacture) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -829,7 +829,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1setdefaultlanguage(JNIEnv* km_env, jclass km_clazz, jlong data, jlong defaultlanguage) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataSetdefaultlanguage(JNIEnv* km_env, jclass km_clazz, jlong data, jlong defaultlanguage) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -848,7 +848,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1setdescription(JNIEnv* km_env, jclass km_clazz, jlong data, jlong description, jlong language) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataSetdescription(JNIEnv* km_env, jclass km_clazz, jlong data, jlong description, jlong language) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -868,7 +868,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1setdeviceid(JNIEnv* km_env, jclass km_clazz, jlong data, jlong deviceid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataSetdeviceid(JNIEnv* km_env, jclass km_clazz, jlong data, jlong deviceid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -887,7 +887,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1setdevicename(JNIEnv* km_env, jclass km_clazz, jlong data, jlong devicename, jlong language) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataSetdevicename(JNIEnv* km_env, jclass km_clazz, jlong data, jlong devicename, jlong language) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -907,7 +907,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1setfield(JNIEnv* km_env, jclass km_clazz, jlong data, jlong name, jlong value, jlong language) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataSetfield(JNIEnv* km_env, jclass km_clazz, jlong data, jlong name, jlong value, jlong language) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -928,7 +928,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1sethardwareversion(JNIEnv* km_env, jclass km_clazz, jlong data, jlong hardwareversion) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataSethardwareversion(JNIEnv* km_env, jclass km_clazz, jlong data, jlong hardwareversion) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -947,7 +947,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1setmanufacturer(JNIEnv* km_env, jclass km_clazz, jlong data, jlong manufacturer, jlong language) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataSetmanufacturer(JNIEnv* km_env, jclass km_clazz, jlong data, jlong manufacturer, jlong language) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -967,7 +967,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1setmodelnumber(JNIEnv* km_env, jclass km_clazz, jlong data, jlong modelnumber) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataSetmodelnumber(JNIEnv* km_env, jclass km_clazz, jlong data, jlong modelnumber) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -986,7 +986,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1setsoftwareversion(JNIEnv* km_env, jclass km_clazz, jlong data, jlong softwareversion) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataSetsoftwareversion(JNIEnv* km_env, jclass km_clazz, jlong data, jlong softwareversion) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1005,7 +1005,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1setsupportedlanguage(JNIEnv* km_env, jclass km_clazz, jlong data, jlong language) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataSetsupportedlanguage(JNIEnv* km_env, jclass km_clazz, jlong data, jlong language) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1024,7 +1024,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdata_1setsupporturl(JNIEnv* km_env, jclass km_clazz, jlong data, jlong supporturl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdataSetsupporturl(JNIEnv* km_env, jclass km_clazz, jlong data, jlong supporturl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1043,26 +1043,26 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdatalistener_1create(JNIEnv* km_env, jclass km_clazz, jlong callbacks, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdatalistenerCreate(JNIEnv* km_env, jclass km_clazz, jlong callbacks, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "alljoyn_aboutdatalistener_create");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)callbacks, (void*)(uintptr_t)context) : -1;
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)callbacks, (void*)(uintptr_t)context) : -1;
 #else
     (void)callbacks;
     (void)context;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return (jlong)km_res;
+    return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutdatalistener_1destroy(JNIEnv* km_env, jclass km_clazz, jlong listener) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutdatalistenerDestroy(JNIEnv* km_env, jclass km_clazz, jlong listener) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1078,7 +1078,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1abouticon_1clear(JNIEnv* km_env, jclass km_clazz, jlong icon) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAbouticonClear(JNIEnv* km_env, jclass km_clazz, jlong icon) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1094,24 +1094,24 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1abouticon_1create(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAbouticonCreate(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void);
+    typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "alljoyn_abouticon_create");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr() : -1;
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr() : -1;
 #else
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return (jlong)km_res;
+    return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1abouticon_1destroy(JNIEnv* km_env, jclass km_clazz, jlong icon) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAbouticonDestroy(JNIEnv* km_env, jclass km_clazz, jlong icon) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1127,7 +1127,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1abouticon_1getcontent(JNIEnv* km_env, jclass km_clazz, jlong icon, jlong data, jlong size) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAbouticonGetcontent(JNIEnv* km_env, jclass km_clazz, jlong icon, jlong data, jlong size) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1145,7 +1145,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1abouticon_1geturl(JNIEnv* km_env, jclass km_clazz, jlong icon, jlong type, jlong url) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAbouticonGeturl(JNIEnv* km_env, jclass km_clazz, jlong icon, jlong type, jlong url) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1163,7 +1163,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1abouticon_1setcontent(JNIEnv* km_env, jclass km_clazz, jlong icon, jlong type, jlong data, jlong csize, jbyte ownsdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAbouticonSetcontent(JNIEnv* km_env, jclass km_clazz, jlong icon, jlong type, jlong data, jlong csize, jbyte ownsdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1185,7 +1185,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1abouticon_1setcontent_1frommsgarg(JNIEnv* km_env, jclass km_clazz, jlong icon, jlong arg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAbouticonSetcontentFrommsgarg(JNIEnv* km_env, jclass km_clazz, jlong icon, jlong arg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1204,7 +1204,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1abouticon_1seturl(JNIEnv* km_env, jclass km_clazz, jlong icon, jlong type, jlong url) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAbouticonSeturl(JNIEnv* km_env, jclass km_clazz, jlong icon, jlong type, jlong url) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1224,26 +1224,26 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1abouticonobj_1create(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong icon) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAbouticonobjCreate(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong icon) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int64_t, int64_t);
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "alljoyn_abouticonobj_create");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)bus, (int64_t)icon) : -1;
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)bus, (int64_t)icon) : -1;
 #else
     (void)bus;
     (void)icon;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return (jlong)km_res;
+    return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1abouticonobj_1destroy(JNIEnv* km_env, jclass km_clazz, jlong icon) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAbouticonobjDestroy(JNIEnv* km_env, jclass km_clazz, jlong icon) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1259,27 +1259,27 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1abouticonproxy_1create(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong busname, jint sessionid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAbouticonproxyCreate(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong busname, jint sessionid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "alljoyn_abouticonproxy_create");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)bus, (void*)(uintptr_t)busname, (uint32_t)sessionid) : -1;
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)bus, (void*)(uintptr_t)busname, (uint32_t)sessionid) : -1;
 #else
     (void)bus;
     (void)busname;
     (void)sessionid;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return (jlong)km_res;
+    return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1abouticonproxy_1destroy(JNIEnv* km_env, jclass km_clazz, jlong proxy) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAbouticonproxyDestroy(JNIEnv* km_env, jclass km_clazz, jlong proxy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1295,7 +1295,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1abouticonproxy_1geticon(JNIEnv* km_env, jclass km_clazz, jlong proxy, jlong icon) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAbouticonproxyGeticon(JNIEnv* km_env, jclass km_clazz, jlong proxy, jlong icon) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1314,7 +1314,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1abouticonproxy_1getversion(JNIEnv* km_env, jclass km_clazz, jlong proxy, jlong version) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAbouticonproxyGetversion(JNIEnv* km_env, jclass km_clazz, jlong proxy, jlong version) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1333,26 +1333,26 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutlistener_1create(JNIEnv* km_env, jclass km_clazz, jlong callback, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutlistenerCreate(JNIEnv* km_env, jclass km_clazz, jlong callback, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "alljoyn_aboutlistener_create");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)callback, (void*)(uintptr_t)context) : -1;
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)callback, (void*)(uintptr_t)context) : -1;
 #else
     (void)callback;
     (void)context;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return (jlong)km_res;
+    return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutlistener_1destroy(JNIEnv* km_env, jclass km_clazz, jlong listener) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutlistenerDestroy(JNIEnv* km_env, jclass km_clazz, jlong listener) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1368,7 +1368,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutobj_1announce(JNIEnv* km_env, jclass km_clazz, jlong obj, jshort sessionport, jlong aboutdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutobjAnnounce(JNIEnv* km_env, jclass km_clazz, jlong obj, jshort sessionport, jlong aboutdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1388,7 +1388,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutobj_1announce_1using_1datalistener(JNIEnv* km_env, jclass km_clazz, jlong obj, jshort sessionport, jlong aboutlistener) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutobjAnnounceUsingDatalistener(JNIEnv* km_env, jclass km_clazz, jlong obj, jshort sessionport, jlong aboutlistener) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1408,26 +1408,26 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutobj_1create(JNIEnv* km_env, jclass km_clazz, jlong bus, jint isannounced) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutobjCreate(JNIEnv* km_env, jclass km_clazz, jlong bus, jint isannounced) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int64_t, int32_t);
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "alljoyn_aboutobj_create");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)bus, (int32_t)isannounced) : -1;
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)bus, (int32_t)isannounced) : -1;
 #else
     (void)bus;
     (void)isannounced;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return (jlong)km_res;
+    return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutobj_1destroy(JNIEnv* km_env, jclass km_clazz, jlong obj) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutobjDestroy(JNIEnv* km_env, jclass km_clazz, jlong obj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1443,7 +1443,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutobj_1unannounce(JNIEnv* km_env, jclass km_clazz, jlong obj) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutobjUnannounce(JNIEnv* km_env, jclass km_clazz, jlong obj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1461,7 +1461,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutobjectdescription_1clear(JNIEnv* km_env, jclass km_clazz, jlong description) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutobjectdescriptionClear(JNIEnv* km_env, jclass km_clazz, jlong description) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1477,42 +1477,42 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutobjectdescription_1create(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutobjectdescriptionCreate(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void);
+    typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "alljoyn_aboutobjectdescription_create");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr() : -1;
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr() : -1;
 #else
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return (jlong)km_res;
+    return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutobjectdescription_1create_1full(JNIEnv* km_env, jclass km_clazz, jlong arg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutobjectdescriptionCreateFull(JNIEnv* km_env, jclass km_clazz, jlong arg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int64_t);
+    typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "alljoyn_aboutobjectdescription_create_full");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)arg) : -1;
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)arg) : -1;
 #else
     (void)arg;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return (jlong)km_res;
+    return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutobjectdescription_1createfrommsgarg(JNIEnv* km_env, jclass km_clazz, jlong description, jlong arg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutobjectdescriptionCreatefrommsgarg(JNIEnv* km_env, jclass km_clazz, jlong description, jlong arg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1531,7 +1531,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutobjectdescription_1destroy(JNIEnv* km_env, jclass km_clazz, jlong description) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutobjectdescriptionDestroy(JNIEnv* km_env, jclass km_clazz, jlong description) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1547,7 +1547,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutobjectdescription_1getinterfacepaths(JNIEnv* km_env, jclass km_clazz, jlong description, jlong interfacename, jlong paths, jlong numpaths) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutobjectdescriptionGetinterfacepaths(JNIEnv* km_env, jclass km_clazz, jlong description, jlong interfacename, jlong paths, jlong numpaths) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1568,7 +1568,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutobjectdescription_1getinterfaces(JNIEnv* km_env, jclass km_clazz, jlong description, jlong path, jlong interfaces, jlong numinterfaces) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutobjectdescriptionGetinterfaces(JNIEnv* km_env, jclass km_clazz, jlong description, jlong path, jlong interfaces, jlong numinterfaces) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1589,7 +1589,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutobjectdescription_1getmsgarg(JNIEnv* km_env, jclass km_clazz, jlong description, jlong msgarg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutobjectdescriptionGetmsgarg(JNIEnv* km_env, jclass km_clazz, jlong description, jlong msgarg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1608,7 +1608,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutobjectdescription_1getpaths(JNIEnv* km_env, jclass km_clazz, jlong description, jlong paths, jlong numpaths) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutobjectdescriptionGetpaths(JNIEnv* km_env, jclass km_clazz, jlong description, jlong paths, jlong numpaths) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1628,7 +1628,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutobjectdescription_1hasinterface(JNIEnv* km_env, jclass km_clazz, jlong description, jlong interfacename) {
+JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutobjectdescriptionHasinterface(JNIEnv* km_env, jclass km_clazz, jlong description, jlong interfacename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1647,7 +1647,7 @@ JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jbyte)km_res;
 }
 
-JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutobjectdescription_1hasinterfaceatpath(JNIEnv* km_env, jclass km_clazz, jlong description, jlong path, jlong interfacename) {
+JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutobjectdescriptionHasinterfaceatpath(JNIEnv* km_env, jclass km_clazz, jlong description, jlong path, jlong interfacename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1667,7 +1667,7 @@ JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jbyte)km_res;
 }
 
-JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutobjectdescription_1haspath(JNIEnv* km_env, jclass km_clazz, jlong description, jlong path) {
+JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutobjectdescriptionHaspath(JNIEnv* km_env, jclass km_clazz, jlong description, jlong path) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1686,27 +1686,27 @@ JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jbyte)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutproxy_1create(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong busname, jint sessionid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutproxyCreate(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong busname, jint sessionid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "alljoyn_aboutproxy_create");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)bus, (void*)(uintptr_t)busname, (uint32_t)sessionid) : -1;
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)bus, (void*)(uintptr_t)busname, (uint32_t)sessionid) : -1;
 #else
     (void)bus;
     (void)busname;
     (void)sessionid;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return (jlong)km_res;
+    return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutproxy_1destroy(JNIEnv* km_env, jclass km_clazz, jlong proxy) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutproxyDestroy(JNIEnv* km_env, jclass km_clazz, jlong proxy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1722,7 +1722,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutproxy_1getaboutdata(JNIEnv* km_env, jclass km_clazz, jlong proxy, jlong language, jlong data) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutproxyGetaboutdata(JNIEnv* km_env, jclass km_clazz, jlong proxy, jlong language, jlong data) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1742,7 +1742,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutproxy_1getobjectdescription(JNIEnv* km_env, jclass km_clazz, jlong proxy, jlong objectdesc) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutproxyGetobjectdescription(JNIEnv* km_env, jclass km_clazz, jlong proxy, jlong objectdesc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1761,7 +1761,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1aboutproxy_1getversion(JNIEnv* km_env, jclass km_clazz, jlong proxy, jlong version) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAboutproxyGetversion(JNIEnv* km_env, jclass km_clazz, jlong proxy, jlong version) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1780,26 +1780,26 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1applicationstatelistener_1create(JNIEnv* km_env, jclass km_clazz, jlong callbacks, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynApplicationstatelistenerCreate(JNIEnv* km_env, jclass km_clazz, jlong callbacks, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "alljoyn_applicationstatelistener_create");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)callbacks, (void*)(uintptr_t)context) : -1;
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)callbacks, (void*)(uintptr_t)context) : -1;
 #else
     (void)callbacks;
     (void)context;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return (jlong)km_res;
+    return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1applicationstatelistener_1destroy(JNIEnv* km_env, jclass km_clazz, jlong listener) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynApplicationstatelistenerDestroy(JNIEnv* km_env, jclass km_clazz, jlong listener) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1815,7 +1815,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1authlistener_1create(JNIEnv* km_env, jclass km_clazz, jlong callbacks, jlong context) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAuthlistenerCreate(JNIEnv* km_env, jclass km_clazz, jlong callbacks, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1834,7 +1834,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1authlistener_1destroy(JNIEnv* km_env, jclass km_clazz, jlong listener) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAuthlistenerDestroy(JNIEnv* km_env, jclass km_clazz, jlong listener) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1850,7 +1850,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1authlistener_1requestcredentialsresponse(JNIEnv* km_env, jclass km_clazz, jlong listener, jlong authcontext, jint arg_2_accept, jlong credentials) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAuthlistenerRequestcredentialsresponse(JNIEnv* km_env, jclass km_clazz, jlong listener, jlong authcontext, jint arg_2_accept, jlong credentials) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1871,7 +1871,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1authlistener_1setsharedsecret(JNIEnv* km_env, jclass km_clazz, jlong listener, jlong sharedsecret, jlong sharedsecretsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAuthlistenerSetsharedsecret(JNIEnv* km_env, jclass km_clazz, jlong listener, jlong sharedsecret, jlong sharedsecretsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1891,7 +1891,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1authlistener_1verifycredentialsresponse(JNIEnv* km_env, jclass km_clazz, jlong listener, jlong authcontext, jint arg_2_accept) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAuthlistenerVerifycredentialsresponse(JNIEnv* km_env, jclass km_clazz, jlong listener, jlong authcontext, jint arg_2_accept) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1911,7 +1911,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1authlistenerasync_1create(JNIEnv* km_env, jclass km_clazz, jlong callbacks, jlong context) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAuthlistenerasyncCreate(JNIEnv* km_env, jclass km_clazz, jlong callbacks, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1930,7 +1930,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1authlistenerasync_1destroy(JNIEnv* km_env, jclass km_clazz, jlong listener) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAuthlistenerasyncDestroy(JNIEnv* km_env, jclass km_clazz, jlong listener) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1946,7 +1946,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1autopinger_1adddestination(JNIEnv* km_env, jclass km_clazz, jlong autopinger, jlong group, jlong destination) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAutopingerAdddestination(JNIEnv* km_env, jclass km_clazz, jlong autopinger, jlong group, jlong destination) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1966,7 +1966,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1autopinger_1addpinggroup(JNIEnv* km_env, jclass km_clazz, jlong autopinger, jlong group, jlong listener, jint pinginterval) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAutopingerAddpinggroup(JNIEnv* km_env, jclass km_clazz, jlong autopinger, jlong group, jlong listener, jint pinginterval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1985,25 +1985,25 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1autopinger_1create(JNIEnv* km_env, jclass km_clazz, jlong bus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAutopingerCreate(JNIEnv* km_env, jclass km_clazz, jlong bus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int64_t);
+    typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "alljoyn_autopinger_create");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)bus) : -1;
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)bus) : -1;
 #else
     (void)bus;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return (jlong)km_res;
+    return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1autopinger_1destroy(JNIEnv* km_env, jclass km_clazz, jlong autopinger) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAutopingerDestroy(JNIEnv* km_env, jclass km_clazz, jlong autopinger) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2019,7 +2019,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1autopinger_1pause(JNIEnv* km_env, jclass km_clazz, jlong autopinger) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAutopingerPause(JNIEnv* km_env, jclass km_clazz, jlong autopinger) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2035,7 +2035,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1autopinger_1removedestination(JNIEnv* km_env, jclass km_clazz, jlong autopinger, jlong group, jlong destination, jint removeall) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAutopingerRemovedestination(JNIEnv* km_env, jclass km_clazz, jlong autopinger, jlong group, jlong destination, jint removeall) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2056,7 +2056,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1autopinger_1removepinggroup(JNIEnv* km_env, jclass km_clazz, jlong autopinger, jlong group) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAutopingerRemovepinggroup(JNIEnv* km_env, jclass km_clazz, jlong autopinger, jlong group) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2073,7 +2073,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1autopinger_1resume(JNIEnv* km_env, jclass km_clazz, jlong autopinger) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAutopingerResume(JNIEnv* km_env, jclass km_clazz, jlong autopinger) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2089,7 +2089,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1autopinger_1setpinginterval(JNIEnv* km_env, jclass km_clazz, jlong autopinger, jlong group, jint pinginterval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynAutopingerSetpinginterval(JNIEnv* km_env, jclass km_clazz, jlong autopinger, jlong group, jint pinginterval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2109,7 +2109,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1addlogonentry(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong authmechanism, jlong username, jlong password) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentAddlogonentry(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong authmechanism, jlong username, jlong password) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2130,7 +2130,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1addmatch(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong rule) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentAddmatch(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong rule) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2149,7 +2149,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1advertisename(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong name, jshort transports) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentAdvertisename(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong name, jshort transports) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2169,7 +2169,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1bindsessionport(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong sessionport, jlong opts, jlong listener) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentBindsessionport(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong sessionport, jlong opts, jlong listener) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2190,7 +2190,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1canceladvertisename(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong name, jshort transports) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentCanceladvertisename(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong name, jshort transports) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2210,7 +2210,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1cancelfindadvertisedname(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong nameprefix) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentCancelfindadvertisedname(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong nameprefix) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2229,7 +2229,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1cancelfindadvertisednamebytransport(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong nameprefix, jshort transports) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentCancelfindadvertisednamebytransport(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong nameprefix, jshort transports) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2249,7 +2249,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1cancelwhoimplements_1interface(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong implementsinterface) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentCancelwhoimplementsInterface(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong implementsinterface) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2268,7 +2268,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1cancelwhoimplements_1interfaces(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong implementsinterfaces, jlong numberinterfaces) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentCancelwhoimplementsInterfaces(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong implementsinterfaces, jlong numberinterfaces) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2288,7 +2288,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1clearkeys(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong guid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentClearkeys(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong guid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2307,7 +2307,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1clearkeystore(JNIEnv* km_env, jclass km_clazz, jlong bus) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentClearkeystore(JNIEnv* km_env, jclass km_clazz, jlong bus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2323,7 +2323,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1connect(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong connectspec) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentConnect(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong connectspec) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2342,7 +2342,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1create(JNIEnv* km_env, jclass km_clazz, jlong applicationname, jint allowremotemessages) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentCreate(JNIEnv* km_env, jclass km_clazz, jlong applicationname, jint allowremotemessages) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2361,7 +2361,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1create_1concurrency(JNIEnv* km_env, jclass km_clazz, jlong applicationname, jint allowremotemessages, jint concurrency) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentCreateConcurrency(JNIEnv* km_env, jclass km_clazz, jlong applicationname, jint allowremotemessages, jint concurrency) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2381,7 +2381,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1createinterface(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong name, jlong iface) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentCreateinterface(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong name, jlong iface) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2401,7 +2401,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1createinterface_1secure(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong name, jlong iface, jint secpolicy) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentCreateinterfaceSecure(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong name, jlong iface, jint secpolicy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2422,7 +2422,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1createinterfacesfromxml(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong xml) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentCreateinterfacesfromxml(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong xml) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2441,7 +2441,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1deletedefaultkeystore(JNIEnv* km_env, jclass km_clazz, jlong applicationname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentDeletedefaultkeystore(JNIEnv* km_env, jclass km_clazz, jlong applicationname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2459,7 +2459,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1deleteinterface(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong iface) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentDeleteinterface(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong iface) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2478,7 +2478,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1destroy(JNIEnv* km_env, jclass km_clazz, jlong bus) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentDestroy(JNIEnv* km_env, jclass km_clazz, jlong bus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2494,7 +2494,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1disconnect(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong unused) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentDisconnect(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong unused) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2513,7 +2513,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1enableconcurrentcallbacks(JNIEnv* km_env, jclass km_clazz, jlong bus) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentEnableconcurrentcallbacks(JNIEnv* km_env, jclass km_clazz, jlong bus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2529,7 +2529,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1enablepeersecurity(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong authmechanisms, jlong listener, jlong keystorefilename, jint isshared) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentEnablepeersecurity(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong authmechanisms, jlong listener, jlong keystorefilename, jint isshared) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2551,7 +2551,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1enablepeersecuritywithpermissionconfigurationlistener(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong authmechanisms, jlong authlistener, jlong keystorefilename, jint isshared, jlong permissionconfigurationlistener) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentEnablepeersecuritywithpermissionconfigurationlistener(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong authmechanisms, jlong authlistener, jlong keystorefilename, jint isshared, jlong permissionconfigurationlistener) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2574,7 +2574,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1findadvertisedname(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong nameprefix) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentFindadvertisedname(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong nameprefix) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2593,7 +2593,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1findadvertisednamebytransport(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong nameprefix, jshort transports) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentFindadvertisednamebytransport(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong nameprefix, jshort transports) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2613,7 +2613,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1getalljoyndebugobj(JNIEnv* km_env, jclass km_clazz, jlong bus) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentGetalljoyndebugobj(JNIEnv* km_env, jclass km_clazz, jlong bus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2631,7 +2631,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1getalljoynproxyobj(JNIEnv* km_env, jclass km_clazz, jlong bus) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentGetalljoynproxyobj(JNIEnv* km_env, jclass km_clazz, jlong bus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2649,7 +2649,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1getconcurrency(JNIEnv* km_env, jclass km_clazz, jlong bus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentGetconcurrency(JNIEnv* km_env, jclass km_clazz, jlong bus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2667,7 +2667,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1getconnectspec(JNIEnv* km_env, jclass km_clazz, jlong bus) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentGetconnectspec(JNIEnv* km_env, jclass km_clazz, jlong bus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2685,7 +2685,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1getdbusproxyobj(JNIEnv* km_env, jclass km_clazz, jlong bus) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentGetdbusproxyobj(JNIEnv* km_env, jclass km_clazz, jlong bus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2703,7 +2703,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1getglobalguidstring(JNIEnv* km_env, jclass km_clazz, jlong bus) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentGetglobalguidstring(JNIEnv* km_env, jclass km_clazz, jlong bus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2721,26 +2721,26 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1getinterface(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong name) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentGetinterface(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong name) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int64_t, void*);
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "alljoyn_busattachment_getinterface");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)bus, (void*)(uintptr_t)name) : -1;
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)bus, (void*)(uintptr_t)name) : -1;
 #else
     (void)bus;
     (void)name;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return (jlong)km_res;
+    return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1getinterfaces(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong ifaces, jlong numifaces) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentGetinterfaces(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong ifaces, jlong numifaces) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2760,7 +2760,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1getkeyexpiration(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong guid, jlong timeout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentGetkeyexpiration(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong guid, jlong timeout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2780,7 +2780,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1getpeerguid(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong name, jlong guid, jlong guidsz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentGetpeerguid(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong name, jlong guid, jlong guidsz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2801,25 +2801,25 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1getpermissionconfigurator(JNIEnv* km_env, jclass km_clazz, jlong bus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentGetpermissionconfigurator(JNIEnv* km_env, jclass km_clazz, jlong bus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int64_t);
+    typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "alljoyn_busattachment_getpermissionconfigurator");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)bus) : -1;
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)bus) : -1;
 #else
     (void)bus;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return (jlong)km_res;
+    return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1gettimestamp(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentGettimestamp(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2836,7 +2836,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1getuniquename(JNIEnv* km_env, jclass km_clazz, jlong bus) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentGetuniquename(JNIEnv* km_env, jclass km_clazz, jlong bus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2854,7 +2854,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1isconnected(JNIEnv* km_env, jclass km_clazz, jlong bus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentIsconnected(JNIEnv* km_env, jclass km_clazz, jlong bus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2872,7 +2872,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1ispeersecurityenabled(JNIEnv* km_env, jclass km_clazz, jlong bus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentIspeersecurityenabled(JNIEnv* km_env, jclass km_clazz, jlong bus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2890,7 +2890,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1isstarted(JNIEnv* km_env, jclass km_clazz, jlong bus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentIsstarted(JNIEnv* km_env, jclass km_clazz, jlong bus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2908,7 +2908,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1isstopping(JNIEnv* km_env, jclass km_clazz, jlong bus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentIsstopping(JNIEnv* km_env, jclass km_clazz, jlong bus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2926,7 +2926,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1join(JNIEnv* km_env, jclass km_clazz, jlong bus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentJoin(JNIEnv* km_env, jclass km_clazz, jlong bus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2944,7 +2944,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1joinsession(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong sessionhost, jshort sessionport, jlong listener, jlong sessionid, jlong opts) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentJoinsession(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong sessionhost, jshort sessionport, jlong listener, jlong sessionid, jlong opts) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2967,7 +2967,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1joinsessionasync(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong sessionhost, jshort sessionport, jlong listener, jlong opts, jlong callback, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentJoinsessionasync(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong sessionhost, jshort sessionport, jlong listener, jlong opts, jlong callback, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2991,7 +2991,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1leavesession(JNIEnv* km_env, jclass km_clazz, jlong bus, jint sessionid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentLeavesession(JNIEnv* km_env, jclass km_clazz, jlong bus, jint sessionid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3010,7 +3010,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1namehasowner(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong name, jlong hasowner) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentNamehasowner(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong name, jlong hasowner) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3030,7 +3030,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1ping(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong name, jint timeout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentPing(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong name, jint timeout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3050,7 +3050,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1registeraboutlistener(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong aboutlistener) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentRegisteraboutlistener(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong aboutlistener) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3067,7 +3067,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1registerapplicationstatelistener(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong listener) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentRegisterapplicationstatelistener(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong listener) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3086,7 +3086,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1registerbuslistener(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong listener) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentRegisterbuslistener(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong listener) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3103,7 +3103,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1registerbusobject(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong obj) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentRegisterbusobject(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong obj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3122,7 +3122,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1registerbusobject_1secure(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong obj) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentRegisterbusobjectSecure(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong obj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3141,7 +3141,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1registerkeystorelistener(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong listener) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentRegisterkeystorelistener(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong listener) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3160,7 +3160,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1releasename(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong name) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentReleasename(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong name) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3179,7 +3179,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1reloadkeystore(JNIEnv* km_env, jclass km_clazz, jlong bus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentReloadkeystore(JNIEnv* km_env, jclass km_clazz, jlong bus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3197,7 +3197,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1removematch(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong rule) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentRemovematch(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong rule) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3216,7 +3216,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1removesessionmember(JNIEnv* km_env, jclass km_clazz, jlong bus, jint sessionid, jlong membername) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentRemovesessionmember(JNIEnv* km_env, jclass km_clazz, jlong bus, jint sessionid, jlong membername) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3236,7 +3236,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1requestname(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong requestedname, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentRequestname(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong requestedname, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3256,7 +3256,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1secureconnection(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong name, jint forceauth) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentSecureconnection(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong name, jint forceauth) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3276,7 +3276,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1secureconnectionasync(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong name, jint forceauth) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentSecureconnectionasync(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong name, jint forceauth) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3296,7 +3296,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1setdaemondebug(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong module, jint level) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentSetdaemondebug(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong module, jint level) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3316,7 +3316,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1setkeyexpiration(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong guid, jint timeout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentSetkeyexpiration(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong guid, jint timeout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3336,7 +3336,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1setlinktimeout(JNIEnv* km_env, jclass km_clazz, jlong bus, jint sessionid, jlong linktimeout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentSetlinktimeout(JNIEnv* km_env, jclass km_clazz, jlong bus, jint sessionid, jlong linktimeout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3356,7 +3356,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1setlinktimeoutasync(JNIEnv* km_env, jclass km_clazz, jlong bus, jint sessionid, jint linktimeout, jlong callback, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentSetlinktimeoutasync(JNIEnv* km_env, jclass km_clazz, jlong bus, jint sessionid, jint linktimeout, jlong callback, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3378,7 +3378,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1setsessionlistener(JNIEnv* km_env, jclass km_clazz, jlong bus, jint sessionid, jlong listener) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentSetsessionlistener(JNIEnv* km_env, jclass km_clazz, jlong bus, jint sessionid, jlong listener) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3398,7 +3398,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1start(JNIEnv* km_env, jclass km_clazz, jlong bus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentStart(JNIEnv* km_env, jclass km_clazz, jlong bus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3416,7 +3416,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1stop(JNIEnv* km_env, jclass km_clazz, jlong bus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentStop(JNIEnv* km_env, jclass km_clazz, jlong bus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3434,7 +3434,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1unbindsessionport(JNIEnv* km_env, jclass km_clazz, jlong bus, jshort sessionport) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentUnbindsessionport(JNIEnv* km_env, jclass km_clazz, jlong bus, jshort sessionport) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3453,7 +3453,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1unregisteraboutlistener(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong aboutlistener) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentUnregisteraboutlistener(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong aboutlistener) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3470,7 +3470,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1unregisterallaboutlisteners(JNIEnv* km_env, jclass km_clazz, jlong bus) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentUnregisterallaboutlisteners(JNIEnv* km_env, jclass km_clazz, jlong bus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3486,7 +3486,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1unregisterallhandlers(JNIEnv* km_env, jclass km_clazz, jlong bus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentUnregisterallhandlers(JNIEnv* km_env, jclass km_clazz, jlong bus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3504,7 +3504,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1unregisterapplicationstatelistener(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong listener) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentUnregisterapplicationstatelistener(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong listener) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3523,7 +3523,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1unregisterbuslistener(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong listener) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentUnregisterbuslistener(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong listener) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3540,7 +3540,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1unregisterbusobject(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong object) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentUnregisterbusobject(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong object) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3557,7 +3557,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1whoimplements_1interface(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong implementsinterface) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentWhoimplementsInterface(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong implementsinterface) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3576,7 +3576,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busattachment_1whoimplements_1interfaces(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong implementsinterfaces, jlong numberinterfaces) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusattachmentWhoimplementsInterfaces(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong implementsinterfaces, jlong numberinterfaces) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3596,26 +3596,26 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1buslistener_1create(JNIEnv* km_env, jclass km_clazz, jlong callbacks, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBuslistenerCreate(JNIEnv* km_env, jclass km_clazz, jlong callbacks, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "alljoyn_buslistener_create");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)callbacks, (void*)(uintptr_t)context) : -1;
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)callbacks, (void*)(uintptr_t)context) : -1;
 #else
     (void)callbacks;
     (void)context;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return (jlong)km_res;
+    return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1buslistener_1destroy(JNIEnv* km_env, jclass km_clazz, jlong listener) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBuslistenerDestroy(JNIEnv* km_env, jclass km_clazz, jlong listener) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3631,7 +3631,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busobject_1addinterface(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong iface) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusobjectAddinterface(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong iface) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3650,7 +3650,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busobject_1addinterface_1announced(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong iface) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusobjectAddinterfaceAnnounced(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong iface) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3669,7 +3669,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busobject_1addmethodhandlers(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong entries, jlong numentries) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusobjectAddmethodhandlers(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong entries, jlong numentries) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3689,7 +3689,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busobject_1cancelsessionlessmessage(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong msg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusobjectCancelsessionlessmessage(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong msg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3708,7 +3708,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busobject_1cancelsessionlessmessage_1serial(JNIEnv* km_env, jclass km_clazz, jlong bus, jint serialnumber) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusobjectCancelsessionlessmessageSerial(JNIEnv* km_env, jclass km_clazz, jlong bus, jint serialnumber) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3727,7 +3727,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busobject_1create(JNIEnv* km_env, jclass km_clazz, jlong path, jint isplaceholder, jlong callbacks_in, jlong context_in) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusobjectCreate(JNIEnv* km_env, jclass km_clazz, jlong path, jint isplaceholder, jlong callbacks_in, jlong context_in) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3748,7 +3748,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busobject_1destroy(JNIEnv* km_env, jclass km_clazz, jlong bus) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusobjectDestroy(JNIEnv* km_env, jclass km_clazz, jlong bus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3764,7 +3764,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busobject_1emitpropertieschanged(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong ifcname, jlong propnames, jlong numprops, jint id) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusobjectEmitpropertieschanged(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong ifcname, jlong propnames, jlong numprops, jint id) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3784,7 +3784,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busobject_1emitpropertychanged(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong ifcname, jlong propname, jlong val, jint id) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusobjectEmitpropertychanged(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong ifcname, jlong propname, jlong val, jint id) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3804,7 +3804,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busobject_1getannouncedinterfacenames(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong interfaces, jlong numinterfaces) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusobjectGetannouncedinterfacenames(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong interfaces, jlong numinterfaces) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3824,7 +3824,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busobject_1getbusattachment(JNIEnv* km_env, jclass km_clazz, jlong bus) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusobjectGetbusattachment(JNIEnv* km_env, jclass km_clazz, jlong bus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3842,7 +3842,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busobject_1getname(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong buffer, jlong buffersz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusobjectGetname(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong buffer, jlong buffersz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3862,7 +3862,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busobject_1getpath(JNIEnv* km_env, jclass km_clazz, jlong bus) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusobjectGetpath(JNIEnv* km_env, jclass km_clazz, jlong bus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3880,7 +3880,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busobject_1issecure(JNIEnv* km_env, jclass km_clazz, jlong bus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusobjectIssecure(JNIEnv* km_env, jclass km_clazz, jlong bus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3898,7 +3898,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busobject_1methodreply_1args(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong msg, jlong args, jlong numargs) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusobjectMethodreplyArgs(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong msg, jlong args, jlong numargs) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3919,7 +3919,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busobject_1methodreply_1err(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong msg, jlong error, jlong errormessage) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusobjectMethodreplyErr(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong msg, jlong error, jlong errormessage) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3940,7 +3940,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busobject_1methodreply_1status(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong msg, jint status) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusobjectMethodreplyStatus(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong msg, jint status) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3960,7 +3960,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1busobject_1setannounceflag(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong iface, jint isannounced) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynBusobjectSetannounceflag(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong iface, jint isannounced) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3980,7 +3980,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1credentials_1clear(JNIEnv* km_env, jclass km_clazz, jlong cred) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynCredentialsClear(JNIEnv* km_env, jclass km_clazz, jlong cred) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3996,7 +3996,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1credentials_1create(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynCredentialsCreate(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4013,7 +4013,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1credentials_1destroy(JNIEnv* km_env, jclass km_clazz, jlong cred) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynCredentialsDestroy(JNIEnv* km_env, jclass km_clazz, jlong cred) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4029,7 +4029,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1credentials_1getcertchain(JNIEnv* km_env, jclass km_clazz, jlong cred) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynCredentialsGetcertchain(JNIEnv* km_env, jclass km_clazz, jlong cred) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4047,7 +4047,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1credentials_1getexpiration(JNIEnv* km_env, jclass km_clazz, jlong cred) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynCredentialsGetexpiration(JNIEnv* km_env, jclass km_clazz, jlong cred) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4065,7 +4065,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1credentials_1getlogonentry(JNIEnv* km_env, jclass km_clazz, jlong cred) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynCredentialsGetlogonentry(JNIEnv* km_env, jclass km_clazz, jlong cred) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4083,7 +4083,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1credentials_1getpassword(JNIEnv* km_env, jclass km_clazz, jlong cred) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynCredentialsGetpassword(JNIEnv* km_env, jclass km_clazz, jlong cred) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4101,7 +4101,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1credentials_1getprivateKey(JNIEnv* km_env, jclass km_clazz, jlong cred) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynCredentialsGetprivateKey(JNIEnv* km_env, jclass km_clazz, jlong cred) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4119,7 +4119,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1credentials_1getusername(JNIEnv* km_env, jclass km_clazz, jlong cred) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynCredentialsGetusername(JNIEnv* km_env, jclass km_clazz, jlong cred) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4137,7 +4137,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1credentials_1isset(JNIEnv* km_env, jclass km_clazz, jlong cred, jshort creds) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynCredentialsIsset(JNIEnv* km_env, jclass km_clazz, jlong cred, jshort creds) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4156,7 +4156,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1credentials_1setcertchain(JNIEnv* km_env, jclass km_clazz, jlong cred, jlong certchain) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynCredentialsSetcertchain(JNIEnv* km_env, jclass km_clazz, jlong cred, jlong certchain) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4173,7 +4173,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1credentials_1setexpiration(JNIEnv* km_env, jclass km_clazz, jlong cred, jint expiration) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynCredentialsSetexpiration(JNIEnv* km_env, jclass km_clazz, jlong cred, jint expiration) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4190,7 +4190,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1credentials_1setlogonentry(JNIEnv* km_env, jclass km_clazz, jlong cred, jlong logonentry) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynCredentialsSetlogonentry(JNIEnv* km_env, jclass km_clazz, jlong cred, jlong logonentry) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4207,7 +4207,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1credentials_1setpassword(JNIEnv* km_env, jclass km_clazz, jlong cred, jlong pwd) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynCredentialsSetpassword(JNIEnv* km_env, jclass km_clazz, jlong cred, jlong pwd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4224,7 +4224,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1credentials_1setprivatekey(JNIEnv* km_env, jclass km_clazz, jlong cred, jlong pk) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynCredentialsSetprivatekey(JNIEnv* km_env, jclass km_clazz, jlong cred, jlong pk) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4241,7 +4241,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1credentials_1setusername(JNIEnv* km_env, jclass km_clazz, jlong cred, jlong username) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynCredentialsSetusername(JNIEnv* km_env, jclass km_clazz, jlong cred, jlong username) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4258,7 +4258,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1getbuildinfo(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynGetbuildinfo(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4275,7 +4275,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1getnumericversion(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynGetnumericversion(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4292,7 +4292,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1getversion(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynGetversion(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4309,7 +4309,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1init(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInit(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4326,7 +4326,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1activate(JNIEnv* km_env, jclass km_clazz, jlong iface) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionActivate(JNIEnv* km_env, jclass km_clazz, jlong iface) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4342,7 +4342,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1addannotation(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong name, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionAddannotation(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong name, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4362,7 +4362,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1addargannotation(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong member, jlong argname, jlong name, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionAddargannotation(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong member, jlong argname, jlong name, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4384,7 +4384,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1addmember(JNIEnv* km_env, jclass km_clazz, jlong iface, jint type, jlong name, jlong inputsig, jlong outsig, jlong argnames, jbyte annotation) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionAddmember(JNIEnv* km_env, jclass km_clazz, jlong iface, jint type, jlong name, jlong inputsig, jlong outsig, jlong argnames, jbyte annotation) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4408,7 +4408,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1addmemberannotation(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong member, jlong name, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionAddmemberannotation(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong member, jlong name, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4429,7 +4429,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1addmethod(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong name, jlong inputsig, jlong outsig, jlong argnames, jbyte annotation, jlong accessperms) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionAddmethod(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong name, jlong inputsig, jlong outsig, jlong argnames, jbyte annotation, jlong accessperms) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4453,7 +4453,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1addproperty(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong name, jlong signature, jbyte access) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionAddproperty(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong name, jlong signature, jbyte access) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4474,7 +4474,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1addpropertyannotation(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong property, jlong name, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionAddpropertyannotation(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong property, jlong name, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4495,7 +4495,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1addsignal(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong name, jlong sig, jlong argnames, jbyte annotation, jlong accessperms) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionAddsignal(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong name, jlong sig, jlong argnames, jbyte annotation, jlong accessperms) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4518,7 +4518,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1eql(JNIEnv* km_env, jclass km_clazz, jlong one, jlong other) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionEql(JNIEnv* km_env, jclass km_clazz, jlong one, jlong other) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4537,7 +4537,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1getannotation(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong name, jlong value, jlong value_size) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionGetannotation(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong name, jlong value, jlong value_size) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4558,7 +4558,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1getannotationatindex(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong arg_1_index, jlong name, jlong name_size, jlong value, jlong value_size) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionGetannotationatindex(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong arg_1_index, jlong name, jlong name_size, jlong value, jlong value_size) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4579,7 +4579,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1getannotationscount(JNIEnv* km_env, jclass km_clazz, jlong iface) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionGetannotationscount(JNIEnv* km_env, jclass km_clazz, jlong iface) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4597,7 +4597,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1getargdescriptionforlanguage(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong member, jlong arg, jlong description, jlong maxlanguagelength, jlong languagetag) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionGetargdescriptionforlanguage(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong member, jlong arg, jlong description, jlong maxlanguagelength, jlong languagetag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4620,7 +4620,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1getdescriptionforlanguage(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong description, jlong maxlanguagelength, jlong languagetag) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionGetdescriptionforlanguage(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong description, jlong maxlanguagelength, jlong languagetag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4641,7 +4641,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1getdescriptionlanguages(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong languages, jlong size) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionGetdescriptionlanguages(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong languages, jlong size) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4661,7 +4661,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1getdescriptionlanguages2(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong languages, jlong languagessize) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionGetdescriptionlanguages2(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong languages, jlong languagessize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4681,7 +4681,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1getdescriptiontranslationcallback(JNIEnv* km_env, jclass km_clazz, jlong iface) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionGetdescriptiontranslationcallback(JNIEnv* km_env, jclass km_clazz, jlong iface) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4699,7 +4699,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1getmember(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong name, jlong member) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionGetmember(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong name, jlong member) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4719,7 +4719,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1getmemberannotation(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong member, jlong name, jlong value, jlong value_size) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionGetmemberannotation(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong member, jlong name, jlong value, jlong value_size) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4741,7 +4741,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1getmemberargannotation(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong member, jlong argname, jlong name, jlong value, jlong value_size) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionGetmemberargannotation(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong member, jlong argname, jlong name, jlong value, jlong value_size) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4764,7 +4764,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1getmemberdescriptionforlanguage(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong member, jlong description, jlong maxlanguagelength, jlong languagetag) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionGetmemberdescriptionforlanguage(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong member, jlong description, jlong maxlanguagelength, jlong languagetag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4786,7 +4786,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1getmembers(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong members, jlong nummembers) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionGetmembers(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong members, jlong nummembers) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4806,7 +4806,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1getmethod(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong name, jlong member) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionGetmethod(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong name, jlong member) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4826,7 +4826,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1getname(JNIEnv* km_env, jclass km_clazz, jlong iface) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionGetname(JNIEnv* km_env, jclass km_clazz, jlong iface) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4844,7 +4844,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1getproperties(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong props, jlong numprops) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionGetproperties(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong props, jlong numprops) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4864,7 +4864,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1getproperty(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong name, jlong property) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionGetproperty(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong name, jlong property) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4884,7 +4884,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1getpropertyannotation(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong property, jlong name, jlong value, jlong str_size) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionGetpropertyannotation(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong property, jlong name, jlong value, jlong str_size) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4906,7 +4906,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1getpropertydescriptionforlanguage(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong property, jlong description, jlong maxlanguagelength, jlong languagetag) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionGetpropertydescriptionforlanguage(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong property, jlong description, jlong maxlanguagelength, jlong languagetag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4928,7 +4928,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1getsecuritypolicy(JNIEnv* km_env, jclass km_clazz, jlong iface) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionGetsecuritypolicy(JNIEnv* km_env, jclass km_clazz, jlong iface) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4946,7 +4946,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1getsignal(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong name, jlong member) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionGetsignal(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong name, jlong member) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4966,7 +4966,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1hasdescription(JNIEnv* km_env, jclass km_clazz, jlong iface) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionHasdescription(JNIEnv* km_env, jclass km_clazz, jlong iface) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4984,7 +4984,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1hasmember(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong name, jlong insig, jlong outsig) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionHasmember(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong name, jlong insig, jlong outsig) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5005,7 +5005,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1hasproperties(JNIEnv* km_env, jclass km_clazz, jlong iface) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionHasproperties(JNIEnv* km_env, jclass km_clazz, jlong iface) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5023,7 +5023,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1hasproperty(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong name) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionHasproperty(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong name) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5042,7 +5042,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1introspect(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong str, jlong buf, jlong indent) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionIntrospect(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong str, jlong buf, jlong indent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5063,7 +5063,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1issecure(JNIEnv* km_env, jclass km_clazz, jlong iface) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionIssecure(JNIEnv* km_env, jclass km_clazz, jlong iface) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5081,7 +5081,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1setargdescription(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong member, jlong argname, jlong description) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionSetargdescription(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong member, jlong argname, jlong description) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5102,7 +5102,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1setargdescriptionforlanguage(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong member, jlong arg, jlong description, jlong languagetag) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionSetargdescriptionforlanguage(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong member, jlong arg, jlong description, jlong languagetag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5124,7 +5124,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1setdescription(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong description) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionSetdescription(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong description) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5141,7 +5141,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1setdescriptionforlanguage(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong description, jlong languagetag) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionSetdescriptionforlanguage(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong description, jlong languagetag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5161,7 +5161,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1setdescriptionlanguage(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong language) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionSetdescriptionlanguage(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong language) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5178,7 +5178,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1setdescriptiontranslationcallback(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong translationcallback) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionSetdescriptiontranslationcallback(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong translationcallback) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5195,7 +5195,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1setmemberdescription(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong member, jlong description) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionSetmemberdescription(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong member, jlong description) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5215,7 +5215,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1setmemberdescriptionforlanguage(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong member, jlong description, jlong languagetag) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionSetmemberdescriptionforlanguage(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong member, jlong description, jlong languagetag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5236,7 +5236,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1setpropertydescription(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong name, jlong description) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionSetpropertydescription(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong name, jlong description) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5256,7 +5256,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1interfacedescription_1setpropertydescriptionforlanguage(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong name, jlong description, jlong languagetag) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynInterfacedescriptionSetpropertydescriptionforlanguage(JNIEnv* km_env, jclass km_clazz, jlong iface, jlong name, jlong description, jlong languagetag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5277,7 +5277,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1keystorelistener_1create(JNIEnv* km_env, jclass km_clazz, jlong callbacks, jlong context) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynKeystorelistenerCreate(JNIEnv* km_env, jclass km_clazz, jlong callbacks, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5296,7 +5296,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1keystorelistener_1destroy(JNIEnv* km_env, jclass km_clazz, jlong listener) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynKeystorelistenerDestroy(JNIEnv* km_env, jclass km_clazz, jlong listener) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5312,7 +5312,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1keystorelistener_1getkeys(JNIEnv* km_env, jclass km_clazz, jlong listener, jlong keystore, jlong sink, jlong sink_sz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynKeystorelistenerGetkeys(JNIEnv* km_env, jclass km_clazz, jlong listener, jlong keystore, jlong sink, jlong sink_sz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5333,7 +5333,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1keystorelistener_1putkeys(JNIEnv* km_env, jclass km_clazz, jlong listener, jlong keystore, jlong source, jlong password) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynKeystorelistenerPutkeys(JNIEnv* km_env, jclass km_clazz, jlong listener, jlong keystore, jlong source, jlong password) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5354,7 +5354,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1keystorelistener_1with_1synchronization_1create(JNIEnv* km_env, jclass km_clazz, jlong callbacks, jlong context) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynKeystorelistenerWithSynchronizationCreate(JNIEnv* km_env, jclass km_clazz, jlong callbacks, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5373,7 +5373,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1message_1create(JNIEnv* km_env, jclass km_clazz, jlong bus) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMessageCreate(JNIEnv* km_env, jclass km_clazz, jlong bus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5391,7 +5391,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1message_1description(JNIEnv* km_env, jclass km_clazz, jlong msg, jlong str, jlong buf) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMessageDescription(JNIEnv* km_env, jclass km_clazz, jlong msg, jlong str, jlong buf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5411,7 +5411,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1message_1destroy(JNIEnv* km_env, jclass km_clazz, jlong msg) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMessageDestroy(JNIEnv* km_env, jclass km_clazz, jlong msg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5427,7 +5427,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1message_1eql(JNIEnv* km_env, jclass km_clazz, jlong one, jlong other) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMessageEql(JNIEnv* km_env, jclass km_clazz, jlong one, jlong other) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5446,7 +5446,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1message_1getarg(JNIEnv* km_env, jclass km_clazz, jlong msg, jlong argn) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMessageGetarg(JNIEnv* km_env, jclass km_clazz, jlong msg, jlong argn) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5465,7 +5465,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1message_1getargs(JNIEnv* km_env, jclass km_clazz, jlong msg, jlong numargs, jlong args) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMessageGetargs(JNIEnv* km_env, jclass km_clazz, jlong msg, jlong numargs, jlong args) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5483,7 +5483,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1message_1getauthmechanism(JNIEnv* km_env, jclass km_clazz, jlong msg) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMessageGetauthmechanism(JNIEnv* km_env, jclass km_clazz, jlong msg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5501,7 +5501,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1message_1getcallserial(JNIEnv* km_env, jclass km_clazz, jlong msg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMessageGetcallserial(JNIEnv* km_env, jclass km_clazz, jlong msg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5519,7 +5519,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1message_1getcompressiontoken(JNIEnv* km_env, jclass km_clazz, jlong msg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMessageGetcompressiontoken(JNIEnv* km_env, jclass km_clazz, jlong msg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5537,7 +5537,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1message_1getdestination(JNIEnv* km_env, jclass km_clazz, jlong msg) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMessageGetdestination(JNIEnv* km_env, jclass km_clazz, jlong msg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5555,7 +5555,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1message_1geterrorname(JNIEnv* km_env, jclass km_clazz, jlong msg, jlong errormessage, jlong errormessage_size) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMessageGeterrorname(JNIEnv* km_env, jclass km_clazz, jlong msg, jlong errormessage, jlong errormessage_size) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5575,7 +5575,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1message_1getflags(JNIEnv* km_env, jclass km_clazz, jlong msg) {
+JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMessageGetflags(JNIEnv* km_env, jclass km_clazz, jlong msg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5593,7 +5593,7 @@ JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jbyte)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1message_1getinterface(JNIEnv* km_env, jclass km_clazz, jlong msg) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMessageGetinterface(JNIEnv* km_env, jclass km_clazz, jlong msg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5611,7 +5611,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1message_1getmembername(JNIEnv* km_env, jclass km_clazz, jlong msg) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMessageGetmembername(JNIEnv* km_env, jclass km_clazz, jlong msg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5629,7 +5629,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1message_1getobjectpath(JNIEnv* km_env, jclass km_clazz, jlong msg) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMessageGetobjectpath(JNIEnv* km_env, jclass km_clazz, jlong msg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5647,7 +5647,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1message_1getreceiveendpointname(JNIEnv* km_env, jclass km_clazz, jlong msg) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMessageGetreceiveendpointname(JNIEnv* km_env, jclass km_clazz, jlong msg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5665,7 +5665,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1message_1getreplyserial(JNIEnv* km_env, jclass km_clazz, jlong msg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMessageGetreplyserial(JNIEnv* km_env, jclass km_clazz, jlong msg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5683,7 +5683,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1message_1getsender(JNIEnv* km_env, jclass km_clazz, jlong msg) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMessageGetsender(JNIEnv* km_env, jclass km_clazz, jlong msg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5701,7 +5701,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1message_1getsessionid(JNIEnv* km_env, jclass km_clazz, jlong msg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMessageGetsessionid(JNIEnv* km_env, jclass km_clazz, jlong msg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5719,7 +5719,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1message_1getsignature(JNIEnv* km_env, jclass km_clazz, jlong msg) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMessageGetsignature(JNIEnv* km_env, jclass km_clazz, jlong msg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5737,7 +5737,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1message_1gettimestamp(JNIEnv* km_env, jclass km_clazz, jlong msg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMessageGettimestamp(JNIEnv* km_env, jclass km_clazz, jlong msg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5755,7 +5755,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1message_1gettype(JNIEnv* km_env, jclass km_clazz, jlong msg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMessageGettype(JNIEnv* km_env, jclass km_clazz, jlong msg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5773,7 +5773,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1message_1isbroadcastsignal(JNIEnv* km_env, jclass km_clazz, jlong msg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMessageIsbroadcastsignal(JNIEnv* km_env, jclass km_clazz, jlong msg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5791,7 +5791,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1message_1isencrypted(JNIEnv* km_env, jclass km_clazz, jlong msg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMessageIsencrypted(JNIEnv* km_env, jclass km_clazz, jlong msg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5809,7 +5809,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1message_1isexpired(JNIEnv* km_env, jclass km_clazz, jlong msg, jlong tillexpirems) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMessageIsexpired(JNIEnv* km_env, jclass km_clazz, jlong msg, jlong tillexpirems) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5828,7 +5828,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1message_1isglobalbroadcast(JNIEnv* km_env, jclass km_clazz, jlong msg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMessageIsglobalbroadcast(JNIEnv* km_env, jclass km_clazz, jlong msg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5846,7 +5846,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1message_1issessionless(JNIEnv* km_env, jclass km_clazz, jlong msg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMessageIssessionless(JNIEnv* km_env, jclass km_clazz, jlong msg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5864,7 +5864,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1message_1isunreliable(JNIEnv* km_env, jclass km_clazz, jlong msg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMessageIsunreliable(JNIEnv* km_env, jclass km_clazz, jlong msg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5882,7 +5882,36 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1message_1setendianess(JNIEnv* km_env, jclass km_clazz, jbyte endian) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMessageParseargs(JNIEnv* km_env, jclass km_clazz, jlong msg, jlong signature, jint km_vac, jlong km_va0, jlong km_va1, jlong km_va2, jlong km_va3) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(int64_t, void*, ...);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "alljoyn_message_parseargs");
+    }
+    int32_t km_res = -1;
+    if (km_fn_ptr != NULL) {
+        switch (km_vac) {
+            case 0: km_res = km_fn_ptr((int64_t)msg, (void*)(uintptr_t)signature); break;
+            case 1: km_res = km_fn_ptr((int64_t)msg, (void*)(uintptr_t)signature, (intptr_t)km_va0); break;
+            case 2: km_res = km_fn_ptr((int64_t)msg, (void*)(uintptr_t)signature, (intptr_t)km_va0, (intptr_t)km_va1); break;
+            case 3: km_res = km_fn_ptr((int64_t)msg, (void*)(uintptr_t)signature, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2); break;
+            default: km_res = km_fn_ptr((int64_t)msg, (void*)(uintptr_t)signature, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3); break;
+        }
+    }
+#else
+    (void)msg;
+    (void)signature;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMessageSetendianess(JNIEnv* km_env, jclass km_clazz, jbyte endian) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5898,7 +5927,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1message_1tostring(JNIEnv* km_env, jclass km_clazz, jlong msg, jlong str, jlong buf) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMessageTostring(JNIEnv* km_env, jclass km_clazz, jlong msg, jlong str, jlong buf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5918,7 +5947,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1array_1create(JNIEnv* km_env, jclass km_clazz, jlong size) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargArrayCreate(JNIEnv* km_env, jclass km_clazz, jlong size) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5936,7 +5965,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1array_1element(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong arg_1_index) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargArrayElement(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong arg_1_index) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5955,7 +5984,98 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1array_1signature(JNIEnv* km_env, jclass km_clazz, jlong values, jlong numvalues, jlong str, jlong buf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargArrayGet(JNIEnv* km_env, jclass km_clazz, jlong args, jlong numargs, jlong signature, jint km_vac, jlong km_va0, jlong km_va1, jlong km_va2, jlong km_va3) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(int64_t, uint64_t, void*, ...);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "alljoyn_msgarg_array_get");
+    }
+    int32_t km_res = -1;
+    if (km_fn_ptr != NULL) {
+        switch (km_vac) {
+            case 0: km_res = km_fn_ptr((int64_t)args, (uint64_t)numargs, (void*)(uintptr_t)signature); break;
+            case 1: km_res = km_fn_ptr((int64_t)args, (uint64_t)numargs, (void*)(uintptr_t)signature, (intptr_t)km_va0); break;
+            case 2: km_res = km_fn_ptr((int64_t)args, (uint64_t)numargs, (void*)(uintptr_t)signature, (intptr_t)km_va0, (intptr_t)km_va1); break;
+            case 3: km_res = km_fn_ptr((int64_t)args, (uint64_t)numargs, (void*)(uintptr_t)signature, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2); break;
+            default: km_res = km_fn_ptr((int64_t)args, (uint64_t)numargs, (void*)(uintptr_t)signature, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3); break;
+        }
+    }
+#else
+    (void)args;
+    (void)numargs;
+    (void)signature;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargArraySet(JNIEnv* km_env, jclass km_clazz, jlong args, jlong numargs, jlong signature, jint km_vac, jlong km_va0, jlong km_va1, jlong km_va2, jlong km_va3) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(int64_t, void*, void*, ...);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "alljoyn_msgarg_array_set");
+    }
+    int32_t km_res = -1;
+    if (km_fn_ptr != NULL) {
+        switch (km_vac) {
+            case 0: km_res = km_fn_ptr((int64_t)args, (void*)(uintptr_t)numargs, (void*)(uintptr_t)signature); break;
+            case 1: km_res = km_fn_ptr((int64_t)args, (void*)(uintptr_t)numargs, (void*)(uintptr_t)signature, (intptr_t)km_va0); break;
+            case 2: km_res = km_fn_ptr((int64_t)args, (void*)(uintptr_t)numargs, (void*)(uintptr_t)signature, (intptr_t)km_va0, (intptr_t)km_va1); break;
+            case 3: km_res = km_fn_ptr((int64_t)args, (void*)(uintptr_t)numargs, (void*)(uintptr_t)signature, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2); break;
+            default: km_res = km_fn_ptr((int64_t)args, (void*)(uintptr_t)numargs, (void*)(uintptr_t)signature, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3); break;
+        }
+    }
+#else
+    (void)args;
+    (void)numargs;
+    (void)signature;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargArraySetOffset(JNIEnv* km_env, jclass km_clazz, jlong args, jlong argoffset, jlong numargs, jlong signature, jint km_vac, jlong km_va0, jlong km_va1, jlong km_va2, jlong km_va3) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(int64_t, uint64_t, void*, void*, ...);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "alljoyn_msgarg_array_set_offset");
+    }
+    int32_t km_res = -1;
+    if (km_fn_ptr != NULL) {
+        switch (km_vac) {
+            case 0: km_res = km_fn_ptr((int64_t)args, (uint64_t)argoffset, (void*)(uintptr_t)numargs, (void*)(uintptr_t)signature); break;
+            case 1: km_res = km_fn_ptr((int64_t)args, (uint64_t)argoffset, (void*)(uintptr_t)numargs, (void*)(uintptr_t)signature, (intptr_t)km_va0); break;
+            case 2: km_res = km_fn_ptr((int64_t)args, (uint64_t)argoffset, (void*)(uintptr_t)numargs, (void*)(uintptr_t)signature, (intptr_t)km_va0, (intptr_t)km_va1); break;
+            case 3: km_res = km_fn_ptr((int64_t)args, (uint64_t)argoffset, (void*)(uintptr_t)numargs, (void*)(uintptr_t)signature, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2); break;
+            default: km_res = km_fn_ptr((int64_t)args, (uint64_t)argoffset, (void*)(uintptr_t)numargs, (void*)(uintptr_t)signature, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3); break;
+        }
+    }
+#else
+    (void)args;
+    (void)argoffset;
+    (void)numargs;
+    (void)signature;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargArraySignature(JNIEnv* km_env, jclass km_clazz, jlong values, jlong numvalues, jlong str, jlong buf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5976,7 +6096,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1array_1tostring(JNIEnv* km_env, jclass km_clazz, jlong args, jlong numargs, jlong str, jlong buf, jlong indent) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargArrayTostring(JNIEnv* km_env, jclass km_clazz, jlong args, jlong numargs, jlong str, jlong buf, jlong indent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -5998,7 +6118,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1clear(JNIEnv* km_env, jclass km_clazz, jlong arg) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargClear(JNIEnv* km_env, jclass km_clazz, jlong arg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6014,7 +6134,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1clone(JNIEnv* km_env, jclass km_clazz, jlong destination, jlong source) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargClone(JNIEnv* km_env, jclass km_clazz, jlong destination, jlong source) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6031,7 +6151,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1copy(JNIEnv* km_env, jclass km_clazz, jlong source) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargCopy(JNIEnv* km_env, jclass km_clazz, jlong source) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6049,7 +6169,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1create(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargCreate(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6066,7 +6186,35 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1destroy(JNIEnv* km_env, jclass km_clazz, jlong arg) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargCreateAndSet(JNIEnv* km_env, jclass km_clazz, jlong signature, jint km_vac, jlong km_va0, jlong km_va1, jlong km_va2, jlong km_va3) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int64_t (*km_fn_t)(void*, ...);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "alljoyn_msgarg_create_and_set");
+    }
+    int64_t km_res = -1;
+    if (km_fn_ptr != NULL) {
+        switch (km_vac) {
+            case 0: km_res = km_fn_ptr((void*)(uintptr_t)signature); break;
+            case 1: km_res = km_fn_ptr((void*)(uintptr_t)signature, (intptr_t)km_va0); break;
+            case 2: km_res = km_fn_ptr((void*)(uintptr_t)signature, (intptr_t)km_va0, (intptr_t)km_va1); break;
+            case 3: km_res = km_fn_ptr((void*)(uintptr_t)signature, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2); break;
+            default: km_res = km_fn_ptr((void*)(uintptr_t)signature, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3); break;
+        }
+    }
+#else
+    (void)signature;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    int64_t km_res = -1;
+#endif
+    return (jlong)km_res;
+}
+
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargDestroy(JNIEnv* km_env, jclass km_clazz, jlong arg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6082,7 +6230,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1equal(JNIEnv* km_env, jclass km_clazz, jlong lhv, jlong rhv) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargEqual(JNIEnv* km_env, jclass km_clazz, jlong lhv, jlong rhv) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6101,7 +6249,36 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1get_1array_1element(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong arg_1_index, jlong element) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargGet(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong signature, jint km_vac, jlong km_va0, jlong km_va1, jlong km_va2, jlong km_va3) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(int64_t, void*, ...);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "alljoyn_msgarg_get");
+    }
+    int32_t km_res = -1;
+    if (km_fn_ptr != NULL) {
+        switch (km_vac) {
+            case 0: km_res = km_fn_ptr((int64_t)arg, (void*)(uintptr_t)signature); break;
+            case 1: km_res = km_fn_ptr((int64_t)arg, (void*)(uintptr_t)signature, (intptr_t)km_va0); break;
+            case 2: km_res = km_fn_ptr((int64_t)arg, (void*)(uintptr_t)signature, (intptr_t)km_va0, (intptr_t)km_va1); break;
+            case 3: km_res = km_fn_ptr((int64_t)arg, (void*)(uintptr_t)signature, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2); break;
+            default: km_res = km_fn_ptr((int64_t)arg, (void*)(uintptr_t)signature, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3); break;
+        }
+    }
+#else
+    (void)arg;
+    (void)signature;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargGetArrayElement(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong arg_1_index, jlong element) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6119,7 +6296,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1get_1array_1elementsignature(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong arg_1_index) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargGetArrayElementsignature(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong arg_1_index) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6138,7 +6315,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1get_1array_1numberofelements(JNIEnv* km_env, jclass km_clazz, jlong arg) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargGetArrayNumberofelements(JNIEnv* km_env, jclass km_clazz, jlong arg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6156,7 +6333,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1get_1bool(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong b) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargGetBool(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong b) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6175,7 +6352,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1get_1bool_1array(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong ab) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargGetBoolArray(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong ab) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6195,7 +6372,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1get_1double(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong d) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargGetDouble(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong d) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6214,7 +6391,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1get_1double_1array(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong ad) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargGetDoubleArray(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong ad) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6234,7 +6411,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1get_1int16(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong n) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargGetInt16(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong n) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6253,7 +6430,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1get_1int16_1array(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong an) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargGetInt16Array(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong an) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6273,7 +6450,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1get_1int32(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong i) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargGetInt32(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong i) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6292,7 +6469,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1get_1int32_1array(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong ai) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargGetInt32Array(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong ai) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6312,7 +6489,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1get_1int64(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong x) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargGetInt64(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong x) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6331,7 +6508,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1get_1int64_1array(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong ax) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargGetInt64Array(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong ax) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6351,7 +6528,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1get_1objectpath(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong o) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargGetObjectpath(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong o) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6370,7 +6547,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1get_1signature(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong g) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargGetSignature(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong g) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6389,7 +6566,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1get_1string(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong s) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargGetString(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong s) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6408,7 +6585,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1get_1uint16(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong q) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargGetUint16(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong q) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6427,7 +6604,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1get_1uint16_1array(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong aq) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargGetUint16Array(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong aq) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6447,7 +6624,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1get_1uint32(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong u) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargGetUint32(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong u) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6466,7 +6643,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1get_1uint32_1array(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong au) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargGetUint32Array(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong au) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6486,7 +6663,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1get_1uint64(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong t) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargGetUint64(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong t) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6505,7 +6682,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1get_1uint64_1array(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong at) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargGetUint64Array(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong at) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6525,7 +6702,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1get_1uint8(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong y) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargGetUint8(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong y) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6544,7 +6721,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1get_1uint8_1array(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong ay) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargGetUint8Array(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong ay) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6564,7 +6741,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1get_1variant(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong v) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargGetVariant(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong v) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6583,7 +6760,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1get_1variant_1array(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong signature, jlong length, jlong av) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargGetVariantArray(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong signature, jlong length, jlong av) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6604,7 +6781,36 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1getkey(JNIEnv* km_env, jclass km_clazz, jlong arg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargGetdictelement(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong elemsig, jint km_vac, jlong km_va0, jlong km_va1, jlong km_va2, jlong km_va3) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(int64_t, void*, ...);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "alljoyn_msgarg_getdictelement");
+    }
+    int32_t km_res = -1;
+    if (km_fn_ptr != NULL) {
+        switch (km_vac) {
+            case 0: km_res = km_fn_ptr((int64_t)arg, (void*)(uintptr_t)elemsig); break;
+            case 1: km_res = km_fn_ptr((int64_t)arg, (void*)(uintptr_t)elemsig, (intptr_t)km_va0); break;
+            case 2: km_res = km_fn_ptr((int64_t)arg, (void*)(uintptr_t)elemsig, (intptr_t)km_va0, (intptr_t)km_va1); break;
+            case 3: km_res = km_fn_ptr((int64_t)arg, (void*)(uintptr_t)elemsig, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2); break;
+            default: km_res = km_fn_ptr((int64_t)arg, (void*)(uintptr_t)elemsig, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3); break;
+        }
+    }
+#else
+    (void)arg;
+    (void)elemsig;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargGetkey(JNIEnv* km_env, jclass km_clazz, jlong arg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6622,7 +6828,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1getmember(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong arg_1_index) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargGetmember(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong arg_1_index) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6641,7 +6847,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1getnummembers(JNIEnv* km_env, jclass km_clazz, jlong arg) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargGetnummembers(JNIEnv* km_env, jclass km_clazz, jlong arg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6659,7 +6865,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1gettype(JNIEnv* km_env, jclass km_clazz, jlong arg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargGettype(JNIEnv* km_env, jclass km_clazz, jlong arg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6677,7 +6883,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1getvalue(JNIEnv* km_env, jclass km_clazz, jlong arg) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargGetvalue(JNIEnv* km_env, jclass km_clazz, jlong arg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6695,7 +6901,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1hassignature(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong signature) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargHassignature(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong signature) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6714,7 +6920,65 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1set_1bool(JNIEnv* km_env, jclass km_clazz, jlong arg, jint b) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargSet(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong signature, jint km_vac, jlong km_va0, jlong km_va1, jlong km_va2, jlong km_va3) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(int64_t, void*, ...);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "alljoyn_msgarg_set");
+    }
+    int32_t km_res = -1;
+    if (km_fn_ptr != NULL) {
+        switch (km_vac) {
+            case 0: km_res = km_fn_ptr((int64_t)arg, (void*)(uintptr_t)signature); break;
+            case 1: km_res = km_fn_ptr((int64_t)arg, (void*)(uintptr_t)signature, (intptr_t)km_va0); break;
+            case 2: km_res = km_fn_ptr((int64_t)arg, (void*)(uintptr_t)signature, (intptr_t)km_va0, (intptr_t)km_va1); break;
+            case 3: km_res = km_fn_ptr((int64_t)arg, (void*)(uintptr_t)signature, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2); break;
+            default: km_res = km_fn_ptr((int64_t)arg, (void*)(uintptr_t)signature, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3); break;
+        }
+    }
+#else
+    (void)arg;
+    (void)signature;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargSetAndStabilize(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong signature, jint km_vac, jlong km_va0, jlong km_va1, jlong km_va2, jlong km_va3) {
+    (void)km_env;
+    (void)km_clazz;
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(int64_t, void*, ...);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
+        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "alljoyn_msgarg_set_and_stabilize");
+    }
+    int32_t km_res = -1;
+    if (km_fn_ptr != NULL) {
+        switch (km_vac) {
+            case 0: km_res = km_fn_ptr((int64_t)arg, (void*)(uintptr_t)signature); break;
+            case 1: km_res = km_fn_ptr((int64_t)arg, (void*)(uintptr_t)signature, (intptr_t)km_va0); break;
+            case 2: km_res = km_fn_ptr((int64_t)arg, (void*)(uintptr_t)signature, (intptr_t)km_va0, (intptr_t)km_va1); break;
+            case 3: km_res = km_fn_ptr((int64_t)arg, (void*)(uintptr_t)signature, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2); break;
+            default: km_res = km_fn_ptr((int64_t)arg, (void*)(uintptr_t)signature, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3); break;
+        }
+    }
+#else
+    (void)arg;
+    (void)signature;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    int32_t km_res = -1;
+#endif
+    return (jint)km_res;
+}
+
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargSetBool(JNIEnv* km_env, jclass km_clazz, jlong arg, jint b) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6733,7 +6997,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1set_1bool_1array(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong ab) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargSetBoolArray(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong ab) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6753,7 +7017,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1set_1double(JNIEnv* km_env, jclass km_clazz, jlong arg, jdouble d) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargSetDouble(JNIEnv* km_env, jclass km_clazz, jlong arg, jdouble d) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6772,7 +7036,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1set_1double_1array(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong ad) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargSetDoubleArray(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong ad) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6792,7 +7056,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1set_1int16(JNIEnv* km_env, jclass km_clazz, jlong arg, jshort n) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargSetInt16(JNIEnv* km_env, jclass km_clazz, jlong arg, jshort n) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6811,7 +7075,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1set_1int16_1array(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong an) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargSetInt16Array(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong an) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6831,7 +7095,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1set_1int32(JNIEnv* km_env, jclass km_clazz, jlong arg, jint i) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargSetInt32(JNIEnv* km_env, jclass km_clazz, jlong arg, jint i) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6850,7 +7114,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1set_1int32_1array(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong ai) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargSetInt32Array(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong ai) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6870,7 +7134,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1set_1int64(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong x) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargSetInt64(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong x) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6889,7 +7153,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1set_1int64_1array(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong ax) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargSetInt64Array(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong ax) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6909,7 +7173,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1set_1objectpath(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong o) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargSetObjectpath(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong o) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6928,7 +7192,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1set_1objectpath_1array(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong ao) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargSetObjectpathArray(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong ao) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6948,7 +7212,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1set_1signature(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong g) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargSetSignature(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong g) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6967,7 +7231,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1set_1signature_1array(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong ag) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargSetSignatureArray(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong ag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -6987,7 +7251,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1set_1string(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong s) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargSetString(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong s) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7006,7 +7270,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1set_1string_1array(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong as) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargSetStringArray(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong as) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7026,7 +7290,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1set_1uint16(JNIEnv* km_env, jclass km_clazz, jlong arg, jshort q) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargSetUint16(JNIEnv* km_env, jclass km_clazz, jlong arg, jshort q) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7045,7 +7309,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1set_1uint16_1array(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong aq) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargSetUint16Array(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong aq) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7065,7 +7329,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1set_1uint32(JNIEnv* km_env, jclass km_clazz, jlong arg, jint u) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargSetUint32(JNIEnv* km_env, jclass km_clazz, jlong arg, jint u) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7084,7 +7348,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1set_1uint32_1array(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong au) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargSetUint32Array(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong au) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7104,7 +7368,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1set_1uint64(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong t) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargSetUint64(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong t) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7123,7 +7387,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1set_1uint64_1array(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong at) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargSetUint64Array(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong at) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7143,7 +7407,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1set_1uint8(JNIEnv* km_env, jclass km_clazz, jlong arg, jbyte y) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargSetUint8(JNIEnv* km_env, jclass km_clazz, jlong arg, jbyte y) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7162,7 +7426,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1set_1uint8_1array(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong ay) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargSetUint8Array(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong length, jlong ay) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7182,7 +7446,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1setdictentry(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong key, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargSetdictentry(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong key, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7202,7 +7466,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1setstruct(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong struct_members, jlong num_members) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargSetstruct(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong struct_members, jlong num_members) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7222,7 +7486,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1signature(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong str, jlong buf) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargSignature(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong str, jlong buf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7242,7 +7506,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1stabilize(JNIEnv* km_env, jclass km_clazz, jlong arg) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargStabilize(JNIEnv* km_env, jclass km_clazz, jlong arg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7258,7 +7522,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1msgarg_1tostring(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong str, jlong buf, jlong indent) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynMsgargTostring(JNIEnv* km_env, jclass km_clazz, jlong arg, jlong str, jlong buf, jlong indent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7279,27 +7543,27 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1observer_1create(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong mandatoryinterfaces, jlong nummandatoryinterfaces) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynObserverCreate(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong mandatoryinterfaces, jlong nummandatoryinterfaces) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t);
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "alljoyn_observer_create");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)bus, (void*)(uintptr_t)mandatoryinterfaces, (uint64_t)nummandatoryinterfaces) : -1;
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)bus, (void*)(uintptr_t)mandatoryinterfaces, (uint64_t)nummandatoryinterfaces) : -1;
 #else
     (void)bus;
     (void)mandatoryinterfaces;
     (void)nummandatoryinterfaces;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return (jlong)km_res;
+    return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1observer_1destroy(JNIEnv* km_env, jclass km_clazz, jlong observer) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynObserverDestroy(JNIEnv* km_env, jclass km_clazz, jlong observer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7315,7 +7579,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1observer_1get(JNIEnv* km_env, jclass km_clazz, jlong observer, jlong uniquebusname, jlong objectpath) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynObserverGet(JNIEnv* km_env, jclass km_clazz, jlong observer, jlong uniquebusname, jlong objectpath) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7335,7 +7599,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1observer_1getfirst(JNIEnv* km_env, jclass km_clazz, jlong observer) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynObserverGetfirst(JNIEnv* km_env, jclass km_clazz, jlong observer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7353,7 +7617,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1observer_1getnext(JNIEnv* km_env, jclass km_clazz, jlong observer, jlong proxyref) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynObserverGetnext(JNIEnv* km_env, jclass km_clazz, jlong observer, jlong proxyref) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7372,7 +7636,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1observer_1registerlistener(JNIEnv* km_env, jclass km_clazz, jlong observer, jlong listener, jint triggeronexisting) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynObserverRegisterlistener(JNIEnv* km_env, jclass km_clazz, jlong observer, jlong listener, jint triggeronexisting) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7390,7 +7654,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1observer_1unregisteralllisteners(JNIEnv* km_env, jclass km_clazz, jlong observer) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynObserverUnregisteralllisteners(JNIEnv* km_env, jclass km_clazz, jlong observer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7406,7 +7670,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1observer_1unregisterlistener(JNIEnv* km_env, jclass km_clazz, jlong observer, jlong listener) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynObserverUnregisterlistener(JNIEnv* km_env, jclass km_clazz, jlong observer, jlong listener) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7423,26 +7687,26 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1observerlistener_1create(JNIEnv* km_env, jclass km_clazz, jlong callback, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynObserverlistenerCreate(JNIEnv* km_env, jclass km_clazz, jlong callback, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "alljoyn_observerlistener_create");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)callback, (void*)(uintptr_t)context) : -1;
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)callback, (void*)(uintptr_t)context) : -1;
 #else
     (void)callback;
     (void)context;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return (jlong)km_res;
+    return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1observerlistener_1destroy(JNIEnv* km_env, jclass km_clazz, jlong listener) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynObserverlistenerDestroy(JNIEnv* km_env, jclass km_clazz, jlong listener) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7458,7 +7722,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1passwordmanager_1setcredentials(JNIEnv* km_env, jclass km_clazz, jlong authmechanism, jlong password) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynPasswordmanagerSetcredentials(JNIEnv* km_env, jclass km_clazz, jlong authmechanism, jlong password) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7477,26 +7741,26 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1permissionconfigurationlistener_1create(JNIEnv* km_env, jclass km_clazz, jlong callbacks, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynPermissionconfigurationlistenerCreate(JNIEnv* km_env, jclass km_clazz, jlong callbacks, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "alljoyn_permissionconfigurationlistener_create");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)callbacks, (void*)(uintptr_t)context) : -1;
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)callbacks, (void*)(uintptr_t)context) : -1;
 #else
     (void)callbacks;
     (void)context;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return (jlong)km_res;
+    return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1permissionconfigurationlistener_1destroy(JNIEnv* km_env, jclass km_clazz, jlong listener) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynPermissionconfigurationlistenerDestroy(JNIEnv* km_env, jclass km_clazz, jlong listener) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7512,7 +7776,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1permissionconfigurator_1certificatechain_1destroy(JNIEnv* km_env, jclass km_clazz, jlong certificatechain) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynPermissionconfiguratorCertificatechainDestroy(JNIEnv* km_env, jclass km_clazz, jlong certificatechain) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7528,7 +7792,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1permissionconfigurator_1certificateid_1cleanup(JNIEnv* km_env, jclass km_clazz, jlong certificateid) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynPermissionconfiguratorCertificateidCleanup(JNIEnv* km_env, jclass km_clazz, jlong certificateid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7544,7 +7808,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1permissionconfigurator_1certificateidarray_1cleanup(JNIEnv* km_env, jclass km_clazz, jlong certificateidarray) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynPermissionconfiguratorCertificateidarrayCleanup(JNIEnv* km_env, jclass km_clazz, jlong certificateidarray) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7560,7 +7824,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1permissionconfigurator_1claim(JNIEnv* km_env, jclass km_clazz, jlong configurator, jlong cakey, jlong identitycertificatechain, jlong groupid, jlong groupsize, jlong groupauthority, jlong manifestsxmls, jlong manifestscount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynPermissionconfiguratorClaim(JNIEnv* km_env, jclass km_clazz, jlong configurator, jlong cakey, jlong identitycertificatechain, jlong groupid, jlong groupsize, jlong groupauthority, jlong manifestsxmls, jlong manifestscount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7585,7 +7849,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1permissionconfigurator_1endmanagement(JNIEnv* km_env, jclass km_clazz, jlong configurator) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynPermissionconfiguratorEndmanagement(JNIEnv* km_env, jclass km_clazz, jlong configurator) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7603,7 +7867,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1permissionconfigurator_1getapplicationstate(JNIEnv* km_env, jclass km_clazz, jlong configurator, jlong state) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynPermissionconfiguratorGetapplicationstate(JNIEnv* km_env, jclass km_clazz, jlong configurator, jlong state) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7622,7 +7886,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1permissionconfigurator_1getclaimcapabilities(JNIEnv* km_env, jclass km_clazz, jlong configurator, jlong claimcapabilities) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynPermissionconfiguratorGetclaimcapabilities(JNIEnv* km_env, jclass km_clazz, jlong configurator, jlong claimcapabilities) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7641,7 +7905,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1permissionconfigurator_1getclaimcapabilitiesadditionalinfo(JNIEnv* km_env, jclass km_clazz, jlong configurator, jlong additionalinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynPermissionconfiguratorGetclaimcapabilitiesadditionalinfo(JNIEnv* km_env, jclass km_clazz, jlong configurator, jlong additionalinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7660,7 +7924,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1permissionconfigurator_1getdefaultclaimcapabilities(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynPermissionconfiguratorGetdefaultclaimcapabilities(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7677,7 +7941,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_dev
     return (jshort)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1permissionconfigurator_1getdefaultpolicy(JNIEnv* km_env, jclass km_clazz, jlong configurator, jlong policyxml) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynPermissionconfiguratorGetdefaultpolicy(JNIEnv* km_env, jclass km_clazz, jlong configurator, jlong policyxml) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7696,7 +7960,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1permissionconfigurator_1getidentity(JNIEnv* km_env, jclass km_clazz, jlong configurator, jlong identitycertificatechain) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynPermissionconfiguratorGetidentity(JNIEnv* km_env, jclass km_clazz, jlong configurator, jlong identitycertificatechain) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7715,7 +7979,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1permissionconfigurator_1getidentitycertificateid(JNIEnv* km_env, jclass km_clazz, jlong configurator, jlong certificateid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynPermissionconfiguratorGetidentitycertificateid(JNIEnv* km_env, jclass km_clazz, jlong configurator, jlong certificateid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7734,7 +7998,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1permissionconfigurator_1getmanifests(JNIEnv* km_env, jclass km_clazz, jlong configurator, jlong manifestarray) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynPermissionconfiguratorGetmanifests(JNIEnv* km_env, jclass km_clazz, jlong configurator, jlong manifestarray) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7753,7 +8017,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1permissionconfigurator_1getmanifesttemplate(JNIEnv* km_env, jclass km_clazz, jlong configurator, jlong manifesttemplatexml) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynPermissionconfiguratorGetmanifesttemplate(JNIEnv* km_env, jclass km_clazz, jlong configurator, jlong manifesttemplatexml) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7772,7 +8036,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1permissionconfigurator_1getmembershipsummaries(JNIEnv* km_env, jclass km_clazz, jlong configurator, jlong certificateids) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynPermissionconfiguratorGetmembershipsummaries(JNIEnv* km_env, jclass km_clazz, jlong configurator, jlong certificateids) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7791,7 +8055,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1permissionconfigurator_1getpolicy(JNIEnv* km_env, jclass km_clazz, jlong configurator, jlong policyxml) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynPermissionconfiguratorGetpolicy(JNIEnv* km_env, jclass km_clazz, jlong configurator, jlong policyxml) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7810,7 +8074,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1permissionconfigurator_1getpublickey(JNIEnv* km_env, jclass km_clazz, jlong configurator, jlong publickey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynPermissionconfiguratorGetpublickey(JNIEnv* km_env, jclass km_clazz, jlong configurator, jlong publickey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7829,7 +8093,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1permissionconfigurator_1installmanifests(JNIEnv* km_env, jclass km_clazz, jlong configurator, jlong manifestsxmls, jlong manifestscount, jint append) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynPermissionconfiguratorInstallmanifests(JNIEnv* km_env, jclass km_clazz, jlong configurator, jlong manifestsxmls, jlong manifestscount, jint append) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7850,7 +8114,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1permissionconfigurator_1installmembership(JNIEnv* km_env, jclass km_clazz, jlong configurator, jlong membershipcertificatechain) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynPermissionconfiguratorInstallmembership(JNIEnv* km_env, jclass km_clazz, jlong configurator, jlong membershipcertificatechain) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7869,7 +8133,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1permissionconfigurator_1manifestarray_1cleanup(JNIEnv* km_env, jclass km_clazz, jlong manifestarray) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynPermissionconfiguratorManifestarrayCleanup(JNIEnv* km_env, jclass km_clazz, jlong manifestarray) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7885,7 +8149,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1permissionconfigurator_1manifesttemplate_1destroy(JNIEnv* km_env, jclass km_clazz, jlong manifesttemplatexml) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynPermissionconfiguratorManifesttemplateDestroy(JNIEnv* km_env, jclass km_clazz, jlong manifesttemplatexml) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7901,7 +8165,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1permissionconfigurator_1policy_1destroy(JNIEnv* km_env, jclass km_clazz, jlong policyxml) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynPermissionconfiguratorPolicyDestroy(JNIEnv* km_env, jclass km_clazz, jlong policyxml) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7917,7 +8181,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1permissionconfigurator_1publickey_1destroy(JNIEnv* km_env, jclass km_clazz, jlong publickey) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynPermissionconfiguratorPublickeyDestroy(JNIEnv* km_env, jclass km_clazz, jlong publickey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7933,7 +8197,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1permissionconfigurator_1removemembership(JNIEnv* km_env, jclass km_clazz, jlong configurator, jlong serial, jlong seriallen, jlong issuerpublickey, jlong issueraki, jlong issuerakilen) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynPermissionconfiguratorRemovemembership(JNIEnv* km_env, jclass km_clazz, jlong configurator, jlong serial, jlong seriallen, jlong issuerpublickey, jlong issueraki, jlong issuerakilen) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7956,7 +8220,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1permissionconfigurator_1reset(JNIEnv* km_env, jclass km_clazz, jlong configurator) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynPermissionconfiguratorReset(JNIEnv* km_env, jclass km_clazz, jlong configurator) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7974,7 +8238,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1permissionconfigurator_1resetpolicy(JNIEnv* km_env, jclass km_clazz, jlong configurator) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynPermissionconfiguratorResetpolicy(JNIEnv* km_env, jclass km_clazz, jlong configurator) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -7992,7 +8256,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1permissionconfigurator_1setapplicationstate(JNIEnv* km_env, jclass km_clazz, jlong configurator, jint state) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynPermissionconfiguratorSetapplicationstate(JNIEnv* km_env, jclass km_clazz, jlong configurator, jint state) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8011,7 +8275,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1permissionconfigurator_1setclaimcapabilities(JNIEnv* km_env, jclass km_clazz, jlong configurator, jshort claimcapabilities) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynPermissionconfiguratorSetclaimcapabilities(JNIEnv* km_env, jclass km_clazz, jlong configurator, jshort claimcapabilities) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8030,7 +8294,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1permissionconfigurator_1setclaimcapabilitiesadditionalinfo(JNIEnv* km_env, jclass km_clazz, jlong configurator, jshort additionalinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynPermissionconfiguratorSetclaimcapabilitiesadditionalinfo(JNIEnv* km_env, jclass km_clazz, jlong configurator, jshort additionalinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8049,7 +8313,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1permissionconfigurator_1setmanifesttemplatefromxml(JNIEnv* km_env, jclass km_clazz, jlong configurator, jlong manifesttemplatexml) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynPermissionconfiguratorSetmanifesttemplatefromxml(JNIEnv* km_env, jclass km_clazz, jlong configurator, jlong manifesttemplatexml) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8068,7 +8332,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1permissionconfigurator_1startmanagement(JNIEnv* km_env, jclass km_clazz, jlong configurator) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynPermissionconfiguratorStartmanagement(JNIEnv* km_env, jclass km_clazz, jlong configurator) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8086,7 +8350,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1permissionconfigurator_1updateidentity(JNIEnv* km_env, jclass km_clazz, jlong configurator, jlong identitycertificatechain, jlong manifestsxmls, jlong manifestscount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynPermissionconfiguratorUpdateidentity(JNIEnv* km_env, jclass km_clazz, jlong configurator, jlong identitycertificatechain, jlong manifestsxmls, jlong manifestscount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8107,7 +8371,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1permissionconfigurator_1updatepolicy(JNIEnv* km_env, jclass km_clazz, jlong configurator, jlong policyxml) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynPermissionconfiguratorUpdatepolicy(JNIEnv* km_env, jclass km_clazz, jlong configurator, jlong policyxml) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8126,26 +8390,26 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1pinglistener_1create(JNIEnv* km_env, jclass km_clazz, jlong callback, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynPinglistenerCreate(JNIEnv* km_env, jclass km_clazz, jlong callback, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "alljoyn_pinglistener_create");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)callback, (void*)(uintptr_t)context) : -1;
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)callback, (void*)(uintptr_t)context) : -1;
 #else
     (void)callback;
     (void)context;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return (jlong)km_res;
+    return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1pinglistener_1destroy(JNIEnv* km_env, jclass km_clazz, jlong listener) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynPinglistenerDestroy(JNIEnv* km_env, jclass km_clazz, jlong listener) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8161,7 +8425,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1addchild(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong child) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectAddchild(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong child) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8180,7 +8444,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1addinterface(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong iface) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectAddinterface(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong iface) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8199,7 +8463,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1addinterface_1by_1name(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong name) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectAddinterfaceByName(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong name) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8218,7 +8482,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1copy(JNIEnv* km_env, jclass km_clazz, jlong source) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectCopy(JNIEnv* km_env, jclass km_clazz, jlong source) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8236,7 +8500,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1create(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong service, jlong path, jint sessionid) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectCreate(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong service, jlong path, jint sessionid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8257,7 +8521,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1create_1secure(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong service, jlong path, jint sessionid) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectCreateSecure(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong service, jlong path, jint sessionid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8278,7 +8542,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1destroy(JNIEnv* km_env, jclass km_clazz, jlong proxyobj) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectDestroy(JNIEnv* km_env, jclass km_clazz, jlong proxyobj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8294,7 +8558,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1enablepropertycaching(JNIEnv* km_env, jclass km_clazz, jlong proxyobj) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectEnablepropertycaching(JNIEnv* km_env, jclass km_clazz, jlong proxyobj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8310,7 +8574,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1getallproperties(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong iface, jlong values) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectGetallproperties(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong iface, jlong values) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8330,7 +8594,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1getallpropertiesasync(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong iface, jlong callback, jint timeout, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectGetallpropertiesasync(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong iface, jlong callback, jint timeout, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8352,7 +8616,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1getchild(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong path) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectGetchild(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong path) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8371,7 +8635,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1getchildren(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong children, jlong numchildren) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectGetchildren(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong children, jlong numchildren) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8391,26 +8655,26 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1getinterface(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong iface) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectGetinterface(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong iface) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int64_t, void*);
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "alljoyn_proxybusobject_getinterface");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)proxyobj, (void*)(uintptr_t)iface) : -1;
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)proxyobj, (void*)(uintptr_t)iface) : -1;
 #else
     (void)proxyobj;
     (void)iface;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return (jlong)km_res;
+    return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1getinterfaces(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong ifaces, jlong numifaces) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectGetinterfaces(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong ifaces, jlong numifaces) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8430,7 +8694,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1getpath(JNIEnv* km_env, jclass km_clazz, jlong proxyobj) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectGetpath(JNIEnv* km_env, jclass km_clazz, jlong proxyobj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8448,7 +8712,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1getproperty(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong iface, jlong property, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectGetproperty(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong iface, jlong property, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8469,7 +8733,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1getpropertyasync(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong iface, jlong property, jlong callback, jint timeout, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectGetpropertyasync(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong iface, jlong property, jlong callback, jint timeout, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8492,7 +8756,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1getservicename(JNIEnv* km_env, jclass km_clazz, jlong proxyobj) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectGetservicename(JNIEnv* km_env, jclass km_clazz, jlong proxyobj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8510,7 +8774,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1getsessionid(JNIEnv* km_env, jclass km_clazz, jlong proxyobj) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectGetsessionid(JNIEnv* km_env, jclass km_clazz, jlong proxyobj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8528,7 +8792,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1getuniquename(JNIEnv* km_env, jclass km_clazz, jlong proxyobj) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectGetuniquename(JNIEnv* km_env, jclass km_clazz, jlong proxyobj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8546,7 +8810,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1implementsinterface(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong iface) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectImplementsinterface(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong iface) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8565,7 +8829,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1introspectremoteobject(JNIEnv* km_env, jclass km_clazz, jlong proxyobj) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectIntrospectremoteobject(JNIEnv* km_env, jclass km_clazz, jlong proxyobj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8583,7 +8847,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1introspectremoteobjectasync(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong callback, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectIntrospectremoteobjectasync(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong callback, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8603,7 +8867,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1issecure(JNIEnv* km_env, jclass km_clazz, jlong proxyobj) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectIssecure(JNIEnv* km_env, jclass km_clazz, jlong proxyobj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8621,7 +8885,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1isvalid(JNIEnv* km_env, jclass km_clazz, jlong proxyobj) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectIsvalid(JNIEnv* km_env, jclass km_clazz, jlong proxyobj) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8639,7 +8903,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1methodcall(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong ifacename, jlong methodname, jlong args, jlong numargs, jlong replymsg, jint timeout, jbyte flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectMethodcall(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong ifacename, jlong methodname, jlong args, jlong numargs, jlong replymsg, jint timeout, jbyte flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8664,7 +8928,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1methodcall_1noreply(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong ifacename, jlong methodname, jlong args, jlong numargs, jbyte flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectMethodcallNoreply(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong ifacename, jlong methodname, jlong args, jlong numargs, jbyte flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8687,7 +8951,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1methodcallasync(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong ifacename, jlong methodname, jlong replyfunc, jlong args, jlong numargs, jlong context, jint timeout, jbyte flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectMethodcallasync(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong ifacename, jlong methodname, jlong replyfunc, jlong args, jlong numargs, jlong context, jint timeout, jbyte flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8713,7 +8977,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1parsexml(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong xml, jlong identifier) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectParsexml(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong xml, jlong identifier) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8733,7 +8997,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1ref_1create(JNIEnv* km_env, jclass km_clazz, jlong proxy) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectRefCreate(JNIEnv* km_env, jclass km_clazz, jlong proxy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8751,7 +9015,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1ref_1decref(JNIEnv* km_env, jclass km_clazz, jlong ref) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectRefDecref(JNIEnv* km_env, jclass km_clazz, jlong ref) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8767,7 +9031,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1ref_1get(JNIEnv* km_env, jclass km_clazz, jlong ref) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectRefGet(JNIEnv* km_env, jclass km_clazz, jlong ref) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8785,7 +9049,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1ref_1incref(JNIEnv* km_env, jclass km_clazz, jlong ref) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectRefIncref(JNIEnv* km_env, jclass km_clazz, jlong ref) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8801,7 +9065,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1registerpropertieschangedlistener(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong iface, jlong properties, jlong numproperties, jlong callback, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectRegisterpropertieschangedlistener(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong iface, jlong properties, jlong numproperties, jlong callback, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8824,7 +9088,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1removechild(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong path) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectRemovechild(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong path) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8843,7 +9107,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1secureconnection(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jint forceauth) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectSecureconnection(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jint forceauth) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8862,7 +9126,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1secureconnectionasync(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jint forceauth) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectSecureconnectionasync(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jint forceauth) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8881,7 +9145,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1setproperty(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong iface, jlong property, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectSetproperty(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong iface, jlong property, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8902,7 +9166,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1setpropertyasync(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong iface, jlong property, jlong value, jlong callback, jint timeout, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectSetpropertyasync(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong iface, jlong property, jlong value, jlong callback, jint timeout, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8926,7 +9190,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1proxybusobject_1unregisterpropertieschangedlistener(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong iface, jlong callback) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynProxybusobjectUnregisterpropertieschangedlistener(JNIEnv* km_env, jclass km_clazz, jlong proxyobj, jlong iface, jlong callback) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8946,7 +9210,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1routerinit(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynRouterinit(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8963,7 +9227,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1routerinitwithconfig(JNIEnv* km_env, jclass km_clazz, jlong configxml) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynRouterinitwithconfig(JNIEnv* km_env, jclass km_clazz, jlong configxml) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8981,7 +9245,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1routershutdown(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynRoutershutdown(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -8998,7 +9262,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1securityapplicationproxy_1claim(JNIEnv* km_env, jclass km_clazz, jlong proxy, jlong cakey, jlong identitycertificatechain, jlong groupid, jlong groupsize, jlong groupauthority, jlong manifestsxmls, jlong manifestscount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSecurityapplicationproxyClaim(JNIEnv* km_env, jclass km_clazz, jlong proxy, jlong cakey, jlong identitycertificatechain, jlong groupid, jlong groupsize, jlong groupauthority, jlong manifestsxmls, jlong manifestscount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9023,7 +9287,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1securityapplicationproxy_1computemanifestdigest(JNIEnv* km_env, jclass km_clazz, jlong unsignedmanifestxml, jlong identitycertificatepem, jlong digest, jlong digestsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSecurityapplicationproxyComputemanifestdigest(JNIEnv* km_env, jclass km_clazz, jlong unsignedmanifestxml, jlong identitycertificatepem, jlong digest, jlong digestsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9044,27 +9308,27 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1securityapplicationproxy_1create(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong appbusname, jint sessionid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSecurityapplicationproxyCreate(JNIEnv* km_env, jclass km_clazz, jlong bus, jlong appbusname, jint sessionid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
+    typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "alljoyn_securityapplicationproxy_create");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)bus, (void*)(uintptr_t)appbusname, (uint32_t)sessionid) : -1;
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)bus, (void*)(uintptr_t)appbusname, (uint32_t)sessionid) : -1;
 #else
     (void)bus;
     (void)appbusname;
     (void)sessionid;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return (jlong)km_res;
+    return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1securityapplicationproxy_1destroy(JNIEnv* km_env, jclass km_clazz, jlong proxy) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSecurityapplicationproxyDestroy(JNIEnv* km_env, jclass km_clazz, jlong proxy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9080,7 +9344,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1securityapplicationproxy_1digest_1destroy(JNIEnv* km_env, jclass km_clazz, jlong digest) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSecurityapplicationproxyDigestDestroy(JNIEnv* km_env, jclass km_clazz, jlong digest) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9096,7 +9360,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1securityapplicationproxy_1eccpublickey_1destroy(JNIEnv* km_env, jclass km_clazz, jlong eccpublickey) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSecurityapplicationproxyEccpublickeyDestroy(JNIEnv* km_env, jclass km_clazz, jlong eccpublickey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9112,7 +9376,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1securityapplicationproxy_1endmanagement(JNIEnv* km_env, jclass km_clazz, jlong proxy) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSecurityapplicationproxyEndmanagement(JNIEnv* km_env, jclass km_clazz, jlong proxy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9130,7 +9394,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1securityapplicationproxy_1getapplicationstate(JNIEnv* km_env, jclass km_clazz, jlong proxy, jlong applicationstate) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSecurityapplicationproxyGetapplicationstate(JNIEnv* km_env, jclass km_clazz, jlong proxy, jlong applicationstate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9149,7 +9413,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1securityapplicationproxy_1getclaimcapabilities(JNIEnv* km_env, jclass km_clazz, jlong proxy, jlong capabilities) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSecurityapplicationproxyGetclaimcapabilities(JNIEnv* km_env, jclass km_clazz, jlong proxy, jlong capabilities) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9168,7 +9432,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1securityapplicationproxy_1getclaimcapabilitiesadditionalinfo(JNIEnv* km_env, jclass km_clazz, jlong proxy, jlong additionalinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSecurityapplicationproxyGetclaimcapabilitiesadditionalinfo(JNIEnv* km_env, jclass km_clazz, jlong proxy, jlong additionalinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9187,7 +9451,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1securityapplicationproxy_1getdefaultpolicy(JNIEnv* km_env, jclass km_clazz, jlong proxy, jlong policyxml) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSecurityapplicationproxyGetdefaultpolicy(JNIEnv* km_env, jclass km_clazz, jlong proxy, jlong policyxml) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9206,7 +9470,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1securityapplicationproxy_1geteccpublickey(JNIEnv* km_env, jclass km_clazz, jlong proxy, jlong eccpublickey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSecurityapplicationproxyGeteccpublickey(JNIEnv* km_env, jclass km_clazz, jlong proxy, jlong eccpublickey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9225,7 +9489,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1securityapplicationproxy_1getmanifesttemplate(JNIEnv* km_env, jclass km_clazz, jlong proxy, jlong manifesttemplatexml) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSecurityapplicationproxyGetmanifesttemplate(JNIEnv* km_env, jclass km_clazz, jlong proxy, jlong manifesttemplatexml) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9244,7 +9508,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1securityapplicationproxy_1getpermissionmanagementsessionport(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSecurityapplicationproxyGetpermissionmanagementsessionport(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9261,7 +9525,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_dev
     return (jshort)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1securityapplicationproxy_1getpolicy(JNIEnv* km_env, jclass km_clazz, jlong proxy, jlong policyxml) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSecurityapplicationproxyGetpolicy(JNIEnv* km_env, jclass km_clazz, jlong proxy, jlong policyxml) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9280,7 +9544,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1securityapplicationproxy_1installmembership(JNIEnv* km_env, jclass km_clazz, jlong proxy, jlong membershipcertificatechain) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSecurityapplicationproxyInstallmembership(JNIEnv* km_env, jclass km_clazz, jlong proxy, jlong membershipcertificatechain) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9299,7 +9563,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1securityapplicationproxy_1manifest_1destroy(JNIEnv* km_env, jclass km_clazz, jlong signedmanifestxml) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSecurityapplicationproxyManifestDestroy(JNIEnv* km_env, jclass km_clazz, jlong signedmanifestxml) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9315,7 +9579,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1securityapplicationproxy_1manifesttemplate_1destroy(JNIEnv* km_env, jclass km_clazz, jlong manifesttemplatexml) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSecurityapplicationproxyManifesttemplateDestroy(JNIEnv* km_env, jclass km_clazz, jlong manifesttemplatexml) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9331,7 +9595,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1securityapplicationproxy_1policy_1destroy(JNIEnv* km_env, jclass km_clazz, jlong policyxml) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSecurityapplicationproxyPolicyDestroy(JNIEnv* km_env, jclass km_clazz, jlong policyxml) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9347,7 +9611,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1securityapplicationproxy_1reset(JNIEnv* km_env, jclass km_clazz, jlong proxy) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSecurityapplicationproxyReset(JNIEnv* km_env, jclass km_clazz, jlong proxy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9365,7 +9629,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1securityapplicationproxy_1resetpolicy(JNIEnv* km_env, jclass km_clazz, jlong proxy) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSecurityapplicationproxyResetpolicy(JNIEnv* km_env, jclass km_clazz, jlong proxy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9383,7 +9647,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1securityapplicationproxy_1setmanifestsignature(JNIEnv* km_env, jclass km_clazz, jlong unsignedmanifestxml, jlong identitycertificatepem, jlong signature, jlong signaturesize, jlong signedmanifestxml) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSecurityapplicationproxySetmanifestsignature(JNIEnv* km_env, jclass km_clazz, jlong unsignedmanifestxml, jlong identitycertificatepem, jlong signature, jlong signaturesize, jlong signedmanifestxml) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9405,7 +9669,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1securityapplicationproxy_1signmanifest(JNIEnv* km_env, jclass km_clazz, jlong unsignedmanifestxml, jlong identitycertificatepem, jlong signingprivatekeypem, jlong signedmanifestxml) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSecurityapplicationproxySignmanifest(JNIEnv* km_env, jclass km_clazz, jlong unsignedmanifestxml, jlong identitycertificatepem, jlong signingprivatekeypem, jlong signedmanifestxml) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9426,7 +9690,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1securityapplicationproxy_1startmanagement(JNIEnv* km_env, jclass km_clazz, jlong proxy) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSecurityapplicationproxyStartmanagement(JNIEnv* km_env, jclass km_clazz, jlong proxy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9444,7 +9708,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1securityapplicationproxy_1updateidentity(JNIEnv* km_env, jclass km_clazz, jlong proxy, jlong identitycertificatechain, jlong manifestsxmls, jlong manifestscount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSecurityapplicationproxyUpdateidentity(JNIEnv* km_env, jclass km_clazz, jlong proxy, jlong identitycertificatechain, jlong manifestsxmls, jlong manifestscount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9465,7 +9729,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1securityapplicationproxy_1updatepolicy(JNIEnv* km_env, jclass km_clazz, jlong proxy, jlong policyxml) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSecurityapplicationproxyUpdatepolicy(JNIEnv* km_env, jclass km_clazz, jlong proxy, jlong policyxml) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9484,26 +9748,26 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1sessionlistener_1create(JNIEnv* km_env, jclass km_clazz, jlong callbacks, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSessionlistenerCreate(JNIEnv* km_env, jclass km_clazz, jlong callbacks, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "alljoyn_sessionlistener_create");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)callbacks, (void*)(uintptr_t)context) : -1;
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)callbacks, (void*)(uintptr_t)context) : -1;
 #else
     (void)callbacks;
     (void)context;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return (jlong)km_res;
+    return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1sessionlistener_1destroy(JNIEnv* km_env, jclass km_clazz, jlong listener) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSessionlistenerDestroy(JNIEnv* km_env, jclass km_clazz, jlong listener) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9519,7 +9783,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1sessionopts_1cmp(JNIEnv* km_env, jclass km_clazz, jlong one, jlong other) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSessionoptsCmp(JNIEnv* km_env, jclass km_clazz, jlong one, jlong other) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9538,7 +9802,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1sessionopts_1create(JNIEnv* km_env, jclass km_clazz, jbyte traffic, jint ismultipoint, jbyte proximity, jshort transports) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSessionoptsCreate(JNIEnv* km_env, jclass km_clazz, jbyte traffic, jint ismultipoint, jbyte proximity, jshort transports) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9559,7 +9823,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jlong)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1sessionopts_1destroy(JNIEnv* km_env, jclass km_clazz, jlong opts) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSessionoptsDestroy(JNIEnv* km_env, jclass km_clazz, jlong opts) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9575,7 +9839,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1sessionopts_1get_1multipoint(JNIEnv* km_env, jclass km_clazz, jlong opts) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSessionoptsGetMultipoint(JNIEnv* km_env, jclass km_clazz, jlong opts) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9593,7 +9857,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1sessionopts_1get_1proximity(JNIEnv* km_env, jclass km_clazz, jlong opts) {
+JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSessionoptsGetProximity(JNIEnv* km_env, jclass km_clazz, jlong opts) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9611,7 +9875,7 @@ JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jbyte)km_res;
 }
 
-JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1sessionopts_1get_1traffic(JNIEnv* km_env, jclass km_clazz, jlong opts) {
+JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSessionoptsGetTraffic(JNIEnv* km_env, jclass km_clazz, jlong opts) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9629,7 +9893,7 @@ JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     return (jbyte)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1sessionopts_1get_1transports(JNIEnv* km_env, jclass km_clazz, jlong opts) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSessionoptsGetTransports(JNIEnv* km_env, jclass km_clazz, jlong opts) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9647,7 +9911,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_dev
     return (jshort)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1sessionopts_1iscompatible(JNIEnv* km_env, jclass km_clazz, jlong one, jlong other) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSessionoptsIscompatible(JNIEnv* km_env, jclass km_clazz, jlong one, jlong other) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9666,7 +9930,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1sessionopts_1set_1multipoint(JNIEnv* km_env, jclass km_clazz, jlong opts, jint ismultipoint) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSessionoptsSetMultipoint(JNIEnv* km_env, jclass km_clazz, jlong opts, jint ismultipoint) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9683,7 +9947,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1sessionopts_1set_1proximity(JNIEnv* km_env, jclass km_clazz, jlong opts, jbyte proximity) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSessionoptsSetProximity(JNIEnv* km_env, jclass km_clazz, jlong opts, jbyte proximity) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9700,7 +9964,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1sessionopts_1set_1traffic(JNIEnv* km_env, jclass km_clazz, jlong opts, jbyte traffic) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSessionoptsSetTraffic(JNIEnv* km_env, jclass km_clazz, jlong opts, jbyte traffic) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9717,7 +9981,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1sessionopts_1set_1transports(JNIEnv* km_env, jclass km_clazz, jlong opts, jshort transports) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSessionoptsSetTransports(JNIEnv* km_env, jclass km_clazz, jlong opts, jshort transports) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9734,26 +9998,26 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1sessionportlistener_1create(JNIEnv* km_env, jclass km_clazz, jlong callbacks, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSessionportlistenerCreate(JNIEnv* km_env, jclass km_clazz, jlong callbacks, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*, void*);
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
     if (km_fn_ptr == NULL) {
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "alljoyn_sessionportlistener_create");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)callbacks, (void*)(uintptr_t)context) : -1;
+    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)callbacks, (void*)(uintptr_t)context) : -1;
 #else
     (void)callbacks;
     (void)context;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return (jlong)km_res;
+    return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1sessionportlistener_1destroy(JNIEnv* km_env, jclass km_clazz, jlong listener) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynSessionportlistenerDestroy(JNIEnv* km_env, jclass km_clazz, jlong listener) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9769,7 +10033,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1shutdown(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynShutdown(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9786,7 +10050,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1unity_1deferred_1callbacks_1process(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynUnityDeferredCallbacksProcess(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -9803,7 +10067,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoyn_1unity_1set_1deferred_1callback_1mainthread_1only(JNIEnv* km_env, jclass km_clazz, jint mainthread_only) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devices_alljoyn_WindowsWin32DevicesAlljoynJniBridge_windowssys_1windows_1win32_1devices_1alljoyn_1alljoynUnitySetDeferredCallbackMainthreadOnly(JNIEnv* km_env, jclass km_clazz, jint mainthread_only) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

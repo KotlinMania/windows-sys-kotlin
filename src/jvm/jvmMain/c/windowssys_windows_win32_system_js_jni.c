@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsAddRef(JNIEnv* km_env, jclass km_clazz, jlong ref, jlong count) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsAddRef(JNIEnv* km_env, jclass km_clazz, jlong ref, jlong count) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -37,7 +37,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsBoolToBoolean(JNIEnv* km_env, jclass km_clazz, jbyte value, jlong booleanvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsBoolToBoolean(JNIEnv* km_env, jclass km_clazz, jbyte value, jlong booleanvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -56,7 +56,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsBooleanToBool(JNIEnv* km_env, jclass km_clazz, jlong value, jlong boolvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsBooleanToBool(JNIEnv* km_env, jclass km_clazz, jlong value, jlong boolvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -75,7 +75,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsCallFunction(JNIEnv* km_env, jclass km_clazz, jlong function, jlong arguments, jshort argumentcount, jlong result) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsCallFunction(JNIEnv* km_env, jclass km_clazz, jlong function, jlong arguments, jshort argumentcount, jlong result) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -96,7 +96,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsCollectGarbage(JNIEnv* km_env, jclass km_clazz, jlong runtime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsCollectGarbage(JNIEnv* km_env, jclass km_clazz, jlong runtime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -114,7 +114,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsConstructObject(JNIEnv* km_env, jclass km_clazz, jlong function, jlong arguments, jshort argumentcount, jlong result) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsConstructObject(JNIEnv* km_env, jclass km_clazz, jlong function, jlong arguments, jshort argumentcount, jlong result) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -135,7 +135,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsConvertValueToBoolean(JNIEnv* km_env, jclass km_clazz, jlong value, jlong booleanvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsConvertValueToBoolean(JNIEnv* km_env, jclass km_clazz, jlong value, jlong booleanvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -154,7 +154,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsConvertValueToNumber(JNIEnv* km_env, jclass km_clazz, jlong value, jlong numbervalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsConvertValueToNumber(JNIEnv* km_env, jclass km_clazz, jlong value, jlong numbervalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -173,7 +173,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsConvertValueToObject(JNIEnv* km_env, jclass km_clazz, jlong value, jlong object) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsConvertValueToObject(JNIEnv* km_env, jclass km_clazz, jlong value, jlong object) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -192,7 +192,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsConvertValueToString(JNIEnv* km_env, jclass km_clazz, jlong value, jlong stringvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsConvertValueToString(JNIEnv* km_env, jclass km_clazz, jlong value, jlong stringvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -211,7 +211,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsCreateArray(JNIEnv* km_env, jclass km_clazz, jint length, jlong result) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsCreateArray(JNIEnv* km_env, jclass km_clazz, jint length, jlong result) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -230,7 +230,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsCreateError(JNIEnv* km_env, jclass km_clazz, jlong message, jlong error) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsCreateError(JNIEnv* km_env, jclass km_clazz, jlong message, jlong error) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -249,7 +249,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsCreateExternalObject(JNIEnv* km_env, jclass km_clazz, jlong data, jlong finalizecallback, jlong object) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsCreateExternalObject(JNIEnv* km_env, jclass km_clazz, jlong data, jlong finalizecallback, jlong object) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -269,7 +269,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsCreateFunction(JNIEnv* km_env, jclass km_clazz, jlong nativefunction, jlong callbackstate, jlong function) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsCreateFunction(JNIEnv* km_env, jclass km_clazz, jlong nativefunction, jlong callbackstate, jlong function) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -289,7 +289,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsCreateObject(JNIEnv* km_env, jclass km_clazz, jlong object) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsCreateObject(JNIEnv* km_env, jclass km_clazz, jlong object) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -307,7 +307,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsCreateRangeError(JNIEnv* km_env, jclass km_clazz, jlong message, jlong error) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsCreateRangeError(JNIEnv* km_env, jclass km_clazz, jlong message, jlong error) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -326,7 +326,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsCreateReferenceError(JNIEnv* km_env, jclass km_clazz, jlong message, jlong error) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsCreateReferenceError(JNIEnv* km_env, jclass km_clazz, jlong message, jlong error) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -345,7 +345,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsCreateRuntime(JNIEnv* km_env, jclass km_clazz, jint attributes, jint runtimeversion, jlong threadservice, jlong runtime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsCreateRuntime(JNIEnv* km_env, jclass km_clazz, jint attributes, jint runtimeversion, jlong threadservice, jlong runtime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -366,7 +366,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsCreateSyntaxError(JNIEnv* km_env, jclass km_clazz, jlong message, jlong error) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsCreateSyntaxError(JNIEnv* km_env, jclass km_clazz, jlong message, jlong error) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -385,7 +385,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsCreateTypeError(JNIEnv* km_env, jclass km_clazz, jlong message, jlong error) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsCreateTypeError(JNIEnv* km_env, jclass km_clazz, jlong message, jlong error) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -404,7 +404,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsCreateURIError(JNIEnv* km_env, jclass km_clazz, jlong message, jlong error) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsCreateURIError(JNIEnv* km_env, jclass km_clazz, jlong message, jlong error) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -423,7 +423,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsDefineProperty(JNIEnv* km_env, jclass km_clazz, jlong object, jlong propertyid, jlong propertydescriptor, jlong result) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsDefineProperty(JNIEnv* km_env, jclass km_clazz, jlong object, jlong propertyid, jlong propertydescriptor, jlong result) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -444,7 +444,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsDeleteIndexedProperty(JNIEnv* km_env, jclass km_clazz, jlong object, jlong arg_1_index) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsDeleteIndexedProperty(JNIEnv* km_env, jclass km_clazz, jlong object, jlong arg_1_index) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -463,7 +463,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsDeleteProperty(JNIEnv* km_env, jclass km_clazz, jlong object, jlong propertyid, jbyte usestrictrules, jlong result) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsDeleteProperty(JNIEnv* km_env, jclass km_clazz, jlong object, jlong propertyid, jbyte usestrictrules, jlong result) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -484,7 +484,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsDisableRuntimeExecution(JNIEnv* km_env, jclass km_clazz, jlong runtime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsDisableRuntimeExecution(JNIEnv* km_env, jclass km_clazz, jlong runtime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -502,7 +502,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsDisposeRuntime(JNIEnv* km_env, jclass km_clazz, jlong runtime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsDisposeRuntime(JNIEnv* km_env, jclass km_clazz, jlong runtime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -520,7 +520,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsDoubleToNumber(JNIEnv* km_env, jclass km_clazz, jdouble doublevalue, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsDoubleToNumber(JNIEnv* km_env, jclass km_clazz, jdouble doublevalue, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -539,7 +539,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsEnableRuntimeExecution(JNIEnv* km_env, jclass km_clazz, jlong runtime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsEnableRuntimeExecution(JNIEnv* km_env, jclass km_clazz, jlong runtime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -557,7 +557,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsEquals(JNIEnv* km_env, jclass km_clazz, jlong object1, jlong object2, jlong result) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsEquals(JNIEnv* km_env, jclass km_clazz, jlong object1, jlong object2, jlong result) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -577,7 +577,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsGetAndClearException(JNIEnv* km_env, jclass km_clazz, jlong exception) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsGetAndClearException(JNIEnv* km_env, jclass km_clazz, jlong exception) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -595,7 +595,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsGetCurrentContext(JNIEnv* km_env, jclass km_clazz, jlong currentcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsGetCurrentContext(JNIEnv* km_env, jclass km_clazz, jlong currentcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -613,7 +613,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsGetExtensionAllowed(JNIEnv* km_env, jclass km_clazz, jlong object, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsGetExtensionAllowed(JNIEnv* km_env, jclass km_clazz, jlong object, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -632,7 +632,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsGetExternalData(JNIEnv* km_env, jclass km_clazz, jlong object, jlong externaldata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsGetExternalData(JNIEnv* km_env, jclass km_clazz, jlong object, jlong externaldata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -651,7 +651,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsGetFalseValue(JNIEnv* km_env, jclass km_clazz, jlong falsevalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsGetFalseValue(JNIEnv* km_env, jclass km_clazz, jlong falsevalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -669,7 +669,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsGetGlobalObject(JNIEnv* km_env, jclass km_clazz, jlong globalobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsGetGlobalObject(JNIEnv* km_env, jclass km_clazz, jlong globalobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -687,7 +687,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsGetIndexedProperty(JNIEnv* km_env, jclass km_clazz, jlong object, jlong arg_1_index, jlong result) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsGetIndexedProperty(JNIEnv* km_env, jclass km_clazz, jlong object, jlong arg_1_index, jlong result) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -707,7 +707,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsGetNullValue(JNIEnv* km_env, jclass km_clazz, jlong nullvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsGetNullValue(JNIEnv* km_env, jclass km_clazz, jlong nullvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -725,7 +725,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsGetOwnPropertyDescriptor(JNIEnv* km_env, jclass km_clazz, jlong object, jlong propertyid, jlong propertydescriptor) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsGetOwnPropertyDescriptor(JNIEnv* km_env, jclass km_clazz, jlong object, jlong propertyid, jlong propertydescriptor) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -745,7 +745,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsGetOwnPropertyNames(JNIEnv* km_env, jclass km_clazz, jlong object, jlong propertynames) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsGetOwnPropertyNames(JNIEnv* km_env, jclass km_clazz, jlong object, jlong propertynames) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -764,7 +764,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsGetProperty(JNIEnv* km_env, jclass km_clazz, jlong object, jlong propertyid, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsGetProperty(JNIEnv* km_env, jclass km_clazz, jlong object, jlong propertyid, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -784,7 +784,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsGetPropertyIdFromName(JNIEnv* km_env, jclass km_clazz, jlong name, jlong propertyid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsGetPropertyIdFromName(JNIEnv* km_env, jclass km_clazz, jlong name, jlong propertyid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -803,7 +803,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsGetPropertyNameFromId(JNIEnv* km_env, jclass km_clazz, jlong propertyid, jlong name) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsGetPropertyNameFromId(JNIEnv* km_env, jclass km_clazz, jlong propertyid, jlong name) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -822,7 +822,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsGetPrototype(JNIEnv* km_env, jclass km_clazz, jlong object, jlong prototypeobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsGetPrototype(JNIEnv* km_env, jclass km_clazz, jlong object, jlong prototypeobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -841,7 +841,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsGetRuntime(JNIEnv* km_env, jclass km_clazz, jlong context, jlong runtime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsGetRuntime(JNIEnv* km_env, jclass km_clazz, jlong context, jlong runtime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -860,7 +860,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsGetRuntimeMemoryLimit(JNIEnv* km_env, jclass km_clazz, jlong runtime, jlong memorylimit) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsGetRuntimeMemoryLimit(JNIEnv* km_env, jclass km_clazz, jlong runtime, jlong memorylimit) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -879,7 +879,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsGetRuntimeMemoryUsage(JNIEnv* km_env, jclass km_clazz, jlong runtime, jlong memoryusage) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsGetRuntimeMemoryUsage(JNIEnv* km_env, jclass km_clazz, jlong runtime, jlong memoryusage) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -898,7 +898,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsGetStringLength(JNIEnv* km_env, jclass km_clazz, jlong stringvalue, jlong length) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsGetStringLength(JNIEnv* km_env, jclass km_clazz, jlong stringvalue, jlong length) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -917,7 +917,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsGetTrueValue(JNIEnv* km_env, jclass km_clazz, jlong truevalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsGetTrueValue(JNIEnv* km_env, jclass km_clazz, jlong truevalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -935,7 +935,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsGetUndefinedValue(JNIEnv* km_env, jclass km_clazz, jlong undefinedvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsGetUndefinedValue(JNIEnv* km_env, jclass km_clazz, jlong undefinedvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -953,7 +953,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsGetValueType(JNIEnv* km_env, jclass km_clazz, jlong value, jlong type) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsGetValueType(JNIEnv* km_env, jclass km_clazz, jlong value, jlong type) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -972,7 +972,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsHasException(JNIEnv* km_env, jclass km_clazz, jlong hasexception) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsHasException(JNIEnv* km_env, jclass km_clazz, jlong hasexception) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -990,7 +990,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsHasExternalData(JNIEnv* km_env, jclass km_clazz, jlong object, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsHasExternalData(JNIEnv* km_env, jclass km_clazz, jlong object, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1009,7 +1009,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsHasIndexedProperty(JNIEnv* km_env, jclass km_clazz, jlong object, jlong arg_1_index, jlong result) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsHasIndexedProperty(JNIEnv* km_env, jclass km_clazz, jlong object, jlong arg_1_index, jlong result) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1029,7 +1029,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsHasProperty(JNIEnv* km_env, jclass km_clazz, jlong object, jlong propertyid, jlong hasproperty) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsHasProperty(JNIEnv* km_env, jclass km_clazz, jlong object, jlong propertyid, jlong hasproperty) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1049,7 +1049,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsIdle(JNIEnv* km_env, jclass km_clazz, jlong nextidletick) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsIdle(JNIEnv* km_env, jclass km_clazz, jlong nextidletick) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1067,7 +1067,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsIntToNumber(JNIEnv* km_env, jclass km_clazz, jint intvalue, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsIntToNumber(JNIEnv* km_env, jclass km_clazz, jint intvalue, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1086,7 +1086,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsIsEnumeratingHeap(JNIEnv* km_env, jclass km_clazz, jlong isenumeratingheap) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsIsEnumeratingHeap(JNIEnv* km_env, jclass km_clazz, jlong isenumeratingheap) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1104,7 +1104,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsIsRuntimeExecutionDisabled(JNIEnv* km_env, jclass km_clazz, jlong runtime, jlong isdisabled) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsIsRuntimeExecutionDisabled(JNIEnv* km_env, jclass km_clazz, jlong runtime, jlong isdisabled) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1123,7 +1123,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsNumberToDouble(JNIEnv* km_env, jclass km_clazz, jlong value, jlong doublevalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsNumberToDouble(JNIEnv* km_env, jclass km_clazz, jlong value, jlong doublevalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1142,7 +1142,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsParseScript(JNIEnv* km_env, jclass km_clazz, jlong script, jlong sourcecontext, jlong sourceurl, jlong result) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsParseScript(JNIEnv* km_env, jclass km_clazz, jlong script, jlong sourcecontext, jlong sourceurl, jlong result) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1163,7 +1163,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsParseSerializedScript(JNIEnv* km_env, jclass km_clazz, jlong script, jlong buffer, jlong sourcecontext, jlong sourceurl, jlong result) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsParseSerializedScript(JNIEnv* km_env, jclass km_clazz, jlong script, jlong buffer, jlong sourcecontext, jlong sourceurl, jlong result) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1185,7 +1185,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsPointerToString(JNIEnv* km_env, jclass km_clazz, jlong stringvalue, jlong stringlength, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsPointerToString(JNIEnv* km_env, jclass km_clazz, jlong stringvalue, jlong stringlength, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1205,7 +1205,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsPreventExtension(JNIEnv* km_env, jclass km_clazz, jlong object) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsPreventExtension(JNIEnv* km_env, jclass km_clazz, jlong object) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1223,7 +1223,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsRelease(JNIEnv* km_env, jclass km_clazz, jlong ref, jlong count) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsRelease(JNIEnv* km_env, jclass km_clazz, jlong ref, jlong count) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1242,7 +1242,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsRunScript(JNIEnv* km_env, jclass km_clazz, jlong script, jlong sourcecontext, jlong sourceurl, jlong result) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsRunScript(JNIEnv* km_env, jclass km_clazz, jlong script, jlong sourcecontext, jlong sourceurl, jlong result) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1263,7 +1263,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsRunSerializedScript(JNIEnv* km_env, jclass km_clazz, jlong script, jlong buffer, jlong sourcecontext, jlong sourceurl, jlong result) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsRunSerializedScript(JNIEnv* km_env, jclass km_clazz, jlong script, jlong buffer, jlong sourcecontext, jlong sourceurl, jlong result) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1285,7 +1285,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsSerializeScript(JNIEnv* km_env, jclass km_clazz, jlong script, jlong buffer, jlong buffersize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsSerializeScript(JNIEnv* km_env, jclass km_clazz, jlong script, jlong buffer, jlong buffersize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1305,7 +1305,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsSetCurrentContext(JNIEnv* km_env, jclass km_clazz, jlong context) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsSetCurrentContext(JNIEnv* km_env, jclass km_clazz, jlong context) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1323,7 +1323,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsSetException(JNIEnv* km_env, jclass km_clazz, jlong exception) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsSetException(JNIEnv* km_env, jclass km_clazz, jlong exception) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1341,7 +1341,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsSetExternalData(JNIEnv* km_env, jclass km_clazz, jlong object, jlong externaldata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsSetExternalData(JNIEnv* km_env, jclass km_clazz, jlong object, jlong externaldata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1360,7 +1360,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsSetIndexedProperty(JNIEnv* km_env, jclass km_clazz, jlong object, jlong arg_1_index, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsSetIndexedProperty(JNIEnv* km_env, jclass km_clazz, jlong object, jlong arg_1_index, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1380,7 +1380,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsSetProperty(JNIEnv* km_env, jclass km_clazz, jlong object, jlong propertyid, jlong value, jbyte usestrictrules) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsSetProperty(JNIEnv* km_env, jclass km_clazz, jlong object, jlong propertyid, jlong value, jbyte usestrictrules) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1401,7 +1401,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsSetPrototype(JNIEnv* km_env, jclass km_clazz, jlong object, jlong prototypeobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsSetPrototype(JNIEnv* km_env, jclass km_clazz, jlong object, jlong prototypeobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1420,7 +1420,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsSetRuntimeBeforeCollectCallback(JNIEnv* km_env, jclass km_clazz, jlong runtime, jlong callbackstate, jlong beforecollectcallback) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsSetRuntimeBeforeCollectCallback(JNIEnv* km_env, jclass km_clazz, jlong runtime, jlong callbackstate, jlong beforecollectcallback) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1440,7 +1440,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsSetRuntimeMemoryAllocationCallback(JNIEnv* km_env, jclass km_clazz, jlong runtime, jlong callbackstate, jlong allocationcallback) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsSetRuntimeMemoryAllocationCallback(JNIEnv* km_env, jclass km_clazz, jlong runtime, jlong callbackstate, jlong allocationcallback) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1460,7 +1460,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsSetRuntimeMemoryLimit(JNIEnv* km_env, jclass km_clazz, jlong runtime, jlong memorylimit) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsSetRuntimeMemoryLimit(JNIEnv* km_env, jclass km_clazz, jlong runtime, jlong memorylimit) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1479,7 +1479,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsStopProfiling(JNIEnv* km_env, jclass km_clazz, jint reason) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsStopProfiling(JNIEnv* km_env, jclass km_clazz, jint reason) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1497,7 +1497,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsStrictEquals(JNIEnv* km_env, jclass km_clazz, jlong object1, jlong object2, jlong result) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsStrictEquals(JNIEnv* km_env, jclass km_clazz, jlong object1, jlong object2, jlong result) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1517,7 +1517,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsStringToPointer(JNIEnv* km_env, jclass km_clazz, jlong value, jlong stringvalue, jlong stringlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsStringToPointer(JNIEnv* km_env, jclass km_clazz, jlong value, jlong stringvalue, jlong stringlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1537,7 +1537,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsValueToVariant(JNIEnv* km_env, jclass km_clazz, jlong object, jlong variant) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsValueToVariant(JNIEnv* km_env, jclass km_clazz, jlong object, jlong variant) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1556,7 +1556,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1JsVariantToValue(JNIEnv* km_env, jclass km_clazz, jlong variant, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_js_WindowsWin32SystemJsJniBridge_windowssys_1windows_1win32_1system_1js_1jsVariantToValue(JNIEnv* km_env, jclass km_clazz, jlong variant, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

@@ -1,5 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.graphics.opengl
 
+import io.github.kotlinmania.windowssys.COpaquePointer
+
 public typealias GLUnurbs = Long
 
 public fun interface GLUnurbsErrorProcFn {
@@ -17,7 +19,7 @@ public fun interface GLUquadricErrorProcFn {
 public typealias GLUquadricErrorProc = GLUquadricErrorProcFn?
 
 public fun interface GLUtessBeginDataProcFn {
-    public operator fun invoke(param0: UInt, param1: Long)
+    public operator fun invoke(param0: UInt, param1: COpaquePointer?)
 }
 
 public typealias GLUtessBeginDataProc = GLUtessBeginDataProcFn?
@@ -29,19 +31,19 @@ public fun interface GLUtessBeginProcFn {
 public typealias GLUtessBeginProc = GLUtessBeginProcFn?
 
 public fun interface GLUtessCombineDataProcFn {
-    public operator fun invoke(param0: Long, param1: Long, param2: Long, param3: Long, param4: Long)
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?, param3: COpaquePointer?, param4: COpaquePointer?)
 }
 
 public typealias GLUtessCombineDataProc = GLUtessCombineDataProcFn?
 
 public fun interface GLUtessCombineProcFn {
-    public operator fun invoke(param0: Long, param1: Long, param2: Long, param3: Long)
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?, param3: COpaquePointer?)
 }
 
 public typealias GLUtessCombineProc = GLUtessCombineProcFn?
 
 public fun interface GLUtessEdgeFlagDataProcFn {
-    public operator fun invoke(param0: UByte, param1: Long)
+    public operator fun invoke(param0: UByte, param1: COpaquePointer?)
 }
 
 public typealias GLUtessEdgeFlagDataProc = GLUtessEdgeFlagDataProcFn?
@@ -53,7 +55,7 @@ public fun interface GLUtessEdgeFlagProcFn {
 public typealias GLUtessEdgeFlagProc = GLUtessEdgeFlagProcFn?
 
 public fun interface GLUtessEndDataProcFn {
-    public operator fun invoke(param0: Long)
+    public operator fun invoke(param0: COpaquePointer?)
 }
 
 public typealias GLUtessEndDataProc = GLUtessEndDataProcFn?
@@ -65,7 +67,7 @@ public fun interface GLUtessEndProcFn {
 public typealias GLUtessEndProc = GLUtessEndProcFn?
 
 public fun interface GLUtessErrorDataProcFn {
-    public operator fun invoke(param0: UInt, param1: Long)
+    public operator fun invoke(param0: UInt, param1: COpaquePointer?)
 }
 
 public typealias GLUtessErrorDataProc = GLUtessErrorDataProcFn?
@@ -77,125 +79,125 @@ public fun interface GLUtessErrorProcFn {
 public typealias GLUtessErrorProc = GLUtessErrorProcFn?
 
 public fun interface GLUtessVertexDataProcFn {
-    public operator fun invoke(param0: Long, param1: Long)
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?)
 }
 
 public typealias GLUtessVertexDataProc = GLUtessVertexDataProcFn?
 
 public fun interface GLUtessVertexProcFn {
-    public operator fun invoke(param0: Long)
+    public operator fun invoke(param0: COpaquePointer?)
 }
 
 public typealias GLUtessVertexProc = GLUtessVertexProcFn?
 
 public typealias GLUtesselator = Long
 
-public typealias HGLRC = Long
+public typealias Hglrc = COpaquePointer?
 
-public typealias PFD_FLAGS = UInt
+public typealias PfdFlags = UInt
 
-public typealias PFD_LAYER_TYPE = Byte
+public typealias PfdLayerType = Byte
 
-public typealias PFD_PIXEL_TYPE = UByte
+public typealias PfdPixelType = UByte
 
-public fun interface PFNGLADDSWAPHINTRECTWINPROCFn {
+public fun interface PfngladdswaphintrectwinprocFn {
     public operator fun invoke(x: Int, y: Int, width: Int, height: Int)
 }
 
-public typealias PFNGLADDSWAPHINTRECTWINPROC = PFNGLADDSWAPHINTRECTWINPROCFn?
+public typealias Pfngladdswaphintrectwinproc = PfngladdswaphintrectwinprocFn?
 
-public fun interface PFNGLARRAYELEMENTARRAYEXTPROCFn {
-    public operator fun invoke(mode: UInt, count: Int, pi: Long)
+public fun interface PfnglarrayelementarrayextprocFn {
+    public operator fun invoke(mode: UInt, count: Int, pi: COpaquePointer?)
 }
 
-public typealias PFNGLARRAYELEMENTARRAYEXTPROC = PFNGLARRAYELEMENTARRAYEXTPROCFn?
+public typealias Pfnglarrayelementarrayextproc = PfnglarrayelementarrayextprocFn?
 
-public fun interface PFNGLARRAYELEMENTEXTPROCFn {
+public fun interface PfnglarrayelementextprocFn {
     public operator fun invoke(i: Int)
 }
 
-public typealias PFNGLARRAYELEMENTEXTPROC = PFNGLARRAYELEMENTEXTPROCFn?
+public typealias Pfnglarrayelementextproc = PfnglarrayelementextprocFn?
 
-public fun interface PFNGLCOLORPOINTEREXTPROCFn {
-    public operator fun invoke(size: Int, type: UInt, stride: Int, count: Int, pointer: Long)
+public fun interface PfnglcolorpointerextprocFn {
+    public operator fun invoke(size: Int, type: UInt, stride: Int, count: Int, pointer: COpaquePointer?)
 }
 
-public typealias PFNGLCOLORPOINTEREXTPROC = PFNGLCOLORPOINTEREXTPROCFn?
+public typealias Pfnglcolorpointerextproc = PfnglcolorpointerextprocFn?
 
-public fun interface PFNGLCOLORSUBTABLEEXTPROCFn {
-    public operator fun invoke(target: UInt, start: Int, count: Int, format: UInt, type: UInt, data: Long)
+public fun interface PfnglcolorsubtableextprocFn {
+    public operator fun invoke(target: UInt, start: Int, count: Int, format: UInt, type: UInt, data: COpaquePointer?)
 }
 
-public typealias PFNGLCOLORSUBTABLEEXTPROC = PFNGLCOLORSUBTABLEEXTPROCFn?
+public typealias Pfnglcolorsubtableextproc = PfnglcolorsubtableextprocFn?
 
-public fun interface PFNGLCOLORTABLEEXTPROCFn {
-    public operator fun invoke(target: UInt, internalformat: UInt, width: Int, format: UInt, type: UInt, data: Long)
+public fun interface PfnglcolortableextprocFn {
+    public operator fun invoke(target: UInt, internalformat: UInt, width: Int, format: UInt, type: UInt, data: COpaquePointer?)
 }
 
-public typealias PFNGLCOLORTABLEEXTPROC = PFNGLCOLORTABLEEXTPROCFn?
+public typealias Pfnglcolortableextproc = PfnglcolortableextprocFn?
 
-public fun interface PFNGLDRAWARRAYSEXTPROCFn {
+public fun interface PfngldrawarraysextprocFn {
     public operator fun invoke(mode: UInt, first: Int, count: Int)
 }
 
-public typealias PFNGLDRAWARRAYSEXTPROC = PFNGLDRAWARRAYSEXTPROCFn?
+public typealias Pfngldrawarraysextproc = PfngldrawarraysextprocFn?
 
-public fun interface PFNGLDRAWRANGEELEMENTSWINPROCFn {
-    public operator fun invoke(mode: UInt, start: UInt, end: UInt, count: Int, type: UInt, indices: Long)
+public fun interface PfngldrawrangeelementswinprocFn {
+    public operator fun invoke(mode: UInt, start: UInt, end: UInt, count: Int, type: UInt, indices: COpaquePointer?)
 }
 
-public typealias PFNGLDRAWRANGEELEMENTSWINPROC = PFNGLDRAWRANGEELEMENTSWINPROCFn?
+public typealias Pfngldrawrangeelementswinproc = PfngldrawrangeelementswinprocFn?
 
-public fun interface PFNGLEDGEFLAGPOINTEREXTPROCFn {
-    public operator fun invoke(stride: Int, count: Int, pointer: Long)
+public fun interface PfngledgeflagpointerextprocFn {
+    public operator fun invoke(stride: Int, count: Int, pointer: COpaquePointer?)
 }
 
-public typealias PFNGLEDGEFLAGPOINTEREXTPROC = PFNGLEDGEFLAGPOINTEREXTPROCFn?
+public typealias Pfngledgeflagpointerextproc = PfngledgeflagpointerextprocFn?
 
-public fun interface PFNGLGETCOLORTABLEEXTPROCFn {
-    public operator fun invoke(target: UInt, format: UInt, type: UInt, data: Long)
+public fun interface PfnglgetcolortableextprocFn {
+    public operator fun invoke(target: UInt, format: UInt, type: UInt, data: COpaquePointer?)
 }
 
-public typealias PFNGLGETCOLORTABLEEXTPROC = PFNGLGETCOLORTABLEEXTPROCFn?
+public typealias Pfnglgetcolortableextproc = PfnglgetcolortableextprocFn?
 
-public fun interface PFNGLGETCOLORTABLEPARAMETERFVEXTPROCFn {
-    public operator fun invoke(target: UInt, pname: UInt, params: Long)
+public fun interface PfnglgetcolortableparameterfvextprocFn {
+    public operator fun invoke(target: UInt, pname: UInt, params: COpaquePointer?)
 }
 
-public typealias PFNGLGETCOLORTABLEPARAMETERFVEXTPROC = PFNGLGETCOLORTABLEPARAMETERFVEXTPROCFn?
+public typealias Pfnglgetcolortableparameterfvextproc = PfnglgetcolortableparameterfvextprocFn?
 
-public fun interface PFNGLGETCOLORTABLEPARAMETERIVEXTPROCFn {
-    public operator fun invoke(target: UInt, pname: UInt, params: Long)
+public fun interface PfnglgetcolortableparameterivextprocFn {
+    public operator fun invoke(target: UInt, pname: UInt, params: COpaquePointer?)
 }
 
-public typealias PFNGLGETCOLORTABLEPARAMETERIVEXTPROC = PFNGLGETCOLORTABLEPARAMETERIVEXTPROCFn?
+public typealias Pfnglgetcolortableparameterivextproc = PfnglgetcolortableparameterivextprocFn?
 
-public fun interface PFNGLGETPOINTERVEXTPROCFn {
-    public operator fun invoke(pname: UInt, params: Long)
+public fun interface PfnglgetpointervextprocFn {
+    public operator fun invoke(pname: UInt, params: COpaquePointer?)
 }
 
-public typealias PFNGLGETPOINTERVEXTPROC = PFNGLGETPOINTERVEXTPROCFn?
+public typealias Pfnglgetpointervextproc = PfnglgetpointervextprocFn?
 
-public fun interface PFNGLINDEXPOINTEREXTPROCFn {
-    public operator fun invoke(type: UInt, stride: Int, count: Int, pointer: Long)
+public fun interface PfnglindexpointerextprocFn {
+    public operator fun invoke(type: UInt, stride: Int, count: Int, pointer: COpaquePointer?)
 }
 
-public typealias PFNGLINDEXPOINTEREXTPROC = PFNGLINDEXPOINTEREXTPROCFn?
+public typealias Pfnglindexpointerextproc = PfnglindexpointerextprocFn?
 
-public fun interface PFNGLNORMALPOINTEREXTPROCFn {
-    public operator fun invoke(type: UInt, stride: Int, count: Int, pointer: Long)
+public fun interface PfnglnormalpointerextprocFn {
+    public operator fun invoke(type: UInt, stride: Int, count: Int, pointer: COpaquePointer?)
 }
 
-public typealias PFNGLNORMALPOINTEREXTPROC = PFNGLNORMALPOINTEREXTPROCFn?
+public typealias Pfnglnormalpointerextproc = PfnglnormalpointerextprocFn?
 
-public fun interface PFNGLTEXCOORDPOINTEREXTPROCFn {
-    public operator fun invoke(size: Int, type: UInt, stride: Int, count: Int, pointer: Long)
+public fun interface PfngltexcoordpointerextprocFn {
+    public operator fun invoke(size: Int, type: UInt, stride: Int, count: Int, pointer: COpaquePointer?)
 }
 
-public typealias PFNGLTEXCOORDPOINTEREXTPROC = PFNGLTEXCOORDPOINTEREXTPROCFn?
+public typealias Pfngltexcoordpointerextproc = PfngltexcoordpointerextprocFn?
 
-public fun interface PFNGLVERTEXPOINTEREXTPROCFn {
-    public operator fun invoke(size: Int, type: UInt, stride: Int, count: Int, pointer: Long)
+public fun interface PfnglvertexpointerextprocFn {
+    public operator fun invoke(size: Int, type: UInt, stride: Int, count: Int, pointer: COpaquePointer?)
 }
 
-public typealias PFNGLVERTEXPOINTEREXTPROC = PFNGLVERTEXPOINTEREXTPROCFn?
+public typealias Pfnglvertexpointerextproc = PfnglvertexpointerextprocFn?

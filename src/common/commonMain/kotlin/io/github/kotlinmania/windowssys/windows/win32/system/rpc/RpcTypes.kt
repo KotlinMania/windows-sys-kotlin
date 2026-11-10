@@ -1,313 +1,314 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.rpc
 
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 
-public fun interface CS_TAG_GETTING_ROUTINEFn {
-    public operator fun invoke(hbinding: Long, fserverside: Int, pulsendingtag: Long, puldesiredreceivingtag: Long, pulreceivingtag: Long, pstatus: Long)
+public fun interface CsTagGettingRoutineFn {
+    public operator fun invoke(hbinding: COpaquePointer?, fserverside: Int, pulsendingtag: COpaquePointer?, puldesiredreceivingtag: COpaquePointer?, pulreceivingtag: COpaquePointer?, pstatus: COpaquePointer?)
 }
 
-public typealias CS_TAG_GETTING_ROUTINE = CS_TAG_GETTING_ROUTINEFn?
+public typealias CsTagGettingRoutine = CsTagGettingRoutineFn?
 
-public fun interface CS_TYPE_FROM_NETCS_ROUTINEFn {
-    public operator fun invoke(hbinding: Long, ulnetworkcodeset: UInt, pnetworkdata: Long, ulnetworkdatalength: UInt, ullocalbuffersize: UInt, plocaldata: Long, pullocaldatalength: Long, pstatus: Long)
+public fun interface CsTypeFromNetcsRoutineFn {
+    public operator fun invoke(hbinding: COpaquePointer?, ulnetworkcodeset: UInt, pnetworkdata: COpaquePointer?, ulnetworkdatalength: UInt, ullocalbuffersize: UInt, plocaldata: COpaquePointer?, pullocaldatalength: COpaquePointer?, pstatus: COpaquePointer?)
 }
 
-public typealias CS_TYPE_FROM_NETCS_ROUTINE = CS_TYPE_FROM_NETCS_ROUTINEFn?
+public typealias CsTypeFromNetcsRoutine = CsTypeFromNetcsRoutineFn?
 
-public fun interface CS_TYPE_LOCAL_SIZE_ROUTINEFn {
-    public operator fun invoke(hbinding: Long, ulnetworkcodeset: UInt, ulnetworkbuffersize: UInt, conversiontype: Long, pullocalbuffersize: Long, pstatus: Long)
+public fun interface CsTypeLocalSizeRoutineFn {
+    public operator fun invoke(hbinding: COpaquePointer?, ulnetworkcodeset: UInt, ulnetworkbuffersize: UInt, conversiontype: COpaquePointer?, pullocalbuffersize: COpaquePointer?, pstatus: COpaquePointer?)
 }
 
-public typealias CS_TYPE_LOCAL_SIZE_ROUTINE = CS_TYPE_LOCAL_SIZE_ROUTINEFn?
+public typealias CsTypeLocalSizeRoutine = CsTypeLocalSizeRoutineFn?
 
-public fun interface CS_TYPE_NET_SIZE_ROUTINEFn {
-    public operator fun invoke(hbinding: Long, ulnetworkcodeset: UInt, ullocalbuffersize: UInt, conversiontype: Long, pulnetworkbuffersize: Long, pstatus: Long)
+public fun interface CsTypeNetSizeRoutineFn {
+    public operator fun invoke(hbinding: COpaquePointer?, ulnetworkcodeset: UInt, ullocalbuffersize: UInt, conversiontype: COpaquePointer?, pulnetworkbuffersize: COpaquePointer?, pstatus: COpaquePointer?)
 }
 
-public typealias CS_TYPE_NET_SIZE_ROUTINE = CS_TYPE_NET_SIZE_ROUTINEFn?
+public typealias CsTypeNetSizeRoutine = CsTypeNetSizeRoutineFn?
 
-public fun interface CS_TYPE_TO_NETCS_ROUTINEFn {
-    public operator fun invoke(hbinding: Long, ulnetworkcodeset: UInt, plocaldata: Long, ullocaldatalength: UInt, pnetworkdata: Long, pulnetworkdatalength: Long, pstatus: Long)
+public fun interface CsTypeToNetcsRoutineFn {
+    public operator fun invoke(hbinding: COpaquePointer?, ulnetworkcodeset: UInt, plocaldata: COpaquePointer?, ullocaldatalength: UInt, pnetworkdata: COpaquePointer?, pulnetworkdatalength: COpaquePointer?, pstatus: COpaquePointer?)
 }
 
-public typealias CS_TYPE_TO_NETCS_ROUTINE = CS_TYPE_TO_NETCS_ROUTINEFn?
+public typealias CsTypeToNetcsRoutine = CsTypeToNetcsRoutineFn?
 
-public fun interface EXPR_EVALFn {
-    public operator fun invoke(param0: Long)
+public fun interface ExprEvalFn {
+    public operator fun invoke(param0: COpaquePointer?)
 }
 
-public typealias EXPR_EVAL = EXPR_EVALFn?
+public typealias ExprEval = ExprEvalFn?
 
-public typealias EXPR_TOKEN = Int
+public typealias ExprToken = Int
 
 public typealias ExtendedErrorParamTypes = Int
 
-public fun interface GENERIC_BINDING_ROUTINEFn {
-    public operator fun invoke(param0: Long): Long
+public fun interface GenericBindingRoutineFn {
+    public operator fun invoke(param0: COpaquePointer?): COpaquePointer?
 }
 
-public typealias GENERIC_BINDING_ROUTINE = GENERIC_BINDING_ROUTINEFn?
+public typealias GenericBindingRoutine = GenericBindingRoutineFn?
 
-public fun interface GENERIC_UNBIND_ROUTINEFn {
-    public operator fun invoke(param0: Long, param1: Long)
+public fun interface GenericUnbindRoutineFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?)
 }
 
-public typealias GENERIC_UNBIND_ROUTINE = GENERIC_UNBIND_ROUTINEFn?
+public typealias GenericUnbindRoutine = GenericUnbindRoutineFn?
 
-public typealias GROUP_NAME_SYNTAX = UInt
+public typealias GroupNameSyntax = UInt
 
-public typealias IDL_CS_CONVERT = Int
+public typealias IdlCsConvert = Int
 
-public fun interface I_RpcFreeCalloutStateFnFn {
-    public operator fun invoke(calloutstate: Long)
+public fun interface IRpcFreeCalloutStateFnFn {
+    public operator fun invoke(calloutstate: COpaquePointer?)
 }
 
-public typealias I_RpcFreeCalloutStateFn = I_RpcFreeCalloutStateFnFn?
+public typealias IRpcFreeCalloutStateFn = IRpcFreeCalloutStateFnFn?
 
-public fun interface I_RpcPerformCalloutFnFn {
-    public operator fun invoke(context: Long, calloutstate: Long, stage: RPC_HTTP_REDIRECTOR_STAGE): RPC_STATUS
+public fun interface IRpcPerformCalloutFnFn {
+    public operator fun invoke(context: COpaquePointer?, calloutstate: COpaquePointer?, stage: RpcHttpRedirectorStage): RpcStatus
 }
 
-public typealias I_RpcPerformCalloutFn = I_RpcPerformCalloutFnFn?
+public typealias IRpcPerformCalloutFn = IRpcPerformCalloutFnFn?
 
-public fun interface I_RpcProxyFilterIfFnFn {
-    public operator fun invoke(context: Long, ifuuid: Long, ifmajorversion: UShort, fallow: Long): RPC_STATUS
+public fun interface IRpcProxyFilterIfFnFn {
+    public operator fun invoke(context: COpaquePointer?, ifuuid: COpaquePointer?, ifmajorversion: UShort, fallow: COpaquePointer?): RpcStatus
 }
 
-public typealias I_RpcProxyFilterIfFn = I_RpcProxyFilterIfFnFn?
+public typealias IRpcProxyFilterIfFn = IRpcProxyFilterIfFnFn?
 
-public fun interface I_RpcProxyGetClientAddressFnFn {
-    public operator fun invoke(context: Long, buffer: PCSTR, bufferlength: Long): RPC_STATUS
+public fun interface IRpcProxyGetClientAddressFnFn {
+    public operator fun invoke(context: COpaquePointer?, buffer: Pcstr, bufferlength: COpaquePointer?): RpcStatus
 }
 
-public typealias I_RpcProxyGetClientAddressFn = I_RpcProxyGetClientAddressFnFn?
+public typealias IRpcProxyGetClientAddressFn = IRpcProxyGetClientAddressFnFn?
 
-public fun interface I_RpcProxyGetClientSessionAndResourceUUIDFn {
-    public operator fun invoke(context: Long, sessionidpresent: Long, sessionid: Long, resourceidpresent: Long, resourceid: Long): RPC_STATUS
+public fun interface IRpcProxyGetClientSessionAndResourceUuidFn {
+    public operator fun invoke(context: COpaquePointer?, sessionidpresent: COpaquePointer?, sessionid: COpaquePointer?, resourceidpresent: COpaquePointer?, resourceid: COpaquePointer?): RpcStatus
 }
 
-public typealias I_RpcProxyGetClientSessionAndResourceUUID = I_RpcProxyGetClientSessionAndResourceUUIDFn?
+public typealias IRpcProxyGetClientSessionAndResourceUuid = IRpcProxyGetClientSessionAndResourceUuidFn?
 
-public fun interface I_RpcProxyGetConnectionTimeoutFnFn {
-    public operator fun invoke(connectiontimeout: Long): RPC_STATUS
+public fun interface IRpcProxyGetConnectionTimeoutFnFn {
+    public operator fun invoke(connectiontimeout: COpaquePointer?): RpcStatus
 }
 
-public typealias I_RpcProxyGetConnectionTimeoutFn = I_RpcProxyGetConnectionTimeoutFnFn?
+public typealias IRpcProxyGetConnectionTimeoutFn = IRpcProxyGetConnectionTimeoutFnFn?
 
-public fun interface I_RpcProxyIsValidMachineFnFn {
-    public operator fun invoke(machine: PCWSTR, dotmachine: PCWSTR, portnumber: UInt): RPC_STATUS
+public fun interface IRpcProxyIsValidMachineFnFn {
+    public operator fun invoke(machine: Pcwstr, dotmachine: Pcwstr, portnumber: UInt): RpcStatus
 }
 
-public typealias I_RpcProxyIsValidMachineFn = I_RpcProxyIsValidMachineFnFn?
+public typealias IRpcProxyIsValidMachineFn = IRpcProxyIsValidMachineFnFn?
 
-public fun interface I_RpcProxyUpdatePerfCounterBackendServerFnFn {
-    public operator fun invoke(machinename: Long, isconnectevent: Int)
+public fun interface IRpcProxyUpdatePerfCounterBackendServerFnFn {
+    public operator fun invoke(machinename: COpaquePointer?, isconnectevent: Int)
 }
 
-public typealias I_RpcProxyUpdatePerfCounterBackendServerFn = I_RpcProxyUpdatePerfCounterBackendServerFnFn?
+public typealias IRpcProxyUpdatePerfCounterBackendServerFn = IRpcProxyUpdatePerfCounterBackendServerFnFn?
 
-public fun interface I_RpcProxyUpdatePerfCounterFnFn {
+public fun interface IRpcProxyUpdatePerfCounterFnFn {
     public operator fun invoke(counter: RpcPerfCounters, modifytrend: Int, size: UInt)
 }
 
-public typealias I_RpcProxyUpdatePerfCounterFn = I_RpcProxyUpdatePerfCounterFnFn?
+public typealias IRpcProxyUpdatePerfCounterFn = IRpcProxyUpdatePerfCounterFnFn?
 
-public typealias LRPC_SYSTEM_HANDLE_MARSHAL_DIRECTION = Int
+public typealias LrpcSystemHandleMarshalDirection = Int
 
-public fun interface MIDL_ES_ALLOCFn {
-    public operator fun invoke(state: Long, pbuffer: Long, psize: Long)
+public fun interface MidlEsAllocFn {
+    public operator fun invoke(state: COpaquePointer?, pbuffer: COpaquePointer?, psize: COpaquePointer?)
 }
 
-public typealias MIDL_ES_ALLOC = MIDL_ES_ALLOCFn?
+public typealias MidlEsAlloc = MidlEsAllocFn?
 
-public typealias MIDL_ES_CODE = Int
+public typealias MidlEsCode = Int
 
-public typealias MIDL_ES_HANDLE_STYLE = Int
+public typealias MidlEsHandleStyle = Int
 
-public fun interface MIDL_ES_READFn {
-    public operator fun invoke(state: Long, pbuffer: Long, psize: Long)
+public fun interface MidlEsReadFn {
+    public operator fun invoke(state: COpaquePointer?, pbuffer: COpaquePointer?, psize: COpaquePointer?)
 }
 
-public typealias MIDL_ES_READ = MIDL_ES_READFn?
+public typealias MidlEsRead = MidlEsReadFn?
 
-public fun interface MIDL_ES_WRITEFn {
-    public operator fun invoke(state: Long, buffer: PCSTR, size: UInt)
+public fun interface MidlEsWriteFn {
+    public operator fun invoke(state: COpaquePointer?, buffer: Pcstr, size: UInt)
 }
 
-public typealias MIDL_ES_WRITE = MIDL_ES_WRITEFn?
+public typealias MidlEsWrite = MidlEsWriteFn?
 
-public typealias NDR_ALLOC_ALL_NODES_CONTEXT = Long
+public typealias NdrAllocAllNodesContext = Long
 
-public fun interface NDR_NOTIFY2_ROUTINEFn {
+public fun interface NdrNotify2RoutineFn {
     public operator fun invoke(flag: UByte)
 }
 
-public typealias NDR_NOTIFY2_ROUTINE = NDR_NOTIFY2_ROUTINEFn?
+public typealias NdrNotify2Routine = NdrNotify2RoutineFn?
 
-public fun interface NDR_NOTIFY_ROUTINEFn {
+public fun interface NdrNotifyRoutineFn {
     public operator fun invoke()
 }
 
-public typealias NDR_NOTIFY_ROUTINE = NDR_NOTIFY_ROUTINEFn?
+public typealias NdrNotifyRoutine = NdrNotifyRoutineFn?
 
-public typealias NDR_POINTER_QUEUE_STATE = Long
+public typealias NdrPointerQueueState = Long
 
-public fun interface NDR_RUNDOWNFn {
-    public operator fun invoke(context: Long)
+public fun interface NdrRundownFn {
+    public operator fun invoke(context: COpaquePointer?)
 }
 
-public typealias NDR_RUNDOWN = NDR_RUNDOWNFn?
+public typealias NdrRundown = NdrRundownFn?
 
-public fun interface PFN_RPCNOTIFICATION_ROUTINEFn {
-    public operator fun invoke(pasync: Long, context: Long, event: RPC_ASYNC_EVENT)
+public fun interface PfnRpcnotificationRoutineFn {
+    public operator fun invoke(pasync: COpaquePointer?, context: COpaquePointer?, event: RpcAsyncEvent)
 }
 
-public typealias PFN_RPCNOTIFICATION_ROUTINE = PFN_RPCNOTIFICATION_ROUTINEFn?
+public typealias PfnRpcnotificationRoutine = PfnRpcnotificationRoutineFn?
 
-public fun interface PFN_RPC_ALLOCATEFn {
-    public operator fun invoke(param0: ULong): Long
+public fun interface PfnRpcAllocateFn {
+    public operator fun invoke(param0: ULong): COpaquePointer?
 }
 
-public typealias PFN_RPC_ALLOCATE = PFN_RPC_ALLOCATEFn?
+public typealias PfnRpcAllocate = PfnRpcAllocateFn?
 
-public fun interface PFN_RPC_FREEFn {
-    public operator fun invoke(param0: Long)
+public fun interface PfnRpcFreeFn {
+    public operator fun invoke(param0: COpaquePointer?)
 }
 
-public typealias PFN_RPC_FREE = PFN_RPC_FREEFn?
+public typealias PfnRpcFree = PfnRpcFreeFn?
 
-public typealias PNDR_ASYNC_MESSAGE = Long
+public typealias PndrAsyncMessage = Long
 
-public typealias PNDR_CORRELATION_INFO = Long
+public typealias PndrCorrelationInfo = Long
 
-public typealias PROXY_PHASE = Int
+public typealias ProxyPhase = Int
 
-public fun interface PRPC_RUNDOWNFn {
-    public operator fun invoke(associationcontext: Long)
+public fun interface PrpcRundownFn {
+    public operator fun invoke(associationcontext: COpaquePointer?)
 }
 
-public typealias PRPC_RUNDOWN = PRPC_RUNDOWNFn?
+public typealias PrpcRundown = PrpcRundownFn?
 
-public fun interface RPCLT_PDU_FILTER_FUNCFn {
-    public operator fun invoke(buffer: Long, bufferlength: UInt, fdatagram: Int)
+public fun interface RpcltPduFilterFuncFn {
+    public operator fun invoke(buffer: COpaquePointer?, bufferlength: UInt, fdatagram: Int)
 }
 
-public typealias RPCLT_PDU_FILTER_FUNC = RPCLT_PDU_FILTER_FUNCFn?
+public typealias RpcltPduFilterFunc = RpcltPduFilterFuncFn?
 
-public fun interface RPC_ADDRESS_CHANGE_FNFn {
-    public operator fun invoke(arg: Long)
+public fun interface RpcAddressChangeFnFn {
+    public operator fun invoke(arg: COpaquePointer?)
 }
 
-public typealias RPC_ADDRESS_CHANGE_FN = RPC_ADDRESS_CHANGE_FNFn?
+public typealias RpcAddressChangeFn = RpcAddressChangeFnFn?
 
-public typealias RPC_ADDRESS_CHANGE_TYPE = Int
+public typealias RpcAddressChangeType = Int
 
-public typealias RPC_ASYNC_EVENT = Int
+public typealias RpcAsyncEvent = Int
 
-public fun interface RPC_AUTH_KEY_RETRIEVAL_FNFn {
-    public operator fun invoke(arg: Long, serverprincname: PCWSTR, keyver: UInt, key: Long, status: Long)
+public fun interface RpcAuthKeyRetrievalFnFn {
+    public operator fun invoke(arg: COpaquePointer?, serverprincname: Pcwstr, keyver: UInt, key: COpaquePointer?, status: COpaquePointer?)
 }
 
-public typealias RPC_AUTH_KEY_RETRIEVAL_FN = RPC_AUTH_KEY_RETRIEVAL_FNFn?
+public typealias RpcAuthKeyRetrievalFn = RpcAuthKeyRetrievalFnFn?
 
-public typealias RPC_BINDING_HANDLE_OPTIONS_FLAGS = UInt
+public typealias RpcBindingHandleOptionsFlags = UInt
 
-public fun interface RPC_BLOCKING_FNFn {
-    public operator fun invoke(hwnd: Long, context: Long, hsyncevent: Long): RPC_STATUS
+public fun interface RpcBlockingFnFn {
+    public operator fun invoke(hwnd: COpaquePointer?, context: COpaquePointer?, hsyncevent: COpaquePointer?): RpcStatus
 }
 
-public typealias RPC_BLOCKING_FN = RPC_BLOCKING_FNFn?
+public typealias RpcBlockingFn = RpcBlockingFnFn?
 
-public fun interface RPC_CLIENT_ALLOCFn {
-    public operator fun invoke(size: ULong): Long
+public fun interface RpcClientAllocFn {
+    public operator fun invoke(size: ULong): COpaquePointer?
 }
 
-public typealias RPC_CLIENT_ALLOC = RPC_CLIENT_ALLOCFn?
+public typealias RpcClientAlloc = RpcClientAllocFn?
 
-public fun interface RPC_CLIENT_FREEFn {
-    public operator fun invoke(ptr: Long)
+public fun interface RpcClientFreeFn {
+    public operator fun invoke(ptr: COpaquePointer?)
 }
 
-public typealias RPC_CLIENT_FREE = RPC_CLIENT_FREEFn?
+public typealias RpcClientFree = RpcClientFreeFn?
 
-public typealias RPC_C_AUTHN_INFO_TYPE = UInt
+public typealias RpcCAuthnInfoType = UInt
 
-public typealias RPC_C_HTTP_AUTHN_TARGET = UInt
+public typealias RpcCHttpAuthnTarget = UInt
 
-public typealias RPC_C_HTTP_FLAGS = UInt
+public typealias RpcCHttpFlags = UInt
 
-public typealias RPC_C_QOS_CAPABILITIES = UInt
+public typealias RpcCQosCapabilities = UInt
 
-public typealias RPC_C_QOS_IDENTITY = UInt
+public typealias RpcCQosIdentity = UInt
 
-public fun interface RPC_DISPATCH_FUNCTIONFn {
-    public operator fun invoke(message: Long)
+public fun interface RpcDispatchFunctionFn {
+    public operator fun invoke(message: COpaquePointer?)
 }
 
-public typealias RPC_DISPATCH_FUNCTION = RPC_DISPATCH_FUNCTIONFn?
+public typealias RpcDispatchFunction = RpcDispatchFunctionFn?
 
-public fun interface RPC_FORWARD_FUNCTIONFn {
-    public operator fun invoke(interfaceid: Long, interfaceversion: Long, objectid: Long, rpcpro: Long, ppdestendpoint: Long): RPC_STATUS
+public fun interface RpcForwardFunctionFn {
+    public operator fun invoke(interfaceid: COpaquePointer?, interfaceversion: COpaquePointer?, objectid: COpaquePointer?, rpcpro: COpaquePointer?, ppdestendpoint: COpaquePointer?): RpcStatus
 }
 
-public typealias RPC_FORWARD_FUNCTION = RPC_FORWARD_FUNCTIONFn?
+public typealias RpcForwardFunction = RpcForwardFunctionFn?
 
-public fun interface RPC_HTTP_PROXY_FREE_STRINGFn {
-    public operator fun invoke(string: PCWSTR)
+public fun interface RpcHttpProxyFreeStringFn {
+    public operator fun invoke(string: Pcwstr)
 }
 
-public typealias RPC_HTTP_PROXY_FREE_STRING = RPC_HTTP_PROXY_FREE_STRINGFn?
+public typealias RpcHttpProxyFreeString = RpcHttpProxyFreeStringFn?
 
-public typealias RPC_HTTP_REDIRECTOR_STAGE = Int
+public typealias RpcHttpRedirectorStage = Int
 
-public fun interface RPC_IF_CALLBACK_FNFn {
-    public operator fun invoke(interfaceuuid: Long, context: Long): RPC_STATUS
+public fun interface RpcIfCallbackFnFn {
+    public operator fun invoke(interfaceuuid: COpaquePointer?, context: COpaquePointer?): RpcStatus
 }
 
-public typealias RPC_IF_CALLBACK_FN = RPC_IF_CALLBACK_FNFn?
+public typealias RpcIfCallbackFn = RpcIfCallbackFnFn?
 
-public fun interface RPC_INTERFACE_GROUP_IDLE_CALLBACK_FNFn {
-    public operator fun invoke(ifgroup: Long, idlecallbackcontext: Long, isgroupidle: UInt)
+public fun interface RpcInterfaceGroupIdleCallbackFnFn {
+    public operator fun invoke(ifgroup: COpaquePointer?, idlecallbackcontext: COpaquePointer?, isgroupidle: UInt)
 }
 
-public typealias RPC_INTERFACE_GROUP_IDLE_CALLBACK_FN = RPC_INTERFACE_GROUP_IDLE_CALLBACK_FNFn?
+public typealias RpcInterfaceGroupIdleCallbackFn = RpcInterfaceGroupIdleCallbackFnFn?
 
-public fun interface RPC_MGMT_AUTHORIZATION_FNFn {
-    public operator fun invoke(clientbinding: Long, requestedmgmtoperation: UInt, status: Long): Int
+public fun interface RpcMgmtAuthorizationFnFn {
+    public operator fun invoke(clientbinding: COpaquePointer?, requestedmgmtoperation: UInt, status: COpaquePointer?): Int
 }
 
-public typealias RPC_MGMT_AUTHORIZATION_FN = RPC_MGMT_AUTHORIZATION_FNFn?
+public typealias RpcMgmtAuthorizationFn = RpcMgmtAuthorizationFnFn?
 
-public fun interface RPC_NEW_HTTP_PROXY_CHANNELFn {
-    public operator fun invoke(redirectorstage: RPC_HTTP_REDIRECTOR_STAGE, servername: PCWSTR, serverport: PCWSTR, remoteuser: PCWSTR, authtype: PCWSTR, resourceuuid: Long, sessionid: Long, iface: Long, reserved: Long, flags: UInt, newservername: Long, newserverport: Long): RPC_STATUS
+public fun interface RpcNewHttpProxyChannelFn {
+    public operator fun invoke(redirectorstage: RpcHttpRedirectorStage, servername: Pcwstr, serverport: Pcwstr, remoteuser: Pcwstr, authtype: Pcwstr, resourceuuid: COpaquePointer?, sessionid: COpaquePointer?, iface: COpaquePointer?, reserved: COpaquePointer?, flags: UInt, newservername: COpaquePointer?, newserverport: COpaquePointer?): RpcStatus
 }
 
-public typealias RPC_NEW_HTTP_PROXY_CHANNEL = RPC_NEW_HTTP_PROXY_CHANNELFn?
+public typealias RpcNewHttpProxyChannel = RpcNewHttpProxyChannelFn?
 
-public typealias RPC_NOTIFICATIONS = Int
+public typealias RpcNotifications = Int
 
-public typealias RPC_NOTIFICATION_TYPES = Int
+public typealias RpcNotificationTypes = Int
 
-public fun interface RPC_OBJECT_INQ_FNFn {
-    public operator fun invoke(objectuuid: Long, typeuuid: Long, status: Long)
+public fun interface RpcObjectInqFnFn {
+    public operator fun invoke(objectuuid: COpaquePointer?, typeuuid: COpaquePointer?, status: COpaquePointer?)
 }
 
-public typealias RPC_OBJECT_INQ_FN = RPC_OBJECT_INQ_FNFn?
+public typealias RpcObjectInqFn = RpcObjectInqFnFn?
 
-public fun interface RPC_SECURITY_CALLBACK_FNFn {
-    public operator fun invoke(context: Long)
+public fun interface RpcSecurityCallbackFnFn {
+    public operator fun invoke(context: COpaquePointer?)
 }
 
-public typealias RPC_SECURITY_CALLBACK_FN = RPC_SECURITY_CALLBACK_FNFn?
+public typealias RpcSecurityCallbackFn = RpcSecurityCallbackFnFn?
 
-public fun interface RPC_SETFILTER_FUNCFn {
-    public operator fun invoke(pfnfilter: RPCLT_PDU_FILTER_FUNC)
+public fun interface RpcSetfilterFuncFn {
+    public operator fun invoke(pfnfilter: RpcltPduFilterFunc)
 }
 
-public typealias RPC_SETFILTER_FUNC = RPC_SETFILTER_FUNCFn?
+public typealias RpcSetfilterFunc = RpcSetfilterFuncFn?
 
-public typealias RPC_STATUS = Int
+public typealias RpcStatus = Int
 
 public typealias RpcCallClientLocality = Int
 
@@ -317,56 +318,56 @@ public typealias RpcLocalAddressFormat = Int
 
 public typealias RpcPerfCounters = Int
 
-public typealias SEC_WINNT_AUTH_IDENTITY = UInt
+public typealias SecWinntAuthIdentity = UInt
 
-public fun interface SERVER_ROUTINEFn {
+public fun interface ServerRoutineFn {
     public operator fun invoke(): Int
 }
 
-public typealias SERVER_ROUTINE = SERVER_ROUTINEFn?
+public typealias ServerRoutine = ServerRoutineFn?
 
-public typealias STUB_PHASE = Int
+public typealias StubPhase = Int
 
-public fun interface STUB_THUNKFn {
-    public operator fun invoke(param0: Long)
+public fun interface StubThunkFn {
+    public operator fun invoke(param0: COpaquePointer?)
 }
 
-public typealias STUB_THUNK = STUB_THUNKFn?
+public typealias StubThunk = StubThunkFn?
 
-public typealias USER_MARSHAL_CB_TYPE = Int
+public typealias UserMarshalCbType = Int
 
-public fun interface USER_MARSHAL_FREEING_ROUTINEFn {
-    public operator fun invoke(param0: Long, param1: Long)
+public fun interface UserMarshalFreeingRoutineFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?)
 }
 
-public typealias USER_MARSHAL_FREEING_ROUTINE = USER_MARSHAL_FREEING_ROUTINEFn?
+public typealias UserMarshalFreeingRoutine = UserMarshalFreeingRoutineFn?
 
-public fun interface USER_MARSHAL_MARSHALLING_ROUTINEFn {
-    public operator fun invoke(param0: Long, param1: Long, param2: Long): Long
+public fun interface UserMarshalMarshallingRoutineFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer?
 }
 
-public typealias USER_MARSHAL_MARSHALLING_ROUTINE = USER_MARSHAL_MARSHALLING_ROUTINEFn?
+public typealias UserMarshalMarshallingRoutine = UserMarshalMarshallingRoutineFn?
 
-public fun interface USER_MARSHAL_SIZING_ROUTINEFn {
-    public operator fun invoke(param0: Long, param1: UInt, param2: Long): UInt
+public fun interface UserMarshalSizingRoutineFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: UInt, param2: COpaquePointer?): UInt
 }
 
-public typealias USER_MARSHAL_SIZING_ROUTINE = USER_MARSHAL_SIZING_ROUTINEFn?
+public typealias UserMarshalSizingRoutine = UserMarshalSizingRoutineFn?
 
-public fun interface USER_MARSHAL_UNMARSHALLING_ROUTINEFn {
-    public operator fun invoke(param0: Long, param1: Long, param2: Long): Long
+public fun interface UserMarshalUnmarshallingRoutineFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: COpaquePointer?, param2: COpaquePointer?): COpaquePointer?
 }
 
-public typealias USER_MARSHAL_UNMARSHALLING_ROUTINE = USER_MARSHAL_UNMARSHALLING_ROUTINEFn?
+public typealias UserMarshalUnmarshallingRoutine = UserMarshalUnmarshallingRoutineFn?
 
-public typealias XLAT_SIDE = Int
+public typealias XlatSide = Int
 
-public fun interface XMIT_HELPER_ROUTINEFn {
-    public operator fun invoke(param0: Long)
+public fun interface XmitHelperRoutineFn {
+    public operator fun invoke(param0: COpaquePointer?)
 }
 
-public typealias XMIT_HELPER_ROUTINE = XMIT_HELPER_ROUTINEFn?
+public typealias XmitHelperRoutine = XmitHelperRoutineFn?
 
-public typealias _NDR_PROC_CONTEXT = Long
+public typealias NdrProcContext = Long
 
-public typealias system_handle_t = Int
+public typealias SystemHandleT = Int

@@ -2,13 +2,14 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.hypervisor
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.system.hostcomputesystem.HCS_SYSTEM
-import io.github.kotlinmania.windowssys.windows.win32.system.power.DEVICE_POWER_STATE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.system.hostcomputesystem.HcsSystem
+import io.github.kotlinmania.windowssys.windows.win32.system.power.DevicePowerState
 
 private object WindowsWin32SystemHypervisorJniBridge {
     init {
@@ -16,749 +17,749 @@ private object WindowsWin32SystemHypervisorJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_ApplyGuestMemoryFix(vmsavedstatedumphandle: Long, vpid: Int, virtualaddress: Long, fixbuffer: Long, fixbuffersize: Int): Int
+    external fun windowssys_windows_win32_system_hypervisor_applyGuestMemoryFix(vmsavedstatedumphandle: Long, vpid: Int, virtualaddress: Long, fixbuffer: Long, fixbuffersize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_ApplyPendingSavedStateFileReplayLog(vmrsfile: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_applyPendingSavedStateFileReplayLog(vmrsfile: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_CallStackUnwind(vmsavedstatedumphandle: Long, vpid: Int, imageinfo: Long, imageinfocount: Int, framecount: Int, callstack: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_callStackUnwind(vmsavedstatedumphandle: Long, vpid: Int, imageinfo: Long, imageinfocount: Int, framecount: Int, callstack: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_FindSavedStateSymbolFieldInType(vmsavedstatedumphandle: Long, vpid: Int, typename: Long, fieldname: Long, offset: Long, found: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_findSavedStateSymbolFieldInType(vmsavedstatedumphandle: Long, vpid: Int, typename: Long, fieldname: Long, offset: Long, found: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_ForceActiveVirtualTrustLevel(vmsavedstatedumphandle: Long, vpid: Int, virtualtrustlevel: Byte): Int
+    external fun windowssys_windows_win32_system_hypervisor_forceActiveVirtualTrustLevel(vmsavedstatedumphandle: Long, vpid: Int, virtualtrustlevel: Byte): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_ForceArchitecture(vmsavedstatedumphandle: Long, vpid: Int, architecture: Int): Int
+    external fun windowssys_windows_win32_system_hypervisor_forceArchitecture(vmsavedstatedumphandle: Long, vpid: Int, architecture: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_ForceNestedHostMode(vmsavedstatedumphandle: Long, vpid: Int, hostmode: Int, oldmode: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_forceNestedHostMode(vmsavedstatedumphandle: Long, vpid: Int, hostmode: Int, oldmode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_ForcePagingMode(vmsavedstatedumphandle: Long, vpid: Int, pagingmode: Int): Int
+    external fun windowssys_windows_win32_system_hypervisor_forcePagingMode(vmsavedstatedumphandle: Long, vpid: Int, pagingmode: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_GetActiveVirtualTrustLevel(vmsavedstatedumphandle: Long, vpid: Int, virtualtrustlevel: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_getActiveVirtualTrustLevel(vmsavedstatedumphandle: Long, vpid: Int, virtualtrustlevel: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_GetArchitecture(vmsavedstatedumphandle: Long, vpid: Int, architecture: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_getArchitecture(vmsavedstatedumphandle: Long, vpid: Int, architecture: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_GetEnabledVirtualTrustLevels(vmsavedstatedumphandle: Long, vpid: Int, virtualtrustlevels: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_getEnabledVirtualTrustLevels(vmsavedstatedumphandle: Long, vpid: Int, virtualtrustlevels: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_GetGuestEnabledVirtualTrustLevels(vmsavedstatedumphandle: Long, virtualtrustlevels: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_getGuestEnabledVirtualTrustLevels(vmsavedstatedumphandle: Long, virtualtrustlevels: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_GetGuestOsInfo(vmsavedstatedumphandle: Long, virtualtrustlevel: Byte, guestosinfo: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_getGuestOsInfo(vmsavedstatedumphandle: Long, virtualtrustlevel: Byte, guestosinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_GetGuestPhysicalMemoryChunks(vmsavedstatedumphandle: Long, memorychunkpagesize: Long, memorychunks: Long, memorychunkcount: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_getGuestPhysicalMemoryChunks(vmsavedstatedumphandle: Long, memorychunkpagesize: Long, memorychunks: Long, memorychunkcount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_GetGuestRawSavedMemorySize(vmsavedstatedumphandle: Long, guestrawsavedmemorysize: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_getGuestRawSavedMemorySize(vmsavedstatedumphandle: Long, guestrawsavedmemorysize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_GetMemoryBlockCacheLimit(vmsavedstatedumphandle: Long, memoryblockcachelimit: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_getMemoryBlockCacheLimit(vmsavedstatedumphandle: Long, memoryblockcachelimit: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_GetNestedVirtualizationMode(vmsavedstatedumphandle: Long, vpid: Int, enabled: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_getNestedVirtualizationMode(vmsavedstatedumphandle: Long, vpid: Int, enabled: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_GetPagingMode(vmsavedstatedumphandle: Long, vpid: Int, pagingmode: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_getPagingMode(vmsavedstatedumphandle: Long, vpid: Int, pagingmode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_GetRegisterValue(vmsavedstatedumphandle: Long, vpid: Int, registerid: Int, registervalue: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_getRegisterValue(vmsavedstatedumphandle: Long, vpid: Int, registerid: Int, registervalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_GetSavedStateSymbolFieldInfo(vmsavedstatedumphandle: Long, vpid: Int, typename: Long, typefieldinfomap: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_getSavedStateSymbolFieldInfo(vmsavedstatedumphandle: Long, vpid: Int, typename: Long, typefieldinfomap: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_GetSavedStateSymbolProviderHandle(vmsavedstatedumphandle: Long): Long
+    external fun windowssys_windows_win32_system_hypervisor_getSavedStateSymbolProviderHandle(vmsavedstatedumphandle: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_GetSavedStateSymbolTypeSize(vmsavedstatedumphandle: Long, vpid: Int, typename: Long, size: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_getSavedStateSymbolTypeSize(vmsavedstatedumphandle: Long, vpid: Int, typename: Long, size: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_GetVpCount(vmsavedstatedumphandle: Long, vpcount: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_getVpCount(vmsavedstatedumphandle: Long, vpcount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_GuestPhysicalAddressToRawSavedMemoryOffset(vmsavedstatedumphandle: Long, physicaladdress: Long, rawsavedmemoryoffset: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_guestPhysicalAddressToRawSavedMemoryOffset(vmsavedstatedumphandle: Long, physicaladdress: Long, rawsavedmemoryoffset: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_GuestVirtualAddressToPhysicalAddress(vmsavedstatedumphandle: Long, vpid: Int, virtualaddress: Long, physicaladdress: Long, unmappedregionsize: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_guestVirtualAddressToPhysicalAddress(vmsavedstatedumphandle: Long, vpid: Int, virtualaddress: Long, physicaladdress: Long, unmappedregionsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_HdvCreateDeviceInstance(devicehosthandle: Long, devicetype: Int, deviceclassid: Long, deviceinstanceid: Long, deviceinterface: Long, devicecontext: Long, devicehandle: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_hdvCreateDeviceInstance(devicehosthandle: Long, devicetype: Int, deviceclassid: Long, deviceinstanceid: Long, deviceinterface: Long, devicecontext: Long, devicehandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_HdvCreateGuestMemoryAperture(requestor: Long, guestphysicaladdress: Long, bytecount: Int, writeprotected: Int, mappedaddress: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_hdvCreateGuestMemoryAperture(requestor: Long, guestphysicaladdress: Long, bytecount: Int, writeprotected: Int, mappedaddress: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_HdvCreateSectionBackedMmioRange(requestor: Long, barindex: Int, offsetinpages: Long, lengthinpages: Long, mappingflags: Int, sectionhandle: Long, sectionoffsetinpages: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_hdvCreateSectionBackedMmioRange(requestor: Long, barindex: Int, offsetinpages: Long, lengthinpages: Long, mappingflags: Int, sectionhandle: Long, sectionoffsetinpages: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_HdvDeliverGuestInterrupt(requestor: Long, msiaddress: Long, msidata: Int): Int
+    external fun windowssys_windows_win32_system_hypervisor_hdvDeliverGuestInterrupt(requestor: Long, msiaddress: Long, msidata: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_HdvDestroyGuestMemoryAperture(requestor: Long, mappedaddress: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_hdvDestroyGuestMemoryAperture(requestor: Long, mappedaddress: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_HdvDestroySectionBackedMmioRange(requestor: Long, barindex: Int, offsetinpages: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_hdvDestroySectionBackedMmioRange(requestor: Long, barindex: Int, offsetinpages: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_HdvInitializeDeviceHost(computesystem: Long, devicehosthandle: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_hdvInitializeDeviceHost(computesystem: Long, devicehosthandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_HdvInitializeDeviceHostEx(computesystem: Long, flags: Int, devicehosthandle: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_hdvInitializeDeviceHostEx(computesystem: Long, flags: Int, devicehosthandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_HdvReadGuestMemory(requestor: Long, guestphysicaladdress: Long, bytecount: Int, buffer: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_hdvReadGuestMemory(requestor: Long, guestphysicaladdress: Long, bytecount: Int, buffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_HdvRegisterDoorbell(requestor: Long, barindex: Int, baroffset: Long, triggervalue: Long, flags: Long, doorbellevent: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_hdvRegisterDoorbell(requestor: Long, barindex: Int, baroffset: Long, triggervalue: Long, flags: Long, doorbellevent: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_HdvTeardownDeviceHost(devicehosthandle: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_hdvTeardownDeviceHost(devicehosthandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_HdvUnregisterDoorbell(requestor: Long, barindex: Int, baroffset: Long, triggervalue: Long, flags: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_hdvUnregisterDoorbell(requestor: Long, barindex: Int, baroffset: Long, triggervalue: Long, flags: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_HdvWriteGuestMemory(requestor: Long, guestphysicaladdress: Long, bytecount: Int, buffer: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_hdvWriteGuestMemory(requestor: Long, guestphysicaladdress: Long, bytecount: Int, buffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_InKernelSpace(vmsavedstatedumphandle: Long, vpid: Int, inkernelspace: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_inKernelSpace(vmsavedstatedumphandle: Long, vpid: Int, inkernelspace: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_IsActiveVirtualTrustLevelEnabled(vmsavedstatedumphandle: Long, vpid: Int, activevirtualtrustlevelenabled: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_isActiveVirtualTrustLevelEnabled(vmsavedstatedumphandle: Long, vpid: Int, activevirtualtrustlevelenabled: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_IsNestedVirtualizationEnabled(vmsavedstatedumphandle: Long, enabled: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_isNestedVirtualizationEnabled(vmsavedstatedumphandle: Long, enabled: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_LoadSavedStateFile(vmrsfile: Long, vmsavedstatedumphandle: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_loadSavedStateFile(vmrsfile: Long, vmsavedstatedumphandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_LoadSavedStateFiles(binfile: Long, vsvfile: Long, vmsavedstatedumphandle: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_loadSavedStateFiles(binfile: Long, vsvfile: Long, vmsavedstatedumphandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_LoadSavedStateModuleSymbols(vmsavedstatedumphandle: Long, imagename: Long, modulename: Long, baseaddress: Long, sizeofbase: Int): Int
+    external fun windowssys_windows_win32_system_hypervisor_loadSavedStateModuleSymbols(vmsavedstatedumphandle: Long, imagename: Long, modulename: Long, baseaddress: Long, sizeofbase: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_LoadSavedStateModuleSymbolsEx(vmsavedstatedumphandle: Long, imagename: Long, imagetimestamp: Int, modulename: Long, baseaddress: Long, sizeofbase: Int): Int
+    external fun windowssys_windows_win32_system_hypervisor_loadSavedStateModuleSymbolsEx(vmsavedstatedumphandle: Long, imagename: Long, imagetimestamp: Int, modulename: Long, baseaddress: Long, sizeofbase: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_LoadSavedStateSymbolProvider(vmsavedstatedumphandle: Long, usersymbols: Long, force: Int): Int
+    external fun windowssys_windows_win32_system_hypervisor_loadSavedStateSymbolProvider(vmsavedstatedumphandle: Long, usersymbols: Long, force: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_LocateSavedStateFiles(vmname: Long, snapshotname: Long, binpath: Long, vsvpath: Long, vmrspath: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_locateSavedStateFiles(vmname: Long, snapshotname: Long, binpath: Long, vsvpath: Long, vmrspath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_ReadGuestPhysicalAddress(vmsavedstatedumphandle: Long, physicaladdress: Long, buffer: Long, buffersize: Int, bytesread: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_readGuestPhysicalAddress(vmsavedstatedumphandle: Long, physicaladdress: Long, buffer: Long, buffersize: Int, bytesread: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_ReadGuestRawSavedMemory(vmsavedstatedumphandle: Long, rawsavedmemoryoffset: Long, buffer: Long, buffersize: Int, bytesread: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_readGuestRawSavedMemory(vmsavedstatedumphandle: Long, rawsavedmemoryoffset: Long, buffer: Long, buffersize: Int, bytesread: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_ReadSavedStateGlobalVariable(vmsavedstatedumphandle: Long, vpid: Int, globalname: Long, buffer: Long, buffersize: Int): Int
+    external fun windowssys_windows_win32_system_hypervisor_readSavedStateGlobalVariable(vmsavedstatedumphandle: Long, vpid: Int, globalname: Long, buffer: Long, buffersize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_ReleaseSavedStateFiles(vmsavedstatedumphandle: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_releaseSavedStateFiles(vmsavedstatedumphandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_ReleaseSavedStateSymbolProvider(vmsavedstatedumphandle: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_releaseSavedStateSymbolProvider(vmsavedstatedumphandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_ResolveSavedStateGlobalVariableAddress(vmsavedstatedumphandle: Long, vpid: Int, globalname: Long, virtualaddress: Long, size: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_resolveSavedStateGlobalVariableAddress(vmsavedstatedumphandle: Long, vpid: Int, globalname: Long, virtualaddress: Long, size: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_ScanMemoryForDosImages(vmsavedstatedumphandle: Long, vpid: Int, startaddress: Long, endaddress: Long, callbackcontext: Long, foundimagecallback: Long, standaloneaddress: Long, standaloneaddresscount: Int): Int
+    external fun windowssys_windows_win32_system_hypervisor_scanMemoryForDosImages(vmsavedstatedumphandle: Long, vpid: Int, startaddress: Long, endaddress: Long, callbackcontext: Long, foundimagecallback: Long, standaloneaddress: Long, standaloneaddresscount: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_SetMemoryBlockCacheLimit(vmsavedstatedumphandle: Long, memoryblockcachelimit: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_setMemoryBlockCacheLimit(vmsavedstatedumphandle: Long, memoryblockcachelimit: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_SetSavedStateSymbolProviderDebugInfoCallback(vmsavedstatedumphandle: Long, callback: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_setSavedStateSymbolProviderDebugInfoCallback(vmsavedstatedumphandle: Long, callback: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvAcceptPartitionMigration(migrationhandle: Long, partition: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvAcceptPartitionMigration(migrationhandle: Long, partition: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvAdviseGpaRange(partition: Long, gparanges: Long, gparangescount: Int, advice: Int, advicebuffer: Long, advicebuffersizeinbytes: Int): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvAdviseGpaRange(partition: Long, gparanges: Long, gparangescount: Int, advice: Int, advicebuffer: Long, advicebuffersizeinbytes: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvAllocateVpciResource(providerid: Long, flags: Int, resourcedescriptor: Long, resourcedescriptorsizeinbytes: Int, vpciresource: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvAllocateVpciResource(providerid: Long, flags: Int, resourcedescriptor: Long, resourcedescriptorsizeinbytes: Int, vpciresource: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvCancelPartitionMigration(partition: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvCancelPartitionMigration(partition: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvCancelRunVirtualProcessor(partition: Long, vpindex: Int, flags: Int): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvCancelRunVirtualProcessor(partition: Long, vpindex: Int, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvCompletePartitionMigration(partition: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvCompletePartitionMigration(partition: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvCreateNotificationPort(partition: Long, parameters: Long, eventhandle: Long, porthandle: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvCreateNotificationPort(partition: Long, parameters: Long, eventhandle: Long, porthandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvCreatePartition(partition: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvCreatePartition(partition: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvCreateTrigger(partition: Long, parameters: Long, triggerhandle: Long, eventhandle: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvCreateTrigger(partition: Long, parameters: Long, triggerhandle: Long, eventhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvCreateVirtualProcessor(partition: Long, vpindex: Int, flags: Int): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvCreateVirtualProcessor(partition: Long, vpindex: Int, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvCreateVirtualProcessor2(partition: Long, vpindex: Int, properties: Long, propertycount: Int): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvCreateVirtualProcessor2(partition: Long, vpindex: Int, properties: Long, propertycount: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvCreateVpciDevice(partition: Long, logicaldeviceid: Long, vpciresource: Long, flags: Int, notificationeventhandle: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvCreateVpciDevice(partition: Long, logicaldeviceid: Long, vpciresource: Long, flags: Int, notificationeventhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvDeleteNotificationPort(partition: Long, porthandle: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvDeleteNotificationPort(partition: Long, porthandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvDeletePartition(partition: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvDeletePartition(partition: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvDeleteTrigger(partition: Long, triggerhandle: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvDeleteTrigger(partition: Long, triggerhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvDeleteVirtualProcessor(partition: Long, vpindex: Int): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvDeleteVirtualProcessor(partition: Long, vpindex: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvDeleteVpciDevice(partition: Long, logicaldeviceid: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvDeleteVpciDevice(partition: Long, logicaldeviceid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvEmulatorCreateEmulator(callbacks: Long, emulator: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvEmulatorCreateEmulator(callbacks: Long, emulator: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvEmulatorDestroyEmulator(emulator: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvEmulatorDestroyEmulator(emulator: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvEmulatorTryIoEmulation(emulator: Long, context: Long, vpcontext: Long, ioinstructioncontext: Long, emulatorreturnstatus: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvEmulatorTryIoEmulation(emulator: Long, context: Long, vpcontext: Long, ioinstructioncontext: Long, emulatorreturnstatus: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvEmulatorTryMmioEmulation(emulator: Long, context: Long, vpcontext: Long, mmioinstructioncontext: Long, emulatorreturnstatus: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvEmulatorTryMmioEmulation(emulator: Long, context: Long, vpcontext: Long, mmioinstructioncontext: Long, emulatorreturnstatus: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvGetCapability(capabilitycode: Int, capabilitybuffer: Long, capabilitybuffersizeinbytes: Int, writtensizeinbytes: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvGetCapability(capabilitycode: Int, capabilitybuffer: Long, capabilitybuffersizeinbytes: Int, writtensizeinbytes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvGetInterruptTargetVpSet(partition: Long, destination: Long, destinationmode: Int, targetvps: Long, vpcount: Int, targetvpcount: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvGetInterruptTargetVpSet(partition: Long, destination: Long, destinationmode: Int, targetvps: Long, vpcount: Int, targetvpcount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvGetPartitionCounters(partition: Long, counterset: Int, buffer: Long, buffersizeinbytes: Int, byteswritten: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvGetPartitionCounters(partition: Long, counterset: Int, buffer: Long, buffersizeinbytes: Int, byteswritten: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvGetPartitionProperty(partition: Long, propertycode: Int, propertybuffer: Long, propertybuffersizeinbytes: Int, writtensizeinbytes: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvGetPartitionProperty(partition: Long, propertycode: Int, propertybuffer: Long, propertybuffersizeinbytes: Int, writtensizeinbytes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvGetVirtualProcessorCounters(partition: Long, vpindex: Int, counterset: Int, buffer: Long, buffersizeinbytes: Int, byteswritten: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorCounters(partition: Long, vpindex: Int, counterset: Int, buffer: Long, buffersizeinbytes: Int, byteswritten: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvGetVirtualProcessorCpuidOutput(partition: Long, vpindex: Int, eax: Int, ecx: Int, cpuidoutput: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorCpuidOutput(partition: Long, vpindex: Int, eax: Int, ecx: Int, cpuidoutput: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvGetVirtualProcessorInterruptControllerState(partition: Long, vpindex: Int, state: Long, statesize: Int, writtensize: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorInterruptControllerState(partition: Long, vpindex: Int, state: Long, statesize: Int, writtensize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvGetVirtualProcessorInterruptControllerState2(partition: Long, vpindex: Int, state: Long, statesize: Int, writtensize: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorInterruptControllerState2(partition: Long, vpindex: Int, state: Long, statesize: Int, writtensize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvGetVirtualProcessorRegisters(partition: Long, vpindex: Int, registernames: Long, registercount: Int, registervalues: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorRegisters(partition: Long, vpindex: Int, registernames: Long, registercount: Int, registervalues: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvGetVirtualProcessorState(partition: Long, vpindex: Int, statetype: Int, buffer: Long, buffersizeinbytes: Int, byteswritten: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorState(partition: Long, vpindex: Int, statetype: Int, buffer: Long, buffersizeinbytes: Int, byteswritten: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvGetVirtualProcessorXsaveState(partition: Long, vpindex: Int, buffer: Long, buffersizeinbytes: Int, byteswritten: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorXsaveState(partition: Long, vpindex: Int, buffer: Long, buffersizeinbytes: Int, byteswritten: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvGetVpciDeviceInterruptTarget(partition: Long, logicaldeviceid: Long, index: Int, multimessagenumber: Int, target: Long, targetsizeinbytes: Int, byteswritten: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvGetVpciDeviceInterruptTarget(partition: Long, logicaldeviceid: Long, index: Int, multimessagenumber: Int, target: Long, targetsizeinbytes: Int, byteswritten: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvGetVpciDeviceNotification(partition: Long, logicaldeviceid: Long, notification: Long, notificationsizeinbytes: Int): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvGetVpciDeviceNotification(partition: Long, logicaldeviceid: Long, notification: Long, notificationsizeinbytes: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvGetVpciDeviceProperty(partition: Long, logicaldeviceid: Long, propertycode: Int, propertybuffer: Long, propertybuffersizeinbytes: Int, writtensizeinbytes: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvGetVpciDeviceProperty(partition: Long, logicaldeviceid: Long, propertycode: Int, propertybuffer: Long, propertybuffersizeinbytes: Int, writtensizeinbytes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvMapGpaRange(partition: Long, sourceaddress: Long, guestaddress: Long, sizeinbytes: Long, flags: Int): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvMapGpaRange(partition: Long, sourceaddress: Long, guestaddress: Long, sizeinbytes: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvMapGpaRange2(partition: Long, process: Long, sourceaddress: Long, guestaddress: Long, sizeinbytes: Long, flags: Int): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvMapGpaRange2(partition: Long, process: Long, sourceaddress: Long, guestaddress: Long, sizeinbytes: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvMapVpciDeviceInterrupt(partition: Long, logicaldeviceid: Long, index: Int, messagecount: Int, target: Long, msiaddress: Long, msidata: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvMapVpciDeviceInterrupt(partition: Long, logicaldeviceid: Long, index: Int, messagecount: Int, target: Long, msiaddress: Long, msidata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvMapVpciDeviceMmioRanges(partition: Long, logicaldeviceid: Long, mappingcount: Long, mappings: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvMapVpciDeviceMmioRanges(partition: Long, logicaldeviceid: Long, mappingcount: Long, mappings: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvPostVirtualProcessorSynicMessage(partition: Long, vpindex: Int, sintindex: Int, message: Long, messagesizeinbytes: Int): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvPostVirtualProcessorSynicMessage(partition: Long, vpindex: Int, sintindex: Int, message: Long, messagesizeinbytes: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvQueryGpaRangeDirtyBitmap(partition: Long, guestaddress: Long, rangesizeinbytes: Long, bitmap: Long, bitmapsizeinbytes: Int): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvQueryGpaRangeDirtyBitmap(partition: Long, guestaddress: Long, rangesizeinbytes: Long, bitmap: Long, bitmapsizeinbytes: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvReadVpciDeviceRegister(partition: Long, logicaldeviceid: Long, register: Long, data: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvReadVpciDeviceRegister(partition: Long, logicaldeviceid: Long, register: Long, data: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvRegisterPartitionDoorbellEvent(partition: Long, matchdata: Long, eventhandle: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvRegisterPartitionDoorbellEvent(partition: Long, matchdata: Long, eventhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvRequestInterrupt(partition: Long, interrupt: Long, interruptcontrolsize: Int): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvRequestInterrupt(partition: Long, interrupt: Long, interruptcontrolsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvRequestVpciDeviceInterrupt(partition: Long, logicaldeviceid: Long, msiaddress: Long, msidata: Int): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvRequestVpciDeviceInterrupt(partition: Long, logicaldeviceid: Long, msiaddress: Long, msidata: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvResetPartition(partition: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvResetPartition(partition: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvResumePartitionTime(partition: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvResumePartitionTime(partition: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvRetargetVpciDeviceInterrupt(partition: Long, logicaldeviceid: Long, msiaddress: Long, msidata: Int, target: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvRetargetVpciDeviceInterrupt(partition: Long, logicaldeviceid: Long, msiaddress: Long, msidata: Int, target: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvRunVirtualProcessor(partition: Long, vpindex: Int, exitcontext: Long, exitcontextsizeinbytes: Int): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvRunVirtualProcessor(partition: Long, vpindex: Int, exitcontext: Long, exitcontextsizeinbytes: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvSetNotificationPortProperty(partition: Long, porthandle: Long, propertycode: Int, propertyvalue: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvSetNotificationPortProperty(partition: Long, porthandle: Long, propertycode: Int, propertyvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvSetPartitionProperty(partition: Long, propertycode: Int, propertybuffer: Long, propertybuffersizeinbytes: Int): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvSetPartitionProperty(partition: Long, propertycode: Int, propertybuffer: Long, propertybuffersizeinbytes: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvSetVirtualProcessorInterruptControllerState(partition: Long, vpindex: Int, state: Long, statesize: Int): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorInterruptControllerState(partition: Long, vpindex: Int, state: Long, statesize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvSetVirtualProcessorInterruptControllerState2(partition: Long, vpindex: Int, state: Long, statesize: Int): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorInterruptControllerState2(partition: Long, vpindex: Int, state: Long, statesize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvSetVirtualProcessorRegisters(partition: Long, vpindex: Int, registernames: Long, registercount: Int, registervalues: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorRegisters(partition: Long, vpindex: Int, registernames: Long, registercount: Int, registervalues: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvSetVirtualProcessorState(partition: Long, vpindex: Int, statetype: Int, buffer: Long, buffersizeinbytes: Int): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorState(partition: Long, vpindex: Int, statetype: Int, buffer: Long, buffersizeinbytes: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvSetVirtualProcessorXsaveState(partition: Long, vpindex: Int, buffer: Long, buffersizeinbytes: Int): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorXsaveState(partition: Long, vpindex: Int, buffer: Long, buffersizeinbytes: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvSetVpciDevicePowerState(partition: Long, logicaldeviceid: Long, powerstate: Int): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvSetVpciDevicePowerState(partition: Long, logicaldeviceid: Long, powerstate: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvSetupPartition(partition: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvSetupPartition(partition: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvStartPartitionMigration(partition: Long, migrationhandle: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvStartPartitionMigration(partition: Long, migrationhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvSuspendPartitionTime(partition: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvSuspendPartitionTime(partition: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvTranslateGva(partition: Long, vpindex: Int, gva: Long, translateflags: Int, translationresult: Long, gpa: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvTranslateGva(partition: Long, vpindex: Int, gva: Long, translateflags: Int, translationresult: Long, gpa: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvUnmapGpaRange(partition: Long, guestaddress: Long, sizeinbytes: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvUnmapGpaRange(partition: Long, guestaddress: Long, sizeinbytes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvUnmapVpciDeviceInterrupt(partition: Long, logicaldeviceid: Long, index: Int): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvUnmapVpciDeviceInterrupt(partition: Long, logicaldeviceid: Long, index: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvUnmapVpciDeviceMmioRanges(partition: Long, logicaldeviceid: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvUnmapVpciDeviceMmioRanges(partition: Long, logicaldeviceid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvUnregisterPartitionDoorbellEvent(partition: Long, matchdata: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvUnregisterPartitionDoorbellEvent(partition: Long, matchdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvUpdateTriggerParameters(partition: Long, parameters: Long, triggerhandle: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvUpdateTriggerParameters(partition: Long, parameters: Long, triggerhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_hypervisor_WHvWriteVpciDeviceRegister(partition: Long, logicaldeviceid: Long, register: Long, data: Long): Int
+    external fun windowssys_windows_win32_system_hypervisor_wHvWriteVpciDeviceRegister(partition: Long, logicaldeviceid: Long, register: Long, data: Long): Int
 }
 
-public actual fun ApplyGuestMemoryFix(vmsavedstatedumphandle: Long, vpid: UInt, virtualaddress: ULong, fixbuffer: Long, fixbuffersize: UInt): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_ApplyGuestMemoryFix(vmsavedstatedumphandle, vpid.toInt(), virtualaddress.toLong(), fixbuffer, fixbuffersize.toInt())
+public actual fun applyGuestMemoryFix(vmsavedstatedumphandle: COpaquePointer?, vpid: UInt, virtualaddress: ULong, fixbuffer: COpaquePointer?, fixbuffersize: UInt): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_applyGuestMemoryFix((vmsavedstatedumphandle?.value ?: 0L), vpid.toInt(), virtualaddress.toLong(), (fixbuffer?.value ?: 0L), fixbuffersize.toInt())
 
-public actual fun ApplyPendingSavedStateFileReplayLog(vmrsfile: PCWSTR): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_ApplyPendingSavedStateFileReplayLog(vmrsfile)
+public actual fun applyPendingSavedStateFileReplayLog(vmrsfile: Pcwstr): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_applyPendingSavedStateFileReplayLog((vmrsfile?.value ?: 0L))
 
-public actual fun CallStackUnwind(vmsavedstatedumphandle: Long, vpid: UInt, imageinfo: Long, imageinfocount: UInt, framecount: UInt, callstack: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_CallStackUnwind(vmsavedstatedumphandle, vpid.toInt(), imageinfo, imageinfocount.toInt(), framecount.toInt(), callstack)
+public actual fun callStackUnwind(vmsavedstatedumphandle: COpaquePointer?, vpid: UInt, imageinfo: COpaquePointer?, imageinfocount: UInt, framecount: UInt, callstack: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_callStackUnwind((vmsavedstatedumphandle?.value ?: 0L), vpid.toInt(), (imageinfo?.value ?: 0L), imageinfocount.toInt(), framecount.toInt(), (callstack?.value ?: 0L))
 
-public actual fun FindSavedStateSymbolFieldInType(vmsavedstatedumphandle: Long, vpid: UInt, typename: PCSTR, fieldname: PCWSTR, offset: Long, found: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_FindSavedStateSymbolFieldInType(vmsavedstatedumphandle, vpid.toInt(), typename, fieldname, offset, found)
+public actual fun findSavedStateSymbolFieldInType(vmsavedstatedumphandle: COpaquePointer?, vpid: UInt, typename: Pcstr, fieldname: Pcwstr, offset: COpaquePointer?, found: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_findSavedStateSymbolFieldInType((vmsavedstatedumphandle?.value ?: 0L), vpid.toInt(), (typename?.value ?: 0L), (fieldname?.value ?: 0L), (offset?.value ?: 0L), (found?.value ?: 0L))
 
-public actual fun ForceActiveVirtualTrustLevel(vmsavedstatedumphandle: Long, vpid: UInt, virtualtrustlevel: UByte): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_ForceActiveVirtualTrustLevel(vmsavedstatedumphandle, vpid.toInt(), virtualtrustlevel.toByte())
+public actual fun forceActiveVirtualTrustLevel(vmsavedstatedumphandle: COpaquePointer?, vpid: UInt, virtualtrustlevel: UByte): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_forceActiveVirtualTrustLevel((vmsavedstatedumphandle?.value ?: 0L), vpid.toInt(), virtualtrustlevel.toByte())
 
-public actual fun ForceArchitecture(vmsavedstatedumphandle: Long, vpid: UInt, architecture: VIRTUAL_PROCESSOR_ARCH): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_ForceArchitecture(vmsavedstatedumphandle, vpid.toInt(), architecture)
+public actual fun forceArchitecture(vmsavedstatedumphandle: COpaquePointer?, vpid: UInt, architecture: VirtualProcessorArch): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_forceArchitecture((vmsavedstatedumphandle?.value ?: 0L), vpid.toInt(), architecture)
 
-public actual fun ForceNestedHostMode(vmsavedstatedumphandle: Long, vpid: UInt, hostmode: BOOL, oldmode: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_ForceNestedHostMode(vmsavedstatedumphandle, vpid.toInt(), hostmode, oldmode)
+public actual fun forceNestedHostMode(vmsavedstatedumphandle: COpaquePointer?, vpid: UInt, hostmode: Bool, oldmode: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_forceNestedHostMode((vmsavedstatedumphandle?.value ?: 0L), vpid.toInt(), hostmode, (oldmode?.value ?: 0L))
 
-public actual fun ForcePagingMode(vmsavedstatedumphandle: Long, vpid: UInt, pagingmode: PAGING_MODE): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_ForcePagingMode(vmsavedstatedumphandle, vpid.toInt(), pagingmode)
+public actual fun forcePagingMode(vmsavedstatedumphandle: COpaquePointer?, vpid: UInt, pagingmode: PagingMode): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_forcePagingMode((vmsavedstatedumphandle?.value ?: 0L), vpid.toInt(), pagingmode)
 
-public actual fun GetActiveVirtualTrustLevel(vmsavedstatedumphandle: Long, vpid: UInt, virtualtrustlevel: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_GetActiveVirtualTrustLevel(vmsavedstatedumphandle, vpid.toInt(), virtualtrustlevel)
+public actual fun getActiveVirtualTrustLevel(vmsavedstatedumphandle: COpaquePointer?, vpid: UInt, virtualtrustlevel: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_getActiveVirtualTrustLevel((vmsavedstatedumphandle?.value ?: 0L), vpid.toInt(), (virtualtrustlevel?.value ?: 0L))
 
-public actual fun GetArchitecture(vmsavedstatedumphandle: Long, vpid: UInt, architecture: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_GetArchitecture(vmsavedstatedumphandle, vpid.toInt(), architecture)
+public actual fun getArchitecture(vmsavedstatedumphandle: COpaquePointer?, vpid: UInt, architecture: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_getArchitecture((vmsavedstatedumphandle?.value ?: 0L), vpid.toInt(), (architecture?.value ?: 0L))
 
-public actual fun GetEnabledVirtualTrustLevels(vmsavedstatedumphandle: Long, vpid: UInt, virtualtrustlevels: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_GetEnabledVirtualTrustLevels(vmsavedstatedumphandle, vpid.toInt(), virtualtrustlevels)
+public actual fun getEnabledVirtualTrustLevels(vmsavedstatedumphandle: COpaquePointer?, vpid: UInt, virtualtrustlevels: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_getEnabledVirtualTrustLevels((vmsavedstatedumphandle?.value ?: 0L), vpid.toInt(), (virtualtrustlevels?.value ?: 0L))
 
-public actual fun GetGuestEnabledVirtualTrustLevels(vmsavedstatedumphandle: Long, virtualtrustlevels: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_GetGuestEnabledVirtualTrustLevels(vmsavedstatedumphandle, virtualtrustlevels)
+public actual fun getGuestEnabledVirtualTrustLevels(vmsavedstatedumphandle: COpaquePointer?, virtualtrustlevels: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_getGuestEnabledVirtualTrustLevels((vmsavedstatedumphandle?.value ?: 0L), (virtualtrustlevels?.value ?: 0L))
 
-public actual fun GetGuestOsInfo(vmsavedstatedumphandle: Long, virtualtrustlevel: UByte, guestosinfo: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_GetGuestOsInfo(vmsavedstatedumphandle, virtualtrustlevel.toByte(), guestosinfo)
+public actual fun getGuestOsInfo(vmsavedstatedumphandle: COpaquePointer?, virtualtrustlevel: UByte, guestosinfo: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_getGuestOsInfo((vmsavedstatedumphandle?.value ?: 0L), virtualtrustlevel.toByte(), (guestosinfo?.value ?: 0L))
 
-public actual fun GetGuestPhysicalMemoryChunks(vmsavedstatedumphandle: Long, memorychunkpagesize: Long, memorychunks: Long, memorychunkcount: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_GetGuestPhysicalMemoryChunks(vmsavedstatedumphandle, memorychunkpagesize, memorychunks, memorychunkcount)
+public actual fun getGuestPhysicalMemoryChunks(vmsavedstatedumphandle: COpaquePointer?, memorychunkpagesize: COpaquePointer?, memorychunks: COpaquePointer?, memorychunkcount: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_getGuestPhysicalMemoryChunks((vmsavedstatedumphandle?.value ?: 0L), (memorychunkpagesize?.value ?: 0L), (memorychunks?.value ?: 0L), (memorychunkcount?.value ?: 0L))
 
-public actual fun GetGuestRawSavedMemorySize(vmsavedstatedumphandle: Long, guestrawsavedmemorysize: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_GetGuestRawSavedMemorySize(vmsavedstatedumphandle, guestrawsavedmemorysize)
+public actual fun getGuestRawSavedMemorySize(vmsavedstatedumphandle: COpaquePointer?, guestrawsavedmemorysize: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_getGuestRawSavedMemorySize((vmsavedstatedumphandle?.value ?: 0L), (guestrawsavedmemorysize?.value ?: 0L))
 
-public actual fun GetMemoryBlockCacheLimit(vmsavedstatedumphandle: Long, memoryblockcachelimit: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_GetMemoryBlockCacheLimit(vmsavedstatedumphandle, memoryblockcachelimit)
+public actual fun getMemoryBlockCacheLimit(vmsavedstatedumphandle: COpaquePointer?, memoryblockcachelimit: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_getMemoryBlockCacheLimit((vmsavedstatedumphandle?.value ?: 0L), (memoryblockcachelimit?.value ?: 0L))
 
-public actual fun GetNestedVirtualizationMode(vmsavedstatedumphandle: Long, vpid: UInt, enabled: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_GetNestedVirtualizationMode(vmsavedstatedumphandle, vpid.toInt(), enabled)
+public actual fun getNestedVirtualizationMode(vmsavedstatedumphandle: COpaquePointer?, vpid: UInt, enabled: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_getNestedVirtualizationMode((vmsavedstatedumphandle?.value ?: 0L), vpid.toInt(), (enabled?.value ?: 0L))
 
-public actual fun GetPagingMode(vmsavedstatedumphandle: Long, vpid: UInt, pagingmode: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_GetPagingMode(vmsavedstatedumphandle, vpid.toInt(), pagingmode)
+public actual fun getPagingMode(vmsavedstatedumphandle: COpaquePointer?, vpid: UInt, pagingmode: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_getPagingMode((vmsavedstatedumphandle?.value ?: 0L), vpid.toInt(), (pagingmode?.value ?: 0L))
 
-public actual fun GetRegisterValue(vmsavedstatedumphandle: Long, vpid: UInt, registerid: UInt, registervalue: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_GetRegisterValue(vmsavedstatedumphandle, vpid.toInt(), registerid.toInt(), registervalue)
+public actual fun getRegisterValue(vmsavedstatedumphandle: COpaquePointer?, vpid: UInt, registerid: UInt, registervalue: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_getRegisterValue((vmsavedstatedumphandle?.value ?: 0L), vpid.toInt(), registerid.toInt(), (registervalue?.value ?: 0L))
 
-public actual fun GetSavedStateSymbolFieldInfo(vmsavedstatedumphandle: Long, vpid: UInt, typename: PCSTR, typefieldinfomap: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_GetSavedStateSymbolFieldInfo(vmsavedstatedumphandle, vpid.toInt(), typename, typefieldinfomap)
+public actual fun getSavedStateSymbolFieldInfo(vmsavedstatedumphandle: COpaquePointer?, vpid: UInt, typename: Pcstr, typefieldinfomap: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_getSavedStateSymbolFieldInfo((vmsavedstatedumphandle?.value ?: 0L), vpid.toInt(), (typename?.value ?: 0L), (typefieldinfomap?.value ?: 0L))
 
-public actual fun GetSavedStateSymbolProviderHandle(vmsavedstatedumphandle: Long): HANDLE =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_GetSavedStateSymbolProviderHandle(vmsavedstatedumphandle)
+public actual fun getSavedStateSymbolProviderHandle(vmsavedstatedumphandle: COpaquePointer?): Handle =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_getSavedStateSymbolProviderHandle((vmsavedstatedumphandle?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GetSavedStateSymbolTypeSize(vmsavedstatedumphandle: Long, vpid: UInt, typename: PCSTR, size: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_GetSavedStateSymbolTypeSize(vmsavedstatedumphandle, vpid.toInt(), typename, size)
+public actual fun getSavedStateSymbolTypeSize(vmsavedstatedumphandle: COpaquePointer?, vpid: UInt, typename: Pcstr, size: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_getSavedStateSymbolTypeSize((vmsavedstatedumphandle?.value ?: 0L), vpid.toInt(), (typename?.value ?: 0L), (size?.value ?: 0L))
 
-public actual fun GetVpCount(vmsavedstatedumphandle: Long, vpcount: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_GetVpCount(vmsavedstatedumphandle, vpcount)
+public actual fun getVpCount(vmsavedstatedumphandle: COpaquePointer?, vpcount: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_getVpCount((vmsavedstatedumphandle?.value ?: 0L), (vpcount?.value ?: 0L))
 
-public actual fun GuestPhysicalAddressToRawSavedMemoryOffset(vmsavedstatedumphandle: Long, physicaladdress: ULong, rawsavedmemoryoffset: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_GuestPhysicalAddressToRawSavedMemoryOffset(vmsavedstatedumphandle, physicaladdress.toLong(), rawsavedmemoryoffset)
+public actual fun guestPhysicalAddressToRawSavedMemoryOffset(vmsavedstatedumphandle: COpaquePointer?, physicaladdress: ULong, rawsavedmemoryoffset: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_guestPhysicalAddressToRawSavedMemoryOffset((vmsavedstatedumphandle?.value ?: 0L), physicaladdress.toLong(), (rawsavedmemoryoffset?.value ?: 0L))
 
-public actual fun GuestVirtualAddressToPhysicalAddress(vmsavedstatedumphandle: Long, vpid: UInt, virtualaddress: ULong, physicaladdress: Long, unmappedregionsize: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_GuestVirtualAddressToPhysicalAddress(vmsavedstatedumphandle, vpid.toInt(), virtualaddress.toLong(), physicaladdress, unmappedregionsize)
+public actual fun guestVirtualAddressToPhysicalAddress(vmsavedstatedumphandle: COpaquePointer?, vpid: UInt, virtualaddress: ULong, physicaladdress: COpaquePointer?, unmappedregionsize: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_guestVirtualAddressToPhysicalAddress((vmsavedstatedumphandle?.value ?: 0L), vpid.toInt(), virtualaddress.toLong(), (physicaladdress?.value ?: 0L), (unmappedregionsize?.value ?: 0L))
 
-public actual fun HdvCreateDeviceInstance(devicehosthandle: Long, devicetype: HDV_DEVICE_TYPE, deviceclassid: Long, deviceinstanceid: Long, deviceinterface: Long, devicecontext: Long, devicehandle: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_HdvCreateDeviceInstance(devicehosthandle, devicetype, deviceclassid, deviceinstanceid, deviceinterface, devicecontext, devicehandle)
+public actual fun hdvCreateDeviceInstance(devicehosthandle: COpaquePointer?, devicetype: HdvDeviceType, deviceclassid: COpaquePointer?, deviceinstanceid: COpaquePointer?, deviceinterface: COpaquePointer?, devicecontext: COpaquePointer?, devicehandle: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_hdvCreateDeviceInstance((devicehosthandle?.value ?: 0L), devicetype, (deviceclassid?.value ?: 0L), (deviceinstanceid?.value ?: 0L), (deviceinterface?.value ?: 0L), (devicecontext?.value ?: 0L), (devicehandle?.value ?: 0L))
 
-public actual fun HdvCreateGuestMemoryAperture(requestor: Long, guestphysicaladdress: ULong, bytecount: UInt, writeprotected: BOOL, mappedaddress: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_HdvCreateGuestMemoryAperture(requestor, guestphysicaladdress.toLong(), bytecount.toInt(), writeprotected, mappedaddress)
+public actual fun hdvCreateGuestMemoryAperture(requestor: COpaquePointer?, guestphysicaladdress: ULong, bytecount: UInt, writeprotected: Bool, mappedaddress: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_hdvCreateGuestMemoryAperture((requestor?.value ?: 0L), guestphysicaladdress.toLong(), bytecount.toInt(), writeprotected, (mappedaddress?.value ?: 0L))
 
-public actual fun HdvCreateSectionBackedMmioRange(requestor: Long, barindex: HDV_PCI_BAR_SELECTOR, offsetinpages: ULong, lengthinpages: ULong, mappingflags: HDV_MMIO_MAPPING_FLAGS, sectionhandle: HANDLE, sectionoffsetinpages: ULong): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_HdvCreateSectionBackedMmioRange(requestor, barindex, offsetinpages.toLong(), lengthinpages.toLong(), mappingflags, sectionhandle, sectionoffsetinpages.toLong())
+public actual fun hdvCreateSectionBackedMmioRange(requestor: COpaquePointer?, barindex: HdvPciBarSelector, offsetinpages: ULong, lengthinpages: ULong, mappingflags: HdvMmioMappingFlags, sectionhandle: Handle, sectionoffsetinpages: ULong): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_hdvCreateSectionBackedMmioRange((requestor?.value ?: 0L), barindex, offsetinpages.toLong(), lengthinpages.toLong(), mappingflags, (sectionhandle?.value ?: 0L), sectionoffsetinpages.toLong())
 
-public actual fun HdvDeliverGuestInterrupt(requestor: Long, msiaddress: ULong, msidata: UInt): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_HdvDeliverGuestInterrupt(requestor, msiaddress.toLong(), msidata.toInt())
+public actual fun hdvDeliverGuestInterrupt(requestor: COpaquePointer?, msiaddress: ULong, msidata: UInt): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_hdvDeliverGuestInterrupt((requestor?.value ?: 0L), msiaddress.toLong(), msidata.toInt())
 
-public actual fun HdvDestroyGuestMemoryAperture(requestor: Long, mappedaddress: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_HdvDestroyGuestMemoryAperture(requestor, mappedaddress)
+public actual fun hdvDestroyGuestMemoryAperture(requestor: COpaquePointer?, mappedaddress: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_hdvDestroyGuestMemoryAperture((requestor?.value ?: 0L), (mappedaddress?.value ?: 0L))
 
-public actual fun HdvDestroySectionBackedMmioRange(requestor: Long, barindex: HDV_PCI_BAR_SELECTOR, offsetinpages: ULong): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_HdvDestroySectionBackedMmioRange(requestor, barindex, offsetinpages.toLong())
+public actual fun hdvDestroySectionBackedMmioRange(requestor: COpaquePointer?, barindex: HdvPciBarSelector, offsetinpages: ULong): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_hdvDestroySectionBackedMmioRange((requestor?.value ?: 0L), barindex, offsetinpages.toLong())
 
-public actual fun HdvInitializeDeviceHost(computesystem: HCS_SYSTEM, devicehosthandle: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_HdvInitializeDeviceHost(computesystem, devicehosthandle)
+public actual fun hdvInitializeDeviceHost(computesystem: HcsSystem, devicehosthandle: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_hdvInitializeDeviceHost((computesystem?.value ?: 0L), (devicehosthandle?.value ?: 0L))
 
-public actual fun HdvInitializeDeviceHostEx(computesystem: HCS_SYSTEM, flags: HDV_DEVICE_HOST_FLAGS, devicehosthandle: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_HdvInitializeDeviceHostEx(computesystem, flags, devicehosthandle)
+public actual fun hdvInitializeDeviceHostEx(computesystem: HcsSystem, flags: HdvDeviceHostFlags, devicehosthandle: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_hdvInitializeDeviceHostEx((computesystem?.value ?: 0L), flags, (devicehosthandle?.value ?: 0L))
 
-public actual fun HdvReadGuestMemory(requestor: Long, guestphysicaladdress: ULong, bytecount: UInt, buffer: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_HdvReadGuestMemory(requestor, guestphysicaladdress.toLong(), bytecount.toInt(), buffer)
+public actual fun hdvReadGuestMemory(requestor: COpaquePointer?, guestphysicaladdress: ULong, bytecount: UInt, buffer: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_hdvReadGuestMemory((requestor?.value ?: 0L), guestphysicaladdress.toLong(), bytecount.toInt(), (buffer?.value ?: 0L))
 
-public actual fun HdvRegisterDoorbell(requestor: Long, barindex: HDV_PCI_BAR_SELECTOR, baroffset: ULong, triggervalue: ULong, flags: ULong, doorbellevent: HANDLE): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_HdvRegisterDoorbell(requestor, barindex, baroffset.toLong(), triggervalue.toLong(), flags.toLong(), doorbellevent)
+public actual fun hdvRegisterDoorbell(requestor: COpaquePointer?, barindex: HdvPciBarSelector, baroffset: ULong, triggervalue: ULong, flags: ULong, doorbellevent: Handle): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_hdvRegisterDoorbell((requestor?.value ?: 0L), barindex, baroffset.toLong(), triggervalue.toLong(), flags.toLong(), (doorbellevent?.value ?: 0L))
 
-public actual fun HdvTeardownDeviceHost(devicehosthandle: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_HdvTeardownDeviceHost(devicehosthandle)
+public actual fun hdvTeardownDeviceHost(devicehosthandle: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_hdvTeardownDeviceHost((devicehosthandle?.value ?: 0L))
 
-public actual fun HdvUnregisterDoorbell(requestor: Long, barindex: HDV_PCI_BAR_SELECTOR, baroffset: ULong, triggervalue: ULong, flags: ULong): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_HdvUnregisterDoorbell(requestor, barindex, baroffset.toLong(), triggervalue.toLong(), flags.toLong())
+public actual fun hdvUnregisterDoorbell(requestor: COpaquePointer?, barindex: HdvPciBarSelector, baroffset: ULong, triggervalue: ULong, flags: ULong): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_hdvUnregisterDoorbell((requestor?.value ?: 0L), barindex, baroffset.toLong(), triggervalue.toLong(), flags.toLong())
 
-public actual fun HdvWriteGuestMemory(requestor: Long, guestphysicaladdress: ULong, bytecount: UInt, buffer: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_HdvWriteGuestMemory(requestor, guestphysicaladdress.toLong(), bytecount.toInt(), buffer)
+public actual fun hdvWriteGuestMemory(requestor: COpaquePointer?, guestphysicaladdress: ULong, bytecount: UInt, buffer: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_hdvWriteGuestMemory((requestor?.value ?: 0L), guestphysicaladdress.toLong(), bytecount.toInt(), (buffer?.value ?: 0L))
 
-public actual fun InKernelSpace(vmsavedstatedumphandle: Long, vpid: UInt, inkernelspace: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_InKernelSpace(vmsavedstatedumphandle, vpid.toInt(), inkernelspace)
+public actual fun inKernelSpace(vmsavedstatedumphandle: COpaquePointer?, vpid: UInt, inkernelspace: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_inKernelSpace((vmsavedstatedumphandle?.value ?: 0L), vpid.toInt(), (inkernelspace?.value ?: 0L))
 
-public actual fun IsActiveVirtualTrustLevelEnabled(vmsavedstatedumphandle: Long, vpid: UInt, activevirtualtrustlevelenabled: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_IsActiveVirtualTrustLevelEnabled(vmsavedstatedumphandle, vpid.toInt(), activevirtualtrustlevelenabled)
+public actual fun isActiveVirtualTrustLevelEnabled(vmsavedstatedumphandle: COpaquePointer?, vpid: UInt, activevirtualtrustlevelenabled: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_isActiveVirtualTrustLevelEnabled((vmsavedstatedumphandle?.value ?: 0L), vpid.toInt(), (activevirtualtrustlevelenabled?.value ?: 0L))
 
-public actual fun IsNestedVirtualizationEnabled(vmsavedstatedumphandle: Long, enabled: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_IsNestedVirtualizationEnabled(vmsavedstatedumphandle, enabled)
+public actual fun isNestedVirtualizationEnabled(vmsavedstatedumphandle: COpaquePointer?, enabled: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_isNestedVirtualizationEnabled((vmsavedstatedumphandle?.value ?: 0L), (enabled?.value ?: 0L))
 
-public actual fun LoadSavedStateFile(vmrsfile: PCWSTR, vmsavedstatedumphandle: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_LoadSavedStateFile(vmrsfile, vmsavedstatedumphandle)
+public actual fun loadSavedStateFile(vmrsfile: Pcwstr, vmsavedstatedumphandle: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_loadSavedStateFile((vmrsfile?.value ?: 0L), (vmsavedstatedumphandle?.value ?: 0L))
 
-public actual fun LoadSavedStateFiles(binfile: PCWSTR, vsvfile: PCWSTR, vmsavedstatedumphandle: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_LoadSavedStateFiles(binfile, vsvfile, vmsavedstatedumphandle)
+public actual fun loadSavedStateFiles(binfile: Pcwstr, vsvfile: Pcwstr, vmsavedstatedumphandle: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_loadSavedStateFiles((binfile?.value ?: 0L), (vsvfile?.value ?: 0L), (vmsavedstatedumphandle?.value ?: 0L))
 
-public actual fun LoadSavedStateModuleSymbols(vmsavedstatedumphandle: Long, imagename: PCSTR, modulename: PCSTR, baseaddress: ULong, sizeofbase: UInt): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_LoadSavedStateModuleSymbols(vmsavedstatedumphandle, imagename, modulename, baseaddress.toLong(), sizeofbase.toInt())
+public actual fun loadSavedStateModuleSymbols(vmsavedstatedumphandle: COpaquePointer?, imagename: Pcstr, modulename: Pcstr, baseaddress: ULong, sizeofbase: UInt): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_loadSavedStateModuleSymbols((vmsavedstatedumphandle?.value ?: 0L), (imagename?.value ?: 0L), (modulename?.value ?: 0L), baseaddress.toLong(), sizeofbase.toInt())
 
-public actual fun LoadSavedStateModuleSymbolsEx(vmsavedstatedumphandle: Long, imagename: PCSTR, imagetimestamp: UInt, modulename: PCSTR, baseaddress: ULong, sizeofbase: UInt): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_LoadSavedStateModuleSymbolsEx(vmsavedstatedumphandle, imagename, imagetimestamp.toInt(), modulename, baseaddress.toLong(), sizeofbase.toInt())
+public actual fun loadSavedStateModuleSymbolsEx(vmsavedstatedumphandle: COpaquePointer?, imagename: Pcstr, imagetimestamp: UInt, modulename: Pcstr, baseaddress: ULong, sizeofbase: UInt): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_loadSavedStateModuleSymbolsEx((vmsavedstatedumphandle?.value ?: 0L), (imagename?.value ?: 0L), imagetimestamp.toInt(), (modulename?.value ?: 0L), baseaddress.toLong(), sizeofbase.toInt())
 
-public actual fun LoadSavedStateSymbolProvider(vmsavedstatedumphandle: Long, usersymbols: PCWSTR, force: BOOL): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_LoadSavedStateSymbolProvider(vmsavedstatedumphandle, usersymbols, force)
+public actual fun loadSavedStateSymbolProvider(vmsavedstatedumphandle: COpaquePointer?, usersymbols: Pcwstr, force: Bool): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_loadSavedStateSymbolProvider((vmsavedstatedumphandle?.value ?: 0L), (usersymbols?.value ?: 0L), force)
 
-public actual fun LocateSavedStateFiles(vmname: PCWSTR, snapshotname: PCWSTR, binpath: Long, vsvpath: Long, vmrspath: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_LocateSavedStateFiles(vmname, snapshotname, binpath, vsvpath, vmrspath)
+public actual fun locateSavedStateFiles(vmname: Pcwstr, snapshotname: Pcwstr, binpath: COpaquePointer?, vsvpath: COpaquePointer?, vmrspath: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_locateSavedStateFiles((vmname?.value ?: 0L), (snapshotname?.value ?: 0L), (binpath?.value ?: 0L), (vsvpath?.value ?: 0L), (vmrspath?.value ?: 0L))
 
-public actual fun ReadGuestPhysicalAddress(vmsavedstatedumphandle: Long, physicaladdress: ULong, buffer: Long, buffersize: UInt, bytesread: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_ReadGuestPhysicalAddress(vmsavedstatedumphandle, physicaladdress.toLong(), buffer, buffersize.toInt(), bytesread)
+public actual fun readGuestPhysicalAddress(vmsavedstatedumphandle: COpaquePointer?, physicaladdress: ULong, buffer: COpaquePointer?, buffersize: UInt, bytesread: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_readGuestPhysicalAddress((vmsavedstatedumphandle?.value ?: 0L), physicaladdress.toLong(), (buffer?.value ?: 0L), buffersize.toInt(), (bytesread?.value ?: 0L))
 
-public actual fun ReadGuestRawSavedMemory(vmsavedstatedumphandle: Long, rawsavedmemoryoffset: ULong, buffer: Long, buffersize: UInt, bytesread: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_ReadGuestRawSavedMemory(vmsavedstatedumphandle, rawsavedmemoryoffset.toLong(), buffer, buffersize.toInt(), bytesread)
+public actual fun readGuestRawSavedMemory(vmsavedstatedumphandle: COpaquePointer?, rawsavedmemoryoffset: ULong, buffer: COpaquePointer?, buffersize: UInt, bytesread: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_readGuestRawSavedMemory((vmsavedstatedumphandle?.value ?: 0L), rawsavedmemoryoffset.toLong(), (buffer?.value ?: 0L), buffersize.toInt(), (bytesread?.value ?: 0L))
 
-public actual fun ReadSavedStateGlobalVariable(vmsavedstatedumphandle: Long, vpid: UInt, globalname: PCSTR, buffer: Long, buffersize: UInt): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_ReadSavedStateGlobalVariable(vmsavedstatedumphandle, vpid.toInt(), globalname, buffer, buffersize.toInt())
+public actual fun readSavedStateGlobalVariable(vmsavedstatedumphandle: COpaquePointer?, vpid: UInt, globalname: Pcstr, buffer: COpaquePointer?, buffersize: UInt): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_readSavedStateGlobalVariable((vmsavedstatedumphandle?.value ?: 0L), vpid.toInt(), (globalname?.value ?: 0L), (buffer?.value ?: 0L), buffersize.toInt())
 
-public actual fun ReleaseSavedStateFiles(vmsavedstatedumphandle: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_ReleaseSavedStateFiles(vmsavedstatedumphandle)
+public actual fun releaseSavedStateFiles(vmsavedstatedumphandle: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_releaseSavedStateFiles((vmsavedstatedumphandle?.value ?: 0L))
 
-public actual fun ReleaseSavedStateSymbolProvider(vmsavedstatedumphandle: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_ReleaseSavedStateSymbolProvider(vmsavedstatedumphandle)
+public actual fun releaseSavedStateSymbolProvider(vmsavedstatedumphandle: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_releaseSavedStateSymbolProvider((vmsavedstatedumphandle?.value ?: 0L))
 
-public actual fun ResolveSavedStateGlobalVariableAddress(vmsavedstatedumphandle: Long, vpid: UInt, globalname: PCSTR, virtualaddress: Long, size: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_ResolveSavedStateGlobalVariableAddress(vmsavedstatedumphandle, vpid.toInt(), globalname, virtualaddress, size)
+public actual fun resolveSavedStateGlobalVariableAddress(vmsavedstatedumphandle: COpaquePointer?, vpid: UInt, globalname: Pcstr, virtualaddress: COpaquePointer?, size: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_resolveSavedStateGlobalVariableAddress((vmsavedstatedumphandle?.value ?: 0L), vpid.toInt(), (globalname?.value ?: 0L), (virtualaddress?.value ?: 0L), (size?.value ?: 0L))
 
-public actual fun ScanMemoryForDosImages(vmsavedstatedumphandle: Long, vpid: UInt, startaddress: ULong, endaddress: ULong, callbackcontext: Long, foundimagecallback: FOUND_IMAGE_CALLBACK, standaloneaddress: Long, standaloneaddresscount: UInt): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_ScanMemoryForDosImages(vmsavedstatedumphandle, vpid.toInt(), startaddress.toLong(), endaddress.toLong(), callbackcontext, foundimagecallback.toLong(), standaloneaddress, standaloneaddresscount.toInt())
+public actual fun scanMemoryForDosImages(vmsavedstatedumphandle: COpaquePointer?, vpid: UInt, startaddress: ULong, endaddress: ULong, callbackcontext: COpaquePointer?, foundimagecallback: FoundImageCallback, standaloneaddress: COpaquePointer?, standaloneaddresscount: UInt): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_scanMemoryForDosImages((vmsavedstatedumphandle?.value ?: 0L), vpid.toInt(), startaddress.toLong(), endaddress.toLong(), (callbackcontext?.value ?: 0L), 0L, (standaloneaddress?.value ?: 0L), standaloneaddresscount.toInt())
 
-public actual fun SetMemoryBlockCacheLimit(vmsavedstatedumphandle: Long, memoryblockcachelimit: ULong): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_SetMemoryBlockCacheLimit(vmsavedstatedumphandle, memoryblockcachelimit.toLong())
+public actual fun setMemoryBlockCacheLimit(vmsavedstatedumphandle: COpaquePointer?, memoryblockcachelimit: ULong): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_setMemoryBlockCacheLimit((vmsavedstatedumphandle?.value ?: 0L), memoryblockcachelimit.toLong())
 
-public actual fun SetSavedStateSymbolProviderDebugInfoCallback(vmsavedstatedumphandle: Long, callback: GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_SetSavedStateSymbolProviderDebugInfoCallback(vmsavedstatedumphandle, callback.toLong())
+public actual fun setSavedStateSymbolProviderDebugInfoCallback(vmsavedstatedumphandle: COpaquePointer?, callback: GuestSymbolsProviderDebugInfoCallback): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_setSavedStateSymbolProviderDebugInfoCallback((vmsavedstatedumphandle?.value ?: 0L), 0L)
 
-public actual fun WHvAcceptPartitionMigration(migrationhandle: HANDLE, partition: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvAcceptPartitionMigration(migrationhandle, partition)
+public actual fun wHvAcceptPartitionMigration(migrationhandle: Handle, partition: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvAcceptPartitionMigration((migrationhandle?.value ?: 0L), (partition?.value ?: 0L))
 
-public actual fun WHvAdviseGpaRange(partition: WHV_PARTITION_HANDLE, gparanges: Long, gparangescount: UInt, advice: WHV_ADVISE_GPA_RANGE_CODE, advicebuffer: Long, advicebuffersizeinbytes: UInt): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvAdviseGpaRange(partition, gparanges, gparangescount.toInt(), advice, advicebuffer, advicebuffersizeinbytes.toInt())
+public actual fun wHvAdviseGpaRange(partition: WhvPartitionHandle, gparanges: COpaquePointer?, gparangescount: UInt, advice: WhvAdviseGpaRangeCode, advicebuffer: COpaquePointer?, advicebuffersizeinbytes: UInt): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvAdviseGpaRange(partition.toLong(), (gparanges?.value ?: 0L), gparangescount.toInt(), advice, (advicebuffer?.value ?: 0L), advicebuffersizeinbytes.toInt())
 
-public actual fun WHvAllocateVpciResource(providerid: Long, flags: WHV_ALLOCATE_VPCI_RESOURCE_FLAGS, resourcedescriptor: Long, resourcedescriptorsizeinbytes: UInt, vpciresource: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvAllocateVpciResource(providerid, flags, resourcedescriptor, resourcedescriptorsizeinbytes.toInt(), vpciresource)
+public actual fun wHvAllocateVpciResource(providerid: COpaquePointer?, flags: WhvAllocateVpciResourceFlags, resourcedescriptor: COpaquePointer?, resourcedescriptorsizeinbytes: UInt, vpciresource: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvAllocateVpciResource((providerid?.value ?: 0L), flags, (resourcedescriptor?.value ?: 0L), resourcedescriptorsizeinbytes.toInt(), (vpciresource?.value ?: 0L))
 
-public actual fun WHvCancelPartitionMigration(partition: WHV_PARTITION_HANDLE): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvCancelPartitionMigration(partition)
+public actual fun wHvCancelPartitionMigration(partition: WhvPartitionHandle): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvCancelPartitionMigration(partition.toLong())
 
-public actual fun WHvCancelRunVirtualProcessor(partition: WHV_PARTITION_HANDLE, vpindex: UInt, flags: UInt): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvCancelRunVirtualProcessor(partition, vpindex.toInt(), flags.toInt())
+public actual fun wHvCancelRunVirtualProcessor(partition: WhvPartitionHandle, vpindex: UInt, flags: UInt): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvCancelRunVirtualProcessor(partition.toLong(), vpindex.toInt(), flags.toInt())
 
-public actual fun WHvCompletePartitionMigration(partition: WHV_PARTITION_HANDLE): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvCompletePartitionMigration(partition)
+public actual fun wHvCompletePartitionMigration(partition: WhvPartitionHandle): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvCompletePartitionMigration(partition.toLong())
 
-public actual fun WHvCreateNotificationPort(partition: WHV_PARTITION_HANDLE, parameters: Long, eventhandle: HANDLE, porthandle: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvCreateNotificationPort(partition, parameters, eventhandle, porthandle)
+public actual fun wHvCreateNotificationPort(partition: WhvPartitionHandle, parameters: COpaquePointer?, eventhandle: Handle, porthandle: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvCreateNotificationPort(partition.toLong(), (parameters?.value ?: 0L), (eventhandle?.value ?: 0L), (porthandle?.value ?: 0L))
 
-public actual fun WHvCreatePartition(partition: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvCreatePartition(partition)
+public actual fun wHvCreatePartition(partition: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvCreatePartition((partition?.value ?: 0L))
 
-public actual fun WHvCreateTrigger(partition: WHV_PARTITION_HANDLE, parameters: Long, triggerhandle: Long, eventhandle: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvCreateTrigger(partition, parameters, triggerhandle, eventhandle)
+public actual fun wHvCreateTrigger(partition: WhvPartitionHandle, parameters: COpaquePointer?, triggerhandle: COpaquePointer?, eventhandle: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvCreateTrigger(partition.toLong(), (parameters?.value ?: 0L), (triggerhandle?.value ?: 0L), (eventhandle?.value ?: 0L))
 
-public actual fun WHvCreateVirtualProcessor(partition: WHV_PARTITION_HANDLE, vpindex: UInt, flags: UInt): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvCreateVirtualProcessor(partition, vpindex.toInt(), flags.toInt())
+public actual fun wHvCreateVirtualProcessor(partition: WhvPartitionHandle, vpindex: UInt, flags: UInt): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvCreateVirtualProcessor(partition.toLong(), vpindex.toInt(), flags.toInt())
 
-public actual fun WHvCreateVirtualProcessor2(partition: WHV_PARTITION_HANDLE, vpindex: UInt, properties: Long, propertycount: UInt): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvCreateVirtualProcessor2(partition, vpindex.toInt(), properties, propertycount.toInt())
+public actual fun wHvCreateVirtualProcessor2(partition: WhvPartitionHandle, vpindex: UInt, properties: COpaquePointer?, propertycount: UInt): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvCreateVirtualProcessor2(partition.toLong(), vpindex.toInt(), (properties?.value ?: 0L), propertycount.toInt())
 
-public actual fun WHvCreateVpciDevice(partition: WHV_PARTITION_HANDLE, logicaldeviceid: ULong, vpciresource: HANDLE, flags: WHV_CREATE_VPCI_DEVICE_FLAGS, notificationeventhandle: HANDLE): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvCreateVpciDevice(partition, logicaldeviceid.toLong(), vpciresource, flags, notificationeventhandle)
+public actual fun wHvCreateVpciDevice(partition: WhvPartitionHandle, logicaldeviceid: ULong, vpciresource: Handle, flags: WhvCreateVpciDeviceFlags, notificationeventhandle: Handle): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvCreateVpciDevice(partition.toLong(), logicaldeviceid.toLong(), (vpciresource?.value ?: 0L), flags, (notificationeventhandle?.value ?: 0L))
 
-public actual fun WHvDeleteNotificationPort(partition: WHV_PARTITION_HANDLE, porthandle: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvDeleteNotificationPort(partition, porthandle)
+public actual fun wHvDeleteNotificationPort(partition: WhvPartitionHandle, porthandle: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvDeleteNotificationPort(partition.toLong(), (porthandle?.value ?: 0L))
 
-public actual fun WHvDeletePartition(partition: WHV_PARTITION_HANDLE): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvDeletePartition(partition)
+public actual fun wHvDeletePartition(partition: WhvPartitionHandle): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvDeletePartition(partition.toLong())
 
-public actual fun WHvDeleteTrigger(partition: WHV_PARTITION_HANDLE, triggerhandle: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvDeleteTrigger(partition, triggerhandle)
+public actual fun wHvDeleteTrigger(partition: WhvPartitionHandle, triggerhandle: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvDeleteTrigger(partition.toLong(), (triggerhandle?.value ?: 0L))
 
-public actual fun WHvDeleteVirtualProcessor(partition: WHV_PARTITION_HANDLE, vpindex: UInt): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvDeleteVirtualProcessor(partition, vpindex.toInt())
+public actual fun wHvDeleteVirtualProcessor(partition: WhvPartitionHandle, vpindex: UInt): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvDeleteVirtualProcessor(partition.toLong(), vpindex.toInt())
 
-public actual fun WHvDeleteVpciDevice(partition: WHV_PARTITION_HANDLE, logicaldeviceid: ULong): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvDeleteVpciDevice(partition, logicaldeviceid.toLong())
+public actual fun wHvDeleteVpciDevice(partition: WhvPartitionHandle, logicaldeviceid: ULong): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvDeleteVpciDevice(partition.toLong(), logicaldeviceid.toLong())
 
-public actual fun WHvEmulatorCreateEmulator(callbacks: Long, emulator: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvEmulatorCreateEmulator(callbacks, emulator)
+public actual fun wHvEmulatorCreateEmulator(callbacks: COpaquePointer?, emulator: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvEmulatorCreateEmulator((callbacks?.value ?: 0L), (emulator?.value ?: 0L))
 
-public actual fun WHvEmulatorDestroyEmulator(emulator: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvEmulatorDestroyEmulator(emulator)
+public actual fun wHvEmulatorDestroyEmulator(emulator: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvEmulatorDestroyEmulator((emulator?.value ?: 0L))
 
-public actual fun WHvEmulatorTryIoEmulation(emulator: Long, context: Long, vpcontext: Long, ioinstructioncontext: Long, emulatorreturnstatus: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvEmulatorTryIoEmulation(emulator, context, vpcontext, ioinstructioncontext, emulatorreturnstatus)
+public actual fun wHvEmulatorTryIoEmulation(emulator: COpaquePointer?, context: COpaquePointer?, vpcontext: COpaquePointer?, ioinstructioncontext: COpaquePointer?, emulatorreturnstatus: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvEmulatorTryIoEmulation((emulator?.value ?: 0L), (context?.value ?: 0L), (vpcontext?.value ?: 0L), (ioinstructioncontext?.value ?: 0L), (emulatorreturnstatus?.value ?: 0L))
 
-public actual fun WHvEmulatorTryMmioEmulation(emulator: Long, context: Long, vpcontext: Long, mmioinstructioncontext: Long, emulatorreturnstatus: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvEmulatorTryMmioEmulation(emulator, context, vpcontext, mmioinstructioncontext, emulatorreturnstatus)
+public actual fun wHvEmulatorTryMmioEmulation(emulator: COpaquePointer?, context: COpaquePointer?, vpcontext: COpaquePointer?, mmioinstructioncontext: COpaquePointer?, emulatorreturnstatus: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvEmulatorTryMmioEmulation((emulator?.value ?: 0L), (context?.value ?: 0L), (vpcontext?.value ?: 0L), (mmioinstructioncontext?.value ?: 0L), (emulatorreturnstatus?.value ?: 0L))
 
-public actual fun WHvGetCapability(capabilitycode: WHV_CAPABILITY_CODE, capabilitybuffer: Long, capabilitybuffersizeinbytes: UInt, writtensizeinbytes: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvGetCapability(capabilitycode, capabilitybuffer, capabilitybuffersizeinbytes.toInt(), writtensizeinbytes)
+public actual fun wHvGetCapability(capabilitycode: WhvCapabilityCode, capabilitybuffer: COpaquePointer?, capabilitybuffersizeinbytes: UInt, writtensizeinbytes: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvGetCapability(capabilitycode, (capabilitybuffer?.value ?: 0L), capabilitybuffersizeinbytes.toInt(), (writtensizeinbytes?.value ?: 0L))
 
-public actual fun WHvGetInterruptTargetVpSet(partition: WHV_PARTITION_HANDLE, destination: ULong, destinationmode: WHV_INTERRUPT_DESTINATION_MODE, targetvps: Long, vpcount: UInt, targetvpcount: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvGetInterruptTargetVpSet(partition, destination.toLong(), destinationmode, targetvps, vpcount.toInt(), targetvpcount)
+public actual fun wHvGetInterruptTargetVpSet(partition: WhvPartitionHandle, destination: ULong, destinationmode: WhvInterruptDestinationMode, targetvps: COpaquePointer?, vpcount: UInt, targetvpcount: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvGetInterruptTargetVpSet(partition.toLong(), destination.toLong(), destinationmode, (targetvps?.value ?: 0L), vpcount.toInt(), (targetvpcount?.value ?: 0L))
 
-public actual fun WHvGetPartitionCounters(partition: WHV_PARTITION_HANDLE, counterset: WHV_PARTITION_COUNTER_SET, buffer: Long, buffersizeinbytes: UInt, byteswritten: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvGetPartitionCounters(partition, counterset, buffer, buffersizeinbytes.toInt(), byteswritten)
+public actual fun wHvGetPartitionCounters(partition: WhvPartitionHandle, counterset: WhvPartitionCounterSet, buffer: COpaquePointer?, buffersizeinbytes: UInt, byteswritten: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvGetPartitionCounters(partition.toLong(), counterset, (buffer?.value ?: 0L), buffersizeinbytes.toInt(), (byteswritten?.value ?: 0L))
 
-public actual fun WHvGetPartitionProperty(partition: WHV_PARTITION_HANDLE, propertycode: WHV_PARTITION_PROPERTY_CODE, propertybuffer: Long, propertybuffersizeinbytes: UInt, writtensizeinbytes: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvGetPartitionProperty(partition, propertycode, propertybuffer, propertybuffersizeinbytes.toInt(), writtensizeinbytes)
+public actual fun wHvGetPartitionProperty(partition: WhvPartitionHandle, propertycode: WhvPartitionPropertyCode, propertybuffer: COpaquePointer?, propertybuffersizeinbytes: UInt, writtensizeinbytes: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvGetPartitionProperty(partition.toLong(), propertycode, (propertybuffer?.value ?: 0L), propertybuffersizeinbytes.toInt(), (writtensizeinbytes?.value ?: 0L))
 
-public actual fun WHvGetVirtualProcessorCounters(partition: WHV_PARTITION_HANDLE, vpindex: UInt, counterset: WHV_PROCESSOR_COUNTER_SET, buffer: Long, buffersizeinbytes: UInt, byteswritten: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvGetVirtualProcessorCounters(partition, vpindex.toInt(), counterset, buffer, buffersizeinbytes.toInt(), byteswritten)
+public actual fun wHvGetVirtualProcessorCounters(partition: WhvPartitionHandle, vpindex: UInt, counterset: WhvProcessorCounterSet, buffer: COpaquePointer?, buffersizeinbytes: UInt, byteswritten: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorCounters(partition.toLong(), vpindex.toInt(), counterset, (buffer?.value ?: 0L), buffersizeinbytes.toInt(), (byteswritten?.value ?: 0L))
 
-public actual fun WHvGetVirtualProcessorCpuidOutput(partition: WHV_PARTITION_HANDLE, vpindex: UInt, eax: UInt, ecx: UInt, cpuidoutput: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvGetVirtualProcessorCpuidOutput(partition, vpindex.toInt(), eax.toInt(), ecx.toInt(), cpuidoutput)
+public actual fun wHvGetVirtualProcessorCpuidOutput(partition: WhvPartitionHandle, vpindex: UInt, eax: UInt, ecx: UInt, cpuidoutput: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorCpuidOutput(partition.toLong(), vpindex.toInt(), eax.toInt(), ecx.toInt(), (cpuidoutput?.value ?: 0L))
 
-public actual fun WHvGetVirtualProcessorInterruptControllerState(partition: WHV_PARTITION_HANDLE, vpindex: UInt, state: Long, statesize: UInt, writtensize: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvGetVirtualProcessorInterruptControllerState(partition, vpindex.toInt(), state, statesize.toInt(), writtensize)
+public actual fun wHvGetVirtualProcessorInterruptControllerState(partition: WhvPartitionHandle, vpindex: UInt, state: COpaquePointer?, statesize: UInt, writtensize: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorInterruptControllerState(partition.toLong(), vpindex.toInt(), (state?.value ?: 0L), statesize.toInt(), (writtensize?.value ?: 0L))
 
-public actual fun WHvGetVirtualProcessorInterruptControllerState2(partition: WHV_PARTITION_HANDLE, vpindex: UInt, state: Long, statesize: UInt, writtensize: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvGetVirtualProcessorInterruptControllerState2(partition, vpindex.toInt(), state, statesize.toInt(), writtensize)
+public actual fun wHvGetVirtualProcessorInterruptControllerState2(partition: WhvPartitionHandle, vpindex: UInt, state: COpaquePointer?, statesize: UInt, writtensize: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorInterruptControllerState2(partition.toLong(), vpindex.toInt(), (state?.value ?: 0L), statesize.toInt(), (writtensize?.value ?: 0L))
 
-public actual fun WHvGetVirtualProcessorRegisters(partition: WHV_PARTITION_HANDLE, vpindex: UInt, registernames: Long, registercount: UInt, registervalues: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvGetVirtualProcessorRegisters(partition, vpindex.toInt(), registernames, registercount.toInt(), registervalues)
+public actual fun wHvGetVirtualProcessorRegisters(partition: WhvPartitionHandle, vpindex: UInt, registernames: COpaquePointer?, registercount: UInt, registervalues: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorRegisters(partition.toLong(), vpindex.toInt(), (registernames?.value ?: 0L), registercount.toInt(), (registervalues?.value ?: 0L))
 
-public actual fun WHvGetVirtualProcessorState(partition: WHV_PARTITION_HANDLE, vpindex: UInt, statetype: WHV_VIRTUAL_PROCESSOR_STATE_TYPE, buffer: Long, buffersizeinbytes: UInt, byteswritten: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvGetVirtualProcessorState(partition, vpindex.toInt(), statetype, buffer, buffersizeinbytes.toInt(), byteswritten)
+public actual fun wHvGetVirtualProcessorState(partition: WhvPartitionHandle, vpindex: UInt, statetype: WhvVirtualProcessorStateType, buffer: COpaquePointer?, buffersizeinbytes: UInt, byteswritten: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorState(partition.toLong(), vpindex.toInt(), statetype, (buffer?.value ?: 0L), buffersizeinbytes.toInt(), (byteswritten?.value ?: 0L))
 
-public actual fun WHvGetVirtualProcessorXsaveState(partition: WHV_PARTITION_HANDLE, vpindex: UInt, buffer: Long, buffersizeinbytes: UInt, byteswritten: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvGetVirtualProcessorXsaveState(partition, vpindex.toInt(), buffer, buffersizeinbytes.toInt(), byteswritten)
+public actual fun wHvGetVirtualProcessorXsaveState(partition: WhvPartitionHandle, vpindex: UInt, buffer: COpaquePointer?, buffersizeinbytes: UInt, byteswritten: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvGetVirtualProcessorXsaveState(partition.toLong(), vpindex.toInt(), (buffer?.value ?: 0L), buffersizeinbytes.toInt(), (byteswritten?.value ?: 0L))
 
-public actual fun WHvGetVpciDeviceInterruptTarget(partition: WHV_PARTITION_HANDLE, logicaldeviceid: ULong, index: UInt, multimessagenumber: UInt, target: Long, targetsizeinbytes: UInt, byteswritten: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvGetVpciDeviceInterruptTarget(partition, logicaldeviceid.toLong(), index.toInt(), multimessagenumber.toInt(), target, targetsizeinbytes.toInt(), byteswritten)
+public actual fun wHvGetVpciDeviceInterruptTarget(partition: WhvPartitionHandle, logicaldeviceid: ULong, index: UInt, multimessagenumber: UInt, target: COpaquePointer?, targetsizeinbytes: UInt, byteswritten: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvGetVpciDeviceInterruptTarget(partition.toLong(), logicaldeviceid.toLong(), index.toInt(), multimessagenumber.toInt(), (target?.value ?: 0L), targetsizeinbytes.toInt(), (byteswritten?.value ?: 0L))
 
-public actual fun WHvGetVpciDeviceNotification(partition: WHV_PARTITION_HANDLE, logicaldeviceid: ULong, notification: Long, notificationsizeinbytes: UInt): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvGetVpciDeviceNotification(partition, logicaldeviceid.toLong(), notification, notificationsizeinbytes.toInt())
+public actual fun wHvGetVpciDeviceNotification(partition: WhvPartitionHandle, logicaldeviceid: ULong, notification: COpaquePointer?, notificationsizeinbytes: UInt): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvGetVpciDeviceNotification(partition.toLong(), logicaldeviceid.toLong(), (notification?.value ?: 0L), notificationsizeinbytes.toInt())
 
-public actual fun WHvGetVpciDeviceProperty(partition: WHV_PARTITION_HANDLE, logicaldeviceid: ULong, propertycode: WHV_VPCI_DEVICE_PROPERTY_CODE, propertybuffer: Long, propertybuffersizeinbytes: UInt, writtensizeinbytes: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvGetVpciDeviceProperty(partition, logicaldeviceid.toLong(), propertycode, propertybuffer, propertybuffersizeinbytes.toInt(), writtensizeinbytes)
+public actual fun wHvGetVpciDeviceProperty(partition: WhvPartitionHandle, logicaldeviceid: ULong, propertycode: WhvVpciDevicePropertyCode, propertybuffer: COpaquePointer?, propertybuffersizeinbytes: UInt, writtensizeinbytes: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvGetVpciDeviceProperty(partition.toLong(), logicaldeviceid.toLong(), propertycode, (propertybuffer?.value ?: 0L), propertybuffersizeinbytes.toInt(), (writtensizeinbytes?.value ?: 0L))
 
-public actual fun WHvMapGpaRange(partition: WHV_PARTITION_HANDLE, sourceaddress: Long, guestaddress: ULong, sizeinbytes: ULong, flags: WHV_MAP_GPA_RANGE_FLAGS): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvMapGpaRange(partition, sourceaddress, guestaddress.toLong(), sizeinbytes.toLong(), flags)
+public actual fun wHvMapGpaRange(partition: WhvPartitionHandle, sourceaddress: COpaquePointer?, guestaddress: ULong, sizeinbytes: ULong, flags: WhvMapGpaRangeFlags): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvMapGpaRange(partition.toLong(), (sourceaddress?.value ?: 0L), guestaddress.toLong(), sizeinbytes.toLong(), flags)
 
-public actual fun WHvMapGpaRange2(partition: WHV_PARTITION_HANDLE, process: HANDLE, sourceaddress: Long, guestaddress: ULong, sizeinbytes: ULong, flags: WHV_MAP_GPA_RANGE_FLAGS): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvMapGpaRange2(partition, process, sourceaddress, guestaddress.toLong(), sizeinbytes.toLong(), flags)
+public actual fun wHvMapGpaRange2(partition: WhvPartitionHandle, process: Handle, sourceaddress: COpaquePointer?, guestaddress: ULong, sizeinbytes: ULong, flags: WhvMapGpaRangeFlags): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvMapGpaRange2(partition.toLong(), (process?.value ?: 0L), (sourceaddress?.value ?: 0L), guestaddress.toLong(), sizeinbytes.toLong(), flags)
 
-public actual fun WHvMapVpciDeviceInterrupt(partition: WHV_PARTITION_HANDLE, logicaldeviceid: ULong, index: UInt, messagecount: UInt, target: Long, msiaddress: Long, msidata: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvMapVpciDeviceInterrupt(partition, logicaldeviceid.toLong(), index.toInt(), messagecount.toInt(), target, msiaddress, msidata)
+public actual fun wHvMapVpciDeviceInterrupt(partition: WhvPartitionHandle, logicaldeviceid: ULong, index: UInt, messagecount: UInt, target: COpaquePointer?, msiaddress: COpaquePointer?, msidata: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvMapVpciDeviceInterrupt(partition.toLong(), logicaldeviceid.toLong(), index.toInt(), messagecount.toInt(), (target?.value ?: 0L), (msiaddress?.value ?: 0L), (msidata?.value ?: 0L))
 
-public actual fun WHvMapVpciDeviceMmioRanges(partition: WHV_PARTITION_HANDLE, logicaldeviceid: ULong, mappingcount: Long, mappings: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvMapVpciDeviceMmioRanges(partition, logicaldeviceid.toLong(), mappingcount, mappings)
+public actual fun wHvMapVpciDeviceMmioRanges(partition: WhvPartitionHandle, logicaldeviceid: ULong, mappingcount: COpaquePointer?, mappings: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvMapVpciDeviceMmioRanges(partition.toLong(), logicaldeviceid.toLong(), (mappingcount?.value ?: 0L), (mappings?.value ?: 0L))
 
-public actual fun WHvPostVirtualProcessorSynicMessage(partition: WHV_PARTITION_HANDLE, vpindex: UInt, sintindex: UInt, message: Long, messagesizeinbytes: UInt): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvPostVirtualProcessorSynicMessage(partition, vpindex.toInt(), sintindex.toInt(), message, messagesizeinbytes.toInt())
+public actual fun wHvPostVirtualProcessorSynicMessage(partition: WhvPartitionHandle, vpindex: UInt, sintindex: UInt, message: COpaquePointer?, messagesizeinbytes: UInt): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvPostVirtualProcessorSynicMessage(partition.toLong(), vpindex.toInt(), sintindex.toInt(), (message?.value ?: 0L), messagesizeinbytes.toInt())
 
-public actual fun WHvQueryGpaRangeDirtyBitmap(partition: WHV_PARTITION_HANDLE, guestaddress: ULong, rangesizeinbytes: ULong, bitmap: Long, bitmapsizeinbytes: UInt): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvQueryGpaRangeDirtyBitmap(partition, guestaddress.toLong(), rangesizeinbytes.toLong(), bitmap, bitmapsizeinbytes.toInt())
+public actual fun wHvQueryGpaRangeDirtyBitmap(partition: WhvPartitionHandle, guestaddress: ULong, rangesizeinbytes: ULong, bitmap: COpaquePointer?, bitmapsizeinbytes: UInt): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvQueryGpaRangeDirtyBitmap(partition.toLong(), guestaddress.toLong(), rangesizeinbytes.toLong(), (bitmap?.value ?: 0L), bitmapsizeinbytes.toInt())
 
-public actual fun WHvReadGpaRange(partition: WHV_PARTITION_HANDLE, vpindex: UInt, guestaddress: ULong, controls: WHV_ACCESS_GPA_CONTROLS, data: Long, datasizeinbytes: UInt): HRESULT =
+public actual fun wHvReadGpaRange(partition: WhvPartitionHandle, vpindex: UInt, guestaddress: ULong, controls: WhvAccessGpaControls, data: COpaquePointer?, datasizeinbytes: UInt): Hresult =
     0
 
-public actual fun WHvReadVpciDeviceRegister(partition: WHV_PARTITION_HANDLE, logicaldeviceid: ULong, register: Long, data: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvReadVpciDeviceRegister(partition, logicaldeviceid.toLong(), register, data)
+public actual fun wHvReadVpciDeviceRegister(partition: WhvPartitionHandle, logicaldeviceid: ULong, register: COpaquePointer?, data: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvReadVpciDeviceRegister(partition.toLong(), logicaldeviceid.toLong(), (register?.value ?: 0L), (data?.value ?: 0L))
 
-public actual fun WHvRegisterPartitionDoorbellEvent(partition: WHV_PARTITION_HANDLE, matchdata: Long, eventhandle: HANDLE): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvRegisterPartitionDoorbellEvent(partition, matchdata, eventhandle)
+public actual fun wHvRegisterPartitionDoorbellEvent(partition: WhvPartitionHandle, matchdata: COpaquePointer?, eventhandle: Handle): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvRegisterPartitionDoorbellEvent(partition.toLong(), (matchdata?.value ?: 0L), (eventhandle?.value ?: 0L))
 
-public actual fun WHvRequestInterrupt(partition: WHV_PARTITION_HANDLE, interrupt: Long, interruptcontrolsize: UInt): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvRequestInterrupt(partition, interrupt, interruptcontrolsize.toInt())
+public actual fun wHvRequestInterrupt(partition: WhvPartitionHandle, interrupt: COpaquePointer?, interruptcontrolsize: UInt): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvRequestInterrupt(partition.toLong(), (interrupt?.value ?: 0L), interruptcontrolsize.toInt())
 
-public actual fun WHvRequestVpciDeviceInterrupt(partition: WHV_PARTITION_HANDLE, logicaldeviceid: ULong, msiaddress: ULong, msidata: UInt): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvRequestVpciDeviceInterrupt(partition, logicaldeviceid.toLong(), msiaddress.toLong(), msidata.toInt())
+public actual fun wHvRequestVpciDeviceInterrupt(partition: WhvPartitionHandle, logicaldeviceid: ULong, msiaddress: ULong, msidata: UInt): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvRequestVpciDeviceInterrupt(partition.toLong(), logicaldeviceid.toLong(), msiaddress.toLong(), msidata.toInt())
 
-public actual fun WHvResetPartition(partition: WHV_PARTITION_HANDLE): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvResetPartition(partition)
+public actual fun wHvResetPartition(partition: WhvPartitionHandle): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvResetPartition(partition.toLong())
 
-public actual fun WHvResumePartitionTime(partition: WHV_PARTITION_HANDLE): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvResumePartitionTime(partition)
+public actual fun wHvResumePartitionTime(partition: WhvPartitionHandle): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvResumePartitionTime(partition.toLong())
 
-public actual fun WHvRetargetVpciDeviceInterrupt(partition: WHV_PARTITION_HANDLE, logicaldeviceid: ULong, msiaddress: ULong, msidata: UInt, target: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvRetargetVpciDeviceInterrupt(partition, logicaldeviceid.toLong(), msiaddress.toLong(), msidata.toInt(), target)
+public actual fun wHvRetargetVpciDeviceInterrupt(partition: WhvPartitionHandle, logicaldeviceid: ULong, msiaddress: ULong, msidata: UInt, target: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvRetargetVpciDeviceInterrupt(partition.toLong(), logicaldeviceid.toLong(), msiaddress.toLong(), msidata.toInt(), (target?.value ?: 0L))
 
-public actual fun WHvRunVirtualProcessor(partition: WHV_PARTITION_HANDLE, vpindex: UInt, exitcontext: Long, exitcontextsizeinbytes: UInt): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvRunVirtualProcessor(partition, vpindex.toInt(), exitcontext, exitcontextsizeinbytes.toInt())
+public actual fun wHvRunVirtualProcessor(partition: WhvPartitionHandle, vpindex: UInt, exitcontext: COpaquePointer?, exitcontextsizeinbytes: UInt): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvRunVirtualProcessor(partition.toLong(), vpindex.toInt(), (exitcontext?.value ?: 0L), exitcontextsizeinbytes.toInt())
 
-public actual fun WHvSetNotificationPortProperty(partition: WHV_PARTITION_HANDLE, porthandle: Long, propertycode: WHV_NOTIFICATION_PORT_PROPERTY_CODE, propertyvalue: ULong): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvSetNotificationPortProperty(partition, porthandle, propertycode, propertyvalue.toLong())
+public actual fun wHvSetNotificationPortProperty(partition: WhvPartitionHandle, porthandle: COpaquePointer?, propertycode: WhvNotificationPortPropertyCode, propertyvalue: ULong): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvSetNotificationPortProperty(partition.toLong(), (porthandle?.value ?: 0L), propertycode, propertyvalue.toLong())
 
-public actual fun WHvSetPartitionProperty(partition: WHV_PARTITION_HANDLE, propertycode: WHV_PARTITION_PROPERTY_CODE, propertybuffer: Long, propertybuffersizeinbytes: UInt): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvSetPartitionProperty(partition, propertycode, propertybuffer, propertybuffersizeinbytes.toInt())
+public actual fun wHvSetPartitionProperty(partition: WhvPartitionHandle, propertycode: WhvPartitionPropertyCode, propertybuffer: COpaquePointer?, propertybuffersizeinbytes: UInt): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvSetPartitionProperty(partition.toLong(), propertycode, (propertybuffer?.value ?: 0L), propertybuffersizeinbytes.toInt())
 
-public actual fun WHvSetVirtualProcessorInterruptControllerState(partition: WHV_PARTITION_HANDLE, vpindex: UInt, state: Long, statesize: UInt): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvSetVirtualProcessorInterruptControllerState(partition, vpindex.toInt(), state, statesize.toInt())
+public actual fun wHvSetVirtualProcessorInterruptControllerState(partition: WhvPartitionHandle, vpindex: UInt, state: COpaquePointer?, statesize: UInt): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorInterruptControllerState(partition.toLong(), vpindex.toInt(), (state?.value ?: 0L), statesize.toInt())
 
-public actual fun WHvSetVirtualProcessorInterruptControllerState2(partition: WHV_PARTITION_HANDLE, vpindex: UInt, state: Long, statesize: UInt): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvSetVirtualProcessorInterruptControllerState2(partition, vpindex.toInt(), state, statesize.toInt())
+public actual fun wHvSetVirtualProcessorInterruptControllerState2(partition: WhvPartitionHandle, vpindex: UInt, state: COpaquePointer?, statesize: UInt): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorInterruptControllerState2(partition.toLong(), vpindex.toInt(), (state?.value ?: 0L), statesize.toInt())
 
-public actual fun WHvSetVirtualProcessorRegisters(partition: WHV_PARTITION_HANDLE, vpindex: UInt, registernames: Long, registercount: UInt, registervalues: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvSetVirtualProcessorRegisters(partition, vpindex.toInt(), registernames, registercount.toInt(), registervalues)
+public actual fun wHvSetVirtualProcessorRegisters(partition: WhvPartitionHandle, vpindex: UInt, registernames: COpaquePointer?, registercount: UInt, registervalues: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorRegisters(partition.toLong(), vpindex.toInt(), (registernames?.value ?: 0L), registercount.toInt(), (registervalues?.value ?: 0L))
 
-public actual fun WHvSetVirtualProcessorState(partition: WHV_PARTITION_HANDLE, vpindex: UInt, statetype: WHV_VIRTUAL_PROCESSOR_STATE_TYPE, buffer: Long, buffersizeinbytes: UInt): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvSetVirtualProcessorState(partition, vpindex.toInt(), statetype, buffer, buffersizeinbytes.toInt())
+public actual fun wHvSetVirtualProcessorState(partition: WhvPartitionHandle, vpindex: UInt, statetype: WhvVirtualProcessorStateType, buffer: COpaquePointer?, buffersizeinbytes: UInt): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorState(partition.toLong(), vpindex.toInt(), statetype, (buffer?.value ?: 0L), buffersizeinbytes.toInt())
 
-public actual fun WHvSetVirtualProcessorXsaveState(partition: WHV_PARTITION_HANDLE, vpindex: UInt, buffer: Long, buffersizeinbytes: UInt): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvSetVirtualProcessorXsaveState(partition, vpindex.toInt(), buffer, buffersizeinbytes.toInt())
+public actual fun wHvSetVirtualProcessorXsaveState(partition: WhvPartitionHandle, vpindex: UInt, buffer: COpaquePointer?, buffersizeinbytes: UInt): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvSetVirtualProcessorXsaveState(partition.toLong(), vpindex.toInt(), (buffer?.value ?: 0L), buffersizeinbytes.toInt())
 
-public actual fun WHvSetVpciDevicePowerState(partition: WHV_PARTITION_HANDLE, logicaldeviceid: ULong, powerstate: DEVICE_POWER_STATE): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvSetVpciDevicePowerState(partition, logicaldeviceid.toLong(), powerstate)
+public actual fun wHvSetVpciDevicePowerState(partition: WhvPartitionHandle, logicaldeviceid: ULong, powerstate: DevicePowerState): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvSetVpciDevicePowerState(partition.toLong(), logicaldeviceid.toLong(), powerstate)
 
-public actual fun WHvSetupPartition(partition: WHV_PARTITION_HANDLE): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvSetupPartition(partition)
+public actual fun wHvSetupPartition(partition: WhvPartitionHandle): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvSetupPartition(partition.toLong())
 
-public actual fun WHvSignalVirtualProcessorSynicEvent(partition: WHV_PARTITION_HANDLE, synicevent: WHV_SYNIC_EVENT_PARAMETERS, newlysignaled: Long): HRESULT =
+public actual fun wHvSignalVirtualProcessorSynicEvent(partition: WhvPartitionHandle, synicevent: WhvSynicEventParameters, newlysignaled: COpaquePointer?): Hresult =
     0
 
-public actual fun WHvStartPartitionMigration(partition: WHV_PARTITION_HANDLE, migrationhandle: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvStartPartitionMigration(partition, migrationhandle)
+public actual fun wHvStartPartitionMigration(partition: WhvPartitionHandle, migrationhandle: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvStartPartitionMigration(partition.toLong(), (migrationhandle?.value ?: 0L))
 
-public actual fun WHvSuspendPartitionTime(partition: WHV_PARTITION_HANDLE): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvSuspendPartitionTime(partition)
+public actual fun wHvSuspendPartitionTime(partition: WhvPartitionHandle): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvSuspendPartitionTime(partition.toLong())
 
-public actual fun WHvTranslateGva(partition: WHV_PARTITION_HANDLE, vpindex: UInt, gva: ULong, translateflags: WHV_TRANSLATE_GVA_FLAGS, translationresult: Long, gpa: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvTranslateGva(partition, vpindex.toInt(), gva.toLong(), translateflags, translationresult, gpa)
+public actual fun wHvTranslateGva(partition: WhvPartitionHandle, vpindex: UInt, gva: ULong, translateflags: WhvTranslateGvaFlags, translationresult: COpaquePointer?, gpa: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvTranslateGva(partition.toLong(), vpindex.toInt(), gva.toLong(), translateflags, (translationresult?.value ?: 0L), (gpa?.value ?: 0L))
 
-public actual fun WHvUnmapGpaRange(partition: WHV_PARTITION_HANDLE, guestaddress: ULong, sizeinbytes: ULong): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvUnmapGpaRange(partition, guestaddress.toLong(), sizeinbytes.toLong())
+public actual fun wHvUnmapGpaRange(partition: WhvPartitionHandle, guestaddress: ULong, sizeinbytes: ULong): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvUnmapGpaRange(partition.toLong(), guestaddress.toLong(), sizeinbytes.toLong())
 
-public actual fun WHvUnmapVpciDeviceInterrupt(partition: WHV_PARTITION_HANDLE, logicaldeviceid: ULong, index: UInt): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvUnmapVpciDeviceInterrupt(partition, logicaldeviceid.toLong(), index.toInt())
+public actual fun wHvUnmapVpciDeviceInterrupt(partition: WhvPartitionHandle, logicaldeviceid: ULong, index: UInt): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvUnmapVpciDeviceInterrupt(partition.toLong(), logicaldeviceid.toLong(), index.toInt())
 
-public actual fun WHvUnmapVpciDeviceMmioRanges(partition: WHV_PARTITION_HANDLE, logicaldeviceid: ULong): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvUnmapVpciDeviceMmioRanges(partition, logicaldeviceid.toLong())
+public actual fun wHvUnmapVpciDeviceMmioRanges(partition: WhvPartitionHandle, logicaldeviceid: ULong): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvUnmapVpciDeviceMmioRanges(partition.toLong(), logicaldeviceid.toLong())
 
-public actual fun WHvUnregisterPartitionDoorbellEvent(partition: WHV_PARTITION_HANDLE, matchdata: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvUnregisterPartitionDoorbellEvent(partition, matchdata)
+public actual fun wHvUnregisterPartitionDoorbellEvent(partition: WhvPartitionHandle, matchdata: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvUnregisterPartitionDoorbellEvent(partition.toLong(), (matchdata?.value ?: 0L))
 
-public actual fun WHvUpdateTriggerParameters(partition: WHV_PARTITION_HANDLE, parameters: Long, triggerhandle: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvUpdateTriggerParameters(partition, parameters, triggerhandle)
+public actual fun wHvUpdateTriggerParameters(partition: WhvPartitionHandle, parameters: COpaquePointer?, triggerhandle: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvUpdateTriggerParameters(partition.toLong(), (parameters?.value ?: 0L), (triggerhandle?.value ?: 0L))
 
-public actual fun WHvWriteGpaRange(partition: WHV_PARTITION_HANDLE, vpindex: UInt, guestaddress: ULong, controls: WHV_ACCESS_GPA_CONTROLS, data: Long, datasizeinbytes: UInt): HRESULT =
+public actual fun wHvWriteGpaRange(partition: WhvPartitionHandle, vpindex: UInt, guestaddress: ULong, controls: WhvAccessGpaControls, data: COpaquePointer?, datasizeinbytes: UInt): Hresult =
     0
 
-public actual fun WHvWriteVpciDeviceRegister(partition: WHV_PARTITION_HANDLE, logicaldeviceid: ULong, register: Long, data: Long): HRESULT =
-    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_WHvWriteVpciDeviceRegister(partition, logicaldeviceid.toLong(), register, data)
+public actual fun wHvWriteVpciDeviceRegister(partition: WhvPartitionHandle, logicaldeviceid: ULong, register: COpaquePointer?, data: COpaquePointer?): Hresult =
+    WindowsWin32SystemHypervisorJniBridge.windowssys_windows_win32_system_hypervisor_wHvWriteVpciDeviceRegister(partition.toLong(), logicaldeviceid.toLong(), (register?.value ?: 0L), (data?.value ?: 0L))

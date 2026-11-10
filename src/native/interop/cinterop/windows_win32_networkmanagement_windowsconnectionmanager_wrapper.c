@@ -15,7 +15,7 @@
 #endif
 #endif
 
-void windowssys_windows_win32_networkmanagement_windowsconnectionmanager_FreeInterfaceContextTable(void* interfacecontexttable) {
+void windowssys_windows_win32_networkmanagement_windowsconnectionmanager_freeInterfaceContextTable(void* interfacecontexttable) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -36,7 +36,7 @@ void windowssys_windows_win32_networkmanagement_windowsconnectionmanager_FreeInt
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_windowsconnectionmanager_GetInterfaceContextTableForHostName(void* hostname, void* proxyname, uint32_t flags, void* connectionprofilefilterrawdata, uint32_t connectionprofilefilterrawdatasize, void* interfacecontexttable) {
+int32_t windowssys_windows_win32_networkmanagement_windowsconnectionmanager_getInterfaceContextTableForHostName(void* hostname, void* proxyname, uint32_t flags, void* connectionprofilefilterrawdata, uint32_t connectionprofilefilterrawdatasize, void* interfacecontexttable) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -63,7 +63,7 @@ int32_t windowssys_windows_win32_networkmanagement_windowsconnectionmanager_GetI
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_windowsconnectionmanager_OnDemandGetRoutingHint(void* destinationhostname, void* interfaceindex) {
+int32_t windowssys_windows_win32_networkmanagement_windowsconnectionmanager_onDemandGetRoutingHint(void* destinationhostname, void* interfaceindex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -86,7 +86,7 @@ int32_t windowssys_windows_win32_networkmanagement_windowsconnectionmanager_OnDe
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_windowsconnectionmanager_OnDemandRegisterNotification(void* callback, void* callbackcontext, void* registrationhandle) {
+int32_t windowssys_windows_win32_networkmanagement_windowsconnectionmanager_onDemandRegisterNotification(void* callback, void* callbackcontext, void* registrationhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -110,7 +110,7 @@ int32_t windowssys_windows_win32_networkmanagement_windowsconnectionmanager_OnDe
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_windowsconnectionmanager_OnDemandUnRegisterNotification(void* registrationhandle) {
+int32_t windowssys_windows_win32_networkmanagement_windowsconnectionmanager_onDemandUnRegisterNotification(void* registrationhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -132,7 +132,7 @@ int32_t windowssys_windows_win32_networkmanagement_windowsconnectionmanager_OnDe
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WcmFreeMemory(void* pmemory) {
+void windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmFreeMemory(void* pmemory) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -153,7 +153,7 @@ void windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WcmFree
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WcmGetProfileList(void* preserved, void* ppprofilelist) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmGetProfileList(void* preserved, void* ppprofilelist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -176,7 +176,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsconnectionmanager_Wcm
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WcmQueryProperty(void* pinterface, void* strprofilename, int32_t property, void* preserved, void* pdwdatasize, void* ppdata) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmQueryProperty(void* pinterface, void* strprofilename, int32_t property, void* preserved, void* pdwdatasize, void* ppdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -203,7 +203,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsconnectionmanager_Wcm
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WcmSetProfileList(void* pprofilelist, uint32_t dwposition, int32_t fignoreunknownprofiles, void* preserved) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmSetProfileList(void* pprofilelist, uint32_t dwposition, int32_t fignoreunknownprofiles, void* preserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -228,7 +228,7 @@ uint32_t windowssys_windows_win32_networkmanagement_windowsconnectionmanager_Wcm
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WcmSetProperty(void* pinterface, void* strprofilename, int32_t property, void* preserved, uint32_t dwdatasize, void* pbdata) {
+uint32_t windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmSetProperty(void* pinterface, void* strprofilename, int32_t property, void* preserved, uint32_t dwdatasize, void* pbdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;

@@ -1,176 +1,177 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.input.ime
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LRESULT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
-import io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.HKL
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
+import io.github.kotlinmania.windowssys.windows.win32.ui.input.keyboardandmouse.Hkl
 
-public expect fun ImmAssociateContext(param0: HWND, param1: HIMC): HIMC
+public expect fun immAssociateContext(param0: Hwnd, param1: Himc): Himc
 
-public expect fun ImmAssociateContextEx(param0: HWND, param1: HIMC, param2: UInt): BOOL
+public expect fun immAssociateContextEx(param0: Hwnd, param1: Himc, param2: UInt): Bool
 
-public expect fun ImmConfigureIMEA(param0: HKL, param1: HWND, param2: UInt, param3: Long): BOOL
+public expect fun immConfigureIMEA(param0: Hkl, param1: Hwnd, param2: UInt, param3: COpaquePointer?): Bool
 
-public expect fun ImmConfigureIMEW(param0: HKL, param1: HWND, param2: UInt, param3: Long): BOOL
+public expect fun immConfigureIMEW(param0: Hkl, param1: Hwnd, param2: UInt, param3: COpaquePointer?): Bool
 
-public expect fun ImmCreateContext(): HIMC
+public expect fun immCreateContext(): Himc
 
-public expect fun ImmCreateIMCC(param0: UInt): HIMCC
+public expect fun immCreateIMCC(param0: UInt): Himcc
 
-public expect fun ImmCreateSoftKeyboard(param0: UInt, param1: HWND, param2: Int, param3: Int): HWND
+public expect fun immCreateSoftKeyboard(param0: UInt, param1: Hwnd, param2: Int, param3: Int): Hwnd
 
-public expect fun ImmDestroyContext(param0: HIMC): BOOL
+public expect fun immDestroyContext(param0: Himc): Bool
 
-public expect fun ImmDestroyIMCC(param0: HIMCC): HIMCC
+public expect fun immDestroyIMCC(param0: Himcc): Himcc
 
-public expect fun ImmDestroySoftKeyboard(param0: HWND): BOOL
+public expect fun immDestroySoftKeyboard(param0: Hwnd): Bool
 
-public expect fun ImmDisableIME(param0: UInt): BOOL
+public expect fun immDisableIME(param0: UInt): Bool
 
-public expect fun ImmDisableLegacyIME(): BOOL
+public expect fun immDisableLegacyIME(): Bool
 
-public expect fun ImmDisableTextFrameService(idthread: UInt): BOOL
+public expect fun immDisableTextFrameService(idthread: UInt): Bool
 
-public expect fun ImmEnumInputContext(idthread: UInt, lpfn: IMCENUMPROC, lparam: LPARAM): BOOL
+public expect fun immEnumInputContext(idthread: UInt, lpfn: Imcenumproc, lparam: Lparam): Bool
 
-public expect fun ImmEnumRegisterWordA(param0: HKL, param1: REGISTERWORDENUMPROCA, lpszreading: PCSTR, param3: UInt, lpszregister: PCSTR, param5: Long): UInt
+public expect fun immEnumRegisterWordA(param0: Hkl, param1: Registerwordenumproca, lpszreading: Pcstr, param3: UInt, lpszregister: Pcstr, param5: COpaquePointer?): UInt
 
-public expect fun ImmEnumRegisterWordW(param0: HKL, param1: REGISTERWORDENUMPROCW, lpszreading: PCWSTR, param3: UInt, lpszregister: PCWSTR, param5: Long): UInt
+public expect fun immEnumRegisterWordW(param0: Hkl, param1: Registerwordenumprocw, lpszreading: Pcwstr, param3: UInt, lpszregister: Pcwstr, param5: COpaquePointer?): UInt
 
-public expect fun ImmEscapeA(param0: HKL, param1: HIMC, param2: IME_ESCAPE, param3: Long): LRESULT
+public expect fun immEscapeA(param0: Hkl, param1: Himc, param2: ImeEscape, param3: COpaquePointer?): Lresult
 
-public expect fun ImmEscapeW(param0: HKL, param1: HIMC, param2: IME_ESCAPE, param3: Long): LRESULT
+public expect fun immEscapeW(param0: Hkl, param1: Himc, param2: ImeEscape, param3: COpaquePointer?): Lresult
 
-public expect fun ImmGenerateMessage(param0: HIMC): BOOL
+public expect fun immGenerateMessage(param0: Himc): Bool
 
-public expect fun ImmGetCandidateListA(param0: HIMC, deindex: UInt, lpcandlist: Long, dwbuflen: UInt): UInt
+public expect fun immGetCandidateListA(param0: Himc, deindex: UInt, lpcandlist: COpaquePointer?, dwbuflen: UInt): UInt
 
-public expect fun ImmGetCandidateListCountA(param0: HIMC, lpdwlistcount: Long): UInt
+public expect fun immGetCandidateListCountA(param0: Himc, lpdwlistcount: COpaquePointer?): UInt
 
-public expect fun ImmGetCandidateListCountW(param0: HIMC, lpdwlistcount: Long): UInt
+public expect fun immGetCandidateListCountW(param0: Himc, lpdwlistcount: COpaquePointer?): UInt
 
-public expect fun ImmGetCandidateListW(param0: HIMC, deindex: UInt, lpcandlist: Long, dwbuflen: UInt): UInt
+public expect fun immGetCandidateListW(param0: Himc, deindex: UInt, lpcandlist: COpaquePointer?, dwbuflen: UInt): UInt
 
-public expect fun ImmGetCandidateWindow(param0: HIMC, param1: UInt, lpcandidate: Long): BOOL
+public expect fun immGetCandidateWindow(param0: Himc, param1: UInt, lpcandidate: COpaquePointer?): Bool
 
-public expect fun ImmGetCompositionFontA(param0: HIMC, lplf: Long): BOOL
+public expect fun immGetCompositionFontA(param0: Himc, lplf: COpaquePointer?): Bool
 
-public expect fun ImmGetCompositionFontW(param0: HIMC, lplf: Long): BOOL
+public expect fun immGetCompositionFontW(param0: Himc, lplf: COpaquePointer?): Bool
 
-public expect fun ImmGetCompositionStringA(param0: HIMC, param1: IME_COMPOSITION_STRING, lpbuf: Long, dwbuflen: UInt): Int
+public expect fun immGetCompositionStringA(param0: Himc, param1: ImeCompositionString, lpbuf: COpaquePointer?, dwbuflen: UInt): Int
 
-public expect fun ImmGetCompositionStringW(param0: HIMC, param1: IME_COMPOSITION_STRING, lpbuf: Long, dwbuflen: UInt): Int
+public expect fun immGetCompositionStringW(param0: Himc, param1: ImeCompositionString, lpbuf: COpaquePointer?, dwbuflen: UInt): Int
 
-public expect fun ImmGetCompositionWindow(param0: HIMC, lpcompform: Long): BOOL
+public expect fun immGetCompositionWindow(param0: Himc, lpcompform: COpaquePointer?): Bool
 
-public expect fun ImmGetContext(param0: HWND): HIMC
+public expect fun immGetContext(param0: Hwnd): Himc
 
-public expect fun ImmGetConversionListA(param0: HKL, param1: HIMC, lpsrc: PCSTR, lpdst: Long, dwbuflen: UInt, uflag: GET_CONVERSION_LIST_FLAG): UInt
+public expect fun immGetConversionListA(param0: Hkl, param1: Himc, lpsrc: Pcstr, lpdst: COpaquePointer?, dwbuflen: UInt, uflag: GetConversionListFlag): UInt
 
-public expect fun ImmGetConversionListW(param0: HKL, param1: HIMC, lpsrc: PCWSTR, lpdst: Long, dwbuflen: UInt, uflag: GET_CONVERSION_LIST_FLAG): UInt
+public expect fun immGetConversionListW(param0: Hkl, param1: Himc, lpsrc: Pcwstr, lpdst: COpaquePointer?, dwbuflen: UInt, uflag: GetConversionListFlag): UInt
 
-public expect fun ImmGetConversionStatus(param0: HIMC, lpfdwconversion: Long, lpfdwsentence: Long): BOOL
+public expect fun immGetConversionStatus(param0: Himc, lpfdwconversion: COpaquePointer?, lpfdwsentence: COpaquePointer?): Bool
 
-public expect fun ImmGetDefaultIMEWnd(param0: HWND): HWND
+public expect fun immGetDefaultIMEWnd(param0: Hwnd): Hwnd
 
-public expect fun ImmGetDescriptionA(param0: HKL, lpszdescription: PSTR, ubuflen: UInt): UInt
+public expect fun immGetDescriptionA(param0: Hkl, lpszdescription: Pstr, ubuflen: UInt): UInt
 
-public expect fun ImmGetDescriptionW(param0: HKL, lpszdescription: PWSTR, ubuflen: UInt): UInt
+public expect fun immGetDescriptionW(param0: Hkl, lpszdescription: Pwstr, ubuflen: UInt): UInt
 
-public expect fun ImmGetGuideLineA(param0: HIMC, dwindex: GET_GUIDE_LINE_TYPE, lpbuf: PSTR, dwbuflen: UInt): UInt
+public expect fun immGetGuideLineA(param0: Himc, dwindex: GetGuideLineType, lpbuf: Pstr, dwbuflen: UInt): UInt
 
-public expect fun ImmGetGuideLineW(param0: HIMC, dwindex: GET_GUIDE_LINE_TYPE, lpbuf: PWSTR, dwbuflen: UInt): UInt
+public expect fun immGetGuideLineW(param0: Himc, dwindex: GetGuideLineType, lpbuf: Pwstr, dwbuflen: UInt): UInt
 
-public expect fun ImmGetHotKey(param0: UInt, lpumodifiers: Long, lpuvkey: Long, phkl: Long): BOOL
+public expect fun immGetHotKey(param0: UInt, lpumodifiers: COpaquePointer?, lpuvkey: COpaquePointer?, phkl: COpaquePointer?): Bool
 
-public expect fun ImmGetIMCCLockCount(param0: HIMCC): UInt
+public expect fun immGetIMCCLockCount(param0: Himcc): UInt
 
-public expect fun ImmGetIMCCSize(param0: HIMCC): UInt
+public expect fun immGetIMCCSize(param0: Himcc): UInt
 
-public expect fun ImmGetIMCLockCount(param0: HIMC): UInt
+public expect fun immGetIMCLockCount(param0: Himc): UInt
 
-public expect fun ImmGetIMEFileNameA(param0: HKL, lpszfilename: PSTR, ubuflen: UInt): UInt
+public expect fun immGetIMEFileNameA(param0: Hkl, lpszfilename: Pstr, ubuflen: UInt): UInt
 
-public expect fun ImmGetIMEFileNameW(param0: HKL, lpszfilename: PWSTR, ubuflen: UInt): UInt
+public expect fun immGetIMEFileNameW(param0: Hkl, lpszfilename: Pwstr, ubuflen: UInt): UInt
 
-public expect fun ImmGetImeMenuItemsA(param0: HIMC, param1: UInt, param2: UInt, lpimeparentmenu: Long, lpimemenu: Long, dwsize: UInt): UInt
+public expect fun immGetImeMenuItemsA(param0: Himc, param1: UInt, param2: UInt, lpimeparentmenu: COpaquePointer?, lpimemenu: COpaquePointer?, dwsize: UInt): UInt
 
-public expect fun ImmGetImeMenuItemsW(param0: HIMC, param1: UInt, param2: UInt, lpimeparentmenu: Long, lpimemenu: Long, dwsize: UInt): UInt
+public expect fun immGetImeMenuItemsW(param0: Himc, param1: UInt, param2: UInt, lpimeparentmenu: COpaquePointer?, lpimemenu: COpaquePointer?, dwsize: UInt): UInt
 
-public expect fun ImmGetOpenStatus(param0: HIMC): BOOL
+public expect fun immGetOpenStatus(param0: Himc): Bool
 
-public expect fun ImmGetProperty(param0: HKL, param1: UInt): UInt
+public expect fun immGetProperty(param0: Hkl, param1: UInt): UInt
 
-public expect fun ImmGetRegisterWordStyleA(param0: HKL, nitem: UInt, lpstylebuf: Long): UInt
+public expect fun immGetRegisterWordStyleA(param0: Hkl, nitem: UInt, lpstylebuf: COpaquePointer?): UInt
 
-public expect fun ImmGetRegisterWordStyleW(param0: HKL, nitem: UInt, lpstylebuf: Long): UInt
+public expect fun immGetRegisterWordStyleW(param0: Hkl, nitem: UInt, lpstylebuf: COpaquePointer?): UInt
 
-public expect fun ImmGetStatusWindowPos(param0: HIMC, lpptpos: Long): BOOL
+public expect fun immGetStatusWindowPos(param0: Himc, lpptpos: COpaquePointer?): Bool
 
-public expect fun ImmGetVirtualKey(param0: HWND): UInt
+public expect fun immGetVirtualKey(param0: Hwnd): UInt
 
-public expect fun ImmInstallIMEA(lpszimefilename: PCSTR, lpszlayouttext: PCSTR): HKL
+public expect fun immInstallIMEA(lpszimefilename: Pcstr, lpszlayouttext: Pcstr): Hkl
 
-public expect fun ImmInstallIMEW(lpszimefilename: PCWSTR, lpszlayouttext: PCWSTR): HKL
+public expect fun immInstallIMEW(lpszimefilename: Pcwstr, lpszlayouttext: Pcwstr): Hkl
 
-public expect fun ImmIsIME(param0: HKL): BOOL
+public expect fun immIsIME(param0: Hkl): Bool
 
-public expect fun ImmIsUIMessageA(param0: HWND, param1: UInt, param2: WPARAM, param3: LPARAM): BOOL
+public expect fun immIsUIMessageA(param0: Hwnd, param1: UInt, param2: Wparam, param3: Lparam): Bool
 
-public expect fun ImmIsUIMessageW(param0: HWND, param1: UInt, param2: WPARAM, param3: LPARAM): BOOL
+public expect fun immIsUIMessageW(param0: Hwnd, param1: UInt, param2: Wparam, param3: Lparam): Bool
 
-public expect fun ImmLockIMC(param0: HIMC): Long
+public expect fun immLockIMC(param0: Himc): COpaquePointer?
 
-public expect fun ImmLockIMCC(param0: HIMCC): Long
+public expect fun immLockIMCC(param0: Himcc): COpaquePointer?
 
-public expect fun ImmNotifyIME(param0: HIMC, dwaction: NOTIFY_IME_ACTION, dwindex: NOTIFY_IME_INDEX, dwvalue: UInt): BOOL
+public expect fun immNotifyIME(param0: Himc, dwaction: NotifyImeAction, dwindex: NotifyImeIndex, dwvalue: UInt): Bool
 
-public expect fun ImmReSizeIMCC(param0: HIMCC, param1: UInt): HIMCC
+public expect fun immReSizeIMCC(param0: Himcc, param1: UInt): Himcc
 
-public expect fun ImmRegisterWordA(param0: HKL, lpszreading: PCSTR, param2: UInt, lpszregister: PCSTR): BOOL
+public expect fun immRegisterWordA(param0: Hkl, lpszreading: Pcstr, param2: UInt, lpszregister: Pcstr): Bool
 
-public expect fun ImmRegisterWordW(param0: HKL, lpszreading: PCWSTR, param2: UInt, lpszregister: PCWSTR): BOOL
+public expect fun immRegisterWordW(param0: Hkl, lpszreading: Pcwstr, param2: UInt, lpszregister: Pcwstr): Bool
 
-public expect fun ImmReleaseContext(param0: HWND, param1: HIMC): BOOL
+public expect fun immReleaseContext(param0: Hwnd, param1: Himc): Bool
 
-public expect fun ImmRequestMessageA(param0: HIMC, param1: WPARAM, param2: LPARAM): LRESULT
+public expect fun immRequestMessageA(param0: Himc, param1: Wparam, param2: Lparam): Lresult
 
-public expect fun ImmRequestMessageW(param0: HIMC, param1: WPARAM, param2: LPARAM): LRESULT
+public expect fun immRequestMessageW(param0: Himc, param1: Wparam, param2: Lparam): Lresult
 
-public expect fun ImmSetCandidateWindow(param0: HIMC, lpcandidate: Long): BOOL
+public expect fun immSetCandidateWindow(param0: Himc, lpcandidate: COpaquePointer?): Bool
 
-public expect fun ImmSetCompositionFontA(param0: HIMC, lplf: Long): BOOL
+public expect fun immSetCompositionFontA(param0: Himc, lplf: COpaquePointer?): Bool
 
-public expect fun ImmSetCompositionFontW(param0: HIMC, lplf: Long): BOOL
+public expect fun immSetCompositionFontW(param0: Himc, lplf: COpaquePointer?): Bool
 
-public expect fun ImmSetCompositionStringA(param0: HIMC, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: Long, dwcomplen: UInt, lpread: Long, dwreadlen: UInt): BOOL
+public expect fun immSetCompositionStringA(param0: Himc, dwindex: SetCompositionStringType, lpcomp: COpaquePointer?, dwcomplen: UInt, lpread: COpaquePointer?, dwreadlen: UInt): Bool
 
-public expect fun ImmSetCompositionStringW(param0: HIMC, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: Long, dwcomplen: UInt, lpread: Long, dwreadlen: UInt): BOOL
+public expect fun immSetCompositionStringW(param0: Himc, dwindex: SetCompositionStringType, lpcomp: COpaquePointer?, dwcomplen: UInt, lpread: COpaquePointer?, dwreadlen: UInt): Bool
 
-public expect fun ImmSetCompositionWindow(param0: HIMC, lpcompform: Long): BOOL
+public expect fun immSetCompositionWindow(param0: Himc, lpcompform: COpaquePointer?): Bool
 
-public expect fun ImmSetConversionStatus(param0: HIMC, param1: IME_CONVERSION_MODE, param2: IME_SENTENCE_MODE): BOOL
+public expect fun immSetConversionStatus(param0: Himc, param1: ImeConversionMode, param2: ImeSentenceMode): Bool
 
-public expect fun ImmSetHotKey(param0: UInt, param1: UInt, param2: UInt, param3: HKL): BOOL
+public expect fun immSetHotKey(param0: UInt, param1: UInt, param2: UInt, param3: Hkl): Bool
 
-public expect fun ImmSetOpenStatus(param0: HIMC, param1: BOOL): BOOL
+public expect fun immSetOpenStatus(param0: Himc, param1: Bool): Bool
 
-public expect fun ImmSetStatusWindowPos(param0: HIMC, lpptpos: Long): BOOL
+public expect fun immSetStatusWindowPos(param0: Himc, lpptpos: COpaquePointer?): Bool
 
-public expect fun ImmShowSoftKeyboard(param0: HWND, param1: Int): BOOL
+public expect fun immShowSoftKeyboard(param0: Hwnd, param1: Int): Bool
 
-public expect fun ImmSimulateHotKey(param0: HWND, param1: IME_HOTKEY_IDENTIFIER): BOOL
+public expect fun immSimulateHotKey(param0: Hwnd, param1: ImeHotkeyIdentifier): Bool
 
-public expect fun ImmUnlockIMC(param0: HIMC): BOOL
+public expect fun immUnlockIMC(param0: Himc): Bool
 
-public expect fun ImmUnlockIMCC(param0: HIMCC): BOOL
+public expect fun immUnlockIMCC(param0: Himcc): Bool
 
-public expect fun ImmUnregisterWordA(param0: HKL, lpszreading: PCSTR, param2: UInt, lpszunregister: PCSTR): BOOL
+public expect fun immUnregisterWordA(param0: Hkl, lpszreading: Pcstr, param2: UInt, lpszunregister: Pcstr): Bool
 
-public expect fun ImmUnregisterWordW(param0: HKL, lpszreading: PCWSTR, param2: UInt, lpszunregister: PCWSTR): BOOL
+public expect fun immUnregisterWordW(param0: Hkl, lpszreading: Pcwstr, param2: UInt, lpszunregister: Pcwstr): Bool

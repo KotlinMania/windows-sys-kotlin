@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetAddColumnA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetAddColumnA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -81,7 +81,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetAddColumnA_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetAddColumnW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetAddColumnW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -111,7 +111,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetAddColumnW_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetAttachDatabase2A_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetAttachDatabase2A_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -135,7 +135,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetAttachDatabase2A_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetAttachDatabase2W_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetAttachDatabase2W_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -159,7 +159,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetAttachDatabase2W_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetAttachDatabaseA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetAttachDatabaseA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -181,7 +181,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetAttachDatabaseA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetAttachDatabaseW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetAttachDatabaseW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -203,7 +203,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetAttachDatabaseW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetBackupA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetBackupA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szbackuppath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t grbit = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -225,7 +225,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetBackupA_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetBackupInstanceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetBackupInstanceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t instance = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szbackuppath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -249,7 +249,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetBackupInstanceA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetBackupInstanceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetBackupInstanceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t instance = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szbackuppath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -273,7 +273,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetBackupInstanceW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetBackupW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetBackupW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szbackuppath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t grbit = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -295,7 +295,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetBackupW_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetBeginExternalBackup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetBeginExternalBackup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t grbit = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -313,7 +313,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetBeginExternalBackup_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetBeginExternalBackupInstance_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetBeginExternalBackupInstance_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t instance = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t grbit = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -333,7 +333,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetBeginExternalBackupIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetBeginSessionA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetBeginSessionA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t instance = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* psesid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -357,7 +357,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetBeginSessionA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetBeginSessionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetBeginSessionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t instance = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* psesid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -381,7 +381,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetBeginSessionW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetBeginTransaction_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetBeginTransaction_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -399,7 +399,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetBeginTransaction_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetBeginTransaction2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetBeginTransaction2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t grbit = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -419,7 +419,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetBeginTransaction2_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetBeginTransaction3_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetBeginTransaction3_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     int64_t trxid = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -441,7 +441,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetBeginTransaction3_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetCloseDatabase_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetCloseDatabase_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dbid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -463,7 +463,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetCloseDatabase_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetCloseFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetCloseFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hffile = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -481,7 +481,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetCloseFile_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetCloseFileInstance_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetCloseFileInstance_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t instance = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t hffile = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -501,7 +501,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetCloseFileInstance_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetCloseTable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetCloseTable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -521,7 +521,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetCloseTable_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetCommitTransaction_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetCommitTransaction_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t grbit = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -541,7 +541,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetCommitTransaction_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetCommitTransaction2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetCommitTransaction2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t grbit = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -565,7 +565,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetCommitTransaction2_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetCompactA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetCompactA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szdatabasesrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -593,7 +593,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetCompactA_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetCompactW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetCompactW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szdatabasesrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -621,7 +621,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetCompactW_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetComputeStats_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetComputeStats_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -641,7 +641,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetComputeStats_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetConfigureProcessForCrashDump_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetConfigureProcessForCrashDump_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t grbit = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -659,7 +659,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetConfigureProcessForCr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetCreateDatabase2A_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetCreateDatabase2A_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -685,7 +685,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetCreateDatabase2A_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetCreateDatabase2W_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetCreateDatabase2W_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -711,7 +711,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetCreateDatabase2W_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetCreateDatabaseA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetCreateDatabaseA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -737,7 +737,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetCreateDatabaseA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetCreateDatabaseW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetCreateDatabaseW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -763,7 +763,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetCreateDatabaseW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetCreateIndex2A_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetCreateIndex2A_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -787,7 +787,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetCreateIndex2A_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetCreateIndex2W_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetCreateIndex2W_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -811,7 +811,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetCreateIndex2W_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetCreateIndex3A_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetCreateIndex3A_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -835,7 +835,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetCreateIndex3A_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetCreateIndex3W_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetCreateIndex3W_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -859,7 +859,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetCreateIndex3W_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetCreateIndex4A_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetCreateIndex4A_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -883,7 +883,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetCreateIndex4A_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetCreateIndex4W_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetCreateIndex4W_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -907,7 +907,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetCreateIndex4W_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetCreateIndexA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetCreateIndexA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -937,7 +937,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetCreateIndexA_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetCreateIndexW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetCreateIndexW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -967,7 +967,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetCreateIndexW_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetCreateInstance2A_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetCreateInstance2A_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szinstancename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -991,7 +991,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetCreateInstance2A_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetCreateInstance2W_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetCreateInstance2W_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szinstancename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1015,7 +1015,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetCreateInstance2W_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetCreateInstanceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetCreateInstanceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szinstancename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1035,7 +1035,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetCreateInstanceA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetCreateInstanceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetCreateInstanceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szinstancename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1055,7 +1055,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetCreateInstanceW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetCreateTableA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetCreateTableA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dbid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1083,7 +1083,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetCreateTableA_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetCreateTableColumnIndex2A_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex2A_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dbid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1105,7 +1105,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetCreateTableColumnInde
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetCreateTableColumnIndex2W_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex2W_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dbid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1127,7 +1127,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetCreateTableColumnInde
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetCreateTableColumnIndex3A_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex3A_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dbid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1149,7 +1149,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetCreateTableColumnInde
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetCreateTableColumnIndex3W_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex3W_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dbid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1171,7 +1171,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetCreateTableColumnInde
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetCreateTableColumnIndex4A_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex4A_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dbid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1193,7 +1193,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetCreateTableColumnInde
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetCreateTableColumnIndex4W_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex4W_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dbid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1215,7 +1215,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetCreateTableColumnInde
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetCreateTableColumnIndexA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetCreateTableColumnIndexA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dbid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1237,7 +1237,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetCreateTableColumnInde
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetCreateTableColumnIndexW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetCreateTableColumnIndexW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dbid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1259,7 +1259,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetCreateTableColumnInde
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetCreateTableW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetCreateTableW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dbid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1287,7 +1287,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetCreateTableW_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetDefragment2A_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetDefragment2A_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dbid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1317,7 +1317,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetDefragment2A_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetDefragment2W_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetDefragment2W_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dbid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1347,7 +1347,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetDefragment2W_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetDefragment3A_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetDefragment3A_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szdatabasename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1379,7 +1379,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetDefragment3A_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetDefragment3W_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetDefragment3W_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szdatabasename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1411,7 +1411,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetDefragment3W_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetDefragmentA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetDefragmentA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dbid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1439,7 +1439,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetDefragmentA_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetDefragmentW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetDefragmentW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dbid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1467,7 +1467,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetDefragmentW_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetDelete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetDelete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1487,7 +1487,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetDelete_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetDeleteColumn2A_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetDeleteColumn2A_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1511,7 +1511,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetDeleteColumn2A_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetDeleteColumn2W_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetDeleteColumn2W_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1535,7 +1535,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetDeleteColumn2W_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetDeleteColumnA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetDeleteColumnA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1557,7 +1557,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetDeleteColumnA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetDeleteColumnW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetDeleteColumnW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1579,7 +1579,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetDeleteColumnW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetDeleteIndexA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetDeleteIndexA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1601,7 +1601,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetDeleteIndexA_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetDeleteIndexW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetDeleteIndexW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1623,7 +1623,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetDeleteIndexW_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetDeleteTableA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetDeleteTableA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dbid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1645,7 +1645,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetDeleteTableA_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetDeleteTableW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetDeleteTableW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dbid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1667,7 +1667,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetDeleteTableW_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetDetachDatabase2A_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetDetachDatabase2A_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1689,7 +1689,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetDetachDatabase2A_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetDetachDatabase2W_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetDetachDatabase2W_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1711,7 +1711,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetDetachDatabase2W_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetDetachDatabaseA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetDetachDatabaseA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1731,7 +1731,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetDetachDatabaseA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetDetachDatabaseW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetDetachDatabaseW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1751,7 +1751,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetDetachDatabaseW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetDupCursor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetDupCursor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1775,7 +1775,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetDupCursor_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetDupSession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetDupSession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* psesid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1795,7 +1795,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetDupSession_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetEnableMultiInstanceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetEnableMultiInstanceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psetsysparam = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t csetsysparam = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1817,7 +1817,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetEnableMultiInstanceA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetEnableMultiInstanceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetEnableMultiInstanceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psetsysparam = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t csetsysparam = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1839,7 +1839,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetEnableMultiInstanceW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetEndExternalBackup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetEndExternalBackup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -1855,7 +1855,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetEndExternalBackup_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetEndExternalBackupInstance_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetEndExternalBackupInstance_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t instance = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1873,7 +1873,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetEndExternalBackupInst
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetEndExternalBackupInstance2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetEndExternalBackupInstance2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t instance = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t grbit = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1893,7 +1893,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetEndExternalBackupInst
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetEndSession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetEndSession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t grbit = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1913,7 +1913,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetEndSession_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetEnumerateColumns_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetEnumerateColumns_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1949,7 +1949,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetEnumerateColumns_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetEscrowUpdate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetEscrowUpdate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1983,7 +1983,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetEscrowUpdate_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetExternalRestore2A_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetExternalRestore2A_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szcheckpointfilepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szlogpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2019,7 +2019,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetExternalRestore2A_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetExternalRestore2W_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetExternalRestore2W_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szcheckpointfilepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szlogpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2055,7 +2055,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetExternalRestore2W_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetExternalRestoreA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetExternalRestoreA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szcheckpointfilepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szlogpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2087,7 +2087,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetExternalRestoreA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetExternalRestoreW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetExternalRestoreW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szcheckpointfilepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szlogpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2119,7 +2119,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetExternalRestoreW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetFreeBuffer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetFreeBuffer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbbuf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2137,7 +2137,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetFreeBuffer_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetAttachInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetAttachInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szzdatabases = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbmax = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2159,7 +2159,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetAttachInfoA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetAttachInfoInstanceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetAttachInfoInstanceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t instance = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szzdatabases = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2183,7 +2183,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetAttachInfoInstance
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetAttachInfoInstanceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetAttachInfoInstanceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t instance = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szzdatabases = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2207,7 +2207,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetAttachInfoInstance
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetAttachInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetAttachInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* wszzdatabases = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbmax = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2229,7 +2229,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetAttachInfoW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetBookmark_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetBookmark_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2255,7 +2255,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetBookmark_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetColumnInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetColumnInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dbid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2285,7 +2285,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetColumnInfoA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetColumnInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetColumnInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dbid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2315,7 +2315,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetColumnInfoW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetCurrentIndexA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetCurrentIndexA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2339,7 +2339,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetCurrentIndexA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetCurrentIndexW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetCurrentIndexW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2363,7 +2363,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetCurrentIndexW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetCursorInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetCursorInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2389,7 +2389,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetCursorInfo_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetDatabaseFileInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetDatabaseFileInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szdatabasename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvresult = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2413,7 +2413,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetDatabaseFileInfoA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetDatabaseFileInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetDatabaseFileInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szdatabasename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvresult = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2437,7 +2437,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetDatabaseFileInfoW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetDatabaseInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetDatabaseInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dbid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2463,7 +2463,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetDatabaseInfoA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetDatabaseInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetDatabaseInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dbid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2489,7 +2489,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetDatabaseInfoW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetErrorInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetErrorInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvresult = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2515,7 +2515,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetErrorInfoW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetIndexInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetIndexInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dbid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2545,7 +2545,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetIndexInfoA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetIndexInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetIndexInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dbid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2575,7 +2575,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetIndexInfoW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetInstanceInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetInstanceInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcinstanceinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* painstanceinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2595,7 +2595,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetInstanceInfoA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetInstanceInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetInstanceInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcinstanceinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* painstanceinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2615,7 +2615,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetInstanceInfoW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetInstanceMiscInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetInstanceMiscInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t instance = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* pvresult = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2639,7 +2639,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetInstanceMiscInfo_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetLS_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetLS_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2663,7 +2663,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetLS_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetLock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetLock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2685,7 +2685,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetLock_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetLogInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetLogInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szzlogs = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbmax = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2707,7 +2707,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetLogInfoA_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetLogInfoInstance2A_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetLogInfoInstance2A_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t instance = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szzlogs = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2733,7 +2733,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetLogInfoInstance2A_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetLogInfoInstance2W_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetLogInfoInstance2W_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t instance = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* wszzlogs = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2759,7 +2759,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetLogInfoInstance2W_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetLogInfoInstanceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetLogInfoInstanceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t instance = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szzlogs = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2783,7 +2783,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetLogInfoInstanceA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetLogInfoInstanceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetLogInfoInstanceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t instance = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* wszzlogs = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2807,7 +2807,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetLogInfoInstanceW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetLogInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetLogInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szzlogs = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbmax = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2829,7 +2829,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetLogInfoW_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetObjectInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetObjectInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dbid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2861,7 +2861,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetObjectInfoA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetObjectInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetObjectInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dbid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2893,7 +2893,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetObjectInfoW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetRecordPosition_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetRecordPosition_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2917,7 +2917,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetRecordPosition_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetRecordSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetRecordSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2941,7 +2941,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetRecordSize_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetRecordSize2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetRecordSize2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2965,7 +2965,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetRecordSize2_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetSecondaryIndexBookmark_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetSecondaryIndexBookmark_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2999,7 +2999,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetSecondaryIndexBook
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetSessionParameter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetSessionParameter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t sesparamid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3025,7 +3025,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetSessionParameter_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetSystemParameterA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetSystemParameterA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t instance = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t sesid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3053,7 +3053,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetSystemParameterA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetSystemParameterW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetSystemParameterW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t instance = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t sesid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3081,7 +3081,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetSystemParameterW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetTableColumnInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetTableColumnInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3109,7 +3109,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetTableColumnInfoA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetTableColumnInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetTableColumnInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3137,7 +3137,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetTableColumnInfoW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetTableIndexInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetTableIndexInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3165,7 +3165,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetTableIndexInfoA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetTableIndexInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetTableIndexInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3193,7 +3193,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetTableIndexInfoW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetTableInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetTableInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3219,7 +3219,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetTableInfoA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetTableInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetTableInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3245,7 +3245,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetTableInfoW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetThreadStats_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetThreadStats_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvresult = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbmax = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3265,7 +3265,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetThreadStats_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetTruncateLogInfoInstanceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetTruncateLogInfoInstanceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t instance = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szzlogs = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3289,7 +3289,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetTruncateLogInfoIns
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetTruncateLogInfoInstanceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetTruncateLogInfoInstanceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t instance = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* wszzlogs = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3313,7 +3313,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetTruncateLogInfoIns
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGetVersion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGetVersion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* pwversion = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3333,7 +3333,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGetVersion_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGotoBookmark_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGotoBookmark_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3357,7 +3357,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGotoBookmark_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGotoPosition_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGotoPosition_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3379,7 +3379,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGotoPosition_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGotoSecondaryIndexBookmark_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGotoSecondaryIndexBookmark_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3409,7 +3409,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGotoSecondaryIndexBoo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetGrowDatabase_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetGrowDatabase_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dbid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3433,7 +3433,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetGrowDatabase_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetIdle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetIdle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t grbit = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3453,7 +3453,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetIdle_napi(const Napi:
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetIndexRecordCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetIndexRecordCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3477,7 +3477,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetIndexRecordCount_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetInit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetInit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3495,7 +3495,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetInit_napi(const Napi:
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetInit2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetInit2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t grbit = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3515,7 +3515,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetInit2_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetInit3A_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetInit3A_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prstinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3537,7 +3537,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetInit3A_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetInit3W_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetInit3W_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prstinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3559,7 +3559,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetInit3W_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetIntersectIndexes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetIntersectIndexes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* rgindexrange = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3585,7 +3585,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetIntersectIndexes_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetMakeKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetMakeKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3611,7 +3611,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetMakeKey_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetMove_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetMove_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3635,7 +3635,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetMove_napi(const Napi:
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetOSSnapshotAbort_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetOSSnapshotAbort_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t snapid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t grbit = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3655,7 +3655,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetOSSnapshotAbort_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetOSSnapshotEnd_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetOSSnapshotEnd_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t snapid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t grbit = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3675,7 +3675,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetOSSnapshotEnd_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetOSSnapshotFreezeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetOSSnapshotFreezeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t snapid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* pcinstanceinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3699,7 +3699,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetOSSnapshotFreezeA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetOSSnapshotFreezeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetOSSnapshotFreezeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t snapid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* pcinstanceinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3723,7 +3723,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetOSSnapshotFreezeW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetOSSnapshotGetFreezeInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetOSSnapshotGetFreezeInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t snapid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* pcinstanceinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3747,7 +3747,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetOSSnapshotGetFreezeIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetOSSnapshotGetFreezeInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetOSSnapshotGetFreezeInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t snapid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* pcinstanceinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3771,7 +3771,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetOSSnapshotGetFreezeIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetOSSnapshotPrepare_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetOSSnapshotPrepare_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psnapid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t grbit = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3791,7 +3791,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetOSSnapshotPrepare_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetOSSnapshotPrepareInstance_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetOSSnapshotPrepareInstance_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t snapid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t instance = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3813,7 +3813,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetOSSnapshotPrepareInst
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetOSSnapshotThaw_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetOSSnapshotThaw_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t snapid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t grbit = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3833,7 +3833,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetOSSnapshotThaw_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetOSSnapshotTruncateLog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetOSSnapshotTruncateLog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t snapid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t grbit = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3853,7 +3853,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetOSSnapshotTruncateLog
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetOSSnapshotTruncateLogInstance_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetOSSnapshotTruncateLogInstance_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t snapid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t instance = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3875,7 +3875,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetOSSnapshotTruncateLog
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetOpenDatabaseA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetOpenDatabaseA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3901,7 +3901,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetOpenDatabaseA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetOpenDatabaseW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetOpenDatabaseW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3927,7 +3927,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetOpenDatabaseW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetOpenFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetOpenFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phffile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3951,7 +3951,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetOpenFileA_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetOpenFileInstanceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetOpenFileInstanceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t instance = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3977,7 +3977,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetOpenFileInstanceA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetOpenFileInstanceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetOpenFileInstanceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t instance = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4003,7 +4003,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetOpenFileInstanceW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetOpenFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetOpenFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phffile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4027,7 +4027,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetOpenFileW_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetOpenTableA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetOpenTableA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dbid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4057,7 +4057,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetOpenTableA_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetOpenTableW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetOpenTableW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dbid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4087,7 +4087,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetOpenTableW_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetOpenTempTable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetOpenTempTable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* prgcolumndef = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4115,7 +4115,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetOpenTempTable_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetOpenTempTable2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetOpenTempTable2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* prgcolumndef = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4145,7 +4145,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetOpenTempTable2_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetOpenTempTable3_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetOpenTempTable3_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* prgcolumndef = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4175,7 +4175,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetOpenTempTable3_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetOpenTemporaryTable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetOpenTemporaryTable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* popentemporarytable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4195,7 +4195,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetOpenTemporaryTable_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetOpenTemporaryTable2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetOpenTemporaryTable2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* popentemporarytable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4215,7 +4215,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetOpenTemporaryTable2_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetPrepareUpdate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetPrepareUpdate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4237,7 +4237,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetPrepareUpdate_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetPrereadIndexRanges_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetPrereadIndexRanges_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4269,7 +4269,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetPrereadIndexRanges_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetPrereadKeys_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetPrereadKeys_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4299,7 +4299,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetPrereadKeys_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetReadFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetReadFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t hffile = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* pv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4323,7 +4323,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetReadFile_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetReadFileInstance_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetReadFileInstance_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t instance = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t hffile = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4349,7 +4349,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetReadFileInstance_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetRegisterCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetRegisterCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4377,7 +4377,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetRegisterCallback_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetRenameColumnA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetRenameColumnA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4403,7 +4403,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetRenameColumnA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetRenameColumnW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetRenameColumnW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4429,7 +4429,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetRenameColumnW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetRenameTableA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetRenameTableA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dbid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4453,7 +4453,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetRenameTableA_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetRenameTableW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetRenameTableW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dbid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4477,7 +4477,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetRenameTableW_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetResetSessionContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetResetSessionContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -4495,7 +4495,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetResetSessionContext_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetResetTableSequential_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetResetTableSequential_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4517,7 +4517,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetResetTableSequential_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetResizeDatabase_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetResizeDatabase_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dbid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4543,7 +4543,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetResizeDatabase_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetRestore2A_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetRestore2A_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szdest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4565,7 +4565,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetRestore2A_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetRestore2W_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetRestore2W_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szdest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4587,7 +4587,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetRestore2W_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetRestoreA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetRestoreA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szsource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4607,7 +4607,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetRestoreA_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetRestoreInstanceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetRestoreInstanceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t instance = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* sz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4631,7 +4631,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetRestoreInstanceA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetRestoreInstanceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetRestoreInstanceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t instance = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* sz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4655,7 +4655,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetRestoreInstanceW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetRestoreW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetRestoreW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szsource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4675,7 +4675,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetRestoreW_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetRetrieveColumn_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetRetrieveColumn_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4707,7 +4707,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetRetrieveColumn_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetRetrieveColumns_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetRetrieveColumns_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4731,7 +4731,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetRetrieveColumns_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetRetrieveKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetRetrieveKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4759,7 +4759,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetRetrieveKey_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetRollback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetRollback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t grbit = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4779,7 +4779,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetRollback_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetSeek_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetSeek_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4801,7 +4801,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetSeek_napi(const Napi:
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetSetColumn_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetSetColumn_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4831,7 +4831,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetSetColumn_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetSetColumnDefaultValueA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetSetColumnDefaultValueA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dbid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4861,7 +4861,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetSetColumnDefaultValue
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetSetColumnDefaultValueW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetSetColumnDefaultValueW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t dbid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4891,7 +4891,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetSetColumnDefaultValue
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetSetColumns_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetSetColumns_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4915,7 +4915,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetSetColumns_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetSetCurrentIndex2A_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetSetCurrentIndex2A_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4939,7 +4939,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetSetCurrentIndex2A_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetSetCurrentIndex2W_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetSetCurrentIndex2W_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4963,7 +4963,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetSetCurrentIndex2W_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetSetCurrentIndex3A_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetSetCurrentIndex3A_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4989,7 +4989,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetSetCurrentIndex3A_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetSetCurrentIndex3W_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetSetCurrentIndex3W_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -5015,7 +5015,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetSetCurrentIndex3W_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetSetCurrentIndex4A_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetSetCurrentIndex4A_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -5043,7 +5043,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetSetCurrentIndex4A_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetSetCurrentIndex4W_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetSetCurrentIndex4W_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -5071,7 +5071,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetSetCurrentIndex4W_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetSetCurrentIndexA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetSetCurrentIndexA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -5093,7 +5093,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetSetCurrentIndexA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetSetCurrentIndexW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetSetCurrentIndexW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -5115,7 +5115,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetSetCurrentIndexW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetSetCursorFilter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetSetCursorFilter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -5141,7 +5141,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetSetCursorFilter_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetSetDatabaseSizeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetSetDatabaseSizeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szdatabasename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5165,7 +5165,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetSetDatabaseSizeA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetSetDatabaseSizeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetSetDatabaseSizeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* szdatabasename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5189,7 +5189,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetSetDatabaseSizeW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetSetIndexRange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetSetIndexRange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableidsrc = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -5211,7 +5211,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetSetIndexRange_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetSetLS_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetSetLS_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -5235,7 +5235,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetSetLS_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetSetSessionContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetSetSessionContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t ulcontext = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -5255,7 +5255,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetSetSessionContext_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetSetSessionParameter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetSetSessionParameter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t sesparamid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5279,7 +5279,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetSetSessionParameter_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetSetSystemParameterA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetSetSystemParameterA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t sesid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -5305,7 +5305,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetSetSystemParameterA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetSetSystemParameterW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetSetSystemParameterW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t sesid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -5331,7 +5331,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetSetSystemParameterW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetSetTableSequential_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetSetTableSequential_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -5353,7 +5353,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetSetTableSequential_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetStopBackup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetStopBackup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -5369,7 +5369,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetStopBackup_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetStopBackupInstance_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetStopBackupInstance_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t instance = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -5387,7 +5387,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetStopBackupInstance_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetStopService_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetStopService_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -5403,7 +5403,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetStopService_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetStopServiceInstance_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetStopServiceInstance_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t instance = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -5421,7 +5421,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetStopServiceInstance_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetStopServiceInstance2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetStopServiceInstance2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t instance = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t grbit = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5441,7 +5441,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetStopServiceInstance2_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetTerm_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetTerm_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t instance = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -5459,7 +5459,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetTerm_napi(const Napi:
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetTerm2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetTerm2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t instance = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint32_t grbit = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5479,7 +5479,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetTerm2_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetTruncateLog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetTruncateLog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -5495,7 +5495,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetTruncateLog_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetTruncateLogInstance_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetTruncateLogInstance_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t instance = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -5513,7 +5513,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetTruncateLogInstance_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetUnregisterCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetUnregisterCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -5537,7 +5537,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetUnregisterCallback_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetUpdate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetUpdate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -5563,7 +5563,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetUpdate_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_storage_jet_JetUpdate2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_storage_jet_jetUpdate2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t sesid = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t tableid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -5592,235 +5592,235 @@ static Napi::Value windowssys_windows_win32_storage_jet_JetUpdate2_napi(const Na
 }
 
 static void register_windows_win32_storage_jet_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_storage_jet_JetAddColumnA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetAddColumnA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetAddColumnW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetAddColumnW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetAttachDatabase2A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetAttachDatabase2A_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetAttachDatabase2W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetAttachDatabase2W_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetAttachDatabaseA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetAttachDatabaseA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetAttachDatabaseW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetAttachDatabaseW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetBackupA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetBackupA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetBackupInstanceA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetBackupInstanceA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetBackupInstanceW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetBackupInstanceW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetBackupW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetBackupW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetBeginExternalBackup", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetBeginExternalBackup_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetBeginExternalBackupInstance", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetBeginExternalBackupInstance_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetBeginSessionA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetBeginSessionA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetBeginSessionW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetBeginSessionW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetBeginTransaction", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetBeginTransaction_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetBeginTransaction2", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetBeginTransaction2_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetBeginTransaction3", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetBeginTransaction3_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetCloseDatabase", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetCloseDatabase_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetCloseFile", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetCloseFile_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetCloseFileInstance", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetCloseFileInstance_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetCloseTable", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetCloseTable_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetCommitTransaction", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetCommitTransaction_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetCommitTransaction2", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetCommitTransaction2_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetCompactA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetCompactA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetCompactW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetCompactW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetComputeStats", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetComputeStats_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetConfigureProcessForCrashDump", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetConfigureProcessForCrashDump_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetCreateDatabase2A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetCreateDatabase2A_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetCreateDatabase2W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetCreateDatabase2W_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetCreateDatabaseA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetCreateDatabaseA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetCreateDatabaseW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetCreateDatabaseW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetCreateIndex2A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetCreateIndex2A_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetCreateIndex2W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetCreateIndex2W_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetCreateIndex3A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetCreateIndex3A_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetCreateIndex3W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetCreateIndex3W_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetCreateIndex4A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetCreateIndex4A_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetCreateIndex4W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetCreateIndex4W_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetCreateIndexA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetCreateIndexA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetCreateIndexW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetCreateIndexW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetCreateInstance2A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetCreateInstance2A_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetCreateInstance2W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetCreateInstance2W_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetCreateInstanceA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetCreateInstanceA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetCreateInstanceW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetCreateInstanceW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetCreateTableA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetCreateTableA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetCreateTableColumnIndex2A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetCreateTableColumnIndex2A_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetCreateTableColumnIndex2W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetCreateTableColumnIndex2W_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetCreateTableColumnIndex3A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetCreateTableColumnIndex3A_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetCreateTableColumnIndex3W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetCreateTableColumnIndex3W_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetCreateTableColumnIndex4A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetCreateTableColumnIndex4A_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetCreateTableColumnIndex4W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetCreateTableColumnIndex4W_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetCreateTableColumnIndexA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetCreateTableColumnIndexA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetCreateTableColumnIndexW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetCreateTableColumnIndexW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetCreateTableW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetCreateTableW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetDefragment2A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetDefragment2A_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetDefragment2W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetDefragment2W_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetDefragment3A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetDefragment3A_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetDefragment3W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetDefragment3W_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetDefragmentA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetDefragmentA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetDefragmentW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetDefragmentW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetDelete", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetDelete_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetDeleteColumn2A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetDeleteColumn2A_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetDeleteColumn2W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetDeleteColumn2W_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetDeleteColumnA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetDeleteColumnA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetDeleteColumnW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetDeleteColumnW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetDeleteIndexA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetDeleteIndexA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetDeleteIndexW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetDeleteIndexW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetDeleteTableA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetDeleteTableA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetDeleteTableW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetDeleteTableW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetDetachDatabase2A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetDetachDatabase2A_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetDetachDatabase2W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetDetachDatabase2W_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetDetachDatabaseA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetDetachDatabaseA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetDetachDatabaseW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetDetachDatabaseW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetDupCursor", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetDupCursor_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetDupSession", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetDupSession_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetEnableMultiInstanceA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetEnableMultiInstanceA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetEnableMultiInstanceW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetEnableMultiInstanceW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetEndExternalBackup", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetEndExternalBackup_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetEndExternalBackupInstance", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetEndExternalBackupInstance_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetEndExternalBackupInstance2", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetEndExternalBackupInstance2_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetEndSession", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetEndSession_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetEnumerateColumns", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetEnumerateColumns_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetEscrowUpdate", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetEscrowUpdate_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetExternalRestore2A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetExternalRestore2A_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetExternalRestore2W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetExternalRestore2W_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetExternalRestoreA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetExternalRestoreA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetExternalRestoreW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetExternalRestoreW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetFreeBuffer", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetFreeBuffer_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetAttachInfoA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetAttachInfoA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetAttachInfoInstanceA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetAttachInfoInstanceA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetAttachInfoInstanceW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetAttachInfoInstanceW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetAttachInfoW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetAttachInfoW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetBookmark", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetBookmark_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetColumnInfoA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetColumnInfoA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetColumnInfoW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetColumnInfoW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetCurrentIndexA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetCurrentIndexA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetCurrentIndexW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetCurrentIndexW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetCursorInfo", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetCursorInfo_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetDatabaseFileInfoA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetDatabaseFileInfoA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetDatabaseFileInfoW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetDatabaseFileInfoW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetDatabaseInfoA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetDatabaseInfoA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetDatabaseInfoW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetDatabaseInfoW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetErrorInfoW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetErrorInfoW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetIndexInfoA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetIndexInfoA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetIndexInfoW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetIndexInfoW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetInstanceInfoA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetInstanceInfoA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetInstanceInfoW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetInstanceInfoW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetInstanceMiscInfo", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetInstanceMiscInfo_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetLS", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetLS_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetLock", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetLock_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetLogInfoA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetLogInfoA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetLogInfoInstance2A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetLogInfoInstance2A_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetLogInfoInstance2W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetLogInfoInstance2W_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetLogInfoInstanceA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetLogInfoInstanceA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetLogInfoInstanceW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetLogInfoInstanceW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetLogInfoW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetLogInfoW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetObjectInfoA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetObjectInfoA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetObjectInfoW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetObjectInfoW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetRecordPosition", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetRecordPosition_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetRecordSize", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetRecordSize_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetRecordSize2", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetRecordSize2_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetSecondaryIndexBookmark", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetSecondaryIndexBookmark_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetSessionParameter", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetSessionParameter_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetSystemParameterA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetSystemParameterA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetSystemParameterW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetSystemParameterW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetTableColumnInfoA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetTableColumnInfoA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetTableColumnInfoW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetTableColumnInfoW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetTableIndexInfoA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetTableIndexInfoA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetTableIndexInfoW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetTableIndexInfoW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetTableInfoA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetTableInfoA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetTableInfoW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetTableInfoW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetThreadStats", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetThreadStats_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetTruncateLogInfoInstanceA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetTruncateLogInfoInstanceA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetTruncateLogInfoInstanceW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetTruncateLogInfoInstanceW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGetVersion", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGetVersion_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGotoBookmark", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGotoBookmark_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGotoPosition", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGotoPosition_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGotoSecondaryIndexBookmark", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGotoSecondaryIndexBookmark_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetGrowDatabase", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetGrowDatabase_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetIdle", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetIdle_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetIndexRecordCount", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetIndexRecordCount_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetInit", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetInit_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetInit2", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetInit2_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetInit3A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetInit3A_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetInit3W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetInit3W_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetIntersectIndexes", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetIntersectIndexes_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetMakeKey", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetMakeKey_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetMove", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetMove_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetOSSnapshotAbort", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetOSSnapshotAbort_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetOSSnapshotEnd", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetOSSnapshotEnd_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetOSSnapshotFreezeA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetOSSnapshotFreezeA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetOSSnapshotFreezeW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetOSSnapshotFreezeW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetOSSnapshotGetFreezeInfoA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetOSSnapshotGetFreezeInfoA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetOSSnapshotGetFreezeInfoW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetOSSnapshotGetFreezeInfoW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetOSSnapshotPrepare", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetOSSnapshotPrepare_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetOSSnapshotPrepareInstance", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetOSSnapshotPrepareInstance_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetOSSnapshotThaw", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetOSSnapshotThaw_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetOSSnapshotTruncateLog", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetOSSnapshotTruncateLog_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetOSSnapshotTruncateLogInstance", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetOSSnapshotTruncateLogInstance_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetOpenDatabaseA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetOpenDatabaseA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetOpenDatabaseW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetOpenDatabaseW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetOpenFileA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetOpenFileA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetOpenFileInstanceA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetOpenFileInstanceA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetOpenFileInstanceW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetOpenFileInstanceW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetOpenFileW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetOpenFileW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetOpenTableA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetOpenTableA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetOpenTableW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetOpenTableW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetOpenTempTable", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetOpenTempTable_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetOpenTempTable2", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetOpenTempTable2_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetOpenTempTable3", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetOpenTempTable3_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetOpenTemporaryTable", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetOpenTemporaryTable_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetOpenTemporaryTable2", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetOpenTemporaryTable2_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetPrepareUpdate", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetPrepareUpdate_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetPrereadIndexRanges", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetPrereadIndexRanges_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetPrereadKeys", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetPrereadKeys_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetReadFile", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetReadFile_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetReadFileInstance", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetReadFileInstance_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetRegisterCallback", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetRegisterCallback_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetRenameColumnA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetRenameColumnA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetRenameColumnW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetRenameColumnW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetRenameTableA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetRenameTableA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetRenameTableW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetRenameTableW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetResetSessionContext", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetResetSessionContext_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetResetTableSequential", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetResetTableSequential_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetResizeDatabase", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetResizeDatabase_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetRestore2A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetRestore2A_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetRestore2W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetRestore2W_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetRestoreA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetRestoreA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetRestoreInstanceA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetRestoreInstanceA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetRestoreInstanceW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetRestoreInstanceW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetRestoreW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetRestoreW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetRetrieveColumn", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetRetrieveColumn_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetRetrieveColumns", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetRetrieveColumns_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetRetrieveKey", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetRetrieveKey_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetRollback", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetRollback_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetSeek", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetSeek_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetSetColumn", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetSetColumn_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetSetColumnDefaultValueA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetSetColumnDefaultValueA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetSetColumnDefaultValueW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetSetColumnDefaultValueW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetSetColumns", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetSetColumns_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetSetCurrentIndex2A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetSetCurrentIndex2A_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetSetCurrentIndex2W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetSetCurrentIndex2W_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetSetCurrentIndex3A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetSetCurrentIndex3A_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetSetCurrentIndex3W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetSetCurrentIndex3W_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetSetCurrentIndex4A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetSetCurrentIndex4A_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetSetCurrentIndex4W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetSetCurrentIndex4W_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetSetCurrentIndexA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetSetCurrentIndexA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetSetCurrentIndexW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetSetCurrentIndexW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetSetCursorFilter", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetSetCursorFilter_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetSetDatabaseSizeA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetSetDatabaseSizeA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetSetDatabaseSizeW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetSetDatabaseSizeW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetSetIndexRange", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetSetIndexRange_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetSetLS", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetSetLS_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetSetSessionContext", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetSetSessionContext_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetSetSessionParameter", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetSetSessionParameter_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetSetSystemParameterA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetSetSystemParameterA_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetSetSystemParameterW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetSetSystemParameterW_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetSetTableSequential", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetSetTableSequential_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetStopBackup", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetStopBackup_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetStopBackupInstance", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetStopBackupInstance_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetStopService", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetStopService_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetStopServiceInstance", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetStopServiceInstance_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetStopServiceInstance2", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetStopServiceInstance2_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetTerm", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetTerm_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetTerm2", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetTerm2_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetTruncateLog", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetTruncateLog_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetTruncateLogInstance", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetTruncateLogInstance_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetUnregisterCallback", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetUnregisterCallback_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetUpdate", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetUpdate_napi));
-    exports.Set("windowssys_windows_win32_storage_jet_JetUpdate2", Napi::Function::New(env, windowssys_windows_win32_storage_jet_JetUpdate2_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetAddColumnA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetAddColumnA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetAddColumnW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetAddColumnW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetAttachDatabase2A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetAttachDatabase2A_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetAttachDatabase2W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetAttachDatabase2W_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetAttachDatabaseA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetAttachDatabaseA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetAttachDatabaseW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetAttachDatabaseW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetBackupA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetBackupA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetBackupInstanceA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetBackupInstanceA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetBackupInstanceW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetBackupInstanceW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetBackupW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetBackupW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetBeginExternalBackup", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetBeginExternalBackup_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetBeginExternalBackupInstance", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetBeginExternalBackupInstance_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetBeginSessionA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetBeginSessionA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetBeginSessionW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetBeginSessionW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetBeginTransaction", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetBeginTransaction_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetBeginTransaction2", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetBeginTransaction2_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetBeginTransaction3", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetBeginTransaction3_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetCloseDatabase", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetCloseDatabase_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetCloseFile", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetCloseFile_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetCloseFileInstance", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetCloseFileInstance_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetCloseTable", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetCloseTable_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetCommitTransaction", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetCommitTransaction_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetCommitTransaction2", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetCommitTransaction2_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetCompactA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetCompactA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetCompactW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetCompactW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetComputeStats", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetComputeStats_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetConfigureProcessForCrashDump", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetConfigureProcessForCrashDump_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetCreateDatabase2A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetCreateDatabase2A_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetCreateDatabase2W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetCreateDatabase2W_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetCreateDatabaseA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetCreateDatabaseA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetCreateDatabaseW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetCreateDatabaseW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetCreateIndex2A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetCreateIndex2A_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetCreateIndex2W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetCreateIndex2W_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetCreateIndex3A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetCreateIndex3A_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetCreateIndex3W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetCreateIndex3W_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetCreateIndex4A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetCreateIndex4A_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetCreateIndex4W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetCreateIndex4W_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetCreateIndexA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetCreateIndexA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetCreateIndexW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetCreateIndexW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetCreateInstance2A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetCreateInstance2A_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetCreateInstance2W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetCreateInstance2W_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetCreateInstanceA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetCreateInstanceA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetCreateInstanceW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetCreateInstanceW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetCreateTableA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetCreateTableA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex2A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex2A_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex2W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex2W_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex3A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex3A_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex3W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex3W_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex4A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex4A_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex4W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetCreateTableColumnIndex4W_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetCreateTableColumnIndexA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetCreateTableColumnIndexA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetCreateTableColumnIndexW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetCreateTableColumnIndexW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetCreateTableW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetCreateTableW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetDefragment2A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetDefragment2A_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetDefragment2W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetDefragment2W_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetDefragment3A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetDefragment3A_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetDefragment3W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetDefragment3W_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetDefragmentA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetDefragmentA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetDefragmentW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetDefragmentW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetDelete", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetDelete_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetDeleteColumn2A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetDeleteColumn2A_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetDeleteColumn2W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetDeleteColumn2W_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetDeleteColumnA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetDeleteColumnA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetDeleteColumnW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetDeleteColumnW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetDeleteIndexA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetDeleteIndexA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetDeleteIndexW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetDeleteIndexW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetDeleteTableA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetDeleteTableA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetDeleteTableW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetDeleteTableW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetDetachDatabase2A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetDetachDatabase2A_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetDetachDatabase2W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetDetachDatabase2W_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetDetachDatabaseA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetDetachDatabaseA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetDetachDatabaseW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetDetachDatabaseW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetDupCursor", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetDupCursor_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetDupSession", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetDupSession_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetEnableMultiInstanceA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetEnableMultiInstanceA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetEnableMultiInstanceW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetEnableMultiInstanceW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetEndExternalBackup", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetEndExternalBackup_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetEndExternalBackupInstance", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetEndExternalBackupInstance_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetEndExternalBackupInstance2", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetEndExternalBackupInstance2_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetEndSession", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetEndSession_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetEnumerateColumns", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetEnumerateColumns_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetEscrowUpdate", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetEscrowUpdate_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetExternalRestore2A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetExternalRestore2A_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetExternalRestore2W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetExternalRestore2W_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetExternalRestoreA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetExternalRestoreA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetExternalRestoreW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetExternalRestoreW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetFreeBuffer", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetFreeBuffer_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetAttachInfoA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetAttachInfoA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetAttachInfoInstanceA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetAttachInfoInstanceA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetAttachInfoInstanceW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetAttachInfoInstanceW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetAttachInfoW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetAttachInfoW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetBookmark", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetBookmark_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetColumnInfoA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetColumnInfoA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetColumnInfoW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetColumnInfoW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetCurrentIndexA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetCurrentIndexA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetCurrentIndexW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetCurrentIndexW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetCursorInfo", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetCursorInfo_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetDatabaseFileInfoA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetDatabaseFileInfoA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetDatabaseFileInfoW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetDatabaseFileInfoW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetDatabaseInfoA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetDatabaseInfoA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetDatabaseInfoW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetDatabaseInfoW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetErrorInfoW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetErrorInfoW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetIndexInfoA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetIndexInfoA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetIndexInfoW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetIndexInfoW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetInstanceInfoA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetInstanceInfoA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetInstanceInfoW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetInstanceInfoW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetInstanceMiscInfo", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetInstanceMiscInfo_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetLS", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetLS_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetLock", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetLock_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetLogInfoA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetLogInfoA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetLogInfoInstance2A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetLogInfoInstance2A_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetLogInfoInstance2W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetLogInfoInstance2W_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetLogInfoInstanceA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetLogInfoInstanceA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetLogInfoInstanceW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetLogInfoInstanceW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetLogInfoW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetLogInfoW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetObjectInfoA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetObjectInfoA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetObjectInfoW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetObjectInfoW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetRecordPosition", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetRecordPosition_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetRecordSize", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetRecordSize_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetRecordSize2", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetRecordSize2_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetSecondaryIndexBookmark", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetSecondaryIndexBookmark_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetSessionParameter", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetSessionParameter_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetSystemParameterA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetSystemParameterA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetSystemParameterW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetSystemParameterW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetTableColumnInfoA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetTableColumnInfoA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetTableColumnInfoW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetTableColumnInfoW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetTableIndexInfoA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetTableIndexInfoA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetTableIndexInfoW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetTableIndexInfoW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetTableInfoA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetTableInfoA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetTableInfoW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetTableInfoW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetThreadStats", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetThreadStats_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetTruncateLogInfoInstanceA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetTruncateLogInfoInstanceA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetTruncateLogInfoInstanceW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetTruncateLogInfoInstanceW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGetVersion", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGetVersion_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGotoBookmark", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGotoBookmark_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGotoPosition", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGotoPosition_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGotoSecondaryIndexBookmark", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGotoSecondaryIndexBookmark_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetGrowDatabase", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetGrowDatabase_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetIdle", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetIdle_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetIndexRecordCount", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetIndexRecordCount_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetInit", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetInit_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetInit2", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetInit2_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetInit3A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetInit3A_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetInit3W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetInit3W_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetIntersectIndexes", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetIntersectIndexes_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetMakeKey", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetMakeKey_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetMove", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetMove_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetOSSnapshotAbort", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetOSSnapshotAbort_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetOSSnapshotEnd", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetOSSnapshotEnd_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetOSSnapshotFreezeA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetOSSnapshotFreezeA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetOSSnapshotFreezeW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetOSSnapshotFreezeW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetOSSnapshotGetFreezeInfoA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetOSSnapshotGetFreezeInfoA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetOSSnapshotGetFreezeInfoW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetOSSnapshotGetFreezeInfoW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetOSSnapshotPrepare", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetOSSnapshotPrepare_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetOSSnapshotPrepareInstance", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetOSSnapshotPrepareInstance_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetOSSnapshotThaw", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetOSSnapshotThaw_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetOSSnapshotTruncateLog", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetOSSnapshotTruncateLog_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetOSSnapshotTruncateLogInstance", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetOSSnapshotTruncateLogInstance_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetOpenDatabaseA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetOpenDatabaseA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetOpenDatabaseW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetOpenDatabaseW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetOpenFileA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetOpenFileA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetOpenFileInstanceA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetOpenFileInstanceA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetOpenFileInstanceW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetOpenFileInstanceW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetOpenFileW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetOpenFileW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetOpenTableA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetOpenTableA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetOpenTableW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetOpenTableW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetOpenTempTable", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetOpenTempTable_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetOpenTempTable2", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetOpenTempTable2_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetOpenTempTable3", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetOpenTempTable3_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetOpenTemporaryTable", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetOpenTemporaryTable_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetOpenTemporaryTable2", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetOpenTemporaryTable2_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetPrepareUpdate", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetPrepareUpdate_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetPrereadIndexRanges", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetPrereadIndexRanges_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetPrereadKeys", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetPrereadKeys_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetReadFile", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetReadFile_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetReadFileInstance", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetReadFileInstance_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetRegisterCallback", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetRegisterCallback_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetRenameColumnA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetRenameColumnA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetRenameColumnW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetRenameColumnW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetRenameTableA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetRenameTableA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetRenameTableW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetRenameTableW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetResetSessionContext", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetResetSessionContext_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetResetTableSequential", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetResetTableSequential_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetResizeDatabase", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetResizeDatabase_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetRestore2A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetRestore2A_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetRestore2W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetRestore2W_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetRestoreA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetRestoreA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetRestoreInstanceA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetRestoreInstanceA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetRestoreInstanceW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetRestoreInstanceW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetRestoreW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetRestoreW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetRetrieveColumn", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetRetrieveColumn_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetRetrieveColumns", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetRetrieveColumns_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetRetrieveKey", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetRetrieveKey_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetRollback", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetRollback_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetSeek", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetSeek_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetSetColumn", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetSetColumn_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetSetColumnDefaultValueA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetSetColumnDefaultValueA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetSetColumnDefaultValueW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetSetColumnDefaultValueW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetSetColumns", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetSetColumns_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetSetCurrentIndex2A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetSetCurrentIndex2A_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetSetCurrentIndex2W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetSetCurrentIndex2W_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetSetCurrentIndex3A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetSetCurrentIndex3A_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetSetCurrentIndex3W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetSetCurrentIndex3W_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetSetCurrentIndex4A", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetSetCurrentIndex4A_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetSetCurrentIndex4W", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetSetCurrentIndex4W_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetSetCurrentIndexA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetSetCurrentIndexA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetSetCurrentIndexW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetSetCurrentIndexW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetSetCursorFilter", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetSetCursorFilter_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetSetDatabaseSizeA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetSetDatabaseSizeA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetSetDatabaseSizeW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetSetDatabaseSizeW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetSetIndexRange", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetSetIndexRange_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetSetLS", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetSetLS_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetSetSessionContext", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetSetSessionContext_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetSetSessionParameter", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetSetSessionParameter_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetSetSystemParameterA", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetSetSystemParameterA_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetSetSystemParameterW", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetSetSystemParameterW_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetSetTableSequential", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetSetTableSequential_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetStopBackup", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetStopBackup_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetStopBackupInstance", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetStopBackupInstance_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetStopService", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetStopService_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetStopServiceInstance", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetStopServiceInstance_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetStopServiceInstance2", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetStopServiceInstance2_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetTerm", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetTerm_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetTerm2", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetTerm2_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetTruncateLog", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetTruncateLog_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetTruncateLogInstance", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetTruncateLogInstance_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetUnregisterCallback", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetUnregisterCallback_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetUpdate", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetUpdate_napi));
+    exports.Set("windowssys_windows_win32_storage_jet_jetUpdate2", Napi::Function::New(env, windowssys_windows_win32_storage_jet_jetUpdate2_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_storage_jet_napi, nullptr };

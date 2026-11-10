@@ -2,1207 +2,1208 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.graphics.gdi
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.COLORREF
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HGLOBAL
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Colorref
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hglobal
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun AbortPath(hdc: HDC): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_AbortPath(hdc.toCPointer<ByteVar>())
+public actual fun abortPath(hdc: Hdc): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_abortPath(hdc?.value?.toCPointer<ByteVar>())
 
-public actual fun AddFontMemResourceEx(pfileview: Long, cjsize: UInt, pvresrved: Long, pnumfonts: Long): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_AddFontMemResourceEx(pfileview.toCPointer<ByteVar>(), cjsize, pvresrved.toCPointer<ByteVar>(), pnumfonts.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun addFontMemResourceEx(pfileview: COpaquePointer?, cjsize: UInt, pvresrved: COpaquePointer?, pnumfonts: COpaquePointer?): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_addFontMemResourceEx(pfileview?.value?.toCPointer<ByteVar>(), cjsize, pvresrved?.value?.toCPointer<ByteVar>(), pnumfonts?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun AddFontResourceA(param0: PCSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_AddFontResourceA(param0.toCPointer<ByteVar>())
+public actual fun addFontResourceA(param0: Pcstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_addFontResourceA(param0?.value?.toCPointer<ByteVar>())
 
-public actual fun AddFontResourceExA(name: PCSTR, fl: FONT_RESOURCE_CHARACTERISTICS, res: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_AddFontResourceExA(name.toCPointer<ByteVar>(), fl, res.toCPointer<ByteVar>())
+public actual fun addFontResourceExA(name: Pcstr, fl: FontResourceCharacteristics, res: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_addFontResourceExA(name?.value?.toCPointer<ByteVar>(), fl, res?.value?.toCPointer<ByteVar>())
 
-public actual fun AddFontResourceExW(name: PCWSTR, fl: FONT_RESOURCE_CHARACTERISTICS, res: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_AddFontResourceExW(name.toCPointer<ByteVar>(), fl, res.toCPointer<ByteVar>())
+public actual fun addFontResourceExW(name: Pcwstr, fl: FontResourceCharacteristics, res: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_addFontResourceExW(name?.value?.toCPointer<ByteVar>(), fl, res?.value?.toCPointer<ByteVar>())
 
-public actual fun AddFontResourceW(param0: PCWSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_AddFontResourceW(param0.toCPointer<ByteVar>())
+public actual fun addFontResourceW(param0: Pcwstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_addFontResourceW(param0?.value?.toCPointer<ByteVar>())
 
-public actual fun AlphaBlend(hdcdest: HDC, xorigindest: Int, yorigindest: Int, wdest: Int, hdest: Int, hdcsrc: HDC, xoriginsrc: Int, yoriginsrc: Int, wsrc: Int, hsrc: Int, ftn: BLENDFUNCTION): BOOL =
+public actual fun alphaBlend(hdcdest: Hdc, xorigindest: Int, yorigindest: Int, wdest: Int, hdest: Int, hdcsrc: Hdc, xoriginsrc: Int, yoriginsrc: Int, wsrc: Int, hsrc: Int, ftn: Blendfunction): Bool =
     0
 
-public actual fun AngleArc(hdc: HDC, x: Int, y: Int, r: UInt, startangle: Float, sweepangle: Float): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_AngleArc(hdc.toCPointer<ByteVar>(), x, y, r, startangle, sweepangle)
+public actual fun angleArc(hdc: Hdc, x: Int, y: Int, r: UInt, startangle: Float, sweepangle: Float): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_angleArc(hdc?.value?.toCPointer<ByteVar>(), x, y, r, startangle, sweepangle)
 
-public actual fun AnimatePalette(hpal: HPALETTE, istartindex: UInt, centries: UInt, ppe: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_AnimatePalette(hpal.toCPointer<ByteVar>(), istartindex, centries, ppe.toCPointer<ByteVar>())
+public actual fun animatePalette(hpal: Hpalette, istartindex: UInt, centries: UInt, ppe: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_animatePalette(hpal?.value?.toCPointer<ByteVar>(), istartindex, centries, ppe?.value?.toCPointer<ByteVar>())
 
-public actual fun Arc(hdc: HDC, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int, x4: Int, y4: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_Arc(hdc.toCPointer<ByteVar>(), x1, y1, x2, y2, x3, y3, x4, y4)
+public actual fun arc(hdc: Hdc, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int, x4: Int, y4: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_arc(hdc?.value?.toCPointer<ByteVar>(), x1, y1, x2, y2, x3, y3, x4, y4)
 
-public actual fun ArcTo(hdc: HDC, left: Int, top: Int, right: Int, bottom: Int, xr1: Int, yr1: Int, xr2: Int, yr2: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_ArcTo(hdc.toCPointer<ByteVar>(), left, top, right, bottom, xr1, yr1, xr2, yr2)
+public actual fun arcTo(hdc: Hdc, left: Int, top: Int, right: Int, bottom: Int, xr1: Int, yr1: Int, xr2: Int, yr2: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_arcTo(hdc?.value?.toCPointer<ByteVar>(), left, top, right, bottom, xr1, yr1, xr2, yr2)
 
-public actual fun BeginPaint(hwnd: HWND, lppaint: Long): HDC =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_BeginPaint(hwnd.toCPointer<ByteVar>(), lppaint.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun beginPaint(hwnd: Hwnd, lppaint: COpaquePointer?): Hdc =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_beginPaint(hwnd?.value?.toCPointer<ByteVar>(), lppaint?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun BeginPath(hdc: HDC): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_BeginPath(hdc.toCPointer<ByteVar>())
+public actual fun beginPath(hdc: Hdc): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_beginPath(hdc?.value?.toCPointer<ByteVar>())
 
-public actual fun BitBlt(hdc: HDC, x: Int, y: Int, cx: Int, cy: Int, hdcsrc: HDC, x1: Int, y1: Int, rop: ROP_CODE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_BitBlt(hdc.toCPointer<ByteVar>(), x, y, cx, cy, hdcsrc.toCPointer<ByteVar>(), x1, y1, rop)
+public actual fun bitBlt(hdc: Hdc, x: Int, y: Int, cx: Int, cy: Int, hdcsrc: Hdc, x1: Int, y1: Int, rop: RopCode): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_bitBlt(hdc?.value?.toCPointer<ByteVar>(), x, y, cx, cy, hdcsrc?.value?.toCPointer<ByteVar>(), x1, y1, rop)
 
-public actual fun CancelDC(hdc: HDC): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CancelDC(hdc.toCPointer<ByteVar>())
+public actual fun cancelDC(hdc: Hdc): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_cancelDC(hdc?.value?.toCPointer<ByteVar>())
 
-public actual fun ChangeDisplaySettingsA(lpdevmode: Long, dwflags: CDS_TYPE): DISP_CHANGE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_ChangeDisplaySettingsA(lpdevmode.toCPointer<ByteVar>(), dwflags)
+public actual fun changeDisplaySettingsA(lpdevmode: COpaquePointer?, dwflags: CdsType): DispChange =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_changeDisplaySettingsA(lpdevmode?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun ChangeDisplaySettingsExA(lpszdevicename: PCSTR, lpdevmode: Long, hwnd: HWND, dwflags: CDS_TYPE, lparam: Long): DISP_CHANGE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_ChangeDisplaySettingsExA(lpszdevicename.toCPointer<ByteVar>(), lpdevmode.toCPointer<ByteVar>(), hwnd.toCPointer<ByteVar>(), dwflags, lparam.toCPointer<ByteVar>())
+public actual fun changeDisplaySettingsExA(lpszdevicename: Pcstr, lpdevmode: COpaquePointer?, hwnd: Hwnd, dwflags: CdsType, lparam: COpaquePointer?): DispChange =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_changeDisplaySettingsExA(lpszdevicename?.value?.toCPointer<ByteVar>(), lpdevmode?.value?.toCPointer<ByteVar>(), hwnd?.value?.toCPointer<ByteVar>(), dwflags, lparam?.value?.toCPointer<ByteVar>())
 
-public actual fun ChangeDisplaySettingsExW(lpszdevicename: PCWSTR, lpdevmode: Long, hwnd: HWND, dwflags: CDS_TYPE, lparam: Long): DISP_CHANGE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_ChangeDisplaySettingsExW(lpszdevicename.toCPointer<ByteVar>(), lpdevmode.toCPointer<ByteVar>(), hwnd.toCPointer<ByteVar>(), dwflags, lparam.toCPointer<ByteVar>())
+public actual fun changeDisplaySettingsExW(lpszdevicename: Pcwstr, lpdevmode: COpaquePointer?, hwnd: Hwnd, dwflags: CdsType, lparam: COpaquePointer?): DispChange =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_changeDisplaySettingsExW(lpszdevicename?.value?.toCPointer<ByteVar>(), lpdevmode?.value?.toCPointer<ByteVar>(), hwnd?.value?.toCPointer<ByteVar>(), dwflags, lparam?.value?.toCPointer<ByteVar>())
 
-public actual fun ChangeDisplaySettingsW(lpdevmode: Long, dwflags: CDS_TYPE): DISP_CHANGE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_ChangeDisplaySettingsW(lpdevmode.toCPointer<ByteVar>(), dwflags)
+public actual fun changeDisplaySettingsW(lpdevmode: COpaquePointer?, dwflags: CdsType): DispChange =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_changeDisplaySettingsW(lpdevmode?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun Chord(hdc: HDC, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int, x4: Int, y4: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_Chord(hdc.toCPointer<ByteVar>(), x1, y1, x2, y2, x3, y3, x4, y4)
+public actual fun chord(hdc: Hdc, x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int, x4: Int, y4: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_chord(hdc?.value?.toCPointer<ByteVar>(), x1, y1, x2, y2, x3, y3, x4, y4)
 
-public actual fun ClientToScreen(hwnd: HWND, lppoint: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_ClientToScreen(hwnd.toCPointer<ByteVar>(), lppoint.toCPointer<ByteVar>())
+public actual fun clientToScreen(hwnd: Hwnd, lppoint: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_clientToScreen(hwnd?.value?.toCPointer<ByteVar>(), lppoint?.value?.toCPointer<ByteVar>())
 
-public actual fun CloseEnhMetaFile(hdc: HDC): HENHMETAFILE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CloseEnhMetaFile(hdc.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun closeEnhMetaFile(hdc: Hdc): Henhmetafile =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_closeEnhMetaFile(hdc?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CloseFigure(hdc: HDC): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CloseFigure(hdc.toCPointer<ByteVar>())
+public actual fun closeFigure(hdc: Hdc): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_closeFigure(hdc?.value?.toCPointer<ByteVar>())
 
-public actual fun CloseMetaFile(hdc: HDC): HMETAFILE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CloseMetaFile(hdc.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun closeMetaFile(hdc: Hdc): Hmetafile =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_closeMetaFile(hdc?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CombineRgn(hrgndst: HRGN, hrgnsrc1: HRGN, hrgnsrc2: HRGN, imode: RGN_COMBINE_MODE): GDI_REGION_TYPE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CombineRgn(hrgndst.toCPointer<ByteVar>(), hrgnsrc1.toCPointer<ByteVar>(), hrgnsrc2.toCPointer<ByteVar>(), imode)
+public actual fun combineRgn(hrgndst: Hrgn, hrgnsrc1: Hrgn, hrgnsrc2: Hrgn, imode: RgnCombineMode): GdiRegionType =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_combineRgn(hrgndst?.value?.toCPointer<ByteVar>(), hrgnsrc1?.value?.toCPointer<ByteVar>(), hrgnsrc2?.value?.toCPointer<ByteVar>(), imode)
 
-public actual fun CombineTransform(lpxfout: Long, lpxf1: Long, lpxf2: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CombineTransform(lpxfout.toCPointer<ByteVar>(), lpxf1.toCPointer<ByteVar>(), lpxf2.toCPointer<ByteVar>())
+public actual fun combineTransform(lpxfout: COpaquePointer?, lpxf1: COpaquePointer?, lpxf2: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_combineTransform(lpxfout?.value?.toCPointer<ByteVar>(), lpxf1?.value?.toCPointer<ByteVar>(), lpxf2?.value?.toCPointer<ByteVar>())
 
-public actual fun CopyEnhMetaFileA(henh: HENHMETAFILE, lpfilename: PCSTR): HENHMETAFILE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CopyEnhMetaFileA(henh.toCPointer<ByteVar>(), lpfilename.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun copyEnhMetaFileA(henh: Henhmetafile, lpfilename: Pcstr): Henhmetafile =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_copyEnhMetaFileA(henh?.value?.toCPointer<ByteVar>(), lpfilename?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CopyEnhMetaFileW(henh: HENHMETAFILE, lpfilename: PCWSTR): HENHMETAFILE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CopyEnhMetaFileW(henh.toCPointer<ByteVar>(), lpfilename.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun copyEnhMetaFileW(henh: Henhmetafile, lpfilename: Pcwstr): Henhmetafile =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_copyEnhMetaFileW(henh?.value?.toCPointer<ByteVar>(), lpfilename?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CopyMetaFileA(param0: HMETAFILE, param1: PCSTR): HMETAFILE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CopyMetaFileA(param0.toCPointer<ByteVar>(), param1.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun copyMetaFileA(param0: Hmetafile, param1: Pcstr): Hmetafile =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_copyMetaFileA(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CopyMetaFileW(param0: HMETAFILE, param1: PCWSTR): HMETAFILE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CopyMetaFileW(param0.toCPointer<ByteVar>(), param1.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun copyMetaFileW(param0: Hmetafile, param1: Pcwstr): Hmetafile =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_copyMetaFileW(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CopyRect(lprcdst: Long, lprcsrc: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CopyRect(lprcdst.toCPointer<ByteVar>(), lprcsrc.toCPointer<ByteVar>())
+public actual fun copyRect(lprcdst: COpaquePointer?, lprcsrc: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_copyRect(lprcdst?.value?.toCPointer<ByteVar>(), lprcsrc?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateBitmap(nwidth: Int, nheight: Int, nplanes: UInt, nbitcount: UInt, lpbits: Long): HBITMAP =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreateBitmap(nwidth, nheight, nplanes, nbitcount, lpbits.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createBitmap(nwidth: Int, nheight: Int, nplanes: UInt, nbitcount: UInt, lpbits: COpaquePointer?): Hbitmap =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createBitmap(nwidth, nheight, nplanes, nbitcount, lpbits?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateBitmapIndirect(pbm: Long): HBITMAP =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreateBitmapIndirect(pbm.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createBitmapIndirect(pbm: COpaquePointer?): Hbitmap =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createBitmapIndirect(pbm?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateBrushIndirect(plbrush: Long): HBRUSH =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreateBrushIndirect(plbrush.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createBrushIndirect(plbrush: COpaquePointer?): Hbrush =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createBrushIndirect(plbrush?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateCompatibleBitmap(hdc: HDC, cx: Int, cy: Int): HBITMAP =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreateCompatibleBitmap(hdc.toCPointer<ByteVar>(), cx, cy)?.toLong() ?: 0L
+public actual fun createCompatibleBitmap(hdc: Hdc, cx: Int, cy: Int): Hbitmap =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createCompatibleBitmap(hdc?.value?.toCPointer<ByteVar>(), cx, cy)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateCompatibleDC(hdc: HDC): HDC =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreateCompatibleDC(hdc.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createCompatibleDC(hdc: Hdc): Hdc =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createCompatibleDC(hdc?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateDCA(pwszdriver: PCSTR, pwszdevice: PCSTR, pszport: PCSTR, pdm: Long): HDC =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreateDCA(pwszdriver.toCPointer<ByteVar>(), pwszdevice.toCPointer<ByteVar>(), pszport.toCPointer<ByteVar>(), pdm.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createDCA(pwszdriver: Pcstr, pwszdevice: Pcstr, pszport: Pcstr, pdm: COpaquePointer?): Hdc =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createDCA(pwszdriver?.value?.toCPointer<ByteVar>(), pwszdevice?.value?.toCPointer<ByteVar>(), pszport?.value?.toCPointer<ByteVar>(), pdm?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateDCW(pwszdriver: PCWSTR, pwszdevice: PCWSTR, pszport: PCWSTR, pdm: Long): HDC =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreateDCW(pwszdriver.toCPointer<ByteVar>(), pwszdevice.toCPointer<ByteVar>(), pszport.toCPointer<ByteVar>(), pdm.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createDCW(pwszdriver: Pcwstr, pwszdevice: Pcwstr, pszport: Pcwstr, pdm: COpaquePointer?): Hdc =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createDCW(pwszdriver?.value?.toCPointer<ByteVar>(), pwszdevice?.value?.toCPointer<ByteVar>(), pszport?.value?.toCPointer<ByteVar>(), pdm?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateDIBPatternBrush(h: HGLOBAL, iusage: DIB_USAGE): HBRUSH =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreateDIBPatternBrush(h.toCPointer<ByteVar>(), iusage)?.toLong() ?: 0L
+public actual fun createDIBPatternBrush(h: Hglobal, iusage: DibUsage): Hbrush =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createDIBPatternBrush(h?.value?.toCPointer<ByteVar>(), iusage)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateDIBPatternBrushPt(lppackeddib: Long, iusage: DIB_USAGE): HBRUSH =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreateDIBPatternBrushPt(lppackeddib.toCPointer<ByteVar>(), iusage)?.toLong() ?: 0L
+public actual fun createDIBPatternBrushPt(lppackeddib: COpaquePointer?, iusage: DibUsage): Hbrush =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createDIBPatternBrushPt(lppackeddib?.value?.toCPointer<ByteVar>(), iusage)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateDIBSection(hdc: HDC, pbmi: Long, usage: DIB_USAGE, ppvbits: Long, hsection: HANDLE, offset: UInt): HBITMAP =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreateDIBSection(hdc.toCPointer<ByteVar>(), pbmi.toCPointer<ByteVar>(), usage, ppvbits.toCPointer<ByteVar>(), hsection.toCPointer<ByteVar>(), offset)?.toLong() ?: 0L
+public actual fun createDIBSection(hdc: Hdc, pbmi: COpaquePointer?, usage: DibUsage, ppvbits: COpaquePointer?, hsection: Handle, offset: UInt): Hbitmap =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createDIBSection(hdc?.value?.toCPointer<ByteVar>(), pbmi?.value?.toCPointer<ByteVar>(), usage, ppvbits?.value?.toCPointer<ByteVar>(), hsection?.value?.toCPointer<ByteVar>(), offset)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateDIBitmap(hdc: HDC, pbmih: Long, flinit: UInt, pjbits: Long, pbmi: Long, iusage: DIB_USAGE): HBITMAP =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreateDIBitmap(hdc.toCPointer<ByteVar>(), pbmih.toCPointer<ByteVar>(), flinit, pjbits.toCPointer<ByteVar>(), pbmi.toCPointer<ByteVar>(), iusage)?.toLong() ?: 0L
+public actual fun createDIBitmap(hdc: Hdc, pbmih: COpaquePointer?, flinit: UInt, pjbits: COpaquePointer?, pbmi: COpaquePointer?, iusage: DibUsage): Hbitmap =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createDIBitmap(hdc?.value?.toCPointer<ByteVar>(), pbmih?.value?.toCPointer<ByteVar>(), flinit, pjbits?.value?.toCPointer<ByteVar>(), pbmi?.value?.toCPointer<ByteVar>(), iusage)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateDiscardableBitmap(hdc: HDC, cx: Int, cy: Int): HBITMAP =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreateDiscardableBitmap(hdc.toCPointer<ByteVar>(), cx, cy)?.toLong() ?: 0L
+public actual fun createDiscardableBitmap(hdc: Hdc, cx: Int, cy: Int): Hbitmap =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createDiscardableBitmap(hdc?.value?.toCPointer<ByteVar>(), cx, cy)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateEllipticRgn(x1: Int, y1: Int, x2: Int, y2: Int): HRGN =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreateEllipticRgn(x1, y1, x2, y2)?.toLong() ?: 0L
+public actual fun createEllipticRgn(x1: Int, y1: Int, x2: Int, y2: Int): Hrgn =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createEllipticRgn(x1, y1, x2, y2)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateEllipticRgnIndirect(lprect: Long): HRGN =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreateEllipticRgnIndirect(lprect.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createEllipticRgnIndirect(lprect: COpaquePointer?): Hrgn =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createEllipticRgnIndirect(lprect?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateEnhMetaFileA(hdc: HDC, lpfilename: PCSTR, lprc: Long, lpdesc: PCSTR): HDC =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreateEnhMetaFileA(hdc.toCPointer<ByteVar>(), lpfilename.toCPointer<ByteVar>(), lprc.toCPointer<ByteVar>(), lpdesc.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createEnhMetaFileA(hdc: Hdc, lpfilename: Pcstr, lprc: COpaquePointer?, lpdesc: Pcstr): Hdc =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createEnhMetaFileA(hdc?.value?.toCPointer<ByteVar>(), lpfilename?.value?.toCPointer<ByteVar>(), lprc?.value?.toCPointer<ByteVar>(), lpdesc?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateEnhMetaFileW(hdc: HDC, lpfilename: PCWSTR, lprc: Long, lpdesc: PCWSTR): HDC =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreateEnhMetaFileW(hdc.toCPointer<ByteVar>(), lpfilename.toCPointer<ByteVar>(), lprc.toCPointer<ByteVar>(), lpdesc.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createEnhMetaFileW(hdc: Hdc, lpfilename: Pcwstr, lprc: COpaquePointer?, lpdesc: Pcwstr): Hdc =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createEnhMetaFileW(hdc?.value?.toCPointer<ByteVar>(), lpfilename?.value?.toCPointer<ByteVar>(), lprc?.value?.toCPointer<ByteVar>(), lpdesc?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateFontA(cheight: Int, cwidth: Int, cescapement: Int, corientation: Int, cweight: Int, bitalic: UInt, bunderline: UInt, bstrikeout: UInt, icharset: UInt, ioutprecision: UInt, iclipprecision: UInt, iquality: UInt, ipitchandfamily: UInt, pszfacename: PCSTR): HFONT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreateFontA(cheight, cwidth, cescapement, corientation, cweight, bitalic, bunderline, bstrikeout, icharset, ioutprecision, iclipprecision, iquality, ipitchandfamily, pszfacename.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createFontA(cheight: Int, cwidth: Int, cescapement: Int, corientation: Int, cweight: Int, bitalic: UInt, bunderline: UInt, bstrikeout: UInt, icharset: UInt, ioutprecision: UInt, iclipprecision: UInt, iquality: UInt, ipitchandfamily: UInt, pszfacename: Pcstr): Hfont =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createFontA(cheight, cwidth, cescapement, corientation, cweight, bitalic, bunderline, bstrikeout, icharset, ioutprecision, iclipprecision, iquality, ipitchandfamily, pszfacename?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateFontIndirectA(lplf: Long): HFONT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreateFontIndirectA(lplf.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createFontIndirectA(lplf: COpaquePointer?): Hfont =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createFontIndirectA(lplf?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateFontIndirectExA(param0: Long): HFONT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreateFontIndirectExA(param0.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createFontIndirectExA(param0: COpaquePointer?): Hfont =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createFontIndirectExA(param0?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateFontIndirectExW(param0: Long): HFONT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreateFontIndirectExW(param0.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createFontIndirectExW(param0: COpaquePointer?): Hfont =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createFontIndirectExW(param0?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateFontIndirectW(lplf: Long): HFONT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreateFontIndirectW(lplf.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createFontIndirectW(lplf: COpaquePointer?): Hfont =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createFontIndirectW(lplf?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateFontPackage(puchsrcbuffer: Long, ulsrcbuffersize: UInt, ppuchfontpackagebuffer: Long, pulfontpackagebuffersize: Long, pulbyteswritten: Long, usflag: UShort, usttcindex: UShort, ussubsetformat: UShort, ussubsetlanguage: UShort, ussubsetplatform: CREATE_FONT_PACKAGE_SUBSET_PLATFORM, ussubsetencoding: CREATE_FONT_PACKAGE_SUBSET_ENCODING, pussubsetkeeplist: Long, ussubsetlistcount: UShort, lpfnallocate: CFP_ALLOCPROC, lpfnreallocate: CFP_REALLOCPROC, lpfnfree: CFP_FREEPROC, lpvreserved: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreateFontPackage(puchsrcbuffer.toCPointer<ByteVar>(), ulsrcbuffersize, ppuchfontpackagebuffer.toCPointer<ByteVar>(), pulfontpackagebuffersize.toCPointer<ByteVar>(), pulbyteswritten.toCPointer<ByteVar>(), usflag, usttcindex, ussubsetformat, ussubsetlanguage, ussubsetplatform, ussubsetencoding, pussubsetkeeplist.toCPointer<ByteVar>(), ussubsetlistcount, lpfnallocate.toLong().toCPointer<ByteVar>(), lpfnreallocate.toLong().toCPointer<ByteVar>(), lpfnfree.toLong().toCPointer<ByteVar>(), lpvreserved.toCPointer<ByteVar>())
+public actual fun createFontPackage(puchsrcbuffer: COpaquePointer?, ulsrcbuffersize: UInt, ppuchfontpackagebuffer: COpaquePointer?, pulfontpackagebuffersize: COpaquePointer?, pulbyteswritten: COpaquePointer?, usflag: UShort, usttcindex: UShort, ussubsetformat: UShort, ussubsetlanguage: UShort, ussubsetplatform: CreateFontPackageSubsetPlatform, ussubsetencoding: CreateFontPackageSubsetEncoding, pussubsetkeeplist: COpaquePointer?, ussubsetlistcount: UShort, lpfnallocate: CfpAllocproc, lpfnreallocate: CfpReallocproc, lpfnfree: CfpFreeproc, lpvreserved: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createFontPackage(puchsrcbuffer?.value?.toCPointer<ByteVar>(), ulsrcbuffersize, ppuchfontpackagebuffer?.value?.toCPointer<ByteVar>(), pulfontpackagebuffersize?.value?.toCPointer<ByteVar>(), pulbyteswritten?.value?.toCPointer<ByteVar>(), usflag, usttcindex, ussubsetformat, ussubsetlanguage, ussubsetplatform, ussubsetencoding, pussubsetkeeplist?.value?.toCPointer<ByteVar>(), ussubsetlistcount, 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpvreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateFontW(cheight: Int, cwidth: Int, cescapement: Int, corientation: Int, cweight: Int, bitalic: UInt, bunderline: UInt, bstrikeout: UInt, icharset: UInt, ioutprecision: UInt, iclipprecision: UInt, iquality: UInt, ipitchandfamily: UInt, pszfacename: PCWSTR): HFONT =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreateFontW(cheight, cwidth, cescapement, corientation, cweight, bitalic, bunderline, bstrikeout, icharset, ioutprecision, iclipprecision, iquality, ipitchandfamily, pszfacename.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createFontW(cheight: Int, cwidth: Int, cescapement: Int, corientation: Int, cweight: Int, bitalic: UInt, bunderline: UInt, bstrikeout: UInt, icharset: UInt, ioutprecision: UInt, iclipprecision: UInt, iquality: UInt, ipitchandfamily: UInt, pszfacename: Pcwstr): Hfont =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createFontW(cheight, cwidth, cescapement, corientation, cweight, bitalic, bunderline, bstrikeout, icharset, ioutprecision, iclipprecision, iquality, ipitchandfamily, pszfacename?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateHalftonePalette(hdc: HDC): HPALETTE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreateHalftonePalette(hdc.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createHalftonePalette(hdc: Hdc): Hpalette =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createHalftonePalette(hdc?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateHatchBrush(ihatch: HATCH_BRUSH_STYLE, color: COLORREF): HBRUSH =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreateHatchBrush(ihatch, color)?.toLong() ?: 0L
+public actual fun createHatchBrush(ihatch: HatchBrushStyle, color: Colorref): Hbrush =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createHatchBrush(ihatch, color)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateICA(pszdriver: PCSTR, pszdevice: PCSTR, pszport: PCSTR, pdm: Long): HDC =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreateICA(pszdriver.toCPointer<ByteVar>(), pszdevice.toCPointer<ByteVar>(), pszport.toCPointer<ByteVar>(), pdm.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createICA(pszdriver: Pcstr, pszdevice: Pcstr, pszport: Pcstr, pdm: COpaquePointer?): Hdc =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createICA(pszdriver?.value?.toCPointer<ByteVar>(), pszdevice?.value?.toCPointer<ByteVar>(), pszport?.value?.toCPointer<ByteVar>(), pdm?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateICW(pszdriver: PCWSTR, pszdevice: PCWSTR, pszport: PCWSTR, pdm: Long): HDC =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreateICW(pszdriver.toCPointer<ByteVar>(), pszdevice.toCPointer<ByteVar>(), pszport.toCPointer<ByteVar>(), pdm.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createICW(pszdriver: Pcwstr, pszdevice: Pcwstr, pszport: Pcwstr, pdm: COpaquePointer?): Hdc =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createICW(pszdriver?.value?.toCPointer<ByteVar>(), pszdevice?.value?.toCPointer<ByteVar>(), pszport?.value?.toCPointer<ByteVar>(), pdm?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateMetaFileA(pszfile: PCSTR): HDC =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreateMetaFileA(pszfile.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createMetaFileA(pszfile: Pcstr): Hdc =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createMetaFileA(pszfile?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateMetaFileW(pszfile: PCWSTR): HDC =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreateMetaFileW(pszfile.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createMetaFileW(pszfile: Pcwstr): Hdc =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createMetaFileW(pszfile?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreatePalette(plpal: Long): HPALETTE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreatePalette(plpal.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createPalette(plpal: COpaquePointer?): Hpalette =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createPalette(plpal?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreatePatternBrush(hbm: HBITMAP): HBRUSH =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreatePatternBrush(hbm.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createPatternBrush(hbm: Hbitmap): Hbrush =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createPatternBrush(hbm?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreatePen(istyle: PEN_STYLE, cwidth: Int, color: COLORREF): HPEN =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreatePen(istyle, cwidth, color)?.toLong() ?: 0L
+public actual fun createPen(istyle: PenStyle, cwidth: Int, color: Colorref): Hpen =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createPen(istyle, cwidth, color)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreatePenIndirect(plpen: Long): HPEN =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreatePenIndirect(plpen.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createPenIndirect(plpen: COpaquePointer?): Hpen =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createPenIndirect(plpen?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreatePolyPolygonRgn(pptl: Long, pc: Long, cpoly: Int, imode: CREATE_POLYGON_RGN_MODE): HRGN =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreatePolyPolygonRgn(pptl.toCPointer<ByteVar>(), pc.toCPointer<ByteVar>(), cpoly, imode)?.toLong() ?: 0L
+public actual fun createPolyPolygonRgn(pptl: COpaquePointer?, pc: COpaquePointer?, cpoly: Int, imode: CreatePolygonRgnMode): Hrgn =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createPolyPolygonRgn(pptl?.value?.toCPointer<ByteVar>(), pc?.value?.toCPointer<ByteVar>(), cpoly, imode)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreatePolygonRgn(pptl: Long, cpoint: Int, imode: CREATE_POLYGON_RGN_MODE): HRGN =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreatePolygonRgn(pptl.toCPointer<ByteVar>(), cpoint, imode)?.toLong() ?: 0L
+public actual fun createPolygonRgn(pptl: COpaquePointer?, cpoint: Int, imode: CreatePolygonRgnMode): Hrgn =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createPolygonRgn(pptl?.value?.toCPointer<ByteVar>(), cpoint, imode)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateRectRgn(x1: Int, y1: Int, x2: Int, y2: Int): HRGN =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreateRectRgn(x1, y1, x2, y2)?.toLong() ?: 0L
+public actual fun createRectRgn(x1: Int, y1: Int, x2: Int, y2: Int): Hrgn =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createRectRgn(x1, y1, x2, y2)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateRectRgnIndirect(lprect: Long): HRGN =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreateRectRgnIndirect(lprect.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createRectRgnIndirect(lprect: COpaquePointer?): Hrgn =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createRectRgnIndirect(lprect?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateRoundRectRgn(x1: Int, y1: Int, x2: Int, y2: Int, w: Int, h: Int): HRGN =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreateRoundRectRgn(x1, y1, x2, y2, w, h)?.toLong() ?: 0L
+public actual fun createRoundRectRgn(x1: Int, y1: Int, x2: Int, y2: Int, w: Int, h: Int): Hrgn =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createRoundRectRgn(x1, y1, x2, y2, w, h)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateScalableFontResourceA(fdwhidden: UInt, lpszfont: PCSTR, lpszfile: PCSTR, lpszpath: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreateScalableFontResourceA(fdwhidden, lpszfont.toCPointer<ByteVar>(), lpszfile.toCPointer<ByteVar>(), lpszpath.toCPointer<ByteVar>())
+public actual fun createScalableFontResourceA(fdwhidden: UInt, lpszfont: Pcstr, lpszfile: Pcstr, lpszpath: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createScalableFontResourceA(fdwhidden, lpszfont?.value?.toCPointer<ByteVar>(), lpszfile?.value?.toCPointer<ByteVar>(), lpszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateScalableFontResourceW(fdwhidden: UInt, lpszfont: PCWSTR, lpszfile: PCWSTR, lpszpath: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreateScalableFontResourceW(fdwhidden, lpszfont.toCPointer<ByteVar>(), lpszfile.toCPointer<ByteVar>(), lpszpath.toCPointer<ByteVar>())
+public actual fun createScalableFontResourceW(fdwhidden: UInt, lpszfont: Pcwstr, lpszfile: Pcwstr, lpszpath: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createScalableFontResourceW(fdwhidden, lpszfont?.value?.toCPointer<ByteVar>(), lpszfile?.value?.toCPointer<ByteVar>(), lpszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateSolidBrush(color: COLORREF): HBRUSH =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_CreateSolidBrush(color)?.toLong() ?: 0L
+public actual fun createSolidBrush(color: Colorref): Hbrush =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_createSolidBrush(color)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun DPtoLP(hdc: HDC, lppt: Long, c: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_DPtoLP(hdc.toCPointer<ByteVar>(), lppt.toCPointer<ByteVar>(), c)
+public actual fun dPtoLP(hdc: Hdc, lppt: COpaquePointer?, c: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_dPtoLP(hdc?.value?.toCPointer<ByteVar>(), lppt?.value?.toCPointer<ByteVar>(), c)
 
-public actual fun DeleteDC(hdc: HDC): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_DeleteDC(hdc.toCPointer<ByteVar>())
+public actual fun deleteDC(hdc: Hdc): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_deleteDC(hdc?.value?.toCPointer<ByteVar>())
 
-public actual fun DeleteEnhMetaFile(hmf: HENHMETAFILE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_DeleteEnhMetaFile(hmf.toCPointer<ByteVar>())
+public actual fun deleteEnhMetaFile(hmf: Henhmetafile): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_deleteEnhMetaFile(hmf?.value?.toCPointer<ByteVar>())
 
-public actual fun DeleteMetaFile(hmf: HMETAFILE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_DeleteMetaFile(hmf.toCPointer<ByteVar>())
+public actual fun deleteMetaFile(hmf: Hmetafile): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_deleteMetaFile(hmf?.value?.toCPointer<ByteVar>())
 
-public actual fun DeleteObject(ho: HGDIOBJ): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_DeleteObject(ho.toCPointer<ByteVar>())
+public actual fun deleteObject(ho: Hgdiobj): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_deleteObject(ho?.value?.toCPointer<ByteVar>())
 
-public actual fun DrawAnimatedRects(hwnd: HWND, idani: Int, lprcfrom: Long, lprcto: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_DrawAnimatedRects(hwnd.toCPointer<ByteVar>(), idani, lprcfrom.toCPointer<ByteVar>(), lprcto.toCPointer<ByteVar>())
+public actual fun drawAnimatedRects(hwnd: Hwnd, idani: Int, lprcfrom: COpaquePointer?, lprcto: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_drawAnimatedRects(hwnd?.value?.toCPointer<ByteVar>(), idani, lprcfrom?.value?.toCPointer<ByteVar>(), lprcto?.value?.toCPointer<ByteVar>())
 
-public actual fun DrawCaption(hwnd: HWND, hdc: HDC, lprect: Long, flags: DRAW_CAPTION_FLAGS): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_DrawCaption(hwnd.toCPointer<ByteVar>(), hdc.toCPointer<ByteVar>(), lprect.toCPointer<ByteVar>(), flags)
+public actual fun drawCaption(hwnd: Hwnd, hdc: Hdc, lprect: COpaquePointer?, flags: DrawCaptionFlags): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_drawCaption(hwnd?.value?.toCPointer<ByteVar>(), hdc?.value?.toCPointer<ByteVar>(), lprect?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun DrawEdge(hdc: HDC, qrc: Long, edge: DRAWEDGE_FLAGS, grfflags: DRAW_EDGE_FLAGS): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_DrawEdge(hdc.toCPointer<ByteVar>(), qrc.toCPointer<ByteVar>(), edge, grfflags)
+public actual fun drawEdge(hdc: Hdc, qrc: COpaquePointer?, edge: DrawedgeFlags, grfflags: DrawEdgeFlags): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_drawEdge(hdc?.value?.toCPointer<ByteVar>(), qrc?.value?.toCPointer<ByteVar>(), edge, grfflags)
 
-public actual fun DrawEscape(hdc: HDC, iescape: Int, cjin: Int, lpin: PCSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_DrawEscape(hdc.toCPointer<ByteVar>(), iescape, cjin, lpin.toCPointer<ByteVar>())
+public actual fun drawEscape(hdc: Hdc, iescape: Int, cjin: Int, lpin: Pcstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_drawEscape(hdc?.value?.toCPointer<ByteVar>(), iescape, cjin, lpin?.value?.toCPointer<ByteVar>())
 
-public actual fun DrawFocusRect(hdc: HDC, lprc: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_DrawFocusRect(hdc.toCPointer<ByteVar>(), lprc.toCPointer<ByteVar>())
+public actual fun drawFocusRect(hdc: Hdc, lprc: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_drawFocusRect(hdc?.value?.toCPointer<ByteVar>(), lprc?.value?.toCPointer<ByteVar>())
 
-public actual fun DrawFrameControl(param0: HDC, param1: Long, param2: DFC_TYPE, param3: DFCS_STATE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_DrawFrameControl(param0.toCPointer<ByteVar>(), param1.toCPointer<ByteVar>(), param2, param3)
+public actual fun drawFrameControl(param0: Hdc, param1: COpaquePointer?, param2: DfcType, param3: DfcsState): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_drawFrameControl(param0?.value?.toCPointer<ByteVar>(), param1?.value?.toCPointer<ByteVar>(), param2, param3)
 
-public actual fun DrawStateA(hdc: HDC, hbrfore: HBRUSH, qfncallback: DRAWSTATEPROC, ldata: LPARAM, wdata: WPARAM, x: Int, y: Int, cx: Int, cy: Int, uflags: DRAWSTATE_FLAGS): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_DrawStateA(hdc.toCPointer<ByteVar>(), hbrfore.toCPointer<ByteVar>(), qfncallback.toLong().toCPointer<ByteVar>(), ldata, wdata, x, y, cx, cy, uflags)
+public actual fun drawStateA(hdc: Hdc, hbrfore: Hbrush, qfncallback: Drawstateproc, ldata: Lparam, wdata: Wparam, x: Int, y: Int, cx: Int, cy: Int, uflags: DrawstateFlags): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_drawStateA(hdc?.value?.toCPointer<ByteVar>(), hbrfore?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), ldata, wdata, x, y, cx, cy, uflags)
 
-public actual fun DrawStateW(hdc: HDC, hbrfore: HBRUSH, qfncallback: DRAWSTATEPROC, ldata: LPARAM, wdata: WPARAM, x: Int, y: Int, cx: Int, cy: Int, uflags: DRAWSTATE_FLAGS): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_DrawStateW(hdc.toCPointer<ByteVar>(), hbrfore.toCPointer<ByteVar>(), qfncallback.toLong().toCPointer<ByteVar>(), ldata, wdata, x, y, cx, cy, uflags)
+public actual fun drawStateW(hdc: Hdc, hbrfore: Hbrush, qfncallback: Drawstateproc, ldata: Lparam, wdata: Wparam, x: Int, y: Int, cx: Int, cy: Int, uflags: DrawstateFlags): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_drawStateW(hdc?.value?.toCPointer<ByteVar>(), hbrfore?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), ldata, wdata, x, y, cx, cy, uflags)
 
-public actual fun DrawTextA(hdc: HDC, lpchtext: PCSTR, cchtext: Int, lprc: Long, format: DRAW_TEXT_FORMAT): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_DrawTextA(hdc.toCPointer<ByteVar>(), lpchtext.toCPointer<ByteVar>(), cchtext, lprc.toCPointer<ByteVar>(), format)
+public actual fun drawTextA(hdc: Hdc, lpchtext: Pcstr, cchtext: Int, lprc: COpaquePointer?, format: DrawTextFormat): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_drawTextA(hdc?.value?.toCPointer<ByteVar>(), lpchtext?.value?.toCPointer<ByteVar>(), cchtext, lprc?.value?.toCPointer<ByteVar>(), format)
 
-public actual fun DrawTextExA(hdc: HDC, lpchtext: PSTR, cchtext: Int, lprc: Long, format: DRAW_TEXT_FORMAT, lpdtp: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_DrawTextExA(hdc.toCPointer<ByteVar>(), lpchtext.toCPointer<ByteVar>(), cchtext, lprc.toCPointer<ByteVar>(), format, lpdtp.toCPointer<ByteVar>())
+public actual fun drawTextExA(hdc: Hdc, lpchtext: Pstr, cchtext: Int, lprc: COpaquePointer?, format: DrawTextFormat, lpdtp: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_drawTextExA(hdc?.value?.toCPointer<ByteVar>(), lpchtext?.value?.toCPointer<ByteVar>(), cchtext, lprc?.value?.toCPointer<ByteVar>(), format, lpdtp?.value?.toCPointer<ByteVar>())
 
-public actual fun DrawTextExW(hdc: HDC, lpchtext: PWSTR, cchtext: Int, lprc: Long, format: DRAW_TEXT_FORMAT, lpdtp: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_DrawTextExW(hdc.toCPointer<ByteVar>(), lpchtext.toCPointer<ByteVar>(), cchtext, lprc.toCPointer<ByteVar>(), format, lpdtp.toCPointer<ByteVar>())
+public actual fun drawTextExW(hdc: Hdc, lpchtext: Pwstr, cchtext: Int, lprc: COpaquePointer?, format: DrawTextFormat, lpdtp: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_drawTextExW(hdc?.value?.toCPointer<ByteVar>(), lpchtext?.value?.toCPointer<ByteVar>(), cchtext, lprc?.value?.toCPointer<ByteVar>(), format, lpdtp?.value?.toCPointer<ByteVar>())
 
-public actual fun DrawTextW(hdc: HDC, lpchtext: PCWSTR, cchtext: Int, lprc: Long, format: DRAW_TEXT_FORMAT): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_DrawTextW(hdc.toCPointer<ByteVar>(), lpchtext.toCPointer<ByteVar>(), cchtext, lprc.toCPointer<ByteVar>(), format)
+public actual fun drawTextW(hdc: Hdc, lpchtext: Pcwstr, cchtext: Int, lprc: COpaquePointer?, format: DrawTextFormat): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_drawTextW(hdc?.value?.toCPointer<ByteVar>(), lpchtext?.value?.toCPointer<ByteVar>(), cchtext, lprc?.value?.toCPointer<ByteVar>(), format)
 
-public actual fun Ellipse(hdc: HDC, left: Int, top: Int, right: Int, bottom: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_Ellipse(hdc.toCPointer<ByteVar>(), left, top, right, bottom)
+public actual fun ellipse(hdc: Hdc, left: Int, top: Int, right: Int, bottom: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_ellipse(hdc?.value?.toCPointer<ByteVar>(), left, top, right, bottom)
 
-public actual fun EndPaint(hwnd: HWND, lppaint: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_EndPaint(hwnd.toCPointer<ByteVar>(), lppaint.toCPointer<ByteVar>())
+public actual fun endPaint(hwnd: Hwnd, lppaint: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_endPaint(hwnd?.value?.toCPointer<ByteVar>(), lppaint?.value?.toCPointer<ByteVar>())
 
-public actual fun EndPath(hdc: HDC): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_EndPath(hdc.toCPointer<ByteVar>())
+public actual fun endPath(hdc: Hdc): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_endPath(hdc?.value?.toCPointer<ByteVar>())
 
-public actual fun EnumDisplayDevicesA(lpdevice: PCSTR, idevnum: UInt, lpdisplaydevice: Long, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_EnumDisplayDevicesA(lpdevice.toCPointer<ByteVar>(), idevnum, lpdisplaydevice.toCPointer<ByteVar>(), dwflags)
+public actual fun enumDisplayDevicesA(lpdevice: Pcstr, idevnum: UInt, lpdisplaydevice: COpaquePointer?, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_enumDisplayDevicesA(lpdevice?.value?.toCPointer<ByteVar>(), idevnum, lpdisplaydevice?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun EnumDisplayDevicesW(lpdevice: PCWSTR, idevnum: UInt, lpdisplaydevice: Long, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_EnumDisplayDevicesW(lpdevice.toCPointer<ByteVar>(), idevnum, lpdisplaydevice.toCPointer<ByteVar>(), dwflags)
+public actual fun enumDisplayDevicesW(lpdevice: Pcwstr, idevnum: UInt, lpdisplaydevice: COpaquePointer?, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_enumDisplayDevicesW(lpdevice?.value?.toCPointer<ByteVar>(), idevnum, lpdisplaydevice?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun EnumDisplayMonitors(hdc: HDC, lprcclip: Long, lpfnenum: MONITORENUMPROC, dwdata: LPARAM): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_EnumDisplayMonitors(hdc.toCPointer<ByteVar>(), lprcclip.toCPointer<ByteVar>(), lpfnenum.toLong().toCPointer<ByteVar>(), dwdata)
+public actual fun enumDisplayMonitors(hdc: Hdc, lprcclip: COpaquePointer?, lpfnenum: Monitorenumproc, dwdata: Lparam): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_enumDisplayMonitors(hdc?.value?.toCPointer<ByteVar>(), lprcclip?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), dwdata)
 
-public actual fun EnumDisplaySettingsA(lpszdevicename: PCSTR, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_EnumDisplaySettingsA(lpszdevicename.toCPointer<ByteVar>(), imodenum, lpdevmode.toCPointer<ByteVar>())
+public actual fun enumDisplaySettingsA(lpszdevicename: Pcstr, imodenum: EnumDisplaySettingsMode, lpdevmode: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_enumDisplaySettingsA(lpszdevicename?.value?.toCPointer<ByteVar>(), imodenum, lpdevmode?.value?.toCPointer<ByteVar>())
 
-public actual fun EnumDisplaySettingsExA(lpszdevicename: PCSTR, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: Long, dwflags: ENUM_DISPLAY_SETTINGS_FLAGS): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_EnumDisplaySettingsExA(lpszdevicename.toCPointer<ByteVar>(), imodenum, lpdevmode.toCPointer<ByteVar>(), dwflags)
+public actual fun enumDisplaySettingsExA(lpszdevicename: Pcstr, imodenum: EnumDisplaySettingsMode, lpdevmode: COpaquePointer?, dwflags: EnumDisplaySettingsFlags): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_enumDisplaySettingsExA(lpszdevicename?.value?.toCPointer<ByteVar>(), imodenum, lpdevmode?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun EnumDisplaySettingsExW(lpszdevicename: PCWSTR, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: Long, dwflags: ENUM_DISPLAY_SETTINGS_FLAGS): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_EnumDisplaySettingsExW(lpszdevicename.toCPointer<ByteVar>(), imodenum, lpdevmode.toCPointer<ByteVar>(), dwflags)
+public actual fun enumDisplaySettingsExW(lpszdevicename: Pcwstr, imodenum: EnumDisplaySettingsMode, lpdevmode: COpaquePointer?, dwflags: EnumDisplaySettingsFlags): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_enumDisplaySettingsExW(lpszdevicename?.value?.toCPointer<ByteVar>(), imodenum, lpdevmode?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun EnumDisplaySettingsW(lpszdevicename: PCWSTR, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_EnumDisplaySettingsW(lpszdevicename.toCPointer<ByteVar>(), imodenum, lpdevmode.toCPointer<ByteVar>())
+public actual fun enumDisplaySettingsW(lpszdevicename: Pcwstr, imodenum: EnumDisplaySettingsMode, lpdevmode: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_enumDisplaySettingsW(lpszdevicename?.value?.toCPointer<ByteVar>(), imodenum, lpdevmode?.value?.toCPointer<ByteVar>())
 
-public actual fun EnumEnhMetaFile(hdc: HDC, hmf: HENHMETAFILE, proc: ENHMFENUMPROC, param3: Long, lprect: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_EnumEnhMetaFile(hdc.toCPointer<ByteVar>(), hmf.toCPointer<ByteVar>(), proc.toLong().toCPointer<ByteVar>(), param3.toCPointer<ByteVar>(), lprect.toCPointer<ByteVar>())
+public actual fun enumEnhMetaFile(hdc: Hdc, hmf: Henhmetafile, proc: Enhmfenumproc, param3: COpaquePointer?, lprect: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_enumEnhMetaFile(hdc?.value?.toCPointer<ByteVar>(), hmf?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), param3?.value?.toCPointer<ByteVar>(), lprect?.value?.toCPointer<ByteVar>())
 
-public actual fun EnumFontFamiliesA(hdc: HDC, lplogfont: PCSTR, lpproc: FONTENUMPROCA, lparam: LPARAM): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_EnumFontFamiliesA(hdc.toCPointer<ByteVar>(), lplogfont.toCPointer<ByteVar>(), lpproc.toLong().toCPointer<ByteVar>(), lparam)
+public actual fun enumFontFamiliesA(hdc: Hdc, lplogfont: Pcstr, lpproc: Fontenumproca, lparam: Lparam): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_enumFontFamiliesA(hdc?.value?.toCPointer<ByteVar>(), lplogfont?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lparam)
 
-public actual fun EnumFontFamiliesExA(hdc: HDC, lplogfont: Long, lpproc: FONTENUMPROCA, lparam: LPARAM, dwflags: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_EnumFontFamiliesExA(hdc.toCPointer<ByteVar>(), lplogfont.toCPointer<ByteVar>(), lpproc.toLong().toCPointer<ByteVar>(), lparam, dwflags)
+public actual fun enumFontFamiliesExA(hdc: Hdc, lplogfont: COpaquePointer?, lpproc: Fontenumproca, lparam: Lparam, dwflags: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_enumFontFamiliesExA(hdc?.value?.toCPointer<ByteVar>(), lplogfont?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lparam, dwflags)
 
-public actual fun EnumFontFamiliesExW(hdc: HDC, lplogfont: Long, lpproc: FONTENUMPROCW, lparam: LPARAM, dwflags: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_EnumFontFamiliesExW(hdc.toCPointer<ByteVar>(), lplogfont.toCPointer<ByteVar>(), lpproc.toLong().toCPointer<ByteVar>(), lparam, dwflags)
+public actual fun enumFontFamiliesExW(hdc: Hdc, lplogfont: COpaquePointer?, lpproc: Fontenumprocw, lparam: Lparam, dwflags: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_enumFontFamiliesExW(hdc?.value?.toCPointer<ByteVar>(), lplogfont?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lparam, dwflags)
 
-public actual fun EnumFontFamiliesW(hdc: HDC, lplogfont: PCWSTR, lpproc: FONTENUMPROCW, lparam: LPARAM): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_EnumFontFamiliesW(hdc.toCPointer<ByteVar>(), lplogfont.toCPointer<ByteVar>(), lpproc.toLong().toCPointer<ByteVar>(), lparam)
+public actual fun enumFontFamiliesW(hdc: Hdc, lplogfont: Pcwstr, lpproc: Fontenumprocw, lparam: Lparam): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_enumFontFamiliesW(hdc?.value?.toCPointer<ByteVar>(), lplogfont?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lparam)
 
-public actual fun EnumFontsA(hdc: HDC, lplogfont: PCSTR, lpproc: FONTENUMPROCA, lparam: LPARAM): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_EnumFontsA(hdc.toCPointer<ByteVar>(), lplogfont.toCPointer<ByteVar>(), lpproc.toLong().toCPointer<ByteVar>(), lparam)
+public actual fun enumFontsA(hdc: Hdc, lplogfont: Pcstr, lpproc: Fontenumproca, lparam: Lparam): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_enumFontsA(hdc?.value?.toCPointer<ByteVar>(), lplogfont?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lparam)
 
-public actual fun EnumFontsW(hdc: HDC, lplogfont: PCWSTR, lpproc: FONTENUMPROCW, lparam: LPARAM): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_EnumFontsW(hdc.toCPointer<ByteVar>(), lplogfont.toCPointer<ByteVar>(), lpproc.toLong().toCPointer<ByteVar>(), lparam)
+public actual fun enumFontsW(hdc: Hdc, lplogfont: Pcwstr, lpproc: Fontenumprocw, lparam: Lparam): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_enumFontsW(hdc?.value?.toCPointer<ByteVar>(), lplogfont?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lparam)
 
-public actual fun EnumMetaFile(hdc: HDC, hmf: HMETAFILE, proc: MFENUMPROC, param3: LPARAM): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_EnumMetaFile(hdc.toCPointer<ByteVar>(), hmf.toCPointer<ByteVar>(), proc.toLong().toCPointer<ByteVar>(), param3)
+public actual fun enumMetaFile(hdc: Hdc, hmf: Hmetafile, proc: Mfenumproc, param3: Lparam): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_enumMetaFile(hdc?.value?.toCPointer<ByteVar>(), hmf?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), param3)
 
-public actual fun EnumObjects(hdc: HDC, ntype: OBJ_TYPE, lpfunc: GOBJENUMPROC, lparam: LPARAM): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_EnumObjects(hdc.toCPointer<ByteVar>(), ntype, lpfunc.toLong().toCPointer<ByteVar>(), lparam)
+public actual fun enumObjects(hdc: Hdc, ntype: ObjType, lpfunc: Gobjenumproc, lparam: Lparam): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_enumObjects(hdc?.value?.toCPointer<ByteVar>(), ntype, 0L.toCPointer<ByteVar>(), lparam)
 
-public actual fun EqualRect(lprc1: Long, lprc2: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_EqualRect(lprc1.toCPointer<ByteVar>(), lprc2.toCPointer<ByteVar>())
+public actual fun equalRect(lprc1: COpaquePointer?, lprc2: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_equalRect(lprc1?.value?.toCPointer<ByteVar>(), lprc2?.value?.toCPointer<ByteVar>())
 
-public actual fun EqualRgn(hrgn1: HRGN, hrgn2: HRGN): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_EqualRgn(hrgn1.toCPointer<ByteVar>(), hrgn2.toCPointer<ByteVar>())
+public actual fun equalRgn(hrgn1: Hrgn, hrgn2: Hrgn): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_equalRgn(hrgn1?.value?.toCPointer<ByteVar>(), hrgn2?.value?.toCPointer<ByteVar>())
 
-public actual fun ExcludeClipRect(hdc: HDC, left: Int, top: Int, right: Int, bottom: Int): GDI_REGION_TYPE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_ExcludeClipRect(hdc.toCPointer<ByteVar>(), left, top, right, bottom)
+public actual fun excludeClipRect(hdc: Hdc, left: Int, top: Int, right: Int, bottom: Int): GdiRegionType =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_excludeClipRect(hdc?.value?.toCPointer<ByteVar>(), left, top, right, bottom)
 
-public actual fun ExcludeUpdateRgn(hdc: HDC, hwnd: HWND): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_ExcludeUpdateRgn(hdc.toCPointer<ByteVar>(), hwnd.toCPointer<ByteVar>())
+public actual fun excludeUpdateRgn(hdc: Hdc, hwnd: Hwnd): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_excludeUpdateRgn(hdc?.value?.toCPointer<ByteVar>(), hwnd?.value?.toCPointer<ByteVar>())
 
-public actual fun ExtCreatePen(ipenstyle: UInt, cwidth: UInt, plbrush: Long, cstyle: UInt, pstyle: Long): HPEN =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_ExtCreatePen(ipenstyle, cwidth, plbrush.toCPointer<ByteVar>(), cstyle, pstyle.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun extCreatePen(ipenstyle: UInt, cwidth: UInt, plbrush: COpaquePointer?, cstyle: UInt, pstyle: COpaquePointer?): Hpen =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_extCreatePen(ipenstyle, cwidth, plbrush?.value?.toCPointer<ByteVar>(), cstyle, pstyle?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ExtCreateRegion(lpx: Long, ncount: UInt, lpdata: Long): HRGN =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_ExtCreateRegion(lpx.toCPointer<ByteVar>(), ncount, lpdata.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun extCreateRegion(lpx: COpaquePointer?, ncount: UInt, lpdata: COpaquePointer?): Hrgn =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_extCreateRegion(lpx?.value?.toCPointer<ByteVar>(), ncount, lpdata?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ExtFloodFill(hdc: HDC, x: Int, y: Int, color: COLORREF, type: EXT_FLOOD_FILL_TYPE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_ExtFloodFill(hdc.toCPointer<ByteVar>(), x, y, color, type)
+public actual fun extFloodFill(hdc: Hdc, x: Int, y: Int, color: Colorref, type: ExtFloodFillType): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_extFloodFill(hdc?.value?.toCPointer<ByteVar>(), x, y, color, type)
 
-public actual fun ExtSelectClipRgn(hdc: HDC, hrgn: HRGN, mode: RGN_COMBINE_MODE): GDI_REGION_TYPE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_ExtSelectClipRgn(hdc.toCPointer<ByteVar>(), hrgn.toCPointer<ByteVar>(), mode)
+public actual fun extSelectClipRgn(hdc: Hdc, hrgn: Hrgn, mode: RgnCombineMode): GdiRegionType =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_extSelectClipRgn(hdc?.value?.toCPointer<ByteVar>(), hrgn?.value?.toCPointer<ByteVar>(), mode)
 
-public actual fun ExtTextOutA(hdc: HDC, x: Int, y: Int, options: ETO_OPTIONS, lprect: Long, lpstring: PCSTR, c: UInt, lpdx: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_ExtTextOutA(hdc.toCPointer<ByteVar>(), x, y, options, lprect.toCPointer<ByteVar>(), lpstring.toCPointer<ByteVar>(), c, lpdx.toCPointer<ByteVar>())
+public actual fun extTextOutA(hdc: Hdc, x: Int, y: Int, options: EtoOptions, lprect: COpaquePointer?, lpstring: Pcstr, c: UInt, lpdx: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_extTextOutA(hdc?.value?.toCPointer<ByteVar>(), x, y, options, lprect?.value?.toCPointer<ByteVar>(), lpstring?.value?.toCPointer<ByteVar>(), c, lpdx?.value?.toCPointer<ByteVar>())
 
-public actual fun ExtTextOutW(hdc: HDC, x: Int, y: Int, options: ETO_OPTIONS, lprect: Long, lpstring: PCWSTR, c: UInt, lpdx: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_ExtTextOutW(hdc.toCPointer<ByteVar>(), x, y, options, lprect.toCPointer<ByteVar>(), lpstring.toCPointer<ByteVar>(), c, lpdx.toCPointer<ByteVar>())
+public actual fun extTextOutW(hdc: Hdc, x: Int, y: Int, options: EtoOptions, lprect: COpaquePointer?, lpstring: Pcwstr, c: UInt, lpdx: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_extTextOutW(hdc?.value?.toCPointer<ByteVar>(), x, y, options, lprect?.value?.toCPointer<ByteVar>(), lpstring?.value?.toCPointer<ByteVar>(), c, lpdx?.value?.toCPointer<ByteVar>())
 
-public actual fun FillPath(hdc: HDC): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_FillPath(hdc.toCPointer<ByteVar>())
+public actual fun fillPath(hdc: Hdc): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_fillPath(hdc?.value?.toCPointer<ByteVar>())
 
-public actual fun FillRect(hdc: HDC, lprc: Long, hbr: HBRUSH): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_FillRect(hdc.toCPointer<ByteVar>(), lprc.toCPointer<ByteVar>(), hbr.toCPointer<ByteVar>())
+public actual fun fillRect(hdc: Hdc, lprc: COpaquePointer?, hbr: Hbrush): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_fillRect(hdc?.value?.toCPointer<ByteVar>(), lprc?.value?.toCPointer<ByteVar>(), hbr?.value?.toCPointer<ByteVar>())
 
-public actual fun FillRgn(hdc: HDC, hrgn: HRGN, hbr: HBRUSH): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_FillRgn(hdc.toCPointer<ByteVar>(), hrgn.toCPointer<ByteVar>(), hbr.toCPointer<ByteVar>())
+public actual fun fillRgn(hdc: Hdc, hrgn: Hrgn, hbr: Hbrush): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_fillRgn(hdc?.value?.toCPointer<ByteVar>(), hrgn?.value?.toCPointer<ByteVar>(), hbr?.value?.toCPointer<ByteVar>())
 
-public actual fun FixBrushOrgEx(hdc: HDC, x: Int, y: Int, ptl: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_FixBrushOrgEx(hdc.toCPointer<ByteVar>(), x, y, ptl.toCPointer<ByteVar>())
+public actual fun fixBrushOrgEx(hdc: Hdc, x: Int, y: Int, ptl: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_fixBrushOrgEx(hdc?.value?.toCPointer<ByteVar>(), x, y, ptl?.value?.toCPointer<ByteVar>())
 
-public actual fun FlattenPath(hdc: HDC): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_FlattenPath(hdc.toCPointer<ByteVar>())
+public actual fun flattenPath(hdc: Hdc): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_flattenPath(hdc?.value?.toCPointer<ByteVar>())
 
-public actual fun FloodFill(hdc: HDC, x: Int, y: Int, color: COLORREF): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_FloodFill(hdc.toCPointer<ByteVar>(), x, y, color)
+public actual fun floodFill(hdc: Hdc, x: Int, y: Int, color: Colorref): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_floodFill(hdc?.value?.toCPointer<ByteVar>(), x, y, color)
 
-public actual fun FrameRect(hdc: HDC, lprc: Long, hbr: HBRUSH): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_FrameRect(hdc.toCPointer<ByteVar>(), lprc.toCPointer<ByteVar>(), hbr.toCPointer<ByteVar>())
+public actual fun frameRect(hdc: Hdc, lprc: COpaquePointer?, hbr: Hbrush): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_frameRect(hdc?.value?.toCPointer<ByteVar>(), lprc?.value?.toCPointer<ByteVar>(), hbr?.value?.toCPointer<ByteVar>())
 
-public actual fun FrameRgn(hdc: HDC, hrgn: HRGN, hbr: HBRUSH, w: Int, h: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_FrameRgn(hdc.toCPointer<ByteVar>(), hrgn.toCPointer<ByteVar>(), hbr.toCPointer<ByteVar>(), w, h)
+public actual fun frameRgn(hdc: Hdc, hrgn: Hrgn, hbr: Hbrush, w: Int, h: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_frameRgn(hdc?.value?.toCPointer<ByteVar>(), hrgn?.value?.toCPointer<ByteVar>(), hbr?.value?.toCPointer<ByteVar>(), w, h)
 
-public actual fun GdiAlphaBlend(hdcdest: HDC, xorigindest: Int, yorigindest: Int, wdest: Int, hdest: Int, hdcsrc: HDC, xoriginsrc: Int, yoriginsrc: Int, wsrc: Int, hsrc: Int, ftn: BLENDFUNCTION): BOOL =
+public actual fun gdiAlphaBlend(hdcdest: Hdc, xorigindest: Int, yorigindest: Int, wdest: Int, hdest: Int, hdcsrc: Hdc, xoriginsrc: Int, yoriginsrc: Int, wsrc: Int, hsrc: Int, ftn: Blendfunction): Bool =
     0
 
-public actual fun GdiComment(hdc: HDC, nsize: UInt, lpdata: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GdiComment(hdc.toCPointer<ByteVar>(), nsize, lpdata.toCPointer<ByteVar>())
+public actual fun gdiComment(hdc: Hdc, nsize: UInt, lpdata: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_gdiComment(hdc?.value?.toCPointer<ByteVar>(), nsize, lpdata?.value?.toCPointer<ByteVar>())
 
-public actual fun GdiFlush(): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GdiFlush()
+public actual fun gdiFlush(): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_gdiFlush()
 
-public actual fun GdiGetBatchLimit(): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GdiGetBatchLimit()
+public actual fun gdiGetBatchLimit(): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_gdiGetBatchLimit()
 
-public actual fun GdiGradientFill(hdc: HDC, pvertex: Long, nvertex: UInt, pmesh: Long, ncount: UInt, ulmode: GRADIENT_FILL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GdiGradientFill(hdc.toCPointer<ByteVar>(), pvertex.toCPointer<ByteVar>(), nvertex, pmesh.toCPointer<ByteVar>(), ncount, ulmode)
+public actual fun gdiGradientFill(hdc: Hdc, pvertex: COpaquePointer?, nvertex: UInt, pmesh: COpaquePointer?, ncount: UInt, ulmode: GradientFill): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_gdiGradientFill(hdc?.value?.toCPointer<ByteVar>(), pvertex?.value?.toCPointer<ByteVar>(), nvertex, pmesh?.value?.toCPointer<ByteVar>(), ncount, ulmode)
 
-public actual fun GdiSetBatchLimit(dw: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GdiSetBatchLimit(dw)
+public actual fun gdiSetBatchLimit(dw: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_gdiSetBatchLimit(dw)
 
-public actual fun GdiTransparentBlt(hdcdest: HDC, xorigindest: Int, yorigindest: Int, wdest: Int, hdest: Int, hdcsrc: HDC, xoriginsrc: Int, yoriginsrc: Int, wsrc: Int, hsrc: Int, crtransparent: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GdiTransparentBlt(hdcdest.toCPointer<ByteVar>(), xorigindest, yorigindest, wdest, hdest, hdcsrc.toCPointer<ByteVar>(), xoriginsrc, yoriginsrc, wsrc, hsrc, crtransparent)
+public actual fun gdiTransparentBlt(hdcdest: Hdc, xorigindest: Int, yorigindest: Int, wdest: Int, hdest: Int, hdcsrc: Hdc, xoriginsrc: Int, yoriginsrc: Int, wsrc: Int, hsrc: Int, crtransparent: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_gdiTransparentBlt(hdcdest?.value?.toCPointer<ByteVar>(), xorigindest, yorigindest, wdest, hdest, hdcsrc?.value?.toCPointer<ByteVar>(), xoriginsrc, yoriginsrc, wsrc, hsrc, crtransparent)
 
-public actual fun GetArcDirection(hdc: HDC): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetArcDirection(hdc.toCPointer<ByteVar>())
+public actual fun getArcDirection(hdc: Hdc): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getArcDirection(hdc?.value?.toCPointer<ByteVar>())
 
-public actual fun GetAspectRatioFilterEx(hdc: HDC, lpsize: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetAspectRatioFilterEx(hdc.toCPointer<ByteVar>(), lpsize.toCPointer<ByteVar>())
+public actual fun getAspectRatioFilterEx(hdc: Hdc, lpsize: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getAspectRatioFilterEx(hdc?.value?.toCPointer<ByteVar>(), lpsize?.value?.toCPointer<ByteVar>())
 
-public actual fun GetBitmapBits(hbit: HBITMAP, cb: Int, lpvbits: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetBitmapBits(hbit.toCPointer<ByteVar>(), cb, lpvbits.toCPointer<ByteVar>())
+public actual fun getBitmapBits(hbit: Hbitmap, cb: Int, lpvbits: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getBitmapBits(hbit?.value?.toCPointer<ByteVar>(), cb, lpvbits?.value?.toCPointer<ByteVar>())
 
-public actual fun GetBitmapDimensionEx(hbit: HBITMAP, lpsize: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetBitmapDimensionEx(hbit.toCPointer<ByteVar>(), lpsize.toCPointer<ByteVar>())
+public actual fun getBitmapDimensionEx(hbit: Hbitmap, lpsize: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getBitmapDimensionEx(hbit?.value?.toCPointer<ByteVar>(), lpsize?.value?.toCPointer<ByteVar>())
 
-public actual fun GetBkColor(hdc: HDC): COLORREF =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetBkColor(hdc.toCPointer<ByteVar>())
+public actual fun getBkColor(hdc: Hdc): Colorref =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getBkColor(hdc?.value?.toCPointer<ByteVar>())
 
-public actual fun GetBkMode(hdc: HDC): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetBkMode(hdc.toCPointer<ByteVar>())
+public actual fun getBkMode(hdc: Hdc): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getBkMode(hdc?.value?.toCPointer<ByteVar>())
 
-public actual fun GetBoundsRect(hdc: HDC, lprect: Long, flags: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetBoundsRect(hdc.toCPointer<ByteVar>(), lprect.toCPointer<ByteVar>(), flags)
+public actual fun getBoundsRect(hdc: Hdc, lprect: COpaquePointer?, flags: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getBoundsRect(hdc?.value?.toCPointer<ByteVar>(), lprect?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun GetBrushOrgEx(hdc: HDC, lppt: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetBrushOrgEx(hdc.toCPointer<ByteVar>(), lppt.toCPointer<ByteVar>())
+public actual fun getBrushOrgEx(hdc: Hdc, lppt: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getBrushOrgEx(hdc?.value?.toCPointer<ByteVar>(), lppt?.value?.toCPointer<ByteVar>())
 
-public actual fun GetCharABCWidthsA(hdc: HDC, wfirst: UInt, wlast: UInt, lpabc: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetCharABCWidthsA(hdc.toCPointer<ByteVar>(), wfirst, wlast, lpabc.toCPointer<ByteVar>())
+public actual fun getCharABCWidthsA(hdc: Hdc, wfirst: UInt, wlast: UInt, lpabc: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getCharABCWidthsA(hdc?.value?.toCPointer<ByteVar>(), wfirst, wlast, lpabc?.value?.toCPointer<ByteVar>())
 
-public actual fun GetCharABCWidthsFloatA(hdc: HDC, ifirst: UInt, ilast: UInt, lpabc: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetCharABCWidthsFloatA(hdc.toCPointer<ByteVar>(), ifirst, ilast, lpabc.toCPointer<ByteVar>())
+public actual fun getCharABCWidthsFloatA(hdc: Hdc, ifirst: UInt, ilast: UInt, lpabc: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getCharABCWidthsFloatA(hdc?.value?.toCPointer<ByteVar>(), ifirst, ilast, lpabc?.value?.toCPointer<ByteVar>())
 
-public actual fun GetCharABCWidthsFloatW(hdc: HDC, ifirst: UInt, ilast: UInt, lpabc: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetCharABCWidthsFloatW(hdc.toCPointer<ByteVar>(), ifirst, ilast, lpabc.toCPointer<ByteVar>())
+public actual fun getCharABCWidthsFloatW(hdc: Hdc, ifirst: UInt, ilast: UInt, lpabc: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getCharABCWidthsFloatW(hdc?.value?.toCPointer<ByteVar>(), ifirst, ilast, lpabc?.value?.toCPointer<ByteVar>())
 
-public actual fun GetCharABCWidthsI(hdc: HDC, gifirst: UInt, cgi: UInt, pgi: Long, pabc: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetCharABCWidthsI(hdc.toCPointer<ByteVar>(), gifirst, cgi, pgi.toCPointer<ByteVar>(), pabc.toCPointer<ByteVar>())
+public actual fun getCharABCWidthsI(hdc: Hdc, gifirst: UInt, cgi: UInt, pgi: COpaquePointer?, pabc: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getCharABCWidthsI(hdc?.value?.toCPointer<ByteVar>(), gifirst, cgi, pgi?.value?.toCPointer<ByteVar>(), pabc?.value?.toCPointer<ByteVar>())
 
-public actual fun GetCharABCWidthsW(hdc: HDC, wfirst: UInt, wlast: UInt, lpabc: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetCharABCWidthsW(hdc.toCPointer<ByteVar>(), wfirst, wlast, lpabc.toCPointer<ByteVar>())
+public actual fun getCharABCWidthsW(hdc: Hdc, wfirst: UInt, wlast: UInt, lpabc: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getCharABCWidthsW(hdc?.value?.toCPointer<ByteVar>(), wfirst, wlast, lpabc?.value?.toCPointer<ByteVar>())
 
-public actual fun GetCharWidth32A(hdc: HDC, ifirst: UInt, ilast: UInt, lpbuffer: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetCharWidth32A(hdc.toCPointer<ByteVar>(), ifirst, ilast, lpbuffer.toCPointer<ByteVar>())
+public actual fun getCharWidth32A(hdc: Hdc, ifirst: UInt, ilast: UInt, lpbuffer: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getCharWidth32A(hdc?.value?.toCPointer<ByteVar>(), ifirst, ilast, lpbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun GetCharWidth32W(hdc: HDC, ifirst: UInt, ilast: UInt, lpbuffer: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetCharWidth32W(hdc.toCPointer<ByteVar>(), ifirst, ilast, lpbuffer.toCPointer<ByteVar>())
+public actual fun getCharWidth32W(hdc: Hdc, ifirst: UInt, ilast: UInt, lpbuffer: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getCharWidth32W(hdc?.value?.toCPointer<ByteVar>(), ifirst, ilast, lpbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun GetCharWidthA(hdc: HDC, ifirst: UInt, ilast: UInt, lpbuffer: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetCharWidthA(hdc.toCPointer<ByteVar>(), ifirst, ilast, lpbuffer.toCPointer<ByteVar>())
+public actual fun getCharWidthA(hdc: Hdc, ifirst: UInt, ilast: UInt, lpbuffer: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getCharWidthA(hdc?.value?.toCPointer<ByteVar>(), ifirst, ilast, lpbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun GetCharWidthFloatA(hdc: HDC, ifirst: UInt, ilast: UInt, lpbuffer: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetCharWidthFloatA(hdc.toCPointer<ByteVar>(), ifirst, ilast, lpbuffer.toCPointer<ByteVar>())
+public actual fun getCharWidthFloatA(hdc: Hdc, ifirst: UInt, ilast: UInt, lpbuffer: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getCharWidthFloatA(hdc?.value?.toCPointer<ByteVar>(), ifirst, ilast, lpbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun GetCharWidthFloatW(hdc: HDC, ifirst: UInt, ilast: UInt, lpbuffer: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetCharWidthFloatW(hdc.toCPointer<ByteVar>(), ifirst, ilast, lpbuffer.toCPointer<ByteVar>())
+public actual fun getCharWidthFloatW(hdc: Hdc, ifirst: UInt, ilast: UInt, lpbuffer: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getCharWidthFloatW(hdc?.value?.toCPointer<ByteVar>(), ifirst, ilast, lpbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun GetCharWidthI(hdc: HDC, gifirst: UInt, cgi: UInt, pgi: Long, piwidths: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetCharWidthI(hdc.toCPointer<ByteVar>(), gifirst, cgi, pgi.toCPointer<ByteVar>(), piwidths.toCPointer<ByteVar>())
+public actual fun getCharWidthI(hdc: Hdc, gifirst: UInt, cgi: UInt, pgi: COpaquePointer?, piwidths: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getCharWidthI(hdc?.value?.toCPointer<ByteVar>(), gifirst, cgi, pgi?.value?.toCPointer<ByteVar>(), piwidths?.value?.toCPointer<ByteVar>())
 
-public actual fun GetCharWidthW(hdc: HDC, ifirst: UInt, ilast: UInt, lpbuffer: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetCharWidthW(hdc.toCPointer<ByteVar>(), ifirst, ilast, lpbuffer.toCPointer<ByteVar>())
+public actual fun getCharWidthW(hdc: Hdc, ifirst: UInt, ilast: UInt, lpbuffer: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getCharWidthW(hdc?.value?.toCPointer<ByteVar>(), ifirst, ilast, lpbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun GetCharacterPlacementA(hdc: HDC, lpstring: PCSTR, ncount: Int, nmexextent: Int, lpresults: Long, dwflags: GET_CHARACTER_PLACEMENT_FLAGS): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetCharacterPlacementA(hdc.toCPointer<ByteVar>(), lpstring.toCPointer<ByteVar>(), ncount, nmexextent, lpresults.toCPointer<ByteVar>(), dwflags)
+public actual fun getCharacterPlacementA(hdc: Hdc, lpstring: Pcstr, ncount: Int, nmexextent: Int, lpresults: COpaquePointer?, dwflags: GetCharacterPlacementFlags): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getCharacterPlacementA(hdc?.value?.toCPointer<ByteVar>(), lpstring?.value?.toCPointer<ByteVar>(), ncount, nmexextent, lpresults?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun GetCharacterPlacementW(hdc: HDC, lpstring: PCWSTR, ncount: Int, nmexextent: Int, lpresults: Long, dwflags: GET_CHARACTER_PLACEMENT_FLAGS): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetCharacterPlacementW(hdc.toCPointer<ByteVar>(), lpstring.toCPointer<ByteVar>(), ncount, nmexextent, lpresults.toCPointer<ByteVar>(), dwflags)
+public actual fun getCharacterPlacementW(hdc: Hdc, lpstring: Pcwstr, ncount: Int, nmexextent: Int, lpresults: COpaquePointer?, dwflags: GetCharacterPlacementFlags): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getCharacterPlacementW(hdc?.value?.toCPointer<ByteVar>(), lpstring?.value?.toCPointer<ByteVar>(), ncount, nmexextent, lpresults?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun GetClipBox(hdc: HDC, lprect: Long): GDI_REGION_TYPE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetClipBox(hdc.toCPointer<ByteVar>(), lprect.toCPointer<ByteVar>())
+public actual fun getClipBox(hdc: Hdc, lprect: COpaquePointer?): GdiRegionType =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getClipBox(hdc?.value?.toCPointer<ByteVar>(), lprect?.value?.toCPointer<ByteVar>())
 
-public actual fun GetClipRgn(hdc: HDC, hrgn: HRGN): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetClipRgn(hdc.toCPointer<ByteVar>(), hrgn.toCPointer<ByteVar>())
+public actual fun getClipRgn(hdc: Hdc, hrgn: Hrgn): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getClipRgn(hdc?.value?.toCPointer<ByteVar>(), hrgn?.value?.toCPointer<ByteVar>())
 
-public actual fun GetColorAdjustment(hdc: HDC, lpca: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetColorAdjustment(hdc.toCPointer<ByteVar>(), lpca.toCPointer<ByteVar>())
+public actual fun getColorAdjustment(hdc: Hdc, lpca: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getColorAdjustment(hdc?.value?.toCPointer<ByteVar>(), lpca?.value?.toCPointer<ByteVar>())
 
-public actual fun GetCurrentObject(hdc: HDC, type: UInt): HGDIOBJ =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetCurrentObject(hdc.toCPointer<ByteVar>(), type)?.toLong() ?: 0L
+public actual fun getCurrentObject(hdc: Hdc, type: UInt): Hgdiobj =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getCurrentObject(hdc?.value?.toCPointer<ByteVar>(), type)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GetCurrentPositionEx(hdc: HDC, lppt: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetCurrentPositionEx(hdc.toCPointer<ByteVar>(), lppt.toCPointer<ByteVar>())
+public actual fun getCurrentPositionEx(hdc: Hdc, lppt: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getCurrentPositionEx(hdc?.value?.toCPointer<ByteVar>(), lppt?.value?.toCPointer<ByteVar>())
 
-public actual fun GetDC(hwnd: HWND): HDC =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetDC(hwnd.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun getDC(hwnd: Hwnd): Hdc =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getDC(hwnd?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GetDCBrushColor(hdc: HDC): COLORREF =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetDCBrushColor(hdc.toCPointer<ByteVar>())
+public actual fun getDCBrushColor(hdc: Hdc): Colorref =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getDCBrushColor(hdc?.value?.toCPointer<ByteVar>())
 
-public actual fun GetDCEx(hwnd: HWND, hrgnclip: HRGN, flags: GET_DCX_FLAGS): HDC =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetDCEx(hwnd.toCPointer<ByteVar>(), hrgnclip.toCPointer<ByteVar>(), flags)?.toLong() ?: 0L
+public actual fun getDCEx(hwnd: Hwnd, hrgnclip: Hrgn, flags: GetDcxFlags): Hdc =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getDCEx(hwnd?.value?.toCPointer<ByteVar>(), hrgnclip?.value?.toCPointer<ByteVar>(), flags)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GetDCOrgEx(hdc: HDC, lppt: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetDCOrgEx(hdc.toCPointer<ByteVar>(), lppt.toCPointer<ByteVar>())
+public actual fun getDCOrgEx(hdc: Hdc, lppt: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getDCOrgEx(hdc?.value?.toCPointer<ByteVar>(), lppt?.value?.toCPointer<ByteVar>())
 
-public actual fun GetDCPenColor(hdc: HDC): COLORREF =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetDCPenColor(hdc.toCPointer<ByteVar>())
+public actual fun getDCPenColor(hdc: Hdc): Colorref =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getDCPenColor(hdc?.value?.toCPointer<ByteVar>())
 
-public actual fun GetDIBColorTable(hdc: HDC, istart: UInt, centries: UInt, prgbq: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetDIBColorTable(hdc.toCPointer<ByteVar>(), istart, centries, prgbq.toCPointer<ByteVar>())
+public actual fun getDIBColorTable(hdc: Hdc, istart: UInt, centries: UInt, prgbq: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getDIBColorTable(hdc?.value?.toCPointer<ByteVar>(), istart, centries, prgbq?.value?.toCPointer<ByteVar>())
 
-public actual fun GetDIBits(hdc: HDC, hbm: HBITMAP, start: UInt, clines: UInt, lpvbits: Long, lpbmi: Long, usage: DIB_USAGE): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetDIBits(hdc.toCPointer<ByteVar>(), hbm.toCPointer<ByteVar>(), start, clines, lpvbits.toCPointer<ByteVar>(), lpbmi.toCPointer<ByteVar>(), usage)
+public actual fun getDIBits(hdc: Hdc, hbm: Hbitmap, start: UInt, clines: UInt, lpvbits: COpaquePointer?, lpbmi: COpaquePointer?, usage: DibUsage): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getDIBits(hdc?.value?.toCPointer<ByteVar>(), hbm?.value?.toCPointer<ByteVar>(), start, clines, lpvbits?.value?.toCPointer<ByteVar>(), lpbmi?.value?.toCPointer<ByteVar>(), usage)
 
-public actual fun GetDeviceCaps(hdc: HDC, index: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetDeviceCaps(hdc.toCPointer<ByteVar>(), index)
+public actual fun getDeviceCaps(hdc: Hdc, index: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getDeviceCaps(hdc?.value?.toCPointer<ByteVar>(), index)
 
-public actual fun GetEnhMetaFileA(lpname: PCSTR): HENHMETAFILE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetEnhMetaFileA(lpname.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun getEnhMetaFileA(lpname: Pcstr): Henhmetafile =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getEnhMetaFileA(lpname?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GetEnhMetaFileBits(hemf: HENHMETAFILE, nsize: UInt, lpdata: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetEnhMetaFileBits(hemf.toCPointer<ByteVar>(), nsize, lpdata.toCPointer<ByteVar>())
+public actual fun getEnhMetaFileBits(hemf: Henhmetafile, nsize: UInt, lpdata: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getEnhMetaFileBits(hemf?.value?.toCPointer<ByteVar>(), nsize, lpdata?.value?.toCPointer<ByteVar>())
 
-public actual fun GetEnhMetaFileDescriptionA(hemf: HENHMETAFILE, cchbuffer: UInt, lpdescription: PSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetEnhMetaFileDescriptionA(hemf.toCPointer<ByteVar>(), cchbuffer, lpdescription.toCPointer<ByteVar>())
+public actual fun getEnhMetaFileDescriptionA(hemf: Henhmetafile, cchbuffer: UInt, lpdescription: Pstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getEnhMetaFileDescriptionA(hemf?.value?.toCPointer<ByteVar>(), cchbuffer, lpdescription?.value?.toCPointer<ByteVar>())
 
-public actual fun GetEnhMetaFileDescriptionW(hemf: HENHMETAFILE, cchbuffer: UInt, lpdescription: PWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetEnhMetaFileDescriptionW(hemf.toCPointer<ByteVar>(), cchbuffer, lpdescription.toCPointer<ByteVar>())
+public actual fun getEnhMetaFileDescriptionW(hemf: Henhmetafile, cchbuffer: UInt, lpdescription: Pwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getEnhMetaFileDescriptionW(hemf?.value?.toCPointer<ByteVar>(), cchbuffer, lpdescription?.value?.toCPointer<ByteVar>())
 
-public actual fun GetEnhMetaFileHeader(hemf: HENHMETAFILE, nsize: UInt, lpenhmetaheader: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetEnhMetaFileHeader(hemf.toCPointer<ByteVar>(), nsize, lpenhmetaheader.toCPointer<ByteVar>())
+public actual fun getEnhMetaFileHeader(hemf: Henhmetafile, nsize: UInt, lpenhmetaheader: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getEnhMetaFileHeader(hemf?.value?.toCPointer<ByteVar>(), nsize, lpenhmetaheader?.value?.toCPointer<ByteVar>())
 
-public actual fun GetEnhMetaFilePaletteEntries(hemf: HENHMETAFILE, nnumentries: UInt, lppaletteentries: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetEnhMetaFilePaletteEntries(hemf.toCPointer<ByteVar>(), nnumentries, lppaletteentries.toCPointer<ByteVar>())
+public actual fun getEnhMetaFilePaletteEntries(hemf: Henhmetafile, nnumentries: UInt, lppaletteentries: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getEnhMetaFilePaletteEntries(hemf?.value?.toCPointer<ByteVar>(), nnumentries, lppaletteentries?.value?.toCPointer<ByteVar>())
 
-public actual fun GetEnhMetaFileW(lpname: PCWSTR): HENHMETAFILE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetEnhMetaFileW(lpname.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun getEnhMetaFileW(lpname: Pcwstr): Henhmetafile =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getEnhMetaFileW(lpname?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GetFontData(hdc: HDC, dwtable: UInt, dwoffset: UInt, pvbuffer: Long, cjbuffer: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetFontData(hdc.toCPointer<ByteVar>(), dwtable, dwoffset, pvbuffer.toCPointer<ByteVar>(), cjbuffer)
+public actual fun getFontData(hdc: Hdc, dwtable: UInt, dwoffset: UInt, pvbuffer: COpaquePointer?, cjbuffer: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getFontData(hdc?.value?.toCPointer<ByteVar>(), dwtable, dwoffset, pvbuffer?.value?.toCPointer<ByteVar>(), cjbuffer)
 
-public actual fun GetFontLanguageInfo(hdc: HDC): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetFontLanguageInfo(hdc.toCPointer<ByteVar>())
+public actual fun getFontLanguageInfo(hdc: Hdc): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getFontLanguageInfo(hdc?.value?.toCPointer<ByteVar>())
 
-public actual fun GetFontUnicodeRanges(hdc: HDC, lpgs: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetFontUnicodeRanges(hdc.toCPointer<ByteVar>(), lpgs.toCPointer<ByteVar>())
+public actual fun getFontUnicodeRanges(hdc: Hdc, lpgs: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getFontUnicodeRanges(hdc?.value?.toCPointer<ByteVar>(), lpgs?.value?.toCPointer<ByteVar>())
 
-public actual fun GetGlyphIndicesA(hdc: HDC, lpstr: PCSTR, c: Int, pgi: Long, fl: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetGlyphIndicesA(hdc.toCPointer<ByteVar>(), lpstr.toCPointer<ByteVar>(), c, pgi.toCPointer<ByteVar>(), fl)
+public actual fun getGlyphIndicesA(hdc: Hdc, lpstr: Pcstr, c: Int, pgi: COpaquePointer?, fl: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getGlyphIndicesA(hdc?.value?.toCPointer<ByteVar>(), lpstr?.value?.toCPointer<ByteVar>(), c, pgi?.value?.toCPointer<ByteVar>(), fl)
 
-public actual fun GetGlyphIndicesW(hdc: HDC, lpstr: PCWSTR, c: Int, pgi: Long, fl: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetGlyphIndicesW(hdc.toCPointer<ByteVar>(), lpstr.toCPointer<ByteVar>(), c, pgi.toCPointer<ByteVar>(), fl)
+public actual fun getGlyphIndicesW(hdc: Hdc, lpstr: Pcwstr, c: Int, pgi: COpaquePointer?, fl: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getGlyphIndicesW(hdc?.value?.toCPointer<ByteVar>(), lpstr?.value?.toCPointer<ByteVar>(), c, pgi?.value?.toCPointer<ByteVar>(), fl)
 
-public actual fun GetGlyphOutlineA(hdc: HDC, uchar: UInt, fuformat: GET_GLYPH_OUTLINE_FORMAT, lpgm: Long, cjbuffer: UInt, pvbuffer: Long, lpmat2: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetGlyphOutlineA(hdc.toCPointer<ByteVar>(), uchar, fuformat, lpgm.toCPointer<ByteVar>(), cjbuffer, pvbuffer.toCPointer<ByteVar>(), lpmat2.toCPointer<ByteVar>())
+public actual fun getGlyphOutlineA(hdc: Hdc, uchar: UInt, fuformat: GetGlyphOutlineFormat, lpgm: COpaquePointer?, cjbuffer: UInt, pvbuffer: COpaquePointer?, lpmat2: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getGlyphOutlineA(hdc?.value?.toCPointer<ByteVar>(), uchar, fuformat, lpgm?.value?.toCPointer<ByteVar>(), cjbuffer, pvbuffer?.value?.toCPointer<ByteVar>(), lpmat2?.value?.toCPointer<ByteVar>())
 
-public actual fun GetGlyphOutlineW(hdc: HDC, uchar: UInt, fuformat: GET_GLYPH_OUTLINE_FORMAT, lpgm: Long, cjbuffer: UInt, pvbuffer: Long, lpmat2: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetGlyphOutlineW(hdc.toCPointer<ByteVar>(), uchar, fuformat, lpgm.toCPointer<ByteVar>(), cjbuffer, pvbuffer.toCPointer<ByteVar>(), lpmat2.toCPointer<ByteVar>())
+public actual fun getGlyphOutlineW(hdc: Hdc, uchar: UInt, fuformat: GetGlyphOutlineFormat, lpgm: COpaquePointer?, cjbuffer: UInt, pvbuffer: COpaquePointer?, lpmat2: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getGlyphOutlineW(hdc?.value?.toCPointer<ByteVar>(), uchar, fuformat, lpgm?.value?.toCPointer<ByteVar>(), cjbuffer, pvbuffer?.value?.toCPointer<ByteVar>(), lpmat2?.value?.toCPointer<ByteVar>())
 
-public actual fun GetGraphicsMode(hdc: HDC): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetGraphicsMode(hdc.toCPointer<ByteVar>())
+public actual fun getGraphicsMode(hdc: Hdc): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getGraphicsMode(hdc?.value?.toCPointer<ByteVar>())
 
-public actual fun GetKerningPairsA(hdc: HDC, npairs: UInt, lpkernpair: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetKerningPairsA(hdc.toCPointer<ByteVar>(), npairs, lpkernpair.toCPointer<ByteVar>())
+public actual fun getKerningPairsA(hdc: Hdc, npairs: UInt, lpkernpair: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getKerningPairsA(hdc?.value?.toCPointer<ByteVar>(), npairs, lpkernpair?.value?.toCPointer<ByteVar>())
 
-public actual fun GetKerningPairsW(hdc: HDC, npairs: UInt, lpkernpair: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetKerningPairsW(hdc.toCPointer<ByteVar>(), npairs, lpkernpair.toCPointer<ByteVar>())
+public actual fun getKerningPairsW(hdc: Hdc, npairs: UInt, lpkernpair: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getKerningPairsW(hdc?.value?.toCPointer<ByteVar>(), npairs, lpkernpair?.value?.toCPointer<ByteVar>())
 
-public actual fun GetLayout(hdc: HDC): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetLayout(hdc.toCPointer<ByteVar>())
+public actual fun getLayout(hdc: Hdc): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getLayout(hdc?.value?.toCPointer<ByteVar>())
 
-public actual fun GetMapMode(hdc: HDC): HDC_MAP_MODE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetMapMode(hdc.toCPointer<ByteVar>())
+public actual fun getMapMode(hdc: Hdc): HdcMapMode =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getMapMode(hdc?.value?.toCPointer<ByteVar>())
 
-public actual fun GetMetaFileA(lpname: PCSTR): HMETAFILE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetMetaFileA(lpname.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun getMetaFileA(lpname: Pcstr): Hmetafile =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getMetaFileA(lpname?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GetMetaFileBitsEx(hmf: HMETAFILE, cbbuffer: UInt, lpdata: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetMetaFileBitsEx(hmf.toCPointer<ByteVar>(), cbbuffer, lpdata.toCPointer<ByteVar>())
+public actual fun getMetaFileBitsEx(hmf: Hmetafile, cbbuffer: UInt, lpdata: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getMetaFileBitsEx(hmf?.value?.toCPointer<ByteVar>(), cbbuffer, lpdata?.value?.toCPointer<ByteVar>())
 
-public actual fun GetMetaFileW(lpname: PCWSTR): HMETAFILE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetMetaFileW(lpname.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun getMetaFileW(lpname: Pcwstr): Hmetafile =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getMetaFileW(lpname?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GetMetaRgn(hdc: HDC, hrgn: HRGN): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetMetaRgn(hdc.toCPointer<ByteVar>(), hrgn.toCPointer<ByteVar>())
+public actual fun getMetaRgn(hdc: Hdc, hrgn: Hrgn): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getMetaRgn(hdc?.value?.toCPointer<ByteVar>(), hrgn?.value?.toCPointer<ByteVar>())
 
-public actual fun GetMiterLimit(hdc: HDC, plimit: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetMiterLimit(hdc.toCPointer<ByteVar>(), plimit.toCPointer<ByteVar>())
+public actual fun getMiterLimit(hdc: Hdc, plimit: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getMiterLimit(hdc?.value?.toCPointer<ByteVar>(), plimit?.value?.toCPointer<ByteVar>())
 
-public actual fun GetMonitorInfoA(hmonitor: HMONITOR, lpmi: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetMonitorInfoA(hmonitor.toCPointer<ByteVar>(), lpmi.toCPointer<ByteVar>())
+public actual fun getMonitorInfoA(hmonitor: Hmonitor, lpmi: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getMonitorInfoA(hmonitor?.value?.toCPointer<ByteVar>(), lpmi?.value?.toCPointer<ByteVar>())
 
-public actual fun GetMonitorInfoW(hmonitor: HMONITOR, lpmi: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetMonitorInfoW(hmonitor.toCPointer<ByteVar>(), lpmi.toCPointer<ByteVar>())
+public actual fun getMonitorInfoW(hmonitor: Hmonitor, lpmi: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getMonitorInfoW(hmonitor?.value?.toCPointer<ByteVar>(), lpmi?.value?.toCPointer<ByteVar>())
 
-public actual fun GetNearestColor(hdc: HDC, color: COLORREF): COLORREF =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetNearestColor(hdc.toCPointer<ByteVar>(), color)
+public actual fun getNearestColor(hdc: Hdc, color: Colorref): Colorref =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getNearestColor(hdc?.value?.toCPointer<ByteVar>(), color)
 
-public actual fun GetNearestPaletteIndex(h: HPALETTE, color: COLORREF): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetNearestPaletteIndex(h.toCPointer<ByteVar>(), color)
+public actual fun getNearestPaletteIndex(h: Hpalette, color: Colorref): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getNearestPaletteIndex(h?.value?.toCPointer<ByteVar>(), color)
 
-public actual fun GetObjectA(h: HGDIOBJ, c: Int, pv: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetObjectA(h.toCPointer<ByteVar>(), c, pv.toCPointer<ByteVar>())
+public actual fun getObjectA(h: Hgdiobj, c: Int, pv: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getObjectA(h?.value?.toCPointer<ByteVar>(), c, pv?.value?.toCPointer<ByteVar>())
 
-public actual fun GetObjectType(h: HGDIOBJ): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetObjectType(h.toCPointer<ByteVar>())
+public actual fun getObjectType(h: Hgdiobj): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getObjectType(h?.value?.toCPointer<ByteVar>())
 
-public actual fun GetObjectW(h: HGDIOBJ, c: Int, pv: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetObjectW(h.toCPointer<ByteVar>(), c, pv.toCPointer<ByteVar>())
+public actual fun getObjectW(h: Hgdiobj, c: Int, pv: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getObjectW(h?.value?.toCPointer<ByteVar>(), c, pv?.value?.toCPointer<ByteVar>())
 
-public actual fun GetOutlineTextMetricsA(hdc: HDC, cjcopy: UInt, potm: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetOutlineTextMetricsA(hdc.toCPointer<ByteVar>(), cjcopy, potm.toCPointer<ByteVar>())
+public actual fun getOutlineTextMetricsA(hdc: Hdc, cjcopy: UInt, potm: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getOutlineTextMetricsA(hdc?.value?.toCPointer<ByteVar>(), cjcopy, potm?.value?.toCPointer<ByteVar>())
 
-public actual fun GetOutlineTextMetricsW(hdc: HDC, cjcopy: UInt, potm: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetOutlineTextMetricsW(hdc.toCPointer<ByteVar>(), cjcopy, potm.toCPointer<ByteVar>())
+public actual fun getOutlineTextMetricsW(hdc: Hdc, cjcopy: UInt, potm: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getOutlineTextMetricsW(hdc?.value?.toCPointer<ByteVar>(), cjcopy, potm?.value?.toCPointer<ByteVar>())
 
-public actual fun GetPaletteEntries(hpal: HPALETTE, istart: UInt, centries: UInt, ppalentries: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetPaletteEntries(hpal.toCPointer<ByteVar>(), istart, centries, ppalentries.toCPointer<ByteVar>())
+public actual fun getPaletteEntries(hpal: Hpalette, istart: UInt, centries: UInt, ppalentries: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getPaletteEntries(hpal?.value?.toCPointer<ByteVar>(), istart, centries, ppalentries?.value?.toCPointer<ByteVar>())
 
-public actual fun GetPath(hdc: HDC, apt: Long, aj: Long, cpt: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetPath(hdc.toCPointer<ByteVar>(), apt.toCPointer<ByteVar>(), aj.toCPointer<ByteVar>(), cpt)
+public actual fun getPath(hdc: Hdc, apt: COpaquePointer?, aj: COpaquePointer?, cpt: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getPath(hdc?.value?.toCPointer<ByteVar>(), apt?.value?.toCPointer<ByteVar>(), aj?.value?.toCPointer<ByteVar>(), cpt)
 
-public actual fun GetPixel(hdc: HDC, x: Int, y: Int): COLORREF =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetPixel(hdc.toCPointer<ByteVar>(), x, y)
+public actual fun getPixel(hdc: Hdc, x: Int, y: Int): Colorref =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getPixel(hdc?.value?.toCPointer<ByteVar>(), x, y)
 
-public actual fun GetPolyFillMode(hdc: HDC): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetPolyFillMode(hdc.toCPointer<ByteVar>())
+public actual fun getPolyFillMode(hdc: Hdc): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getPolyFillMode(hdc?.value?.toCPointer<ByteVar>())
 
-public actual fun GetROP2(hdc: HDC): R2_MODE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetROP2(hdc.toCPointer<ByteVar>())
+public actual fun getROP2(hdc: Hdc): R2Mode =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getROP2(hdc?.value?.toCPointer<ByteVar>())
 
-public actual fun GetRandomRgn(hdc: HDC, hrgn: HRGN, i: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetRandomRgn(hdc.toCPointer<ByteVar>(), hrgn.toCPointer<ByteVar>(), i)
+public actual fun getRandomRgn(hdc: Hdc, hrgn: Hrgn, i: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getRandomRgn(hdc?.value?.toCPointer<ByteVar>(), hrgn?.value?.toCPointer<ByteVar>(), i)
 
-public actual fun GetRasterizerCaps(lpraststat: Long, cjbytes: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetRasterizerCaps(lpraststat.toCPointer<ByteVar>(), cjbytes)
+public actual fun getRasterizerCaps(lpraststat: COpaquePointer?, cjbytes: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getRasterizerCaps(lpraststat?.value?.toCPointer<ByteVar>(), cjbytes)
 
-public actual fun GetRegionData(hrgn: HRGN, ncount: UInt, lprgndata: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetRegionData(hrgn.toCPointer<ByteVar>(), ncount, lprgndata.toCPointer<ByteVar>())
+public actual fun getRegionData(hrgn: Hrgn, ncount: UInt, lprgndata: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getRegionData(hrgn?.value?.toCPointer<ByteVar>(), ncount, lprgndata?.value?.toCPointer<ByteVar>())
 
-public actual fun GetRgnBox(hrgn: HRGN, lprc: Long): GDI_REGION_TYPE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetRgnBox(hrgn.toCPointer<ByteVar>(), lprc.toCPointer<ByteVar>())
+public actual fun getRgnBox(hrgn: Hrgn, lprc: COpaquePointer?): GdiRegionType =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getRgnBox(hrgn?.value?.toCPointer<ByteVar>(), lprc?.value?.toCPointer<ByteVar>())
 
-public actual fun GetStockObject(i: GET_STOCK_OBJECT_FLAGS): HGDIOBJ =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetStockObject(i)?.toLong() ?: 0L
+public actual fun getStockObject(i: GetStockObjectFlags): Hgdiobj =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getStockObject(i)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GetStretchBltMode(hdc: HDC): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetStretchBltMode(hdc.toCPointer<ByteVar>())
+public actual fun getStretchBltMode(hdc: Hdc): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getStretchBltMode(hdc?.value?.toCPointer<ByteVar>())
 
-public actual fun GetSysColor(nindex: SYS_COLOR_INDEX): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetSysColor(nindex)
+public actual fun getSysColor(nindex: SysColorIndex): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getSysColor(nindex)
 
-public actual fun GetSysColorBrush(nindex: SYS_COLOR_INDEX): HBRUSH =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetSysColorBrush(nindex)?.toLong() ?: 0L
+public actual fun getSysColorBrush(nindex: SysColorIndex): Hbrush =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getSysColorBrush(nindex)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GetSystemPaletteEntries(hdc: HDC, istart: UInt, centries: UInt, ppalentries: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetSystemPaletteEntries(hdc.toCPointer<ByteVar>(), istart, centries, ppalentries.toCPointer<ByteVar>())
+public actual fun getSystemPaletteEntries(hdc: Hdc, istart: UInt, centries: UInt, ppalentries: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getSystemPaletteEntries(hdc?.value?.toCPointer<ByteVar>(), istart, centries, ppalentries?.value?.toCPointer<ByteVar>())
 
-public actual fun GetSystemPaletteUse(hdc: HDC): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetSystemPaletteUse(hdc.toCPointer<ByteVar>())
+public actual fun getSystemPaletteUse(hdc: Hdc): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getSystemPaletteUse(hdc?.value?.toCPointer<ByteVar>())
 
-public actual fun GetTabbedTextExtentA(hdc: HDC, lpstring: PCSTR, chcount: Int, ntabpositions: Int, lpntabstoppositions: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetTabbedTextExtentA(hdc.toCPointer<ByteVar>(), lpstring.toCPointer<ByteVar>(), chcount, ntabpositions, lpntabstoppositions.toCPointer<ByteVar>())
+public actual fun getTabbedTextExtentA(hdc: Hdc, lpstring: Pcstr, chcount: Int, ntabpositions: Int, lpntabstoppositions: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getTabbedTextExtentA(hdc?.value?.toCPointer<ByteVar>(), lpstring?.value?.toCPointer<ByteVar>(), chcount, ntabpositions, lpntabstoppositions?.value?.toCPointer<ByteVar>())
 
-public actual fun GetTabbedTextExtentW(hdc: HDC, lpstring: PCWSTR, chcount: Int, ntabpositions: Int, lpntabstoppositions: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetTabbedTextExtentW(hdc.toCPointer<ByteVar>(), lpstring.toCPointer<ByteVar>(), chcount, ntabpositions, lpntabstoppositions.toCPointer<ByteVar>())
+public actual fun getTabbedTextExtentW(hdc: Hdc, lpstring: Pcwstr, chcount: Int, ntabpositions: Int, lpntabstoppositions: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getTabbedTextExtentW(hdc?.value?.toCPointer<ByteVar>(), lpstring?.value?.toCPointer<ByteVar>(), chcount, ntabpositions, lpntabstoppositions?.value?.toCPointer<ByteVar>())
 
-public actual fun GetTextAlign(hdc: HDC): TEXT_ALIGN_OPTIONS =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetTextAlign(hdc.toCPointer<ByteVar>())
+public actual fun getTextAlign(hdc: Hdc): TextAlignOptions =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getTextAlign(hdc?.value?.toCPointer<ByteVar>())
 
-public actual fun GetTextCharacterExtra(hdc: HDC): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetTextCharacterExtra(hdc.toCPointer<ByteVar>())
+public actual fun getTextCharacterExtra(hdc: Hdc): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getTextCharacterExtra(hdc?.value?.toCPointer<ByteVar>())
 
-public actual fun GetTextColor(hdc: HDC): COLORREF =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetTextColor(hdc.toCPointer<ByteVar>())
+public actual fun getTextColor(hdc: Hdc): Colorref =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getTextColor(hdc?.value?.toCPointer<ByteVar>())
 
-public actual fun GetTextExtentExPointA(hdc: HDC, lpszstring: PCSTR, cchstring: Int, nmaxextent: Int, lpnfit: Long, lpndx: Long, lpsize: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetTextExtentExPointA(hdc.toCPointer<ByteVar>(), lpszstring.toCPointer<ByteVar>(), cchstring, nmaxextent, lpnfit.toCPointer<ByteVar>(), lpndx.toCPointer<ByteVar>(), lpsize.toCPointer<ByteVar>())
+public actual fun getTextExtentExPointA(hdc: Hdc, lpszstring: Pcstr, cchstring: Int, nmaxextent: Int, lpnfit: COpaquePointer?, lpndx: COpaquePointer?, lpsize: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getTextExtentExPointA(hdc?.value?.toCPointer<ByteVar>(), lpszstring?.value?.toCPointer<ByteVar>(), cchstring, nmaxextent, lpnfit?.value?.toCPointer<ByteVar>(), lpndx?.value?.toCPointer<ByteVar>(), lpsize?.value?.toCPointer<ByteVar>())
 
-public actual fun GetTextExtentExPointI(hdc: HDC, lpwszstring: Long, cwchstring: Int, nmaxextent: Int, lpnfit: Long, lpndx: Long, lpsize: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetTextExtentExPointI(hdc.toCPointer<ByteVar>(), lpwszstring.toCPointer<ByteVar>(), cwchstring, nmaxextent, lpnfit.toCPointer<ByteVar>(), lpndx.toCPointer<ByteVar>(), lpsize.toCPointer<ByteVar>())
+public actual fun getTextExtentExPointI(hdc: Hdc, lpwszstring: COpaquePointer?, cwchstring: Int, nmaxextent: Int, lpnfit: COpaquePointer?, lpndx: COpaquePointer?, lpsize: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getTextExtentExPointI(hdc?.value?.toCPointer<ByteVar>(), lpwszstring?.value?.toCPointer<ByteVar>(), cwchstring, nmaxextent, lpnfit?.value?.toCPointer<ByteVar>(), lpndx?.value?.toCPointer<ByteVar>(), lpsize?.value?.toCPointer<ByteVar>())
 
-public actual fun GetTextExtentExPointW(hdc: HDC, lpszstring: PCWSTR, cchstring: Int, nmaxextent: Int, lpnfit: Long, lpndx: Long, lpsize: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetTextExtentExPointW(hdc.toCPointer<ByteVar>(), lpszstring.toCPointer<ByteVar>(), cchstring, nmaxextent, lpnfit.toCPointer<ByteVar>(), lpndx.toCPointer<ByteVar>(), lpsize.toCPointer<ByteVar>())
+public actual fun getTextExtentExPointW(hdc: Hdc, lpszstring: Pcwstr, cchstring: Int, nmaxextent: Int, lpnfit: COpaquePointer?, lpndx: COpaquePointer?, lpsize: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getTextExtentExPointW(hdc?.value?.toCPointer<ByteVar>(), lpszstring?.value?.toCPointer<ByteVar>(), cchstring, nmaxextent, lpnfit?.value?.toCPointer<ByteVar>(), lpndx?.value?.toCPointer<ByteVar>(), lpsize?.value?.toCPointer<ByteVar>())
 
-public actual fun GetTextExtentPoint32A(hdc: HDC, lpstring: PCSTR, c: Int, psizl: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetTextExtentPoint32A(hdc.toCPointer<ByteVar>(), lpstring.toCPointer<ByteVar>(), c, psizl.toCPointer<ByteVar>())
+public actual fun getTextExtentPoint32A(hdc: Hdc, lpstring: Pcstr, c: Int, psizl: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getTextExtentPoint32A(hdc?.value?.toCPointer<ByteVar>(), lpstring?.value?.toCPointer<ByteVar>(), c, psizl?.value?.toCPointer<ByteVar>())
 
-public actual fun GetTextExtentPoint32W(hdc: HDC, lpstring: PCWSTR, c: Int, psizl: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetTextExtentPoint32W(hdc.toCPointer<ByteVar>(), lpstring.toCPointer<ByteVar>(), c, psizl.toCPointer<ByteVar>())
+public actual fun getTextExtentPoint32W(hdc: Hdc, lpstring: Pcwstr, c: Int, psizl: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getTextExtentPoint32W(hdc?.value?.toCPointer<ByteVar>(), lpstring?.value?.toCPointer<ByteVar>(), c, psizl?.value?.toCPointer<ByteVar>())
 
-public actual fun GetTextExtentPointA(hdc: HDC, lpstring: PCSTR, c: Int, lpsz: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetTextExtentPointA(hdc.toCPointer<ByteVar>(), lpstring.toCPointer<ByteVar>(), c, lpsz.toCPointer<ByteVar>())
+public actual fun getTextExtentPointA(hdc: Hdc, lpstring: Pcstr, c: Int, lpsz: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getTextExtentPointA(hdc?.value?.toCPointer<ByteVar>(), lpstring?.value?.toCPointer<ByteVar>(), c, lpsz?.value?.toCPointer<ByteVar>())
 
-public actual fun GetTextExtentPointI(hdc: HDC, pgiin: Long, cgi: Int, psize: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetTextExtentPointI(hdc.toCPointer<ByteVar>(), pgiin.toCPointer<ByteVar>(), cgi, psize.toCPointer<ByteVar>())
+public actual fun getTextExtentPointI(hdc: Hdc, pgiin: COpaquePointer?, cgi: Int, psize: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getTextExtentPointI(hdc?.value?.toCPointer<ByteVar>(), pgiin?.value?.toCPointer<ByteVar>(), cgi, psize?.value?.toCPointer<ByteVar>())
 
-public actual fun GetTextExtentPointW(hdc: HDC, lpstring: PCWSTR, c: Int, lpsz: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetTextExtentPointW(hdc.toCPointer<ByteVar>(), lpstring.toCPointer<ByteVar>(), c, lpsz.toCPointer<ByteVar>())
+public actual fun getTextExtentPointW(hdc: Hdc, lpstring: Pcwstr, c: Int, lpsz: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getTextExtentPointW(hdc?.value?.toCPointer<ByteVar>(), lpstring?.value?.toCPointer<ByteVar>(), c, lpsz?.value?.toCPointer<ByteVar>())
 
-public actual fun GetTextFaceA(hdc: HDC, c: Int, lpname: PSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetTextFaceA(hdc.toCPointer<ByteVar>(), c, lpname.toCPointer<ByteVar>())
+public actual fun getTextFaceA(hdc: Hdc, c: Int, lpname: Pstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getTextFaceA(hdc?.value?.toCPointer<ByteVar>(), c, lpname?.value?.toCPointer<ByteVar>())
 
-public actual fun GetTextFaceW(hdc: HDC, c: Int, lpname: PWSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetTextFaceW(hdc.toCPointer<ByteVar>(), c, lpname.toCPointer<ByteVar>())
+public actual fun getTextFaceW(hdc: Hdc, c: Int, lpname: Pwstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getTextFaceW(hdc?.value?.toCPointer<ByteVar>(), c, lpname?.value?.toCPointer<ByteVar>())
 
-public actual fun GetTextMetricsA(hdc: HDC, lptm: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetTextMetricsA(hdc.toCPointer<ByteVar>(), lptm.toCPointer<ByteVar>())
+public actual fun getTextMetricsA(hdc: Hdc, lptm: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getTextMetricsA(hdc?.value?.toCPointer<ByteVar>(), lptm?.value?.toCPointer<ByteVar>())
 
-public actual fun GetTextMetricsW(hdc: HDC, lptm: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetTextMetricsW(hdc.toCPointer<ByteVar>(), lptm.toCPointer<ByteVar>())
+public actual fun getTextMetricsW(hdc: Hdc, lptm: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getTextMetricsW(hdc?.value?.toCPointer<ByteVar>(), lptm?.value?.toCPointer<ByteVar>())
 
-public actual fun GetUpdateRect(hwnd: HWND, lprect: Long, berase: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetUpdateRect(hwnd.toCPointer<ByteVar>(), lprect.toCPointer<ByteVar>(), berase)
+public actual fun getUpdateRect(hwnd: Hwnd, lprect: COpaquePointer?, berase: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getUpdateRect(hwnd?.value?.toCPointer<ByteVar>(), lprect?.value?.toCPointer<ByteVar>(), berase)
 
-public actual fun GetUpdateRgn(hwnd: HWND, hrgn: HRGN, berase: BOOL): GDI_REGION_TYPE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetUpdateRgn(hwnd.toCPointer<ByteVar>(), hrgn.toCPointer<ByteVar>(), berase)
+public actual fun getUpdateRgn(hwnd: Hwnd, hrgn: Hrgn, berase: Bool): GdiRegionType =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getUpdateRgn(hwnd?.value?.toCPointer<ByteVar>(), hrgn?.value?.toCPointer<ByteVar>(), berase)
 
-public actual fun GetViewportExtEx(hdc: HDC, lpsize: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetViewportExtEx(hdc.toCPointer<ByteVar>(), lpsize.toCPointer<ByteVar>())
+public actual fun getViewportExtEx(hdc: Hdc, lpsize: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getViewportExtEx(hdc?.value?.toCPointer<ByteVar>(), lpsize?.value?.toCPointer<ByteVar>())
 
-public actual fun GetViewportOrgEx(hdc: HDC, lppoint: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetViewportOrgEx(hdc.toCPointer<ByteVar>(), lppoint.toCPointer<ByteVar>())
+public actual fun getViewportOrgEx(hdc: Hdc, lppoint: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getViewportOrgEx(hdc?.value?.toCPointer<ByteVar>(), lppoint?.value?.toCPointer<ByteVar>())
 
-public actual fun GetWinMetaFileBits(hemf: HENHMETAFILE, cbdata16: UInt, pdata16: Long, imapmode: Int, hdcref: HDC): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetWinMetaFileBits(hemf.toCPointer<ByteVar>(), cbdata16, pdata16.toCPointer<ByteVar>(), imapmode, hdcref.toCPointer<ByteVar>())
+public actual fun getWinMetaFileBits(hemf: Henhmetafile, cbdata16: UInt, pdata16: COpaquePointer?, imapmode: Int, hdcref: Hdc): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getWinMetaFileBits(hemf?.value?.toCPointer<ByteVar>(), cbdata16, pdata16?.value?.toCPointer<ByteVar>(), imapmode, hdcref?.value?.toCPointer<ByteVar>())
 
-public actual fun GetWindowDC(hwnd: HWND): HDC =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetWindowDC(hwnd.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun getWindowDC(hwnd: Hwnd): Hdc =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getWindowDC(hwnd?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GetWindowExtEx(hdc: HDC, lpsize: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetWindowExtEx(hdc.toCPointer<ByteVar>(), lpsize.toCPointer<ByteVar>())
+public actual fun getWindowExtEx(hdc: Hdc, lpsize: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getWindowExtEx(hdc?.value?.toCPointer<ByteVar>(), lpsize?.value?.toCPointer<ByteVar>())
 
-public actual fun GetWindowOrgEx(hdc: HDC, lppoint: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetWindowOrgEx(hdc.toCPointer<ByteVar>(), lppoint.toCPointer<ByteVar>())
+public actual fun getWindowOrgEx(hdc: Hdc, lppoint: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getWindowOrgEx(hdc?.value?.toCPointer<ByteVar>(), lppoint?.value?.toCPointer<ByteVar>())
 
-public actual fun GetWindowRgn(hwnd: HWND, hrgn: HRGN): GDI_REGION_TYPE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetWindowRgn(hwnd.toCPointer<ByteVar>(), hrgn.toCPointer<ByteVar>())
+public actual fun getWindowRgn(hwnd: Hwnd, hrgn: Hrgn): GdiRegionType =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getWindowRgn(hwnd?.value?.toCPointer<ByteVar>(), hrgn?.value?.toCPointer<ByteVar>())
 
-public actual fun GetWindowRgnBox(hwnd: HWND, lprc: Long): GDI_REGION_TYPE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetWindowRgnBox(hwnd.toCPointer<ByteVar>(), lprc.toCPointer<ByteVar>())
+public actual fun getWindowRgnBox(hwnd: Hwnd, lprc: COpaquePointer?): GdiRegionType =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getWindowRgnBox(hwnd?.value?.toCPointer<ByteVar>(), lprc?.value?.toCPointer<ByteVar>())
 
-public actual fun GetWorldTransform(hdc: HDC, lpxf: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GetWorldTransform(hdc.toCPointer<ByteVar>(), lpxf.toCPointer<ByteVar>())
+public actual fun getWorldTransform(hdc: Hdc, lpxf: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_getWorldTransform(hdc?.value?.toCPointer<ByteVar>(), lpxf?.value?.toCPointer<ByteVar>())
 
-public actual fun GradientFill(hdc: HDC, pvertex: Long, nvertex: UInt, pmesh: Long, nmesh: UInt, ulmode: GRADIENT_FILL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GradientFill(hdc.toCPointer<ByteVar>(), pvertex.toCPointer<ByteVar>(), nvertex, pmesh.toCPointer<ByteVar>(), nmesh, ulmode)
+public actual fun gradientFill(hdc: Hdc, pvertex: COpaquePointer?, nvertex: UInt, pmesh: COpaquePointer?, nmesh: UInt, ulmode: GradientFill): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_gradientFill(hdc?.value?.toCPointer<ByteVar>(), pvertex?.value?.toCPointer<ByteVar>(), nvertex, pmesh?.value?.toCPointer<ByteVar>(), nmesh, ulmode)
 
-public actual fun GrayStringA(hdc: HDC, hbrush: HBRUSH, lpoutputfunc: GRAYSTRINGPROC, lpdata: LPARAM, ncount: Int, x: Int, y: Int, nwidth: Int, nheight: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GrayStringA(hdc.toCPointer<ByteVar>(), hbrush.toCPointer<ByteVar>(), lpoutputfunc.toLong().toCPointer<ByteVar>(), lpdata, ncount, x, y, nwidth, nheight)
+public actual fun grayStringA(hdc: Hdc, hbrush: Hbrush, lpoutputfunc: Graystringproc, lpdata: Lparam, ncount: Int, x: Int, y: Int, nwidth: Int, nheight: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_grayStringA(hdc?.value?.toCPointer<ByteVar>(), hbrush?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpdata, ncount, x, y, nwidth, nheight)
 
-public actual fun GrayStringW(hdc: HDC, hbrush: HBRUSH, lpoutputfunc: GRAYSTRINGPROC, lpdata: LPARAM, ncount: Int, x: Int, y: Int, nwidth: Int, nheight: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_GrayStringW(hdc.toCPointer<ByteVar>(), hbrush.toCPointer<ByteVar>(), lpoutputfunc.toLong().toCPointer<ByteVar>(), lpdata, ncount, x, y, nwidth, nheight)
+public actual fun grayStringW(hdc: Hdc, hbrush: Hbrush, lpoutputfunc: Graystringproc, lpdata: Lparam, ncount: Int, x: Int, y: Int, nwidth: Int, nheight: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_grayStringW(hdc?.value?.toCPointer<ByteVar>(), hbrush?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpdata, ncount, x, y, nwidth, nheight)
 
-public actual fun InflateRect(lprc: Long, dx: Int, dy: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_InflateRect(lprc.toCPointer<ByteVar>(), dx, dy)
+public actual fun inflateRect(lprc: COpaquePointer?, dx: Int, dy: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_inflateRect(lprc?.value?.toCPointer<ByteVar>(), dx, dy)
 
-public actual fun IntersectClipRect(hdc: HDC, left: Int, top: Int, right: Int, bottom: Int): GDI_REGION_TYPE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_IntersectClipRect(hdc.toCPointer<ByteVar>(), left, top, right, bottom)
+public actual fun intersectClipRect(hdc: Hdc, left: Int, top: Int, right: Int, bottom: Int): GdiRegionType =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_intersectClipRect(hdc?.value?.toCPointer<ByteVar>(), left, top, right, bottom)
 
-public actual fun IntersectRect(lprcdst: Long, lprcsrc1: Long, lprcsrc2: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_IntersectRect(lprcdst.toCPointer<ByteVar>(), lprcsrc1.toCPointer<ByteVar>(), lprcsrc2.toCPointer<ByteVar>())
+public actual fun intersectRect(lprcdst: COpaquePointer?, lprcsrc1: COpaquePointer?, lprcsrc2: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_intersectRect(lprcdst?.value?.toCPointer<ByteVar>(), lprcsrc1?.value?.toCPointer<ByteVar>(), lprcsrc2?.value?.toCPointer<ByteVar>())
 
-public actual fun InvalidateRect(hwnd: HWND, lprect: Long, berase: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_InvalidateRect(hwnd.toCPointer<ByteVar>(), lprect.toCPointer<ByteVar>(), berase)
+public actual fun invalidateRect(hwnd: Hwnd, lprect: COpaquePointer?, berase: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_invalidateRect(hwnd?.value?.toCPointer<ByteVar>(), lprect?.value?.toCPointer<ByteVar>(), berase)
 
-public actual fun InvalidateRgn(hwnd: HWND, hrgn: HRGN, berase: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_InvalidateRgn(hwnd.toCPointer<ByteVar>(), hrgn.toCPointer<ByteVar>(), berase)
+public actual fun invalidateRgn(hwnd: Hwnd, hrgn: Hrgn, berase: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_invalidateRgn(hwnd?.value?.toCPointer<ByteVar>(), hrgn?.value?.toCPointer<ByteVar>(), berase)
 
-public actual fun InvertRect(hdc: HDC, lprc: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_InvertRect(hdc.toCPointer<ByteVar>(), lprc.toCPointer<ByteVar>())
+public actual fun invertRect(hdc: Hdc, lprc: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_invertRect(hdc?.value?.toCPointer<ByteVar>(), lprc?.value?.toCPointer<ByteVar>())
 
-public actual fun InvertRgn(hdc: HDC, hrgn: HRGN): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_InvertRgn(hdc.toCPointer<ByteVar>(), hrgn.toCPointer<ByteVar>())
+public actual fun invertRgn(hdc: Hdc, hrgn: Hrgn): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_invertRgn(hdc?.value?.toCPointer<ByteVar>(), hrgn?.value?.toCPointer<ByteVar>())
 
-public actual fun IsRectEmpty(lprc: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_IsRectEmpty(lprc.toCPointer<ByteVar>())
+public actual fun isRectEmpty(lprc: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_isRectEmpty(lprc?.value?.toCPointer<ByteVar>())
 
-public actual fun LPtoDP(hdc: HDC, lppt: Long, c: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_LPtoDP(hdc.toCPointer<ByteVar>(), lppt.toCPointer<ByteVar>(), c)
+public actual fun lPtoDP(hdc: Hdc, lppt: COpaquePointer?, c: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_lPtoDP(hdc?.value?.toCPointer<ByteVar>(), lppt?.value?.toCPointer<ByteVar>(), c)
 
-public actual fun LineDDA(xstart: Int, ystart: Int, xend: Int, yend: Int, lpproc: LINEDDAPROC, data: LPARAM): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_LineDDA(xstart, ystart, xend, yend, lpproc.toLong().toCPointer<ByteVar>(), data)
+public actual fun lineDDA(xstart: Int, ystart: Int, xend: Int, yend: Int, lpproc: Lineddaproc, data: Lparam): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_lineDDA(xstart, ystart, xend, yend, 0L.toCPointer<ByteVar>(), data)
 
-public actual fun LineTo(hdc: HDC, x: Int, y: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_LineTo(hdc.toCPointer<ByteVar>(), x, y)
+public actual fun lineTo(hdc: Hdc, x: Int, y: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_lineTo(hdc?.value?.toCPointer<ByteVar>(), x, y)
 
-public actual fun LoadBitmapA(hinstance: HINSTANCE, lpbitmapname: PCSTR): HBITMAP =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_LoadBitmapA(hinstance.toCPointer<ByteVar>(), lpbitmapname.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun loadBitmapA(hinstance: Hinstance, lpbitmapname: Pcstr): Hbitmap =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_loadBitmapA(hinstance?.value?.toCPointer<ByteVar>(), lpbitmapname?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun LoadBitmapW(hinstance: HINSTANCE, lpbitmapname: PCWSTR): HBITMAP =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_LoadBitmapW(hinstance.toCPointer<ByteVar>(), lpbitmapname.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun loadBitmapW(hinstance: Hinstance, lpbitmapname: Pcwstr): Hbitmap =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_loadBitmapW(hinstance?.value?.toCPointer<ByteVar>(), lpbitmapname?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun LockWindowUpdate(hwndlock: HWND): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_LockWindowUpdate(hwndlock.toCPointer<ByteVar>())
+public actual fun lockWindowUpdate(hwndlock: Hwnd): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_lockWindowUpdate(hwndlock?.value?.toCPointer<ByteVar>())
 
-public actual fun MapWindowPoints(hwndfrom: HWND, hwndto: HWND, lppoints: Long, cpoints: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_MapWindowPoints(hwndfrom.toCPointer<ByteVar>(), hwndto.toCPointer<ByteVar>(), lppoints.toCPointer<ByteVar>(), cpoints)
+public actual fun mapWindowPoints(hwndfrom: Hwnd, hwndto: Hwnd, lppoints: COpaquePointer?, cpoints: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_mapWindowPoints(hwndfrom?.value?.toCPointer<ByteVar>(), hwndto?.value?.toCPointer<ByteVar>(), lppoints?.value?.toCPointer<ByteVar>(), cpoints)
 
-public actual fun MaskBlt(hdcdest: HDC, xdest: Int, ydest: Int, width: Int, height: Int, hdcsrc: HDC, xsrc: Int, ysrc: Int, hbmmask: HBITMAP, xmask: Int, ymask: Int, rop: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_MaskBlt(hdcdest.toCPointer<ByteVar>(), xdest, ydest, width, height, hdcsrc.toCPointer<ByteVar>(), xsrc, ysrc, hbmmask.toCPointer<ByteVar>(), xmask, ymask, rop)
+public actual fun maskBlt(hdcdest: Hdc, xdest: Int, ydest: Int, width: Int, height: Int, hdcsrc: Hdc, xsrc: Int, ysrc: Int, hbmmask: Hbitmap, xmask: Int, ymask: Int, rop: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_maskBlt(hdcdest?.value?.toCPointer<ByteVar>(), xdest, ydest, width, height, hdcsrc?.value?.toCPointer<ByteVar>(), xsrc, ysrc, hbmmask?.value?.toCPointer<ByteVar>(), xmask, ymask, rop)
 
-public actual fun MergeFontPackage(puchmergefontbuffer: Long, ulmergefontbuffersize: UInt, puchfontpackagebuffer: Long, ulfontpackagebuffersize: UInt, ppuchdestbuffer: Long, puldestbuffersize: Long, pulbyteswritten: Long, usmode: UShort, lpfnallocate: CFP_ALLOCPROC, lpfnreallocate: CFP_REALLOCPROC, lpfnfree: CFP_FREEPROC, lpvreserved: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_MergeFontPackage(puchmergefontbuffer.toCPointer<ByteVar>(), ulmergefontbuffersize, puchfontpackagebuffer.toCPointer<ByteVar>(), ulfontpackagebuffersize, ppuchdestbuffer.toCPointer<ByteVar>(), puldestbuffersize.toCPointer<ByteVar>(), pulbyteswritten.toCPointer<ByteVar>(), usmode, lpfnallocate.toLong().toCPointer<ByteVar>(), lpfnreallocate.toLong().toCPointer<ByteVar>(), lpfnfree.toLong().toCPointer<ByteVar>(), lpvreserved.toCPointer<ByteVar>())
+public actual fun mergeFontPackage(puchmergefontbuffer: COpaquePointer?, ulmergefontbuffersize: UInt, puchfontpackagebuffer: COpaquePointer?, ulfontpackagebuffersize: UInt, ppuchdestbuffer: COpaquePointer?, puldestbuffersize: COpaquePointer?, pulbyteswritten: COpaquePointer?, usmode: UShort, lpfnallocate: CfpAllocproc, lpfnreallocate: CfpReallocproc, lpfnfree: CfpFreeproc, lpvreserved: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_mergeFontPackage(puchmergefontbuffer?.value?.toCPointer<ByteVar>(), ulmergefontbuffersize, puchfontpackagebuffer?.value?.toCPointer<ByteVar>(), ulfontpackagebuffersize, ppuchdestbuffer?.value?.toCPointer<ByteVar>(), puldestbuffersize?.value?.toCPointer<ByteVar>(), pulbyteswritten?.value?.toCPointer<ByteVar>(), usmode, 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpvreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun ModifyWorldTransform(hdc: HDC, lpxf: Long, mode: MODIFY_WORLD_TRANSFORM_MODE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_ModifyWorldTransform(hdc.toCPointer<ByteVar>(), lpxf.toCPointer<ByteVar>(), mode)
+public actual fun modifyWorldTransform(hdc: Hdc, lpxf: COpaquePointer?, mode: ModifyWorldTransformMode): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_modifyWorldTransform(hdc?.value?.toCPointer<ByteVar>(), lpxf?.value?.toCPointer<ByteVar>(), mode)
 
-public actual fun MonitorFromPoint(pt: POINT, dwflags: MONITOR_FROM_FLAGS): HMONITOR =
-    0L
+public actual fun monitorFromPoint(pt: Point, dwflags: MonitorFromFlags): Hmonitor =
+    null
 
-public actual fun MonitorFromRect(lprc: Long, dwflags: MONITOR_FROM_FLAGS): HMONITOR =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_MonitorFromRect(lprc.toCPointer<ByteVar>(), dwflags)?.toLong() ?: 0L
+public actual fun monitorFromRect(lprc: COpaquePointer?, dwflags: MonitorFromFlags): Hmonitor =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_monitorFromRect(lprc?.value?.toCPointer<ByteVar>(), dwflags)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun MonitorFromWindow(hwnd: HWND, dwflags: MONITOR_FROM_FLAGS): HMONITOR =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_MonitorFromWindow(hwnd.toCPointer<ByteVar>(), dwflags)?.toLong() ?: 0L
+public actual fun monitorFromWindow(hwnd: Hwnd, dwflags: MonitorFromFlags): Hmonitor =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_monitorFromWindow(hwnd?.value?.toCPointer<ByteVar>(), dwflags)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun MoveToEx(hdc: HDC, x: Int, y: Int, lppt: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_MoveToEx(hdc.toCPointer<ByteVar>(), x, y, lppt.toCPointer<ByteVar>())
+public actual fun moveToEx(hdc: Hdc, x: Int, y: Int, lppt: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_moveToEx(hdc?.value?.toCPointer<ByteVar>(), x, y, lppt?.value?.toCPointer<ByteVar>())
 
-public actual fun OffsetClipRgn(hdc: HDC, x: Int, y: Int): GDI_REGION_TYPE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_OffsetClipRgn(hdc.toCPointer<ByteVar>(), x, y)
+public actual fun offsetClipRgn(hdc: Hdc, x: Int, y: Int): GdiRegionType =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_offsetClipRgn(hdc?.value?.toCPointer<ByteVar>(), x, y)
 
-public actual fun OffsetRect(lprc: Long, dx: Int, dy: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_OffsetRect(lprc.toCPointer<ByteVar>(), dx, dy)
+public actual fun offsetRect(lprc: COpaquePointer?, dx: Int, dy: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_offsetRect(lprc?.value?.toCPointer<ByteVar>(), dx, dy)
 
-public actual fun OffsetRgn(hrgn: HRGN, x: Int, y: Int): GDI_REGION_TYPE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_OffsetRgn(hrgn.toCPointer<ByteVar>(), x, y)
+public actual fun offsetRgn(hrgn: Hrgn, x: Int, y: Int): GdiRegionType =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_offsetRgn(hrgn?.value?.toCPointer<ByteVar>(), x, y)
 
-public actual fun OffsetViewportOrgEx(hdc: HDC, x: Int, y: Int, lppt: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_OffsetViewportOrgEx(hdc.toCPointer<ByteVar>(), x, y, lppt.toCPointer<ByteVar>())
+public actual fun offsetViewportOrgEx(hdc: Hdc, x: Int, y: Int, lppt: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_offsetViewportOrgEx(hdc?.value?.toCPointer<ByteVar>(), x, y, lppt?.value?.toCPointer<ByteVar>())
 
-public actual fun OffsetWindowOrgEx(hdc: HDC, x: Int, y: Int, lppt: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_OffsetWindowOrgEx(hdc.toCPointer<ByteVar>(), x, y, lppt.toCPointer<ByteVar>())
+public actual fun offsetWindowOrgEx(hdc: Hdc, x: Int, y: Int, lppt: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_offsetWindowOrgEx(hdc?.value?.toCPointer<ByteVar>(), x, y, lppt?.value?.toCPointer<ByteVar>())
 
-public actual fun PaintDesktop(hdc: HDC): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_PaintDesktop(hdc.toCPointer<ByteVar>())
+public actual fun paintDesktop(hdc: Hdc): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_paintDesktop(hdc?.value?.toCPointer<ByteVar>())
 
-public actual fun PaintRgn(hdc: HDC, hrgn: HRGN): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_PaintRgn(hdc.toCPointer<ByteVar>(), hrgn.toCPointer<ByteVar>())
+public actual fun paintRgn(hdc: Hdc, hrgn: Hrgn): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_paintRgn(hdc?.value?.toCPointer<ByteVar>(), hrgn?.value?.toCPointer<ByteVar>())
 
-public actual fun PatBlt(hdc: HDC, x: Int, y: Int, w: Int, h: Int, rop: ROP_CODE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_PatBlt(hdc.toCPointer<ByteVar>(), x, y, w, h, rop)
+public actual fun patBlt(hdc: Hdc, x: Int, y: Int, w: Int, h: Int, rop: RopCode): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_patBlt(hdc?.value?.toCPointer<ByteVar>(), x, y, w, h, rop)
 
-public actual fun PathToRegion(hdc: HDC): HRGN =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_PathToRegion(hdc.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun pathToRegion(hdc: Hdc): Hrgn =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_pathToRegion(hdc?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun Pie(hdc: HDC, left: Int, top: Int, right: Int, bottom: Int, xr1: Int, yr1: Int, xr2: Int, yr2: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_Pie(hdc.toCPointer<ByteVar>(), left, top, right, bottom, xr1, yr1, xr2, yr2)
+public actual fun pie(hdc: Hdc, left: Int, top: Int, right: Int, bottom: Int, xr1: Int, yr1: Int, xr2: Int, yr2: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_pie(hdc?.value?.toCPointer<ByteVar>(), left, top, right, bottom, xr1, yr1, xr2, yr2)
 
-public actual fun PlayEnhMetaFile(hdc: HDC, hmf: HENHMETAFILE, lprect: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_PlayEnhMetaFile(hdc.toCPointer<ByteVar>(), hmf.toCPointer<ByteVar>(), lprect.toCPointer<ByteVar>())
+public actual fun playEnhMetaFile(hdc: Hdc, hmf: Henhmetafile, lprect: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_playEnhMetaFile(hdc?.value?.toCPointer<ByteVar>(), hmf?.value?.toCPointer<ByteVar>(), lprect?.value?.toCPointer<ByteVar>())
 
-public actual fun PlayEnhMetaFileRecord(hdc: HDC, pht: Long, pmr: Long, cht: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_PlayEnhMetaFileRecord(hdc.toCPointer<ByteVar>(), pht.toCPointer<ByteVar>(), pmr.toCPointer<ByteVar>(), cht)
+public actual fun playEnhMetaFileRecord(hdc: Hdc, pht: COpaquePointer?, pmr: COpaquePointer?, cht: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_playEnhMetaFileRecord(hdc?.value?.toCPointer<ByteVar>(), pht?.value?.toCPointer<ByteVar>(), pmr?.value?.toCPointer<ByteVar>(), cht)
 
-public actual fun PlayMetaFile(hdc: HDC, hmf: HMETAFILE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_PlayMetaFile(hdc.toCPointer<ByteVar>(), hmf.toCPointer<ByteVar>())
+public actual fun playMetaFile(hdc: Hdc, hmf: Hmetafile): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_playMetaFile(hdc?.value?.toCPointer<ByteVar>(), hmf?.value?.toCPointer<ByteVar>())
 
-public actual fun PlayMetaFileRecord(hdc: HDC, lphandletable: Long, lpmr: Long, noobjs: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_PlayMetaFileRecord(hdc.toCPointer<ByteVar>(), lphandletable.toCPointer<ByteVar>(), lpmr.toCPointer<ByteVar>(), noobjs)
+public actual fun playMetaFileRecord(hdc: Hdc, lphandletable: COpaquePointer?, lpmr: COpaquePointer?, noobjs: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_playMetaFileRecord(hdc?.value?.toCPointer<ByteVar>(), lphandletable?.value?.toCPointer<ByteVar>(), lpmr?.value?.toCPointer<ByteVar>(), noobjs)
 
-public actual fun PlgBlt(hdcdest: HDC, lppoint: Long, hdcsrc: HDC, xsrc: Int, ysrc: Int, width: Int, height: Int, hbmmask: HBITMAP, xmask: Int, ymask: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_PlgBlt(hdcdest.toCPointer<ByteVar>(), lppoint.toCPointer<ByteVar>(), hdcsrc.toCPointer<ByteVar>(), xsrc, ysrc, width, height, hbmmask.toCPointer<ByteVar>(), xmask, ymask)
+public actual fun plgBlt(hdcdest: Hdc, lppoint: COpaquePointer?, hdcsrc: Hdc, xsrc: Int, ysrc: Int, width: Int, height: Int, hbmmask: Hbitmap, xmask: Int, ymask: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_plgBlt(hdcdest?.value?.toCPointer<ByteVar>(), lppoint?.value?.toCPointer<ByteVar>(), hdcsrc?.value?.toCPointer<ByteVar>(), xsrc, ysrc, width, height, hbmmask?.value?.toCPointer<ByteVar>(), xmask, ymask)
 
-public actual fun PolyBezier(hdc: HDC, apt: Long, cpt: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_PolyBezier(hdc.toCPointer<ByteVar>(), apt.toCPointer<ByteVar>(), cpt)
+public actual fun polyBezier(hdc: Hdc, apt: COpaquePointer?, cpt: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_polyBezier(hdc?.value?.toCPointer<ByteVar>(), apt?.value?.toCPointer<ByteVar>(), cpt)
 
-public actual fun PolyBezierTo(hdc: HDC, apt: Long, cpt: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_PolyBezierTo(hdc.toCPointer<ByteVar>(), apt.toCPointer<ByteVar>(), cpt)
+public actual fun polyBezierTo(hdc: Hdc, apt: COpaquePointer?, cpt: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_polyBezierTo(hdc?.value?.toCPointer<ByteVar>(), apt?.value?.toCPointer<ByteVar>(), cpt)
 
-public actual fun PolyDraw(hdc: HDC, apt: Long, aj: Long, cpt: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_PolyDraw(hdc.toCPointer<ByteVar>(), apt.toCPointer<ByteVar>(), aj.toCPointer<ByteVar>(), cpt)
+public actual fun polyDraw(hdc: Hdc, apt: COpaquePointer?, aj: COpaquePointer?, cpt: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_polyDraw(hdc?.value?.toCPointer<ByteVar>(), apt?.value?.toCPointer<ByteVar>(), aj?.value?.toCPointer<ByteVar>(), cpt)
 
-public actual fun PolyPolygon(hdc: HDC, apt: Long, asz: Long, csz: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_PolyPolygon(hdc.toCPointer<ByteVar>(), apt.toCPointer<ByteVar>(), asz.toCPointer<ByteVar>(), csz)
+public actual fun polyPolygon(hdc: Hdc, apt: COpaquePointer?, asz: COpaquePointer?, csz: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_polyPolygon(hdc?.value?.toCPointer<ByteVar>(), apt?.value?.toCPointer<ByteVar>(), asz?.value?.toCPointer<ByteVar>(), csz)
 
-public actual fun PolyPolyline(hdc: HDC, apt: Long, asz: Long, csz: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_PolyPolyline(hdc.toCPointer<ByteVar>(), apt.toCPointer<ByteVar>(), asz.toCPointer<ByteVar>(), csz)
+public actual fun polyPolyline(hdc: Hdc, apt: COpaquePointer?, asz: COpaquePointer?, csz: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_polyPolyline(hdc?.value?.toCPointer<ByteVar>(), apt?.value?.toCPointer<ByteVar>(), asz?.value?.toCPointer<ByteVar>(), csz)
 
-public actual fun PolyTextOutA(hdc: HDC, ppt: Long, nstrings: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_PolyTextOutA(hdc.toCPointer<ByteVar>(), ppt.toCPointer<ByteVar>(), nstrings)
+public actual fun polyTextOutA(hdc: Hdc, ppt: COpaquePointer?, nstrings: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_polyTextOutA(hdc?.value?.toCPointer<ByteVar>(), ppt?.value?.toCPointer<ByteVar>(), nstrings)
 
-public actual fun PolyTextOutW(hdc: HDC, ppt: Long, nstrings: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_PolyTextOutW(hdc.toCPointer<ByteVar>(), ppt.toCPointer<ByteVar>(), nstrings)
+public actual fun polyTextOutW(hdc: Hdc, ppt: COpaquePointer?, nstrings: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_polyTextOutW(hdc?.value?.toCPointer<ByteVar>(), ppt?.value?.toCPointer<ByteVar>(), nstrings)
 
-public actual fun Polygon(hdc: HDC, apt: Long, cpt: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_Polygon(hdc.toCPointer<ByteVar>(), apt.toCPointer<ByteVar>(), cpt)
+public actual fun polygon(hdc: Hdc, apt: COpaquePointer?, cpt: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_polygon(hdc?.value?.toCPointer<ByteVar>(), apt?.value?.toCPointer<ByteVar>(), cpt)
 
-public actual fun Polyline(hdc: HDC, apt: Long, cpt: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_Polyline(hdc.toCPointer<ByteVar>(), apt.toCPointer<ByteVar>(), cpt)
+public actual fun polyline(hdc: Hdc, apt: COpaquePointer?, cpt: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_polyline(hdc?.value?.toCPointer<ByteVar>(), apt?.value?.toCPointer<ByteVar>(), cpt)
 
-public actual fun PolylineTo(hdc: HDC, apt: Long, cpt: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_PolylineTo(hdc.toCPointer<ByteVar>(), apt.toCPointer<ByteVar>(), cpt)
+public actual fun polylineTo(hdc: Hdc, apt: COpaquePointer?, cpt: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_polylineTo(hdc?.value?.toCPointer<ByteVar>(), apt?.value?.toCPointer<ByteVar>(), cpt)
 
-public actual fun PtInRect(lprc: Long, pt: POINT): BOOL =
+public actual fun ptInRect(lprc: COpaquePointer?, pt: Point): Bool =
     0
 
-public actual fun PtInRegion(hrgn: HRGN, x: Int, y: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_PtInRegion(hrgn.toCPointer<ByteVar>(), x, y)
+public actual fun ptInRegion(hrgn: Hrgn, x: Int, y: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_ptInRegion(hrgn?.value?.toCPointer<ByteVar>(), x, y)
 
-public actual fun PtVisible(hdc: HDC, x: Int, y: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_PtVisible(hdc.toCPointer<ByteVar>(), x, y)
+public actual fun ptVisible(hdc: Hdc, x: Int, y: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_ptVisible(hdc?.value?.toCPointer<ByteVar>(), x, y)
 
-public actual fun RealizePalette(hdc: HDC): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_RealizePalette(hdc.toCPointer<ByteVar>())
+public actual fun realizePalette(hdc: Hdc): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_realizePalette(hdc?.value?.toCPointer<ByteVar>())
 
-public actual fun RectInRegion(hrgn: HRGN, lprect: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_RectInRegion(hrgn.toCPointer<ByteVar>(), lprect.toCPointer<ByteVar>())
+public actual fun rectInRegion(hrgn: Hrgn, lprect: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_rectInRegion(hrgn?.value?.toCPointer<ByteVar>(), lprect?.value?.toCPointer<ByteVar>())
 
-public actual fun RectVisible(hdc: HDC, lprect: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_RectVisible(hdc.toCPointer<ByteVar>(), lprect.toCPointer<ByteVar>())
+public actual fun rectVisible(hdc: Hdc, lprect: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_rectVisible(hdc?.value?.toCPointer<ByteVar>(), lprect?.value?.toCPointer<ByteVar>())
 
-public actual fun Rectangle(hdc: HDC, left: Int, top: Int, right: Int, bottom: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_Rectangle(hdc.toCPointer<ByteVar>(), left, top, right, bottom)
+public actual fun rectangle(hdc: Hdc, left: Int, top: Int, right: Int, bottom: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_rectangle(hdc?.value?.toCPointer<ByteVar>(), left, top, right, bottom)
 
-public actual fun RedrawWindow(hwnd: HWND, lprcupdate: Long, hrgnupdate: HRGN, flags: REDRAW_WINDOW_FLAGS): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_RedrawWindow(hwnd.toCPointer<ByteVar>(), lprcupdate.toCPointer<ByteVar>(), hrgnupdate.toCPointer<ByteVar>(), flags)
+public actual fun redrawWindow(hwnd: Hwnd, lprcupdate: COpaquePointer?, hrgnupdate: Hrgn, flags: RedrawWindowFlags): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_redrawWindow(hwnd?.value?.toCPointer<ByteVar>(), lprcupdate?.value?.toCPointer<ByteVar>(), hrgnupdate?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun ReleaseDC(hwnd: HWND, hdc: HDC): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_ReleaseDC(hwnd.toCPointer<ByteVar>(), hdc.toCPointer<ByteVar>())
+public actual fun releaseDC(hwnd: Hwnd, hdc: Hdc): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_releaseDC(hwnd?.value?.toCPointer<ByteVar>(), hdc?.value?.toCPointer<ByteVar>())
 
-public actual fun RemoveFontMemResourceEx(h: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_RemoveFontMemResourceEx(h.toCPointer<ByteVar>())
+public actual fun removeFontMemResourceEx(h: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_removeFontMemResourceEx(h?.value?.toCPointer<ByteVar>())
 
-public actual fun RemoveFontResourceA(lpfilename: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_RemoveFontResourceA(lpfilename.toCPointer<ByteVar>())
+public actual fun removeFontResourceA(lpfilename: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_removeFontResourceA(lpfilename?.value?.toCPointer<ByteVar>())
 
-public actual fun RemoveFontResourceExA(name: PCSTR, fl: UInt, pdv: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_RemoveFontResourceExA(name.toCPointer<ByteVar>(), fl, pdv.toCPointer<ByteVar>())
+public actual fun removeFontResourceExA(name: Pcstr, fl: UInt, pdv: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_removeFontResourceExA(name?.value?.toCPointer<ByteVar>(), fl, pdv?.value?.toCPointer<ByteVar>())
 
-public actual fun RemoveFontResourceExW(name: PCWSTR, fl: UInt, pdv: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_RemoveFontResourceExW(name.toCPointer<ByteVar>(), fl, pdv.toCPointer<ByteVar>())
+public actual fun removeFontResourceExW(name: Pcwstr, fl: UInt, pdv: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_removeFontResourceExW(name?.value?.toCPointer<ByteVar>(), fl, pdv?.value?.toCPointer<ByteVar>())
 
-public actual fun RemoveFontResourceW(lpfilename: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_RemoveFontResourceW(lpfilename.toCPointer<ByteVar>())
+public actual fun removeFontResourceW(lpfilename: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_removeFontResourceW(lpfilename?.value?.toCPointer<ByteVar>())
 
-public actual fun ResetDCA(hdc: HDC, lpdm: Long): HDC =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_ResetDCA(hdc.toCPointer<ByteVar>(), lpdm.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun resetDCA(hdc: Hdc, lpdm: COpaquePointer?): Hdc =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_resetDCA(hdc?.value?.toCPointer<ByteVar>(), lpdm?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ResetDCW(hdc: HDC, lpdm: Long): HDC =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_ResetDCW(hdc.toCPointer<ByteVar>(), lpdm.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun resetDCW(hdc: Hdc, lpdm: COpaquePointer?): Hdc =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_resetDCW(hdc?.value?.toCPointer<ByteVar>(), lpdm?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun ResizePalette(hpal: HPALETTE, n: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_ResizePalette(hpal.toCPointer<ByteVar>(), n)
+public actual fun resizePalette(hpal: Hpalette, n: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_resizePalette(hpal?.value?.toCPointer<ByteVar>(), n)
 
-public actual fun RestoreDC(hdc: HDC, nsaveddc: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_RestoreDC(hdc.toCPointer<ByteVar>(), nsaveddc)
+public actual fun restoreDC(hdc: Hdc, nsaveddc: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_restoreDC(hdc?.value?.toCPointer<ByteVar>(), nsaveddc)
 
-public actual fun RoundRect(hdc: HDC, left: Int, top: Int, right: Int, bottom: Int, width: Int, height: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_RoundRect(hdc.toCPointer<ByteVar>(), left, top, right, bottom, width, height)
+public actual fun roundRect(hdc: Hdc, left: Int, top: Int, right: Int, bottom: Int, width: Int, height: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_roundRect(hdc?.value?.toCPointer<ByteVar>(), left, top, right, bottom, width, height)
 
-public actual fun SaveDC(hdc: HDC): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SaveDC(hdc.toCPointer<ByteVar>())
+public actual fun saveDC(hdc: Hdc): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_saveDC(hdc?.value?.toCPointer<ByteVar>())
 
-public actual fun ScaleViewportExtEx(hdc: HDC, xn: Int, dx: Int, yn: Int, yd: Int, lpsz: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_ScaleViewportExtEx(hdc.toCPointer<ByteVar>(), xn, dx, yn, yd, lpsz.toCPointer<ByteVar>())
+public actual fun scaleViewportExtEx(hdc: Hdc, xn: Int, dx: Int, yn: Int, yd: Int, lpsz: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_scaleViewportExtEx(hdc?.value?.toCPointer<ByteVar>(), xn, dx, yn, yd, lpsz?.value?.toCPointer<ByteVar>())
 
-public actual fun ScaleWindowExtEx(hdc: HDC, xn: Int, xd: Int, yn: Int, yd: Int, lpsz: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_ScaleWindowExtEx(hdc.toCPointer<ByteVar>(), xn, xd, yn, yd, lpsz.toCPointer<ByteVar>())
+public actual fun scaleWindowExtEx(hdc: Hdc, xn: Int, xd: Int, yn: Int, yd: Int, lpsz: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_scaleWindowExtEx(hdc?.value?.toCPointer<ByteVar>(), xn, xd, yn, yd, lpsz?.value?.toCPointer<ByteVar>())
 
-public actual fun ScreenToClient(hwnd: HWND, lppoint: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_ScreenToClient(hwnd.toCPointer<ByteVar>(), lppoint.toCPointer<ByteVar>())
+public actual fun screenToClient(hwnd: Hwnd, lppoint: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_screenToClient(hwnd?.value?.toCPointer<ByteVar>(), lppoint?.value?.toCPointer<ByteVar>())
 
-public actual fun SelectClipPath(hdc: HDC, mode: RGN_COMBINE_MODE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SelectClipPath(hdc.toCPointer<ByteVar>(), mode)
+public actual fun selectClipPath(hdc: Hdc, mode: RgnCombineMode): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_selectClipPath(hdc?.value?.toCPointer<ByteVar>(), mode)
 
-public actual fun SelectClipRgn(hdc: HDC, hrgn: HRGN): GDI_REGION_TYPE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SelectClipRgn(hdc.toCPointer<ByteVar>(), hrgn.toCPointer<ByteVar>())
+public actual fun selectClipRgn(hdc: Hdc, hrgn: Hrgn): GdiRegionType =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_selectClipRgn(hdc?.value?.toCPointer<ByteVar>(), hrgn?.value?.toCPointer<ByteVar>())
 
-public actual fun SelectObject(hdc: HDC, h: HGDIOBJ): HGDIOBJ =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SelectObject(hdc.toCPointer<ByteVar>(), h.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun selectObject(hdc: Hdc, h: Hgdiobj): Hgdiobj =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_selectObject(hdc?.value?.toCPointer<ByteVar>(), h?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun SelectPalette(hdc: HDC, hpal: HPALETTE, bforcebkgd: BOOL): HPALETTE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SelectPalette(hdc.toCPointer<ByteVar>(), hpal.toCPointer<ByteVar>(), bforcebkgd)?.toLong() ?: 0L
+public actual fun selectPalette(hdc: Hdc, hpal: Hpalette, bforcebkgd: Bool): Hpalette =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_selectPalette(hdc?.value?.toCPointer<ByteVar>(), hpal?.value?.toCPointer<ByteVar>(), bforcebkgd)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun SetArcDirection(hdc: HDC, dir: ARC_DIRECTION): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetArcDirection(hdc.toCPointer<ByteVar>(), dir)
+public actual fun setArcDirection(hdc: Hdc, dir: ArcDirection): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setArcDirection(hdc?.value?.toCPointer<ByteVar>(), dir)
 
-public actual fun SetBitmapBits(hbm: HBITMAP, cb: UInt, pvbits: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetBitmapBits(hbm.toCPointer<ByteVar>(), cb, pvbits.toCPointer<ByteVar>())
+public actual fun setBitmapBits(hbm: Hbitmap, cb: UInt, pvbits: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setBitmapBits(hbm?.value?.toCPointer<ByteVar>(), cb, pvbits?.value?.toCPointer<ByteVar>())
 
-public actual fun SetBitmapDimensionEx(hbm: HBITMAP, w: Int, h: Int, lpsz: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetBitmapDimensionEx(hbm.toCPointer<ByteVar>(), w, h, lpsz.toCPointer<ByteVar>())
+public actual fun setBitmapDimensionEx(hbm: Hbitmap, w: Int, h: Int, lpsz: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setBitmapDimensionEx(hbm?.value?.toCPointer<ByteVar>(), w, h, lpsz?.value?.toCPointer<ByteVar>())
 
-public actual fun SetBkColor(hdc: HDC, color: COLORREF): COLORREF =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetBkColor(hdc.toCPointer<ByteVar>(), color)
+public actual fun setBkColor(hdc: Hdc, color: Colorref): Colorref =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setBkColor(hdc?.value?.toCPointer<ByteVar>(), color)
 
-public actual fun SetBkMode(hdc: HDC, mode: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetBkMode(hdc.toCPointer<ByteVar>(), mode)
+public actual fun setBkMode(hdc: Hdc, mode: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setBkMode(hdc?.value?.toCPointer<ByteVar>(), mode)
 
-public actual fun SetBoundsRect(hdc: HDC, lprect: Long, flags: SET_BOUNDS_RECT_FLAGS): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetBoundsRect(hdc.toCPointer<ByteVar>(), lprect.toCPointer<ByteVar>(), flags)
+public actual fun setBoundsRect(hdc: Hdc, lprect: COpaquePointer?, flags: SetBoundsRectFlags): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setBoundsRect(hdc?.value?.toCPointer<ByteVar>(), lprect?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun SetBrushOrgEx(hdc: HDC, x: Int, y: Int, lppt: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetBrushOrgEx(hdc.toCPointer<ByteVar>(), x, y, lppt.toCPointer<ByteVar>())
+public actual fun setBrushOrgEx(hdc: Hdc, x: Int, y: Int, lppt: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setBrushOrgEx(hdc?.value?.toCPointer<ByteVar>(), x, y, lppt?.value?.toCPointer<ByteVar>())
 
-public actual fun SetColorAdjustment(hdc: HDC, lpca: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetColorAdjustment(hdc.toCPointer<ByteVar>(), lpca.toCPointer<ByteVar>())
+public actual fun setColorAdjustment(hdc: Hdc, lpca: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setColorAdjustment(hdc?.value?.toCPointer<ByteVar>(), lpca?.value?.toCPointer<ByteVar>())
 
-public actual fun SetDCBrushColor(hdc: HDC, color: COLORREF): COLORREF =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetDCBrushColor(hdc.toCPointer<ByteVar>(), color)
+public actual fun setDCBrushColor(hdc: Hdc, color: Colorref): Colorref =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setDCBrushColor(hdc?.value?.toCPointer<ByteVar>(), color)
 
-public actual fun SetDCPenColor(hdc: HDC, color: COLORREF): COLORREF =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetDCPenColor(hdc.toCPointer<ByteVar>(), color)
+public actual fun setDCPenColor(hdc: Hdc, color: Colorref): Colorref =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setDCPenColor(hdc?.value?.toCPointer<ByteVar>(), color)
 
-public actual fun SetDIBColorTable(hdc: HDC, istart: UInt, centries: UInt, prgbq: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetDIBColorTable(hdc.toCPointer<ByteVar>(), istart, centries, prgbq.toCPointer<ByteVar>())
+public actual fun setDIBColorTable(hdc: Hdc, istart: UInt, centries: UInt, prgbq: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setDIBColorTable(hdc?.value?.toCPointer<ByteVar>(), istart, centries, prgbq?.value?.toCPointer<ByteVar>())
 
-public actual fun SetDIBits(hdc: HDC, hbm: HBITMAP, start: UInt, clines: UInt, lpbits: Long, lpbmi: Long, coloruse: DIB_USAGE): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetDIBits(hdc.toCPointer<ByteVar>(), hbm.toCPointer<ByteVar>(), start, clines, lpbits.toCPointer<ByteVar>(), lpbmi.toCPointer<ByteVar>(), coloruse)
+public actual fun setDIBits(hdc: Hdc, hbm: Hbitmap, start: UInt, clines: UInt, lpbits: COpaquePointer?, lpbmi: COpaquePointer?, coloruse: DibUsage): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setDIBits(hdc?.value?.toCPointer<ByteVar>(), hbm?.value?.toCPointer<ByteVar>(), start, clines, lpbits?.value?.toCPointer<ByteVar>(), lpbmi?.value?.toCPointer<ByteVar>(), coloruse)
 
-public actual fun SetDIBitsToDevice(hdc: HDC, xdest: Int, ydest: Int, w: UInt, h: UInt, xsrc: Int, ysrc: Int, startscan: UInt, clines: UInt, lpvbits: Long, lpbmi: Long, coloruse: DIB_USAGE): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetDIBitsToDevice(hdc.toCPointer<ByteVar>(), xdest, ydest, w, h, xsrc, ysrc, startscan, clines, lpvbits.toCPointer<ByteVar>(), lpbmi.toCPointer<ByteVar>(), coloruse)
+public actual fun setDIBitsToDevice(hdc: Hdc, xdest: Int, ydest: Int, w: UInt, h: UInt, xsrc: Int, ysrc: Int, startscan: UInt, clines: UInt, lpvbits: COpaquePointer?, lpbmi: COpaquePointer?, coloruse: DibUsage): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setDIBitsToDevice(hdc?.value?.toCPointer<ByteVar>(), xdest, ydest, w, h, xsrc, ysrc, startscan, clines, lpvbits?.value?.toCPointer<ByteVar>(), lpbmi?.value?.toCPointer<ByteVar>(), coloruse)
 
-public actual fun SetEnhMetaFileBits(nsize: UInt, pb: Long): HENHMETAFILE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetEnhMetaFileBits(nsize, pb.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun setEnhMetaFileBits(nsize: UInt, pb: COpaquePointer?): Henhmetafile =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setEnhMetaFileBits(nsize, pb?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun SetGraphicsMode(hdc: HDC, imode: GRAPHICS_MODE): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetGraphicsMode(hdc.toCPointer<ByteVar>(), imode)
+public actual fun setGraphicsMode(hdc: Hdc, imode: GraphicsMode): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setGraphicsMode(hdc?.value?.toCPointer<ByteVar>(), imode)
 
-public actual fun SetLayout(hdc: HDC, l: DC_LAYOUT): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetLayout(hdc.toCPointer<ByteVar>(), l)
+public actual fun setLayout(hdc: Hdc, l: DcLayout): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setLayout(hdc?.value?.toCPointer<ByteVar>(), l)
 
-public actual fun SetMapMode(hdc: HDC, imode: HDC_MAP_MODE): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetMapMode(hdc.toCPointer<ByteVar>(), imode)
+public actual fun setMapMode(hdc: Hdc, imode: HdcMapMode): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setMapMode(hdc?.value?.toCPointer<ByteVar>(), imode)
 
-public actual fun SetMapperFlags(hdc: HDC, flags: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetMapperFlags(hdc.toCPointer<ByteVar>(), flags)
+public actual fun setMapperFlags(hdc: Hdc, flags: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setMapperFlags(hdc?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun SetMetaFileBitsEx(cbbuffer: UInt, lpdata: Long): HMETAFILE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetMetaFileBitsEx(cbbuffer, lpdata.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun setMetaFileBitsEx(cbbuffer: UInt, lpdata: COpaquePointer?): Hmetafile =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setMetaFileBitsEx(cbbuffer, lpdata?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun SetMetaRgn(hdc: HDC): GDI_REGION_TYPE =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetMetaRgn(hdc.toCPointer<ByteVar>())
+public actual fun setMetaRgn(hdc: Hdc): GdiRegionType =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setMetaRgn(hdc?.value?.toCPointer<ByteVar>())
 
-public actual fun SetMiterLimit(hdc: HDC, limit: Float, old: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetMiterLimit(hdc.toCPointer<ByteVar>(), limit, old.toCPointer<ByteVar>())
+public actual fun setMiterLimit(hdc: Hdc, limit: Float, old: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setMiterLimit(hdc?.value?.toCPointer<ByteVar>(), limit, old?.value?.toCPointer<ByteVar>())
 
-public actual fun SetPaletteEntries(hpal: HPALETTE, istart: UInt, centries: UInt, ppalentries: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetPaletteEntries(hpal.toCPointer<ByteVar>(), istart, centries, ppalentries.toCPointer<ByteVar>())
+public actual fun setPaletteEntries(hpal: Hpalette, istart: UInt, centries: UInt, ppalentries: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setPaletteEntries(hpal?.value?.toCPointer<ByteVar>(), istart, centries, ppalentries?.value?.toCPointer<ByteVar>())
 
-public actual fun SetPixel(hdc: HDC, x: Int, y: Int, color: COLORREF): COLORREF =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetPixel(hdc.toCPointer<ByteVar>(), x, y, color)
+public actual fun setPixel(hdc: Hdc, x: Int, y: Int, color: Colorref): Colorref =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setPixel(hdc?.value?.toCPointer<ByteVar>(), x, y, color)
 
-public actual fun SetPixelV(hdc: HDC, x: Int, y: Int, color: COLORREF): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetPixelV(hdc.toCPointer<ByteVar>(), x, y, color)
+public actual fun setPixelV(hdc: Hdc, x: Int, y: Int, color: Colorref): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setPixelV(hdc?.value?.toCPointer<ByteVar>(), x, y, color)
 
-public actual fun SetPolyFillMode(hdc: HDC, mode: CREATE_POLYGON_RGN_MODE): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetPolyFillMode(hdc.toCPointer<ByteVar>(), mode)
+public actual fun setPolyFillMode(hdc: Hdc, mode: CreatePolygonRgnMode): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setPolyFillMode(hdc?.value?.toCPointer<ByteVar>(), mode)
 
-public actual fun SetROP2(hdc: HDC, rop2: R2_MODE): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetROP2(hdc.toCPointer<ByteVar>(), rop2)
+public actual fun setROP2(hdc: Hdc, rop2: R2Mode): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setROP2(hdc?.value?.toCPointer<ByteVar>(), rop2)
 
-public actual fun SetRect(lprc: Long, xleft: Int, ytop: Int, xright: Int, ybottom: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetRect(lprc.toCPointer<ByteVar>(), xleft, ytop, xright, ybottom)
+public actual fun setRect(lprc: COpaquePointer?, xleft: Int, ytop: Int, xright: Int, ybottom: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setRect(lprc?.value?.toCPointer<ByteVar>(), xleft, ytop, xright, ybottom)
 
-public actual fun SetRectEmpty(lprc: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetRectEmpty(lprc.toCPointer<ByteVar>())
+public actual fun setRectEmpty(lprc: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setRectEmpty(lprc?.value?.toCPointer<ByteVar>())
 
-public actual fun SetRectRgn(hrgn: HRGN, left: Int, top: Int, right: Int, bottom: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetRectRgn(hrgn.toCPointer<ByteVar>(), left, top, right, bottom)
+public actual fun setRectRgn(hrgn: Hrgn, left: Int, top: Int, right: Int, bottom: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setRectRgn(hrgn?.value?.toCPointer<ByteVar>(), left, top, right, bottom)
 
-public actual fun SetStretchBltMode(hdc: HDC, mode: STRETCH_BLT_MODE): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetStretchBltMode(hdc.toCPointer<ByteVar>(), mode)
+public actual fun setStretchBltMode(hdc: Hdc, mode: StretchBltMode): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setStretchBltMode(hdc?.value?.toCPointer<ByteVar>(), mode)
 
-public actual fun SetSysColors(celements: Int, lpaelements: Long, lpargbvalues: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetSysColors(celements, lpaelements.toCPointer<ByteVar>(), lpargbvalues.toCPointer<ByteVar>())
+public actual fun setSysColors(celements: Int, lpaelements: COpaquePointer?, lpargbvalues: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setSysColors(celements, lpaelements?.value?.toCPointer<ByteVar>(), lpargbvalues?.value?.toCPointer<ByteVar>())
 
-public actual fun SetSystemPaletteUse(hdc: HDC, use: SYSTEM_PALETTE_USE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetSystemPaletteUse(hdc.toCPointer<ByteVar>(), use)
+public actual fun setSystemPaletteUse(hdc: Hdc, use: SystemPaletteUse): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setSystemPaletteUse(hdc?.value?.toCPointer<ByteVar>(), use)
 
-public actual fun SetTextAlign(hdc: HDC, align: TEXT_ALIGN_OPTIONS): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetTextAlign(hdc.toCPointer<ByteVar>(), align)
+public actual fun setTextAlign(hdc: Hdc, align: TextAlignOptions): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setTextAlign(hdc?.value?.toCPointer<ByteVar>(), align)
 
-public actual fun SetTextCharacterExtra(hdc: HDC, extra: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetTextCharacterExtra(hdc.toCPointer<ByteVar>(), extra)
+public actual fun setTextCharacterExtra(hdc: Hdc, extra: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setTextCharacterExtra(hdc?.value?.toCPointer<ByteVar>(), extra)
 
-public actual fun SetTextColor(hdc: HDC, color: COLORREF): COLORREF =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetTextColor(hdc.toCPointer<ByteVar>(), color)
+public actual fun setTextColor(hdc: Hdc, color: Colorref): Colorref =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setTextColor(hdc?.value?.toCPointer<ByteVar>(), color)
 
-public actual fun SetTextJustification(hdc: HDC, extra: Int, count: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetTextJustification(hdc.toCPointer<ByteVar>(), extra, count)
+public actual fun setTextJustification(hdc: Hdc, extra: Int, count: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setTextJustification(hdc?.value?.toCPointer<ByteVar>(), extra, count)
 
-public actual fun SetViewportExtEx(hdc: HDC, x: Int, y: Int, lpsz: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetViewportExtEx(hdc.toCPointer<ByteVar>(), x, y, lpsz.toCPointer<ByteVar>())
+public actual fun setViewportExtEx(hdc: Hdc, x: Int, y: Int, lpsz: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setViewportExtEx(hdc?.value?.toCPointer<ByteVar>(), x, y, lpsz?.value?.toCPointer<ByteVar>())
 
-public actual fun SetViewportOrgEx(hdc: HDC, x: Int, y: Int, lppt: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetViewportOrgEx(hdc.toCPointer<ByteVar>(), x, y, lppt.toCPointer<ByteVar>())
+public actual fun setViewportOrgEx(hdc: Hdc, x: Int, y: Int, lppt: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setViewportOrgEx(hdc?.value?.toCPointer<ByteVar>(), x, y, lppt?.value?.toCPointer<ByteVar>())
 
-public actual fun SetWindowExtEx(hdc: HDC, x: Int, y: Int, lpsz: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetWindowExtEx(hdc.toCPointer<ByteVar>(), x, y, lpsz.toCPointer<ByteVar>())
+public actual fun setWindowExtEx(hdc: Hdc, x: Int, y: Int, lpsz: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setWindowExtEx(hdc?.value?.toCPointer<ByteVar>(), x, y, lpsz?.value?.toCPointer<ByteVar>())
 
-public actual fun SetWindowOrgEx(hdc: HDC, x: Int, y: Int, lppt: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetWindowOrgEx(hdc.toCPointer<ByteVar>(), x, y, lppt.toCPointer<ByteVar>())
+public actual fun setWindowOrgEx(hdc: Hdc, x: Int, y: Int, lppt: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setWindowOrgEx(hdc?.value?.toCPointer<ByteVar>(), x, y, lppt?.value?.toCPointer<ByteVar>())
 
-public actual fun SetWindowRgn(hwnd: HWND, hrgn: HRGN, bredraw: BOOL): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetWindowRgn(hwnd.toCPointer<ByteVar>(), hrgn.toCPointer<ByteVar>(), bredraw)
+public actual fun setWindowRgn(hwnd: Hwnd, hrgn: Hrgn, bredraw: Bool): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setWindowRgn(hwnd?.value?.toCPointer<ByteVar>(), hrgn?.value?.toCPointer<ByteVar>(), bredraw)
 
-public actual fun SetWorldTransform(hdc: HDC, lpxf: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SetWorldTransform(hdc.toCPointer<ByteVar>(), lpxf.toCPointer<ByteVar>())
+public actual fun setWorldTransform(hdc: Hdc, lpxf: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_setWorldTransform(hdc?.value?.toCPointer<ByteVar>(), lpxf?.value?.toCPointer<ByteVar>())
 
-public actual fun StretchBlt(hdcdest: HDC, xdest: Int, ydest: Int, wdest: Int, hdest: Int, hdcsrc: HDC, xsrc: Int, ysrc: Int, wsrc: Int, hsrc: Int, rop: ROP_CODE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_StretchBlt(hdcdest.toCPointer<ByteVar>(), xdest, ydest, wdest, hdest, hdcsrc.toCPointer<ByteVar>(), xsrc, ysrc, wsrc, hsrc, rop)
+public actual fun stretchBlt(hdcdest: Hdc, xdest: Int, ydest: Int, wdest: Int, hdest: Int, hdcsrc: Hdc, xsrc: Int, ysrc: Int, wsrc: Int, hsrc: Int, rop: RopCode): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_stretchBlt(hdcdest?.value?.toCPointer<ByteVar>(), xdest, ydest, wdest, hdest, hdcsrc?.value?.toCPointer<ByteVar>(), xsrc, ysrc, wsrc, hsrc, rop)
 
-public actual fun StretchDIBits(hdc: HDC, xdest: Int, ydest: Int, destwidth: Int, destheight: Int, xsrc: Int, ysrc: Int, srcwidth: Int, srcheight: Int, lpbits: Long, lpbmi: Long, iusage: DIB_USAGE, rop: ROP_CODE): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_StretchDIBits(hdc.toCPointer<ByteVar>(), xdest, ydest, destwidth, destheight, xsrc, ysrc, srcwidth, srcheight, lpbits.toCPointer<ByteVar>(), lpbmi.toCPointer<ByteVar>(), iusage, rop)
+public actual fun stretchDIBits(hdc: Hdc, xdest: Int, ydest: Int, destwidth: Int, destheight: Int, xsrc: Int, ysrc: Int, srcwidth: Int, srcheight: Int, lpbits: COpaquePointer?, lpbmi: COpaquePointer?, iusage: DibUsage, rop: RopCode): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_stretchDIBits(hdc?.value?.toCPointer<ByteVar>(), xdest, ydest, destwidth, destheight, xsrc, ysrc, srcwidth, srcheight, lpbits?.value?.toCPointer<ByteVar>(), lpbmi?.value?.toCPointer<ByteVar>(), iusage, rop)
 
-public actual fun StrokeAndFillPath(hdc: HDC): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_StrokeAndFillPath(hdc.toCPointer<ByteVar>())
+public actual fun strokeAndFillPath(hdc: Hdc): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_strokeAndFillPath(hdc?.value?.toCPointer<ByteVar>())
 
-public actual fun StrokePath(hdc: HDC): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_StrokePath(hdc.toCPointer<ByteVar>())
+public actual fun strokePath(hdc: Hdc): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_strokePath(hdc?.value?.toCPointer<ByteVar>())
 
-public actual fun SubtractRect(lprcdst: Long, lprcsrc1: Long, lprcsrc2: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_SubtractRect(lprcdst.toCPointer<ByteVar>(), lprcsrc1.toCPointer<ByteVar>(), lprcsrc2.toCPointer<ByteVar>())
+public actual fun subtractRect(lprcdst: COpaquePointer?, lprcsrc1: COpaquePointer?, lprcsrc2: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_subtractRect(lprcdst?.value?.toCPointer<ByteVar>(), lprcsrc1?.value?.toCPointer<ByteVar>(), lprcsrc2?.value?.toCPointer<ByteVar>())
 
-public actual fun TTCharToUnicode(hdc: HDC, puccharcodes: Long, ulcharcodesize: UInt, pusshortcodes: Long, ulshortcodesize: UInt, ulflags: UInt): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_TTCharToUnicode(hdc.toCPointer<ByteVar>(), puccharcodes.toCPointer<ByteVar>(), ulcharcodesize, pusshortcodes.toCPointer<ByteVar>(), ulshortcodesize, ulflags)
+public actual fun tTCharToUnicode(hdc: Hdc, puccharcodes: COpaquePointer?, ulcharcodesize: UInt, pusshortcodes: COpaquePointer?, ulshortcodesize: UInt, ulflags: UInt): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_tTCharToUnicode(hdc?.value?.toCPointer<ByteVar>(), puccharcodes?.value?.toCPointer<ByteVar>(), ulcharcodesize, pusshortcodes?.value?.toCPointer<ByteVar>(), ulshortcodesize, ulflags)
 
-public actual fun TTDeleteEmbeddedFont(hfontreference: HANDLE, ulflags: UInt, pulstatus: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_TTDeleteEmbeddedFont(hfontreference.toCPointer<ByteVar>(), ulflags, pulstatus.toCPointer<ByteVar>())
+public actual fun tTDeleteEmbeddedFont(hfontreference: Handle, ulflags: UInt, pulstatus: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_tTDeleteEmbeddedFont(hfontreference?.value?.toCPointer<ByteVar>(), ulflags, pulstatus?.value?.toCPointer<ByteVar>())
 
-public actual fun TTEmbedFont(hdc: HDC, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: Long, pulstatus: Long, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: Long, puscharcodeset: Long, uscharcodecount: UShort, uslanguage: UShort, pttembedinfo: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_TTEmbedFont(hdc.toCPointer<ByteVar>(), ulflags, ulcharset, pulprivstatus.toCPointer<ByteVar>(), pulstatus.toCPointer<ByteVar>(), lpfnwritetostream.toLong().toCPointer<ByteVar>(), lpvwritestream.toCPointer<ByteVar>(), puscharcodeset.toCPointer<ByteVar>(), uscharcodecount, uslanguage, pttembedinfo.toCPointer<ByteVar>())
+public actual fun tTEmbedFont(hdc: Hdc, ulflags: TtembedFlags, ulcharset: EmbedFontCharset, pulprivstatus: COpaquePointer?, pulstatus: COpaquePointer?, lpfnwritetostream: Writeembedproc, lpvwritestream: COpaquePointer?, puscharcodeset: COpaquePointer?, uscharcodecount: UShort, uslanguage: UShort, pttembedinfo: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_tTEmbedFont(hdc?.value?.toCPointer<ByteVar>(), ulflags, ulcharset, pulprivstatus?.value?.toCPointer<ByteVar>(), pulstatus?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpvwritestream?.value?.toCPointer<ByteVar>(), puscharcodeset?.value?.toCPointer<ByteVar>(), uscharcodecount, uslanguage, pttembedinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun TTEmbedFontEx(hdc: HDC, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: Long, pulstatus: Long, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: Long, pulcharcodeset: Long, uscharcodecount: UShort, uslanguage: UShort, pttembedinfo: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_TTEmbedFontEx(hdc.toCPointer<ByteVar>(), ulflags, ulcharset, pulprivstatus.toCPointer<ByteVar>(), pulstatus.toCPointer<ByteVar>(), lpfnwritetostream.toLong().toCPointer<ByteVar>(), lpvwritestream.toCPointer<ByteVar>(), pulcharcodeset.toCPointer<ByteVar>(), uscharcodecount, uslanguage, pttembedinfo.toCPointer<ByteVar>())
+public actual fun tTEmbedFontEx(hdc: Hdc, ulflags: TtembedFlags, ulcharset: EmbedFontCharset, pulprivstatus: COpaquePointer?, pulstatus: COpaquePointer?, lpfnwritetostream: Writeembedproc, lpvwritestream: COpaquePointer?, pulcharcodeset: COpaquePointer?, uscharcodecount: UShort, uslanguage: UShort, pttembedinfo: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_tTEmbedFontEx(hdc?.value?.toCPointer<ByteVar>(), ulflags, ulcharset, pulprivstatus?.value?.toCPointer<ByteVar>(), pulstatus?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpvwritestream?.value?.toCPointer<ByteVar>(), pulcharcodeset?.value?.toCPointer<ByteVar>(), uscharcodecount, uslanguage, pttembedinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun TTEmbedFontFromFileA(hdc: HDC, szfontfilename: PCSTR, usttcindex: UShort, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: Long, pulstatus: Long, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: Long, puscharcodeset: Long, uscharcodecount: UShort, uslanguage: UShort, pttembedinfo: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_TTEmbedFontFromFileA(hdc.toCPointer<ByteVar>(), szfontfilename.toCPointer<ByteVar>(), usttcindex, ulflags, ulcharset, pulprivstatus.toCPointer<ByteVar>(), pulstatus.toCPointer<ByteVar>(), lpfnwritetostream.toLong().toCPointer<ByteVar>(), lpvwritestream.toCPointer<ByteVar>(), puscharcodeset.toCPointer<ByteVar>(), uscharcodecount, uslanguage, pttembedinfo.toCPointer<ByteVar>())
+public actual fun tTEmbedFontFromFileA(hdc: Hdc, szfontfilename: Pcstr, usttcindex: UShort, ulflags: TtembedFlags, ulcharset: EmbedFontCharset, pulprivstatus: COpaquePointer?, pulstatus: COpaquePointer?, lpfnwritetostream: Writeembedproc, lpvwritestream: COpaquePointer?, puscharcodeset: COpaquePointer?, uscharcodecount: UShort, uslanguage: UShort, pttembedinfo: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_tTEmbedFontFromFileA(hdc?.value?.toCPointer<ByteVar>(), szfontfilename?.value?.toCPointer<ByteVar>(), usttcindex, ulflags, ulcharset, pulprivstatus?.value?.toCPointer<ByteVar>(), pulstatus?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpvwritestream?.value?.toCPointer<ByteVar>(), puscharcodeset?.value?.toCPointer<ByteVar>(), uscharcodecount, uslanguage, pttembedinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun TTEnableEmbeddingForFacename(lpszfacename: PCSTR, benable: BOOL): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_TTEnableEmbeddingForFacename(lpszfacename.toCPointer<ByteVar>(), benable)
+public actual fun tTEnableEmbeddingForFacename(lpszfacename: Pcstr, benable: Bool): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_tTEnableEmbeddingForFacename(lpszfacename?.value?.toCPointer<ByteVar>(), benable)
 
-public actual fun TTGetEmbeddedFontInfo(ulflags: TTEMBED_FLAGS, pulprivstatus: Long, ulprivs: FONT_LICENSE_PRIVS, pulstatus: Long, lpfnreadfromstream: READEMBEDPROC, lpvreadstream: Long, pttloadinfo: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_TTGetEmbeddedFontInfo(ulflags, pulprivstatus.toCPointer<ByteVar>(), ulprivs, pulstatus.toCPointer<ByteVar>(), lpfnreadfromstream.toLong().toCPointer<ByteVar>(), lpvreadstream.toCPointer<ByteVar>(), pttloadinfo.toCPointer<ByteVar>())
+public actual fun tTGetEmbeddedFontInfo(ulflags: TtembedFlags, pulprivstatus: COpaquePointer?, ulprivs: FontLicensePrivs, pulstatus: COpaquePointer?, lpfnreadfromstream: Readembedproc, lpvreadstream: COpaquePointer?, pttloadinfo: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_tTGetEmbeddedFontInfo(ulflags, pulprivstatus?.value?.toCPointer<ByteVar>(), ulprivs, pulstatus?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpvreadstream?.value?.toCPointer<ByteVar>(), pttloadinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun TTGetEmbeddingType(hdc: HDC, pulembedtype: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_TTGetEmbeddingType(hdc.toCPointer<ByteVar>(), pulembedtype.toCPointer<ByteVar>())
+public actual fun tTGetEmbeddingType(hdc: Hdc, pulembedtype: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_tTGetEmbeddingType(hdc?.value?.toCPointer<ByteVar>(), pulembedtype?.value?.toCPointer<ByteVar>())
 
-public actual fun TTGetNewFontName(phfontreference: Long, wzwinfamilyname: PWSTR, cchmaxwinname: Int, szmacfamilyname: PSTR, cchmaxmacname: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_TTGetNewFontName(phfontreference.toCPointer<ByteVar>(), wzwinfamilyname.toCPointer<ByteVar>(), cchmaxwinname, szmacfamilyname.toCPointer<ByteVar>(), cchmaxmacname)
+public actual fun tTGetNewFontName(phfontreference: COpaquePointer?, wzwinfamilyname: Pwstr, cchmaxwinname: Int, szmacfamilyname: Pstr, cchmaxmacname: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_tTGetNewFontName(phfontreference?.value?.toCPointer<ByteVar>(), wzwinfamilyname?.value?.toCPointer<ByteVar>(), cchmaxwinname, szmacfamilyname?.value?.toCPointer<ByteVar>(), cchmaxmacname)
 
-public actual fun TTIsEmbeddingEnabled(hdc: HDC, pbenabled: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_TTIsEmbeddingEnabled(hdc.toCPointer<ByteVar>(), pbenabled.toCPointer<ByteVar>())
+public actual fun tTIsEmbeddingEnabled(hdc: Hdc, pbenabled: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_tTIsEmbeddingEnabled(hdc?.value?.toCPointer<ByteVar>(), pbenabled?.value?.toCPointer<ByteVar>())
 
-public actual fun TTIsEmbeddingEnabledForFacename(lpszfacename: PCSTR, pbenabled: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_TTIsEmbeddingEnabledForFacename(lpszfacename.toCPointer<ByteVar>(), pbenabled.toCPointer<ByteVar>())
+public actual fun tTIsEmbeddingEnabledForFacename(lpszfacename: Pcstr, pbenabled: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_tTIsEmbeddingEnabledForFacename(lpszfacename?.value?.toCPointer<ByteVar>(), pbenabled?.value?.toCPointer<ByteVar>())
 
-public actual fun TTLoadEmbeddedFont(phfontreference: Long, ulflags: UInt, pulprivstatus: Long, ulprivs: FONT_LICENSE_PRIVS, pulstatus: Long, lpfnreadfromstream: READEMBEDPROC, lpvreadstream: Long, szwinfamilyname: PCWSTR, szmacfamilyname: PCSTR, pttloadinfo: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_TTLoadEmbeddedFont(phfontreference.toCPointer<ByteVar>(), ulflags, pulprivstatus.toCPointer<ByteVar>(), ulprivs, pulstatus.toCPointer<ByteVar>(), lpfnreadfromstream.toLong().toCPointer<ByteVar>(), lpvreadstream.toCPointer<ByteVar>(), szwinfamilyname.toCPointer<ByteVar>(), szmacfamilyname.toCPointer<ByteVar>(), pttloadinfo.toCPointer<ByteVar>())
+public actual fun tTLoadEmbeddedFont(phfontreference: COpaquePointer?, ulflags: UInt, pulprivstatus: COpaquePointer?, ulprivs: FontLicensePrivs, pulstatus: COpaquePointer?, lpfnreadfromstream: Readembedproc, lpvreadstream: COpaquePointer?, szwinfamilyname: Pcwstr, szmacfamilyname: Pcstr, pttloadinfo: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_tTLoadEmbeddedFont(phfontreference?.value?.toCPointer<ByteVar>(), ulflags, pulprivstatus?.value?.toCPointer<ByteVar>(), ulprivs, pulstatus?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpvreadstream?.value?.toCPointer<ByteVar>(), szwinfamilyname?.value?.toCPointer<ByteVar>(), szmacfamilyname?.value?.toCPointer<ByteVar>(), pttloadinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun TTRunValidationTests(hdc: HDC, ptestparam: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_TTRunValidationTests(hdc.toCPointer<ByteVar>(), ptestparam.toCPointer<ByteVar>())
+public actual fun tTRunValidationTests(hdc: Hdc, ptestparam: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_tTRunValidationTests(hdc?.value?.toCPointer<ByteVar>(), ptestparam?.value?.toCPointer<ByteVar>())
 
-public actual fun TTRunValidationTestsEx(hdc: HDC, ptestparam: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_TTRunValidationTestsEx(hdc.toCPointer<ByteVar>(), ptestparam.toCPointer<ByteVar>())
+public actual fun tTRunValidationTestsEx(hdc: Hdc, ptestparam: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_tTRunValidationTestsEx(hdc?.value?.toCPointer<ByteVar>(), ptestparam?.value?.toCPointer<ByteVar>())
 
-public actual fun TabbedTextOutA(hdc: HDC, x: Int, y: Int, lpstring: PCSTR, chcount: Int, ntabpositions: Int, lpntabstoppositions: Long, ntaborigin: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_TabbedTextOutA(hdc.toCPointer<ByteVar>(), x, y, lpstring.toCPointer<ByteVar>(), chcount, ntabpositions, lpntabstoppositions.toCPointer<ByteVar>(), ntaborigin)
+public actual fun tabbedTextOutA(hdc: Hdc, x: Int, y: Int, lpstring: Pcstr, chcount: Int, ntabpositions: Int, lpntabstoppositions: COpaquePointer?, ntaborigin: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_tabbedTextOutA(hdc?.value?.toCPointer<ByteVar>(), x, y, lpstring?.value?.toCPointer<ByteVar>(), chcount, ntabpositions, lpntabstoppositions?.value?.toCPointer<ByteVar>(), ntaborigin)
 
-public actual fun TabbedTextOutW(hdc: HDC, x: Int, y: Int, lpstring: PCWSTR, chcount: Int, ntabpositions: Int, lpntabstoppositions: Long, ntaborigin: Int): Int =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_TabbedTextOutW(hdc.toCPointer<ByteVar>(), x, y, lpstring.toCPointer<ByteVar>(), chcount, ntabpositions, lpntabstoppositions.toCPointer<ByteVar>(), ntaborigin)
+public actual fun tabbedTextOutW(hdc: Hdc, x: Int, y: Int, lpstring: Pcwstr, chcount: Int, ntabpositions: Int, lpntabstoppositions: COpaquePointer?, ntaborigin: Int): Int =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_tabbedTextOutW(hdc?.value?.toCPointer<ByteVar>(), x, y, lpstring?.value?.toCPointer<ByteVar>(), chcount, ntabpositions, lpntabstoppositions?.value?.toCPointer<ByteVar>(), ntaborigin)
 
-public actual fun TextOutA(hdc: HDC, x: Int, y: Int, lpstring: PCSTR, c: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_TextOutA(hdc.toCPointer<ByteVar>(), x, y, lpstring.toCPointer<ByteVar>(), c)
+public actual fun textOutA(hdc: Hdc, x: Int, y: Int, lpstring: Pcstr, c: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_textOutA(hdc?.value?.toCPointer<ByteVar>(), x, y, lpstring?.value?.toCPointer<ByteVar>(), c)
 
-public actual fun TextOutW(hdc: HDC, x: Int, y: Int, lpstring: PCWSTR, c: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_TextOutW(hdc.toCPointer<ByteVar>(), x, y, lpstring.toCPointer<ByteVar>(), c)
+public actual fun textOutW(hdc: Hdc, x: Int, y: Int, lpstring: Pcwstr, c: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_textOutW(hdc?.value?.toCPointer<ByteVar>(), x, y, lpstring?.value?.toCPointer<ByteVar>(), c)
 
-public actual fun TransparentBlt(hdcdest: HDC, xorigindest: Int, yorigindest: Int, wdest: Int, hdest: Int, hdcsrc: HDC, xoriginsrc: Int, yoriginsrc: Int, wsrc: Int, hsrc: Int, crtransparent: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_TransparentBlt(hdcdest.toCPointer<ByteVar>(), xorigindest, yorigindest, wdest, hdest, hdcsrc.toCPointer<ByteVar>(), xoriginsrc, yoriginsrc, wsrc, hsrc, crtransparent)
+public actual fun transparentBlt(hdcdest: Hdc, xorigindest: Int, yorigindest: Int, wdest: Int, hdest: Int, hdcsrc: Hdc, xoriginsrc: Int, yoriginsrc: Int, wsrc: Int, hsrc: Int, crtransparent: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_transparentBlt(hdcdest?.value?.toCPointer<ByteVar>(), xorigindest, yorigindest, wdest, hdest, hdcsrc?.value?.toCPointer<ByteVar>(), xoriginsrc, yoriginsrc, wsrc, hsrc, crtransparent)
 
-public actual fun UnionRect(lprcdst: Long, lprcsrc1: Long, lprcsrc2: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_UnionRect(lprcdst.toCPointer<ByteVar>(), lprcsrc1.toCPointer<ByteVar>(), lprcsrc2.toCPointer<ByteVar>())
+public actual fun unionRect(lprcdst: COpaquePointer?, lprcsrc1: COpaquePointer?, lprcsrc2: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_unionRect(lprcdst?.value?.toCPointer<ByteVar>(), lprcsrc1?.value?.toCPointer<ByteVar>(), lprcsrc2?.value?.toCPointer<ByteVar>())
 
-public actual fun UnrealizeObject(h: HGDIOBJ): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_UnrealizeObject(h.toCPointer<ByteVar>())
+public actual fun unrealizeObject(h: Hgdiobj): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_unrealizeObject(h?.value?.toCPointer<ByteVar>())
 
-public actual fun UpdateColors(hdc: HDC): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_UpdateColors(hdc.toCPointer<ByteVar>())
+public actual fun updateColors(hdc: Hdc): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_updateColors(hdc?.value?.toCPointer<ByteVar>())
 
-public actual fun UpdateWindow(hwnd: HWND): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_UpdateWindow(hwnd.toCPointer<ByteVar>())
+public actual fun updateWindow(hwnd: Hwnd): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_updateWindow(hwnd?.value?.toCPointer<ByteVar>())
 
-public actual fun ValidateRect(hwnd: HWND, lprect: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_ValidateRect(hwnd.toCPointer<ByteVar>(), lprect.toCPointer<ByteVar>())
+public actual fun validateRect(hwnd: Hwnd, lprect: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_validateRect(hwnd?.value?.toCPointer<ByteVar>(), lprect?.value?.toCPointer<ByteVar>())
 
-public actual fun ValidateRgn(hwnd: HWND, hrgn: HRGN): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_ValidateRgn(hwnd.toCPointer<ByteVar>(), hrgn.toCPointer<ByteVar>())
+public actual fun validateRgn(hwnd: Hwnd, hrgn: Hrgn): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_validateRgn(hwnd?.value?.toCPointer<ByteVar>(), hrgn?.value?.toCPointer<ByteVar>())
 
-public actual fun WidenPath(hdc: HDC): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_WidenPath(hdc.toCPointer<ByteVar>())
+public actual fun widenPath(hdc: Hdc): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_widenPath(hdc?.value?.toCPointer<ByteVar>())
 
-public actual fun WindowFromDC(hdc: HDC): HWND =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_WindowFromDC(hdc.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun windowFromDC(hdc: Hdc): Hwnd =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_windowFromDC(hdc?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun wglSwapMultipleBuffers(param0: UInt, param1: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_wglSwapMultipleBuffers(param0, param1.toCPointer<ByteVar>())
+public actual fun wglSwapMultipleBuffers(param0: UInt, param1: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.cinterop.windowssys_windows_win32_graphics_gdi_wglSwapMultipleBuffers(param0, param1?.value?.toCPointer<ByteVar>())

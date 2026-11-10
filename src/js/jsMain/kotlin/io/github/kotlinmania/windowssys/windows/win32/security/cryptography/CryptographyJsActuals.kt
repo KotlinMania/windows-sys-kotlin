@@ -2,1452 +2,1473 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HMODULE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
-import io.github.kotlinmania.windowssys.windows.win32.security.NCRYPT_DESCRIPTOR_HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.security.NCRYPT_STREAM_HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.security.OBJECT_SECURITY_INFORMATION
-import io.github.kotlinmania.windowssys.windows.win32.security.PSID
-import io.github.kotlinmania.windowssys.windows.win32.system.registry.REG_VALUE_TYPE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hmodule
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
+import io.github.kotlinmania.windowssys.windows.win32.security.NcryptDescriptorHandle
+import io.github.kotlinmania.windowssys.windows.win32.security.NcryptStreamHandle
+import io.github.kotlinmania.windowssys.windows.win32.security.ObjectSecurityInformation
+import io.github.kotlinmania.windowssys.windows.win32.security.Psid
+import io.github.kotlinmania.windowssys.windows.win32.system.registry.RegValueType
 
 private val _windowsWin32SecurityCryptographyNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun BCryptAddContextFunction(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, dwinterface: BCRYPT_INTERFACE, pszfunction: PCWSTR, dwposition: UInt): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptAddContextFunction(dwtable.toInt(), pszcontext.toString(), dwinterface.toInt(), pszfunction.toString(), dwposition.toInt()) as Int) else 0
+public actual fun bCryptAddContextFunction(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, dwposition: UInt): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptAddContextFunction(dwtable.toInt(), (pszcontext?.value ?: 0L).toString(), dwinterface.toInt(), (pszfunction?.value ?: 0L).toString(), dwposition.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptAddContextFunctionProvider(dwtable: UInt, pszcontext: PCWSTR, dwinterface: UInt, pszfunction: PCWSTR, pszprovider: PCWSTR, dwposition: UInt): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptAddContextFunctionProvider(dwtable.toInt(), pszcontext.toString(), dwinterface.toInt(), pszfunction.toString(), pszprovider.toString(), dwposition.toInt()) as Int) else 0
+public actual fun bCryptAddContextFunctionProvider(dwtable: UInt, pszcontext: Pcwstr, dwinterface: UInt, pszfunction: Pcwstr, pszprovider: Pcwstr, dwposition: UInt): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptAddContextFunctionProvider(dwtable.toInt(), (pszcontext?.value ?: 0L).toString(), dwinterface.toInt(), (pszfunction?.value ?: 0L).toString(), (pszprovider?.value ?: 0L).toString(), dwposition.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptCloseAlgorithmProvider(halgorithm: BCRYPT_ALG_HANDLE, dwflags: UInt): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptCloseAlgorithmProvider(halgorithm.toString(), dwflags.toInt()) as Int) else 0
+public actual fun bCryptCloseAlgorithmProvider(halgorithm: BcryptAlgHandle, dwflags: UInt): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptCloseAlgorithmProvider((halgorithm?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptConfigureContext(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, pconfig: Long): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptConfigureContext(dwtable.toInt(), pszcontext.toString(), pconfig.toString()) as Int) else 0
+public actual fun bCryptConfigureContext(dwtable: BcryptTable, pszcontext: Pcwstr, pconfig: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptConfigureContext(dwtable.toInt(), (pszcontext?.value ?: 0L).toString(), (pconfig?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptConfigureContextFunction(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, dwinterface: BCRYPT_INTERFACE, pszfunction: PCWSTR, pconfig: Long): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptConfigureContextFunction(dwtable.toInt(), pszcontext.toString(), dwinterface.toInt(), pszfunction.toString(), pconfig.toString()) as Int) else 0
+public actual fun bCryptConfigureContextFunction(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pconfig: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptConfigureContextFunction(dwtable.toInt(), (pszcontext?.value ?: 0L).toString(), dwinterface.toInt(), (pszfunction?.value ?: 0L).toString(), (pconfig?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptCreateContext(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, pconfig: Long): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptCreateContext(dwtable.toInt(), pszcontext.toString(), pconfig.toString()) as Int) else 0
+public actual fun bCryptCreateContext(dwtable: BcryptTable, pszcontext: Pcwstr, pconfig: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptCreateContext(dwtable.toInt(), (pszcontext?.value ?: 0L).toString(), (pconfig?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptCreateHash(halgorithm: BCRYPT_ALG_HANDLE, phhash: Long, pbhashobject: Long, cbhashobject: UInt, pbsecret: Long, cbsecret: UInt, dwflags: UInt): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptCreateHash(halgorithm.toString(), phhash.toString(), pbhashobject.toString(), cbhashobject.toInt(), pbsecret.toString(), cbsecret.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun bCryptCreateHash(halgorithm: BcryptAlgHandle, phhash: COpaquePointer?, pbhashobject: COpaquePointer?, cbhashobject: UInt, pbsecret: COpaquePointer?, cbsecret: UInt, dwflags: UInt): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptCreateHash((halgorithm?.value ?: 0L).toString(), (phhash?.value ?: 0L).toString(), (pbhashobject?.value ?: 0L).toString(), cbhashobject.toInt(), (pbsecret?.value ?: 0L).toString(), cbsecret.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptCreateMultiHash(halgorithm: BCRYPT_ALG_HANDLE, phhash: Long, nhashes: UInt, pbhashobject: Long, cbhashobject: UInt, pbsecret: Long, cbsecret: UInt, dwflags: UInt): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptCreateMultiHash(halgorithm.toString(), phhash.toString(), nhashes.toInt(), pbhashobject.toString(), cbhashobject.toInt(), pbsecret.toString(), cbsecret.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun bCryptCreateMultiHash(halgorithm: BcryptAlgHandle, phhash: COpaquePointer?, nhashes: UInt, pbhashobject: COpaquePointer?, cbhashobject: UInt, pbsecret: COpaquePointer?, cbsecret: UInt, dwflags: UInt): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptCreateMultiHash((halgorithm?.value ?: 0L).toString(), (phhash?.value ?: 0L).toString(), nhashes.toInt(), (pbhashobject?.value ?: 0L).toString(), cbhashobject.toInt(), (pbsecret?.value ?: 0L).toString(), cbsecret.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptDecrypt(hkey: BCRYPT_KEY_HANDLE, pbinput: Long, cbinput: UInt, ppaddinginfo: Long, pbiv: Long, cbiv: UInt, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: BCRYPT_FLAGS): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptDecrypt(hkey.toString(), pbinput.toString(), cbinput.toInt(), ppaddinginfo.toString(), pbiv.toString(), cbiv.toInt(), pboutput.toString(), cboutput.toInt(), pcbresult.toString(), dwflags.toInt()) as Int) else 0
+public actual fun bCryptDecrypt(hkey: BcryptKeyHandle, pbinput: COpaquePointer?, cbinput: UInt, ppaddinginfo: COpaquePointer?, pbiv: COpaquePointer?, cbiv: UInt, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: BcryptFlags): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptDecrypt((hkey?.value ?: 0L).toString(), (pbinput?.value ?: 0L).toString(), cbinput.toInt(), (ppaddinginfo?.value ?: 0L).toString(), (pbiv?.value ?: 0L).toString(), cbiv.toInt(), (pboutput?.value ?: 0L).toString(), cboutput.toInt(), (pcbresult?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptDeleteContext(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptDeleteContext(dwtable.toInt(), pszcontext.toString()) as Int) else 0
+public actual fun bCryptDeleteContext(dwtable: BcryptTable, pszcontext: Pcwstr): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptDeleteContext(dwtable.toInt(), (pszcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptDeriveKey(hsharedsecret: BCRYPT_SECRET_HANDLE, pwszkdf: PCWSTR, pparameterlist: Long, pbderivedkey: Long, cbderivedkey: UInt, pcbresult: Long, dwflags: UInt): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptDeriveKey(hsharedsecret.toString(), pwszkdf.toString(), pparameterlist.toString(), pbderivedkey.toString(), cbderivedkey.toInt(), pcbresult.toString(), dwflags.toInt()) as Int) else 0
+public actual fun bCryptDeriveKey(hsharedsecret: BcryptSecretHandle, pwszkdf: Pcwstr, pparameterlist: COpaquePointer?, pbderivedkey: COpaquePointer?, cbderivedkey: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptDeriveKey((hsharedsecret?.value ?: 0L).toString(), (pwszkdf?.value ?: 0L).toString(), (pparameterlist?.value ?: 0L).toString(), (pbderivedkey?.value ?: 0L).toString(), cbderivedkey.toInt(), (pcbresult?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptDeriveKeyCapi(hhash: BCRYPT_HASH_HANDLE, htargetalg: BCRYPT_ALG_HANDLE, pbderivedkey: Long, cbderivedkey: UInt, dwflags: UInt): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptDeriveKeyCapi(hhash.toString(), htargetalg.toString(), pbderivedkey.toString(), cbderivedkey.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun bCryptDeriveKeyCapi(hhash: BcryptHashHandle, htargetalg: BcryptAlgHandle, pbderivedkey: COpaquePointer?, cbderivedkey: UInt, dwflags: UInt): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptDeriveKeyCapi((hhash?.value ?: 0L).toString(), (htargetalg?.value ?: 0L).toString(), (pbderivedkey?.value ?: 0L).toString(), cbderivedkey.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptDeriveKeyPBKDF2(hprf: BCRYPT_ALG_HANDLE, pbpassword: Long, cbpassword: UInt, pbsalt: Long, cbsalt: UInt, citerations: ULong, pbderivedkey: Long, cbderivedkey: UInt, dwflags: UInt): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptDeriveKeyPBKDF2(hprf.toString(), pbpassword.toString(), cbpassword.toInt(), pbsalt.toString(), cbsalt.toInt(), citerations.toString(), pbderivedkey.toString(), cbderivedkey.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun bCryptDeriveKeyPBKDF2(hprf: BcryptAlgHandle, pbpassword: COpaquePointer?, cbpassword: UInt, pbsalt: COpaquePointer?, cbsalt: UInt, citerations: ULong, pbderivedkey: COpaquePointer?, cbderivedkey: UInt, dwflags: UInt): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptDeriveKeyPBKDF2((hprf?.value ?: 0L).toString(), (pbpassword?.value ?: 0L).toString(), cbpassword.toInt(), (pbsalt?.value ?: 0L).toString(), cbsalt.toInt(), citerations.toString(), (pbderivedkey?.value ?: 0L).toString(), cbderivedkey.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptDestroyHash(hhash: BCRYPT_HASH_HANDLE): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptDestroyHash(hhash.toString()) as Int) else 0
+public actual fun bCryptDestroyHash(hhash: BcryptHashHandle): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptDestroyHash((hhash?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptDestroyKey(hkey: BCRYPT_KEY_HANDLE): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptDestroyKey(hkey.toString()) as Int) else 0
+public actual fun bCryptDestroyKey(hkey: BcryptKeyHandle): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptDestroyKey((hkey?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptDestroySecret(hsecret: BCRYPT_SECRET_HANDLE): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptDestroySecret(hsecret.toString()) as Int) else 0
+public actual fun bCryptDestroySecret(hsecret: BcryptSecretHandle): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptDestroySecret((hsecret?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptDuplicateHash(hhash: BCRYPT_HASH_HANDLE, phnewhash: Long, pbhashobject: Long, cbhashobject: UInt, dwflags: UInt): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptDuplicateHash(hhash.toString(), phnewhash.toString(), pbhashobject.toString(), cbhashobject.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun bCryptDuplicateHash(hhash: BcryptHashHandle, phnewhash: COpaquePointer?, pbhashobject: COpaquePointer?, cbhashobject: UInt, dwflags: UInt): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptDuplicateHash((hhash?.value ?: 0L).toString(), (phnewhash?.value ?: 0L).toString(), (pbhashobject?.value ?: 0L).toString(), cbhashobject.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptDuplicateKey(hkey: BCRYPT_KEY_HANDLE, phnewkey: Long, pbkeyobject: Long, cbkeyobject: UInt, dwflags: UInt): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptDuplicateKey(hkey.toString(), phnewkey.toString(), pbkeyobject.toString(), cbkeyobject.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun bCryptDuplicateKey(hkey: BcryptKeyHandle, phnewkey: COpaquePointer?, pbkeyobject: COpaquePointer?, cbkeyobject: UInt, dwflags: UInt): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptDuplicateKey((hkey?.value ?: 0L).toString(), (phnewkey?.value ?: 0L).toString(), (pbkeyobject?.value ?: 0L).toString(), cbkeyobject.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptEncrypt(hkey: BCRYPT_KEY_HANDLE, pbinput: Long, cbinput: UInt, ppaddinginfo: Long, pbiv: Long, cbiv: UInt, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: BCRYPT_FLAGS): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptEncrypt(hkey.toString(), pbinput.toString(), cbinput.toInt(), ppaddinginfo.toString(), pbiv.toString(), cbiv.toInt(), pboutput.toString(), cboutput.toInt(), pcbresult.toString(), dwflags.toInt()) as Int) else 0
+public actual fun bCryptEncrypt(hkey: BcryptKeyHandle, pbinput: COpaquePointer?, cbinput: UInt, ppaddinginfo: COpaquePointer?, pbiv: COpaquePointer?, cbiv: UInt, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: BcryptFlags): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptEncrypt((hkey?.value ?: 0L).toString(), (pbinput?.value ?: 0L).toString(), cbinput.toInt(), (ppaddinginfo?.value ?: 0L).toString(), (pbiv?.value ?: 0L).toString(), cbiv.toInt(), (pboutput?.value ?: 0L).toString(), cboutput.toInt(), (pcbresult?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptEnumAlgorithms(dwalgoperations: BCRYPT_OPERATION, palgcount: Long, ppalglist: Long, dwflags: UInt): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptEnumAlgorithms(dwalgoperations.toInt(), palgcount.toString(), ppalglist.toString(), dwflags.toInt()) as Int) else 0
+public actual fun bCryptEnumAlgorithms(dwalgoperations: BcryptOperation, palgcount: COpaquePointer?, ppalglist: COpaquePointer?, dwflags: UInt): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptEnumAlgorithms(dwalgoperations.toInt(), (palgcount?.value ?: 0L).toString(), (ppalglist?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptEnumContextFunctionProviders(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, dwinterface: BCRYPT_INTERFACE, pszfunction: PCWSTR, pcbbuffer: Long, ppbuffer: Long): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptEnumContextFunctionProviders(dwtable.toInt(), pszcontext.toString(), dwinterface.toInt(), pszfunction.toString(), pcbbuffer.toString(), ppbuffer.toString()) as Int) else 0
+public actual fun bCryptEnumContextFunctionProviders(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pcbbuffer: COpaquePointer?, ppbuffer: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptEnumContextFunctionProviders(dwtable.toInt(), (pszcontext?.value ?: 0L).toString(), dwinterface.toInt(), (pszfunction?.value ?: 0L).toString(), (pcbbuffer?.value ?: 0L).toString(), (ppbuffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptEnumContextFunctions(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, dwinterface: BCRYPT_INTERFACE, pcbbuffer: Long, ppbuffer: Long): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptEnumContextFunctions(dwtable.toInt(), pszcontext.toString(), dwinterface.toInt(), pcbbuffer.toString(), ppbuffer.toString()) as Int) else 0
+public actual fun bCryptEnumContextFunctions(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pcbbuffer: COpaquePointer?, ppbuffer: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptEnumContextFunctions(dwtable.toInt(), (pszcontext?.value ?: 0L).toString(), dwinterface.toInt(), (pcbbuffer?.value ?: 0L).toString(), (ppbuffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptEnumContexts(dwtable: BCRYPT_TABLE, pcbbuffer: Long, ppbuffer: Long): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptEnumContexts(dwtable.toInt(), pcbbuffer.toString(), ppbuffer.toString()) as Int) else 0
+public actual fun bCryptEnumContexts(dwtable: BcryptTable, pcbbuffer: COpaquePointer?, ppbuffer: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptEnumContexts(dwtable.toInt(), (pcbbuffer?.value ?: 0L).toString(), (ppbuffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptEnumProviders(pszalgid: PCWSTR, pimplcount: Long, ppimpllist: Long, dwflags: UInt): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptEnumProviders(pszalgid.toString(), pimplcount.toString(), ppimpllist.toString(), dwflags.toInt()) as Int) else 0
+public actual fun bCryptEnumProviders(pszalgid: Pcwstr, pimplcount: COpaquePointer?, ppimpllist: COpaquePointer?, dwflags: UInt): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptEnumProviders((pszalgid?.value ?: 0L).toString(), (pimplcount?.value ?: 0L).toString(), (ppimpllist?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptEnumRegisteredProviders(pcbbuffer: Long, ppbuffer: Long): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptEnumRegisteredProviders(pcbbuffer.toString(), ppbuffer.toString()) as Int) else 0
+public actual fun bCryptEnumRegisteredProviders(pcbbuffer: COpaquePointer?, ppbuffer: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptEnumRegisteredProviders((pcbbuffer?.value ?: 0L).toString(), (ppbuffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptExportKey(hkey: BCRYPT_KEY_HANDLE, hexportkey: BCRYPT_KEY_HANDLE, pszblobtype: PCWSTR, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: UInt): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptExportKey(hkey.toString(), hexportkey.toString(), pszblobtype.toString(), pboutput.toString(), cboutput.toInt(), pcbresult.toString(), dwflags.toInt()) as Int) else 0
+public actual fun bCryptExportKey(hkey: BcryptKeyHandle, hexportkey: BcryptKeyHandle, pszblobtype: Pcwstr, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptExportKey((hkey?.value ?: 0L).toString(), (hexportkey?.value ?: 0L).toString(), (pszblobtype?.value ?: 0L).toString(), (pboutput?.value ?: 0L).toString(), cboutput.toInt(), (pcbresult?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptFinalizeKeyPair(hkey: BCRYPT_KEY_HANDLE, dwflags: UInt): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptFinalizeKeyPair(hkey.toString(), dwflags.toInt()) as Int) else 0
+public actual fun bCryptFinalizeKeyPair(hkey: BcryptKeyHandle, dwflags: UInt): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptFinalizeKeyPair((hkey?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptFinishHash(hhash: BCRYPT_HASH_HANDLE, pboutput: Long, cboutput: UInt, dwflags: UInt): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptFinishHash(hhash.toString(), pboutput.toString(), cboutput.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun bCryptFinishHash(hhash: BcryptHashHandle, pboutput: COpaquePointer?, cboutput: UInt, dwflags: UInt): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptFinishHash((hhash?.value ?: 0L).toString(), (pboutput?.value ?: 0L).toString(), cboutput.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptFreeBuffer(pvbuffer: Long) {
+public actual fun bCryptFreeBuffer(pvbuffer: COpaquePointer?) {
     if (_windowsWin32SecurityCryptographyNapiAddon != null) {
-        _windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptFreeBuffer(pvbuffer.toString())
+        _windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptFreeBuffer((pvbuffer?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun BCryptGenRandom(halgorithm: BCRYPT_ALG_HANDLE, pbbuffer: Long, cbbuffer: UInt, dwflags: BCRYPTGENRANDOM_FLAGS): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptGenRandom(halgorithm.toString(), pbbuffer.toString(), cbbuffer.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun bCryptGenRandom(halgorithm: BcryptAlgHandle, pbbuffer: COpaquePointer?, cbbuffer: UInt, dwflags: BcryptgenrandomFlags): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptGenRandom((halgorithm?.value ?: 0L).toString(), (pbbuffer?.value ?: 0L).toString(), cbbuffer.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptGenerateKeyPair(halgorithm: BCRYPT_ALG_HANDLE, phkey: Long, dwlength: UInt, dwflags: UInt): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptGenerateKeyPair(halgorithm.toString(), phkey.toString(), dwlength.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun bCryptGenerateKeyPair(halgorithm: BcryptAlgHandle, phkey: COpaquePointer?, dwlength: UInt, dwflags: UInt): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptGenerateKeyPair((halgorithm?.value ?: 0L).toString(), (phkey?.value ?: 0L).toString(), dwlength.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptGenerateSymmetricKey(halgorithm: BCRYPT_ALG_HANDLE, phkey: Long, pbkeyobject: Long, cbkeyobject: UInt, pbsecret: Long, cbsecret: UInt, dwflags: UInt): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptGenerateSymmetricKey(halgorithm.toString(), phkey.toString(), pbkeyobject.toString(), cbkeyobject.toInt(), pbsecret.toString(), cbsecret.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun bCryptGenerateSymmetricKey(halgorithm: BcryptAlgHandle, phkey: COpaquePointer?, pbkeyobject: COpaquePointer?, cbkeyobject: UInt, pbsecret: COpaquePointer?, cbsecret: UInt, dwflags: UInt): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptGenerateSymmetricKey((halgorithm?.value ?: 0L).toString(), (phkey?.value ?: 0L).toString(), (pbkeyobject?.value ?: 0L).toString(), cbkeyobject.toInt(), (pbsecret?.value ?: 0L).toString(), cbsecret.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptGetFipsAlgorithmMode(pfenabled: Long): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptGetFipsAlgorithmMode(pfenabled.toString()) as Int) else 0
+public actual fun bCryptGetFipsAlgorithmMode(pfenabled: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptGetFipsAlgorithmMode((pfenabled?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptGetProperty(hobject: BCRYPT_HANDLE, pszproperty: PCWSTR, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: UInt): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptGetProperty(hobject.toString(), pszproperty.toString(), pboutput.toString(), cboutput.toInt(), pcbresult.toString(), dwflags.toInt()) as Int) else 0
+public actual fun bCryptGetProperty(hobject: BcryptHandle, pszproperty: Pcwstr, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptGetProperty((hobject?.value ?: 0L).toString(), (pszproperty?.value ?: 0L).toString(), (pboutput?.value ?: 0L).toString(), cboutput.toInt(), (pcbresult?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptHash(halgorithm: BCRYPT_ALG_HANDLE, pbsecret: Long, cbsecret: UInt, pbinput: Long, cbinput: UInt, pboutput: Long, cboutput: UInt): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptHash(halgorithm.toString(), pbsecret.toString(), cbsecret.toInt(), pbinput.toString(), cbinput.toInt(), pboutput.toString(), cboutput.toInt()) as Int) else 0
+public actual fun bCryptHash(halgorithm: BcryptAlgHandle, pbsecret: COpaquePointer?, cbsecret: UInt, pbinput: COpaquePointer?, cbinput: UInt, pboutput: COpaquePointer?, cboutput: UInt): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptHash((halgorithm?.value ?: 0L).toString(), (pbsecret?.value ?: 0L).toString(), cbsecret.toInt(), (pbinput?.value ?: 0L).toString(), cbinput.toInt(), (pboutput?.value ?: 0L).toString(), cboutput.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptHashData(hhash: BCRYPT_HASH_HANDLE, pbinput: Long, cbinput: UInt, dwflags: UInt): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptHashData(hhash.toString(), pbinput.toString(), cbinput.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun bCryptHashData(hhash: BcryptHashHandle, pbinput: COpaquePointer?, cbinput: UInt, dwflags: UInt): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptHashData((hhash?.value ?: 0L).toString(), (pbinput?.value ?: 0L).toString(), cbinput.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptImportKey(halgorithm: BCRYPT_ALG_HANDLE, himportkey: BCRYPT_KEY_HANDLE, pszblobtype: PCWSTR, phkey: Long, pbkeyobject: Long, cbkeyobject: UInt, pbinput: Long, cbinput: UInt, dwflags: UInt): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptImportKey(halgorithm.toString(), himportkey.toString(), pszblobtype.toString(), phkey.toString(), pbkeyobject.toString(), cbkeyobject.toInt(), pbinput.toString(), cbinput.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun bCryptImportKey(halgorithm: BcryptAlgHandle, himportkey: BcryptKeyHandle, pszblobtype: Pcwstr, phkey: COpaquePointer?, pbkeyobject: COpaquePointer?, cbkeyobject: UInt, pbinput: COpaquePointer?, cbinput: UInt, dwflags: UInt): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptImportKey((halgorithm?.value ?: 0L).toString(), (himportkey?.value ?: 0L).toString(), (pszblobtype?.value ?: 0L).toString(), (phkey?.value ?: 0L).toString(), (pbkeyobject?.value ?: 0L).toString(), cbkeyobject.toInt(), (pbinput?.value ?: 0L).toString(), cbinput.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptImportKeyPair(halgorithm: BCRYPT_ALG_HANDLE, himportkey: BCRYPT_KEY_HANDLE, pszblobtype: PCWSTR, phkey: Long, pbinput: Long, cbinput: UInt, dwflags: UInt): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptImportKeyPair(halgorithm.toString(), himportkey.toString(), pszblobtype.toString(), phkey.toString(), pbinput.toString(), cbinput.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun bCryptImportKeyPair(halgorithm: BcryptAlgHandle, himportkey: BcryptKeyHandle, pszblobtype: Pcwstr, phkey: COpaquePointer?, pbinput: COpaquePointer?, cbinput: UInt, dwflags: UInt): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptImportKeyPair((halgorithm?.value ?: 0L).toString(), (himportkey?.value ?: 0L).toString(), (pszblobtype?.value ?: 0L).toString(), (phkey?.value ?: 0L).toString(), (pbinput?.value ?: 0L).toString(), cbinput.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptKeyDerivation(hkey: BCRYPT_KEY_HANDLE, pparameterlist: Long, pbderivedkey: Long, cbderivedkey: UInt, pcbresult: Long, dwflags: UInt): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptKeyDerivation(hkey.toString(), pparameterlist.toString(), pbderivedkey.toString(), cbderivedkey.toInt(), pcbresult.toString(), dwflags.toInt()) as Int) else 0
+public actual fun bCryptKeyDerivation(hkey: BcryptKeyHandle, pparameterlist: COpaquePointer?, pbderivedkey: COpaquePointer?, cbderivedkey: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptKeyDerivation((hkey?.value ?: 0L).toString(), (pparameterlist?.value ?: 0L).toString(), (pbderivedkey?.value ?: 0L).toString(), cbderivedkey.toInt(), (pcbresult?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptOpenAlgorithmProvider(phalgorithm: Long, pszalgid: PCWSTR, pszimplementation: PCWSTR, dwflags: BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptOpenAlgorithmProvider(phalgorithm.toString(), pszalgid.toString(), pszimplementation.toString(), dwflags.toInt()) as Int) else 0
+public actual fun bCryptOpenAlgorithmProvider(phalgorithm: COpaquePointer?, pszalgid: Pcwstr, pszimplementation: Pcwstr, dwflags: BcryptOpenAlgorithmProviderFlags): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptOpenAlgorithmProvider((phalgorithm?.value ?: 0L).toString(), (pszalgid?.value ?: 0L).toString(), (pszimplementation?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptProcessMultiOperations(hobject: BCRYPT_HANDLE, operationtype: BCRYPT_MULTI_OPERATION_TYPE, poperations: Long, cboperations: UInt, dwflags: UInt): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptProcessMultiOperations(hobject.toString(), operationtype, poperations.toString(), cboperations.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun bCryptProcessMultiOperations(hobject: BcryptHandle, operationtype: BcryptMultiOperationType, poperations: COpaquePointer?, cboperations: UInt, dwflags: UInt): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptProcessMultiOperations((hobject?.value ?: 0L).toString(), operationtype, (poperations?.value ?: 0L).toString(), cboperations.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptQueryContextConfiguration(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, pcbbuffer: Long, ppbuffer: Long): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptQueryContextConfiguration(dwtable.toInt(), pszcontext.toString(), pcbbuffer.toString(), ppbuffer.toString()) as Int) else 0
+public actual fun bCryptQueryContextConfiguration(dwtable: BcryptTable, pszcontext: Pcwstr, pcbbuffer: COpaquePointer?, ppbuffer: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptQueryContextConfiguration(dwtable.toInt(), (pszcontext?.value ?: 0L).toString(), (pcbbuffer?.value ?: 0L).toString(), (ppbuffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptQueryContextFunctionConfiguration(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, dwinterface: BCRYPT_INTERFACE, pszfunction: PCWSTR, pcbbuffer: Long, ppbuffer: Long): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptQueryContextFunctionConfiguration(dwtable.toInt(), pszcontext.toString(), dwinterface.toInt(), pszfunction.toString(), pcbbuffer.toString(), ppbuffer.toString()) as Int) else 0
+public actual fun bCryptQueryContextFunctionConfiguration(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pcbbuffer: COpaquePointer?, ppbuffer: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptQueryContextFunctionConfiguration(dwtable.toInt(), (pszcontext?.value ?: 0L).toString(), dwinterface.toInt(), (pszfunction?.value ?: 0L).toString(), (pcbbuffer?.value ?: 0L).toString(), (ppbuffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptQueryContextFunctionProperty(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, dwinterface: BCRYPT_INTERFACE, pszfunction: PCWSTR, pszproperty: PCWSTR, pcbvalue: Long, ppbvalue: Long): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptQueryContextFunctionProperty(dwtable.toInt(), pszcontext.toString(), dwinterface.toInt(), pszfunction.toString(), pszproperty.toString(), pcbvalue.toString(), ppbvalue.toString()) as Int) else 0
+public actual fun bCryptQueryContextFunctionProperty(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pszproperty: Pcwstr, pcbvalue: COpaquePointer?, ppbvalue: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptQueryContextFunctionProperty(dwtable.toInt(), (pszcontext?.value ?: 0L).toString(), dwinterface.toInt(), (pszfunction?.value ?: 0L).toString(), (pszproperty?.value ?: 0L).toString(), (pcbvalue?.value ?: 0L).toString(), (ppbvalue?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptQueryProviderRegistration(pszprovider: PCWSTR, dwmode: BCRYPT_QUERY_PROVIDER_MODE, dwinterface: BCRYPT_INTERFACE, pcbbuffer: Long, ppbuffer: Long): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptQueryProviderRegistration(pszprovider.toString(), dwmode.toInt(), dwinterface.toInt(), pcbbuffer.toString(), ppbuffer.toString()) as Int) else 0
+public actual fun bCryptQueryProviderRegistration(pszprovider: Pcwstr, dwmode: BcryptQueryProviderMode, dwinterface: BcryptInterface, pcbbuffer: COpaquePointer?, ppbuffer: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptQueryProviderRegistration((pszprovider?.value ?: 0L).toString(), dwmode.toInt(), dwinterface.toInt(), (pcbbuffer?.value ?: 0L).toString(), (ppbuffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptRegisterConfigChangeNotify(phevent: Long): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptRegisterConfigChangeNotify(phevent.toString()) as Int) else 0
+public actual fun bCryptRegisterConfigChangeNotify(phevent: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptRegisterConfigChangeNotify((phevent?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptRegisterProvider(pszprovider: PCWSTR, dwflags: UInt, preg: Long): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptRegisterProvider(pszprovider.toString(), dwflags.toInt(), preg.toString()) as Int) else 0
+public actual fun bCryptRegisterProvider(pszprovider: Pcwstr, dwflags: UInt, preg: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptRegisterProvider((pszprovider?.value ?: 0L).toString(), dwflags.toInt(), (preg?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptRemoveContextFunction(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, dwinterface: BCRYPT_INTERFACE, pszfunction: PCWSTR): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptRemoveContextFunction(dwtable.toInt(), pszcontext.toString(), dwinterface.toInt(), pszfunction.toString()) as Int) else 0
+public actual fun bCryptRemoveContextFunction(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptRemoveContextFunction(dwtable.toInt(), (pszcontext?.value ?: 0L).toString(), dwinterface.toInt(), (pszfunction?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptRemoveContextFunctionProvider(dwtable: UInt, pszcontext: PCWSTR, dwinterface: UInt, pszfunction: PCWSTR, pszprovider: PCWSTR): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptRemoveContextFunctionProvider(dwtable.toInt(), pszcontext.toString(), dwinterface.toInt(), pszfunction.toString(), pszprovider.toString()) as Int) else 0
+public actual fun bCryptRemoveContextFunctionProvider(dwtable: UInt, pszcontext: Pcwstr, dwinterface: UInt, pszfunction: Pcwstr, pszprovider: Pcwstr): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptRemoveContextFunctionProvider(dwtable.toInt(), (pszcontext?.value ?: 0L).toString(), dwinterface.toInt(), (pszfunction?.value ?: 0L).toString(), (pszprovider?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptResolveProviders(pszcontext: PCWSTR, dwinterface: UInt, pszfunction: PCWSTR, pszprovider: PCWSTR, dwmode: BCRYPT_QUERY_PROVIDER_MODE, dwflags: BCRYPT_RESOLVE_PROVIDERS_FLAGS, pcbbuffer: Long, ppbuffer: Long): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptResolveProviders(pszcontext.toString(), dwinterface.toInt(), pszfunction.toString(), pszprovider.toString(), dwmode.toInt(), dwflags.toInt(), pcbbuffer.toString(), ppbuffer.toString()) as Int) else 0
+public actual fun bCryptResolveProviders(pszcontext: Pcwstr, dwinterface: UInt, pszfunction: Pcwstr, pszprovider: Pcwstr, dwmode: BcryptQueryProviderMode, dwflags: BcryptResolveProvidersFlags, pcbbuffer: COpaquePointer?, ppbuffer: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptResolveProviders((pszcontext?.value ?: 0L).toString(), dwinterface.toInt(), (pszfunction?.value ?: 0L).toString(), (pszprovider?.value ?: 0L).toString(), dwmode.toInt(), dwflags.toInt(), (pcbbuffer?.value ?: 0L).toString(), (ppbuffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptSecretAgreement(hprivkey: BCRYPT_KEY_HANDLE, hpubkey: BCRYPT_KEY_HANDLE, phagreedsecret: Long, dwflags: UInt): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptSecretAgreement(hprivkey.toString(), hpubkey.toString(), phagreedsecret.toString(), dwflags.toInt()) as Int) else 0
+public actual fun bCryptSecretAgreement(hprivkey: BcryptKeyHandle, hpubkey: BcryptKeyHandle, phagreedsecret: COpaquePointer?, dwflags: UInt): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptSecretAgreement((hprivkey?.value ?: 0L).toString(), (hpubkey?.value ?: 0L).toString(), (phagreedsecret?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptSetContextFunctionProperty(dwtable: BCRYPT_TABLE, pszcontext: PCWSTR, dwinterface: BCRYPT_INTERFACE, pszfunction: PCWSTR, pszproperty: PCWSTR, cbvalue: UInt, pbvalue: Long): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptSetContextFunctionProperty(dwtable.toInt(), pszcontext.toString(), dwinterface.toInt(), pszfunction.toString(), pszproperty.toString(), cbvalue.toInt(), pbvalue.toString()) as Int) else 0
+public actual fun bCryptSetContextFunctionProperty(dwtable: BcryptTable, pszcontext: Pcwstr, dwinterface: BcryptInterface, pszfunction: Pcwstr, pszproperty: Pcwstr, cbvalue: UInt, pbvalue: COpaquePointer?): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptSetContextFunctionProperty(dwtable.toInt(), (pszcontext?.value ?: 0L).toString(), dwinterface.toInt(), (pszfunction?.value ?: 0L).toString(), (pszproperty?.value ?: 0L).toString(), cbvalue.toInt(), (pbvalue?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptSetProperty(hobject: BCRYPT_HANDLE, pszproperty: PCWSTR, pbinput: Long, cbinput: UInt, dwflags: UInt): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptSetProperty(hobject.toString(), pszproperty.toString(), pbinput.toString(), cbinput.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun bCryptSetProperty(hobject: BcryptHandle, pszproperty: Pcwstr, pbinput: COpaquePointer?, cbinput: UInt, dwflags: UInt): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptSetProperty((hobject?.value ?: 0L).toString(), (pszproperty?.value ?: 0L).toString(), (pbinput?.value ?: 0L).toString(), cbinput.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptSignHash(hkey: BCRYPT_KEY_HANDLE, ppaddinginfo: Long, pbinput: Long, cbinput: UInt, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: BCRYPT_FLAGS): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptSignHash(hkey.toString(), ppaddinginfo.toString(), pbinput.toString(), cbinput.toInt(), pboutput.toString(), cboutput.toInt(), pcbresult.toString(), dwflags.toInt()) as Int) else 0
+public actual fun bCryptSignHash(hkey: BcryptKeyHandle, ppaddinginfo: COpaquePointer?, pbinput: COpaquePointer?, cbinput: UInt, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: BcryptFlags): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptSignHash((hkey?.value ?: 0L).toString(), (ppaddinginfo?.value ?: 0L).toString(), (pbinput?.value ?: 0L).toString(), cbinput.toInt(), (pboutput?.value ?: 0L).toString(), cboutput.toInt(), (pcbresult?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptUnregisterConfigChangeNotify(hevent: HANDLE): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptUnregisterConfigChangeNotify(hevent.toString()) as Int) else 0
+public actual fun bCryptUnregisterConfigChangeNotify(hevent: Handle): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptUnregisterConfigChangeNotify((hevent?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptUnregisterProvider(pszprovider: PCWSTR): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptUnregisterProvider(pszprovider.toString()) as Int) else 0
+public actual fun bCryptUnregisterProvider(pszprovider: Pcwstr): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptUnregisterProvider((pszprovider?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BCryptVerifySignature(hkey: BCRYPT_KEY_HANDLE, ppaddinginfo: Long, pbhash: Long, cbhash: UInt, pbsignature: Long, cbsignature: UInt, dwflags: BCRYPT_FLAGS): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_BCryptVerifySignature(hkey.toString(), ppaddinginfo.toString(), pbhash.toString(), cbhash.toInt(), pbsignature.toString(), cbsignature.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun bCryptVerifySignature(hkey: BcryptKeyHandle, ppaddinginfo: COpaquePointer?, pbhash: COpaquePointer?, cbhash: UInt, pbsignature: COpaquePointer?, cbsignature: UInt, dwflags: BcryptFlags): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_bCryptVerifySignature((hkey?.value ?: 0L).toString(), (ppaddinginfo?.value ?: 0L).toString(), (pbhash?.value ?: 0L).toString(), cbhash.toInt(), (pbsignature?.value ?: 0L).toString(), cbsignature.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertAddCRLContextToStore(hcertstore: HCERTSTORE, pcrlcontext: Long, dwadddisposition: UInt, ppstorecontext: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertAddCRLContextToStore(hcertstore.toString(), pcrlcontext.toString(), dwadddisposition.toInt(), ppstorecontext.toString()) as Int) else 0
+public actual fun certAddCRLContextToStore(hcertstore: Hcertstore, pcrlcontext: COpaquePointer?, dwadddisposition: UInt, ppstorecontext: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certAddCRLContextToStore((hcertstore?.value ?: 0L).toString(), (pcrlcontext?.value ?: 0L).toString(), dwadddisposition.toInt(), (ppstorecontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertAddCRLLinkToStore(hcertstore: HCERTSTORE, pcrlcontext: Long, dwadddisposition: UInt, ppstorecontext: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertAddCRLLinkToStore(hcertstore.toString(), pcrlcontext.toString(), dwadddisposition.toInt(), ppstorecontext.toString()) as Int) else 0
+public actual fun certAddCRLLinkToStore(hcertstore: Hcertstore, pcrlcontext: COpaquePointer?, dwadddisposition: UInt, ppstorecontext: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certAddCRLLinkToStore((hcertstore?.value ?: 0L).toString(), (pcrlcontext?.value ?: 0L).toString(), dwadddisposition.toInt(), (ppstorecontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertAddCTLContextToStore(hcertstore: HCERTSTORE, pctlcontext: Long, dwadddisposition: UInt, ppstorecontext: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertAddCTLContextToStore(hcertstore.toString(), pctlcontext.toString(), dwadddisposition.toInt(), ppstorecontext.toString()) as Int) else 0
+public actual fun certAddCTLContextToStore(hcertstore: Hcertstore, pctlcontext: COpaquePointer?, dwadddisposition: UInt, ppstorecontext: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certAddCTLContextToStore((hcertstore?.value ?: 0L).toString(), (pctlcontext?.value ?: 0L).toString(), dwadddisposition.toInt(), (ppstorecontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertAddCTLLinkToStore(hcertstore: HCERTSTORE, pctlcontext: Long, dwadddisposition: UInt, ppstorecontext: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertAddCTLLinkToStore(hcertstore.toString(), pctlcontext.toString(), dwadddisposition.toInt(), ppstorecontext.toString()) as Int) else 0
+public actual fun certAddCTLLinkToStore(hcertstore: Hcertstore, pctlcontext: COpaquePointer?, dwadddisposition: UInt, ppstorecontext: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certAddCTLLinkToStore((hcertstore?.value ?: 0L).toString(), (pctlcontext?.value ?: 0L).toString(), dwadddisposition.toInt(), (ppstorecontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertAddCertificateContextToStore(hcertstore: HCERTSTORE, pcertcontext: Long, dwadddisposition: UInt, ppstorecontext: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertAddCertificateContextToStore(hcertstore.toString(), pcertcontext.toString(), dwadddisposition.toInt(), ppstorecontext.toString()) as Int) else 0
+public actual fun certAddCertificateContextToStore(hcertstore: Hcertstore, pcertcontext: COpaquePointer?, dwadddisposition: UInt, ppstorecontext: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certAddCertificateContextToStore((hcertstore?.value ?: 0L).toString(), (pcertcontext?.value ?: 0L).toString(), dwadddisposition.toInt(), (ppstorecontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertAddCertificateLinkToStore(hcertstore: HCERTSTORE, pcertcontext: Long, dwadddisposition: UInt, ppstorecontext: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertAddCertificateLinkToStore(hcertstore.toString(), pcertcontext.toString(), dwadddisposition.toInt(), ppstorecontext.toString()) as Int) else 0
+public actual fun certAddCertificateLinkToStore(hcertstore: Hcertstore, pcertcontext: COpaquePointer?, dwadddisposition: UInt, ppstorecontext: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certAddCertificateLinkToStore((hcertstore?.value ?: 0L).toString(), (pcertcontext?.value ?: 0L).toString(), dwadddisposition.toInt(), (ppstorecontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertAddEncodedCRLToStore(hcertstore: HCERTSTORE, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pbcrlencoded: Long, cbcrlencoded: UInt, dwadddisposition: UInt, ppcrlcontext: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertAddEncodedCRLToStore(hcertstore.toString(), dwcertencodingtype.toInt(), pbcrlencoded.toString(), cbcrlencoded.toInt(), dwadddisposition.toInt(), ppcrlcontext.toString()) as Int) else 0
+public actual fun certAddEncodedCRLToStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, pbcrlencoded: COpaquePointer?, cbcrlencoded: UInt, dwadddisposition: UInt, ppcrlcontext: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certAddEncodedCRLToStore((hcertstore?.value ?: 0L).toString(), dwcertencodingtype.toInt(), (pbcrlencoded?.value ?: 0L).toString(), cbcrlencoded.toInt(), dwadddisposition.toInt(), (ppcrlcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertAddEncodedCTLToStore(hcertstore: HCERTSTORE, dwmsgandcertencodingtype: CERT_QUERY_ENCODING_TYPE, pbctlencoded: Long, cbctlencoded: UInt, dwadddisposition: UInt, ppctlcontext: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertAddEncodedCTLToStore(hcertstore.toString(), dwmsgandcertencodingtype.toInt(), pbctlencoded.toString(), cbctlencoded.toInt(), dwadddisposition.toInt(), ppctlcontext.toString()) as Int) else 0
+public actual fun certAddEncodedCTLToStore(hcertstore: Hcertstore, dwmsgandcertencodingtype: CertQueryEncodingType, pbctlencoded: COpaquePointer?, cbctlencoded: UInt, dwadddisposition: UInt, ppctlcontext: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certAddEncodedCTLToStore((hcertstore?.value ?: 0L).toString(), dwmsgandcertencodingtype.toInt(), (pbctlencoded?.value ?: 0L).toString(), cbctlencoded.toInt(), dwadddisposition.toInt(), (ppctlcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertAddEncodedCertificateToStore(hcertstore: HCERTSTORE, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pbcertencoded: Long, cbcertencoded: UInt, dwadddisposition: UInt, ppcertcontext: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertAddEncodedCertificateToStore(hcertstore.toString(), dwcertencodingtype.toInt(), pbcertencoded.toString(), cbcertencoded.toInt(), dwadddisposition.toInt(), ppcertcontext.toString()) as Int) else 0
+public actual fun certAddEncodedCertificateToStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, pbcertencoded: COpaquePointer?, cbcertencoded: UInt, dwadddisposition: UInt, ppcertcontext: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certAddEncodedCertificateToStore((hcertstore?.value ?: 0L).toString(), dwcertencodingtype.toInt(), (pbcertencoded?.value ?: 0L).toString(), cbcertencoded.toInt(), dwadddisposition.toInt(), (ppcertcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertAddEncodedCertificateToSystemStoreA(szcertstorename: PCSTR, pbcertencoded: Long, cbcertencoded: UInt): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertAddEncodedCertificateToSystemStoreA(szcertstorename.toString(), pbcertencoded.toString(), cbcertencoded.toInt()) as Int) else 0
+public actual fun certAddEncodedCertificateToSystemStoreA(szcertstorename: Pcstr, pbcertencoded: COpaquePointer?, cbcertencoded: UInt): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certAddEncodedCertificateToSystemStoreA((szcertstorename?.value ?: 0L).toString(), (pbcertencoded?.value ?: 0L).toString(), cbcertencoded.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertAddEncodedCertificateToSystemStoreW(szcertstorename: PCWSTR, pbcertencoded: Long, cbcertencoded: UInt): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertAddEncodedCertificateToSystemStoreW(szcertstorename.toString(), pbcertencoded.toString(), cbcertencoded.toInt()) as Int) else 0
+public actual fun certAddEncodedCertificateToSystemStoreW(szcertstorename: Pcwstr, pbcertencoded: COpaquePointer?, cbcertencoded: UInt): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certAddEncodedCertificateToSystemStoreW((szcertstorename?.value ?: 0L).toString(), (pbcertencoded?.value ?: 0L).toString(), cbcertencoded.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertAddEnhancedKeyUsageIdentifier(pcertcontext: Long, pszusageidentifier: PCSTR): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertAddEnhancedKeyUsageIdentifier(pcertcontext.toString(), pszusageidentifier.toString()) as Int) else 0
+public actual fun certAddEnhancedKeyUsageIdentifier(pcertcontext: COpaquePointer?, pszusageidentifier: Pcstr): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certAddEnhancedKeyUsageIdentifier((pcertcontext?.value ?: 0L).toString(), (pszusageidentifier?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertAddRefServerOcspResponse(hserverocspresponse: Long) {
+public actual fun certAddRefServerOcspResponse(hserverocspresponse: COpaquePointer?) {
     if (_windowsWin32SecurityCryptographyNapiAddon != null) {
-        _windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertAddRefServerOcspResponse(hserverocspresponse.toString())
+        _windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certAddRefServerOcspResponse((hserverocspresponse?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CertAddRefServerOcspResponseContext(pserverocspresponsecontext: Long) {
+public actual fun certAddRefServerOcspResponseContext(pserverocspresponsecontext: COpaquePointer?) {
     if (_windowsWin32SecurityCryptographyNapiAddon != null) {
-        _windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertAddRefServerOcspResponseContext(pserverocspresponsecontext.toString())
+        _windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certAddRefServerOcspResponseContext((pserverocspresponsecontext?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CertAddSerializedElementToStore(hcertstore: HCERTSTORE, pbelement: Long, cbelement: UInt, dwadddisposition: UInt, dwflags: UInt, dwcontexttypeflags: UInt, pdwcontexttype: Long, ppvcontext: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertAddSerializedElementToStore(hcertstore.toString(), pbelement.toString(), cbelement.toInt(), dwadddisposition.toInt(), dwflags.toInt(), dwcontexttypeflags.toInt(), pdwcontexttype.toString(), ppvcontext.toString()) as Int) else 0
+public actual fun certAddSerializedElementToStore(hcertstore: Hcertstore, pbelement: COpaquePointer?, cbelement: UInt, dwadddisposition: UInt, dwflags: UInt, dwcontexttypeflags: UInt, pdwcontexttype: COpaquePointer?, ppvcontext: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certAddSerializedElementToStore((hcertstore?.value ?: 0L).toString(), (pbelement?.value ?: 0L).toString(), cbelement.toInt(), dwadddisposition.toInt(), dwflags.toInt(), dwcontexttypeflags.toInt(), (pdwcontexttype?.value ?: 0L).toString(), (ppvcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertAddStoreToCollection(hcollectionstore: HCERTSTORE, hsiblingstore: HCERTSTORE, dwupdateflags: UInt, dwpriority: UInt): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertAddStoreToCollection(hcollectionstore.toString(), hsiblingstore.toString(), dwupdateflags.toInt(), dwpriority.toInt()) as Int) else 0
+public actual fun certAddStoreToCollection(hcollectionstore: Hcertstore, hsiblingstore: Hcertstore, dwupdateflags: UInt, dwpriority: UInt): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certAddStoreToCollection((hcollectionstore?.value ?: 0L).toString(), (hsiblingstore?.value ?: 0L).toString(), dwupdateflags.toInt(), dwpriority.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertAlgIdToOID(dwalgid: UInt): PCSTR =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertAlgIdToOID(dwalgid.toInt()) as String).toLong() else 0L
+public actual fun certAlgIdToOID(dwalgid: UInt): Pcstr =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certAlgIdToOID(dwalgid.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertCloseServerOcspResponse(hserverocspresponse: Long, dwflags: UInt) {
+public actual fun certCloseServerOcspResponse(hserverocspresponse: COpaquePointer?, dwflags: UInt) {
     if (_windowsWin32SecurityCryptographyNapiAddon != null) {
-        _windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertCloseServerOcspResponse(hserverocspresponse.toString(), dwflags.toInt())
+        _windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certCloseServerOcspResponse((hserverocspresponse?.value ?: 0L).toString(), dwflags.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CertCloseStore(hcertstore: HCERTSTORE, dwflags: UInt): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertCloseStore(hcertstore.toString(), dwflags.toInt()) as Int) else 0
+public actual fun certCloseStore(hcertstore: Hcertstore, dwflags: UInt): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certCloseStore((hcertstore?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertCompareCertificate(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pcertid1: Long, pcertid2: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertCompareCertificate(dwcertencodingtype.toInt(), pcertid1.toString(), pcertid2.toString()) as Int) else 0
+public actual fun certCompareCertificate(dwcertencodingtype: CertQueryEncodingType, pcertid1: COpaquePointer?, pcertid2: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certCompareCertificate(dwcertencodingtype.toInt(), (pcertid1?.value ?: 0L).toString(), (pcertid2?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertCompareCertificateName(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pcertname1: Long, pcertname2: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertCompareCertificateName(dwcertencodingtype.toInt(), pcertname1.toString(), pcertname2.toString()) as Int) else 0
+public actual fun certCompareCertificateName(dwcertencodingtype: CertQueryEncodingType, pcertname1: COpaquePointer?, pcertname2: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certCompareCertificateName(dwcertencodingtype.toInt(), (pcertname1?.value ?: 0L).toString(), (pcertname2?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertCompareIntegerBlob(pint1: Long, pint2: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertCompareIntegerBlob(pint1.toString(), pint2.toString()) as Int) else 0
+public actual fun certCompareIntegerBlob(pint1: COpaquePointer?, pint2: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certCompareIntegerBlob((pint1?.value ?: 0L).toString(), (pint2?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertComparePublicKeyInfo(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, ppublickey1: Long, ppublickey2: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertComparePublicKeyInfo(dwcertencodingtype.toInt(), ppublickey1.toString(), ppublickey2.toString()) as Int) else 0
+public actual fun certComparePublicKeyInfo(dwcertencodingtype: CertQueryEncodingType, ppublickey1: COpaquePointer?, ppublickey2: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certComparePublicKeyInfo(dwcertencodingtype.toInt(), (ppublickey1?.value ?: 0L).toString(), (ppublickey2?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertControlStore(hcertstore: HCERTSTORE, dwflags: CERT_CONTROL_STORE_FLAGS, dwctrltype: UInt, pvctrlpara: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertControlStore(hcertstore.toString(), dwflags.toInt(), dwctrltype.toInt(), pvctrlpara.toString()) as Int) else 0
+public actual fun certControlStore(hcertstore: Hcertstore, dwflags: CertControlStoreFlags, dwctrltype: UInt, pvctrlpara: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certControlStore((hcertstore?.value ?: 0L).toString(), dwflags.toInt(), dwctrltype.toInt(), (pvctrlpara?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertCreateCRLContext(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pbcrlencoded: Long, cbcrlencoded: UInt): Long =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertCreateCRLContext(dwcertencodingtype.toInt(), pbcrlencoded.toString(), cbcrlencoded.toInt()) as String).toLong() else 0L
+public actual fun certCreateCRLContext(dwcertencodingtype: CertQueryEncodingType, pbcrlencoded: COpaquePointer?, cbcrlencoded: UInt): COpaquePointer? =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certCreateCRLContext(dwcertencodingtype.toInt(), (pbcrlencoded?.value ?: 0L).toString(), cbcrlencoded.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertCreateCTLContext(dwmsgandcertencodingtype: UInt, pbctlencoded: Long, cbctlencoded: UInt): Long =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertCreateCTLContext(dwmsgandcertencodingtype.toInt(), pbctlencoded.toString(), cbctlencoded.toInt()) as String).toLong() else 0L
+public actual fun certCreateCTLContext(dwmsgandcertencodingtype: UInt, pbctlencoded: COpaquePointer?, cbctlencoded: UInt): COpaquePointer? =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certCreateCTLContext(dwmsgandcertencodingtype.toInt(), (pbctlencoded?.value ?: 0L).toString(), cbctlencoded.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertCreateCTLEntryFromCertificateContextProperties(pcertcontext: Long, coptattr: UInt, rgoptattr: Long, dwflags: UInt, pvreserved: Long, pctlentry: Long, pcbctlentry: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertCreateCTLEntryFromCertificateContextProperties(pcertcontext.toString(), coptattr.toInt(), rgoptattr.toString(), dwflags.toInt(), pvreserved.toString(), pctlentry.toString(), pcbctlentry.toString()) as Int) else 0
+public actual fun certCreateCTLEntryFromCertificateContextProperties(pcertcontext: COpaquePointer?, coptattr: UInt, rgoptattr: COpaquePointer?, dwflags: UInt, pvreserved: COpaquePointer?, pctlentry: COpaquePointer?, pcbctlentry: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certCreateCTLEntryFromCertificateContextProperties((pcertcontext?.value ?: 0L).toString(), coptattr.toInt(), (rgoptattr?.value ?: 0L).toString(), dwflags.toInt(), (pvreserved?.value ?: 0L).toString(), (pctlentry?.value ?: 0L).toString(), (pcbctlentry?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertCreateCertificateChainEngine(pconfig: Long, phchainengine: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertCreateCertificateChainEngine(pconfig.toString(), phchainengine.toString()) as Int) else 0
+public actual fun certCreateCertificateChainEngine(pconfig: COpaquePointer?, phchainengine: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certCreateCertificateChainEngine((pconfig?.value ?: 0L).toString(), (phchainengine?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertCreateCertificateContext(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pbcertencoded: Long, cbcertencoded: UInt): Long =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertCreateCertificateContext(dwcertencodingtype.toInt(), pbcertencoded.toString(), cbcertencoded.toInt()) as String).toLong() else 0L
+public actual fun certCreateCertificateContext(dwcertencodingtype: CertQueryEncodingType, pbcertencoded: COpaquePointer?, cbcertencoded: UInt): COpaquePointer? =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certCreateCertificateContext(dwcertencodingtype.toInt(), (pbcertencoded?.value ?: 0L).toString(), cbcertencoded.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertCreateContext(dwcontexttype: UInt, dwencodingtype: UInt, pbencoded: Long, cbencoded: UInt, dwflags: UInt, pcreatepara: Long): Long =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertCreateContext(dwcontexttype.toInt(), dwencodingtype.toInt(), pbencoded.toString(), cbencoded.toInt(), dwflags.toInt(), pcreatepara.toString()) as String).toLong() else 0L
+public actual fun certCreateContext(dwcontexttype: UInt, dwencodingtype: UInt, pbencoded: COpaquePointer?, cbencoded: UInt, dwflags: UInt, pcreatepara: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certCreateContext(dwcontexttype.toInt(), dwencodingtype.toInt(), (pbencoded?.value ?: 0L).toString(), cbencoded.toInt(), dwflags.toInt(), (pcreatepara?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertCreateSelfSignCertificate(hcryptprovorncryptkey: HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, psubjectissuerblob: Long, dwflags: CERT_CREATE_SELFSIGN_FLAGS, pkeyprovinfo: Long, psignaturealgorithm: Long, pstarttime: Long, pendtime: Long, pextensions: Long): Long =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertCreateSelfSignCertificate(hcryptprovorncryptkey.toString(), psubjectissuerblob.toString(), dwflags.toInt(), pkeyprovinfo.toString(), psignaturealgorithm.toString(), pstarttime.toString(), pendtime.toString(), pextensions.toString()) as String).toLong() else 0L
+public actual fun certCreateSelfSignCertificate(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, psubjectissuerblob: COpaquePointer?, dwflags: CertCreateSelfsignFlags, pkeyprovinfo: COpaquePointer?, psignaturealgorithm: COpaquePointer?, pstarttime: COpaquePointer?, pendtime: COpaquePointer?, pextensions: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certCreateSelfSignCertificate(hcryptprovorncryptkey.toString(), (psubjectissuerblob?.value ?: 0L).toString(), dwflags.toInt(), (pkeyprovinfo?.value ?: 0L).toString(), (psignaturealgorithm?.value ?: 0L).toString(), (pstarttime?.value ?: 0L).toString(), (pendtime?.value ?: 0L).toString(), (pextensions?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertDeleteCRLFromStore(pcrlcontext: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertDeleteCRLFromStore(pcrlcontext.toString()) as Int) else 0
+public actual fun certDeleteCRLFromStore(pcrlcontext: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certDeleteCRLFromStore((pcrlcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertDeleteCTLFromStore(pctlcontext: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertDeleteCTLFromStore(pctlcontext.toString()) as Int) else 0
+public actual fun certDeleteCTLFromStore(pctlcontext: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certDeleteCTLFromStore((pctlcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertDeleteCertificateFromStore(pcertcontext: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertDeleteCertificateFromStore(pcertcontext.toString()) as Int) else 0
+public actual fun certDeleteCertificateFromStore(pcertcontext: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certDeleteCertificateFromStore((pcertcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertDuplicateCRLContext(pcrlcontext: Long): Long =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertDuplicateCRLContext(pcrlcontext.toString()) as String).toLong() else 0L
+public actual fun certDuplicateCRLContext(pcrlcontext: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certDuplicateCRLContext((pcrlcontext?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertDuplicateCTLContext(pctlcontext: Long): Long =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertDuplicateCTLContext(pctlcontext.toString()) as String).toLong() else 0L
+public actual fun certDuplicateCTLContext(pctlcontext: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certDuplicateCTLContext((pctlcontext?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertDuplicateCertificateChain(pchaincontext: Long): Long =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertDuplicateCertificateChain(pchaincontext.toString()) as String).toLong() else 0L
+public actual fun certDuplicateCertificateChain(pchaincontext: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certDuplicateCertificateChain((pchaincontext?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertDuplicateCertificateContext(pcertcontext: Long): Long =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertDuplicateCertificateContext(pcertcontext.toString()) as String).toLong() else 0L
+public actual fun certDuplicateCertificateContext(pcertcontext: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certDuplicateCertificateContext((pcertcontext?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertDuplicateStore(hcertstore: HCERTSTORE): HCERTSTORE =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertDuplicateStore(hcertstore.toString()) as String).toLong() else 0L
+public actual fun certDuplicateStore(hcertstore: Hcertstore): Hcertstore =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certDuplicateStore((hcertstore?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertEnumCRLContextProperties(pcrlcontext: Long, dwpropid: UInt): UInt =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertEnumCRLContextProperties(pcrlcontext.toString(), dwpropid.toInt()) as Int).toUInt() else 0u
+public actual fun certEnumCRLContextProperties(pcrlcontext: COpaquePointer?, dwpropid: UInt): UInt =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certEnumCRLContextProperties((pcrlcontext?.value ?: 0L).toString(), dwpropid.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertEnumCRLsInStore(hcertstore: HCERTSTORE, pprevcrlcontext: Long): Long =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertEnumCRLsInStore(hcertstore.toString(), pprevcrlcontext.toString()) as String).toLong() else 0L
+public actual fun certEnumCRLsInStore(hcertstore: Hcertstore, pprevcrlcontext: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certEnumCRLsInStore((hcertstore?.value ?: 0L).toString(), (pprevcrlcontext?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertEnumCTLContextProperties(pctlcontext: Long, dwpropid: UInt): UInt =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertEnumCTLContextProperties(pctlcontext.toString(), dwpropid.toInt()) as Int).toUInt() else 0u
+public actual fun certEnumCTLContextProperties(pctlcontext: COpaquePointer?, dwpropid: UInt): UInt =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certEnumCTLContextProperties((pctlcontext?.value ?: 0L).toString(), dwpropid.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertEnumCTLsInStore(hcertstore: HCERTSTORE, pprevctlcontext: Long): Long =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertEnumCTLsInStore(hcertstore.toString(), pprevctlcontext.toString()) as String).toLong() else 0L
+public actual fun certEnumCTLsInStore(hcertstore: Hcertstore, pprevctlcontext: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certEnumCTLsInStore((hcertstore?.value ?: 0L).toString(), (pprevctlcontext?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertEnumCertificateContextProperties(pcertcontext: Long, dwpropid: UInt): UInt =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertEnumCertificateContextProperties(pcertcontext.toString(), dwpropid.toInt()) as Int).toUInt() else 0u
+public actual fun certEnumCertificateContextProperties(pcertcontext: COpaquePointer?, dwpropid: UInt): UInt =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certEnumCertificateContextProperties((pcertcontext?.value ?: 0L).toString(), dwpropid.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertEnumCertificatesInStore(hcertstore: HCERTSTORE, pprevcertcontext: Long): Long =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertEnumCertificatesInStore(hcertstore.toString(), pprevcertcontext.toString()) as String).toLong() else 0L
+public actual fun certEnumCertificatesInStore(hcertstore: Hcertstore, pprevcertcontext: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certEnumCertificatesInStore((hcertstore?.value ?: 0L).toString(), (pprevcertcontext?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertEnumPhysicalStore(pvsystemstore: Long, dwflags: UInt, pvarg: Long, pfnenum: PFN_CERT_ENUM_PHYSICAL_STORE): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertEnumPhysicalStore(pvsystemstore.toString(), dwflags.toInt(), pvarg.toString(), pfnenum.toLong().toString()) as Int) else 0
+public actual fun certEnumPhysicalStore(pvsystemstore: COpaquePointer?, dwflags: UInt, pvarg: COpaquePointer?, pfnenum: PfnCertEnumPhysicalStore): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certEnumPhysicalStore((pvsystemstore?.value ?: 0L).toString(), dwflags.toInt(), (pvarg?.value ?: 0L).toString(), 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertEnumSubjectInSortedCTL(pctlcontext: Long, ppvnextsubject: Long, psubjectidentifier: Long, pencodedattributes: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertEnumSubjectInSortedCTL(pctlcontext.toString(), ppvnextsubject.toString(), psubjectidentifier.toString(), pencodedattributes.toString()) as Int) else 0
+public actual fun certEnumSubjectInSortedCTL(pctlcontext: COpaquePointer?, ppvnextsubject: COpaquePointer?, psubjectidentifier: COpaquePointer?, pencodedattributes: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certEnumSubjectInSortedCTL((pctlcontext?.value ?: 0L).toString(), (ppvnextsubject?.value ?: 0L).toString(), (psubjectidentifier?.value ?: 0L).toString(), (pencodedattributes?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertEnumSystemStore(dwflags: UInt, pvsystemstorelocationpara: Long, pvarg: Long, pfnenum: PFN_CERT_ENUM_SYSTEM_STORE): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertEnumSystemStore(dwflags.toInt(), pvsystemstorelocationpara.toString(), pvarg.toString(), pfnenum.toLong().toString()) as Int) else 0
+public actual fun certEnumSystemStore(dwflags: UInt, pvsystemstorelocationpara: COpaquePointer?, pvarg: COpaquePointer?, pfnenum: PfnCertEnumSystemStore): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certEnumSystemStore(dwflags.toInt(), (pvsystemstorelocationpara?.value ?: 0L).toString(), (pvarg?.value ?: 0L).toString(), 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertEnumSystemStoreLocation(dwflags: UInt, pvarg: Long, pfnenum: PFN_CERT_ENUM_SYSTEM_STORE_LOCATION): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertEnumSystemStoreLocation(dwflags.toInt(), pvarg.toString(), pfnenum.toLong().toString()) as Int) else 0
+public actual fun certEnumSystemStoreLocation(dwflags: UInt, pvarg: COpaquePointer?, pfnenum: PfnCertEnumSystemStoreLocation): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certEnumSystemStoreLocation(dwflags.toInt(), (pvarg?.value ?: 0L).toString(), 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertFindAttribute(pszobjid: PCSTR, cattr: UInt, rgattr: Long): Long =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertFindAttribute(pszobjid.toString(), cattr.toInt(), rgattr.toString()) as String).toLong() else 0L
+public actual fun certFindAttribute(pszobjid: Pcstr, cattr: UInt, rgattr: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certFindAttribute((pszobjid?.value ?: 0L).toString(), cattr.toInt(), (rgattr?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertFindCRLInStore(hcertstore: HCERTSTORE, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, dwfindflags: UInt, dwfindtype: UInt, pvfindpara: Long, pprevcrlcontext: Long): Long =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertFindCRLInStore(hcertstore.toString(), dwcertencodingtype.toInt(), dwfindflags.toInt(), dwfindtype.toInt(), pvfindpara.toString(), pprevcrlcontext.toString()) as String).toLong() else 0L
+public actual fun certFindCRLInStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, dwfindflags: UInt, dwfindtype: UInt, pvfindpara: COpaquePointer?, pprevcrlcontext: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certFindCRLInStore((hcertstore?.value ?: 0L).toString(), dwcertencodingtype.toInt(), dwfindflags.toInt(), dwfindtype.toInt(), (pvfindpara?.value ?: 0L).toString(), (pprevcrlcontext?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertFindCTLInStore(hcertstore: HCERTSTORE, dwmsgandcertencodingtype: UInt, dwfindflags: UInt, dwfindtype: CERT_FIND_TYPE, pvfindpara: Long, pprevctlcontext: Long): Long =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertFindCTLInStore(hcertstore.toString(), dwmsgandcertencodingtype.toInt(), dwfindflags.toInt(), dwfindtype.toInt(), pvfindpara.toString(), pprevctlcontext.toString()) as String).toLong() else 0L
+public actual fun certFindCTLInStore(hcertstore: Hcertstore, dwmsgandcertencodingtype: UInt, dwfindflags: UInt, dwfindtype: CertFindType, pvfindpara: COpaquePointer?, pprevctlcontext: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certFindCTLInStore((hcertstore?.value ?: 0L).toString(), dwmsgandcertencodingtype.toInt(), dwfindflags.toInt(), dwfindtype.toInt(), (pvfindpara?.value ?: 0L).toString(), (pprevctlcontext?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertFindCertificateInCRL(pcert: Long, pcrlcontext: Long, dwflags: UInt, pvreserved: Long, ppcrlentry: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertFindCertificateInCRL(pcert.toString(), pcrlcontext.toString(), dwflags.toInt(), pvreserved.toString(), ppcrlentry.toString()) as Int) else 0
+public actual fun certFindCertificateInCRL(pcert: COpaquePointer?, pcrlcontext: COpaquePointer?, dwflags: UInt, pvreserved: COpaquePointer?, ppcrlentry: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certFindCertificateInCRL((pcert?.value ?: 0L).toString(), (pcrlcontext?.value ?: 0L).toString(), dwflags.toInt(), (pvreserved?.value ?: 0L).toString(), (ppcrlentry?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertFindCertificateInStore(hcertstore: HCERTSTORE, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, dwfindflags: UInt, dwfindtype: CERT_FIND_FLAGS, pvfindpara: Long, pprevcertcontext: Long): Long =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertFindCertificateInStore(hcertstore.toString(), dwcertencodingtype.toInt(), dwfindflags.toInt(), dwfindtype.toInt(), pvfindpara.toString(), pprevcertcontext.toString()) as String).toLong() else 0L
+public actual fun certFindCertificateInStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, dwfindflags: UInt, dwfindtype: CertFindFlags, pvfindpara: COpaquePointer?, pprevcertcontext: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certFindCertificateInStore((hcertstore?.value ?: 0L).toString(), dwcertencodingtype.toInt(), dwfindflags.toInt(), dwfindtype.toInt(), (pvfindpara?.value ?: 0L).toString(), (pprevcertcontext?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertFindChainInStore(hcertstore: HCERTSTORE, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, dwfindflags: CERT_FIND_CHAIN_IN_STORE_FLAGS, dwfindtype: UInt, pvfindpara: Long, pprevchaincontext: Long): Long =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertFindChainInStore(hcertstore.toString(), dwcertencodingtype.toInt(), dwfindflags.toInt(), dwfindtype.toInt(), pvfindpara.toString(), pprevchaincontext.toString()) as String).toLong() else 0L
+public actual fun certFindChainInStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, dwfindflags: CertFindChainInStoreFlags, dwfindtype: UInt, pvfindpara: COpaquePointer?, pprevchaincontext: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certFindChainInStore((hcertstore?.value ?: 0L).toString(), dwcertencodingtype.toInt(), dwfindflags.toInt(), dwfindtype.toInt(), (pvfindpara?.value ?: 0L).toString(), (pprevchaincontext?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertFindExtension(pszobjid: PCSTR, cextensions: UInt, rgextensions: Long): Long =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertFindExtension(pszobjid.toString(), cextensions.toInt(), rgextensions.toString()) as String).toLong() else 0L
+public actual fun certFindExtension(pszobjid: Pcstr, cextensions: UInt, rgextensions: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certFindExtension((pszobjid?.value ?: 0L).toString(), cextensions.toInt(), (rgextensions?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertFindRDNAttr(pszobjid: PCSTR, pname: Long): Long =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertFindRDNAttr(pszobjid.toString(), pname.toString()) as String).toLong() else 0L
+public actual fun certFindRDNAttr(pszobjid: Pcstr, pname: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certFindRDNAttr((pszobjid?.value ?: 0L).toString(), (pname?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertFindSubjectInCTL(dwencodingtype: UInt, dwsubjecttype: UInt, pvsubject: Long, pctlcontext: Long, dwflags: UInt): Long =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertFindSubjectInCTL(dwencodingtype.toInt(), dwsubjecttype.toInt(), pvsubject.toString(), pctlcontext.toString(), dwflags.toInt()) as String).toLong() else 0L
+public actual fun certFindSubjectInCTL(dwencodingtype: UInt, dwsubjecttype: UInt, pvsubject: COpaquePointer?, pctlcontext: COpaquePointer?, dwflags: UInt): COpaquePointer? =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certFindSubjectInCTL(dwencodingtype.toInt(), dwsubjecttype.toInt(), (pvsubject?.value ?: 0L).toString(), (pctlcontext?.value ?: 0L).toString(), dwflags.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertFindSubjectInSortedCTL(psubjectidentifier: Long, pctlcontext: Long, dwflags: UInt, pvreserved: Long, pencodedattributes: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertFindSubjectInSortedCTL(psubjectidentifier.toString(), pctlcontext.toString(), dwflags.toInt(), pvreserved.toString(), pencodedattributes.toString()) as Int) else 0
+public actual fun certFindSubjectInSortedCTL(psubjectidentifier: COpaquePointer?, pctlcontext: COpaquePointer?, dwflags: UInt, pvreserved: COpaquePointer?, pencodedattributes: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certFindSubjectInSortedCTL((psubjectidentifier?.value ?: 0L).toString(), (pctlcontext?.value ?: 0L).toString(), dwflags.toInt(), (pvreserved?.value ?: 0L).toString(), (pencodedattributes?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertFreeCRLContext(pcrlcontext: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertFreeCRLContext(pcrlcontext.toString()) as Int) else 0
+public actual fun certFreeCRLContext(pcrlcontext: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certFreeCRLContext((pcrlcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertFreeCTLContext(pctlcontext: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertFreeCTLContext(pctlcontext.toString()) as Int) else 0
+public actual fun certFreeCTLContext(pctlcontext: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certFreeCTLContext((pctlcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertFreeCertificateChain(pchaincontext: Long) {
+public actual fun certFreeCertificateChain(pchaincontext: COpaquePointer?) {
     if (_windowsWin32SecurityCryptographyNapiAddon != null) {
-        _windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertFreeCertificateChain(pchaincontext.toString())
+        _windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certFreeCertificateChain((pchaincontext?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CertFreeCertificateChainEngine(hchainengine: HCERTCHAINENGINE) {
+public actual fun certFreeCertificateChainEngine(hchainengine: Hcertchainengine) {
     if (_windowsWin32SecurityCryptographyNapiAddon != null) {
-        _windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertFreeCertificateChainEngine(hchainengine.toString())
+        _windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certFreeCertificateChainEngine((hchainengine?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CertFreeCertificateChainList(prgpselection: Long) {
+public actual fun certFreeCertificateChainList(prgpselection: COpaquePointer?) {
     if (_windowsWin32SecurityCryptographyNapiAddon != null) {
-        _windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertFreeCertificateChainList(prgpselection.toString())
+        _windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certFreeCertificateChainList((prgpselection?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CertFreeCertificateContext(pcertcontext: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertFreeCertificateContext(pcertcontext.toString()) as Int) else 0
+public actual fun certFreeCertificateContext(pcertcontext: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certFreeCertificateContext((pcertcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertFreeServerOcspResponseContext(pserverocspresponsecontext: Long) {
+public actual fun certFreeServerOcspResponseContext(pserverocspresponsecontext: COpaquePointer?) {
     if (_windowsWin32SecurityCryptographyNapiAddon != null) {
-        _windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertFreeServerOcspResponseContext(pserverocspresponsecontext.toString())
+        _windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certFreeServerOcspResponseContext((pserverocspresponsecontext?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CertGetCRLContextProperty(pcrlcontext: Long, dwpropid: UInt, pvdata: Long, pcbdata: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertGetCRLContextProperty(pcrlcontext.toString(), dwpropid.toInt(), pvdata.toString(), pcbdata.toString()) as Int) else 0
+public actual fun certGetCRLContextProperty(pcrlcontext: COpaquePointer?, dwpropid: UInt, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certGetCRLContextProperty((pcrlcontext?.value ?: 0L).toString(), dwpropid.toInt(), (pvdata?.value ?: 0L).toString(), (pcbdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertGetCRLFromStore(hcertstore: HCERTSTORE, pissuercontext: Long, pprevcrlcontext: Long, pdwflags: Long): Long =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertGetCRLFromStore(hcertstore.toString(), pissuercontext.toString(), pprevcrlcontext.toString(), pdwflags.toString()) as String).toLong() else 0L
+public actual fun certGetCRLFromStore(hcertstore: Hcertstore, pissuercontext: COpaquePointer?, pprevcrlcontext: COpaquePointer?, pdwflags: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certGetCRLFromStore((hcertstore?.value ?: 0L).toString(), (pissuercontext?.value ?: 0L).toString(), (pprevcrlcontext?.value ?: 0L).toString(), (pdwflags?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertGetCTLContextProperty(pctlcontext: Long, dwpropid: UInt, pvdata: Long, pcbdata: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertGetCTLContextProperty(pctlcontext.toString(), dwpropid.toInt(), pvdata.toString(), pcbdata.toString()) as Int) else 0
+public actual fun certGetCTLContextProperty(pctlcontext: COpaquePointer?, dwpropid: UInt, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certGetCTLContextProperty((pctlcontext?.value ?: 0L).toString(), dwpropid.toInt(), (pvdata?.value ?: 0L).toString(), (pcbdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertGetCertificateChain(hchainengine: HCERTCHAINENGINE, pcertcontext: Long, ptime: Long, hadditionalstore: HCERTSTORE, pchainpara: Long, dwflags: UInt, pvreserved: Long, ppchaincontext: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertGetCertificateChain(hchainengine.toString(), pcertcontext.toString(), ptime.toString(), hadditionalstore.toString(), pchainpara.toString(), dwflags.toInt(), pvreserved.toString(), ppchaincontext.toString()) as Int) else 0
+public actual fun certGetCertificateChain(hchainengine: Hcertchainengine, pcertcontext: COpaquePointer?, ptime: COpaquePointer?, hadditionalstore: Hcertstore, pchainpara: COpaquePointer?, dwflags: UInt, pvreserved: COpaquePointer?, ppchaincontext: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certGetCertificateChain((hchainengine?.value ?: 0L).toString(), (pcertcontext?.value ?: 0L).toString(), (ptime?.value ?: 0L).toString(), (hadditionalstore?.value ?: 0L).toString(), (pchainpara?.value ?: 0L).toString(), dwflags.toInt(), (pvreserved?.value ?: 0L).toString(), (ppchaincontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertGetCertificateContextProperty(pcertcontext: Long, dwpropid: UInt, pvdata: Long, pcbdata: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertGetCertificateContextProperty(pcertcontext.toString(), dwpropid.toInt(), pvdata.toString(), pcbdata.toString()) as Int) else 0
+public actual fun certGetCertificateContextProperty(pcertcontext: COpaquePointer?, dwpropid: UInt, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certGetCertificateContextProperty((pcertcontext?.value ?: 0L).toString(), dwpropid.toInt(), (pvdata?.value ?: 0L).toString(), (pcbdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertGetEnhancedKeyUsage(pcertcontext: Long, dwflags: UInt, pusage: Long, pcbusage: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertGetEnhancedKeyUsage(pcertcontext.toString(), dwflags.toInt(), pusage.toString(), pcbusage.toString()) as Int) else 0
+public actual fun certGetEnhancedKeyUsage(pcertcontext: COpaquePointer?, dwflags: UInt, pusage: COpaquePointer?, pcbusage: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certGetEnhancedKeyUsage((pcertcontext?.value ?: 0L).toString(), dwflags.toInt(), (pusage?.value ?: 0L).toString(), (pcbusage?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertGetIntendedKeyUsage(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pcertinfo: Long, pbkeyusage: Long, cbkeyusage: UInt): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertGetIntendedKeyUsage(dwcertencodingtype.toInt(), pcertinfo.toString(), pbkeyusage.toString(), cbkeyusage.toInt()) as Int) else 0
+public actual fun certGetIntendedKeyUsage(dwcertencodingtype: CertQueryEncodingType, pcertinfo: COpaquePointer?, pbkeyusage: COpaquePointer?, cbkeyusage: UInt): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certGetIntendedKeyUsage(dwcertencodingtype.toInt(), (pcertinfo?.value ?: 0L).toString(), (pbkeyusage?.value ?: 0L).toString(), cbkeyusage.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertGetIssuerCertificateFromStore(hcertstore: HCERTSTORE, psubjectcontext: Long, pprevissuercontext: Long, pdwflags: Long): Long =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertGetIssuerCertificateFromStore(hcertstore.toString(), psubjectcontext.toString(), pprevissuercontext.toString(), pdwflags.toString()) as String).toLong() else 0L
+public actual fun certGetIssuerCertificateFromStore(hcertstore: Hcertstore, psubjectcontext: COpaquePointer?, pprevissuercontext: COpaquePointer?, pdwflags: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certGetIssuerCertificateFromStore((hcertstore?.value ?: 0L).toString(), (psubjectcontext?.value ?: 0L).toString(), (pprevissuercontext?.value ?: 0L).toString(), (pdwflags?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertGetNameStringA(pcertcontext: Long, dwtype: UInt, dwflags: UInt, pvtypepara: Long, psznamestring: PSTR, cchnamestring: UInt): UInt =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertGetNameStringA(pcertcontext.toString(), dwtype.toInt(), dwflags.toInt(), pvtypepara.toString(), psznamestring.toString(), cchnamestring.toInt()) as Int).toUInt() else 0u
+public actual fun certGetNameStringA(pcertcontext: COpaquePointer?, dwtype: UInt, dwflags: UInt, pvtypepara: COpaquePointer?, psznamestring: Pstr, cchnamestring: UInt): UInt =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certGetNameStringA((pcertcontext?.value ?: 0L).toString(), dwtype.toInt(), dwflags.toInt(), (pvtypepara?.value ?: 0L).toString(), (psznamestring?.value ?: 0L).toString(), cchnamestring.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertGetNameStringW(pcertcontext: Long, dwtype: UInt, dwflags: UInt, pvtypepara: Long, psznamestring: PWSTR, cchnamestring: UInt): UInt =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertGetNameStringW(pcertcontext.toString(), dwtype.toInt(), dwflags.toInt(), pvtypepara.toString(), psznamestring.toString(), cchnamestring.toInt()) as Int).toUInt() else 0u
+public actual fun certGetNameStringW(pcertcontext: COpaquePointer?, dwtype: UInt, dwflags: UInt, pvtypepara: COpaquePointer?, psznamestring: Pwstr, cchnamestring: UInt): UInt =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certGetNameStringW((pcertcontext?.value ?: 0L).toString(), dwtype.toInt(), dwflags.toInt(), (pvtypepara?.value ?: 0L).toString(), (psznamestring?.value ?: 0L).toString(), cchnamestring.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertGetPublicKeyLength(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, ppublickey: Long): UInt =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertGetPublicKeyLength(dwcertencodingtype.toInt(), ppublickey.toString()) as Int).toUInt() else 0u
+public actual fun certGetPublicKeyLength(dwcertencodingtype: CertQueryEncodingType, ppublickey: COpaquePointer?): UInt =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certGetPublicKeyLength(dwcertencodingtype.toInt(), (ppublickey?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertGetServerOcspResponseContext(hserverocspresponse: Long, dwflags: UInt, pvreserved: Long): Long =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertGetServerOcspResponseContext(hserverocspresponse.toString(), dwflags.toInt(), pvreserved.toString()) as String).toLong() else 0L
+public actual fun certGetServerOcspResponseContext(hserverocspresponse: COpaquePointer?, dwflags: UInt, pvreserved: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certGetServerOcspResponseContext((hserverocspresponse?.value ?: 0L).toString(), dwflags.toInt(), (pvreserved?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertGetStoreProperty(hcertstore: HCERTSTORE, dwpropid: UInt, pvdata: Long, pcbdata: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertGetStoreProperty(hcertstore.toString(), dwpropid.toInt(), pvdata.toString(), pcbdata.toString()) as Int) else 0
+public actual fun certGetStoreProperty(hcertstore: Hcertstore, dwpropid: UInt, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certGetStoreProperty((hcertstore?.value ?: 0L).toString(), dwpropid.toInt(), (pvdata?.value ?: 0L).toString(), (pcbdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertGetSubjectCertificateFromStore(hcertstore: HCERTSTORE, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pcertid: Long): Long =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertGetSubjectCertificateFromStore(hcertstore.toString(), dwcertencodingtype.toInt(), pcertid.toString()) as String).toLong() else 0L
+public actual fun certGetSubjectCertificateFromStore(hcertstore: Hcertstore, dwcertencodingtype: CertQueryEncodingType, pcertid: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certGetSubjectCertificateFromStore((hcertstore?.value ?: 0L).toString(), dwcertencodingtype.toInt(), (pcertid?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertGetValidUsages(ccerts: UInt, rghcerts: Long, cnumoids: Long, rghoids: Long, pcboids: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertGetValidUsages(ccerts.toInt(), rghcerts.toString(), cnumoids.toString(), rghoids.toString(), pcboids.toString()) as Int) else 0
+public actual fun certGetValidUsages(ccerts: UInt, rghcerts: COpaquePointer?, cnumoids: COpaquePointer?, rghoids: COpaquePointer?, pcboids: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certGetValidUsages(ccerts.toInt(), (rghcerts?.value ?: 0L).toString(), (cnumoids?.value ?: 0L).toString(), (rghoids?.value ?: 0L).toString(), (pcboids?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertIsRDNAttrsInCertificateName(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, dwflags: UInt, pcertname: Long, prdn: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertIsRDNAttrsInCertificateName(dwcertencodingtype.toInt(), dwflags.toInt(), pcertname.toString(), prdn.toString()) as Int) else 0
+public actual fun certIsRDNAttrsInCertificateName(dwcertencodingtype: CertQueryEncodingType, dwflags: UInt, pcertname: COpaquePointer?, prdn: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certIsRDNAttrsInCertificateName(dwcertencodingtype.toInt(), dwflags.toInt(), (pcertname?.value ?: 0L).toString(), (prdn?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertIsStrongHashToSign(pstrongsignpara: Long, pwszcnghashalgid: PCWSTR, psigningcert: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertIsStrongHashToSign(pstrongsignpara.toString(), pwszcnghashalgid.toString(), psigningcert.toString()) as Int) else 0
+public actual fun certIsStrongHashToSign(pstrongsignpara: COpaquePointer?, pwszcnghashalgid: Pcwstr, psigningcert: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certIsStrongHashToSign((pstrongsignpara?.value ?: 0L).toString(), (pwszcnghashalgid?.value ?: 0L).toString(), (psigningcert?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertIsValidCRLForCertificate(pcert: Long, pcrl: Long, dwflags: UInt, pvreserved: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertIsValidCRLForCertificate(pcert.toString(), pcrl.toString(), dwflags.toInt(), pvreserved.toString()) as Int) else 0
+public actual fun certIsValidCRLForCertificate(pcert: COpaquePointer?, pcrl: COpaquePointer?, dwflags: UInt, pvreserved: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certIsValidCRLForCertificate((pcert?.value ?: 0L).toString(), (pcrl?.value ?: 0L).toString(), dwflags.toInt(), (pvreserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertIsWeakHash(dwhashusetype: UInt, pwszcnghashalgid: PCWSTR, dwchainflags: UInt, psignerchaincontext: Long, ptimestamp: Long, pwszfilename: PCWSTR): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertIsWeakHash(dwhashusetype.toInt(), pwszcnghashalgid.toString(), dwchainflags.toInt(), psignerchaincontext.toString(), ptimestamp.toString(), pwszfilename.toString()) as Int) else 0
+public actual fun certIsWeakHash(dwhashusetype: UInt, pwszcnghashalgid: Pcwstr, dwchainflags: UInt, psignerchaincontext: COpaquePointer?, ptimestamp: COpaquePointer?, pwszfilename: Pcwstr): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certIsWeakHash(dwhashusetype.toInt(), (pwszcnghashalgid?.value ?: 0L).toString(), dwchainflags.toInt(), (psignerchaincontext?.value ?: 0L).toString(), (ptimestamp?.value ?: 0L).toString(), (pwszfilename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertNameToStrA(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pname: Long, dwstrtype: CERT_STRING_TYPE, psz: PSTR, csz: UInt): UInt =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertNameToStrA(dwcertencodingtype.toInt(), pname.toString(), dwstrtype.toInt(), psz.toString(), csz.toInt()) as Int).toUInt() else 0u
+public actual fun certNameToStrA(dwcertencodingtype: CertQueryEncodingType, pname: COpaquePointer?, dwstrtype: CertStringType, psz: Pstr, csz: UInt): UInt =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certNameToStrA(dwcertencodingtype.toInt(), (pname?.value ?: 0L).toString(), dwstrtype.toInt(), (psz?.value ?: 0L).toString(), csz.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertNameToStrW(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pname: Long, dwstrtype: CERT_STRING_TYPE, psz: PWSTR, csz: UInt): UInt =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertNameToStrW(dwcertencodingtype.toInt(), pname.toString(), dwstrtype.toInt(), psz.toString(), csz.toInt()) as Int).toUInt() else 0u
+public actual fun certNameToStrW(dwcertencodingtype: CertQueryEncodingType, pname: COpaquePointer?, dwstrtype: CertStringType, psz: Pwstr, csz: UInt): UInt =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certNameToStrW(dwcertencodingtype.toInt(), (pname?.value ?: 0L).toString(), dwstrtype.toInt(), (psz?.value ?: 0L).toString(), csz.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertOIDToAlgId(pszobjid: PCSTR): UInt =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertOIDToAlgId(pszobjid.toString()) as Int).toUInt() else 0u
+public actual fun certOIDToAlgId(pszobjid: Pcstr): UInt =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certOIDToAlgId((pszobjid?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertOpenServerOcspResponse(pchaincontext: Long, dwflags: UInt, popenpara: Long): Long =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertOpenServerOcspResponse(pchaincontext.toString(), dwflags.toInt(), popenpara.toString()) as String).toLong() else 0L
+public actual fun certOpenServerOcspResponse(pchaincontext: COpaquePointer?, dwflags: UInt, popenpara: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certOpenServerOcspResponse((pchaincontext?.value ?: 0L).toString(), dwflags.toInt(), (popenpara?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertOpenStore(lpszstoreprovider: PCSTR, dwencodingtype: CERT_QUERY_ENCODING_TYPE, hcryptprov: HCRYPTPROV_LEGACY, dwflags: CERT_OPEN_STORE_FLAGS, pvpara: Long): HCERTSTORE =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertOpenStore(lpszstoreprovider.toString(), dwencodingtype.toInt(), hcryptprov.toString(), dwflags.toInt(), pvpara.toString()) as String).toLong() else 0L
+public actual fun certOpenStore(lpszstoreprovider: Pcstr, dwencodingtype: CertQueryEncodingType, hcryptprov: HcryptprovLegacy, dwflags: CertOpenStoreFlags, pvpara: COpaquePointer?): Hcertstore =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certOpenStore((lpszstoreprovider?.value ?: 0L).toString(), dwencodingtype.toInt(), hcryptprov.toString(), dwflags.toInt(), (pvpara?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertOpenSystemStoreA(hprov: HCRYPTPROV_LEGACY, szsubsystemprotocol: PCSTR): HCERTSTORE =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertOpenSystemStoreA(hprov.toString(), szsubsystemprotocol.toString()) as String).toLong() else 0L
+public actual fun certOpenSystemStoreA(hprov: HcryptprovLegacy, szsubsystemprotocol: Pcstr): Hcertstore =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certOpenSystemStoreA(hprov.toString(), (szsubsystemprotocol?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertOpenSystemStoreW(hprov: HCRYPTPROV_LEGACY, szsubsystemprotocol: PCWSTR): HCERTSTORE =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertOpenSystemStoreW(hprov.toString(), szsubsystemprotocol.toString()) as String).toLong() else 0L
+public actual fun certOpenSystemStoreW(hprov: HcryptprovLegacy, szsubsystemprotocol: Pcwstr): Hcertstore =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certOpenSystemStoreW(hprov.toString(), (szsubsystemprotocol?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertRDNValueToStrA(dwvaluetype: UInt, pvalue: Long, psz: PSTR, csz: UInt): UInt =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertRDNValueToStrA(dwvaluetype.toInt(), pvalue.toString(), psz.toString(), csz.toInt()) as Int).toUInt() else 0u
+public actual fun certRDNValueToStrA(dwvaluetype: UInt, pvalue: COpaquePointer?, psz: Pstr, csz: UInt): UInt =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certRDNValueToStrA(dwvaluetype.toInt(), (pvalue?.value ?: 0L).toString(), (psz?.value ?: 0L).toString(), csz.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertRDNValueToStrW(dwvaluetype: UInt, pvalue: Long, psz: PWSTR, csz: UInt): UInt =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertRDNValueToStrW(dwvaluetype.toInt(), pvalue.toString(), psz.toString(), csz.toInt()) as Int).toUInt() else 0u
+public actual fun certRDNValueToStrW(dwvaluetype: UInt, pvalue: COpaquePointer?, psz: Pwstr, csz: UInt): UInt =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certRDNValueToStrW(dwvaluetype.toInt(), (pvalue?.value ?: 0L).toString(), (psz?.value ?: 0L).toString(), csz.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertRegisterPhysicalStore(pvsystemstore: Long, dwflags: UInt, pwszstorename: PCWSTR, pstoreinfo: Long, pvreserved: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertRegisterPhysicalStore(pvsystemstore.toString(), dwflags.toInt(), pwszstorename.toString(), pstoreinfo.toString(), pvreserved.toString()) as Int) else 0
+public actual fun certRegisterPhysicalStore(pvsystemstore: COpaquePointer?, dwflags: UInt, pwszstorename: Pcwstr, pstoreinfo: COpaquePointer?, pvreserved: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certRegisterPhysicalStore((pvsystemstore?.value ?: 0L).toString(), dwflags.toInt(), (pwszstorename?.value ?: 0L).toString(), (pstoreinfo?.value ?: 0L).toString(), (pvreserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertRegisterSystemStore(pvsystemstore: Long, dwflags: UInt, pstoreinfo: Long, pvreserved: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertRegisterSystemStore(pvsystemstore.toString(), dwflags.toInt(), pstoreinfo.toString(), pvreserved.toString()) as Int) else 0
+public actual fun certRegisterSystemStore(pvsystemstore: COpaquePointer?, dwflags: UInt, pstoreinfo: COpaquePointer?, pvreserved: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certRegisterSystemStore((pvsystemstore?.value ?: 0L).toString(), dwflags.toInt(), (pstoreinfo?.value ?: 0L).toString(), (pvreserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertRemoveEnhancedKeyUsageIdentifier(pcertcontext: Long, pszusageidentifier: PCSTR): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertRemoveEnhancedKeyUsageIdentifier(pcertcontext.toString(), pszusageidentifier.toString()) as Int) else 0
+public actual fun certRemoveEnhancedKeyUsageIdentifier(pcertcontext: COpaquePointer?, pszusageidentifier: Pcstr): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certRemoveEnhancedKeyUsageIdentifier((pcertcontext?.value ?: 0L).toString(), (pszusageidentifier?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertRemoveStoreFromCollection(hcollectionstore: HCERTSTORE, hsiblingstore: HCERTSTORE) {
+public actual fun certRemoveStoreFromCollection(hcollectionstore: Hcertstore, hsiblingstore: Hcertstore) {
     if (_windowsWin32SecurityCryptographyNapiAddon != null) {
-        _windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertRemoveStoreFromCollection(hcollectionstore.toString(), hsiblingstore.toString())
+        _windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certRemoveStoreFromCollection((hcollectionstore?.value ?: 0L).toString(), (hsiblingstore?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CertResyncCertificateChainEngine(hchainengine: HCERTCHAINENGINE): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertResyncCertificateChainEngine(hchainengine.toString()) as Int) else 0
+public actual fun certResyncCertificateChainEngine(hchainengine: Hcertchainengine): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certResyncCertificateChainEngine((hchainengine?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertRetrieveLogoOrBiometricInfo(pcertcontext: Long, lpszlogoorbiometrictype: PCSTR, dwretrievalflags: UInt, dwtimeout: UInt, dwflags: UInt, pvreserved: Long, ppbdata: Long, pcbdata: Long, ppwszmimetype: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertRetrieveLogoOrBiometricInfo(pcertcontext.toString(), lpszlogoorbiometrictype.toString(), dwretrievalflags.toInt(), dwtimeout.toInt(), dwflags.toInt(), pvreserved.toString(), ppbdata.toString(), pcbdata.toString(), ppwszmimetype.toString()) as Int) else 0
+public actual fun certRetrieveLogoOrBiometricInfo(pcertcontext: COpaquePointer?, lpszlogoorbiometrictype: Pcstr, dwretrievalflags: UInt, dwtimeout: UInt, dwflags: UInt, pvreserved: COpaquePointer?, ppbdata: COpaquePointer?, pcbdata: COpaquePointer?, ppwszmimetype: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certRetrieveLogoOrBiometricInfo((pcertcontext?.value ?: 0L).toString(), (lpszlogoorbiometrictype?.value ?: 0L).toString(), dwretrievalflags.toInt(), dwtimeout.toInt(), dwflags.toInt(), (pvreserved?.value ?: 0L).toString(), (ppbdata?.value ?: 0L).toString(), (pcbdata?.value ?: 0L).toString(), (ppwszmimetype?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertSaveStore(hcertstore: HCERTSTORE, dwencodingtype: CERT_QUERY_ENCODING_TYPE, dwsaveas: CERT_STORE_SAVE_AS, dwsaveto: CERT_STORE_SAVE_TO, pvsavetopara: Long, dwflags: UInt): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertSaveStore(hcertstore.toString(), dwencodingtype.toInt(), dwsaveas.toInt(), dwsaveto.toInt(), pvsavetopara.toString(), dwflags.toInt()) as Int) else 0
+public actual fun certSaveStore(hcertstore: Hcertstore, dwencodingtype: CertQueryEncodingType, dwsaveas: CertStoreSaveAs, dwsaveto: CertStoreSaveTo, pvsavetopara: COpaquePointer?, dwflags: UInt): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certSaveStore((hcertstore?.value ?: 0L).toString(), dwencodingtype.toInt(), dwsaveas.toInt(), dwsaveto.toInt(), (pvsavetopara?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertSelectCertificateChains(pselectioncontext: Long, dwflags: UInt, pchainparameters: Long, ccriteria: UInt, rgpcriteria: Long, hstore: HCERTSTORE, pcselection: Long, pprgpselection: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertSelectCertificateChains(pselectioncontext.toString(), dwflags.toInt(), pchainparameters.toString(), ccriteria.toInt(), rgpcriteria.toString(), hstore.toString(), pcselection.toString(), pprgpselection.toString()) as Int) else 0
+public actual fun certSelectCertificateChains(pselectioncontext: COpaquePointer?, dwflags: UInt, pchainparameters: COpaquePointer?, ccriteria: UInt, rgpcriteria: COpaquePointer?, hstore: Hcertstore, pcselection: COpaquePointer?, pprgpselection: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certSelectCertificateChains((pselectioncontext?.value ?: 0L).toString(), dwflags.toInt(), (pchainparameters?.value ?: 0L).toString(), ccriteria.toInt(), (rgpcriteria?.value ?: 0L).toString(), (hstore?.value ?: 0L).toString(), (pcselection?.value ?: 0L).toString(), (pprgpselection?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertSerializeCRLStoreElement(pcrlcontext: Long, dwflags: UInt, pbelement: Long, pcbelement: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertSerializeCRLStoreElement(pcrlcontext.toString(), dwflags.toInt(), pbelement.toString(), pcbelement.toString()) as Int) else 0
+public actual fun certSerializeCRLStoreElement(pcrlcontext: COpaquePointer?, dwflags: UInt, pbelement: COpaquePointer?, pcbelement: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certSerializeCRLStoreElement((pcrlcontext?.value ?: 0L).toString(), dwflags.toInt(), (pbelement?.value ?: 0L).toString(), (pcbelement?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertSerializeCTLStoreElement(pctlcontext: Long, dwflags: UInt, pbelement: Long, pcbelement: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertSerializeCTLStoreElement(pctlcontext.toString(), dwflags.toInt(), pbelement.toString(), pcbelement.toString()) as Int) else 0
+public actual fun certSerializeCTLStoreElement(pctlcontext: COpaquePointer?, dwflags: UInt, pbelement: COpaquePointer?, pcbelement: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certSerializeCTLStoreElement((pctlcontext?.value ?: 0L).toString(), dwflags.toInt(), (pbelement?.value ?: 0L).toString(), (pcbelement?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertSerializeCertificateStoreElement(pcertcontext: Long, dwflags: UInt, pbelement: Long, pcbelement: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertSerializeCertificateStoreElement(pcertcontext.toString(), dwflags.toInt(), pbelement.toString(), pcbelement.toString()) as Int) else 0
+public actual fun certSerializeCertificateStoreElement(pcertcontext: COpaquePointer?, dwflags: UInt, pbelement: COpaquePointer?, pcbelement: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certSerializeCertificateStoreElement((pcertcontext?.value ?: 0L).toString(), dwflags.toInt(), (pbelement?.value ?: 0L).toString(), (pcbelement?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertSetCRLContextProperty(pcrlcontext: Long, dwpropid: UInt, dwflags: UInt, pvdata: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertSetCRLContextProperty(pcrlcontext.toString(), dwpropid.toInt(), dwflags.toInt(), pvdata.toString()) as Int) else 0
+public actual fun certSetCRLContextProperty(pcrlcontext: COpaquePointer?, dwpropid: UInt, dwflags: UInt, pvdata: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certSetCRLContextProperty((pcrlcontext?.value ?: 0L).toString(), dwpropid.toInt(), dwflags.toInt(), (pvdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertSetCTLContextProperty(pctlcontext: Long, dwpropid: UInt, dwflags: UInt, pvdata: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertSetCTLContextProperty(pctlcontext.toString(), dwpropid.toInt(), dwflags.toInt(), pvdata.toString()) as Int) else 0
+public actual fun certSetCTLContextProperty(pctlcontext: COpaquePointer?, dwpropid: UInt, dwflags: UInt, pvdata: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certSetCTLContextProperty((pctlcontext?.value ?: 0L).toString(), dwpropid.toInt(), dwflags.toInt(), (pvdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertSetCertificateContextPropertiesFromCTLEntry(pcertcontext: Long, pctlentry: Long, dwflags: UInt): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertSetCertificateContextPropertiesFromCTLEntry(pcertcontext.toString(), pctlentry.toString(), dwflags.toInt()) as Int) else 0
+public actual fun certSetCertificateContextPropertiesFromCTLEntry(pcertcontext: COpaquePointer?, pctlentry: COpaquePointer?, dwflags: UInt): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certSetCertificateContextPropertiesFromCTLEntry((pcertcontext?.value ?: 0L).toString(), (pctlentry?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertSetCertificateContextProperty(pcertcontext: Long, dwpropid: UInt, dwflags: UInt, pvdata: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertSetCertificateContextProperty(pcertcontext.toString(), dwpropid.toInt(), dwflags.toInt(), pvdata.toString()) as Int) else 0
+public actual fun certSetCertificateContextProperty(pcertcontext: COpaquePointer?, dwpropid: UInt, dwflags: UInt, pvdata: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certSetCertificateContextProperty((pcertcontext?.value ?: 0L).toString(), dwpropid.toInt(), dwflags.toInt(), (pvdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertSetEnhancedKeyUsage(pcertcontext: Long, pusage: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertSetEnhancedKeyUsage(pcertcontext.toString(), pusage.toString()) as Int) else 0
+public actual fun certSetEnhancedKeyUsage(pcertcontext: COpaquePointer?, pusage: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certSetEnhancedKeyUsage((pcertcontext?.value ?: 0L).toString(), (pusage?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertSetStoreProperty(hcertstore: HCERTSTORE, dwpropid: UInt, dwflags: UInt, pvdata: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertSetStoreProperty(hcertstore.toString(), dwpropid.toInt(), dwflags.toInt(), pvdata.toString()) as Int) else 0
+public actual fun certSetStoreProperty(hcertstore: Hcertstore, dwpropid: UInt, dwflags: UInt, pvdata: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certSetStoreProperty((hcertstore?.value ?: 0L).toString(), dwpropid.toInt(), dwflags.toInt(), (pvdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertStrToNameA(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pszx500: PCSTR, dwstrtype: CERT_STRING_TYPE, pvreserved: Long, pbencoded: Long, pcbencoded: Long, ppszerror: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertStrToNameA(dwcertencodingtype.toInt(), pszx500.toString(), dwstrtype.toInt(), pvreserved.toString(), pbencoded.toString(), pcbencoded.toString(), ppszerror.toString()) as Int) else 0
+public actual fun certStrToNameA(dwcertencodingtype: CertQueryEncodingType, pszx500: Pcstr, dwstrtype: CertStringType, pvreserved: COpaquePointer?, pbencoded: COpaquePointer?, pcbencoded: COpaquePointer?, ppszerror: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certStrToNameA(dwcertencodingtype.toInt(), (pszx500?.value ?: 0L).toString(), dwstrtype.toInt(), (pvreserved?.value ?: 0L).toString(), (pbencoded?.value ?: 0L).toString(), (pcbencoded?.value ?: 0L).toString(), (ppszerror?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertStrToNameW(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pszx500: PCWSTR, dwstrtype: CERT_STRING_TYPE, pvreserved: Long, pbencoded: Long, pcbencoded: Long, ppszerror: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertStrToNameW(dwcertencodingtype.toInt(), pszx500.toString(), dwstrtype.toInt(), pvreserved.toString(), pbencoded.toString(), pcbencoded.toString(), ppszerror.toString()) as Int) else 0
+public actual fun certStrToNameW(dwcertencodingtype: CertQueryEncodingType, pszx500: Pcwstr, dwstrtype: CertStringType, pvreserved: COpaquePointer?, pbencoded: COpaquePointer?, pcbencoded: COpaquePointer?, ppszerror: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certStrToNameW(dwcertencodingtype.toInt(), (pszx500?.value ?: 0L).toString(), dwstrtype.toInt(), (pvreserved?.value ?: 0L).toString(), (pbencoded?.value ?: 0L).toString(), (pcbencoded?.value ?: 0L).toString(), (ppszerror?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertUnregisterPhysicalStore(pvsystemstore: Long, dwflags: UInt, pwszstorename: PCWSTR): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertUnregisterPhysicalStore(pvsystemstore.toString(), dwflags.toInt(), pwszstorename.toString()) as Int) else 0
+public actual fun certUnregisterPhysicalStore(pvsystemstore: COpaquePointer?, dwflags: UInt, pwszstorename: Pcwstr): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certUnregisterPhysicalStore((pvsystemstore?.value ?: 0L).toString(), dwflags.toInt(), (pwszstorename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertUnregisterSystemStore(pvsystemstore: Long, dwflags: UInt): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertUnregisterSystemStore(pvsystemstore.toString(), dwflags.toInt()) as Int) else 0
+public actual fun certUnregisterSystemStore(pvsystemstore: COpaquePointer?, dwflags: UInt): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certUnregisterSystemStore((pvsystemstore?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertVerifyCRLRevocation(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pcertid: Long, ccrlinfo: UInt, rgpcrlinfo: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertVerifyCRLRevocation(dwcertencodingtype.toInt(), pcertid.toString(), ccrlinfo.toInt(), rgpcrlinfo.toString()) as Int) else 0
+public actual fun certVerifyCRLRevocation(dwcertencodingtype: CertQueryEncodingType, pcertid: COpaquePointer?, ccrlinfo: UInt, rgpcrlinfo: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certVerifyCRLRevocation(dwcertencodingtype.toInt(), (pcertid?.value ?: 0L).toString(), ccrlinfo.toInt(), (rgpcrlinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertVerifyCRLTimeValidity(ptimetoverify: Long, pcrlinfo: Long): Int =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertVerifyCRLTimeValidity(ptimetoverify.toString(), pcrlinfo.toString()) as Int) else 0
+public actual fun certVerifyCRLTimeValidity(ptimetoverify: COpaquePointer?, pcrlinfo: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certVerifyCRLTimeValidity((ptimetoverify?.value ?: 0L).toString(), (pcrlinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertVerifyCTLUsage(dwencodingtype: UInt, dwsubjecttype: UInt, pvsubject: Long, psubjectusage: Long, dwflags: UInt, pverifyusagepara: Long, pverifyusagestatus: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertVerifyCTLUsage(dwencodingtype.toInt(), dwsubjecttype.toInt(), pvsubject.toString(), psubjectusage.toString(), dwflags.toInt(), pverifyusagepara.toString(), pverifyusagestatus.toString()) as Int) else 0
+public actual fun certVerifyCTLUsage(dwencodingtype: UInt, dwsubjecttype: UInt, pvsubject: COpaquePointer?, psubjectusage: COpaquePointer?, dwflags: UInt, pverifyusagepara: COpaquePointer?, pverifyusagestatus: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certVerifyCTLUsage(dwencodingtype.toInt(), dwsubjecttype.toInt(), (pvsubject?.value ?: 0L).toString(), (psubjectusage?.value ?: 0L).toString(), dwflags.toInt(), (pverifyusagepara?.value ?: 0L).toString(), (pverifyusagestatus?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertVerifyCertificateChainPolicy(pszpolicyoid: PCSTR, pchaincontext: Long, ppolicypara: Long, ppolicystatus: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertVerifyCertificateChainPolicy(pszpolicyoid.toString(), pchaincontext.toString(), ppolicypara.toString(), ppolicystatus.toString()) as Int) else 0
+public actual fun certVerifyCertificateChainPolicy(pszpolicyoid: Pcstr, pchaincontext: COpaquePointer?, ppolicypara: COpaquePointer?, ppolicystatus: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certVerifyCertificateChainPolicy((pszpolicyoid?.value ?: 0L).toString(), (pchaincontext?.value ?: 0L).toString(), (ppolicypara?.value ?: 0L).toString(), (ppolicystatus?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertVerifyRevocation(dwencodingtype: UInt, dwrevtype: UInt, ccontext: UInt, rgpvcontext: Long, dwflags: UInt, prevpara: Long, prevstatus: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertVerifyRevocation(dwencodingtype.toInt(), dwrevtype.toInt(), ccontext.toInt(), rgpvcontext.toString(), dwflags.toInt(), prevpara.toString(), prevstatus.toString()) as Int) else 0
+public actual fun certVerifyRevocation(dwencodingtype: UInt, dwrevtype: UInt, ccontext: UInt, rgpvcontext: COpaquePointer?, dwflags: UInt, prevpara: COpaquePointer?, prevstatus: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certVerifyRevocation(dwencodingtype.toInt(), dwrevtype.toInt(), ccontext.toInt(), (rgpvcontext?.value ?: 0L).toString(), dwflags.toInt(), (prevpara?.value ?: 0L).toString(), (prevstatus?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertVerifySubjectCertificateContext(psubject: Long, pissuer: Long, pdwflags: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertVerifySubjectCertificateContext(psubject.toString(), pissuer.toString(), pdwflags.toString()) as Int) else 0
+public actual fun certVerifySubjectCertificateContext(psubject: COpaquePointer?, pissuer: COpaquePointer?, pdwflags: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certVerifySubjectCertificateContext((psubject?.value ?: 0L).toString(), (pissuer?.value ?: 0L).toString(), (pdwflags?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertVerifyTimeValidity(ptimetoverify: Long, pcertinfo: Long): Int =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertVerifyTimeValidity(ptimetoverify.toString(), pcertinfo.toString()) as Int) else 0
+public actual fun certVerifyTimeValidity(ptimetoverify: COpaquePointer?, pcertinfo: COpaquePointer?): Int =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certVerifyTimeValidity((ptimetoverify?.value ?: 0L).toString(), (pcertinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CertVerifyValidityNesting(psubjectinfo: Long, pissuerinfo: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CertVerifyValidityNesting(psubjectinfo.toString(), pissuerinfo.toString()) as Int) else 0
+public actual fun certVerifyValidityNesting(psubjectinfo: COpaquePointer?, pissuerinfo: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_certVerifyValidityNesting((psubjectinfo?.value ?: 0L).toString(), (pissuerinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CloseCryptoHandle(hcrypto: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CloseCryptoHandle(hcrypto.toString()) as Int) else 0
+public actual fun closeCryptoHandle(hcrypto: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_closeCryptoHandle((hcrypto?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptAcquireCertificatePrivateKey(pcert: Long, dwflags: CRYPT_ACQUIRE_FLAGS, pvparameters: Long, phcryptprovorncryptkey: Long, pdwkeyspec: Long, pfcallerfreeprovorncryptkey: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptAcquireCertificatePrivateKey(pcert.toString(), dwflags.toInt(), pvparameters.toString(), phcryptprovorncryptkey.toString(), pdwkeyspec.toString(), pfcallerfreeprovorncryptkey.toString()) as Int) else 0
+public actual fun cryptAcquireCertificatePrivateKey(pcert: COpaquePointer?, dwflags: CryptAcquireFlags, pvparameters: COpaquePointer?, phcryptprovorncryptkey: COpaquePointer?, pdwkeyspec: COpaquePointer?, pfcallerfreeprovorncryptkey: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptAcquireCertificatePrivateKey((pcert?.value ?: 0L).toString(), dwflags.toInt(), (pvparameters?.value ?: 0L).toString(), (phcryptprovorncryptkey?.value ?: 0L).toString(), (pdwkeyspec?.value ?: 0L).toString(), (pfcallerfreeprovorncryptkey?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptAcquireContextA(phprov: Long, szcontainer: PCSTR, szprovider: PCSTR, dwprovtype: UInt, dwflags: UInt): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptAcquireContextA(phprov.toString(), szcontainer.toString(), szprovider.toString(), dwprovtype.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun cryptAcquireContextA(phprov: COpaquePointer?, szcontainer: Pcstr, szprovider: Pcstr, dwprovtype: UInt, dwflags: UInt): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptAcquireContextA((phprov?.value ?: 0L).toString(), (szcontainer?.value ?: 0L).toString(), (szprovider?.value ?: 0L).toString(), dwprovtype.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptAcquireContextW(phprov: Long, szcontainer: PCWSTR, szprovider: PCWSTR, dwprovtype: UInt, dwflags: UInt): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptAcquireContextW(phprov.toString(), szcontainer.toString(), szprovider.toString(), dwprovtype.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun cryptAcquireContextW(phprov: COpaquePointer?, szcontainer: Pcwstr, szprovider: Pcwstr, dwprovtype: UInt, dwflags: UInt): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptAcquireContextW((phprov?.value ?: 0L).toString(), (szcontainer?.value ?: 0L).toString(), (szprovider?.value ?: 0L).toString(), dwprovtype.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptBinaryToStringA(pbbinary: Long, cbbinary: UInt, dwflags: CRYPT_STRING, pszstring: PSTR, pcchstring: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptBinaryToStringA(pbbinary.toString(), cbbinary.toInt(), dwflags.toInt(), pszstring.toString(), pcchstring.toString()) as Int) else 0
+public actual fun cryptBinaryToStringA(pbbinary: COpaquePointer?, cbbinary: UInt, dwflags: CryptString, pszstring: Pstr, pcchstring: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptBinaryToStringA((pbbinary?.value ?: 0L).toString(), cbbinary.toInt(), dwflags.toInt(), (pszstring?.value ?: 0L).toString(), (pcchstring?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptBinaryToStringW(pbbinary: Long, cbbinary: UInt, dwflags: CRYPT_STRING, pszstring: PWSTR, pcchstring: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptBinaryToStringW(pbbinary.toString(), cbbinary.toInt(), dwflags.toInt(), pszstring.toString(), pcchstring.toString()) as Int) else 0
+public actual fun cryptBinaryToStringW(pbbinary: COpaquePointer?, cbbinary: UInt, dwflags: CryptString, pszstring: Pwstr, pcchstring: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptBinaryToStringW((pbbinary?.value ?: 0L).toString(), cbbinary.toInt(), dwflags.toInt(), (pszstring?.value ?: 0L).toString(), (pcchstring?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptCloseAsyncHandle(hasync: HCRYPTASYNC): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptCloseAsyncHandle(hasync.toString()) as Int) else 0
+public actual fun cryptCloseAsyncHandle(hasync: Hcryptasync): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptCloseAsyncHandle(hasync.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptContextAddRef(hprov: ULong, pdwreserved: Long, dwflags: UInt): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptContextAddRef(hprov.toString(), pdwreserved.toString(), dwflags.toInt()) as Int) else 0
+public actual fun cryptContextAddRef(hprov: ULong, pdwreserved: COpaquePointer?, dwflags: UInt): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptContextAddRef(hprov.toString(), (pdwreserved?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptCreateAsyncHandle(dwflags: UInt, phasync: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptCreateAsyncHandle(dwflags.toInt(), phasync.toString()) as Int) else 0
+public actual fun cryptCreateAsyncHandle(dwflags: UInt, phasync: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptCreateAsyncHandle(dwflags.toInt(), (phasync?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptCreateHash(hprov: ULong, algid: ALG_ID, hkey: ULong, dwflags: UInt, phhash: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptCreateHash(hprov.toString(), algid.toInt(), hkey.toString(), dwflags.toInt(), phhash.toString()) as Int) else 0
+public actual fun cryptCreateHash(hprov: ULong, algid: AlgId, hkey: ULong, dwflags: UInt, phhash: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptCreateHash(hprov.toString(), algid.toInt(), hkey.toString(), dwflags.toInt(), (phhash?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptCreateKeyIdentifierFromCSP(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pszpubkeyoid: PCSTR, ppubkeystruc: Long, cbpubkeystruc: UInt, dwflags: UInt, pvreserved: Long, pbhash: Long, pcbhash: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptCreateKeyIdentifierFromCSP(dwcertencodingtype.toInt(), pszpubkeyoid.toString(), ppubkeystruc.toString(), cbpubkeystruc.toInt(), dwflags.toInt(), pvreserved.toString(), pbhash.toString(), pcbhash.toString()) as Int) else 0
+public actual fun cryptCreateKeyIdentifierFromCSP(dwcertencodingtype: CertQueryEncodingType, pszpubkeyoid: Pcstr, ppubkeystruc: COpaquePointer?, cbpubkeystruc: UInt, dwflags: UInt, pvreserved: COpaquePointer?, pbhash: COpaquePointer?, pcbhash: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptCreateKeyIdentifierFromCSP(dwcertencodingtype.toInt(), (pszpubkeyoid?.value ?: 0L).toString(), (ppubkeystruc?.value ?: 0L).toString(), cbpubkeystruc.toInt(), dwflags.toInt(), (pvreserved?.value ?: 0L).toString(), (pbhash?.value ?: 0L).toString(), (pcbhash?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptDecodeMessage(dwmsgtypeflags: UInt, pdecryptpara: Long, pverifypara: Long, dwsignerindex: UInt, pbencodedblob: Long, cbencodedblob: UInt, dwprevinnercontenttype: UInt, pdwmsgtype: Long, pdwinnercontenttype: Long, pbdecoded: Long, pcbdecoded: Long, ppxchgcert: Long, ppsignercert: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptDecodeMessage(dwmsgtypeflags.toInt(), pdecryptpara.toString(), pverifypara.toString(), dwsignerindex.toInt(), pbencodedblob.toString(), cbencodedblob.toInt(), dwprevinnercontenttype.toInt(), pdwmsgtype.toString(), pdwinnercontenttype.toString(), pbdecoded.toString(), pcbdecoded.toString(), ppxchgcert.toString(), ppsignercert.toString()) as Int) else 0
+public actual fun cryptDecodeMessage(dwmsgtypeflags: UInt, pdecryptpara: COpaquePointer?, pverifypara: COpaquePointer?, dwsignerindex: UInt, pbencodedblob: COpaquePointer?, cbencodedblob: UInt, dwprevinnercontenttype: UInt, pdwmsgtype: COpaquePointer?, pdwinnercontenttype: COpaquePointer?, pbdecoded: COpaquePointer?, pcbdecoded: COpaquePointer?, ppxchgcert: COpaquePointer?, ppsignercert: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptDecodeMessage(dwmsgtypeflags.toInt(), (pdecryptpara?.value ?: 0L).toString(), (pverifypara?.value ?: 0L).toString(), dwsignerindex.toInt(), (pbencodedblob?.value ?: 0L).toString(), cbencodedblob.toInt(), dwprevinnercontenttype.toInt(), (pdwmsgtype?.value ?: 0L).toString(), (pdwinnercontenttype?.value ?: 0L).toString(), (pbdecoded?.value ?: 0L).toString(), (pcbdecoded?.value ?: 0L).toString(), (ppxchgcert?.value ?: 0L).toString(), (ppsignercert?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptDecodeObject(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, lpszstructtype: PCSTR, pbencoded: Long, cbencoded: UInt, dwflags: UInt, pvstructinfo: Long, pcbstructinfo: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptDecodeObject(dwcertencodingtype.toInt(), lpszstructtype.toString(), pbencoded.toString(), cbencoded.toInt(), dwflags.toInt(), pvstructinfo.toString(), pcbstructinfo.toString()) as Int) else 0
+public actual fun cryptDecodeObject(dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pbencoded: COpaquePointer?, cbencoded: UInt, dwflags: UInt, pvstructinfo: COpaquePointer?, pcbstructinfo: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptDecodeObject(dwcertencodingtype.toInt(), (lpszstructtype?.value ?: 0L).toString(), (pbencoded?.value ?: 0L).toString(), cbencoded.toInt(), dwflags.toInt(), (pvstructinfo?.value ?: 0L).toString(), (pcbstructinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptDecodeObjectEx(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, lpszstructtype: PCSTR, pbencoded: Long, cbencoded: UInt, dwflags: UInt, pdecodepara: Long, pvstructinfo: Long, pcbstructinfo: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptDecodeObjectEx(dwcertencodingtype.toInt(), lpszstructtype.toString(), pbencoded.toString(), cbencoded.toInt(), dwflags.toInt(), pdecodepara.toString(), pvstructinfo.toString(), pcbstructinfo.toString()) as Int) else 0
+public actual fun cryptDecodeObjectEx(dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pbencoded: COpaquePointer?, cbencoded: UInt, dwflags: UInt, pdecodepara: COpaquePointer?, pvstructinfo: COpaquePointer?, pcbstructinfo: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptDecodeObjectEx(dwcertencodingtype.toInt(), (lpszstructtype?.value ?: 0L).toString(), (pbencoded?.value ?: 0L).toString(), cbencoded.toInt(), dwflags.toInt(), (pdecodepara?.value ?: 0L).toString(), (pvstructinfo?.value ?: 0L).toString(), (pcbstructinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptDecrypt(hkey: ULong, hhash: ULong, final: BOOL, dwflags: UInt, pbdata: Long, pdwdatalen: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptDecrypt(hkey.toString(), hhash.toString(), final, dwflags.toInt(), pbdata.toString(), pdwdatalen.toString()) as Int) else 0
+public actual fun cryptDecrypt(hkey: ULong, hhash: ULong, final: Bool, dwflags: UInt, pbdata: COpaquePointer?, pdwdatalen: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptDecrypt(hkey.toString(), hhash.toString(), final, dwflags.toInt(), (pbdata?.value ?: 0L).toString(), (pdwdatalen?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptDecryptAndVerifyMessageSignature(pdecryptpara: Long, pverifypara: Long, dwsignerindex: UInt, pbencryptedblob: Long, cbencryptedblob: UInt, pbdecrypted: Long, pcbdecrypted: Long, ppxchgcert: Long, ppsignercert: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptDecryptAndVerifyMessageSignature(pdecryptpara.toString(), pverifypara.toString(), dwsignerindex.toInt(), pbencryptedblob.toString(), cbencryptedblob.toInt(), pbdecrypted.toString(), pcbdecrypted.toString(), ppxchgcert.toString(), ppsignercert.toString()) as Int) else 0
+public actual fun cryptDecryptAndVerifyMessageSignature(pdecryptpara: COpaquePointer?, pverifypara: COpaquePointer?, dwsignerindex: UInt, pbencryptedblob: COpaquePointer?, cbencryptedblob: UInt, pbdecrypted: COpaquePointer?, pcbdecrypted: COpaquePointer?, ppxchgcert: COpaquePointer?, ppsignercert: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptDecryptAndVerifyMessageSignature((pdecryptpara?.value ?: 0L).toString(), (pverifypara?.value ?: 0L).toString(), dwsignerindex.toInt(), (pbencryptedblob?.value ?: 0L).toString(), cbencryptedblob.toInt(), (pbdecrypted?.value ?: 0L).toString(), (pcbdecrypted?.value ?: 0L).toString(), (ppxchgcert?.value ?: 0L).toString(), (ppsignercert?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptDecryptMessage(pdecryptpara: Long, pbencryptedblob: Long, cbencryptedblob: UInt, pbdecrypted: Long, pcbdecrypted: Long, ppxchgcert: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptDecryptMessage(pdecryptpara.toString(), pbencryptedblob.toString(), cbencryptedblob.toInt(), pbdecrypted.toString(), pcbdecrypted.toString(), ppxchgcert.toString()) as Int) else 0
+public actual fun cryptDecryptMessage(pdecryptpara: COpaquePointer?, pbencryptedblob: COpaquePointer?, cbencryptedblob: UInt, pbdecrypted: COpaquePointer?, pcbdecrypted: COpaquePointer?, ppxchgcert: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptDecryptMessage((pdecryptpara?.value ?: 0L).toString(), (pbencryptedblob?.value ?: 0L).toString(), cbencryptedblob.toInt(), (pbdecrypted?.value ?: 0L).toString(), (pcbdecrypted?.value ?: 0L).toString(), (ppxchgcert?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptDeriveKey(hprov: ULong, algid: ALG_ID, hbasedata: ULong, dwflags: UInt, phkey: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptDeriveKey(hprov.toString(), algid.toInt(), hbasedata.toString(), dwflags.toInt(), phkey.toString()) as Int) else 0
+public actual fun cryptDeriveKey(hprov: ULong, algid: AlgId, hbasedata: ULong, dwflags: UInt, phkey: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptDeriveKey(hprov.toString(), algid.toInt(), hbasedata.toString(), dwflags.toInt(), (phkey?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptDestroyHash(hhash: ULong): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptDestroyHash(hhash.toString()) as Int) else 0
+public actual fun cryptDestroyHash(hhash: ULong): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptDestroyHash(hhash.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptDestroyKey(hkey: ULong): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptDestroyKey(hkey.toString()) as Int) else 0
+public actual fun cryptDestroyKey(hkey: ULong): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptDestroyKey(hkey.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptDuplicateHash(hhash: ULong, pdwreserved: Long, dwflags: UInt, phhash: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptDuplicateHash(hhash.toString(), pdwreserved.toString(), dwflags.toInt(), phhash.toString()) as Int) else 0
+public actual fun cryptDuplicateHash(hhash: ULong, pdwreserved: COpaquePointer?, dwflags: UInt, phhash: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptDuplicateHash(hhash.toString(), (pdwreserved?.value ?: 0L).toString(), dwflags.toInt(), (phhash?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptDuplicateKey(hkey: ULong, pdwreserved: Long, dwflags: UInt, phkey: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptDuplicateKey(hkey.toString(), pdwreserved.toString(), dwflags.toInt(), phkey.toString()) as Int) else 0
+public actual fun cryptDuplicateKey(hkey: ULong, pdwreserved: COpaquePointer?, dwflags: UInt, phkey: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptDuplicateKey(hkey.toString(), (pdwreserved?.value ?: 0L).toString(), dwflags.toInt(), (phkey?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptEncodeObject(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, lpszstructtype: PCSTR, pvstructinfo: Long, pbencoded: Long, pcbencoded: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptEncodeObject(dwcertencodingtype.toInt(), lpszstructtype.toString(), pvstructinfo.toString(), pbencoded.toString(), pcbencoded.toString()) as Int) else 0
+public actual fun cryptEncodeObject(dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pvstructinfo: COpaquePointer?, pbencoded: COpaquePointer?, pcbencoded: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptEncodeObject(dwcertencodingtype.toInt(), (lpszstructtype?.value ?: 0L).toString(), (pvstructinfo?.value ?: 0L).toString(), (pbencoded?.value ?: 0L).toString(), (pcbencoded?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptEncodeObjectEx(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, lpszstructtype: PCSTR, pvstructinfo: Long, dwflags: CRYPT_ENCODE_OBJECT_FLAGS, pencodepara: Long, pvencoded: Long, pcbencoded: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptEncodeObjectEx(dwcertencodingtype.toInt(), lpszstructtype.toString(), pvstructinfo.toString(), dwflags.toInt(), pencodepara.toString(), pvencoded.toString(), pcbencoded.toString()) as Int) else 0
+public actual fun cryptEncodeObjectEx(dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pvstructinfo: COpaquePointer?, dwflags: CryptEncodeObjectFlags, pencodepara: COpaquePointer?, pvencoded: COpaquePointer?, pcbencoded: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptEncodeObjectEx(dwcertencodingtype.toInt(), (lpszstructtype?.value ?: 0L).toString(), (pvstructinfo?.value ?: 0L).toString(), dwflags.toInt(), (pencodepara?.value ?: 0L).toString(), (pvencoded?.value ?: 0L).toString(), (pcbencoded?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptEncrypt(hkey: ULong, hhash: ULong, final: BOOL, dwflags: UInt, pbdata: Long, pdwdatalen: Long, dwbuflen: UInt): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptEncrypt(hkey.toString(), hhash.toString(), final, dwflags.toInt(), pbdata.toString(), pdwdatalen.toString(), dwbuflen.toInt()) as Int) else 0
+public actual fun cryptEncrypt(hkey: ULong, hhash: ULong, final: Bool, dwflags: UInt, pbdata: COpaquePointer?, pdwdatalen: COpaquePointer?, dwbuflen: UInt): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptEncrypt(hkey.toString(), hhash.toString(), final, dwflags.toInt(), (pbdata?.value ?: 0L).toString(), (pdwdatalen?.value ?: 0L).toString(), dwbuflen.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptEncryptMessage(pencryptpara: Long, crecipientcert: UInt, rgprecipientcert: Long, pbtobeencrypted: Long, cbtobeencrypted: UInt, pbencryptedblob: Long, pcbencryptedblob: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptEncryptMessage(pencryptpara.toString(), crecipientcert.toInt(), rgprecipientcert.toString(), pbtobeencrypted.toString(), cbtobeencrypted.toInt(), pbencryptedblob.toString(), pcbencryptedblob.toString()) as Int) else 0
+public actual fun cryptEncryptMessage(pencryptpara: COpaquePointer?, crecipientcert: UInt, rgprecipientcert: COpaquePointer?, pbtobeencrypted: COpaquePointer?, cbtobeencrypted: UInt, pbencryptedblob: COpaquePointer?, pcbencryptedblob: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptEncryptMessage((pencryptpara?.value ?: 0L).toString(), crecipientcert.toInt(), (rgprecipientcert?.value ?: 0L).toString(), (pbtobeencrypted?.value ?: 0L).toString(), cbtobeencrypted.toInt(), (pbencryptedblob?.value ?: 0L).toString(), (pcbencryptedblob?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptEnumKeyIdentifierProperties(pkeyidentifier: Long, dwpropid: UInt, dwflags: UInt, pwszcomputername: PCWSTR, pvreserved: Long, pvarg: Long, pfnenum: PFN_CRYPT_ENUM_KEYID_PROP): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptEnumKeyIdentifierProperties(pkeyidentifier.toString(), dwpropid.toInt(), dwflags.toInt(), pwszcomputername.toString(), pvreserved.toString(), pvarg.toString(), pfnenum.toLong().toString()) as Int) else 0
+public actual fun cryptEnumKeyIdentifierProperties(pkeyidentifier: COpaquePointer?, dwpropid: UInt, dwflags: UInt, pwszcomputername: Pcwstr, pvreserved: COpaquePointer?, pvarg: COpaquePointer?, pfnenum: PfnCryptEnumKeyidProp): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptEnumKeyIdentifierProperties((pkeyidentifier?.value ?: 0L).toString(), dwpropid.toInt(), dwflags.toInt(), (pwszcomputername?.value ?: 0L).toString(), (pvreserved?.value ?: 0L).toString(), (pvarg?.value ?: 0L).toString(), 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptEnumOIDFunction(dwencodingtype: UInt, pszfuncname: PCSTR, pszoid: PCSTR, dwflags: UInt, pvarg: Long, pfnenumoidfunc: PFN_CRYPT_ENUM_OID_FUNC): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptEnumOIDFunction(dwencodingtype.toInt(), pszfuncname.toString(), pszoid.toString(), dwflags.toInt(), pvarg.toString(), pfnenumoidfunc.toLong().toString()) as Int) else 0
+public actual fun cryptEnumOIDFunction(dwencodingtype: UInt, pszfuncname: Pcstr, pszoid: Pcstr, dwflags: UInt, pvarg: COpaquePointer?, pfnenumoidfunc: PfnCryptEnumOidFunc): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptEnumOIDFunction(dwencodingtype.toInt(), (pszfuncname?.value ?: 0L).toString(), (pszoid?.value ?: 0L).toString(), dwflags.toInt(), (pvarg?.value ?: 0L).toString(), 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptEnumOIDInfo(dwgroupid: UInt, dwflags: UInt, pvarg: Long, pfnenumoidinfo: PFN_CRYPT_ENUM_OID_INFO): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptEnumOIDInfo(dwgroupid.toInt(), dwflags.toInt(), pvarg.toString(), pfnenumoidinfo.toLong().toString()) as Int) else 0
+public actual fun cryptEnumOIDInfo(dwgroupid: UInt, dwflags: UInt, pvarg: COpaquePointer?, pfnenumoidinfo: PfnCryptEnumOidInfo): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptEnumOIDInfo(dwgroupid.toInt(), dwflags.toInt(), (pvarg?.value ?: 0L).toString(), 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptEnumProviderTypesA(dwindex: UInt, pdwreserved: Long, dwflags: UInt, pdwprovtype: Long, sztypename: PSTR, pcbtypename: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptEnumProviderTypesA(dwindex.toInt(), pdwreserved.toString(), dwflags.toInt(), pdwprovtype.toString(), sztypename.toString(), pcbtypename.toString()) as Int) else 0
+public actual fun cryptEnumProviderTypesA(dwindex: UInt, pdwreserved: COpaquePointer?, dwflags: UInt, pdwprovtype: COpaquePointer?, sztypename: Pstr, pcbtypename: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptEnumProviderTypesA(dwindex.toInt(), (pdwreserved?.value ?: 0L).toString(), dwflags.toInt(), (pdwprovtype?.value ?: 0L).toString(), (sztypename?.value ?: 0L).toString(), (pcbtypename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptEnumProviderTypesW(dwindex: UInt, pdwreserved: Long, dwflags: UInt, pdwprovtype: Long, sztypename: PWSTR, pcbtypename: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptEnumProviderTypesW(dwindex.toInt(), pdwreserved.toString(), dwflags.toInt(), pdwprovtype.toString(), sztypename.toString(), pcbtypename.toString()) as Int) else 0
+public actual fun cryptEnumProviderTypesW(dwindex: UInt, pdwreserved: COpaquePointer?, dwflags: UInt, pdwprovtype: COpaquePointer?, sztypename: Pwstr, pcbtypename: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptEnumProviderTypesW(dwindex.toInt(), (pdwreserved?.value ?: 0L).toString(), dwflags.toInt(), (pdwprovtype?.value ?: 0L).toString(), (sztypename?.value ?: 0L).toString(), (pcbtypename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptEnumProvidersA(dwindex: UInt, pdwreserved: Long, dwflags: UInt, pdwprovtype: Long, szprovname: PSTR, pcbprovname: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptEnumProvidersA(dwindex.toInt(), pdwreserved.toString(), dwflags.toInt(), pdwprovtype.toString(), szprovname.toString(), pcbprovname.toString()) as Int) else 0
+public actual fun cryptEnumProvidersA(dwindex: UInt, pdwreserved: COpaquePointer?, dwflags: UInt, pdwprovtype: COpaquePointer?, szprovname: Pstr, pcbprovname: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptEnumProvidersA(dwindex.toInt(), (pdwreserved?.value ?: 0L).toString(), dwflags.toInt(), (pdwprovtype?.value ?: 0L).toString(), (szprovname?.value ?: 0L).toString(), (pcbprovname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptEnumProvidersW(dwindex: UInt, pdwreserved: Long, dwflags: UInt, pdwprovtype: Long, szprovname: PWSTR, pcbprovname: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptEnumProvidersW(dwindex.toInt(), pdwreserved.toString(), dwflags.toInt(), pdwprovtype.toString(), szprovname.toString(), pcbprovname.toString()) as Int) else 0
+public actual fun cryptEnumProvidersW(dwindex: UInt, pdwreserved: COpaquePointer?, dwflags: UInt, pdwprovtype: COpaquePointer?, szprovname: Pwstr, pcbprovname: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptEnumProvidersW(dwindex.toInt(), (pdwreserved?.value ?: 0L).toString(), dwflags.toInt(), (pdwprovtype?.value ?: 0L).toString(), (szprovname?.value ?: 0L).toString(), (pcbprovname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptExportKey(hkey: ULong, hexpkey: ULong, dwblobtype: UInt, dwflags: CRYPT_KEY_FLAGS, pbdata: Long, pdwdatalen: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptExportKey(hkey.toString(), hexpkey.toString(), dwblobtype.toInt(), dwflags.toInt(), pbdata.toString(), pdwdatalen.toString()) as Int) else 0
+public actual fun cryptExportKey(hkey: ULong, hexpkey: ULong, dwblobtype: UInt, dwflags: CryptKeyFlags, pbdata: COpaquePointer?, pdwdatalen: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptExportKey(hkey.toString(), hexpkey.toString(), dwblobtype.toInt(), dwflags.toInt(), (pbdata?.value ?: 0L).toString(), (pdwdatalen?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptExportPKCS8(hcryptprov: ULong, dwkeyspec: UInt, pszprivatekeyobjid: PCSTR, dwflags: UInt, pvauxinfo: Long, pbprivatekeyblob: Long, pcbprivatekeyblob: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptExportPKCS8(hcryptprov.toString(), dwkeyspec.toInt(), pszprivatekeyobjid.toString(), dwflags.toInt(), pvauxinfo.toString(), pbprivatekeyblob.toString(), pcbprivatekeyblob.toString()) as Int) else 0
+public actual fun cryptExportPKCS8(hcryptprov: ULong, dwkeyspec: UInt, pszprivatekeyobjid: Pcstr, dwflags: UInt, pvauxinfo: COpaquePointer?, pbprivatekeyblob: COpaquePointer?, pcbprivatekeyblob: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptExportPKCS8(hcryptprov.toString(), dwkeyspec.toInt(), (pszprivatekeyobjid?.value ?: 0L).toString(), dwflags.toInt(), (pvauxinfo?.value ?: 0L).toString(), (pbprivatekeyblob?.value ?: 0L).toString(), (pcbprivatekeyblob?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptExportPublicKeyInfo(hcryptprovorncryptkey: HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, dwkeyspec: UInt, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pinfo: Long, pcbinfo: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptExportPublicKeyInfo(hcryptprovorncryptkey.toString(), dwkeyspec.toInt(), dwcertencodingtype.toInt(), pinfo.toString(), pcbinfo.toString()) as Int) else 0
+public actual fun cryptExportPublicKeyInfo(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: UInt, dwcertencodingtype: CertQueryEncodingType, pinfo: COpaquePointer?, pcbinfo: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptExportPublicKeyInfo(hcryptprovorncryptkey.toString(), dwkeyspec.toInt(), dwcertencodingtype.toInt(), (pinfo?.value ?: 0L).toString(), (pcbinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptExportPublicKeyInfoEx(hcryptprovorncryptkey: HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, dwkeyspec: UInt, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pszpublickeyobjid: PCSTR, dwflags: UInt, pvauxinfo: Long, pinfo: Long, pcbinfo: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptExportPublicKeyInfoEx(hcryptprovorncryptkey.toString(), dwkeyspec.toInt(), dwcertencodingtype.toInt(), pszpublickeyobjid.toString(), dwflags.toInt(), pvauxinfo.toString(), pinfo.toString(), pcbinfo.toString()) as Int) else 0
+public actual fun cryptExportPublicKeyInfoEx(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: UInt, dwcertencodingtype: CertQueryEncodingType, pszpublickeyobjid: Pcstr, dwflags: UInt, pvauxinfo: COpaquePointer?, pinfo: COpaquePointer?, pcbinfo: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptExportPublicKeyInfoEx(hcryptprovorncryptkey.toString(), dwkeyspec.toInt(), dwcertencodingtype.toInt(), (pszpublickeyobjid?.value ?: 0L).toString(), dwflags.toInt(), (pvauxinfo?.value ?: 0L).toString(), (pinfo?.value ?: 0L).toString(), (pcbinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptExportPublicKeyInfoFromBCryptKeyHandle(hbcryptkey: BCRYPT_KEY_HANDLE, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pszpublickeyobjid: PCSTR, dwflags: UInt, pvauxinfo: Long, pinfo: Long, pcbinfo: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptExportPublicKeyInfoFromBCryptKeyHandle(hbcryptkey.toString(), dwcertencodingtype.toInt(), pszpublickeyobjid.toString(), dwflags.toInt(), pvauxinfo.toString(), pinfo.toString(), pcbinfo.toString()) as Int) else 0
+public actual fun cryptExportPublicKeyInfoFromBCryptKeyHandle(hbcryptkey: BcryptKeyHandle, dwcertencodingtype: CertQueryEncodingType, pszpublickeyobjid: Pcstr, dwflags: UInt, pvauxinfo: COpaquePointer?, pinfo: COpaquePointer?, pcbinfo: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptExportPublicKeyInfoFromBCryptKeyHandle((hbcryptkey?.value ?: 0L).toString(), dwcertencodingtype.toInt(), (pszpublickeyobjid?.value ?: 0L).toString(), dwflags.toInt(), (pvauxinfo?.value ?: 0L).toString(), (pinfo?.value ?: 0L).toString(), (pcbinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptFindCertificateKeyProvInfo(pcert: Long, dwflags: CRYPT_FIND_FLAGS, pvreserved: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptFindCertificateKeyProvInfo(pcert.toString(), dwflags.toInt(), pvreserved.toString()) as Int) else 0
+public actual fun cryptFindCertificateKeyProvInfo(pcert: COpaquePointer?, dwflags: CryptFindFlags, pvreserved: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptFindCertificateKeyProvInfo((pcert?.value ?: 0L).toString(), dwflags.toInt(), (pvreserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptFindLocalizedName(pwszcryptname: PCWSTR): PCWSTR =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptFindLocalizedName(pwszcryptname.toString()) as String).toLong() else 0L
+public actual fun cryptFindLocalizedName(pwszcryptname: Pcwstr): Pcwstr =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptFindLocalizedName((pwszcryptname?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptFindOIDInfo(dwkeytype: UInt, pvkey: Long, dwgroupid: UInt): Long =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptFindOIDInfo(dwkeytype.toInt(), pvkey.toString(), dwgroupid.toInt()) as String).toLong() else 0L
+public actual fun cryptFindOIDInfo(dwkeytype: UInt, pvkey: COpaquePointer?, dwgroupid: UInt): COpaquePointer? =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptFindOIDInfo(dwkeytype.toInt(), (pvkey?.value ?: 0L).toString(), dwgroupid.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptFormatObject(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, dwformattype: UInt, dwformatstrtype: UInt, pformatstruct: Long, lpszstructtype: PCSTR, pbencoded: Long, cbencoded: UInt, pbformat: Long, pcbformat: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptFormatObject(dwcertencodingtype.toInt(), dwformattype.toInt(), dwformatstrtype.toInt(), pformatstruct.toString(), lpszstructtype.toString(), pbencoded.toString(), cbencoded.toInt(), pbformat.toString(), pcbformat.toString()) as Int) else 0
+public actual fun cryptFormatObject(dwcertencodingtype: CertQueryEncodingType, dwformattype: UInt, dwformatstrtype: UInt, pformatstruct: COpaquePointer?, lpszstructtype: Pcstr, pbencoded: COpaquePointer?, cbencoded: UInt, pbformat: COpaquePointer?, pcbformat: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptFormatObject(dwcertencodingtype.toInt(), dwformattype.toInt(), dwformatstrtype.toInt(), (pformatstruct?.value ?: 0L).toString(), (lpszstructtype?.value ?: 0L).toString(), (pbencoded?.value ?: 0L).toString(), cbencoded.toInt(), (pbformat?.value ?: 0L).toString(), (pcbformat?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptFreeOIDFunctionAddress(hfuncaddr: Long, dwflags: UInt): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptFreeOIDFunctionAddress(hfuncaddr.toString(), dwflags.toInt()) as Int) else 0
+public actual fun cryptFreeOIDFunctionAddress(hfuncaddr: COpaquePointer?, dwflags: UInt): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptFreeOIDFunctionAddress((hfuncaddr?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptGenKey(hprov: ULong, algid: ALG_ID, dwflags: CRYPT_KEY_FLAGS, phkey: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptGenKey(hprov.toString(), algid.toInt(), dwflags.toInt(), phkey.toString()) as Int) else 0
+public actual fun cryptGenKey(hprov: ULong, algid: AlgId, dwflags: CryptKeyFlags, phkey: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptGenKey(hprov.toString(), algid.toInt(), dwflags.toInt(), (phkey?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptGenRandom(hprov: ULong, dwlen: UInt, pbbuffer: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptGenRandom(hprov.toString(), dwlen.toInt(), pbbuffer.toString()) as Int) else 0
+public actual fun cryptGenRandom(hprov: ULong, dwlen: UInt, pbbuffer: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptGenRandom(hprov.toString(), dwlen.toInt(), (pbbuffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptGetAsyncParam(hasync: HCRYPTASYNC, pszparamoid: PCSTR, ppvparam: Long, ppfnfree: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptGetAsyncParam(hasync.toString(), pszparamoid.toString(), ppvparam.toString(), ppfnfree.toString()) as Int) else 0
+public actual fun cryptGetAsyncParam(hasync: Hcryptasync, pszparamoid: Pcstr, ppvparam: COpaquePointer?, ppfnfree: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptGetAsyncParam(hasync.toString(), (pszparamoid?.value ?: 0L).toString(), (ppvparam?.value ?: 0L).toString(), (ppfnfree?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptGetDefaultOIDDllList(hfuncset: Long, dwencodingtype: UInt, pwszdlllist: PWSTR, pcchdlllist: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptGetDefaultOIDDllList(hfuncset.toString(), dwencodingtype.toInt(), pwszdlllist.toString(), pcchdlllist.toString()) as Int) else 0
+public actual fun cryptGetDefaultOIDDllList(hfuncset: COpaquePointer?, dwencodingtype: UInt, pwszdlllist: Pwstr, pcchdlllist: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptGetDefaultOIDDllList((hfuncset?.value ?: 0L).toString(), dwencodingtype.toInt(), (pwszdlllist?.value ?: 0L).toString(), (pcchdlllist?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptGetDefaultOIDFunctionAddress(hfuncset: Long, dwencodingtype: UInt, pwszdll: PCWSTR, dwflags: UInt, ppvfuncaddr: Long, phfuncaddr: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptGetDefaultOIDFunctionAddress(hfuncset.toString(), dwencodingtype.toInt(), pwszdll.toString(), dwflags.toInt(), ppvfuncaddr.toString(), phfuncaddr.toString()) as Int) else 0
+public actual fun cryptGetDefaultOIDFunctionAddress(hfuncset: COpaquePointer?, dwencodingtype: UInt, pwszdll: Pcwstr, dwflags: UInt, ppvfuncaddr: COpaquePointer?, phfuncaddr: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptGetDefaultOIDFunctionAddress((hfuncset?.value ?: 0L).toString(), dwencodingtype.toInt(), (pwszdll?.value ?: 0L).toString(), dwflags.toInt(), (ppvfuncaddr?.value ?: 0L).toString(), (phfuncaddr?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptGetDefaultProviderA(dwprovtype: UInt, pdwreserved: Long, dwflags: UInt, pszprovname: PSTR, pcbprovname: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptGetDefaultProviderA(dwprovtype.toInt(), pdwreserved.toString(), dwflags.toInt(), pszprovname.toString(), pcbprovname.toString()) as Int) else 0
+public actual fun cryptGetDefaultProviderA(dwprovtype: UInt, pdwreserved: COpaquePointer?, dwflags: UInt, pszprovname: Pstr, pcbprovname: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptGetDefaultProviderA(dwprovtype.toInt(), (pdwreserved?.value ?: 0L).toString(), dwflags.toInt(), (pszprovname?.value ?: 0L).toString(), (pcbprovname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptGetDefaultProviderW(dwprovtype: UInt, pdwreserved: Long, dwflags: UInt, pszprovname: PWSTR, pcbprovname: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptGetDefaultProviderW(dwprovtype.toInt(), pdwreserved.toString(), dwflags.toInt(), pszprovname.toString(), pcbprovname.toString()) as Int) else 0
+public actual fun cryptGetDefaultProviderW(dwprovtype: UInt, pdwreserved: COpaquePointer?, dwflags: UInt, pszprovname: Pwstr, pcbprovname: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptGetDefaultProviderW(dwprovtype.toInt(), (pdwreserved?.value ?: 0L).toString(), dwflags.toInt(), (pszprovname?.value ?: 0L).toString(), (pcbprovname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptGetHashParam(hhash: ULong, dwparam: UInt, pbdata: Long, pdwdatalen: Long, dwflags: UInt): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptGetHashParam(hhash.toString(), dwparam.toInt(), pbdata.toString(), pdwdatalen.toString(), dwflags.toInt()) as Int) else 0
+public actual fun cryptGetHashParam(hhash: ULong, dwparam: UInt, pbdata: COpaquePointer?, pdwdatalen: COpaquePointer?, dwflags: UInt): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptGetHashParam(hhash.toString(), dwparam.toInt(), (pbdata?.value ?: 0L).toString(), (pdwdatalen?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptGetKeyIdentifierProperty(pkeyidentifier: Long, dwpropid: UInt, dwflags: UInt, pwszcomputername: PCWSTR, pvreserved: Long, pvdata: Long, pcbdata: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptGetKeyIdentifierProperty(pkeyidentifier.toString(), dwpropid.toInt(), dwflags.toInt(), pwszcomputername.toString(), pvreserved.toString(), pvdata.toString(), pcbdata.toString()) as Int) else 0
+public actual fun cryptGetKeyIdentifierProperty(pkeyidentifier: COpaquePointer?, dwpropid: UInt, dwflags: UInt, pwszcomputername: Pcwstr, pvreserved: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptGetKeyIdentifierProperty((pkeyidentifier?.value ?: 0L).toString(), dwpropid.toInt(), dwflags.toInt(), (pwszcomputername?.value ?: 0L).toString(), (pvreserved?.value ?: 0L).toString(), (pvdata?.value ?: 0L).toString(), (pcbdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptGetKeyParam(hkey: ULong, dwparam: CRYPT_KEY_PARAM_ID, pbdata: Long, pdwdatalen: Long, dwflags: UInt): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptGetKeyParam(hkey.toString(), dwparam.toInt(), pbdata.toString(), pdwdatalen.toString(), dwflags.toInt()) as Int) else 0
+public actual fun cryptGetKeyParam(hkey: ULong, dwparam: CryptKeyParamId, pbdata: COpaquePointer?, pdwdatalen: COpaquePointer?, dwflags: UInt): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptGetKeyParam(hkey.toString(), dwparam.toInt(), (pbdata?.value ?: 0L).toString(), (pdwdatalen?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptGetMessageCertificates(dwmsgandcertencodingtype: UInt, hcryptprov: HCRYPTPROV_LEGACY, dwflags: UInt, pbsignedblob: Long, cbsignedblob: UInt): HCERTSTORE =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptGetMessageCertificates(dwmsgandcertencodingtype.toInt(), hcryptprov.toString(), dwflags.toInt(), pbsignedblob.toString(), cbsignedblob.toInt()) as String).toLong() else 0L
+public actual fun cryptGetMessageCertificates(dwmsgandcertencodingtype: UInt, hcryptprov: HcryptprovLegacy, dwflags: UInt, pbsignedblob: COpaquePointer?, cbsignedblob: UInt): Hcertstore =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptGetMessageCertificates(dwmsgandcertencodingtype.toInt(), hcryptprov.toString(), dwflags.toInt(), (pbsignedblob?.value ?: 0L).toString(), cbsignedblob.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptGetMessageSignerCount(dwmsgencodingtype: UInt, pbsignedblob: Long, cbsignedblob: UInt): Int =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptGetMessageSignerCount(dwmsgencodingtype.toInt(), pbsignedblob.toString(), cbsignedblob.toInt()) as Int) else 0
+public actual fun cryptGetMessageSignerCount(dwmsgencodingtype: UInt, pbsignedblob: COpaquePointer?, cbsignedblob: UInt): Int =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptGetMessageSignerCount(dwmsgencodingtype.toInt(), (pbsignedblob?.value ?: 0L).toString(), cbsignedblob.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptGetOIDFunctionAddress(hfuncset: Long, dwencodingtype: UInt, pszoid: PCSTR, dwflags: UInt, ppvfuncaddr: Long, phfuncaddr: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptGetOIDFunctionAddress(hfuncset.toString(), dwencodingtype.toInt(), pszoid.toString(), dwflags.toInt(), ppvfuncaddr.toString(), phfuncaddr.toString()) as Int) else 0
+public actual fun cryptGetOIDFunctionAddress(hfuncset: COpaquePointer?, dwencodingtype: UInt, pszoid: Pcstr, dwflags: UInt, ppvfuncaddr: COpaquePointer?, phfuncaddr: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptGetOIDFunctionAddress((hfuncset?.value ?: 0L).toString(), dwencodingtype.toInt(), (pszoid?.value ?: 0L).toString(), dwflags.toInt(), (ppvfuncaddr?.value ?: 0L).toString(), (phfuncaddr?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptGetOIDFunctionValue(dwencodingtype: UInt, pszfuncname: PCSTR, pszoid: PCSTR, pwszvaluename: PCWSTR, pdwvaluetype: Long, pbvaluedata: Long, pcbvaluedata: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptGetOIDFunctionValue(dwencodingtype.toInt(), pszfuncname.toString(), pszoid.toString(), pwszvaluename.toString(), pdwvaluetype.toString(), pbvaluedata.toString(), pcbvaluedata.toString()) as Int) else 0
+public actual fun cryptGetOIDFunctionValue(dwencodingtype: UInt, pszfuncname: Pcstr, pszoid: Pcstr, pwszvaluename: Pcwstr, pdwvaluetype: COpaquePointer?, pbvaluedata: COpaquePointer?, pcbvaluedata: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptGetOIDFunctionValue(dwencodingtype.toInt(), (pszfuncname?.value ?: 0L).toString(), (pszoid?.value ?: 0L).toString(), (pwszvaluename?.value ?: 0L).toString(), (pdwvaluetype?.value ?: 0L).toString(), (pbvaluedata?.value ?: 0L).toString(), (pcbvaluedata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptGetObjectUrl(pszurloid: PCSTR, pvpara: Long, dwflags: CRYPT_GET_URL_FLAGS, purlarray: Long, pcburlarray: Long, purlinfo: Long, pcburlinfo: Long, pvreserved: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptGetObjectUrl(pszurloid.toString(), pvpara.toString(), dwflags.toInt(), purlarray.toString(), pcburlarray.toString(), purlinfo.toString(), pcburlinfo.toString(), pvreserved.toString()) as Int) else 0
+public actual fun cryptGetObjectUrl(pszurloid: Pcstr, pvpara: COpaquePointer?, dwflags: CryptGetUrlFlags, purlarray: COpaquePointer?, pcburlarray: COpaquePointer?, purlinfo: COpaquePointer?, pcburlinfo: COpaquePointer?, pvreserved: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptGetObjectUrl((pszurloid?.value ?: 0L).toString(), (pvpara?.value ?: 0L).toString(), dwflags.toInt(), (purlarray?.value ?: 0L).toString(), (pcburlarray?.value ?: 0L).toString(), (purlinfo?.value ?: 0L).toString(), (pcburlinfo?.value ?: 0L).toString(), (pvreserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptGetProvParam(hprov: ULong, dwparam: UInt, pbdata: Long, pdwdatalen: Long, dwflags: UInt): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptGetProvParam(hprov.toString(), dwparam.toInt(), pbdata.toString(), pdwdatalen.toString(), dwflags.toInt()) as Int) else 0
+public actual fun cryptGetProvParam(hprov: ULong, dwparam: UInt, pbdata: COpaquePointer?, pdwdatalen: COpaquePointer?, dwflags: UInt): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptGetProvParam(hprov.toString(), dwparam.toInt(), (pbdata?.value ?: 0L).toString(), (pdwdatalen?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptGetUserKey(hprov: ULong, dwkeyspec: UInt, phuserkey: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptGetUserKey(hprov.toString(), dwkeyspec.toInt(), phuserkey.toString()) as Int) else 0
+public actual fun cryptGetUserKey(hprov: ULong, dwkeyspec: UInt, phuserkey: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptGetUserKey(hprov.toString(), dwkeyspec.toInt(), (phuserkey?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptHashCertificate(hcryptprov: HCRYPTPROV_LEGACY, algid: ALG_ID, dwflags: UInt, pbencoded: Long, cbencoded: UInt, pbcomputedhash: Long, pcbcomputedhash: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptHashCertificate(hcryptprov.toString(), algid.toInt(), dwflags.toInt(), pbencoded.toString(), cbencoded.toInt(), pbcomputedhash.toString(), pcbcomputedhash.toString()) as Int) else 0
+public actual fun cryptHashCertificate(hcryptprov: HcryptprovLegacy, algid: AlgId, dwflags: UInt, pbencoded: COpaquePointer?, cbencoded: UInt, pbcomputedhash: COpaquePointer?, pcbcomputedhash: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptHashCertificate(hcryptprov.toString(), algid.toInt(), dwflags.toInt(), (pbencoded?.value ?: 0L).toString(), cbencoded.toInt(), (pbcomputedhash?.value ?: 0L).toString(), (pcbcomputedhash?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptHashCertificate2(pwszcnghashalgid: PCWSTR, dwflags: UInt, pvreserved: Long, pbencoded: Long, cbencoded: UInt, pbcomputedhash: Long, pcbcomputedhash: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptHashCertificate2(pwszcnghashalgid.toString(), dwflags.toInt(), pvreserved.toString(), pbencoded.toString(), cbencoded.toInt(), pbcomputedhash.toString(), pcbcomputedhash.toString()) as Int) else 0
+public actual fun cryptHashCertificate2(pwszcnghashalgid: Pcwstr, dwflags: UInt, pvreserved: COpaquePointer?, pbencoded: COpaquePointer?, cbencoded: UInt, pbcomputedhash: COpaquePointer?, pcbcomputedhash: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptHashCertificate2((pwszcnghashalgid?.value ?: 0L).toString(), dwflags.toInt(), (pvreserved?.value ?: 0L).toString(), (pbencoded?.value ?: 0L).toString(), cbencoded.toInt(), (pbcomputedhash?.value ?: 0L).toString(), (pcbcomputedhash?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptHashData(hhash: ULong, pbdata: Long, dwdatalen: UInt, dwflags: UInt): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptHashData(hhash.toString(), pbdata.toString(), dwdatalen.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun cryptHashData(hhash: ULong, pbdata: COpaquePointer?, dwdatalen: UInt, dwflags: UInt): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptHashData(hhash.toString(), (pbdata?.value ?: 0L).toString(), dwdatalen.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptHashMessage(phashpara: Long, fdetachedhash: BOOL, ctobehashed: UInt, rgpbtobehashed: Long, rgcbtobehashed: Long, pbhashedblob: Long, pcbhashedblob: Long, pbcomputedhash: Long, pcbcomputedhash: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptHashMessage(phashpara.toString(), fdetachedhash, ctobehashed.toInt(), rgpbtobehashed.toString(), rgcbtobehashed.toString(), pbhashedblob.toString(), pcbhashedblob.toString(), pbcomputedhash.toString(), pcbcomputedhash.toString()) as Int) else 0
+public actual fun cryptHashMessage(phashpara: COpaquePointer?, fdetachedhash: Bool, ctobehashed: UInt, rgpbtobehashed: COpaquePointer?, rgcbtobehashed: COpaquePointer?, pbhashedblob: COpaquePointer?, pcbhashedblob: COpaquePointer?, pbcomputedhash: COpaquePointer?, pcbcomputedhash: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptHashMessage((phashpara?.value ?: 0L).toString(), fdetachedhash, ctobehashed.toInt(), (rgpbtobehashed?.value ?: 0L).toString(), (rgcbtobehashed?.value ?: 0L).toString(), (pbhashedblob?.value ?: 0L).toString(), (pcbhashedblob?.value ?: 0L).toString(), (pbcomputedhash?.value ?: 0L).toString(), (pcbcomputedhash?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptHashPublicKeyInfo(hcryptprov: HCRYPTPROV_LEGACY, algid: ALG_ID, dwflags: UInt, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pinfo: Long, pbcomputedhash: Long, pcbcomputedhash: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptHashPublicKeyInfo(hcryptprov.toString(), algid.toInt(), dwflags.toInt(), dwcertencodingtype.toInt(), pinfo.toString(), pbcomputedhash.toString(), pcbcomputedhash.toString()) as Int) else 0
+public actual fun cryptHashPublicKeyInfo(hcryptprov: HcryptprovLegacy, algid: AlgId, dwflags: UInt, dwcertencodingtype: CertQueryEncodingType, pinfo: COpaquePointer?, pbcomputedhash: COpaquePointer?, pcbcomputedhash: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptHashPublicKeyInfo(hcryptprov.toString(), algid.toInt(), dwflags.toInt(), dwcertencodingtype.toInt(), (pinfo?.value ?: 0L).toString(), (pbcomputedhash?.value ?: 0L).toString(), (pcbcomputedhash?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptHashSessionKey(hhash: ULong, hkey: ULong, dwflags: UInt): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptHashSessionKey(hhash.toString(), hkey.toString(), dwflags.toInt()) as Int) else 0
+public actual fun cryptHashSessionKey(hhash: ULong, hkey: ULong, dwflags: UInt): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptHashSessionKey(hhash.toString(), hkey.toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptHashToBeSigned(hcryptprov: HCRYPTPROV_LEGACY, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pbencoded: Long, cbencoded: UInt, pbcomputedhash: Long, pcbcomputedhash: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptHashToBeSigned(hcryptprov.toString(), dwcertencodingtype.toInt(), pbencoded.toString(), cbencoded.toInt(), pbcomputedhash.toString(), pcbcomputedhash.toString()) as Int) else 0
+public actual fun cryptHashToBeSigned(hcryptprov: HcryptprovLegacy, dwcertencodingtype: CertQueryEncodingType, pbencoded: COpaquePointer?, cbencoded: UInt, pbcomputedhash: COpaquePointer?, pcbcomputedhash: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptHashToBeSigned(hcryptprov.toString(), dwcertencodingtype.toInt(), (pbencoded?.value ?: 0L).toString(), cbencoded.toInt(), (pbcomputedhash?.value ?: 0L).toString(), (pcbcomputedhash?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptImportKey(hprov: ULong, pbdata: Long, dwdatalen: UInt, hpubkey: ULong, dwflags: CRYPT_KEY_FLAGS, phkey: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptImportKey(hprov.toString(), pbdata.toString(), dwdatalen.toInt(), hpubkey.toString(), dwflags.toInt(), phkey.toString()) as Int) else 0
+public actual fun cryptImportKey(hprov: ULong, pbdata: COpaquePointer?, dwdatalen: UInt, hpubkey: ULong, dwflags: CryptKeyFlags, phkey: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptImportKey(hprov.toString(), (pbdata?.value ?: 0L).toString(), dwdatalen.toInt(), hpubkey.toString(), dwflags.toInt(), (phkey?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptImportPKCS8(sprivatekeyandparams: CRYPT_PKCS8_IMPORT_PARAMS, dwflags: CRYPT_KEY_FLAGS, phcryptprov: Long, pvauxinfo: Long): BOOL =
-    0
+public actual fun cryptImportPKCS8(sprivatekeyandparams: CryptPkcs8ImportParams, dwflags: CryptKeyFlags, phcryptprov: COpaquePointer?, pvauxinfo: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptImportPublicKeyInfo(hcryptprov: ULong, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pinfo: Long, phkey: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptImportPublicKeyInfo(hcryptprov.toString(), dwcertencodingtype.toInt(), pinfo.toString(), phkey.toString()) as Int) else 0
+public actual fun cryptImportPublicKeyInfo(hcryptprov: ULong, dwcertencodingtype: CertQueryEncodingType, pinfo: COpaquePointer?, phkey: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptImportPublicKeyInfo(hcryptprov.toString(), dwcertencodingtype.toInt(), (pinfo?.value ?: 0L).toString(), (phkey?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptImportPublicKeyInfoEx(hcryptprov: ULong, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pinfo: Long, aikeyalg: ALG_ID, dwflags: UInt, pvauxinfo: Long, phkey: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptImportPublicKeyInfoEx(hcryptprov.toString(), dwcertencodingtype.toInt(), pinfo.toString(), aikeyalg.toInt(), dwflags.toInt(), pvauxinfo.toString(), phkey.toString()) as Int) else 0
+public actual fun cryptImportPublicKeyInfoEx(hcryptprov: ULong, dwcertencodingtype: CertQueryEncodingType, pinfo: COpaquePointer?, aikeyalg: AlgId, dwflags: UInt, pvauxinfo: COpaquePointer?, phkey: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptImportPublicKeyInfoEx(hcryptprov.toString(), dwcertencodingtype.toInt(), (pinfo?.value ?: 0L).toString(), aikeyalg.toInt(), dwflags.toInt(), (pvauxinfo?.value ?: 0L).toString(), (phkey?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptImportPublicKeyInfoEx2(dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pinfo: Long, dwflags: CRYPT_IMPORT_PUBLIC_KEY_FLAGS, pvauxinfo: Long, phkey: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptImportPublicKeyInfoEx2(dwcertencodingtype.toInt(), pinfo.toString(), dwflags.toInt(), pvauxinfo.toString(), phkey.toString()) as Int) else 0
+public actual fun cryptImportPublicKeyInfoEx2(dwcertencodingtype: CertQueryEncodingType, pinfo: COpaquePointer?, dwflags: CryptImportPublicKeyFlags, pvauxinfo: COpaquePointer?, phkey: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptImportPublicKeyInfoEx2(dwcertencodingtype.toInt(), (pinfo?.value ?: 0L).toString(), dwflags.toInt(), (pvauxinfo?.value ?: 0L).toString(), (phkey?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptInitOIDFunctionSet(pszfuncname: PCSTR, dwflags: UInt): Long =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptInitOIDFunctionSet(pszfuncname.toString(), dwflags.toInt()) as String).toLong() else 0L
+public actual fun cryptInitOIDFunctionSet(pszfuncname: Pcstr, dwflags: UInt): COpaquePointer? =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptInitOIDFunctionSet((pszfuncname?.value ?: 0L).toString(), dwflags.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptInstallCancelRetrieval(pfncancel: PFN_CRYPT_CANCEL_RETRIEVAL, pvarg: Long, dwflags: UInt, pvreserved: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptInstallCancelRetrieval(pfncancel.toLong().toString(), pvarg.toString(), dwflags.toInt(), pvreserved.toString()) as Int) else 0
+public actual fun cryptInstallCancelRetrieval(pfncancel: PfnCryptCancelRetrieval, pvarg: COpaquePointer?, dwflags: UInt, pvreserved: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptInstallCancelRetrieval(0L.toString(), (pvarg?.value ?: 0L).toString(), dwflags.toInt(), (pvreserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptInstallDefaultContext(hcryptprov: ULong, dwdefaulttype: CRYPT_DEFAULT_CONTEXT_TYPE, pvdefaultpara: Long, dwflags: CRYPT_DEFAULT_CONTEXT_FLAGS, pvreserved: Long, phdefaultcontext: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptInstallDefaultContext(hcryptprov.toString(), dwdefaulttype.toInt(), pvdefaultpara.toString(), dwflags.toInt(), pvreserved.toString(), phdefaultcontext.toString()) as Int) else 0
+public actual fun cryptInstallDefaultContext(hcryptprov: ULong, dwdefaulttype: CryptDefaultContextType, pvdefaultpara: COpaquePointer?, dwflags: CryptDefaultContextFlags, pvreserved: COpaquePointer?, phdefaultcontext: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptInstallDefaultContext(hcryptprov.toString(), dwdefaulttype.toInt(), (pvdefaultpara?.value ?: 0L).toString(), dwflags.toInt(), (pvreserved?.value ?: 0L).toString(), (phdefaultcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptInstallOIDFunctionAddress(hmodule: HMODULE, dwencodingtype: UInt, pszfuncname: PCSTR, cfuncentry: UInt, rgfuncentry: Long, dwflags: UInt): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptInstallOIDFunctionAddress(hmodule.toString(), dwencodingtype.toInt(), pszfuncname.toString(), cfuncentry.toInt(), rgfuncentry.toString(), dwflags.toInt()) as Int) else 0
+public actual fun cryptInstallOIDFunctionAddress(hmodule: Hmodule, dwencodingtype: UInt, pszfuncname: Pcstr, cfuncentry: UInt, rgfuncentry: COpaquePointer?, dwflags: UInt): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptInstallOIDFunctionAddress((hmodule?.value ?: 0L).toString(), dwencodingtype.toInt(), (pszfuncname?.value ?: 0L).toString(), cfuncentry.toInt(), (rgfuncentry?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptMemAlloc(cbsize: UInt): Long =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptMemAlloc(cbsize.toInt()) as String).toLong() else 0L
+public actual fun cryptMemAlloc(cbsize: UInt): COpaquePointer? =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptMemAlloc(cbsize.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptMemFree(pv: Long) {
+public actual fun cryptMemFree(pv: COpaquePointer?) {
     if (_windowsWin32SecurityCryptographyNapiAddon != null) {
-        _windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptMemFree(pv.toString())
+        _windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptMemFree((pv?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CryptMemRealloc(pv: Long, cbsize: UInt): Long =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptMemRealloc(pv.toString(), cbsize.toInt()) as String).toLong() else 0L
+public actual fun cryptMemRealloc(pv: COpaquePointer?, cbsize: UInt): COpaquePointer? =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptMemRealloc((pv?.value ?: 0L).toString(), cbsize.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptMsgCalculateEncodedLength(dwmsgencodingtype: UInt, dwflags: UInt, dwmsgtype: UInt, pvmsgencodeinfo: Long, pszinnercontentobjid: PCSTR, cbdata: UInt): UInt =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptMsgCalculateEncodedLength(dwmsgencodingtype.toInt(), dwflags.toInt(), dwmsgtype.toInt(), pvmsgencodeinfo.toString(), pszinnercontentobjid.toString(), cbdata.toInt()) as Int).toUInt() else 0u
+public actual fun cryptMsgCalculateEncodedLength(dwmsgencodingtype: UInt, dwflags: UInt, dwmsgtype: UInt, pvmsgencodeinfo: COpaquePointer?, pszinnercontentobjid: Pcstr, cbdata: UInt): UInt =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptMsgCalculateEncodedLength(dwmsgencodingtype.toInt(), dwflags.toInt(), dwmsgtype.toInt(), (pvmsgencodeinfo?.value ?: 0L).toString(), (pszinnercontentobjid?.value ?: 0L).toString(), cbdata.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptMsgClose(hcryptmsg: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptMsgClose(hcryptmsg.toString()) as Int) else 0
+public actual fun cryptMsgClose(hcryptmsg: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptMsgClose((hcryptmsg?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptMsgControl(hcryptmsg: Long, dwflags: UInt, dwctrltype: UInt, pvctrlpara: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptMsgControl(hcryptmsg.toString(), dwflags.toInt(), dwctrltype.toInt(), pvctrlpara.toString()) as Int) else 0
+public actual fun cryptMsgControl(hcryptmsg: COpaquePointer?, dwflags: UInt, dwctrltype: UInt, pvctrlpara: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptMsgControl((hcryptmsg?.value ?: 0L).toString(), dwflags.toInt(), dwctrltype.toInt(), (pvctrlpara?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptMsgCountersign(hcryptmsg: Long, dwindex: UInt, ccountersigners: UInt, rgcountersigners: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptMsgCountersign(hcryptmsg.toString(), dwindex.toInt(), ccountersigners.toInt(), rgcountersigners.toString()) as Int) else 0
+public actual fun cryptMsgCountersign(hcryptmsg: COpaquePointer?, dwindex: UInt, ccountersigners: UInt, rgcountersigners: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptMsgCountersign((hcryptmsg?.value ?: 0L).toString(), dwindex.toInt(), ccountersigners.toInt(), (rgcountersigners?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptMsgCountersignEncoded(dwencodingtype: UInt, pbsignerinfo: Long, cbsignerinfo: UInt, ccountersigners: UInt, rgcountersigners: Long, pbcountersignature: Long, pcbcountersignature: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptMsgCountersignEncoded(dwencodingtype.toInt(), pbsignerinfo.toString(), cbsignerinfo.toInt(), ccountersigners.toInt(), rgcountersigners.toString(), pbcountersignature.toString(), pcbcountersignature.toString()) as Int) else 0
+public actual fun cryptMsgCountersignEncoded(dwencodingtype: UInt, pbsignerinfo: COpaquePointer?, cbsignerinfo: UInt, ccountersigners: UInt, rgcountersigners: COpaquePointer?, pbcountersignature: COpaquePointer?, pcbcountersignature: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptMsgCountersignEncoded(dwencodingtype.toInt(), (pbsignerinfo?.value ?: 0L).toString(), cbsignerinfo.toInt(), ccountersigners.toInt(), (rgcountersigners?.value ?: 0L).toString(), (pbcountersignature?.value ?: 0L).toString(), (pcbcountersignature?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptMsgDuplicate(hcryptmsg: Long): Long =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptMsgDuplicate(hcryptmsg.toString()) as String).toLong() else 0L
+public actual fun cryptMsgDuplicate(hcryptmsg: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptMsgDuplicate((hcryptmsg?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptMsgEncodeAndSignCTL(dwmsgencodingtype: UInt, pctlinfo: Long, psigninfo: Long, dwflags: UInt, pbencoded: Long, pcbencoded: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptMsgEncodeAndSignCTL(dwmsgencodingtype.toInt(), pctlinfo.toString(), psigninfo.toString(), dwflags.toInt(), pbencoded.toString(), pcbencoded.toString()) as Int) else 0
+public actual fun cryptMsgEncodeAndSignCTL(dwmsgencodingtype: UInt, pctlinfo: COpaquePointer?, psigninfo: COpaquePointer?, dwflags: UInt, pbencoded: COpaquePointer?, pcbencoded: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptMsgEncodeAndSignCTL(dwmsgencodingtype.toInt(), (pctlinfo?.value ?: 0L).toString(), (psigninfo?.value ?: 0L).toString(), dwflags.toInt(), (pbencoded?.value ?: 0L).toString(), (pcbencoded?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptMsgGetAndVerifySigner(hcryptmsg: Long, csignerstore: UInt, rghsignerstore: Long, dwflags: UInt, ppsigner: Long, pdwsignerindex: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptMsgGetAndVerifySigner(hcryptmsg.toString(), csignerstore.toInt(), rghsignerstore.toString(), dwflags.toInt(), ppsigner.toString(), pdwsignerindex.toString()) as Int) else 0
+public actual fun cryptMsgGetAndVerifySigner(hcryptmsg: COpaquePointer?, csignerstore: UInt, rghsignerstore: COpaquePointer?, dwflags: UInt, ppsigner: COpaquePointer?, pdwsignerindex: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptMsgGetAndVerifySigner((hcryptmsg?.value ?: 0L).toString(), csignerstore.toInt(), (rghsignerstore?.value ?: 0L).toString(), dwflags.toInt(), (ppsigner?.value ?: 0L).toString(), (pdwsignerindex?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptMsgGetParam(hcryptmsg: Long, dwparamtype: UInt, dwindex: UInt, pvdata: Long, pcbdata: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptMsgGetParam(hcryptmsg.toString(), dwparamtype.toInt(), dwindex.toInt(), pvdata.toString(), pcbdata.toString()) as Int) else 0
+public actual fun cryptMsgGetParam(hcryptmsg: COpaquePointer?, dwparamtype: UInt, dwindex: UInt, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptMsgGetParam((hcryptmsg?.value ?: 0L).toString(), dwparamtype.toInt(), dwindex.toInt(), (pvdata?.value ?: 0L).toString(), (pcbdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptMsgOpenToDecode(dwmsgencodingtype: UInt, dwflags: UInt, dwmsgtype: UInt, hcryptprov: HCRYPTPROV_LEGACY, precipientinfo: Long, pstreaminfo: Long): Long =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptMsgOpenToDecode(dwmsgencodingtype.toInt(), dwflags.toInt(), dwmsgtype.toInt(), hcryptprov.toString(), precipientinfo.toString(), pstreaminfo.toString()) as String).toLong() else 0L
+public actual fun cryptMsgOpenToDecode(dwmsgencodingtype: UInt, dwflags: UInt, dwmsgtype: UInt, hcryptprov: HcryptprovLegacy, precipientinfo: COpaquePointer?, pstreaminfo: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptMsgOpenToDecode(dwmsgencodingtype.toInt(), dwflags.toInt(), dwmsgtype.toInt(), hcryptprov.toString(), (precipientinfo?.value ?: 0L).toString(), (pstreaminfo?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptMsgOpenToEncode(dwmsgencodingtype: UInt, dwflags: UInt, dwmsgtype: CRYPT_MSG_TYPE, pvmsgencodeinfo: Long, pszinnercontentobjid: PCSTR, pstreaminfo: Long): Long =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptMsgOpenToEncode(dwmsgencodingtype.toInt(), dwflags.toInt(), dwmsgtype.toInt(), pvmsgencodeinfo.toString(), pszinnercontentobjid.toString(), pstreaminfo.toString()) as String).toLong() else 0L
+public actual fun cryptMsgOpenToEncode(dwmsgencodingtype: UInt, dwflags: UInt, dwmsgtype: CryptMsgType, pvmsgencodeinfo: COpaquePointer?, pszinnercontentobjid: Pcstr, pstreaminfo: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptMsgOpenToEncode(dwmsgencodingtype.toInt(), dwflags.toInt(), dwmsgtype.toInt(), (pvmsgencodeinfo?.value ?: 0L).toString(), (pszinnercontentobjid?.value ?: 0L).toString(), (pstreaminfo?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptMsgSignCTL(dwmsgencodingtype: UInt, pbctlcontent: Long, cbctlcontent: UInt, psigninfo: Long, dwflags: UInt, pbencoded: Long, pcbencoded: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptMsgSignCTL(dwmsgencodingtype.toInt(), pbctlcontent.toString(), cbctlcontent.toInt(), psigninfo.toString(), dwflags.toInt(), pbencoded.toString(), pcbencoded.toString()) as Int) else 0
+public actual fun cryptMsgSignCTL(dwmsgencodingtype: UInt, pbctlcontent: COpaquePointer?, cbctlcontent: UInt, psigninfo: COpaquePointer?, dwflags: UInt, pbencoded: COpaquePointer?, pcbencoded: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptMsgSignCTL(dwmsgencodingtype.toInt(), (pbctlcontent?.value ?: 0L).toString(), cbctlcontent.toInt(), (psigninfo?.value ?: 0L).toString(), dwflags.toInt(), (pbencoded?.value ?: 0L).toString(), (pcbencoded?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptMsgUpdate(hcryptmsg: Long, pbdata: Long, cbdata: UInt, ffinal: BOOL): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptMsgUpdate(hcryptmsg.toString(), pbdata.toString(), cbdata.toInt(), ffinal) as Int) else 0
+public actual fun cryptMsgUpdate(hcryptmsg: COpaquePointer?, pbdata: COpaquePointer?, cbdata: UInt, ffinal: Bool): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptMsgUpdate((hcryptmsg?.value ?: 0L).toString(), (pbdata?.value ?: 0L).toString(), cbdata.toInt(), ffinal) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptMsgVerifyCountersignatureEncoded(hcryptprov: HCRYPTPROV_LEGACY, dwencodingtype: UInt, pbsignerinfo: Long, cbsignerinfo: UInt, pbsignerinfocountersignature: Long, cbsignerinfocountersignature: UInt, pcicountersigner: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptMsgVerifyCountersignatureEncoded(hcryptprov.toString(), dwencodingtype.toInt(), pbsignerinfo.toString(), cbsignerinfo.toInt(), pbsignerinfocountersignature.toString(), cbsignerinfocountersignature.toInt(), pcicountersigner.toString()) as Int) else 0
+public actual fun cryptMsgVerifyCountersignatureEncoded(hcryptprov: HcryptprovLegacy, dwencodingtype: UInt, pbsignerinfo: COpaquePointer?, cbsignerinfo: UInt, pbsignerinfocountersignature: COpaquePointer?, cbsignerinfocountersignature: UInt, pcicountersigner: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptMsgVerifyCountersignatureEncoded(hcryptprov.toString(), dwencodingtype.toInt(), (pbsignerinfo?.value ?: 0L).toString(), cbsignerinfo.toInt(), (pbsignerinfocountersignature?.value ?: 0L).toString(), cbsignerinfocountersignature.toInt(), (pcicountersigner?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptMsgVerifyCountersignatureEncodedEx(hcryptprov: HCRYPTPROV_LEGACY, dwencodingtype: UInt, pbsignerinfo: Long, cbsignerinfo: UInt, pbsignerinfocountersignature: Long, cbsignerinfocountersignature: UInt, dwsignertype: UInt, pvsigner: Long, dwflags: UInt, pvextra: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptMsgVerifyCountersignatureEncodedEx(hcryptprov.toString(), dwencodingtype.toInt(), pbsignerinfo.toString(), cbsignerinfo.toInt(), pbsignerinfocountersignature.toString(), cbsignerinfocountersignature.toInt(), dwsignertype.toInt(), pvsigner.toString(), dwflags.toInt(), pvextra.toString()) as Int) else 0
+public actual fun cryptMsgVerifyCountersignatureEncodedEx(hcryptprov: HcryptprovLegacy, dwencodingtype: UInt, pbsignerinfo: COpaquePointer?, cbsignerinfo: UInt, pbsignerinfocountersignature: COpaquePointer?, cbsignerinfocountersignature: UInt, dwsignertype: UInt, pvsigner: COpaquePointer?, dwflags: UInt, pvextra: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptMsgVerifyCountersignatureEncodedEx(hcryptprov.toString(), dwencodingtype.toInt(), (pbsignerinfo?.value ?: 0L).toString(), cbsignerinfo.toInt(), (pbsignerinfocountersignature?.value ?: 0L).toString(), cbsignerinfocountersignature.toInt(), dwsignertype.toInt(), (pvsigner?.value ?: 0L).toString(), dwflags.toInt(), (pvextra?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptProtectData(pdatain: Long, szdatadescr: PCWSTR, poptionalentropy: Long, pvreserved: Long, ppromptstruct: Long, dwflags: UInt, pdataout: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptProtectData(pdatain.toString(), szdatadescr.toString(), poptionalentropy.toString(), pvreserved.toString(), ppromptstruct.toString(), dwflags.toInt(), pdataout.toString()) as Int) else 0
+public actual fun cryptProtectData(pdatain: COpaquePointer?, szdatadescr: Pcwstr, poptionalentropy: COpaquePointer?, pvreserved: COpaquePointer?, ppromptstruct: COpaquePointer?, dwflags: UInt, pdataout: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptProtectData((pdatain?.value ?: 0L).toString(), (szdatadescr?.value ?: 0L).toString(), (poptionalentropy?.value ?: 0L).toString(), (pvreserved?.value ?: 0L).toString(), (ppromptstruct?.value ?: 0L).toString(), dwflags.toInt(), (pdataout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptProtectMemory(pdatain: Long, cbdatain: UInt, dwflags: UInt): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptProtectMemory(pdatain.toString(), cbdatain.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun cryptProtectMemory(pdatain: COpaquePointer?, cbdatain: UInt, dwflags: UInt): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptProtectMemory((pdatain?.value ?: 0L).toString(), cbdatain.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptQueryObject(dwobjecttype: CERT_QUERY_OBJECT_TYPE, pvobject: Long, dwexpectedcontenttypeflags: CERT_QUERY_CONTENT_TYPE_FLAGS, dwexpectedformattypeflags: CERT_QUERY_FORMAT_TYPE_FLAGS, dwflags: UInt, pdwmsgandcertencodingtype: Long, pdwcontenttype: Long, pdwformattype: Long, phcertstore: Long, phmsg: Long, ppvcontext: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptQueryObject(dwobjecttype.toInt(), pvobject.toString(), dwexpectedcontenttypeflags.toInt(), dwexpectedformattypeflags.toInt(), dwflags.toInt(), pdwmsgandcertencodingtype.toString(), pdwcontenttype.toString(), pdwformattype.toString(), phcertstore.toString(), phmsg.toString(), ppvcontext.toString()) as Int) else 0
+public actual fun cryptQueryObject(dwobjecttype: CertQueryObjectType, pvobject: COpaquePointer?, dwexpectedcontenttypeflags: CertQueryContentTypeFlags, dwexpectedformattypeflags: CertQueryFormatTypeFlags, dwflags: UInt, pdwmsgandcertencodingtype: COpaquePointer?, pdwcontenttype: COpaquePointer?, pdwformattype: COpaquePointer?, phcertstore: COpaquePointer?, phmsg: COpaquePointer?, ppvcontext: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptQueryObject(dwobjecttype.toInt(), (pvobject?.value ?: 0L).toString(), dwexpectedcontenttypeflags.toInt(), dwexpectedformattypeflags.toInt(), dwflags.toInt(), (pdwmsgandcertencodingtype?.value ?: 0L).toString(), (pdwcontenttype?.value ?: 0L).toString(), (pdwformattype?.value ?: 0L).toString(), (phcertstore?.value ?: 0L).toString(), (phmsg?.value ?: 0L).toString(), (ppvcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptRegisterDefaultOIDFunction(dwencodingtype: UInt, pszfuncname: PCSTR, dwindex: UInt, pwszdll: PCWSTR): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptRegisterDefaultOIDFunction(dwencodingtype.toInt(), pszfuncname.toString(), dwindex.toInt(), pwszdll.toString()) as Int) else 0
+public actual fun cryptRegisterDefaultOIDFunction(dwencodingtype: UInt, pszfuncname: Pcstr, dwindex: UInt, pwszdll: Pcwstr): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptRegisterDefaultOIDFunction(dwencodingtype.toInt(), (pszfuncname?.value ?: 0L).toString(), dwindex.toInt(), (pwszdll?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptRegisterOIDFunction(dwencodingtype: UInt, pszfuncname: PCSTR, pszoid: PCSTR, pwszdll: PCWSTR, pszoverridefuncname: PCSTR): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptRegisterOIDFunction(dwencodingtype.toInt(), pszfuncname.toString(), pszoid.toString(), pwszdll.toString(), pszoverridefuncname.toString()) as Int) else 0
+public actual fun cryptRegisterOIDFunction(dwencodingtype: UInt, pszfuncname: Pcstr, pszoid: Pcstr, pwszdll: Pcwstr, pszoverridefuncname: Pcstr): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptRegisterOIDFunction(dwencodingtype.toInt(), (pszfuncname?.value ?: 0L).toString(), (pszoid?.value ?: 0L).toString(), (pwszdll?.value ?: 0L).toString(), (pszoverridefuncname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptRegisterOIDInfo(pinfo: Long, dwflags: UInt): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptRegisterOIDInfo(pinfo.toString(), dwflags.toInt()) as Int) else 0
+public actual fun cryptRegisterOIDInfo(pinfo: COpaquePointer?, dwflags: UInt): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptRegisterOIDInfo((pinfo?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptReleaseContext(hprov: ULong, dwflags: UInt): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptReleaseContext(hprov.toString(), dwflags.toInt()) as Int) else 0
+public actual fun cryptReleaseContext(hprov: ULong, dwflags: UInt): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptReleaseContext(hprov.toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptRetrieveObjectByUrlA(pszurl: PCSTR, pszobjectoid: PCSTR, dwretrievalflags: UInt, dwtimeout: UInt, ppvobject: Long, hasyncretrieve: HCRYPTASYNC, pcredentials: Long, pvverify: Long, pauxinfo: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptRetrieveObjectByUrlA(pszurl.toString(), pszobjectoid.toString(), dwretrievalflags.toInt(), dwtimeout.toInt(), ppvobject.toString(), hasyncretrieve.toString(), pcredentials.toString(), pvverify.toString(), pauxinfo.toString()) as Int) else 0
+public actual fun cryptRetrieveObjectByUrlA(pszurl: Pcstr, pszobjectoid: Pcstr, dwretrievalflags: UInt, dwtimeout: UInt, ppvobject: COpaquePointer?, hasyncretrieve: Hcryptasync, pcredentials: COpaquePointer?, pvverify: COpaquePointer?, pauxinfo: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptRetrieveObjectByUrlA((pszurl?.value ?: 0L).toString(), (pszobjectoid?.value ?: 0L).toString(), dwretrievalflags.toInt(), dwtimeout.toInt(), (ppvobject?.value ?: 0L).toString(), hasyncretrieve.toString(), (pcredentials?.value ?: 0L).toString(), (pvverify?.value ?: 0L).toString(), (pauxinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptRetrieveObjectByUrlW(pszurl: PCWSTR, pszobjectoid: PCSTR, dwretrievalflags: UInt, dwtimeout: UInt, ppvobject: Long, hasyncretrieve: HCRYPTASYNC, pcredentials: Long, pvverify: Long, pauxinfo: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptRetrieveObjectByUrlW(pszurl.toString(), pszobjectoid.toString(), dwretrievalflags.toInt(), dwtimeout.toInt(), ppvobject.toString(), hasyncretrieve.toString(), pcredentials.toString(), pvverify.toString(), pauxinfo.toString()) as Int) else 0
+public actual fun cryptRetrieveObjectByUrlW(pszurl: Pcwstr, pszobjectoid: Pcstr, dwretrievalflags: UInt, dwtimeout: UInt, ppvobject: COpaquePointer?, hasyncretrieve: Hcryptasync, pcredentials: COpaquePointer?, pvverify: COpaquePointer?, pauxinfo: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptRetrieveObjectByUrlW((pszurl?.value ?: 0L).toString(), (pszobjectoid?.value ?: 0L).toString(), dwretrievalflags.toInt(), dwtimeout.toInt(), (ppvobject?.value ?: 0L).toString(), hasyncretrieve.toString(), (pcredentials?.value ?: 0L).toString(), (pvverify?.value ?: 0L).toString(), (pauxinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptRetrieveTimeStamp(wszurl: PCWSTR, dwretrievalflags: UInt, dwtimeout: UInt, pszhashid: PCSTR, ppara: Long, pbdata: Long, cbdata: UInt, pptscontext: Long, pptssigner: Long, phstore: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptRetrieveTimeStamp(wszurl.toString(), dwretrievalflags.toInt(), dwtimeout.toInt(), pszhashid.toString(), ppara.toString(), pbdata.toString(), cbdata.toInt(), pptscontext.toString(), pptssigner.toString(), phstore.toString()) as Int) else 0
+public actual fun cryptRetrieveTimeStamp(wszurl: Pcwstr, dwretrievalflags: UInt, dwtimeout: UInt, pszhashid: Pcstr, ppara: COpaquePointer?, pbdata: COpaquePointer?, cbdata: UInt, pptscontext: COpaquePointer?, pptssigner: COpaquePointer?, phstore: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptRetrieveTimeStamp((wszurl?.value ?: 0L).toString(), dwretrievalflags.toInt(), dwtimeout.toInt(), (pszhashid?.value ?: 0L).toString(), (ppara?.value ?: 0L).toString(), (pbdata?.value ?: 0L).toString(), cbdata.toInt(), (pptscontext?.value ?: 0L).toString(), (pptssigner?.value ?: 0L).toString(), (phstore?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptSetAsyncParam(hasync: HCRYPTASYNC, pszparamoid: PCSTR, pvparam: Long, pfnfree: PFN_CRYPT_ASYNC_PARAM_FREE_FUNC): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptSetAsyncParam(hasync.toString(), pszparamoid.toString(), pvparam.toString(), pfnfree.toLong().toString()) as Int) else 0
+public actual fun cryptSetAsyncParam(hasync: Hcryptasync, pszparamoid: Pcstr, pvparam: COpaquePointer?, pfnfree: PfnCryptAsyncParamFreeFunc): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptSetAsyncParam(hasync.toString(), (pszparamoid?.value ?: 0L).toString(), (pvparam?.value ?: 0L).toString(), 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptSetHashParam(hhash: ULong, dwparam: CRYPT_SET_HASH_PARAM, pbdata: Long, dwflags: UInt): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptSetHashParam(hhash.toString(), dwparam.toInt(), pbdata.toString(), dwflags.toInt()) as Int) else 0
+public actual fun cryptSetHashParam(hhash: ULong, dwparam: CryptSetHashParam, pbdata: COpaquePointer?, dwflags: UInt): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptSetHashParam(hhash.toString(), dwparam.toInt(), (pbdata?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptSetKeyIdentifierProperty(pkeyidentifier: Long, dwpropid: UInt, dwflags: UInt, pwszcomputername: PCWSTR, pvreserved: Long, pvdata: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptSetKeyIdentifierProperty(pkeyidentifier.toString(), dwpropid.toInt(), dwflags.toInt(), pwszcomputername.toString(), pvreserved.toString(), pvdata.toString()) as Int) else 0
+public actual fun cryptSetKeyIdentifierProperty(pkeyidentifier: COpaquePointer?, dwpropid: UInt, dwflags: UInt, pwszcomputername: Pcwstr, pvreserved: COpaquePointer?, pvdata: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptSetKeyIdentifierProperty((pkeyidentifier?.value ?: 0L).toString(), dwpropid.toInt(), dwflags.toInt(), (pwszcomputername?.value ?: 0L).toString(), (pvreserved?.value ?: 0L).toString(), (pvdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptSetKeyParam(hkey: ULong, dwparam: CRYPT_KEY_PARAM_ID, pbdata: Long, dwflags: UInt): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptSetKeyParam(hkey.toString(), dwparam.toInt(), pbdata.toString(), dwflags.toInt()) as Int) else 0
+public actual fun cryptSetKeyParam(hkey: ULong, dwparam: CryptKeyParamId, pbdata: COpaquePointer?, dwflags: UInt): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptSetKeyParam(hkey.toString(), dwparam.toInt(), (pbdata?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptSetOIDFunctionValue(dwencodingtype: UInt, pszfuncname: PCSTR, pszoid: PCSTR, pwszvaluename: PCWSTR, dwvaluetype: REG_VALUE_TYPE, pbvaluedata: Long, cbvaluedata: UInt): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptSetOIDFunctionValue(dwencodingtype.toInt(), pszfuncname.toString(), pszoid.toString(), pwszvaluename.toString(), dwvaluetype.toInt(), pbvaluedata.toString(), cbvaluedata.toInt()) as Int) else 0
+public actual fun cryptSetOIDFunctionValue(dwencodingtype: UInt, pszfuncname: Pcstr, pszoid: Pcstr, pwszvaluename: Pcwstr, dwvaluetype: RegValueType, pbvaluedata: COpaquePointer?, cbvaluedata: UInt): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptSetOIDFunctionValue(dwencodingtype.toInt(), (pszfuncname?.value ?: 0L).toString(), (pszoid?.value ?: 0L).toString(), (pwszvaluename?.value ?: 0L).toString(), dwvaluetype.toInt(), (pbvaluedata?.value ?: 0L).toString(), cbvaluedata.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptSetProvParam(hprov: ULong, dwparam: CRYPT_SET_PROV_PARAM_ID, pbdata: Long, dwflags: UInt): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptSetProvParam(hprov.toString(), dwparam.toInt(), pbdata.toString(), dwflags.toInt()) as Int) else 0
+public actual fun cryptSetProvParam(hprov: ULong, dwparam: CryptSetProvParamId, pbdata: COpaquePointer?, dwflags: UInt): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptSetProvParam(hprov.toString(), dwparam.toInt(), (pbdata?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptSetProviderA(pszprovname: PCSTR, dwprovtype: UInt): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptSetProviderA(pszprovname.toString(), dwprovtype.toInt()) as Int) else 0
+public actual fun cryptSetProviderA(pszprovname: Pcstr, dwprovtype: UInt): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptSetProviderA((pszprovname?.value ?: 0L).toString(), dwprovtype.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptSetProviderExA(pszprovname: PCSTR, dwprovtype: UInt, pdwreserved: Long, dwflags: UInt): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptSetProviderExA(pszprovname.toString(), dwprovtype.toInt(), pdwreserved.toString(), dwflags.toInt()) as Int) else 0
+public actual fun cryptSetProviderExA(pszprovname: Pcstr, dwprovtype: UInt, pdwreserved: COpaquePointer?, dwflags: UInt): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptSetProviderExA((pszprovname?.value ?: 0L).toString(), dwprovtype.toInt(), (pdwreserved?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptSetProviderExW(pszprovname: PCWSTR, dwprovtype: UInt, pdwreserved: Long, dwflags: UInt): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptSetProviderExW(pszprovname.toString(), dwprovtype.toInt(), pdwreserved.toString(), dwflags.toInt()) as Int) else 0
+public actual fun cryptSetProviderExW(pszprovname: Pcwstr, dwprovtype: UInt, pdwreserved: COpaquePointer?, dwflags: UInt): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptSetProviderExW((pszprovname?.value ?: 0L).toString(), dwprovtype.toInt(), (pdwreserved?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptSetProviderW(pszprovname: PCWSTR, dwprovtype: UInt): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptSetProviderW(pszprovname.toString(), dwprovtype.toInt()) as Int) else 0
+public actual fun cryptSetProviderW(pszprovname: Pcwstr, dwprovtype: UInt): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptSetProviderW((pszprovname?.value ?: 0L).toString(), dwprovtype.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptSignAndEncodeCertificate(hcryptprovorncryptkey: HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, dwkeyspec: CERT_KEY_SPEC, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, lpszstructtype: PCSTR, pvstructinfo: Long, psignaturealgorithm: Long, pvhashauxinfo: Long, pbencoded: Long, pcbencoded: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptSignAndEncodeCertificate(hcryptprovorncryptkey.toString(), dwkeyspec.toInt(), dwcertencodingtype.toInt(), lpszstructtype.toString(), pvstructinfo.toString(), psignaturealgorithm.toString(), pvhashauxinfo.toString(), pbencoded.toString(), pcbencoded.toString()) as Int) else 0
+public actual fun cryptSignAndEncodeCertificate(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: CertKeySpec, dwcertencodingtype: CertQueryEncodingType, lpszstructtype: Pcstr, pvstructinfo: COpaquePointer?, psignaturealgorithm: COpaquePointer?, pvhashauxinfo: COpaquePointer?, pbencoded: COpaquePointer?, pcbencoded: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptSignAndEncodeCertificate(hcryptprovorncryptkey.toString(), dwkeyspec.toInt(), dwcertencodingtype.toInt(), (lpszstructtype?.value ?: 0L).toString(), (pvstructinfo?.value ?: 0L).toString(), (psignaturealgorithm?.value ?: 0L).toString(), (pvhashauxinfo?.value ?: 0L).toString(), (pbencoded?.value ?: 0L).toString(), (pcbencoded?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptSignAndEncryptMessage(psignpara: Long, pencryptpara: Long, crecipientcert: UInt, rgprecipientcert: Long, pbtobesignedandencrypted: Long, cbtobesignedandencrypted: UInt, pbsignedandencryptedblob: Long, pcbsignedandencryptedblob: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptSignAndEncryptMessage(psignpara.toString(), pencryptpara.toString(), crecipientcert.toInt(), rgprecipientcert.toString(), pbtobesignedandencrypted.toString(), cbtobesignedandencrypted.toInt(), pbsignedandencryptedblob.toString(), pcbsignedandencryptedblob.toString()) as Int) else 0
+public actual fun cryptSignAndEncryptMessage(psignpara: COpaquePointer?, pencryptpara: COpaquePointer?, crecipientcert: UInt, rgprecipientcert: COpaquePointer?, pbtobesignedandencrypted: COpaquePointer?, cbtobesignedandencrypted: UInt, pbsignedandencryptedblob: COpaquePointer?, pcbsignedandencryptedblob: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptSignAndEncryptMessage((psignpara?.value ?: 0L).toString(), (pencryptpara?.value ?: 0L).toString(), crecipientcert.toInt(), (rgprecipientcert?.value ?: 0L).toString(), (pbtobesignedandencrypted?.value ?: 0L).toString(), cbtobesignedandencrypted.toInt(), (pbsignedandencryptedblob?.value ?: 0L).toString(), (pcbsignedandencryptedblob?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptSignCertificate(hcryptprovorncryptkey: HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, dwkeyspec: UInt, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pbencodedtobesigned: Long, cbencodedtobesigned: UInt, psignaturealgorithm: Long, pvhashauxinfo: Long, pbsignature: Long, pcbsignature: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptSignCertificate(hcryptprovorncryptkey.toString(), dwkeyspec.toInt(), dwcertencodingtype.toInt(), pbencodedtobesigned.toString(), cbencodedtobesigned.toInt(), psignaturealgorithm.toString(), pvhashauxinfo.toString(), pbsignature.toString(), pcbsignature.toString()) as Int) else 0
+public actual fun cryptSignCertificate(hcryptprovorncryptkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: UInt, dwcertencodingtype: CertQueryEncodingType, pbencodedtobesigned: COpaquePointer?, cbencodedtobesigned: UInt, psignaturealgorithm: COpaquePointer?, pvhashauxinfo: COpaquePointer?, pbsignature: COpaquePointer?, pcbsignature: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptSignCertificate(hcryptprovorncryptkey.toString(), dwkeyspec.toInt(), dwcertencodingtype.toInt(), (pbencodedtobesigned?.value ?: 0L).toString(), cbencodedtobesigned.toInt(), (psignaturealgorithm?.value ?: 0L).toString(), (pvhashauxinfo?.value ?: 0L).toString(), (pbsignature?.value ?: 0L).toString(), (pcbsignature?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptSignHashA(hhash: ULong, dwkeyspec: UInt, szdescription: PCSTR, dwflags: UInt, pbsignature: Long, pdwsiglen: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptSignHashA(hhash.toString(), dwkeyspec.toInt(), szdescription.toString(), dwflags.toInt(), pbsignature.toString(), pdwsiglen.toString()) as Int) else 0
+public actual fun cryptSignHashA(hhash: ULong, dwkeyspec: UInt, szdescription: Pcstr, dwflags: UInt, pbsignature: COpaquePointer?, pdwsiglen: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptSignHashA(hhash.toString(), dwkeyspec.toInt(), (szdescription?.value ?: 0L).toString(), dwflags.toInt(), (pbsignature?.value ?: 0L).toString(), (pdwsiglen?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptSignHashW(hhash: ULong, dwkeyspec: UInt, szdescription: PCWSTR, dwflags: UInt, pbsignature: Long, pdwsiglen: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptSignHashW(hhash.toString(), dwkeyspec.toInt(), szdescription.toString(), dwflags.toInt(), pbsignature.toString(), pdwsiglen.toString()) as Int) else 0
+public actual fun cryptSignHashW(hhash: ULong, dwkeyspec: UInt, szdescription: Pcwstr, dwflags: UInt, pbsignature: COpaquePointer?, pdwsiglen: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptSignHashW(hhash.toString(), dwkeyspec.toInt(), (szdescription?.value ?: 0L).toString(), dwflags.toInt(), (pbsignature?.value ?: 0L).toString(), (pdwsiglen?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptSignMessage(psignpara: Long, fdetachedsignature: BOOL, ctobesigned: UInt, rgpbtobesigned: Long, rgcbtobesigned: Long, pbsignedblob: Long, pcbsignedblob: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptSignMessage(psignpara.toString(), fdetachedsignature, ctobesigned.toInt(), rgpbtobesigned.toString(), rgcbtobesigned.toString(), pbsignedblob.toString(), pcbsignedblob.toString()) as Int) else 0
+public actual fun cryptSignMessage(psignpara: COpaquePointer?, fdetachedsignature: Bool, ctobesigned: UInt, rgpbtobesigned: COpaquePointer?, rgcbtobesigned: COpaquePointer?, pbsignedblob: COpaquePointer?, pcbsignedblob: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptSignMessage((psignpara?.value ?: 0L).toString(), fdetachedsignature, ctobesigned.toInt(), (rgpbtobesigned?.value ?: 0L).toString(), (rgcbtobesigned?.value ?: 0L).toString(), (pbsignedblob?.value ?: 0L).toString(), (pcbsignedblob?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptSignMessageWithKey(psignpara: Long, pbtobesigned: Long, cbtobesigned: UInt, pbsignedblob: Long, pcbsignedblob: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptSignMessageWithKey(psignpara.toString(), pbtobesigned.toString(), cbtobesigned.toInt(), pbsignedblob.toString(), pcbsignedblob.toString()) as Int) else 0
+public actual fun cryptSignMessageWithKey(psignpara: COpaquePointer?, pbtobesigned: COpaquePointer?, cbtobesigned: UInt, pbsignedblob: COpaquePointer?, pcbsignedblob: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptSignMessageWithKey((psignpara?.value ?: 0L).toString(), (pbtobesigned?.value ?: 0L).toString(), cbtobesigned.toInt(), (pbsignedblob?.value ?: 0L).toString(), (pcbsignedblob?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptStringToBinaryA(pszstring: PCSTR, cchstring: UInt, dwflags: CRYPT_STRING, pbbinary: Long, pcbbinary: Long, pdwskip: Long, pdwflags: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptStringToBinaryA(pszstring.toString(), cchstring.toInt(), dwflags.toInt(), pbbinary.toString(), pcbbinary.toString(), pdwskip.toString(), pdwflags.toString()) as Int) else 0
+public actual fun cryptStringToBinaryA(pszstring: Pcstr, cchstring: UInt, dwflags: CryptString, pbbinary: COpaquePointer?, pcbbinary: COpaquePointer?, pdwskip: COpaquePointer?, pdwflags: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptStringToBinaryA((pszstring?.value ?: 0L).toString(), cchstring.toInt(), dwflags.toInt(), (pbbinary?.value ?: 0L).toString(), (pcbbinary?.value ?: 0L).toString(), (pdwskip?.value ?: 0L).toString(), (pdwflags?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptStringToBinaryW(pszstring: PCWSTR, cchstring: UInt, dwflags: CRYPT_STRING, pbbinary: Long, pcbbinary: Long, pdwskip: Long, pdwflags: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptStringToBinaryW(pszstring.toString(), cchstring.toInt(), dwflags.toInt(), pbbinary.toString(), pcbbinary.toString(), pdwskip.toString(), pdwflags.toString()) as Int) else 0
+public actual fun cryptStringToBinaryW(pszstring: Pcwstr, cchstring: UInt, dwflags: CryptString, pbbinary: COpaquePointer?, pcbbinary: COpaquePointer?, pdwskip: COpaquePointer?, pdwflags: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptStringToBinaryW((pszstring?.value ?: 0L).toString(), cchstring.toInt(), dwflags.toInt(), (pbbinary?.value ?: 0L).toString(), (pcbbinary?.value ?: 0L).toString(), (pdwskip?.value ?: 0L).toString(), (pdwflags?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptUninstallCancelRetrieval(dwflags: UInt, pvreserved: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptUninstallCancelRetrieval(dwflags.toInt(), pvreserved.toString()) as Int) else 0
+public actual fun cryptUninstallCancelRetrieval(dwflags: UInt, pvreserved: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptUninstallCancelRetrieval(dwflags.toInt(), (pvreserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptUninstallDefaultContext(hdefaultcontext: Long, dwflags: UInt, pvreserved: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptUninstallDefaultContext(hdefaultcontext.toString(), dwflags.toInt(), pvreserved.toString()) as Int) else 0
+public actual fun cryptUninstallDefaultContext(hdefaultcontext: COpaquePointer?, dwflags: UInt, pvreserved: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptUninstallDefaultContext((hdefaultcontext?.value ?: 0L).toString(), dwflags.toInt(), (pvreserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptUnprotectData(pdatain: Long, ppszdatadescr: Long, poptionalentropy: Long, pvreserved: Long, ppromptstruct: Long, dwflags: UInt, pdataout: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptUnprotectData(pdatain.toString(), ppszdatadescr.toString(), poptionalentropy.toString(), pvreserved.toString(), ppromptstruct.toString(), dwflags.toInt(), pdataout.toString()) as Int) else 0
+public actual fun cryptUnprotectData(pdatain: COpaquePointer?, ppszdatadescr: COpaquePointer?, poptionalentropy: COpaquePointer?, pvreserved: COpaquePointer?, ppromptstruct: COpaquePointer?, dwflags: UInt, pdataout: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptUnprotectData((pdatain?.value ?: 0L).toString(), (ppszdatadescr?.value ?: 0L).toString(), (poptionalentropy?.value ?: 0L).toString(), (pvreserved?.value ?: 0L).toString(), (ppromptstruct?.value ?: 0L).toString(), dwflags.toInt(), (pdataout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptUnprotectMemory(pdatain: Long, cbdatain: UInt, dwflags: UInt): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptUnprotectMemory(pdatain.toString(), cbdatain.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun cryptUnprotectMemory(pdatain: COpaquePointer?, cbdatain: UInt, dwflags: UInt): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptUnprotectMemory((pdatain?.value ?: 0L).toString(), cbdatain.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptUnregisterDefaultOIDFunction(dwencodingtype: UInt, pszfuncname: PCSTR, pwszdll: PCWSTR): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptUnregisterDefaultOIDFunction(dwencodingtype.toInt(), pszfuncname.toString(), pwszdll.toString()) as Int) else 0
+public actual fun cryptUnregisterDefaultOIDFunction(dwencodingtype: UInt, pszfuncname: Pcstr, pwszdll: Pcwstr): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptUnregisterDefaultOIDFunction(dwencodingtype.toInt(), (pszfuncname?.value ?: 0L).toString(), (pwszdll?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptUnregisterOIDFunction(dwencodingtype: UInt, pszfuncname: PCSTR, pszoid: PCSTR): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptUnregisterOIDFunction(dwencodingtype.toInt(), pszfuncname.toString(), pszoid.toString()) as Int) else 0
+public actual fun cryptUnregisterOIDFunction(dwencodingtype: UInt, pszfuncname: Pcstr, pszoid: Pcstr): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptUnregisterOIDFunction(dwencodingtype.toInt(), (pszfuncname?.value ?: 0L).toString(), (pszoid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptUnregisterOIDInfo(pinfo: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptUnregisterOIDInfo(pinfo.toString()) as Int) else 0
+public actual fun cryptUnregisterOIDInfo(pinfo: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptUnregisterOIDInfo((pinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptUpdateProtectedState(poldsid: PSID, pwszoldpassword: PCWSTR, dwflags: UInt, pdwsuccesscount: Long, pdwfailurecount: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptUpdateProtectedState(poldsid.toString(), pwszoldpassword.toString(), dwflags.toInt(), pdwsuccesscount.toString(), pdwfailurecount.toString()) as Int) else 0
+public actual fun cryptUpdateProtectedState(poldsid: Psid, pwszoldpassword: Pcwstr, dwflags: UInt, pdwsuccesscount: COpaquePointer?, pdwfailurecount: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptUpdateProtectedState((poldsid?.value ?: 0L).toString(), (pwszoldpassword?.value ?: 0L).toString(), dwflags.toInt(), (pdwsuccesscount?.value ?: 0L).toString(), (pdwfailurecount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptVerifyCertificateSignature(hcryptprov: HCRYPTPROV_LEGACY, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, pbencoded: Long, cbencoded: UInt, ppublickey: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptVerifyCertificateSignature(hcryptprov.toString(), dwcertencodingtype.toInt(), pbencoded.toString(), cbencoded.toInt(), ppublickey.toString()) as Int) else 0
+public actual fun cryptVerifyCertificateSignature(hcryptprov: HcryptprovLegacy, dwcertencodingtype: CertQueryEncodingType, pbencoded: COpaquePointer?, cbencoded: UInt, ppublickey: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptVerifyCertificateSignature(hcryptprov.toString(), dwcertencodingtype.toInt(), (pbencoded?.value ?: 0L).toString(), cbencoded.toInt(), (ppublickey?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptVerifyCertificateSignatureEx(hcryptprov: HCRYPTPROV_LEGACY, dwcertencodingtype: CERT_QUERY_ENCODING_TYPE, dwsubjecttype: UInt, pvsubject: Long, dwissuertype: UInt, pvissuer: Long, dwflags: CRYPT_VERIFY_CERT_FLAGS, pvextra: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptVerifyCertificateSignatureEx(hcryptprov.toString(), dwcertencodingtype.toInt(), dwsubjecttype.toInt(), pvsubject.toString(), dwissuertype.toInt(), pvissuer.toString(), dwflags.toInt(), pvextra.toString()) as Int) else 0
+public actual fun cryptVerifyCertificateSignatureEx(hcryptprov: HcryptprovLegacy, dwcertencodingtype: CertQueryEncodingType, dwsubjecttype: UInt, pvsubject: COpaquePointer?, dwissuertype: UInt, pvissuer: COpaquePointer?, dwflags: CryptVerifyCertFlags, pvextra: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptVerifyCertificateSignatureEx(hcryptprov.toString(), dwcertencodingtype.toInt(), dwsubjecttype.toInt(), (pvsubject?.value ?: 0L).toString(), dwissuertype.toInt(), (pvissuer?.value ?: 0L).toString(), dwflags.toInt(), (pvextra?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptVerifyDetachedMessageHash(phashpara: Long, pbdetachedhashblob: Long, cbdetachedhashblob: UInt, ctobehashed: UInt, rgpbtobehashed: Long, rgcbtobehashed: Long, pbcomputedhash: Long, pcbcomputedhash: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptVerifyDetachedMessageHash(phashpara.toString(), pbdetachedhashblob.toString(), cbdetachedhashblob.toInt(), ctobehashed.toInt(), rgpbtobehashed.toString(), rgcbtobehashed.toString(), pbcomputedhash.toString(), pcbcomputedhash.toString()) as Int) else 0
+public actual fun cryptVerifyDetachedMessageHash(phashpara: COpaquePointer?, pbdetachedhashblob: COpaquePointer?, cbdetachedhashblob: UInt, ctobehashed: UInt, rgpbtobehashed: COpaquePointer?, rgcbtobehashed: COpaquePointer?, pbcomputedhash: COpaquePointer?, pcbcomputedhash: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptVerifyDetachedMessageHash((phashpara?.value ?: 0L).toString(), (pbdetachedhashblob?.value ?: 0L).toString(), cbdetachedhashblob.toInt(), ctobehashed.toInt(), (rgpbtobehashed?.value ?: 0L).toString(), (rgcbtobehashed?.value ?: 0L).toString(), (pbcomputedhash?.value ?: 0L).toString(), (pcbcomputedhash?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptVerifyDetachedMessageSignature(pverifypara: Long, dwsignerindex: UInt, pbdetachedsignblob: Long, cbdetachedsignblob: UInt, ctobesigned: UInt, rgpbtobesigned: Long, rgcbtobesigned: Long, ppsignercert: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptVerifyDetachedMessageSignature(pverifypara.toString(), dwsignerindex.toInt(), pbdetachedsignblob.toString(), cbdetachedsignblob.toInt(), ctobesigned.toInt(), rgpbtobesigned.toString(), rgcbtobesigned.toString(), ppsignercert.toString()) as Int) else 0
+public actual fun cryptVerifyDetachedMessageSignature(pverifypara: COpaquePointer?, dwsignerindex: UInt, pbdetachedsignblob: COpaquePointer?, cbdetachedsignblob: UInt, ctobesigned: UInt, rgpbtobesigned: COpaquePointer?, rgcbtobesigned: COpaquePointer?, ppsignercert: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptVerifyDetachedMessageSignature((pverifypara?.value ?: 0L).toString(), dwsignerindex.toInt(), (pbdetachedsignblob?.value ?: 0L).toString(), cbdetachedsignblob.toInt(), ctobesigned.toInt(), (rgpbtobesigned?.value ?: 0L).toString(), (rgcbtobesigned?.value ?: 0L).toString(), (ppsignercert?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptVerifyMessageHash(phashpara: Long, pbhashedblob: Long, cbhashedblob: UInt, pbtobehashed: Long, pcbtobehashed: Long, pbcomputedhash: Long, pcbcomputedhash: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptVerifyMessageHash(phashpara.toString(), pbhashedblob.toString(), cbhashedblob.toInt(), pbtobehashed.toString(), pcbtobehashed.toString(), pbcomputedhash.toString(), pcbcomputedhash.toString()) as Int) else 0
+public actual fun cryptVerifyMessageHash(phashpara: COpaquePointer?, pbhashedblob: COpaquePointer?, cbhashedblob: UInt, pbtobehashed: COpaquePointer?, pcbtobehashed: COpaquePointer?, pbcomputedhash: COpaquePointer?, pcbcomputedhash: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptVerifyMessageHash((phashpara?.value ?: 0L).toString(), (pbhashedblob?.value ?: 0L).toString(), cbhashedblob.toInt(), (pbtobehashed?.value ?: 0L).toString(), (pcbtobehashed?.value ?: 0L).toString(), (pbcomputedhash?.value ?: 0L).toString(), (pcbcomputedhash?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptVerifyMessageSignature(pverifypara: Long, dwsignerindex: UInt, pbsignedblob: Long, cbsignedblob: UInt, pbdecoded: Long, pcbdecoded: Long, ppsignercert: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptVerifyMessageSignature(pverifypara.toString(), dwsignerindex.toInt(), pbsignedblob.toString(), cbsignedblob.toInt(), pbdecoded.toString(), pcbdecoded.toString(), ppsignercert.toString()) as Int) else 0
+public actual fun cryptVerifyMessageSignature(pverifypara: COpaquePointer?, dwsignerindex: UInt, pbsignedblob: COpaquePointer?, cbsignedblob: UInt, pbdecoded: COpaquePointer?, pcbdecoded: COpaquePointer?, ppsignercert: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptVerifyMessageSignature((pverifypara?.value ?: 0L).toString(), dwsignerindex.toInt(), (pbsignedblob?.value ?: 0L).toString(), cbsignedblob.toInt(), (pbdecoded?.value ?: 0L).toString(), (pcbdecoded?.value ?: 0L).toString(), (ppsignercert?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptVerifyMessageSignatureWithKey(pverifypara: Long, ppublickeyinfo: Long, pbsignedblob: Long, cbsignedblob: UInt, pbdecoded: Long, pcbdecoded: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptVerifyMessageSignatureWithKey(pverifypara.toString(), ppublickeyinfo.toString(), pbsignedblob.toString(), cbsignedblob.toInt(), pbdecoded.toString(), pcbdecoded.toString()) as Int) else 0
+public actual fun cryptVerifyMessageSignatureWithKey(pverifypara: COpaquePointer?, ppublickeyinfo: COpaquePointer?, pbsignedblob: COpaquePointer?, cbsignedblob: UInt, pbdecoded: COpaquePointer?, pcbdecoded: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptVerifyMessageSignatureWithKey((pverifypara?.value ?: 0L).toString(), (ppublickeyinfo?.value ?: 0L).toString(), (pbsignedblob?.value ?: 0L).toString(), cbsignedblob.toInt(), (pbdecoded?.value ?: 0L).toString(), (pcbdecoded?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptVerifySignatureA(hhash: ULong, pbsignature: Long, dwsiglen: UInt, hpubkey: ULong, szdescription: PCSTR, dwflags: UInt): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptVerifySignatureA(hhash.toString(), pbsignature.toString(), dwsiglen.toInt(), hpubkey.toString(), szdescription.toString(), dwflags.toInt()) as Int) else 0
+public actual fun cryptVerifySignatureA(hhash: ULong, pbsignature: COpaquePointer?, dwsiglen: UInt, hpubkey: ULong, szdescription: Pcstr, dwflags: UInt): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptVerifySignatureA(hhash.toString(), (pbsignature?.value ?: 0L).toString(), dwsiglen.toInt(), hpubkey.toString(), (szdescription?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptVerifySignatureW(hhash: ULong, pbsignature: Long, dwsiglen: UInt, hpubkey: ULong, szdescription: PCWSTR, dwflags: UInt): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptVerifySignatureW(hhash.toString(), pbsignature.toString(), dwsiglen.toInt(), hpubkey.toString(), szdescription.toString(), dwflags.toInt()) as Int) else 0
+public actual fun cryptVerifySignatureW(hhash: ULong, pbsignature: COpaquePointer?, dwsiglen: UInt, hpubkey: ULong, szdescription: Pcwstr, dwflags: UInt): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptVerifySignatureW(hhash.toString(), (pbsignature?.value ?: 0L).toString(), dwsiglen.toInt(), hpubkey.toString(), (szdescription?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptVerifyTimeStampSignature(pbtscontentinfo: Long, cbtscontentinfo: UInt, pbdata: Long, cbdata: UInt, hadditionalstore: HCERTSTORE, pptscontext: Long, pptssigner: Long, phstore: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptVerifyTimeStampSignature(pbtscontentinfo.toString(), cbtscontentinfo.toInt(), pbdata.toString(), cbdata.toInt(), hadditionalstore.toString(), pptscontext.toString(), pptssigner.toString(), phstore.toString()) as Int) else 0
+public actual fun cryptVerifyTimeStampSignature(pbtscontentinfo: COpaquePointer?, cbtscontentinfo: UInt, pbdata: COpaquePointer?, cbdata: UInt, hadditionalstore: Hcertstore, pptscontext: COpaquePointer?, pptssigner: COpaquePointer?, phstore: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptVerifyTimeStampSignature((pbtscontentinfo?.value ?: 0L).toString(), cbtscontentinfo.toInt(), (pbdata?.value ?: 0L).toString(), cbdata.toInt(), (hadditionalstore?.value ?: 0L).toString(), (pptscontext?.value ?: 0L).toString(), (pptssigner?.value ?: 0L).toString(), (phstore?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptXmlAddObject(hsignatureorobject: Long, dwflags: UInt, rgproperty: Long, cproperty: UInt, pencoded: Long, ppobject: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptXmlAddObject(hsignatureorobject.toString(), dwflags.toInt(), rgproperty.toString(), cproperty.toInt(), pencoded.toString(), ppobject.toString()) as Int) else 0
+public actual fun cryptXmlAddObject(hsignatureorobject: COpaquePointer?, dwflags: UInt, rgproperty: COpaquePointer?, cproperty: UInt, pencoded: COpaquePointer?, ppobject: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptXmlAddObject((hsignatureorobject?.value ?: 0L).toString(), dwflags.toInt(), (rgproperty?.value ?: 0L).toString(), cproperty.toInt(), (pencoded?.value ?: 0L).toString(), (ppobject?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptXmlClose(hcryptxml: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptXmlClose(hcryptxml.toString()) as Int) else 0
+public actual fun cryptXmlClose(hcryptxml: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptXmlClose((hcryptxml?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptXmlCreateReference(hcryptxml: Long, dwflags: UInt, wszid: PCWSTR, wszuri: PCWSTR, wsztype: PCWSTR, pdigestmethod: Long, ctransform: UInt, rgtransform: Long, phreference: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptXmlCreateReference(hcryptxml.toString(), dwflags.toInt(), wszid.toString(), wszuri.toString(), wsztype.toString(), pdigestmethod.toString(), ctransform.toInt(), rgtransform.toString(), phreference.toString()) as Int) else 0
+public actual fun cryptXmlCreateReference(hcryptxml: COpaquePointer?, dwflags: UInt, wszid: Pcwstr, wszuri: Pcwstr, wsztype: Pcwstr, pdigestmethod: COpaquePointer?, ctransform: UInt, rgtransform: COpaquePointer?, phreference: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptXmlCreateReference((hcryptxml?.value ?: 0L).toString(), dwflags.toInt(), (wszid?.value ?: 0L).toString(), (wszuri?.value ?: 0L).toString(), (wsztype?.value ?: 0L).toString(), (pdigestmethod?.value ?: 0L).toString(), ctransform.toInt(), (rgtransform?.value ?: 0L).toString(), (phreference?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptXmlDigestReference(hreference: Long, dwflags: UInt, pdataproviderin: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptXmlDigestReference(hreference.toString(), dwflags.toInt(), pdataproviderin.toString()) as Int) else 0
+public actual fun cryptXmlDigestReference(hreference: COpaquePointer?, dwflags: UInt, pdataproviderin: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptXmlDigestReference((hreference?.value ?: 0L).toString(), dwflags.toInt(), (pdataproviderin?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptXmlEncode(hcryptxml: Long, dwcharset: CRYPT_XML_CHARSET, rgproperty: Long, cproperty: UInt, pvcallbackstate: Long, pfnwrite: PFN_CRYPT_XML_WRITE_CALLBACK): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptXmlEncode(hcryptxml.toString(), dwcharset, rgproperty.toString(), cproperty.toInt(), pvcallbackstate.toString(), pfnwrite.toLong().toString()) as Int) else 0
+public actual fun cryptXmlEncode(hcryptxml: COpaquePointer?, dwcharset: CryptXmlCharset, rgproperty: COpaquePointer?, cproperty: UInt, pvcallbackstate: COpaquePointer?, pfnwrite: PfnCryptXmlWriteCallback): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptXmlEncode((hcryptxml?.value ?: 0L).toString(), dwcharset, (rgproperty?.value ?: 0L).toString(), cproperty.toInt(), (pvcallbackstate?.value ?: 0L).toString(), 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptXmlEnumAlgorithmInfo(dwgroupid: UInt, dwflags: UInt, pvarg: Long, pfnenumalginfo: PFN_CRYPT_XML_ENUM_ALG_INFO): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptXmlEnumAlgorithmInfo(dwgroupid.toInt(), dwflags.toInt(), pvarg.toString(), pfnenumalginfo.toLong().toString()) as Int) else 0
+public actual fun cryptXmlEnumAlgorithmInfo(dwgroupid: UInt, dwflags: UInt, pvarg: COpaquePointer?, pfnenumalginfo: PfnCryptXmlEnumAlgInfo): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptXmlEnumAlgorithmInfo(dwgroupid.toInt(), dwflags.toInt(), (pvarg?.value ?: 0L).toString(), 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptXmlFindAlgorithmInfo(dwfindbytype: UInt, pvfindby: Long, dwgroupid: UInt, dwflags: UInt): Long =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptXmlFindAlgorithmInfo(dwfindbytype.toInt(), pvfindby.toString(), dwgroupid.toInt(), dwflags.toInt()) as String).toLong() else 0L
+public actual fun cryptXmlFindAlgorithmInfo(dwfindbytype: UInt, pvfindby: COpaquePointer?, dwgroupid: UInt, dwflags: UInt): COpaquePointer? =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptXmlFindAlgorithmInfo(dwfindbytype.toInt(), (pvfindby?.value ?: 0L).toString(), dwgroupid.toInt(), dwflags.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptXmlGetAlgorithmInfo(pxmlalgorithm: Long, dwflags: CRYPT_XML_FLAGS, ppalginfo: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptXmlGetAlgorithmInfo(pxmlalgorithm.toString(), dwflags.toInt(), ppalginfo.toString()) as Int) else 0
+public actual fun cryptXmlGetAlgorithmInfo(pxmlalgorithm: COpaquePointer?, dwflags: CryptXmlFlags, ppalginfo: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptXmlGetAlgorithmInfo((pxmlalgorithm?.value ?: 0L).toString(), dwflags.toInt(), (ppalginfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptXmlGetDocContext(hcryptxml: Long, ppstruct: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptXmlGetDocContext(hcryptxml.toString(), ppstruct.toString()) as Int) else 0
+public actual fun cryptXmlGetDocContext(hcryptxml: COpaquePointer?, ppstruct: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptXmlGetDocContext((hcryptxml?.value ?: 0L).toString(), (ppstruct?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptXmlGetReference(hcryptxml: Long, ppstruct: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptXmlGetReference(hcryptxml.toString(), ppstruct.toString()) as Int) else 0
+public actual fun cryptXmlGetReference(hcryptxml: COpaquePointer?, ppstruct: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptXmlGetReference((hcryptxml?.value ?: 0L).toString(), (ppstruct?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptXmlGetSignature(hcryptxml: Long, ppstruct: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptXmlGetSignature(hcryptxml.toString(), ppstruct.toString()) as Int) else 0
+public actual fun cryptXmlGetSignature(hcryptxml: COpaquePointer?, ppstruct: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptXmlGetSignature((hcryptxml?.value ?: 0L).toString(), (ppstruct?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptXmlGetStatus(hcryptxml: Long, pstatus: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptXmlGetStatus(hcryptxml.toString(), pstatus.toString()) as Int) else 0
+public actual fun cryptXmlGetStatus(hcryptxml: COpaquePointer?, pstatus: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptXmlGetStatus((hcryptxml?.value ?: 0L).toString(), (pstatus?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptXmlGetTransforms(ppconfig: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptXmlGetTransforms(ppconfig.toString()) as Int) else 0
+public actual fun cryptXmlGetTransforms(ppconfig: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptXmlGetTransforms((ppconfig?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptXmlImportPublicKey(dwflags: CRYPT_XML_FLAGS, pkeyvalue: Long, phkey: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptXmlImportPublicKey(dwflags.toInt(), pkeyvalue.toString(), phkey.toString()) as Int) else 0
+public actual fun cryptXmlImportPublicKey(dwflags: CryptXmlFlags, pkeyvalue: COpaquePointer?, phkey: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptXmlImportPublicKey(dwflags.toInt(), (pkeyvalue?.value ?: 0L).toString(), (phkey?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptXmlOpenToDecode(pconfig: Long, dwflags: CRYPT_XML_FLAGS, rgproperty: Long, cproperty: UInt, pencoded: Long, phcryptxml: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptXmlOpenToDecode(pconfig.toString(), dwflags.toInt(), rgproperty.toString(), cproperty.toInt(), pencoded.toString(), phcryptxml.toString()) as Int) else 0
+public actual fun cryptXmlOpenToDecode(pconfig: COpaquePointer?, dwflags: CryptXmlFlags, rgproperty: COpaquePointer?, cproperty: UInt, pencoded: COpaquePointer?, phcryptxml: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptXmlOpenToDecode((pconfig?.value ?: 0L).toString(), dwflags.toInt(), (rgproperty?.value ?: 0L).toString(), cproperty.toInt(), (pencoded?.value ?: 0L).toString(), (phcryptxml?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptXmlOpenToEncode(pconfig: Long, dwflags: CRYPT_XML_FLAGS, wszid: PCWSTR, rgproperty: Long, cproperty: UInt, pencoded: Long, phsignature: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptXmlOpenToEncode(pconfig.toString(), dwflags.toInt(), wszid.toString(), rgproperty.toString(), cproperty.toInt(), pencoded.toString(), phsignature.toString()) as Int) else 0
+public actual fun cryptXmlOpenToEncode(pconfig: COpaquePointer?, dwflags: CryptXmlFlags, wszid: Pcwstr, rgproperty: COpaquePointer?, cproperty: UInt, pencoded: COpaquePointer?, phsignature: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptXmlOpenToEncode((pconfig?.value ?: 0L).toString(), dwflags.toInt(), (wszid?.value ?: 0L).toString(), (rgproperty?.value ?: 0L).toString(), cproperty.toInt(), (pencoded?.value ?: 0L).toString(), (phsignature?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptXmlSetHMACSecret(hsignature: Long, pbsecret: Long, cbsecret: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptXmlSetHMACSecret(hsignature.toString(), pbsecret.toString(), cbsecret.toInt()) as Int) else 0
+public actual fun cryptXmlSetHMACSecret(hsignature: COpaquePointer?, pbsecret: COpaquePointer?, cbsecret: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptXmlSetHMACSecret((hsignature?.value ?: 0L).toString(), (pbsecret?.value ?: 0L).toString(), cbsecret.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptXmlSign(hsignature: Long, hkey: HCRYPTPROV_OR_NCRYPT_KEY_HANDLE, dwkeyspec: CERT_KEY_SPEC, dwflags: CRYPT_XML_FLAGS, dwkeyinfospec: CRYPT_XML_KEYINFO_SPEC, pvkeyinfospec: Long, psignaturemethod: Long, pcanonicalization: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptXmlSign(hsignature.toString(), hkey.toString(), dwkeyspec.toInt(), dwflags.toInt(), dwkeyinfospec, pvkeyinfospec.toString(), psignaturemethod.toString(), pcanonicalization.toString()) as Int) else 0
+public actual fun cryptXmlSign(hsignature: COpaquePointer?, hkey: HcryptprovOrNcryptKeyHandle, dwkeyspec: CertKeySpec, dwflags: CryptXmlFlags, dwkeyinfospec: CryptXmlKeyinfoSpec, pvkeyinfospec: COpaquePointer?, psignaturemethod: COpaquePointer?, pcanonicalization: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptXmlSign((hsignature?.value ?: 0L).toString(), hkey.toString(), dwkeyspec.toInt(), dwflags.toInt(), dwkeyinfospec, (pvkeyinfospec?.value ?: 0L).toString(), (psignaturemethod?.value ?: 0L).toString(), (pcanonicalization?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CryptXmlVerifySignature(hsignature: Long, hkey: BCRYPT_KEY_HANDLE, dwflags: CRYPT_XML_FLAGS): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_CryptXmlVerifySignature(hsignature.toString(), hkey.toString(), dwflags.toInt()) as Int) else 0
+public actual fun cryptXmlVerifySignature(hsignature: COpaquePointer?, hkey: BcryptKeyHandle, dwflags: CryptXmlFlags): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_cryptXmlVerifySignature((hsignature?.value ?: 0L).toString(), (hkey?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun Decrypt(hcrypto: Long, foaep: BOOL, cbindata: UInt, pindata: Long, pcboutdata: Long, ppoutdata: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_Decrypt(hcrypto.toString(), foaep, cbindata.toInt(), pindata.toString(), pcboutdata.toString(), ppoutdata.toString()) as Int) else 0
+public actual fun decrypt(hcrypto: COpaquePointer?, foaep: Bool, cbindata: UInt, pindata: COpaquePointer?, pcboutdata: COpaquePointer?, ppoutdata: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_decrypt((hcrypto?.value ?: 0L).toString(), foaep, cbindata.toInt(), (pindata?.value ?: 0L).toString(), (pcboutdata?.value ?: 0L).toString(), (ppoutdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun Encrypt(hcrypto: Long, foaep: BOOL, cbindata: UInt, pindata: Long, pcboutdata: Long, ppoutdata: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_Encrypt(hcrypto.toString(), foaep, cbindata.toInt(), pindata.toString(), pcboutdata.toString(), ppoutdata.toString()) as Int) else 0
+public actual fun encrypt(hcrypto: COpaquePointer?, foaep: Bool, cbindata: UInt, pindata: COpaquePointer?, pcboutdata: COpaquePointer?, ppoutdata: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_encrypt((hcrypto?.value ?: 0L).toString(), foaep, cbindata.toInt(), (pindata?.value ?: 0L).toString(), (pcboutdata?.value ?: 0L).toString(), (ppoutdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindCertsByIssuer(pcertchains: Long, pcbcertchains: Long, pccertchains: Long, pbencodedissuername: Long, cbencodedissuername: UInt, pwszpurpose: PCWSTR, dwkeyspec: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_FindCertsByIssuer(pcertchains.toString(), pcbcertchains.toString(), pccertchains.toString(), pbencodedissuername.toString(), cbencodedissuername.toInt(), pwszpurpose.toString(), dwkeyspec.toInt()) as Int) else 0
+public actual fun findCertsByIssuer(pcertchains: COpaquePointer?, pcbcertchains: COpaquePointer?, pccertchains: COpaquePointer?, pbencodedissuername: COpaquePointer?, cbencodedissuername: UInt, pwszpurpose: Pcwstr, dwkeyspec: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_findCertsByIssuer((pcertchains?.value ?: 0L).toString(), (pcbcertchains?.value ?: 0L).toString(), (pccertchains?.value ?: 0L).toString(), (pbencodedissuername?.value ?: 0L).toString(), cbencodedissuername.toInt(), (pwszpurpose?.value ?: 0L).toString(), dwkeyspec.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FreeToken(pallocmemory: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_FreeToken(pallocmemory.toString()) as Int) else 0
+public actual fun freeToken(pallocmemory: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_freeToken((pallocmemory?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GenerateDerivedKey(hcrypto: Long, cblabel: UInt, plabel: Long, cbnonce: UInt, pnonce: Long, derivedkeylength: UInt, offset: UInt, algid: PCWSTR, pcbkey: Long, ppkey: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_GenerateDerivedKey(hcrypto.toString(), cblabel.toInt(), plabel.toString(), cbnonce.toInt(), pnonce.toString(), derivedkeylength.toInt(), offset.toInt(), algid.toString(), pcbkey.toString(), ppkey.toString()) as Int) else 0
+public actual fun generateDerivedKey(hcrypto: COpaquePointer?, cblabel: UInt, plabel: COpaquePointer?, cbnonce: UInt, pnonce: COpaquePointer?, derivedkeylength: UInt, offset: UInt, algid: Pcwstr, pcbkey: COpaquePointer?, ppkey: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_generateDerivedKey((hcrypto?.value ?: 0L).toString(), cblabel.toInt(), (plabel?.value ?: 0L).toString(), cbnonce.toInt(), (pnonce?.value ?: 0L).toString(), derivedkeylength.toInt(), offset.toInt(), (algid?.value ?: 0L).toString(), (pcbkey?.value ?: 0L).toString(), (ppkey?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetAsymmetricEncryptionInterface(pszprovidername: PCWSTR, pszalgid: PCWSTR, ppfunctiontable: Long, dwflags: UInt): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_GetAsymmetricEncryptionInterface(pszprovidername.toString(), pszalgid.toString(), ppfunctiontable.toString(), dwflags.toInt()) as Int) else 0
+public actual fun getAsymmetricEncryptionInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: COpaquePointer?, dwflags: UInt): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_getAsymmetricEncryptionInterface((pszprovidername?.value ?: 0L).toString(), (pszalgid?.value ?: 0L).toString(), (ppfunctiontable?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetBrowserToken(dwparamtype: UInt, pparam: Long, pcbtoken: Long, pptoken: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_GetBrowserToken(dwparamtype.toInt(), pparam.toString(), pcbtoken.toString(), pptoken.toString()) as Int) else 0
+public actual fun getBrowserToken(dwparamtype: UInt, pparam: COpaquePointer?, pcbtoken: COpaquePointer?, pptoken: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_getBrowserToken(dwparamtype.toInt(), (pparam?.value ?: 0L).toString(), (pcbtoken?.value ?: 0L).toString(), (pptoken?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCipherInterface(pszprovidername: PCWSTR, pszalgid: PCWSTR, ppfunctiontable: Long, dwflags: UInt): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_GetCipherInterface(pszprovidername.toString(), pszalgid.toString(), ppfunctiontable.toString(), dwflags.toInt()) as Int) else 0
+public actual fun getCipherInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: COpaquePointer?, dwflags: UInt): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_getCipherInterface((pszprovidername?.value ?: 0L).toString(), (pszalgid?.value ?: 0L).toString(), (ppfunctiontable?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCryptoTransform(hsymmetriccrypto: Long, mode: UInt, padding: PaddingMode, feedbacksize: UInt, direction: Direction, cbiv: UInt, piv: Long, pphtransform: Long): HRESULT =
-    0
+public actual fun getCryptoTransform(hsymmetriccrypto: COpaquePointer?, mode: UInt, padding: PaddingMode, feedbacksize: UInt, direction: Direction, cbiv: UInt, piv: COpaquePointer?, pphtransform: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetHashInterface(pszprovidername: PCWSTR, pszalgid: PCWSTR, ppfunctiontable: Long, dwflags: UInt): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_GetHashInterface(pszprovidername.toString(), pszalgid.toString(), ppfunctiontable.toString(), dwflags.toInt()) as Int) else 0
+public actual fun getHashInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: COpaquePointer?, dwflags: UInt): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_getHashInterface((pszprovidername?.value ?: 0L).toString(), (pszalgid?.value ?: 0L).toString(), (ppfunctiontable?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetKeyDerivationInterface(pszprovidername: PCWSTR, pszalgid: PCWSTR, ppfunctiontable: Long, dwflags: UInt): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_GetKeyDerivationInterface(pszprovidername.toString(), pszalgid.toString(), ppfunctiontable.toString(), dwflags.toInt()) as Int) else 0
+public actual fun getKeyDerivationInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: COpaquePointer?, dwflags: UInt): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_getKeyDerivationInterface((pszprovidername?.value ?: 0L).toString(), (pszalgid?.value ?: 0L).toString(), (ppfunctiontable?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetKeyStorageInterface(pszprovidername: PCWSTR, ppfunctiontable: Long, dwflags: UInt): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_GetKeyStorageInterface(pszprovidername.toString(), ppfunctiontable.toString(), dwflags.toInt()) as Int) else 0
+public actual fun getKeyStorageInterface(pszprovidername: Pcwstr, ppfunctiontable: COpaquePointer?, dwflags: UInt): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_getKeyStorageInterface((pszprovidername?.value ?: 0L).toString(), (ppfunctiontable?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetKeyedHash(hsymmetriccrypto: Long, pphhash: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_GetKeyedHash(hsymmetriccrypto.toString(), pphhash.toString()) as Int) else 0
+public actual fun getKeyedHash(hsymmetriccrypto: COpaquePointer?, pphhash: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_getKeyedHash((hsymmetriccrypto?.value ?: 0L).toString(), (pphhash?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetRngInterface(pszprovidername: PCWSTR, ppfunctiontable: Long, dwflags: UInt): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_GetRngInterface(pszprovidername.toString(), ppfunctiontable.toString(), dwflags.toInt()) as Int) else 0
+public actual fun getRngInterface(pszprovidername: Pcwstr, ppfunctiontable: COpaquePointer?, dwflags: UInt): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_getRngInterface((pszprovidername?.value ?: 0L).toString(), (ppfunctiontable?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetSChannelInterface(pszprovidername: PCWSTR, ppfunctiontable: Long, dwflags: UInt): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_GetSChannelInterface(pszprovidername.toString(), ppfunctiontable.toString(), dwflags.toInt()) as Int) else 0
+public actual fun getSChannelInterface(pszprovidername: Pcwstr, ppfunctiontable: COpaquePointer?, dwflags: UInt): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_getSChannelInterface((pszprovidername?.value ?: 0L).toString(), (ppfunctiontable?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetSecretAgreementInterface(pszprovidername: PCWSTR, pszalgid: PCWSTR, ppfunctiontable: Long, dwflags: UInt): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_GetSecretAgreementInterface(pszprovidername.toString(), pszalgid.toString(), ppfunctiontable.toString(), dwflags.toInt()) as Int) else 0
+public actual fun getSecretAgreementInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: COpaquePointer?, dwflags: UInt): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_getSecretAgreementInterface((pszprovidername?.value ?: 0L).toString(), (pszalgid?.value ?: 0L).toString(), (ppfunctiontable?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetSignatureInterface(pszprovidername: PCWSTR, pszalgid: PCWSTR, ppfunctiontable: Long, dwflags: UInt): NTSTATUS =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_GetSignatureInterface(pszprovidername.toString(), pszalgid.toString(), ppfunctiontable.toString(), dwflags.toInt()) as Int) else 0
+public actual fun getSignatureInterface(pszprovidername: Pcwstr, pszalgid: Pcwstr, ppfunctiontable: COpaquePointer?, dwflags: UInt): Ntstatus =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_getSignatureInterface((pszprovidername?.value ?: 0L).toString(), (pszalgid?.value ?: 0L).toString(), (ppfunctiontable?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetToken(cpolicychain: UInt, ppolicychain: Long, securitytoken: Long, phprooftokencrypto: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_GetToken(cpolicychain.toInt(), ppolicychain.toString(), securitytoken.toString(), phprooftokencrypto.toString()) as Int) else 0
+public actual fun getToken(cpolicychain: UInt, ppolicychain: COpaquePointer?, securitytoken: COpaquePointer?, phprooftokencrypto: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_getToken(cpolicychain.toInt(), (ppolicychain?.value ?: 0L).toString(), (securitytoken?.value ?: 0L).toString(), (phprooftokencrypto?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HashCore(hcrypto: Long, cbindata: UInt, pindata: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_HashCore(hcrypto.toString(), cbindata.toInt(), pindata.toString()) as Int) else 0
+public actual fun hashCore(hcrypto: COpaquePointer?, cbindata: UInt, pindata: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_hashCore((hcrypto?.value ?: 0L).toString(), cbindata.toInt(), (pindata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HashFinal(hcrypto: Long, cbindata: UInt, pindata: Long, pcboutdata: Long, ppoutdata: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_HashFinal(hcrypto.toString(), cbindata.toInt(), pindata.toString(), pcboutdata.toString(), ppoutdata.toString()) as Int) else 0
+public actual fun hashFinal(hcrypto: COpaquePointer?, cbindata: UInt, pindata: COpaquePointer?, pcboutdata: COpaquePointer?, ppoutdata: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_hashFinal((hcrypto?.value ?: 0L).toString(), cbindata.toInt(), (pindata?.value ?: 0L).toString(), (pcboutdata?.value ?: 0L).toString(), (ppoutdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ImportInformationCard(filename: PCWSTR): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_ImportInformationCard(filename.toString()) as Int) else 0
+public actual fun importInformationCard(filename: Pcwstr): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_importInformationCard((filename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ManageCardSpace(): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_ManageCardSpace() as Int) else 0
+public actual fun manageCardSpace(): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_manageCardSpace() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NCryptCloseProtectionDescriptor(hdescriptor: NCRYPT_DESCRIPTOR_HANDLE): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_NCryptCloseProtectionDescriptor(hdescriptor.toString()) as Int) else 0
+public actual fun nCryptCloseProtectionDescriptor(hdescriptor: NcryptDescriptorHandle): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_nCryptCloseProtectionDescriptor((hdescriptor?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NCryptCreateClaim(hsubjectkey: NCRYPT_KEY_HANDLE, hauthoritykey: NCRYPT_KEY_HANDLE, dwclaimtype: UInt, pparameterlist: Long, pbclaimblob: Long, cbclaimblob: UInt, pcbresult: Long, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_NCryptCreateClaim(hsubjectkey.toString(), hauthoritykey.toString(), dwclaimtype.toInt(), pparameterlist.toString(), pbclaimblob.toString(), cbclaimblob.toInt(), pcbresult.toString(), dwflags.toInt()) as Int) else 0
+public actual fun nCryptCreateClaim(hsubjectkey: NcryptKeyHandle, hauthoritykey: NcryptKeyHandle, dwclaimtype: UInt, pparameterlist: COpaquePointer?, pbclaimblob: COpaquePointer?, cbclaimblob: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_nCryptCreateClaim(hsubjectkey.toString(), hauthoritykey.toString(), dwclaimtype.toInt(), (pparameterlist?.value ?: 0L).toString(), (pbclaimblob?.value ?: 0L).toString(), cbclaimblob.toInt(), (pcbresult?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NCryptCreatePersistedKey(hprovider: NCRYPT_PROV_HANDLE, phkey: Long, pszalgid: PCWSTR, pszkeyname: PCWSTR, dwlegacykeyspec: CERT_KEY_SPEC, dwflags: NCRYPT_FLAGS): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_NCryptCreatePersistedKey(hprovider.toString(), phkey.toString(), pszalgid.toString(), pszkeyname.toString(), dwlegacykeyspec.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun nCryptCreatePersistedKey(hprovider: NcryptProvHandle, phkey: COpaquePointer?, pszalgid: Pcwstr, pszkeyname: Pcwstr, dwlegacykeyspec: CertKeySpec, dwflags: NcryptFlags): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_nCryptCreatePersistedKey(hprovider.toString(), (phkey?.value ?: 0L).toString(), (pszalgid?.value ?: 0L).toString(), (pszkeyname?.value ?: 0L).toString(), dwlegacykeyspec.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NCryptCreateProtectionDescriptor(pwszdescriptorstring: PCWSTR, dwflags: UInt, phdescriptor: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_NCryptCreateProtectionDescriptor(pwszdescriptorstring.toString(), dwflags.toInt(), phdescriptor.toString()) as Int) else 0
+public actual fun nCryptCreateProtectionDescriptor(pwszdescriptorstring: Pcwstr, dwflags: UInt, phdescriptor: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_nCryptCreateProtectionDescriptor((pwszdescriptorstring?.value ?: 0L).toString(), dwflags.toInt(), (phdescriptor?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NCryptDecrypt(hkey: NCRYPT_KEY_HANDLE, pbinput: Long, cbinput: UInt, ppaddinginfo: Long, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: NCRYPT_FLAGS): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_NCryptDecrypt(hkey.toString(), pbinput.toString(), cbinput.toInt(), ppaddinginfo.toString(), pboutput.toString(), cboutput.toInt(), pcbresult.toString(), dwflags.toInt()) as Int) else 0
+public actual fun nCryptDecrypt(hkey: NcryptKeyHandle, pbinput: COpaquePointer?, cbinput: UInt, ppaddinginfo: COpaquePointer?, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: NcryptFlags): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_nCryptDecrypt(hkey.toString(), (pbinput?.value ?: 0L).toString(), cbinput.toInt(), (ppaddinginfo?.value ?: 0L).toString(), (pboutput?.value ?: 0L).toString(), cboutput.toInt(), (pcbresult?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NCryptDeleteKey(hkey: NCRYPT_KEY_HANDLE, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_NCryptDeleteKey(hkey.toString(), dwflags.toInt()) as Int) else 0
+public actual fun nCryptDeleteKey(hkey: NcryptKeyHandle, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_nCryptDeleteKey(hkey.toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NCryptDeriveKey(hsharedsecret: NCRYPT_SECRET_HANDLE, pwszkdf: PCWSTR, pparameterlist: Long, pbderivedkey: Long, cbderivedkey: UInt, pcbresult: Long, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_NCryptDeriveKey(hsharedsecret.toString(), pwszkdf.toString(), pparameterlist.toString(), pbderivedkey.toString(), cbderivedkey.toInt(), pcbresult.toString(), dwflags.toInt()) as Int) else 0
+public actual fun nCryptDeriveKey(hsharedsecret: NcryptSecretHandle, pwszkdf: Pcwstr, pparameterlist: COpaquePointer?, pbderivedkey: COpaquePointer?, cbderivedkey: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_nCryptDeriveKey(hsharedsecret.toString(), (pwszkdf?.value ?: 0L).toString(), (pparameterlist?.value ?: 0L).toString(), (pbderivedkey?.value ?: 0L).toString(), cbderivedkey.toInt(), (pcbresult?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NCryptEncrypt(hkey: NCRYPT_KEY_HANDLE, pbinput: Long, cbinput: UInt, ppaddinginfo: Long, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: NCRYPT_FLAGS): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_NCryptEncrypt(hkey.toString(), pbinput.toString(), cbinput.toInt(), ppaddinginfo.toString(), pboutput.toString(), cboutput.toInt(), pcbresult.toString(), dwflags.toInt()) as Int) else 0
+public actual fun nCryptEncrypt(hkey: NcryptKeyHandle, pbinput: COpaquePointer?, cbinput: UInt, ppaddinginfo: COpaquePointer?, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: NcryptFlags): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_nCryptEncrypt(hkey.toString(), (pbinput?.value ?: 0L).toString(), cbinput.toInt(), (ppaddinginfo?.value ?: 0L).toString(), (pboutput?.value ?: 0L).toString(), cboutput.toInt(), (pcbresult?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NCryptEnumAlgorithms(hprovider: NCRYPT_PROV_HANDLE, dwalgoperations: NCRYPT_OPERATION, pdwalgcount: Long, ppalglist: Long, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_NCryptEnumAlgorithms(hprovider.toString(), dwalgoperations.toInt(), pdwalgcount.toString(), ppalglist.toString(), dwflags.toInt()) as Int) else 0
+public actual fun nCryptEnumAlgorithms(hprovider: NcryptProvHandle, dwalgoperations: NcryptOperation, pdwalgcount: COpaquePointer?, ppalglist: COpaquePointer?, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_nCryptEnumAlgorithms(hprovider.toString(), dwalgoperations.toInt(), (pdwalgcount?.value ?: 0L).toString(), (ppalglist?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NCryptEnumKeys(hprovider: NCRYPT_PROV_HANDLE, pszscope: PCWSTR, ppkeyname: Long, ppenumstate: Long, dwflags: NCRYPT_FLAGS): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_NCryptEnumKeys(hprovider.toString(), pszscope.toString(), ppkeyname.toString(), ppenumstate.toString(), dwflags.toInt()) as Int) else 0
+public actual fun nCryptEnumKeys(hprovider: NcryptProvHandle, pszscope: Pcwstr, ppkeyname: COpaquePointer?, ppenumstate: COpaquePointer?, dwflags: NcryptFlags): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_nCryptEnumKeys(hprovider.toString(), (pszscope?.value ?: 0L).toString(), (ppkeyname?.value ?: 0L).toString(), (ppenumstate?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NCryptEnumStorageProviders(pdwprovidercount: Long, ppproviderlist: Long, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_NCryptEnumStorageProviders(pdwprovidercount.toString(), ppproviderlist.toString(), dwflags.toInt()) as Int) else 0
+public actual fun nCryptEnumStorageProviders(pdwprovidercount: COpaquePointer?, ppproviderlist: COpaquePointer?, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_nCryptEnumStorageProviders((pdwprovidercount?.value ?: 0L).toString(), (ppproviderlist?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NCryptExportKey(hkey: NCRYPT_KEY_HANDLE, hexportkey: NCRYPT_KEY_HANDLE, pszblobtype: PCWSTR, pparameterlist: Long, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: NCRYPT_FLAGS): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_NCryptExportKey(hkey.toString(), hexportkey.toString(), pszblobtype.toString(), pparameterlist.toString(), pboutput.toString(), cboutput.toInt(), pcbresult.toString(), dwflags.toInt()) as Int) else 0
+public actual fun nCryptExportKey(hkey: NcryptKeyHandle, hexportkey: NcryptKeyHandle, pszblobtype: Pcwstr, pparameterlist: COpaquePointer?, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: NcryptFlags): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_nCryptExportKey(hkey.toString(), hexportkey.toString(), (pszblobtype?.value ?: 0L).toString(), (pparameterlist?.value ?: 0L).toString(), (pboutput?.value ?: 0L).toString(), cboutput.toInt(), (pcbresult?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NCryptFinalizeKey(hkey: NCRYPT_KEY_HANDLE, dwflags: NCRYPT_FLAGS): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_NCryptFinalizeKey(hkey.toString(), dwflags.toInt()) as Int) else 0
+public actual fun nCryptFinalizeKey(hkey: NcryptKeyHandle, dwflags: NcryptFlags): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_nCryptFinalizeKey(hkey.toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NCryptFreeBuffer(pvinput: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_NCryptFreeBuffer(pvinput.toString()) as Int) else 0
+public actual fun nCryptFreeBuffer(pvinput: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_nCryptFreeBuffer((pvinput?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NCryptFreeObject(hobject: NCRYPT_HANDLE): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_NCryptFreeObject(hobject.toString()) as Int) else 0
+public actual fun nCryptFreeObject(hobject: NcryptHandle): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_nCryptFreeObject(hobject.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NCryptGetProperty(hobject: NCRYPT_HANDLE, pszproperty: PCWSTR, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: OBJECT_SECURITY_INFORMATION): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_NCryptGetProperty(hobject.toString(), pszproperty.toString(), pboutput.toString(), cboutput.toInt(), pcbresult.toString(), dwflags.toInt()) as Int) else 0
+public actual fun nCryptGetProperty(hobject: NcryptHandle, pszproperty: Pcwstr, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: ObjectSecurityInformation): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_nCryptGetProperty(hobject.toString(), (pszproperty?.value ?: 0L).toString(), (pboutput?.value ?: 0L).toString(), cboutput.toInt(), (pcbresult?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NCryptGetProtectionDescriptorInfo(hdescriptor: NCRYPT_DESCRIPTOR_HANDLE, pmempara: Long, dwinfotype: UInt, ppvinfo: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_NCryptGetProtectionDescriptorInfo(hdescriptor.toString(), pmempara.toString(), dwinfotype.toInt(), ppvinfo.toString()) as Int) else 0
+public actual fun nCryptGetProtectionDescriptorInfo(hdescriptor: NcryptDescriptorHandle, pmempara: COpaquePointer?, dwinfotype: UInt, ppvinfo: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_nCryptGetProtectionDescriptorInfo((hdescriptor?.value ?: 0L).toString(), (pmempara?.value ?: 0L).toString(), dwinfotype.toInt(), (ppvinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NCryptImportKey(hprovider: NCRYPT_PROV_HANDLE, himportkey: NCRYPT_KEY_HANDLE, pszblobtype: PCWSTR, pparameterlist: Long, phkey: Long, pbdata: Long, cbdata: UInt, dwflags: NCRYPT_FLAGS): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_NCryptImportKey(hprovider.toString(), himportkey.toString(), pszblobtype.toString(), pparameterlist.toString(), phkey.toString(), pbdata.toString(), cbdata.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun nCryptImportKey(hprovider: NcryptProvHandle, himportkey: NcryptKeyHandle, pszblobtype: Pcwstr, pparameterlist: COpaquePointer?, phkey: COpaquePointer?, pbdata: COpaquePointer?, cbdata: UInt, dwflags: NcryptFlags): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_nCryptImportKey(hprovider.toString(), himportkey.toString(), (pszblobtype?.value ?: 0L).toString(), (pparameterlist?.value ?: 0L).toString(), (phkey?.value ?: 0L).toString(), (pbdata?.value ?: 0L).toString(), cbdata.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NCryptIsAlgSupported(hprovider: NCRYPT_PROV_HANDLE, pszalgid: PCWSTR, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_NCryptIsAlgSupported(hprovider.toString(), pszalgid.toString(), dwflags.toInt()) as Int) else 0
+public actual fun nCryptIsAlgSupported(hprovider: NcryptProvHandle, pszalgid: Pcwstr, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_nCryptIsAlgSupported(hprovider.toString(), (pszalgid?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NCryptIsKeyHandle(hkey: NCRYPT_KEY_HANDLE): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_NCryptIsKeyHandle(hkey.toString()) as Int) else 0
+public actual fun nCryptIsKeyHandle(hkey: NcryptKeyHandle): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_nCryptIsKeyHandle(hkey.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NCryptKeyDerivation(hkey: NCRYPT_KEY_HANDLE, pparameterlist: Long, pbderivedkey: Long, cbderivedkey: UInt, pcbresult: Long, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_NCryptKeyDerivation(hkey.toString(), pparameterlist.toString(), pbderivedkey.toString(), cbderivedkey.toInt(), pcbresult.toString(), dwflags.toInt()) as Int) else 0
+public actual fun nCryptKeyDerivation(hkey: NcryptKeyHandle, pparameterlist: COpaquePointer?, pbderivedkey: COpaquePointer?, cbderivedkey: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_nCryptKeyDerivation(hkey.toString(), (pparameterlist?.value ?: 0L).toString(), (pbderivedkey?.value ?: 0L).toString(), cbderivedkey.toInt(), (pcbresult?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NCryptNotifyChangeKey(hprovider: NCRYPT_PROV_HANDLE, phevent: Long, dwflags: NCRYPT_FLAGS): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_NCryptNotifyChangeKey(hprovider.toString(), phevent.toString(), dwflags.toInt()) as Int) else 0
+public actual fun nCryptNotifyChangeKey(hprovider: NcryptProvHandle, phevent: COpaquePointer?, dwflags: NcryptFlags): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_nCryptNotifyChangeKey(hprovider.toString(), (phevent?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NCryptOpenKey(hprovider: NCRYPT_PROV_HANDLE, phkey: Long, pszkeyname: PCWSTR, dwlegacykeyspec: CERT_KEY_SPEC, dwflags: NCRYPT_FLAGS): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_NCryptOpenKey(hprovider.toString(), phkey.toString(), pszkeyname.toString(), dwlegacykeyspec.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun nCryptOpenKey(hprovider: NcryptProvHandle, phkey: COpaquePointer?, pszkeyname: Pcwstr, dwlegacykeyspec: CertKeySpec, dwflags: NcryptFlags): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_nCryptOpenKey(hprovider.toString(), (phkey?.value ?: 0L).toString(), (pszkeyname?.value ?: 0L).toString(), dwlegacykeyspec.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NCryptOpenStorageProvider(phprovider: Long, pszprovidername: PCWSTR, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_NCryptOpenStorageProvider(phprovider.toString(), pszprovidername.toString(), dwflags.toInt()) as Int) else 0
+public actual fun nCryptOpenStorageProvider(phprovider: COpaquePointer?, pszprovidername: Pcwstr, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_nCryptOpenStorageProvider((phprovider?.value ?: 0L).toString(), (pszprovidername?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NCryptProtectSecret(hdescriptor: NCRYPT_DESCRIPTOR_HANDLE, dwflags: UInt, pbdata: Long, cbdata: UInt, pmempara: Long, hwnd: HWND, ppbprotectedblob: Long, pcbprotectedblob: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_NCryptProtectSecret(hdescriptor.toString(), dwflags.toInt(), pbdata.toString(), cbdata.toInt(), pmempara.toString(), hwnd.toString(), ppbprotectedblob.toString(), pcbprotectedblob.toString()) as Int) else 0
+public actual fun nCryptProtectSecret(hdescriptor: NcryptDescriptorHandle, dwflags: UInt, pbdata: COpaquePointer?, cbdata: UInt, pmempara: COpaquePointer?, hwnd: Hwnd, ppbprotectedblob: COpaquePointer?, pcbprotectedblob: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_nCryptProtectSecret((hdescriptor?.value ?: 0L).toString(), dwflags.toInt(), (pbdata?.value ?: 0L).toString(), cbdata.toInt(), (pmempara?.value ?: 0L).toString(), (hwnd?.value ?: 0L).toString(), (ppbprotectedblob?.value ?: 0L).toString(), (pcbprotectedblob?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NCryptQueryProtectionDescriptorName(pwszname: PCWSTR, pwszdescriptorstring: PWSTR, pcdescriptorstring: Long, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_NCryptQueryProtectionDescriptorName(pwszname.toString(), pwszdescriptorstring.toString(), pcdescriptorstring.toString(), dwflags.toInt()) as Int) else 0
+public actual fun nCryptQueryProtectionDescriptorName(pwszname: Pcwstr, pwszdescriptorstring: Pwstr, pcdescriptorstring: COpaquePointer?, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_nCryptQueryProtectionDescriptorName((pwszname?.value ?: 0L).toString(), (pwszdescriptorstring?.value ?: 0L).toString(), (pcdescriptorstring?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NCryptRegisterProtectionDescriptorName(pwszname: PCWSTR, pwszdescriptorstring: PCWSTR, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_NCryptRegisterProtectionDescriptorName(pwszname.toString(), pwszdescriptorstring.toString(), dwflags.toInt()) as Int) else 0
+public actual fun nCryptRegisterProtectionDescriptorName(pwszname: Pcwstr, pwszdescriptorstring: Pcwstr, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_nCryptRegisterProtectionDescriptorName((pwszname?.value ?: 0L).toString(), (pwszdescriptorstring?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NCryptSecretAgreement(hprivkey: NCRYPT_KEY_HANDLE, hpubkey: NCRYPT_KEY_HANDLE, phagreedsecret: Long, dwflags: NCRYPT_FLAGS): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_NCryptSecretAgreement(hprivkey.toString(), hpubkey.toString(), phagreedsecret.toString(), dwflags.toInt()) as Int) else 0
+public actual fun nCryptSecretAgreement(hprivkey: NcryptKeyHandle, hpubkey: NcryptKeyHandle, phagreedsecret: COpaquePointer?, dwflags: NcryptFlags): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_nCryptSecretAgreement(hprivkey.toString(), hpubkey.toString(), (phagreedsecret?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NCryptSetProperty(hobject: NCRYPT_HANDLE, pszproperty: PCWSTR, pbinput: Long, cbinput: UInt, dwflags: NCRYPT_FLAGS): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_NCryptSetProperty(hobject.toString(), pszproperty.toString(), pbinput.toString(), cbinput.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun nCryptSetProperty(hobject: NcryptHandle, pszproperty: Pcwstr, pbinput: COpaquePointer?, cbinput: UInt, dwflags: NcryptFlags): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_nCryptSetProperty(hobject.toString(), (pszproperty?.value ?: 0L).toString(), (pbinput?.value ?: 0L).toString(), cbinput.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NCryptSignHash(hkey: NCRYPT_KEY_HANDLE, ppaddinginfo: Long, pbhashvalue: Long, cbhashvalue: UInt, pbsignature: Long, cbsignature: UInt, pcbresult: Long, dwflags: NCRYPT_FLAGS): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_NCryptSignHash(hkey.toString(), ppaddinginfo.toString(), pbhashvalue.toString(), cbhashvalue.toInt(), pbsignature.toString(), cbsignature.toInt(), pcbresult.toString(), dwflags.toInt()) as Int) else 0
+public actual fun nCryptSignHash(hkey: NcryptKeyHandle, ppaddinginfo: COpaquePointer?, pbhashvalue: COpaquePointer?, cbhashvalue: UInt, pbsignature: COpaquePointer?, cbsignature: UInt, pcbresult: COpaquePointer?, dwflags: NcryptFlags): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_nCryptSignHash(hkey.toString(), (ppaddinginfo?.value ?: 0L).toString(), (pbhashvalue?.value ?: 0L).toString(), cbhashvalue.toInt(), (pbsignature?.value ?: 0L).toString(), cbsignature.toInt(), (pcbresult?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NCryptStreamClose(hstream: NCRYPT_STREAM_HANDLE): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_NCryptStreamClose(hstream.toString()) as Int) else 0
+public actual fun nCryptStreamClose(hstream: NcryptStreamHandle): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_nCryptStreamClose((hstream?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NCryptStreamOpenToProtect(hdescriptor: NCRYPT_DESCRIPTOR_HANDLE, dwflags: UInt, hwnd: HWND, pstreaminfo: Long, phstream: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_NCryptStreamOpenToProtect(hdescriptor.toString(), dwflags.toInt(), hwnd.toString(), pstreaminfo.toString(), phstream.toString()) as Int) else 0
+public actual fun nCryptStreamOpenToProtect(hdescriptor: NcryptDescriptorHandle, dwflags: UInt, hwnd: Hwnd, pstreaminfo: COpaquePointer?, phstream: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_nCryptStreamOpenToProtect((hdescriptor?.value ?: 0L).toString(), dwflags.toInt(), (hwnd?.value ?: 0L).toString(), (pstreaminfo?.value ?: 0L).toString(), (phstream?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NCryptStreamOpenToUnprotect(pstreaminfo: Long, dwflags: UInt, hwnd: HWND, phstream: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_NCryptStreamOpenToUnprotect(pstreaminfo.toString(), dwflags.toInt(), hwnd.toString(), phstream.toString()) as Int) else 0
+public actual fun nCryptStreamOpenToUnprotect(pstreaminfo: COpaquePointer?, dwflags: UInt, hwnd: Hwnd, phstream: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_nCryptStreamOpenToUnprotect((pstreaminfo?.value ?: 0L).toString(), dwflags.toInt(), (hwnd?.value ?: 0L).toString(), (phstream?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NCryptStreamOpenToUnprotectEx(pstreaminfo: Long, dwflags: UInt, hwnd: HWND, phstream: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_NCryptStreamOpenToUnprotectEx(pstreaminfo.toString(), dwflags.toInt(), hwnd.toString(), phstream.toString()) as Int) else 0
+public actual fun nCryptStreamOpenToUnprotectEx(pstreaminfo: COpaquePointer?, dwflags: UInt, hwnd: Hwnd, phstream: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_nCryptStreamOpenToUnprotectEx((pstreaminfo?.value ?: 0L).toString(), dwflags.toInt(), (hwnd?.value ?: 0L).toString(), (phstream?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NCryptStreamUpdate(hstream: NCRYPT_STREAM_HANDLE, pbdata: Long, cbdata: ULong, ffinal: BOOL): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_NCryptStreamUpdate(hstream.toString(), pbdata.toString(), cbdata.toString(), ffinal) as Int) else 0
+public actual fun nCryptStreamUpdate(hstream: NcryptStreamHandle, pbdata: COpaquePointer?, cbdata: ULong, ffinal: Bool): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_nCryptStreamUpdate((hstream?.value ?: 0L).toString(), (pbdata?.value ?: 0L).toString(), cbdata.toString(), ffinal) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NCryptTranslateHandle(phprovider: Long, phkey: Long, hlegacyprov: ULong, hlegacykey: ULong, dwlegacykeyspec: CERT_KEY_SPEC, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_NCryptTranslateHandle(phprovider.toString(), phkey.toString(), hlegacyprov.toString(), hlegacykey.toString(), dwlegacykeyspec.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun nCryptTranslateHandle(phprovider: COpaquePointer?, phkey: COpaquePointer?, hlegacyprov: ULong, hlegacykey: ULong, dwlegacykeyspec: CertKeySpec, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_nCryptTranslateHandle((phprovider?.value ?: 0L).toString(), (phkey?.value ?: 0L).toString(), hlegacyprov.toString(), hlegacykey.toString(), dwlegacykeyspec.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NCryptUnprotectSecret(phdescriptor: Long, dwflags: NCRYPT_FLAGS, pbprotectedblob: Long, cbprotectedblob: UInt, pmempara: Long, hwnd: HWND, ppbdata: Long, pcbdata: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_NCryptUnprotectSecret(phdescriptor.toString(), dwflags.toInt(), pbprotectedblob.toString(), cbprotectedblob.toInt(), pmempara.toString(), hwnd.toString(), ppbdata.toString(), pcbdata.toString()) as Int) else 0
+public actual fun nCryptUnprotectSecret(phdescriptor: COpaquePointer?, dwflags: NcryptFlags, pbprotectedblob: COpaquePointer?, cbprotectedblob: UInt, pmempara: COpaquePointer?, hwnd: Hwnd, ppbdata: COpaquePointer?, pcbdata: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_nCryptUnprotectSecret((phdescriptor?.value ?: 0L).toString(), dwflags.toInt(), (pbprotectedblob?.value ?: 0L).toString(), cbprotectedblob.toInt(), (pmempara?.value ?: 0L).toString(), (hwnd?.value ?: 0L).toString(), (ppbdata?.value ?: 0L).toString(), (pcbdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NCryptVerifyClaim(hsubjectkey: NCRYPT_KEY_HANDLE, hauthoritykey: NCRYPT_KEY_HANDLE, dwclaimtype: UInt, pparameterlist: Long, pbclaimblob: Long, cbclaimblob: UInt, poutput: Long, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_NCryptVerifyClaim(hsubjectkey.toString(), hauthoritykey.toString(), dwclaimtype.toInt(), pparameterlist.toString(), pbclaimblob.toString(), cbclaimblob.toInt(), poutput.toString(), dwflags.toInt()) as Int) else 0
+public actual fun nCryptVerifyClaim(hsubjectkey: NcryptKeyHandle, hauthoritykey: NcryptKeyHandle, dwclaimtype: UInt, pparameterlist: COpaquePointer?, pbclaimblob: COpaquePointer?, cbclaimblob: UInt, poutput: COpaquePointer?, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_nCryptVerifyClaim(hsubjectkey.toString(), hauthoritykey.toString(), dwclaimtype.toInt(), (pparameterlist?.value ?: 0L).toString(), (pbclaimblob?.value ?: 0L).toString(), cbclaimblob.toInt(), (poutput?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun NCryptVerifySignature(hkey: NCRYPT_KEY_HANDLE, ppaddinginfo: Long, pbhashvalue: Long, cbhashvalue: UInt, pbsignature: Long, cbsignature: UInt, dwflags: NCRYPT_FLAGS): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_NCryptVerifySignature(hkey.toString(), ppaddinginfo.toString(), pbhashvalue.toString(), cbhashvalue.toInt(), pbsignature.toString(), cbsignature.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun nCryptVerifySignature(hkey: NcryptKeyHandle, ppaddinginfo: COpaquePointer?, pbhashvalue: COpaquePointer?, cbhashvalue: UInt, pbsignature: COpaquePointer?, cbsignature: UInt, dwflags: NcryptFlags): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_nCryptVerifySignature(hkey.toString(), (ppaddinginfo?.value ?: 0L).toString(), (pbhashvalue?.value ?: 0L).toString(), cbhashvalue.toInt(), (pbsignature?.value ?: 0L).toString(), cbsignature.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PFXExportCertStore(hstore: HCERTSTORE, ppfx: Long, szpassword: PCWSTR, dwflags: UInt): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_PFXExportCertStore(hstore.toString(), ppfx.toString(), szpassword.toString(), dwflags.toInt()) as Int) else 0
+public actual fun pFXExportCertStore(hstore: Hcertstore, ppfx: COpaquePointer?, szpassword: Pcwstr, dwflags: UInt): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_pFXExportCertStore((hstore?.value ?: 0L).toString(), (ppfx?.value ?: 0L).toString(), (szpassword?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PFXExportCertStoreEx(hstore: HCERTSTORE, ppfx: Long, szpassword: PCWSTR, pvpara: Long, dwflags: UInt): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_PFXExportCertStoreEx(hstore.toString(), ppfx.toString(), szpassword.toString(), pvpara.toString(), dwflags.toInt()) as Int) else 0
+public actual fun pFXExportCertStoreEx(hstore: Hcertstore, ppfx: COpaquePointer?, szpassword: Pcwstr, pvpara: COpaquePointer?, dwflags: UInt): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_pFXExportCertStoreEx((hstore?.value ?: 0L).toString(), (ppfx?.value ?: 0L).toString(), (szpassword?.value ?: 0L).toString(), (pvpara?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PFXImportCertStore(ppfx: Long, szpassword: PCWSTR, dwflags: CRYPT_KEY_FLAGS): HCERTSTORE =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_PFXImportCertStore(ppfx.toString(), szpassword.toString(), dwflags.toInt()) as String).toLong() else 0L
+public actual fun pFXImportCertStore(ppfx: COpaquePointer?, szpassword: Pcwstr, dwflags: CryptKeyFlags): Hcertstore =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_pFXImportCertStore((ppfx?.value ?: 0L).toString(), (szpassword?.value ?: 0L).toString(), dwflags.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PFXIsPFXBlob(ppfx: Long): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_PFXIsPFXBlob(ppfx.toString()) as Int) else 0
+public actual fun pFXIsPFXBlob(ppfx: COpaquePointer?): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_pFXIsPFXBlob((ppfx?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PFXVerifyPassword(ppfx: Long, szpassword: PCWSTR, dwflags: UInt): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_PFXVerifyPassword(ppfx.toString(), szpassword.toString(), dwflags.toInt()) as Int) else 0
+public actual fun pFXVerifyPassword(ppfx: COpaquePointer?, szpassword: Pcwstr, dwflags: UInt): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_pFXVerifyPassword((ppfx?.value ?: 0L).toString(), (szpassword?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ProcessPrng(pbdata: Long, cbdata: ULong): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_ProcessPrng(pbdata.toString(), cbdata.toString()) as Int) else 0
+public actual fun processPrng(pbdata: COpaquePointer?, cbdata: ULong): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_processPrng((pbdata?.value ?: 0L).toString(), cbdata.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SignError(): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SignError() as Int) else 0
+public actual fun signError(): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_signError() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SignHash(hcrypto: Long, cbhash: UInt, phash: Long, hashalgoid: PCWSTR, pcbsig: Long, ppsig: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SignHash(hcrypto.toString(), cbhash.toInt(), phash.toString(), hashalgoid.toString(), pcbsig.toString(), ppsig.toString()) as Int) else 0
+public actual fun signHash(hcrypto: COpaquePointer?, cbhash: UInt, phash: COpaquePointer?, hashalgoid: Pcwstr, pcbsig: COpaquePointer?, ppsig: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_signHash((hcrypto?.value ?: 0L).toString(), cbhash.toInt(), (phash?.value ?: 0L).toString(), (hashalgoid?.value ?: 0L).toString(), (pcbsig?.value ?: 0L).toString(), (ppsig?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SignerFreeSignerContext(psignercontext: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SignerFreeSignerContext(psignercontext.toString()) as Int) else 0
+public actual fun signerFreeSignerContext(psignercontext: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_signerFreeSignerContext((psignercontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SignerSign(psubjectinfo: Long, psignercert: Long, psignatureinfo: Long, pproviderinfo: Long, pwszhttptimestamp: PCWSTR, psrequest: Long, psipdata: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SignerSign(psubjectinfo.toString(), psignercert.toString(), psignatureinfo.toString(), pproviderinfo.toString(), pwszhttptimestamp.toString(), psrequest.toString(), psipdata.toString()) as Int) else 0
+public actual fun signerSign(psubjectinfo: COpaquePointer?, psignercert: COpaquePointer?, psignatureinfo: COpaquePointer?, pproviderinfo: COpaquePointer?, pwszhttptimestamp: Pcwstr, psrequest: COpaquePointer?, psipdata: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_signerSign((psubjectinfo?.value ?: 0L).toString(), (psignercert?.value ?: 0L).toString(), (psignatureinfo?.value ?: 0L).toString(), (pproviderinfo?.value ?: 0L).toString(), (pwszhttptimestamp?.value ?: 0L).toString(), (psrequest?.value ?: 0L).toString(), (psipdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SignerSignEx(dwflags: SIGNER_SIGN_FLAGS, psubjectinfo: Long, psignercert: Long, psignatureinfo: Long, pproviderinfo: Long, pwszhttptimestamp: PCWSTR, psrequest: Long, psipdata: Long, ppsignercontext: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SignerSignEx(dwflags.toInt(), psubjectinfo.toString(), psignercert.toString(), psignatureinfo.toString(), pproviderinfo.toString(), pwszhttptimestamp.toString(), psrequest.toString(), psipdata.toString(), ppsignercontext.toString()) as Int) else 0
+public actual fun signerSignEx(dwflags: SignerSignFlags, psubjectinfo: COpaquePointer?, psignercert: COpaquePointer?, psignatureinfo: COpaquePointer?, pproviderinfo: COpaquePointer?, pwszhttptimestamp: Pcwstr, psrequest: COpaquePointer?, psipdata: COpaquePointer?, ppsignercontext: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_signerSignEx(dwflags.toInt(), (psubjectinfo?.value ?: 0L).toString(), (psignercert?.value ?: 0L).toString(), (psignatureinfo?.value ?: 0L).toString(), (pproviderinfo?.value ?: 0L).toString(), (pwszhttptimestamp?.value ?: 0L).toString(), (psrequest?.value ?: 0L).toString(), (psipdata?.value ?: 0L).toString(), (ppsignercontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SignerSignEx2(dwflags: SIGNER_SIGN_FLAGS, psubjectinfo: Long, psignercert: Long, psignatureinfo: Long, pproviderinfo: Long, dwtimestampflags: SIGNER_TIMESTAMP_FLAGS, psztimestampalgorithmoid: PCSTR, pwszhttptimestamp: PCWSTR, psrequest: Long, psipdata: Long, ppsignercontext: Long, pcryptopolicy: Long, preserved: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SignerSignEx2(dwflags.toInt(), psubjectinfo.toString(), psignercert.toString(), psignatureinfo.toString(), pproviderinfo.toString(), dwtimestampflags.toInt(), psztimestampalgorithmoid.toString(), pwszhttptimestamp.toString(), psrequest.toString(), psipdata.toString(), ppsignercontext.toString(), pcryptopolicy.toString(), preserved.toString()) as Int) else 0
+public actual fun signerSignEx2(dwflags: SignerSignFlags, psubjectinfo: COpaquePointer?, psignercert: COpaquePointer?, psignatureinfo: COpaquePointer?, pproviderinfo: COpaquePointer?, dwtimestampflags: SignerTimestampFlags, psztimestampalgorithmoid: Pcstr, pwszhttptimestamp: Pcwstr, psrequest: COpaquePointer?, psipdata: COpaquePointer?, ppsignercontext: COpaquePointer?, pcryptopolicy: COpaquePointer?, preserved: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_signerSignEx2(dwflags.toInt(), (psubjectinfo?.value ?: 0L).toString(), (psignercert?.value ?: 0L).toString(), (psignatureinfo?.value ?: 0L).toString(), (pproviderinfo?.value ?: 0L).toString(), dwtimestampflags.toInt(), (psztimestampalgorithmoid?.value ?: 0L).toString(), (pwszhttptimestamp?.value ?: 0L).toString(), (psrequest?.value ?: 0L).toString(), (psipdata?.value ?: 0L).toString(), (ppsignercontext?.value ?: 0L).toString(), (pcryptopolicy?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SignerSignEx3(dwflags: SIGNER_SIGN_FLAGS, psubjectinfo: Long, psignercert: Long, psignatureinfo: Long, pproviderinfo: Long, dwtimestampflags: SIGNER_TIMESTAMP_FLAGS, psztimestampalgorithmoid: PCSTR, pwszhttptimestamp: PCWSTR, psrequest: Long, psipdata: Long, ppsignercontext: Long, pcryptopolicy: Long, pdigestsigninfo: Long, preserved: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SignerSignEx3(dwflags.toInt(), psubjectinfo.toString(), psignercert.toString(), psignatureinfo.toString(), pproviderinfo.toString(), dwtimestampflags.toInt(), psztimestampalgorithmoid.toString(), pwszhttptimestamp.toString(), psrequest.toString(), psipdata.toString(), ppsignercontext.toString(), pcryptopolicy.toString(), pdigestsigninfo.toString(), preserved.toString()) as Int) else 0
+public actual fun signerSignEx3(dwflags: SignerSignFlags, psubjectinfo: COpaquePointer?, psignercert: COpaquePointer?, psignatureinfo: COpaquePointer?, pproviderinfo: COpaquePointer?, dwtimestampflags: SignerTimestampFlags, psztimestampalgorithmoid: Pcstr, pwszhttptimestamp: Pcwstr, psrequest: COpaquePointer?, psipdata: COpaquePointer?, ppsignercontext: COpaquePointer?, pcryptopolicy: COpaquePointer?, pdigestsigninfo: COpaquePointer?, preserved: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_signerSignEx3(dwflags.toInt(), (psubjectinfo?.value ?: 0L).toString(), (psignercert?.value ?: 0L).toString(), (psignatureinfo?.value ?: 0L).toString(), (pproviderinfo?.value ?: 0L).toString(), dwtimestampflags.toInt(), (psztimestampalgorithmoid?.value ?: 0L).toString(), (pwszhttptimestamp?.value ?: 0L).toString(), (psrequest?.value ?: 0L).toString(), (psipdata?.value ?: 0L).toString(), (ppsignercontext?.value ?: 0L).toString(), (pcryptopolicy?.value ?: 0L).toString(), (pdigestsigninfo?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SignerTimeStamp(psubjectinfo: Long, pwszhttptimestamp: PCWSTR, psrequest: Long, psipdata: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SignerTimeStamp(psubjectinfo.toString(), pwszhttptimestamp.toString(), psrequest.toString(), psipdata.toString()) as Int) else 0
+public actual fun signerTimeStamp(psubjectinfo: COpaquePointer?, pwszhttptimestamp: Pcwstr, psrequest: COpaquePointer?, psipdata: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_signerTimeStamp((psubjectinfo?.value ?: 0L).toString(), (pwszhttptimestamp?.value ?: 0L).toString(), (psrequest?.value ?: 0L).toString(), (psipdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SignerTimeStampEx(dwflags: UInt, psubjectinfo: Long, pwszhttptimestamp: PCWSTR, psrequest: Long, psipdata: Long, ppsignercontext: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SignerTimeStampEx(dwflags.toInt(), psubjectinfo.toString(), pwszhttptimestamp.toString(), psrequest.toString(), psipdata.toString(), ppsignercontext.toString()) as Int) else 0
+public actual fun signerTimeStampEx(dwflags: UInt, psubjectinfo: COpaquePointer?, pwszhttptimestamp: Pcwstr, psrequest: COpaquePointer?, psipdata: COpaquePointer?, ppsignercontext: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_signerTimeStampEx(dwflags.toInt(), (psubjectinfo?.value ?: 0L).toString(), (pwszhttptimestamp?.value ?: 0L).toString(), (psrequest?.value ?: 0L).toString(), (psipdata?.value ?: 0L).toString(), (ppsignercontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SignerTimeStampEx2(dwflags: SIGNER_TIMESTAMP_FLAGS, psubjectinfo: Long, pwszhttptimestamp: PCWSTR, dwalgid: ALG_ID, psrequest: Long, psipdata: Long, ppsignercontext: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SignerTimeStampEx2(dwflags.toInt(), psubjectinfo.toString(), pwszhttptimestamp.toString(), dwalgid.toInt(), psrequest.toString(), psipdata.toString(), ppsignercontext.toString()) as Int) else 0
+public actual fun signerTimeStampEx2(dwflags: SignerTimestampFlags, psubjectinfo: COpaquePointer?, pwszhttptimestamp: Pcwstr, dwalgid: AlgId, psrequest: COpaquePointer?, psipdata: COpaquePointer?, ppsignercontext: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_signerTimeStampEx2(dwflags.toInt(), (psubjectinfo?.value ?: 0L).toString(), (pwszhttptimestamp?.value ?: 0L).toString(), dwalgid.toInt(), (psrequest?.value ?: 0L).toString(), (psipdata?.value ?: 0L).toString(), (ppsignercontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SignerTimeStampEx3(dwflags: SIGNER_TIMESTAMP_FLAGS, dwindex: UInt, psubjectinfo: Long, pwszhttptimestamp: PCWSTR, pszalgorithmoid: PCWSTR, psrequest: Long, psipdata: Long, ppsignercontext: Long, pcryptopolicy: Long, preserved: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SignerTimeStampEx3(dwflags.toInt(), dwindex.toInt(), psubjectinfo.toString(), pwszhttptimestamp.toString(), pszalgorithmoid.toString(), psrequest.toString(), psipdata.toString(), ppsignercontext.toString(), pcryptopolicy.toString(), preserved.toString()) as Int) else 0
+public actual fun signerTimeStampEx3(dwflags: SignerTimestampFlags, dwindex: UInt, psubjectinfo: COpaquePointer?, pwszhttptimestamp: Pcwstr, pszalgorithmoid: Pcwstr, psrequest: COpaquePointer?, psipdata: COpaquePointer?, ppsignercontext: COpaquePointer?, pcryptopolicy: COpaquePointer?, preserved: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_signerTimeStampEx3(dwflags.toInt(), dwindex.toInt(), (psubjectinfo?.value ?: 0L).toString(), (pwszhttptimestamp?.value ?: 0L).toString(), (pszalgorithmoid?.value ?: 0L).toString(), (psrequest?.value ?: 0L).toString(), (psipdata?.value ?: 0L).toString(), (ppsignercontext?.value ?: 0L).toString(), (pcryptopolicy?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslChangeNotify(hevent: HANDLE, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslChangeNotify(hevent.toString(), dwflags.toInt()) as Int) else 0
+public actual fun sslChangeNotify(hevent: Handle, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslChangeNotify((hevent?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslComputeClientAuthHash(hsslprovider: NCRYPT_PROV_HANDLE, hmasterkey: NCRYPT_KEY_HANDLE, hhandshakehash: NCRYPT_HASH_HANDLE, pszalgid: PCWSTR, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslComputeClientAuthHash(hsslprovider.toString(), hmasterkey.toString(), hhandshakehash.toString(), pszalgid.toString(), pboutput.toString(), cboutput.toInt(), pcbresult.toString(), dwflags.toInt()) as Int) else 0
+public actual fun sslComputeClientAuthHash(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, hhandshakehash: NcryptHashHandle, pszalgid: Pcwstr, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslComputeClientAuthHash(hsslprovider.toString(), hmasterkey.toString(), hhandshakehash.toString(), (pszalgid?.value ?: 0L).toString(), (pboutput?.value ?: 0L).toString(), cboutput.toInt(), (pcbresult?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslComputeEapKeyBlock(hsslprovider: NCRYPT_PROV_HANDLE, hmasterkey: NCRYPT_KEY_HANDLE, pbrandoms: Long, cbrandoms: UInt, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslComputeEapKeyBlock(hsslprovider.toString(), hmasterkey.toString(), pbrandoms.toString(), cbrandoms.toInt(), pboutput.toString(), cboutput.toInt(), pcbresult.toString(), dwflags.toInt()) as Int) else 0
+public actual fun sslComputeEapKeyBlock(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, pbrandoms: COpaquePointer?, cbrandoms: UInt, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslComputeEapKeyBlock(hsslprovider.toString(), hmasterkey.toString(), (pbrandoms?.value ?: 0L).toString(), cbrandoms.toInt(), (pboutput?.value ?: 0L).toString(), cboutput.toInt(), (pcbresult?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslComputeFinishedHash(hsslprovider: NCRYPT_PROV_HANDLE, hmasterkey: NCRYPT_KEY_HANDLE, hhandshakehash: NCRYPT_HASH_HANDLE, pboutput: Long, cboutput: UInt, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslComputeFinishedHash(hsslprovider.toString(), hmasterkey.toString(), hhandshakehash.toString(), pboutput.toString(), cboutput.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun sslComputeFinishedHash(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, hhandshakehash: NcryptHashHandle, pboutput: COpaquePointer?, cboutput: UInt, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslComputeFinishedHash(hsslprovider.toString(), hmasterkey.toString(), hhandshakehash.toString(), (pboutput?.value ?: 0L).toString(), cboutput.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslComputeSessionHash(hsslprovider: NCRYPT_PROV_HANDLE, hhandshakehash: NCRYPT_HASH_HANDLE, dwprotocol: UInt, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslComputeSessionHash(hsslprovider.toString(), hhandshakehash.toString(), dwprotocol.toInt(), pboutput.toString(), cboutput.toInt(), pcbresult.toString(), dwflags.toInt()) as Int) else 0
+public actual fun sslComputeSessionHash(hsslprovider: NcryptProvHandle, hhandshakehash: NcryptHashHandle, dwprotocol: UInt, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslComputeSessionHash(hsslprovider.toString(), hhandshakehash.toString(), dwprotocol.toInt(), (pboutput?.value ?: 0L).toString(), cboutput.toInt(), (pcbresult?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslCreateClientAuthHash(hsslprovider: NCRYPT_PROV_HANDLE, phhandshakehash: Long, dwprotocol: UInt, dwciphersuite: UInt, pszhashalgid: PCWSTR, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslCreateClientAuthHash(hsslprovider.toString(), phhandshakehash.toString(), dwprotocol.toInt(), dwciphersuite.toInt(), pszhashalgid.toString(), dwflags.toInt()) as Int) else 0
+public actual fun sslCreateClientAuthHash(hsslprovider: NcryptProvHandle, phhandshakehash: COpaquePointer?, dwprotocol: UInt, dwciphersuite: UInt, pszhashalgid: Pcwstr, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslCreateClientAuthHash(hsslprovider.toString(), (phhandshakehash?.value ?: 0L).toString(), dwprotocol.toInt(), dwciphersuite.toInt(), (pszhashalgid?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslCreateEphemeralKey(hsslprovider: NCRYPT_PROV_HANDLE, phephemeralkey: Long, dwprotocol: UInt, dwciphersuite: UInt, dwkeytype: UInt, dwkeybitlen: UInt, pbparams: Long, cbparams: UInt, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslCreateEphemeralKey(hsslprovider.toString(), phephemeralkey.toString(), dwprotocol.toInt(), dwciphersuite.toInt(), dwkeytype.toInt(), dwkeybitlen.toInt(), pbparams.toString(), cbparams.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun sslCreateEphemeralKey(hsslprovider: NcryptProvHandle, phephemeralkey: COpaquePointer?, dwprotocol: UInt, dwciphersuite: UInt, dwkeytype: UInt, dwkeybitlen: UInt, pbparams: COpaquePointer?, cbparams: UInt, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslCreateEphemeralKey(hsslprovider.toString(), (phephemeralkey?.value ?: 0L).toString(), dwprotocol.toInt(), dwciphersuite.toInt(), dwkeytype.toInt(), dwkeybitlen.toInt(), (pbparams?.value ?: 0L).toString(), cbparams.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslCreateHandshakeHash(hsslprovider: NCRYPT_PROV_HANDLE, phhandshakehash: Long, dwprotocol: UInt, dwciphersuite: UInt, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslCreateHandshakeHash(hsslprovider.toString(), phhandshakehash.toString(), dwprotocol.toInt(), dwciphersuite.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun sslCreateHandshakeHash(hsslprovider: NcryptProvHandle, phhandshakehash: COpaquePointer?, dwprotocol: UInt, dwciphersuite: UInt, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslCreateHandshakeHash(hsslprovider.toString(), (phhandshakehash?.value ?: 0L).toString(), dwprotocol.toInt(), dwciphersuite.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslDecrementProviderReferenceCount(hsslprovider: NCRYPT_PROV_HANDLE): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslDecrementProviderReferenceCount(hsslprovider.toString()) as Int) else 0
+public actual fun sslDecrementProviderReferenceCount(hsslprovider: NcryptProvHandle): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslDecrementProviderReferenceCount(hsslprovider.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslDecryptPacket(hsslprovider: NCRYPT_PROV_HANDLE, hkey: NCRYPT_KEY_HANDLE, pbinput: Long, cbinput: UInt, pboutput: Long, cboutput: UInt, pcbresult: Long, sequencenumber: ULong, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslDecryptPacket(hsslprovider.toString(), hkey.toString(), pbinput.toString(), cbinput.toInt(), pboutput.toString(), cboutput.toInt(), pcbresult.toString(), sequencenumber.toString(), dwflags.toInt()) as Int) else 0
+public actual fun sslDecryptPacket(hsslprovider: NcryptProvHandle, hkey: NcryptKeyHandle, pbinput: COpaquePointer?, cbinput: UInt, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, sequencenumber: ULong, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslDecryptPacket(hsslprovider.toString(), hkey.toString(), (pbinput?.value ?: 0L).toString(), cbinput.toInt(), (pboutput?.value ?: 0L).toString(), cboutput.toInt(), (pcbresult?.value ?: 0L).toString(), sequencenumber.toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslDuplicateTranscriptHash(hsslprovider: NCRYPT_PROV_HANDLE, htranscripthash: NCRYPT_HASH_HANDLE, phtranscripthash: Long, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslDuplicateTranscriptHash(hsslprovider.toString(), htranscripthash.toString(), phtranscripthash.toString(), dwflags.toInt()) as Int) else 0
+public actual fun sslDuplicateTranscriptHash(hsslprovider: NcryptProvHandle, htranscripthash: NcryptHashHandle, phtranscripthash: COpaquePointer?, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslDuplicateTranscriptHash(hsslprovider.toString(), htranscripthash.toString(), (phtranscripthash?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslEncryptPacket(hsslprovider: NCRYPT_PROV_HANDLE, hkey: NCRYPT_KEY_HANDLE, pbinput: Long, cbinput: UInt, pboutput: Long, cboutput: UInt, pcbresult: Long, sequencenumber: ULong, dwcontenttype: UInt, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslEncryptPacket(hsslprovider.toString(), hkey.toString(), pbinput.toString(), cbinput.toInt(), pboutput.toString(), cboutput.toInt(), pcbresult.toString(), sequencenumber.toString(), dwcontenttype.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun sslEncryptPacket(hsslprovider: NcryptProvHandle, hkey: NcryptKeyHandle, pbinput: COpaquePointer?, cbinput: UInt, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, sequencenumber: ULong, dwcontenttype: UInt, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslEncryptPacket(hsslprovider.toString(), hkey.toString(), (pbinput?.value ?: 0L).toString(), cbinput.toInt(), (pboutput?.value ?: 0L).toString(), cboutput.toInt(), (pcbresult?.value ?: 0L).toString(), sequencenumber.toString(), dwcontenttype.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslEnumCipherSuites(hsslprovider: NCRYPT_PROV_HANDLE, hprivatekey: NCRYPT_KEY_HANDLE, ppciphersuite: Long, ppenumstate: Long, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslEnumCipherSuites(hsslprovider.toString(), hprivatekey.toString(), ppciphersuite.toString(), ppenumstate.toString(), dwflags.toInt()) as Int) else 0
+public actual fun sslEnumCipherSuites(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, ppciphersuite: COpaquePointer?, ppenumstate: COpaquePointer?, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslEnumCipherSuites(hsslprovider.toString(), hprivatekey.toString(), (ppciphersuite?.value ?: 0L).toString(), (ppenumstate?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslEnumCipherSuitesEx(hsslprovider: NCRYPT_PROV_HANDLE, hprivatekey: NCRYPT_KEY_HANDLE, ppciphersuite: Long, ppenumstate: Long, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslEnumCipherSuitesEx(hsslprovider.toString(), hprivatekey.toString(), ppciphersuite.toString(), ppenumstate.toString(), dwflags.toInt()) as Int) else 0
+public actual fun sslEnumCipherSuitesEx(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, ppciphersuite: COpaquePointer?, ppenumstate: COpaquePointer?, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslEnumCipherSuitesEx(hsslprovider.toString(), hprivatekey.toString(), (ppciphersuite?.value ?: 0L).toString(), (ppenumstate?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslEnumEccCurves(hsslprovider: NCRYPT_PROV_HANDLE, pecccurvecount: Long, ppecccurve: Long, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslEnumEccCurves(hsslprovider.toString(), pecccurvecount.toString(), ppecccurve.toString(), dwflags.toInt()) as Int) else 0
+public actual fun sslEnumEccCurves(hsslprovider: NcryptProvHandle, pecccurvecount: COpaquePointer?, ppecccurve: COpaquePointer?, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslEnumEccCurves(hsslprovider.toString(), (pecccurvecount?.value ?: 0L).toString(), (ppecccurve?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslEnumProtocolProviders(pdwprovidercount: Long, ppproviderlist: Long, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslEnumProtocolProviders(pdwprovidercount.toString(), ppproviderlist.toString(), dwflags.toInt()) as Int) else 0
+public actual fun sslEnumProtocolProviders(pdwprovidercount: COpaquePointer?, ppproviderlist: COpaquePointer?, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslEnumProtocolProviders((pdwprovidercount?.value ?: 0L).toString(), (ppproviderlist?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslExpandBinderKey(hsslprovider: NCRYPT_PROV_HANDLE, hearlykey: NCRYPT_KEY_HANDLE, phbinderkey: Long, pparameterlist: Long, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslExpandBinderKey(hsslprovider.toString(), hearlykey.toString(), phbinderkey.toString(), pparameterlist.toString(), dwflags.toInt()) as Int) else 0
+public actual fun sslExpandBinderKey(hsslprovider: NcryptProvHandle, hearlykey: NcryptKeyHandle, phbinderkey: COpaquePointer?, pparameterlist: COpaquePointer?, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslExpandBinderKey(hsslprovider.toString(), hearlykey.toString(), (phbinderkey?.value ?: 0L).toString(), (pparameterlist?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslExpandExporterMasterKey(hsslprovider: NCRYPT_PROV_HANDLE, hbasekey: NCRYPT_KEY_HANDLE, hhashvalue: NCRYPT_HASH_HANDLE, phexportermasterkey: Long, pparameterlist: Long, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslExpandExporterMasterKey(hsslprovider.toString(), hbasekey.toString(), hhashvalue.toString(), phexportermasterkey.toString(), pparameterlist.toString(), dwflags.toInt()) as Int) else 0
+public actual fun sslExpandExporterMasterKey(hsslprovider: NcryptProvHandle, hbasekey: NcryptKeyHandle, hhashvalue: NcryptHashHandle, phexportermasterkey: COpaquePointer?, pparameterlist: COpaquePointer?, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslExpandExporterMasterKey(hsslprovider.toString(), hbasekey.toString(), hhashvalue.toString(), (phexportermasterkey?.value ?: 0L).toString(), (pparameterlist?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslExpandPreSharedKey(hsslprovider: NCRYPT_PROV_HANDLE, hresumptionmasterkey: NCRYPT_KEY_HANDLE, pbticketnonce: Long, cbticketnonce: UInt, phpresharedkey: Long, pparameterlist: Long, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslExpandPreSharedKey(hsslprovider.toString(), hresumptionmasterkey.toString(), pbticketnonce.toString(), cbticketnonce.toInt(), phpresharedkey.toString(), pparameterlist.toString(), dwflags.toInt()) as Int) else 0
+public actual fun sslExpandPreSharedKey(hsslprovider: NcryptProvHandle, hresumptionmasterkey: NcryptKeyHandle, pbticketnonce: COpaquePointer?, cbticketnonce: UInt, phpresharedkey: COpaquePointer?, pparameterlist: COpaquePointer?, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslExpandPreSharedKey(hsslprovider.toString(), hresumptionmasterkey.toString(), (pbticketnonce?.value ?: 0L).toString(), cbticketnonce.toInt(), (phpresharedkey?.value ?: 0L).toString(), (pparameterlist?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslExpandResumptionMasterKey(hsslprovider: NCRYPT_PROV_HANDLE, hmasterkey: NCRYPT_KEY_HANDLE, hhashvalue: NCRYPT_HASH_HANDLE, phresumptionmasterkey: Long, pparameterlist: Long, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslExpandResumptionMasterKey(hsslprovider.toString(), hmasterkey.toString(), hhashvalue.toString(), phresumptionmasterkey.toString(), pparameterlist.toString(), dwflags.toInt()) as Int) else 0
+public actual fun sslExpandResumptionMasterKey(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, hhashvalue: NcryptHashHandle, phresumptionmasterkey: COpaquePointer?, pparameterlist: COpaquePointer?, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslExpandResumptionMasterKey(hsslprovider.toString(), hmasterkey.toString(), hhashvalue.toString(), (phresumptionmasterkey?.value ?: 0L).toString(), (pparameterlist?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslExpandTrafficKeys(hsslprovider: NCRYPT_PROV_HANDLE, hbasekey: NCRYPT_KEY_HANDLE, hhashvalue: NCRYPT_HASH_HANDLE, phclienttraffickey: Long, phservertraffickey: Long, pparameterlist: Long, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslExpandTrafficKeys(hsslprovider.toString(), hbasekey.toString(), hhashvalue.toString(), phclienttraffickey.toString(), phservertraffickey.toString(), pparameterlist.toString(), dwflags.toInt()) as Int) else 0
+public actual fun sslExpandTrafficKeys(hsslprovider: NcryptProvHandle, hbasekey: NcryptKeyHandle, hhashvalue: NcryptHashHandle, phclienttraffickey: COpaquePointer?, phservertraffickey: COpaquePointer?, pparameterlist: COpaquePointer?, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslExpandTrafficKeys(hsslprovider.toString(), hbasekey.toString(), hhashvalue.toString(), (phclienttraffickey?.value ?: 0L).toString(), (phservertraffickey?.value ?: 0L).toString(), (pparameterlist?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslExpandWriteKey(hsslprovider: NCRYPT_PROV_HANDLE, hbasetraffickey: NCRYPT_KEY_HANDLE, phwritekey: Long, pparameterlist: Long, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslExpandWriteKey(hsslprovider.toString(), hbasetraffickey.toString(), phwritekey.toString(), pparameterlist.toString(), dwflags.toInt()) as Int) else 0
+public actual fun sslExpandWriteKey(hsslprovider: NcryptProvHandle, hbasetraffickey: NcryptKeyHandle, phwritekey: COpaquePointer?, pparameterlist: COpaquePointer?, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslExpandWriteKey(hsslprovider.toString(), hbasetraffickey.toString(), (phwritekey?.value ?: 0L).toString(), (pparameterlist?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslExportKey(hsslprovider: NCRYPT_PROV_HANDLE, hkey: NCRYPT_KEY_HANDLE, pszblobtype: PCWSTR, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslExportKey(hsslprovider.toString(), hkey.toString(), pszblobtype.toString(), pboutput.toString(), cboutput.toInt(), pcbresult.toString(), dwflags.toInt()) as Int) else 0
+public actual fun sslExportKey(hsslprovider: NcryptProvHandle, hkey: NcryptKeyHandle, pszblobtype: Pcwstr, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslExportKey(hsslprovider.toString(), hkey.toString(), (pszblobtype?.value ?: 0L).toString(), (pboutput?.value ?: 0L).toString(), cboutput.toInt(), (pcbresult?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslExportKeyingMaterial(hsslprovider: NCRYPT_PROV_HANDLE, hmasterkey: NCRYPT_KEY_HANDLE, slabel: PCSTR, pbrandoms: Long, cbrandoms: UInt, pbcontextvalue: Long, cbcontextvalue: UShort, pboutput: Long, cboutput: UInt, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslExportKeyingMaterial(hsslprovider.toString(), hmasterkey.toString(), slabel.toString(), pbrandoms.toString(), cbrandoms.toInt(), pbcontextvalue.toString(), cbcontextvalue.toInt(), pboutput.toString(), cboutput.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun sslExportKeyingMaterial(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, slabel: Pcstr, pbrandoms: COpaquePointer?, cbrandoms: UInt, pbcontextvalue: COpaquePointer?, cbcontextvalue: UShort, pboutput: COpaquePointer?, cboutput: UInt, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslExportKeyingMaterial(hsslprovider.toString(), hmasterkey.toString(), (slabel?.value ?: 0L).toString(), (pbrandoms?.value ?: 0L).toString(), cbrandoms.toInt(), (pbcontextvalue?.value ?: 0L).toString(), cbcontextvalue.toInt(), (pboutput?.value ?: 0L).toString(), cboutput.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslExtractEarlyKey(hsslprovider: NCRYPT_PROV_HANDLE, hpresharedkey: NCRYPT_KEY_HANDLE, phearlykey: Long, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: Long, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslExtractEarlyKey(hsslprovider.toString(), hpresharedkey.toString(), phearlykey.toString(), dwprotocol.toInt(), dwciphersuite.toInt(), pparameterlist.toString(), dwflags.toInt()) as Int) else 0
+public actual fun sslExtractEarlyKey(hsslprovider: NcryptProvHandle, hpresharedkey: NcryptKeyHandle, phearlykey: COpaquePointer?, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: COpaquePointer?, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslExtractEarlyKey(hsslprovider.toString(), hpresharedkey.toString(), (phearlykey?.value ?: 0L).toString(), dwprotocol.toInt(), dwciphersuite.toInt(), (pparameterlist?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslExtractHandshakeKey(hsslprovider: NCRYPT_PROV_HANDLE, hprivatekey: NCRYPT_KEY_HANDLE, hpublickey: NCRYPT_KEY_HANDLE, hearlykey: NCRYPT_KEY_HANDLE, phhandshakekey: Long, pparameterlist: Long, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslExtractHandshakeKey(hsslprovider.toString(), hprivatekey.toString(), hpublickey.toString(), hearlykey.toString(), phhandshakekey.toString(), pparameterlist.toString(), dwflags.toInt()) as Int) else 0
+public actual fun sslExtractHandshakeKey(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, hpublickey: NcryptKeyHandle, hearlykey: NcryptKeyHandle, phhandshakekey: COpaquePointer?, pparameterlist: COpaquePointer?, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslExtractHandshakeKey(hsslprovider.toString(), hprivatekey.toString(), hpublickey.toString(), hearlykey.toString(), (phhandshakekey?.value ?: 0L).toString(), (pparameterlist?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslExtractMasterKey(hsslprovider: NCRYPT_PROV_HANDLE, hhandshakekey: NCRYPT_KEY_HANDLE, phmasterkey: Long, pparameterlist: Long, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslExtractMasterKey(hsslprovider.toString(), hhandshakekey.toString(), phmasterkey.toString(), pparameterlist.toString(), dwflags.toInt()) as Int) else 0
+public actual fun sslExtractMasterKey(hsslprovider: NcryptProvHandle, hhandshakekey: NcryptKeyHandle, phmasterkey: COpaquePointer?, pparameterlist: COpaquePointer?, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslExtractMasterKey(hsslprovider.toString(), hhandshakekey.toString(), (phmasterkey?.value ?: 0L).toString(), (pparameterlist?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslFreeBuffer(pvinput: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslFreeBuffer(pvinput.toString()) as Int) else 0
+public actual fun sslFreeBuffer(pvinput: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslFreeBuffer((pvinput?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslFreeObject(hobject: NCRYPT_HANDLE, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslFreeObject(hobject.toString(), dwflags.toInt()) as Int) else 0
+public actual fun sslFreeObject(hobject: NcryptHandle, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslFreeObject(hobject.toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslGenerateMasterKey(hsslprovider: NCRYPT_PROV_HANDLE, hprivatekey: NCRYPT_KEY_HANDLE, hpublickey: NCRYPT_KEY_HANDLE, phmasterkey: Long, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: Long, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslGenerateMasterKey(hsslprovider.toString(), hprivatekey.toString(), hpublickey.toString(), phmasterkey.toString(), dwprotocol.toInt(), dwciphersuite.toInt(), pparameterlist.toString(), pboutput.toString(), cboutput.toInt(), pcbresult.toString(), dwflags.toInt()) as Int) else 0
+public actual fun sslGenerateMasterKey(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, hpublickey: NcryptKeyHandle, phmasterkey: COpaquePointer?, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: COpaquePointer?, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslGenerateMasterKey(hsslprovider.toString(), hprivatekey.toString(), hpublickey.toString(), (phmasterkey?.value ?: 0L).toString(), dwprotocol.toInt(), dwciphersuite.toInt(), (pparameterlist?.value ?: 0L).toString(), (pboutput?.value ?: 0L).toString(), cboutput.toInt(), (pcbresult?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslGeneratePreMasterKey(hsslprovider: NCRYPT_PROV_HANDLE, hpublickey: NCRYPT_KEY_HANDLE, phpremasterkey: Long, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: Long, pboutput: Long, cboutput: UInt, pcbresult: Long, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslGeneratePreMasterKey(hsslprovider.toString(), hpublickey.toString(), phpremasterkey.toString(), dwprotocol.toInt(), dwciphersuite.toInt(), pparameterlist.toString(), pboutput.toString(), cboutput.toInt(), pcbresult.toString(), dwflags.toInt()) as Int) else 0
+public actual fun sslGeneratePreMasterKey(hsslprovider: NcryptProvHandle, hpublickey: NcryptKeyHandle, phpremasterkey: COpaquePointer?, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: COpaquePointer?, pboutput: COpaquePointer?, cboutput: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslGeneratePreMasterKey(hsslprovider.toString(), hpublickey.toString(), (phpremasterkey?.value ?: 0L).toString(), dwprotocol.toInt(), dwciphersuite.toInt(), (pparameterlist?.value ?: 0L).toString(), (pboutput?.value ?: 0L).toString(), cboutput.toInt(), (pcbresult?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslGenerateSessionKeys(hsslprovider: NCRYPT_PROV_HANDLE, hmasterkey: NCRYPT_KEY_HANDLE, phreadkey: Long, phwritekey: Long, pparameterlist: Long, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslGenerateSessionKeys(hsslprovider.toString(), hmasterkey.toString(), phreadkey.toString(), phwritekey.toString(), pparameterlist.toString(), dwflags.toInt()) as Int) else 0
+public actual fun sslGenerateSessionKeys(hsslprovider: NcryptProvHandle, hmasterkey: NcryptKeyHandle, phreadkey: COpaquePointer?, phwritekey: COpaquePointer?, pparameterlist: COpaquePointer?, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslGenerateSessionKeys(hsslprovider.toString(), hmasterkey.toString(), (phreadkey?.value ?: 0L).toString(), (phwritekey?.value ?: 0L).toString(), (pparameterlist?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslGetCipherSuitePRFHashAlgorithm(hsslprovider: NCRYPT_PROV_HANDLE, dwprotocol: UInt, dwciphersuite: UInt, dwkeytype: UInt, szprfhash: PWSTR, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslGetCipherSuitePRFHashAlgorithm(hsslprovider.toString(), dwprotocol.toInt(), dwciphersuite.toInt(), dwkeytype.toInt(), szprfhash.toString(), dwflags.toInt()) as Int) else 0
+public actual fun sslGetCipherSuitePRFHashAlgorithm(hsslprovider: NcryptProvHandle, dwprotocol: UInt, dwciphersuite: UInt, dwkeytype: UInt, szprfhash: Pwstr, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslGetCipherSuitePRFHashAlgorithm(hsslprovider.toString(), dwprotocol.toInt(), dwciphersuite.toInt(), dwkeytype.toInt(), (szprfhash?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslGetKeyProperty(hkey: NCRYPT_KEY_HANDLE, pszproperty: PCWSTR, ppboutput: Long, pcboutput: Long, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslGetKeyProperty(hkey.toString(), pszproperty.toString(), ppboutput.toString(), pcboutput.toString(), dwflags.toInt()) as Int) else 0
+public actual fun sslGetKeyProperty(hkey: NcryptKeyHandle, pszproperty: Pcwstr, ppboutput: COpaquePointer?, pcboutput: COpaquePointer?, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslGetKeyProperty(hkey.toString(), (pszproperty?.value ?: 0L).toString(), (ppboutput?.value ?: 0L).toString(), (pcboutput?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslGetProviderProperty(hsslprovider: NCRYPT_PROV_HANDLE, pszproperty: PCWSTR, ppboutput: Long, pcboutput: Long, ppenumstate: Long, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslGetProviderProperty(hsslprovider.toString(), pszproperty.toString(), ppboutput.toString(), pcboutput.toString(), ppenumstate.toString(), dwflags.toInt()) as Int) else 0
+public actual fun sslGetProviderProperty(hsslprovider: NcryptProvHandle, pszproperty: Pcwstr, ppboutput: COpaquePointer?, pcboutput: COpaquePointer?, ppenumstate: COpaquePointer?, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslGetProviderProperty(hsslprovider.toString(), (pszproperty?.value ?: 0L).toString(), (ppboutput?.value ?: 0L).toString(), (pcboutput?.value ?: 0L).toString(), (ppenumstate?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslHashHandshake(hsslprovider: NCRYPT_PROV_HANDLE, hhandshakehash: NCRYPT_HASH_HANDLE, pbinput: Long, cbinput: UInt, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslHashHandshake(hsslprovider.toString(), hhandshakehash.toString(), pbinput.toString(), cbinput.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun sslHashHandshake(hsslprovider: NcryptProvHandle, hhandshakehash: NcryptHashHandle, pbinput: COpaquePointer?, cbinput: UInt, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslHashHandshake(hsslprovider.toString(), hhandshakehash.toString(), (pbinput?.value ?: 0L).toString(), cbinput.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslImportKey(hsslprovider: NCRYPT_PROV_HANDLE, phkey: Long, pszblobtype: PCWSTR, pbkeyblob: Long, cbkeyblob: UInt, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslImportKey(hsslprovider.toString(), phkey.toString(), pszblobtype.toString(), pbkeyblob.toString(), cbkeyblob.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun sslImportKey(hsslprovider: NcryptProvHandle, phkey: COpaquePointer?, pszblobtype: Pcwstr, pbkeyblob: COpaquePointer?, cbkeyblob: UInt, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslImportKey(hsslprovider.toString(), (phkey?.value ?: 0L).toString(), (pszblobtype?.value ?: 0L).toString(), (pbkeyblob?.value ?: 0L).toString(), cbkeyblob.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslImportMasterKey(hsslprovider: NCRYPT_PROV_HANDLE, hprivatekey: NCRYPT_KEY_HANDLE, phmasterkey: Long, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: Long, pbencryptedkey: Long, cbencryptedkey: UInt, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslImportMasterKey(hsslprovider.toString(), hprivatekey.toString(), phmasterkey.toString(), dwprotocol.toInt(), dwciphersuite.toInt(), pparameterlist.toString(), pbencryptedkey.toString(), cbencryptedkey.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun sslImportMasterKey(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, phmasterkey: COpaquePointer?, dwprotocol: UInt, dwciphersuite: UInt, pparameterlist: COpaquePointer?, pbencryptedkey: COpaquePointer?, cbencryptedkey: UInt, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslImportMasterKey(hsslprovider.toString(), hprivatekey.toString(), (phmasterkey?.value ?: 0L).toString(), dwprotocol.toInt(), dwciphersuite.toInt(), (pparameterlist?.value ?: 0L).toString(), (pbencryptedkey?.value ?: 0L).toString(), cbencryptedkey.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslIncrementProviderReferenceCount(hsslprovider: NCRYPT_PROV_HANDLE): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslIncrementProviderReferenceCount(hsslprovider.toString()) as Int) else 0
+public actual fun sslIncrementProviderReferenceCount(hsslprovider: NcryptProvHandle): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslIncrementProviderReferenceCount(hsslprovider.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslLookupCipherLengths(hsslprovider: NCRYPT_PROV_HANDLE, dwprotocol: UInt, dwciphersuite: UInt, dwkeytype: UInt, pcipherlengths: Long, cbcipherlengths: UInt, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslLookupCipherLengths(hsslprovider.toString(), dwprotocol.toInt(), dwciphersuite.toInt(), dwkeytype.toInt(), pcipherlengths.toString(), cbcipherlengths.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun sslLookupCipherLengths(hsslprovider: NcryptProvHandle, dwprotocol: UInt, dwciphersuite: UInt, dwkeytype: UInt, pcipherlengths: COpaquePointer?, cbcipherlengths: UInt, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslLookupCipherLengths(hsslprovider.toString(), dwprotocol.toInt(), dwciphersuite.toInt(), dwkeytype.toInt(), (pcipherlengths?.value ?: 0L).toString(), cbcipherlengths.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslLookupCipherSuiteInfo(hsslprovider: NCRYPT_PROV_HANDLE, dwprotocol: UInt, dwciphersuite: UInt, dwkeytype: UInt, pciphersuite: Long, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslLookupCipherSuiteInfo(hsslprovider.toString(), dwprotocol.toInt(), dwciphersuite.toInt(), dwkeytype.toInt(), pciphersuite.toString(), dwflags.toInt()) as Int) else 0
+public actual fun sslLookupCipherSuiteInfo(hsslprovider: NcryptProvHandle, dwprotocol: UInt, dwciphersuite: UInt, dwkeytype: UInt, pciphersuite: COpaquePointer?, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslLookupCipherSuiteInfo(hsslprovider.toString(), dwprotocol.toInt(), dwciphersuite.toInt(), dwkeytype.toInt(), (pciphersuite?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslOpenPrivateKey(hsslprovider: NCRYPT_PROV_HANDLE, phprivatekey: Long, pcertcontext: Long, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslOpenPrivateKey(hsslprovider.toString(), phprivatekey.toString(), pcertcontext.toString(), dwflags.toInt()) as Int) else 0
+public actual fun sslOpenPrivateKey(hsslprovider: NcryptProvHandle, phprivatekey: COpaquePointer?, pcertcontext: COpaquePointer?, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslOpenPrivateKey(hsslprovider.toString(), (phprivatekey?.value ?: 0L).toString(), (pcertcontext?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslOpenProvider(phsslprovider: Long, pszprovidername: PCWSTR, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslOpenProvider(phsslprovider.toString(), pszprovidername.toString(), dwflags.toInt()) as Int) else 0
+public actual fun sslOpenProvider(phsslprovider: COpaquePointer?, pszprovidername: Pcwstr, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslOpenProvider((phsslprovider?.value ?: 0L).toString(), (pszprovidername?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslSignHash(hsslprovider: NCRYPT_PROV_HANDLE, hprivatekey: NCRYPT_KEY_HANDLE, pbhashvalue: Long, cbhashvalue: UInt, pbsignature: Long, cbsignature: UInt, pcbresult: Long, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslSignHash(hsslprovider.toString(), hprivatekey.toString(), pbhashvalue.toString(), cbhashvalue.toInt(), pbsignature.toString(), cbsignature.toInt(), pcbresult.toString(), dwflags.toInt()) as Int) else 0
+public actual fun sslSignHash(hsslprovider: NcryptProvHandle, hprivatekey: NcryptKeyHandle, pbhashvalue: COpaquePointer?, cbhashvalue: UInt, pbsignature: COpaquePointer?, cbsignature: UInt, pcbresult: COpaquePointer?, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslSignHash(hsslprovider.toString(), hprivatekey.toString(), (pbhashvalue?.value ?: 0L).toString(), cbhashvalue.toInt(), (pbsignature?.value ?: 0L).toString(), cbsignature.toInt(), (pcbresult?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SslVerifySignature(hsslprovider: NCRYPT_PROV_HANDLE, hpublickey: NCRYPT_KEY_HANDLE, pbhashvalue: Long, cbhashvalue: UInt, pbsignature: Long, cbsignature: UInt, dwflags: UInt): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SslVerifySignature(hsslprovider.toString(), hpublickey.toString(), pbhashvalue.toString(), cbhashvalue.toInt(), pbsignature.toString(), cbsignature.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun sslVerifySignature(hsslprovider: NcryptProvHandle, hpublickey: NcryptKeyHandle, pbhashvalue: COpaquePointer?, cbhashvalue: UInt, pbsignature: COpaquePointer?, cbsignature: UInt, dwflags: UInt): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_sslVerifySignature(hsslprovider.toString(), hpublickey.toString(), (pbhashvalue?.value ?: 0L).toString(), cbhashvalue.toInt(), (pbsignature?.value ?: 0L).toString(), cbsignature.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SystemPrng(pbrandomdata: Long, cbrandomdata: ULong): BOOL =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_SystemPrng(pbrandomdata.toString(), cbrandomdata.toString()) as Int) else 0
+public actual fun systemPrng(pbrandomdata: COpaquePointer?, cbrandomdata: ULong): Bool =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_systemPrng((pbrandomdata?.value ?: 0L).toString(), cbrandomdata.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TransformBlock(hcrypto: Long, cbindata: UInt, pindata: Long, pcboutdata: Long, ppoutdata: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_TransformBlock(hcrypto.toString(), cbindata.toInt(), pindata.toString(), pcboutdata.toString(), ppoutdata.toString()) as Int) else 0
+public actual fun transformBlock(hcrypto: COpaquePointer?, cbindata: UInt, pindata: COpaquePointer?, pcboutdata: COpaquePointer?, ppoutdata: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_transformBlock((hcrypto?.value ?: 0L).toString(), cbindata.toInt(), (pindata?.value ?: 0L).toString(), (pcboutdata?.value ?: 0L).toString(), (ppoutdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TransformFinalBlock(hcrypto: Long, cbindata: UInt, pindata: Long, pcboutdata: Long, ppoutdata: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_TransformFinalBlock(hcrypto.toString(), cbindata.toInt(), pindata.toString(), pcboutdata.toString(), ppoutdata.toString()) as Int) else 0
+public actual fun transformFinalBlock(hcrypto: COpaquePointer?, cbindata: UInt, pindata: COpaquePointer?, pcboutdata: COpaquePointer?, ppoutdata: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_transformFinalBlock((hcrypto?.value ?: 0L).toString(), cbindata.toInt(), (pindata?.value ?: 0L).toString(), (pcboutdata?.value ?: 0L).toString(), (ppoutdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun VerifyHash(hcrypto: Long, cbhash: UInt, phash: Long, hashalgoid: PCWSTR, cbsig: UInt, psig: Long, pfverified: Long): HRESULT =
-    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_VerifyHash(hcrypto.toString(), cbhash.toInt(), phash.toString(), hashalgoid.toString(), cbsig.toInt(), psig.toString(), pfverified.toString()) as Int) else 0
+public actual fun verifyHash(hcrypto: COpaquePointer?, cbhash: UInt, phash: COpaquePointer?, hashalgoid: Pcwstr, cbsig: UInt, psig: COpaquePointer?, pfverified: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityCryptographyNapiAddon != null) (_windowsWin32SecurityCryptographyNapiAddon.windowssys_windows_win32_security_cryptography_verifyHash((hcrypto?.value ?: 0L).toString(), cbhash.toInt(), (phash?.value ?: 0L).toString(), (hashalgoid?.value ?: 0L).toString(), cbsig.toInt(), (psig?.value ?: 0L).toString(), (pfverified?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

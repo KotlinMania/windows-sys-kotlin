@@ -2,9 +2,10 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.eventnotificationservice
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 
 private object WindowsWin32SystemEventnotificationserviceJniBridge {
     init {
@@ -12,20 +13,20 @@ private object WindowsWin32SystemEventnotificationserviceJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_eventnotificationservice_IsDestinationReachableA(lpszdestination: Long, lpqocinfo: Long): Int
+    external fun windowssys_windows_win32_system_eventnotificationservice_isDestinationReachableA(lpszdestination: Long, lpqocinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_eventnotificationservice_IsDestinationReachableW(lpszdestination: Long, lpqocinfo: Long): Int
+    external fun windowssys_windows_win32_system_eventnotificationservice_isDestinationReachableW(lpszdestination: Long, lpqocinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_eventnotificationservice_IsNetworkAlive(lpdwflags: Long): Int
+    external fun windowssys_windows_win32_system_eventnotificationservice_isNetworkAlive(lpdwflags: Long): Int
 }
 
-public actual fun IsDestinationReachableA(lpszdestination: PCSTR, lpqocinfo: Long): BOOL =
-    WindowsWin32SystemEventnotificationserviceJniBridge.windowssys_windows_win32_system_eventnotificationservice_IsDestinationReachableA(lpszdestination, lpqocinfo)
+public actual fun isDestinationReachableA(lpszdestination: Pcstr, lpqocinfo: COpaquePointer?): Bool =
+    WindowsWin32SystemEventnotificationserviceJniBridge.windowssys_windows_win32_system_eventnotificationservice_isDestinationReachableA((lpszdestination?.value ?: 0L), (lpqocinfo?.value ?: 0L))
 
-public actual fun IsDestinationReachableW(lpszdestination: PCWSTR, lpqocinfo: Long): BOOL =
-    WindowsWin32SystemEventnotificationserviceJniBridge.windowssys_windows_win32_system_eventnotificationservice_IsDestinationReachableW(lpszdestination, lpqocinfo)
+public actual fun isDestinationReachableW(lpszdestination: Pcwstr, lpqocinfo: COpaquePointer?): Bool =
+    WindowsWin32SystemEventnotificationserviceJniBridge.windowssys_windows_win32_system_eventnotificationservice_isDestinationReachableW((lpszdestination?.value ?: 0L), (lpqocinfo?.value ?: 0L))
 
-public actual fun IsNetworkAlive(lpdwflags: Long): BOOL =
-    WindowsWin32SystemEventnotificationserviceJniBridge.windowssys_windows_win32_system_eventnotificationservice_IsNetworkAlive(lpdwflags)
+public actual fun isNetworkAlive(lpdwflags: COpaquePointer?): Bool =
+    WindowsWin32SystemEventnotificationserviceJniBridge.windowssys_windows_win32_system_eventnotificationservice_isNetworkAlive((lpdwflags?.value ?: 0L))

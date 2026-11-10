@@ -1,55 +1,55 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext
 
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.POINTER_INPUT_TYPE
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.PointerInputType
 
-public data class CROSS_SLIDE_PARAMETER(public var threshold: CROSS_SLIDE_THRESHOLD = 0, public var distance: Float = 0.0f)
+public data class CrossSlideParameter(public var threshold: CrossSlideThreshold = 0, public var distance: Float = 0.0f)
 
-public data class INTERACTION_ARGUMENTS_CROSS_SLIDE(public var flags: CROSS_SLIDE_FLAGS = 0u)
+public data class InteractionArgumentsCrossSlide(public var flags: CrossSlideFlags = 0u)
 
-public data class INTERACTION_ARGUMENTS_MANIPULATION(
-    public var delta: MANIPULATION_TRANSFORM = MANIPULATION_TRANSFORM(),
-    public var cumulative: MANIPULATION_TRANSFORM = MANIPULATION_TRANSFORM(),
-    public var velocity: MANIPULATION_VELOCITY = MANIPULATION_VELOCITY(),
-    public var railsState: MANIPULATION_RAILS_STATE = 0,
+public data class InteractionArgumentsManipulation(
+    public var delta: ManipulationTransform = ManipulationTransform(),
+    public var cumulative: ManipulationTransform = ManipulationTransform(),
+    public var velocity: ManipulationVelocity = ManipulationVelocity(),
+    public var railsState: ManipulationRailsState = 0,
 )
 
-public data class INTERACTION_ARGUMENTS_TAP(public var count: UInt = 0u)
+public data class InteractionArgumentsTap(public var count: UInt = 0u)
 
-public data class INTERACTION_CONTEXT_CONFIGURATION(public var interactionId: INTERACTION_ID = 0, public var enable: INTERACTION_CONFIGURATION_FLAGS = 0u)
+public data class InteractionContextConfiguration(public var interactionId: InteractionId = 0, public var enable: InteractionConfigurationFlags = 0u)
 
-public data class INTERACTION_CONTEXT_OUTPUT(
-    public var interactionId: INTERACTION_ID = 0,
-    public var interactionFlags: INTERACTION_FLAGS = 0u,
-    public var inputType: POINTER_INPUT_TYPE = 0,
+public data class InteractionContextOutput(
+    public var interactionId: InteractionId = 0,
+    public var interactionFlags: InteractionFlags = 0u,
+    public var inputType: PointerInputType = 0,
     public var x: Float = 0.0f,
     public var y: Float = 0.0f,
-    public var arguments: INTERACTION_CONTEXT_OUTPUT_0 = INTERACTION_CONTEXT_OUTPUT_0(),
+    public var arguments: InteractionContextOutput0 = InteractionContextOutput0(),
 )
 
-public data class INTERACTION_CONTEXT_OUTPUT_0(
-    public var manipulation: INTERACTION_ARGUMENTS_MANIPULATION = INTERACTION_ARGUMENTS_MANIPULATION(),
-    public var tap: INTERACTION_ARGUMENTS_TAP = INTERACTION_ARGUMENTS_TAP(),
-    public var crossSlide: INTERACTION_ARGUMENTS_CROSS_SLIDE = INTERACTION_ARGUMENTS_CROSS_SLIDE(),
+public data class InteractionContextOutput0(
+    public var manipulation: InteractionArgumentsManipulation = InteractionArgumentsManipulation(),
+    public var tap: InteractionArgumentsTap = InteractionArgumentsTap(),
+    public var crossSlide: InteractionArgumentsCrossSlide = InteractionArgumentsCrossSlide(),
 )
 
-public data class INTERACTION_CONTEXT_OUTPUT2(
-    public var interactionId: INTERACTION_ID = 0,
-    public var interactionFlags: INTERACTION_FLAGS = 0u,
-    public var inputType: POINTER_INPUT_TYPE = 0,
+public data class InteractionContextOutput2(
+    public var interactionId: InteractionId = 0,
+    public var interactionFlags: InteractionFlags = 0u,
+    public var inputType: PointerInputType = 0,
     public var contactCount: UInt = 0u,
     public var currentContactCount: UInt = 0u,
     public var x: Float = 0.0f,
     public var y: Float = 0.0f,
-    public var arguments: INTERACTION_CONTEXT_OUTPUT2_0 = INTERACTION_CONTEXT_OUTPUT2_0(),
+    public var arguments: InteractionContextOutput20 = InteractionContextOutput20(),
 )
 
-public data class INTERACTION_CONTEXT_OUTPUT2_0(
-    public var manipulation: INTERACTION_ARGUMENTS_MANIPULATION = INTERACTION_ARGUMENTS_MANIPULATION(),
-    public var tap: INTERACTION_ARGUMENTS_TAP = INTERACTION_ARGUMENTS_TAP(),
-    public var crossSlide: INTERACTION_ARGUMENTS_CROSS_SLIDE = INTERACTION_ARGUMENTS_CROSS_SLIDE(),
+public data class InteractionContextOutput20(
+    public var manipulation: InteractionArgumentsManipulation = InteractionArgumentsManipulation(),
+    public var tap: InteractionArgumentsTap = InteractionArgumentsTap(),
+    public var crossSlide: InteractionArgumentsCrossSlide = InteractionArgumentsCrossSlide(),
 )
 
-public data class MANIPULATION_TRANSFORM(
+public data class ManipulationTransform(
     public var translationX: Float = 0.0f,
     public var translationY: Float = 0.0f,
     public var scale: Float = 0.0f,
@@ -57,7 +57,7 @@ public data class MANIPULATION_TRANSFORM(
     public var rotation: Float = 0.0f,
 )
 
-public data class MANIPULATION_VELOCITY(
+public data class ManipulationVelocity(
     public var velocityX: Float = 0.0f,
     public var velocityY: Float = 0.0f,
     public var velocityExpansion: Float = 0.0f,

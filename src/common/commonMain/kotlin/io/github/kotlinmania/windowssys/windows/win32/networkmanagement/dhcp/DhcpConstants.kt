@@ -1,7 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.dhcp
 
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
 
@@ -9,7 +9,7 @@ public val ADDRESS_TYPE_IANA: UInt = 0u
 
 public val ADDRESS_TYPE_IATA: UInt = 1u
 
-public val Allow: DHCP_FILTER_LIST_TYPE = 1
+public val ALLOW: DhcpFilterListType = 1
 
 public val CHANGESTATE: UInt = 4u
 
@@ -23,9 +23,9 @@ public val CLIENT_TYPE_RESERVATION_FLAG: UInt = 4u
 
 public val CLIENT_TYPE_UNSPECIFIED: UInt = 0u
 
-public val COMMUNICATION_INT: FSM_STATE = 4
+public val COMMUNICATION_INT: FsmState = 4
 
-public val CONFLICT_DONE: FSM_STATE = 7
+public val CONFLICT_DONE: FsmState = 7
 
 public val DEFAULTQUARSETTING: QuarantineStatus = 5
 
@@ -101,11 +101,11 @@ public val DHCP_ATTRIB_TYPE_ULONG: UInt = 2u
 
 public val DHCP_ATTRIB_ULONG_RESTORE_STATUS: UInt = 6u
 
-public val DHCP_CALLOUT_ENTRY_POINT: PCSTR = s("DhcpServerCalloutEntry")
+public val DHCP_CALLOUT_ENTRY_POINT: Pcstr = s("DhcpServerCalloutEntry")
 
-public val DHCP_CALLOUT_LIST_KEY: PCWSTR = w("System\\CurrentControlSet\\Services\\DHCPServer\\Parameters")
+public val DHCP_CALLOUT_LIST_KEY: Pcwstr = w("System\\CurrentControlSet\\Services\\DHCPServer\\Parameters")
 
-public val DHCP_CALLOUT_LIST_VALUE: PCWSTR = w("CalloutDlls")
+public val DHCP_CALLOUT_LIST_VALUE: Pcwstr = w("CalloutDlls")
 
 public val DHCP_CLIENT_BOOTP: UInt = 805306371u
 
@@ -197,159 +197,159 @@ public val DNS_FLAG_UPDATE_DOWNLEVEL: UInt = 2u
 
 public val DROPPACKET: QuarantineStatus = 2
 
-public val Deny: DHCP_FILTER_LIST_TYPE = 0
+public val DENY: DhcpFilterListType = 0
 
-public val DhcpArrayTypeOption: DHCP_OPTION_TYPE = 1
+public val DHCP_ARRAY_TYPE_OPTION: DhcpOptionType = 1
 
-public val DhcpAttrFqdn: DHCP_POL_ATTR_TYPE = 3
+public val DHCP_ATTR_FQDN: DhcpPolAttrType = 3
 
-public val DhcpAttrFqdnSingleLabel: DHCP_POL_ATTR_TYPE = 4
+public val DHCP_ATTR_FQDN_SINGLE_LABEL: DhcpPolAttrType = 4
 
-public val DhcpAttrHWAddr: DHCP_POL_ATTR_TYPE = 0
+public val DHCP_ATTR_HW_ADDR: DhcpPolAttrType = 0
 
-public val DhcpAttrOption: DHCP_POL_ATTR_TYPE = 1
+public val DHCP_ATTR_OPTION: DhcpPolAttrType = 1
 
-public val DhcpAttrSubOption: DHCP_POL_ATTR_TYPE = 2
+public val DHCP_ATTR_SUB_OPTION: DhcpPolAttrType = 2
 
-public val DhcpBinaryDataOption: DHCP_OPTION_DATA_TYPE = 6
+public val DHCP_BINARY_DATA_OPTION: DhcpOptionDataType = 6
 
-public val DhcpByteOption: DHCP_OPTION_DATA_TYPE = 0
+public val DHCP_BYTE_OPTION: DhcpOptionDataType = 0
 
-public val DhcpClientHardwareAddress: DHCP_SEARCH_INFO_TYPE = 1
+public val DHCP_CLIENT_HARDWARE_ADDRESS: DhcpSearchInfoType = 1
 
-public val DhcpClientIpAddress: DHCP_SEARCH_INFO_TYPE = 0
+public val DHCP_CLIENT_IP_ADDRESS: DhcpSearchInfoType = 0
 
-public val DhcpClientName: DHCP_SEARCH_INFO_TYPE = 2
+public val DHCP_CLIENT_NAME: DhcpSearchInfoType = 2
 
-public val DhcpCompBeginsWith: DHCP_POL_COMPARATOR = 2
+public val DHCP_COMP_BEGINS_WITH: DhcpPolComparator = 2
 
-public val DhcpCompEndsWith: DHCP_POL_COMPARATOR = 4
+public val DHCP_COMP_ENDS_WITH: DhcpPolComparator = 4
 
-public val DhcpCompEqual: DHCP_POL_COMPARATOR = 0
+public val DHCP_COMP_EQUAL: DhcpPolComparator = 0
 
-public val DhcpCompNotBeginWith: DHCP_POL_COMPARATOR = 3
+public val DHCP_COMP_NOT_BEGIN_WITH: DhcpPolComparator = 3
 
-public val DhcpCompNotEndWith: DHCP_POL_COMPARATOR = 5
+public val DHCP_COMP_NOT_END_WITH: DhcpPolComparator = 5
 
-public val DhcpCompNotEqual: DHCP_POL_COMPARATOR = 1
+public val DHCP_COMP_NOT_EQUAL: DhcpPolComparator = 1
 
-public val DhcpDWordDWordOption: DHCP_OPTION_DATA_TYPE = 3
+public val DHCP_D_WORD_D_WORD_OPTION: DhcpOptionDataType = 3
 
-public val DhcpDWordOption: DHCP_OPTION_DATA_TYPE = 2
+public val DHCP_D_WORD_OPTION: DhcpOptionDataType = 2
 
-public val DhcpDatabaseFix: DHCP_SCAN_FLAG = 1
+public val DHCP_DATABASE_FIX: DhcpScanFlag = 1
 
-public val DhcpDefaultOptions: DHCP_OPTION_SCOPE_TYPE = 0
+public val DHCP_DEFAULT_OPTIONS: DhcpOptionScopeType = 0
 
-public val DhcpDefaultOptions6: DHCP_OPTION_SCOPE_TYPE6 = 0
+public val DHCP_DEFAULT_OPTIONS6: DhcpOptionScopeType6 = 0
 
-public val DhcpEncapsulatedDataOption: DHCP_OPTION_DATA_TYPE = 7
+public val DHCP_ENCAPSULATED_DATA_OPTION: DhcpOptionDataType = 7
 
-public val DhcpExcludedIpRanges: DHCP_SUBNET_ELEMENT_TYPE = 3
+public val DHCP_EXCLUDED_IP_RANGES: DhcpSubnetElementType = 3
 
-public val DhcpFailoverForce: DHCP_FORCE_FLAG = 2
+public val DHCP_FAILOVER_FORCE: DhcpForceFlag = 2
 
-public val DhcpFullForce: DHCP_FORCE_FLAG = 0
+public val DHCP_FULL_FORCE: DhcpForceFlag = 0
 
-public val DhcpGlobalOptions: DHCP_OPTION_SCOPE_TYPE = 1
+public val DHCP_GLOBAL_OPTIONS: DhcpOptionScopeType = 1
 
-public val DhcpGlobalOptions6: DHCP_OPTION_SCOPE_TYPE6 = 3
+public val DHCP_GLOBAL_OPTIONS6: DhcpOptionScopeType6 = 3
 
-public val DhcpIpAddressOption: DHCP_OPTION_DATA_TYPE = 4
+public val DHCP_IP_ADDRESS_OPTION: DhcpOptionDataType = 4
 
-public val DhcpIpRanges: DHCP_SUBNET_ELEMENT_TYPE = 0
+public val DHCP_IP_RANGES: DhcpSubnetElementType = 0
 
-public val DhcpIpRangesBootpOnly: DHCP_SUBNET_ELEMENT_TYPE = 7
+public val DHCP_IP_RANGES_BOOTP_ONLY: DhcpSubnetElementType = 7
 
-public val DhcpIpRangesDhcpBootp: DHCP_SUBNET_ELEMENT_TYPE = 6
+public val DHCP_IP_RANGES_DHCP_BOOTP: DhcpSubnetElementType = 6
 
-public val DhcpIpRangesDhcpOnly: DHCP_SUBNET_ELEMENT_TYPE = 5
+public val DHCP_IP_RANGES_DHCP_ONLY: DhcpSubnetElementType = 5
 
-public val DhcpIpUsedClusters: DHCP_SUBNET_ELEMENT_TYPE = 4
+public val DHCP_IP_USED_CLUSTERS: DhcpSubnetElementType = 4
 
-public val DhcpIpv6AddressOption: DHCP_OPTION_DATA_TYPE = 8
+public val DHCP_IPV6ADDRESS_OPTION: DhcpOptionDataType = 8
 
-public val DhcpLogicalAnd: DHCP_POL_LOGIC_OPER = 1
+public val DHCP_LOGICAL_AND: DhcpPolLogicOper = 1
 
-public val DhcpLogicalOr: DHCP_POL_LOGIC_OPER = 0
+public val DHCP_LOGICAL_OR: DhcpPolLogicOper = 0
 
-public val DhcpMScopeOptions: DHCP_OPTION_SCOPE_TYPE = 4
+public val DHCP_M_SCOPE_OPTIONS: DhcpOptionScopeType = 4
 
-public val DhcpNoForce: DHCP_FORCE_FLAG = 1
+public val DHCP_NO_FORCE: DhcpForceFlag = 1
 
-public val DhcpPropIdClientAddressStateEx: DHCP_PROPERTY_ID = 1
+public val DHCP_PROP_ID_CLIENT_ADDRESS_STATE_EX: DhcpPropertyId = 1
 
-public val DhcpPropIdPolicyDnsSuffix: DHCP_PROPERTY_ID = 0
+public val DHCP_PROP_ID_POLICY_DNS_SUFFIX: DhcpPropertyId = 0
 
-public val DhcpPropTypeBinary: DHCP_PROPERTY_TYPE = 4
+public val DHCP_PROP_TYPE_BINARY: DhcpPropertyType = 4
 
-public val DhcpPropTypeByte: DHCP_PROPERTY_TYPE = 0
+public val DHCP_PROP_TYPE_BYTE: DhcpPropertyType = 0
 
-public val DhcpPropTypeDword: DHCP_PROPERTY_TYPE = 2
+public val DHCP_PROP_TYPE_DWORD: DhcpPropertyType = 2
 
-public val DhcpPropTypeString: DHCP_PROPERTY_TYPE = 3
+public val DHCP_PROP_TYPE_STRING: DhcpPropertyType = 3
 
-public val DhcpPropTypeWord: DHCP_PROPERTY_TYPE = 1
+public val DHCP_PROP_TYPE_WORD: DhcpPropertyType = 1
 
-public val DhcpRegistryFix: DHCP_SCAN_FLAG = 0
+public val DHCP_REGISTRY_FIX: DhcpScanFlag = 0
 
-public val DhcpReservedIps: DHCP_SUBNET_ELEMENT_TYPE = 2
+public val DHCP_RESERVED_IPS: DhcpSubnetElementType = 2
 
-public val DhcpReservedOptions: DHCP_OPTION_SCOPE_TYPE = 3
+public val DHCP_RESERVED_OPTIONS: DhcpOptionScopeType = 3
 
-public val DhcpReservedOptions6: DHCP_OPTION_SCOPE_TYPE6 = 2
+public val DHCP_RESERVED_OPTIONS6: DhcpOptionScopeType6 = 2
 
-public val DhcpScopeOptions6: DHCP_OPTION_SCOPE_TYPE6 = 1
+public val DHCP_SCOPE_OPTIONS6: DhcpOptionScopeType6 = 1
 
-public val DhcpSecondaryHosts: DHCP_SUBNET_ELEMENT_TYPE = 1
+public val DHCP_SECONDARY_HOSTS: DhcpSubnetElementType = 1
 
-public val DhcpStatelessPurgeInterval: DHCPV6_STATELESS_PARAM_TYPE = 1
+public val DHCP_STATELESS_PURGE_INTERVAL: Dhcpv6StatelessParamType = 1
 
-public val DhcpStatelessStatus: DHCPV6_STATELESS_PARAM_TYPE = 2
+public val DHCP_STATELESS_STATUS: Dhcpv6StatelessParamType = 2
 
-public val DhcpStringDataOption: DHCP_OPTION_DATA_TYPE = 5
+public val DHCP_STRING_DATA_OPTION: DhcpOptionDataType = 5
 
-public val DhcpSubnetDisabled: DHCP_SUBNET_STATE = 1
+public val DHCP_SUBNET_DISABLED: DhcpSubnetState = 1
 
-public val DhcpSubnetDisabledSwitched: DHCP_SUBNET_STATE = 3
+public val DHCP_SUBNET_DISABLED_SWITCHED: DhcpSubnetState = 3
 
-public val DhcpSubnetEnabled: DHCP_SUBNET_STATE = 0
+public val DHCP_SUBNET_ENABLED: DhcpSubnetState = 0
 
-public val DhcpSubnetEnabledSwitched: DHCP_SUBNET_STATE = 2
+public val DHCP_SUBNET_ENABLED_SWITCHED: DhcpSubnetState = 2
 
-public val DhcpSubnetInvalidState: DHCP_SUBNET_STATE = 4
+public val DHCP_SUBNET_INVALID_STATE: DhcpSubnetState = 4
 
-public val DhcpSubnetOptions: DHCP_OPTION_SCOPE_TYPE = 2
+public val DHCP_SUBNET_OPTIONS: DhcpOptionScopeType = 2
 
-public val DhcpUnaryElementTypeOption: DHCP_OPTION_TYPE = 0
+public val DHCP_UNARY_ELEMENT_TYPE_OPTION: DhcpOptionType = 0
 
-public val DhcpUpdatePolicyDescr: DHCP_POLICY_FIELDS_TO_UPDATE = 16
+public val DHCP_UPDATE_POLICY_DESCR: DhcpPolicyFieldsToUpdate = 16
 
-public val DhcpUpdatePolicyDnsSuffix: DHCP_POLICY_FIELDS_TO_UPDATE = 64
+public val DHCP_UPDATE_POLICY_DNS_SUFFIX: DhcpPolicyFieldsToUpdate = 64
 
-public val DhcpUpdatePolicyExpr: DHCP_POLICY_FIELDS_TO_UPDATE = 4
+public val DHCP_UPDATE_POLICY_EXPR: DhcpPolicyFieldsToUpdate = 4
 
-public val DhcpUpdatePolicyName: DHCP_POLICY_FIELDS_TO_UPDATE = 1
+public val DHCP_UPDATE_POLICY_NAME: DhcpPolicyFieldsToUpdate = 1
 
-public val DhcpUpdatePolicyOrder: DHCP_POLICY_FIELDS_TO_UPDATE = 2
+public val DHCP_UPDATE_POLICY_ORDER: DhcpPolicyFieldsToUpdate = 2
 
-public val DhcpUpdatePolicyRanges: DHCP_POLICY_FIELDS_TO_UPDATE = 8
+public val DHCP_UPDATE_POLICY_RANGES: DhcpPolicyFieldsToUpdate = 8
 
-public val DhcpUpdatePolicyStatus: DHCP_POLICY_FIELDS_TO_UPDATE = 32
+public val DHCP_UPDATE_POLICY_STATUS: DhcpPolicyFieldsToUpdate = 32
 
-public val DhcpWordOption: DHCP_OPTION_DATA_TYPE = 1
+public val DHCP_WORD_OPTION: DhcpOptionDataType = 1
 
-public val Dhcpv6ClientDUID: DHCP_SEARCH_INFO_TYPE_V6 = 1
+public val DHCPV6CLIENT_DUID: DhcpSearchInfoTypeV6 = 1
 
-public val Dhcpv6ClientIpAddress: DHCP_SEARCH_INFO_TYPE_V6 = 0
+public val DHCPV6CLIENT_IP_ADDRESS: DhcpSearchInfoTypeV6 = 0
 
-public val Dhcpv6ClientName: DHCP_SEARCH_INFO_TYPE_V6 = 2
+public val DHCPV6CLIENT_NAME: DhcpSearchInfoTypeV6 = 2
 
-public val Dhcpv6ExcludedIpRanges: DHCP_SUBNET_ELEMENT_TYPE_V6 = 2
+public val DHCPV6EXCLUDED_IP_RANGES: DhcpSubnetElementTypeV6 = 2
 
-public val Dhcpv6IpRanges: DHCP_SUBNET_ELEMENT_TYPE_V6 = 0
+public val DHCPV6IP_RANGES: DhcpSubnetElementTypeV6 = 0
 
-public val Dhcpv6ReservedIps: DHCP_SUBNET_ELEMENT_TYPE_V6 = 1
+public val DHCPV6RESERVED_IPS: DhcpSubnetElementTypeV6 = 1
 
 public val ERROR_DDS_CLASS_DOES_NOT_EXIST: UInt = 20078u
 
@@ -601,11 +601,11 @@ public val FILTER_STATUS_WILDCARD_MATCH_IN_DENY_LIST: UInt = 16u
 
 public val HWTYPE_ETHERNET_10MB: UInt = 1u
 
-public val HotStandby: DHCP_FAILOVER_MODE = 1
+public val HOT_STANDBY: DhcpFailoverMode = 1
 
-public val INIT: FSM_STATE = 1
+public val INIT: FsmState = 1
 
-public val LoadBalance: DHCP_FAILOVER_MODE = 0
+public val LOAD_BALANCE: DhcpFailoverMode = 0
 
 public val MAC_ADDRESS_LENGTH: UInt = 6u
 
@@ -619,9 +619,9 @@ public val NOQUARANTINE: QuarantineStatus = 0
 
 public val NOQUARINFO: QuarantineStatus = 6
 
-public val NORMAL: FSM_STATE = 3
+public val NORMAL: FsmState = 3
 
-public val NO_STATE: FSM_STATE = 0
+public val NO_STATE: FsmState = 0
 
 public val OPTION_ALL_SUBNETS_MTU: UInt = 27u
 
@@ -755,19 +755,19 @@ public val OPTION_XWINDOW_DISPLAY_MANAGER: UInt = 49u
 
 public val OPTION_XWINDOW_FONT_SERVER: UInt = 48u
 
-public val PARTNER_DOWN: FSM_STATE = 5
+public val PARTNER_DOWN: FsmState = 5
 
-public val PAUSED: FSM_STATE = 12
+public val PAUSED: FsmState = 12
 
 public val PERCENTAGE: UInt = 8u
 
-public val POTENTIAL_CONFLICT: FSM_STATE = 6
+public val POTENTIAL_CONFLICT: FsmState = 6
 
 public val PREVSTATE: UInt = 32u
 
 public val PROBATION: QuarantineStatus = 3
 
-public val PrimaryServer: DHCP_FAILOVER_SERVER = 0
+public val PRIMARY_SERVER: DhcpFailoverServer = 0
 
 public val QUARANTINE_CONFIG_OPTION: UInt = 43222u
 
@@ -775,13 +775,13 @@ public val QUARANTINE_SCOPE_QUARPROFILE_OPTION: UInt = 43221u
 
 public val QUARANTIN_OPTION_BASE: UInt = 43220u
 
-public val RECOVER: FSM_STATE = 9
+public val RECOVER: FsmState = 9
 
-public val RECOVER_DONE: FSM_STATE = 11
+public val RECOVER_DONE: FsmState = 11
 
-public val RECOVER_WAIT: FSM_STATE = 10
+public val RECOVER_WAIT: FsmState = 10
 
-public val RESOLUTION_INT: FSM_STATE = 8
+public val RESOLUTION_INT: FsmState = 8
 
 public val RESTRICTEDACCESS: QuarantineStatus = 1
 
@@ -789,9 +789,9 @@ public val SAFEPERIOD: UInt = 2u
 
 public val SHAREDSECRET: UInt = 64u
 
-public val SHUTDOWN: FSM_STATE = 13
+public val SHUTDOWN: FsmState = 13
 
-public val STARTUP: FSM_STATE = 2
+public val STARTUP: FsmState = 2
 
 public val STATUS_NOPREFIX_AVAIL: StatusCode = 6
 
@@ -801,51 +801,51 @@ public val STATUS_NO_ERROR: StatusCode = 0
 
 public val STATUS_UNSPECIFIED_FAILURE: StatusCode = 1
 
-public val SecondaryServer: DHCP_FAILOVER_SERVER = 1
+public val SECONDARY_SERVER: DhcpFailoverServer = 1
 
-public val Set_APIProtocolSupport: UInt = 1u
+public val SET_API_PROTOCOL_SUPPORT: UInt = 1u
 
-public val Set_AuditLogState: UInt = 2048u
+public val SET_AUDIT_LOG_STATE: UInt = 2048u
 
-public val Set_BackupInterval: UInt = 16u
+public val SET_BACKUP_INTERVAL: UInt = 16u
 
-public val Set_BackupPath: UInt = 8u
+public val SET_BACKUP_PATH: UInt = 8u
 
-public val Set_BootFileTable: UInt = 1024u
+public val SET_BOOT_FILE_TABLE: UInt = 1024u
 
-public val Set_DatabaseCleanupInterval: UInt = 128u
+public val SET_DATABASE_CLEANUP_INTERVAL: UInt = 128u
 
-public val Set_DatabaseLoggingFlag: UInt = 32u
+public val SET_DATABASE_LOGGING_FLAG: UInt = 32u
 
-public val Set_DatabaseName: UInt = 2u
+public val SET_DATABASE_NAME: UInt = 2u
 
-public val Set_DatabasePath: UInt = 4u
+public val SET_DATABASE_PATH: UInt = 4u
 
-public val Set_DebugFlag: UInt = 256u
+public val SET_DEBUG_FLAG: UInt = 256u
 
-public val Set_PingRetries: UInt = 512u
+public val SET_PING_RETRIES: UInt = 512u
 
-public val Set_PreferredLifetime: UInt = 4u
+public val SET_PREFERRED_LIFETIME: UInt = 4u
 
-public val Set_PreferredLifetimeIATA: UInt = 64u
+public val SET_PREFERRED_LIFETIME_IATA: UInt = 64u
 
-public val Set_QuarantineDefFail: UInt = 8192u
+public val SET_QUARANTINE_DEF_FAIL: UInt = 8192u
 
-public val Set_QuarantineON: UInt = 4096u
+public val SET_QUARANTINE_ON: UInt = 4096u
 
-public val Set_RapidCommitFlag: UInt = 2u
+public val SET_RAPID_COMMIT_FLAG: UInt = 2u
 
-public val Set_RestoreFlag: UInt = 64u
+public val SET_RESTORE_FLAG: UInt = 64u
 
-public val Set_T1: UInt = 16u
+public val SET_T1: UInt = 16u
 
-public val Set_T2: UInt = 32u
+public val SET_T2: UInt = 32u
 
-public val Set_UnicastFlag: UInt = 1u
+public val SET_UNICAST_FLAG: UInt = 1u
 
-public val Set_ValidLifetime: UInt = 8u
+public val SET_VALID_LIFETIME: UInt = 8u
 
-public val Set_ValidLifetimeIATA: UInt = 128u
+public val SET_VALID_LIFETIME_IATA: UInt = 128u
 
 public val V5_ADDRESS_BIT_BOTH_REC: UInt = 32u
 

@@ -2,244 +2,245 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.dataexchange
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HENHMETAFILE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Henhmetafile
 
-public actual fun AddAtomA(lpstring: PCSTR): UShort =
-    0u
+public actual fun addAtomA(lpstring: Pcstr): UShort =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AddAtomW(lpstring: PCWSTR): UShort =
-    0u
+public actual fun addAtomW(lpstring: Pcwstr): UShort =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun AddClipboardFormatListener(hwnd: HWND): BOOL =
-    0
+public actual fun addClipboardFormatListener(hwnd: Hwnd): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ChangeClipboardChain(hwndremove: HWND, hwndnewnext: HWND): BOOL =
-    0
+public actual fun changeClipboardChain(hwndremove: Hwnd, hwndnewnext: Hwnd): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CloseClipboard(): BOOL =
-    0
+public actual fun closeClipboard(): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CountClipboardFormats(): Int =
-    0
+public actual fun countClipboardFormats(): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DdeAbandonTransaction(idinst: UInt, hconv: HCONV, idtransaction: UInt): BOOL =
-    0
+public actual fun ddeAbandonTransaction(idinst: UInt, hconv: Hconv, idtransaction: UInt): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DdeAccessData(hdata: HDDEDATA, pcbdatasize: Long): Long =
-    0L
+public actual fun ddeAccessData(hdata: Hddedata, pcbdatasize: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DdeAddData(hdata: HDDEDATA, psrc: Long, cb: UInt, cboff: UInt): HDDEDATA =
-    0L
+public actual fun ddeAddData(hdata: Hddedata, psrc: COpaquePointer?, cb: UInt, cboff: UInt): Hddedata =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DdeClientTransaction(pdata: Long, cbdata: UInt, hconv: HCONV, hszitem: HSZ, wfmt: UInt, wtype: DDE_CLIENT_TRANSACTION_TYPE, dwtimeout: UInt, pdwresult: Long): HDDEDATA =
-    0L
+public actual fun ddeClientTransaction(pdata: COpaquePointer?, cbdata: UInt, hconv: Hconv, hszitem: Hsz, wfmt: UInt, wtype: DdeClientTransactionType, dwtimeout: UInt, pdwresult: COpaquePointer?): Hddedata =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DdeCmpStringHandles(hsz1: HSZ, hsz2: HSZ): Int =
-    0
+public actual fun ddeCmpStringHandles(hsz1: Hsz, hsz2: Hsz): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DdeConnect(idinst: UInt, hszservice: HSZ, hsztopic: HSZ, pcc: Long): HCONV =
-    0L
+public actual fun ddeConnect(idinst: UInt, hszservice: Hsz, hsztopic: Hsz, pcc: COpaquePointer?): Hconv =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DdeConnectList(idinst: UInt, hszservice: HSZ, hsztopic: HSZ, hconvlist: HCONVLIST, pcc: Long): HCONVLIST =
-    0L
+public actual fun ddeConnectList(idinst: UInt, hszservice: Hsz, hsztopic: Hsz, hconvlist: Hconvlist, pcc: COpaquePointer?): Hconvlist =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DdeCreateDataHandle(idinst: UInt, psrc: Long, cb: UInt, cboff: UInt, hszitem: HSZ, wfmt: UInt, afcmd: UInt): HDDEDATA =
-    0L
+public actual fun ddeCreateDataHandle(idinst: UInt, psrc: COpaquePointer?, cb: UInt, cboff: UInt, hszitem: Hsz, wfmt: UInt, afcmd: UInt): Hddedata =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DdeCreateStringHandleA(idinst: UInt, psz: PCSTR, icodepage: Int): HSZ =
-    0L
+public actual fun ddeCreateStringHandleA(idinst: UInt, psz: Pcstr, icodepage: Int): Hsz =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DdeCreateStringHandleW(idinst: UInt, psz: PCWSTR, icodepage: Int): HSZ =
-    0L
+public actual fun ddeCreateStringHandleW(idinst: UInt, psz: Pcwstr, icodepage: Int): Hsz =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DdeDisconnect(hconv: HCONV): BOOL =
-    0
+public actual fun ddeDisconnect(hconv: Hconv): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DdeDisconnectList(hconvlist: HCONVLIST): BOOL =
-    0
+public actual fun ddeDisconnectList(hconvlist: Hconvlist): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DdeEnableCallback(idinst: UInt, hconv: HCONV, wcmd: DDE_ENABLE_CALLBACK_CMD): BOOL =
-    0
+public actual fun ddeEnableCallback(idinst: UInt, hconv: Hconv, wcmd: DdeEnableCallbackCmd): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DdeFreeDataHandle(hdata: HDDEDATA): BOOL =
-    0
+public actual fun ddeFreeDataHandle(hdata: Hddedata): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DdeFreeStringHandle(idinst: UInt, hsz: HSZ): BOOL =
-    0
+public actual fun ddeFreeStringHandle(idinst: UInt, hsz: Hsz): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DdeGetData(hdata: HDDEDATA, pdst: Long, cbmax: UInt, cboff: UInt): UInt =
-    0u
+public actual fun ddeGetData(hdata: Hddedata, pdst: COpaquePointer?, cbmax: UInt, cboff: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DdeGetLastError(idinst: UInt): UInt =
-    0u
+public actual fun ddeGetLastError(idinst: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DdeImpersonateClient(hconv: HCONV): BOOL =
-    0
+public actual fun ddeImpersonateClient(hconv: Hconv): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DdeInitializeA(pidinst: Long, pfncallback: PFNCALLBACK, afcmd: DDE_INITIALIZE_COMMAND, ulres: UInt): UInt =
-    0u
+public actual fun ddeInitializeA(pidinst: COpaquePointer?, pfncallback: Pfncallback, afcmd: DdeInitializeCommand, ulres: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DdeInitializeW(pidinst: Long, pfncallback: PFNCALLBACK, afcmd: DDE_INITIALIZE_COMMAND, ulres: UInt): UInt =
-    0u
+public actual fun ddeInitializeW(pidinst: COpaquePointer?, pfncallback: Pfncallback, afcmd: DdeInitializeCommand, ulres: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DdeKeepStringHandle(idinst: UInt, hsz: HSZ): BOOL =
-    0
+public actual fun ddeKeepStringHandle(idinst: UInt, hsz: Hsz): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DdeNameService(idinst: UInt, hsz1: HSZ, hsz2: HSZ, afcmd: DDE_NAME_SERVICE_CMD): HDDEDATA =
-    0L
+public actual fun ddeNameService(idinst: UInt, hsz1: Hsz, hsz2: Hsz, afcmd: DdeNameServiceCmd): Hddedata =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DdePostAdvise(idinst: UInt, hsztopic: HSZ, hszitem: HSZ): BOOL =
-    0
+public actual fun ddePostAdvise(idinst: UInt, hsztopic: Hsz, hszitem: Hsz): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DdeQueryConvInfo(hconv: HCONV, idtransaction: UInt, pconvinfo: Long): UInt =
-    0u
+public actual fun ddeQueryConvInfo(hconv: Hconv, idtransaction: UInt, pconvinfo: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DdeQueryNextServer(hconvlist: HCONVLIST, hconvprev: HCONV): HCONV =
-    0L
+public actual fun ddeQueryNextServer(hconvlist: Hconvlist, hconvprev: Hconv): Hconv =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DdeQueryStringA(idinst: UInt, hsz: HSZ, psz: PSTR, cchmax: UInt, icodepage: Int): UInt =
-    0u
+public actual fun ddeQueryStringA(idinst: UInt, hsz: Hsz, psz: Pstr, cchmax: UInt, icodepage: Int): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DdeQueryStringW(idinst: UInt, hsz: HSZ, psz: PWSTR, cchmax: UInt, icodepage: Int): UInt =
-    0u
+public actual fun ddeQueryStringW(idinst: UInt, hsz: Hsz, psz: Pwstr, cchmax: UInt, icodepage: Int): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DdeReconnect(hconv: HCONV): HCONV =
-    0L
+public actual fun ddeReconnect(hconv: Hconv): Hconv =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DdeSetQualityOfService(hwndclient: HWND, pqosnew: Long, pqosprev: Long): BOOL =
-    0
+public actual fun ddeSetQualityOfService(hwndclient: Hwnd, pqosnew: COpaquePointer?, pqosprev: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DdeSetUserHandle(hconv: HCONV, id: UInt, huser: ULong): BOOL =
-    0
+public actual fun ddeSetUserHandle(hconv: Hconv, id: UInt, huser: ULong): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DdeUnaccessData(hdata: HDDEDATA): BOOL =
-    0
+public actual fun ddeUnaccessData(hdata: Hddedata): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DdeUninitialize(idinst: UInt): BOOL =
-    0
+public actual fun ddeUninitialize(idinst: UInt): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun DeleteAtom(natom: UShort): UShort =
-    0u
+public actual fun deleteAtom(natom: UShort): UShort =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun EmptyClipboard(): BOOL =
-    0
+public actual fun emptyClipboard(): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun EnumClipboardFormats(format: UInt): UInt =
-    0u
+public actual fun enumClipboardFormats(format: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun FindAtomA(lpstring: PCSTR): UShort =
-    0u
+public actual fun findAtomA(lpstring: Pcstr): UShort =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun FindAtomW(lpstring: PCWSTR): UShort =
-    0u
+public actual fun findAtomW(lpstring: Pcwstr): UShort =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun FreeDDElParam(msg: UInt, lparam: LPARAM): BOOL =
-    0
+public actual fun freeDDElParam(msg: UInt, lparam: Lparam): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetAtomNameA(natom: UShort, lpbuffer: PSTR, nsize: Int): UInt =
-    0u
+public actual fun getAtomNameA(natom: UShort, lpbuffer: Pstr, nsize: Int): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetAtomNameW(natom: UShort, lpbuffer: PWSTR, nsize: Int): UInt =
-    0u
+public actual fun getAtomNameW(natom: UShort, lpbuffer: Pwstr, nsize: Int): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClipboardData(uformat: UInt): HANDLE =
-    0L
+public actual fun getClipboardData(uformat: UInt): Handle =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClipboardFormatNameA(format: UInt, lpszformatname: PSTR, cchmaxcount: Int): Int =
-    0
+public actual fun getClipboardFormatNameA(format: UInt, lpszformatname: Pstr, cchmaxcount: Int): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClipboardFormatNameW(format: UInt, lpszformatname: PWSTR, cchmaxcount: Int): Int =
-    0
+public actual fun getClipboardFormatNameW(format: UInt, lpszformatname: Pwstr, cchmaxcount: Int): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClipboardOwner(): HWND =
-    0L
+public actual fun getClipboardOwner(): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClipboardSequenceNumber(): UInt =
-    0u
+public actual fun getClipboardSequenceNumber(): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetClipboardViewer(): HWND =
-    0L
+public actual fun getClipboardViewer(): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetOpenClipboardWindow(): HWND =
-    0L
+public actual fun getOpenClipboardWindow(): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetPriorityClipboardFormat(paformatprioritylist: Long, cformats: Int): Int =
-    0
+public actual fun getPriorityClipboardFormat(paformatprioritylist: COpaquePointer?, cformats: Int): Int =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetUpdatedClipboardFormats(lpuiformats: Long, cformats: UInt, pcformatsout: Long): BOOL =
-    0
+public actual fun getUpdatedClipboardFormats(lpuiformats: COpaquePointer?, cformats: UInt, pcformatsout: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GlobalAddAtomA(lpstring: PCSTR): UShort =
-    0u
+public actual fun globalAddAtomA(lpstring: Pcstr): UShort =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GlobalAddAtomExA(lpstring: PCSTR, flags: UInt): UShort =
-    0u
+public actual fun globalAddAtomExA(lpstring: Pcstr, flags: UInt): UShort =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GlobalAddAtomExW(lpstring: PCWSTR, flags: UInt): UShort =
-    0u
+public actual fun globalAddAtomExW(lpstring: Pcwstr, flags: UInt): UShort =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GlobalAddAtomW(lpstring: PCWSTR): UShort =
-    0u
+public actual fun globalAddAtomW(lpstring: Pcwstr): UShort =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GlobalDeleteAtom(natom: UShort): UShort =
-    0u
+public actual fun globalDeleteAtom(natom: UShort): UShort =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GlobalFindAtomA(lpstring: PCSTR): UShort =
-    0u
+public actual fun globalFindAtomA(lpstring: Pcstr): UShort =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GlobalFindAtomW(lpstring: PCWSTR): UShort =
-    0u
+public actual fun globalFindAtomW(lpstring: Pcwstr): UShort =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GlobalGetAtomNameA(natom: UShort, lpbuffer: PSTR, nsize: Int): UInt =
-    0u
+public actual fun globalGetAtomNameA(natom: UShort, lpbuffer: Pstr, nsize: Int): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GlobalGetAtomNameW(natom: UShort, lpbuffer: PWSTR, nsize: Int): UInt =
-    0u
+public actual fun globalGetAtomNameW(natom: UShort, lpbuffer: Pwstr, nsize: Int): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ImpersonateDdeClientWindow(hwndclient: HWND, hwndserver: HWND): BOOL =
-    0
+public actual fun impersonateDdeClientWindow(hwndclient: Hwnd, hwndserver: Hwnd): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun InitAtomTable(nsize: UInt): BOOL =
-    0
+public actual fun initAtomTable(nsize: UInt): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun IsClipboardFormatAvailable(format: UInt): BOOL =
-    0
+public actual fun isClipboardFormatAvailable(format: UInt): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OpenClipboard(hwndnewowner: HWND): BOOL =
-    0
+public actual fun openClipboard(hwndnewowner: Hwnd): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun PackDDElParam(msg: UInt, uilo: ULong, uihi: ULong): LPARAM =
-    0L
+public actual fun packDDElParam(msg: UInt, uilo: ULong, uihi: ULong): Lparam =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RegisterClipboardFormatA(lpszformat: PCSTR): UInt =
-    0u
+public actual fun registerClipboardFormatA(lpszformat: Pcstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RegisterClipboardFormatW(lpszformat: PCWSTR): UInt =
-    0u
+public actual fun registerClipboardFormatW(lpszformat: Pcwstr): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RemoveClipboardFormatListener(hwnd: HWND): BOOL =
-    0
+public actual fun removeClipboardFormatListener(hwnd: Hwnd): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ReuseDDElParam(lparam: LPARAM, msgin: UInt, msgout: UInt, uilo: ULong, uihi: ULong): LPARAM =
-    0L
+public actual fun reuseDDElParam(lparam: Lparam, msgin: UInt, msgout: UInt, uilo: ULong, uihi: ULong): Lparam =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetClipboardData(uformat: UInt, hmem: HANDLE): HANDLE =
-    0L
+public actual fun setClipboardData(uformat: UInt, hmem: Handle): Handle =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetClipboardViewer(hwndnewviewer: HWND): HWND =
-    0L
+public actual fun setClipboardViewer(hwndnewviewer: Hwnd): Hwnd =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SetWinMetaFileBits(nsize: UInt, lpmeta16data: Long, hdcref: HDC, lpmfp: Long): HENHMETAFILE =
-    0L
+public actual fun setWinMetaFileBits(nsize: UInt, lpmeta16data: COpaquePointer?, hdcref: Hdc, lpmfp: COpaquePointer?): Henhmetafile =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun UnpackDDElParam(msg: UInt, lparam: LPARAM, puilo: Long, puihi: Long): BOOL =
-    0
+public actual fun unpackDDElParam(msg: UInt, lparam: Lparam, puilo: COpaquePointer?, puihi: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

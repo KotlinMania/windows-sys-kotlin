@@ -15,7 +15,7 @@
 #endif
 #endif
 
-void* windowssys_windows_win32_system_libraryloader_AddDllDirectory(void* newdirectory) {
+void* windowssys_windows_win32_system_libraryloader_addDllDirectory(void* newdirectory) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ void* windowssys_windows_win32_system_libraryloader_AddDllDirectory(void* newdir
 #endif
 }
 
-void* windowssys_windows_win32_system_libraryloader_BeginUpdateResourceA(void* pfilename, int32_t bdeleteexistingresources) {
+void* windowssys_windows_win32_system_libraryloader_beginUpdateResourceA(void* pfilename, int32_t bdeleteexistingresources) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -60,7 +60,7 @@ void* windowssys_windows_win32_system_libraryloader_BeginUpdateResourceA(void* p
 #endif
 }
 
-void* windowssys_windows_win32_system_libraryloader_BeginUpdateResourceW(void* pfilename, int32_t bdeleteexistingresources) {
+void* windowssys_windows_win32_system_libraryloader_beginUpdateResourceW(void* pfilename, int32_t bdeleteexistingresources) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -83,7 +83,7 @@ void* windowssys_windows_win32_system_libraryloader_BeginUpdateResourceW(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_system_libraryloader_DisableThreadLibraryCalls(void* hlibmodule) {
+int32_t windowssys_windows_win32_system_libraryloader_disableThreadLibraryCalls(void* hlibmodule) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -105,7 +105,7 @@ int32_t windowssys_windows_win32_system_libraryloader_DisableThreadLibraryCalls(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_libraryloader_EndUpdateResourceA(void* hupdate, int32_t fdiscard) {
+int32_t windowssys_windows_win32_system_libraryloader_endUpdateResourceA(void* hupdate, int32_t fdiscard) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -128,7 +128,7 @@ int32_t windowssys_windows_win32_system_libraryloader_EndUpdateResourceA(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_system_libraryloader_EndUpdateResourceW(void* hupdate, int32_t fdiscard) {
+int32_t windowssys_windows_win32_system_libraryloader_endUpdateResourceW(void* hupdate, int32_t fdiscard) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -151,7 +151,7 @@ int32_t windowssys_windows_win32_system_libraryloader_EndUpdateResourceW(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_system_libraryloader_EnumResourceLanguagesA(void* hmodule, void* lptype, void* lpname, void* lpenumfunc, int64_t lparam) {
+int32_t windowssys_windows_win32_system_libraryloader_enumResourceLanguagesA(void* hmodule, void* lptype, void* lpname, void* lpenumfunc, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -177,7 +177,7 @@ int32_t windowssys_windows_win32_system_libraryloader_EnumResourceLanguagesA(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_libraryloader_EnumResourceLanguagesExA(void* hmodule, void* lptype, void* lpname, void* lpenumfunc, int64_t lparam, uint32_t dwflags, uint16_t langid) {
+int32_t windowssys_windows_win32_system_libraryloader_enumResourceLanguagesExA(void* hmodule, void* lptype, void* lpname, void* lpenumfunc, int64_t lparam, uint32_t dwflags, uint16_t langid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int64_t, uint32_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -205,7 +205,7 @@ int32_t windowssys_windows_win32_system_libraryloader_EnumResourceLanguagesExA(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_libraryloader_EnumResourceLanguagesExW(void* hmodule, void* lptype, void* lpname, void* lpenumfunc, int64_t lparam, uint32_t dwflags, uint16_t langid) {
+int32_t windowssys_windows_win32_system_libraryloader_enumResourceLanguagesExW(void* hmodule, void* lptype, void* lpname, void* lpenumfunc, int64_t lparam, uint32_t dwflags, uint16_t langid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int64_t, uint32_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -233,7 +233,7 @@ int32_t windowssys_windows_win32_system_libraryloader_EnumResourceLanguagesExW(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_libraryloader_EnumResourceLanguagesW(void* hmodule, void* lptype, void* lpname, void* lpenumfunc, int64_t lparam) {
+int32_t windowssys_windows_win32_system_libraryloader_enumResourceLanguagesW(void* hmodule, void* lptype, void* lpname, void* lpenumfunc, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -259,7 +259,7 @@ int32_t windowssys_windows_win32_system_libraryloader_EnumResourceLanguagesW(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_libraryloader_EnumResourceNamesA(void* hmodule, void* lptype, void* lpenumfunc, int64_t lparam) {
+int32_t windowssys_windows_win32_system_libraryloader_enumResourceNamesA(void* hmodule, void* lptype, void* lpenumfunc, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -284,7 +284,7 @@ int32_t windowssys_windows_win32_system_libraryloader_EnumResourceNamesA(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_system_libraryloader_EnumResourceNamesExA(void* hmodule, void* lptype, void* lpenumfunc, int64_t lparam, uint32_t dwflags, uint16_t langid) {
+int32_t windowssys_windows_win32_system_libraryloader_enumResourceNamesExA(void* hmodule, void* lptype, void* lpenumfunc, int64_t lparam, uint32_t dwflags, uint16_t langid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int64_t, uint32_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -311,7 +311,7 @@ int32_t windowssys_windows_win32_system_libraryloader_EnumResourceNamesExA(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_libraryloader_EnumResourceNamesExW(void* hmodule, void* lptype, void* lpenumfunc, int64_t lparam, uint32_t dwflags, uint16_t langid) {
+int32_t windowssys_windows_win32_system_libraryloader_enumResourceNamesExW(void* hmodule, void* lptype, void* lpenumfunc, int64_t lparam, uint32_t dwflags, uint16_t langid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int64_t, uint32_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -338,7 +338,7 @@ int32_t windowssys_windows_win32_system_libraryloader_EnumResourceNamesExW(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_libraryloader_EnumResourceNamesW(void* hmodule, void* lptype, void* lpenumfunc, int64_t lparam) {
+int32_t windowssys_windows_win32_system_libraryloader_enumResourceNamesW(void* hmodule, void* lptype, void* lpenumfunc, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -363,7 +363,7 @@ int32_t windowssys_windows_win32_system_libraryloader_EnumResourceNamesW(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_system_libraryloader_EnumResourceTypesA(void* hmodule, void* lpenumfunc, int64_t lparam) {
+int32_t windowssys_windows_win32_system_libraryloader_enumResourceTypesA(void* hmodule, void* lpenumfunc, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -387,7 +387,7 @@ int32_t windowssys_windows_win32_system_libraryloader_EnumResourceTypesA(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_system_libraryloader_EnumResourceTypesExA(void* hmodule, void* lpenumfunc, int64_t lparam, uint32_t dwflags, uint16_t langid) {
+int32_t windowssys_windows_win32_system_libraryloader_enumResourceTypesExA(void* hmodule, void* lpenumfunc, int64_t lparam, uint32_t dwflags, uint16_t langid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int64_t, uint32_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -413,7 +413,7 @@ int32_t windowssys_windows_win32_system_libraryloader_EnumResourceTypesExA(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_libraryloader_EnumResourceTypesExW(void* hmodule, void* lpenumfunc, int64_t lparam, uint32_t dwflags, uint16_t langid) {
+int32_t windowssys_windows_win32_system_libraryloader_enumResourceTypesExW(void* hmodule, void* lpenumfunc, int64_t lparam, uint32_t dwflags, uint16_t langid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int64_t, uint32_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -439,7 +439,7 @@ int32_t windowssys_windows_win32_system_libraryloader_EnumResourceTypesExW(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_libraryloader_EnumResourceTypesW(void* hmodule, void* lpenumfunc, int64_t lparam) {
+int32_t windowssys_windows_win32_system_libraryloader_enumResourceTypesW(void* hmodule, void* lpenumfunc, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -463,7 +463,7 @@ int32_t windowssys_windows_win32_system_libraryloader_EnumResourceTypesW(void* h
 #endif
 }
 
-void* windowssys_windows_win32_system_libraryloader_FindResourceA(void* hmodule, void* lpname, void* lptype) {
+void* windowssys_windows_win32_system_libraryloader_findResourceA(void* hmodule, void* lpname, void* lptype) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -487,7 +487,7 @@ void* windowssys_windows_win32_system_libraryloader_FindResourceA(void* hmodule,
 #endif
 }
 
-void* windowssys_windows_win32_system_libraryloader_FindResourceExA(void* hmodule, void* lptype, void* lpname, uint16_t wlanguage) {
+void* windowssys_windows_win32_system_libraryloader_findResourceExA(void* hmodule, void* lptype, void* lpname, uint16_t wlanguage) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -512,7 +512,7 @@ void* windowssys_windows_win32_system_libraryloader_FindResourceExA(void* hmodul
 #endif
 }
 
-void* windowssys_windows_win32_system_libraryloader_FindResourceExW(void* hmodule, void* lptype, void* lpname, uint16_t wlanguage) {
+void* windowssys_windows_win32_system_libraryloader_findResourceExW(void* hmodule, void* lptype, void* lpname, uint16_t wlanguage) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -537,7 +537,7 @@ void* windowssys_windows_win32_system_libraryloader_FindResourceExW(void* hmodul
 #endif
 }
 
-void* windowssys_windows_win32_system_libraryloader_FindResourceW(void* hmodule, void* lpname, void* lptype) {
+void* windowssys_windows_win32_system_libraryloader_findResourceW(void* hmodule, void* lpname, void* lptype) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -561,7 +561,7 @@ void* windowssys_windows_win32_system_libraryloader_FindResourceW(void* hmodule,
 #endif
 }
 
-void windowssys_windows_win32_system_libraryloader_FreeLibraryAndExitThread(void* hlibmodule, uint32_t dwexitcode) {
+void windowssys_windows_win32_system_libraryloader_freeLibraryAndExitThread(void* hlibmodule, uint32_t dwexitcode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -583,7 +583,7 @@ void windowssys_windows_win32_system_libraryloader_FreeLibraryAndExitThread(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_libraryloader_FreeResource(void* hresdata) {
+int32_t windowssys_windows_win32_system_libraryloader_freeResource(void* hresdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -605,7 +605,7 @@ int32_t windowssys_windows_win32_system_libraryloader_FreeResource(void* hresdat
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_libraryloader_GetDllDirectoryA(uint32_t nbufferlength, void* lpbuffer) {
+uint32_t windowssys_windows_win32_system_libraryloader_getDllDirectoryA(uint32_t nbufferlength, void* lpbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -628,7 +628,7 @@ uint32_t windowssys_windows_win32_system_libraryloader_GetDllDirectoryA(uint32_t
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_libraryloader_GetDllDirectoryW(uint32_t nbufferlength, void* lpbuffer) {
+uint32_t windowssys_windows_win32_system_libraryloader_getDllDirectoryW(uint32_t nbufferlength, void* lpbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -651,7 +651,7 @@ uint32_t windowssys_windows_win32_system_libraryloader_GetDllDirectoryW(uint32_t
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_libraryloader_GetModuleFileNameA(void* hmodule, void* lpfilename, uint32_t nsize) {
+uint32_t windowssys_windows_win32_system_libraryloader_getModuleFileNameA(void* hmodule, void* lpfilename, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -675,7 +675,7 @@ uint32_t windowssys_windows_win32_system_libraryloader_GetModuleFileNameA(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_libraryloader_GetModuleFileNameW(void* hmodule, void* lpfilename, uint32_t nsize) {
+uint32_t windowssys_windows_win32_system_libraryloader_getModuleFileNameW(void* hmodule, void* lpfilename, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -699,7 +699,7 @@ uint32_t windowssys_windows_win32_system_libraryloader_GetModuleFileNameW(void* 
 #endif
 }
 
-void* windowssys_windows_win32_system_libraryloader_GetModuleHandleA(void* lpmodulename) {
+void* windowssys_windows_win32_system_libraryloader_getModuleHandleA(void* lpmodulename) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -721,7 +721,7 @@ void* windowssys_windows_win32_system_libraryloader_GetModuleHandleA(void* lpmod
 #endif
 }
 
-int32_t windowssys_windows_win32_system_libraryloader_GetModuleHandleExA(uint32_t dwflags, void* lpmodulename, void* phmodule) {
+int32_t windowssys_windows_win32_system_libraryloader_getModuleHandleExA(uint32_t dwflags, void* lpmodulename, void* phmodule) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -745,7 +745,7 @@ int32_t windowssys_windows_win32_system_libraryloader_GetModuleHandleExA(uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_system_libraryloader_GetModuleHandleExW(uint32_t dwflags, void* lpmodulename, void* phmodule) {
+int32_t windowssys_windows_win32_system_libraryloader_getModuleHandleExW(uint32_t dwflags, void* lpmodulename, void* phmodule) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -769,7 +769,7 @@ int32_t windowssys_windows_win32_system_libraryloader_GetModuleHandleExW(uint32_
 #endif
 }
 
-void* windowssys_windows_win32_system_libraryloader_GetModuleHandleW(void* lpmodulename) {
+void* windowssys_windows_win32_system_libraryloader_getModuleHandleW(void* lpmodulename) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -791,7 +791,7 @@ void* windowssys_windows_win32_system_libraryloader_GetModuleHandleW(void* lpmod
 #endif
 }
 
-void* windowssys_windows_win32_system_libraryloader_LoadLibraryA(void* lplibfilename) {
+void* windowssys_windows_win32_system_libraryloader_loadLibraryA(void* lplibfilename) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -813,7 +813,7 @@ void* windowssys_windows_win32_system_libraryloader_LoadLibraryA(void* lplibfile
 #endif
 }
 
-void* windowssys_windows_win32_system_libraryloader_LoadLibraryExA(void* lplibfilename, void* hfile, uint32_t dwflags) {
+void* windowssys_windows_win32_system_libraryloader_loadLibraryExA(void* lplibfilename, void* hfile, uint32_t dwflags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -837,7 +837,7 @@ void* windowssys_windows_win32_system_libraryloader_LoadLibraryExA(void* lplibfi
 #endif
 }
 
-void* windowssys_windows_win32_system_libraryloader_LoadLibraryExW(void* lplibfilename, void* hfile, uint32_t dwflags) {
+void* windowssys_windows_win32_system_libraryloader_loadLibraryExW(void* lplibfilename, void* hfile, uint32_t dwflags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -861,7 +861,7 @@ void* windowssys_windows_win32_system_libraryloader_LoadLibraryExW(void* lplibfi
 #endif
 }
 
-void* windowssys_windows_win32_system_libraryloader_LoadLibraryW(void* lplibfilename) {
+void* windowssys_windows_win32_system_libraryloader_loadLibraryW(void* lplibfilename) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -883,7 +883,7 @@ void* windowssys_windows_win32_system_libraryloader_LoadLibraryW(void* lplibfile
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_libraryloader_LoadModule(void* lpmodulename, void* lpparameterblock) {
+uint32_t windowssys_windows_win32_system_libraryloader_loadModule(void* lpmodulename, void* lpparameterblock) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -906,7 +906,7 @@ uint32_t windowssys_windows_win32_system_libraryloader_LoadModule(void* lpmodule
 #endif
 }
 
-void* windowssys_windows_win32_system_libraryloader_LoadPackagedLibrary(void* lpwlibfilename, uint32_t reserved) {
+void* windowssys_windows_win32_system_libraryloader_loadPackagedLibrary(void* lpwlibfilename, uint32_t reserved) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -929,7 +929,7 @@ void* windowssys_windows_win32_system_libraryloader_LoadPackagedLibrary(void* lp
 #endif
 }
 
-void* windowssys_windows_win32_system_libraryloader_LoadResource(void* hmodule, void* hresinfo) {
+void* windowssys_windows_win32_system_libraryloader_loadResource(void* hmodule, void* hresinfo) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -952,7 +952,7 @@ void* windowssys_windows_win32_system_libraryloader_LoadResource(void* hmodule, 
 #endif
 }
 
-void* windowssys_windows_win32_system_libraryloader_LockResource(void* hresdata) {
+void* windowssys_windows_win32_system_libraryloader_lockResource(void* hresdata) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -974,7 +974,7 @@ void* windowssys_windows_win32_system_libraryloader_LockResource(void* hresdata)
 #endif
 }
 
-int32_t windowssys_windows_win32_system_libraryloader_QueryOptionalDelayLoadedAPI(void* hparentmodule, void* lpdllname, void* lpprocname, uint32_t reserved) {
+int32_t windowssys_windows_win32_system_libraryloader_queryOptionalDelayLoadedAPI(void* hparentmodule, void* lpdllname, void* lpprocname, uint32_t reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -999,7 +999,7 @@ int32_t windowssys_windows_win32_system_libraryloader_QueryOptionalDelayLoadedAP
 #endif
 }
 
-int32_t windowssys_windows_win32_system_libraryloader_RemoveDllDirectory(void* cookie) {
+int32_t windowssys_windows_win32_system_libraryloader_removeDllDirectory(void* cookie) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1021,7 +1021,7 @@ int32_t windowssys_windows_win32_system_libraryloader_RemoveDllDirectory(void* c
 #endif
 }
 
-int32_t windowssys_windows_win32_system_libraryloader_SetDefaultDllDirectories(uint32_t directoryflags) {
+int32_t windowssys_windows_win32_system_libraryloader_setDefaultDllDirectories(uint32_t directoryflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1043,7 +1043,7 @@ int32_t windowssys_windows_win32_system_libraryloader_SetDefaultDllDirectories(u
 #endif
 }
 
-int32_t windowssys_windows_win32_system_libraryloader_SetDllDirectoryA(void* lppathname) {
+int32_t windowssys_windows_win32_system_libraryloader_setDllDirectoryA(void* lppathname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1065,7 +1065,7 @@ int32_t windowssys_windows_win32_system_libraryloader_SetDllDirectoryA(void* lpp
 #endif
 }
 
-int32_t windowssys_windows_win32_system_libraryloader_SetDllDirectoryW(void* lppathname) {
+int32_t windowssys_windows_win32_system_libraryloader_setDllDirectoryW(void* lppathname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1087,7 +1087,7 @@ int32_t windowssys_windows_win32_system_libraryloader_SetDllDirectoryW(void* lpp
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_libraryloader_SizeofResource(void* hmodule, void* hresinfo) {
+uint32_t windowssys_windows_win32_system_libraryloader_sizeofResource(void* hmodule, void* hresinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1110,7 +1110,7 @@ uint32_t windowssys_windows_win32_system_libraryloader_SizeofResource(void* hmod
 #endif
 }
 
-int32_t windowssys_windows_win32_system_libraryloader_UpdateResourceA(void* hupdate, void* lptype, void* lpname, uint16_t wlanguage, void* lpdata, uint32_t cb) {
+int32_t windowssys_windows_win32_system_libraryloader_updateResourceA(void* hupdate, void* lptype, void* lpname, uint16_t wlanguage, void* lpdata, uint32_t cb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint16_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1137,7 +1137,7 @@ int32_t windowssys_windows_win32_system_libraryloader_UpdateResourceA(void* hupd
 #endif
 }
 
-int32_t windowssys_windows_win32_system_libraryloader_UpdateResourceW(void* hupdate, void* lptype, void* lpname, uint16_t wlanguage, void* lpdata, uint32_t cb) {
+int32_t windowssys_windows_win32_system_libraryloader_updateResourceW(void* hupdate, void* lptype, void* lpname, uint16_t wlanguage, void* lpdata, uint32_t cb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint16_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;

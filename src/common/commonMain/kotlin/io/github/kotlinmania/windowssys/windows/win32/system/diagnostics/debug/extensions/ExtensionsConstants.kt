@@ -1,69 +1,69 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.extensions
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
 
 public val ADDRESS_TYPE_INDEX_NOT_FOUND: UInt = 11u
 
-public val Ambiguous: SignatureComparison = 1
+public val AMBIGUOUS: SignatureComparison = 1
 
 public val CANNOT_ALLOCATE_MEMORY: UInt = 9u
 
-public val CLSID_DebugFailureAnalysisBasic: GUID = GUID.from_u128(U128(0xb74eed7f1c7d4c1buL, 0x959fb96dd9175aa4uL))
+public val CLSID_DEBUG_FAILURE_ANALYSIS_BASIC: Guid = Guid.fromU128(U128(0xb74eed7f1c7d4c1buL, 0x959fb96dd9175aa4uL))
 
-public val CLSID_DebugFailureAnalysisKernel: GUID = GUID.from_u128(U128(0xee43307864af4c33uL, 0xab2fecad7f2a002duL))
+public val CLSID_DEBUG_FAILURE_ANALYSIS_KERNEL: Guid = Guid.fromU128(U128(0xee43307864af4c33uL, 0xab2fecad7f2a002duL))
 
-public val CLSID_DebugFailureAnalysisTarget: GUID = GUID.from_u128(U128(0xba9bfb05ef754bbduL, 0xa745a6b5529458b8uL))
+public val CLSID_DEBUG_FAILURE_ANALYSIS_TARGET: Guid = Guid.fromU128(U128(0xba9bfb05ef754bbduL, 0xa745a6b5529458b8uL))
 
-public val CLSID_DebugFailureAnalysisUser: GUID = GUID.from_u128(U128(0xe60b0c93cf494a32uL, 0x81470362202dc56buL))
+public val CLSID_DEBUG_FAILURE_ANALYSIS_USER: Guid = Guid.fromU128(U128(0xe60b0c93cf494a32uL, 0x81470362202dc56buL))
 
-public val CLSID_DebugFailureAnalysisWinCE: GUID = GUID.from_u128(U128(0x67d5e86ff5e2462auL, 0x92331bd616fcc7e8uL))
+public val CLSID_DEBUG_FAILURE_ANALYSIS_WIN_CE: Guid = Guid.fromU128(U128(0x67d5e86ff5e2462auL, 0x92331bd616fcc7e8uL))
 
-public val CLSID_DebugFailureAnalysisXBox360: GUID = GUID.from_u128(U128(0x901625bb95f14318uL, 0xac809d733cee8c8buL))
+public val CLSID_DEBUG_FAILURE_ANALYSIS_X_BOX360: Guid = Guid.fromU128(U128(0x901625bb95f14318uL, 0xac809d733cee8c8buL))
 
 public val CROSS_PLATFORM_MAXIMUM_PROCESSORS: UInt = 2048u
 
 public val CURRENT_KD_SECONDARY_VERSION: UInt = 2u
 
-public val CallingConventionCDecl: CallingConventionKind = 1
+public val CALLING_CONVENTION_C_DECL: CallingConventionKind = 1
 
-public val CallingConventionFastCall: CallingConventionKind = 2
+public val CALLING_CONVENTION_FAST_CALL: CallingConventionKind = 2
 
-public val CallingConventionStdCall: CallingConventionKind = 3
+public val CALLING_CONVENTION_STD_CALL: CallingConventionKind = 3
 
-public val CallingConventionSysCall: CallingConventionKind = 4
+public val CALLING_CONVENTION_SYS_CALL: CallingConventionKind = 4
 
-public val CallingConventionThisCall: CallingConventionKind = 5
+public val CALLING_CONVENTION_THIS_CALL: CallingConventionKind = 5
 
-public val CallingConventionUnknown: CallingConventionKind = 0
+public val CALLING_CONVENTION_UNKNOWN: CallingConventionKind = 0
 
-public val DBGKD_MAJOR_BIG: DBGKD_MAJOR_TYPES = 2
+public val DBGKD_MAJOR_BIG: DbgkdMajorTypes = 2
 
-public val DBGKD_MAJOR_CE: DBGKD_MAJOR_TYPES = 10
+public val DBGKD_MAJOR_CE: DbgkdMajorTypes = 10
 
-public val DBGKD_MAJOR_COUNT: DBGKD_MAJOR_TYPES = 11
+public val DBGKD_MAJOR_COUNT: DbgkdMajorTypes = 11
 
-public val DBGKD_MAJOR_EFI: DBGKD_MAJOR_TYPES = 5
+public val DBGKD_MAJOR_EFI: DbgkdMajorTypes = 5
 
-public val DBGKD_MAJOR_EXDI: DBGKD_MAJOR_TYPES = 3
+public val DBGKD_MAJOR_EXDI: DbgkdMajorTypes = 3
 
-public val DBGKD_MAJOR_HYPERVISOR: DBGKD_MAJOR_TYPES = 8
+public val DBGKD_MAJOR_HYPERVISOR: DbgkdMajorTypes = 8
 
-public val DBGKD_MAJOR_MIDORI: DBGKD_MAJOR_TYPES = 9
+public val DBGKD_MAJOR_MIDORI: DbgkdMajorTypes = 9
 
-public val DBGKD_MAJOR_NT: DBGKD_MAJOR_TYPES = 0
+public val DBGKD_MAJOR_NT: DbgkdMajorTypes = 0
 
-public val DBGKD_MAJOR_NTBD: DBGKD_MAJOR_TYPES = 4
+public val DBGKD_MAJOR_NTBD: DbgkdMajorTypes = 4
 
-public val DBGKD_MAJOR_SINGULARITY: DBGKD_MAJOR_TYPES = 7
+public val DBGKD_MAJOR_SINGULARITY: DbgkdMajorTypes = 7
 
-public val DBGKD_MAJOR_TNT: DBGKD_MAJOR_TYPES = 6
+public val DBGKD_MAJOR_TNT: DbgkdMajorTypes = 6
 
-public val DBGKD_MAJOR_XBOX: DBGKD_MAJOR_TYPES = 1
+public val DBGKD_MAJOR_XBOX: DbgkdMajorTypes = 1
 
 public val DBGKD_SIMULATION_EXDI: Int = 1
 
@@ -359,31 +359,31 @@ public val DEBUG_CURRENT_SYMBOL: UInt = 1u
 
 public val DEBUG_DATA_BASE_TRANSLATION_VIRTUAL_OFFSET: UInt = 3u
 
-public val DEBUG_DATA_BreakpointWithStatusAddr: UInt = 32u
+public val DEBUG_DATA_BREAKPOINT_WITH_STATUS_ADDR: UInt = 32u
 
-public val DEBUG_DATA_CmNtCSDVersionAddr: UInt = 616u
+public val DEBUG_DATA_CM_NT_CSD_VERSION_ADDR: UInt = 616u
 
-public val DEBUG_DATA_DumpAttributes: UInt = 100072u
+public val DEBUG_DATA_DUMP_ATTRIBUTES: UInt = 100072u
 
-public val DEBUG_DATA_DumpFormatVersion: UInt = 100040u
+public val DEBUG_DATA_DUMP_FORMAT_VERSION: UInt = 100040u
 
-public val DEBUG_DATA_DumpMmStorage: UInt = 100064u
+public val DEBUG_DATA_DUMP_MM_STORAGE: UInt = 100064u
 
-public val DEBUG_DATA_DumpPowerState: UInt = 100056u
+public val DEBUG_DATA_DUMP_POWER_STATE: UInt = 100056u
 
-public val DEBUG_DATA_DumpWriterStatus: UInt = 100032u
+public val DEBUG_DATA_DUMP_WRITER_STATUS: UInt = 100032u
 
-public val DEBUG_DATA_DumpWriterVersion: UInt = 100048u
+public val DEBUG_DATA_DUMP_WRITER_VERSION: UInt = 100048u
 
-public val DEBUG_DATA_EtwpDebuggerData: UInt = 816u
+public val DEBUG_DATA_ETWP_DEBUGGER_DATA: UInt = 816u
 
-public val DEBUG_DATA_ExpNumberOfPagedPoolsAddr: UInt = 112u
+public val DEBUG_DATA_EXP_NUMBER_OF_PAGED_POOLS_ADDR: UInt = 112u
 
-public val DEBUG_DATA_ExpPagedPoolDescriptorAddr: UInt = 104u
+public val DEBUG_DATA_EXP_PAGED_POOL_DESCRIPTOR_ADDR: UInt = 104u
 
-public val DEBUG_DATA_ExpSystemResourcesListAddr: UInt = 96u
+public val DEBUG_DATA_EXP_SYSTEM_RESOURCES_LIST_ADDR: UInt = 96u
 
-public val DEBUG_DATA_IopErrorLogListHeadAddr: UInt = 144u
+public val DEBUG_DATA_IOP_ERROR_LOG_LIST_HEAD_ADDR: UInt = 144u
 
 public val DEBUG_DATA_KPCR_OFFSET: UInt = 0u
 
@@ -391,203 +391,203 @@ public val DEBUG_DATA_KPRCB_OFFSET: UInt = 1u
 
 public val DEBUG_DATA_KTHREAD_OFFSET: UInt = 2u
 
-public val DEBUG_DATA_KdPrintBufferSizeAddr: UInt = 720u
+public val DEBUG_DATA_KD_PRINT_BUFFER_SIZE_ADDR: UInt = 720u
 
-public val DEBUG_DATA_KdPrintCircularBufferAddr: UInt = 480u
+public val DEBUG_DATA_KD_PRINT_CIRCULAR_BUFFER_ADDR: UInt = 480u
 
-public val DEBUG_DATA_KdPrintCircularBufferEndAddr: UInt = 488u
+public val DEBUG_DATA_KD_PRINT_CIRCULAR_BUFFER_END_ADDR: UInt = 488u
 
-public val DEBUG_DATA_KdPrintCircularBufferPtrAddr: UInt = 712u
+public val DEBUG_DATA_KD_PRINT_CIRCULAR_BUFFER_PTR_ADDR: UInt = 712u
 
-public val DEBUG_DATA_KdPrintRolloverCountAddr: UInt = 504u
+public val DEBUG_DATA_KD_PRINT_ROLLOVER_COUNT_ADDR: UInt = 504u
 
-public val DEBUG_DATA_KdPrintWritePointerAddr: UInt = 496u
+public val DEBUG_DATA_KD_PRINT_WRITE_POINTER_ADDR: UInt = 496u
 
-public val DEBUG_DATA_KeBugCheckCallbackListHeadAddr: UInt = 128u
+public val DEBUG_DATA_KE_BUG_CHECK_CALLBACK_LIST_HEAD_ADDR: UInt = 128u
 
-public val DEBUG_DATA_KeTimeIncrementAddr: UInt = 120u
+public val DEBUG_DATA_KE_TIME_INCREMENT_ADDR: UInt = 120u
 
-public val DEBUG_DATA_KeUserCallbackDispatcherAddr: UInt = 64u
+public val DEBUG_DATA_KE_USER_CALLBACK_DISPATCHER_ADDR: UInt = 64u
 
-public val DEBUG_DATA_KernBase: UInt = 24u
+public val DEBUG_DATA_KERN_BASE: UInt = 24u
 
-public val DEBUG_DATA_KernelVerifierAddr: UInt = 576u
+public val DEBUG_DATA_KERNEL_VERIFIER_ADDR: UInt = 576u
 
-public val DEBUG_DATA_KiBugcheckDataAddr: UInt = 136u
+public val DEBUG_DATA_KI_BUGCHECK_DATA_ADDR: UInt = 136u
 
-public val DEBUG_DATA_KiCallUserModeAddr: UInt = 56u
+public val DEBUG_DATA_KI_CALL_USER_MODE_ADDR: UInt = 56u
 
-public val DEBUG_DATA_KiNormalSystemCall: UInt = 528u
+public val DEBUG_DATA_KI_NORMAL_SYSTEM_CALL: UInt = 528u
 
-public val DEBUG_DATA_KiProcessorBlockAddr: UInt = 536u
+public val DEBUG_DATA_KI_PROCESSOR_BLOCK_ADDR: UInt = 536u
 
-public val DEBUG_DATA_MmAllocatedNonPagedPoolAddr: UInt = 592u
+public val DEBUG_DATA_MM_ALLOCATED_NON_PAGED_POOL_ADDR: UInt = 592u
 
-public val DEBUG_DATA_MmAvailablePagesAddr: UInt = 424u
+public val DEBUG_DATA_MM_AVAILABLE_PAGES_ADDR: UInt = 424u
 
-public val DEBUG_DATA_MmBadPagesDetected: UInt = 800u
+public val DEBUG_DATA_MM_BAD_PAGES_DETECTED: UInt = 800u
 
-public val DEBUG_DATA_MmDriverCommitAddr: UInt = 352u
+public val DEBUG_DATA_MM_DRIVER_COMMIT_ADDR: UInt = 352u
 
-public val DEBUG_DATA_MmExtendedCommitAddr: UInt = 376u
+public val DEBUG_DATA_MM_EXTENDED_COMMIT_ADDR: UInt = 376u
 
-public val DEBUG_DATA_MmFreePageListHeadAddr: UInt = 392u
+public val DEBUG_DATA_MM_FREE_PAGE_LIST_HEAD_ADDR: UInt = 392u
 
-public val DEBUG_DATA_MmHighestPhysicalPageAddr: UInt = 240u
+public val DEBUG_DATA_MM_HIGHEST_PHYSICAL_PAGE_ADDR: UInt = 240u
 
-public val DEBUG_DATA_MmHighestUserAddressAddr: UInt = 456u
+public val DEBUG_DATA_MM_HIGHEST_USER_ADDRESS_ADDR: UInt = 456u
 
-public val DEBUG_DATA_MmLastUnloadedDriverAddr: UInt = 552u
+public val DEBUG_DATA_MM_LAST_UNLOADED_DRIVER_ADDR: UInt = 552u
 
-public val DEBUG_DATA_MmLoadedUserImageListAddr: UInt = 512u
+public val DEBUG_DATA_MM_LOADED_USER_IMAGE_LIST_ADDR: UInt = 512u
 
-public val DEBUG_DATA_MmLowestPhysicalPageAddr: UInt = 232u
+public val DEBUG_DATA_MM_LOWEST_PHYSICAL_PAGE_ADDR: UInt = 232u
 
-public val DEBUG_DATA_MmMaximumNonPagedPoolInBytesAddr: UInt = 256u
+public val DEBUG_DATA_MM_MAXIMUM_NON_PAGED_POOL_IN_BYTES_ADDR: UInt = 256u
 
-public val DEBUG_DATA_MmModifiedNoWritePageListHeadAddr: UInt = 416u
+public val DEBUG_DATA_MM_MODIFIED_NO_WRITE_PAGE_LIST_HEAD_ADDR: UInt = 416u
 
-public val DEBUG_DATA_MmModifiedPageListHeadAddr: UInt = 408u
+public val DEBUG_DATA_MM_MODIFIED_PAGE_LIST_HEAD_ADDR: UInt = 408u
 
-public val DEBUG_DATA_MmNonPagedPoolEndAddr: UInt = 280u
+public val DEBUG_DATA_MM_NON_PAGED_POOL_END_ADDR: UInt = 280u
 
-public val DEBUG_DATA_MmNonPagedPoolStartAddr: UInt = 272u
+public val DEBUG_DATA_MM_NON_PAGED_POOL_START_ADDR: UInt = 272u
 
-public val DEBUG_DATA_MmNonPagedSystemStartAddr: UInt = 264u
+public val DEBUG_DATA_MM_NON_PAGED_SYSTEM_START_ADDR: UInt = 264u
 
-public val DEBUG_DATA_MmNumberOfPagingFilesAddr: UInt = 224u
+public val DEBUG_DATA_MM_NUMBER_OF_PAGING_FILES_ADDR: UInt = 224u
 
-public val DEBUG_DATA_MmNumberOfPhysicalPagesAddr: UInt = 248u
+public val DEBUG_DATA_MM_NUMBER_OF_PHYSICAL_PAGES_ADDR: UInt = 248u
 
-public val DEBUG_DATA_MmPageSize: UInt = 312u
+public val DEBUG_DATA_MM_PAGE_SIZE: UInt = 312u
 
-public val DEBUG_DATA_MmPagedPoolCommitAddr: UInt = 368u
+public val DEBUG_DATA_MM_PAGED_POOL_COMMIT_ADDR: UInt = 368u
 
-public val DEBUG_DATA_MmPagedPoolEndAddr: UInt = 296u
+public val DEBUG_DATA_MM_PAGED_POOL_END_ADDR: UInt = 296u
 
-public val DEBUG_DATA_MmPagedPoolInformationAddr: UInt = 304u
+public val DEBUG_DATA_MM_PAGED_POOL_INFORMATION_ADDR: UInt = 304u
 
-public val DEBUG_DATA_MmPagedPoolStartAddr: UInt = 288u
+public val DEBUG_DATA_MM_PAGED_POOL_START_ADDR: UInt = 288u
 
-public val DEBUG_DATA_MmPeakCommitmentAddr: UInt = 600u
+public val DEBUG_DATA_MM_PEAK_COMMITMENT_ADDR: UInt = 600u
 
-public val DEBUG_DATA_MmPfnDatabaseAddr: UInt = 192u
+public val DEBUG_DATA_MM_PFN_DATABASE_ADDR: UInt = 192u
 
-public val DEBUG_DATA_MmPhysicalMemoryBlockAddr: UInt = 624u
+public val DEBUG_DATA_MM_PHYSICAL_MEMORY_BLOCK_ADDR: UInt = 624u
 
-public val DEBUG_DATA_MmProcessCommitAddr: UInt = 360u
+public val DEBUG_DATA_MM_PROCESS_COMMIT_ADDR: UInt = 360u
 
-public val DEBUG_DATA_MmResidentAvailablePagesAddr: UInt = 432u
+public val DEBUG_DATA_MM_RESIDENT_AVAILABLE_PAGES_ADDR: UInt = 432u
 
-public val DEBUG_DATA_MmSessionBase: UInt = 632u
+public val DEBUG_DATA_MM_SESSION_BASE: UInt = 632u
 
-public val DEBUG_DATA_MmSessionSize: UInt = 640u
+public val DEBUG_DATA_MM_SESSION_SIZE: UInt = 640u
 
-public val DEBUG_DATA_MmSharedCommitAddr: UInt = 344u
+public val DEBUG_DATA_MM_SHARED_COMMIT_ADDR: UInt = 344u
 
-public val DEBUG_DATA_MmSizeOfPagedPoolInBytesAddr: UInt = 320u
+public val DEBUG_DATA_MM_SIZE_OF_PAGED_POOL_IN_BYTES_ADDR: UInt = 320u
 
-public val DEBUG_DATA_MmSpecialPoolTagAddr: UInt = 568u
+public val DEBUG_DATA_MM_SPECIAL_POOL_TAG_ADDR: UInt = 568u
 
-public val DEBUG_DATA_MmStandbyPageListHeadAddr: UInt = 400u
+public val DEBUG_DATA_MM_STANDBY_PAGE_LIST_HEAD_ADDR: UInt = 400u
 
-public val DEBUG_DATA_MmSubsectionBaseAddr: UInt = 216u
+public val DEBUG_DATA_MM_SUBSECTION_BASE_ADDR: UInt = 216u
 
-public val DEBUG_DATA_MmSystemCacheEndAddr: UInt = 176u
+public val DEBUG_DATA_MM_SYSTEM_CACHE_END_ADDR: UInt = 176u
 
-public val DEBUG_DATA_MmSystemCacheStartAddr: UInt = 168u
+public val DEBUG_DATA_MM_SYSTEM_CACHE_START_ADDR: UInt = 168u
 
-public val DEBUG_DATA_MmSystemCacheWsAddr: UInt = 184u
+public val DEBUG_DATA_MM_SYSTEM_CACHE_WS_ADDR: UInt = 184u
 
-public val DEBUG_DATA_MmSystemParentTablePage: UInt = 648u
+public val DEBUG_DATA_MM_SYSTEM_PARENT_TABLE_PAGE: UInt = 648u
 
-public val DEBUG_DATA_MmSystemPtesEndAddr: UInt = 208u
+public val DEBUG_DATA_MM_SYSTEM_PTES_END_ADDR: UInt = 208u
 
-public val DEBUG_DATA_MmSystemPtesStartAddr: UInt = 200u
+public val DEBUG_DATA_MM_SYSTEM_PTES_START_ADDR: UInt = 200u
 
-public val DEBUG_DATA_MmSystemRangeStartAddr: UInt = 464u
+public val DEBUG_DATA_MM_SYSTEM_RANGE_START_ADDR: UInt = 464u
 
-public val DEBUG_DATA_MmTotalCommitLimitAddr: UInt = 328u
+public val DEBUG_DATA_MM_TOTAL_COMMIT_LIMIT_ADDR: UInt = 328u
 
-public val DEBUG_DATA_MmTotalCommitLimitMaximumAddr: UInt = 608u
+public val DEBUG_DATA_MM_TOTAL_COMMIT_LIMIT_MAXIMUM_ADDR: UInt = 608u
 
-public val DEBUG_DATA_MmTotalCommittedPagesAddr: UInt = 336u
+public val DEBUG_DATA_MM_TOTAL_COMMITTED_PAGES_ADDR: UInt = 336u
 
-public val DEBUG_DATA_MmTriageActionTakenAddr: UInt = 560u
+public val DEBUG_DATA_MM_TRIAGE_ACTION_TAKEN_ADDR: UInt = 560u
 
-public val DEBUG_DATA_MmUnloadedDriversAddr: UInt = 544u
+public val DEBUG_DATA_MM_UNLOADED_DRIVERS_ADDR: UInt = 544u
 
-public val DEBUG_DATA_MmUserProbeAddressAddr: UInt = 472u
+public val DEBUG_DATA_MM_USER_PROBE_ADDRESS_ADDR: UInt = 472u
 
-public val DEBUG_DATA_MmVerifierDataAddr: UInt = 584u
+public val DEBUG_DATA_MM_VERIFIER_DATA_ADDR: UInt = 584u
 
-public val DEBUG_DATA_MmVirtualTranslationBase: UInt = 656u
+public val DEBUG_DATA_MM_VIRTUAL_TRANSLATION_BASE: UInt = 656u
 
-public val DEBUG_DATA_MmZeroedPageListHeadAddr: UInt = 384u
+public val DEBUG_DATA_MM_ZEROED_PAGE_LIST_HEAD_ADDR: UInt = 384u
 
-public val DEBUG_DATA_NonPagedPoolDescriptorAddr: UInt = 448u
+public val DEBUG_DATA_NON_PAGED_POOL_DESCRIPTOR_ADDR: UInt = 448u
 
-public val DEBUG_DATA_NtBuildLabAddr: UInt = 520u
+public val DEBUG_DATA_NT_BUILD_LAB_ADDR: UInt = 520u
 
-public val DEBUG_DATA_ObpRootDirectoryObjectAddr: UInt = 152u
+public val DEBUG_DATA_OBP_ROOT_DIRECTORY_OBJECT_ADDR: UInt = 152u
 
-public val DEBUG_DATA_ObpTypeObjectTypeAddr: UInt = 160u
+public val DEBUG_DATA_OBP_TYPE_OBJECT_TYPE_ADDR: UInt = 160u
 
-public val DEBUG_DATA_OffsetEprocessDirectoryTableBase: UInt = 686u
+public val DEBUG_DATA_OFFSET_EPROCESS_DIRECTORY_TABLE_BASE: UInt = 686u
 
-public val DEBUG_DATA_OffsetEprocessParentCID: UInt = 684u
+public val DEBUG_DATA_OFFSET_EPROCESS_PARENT_CID: UInt = 684u
 
-public val DEBUG_DATA_OffsetEprocessPeb: UInt = 682u
+public val DEBUG_DATA_OFFSET_EPROCESS_PEB: UInt = 682u
 
-public val DEBUG_DATA_OffsetKThreadApcProcess: UInt = 672u
+public val DEBUG_DATA_OFFSET_K_THREAD_APC_PROCESS: UInt = 672u
 
-public val DEBUG_DATA_OffsetKThreadBStore: UInt = 676u
+public val DEBUG_DATA_OFFSET_K_THREAD_B_STORE: UInt = 676u
 
-public val DEBUG_DATA_OffsetKThreadBStoreLimit: UInt = 678u
+public val DEBUG_DATA_OFFSET_K_THREAD_B_STORE_LIMIT: UInt = 678u
 
-public val DEBUG_DATA_OffsetKThreadInitialStack: UInt = 670u
+public val DEBUG_DATA_OFFSET_K_THREAD_INITIAL_STACK: UInt = 670u
 
-public val DEBUG_DATA_OffsetKThreadKernelStack: UInt = 668u
+public val DEBUG_DATA_OFFSET_K_THREAD_KERNEL_STACK: UInt = 668u
 
-public val DEBUG_DATA_OffsetKThreadNextProcessor: UInt = 664u
+public val DEBUG_DATA_OFFSET_K_THREAD_NEXT_PROCESSOR: UInt = 664u
 
-public val DEBUG_DATA_OffsetKThreadState: UInt = 674u
+public val DEBUG_DATA_OFFSET_K_THREAD_STATE: UInt = 674u
 
-public val DEBUG_DATA_OffsetKThreadTeb: UInt = 666u
+public val DEBUG_DATA_OFFSET_K_THREAD_TEB: UInt = 666u
 
-public val DEBUG_DATA_OffsetPrcbCpuType: UInt = 696u
+public val DEBUG_DATA_OFFSET_PRCB_CPU_TYPE: UInt = 696u
 
-public val DEBUG_DATA_OffsetPrcbCurrentThread: UInt = 692u
+public val DEBUG_DATA_OFFSET_PRCB_CURRENT_THREAD: UInt = 692u
 
-public val DEBUG_DATA_OffsetPrcbDpcRoutine: UInt = 690u
+public val DEBUG_DATA_OFFSET_PRCB_DPC_ROUTINE: UInt = 690u
 
-public val DEBUG_DATA_OffsetPrcbMhz: UInt = 694u
+public val DEBUG_DATA_OFFSET_PRCB_MHZ: UInt = 694u
 
-public val DEBUG_DATA_OffsetPrcbNumber: UInt = 702u
+public val DEBUG_DATA_OFFSET_PRCB_NUMBER: UInt = 702u
 
-public val DEBUG_DATA_OffsetPrcbProcessorState: UInt = 700u
+public val DEBUG_DATA_OFFSET_PRCB_PROCESSOR_STATE: UInt = 700u
 
-public val DEBUG_DATA_OffsetPrcbVendorString: UInt = 698u
+public val DEBUG_DATA_OFFSET_PRCB_VENDOR_STRING: UInt = 698u
 
 public val DEBUG_DATA_PROCESSOR_IDENTIFICATION: UInt = 4u
 
 public val DEBUG_DATA_PROCESSOR_SPEED: UInt = 5u
 
-public val DEBUG_DATA_PaeEnabled: UInt = 100000u
+public val DEBUG_DATA_PAE_ENABLED: UInt = 100000u
 
-public val DEBUG_DATA_PagingLevels: UInt = 100080u
+public val DEBUG_DATA_PAGING_LEVELS: UInt = 100080u
 
-public val DEBUG_DATA_PoolTrackTableAddr: UInt = 440u
+public val DEBUG_DATA_POOL_TRACK_TABLE_ADDR: UInt = 440u
 
-public val DEBUG_DATA_ProductType: UInt = 100016u
+public val DEBUG_DATA_PRODUCT_TYPE: UInt = 100016u
 
-public val DEBUG_DATA_PsActiveProcessHeadAddr: UInt = 80u
+public val DEBUG_DATA_PS_ACTIVE_PROCESS_HEAD_ADDR: UInt = 80u
 
-public val DEBUG_DATA_PsLoadedModuleListAddr: UInt = 72u
+public val DEBUG_DATA_PS_LOADED_MODULE_LIST_ADDR: UInt = 72u
 
-public val DEBUG_DATA_PspCidTableAddr: UInt = 88u
+public val DEBUG_DATA_PSP_CID_TABLE_ADDR: UInt = 88u
 
-public val DEBUG_DATA_PteBase: UInt = 864u
+public val DEBUG_DATA_PTE_BASE: UInt = 864u
 
 public val DEBUG_DATA_SPACE_BUS_DATA: UInt = 5u
 
@@ -605,17 +605,17 @@ public val DEBUG_DATA_SPACE_PHYSICAL: UInt = 1u
 
 public val DEBUG_DATA_SPACE_VIRTUAL: UInt = 0u
 
-public val DEBUG_DATA_SavedContextAddr: UInt = 40u
+public val DEBUG_DATA_SAVED_CONTEXT_ADDR: UInt = 40u
 
-public val DEBUG_DATA_SharedUserData: UInt = 100008u
+public val DEBUG_DATA_SHARED_USER_DATA: UInt = 100008u
 
-public val DEBUG_DATA_SizeEProcess: UInt = 680u
+public val DEBUG_DATA_SIZE_E_PROCESS: UInt = 680u
 
-public val DEBUG_DATA_SizeEThread: UInt = 704u
+public val DEBUG_DATA_SIZE_E_THREAD: UInt = 704u
 
-public val DEBUG_DATA_SizePrcb: UInt = 688u
+public val DEBUG_DATA_SIZE_PRCB: UInt = 688u
 
-public val DEBUG_DATA_SuiteMask: UInt = 100024u
+public val DEBUG_DATA_SUITE_MASK: UInt = 100024u
 
 public val DEBUG_DISASM_EFFECTIVE_ADDRESS: UInt = 1u
 
@@ -795,27 +795,27 @@ public val DEBUG_EXT_PVTYPE_IS_VALUE: UInt = 0u
 
 public val DEBUG_EXT_QVALUE_DEFAULT: UInt = 0u
 
-public val DEBUG_FA_ENTRY_ANSI_STRING: FA_ENTRY_TYPE = 5
+public val DEBUG_FA_ENTRY_ANSI_STRING: FaEntryType = 5
 
-public val DEBUG_FA_ENTRY_ANSI_STRINGs: FA_ENTRY_TYPE = 6
+public val DEBUG_FA_ENTRY_ANSI_STRIN_GS: FaEntryType = 6
 
-public val DEBUG_FA_ENTRY_ARRAY: FA_ENTRY_TYPE = 32768
+public val DEBUG_FA_ENTRY_ARRAY: FaEntryType = 32768
 
-public val DEBUG_FA_ENTRY_EXTENSION_CMD: FA_ENTRY_TYPE = 7
+public val DEBUG_FA_ENTRY_EXTENSION_CMD: FaEntryType = 7
 
-public val DEBUG_FA_ENTRY_INSTRUCTION_OFFSET: FA_ENTRY_TYPE = 3
+public val DEBUG_FA_ENTRY_INSTRUCTION_OFFSET: FaEntryType = 3
 
-public val DEBUG_FA_ENTRY_NO_TYPE: FA_ENTRY_TYPE = 0
+public val DEBUG_FA_ENTRY_NO_TYPE: FaEntryType = 0
 
-public val DEBUG_FA_ENTRY_POINTER: FA_ENTRY_TYPE = 4
+public val DEBUG_FA_ENTRY_POINTER: FaEntryType = 4
 
-public val DEBUG_FA_ENTRY_STRUCTURED_DATA: FA_ENTRY_TYPE = 8
+public val DEBUG_FA_ENTRY_STRUCTURED_DATA: FaEntryType = 8
 
-public val DEBUG_FA_ENTRY_ULONG: FA_ENTRY_TYPE = 1
+public val DEBUG_FA_ENTRY_ULONG: FaEntryType = 1
 
-public val DEBUG_FA_ENTRY_ULONG64: FA_ENTRY_TYPE = 2
+public val DEBUG_FA_ENTRY_ULONG64: FaEntryType = 2
 
-public val DEBUG_FA_ENTRY_UNICODE_STRING: FA_ENTRY_TYPE = 9
+public val DEBUG_FA_ENTRY_UNICODE_STRING: FaEntryType = 9
 
 public val DEBUG_FILTER_BREAK: UInt = 0u
 
@@ -865,1611 +865,1611 @@ public val DEBUG_FIND_SOURCE_WITH_CHECKSUM: UInt = 16u
 
 public val DEBUG_FIND_SOURCE_WITH_CHECKSUM_STRICT: UInt = 32u
 
-public val DEBUG_FLR_ACPI: DEBUG_FLR_PARAM_TYPE = 24576
+public val DEBUG_FLR_ACPI: DebugFlrParamType = 24576
 
-public val DEBUG_FLR_ACPI_BLACKBOX: DEBUG_FLR_PARAM_TYPE = 24832
+public val DEBUG_FLR_ACPI_BLACKBOX: DebugFlrParamType = 24832
 
-public val DEBUG_FLR_ACPI_EXTENSION: DEBUG_FLR_PARAM_TYPE = 11
+public val DEBUG_FLR_ACPI_EXTENSION: DebugFlrParamType = 11
 
-public val DEBUG_FLR_ACPI_OBJECT: DEBUG_FLR_PARAM_TYPE = 13
+public val DEBUG_FLR_ACPI_OBJECT: DebugFlrParamType = 13
 
-public val DEBUG_FLR_ACPI_RESCONFLICT: DEBUG_FLR_PARAM_TYPE = 12
+public val DEBUG_FLR_ACPI_RESCONFLICT: DebugFlrParamType = 12
 
-public val DEBUG_FLR_ADDITIONAL_DEBUGTEXT: DEBUG_FLR_PARAM_TYPE = 65546
+public val DEBUG_FLR_ADDITIONAL_DEBUGTEXT: DebugFlrParamType = 65546
 
-public val DEBUG_FLR_ADDITIONAL_XML: DEBUG_FLR_PARAM_TYPE = 1150976
+public val DEBUG_FLR_ADDITIONAL_XML: DebugFlrParamType = 1150976
 
-public val DEBUG_FLR_ADD_PROCESS_IN_BUCKET: DEBUG_FLR_PARAM_TYPE = 8219
+public val DEBUG_FLR_ADD_PROCESS_IN_BUCKET: DebugFlrParamType = 8219
 
-public val DEBUG_FLR_ALUREON: DEBUG_FLR_PARAM_TYPE = 12372
+public val DEBUG_FLR_ALUREON: DebugFlrParamType = 12372
 
-public val DEBUG_FLR_ANALYSIS_REPROCESS: DEBUG_FLR_PARAM_TYPE = 1052705
+public val DEBUG_FLR_ANALYSIS_REPROCESS: DebugFlrParamType = 1052705
 
-public val DEBUG_FLR_ANALYSIS_SESSION_ELAPSED_TIME: DEBUG_FLR_PARAM_TYPE = 1052701
+public val DEBUG_FLR_ANALYSIS_SESSION_ELAPSED_TIME: DebugFlrParamType = 1052701
 
-public val DEBUG_FLR_ANALYSIS_SESSION_HOST: DEBUG_FLR_PARAM_TYPE = 1052700
+public val DEBUG_FLR_ANALYSIS_SESSION_HOST: DebugFlrParamType = 1052700
 
-public val DEBUG_FLR_ANALYSIS_SESSION_TIME: DEBUG_FLR_PARAM_TYPE = 1052699
+public val DEBUG_FLR_ANALYSIS_SESSION_TIME: DebugFlrParamType = 1052699
 
-public val DEBUG_FLR_ANALYSIS_VERSION: DEBUG_FLR_PARAM_TYPE = 1052702
+public val DEBUG_FLR_ANALYSIS_VERSION: DebugFlrParamType = 1052702
 
-public val DEBUG_FLR_ANALYZABLE_POOL_CORRUPTION: DEBUG_FLR_PARAM_TYPE = 8202
+public val DEBUG_FLR_ANALYZABLE_POOL_CORRUPTION: DebugFlrParamType = 8202
 
-public val DEBUG_FLR_APPKILL: DEBUG_FLR_PARAM_TYPE = 8212
+public val DEBUG_FLR_APPKILL: DebugFlrParamType = 8212
 
-public val DEBUG_FLR_APPLICATION_VERIFIER_LOADED: DEBUG_FLR_PARAM_TYPE = 1048626
+public val DEBUG_FLR_APPLICATION_VERIFIER_LOADED: DebugFlrParamType = 1048626
 
-public val DEBUG_FLR_APPS_NOT_TERMINATED: DEBUG_FLR_PARAM_TYPE = 8258
+public val DEBUG_FLR_APPS_NOT_TERMINATED: DebugFlrParamType = 8258
 
-public val DEBUG_FLR_APPVERIFERFLAGS: DEBUG_FLR_PARAM_TYPE = 1048600
+public val DEBUG_FLR_APPVERIFERFLAGS: DebugFlrParamType = 1048600
 
-public val DEBUG_FLR_ARM_WRITE_AV_CAVEAT: DEBUG_FLR_PARAM_TYPE = 8241
+public val DEBUG_FLR_ARM_WRITE_AV_CAVEAT: DebugFlrParamType = 8241
 
-public val DEBUG_FLR_ASSERT_DATA: DEBUG_FLR_PARAM_TYPE = 768
+public val DEBUG_FLR_ASSERT_DATA: DebugFlrParamType = 768
 
-public val DEBUG_FLR_ASSERT_FILE: DEBUG_FLR_PARAM_TYPE = 769
+public val DEBUG_FLR_ASSERT_FILE: DebugFlrParamType = 769
 
-public val DEBUG_FLR_ASSERT_INSTRUCTION: DEBUG_FLR_PARAM_TYPE = 778
+public val DEBUG_FLR_ASSERT_INSTRUCTION: DebugFlrParamType = 778
 
-public val DEBUG_FLR_BADPAGES_DETECTED: DEBUG_FLR_PARAM_TYPE = 4109
+public val DEBUG_FLR_BADPAGES_DETECTED: DebugFlrParamType = 4109
 
-public val DEBUG_FLR_BAD_HANDLE: DEBUG_FLR_PARAM_TYPE = 17
+public val DEBUG_FLR_BAD_HANDLE: DebugFlrParamType = 17
 
-public val DEBUG_FLR_BAD_MEMORY_REFERENCE: DEBUG_FLR_PARAM_TYPE = 8210
+public val DEBUG_FLR_BAD_MEMORY_REFERENCE: DebugFlrParamType = 8210
 
-public val DEBUG_FLR_BAD_OBJECT_REFERENCE: DEBUG_FLR_PARAM_TYPE = 8211
+public val DEBUG_FLR_BAD_OBJECT_REFERENCE: DebugFlrParamType = 8211
 
-public val DEBUG_FLR_BAD_STACK: DEBUG_FLR_PARAM_TYPE = 8193
+public val DEBUG_FLR_BAD_STACK: DebugFlrParamType = 8193
 
-public val DEBUG_FLR_BLOCKED_THREAD0: DEBUG_FLR_PARAM_TYPE = -1073741818
+public val DEBUG_FLR_BLOCKED_THREAD0: DebugFlrParamType = -1073741818
 
-public val DEBUG_FLR_BLOCKED_THREAD1: DEBUG_FLR_PARAM_TYPE = -1073741817
+public val DEBUG_FLR_BLOCKED_THREAD1: DebugFlrParamType = -1073741817
 
-public val DEBUG_FLR_BLOCKED_THREAD2: DEBUG_FLR_PARAM_TYPE = -1073741816
+public val DEBUG_FLR_BLOCKED_THREAD2: DebugFlrParamType = -1073741816
 
-public val DEBUG_FLR_BLOCKING_PROCESSID: DEBUG_FLR_PARAM_TYPE = -1073741815
+public val DEBUG_FLR_BLOCKING_PROCESSID: DebugFlrParamType = -1073741815
 
-public val DEBUG_FLR_BLOCKING_THREAD: DEBUG_FLR_PARAM_TYPE = -1073741820
+public val DEBUG_FLR_BLOCKING_THREAD: DebugFlrParamType = -1073741820
 
-public val DEBUG_FLR_BOOST_FOLLOWUP_TO_SPECIFIC: DEBUG_FLR_PARAM_TYPE = 8222
+public val DEBUG_FLR_BOOST_FOLLOWUP_TO_SPECIFIC: DebugFlrParamType = 8222
 
-public val DEBUG_FLR_BOOTSTAT: DEBUG_FLR_PARAM_TYPE = 28672
+public val DEBUG_FLR_BOOTSTAT: DebugFlrParamType = 28672
 
-public val DEBUG_FLR_BOOTSTAT_BLACKBOX: DEBUG_FLR_PARAM_TYPE = 28928
+public val DEBUG_FLR_BOOTSTAT_BLACKBOX: DebugFlrParamType = 28928
 
-public val DEBUG_FLR_BUCKET_ID: DEBUG_FLR_PARAM_TYPE = 65536
+public val DEBUG_FLR_BUCKET_ID: DebugFlrParamType = 65536
 
-public val DEBUG_FLR_BUCKET_ID_CHECKSUM: DEBUG_FLR_PARAM_TYPE = 1052684
+public val DEBUG_FLR_BUCKET_ID_CHECKSUM: DebugFlrParamType = 1052684
 
-public val DEBUG_FLR_BUCKET_ID_FLAVOR_STR: DEBUG_FLR_PARAM_TYPE = 1052686
+public val DEBUG_FLR_BUCKET_ID_FLAVOR_STR: DebugFlrParamType = 1052686
 
-public val DEBUG_FLR_BUCKET_ID_FUNCTION_STR: DEBUG_FLR_PARAM_TYPE = 1052676
+public val DEBUG_FLR_BUCKET_ID_FUNCTION_STR: DebugFlrParamType = 1052676
 
-public val DEBUG_FLR_BUCKET_ID_FUNC_OFFSET: DEBUG_FLR_PARAM_TYPE = 65589
+public val DEBUG_FLR_BUCKET_ID_FUNC_OFFSET: DebugFlrParamType = 65589
 
-public val DEBUG_FLR_BUCKET_ID_IMAGE_STR: DEBUG_FLR_PARAM_TYPE = 1052703
+public val DEBUG_FLR_BUCKET_ID_IMAGE_STR: DebugFlrParamType = 1052703
 
-public val DEBUG_FLR_BUCKET_ID_MODULE_STR: DEBUG_FLR_PARAM_TYPE = 1052674
+public val DEBUG_FLR_BUCKET_ID_MODULE_STR: DebugFlrParamType = 1052674
 
-public val DEBUG_FLR_BUCKET_ID_MODVER_STR: DEBUG_FLR_PARAM_TYPE = 1052675
+public val DEBUG_FLR_BUCKET_ID_MODVER_STR: DebugFlrParamType = 1052675
 
-public val DEBUG_FLR_BUCKET_ID_OFFSET: DEBUG_FLR_PARAM_TYPE = 1052677
+public val DEBUG_FLR_BUCKET_ID_OFFSET: DebugFlrParamType = 1052677
 
-public val DEBUG_FLR_BUCKET_ID_PREFIX_STR: DEBUG_FLR_PARAM_TYPE = 1052673
+public val DEBUG_FLR_BUCKET_ID_PREFIX_STR: DebugFlrParamType = 1052673
 
-public val DEBUG_FLR_BUCKET_ID_PRIVATE: DEBUG_FLR_PARAM_TYPE = 1052704
+public val DEBUG_FLR_BUCKET_ID_PRIVATE: DebugFlrParamType = 1052704
 
-public val DEBUG_FLR_BUCKET_ID_TIMEDATESTAMP: DEBUG_FLR_PARAM_TYPE = 1052683
+public val DEBUG_FLR_BUCKET_ID_TIMEDATESTAMP: DebugFlrParamType = 1052683
 
-public val DEBUG_FLR_BUGCHECKING_DRIVER: DEBUG_FLR_PARAM_TYPE = 12292
+public val DEBUG_FLR_BUGCHECKING_DRIVER: DebugFlrParamType = 12292
 
-public val DEBUG_FLR_BUGCHECKING_DRIVER_IDTAG: DEBUG_FLR_PARAM_TYPE = 65559
+public val DEBUG_FLR_BUGCHECKING_DRIVER_IDTAG: DebugFlrParamType = 65559
 
-public val DEBUG_FLR_BUGCHECK_CODE: DEBUG_FLR_PARAM_TYPE = 4108
+public val DEBUG_FLR_BUGCHECK_CODE: DebugFlrParamType = 4108
 
-public val DEBUG_FLR_BUGCHECK_DESC: DEBUG_FLR_PARAM_TYPE = 1538
+public val DEBUG_FLR_BUGCHECK_DESC: DebugFlrParamType = 1538
 
-public val DEBUG_FLR_BUGCHECK_P1: DEBUG_FLR_PARAM_TYPE = 4115
+public val DEBUG_FLR_BUGCHECK_P1: DebugFlrParamType = 4115
 
-public val DEBUG_FLR_BUGCHECK_P2: DEBUG_FLR_PARAM_TYPE = 4116
+public val DEBUG_FLR_BUGCHECK_P2: DebugFlrParamType = 4116
 
-public val DEBUG_FLR_BUGCHECK_P3: DEBUG_FLR_PARAM_TYPE = 4117
+public val DEBUG_FLR_BUGCHECK_P3: DebugFlrParamType = 4117
 
-public val DEBUG_FLR_BUGCHECK_P4: DEBUG_FLR_PARAM_TYPE = 4118
+public val DEBUG_FLR_BUGCHECK_P4: DebugFlrParamType = 4118
 
-public val DEBUG_FLR_BUGCHECK_SPECIFIER: DEBUG_FLR_PARAM_TYPE = 1537
+public val DEBUG_FLR_BUGCHECK_SPECIFIER: DebugFlrParamType = 1537
 
-public val DEBUG_FLR_BUGCHECK_STR: DEBUG_FLR_PARAM_TYPE = 1536
+public val DEBUG_FLR_BUGCHECK_STR: DebugFlrParamType = 1536
 
-public val DEBUG_FLR_BUILDNAME_IN_BUCKET: DEBUG_FLR_PARAM_TYPE = 12349
+public val DEBUG_FLR_BUILDNAME_IN_BUCKET: DebugFlrParamType = 12349
 
-public val DEBUG_FLR_BUILDOSVER_STR_deprecated: DEBUG_FLR_PARAM_TYPE = 1052929
+public val DEBUG_FLR_BUILDOSVER_STR_DEPRECATED: DebugFlrParamType = 1052929
 
-public val DEBUG_FLR_BUILD_OS_FULL_VERSION_STRING: DEBUG_FLR_PARAM_TYPE = 65567
+public val DEBUG_FLR_BUILD_OS_FULL_VERSION_STRING: DebugFlrParamType = 65567
 
-public val DEBUG_FLR_BUILD_VERSION_STRING: DEBUG_FLR_PARAM_TYPE = 65566
+public val DEBUG_FLR_BUILD_VERSION_STRING: DebugFlrParamType = 65566
 
-public val DEBUG_FLR_CANCELLATION_NOT_SUPPORTED: DEBUG_FLR_PARAM_TYPE = 12350
+public val DEBUG_FLR_CANCELLATION_NOT_SUPPORTED: DebugFlrParamType = 12350
 
-public val DEBUG_FLR_CHKIMG_EXTENSION: DEBUG_FLR_PARAM_TYPE = 19
+public val DEBUG_FLR_CHKIMG_EXTENSION: DebugFlrParamType = 19
 
-public val DEBUG_FLR_CHPE_PROCESS: DEBUG_FLR_PARAM_TYPE = -268435433
+public val DEBUG_FLR_CHPE_PROCESS: DebugFlrParamType = -268435433
 
-public val DEBUG_FLR_CLIENT_DRIVER: DEBUG_FLR_PARAM_TYPE = 1031
+public val DEBUG_FLR_CLIENT_DRIVER: DebugFlrParamType = 1031
 
-public val DEBUG_FLR_COLLECT_DATA_FOR_BUCKET: DEBUG_FLR_PARAM_TYPE = 65577
+public val DEBUG_FLR_COLLECT_DATA_FOR_BUCKET: DebugFlrParamType = 65577
 
-public val DEBUG_FLR_COMPUTER_NAME: DEBUG_FLR_PARAM_TYPE = 65578
+public val DEBUG_FLR_COMPUTER_NAME: DebugFlrParamType = 65578
 
-public val DEBUG_FLR_CONTEXT: DEBUG_FLR_PARAM_TYPE = -1073741823
+public val DEBUG_FLR_CONTEXT: DebugFlrParamType = -1073741823
 
-public val DEBUG_FLR_CONTEXT_COMMAND: DEBUG_FLR_PARAM_TYPE = 2097164
+public val DEBUG_FLR_CONTEXT_COMMAND: DebugFlrParamType = 2097164
 
-public val DEBUG_FLR_CONTEXT_FLAGS: DEBUG_FLR_PARAM_TYPE = 2097165
+public val DEBUG_FLR_CONTEXT_FLAGS: DebugFlrParamType = 2097165
 
-public val DEBUG_FLR_CONTEXT_FOLLOWUP_INDEX: DEBUG_FLR_PARAM_TYPE = 2097191
+public val DEBUG_FLR_CONTEXT_FOLLOWUP_INDEX: DebugFlrParamType = 2097191
 
-public val DEBUG_FLR_CONTEXT_ID: DEBUG_FLR_PARAM_TYPE = 2097168
+public val DEBUG_FLR_CONTEXT_ID: DebugFlrParamType = 2097168
 
-public val DEBUG_FLR_CONTEXT_METADATA: DEBUG_FLR_PARAM_TYPE = 2097211
+public val DEBUG_FLR_CONTEXT_METADATA: DebugFlrParamType = 2097211
 
-public val DEBUG_FLR_CONTEXT_ORDER: DEBUG_FLR_PARAM_TYPE = 2097166
+public val DEBUG_FLR_CONTEXT_ORDER: DebugFlrParamType = 2097166
 
-public val DEBUG_FLR_CONTEXT_RESTORE_COMMAND: DEBUG_FLR_PARAM_TYPE = 65551
+public val DEBUG_FLR_CONTEXT_RESTORE_COMMAND: DebugFlrParamType = 65551
 
-public val DEBUG_FLR_CONTEXT_SYSTEM: DEBUG_FLR_PARAM_TYPE = 2097167
+public val DEBUG_FLR_CONTEXT_SYSTEM: DebugFlrParamType = 2097167
 
-public val DEBUG_FLR_CORRUPTING_POOL_ADDRESS: DEBUG_FLR_PARAM_TYPE = 1026
+public val DEBUG_FLR_CORRUPTING_POOL_ADDRESS: DebugFlrParamType = 1026
 
-public val DEBUG_FLR_CORRUPTING_POOL_TAG: DEBUG_FLR_PARAM_TYPE = 1027
+public val DEBUG_FLR_CORRUPTING_POOL_TAG: DebugFlrParamType = 1027
 
-public val DEBUG_FLR_CORRUPT_MODULE_LIST: DEBUG_FLR_PARAM_TYPE = 8192
+public val DEBUG_FLR_CORRUPT_MODULE_LIST: DebugFlrParamType = 8192
 
-public val DEBUG_FLR_CORRUPT_SERVICE_TABLE: DEBUG_FLR_PARAM_TYPE = 12308
+public val DEBUG_FLR_CORRUPT_SERVICE_TABLE: DebugFlrParamType = 12308
 
-public val DEBUG_FLR_COVERAGE_BUILD: DEBUG_FLR_PARAM_TYPE = 8244
+public val DEBUG_FLR_COVERAGE_BUILD: DebugFlrParamType = 8244
 
-public val DEBUG_FLR_CPU_COUNT: DEBUG_FLR_PARAM_TYPE = 12330
+public val DEBUG_FLR_CPU_COUNT: DebugFlrParamType = 12330
 
-public val DEBUG_FLR_CPU_FAMILY: DEBUG_FLR_PARAM_TYPE = 12333
+public val DEBUG_FLR_CPU_FAMILY: DebugFlrParamType = 12333
 
-public val DEBUG_FLR_CPU_MICROCODE_VERSION: DEBUG_FLR_PARAM_TYPE = 12329
+public val DEBUG_FLR_CPU_MICROCODE_VERSION: DebugFlrParamType = 12329
 
-public val DEBUG_FLR_CPU_MICROCODE_ZERO_INTEL: DEBUG_FLR_PARAM_TYPE = 8228
+public val DEBUG_FLR_CPU_MICROCODE_ZERO_INTEL: DebugFlrParamType = 8228
 
-public val DEBUG_FLR_CPU_MODEL: DEBUG_FLR_PARAM_TYPE = 12334
+public val DEBUG_FLR_CPU_MODEL: DebugFlrParamType = 12334
 
-public val DEBUG_FLR_CPU_OVERCLOCKED: DEBUG_FLR_PARAM_TYPE = 8198
+public val DEBUG_FLR_CPU_OVERCLOCKED: DebugFlrParamType = 8198
 
-public val DEBUG_FLR_CPU_SPEED: DEBUG_FLR_PARAM_TYPE = 12331
+public val DEBUG_FLR_CPU_SPEED: DebugFlrParamType = 12331
 
-public val DEBUG_FLR_CPU_STEPPING: DEBUG_FLR_PARAM_TYPE = 12335
+public val DEBUG_FLR_CPU_STEPPING: DebugFlrParamType = 12335
 
-public val DEBUG_FLR_CPU_VENDOR: DEBUG_FLR_PARAM_TYPE = 12332
+public val DEBUG_FLR_CPU_VENDOR: DebugFlrParamType = 12332
 
-public val DEBUG_FLR_CRITICAL_PROCESS: DEBUG_FLR_PARAM_TYPE = 4119
+public val DEBUG_FLR_CRITICAL_PROCESS: DebugFlrParamType = 4119
 
-public val DEBUG_FLR_CRITICAL_PROCESS_REPORTGUID: DEBUG_FLR_PARAM_TYPE = 65628
+public val DEBUG_FLR_CRITICAL_PROCESS_REPORTGUID: DebugFlrParamType = 65628
 
-public val DEBUG_FLR_CRITICAL_SECTION: DEBUG_FLR_PARAM_TYPE = 16
+public val DEBUG_FLR_CRITICAL_SECTION: DebugFlrParamType = 16
 
-public val DEBUG_FLR_CURRENT_IRQL: DEBUG_FLR_PARAM_TYPE = 512
+public val DEBUG_FLR_CURRENT_IRQL: DebugFlrParamType = 512
 
-public val DEBUG_FLR_CUSTOMER_CRASH_COUNT: DEBUG_FLR_PARAM_TYPE = 12299
+public val DEBUG_FLR_CUSTOMER_CRASH_COUNT: DebugFlrParamType = 12299
 
-public val DEBUG_FLR_CUSTOMREPORTTAG: DEBUG_FLR_PARAM_TYPE = -268435454
+public val DEBUG_FLR_CUSTOMREPORTTAG: DebugFlrParamType = -268435454
 
-public val DEBUG_FLR_CUSTOM_ANALYSIS_TAG_MAX: DEBUG_FLR_PARAM_TYPE = -1342177280
+public val DEBUG_FLR_CUSTOM_ANALYSIS_TAG_MAX: DebugFlrParamType = -1342177280
 
-public val DEBUG_FLR_CUSTOM_ANALYSIS_TAG_MIN: DEBUG_FLR_PARAM_TYPE = -1610612736
+public val DEBUG_FLR_CUSTOM_ANALYSIS_TAG_MIN: DebugFlrParamType = -1610612736
 
-public val DEBUG_FLR_CUSTOM_COMMAND: DEBUG_FLR_PARAM_TYPE = -268435431
+public val DEBUG_FLR_CUSTOM_COMMAND: DebugFlrParamType = -268435431
 
-public val DEBUG_FLR_CUSTOM_COMMAND_OUTPUT: DEBUG_FLR_PARAM_TYPE = -268435430
+public val DEBUG_FLR_CUSTOM_COMMAND_OUTPUT: DebugFlrParamType = -268435430
 
-public val DEBUG_FLR_DEADLOCK_INPROC: DEBUG_FLR_PARAM_TYPE = 1048589
+public val DEBUG_FLR_DEADLOCK_INPROC: DebugFlrParamType = 1048589
 
-public val DEBUG_FLR_DEADLOCK_XPROC: DEBUG_FLR_PARAM_TYPE = 1048590
+public val DEBUG_FLR_DEADLOCK_XPROC: DebugFlrParamType = 1048590
 
-public val DEBUG_FLR_DEBUG_ANALYSIS: DEBUG_FLR_PARAM_TYPE = 1118208
+public val DEBUG_FLR_DEBUG_ANALYSIS: DebugFlrParamType = 1118208
 
-public val DEBUG_FLR_DEFAULT_BUCKET_ID: DEBUG_FLR_PARAM_TYPE = 65544
+public val DEBUG_FLR_DEFAULT_BUCKET_ID: DebugFlrParamType = 65544
 
-public val DEBUG_FLR_DEFAULT_SOLUTION_ID: DEBUG_FLR_PARAM_TYPE = 12294
+public val DEBUG_FLR_DEFAULT_SOLUTION_ID: DebugFlrParamType = 12294
 
-public val DEBUG_FLR_DERIVED_WAIT_CHAIN: DEBUG_FLR_PARAM_TYPE = 1048583
+public val DEBUG_FLR_DERIVED_WAIT_CHAIN: DebugFlrParamType = 1048583
 
-public val DEBUG_FLR_DESKTOP_HEAP_MISSING: DEBUG_FLR_PARAM_TYPE = 1048593
+public val DEBUG_FLR_DESKTOP_HEAP_MISSING: DebugFlrParamType = 1048593
 
-public val DEBUG_FLR_DETOURED_IMAGE: DEBUG_FLR_PARAM_TYPE = 12351
+public val DEBUG_FLR_DETOURED_IMAGE: DebugFlrParamType = 12351
 
-public val DEBUG_FLR_DEVICE_NODE: DEBUG_FLR_PARAM_TYPE = 28
+public val DEBUG_FLR_DEVICE_NODE: DebugFlrParamType = 28
 
-public val DEBUG_FLR_DEVICE_OBJECT: DEBUG_FLR_PARAM_TYPE = 3
+public val DEBUG_FLR_DEVICE_OBJECT: DebugFlrParamType = 3
 
-public val DEBUG_FLR_DISKIO_READ_FAILURE: DEBUG_FLR_PARAM_TYPE = 12353
+public val DEBUG_FLR_DISKIO_READ_FAILURE: DebugFlrParamType = 12353
 
-public val DEBUG_FLR_DISKIO_WRITE_FAILURE: DEBUG_FLR_PARAM_TYPE = 12354
+public val DEBUG_FLR_DISKIO_WRITE_FAILURE: DebugFlrParamType = 12354
 
-public val DEBUG_FLR_DISKSEC_ISSUEDESCSTRING_DEPRECATED: DEBUG_FLR_PARAM_TYPE = -268435450
+public val DEBUG_FLR_DISKSEC_ISSUEDESCSTRING_DEPRECATED: DebugFlrParamType = -268435450
 
-public val DEBUG_FLR_DISKSEC_MFGID_DEPRECATED: DEBUG_FLR_PARAM_TYPE = -268435451
+public val DEBUG_FLR_DISKSEC_MFGID_DEPRECATED: DebugFlrParamType = -268435451
 
-public val DEBUG_FLR_DISKSEC_MODEL_DEPRECATED: DEBUG_FLR_PARAM_TYPE = -268435452
+public val DEBUG_FLR_DISKSEC_MODEL_DEPRECATED: DebugFlrParamType = -268435452
 
-public val DEBUG_FLR_DISKSEC_ORGID_DEPRECATED: DEBUG_FLR_PARAM_TYPE = -268435453
+public val DEBUG_FLR_DISKSEC_ORGID_DEPRECATED: DebugFlrParamType = -268435453
 
-public val DEBUG_FLR_DISKSEC_PRIVATE_DATASIZE_DEPRECATED: DEBUG_FLR_PARAM_TYPE = -268435444
+public val DEBUG_FLR_DISKSEC_PRIVATE_DATASIZE_DEPRECATED: DebugFlrParamType = -268435444
 
-public val DEBUG_FLR_DISKSEC_PRIVATE_OFFSET_DEPRECATED: DEBUG_FLR_PARAM_TYPE = -268435445
+public val DEBUG_FLR_DISKSEC_PRIVATE_OFFSET_DEPRECATED: DebugFlrParamType = -268435445
 
-public val DEBUG_FLR_DISKSEC_PRIVATE_TOTSIZE_DEPRECATED: DEBUG_FLR_PARAM_TYPE = -268435446
+public val DEBUG_FLR_DISKSEC_PRIVATE_TOTSIZE_DEPRECATED: DebugFlrParamType = -268435446
 
-public val DEBUG_FLR_DISKSEC_PUBLIC_DATASIZE_DEPRECATED: DEBUG_FLR_PARAM_TYPE = -268435447
+public val DEBUG_FLR_DISKSEC_PUBLIC_DATASIZE_DEPRECATED: DebugFlrParamType = -268435447
 
-public val DEBUG_FLR_DISKSEC_PUBLIC_OFFSET_DEPRECATED: DEBUG_FLR_PARAM_TYPE = -268435448
+public val DEBUG_FLR_DISKSEC_PUBLIC_OFFSET_DEPRECATED: DebugFlrParamType = -268435448
 
-public val DEBUG_FLR_DISKSEC_PUBLIC_TOTSIZE_DEPRECATED: DEBUG_FLR_PARAM_TYPE = -268435449
+public val DEBUG_FLR_DISKSEC_PUBLIC_TOTSIZE_DEPRECATED: DebugFlrParamType = -268435449
 
-public val DEBUG_FLR_DISKSEC_REASON_DEPRECATED: DEBUG_FLR_PARAM_TYPE = -268435442
+public val DEBUG_FLR_DISKSEC_REASON_DEPRECATED: DebugFlrParamType = -268435442
 
-public val DEBUG_FLR_DISKSEC_TOTALSIZE_DEPRECATED: DEBUG_FLR_PARAM_TYPE = -268435443
+public val DEBUG_FLR_DISKSEC_TOTALSIZE_DEPRECATED: DebugFlrParamType = -268435443
 
-public val DEBUG_FLR_DISK_HARDWARE_ERROR: DEBUG_FLR_PARAM_TYPE = 8206
+public val DEBUG_FLR_DISK_HARDWARE_ERROR: DebugFlrParamType = 8206
 
-public val DEBUG_FLR_DPC_RUNTIME: DEBUG_FLR_PARAM_TYPE = 4111
+public val DEBUG_FLR_DPC_RUNTIME: DebugFlrParamType = 4111
 
-public val DEBUG_FLR_DPC_STACK_BASE: DEBUG_FLR_PARAM_TYPE = -1073741809
+public val DEBUG_FLR_DPC_STACK_BASE: DebugFlrParamType = -1073741809
 
-public val DEBUG_FLR_DPC_TIMELIMIT: DEBUG_FLR_PARAM_TYPE = 4112
+public val DEBUG_FLR_DPC_TIMELIMIT: DebugFlrParamType = 4112
 
-public val DEBUG_FLR_DPC_TIMEOUT_TYPE: DEBUG_FLR_PARAM_TYPE = 4110
+public val DEBUG_FLR_DPC_TIMEOUT_TYPE: DebugFlrParamType = 4110
 
-public val DEBUG_FLR_DRIVER_HARDWAREID: DEBUG_FLR_PARAM_TYPE = 65552
+public val DEBUG_FLR_DRIVER_HARDWAREID: DebugFlrParamType = 65552
 
-public val DEBUG_FLR_DRIVER_HARDWARE_DEVICE_ID: DEBUG_FLR_PARAM_TYPE = 65554
+public val DEBUG_FLR_DRIVER_HARDWARE_DEVICE_ID: DebugFlrParamType = 65554
 
-public val DEBUG_FLR_DRIVER_HARDWARE_DEVICE_NAME: DEBUG_FLR_PARAM_TYPE = 65633
+public val DEBUG_FLR_DRIVER_HARDWARE_DEVICE_NAME: DebugFlrParamType = 65633
 
-public val DEBUG_FLR_DRIVER_HARDWARE_ID_BUS_TYPE: DEBUG_FLR_PARAM_TYPE = 65557
+public val DEBUG_FLR_DRIVER_HARDWARE_ID_BUS_TYPE: DebugFlrParamType = 65557
 
-public val DEBUG_FLR_DRIVER_HARDWARE_REV_ID: DEBUG_FLR_PARAM_TYPE = 65556
+public val DEBUG_FLR_DRIVER_HARDWARE_REV_ID: DebugFlrParamType = 65556
 
-public val DEBUG_FLR_DRIVER_HARDWARE_SUBSYS_ID: DEBUG_FLR_PARAM_TYPE = 65555
+public val DEBUG_FLR_DRIVER_HARDWARE_SUBSYS_ID: DebugFlrParamType = 65555
 
-public val DEBUG_FLR_DRIVER_HARDWARE_SUBVENDOR_NAME: DEBUG_FLR_PARAM_TYPE = 65632
+public val DEBUG_FLR_DRIVER_HARDWARE_SUBVENDOR_NAME: DebugFlrParamType = 65632
 
-public val DEBUG_FLR_DRIVER_HARDWARE_VENDOR_ID: DEBUG_FLR_PARAM_TYPE = 65553
+public val DEBUG_FLR_DRIVER_HARDWARE_VENDOR_ID: DebugFlrParamType = 65553
 
-public val DEBUG_FLR_DRIVER_HARDWARE_VENDOR_NAME: DEBUG_FLR_PARAM_TYPE = 65631
+public val DEBUG_FLR_DRIVER_HARDWARE_VENDOR_NAME: DebugFlrParamType = 65631
 
-public val DEBUG_FLR_DRIVER_OBJECT: DEBUG_FLR_PARAM_TYPE = 2
+public val DEBUG_FLR_DRIVER_OBJECT: DebugFlrParamType = 2
 
-public val DEBUG_FLR_DRIVER_VERIFIER_IO_VIOLATION_TYPE: DEBUG_FLR_PARAM_TYPE = 4096
+public val DEBUG_FLR_DRIVER_VERIFIER_IO_VIOLATION_TYPE: DebugFlrParamType = 4096
 
-public val DEBUG_FLR_DRIVER_XML_DESCRIPTION: DEBUG_FLR_PARAM_TYPE = 65562
+public val DEBUG_FLR_DRIVER_XML_DESCRIPTION: DebugFlrParamType = 65562
 
-public val DEBUG_FLR_DRIVER_XML_MANUFACTURER: DEBUG_FLR_PARAM_TYPE = 65564
+public val DEBUG_FLR_DRIVER_XML_MANUFACTURER: DebugFlrParamType = 65564
 
-public val DEBUG_FLR_DRIVER_XML_PRODUCTNAME: DEBUG_FLR_PARAM_TYPE = 65563
+public val DEBUG_FLR_DRIVER_XML_PRODUCTNAME: DebugFlrParamType = 65563
 
-public val DEBUG_FLR_DRIVER_XML_VERSION: DEBUG_FLR_PARAM_TYPE = 65565
+public val DEBUG_FLR_DRIVER_XML_VERSION: DebugFlrParamType = 65565
 
-public val DEBUG_FLR_DRVPOWERSTATE_SUBCODE: DEBUG_FLR_PARAM_TYPE = 4101
+public val DEBUG_FLR_DRVPOWERSTATE_SUBCODE: DebugFlrParamType = 4101
 
-public val DEBUG_FLR_DUMPSTREAM_COMMENTA: DEBUG_FLR_PARAM_TYPE = -268435435
+public val DEBUG_FLR_DUMPSTREAM_COMMENTA: DebugFlrParamType = -268435435
 
-public val DEBUG_FLR_DUMPSTREAM_COMMENTW: DEBUG_FLR_PARAM_TYPE = -268435434
+public val DEBUG_FLR_DUMPSTREAM_COMMENTW: DebugFlrParamType = -268435434
 
-public val DEBUG_FLR_DUMP_CLASS: DEBUG_FLR_PARAM_TYPE = 1048627
+public val DEBUG_FLR_DUMP_CLASS: DebugFlrParamType = 1048627
 
-public val DEBUG_FLR_DUMP_FILE_ATTRIBUTES: DEBUG_FLR_PARAM_TYPE = 4113
+public val DEBUG_FLR_DUMP_FILE_ATTRIBUTES: DebugFlrParamType = 4113
 
-public val DEBUG_FLR_DUMP_FLAGS: DEBUG_FLR_PARAM_TYPE = 1048625
+public val DEBUG_FLR_DUMP_FLAGS: DebugFlrParamType = 1048625
 
-public val DEBUG_FLR_DUMP_QUALIFIER: DEBUG_FLR_PARAM_TYPE = 1048628
+public val DEBUG_FLR_DUMP_QUALIFIER: DebugFlrParamType = 1048628
 
-public val DEBUG_FLR_DUMP_TYPE: DEBUG_FLR_PARAM_TYPE = 1048602
+public val DEBUG_FLR_DUMP_TYPE: DebugFlrParamType = 1048602
 
-public val DEBUG_FLR_END_MESSAGE: DEBUG_FLR_PARAM_TYPE = 65612
+public val DEBUG_FLR_END_MESSAGE: DebugFlrParamType = 65612
 
-public val DEBUG_FLR_ERESOURCE_ADDRESS: DEBUG_FLR_PARAM_TYPE = 22
+public val DEBUG_FLR_ERESOURCE_ADDRESS: DebugFlrParamType = 22
 
-public val DEBUG_FLR_EVENT_CODE_DATA_MISMATCH: DEBUG_FLR_PARAM_TYPE = 12338
+public val DEBUG_FLR_EVENT_CODE_DATA_MISMATCH: DebugFlrParamType = 12338
 
-public val DEBUG_FLR_EXCEPTION_CODE: DEBUG_FLR_PARAM_TYPE = 4097
+public val DEBUG_FLR_EXCEPTION_CODE: DebugFlrParamType = 4097
 
-public val DEBUG_FLR_EXCEPTION_CODE_STR: DEBUG_FLR_PARAM_TYPE = 4098
+public val DEBUG_FLR_EXCEPTION_CODE_STR: DebugFlrParamType = 4098
 
-public val DEBUG_FLR_EXCEPTION_CODE_STR_deprecated: DEBUG_FLR_PARAM_TYPE = 1052672
+public val DEBUG_FLR_EXCEPTION_CODE_STR_DEPRECATED: DebugFlrParamType = 1052672
 
-public val DEBUG_FLR_EXCEPTION_CONTEXT_RECURSION: DEBUG_FLR_PARAM_TYPE = 12352
+public val DEBUG_FLR_EXCEPTION_CONTEXT_RECURSION: DebugFlrParamType = 12352
 
-public val DEBUG_FLR_EXCEPTION_DOESNOT_MATCH_CODE: DEBUG_FLR_PARAM_TYPE = 777
+public val DEBUG_FLR_EXCEPTION_DOESNOT_MATCH_CODE: DebugFlrParamType = 777
 
-public val DEBUG_FLR_EXCEPTION_MODULE_INFO: DEBUG_FLR_PARAM_TYPE = 2097190
+public val DEBUG_FLR_EXCEPTION_MODULE_INFO: DebugFlrParamType = 2097190
 
-public val DEBUG_FLR_EXCEPTION_PARAMETER1: DEBUG_FLR_PARAM_TYPE = 770
+public val DEBUG_FLR_EXCEPTION_PARAMETER1: DebugFlrParamType = 770
 
-public val DEBUG_FLR_EXCEPTION_PARAMETER2: DEBUG_FLR_PARAM_TYPE = 771
+public val DEBUG_FLR_EXCEPTION_PARAMETER2: DebugFlrParamType = 771
 
-public val DEBUG_FLR_EXCEPTION_PARAMETER3: DEBUG_FLR_PARAM_TYPE = 772
+public val DEBUG_FLR_EXCEPTION_PARAMETER3: DebugFlrParamType = 772
 
-public val DEBUG_FLR_EXCEPTION_PARAMETER4: DEBUG_FLR_PARAM_TYPE = 773
+public val DEBUG_FLR_EXCEPTION_PARAMETER4: DebugFlrParamType = 773
 
-public val DEBUG_FLR_EXCEPTION_RECORD: DEBUG_FLR_PARAM_TYPE = 774
+public val DEBUG_FLR_EXCEPTION_RECORD: DebugFlrParamType = 774
 
-public val DEBUG_FLR_EXCEPTION_STR: DEBUG_FLR_PARAM_TYPE = 776
+public val DEBUG_FLR_EXCEPTION_STR: DebugFlrParamType = 776
 
-public val DEBUG_FLR_EXECUTE_ADDRESS: DEBUG_FLR_PARAM_TYPE = 30
+public val DEBUG_FLR_EXECUTE_ADDRESS: DebugFlrParamType = 30
 
-public val DEBUG_FLR_FAILED_INSTRUCTION_ADDRESS: DEBUG_FLR_PARAM_TYPE = 9
+public val DEBUG_FLR_FAILED_INSTRUCTION_ADDRESS: DebugFlrParamType = 9
 
-public val DEBUG_FLR_FAILURE_ANALYSIS_SOURCE: DEBUG_FLR_PARAM_TYPE = 65591
+public val DEBUG_FLR_FAILURE_ANALYSIS_SOURCE: DebugFlrParamType = 65591
 
-public val DEBUG_FLR_FAILURE_BUCKET_ID: DEBUG_FLR_PARAM_TYPE = 65561
+public val DEBUG_FLR_FAILURE_BUCKET_ID: DebugFlrParamType = 65561
 
-public val DEBUG_FLR_FAILURE_DISPLAY_NAME: DEBUG_FLR_PARAM_TYPE = 2097239
+public val DEBUG_FLR_FAILURE_DISPLAY_NAME: DebugFlrParamType = 2097239
 
-public val DEBUG_FLR_FAILURE_EXCEPTION_CODE: DEBUG_FLR_PARAM_TYPE = 65607
+public val DEBUG_FLR_FAILURE_EXCEPTION_CODE: DebugFlrParamType = 65607
 
-public val DEBUG_FLR_FAILURE_FUNCTION_NAME: DEBUG_FLR_PARAM_TYPE = 65609
+public val DEBUG_FLR_FAILURE_FUNCTION_NAME: DebugFlrParamType = 65609
 
-public val DEBUG_FLR_FAILURE_ID_HASH: DEBUG_FLR_PARAM_TYPE = 65592
+public val DEBUG_FLR_FAILURE_ID_HASH: DebugFlrParamType = 65592
 
-public val DEBUG_FLR_FAILURE_ID_HASH_STRING: DEBUG_FLR_PARAM_TYPE = 65593
+public val DEBUG_FLR_FAILURE_ID_HASH_STRING: DebugFlrParamType = 65593
 
-public val DEBUG_FLR_FAILURE_ID_REPORT_LINK: DEBUG_FLR_PARAM_TYPE = 65594
+public val DEBUG_FLR_FAILURE_ID_REPORT_LINK: DebugFlrParamType = 65594
 
-public val DEBUG_FLR_FAILURE_IMAGE_NAME: DEBUG_FLR_PARAM_TYPE = 65608
+public val DEBUG_FLR_FAILURE_IMAGE_NAME: DebugFlrParamType = 65608
 
-public val DEBUG_FLR_FAILURE_LIST: DEBUG_FLR_PARAM_TYPE = 2097238
+public val DEBUG_FLR_FAILURE_LIST: DebugFlrParamType = 2097238
 
-public val DEBUG_FLR_FAILURE_MODULE_NAME: DEBUG_FLR_PARAM_TYPE = 65629
+public val DEBUG_FLR_FAILURE_MODULE_NAME: DebugFlrParamType = 65629
 
-public val DEBUG_FLR_FAILURE_PROBLEM_CLASS: DEBUG_FLR_PARAM_TYPE = 65606
+public val DEBUG_FLR_FAILURE_PROBLEM_CLASS: DebugFlrParamType = 65606
 
-public val DEBUG_FLR_FAILURE_SYMBOL_NAME: DEBUG_FLR_PARAM_TYPE = 65610
+public val DEBUG_FLR_FAILURE_SYMBOL_NAME: DebugFlrParamType = 65610
 
-public val DEBUG_FLR_FAULTING_INSTR_CODE: DEBUG_FLR_PARAM_TYPE = 12297
+public val DEBUG_FLR_FAULTING_INSTR_CODE: DebugFlrParamType = 12297
 
-public val DEBUG_FLR_FAULTING_IP: DEBUG_FLR_PARAM_TYPE = -2147483648
+public val DEBUG_FLR_FAULTING_IP: DebugFlrParamType = -2147483648.toInt()
 
-public val DEBUG_FLR_FAULTING_LOCAL_VARIABLE_NAME: DEBUG_FLR_PARAM_TYPE = 1048623
+public val DEBUG_FLR_FAULTING_LOCAL_VARIABLE_NAME: DebugFlrParamType = 1048623
 
-public val DEBUG_FLR_FAULTING_MODULE: DEBUG_FLR_PARAM_TYPE = -2147483647
+public val DEBUG_FLR_FAULTING_MODULE: DebugFlrParamType = -2147483647
 
-public val DEBUG_FLR_FAULTING_SERVICE_NAME: DEBUG_FLR_PARAM_TYPE = 65570
+public val DEBUG_FLR_FAULTING_SERVICE_NAME: DebugFlrParamType = 65570
 
-public val DEBUG_FLR_FAULTING_SOURCE_CODE: DEBUG_FLR_PARAM_TYPE = 65569
+public val DEBUG_FLR_FAULTING_SOURCE_CODE: DebugFlrParamType = 65569
 
-public val DEBUG_FLR_FAULTING_SOURCE_COMMIT_ID: DEBUG_FLR_PARAM_TYPE = 65634
+public val DEBUG_FLR_FAULTING_SOURCE_COMMIT_ID: DebugFlrParamType = 65634
 
-public val DEBUG_FLR_FAULTING_SOURCE_CONTROL_TYPE: DEBUG_FLR_PARAM_TYPE = 65635
+public val DEBUG_FLR_FAULTING_SOURCE_CONTROL_TYPE: DebugFlrParamType = 65635
 
-public val DEBUG_FLR_FAULTING_SOURCE_FILE: DEBUG_FLR_PARAM_TYPE = 65586
+public val DEBUG_FLR_FAULTING_SOURCE_FILE: DebugFlrParamType = 65586
 
-public val DEBUG_FLR_FAULTING_SOURCE_LINE: DEBUG_FLR_PARAM_TYPE = 65585
+public val DEBUG_FLR_FAULTING_SOURCE_LINE: DebugFlrParamType = 65585
 
-public val DEBUG_FLR_FAULTING_SOURCE_LINE_NUMBER: DEBUG_FLR_PARAM_TYPE = 65587
+public val DEBUG_FLR_FAULTING_SOURCE_LINE_NUMBER: DebugFlrParamType = 65587
 
-public val DEBUG_FLR_FAULTING_SOURCE_PROJECT: DEBUG_FLR_PARAM_TYPE = 65636
+public val DEBUG_FLR_FAULTING_SOURCE_PROJECT: DebugFlrParamType = 65636
 
-public val DEBUG_FLR_FAULTING_SOURCE_REPO_ID: DEBUG_FLR_PARAM_TYPE = 65637
+public val DEBUG_FLR_FAULTING_SOURCE_REPO_ID: DebugFlrParamType = 65637
 
-public val DEBUG_FLR_FAULTING_SOURCE_REPO_URL: DEBUG_FLR_PARAM_TYPE = 65638
+public val DEBUG_FLR_FAULTING_SOURCE_REPO_URL: DebugFlrParamType = 65638
 
-public val DEBUG_FLR_FAULTING_SOURCE_SRV_COMMAND: DEBUG_FLR_PARAM_TYPE = 65639
+public val DEBUG_FLR_FAULTING_SOURCE_SRV_COMMAND: DebugFlrParamType = 65639
 
-public val DEBUG_FLR_FAULTING_THREAD: DEBUG_FLR_PARAM_TYPE = -1073741824
+public val DEBUG_FLR_FAULTING_THREAD: DebugFlrParamType = -1073741824
 
-public val DEBUG_FLR_FAULT_THREAD_SHA1_HASH_M: DEBUG_FLR_PARAM_TYPE = 1048597
+public val DEBUG_FLR_FAULT_THREAD_SHA1_HASH_M: DebugFlrParamType = 1048597
 
-public val DEBUG_FLR_FAULT_THREAD_SHA1_HASH_MF: DEBUG_FLR_PARAM_TYPE = 1048595
+public val DEBUG_FLR_FAULT_THREAD_SHA1_HASH_MF: DebugFlrParamType = 1048595
 
-public val DEBUG_FLR_FAULT_THREAD_SHA1_HASH_MFO: DEBUG_FLR_PARAM_TYPE = 1048596
+public val DEBUG_FLR_FAULT_THREAD_SHA1_HASH_MFO: DebugFlrParamType = 1048596
 
-public val DEBUG_FLR_FA_ADHOC_ANALYSIS_ITEMS: DEBUG_FLR_PARAM_TYPE = 2097230
+public val DEBUG_FLR_FA_ADHOC_ANALYSIS_ITEMS: DebugFlrParamType = 2097230
 
-public val DEBUG_FLR_FA_PERF_DATA: DEBUG_FLR_PARAM_TYPE = 2097214
+public val DEBUG_FLR_FA_PERF_DATA: DebugFlrParamType = 2097214
 
-public val DEBUG_FLR_FA_PERF_ELAPSED_MS: DEBUG_FLR_PARAM_TYPE = 2097218
+public val DEBUG_FLR_FA_PERF_ELAPSED_MS: DebugFlrParamType = 2097218
 
-public val DEBUG_FLR_FA_PERF_ITEM: DEBUG_FLR_PARAM_TYPE = 2097215
+public val DEBUG_FLR_FA_PERF_ITEM: DebugFlrParamType = 2097215
 
-public val DEBUG_FLR_FA_PERF_ITEM_NAME: DEBUG_FLR_PARAM_TYPE = 2097216
+public val DEBUG_FLR_FA_PERF_ITEM_NAME: DebugFlrParamType = 2097216
 
-public val DEBUG_FLR_FA_PERF_ITERATIONS: DEBUG_FLR_PARAM_TYPE = 2097217
+public val DEBUG_FLR_FA_PERF_ITERATIONS: DebugFlrParamType = 2097217
 
-public val DEBUG_FLR_FEATURE_PATH: DEBUG_FLR_PARAM_TYPE = 65613
+public val DEBUG_FLR_FEATURE_PATH: DebugFlrParamType = 65613
 
-public val DEBUG_FLR_FILESYSTEMS_NTFS: DEBUG_FLR_PARAM_TYPE = 30208
+public val DEBUG_FLR_FILESYSTEMS_NTFS: DebugFlrParamType = 30208
 
-public val DEBUG_FLR_FILESYSTEMS_NTFS_BLACKBOX: DEBUG_FLR_PARAM_TYPE = 30448
+public val DEBUG_FLR_FILESYSTEMS_NTFS_BLACKBOX: DebugFlrParamType = 30448
 
-public val DEBUG_FLR_FILESYSTEMS_REFS: DEBUG_FLR_PARAM_TYPE = 30720
+public val DEBUG_FLR_FILESYSTEMS_REFS: DebugFlrParamType = 30720
 
-public val DEBUG_FLR_FILESYSTEMS_REFS_BLACKBOX: DEBUG_FLR_PARAM_TYPE = 30960
+public val DEBUG_FLR_FILESYSTEMS_REFS_BLACKBOX: DebugFlrParamType = 30960
 
-public val DEBUG_FLR_FILE_ID: DEBUG_FLR_PARAM_TYPE = 1280
+public val DEBUG_FLR_FILE_ID: DebugFlrParamType = 1280
 
-public val DEBUG_FLR_FILE_IN_CAB: DEBUG_FLR_PARAM_TYPE = 65571
+public val DEBUG_FLR_FILE_IN_CAB: DebugFlrParamType = 65571
 
-public val DEBUG_FLR_FILE_LINE: DEBUG_FLR_PARAM_TYPE = 1281
+public val DEBUG_FLR_FILE_LINE: DebugFlrParamType = 1281
 
-public val DEBUG_FLR_FIXED_IN_OSVERSION: DEBUG_FLR_PARAM_TYPE = 65543
+public val DEBUG_FLR_FIXED_IN_OSVERSION: DebugFlrParamType = 65543
 
-public val DEBUG_FLR_FOLLOWUP_BEFORE_RETRACER: DEBUG_FLR_PARAM_TYPE = 65611
+public val DEBUG_FLR_FOLLOWUP_BEFORE_RETRACER: DebugFlrParamType = 65611
 
-public val DEBUG_FLR_FOLLOWUP_BUCKET_ID: DEBUG_FLR_PARAM_TYPE = -2147483641
+public val DEBUG_FLR_FOLLOWUP_BUCKET_ID: DebugFlrParamType = -2147483641
 
-public val DEBUG_FLR_FOLLOWUP_CONTEXT: DEBUG_FLR_PARAM_TYPE = 2097153
+public val DEBUG_FLR_FOLLOWUP_CONTEXT: DebugFlrParamType = 2097153
 
-public val DEBUG_FLR_FOLLOWUP_DRIVER_ONLY: DEBUG_FLR_PARAM_TYPE = 8196
+public val DEBUG_FLR_FOLLOWUP_DRIVER_ONLY: DebugFlrParamType = 8196
 
-public val DEBUG_FLR_FOLLOWUP_IP: DEBUG_FLR_PARAM_TYPE = -2147483645
+public val DEBUG_FLR_FOLLOWUP_IP: DebugFlrParamType = -2147483645
 
-public val DEBUG_FLR_FOLLOWUP_NAME: DEBUG_FLR_PARAM_TYPE = 65539
+public val DEBUG_FLR_FOLLOWUP_NAME: DebugFlrParamType = 65539
 
-public val DEBUG_FLR_FRAME_ONE_INVALID: DEBUG_FLR_PARAM_TYPE = -2147483644
+public val DEBUG_FLR_FRAME_ONE_INVALID: DebugFlrParamType = -2147483644
 
-public val DEBUG_FLR_FRAME_SOURCE_FILE_NAME: DEBUG_FLR_PARAM_TYPE = 2097240
+public val DEBUG_FLR_FRAME_SOURCE_FILE_NAME: DebugFlrParamType = 2097240
 
-public val DEBUG_FLR_FRAME_SOURCE_FILE_PATH: DEBUG_FLR_PARAM_TYPE = 2097241
+public val DEBUG_FLR_FRAME_SOURCE_FILE_PATH: DebugFlrParamType = 2097241
 
-public val DEBUG_FLR_FRAME_SOURCE_LINE_NUMBER: DEBUG_FLR_PARAM_TYPE = 2097242
+public val DEBUG_FLR_FRAME_SOURCE_LINE_NUMBER: DebugFlrParamType = 2097242
 
-public val DEBUG_FLR_FREED_POOL_TAG: DEBUG_FLR_PARAM_TYPE = 1028
+public val DEBUG_FLR_FREED_POOL_TAG: DebugFlrParamType = 1028
 
-public val DEBUG_FLR_GSFAILURE_ANALYSIS_TEXT: DEBUG_FLR_PARAM_TYPE = 12323
+public val DEBUG_FLR_GSFAILURE_ANALYSIS_TEXT: DebugFlrParamType = 12323
 
-public val DEBUG_FLR_GSFAILURE_COOKIES_MATCH_EXH: DEBUG_FLR_PARAM_TYPE = 12356
+public val DEBUG_FLR_GSFAILURE_COOKIES_MATCH_EXH: DebugFlrParamType = 12356
 
-public val DEBUG_FLR_GSFAILURE_CORRUPTED_COOKIE: DEBUG_FLR_PARAM_TYPE = 12314
+public val DEBUG_FLR_GSFAILURE_CORRUPTED_COOKIE: DebugFlrParamType = 12314
 
-public val DEBUG_FLR_GSFAILURE_CORRUPTED_EBP: DEBUG_FLR_PARAM_TYPE = 12315
+public val DEBUG_FLR_GSFAILURE_CORRUPTED_EBP: DebugFlrParamType = 12315
 
-public val DEBUG_FLR_GSFAILURE_CORRUPTED_EBPESP: DEBUG_FLR_PARAM_TYPE = 12318
+public val DEBUG_FLR_GSFAILURE_CORRUPTED_EBPESP: DebugFlrParamType = 12318
 
-public val DEBUG_FLR_GSFAILURE_FALSE_POSITIVE: DEBUG_FLR_PARAM_TYPE = 8236
+public val DEBUG_FLR_GSFAILURE_FALSE_POSITIVE: DebugFlrParamType = 8236
 
-public val DEBUG_FLR_GSFAILURE_FRAME_COOKIE: DEBUG_FLR_PARAM_TYPE = 12312
+public val DEBUG_FLR_GSFAILURE_FRAME_COOKIE: DebugFlrParamType = 12312
 
-public val DEBUG_FLR_GSFAILURE_FRAME_COOKIE_COMPLEMENT: DEBUG_FLR_PARAM_TYPE = 12313
+public val DEBUG_FLR_GSFAILURE_FRAME_COOKIE_COMPLEMENT: DebugFlrParamType = 12313
 
-public val DEBUG_FLR_GSFAILURE_FUNCTION: DEBUG_FLR_PARAM_TYPE = 12310
+public val DEBUG_FLR_GSFAILURE_FUNCTION: DebugFlrParamType = 12310
 
-public val DEBUG_FLR_GSFAILURE_MANAGED: DEBUG_FLR_PARAM_TYPE = 12357
+public val DEBUG_FLR_GSFAILURE_MANAGED: DebugFlrParamType = 12357
 
-public val DEBUG_FLR_GSFAILURE_MANAGED_FRAMEID: DEBUG_FLR_PARAM_TYPE = 12360
+public val DEBUG_FLR_GSFAILURE_MANAGED_FRAMEID: DebugFlrParamType = 12360
 
-public val DEBUG_FLR_GSFAILURE_MANAGED_THREADID: DEBUG_FLR_PARAM_TYPE = 12359
+public val DEBUG_FLR_GSFAILURE_MANAGED_THREADID: DebugFlrParamType = 12359
 
-public val DEBUG_FLR_GSFAILURE_MEMORY_READ_ERROR: DEBUG_FLR_PARAM_TYPE = 12320
+public val DEBUG_FLR_GSFAILURE_MEMORY_READ_ERROR: DebugFlrParamType = 12320
 
-public val DEBUG_FLR_GSFAILURE_MISSING_ESTABLISHER_FRAME: DEBUG_FLR_PARAM_TYPE = 12355
+public val DEBUG_FLR_GSFAILURE_MISSING_ESTABLISHER_FRAME: DebugFlrParamType = 12355
 
-public val DEBUG_FLR_GSFAILURE_MODULE_COOKIE: DEBUG_FLR_PARAM_TYPE = 12311
+public val DEBUG_FLR_GSFAILURE_MODULE_COOKIE: DebugFlrParamType = 12311
 
-public val DEBUG_FLR_GSFAILURE_NOT_UP2DATE: DEBUG_FLR_PARAM_TYPE = 12326
+public val DEBUG_FLR_GSFAILURE_NOT_UP2DATE: DebugFlrParamType = 12326
 
-public val DEBUG_FLR_GSFAILURE_OFF_BY_ONE_OVERRUN: DEBUG_FLR_PARAM_TYPE = 12324
+public val DEBUG_FLR_GSFAILURE_OFF_BY_ONE_OVERRUN: DebugFlrParamType = 12324
 
-public val DEBUG_FLR_GSFAILURE_OVERRUN_LOCAL: DEBUG_FLR_PARAM_TYPE = 12316
+public val DEBUG_FLR_GSFAILURE_OVERRUN_LOCAL: DebugFlrParamType = 12316
 
-public val DEBUG_FLR_GSFAILURE_OVERRUN_LOCAL_NAME: DEBUG_FLR_PARAM_TYPE = 12317
+public val DEBUG_FLR_GSFAILURE_OVERRUN_LOCAL_NAME: DebugFlrParamType = 12317
 
-public val DEBUG_FLR_GSFAILURE_POSITIVELY_CORRUPTED_EBPESP: DEBUG_FLR_PARAM_TYPE = 12319
+public val DEBUG_FLR_GSFAILURE_POSITIVELY_CORRUPTED_EBPESP: DebugFlrParamType = 12319
 
-public val DEBUG_FLR_GSFAILURE_POSITIVE_BUFFER_OVERFLOW: DEBUG_FLR_PARAM_TYPE = 12322
+public val DEBUG_FLR_GSFAILURE_POSITIVE_BUFFER_OVERFLOW: DebugFlrParamType = 12322
 
-public val DEBUG_FLR_GSFAILURE_PROBABLY_NOT_USING_GS: DEBUG_FLR_PARAM_TYPE = 12321
+public val DEBUG_FLR_GSFAILURE_PROBABLY_NOT_USING_GS: DebugFlrParamType = 12321
 
-public val DEBUG_FLR_GSFAILURE_RA_SMASHED: DEBUG_FLR_PARAM_TYPE = 12325
+public val DEBUG_FLR_GSFAILURE_RA_SMASHED: DebugFlrParamType = 12325
 
-public val DEBUG_FLR_GSFAILURE_UP2DATE_UNKNOWN: DEBUG_FLR_PARAM_TYPE = 12327
+public val DEBUG_FLR_GSFAILURE_UP2DATE_UNKNOWN: DebugFlrParamType = 12327
 
-public val DEBUG_FLR_HANDLE_VALUE: DEBUG_FLR_PARAM_TYPE = 24
+public val DEBUG_FLR_HANDLE_VALUE: DebugFlrParamType = 24
 
-public val DEBUG_FLR_HANG: DEBUG_FLR_PARAM_TYPE = 8209
+public val DEBUG_FLR_HANG: DebugFlrParamType = 8209
 
-public val DEBUG_FLR_HANG_DATA_NEEDED: DEBUG_FLR_PARAM_TYPE = 1048584
+public val DEBUG_FLR_HANG_DATA_NEEDED: DebugFlrParamType = 1048584
 
-public val DEBUG_FLR_HANG_REPORT_THREAD_IS_IDLE: DEBUG_FLR_PARAM_TYPE = 1048594
+public val DEBUG_FLR_HANG_REPORT_THREAD_IS_IDLE: DebugFlrParamType = 1048594
 
-public val DEBUG_FLR_HARDWARE_BUCKET_TAG: DEBUG_FLR_PARAM_TYPE = 65581
+public val DEBUG_FLR_HARDWARE_BUCKET_TAG: DebugFlrParamType = 65581
 
-public val DEBUG_FLR_HARDWARE_ERROR: DEBUG_FLR_PARAM_TYPE = 8214
+public val DEBUG_FLR_HARDWARE_ERROR: DebugFlrParamType = 8214
 
-public val DEBUG_FLR_HIGH_NONPAGED_POOL_USAGE: DEBUG_FLR_PARAM_TYPE = 8255
+public val DEBUG_FLR_HIGH_NONPAGED_POOL_USAGE: DebugFlrParamType = 8255
 
-public val DEBUG_FLR_HIGH_PAGED_POOL_USAGE: DEBUG_FLR_PARAM_TYPE = 8256
+public val DEBUG_FLR_HIGH_PAGED_POOL_USAGE: DebugFlrParamType = 8256
 
-public val DEBUG_FLR_HIGH_PROCESS_COMMIT: DEBUG_FLR_PARAM_TYPE = 8253
+public val DEBUG_FLR_HIGH_PROCESS_COMMIT: DebugFlrParamType = 8253
 
-public val DEBUG_FLR_HIGH_SERVICE_COMMIT: DEBUG_FLR_PARAM_TYPE = 8254
+public val DEBUG_FLR_HIGH_SERVICE_COMMIT: DebugFlrParamType = 8254
 
-public val DEBUG_FLR_HIGH_SHARED_COMMIT_USAGE: DEBUG_FLR_PARAM_TYPE = 8257
+public val DEBUG_FLR_HIGH_SHARED_COMMIT_USAGE: DebugFlrParamType = 8257
 
-public val DEBUG_FLR_HOLDINFO: DEBUG_FLR_PARAM_TYPE = 65595
+public val DEBUG_FLR_HOLDINFO: DebugFlrParamType = 65595
 
-public val DEBUG_FLR_HOLDINFO_ACTIVE_HOLD_COUNT: DEBUG_FLR_PARAM_TYPE = 65596
+public val DEBUG_FLR_HOLDINFO_ACTIVE_HOLD_COUNT: DebugFlrParamType = 65596
 
-public val DEBUG_FLR_HOLDINFO_ALWAYS_HOLD: DEBUG_FLR_PARAM_TYPE = 65600
+public val DEBUG_FLR_HOLDINFO_ALWAYS_HOLD: DebugFlrParamType = 65600
 
-public val DEBUG_FLR_HOLDINFO_ALWAYS_IGNORE: DEBUG_FLR_PARAM_TYPE = 65599
+public val DEBUG_FLR_HOLDINFO_ALWAYS_IGNORE: DebugFlrParamType = 65599
 
-public val DEBUG_FLR_HOLDINFO_HISTORIC_HOLD_COUNT: DEBUG_FLR_PARAM_TYPE = 65598
+public val DEBUG_FLR_HOLDINFO_HISTORIC_HOLD_COUNT: DebugFlrParamType = 65598
 
-public val DEBUG_FLR_HOLDINFO_LAST_SEEN_HOLD_DATE: DEBUG_FLR_PARAM_TYPE = 65604
+public val DEBUG_FLR_HOLDINFO_LAST_SEEN_HOLD_DATE: DebugFlrParamType = 65604
 
-public val DEBUG_FLR_HOLDINFO_MANUAL_HOLD: DEBUG_FLR_PARAM_TYPE = 65602
+public val DEBUG_FLR_HOLDINFO_MANUAL_HOLD: DebugFlrParamType = 65602
 
-public val DEBUG_FLR_HOLDINFO_MAX_HOLD_LIMIT: DEBUG_FLR_PARAM_TYPE = 65601
+public val DEBUG_FLR_HOLDINFO_MAX_HOLD_LIMIT: DebugFlrParamType = 65601
 
-public val DEBUG_FLR_HOLDINFO_NOTIFICATION_ALIASES: DEBUG_FLR_PARAM_TYPE = 65603
+public val DEBUG_FLR_HOLDINFO_NOTIFICATION_ALIASES: DebugFlrParamType = 65603
 
-public val DEBUG_FLR_HOLDINFO_RECOMMEND_HOLD: DEBUG_FLR_PARAM_TYPE = 65605
+public val DEBUG_FLR_HOLDINFO_RECOMMEND_HOLD: DebugFlrParamType = 65605
 
-public val DEBUG_FLR_HOLDINFO_TENET_SOCRE: DEBUG_FLR_PARAM_TYPE = 65597
+public val DEBUG_FLR_HOLDINFO_TENET_SOCRE: DebugFlrParamType = 65597
 
-public val DEBUG_FLR_IGNORE_BUCKET_ID_OFFSET: DEBUG_FLR_PARAM_TYPE = 8238
+public val DEBUG_FLR_IGNORE_BUCKET_ID_OFFSET: DebugFlrParamType = 8238
 
-public val DEBUG_FLR_IGNORE_LARGE_MODULE_CORRUPTION: DEBUG_FLR_PARAM_TYPE = 8237
+public val DEBUG_FLR_IGNORE_LARGE_MODULE_CORRUPTION: DebugFlrParamType = 8237
 
-public val DEBUG_FLR_IGNORE_MODULE_HARDWARE_ID: DEBUG_FLR_PARAM_TYPE = 8240
+public val DEBUG_FLR_IGNORE_MODULE_HARDWARE_ID: DebugFlrParamType = 8240
 
-public val DEBUG_FLR_IMAGE_CLASS: DEBUG_FLR_PARAM_TYPE = 65579
+public val DEBUG_FLR_IMAGE_CLASS: DebugFlrParamType = 65579
 
-public val DEBUG_FLR_IMAGE_NAME: DEBUG_FLR_PARAM_TYPE = 65537
+public val DEBUG_FLR_IMAGE_NAME: DebugFlrParamType = 65537
 
-public val DEBUG_FLR_IMAGE_TIMESTAMP: DEBUG_FLR_PARAM_TYPE = -2147483646
+public val DEBUG_FLR_IMAGE_TIMESTAMP: DebugFlrParamType = -2147483646
 
-public val DEBUG_FLR_IMAGE_VERSION: DEBUG_FLR_PARAM_TYPE = -2147483642
+public val DEBUG_FLR_IMAGE_VERSION: DebugFlrParamType = -2147483642
 
-public val DEBUG_FLR_INSTR_POINTER_CLIFAULT: DEBUG_FLR_PARAM_TYPE = 12306
+public val DEBUG_FLR_INSTR_POINTER_CLIFAULT: DebugFlrParamType = 12306
 
-public val DEBUG_FLR_INSTR_POINTER_IN_FREE_BLOCK: DEBUG_FLR_PARAM_TYPE = 12343
+public val DEBUG_FLR_INSTR_POINTER_IN_FREE_BLOCK: DebugFlrParamType = 12343
 
-public val DEBUG_FLR_INSTR_POINTER_IN_MODULE_NOT_IN_LIST: DEBUG_FLR_PARAM_TYPE = 12346
+public val DEBUG_FLR_INSTR_POINTER_IN_MODULE_NOT_IN_LIST: DebugFlrParamType = 12346
 
-public val DEBUG_FLR_INSTR_POINTER_IN_PAGED_CODE: DEBUG_FLR_PARAM_TYPE = 12370
+public val DEBUG_FLR_INSTR_POINTER_IN_PAGED_CODE: DebugFlrParamType = 12370
 
-public val DEBUG_FLR_INSTR_POINTER_IN_RESERVED_BLOCK: DEBUG_FLR_PARAM_TYPE = 12344
+public val DEBUG_FLR_INSTR_POINTER_IN_RESERVED_BLOCK: DebugFlrParamType = 12344
 
-public val DEBUG_FLR_INSTR_POINTER_IN_UNLOADED_MODULE: DEBUG_FLR_PARAM_TYPE = 12340
+public val DEBUG_FLR_INSTR_POINTER_IN_UNLOADED_MODULE: DebugFlrParamType = 12340
 
-public val DEBUG_FLR_INSTR_POINTER_IN_VM_MAPPED_MODULE: DEBUG_FLR_PARAM_TYPE = 12345
+public val DEBUG_FLR_INSTR_POINTER_IN_VM_MAPPED_MODULE: DebugFlrParamType = 12345
 
-public val DEBUG_FLR_INSTR_POINTER_MISALIGNED: DEBUG_FLR_PARAM_TYPE = 12305
+public val DEBUG_FLR_INSTR_POINTER_MISALIGNED: DebugFlrParamType = 12305
 
-public val DEBUG_FLR_INSTR_POINTER_NOT_IN_STREAM: DEBUG_FLR_PARAM_TYPE = 12347
+public val DEBUG_FLR_INSTR_POINTER_NOT_IN_STREAM: DebugFlrParamType = 12347
 
-public val DEBUG_FLR_INSTR_POINTER_ON_HEAP: DEBUG_FLR_PARAM_TYPE = 12337
+public val DEBUG_FLR_INSTR_POINTER_ON_HEAP: DebugFlrParamType = 12337
 
-public val DEBUG_FLR_INSTR_POINTER_ON_STACK: DEBUG_FLR_PARAM_TYPE = 12336
+public val DEBUG_FLR_INSTR_POINTER_ON_STACK: DebugFlrParamType = 12336
 
-public val DEBUG_FLR_INSTR_SESSION_POOL_TAG: DEBUG_FLR_PARAM_TYPE = 1030
+public val DEBUG_FLR_INSTR_SESSION_POOL_TAG: DebugFlrParamType = 1030
 
-public val DEBUG_FLR_INTEL_CPU_BIOS_UPGRADE_NEEDED: DEBUG_FLR_PARAM_TYPE = 8229
+public val DEBUG_FLR_INTEL_CPU_BIOS_UPGRADE_NEEDED: DebugFlrParamType = 8229
 
-public val DEBUG_FLR_INTERNAL_BUCKET_CONTINUABLE: DEBUG_FLR_PARAM_TYPE = 16389
+public val DEBUG_FLR_INTERNAL_BUCKET_CONTINUABLE: DebugFlrParamType = 16389
 
-public val DEBUG_FLR_INTERNAL_BUCKET_HITCOUNT: DEBUG_FLR_PARAM_TYPE = 16387
+public val DEBUG_FLR_INTERNAL_BUCKET_HITCOUNT: DebugFlrParamType = 16387
 
-public val DEBUG_FLR_INTERNAL_BUCKET_STATUS_TEXT: DEBUG_FLR_PARAM_TYPE = 16390
+public val DEBUG_FLR_INTERNAL_BUCKET_STATUS_TEXT: DebugFlrParamType = 16390
 
-public val DEBUG_FLR_INTERNAL_BUCKET_URL: DEBUG_FLR_PARAM_TYPE = 16385
+public val DEBUG_FLR_INTERNAL_BUCKET_URL: DebugFlrParamType = 16385
 
-public val DEBUG_FLR_INTERNAL_RAID_BUG: DEBUG_FLR_PARAM_TYPE = 16384
+public val DEBUG_FLR_INTERNAL_RAID_BUG: DebugFlrParamType = 16384
 
-public val DEBUG_FLR_INTERNAL_RAID_BUG_DATABASE_STRING: DEBUG_FLR_PARAM_TYPE = 16388
+public val DEBUG_FLR_INTERNAL_RAID_BUG_DATABASE_STRING: DebugFlrParamType = 16388
 
-public val DEBUG_FLR_INTERNAL_RESPONSE: DEBUG_FLR_PARAM_TYPE = 65550
+public val DEBUG_FLR_INTERNAL_RESPONSE: DebugFlrParamType = 65550
 
-public val DEBUG_FLR_INTERNAL_SOLUTION_TEXT: DEBUG_FLR_PARAM_TYPE = 16386
+public val DEBUG_FLR_INTERNAL_SOLUTION_TEXT: DebugFlrParamType = 16386
 
-public val DEBUG_FLR_INVALID: DEBUG_FLR_PARAM_TYPE = 0
+public val DEBUG_FLR_INVALID: DebugFlrParamType = 0
 
-public val DEBUG_FLR_INVALID_DPC_FOUND: DEBUG_FLR_PARAM_TYPE = 7
+public val DEBUG_FLR_INVALID_DPC_FOUND: DebugFlrParamType = 7
 
-public val DEBUG_FLR_INVALID_HEAP_ADDRESS: DEBUG_FLR_PARAM_TYPE = 18
+public val DEBUG_FLR_INVALID_HEAP_ADDRESS: DebugFlrParamType = 18
 
-public val DEBUG_FLR_INVALID_KERNEL_CONTEXT: DEBUG_FLR_PARAM_TYPE = 8205
+public val DEBUG_FLR_INVALID_KERNEL_CONTEXT: DebugFlrParamType = 8205
 
-public val DEBUG_FLR_INVALID_OPCODE: DEBUG_FLR_PARAM_TYPE = 8218
+public val DEBUG_FLR_INVALID_OPCODE: DebugFlrParamType = 8218
 
-public val DEBUG_FLR_INVALID_PFN: DEBUG_FLR_PARAM_TYPE = 4
+public val DEBUG_FLR_INVALID_PFN: DebugFlrParamType = 4
 
-public val DEBUG_FLR_INVALID_USEREVENT: DEBUG_FLR_PARAM_TYPE = 261
+public val DEBUG_FLR_INVALID_USEREVENT: DebugFlrParamType = 261
 
-public val DEBUG_FLR_INVALID_USER_CONTEXT: DEBUG_FLR_PARAM_TYPE = 8231
+public val DEBUG_FLR_INVALID_USER_CONTEXT: DebugFlrParamType = 8231
 
-public val DEBUG_FLR_IOCONTROL_CODE: DEBUG_FLR_PARAM_TYPE = 4099
+public val DEBUG_FLR_IOCONTROL_CODE: DebugFlrParamType = 4099
 
-public val DEBUG_FLR_IOSB_ADDRESS: DEBUG_FLR_PARAM_TYPE = 260
+public val DEBUG_FLR_IOSB_ADDRESS: DebugFlrParamType = 260
 
-public val DEBUG_FLR_IO_ERROR_CODE: DEBUG_FLR_PARAM_TYPE = 775
+public val DEBUG_FLR_IO_ERROR_CODE: DebugFlrParamType = 775
 
-public val DEBUG_FLR_IRP_ADDRESS: DEBUG_FLR_PARAM_TYPE = 256
+public val DEBUG_FLR_IRP_ADDRESS: DebugFlrParamType = 256
 
-public val DEBUG_FLR_IRP_CANCEL_ROUTINE: DEBUG_FLR_PARAM_TYPE = 259
+public val DEBUG_FLR_IRP_CANCEL_ROUTINE: DebugFlrParamType = 259
 
-public val DEBUG_FLR_IRP_MAJOR_FN: DEBUG_FLR_PARAM_TYPE = 257
+public val DEBUG_FLR_IRP_MAJOR_FN: DebugFlrParamType = 257
 
-public val DEBUG_FLR_IRP_MINOR_FN: DEBUG_FLR_PARAM_TYPE = 258
+public val DEBUG_FLR_IRP_MINOR_FN: DebugFlrParamType = 258
 
-public val DEBUG_FLR_KERNEL: DEBUG_FAILURE_TYPE = 1
+public val DEBUG_FLR_KERNEL: DebugFailureType = 1
 
-public val DEBUG_FLR_KERNEL_LOG_PROCESS_NAME: DEBUG_FLR_PARAM_TYPE = 65582
+public val DEBUG_FLR_KERNEL_LOG_PROCESS_NAME: DebugFlrParamType = 65582
 
-public val DEBUG_FLR_KERNEL_LOG_STATUS: DEBUG_FLR_PARAM_TYPE = 65583
+public val DEBUG_FLR_KERNEL_LOG_STATUS: DebugFlrParamType = 65583
 
-public val DEBUG_FLR_KERNEL_VERIFIER_ENABLED: DEBUG_FLR_PARAM_TYPE = 8234
+public val DEBUG_FLR_KERNEL_VERIFIER_ENABLED: DebugFlrParamType = 8234
 
-public val DEBUG_FLR_KEYVALUE_ANALYSIS: DEBUG_FLR_PARAM_TYPE = 1122304
+public val DEBUG_FLR_KEYVALUE_ANALYSIS: DebugFlrParamType = 1122304
 
-public val DEBUG_FLR_KEY_VALUES_STRING: DEBUG_FLR_PARAM_TYPE = 1122560
+public val DEBUG_FLR_KEY_VALUES_STRING: DebugFlrParamType = 1122560
 
-public val DEBUG_FLR_KEY_VALUES_VARIANT: DEBUG_FLR_PARAM_TYPE = 1122816
+public val DEBUG_FLR_KEY_VALUES_VARIANT: DebugFlrParamType = 1122816
 
-public val DEBUG_FLR_KM_MODULE_LIST: DEBUG_FLR_PARAM_TYPE = 1048629
+public val DEBUG_FLR_KM_MODULE_LIST: DebugFlrParamType = 1048629
 
-public val DEBUG_FLR_LARGE_TICK_INCREMENT: DEBUG_FLR_PARAM_TYPE = 12369
+public val DEBUG_FLR_LARGE_TICK_INCREMENT: DebugFlrParamType = 12369
 
-public val DEBUG_FLR_LAST_CONTROL_TRANSFER: DEBUG_FLR_PARAM_TYPE = 10
+public val DEBUG_FLR_LAST_CONTROL_TRANSFER: DebugFlrParamType = 10
 
-public val DEBUG_FLR_LCIE_ISO_AVAILABLE: DEBUG_FLR_PARAM_TYPE = 1048618
+public val DEBUG_FLR_LCIE_ISO_AVAILABLE: DebugFlrParamType = 1048618
 
-public val DEBUG_FLR_LEAKED_SESSION_POOL_TAG: DEBUG_FLR_PARAM_TYPE = 1029
+public val DEBUG_FLR_LEAKED_SESSION_POOL_TAG: DebugFlrParamType = 1029
 
-public val DEBUG_FLR_LEGACY_PAGE_TABLE_ACCESS: DEBUG_FLR_PARAM_TYPE = 8252
+public val DEBUG_FLR_LEGACY_PAGE_TABLE_ACCESS: DebugFlrParamType = 8252
 
-public val DEBUG_FLR_LIVE_KERNEL_DUMP: DEBUG_FLR_PARAM_TYPE = 8243
+public val DEBUG_FLR_LIVE_KERNEL_DUMP: DebugFlrParamType = 8243
 
-public val DEBUG_FLR_LOADERLOCK_BLOCKED_API: DEBUG_FLR_PARAM_TYPE = 1048605
+public val DEBUG_FLR_LOADERLOCK_BLOCKED_API: DebugFlrParamType = 1048605
 
-public val DEBUG_FLR_LOADERLOCK_IN_WAIT_CHAIN: DEBUG_FLR_PARAM_TYPE = 1048587
+public val DEBUG_FLR_LOADERLOCK_IN_WAIT_CHAIN: DebugFlrParamType = 1048587
 
-public val DEBUG_FLR_LOADERLOCK_OWNER_API: DEBUG_FLR_PARAM_TYPE = 1048604
+public val DEBUG_FLR_LOADERLOCK_OWNER_API: DebugFlrParamType = 1048604
 
-public val DEBUG_FLR_LOP_STACKHASH: DEBUG_FLR_PARAM_TYPE = 12309
+public val DEBUG_FLR_LOP_STACKHASH: DebugFlrParamType = 12309
 
-public val DEBUG_FLR_LOW_SYSTEM_COMMIT: DEBUG_FLR_PARAM_TYPE = 8251
+public val DEBUG_FLR_LOW_SYSTEM_COMMIT: DebugFlrParamType = 8251
 
-public val DEBUG_FLR_MACHINE_INFO_SHA1_HASH: DEBUG_FLR_PARAM_TYPE = 1048608
+public val DEBUG_FLR_MACHINE_INFO_SHA1_HASH: DebugFlrParamType = 1048608
 
-public val DEBUG_FLR_MANAGED_ANALYSIS_PROVIDER: DEBUG_FLR_PARAM_TYPE = 1804
+public val DEBUG_FLR_MANAGED_ANALYSIS_PROVIDER: DebugFlrParamType = 1804
 
-public val DEBUG_FLR_MANAGED_BITNESS_MISMATCH: DEBUG_FLR_PARAM_TYPE = 1797
+public val DEBUG_FLR_MANAGED_BITNESS_MISMATCH: DebugFlrParamType = 1797
 
-public val DEBUG_FLR_MANAGED_CODE: DEBUG_FLR_PARAM_TYPE = 1792
+public val DEBUG_FLR_MANAGED_CODE: DebugFlrParamType = 1792
 
-public val DEBUG_FLR_MANAGED_ENGINE_MODULE: DEBUG_FLR_PARAM_TYPE = 1803
+public val DEBUG_FLR_MANAGED_ENGINE_MODULE: DebugFlrParamType = 1803
 
-public val DEBUG_FLR_MANAGED_EXCEPTION_ADDRESS: DEBUG_FLR_PARAM_TYPE = 2048
+public val DEBUG_FLR_MANAGED_EXCEPTION_ADDRESS: DebugFlrParamType = 2048
 
-public val DEBUG_FLR_MANAGED_EXCEPTION_CALLSTACK: DEBUG_FLR_PARAM_TYPE = 2052
+public val DEBUG_FLR_MANAGED_EXCEPTION_CALLSTACK: DebugFlrParamType = 2052
 
-public val DEBUG_FLR_MANAGED_EXCEPTION_CMD: DEBUG_FLR_PARAM_TYPE = 2288
+public val DEBUG_FLR_MANAGED_EXCEPTION_CMD: DebugFlrParamType = 2288
 
-public val DEBUG_FLR_MANAGED_EXCEPTION_CONTEXT_MESSAGE: DEBUG_FLR_PARAM_TYPE = 1799
+public val DEBUG_FLR_MANAGED_EXCEPTION_CONTEXT_MESSAGE: DebugFlrParamType = 1799
 
-public val DEBUG_FLR_MANAGED_EXCEPTION_HRESULT: DEBUG_FLR_PARAM_TYPE = 2049
+public val DEBUG_FLR_MANAGED_EXCEPTION_HRESULT: DebugFlrParamType = 2049
 
-public val DEBUG_FLR_MANAGED_EXCEPTION_INNER_ADDRESS: DEBUG_FLR_PARAM_TYPE = 2064
+public val DEBUG_FLR_MANAGED_EXCEPTION_INNER_ADDRESS: DebugFlrParamType = 2064
 
-public val DEBUG_FLR_MANAGED_EXCEPTION_INNER_CALLSTACK: DEBUG_FLR_PARAM_TYPE = 2068
+public val DEBUG_FLR_MANAGED_EXCEPTION_INNER_CALLSTACK: DebugFlrParamType = 2068
 
-public val DEBUG_FLR_MANAGED_EXCEPTION_INNER_HRESULT: DEBUG_FLR_PARAM_TYPE = 2065
+public val DEBUG_FLR_MANAGED_EXCEPTION_INNER_HRESULT: DebugFlrParamType = 2065
 
-public val DEBUG_FLR_MANAGED_EXCEPTION_INNER_MESSAGE: DEBUG_FLR_PARAM_TYPE = 2067
+public val DEBUG_FLR_MANAGED_EXCEPTION_INNER_MESSAGE: DebugFlrParamType = 2067
 
-public val DEBUG_FLR_MANAGED_EXCEPTION_INNER_TYPE: DEBUG_FLR_PARAM_TYPE = 2066
+public val DEBUG_FLR_MANAGED_EXCEPTION_INNER_TYPE: DebugFlrParamType = 2066
 
-public val DEBUG_FLR_MANAGED_EXCEPTION_MESSAGE: DEBUG_FLR_PARAM_TYPE = 2051
+public val DEBUG_FLR_MANAGED_EXCEPTION_MESSAGE: DebugFlrParamType = 2051
 
-public val DEBUG_FLR_MANAGED_EXCEPTION_MESSAGE_deprecated: DEBUG_FLR_PARAM_TYPE = 1795
+public val DEBUG_FLR_MANAGED_EXCEPTION_MESSAGE_DEPRECATED: DebugFlrParamType = 1795
 
-public val DEBUG_FLR_MANAGED_EXCEPTION_NESTED_ADDRESS: DEBUG_FLR_PARAM_TYPE = 2080
+public val DEBUG_FLR_MANAGED_EXCEPTION_NESTED_ADDRESS: DebugFlrParamType = 2080
 
-public val DEBUG_FLR_MANAGED_EXCEPTION_NESTED_CALLSTACK: DEBUG_FLR_PARAM_TYPE = 2084
+public val DEBUG_FLR_MANAGED_EXCEPTION_NESTED_CALLSTACK: DebugFlrParamType = 2084
 
-public val DEBUG_FLR_MANAGED_EXCEPTION_NESTED_HRESULT: DEBUG_FLR_PARAM_TYPE = 2081
+public val DEBUG_FLR_MANAGED_EXCEPTION_NESTED_HRESULT: DebugFlrParamType = 2081
 
-public val DEBUG_FLR_MANAGED_EXCEPTION_NESTED_MESSAGE: DEBUG_FLR_PARAM_TYPE = 2083
+public val DEBUG_FLR_MANAGED_EXCEPTION_NESTED_MESSAGE: DebugFlrParamType = 2083
 
-public val DEBUG_FLR_MANAGED_EXCEPTION_NESTED_TYPE: DEBUG_FLR_PARAM_TYPE = 2082
+public val DEBUG_FLR_MANAGED_EXCEPTION_NESTED_TYPE: DebugFlrParamType = 2082
 
-public val DEBUG_FLR_MANAGED_EXCEPTION_OBJECT: DEBUG_FLR_PARAM_TYPE = 1794
+public val DEBUG_FLR_MANAGED_EXCEPTION_OBJECT: DebugFlrParamType = 1794
 
-public val DEBUG_FLR_MANAGED_EXCEPTION_TYPE: DEBUG_FLR_PARAM_TYPE = 2050
+public val DEBUG_FLR_MANAGED_EXCEPTION_TYPE: DebugFlrParamType = 2050
 
-public val DEBUG_FLR_MANAGED_FRAME_CHAIN_CORRUPTION: DEBUG_FLR_PARAM_TYPE = 12358
+public val DEBUG_FLR_MANAGED_FRAME_CHAIN_CORRUPTION: DebugFlrParamType = 12358
 
-public val DEBUG_FLR_MANAGED_HRESULT_STRING: DEBUG_FLR_PARAM_TYPE = 1802
+public val DEBUG_FLR_MANAGED_HRESULT_STRING: DebugFlrParamType = 1802
 
-public val DEBUG_FLR_MANAGED_KERNEL_DEBUGGER: DEBUG_FLR_PARAM_TYPE = 1801
+public val DEBUG_FLR_MANAGED_KERNEL_DEBUGGER: DebugFlrParamType = 1801
 
-public val DEBUG_FLR_MANAGED_OBJECT: DEBUG_FLR_PARAM_TYPE = 1793
+public val DEBUG_FLR_MANAGED_OBJECT: DebugFlrParamType = 1793
 
-public val DEBUG_FLR_MANAGED_OBJECT_NAME: DEBUG_FLR_PARAM_TYPE = 1798
+public val DEBUG_FLR_MANAGED_OBJECT_NAME: DebugFlrParamType = 1798
 
-public val DEBUG_FLR_MANAGED_STACK_COMMAND: DEBUG_FLR_PARAM_TYPE = 1800
+public val DEBUG_FLR_MANAGED_STACK_COMMAND: DebugFlrParamType = 1800
 
-public val DEBUG_FLR_MANAGED_STACK_STRING: DEBUG_FLR_PARAM_TYPE = 1796
+public val DEBUG_FLR_MANAGED_STACK_STRING: DebugFlrParamType = 1796
 
-public val DEBUG_FLR_MANAGED_THREAD_CMD_CALLSTACK: DEBUG_FLR_PARAM_TYPE = 2544
+public val DEBUG_FLR_MANAGED_THREAD_CMD_CALLSTACK: DebugFlrParamType = 2544
 
-public val DEBUG_FLR_MANAGED_THREAD_CMD_STACKOBJECTS: DEBUG_FLR_PARAM_TYPE = 2545
+public val DEBUG_FLR_MANAGED_THREAD_CMD_STACKOBJECTS: DebugFlrParamType = 2545
 
-public val DEBUG_FLR_MANAGED_THREAD_ID: DEBUG_FLR_PARAM_TYPE = 2304
+public val DEBUG_FLR_MANAGED_THREAD_ID: DebugFlrParamType = 2304
 
-public val DEBUG_FLR_MANUAL_BREAKIN: DEBUG_FLR_PARAM_TYPE = 8208
+public val DEBUG_FLR_MANUAL_BREAKIN: DebugFlrParamType = 8208
 
-public val DEBUG_FLR_MARKER_BUCKET: DEBUG_FLR_PARAM_TYPE = 65560
+public val DEBUG_FLR_MARKER_BUCKET: DebugFlrParamType = 65560
 
-public val DEBUG_FLR_MARKER_FILE: DEBUG_FLR_PARAM_TYPE = 65549
+public val DEBUG_FLR_MARKER_FILE: DebugFlrParamType = 65549
 
-public val DEBUG_FLR_MARKER_MODULE_FILE: DEBUG_FLR_PARAM_TYPE = 65558
+public val DEBUG_FLR_MARKER_MODULE_FILE: DebugFlrParamType = 65558
 
-public val DEBUG_FLR_MASK_ALL: DEBUG_FLR_PARAM_TYPE = -1
+public val DEBUG_FLR_MASK_ALL: DebugFlrParamType = -1
 
-public val DEBUG_FLR_MEMDIAG_LASTRUN_STATUS: DEBUG_FLR_PARAM_TYPE = 12341
+public val DEBUG_FLR_MEMDIAG_LASTRUN_STATUS: DebugFlrParamType = 12341
 
-public val DEBUG_FLR_MEMDIAG_LASTRUN_TIME: DEBUG_FLR_PARAM_TYPE = 12342
+public val DEBUG_FLR_MEMDIAG_LASTRUN_TIME: DebugFlrParamType = 12342
 
-public val DEBUG_FLR_MEMORY_ANALYSIS: DEBUG_FLR_PARAM_TYPE = 1134592
+public val DEBUG_FLR_MEMORY_ANALYSIS: DebugFlrParamType = 1134592
 
-public val DEBUG_FLR_MEMORY_CORRUPTION_SIGNATURE: DEBUG_FLR_PARAM_TYPE = 12348
+public val DEBUG_FLR_MEMORY_CORRUPTION_SIGNATURE: DebugFlrParamType = 12348
 
-public val DEBUG_FLR_MEMORY_CORRUPTOR: DEBUG_FLR_PARAM_TYPE = 12289
+public val DEBUG_FLR_MEMORY_CORRUPTOR: DebugFlrParamType = 12289
 
-public val DEBUG_FLR_MILCORE_BREAK: DEBUG_FLR_PARAM_TYPE = 8232
+public val DEBUG_FLR_MILCORE_BREAK: DebugFlrParamType = 8232
 
-public val DEBUG_FLR_MINUTES_SINCE_LAST_EVENT: DEBUG_FLR_PARAM_TYPE = 1879048225
+public val DEBUG_FLR_MINUTES_SINCE_LAST_EVENT: DebugFlrParamType = 1879048225
 
-public val DEBUG_FLR_MINUTES_SINCE_LAST_EVENT_OF_THIS_TYPE: DEBUG_FLR_PARAM_TYPE = 1879048226
+public val DEBUG_FLR_MINUTES_SINCE_LAST_EVENT_OF_THIS_TYPE: DebugFlrParamType = 1879048226
 
-public val DEBUG_FLR_MISSING_CLR_SYMBOL: DEBUG_FLR_PARAM_TYPE = 8249
+public val DEBUG_FLR_MISSING_CLR_SYMBOL: DebugFlrParamType = 8249
 
-public val DEBUG_FLR_MISSING_IMPORTANT_SYMBOL: DEBUG_FLR_PARAM_TYPE = 8248
+public val DEBUG_FLR_MISSING_IMPORTANT_SYMBOL: DebugFlrParamType = 8248
 
-public val DEBUG_FLR_MM_INTERNAL_CODE: DEBUG_FLR_PARAM_TYPE = 4100
+public val DEBUG_FLR_MM_INTERNAL_CODE: DebugFlrParamType = 4100
 
-public val DEBUG_FLR_MODLIST_SHA1_HASH: DEBUG_FLR_PARAM_TYPE = 1048601
+public val DEBUG_FLR_MODLIST_SHA1_HASH: DebugFlrParamType = 1048601
 
-public val DEBUG_FLR_MODLIST_TSCHKSUM_SHA1_HASH: DEBUG_FLR_PARAM_TYPE = 1048606
+public val DEBUG_FLR_MODLIST_TSCHKSUM_SHA1_HASH: DebugFlrParamType = 1048606
 
-public val DEBUG_FLR_MODLIST_UNLOADED_SHA1_HASH: DEBUG_FLR_PARAM_TYPE = 1048607
+public val DEBUG_FLR_MODLIST_UNLOADED_SHA1_HASH: DebugFlrParamType = 1048607
 
-public val DEBUG_FLR_MODULE_BUCKET_ID: DEBUG_FLR_PARAM_TYPE = 65545
+public val DEBUG_FLR_MODULE_BUCKET_ID: DebugFlrParamType = 65545
 
-public val DEBUG_FLR_MODULE_LIST: DEBUG_FLR_PARAM_TYPE = 1048624
+public val DEBUG_FLR_MODULE_LIST: DebugFlrParamType = 1048624
 
-public val DEBUG_FLR_MODULE_NAME: DEBUG_FLR_PARAM_TYPE = 65542
+public val DEBUG_FLR_MODULE_NAME: DebugFlrParamType = 65542
 
-public val DEBUG_FLR_MODULE_PRODUCTNAME: DEBUG_FLR_PARAM_TYPE = 65576
+public val DEBUG_FLR_MODULE_PRODUCTNAME: DebugFlrParamType = 65576
 
-public val DEBUG_FLR_MOD_SPECIFIC_DATA_ONLY: DEBUG_FLR_PARAM_TYPE = 8226
+public val DEBUG_FLR_MOD_SPECIFIC_DATA_ONLY: DebugFlrParamType = 8226
 
-public val DEBUG_FLR_NO_ARCH_IN_BUCKET: DEBUG_FLR_PARAM_TYPE = 8239
+public val DEBUG_FLR_NO_ARCH_IN_BUCKET: DebugFlrParamType = 8239
 
-public val DEBUG_FLR_NO_BUGCHECK_IN_BUCKET: DEBUG_FLR_PARAM_TYPE = 8216
+public val DEBUG_FLR_NO_BUGCHECK_IN_BUCKET: DebugFlrParamType = 8216
 
-public val DEBUG_FLR_NO_IMAGE_IN_BUCKET: DEBUG_FLR_PARAM_TYPE = 8215
+public val DEBUG_FLR_NO_IMAGE_IN_BUCKET: DebugFlrParamType = 8215
 
-public val DEBUG_FLR_NO_IMAGE_TIMESTAMP_IN_BUCKET: DEBUG_FLR_PARAM_TYPE = 8233
+public val DEBUG_FLR_NO_IMAGE_TIMESTAMP_IN_BUCKET: DebugFlrParamType = 8233
 
-public val DEBUG_FLR_NTGLOBALFLAG: DEBUG_FLR_PARAM_TYPE = 1048599
+public val DEBUG_FLR_NTGLOBALFLAG: DebugFlrParamType = 1048599
 
-public val DEBUG_FLR_ON_DPC_STACK: DEBUG_FLR_PARAM_TYPE = 8242
+public val DEBUG_FLR_ON_DPC_STACK: DebugFlrParamType = 8242
 
-public val DEBUG_FLR_ORIGINAL_CAB_NAME: DEBUG_FLR_PARAM_TYPE = 65568
+public val DEBUG_FLR_ORIGINAL_CAB_NAME: DebugFlrParamType = 65568
 
-public val DEBUG_FLR_OSBUILD_deprecated: DEBUG_FLR_PARAM_TYPE = 1052928
+public val DEBUG_FLR_OSBUILD_DEPRECATED: DebugFlrParamType = 1052928
 
-public val DEBUG_FLR_OS_BRANCH: DEBUG_FLR_PARAM_TYPE = 1052680
+public val DEBUG_FLR_OS_BRANCH: DebugFlrParamType = 1052680
 
-public val DEBUG_FLR_OS_BUILD: DEBUG_FLR_PARAM_TYPE = 1052678
+public val DEBUG_FLR_OS_BUILD: DebugFlrParamType = 1052678
 
-public val DEBUG_FLR_OS_BUILD_LAYERS_XML: DEBUG_FLR_PARAM_TYPE = 1052711
+public val DEBUG_FLR_OS_BUILD_LAYERS_XML: DebugFlrParamType = 1052711
 
-public val DEBUG_FLR_OS_BUILD_STRING: DEBUG_FLR_PARAM_TYPE = 1052708
+public val DEBUG_FLR_OS_BUILD_STRING: DebugFlrParamType = 1052708
 
-public val DEBUG_FLR_OS_BUILD_TIMESTAMP_ISO: DEBUG_FLR_PARAM_TYPE = 1052697
+public val DEBUG_FLR_OS_BUILD_TIMESTAMP_ISO: DebugFlrParamType = 1052697
 
-public val DEBUG_FLR_OS_BUILD_TIMESTAMP_LAB: DEBUG_FLR_PARAM_TYPE = 1052681
+public val DEBUG_FLR_OS_BUILD_TIMESTAMP_LAB: DebugFlrParamType = 1052681
 
-public val DEBUG_FLR_OS_FLAVOR: DEBUG_FLR_PARAM_TYPE = 1052685
+public val DEBUG_FLR_OS_FLAVOR: DebugFlrParamType = 1052685
 
-public val DEBUG_FLR_OS_LOCALE: DEBUG_FLR_PARAM_TYPE = 1052696
+public val DEBUG_FLR_OS_LOCALE: DebugFlrParamType = 1052696
 
-public val DEBUG_FLR_OS_LOCALE_LCID: DEBUG_FLR_PARAM_TYPE = 1052709
+public val DEBUG_FLR_OS_LOCALE_LCID: DebugFlrParamType = 1052709
 
-public val DEBUG_FLR_OS_MAJOR: DEBUG_FLR_PARAM_TYPE = 1052706
+public val DEBUG_FLR_OS_MAJOR: DebugFlrParamType = 1052706
 
-public val DEBUG_FLR_OS_MINOR: DEBUG_FLR_PARAM_TYPE = 1052707
+public val DEBUG_FLR_OS_MINOR: DebugFlrParamType = 1052707
 
-public val DEBUG_FLR_OS_NAME: DEBUG_FLR_PARAM_TYPE = 1052692
+public val DEBUG_FLR_OS_NAME: DebugFlrParamType = 1052692
 
-public val DEBUG_FLR_OS_NAME_EDITION: DEBUG_FLR_PARAM_TYPE = 1052693
+public val DEBUG_FLR_OS_NAME_EDITION: DebugFlrParamType = 1052693
 
-public val DEBUG_FLR_OS_PLATFORM_ARCH: DEBUG_FLR_PARAM_TYPE = 1052694
+public val DEBUG_FLR_OS_PLATFORM_ARCH: DebugFlrParamType = 1052694
 
-public val DEBUG_FLR_OS_PLATFORM_ID: DEBUG_FLR_PARAM_TYPE = 1052710
+public val DEBUG_FLR_OS_PLATFORM_ID: DebugFlrParamType = 1052710
 
-public val DEBUG_FLR_OS_PRODUCT_TYPE: DEBUG_FLR_PARAM_TYPE = 1052688
+public val DEBUG_FLR_OS_PRODUCT_TYPE: DebugFlrParamType = 1052688
 
-public val DEBUG_FLR_OS_REVISION: DEBUG_FLR_PARAM_TYPE = 1052691
+public val DEBUG_FLR_OS_REVISION: DebugFlrParamType = 1052691
 
-public val DEBUG_FLR_OS_SERVICEPACK: DEBUG_FLR_PARAM_TYPE = 1052679
+public val DEBUG_FLR_OS_SERVICEPACK: DebugFlrParamType = 1052679
 
-public val DEBUG_FLR_OS_SERVICEPACK_deprecated: DEBUG_FLR_PARAM_TYPE = 1052695
+public val DEBUG_FLR_OS_SERVICEPACK_DEPRECATED: DebugFlrParamType = 1052695
 
-public val DEBUG_FLR_OS_SKU: DEBUG_FLR_PARAM_TYPE = 1052687
+public val DEBUG_FLR_OS_SKU: DebugFlrParamType = 1052687
 
-public val DEBUG_FLR_OS_SUITE_MASK: DEBUG_FLR_PARAM_TYPE = 1052689
+public val DEBUG_FLR_OS_SUITE_MASK: DebugFlrParamType = 1052689
 
-public val DEBUG_FLR_OS_VERSION: DEBUG_FLR_PARAM_TYPE = 1052682
+public val DEBUG_FLR_OS_VERSION: DebugFlrParamType = 1052682
 
-public val DEBUG_FLR_OS_VERSION_deprecated: DEBUG_FLR_PARAM_TYPE = 12291
+public val DEBUG_FLR_OS_VERSION_DEPRECATED: DebugFlrParamType = 12291
 
-public val DEBUG_FLR_OVERLAPPED_MODULE: DEBUG_FLR_PARAM_TYPE = 8227
+public val DEBUG_FLR_OVERLAPPED_MODULE: DebugFlrParamType = 8227
 
-public val DEBUG_FLR_OVERLAPPED_UNLOADED_MODULE: DEBUG_FLR_PARAM_TYPE = 8230
+public val DEBUG_FLR_OVERLAPPED_UNLOADED_MODULE: DebugFlrParamType = 8230
 
-public val DEBUG_FLR_PAGE_HASH_ERRORS: DEBUG_FLR_PARAM_TYPE = 4114
+public val DEBUG_FLR_PAGE_HASH_ERRORS: DebugFlrParamType = 4114
 
-public val DEBUG_FLR_PG_MISMATCH: DEBUG_FLR_PARAM_TYPE = 27
+public val DEBUG_FLR_PG_MISMATCH: DebugFlrParamType = 27
 
-public val DEBUG_FLR_PHONE_APPID: DEBUG_FLR_PARAM_TYPE = 1879048215
+public val DEBUG_FLR_PHONE_APPID: DebugFlrParamType = 1879048215
 
-public val DEBUG_FLR_PHONE_APPVERSION: DEBUG_FLR_PARAM_TYPE = 1879048217
+public val DEBUG_FLR_PHONE_APPVERSION: DebugFlrParamType = 1879048217
 
-public val DEBUG_FLR_PHONE_BOOTLOADERVERSION: DEBUG_FLR_PARAM_TYPE = 1879048209
+public val DEBUG_FLR_PHONE_BOOTLOADERVERSION: DebugFlrParamType = 1879048209
 
-public val DEBUG_FLR_PHONE_BUILDBRANCH: DEBUG_FLR_PARAM_TYPE = 1879048196
+public val DEBUG_FLR_PHONE_BUILDBRANCH: DebugFlrParamType = 1879048196
 
-public val DEBUG_FLR_PHONE_BUILDER: DEBUG_FLR_PARAM_TYPE = 1879048197
+public val DEBUG_FLR_PHONE_BUILDER: DebugFlrParamType = 1879048197
 
-public val DEBUG_FLR_PHONE_BUILDNUMBER: DEBUG_FLR_PARAM_TYPE = 1879048194
+public val DEBUG_FLR_PHONE_BUILDNUMBER: DebugFlrParamType = 1879048194
 
-public val DEBUG_FLR_PHONE_BUILDTIMESTAMP: DEBUG_FLR_PARAM_TYPE = 1879048195
+public val DEBUG_FLR_PHONE_BUILDTIMESTAMP: DebugFlrParamType = 1879048195
 
-public val DEBUG_FLR_PHONE_FIRMWAREREVISION: DEBUG_FLR_PARAM_TYPE = 1879048202
+public val DEBUG_FLR_PHONE_FIRMWAREREVISION: DebugFlrParamType = 1879048202
 
-public val DEBUG_FLR_PHONE_HARDWAREREVISION: DEBUG_FLR_PARAM_TYPE = 1879048206
+public val DEBUG_FLR_PHONE_HARDWAREREVISION: DebugFlrParamType = 1879048206
 
-public val DEBUG_FLR_PHONE_LCID: DEBUG_FLR_PARAM_TYPE = 1879048198
+public val DEBUG_FLR_PHONE_LCID: DebugFlrParamType = 1879048198
 
-public val DEBUG_FLR_PHONE_MCCMNC: DEBUG_FLR_PARAM_TYPE = 1879048201
+public val DEBUG_FLR_PHONE_MCCMNC: DebugFlrParamType = 1879048201
 
-public val DEBUG_FLR_PHONE_OPERATOR: DEBUG_FLR_PARAM_TYPE = 1879048200
+public val DEBUG_FLR_PHONE_OPERATOR: DebugFlrParamType = 1879048200
 
-public val DEBUG_FLR_PHONE_QFE: DEBUG_FLR_PARAM_TYPE = 1879048199
+public val DEBUG_FLR_PHONE_QFE: DebugFlrParamType = 1879048199
 
-public val DEBUG_FLR_PHONE_RADIOHARDWAREREVISION: DEBUG_FLR_PARAM_TYPE = 1879048207
+public val DEBUG_FLR_PHONE_RADIOHARDWAREREVISION: DebugFlrParamType = 1879048207
 
-public val DEBUG_FLR_PHONE_RADIOSOFTWAREREVISION: DEBUG_FLR_PARAM_TYPE = 1879048208
+public val DEBUG_FLR_PHONE_RADIOSOFTWAREREVISION: DebugFlrParamType = 1879048208
 
-public val DEBUG_FLR_PHONE_RAM: DEBUG_FLR_PARAM_TYPE = 1879048203
+public val DEBUG_FLR_PHONE_RAM: DebugFlrParamType = 1879048203
 
-public val DEBUG_FLR_PHONE_REPORTGUID: DEBUG_FLR_PARAM_TYPE = 1879048210
+public val DEBUG_FLR_PHONE_REPORTGUID: DebugFlrParamType = 1879048210
 
-public val DEBUG_FLR_PHONE_REPORTTIMESTAMP: DEBUG_FLR_PARAM_TYPE = 1879048214
+public val DEBUG_FLR_PHONE_REPORTTIMESTAMP: DebugFlrParamType = 1879048214
 
-public val DEBUG_FLR_PHONE_ROMVERSION: DEBUG_FLR_PARAM_TYPE = 1879048204
+public val DEBUG_FLR_PHONE_ROMVERSION: DebugFlrParamType = 1879048204
 
-public val DEBUG_FLR_PHONE_SKUID: DEBUG_FLR_PARAM_TYPE = 1879048216
+public val DEBUG_FLR_PHONE_SKUID: DebugFlrParamType = 1879048216
 
-public val DEBUG_FLR_PHONE_SOCVERSION: DEBUG_FLR_PARAM_TYPE = 1879048205
+public val DEBUG_FLR_PHONE_SOCVERSION: DebugFlrParamType = 1879048205
 
-public val DEBUG_FLR_PHONE_SOURCE: DEBUG_FLR_PARAM_TYPE = 1879048211
+public val DEBUG_FLR_PHONE_SOURCE: DebugFlrParamType = 1879048211
 
-public val DEBUG_FLR_PHONE_SOURCEEXTERNAL: DEBUG_FLR_PARAM_TYPE = 1879048212
+public val DEBUG_FLR_PHONE_SOURCEEXTERNAL: DebugFlrParamType = 1879048212
 
-public val DEBUG_FLR_PHONE_UIF_APPID: DEBUG_FLR_PARAM_TYPE = 1879048220
+public val DEBUG_FLR_PHONE_UIF_APPID: DebugFlrParamType = 1879048220
 
-public val DEBUG_FLR_PHONE_UIF_APPNAME: DEBUG_FLR_PARAM_TYPE = 1879048219
+public val DEBUG_FLR_PHONE_UIF_APPNAME: DebugFlrParamType = 1879048219
 
-public val DEBUG_FLR_PHONE_UIF_CATEGORY: DEBUG_FLR_PARAM_TYPE = 1879048221
+public val DEBUG_FLR_PHONE_UIF_CATEGORY: DebugFlrParamType = 1879048221
 
-public val DEBUG_FLR_PHONE_UIF_COMMENT: DEBUG_FLR_PARAM_TYPE = 1879048218
+public val DEBUG_FLR_PHONE_UIF_COMMENT: DebugFlrParamType = 1879048218
 
-public val DEBUG_FLR_PHONE_UIF_ORIGIN: DEBUG_FLR_PARAM_TYPE = 1879048222
+public val DEBUG_FLR_PHONE_UIF_ORIGIN: DebugFlrParamType = 1879048222
 
-public val DEBUG_FLR_PHONE_USERALIAS: DEBUG_FLR_PARAM_TYPE = 1879048213
+public val DEBUG_FLR_PHONE_USERALIAS: DebugFlrParamType = 1879048213
 
-public val DEBUG_FLR_PHONE_VERSIONMAJOR: DEBUG_FLR_PARAM_TYPE = 1879048192
+public val DEBUG_FLR_PHONE_VERSIONMAJOR: DebugFlrParamType = 1879048192
 
-public val DEBUG_FLR_PHONE_VERSIONMINOR: DEBUG_FLR_PARAM_TYPE = 1879048193
+public val DEBUG_FLR_PHONE_VERSIONMINOR: DebugFlrParamType = 1879048193
 
-public val DEBUG_FLR_PLATFORM_BUCKET_STRING: DEBUG_FLR_PARAM_TYPE = 65630
+public val DEBUG_FLR_PLATFORM_BUCKET_STRING: DebugFlrParamType = 65630
 
-public val DEBUG_FLR_PNP: DEBUG_FLR_PARAM_TYPE = 32768
+public val DEBUG_FLR_PNP: DebugFlrParamType = 32768
 
-public val DEBUG_FLR_PNP_BLACKBOX: DEBUG_FLR_PARAM_TYPE = 33024
+public val DEBUG_FLR_PNP_BLACKBOX: DebugFlrParamType = 33024
 
-public val DEBUG_FLR_PNP_IRP_ADDRESS: DEBUG_FLR_PARAM_TYPE = 32770
+public val DEBUG_FLR_PNP_IRP_ADDRESS: DebugFlrParamType = 32770
 
-public val DEBUG_FLR_PNP_IRP_ADDRESS_DEPRECATED: DEBUG_FLR_PARAM_TYPE = 264
+public val DEBUG_FLR_PNP_IRP_ADDRESS_DEPRECATED: DebugFlrParamType = 264
 
-public val DEBUG_FLR_PNP_TRIAGE_DATA: DEBUG_FLR_PARAM_TYPE = 32769
+public val DEBUG_FLR_PNP_TRIAGE_DATA: DebugFlrParamType = 32769
 
-public val DEBUG_FLR_PNP_TRIAGE_DATA_DEPRECATED: DEBUG_FLR_PARAM_TYPE = 23
+public val DEBUG_FLR_PNP_TRIAGE_DATA_DEPRECATED: DebugFlrParamType = 23
 
-public val DEBUG_FLR_POISONED_TB: DEBUG_FLR_PARAM_TYPE = 8200
+public val DEBUG_FLR_POISONED_TB: DebugFlrParamType = 8200
 
-public val DEBUG_FLR_POOL_ADDRESS: DEBUG_FLR_PARAM_TYPE = 1024
+public val DEBUG_FLR_POOL_ADDRESS: DebugFlrParamType = 1024
 
-public val DEBUG_FLR_POOL_CORRUPTOR: DEBUG_FLR_PARAM_TYPE = 12288
+public val DEBUG_FLR_POOL_CORRUPTOR: DebugFlrParamType = 12288
 
-public val DEBUG_FLR_POSSIBLE_INVALID_CONTROL_TRANSFER: DEBUG_FLR_PARAM_TYPE = 8199
+public val DEBUG_FLR_POSSIBLE_INVALID_CONTROL_TRANSFER: DebugFlrParamType = 8199
 
-public val DEBUG_FLR_POSSIBLE_STACK_OVERFLOW: DEBUG_FLR_PARAM_TYPE = 8245
+public val DEBUG_FLR_POSSIBLE_STACK_OVERFLOW: DebugFlrParamType = 8245
 
-public val DEBUG_FLR_POWERREQUEST_ADDRESS: DEBUG_FLR_PARAM_TYPE = 29
+public val DEBUG_FLR_POWERREQUEST_ADDRESS: DebugFlrParamType = 29
 
-public val DEBUG_FLR_PO_BLACKBOX: DEBUG_FLR_PARAM_TYPE = 24833
+public val DEBUG_FLR_PO_BLACKBOX: DebugFlrParamType = 24833
 
-public val DEBUG_FLR_PREVIOUS_IRQL: DEBUG_FLR_PARAM_TYPE = 513
+public val DEBUG_FLR_PREVIOUS_IRQL: DebugFlrParamType = 513
 
-public val DEBUG_FLR_PREVIOUS_MODE: DEBUG_FLR_PARAM_TYPE = 265
+public val DEBUG_FLR_PREVIOUS_MODE: DebugFlrParamType = 265
 
-public val DEBUG_FLR_PRIMARY_PROBLEM_CLASS: DEBUG_FLR_PARAM_TYPE = 1048579
+public val DEBUG_FLR_PRIMARY_PROBLEM_CLASS: DebugFlrParamType = 1048579
 
-public val DEBUG_FLR_PRIMARY_PROBLEM_CLASS_DATA: DEBUG_FLR_PARAM_TYPE = 1048580
+public val DEBUG_FLR_PRIMARY_PROBLEM_CLASS_DATA: DebugFlrParamType = 1048580
 
-public val DEBUG_FLR_PROBLEM_CLASSES: DEBUG_FLR_PARAM_TYPE = 1048578
+public val DEBUG_FLR_PROBLEM_CLASSES: DebugFlrParamType = 1048578
 
-public val DEBUG_FLR_PROBLEM_CODE_PATH_HASH: DEBUG_FLR_PARAM_TYPE = 1048585
+public val DEBUG_FLR_PROBLEM_CODE_PATH_HASH: DebugFlrParamType = 1048585
 
-public val DEBUG_FLR_PROCESSES_ANALYSIS: DEBUG_FLR_PARAM_TYPE = 1142784
+public val DEBUG_FLR_PROCESSES_ANALYSIS: DebugFlrParamType = 1142784
 
-public val DEBUG_FLR_PROCESSOR_ID: DEBUG_FLR_PARAM_TYPE = -1073741814
+public val DEBUG_FLR_PROCESSOR_ID: DebugFlrParamType = -1073741814
 
-public val DEBUG_FLR_PROCESSOR_INFO: DEBUG_FLR_PARAM_TYPE = 12339
+public val DEBUG_FLR_PROCESSOR_INFO: DebugFlrParamType = 12339
 
-public val DEBUG_FLR_PROCESS_BAM_CURRENT_THROTTLED: DEBUG_FLR_PARAM_TYPE = -268435437
+public val DEBUG_FLR_PROCESS_BAM_CURRENT_THROTTLED: DebugFlrParamType = -268435437
 
-public val DEBUG_FLR_PROCESS_BAM_PREVIOUS_THROTTLED: DEBUG_FLR_PARAM_TYPE = -268435436
+public val DEBUG_FLR_PROCESS_BAM_PREVIOUS_THROTTLED: DebugFlrParamType = -268435436
 
-public val DEBUG_FLR_PROCESS_INFO: DEBUG_FLR_PARAM_TYPE = 2097189
+public val DEBUG_FLR_PROCESS_INFO: DebugFlrParamType = 2097189
 
-public val DEBUG_FLR_PROCESS_NAME: DEBUG_FLR_PARAM_TYPE = 65547
+public val DEBUG_FLR_PROCESS_NAME: DebugFlrParamType = 65547
 
-public val DEBUG_FLR_PROCESS_OBJECT: DEBUG_FLR_PARAM_TYPE = 8
+public val DEBUG_FLR_PROCESS_OBJECT: DebugFlrParamType = 8
 
-public val DEBUG_FLR_PROCESS_PRODUCTNAME: DEBUG_FLR_PARAM_TYPE = 65575
+public val DEBUG_FLR_PROCESS_PRODUCTNAME: DebugFlrParamType = 65575
 
-public val DEBUG_FLR_RAISED_IRQL_USER_FAULT: DEBUG_FLR_PARAM_TYPE = 8220
+public val DEBUG_FLR_RAISED_IRQL_USER_FAULT: DebugFlrParamType = 8220
 
-public val DEBUG_FLR_READ_ADDRESS: DEBUG_FLR_PARAM_TYPE = 14
+public val DEBUG_FLR_READ_ADDRESS: DebugFlrParamType = 14
 
-public val DEBUG_FLR_RECURRING_STACK: DEBUG_FLR_PARAM_TYPE = 12296
+public val DEBUG_FLR_RECURRING_STACK: DebugFlrParamType = 12296
 
-public val DEBUG_FLR_REGISTRYTXT_SOURCE: DEBUG_FLR_PARAM_TYPE = 65584
+public val DEBUG_FLR_REGISTRYTXT_SOURCE: DebugFlrParamType = 65584
 
-public val DEBUG_FLR_REGISTRYTXT_STRESS_ID: DEBUG_FLR_PARAM_TYPE = 12307
+public val DEBUG_FLR_REGISTRYTXT_STRESS_ID: DebugFlrParamType = 12307
 
-public val DEBUG_FLR_REGISTRY_DATA: DEBUG_FLR_PARAM_TYPE = 3145728
+public val DEBUG_FLR_REGISTRY_DATA: DebugFlrParamType = 3145728
 
-public val DEBUG_FLR_REPORT_INFO_CREATION_TIME: DEBUG_FLR_PARAM_TYPE = 1879048229
+public val DEBUG_FLR_REPORT_INFO_CREATION_TIME: DebugFlrParamType = 1879048229
 
-public val DEBUG_FLR_REPORT_INFO_GUID: DEBUG_FLR_PARAM_TYPE = 1879048227
+public val DEBUG_FLR_REPORT_INFO_GUID: DebugFlrParamType = 1879048227
 
-public val DEBUG_FLR_REPORT_INFO_SOURCE: DEBUG_FLR_PARAM_TYPE = 1879048228
+public val DEBUG_FLR_REPORT_INFO_SOURCE: DebugFlrParamType = 1879048228
 
-public val DEBUG_FLR_REQUESTED_IRQL: DEBUG_FLR_PARAM_TYPE = 514
+public val DEBUG_FLR_REQUESTED_IRQL: DebugFlrParamType = 514
 
-public val DEBUG_FLR_RESERVED: DEBUG_FLR_PARAM_TYPE = 1
+public val DEBUG_FLR_RESERVED: DebugFlrParamType = 1
 
-public val DEBUG_FLR_RESOURCE_CALL_TYPE: DEBUG_FLR_PARAM_TYPE = 4352
+public val DEBUG_FLR_RESOURCE_CALL_TYPE: DebugFlrParamType = 4352
 
-public val DEBUG_FLR_RESOURCE_CALL_TYPE_STR: DEBUG_FLR_PARAM_TYPE = 4353
+public val DEBUG_FLR_RESOURCE_CALL_TYPE_STR: DebugFlrParamType = 4353
 
-public val DEBUG_FLR_SCM: DEBUG_FLR_PARAM_TYPE = 20992
+public val DEBUG_FLR_SCM: DebugFlrParamType = 20992
 
-public val DEBUG_FLR_SCM_BLACKBOX: DEBUG_FLR_PARAM_TYPE = 21232
+public val DEBUG_FLR_SCM_BLACKBOX: DebugFlrParamType = 21232
 
-public val DEBUG_FLR_SCM_BLACKBOX_ENTRY: DEBUG_FLR_PARAM_TYPE = 21233
+public val DEBUG_FLR_SCM_BLACKBOX_ENTRY: DebugFlrParamType = 21233
 
-public val DEBUG_FLR_SCM_BLACKBOX_ENTRY_CONTROLCODE: DEBUG_FLR_PARAM_TYPE = 21234
+public val DEBUG_FLR_SCM_BLACKBOX_ENTRY_CONTROLCODE: DebugFlrParamType = 21234
 
-public val DEBUG_FLR_SCM_BLACKBOX_ENTRY_SERVICENAME: DEBUG_FLR_PARAM_TYPE = 21236
+public val DEBUG_FLR_SCM_BLACKBOX_ENTRY_SERVICENAME: DebugFlrParamType = 21236
 
-public val DEBUG_FLR_SCM_BLACKBOX_ENTRY_STARTTIME: DEBUG_FLR_PARAM_TYPE = 21235
+public val DEBUG_FLR_SCM_BLACKBOX_ENTRY_STARTTIME: DebugFlrParamType = 21235
 
-public val DEBUG_FLR_SEARCH_HANG: DEBUG_FLR_PARAM_TYPE = 1048614
+public val DEBUG_FLR_SEARCH_HANG: DebugFlrParamType = 1048614
 
-public val DEBUG_FLR_SECURITY_COOKIES: DEBUG_FLR_PARAM_TYPE = 4105
+public val DEBUG_FLR_SECURITY_COOKIES: DebugFlrParamType = 4105
 
-public val DEBUG_FLR_SERVICE: DEBUG_FLR_PARAM_TYPE = 20480
+public val DEBUG_FLR_SERVICE: DebugFlrParamType = 20480
 
-public val DEBUG_FLR_SERVICETABLE_MODIFIED: DEBUG_FLR_PARAM_TYPE = 12371
+public val DEBUG_FLR_SERVICETABLE_MODIFIED: DebugFlrParamType = 12371
 
-public val DEBUG_FLR_SERVICE_ANALYSIS: DEBUG_FLR_PARAM_TYPE = 1146880
+public val DEBUG_FLR_SERVICE_ANALYSIS: DebugFlrParamType = 1146880
 
-public val DEBUG_FLR_SERVICE_DEPENDONGROUP: DEBUG_FLR_PARAM_TYPE = 20486
+public val DEBUG_FLR_SERVICE_DEPENDONGROUP: DebugFlrParamType = 20486
 
-public val DEBUG_FLR_SERVICE_DEPENDONSERVICE: DEBUG_FLR_PARAM_TYPE = 20485
+public val DEBUG_FLR_SERVICE_DEPENDONSERVICE: DebugFlrParamType = 20485
 
-public val DEBUG_FLR_SERVICE_DESCRIPTION: DEBUG_FLR_PARAM_TYPE = 20484
+public val DEBUG_FLR_SERVICE_DESCRIPTION: DebugFlrParamType = 20484
 
-public val DEBUG_FLR_SERVICE_DISPLAYNAME: DEBUG_FLR_PARAM_TYPE = 20483
+public val DEBUG_FLR_SERVICE_DISPLAYNAME: DebugFlrParamType = 20483
 
-public val DEBUG_FLR_SERVICE_GROUP: DEBUG_FLR_PARAM_TYPE = 20482
+public val DEBUG_FLR_SERVICE_GROUP: DebugFlrParamType = 20482
 
-public val DEBUG_FLR_SERVICE_NAME: DEBUG_FLR_PARAM_TYPE = 20481
+public val DEBUG_FLR_SERVICE_NAME: DebugFlrParamType = 20481
 
-public val DEBUG_FLR_SHOW_ERRORLOG: DEBUG_FLR_PARAM_TYPE = 8207
+public val DEBUG_FLR_SHOW_ERRORLOG: DebugFlrParamType = 8207
 
-public val DEBUG_FLR_SHOW_LCIE_ISO_DATA: DEBUG_FLR_PARAM_TYPE = 1048619
+public val DEBUG_FLR_SHOW_LCIE_ISO_DATA: DebugFlrParamType = 1048619
 
-public val DEBUG_FLR_SIMULTANEOUS_TELSVC_INSTANCES: DEBUG_FLR_PARAM_TYPE = 1879048223
+public val DEBUG_FLR_SIMULTANEOUS_TELSVC_INSTANCES: DebugFlrParamType = 1879048223
 
-public val DEBUG_FLR_SIMULTANEOUS_TELWP_INSTANCES: DEBUG_FLR_PARAM_TYPE = 1879048224
+public val DEBUG_FLR_SIMULTANEOUS_TELWP_INSTANCES: DebugFlrParamType = 1879048224
 
-public val DEBUG_FLR_SINGLE_BIT_ERROR: DEBUG_FLR_PARAM_TYPE = 8203
+public val DEBUG_FLR_SINGLE_BIT_ERROR: DebugFlrParamType = 8203
 
-public val DEBUG_FLR_SINGLE_BIT_PFN_PAGE_ERROR: DEBUG_FLR_PARAM_TYPE = 8213
+public val DEBUG_FLR_SINGLE_BIT_PFN_PAGE_ERROR: DebugFlrParamType = 8213
 
-public val DEBUG_FLR_SKIP_CORRUPT_MODULE_DETECTION: DEBUG_FLR_PARAM_TYPE = 8235
+public val DEBUG_FLR_SKIP_CORRUPT_MODULE_DETECTION: DebugFlrParamType = 8235
 
-public val DEBUG_FLR_SKIP_MODULE_SPECIFIC_BUCKET_INFO: DEBUG_FLR_PARAM_TYPE = 65588
+public val DEBUG_FLR_SKIP_MODULE_SPECIFIC_BUCKET_INFO: DebugFlrParamType = 65588
 
-public val DEBUG_FLR_SKIP_STACK_ANALYSIS: DEBUG_FLR_PARAM_TYPE = 8217
+public val DEBUG_FLR_SKIP_STACK_ANALYSIS: DebugFlrParamType = 8217
 
-public val DEBUG_FLR_SM_BUFFER_HASH: DEBUG_FLR_PARAM_TYPE = 1342177286
+public val DEBUG_FLR_SM_BUFFER_HASH: DebugFlrParamType = 1342177286
 
-public val DEBUG_FLR_SM_COMPRESSION_FORMAT: DEBUG_FLR_PARAM_TYPE = 1342177280
+public val DEBUG_FLR_SM_COMPRESSION_FORMAT: DebugFlrParamType = 1342177280
 
-public val DEBUG_FLR_SM_ONEBIT_SOLUTION_COUNT: DEBUG_FLR_PARAM_TYPE = 1342177287
+public val DEBUG_FLR_SM_ONEBIT_SOLUTION_COUNT: DebugFlrParamType = 1342177287
 
-public val DEBUG_FLR_SM_SOURCE_OFFSET: DEBUG_FLR_PARAM_TYPE = 1342177283
+public val DEBUG_FLR_SM_SOURCE_OFFSET: DebugFlrParamType = 1342177283
 
-public val DEBUG_FLR_SM_SOURCE_PFN1: DEBUG_FLR_PARAM_TYPE = 1342177281
+public val DEBUG_FLR_SM_SOURCE_PFN1: DebugFlrParamType = 1342177281
 
-public val DEBUG_FLR_SM_SOURCE_PFN2: DEBUG_FLR_PARAM_TYPE = 1342177282
+public val DEBUG_FLR_SM_SOURCE_PFN2: DebugFlrParamType = 1342177282
 
-public val DEBUG_FLR_SM_SOURCE_SIZE: DEBUG_FLR_PARAM_TYPE = 1342177284
+public val DEBUG_FLR_SM_SOURCE_SIZE: DebugFlrParamType = 1342177284
 
-public val DEBUG_FLR_SM_TARGET_PFN: DEBUG_FLR_PARAM_TYPE = 1342177285
+public val DEBUG_FLR_SM_TARGET_PFN: DebugFlrParamType = 1342177285
 
-public val DEBUG_FLR_SOLUTION_ID: DEBUG_FLR_PARAM_TYPE = 12293
+public val DEBUG_FLR_SOLUTION_ID: DebugFlrParamType = 12293
 
-public val DEBUG_FLR_SOLUTION_TYPE: DEBUG_FLR_PARAM_TYPE = 12295
+public val DEBUG_FLR_SOLUTION_TYPE: DebugFlrParamType = 12295
 
-public val DEBUG_FLR_SPECIAL_POOL_CORRUPTION_TYPE: DEBUG_FLR_PARAM_TYPE = 1025
+public val DEBUG_FLR_SPECIAL_POOL_CORRUPTION_TYPE: DebugFlrParamType = 1025
 
-public val DEBUG_FLR_STACK: DEBUG_FLR_PARAM_TYPE = 2097152
+public val DEBUG_FLR_STACK: DebugFlrParamType = 2097152
 
-public val DEBUG_FLR_STACKHASH_ANALYSIS: DEBUG_FLR_PARAM_TYPE = 1138688
+public val DEBUG_FLR_STACKHASH_ANALYSIS: DebugFlrParamType = 1138688
 
-public val DEBUG_FLR_STACKUSAGE_FUNCTION: DEBUG_FLR_PARAM_TYPE = 12363
+public val DEBUG_FLR_STACKUSAGE_FUNCTION: DebugFlrParamType = 12363
 
-public val DEBUG_FLR_STACKUSAGE_FUNCTION_SIZE: DEBUG_FLR_PARAM_TYPE = 12364
+public val DEBUG_FLR_STACKUSAGE_FUNCTION_SIZE: DebugFlrParamType = 12364
 
-public val DEBUG_FLR_STACKUSAGE_IMAGE: DEBUG_FLR_PARAM_TYPE = 12361
+public val DEBUG_FLR_STACKUSAGE_IMAGE: DebugFlrParamType = 12361
 
-public val DEBUG_FLR_STACKUSAGE_IMAGE_SIZE: DEBUG_FLR_PARAM_TYPE = 12362
+public val DEBUG_FLR_STACKUSAGE_IMAGE_SIZE: DebugFlrParamType = 12362
 
-public val DEBUG_FLR_STACKUSAGE_RECURSION_COUNT: DEBUG_FLR_PARAM_TYPE = 12365
+public val DEBUG_FLR_STACKUSAGE_RECURSION_COUNT: DebugFlrParamType = 12365
 
-public val DEBUG_FLR_STACK_COMMAND: DEBUG_FLR_PARAM_TYPE = 65540
+public val DEBUG_FLR_STACK_COMMAND: DebugFlrParamType = 65540
 
-public val DEBUG_FLR_STACK_FRAME: DEBUG_FLR_PARAM_TYPE = 2097155
+public val DEBUG_FLR_STACK_FRAME: DebugFlrParamType = 2097155
 
-public val DEBUG_FLR_STACK_FRAMES: DEBUG_FLR_PARAM_TYPE = 2097212
+public val DEBUG_FLR_STACK_FRAMES: DebugFlrParamType = 2097212
 
-public val DEBUG_FLR_STACK_FRAME_FLAGS: DEBUG_FLR_PARAM_TYPE = 2097163
+public val DEBUG_FLR_STACK_FRAME_FLAGS: DebugFlrParamType = 2097163
 
-public val DEBUG_FLR_STACK_FRAME_FUNCTION: DEBUG_FLR_PARAM_TYPE = 2097162
+public val DEBUG_FLR_STACK_FRAME_FUNCTION: DebugFlrParamType = 2097162
 
-public val DEBUG_FLR_STACK_FRAME_IMAGE: DEBUG_FLR_PARAM_TYPE = 2097161
+public val DEBUG_FLR_STACK_FRAME_IMAGE: DebugFlrParamType = 2097161
 
-public val DEBUG_FLR_STACK_FRAME_INSTRUCTION: DEBUG_FLR_PARAM_TYPE = 2097157
+public val DEBUG_FLR_STACK_FRAME_INSTRUCTION: DebugFlrParamType = 2097157
 
-public val DEBUG_FLR_STACK_FRAME_MODULE: DEBUG_FLR_PARAM_TYPE = 2097160
+public val DEBUG_FLR_STACK_FRAME_MODULE: DebugFlrParamType = 2097160
 
-public val DEBUG_FLR_STACK_FRAME_MODULE_BASE: DEBUG_FLR_PARAM_TYPE = 2097224
+public val DEBUG_FLR_STACK_FRAME_MODULE_BASE: DebugFlrParamType = 2097224
 
-public val DEBUG_FLR_STACK_FRAME_NUMBER: DEBUG_FLR_PARAM_TYPE = 2097156
+public val DEBUG_FLR_STACK_FRAME_NUMBER: DebugFlrParamType = 2097156
 
-public val DEBUG_FLR_STACK_FRAME_SRC: DEBUG_FLR_PARAM_TYPE = 2097225
+public val DEBUG_FLR_STACK_FRAME_SRC: DebugFlrParamType = 2097225
 
-public val DEBUG_FLR_STACK_FRAME_SYMBOL: DEBUG_FLR_PARAM_TYPE = 2097158
+public val DEBUG_FLR_STACK_FRAME_SYMBOL: DebugFlrParamType = 2097158
 
-public val DEBUG_FLR_STACK_FRAME_SYMBOL_OFFSET: DEBUG_FLR_PARAM_TYPE = 2097159
+public val DEBUG_FLR_STACK_FRAME_SYMBOL_OFFSET: DebugFlrParamType = 2097159
 
-public val DEBUG_FLR_STACK_OVERFLOW: DEBUG_FLR_PARAM_TYPE = 12301
+public val DEBUG_FLR_STACK_OVERFLOW: DebugFlrParamType = 12301
 
-public val DEBUG_FLR_STACK_POINTER_ERROR: DEBUG_FLR_PARAM_TYPE = 12302
+public val DEBUG_FLR_STACK_POINTER_ERROR: DebugFlrParamType = 12302
 
-public val DEBUG_FLR_STACK_POINTER_MISALIGNED: DEBUG_FLR_PARAM_TYPE = 12304
+public val DEBUG_FLR_STACK_POINTER_MISALIGNED: DebugFlrParamType = 12304
 
-public val DEBUG_FLR_STACK_POINTER_ONEBIT_ERROR: DEBUG_FLR_PARAM_TYPE = 12303
+public val DEBUG_FLR_STACK_POINTER_ONEBIT_ERROR: DebugFlrParamType = 12303
 
-public val DEBUG_FLR_STACK_SHA1_HASH_M: DEBUG_FLR_PARAM_TYPE = 2097221
+public val DEBUG_FLR_STACK_SHA1_HASH_M: DebugFlrParamType = 2097221
 
-public val DEBUG_FLR_STACK_SHA1_HASH_MF: DEBUG_FLR_PARAM_TYPE = 2097219
+public val DEBUG_FLR_STACK_SHA1_HASH_MF: DebugFlrParamType = 2097219
 
-public val DEBUG_FLR_STACK_SHA1_HASH_MFO: DEBUG_FLR_PARAM_TYPE = 2097220
+public val DEBUG_FLR_STACK_SHA1_HASH_MFO: DebugFlrParamType = 2097220
 
-public val DEBUG_FLR_STACK_TEXT: DEBUG_FLR_PARAM_TYPE = 65541
+public val DEBUG_FLR_STACK_TEXT: DebugFlrParamType = 65541
 
-public val DEBUG_FLR_STATUS_CODE: DEBUG_FLR_PARAM_TYPE = 4102
+public val DEBUG_FLR_STATUS_CODE: DebugFlrParamType = 4102
 
-public val DEBUG_FLR_STORAGE: DEBUG_FLR_PARAM_TYPE = 29696
+public val DEBUG_FLR_STORAGE: DebugFlrParamType = 29696
 
-public val DEBUG_FLR_STORAGE_BLACKBOX: DEBUG_FLR_PARAM_TYPE = 29936
+public val DEBUG_FLR_STORAGE_BLACKBOX: DebugFlrParamType = 29936
 
-public val DEBUG_FLR_STORAGE_ISSUEDESCSTRING: DEBUG_FLR_PARAM_TYPE = 29700
+public val DEBUG_FLR_STORAGE_ISSUEDESCSTRING: DebugFlrParamType = 29700
 
-public val DEBUG_FLR_STORAGE_MFGID: DEBUG_FLR_PARAM_TYPE = 29699
+public val DEBUG_FLR_STORAGE_MFGID: DebugFlrParamType = 29699
 
-public val DEBUG_FLR_STORAGE_MODEL: DEBUG_FLR_PARAM_TYPE = 29698
+public val DEBUG_FLR_STORAGE_MODEL: DebugFlrParamType = 29698
 
-public val DEBUG_FLR_STORAGE_ORGID: DEBUG_FLR_PARAM_TYPE = 29697
+public val DEBUG_FLR_STORAGE_ORGID: DebugFlrParamType = 29697
 
-public val DEBUG_FLR_STORAGE_PRIVATE_DATASIZE: DEBUG_FLR_PARAM_TYPE = 29706
+public val DEBUG_FLR_STORAGE_PRIVATE_DATASIZE: DebugFlrParamType = 29706
 
-public val DEBUG_FLR_STORAGE_PRIVATE_OFFSET: DEBUG_FLR_PARAM_TYPE = 29705
+public val DEBUG_FLR_STORAGE_PRIVATE_OFFSET: DebugFlrParamType = 29705
 
-public val DEBUG_FLR_STORAGE_PRIVATE_TOTSIZE: DEBUG_FLR_PARAM_TYPE = 29704
+public val DEBUG_FLR_STORAGE_PRIVATE_TOTSIZE: DebugFlrParamType = 29704
 
-public val DEBUG_FLR_STORAGE_PUBLIC_DATASIZE: DEBUG_FLR_PARAM_TYPE = 29703
+public val DEBUG_FLR_STORAGE_PUBLIC_DATASIZE: DebugFlrParamType = 29703
 
-public val DEBUG_FLR_STORAGE_PUBLIC_OFFSET: DEBUG_FLR_PARAM_TYPE = 29702
+public val DEBUG_FLR_STORAGE_PUBLIC_OFFSET: DebugFlrParamType = 29702
 
-public val DEBUG_FLR_STORAGE_PUBLIC_TOTSIZE: DEBUG_FLR_PARAM_TYPE = 29701
+public val DEBUG_FLR_STORAGE_PUBLIC_TOTSIZE: DebugFlrParamType = 29701
 
-public val DEBUG_FLR_STORAGE_REASON: DEBUG_FLR_PARAM_TYPE = 29708
+public val DEBUG_FLR_STORAGE_REASON: DebugFlrParamType = 29708
 
-public val DEBUG_FLR_STORAGE_TOTALSIZE: DEBUG_FLR_PARAM_TYPE = 29707
+public val DEBUG_FLR_STORAGE_TOTALSIZE: DebugFlrParamType = 29707
 
-public val DEBUG_FLR_STORE_DEVELOPER_NAME: DEBUG_FLR_PARAM_TYPE = 1610612743
+public val DEBUG_FLR_STORE_DEVELOPER_NAME: DebugFlrParamType = 1610612743
 
-public val DEBUG_FLR_STORE_IS_MICROSOFT_PRODUCT: DEBUG_FLR_PARAM_TYPE = 1610612754
+public val DEBUG_FLR_STORE_IS_MICROSOFT_PRODUCT: DebugFlrParamType = 1610612754
 
-public val DEBUG_FLR_STORE_LEGACY_PARENT_PRODUCT_ID: DEBUG_FLR_PARAM_TYPE = 1610612747
+public val DEBUG_FLR_STORE_LEGACY_PARENT_PRODUCT_ID: DebugFlrParamType = 1610612747
 
-public val DEBUG_FLR_STORE_LEGACY_WINDOWS_PHONE_PRODUCT_ID: DEBUG_FLR_PARAM_TYPE = 1610612749
+public val DEBUG_FLR_STORE_LEGACY_WINDOWS_PHONE_PRODUCT_ID: DebugFlrParamType = 1610612749
 
-public val DEBUG_FLR_STORE_LEGACY_WINDOWS_STORE_PRODUCT_ID: DEBUG_FLR_PARAM_TYPE = 1610612748
+public val DEBUG_FLR_STORE_LEGACY_WINDOWS_STORE_PRODUCT_ID: DebugFlrParamType = 1610612748
 
-public val DEBUG_FLR_STORE_LEGACY_XBOX_360_PRODUCT_ID: DEBUG_FLR_PARAM_TYPE = 1610612751
+public val DEBUG_FLR_STORE_LEGACY_XBOX_360_PRODUCT_ID: DebugFlrParamType = 1610612751
 
-public val DEBUG_FLR_STORE_LEGACY_XBOX_ONE_PRODUCT_ID: DEBUG_FLR_PARAM_TYPE = 1610612750
+public val DEBUG_FLR_STORE_LEGACY_XBOX_ONE_PRODUCT_ID: DebugFlrParamType = 1610612750
 
-public val DEBUG_FLR_STORE_PACKAGE_FAMILY_NAME: DEBUG_FLR_PARAM_TYPE = 1610612744
+public val DEBUG_FLR_STORE_PACKAGE_FAMILY_NAME: DebugFlrParamType = 1610612744
 
-public val DEBUG_FLR_STORE_PACKAGE_IDENTITY_NAME: DEBUG_FLR_PARAM_TYPE = 1610612745
+public val DEBUG_FLR_STORE_PACKAGE_IDENTITY_NAME: DebugFlrParamType = 1610612745
 
-public val DEBUG_FLR_STORE_PREFERRED_SKU_ID: DEBUG_FLR_PARAM_TYPE = 1610612753
+public val DEBUG_FLR_STORE_PREFERRED_SKU_ID: DebugFlrParamType = 1610612753
 
-public val DEBUG_FLR_STORE_PRIMARY_PARENT_PRODUCT_ID: DEBUG_FLR_PARAM_TYPE = 1610612746
+public val DEBUG_FLR_STORE_PRIMARY_PARENT_PRODUCT_ID: DebugFlrParamType = 1610612746
 
-public val DEBUG_FLR_STORE_PRODUCT_DESCRIPTION: DEBUG_FLR_PARAM_TYPE = 1610612738
+public val DEBUG_FLR_STORE_PRODUCT_DESCRIPTION: DebugFlrParamType = 1610612738
 
-public val DEBUG_FLR_STORE_PRODUCT_DISPLAY_NAME: DEBUG_FLR_PARAM_TYPE = 1610612737
+public val DEBUG_FLR_STORE_PRODUCT_DISPLAY_NAME: DebugFlrParamType = 1610612737
 
-public val DEBUG_FLR_STORE_PRODUCT_EXTENDED_NAME: DEBUG_FLR_PARAM_TYPE = 1610612739
+public val DEBUG_FLR_STORE_PRODUCT_EXTENDED_NAME: DebugFlrParamType = 1610612739
 
-public val DEBUG_FLR_STORE_PRODUCT_ID: DEBUG_FLR_PARAM_TYPE = 1610612736
+public val DEBUG_FLR_STORE_PRODUCT_ID: DebugFlrParamType = 1610612736
 
-public val DEBUG_FLR_STORE_PUBLISHER_CERTIFICATE_NAME: DEBUG_FLR_PARAM_TYPE = 1610612742
+public val DEBUG_FLR_STORE_PUBLISHER_CERTIFICATE_NAME: DebugFlrParamType = 1610612742
 
-public val DEBUG_FLR_STORE_PUBLISHER_ID: DEBUG_FLR_PARAM_TYPE = 1610612740
+public val DEBUG_FLR_STORE_PUBLISHER_ID: DebugFlrParamType = 1610612740
 
-public val DEBUG_FLR_STORE_PUBLISHER_NAME: DEBUG_FLR_PARAM_TYPE = 1610612741
+public val DEBUG_FLR_STORE_PUBLISHER_NAME: DebugFlrParamType = 1610612741
 
-public val DEBUG_FLR_STORE_URL_APP: DEBUG_FLR_PARAM_TYPE = 1610612755
+public val DEBUG_FLR_STORE_URL_APP: DebugFlrParamType = 1610612755
 
-public val DEBUG_FLR_STORE_URL_APPHEALTH: DEBUG_FLR_PARAM_TYPE = 1610612756
+public val DEBUG_FLR_STORE_URL_APPHEALTH: DebugFlrParamType = 1610612756
 
-public val DEBUG_FLR_STORE_XBOX_TITLE_ID: DEBUG_FLR_PARAM_TYPE = 1610612752
+public val DEBUG_FLR_STORE_XBOX_TITLE_ID: DebugFlrParamType = 1610612752
 
-public val DEBUG_FLR_STREAM_ANALYSIS: DEBUG_FLR_PARAM_TYPE = 1130496
+public val DEBUG_FLR_STREAM_ANALYSIS: DebugFlrParamType = 1130496
 
-public val DEBUG_FLR_SUSPECT_CODE_PATH_HASH: DEBUG_FLR_PARAM_TYPE = 1048586
+public val DEBUG_FLR_SUSPECT_CODE_PATH_HASH: DebugFlrParamType = 1048586
 
-public val DEBUG_FLR_SVCHOST: DEBUG_FLR_PARAM_TYPE = 20736
+public val DEBUG_FLR_SVCHOST: DebugFlrParamType = 20736
 
-public val DEBUG_FLR_SVCHOST_GROUP: DEBUG_FLR_PARAM_TYPE = 20737
+public val DEBUG_FLR_SVCHOST_GROUP: DebugFlrParamType = 20737
 
-public val DEBUG_FLR_SVCHOST_IMAGEPATH: DEBUG_FLR_PARAM_TYPE = 20738
+public val DEBUG_FLR_SVCHOST_IMAGEPATH: DebugFlrParamType = 20738
 
-public val DEBUG_FLR_SVCHOST_SERVICEDLL: DEBUG_FLR_PARAM_TYPE = 20739
+public val DEBUG_FLR_SVCHOST_SERVICEDLL: DebugFlrParamType = 20739
 
-public val DEBUG_FLR_SWITCH_PROCESS_CONTEXT: DEBUG_FLR_PARAM_TYPE = 8223
+public val DEBUG_FLR_SWITCH_PROCESS_CONTEXT: DebugFlrParamType = 8223
 
-public val DEBUG_FLR_SYMBOL_FROM_RAW_STACK_ADDRESS: DEBUG_FLR_PARAM_TYPE = -2147483643
+public val DEBUG_FLR_SYMBOL_FROM_RAW_STACK_ADDRESS: DebugFlrParamType = -2147483643
 
-public val DEBUG_FLR_SYMBOL_NAME: DEBUG_FLR_PARAM_TYPE = 65538
+public val DEBUG_FLR_SYMBOL_NAME: DebugFlrParamType = 65538
 
-public val DEBUG_FLR_SYMBOL_ON_RAW_STACK: DEBUG_FLR_PARAM_TYPE = 4104
+public val DEBUG_FLR_SYMBOL_ON_RAW_STACK: DebugFlrParamType = 4104
 
-public val DEBUG_FLR_SYMBOL_ROUTINE_NAME: DEBUG_FLR_PARAM_TYPE = 65580
+public val DEBUG_FLR_SYMBOL_ROUTINE_NAME: DebugFlrParamType = 65580
 
-public val DEBUG_FLR_SYMBOL_STACK_INDEX: DEBUG_FLR_PARAM_TYPE = 4103
+public val DEBUG_FLR_SYMBOL_STACK_INDEX: DebugFlrParamType = 4103
 
-public val DEBUG_FLR_SYSINFO_BASEBOARD_MANUFACTURER: DEBUG_FLR_PARAM_TYPE = 17156
+public val DEBUG_FLR_SYSINFO_BASEBOARD_MANUFACTURER: DebugFlrParamType = 17156
 
-public val DEBUG_FLR_SYSINFO_BASEBOARD_PRODUCT: DEBUG_FLR_PARAM_TYPE = 17157
+public val DEBUG_FLR_SYSINFO_BASEBOARD_PRODUCT: DebugFlrParamType = 17157
 
-public val DEBUG_FLR_SYSINFO_BASEBOARD_VERSION: DEBUG_FLR_PARAM_TYPE = 17158
+public val DEBUG_FLR_SYSINFO_BASEBOARD_VERSION: DebugFlrParamType = 17158
 
-public val DEBUG_FLR_SYSINFO_BIOS_DATE: DEBUG_FLR_PARAM_TYPE = 17161
+public val DEBUG_FLR_SYSINFO_BIOS_DATE: DebugFlrParamType = 17161
 
-public val DEBUG_FLR_SYSINFO_BIOS_VENDOR: DEBUG_FLR_PARAM_TYPE = 17159
+public val DEBUG_FLR_SYSINFO_BIOS_VENDOR: DebugFlrParamType = 17159
 
-public val DEBUG_FLR_SYSINFO_BIOS_VERSION: DEBUG_FLR_PARAM_TYPE = 17160
+public val DEBUG_FLR_SYSINFO_BIOS_VERSION: DebugFlrParamType = 17160
 
-public val DEBUG_FLR_SYSINFO_SYSTEM_MANUFACTURER: DEBUG_FLR_PARAM_TYPE = 17152
+public val DEBUG_FLR_SYSINFO_SYSTEM_MANUFACTURER: DebugFlrParamType = 17152
 
-public val DEBUG_FLR_SYSINFO_SYSTEM_PRODUCT: DEBUG_FLR_PARAM_TYPE = 17153
+public val DEBUG_FLR_SYSINFO_SYSTEM_PRODUCT: DebugFlrParamType = 17153
 
-public val DEBUG_FLR_SYSINFO_SYSTEM_SKU: DEBUG_FLR_PARAM_TYPE = 17154
+public val DEBUG_FLR_SYSINFO_SYSTEM_SKU: DebugFlrParamType = 17154
 
-public val DEBUG_FLR_SYSINFO_SYSTEM_VERSION: DEBUG_FLR_PARAM_TYPE = 17155
+public val DEBUG_FLR_SYSINFO_SYSTEM_VERSION: DebugFlrParamType = 17155
 
-public val DEBUG_FLR_SYSTEM_LOCALE_deprecated: DEBUG_FLR_PARAM_TYPE = 12298
+public val DEBUG_FLR_SYSTEM_LOCALE_DEPRECATED: DebugFlrParamType = 12298
 
-public val DEBUG_FLR_SYSXML_CHECKSUM: DEBUG_FLR_PARAM_TYPE = 16897
+public val DEBUG_FLR_SYSXML_CHECKSUM: DebugFlrParamType = 16897
 
-public val DEBUG_FLR_SYSXML_LOCALEID: DEBUG_FLR_PARAM_TYPE = 16896
+public val DEBUG_FLR_SYSXML_LOCALEID: DebugFlrParamType = 16896
 
-public val DEBUG_FLR_TARGET_MODE: DEBUG_FLR_PARAM_TYPE = 4107
+public val DEBUG_FLR_TARGET_MODE: DebugFlrParamType = 4107
 
-public val DEBUG_FLR_TARGET_TIME: DEBUG_FLR_PARAM_TYPE = 8250
+public val DEBUG_FLR_TARGET_TIME: DebugFlrParamType = 8250
 
-public val DEBUG_FLR_TESTRESULTGUID: DEBUG_FLR_PARAM_TYPE = -268435455
+public val DEBUG_FLR_TESTRESULTGUID: DebugFlrParamType = -268435455
 
-public val DEBUG_FLR_TESTRESULTSERVER: DEBUG_FLR_PARAM_TYPE = -268435456
+public val DEBUG_FLR_TESTRESULTSERVER: DebugFlrParamType = -268435456
 
-public val DEBUG_FLR_THREADPOOL_WAITER: DEBUG_FLR_PARAM_TYPE = 4106
+public val DEBUG_FLR_THREADPOOL_WAITER: DebugFlrParamType = 4106
 
-public val DEBUG_FLR_THREAD_ATTRIBUTES: DEBUG_FLR_PARAM_TYPE = 1048577
+public val DEBUG_FLR_THREAD_ATTRIBUTES: DebugFlrParamType = 1048577
 
-public val DEBUG_FLR_TIMELINE_ANALYSIS: DEBUG_FLR_PARAM_TYPE = 1126400
+public val DEBUG_FLR_TIMELINE_ANALYSIS: DebugFlrParamType = 1126400
 
-public val DEBUG_FLR_TIMELINE_TIMES: DEBUG_FLR_PARAM_TYPE = 1126401
+public val DEBUG_FLR_TIMELINE_TIMES: DebugFlrParamType = 1126401
 
-public val DEBUG_FLR_TRAP_FRAME: DEBUG_FLR_PARAM_TYPE = -1073741822
+public val DEBUG_FLR_TRAP_FRAME: DebugFlrParamType = -1073741822
 
-public val DEBUG_FLR_TRAP_FRAME_RECURSION: DEBUG_FLR_PARAM_TYPE = 12300
+public val DEBUG_FLR_TRAP_FRAME_RECURSION: DebugFlrParamType = 12300
 
-public val DEBUG_FLR_TRIAGER_OS_BUILD_NAME: DEBUG_FLR_PARAM_TYPE = 12328
+public val DEBUG_FLR_TRIAGER_OS_BUILD_NAME: DebugFlrParamType = 12328
 
-public val DEBUG_FLR_TSS: DEBUG_FLR_PARAM_TYPE = -1073741821
+public val DEBUG_FLR_TSS: DebugFlrParamType = -1073741821
 
-public val DEBUG_FLR_TWO_BIT_ERROR: DEBUG_FLR_PARAM_TYPE = 8204
+public val DEBUG_FLR_TWO_BIT_ERROR: DebugFlrParamType = 8204
 
-public val DEBUG_FLR_ULS_SCRIPT_EXCEPTION: DEBUG_FLR_PARAM_TYPE = 1048617
+public val DEBUG_FLR_ULS_SCRIPT_EXCEPTION: DebugFlrParamType = 1048617
 
-public val DEBUG_FLR_UNALIGNED_STACK_POINTER: DEBUG_FLR_PARAM_TYPE = 12290
+public val DEBUG_FLR_UNALIGNED_STACK_POINTER: DebugFlrParamType = 12290
 
-public val DEBUG_FLR_UNKNOWN: DEBUG_FAILURE_TYPE = 0
+public val DEBUG_FLR_UNKNOWN: DebugFailureType = 0
 
-public val DEBUG_FLR_UNKNOWN_MODULE: DEBUG_FLR_PARAM_TYPE = 8201
+public val DEBUG_FLR_UNKNOWN_MODULE: DebugFlrParamType = 8201
 
-public val DEBUG_FLR_UNRESPONSIVE_UI_FOLLOWUP_NAME: DEBUG_FLR_PARAM_TYPE = 65573
+public val DEBUG_FLR_UNRESPONSIVE_UI_FOLLOWUP_NAME: DebugFlrParamType = 65573
 
-public val DEBUG_FLR_UNRESPONSIVE_UI_PROBLEM_CLASS: DEBUG_FLR_PARAM_TYPE = 1048581
+public val DEBUG_FLR_UNRESPONSIVE_UI_PROBLEM_CLASS: DebugFlrParamType = 1048581
 
-public val DEBUG_FLR_UNRESPONSIVE_UI_PROBLEM_CLASS_DATA: DEBUG_FLR_PARAM_TYPE = 1048582
+public val DEBUG_FLR_UNRESPONSIVE_UI_PROBLEM_CLASS_DATA: DebugFlrParamType = 1048582
 
-public val DEBUG_FLR_UNRESPONSIVE_UI_STACK: DEBUG_FLR_PARAM_TYPE = 65574
+public val DEBUG_FLR_UNRESPONSIVE_UI_STACK: DebugFlrParamType = 65574
 
-public val DEBUG_FLR_UNRESPONSIVE_UI_SYMBOL_NAME: DEBUG_FLR_PARAM_TYPE = 65572
+public val DEBUG_FLR_UNRESPONSIVE_UI_SYMBOL_NAME: DebugFlrParamType = 65572
 
-public val DEBUG_FLR_UNRESPONSIVE_UI_THREAD: DEBUG_FLR_PARAM_TYPE = -1073741819
+public val DEBUG_FLR_UNRESPONSIVE_UI_THREAD: DebugFlrParamType = -1073741819
 
-public val DEBUG_FLR_UNUSED001: DEBUG_FLR_PARAM_TYPE = 8197
+public val DEBUG_FLR_UNUSED001: DebugFlrParamType = 8197
 
-public val DEBUG_FLR_URLS: DEBUG_FLR_PARAM_TYPE = 1048610
+public val DEBUG_FLR_URLS: DebugFlrParamType = 1048610
 
-public val DEBUG_FLR_URLS_DISCOVERED: DEBUG_FLR_PARAM_TYPE = 1048609
+public val DEBUG_FLR_URLS_DISCOVERED: DebugFlrParamType = 1048609
 
-public val DEBUG_FLR_URL_ENTRY: DEBUG_FLR_PARAM_TYPE = 1048611
+public val DEBUG_FLR_URL_ENTRY: DebugFlrParamType = 1048611
 
-public val DEBUG_FLR_URL_LCIE_ENTRY: DEBUG_FLR_PARAM_TYPE = 1048620
+public val DEBUG_FLR_URL_LCIE_ENTRY: DebugFlrParamType = 1048620
 
-public val DEBUG_FLR_URL_URLMON_ENTRY: DEBUG_FLR_PARAM_TYPE = 1048621
+public val DEBUG_FLR_URL_URLMON_ENTRY: DebugFlrParamType = 1048621
 
-public val DEBUG_FLR_URL_XMLHTTPREQ_SYNC_ENTRY: DEBUG_FLR_PARAM_TYPE = 1048622
+public val DEBUG_FLR_URL_XMLHTTPREQ_SYNC_ENTRY: DebugFlrParamType = 1048622
 
-public val DEBUG_FLR_USBPORT_OCADATA: DEBUG_FLR_PARAM_TYPE = 20
+public val DEBUG_FLR_USBPORT_OCADATA: DebugFlrParamType = 20
 
-public val DEBUG_FLR_USER: DEBUG_FAILURE_TYPE = 2
+public val DEBUG_FLR_USER: DebugFailureType = 2
 
-public val DEBUG_FLR_USERBREAK_PEB_PAGEDOUT: DEBUG_FLR_PARAM_TYPE = 8225
+public val DEBUG_FLR_USERBREAK_PEB_PAGEDOUT: DebugFlrParamType = 8225
 
-public val DEBUG_FLR_USERMODE_DATA: DEBUG_FLR_PARAM_TYPE = 1048576
+public val DEBUG_FLR_USERMODE_DATA: DebugFlrParamType = 1048576
 
-public val DEBUG_FLR_USER_GLOBAL_ATTRIBUTES: DEBUG_FLR_PARAM_TYPE = 3153920
+public val DEBUG_FLR_USER_GLOBAL_ATTRIBUTES: DebugFlrParamType = 3153920
 
-public val DEBUG_FLR_USER_LCID: DEBUG_FLR_PARAM_TYPE = 1052690
+public val DEBUG_FLR_USER_LCID: DebugFlrParamType = 1052690
 
-public val DEBUG_FLR_USER_LCID_STR: DEBUG_FLR_PARAM_TYPE = 1052698
+public val DEBUG_FLR_USER_LCID_STR: DebugFlrParamType = 1052698
 
-public val DEBUG_FLR_USER_MODE_BUCKET: DEBUG_FLR_PARAM_TYPE = 65614
+public val DEBUG_FLR_USER_MODE_BUCKET: DebugFlrParamType = 65614
 
-public val DEBUG_FLR_USER_MODE_BUCKET_EVENTTYPE: DEBUG_FLR_PARAM_TYPE = 65616
+public val DEBUG_FLR_USER_MODE_BUCKET_EVENTTYPE: DebugFlrParamType = 65616
 
-public val DEBUG_FLR_USER_MODE_BUCKET_INDEX: DEBUG_FLR_PARAM_TYPE = 65615
+public val DEBUG_FLR_USER_MODE_BUCKET_INDEX: DebugFlrParamType = 65615
 
-public val DEBUG_FLR_USER_MODE_BUCKET_P0: DEBUG_FLR_PARAM_TYPE = 65619
+public val DEBUG_FLR_USER_MODE_BUCKET_P0: DebugFlrParamType = 65619
 
-public val DEBUG_FLR_USER_MODE_BUCKET_P1: DEBUG_FLR_PARAM_TYPE = 65620
+public val DEBUG_FLR_USER_MODE_BUCKET_P1: DebugFlrParamType = 65620
 
-public val DEBUG_FLR_USER_MODE_BUCKET_P2: DEBUG_FLR_PARAM_TYPE = 65621
+public val DEBUG_FLR_USER_MODE_BUCKET_P2: DebugFlrParamType = 65621
 
-public val DEBUG_FLR_USER_MODE_BUCKET_P3: DEBUG_FLR_PARAM_TYPE = 65622
+public val DEBUG_FLR_USER_MODE_BUCKET_P3: DebugFlrParamType = 65622
 
-public val DEBUG_FLR_USER_MODE_BUCKET_P4: DEBUG_FLR_PARAM_TYPE = 65623
+public val DEBUG_FLR_USER_MODE_BUCKET_P4: DebugFlrParamType = 65623
 
-public val DEBUG_FLR_USER_MODE_BUCKET_P5: DEBUG_FLR_PARAM_TYPE = 65624
+public val DEBUG_FLR_USER_MODE_BUCKET_P5: DebugFlrParamType = 65624
 
-public val DEBUG_FLR_USER_MODE_BUCKET_P6: DEBUG_FLR_PARAM_TYPE = 65625
+public val DEBUG_FLR_USER_MODE_BUCKET_P6: DebugFlrParamType = 65625
 
-public val DEBUG_FLR_USER_MODE_BUCKET_P7: DEBUG_FLR_PARAM_TYPE = 65626
+public val DEBUG_FLR_USER_MODE_BUCKET_P7: DebugFlrParamType = 65626
 
-public val DEBUG_FLR_USER_MODE_BUCKET_REPORTCREATIONTIME: DEBUG_FLR_PARAM_TYPE = 65618
+public val DEBUG_FLR_USER_MODE_BUCKET_REPORTCREATIONTIME: DebugFlrParamType = 65618
 
-public val DEBUG_FLR_USER_MODE_BUCKET_REPORTGUID: DEBUG_FLR_PARAM_TYPE = 65617
+public val DEBUG_FLR_USER_MODE_BUCKET_REPORTGUID: DebugFlrParamType = 65617
 
-public val DEBUG_FLR_USER_MODE_BUCKET_STRING: DEBUG_FLR_PARAM_TYPE = 65627
+public val DEBUG_FLR_USER_MODE_BUCKET_STRING: DebugFlrParamType = 65627
 
-public val DEBUG_FLR_USER_NAME: DEBUG_FLR_PARAM_TYPE = 65548
+public val DEBUG_FLR_USER_NAME: DebugFlrParamType = 65548
 
-public val DEBUG_FLR_USER_PROBLEM_CLASSES: DEBUG_FLR_PARAM_TYPE = 3162112
+public val DEBUG_FLR_USER_PROBLEM_CLASSES: DebugFlrParamType = 3162112
 
-public val DEBUG_FLR_USER_THREAD_ATTRIBUTES: DEBUG_FLR_PARAM_TYPE = 3158016
+public val DEBUG_FLR_USER_THREAD_ATTRIBUTES: DebugFlrParamType = 3158016
 
-public val DEBUG_FLR_USE_DEFAULT_CONTEXT: DEBUG_FLR_PARAM_TYPE = 8221
+public val DEBUG_FLR_USE_DEFAULT_CONTEXT: DebugFlrParamType = 8221
 
-public val DEBUG_FLR_VERIFIER_DRIVER_ENTRY: DEBUG_FLR_PARAM_TYPE = 263
+public val DEBUG_FLR_VERIFIER_DRIVER_ENTRY: DebugFlrParamType = 263
 
-public val DEBUG_FLR_VERIFIER_FOUND_DEADLOCK: DEBUG_FLR_PARAM_TYPE = 26
+public val DEBUG_FLR_VERIFIER_FOUND_DEADLOCK: DebugFlrParamType = 26
 
-public val DEBUG_FLR_VERIFIER_STOP: DEBUG_FLR_PARAM_TYPE = 8224
+public val DEBUG_FLR_VERIFIER_STOP: DebugFlrParamType = 8224
 
-public val DEBUG_FLR_VIDEO_TDR_CONTEXT: DEBUG_FLR_PARAM_TYPE = 262
+public val DEBUG_FLR_VIDEO_TDR_CONTEXT: DebugFlrParamType = 262
 
-public val DEBUG_FLR_VIRTUAL_MACHINE: DEBUG_FLR_PARAM_TYPE = 17162
+public val DEBUG_FLR_VIRTUAL_MACHINE: DebugFlrParamType = 17162
 
-public val DEBUG_FLR_WAIT_CHAIN_COMMAND: DEBUG_FLR_PARAM_TYPE = 1048598
+public val DEBUG_FLR_WAIT_CHAIN_COMMAND: DebugFlrParamType = 1048598
 
-public val DEBUG_FLR_WATSON_GENERIC_BUCKETING_00: DEBUG_FLR_PARAM_TYPE = 16648
+public val DEBUG_FLR_WATSON_GENERIC_BUCKETING_00: DebugFlrParamType = 16648
 
-public val DEBUG_FLR_WATSON_GENERIC_BUCKETING_01: DEBUG_FLR_PARAM_TYPE = 16649
+public val DEBUG_FLR_WATSON_GENERIC_BUCKETING_01: DebugFlrParamType = 16649
 
-public val DEBUG_FLR_WATSON_GENERIC_BUCKETING_02: DEBUG_FLR_PARAM_TYPE = 16650
+public val DEBUG_FLR_WATSON_GENERIC_BUCKETING_02: DebugFlrParamType = 16650
 
-public val DEBUG_FLR_WATSON_GENERIC_BUCKETING_03: DEBUG_FLR_PARAM_TYPE = 16651
+public val DEBUG_FLR_WATSON_GENERIC_BUCKETING_03: DebugFlrParamType = 16651
 
-public val DEBUG_FLR_WATSON_GENERIC_BUCKETING_04: DEBUG_FLR_PARAM_TYPE = 16652
+public val DEBUG_FLR_WATSON_GENERIC_BUCKETING_04: DebugFlrParamType = 16652
 
-public val DEBUG_FLR_WATSON_GENERIC_BUCKETING_05: DEBUG_FLR_PARAM_TYPE = 16653
+public val DEBUG_FLR_WATSON_GENERIC_BUCKETING_05: DebugFlrParamType = 16653
 
-public val DEBUG_FLR_WATSON_GENERIC_BUCKETING_06: DEBUG_FLR_PARAM_TYPE = 16654
+public val DEBUG_FLR_WATSON_GENERIC_BUCKETING_06: DebugFlrParamType = 16654
 
-public val DEBUG_FLR_WATSON_GENERIC_BUCKETING_07: DEBUG_FLR_PARAM_TYPE = 16655
+public val DEBUG_FLR_WATSON_GENERIC_BUCKETING_07: DebugFlrParamType = 16655
 
-public val DEBUG_FLR_WATSON_GENERIC_BUCKETING_08: DEBUG_FLR_PARAM_TYPE = 16656
+public val DEBUG_FLR_WATSON_GENERIC_BUCKETING_08: DebugFlrParamType = 16656
 
-public val DEBUG_FLR_WATSON_GENERIC_BUCKETING_09: DEBUG_FLR_PARAM_TYPE = 16657
+public val DEBUG_FLR_WATSON_GENERIC_BUCKETING_09: DebugFlrParamType = 16657
 
-public val DEBUG_FLR_WATSON_GENERIC_EVENT_NAME: DEBUG_FLR_PARAM_TYPE = 16647
+public val DEBUG_FLR_WATSON_GENERIC_EVENT_NAME: DebugFlrParamType = 16647
 
-public val DEBUG_FLR_WATSON_IBUCKET: DEBUG_FLR_PARAM_TYPE = 16644
+public val DEBUG_FLR_WATSON_IBUCKET: DebugFlrParamType = 16644
 
-public val DEBUG_FLR_WATSON_IBUCKETTABLE_S1_RESP: DEBUG_FLR_PARAM_TYPE = 1048613
+public val DEBUG_FLR_WATSON_IBUCKETTABLE_S1_RESP: DebugFlrParamType = 1048613
 
-public val DEBUG_FLR_WATSON_IBUCKET_S1_RESP: DEBUG_FLR_PARAM_TYPE = 1048612
+public val DEBUG_FLR_WATSON_IBUCKET_S1_RESP: DebugFlrParamType = 1048612
 
-public val DEBUG_FLR_WATSON_MODULE: DEBUG_FLR_PARAM_TYPE = 16640
+public val DEBUG_FLR_WATSON_MODULE: DebugFlrParamType = 16640
 
-public val DEBUG_FLR_WATSON_MODULE_OFFSET: DEBUG_FLR_PARAM_TYPE = 16642
+public val DEBUG_FLR_WATSON_MODULE_OFFSET: DebugFlrParamType = 16642
 
-public val DEBUG_FLR_WATSON_MODULE_TIMESTAMP: DEBUG_FLR_PARAM_TYPE = 16645
+public val DEBUG_FLR_WATSON_MODULE_TIMESTAMP: DebugFlrParamType = 16645
 
-public val DEBUG_FLR_WATSON_MODULE_VERSION: DEBUG_FLR_PARAM_TYPE = 16641
+public val DEBUG_FLR_WATSON_MODULE_VERSION: DebugFlrParamType = 16641
 
-public val DEBUG_FLR_WATSON_PROCESS_TIMESTAMP: DEBUG_FLR_PARAM_TYPE = 16646
+public val DEBUG_FLR_WATSON_PROCESS_TIMESTAMP: DebugFlrParamType = 16646
 
-public val DEBUG_FLR_WATSON_PROCESS_VERSION: DEBUG_FLR_PARAM_TYPE = 16643
+public val DEBUG_FLR_WATSON_PROCESS_VERSION: DebugFlrParamType = 16643
 
-public val DEBUG_FLR_WCT_XML_AVAILABLE: DEBUG_FLR_PARAM_TYPE = 1048591
+public val DEBUG_FLR_WCT_XML_AVAILABLE: DebugFlrParamType = 1048591
 
-public val DEBUG_FLR_WERCOLLECTION_DEFAULTCOLLECTION_FAILURE: DEBUG_FLR_PARAM_TYPE = -268435438
+public val DEBUG_FLR_WERCOLLECTION_DEFAULTCOLLECTION_FAILURE: DebugFlrParamType = -268435438
 
-public val DEBUG_FLR_WERCOLLECTION_MINIDUMP_WRITE_FAILURE: DEBUG_FLR_PARAM_TYPE = -268435439
+public val DEBUG_FLR_WERCOLLECTION_MINIDUMP_WRITE_FAILURE: DebugFlrParamType = -268435439
 
-public val DEBUG_FLR_WERCOLLECTION_PROCESSHEAPDUMP_REQUEST_FAILURE: DEBUG_FLR_PARAM_TYPE = -268435440
+public val DEBUG_FLR_WERCOLLECTION_PROCESSHEAPDUMP_REQUEST_FAILURE: DebugFlrParamType = -268435440
 
-public val DEBUG_FLR_WERCOLLECTION_PROCESSTERMINATED: DEBUG_FLR_PARAM_TYPE = -268435441
+public val DEBUG_FLR_WERCOLLECTION_PROCESSTERMINATED: DebugFlrParamType = -268435441
 
-public val DEBUG_FLR_WER_DATA_COLLECTION_INFO: DEBUG_FLR_PARAM_TYPE = 1048615
+public val DEBUG_FLR_WER_DATA_COLLECTION_INFO: DebugFlrParamType = 1048615
 
-public val DEBUG_FLR_WER_MACHINE_ID: DEBUG_FLR_PARAM_TYPE = 1048616
+public val DEBUG_FLR_WER_MACHINE_ID: DebugFlrParamType = 1048616
 
-public val DEBUG_FLR_WHEA_ERROR_RECORD: DEBUG_FLR_PARAM_TYPE = 25
+public val DEBUG_FLR_WHEA_ERROR_RECORD: DebugFlrParamType = 25
 
-public val DEBUG_FLR_WINLOGON_BLACKBOX: DEBUG_FLR_PARAM_TYPE = -268435432
+public val DEBUG_FLR_WINLOGON_BLACKBOX: DebugFlrParamType = -268435432
 
-public val DEBUG_FLR_WMI_QUERY_DATA: DEBUG_FLR_PARAM_TYPE = 3149824
+public val DEBUG_FLR_WMI_QUERY_DATA: DebugFlrParamType = 3149824
 
-public val DEBUG_FLR_WORKER_ROUTINE: DEBUG_FLR_PARAM_TYPE = 5
+public val DEBUG_FLR_WORKER_ROUTINE: DebugFlrParamType = 5
 
-public val DEBUG_FLR_WORK_ITEM: DEBUG_FLR_PARAM_TYPE = 6
+public val DEBUG_FLR_WORK_ITEM: DebugFlrParamType = 6
 
-public val DEBUG_FLR_WORK_QUEUE_ITEM: DEBUG_FLR_PARAM_TYPE = 21
+public val DEBUG_FLR_WORK_QUEUE_ITEM: DebugFlrParamType = 21
 
-public val DEBUG_FLR_WQL_EVENTLOG_INFO: DEBUG_FLR_PARAM_TYPE = 16899
+public val DEBUG_FLR_WQL_EVENTLOG_INFO: DebugFlrParamType = 16899
 
-public val DEBUG_FLR_WQL_EVENT_COUNT: DEBUG_FLR_PARAM_TYPE = 16898
+public val DEBUG_FLR_WQL_EVENT_COUNT: DebugFlrParamType = 16898
 
-public val DEBUG_FLR_WRITE_ADDRESS: DEBUG_FLR_PARAM_TYPE = 15
+public val DEBUG_FLR_WRITE_ADDRESS: DebugFlrParamType = 15
 
-public val DEBUG_FLR_WRONG_SYMBOLS: DEBUG_FLR_PARAM_TYPE = 8195
+public val DEBUG_FLR_WRONG_SYMBOLS: DebugFlrParamType = 8195
 
-public val DEBUG_FLR_WRONG_SYMBOLS_SIZE: DEBUG_FLR_PARAM_TYPE = 8247
+public val DEBUG_FLR_WRONG_SYMBOLS_SIZE: DebugFlrParamType = 8247
 
-public val DEBUG_FLR_WRONG_SYMBOLS_TIMESTAMP: DEBUG_FLR_PARAM_TYPE = 8246
+public val DEBUG_FLR_WRONG_SYMBOLS_TIMESTAMP: DebugFlrParamType = 8246
 
-public val DEBUG_FLR_XBOX_LIVE_ENVIRONMENT: DEBUG_FLR_PARAM_TYPE = 12368
+public val DEBUG_FLR_XBOX_LIVE_ENVIRONMENT: DebugFlrParamType = 12368
 
-public val DEBUG_FLR_XBOX_SYSTEM_CRASHTIME: DEBUG_FLR_PARAM_TYPE = 12367
+public val DEBUG_FLR_XBOX_SYSTEM_CRASHTIME: DebugFlrParamType = 12367
 
-public val DEBUG_FLR_XBOX_SYSTEM_UPTIME: DEBUG_FLR_PARAM_TYPE = 12366
+public val DEBUG_FLR_XBOX_SYSTEM_UPTIME: DebugFlrParamType = 12366
 
-public val DEBUG_FLR_XCS_PATH: DEBUG_FLR_PARAM_TYPE = 1048603
+public val DEBUG_FLR_XCS_PATH: DebugFlrParamType = 1048603
 
-public val DEBUG_FLR_XDV_HELP_LINK: DEBUG_FLR_PARAM_TYPE = -1073741811
+public val DEBUG_FLR_XDV_HELP_LINK: DebugFlrParamType = -1073741811
 
-public val DEBUG_FLR_XDV_RULE_INFO: DEBUG_FLR_PARAM_TYPE = -1073741810
+public val DEBUG_FLR_XDV_RULE_INFO: DebugFlrParamType = -1073741810
 
-public val DEBUG_FLR_XDV_STATE_VARIABLE: DEBUG_FLR_PARAM_TYPE = -1073741812
+public val DEBUG_FLR_XDV_STATE_VARIABLE: DebugFlrParamType = -1073741812
 
-public val DEBUG_FLR_XDV_VIOLATED_CONDITION: DEBUG_FLR_PARAM_TYPE = -1073741813
+public val DEBUG_FLR_XDV_VIOLATED_CONDITION: DebugFlrParamType = -1073741813
 
-public val DEBUG_FLR_XHCI_FIRMWARE_VERSION: DEBUG_FLR_PARAM_TYPE = 65590
+public val DEBUG_FLR_XHCI_FIRMWARE_VERSION: DebugFlrParamType = 65590
 
-public val DEBUG_FLR_XML_APPLICATION_NAME: DEBUG_FLR_PARAM_TYPE = 2097231
+public val DEBUG_FLR_XML_APPLICATION_NAME: DebugFlrParamType = 2097231
 
-public val DEBUG_FLR_XML_ATTRIBUTE: DEBUG_FLR_PARAM_TYPE = 2097194
+public val DEBUG_FLR_XML_ATTRIBUTE: DebugFlrParamType = 2097194
 
-public val DEBUG_FLR_XML_ATTRIBUTE_D1VALUE: DEBUG_FLR_PARAM_TYPE = 2097197
+public val DEBUG_FLR_XML_ATTRIBUTE_D1VALUE: DebugFlrParamType = 2097197
 
-public val DEBUG_FLR_XML_ATTRIBUTE_D2VALUE: DEBUG_FLR_PARAM_TYPE = 2097198
+public val DEBUG_FLR_XML_ATTRIBUTE_D2VALUE: DebugFlrParamType = 2097198
 
-public val DEBUG_FLR_XML_ATTRIBUTE_DOVALUE: DEBUG_FLR_PARAM_TYPE = 2097199
+public val DEBUG_FLR_XML_ATTRIBUTE_DOVALUE: DebugFlrParamType = 2097199
 
-public val DEBUG_FLR_XML_ATTRIBUTE_FRAME_NUMBER: DEBUG_FLR_PARAM_TYPE = 2097201
+public val DEBUG_FLR_XML_ATTRIBUTE_FRAME_NUMBER: DebugFlrParamType = 2097201
 
-public val DEBUG_FLR_XML_ATTRIBUTE_LIST: DEBUG_FLR_PARAM_TYPE = 2097193
+public val DEBUG_FLR_XML_ATTRIBUTE_LIST: DebugFlrParamType = 2097193
 
-public val DEBUG_FLR_XML_ATTRIBUTE_NAME: DEBUG_FLR_PARAM_TYPE = 2097195
+public val DEBUG_FLR_XML_ATTRIBUTE_NAME: DebugFlrParamType = 2097195
 
-public val DEBUG_FLR_XML_ATTRIBUTE_THREAD_INDEX: DEBUG_FLR_PARAM_TYPE = 2097202
+public val DEBUG_FLR_XML_ATTRIBUTE_THREAD_INDEX: DebugFlrParamType = 2097202
 
-public val DEBUG_FLR_XML_ATTRIBUTE_VALUE: DEBUG_FLR_PARAM_TYPE = 2097196
+public val DEBUG_FLR_XML_ATTRIBUTE_VALUE: DebugFlrParamType = 2097196
 
-public val DEBUG_FLR_XML_ATTRIBUTE_VALUE_TYPE: DEBUG_FLR_PARAM_TYPE = 2097200
+public val DEBUG_FLR_XML_ATTRIBUTE_VALUE_TYPE: DebugFlrParamType = 2097200
 
-public val DEBUG_FLR_XML_ENCODED_OFFSETS: DEBUG_FLR_PARAM_TYPE = 2097213
+public val DEBUG_FLR_XML_ENCODED_OFFSETS: DebugFlrParamType = 2097213
 
-public val DEBUG_FLR_XML_EVENTTYPE: DEBUG_FLR_PARAM_TYPE = 2097235
+public val DEBUG_FLR_XML_EVENTTYPE: DebugFlrParamType = 2097235
 
-public val DEBUG_FLR_XML_GLOBALATTRIBUTE_LIST: DEBUG_FLR_PARAM_TYPE = 2097192
+public val DEBUG_FLR_XML_GLOBALATTRIBUTE_LIST: DebugFlrParamType = 2097192
 
-public val DEBUG_FLR_XML_MODERN_ASYNC_REQUEST_OUTSTANDING: DEBUG_FLR_PARAM_TYPE = 2097234
+public val DEBUG_FLR_XML_MODERN_ASYNC_REQUEST_OUTSTANDING: DebugFlrParamType = 2097234
 
-public val DEBUG_FLR_XML_MODULE_INFO: DEBUG_FLR_PARAM_TYPE = 2097169
+public val DEBUG_FLR_XML_MODULE_INFO: DebugFlrParamType = 2097169
 
-public val DEBUG_FLR_XML_MODULE_INFO_BASE: DEBUG_FLR_PARAM_TYPE = 2097186
+public val DEBUG_FLR_XML_MODULE_INFO_BASE: DebugFlrParamType = 2097186
 
-public val DEBUG_FLR_XML_MODULE_INFO_CHECKSUM: DEBUG_FLR_PARAM_TYPE = 2097174
+public val DEBUG_FLR_XML_MODULE_INFO_CHECKSUM: DebugFlrParamType = 2097174
 
-public val DEBUG_FLR_XML_MODULE_INFO_COMPANY_NAME: DEBUG_FLR_PARAM_TYPE = 2097182
+public val DEBUG_FLR_XML_MODULE_INFO_COMPANY_NAME: DebugFlrParamType = 2097182
 
-public val DEBUG_FLR_XML_MODULE_INFO_DRIVER_GROUP: DEBUG_FLR_PARAM_TYPE = 2097251
+public val DEBUG_FLR_XML_MODULE_INFO_DRIVER_GROUP: DebugFlrParamType = 2097251
 
-public val DEBUG_FLR_XML_MODULE_INFO_FILE_DESCRIPTION: DEBUG_FLR_PARAM_TYPE = 2097183
+public val DEBUG_FLR_XML_MODULE_INFO_FILE_DESCRIPTION: DebugFlrParamType = 2097183
 
-public val DEBUG_FLR_XML_MODULE_INFO_FILE_FLAGS: DEBUG_FLR_PARAM_TYPE = 2097223
+public val DEBUG_FLR_XML_MODULE_INFO_FILE_FLAGS: DebugFlrParamType = 2097223
 
-public val DEBUG_FLR_XML_MODULE_INFO_FIXED_FILE_VER: DEBUG_FLR_PARAM_TYPE = 2097178
+public val DEBUG_FLR_XML_MODULE_INFO_FIXED_FILE_VER: DebugFlrParamType = 2097178
 
-public val DEBUG_FLR_XML_MODULE_INFO_FIXED_PROD_VER: DEBUG_FLR_PARAM_TYPE = 2097179
+public val DEBUG_FLR_XML_MODULE_INFO_FIXED_PROD_VER: DebugFlrParamType = 2097179
 
-public val DEBUG_FLR_XML_MODULE_INFO_IMAGE_NAME: DEBUG_FLR_PARAM_TYPE = 2097172
+public val DEBUG_FLR_XML_MODULE_INFO_IMAGE_NAME: DebugFlrParamType = 2097172
 
-public val DEBUG_FLR_XML_MODULE_INFO_IMAGE_PATH: DEBUG_FLR_PARAM_TYPE = 2097173
+public val DEBUG_FLR_XML_MODULE_INFO_IMAGE_PATH: DebugFlrParamType = 2097173
 
-public val DEBUG_FLR_XML_MODULE_INFO_INDEX: DEBUG_FLR_PARAM_TYPE = 2097170
+public val DEBUG_FLR_XML_MODULE_INFO_INDEX: DebugFlrParamType = 2097170
 
-public val DEBUG_FLR_XML_MODULE_INFO_INTERNAL_NAME: DEBUG_FLR_PARAM_TYPE = 2097184
+public val DEBUG_FLR_XML_MODULE_INFO_INTERNAL_NAME: DebugFlrParamType = 2097184
 
-public val DEBUG_FLR_XML_MODULE_INFO_NAME: DEBUG_FLR_PARAM_TYPE = 2097171
+public val DEBUG_FLR_XML_MODULE_INFO_NAME: DebugFlrParamType = 2097171
 
-public val DEBUG_FLR_XML_MODULE_INFO_ON_STACK: DEBUG_FLR_PARAM_TYPE = 2097177
+public val DEBUG_FLR_XML_MODULE_INFO_ON_STACK: DebugFlrParamType = 2097177
 
-public val DEBUG_FLR_XML_MODULE_INFO_ORIG_FILE_NAME: DEBUG_FLR_PARAM_TYPE = 2097185
+public val DEBUG_FLR_XML_MODULE_INFO_ORIG_FILE_NAME: DebugFlrParamType = 2097185
 
-public val DEBUG_FLR_XML_MODULE_INFO_PRODUCT_NAME: DEBUG_FLR_PARAM_TYPE = 2097188
+public val DEBUG_FLR_XML_MODULE_INFO_PRODUCT_NAME: DebugFlrParamType = 2097188
 
-public val DEBUG_FLR_XML_MODULE_INFO_SIZE: DEBUG_FLR_PARAM_TYPE = 2097187
+public val DEBUG_FLR_XML_MODULE_INFO_SIZE: DebugFlrParamType = 2097187
 
-public val DEBUG_FLR_XML_MODULE_INFO_STRING_FILE_VER: DEBUG_FLR_PARAM_TYPE = 2097180
+public val DEBUG_FLR_XML_MODULE_INFO_STRING_FILE_VER: DebugFlrParamType = 2097180
 
-public val DEBUG_FLR_XML_MODULE_INFO_STRING_PROD_VER: DEBUG_FLR_PARAM_TYPE = 2097181
+public val DEBUG_FLR_XML_MODULE_INFO_STRING_PROD_VER: DebugFlrParamType = 2097181
 
-public val DEBUG_FLR_XML_MODULE_INFO_SYMBOL_TYPE: DEBUG_FLR_PARAM_TYPE = 2097222
+public val DEBUG_FLR_XML_MODULE_INFO_SYMBOL_TYPE: DebugFlrParamType = 2097222
 
-public val DEBUG_FLR_XML_MODULE_INFO_SYMSRV_IMAGE_DETAIL: DEBUG_FLR_PARAM_TYPE = 2097245
+public val DEBUG_FLR_XML_MODULE_INFO_SYMSRV_IMAGE_DETAIL: DebugFlrParamType = 2097245
 
-public val DEBUG_FLR_XML_MODULE_INFO_SYMSRV_IMAGE_ERROR: DEBUG_FLR_PARAM_TYPE = 2097244
+public val DEBUG_FLR_XML_MODULE_INFO_SYMSRV_IMAGE_ERROR: DebugFlrParamType = 2097244
 
-public val DEBUG_FLR_XML_MODULE_INFO_SYMSRV_IMAGE_SEC: DEBUG_FLR_PARAM_TYPE = 2097246
+public val DEBUG_FLR_XML_MODULE_INFO_SYMSRV_IMAGE_SEC: DebugFlrParamType = 2097246
 
-public val DEBUG_FLR_XML_MODULE_INFO_SYMSRV_IMAGE_STATUS: DEBUG_FLR_PARAM_TYPE = 2097243
+public val DEBUG_FLR_XML_MODULE_INFO_SYMSRV_IMAGE_STATUS: DebugFlrParamType = 2097243
 
-public val DEBUG_FLR_XML_MODULE_INFO_SYMSRV_PDB_DETAIL: DEBUG_FLR_PARAM_TYPE = 2097249
+public val DEBUG_FLR_XML_MODULE_INFO_SYMSRV_PDB_DETAIL: DebugFlrParamType = 2097249
 
-public val DEBUG_FLR_XML_MODULE_INFO_SYMSRV_PDB_ERROR: DEBUG_FLR_PARAM_TYPE = 2097248
+public val DEBUG_FLR_XML_MODULE_INFO_SYMSRV_PDB_ERROR: DebugFlrParamType = 2097248
 
-public val DEBUG_FLR_XML_MODULE_INFO_SYMSRV_PDB_SEC: DEBUG_FLR_PARAM_TYPE = 2097250
+public val DEBUG_FLR_XML_MODULE_INFO_SYMSRV_PDB_SEC: DebugFlrParamType = 2097250
 
-public val DEBUG_FLR_XML_MODULE_INFO_SYMSRV_PDB_STATUS: DEBUG_FLR_PARAM_TYPE = 2097247
+public val DEBUG_FLR_XML_MODULE_INFO_SYMSRV_PDB_STATUS: DebugFlrParamType = 2097247
 
-public val DEBUG_FLR_XML_MODULE_INFO_TIMESTAMP: DEBUG_FLR_PARAM_TYPE = 2097175
+public val DEBUG_FLR_XML_MODULE_INFO_TIMESTAMP: DebugFlrParamType = 2097175
 
-public val DEBUG_FLR_XML_MODULE_INFO_UNLOADED: DEBUG_FLR_PARAM_TYPE = 2097176
+public val DEBUG_FLR_XML_MODULE_INFO_UNLOADED: DebugFlrParamType = 2097176
 
-public val DEBUG_FLR_XML_MODULE_LIST: DEBUG_FLR_PARAM_TYPE = 2097154
+public val DEBUG_FLR_XML_MODULE_LIST: DebugFlrParamType = 2097154
 
-public val DEBUG_FLR_XML_PACKAGE_MONIKER: DEBUG_FLR_PARAM_TYPE = 2097232
+public val DEBUG_FLR_XML_PACKAGE_MONIKER: DebugFlrParamType = 2097232
 
-public val DEBUG_FLR_XML_PACKAGE_NAME: DEBUG_FLR_PARAM_TYPE = 2097236
+public val DEBUG_FLR_XML_PACKAGE_NAME: DebugFlrParamType = 2097236
 
-public val DEBUG_FLR_XML_PACKAGE_RELATIVE_APPLICATION_ID: DEBUG_FLR_PARAM_TYPE = 2097233
+public val DEBUG_FLR_XML_PACKAGE_RELATIVE_APPLICATION_ID: DebugFlrParamType = 2097233
 
-public val DEBUG_FLR_XML_PACKAGE_VERSION: DEBUG_FLR_PARAM_TYPE = 2097237
+public val DEBUG_FLR_XML_PACKAGE_VERSION: DebugFlrParamType = 2097237
 
-public val DEBUG_FLR_XML_PROBLEMCLASS: DEBUG_FLR_PARAM_TYPE = 2097204
+public val DEBUG_FLR_XML_PROBLEMCLASS: DebugFlrParamType = 2097204
 
-public val DEBUG_FLR_XML_PROBLEMCLASS_FRAME_NUMBER: DEBUG_FLR_PARAM_TYPE = 2097208
+public val DEBUG_FLR_XML_PROBLEMCLASS_FRAME_NUMBER: DebugFlrParamType = 2097208
 
-public val DEBUG_FLR_XML_PROBLEMCLASS_LIST: DEBUG_FLR_PARAM_TYPE = 2097203
+public val DEBUG_FLR_XML_PROBLEMCLASS_LIST: DebugFlrParamType = 2097203
 
-public val DEBUG_FLR_XML_PROBLEMCLASS_NAME: DEBUG_FLR_PARAM_TYPE = 2097205
+public val DEBUG_FLR_XML_PROBLEMCLASS_NAME: DebugFlrParamType = 2097205
 
-public val DEBUG_FLR_XML_PROBLEMCLASS_THREAD_INDEX: DEBUG_FLR_PARAM_TYPE = 2097209
+public val DEBUG_FLR_XML_PROBLEMCLASS_THREAD_INDEX: DebugFlrParamType = 2097209
 
-public val DEBUG_FLR_XML_PROBLEMCLASS_VALUE: DEBUG_FLR_PARAM_TYPE = 2097206
+public val DEBUG_FLR_XML_PROBLEMCLASS_VALUE: DebugFlrParamType = 2097206
 
-public val DEBUG_FLR_XML_PROBLEMCLASS_VALUE_TYPE: DEBUG_FLR_PARAM_TYPE = 2097207
+public val DEBUG_FLR_XML_PROBLEMCLASS_VALUE_TYPE: DebugFlrParamType = 2097207
 
-public val DEBUG_FLR_XML_STACK_FRAME_TRIAGE_STATUS: DEBUG_FLR_PARAM_TYPE = 2097210
+public val DEBUG_FLR_XML_STACK_FRAME_TRIAGE_STATUS: DebugFlrParamType = 2097210
 
-public val DEBUG_FLR_XML_SYSTEMINFO: DEBUG_FLR_PARAM_TYPE = 2097226
+public val DEBUG_FLR_XML_SYSTEMINFO: DebugFlrParamType = 2097226
 
-public val DEBUG_FLR_XML_SYSTEMINFO_SYSTEMMANUFACTURER: DEBUG_FLR_PARAM_TYPE = 2097227
+public val DEBUG_FLR_XML_SYSTEMINFO_SYSTEMMANUFACTURER: DebugFlrParamType = 2097227
 
-public val DEBUG_FLR_XML_SYSTEMINFO_SYSTEMMARKER: DEBUG_FLR_PARAM_TYPE = 2097229
+public val DEBUG_FLR_XML_SYSTEMINFO_SYSTEMMARKER: DebugFlrParamType = 2097229
 
-public val DEBUG_FLR_XML_SYSTEMINFO_SYSTEMMODEL: DEBUG_FLR_PARAM_TYPE = 2097228
+public val DEBUG_FLR_XML_SYSTEMINFO_SYSTEMMODEL: DebugFlrParamType = 2097228
 
-public val DEBUG_FLR_XPROC_DUMP_AVAILABLE: DEBUG_FLR_PARAM_TYPE = 1048592
+public val DEBUG_FLR_XPROC_DUMP_AVAILABLE: DebugFlrParamType = 1048592
 
-public val DEBUG_FLR_XPROC_HANG: DEBUG_FLR_PARAM_TYPE = 1048588
+public val DEBUG_FLR_XPROC_HANG: DebugFlrParamType = 1048588
 
-public val DEBUG_FLR_ZEROED_STACK: DEBUG_FLR_PARAM_TYPE = 8194
+public val DEBUG_FLR_ZEROED_STACK: DebugFlrParamType = 8194
 
 public val DEBUG_FORMAT_CAB_SECONDARY_ALL_IMAGES: UInt = 268435456u
 
@@ -2765,19 +2765,19 @@ public val DEBUG_OUTPUT_EXTENSION_WARNING: UInt = 64u
 
 public val DEBUG_OUTPUT_IDENTITY_DEFAULT: UInt = 0u
 
-public val DEBUG_OUTPUT_NAME_END: PCSTR = s("**NAME**")
+public val DEBUG_OUTPUT_NAME_END: Pcstr = s("**NAME**")
 
-public val DEBUG_OUTPUT_NAME_END_T: PCWSTR = w("**NAME**")
+public val DEBUG_OUTPUT_NAME_END_T: Pcwstr = w("**NAME**")
 
-public val DEBUG_OUTPUT_NAME_END_WIDE: PCWSTR = w("**NAME**")
+public val DEBUG_OUTPUT_NAME_END_WIDE: Pcwstr = w("**NAME**")
 
 public val DEBUG_OUTPUT_NORMAL: UInt = 1u
 
-public val DEBUG_OUTPUT_OFFSET_END: PCSTR = s("**OFF**")
+public val DEBUG_OUTPUT_OFFSET_END: Pcstr = s("**OFF**")
 
-public val DEBUG_OUTPUT_OFFSET_END_T: PCWSTR = w("**OFF**")
+public val DEBUG_OUTPUT_OFFSET_END_T: Pcwstr = w("**OFF**")
 
-public val DEBUG_OUTPUT_OFFSET_END_WIDE: PCWSTR = w("**OFF**")
+public val DEBUG_OUTPUT_OFFSET_END_WIDE: Pcwstr = w("**OFF**")
 
 public val DEBUG_OUTPUT_PROMPT: UInt = 16u
 
@@ -2797,17 +2797,17 @@ public val DEBUG_OUTPUT_SYMBOLS_NO_TYPES: UInt = 16u
 
 public val DEBUG_OUTPUT_SYMBOLS_NO_VALUES: UInt = 4u
 
-public val DEBUG_OUTPUT_TYPE_END: PCSTR = s("**TYPE**")
+public val DEBUG_OUTPUT_TYPE_END: Pcstr = s("**TYPE**")
 
-public val DEBUG_OUTPUT_TYPE_END_T: PCWSTR = w("**TYPE**")
+public val DEBUG_OUTPUT_TYPE_END_T: Pcwstr = w("**TYPE**")
 
-public val DEBUG_OUTPUT_TYPE_END_WIDE: PCWSTR = w("**TYPE**")
+public val DEBUG_OUTPUT_TYPE_END_WIDE: Pcwstr = w("**TYPE**")
 
-public val DEBUG_OUTPUT_VALUE_END: PCSTR = s("**VALUE**")
+public val DEBUG_OUTPUT_VALUE_END: Pcstr = s("**VALUE**")
 
-public val DEBUG_OUTPUT_VALUE_END_T: PCWSTR = w("**VALUE**")
+public val DEBUG_OUTPUT_VALUE_END_T: Pcwstr = w("**VALUE**")
 
-public val DEBUG_OUTPUT_VALUE_END_WIDE: PCWSTR = w("**VALUE**")
+public val DEBUG_OUTPUT_VALUE_END_WIDE: Pcwstr = w("**VALUE**")
 
 public val DEBUG_OUTPUT_VERBOSE: UInt = 8u
 

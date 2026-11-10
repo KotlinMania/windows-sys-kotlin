@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_distributedtransactioncoordinator_DtcGetTransactionManager_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_distributedtransactioncoordinator_dtcGetTransactionManager_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* i_pszhost = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* i_psztmname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -81,7 +81,7 @@ static Napi::Value windowssys_windows_win32_system_distributedtransactioncoordin
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_distributedtransactioncoordinator_DtcGetTransactionManagerC_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_distributedtransactioncoordinator_dtcGetTransactionManagerC_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* i_pszhost = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* i_psztmname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -111,7 +111,7 @@ static Napi::Value windowssys_windows_win32_system_distributedtransactioncoordin
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_distributedtransactioncoordinator_DtcGetTransactionManagerExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_distributedtransactioncoordinator_dtcGetTransactionManagerExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* i_pszhost = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* i_psztmname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -139,7 +139,7 @@ static Napi::Value windowssys_windows_win32_system_distributedtransactioncoordin
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_distributedtransactioncoordinator_DtcGetTransactionManagerExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_distributedtransactioncoordinator_dtcGetTransactionManagerExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* i_pwszhost = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* i_pwsztmname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -168,10 +168,10 @@ static Napi::Value windowssys_windows_win32_system_distributedtransactioncoordin
 }
 
 static void register_windows_win32_system_distributedtransactioncoordinator_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_distributedtransactioncoordinator_DtcGetTransactionManager", Napi::Function::New(env, windowssys_windows_win32_system_distributedtransactioncoordinator_DtcGetTransactionManager_napi));
-    exports.Set("windowssys_windows_win32_system_distributedtransactioncoordinator_DtcGetTransactionManagerC", Napi::Function::New(env, windowssys_windows_win32_system_distributedtransactioncoordinator_DtcGetTransactionManagerC_napi));
-    exports.Set("windowssys_windows_win32_system_distributedtransactioncoordinator_DtcGetTransactionManagerExA", Napi::Function::New(env, windowssys_windows_win32_system_distributedtransactioncoordinator_DtcGetTransactionManagerExA_napi));
-    exports.Set("windowssys_windows_win32_system_distributedtransactioncoordinator_DtcGetTransactionManagerExW", Napi::Function::New(env, windowssys_windows_win32_system_distributedtransactioncoordinator_DtcGetTransactionManagerExW_napi));
+    exports.Set("windowssys_windows_win32_system_distributedtransactioncoordinator_dtcGetTransactionManager", Napi::Function::New(env, windowssys_windows_win32_system_distributedtransactioncoordinator_dtcGetTransactionManager_napi));
+    exports.Set("windowssys_windows_win32_system_distributedtransactioncoordinator_dtcGetTransactionManagerC", Napi::Function::New(env, windowssys_windows_win32_system_distributedtransactioncoordinator_dtcGetTransactionManagerC_napi));
+    exports.Set("windowssys_windows_win32_system_distributedtransactioncoordinator_dtcGetTransactionManagerExA", Napi::Function::New(env, windowssys_windows_win32_system_distributedtransactioncoordinator_dtcGetTransactionManagerExA_napi));
+    exports.Set("windowssys_windows_win32_system_distributedtransactioncoordinator_dtcGetTransactionManagerExW", Napi::Function::New(env, windowssys_windows_win32_system_distributedtransactioncoordinator_dtcGetTransactionManagerExW_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_distributedtransactioncoordinator_napi, nullptr };

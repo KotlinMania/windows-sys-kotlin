@@ -1,64 +1,68 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.windowsfilteringplatform
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
+import io.github.kotlinmania.windowssys.windows.win32.security.Sid
+import io.github.kotlinmania.windowssys.windows.win32.security.SidAndAttributes
 
-public data class FWPM_ACTION0(public var type: FWP_ACTION_TYPE = 0u, public var Anonymous: FWPM_ACTION0_0 = FWPM_ACTION0_0())
+public data class FwpmAction0(public var type: FwpActionType = 0u, public var anonymous: FwpmAction00 = FwpmAction00())
 
-public data class FWPM_ACTION0_0(public var filterType: GUID = GUID(), public var calloutKey: GUID = GUID())
+public data class FwpmAction00(public var filterType: Guid = Guid(), public var calloutKey: Guid = Guid())
 
-public data class FWPM_CALLOUT0(
-    public var calloutKey: GUID = GUID(),
-    public var displayData: FWPM_DISPLAY_DATA0 = FWPM_DISPLAY_DATA0(),
+public data class FwpmCallout0(
+    public var calloutKey: Guid = Guid(),
+    public var displayData: FwpmDisplayData0 = FwpmDisplayData0(),
     public var flags: UInt = 0u,
-    public var providerKey: Long = 0L,
-    public var providerData: FWP_BYTE_BLOB = FWP_BYTE_BLOB(),
-    public var applicableLayer: GUID = GUID(),
+    public var providerKey: Guid? = null,
+    public var providerData: FwpByteBlob = FwpByteBlob(),
+    public var applicableLayer: Guid = Guid(),
     public var calloutId: UInt = 0u,
 )
 
-public data class FWPM_CALLOUT_CHANGE0(
-    public var changeType: FWPM_CHANGE_TYPE = 0,
-    public var calloutKey: GUID = GUID(),
+public data class FwpmCalloutChange0(
+    public var changeType: FwpmChangeType = 0,
+    public var calloutKey: Guid = Guid(),
     public var calloutId: UInt = 0u,
 )
 
-public data class FWPM_CALLOUT_ENUM_TEMPLATE0(public var providerKey: Long = 0L, public var layerKey: GUID = GUID())
+public data class FwpmCalloutEnumTemplate0(public var providerKey: Guid? = null, public var layerKey: Guid = Guid())
 
-public data class FWPM_CALLOUT_SUBSCRIPTION0(
-    public var enumTemplate: Long = 0L,
+public data class FwpmCalloutSubscription0(
+    public var enumTemplate: FwpmCalloutEnumTemplate0? = null,
     public var flags: UInt = 0u,
-    public var sessionKey: GUID = GUID(),
+    public var sessionKey: Guid = Guid(),
 )
 
-public data class FWPM_CLASSIFY_OPTION0(public var type: FWP_CLASSIFY_OPTION_TYPE = 0, public var value: FWP_VALUE0 = FWP_VALUE0())
+public data class FwpmClassifyOption0(public var type: FwpClassifyOptionType = 0, public var value: FwpValue0 = FwpValue0())
 
-public data class FWPM_CLASSIFY_OPTIONS0(public var numOptions: UInt = 0u, public var options: Long = 0L)
+public data class FwpmClassifyOptions0(public var numOptions: UInt = 0u, public var options: FwpmClassifyOption0? = null)
 
-public data class FWPM_CONNECTION0(
+public data class FwpmConnection0(
     public var connectionId: ULong = 0uL,
-    public var ipVersion: FWP_IP_VERSION = 0,
-    public var Anonymous1: FWPM_CONNECTION0_0 = FWPM_CONNECTION0_0(),
-    public var Anonymous2: FWPM_CONNECTION0_1 = FWPM_CONNECTION0_1(),
-    public var providerKey: Long = 0L,
-    public var ipsecTrafficModeType: IPSEC_TRAFFIC_TYPE = 0,
-    public var keyModuleType: IKEEXT_KEY_MODULE_TYPE = 0,
-    public var mmCrypto: IKEEXT_PROPOSAL0 = IKEEXT_PROPOSAL0(),
-    public var mmPeer: IKEEXT_CREDENTIAL2 = IKEEXT_CREDENTIAL2(),
-    public var emPeer: IKEEXT_CREDENTIAL2 = IKEEXT_CREDENTIAL2(),
+    public var ipVersion: FwpIpVersion = 0,
+    public var anonymous1: FwpmConnection00 = FwpmConnection00(),
+    public var anonymous2: FwpmConnection01 = FwpmConnection01(),
+    public var providerKey: Guid? = null,
+    public var ipsecTrafficModeType: IpsecTrafficType = 0,
+    public var keyModuleType: IkeextKeyModuleType = 0,
+    public var mmCrypto: IkeextProposal0 = IkeextProposal0(),
+    public var mmPeer: IkeextCredential2 = IkeextCredential2(),
+    public var emPeer: IkeextCredential2 = IkeextCredential2(),
     public var bytesTransferredIn: ULong = 0uL,
     public var bytesTransferredOut: ULong = 0uL,
     public var bytesTransferredTotal: ULong = 0uL,
-    public var startSysTime: FILETIME = FILETIME(),
+    public var startSysTime: Filetime = Filetime(),
 )
 
-public data class FWPM_CONNECTION0_0(public var localV4Address: UInt = 0u, public var localV6Address: UByteArray = UByteArray(16)) {
+public data class FwpmConnection00(public var localV4Address: UInt = 0u, public var localV6Address: UByteArray = UByteArray(16)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is FWPM_CONNECTION0_0) return false
+        if (other !is FwpmConnection00) return false
         if (this.localV4Address != other.localV4Address) return false
         if (!this.localV6Address.contentEquals(other.localV6Address)) return false
         return true
@@ -71,10 +75,10 @@ public data class FWPM_CONNECTION0_0(public var localV4Address: UInt = 0u, publi
     }
 }
 
-public data class FWPM_CONNECTION0_1(public var remoteV4Address: UInt = 0u, public var remoteV6Address: UByteArray = UByteArray(16)) {
+public data class FwpmConnection01(public var remoteV4Address: UInt = 0u, public var remoteV6Address: UByteArray = UByteArray(16)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is FWPM_CONNECTION0_1) return false
+        if (other !is FwpmConnection01) return false
         if (this.remoteV4Address != other.remoteV4Address) return false
         if (!this.remoteV6Address.contentEquals(other.remoteV6Address)) return false
         return true
@@ -87,253 +91,253 @@ public data class FWPM_CONNECTION0_1(public var remoteV4Address: UInt = 0u, publ
     }
 }
 
-public data class FWPM_CONNECTION_ENUM_TEMPLATE0(public var connectionId: ULong = 0uL, public var flags: UInt = 0u)
+public data class FwpmConnectionEnumTemplate0(public var connectionId: ULong = 0uL, public var flags: UInt = 0u)
 
-public data class FWPM_CONNECTION_SUBSCRIPTION0(
-    public var enumTemplate: Long = 0L,
+public data class FwpmConnectionSubscription0(
+    public var enumTemplate: FwpmConnectionEnumTemplate0? = null,
     public var flags: UInt = 0u,
-    public var sessionKey: GUID = GUID(),
+    public var sessionKey: Guid = Guid(),
 )
 
-public data class FWPM_DISPLAY_DATA0(public var name: PWSTR = 0L, public var description: PWSTR = 0L)
+public data class FwpmDisplayData0(public var name: Pwstr = null, public var description: Pwstr = null)
 
-public data class FWPM_FIELD0(
-    public var fieldKey: Long = 0L,
-    public var type: FWPM_FIELD_TYPE = 0,
-    public var dataType: FWP_DATA_TYPE = 0,
+public data class FwpmField0(
+    public var fieldKey: Guid? = null,
+    public var type: FwpmFieldType = 0,
+    public var dataType: FwpDataType = 0,
 )
 
-public data class FWPM_FILTER0(
-    public var filterKey: GUID = GUID(),
-    public var displayData: FWPM_DISPLAY_DATA0 = FWPM_DISPLAY_DATA0(),
-    public var flags: FWPM_FILTER_FLAGS = 0u,
-    public var providerKey: Long = 0L,
-    public var providerData: FWP_BYTE_BLOB = FWP_BYTE_BLOB(),
-    public var layerKey: GUID = GUID(),
-    public var subLayerKey: GUID = GUID(),
-    public var weight: FWP_VALUE0 = FWP_VALUE0(),
+public data class FwpmFilter0(
+    public var filterKey: Guid = Guid(),
+    public var displayData: FwpmDisplayData0 = FwpmDisplayData0(),
+    public var flags: FwpmFilterFlags = 0u,
+    public var providerKey: Guid? = null,
+    public var providerData: FwpByteBlob = FwpByteBlob(),
+    public var layerKey: Guid = Guid(),
+    public var subLayerKey: Guid = Guid(),
+    public var weight: FwpValue0 = FwpValue0(),
     public var numFilterConditions: UInt = 0u,
-    public var filterCondition: Long = 0L,
-    public var action: FWPM_ACTION0 = FWPM_ACTION0(),
-    public var Anonymous: FWPM_FILTER0_0 = FWPM_FILTER0_0(),
-    public var reserved: Long = 0L,
+    public var filterCondition: FwpmFilterCondition0? = null,
+    public var action: FwpmAction0 = FwpmAction0(),
+    public var anonymous: FwpmFilter00 = FwpmFilter00(),
+    public var reserved: Guid? = null,
     public var filterId: ULong = 0uL,
-    public var effectiveWeight: FWP_VALUE0 = FWP_VALUE0(),
+    public var effectiveWeight: FwpValue0 = FwpValue0(),
 )
 
-public data class FWPM_FILTER0_0(public var rawContext: ULong = 0uL, public var providerContextKey: GUID = GUID())
+public data class FwpmFilter00(public var rawContext: ULong = 0uL, public var providerContextKey: Guid = Guid())
 
-public data class FWPM_FILTER_CHANGE0(
-    public var changeType: FWPM_CHANGE_TYPE = 0,
-    public var filterKey: GUID = GUID(),
+public data class FwpmFilterChange0(
+    public var changeType: FwpmChangeType = 0,
+    public var filterKey: Guid = Guid(),
     public var filterId: ULong = 0uL,
 )
 
-public data class FWPM_FILTER_CONDITION0(
-    public var fieldKey: GUID = GUID(),
-    public var matchType: FWP_MATCH_TYPE = 0,
-    public var conditionValue: FWP_CONDITION_VALUE0 = FWP_CONDITION_VALUE0(),
+public data class FwpmFilterCondition0(
+    public var fieldKey: Guid = Guid(),
+    public var matchType: FwpMatchType = 0,
+    public var conditionValue: FwpConditionValue0 = FwpConditionValue0(),
 )
 
-public data class FWPM_FILTER_ENUM_TEMPLATE0(
-    public var providerKey: Long = 0L,
-    public var layerKey: GUID = GUID(),
-    public var enumType: FWP_FILTER_ENUM_TYPE = 0,
+public data class FwpmFilterEnumTemplate0(
+    public var providerKey: Guid? = null,
+    public var layerKey: Guid = Guid(),
+    public var enumType: FwpFilterEnumType = 0,
     public var flags: UInt = 0u,
-    public var providerContextTemplate: Long = 0L,
+    public var providerContextTemplate: FwpmProviderContextEnumTemplate0? = null,
     public var numFilterConditions: UInt = 0u,
-    public var filterCondition: Long = 0L,
+    public var filterCondition: FwpmFilterCondition0? = null,
     public var actionMask: UInt = 0u,
-    public var calloutKey: Long = 0L,
+    public var calloutKey: Guid? = null,
 )
 
-public data class FWPM_FILTER_SUBSCRIPTION0(
-    public var enumTemplate: Long = 0L,
+public data class FwpmFilterSubscription0(
+    public var enumTemplate: FwpmFilterEnumTemplate0? = null,
     public var flags: UInt = 0u,
-    public var sessionKey: GUID = GUID(),
+    public var sessionKey: Guid = Guid(),
 )
 
-public data class FWPM_LAYER0(
-    public var layerKey: GUID = GUID(),
-    public var displayData: FWPM_DISPLAY_DATA0 = FWPM_DISPLAY_DATA0(),
+public data class FwpmLayer0(
+    public var layerKey: Guid = Guid(),
+    public var displayData: FwpmDisplayData0 = FwpmDisplayData0(),
     public var flags: UInt = 0u,
     public var numFields: UInt = 0u,
-    public var field: Long = 0L,
-    public var defaultSubLayerKey: GUID = GUID(),
+    public var field: FwpmField0? = null,
+    public var defaultSubLayerKey: Guid = Guid(),
     public var layerId: UShort = 0u,
 )
 
-public data class FWPM_LAYER_ENUM_TEMPLATE0(public var reserved: ULong = 0uL)
+public data class FwpmLayerEnumTemplate0(public var reserved: ULong = 0uL)
 
-public data class FWPM_LAYER_STATISTICS0(
-    public var layerId: GUID = GUID(),
+public data class FwpmLayerStatistics0(
+    public var layerId: Guid = Guid(),
     public var classifyPermitCount: UInt = 0u,
     public var classifyBlockCount: UInt = 0u,
     public var classifyVetoCount: UInt = 0u,
     public var numCacheEntries: UInt = 0u,
 )
 
-public data class FWPM_NETWORK_CONNECTION_POLICY_SETTING0(public var type: FWP_NETWORK_CONNECTION_POLICY_SETTING_TYPE = 0, public var value: FWP_VALUE0 = FWP_VALUE0())
+public data class FwpmNetworkConnectionPolicySetting0(public var type: FwpNetworkConnectionPolicySettingType = 0, public var value: FwpValue0 = FwpValue0())
 
-public data class FWPM_NETWORK_CONNECTION_POLICY_SETTINGS0(public var numSettings: UInt = 0u, public var settings: Long = 0L)
+public data class FwpmNetworkConnectionPolicySettings0(public var numSettings: UInt = 0u, public var settings: FwpmNetworkConnectionPolicySetting0? = null)
 
-public data class FWPM_NET_EVENT0(
-    public var header: FWPM_NET_EVENT_HEADER0 = FWPM_NET_EVENT_HEADER0(),
-    public var type: FWPM_NET_EVENT_TYPE = 0,
-    public var Anonymous: FWPM_NET_EVENT0_0 = FWPM_NET_EVENT0_0(),
+public data class FwpmNetEvent0(
+    public var header: FwpmNetEventHeader0 = FwpmNetEventHeader0(),
+    public var type: FwpmNetEventType = 0,
+    public var anonymous: FwpmNetEvent00 = FwpmNetEvent00(),
 )
 
-public data class FWPM_NET_EVENT0_0(
-    public var ikeMmFailure: Long = 0L,
-    public var ikeQmFailure: Long = 0L,
-    public var ikeEmFailure: Long = 0L,
-    public var classifyDrop: Long = 0L,
-    public var ipsecDrop: Long = 0L,
-    public var idpDrop: Long = 0L,
+public data class FwpmNetEvent00(
+    public var ikeMmFailure: FwpmNetEventIkeextMmFailure0? = null,
+    public var ikeQmFailure: FwpmNetEventIkeextQmFailure0? = null,
+    public var ikeEmFailure: FwpmNetEventIkeextEmFailure0? = null,
+    public var classifyDrop: FwpmNetEventClassifyDrop0? = null,
+    public var ipsecDrop: FwpmNetEventIpsecKernelDrop0? = null,
+    public var idpDrop: FwpmNetEventIpsecDospDrop0? = null,
 )
 
-public data class FWPM_NET_EVENT1(
-    public var header: FWPM_NET_EVENT_HEADER1 = FWPM_NET_EVENT_HEADER1(),
-    public var type: FWPM_NET_EVENT_TYPE = 0,
-    public var Anonymous: FWPM_NET_EVENT1_0 = FWPM_NET_EVENT1_0(),
+public data class FwpmNetEvent1(
+    public var header: FwpmNetEventHeader1 = FwpmNetEventHeader1(),
+    public var type: FwpmNetEventType = 0,
+    public var anonymous: FwpmNetEvent10 = FwpmNetEvent10(),
 )
 
-public data class FWPM_NET_EVENT1_0(
-    public var ikeMmFailure: Long = 0L,
-    public var ikeQmFailure: Long = 0L,
-    public var ikeEmFailure: Long = 0L,
-    public var classifyDrop: Long = 0L,
-    public var ipsecDrop: Long = 0L,
-    public var idpDrop: Long = 0L,
+public data class FwpmNetEvent10(
+    public var ikeMmFailure: FwpmNetEventIkeextMmFailure1? = null,
+    public var ikeQmFailure: FwpmNetEventIkeextQmFailure0? = null,
+    public var ikeEmFailure: FwpmNetEventIkeextEmFailure1? = null,
+    public var classifyDrop: FwpmNetEventClassifyDrop1? = null,
+    public var ipsecDrop: FwpmNetEventIpsecKernelDrop0? = null,
+    public var idpDrop: FwpmNetEventIpsecDospDrop0? = null,
 )
 
-public data class FWPM_NET_EVENT2(
-    public var header: FWPM_NET_EVENT_HEADER2 = FWPM_NET_EVENT_HEADER2(),
-    public var type: FWPM_NET_EVENT_TYPE = 0,
-    public var Anonymous: FWPM_NET_EVENT2_0 = FWPM_NET_EVENT2_0(),
+public data class FwpmNetEvent2(
+    public var header: FwpmNetEventHeader2 = FwpmNetEventHeader2(),
+    public var type: FwpmNetEventType = 0,
+    public var anonymous: FwpmNetEvent20 = FwpmNetEvent20(),
 )
 
-public data class FWPM_NET_EVENT2_0(
-    public var ikeMmFailure: Long = 0L,
-    public var ikeQmFailure: Long = 0L,
-    public var ikeEmFailure: Long = 0L,
-    public var classifyDrop: Long = 0L,
-    public var ipsecDrop: Long = 0L,
-    public var idpDrop: Long = 0L,
-    public var classifyAllow: Long = 0L,
-    public var capabilityDrop: Long = 0L,
-    public var capabilityAllow: Long = 0L,
-    public var classifyDropMac: Long = 0L,
+public data class FwpmNetEvent20(
+    public var ikeMmFailure: FwpmNetEventIkeextMmFailure1? = null,
+    public var ikeQmFailure: FwpmNetEventIkeextQmFailure0? = null,
+    public var ikeEmFailure: FwpmNetEventIkeextEmFailure1? = null,
+    public var classifyDrop: FwpmNetEventClassifyDrop2? = null,
+    public var ipsecDrop: FwpmNetEventIpsecKernelDrop0? = null,
+    public var idpDrop: FwpmNetEventIpsecDospDrop0? = null,
+    public var classifyAllow: FwpmNetEventClassifyAllow0? = null,
+    public var capabilityDrop: FwpmNetEventCapabilityDrop0? = null,
+    public var capabilityAllow: FwpmNetEventCapabilityAllow0? = null,
+    public var classifyDropMac: FwpmNetEventClassifyDropMac0? = null,
 )
 
-public data class FWPM_NET_EVENT3(
-    public var header: FWPM_NET_EVENT_HEADER3 = FWPM_NET_EVENT_HEADER3(),
-    public var type: FWPM_NET_EVENT_TYPE = 0,
-    public var Anonymous: FWPM_NET_EVENT3_0 = FWPM_NET_EVENT3_0(),
+public data class FwpmNetEvent3(
+    public var header: FwpmNetEventHeader3 = FwpmNetEventHeader3(),
+    public var type: FwpmNetEventType = 0,
+    public var anonymous: FwpmNetEvent30 = FwpmNetEvent30(),
 )
 
-public data class FWPM_NET_EVENT3_0(
-    public var ikeMmFailure: Long = 0L,
-    public var ikeQmFailure: Long = 0L,
-    public var ikeEmFailure: Long = 0L,
-    public var classifyDrop: Long = 0L,
-    public var ipsecDrop: Long = 0L,
-    public var idpDrop: Long = 0L,
-    public var classifyAllow: Long = 0L,
-    public var capabilityDrop: Long = 0L,
-    public var capabilityAllow: Long = 0L,
-    public var classifyDropMac: Long = 0L,
+public data class FwpmNetEvent30(
+    public var ikeMmFailure: FwpmNetEventIkeextMmFailure1? = null,
+    public var ikeQmFailure: FwpmNetEventIkeextQmFailure0? = null,
+    public var ikeEmFailure: FwpmNetEventIkeextEmFailure1? = null,
+    public var classifyDrop: FwpmNetEventClassifyDrop2? = null,
+    public var ipsecDrop: FwpmNetEventIpsecKernelDrop0? = null,
+    public var idpDrop: FwpmNetEventIpsecDospDrop0? = null,
+    public var classifyAllow: FwpmNetEventClassifyAllow0? = null,
+    public var capabilityDrop: FwpmNetEventCapabilityDrop0? = null,
+    public var capabilityAllow: FwpmNetEventCapabilityAllow0? = null,
+    public var classifyDropMac: FwpmNetEventClassifyDropMac0? = null,
 )
 
-public data class FWPM_NET_EVENT4(
-    public var header: FWPM_NET_EVENT_HEADER3 = FWPM_NET_EVENT_HEADER3(),
-    public var type: FWPM_NET_EVENT_TYPE = 0,
-    public var Anonymous: FWPM_NET_EVENT4_0 = FWPM_NET_EVENT4_0(),
+public data class FwpmNetEvent4(
+    public var header: FwpmNetEventHeader3 = FwpmNetEventHeader3(),
+    public var type: FwpmNetEventType = 0,
+    public var anonymous: FwpmNetEvent40 = FwpmNetEvent40(),
 )
 
-public data class FWPM_NET_EVENT4_0(
-    public var ikeMmFailure: Long = 0L,
-    public var ikeQmFailure: Long = 0L,
-    public var ikeEmFailure: Long = 0L,
-    public var classifyDrop: Long = 0L,
-    public var ipsecDrop: Long = 0L,
-    public var idpDrop: Long = 0L,
-    public var classifyAllow: Long = 0L,
-    public var capabilityDrop: Long = 0L,
-    public var capabilityAllow: Long = 0L,
-    public var classifyDropMac: Long = 0L,
+public data class FwpmNetEvent40(
+    public var ikeMmFailure: FwpmNetEventIkeextMmFailure2? = null,
+    public var ikeQmFailure: FwpmNetEventIkeextQmFailure1? = null,
+    public var ikeEmFailure: FwpmNetEventIkeextEmFailure1? = null,
+    public var classifyDrop: FwpmNetEventClassifyDrop2? = null,
+    public var ipsecDrop: FwpmNetEventIpsecKernelDrop0? = null,
+    public var idpDrop: FwpmNetEventIpsecDospDrop0? = null,
+    public var classifyAllow: FwpmNetEventClassifyAllow0? = null,
+    public var capabilityDrop: FwpmNetEventCapabilityDrop0? = null,
+    public var capabilityAllow: FwpmNetEventCapabilityAllow0? = null,
+    public var classifyDropMac: FwpmNetEventClassifyDropMac0? = null,
 )
 
-public data class FWPM_NET_EVENT5(
-    public var header: FWPM_NET_EVENT_HEADER3 = FWPM_NET_EVENT_HEADER3(),
-    public var type: FWPM_NET_EVENT_TYPE = 0,
-    public var Anonymous: FWPM_NET_EVENT5_0 = FWPM_NET_EVENT5_0(),
+public data class FwpmNetEvent5(
+    public var header: FwpmNetEventHeader3 = FwpmNetEventHeader3(),
+    public var type: FwpmNetEventType = 0,
+    public var anonymous: FwpmNetEvent50 = FwpmNetEvent50(),
 )
 
-public data class FWPM_NET_EVENT5_0(
-    public var ikeMmFailure: Long = 0L,
-    public var ikeQmFailure: Long = 0L,
-    public var ikeEmFailure: Long = 0L,
-    public var classifyDrop: Long = 0L,
-    public var ipsecDrop: Long = 0L,
-    public var idpDrop: Long = 0L,
-    public var classifyAllow: Long = 0L,
-    public var capabilityDrop: Long = 0L,
-    public var capabilityAllow: Long = 0L,
-    public var classifyDropMac: Long = 0L,
-    public var lpmPacketArrival: Long = 0L,
+public data class FwpmNetEvent50(
+    public var ikeMmFailure: FwpmNetEventIkeextMmFailure2? = null,
+    public var ikeQmFailure: FwpmNetEventIkeextQmFailure1? = null,
+    public var ikeEmFailure: FwpmNetEventIkeextEmFailure1? = null,
+    public var classifyDrop: FwpmNetEventClassifyDrop2? = null,
+    public var ipsecDrop: FwpmNetEventIpsecKernelDrop0? = null,
+    public var idpDrop: FwpmNetEventIpsecDospDrop0? = null,
+    public var classifyAllow: FwpmNetEventClassifyAllow0? = null,
+    public var capabilityDrop: FwpmNetEventCapabilityDrop0? = null,
+    public var capabilityAllow: FwpmNetEventCapabilityAllow0? = null,
+    public var classifyDropMac: FwpmNetEventClassifyDropMac0? = null,
+    public var lpmPacketArrival: FwpmNetEventLpmPacketArrival0? = null,
 )
 
-public data class FWPM_NET_EVENT_CAPABILITY_ALLOW0(
-    public var networkCapabilityId: FWPM_APPC_NETWORK_CAPABILITY_TYPE = 0,
+public data class FwpmNetEventCapabilityAllow0(
+    public var networkCapabilityId: FwpmAppcNetworkCapabilityType = 0,
     public var filterId: ULong = 0uL,
-    public var isLoopback: BOOL = 0,
+    public var isLoopback: Bool = 0,
 )
 
-public data class FWPM_NET_EVENT_CAPABILITY_DROP0(
-    public var networkCapabilityId: FWPM_APPC_NETWORK_CAPABILITY_TYPE = 0,
+public data class FwpmNetEventCapabilityDrop0(
+    public var networkCapabilityId: FwpmAppcNetworkCapabilityType = 0,
     public var filterId: ULong = 0uL,
-    public var isLoopback: BOOL = 0,
+    public var isLoopback: Bool = 0,
 )
 
-public data class FWPM_NET_EVENT_CLASSIFY_ALLOW0(
-    public var filterId: ULong = 0uL,
-    public var layerId: UShort = 0u,
-    public var reauthReason: UInt = 0u,
-    public var originalProfile: UInt = 0u,
-    public var currentProfile: UInt = 0u,
-    public var msFwpDirection: UInt = 0u,
-    public var isLoopback: BOOL = 0,
-)
-
-public data class FWPM_NET_EVENT_CLASSIFY_DROP0(public var filterId: ULong = 0uL, public var layerId: UShort = 0u)
-
-public data class FWPM_NET_EVENT_CLASSIFY_DROP1(
+public data class FwpmNetEventClassifyAllow0(
     public var filterId: ULong = 0uL,
     public var layerId: UShort = 0u,
     public var reauthReason: UInt = 0u,
     public var originalProfile: UInt = 0u,
     public var currentProfile: UInt = 0u,
     public var msFwpDirection: UInt = 0u,
-    public var isLoopback: BOOL = 0,
+    public var isLoopback: Bool = 0,
 )
 
-public data class FWPM_NET_EVENT_CLASSIFY_DROP2(
+public data class FwpmNetEventClassifyDrop0(public var filterId: ULong = 0uL, public var layerId: UShort = 0u)
+
+public data class FwpmNetEventClassifyDrop1(
     public var filterId: ULong = 0uL,
     public var layerId: UShort = 0u,
     public var reauthReason: UInt = 0u,
     public var originalProfile: UInt = 0u,
     public var currentProfile: UInt = 0u,
     public var msFwpDirection: UInt = 0u,
-    public var isLoopback: BOOL = 0,
-    public var vSwitchId: FWP_BYTE_BLOB = FWP_BYTE_BLOB(),
+    public var isLoopback: Bool = 0,
+)
+
+public data class FwpmNetEventClassifyDrop2(
+    public var filterId: ULong = 0uL,
+    public var layerId: UShort = 0u,
+    public var reauthReason: UInt = 0u,
+    public var originalProfile: UInt = 0u,
+    public var currentProfile: UInt = 0u,
+    public var msFwpDirection: UInt = 0u,
+    public var isLoopback: Bool = 0,
+    public var vSwitchId: FwpByteBlob = FwpByteBlob(),
     public var vSwitchSourcePort: UInt = 0u,
     public var vSwitchDestinationPort: UInt = 0u,
 )
 
-public class FWPM_NET_EVENT_CLASSIFY_DROP_MAC0(
-    public var localMacAddr: FWP_BYTE_ARRAY6 = FWP_BYTE_ARRAY6(),
-    public var remoteMacAddr: FWP_BYTE_ARRAY6 = FWP_BYTE_ARRAY6(),
+public class FwpmNetEventClassifyDropMac0(
+    public var localMacAddr: FwpByteArray6 = FwpByteArray6(),
+    public var remoteMacAddr: FwpByteArray6 = FwpByteArray6(),
     public var mediaType: UInt = 0u,
     public var ifType: UInt = 0u,
     public var etherType: UShort = 0u,
@@ -347,65 +351,65 @@ public class FWPM_NET_EVENT_CLASSIFY_DROP_MAC0(
     public var originalProfile: UInt = 0u,
     public var currentProfile: UInt = 0u,
     public var msFwpDirection: UInt = 0u,
-    public var isLoopback: BOOL = 0,
-    public var vSwitchId: FWP_BYTE_BLOB = FWP_BYTE_BLOB(),
+    public var isLoopback: Bool = 0,
+    public var vSwitchId: FwpByteBlob = FwpByteBlob(),
     public var vSwitchSourcePort: UInt = 0u,
     public var vSwitchDestinationPort: UInt = 0u,
 )
 
-public data class FWPM_NET_EVENT_ENUM_TEMPLATE0(
-    public var startTime: FILETIME = FILETIME(),
-    public var endTime: FILETIME = FILETIME(),
+public data class FwpmNetEventEnumTemplate0(
+    public var startTime: Filetime = Filetime(),
+    public var endTime: Filetime = Filetime(),
     public var numFilterConditions: UInt = 0u,
-    public var filterCondition: Long = 0L,
+    public var filterCondition: FwpmFilterCondition0? = null,
 )
 
-public data class FWPM_NET_EVENT_HEADER0(
-    public var timeStamp: FILETIME = FILETIME(),
+public data class FwpmNetEventHeader0(
+    public var timeStamp: Filetime = Filetime(),
     public var flags: UInt = 0u,
-    public var ipVersion: FWP_IP_VERSION = 0,
+    public var ipVersion: FwpIpVersion = 0,
     public var ipProtocol: UByte = 0u,
-    public var Anonymous1: FWPM_NET_EVENT_HEADER0_0 = FWPM_NET_EVENT_HEADER0_0(),
-    public var Anonymous2: FWPM_NET_EVENT_HEADER0_1 = FWPM_NET_EVENT_HEADER0_1(),
+    public var anonymous1: FwpmNetEventHeader00 = FwpmNetEventHeader00(),
+    public var anonymous2: FwpmNetEventHeader01 = FwpmNetEventHeader01(),
     public var localPort: UShort = 0u,
     public var remotePort: UShort = 0u,
     public var scopeId: UInt = 0u,
-    public var appId: FWP_BYTE_BLOB = FWP_BYTE_BLOB(),
-    public var userId: Long = 0L,
+    public var appId: FwpByteBlob = FwpByteBlob(),
+    public var userId: Sid? = null,
 )
 
-public data class FWPM_NET_EVENT_HEADER0_0(public var localAddrV4: UInt = 0u, public var localAddrV6: FWP_BYTE_ARRAY16 = FWP_BYTE_ARRAY16())
+public data class FwpmNetEventHeader00(public var localAddrV4: UInt = 0u, public var localAddrV6: FwpByteArray16 = FwpByteArray16())
 
-public data class FWPM_NET_EVENT_HEADER0_1(public var remoteAddrV4: UInt = 0u, public var remoteAddrV6: FWP_BYTE_ARRAY16 = FWP_BYTE_ARRAY16())
+public data class FwpmNetEventHeader01(public var remoteAddrV4: UInt = 0u, public var remoteAddrV6: FwpByteArray16 = FwpByteArray16())
 
-public data class FWPM_NET_EVENT_HEADER1(
-    public var timeStamp: FILETIME = FILETIME(),
+public data class FwpmNetEventHeader1(
+    public var timeStamp: Filetime = Filetime(),
     public var flags: UInt = 0u,
-    public var ipVersion: FWP_IP_VERSION = 0,
+    public var ipVersion: FwpIpVersion = 0,
     public var ipProtocol: UByte = 0u,
-    public var Anonymous1: FWPM_NET_EVENT_HEADER1_0 = FWPM_NET_EVENT_HEADER1_0(),
-    public var Anonymous2: FWPM_NET_EVENT_HEADER1_1 = FWPM_NET_EVENT_HEADER1_1(),
+    public var anonymous1: FwpmNetEventHeader10 = FwpmNetEventHeader10(),
+    public var anonymous2: FwpmNetEventHeader11 = FwpmNetEventHeader11(),
     public var localPort: UShort = 0u,
     public var remotePort: UShort = 0u,
     public var scopeId: UInt = 0u,
-    public var appId: FWP_BYTE_BLOB = FWP_BYTE_BLOB(),
-    public var userId: Long = 0L,
-    public var Anonymous3: FWPM_NET_EVENT_HEADER1_2 = FWPM_NET_EVENT_HEADER1_2(),
+    public var appId: FwpByteBlob = FwpByteBlob(),
+    public var userId: Sid? = null,
+    public var anonymous3: FwpmNetEventHeader12 = FwpmNetEventHeader12(),
 )
 
-public data class FWPM_NET_EVENT_HEADER1_0(public var localAddrV4: UInt = 0u, public var localAddrV6: FWP_BYTE_ARRAY16 = FWP_BYTE_ARRAY16())
+public data class FwpmNetEventHeader10(public var localAddrV4: UInt = 0u, public var localAddrV6: FwpByteArray16 = FwpByteArray16())
 
-public data class FWPM_NET_EVENT_HEADER1_1(public var remoteAddrV4: UInt = 0u, public var remoteAddrV6: FWP_BYTE_ARRAY16 = FWP_BYTE_ARRAY16())
+public data class FwpmNetEventHeader11(public var remoteAddrV4: UInt = 0u, public var remoteAddrV6: FwpByteArray16 = FwpByteArray16())
 
-public data class FWPM_NET_EVENT_HEADER1_2(public var Anonymous: FWPM_NET_EVENT_HEADER1_2_0 = FWPM_NET_EVENT_HEADER1_2_0())
+public data class FwpmNetEventHeader12(public var anonymous: FwpmNetEventHeader120 = FwpmNetEventHeader120())
 
-public data class FWPM_NET_EVENT_HEADER1_2_0(public var reserved1: FWP_AF = 0, public var Anonymous: FWPM_NET_EVENT_HEADER1_2_0_0 = FWPM_NET_EVENT_HEADER1_2_0_0())
+public data class FwpmNetEventHeader120(public var reserved1: FwpAf = 0, public var anonymous: FwpmNetEventHeader1200 = FwpmNetEventHeader1200())
 
-public data class FWPM_NET_EVENT_HEADER1_2_0_0(public var Anonymous: FWPM_NET_EVENT_HEADER1_2_0_0_0 = FWPM_NET_EVENT_HEADER1_2_0_0_0())
+public data class FwpmNetEventHeader1200(public var anonymous: FwpmNetEventHeader12000 = FwpmNetEventHeader12000())
 
-public data class FWPM_NET_EVENT_HEADER1_2_0_0_0(
-    public var reserved2: FWP_BYTE_ARRAY6 = FWP_BYTE_ARRAY6(),
-    public var reserved3: FWP_BYTE_ARRAY6 = FWP_BYTE_ARRAY6(),
+public data class FwpmNetEventHeader12000(
+    public var reserved2: FwpByteArray6 = FwpByteArray6(),
+    public var reserved3: FwpByteArray6 = FwpByteArray6(),
     public var reserved4: UInt = 0u,
     public var reserved5: UInt = 0u,
     public var reserved6: UShort = 0u,
@@ -415,63 +419,63 @@ public data class FWPM_NET_EVENT_HEADER1_2_0_0_0(
     public var reserved10: ULong = 0uL,
 )
 
-public data class FWPM_NET_EVENT_HEADER2(
-    public var timeStamp: FILETIME = FILETIME(),
+public data class FwpmNetEventHeader2(
+    public var timeStamp: Filetime = Filetime(),
     public var flags: UInt = 0u,
-    public var ipVersion: FWP_IP_VERSION = 0,
+    public var ipVersion: FwpIpVersion = 0,
     public var ipProtocol: UByte = 0u,
-    public var Anonymous1: FWPM_NET_EVENT_HEADER2_0 = FWPM_NET_EVENT_HEADER2_0(),
-    public var Anonymous2: FWPM_NET_EVENT_HEADER2_1 = FWPM_NET_EVENT_HEADER2_1(),
+    public var anonymous1: FwpmNetEventHeader20 = FwpmNetEventHeader20(),
+    public var anonymous2: FwpmNetEventHeader21 = FwpmNetEventHeader21(),
     public var localPort: UShort = 0u,
     public var remotePort: UShort = 0u,
     public var scopeId: UInt = 0u,
-    public var appId: FWP_BYTE_BLOB = FWP_BYTE_BLOB(),
-    public var userId: Long = 0L,
-    public var addressFamily: FWP_AF = 0,
-    public var packageSid: Long = 0L,
+    public var appId: FwpByteBlob = FwpByteBlob(),
+    public var userId: Sid? = null,
+    public var addressFamily: FwpAf = 0,
+    public var packageSid: Sid? = null,
 )
 
-public data class FWPM_NET_EVENT_HEADER2_0(public var localAddrV4: UInt = 0u, public var localAddrV6: FWP_BYTE_ARRAY16 = FWP_BYTE_ARRAY16())
+public data class FwpmNetEventHeader20(public var localAddrV4: UInt = 0u, public var localAddrV6: FwpByteArray16 = FwpByteArray16())
 
-public data class FWPM_NET_EVENT_HEADER2_1(public var remoteAddrV4: UInt = 0u, public var remoteAddrV6: FWP_BYTE_ARRAY16 = FWP_BYTE_ARRAY16())
+public data class FwpmNetEventHeader21(public var remoteAddrV4: UInt = 0u, public var remoteAddrV6: FwpByteArray16 = FwpByteArray16())
 
-public data class FWPM_NET_EVENT_HEADER3(
-    public var timeStamp: FILETIME = FILETIME(),
+public data class FwpmNetEventHeader3(
+    public var timeStamp: Filetime = Filetime(),
     public var flags: UInt = 0u,
-    public var ipVersion: FWP_IP_VERSION = 0,
+    public var ipVersion: FwpIpVersion = 0,
     public var ipProtocol: UByte = 0u,
-    public var Anonymous1: FWPM_NET_EVENT_HEADER3_0 = FWPM_NET_EVENT_HEADER3_0(),
-    public var Anonymous2: FWPM_NET_EVENT_HEADER3_1 = FWPM_NET_EVENT_HEADER3_1(),
+    public var anonymous1: FwpmNetEventHeader30 = FwpmNetEventHeader30(),
+    public var anonymous2: FwpmNetEventHeader31 = FwpmNetEventHeader31(),
     public var localPort: UShort = 0u,
     public var remotePort: UShort = 0u,
     public var scopeId: UInt = 0u,
-    public var appId: FWP_BYTE_BLOB = FWP_BYTE_BLOB(),
-    public var userId: Long = 0L,
-    public var addressFamily: FWP_AF = 0,
-    public var packageSid: Long = 0L,
-    public var enterpriseId: PWSTR = 0L,
+    public var appId: FwpByteBlob = FwpByteBlob(),
+    public var userId: Sid? = null,
+    public var addressFamily: FwpAf = 0,
+    public var packageSid: Sid? = null,
+    public var enterpriseId: Pwstr = null,
     public var policyFlags: ULong = 0uL,
-    public var effectiveName: FWP_BYTE_BLOB = FWP_BYTE_BLOB(),
+    public var effectiveName: FwpByteBlob = FwpByteBlob(),
 )
 
-public data class FWPM_NET_EVENT_HEADER3_0(public var localAddrV4: UInt = 0u, public var localAddrV6: FWP_BYTE_ARRAY16 = FWP_BYTE_ARRAY16())
+public data class FwpmNetEventHeader30(public var localAddrV4: UInt = 0u, public var localAddrV6: FwpByteArray16 = FwpByteArray16())
 
-public data class FWPM_NET_EVENT_HEADER3_1(public var remoteAddrV4: UInt = 0u, public var remoteAddrV6: FWP_BYTE_ARRAY16 = FWP_BYTE_ARRAY16())
+public data class FwpmNetEventHeader31(public var remoteAddrV4: UInt = 0u, public var remoteAddrV6: FwpByteArray16 = FwpByteArray16())
 
-public data class FWPM_NET_EVENT_IKEEXT_EM_FAILURE0(
+public data class FwpmNetEventIkeextEmFailure0(
     public var failureErrorCode: UInt = 0u,
-    public var failurePoint: IPSEC_FAILURE_POINT = 0,
+    public var failurePoint: IpsecFailurePoint = 0,
     public var flags: UInt = 0u,
-    public var emState: IKEEXT_EM_SA_STATE = 0,
-    public var saRole: IKEEXT_SA_ROLE = 0,
-    public var emAuthMethod: IKEEXT_AUTHENTICATION_METHOD_TYPE = 0,
+    public var emState: IkeextEmSaState = 0,
+    public var saRole: IkeextSaRole = 0,
+    public var emAuthMethod: IkeextAuthenticationMethodType = 0,
     public var endCertHash: UByteArray = UByteArray(20),
     public var mmId: ULong = 0uL,
     public var qmFilterId: ULong = 0uL,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is FWPM_NET_EVENT_IKEEXT_EM_FAILURE0) return false
+        if (other !is FwpmNetEventIkeextEmFailure0) return false
         if (this.failureErrorCode != other.failureErrorCode) return false
         if (this.failurePoint != other.failurePoint) return false
         if (this.flags != other.flags) return false
@@ -498,27 +502,27 @@ public data class FWPM_NET_EVENT_IKEEXT_EM_FAILURE0(
     }
 }
 
-public data class FWPM_NET_EVENT_IKEEXT_EM_FAILURE1(
+public data class FwpmNetEventIkeextEmFailure1(
     public var failureErrorCode: UInt = 0u,
-    public var failurePoint: IPSEC_FAILURE_POINT = 0,
+    public var failurePoint: IpsecFailurePoint = 0,
     public var flags: UInt = 0u,
-    public var emState: IKEEXT_EM_SA_STATE = 0,
-    public var saRole: IKEEXT_SA_ROLE = 0,
-    public var emAuthMethod: IKEEXT_AUTHENTICATION_METHOD_TYPE = 0,
+    public var emState: IkeextEmSaState = 0,
+    public var saRole: IkeextSaRole = 0,
+    public var emAuthMethod: IkeextAuthenticationMethodType = 0,
     public var endCertHash: UByteArray = UByteArray(20),
     public var mmId: ULong = 0uL,
     public var qmFilterId: ULong = 0uL,
-    public var localPrincipalNameForAuth: PWSTR = 0L,
-    public var remotePrincipalNameForAuth: PWSTR = 0L,
+    public var localPrincipalNameForAuth: Pwstr = null,
+    public var remotePrincipalNameForAuth: Pwstr = null,
     public var numLocalPrincipalGroupSids: UInt = 0u,
-    public var localPrincipalGroupSids: Long = 0L,
+    public var localPrincipalGroupSids: Pwstr? = null,
     public var numRemotePrincipalGroupSids: UInt = 0u,
-    public var remotePrincipalGroupSids: Long = 0L,
-    public var saTrafficType: IPSEC_TRAFFIC_TYPE = 0,
+    public var remotePrincipalGroupSids: Pwstr? = null,
+    public var saTrafficType: IpsecTrafficType = 0,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is FWPM_NET_EVENT_IKEEXT_EM_FAILURE1) return false
+        if (other !is FwpmNetEventIkeextEmFailure1) return false
         if (this.failureErrorCode != other.failureErrorCode) return false
         if (this.failurePoint != other.failurePoint) return false
         if (this.flags != other.flags) return false
@@ -559,21 +563,21 @@ public data class FWPM_NET_EVENT_IKEEXT_EM_FAILURE1(
     }
 }
 
-public data class FWPM_NET_EVENT_IKEEXT_MM_FAILURE0(
+public data class FwpmNetEventIkeextMmFailure0(
     public var failureErrorCode: UInt = 0u,
-    public var failurePoint: IPSEC_FAILURE_POINT = 0,
+    public var failurePoint: IpsecFailurePoint = 0,
     public var flags: UInt = 0u,
-    public var keyingModuleType: IKEEXT_KEY_MODULE_TYPE = 0,
-    public var mmState: IKEEXT_MM_SA_STATE = 0,
-    public var saRole: IKEEXT_SA_ROLE = 0,
-    public var mmAuthMethod: IKEEXT_AUTHENTICATION_METHOD_TYPE = 0,
+    public var keyingModuleType: IkeextKeyModuleType = 0,
+    public var mmState: IkeextMmSaState = 0,
+    public var saRole: IkeextSaRole = 0,
+    public var mmAuthMethod: IkeextAuthenticationMethodType = 0,
     public var endCertHash: UByteArray = UByteArray(20),
     public var mmId: ULong = 0uL,
     public var mmFilterId: ULong = 0uL,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is FWPM_NET_EVENT_IKEEXT_MM_FAILURE0) return false
+        if (other !is FwpmNetEventIkeextMmFailure0) return false
         if (this.failureErrorCode != other.failureErrorCode) return false
         if (this.failurePoint != other.failurePoint) return false
         if (this.flags != other.flags) return false
@@ -602,27 +606,27 @@ public data class FWPM_NET_EVENT_IKEEXT_MM_FAILURE0(
     }
 }
 
-public data class FWPM_NET_EVENT_IKEEXT_MM_FAILURE1(
+public data class FwpmNetEventIkeextMmFailure1(
     public var failureErrorCode: UInt = 0u,
-    public var failurePoint: IPSEC_FAILURE_POINT = 0,
+    public var failurePoint: IpsecFailurePoint = 0,
     public var flags: UInt = 0u,
-    public var keyingModuleType: IKEEXT_KEY_MODULE_TYPE = 0,
-    public var mmState: IKEEXT_MM_SA_STATE = 0,
-    public var saRole: IKEEXT_SA_ROLE = 0,
-    public var mmAuthMethod: IKEEXT_AUTHENTICATION_METHOD_TYPE = 0,
+    public var keyingModuleType: IkeextKeyModuleType = 0,
+    public var mmState: IkeextMmSaState = 0,
+    public var saRole: IkeextSaRole = 0,
+    public var mmAuthMethod: IkeextAuthenticationMethodType = 0,
     public var endCertHash: UByteArray = UByteArray(20),
     public var mmId: ULong = 0uL,
     public var mmFilterId: ULong = 0uL,
-    public var localPrincipalNameForAuth: PWSTR = 0L,
-    public var remotePrincipalNameForAuth: PWSTR = 0L,
+    public var localPrincipalNameForAuth: Pwstr = null,
+    public var remotePrincipalNameForAuth: Pwstr = null,
     public var numLocalPrincipalGroupSids: UInt = 0u,
-    public var localPrincipalGroupSids: Long = 0L,
+    public var localPrincipalGroupSids: Pwstr? = null,
     public var numRemotePrincipalGroupSids: UInt = 0u,
-    public var remotePrincipalGroupSids: Long = 0L,
+    public var remotePrincipalGroupSids: Pwstr? = null,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is FWPM_NET_EVENT_IKEEXT_MM_FAILURE1) return false
+        if (other !is FwpmNetEventIkeextMmFailure1) return false
         if (this.failureErrorCode != other.failureErrorCode) return false
         if (this.failurePoint != other.failurePoint) return false
         if (this.flags != other.flags) return false
@@ -663,72 +667,72 @@ public data class FWPM_NET_EVENT_IKEEXT_MM_FAILURE1(
     }
 }
 
-public class FWPM_NET_EVENT_IKEEXT_MM_FAILURE2(
+public class FwpmNetEventIkeextMmFailure2(
     public var failureErrorCode: UInt = 0u,
-    public var failurePoint: IPSEC_FAILURE_POINT = 0,
+    public var failurePoint: IpsecFailurePoint = 0,
     public var flags: UInt = 0u,
-    public var keyingModuleType: IKEEXT_KEY_MODULE_TYPE = 0,
-    public var mmState: IKEEXT_MM_SA_STATE = 0,
-    public var saRole: IKEEXT_SA_ROLE = 0,
-    public var mmAuthMethod: IKEEXT_AUTHENTICATION_METHOD_TYPE = 0,
+    public var keyingModuleType: IkeextKeyModuleType = 0,
+    public var mmState: IkeextMmSaState = 0,
+    public var saRole: IkeextSaRole = 0,
+    public var mmAuthMethod: IkeextAuthenticationMethodType = 0,
     public var endCertHash: UByteArray = UByteArray(20),
     public var mmId: ULong = 0uL,
     public var mmFilterId: ULong = 0uL,
-    public var localPrincipalNameForAuth: PWSTR = 0L,
-    public var remotePrincipalNameForAuth: PWSTR = 0L,
+    public var localPrincipalNameForAuth: Pwstr = null,
+    public var remotePrincipalNameForAuth: Pwstr = null,
     public var numLocalPrincipalGroupSids: UInt = 0u,
-    public var localPrincipalGroupSids: Long = 0L,
+    public var localPrincipalGroupSids: Pwstr? = null,
     public var numRemotePrincipalGroupSids: UInt = 0u,
-    public var remotePrincipalGroupSids: Long = 0L,
-    public var providerContextKey: Long = 0L,
+    public var remotePrincipalGroupSids: Pwstr? = null,
+    public var providerContextKey: Guid? = null,
 )
 
-public data class FWPM_NET_EVENT_IKEEXT_QM_FAILURE0(
+public data class FwpmNetEventIkeextQmFailure0(
     public var failureErrorCode: UInt = 0u,
-    public var failurePoint: IPSEC_FAILURE_POINT = 0,
-    public var keyingModuleType: IKEEXT_KEY_MODULE_TYPE = 0,
-    public var qmState: IKEEXT_QM_SA_STATE = 0,
-    public var saRole: IKEEXT_SA_ROLE = 0,
-    public var saTrafficType: IPSEC_TRAFFIC_TYPE = 0,
-    public var Anonymous1: FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_0 = FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_0(),
-    public var Anonymous2: FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_1 = FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_1(),
+    public var failurePoint: IpsecFailurePoint = 0,
+    public var keyingModuleType: IkeextKeyModuleType = 0,
+    public var qmState: IkeextQmSaState = 0,
+    public var saRole: IkeextSaRole = 0,
+    public var saTrafficType: IpsecTrafficType = 0,
+    public var anonymous1: FwpmNetEventIkeextQmFailure00 = FwpmNetEventIkeextQmFailure00(),
+    public var anonymous2: FwpmNetEventIkeextQmFailure01 = FwpmNetEventIkeextQmFailure01(),
     public var qmFilterId: ULong = 0uL,
 )
 
-public data class FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_0(public var localSubNet: FWP_CONDITION_VALUE0 = FWP_CONDITION_VALUE0())
+public data class FwpmNetEventIkeextQmFailure00(public var localSubNet: FwpConditionValue0 = FwpConditionValue0())
 
-public data class FWPM_NET_EVENT_IKEEXT_QM_FAILURE0_1(public var remoteSubNet: FWP_CONDITION_VALUE0 = FWP_CONDITION_VALUE0())
+public data class FwpmNetEventIkeextQmFailure01(public var remoteSubNet: FwpConditionValue0 = FwpConditionValue0())
 
-public data class FWPM_NET_EVENT_IKEEXT_QM_FAILURE1(
+public data class FwpmNetEventIkeextQmFailure1(
     public var failureErrorCode: UInt = 0u,
-    public var failurePoint: IPSEC_FAILURE_POINT = 0,
-    public var keyingModuleType: IKEEXT_KEY_MODULE_TYPE = 0,
-    public var qmState: IKEEXT_QM_SA_STATE = 0,
-    public var saRole: IKEEXT_SA_ROLE = 0,
-    public var saTrafficType: IPSEC_TRAFFIC_TYPE = 0,
-    public var Anonymous1: FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_0 = FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_0(),
-    public var Anonymous2: FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_1 = FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_1(),
+    public var failurePoint: IpsecFailurePoint = 0,
+    public var keyingModuleType: IkeextKeyModuleType = 0,
+    public var qmState: IkeextQmSaState = 0,
+    public var saRole: IkeextSaRole = 0,
+    public var saTrafficType: IpsecTrafficType = 0,
+    public var anonymous1: FwpmNetEventIkeextQmFailure10 = FwpmNetEventIkeextQmFailure10(),
+    public var anonymous2: FwpmNetEventIkeextQmFailure11 = FwpmNetEventIkeextQmFailure11(),
     public var qmFilterId: ULong = 0uL,
     public var mmSaLuid: ULong = 0uL,
-    public var mmProviderContextKey: GUID = GUID(),
+    public var mmProviderContextKey: Guid = Guid(),
 )
 
-public data class FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_0(public var localSubNet: FWP_CONDITION_VALUE0 = FWP_CONDITION_VALUE0())
+public data class FwpmNetEventIkeextQmFailure10(public var localSubNet: FwpConditionValue0 = FwpConditionValue0())
 
-public data class FWPM_NET_EVENT_IKEEXT_QM_FAILURE1_1(public var remoteSubNet: FWP_CONDITION_VALUE0 = FWP_CONDITION_VALUE0())
+public data class FwpmNetEventIkeextQmFailure11(public var remoteSubNet: FwpConditionValue0 = FwpConditionValue0())
 
-public data class FWPM_NET_EVENT_IPSEC_DOSP_DROP0(
-    public var ipVersion: FWP_IP_VERSION = 0,
-    public var Anonymous1: FWPM_NET_EVENT_IPSEC_DOSP_DROP0_0 = FWPM_NET_EVENT_IPSEC_DOSP_DROP0_0(),
-    public var Anonymous2: FWPM_NET_EVENT_IPSEC_DOSP_DROP0_1 = FWPM_NET_EVENT_IPSEC_DOSP_DROP0_1(),
+public data class FwpmNetEventIpsecDospDrop0(
+    public var ipVersion: FwpIpVersion = 0,
+    public var anonymous1: FwpmNetEventIpsecDospDrop00 = FwpmNetEventIpsecDospDrop00(),
+    public var anonymous2: FwpmNetEventIpsecDospDrop01 = FwpmNetEventIpsecDospDrop01(),
     public var failureStatus: Int = 0,
-    public var direction: FWP_DIRECTION = 0,
+    public var direction: FwpDirection = 0,
 )
 
-public data class FWPM_NET_EVENT_IPSEC_DOSP_DROP0_0(public var publicHostV4Addr: UInt = 0u, public var publicHostV6Addr: UByteArray = UByteArray(16)) {
+public data class FwpmNetEventIpsecDospDrop00(public var publicHostV4Addr: UInt = 0u, public var publicHostV6Addr: UByteArray = UByteArray(16)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is FWPM_NET_EVENT_IPSEC_DOSP_DROP0_0) return false
+        if (other !is FwpmNetEventIpsecDospDrop00) return false
         if (this.publicHostV4Addr != other.publicHostV4Addr) return false
         if (!this.publicHostV6Addr.contentEquals(other.publicHostV6Addr)) return false
         return true
@@ -741,10 +745,10 @@ public data class FWPM_NET_EVENT_IPSEC_DOSP_DROP0_0(public var publicHostV4Addr:
     }
 }
 
-public data class FWPM_NET_EVENT_IPSEC_DOSP_DROP0_1(public var internalHostV4Addr: UInt = 0u, public var internalHostV6Addr: UByteArray = UByteArray(16)) {
+public data class FwpmNetEventIpsecDospDrop01(public var internalHostV4Addr: UInt = 0u, public var internalHostV6Addr: UByteArray = UByteArray(16)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is FWPM_NET_EVENT_IPSEC_DOSP_DROP0_1) return false
+        if (other !is FwpmNetEventIpsecDospDrop01) return false
         if (this.internalHostV4Addr != other.internalHostV4Addr) return false
         if (!this.internalHostV6Addr.contentEquals(other.internalHostV6Addr)) return false
         return true
@@ -757,174 +761,174 @@ public data class FWPM_NET_EVENT_IPSEC_DOSP_DROP0_1(public var internalHostV4Add
     }
 }
 
-public data class FWPM_NET_EVENT_IPSEC_KERNEL_DROP0(
+public data class FwpmNetEventIpsecKernelDrop0(
     public var failureStatus: Int = 0,
-    public var direction: FWP_DIRECTION = 0,
+    public var direction: FwpDirection = 0,
     public var spi: UInt = 0u,
     public var filterId: ULong = 0uL,
     public var layerId: UShort = 0u,
 )
 
-public data class FWPM_NET_EVENT_LPM_PACKET_ARRIVAL0(public var spi: UInt = 0u)
+public data class FwpmNetEventLpmPacketArrival0(public var spi: UInt = 0u)
 
-public data class FWPM_NET_EVENT_SUBSCRIPTION0(
-    public var enumTemplate: Long = 0L,
+public data class FwpmNetEventSubscription0(
+    public var enumTemplate: FwpmNetEventEnumTemplate0? = null,
     public var flags: UInt = 0u,
-    public var sessionKey: GUID = GUID(),
+    public var sessionKey: Guid = Guid(),
 )
 
-public data class FWPM_PROVIDER0(
-    public var providerKey: GUID = GUID(),
-    public var displayData: FWPM_DISPLAY_DATA0 = FWPM_DISPLAY_DATA0(),
+public data class FwpmProvider0(
+    public var providerKey: Guid = Guid(),
+    public var displayData: FwpmDisplayData0 = FwpmDisplayData0(),
     public var flags: UInt = 0u,
-    public var providerData: FWP_BYTE_BLOB = FWP_BYTE_BLOB(),
-    public var serviceName: PWSTR = 0L,
+    public var providerData: FwpByteBlob = FwpByteBlob(),
+    public var serviceName: Pwstr = null,
 )
 
-public data class FWPM_PROVIDER_CHANGE0(public var changeType: FWPM_CHANGE_TYPE = 0, public var providerKey: GUID = GUID())
+public data class FwpmProviderChange0(public var changeType: FwpmChangeType = 0, public var providerKey: Guid = Guid())
 
-public data class FWPM_PROVIDER_CONTEXT0(
-    public var providerContextKey: GUID = GUID(),
-    public var displayData: FWPM_DISPLAY_DATA0 = FWPM_DISPLAY_DATA0(),
+public data class FwpmProviderContext0(
+    public var providerContextKey: Guid = Guid(),
+    public var displayData: FwpmDisplayData0 = FwpmDisplayData0(),
     public var flags: UInt = 0u,
-    public var providerKey: Long = 0L,
-    public var providerData: FWP_BYTE_BLOB = FWP_BYTE_BLOB(),
-    public var type: FWPM_PROVIDER_CONTEXT_TYPE = 0,
-    public var Anonymous: FWPM_PROVIDER_CONTEXT0_0 = FWPM_PROVIDER_CONTEXT0_0(),
+    public var providerKey: Guid? = null,
+    public var providerData: FwpByteBlob = FwpByteBlob(),
+    public var type: FwpmProviderContextType = 0,
+    public var anonymous: FwpmProviderContext00 = FwpmProviderContext00(),
     public var providerContextId: ULong = 0uL,
 )
 
-public data class FWPM_PROVIDER_CONTEXT0_0(
-    public var keyingPolicy: Long = 0L,
-    public var ikeQmTransportPolicy: Long = 0L,
-    public var ikeQmTunnelPolicy: Long = 0L,
-    public var authipQmTransportPolicy: Long = 0L,
-    public var authipQmTunnelPolicy: Long = 0L,
-    public var ikeMmPolicy: Long = 0L,
-    public var authIpMmPolicy: Long = 0L,
-    public var dataBuffer: Long = 0L,
-    public var classifyOptions: Long = 0L,
+public data class FwpmProviderContext00(
+    public var keyingPolicy: IpsecKeyingPolicy0? = null,
+    public var ikeQmTransportPolicy: IpsecTransportPolicy0? = null,
+    public var ikeQmTunnelPolicy: IpsecTunnelPolicy0? = null,
+    public var authipQmTransportPolicy: IpsecTransportPolicy0? = null,
+    public var authipQmTunnelPolicy: IpsecTunnelPolicy0? = null,
+    public var ikeMmPolicy: IkeextPolicy0? = null,
+    public var authIpMmPolicy: IkeextPolicy0? = null,
+    public var dataBuffer: FwpByteBlob? = null,
+    public var classifyOptions: FwpmClassifyOptions0? = null,
 )
 
-public data class FWPM_PROVIDER_CONTEXT1(
-    public var providerContextKey: GUID = GUID(),
-    public var displayData: FWPM_DISPLAY_DATA0 = FWPM_DISPLAY_DATA0(),
+public data class FwpmProviderContext1(
+    public var providerContextKey: Guid = Guid(),
+    public var displayData: FwpmDisplayData0 = FwpmDisplayData0(),
     public var flags: UInt = 0u,
-    public var providerKey: Long = 0L,
-    public var providerData: FWP_BYTE_BLOB = FWP_BYTE_BLOB(),
-    public var type: FWPM_PROVIDER_CONTEXT_TYPE = 0,
-    public var Anonymous: FWPM_PROVIDER_CONTEXT1_0 = FWPM_PROVIDER_CONTEXT1_0(),
+    public var providerKey: Guid? = null,
+    public var providerData: FwpByteBlob = FwpByteBlob(),
+    public var type: FwpmProviderContextType = 0,
+    public var anonymous: FwpmProviderContext10 = FwpmProviderContext10(),
     public var providerContextId: ULong = 0uL,
 )
 
-public data class FWPM_PROVIDER_CONTEXT1_0(
-    public var keyingPolicy: Long = 0L,
-    public var ikeQmTransportPolicy: Long = 0L,
-    public var ikeQmTunnelPolicy: Long = 0L,
-    public var authipQmTransportPolicy: Long = 0L,
-    public var authipQmTunnelPolicy: Long = 0L,
-    public var ikeMmPolicy: Long = 0L,
-    public var authIpMmPolicy: Long = 0L,
-    public var dataBuffer: Long = 0L,
-    public var classifyOptions: Long = 0L,
-    public var ikeV2QmTunnelPolicy: Long = 0L,
-    public var ikeV2MmPolicy: Long = 0L,
-    public var idpOptions: Long = 0L,
+public data class FwpmProviderContext10(
+    public var keyingPolicy: IpsecKeyingPolicy0? = null,
+    public var ikeQmTransportPolicy: IpsecTransportPolicy1? = null,
+    public var ikeQmTunnelPolicy: IpsecTunnelPolicy1? = null,
+    public var authipQmTransportPolicy: IpsecTransportPolicy1? = null,
+    public var authipQmTunnelPolicy: IpsecTunnelPolicy1? = null,
+    public var ikeMmPolicy: IkeextPolicy1? = null,
+    public var authIpMmPolicy: IkeextPolicy1? = null,
+    public var dataBuffer: FwpByteBlob? = null,
+    public var classifyOptions: FwpmClassifyOptions0? = null,
+    public var ikeV2QmTunnelPolicy: IpsecTunnelPolicy1? = null,
+    public var ikeV2MmPolicy: IkeextPolicy1? = null,
+    public var idpOptions: IpsecDospOptions0? = null,
 )
 
-public data class FWPM_PROVIDER_CONTEXT2(
-    public var providerContextKey: GUID = GUID(),
-    public var displayData: FWPM_DISPLAY_DATA0 = FWPM_DISPLAY_DATA0(),
+public data class FwpmProviderContext2(
+    public var providerContextKey: Guid = Guid(),
+    public var displayData: FwpmDisplayData0 = FwpmDisplayData0(),
     public var flags: UInt = 0u,
-    public var providerKey: Long = 0L,
-    public var providerData: FWP_BYTE_BLOB = FWP_BYTE_BLOB(),
-    public var type: FWPM_PROVIDER_CONTEXT_TYPE = 0,
-    public var Anonymous: FWPM_PROVIDER_CONTEXT2_0 = FWPM_PROVIDER_CONTEXT2_0(),
+    public var providerKey: Guid? = null,
+    public var providerData: FwpByteBlob = FwpByteBlob(),
+    public var type: FwpmProviderContextType = 0,
+    public var anonymous: FwpmProviderContext20 = FwpmProviderContext20(),
     public var providerContextId: ULong = 0uL,
 )
 
-public data class FWPM_PROVIDER_CONTEXT2_0(
-    public var keyingPolicy: Long = 0L,
-    public var ikeQmTransportPolicy: Long = 0L,
-    public var ikeQmTunnelPolicy: Long = 0L,
-    public var authipQmTransportPolicy: Long = 0L,
-    public var authipQmTunnelPolicy: Long = 0L,
-    public var ikeMmPolicy: Long = 0L,
-    public var authIpMmPolicy: Long = 0L,
-    public var dataBuffer: Long = 0L,
-    public var classifyOptions: Long = 0L,
-    public var ikeV2QmTunnelPolicy: Long = 0L,
-    public var ikeV2QmTransportPolicy: Long = 0L,
-    public var ikeV2MmPolicy: Long = 0L,
-    public var idpOptions: Long = 0L,
+public data class FwpmProviderContext20(
+    public var keyingPolicy: IpsecKeyingPolicy1? = null,
+    public var ikeQmTransportPolicy: IpsecTransportPolicy2? = null,
+    public var ikeQmTunnelPolicy: IpsecTunnelPolicy2? = null,
+    public var authipQmTransportPolicy: IpsecTransportPolicy2? = null,
+    public var authipQmTunnelPolicy: IpsecTunnelPolicy2? = null,
+    public var ikeMmPolicy: IkeextPolicy2? = null,
+    public var authIpMmPolicy: IkeextPolicy2? = null,
+    public var dataBuffer: FwpByteBlob? = null,
+    public var classifyOptions: FwpmClassifyOptions0? = null,
+    public var ikeV2QmTunnelPolicy: IpsecTunnelPolicy2? = null,
+    public var ikeV2QmTransportPolicy: IpsecTransportPolicy2? = null,
+    public var ikeV2MmPolicy: IkeextPolicy2? = null,
+    public var idpOptions: IpsecDospOptions0? = null,
 )
 
-public data class FWPM_PROVIDER_CONTEXT3(
-    public var providerContextKey: GUID = GUID(),
-    public var displayData: FWPM_DISPLAY_DATA0 = FWPM_DISPLAY_DATA0(),
+public data class FwpmProviderContext3(
+    public var providerContextKey: Guid = Guid(),
+    public var displayData: FwpmDisplayData0 = FwpmDisplayData0(),
     public var flags: UInt = 0u,
-    public var providerKey: Long = 0L,
-    public var providerData: FWP_BYTE_BLOB = FWP_BYTE_BLOB(),
-    public var type: FWPM_PROVIDER_CONTEXT_TYPE = 0,
-    public var Anonymous: FWPM_PROVIDER_CONTEXT3_0 = FWPM_PROVIDER_CONTEXT3_0(),
+    public var providerKey: Guid? = null,
+    public var providerData: FwpByteBlob = FwpByteBlob(),
+    public var type: FwpmProviderContextType = 0,
+    public var anonymous: FwpmProviderContext30 = FwpmProviderContext30(),
     public var providerContextId: ULong = 0uL,
 )
 
-public data class FWPM_PROVIDER_CONTEXT3_0(
-    public var keyingPolicy: Long = 0L,
-    public var ikeQmTransportPolicy: Long = 0L,
-    public var ikeQmTunnelPolicy: Long = 0L,
-    public var authipQmTransportPolicy: Long = 0L,
-    public var authipQmTunnelPolicy: Long = 0L,
-    public var ikeMmPolicy: Long = 0L,
-    public var authIpMmPolicy: Long = 0L,
-    public var dataBuffer: Long = 0L,
-    public var classifyOptions: Long = 0L,
-    public var ikeV2QmTunnelPolicy: Long = 0L,
-    public var ikeV2QmTransportPolicy: Long = 0L,
-    public var ikeV2MmPolicy: Long = 0L,
-    public var idpOptions: Long = 0L,
-    public var networkConnectionPolicy: Long = 0L,
+public data class FwpmProviderContext30(
+    public var keyingPolicy: IpsecKeyingPolicy1? = null,
+    public var ikeQmTransportPolicy: IpsecTransportPolicy2? = null,
+    public var ikeQmTunnelPolicy: IpsecTunnelPolicy3? = null,
+    public var authipQmTransportPolicy: IpsecTransportPolicy2? = null,
+    public var authipQmTunnelPolicy: IpsecTunnelPolicy3? = null,
+    public var ikeMmPolicy: IkeextPolicy2? = null,
+    public var authIpMmPolicy: IkeextPolicy2? = null,
+    public var dataBuffer: FwpByteBlob? = null,
+    public var classifyOptions: FwpmClassifyOptions0? = null,
+    public var ikeV2QmTunnelPolicy: IpsecTunnelPolicy3? = null,
+    public var ikeV2QmTransportPolicy: IpsecTransportPolicy2? = null,
+    public var ikeV2MmPolicy: IkeextPolicy2? = null,
+    public var idpOptions: IpsecDospOptions0? = null,
+    public var networkConnectionPolicy: FwpmNetworkConnectionPolicySettings0? = null,
 )
 
-public data class FWPM_PROVIDER_CONTEXT_CHANGE0(
-    public var changeType: FWPM_CHANGE_TYPE = 0,
-    public var providerContextKey: GUID = GUID(),
+public data class FwpmProviderContextChange0(
+    public var changeType: FwpmChangeType = 0,
+    public var providerContextKey: Guid = Guid(),
     public var providerContextId: ULong = 0uL,
 )
 
-public data class FWPM_PROVIDER_CONTEXT_ENUM_TEMPLATE0(public var providerKey: Long = 0L, public var providerContextType: FWPM_PROVIDER_CONTEXT_TYPE = 0)
+public data class FwpmProviderContextEnumTemplate0(public var providerKey: Guid? = null, public var providerContextType: FwpmProviderContextType = 0)
 
-public data class FWPM_PROVIDER_CONTEXT_SUBSCRIPTION0(
-    public var enumTemplate: Long = 0L,
-    public var flags: FWPM_SUBSCRIPTION_FLAGS = 0u,
-    public var sessionKey: GUID = GUID(),
+public data class FwpmProviderContextSubscription0(
+    public var enumTemplate: FwpmProviderContextEnumTemplate0? = null,
+    public var flags: FwpmSubscriptionFlags = 0u,
+    public var sessionKey: Guid = Guid(),
 )
 
-public data class FWPM_PROVIDER_ENUM_TEMPLATE0(public var reserved: ULong = 0uL)
+public data class FwpmProviderEnumTemplate0(public var reserved: ULong = 0uL)
 
-public data class FWPM_PROVIDER_SUBSCRIPTION0(
-    public var enumTemplate: Long = 0L,
+public data class FwpmProviderSubscription0(
+    public var enumTemplate: FwpmProviderEnumTemplate0? = null,
     public var flags: UInt = 0u,
-    public var sessionKey: GUID = GUID(),
+    public var sessionKey: Guid = Guid(),
 )
 
-public data class FWPM_SESSION0(
-    public var sessionKey: GUID = GUID(),
-    public var displayData: FWPM_DISPLAY_DATA0 = FWPM_DISPLAY_DATA0(),
+public data class FwpmSession0(
+    public var sessionKey: Guid = Guid(),
+    public var displayData: FwpmDisplayData0 = FwpmDisplayData0(),
     public var flags: UInt = 0u,
     public var txnWaitTimeoutInMSec: UInt = 0u,
     public var processId: UInt = 0u,
-    public var sid: Long = 0L,
-    public var username: PWSTR = 0L,
-    public var kernelMode: BOOL = 0,
+    public var sid: Sid? = null,
+    public var username: Pwstr = null,
+    public var kernelMode: Bool = 0,
 )
 
-public data class FWPM_SESSION_ENUM_TEMPLATE0(public var reserved: ULong = 0uL)
+public data class FwpmSessionEnumTemplate0(public var reserved: ULong = 0uL)
 
-public class FWPM_STATISTICS0(
+public class FwpmStatistics0(
     public var numLayerStatistics: UInt = 0u,
-    public var layerStatistics: Long = 0L,
+    public var layerStatistics: FwpmLayerStatistics0? = null,
     public var inboundAllowedConnectionsV4: UInt = 0u,
     public var inboundBlockedConnectionsV4: UInt = 0u,
     public var outboundAllowedConnectionsV4: UInt = 0u,
@@ -961,55 +965,55 @@ public class FWPM_STATISTICS0(
     public var reauthReasonProxyHandleChanged: ULong = 0uL,
 )
 
-public data class FWPM_SUBLAYER0(
-    public var subLayerKey: GUID = GUID(),
-    public var displayData: FWPM_DISPLAY_DATA0 = FWPM_DISPLAY_DATA0(),
+public data class FwpmSublayer0(
+    public var subLayerKey: Guid = Guid(),
+    public var displayData: FwpmDisplayData0 = FwpmDisplayData0(),
     public var flags: UInt = 0u,
-    public var providerKey: Long = 0L,
-    public var providerData: FWP_BYTE_BLOB = FWP_BYTE_BLOB(),
+    public var providerKey: Guid? = null,
+    public var providerData: FwpByteBlob = FwpByteBlob(),
     public var weight: UShort = 0u,
 )
 
-public data class FWPM_SUBLAYER_CHANGE0(public var changeType: FWPM_CHANGE_TYPE = 0, public var subLayerKey: GUID = GUID())
+public data class FwpmSublayerChange0(public var changeType: FwpmChangeType = 0, public var subLayerKey: Guid = Guid())
 
-public data class FWPM_SUBLAYER_ENUM_TEMPLATE0(public var providerKey: Long = 0L)
+public data class FwpmSublayerEnumTemplate0(public var providerKey: Guid? = null)
 
-public data class FWPM_SUBLAYER_SUBSCRIPTION0(
-    public var enumTemplate: Long = 0L,
-    public var flags: FWPM_SUBSCRIPTION_FLAGS = 0u,
-    public var sessionKey: GUID = GUID(),
+public data class FwpmSublayerSubscription0(
+    public var enumTemplate: FwpmSublayerEnumTemplate0? = null,
+    public var flags: FwpmSubscriptionFlags = 0u,
+    public var sessionKey: Guid = Guid(),
 )
 
-public data class FWPM_SYSTEM_PORTS0(public var numTypes: UInt = 0u, public var types: Long = 0L)
+public data class FwpmSystemPorts0(public var numTypes: UInt = 0u, public var types: FwpmSystemPortsByType0? = null)
 
-public data class FWPM_SYSTEM_PORTS_BY_TYPE0(
-    public var type: FWPM_SYSTEM_PORT_TYPE = 0,
+public data class FwpmSystemPortsByType0(
+    public var type: FwpmSystemPortType = 0,
     public var numPorts: UInt = 0u,
-    public var ports: Long = 0L,
+    public var ports: UShort? = null,
 )
 
-public data class FWPM_VSWITCH_EVENT0(
-    public var eventType: FWPM_VSWITCH_EVENT_TYPE = 0,
-    public var vSwitchId: PWSTR = 0L,
-    public var Anonymous: FWPM_VSWITCH_EVENT0_0 = FWPM_VSWITCH_EVENT0_0(),
+public data class FwpmVswitchEvent0(
+    public var eventType: FwpmVswitchEventType = 0,
+    public var vSwitchId: Pwstr = null,
+    public var anonymous: FwpmVswitchEvent00 = FwpmVswitchEvent00(),
 )
 
-public data class FWPM_VSWITCH_EVENT0_0(public var positionInfo: FWPM_VSWITCH_EVENT0_0_0 = FWPM_VSWITCH_EVENT0_0_0(), public var reorderInfo: FWPM_VSWITCH_EVENT0_0_1 = FWPM_VSWITCH_EVENT0_0_1())
+public data class FwpmVswitchEvent00(public var positionInfo: FwpmVswitchEvent000 = FwpmVswitchEvent000(), public var reorderInfo: FwpmVswitchEvent001 = FwpmVswitchEvent001())
 
-public data class FWPM_VSWITCH_EVENT0_0_0(public var numvSwitchFilterExtensions: UInt = 0u, public var vSwitchFilterExtensions: Long = 0L)
+public data class FwpmVswitchEvent000(public var numvSwitchFilterExtensions: UInt = 0u, public var vSwitchFilterExtensions: Pwstr? = null)
 
-public data class FWPM_VSWITCH_EVENT0_0_1(
-    public var inRequiredPosition: BOOL = 0,
+public data class FwpmVswitchEvent001(
+    public var inRequiredPosition: Bool = 0,
     public var numvSwitchFilterExtensions: UInt = 0u,
-    public var vSwitchFilterExtensions: Long = 0L,
+    public var vSwitchFilterExtensions: Pwstr? = null,
 )
 
-public data class FWPM_VSWITCH_EVENT_SUBSCRIPTION0(public var flags: UInt = 0u, public var sessionKey: GUID = GUID())
+public data class FwpmVswitchEventSubscription0(public var flags: UInt = 0u, public var sessionKey: Guid = Guid())
 
-public data class FWP_BYTE_ARRAY16(public var byteArray16: UByteArray = UByteArray(16)) {
+public data class FwpByteArray16(public var byteArray16: UByteArray = UByteArray(16)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is FWP_BYTE_ARRAY16) return false
+        if (other !is FwpByteArray16) return false
         if (!this.byteArray16.contentEquals(other.byteArray16)) return false
         return true
     }
@@ -1019,10 +1023,10 @@ public data class FWP_BYTE_ARRAY16(public var byteArray16: UByteArray = UByteArr
     }
 }
 
-public data class FWP_BYTE_ARRAY6(public var byteArray6: UByteArray = UByteArray(6)) {
+public data class FwpByteArray6(public var byteArray6: UByteArray = UByteArray(6)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is FWP_BYTE_ARRAY6) return false
+        if (other !is FwpByteArray6) return false
         if (!this.byteArray6.contentEquals(other.byteArray6)) return false
         return true
     }
@@ -1032,49 +1036,49 @@ public data class FWP_BYTE_ARRAY6(public var byteArray6: UByteArray = UByteArray
     }
 }
 
-public data class FWP_BYTE_BLOB(public var size: UInt = 0u, public var data: Long = 0L)
+public data class FwpByteBlob(public var size: UInt = 0u, public var data: COpaquePointer? = null)
 
-public data class FWP_CONDITION_VALUE0(public var type: FWP_DATA_TYPE = 0, public var Anonymous: FWP_CONDITION_VALUE0_0 = FWP_CONDITION_VALUE0_0())
+public data class FwpConditionValue0(public var type: FwpDataType = 0, public var anonymous: FwpConditionValue00 = FwpConditionValue00())
 
-public class FWP_CONDITION_VALUE0_0(
+public class FwpConditionValue00(
     public var uint8: UByte = 0u,
     public var uint16: UShort = 0u,
     public var uint32: UInt = 0u,
-    public var uint64: Long = 0L,
+    public var uint64: ULong? = null,
     public var int8: Byte = 0,
     public var int16: Short = 0,
     public var int32: Int = 0,
-    public var int64: Long = 0L,
+    public var int64: Long? = null,
     public var float32: Float = 0.0f,
-    public var double64: Long = 0L,
-    public var byteArray16: Long = 0L,
-    public var byteBlob: Long = 0L,
-    public var sid: Long = 0L,
-    public var sd: Long = 0L,
-    public var tokenInformation: Long = 0L,
-    public var tokenAccessInformation: Long = 0L,
-    public var unicodeString: PWSTR = 0L,
-    public var byteArray6: Long = 0L,
-    public var v4AddrMask: Long = 0L,
-    public var v6AddrMask: Long = 0L,
-    public var rangeValue: Long = 0L,
+    public var double64: Double? = null,
+    public var byteArray16: FwpByteArray16? = null,
+    public var byteBlob: FwpByteBlob? = null,
+    public var sid: Sid? = null,
+    public var sd: FwpByteBlob? = null,
+    public var tokenInformation: FwpTokenInformation? = null,
+    public var tokenAccessInformation: FwpByteBlob? = null,
+    public var unicodeString: Pwstr = null,
+    public var byteArray6: FwpByteArray6? = null,
+    public var v4AddrMask: FwpV4AddrAndMask? = null,
+    public var v6AddrMask: FwpV6AddrAndMask? = null,
+    public var rangeValue: FwpRange0? = null,
 )
 
-public data class FWP_RANGE0(public var valueLow: FWP_VALUE0 = FWP_VALUE0(), public var valueHigh: FWP_VALUE0 = FWP_VALUE0())
+public data class FwpRange0(public var valueLow: FwpValue0 = FwpValue0(), public var valueHigh: FwpValue0 = FwpValue0())
 
-public data class FWP_TOKEN_INFORMATION(
+public data class FwpTokenInformation(
     public var sidCount: UInt = 0u,
-    public var sids: Long = 0L,
+    public var sids: SidAndAttributes? = null,
     public var restrictedSidCount: UInt = 0u,
-    public var restrictedSids: Long = 0L,
+    public var restrictedSids: SidAndAttributes? = null,
 )
 
-public data class FWP_V4_ADDR_AND_MASK(public var addr: UInt = 0u, public var mask: UInt = 0u)
+public data class FwpV4AddrAndMask(public var addr: UInt = 0u, public var mask: UInt = 0u)
 
-public data class FWP_V6_ADDR_AND_MASK(public var addr: UByteArray = UByteArray(16), public var prefixLength: UByte = 0u) {
+public data class FwpV6AddrAndMask(public var addr: UByteArray = UByteArray(16), public var prefixLength: UByte = 0u) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is FWP_V6_ADDR_AND_MASK) return false
+        if (other !is FwpV6AddrAndMask) return false
         if (!this.addr.contentEquals(other.addr)) return false
         if (this.prefixLength != other.prefixLength) return false
         return true
@@ -1087,281 +1091,281 @@ public data class FWP_V6_ADDR_AND_MASK(public var addr: UByteArray = UByteArray(
     }
 }
 
-public data class FWP_VALUE0(public var type: FWP_DATA_TYPE = 0, public var Anonymous: FWP_VALUE0_0 = FWP_VALUE0_0())
+public data class FwpValue0(public var type: FwpDataType = 0, public var anonymous: FwpValue00 = FwpValue00())
 
-public class FWP_VALUE0_0(
+public class FwpValue00(
     public var uint8: UByte = 0u,
     public var uint16: UShort = 0u,
     public var uint32: UInt = 0u,
-    public var uint64: Long = 0L,
+    public var uint64: ULong? = null,
     public var int8: Byte = 0,
     public var int16: Short = 0,
     public var int32: Int = 0,
-    public var int64: Long = 0L,
+    public var int64: Long? = null,
     public var float32: Float = 0.0f,
-    public var double64: Long = 0L,
-    public var byteArray16: Long = 0L,
-    public var byteBlob: Long = 0L,
-    public var sid: Long = 0L,
-    public var sd: Long = 0L,
-    public var tokenInformation: Long = 0L,
-    public var tokenAccessInformation: Long = 0L,
-    public var unicodeString: PWSTR = 0L,
-    public var byteArray6: Long = 0L,
+    public var double64: Double? = null,
+    public var byteArray16: FwpByteArray16? = null,
+    public var byteBlob: FwpByteBlob? = null,
+    public var sid: Sid? = null,
+    public var sd: FwpByteBlob? = null,
+    public var tokenInformation: FwpTokenInformation? = null,
+    public var tokenAccessInformation: FwpByteBlob? = null,
+    public var unicodeString: Pwstr = null,
+    public var byteArray6: FwpByteArray6? = null,
 )
 
-public data class IKEEXT_AUTHENTICATION_METHOD0(public var authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE = 0, public var Anonymous: IKEEXT_AUTHENTICATION_METHOD0_0 = IKEEXT_AUTHENTICATION_METHOD0_0())
+public data class IkeextAuthenticationMethod0(public var authenticationMethodType: IkeextAuthenticationMethodType = 0, public var anonymous: IkeextAuthenticationMethod00 = IkeextAuthenticationMethod00())
 
-public data class IKEEXT_AUTHENTICATION_METHOD0_0(
-    public var presharedKeyAuthentication: IKEEXT_PRESHARED_KEY_AUTHENTICATION0 = IKEEXT_PRESHARED_KEY_AUTHENTICATION0(),
-    public var certificateAuthentication: IKEEXT_CERTIFICATE_AUTHENTICATION0 = IKEEXT_CERTIFICATE_AUTHENTICATION0(),
-    public var kerberosAuthentication: IKEEXT_KERBEROS_AUTHENTICATION0 = IKEEXT_KERBEROS_AUTHENTICATION0(),
-    public var ntlmV2Authentication: IKEEXT_NTLM_V2_AUTHENTICATION0 = IKEEXT_NTLM_V2_AUTHENTICATION0(),
-    public var sslAuthentication: IKEEXT_CERTIFICATE_AUTHENTICATION0 = IKEEXT_CERTIFICATE_AUTHENTICATION0(),
-    public var cgaAuthentication: IKEEXT_IPV6_CGA_AUTHENTICATION0 = IKEEXT_IPV6_CGA_AUTHENTICATION0(),
+public data class IkeextAuthenticationMethod00(
+    public var presharedKeyAuthentication: IkeextPresharedKeyAuthentication0 = IkeextPresharedKeyAuthentication0(),
+    public var certificateAuthentication: IkeextCertificateAuthentication0 = IkeextCertificateAuthentication0(),
+    public var kerberosAuthentication: IkeextKerberosAuthentication0 = IkeextKerberosAuthentication0(),
+    public var ntlmV2Authentication: IkeextNtlmV2Authentication0 = IkeextNtlmV2Authentication0(),
+    public var sslAuthentication: IkeextCertificateAuthentication0 = IkeextCertificateAuthentication0(),
+    public var cgaAuthentication: IkeextIpv6CgaAuthentication0 = IkeextIpv6CgaAuthentication0(),
 )
 
-public data class IKEEXT_AUTHENTICATION_METHOD1(public var authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE = 0, public var Anonymous: IKEEXT_AUTHENTICATION_METHOD1_0 = IKEEXT_AUTHENTICATION_METHOD1_0())
+public data class IkeextAuthenticationMethod1(public var authenticationMethodType: IkeextAuthenticationMethodType = 0, public var anonymous: IkeextAuthenticationMethod10 = IkeextAuthenticationMethod10())
 
-public data class IKEEXT_AUTHENTICATION_METHOD1_0(
-    public var presharedKeyAuthentication: IKEEXT_PRESHARED_KEY_AUTHENTICATION1 = IKEEXT_PRESHARED_KEY_AUTHENTICATION1(),
-    public var certificateAuthentication: IKEEXT_CERTIFICATE_AUTHENTICATION1 = IKEEXT_CERTIFICATE_AUTHENTICATION1(),
-    public var kerberosAuthentication: IKEEXT_KERBEROS_AUTHENTICATION0 = IKEEXT_KERBEROS_AUTHENTICATION0(),
-    public var ntlmV2Authentication: IKEEXT_NTLM_V2_AUTHENTICATION0 = IKEEXT_NTLM_V2_AUTHENTICATION0(),
-    public var sslAuthentication: IKEEXT_CERTIFICATE_AUTHENTICATION1 = IKEEXT_CERTIFICATE_AUTHENTICATION1(),
-    public var cgaAuthentication: IKEEXT_IPV6_CGA_AUTHENTICATION0 = IKEEXT_IPV6_CGA_AUTHENTICATION0(),
-    public var eapAuthentication: IKEEXT_EAP_AUTHENTICATION0 = IKEEXT_EAP_AUTHENTICATION0(),
+public data class IkeextAuthenticationMethod10(
+    public var presharedKeyAuthentication: IkeextPresharedKeyAuthentication1 = IkeextPresharedKeyAuthentication1(),
+    public var certificateAuthentication: IkeextCertificateAuthentication1 = IkeextCertificateAuthentication1(),
+    public var kerberosAuthentication: IkeextKerberosAuthentication0 = IkeextKerberosAuthentication0(),
+    public var ntlmV2Authentication: IkeextNtlmV2Authentication0 = IkeextNtlmV2Authentication0(),
+    public var sslAuthentication: IkeextCertificateAuthentication1 = IkeextCertificateAuthentication1(),
+    public var cgaAuthentication: IkeextIpv6CgaAuthentication0 = IkeextIpv6CgaAuthentication0(),
+    public var eapAuthentication: IkeextEapAuthentication0 = IkeextEapAuthentication0(),
 )
 
-public data class IKEEXT_AUTHENTICATION_METHOD2(public var authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE = 0, public var Anonymous: IKEEXT_AUTHENTICATION_METHOD2_0 = IKEEXT_AUTHENTICATION_METHOD2_0())
+public data class IkeextAuthenticationMethod2(public var authenticationMethodType: IkeextAuthenticationMethodType = 0, public var anonymous: IkeextAuthenticationMethod20 = IkeextAuthenticationMethod20())
 
-public data class IKEEXT_AUTHENTICATION_METHOD2_0(
-    public var presharedKeyAuthentication: IKEEXT_PRESHARED_KEY_AUTHENTICATION1 = IKEEXT_PRESHARED_KEY_AUTHENTICATION1(),
-    public var certificateAuthentication: IKEEXT_CERTIFICATE_AUTHENTICATION2 = IKEEXT_CERTIFICATE_AUTHENTICATION2(),
-    public var kerberosAuthentication: IKEEXT_KERBEROS_AUTHENTICATION1 = IKEEXT_KERBEROS_AUTHENTICATION1(),
-    public var reservedAuthentication: IKEEXT_RESERVED_AUTHENTICATION0 = IKEEXT_RESERVED_AUTHENTICATION0(),
-    public var ntlmV2Authentication: IKEEXT_NTLM_V2_AUTHENTICATION0 = IKEEXT_NTLM_V2_AUTHENTICATION0(),
-    public var sslAuthentication: IKEEXT_CERTIFICATE_AUTHENTICATION2 = IKEEXT_CERTIFICATE_AUTHENTICATION2(),
-    public var cgaAuthentication: IKEEXT_IPV6_CGA_AUTHENTICATION0 = IKEEXT_IPV6_CGA_AUTHENTICATION0(),
-    public var eapAuthentication: IKEEXT_EAP_AUTHENTICATION0 = IKEEXT_EAP_AUTHENTICATION0(),
+public data class IkeextAuthenticationMethod20(
+    public var presharedKeyAuthentication: IkeextPresharedKeyAuthentication1 = IkeextPresharedKeyAuthentication1(),
+    public var certificateAuthentication: IkeextCertificateAuthentication2 = IkeextCertificateAuthentication2(),
+    public var kerberosAuthentication: IkeextKerberosAuthentication1 = IkeextKerberosAuthentication1(),
+    public var reservedAuthentication: IkeextReservedAuthentication0 = IkeextReservedAuthentication0(),
+    public var ntlmV2Authentication: IkeextNtlmV2Authentication0 = IkeextNtlmV2Authentication0(),
+    public var sslAuthentication: IkeextCertificateAuthentication2 = IkeextCertificateAuthentication2(),
+    public var cgaAuthentication: IkeextIpv6CgaAuthentication0 = IkeextIpv6CgaAuthentication0(),
+    public var eapAuthentication: IkeextEapAuthentication0 = IkeextEapAuthentication0(),
 )
 
-public data class IKEEXT_CERTIFICATE_AUTHENTICATION0(
-    public var inboundConfigType: IKEEXT_CERT_CONFIG_TYPE = 0,
-    public var Anonymous1: IKEEXT_CERTIFICATE_AUTHENTICATION0_0 = IKEEXT_CERTIFICATE_AUTHENTICATION0_0(),
-    public var outboundConfigType: IKEEXT_CERT_CONFIG_TYPE = 0,
-    public var Anonymous2: IKEEXT_CERTIFICATE_AUTHENTICATION0_1 = IKEEXT_CERTIFICATE_AUTHENTICATION0_1(),
-    public var flags: IKEEXT_CERT_AUTH = 0u,
+public data class IkeextCertificateAuthentication0(
+    public var inboundConfigType: IkeextCertConfigType = 0,
+    public var anonymous1: IkeextCertificateAuthentication00 = IkeextCertificateAuthentication00(),
+    public var outboundConfigType: IkeextCertConfigType = 0,
+    public var anonymous2: IkeextCertificateAuthentication01 = IkeextCertificateAuthentication01(),
+    public var flags: IkeextCertAuth = 0u,
 )
 
-public data class IKEEXT_CERTIFICATE_AUTHENTICATION0_0(
-    public var Anonymous: IKEEXT_CERTIFICATE_AUTHENTICATION0_0_0 = IKEEXT_CERTIFICATE_AUTHENTICATION0_0_0(),
-    public var inboundEnterpriseStoreConfig: Long = 0L,
-    public var inboundTrustedRootStoreConfig: Long = 0L,
+public data class IkeextCertificateAuthentication00(
+    public var anonymous: IkeextCertificateAuthentication000 = IkeextCertificateAuthentication000(),
+    public var inboundEnterpriseStoreConfig: IkeextCertRootConfig0? = null,
+    public var inboundTrustedRootStoreConfig: IkeextCertRootConfig0? = null,
 )
 
-public data class IKEEXT_CERTIFICATE_AUTHENTICATION0_0_0(public var inboundRootArraySize: UInt = 0u, public var inboundRootArray: Long = 0L)
+public data class IkeextCertificateAuthentication000(public var inboundRootArraySize: UInt = 0u, public var inboundRootArray: IkeextCertRootConfig0? = null)
 
-public data class IKEEXT_CERTIFICATE_AUTHENTICATION0_1(
-    public var Anonymous: IKEEXT_CERTIFICATE_AUTHENTICATION0_1_0 = IKEEXT_CERTIFICATE_AUTHENTICATION0_1_0(),
-    public var outboundEnterpriseStoreConfig: Long = 0L,
-    public var outboundTrustedRootStoreConfig: Long = 0L,
+public data class IkeextCertificateAuthentication01(
+    public var anonymous: IkeextCertificateAuthentication010 = IkeextCertificateAuthentication010(),
+    public var outboundEnterpriseStoreConfig: IkeextCertRootConfig0? = null,
+    public var outboundTrustedRootStoreConfig: IkeextCertRootConfig0? = null,
 )
 
-public data class IKEEXT_CERTIFICATE_AUTHENTICATION0_1_0(public var outboundRootArraySize: UInt = 0u, public var outboundRootArray: Long = 0L)
+public data class IkeextCertificateAuthentication010(public var outboundRootArraySize: UInt = 0u, public var outboundRootArray: IkeextCertRootConfig0? = null)
 
-public data class IKEEXT_CERTIFICATE_AUTHENTICATION1(
-    public var inboundConfigType: IKEEXT_CERT_CONFIG_TYPE = 0,
-    public var Anonymous1: IKEEXT_CERTIFICATE_AUTHENTICATION1_0 = IKEEXT_CERTIFICATE_AUTHENTICATION1_0(),
-    public var outboundConfigType: IKEEXT_CERT_CONFIG_TYPE = 0,
-    public var Anonymous2: IKEEXT_CERTIFICATE_AUTHENTICATION1_1 = IKEEXT_CERTIFICATE_AUTHENTICATION1_1(),
-    public var flags: IKEEXT_CERT_AUTH = 0u,
-    public var localCertLocationUrl: FWP_BYTE_BLOB = FWP_BYTE_BLOB(),
+public data class IkeextCertificateAuthentication1(
+    public var inboundConfigType: IkeextCertConfigType = 0,
+    public var anonymous1: IkeextCertificateAuthentication10 = IkeextCertificateAuthentication10(),
+    public var outboundConfigType: IkeextCertConfigType = 0,
+    public var anonymous2: IkeextCertificateAuthentication11 = IkeextCertificateAuthentication11(),
+    public var flags: IkeextCertAuth = 0u,
+    public var localCertLocationUrl: FwpByteBlob = FwpByteBlob(),
 )
 
-public data class IKEEXT_CERTIFICATE_AUTHENTICATION1_0(
-    public var Anonymous: IKEEXT_CERTIFICATE_AUTHENTICATION1_0_0 = IKEEXT_CERTIFICATE_AUTHENTICATION1_0_0(),
-    public var inboundEnterpriseStoreConfig: Long = 0L,
-    public var inboundTrustedRootStoreConfig: Long = 0L,
+public data class IkeextCertificateAuthentication10(
+    public var anonymous: IkeextCertificateAuthentication100 = IkeextCertificateAuthentication100(),
+    public var inboundEnterpriseStoreConfig: IkeextCertRootConfig0? = null,
+    public var inboundTrustedRootStoreConfig: IkeextCertRootConfig0? = null,
 )
 
-public data class IKEEXT_CERTIFICATE_AUTHENTICATION1_0_0(public var inboundRootArraySize: UInt = 0u, public var inboundRootArray: Long = 0L)
+public data class IkeextCertificateAuthentication100(public var inboundRootArraySize: UInt = 0u, public var inboundRootArray: IkeextCertRootConfig0? = null)
 
-public data class IKEEXT_CERTIFICATE_AUTHENTICATION1_1(
-    public var Anonymous: IKEEXT_CERTIFICATE_AUTHENTICATION1_1_0 = IKEEXT_CERTIFICATE_AUTHENTICATION1_1_0(),
-    public var outboundEnterpriseStoreConfig: Long = 0L,
-    public var outboundTrustedRootStoreConfig: Long = 0L,
+public data class IkeextCertificateAuthentication11(
+    public var anonymous: IkeextCertificateAuthentication110 = IkeextCertificateAuthentication110(),
+    public var outboundEnterpriseStoreConfig: IkeextCertRootConfig0? = null,
+    public var outboundTrustedRootStoreConfig: IkeextCertRootConfig0? = null,
 )
 
-public data class IKEEXT_CERTIFICATE_AUTHENTICATION1_1_0(public var outboundRootArraySize: UInt = 0u, public var outboundRootArray: Long = 0L)
+public data class IkeextCertificateAuthentication110(public var outboundRootArraySize: UInt = 0u, public var outboundRootArray: IkeextCertRootConfig0? = null)
 
-public data class IKEEXT_CERTIFICATE_AUTHENTICATION2(
-    public var inboundConfigType: IKEEXT_CERT_CONFIG_TYPE = 0,
-    public var Anonymous1: IKEEXT_CERTIFICATE_AUTHENTICATION2_0 = IKEEXT_CERTIFICATE_AUTHENTICATION2_0(),
-    public var outboundConfigType: IKEEXT_CERT_CONFIG_TYPE = 0,
-    public var Anonymous2: IKEEXT_CERTIFICATE_AUTHENTICATION2_1 = IKEEXT_CERTIFICATE_AUTHENTICATION2_1(),
-    public var flags: IKEEXT_CERT_AUTH = 0u,
-    public var localCertLocationUrl: FWP_BYTE_BLOB = FWP_BYTE_BLOB(),
+public data class IkeextCertificateAuthentication2(
+    public var inboundConfigType: IkeextCertConfigType = 0,
+    public var anonymous1: IkeextCertificateAuthentication20 = IkeextCertificateAuthentication20(),
+    public var outboundConfigType: IkeextCertConfigType = 0,
+    public var anonymous2: IkeextCertificateAuthentication21 = IkeextCertificateAuthentication21(),
+    public var flags: IkeextCertAuth = 0u,
+    public var localCertLocationUrl: FwpByteBlob = FwpByteBlob(),
 )
 
-public data class IKEEXT_CERTIFICATE_AUTHENTICATION2_0(
-    public var Anonymous1: IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 = IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0(),
-    public var Anonymous2: IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 = IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1(),
-    public var Anonymous3: IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 = IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2(),
+public data class IkeextCertificateAuthentication20(
+    public var anonymous1: IkeextCertificateAuthentication200 = IkeextCertificateAuthentication200(),
+    public var anonymous2: IkeextCertificateAuthentication201 = IkeextCertificateAuthentication201(),
+    public var anonymous3: IkeextCertificateAuthentication202 = IkeextCertificateAuthentication202(),
 )
 
-public data class IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0(public var inboundRootArraySize: UInt = 0u, public var inboundRootCriteria: Long = 0L)
+public data class IkeextCertificateAuthentication200(public var inboundRootArraySize: UInt = 0u, public var inboundRootCriteria: IkeextCertificateCriteria0? = null)
 
-public data class IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1(public var inboundEnterpriseStoreArraySize: UInt = 0u, public var inboundEnterpriseStoreCriteria: Long = 0L)
+public data class IkeextCertificateAuthentication201(public var inboundEnterpriseStoreArraySize: UInt = 0u, public var inboundEnterpriseStoreCriteria: IkeextCertificateCriteria0? = null)
 
-public data class IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2(public var inboundRootStoreArraySize: UInt = 0u, public var inboundTrustedRootStoreCriteria: Long = 0L)
+public data class IkeextCertificateAuthentication202(public var inboundRootStoreArraySize: UInt = 0u, public var inboundTrustedRootStoreCriteria: IkeextCertificateCriteria0? = null)
 
-public data class IKEEXT_CERTIFICATE_AUTHENTICATION2_1(
-    public var Anonymous1: IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 = IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0(),
-    public var Anonymous2: IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 = IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1(),
-    public var Anonymous3: IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 = IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2(),
+public data class IkeextCertificateAuthentication21(
+    public var anonymous1: IkeextCertificateAuthentication210 = IkeextCertificateAuthentication210(),
+    public var anonymous2: IkeextCertificateAuthentication211 = IkeextCertificateAuthentication211(),
+    public var anonymous3: IkeextCertificateAuthentication212 = IkeextCertificateAuthentication212(),
 )
 
-public data class IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0(public var outboundRootArraySize: UInt = 0u, public var outboundRootCriteria: Long = 0L)
+public data class IkeextCertificateAuthentication210(public var outboundRootArraySize: UInt = 0u, public var outboundRootCriteria: IkeextCertificateCriteria0? = null)
 
-public data class IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1(public var outboundEnterpriseStoreArraySize: UInt = 0u, public var outboundEnterpriseStoreCriteria: Long = 0L)
+public data class IkeextCertificateAuthentication211(public var outboundEnterpriseStoreArraySize: UInt = 0u, public var outboundEnterpriseStoreCriteria: IkeextCertificateCriteria0? = null)
 
-public data class IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2(public var outboundRootStoreArraySize: UInt = 0u, public var outboundTrustedRootStoreCriteria: Long = 0L)
+public data class IkeextCertificateAuthentication212(public var outboundRootStoreArraySize: UInt = 0u, public var outboundTrustedRootStoreCriteria: IkeextCertificateCriteria0? = null)
 
-public data class IKEEXT_CERTIFICATE_CREDENTIAL0(
-    public var subjectName: FWP_BYTE_BLOB = FWP_BYTE_BLOB(),
-    public var certHash: FWP_BYTE_BLOB = FWP_BYTE_BLOB(),
+public data class IkeextCertificateCredential0(
+    public var subjectName: FwpByteBlob = FwpByteBlob(),
+    public var certHash: FwpByteBlob = FwpByteBlob(),
     public var flags: UInt = 0u,
 )
 
-public data class IKEEXT_CERTIFICATE_CREDENTIAL1(
-    public var subjectName: FWP_BYTE_BLOB = FWP_BYTE_BLOB(),
-    public var certHash: FWP_BYTE_BLOB = FWP_BYTE_BLOB(),
+public data class IkeextCertificateCredential1(
+    public var subjectName: FwpByteBlob = FwpByteBlob(),
+    public var certHash: FwpByteBlob = FwpByteBlob(),
     public var flags: UInt = 0u,
-    public var certificate: FWP_BYTE_BLOB = FWP_BYTE_BLOB(),
+    public var certificate: FwpByteBlob = FwpByteBlob(),
 )
 
-public data class IKEEXT_CERTIFICATE_CRITERIA0(
-    public var certData: FWP_BYTE_BLOB = FWP_BYTE_BLOB(),
-    public var certHash: FWP_BYTE_BLOB = FWP_BYTE_BLOB(),
-    public var eku: Long = 0L,
-    public var name: Long = 0L,
+public data class IkeextCertificateCriteria0(
+    public var certData: FwpByteBlob = FwpByteBlob(),
+    public var certHash: FwpByteBlob = FwpByteBlob(),
+    public var eku: IkeextCertEkus0? = null,
+    public var name: IkeextCertName0? = null,
     public var flags: UInt = 0u,
 )
 
-public data class IKEEXT_CERT_EKUS0(public var numEku: UInt = 0u, public var eku: Long = 0L)
+public data class IkeextCertEkus0(public var numEku: UInt = 0u, public var eku: Pstr? = null)
 
-public data class IKEEXT_CERT_NAME0(public var nameType: IKEEXT_CERT_CRITERIA_NAME_TYPE = 0, public var certName: PWSTR = 0L)
+public data class IkeextCertName0(public var nameType: IkeextCertCriteriaNameType = 0, public var certName: Pwstr = null)
 
-public data class IKEEXT_CERT_ROOT_CONFIG0(public var certData: FWP_BYTE_BLOB = FWP_BYTE_BLOB(), public var flags: IKEEXT_CERT_FLAGS = 0u)
+public data class IkeextCertRootConfig0(public var certData: FwpByteBlob = FwpByteBlob(), public var flags: IkeextCertFlags = 0u)
 
-public data class IKEEXT_CIPHER_ALGORITHM0(
-    public var algoIdentifier: IKEEXT_CIPHER_TYPE = 0,
+public data class IkeextCipherAlgorithm0(
+    public var algoIdentifier: IkeextCipherType = 0,
     public var keyLen: UInt = 0u,
     public var rounds: UInt = 0u,
 )
 
-public data class IKEEXT_COMMON_STATISTICS0(
-    public var v4Statistics: IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0 = IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0(),
-    public var v6Statistics: IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0 = IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0(),
+public data class IkeextCommonStatistics0(
+    public var v4Statistics: IkeextIpVersionSpecificCommonStatistics0 = IkeextIpVersionSpecificCommonStatistics0(),
+    public var v6Statistics: IkeextIpVersionSpecificCommonStatistics0 = IkeextIpVersionSpecificCommonStatistics0(),
     public var totalPacketsReceived: UInt = 0u,
     public var totalInvalidPacketsReceived: UInt = 0u,
     public var currentQueuedWorkitems: UInt = 0u,
 )
 
-public data class IKEEXT_COMMON_STATISTICS1(
-    public var v4Statistics: IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1 = IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1(),
-    public var v6Statistics: IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1 = IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1(),
+public data class IkeextCommonStatistics1(
+    public var v4Statistics: IkeextIpVersionSpecificCommonStatistics1 = IkeextIpVersionSpecificCommonStatistics1(),
+    public var v6Statistics: IkeextIpVersionSpecificCommonStatistics1 = IkeextIpVersionSpecificCommonStatistics1(),
     public var totalPacketsReceived: UInt = 0u,
     public var totalInvalidPacketsReceived: UInt = 0u,
     public var currentQueuedWorkitems: UInt = 0u,
 )
 
-public data class IKEEXT_COOKIE_PAIR0(public var initiator: ULong = 0uL, public var responder: ULong = 0uL)
+public data class IkeextCookiePair0(public var initiator: ULong = 0uL, public var responder: ULong = 0uL)
 
-public data class IKEEXT_CREDENTIAL0(
-    public var authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE = 0,
-    public var impersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE = 0,
-    public var Anonymous: IKEEXT_CREDENTIAL0_0 = IKEEXT_CREDENTIAL0_0(),
+public data class IkeextCredential0(
+    public var authenticationMethodType: IkeextAuthenticationMethodType = 0,
+    public var impersonationType: IkeextAuthenticationImpersonationType = 0,
+    public var anonymous: IkeextCredential00 = IkeextCredential00(),
 )
 
-public data class IKEEXT_CREDENTIAL0_0(
-    public var presharedKey: Long = 0L,
-    public var certificate: Long = 0L,
-    public var name: Long = 0L,
+public data class IkeextCredential00(
+    public var presharedKey: IkeextPresharedKeyAuthentication0? = null,
+    public var certificate: IkeextCertificateCredential0? = null,
+    public var name: IkeextNameCredential0? = null,
 )
 
-public data class IKEEXT_CREDENTIAL1(
-    public var authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE = 0,
-    public var impersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE = 0,
-    public var Anonymous: IKEEXT_CREDENTIAL1_0 = IKEEXT_CREDENTIAL1_0(),
+public data class IkeextCredential1(
+    public var authenticationMethodType: IkeextAuthenticationMethodType = 0,
+    public var impersonationType: IkeextAuthenticationImpersonationType = 0,
+    public var anonymous: IkeextCredential10 = IkeextCredential10(),
 )
 
-public data class IKEEXT_CREDENTIAL1_0(
-    public var presharedKey: Long = 0L,
-    public var certificate: Long = 0L,
-    public var name: Long = 0L,
+public data class IkeextCredential10(
+    public var presharedKey: IkeextPresharedKeyAuthentication1? = null,
+    public var certificate: IkeextCertificateCredential1? = null,
+    public var name: IkeextNameCredential0? = null,
 )
 
-public data class IKEEXT_CREDENTIAL2(
-    public var authenticationMethodType: IKEEXT_AUTHENTICATION_METHOD_TYPE = 0,
-    public var impersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE = 0,
-    public var Anonymous: IKEEXT_CREDENTIAL2_0 = IKEEXT_CREDENTIAL2_0(),
+public data class IkeextCredential2(
+    public var authenticationMethodType: IkeextAuthenticationMethodType = 0,
+    public var impersonationType: IkeextAuthenticationImpersonationType = 0,
+    public var anonymous: IkeextCredential20 = IkeextCredential20(),
 )
 
-public data class IKEEXT_CREDENTIAL2_0(
-    public var presharedKey: Long = 0L,
-    public var certificate: Long = 0L,
-    public var name: Long = 0L,
+public data class IkeextCredential20(
+    public var presharedKey: IkeextPresharedKeyAuthentication1? = null,
+    public var certificate: IkeextCertificateCredential1? = null,
+    public var name: IkeextNameCredential0? = null,
 )
 
-public data class IKEEXT_CREDENTIALS0(public var numCredentials: UInt = 0u, public var credentials: Long = 0L)
+public data class IkeextCredentials0(public var numCredentials: UInt = 0u, public var credentials: IkeextCredentialPair0? = null)
 
-public data class IKEEXT_CREDENTIALS1(public var numCredentials: UInt = 0u, public var credentials: Long = 0L)
+public data class IkeextCredentials1(public var numCredentials: UInt = 0u, public var credentials: IkeextCredentialPair1? = null)
 
-public data class IKEEXT_CREDENTIALS2(public var numCredentials: UInt = 0u, public var credentials: Long = 0L)
+public data class IkeextCredentials2(public var numCredentials: UInt = 0u, public var credentials: IkeextCredentialPair2? = null)
 
-public data class IKEEXT_CREDENTIAL_PAIR0(public var localCredentials: IKEEXT_CREDENTIAL0 = IKEEXT_CREDENTIAL0(), public var peerCredentials: IKEEXT_CREDENTIAL0 = IKEEXT_CREDENTIAL0())
+public data class IkeextCredentialPair0(public var localCredentials: IkeextCredential0 = IkeextCredential0(), public var peerCredentials: IkeextCredential0 = IkeextCredential0())
 
-public data class IKEEXT_CREDENTIAL_PAIR1(public var localCredentials: IKEEXT_CREDENTIAL1 = IKEEXT_CREDENTIAL1(), public var peerCredentials: IKEEXT_CREDENTIAL1 = IKEEXT_CREDENTIAL1())
+public data class IkeextCredentialPair1(public var localCredentials: IkeextCredential1 = IkeextCredential1(), public var peerCredentials: IkeextCredential1 = IkeextCredential1())
 
-public data class IKEEXT_CREDENTIAL_PAIR2(public var localCredentials: IKEEXT_CREDENTIAL2 = IKEEXT_CREDENTIAL2(), public var peerCredentials: IKEEXT_CREDENTIAL2 = IKEEXT_CREDENTIAL2())
+public data class IkeextCredentialPair2(public var localCredentials: IkeextCredential2 = IkeextCredential2(), public var peerCredentials: IkeextCredential2 = IkeextCredential2())
 
-public data class IKEEXT_EAP_AUTHENTICATION0(public var flags: IKEEXT_EAP_AUTHENTICATION_FLAGS = 0u)
+public data class IkeextEapAuthentication0(public var flags: IkeextEapAuthenticationFlags = 0u)
 
-public data class IKEEXT_EM_POLICY0(
+public data class IkeextEmPolicy0(
     public var numAuthenticationMethods: UInt = 0u,
-    public var authenticationMethods: Long = 0L,
-    public var initiatorImpersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE = 0,
+    public var authenticationMethods: IkeextAuthenticationMethod0? = null,
+    public var initiatorImpersonationType: IkeextAuthenticationImpersonationType = 0,
 )
 
-public data class IKEEXT_EM_POLICY1(
+public data class IkeextEmPolicy1(
     public var numAuthenticationMethods: UInt = 0u,
-    public var authenticationMethods: Long = 0L,
-    public var initiatorImpersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE = 0,
+    public var authenticationMethods: IkeextAuthenticationMethod1? = null,
+    public var initiatorImpersonationType: IkeextAuthenticationImpersonationType = 0,
 )
 
-public data class IKEEXT_EM_POLICY2(
+public data class IkeextEmPolicy2(
     public var numAuthenticationMethods: UInt = 0u,
-    public var authenticationMethods: Long = 0L,
-    public var initiatorImpersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE = 0,
+    public var authenticationMethods: IkeextAuthenticationMethod2? = null,
+    public var initiatorImpersonationType: IkeextAuthenticationImpersonationType = 0,
 )
 
-public data class IKEEXT_INTEGRITY_ALGORITHM0(public var algoIdentifier: IKEEXT_INTEGRITY_TYPE = 0)
+public data class IkeextIntegrityAlgorithm0(public var algoIdentifier: IkeextIntegrityType = 0)
 
-public data class IKEEXT_IPV6_CGA_AUTHENTICATION0(
-    public var keyContainerName: PWSTR = 0L,
-    public var cspName: PWSTR = 0L,
+public data class IkeextIpv6CgaAuthentication0(
+    public var keyContainerName: Pwstr = null,
+    public var cspName: Pwstr = null,
     public var cspType: UInt = 0u,
-    public var cgaModifier: FWP_BYTE_ARRAY16 = FWP_BYTE_ARRAY16(),
+    public var cgaModifier: FwpByteArray16 = FwpByteArray16(),
     public var cgaCollisionCount: UByte = 0u,
 )
 
-public data class IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0(public var totalSocketReceiveFailures: UInt = 0u, public var totalSocketSendFailures: UInt = 0u)
+public data class IkeextIpVersionSpecificCommonStatistics0(public var totalSocketReceiveFailures: UInt = 0u, public var totalSocketSendFailures: UInt = 0u)
 
-public data class IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1(public var totalSocketReceiveFailures: UInt = 0u, public var totalSocketSendFailures: UInt = 0u)
+public data class IkeextIpVersionSpecificCommonStatistics1(public var totalSocketReceiveFailures: UInt = 0u, public var totalSocketSendFailures: UInt = 0u)
 
-public class IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0(
+public class IkeextIpVersionSpecificKeymoduleStatistics0(
     public var currentActiveMainModes: UInt = 0u,
     public var totalMainModesStarted: UInt = 0u,
     public var totalSuccessfulMainModes: UInt = 0u,
@@ -1382,7 +1386,7 @@ public class IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0(
     public var totalImpersonationMainModes: UInt = 0u,
 )
 
-public class IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1(
+public class IkeextIpVersionSpecificKeymoduleStatistics1(
     public var currentActiveMainModes: UInt = 0u,
     public var totalMainModesStarted: UInt = 0u,
     public var totalSuccessfulMainModes: UInt = 0u,
@@ -1403,13 +1407,13 @@ public class IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1(
     public var totalImpersonationMainModes: UInt = 0u,
 )
 
-public data class IKEEXT_KERBEROS_AUTHENTICATION0(public var flags: IKEEXT_KERBEROS_AUTHENTICATION_FLAGS = 0u)
+public data class IkeextKerberosAuthentication0(public var flags: IkeextKerberosAuthenticationFlags = 0u)
 
-public data class IKEEXT_KERBEROS_AUTHENTICATION1(public var flags: IKEEXT_KERBEROS_AUTHENTICATION_FLAGS = 0u, public var proxyServer: PWSTR = 0L)
+public data class IkeextKerberosAuthentication1(public var flags: IkeextKerberosAuthenticationFlags = 0u, public var proxyServer: Pwstr = null)
 
-public data class IKEEXT_KEYMODULE_STATISTICS0(
-    public var v4Statistics: IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0 = IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0(),
-    public var v6Statistics: IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0 = IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0(),
+public data class IkeextKeymoduleStatistics0(
+    public var v4Statistics: IkeextIpVersionSpecificKeymoduleStatistics0 = IkeextIpVersionSpecificKeymoduleStatistics0(),
+    public var v6Statistics: IkeextIpVersionSpecificKeymoduleStatistics0 = IkeextIpVersionSpecificKeymoduleStatistics0(),
     public var errorFrequencyTable: UIntArray = UIntArray(97),
     public var mainModeNegotiationTime: UInt = 0u,
     public var quickModeNegotiationTime: UInt = 0u,
@@ -1417,7 +1421,7 @@ public data class IKEEXT_KEYMODULE_STATISTICS0(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IKEEXT_KEYMODULE_STATISTICS0) return false
+        if (other !is IkeextKeymoduleStatistics0) return false
         if (this.v4Statistics != other.v4Statistics) return false
         if (this.v6Statistics != other.v6Statistics) return false
         if (!this.errorFrequencyTable.contentEquals(other.errorFrequencyTable)) return false
@@ -1438,9 +1442,9 @@ public data class IKEEXT_KEYMODULE_STATISTICS0(
     }
 }
 
-public data class IKEEXT_KEYMODULE_STATISTICS1(
-    public var v4Statistics: IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1 = IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1(),
-    public var v6Statistics: IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1 = IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1(),
+public data class IkeextKeymoduleStatistics1(
+    public var v4Statistics: IkeextIpVersionSpecificKeymoduleStatistics1 = IkeextIpVersionSpecificKeymoduleStatistics1(),
+    public var v6Statistics: IkeextIpVersionSpecificKeymoduleStatistics1 = IkeextIpVersionSpecificKeymoduleStatistics1(),
     public var errorFrequencyTable: UIntArray = UIntArray(97),
     public var mainModeNegotiationTime: UInt = 0u,
     public var quickModeNegotiationTime: UInt = 0u,
@@ -1448,7 +1452,7 @@ public data class IKEEXT_KEYMODULE_STATISTICS1(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IKEEXT_KEYMODULE_STATISTICS1) return false
+        if (other !is IkeextKeymoduleStatistics1) return false
         if (this.v4Statistics != other.v4Statistics) return false
         if (this.v6Statistics != other.v6Statistics) return false
         if (!this.errorFrequencyTable.contentEquals(other.errorFrequencyTable)) return false
@@ -1469,136 +1473,136 @@ public data class IKEEXT_KEYMODULE_STATISTICS1(
     }
 }
 
-public data class IKEEXT_NAME_CREDENTIAL0(public var principalName: PWSTR = 0L)
+public data class IkeextNameCredential0(public var principalName: Pwstr = null)
 
-public data class IKEEXT_NTLM_V2_AUTHENTICATION0(public var flags: UInt = 0u)
+public data class IkeextNtlmV2Authentication0(public var flags: UInt = 0u)
 
-public data class IKEEXT_POLICY0(
+public data class IkeextPolicy0(
     public var softExpirationTime: UInt = 0u,
     public var numAuthenticationMethods: UInt = 0u,
-    public var authenticationMethods: Long = 0L,
-    public var initiatorImpersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE = 0,
+    public var authenticationMethods: IkeextAuthenticationMethod0? = null,
+    public var initiatorImpersonationType: IkeextAuthenticationImpersonationType = 0,
     public var numIkeProposals: UInt = 0u,
-    public var ikeProposals: Long = 0L,
-    public var flags: IKEEXT_POLICY_FLAG = 0u,
+    public var ikeProposals: IkeextProposal0? = null,
+    public var flags: IkeextPolicyFlag = 0u,
     public var maxDynamicFilters: UInt = 0u,
 )
 
-public data class IKEEXT_POLICY1(
+public data class IkeextPolicy1(
     public var softExpirationTime: UInt = 0u,
     public var numAuthenticationMethods: UInt = 0u,
-    public var authenticationMethods: Long = 0L,
-    public var initiatorImpersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE = 0,
+    public var authenticationMethods: IkeextAuthenticationMethod1? = null,
+    public var initiatorImpersonationType: IkeextAuthenticationImpersonationType = 0,
     public var numIkeProposals: UInt = 0u,
-    public var ikeProposals: Long = 0L,
-    public var flags: IKEEXT_POLICY_FLAG = 0u,
-    public var maxDynamicFilters: UInt = 0u,
-    public var retransmitDurationSecs: UInt = 0u,
-)
-
-public data class IKEEXT_POLICY2(
-    public var softExpirationTime: UInt = 0u,
-    public var numAuthenticationMethods: UInt = 0u,
-    public var authenticationMethods: Long = 0L,
-    public var initiatorImpersonationType: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE = 0,
-    public var numIkeProposals: UInt = 0u,
-    public var ikeProposals: Long = 0L,
-    public var flags: IKEEXT_POLICY_FLAG = 0u,
+    public var ikeProposals: IkeextProposal0? = null,
+    public var flags: IkeextPolicyFlag = 0u,
     public var maxDynamicFilters: UInt = 0u,
     public var retransmitDurationSecs: UInt = 0u,
 )
 
-public data class IKEEXT_PRESHARED_KEY_AUTHENTICATION0(public var presharedKey: FWP_BYTE_BLOB = FWP_BYTE_BLOB())
+public data class IkeextPolicy2(
+    public var softExpirationTime: UInt = 0u,
+    public var numAuthenticationMethods: UInt = 0u,
+    public var authenticationMethods: IkeextAuthenticationMethod2? = null,
+    public var initiatorImpersonationType: IkeextAuthenticationImpersonationType = 0,
+    public var numIkeProposals: UInt = 0u,
+    public var ikeProposals: IkeextProposal0? = null,
+    public var flags: IkeextPolicyFlag = 0u,
+    public var maxDynamicFilters: UInt = 0u,
+    public var retransmitDurationSecs: UInt = 0u,
+)
 
-public data class IKEEXT_PRESHARED_KEY_AUTHENTICATION1(public var presharedKey: FWP_BYTE_BLOB = FWP_BYTE_BLOB(), public var flags: IKEEXT_PRESHARED_KEY_AUTHENTICATION_FLAGS = 0u)
+public data class IkeextPresharedKeyAuthentication0(public var presharedKey: FwpByteBlob = FwpByteBlob())
 
-public data class IKEEXT_PROPOSAL0(
-    public var cipherAlgorithm: IKEEXT_CIPHER_ALGORITHM0 = IKEEXT_CIPHER_ALGORITHM0(),
-    public var integrityAlgorithm: IKEEXT_INTEGRITY_ALGORITHM0 = IKEEXT_INTEGRITY_ALGORITHM0(),
+public data class IkeextPresharedKeyAuthentication1(public var presharedKey: FwpByteBlob = FwpByteBlob(), public var flags: IkeextPresharedKeyAuthenticationFlags = 0u)
+
+public data class IkeextProposal0(
+    public var cipherAlgorithm: IkeextCipherAlgorithm0 = IkeextCipherAlgorithm0(),
+    public var integrityAlgorithm: IkeextIntegrityAlgorithm0 = IkeextIntegrityAlgorithm0(),
     public var maxLifetimeSeconds: UInt = 0u,
-    public var dhGroup: IKEEXT_DH_GROUP = 0,
+    public var dhGroup: IkeextDhGroup = 0,
     public var quickModeLimit: UInt = 0u,
 )
 
-public data class IKEEXT_RESERVED_AUTHENTICATION0(public var flags: IKEEXT_RESERVED_AUTHENTICATION_FLAGS = 0u)
+public data class IkeextReservedAuthentication0(public var flags: IkeextReservedAuthenticationFlags = 0u)
 
-public data class IKEEXT_SA_DETAILS0(
+public data class IkeextSaDetails0(
     public var saId: ULong = 0uL,
-    public var keyModuleType: IKEEXT_KEY_MODULE_TYPE = 0,
-    public var ipVersion: FWP_IP_VERSION = 0,
-    public var Anonymous: IKEEXT_SA_DETAILS0_0 = IKEEXT_SA_DETAILS0_0(),
-    public var ikeTraffic: IKEEXT_TRAFFIC0 = IKEEXT_TRAFFIC0(),
-    public var ikeProposal: IKEEXT_PROPOSAL0 = IKEEXT_PROPOSAL0(),
-    public var cookiePair: IKEEXT_COOKIE_PAIR0 = IKEEXT_COOKIE_PAIR0(),
-    public var ikeCredentials: IKEEXT_CREDENTIALS0 = IKEEXT_CREDENTIALS0(),
-    public var ikePolicyKey: GUID = GUID(),
+    public var keyModuleType: IkeextKeyModuleType = 0,
+    public var ipVersion: FwpIpVersion = 0,
+    public var anonymous: IkeextSaDetails00 = IkeextSaDetails00(),
+    public var ikeTraffic: IkeextTraffic0 = IkeextTraffic0(),
+    public var ikeProposal: IkeextProposal0 = IkeextProposal0(),
+    public var cookiePair: IkeextCookiePair0 = IkeextCookiePair0(),
+    public var ikeCredentials: IkeextCredentials0 = IkeextCredentials0(),
+    public var ikePolicyKey: Guid = Guid(),
     public var virtualIfTunnelId: ULong = 0uL,
 )
 
-public data class IKEEXT_SA_DETAILS0_0(public var v4UdpEncapsulation: Long = 0L)
+public data class IkeextSaDetails00(public var v4UdpEncapsulation: IpsecV4UdpEncapsulation0? = null)
 
-public data class IKEEXT_SA_DETAILS1(
+public data class IkeextSaDetails1(
     public var saId: ULong = 0uL,
-    public var keyModuleType: IKEEXT_KEY_MODULE_TYPE = 0,
-    public var ipVersion: FWP_IP_VERSION = 0,
-    public var Anonymous: IKEEXT_SA_DETAILS1_0 = IKEEXT_SA_DETAILS1_0(),
-    public var ikeTraffic: IKEEXT_TRAFFIC0 = IKEEXT_TRAFFIC0(),
-    public var ikeProposal: IKEEXT_PROPOSAL0 = IKEEXT_PROPOSAL0(),
-    public var cookiePair: IKEEXT_COOKIE_PAIR0 = IKEEXT_COOKIE_PAIR0(),
-    public var ikeCredentials: IKEEXT_CREDENTIALS1 = IKEEXT_CREDENTIALS1(),
-    public var ikePolicyKey: GUID = GUID(),
+    public var keyModuleType: IkeextKeyModuleType = 0,
+    public var ipVersion: FwpIpVersion = 0,
+    public var anonymous: IkeextSaDetails10 = IkeextSaDetails10(),
+    public var ikeTraffic: IkeextTraffic0 = IkeextTraffic0(),
+    public var ikeProposal: IkeextProposal0 = IkeextProposal0(),
+    public var cookiePair: IkeextCookiePair0 = IkeextCookiePair0(),
+    public var ikeCredentials: IkeextCredentials1 = IkeextCredentials1(),
+    public var ikePolicyKey: Guid = Guid(),
     public var virtualIfTunnelId: ULong = 0uL,
-    public var correlationKey: FWP_BYTE_BLOB = FWP_BYTE_BLOB(),
+    public var correlationKey: FwpByteBlob = FwpByteBlob(),
 )
 
-public data class IKEEXT_SA_DETAILS1_0(public var v4UdpEncapsulation: Long = 0L)
+public data class IkeextSaDetails10(public var v4UdpEncapsulation: IpsecV4UdpEncapsulation0? = null)
 
-public data class IKEEXT_SA_DETAILS2(
+public data class IkeextSaDetails2(
     public var saId: ULong = 0uL,
-    public var keyModuleType: IKEEXT_KEY_MODULE_TYPE = 0,
-    public var ipVersion: FWP_IP_VERSION = 0,
-    public var Anonymous: IKEEXT_SA_DETAILS2_0 = IKEEXT_SA_DETAILS2_0(),
-    public var ikeTraffic: IKEEXT_TRAFFIC0 = IKEEXT_TRAFFIC0(),
-    public var ikeProposal: IKEEXT_PROPOSAL0 = IKEEXT_PROPOSAL0(),
-    public var cookiePair: IKEEXT_COOKIE_PAIR0 = IKEEXT_COOKIE_PAIR0(),
-    public var ikeCredentials: IKEEXT_CREDENTIALS2 = IKEEXT_CREDENTIALS2(),
-    public var ikePolicyKey: GUID = GUID(),
+    public var keyModuleType: IkeextKeyModuleType = 0,
+    public var ipVersion: FwpIpVersion = 0,
+    public var anonymous: IkeextSaDetails20 = IkeextSaDetails20(),
+    public var ikeTraffic: IkeextTraffic0 = IkeextTraffic0(),
+    public var ikeProposal: IkeextProposal0 = IkeextProposal0(),
+    public var cookiePair: IkeextCookiePair0 = IkeextCookiePair0(),
+    public var ikeCredentials: IkeextCredentials2 = IkeextCredentials2(),
+    public var ikePolicyKey: Guid = Guid(),
     public var virtualIfTunnelId: ULong = 0uL,
-    public var correlationKey: FWP_BYTE_BLOB = FWP_BYTE_BLOB(),
+    public var correlationKey: FwpByteBlob = FwpByteBlob(),
 )
 
-public data class IKEEXT_SA_DETAILS2_0(public var v4UdpEncapsulation: Long = 0L)
+public data class IkeextSaDetails20(public var v4UdpEncapsulation: IpsecV4UdpEncapsulation0? = null)
 
-public data class IKEEXT_SA_ENUM_TEMPLATE0(
-    public var localSubNet: FWP_CONDITION_VALUE0 = FWP_CONDITION_VALUE0(),
-    public var remoteSubNet: FWP_CONDITION_VALUE0 = FWP_CONDITION_VALUE0(),
-    public var localMainModeCertHash: FWP_BYTE_BLOB = FWP_BYTE_BLOB(),
+public data class IkeextSaEnumTemplate0(
+    public var localSubNet: FwpConditionValue0 = FwpConditionValue0(),
+    public var remoteSubNet: FwpConditionValue0 = FwpConditionValue0(),
+    public var localMainModeCertHash: FwpByteBlob = FwpByteBlob(),
 )
 
-public data class IKEEXT_STATISTICS0(
-    public var ikeStatistics: IKEEXT_KEYMODULE_STATISTICS0 = IKEEXT_KEYMODULE_STATISTICS0(),
-    public var authipStatistics: IKEEXT_KEYMODULE_STATISTICS0 = IKEEXT_KEYMODULE_STATISTICS0(),
-    public var commonStatistics: IKEEXT_COMMON_STATISTICS0 = IKEEXT_COMMON_STATISTICS0(),
+public data class IkeextStatistics0(
+    public var ikeStatistics: IkeextKeymoduleStatistics0 = IkeextKeymoduleStatistics0(),
+    public var authipStatistics: IkeextKeymoduleStatistics0 = IkeextKeymoduleStatistics0(),
+    public var commonStatistics: IkeextCommonStatistics0 = IkeextCommonStatistics0(),
 )
 
-public data class IKEEXT_STATISTICS1(
-    public var ikeStatistics: IKEEXT_KEYMODULE_STATISTICS1 = IKEEXT_KEYMODULE_STATISTICS1(),
-    public var authipStatistics: IKEEXT_KEYMODULE_STATISTICS1 = IKEEXT_KEYMODULE_STATISTICS1(),
-    public var ikeV2Statistics: IKEEXT_KEYMODULE_STATISTICS1 = IKEEXT_KEYMODULE_STATISTICS1(),
-    public var commonStatistics: IKEEXT_COMMON_STATISTICS1 = IKEEXT_COMMON_STATISTICS1(),
+public data class IkeextStatistics1(
+    public var ikeStatistics: IkeextKeymoduleStatistics1 = IkeextKeymoduleStatistics1(),
+    public var authipStatistics: IkeextKeymoduleStatistics1 = IkeextKeymoduleStatistics1(),
+    public var ikeV2Statistics: IkeextKeymoduleStatistics1 = IkeextKeymoduleStatistics1(),
+    public var commonStatistics: IkeextCommonStatistics1 = IkeextCommonStatistics1(),
 )
 
-public data class IKEEXT_TRAFFIC0(
-    public var ipVersion: FWP_IP_VERSION = 0,
-    public var Anonymous1: IKEEXT_TRAFFIC0_0 = IKEEXT_TRAFFIC0_0(),
-    public var Anonymous2: IKEEXT_TRAFFIC0_1 = IKEEXT_TRAFFIC0_1(),
+public data class IkeextTraffic0(
+    public var ipVersion: FwpIpVersion = 0,
+    public var anonymous1: IkeextTraffic00 = IkeextTraffic00(),
+    public var anonymous2: IkeextTraffic01 = IkeextTraffic01(),
     public var authIpFilterId: ULong = 0uL,
 )
 
-public data class IKEEXT_TRAFFIC0_0(public var localV4Address: UInt = 0u, public var localV6Address: UByteArray = UByteArray(16)) {
+public data class IkeextTraffic00(public var localV4Address: UInt = 0u, public var localV6Address: UByteArray = UByteArray(16)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IKEEXT_TRAFFIC0_0) return false
+        if (other !is IkeextTraffic00) return false
         if (this.localV4Address != other.localV4Address) return false
         if (!this.localV6Address.contentEquals(other.localV6Address)) return false
         return true
@@ -1611,10 +1615,10 @@ public data class IKEEXT_TRAFFIC0_0(public var localV4Address: UInt = 0u, public
     }
 }
 
-public data class IKEEXT_TRAFFIC0_1(public var remoteV4Address: UInt = 0u, public var remoteV6Address: UByteArray = UByteArray(16)) {
+public data class IkeextTraffic01(public var remoteV4Address: UInt = 0u, public var remoteV6Address: UByteArray = UByteArray(16)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IKEEXT_TRAFFIC0_1) return false
+        if (other !is IkeextTraffic01) return false
         if (this.remoteV4Address != other.remoteV4Address) return false
         if (!this.remoteV6Address.contentEquals(other.remoteV6Address)) return false
         return true
@@ -1627,14 +1631,14 @@ public data class IKEEXT_TRAFFIC0_1(public var remoteV4Address: UInt = 0u, publi
     }
 }
 
-public data class IPSEC_ADDRESS_INFO0(
+public data class IpsecAddressInfo0(
     public var numV4Addresses: UInt = 0u,
-    public var v4Addresses: Long = 0L,
+    public var v4Addresses: UInt? = null,
     public var numV6Addresses: UInt = 0u,
-    public var v6Addresses: Long = 0L,
+    public var v6Addresses: FwpByteArray16? = null,
 )
 
-public data class IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0(
+public data class IpsecAggregateDropPacketStatistics0(
     public var invalidSpisOnInbound: UInt = 0u,
     public var decryptionFailuresOnInbound: UInt = 0u,
     public var authenticationFailuresOnInbound: UInt = 0u,
@@ -1646,7 +1650,7 @@ public data class IPSEC_AGGREGATE_DROP_PACKET_STATISTICS0(
     public var secureReceivesNotMatchingFilters: UInt = 0u,
 )
 
-public data class IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1(
+public data class IpsecAggregateDropPacketStatistics1(
     public var invalidSpisOnInbound: UInt = 0u,
     public var decryptionFailuresOnInbound: UInt = 0u,
     public var authenticationFailuresOnInbound: UInt = 0u,
@@ -1659,7 +1663,7 @@ public data class IPSEC_AGGREGATE_DROP_PACKET_STATISTICS1(
     public var totalDropPacketsInbound: UInt = 0u,
 )
 
-public data class IPSEC_AGGREGATE_SA_STATISTICS0(
+public data class IpsecAggregateSaStatistics0(
     public var activeSas: UInt = 0u,
     public var pendingSaNegotiations: UInt = 0u,
     public var totalSasAdded: UInt = 0u,
@@ -1669,24 +1673,24 @@ public data class IPSEC_AGGREGATE_SA_STATISTICS0(
     public var offloadedSas: UInt = 0u,
 )
 
-public data class IPSEC_AH_DROP_PACKET_STATISTICS0(
+public data class IpsecAhDropPacketStatistics0(
     public var invalidSpisOnInbound: UInt = 0u,
     public var authenticationFailuresOnInbound: UInt = 0u,
     public var replayCheckFailuresOnInbound: UInt = 0u,
     public var saNotInitializedOnInbound: UInt = 0u,
 )
 
-public data class IPSEC_AUTH_AND_CIPHER_TRANSFORM0(public var authTransform: IPSEC_AUTH_TRANSFORM0 = IPSEC_AUTH_TRANSFORM0(), public var cipherTransform: IPSEC_CIPHER_TRANSFORM0 = IPSEC_CIPHER_TRANSFORM0())
+public data class IpsecAuthAndCipherTransform0(public var authTransform: IpsecAuthTransform0 = IpsecAuthTransform0(), public var cipherTransform: IpsecCipherTransform0 = IpsecCipherTransform0())
 
-public data class IPSEC_AUTH_TRANSFORM0(public var authTransformId: IPSEC_AUTH_TRANSFORM_ID0 = IPSEC_AUTH_TRANSFORM_ID0(), public var cryptoModuleId: Long = 0L)
+public data class IpsecAuthTransform0(public var authTransformId: IpsecAuthTransformId0 = IpsecAuthTransformId0(), public var cryptoModuleId: Guid? = null)
 
-public data class IPSEC_AUTH_TRANSFORM_ID0(public var authType: IPSEC_AUTH_TYPE = 0, public var authConfig: UByte = 0u)
+public data class IpsecAuthTransformId0(public var authType: IpsecAuthType = 0, public var authConfig: UByte = 0u)
 
-public data class IPSEC_CIPHER_TRANSFORM0(public var cipherTransformId: IPSEC_CIPHER_TRANSFORM_ID0 = IPSEC_CIPHER_TRANSFORM_ID0(), public var cryptoModuleId: Long = 0L)
+public data class IpsecCipherTransform0(public var cipherTransformId: IpsecCipherTransformId0 = IpsecCipherTransformId0(), public var cryptoModuleId: Guid? = null)
 
-public data class IPSEC_CIPHER_TRANSFORM_ID0(public var cipherType: IPSEC_CIPHER_TYPE = 0, public var cipherConfig: UByte = 0u)
+public data class IpsecCipherTransformId0(public var cipherType: IpsecCipherType = 0, public var cipherConfig: UByte = 0u)
 
-public class IPSEC_DOSP_OPTIONS0(
+public class IpsecDospOptions0(
     public var stateIdleTimeoutSeconds: UInt = 0u,
     public var perIPRateLimitQueueIdleTimeoutSeconds: UInt = 0u,
     public var ipV6IPsecUnauthDscp: UByte = 0u,
@@ -1702,16 +1706,16 @@ public class IPSEC_DOSP_OPTIONS0(
     public var defBlockExemptRateLimitBytesPerSec: UInt = 0u,
     public var maxStateEntries: UInt = 0u,
     public var maxPerIPRateLimitQueues: UInt = 0u,
-    public var flags: IPSEC_DOSP_FLAGS = 0u,
+    public var flags: IpsecDospFlags = 0u,
     public var numPublicIFLuids: UInt = 0u,
-    public var publicIFLuids: Long = 0L,
+    public var publicIFLuids: ULong? = null,
     public var numInternalIFLuids: UInt = 0u,
-    public var internalIFLuids: Long = 0L,
-    public var publicV6AddrMask: FWP_V6_ADDR_AND_MASK = FWP_V6_ADDR_AND_MASK(),
-    public var internalV6AddrMask: FWP_V6_ADDR_AND_MASK = FWP_V6_ADDR_AND_MASK(),
+    public var internalIFLuids: ULong? = null,
+    public var publicV6AddrMask: FwpV6AddrAndMask = FwpV6AddrAndMask(),
+    public var internalV6AddrMask: FwpV6AddrAndMask = FwpV6AddrAndMask(),
 )
 
-public data class IPSEC_DOSP_STATE0(
+public data class IpsecDospState0(
     public var publicHostV6Addr: UByteArray = UByteArray(16),
     public var internalHostV6Addr: UByteArray = UByteArray(16),
     public var totalInboundIPv6IPsecAuthPackets: ULong = 0uL,
@@ -1720,7 +1724,7 @@ public data class IPSEC_DOSP_STATE0(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IPSEC_DOSP_STATE0) return false
+        if (other !is IpsecDospState0) return false
         if (!this.publicHostV6Addr.contentEquals(other.publicHostV6Addr)) return false
         if (!this.internalHostV6Addr.contentEquals(other.internalHostV6Addr)) return false
         if (this.totalInboundIPv6IPsecAuthPackets != other.totalInboundIPv6IPsecAuthPackets) return false
@@ -1739,9 +1743,9 @@ public data class IPSEC_DOSP_STATE0(
     }
 }
 
-public data class IPSEC_DOSP_STATE_ENUM_TEMPLATE0(public var publicV6AddrMask: FWP_V6_ADDR_AND_MASK = FWP_V6_ADDR_AND_MASK(), public var internalV6AddrMask: FWP_V6_ADDR_AND_MASK = FWP_V6_ADDR_AND_MASK())
+public data class IpsecDospStateEnumTemplate0(public var publicV6AddrMask: FwpV6AddrAndMask = FwpV6AddrAndMask(), public var internalV6AddrMask: FwpV6AddrAndMask = FwpV6AddrAndMask())
 
-public class IPSEC_DOSP_STATISTICS0(
+public class IpsecDospStatistics0(
     public var totalStateEntriesCreated: ULong = 0uL,
     public var currentStateEntries: ULong = 0uL,
     public var totalInboundAllowedIPv6IPsecUnauthPkts: ULong = 0uL,
@@ -1762,7 +1766,7 @@ public class IPSEC_DOSP_STATISTICS0(
     public var currentInboundIPv6IPsecUnauthPerIPRateLimitQueues: ULong = 0uL,
 )
 
-public data class IPSEC_ESP_DROP_PACKET_STATISTICS0(
+public data class IpsecEspDropPacketStatistics0(
     public var invalidSpisOnInbound: UInt = 0u,
     public var decryptionFailuresOnInbound: UInt = 0u,
     public var authenticationFailuresOnInbound: UInt = 0u,
@@ -1770,186 +1774,186 @@ public data class IPSEC_ESP_DROP_PACKET_STATISTICS0(
     public var saNotInitializedOnInbound: UInt = 0u,
 )
 
-public data class IPSEC_GETSPI0(
-    public var inboundIpsecTraffic: IPSEC_TRAFFIC0 = IPSEC_TRAFFIC0(),
-    public var ipVersion: FWP_IP_VERSION = 0,
-    public var Anonymous: IPSEC_GETSPI0_0 = IPSEC_GETSPI0_0(),
-    public var rngCryptoModuleID: Long = 0L,
+public data class IpsecGetspi0(
+    public var inboundIpsecTraffic: IpsecTraffic0 = IpsecTraffic0(),
+    public var ipVersion: FwpIpVersion = 0,
+    public var anonymous: IpsecGetspi00 = IpsecGetspi00(),
+    public var rngCryptoModuleID: Guid? = null,
 )
 
-public data class IPSEC_GETSPI0_0(public var inboundUdpEncapsulation: Long = 0L)
+public data class IpsecGetspi00(public var inboundUdpEncapsulation: IpsecV4UdpEncapsulation0? = null)
 
-public data class IPSEC_GETSPI1(
-    public var inboundIpsecTraffic: IPSEC_TRAFFIC1 = IPSEC_TRAFFIC1(),
-    public var ipVersion: FWP_IP_VERSION = 0,
-    public var Anonymous: IPSEC_GETSPI1_0 = IPSEC_GETSPI1_0(),
-    public var rngCryptoModuleID: Long = 0L,
+public data class IpsecGetspi1(
+    public var inboundIpsecTraffic: IpsecTraffic1 = IpsecTraffic1(),
+    public var ipVersion: FwpIpVersion = 0,
+    public var anonymous: IpsecGetspi10 = IpsecGetspi10(),
+    public var rngCryptoModuleID: Guid? = null,
 )
 
-public data class IPSEC_GETSPI1_0(public var inboundUdpEncapsulation: Long = 0L)
+public data class IpsecGetspi10(public var inboundUdpEncapsulation: IpsecV4UdpEncapsulation0? = null)
 
-public data class IPSEC_ID0(
-    public var mmTargetName: PWSTR = 0L,
-    public var emTargetName: PWSTR = 0L,
+public data class IpsecId0(
+    public var mmTargetName: Pwstr = null,
+    public var emTargetName: Pwstr = null,
     public var numTokens: UInt = 0u,
-    public var tokens: Long = 0L,
+    public var tokens: IpsecToken0? = null,
     public var explicitCredentials: ULong = 0uL,
     public var logonId: ULong = 0uL,
 )
 
-public data class IPSEC_KEYING_POLICY0(public var numKeyMods: UInt = 0u, public var keyModKeys: Long = 0L)
+public data class IpsecKeyingPolicy0(public var numKeyMods: UInt = 0u, public var keyModKeys: Guid? = null)
 
-public data class IPSEC_KEYING_POLICY1(
+public data class IpsecKeyingPolicy1(
     public var numKeyMods: UInt = 0u,
-    public var keyModKeys: Long = 0L,
+    public var keyModKeys: Guid? = null,
     public var flags: UInt = 0u,
 )
 
-public data class IPSEC_KEYMODULE_STATE0(public var keyModuleKey: GUID = GUID(), public var stateBlob: FWP_BYTE_BLOB = FWP_BYTE_BLOB())
+public data class IpsecKeymoduleState0(public var keyModuleKey: Guid = Guid(), public var stateBlob: FwpByteBlob = FwpByteBlob())
 
-public data class IPSEC_KEY_MANAGER0(
-    public var keyManagerKey: GUID = GUID(),
-    public var displayData: FWPM_DISPLAY_DATA0 = FWPM_DISPLAY_DATA0(),
+public data class IpsecKeyManager0(
+    public var keyManagerKey: Guid = Guid(),
+    public var displayData: FwpmDisplayData0 = FwpmDisplayData0(),
     public var flags: UInt = 0u,
     public var keyDictationTimeoutHint: UByte = 0u,
 )
 
-public data class IPSEC_KEY_MANAGER_CALLBACKS0(
-    public var reserved: GUID = GUID(),
+public data class IpsecKeyManagerCallbacks0(
+    public var reserved: Guid = Guid(),
     public var flags: UInt = 0u,
-    public var keyDictationCheck: IPSEC_KEY_MANAGER_KEY_DICTATION_CHECK0 = null,
-    public var keyDictation: IPSEC_KEY_MANAGER_DICTATE_KEY0 = null,
-    public var keyNotify: IPSEC_KEY_MANAGER_NOTIFY_KEY0 = null,
+    public var keyDictationCheck: IpsecKeyManagerKeyDictationCheck0 = null,
+    public var keyDictation: IpsecKeyManagerDictateKey0 = null,
+    public var keyNotify: IpsecKeyManagerNotifyKey0 = null,
 )
 
-public data class IPSEC_PROPOSAL0(
-    public var lifetime: IPSEC_SA_LIFETIME0 = IPSEC_SA_LIFETIME0(),
+public data class IpsecProposal0(
+    public var lifetime: IpsecSaLifetime0 = IpsecSaLifetime0(),
     public var numSaTransforms: UInt = 0u,
-    public var saTransforms: Long = 0L,
-    public var pfsGroup: IPSEC_PFS_GROUP = 0,
+    public var saTransforms: IpsecSaTransform0? = null,
+    public var pfsGroup: IpsecPfsGroup = 0,
 )
 
-public data class IPSEC_SA0(
+public data class IpsecSa0(
     public var spi: UInt = 0u,
-    public var saTransformType: IPSEC_TRANSFORM_TYPE = 0,
-    public var Anonymous: IPSEC_SA0_0 = IPSEC_SA0_0(),
+    public var saTransformType: IpsecTransformType = 0,
+    public var anonymous: IpsecSa00 = IpsecSa00(),
 )
 
-public data class IPSEC_SA0_0(
-    public var ahInformation: Long = 0L,
-    public var espAuthInformation: Long = 0L,
-    public var espCipherInformation: Long = 0L,
-    public var espAuthAndCipherInformation: Long = 0L,
-    public var espAuthFwInformation: Long = 0L,
+public data class IpsecSa00(
+    public var ahInformation: IpsecSaAuthInformation0? = null,
+    public var espAuthInformation: IpsecSaAuthInformation0? = null,
+    public var espCipherInformation: IpsecSaCipherInformation0? = null,
+    public var espAuthAndCipherInformation: IpsecSaAuthAndCipherInformation0? = null,
+    public var espAuthFwInformation: IpsecSaAuthInformation0? = null,
 )
 
-public data class IPSEC_SA_AUTH_AND_CIPHER_INFORMATION0(public var saCipherInformation: IPSEC_SA_CIPHER_INFORMATION0 = IPSEC_SA_CIPHER_INFORMATION0(), public var saAuthInformation: IPSEC_SA_AUTH_INFORMATION0 = IPSEC_SA_AUTH_INFORMATION0())
+public data class IpsecSaAuthAndCipherInformation0(public var saCipherInformation: IpsecSaCipherInformation0 = IpsecSaCipherInformation0(), public var saAuthInformation: IpsecSaAuthInformation0 = IpsecSaAuthInformation0())
 
-public data class IPSEC_SA_AUTH_INFORMATION0(public var authTransform: IPSEC_AUTH_TRANSFORM0 = IPSEC_AUTH_TRANSFORM0(), public var authKey: FWP_BYTE_BLOB = FWP_BYTE_BLOB())
+public data class IpsecSaAuthInformation0(public var authTransform: IpsecAuthTransform0 = IpsecAuthTransform0(), public var authKey: FwpByteBlob = FwpByteBlob())
 
-public data class IPSEC_SA_BUNDLE0(
-    public var flags: IPSEC_SA_BUNDLE_FLAGS = 0u,
-    public var lifetime: IPSEC_SA_LIFETIME0 = IPSEC_SA_LIFETIME0(),
+public data class IpsecSaBundle0(
+    public var flags: IpsecSaBundleFlags = 0u,
+    public var lifetime: IpsecSaLifetime0 = IpsecSaLifetime0(),
     public var idleTimeoutSeconds: UInt = 0u,
     public var ndAllowClearTimeoutSeconds: UInt = 0u,
-    public var ipsecId: Long = 0L,
+    public var ipsecId: IpsecId0? = null,
     public var napContext: UInt = 0u,
     public var qmSaId: UInt = 0u,
     public var numSAs: UInt = 0u,
-    public var saList: Long = 0L,
-    public var keyModuleState: Long = 0L,
-    public var ipVersion: FWP_IP_VERSION = 0,
-    public var Anonymous: IPSEC_SA_BUNDLE0_0 = IPSEC_SA_BUNDLE0_0(),
+    public var saList: IpsecSa0? = null,
+    public var keyModuleState: IpsecKeymoduleState0? = null,
+    public var ipVersion: FwpIpVersion = 0,
+    public var anonymous: IpsecSaBundle00 = IpsecSaBundle00(),
     public var mmSaId: ULong = 0uL,
-    public var pfsGroup: IPSEC_PFS_GROUP = 0,
+    public var pfsGroup: IpsecPfsGroup = 0,
 )
 
-public data class IPSEC_SA_BUNDLE0_0(public var peerV4PrivateAddress: UInt = 0u)
+public data class IpsecSaBundle00(public var peerV4PrivateAddress: UInt = 0u)
 
-public data class IPSEC_SA_BUNDLE1(
-    public var flags: IPSEC_SA_BUNDLE_FLAGS = 0u,
-    public var lifetime: IPSEC_SA_LIFETIME0 = IPSEC_SA_LIFETIME0(),
+public data class IpsecSaBundle1(
+    public var flags: IpsecSaBundleFlags = 0u,
+    public var lifetime: IpsecSaLifetime0 = IpsecSaLifetime0(),
     public var idleTimeoutSeconds: UInt = 0u,
     public var ndAllowClearTimeoutSeconds: UInt = 0u,
-    public var ipsecId: Long = 0L,
+    public var ipsecId: IpsecId0? = null,
     public var napContext: UInt = 0u,
     public var qmSaId: UInt = 0u,
     public var numSAs: UInt = 0u,
-    public var saList: Long = 0L,
-    public var keyModuleState: Long = 0L,
-    public var ipVersion: FWP_IP_VERSION = 0,
-    public var Anonymous: IPSEC_SA_BUNDLE1_0 = IPSEC_SA_BUNDLE1_0(),
+    public var saList: IpsecSa0? = null,
+    public var keyModuleState: IpsecKeymoduleState0? = null,
+    public var ipVersion: FwpIpVersion = 0,
+    public var anonymous: IpsecSaBundle10 = IpsecSaBundle10(),
     public var mmSaId: ULong = 0uL,
-    public var pfsGroup: IPSEC_PFS_GROUP = 0,
-    public var saLookupContext: GUID = GUID(),
+    public var pfsGroup: IpsecPfsGroup = 0,
+    public var saLookupContext: Guid = Guid(),
     public var qmFilterId: ULong = 0uL,
 )
 
-public data class IPSEC_SA_BUNDLE1_0(public var peerV4PrivateAddress: UInt = 0u)
+public data class IpsecSaBundle10(public var peerV4PrivateAddress: UInt = 0u)
 
-public data class IPSEC_SA_CIPHER_INFORMATION0(public var cipherTransform: IPSEC_CIPHER_TRANSFORM0 = IPSEC_CIPHER_TRANSFORM0(), public var cipherKey: FWP_BYTE_BLOB = FWP_BYTE_BLOB())
+public data class IpsecSaCipherInformation0(public var cipherTransform: IpsecCipherTransform0 = IpsecCipherTransform0(), public var cipherKey: FwpByteBlob = FwpByteBlob())
 
-public data class IPSEC_SA_CONTEXT0(
+public data class IpsecSaContext0(
     public var saContextId: ULong = 0uL,
-    public var inboundSa: Long = 0L,
-    public var outboundSa: Long = 0L,
+    public var inboundSa: IpsecSaDetails0? = null,
+    public var outboundSa: IpsecSaDetails0? = null,
 )
 
-public data class IPSEC_SA_CONTEXT1(
+public data class IpsecSaContext1(
     public var saContextId: ULong = 0uL,
-    public var inboundSa: Long = 0L,
-    public var outboundSa: Long = 0L,
+    public var inboundSa: IpsecSaDetails1? = null,
+    public var outboundSa: IpsecSaDetails1? = null,
 )
 
-public data class IPSEC_SA_CONTEXT_CHANGE0(public var changeType: IPSEC_SA_CONTEXT_EVENT_TYPE0 = 0, public var saContextId: ULong = 0uL)
+public data class IpsecSaContextChange0(public var changeType: IpsecSaContextEventType0 = 0, public var saContextId: ULong = 0uL)
 
-public data class IPSEC_SA_CONTEXT_ENUM_TEMPLATE0(public var localSubNet: FWP_CONDITION_VALUE0 = FWP_CONDITION_VALUE0(), public var remoteSubNet: FWP_CONDITION_VALUE0 = FWP_CONDITION_VALUE0())
+public data class IpsecSaContextEnumTemplate0(public var localSubNet: FwpConditionValue0 = FwpConditionValue0(), public var remoteSubNet: FwpConditionValue0 = FwpConditionValue0())
 
-public data class IPSEC_SA_CONTEXT_SUBSCRIPTION0(
-    public var enumTemplate: Long = 0L,
+public data class IpsecSaContextSubscription0(
+    public var enumTemplate: IpsecSaContextEnumTemplate0? = null,
     public var flags: UInt = 0u,
-    public var sessionKey: GUID = GUID(),
+    public var sessionKey: Guid = Guid(),
 )
 
-public data class IPSEC_SA_DETAILS0(
-    public var ipVersion: FWP_IP_VERSION = 0,
-    public var saDirection: FWP_DIRECTION = 0,
-    public var traffic: IPSEC_TRAFFIC0 = IPSEC_TRAFFIC0(),
-    public var saBundle: IPSEC_SA_BUNDLE0 = IPSEC_SA_BUNDLE0(),
-    public var Anonymous: IPSEC_SA_DETAILS0_0 = IPSEC_SA_DETAILS0_0(),
-    public var transportFilter: Long = 0L,
+public data class IpsecSaDetails0(
+    public var ipVersion: FwpIpVersion = 0,
+    public var saDirection: FwpDirection = 0,
+    public var traffic: IpsecTraffic0 = IpsecTraffic0(),
+    public var saBundle: IpsecSaBundle0 = IpsecSaBundle0(),
+    public var anonymous: IpsecSaDetails00 = IpsecSaDetails00(),
+    public var transportFilter: FwpmFilter0? = null,
 )
 
-public data class IPSEC_SA_DETAILS0_0(public var udpEncapsulation: Long = 0L)
+public data class IpsecSaDetails00(public var udpEncapsulation: IpsecV4UdpEncapsulation0? = null)
 
-public data class IPSEC_SA_DETAILS1(
-    public var ipVersion: FWP_IP_VERSION = 0,
-    public var saDirection: FWP_DIRECTION = 0,
-    public var traffic: IPSEC_TRAFFIC1 = IPSEC_TRAFFIC1(),
-    public var saBundle: IPSEC_SA_BUNDLE1 = IPSEC_SA_BUNDLE1(),
-    public var Anonymous: IPSEC_SA_DETAILS1_0 = IPSEC_SA_DETAILS1_0(),
-    public var transportFilter: Long = 0L,
-    public var virtualIfTunnelInfo: IPSEC_VIRTUAL_IF_TUNNEL_INFO0 = IPSEC_VIRTUAL_IF_TUNNEL_INFO0(),
+public data class IpsecSaDetails1(
+    public var ipVersion: FwpIpVersion = 0,
+    public var saDirection: FwpDirection = 0,
+    public var traffic: IpsecTraffic1 = IpsecTraffic1(),
+    public var saBundle: IpsecSaBundle1 = IpsecSaBundle1(),
+    public var anonymous: IpsecSaDetails10 = IpsecSaDetails10(),
+    public var transportFilter: FwpmFilter0? = null,
+    public var virtualIfTunnelInfo: IpsecVirtualIfTunnelInfo0 = IpsecVirtualIfTunnelInfo0(),
 )
 
-public data class IPSEC_SA_DETAILS1_0(public var udpEncapsulation: Long = 0L)
+public data class IpsecSaDetails10(public var udpEncapsulation: IpsecV4UdpEncapsulation0? = null)
 
-public data class IPSEC_SA_ENUM_TEMPLATE0(public var saDirection: FWP_DIRECTION = 0)
+public data class IpsecSaEnumTemplate0(public var saDirection: FwpDirection = 0)
 
-public data class IPSEC_SA_IDLE_TIMEOUT0(public var idleTimeoutSeconds: UInt = 0u, public var idleTimeoutSecondsFailOver: UInt = 0u)
+public data class IpsecSaIdleTimeout0(public var idleTimeoutSeconds: UInt = 0u, public var idleTimeoutSecondsFailOver: UInt = 0u)
 
-public data class IPSEC_SA_LIFETIME0(
+public data class IpsecSaLifetime0(
     public var lifetimeSeconds: UInt = 0u,
     public var lifetimeKilobytes: UInt = 0u,
     public var lifetimePackets: UInt = 0u,
 )
 
-public data class IPSEC_SA_TRANSFORM0(public var ipsecTransformType: IPSEC_TRANSFORM_TYPE = 0, public var Anonymous: IPSEC_SA_TRANSFORM0_0 = IPSEC_SA_TRANSFORM0_0())
+public data class IpsecSaTransform0(public var ipsecTransformType: IpsecTransformType = 0, public var anonymous: IpsecSaTransform00 = IpsecSaTransform00())
 
-public data class IPSEC_SA_TRANSFORM0_0(
-    public var ahTransform: Long = 0L,
-    public var espAuthTransform: Long = 0L,
-    public var espCipherTransform: Long = 0L,
-    public var espAuthAndCipherTransform: Long = 0L,
-    public var espAuthFwTransform: Long = 0L,
+public data class IpsecSaTransform00(
+    public var ahTransform: IpsecAuthTransform0? = null,
+    public var espAuthTransform: IpsecAuthTransform0? = null,
+    public var espCipherTransform: IpsecCipherTransform0? = null,
+    public var espAuthAndCipherTransform: IpsecAuthAndCipherTransform0? = null,
+    public var espAuthFwTransform: IpsecAuthTransform0? = null,
 )

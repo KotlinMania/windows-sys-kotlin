@@ -9,16 +9,16 @@
 extern "C" {
 #endif
 
-void windowssys_windows_win32_networkmanagement_windowsconnectionmanager_FreeInterfaceContextTable(void* interfacecontexttable);
-int32_t windowssys_windows_win32_networkmanagement_windowsconnectionmanager_GetInterfaceContextTableForHostName(void* hostname, void* proxyname, uint32_t flags, void* connectionprofilefilterrawdata, uint32_t connectionprofilefilterrawdatasize, void* interfacecontexttable);
-int32_t windowssys_windows_win32_networkmanagement_windowsconnectionmanager_OnDemandGetRoutingHint(void* destinationhostname, void* interfaceindex);
-int32_t windowssys_windows_win32_networkmanagement_windowsconnectionmanager_OnDemandRegisterNotification(void* callback, void* callbackcontext, void* registrationhandle);
-int32_t windowssys_windows_win32_networkmanagement_windowsconnectionmanager_OnDemandUnRegisterNotification(void* registrationhandle);
-void windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WcmFreeMemory(void* pmemory);
-uint32_t windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WcmGetProfileList(void* preserved, void* ppprofilelist);
-uint32_t windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WcmQueryProperty(void* pinterface, void* strprofilename, int32_t property, void* preserved, void* pdwdatasize, void* ppdata);
-uint32_t windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WcmSetProfileList(void* pprofilelist, uint32_t dwposition, int32_t fignoreunknownprofiles, void* preserved);
-uint32_t windowssys_windows_win32_networkmanagement_windowsconnectionmanager_WcmSetProperty(void* pinterface, void* strprofilename, int32_t property, void* preserved, uint32_t dwdatasize, void* pbdata);
+void windowssys_windows_win32_networkmanagement_windowsconnectionmanager_freeInterfaceContextTable(void* interfacecontexttable);
+int32_t windowssys_windows_win32_networkmanagement_windowsconnectionmanager_getInterfaceContextTableForHostName(void* hostname, void* proxyname, uint32_t flags, void* connectionprofilefilterrawdata, uint32_t connectionprofilefilterrawdatasize, void* interfacecontexttable);
+int32_t windowssys_windows_win32_networkmanagement_windowsconnectionmanager_onDemandGetRoutingHint(void* destinationhostname, void* interfaceindex);
+int32_t windowssys_windows_win32_networkmanagement_windowsconnectionmanager_onDemandRegisterNotification(void* callback, void* callbackcontext, void* registrationhandle);
+int32_t windowssys_windows_win32_networkmanagement_windowsconnectionmanager_onDemandUnRegisterNotification(void* registrationhandle);
+void windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmFreeMemory(void* pmemory);
+uint32_t windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmGetProfileList(void* preserved, void* ppprofilelist);
+uint32_t windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmQueryProperty(void* pinterface, void* strprofilename, int32_t property, void* preserved, void* pdwdatasize, void* ppdata);
+uint32_t windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmSetProfileList(void* pprofilelist, uint32_t dwposition, int32_t fignoreunknownprofiles, void* preserved);
+uint32_t windowssys_windows_win32_networkmanagement_windowsconnectionmanager_wcmSetProperty(void* pinterface, void* strprofilename, int32_t property, void* preserved, uint32_t dwdatasize, void* pbdata);
 
 #ifdef __cplusplus
 }

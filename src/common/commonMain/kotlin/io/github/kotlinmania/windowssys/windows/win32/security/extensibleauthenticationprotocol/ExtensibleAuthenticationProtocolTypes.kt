@@ -1,22 +1,23 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.extensibleauthenticationprotocol
 
-import io.github.kotlinmania.windowssys.core.GUID
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Guid
 
-public typealias EAPHOST_AUTH_STATUS = Int
+public typealias EaphostAuthStatus = Int
 
-public typealias EAP_ATTRIBUTE_TYPE = Int
+public typealias EapAttributeType = Int
 
-public typealias EAP_AUTHENTICATOR_SEND_TIMEOUT = Int
+public typealias EapAuthenticatorSendTimeout = Int
 
-public typealias EAP_CONFIG_INPUT_FIELD_TYPE = Int
+public typealias EapConfigInputFieldType = Int
 
-public typealias EAP_INTERACTIVE_UI_DATA_TYPE = Int
+public typealias EapInteractiveUiDataType = Int
 
-public typealias EAP_METHOD_AUTHENTICATOR_RESPONSE_ACTION = Int
+public typealias EapMethodAuthenticatorResponseAction = Int
 
-public typealias EAP_METHOD_PROPERTY_TYPE = Int
+public typealias EapMethodPropertyType = Int
 
-public typealias EAP_METHOD_PROPERTY_VALUE_TYPE = Int
+public typealias EapMethodPropertyValueType = Int
 
 public typealias EapCode = Int
 
@@ -32,14 +33,14 @@ public typealias EapPeerMethodResponseAction = Int
 
 public typealias EapPeerMethodResultReason = Int
 
-public typealias ISOLATION_STATE = Int
+public typealias IsolationState = Int
 
 public fun interface NotificationHandlerFn {
-    public operator fun invoke(connectionid: GUID, pcontextdata: Long)
+    public operator fun invoke(connectionid: Guid, pcontextdata: COpaquePointer?)
 }
 
 public typealias NotificationHandler = NotificationHandlerFn?
 
-public typealias PPP_EAP_ACTION = Int
+public typealias PppEapAction = Int
 
-public typealias RAS_AUTH_ATTRIBUTE_TYPE = Int
+public typealias RasAuthAttributeType = Int

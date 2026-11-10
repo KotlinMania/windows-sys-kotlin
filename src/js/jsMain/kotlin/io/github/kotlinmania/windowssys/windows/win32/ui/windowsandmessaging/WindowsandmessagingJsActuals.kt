@@ -2,1291 +2,1304 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.COLORREF
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LRESULT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WAIT_EVENT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HBITMAP
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HBRUSH
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HRGN
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Colorref
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WaitEvent
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbitmap
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbrush
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hrgn
 
 private val _windowsWin32UiWindowsandmessagingNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun AdjustWindowRect(lprect: Long, dwstyle: WINDOW_STYLE, bmenu: BOOL): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_AdjustWindowRect(lprect.toString(), dwstyle.toInt(), bmenu) as Int) else 0
+public actual fun adjustWindowRect(lprect: COpaquePointer?, dwstyle: WindowStyle, bmenu: Bool): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_adjustWindowRect((lprect?.value ?: 0L).toString(), dwstyle.toInt(), bmenu) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AdjustWindowRectEx(lprect: Long, dwstyle: WINDOW_STYLE, bmenu: BOOL, dwexstyle: WINDOW_EX_STYLE): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_AdjustWindowRectEx(lprect.toString(), dwstyle.toInt(), bmenu, dwexstyle.toInt()) as Int) else 0
+public actual fun adjustWindowRectEx(lprect: COpaquePointer?, dwstyle: WindowStyle, bmenu: Bool, dwexstyle: WindowExStyle): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_adjustWindowRectEx((lprect?.value ?: 0L).toString(), dwstyle.toInt(), bmenu, dwexstyle.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AllowSetForegroundWindow(dwprocessid: UInt): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_AllowSetForegroundWindow(dwprocessid.toInt()) as Int) else 0
+public actual fun allowSetForegroundWindow(dwprocessid: UInt): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_allowSetForegroundWindow(dwprocessid.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AnimateWindow(hwnd: HWND, dwtime: UInt, dwflags: ANIMATE_WINDOW_FLAGS): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_AnimateWindow(hwnd.toString(), dwtime.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun animateWindow(hwnd: Hwnd, dwtime: UInt, dwflags: AnimateWindowFlags): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_animateWindow((hwnd?.value ?: 0L).toString(), dwtime.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AnyPopup(): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_AnyPopup() as Int) else 0
+public actual fun anyPopup(): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_anyPopup() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AppendMenuA(hmenu: HMENU, uflags: MENU_ITEM_FLAGS, uidnewitem: ULong, lpnewitem: PCSTR): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_AppendMenuA(hmenu.toString(), uflags.toInt(), uidnewitem.toString(), lpnewitem.toString()) as Int) else 0
+public actual fun appendMenuA(hmenu: Hmenu, uflags: MenuItemFlags, uidnewitem: ULong, lpnewitem: Pcstr): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_appendMenuA((hmenu?.value ?: 0L).toString(), uflags.toInt(), uidnewitem.toString(), (lpnewitem?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AppendMenuW(hmenu: HMENU, uflags: MENU_ITEM_FLAGS, uidnewitem: ULong, lpnewitem: PCWSTR): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_AppendMenuW(hmenu.toString(), uflags.toInt(), uidnewitem.toString(), lpnewitem.toString()) as Int) else 0
+public actual fun appendMenuW(hmenu: Hmenu, uflags: MenuItemFlags, uidnewitem: ULong, lpnewitem: Pcwstr): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_appendMenuW((hmenu?.value ?: 0L).toString(), uflags.toInt(), uidnewitem.toString(), (lpnewitem?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ArrangeIconicWindows(hwnd: HWND): UInt =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_ArrangeIconicWindows(hwnd.toString()) as Int).toUInt() else 0u
+public actual fun arrangeIconicWindows(hwnd: Hwnd): UInt =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_arrangeIconicWindows((hwnd?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BeginDeferWindowPos(nnumwindows: Int): HDWP =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_BeginDeferWindowPos(nnumwindows) as String).toLong() else 0L
+public actual fun beginDeferWindowPos(nnumwindows: Int): Hdwp =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_beginDeferWindowPos(nnumwindows) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun BringWindowToTop(hwnd: HWND): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_BringWindowToTop(hwnd.toString()) as Int) else 0
+public actual fun bringWindowToTop(hwnd: Hwnd): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_bringWindowToTop((hwnd?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CalculatePopupWindowPosition(anchorpoint: Long, windowsize: Long, flags: UInt, excluderect: Long, popupwindowposition: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CalculatePopupWindowPosition(anchorpoint.toString(), windowsize.toString(), flags.toInt(), excluderect.toString(), popupwindowposition.toString()) as Int) else 0
+public actual fun calculatePopupWindowPosition(anchorpoint: COpaquePointer?, windowsize: COpaquePointer?, flags: UInt, excluderect: COpaquePointer?, popupwindowposition: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_calculatePopupWindowPosition((anchorpoint?.value ?: 0L).toString(), (windowsize?.value ?: 0L).toString(), flags.toInt(), (excluderect?.value ?: 0L).toString(), (popupwindowposition?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CallMsgFilterA(lpmsg: Long, ncode: Int): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CallMsgFilterA(lpmsg.toString(), ncode) as Int) else 0
+public actual fun callMsgFilterA(lpmsg: COpaquePointer?, ncode: Int): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_callMsgFilterA((lpmsg?.value ?: 0L).toString(), ncode) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CallMsgFilterW(lpmsg: Long, ncode: Int): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CallMsgFilterW(lpmsg.toString(), ncode) as Int) else 0
+public actual fun callMsgFilterW(lpmsg: COpaquePointer?, ncode: Int): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_callMsgFilterW((lpmsg?.value ?: 0L).toString(), ncode) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CallNextHookEx(hhk: HHOOK, ncode: Int, wparam: WPARAM, lparam: LPARAM): LRESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CallNextHookEx(hhk.toString(), ncode, wparam.toString(), lparam.toString()) as String).toLong() else 0L
+public actual fun callNextHookEx(hhk: Hhook, ncode: Int, wparam: Wparam, lparam: Lparam): Lresult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_callNextHookEx((hhk?.value ?: 0L).toString(), ncode, wparam.toString(), lparam.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CallWindowProcA(lpprevwndfunc: WNDPROC, hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CallWindowProcA(lpprevwndfunc.toLong().toString(), hwnd.toString(), msg.toInt(), wparam.toString(), lparam.toString()) as String).toLong() else 0L
+public actual fun callWindowProcA(lpprevwndfunc: Wndproc, hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_callWindowProcA(0L.toString(), (hwnd?.value ?: 0L).toString(), msg.toInt(), wparam.toString(), lparam.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CallWindowProcW(lpprevwndfunc: WNDPROC, hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CallWindowProcW(lpprevwndfunc.toLong().toString(), hwnd.toString(), msg.toInt(), wparam.toString(), lparam.toString()) as String).toLong() else 0L
+public actual fun callWindowProcW(lpprevwndfunc: Wndproc, hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_callWindowProcW(0L.toString(), (hwnd?.value ?: 0L).toString(), msg.toInt(), wparam.toString(), lparam.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CancelShutdown(): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CancelShutdown() as Int) else 0
+public actual fun cancelShutdown(): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_cancelShutdown() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CascadeWindows(hwndparent: HWND, whow: CASCADE_WINDOWS_HOW, lprect: Long, ckids: UInt, lpkids: Long): UShort =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CascadeWindows(hwndparent.toString(), whow.toInt(), lprect.toString(), ckids.toInt(), lpkids.toString()) as Int).toUShort() else 0u
+public actual fun cascadeWindows(hwndparent: Hwnd, whow: CascadeWindowsHow, lprect: COpaquePointer?, ckids: UInt, lpkids: COpaquePointer?): UShort =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_cascadeWindows((hwndparent?.value ?: 0L).toString(), whow.toInt(), (lprect?.value ?: 0L).toString(), ckids.toInt(), (lpkids?.value ?: 0L).toString()) as Int).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ChangeMenuA(hmenu: HMENU, cmd: UInt, lpsznewitem: PCSTR, cmdinsert: UInt, flags: UInt): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_ChangeMenuA(hmenu.toString(), cmd.toInt(), lpsznewitem.toString(), cmdinsert.toInt(), flags.toInt()) as Int) else 0
+public actual fun changeMenuA(hmenu: Hmenu, cmd: UInt, lpsznewitem: Pcstr, cmdinsert: UInt, flags: UInt): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_changeMenuA((hmenu?.value ?: 0L).toString(), cmd.toInt(), (lpsznewitem?.value ?: 0L).toString(), cmdinsert.toInt(), flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ChangeMenuW(hmenu: HMENU, cmd: UInt, lpsznewitem: PCWSTR, cmdinsert: UInt, flags: UInt): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_ChangeMenuW(hmenu.toString(), cmd.toInt(), lpsznewitem.toString(), cmdinsert.toInt(), flags.toInt()) as Int) else 0
+public actual fun changeMenuW(hmenu: Hmenu, cmd: UInt, lpsznewitem: Pcwstr, cmdinsert: UInt, flags: UInt): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_changeMenuW((hmenu?.value ?: 0L).toString(), cmd.toInt(), (lpsznewitem?.value ?: 0L).toString(), cmdinsert.toInt(), flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ChangeWindowMessageFilter(message: UInt, dwflag: CHANGE_WINDOW_MESSAGE_FILTER_FLAGS): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_ChangeWindowMessageFilter(message.toInt(), dwflag.toInt()) as Int) else 0
+public actual fun changeWindowMessageFilter(message: UInt, dwflag: ChangeWindowMessageFilterFlags): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_changeWindowMessageFilter(message.toInt(), dwflag.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ChangeWindowMessageFilterEx(hwnd: HWND, message: UInt, action: WINDOW_MESSAGE_FILTER_ACTION, pchangefilterstruct: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_ChangeWindowMessageFilterEx(hwnd.toString(), message.toInt(), action.toInt(), pchangefilterstruct.toString()) as Int) else 0
+public actual fun changeWindowMessageFilterEx(hwnd: Hwnd, message: UInt, action: WindowMessageFilterAction, pchangefilterstruct: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_changeWindowMessageFilterEx((hwnd?.value ?: 0L).toString(), message.toInt(), action.toInt(), (pchangefilterstruct?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CharLowerA(lpsz: PSTR): PSTR =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CharLowerA(lpsz.toString()) as String).toLong() else 0L
+public actual fun charLowerA(lpsz: Pstr): Pstr =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_charLowerA((lpsz?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CharLowerBuffA(lpsz: PSTR, cchlength: UInt): UInt =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CharLowerBuffA(lpsz.toString(), cchlength.toInt()) as Int).toUInt() else 0u
+public actual fun charLowerBuffA(lpsz: Pstr, cchlength: UInt): UInt =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_charLowerBuffA((lpsz?.value ?: 0L).toString(), cchlength.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CharLowerBuffW(lpsz: PWSTR, cchlength: UInt): UInt =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CharLowerBuffW(lpsz.toString(), cchlength.toInt()) as Int).toUInt() else 0u
+public actual fun charLowerBuffW(lpsz: Pwstr, cchlength: UInt): UInt =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_charLowerBuffW((lpsz?.value ?: 0L).toString(), cchlength.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CharLowerW(lpsz: PWSTR): PWSTR =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CharLowerW(lpsz.toString()) as String).toLong() else 0L
+public actual fun charLowerW(lpsz: Pwstr): Pwstr =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_charLowerW((lpsz?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CharNextA(lpsz: PCSTR): PSTR =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CharNextA(lpsz.toString()) as String).toLong() else 0L
+public actual fun charNextA(lpsz: Pcstr): Pstr =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_charNextA((lpsz?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CharNextExA(codepage: UShort, lpcurrentchar: PCSTR, dwflags: UInt): PSTR =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CharNextExA(codepage.toInt(), lpcurrentchar.toString(), dwflags.toInt()) as String).toLong() else 0L
+public actual fun charNextExA(codepage: UShort, lpcurrentchar: Pcstr, dwflags: UInt): Pstr =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_charNextExA(codepage.toInt(), (lpcurrentchar?.value ?: 0L).toString(), dwflags.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CharNextW(lpsz: PCWSTR): PWSTR =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CharNextW(lpsz.toString()) as String).toLong() else 0L
+public actual fun charNextW(lpsz: Pcwstr): Pwstr =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_charNextW((lpsz?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CharPrevA(lpszstart: PCSTR, lpszcurrent: PCSTR): PSTR =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CharPrevA(lpszstart.toString(), lpszcurrent.toString()) as String).toLong() else 0L
+public actual fun charPrevA(lpszstart: Pcstr, lpszcurrent: Pcstr): Pstr =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_charPrevA((lpszstart?.value ?: 0L).toString(), (lpszcurrent?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CharPrevExA(codepage: UShort, lpstart: PCSTR, lpcurrentchar: PCSTR, dwflags: UInt): PSTR =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CharPrevExA(codepage.toInt(), lpstart.toString(), lpcurrentchar.toString(), dwflags.toInt()) as String).toLong() else 0L
+public actual fun charPrevExA(codepage: UShort, lpstart: Pcstr, lpcurrentchar: Pcstr, dwflags: UInt): Pstr =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_charPrevExA(codepage.toInt(), (lpstart?.value ?: 0L).toString(), (lpcurrentchar?.value ?: 0L).toString(), dwflags.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CharPrevW(lpszstart: PCWSTR, lpszcurrent: PCWSTR): PWSTR =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CharPrevW(lpszstart.toString(), lpszcurrent.toString()) as String).toLong() else 0L
+public actual fun charPrevW(lpszstart: Pcwstr, lpszcurrent: Pcwstr): Pwstr =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_charPrevW((lpszstart?.value ?: 0L).toString(), (lpszcurrent?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CharToOemA(psrc: PCSTR, pdst: PSTR): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CharToOemA(psrc.toString(), pdst.toString()) as Int) else 0
+public actual fun charToOemA(psrc: Pcstr, pdst: Pstr): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_charToOemA((psrc?.value ?: 0L).toString(), (pdst?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CharToOemBuffA(lpszsrc: PCSTR, lpszdst: PSTR, cchdstlength: UInt): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CharToOemBuffA(lpszsrc.toString(), lpszdst.toString(), cchdstlength.toInt()) as Int) else 0
+public actual fun charToOemBuffA(lpszsrc: Pcstr, lpszdst: Pstr, cchdstlength: UInt): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_charToOemBuffA((lpszsrc?.value ?: 0L).toString(), (lpszdst?.value ?: 0L).toString(), cchdstlength.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CharToOemBuffW(lpszsrc: PCWSTR, lpszdst: PSTR, cchdstlength: UInt): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CharToOemBuffW(lpszsrc.toString(), lpszdst.toString(), cchdstlength.toInt()) as Int) else 0
+public actual fun charToOemBuffW(lpszsrc: Pcwstr, lpszdst: Pstr, cchdstlength: UInt): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_charToOemBuffW((lpszsrc?.value ?: 0L).toString(), (lpszdst?.value ?: 0L).toString(), cchdstlength.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CharToOemW(psrc: PCWSTR, pdst: PSTR): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CharToOemW(psrc.toString(), pdst.toString()) as Int) else 0
+public actual fun charToOemW(psrc: Pcwstr, pdst: Pstr): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_charToOemW((psrc?.value ?: 0L).toString(), (pdst?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CharUpperA(lpsz: PSTR): PSTR =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CharUpperA(lpsz.toString()) as String).toLong() else 0L
+public actual fun charUpperA(lpsz: Pstr): Pstr =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_charUpperA((lpsz?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CharUpperBuffA(lpsz: PSTR, cchlength: UInt): UInt =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CharUpperBuffA(lpsz.toString(), cchlength.toInt()) as Int).toUInt() else 0u
+public actual fun charUpperBuffA(lpsz: Pstr, cchlength: UInt): UInt =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_charUpperBuffA((lpsz?.value ?: 0L).toString(), cchlength.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CharUpperBuffW(lpsz: PWSTR, cchlength: UInt): UInt =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CharUpperBuffW(lpsz.toString(), cchlength.toInt()) as Int).toUInt() else 0u
+public actual fun charUpperBuffW(lpsz: Pwstr, cchlength: UInt): UInt =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_charUpperBuffW((lpsz?.value ?: 0L).toString(), cchlength.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CharUpperW(lpsz: PWSTR): PWSTR =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CharUpperW(lpsz.toString()) as String).toLong() else 0L
+public actual fun charUpperW(lpsz: Pwstr): Pwstr =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_charUpperW((lpsz?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CheckMenuItem(hmenu: HMENU, uidcheckitem: UInt, ucheck: UInt): UInt =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CheckMenuItem(hmenu.toString(), uidcheckitem.toInt(), ucheck.toInt()) as Int).toUInt() else 0u
+public actual fun checkMenuItem(hmenu: Hmenu, uidcheckitem: UInt, ucheck: UInt): UInt =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_checkMenuItem((hmenu?.value ?: 0L).toString(), uidcheckitem.toInt(), ucheck.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CheckMenuRadioItem(hmenu: HMENU, first: UInt, last: UInt, check: UInt, flags: UInt): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CheckMenuRadioItem(hmenu.toString(), first.toInt(), last.toInt(), check.toInt(), flags.toInt()) as Int) else 0
+public actual fun checkMenuRadioItem(hmenu: Hmenu, first: UInt, last: UInt, check: UInt, flags: UInt): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_checkMenuRadioItem((hmenu?.value ?: 0L).toString(), first.toInt(), last.toInt(), check.toInt(), flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ChildWindowFromPoint(hwndparent: HWND, point: POINT): HWND =
-    0L
+public actual fun childWindowFromPoint(hwndparent: Hwnd, point: Point): Hwnd =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ChildWindowFromPointEx(hwnd: HWND, pt: POINT, flags: CWP_FLAGS): HWND =
-    0L
+public actual fun childWindowFromPointEx(hwnd: Hwnd, pt: Point, flags: CwpFlags): Hwnd =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClipCursor(lprect: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_ClipCursor(lprect.toString()) as Int) else 0
+public actual fun clipCursor(lprect: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_clipCursor((lprect?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CloseWindow(hwnd: HWND): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CloseWindow(hwnd.toString()) as Int) else 0
+public actual fun closeWindow(hwnd: Hwnd): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_closeWindow((hwnd?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CopyAcceleratorTableA(haccelsrc: HACCEL, lpacceldst: Long, caccelentries: Int): Int =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CopyAcceleratorTableA(haccelsrc.toString(), lpacceldst.toString(), caccelentries) as Int) else 0
+public actual fun copyAcceleratorTableA(haccelsrc: Haccel, lpacceldst: COpaquePointer?, caccelentries: Int): Int =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_copyAcceleratorTableA((haccelsrc?.value ?: 0L).toString(), (lpacceldst?.value ?: 0L).toString(), caccelentries) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CopyAcceleratorTableW(haccelsrc: HACCEL, lpacceldst: Long, caccelentries: Int): Int =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CopyAcceleratorTableW(haccelsrc.toString(), lpacceldst.toString(), caccelentries) as Int) else 0
+public actual fun copyAcceleratorTableW(haccelsrc: Haccel, lpacceldst: COpaquePointer?, caccelentries: Int): Int =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_copyAcceleratorTableW((haccelsrc?.value ?: 0L).toString(), (lpacceldst?.value ?: 0L).toString(), caccelentries) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CopyIcon(hicon: HICON): HICON =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CopyIcon(hicon.toString()) as String).toLong() else 0L
+public actual fun copyIcon(hicon: Hicon): Hicon =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_copyIcon((hicon?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CopyImage(h: HANDLE, type: GDI_IMAGE_TYPE, cx: Int, cy: Int, flags: IMAGE_FLAGS): HANDLE =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CopyImage(h.toString(), type.toInt(), cx, cy, flags.toInt()) as String).toLong() else 0L
+public actual fun copyImage(h: Handle, type: GdiImageType, cx: Int, cy: Int, flags: ImageFlags): Handle =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_copyImage((h?.value ?: 0L).toString(), type.toInt(), cx, cy, flags.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateAcceleratorTableA(paccel: Long, caccel: Int): HACCEL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CreateAcceleratorTableA(paccel.toString(), caccel) as String).toLong() else 0L
+public actual fun createAcceleratorTableA(paccel: COpaquePointer?, caccel: Int): Haccel =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_createAcceleratorTableA((paccel?.value ?: 0L).toString(), caccel) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateAcceleratorTableW(paccel: Long, caccel: Int): HACCEL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CreateAcceleratorTableW(paccel.toString(), caccel) as String).toLong() else 0L
+public actual fun createAcceleratorTableW(paccel: COpaquePointer?, caccel: Int): Haccel =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_createAcceleratorTableW((paccel?.value ?: 0L).toString(), caccel) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateCaret(hwnd: HWND, hbitmap: HBITMAP, nwidth: Int, nheight: Int): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CreateCaret(hwnd.toString(), hbitmap.toString(), nwidth, nheight) as Int) else 0
+public actual fun createCaret(hwnd: Hwnd, hbitmap: Hbitmap, nwidth: Int, nheight: Int): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_createCaret((hwnd?.value ?: 0L).toString(), (hbitmap?.value ?: 0L).toString(), nwidth, nheight) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateCursor(hinst: HINSTANCE, xhotspot: Int, yhotspot: Int, nwidth: Int, nheight: Int, pvandplane: Long, pvxorplane: Long): HCURSOR =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CreateCursor(hinst.toString(), xhotspot, yhotspot, nwidth, nheight, pvandplane.toString(), pvxorplane.toString()) as String).toLong() else 0L
+public actual fun createCursor(hinst: Hinstance, xhotspot: Int, yhotspot: Int, nwidth: Int, nheight: Int, pvandplane: COpaquePointer?, pvxorplane: COpaquePointer?): Hcursor =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_createCursor((hinst?.value ?: 0L).toString(), xhotspot, yhotspot, nwidth, nheight, (pvandplane?.value ?: 0L).toString(), (pvxorplane?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateDialogIndirectParamA(hinstance: HINSTANCE, lptemplate: Long, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): HWND =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CreateDialogIndirectParamA(hinstance.toString(), lptemplate.toString(), hwndparent.toString(), lpdialogfunc.toLong().toString(), dwinitparam.toString()) as String).toLong() else 0L
+public actual fun createDialogIndirectParamA(hinstance: Hinstance, lptemplate: COpaquePointer?, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Hwnd =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_createDialogIndirectParamA((hinstance?.value ?: 0L).toString(), (lptemplate?.value ?: 0L).toString(), (hwndparent?.value ?: 0L).toString(), 0L.toString(), dwinitparam.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateDialogIndirectParamW(hinstance: HINSTANCE, lptemplate: Long, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): HWND =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CreateDialogIndirectParamW(hinstance.toString(), lptemplate.toString(), hwndparent.toString(), lpdialogfunc.toLong().toString(), dwinitparam.toString()) as String).toLong() else 0L
+public actual fun createDialogIndirectParamW(hinstance: Hinstance, lptemplate: COpaquePointer?, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Hwnd =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_createDialogIndirectParamW((hinstance?.value ?: 0L).toString(), (lptemplate?.value ?: 0L).toString(), (hwndparent?.value ?: 0L).toString(), 0L.toString(), dwinitparam.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateDialogParamA(hinstance: HINSTANCE, lptemplatename: PCSTR, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): HWND =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CreateDialogParamA(hinstance.toString(), lptemplatename.toString(), hwndparent.toString(), lpdialogfunc.toLong().toString(), dwinitparam.toString()) as String).toLong() else 0L
+public actual fun createDialogParamA(hinstance: Hinstance, lptemplatename: Pcstr, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Hwnd =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_createDialogParamA((hinstance?.value ?: 0L).toString(), (lptemplatename?.value ?: 0L).toString(), (hwndparent?.value ?: 0L).toString(), 0L.toString(), dwinitparam.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateDialogParamW(hinstance: HINSTANCE, lptemplatename: PCWSTR, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): HWND =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CreateDialogParamW(hinstance.toString(), lptemplatename.toString(), hwndparent.toString(), lpdialogfunc.toLong().toString(), dwinitparam.toString()) as String).toLong() else 0L
+public actual fun createDialogParamW(hinstance: Hinstance, lptemplatename: Pcwstr, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Hwnd =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_createDialogParamW((hinstance?.value ?: 0L).toString(), (lptemplatename?.value ?: 0L).toString(), (hwndparent?.value ?: 0L).toString(), 0L.toString(), dwinitparam.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateIcon(hinstance: HINSTANCE, nwidth: Int, nheight: Int, cplanes: UByte, cbitspixel: UByte, lpbandbits: Long, lpbxorbits: Long): HICON =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CreateIcon(hinstance.toString(), nwidth, nheight, cplanes.toInt(), cbitspixel.toInt(), lpbandbits.toString(), lpbxorbits.toString()) as String).toLong() else 0L
+public actual fun createIcon(hinstance: Hinstance, nwidth: Int, nheight: Int, cplanes: UByte, cbitspixel: UByte, lpbandbits: COpaquePointer?, lpbxorbits: COpaquePointer?): Hicon =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_createIcon((hinstance?.value ?: 0L).toString(), nwidth, nheight, cplanes.toInt(), cbitspixel.toInt(), (lpbandbits?.value ?: 0L).toString(), (lpbxorbits?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateIconFromResource(presbits: Long, dwressize: UInt, ficon: BOOL, dwver: UInt): HICON =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CreateIconFromResource(presbits.toString(), dwressize.toInt(), ficon, dwver.toInt()) as String).toLong() else 0L
+public actual fun createIconFromResource(presbits: COpaquePointer?, dwressize: UInt, ficon: Bool, dwver: UInt): Hicon =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_createIconFromResource((presbits?.value ?: 0L).toString(), dwressize.toInt(), ficon, dwver.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateIconFromResourceEx(presbits: Long, dwressize: UInt, ficon: BOOL, dwver: UInt, cxdesired: Int, cydesired: Int, flags: IMAGE_FLAGS): HICON =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CreateIconFromResourceEx(presbits.toString(), dwressize.toInt(), ficon, dwver.toInt(), cxdesired, cydesired, flags.toInt()) as String).toLong() else 0L
+public actual fun createIconFromResourceEx(presbits: COpaquePointer?, dwressize: UInt, ficon: Bool, dwver: UInt, cxdesired: Int, cydesired: Int, flags: ImageFlags): Hicon =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_createIconFromResourceEx((presbits?.value ?: 0L).toString(), dwressize.toInt(), ficon, dwver.toInt(), cxdesired, cydesired, flags.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateIconIndirect(piconinfo: Long): HICON =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CreateIconIndirect(piconinfo.toString()) as String).toLong() else 0L
+public actual fun createIconIndirect(piconinfo: COpaquePointer?): Hicon =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_createIconIndirect((piconinfo?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateMDIWindowA(lpclassname: PCSTR, lpwindowname: PCSTR, dwstyle: WINDOW_STYLE, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: HWND, hinstance: HINSTANCE, lparam: LPARAM): HWND =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CreateMDIWindowA(lpclassname.toString(), lpwindowname.toString(), dwstyle.toInt(), x, y, nwidth, nheight, hwndparent.toString(), hinstance.toString(), lparam.toString()) as String).toLong() else 0L
+public actual fun createMDIWindowA(lpclassname: Pcstr, lpwindowname: Pcstr, dwstyle: WindowStyle, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: Hwnd, hinstance: Hinstance, lparam: Lparam): Hwnd =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_createMDIWindowA((lpclassname?.value ?: 0L).toString(), (lpwindowname?.value ?: 0L).toString(), dwstyle.toInt(), x, y, nwidth, nheight, (hwndparent?.value ?: 0L).toString(), (hinstance?.value ?: 0L).toString(), lparam.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateMDIWindowW(lpclassname: PCWSTR, lpwindowname: PCWSTR, dwstyle: WINDOW_STYLE, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: HWND, hinstance: HINSTANCE, lparam: LPARAM): HWND =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CreateMDIWindowW(lpclassname.toString(), lpwindowname.toString(), dwstyle.toInt(), x, y, nwidth, nheight, hwndparent.toString(), hinstance.toString(), lparam.toString()) as String).toLong() else 0L
+public actual fun createMDIWindowW(lpclassname: Pcwstr, lpwindowname: Pcwstr, dwstyle: WindowStyle, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: Hwnd, hinstance: Hinstance, lparam: Lparam): Hwnd =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_createMDIWindowW((lpclassname?.value ?: 0L).toString(), (lpwindowname?.value ?: 0L).toString(), dwstyle.toInt(), x, y, nwidth, nheight, (hwndparent?.value ?: 0L).toString(), (hinstance?.value ?: 0L).toString(), lparam.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateMenu(): HMENU =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CreateMenu() as String).toLong() else 0L
+public actual fun createMenu(): Hmenu =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_createMenu() as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreatePopupMenu(): HMENU =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CreatePopupMenu() as String).toLong() else 0L
+public actual fun createPopupMenu(): Hmenu =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_createPopupMenu() as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateResourceIndexer(projectroot: PCWSTR, extensiondllpath: PCWSTR, ppresourceindexer: Long): HRESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CreateResourceIndexer(projectroot.toString(), extensiondllpath.toString(), ppresourceindexer.toString()) as Int) else 0
+public actual fun createResourceIndexer(projectroot: Pcwstr, extensiondllpath: Pcwstr, ppresourceindexer: COpaquePointer?): Hresult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_createResourceIndexer((projectroot?.value ?: 0L).toString(), (extensiondllpath?.value ?: 0L).toString(), (ppresourceindexer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateWindowExA(dwexstyle: WINDOW_EX_STYLE, lpclassname: PCSTR, lpwindowname: PCSTR, dwstyle: WINDOW_STYLE, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: HWND, hmenu: HMENU, hinstance: HINSTANCE, lpparam: Long): HWND =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CreateWindowExA(dwexstyle.toInt(), lpclassname.toString(), lpwindowname.toString(), dwstyle.toInt(), x, y, nwidth, nheight, hwndparent.toString(), hmenu.toString(), hinstance.toString(), lpparam.toString()) as String).toLong() else 0L
+public actual fun createWindowExA(dwexstyle: WindowExStyle, lpclassname: Pcstr, lpwindowname: Pcstr, dwstyle: WindowStyle, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: Hwnd, hmenu: Hmenu, hinstance: Hinstance, lpparam: COpaquePointer?): Hwnd =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_createWindowExA(dwexstyle.toInt(), (lpclassname?.value ?: 0L).toString(), (lpwindowname?.value ?: 0L).toString(), dwstyle.toInt(), x, y, nwidth, nheight, (hwndparent?.value ?: 0L).toString(), (hmenu?.value ?: 0L).toString(), (hinstance?.value ?: 0L).toString(), (lpparam?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateWindowExW(dwexstyle: WINDOW_EX_STYLE, lpclassname: PCWSTR, lpwindowname: PCWSTR, dwstyle: WINDOW_STYLE, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: HWND, hmenu: HMENU, hinstance: HINSTANCE, lpparam: Long): HWND =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_CreateWindowExW(dwexstyle.toInt(), lpclassname.toString(), lpwindowname.toString(), dwstyle.toInt(), x, y, nwidth, nheight, hwndparent.toString(), hmenu.toString(), hinstance.toString(), lpparam.toString()) as String).toLong() else 0L
+public actual fun createWindowExW(dwexstyle: WindowExStyle, lpclassname: Pcwstr, lpwindowname: Pcwstr, dwstyle: WindowStyle, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: Hwnd, hmenu: Hmenu, hinstance: Hinstance, lpparam: COpaquePointer?): Hwnd =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_createWindowExW(dwexstyle.toInt(), (lpclassname?.value ?: 0L).toString(), (lpwindowname?.value ?: 0L).toString(), dwstyle.toInt(), x, y, nwidth, nheight, (hwndparent?.value ?: 0L).toString(), (hmenu?.value ?: 0L).toString(), (hinstance?.value ?: 0L).toString(), (lpparam?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DefDlgProcA(hdlg: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_DefDlgProcA(hdlg.toString(), msg.toInt(), wparam.toString(), lparam.toString()) as String).toLong() else 0L
+public actual fun defDlgProcA(hdlg: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_defDlgProcA((hdlg?.value ?: 0L).toString(), msg.toInt(), wparam.toString(), lparam.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DefDlgProcW(hdlg: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_DefDlgProcW(hdlg.toString(), msg.toInt(), wparam.toString(), lparam.toString()) as String).toLong() else 0L
+public actual fun defDlgProcW(hdlg: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_defDlgProcW((hdlg?.value ?: 0L).toString(), msg.toInt(), wparam.toString(), lparam.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DefFrameProcA(hwnd: HWND, hwndmdiclient: HWND, umsg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_DefFrameProcA(hwnd.toString(), hwndmdiclient.toString(), umsg.toInt(), wparam.toString(), lparam.toString()) as String).toLong() else 0L
+public actual fun defFrameProcA(hwnd: Hwnd, hwndmdiclient: Hwnd, umsg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_defFrameProcA((hwnd?.value ?: 0L).toString(), (hwndmdiclient?.value ?: 0L).toString(), umsg.toInt(), wparam.toString(), lparam.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DefFrameProcW(hwnd: HWND, hwndmdiclient: HWND, umsg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_DefFrameProcW(hwnd.toString(), hwndmdiclient.toString(), umsg.toInt(), wparam.toString(), lparam.toString()) as String).toLong() else 0L
+public actual fun defFrameProcW(hwnd: Hwnd, hwndmdiclient: Hwnd, umsg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_defFrameProcW((hwnd?.value ?: 0L).toString(), (hwndmdiclient?.value ?: 0L).toString(), umsg.toInt(), wparam.toString(), lparam.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DefMDIChildProcA(hwnd: HWND, umsg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_DefMDIChildProcA(hwnd.toString(), umsg.toInt(), wparam.toString(), lparam.toString()) as String).toLong() else 0L
+public actual fun defMDIChildProcA(hwnd: Hwnd, umsg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_defMDIChildProcA((hwnd?.value ?: 0L).toString(), umsg.toInt(), wparam.toString(), lparam.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DefMDIChildProcW(hwnd: HWND, umsg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_DefMDIChildProcW(hwnd.toString(), umsg.toInt(), wparam.toString(), lparam.toString()) as String).toLong() else 0L
+public actual fun defMDIChildProcW(hwnd: Hwnd, umsg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_defMDIChildProcW((hwnd?.value ?: 0L).toString(), umsg.toInt(), wparam.toString(), lparam.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DefWindowProcA(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_DefWindowProcA(hwnd.toString(), msg.toInt(), wparam.toString(), lparam.toString()) as String).toLong() else 0L
+public actual fun defWindowProcA(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_defWindowProcA((hwnd?.value ?: 0L).toString(), msg.toInt(), wparam.toString(), lparam.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DefWindowProcW(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_DefWindowProcW(hwnd.toString(), msg.toInt(), wparam.toString(), lparam.toString()) as String).toLong() else 0L
+public actual fun defWindowProcW(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_defWindowProcW((hwnd?.value ?: 0L).toString(), msg.toInt(), wparam.toString(), lparam.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeferWindowPos(hwinposinfo: HDWP, hwnd: HWND, hwndinsertafter: HWND, x: Int, y: Int, cx: Int, cy: Int, uflags: SET_WINDOW_POS_FLAGS): HDWP =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_DeferWindowPos(hwinposinfo.toString(), hwnd.toString(), hwndinsertafter.toString(), x, y, cx, cy, uflags.toInt()) as String).toLong() else 0L
+public actual fun deferWindowPos(hwinposinfo: Hdwp, hwnd: Hwnd, hwndinsertafter: Hwnd, x: Int, y: Int, cx: Int, cy: Int, uflags: SetWindowPosFlags): Hdwp =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_deferWindowPos((hwinposinfo?.value ?: 0L).toString(), (hwnd?.value ?: 0L).toString(), (hwndinsertafter?.value ?: 0L).toString(), x, y, cx, cy, uflags.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteMenu(hmenu: HMENU, uposition: UInt, uflags: MENU_ITEM_FLAGS): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_DeleteMenu(hmenu.toString(), uposition.toInt(), uflags.toInt()) as Int) else 0
+public actual fun deleteMenu(hmenu: Hmenu, uposition: UInt, uflags: MenuItemFlags): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_deleteMenu((hmenu?.value ?: 0L).toString(), uposition.toInt(), uflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeregisterShellHookWindow(hwnd: HWND): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_DeregisterShellHookWindow(hwnd.toString()) as Int) else 0
+public actual fun deregisterShellHookWindow(hwnd: Hwnd): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_deregisterShellHookWindow((hwnd?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DestroyAcceleratorTable(haccel: HACCEL): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_DestroyAcceleratorTable(haccel.toString()) as Int) else 0
+public actual fun destroyAcceleratorTable(haccel: Haccel): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_destroyAcceleratorTable((haccel?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DestroyCaret(): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_DestroyCaret() as Int) else 0
+public actual fun destroyCaret(): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_destroyCaret() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DestroyCursor(hcursor: HCURSOR): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_DestroyCursor(hcursor.toString()) as Int) else 0
+public actual fun destroyCursor(hcursor: Hcursor): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_destroyCursor((hcursor?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DestroyIcon(hicon: HICON): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_DestroyIcon(hicon.toString()) as Int) else 0
+public actual fun destroyIcon(hicon: Hicon): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_destroyIcon((hicon?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DestroyIndexedResults(resourceuri: PCWSTR, qualifiercount: UInt, qualifiers: Long) {
+public actual fun destroyIndexedResults(resourceuri: Pcwstr, qualifiercount: UInt, qualifiers: COpaquePointer?) {
     if (_windowsWin32UiWindowsandmessagingNapiAddon != null) {
-        _windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_DestroyIndexedResults(resourceuri.toString(), qualifiercount.toInt(), qualifiers.toString())
+        _windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_destroyIndexedResults((resourceuri?.value ?: 0L).toString(), qualifiercount.toInt(), (qualifiers?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun DestroyMenu(hmenu: HMENU): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_DestroyMenu(hmenu.toString()) as Int) else 0
+public actual fun destroyMenu(hmenu: Hmenu): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_destroyMenu((hmenu?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DestroyResourceIndexer(resourceindexer: Long) {
+public actual fun destroyResourceIndexer(resourceindexer: COpaquePointer?) {
     if (_windowsWin32UiWindowsandmessagingNapiAddon != null) {
-        _windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_DestroyResourceIndexer(resourceindexer.toString())
+        _windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_destroyResourceIndexer((resourceindexer?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun DestroyWindow(hwnd: HWND): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_DestroyWindow(hwnd.toString()) as Int) else 0
+public actual fun destroyWindow(hwnd: Hwnd): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_destroyWindow((hwnd?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DialogBoxIndirectParamA(hinstance: HINSTANCE, hdialogtemplate: Long, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): Long =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_DialogBoxIndirectParamA(hinstance.toString(), hdialogtemplate.toString(), hwndparent.toString(), lpdialogfunc.toLong().toString(), dwinitparam.toString()) as String).toLong() else 0L
+public actual fun dialogBoxIndirectParamA(hinstance: Hinstance, hdialogtemplate: COpaquePointer?, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Long =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_dialogBoxIndirectParamA((hinstance?.value ?: 0L).toString(), (hdialogtemplate?.value ?: 0L).toString(), (hwndparent?.value ?: 0L).toString(), 0L.toString(), dwinitparam.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DialogBoxIndirectParamW(hinstance: HINSTANCE, hdialogtemplate: Long, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): Long =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_DialogBoxIndirectParamW(hinstance.toString(), hdialogtemplate.toString(), hwndparent.toString(), lpdialogfunc.toLong().toString(), dwinitparam.toString()) as String).toLong() else 0L
+public actual fun dialogBoxIndirectParamW(hinstance: Hinstance, hdialogtemplate: COpaquePointer?, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Long =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_dialogBoxIndirectParamW((hinstance?.value ?: 0L).toString(), (hdialogtemplate?.value ?: 0L).toString(), (hwndparent?.value ?: 0L).toString(), 0L.toString(), dwinitparam.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DialogBoxParamA(hinstance: HINSTANCE, lptemplatename: PCSTR, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): Long =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_DialogBoxParamA(hinstance.toString(), lptemplatename.toString(), hwndparent.toString(), lpdialogfunc.toLong().toString(), dwinitparam.toString()) as String).toLong() else 0L
+public actual fun dialogBoxParamA(hinstance: Hinstance, lptemplatename: Pcstr, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Long =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_dialogBoxParamA((hinstance?.value ?: 0L).toString(), (lptemplatename?.value ?: 0L).toString(), (hwndparent?.value ?: 0L).toString(), 0L.toString(), dwinitparam.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DialogBoxParamW(hinstance: HINSTANCE, lptemplatename: PCWSTR, hwndparent: HWND, lpdialogfunc: DLGPROC, dwinitparam: LPARAM): Long =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_DialogBoxParamW(hinstance.toString(), lptemplatename.toString(), hwndparent.toString(), lpdialogfunc.toLong().toString(), dwinitparam.toString()) as String).toLong() else 0L
+public actual fun dialogBoxParamW(hinstance: Hinstance, lptemplatename: Pcwstr, hwndparent: Hwnd, lpdialogfunc: Dlgproc, dwinitparam: Lparam): Long =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_dialogBoxParamW((hinstance?.value ?: 0L).toString(), (lptemplatename?.value ?: 0L).toString(), (hwndparent?.value ?: 0L).toString(), 0L.toString(), dwinitparam.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DisableProcessWindowsGhosting() {
+public actual fun disableProcessWindowsGhosting() {
     if (_windowsWin32UiWindowsandmessagingNapiAddon != null) {
-        _windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_DisableProcessWindowsGhosting()
+        _windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_disableProcessWindowsGhosting()
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun DispatchMessageA(lpmsg: Long): LRESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_DispatchMessageA(lpmsg.toString()) as String).toLong() else 0L
+public actual fun dispatchMessageA(lpmsg: COpaquePointer?): Lresult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_dispatchMessageA((lpmsg?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DispatchMessageW(lpmsg: Long): LRESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_DispatchMessageW(lpmsg.toString()) as String).toLong() else 0L
+public actual fun dispatchMessageW(lpmsg: COpaquePointer?): Lresult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_dispatchMessageW((lpmsg?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DragObject(hwndparent: HWND, hwndfrom: HWND, fmt: UInt, data: ULong, hcur: HCURSOR): UInt =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_DragObject(hwndparent.toString(), hwndfrom.toString(), fmt.toInt(), data.toString(), hcur.toString()) as Int).toUInt() else 0u
+public actual fun dragObject(hwndparent: Hwnd, hwndfrom: Hwnd, fmt: UInt, data: ULong, hcur: Hcursor): UInt =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_dragObject((hwndparent?.value ?: 0L).toString(), (hwndfrom?.value ?: 0L).toString(), fmt.toInt(), data.toString(), (hcur?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DrawIcon(hdc: HDC, x: Int, y: Int, hicon: HICON): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_DrawIcon(hdc.toString(), x, y, hicon.toString()) as Int) else 0
+public actual fun drawIcon(hdc: Hdc, x: Int, y: Int, hicon: Hicon): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_drawIcon((hdc?.value ?: 0L).toString(), x, y, (hicon?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DrawIconEx(hdc: HDC, xleft: Int, ytop: Int, hicon: HICON, cxwidth: Int, cywidth: Int, istepifanicur: UInt, hbrflickerfreedraw: HBRUSH, diflags: DI_FLAGS): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_DrawIconEx(hdc.toString(), xleft, ytop, hicon.toString(), cxwidth, cywidth, istepifanicur.toInt(), hbrflickerfreedraw.toString(), diflags.toInt()) as Int) else 0
+public actual fun drawIconEx(hdc: Hdc, xleft: Int, ytop: Int, hicon: Hicon, cxwidth: Int, cywidth: Int, istepifanicur: UInt, hbrflickerfreedraw: Hbrush, diflags: DiFlags): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_drawIconEx((hdc?.value ?: 0L).toString(), xleft, ytop, (hicon?.value ?: 0L).toString(), cxwidth, cywidth, istepifanicur.toInt(), (hbrflickerfreedraw?.value ?: 0L).toString(), diflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DrawMenuBar(hwnd: HWND): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_DrawMenuBar(hwnd.toString()) as Int) else 0
+public actual fun drawMenuBar(hwnd: Hwnd): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_drawMenuBar((hwnd?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnableMenuItem(hmenu: HMENU, uidenableitem: UInt, uenable: MENU_ITEM_FLAGS): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_EnableMenuItem(hmenu.toString(), uidenableitem.toInt(), uenable.toInt()) as Int) else 0
+public actual fun enableMenuItem(hmenu: Hmenu, uidenableitem: UInt, uenable: MenuItemFlags): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_enableMenuItem((hmenu?.value ?: 0L).toString(), uidenableitem.toInt(), uenable.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EndDeferWindowPos(hwinposinfo: HDWP): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_EndDeferWindowPos(hwinposinfo.toString()) as Int) else 0
+public actual fun endDeferWindowPos(hwinposinfo: Hdwp): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_endDeferWindowPos((hwinposinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EndDialog(hdlg: HWND, nresult: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_EndDialog(hdlg.toString(), nresult.toString()) as Int) else 0
+public actual fun endDialog(hdlg: Hwnd, nresult: Long): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_endDialog((hdlg?.value ?: 0L).toString(), nresult.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EndMenu(): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_EndMenu() as Int) else 0
+public actual fun endMenu(): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_endMenu() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumChildWindows(hwndparent: HWND, lpenumfunc: WNDENUMPROC, lparam: LPARAM): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_EnumChildWindows(hwndparent.toString(), lpenumfunc.toLong().toString(), lparam.toString()) as Int) else 0
+public actual fun enumChildWindows(hwndparent: Hwnd, lpenumfunc: Wndenumproc, lparam: Lparam): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_enumChildWindows((hwndparent?.value ?: 0L).toString(), 0L.toString(), lparam.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumPropsA(hwnd: HWND, lpenumfunc: PROPENUMPROCA): Int =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_EnumPropsA(hwnd.toString(), lpenumfunc.toLong().toString()) as Int) else 0
+public actual fun enumPropsA(hwnd: Hwnd, lpenumfunc: Propenumproca): Int =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_enumPropsA((hwnd?.value ?: 0L).toString(), 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumPropsExA(hwnd: HWND, lpenumfunc: PROPENUMPROCEXA, lparam: LPARAM): Int =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_EnumPropsExA(hwnd.toString(), lpenumfunc.toLong().toString(), lparam.toString()) as Int) else 0
+public actual fun enumPropsExA(hwnd: Hwnd, lpenumfunc: Propenumprocexa, lparam: Lparam): Int =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_enumPropsExA((hwnd?.value ?: 0L).toString(), 0L.toString(), lparam.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumPropsExW(hwnd: HWND, lpenumfunc: PROPENUMPROCEXW, lparam: LPARAM): Int =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_EnumPropsExW(hwnd.toString(), lpenumfunc.toLong().toString(), lparam.toString()) as Int) else 0
+public actual fun enumPropsExW(hwnd: Hwnd, lpenumfunc: Propenumprocexw, lparam: Lparam): Int =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_enumPropsExW((hwnd?.value ?: 0L).toString(), 0L.toString(), lparam.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumPropsW(hwnd: HWND, lpenumfunc: PROPENUMPROCW): Int =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_EnumPropsW(hwnd.toString(), lpenumfunc.toLong().toString()) as Int) else 0
+public actual fun enumPropsW(hwnd: Hwnd, lpenumfunc: Propenumprocw): Int =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_enumPropsW((hwnd?.value ?: 0L).toString(), 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumThreadWindows(dwthreadid: UInt, lpfn: WNDENUMPROC, lparam: LPARAM): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_EnumThreadWindows(dwthreadid.toInt(), lpfn.toLong().toString(), lparam.toString()) as Int) else 0
+public actual fun enumThreadWindows(dwthreadid: UInt, lpfn: Wndenumproc, lparam: Lparam): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_enumThreadWindows(dwthreadid.toInt(), 0L.toString(), lparam.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnumWindows(lpenumfunc: WNDENUMPROC, lparam: LPARAM): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_EnumWindows(lpenumfunc.toLong().toString(), lparam.toString()) as Int) else 0
+public actual fun enumWindows(lpenumfunc: Wndenumproc, lparam: Lparam): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_enumWindows(0L.toString(), lparam.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindWindowA(lpclassname: PCSTR, lpwindowname: PCSTR): HWND =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_FindWindowA(lpclassname.toString(), lpwindowname.toString()) as String).toLong() else 0L
+public actual fun findWindowA(lpclassname: Pcstr, lpwindowname: Pcstr): Hwnd =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_findWindowA((lpclassname?.value ?: 0L).toString(), (lpwindowname?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindWindowExA(hwndparent: HWND, hwndchildafter: HWND, lpszclass: PCSTR, lpszwindow: PCSTR): HWND =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_FindWindowExA(hwndparent.toString(), hwndchildafter.toString(), lpszclass.toString(), lpszwindow.toString()) as String).toLong() else 0L
+public actual fun findWindowExA(hwndparent: Hwnd, hwndchildafter: Hwnd, lpszclass: Pcstr, lpszwindow: Pcstr): Hwnd =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_findWindowExA((hwndparent?.value ?: 0L).toString(), (hwndchildafter?.value ?: 0L).toString(), (lpszclass?.value ?: 0L).toString(), (lpszwindow?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindWindowExW(hwndparent: HWND, hwndchildafter: HWND, lpszclass: PCWSTR, lpszwindow: PCWSTR): HWND =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_FindWindowExW(hwndparent.toString(), hwndchildafter.toString(), lpszclass.toString(), lpszwindow.toString()) as String).toLong() else 0L
+public actual fun findWindowExW(hwndparent: Hwnd, hwndchildafter: Hwnd, lpszclass: Pcwstr, lpszwindow: Pcwstr): Hwnd =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_findWindowExW((hwndparent?.value ?: 0L).toString(), (hwndchildafter?.value ?: 0L).toString(), (lpszclass?.value ?: 0L).toString(), (lpszwindow?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FindWindowW(lpclassname: PCWSTR, lpwindowname: PCWSTR): HWND =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_FindWindowW(lpclassname.toString(), lpwindowname.toString()) as String).toLong() else 0L
+public actual fun findWindowW(lpclassname: Pcwstr, lpwindowname: Pcwstr): Hwnd =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_findWindowW((lpclassname?.value ?: 0L).toString(), (lpwindowname?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FlashWindow(hwnd: HWND, binvert: BOOL): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_FlashWindow(hwnd.toString(), binvert) as Int) else 0
+public actual fun flashWindow(hwnd: Hwnd, binvert: Bool): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_flashWindow((hwnd?.value ?: 0L).toString(), binvert) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FlashWindowEx(pfwi: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_FlashWindowEx(pfwi.toString()) as Int) else 0
+public actual fun flashWindowEx(pfwi: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_flashWindowEx((pfwi?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetAltTabInfoA(hwnd: HWND, iitem: Int, pati: Long, pszitemtext: PSTR, cchitemtext: UInt): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetAltTabInfoA(hwnd.toString(), iitem, pati.toString(), pszitemtext.toString(), cchitemtext.toInt()) as Int) else 0
+public actual fun getAltTabInfoA(hwnd: Hwnd, iitem: Int, pati: COpaquePointer?, pszitemtext: Pstr, cchitemtext: UInt): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getAltTabInfoA((hwnd?.value ?: 0L).toString(), iitem, (pati?.value ?: 0L).toString(), (pszitemtext?.value ?: 0L).toString(), cchitemtext.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetAltTabInfoW(hwnd: HWND, iitem: Int, pati: Long, pszitemtext: PWSTR, cchitemtext: UInt): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetAltTabInfoW(hwnd.toString(), iitem, pati.toString(), pszitemtext.toString(), cchitemtext.toInt()) as Int) else 0
+public actual fun getAltTabInfoW(hwnd: Hwnd, iitem: Int, pati: COpaquePointer?, pszitemtext: Pwstr, cchitemtext: UInt): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getAltTabInfoW((hwnd?.value ?: 0L).toString(), iitem, (pati?.value ?: 0L).toString(), (pszitemtext?.value ?: 0L).toString(), cchitemtext.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetAncestor(hwnd: HWND, gaflags: GET_ANCESTOR_FLAGS): HWND =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetAncestor(hwnd.toString(), gaflags.toInt()) as String).toLong() else 0L
+public actual fun getAncestor(hwnd: Hwnd, gaflags: GetAncestorFlags): Hwnd =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getAncestor((hwnd?.value ?: 0L).toString(), gaflags.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCaretBlinkTime(): UInt =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetCaretBlinkTime() as Int).toUInt() else 0u
+public actual fun getCaretBlinkTime(): UInt =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getCaretBlinkTime() as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCaretPos(lppoint: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetCaretPos(lppoint.toString()) as Int) else 0
+public actual fun getCaretPos(lppoint: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getCaretPos((lppoint?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetClassInfoA(hinstance: HINSTANCE, lpclassname: PCSTR, lpwndclass: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetClassInfoA(hinstance.toString(), lpclassname.toString(), lpwndclass.toString()) as Int) else 0
+public actual fun getClassInfoA(hinstance: Hinstance, lpclassname: Pcstr, lpwndclass: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getClassInfoA((hinstance?.value ?: 0L).toString(), (lpclassname?.value ?: 0L).toString(), (lpwndclass?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetClassInfoExA(hinstance: HINSTANCE, lpszclass: PCSTR, lpwcx: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetClassInfoExA(hinstance.toString(), lpszclass.toString(), lpwcx.toString()) as Int) else 0
+public actual fun getClassInfoExA(hinstance: Hinstance, lpszclass: Pcstr, lpwcx: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getClassInfoExA((hinstance?.value ?: 0L).toString(), (lpszclass?.value ?: 0L).toString(), (lpwcx?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetClassInfoExW(hinstance: HINSTANCE, lpszclass: PCWSTR, lpwcx: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetClassInfoExW(hinstance.toString(), lpszclass.toString(), lpwcx.toString()) as Int) else 0
+public actual fun getClassInfoExW(hinstance: Hinstance, lpszclass: Pcwstr, lpwcx: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getClassInfoExW((hinstance?.value ?: 0L).toString(), (lpszclass?.value ?: 0L).toString(), (lpwcx?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetClassInfoW(hinstance: HINSTANCE, lpclassname: PCWSTR, lpwndclass: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetClassInfoW(hinstance.toString(), lpclassname.toString(), lpwndclass.toString()) as Int) else 0
+public actual fun getClassInfoW(hinstance: Hinstance, lpclassname: Pcwstr, lpwndclass: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getClassInfoW((hinstance?.value ?: 0L).toString(), (lpclassname?.value ?: 0L).toString(), (lpwndclass?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetClassLongA(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX): UInt =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetClassLongA(hwnd.toString(), nindex) as Int).toUInt() else 0u
+public actual fun getClassLongA(hwnd: Hwnd, nindex: GetClassLongIndex): UInt =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getClassLongA((hwnd?.value ?: 0L).toString(), nindex) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetClassLongPtrA(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX): ULong =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetClassLongPtrA(hwnd.toString(), nindex) as String).toULong() else 0uL
+public actual fun getClassLongPtrA(hwnd: Hwnd, nindex: GetClassLongIndex): ULong =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getClassLongPtrA((hwnd?.value ?: 0L).toString(), nindex) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetClassLongPtrW(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX): ULong =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetClassLongPtrW(hwnd.toString(), nindex) as String).toULong() else 0uL
+public actual fun getClassLongPtrW(hwnd: Hwnd, nindex: GetClassLongIndex): ULong =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getClassLongPtrW((hwnd?.value ?: 0L).toString(), nindex) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetClassLongW(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX): UInt =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetClassLongW(hwnd.toString(), nindex) as Int).toUInt() else 0u
+public actual fun getClassLongW(hwnd: Hwnd, nindex: GetClassLongIndex): UInt =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getClassLongW((hwnd?.value ?: 0L).toString(), nindex) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetClassNameA(hwnd: HWND, lpclassname: PSTR, nmaxcount: Int): Int =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetClassNameA(hwnd.toString(), lpclassname.toString(), nmaxcount) as Int) else 0
+public actual fun getClassNameA(hwnd: Hwnd, lpclassname: Pstr, nmaxcount: Int): Int =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getClassNameA((hwnd?.value ?: 0L).toString(), (lpclassname?.value ?: 0L).toString(), nmaxcount) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetClassNameW(hwnd: HWND, lpclassname: PWSTR, nmaxcount: Int): Int =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetClassNameW(hwnd.toString(), lpclassname.toString(), nmaxcount) as Int) else 0
+public actual fun getClassNameW(hwnd: Hwnd, lpclassname: Pwstr, nmaxcount: Int): Int =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getClassNameW((hwnd?.value ?: 0L).toString(), (lpclassname?.value ?: 0L).toString(), nmaxcount) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetClassWord(hwnd: HWND, nindex: Int): UShort =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetClassWord(hwnd.toString(), nindex) as Int).toUShort() else 0u
+public actual fun getClassWord(hwnd: Hwnd, nindex: Int): UShort =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getClassWord((hwnd?.value ?: 0L).toString(), nindex) as Int).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetClientRect(hwnd: HWND, lprect: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetClientRect(hwnd.toString(), lprect.toString()) as Int) else 0
+public actual fun getClientRect(hwnd: Hwnd, lprect: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getClientRect((hwnd?.value ?: 0L).toString(), (lprect?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetClipCursor(lprect: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetClipCursor(lprect.toString()) as Int) else 0
+public actual fun getClipCursor(lprect: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getClipCursor((lprect?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCursor(): HCURSOR =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetCursor() as String).toLong() else 0L
+public actual fun getCursor(): Hcursor =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getCursor() as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCursorInfo(pci: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetCursorInfo(pci.toString()) as Int) else 0
+public actual fun getCursorInfo(pci: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getCursorInfo((pci?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCursorPos(lppoint: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetCursorPos(lppoint.toString()) as Int) else 0
+public actual fun getCursorPos(lppoint: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getCursorPos((lppoint?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetDesktopWindow(): HWND =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetDesktopWindow() as String).toLong() else 0L
+public actual fun getDesktopWindow(): Hwnd =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getDesktopWindow() as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetDialogBaseUnits(): Int =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetDialogBaseUnits() as Int) else 0
+public actual fun getDialogBaseUnits(): Int =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getDialogBaseUnits() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetDlgCtrlID(hwnd: HWND): Int =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetDlgCtrlID(hwnd.toString()) as Int) else 0
+public actual fun getDlgCtrlID(hwnd: Hwnd): Int =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getDlgCtrlID((hwnd?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetDlgItem(hdlg: HWND, niddlgitem: Int): HWND =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetDlgItem(hdlg.toString(), niddlgitem) as String).toLong() else 0L
+public actual fun getDlgItem(hdlg: Hwnd, niddlgitem: Int): Hwnd =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getDlgItem((hdlg?.value ?: 0L).toString(), niddlgitem) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetDlgItemInt(hdlg: HWND, niddlgitem: Int, lptranslated: Long, bsigned: BOOL): UInt =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetDlgItemInt(hdlg.toString(), niddlgitem, lptranslated.toString(), bsigned) as Int).toUInt() else 0u
+public actual fun getDlgItemInt(hdlg: Hwnd, niddlgitem: Int, lptranslated: COpaquePointer?, bsigned: Bool): UInt =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getDlgItemInt((hdlg?.value ?: 0L).toString(), niddlgitem, (lptranslated?.value ?: 0L).toString(), bsigned) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetDlgItemTextA(hdlg: HWND, niddlgitem: Int, lpstring: PSTR, cchmax: Int): UInt =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetDlgItemTextA(hdlg.toString(), niddlgitem, lpstring.toString(), cchmax) as Int).toUInt() else 0u
+public actual fun getDlgItemTextA(hdlg: Hwnd, niddlgitem: Int, lpstring: Pstr, cchmax: Int): UInt =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getDlgItemTextA((hdlg?.value ?: 0L).toString(), niddlgitem, (lpstring?.value ?: 0L).toString(), cchmax) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetDlgItemTextW(hdlg: HWND, niddlgitem: Int, lpstring: PWSTR, cchmax: Int): UInt =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetDlgItemTextW(hdlg.toString(), niddlgitem, lpstring.toString(), cchmax) as Int).toUInt() else 0u
+public actual fun getDlgItemTextW(hdlg: Hwnd, niddlgitem: Int, lpstring: Pwstr, cchmax: Int): UInt =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getDlgItemTextW((hdlg?.value ?: 0L).toString(), niddlgitem, (lpstring?.value ?: 0L).toString(), cchmax) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetForegroundWindow(): HWND =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetForegroundWindow() as String).toLong() else 0L
+public actual fun getForegroundWindow(): Hwnd =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getForegroundWindow() as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetGUIThreadInfo(idthread: UInt, pgui: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetGUIThreadInfo(idthread.toInt(), pgui.toString()) as Int) else 0
+public actual fun getGUIThreadInfo(idthread: UInt, pgui: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getGUIThreadInfo(idthread.toInt(), (pgui?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetIconInfo(hicon: HICON, piconinfo: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetIconInfo(hicon.toString(), piconinfo.toString()) as Int) else 0
+public actual fun getIconInfo(hicon: Hicon, piconinfo: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getIconInfo((hicon?.value ?: 0L).toString(), (piconinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetIconInfoExA(hicon: HICON, piconinfo: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetIconInfoExA(hicon.toString(), piconinfo.toString()) as Int) else 0
+public actual fun getIconInfoExA(hicon: Hicon, piconinfo: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getIconInfoExA((hicon?.value ?: 0L).toString(), (piconinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetIconInfoExW(hicon: HICON, piconinfo: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetIconInfoExW(hicon.toString(), piconinfo.toString()) as Int) else 0
+public actual fun getIconInfoExW(hicon: Hicon, piconinfo: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getIconInfoExW((hicon?.value ?: 0L).toString(), (piconinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetInputState(): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetInputState() as Int) else 0
+public actual fun getInputState(): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getInputState() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetLastActivePopup(hwnd: HWND): HWND =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetLastActivePopup(hwnd.toString()) as String).toLong() else 0L
+public actual fun getLastActivePopup(hwnd: Hwnd): Hwnd =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getLastActivePopup((hwnd?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetLayeredWindowAttributes(hwnd: HWND, pcrkey: Long, pbalpha: Long, pdwflags: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetLayeredWindowAttributes(hwnd.toString(), pcrkey.toString(), pbalpha.toString(), pdwflags.toString()) as Int) else 0
+public actual fun getLayeredWindowAttributes(hwnd: Hwnd, pcrkey: COpaquePointer?, pbalpha: COpaquePointer?, pdwflags: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getLayeredWindowAttributes((hwnd?.value ?: 0L).toString(), (pcrkey?.value ?: 0L).toString(), (pbalpha?.value ?: 0L).toString(), (pdwflags?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetMenu(hwnd: HWND): HMENU =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetMenu(hwnd.toString()) as String).toLong() else 0L
+public actual fun getMenu(hwnd: Hwnd): Hmenu =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getMenu((hwnd?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetMenuBarInfo(hwnd: HWND, idobject: OBJECT_IDENTIFIER, iditem: Int, pmbi: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetMenuBarInfo(hwnd.toString(), idobject, iditem, pmbi.toString()) as Int) else 0
+public actual fun getMenuBarInfo(hwnd: Hwnd, idobject: ObjectIdentifier, iditem: Int, pmbi: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getMenuBarInfo((hwnd?.value ?: 0L).toString(), idobject, iditem, (pmbi?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetMenuCheckMarkDimensions(): Int =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetMenuCheckMarkDimensions() as Int) else 0
+public actual fun getMenuCheckMarkDimensions(): Int =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getMenuCheckMarkDimensions() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetMenuDefaultItem(hmenu: HMENU, fbypos: UInt, gmdiflags: GET_MENU_DEFAULT_ITEM_FLAGS): UInt =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetMenuDefaultItem(hmenu.toString(), fbypos.toInt(), gmdiflags.toInt()) as Int).toUInt() else 0u
+public actual fun getMenuDefaultItem(hmenu: Hmenu, fbypos: UInt, gmdiflags: GetMenuDefaultItemFlags): UInt =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getMenuDefaultItem((hmenu?.value ?: 0L).toString(), fbypos.toInt(), gmdiflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetMenuInfo(param0: HMENU, param1: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetMenuInfo(param0.toString(), param1.toString()) as Int) else 0
+public actual fun getMenuInfo(param0: Hmenu, param1: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getMenuInfo((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetMenuItemCount(hmenu: HMENU): Int =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetMenuItemCount(hmenu.toString()) as Int) else 0
+public actual fun getMenuItemCount(hmenu: Hmenu): Int =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getMenuItemCount((hmenu?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetMenuItemID(hmenu: HMENU, npos: Int): UInt =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetMenuItemID(hmenu.toString(), npos) as Int).toUInt() else 0u
+public actual fun getMenuItemID(hmenu: Hmenu, npos: Int): UInt =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getMenuItemID((hmenu?.value ?: 0L).toString(), npos) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetMenuItemInfoA(hmenu: HMENU, item: UInt, fbyposition: BOOL, lpmii: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetMenuItemInfoA(hmenu.toString(), item.toInt(), fbyposition, lpmii.toString()) as Int) else 0
+public actual fun getMenuItemInfoA(hmenu: Hmenu, item: UInt, fbyposition: Bool, lpmii: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getMenuItemInfoA((hmenu?.value ?: 0L).toString(), item.toInt(), fbyposition, (lpmii?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetMenuItemInfoW(hmenu: HMENU, item: UInt, fbyposition: BOOL, lpmii: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetMenuItemInfoW(hmenu.toString(), item.toInt(), fbyposition, lpmii.toString()) as Int) else 0
+public actual fun getMenuItemInfoW(hmenu: Hmenu, item: UInt, fbyposition: Bool, lpmii: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getMenuItemInfoW((hmenu?.value ?: 0L).toString(), item.toInt(), fbyposition, (lpmii?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetMenuItemRect(hwnd: HWND, hmenu: HMENU, uitem: UInt, lprcitem: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetMenuItemRect(hwnd.toString(), hmenu.toString(), uitem.toInt(), lprcitem.toString()) as Int) else 0
+public actual fun getMenuItemRect(hwnd: Hwnd, hmenu: Hmenu, uitem: UInt, lprcitem: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getMenuItemRect((hwnd?.value ?: 0L).toString(), (hmenu?.value ?: 0L).toString(), uitem.toInt(), (lprcitem?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetMenuState(hmenu: HMENU, uid: UInt, uflags: MENU_ITEM_FLAGS): UInt =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetMenuState(hmenu.toString(), uid.toInt(), uflags.toInt()) as Int).toUInt() else 0u
+public actual fun getMenuState(hmenu: Hmenu, uid: UInt, uflags: MenuItemFlags): UInt =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getMenuState((hmenu?.value ?: 0L).toString(), uid.toInt(), uflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetMenuStringA(hmenu: HMENU, uiditem: UInt, lpstring: PSTR, cchmax: Int, flags: MENU_ITEM_FLAGS): Int =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetMenuStringA(hmenu.toString(), uiditem.toInt(), lpstring.toString(), cchmax, flags.toInt()) as Int) else 0
+public actual fun getMenuStringA(hmenu: Hmenu, uiditem: UInt, lpstring: Pstr, cchmax: Int, flags: MenuItemFlags): Int =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getMenuStringA((hmenu?.value ?: 0L).toString(), uiditem.toInt(), (lpstring?.value ?: 0L).toString(), cchmax, flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetMenuStringW(hmenu: HMENU, uiditem: UInt, lpstring: PWSTR, cchmax: Int, flags: MENU_ITEM_FLAGS): Int =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetMenuStringW(hmenu.toString(), uiditem.toInt(), lpstring.toString(), cchmax, flags.toInt()) as Int) else 0
+public actual fun getMenuStringW(hmenu: Hmenu, uiditem: UInt, lpstring: Pwstr, cchmax: Int, flags: MenuItemFlags): Int =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getMenuStringW((hmenu?.value ?: 0L).toString(), uiditem.toInt(), (lpstring?.value ?: 0L).toString(), cchmax, flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetMessageA(lpmsg: Long, hwnd: HWND, wmsgfiltermin: UInt, wmsgfiltermax: UInt): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetMessageA(lpmsg.toString(), hwnd.toString(), wmsgfiltermin.toInt(), wmsgfiltermax.toInt()) as Int) else 0
+public actual fun getMessageA(lpmsg: COpaquePointer?, hwnd: Hwnd, wmsgfiltermin: UInt, wmsgfiltermax: UInt): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getMessageA((lpmsg?.value ?: 0L).toString(), (hwnd?.value ?: 0L).toString(), wmsgfiltermin.toInt(), wmsgfiltermax.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetMessageExtraInfo(): LPARAM =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetMessageExtraInfo() as String).toLong() else 0L
+public actual fun getMessageExtraInfo(): Lparam =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getMessageExtraInfo() as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetMessagePos(): UInt =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetMessagePos() as Int).toUInt() else 0u
+public actual fun getMessagePos(): UInt =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getMessagePos() as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetMessageTime(): Int =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetMessageTime() as Int) else 0
+public actual fun getMessageTime(): Int =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getMessageTime() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetMessageW(lpmsg: Long, hwnd: HWND, wmsgfiltermin: UInt, wmsgfiltermax: UInt): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetMessageW(lpmsg.toString(), hwnd.toString(), wmsgfiltermin.toInt(), wmsgfiltermax.toInt()) as Int) else 0
+public actual fun getMessageW(lpmsg: COpaquePointer?, hwnd: Hwnd, wmsgfiltermin: UInt, wmsgfiltermax: UInt): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getMessageW((lpmsg?.value ?: 0L).toString(), (hwnd?.value ?: 0L).toString(), wmsgfiltermin.toInt(), wmsgfiltermax.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetNextDlgGroupItem(hdlg: HWND, hctl: HWND, bprevious: BOOL): HWND =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetNextDlgGroupItem(hdlg.toString(), hctl.toString(), bprevious) as String).toLong() else 0L
+public actual fun getNextDlgGroupItem(hdlg: Hwnd, hctl: Hwnd, bprevious: Bool): Hwnd =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getNextDlgGroupItem((hdlg?.value ?: 0L).toString(), (hctl?.value ?: 0L).toString(), bprevious) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetNextDlgTabItem(hdlg: HWND, hctl: HWND, bprevious: BOOL): HWND =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetNextDlgTabItem(hdlg.toString(), hctl.toString(), bprevious) as String).toLong() else 0L
+public actual fun getNextDlgTabItem(hdlg: Hwnd, hctl: Hwnd, bprevious: Bool): Hwnd =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getNextDlgTabItem((hdlg?.value ?: 0L).toString(), (hctl?.value ?: 0L).toString(), bprevious) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetParent(hwnd: HWND): HWND =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetParent(hwnd.toString()) as String).toLong() else 0L
+public actual fun getParent(hwnd: Hwnd): Hwnd =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getParent((hwnd?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPhysicalCursorPos(lppoint: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetPhysicalCursorPos(lppoint.toString()) as Int) else 0
+public actual fun getPhysicalCursorPos(lppoint: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getPhysicalCursorPos((lppoint?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetProcessDefaultLayout(pdwdefaultlayout: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetProcessDefaultLayout(pdwdefaultlayout.toString()) as Int) else 0
+public actual fun getProcessDefaultLayout(pdwdefaultlayout: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getProcessDefaultLayout((pdwdefaultlayout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPropA(hwnd: HWND, lpstring: PCSTR): HANDLE =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetPropA(hwnd.toString(), lpstring.toString()) as String).toLong() else 0L
+public actual fun getPropA(hwnd: Hwnd, lpstring: Pcstr): Handle =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getPropA((hwnd?.value ?: 0L).toString(), (lpstring?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPropW(hwnd: HWND, lpstring: PCWSTR): HANDLE =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetPropW(hwnd.toString(), lpstring.toString()) as String).toLong() else 0L
+public actual fun getPropW(hwnd: Hwnd, lpstring: Pcwstr): Handle =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getPropW((hwnd?.value ?: 0L).toString(), (lpstring?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetQueueStatus(flags: QUEUE_STATUS_FLAGS): UInt =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetQueueStatus(flags.toInt()) as Int).toUInt() else 0u
+public actual fun getQueueStatus(flags: QueueStatusFlags): UInt =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getQueueStatus(flags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetScrollBarInfo(hwnd: HWND, idobject: OBJECT_IDENTIFIER, psbi: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetScrollBarInfo(hwnd.toString(), idobject, psbi.toString()) as Int) else 0
+public actual fun getScrollBarInfo(hwnd: Hwnd, idobject: ObjectIdentifier, psbi: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getScrollBarInfo((hwnd?.value ?: 0L).toString(), idobject, (psbi?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetScrollInfo(hwnd: HWND, nbar: SCROLLBAR_CONSTANTS, lpsi: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetScrollInfo(hwnd.toString(), nbar, lpsi.toString()) as Int) else 0
+public actual fun getScrollInfo(hwnd: Hwnd, nbar: ScrollbarConstants, lpsi: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getScrollInfo((hwnd?.value ?: 0L).toString(), nbar, (lpsi?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetScrollPos(hwnd: HWND, nbar: SCROLLBAR_CONSTANTS): Int =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetScrollPos(hwnd.toString(), nbar) as Int) else 0
+public actual fun getScrollPos(hwnd: Hwnd, nbar: ScrollbarConstants): Int =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getScrollPos((hwnd?.value ?: 0L).toString(), nbar) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetScrollRange(hwnd: HWND, nbar: SCROLLBAR_CONSTANTS, lpminpos: Long, lpmaxpos: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetScrollRange(hwnd.toString(), nbar, lpminpos.toString(), lpmaxpos.toString()) as Int) else 0
+public actual fun getScrollRange(hwnd: Hwnd, nbar: ScrollbarConstants, lpminpos: COpaquePointer?, lpmaxpos: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getScrollRange((hwnd?.value ?: 0L).toString(), nbar, (lpminpos?.value ?: 0L).toString(), (lpmaxpos?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetShellWindow(): HWND =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetShellWindow() as String).toLong() else 0L
+public actual fun getShellWindow(): Hwnd =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getShellWindow() as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetSubMenu(hmenu: HMENU, npos: Int): HMENU =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetSubMenu(hmenu.toString(), npos) as String).toLong() else 0L
+public actual fun getSubMenu(hmenu: Hmenu, npos: Int): Hmenu =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getSubMenu((hmenu?.value ?: 0L).toString(), npos) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetSystemMenu(hwnd: HWND, brevert: BOOL): HMENU =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetSystemMenu(hwnd.toString(), brevert) as String).toLong() else 0L
+public actual fun getSystemMenu(hwnd: Hwnd, brevert: Bool): Hmenu =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getSystemMenu((hwnd?.value ?: 0L).toString(), brevert) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetSystemMetrics(nindex: SYSTEM_METRICS_INDEX): Int =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetSystemMetrics(nindex) as Int) else 0
+public actual fun getSystemMetrics(nindex: SystemMetricsIndex): Int =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getSystemMetrics(nindex) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetTitleBarInfo(hwnd: HWND, pti: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetTitleBarInfo(hwnd.toString(), pti.toString()) as Int) else 0
+public actual fun getTitleBarInfo(hwnd: Hwnd, pti: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getTitleBarInfo((hwnd?.value ?: 0L).toString(), (pti?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetTopWindow(hwnd: HWND): HWND =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetTopWindow(hwnd.toString()) as String).toLong() else 0L
+public actual fun getTopWindow(hwnd: Hwnd): Hwnd =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getTopWindow((hwnd?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetWindow(hwnd: HWND, ucmd: GET_WINDOW_CMD): HWND =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetWindow(hwnd.toString(), ucmd.toInt()) as String).toLong() else 0L
+public actual fun getWindow(hwnd: Hwnd, ucmd: GetWindowCmd): Hwnd =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getWindow((hwnd?.value ?: 0L).toString(), ucmd.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetWindowDisplayAffinity(hwnd: HWND, pdwaffinity: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetWindowDisplayAffinity(hwnd.toString(), pdwaffinity.toString()) as Int) else 0
+public actual fun getWindowDisplayAffinity(hwnd: Hwnd, pdwaffinity: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getWindowDisplayAffinity((hwnd?.value ?: 0L).toString(), (pdwaffinity?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetWindowInfo(hwnd: HWND, pwi: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetWindowInfo(hwnd.toString(), pwi.toString()) as Int) else 0
+public actual fun getWindowInfo(hwnd: Hwnd, pwi: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getWindowInfo((hwnd?.value ?: 0L).toString(), (pwi?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetWindowLongA(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX): Int =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetWindowLongA(hwnd.toString(), nindex) as Int) else 0
+public actual fun getWindowLongA(hwnd: Hwnd, nindex: WindowLongPtrIndex): Int =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getWindowLongA((hwnd?.value ?: 0L).toString(), nindex) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetWindowLongPtrA(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX): Long =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetWindowLongPtrA(hwnd.toString(), nindex) as String).toLong() else 0L
+public actual fun getWindowLongPtrA(hwnd: Hwnd, nindex: WindowLongPtrIndex): Long =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getWindowLongPtrA((hwnd?.value ?: 0L).toString(), nindex) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetWindowLongPtrW(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX): Long =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetWindowLongPtrW(hwnd.toString(), nindex) as String).toLong() else 0L
+public actual fun getWindowLongPtrW(hwnd: Hwnd, nindex: WindowLongPtrIndex): Long =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getWindowLongPtrW((hwnd?.value ?: 0L).toString(), nindex) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetWindowLongW(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX): Int =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetWindowLongW(hwnd.toString(), nindex) as Int) else 0
+public actual fun getWindowLongW(hwnd: Hwnd, nindex: WindowLongPtrIndex): Int =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getWindowLongW((hwnd?.value ?: 0L).toString(), nindex) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetWindowModuleFileNameA(hwnd: HWND, pszfilename: PSTR, cchfilenamemax: UInt): UInt =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetWindowModuleFileNameA(hwnd.toString(), pszfilename.toString(), cchfilenamemax.toInt()) as Int).toUInt() else 0u
+public actual fun getWindowModuleFileNameA(hwnd: Hwnd, pszfilename: Pstr, cchfilenamemax: UInt): UInt =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getWindowModuleFileNameA((hwnd?.value ?: 0L).toString(), (pszfilename?.value ?: 0L).toString(), cchfilenamemax.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetWindowModuleFileNameW(hwnd: HWND, pszfilename: PWSTR, cchfilenamemax: UInt): UInt =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetWindowModuleFileNameW(hwnd.toString(), pszfilename.toString(), cchfilenamemax.toInt()) as Int).toUInt() else 0u
+public actual fun getWindowModuleFileNameW(hwnd: Hwnd, pszfilename: Pwstr, cchfilenamemax: UInt): UInt =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getWindowModuleFileNameW((hwnd?.value ?: 0L).toString(), (pszfilename?.value ?: 0L).toString(), cchfilenamemax.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetWindowPlacement(hwnd: HWND, lpwndpl: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetWindowPlacement(hwnd.toString(), lpwndpl.toString()) as Int) else 0
+public actual fun getWindowPlacement(hwnd: Hwnd, lpwndpl: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getWindowPlacement((hwnd?.value ?: 0L).toString(), (lpwndpl?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetWindowRect(hwnd: HWND, lprect: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetWindowRect(hwnd.toString(), lprect.toString()) as Int) else 0
+public actual fun getWindowRect(hwnd: Hwnd, lprect: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getWindowRect((hwnd?.value ?: 0L).toString(), (lprect?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetWindowTextA(hwnd: HWND, lpstring: PSTR, nmaxcount: Int): Int =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetWindowTextA(hwnd.toString(), lpstring.toString(), nmaxcount) as Int) else 0
+public actual fun getWindowTextA(hwnd: Hwnd, lpstring: Pstr, nmaxcount: Int): Int =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getWindowTextA((hwnd?.value ?: 0L).toString(), (lpstring?.value ?: 0L).toString(), nmaxcount) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetWindowTextLengthA(hwnd: HWND): Int =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetWindowTextLengthA(hwnd.toString()) as Int) else 0
+public actual fun getWindowTextLengthA(hwnd: Hwnd): Int =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getWindowTextLengthA((hwnd?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetWindowTextLengthW(hwnd: HWND): Int =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetWindowTextLengthW(hwnd.toString()) as Int) else 0
+public actual fun getWindowTextLengthW(hwnd: Hwnd): Int =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getWindowTextLengthW((hwnd?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetWindowTextW(hwnd: HWND, lpstring: PWSTR, nmaxcount: Int): Int =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetWindowTextW(hwnd.toString(), lpstring.toString(), nmaxcount) as Int) else 0
+public actual fun getWindowTextW(hwnd: Hwnd, lpstring: Pwstr, nmaxcount: Int): Int =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getWindowTextW((hwnd?.value ?: 0L).toString(), (lpstring?.value ?: 0L).toString(), nmaxcount) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetWindowThreadProcessId(hwnd: HWND, lpdwprocessid: Long): UInt =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetWindowThreadProcessId(hwnd.toString(), lpdwprocessid.toString()) as Int).toUInt() else 0u
+public actual fun getWindowThreadProcessId(hwnd: Hwnd, lpdwprocessid: COpaquePointer?): UInt =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getWindowThreadProcessId((hwnd?.value ?: 0L).toString(), (lpdwprocessid?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetWindowWord(hwnd: HWND, nindex: Int): UShort =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_GetWindowWord(hwnd.toString(), nindex) as Int).toUShort() else 0u
+public actual fun getWindowWord(hwnd: Hwnd, nindex: Int): UShort =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_getWindowWord((hwnd?.value ?: 0L).toString(), nindex) as Int).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HideCaret(hwnd: HWND): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_HideCaret(hwnd.toString()) as Int) else 0
+public actual fun hideCaret(hwnd: Hwnd): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_hideCaret((hwnd?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HiliteMenuItem(hwnd: HWND, hmenu: HMENU, uidhiliteitem: UInt, uhilite: UInt): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_HiliteMenuItem(hwnd.toString(), hmenu.toString(), uidhiliteitem.toInt(), uhilite.toInt()) as Int) else 0
+public actual fun hiliteMenuItem(hwnd: Hwnd, hmenu: Hmenu, uidhiliteitem: UInt, uhilite: UInt): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_hiliteMenuItem((hwnd?.value ?: 0L).toString(), (hmenu?.value ?: 0L).toString(), uidhiliteitem.toInt(), uhilite.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InSendMessage(): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_InSendMessage() as Int) else 0
+public actual fun inSendMessage(): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_inSendMessage() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InSendMessageEx(lpreserved: Long): UInt =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_InSendMessageEx(lpreserved.toString()) as Int).toUInt() else 0u
+public actual fun inSendMessageEx(lpreserved: COpaquePointer?): UInt =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_inSendMessageEx((lpreserved?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IndexFilePath(resourceindexer: Long, filepath: PCWSTR, ppresourceuri: Long, pqualifiercount: Long, ppqualifiers: Long): HRESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_IndexFilePath(resourceindexer.toString(), filepath.toString(), ppresourceuri.toString(), pqualifiercount.toString(), ppqualifiers.toString()) as Int) else 0
+public actual fun indexFilePath(resourceindexer: COpaquePointer?, filepath: Pcwstr, ppresourceuri: COpaquePointer?, pqualifiercount: COpaquePointer?, ppqualifiers: COpaquePointer?): Hresult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_indexFilePath((resourceindexer?.value ?: 0L).toString(), (filepath?.value ?: 0L).toString(), (ppresourceuri?.value ?: 0L).toString(), (pqualifiercount?.value ?: 0L).toString(), (ppqualifiers?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InheritWindowMonitor(hwnd: HWND, hwndinherit: HWND): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_InheritWindowMonitor(hwnd.toString(), hwndinherit.toString()) as Int) else 0
+public actual fun inheritWindowMonitor(hwnd: Hwnd, hwndinherit: Hwnd): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_inheritWindowMonitor((hwnd?.value ?: 0L).toString(), (hwndinherit?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InsertMenuA(hmenu: HMENU, uposition: UInt, uflags: MENU_ITEM_FLAGS, uidnewitem: ULong, lpnewitem: PCSTR): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_InsertMenuA(hmenu.toString(), uposition.toInt(), uflags.toInt(), uidnewitem.toString(), lpnewitem.toString()) as Int) else 0
+public actual fun insertMenuA(hmenu: Hmenu, uposition: UInt, uflags: MenuItemFlags, uidnewitem: ULong, lpnewitem: Pcstr): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_insertMenuA((hmenu?.value ?: 0L).toString(), uposition.toInt(), uflags.toInt(), uidnewitem.toString(), (lpnewitem?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InsertMenuItemA(hmenu: HMENU, item: UInt, fbyposition: BOOL, lpmi: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_InsertMenuItemA(hmenu.toString(), item.toInt(), fbyposition, lpmi.toString()) as Int) else 0
+public actual fun insertMenuItemA(hmenu: Hmenu, item: UInt, fbyposition: Bool, lpmi: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_insertMenuItemA((hmenu?.value ?: 0L).toString(), item.toInt(), fbyposition, (lpmi?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InsertMenuItemW(hmenu: HMENU, item: UInt, fbyposition: BOOL, lpmi: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_InsertMenuItemW(hmenu.toString(), item.toInt(), fbyposition, lpmi.toString()) as Int) else 0
+public actual fun insertMenuItemW(hmenu: Hmenu, item: UInt, fbyposition: Bool, lpmi: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_insertMenuItemW((hmenu?.value ?: 0L).toString(), item.toInt(), fbyposition, (lpmi?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InsertMenuW(hmenu: HMENU, uposition: UInt, uflags: MENU_ITEM_FLAGS, uidnewitem: ULong, lpnewitem: PCWSTR): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_InsertMenuW(hmenu.toString(), uposition.toInt(), uflags.toInt(), uidnewitem.toString(), lpnewitem.toString()) as Int) else 0
+public actual fun insertMenuW(hmenu: Hmenu, uposition: UInt, uflags: MenuItemFlags, uidnewitem: ULong, lpnewitem: Pcwstr): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_insertMenuW((hmenu?.value ?: 0L).toString(), uposition.toInt(), uflags.toInt(), uidnewitem.toString(), (lpnewitem?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InternalGetWindowText(hwnd: HWND, pstring: PWSTR, cchmaxcount: Int): Int =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_InternalGetWindowText(hwnd.toString(), pstring.toString(), cchmaxcount) as Int) else 0
+public actual fun internalGetWindowText(hwnd: Hwnd, pstring: Pwstr, cchmaxcount: Int): Int =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_internalGetWindowText((hwnd?.value ?: 0L).toString(), (pstring?.value ?: 0L).toString(), cchmaxcount) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsCharAlphaA(ch: Byte): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_IsCharAlphaA(ch.toInt()) as Int) else 0
+public actual fun isCharAlphaA(ch: Byte): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_isCharAlphaA(ch.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsCharAlphaNumericA(ch: Byte): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_IsCharAlphaNumericA(ch.toInt()) as Int) else 0
+public actual fun isCharAlphaNumericA(ch: Byte): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_isCharAlphaNumericA(ch.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsCharAlphaNumericW(ch: UShort): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_IsCharAlphaNumericW(ch.toInt()) as Int) else 0
+public actual fun isCharAlphaNumericW(ch: UShort): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_isCharAlphaNumericW(ch.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsCharAlphaW(ch: UShort): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_IsCharAlphaW(ch.toInt()) as Int) else 0
+public actual fun isCharAlphaW(ch: UShort): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_isCharAlphaW(ch.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsCharLowerA(ch: Byte): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_IsCharLowerA(ch.toInt()) as Int) else 0
+public actual fun isCharLowerA(ch: Byte): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_isCharLowerA(ch.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsCharUpperA(ch: Byte): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_IsCharUpperA(ch.toInt()) as Int) else 0
+public actual fun isCharUpperA(ch: Byte): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_isCharUpperA(ch.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsCharUpperW(ch: UShort): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_IsCharUpperW(ch.toInt()) as Int) else 0
+public actual fun isCharUpperW(ch: UShort): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_isCharUpperW(ch.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsChild(hwndparent: HWND, hwnd: HWND): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_IsChild(hwndparent.toString(), hwnd.toString()) as Int) else 0
+public actual fun isChild(hwndparent: Hwnd, hwnd: Hwnd): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_isChild((hwndparent?.value ?: 0L).toString(), (hwnd?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsDialogMessageA(hdlg: HWND, lpmsg: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_IsDialogMessageA(hdlg.toString(), lpmsg.toString()) as Int) else 0
+public actual fun isDialogMessageA(hdlg: Hwnd, lpmsg: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_isDialogMessageA((hdlg?.value ?: 0L).toString(), (lpmsg?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsDialogMessageW(hdlg: HWND, lpmsg: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_IsDialogMessageW(hdlg.toString(), lpmsg.toString()) as Int) else 0
+public actual fun isDialogMessageW(hdlg: Hwnd, lpmsg: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_isDialogMessageW((hdlg?.value ?: 0L).toString(), (lpmsg?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsGUIThread(bconvert: BOOL): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_IsGUIThread(bconvert) as Int) else 0
+public actual fun isGUIThread(bconvert: Bool): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_isGUIThread(bconvert) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsHungAppWindow(hwnd: HWND): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_IsHungAppWindow(hwnd.toString()) as Int) else 0
+public actual fun isHungAppWindow(hwnd: Hwnd): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_isHungAppWindow((hwnd?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsIconic(hwnd: HWND): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_IsIconic(hwnd.toString()) as Int) else 0
+public actual fun isIconic(hwnd: Hwnd): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_isIconic((hwnd?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsMenu(hmenu: HMENU): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_IsMenu(hmenu.toString()) as Int) else 0
+public actual fun isMenu(hmenu: Hmenu): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_isMenu((hmenu?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsProcessDPIAware(): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_IsProcessDPIAware() as Int) else 0
+public actual fun isProcessDPIAware(): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_isProcessDPIAware() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsWindow(hwnd: HWND): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_IsWindow(hwnd.toString()) as Int) else 0
+public actual fun isWindow(hwnd: Hwnd): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_isWindow((hwnd?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsWindowArranged(hwnd: HWND): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_IsWindowArranged(hwnd.toString()) as Int) else 0
+public actual fun isWindowArranged(hwnd: Hwnd): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_isWindowArranged((hwnd?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsWindowUnicode(hwnd: HWND): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_IsWindowUnicode(hwnd.toString()) as Int) else 0
+public actual fun isWindowUnicode(hwnd: Hwnd): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_isWindowUnicode((hwnd?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsWindowVisible(hwnd: HWND): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_IsWindowVisible(hwnd.toString()) as Int) else 0
+public actual fun isWindowVisible(hwnd: Hwnd): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_isWindowVisible((hwnd?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsWow64Message(): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_IsWow64Message() as Int) else 0
+public actual fun isWow64Message(): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_isWow64Message() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsZoomed(hwnd: HWND): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_IsZoomed(hwnd.toString()) as Int) else 0
+public actual fun isZoomed(hwnd: Hwnd): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_isZoomed((hwnd?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun KillTimer(hwnd: HWND, uidevent: ULong): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_KillTimer(hwnd.toString(), uidevent.toString()) as Int) else 0
+public actual fun killTimer(hwnd: Hwnd, uidevent: ULong): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_killTimer((hwnd?.value ?: 0L).toString(), uidevent.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LoadAcceleratorsA(hinstance: HINSTANCE, lptablename: PCSTR): HACCEL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_LoadAcceleratorsA(hinstance.toString(), lptablename.toString()) as String).toLong() else 0L
+public actual fun loadAcceleratorsA(hinstance: Hinstance, lptablename: Pcstr): Haccel =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_loadAcceleratorsA((hinstance?.value ?: 0L).toString(), (lptablename?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LoadAcceleratorsW(hinstance: HINSTANCE, lptablename: PCWSTR): HACCEL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_LoadAcceleratorsW(hinstance.toString(), lptablename.toString()) as String).toLong() else 0L
+public actual fun loadAcceleratorsW(hinstance: Hinstance, lptablename: Pcwstr): Haccel =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_loadAcceleratorsW((hinstance?.value ?: 0L).toString(), (lptablename?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LoadCursorA(hinstance: HINSTANCE, lpcursorname: PCSTR): HCURSOR =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_LoadCursorA(hinstance.toString(), lpcursorname.toString()) as String).toLong() else 0L
+public actual fun loadCursorA(hinstance: Hinstance, lpcursorname: Pcstr): Hcursor =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_loadCursorA((hinstance?.value ?: 0L).toString(), (lpcursorname?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LoadCursorFromFileA(lpfilename: PCSTR): HCURSOR =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_LoadCursorFromFileA(lpfilename.toString()) as String).toLong() else 0L
+public actual fun loadCursorFromFileA(lpfilename: Pcstr): Hcursor =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_loadCursorFromFileA((lpfilename?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LoadCursorFromFileW(lpfilename: PCWSTR): HCURSOR =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_LoadCursorFromFileW(lpfilename.toString()) as String).toLong() else 0L
+public actual fun loadCursorFromFileW(lpfilename: Pcwstr): Hcursor =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_loadCursorFromFileW((lpfilename?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LoadCursorW(hinstance: HINSTANCE, lpcursorname: PCWSTR): HCURSOR =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_LoadCursorW(hinstance.toString(), lpcursorname.toString()) as String).toLong() else 0L
+public actual fun loadCursorW(hinstance: Hinstance, lpcursorname: Pcwstr): Hcursor =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_loadCursorW((hinstance?.value ?: 0L).toString(), (lpcursorname?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LoadIconA(hinstance: HINSTANCE, lpiconname: PCSTR): HICON =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_LoadIconA(hinstance.toString(), lpiconname.toString()) as String).toLong() else 0L
+public actual fun loadIconA(hinstance: Hinstance, lpiconname: Pcstr): Hicon =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_loadIconA((hinstance?.value ?: 0L).toString(), (lpiconname?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LoadIconW(hinstance: HINSTANCE, lpiconname: PCWSTR): HICON =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_LoadIconW(hinstance.toString(), lpiconname.toString()) as String).toLong() else 0L
+public actual fun loadIconW(hinstance: Hinstance, lpiconname: Pcwstr): Hicon =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_loadIconW((hinstance?.value ?: 0L).toString(), (lpiconname?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LoadImageA(hinst: HINSTANCE, name: PCSTR, type: GDI_IMAGE_TYPE, cx: Int, cy: Int, fuload: IMAGE_FLAGS): HANDLE =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_LoadImageA(hinst.toString(), name.toString(), type.toInt(), cx, cy, fuload.toInt()) as String).toLong() else 0L
+public actual fun loadImageA(hinst: Hinstance, name: Pcstr, type: GdiImageType, cx: Int, cy: Int, fuload: ImageFlags): Handle =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_loadImageA((hinst?.value ?: 0L).toString(), (name?.value ?: 0L).toString(), type.toInt(), cx, cy, fuload.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LoadImageW(hinst: HINSTANCE, name: PCWSTR, type: GDI_IMAGE_TYPE, cx: Int, cy: Int, fuload: IMAGE_FLAGS): HANDLE =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_LoadImageW(hinst.toString(), name.toString(), type.toInt(), cx, cy, fuload.toInt()) as String).toLong() else 0L
+public actual fun loadImageW(hinst: Hinstance, name: Pcwstr, type: GdiImageType, cx: Int, cy: Int, fuload: ImageFlags): Handle =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_loadImageW((hinst?.value ?: 0L).toString(), (name?.value ?: 0L).toString(), type.toInt(), cx, cy, fuload.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LoadMenuA(hinstance: HINSTANCE, lpmenuname: PCSTR): HMENU =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_LoadMenuA(hinstance.toString(), lpmenuname.toString()) as String).toLong() else 0L
+public actual fun loadMenuA(hinstance: Hinstance, lpmenuname: Pcstr): Hmenu =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_loadMenuA((hinstance?.value ?: 0L).toString(), (lpmenuname?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LoadMenuIndirectA(lpmenutemplate: Long): HMENU =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_LoadMenuIndirectA(lpmenutemplate.toString()) as String).toLong() else 0L
+public actual fun loadMenuIndirectA(lpmenutemplate: COpaquePointer?): Hmenu =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_loadMenuIndirectA((lpmenutemplate?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LoadMenuIndirectW(lpmenutemplate: Long): HMENU =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_LoadMenuIndirectW(lpmenutemplate.toString()) as String).toLong() else 0L
+public actual fun loadMenuIndirectW(lpmenutemplate: COpaquePointer?): Hmenu =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_loadMenuIndirectW((lpmenutemplate?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LoadMenuW(hinstance: HINSTANCE, lpmenuname: PCWSTR): HMENU =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_LoadMenuW(hinstance.toString(), lpmenuname.toString()) as String).toLong() else 0L
+public actual fun loadMenuW(hinstance: Hinstance, lpmenuname: Pcwstr): Hmenu =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_loadMenuW((hinstance?.value ?: 0L).toString(), (lpmenuname?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LoadStringA(hinstance: HINSTANCE, uid: UInt, lpbuffer: PSTR, cchbuffermax: Int): Int =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_LoadStringA(hinstance.toString(), uid.toInt(), lpbuffer.toString(), cchbuffermax) as Int) else 0
+public actual fun loadStringA(hinstance: Hinstance, uid: UInt, lpbuffer: Pstr, cchbuffermax: Int): Int =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_loadStringA((hinstance?.value ?: 0L).toString(), uid.toInt(), (lpbuffer?.value ?: 0L).toString(), cchbuffermax) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LoadStringW(hinstance: HINSTANCE, uid: UInt, lpbuffer: PWSTR, cchbuffermax: Int): Int =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_LoadStringW(hinstance.toString(), uid.toInt(), lpbuffer.toString(), cchbuffermax) as Int) else 0
+public actual fun loadStringW(hinstance: Hinstance, uid: UInt, lpbuffer: Pwstr, cchbuffermax: Int): Int =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_loadStringW((hinstance?.value ?: 0L).toString(), uid.toInt(), (lpbuffer?.value ?: 0L).toString(), cchbuffermax) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LockSetForegroundWindow(ulockcode: FOREGROUND_WINDOW_LOCK_CODE): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_LockSetForegroundWindow(ulockcode.toInt()) as Int) else 0
+public actual fun lockSetForegroundWindow(ulockcode: ForegroundWindowLockCode): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_lockSetForegroundWindow(ulockcode.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LogicalToPhysicalPoint(hwnd: HWND, lppoint: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_LogicalToPhysicalPoint(hwnd.toString(), lppoint.toString()) as Int) else 0
+public actual fun logicalToPhysicalPoint(hwnd: Hwnd, lppoint: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_logicalToPhysicalPoint((hwnd?.value ?: 0L).toString(), (lppoint?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LookupIconIdFromDirectory(presbits: Long, ficon: BOOL): Int =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_LookupIconIdFromDirectory(presbits.toString(), ficon) as Int) else 0
+public actual fun lookupIconIdFromDirectory(presbits: COpaquePointer?, ficon: Bool): Int =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_lookupIconIdFromDirectory((presbits?.value ?: 0L).toString(), ficon) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LookupIconIdFromDirectoryEx(presbits: Long, ficon: BOOL, cxdesired: Int, cydesired: Int, flags: IMAGE_FLAGS): Int =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_LookupIconIdFromDirectoryEx(presbits.toString(), ficon, cxdesired, cydesired, flags.toInt()) as Int) else 0
+public actual fun lookupIconIdFromDirectoryEx(presbits: COpaquePointer?, ficon: Bool, cxdesired: Int, cydesired: Int, flags: ImageFlags): Int =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_lookupIconIdFromDirectoryEx((presbits?.value ?: 0L).toString(), ficon, cxdesired, cydesired, flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MapDialogRect(hdlg: HWND, lprect: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_MapDialogRect(hdlg.toString(), lprect.toString()) as Int) else 0
+public actual fun mapDialogRect(hdlg: Hwnd, lprect: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_mapDialogRect((hdlg?.value ?: 0L).toString(), (lprect?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MenuItemFromPoint(hwnd: HWND, hmenu: HMENU, ptscreen: POINT): Int =
-    0
+public actual fun menuItemFromPoint(hwnd: Hwnd, hmenu: Hmenu, ptscreen: Point): Int =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MessageBoxA(hwnd: HWND, lptext: PCSTR, lpcaption: PCSTR, utype: MESSAGEBOX_STYLE): MESSAGEBOX_RESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_MessageBoxA(hwnd.toString(), lptext.toString(), lpcaption.toString(), utype.toInt()) as Int) else 0
+public actual fun messageBoxA(hwnd: Hwnd, lptext: Pcstr, lpcaption: Pcstr, utype: MessageboxStyle): MessageboxResult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_messageBoxA((hwnd?.value ?: 0L).toString(), (lptext?.value ?: 0L).toString(), (lpcaption?.value ?: 0L).toString(), utype.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MessageBoxExA(hwnd: HWND, lptext: PCSTR, lpcaption: PCSTR, utype: MESSAGEBOX_STYLE, wlanguageid: UShort): MESSAGEBOX_RESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_MessageBoxExA(hwnd.toString(), lptext.toString(), lpcaption.toString(), utype.toInt(), wlanguageid.toInt()) as Int) else 0
+public actual fun messageBoxExA(hwnd: Hwnd, lptext: Pcstr, lpcaption: Pcstr, utype: MessageboxStyle, wlanguageid: UShort): MessageboxResult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_messageBoxExA((hwnd?.value ?: 0L).toString(), (lptext?.value ?: 0L).toString(), (lpcaption?.value ?: 0L).toString(), utype.toInt(), wlanguageid.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MessageBoxExW(hwnd: HWND, lptext: PCWSTR, lpcaption: PCWSTR, utype: MESSAGEBOX_STYLE, wlanguageid: UShort): MESSAGEBOX_RESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_MessageBoxExW(hwnd.toString(), lptext.toString(), lpcaption.toString(), utype.toInt(), wlanguageid.toInt()) as Int) else 0
+public actual fun messageBoxExW(hwnd: Hwnd, lptext: Pcwstr, lpcaption: Pcwstr, utype: MessageboxStyle, wlanguageid: UShort): MessageboxResult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_messageBoxExW((hwnd?.value ?: 0L).toString(), (lptext?.value ?: 0L).toString(), (lpcaption?.value ?: 0L).toString(), utype.toInt(), wlanguageid.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MessageBoxIndirectA(lpmbp: Long): MESSAGEBOX_RESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_MessageBoxIndirectA(lpmbp.toString()) as Int) else 0
+public actual fun messageBoxIndirectA(lpmbp: COpaquePointer?): MessageboxResult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_messageBoxIndirectA((lpmbp?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MessageBoxIndirectW(lpmbp: Long): MESSAGEBOX_RESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_MessageBoxIndirectW(lpmbp.toString()) as Int) else 0
+public actual fun messageBoxIndirectW(lpmbp: COpaquePointer?): MessageboxResult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_messageBoxIndirectW((lpmbp?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MessageBoxW(hwnd: HWND, lptext: PCWSTR, lpcaption: PCWSTR, utype: MESSAGEBOX_STYLE): MESSAGEBOX_RESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_MessageBoxW(hwnd.toString(), lptext.toString(), lpcaption.toString(), utype.toInt()) as Int) else 0
+public actual fun messageBoxW(hwnd: Hwnd, lptext: Pcwstr, lpcaption: Pcwstr, utype: MessageboxStyle): MessageboxResult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_messageBoxW((hwnd?.value ?: 0L).toString(), (lptext?.value ?: 0L).toString(), (lpcaption?.value ?: 0L).toString(), utype.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ModifyMenuA(hmnu: HMENU, uposition: UInt, uflags: MENU_ITEM_FLAGS, uidnewitem: ULong, lpnewitem: PCSTR): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_ModifyMenuA(hmnu.toString(), uposition.toInt(), uflags.toInt(), uidnewitem.toString(), lpnewitem.toString()) as Int) else 0
+public actual fun modifyMenuA(hmnu: Hmenu, uposition: UInt, uflags: MenuItemFlags, uidnewitem: ULong, lpnewitem: Pcstr): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_modifyMenuA((hmnu?.value ?: 0L).toString(), uposition.toInt(), uflags.toInt(), uidnewitem.toString(), (lpnewitem?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ModifyMenuW(hmnu: HMENU, uposition: UInt, uflags: MENU_ITEM_FLAGS, uidnewitem: ULong, lpnewitem: PCWSTR): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_ModifyMenuW(hmnu.toString(), uposition.toInt(), uflags.toInt(), uidnewitem.toString(), lpnewitem.toString()) as Int) else 0
+public actual fun modifyMenuW(hmnu: Hmenu, uposition: UInt, uflags: MenuItemFlags, uidnewitem: ULong, lpnewitem: Pcwstr): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_modifyMenuW((hmnu?.value ?: 0L).toString(), uposition.toInt(), uflags.toInt(), uidnewitem.toString(), (lpnewitem?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MoveWindow(hwnd: HWND, x: Int, y: Int, nwidth: Int, nheight: Int, brepaint: BOOL): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_MoveWindow(hwnd.toString(), x, y, nwidth, nheight, brepaint) as Int) else 0
+public actual fun moveWindow(hwnd: Hwnd, x: Int, y: Int, nwidth: Int, nheight: Int, brepaint: Bool): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_moveWindow((hwnd?.value ?: 0L).toString(), x, y, nwidth, nheight, brepaint) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MrmCreateConfig(platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, outputxmlfile: PCWSTR): HRESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_MrmCreateConfig(platformversion, defaultqualifiers.toString(), outputxmlfile.toString()) as Int) else 0
+public actual fun mrmCreateConfig(platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, outputxmlfile: Pcwstr): Hresult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_mrmCreateConfig(platformversion, (defaultqualifiers?.value ?: 0L).toString(), (outputxmlfile?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MrmCreateConfigInMemory(platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, outputxmldata: Long, outputxmlsize: Long): HRESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_MrmCreateConfigInMemory(platformversion, defaultqualifiers.toString(), outputxmldata.toString(), outputxmlsize.toString()) as Int) else 0
+public actual fun mrmCreateConfigInMemory(platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, outputxmldata: COpaquePointer?, outputxmlsize: COpaquePointer?): Hresult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_mrmCreateConfigInMemory(platformversion, (defaultqualifiers?.value ?: 0L).toString(), (outputxmldata?.value ?: 0L).toString(), (outputxmlsize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MrmCreateResourceFile(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputdirectory: PCWSTR): HRESULT =
-    0
+public actual fun mrmCreateResourceFile(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputdirectory: Pcwstr): Hresult =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MrmCreateResourceFileInMemory(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputpridata: Long, outputprisize: Long): HRESULT =
-    0
+public actual fun mrmCreateResourceFileInMemory(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, outputpridata: COpaquePointer?, outputprisize: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MrmCreateResourceFileWithChecksum(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, checksum: UInt, outputdirectory: PCWSTR): HRESULT =
-    0
+public actual fun mrmCreateResourceFileWithChecksum(indexer: MrmResourceIndexerHandle, packagingmode: MrmPackagingMode, packagingoptions: MrmPackagingOptions, checksum: UInt, outputdirectory: Pcwstr): Hresult =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MrmCreateResourceIndexer(packagefamilyname: PCWSTR, projectroot: PCWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, indexer: Long): HRESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_MrmCreateResourceIndexer(packagefamilyname.toString(), projectroot.toString(), platformversion, defaultqualifiers.toString(), indexer.toString()) as Int) else 0
+public actual fun mrmCreateResourceIndexer(packagefamilyname: Pcwstr, projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, indexer: COpaquePointer?): Hresult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_mrmCreateResourceIndexer((packagefamilyname?.value ?: 0L).toString(), (projectroot?.value ?: 0L).toString(), platformversion, (defaultqualifiers?.value ?: 0L).toString(), (indexer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MrmCreateResourceIndexerFromPreviousPriData(projectroot: PCWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, pridata: Long, prisize: UInt, indexer: Long): HRESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_MrmCreateResourceIndexerFromPreviousPriData(projectroot.toString(), platformversion, defaultqualifiers.toString(), pridata.toString(), prisize.toInt(), indexer.toString()) as Int) else 0
+public actual fun mrmCreateResourceIndexerFromPreviousPriData(projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, pridata: COpaquePointer?, prisize: UInt, indexer: COpaquePointer?): Hresult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_mrmCreateResourceIndexerFromPreviousPriData((projectroot?.value ?: 0L).toString(), platformversion, (defaultqualifiers?.value ?: 0L).toString(), (pridata?.value ?: 0L).toString(), prisize.toInt(), (indexer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MrmCreateResourceIndexerFromPreviousPriFile(projectroot: PCWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, prifile: PCWSTR, indexer: Long): HRESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_MrmCreateResourceIndexerFromPreviousPriFile(projectroot.toString(), platformversion, defaultqualifiers.toString(), prifile.toString(), indexer.toString()) as Int) else 0
+public actual fun mrmCreateResourceIndexerFromPreviousPriFile(projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, prifile: Pcwstr, indexer: COpaquePointer?): Hresult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_mrmCreateResourceIndexerFromPreviousPriFile((projectroot?.value ?: 0L).toString(), platformversion, (defaultqualifiers?.value ?: 0L).toString(), (prifile?.value ?: 0L).toString(), (indexer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MrmCreateResourceIndexerFromPreviousSchemaData(projectroot: PCWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, schemaxmldata: Long, schemaxmlsize: UInt, indexer: Long): HRESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_MrmCreateResourceIndexerFromPreviousSchemaData(projectroot.toString(), platformversion, defaultqualifiers.toString(), schemaxmldata.toString(), schemaxmlsize.toInt(), indexer.toString()) as Int) else 0
+public actual fun mrmCreateResourceIndexerFromPreviousSchemaData(projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, schemaxmldata: COpaquePointer?, schemaxmlsize: UInt, indexer: COpaquePointer?): Hresult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_mrmCreateResourceIndexerFromPreviousSchemaData((projectroot?.value ?: 0L).toString(), platformversion, (defaultqualifiers?.value ?: 0L).toString(), (schemaxmldata?.value ?: 0L).toString(), schemaxmlsize.toInt(), (indexer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MrmCreateResourceIndexerFromPreviousSchemaFile(projectroot: PCWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, schemafile: PCWSTR, indexer: Long): HRESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_MrmCreateResourceIndexerFromPreviousSchemaFile(projectroot.toString(), platformversion, defaultqualifiers.toString(), schemafile.toString(), indexer.toString()) as Int) else 0
+public actual fun mrmCreateResourceIndexerFromPreviousSchemaFile(projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, schemafile: Pcwstr, indexer: COpaquePointer?): Hresult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_mrmCreateResourceIndexerFromPreviousSchemaFile((projectroot?.value ?: 0L).toString(), platformversion, (defaultqualifiers?.value ?: 0L).toString(), (schemafile?.value ?: 0L).toString(), (indexer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MrmCreateResourceIndexerWithFlags(packagefamilyname: PCWSTR, projectroot: PCWSTR, platformversion: MrmPlatformVersion, defaultqualifiers: PCWSTR, flags: MrmIndexerFlags, indexer: Long): HRESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_MrmCreateResourceIndexerWithFlags(packagefamilyname.toString(), projectroot.toString(), platformversion, defaultqualifiers.toString(), flags, indexer.toString()) as Int) else 0
+public actual fun mrmCreateResourceIndexerWithFlags(packagefamilyname: Pcwstr, projectroot: Pcwstr, platformversion: MrmPlatformVersion, defaultqualifiers: Pcwstr, flags: MrmIndexerFlags, indexer: COpaquePointer?): Hresult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_mrmCreateResourceIndexerWithFlags((packagefamilyname?.value ?: 0L).toString(), (projectroot?.value ?: 0L).toString(), platformversion, (defaultqualifiers?.value ?: 0L).toString(), flags, (indexer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MrmDestroyIndexerAndMessages(indexer: MrmResourceIndexerHandle): HRESULT =
-    0
+public actual fun mrmDestroyIndexerAndMessages(indexer: MrmResourceIndexerHandle): Hresult =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MrmDumpPriDataInMemory(inputpridata: Long, inputprisize: UInt, schemapridata: Long, schemaprisize: UInt, dumptype: MrmDumpType, outputxmldata: Long, outputxmlsize: Long): HRESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_MrmDumpPriDataInMemory(inputpridata.toString(), inputprisize.toInt(), schemapridata.toString(), schemaprisize.toInt(), dumptype, outputxmldata.toString(), outputxmlsize.toString()) as Int) else 0
+public actual fun mrmDumpPriDataInMemory(inputpridata: COpaquePointer?, inputprisize: UInt, schemapridata: COpaquePointer?, schemaprisize: UInt, dumptype: MrmDumpType, outputxmldata: COpaquePointer?, outputxmlsize: COpaquePointer?): Hresult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_mrmDumpPriDataInMemory((inputpridata?.value ?: 0L).toString(), inputprisize.toInt(), (schemapridata?.value ?: 0L).toString(), schemaprisize.toInt(), dumptype, (outputxmldata?.value ?: 0L).toString(), (outputxmlsize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MrmDumpPriFile(indexfilename: PCWSTR, schemaprifile: PCWSTR, dumptype: MrmDumpType, outputxmlfile: PCWSTR): HRESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_MrmDumpPriFile(indexfilename.toString(), schemaprifile.toString(), dumptype, outputxmlfile.toString()) as Int) else 0
+public actual fun mrmDumpPriFile(indexfilename: Pcwstr, schemaprifile: Pcwstr, dumptype: MrmDumpType, outputxmlfile: Pcwstr): Hresult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_mrmDumpPriFile((indexfilename?.value ?: 0L).toString(), (schemaprifile?.value ?: 0L).toString(), dumptype, (outputxmlfile?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MrmDumpPriFileInMemory(indexfilename: PCWSTR, schemaprifile: PCWSTR, dumptype: MrmDumpType, outputxmldata: Long, outputxmlsize: Long): HRESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_MrmDumpPriFileInMemory(indexfilename.toString(), schemaprifile.toString(), dumptype, outputxmldata.toString(), outputxmlsize.toString()) as Int) else 0
+public actual fun mrmDumpPriFileInMemory(indexfilename: Pcwstr, schemaprifile: Pcwstr, dumptype: MrmDumpType, outputxmldata: COpaquePointer?, outputxmlsize: COpaquePointer?): Hresult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_mrmDumpPriFileInMemory((indexfilename?.value ?: 0L).toString(), (schemaprifile?.value ?: 0L).toString(), dumptype, (outputxmldata?.value ?: 0L).toString(), (outputxmlsize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MrmFreeMemory(data: Long): HRESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_MrmFreeMemory(data.toString()) as Int) else 0
+public actual fun mrmFreeMemory(data: COpaquePointer?): Hresult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_mrmFreeMemory((data?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MrmGetPriFileContentChecksum(prifile: PCWSTR, checksum: Long): HRESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_MrmGetPriFileContentChecksum(prifile.toString(), checksum.toString()) as Int) else 0
+public actual fun mrmGetPriFileContentChecksum(prifile: Pcwstr, checksum: COpaquePointer?): Hresult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_mrmGetPriFileContentChecksum((prifile?.value ?: 0L).toString(), (checksum?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MrmIndexEmbeddedData(indexer: MrmResourceIndexerHandle, resourceuri: PCWSTR, embeddeddata: Long, embeddeddatasize: UInt, qualifiers: PCWSTR): HRESULT =
-    0
+public actual fun mrmIndexEmbeddedData(indexer: MrmResourceIndexerHandle, resourceuri: Pcwstr, embeddeddata: COpaquePointer?, embeddeddatasize: UInt, qualifiers: Pcwstr): Hresult =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MrmIndexFile(indexer: MrmResourceIndexerHandle, resourceuri: PCWSTR, filepath: PCWSTR, qualifiers: PCWSTR): HRESULT =
-    0
+public actual fun mrmIndexFile(indexer: MrmResourceIndexerHandle, resourceuri: Pcwstr, filepath: Pcwstr, qualifiers: Pcwstr): Hresult =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MrmIndexFileAutoQualifiers(indexer: MrmResourceIndexerHandle, filepath: PCWSTR): HRESULT =
-    0
+public actual fun mrmIndexFileAutoQualifiers(indexer: MrmResourceIndexerHandle, filepath: Pcwstr): Hresult =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MrmIndexResourceContainerAutoQualifiers(indexer: MrmResourceIndexerHandle, containerpath: PCWSTR): HRESULT =
-    0
+public actual fun mrmIndexResourceContainerAutoQualifiers(indexer: MrmResourceIndexerHandle, containerpath: Pcwstr): Hresult =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MrmIndexString(indexer: MrmResourceIndexerHandle, resourceuri: PCWSTR, resourcestring: PCWSTR, qualifiers: PCWSTR): HRESULT =
-    0
+public actual fun mrmIndexString(indexer: MrmResourceIndexerHandle, resourceuri: Pcwstr, resourcestring: Pcwstr, qualifiers: Pcwstr): Hresult =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MrmPeekResourceIndexerMessages(handle: MrmResourceIndexerHandle, messages: Long, nummsgs: Long): HRESULT =
-    0
+public actual fun mrmPeekResourceIndexerMessages(handle: MrmResourceIndexerHandle, messages: COpaquePointer?, nummsgs: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MsgWaitForMultipleObjects(ncount: UInt, phandles: Long, fwaitall: BOOL, dwmilliseconds: UInt, dwwakemask: QUEUE_STATUS_FLAGS): WAIT_EVENT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_MsgWaitForMultipleObjects(ncount.toInt(), phandles.toString(), fwaitall, dwmilliseconds.toInt(), dwwakemask.toInt()) as Int).toUInt() else 0u
+public actual fun msgWaitForMultipleObjects(ncount: UInt, phandles: COpaquePointer?, fwaitall: Bool, dwmilliseconds: UInt, dwwakemask: QueueStatusFlags): WaitEvent =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_msgWaitForMultipleObjects(ncount.toInt(), (phandles?.value ?: 0L).toString(), fwaitall, dwmilliseconds.toInt(), dwwakemask.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MsgWaitForMultipleObjectsEx(ncount: UInt, phandles: Long, dwmilliseconds: UInt, dwwakemask: QUEUE_STATUS_FLAGS, dwflags: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS): WAIT_EVENT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_MsgWaitForMultipleObjectsEx(ncount.toInt(), phandles.toString(), dwmilliseconds.toInt(), dwwakemask.toInt(), dwflags.toInt()) as Int).toUInt() else 0u
+public actual fun msgWaitForMultipleObjectsEx(ncount: UInt, phandles: COpaquePointer?, dwmilliseconds: UInt, dwwakemask: QueueStatusFlags, dwflags: MsgWaitForMultipleObjectsExFlags): WaitEvent =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_msgWaitForMultipleObjectsEx(ncount.toInt(), (phandles?.value ?: 0L).toString(), dwmilliseconds.toInt(), dwwakemask.toInt(), dwflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OemToCharA(psrc: PCSTR, pdst: PSTR): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_OemToCharA(psrc.toString(), pdst.toString()) as Int) else 0
+public actual fun oemToCharA(psrc: Pcstr, pdst: Pstr): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_oemToCharA((psrc?.value ?: 0L).toString(), (pdst?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OemToCharBuffA(lpszsrc: PCSTR, lpszdst: PSTR, cchdstlength: UInt): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_OemToCharBuffA(lpszsrc.toString(), lpszdst.toString(), cchdstlength.toInt()) as Int) else 0
+public actual fun oemToCharBuffA(lpszsrc: Pcstr, lpszdst: Pstr, cchdstlength: UInt): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_oemToCharBuffA((lpszsrc?.value ?: 0L).toString(), (lpszdst?.value ?: 0L).toString(), cchdstlength.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OemToCharBuffW(lpszsrc: PCSTR, lpszdst: PWSTR, cchdstlength: UInt): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_OemToCharBuffW(lpszsrc.toString(), lpszdst.toString(), cchdstlength.toInt()) as Int) else 0
+public actual fun oemToCharBuffW(lpszsrc: Pcstr, lpszdst: Pwstr, cchdstlength: UInt): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_oemToCharBuffW((lpszsrc?.value ?: 0L).toString(), (lpszdst?.value ?: 0L).toString(), cchdstlength.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OemToCharW(psrc: PCSTR, pdst: PWSTR): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_OemToCharW(psrc.toString(), pdst.toString()) as Int) else 0
+public actual fun oemToCharW(psrc: Pcstr, pdst: Pwstr): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_oemToCharW((psrc?.value ?: 0L).toString(), (pdst?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenIcon(hwnd: HWND): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_OpenIcon(hwnd.toString()) as Int) else 0
+public actual fun openIcon(hwnd: Hwnd): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_openIcon((hwnd?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeekMessageA(lpmsg: Long, hwnd: HWND, wmsgfiltermin: UInt, wmsgfiltermax: UInt, wremovemsg: PEEK_MESSAGE_REMOVE_TYPE): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_PeekMessageA(lpmsg.toString(), hwnd.toString(), wmsgfiltermin.toInt(), wmsgfiltermax.toInt(), wremovemsg.toInt()) as Int) else 0
+public actual fun peekMessageA(lpmsg: COpaquePointer?, hwnd: Hwnd, wmsgfiltermin: UInt, wmsgfiltermax: UInt, wremovemsg: PeekMessageRemoveType): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_peekMessageA((lpmsg?.value ?: 0L).toString(), (hwnd?.value ?: 0L).toString(), wmsgfiltermin.toInt(), wmsgfiltermax.toInt(), wremovemsg.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PeekMessageW(lpmsg: Long, hwnd: HWND, wmsgfiltermin: UInt, wmsgfiltermax: UInt, wremovemsg: PEEK_MESSAGE_REMOVE_TYPE): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_PeekMessageW(lpmsg.toString(), hwnd.toString(), wmsgfiltermin.toInt(), wmsgfiltermax.toInt(), wremovemsg.toInt()) as Int) else 0
+public actual fun peekMessageW(lpmsg: COpaquePointer?, hwnd: Hwnd, wmsgfiltermin: UInt, wmsgfiltermax: UInt, wremovemsg: PeekMessageRemoveType): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_peekMessageW((lpmsg?.value ?: 0L).toString(), (hwnd?.value ?: 0L).toString(), wmsgfiltermin.toInt(), wmsgfiltermax.toInt(), wremovemsg.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PhysicalToLogicalPoint(hwnd: HWND, lppoint: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_PhysicalToLogicalPoint(hwnd.toString(), lppoint.toString()) as Int) else 0
+public actual fun physicalToLogicalPoint(hwnd: Hwnd, lppoint: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_physicalToLogicalPoint((hwnd?.value ?: 0L).toString(), (lppoint?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PostMessageA(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_PostMessageA(hwnd.toString(), msg.toInt(), wparam.toString(), lparam.toString()) as Int) else 0
+public actual fun postMessageA(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_postMessageA((hwnd?.value ?: 0L).toString(), msg.toInt(), wparam.toString(), lparam.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PostMessageW(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_PostMessageW(hwnd.toString(), msg.toInt(), wparam.toString(), lparam.toString()) as Int) else 0
+public actual fun postMessageW(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_postMessageW((hwnd?.value ?: 0L).toString(), msg.toInt(), wparam.toString(), lparam.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PostQuitMessage(nexitcode: Int) {
+public actual fun postQuitMessage(nexitcode: Int) {
     if (_windowsWin32UiWindowsandmessagingNapiAddon != null) {
-        _windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_PostQuitMessage(nexitcode)
+        _windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_postQuitMessage(nexitcode)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun PostThreadMessageA(idthread: UInt, msg: UInt, wparam: WPARAM, lparam: LPARAM): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_PostThreadMessageA(idthread.toInt(), msg.toInt(), wparam.toString(), lparam.toString()) as Int) else 0
+public actual fun postThreadMessageA(idthread: UInt, msg: UInt, wparam: Wparam, lparam: Lparam): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_postThreadMessageA(idthread.toInt(), msg.toInt(), wparam.toString(), lparam.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PostThreadMessageW(idthread: UInt, msg: UInt, wparam: WPARAM, lparam: LPARAM): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_PostThreadMessageW(idthread.toInt(), msg.toInt(), wparam.toString(), lparam.toString()) as Int) else 0
+public actual fun postThreadMessageW(idthread: UInt, msg: UInt, wparam: Wparam, lparam: Lparam): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_postThreadMessageW(idthread.toInt(), msg.toInt(), wparam.toString(), lparam.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PrivateExtractIconsA(szfilename: PCSTR, niconindex: Int, cxicon: Int, cyicon: Int, phicon: Long, piconid: Long, nicons: UInt, flags: UInt): UInt =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_PrivateExtractIconsA(szfilename.toString(), niconindex, cxicon, cyicon, phicon.toString(), piconid.toString(), nicons.toInt(), flags.toInt()) as Int).toUInt() else 0u
+public actual fun privateExtractIconsA(szfilename: Pcstr, niconindex: Int, cxicon: Int, cyicon: Int, phicon: COpaquePointer?, piconid: COpaquePointer?, nicons: UInt, flags: UInt): UInt =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_privateExtractIconsA((szfilename?.value ?: 0L).toString(), niconindex, cxicon, cyicon, (phicon?.value ?: 0L).toString(), (piconid?.value ?: 0L).toString(), nicons.toInt(), flags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PrivateExtractIconsW(szfilename: PCWSTR, niconindex: Int, cxicon: Int, cyicon: Int, phicon: Long, piconid: Long, nicons: UInt, flags: UInt): UInt =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_PrivateExtractIconsW(szfilename.toString(), niconindex, cxicon, cyicon, phicon.toString(), piconid.toString(), nicons.toInt(), flags.toInt()) as Int).toUInt() else 0u
+public actual fun privateExtractIconsW(szfilename: Pcwstr, niconindex: Int, cxicon: Int, cyicon: Int, phicon: COpaquePointer?, piconid: COpaquePointer?, nicons: UInt, flags: UInt): UInt =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_privateExtractIconsW((szfilename?.value ?: 0L).toString(), niconindex, cxicon, cyicon, (phicon?.value ?: 0L).toString(), (piconid?.value ?: 0L).toString(), nicons.toInt(), flags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RealChildWindowFromPoint(hwndparent: HWND, ptparentclientcoords: POINT): HWND =
-    0L
+public actual fun realChildWindowFromPoint(hwndparent: Hwnd, ptparentclientcoords: Point): Hwnd =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RealGetWindowClassA(hwnd: HWND, ptszclassname: PSTR, cchclassnamemax: UInt): UInt =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_RealGetWindowClassA(hwnd.toString(), ptszclassname.toString(), cchclassnamemax.toInt()) as Int).toUInt() else 0u
+public actual fun realGetWindowClassA(hwnd: Hwnd, ptszclassname: Pstr, cchclassnamemax: UInt): UInt =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_realGetWindowClassA((hwnd?.value ?: 0L).toString(), (ptszclassname?.value ?: 0L).toString(), cchclassnamemax.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RealGetWindowClassW(hwnd: HWND, ptszclassname: PWSTR, cchclassnamemax: UInt): UInt =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_RealGetWindowClassW(hwnd.toString(), ptszclassname.toString(), cchclassnamemax.toInt()) as Int).toUInt() else 0u
+public actual fun realGetWindowClassW(hwnd: Hwnd, ptszclassname: Pwstr, cchclassnamemax: UInt): UInt =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_realGetWindowClassW((hwnd?.value ?: 0L).toString(), (ptszclassname?.value ?: 0L).toString(), cchclassnamemax.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RegisterClassA(lpwndclass: Long): UShort =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_RegisterClassA(lpwndclass.toString()) as Int).toUShort() else 0u
+public actual fun registerClassA(lpwndclass: COpaquePointer?): UShort =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_registerClassA((lpwndclass?.value ?: 0L).toString()) as Int).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RegisterClassExA(param0: Long): UShort =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_RegisterClassExA(param0.toString()) as Int).toUShort() else 0u
+public actual fun registerClassExA(param0: COpaquePointer?): UShort =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_registerClassExA((param0?.value ?: 0L).toString()) as Int).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RegisterClassExW(param0: Long): UShort =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_RegisterClassExW(param0.toString()) as Int).toUShort() else 0u
+public actual fun registerClassExW(param0: COpaquePointer?): UShort =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_registerClassExW((param0?.value ?: 0L).toString()) as Int).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RegisterClassW(lpwndclass: Long): UShort =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_RegisterClassW(lpwndclass.toString()) as Int).toUShort() else 0u
+public actual fun registerClassW(lpwndclass: COpaquePointer?): UShort =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_registerClassW((lpwndclass?.value ?: 0L).toString()) as Int).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RegisterDeviceNotificationA(hrecipient: HANDLE, notificationfilter: Long, flags: REGISTER_NOTIFICATION_FLAGS): HDEVNOTIFY =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_RegisterDeviceNotificationA(hrecipient.toString(), notificationfilter.toString(), flags.toInt()) as String).toLong() else 0L
+public actual fun registerDeviceNotificationA(hrecipient: Handle, notificationfilter: COpaquePointer?, flags: RegisterNotificationFlags): Hdevnotify =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_registerDeviceNotificationA((hrecipient?.value ?: 0L).toString(), (notificationfilter?.value ?: 0L).toString(), flags.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RegisterDeviceNotificationW(hrecipient: HANDLE, notificationfilter: Long, flags: REGISTER_NOTIFICATION_FLAGS): HDEVNOTIFY =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_RegisterDeviceNotificationW(hrecipient.toString(), notificationfilter.toString(), flags.toInt()) as String).toLong() else 0L
+public actual fun registerDeviceNotificationW(hrecipient: Handle, notificationfilter: COpaquePointer?, flags: RegisterNotificationFlags): Hdevnotify =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_registerDeviceNotificationW((hrecipient?.value ?: 0L).toString(), (notificationfilter?.value ?: 0L).toString(), flags.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RegisterForTooltipDismissNotification(hwnd: HWND, tdflags: TOOLTIP_DISMISS_FLAGS): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_RegisterForTooltipDismissNotification(hwnd.toString(), tdflags) as Int) else 0
+public actual fun registerForTooltipDismissNotification(hwnd: Hwnd, tdflags: TooltipDismissFlags): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_registerForTooltipDismissNotification((hwnd?.value ?: 0L).toString(), tdflags) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RegisterShellHookWindow(hwnd: HWND): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_RegisterShellHookWindow(hwnd.toString()) as Int) else 0
+public actual fun registerShellHookWindow(hwnd: Hwnd): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_registerShellHookWindow((hwnd?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RegisterWindowMessageA(lpstring: PCSTR): UInt =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_RegisterWindowMessageA(lpstring.toString()) as Int).toUInt() else 0u
+public actual fun registerWindowMessageA(lpstring: Pcstr): UInt =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_registerWindowMessageA((lpstring?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RegisterWindowMessageW(lpstring: PCWSTR): UInt =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_RegisterWindowMessageW(lpstring.toString()) as Int).toUInt() else 0u
+public actual fun registerWindowMessageW(lpstring: Pcwstr): UInt =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_registerWindowMessageW((lpstring?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RemoveMenu(hmenu: HMENU, uposition: UInt, uflags: MENU_ITEM_FLAGS): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_RemoveMenu(hmenu.toString(), uposition.toInt(), uflags.toInt()) as Int) else 0
+public actual fun removeMenu(hmenu: Hmenu, uposition: UInt, uflags: MenuItemFlags): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_removeMenu((hmenu?.value ?: 0L).toString(), uposition.toInt(), uflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RemovePropA(hwnd: HWND, lpstring: PCSTR): HANDLE =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_RemovePropA(hwnd.toString(), lpstring.toString()) as String).toLong() else 0L
+public actual fun removePropA(hwnd: Hwnd, lpstring: Pcstr): Handle =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_removePropA((hwnd?.value ?: 0L).toString(), (lpstring?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RemovePropW(hwnd: HWND, lpstring: PCWSTR): HANDLE =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_RemovePropW(hwnd.toString(), lpstring.toString()) as String).toLong() else 0L
+public actual fun removePropW(hwnd: Hwnd, lpstring: Pcwstr): Handle =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_removePropW((hwnd?.value ?: 0L).toString(), (lpstring?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ReplyMessage(lresult: LRESULT): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_ReplyMessage(lresult.toString()) as Int) else 0
+public actual fun replyMessage(lresult: Lresult): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_replyMessage(lresult.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScrollDC(hdc: HDC, dx: Int, dy: Int, lprcscroll: Long, lprcclip: Long, hrgnupdate: HRGN, lprcupdate: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_ScrollDC(hdc.toString(), dx, dy, lprcscroll.toString(), lprcclip.toString(), hrgnupdate.toString(), lprcupdate.toString()) as Int) else 0
+public actual fun scrollDC(hdc: Hdc, dx: Int, dy: Int, lprcscroll: COpaquePointer?, lprcclip: COpaquePointer?, hrgnupdate: Hrgn, lprcupdate: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_scrollDC((hdc?.value ?: 0L).toString(), dx, dy, (lprcscroll?.value ?: 0L).toString(), (lprcclip?.value ?: 0L).toString(), (hrgnupdate?.value ?: 0L).toString(), (lprcupdate?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScrollWindow(hwnd: HWND, xamount: Int, yamount: Int, lprect: Long, lpcliprect: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_ScrollWindow(hwnd.toString(), xamount, yamount, lprect.toString(), lpcliprect.toString()) as Int) else 0
+public actual fun scrollWindow(hwnd: Hwnd, xamount: Int, yamount: Int, lprect: COpaquePointer?, lpcliprect: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_scrollWindow((hwnd?.value ?: 0L).toString(), xamount, yamount, (lprect?.value ?: 0L).toString(), (lpcliprect?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ScrollWindowEx(hwnd: HWND, dx: Int, dy: Int, prcscroll: Long, prcclip: Long, hrgnupdate: HRGN, prcupdate: Long, flags: SCROLL_WINDOW_FLAGS): Int =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_ScrollWindowEx(hwnd.toString(), dx, dy, prcscroll.toString(), prcclip.toString(), hrgnupdate.toString(), prcupdate.toString(), flags.toInt()) as Int) else 0
+public actual fun scrollWindowEx(hwnd: Hwnd, dx: Int, dy: Int, prcscroll: COpaquePointer?, prcclip: COpaquePointer?, hrgnupdate: Hrgn, prcupdate: COpaquePointer?, flags: ScrollWindowFlags): Int =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_scrollWindowEx((hwnd?.value ?: 0L).toString(), dx, dy, (prcscroll?.value ?: 0L).toString(), (prcclip?.value ?: 0L).toString(), (hrgnupdate?.value ?: 0L).toString(), (prcupdate?.value ?: 0L).toString(), flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SendDlgItemMessageA(hdlg: HWND, niddlgitem: Int, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SendDlgItemMessageA(hdlg.toString(), niddlgitem, msg.toInt(), wparam.toString(), lparam.toString()) as String).toLong() else 0L
+public actual fun sendDlgItemMessageA(hdlg: Hwnd, niddlgitem: Int, msg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_sendDlgItemMessageA((hdlg?.value ?: 0L).toString(), niddlgitem, msg.toInt(), wparam.toString(), lparam.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SendDlgItemMessageW(hdlg: HWND, niddlgitem: Int, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SendDlgItemMessageW(hdlg.toString(), niddlgitem, msg.toInt(), wparam.toString(), lparam.toString()) as String).toLong() else 0L
+public actual fun sendDlgItemMessageW(hdlg: Hwnd, niddlgitem: Int, msg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_sendDlgItemMessageW((hdlg?.value ?: 0L).toString(), niddlgitem, msg.toInt(), wparam.toString(), lparam.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SendMessageA(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SendMessageA(hwnd.toString(), msg.toInt(), wparam.toString(), lparam.toString()) as String).toLong() else 0L
+public actual fun sendMessageA(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_sendMessageA((hwnd?.value ?: 0L).toString(), msg.toInt(), wparam.toString(), lparam.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SendMessageCallbackA(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM, lpresultcallback: SENDASYNCPROC, dwdata: ULong): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SendMessageCallbackA(hwnd.toString(), msg.toInt(), wparam.toString(), lparam.toString(), lpresultcallback.toLong().toString(), dwdata.toString()) as Int) else 0
+public actual fun sendMessageCallbackA(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam, lpresultcallback: Sendasyncproc, dwdata: ULong): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_sendMessageCallbackA((hwnd?.value ?: 0L).toString(), msg.toInt(), wparam.toString(), lparam.toString(), 0L.toString(), dwdata.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SendMessageCallbackW(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM, lpresultcallback: SENDASYNCPROC, dwdata: ULong): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SendMessageCallbackW(hwnd.toString(), msg.toInt(), wparam.toString(), lparam.toString(), lpresultcallback.toLong().toString(), dwdata.toString()) as Int) else 0
+public actual fun sendMessageCallbackW(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam, lpresultcallback: Sendasyncproc, dwdata: ULong): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_sendMessageCallbackW((hwnd?.value ?: 0L).toString(), msg.toInt(), wparam.toString(), lparam.toString(), 0L.toString(), dwdata.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SendMessageTimeoutA(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM, fuflags: SEND_MESSAGE_TIMEOUT_FLAGS, utimeout: UInt, lpdwresult: Long): LRESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SendMessageTimeoutA(hwnd.toString(), msg.toInt(), wparam.toString(), lparam.toString(), fuflags.toInt(), utimeout.toInt(), lpdwresult.toString()) as String).toLong() else 0L
+public actual fun sendMessageTimeoutA(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam, fuflags: SendMessageTimeoutFlags, utimeout: UInt, lpdwresult: COpaquePointer?): Lresult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_sendMessageTimeoutA((hwnd?.value ?: 0L).toString(), msg.toInt(), wparam.toString(), lparam.toString(), fuflags.toInt(), utimeout.toInt(), (lpdwresult?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SendMessageTimeoutW(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM, fuflags: SEND_MESSAGE_TIMEOUT_FLAGS, utimeout: UInt, lpdwresult: Long): LRESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SendMessageTimeoutW(hwnd.toString(), msg.toInt(), wparam.toString(), lparam.toString(), fuflags.toInt(), utimeout.toInt(), lpdwresult.toString()) as String).toLong() else 0L
+public actual fun sendMessageTimeoutW(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam, fuflags: SendMessageTimeoutFlags, utimeout: UInt, lpdwresult: COpaquePointer?): Lresult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_sendMessageTimeoutW((hwnd?.value ?: 0L).toString(), msg.toInt(), wparam.toString(), lparam.toString(), fuflags.toInt(), utimeout.toInt(), (lpdwresult?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SendMessageW(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): LRESULT =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SendMessageW(hwnd.toString(), msg.toInt(), wparam.toString(), lparam.toString()) as String).toLong() else 0L
+public actual fun sendMessageW(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Lresult =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_sendMessageW((hwnd?.value ?: 0L).toString(), msg.toInt(), wparam.toString(), lparam.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SendNotifyMessageA(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SendNotifyMessageA(hwnd.toString(), msg.toInt(), wparam.toString(), lparam.toString()) as Int) else 0
+public actual fun sendNotifyMessageA(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_sendNotifyMessageA((hwnd?.value ?: 0L).toString(), msg.toInt(), wparam.toString(), lparam.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SendNotifyMessageW(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SendNotifyMessageW(hwnd.toString(), msg.toInt(), wparam.toString(), lparam.toString()) as Int) else 0
+public actual fun sendNotifyMessageW(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_sendNotifyMessageW((hwnd?.value ?: 0L).toString(), msg.toInt(), wparam.toString(), lparam.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetAdditionalForegroundBoostProcesses(toplevelwindow: HWND, processhandlecount: UInt, processhandlearray: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetAdditionalForegroundBoostProcesses(toplevelwindow.toString(), processhandlecount.toInt(), processhandlearray.toString()) as Int) else 0
+public actual fun setAdditionalForegroundBoostProcesses(toplevelwindow: Hwnd, processhandlecount: UInt, processhandlearray: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setAdditionalForegroundBoostProcesses((toplevelwindow?.value ?: 0L).toString(), processhandlecount.toInt(), (processhandlearray?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetCaretBlinkTime(umseconds: UInt): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetCaretBlinkTime(umseconds.toInt()) as Int) else 0
+public actual fun setCaretBlinkTime(umseconds: UInt): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setCaretBlinkTime(umseconds.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetCaretPos(x: Int, y: Int): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetCaretPos(x, y) as Int) else 0
+public actual fun setCaretPos(x: Int, y: Int): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setCaretPos(x, y) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetClassLongA(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX, dwnewlong: Int): UInt =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetClassLongA(hwnd.toString(), nindex, dwnewlong) as Int).toUInt() else 0u
+public actual fun setClassLongA(hwnd: Hwnd, nindex: GetClassLongIndex, dwnewlong: Int): UInt =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setClassLongA((hwnd?.value ?: 0L).toString(), nindex, dwnewlong) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetClassLongPtrA(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX, dwnewlong: Long): ULong =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetClassLongPtrA(hwnd.toString(), nindex, dwnewlong.toString()) as String).toULong() else 0uL
+public actual fun setClassLongPtrA(hwnd: Hwnd, nindex: GetClassLongIndex, dwnewlong: Long): ULong =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setClassLongPtrA((hwnd?.value ?: 0L).toString(), nindex, dwnewlong.toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetClassLongPtrW(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX, dwnewlong: Long): ULong =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetClassLongPtrW(hwnd.toString(), nindex, dwnewlong.toString()) as String).toULong() else 0uL
+public actual fun setClassLongPtrW(hwnd: Hwnd, nindex: GetClassLongIndex, dwnewlong: Long): ULong =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setClassLongPtrW((hwnd?.value ?: 0L).toString(), nindex, dwnewlong.toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetClassLongW(hwnd: HWND, nindex: GET_CLASS_LONG_INDEX, dwnewlong: Int): UInt =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetClassLongW(hwnd.toString(), nindex, dwnewlong) as Int).toUInt() else 0u
+public actual fun setClassLongW(hwnd: Hwnd, nindex: GetClassLongIndex, dwnewlong: Int): UInt =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setClassLongW((hwnd?.value ?: 0L).toString(), nindex, dwnewlong) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetClassWord(hwnd: HWND, nindex: Int, wnewword: UShort): UShort =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetClassWord(hwnd.toString(), nindex, wnewword.toInt()) as Int).toUShort() else 0u
+public actual fun setClassWord(hwnd: Hwnd, nindex: Int, wnewword: UShort): UShort =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setClassWord((hwnd?.value ?: 0L).toString(), nindex, wnewword.toInt()) as Int).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetCoalescableTimer(hwnd: HWND, nidevent: ULong, uelapse: UInt, lptimerfunc: TIMERPROC, utolerancedelay: UInt): ULong =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetCoalescableTimer(hwnd.toString(), nidevent.toString(), uelapse.toInt(), lptimerfunc.toLong().toString(), utolerancedelay.toInt()) as String).toULong() else 0uL
+public actual fun setCoalescableTimer(hwnd: Hwnd, nidevent: ULong, uelapse: UInt, lptimerfunc: Timerproc, utolerancedelay: UInt): ULong =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setCoalescableTimer((hwnd?.value ?: 0L).toString(), nidevent.toString(), uelapse.toInt(), 0L.toString(), utolerancedelay.toInt()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetCursor(hcursor: HCURSOR): HCURSOR =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetCursor(hcursor.toString()) as String).toLong() else 0L
+public actual fun setCursor(hcursor: Hcursor): Hcursor =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setCursor((hcursor?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetCursorPos(x: Int, y: Int): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetCursorPos(x, y) as Int) else 0
+public actual fun setCursorPos(x: Int, y: Int): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setCursorPos(x, y) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetDebugErrorLevel(dwlevel: UInt) {
+public actual fun setDebugErrorLevel(dwlevel: UInt) {
     if (_windowsWin32UiWindowsandmessagingNapiAddon != null) {
-        _windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetDebugErrorLevel(dwlevel.toInt())
+        _windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setDebugErrorLevel(dwlevel.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SetDlgItemInt(hdlg: HWND, niddlgitem: Int, uvalue: UInt, bsigned: BOOL): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetDlgItemInt(hdlg.toString(), niddlgitem, uvalue.toInt(), bsigned) as Int) else 0
+public actual fun setDlgItemInt(hdlg: Hwnd, niddlgitem: Int, uvalue: UInt, bsigned: Bool): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setDlgItemInt((hdlg?.value ?: 0L).toString(), niddlgitem, uvalue.toInt(), bsigned) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetDlgItemTextA(hdlg: HWND, niddlgitem: Int, lpstring: PCSTR): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetDlgItemTextA(hdlg.toString(), niddlgitem, lpstring.toString()) as Int) else 0
+public actual fun setDlgItemTextA(hdlg: Hwnd, niddlgitem: Int, lpstring: Pcstr): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setDlgItemTextA((hdlg?.value ?: 0L).toString(), niddlgitem, (lpstring?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetDlgItemTextW(hdlg: HWND, niddlgitem: Int, lpstring: PCWSTR): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetDlgItemTextW(hdlg.toString(), niddlgitem, lpstring.toString()) as Int) else 0
+public actual fun setDlgItemTextW(hdlg: Hwnd, niddlgitem: Int, lpstring: Pcwstr): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setDlgItemTextW((hdlg?.value ?: 0L).toString(), niddlgitem, (lpstring?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetForegroundWindow(hwnd: HWND): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetForegroundWindow(hwnd.toString()) as Int) else 0
+public actual fun setForegroundWindow(hwnd: Hwnd): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setForegroundWindow((hwnd?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetLayeredWindowAttributes(hwnd: HWND, crkey: COLORREF, balpha: UByte, dwflags: LAYERED_WINDOW_ATTRIBUTES_FLAGS): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetLayeredWindowAttributes(hwnd.toString(), crkey.toInt(), balpha.toInt(), dwflags.toInt()) as Int) else 0
+public actual fun setLayeredWindowAttributes(hwnd: Hwnd, crkey: Colorref, balpha: UByte, dwflags: LayeredWindowAttributesFlags): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setLayeredWindowAttributes((hwnd?.value ?: 0L).toString(), crkey.toInt(), balpha.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetMenu(hwnd: HWND, hmenu: HMENU): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetMenu(hwnd.toString(), hmenu.toString()) as Int) else 0
+public actual fun setMenu(hwnd: Hwnd, hmenu: Hmenu): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setMenu((hwnd?.value ?: 0L).toString(), (hmenu?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetMenuDefaultItem(hmenu: HMENU, uitem: UInt, fbypos: UInt): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetMenuDefaultItem(hmenu.toString(), uitem.toInt(), fbypos.toInt()) as Int) else 0
+public actual fun setMenuDefaultItem(hmenu: Hmenu, uitem: UInt, fbypos: UInt): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setMenuDefaultItem((hmenu?.value ?: 0L).toString(), uitem.toInt(), fbypos.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetMenuInfo(param0: HMENU, param1: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetMenuInfo(param0.toString(), param1.toString()) as Int) else 0
+public actual fun setMenuInfo(param0: Hmenu, param1: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setMenuInfo((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetMenuItemBitmaps(hmenu: HMENU, uposition: UInt, uflags: MENU_ITEM_FLAGS, hbitmapunchecked: HBITMAP, hbitmapchecked: HBITMAP): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetMenuItemBitmaps(hmenu.toString(), uposition.toInt(), uflags.toInt(), hbitmapunchecked.toString(), hbitmapchecked.toString()) as Int) else 0
+public actual fun setMenuItemBitmaps(hmenu: Hmenu, uposition: UInt, uflags: MenuItemFlags, hbitmapunchecked: Hbitmap, hbitmapchecked: Hbitmap): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setMenuItemBitmaps((hmenu?.value ?: 0L).toString(), uposition.toInt(), uflags.toInt(), (hbitmapunchecked?.value ?: 0L).toString(), (hbitmapchecked?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetMenuItemInfoA(hmenu: HMENU, item: UInt, fbypositon: BOOL, lpmii: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetMenuItemInfoA(hmenu.toString(), item.toInt(), fbypositon, lpmii.toString()) as Int) else 0
+public actual fun setMenuItemInfoA(hmenu: Hmenu, item: UInt, fbypositon: Bool, lpmii: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setMenuItemInfoA((hmenu?.value ?: 0L).toString(), item.toInt(), fbypositon, (lpmii?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetMenuItemInfoW(hmenu: HMENU, item: UInt, fbypositon: BOOL, lpmii: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetMenuItemInfoW(hmenu.toString(), item.toInt(), fbypositon, lpmii.toString()) as Int) else 0
+public actual fun setMenuItemInfoW(hmenu: Hmenu, item: UInt, fbypositon: Bool, lpmii: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setMenuItemInfoW((hmenu?.value ?: 0L).toString(), item.toInt(), fbypositon, (lpmii?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetMessageExtraInfo(lparam: LPARAM): LPARAM =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetMessageExtraInfo(lparam.toString()) as String).toLong() else 0L
+public actual fun setMessageExtraInfo(lparam: Lparam): Lparam =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setMessageExtraInfo(lparam.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetMessageQueue(cmessagesmax: Int): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetMessageQueue(cmessagesmax) as Int) else 0
+public actual fun setMessageQueue(cmessagesmax: Int): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setMessageQueue(cmessagesmax) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetParent(hwndchild: HWND, hwndnewparent: HWND): HWND =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetParent(hwndchild.toString(), hwndnewparent.toString()) as String).toLong() else 0L
+public actual fun setParent(hwndchild: Hwnd, hwndnewparent: Hwnd): Hwnd =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setParent((hwndchild?.value ?: 0L).toString(), (hwndnewparent?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetPhysicalCursorPos(x: Int, y: Int): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetPhysicalCursorPos(x, y) as Int) else 0
+public actual fun setPhysicalCursorPos(x: Int, y: Int): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setPhysicalCursorPos(x, y) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetProcessDPIAware(): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetProcessDPIAware() as Int) else 0
+public actual fun setProcessDPIAware(): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setProcessDPIAware() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetProcessDefaultLayout(dwdefaultlayout: UInt): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetProcessDefaultLayout(dwdefaultlayout.toInt()) as Int) else 0
+public actual fun setProcessDefaultLayout(dwdefaultlayout: UInt): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setProcessDefaultLayout(dwdefaultlayout.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetPropA(hwnd: HWND, lpstring: PCSTR, hdata: HANDLE): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetPropA(hwnd.toString(), lpstring.toString(), hdata.toString()) as Int) else 0
+public actual fun setPropA(hwnd: Hwnd, lpstring: Pcstr, hdata: Handle): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setPropA((hwnd?.value ?: 0L).toString(), (lpstring?.value ?: 0L).toString(), (hdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetPropW(hwnd: HWND, lpstring: PCWSTR, hdata: HANDLE): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetPropW(hwnd.toString(), lpstring.toString(), hdata.toString()) as Int) else 0
+public actual fun setPropW(hwnd: Hwnd, lpstring: Pcwstr, hdata: Handle): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setPropW((hwnd?.value ?: 0L).toString(), (lpstring?.value ?: 0L).toString(), (hdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetSystemCursor(hcur: HCURSOR, id: SYSTEM_CURSOR_ID): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetSystemCursor(hcur.toString(), id.toInt()) as Int) else 0
+public actual fun setSystemCursor(hcur: Hcursor, id: SystemCursorId): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setSystemCursor((hcur?.value ?: 0L).toString(), id.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetTimer(hwnd: HWND, nidevent: ULong, uelapse: UInt, lptimerfunc: TIMERPROC): ULong =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetTimer(hwnd.toString(), nidevent.toString(), uelapse.toInt(), lptimerfunc.toLong().toString()) as String).toULong() else 0uL
+public actual fun setTimer(hwnd: Hwnd, nidevent: ULong, uelapse: UInt, lptimerfunc: Timerproc): ULong =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setTimer((hwnd?.value ?: 0L).toString(), nidevent.toString(), uelapse.toInt(), 0L.toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetWindowDisplayAffinity(hwnd: HWND, dwaffinity: WINDOW_DISPLAY_AFFINITY): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetWindowDisplayAffinity(hwnd.toString(), dwaffinity.toInt()) as Int) else 0
+public actual fun setWindowDisplayAffinity(hwnd: Hwnd, dwaffinity: WindowDisplayAffinity): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setWindowDisplayAffinity((hwnd?.value ?: 0L).toString(), dwaffinity.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetWindowLongA(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: Int): Int =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetWindowLongA(hwnd.toString(), nindex, dwnewlong) as Int) else 0
+public actual fun setWindowLongA(hwnd: Hwnd, nindex: WindowLongPtrIndex, dwnewlong: Int): Int =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setWindowLongA((hwnd?.value ?: 0L).toString(), nindex, dwnewlong) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetWindowLongPtrA(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: Long): Long =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetWindowLongPtrA(hwnd.toString(), nindex, dwnewlong.toString()) as String).toLong() else 0L
+public actual fun setWindowLongPtrA(hwnd: Hwnd, nindex: WindowLongPtrIndex, dwnewlong: Long): Long =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setWindowLongPtrA((hwnd?.value ?: 0L).toString(), nindex, dwnewlong.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetWindowLongPtrW(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: Long): Long =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetWindowLongPtrW(hwnd.toString(), nindex, dwnewlong.toString()) as String).toLong() else 0L
+public actual fun setWindowLongPtrW(hwnd: Hwnd, nindex: WindowLongPtrIndex, dwnewlong: Long): Long =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setWindowLongPtrW((hwnd?.value ?: 0L).toString(), nindex, dwnewlong.toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetWindowLongW(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: Int): Int =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetWindowLongW(hwnd.toString(), nindex, dwnewlong) as Int) else 0
+public actual fun setWindowLongW(hwnd: Hwnd, nindex: WindowLongPtrIndex, dwnewlong: Int): Int =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setWindowLongW((hwnd?.value ?: 0L).toString(), nindex, dwnewlong) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetWindowPlacement(hwnd: HWND, lpwndpl: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetWindowPlacement(hwnd.toString(), lpwndpl.toString()) as Int) else 0
+public actual fun setWindowPlacement(hwnd: Hwnd, lpwndpl: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setWindowPlacement((hwnd?.value ?: 0L).toString(), (lpwndpl?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetWindowPos(hwnd: HWND, hwndinsertafter: HWND, x: Int, y: Int, cx: Int, cy: Int, uflags: SET_WINDOW_POS_FLAGS): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetWindowPos(hwnd.toString(), hwndinsertafter.toString(), x, y, cx, cy, uflags.toInt()) as Int) else 0
+public actual fun setWindowPos(hwnd: Hwnd, hwndinsertafter: Hwnd, x: Int, y: Int, cx: Int, cy: Int, uflags: SetWindowPosFlags): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setWindowPos((hwnd?.value ?: 0L).toString(), (hwndinsertafter?.value ?: 0L).toString(), x, y, cx, cy, uflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetWindowTextA(hwnd: HWND, lpstring: PCSTR): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetWindowTextA(hwnd.toString(), lpstring.toString()) as Int) else 0
+public actual fun setWindowTextA(hwnd: Hwnd, lpstring: Pcstr): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setWindowTextA((hwnd?.value ?: 0L).toString(), (lpstring?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetWindowTextW(hwnd: HWND, lpstring: PCWSTR): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetWindowTextW(hwnd.toString(), lpstring.toString()) as Int) else 0
+public actual fun setWindowTextW(hwnd: Hwnd, lpstring: Pcwstr): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setWindowTextW((hwnd?.value ?: 0L).toString(), (lpstring?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetWindowWord(hwnd: HWND, nindex: Int, wnewword: UShort): UShort =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetWindowWord(hwnd.toString(), nindex, wnewword.toInt()) as Int).toUShort() else 0u
+public actual fun setWindowWord(hwnd: Hwnd, nindex: Int, wnewword: UShort): UShort =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setWindowWord((hwnd?.value ?: 0L).toString(), nindex, wnewword.toInt()) as Int).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetWindowsHookA(nfiltertype: Int, pfnfilterproc: HOOKPROC): HHOOK =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetWindowsHookA(nfiltertype, pfnfilterproc.toLong().toString()) as String).toLong() else 0L
+public actual fun setWindowsHookA(nfiltertype: Int, pfnfilterproc: Hookproc): Hhook =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setWindowsHookA(nfiltertype, 0L.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetWindowsHookExA(idhook: WINDOWS_HOOK_ID, lpfn: HOOKPROC, hmod: HINSTANCE, dwthreadid: UInt): HHOOK =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetWindowsHookExA(idhook, lpfn.toLong().toString(), hmod.toString(), dwthreadid.toInt()) as String).toLong() else 0L
+public actual fun setWindowsHookExA(idhook: WindowsHookId, lpfn: Hookproc, hmod: Hinstance, dwthreadid: UInt): Hhook =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setWindowsHookExA(idhook, 0L.toString(), (hmod?.value ?: 0L).toString(), dwthreadid.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetWindowsHookExW(idhook: WINDOWS_HOOK_ID, lpfn: HOOKPROC, hmod: HINSTANCE, dwthreadid: UInt): HHOOK =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetWindowsHookExW(idhook, lpfn.toLong().toString(), hmod.toString(), dwthreadid.toInt()) as String).toLong() else 0L
+public actual fun setWindowsHookExW(idhook: WindowsHookId, lpfn: Hookproc, hmod: Hinstance, dwthreadid: UInt): Hhook =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setWindowsHookExW(idhook, 0L.toString(), (hmod?.value ?: 0L).toString(), dwthreadid.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetWindowsHookW(nfiltertype: Int, pfnfilterproc: HOOKPROC): HHOOK =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SetWindowsHookW(nfiltertype, pfnfilterproc.toLong().toString()) as String).toLong() else 0L
+public actual fun setWindowsHookW(nfiltertype: Int, pfnfilterproc: Hookproc): Hhook =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_setWindowsHookW(nfiltertype, 0L.toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ShowCaret(hwnd: HWND): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_ShowCaret(hwnd.toString()) as Int) else 0
+public actual fun showCaret(hwnd: Hwnd): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_showCaret((hwnd?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ShowCursor(bshow: BOOL): Int =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_ShowCursor(bshow) as Int) else 0
+public actual fun showCursor(bshow: Bool): Int =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_showCursor(bshow) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ShowOwnedPopups(hwnd: HWND, fshow: BOOL): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_ShowOwnedPopups(hwnd.toString(), fshow) as Int) else 0
+public actual fun showOwnedPopups(hwnd: Hwnd, fshow: Bool): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_showOwnedPopups((hwnd?.value ?: 0L).toString(), fshow) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ShowWindow(hwnd: HWND, ncmdshow: SHOW_WINDOW_CMD): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_ShowWindow(hwnd.toString(), ncmdshow) as Int) else 0
+public actual fun showWindow(hwnd: Hwnd, ncmdshow: ShowWindowCmd): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_showWindow((hwnd?.value ?: 0L).toString(), ncmdshow) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ShowWindowAsync(hwnd: HWND, ncmdshow: SHOW_WINDOW_CMD): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_ShowWindowAsync(hwnd.toString(), ncmdshow) as Int) else 0
+public actual fun showWindowAsync(hwnd: Hwnd, ncmdshow: ShowWindowCmd): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_showWindowAsync((hwnd?.value ?: 0L).toString(), ncmdshow) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SoundSentry(): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SoundSentry() as Int) else 0
+public actual fun soundSentry(): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_soundSentry() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SwitchToThisWindow(hwnd: HWND, funknown: BOOL) {
+public actual fun switchToThisWindow(hwnd: Hwnd, funknown: Bool) {
     if (_windowsWin32UiWindowsandmessagingNapiAddon != null) {
-        _windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SwitchToThisWindow(hwnd.toString(), funknown)
+        _windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_switchToThisWindow((hwnd?.value ?: 0L).toString(), funknown)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SystemParametersInfoA(uiaction: SYSTEM_PARAMETERS_INFO_ACTION, uiparam: UInt, pvparam: Long, fwinini: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SystemParametersInfoA(uiaction.toInt(), uiparam.toInt(), pvparam.toString(), fwinini.toInt()) as Int) else 0
+public actual fun systemParametersInfoA(uiaction: SystemParametersInfoAction, uiparam: UInt, pvparam: COpaquePointer?, fwinini: SystemParametersInfoUpdateFlags): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_systemParametersInfoA(uiaction.toInt(), uiparam.toInt(), (pvparam?.value ?: 0L).toString(), fwinini.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SystemParametersInfoW(uiaction: SYSTEM_PARAMETERS_INFO_ACTION, uiparam: UInt, pvparam: Long, fwinini: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_SystemParametersInfoW(uiaction.toInt(), uiparam.toInt(), pvparam.toString(), fwinini.toInt()) as Int) else 0
+public actual fun systemParametersInfoW(uiaction: SystemParametersInfoAction, uiparam: UInt, pvparam: COpaquePointer?, fwinini: SystemParametersInfoUpdateFlags): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_systemParametersInfoW(uiaction.toInt(), uiparam.toInt(), (pvparam?.value ?: 0L).toString(), fwinini.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TileWindows(hwndparent: HWND, whow: TILE_WINDOWS_HOW, lprect: Long, ckids: UInt, lpkids: Long): UShort =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_TileWindows(hwndparent.toString(), whow.toInt(), lprect.toString(), ckids.toInt(), lpkids.toString()) as Int).toUShort() else 0u
+public actual fun tileWindows(hwndparent: Hwnd, whow: TileWindowsHow, lprect: COpaquePointer?, ckids: UInt, lpkids: COpaquePointer?): UShort =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_tileWindows((hwndparent?.value ?: 0L).toString(), whow.toInt(), (lprect?.value ?: 0L).toString(), ckids.toInt(), (lpkids?.value ?: 0L).toString()) as Int).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TrackPopupMenu(hmenu: HMENU, uflags: TRACK_POPUP_MENU_FLAGS, x: Int, y: Int, nreserved: Int, hwnd: HWND, prcrect: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_TrackPopupMenu(hmenu.toString(), uflags.toInt(), x, y, nreserved, hwnd.toString(), prcrect.toString()) as Int) else 0
+public actual fun trackPopupMenu(hmenu: Hmenu, uflags: TrackPopupMenuFlags, x: Int, y: Int, nreserved: Int, hwnd: Hwnd, prcrect: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_trackPopupMenu((hmenu?.value ?: 0L).toString(), uflags.toInt(), x, y, nreserved, (hwnd?.value ?: 0L).toString(), (prcrect?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TrackPopupMenuEx(hmenu: HMENU, uflags: UInt, x: Int, y: Int, hwnd: HWND, lptpm: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_TrackPopupMenuEx(hmenu.toString(), uflags.toInt(), x, y, hwnd.toString(), lptpm.toString()) as Int) else 0
+public actual fun trackPopupMenuEx(hmenu: Hmenu, uflags: UInt, x: Int, y: Int, hwnd: Hwnd, lptpm: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_trackPopupMenuEx((hmenu?.value ?: 0L).toString(), uflags.toInt(), x, y, (hwnd?.value ?: 0L).toString(), (lptpm?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TranslateAcceleratorA(hwnd: HWND, hacctable: HACCEL, lpmsg: Long): Int =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_TranslateAcceleratorA(hwnd.toString(), hacctable.toString(), lpmsg.toString()) as Int) else 0
+public actual fun translateAcceleratorA(hwnd: Hwnd, hacctable: Haccel, lpmsg: COpaquePointer?): Int =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_translateAcceleratorA((hwnd?.value ?: 0L).toString(), (hacctable?.value ?: 0L).toString(), (lpmsg?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TranslateAcceleratorW(hwnd: HWND, hacctable: HACCEL, lpmsg: Long): Int =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_TranslateAcceleratorW(hwnd.toString(), hacctable.toString(), lpmsg.toString()) as Int) else 0
+public actual fun translateAcceleratorW(hwnd: Hwnd, hacctable: Haccel, lpmsg: COpaquePointer?): Int =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_translateAcceleratorW((hwnd?.value ?: 0L).toString(), (hacctable?.value ?: 0L).toString(), (lpmsg?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TranslateMDISysAccel(hwndclient: HWND, lpmsg: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_TranslateMDISysAccel(hwndclient.toString(), lpmsg.toString()) as Int) else 0
+public actual fun translateMDISysAccel(hwndclient: Hwnd, lpmsg: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_translateMDISysAccel((hwndclient?.value ?: 0L).toString(), (lpmsg?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TranslateMessage(lpmsg: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_TranslateMessage(lpmsg.toString()) as Int) else 0
+public actual fun translateMessage(lpmsg: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_translateMessage((lpmsg?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UnhookWindowsHook(ncode: Int, pfnfilterproc: HOOKPROC): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_UnhookWindowsHook(ncode, pfnfilterproc.toLong().toString()) as Int) else 0
+public actual fun unhookWindowsHook(ncode: Int, pfnfilterproc: Hookproc): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_unhookWindowsHook(ncode, 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UnhookWindowsHookEx(hhk: HHOOK): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_UnhookWindowsHookEx(hhk.toString()) as Int) else 0
+public actual fun unhookWindowsHookEx(hhk: Hhook): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_unhookWindowsHookEx((hhk?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UnregisterClassA(lpclassname: PCSTR, hinstance: HINSTANCE): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_UnregisterClassA(lpclassname.toString(), hinstance.toString()) as Int) else 0
+public actual fun unregisterClassA(lpclassname: Pcstr, hinstance: Hinstance): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_unregisterClassA((lpclassname?.value ?: 0L).toString(), (hinstance?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UnregisterClassW(lpclassname: PCWSTR, hinstance: HINSTANCE): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_UnregisterClassW(lpclassname.toString(), hinstance.toString()) as Int) else 0
+public actual fun unregisterClassW(lpclassname: Pcwstr, hinstance: Hinstance): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_unregisterClassW((lpclassname?.value ?: 0L).toString(), (hinstance?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UnregisterDeviceNotification(handle: HDEVNOTIFY): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_UnregisterDeviceNotification(handle.toString()) as Int) else 0
+public actual fun unregisterDeviceNotification(handle: Hdevnotify): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_unregisterDeviceNotification((handle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UpdateLayeredWindow(hwnd: HWND, hdcdst: HDC, pptdst: Long, psize: Long, hdcsrc: HDC, pptsrc: Long, crkey: COLORREF, pblend: Long, dwflags: UPDATE_LAYERED_WINDOW_FLAGS): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_UpdateLayeredWindow(hwnd.toString(), hdcdst.toString(), pptdst.toString(), psize.toString(), hdcsrc.toString(), pptsrc.toString(), crkey.toInt(), pblend.toString(), dwflags.toInt()) as Int) else 0
+public actual fun updateLayeredWindow(hwnd: Hwnd, hdcdst: Hdc, pptdst: COpaquePointer?, psize: COpaquePointer?, hdcsrc: Hdc, pptsrc: COpaquePointer?, crkey: Colorref, pblend: COpaquePointer?, dwflags: UpdateLayeredWindowFlags): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_updateLayeredWindow((hwnd?.value ?: 0L).toString(), (hdcdst?.value ?: 0L).toString(), (pptdst?.value ?: 0L).toString(), (psize?.value ?: 0L).toString(), (hdcsrc?.value ?: 0L).toString(), (pptsrc?.value ?: 0L).toString(), crkey.toInt(), (pblend?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UpdateLayeredWindowIndirect(hwnd: HWND, pulwinfo: Long): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_UpdateLayeredWindowIndirect(hwnd.toString(), pulwinfo.toString()) as Int) else 0
+public actual fun updateLayeredWindowIndirect(hwnd: Hwnd, pulwinfo: COpaquePointer?): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_updateLayeredWindowIndirect((hwnd?.value ?: 0L).toString(), (pulwinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WaitMessage(): BOOL =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_WaitMessage() as Int) else 0
+public actual fun waitMessage(): Bool =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_waitMessage() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WindowFromPhysicalPoint(point: POINT): HWND =
-    0L
+public actual fun windowFromPhysicalPoint(point: Point): Hwnd =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WindowFromPoint(point: POINT): HWND =
-    0L
+public actual fun windowFromPoint(point: Point): Hwnd =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wsprintfA(param0: PSTR, param1: PCSTR): Int =
-    0
+public actual fun wsprintfA(param0: Pstr, param1: Pcstr, vararg variadicArgs: Long): Int =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_wsprintfA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wsprintfW(param0: PWSTR, param1: PCWSTR): Int =
-    0
+public actual fun wsprintfW(param0: Pwstr, param1: Pcwstr, vararg variadicArgs: Long): Int =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_wsprintfW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), variadicArgs.size.coerceAtMost(4), (if (variadicArgs.size > 0) variadicArgs[0] else 0L).toString(), (if (variadicArgs.size > 1) variadicArgs[1] else 0L).toString(), (if (variadicArgs.size > 2) variadicArgs[2] else 0L).toString(), (if (variadicArgs.size > 3) variadicArgs[3] else 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wvsprintfA(param0: PSTR, param1: PCSTR, arglist: Long): Int =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_wvsprintfA(param0.toString(), param1.toString(), arglist.toString()) as Int) else 0
+public actual fun wvsprintfA(param0: Pstr, param1: Pcstr, arglist: COpaquePointer?): Int =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_wvsprintfA((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (arglist?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun wvsprintfW(param0: PWSTR, param1: PCWSTR, arglist: Long): Int =
-    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_wvsprintfW(param0.toString(), param1.toString(), arglist.toString()) as Int) else 0
+public actual fun wvsprintfW(param0: Pwstr, param1: Pcwstr, arglist: COpaquePointer?): Int =
+    if (_windowsWin32UiWindowsandmessagingNapiAddon != null) (_windowsWin32UiWindowsandmessagingNapiAddon.windowssys_windows_win32_ui_windowsandmessaging_wvsprintfW((param0?.value ?: 0L).toString(), (param1?.value ?: 0L).toString(), (arglist?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

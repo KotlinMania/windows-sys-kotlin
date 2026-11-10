@@ -1,15 +1,17 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.hidpi
 
-public typealias DIALOG_CONTROL_DPI_CHANGE_BEHAVIORS = Int
+import io.github.kotlinmania.windowssys.COpaquePointer
 
-public typealias DIALOG_DPI_CHANGE_BEHAVIORS = Int
+public typealias DialogControlDpiChangeBehaviors = Int
 
-public typealias DPI_AWARENESS = Int
+public typealias DialogDpiChangeBehaviors = Int
 
-public typealias DPI_AWARENESS_CONTEXT = Long
+public typealias DpiAwareness = Int
 
-public typealias DPI_HOSTING_BEHAVIOR = Int
+public typealias DpiAwarenessContext = COpaquePointer?
 
-public typealias MONITOR_DPI_TYPE = Int
+public typealias DpiHostingBehavior = Int
 
-public typealias PROCESS_DPI_AWARENESS = Int
+public typealias MonitorDpiType = Int
+
+public typealias ProcessDpiAwareness = Int

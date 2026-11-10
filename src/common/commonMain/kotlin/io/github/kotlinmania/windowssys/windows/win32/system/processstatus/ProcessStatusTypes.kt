@@ -1,19 +1,20 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.processstatus
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 
-public typealias ENUM_PROCESS_MODULES_EX_FLAGS = UInt
+public typealias EnumProcessModulesExFlags = UInt
 
-public fun interface PENUM_PAGE_FILE_CALLBACKAFn {
-    public operator fun invoke(pcontext: Long, ppagefileinfo: Long, lpfilename: PCSTR): BOOL
+public fun interface PenumPageFileCallbackaFn {
+    public operator fun invoke(pcontext: COpaquePointer?, ppagefileinfo: COpaquePointer?, lpfilename: Pcstr): Bool
 }
 
-public typealias PENUM_PAGE_FILE_CALLBACKA = PENUM_PAGE_FILE_CALLBACKAFn?
+public typealias PenumPageFileCallbacka = PenumPageFileCallbackaFn?
 
-public fun interface PENUM_PAGE_FILE_CALLBACKWFn {
-    public operator fun invoke(pcontext: Long, ppagefileinfo: Long, lpfilename: PCWSTR): BOOL
+public fun interface PenumPageFileCallbackwFn {
+    public operator fun invoke(pcontext: COpaquePointer?, ppagefileinfo: COpaquePointer?, lpfilename: Pcwstr): Bool
 }
 
-public typealias PENUM_PAGE_FILE_CALLBACKW = PENUM_PAGE_FILE_CALLBACKWFn?
+public typealias PenumPageFileCallbackw = PenumPageFileCallbackwFn?

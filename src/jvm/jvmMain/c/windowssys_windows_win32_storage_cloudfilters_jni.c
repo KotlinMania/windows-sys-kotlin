@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1CfCloseHandle(JNIEnv* km_env, jclass km_clazz, jlong filehandle) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1cfCloseHandle(JNIEnv* km_env, jclass km_clazz, jlong filehandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -34,7 +34,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1CfConnectSyncRoot(JNIEnv* km_env, jclass km_clazz, jlong syncrootpath, jlong callbacktable, jlong callbackcontext, jint connectflags, jlong connectionkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1cfConnectSyncRoot(JNIEnv* km_env, jclass km_clazz, jlong syncrootpath, jlong callbacktable, jlong callbackcontext, jint connectflags, jlong connectionkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -56,7 +56,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1CfConvertToPlaceholder(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jlong fileidentity, jint fileidentitylength, jint convertflags, jlong convertusn, jlong overlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1cfConvertToPlaceholder(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jlong fileidentity, jint fileidentitylength, jint convertflags, jlong convertusn, jlong overlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -79,7 +79,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1CfCreatePlaceholders(JNIEnv* km_env, jclass km_clazz, jlong basedirectorypath, jlong placeholderarray, jint placeholdercount, jint createflags, jlong entriesprocessed) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1cfCreatePlaceholders(JNIEnv* km_env, jclass km_clazz, jlong basedirectorypath, jlong placeholderarray, jint placeholdercount, jint createflags, jlong entriesprocessed) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -101,7 +101,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1CfDehydratePlaceholder(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jlong startingoffset, jlong length, jint dehydrateflags, jlong overlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1cfDehydratePlaceholder(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jlong startingoffset, jlong length, jint dehydrateflags, jlong overlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -123,7 +123,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1CfDisconnectSyncRoot(JNIEnv* km_env, jclass km_clazz, jlong connectionkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1cfDisconnectSyncRoot(JNIEnv* km_env, jclass km_clazz, jlong connectionkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -141,7 +141,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1CfExecute(JNIEnv* km_env, jclass km_clazz, jlong opinfo, jlong opparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1cfExecute(JNIEnv* km_env, jclass km_clazz, jlong opinfo, jlong opparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -160,7 +160,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1CfGetCorrelationVector(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jlong correlationvector) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1cfGetCorrelationVector(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jlong correlationvector) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -179,7 +179,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1CfGetPlaceholderInfo(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jint infoclass, jlong infobuffer, jint infobufferlength, jlong returnedlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1cfGetPlaceholderInfo(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jint infoclass, jlong infobuffer, jint infobufferlength, jlong returnedlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -201,7 +201,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1CfGetPlaceholderRangeInfo(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jint infoclass, jlong startingoffset, jlong length, jlong infobuffer, jint infobufferlength, jlong returnedlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1cfGetPlaceholderRangeInfo(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jint infoclass, jlong startingoffset, jlong length, jlong infobuffer, jint infobufferlength, jlong returnedlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -225,7 +225,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1CfGetPlaceholderRangeInfoForHydration(JNIEnv* km_env, jclass km_clazz, jlong connectionkey, jlong transferkey, jlong fileid, jint infoclass, jlong startingoffset, jlong rangelength, jlong infobuffer, jint infobuffersize, jlong infobufferwritten) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1cfGetPlaceholderRangeInfoForHydration(JNIEnv* km_env, jclass km_clazz, jlong connectionkey, jlong transferkey, jlong fileid, jint infoclass, jlong startingoffset, jlong rangelength, jlong infobuffer, jint infobuffersize, jlong infobufferwritten) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -251,7 +251,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1CfGetPlaceholderStateFromAttributeTag(JNIEnv* km_env, jclass km_clazz, jint fileattributes, jint reparsetag) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1cfGetPlaceholderStateFromAttributeTag(JNIEnv* km_env, jclass km_clazz, jint fileattributes, jint reparsetag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -270,7 +270,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1CfGetPlaceholderStateFromFileInfo(JNIEnv* km_env, jclass km_clazz, jlong infobuffer, jint infoclass) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1cfGetPlaceholderStateFromFileInfo(JNIEnv* km_env, jclass km_clazz, jlong infobuffer, jint infoclass) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -289,7 +289,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1CfGetPlaceholderStateFromFindData(JNIEnv* km_env, jclass km_clazz, jlong finddata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1cfGetPlaceholderStateFromFindData(JNIEnv* km_env, jclass km_clazz, jlong finddata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -307,7 +307,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1CfGetPlatformInfo(JNIEnv* km_env, jclass km_clazz, jlong platformversion) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1cfGetPlatformInfo(JNIEnv* km_env, jclass km_clazz, jlong platformversion) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -325,7 +325,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1CfGetSyncRootInfoByHandle(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jint infoclass, jlong infobuffer, jint infobufferlength, jlong returnedlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1cfGetSyncRootInfoByHandle(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jint infoclass, jlong infobuffer, jint infobufferlength, jlong returnedlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -347,7 +347,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1CfGetSyncRootInfoByPath(JNIEnv* km_env, jclass km_clazz, jlong filepath, jint infoclass, jlong infobuffer, jint infobufferlength, jlong returnedlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1cfGetSyncRootInfoByPath(JNIEnv* km_env, jclass km_clazz, jlong filepath, jint infoclass, jlong infobuffer, jint infobufferlength, jlong returnedlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -369,7 +369,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1CfGetTransferKey(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jlong transferkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1cfGetTransferKey(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jlong transferkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -388,7 +388,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1CfGetWin32HandleFromProtectedHandle(JNIEnv* km_env, jclass km_clazz, jlong protectedhandle) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1cfGetWin32HandleFromProtectedHandle(JNIEnv* km_env, jclass km_clazz, jlong protectedhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -406,7 +406,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stor
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1CfHydratePlaceholder(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jlong startingoffset, jlong length, jint hydrateflags, jlong overlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1cfHydratePlaceholder(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jlong startingoffset, jlong length, jint hydrateflags, jlong overlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -428,7 +428,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1CfOpenFileWithOplock(JNIEnv* km_env, jclass km_clazz, jlong filepath, jint flags, jlong protectedhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1cfOpenFileWithOplock(JNIEnv* km_env, jclass km_clazz, jlong filepath, jint flags, jlong protectedhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -448,7 +448,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1CfQuerySyncProviderStatus(JNIEnv* km_env, jclass km_clazz, jlong connectionkey, jlong providerstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1cfQuerySyncProviderStatus(JNIEnv* km_env, jclass km_clazz, jlong connectionkey, jlong providerstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -467,7 +467,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1CfReferenceProtectedHandle(JNIEnv* km_env, jclass km_clazz, jlong protectedhandle) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1cfReferenceProtectedHandle(JNIEnv* km_env, jclass km_clazz, jlong protectedhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -485,7 +485,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_s
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1CfRegisterSyncRoot(JNIEnv* km_env, jclass km_clazz, jlong syncrootpath, jlong registration, jlong policies, jint registerflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1cfRegisterSyncRoot(JNIEnv* km_env, jclass km_clazz, jlong syncrootpath, jlong registration, jlong policies, jint registerflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -506,7 +506,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1CfReleaseProtectedHandle(JNIEnv* km_env, jclass km_clazz, jlong protectedhandle) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1cfReleaseProtectedHandle(JNIEnv* km_env, jclass km_clazz, jlong protectedhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -522,7 +522,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1CfReleaseTransferKey(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jlong transferkey) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1cfReleaseTransferKey(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jlong transferkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -539,7 +539,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1CfReportProviderProgress(JNIEnv* km_env, jclass km_clazz, jlong connectionkey, jlong transferkey, jlong providerprogresstotal, jlong providerprogresscompleted) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1cfReportProviderProgress(JNIEnv* km_env, jclass km_clazz, jlong connectionkey, jlong transferkey, jlong providerprogresstotal, jlong providerprogresscompleted) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -560,7 +560,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1CfReportProviderProgress2(JNIEnv* km_env, jclass km_clazz, jlong connectionkey, jlong transferkey, jlong requestkey, jlong providerprogresstotal, jlong providerprogresscompleted, jint targetsessionid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1cfReportProviderProgress2(JNIEnv* km_env, jclass km_clazz, jlong connectionkey, jlong transferkey, jlong requestkey, jlong providerprogresstotal, jlong providerprogresscompleted, jint targetsessionid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -583,7 +583,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1CfReportSyncStatus(JNIEnv* km_env, jclass km_clazz, jlong syncrootpath, jlong syncstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1cfReportSyncStatus(JNIEnv* km_env, jclass km_clazz, jlong syncrootpath, jlong syncstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -602,7 +602,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1CfRevertPlaceholder(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jint revertflags, jlong overlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1cfRevertPlaceholder(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jint revertflags, jlong overlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -622,7 +622,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1CfSetCorrelationVector(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jlong correlationvector) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1cfSetCorrelationVector(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jlong correlationvector) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -641,7 +641,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1CfSetInSyncState(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jint insyncstate, jint insyncflags, jlong insyncusn) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1cfSetInSyncState(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jint insyncstate, jint insyncflags, jlong insyncusn) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -662,7 +662,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1CfSetPinState(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jint pinstate, jint pinflags, jlong overlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1cfSetPinState(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jint pinstate, jint pinflags, jlong overlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -683,7 +683,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1CfUnregisterSyncRoot(JNIEnv* km_env, jclass km_clazz, jlong syncrootpath) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1cfUnregisterSyncRoot(JNIEnv* km_env, jclass km_clazz, jlong syncrootpath) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -701,7 +701,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1CfUpdatePlaceholder(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jlong fsmetadata, jlong fileidentity, jint fileidentitylength, jlong dehydraterangearray, jint dehydraterangecount, jint updateflags, jlong updateusn, jlong overlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1cfUpdatePlaceholder(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jlong fsmetadata, jlong fileidentity, jint fileidentitylength, jlong dehydraterangearray, jint dehydraterangecount, jint updateflags, jlong updateusn, jlong overlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -727,7 +727,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1CfUpdateSyncProviderStatus(JNIEnv* km_env, jclass km_clazz, jlong connectionkey, jint providerstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_cloudfilters_WindowsWin32StorageCloudfiltersJniBridge_windowssys_1windows_1win32_1storage_1cloudfilters_1cfUpdateSyncProviderStatus(JNIEnv* km_env, jclass km_clazz, jlong connectionkey, jint providerstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

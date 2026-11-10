@@ -2,42 +2,47 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.enumeration.pnp
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
 
 private val _windowsWin32DevicesEnumerationPnpNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun SwDeviceClose(hswdevice: HSWDEVICE) {
+public actual fun swDeviceClose(hswdevice: Hswdevice) {
     if (_windowsWin32DevicesEnumerationPnpNapiAddon != null) {
-        _windowsWin32DevicesEnumerationPnpNapiAddon.windowssys_windows_win32_devices_enumeration_pnp_SwDeviceClose(hswdevice.toString())
+        _windowsWin32DevicesEnumerationPnpNapiAddon.windowssys_windows_win32_devices_enumeration_pnp_swDeviceClose((hswdevice?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SwDeviceCreate(pszenumeratorname: PCWSTR, pszparentdeviceinstance: PCWSTR, pcreateinfo: Long, cpropertycount: UInt, pproperties: Long, pcallback: SW_DEVICE_CREATE_CALLBACK, pcontext: Long, phswdevice: Long): HRESULT =
-    if (_windowsWin32DevicesEnumerationPnpNapiAddon != null) (_windowsWin32DevicesEnumerationPnpNapiAddon.windowssys_windows_win32_devices_enumeration_pnp_SwDeviceCreate(pszenumeratorname.toString(), pszparentdeviceinstance.toString(), pcreateinfo.toString(), cpropertycount.toInt(), pproperties.toString(), pcallback.toLong().toString(), pcontext.toString(), phswdevice.toString()) as Int) else 0
+public actual fun swDeviceCreate(pszenumeratorname: Pcwstr, pszparentdeviceinstance: Pcwstr, pcreateinfo: COpaquePointer?, cpropertycount: UInt, pproperties: COpaquePointer?, pcallback: SwDeviceCreateCallback, pcontext: COpaquePointer?, phswdevice: COpaquePointer?): Hresult =
+    if (_windowsWin32DevicesEnumerationPnpNapiAddon != null) (_windowsWin32DevicesEnumerationPnpNapiAddon.windowssys_windows_win32_devices_enumeration_pnp_swDeviceCreate((pszenumeratorname?.value ?: 0L).toString(), (pszparentdeviceinstance?.value ?: 0L).toString(), (pcreateinfo?.value ?: 0L).toString(), cpropertycount.toInt(), (pproperties?.value ?: 0L).toString(), 0L.toString(), (pcontext?.value ?: 0L).toString(), (phswdevice?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SwDeviceGetLifetime(hswdevice: HSWDEVICE, plifetime: Long): HRESULT =
-    if (_windowsWin32DevicesEnumerationPnpNapiAddon != null) (_windowsWin32DevicesEnumerationPnpNapiAddon.windowssys_windows_win32_devices_enumeration_pnp_SwDeviceGetLifetime(hswdevice.toString(), plifetime.toString()) as Int) else 0
+public actual fun swDeviceGetLifetime(hswdevice: Hswdevice, plifetime: COpaquePointer?): Hresult =
+    if (_windowsWin32DevicesEnumerationPnpNapiAddon != null) (_windowsWin32DevicesEnumerationPnpNapiAddon.windowssys_windows_win32_devices_enumeration_pnp_swDeviceGetLifetime((hswdevice?.value ?: 0L).toString(), (plifetime?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SwDeviceInterfacePropertySet(hswdevice: HSWDEVICE, pszdeviceinterfaceid: PCWSTR, cpropertycount: UInt, pproperties: Long): HRESULT =
-    if (_windowsWin32DevicesEnumerationPnpNapiAddon != null) (_windowsWin32DevicesEnumerationPnpNapiAddon.windowssys_windows_win32_devices_enumeration_pnp_SwDeviceInterfacePropertySet(hswdevice.toString(), pszdeviceinterfaceid.toString(), cpropertycount.toInt(), pproperties.toString()) as Int) else 0
+public actual fun swDeviceInterfacePropertySet(hswdevice: Hswdevice, pszdeviceinterfaceid: Pcwstr, cpropertycount: UInt, pproperties: COpaquePointer?): Hresult =
+    if (_windowsWin32DevicesEnumerationPnpNapiAddon != null) (_windowsWin32DevicesEnumerationPnpNapiAddon.windowssys_windows_win32_devices_enumeration_pnp_swDeviceInterfacePropertySet((hswdevice?.value ?: 0L).toString(), (pszdeviceinterfaceid?.value ?: 0L).toString(), cpropertycount.toInt(), (pproperties?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SwDeviceInterfaceRegister(hswdevice: HSWDEVICE, pinterfaceclassguid: Long, pszreferencestring: PCWSTR, cpropertycount: UInt, pproperties: Long, fenabled: BOOL, ppszdeviceinterfaceid: Long): HRESULT =
-    if (_windowsWin32DevicesEnumerationPnpNapiAddon != null) (_windowsWin32DevicesEnumerationPnpNapiAddon.windowssys_windows_win32_devices_enumeration_pnp_SwDeviceInterfaceRegister(hswdevice.toString(), pinterfaceclassguid.toString(), pszreferencestring.toString(), cpropertycount.toInt(), pproperties.toString(), fenabled, ppszdeviceinterfaceid.toString()) as Int) else 0
+public actual fun swDeviceInterfaceRegister(hswdevice: Hswdevice, pinterfaceclassguid: COpaquePointer?, pszreferencestring: Pcwstr, cpropertycount: UInt, pproperties: COpaquePointer?, fenabled: Bool, ppszdeviceinterfaceid: COpaquePointer?): Hresult =
+    if (_windowsWin32DevicesEnumerationPnpNapiAddon != null) (_windowsWin32DevicesEnumerationPnpNapiAddon.windowssys_windows_win32_devices_enumeration_pnp_swDeviceInterfaceRegister((hswdevice?.value ?: 0L).toString(), (pinterfaceclassguid?.value ?: 0L).toString(), (pszreferencestring?.value ?: 0L).toString(), cpropertycount.toInt(), (pproperties?.value ?: 0L).toString(), fenabled, (ppszdeviceinterfaceid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SwDeviceInterfaceSetState(hswdevice: HSWDEVICE, pszdeviceinterfaceid: PCWSTR, fenabled: BOOL): HRESULT =
-    if (_windowsWin32DevicesEnumerationPnpNapiAddon != null) (_windowsWin32DevicesEnumerationPnpNapiAddon.windowssys_windows_win32_devices_enumeration_pnp_SwDeviceInterfaceSetState(hswdevice.toString(), pszdeviceinterfaceid.toString(), fenabled) as Int) else 0
+public actual fun swDeviceInterfaceSetState(hswdevice: Hswdevice, pszdeviceinterfaceid: Pcwstr, fenabled: Bool): Hresult =
+    if (_windowsWin32DevicesEnumerationPnpNapiAddon != null) (_windowsWin32DevicesEnumerationPnpNapiAddon.windowssys_windows_win32_devices_enumeration_pnp_swDeviceInterfaceSetState((hswdevice?.value ?: 0L).toString(), (pszdeviceinterfaceid?.value ?: 0L).toString(), fenabled) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SwDevicePropertySet(hswdevice: HSWDEVICE, cpropertycount: UInt, pproperties: Long): HRESULT =
-    if (_windowsWin32DevicesEnumerationPnpNapiAddon != null) (_windowsWin32DevicesEnumerationPnpNapiAddon.windowssys_windows_win32_devices_enumeration_pnp_SwDevicePropertySet(hswdevice.toString(), cpropertycount.toInt(), pproperties.toString()) as Int) else 0
+public actual fun swDevicePropertySet(hswdevice: Hswdevice, cpropertycount: UInt, pproperties: COpaquePointer?): Hresult =
+    if (_windowsWin32DevicesEnumerationPnpNapiAddon != null) (_windowsWin32DevicesEnumerationPnpNapiAddon.windowssys_windows_win32_devices_enumeration_pnp_swDevicePropertySet((hswdevice?.value ?: 0L).toString(), cpropertycount.toInt(), (pproperties?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SwDeviceSetLifetime(hswdevice: HSWDEVICE, lifetime: SW_DEVICE_LIFETIME): HRESULT =
-    if (_windowsWin32DevicesEnumerationPnpNapiAddon != null) (_windowsWin32DevicesEnumerationPnpNapiAddon.windowssys_windows_win32_devices_enumeration_pnp_SwDeviceSetLifetime(hswdevice.toString(), lifetime) as Int) else 0
+public actual fun swDeviceSetLifetime(hswdevice: Hswdevice, lifetime: SwDeviceLifetime): Hresult =
+    if (_windowsWin32DevicesEnumerationPnpNapiAddon != null) (_windowsWin32DevicesEnumerationPnpNapiAddon.windowssys_windows_win32_devices_enumeration_pnp_swDeviceSetLifetime((hswdevice?.value ?: 0L).toString(), lifetime) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SwMemFree(pmem: Long) {
+public actual fun swMemFree(pmem: COpaquePointer?) {
     if (_windowsWin32DevicesEnumerationPnpNapiAddon != null) {
-        _windowsWin32DevicesEnumerationPnpNapiAddon.windowssys_windows_win32_devices_enumeration_pnp_SwMemFree(pmem.toString())
+        _windowsWin32DevicesEnumerationPnpNapiAddon.windowssys_windows_win32_devices_enumeration_pnp_swMemFree((pmem?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }

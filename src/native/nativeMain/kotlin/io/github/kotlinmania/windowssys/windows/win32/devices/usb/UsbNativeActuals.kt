@@ -2,110 +2,111 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.usb
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun WinUsb_AbortPipe(interfacehandle: WINUSB_INTERFACE_HANDLE, pipeid: UByte): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_WinUsb_AbortPipe(interfacehandle.toCPointer<ByteVar>(), pipeid)
+public actual fun winUsbAbortPipe(interfacehandle: WinusbInterfaceHandle, pipeid: UByte): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_winUsbAbortPipe(interfacehandle?.value?.toCPointer<ByteVar>(), pipeid)
 
-public actual fun WinUsb_ControlTransfer(interfacehandle: WINUSB_INTERFACE_HANDLE, setuppacket: WINUSB_SETUP_PACKET, buffer: Long, bufferlength: UInt, lengthtransferred: Long, overlapped: Long): BOOL =
+public actual fun winUsbControlTransfer(interfacehandle: WinusbInterfaceHandle, setuppacket: WinusbSetupPacket, buffer: COpaquePointer?, bufferlength: UInt, lengthtransferred: COpaquePointer?, overlapped: COpaquePointer?): Bool =
     0
 
-public actual fun WinUsb_FlushPipe(interfacehandle: WINUSB_INTERFACE_HANDLE, pipeid: UByte): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_WinUsb_FlushPipe(interfacehandle.toCPointer<ByteVar>(), pipeid)
+public actual fun winUsbFlushPipe(interfacehandle: WinusbInterfaceHandle, pipeid: UByte): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_winUsbFlushPipe(interfacehandle?.value?.toCPointer<ByteVar>(), pipeid)
 
-public actual fun WinUsb_Free(interfacehandle: WINUSB_INTERFACE_HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_WinUsb_Free(interfacehandle.toCPointer<ByteVar>())
+public actual fun winUsbFree(interfacehandle: WinusbInterfaceHandle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_winUsbFree(interfacehandle?.value?.toCPointer<ByteVar>())
 
-public actual fun WinUsb_GetAdjustedFrameNumber(currentframenumber: Long, timestamp: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_WinUsb_GetAdjustedFrameNumber(currentframenumber.toCPointer<ByteVar>(), timestamp)
+public actual fun winUsbGetAdjustedFrameNumber(currentframenumber: COpaquePointer?, timestamp: Long): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_winUsbGetAdjustedFrameNumber(currentframenumber?.value?.toCPointer<ByteVar>(), timestamp)
 
-public actual fun WinUsb_GetAssociatedInterface(interfacehandle: WINUSB_INTERFACE_HANDLE, associatedinterfaceindex: UByte, associatedinterfacehandle: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_WinUsb_GetAssociatedInterface(interfacehandle.toCPointer<ByteVar>(), associatedinterfaceindex, associatedinterfacehandle.toCPointer<ByteVar>())
+public actual fun winUsbGetAssociatedInterface(interfacehandle: WinusbInterfaceHandle, associatedinterfaceindex: UByte, associatedinterfacehandle: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_winUsbGetAssociatedInterface(interfacehandle?.value?.toCPointer<ByteVar>(), associatedinterfaceindex, associatedinterfacehandle?.value?.toCPointer<ByteVar>())
 
-public actual fun WinUsb_GetCurrentAlternateSetting(interfacehandle: WINUSB_INTERFACE_HANDLE, settingnumber: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_WinUsb_GetCurrentAlternateSetting(interfacehandle.toCPointer<ByteVar>(), settingnumber.toCPointer<ByteVar>())
+public actual fun winUsbGetCurrentAlternateSetting(interfacehandle: WinusbInterfaceHandle, settingnumber: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_winUsbGetCurrentAlternateSetting(interfacehandle?.value?.toCPointer<ByteVar>(), settingnumber?.value?.toCPointer<ByteVar>())
 
-public actual fun WinUsb_GetCurrentFrameNumber(interfacehandle: WINUSB_INTERFACE_HANDLE, currentframenumber: Long, timestamp: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_WinUsb_GetCurrentFrameNumber(interfacehandle.toCPointer<ByteVar>(), currentframenumber.toCPointer<ByteVar>(), timestamp.toCPointer<ByteVar>())
+public actual fun winUsbGetCurrentFrameNumber(interfacehandle: WinusbInterfaceHandle, currentframenumber: COpaquePointer?, timestamp: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_winUsbGetCurrentFrameNumber(interfacehandle?.value?.toCPointer<ByteVar>(), currentframenumber?.value?.toCPointer<ByteVar>(), timestamp?.value?.toCPointer<ByteVar>())
 
-public actual fun WinUsb_GetCurrentFrameNumberAndQpc(interfacehandle: WINUSB_INTERFACE_HANDLE, frameqpcinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_WinUsb_GetCurrentFrameNumberAndQpc(interfacehandle.toCPointer<ByteVar>(), frameqpcinfo.toCPointer<ByteVar>())
+public actual fun winUsbGetCurrentFrameNumberAndQpc(interfacehandle: WinusbInterfaceHandle, frameqpcinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_winUsbGetCurrentFrameNumberAndQpc(interfacehandle?.value?.toCPointer<ByteVar>(), frameqpcinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun WinUsb_GetDescriptor(interfacehandle: WINUSB_INTERFACE_HANDLE, descriptortype: UByte, index: UByte, languageid: UShort, buffer: Long, bufferlength: UInt, lengthtransferred: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_WinUsb_GetDescriptor(interfacehandle.toCPointer<ByteVar>(), descriptortype, index, languageid, buffer.toCPointer<ByteVar>(), bufferlength, lengthtransferred.toCPointer<ByteVar>())
+public actual fun winUsbGetDescriptor(interfacehandle: WinusbInterfaceHandle, descriptortype: UByte, index: UByte, languageid: UShort, buffer: COpaquePointer?, bufferlength: UInt, lengthtransferred: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_winUsbGetDescriptor(interfacehandle?.value?.toCPointer<ByteVar>(), descriptortype, index, languageid, buffer?.value?.toCPointer<ByteVar>(), bufferlength, lengthtransferred?.value?.toCPointer<ByteVar>())
 
-public actual fun WinUsb_GetOverlappedResult(interfacehandle: WINUSB_INTERFACE_HANDLE, lpoverlapped: Long, lpnumberofbytestransferred: Long, bwait: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_WinUsb_GetOverlappedResult(interfacehandle.toCPointer<ByteVar>(), lpoverlapped.toCPointer<ByteVar>(), lpnumberofbytestransferred.toCPointer<ByteVar>(), bwait)
+public actual fun winUsbGetOverlappedResult(interfacehandle: WinusbInterfaceHandle, lpoverlapped: COpaquePointer?, lpnumberofbytestransferred: COpaquePointer?, bwait: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_winUsbGetOverlappedResult(interfacehandle?.value?.toCPointer<ByteVar>(), lpoverlapped?.value?.toCPointer<ByteVar>(), lpnumberofbytestransferred?.value?.toCPointer<ByteVar>(), bwait)
 
-public actual fun WinUsb_GetPipePolicy(interfacehandle: WINUSB_INTERFACE_HANDLE, pipeid: UByte, policytype: WINUSB_PIPE_POLICY, valuelength: Long, value: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_WinUsb_GetPipePolicy(interfacehandle.toCPointer<ByteVar>(), pipeid, policytype, valuelength.toCPointer<ByteVar>(), value.toCPointer<ByteVar>())
+public actual fun winUsbGetPipePolicy(interfacehandle: WinusbInterfaceHandle, pipeid: UByte, policytype: WinusbPipePolicy, valuelength: COpaquePointer?, value: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_winUsbGetPipePolicy(interfacehandle?.value?.toCPointer<ByteVar>(), pipeid, policytype, valuelength?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
 
-public actual fun WinUsb_GetPowerPolicy(interfacehandle: WINUSB_INTERFACE_HANDLE, policytype: WINUSB_POWER_POLICY, valuelength: Long, value: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_WinUsb_GetPowerPolicy(interfacehandle.toCPointer<ByteVar>(), policytype, valuelength.toCPointer<ByteVar>(), value.toCPointer<ByteVar>())
+public actual fun winUsbGetPowerPolicy(interfacehandle: WinusbInterfaceHandle, policytype: WinusbPowerPolicy, valuelength: COpaquePointer?, value: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_winUsbGetPowerPolicy(interfacehandle?.value?.toCPointer<ByteVar>(), policytype, valuelength?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>())
 
-public actual fun WinUsb_Initialize(devicehandle: HANDLE, interfacehandle: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_WinUsb_Initialize(devicehandle.toCPointer<ByteVar>(), interfacehandle.toCPointer<ByteVar>())
+public actual fun winUsbInitialize(devicehandle: Handle, interfacehandle: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_winUsbInitialize(devicehandle?.value?.toCPointer<ByteVar>(), interfacehandle?.value?.toCPointer<ByteVar>())
 
-public actual fun WinUsb_ParseConfigurationDescriptor(configurationdescriptor: Long, startposition: Long, interfacenumber: Int, alternatesetting: Int, interfaceclass: Int, interfacesubclass: Int, interfaceprotocol: Int): Long =
-    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_WinUsb_ParseConfigurationDescriptor(configurationdescriptor.toCPointer<ByteVar>(), startposition.toCPointer<ByteVar>(), interfacenumber, alternatesetting, interfaceclass, interfacesubclass, interfaceprotocol)?.toLong() ?: 0L
+public actual fun winUsbParseConfigurationDescriptor(configurationdescriptor: COpaquePointer?, startposition: COpaquePointer?, interfacenumber: Int, alternatesetting: Int, interfaceclass: Int, interfacesubclass: Int, interfaceprotocol: Int): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_winUsbParseConfigurationDescriptor(configurationdescriptor?.value?.toCPointer<ByteVar>(), startposition?.value?.toCPointer<ByteVar>(), interfacenumber, alternatesetting, interfaceclass, interfacesubclass, interfaceprotocol)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun WinUsb_ParseDescriptors(descriptorbuffer: Long, totallength: UInt, startposition: Long, descriptortype: Int): Long =
-    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_WinUsb_ParseDescriptors(descriptorbuffer.toCPointer<ByteVar>(), totallength, startposition.toCPointer<ByteVar>(), descriptortype)?.toLong() ?: 0L
+public actual fun winUsbParseDescriptors(descriptorbuffer: COpaquePointer?, totallength: UInt, startposition: COpaquePointer?, descriptortype: Int): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_winUsbParseDescriptors(descriptorbuffer?.value?.toCPointer<ByteVar>(), totallength, startposition?.value?.toCPointer<ByteVar>(), descriptortype)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun WinUsb_QueryDeviceInformation(interfacehandle: WINUSB_INTERFACE_HANDLE, informationtype: UInt, bufferlength: Long, buffer: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_WinUsb_QueryDeviceInformation(interfacehandle.toCPointer<ByteVar>(), informationtype, bufferlength.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>())
+public actual fun winUsbQueryDeviceInformation(interfacehandle: WinusbInterfaceHandle, informationtype: UInt, bufferlength: COpaquePointer?, buffer: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_winUsbQueryDeviceInformation(interfacehandle?.value?.toCPointer<ByteVar>(), informationtype, bufferlength?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>())
 
-public actual fun WinUsb_QueryInterfaceSettings(interfacehandle: WINUSB_INTERFACE_HANDLE, alternateinterfacenumber: UByte, usbaltinterfacedescriptor: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_WinUsb_QueryInterfaceSettings(interfacehandle.toCPointer<ByteVar>(), alternateinterfacenumber, usbaltinterfacedescriptor.toCPointer<ByteVar>())
+public actual fun winUsbQueryInterfaceSettings(interfacehandle: WinusbInterfaceHandle, alternateinterfacenumber: UByte, usbaltinterfacedescriptor: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_winUsbQueryInterfaceSettings(interfacehandle?.value?.toCPointer<ByteVar>(), alternateinterfacenumber, usbaltinterfacedescriptor?.value?.toCPointer<ByteVar>())
 
-public actual fun WinUsb_QueryPipe(interfacehandle: WINUSB_INTERFACE_HANDLE, alternateinterfacenumber: UByte, pipeindex: UByte, pipeinformation: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_WinUsb_QueryPipe(interfacehandle.toCPointer<ByteVar>(), alternateinterfacenumber, pipeindex, pipeinformation.toCPointer<ByteVar>())
+public actual fun winUsbQueryPipe(interfacehandle: WinusbInterfaceHandle, alternateinterfacenumber: UByte, pipeindex: UByte, pipeinformation: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_winUsbQueryPipe(interfacehandle?.value?.toCPointer<ByteVar>(), alternateinterfacenumber, pipeindex, pipeinformation?.value?.toCPointer<ByteVar>())
 
-public actual fun WinUsb_QueryPipeEx(interfacehandle: WINUSB_INTERFACE_HANDLE, alternatesettingnumber: UByte, pipeindex: UByte, pipeinformationex: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_WinUsb_QueryPipeEx(interfacehandle.toCPointer<ByteVar>(), alternatesettingnumber, pipeindex, pipeinformationex.toCPointer<ByteVar>())
+public actual fun winUsbQueryPipeEx(interfacehandle: WinusbInterfaceHandle, alternatesettingnumber: UByte, pipeindex: UByte, pipeinformationex: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_winUsbQueryPipeEx(interfacehandle?.value?.toCPointer<ByteVar>(), alternatesettingnumber, pipeindex, pipeinformationex?.value?.toCPointer<ByteVar>())
 
-public actual fun WinUsb_ReadIsochPipe(bufferhandle: Long, offset: UInt, length: UInt, framenumber: Long, numberofpackets: UInt, isopacketdescriptors: Long, overlapped: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_WinUsb_ReadIsochPipe(bufferhandle.toCPointer<ByteVar>(), offset, length, framenumber.toCPointer<ByteVar>(), numberofpackets, isopacketdescriptors.toCPointer<ByteVar>(), overlapped.toCPointer<ByteVar>())
+public actual fun winUsbReadIsochPipe(bufferhandle: COpaquePointer?, offset: UInt, length: UInt, framenumber: COpaquePointer?, numberofpackets: UInt, isopacketdescriptors: COpaquePointer?, overlapped: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_winUsbReadIsochPipe(bufferhandle?.value?.toCPointer<ByteVar>(), offset, length, framenumber?.value?.toCPointer<ByteVar>(), numberofpackets, isopacketdescriptors?.value?.toCPointer<ByteVar>(), overlapped?.value?.toCPointer<ByteVar>())
 
-public actual fun WinUsb_ReadIsochPipeAsap(bufferhandle: Long, offset: UInt, length: UInt, continuestream: BOOL, numberofpackets: UInt, isopacketdescriptors: Long, overlapped: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_WinUsb_ReadIsochPipeAsap(bufferhandle.toCPointer<ByteVar>(), offset, length, continuestream, numberofpackets, isopacketdescriptors.toCPointer<ByteVar>(), overlapped.toCPointer<ByteVar>())
+public actual fun winUsbReadIsochPipeAsap(bufferhandle: COpaquePointer?, offset: UInt, length: UInt, continuestream: Bool, numberofpackets: UInt, isopacketdescriptors: COpaquePointer?, overlapped: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_winUsbReadIsochPipeAsap(bufferhandle?.value?.toCPointer<ByteVar>(), offset, length, continuestream, numberofpackets, isopacketdescriptors?.value?.toCPointer<ByteVar>(), overlapped?.value?.toCPointer<ByteVar>())
 
-public actual fun WinUsb_ReadPipe(interfacehandle: WINUSB_INTERFACE_HANDLE, pipeid: UByte, buffer: Long, bufferlength: UInt, lengthtransferred: Long, overlapped: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_WinUsb_ReadPipe(interfacehandle.toCPointer<ByteVar>(), pipeid, buffer.toCPointer<ByteVar>(), bufferlength, lengthtransferred.toCPointer<ByteVar>(), overlapped.toCPointer<ByteVar>())
+public actual fun winUsbReadPipe(interfacehandle: WinusbInterfaceHandle, pipeid: UByte, buffer: COpaquePointer?, bufferlength: UInt, lengthtransferred: COpaquePointer?, overlapped: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_winUsbReadPipe(interfacehandle?.value?.toCPointer<ByteVar>(), pipeid, buffer?.value?.toCPointer<ByteVar>(), bufferlength, lengthtransferred?.value?.toCPointer<ByteVar>(), overlapped?.value?.toCPointer<ByteVar>())
 
-public actual fun WinUsb_RegisterIsochBuffer(interfacehandle: WINUSB_INTERFACE_HANDLE, pipeid: UByte, buffer: Long, bufferlength: UInt, isochbufferhandle: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_WinUsb_RegisterIsochBuffer(interfacehandle.toCPointer<ByteVar>(), pipeid, buffer.toCPointer<ByteVar>(), bufferlength, isochbufferhandle.toCPointer<ByteVar>())
+public actual fun winUsbRegisterIsochBuffer(interfacehandle: WinusbInterfaceHandle, pipeid: UByte, buffer: COpaquePointer?, bufferlength: UInt, isochbufferhandle: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_winUsbRegisterIsochBuffer(interfacehandle?.value?.toCPointer<ByteVar>(), pipeid, buffer?.value?.toCPointer<ByteVar>(), bufferlength, isochbufferhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun WinUsb_ResetPipe(interfacehandle: WINUSB_INTERFACE_HANDLE, pipeid: UByte): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_WinUsb_ResetPipe(interfacehandle.toCPointer<ByteVar>(), pipeid)
+public actual fun winUsbResetPipe(interfacehandle: WinusbInterfaceHandle, pipeid: UByte): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_winUsbResetPipe(interfacehandle?.value?.toCPointer<ByteVar>(), pipeid)
 
-public actual fun WinUsb_SetCurrentAlternateSetting(interfacehandle: WINUSB_INTERFACE_HANDLE, settingnumber: UByte): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_WinUsb_SetCurrentAlternateSetting(interfacehandle.toCPointer<ByteVar>(), settingnumber)
+public actual fun winUsbSetCurrentAlternateSetting(interfacehandle: WinusbInterfaceHandle, settingnumber: UByte): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_winUsbSetCurrentAlternateSetting(interfacehandle?.value?.toCPointer<ByteVar>(), settingnumber)
 
-public actual fun WinUsb_SetPipePolicy(interfacehandle: WINUSB_INTERFACE_HANDLE, pipeid: UByte, policytype: WINUSB_PIPE_POLICY, valuelength: UInt, value: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_WinUsb_SetPipePolicy(interfacehandle.toCPointer<ByteVar>(), pipeid, policytype, valuelength, value.toCPointer<ByteVar>())
+public actual fun winUsbSetPipePolicy(interfacehandle: WinusbInterfaceHandle, pipeid: UByte, policytype: WinusbPipePolicy, valuelength: UInt, value: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_winUsbSetPipePolicy(interfacehandle?.value?.toCPointer<ByteVar>(), pipeid, policytype, valuelength, value?.value?.toCPointer<ByteVar>())
 
-public actual fun WinUsb_SetPowerPolicy(interfacehandle: WINUSB_INTERFACE_HANDLE, policytype: WINUSB_POWER_POLICY, valuelength: UInt, value: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_WinUsb_SetPowerPolicy(interfacehandle.toCPointer<ByteVar>(), policytype, valuelength, value.toCPointer<ByteVar>())
+public actual fun winUsbSetPowerPolicy(interfacehandle: WinusbInterfaceHandle, policytype: WinusbPowerPolicy, valuelength: UInt, value: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_winUsbSetPowerPolicy(interfacehandle?.value?.toCPointer<ByteVar>(), policytype, valuelength, value?.value?.toCPointer<ByteVar>())
 
-public actual fun WinUsb_StartTrackingForTimeSync(interfacehandle: WINUSB_INTERFACE_HANDLE, starttrackinginfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_WinUsb_StartTrackingForTimeSync(interfacehandle.toCPointer<ByteVar>(), starttrackinginfo.toCPointer<ByteVar>())
+public actual fun winUsbStartTrackingForTimeSync(interfacehandle: WinusbInterfaceHandle, starttrackinginfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_winUsbStartTrackingForTimeSync(interfacehandle?.value?.toCPointer<ByteVar>(), starttrackinginfo?.value?.toCPointer<ByteVar>())
 
-public actual fun WinUsb_StopTrackingForTimeSync(interfacehandle: WINUSB_INTERFACE_HANDLE, stoptrackinginfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_WinUsb_StopTrackingForTimeSync(interfacehandle.toCPointer<ByteVar>(), stoptrackinginfo.toCPointer<ByteVar>())
+public actual fun winUsbStopTrackingForTimeSync(interfacehandle: WinusbInterfaceHandle, stoptrackinginfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_winUsbStopTrackingForTimeSync(interfacehandle?.value?.toCPointer<ByteVar>(), stoptrackinginfo?.value?.toCPointer<ByteVar>())
 
-public actual fun WinUsb_UnregisterIsochBuffer(isochbufferhandle: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_WinUsb_UnregisterIsochBuffer(isochbufferhandle.toCPointer<ByteVar>())
+public actual fun winUsbUnregisterIsochBuffer(isochbufferhandle: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_winUsbUnregisterIsochBuffer(isochbufferhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun WinUsb_WriteIsochPipe(bufferhandle: Long, offset: UInt, length: UInt, framenumber: Long, overlapped: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_WinUsb_WriteIsochPipe(bufferhandle.toCPointer<ByteVar>(), offset, length, framenumber.toCPointer<ByteVar>(), overlapped.toCPointer<ByteVar>())
+public actual fun winUsbWriteIsochPipe(bufferhandle: COpaquePointer?, offset: UInt, length: UInt, framenumber: COpaquePointer?, overlapped: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_winUsbWriteIsochPipe(bufferhandle?.value?.toCPointer<ByteVar>(), offset, length, framenumber?.value?.toCPointer<ByteVar>(), overlapped?.value?.toCPointer<ByteVar>())
 
-public actual fun WinUsb_WriteIsochPipeAsap(bufferhandle: Long, offset: UInt, length: UInt, continuestream: BOOL, overlapped: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_WinUsb_WriteIsochPipeAsap(bufferhandle.toCPointer<ByteVar>(), offset, length, continuestream, overlapped.toCPointer<ByteVar>())
+public actual fun winUsbWriteIsochPipeAsap(bufferhandle: COpaquePointer?, offset: UInt, length: UInt, continuestream: Bool, overlapped: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_winUsbWriteIsochPipeAsap(bufferhandle?.value?.toCPointer<ByteVar>(), offset, length, continuestream, overlapped?.value?.toCPointer<ByteVar>())
 
-public actual fun WinUsb_WritePipe(interfacehandle: WINUSB_INTERFACE_HANDLE, pipeid: UByte, buffer: Long, bufferlength: UInt, lengthtransferred: Long, overlapped: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_WinUsb_WritePipe(interfacehandle.toCPointer<ByteVar>(), pipeid, buffer.toCPointer<ByteVar>(), bufferlength, lengthtransferred.toCPointer<ByteVar>(), overlapped.toCPointer<ByteVar>())
+public actual fun winUsbWritePipe(interfacehandle: WinusbInterfaceHandle, pipeid: UByte, buffer: COpaquePointer?, bufferlength: UInt, lengthtransferred: COpaquePointer?, overlapped: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.devices.usb.cinterop.windowssys_windows_win32_devices_usb_winUsbWritePipe(interfacehandle?.value?.toCPointer<ByteVar>(), pipeid, buffer?.value?.toCPointer<ByteVar>(), bufferlength, lengthtransferred?.value?.toCPointer<ByteVar>(), overlapped?.value?.toCPointer<ByteVar>())

@@ -1,18 +1,19 @@
 package io.github.kotlinmania.windowssys.windows.win32.storage.filehistory
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
 
-public expect fun FhServiceBlockBackup(pipe: FH_SERVICE_PIPE_HANDLE): HRESULT
+public expect fun fhServiceBlockBackup(pipe: FhServicePipeHandle): Hresult
 
-public expect fun FhServiceClosePipe(pipe: FH_SERVICE_PIPE_HANDLE): HRESULT
+public expect fun fhServiceClosePipe(pipe: FhServicePipeHandle): Hresult
 
-public expect fun FhServiceOpenPipe(startserviceifstopped: BOOL, pipe: Long): HRESULT
+public expect fun fhServiceOpenPipe(startserviceifstopped: Bool, pipe: COpaquePointer?): Hresult
 
-public expect fun FhServiceReloadConfiguration(pipe: FH_SERVICE_PIPE_HANDLE): HRESULT
+public expect fun fhServiceReloadConfiguration(pipe: FhServicePipeHandle): Hresult
 
-public expect fun FhServiceStartBackup(pipe: FH_SERVICE_PIPE_HANDLE, lowpriorityio: BOOL): HRESULT
+public expect fun fhServiceStartBackup(pipe: FhServicePipeHandle, lowpriorityio: Bool): Hresult
 
-public expect fun FhServiceStopBackup(pipe: FH_SERVICE_PIPE_HANDLE, stoptracking: BOOL): HRESULT
+public expect fun fhServiceStopBackup(pipe: FhServicePipeHandle, stoptracking: Bool): Hresult
 
-public expect fun FhServiceUnblockBackup(pipe: FH_SERVICE_PIPE_HANDLE): HRESULT
+public expect fun fhServiceUnblockBackup(pipe: FhServicePipeHandle): Hresult

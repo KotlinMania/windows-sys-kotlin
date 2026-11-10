@@ -1,3 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.memory.nonvolatile
 
-public data class NV_MEMORY_RANGE(public var BaseAddress: Long = 0L, public var Length: ULong = 0uL)
+import io.github.kotlinmania.windowssys.COpaquePointer
+
+public data class NvMemoryRange(public var baseAddress: COpaquePointer? = null, public var length: Int = 0)

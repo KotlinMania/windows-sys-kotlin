@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_storage_filehistory_FhServiceBlockBackup(void* arg_0_pipe) {
+int32_t windowssys_windows_win32_storage_filehistory_fhServiceBlockBackup(void* arg_0_pipe) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ int32_t windowssys_windows_win32_storage_filehistory_FhServiceBlockBackup(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_filehistory_FhServiceClosePipe(void* arg_0_pipe) {
+int32_t windowssys_windows_win32_storage_filehistory_fhServiceClosePipe(void* arg_0_pipe) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -59,7 +59,7 @@ int32_t windowssys_windows_win32_storage_filehistory_FhServiceClosePipe(void* ar
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_filehistory_FhServiceOpenPipe(int32_t startserviceifstopped, void* arg_1_pipe) {
+int32_t windowssys_windows_win32_storage_filehistory_fhServiceOpenPipe(int32_t startserviceifstopped, void* arg_1_pipe) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -82,7 +82,7 @@ int32_t windowssys_windows_win32_storage_filehistory_FhServiceOpenPipe(int32_t s
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_filehistory_FhServiceReloadConfiguration(void* arg_0_pipe) {
+int32_t windowssys_windows_win32_storage_filehistory_fhServiceReloadConfiguration(void* arg_0_pipe) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -104,7 +104,7 @@ int32_t windowssys_windows_win32_storage_filehistory_FhServiceReloadConfiguratio
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_filehistory_FhServiceStartBackup(void* arg_0_pipe, int32_t lowpriorityio) {
+int32_t windowssys_windows_win32_storage_filehistory_fhServiceStartBackup(void* arg_0_pipe, int32_t lowpriorityio) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -127,7 +127,7 @@ int32_t windowssys_windows_win32_storage_filehistory_FhServiceStartBackup(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_filehistory_FhServiceStopBackup(void* arg_0_pipe, int32_t stoptracking) {
+int32_t windowssys_windows_win32_storage_filehistory_fhServiceStopBackup(void* arg_0_pipe, int32_t stoptracking) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -150,7 +150,7 @@ int32_t windowssys_windows_win32_storage_filehistory_FhServiceStopBackup(void* a
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_filehistory_FhServiceUnblockBackup(void* arg_0_pipe) {
+int32_t windowssys_windows_win32_storage_filehistory_fhServiceUnblockBackup(void* arg_0_pipe) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;

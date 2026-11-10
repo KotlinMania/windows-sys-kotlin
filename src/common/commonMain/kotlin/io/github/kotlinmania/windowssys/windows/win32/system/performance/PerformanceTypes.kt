@@ -1,6 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.performance
 
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Pcwstr
 
 public typealias AutoPathFormat = Int
 
@@ -28,75 +29,75 @@ public typealias FileFormat = Int
 
 public typealias FolderActionSteps = Int
 
-public typealias PDH_DLL_VERSION = UInt
+public typealias PdhDllVersion = UInt
 
-public typealias PDH_FMT = UInt
+public typealias PdhFmt = UInt
 
-public typealias PDH_HCOUNTER = Long
+public typealias PdhHcounter = COpaquePointer?
 
-public typealias PDH_HLOG = Long
+public typealias PdhHlog = COpaquePointer?
 
-public typealias PDH_HQUERY = Long
+public typealias PdhHquery = COpaquePointer?
 
-public typealias PDH_LOG = UInt
+public typealias PdhLog = UInt
 
-public typealias PDH_LOG_TYPE = UInt
+public typealias PdhLogType = UInt
 
-public typealias PDH_PATH_FLAGS = UInt
+public typealias PdhPathFlags = UInt
 
-public typealias PDH_SELECT_DATA_SOURCE_FLAGS = UInt
+public typealias PdhSelectDataSourceFlags = UInt
 
-public fun interface PERFLIBREQUESTFn {
-    public operator fun invoke(requestcode: UInt, buffer: Long, buffersize: UInt): UInt
+public fun interface PerflibrequestFn {
+    public operator fun invoke(requestcode: UInt, buffer: COpaquePointer?, buffersize: UInt): UInt
 }
 
-public typealias PERFLIBREQUEST = PERFLIBREQUESTFn?
+public typealias Perflibrequest = PerflibrequestFn?
 
-public typealias PERF_COUNTER_AGGREGATE_FUNC = UInt
+public typealias PerfCounterAggregateFunc = UInt
 
-public typealias PERF_DETAIL = UInt
+public typealias PerfDetail = UInt
 
-public fun interface PERF_MEM_ALLOCFn {
-    public operator fun invoke(allocsize: ULong, pcontext: Long): Long
+public fun interface PerfMemAllocFn {
+    public operator fun invoke(allocsize: ULong, pcontext: COpaquePointer?): COpaquePointer?
 }
 
-public typealias PERF_MEM_ALLOC = PERF_MEM_ALLOCFn?
+public typealias PerfMemAlloc = PerfMemAllocFn?
 
-public fun interface PERF_MEM_FREEFn {
-    public operator fun invoke(pbuffer: Long, pcontext: Long)
+public fun interface PerfMemFreeFn {
+    public operator fun invoke(pbuffer: COpaquePointer?, pcontext: COpaquePointer?)
 }
 
-public typealias PERF_MEM_FREE = PERF_MEM_FREEFn?
+public typealias PerfMemFree = PerfMemFreeFn?
 
-public fun interface PLA_CABEXTRACT_CALLBACKFn {
-    public operator fun invoke(filename: PCWSTR, context: Long)
+public fun interface PlaCabextractCallbackFn {
+    public operator fun invoke(filename: Pcwstr, context: COpaquePointer?)
 }
 
-public typealias PLA_CABEXTRACT_CALLBACK = PLA_CABEXTRACT_CALLBACKFn?
+public typealias PlaCabextractCallback = PlaCabextractCallbackFn?
 
-public fun interface PM_CLOSE_PROCFn {
+public fun interface PmCloseProcFn {
     public operator fun invoke(): UInt
 }
 
-public typealias PM_CLOSE_PROC = PM_CLOSE_PROCFn?
+public typealias PmCloseProc = PmCloseProcFn?
 
-public fun interface PM_COLLECT_PROCFn {
-    public operator fun invoke(pvaluename: PCWSTR, ppdata: Long, pcbtotalbytes: Long, pnumobjecttypes: Long): UInt
+public fun interface PmCollectProcFn {
+    public operator fun invoke(pvaluename: Pcwstr, ppdata: COpaquePointer?, pcbtotalbytes: COpaquePointer?, pnumobjecttypes: COpaquePointer?): UInt
 }
 
-public typealias PM_COLLECT_PROC = PM_COLLECT_PROCFn?
+public typealias PmCollectProc = PmCollectProcFn?
 
-public fun interface PM_OPEN_PROCFn {
-    public operator fun invoke(pcontext: PCWSTR): UInt
+public fun interface PmOpenProcFn {
+    public operator fun invoke(pcontext: Pcwstr): UInt
 }
 
-public typealias PM_OPEN_PROC = PM_OPEN_PROCFn?
+public typealias PmOpenProc = PmOpenProcFn?
 
 public typealias PerfCounterDataType = Int
 
 public typealias PerfRegInfoType = Int
 
-public typealias REAL_TIME_DATA_SOURCE_ID_FLAGS = UInt
+public typealias RealTimeDataSourceIdFlags = UInt
 
 public typealias ReportValueTypeConstants = Int
 

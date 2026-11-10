@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_wdk_storage_filesystem_ApplyControlToken(void* phcontext, void* pinput) {
+int32_t windowssys_windows_wdk_storage_filesystem_applyControlToken(void* phcontext, void* pinput) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ApplyControlToken(void* phcont
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_CcAsyncCopyRead(void* fileobject, void* fileoffset, uint32_t length, bool wait, void* buffer, void* iostatus, int64_t ioissuerthread, void* asyncreadcontext) {
+bool windowssys_windows_wdk_storage_filesystem_ccAsyncCopyRead(void* fileobject, void* fileoffset, uint32_t length, bool wait, void* buffer, void* iostatus, int64_t ioissuerthread, void* asyncreadcontext) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, uint32_t, bool, void*, void*, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -67,7 +67,7 @@ bool windowssys_windows_wdk_storage_filesystem_CcAsyncCopyRead(void* fileobject,
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_CcCanIWrite(void* fileobject, uint32_t bytestowrite, bool wait, uint8_t retrying) {
+bool windowssys_windows_wdk_storage_filesystem_ccCanIWrite(void* fileobject, uint32_t bytestowrite, bool wait, uint8_t retrying) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, uint32_t, bool, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -92,7 +92,7 @@ bool windowssys_windows_wdk_storage_filesystem_CcCanIWrite(void* fileobject, uin
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_CcCoherencyFlushAndPurgeCache(void* sectionobjectpointer, void* fileoffset, uint32_t length, void* iostatus, uint32_t flags) {
+void windowssys_windows_wdk_storage_filesystem_ccCoherencyFlushAndPurgeCache(void* sectionobjectpointer, void* fileoffset, uint32_t length, void* iostatus, uint32_t flags) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -117,7 +117,7 @@ void windowssys_windows_wdk_storage_filesystem_CcCoherencyFlushAndPurgeCache(voi
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_CcCopyRead(void* fileobject, void* fileoffset, uint32_t length, bool wait, void* buffer, void* iostatus) {
+bool windowssys_windows_wdk_storage_filesystem_ccCopyRead(void* fileobject, void* fileoffset, uint32_t length, bool wait, void* buffer, void* iostatus) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, uint32_t, bool, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -144,7 +144,7 @@ bool windowssys_windows_wdk_storage_filesystem_CcCopyRead(void* fileobject, void
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_CcCopyReadEx(void* fileobject, void* fileoffset, uint32_t length, bool wait, void* buffer, void* iostatus, int64_t ioissuerthread) {
+bool windowssys_windows_wdk_storage_filesystem_ccCopyReadEx(void* fileobject, void* fileoffset, uint32_t length, bool wait, void* buffer, void* iostatus, int64_t ioissuerthread) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, uint32_t, bool, void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -172,7 +172,7 @@ bool windowssys_windows_wdk_storage_filesystem_CcCopyReadEx(void* fileobject, vo
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_CcCopyWrite(void* fileobject, void* fileoffset, uint32_t length, bool wait, void* buffer) {
+bool windowssys_windows_wdk_storage_filesystem_ccCopyWrite(void* fileobject, void* fileoffset, uint32_t length, bool wait, void* buffer) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, uint32_t, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -198,7 +198,7 @@ bool windowssys_windows_wdk_storage_filesystem_CcCopyWrite(void* fileobject, voi
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_CcCopyWriteEx(void* fileobject, void* fileoffset, uint32_t length, bool wait, void* buffer, int64_t ioissuerthread) {
+bool windowssys_windows_wdk_storage_filesystem_ccCopyWriteEx(void* fileobject, void* fileoffset, uint32_t length, bool wait, void* buffer, int64_t ioissuerthread) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, uint32_t, bool, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -225,7 +225,7 @@ bool windowssys_windows_wdk_storage_filesystem_CcCopyWriteEx(void* fileobject, v
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_CcCopyWriteWontFlush(void* fileobject, void* fileoffset, uint32_t length) {
+bool windowssys_windows_wdk_storage_filesystem_ccCopyWriteWontFlush(void* fileobject, void* fileoffset, uint32_t length) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -249,7 +249,7 @@ bool windowssys_windows_wdk_storage_filesystem_CcCopyWriteWontFlush(void* fileob
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_CcDeferWrite(void* fileobject, void* postroutine, void* context1, void* context2, uint32_t bytestowrite, bool retrying) {
+void windowssys_windows_wdk_storage_filesystem_ccDeferWrite(void* fileobject, void* postroutine, void* context1, void* context2, uint32_t bytestowrite, bool retrying) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -275,7 +275,7 @@ void windowssys_windows_wdk_storage_filesystem_CcDeferWrite(void* fileobject, vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_CcErrorCallbackRoutine(void* context) {
+int32_t windowssys_windows_wdk_storage_filesystem_ccErrorCallbackRoutine(void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -297,7 +297,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_CcErrorCallbackRoutine(void* c
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_CcFastCopyRead(void* fileobject, uint32_t fileoffset, uint32_t length, uint32_t pagecount, void* buffer, void* iostatus) {
+void windowssys_windows_wdk_storage_filesystem_ccFastCopyRead(void* fileobject, uint32_t fileoffset, uint32_t length, uint32_t pagecount, void* buffer, void* iostatus) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -323,7 +323,7 @@ void windowssys_windows_wdk_storage_filesystem_CcFastCopyRead(void* fileobject, 
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_CcFastCopyWrite(void* fileobject, uint32_t fileoffset, uint32_t length, void* buffer) {
+void windowssys_windows_wdk_storage_filesystem_ccFastCopyWrite(void* fileobject, uint32_t fileoffset, uint32_t length, void* buffer) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -347,7 +347,7 @@ void windowssys_windows_wdk_storage_filesystem_CcFastCopyWrite(void* fileobject,
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_CcFlushCache(void* sectionobjectpointer, void* fileoffset, uint32_t length, void* iostatus) {
+void windowssys_windows_wdk_storage_filesystem_ccFlushCache(void* sectionobjectpointer, void* fileoffset, uint32_t length, void* iostatus) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -371,7 +371,7 @@ void windowssys_windows_wdk_storage_filesystem_CcFlushCache(void* sectionobjectp
 #endif
 }
 
-int64_t windowssys_windows_wdk_storage_filesystem_CcGetDirtyPages(void* loghandle, void* dirtypageroutine, void* context1, void* context2) {
+int64_t windowssys_windows_wdk_storage_filesystem_ccGetDirtyPages(void* loghandle, void* dirtypageroutine, void* context1, void* context2) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -396,7 +396,7 @@ int64_t windowssys_windows_wdk_storage_filesystem_CcGetDirtyPages(void* loghandl
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_CcGetFileObjectFromBcb(void* bcb) {
+void* windowssys_windows_wdk_storage_filesystem_ccGetFileObjectFromBcb(void* bcb) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -418,7 +418,7 @@ void* windowssys_windows_wdk_storage_filesystem_CcGetFileObjectFromBcb(void* bcb
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_CcGetFileObjectFromSectionPtrs(void* sectionobjectpointer) {
+void* windowssys_windows_wdk_storage_filesystem_ccGetFileObjectFromSectionPtrs(void* sectionobjectpointer) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -440,7 +440,7 @@ void* windowssys_windows_wdk_storage_filesystem_CcGetFileObjectFromSectionPtrs(v
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_CcGetFileObjectFromSectionPtrsRef(void* sectionobjectpointer) {
+void* windowssys_windows_wdk_storage_filesystem_ccGetFileObjectFromSectionPtrsRef(void* sectionobjectpointer) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -462,7 +462,7 @@ void* windowssys_windows_wdk_storage_filesystem_CcGetFileObjectFromSectionPtrsRe
 #endif
 }
 
-int64_t windowssys_windows_wdk_storage_filesystem_CcGetFlushedValidData(void* sectionobjectpointer, bool bcblistheld) {
+int64_t windowssys_windows_wdk_storage_filesystem_ccGetFlushedValidData(void* sectionobjectpointer, bool bcblistheld) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -485,7 +485,7 @@ int64_t windowssys_windows_wdk_storage_filesystem_CcGetFlushedValidData(void* se
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_CcInitializeCacheMap(void* fileobject, void* filesizes, bool pinaccess, void* callbacks, void* lazywritecontext) {
+void windowssys_windows_wdk_storage_filesystem_ccInitializeCacheMap(void* fileobject, void* filesizes, bool pinaccess, void* callbacks, void* lazywritecontext) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, bool, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -510,7 +510,7 @@ void windowssys_windows_wdk_storage_filesystem_CcInitializeCacheMap(void* fileob
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_CcInitializeCacheMapEx(void* fileobject, void* filesizes, bool pinaccess, void* callbacks, void* lazywritecontext, uint32_t flags) {
+void windowssys_windows_wdk_storage_filesystem_ccInitializeCacheMapEx(void* fileobject, void* filesizes, bool pinaccess, void* callbacks, void* lazywritecontext, uint32_t flags) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, bool, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -536,7 +536,7 @@ void windowssys_windows_wdk_storage_filesystem_CcInitializeCacheMapEx(void* file
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_CcIsCacheManagerCallbackNeeded(int32_t status) {
+bool windowssys_windows_wdk_storage_filesystem_ccIsCacheManagerCallbackNeeded(int32_t status) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -558,7 +558,7 @@ bool windowssys_windows_wdk_storage_filesystem_CcIsCacheManagerCallbackNeeded(in
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_CcIsThereDirtyData(void* vpb) {
+bool windowssys_windows_wdk_storage_filesystem_ccIsThereDirtyData(void* vpb) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -580,7 +580,7 @@ bool windowssys_windows_wdk_storage_filesystem_CcIsThereDirtyData(void* vpb) {
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_CcIsThereDirtyDataEx(void* vpb, void* numberofdirtypages) {
+bool windowssys_windows_wdk_storage_filesystem_ccIsThereDirtyDataEx(void* vpb, void* numberofdirtypages) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -603,7 +603,7 @@ bool windowssys_windows_wdk_storage_filesystem_CcIsThereDirtyDataEx(void* vpb, v
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_CcMapData(void* fileobject, void* fileoffset, uint32_t length, uint32_t flags, void* bcb, void* buffer) {
+bool windowssys_windows_wdk_storage_filesystem_ccMapData(void* fileobject, void* fileoffset, uint32_t length, uint32_t flags, void* bcb, void* buffer) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -630,7 +630,7 @@ bool windowssys_windows_wdk_storage_filesystem_CcMapData(void* fileobject, void*
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_CcMdlRead(void* fileobject, void* fileoffset, uint32_t length, void* mdlchain, void* iostatus) {
+void windowssys_windows_wdk_storage_filesystem_ccMdlRead(void* fileobject, void* fileoffset, uint32_t length, void* mdlchain, void* iostatus) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -655,7 +655,7 @@ void windowssys_windows_wdk_storage_filesystem_CcMdlRead(void* fileobject, void*
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_CcMdlReadComplete(void* fileobject, void* mdlchain) {
+void windowssys_windows_wdk_storage_filesystem_ccMdlReadComplete(void* fileobject, void* mdlchain) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -677,7 +677,7 @@ void windowssys_windows_wdk_storage_filesystem_CcMdlReadComplete(void* fileobjec
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_CcMdlWriteAbort(void* fileobject, void* mdlchain) {
+void windowssys_windows_wdk_storage_filesystem_ccMdlWriteAbort(void* fileobject, void* mdlchain) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -699,7 +699,7 @@ void windowssys_windows_wdk_storage_filesystem_CcMdlWriteAbort(void* fileobject,
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_CcMdlWriteComplete(void* fileobject, void* fileoffset, void* mdlchain) {
+void windowssys_windows_wdk_storage_filesystem_ccMdlWriteComplete(void* fileobject, void* fileoffset, void* mdlchain) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -722,7 +722,7 @@ void windowssys_windows_wdk_storage_filesystem_CcMdlWriteComplete(void* fileobje
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_CcPinMappedData(void* fileobject, void* fileoffset, uint32_t length, uint32_t flags, void* bcb) {
+bool windowssys_windows_wdk_storage_filesystem_ccPinMappedData(void* fileobject, void* fileoffset, uint32_t length, uint32_t flags, void* bcb) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -748,7 +748,7 @@ bool windowssys_windows_wdk_storage_filesystem_CcPinMappedData(void* fileobject,
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_CcPinRead(void* fileobject, void* fileoffset, uint32_t length, uint32_t flags, void* bcb, void* buffer) {
+bool windowssys_windows_wdk_storage_filesystem_ccPinRead(void* fileobject, void* fileoffset, uint32_t length, uint32_t flags, void* bcb, void* buffer) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -775,7 +775,7 @@ bool windowssys_windows_wdk_storage_filesystem_CcPinRead(void* fileobject, void*
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_CcPrepareMdlWrite(void* fileobject, void* fileoffset, uint32_t length, void* mdlchain, void* iostatus) {
+void windowssys_windows_wdk_storage_filesystem_ccPrepareMdlWrite(void* fileobject, void* fileoffset, uint32_t length, void* mdlchain, void* iostatus) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -800,7 +800,7 @@ void windowssys_windows_wdk_storage_filesystem_CcPrepareMdlWrite(void* fileobjec
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_CcPreparePinWrite(void* fileobject, void* fileoffset, uint32_t length, bool zero, uint32_t flags, void* bcb, void* buffer) {
+bool windowssys_windows_wdk_storage_filesystem_ccPreparePinWrite(void* fileobject, void* fileoffset, uint32_t length, bool zero, uint32_t flags, void* bcb, void* buffer) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, uint32_t, bool, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -828,7 +828,7 @@ bool windowssys_windows_wdk_storage_filesystem_CcPreparePinWrite(void* fileobjec
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_CcPurgeCacheSection(void* sectionobjectpointer, void* fileoffset, uint32_t length, uint32_t flags) {
+bool windowssys_windows_wdk_storage_filesystem_ccPurgeCacheSection(void* sectionobjectpointer, void* fileoffset, uint32_t length, uint32_t flags) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -853,7 +853,7 @@ bool windowssys_windows_wdk_storage_filesystem_CcPurgeCacheSection(void* section
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_CcRemapBcb(void* bcb) {
+void* windowssys_windows_wdk_storage_filesystem_ccRemapBcb(void* bcb) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -875,7 +875,7 @@ void* windowssys_windows_wdk_storage_filesystem_CcRemapBcb(void* bcb) {
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_CcRepinBcb(void* bcb) {
+void windowssys_windows_wdk_storage_filesystem_ccRepinBcb(void* bcb) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -896,7 +896,7 @@ void windowssys_windows_wdk_storage_filesystem_CcRepinBcb(void* bcb) {
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_CcScheduleReadAhead(void* fileobject, void* fileoffset, uint32_t length) {
+void windowssys_windows_wdk_storage_filesystem_ccScheduleReadAhead(void* fileobject, void* fileoffset, uint32_t length) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -919,7 +919,7 @@ void windowssys_windows_wdk_storage_filesystem_CcScheduleReadAhead(void* fileobj
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_CcScheduleReadAheadEx(void* fileobject, void* fileoffset, uint32_t length, int64_t ioissuerthread) {
+void windowssys_windows_wdk_storage_filesystem_ccScheduleReadAheadEx(void* fileobject, void* fileoffset, uint32_t length, int64_t ioissuerthread) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -943,7 +943,7 @@ void windowssys_windows_wdk_storage_filesystem_CcScheduleReadAheadEx(void* fileo
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_CcSetAdditionalCacheAttributes(void* fileobject, bool disablereadahead, bool disablewritebehind) {
+void windowssys_windows_wdk_storage_filesystem_ccSetAdditionalCacheAttributes(void* fileobject, bool disablereadahead, bool disablewritebehind) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, bool, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -966,7 +966,7 @@ void windowssys_windows_wdk_storage_filesystem_CcSetAdditionalCacheAttributes(vo
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_CcSetAdditionalCacheAttributesEx(void* fileobject, uint32_t flags) {
+void windowssys_windows_wdk_storage_filesystem_ccSetAdditionalCacheAttributesEx(void* fileobject, uint32_t flags) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -988,7 +988,7 @@ void windowssys_windows_wdk_storage_filesystem_CcSetAdditionalCacheAttributesEx(
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_CcSetBcbOwnerPointer(void* bcb, void* ownerpointer) {
+void windowssys_windows_wdk_storage_filesystem_ccSetBcbOwnerPointer(void* bcb, void* ownerpointer) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1010,7 +1010,7 @@ void windowssys_windows_wdk_storage_filesystem_CcSetBcbOwnerPointer(void* bcb, v
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_CcSetDirtyPageThreshold(void* fileobject, uint32_t dirtypagethreshold) {
+void windowssys_windows_wdk_storage_filesystem_ccSetDirtyPageThreshold(void* fileobject, uint32_t dirtypagethreshold) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1032,7 +1032,7 @@ void windowssys_windows_wdk_storage_filesystem_CcSetDirtyPageThreshold(void* fil
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_CcSetDirtyPinnedData(void* bcbvoid, void* lsn) {
+void windowssys_windows_wdk_storage_filesystem_ccSetDirtyPinnedData(void* bcbvoid, void* lsn) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1054,7 +1054,7 @@ void windowssys_windows_wdk_storage_filesystem_CcSetDirtyPinnedData(void* bcbvoi
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_CcSetFileSizes(void* fileobject, void* filesizes) {
+void windowssys_windows_wdk_storage_filesystem_ccSetFileSizes(void* fileobject, void* filesizes) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1076,7 +1076,7 @@ void windowssys_windows_wdk_storage_filesystem_CcSetFileSizes(void* fileobject, 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_CcSetFileSizesEx(void* fileobject, void* filesizes) {
+int32_t windowssys_windows_wdk_storage_filesystem_ccSetFileSizesEx(void* fileobject, void* filesizes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1099,7 +1099,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_CcSetFileSizesEx(void* fileobj
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_CcSetLogHandleForFile(void* fileobject, void* loghandle, void* flushtolsnroutine) {
+void windowssys_windows_wdk_storage_filesystem_ccSetLogHandleForFile(void* fileobject, void* loghandle, void* flushtolsnroutine) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1122,7 +1122,7 @@ void windowssys_windows_wdk_storage_filesystem_CcSetLogHandleForFile(void* fileo
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_CcSetParallelFlushFile(void* fileobject, bool enableparallelflush) {
+void windowssys_windows_wdk_storage_filesystem_ccSetParallelFlushFile(void* fileobject, bool enableparallelflush) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -1144,7 +1144,7 @@ void windowssys_windows_wdk_storage_filesystem_CcSetParallelFlushFile(void* file
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_CcSetReadAheadGranularity(void* fileobject, uint32_t granularity) {
+void windowssys_windows_wdk_storage_filesystem_ccSetReadAheadGranularity(void* fileobject, uint32_t granularity) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1166,7 +1166,7 @@ void windowssys_windows_wdk_storage_filesystem_CcSetReadAheadGranularity(void* f
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_CcUninitializeCacheMap(void* fileobject, void* truncatesize, void* uninitializeevent) {
+bool windowssys_windows_wdk_storage_filesystem_ccUninitializeCacheMap(void* fileobject, void* truncatesize, void* uninitializeevent) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1190,7 +1190,7 @@ bool windowssys_windows_wdk_storage_filesystem_CcUninitializeCacheMap(void* file
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_CcUnpinData(void* bcb) {
+void windowssys_windows_wdk_storage_filesystem_ccUnpinData(void* bcb) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1211,7 +1211,7 @@ void windowssys_windows_wdk_storage_filesystem_CcUnpinData(void* bcb) {
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_CcUnpinDataForThread(void* bcb, uint64_t resourcethreadid) {
+void windowssys_windows_wdk_storage_filesystem_ccUnpinDataForThread(void* bcb, uint64_t resourcethreadid) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1233,7 +1233,7 @@ void windowssys_windows_wdk_storage_filesystem_CcUnpinDataForThread(void* bcb, u
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_CcUnpinRepinnedBcb(void* bcb, bool writethrough, void* iostatus) {
+void windowssys_windows_wdk_storage_filesystem_ccUnpinRepinnedBcb(void* bcb, bool writethrough, void* iostatus) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1256,7 +1256,7 @@ void windowssys_windows_wdk_storage_filesystem_CcUnpinRepinnedBcb(void* bcb, boo
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_CcWaitForCurrentLazyWriterActivity(void) {
+int32_t windowssys_windows_wdk_storage_filesystem_ccWaitForCurrentLazyWriterActivity(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1277,7 +1277,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_CcWaitForCurrentLazyWriterActi
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_CcZeroData(void* fileobject, void* startoffset, void* endoffset, bool wait) {
+bool windowssys_windows_wdk_storage_filesystem_ccZeroData(void* fileobject, void* startoffset, void* endoffset, bool wait) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -1302,7 +1302,7 @@ bool windowssys_windows_wdk_storage_filesystem_CcZeroData(void* fileobject, void
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_CompleteAuthToken(void* phcontext, void* ptoken) {
+int32_t windowssys_windows_wdk_storage_filesystem_completeAuthToken(void* phcontext, void* ptoken) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1325,7 +1325,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_CompleteAuthToken(void* phcont
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_ExDisableResourceBoostLite(void* resource) {
+void windowssys_windows_wdk_storage_filesystem_exDisableResourceBoostLite(void* resource) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1346,7 +1346,7 @@ void windowssys_windows_wdk_storage_filesystem_ExDisableResourceBoostLite(void* 
 #endif
 }
 
-uint64_t windowssys_windows_wdk_storage_filesystem_ExQueryPoolBlockSize(void* poolblock, void* quotacharged) {
+uint64_t windowssys_windows_wdk_storage_filesystem_exQueryPoolBlockSize(void* poolblock, void* quotacharged) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1369,7 +1369,7 @@ uint64_t windowssys_windows_wdk_storage_filesystem_ExQueryPoolBlockSize(void* po
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ExportSecurityContext(void* phcontext, uint32_t fflags, void* ppackedcontext, void* ptoken) {
+int32_t windowssys_windows_wdk_storage_filesystem_exportSecurityContext(void* phcontext, uint32_t fflags, void* ppackedcontext, void* ptoken) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1394,7 +1394,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ExportSecurityContext(void* ph
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlAcknowledgeEcp(void* ecpcontext) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlAcknowledgeEcp(void* ecpcontext) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1415,7 +1415,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlAcknowledgeEcp(void* ecpcont
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlAcquireFileExclusive(void* fileobject) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlAcquireFileExclusive(void* fileobject) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1436,7 +1436,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlAcquireFileExclusive(void* f
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlAddBaseMcbEntry(void* mcb, int64_t vbn, int64_t lbn, int64_t sectorcount) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlAddBaseMcbEntry(void* mcb, int64_t vbn, int64_t lbn, int64_t sectorcount) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, int64_t, int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1461,7 +1461,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlAddBaseMcbEntry(void* mcb, i
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlAddBaseMcbEntryEx(void* mcb, int64_t vbn, int64_t lbn, int64_t sectorcount) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlAddBaseMcbEntryEx(void* mcb, int64_t vbn, int64_t lbn, int64_t sectorcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int64_t, int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1486,7 +1486,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlAddBaseMcbEntryEx(void* m
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlAddLargeMcbEntry(void* mcb, int64_t vbn, int64_t lbn, int64_t sectorcount) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlAddLargeMcbEntry(void* mcb, int64_t vbn, int64_t lbn, int64_t sectorcount) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, int64_t, int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1511,7 +1511,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlAddLargeMcbEntry(void* mcb, 
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlAddMcbEntry(void* mcb, uint32_t vbn, uint32_t lbn, uint32_t sectorcount) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlAddMcbEntry(void* mcb, uint32_t vbn, uint32_t lbn, uint32_t sectorcount) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1536,7 +1536,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlAddMcbEntry(void* mcb, uint3
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlAddToTunnelCache(void* cache, uint64_t directorykey, void* shortname, void* longname, bool keybyshortname, uint32_t datalength, void* data) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlAddToTunnelCache(void* cache, uint64_t directorykey, void* shortname, void* longname, bool keybyshortname, uint32_t datalength, void* data) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint64_t, void*, void*, bool, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1563,7 +1563,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlAddToTunnelCache(void* cache
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlAddToTunnelCacheEx(void* cache, uint64_t directorykey, void* shortname, void* longname, uint32_t flags, uint32_t datalength, void* data) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlAddToTunnelCacheEx(void* cache, uint64_t directorykey, void* shortname, void* longname, uint32_t flags, uint32_t datalength, void* data) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint64_t, void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1590,7 +1590,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlAddToTunnelCacheEx(void* cac
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_FsRtlAllocateAePushLock(int32_t pooltype, uint32_t tag) {
+void* windowssys_windows_wdk_storage_filesystem_fsRtlAllocateAePushLock(int32_t pooltype, uint32_t tag) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1613,7 +1613,7 @@ void* windowssys_windows_wdk_storage_filesystem_FsRtlAllocateAePushLock(int32_t 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlAllocateExtraCreateParameter(void* ecptype, uint32_t sizeofcontext, uint32_t flags, void* cleanupcallback, uint32_t pooltag, void* ecpcontext) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlAllocateExtraCreateParameter(void* ecptype, uint32_t sizeofcontext, uint32_t flags, void* cleanupcallback, uint32_t pooltag, void* ecpcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1640,7 +1640,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlAllocateExtraCreateParame
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlAllocateExtraCreateParameterFromLookasideList(void* ecptype, uint32_t sizeofcontext, uint32_t flags, void* cleanupcallback, void* lookasidelist, void* ecpcontext) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlAllocateExtraCreateParameterFromLookasideList(void* ecptype, uint32_t sizeofcontext, uint32_t flags, void* cleanupcallback, void* lookasidelist, void* ecpcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1667,7 +1667,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlAllocateExtraCreateParame
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlAllocateExtraCreateParameterList(uint32_t flags, void* ecplist) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlAllocateExtraCreateParameterList(uint32_t flags, void* ecplist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1690,7 +1690,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlAllocateExtraCreateParame
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_FsRtlAllocateFileLock(void* completelockirproutine, void* unlockroutine) {
+void* windowssys_windows_wdk_storage_filesystem_fsRtlAllocateFileLock(void* completelockirproutine, void* unlockroutine) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1713,7 +1713,7 @@ void* windowssys_windows_wdk_storage_filesystem_FsRtlAllocateFileLock(void* comp
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_FsRtlAllocateResource(void) {
+void* windowssys_windows_wdk_storage_filesystem_fsRtlAllocateResource(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1734,7 +1734,7 @@ void* windowssys_windows_wdk_storage_filesystem_FsRtlAllocateResource(void) {
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlAreNamesEqual(void* constantnamea, void* constantnameb, bool ignorecase, void* upcasetable) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlAreNamesEqual(void* constantnamea, void* constantnameb, bool ignorecase, void* upcasetable) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1759,7 +1759,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlAreNamesEqual(void* constant
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlAreThereCurrentOrInProgressFileLocks(void* filelock) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlAreThereCurrentOrInProgressFileLocks(void* filelock) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1781,7 +1781,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlAreThereCurrentOrInProgressF
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlAreThereWaitingFileLocks(void* filelock) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlAreThereWaitingFileLocks(void* filelock) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1803,7 +1803,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlAreThereWaitingFileLocks(voi
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlAreVolumeStartupApplicationsComplete(void) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlAreVolumeStartupApplicationsComplete(void) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1824,7 +1824,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlAreVolumeStartupApplications
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlBalanceReads(void* targetdevice) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlBalanceReads(void* targetdevice) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1846,7 +1846,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlBalanceReads(void* target
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlCancellableWaitForMultipleObjects(uint32_t count, void* objectarray, int32_t waittype, void* timeout, void* waitblockarray, void* irp) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlCancellableWaitForMultipleObjects(uint32_t count, void* objectarray, int32_t waittype, void* timeout, void* waitblockarray, void* irp) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1873,7 +1873,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlCancellableWaitForMultipl
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlCancellableWaitForSingleObject(void* object, void* timeout, void* irp) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlCancellableWaitForSingleObject(void* object, void* timeout, void* irp) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1897,7 +1897,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlCancellableWaitForSingleO
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlChangeBackingFileObject(void* currentfileobject, void* newfileobject, int32_t changebackingtype, uint32_t flags) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlChangeBackingFileObject(void* currentfileobject, void* newfileobject, int32_t changebackingtype, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1922,7 +1922,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlChangeBackingFileObject(v
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlCheckLockForOplockRequest(void* filelock, void* allocationsize) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlCheckLockForOplockRequest(void* filelock, void* allocationsize) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1945,7 +1945,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlCheckLockForOplockRequest(vo
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlCheckLockForReadAccess(void* filelock, void* irp) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlCheckLockForReadAccess(void* filelock, void* irp) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1968,7 +1968,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlCheckLockForReadAccess(void*
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlCheckLockForWriteAccess(void* filelock, void* irp) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlCheckLockForWriteAccess(void* filelock, void* irp) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1991,7 +1991,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlCheckLockForWriteAccess(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlCheckOplock(void* oplock, void* irp, void* context, void* completionroutine, void* postirproutine) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlCheckOplock(void* oplock, void* irp, void* context, void* completionroutine, void* postirproutine) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2017,7 +2017,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlCheckOplock(void* oplock,
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlCheckOplockEx(void* oplock, void* irp, uint32_t flags, void* context, void* completionroutine, void* postirproutine) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlCheckOplockEx(void* oplock, void* irp, uint32_t flags, void* context, void* completionroutine, void* postirproutine) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2044,7 +2044,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlCheckOplockEx(void* oploc
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlCheckOplockEx2(void* oplock, void* irp, uint32_t flags, uint32_t flagsex2, void* completionroutinecontext, void* completionroutine, void* postirproutine, uint64_t timeout, void* notifycontext, void* notifyroutine) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlCheckOplockEx2(void* oplock, void* irp, uint32_t flags, uint32_t flagsex2, void* completionroutinecontext, void* completionroutine, void* postirproutine, uint64_t timeout, void* notifycontext, void* notifyroutine) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, void*, void*, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2075,7 +2075,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlCheckOplockEx2(void* oplo
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlCheckUpperOplock(void* oplock, uint32_t newloweroplockstate, void* completionroutinecontext, void* completionroutine, void* prependroutine, uint32_t flags) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlCheckUpperOplock(void* oplock, uint32_t newloweroplockstate, void* completionroutinecontext, void* completionroutine, void* prependroutine, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2102,7 +2102,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlCheckUpperOplock(void* op
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlCopyRead(void* fileobject, void* fileoffset, uint32_t length, bool wait, uint32_t lockkey, void* buffer, void* iostatus, void* deviceobject) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlCopyRead(void* fileobject, void* fileoffset, uint32_t length, bool wait, uint32_t lockkey, void* buffer, void* iostatus, void* deviceobject) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, uint32_t, bool, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2131,7 +2131,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlCopyRead(void* fileobject, v
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlCopyWrite(void* fileobject, void* fileoffset, uint32_t length, bool wait, uint32_t lockkey, void* buffer, void* iostatus, void* deviceobject) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlCopyWrite(void* fileobject, void* fileoffset, uint32_t length, bool wait, uint32_t lockkey, void* buffer, void* iostatus, void* deviceobject) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, uint32_t, bool, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2160,7 +2160,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlCopyWrite(void* fileobject, 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlCreateSectionForDataScan(void* sectionhandle, void* sectionobject, void* sectionfilesize, void* fileobject, uint32_t desiredaccess, void* objectattributes, void* maximumsize, uint32_t sectionpageprotection, uint32_t allocationattributes, uint32_t flags) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlCreateSectionForDataScan(void* sectionhandle, void* sectionobject, void* sectionfilesize, void* fileobject, uint32_t desiredaccess, void* objectattributes, void* maximumsize, uint32_t sectionpageprotection, uint32_t allocationattributes, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*, void*, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2191,7 +2191,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlCreateSectionForDataScan(
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlCurrentBatchOplock(void* oplock) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlCurrentBatchOplock(void* oplock) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2213,7 +2213,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlCurrentBatchOplock(void* opl
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlCurrentOplock(void* oplock) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlCurrentOplock(void* oplock) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2235,7 +2235,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlCurrentOplock(void* oplock) 
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlCurrentOplockH(void* oplock) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlCurrentOplockH(void* oplock) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2257,7 +2257,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlCurrentOplockH(void* oplock)
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlDeleteExtraCreateParameterLookasideList(void* lookaside, uint32_t flags) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlDeleteExtraCreateParameterLookasideList(void* lookaside, uint32_t flags) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2279,7 +2279,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlDeleteExtraCreateParameterLo
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlDeleteKeyFromTunnelCache(void* cache, uint64_t directorykey) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlDeleteKeyFromTunnelCache(void* cache, uint64_t directorykey) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2301,7 +2301,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlDeleteKeyFromTunnelCache(voi
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlDeleteTunnelCache(void* cache) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlDeleteTunnelCache(void* cache) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2322,7 +2322,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlDeleteTunnelCache(void* cach
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlDeregisterUncProvider(void* handle) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlDeregisterUncProvider(void* handle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2343,7 +2343,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlDeregisterUncProvider(void* 
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlDismountComplete(void* deviceobject, int32_t dismountstatus) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlDismountComplete(void* deviceobject, int32_t dismountstatus) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2365,7 +2365,30 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlDismountComplete(void* devic
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlDoesDbcsContainWildCards(void* name) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlDissectDbcs(const char* path, void* firstname, void* remainingname) {
+#ifdef _WIN32
+    typedef void (__stdcall *km_fn_t)(const char*, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntoskrnl.exe");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FsRtlDissectDbcs");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr(path, firstname, remainingname);
+        return;
+    }
+    errno = ENOSYS;
+#else
+    (void)path;
+    (void)firstname;
+    (void)remainingname;
+    errno = ENOSYS;
+#endif
+}
+
+bool windowssys_windows_wdk_storage_filesystem_fsRtlDoesDbcsContainWildCards(void* name) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2387,7 +2410,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlDoesDbcsContainWildCards(voi
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlDoesNameContainWildCards(void* name) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlDoesNameContainWildCards(void* name) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2409,7 +2432,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlDoesNameContainWildCards(voi
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlFastCheckLockForRead(void* filelock, void* startingbyte, void* length, uint32_t key, void* fileobject, void* processid) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlFastCheckLockForRead(void* filelock, void* startingbyte, void* length, uint32_t key, void* fileobject, void* processid) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2436,7 +2459,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlFastCheckLockForRead(void* f
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlFastCheckLockForWrite(void* filelock, void* startingbyte, void* length, uint32_t key, void* fileobject, void* processid) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlFastCheckLockForWrite(void* filelock, void* startingbyte, void* length, uint32_t key, void* fileobject, void* processid) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2463,7 +2486,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlFastCheckLockForWrite(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlFastUnlockAll(void* filelock, void* fileobject, int64_t processid, void* context) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlFastUnlockAll(void* filelock, void* fileobject, int64_t processid, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2488,7 +2511,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlFastUnlockAll(void* filel
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlFastUnlockAllByKey(void* filelock, void* fileobject, int64_t processid, uint32_t key, void* context) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlFastUnlockAllByKey(void* filelock, void* fileobject, int64_t processid, uint32_t key, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2514,7 +2537,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlFastUnlockAllByKey(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlFastUnlockSingle(void* filelock, void* fileobject, void* fileoffset, void* length, int64_t processid, uint32_t key, void* context, bool alreadysynchronized) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlFastUnlockSingle(void* filelock, void* fileobject, void* fileoffset, void* length, int64_t processid, uint32_t key, void* context, bool alreadysynchronized) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int64_t, uint32_t, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -2543,7 +2566,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlFastUnlockSingle(void* fi
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlFindExtraCreateParameter(void* ecplist, void* ecptype, void* ecpcontext, void* ecpcontextsize) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlFindExtraCreateParameter(void* ecplist, void* ecptype, void* ecpcontext, void* ecpcontextsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2568,7 +2591,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlFindExtraCreateParameter(
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlFindInTunnelCache(void* cache, uint64_t directorykey, void* name, void* shortname, void* longname, void* datalength, void* data) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlFindInTunnelCache(void* cache, uint64_t directorykey, void* name, void* shortname, void* longname, void* datalength, void* data) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, uint64_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2596,7 +2619,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlFindInTunnelCache(void* cach
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlFindInTunnelCacheEx(void* cache, uint64_t directorykey, void* name, void* shortname, void* longname, uint32_t flags, void* datalength, void* data) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlFindInTunnelCacheEx(void* cache, uint64_t directorykey, void* name, void* shortname, void* longname, uint32_t flags, void* datalength, void* data) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, uint64_t, void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2625,7 +2648,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlFindInTunnelCacheEx(void* ca
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlFreeAePushLock(void* aepushlock) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlFreeAePushLock(void* aepushlock) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2646,7 +2669,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlFreeAePushLock(void* aepushl
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlFreeExtraCreateParameter(void* ecpcontext) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlFreeExtraCreateParameter(void* ecpcontext) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2667,7 +2690,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlFreeExtraCreateParameter(voi
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlFreeExtraCreateParameterList(void* ecplist) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlFreeExtraCreateParameterList(void* ecplist) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2688,7 +2711,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlFreeExtraCreateParameterList
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlFreeFileLock(void* filelock) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlFreeFileLock(void* filelock) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2709,7 +2732,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlFreeFileLock(void* filelock)
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_FsRtlGetCurrentProcessLoaderList(void) {
+void* windowssys_windows_wdk_storage_filesystem_fsRtlGetCurrentProcessLoaderList(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -2730,7 +2753,7 @@ void* windowssys_windows_wdk_storage_filesystem_FsRtlGetCurrentProcessLoaderList
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlGetEcpListFromIrp(void* irp, void* ecplist) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlGetEcpListFromIrp(void* irp, void* ecplist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2753,7 +2776,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlGetEcpListFromIrp(void* i
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlGetFileSize(void* fileobject, void* filesize) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlGetFileSize(void* fileobject, void* filesize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2776,7 +2799,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlGetFileSize(void* fileobj
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlGetNextBaseMcbEntry(void* mcb, uint32_t runindex, void* vbn, void* lbn, void* sectorcount) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlGetNextBaseMcbEntry(void* mcb, uint32_t runindex, void* vbn, void* lbn, void* sectorcount) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2802,7 +2825,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlGetNextBaseMcbEntry(void* mc
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlGetNextExtraCreateParameter(void* ecplist, void* currentecpcontext, void* nextecptype, void* nextecpcontext, void* nextecpcontextsize) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlGetNextExtraCreateParameter(void* ecplist, void* currentecpcontext, void* nextecptype, void* nextecpcontext, void* nextecpcontextsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2828,7 +2851,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlGetNextExtraCreateParamet
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_FsRtlGetNextFileLock(void* filelock, bool restart) {
+void* windowssys_windows_wdk_storage_filesystem_fsRtlGetNextFileLock(void* filelock, bool restart) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -2851,7 +2874,7 @@ void* windowssys_windows_wdk_storage_filesystem_FsRtlGetNextFileLock(void* filel
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlGetNextLargeMcbEntry(void* mcb, uint32_t runindex, void* vbn, void* lbn, void* sectorcount) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlGetNextLargeMcbEntry(void* mcb, uint32_t runindex, void* vbn, void* lbn, void* sectorcount) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2877,7 +2900,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlGetNextLargeMcbEntry(void* m
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlGetNextMcbEntry(void* mcb, uint32_t runindex, void* vbn, void* lbn, void* sectorcount) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlGetNextMcbEntry(void* mcb, uint32_t runindex, void* vbn, void* lbn, void* sectorcount) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2903,7 +2926,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlGetNextMcbEntry(void* mcb, u
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlGetSectorSizeInformation(void* deviceobject, void* sectorsizeinfo) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlGetSectorSizeInformation(void* deviceobject, void* sectorsizeinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2926,7 +2949,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlGetSectorSizeInformation(
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlGetSupportedFeatures(void* deviceobject, void* supportedfeatures) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlGetSupportedFeatures(void* deviceobject, void* supportedfeatures) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2949,7 +2972,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlGetSupportedFeatures(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlGetVirtualDiskNestingLevel(void* deviceobject, void* nestinglevel, void* nestingflags) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlGetVirtualDiskNestingLevel(void* deviceobject, void* nestinglevel, void* nestingflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2973,7 +2996,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlGetVirtualDiskNestingLeve
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFastMdlReadWait(void) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastMdlReadWait(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -2993,7 +3016,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFastMdlReadWait(v
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFastReadNoWait(void) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastReadNoWait(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -3013,7 +3036,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFastReadNoWait(vo
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFastReadNotPossible(void) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastReadNotPossible(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -3033,7 +3056,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFastReadNotPossib
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFastReadResourceMiss(void) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastReadResourceMiss(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -3053,7 +3076,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFastReadResourceM
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFastReadWait(void) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlIncrementCcFastReadWait(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -3073,7 +3096,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlIncrementCcFastReadWait(void
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlInitExtraCreateParameterLookasideList(void* lookaside, uint32_t flags, uint64_t size, uint32_t tag) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlInitExtraCreateParameterLookasideList(void* lookaside, uint32_t flags, uint64_t size, uint32_t tag) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3097,7 +3120,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlInitExtraCreateParameterLook
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlInitializeBaseMcb(void* mcb, int32_t pooltype) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlInitializeBaseMcb(void* mcb, int32_t pooltype) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3119,7 +3142,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlInitializeBaseMcb(void* mcb,
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlInitializeBaseMcbEx(void* mcb, int32_t pooltype, uint16_t flags) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlInitializeBaseMcbEx(void* mcb, int32_t pooltype, uint16_t flags) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, int32_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3143,7 +3166,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlInitializeBaseMcbEx(void* mc
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlInitializeExtraCreateParameter(void* ecp, uint32_t ecpflags, void* cleanupcallback, uint32_t totalsize, void* ecptype, void* listallocatedfrom) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlInitializeExtraCreateParameter(void* ecp, uint32_t ecpflags, void* cleanupcallback, uint32_t totalsize, void* ecptype, void* listallocatedfrom) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3169,7 +3192,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlInitializeExtraCreateParamet
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlInitializeExtraCreateParameterList(void* ecplist) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlInitializeExtraCreateParameterList(void* ecplist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3191,7 +3214,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlInitializeExtraCreatePara
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlInitializeFileLock(void* filelock, void* completelockirproutine, void* unlockroutine) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlInitializeFileLock(void* filelock, void* completelockirproutine, void* unlockroutine) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3214,7 +3237,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlInitializeFileLock(void* fil
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlInitializeLargeMcb(void* mcb, int32_t pooltype) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlInitializeLargeMcb(void* mcb, int32_t pooltype) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3236,7 +3259,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlInitializeLargeMcb(void* mcb
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlInitializeMcb(void* mcb, int32_t pooltype) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlInitializeMcb(void* mcb, int32_t pooltype) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3258,7 +3281,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlInitializeMcb(void* mcb, int
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlInitializeOplock(void* oplock) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlInitializeOplock(void* oplock) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3279,7 +3302,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlInitializeOplock(void* oploc
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlInitializeTunnelCache(void* cache) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlInitializeTunnelCache(void* cache) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3300,7 +3323,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlInitializeTunnelCache(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlInsertExtraCreateParameter(void* ecplist, void* ecpcontext) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlInsertExtraCreateParameter(void* ecplist, void* ecpcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3323,7 +3346,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlInsertExtraCreateParamete
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlInsertPerFileContext(void* perfilecontextpointer, void* ptr) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlInsertPerFileContext(void* perfilecontextpointer, void* ptr) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3346,7 +3369,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlInsertPerFileContext(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlInsertPerFileObjectContext(void* fileobject, void* ptr) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlInsertPerFileObjectContext(void* fileobject, void* ptr) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3369,7 +3392,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlInsertPerFileObjectContex
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlInsertPerStreamContext(void* perstreamcontext, void* ptr) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlInsertPerStreamContext(void* perstreamcontext, void* ptr) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3392,7 +3415,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlInsertPerStreamContext(vo
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlIs32BitProcess(int64_t process) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlIs32BitProcess(int64_t process) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3414,7 +3437,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlIs32BitProcess(int64_t proce
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlIsDaxVolume(void* fileobject) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlIsDaxVolume(void* fileobject) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3436,7 +3459,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlIsDaxVolume(void* fileobject
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlIsDbcsInExpression(void* expression, void* name) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlIsDbcsInExpression(void* expression, void* name) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3459,7 +3482,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlIsDbcsInExpression(void* exp
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlIsEcpAcknowledged(void* ecpcontext) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlIsEcpAcknowledged(void* ecpcontext) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3481,7 +3504,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlIsEcpAcknowledged(void* ecpc
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlIsEcpFromUserMode(void* ecpcontext) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlIsEcpFromUserMode(void* ecpcontext) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3503,7 +3526,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlIsEcpFromUserMode(void* ecpc
 #endif
 }
 
-uint32_t windowssys_windows_wdk_storage_filesystem_FsRtlIsExtentDangling(uint32_t startpage, uint32_t numberofpages, uint32_t flags) {
+uint32_t windowssys_windows_wdk_storage_filesystem_fsRtlIsExtentDangling(uint32_t startpage, uint32_t numberofpages, uint32_t flags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3527,7 +3550,57 @@ uint32_t windowssys_windows_wdk_storage_filesystem_FsRtlIsExtentDangling(uint32_
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlIsMobileOS(void) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlIsFatDbcsLegal(const char* dbcsname, bool wildcardspermissible, bool pathnamepermissible, bool leadingbackslashpermissible) {
+#ifdef _WIN32
+    typedef bool (__stdcall *km_fn_t)(const char*, bool, bool, bool);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntoskrnl.exe");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FsRtlIsFatDbcsLegal");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        return km_fn_ptr(dbcsname, wildcardspermissible, pathnamepermissible, leadingbackslashpermissible);
+    }
+    errno = ENOSYS;
+    return false;
+#else
+    (void)dbcsname;
+    (void)wildcardspermissible;
+    (void)pathnamepermissible;
+    (void)leadingbackslashpermissible;
+    errno = ENOSYS;
+    return false;
+#endif
+}
+
+bool windowssys_windows_wdk_storage_filesystem_fsRtlIsHpfsDbcsLegal(const char* dbcsname, bool wildcardspermissible, bool pathnamepermissible, bool leadingbackslashpermissible) {
+#ifdef _WIN32
+    typedef bool (__stdcall *km_fn_t)(const char*, bool, bool, bool);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntoskrnl.exe");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FsRtlIsHpfsDbcsLegal");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        return km_fn_ptr(dbcsname, wildcardspermissible, pathnamepermissible, leadingbackslashpermissible);
+    }
+    errno = ENOSYS;
+    return false;
+#else
+    (void)dbcsname;
+    (void)wildcardspermissible;
+    (void)pathnamepermissible;
+    (void)leadingbackslashpermissible;
+    errno = ENOSYS;
+    return false;
+#endif
+}
+
+bool windowssys_windows_wdk_storage_filesystem_fsRtlIsMobileOS(void) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -3548,7 +3621,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlIsMobileOS(void) {
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlIsNameInExpression(void* expression, void* name, bool ignorecase, void* upcasetable) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlIsNameInExpression(void* expression, void* name, bool ignorecase, void* upcasetable) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3573,7 +3646,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlIsNameInExpression(void* exp
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlIsNameInUnUpcasedExpression(void* expression, void* name, bool ignorecase, void* upcasetable) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlIsNameInUnUpcasedExpression(void* expression, void* name, bool ignorecase, void* upcasetable) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3598,7 +3671,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlIsNameInUnUpcasedExpression(
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlIsNonEmptyDirectoryReparsePointAllowed(uint32_t reparsetag) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlIsNonEmptyDirectoryReparsePointAllowed(uint32_t reparsetag) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3620,7 +3693,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlIsNonEmptyDirectoryReparsePo
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlIsNtstatusExpected(int32_t exception) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlIsNtstatusExpected(int32_t exception) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3642,7 +3715,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlIsNtstatusExpected(int32_t e
 #endif
 }
 
-uint32_t windowssys_windows_wdk_storage_filesystem_FsRtlIsPagingFile(void* fileobject) {
+uint32_t windowssys_windows_wdk_storage_filesystem_fsRtlIsPagingFile(void* fileobject) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3664,7 +3737,7 @@ uint32_t windowssys_windows_wdk_storage_filesystem_FsRtlIsPagingFile(void* fileo
 #endif
 }
 
-uint32_t windowssys_windows_wdk_storage_filesystem_FsRtlIsSystemPagingFile(void* fileobject) {
+uint32_t windowssys_windows_wdk_storage_filesystem_fsRtlIsSystemPagingFile(void* fileobject) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3686,7 +3759,7 @@ uint32_t windowssys_windows_wdk_storage_filesystem_FsRtlIsSystemPagingFile(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlIssueDeviceIoControl(void* deviceobject, uint32_t ioctl, uint8_t flags, void* inputbuffer, uint32_t inputbufferlength, void* outputbuffer, uint32_t outputbufferlength, void* iosbinformation) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlIssueDeviceIoControl(void* deviceobject, uint32_t ioctl, uint8_t flags, void* inputbuffer, uint32_t inputbufferlength, void* outputbuffer, uint32_t outputbufferlength, void* iosbinformation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint8_t, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3715,7 +3788,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlIssueDeviceIoControl(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlKernelFsControlFile(void* fileobject, uint32_t fscontrolcode, void* inputbuffer, uint32_t inputbufferlength, void* outputbuffer, uint32_t outputbufferlength, void* retoutputbuffersize) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlKernelFsControlFile(void* fileobject, uint32_t fscontrolcode, void* inputbuffer, uint32_t inputbufferlength, void* outputbuffer, uint32_t outputbufferlength, void* retoutputbuffersize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3743,7 +3816,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlKernelFsControlFile(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlLogCcFlushError(void* filename, void* deviceobject, void* sectionobjectpointer, int32_t flusherror, uint32_t flags) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlLogCcFlushError(void* filename, void* deviceobject, void* sectionobjectpointer, int32_t flusherror, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3769,7 +3842,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlLogCcFlushError(void* fil
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlLookupBaseMcbEntry(void* mcb, int64_t vbn, void* lbn, void* sectorcountfromlbn, void* startinglbn, void* sectorcountfromstartinglbn, void* arg_6_index) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlLookupBaseMcbEntry(void* mcb, int64_t vbn, void* lbn, void* sectorcountfromlbn, void* startinglbn, void* sectorcountfromstartinglbn, void* arg_6_index) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, int64_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3797,7 +3870,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlLookupBaseMcbEntry(void* mcb
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlLookupLargeMcbEntry(void* mcb, int64_t vbn, void* lbn, void* sectorcountfromlbn, void* startinglbn, void* sectorcountfromstartinglbn, void* arg_6_index) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlLookupLargeMcbEntry(void* mcb, int64_t vbn, void* lbn, void* sectorcountfromlbn, void* startinglbn, void* sectorcountfromstartinglbn, void* arg_6_index) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, int64_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3825,7 +3898,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlLookupLargeMcbEntry(void* mc
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastBaseMcbEntry(void* mcb, void* vbn, void* lbn) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastBaseMcbEntry(void* mcb, void* vbn, void* lbn) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3849,7 +3922,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastBaseMcbEntry(void*
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastBaseMcbEntryAndIndex(void* opaquemcb, void* largevbn, void* largelbn, void* arg_3_index) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastBaseMcbEntryAndIndex(void* opaquemcb, void* largevbn, void* largelbn, void* arg_3_index) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3874,7 +3947,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastBaseMcbEntryAndInd
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastLargeMcbEntry(void* mcb, void* vbn, void* lbn) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastLargeMcbEntry(void* mcb, void* vbn, void* lbn) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3898,7 +3971,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastLargeMcbEntry(void
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastLargeMcbEntryAndIndex(void* opaquemcb, void* largevbn, void* largelbn, void* arg_3_index) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastLargeMcbEntryAndIndex(void* opaquemcb, void* largevbn, void* largelbn, void* arg_3_index) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3923,7 +3996,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastLargeMcbEntryAndIn
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastMcbEntry(void* mcb, void* vbn, void* lbn) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlLookupLastMcbEntry(void* mcb, void* vbn, void* lbn) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3947,7 +4020,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlLookupLastMcbEntry(void* mcb
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlLookupMcbEntry(void* mcb, uint32_t vbn, void* lbn, void* sectorcount, void* arg_4_index) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlLookupMcbEntry(void* mcb, uint32_t vbn, void* lbn, void* sectorcount, void* arg_4_index) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3973,7 +4046,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlLookupMcbEntry(void* mcb, ui
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_FsRtlLookupPerFileContext(void* perfilecontextpointer, void* ownerid, void* instanceid) {
+void* windowssys_windows_wdk_storage_filesystem_fsRtlLookupPerFileContext(void* perfilecontextpointer, void* ownerid, void* instanceid) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3997,7 +4070,7 @@ void* windowssys_windows_wdk_storage_filesystem_FsRtlLookupPerFileContext(void* 
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_FsRtlLookupPerFileObjectContext(void* fileobject, void* ownerid, void* instanceid) {
+void* windowssys_windows_wdk_storage_filesystem_fsRtlLookupPerFileObjectContext(void* fileobject, void* ownerid, void* instanceid) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4021,7 +4094,7 @@ void* windowssys_windows_wdk_storage_filesystem_FsRtlLookupPerFileObjectContext(
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_FsRtlLookupPerStreamContextInternal(void* streamcontext, void* ownerid, void* instanceid) {
+void* windowssys_windows_wdk_storage_filesystem_fsRtlLookupPerStreamContextInternal(void* streamcontext, void* ownerid, void* instanceid) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4045,7 +4118,7 @@ void* windowssys_windows_wdk_storage_filesystem_FsRtlLookupPerStreamContextInter
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlMdlReadCompleteDev(void* fileobject, void* mdlchain, void* deviceobject) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlMdlReadCompleteDev(void* fileobject, void* mdlchain, void* deviceobject) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4069,7 +4142,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlMdlReadCompleteDev(void* fil
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlMdlReadDev(void* fileobject, void* fileoffset, uint32_t length, uint32_t lockkey, void* mdlchain, void* iostatus, void* deviceobject) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlMdlReadDev(void* fileobject, void* fileoffset, uint32_t length, uint32_t lockkey, void* mdlchain, void* iostatus, void* deviceobject) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4097,7 +4170,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlMdlReadDev(void* fileobject,
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlMdlReadEx(void* fileobject, void* fileoffset, uint32_t length, uint32_t lockkey, void* mdlchain, void* iostatus) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlMdlReadEx(void* fileobject, void* fileoffset, uint32_t length, uint32_t lockkey, void* mdlchain, void* iostatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4124,7 +4197,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlMdlReadEx(void* fileobjec
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlMdlWriteCompleteDev(void* fileobject, void* fileoffset, void* mdlchain, void* deviceobject) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlMdlWriteCompleteDev(void* fileobject, void* fileoffset, void* mdlchain, void* deviceobject) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4149,7 +4222,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlMdlWriteCompleteDev(void* fi
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlMupGetProviderIdFromName(void* pprovidername, void* pproviderid) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlMupGetProviderIdFromName(void* pprovidername, void* pproviderid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4172,7 +4245,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlMupGetProviderIdFromName(
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlMupGetProviderInfoFromFileObject(void* pfileobject, uint32_t level, void* pbuffer, void* pbuffersize) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlMupGetProviderInfoFromFileObject(void* pfileobject, uint32_t level, void* pbuffer, void* pbuffersize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4197,7 +4270,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlMupGetProviderInfoFromFil
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlNormalizeNtstatus(int32_t exception, int32_t genericexception) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlNormalizeNtstatus(int32_t exception, int32_t genericexception) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4220,7 +4293,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlNormalizeNtstatus(int32_t
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlNotifyCleanup(int64_t notifysync, void* notifylist, void* fscontext) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlNotifyCleanup(int64_t notifysync, void* notifylist, void* fscontext) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4243,7 +4316,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlNotifyCleanup(int64_t notify
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlNotifyCleanupAll(int64_t notifysync, void* notifylist) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlNotifyCleanupAll(int64_t notifysync, void* notifylist) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4265,7 +4338,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlNotifyCleanupAll(int64_t not
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlNotifyFilterChangeDirectory(int64_t notifysync, void* notifylist, void* fscontext, void* fulldirectoryname, bool watchtree, bool ignorebuffer, uint32_t completionfilter, void* notifyirp, void* traversecallback, void* subjectcontext, void* filtercallback) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlNotifyFilterChangeDirectory(int64_t notifysync, void* notifylist, void* fscontext, void* fulldirectoryname, bool watchtree, bool ignorebuffer, uint32_t completionfilter, void* notifyirp, void* traversecallback, void* subjectcontext, void* filtercallback) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*, void*, void*, bool, bool, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4296,7 +4369,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlNotifyFilterChangeDirectory(
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlNotifyFilterReportChange(int64_t notifysync, void* notifylist, void* fulltargetname, uint16_t targetnameoffset, void* streamname, void* normalizedparentname, uint32_t filtermatch, uint32_t action, void* targetcontext, void* filtercontext) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlNotifyFilterReportChange(int64_t notifysync, void* notifylist, void* fulltargetname, uint16_t targetnameoffset, void* streamname, void* normalizedparentname, uint32_t filtermatch, uint32_t action, void* targetcontext, void* filtercontext) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*, void*, uint16_t, void*, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4326,7 +4399,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlNotifyFilterReportChange(int
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlNotifyFullChangeDirectory(int64_t notifysync, void* notifylist, void* fscontext, void* fulldirectoryname, bool watchtree, bool ignorebuffer, uint32_t completionfilter, void* notifyirp, void* traversecallback, void* subjectcontext) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlNotifyFullChangeDirectory(int64_t notifysync, void* notifylist, void* fscontext, void* fulldirectoryname, bool watchtree, bool ignorebuffer, uint32_t completionfilter, void* notifyirp, void* traversecallback, void* subjectcontext) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*, void*, void*, bool, bool, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4356,7 +4429,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlNotifyFullChangeDirectory(in
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlNotifyFullReportChange(int64_t notifysync, void* notifylist, void* fulltargetname, uint16_t targetnameoffset, void* streamname, void* normalizedparentname, uint32_t filtermatch, uint32_t action, void* targetcontext) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlNotifyFullReportChange(int64_t notifysync, void* notifylist, void* fulltargetname, uint16_t targetnameoffset, void* streamname, void* normalizedparentname, uint32_t filtermatch, uint32_t action, void* targetcontext) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*, void*, uint16_t, void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4385,7 +4458,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlNotifyFullReportChange(int64
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlNotifyInitializeSync(void* notifysync) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlNotifyInitializeSync(void* notifysync) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4406,7 +4479,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlNotifyInitializeSync(void* n
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlNotifyUninitializeSync(void* notifysync) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlNotifyUninitializeSync(void* notifysync) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4427,7 +4500,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlNotifyUninitializeSync(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlNotifyVolumeEvent(void* fileobject, uint32_t eventcode) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlNotifyVolumeEvent(void* fileobject, uint32_t eventcode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4450,7 +4523,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlNotifyVolumeEvent(void* f
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlNotifyVolumeEventEx(void* fileobject, uint32_t eventcode, void* event) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlNotifyVolumeEventEx(void* fileobject, uint32_t eventcode, void* event) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4474,7 +4547,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlNotifyVolumeEventEx(void*
 #endif
 }
 
-uint32_t windowssys_windows_wdk_storage_filesystem_FsRtlNumberOfRunsInBaseMcb(void* mcb) {
+uint32_t windowssys_windows_wdk_storage_filesystem_fsRtlNumberOfRunsInBaseMcb(void* mcb) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4496,7 +4569,7 @@ uint32_t windowssys_windows_wdk_storage_filesystem_FsRtlNumberOfRunsInBaseMcb(vo
 #endif
 }
 
-uint32_t windowssys_windows_wdk_storage_filesystem_FsRtlNumberOfRunsInLargeMcb(void* mcb) {
+uint32_t windowssys_windows_wdk_storage_filesystem_fsRtlNumberOfRunsInLargeMcb(void* mcb) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4518,7 +4591,7 @@ uint32_t windowssys_windows_wdk_storage_filesystem_FsRtlNumberOfRunsInLargeMcb(v
 #endif
 }
 
-uint32_t windowssys_windows_wdk_storage_filesystem_FsRtlNumberOfRunsInMcb(void* mcb) {
+uint32_t windowssys_windows_wdk_storage_filesystem_fsRtlNumberOfRunsInMcb(void* mcb) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4540,7 +4613,7 @@ uint32_t windowssys_windows_wdk_storage_filesystem_FsRtlNumberOfRunsInMcb(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlOplockBreakH(void* oplock, void* irp, uint32_t flags, void* context, void* completionroutine, void* postirproutine) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlOplockBreakH(void* oplock, void* irp, uint32_t flags, void* context, void* completionroutine, void* postirproutine) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4567,7 +4640,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlOplockBreakH(void* oplock
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlOplockBreakH2(void* oplock, void* irp, uint32_t flags, void* context, void* completionroutine, void* postirproutine, void* grantedaccess, void* shareaccess) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlOplockBreakH2(void* oplock, void* irp, uint32_t flags, void* context, void* completionroutine, void* postirproutine, void* grantedaccess, void* shareaccess) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4596,7 +4669,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlOplockBreakH2(void* oploc
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlOplockBreakToNone(void* oplock, void* irpsp, void* irp, void* context, void* completionroutine, void* postirproutine) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlOplockBreakToNone(void* oplock, void* irpsp, void* irp, void* context, void* completionroutine, void* postirproutine) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4623,7 +4696,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlOplockBreakToNone(void* o
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlOplockBreakToNoneEx(void* oplock, void* irp, uint32_t flags, void* context, void* completionroutine, void* postirproutine) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlOplockBreakToNoneEx(void* oplock, void* irp, uint32_t flags, void* context, void* completionroutine, void* postirproutine) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4650,7 +4723,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlOplockBreakToNoneEx(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlOplockFsctrl(void* oplock, void* irp, uint32_t opencount) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlOplockFsctrl(void* oplock, void* irp, uint32_t opencount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4674,7 +4747,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlOplockFsctrl(void* oplock
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlOplockFsctrlEx(void* oplock, void* irp, uint32_t opencount, uint32_t flags) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlOplockFsctrlEx(void* oplock, void* irp, uint32_t opencount, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4699,7 +4772,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlOplockFsctrlEx(void* oplo
 #endif
 }
 
-int64_t windowssys_windows_wdk_storage_filesystem_FsRtlOplockGetAnyBreakOwnerProcess(void* oplock) {
+int64_t windowssys_windows_wdk_storage_filesystem_fsRtlOplockGetAnyBreakOwnerProcess(void* oplock) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4721,7 +4794,7 @@ int64_t windowssys_windows_wdk_storage_filesystem_FsRtlOplockGetAnyBreakOwnerPro
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlOplockIsFastIoPossible(void* oplock) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlOplockIsFastIoPossible(void* oplock) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4743,7 +4816,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlOplockIsFastIoPossible(void*
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlOplockIsSharedRequest(void* irp) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlOplockIsSharedRequest(void* irp) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4765,7 +4838,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlOplockIsSharedRequest(void* 
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlOplockKeysEqual(void* fo1, void* fo2) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlOplockKeysEqual(void* fo1, void* fo2) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4788,7 +4861,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlOplockKeysEqual(void* fo1, v
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlPostPagingFileStackOverflow(void* context, void* event, void* stackoverflowroutine) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlPostPagingFileStackOverflow(void* context, void* event, void* stackoverflowroutine) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4811,7 +4884,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlPostPagingFileStackOverflow(
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlPostStackOverflow(void* context, void* event, void* stackoverflowroutine) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlPostStackOverflow(void* context, void* event, void* stackoverflowroutine) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4834,7 +4907,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlPostStackOverflow(void* cont
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlPrepareMdlWriteDev(void* fileobject, void* fileoffset, uint32_t length, uint32_t lockkey, void* mdlchain, void* iostatus, void* deviceobject) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlPrepareMdlWriteDev(void* fileobject, void* fileoffset, uint32_t length, uint32_t lockkey, void* mdlchain, void* iostatus, void* deviceobject) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4862,7 +4935,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlPrepareMdlWriteDev(void* fil
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlPrepareMdlWriteEx(void* fileobject, void* fileoffset, uint32_t length, uint32_t lockkey, void* mdlchain, void* iostatus) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlPrepareMdlWriteEx(void* fileobject, void* fileoffset, uint32_t length, uint32_t lockkey, void* mdlchain, void* iostatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4889,7 +4962,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlPrepareMdlWriteEx(void* f
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlPrepareToReuseEcp(void* ecpcontext) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlPrepareToReuseEcp(void* ecpcontext) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4910,7 +4983,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlPrepareToReuseEcp(void* ecpc
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlPrivateLock(void* filelock, void* fileobject, void* fileoffset, void* length, int64_t processid, uint32_t key, bool failimmediately, bool exclusivelock, void* iosb, void* irp, void* context, bool alreadysynchronized) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlPrivateLock(void* filelock, void* fileobject, void* fileoffset, void* length, int64_t processid, uint32_t key, bool failimmediately, bool exclusivelock, void* iosb, void* irp, void* context, bool alreadysynchronized) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, void*, void*, int64_t, uint32_t, bool, bool, void*, void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -4943,7 +5016,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlPrivateLock(void* filelock, 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlProcessFileLock(void* filelock, void* irp, void* context) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlProcessFileLock(void* filelock, void* irp, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4967,7 +5040,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlProcessFileLock(void* fil
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlQueryCachedVdl(void* fileobject, void* vdl) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlQueryCachedVdl(void* fileobject, void* vdl) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4990,7 +5063,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlQueryCachedVdl(void* file
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlQueryInformationFile(void* fileobject, void* fileinformation, uint32_t length, int32_t fileinformationclass, void* retfileinformationsize) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlQueryInformationFile(void* fileobject, void* fileinformation, uint32_t length, int32_t fileinformationclass, void* retfileinformationsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5016,7 +5089,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlQueryInformationFile(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlQueryKernelEaFile(void* fileobject, void* returnedeadata, uint32_t length, bool returnsingleentry, void* ealist, uint32_t ealistlength, void* eaindex, bool restartscan, void* lengthreturned) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlQueryKernelEaFile(void* fileobject, void* returnedeadata, uint32_t length, bool returnsingleentry, void* ealist, uint32_t ealistlength, void* eaindex, bool restartscan, void* lengthreturned) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, bool, void*, uint32_t, void*, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5046,7 +5119,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlQueryKernelEaFile(void* f
 #endif
 }
 
-uint32_t windowssys_windows_wdk_storage_filesystem_FsRtlQueryMaximumVirtualDiskNestingLevel(void) {
+uint32_t windowssys_windows_wdk_storage_filesystem_fsRtlQueryMaximumVirtualDiskNestingLevel(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -5067,7 +5140,7 @@ uint32_t windowssys_windows_wdk_storage_filesystem_FsRtlQueryMaximumVirtualDiskN
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlRegisterFileSystemFilterCallbacks(void* filterdriverobject, void* callbacks) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlRegisterFileSystemFilterCallbacks(void* filterdriverobject, void* callbacks) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5090,7 +5163,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlRegisterFileSystemFilterC
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlRegisterUncProvider(void* muphandle, void* redirectordevicename, bool mailslotssupported) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlRegisterUncProvider(void* muphandle, void* redirectordevicename, bool mailslotssupported) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -5114,7 +5187,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlRegisterUncProvider(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlRegisterUncProviderEx(void* muphandle, void* redirdevname, void* deviceobject, uint32_t flags) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlRegisterUncProviderEx(void* muphandle, void* redirdevname, void* deviceobject, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5139,7 +5212,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlRegisterUncProviderEx(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlRegisterUncProviderEx2(void* redirdevname, void* deviceobject, void* registration, void* muphandle) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlRegisterUncProviderEx2(void* redirdevname, void* deviceobject, void* registration, void* muphandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5164,7 +5237,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlRegisterUncProviderEx2(vo
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlReleaseFile(void* fileobject) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlReleaseFile(void* fileobject) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5185,7 +5258,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlReleaseFile(void* fileobject
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlRemoveBaseMcbEntry(void* mcb, int64_t vbn, int64_t sectorcount) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlRemoveBaseMcbEntry(void* mcb, int64_t vbn, int64_t sectorcount) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5209,7 +5282,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlRemoveBaseMcbEntry(void* mcb
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlRemoveDotsFromPath(void* originalstring, uint16_t pathlength, void* newlength) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlRemoveDotsFromPath(void* originalstring, uint16_t pathlength, void* newlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5233,7 +5306,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlRemoveDotsFromPath(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlRemoveExtraCreateParameter(void* ecplist, void* ecptype, void* ecpcontext, void* ecpcontextsize) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlRemoveExtraCreateParameter(void* ecplist, void* ecptype, void* ecpcontext, void* ecpcontextsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5258,7 +5331,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlRemoveExtraCreateParamete
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlRemoveLargeMcbEntry(void* mcb, int64_t vbn, int64_t sectorcount) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlRemoveLargeMcbEntry(void* mcb, int64_t vbn, int64_t sectorcount) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5281,7 +5354,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlRemoveLargeMcbEntry(void* mc
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlRemoveMcbEntry(void* mcb, uint32_t vbn, uint32_t sectorcount) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlRemoveMcbEntry(void* mcb, uint32_t vbn, uint32_t sectorcount) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5304,7 +5377,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlRemoveMcbEntry(void* mcb, ui
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_FsRtlRemovePerFileContext(void* perfilecontextpointer, void* ownerid, void* instanceid) {
+void* windowssys_windows_wdk_storage_filesystem_fsRtlRemovePerFileContext(void* perfilecontextpointer, void* ownerid, void* instanceid) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5328,7 +5401,7 @@ void* windowssys_windows_wdk_storage_filesystem_FsRtlRemovePerFileContext(void* 
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_FsRtlRemovePerFileObjectContext(void* fileobject, void* ownerid, void* instanceid) {
+void* windowssys_windows_wdk_storage_filesystem_fsRtlRemovePerFileObjectContext(void* fileobject, void* ownerid, void* instanceid) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5352,7 +5425,7 @@ void* windowssys_windows_wdk_storage_filesystem_FsRtlRemovePerFileObjectContext(
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_FsRtlRemovePerStreamContext(void* streamcontext, void* ownerid, void* instanceid) {
+void* windowssys_windows_wdk_storage_filesystem_fsRtlRemovePerStreamContext(void* streamcontext, void* ownerid, void* instanceid) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5376,7 +5449,7 @@ void* windowssys_windows_wdk_storage_filesystem_FsRtlRemovePerStreamContext(void
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlResetBaseMcb(void* mcb) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlResetBaseMcb(void* mcb) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5397,7 +5470,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlResetBaseMcb(void* mcb) {
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlResetLargeMcb(void* mcb, bool selfsynchronized) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlResetLargeMcb(void* mcb, bool selfsynchronized) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -5419,7 +5492,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlResetLargeMcb(void* mcb, boo
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlSetDriverBacking(void* driverobj, uint32_t flags) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlSetDriverBacking(void* driverobj, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5442,7 +5515,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlSetDriverBacking(void* dr
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlSetEcpListIntoIrp(void* irp, void* ecplist) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlSetEcpListIntoIrp(void* irp, void* ecplist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5465,7 +5538,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlSetEcpListIntoIrp(void* i
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlSetKernelEaFile(void* fileobject, void* eabuffer, uint32_t length) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlSetKernelEaFile(void* fileobject, void* eabuffer, uint32_t length) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5489,7 +5562,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlSetKernelEaFile(void* fil
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlSplitBaseMcb(void* mcb, int64_t vbn, int64_t amount) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlSplitBaseMcb(void* mcb, int64_t vbn, int64_t amount) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5513,7 +5586,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlSplitBaseMcb(void* mcb, int6
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_FsRtlSplitLargeMcb(void* mcb, int64_t vbn, int64_t amount) {
+bool windowssys_windows_wdk_storage_filesystem_fsRtlSplitLargeMcb(void* mcb, int64_t vbn, int64_t amount) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5537,7 +5610,7 @@ bool windowssys_windows_wdk_storage_filesystem_FsRtlSplitLargeMcb(void* mcb, int
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlTeardownPerFileContexts(void* perfilecontextpointer) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlTeardownPerFileContexts(void* perfilecontextpointer) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5558,7 +5631,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlTeardownPerFileContexts(void
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlTeardownPerStreamContexts(void* advancedheader) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlTeardownPerStreamContexts(void* advancedheader) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5579,7 +5652,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlTeardownPerStreamContexts(vo
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlTruncateBaseMcb(void* mcb, int64_t vbn) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlTruncateBaseMcb(void* mcb, int64_t vbn) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5601,7 +5674,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlTruncateBaseMcb(void* mcb, i
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlTruncateLargeMcb(void* mcb, int64_t vbn) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlTruncateLargeMcb(void* mcb, int64_t vbn) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5623,7 +5696,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlTruncateLargeMcb(void* mcb, 
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlTruncateMcb(void* mcb, uint32_t vbn) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlTruncateMcb(void* mcb, uint32_t vbn) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5645,7 +5718,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlTruncateMcb(void* mcb, uint3
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeBaseMcb(void* mcb) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeBaseMcb(void* mcb) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5666,7 +5739,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeBaseMcb(void* mc
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeFileLock(void* filelock) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeFileLock(void* filelock) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5687,7 +5760,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeFileLock(void* f
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeLargeMcb(void* mcb) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeLargeMcb(void* mcb) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5708,7 +5781,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeLargeMcb(void* m
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeMcb(void* mcb) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeMcb(void* mcb) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5729,7 +5802,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeMcb(void* mcb) {
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeOplock(void* oplock) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlUninitializeOplock(void* oplock) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5750,7 +5823,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlUninitializeOplock(void* opl
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_FsRtlUpdateDiskCounters(uint64_t bytesread, uint64_t byteswritten) {
+void windowssys_windows_wdk_storage_filesystem_fsRtlUpdateDiskCounters(uint64_t bytesread, uint64_t byteswritten) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5772,7 +5845,7 @@ void windowssys_windows_wdk_storage_filesystem_FsRtlUpdateDiskCounters(uint64_t 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlUpperOplockFsctrl(void* oplock, void* irp, uint32_t opencount, uint32_t loweroplockstate, uint32_t flags) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlUpperOplockFsctrl(void* oplock, void* irp, uint32_t opencount, uint32_t loweroplockstate, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5798,7 +5871,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlUpperOplockFsctrl(void* o
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlValidateReparsePointBuffer(uint32_t bufferlength, void* reparsebuffer) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlValidateReparsePointBuffer(uint32_t bufferlength, void* reparsebuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5821,7 +5894,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlValidateReparsePointBuffe
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_FsRtlVolumeDeviceToCorrelationId(void* volumedeviceobject, void* guid) {
+int32_t windowssys_windows_wdk_storage_filesystem_fsRtlVolumeDeviceToCorrelationId(void* volumedeviceobject, void* guid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5844,7 +5917,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_FsRtlVolumeDeviceToCorrelation
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_GetSecurityUserInfo(void* logonid, uint32_t flags, void* userinformation) {
+int32_t windowssys_windows_wdk_storage_filesystem_getSecurityUserInfo(void* logonid, uint32_t flags, void* userinformation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5868,7 +5941,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_GetSecurityUserInfo(void* logo
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_IoAcquireVpbSpinLock(void* irql) {
+void windowssys_windows_wdk_storage_filesystem_ioAcquireVpbSpinLock(void* irql) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5889,7 +5962,7 @@ void windowssys_windows_wdk_storage_filesystem_IoAcquireVpbSpinLock(void* irql) 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_IoApplyPriorityInfoThread(void* inputpriorityinfo, void* outputpriorityinfo, int64_t thread) {
+int32_t windowssys_windows_wdk_storage_filesystem_ioApplyPriorityInfoThread(void* inputpriorityinfo, void* outputpriorityinfo, int64_t thread) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5913,7 +5986,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_IoApplyPriorityInfoThread(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_IoCheckDesiredAccess(void* desiredaccess, uint32_t grantedaccess) {
+int32_t windowssys_windows_wdk_storage_filesystem_ioCheckDesiredAccess(void* desiredaccess, uint32_t grantedaccess) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5936,7 +6009,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_IoCheckDesiredAccess(void* des
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_IoCheckEaBufferValidity(void* eabuffer, uint32_t ealength, void* erroroffset) {
+int32_t windowssys_windows_wdk_storage_filesystem_ioCheckEaBufferValidity(void* eabuffer, uint32_t ealength, void* erroroffset) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5960,7 +6033,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_IoCheckEaBufferValidity(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_IoCheckFunctionAccess(uint32_t grantedaccess, uint8_t majorfunction, uint8_t minorfunction, uint32_t iocontrolcode, void* arg1, void* arg2) {
+int32_t windowssys_windows_wdk_storage_filesystem_ioCheckFunctionAccess(uint32_t grantedaccess, uint8_t majorfunction, uint8_t minorfunction, uint32_t iocontrolcode, void* arg1, void* arg2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint8_t, uint8_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5987,7 +6060,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_IoCheckFunctionAccess(uint32_t
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_IoCheckQuerySetFileInformation(int32_t fileinformationclass, uint32_t length, bool setoperation) {
+int32_t windowssys_windows_wdk_storage_filesystem_ioCheckQuerySetFileInformation(int32_t fileinformationclass, uint32_t length, bool setoperation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, uint32_t, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -6011,7 +6084,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_IoCheckQuerySetFileInformation
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_IoCheckQuerySetVolumeInformation(int32_t fsinformationclass, uint32_t length, bool setoperation) {
+int32_t windowssys_windows_wdk_storage_filesystem_ioCheckQuerySetVolumeInformation(int32_t fsinformationclass, uint32_t length, bool setoperation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, uint32_t, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -6035,7 +6108,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_IoCheckQuerySetVolumeInformati
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_IoCheckQuotaBufferValidity(void* quotabuffer, uint32_t quotalength, void* erroroffset) {
+int32_t windowssys_windows_wdk_storage_filesystem_ioCheckQuotaBufferValidity(void* quotabuffer, uint32_t quotalength, void* erroroffset) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6059,7 +6132,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_IoCheckQuotaBufferValidity(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_IoClearFsTrackOffsetState(void* irp) {
+int32_t windowssys_windows_wdk_storage_filesystem_ioClearFsTrackOffsetState(void* irp) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6081,7 +6154,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_IoClearFsTrackOffsetState(void
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_IoCreateStreamFileObject(void* fileobject, void* deviceobject) {
+void* windowssys_windows_wdk_storage_filesystem_ioCreateStreamFileObject(void* fileobject, void* deviceobject) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6104,7 +6177,7 @@ void* windowssys_windows_wdk_storage_filesystem_IoCreateStreamFileObject(void* f
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_IoCreateStreamFileObjectEx(void* fileobject, void* deviceobject, void* filehandle) {
+void* windowssys_windows_wdk_storage_filesystem_ioCreateStreamFileObjectEx(void* fileobject, void* deviceobject, void* filehandle) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6128,7 +6201,7 @@ void* windowssys_windows_wdk_storage_filesystem_IoCreateStreamFileObjectEx(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_IoCreateStreamFileObjectEx2(void* createoptions, void* fileobject, void* deviceobject, void* streamfileobject, void* filehandle) {
+int32_t windowssys_windows_wdk_storage_filesystem_ioCreateStreamFileObjectEx2(void* createoptions, void* fileobject, void* deviceobject, void* streamfileobject, void* filehandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6154,7 +6227,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_IoCreateStreamFileObjectEx2(vo
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_IoCreateStreamFileObjectLite(void* fileobject, void* deviceobject) {
+void* windowssys_windows_wdk_storage_filesystem_ioCreateStreamFileObjectLite(void* fileobject, void* deviceobject) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6177,7 +6250,7 @@ void* windowssys_windows_wdk_storage_filesystem_IoCreateStreamFileObjectLite(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_IoEnumerateDeviceObjectList(void* driverobject, void* deviceobjectlist, uint32_t deviceobjectlistsize, void* actualnumberdeviceobjects) {
+int32_t windowssys_windows_wdk_storage_filesystem_ioEnumerateDeviceObjectList(void* driverobject, void* deviceobjectlist, uint32_t deviceobjectlistsize, void* actualnumberdeviceobjects) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6202,7 +6275,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_IoEnumerateDeviceObjectList(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_IoEnumerateRegisteredFiltersList(void* driverobjectlist, uint32_t driverobjectlistsize, void* actualnumberdriverobjects) {
+int32_t windowssys_windows_wdk_storage_filesystem_ioEnumerateRegisteredFiltersList(void* driverobjectlist, uint32_t driverobjectlistsize, void* actualnumberdriverobjects) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6226,7 +6299,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_IoEnumerateRegisteredFiltersLi
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_IoFastQueryNetworkAttributes(void* objectattributes, uint32_t desiredaccess, uint32_t openoptions, void* iostatus, void* buffer) {
+bool windowssys_windows_wdk_storage_filesystem_ioFastQueryNetworkAttributes(void* objectattributes, uint32_t desiredaccess, uint32_t openoptions, void* iostatus, void* buffer) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6252,7 +6325,7 @@ bool windowssys_windows_wdk_storage_filesystem_IoFastQueryNetworkAttributes(void
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_IoGetAttachedDevice(void* deviceobject) {
+void* windowssys_windows_wdk_storage_filesystem_ioGetAttachedDevice(void* deviceobject) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6274,7 +6347,7 @@ void* windowssys_windows_wdk_storage_filesystem_IoGetAttachedDevice(void* device
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_IoGetBaseFileSystemDeviceObject(void* fileobject) {
+void* windowssys_windows_wdk_storage_filesystem_ioGetBaseFileSystemDeviceObject(void* fileobject) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6296,7 +6369,7 @@ void* windowssys_windows_wdk_storage_filesystem_IoGetBaseFileSystemDeviceObject(
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_IoGetDeviceAttachmentBaseRef(void* deviceobject) {
+void* windowssys_windows_wdk_storage_filesystem_ioGetDeviceAttachmentBaseRef(void* deviceobject) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6318,7 +6391,7 @@ void* windowssys_windows_wdk_storage_filesystem_IoGetDeviceAttachmentBaseRef(voi
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_IoGetDeviceToVerify(int64_t thread) {
+void* windowssys_windows_wdk_storage_filesystem_ioGetDeviceToVerify(int64_t thread) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6340,7 +6413,7 @@ void* windowssys_windows_wdk_storage_filesystem_IoGetDeviceToVerify(int64_t thre
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_IoGetDiskDeviceObject(void* filesystemdeviceobject, void* diskdeviceobject) {
+int32_t windowssys_windows_wdk_storage_filesystem_ioGetDiskDeviceObject(void* filesystemdeviceobject, void* diskdeviceobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6363,7 +6436,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_IoGetDiskDeviceObject(void* fi
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_IoGetFsTrackOffsetState(void* irp, void* retfstrackoffsetblob, void* rettrackedoffset) {
+int32_t windowssys_windows_wdk_storage_filesystem_ioGetFsTrackOffsetState(void* irp, void* retfstrackoffsetblob, void* rettrackedoffset) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6387,7 +6460,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_IoGetFsTrackOffsetState(void* 
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_IoGetLowerDeviceObject(void* deviceobject) {
+void* windowssys_windows_wdk_storage_filesystem_ioGetLowerDeviceObject(void* deviceobject) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6409,7 +6482,7 @@ void* windowssys_windows_wdk_storage_filesystem_IoGetLowerDeviceObject(void* dev
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_IoGetOplockKeyContext(void* fileobject) {
+void* windowssys_windows_wdk_storage_filesystem_ioGetOplockKeyContext(void* fileobject) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6431,7 +6504,7 @@ void* windowssys_windows_wdk_storage_filesystem_IoGetOplockKeyContext(void* file
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_IoGetOplockKeyContextEx(void* fileobject) {
+void* windowssys_windows_wdk_storage_filesystem_ioGetOplockKeyContextEx(void* fileobject) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6453,7 +6526,7 @@ void* windowssys_windows_wdk_storage_filesystem_IoGetOplockKeyContextEx(void* fi
 #endif
 }
 
-int64_t windowssys_windows_wdk_storage_filesystem_IoGetRequestorProcess(void* irp) {
+int64_t windowssys_windows_wdk_storage_filesystem_ioGetRequestorProcess(void* irp) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6475,7 +6548,7 @@ int64_t windowssys_windows_wdk_storage_filesystem_IoGetRequestorProcess(void* ir
 #endif
 }
 
-uint32_t windowssys_windows_wdk_storage_filesystem_IoGetRequestorProcessId(void* irp) {
+uint32_t windowssys_windows_wdk_storage_filesystem_ioGetRequestorProcessId(void* irp) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6497,7 +6570,7 @@ uint32_t windowssys_windows_wdk_storage_filesystem_IoGetRequestorProcessId(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_IoGetRequestorSessionId(void* irp, void* psessionid) {
+int32_t windowssys_windows_wdk_storage_filesystem_ioGetRequestorSessionId(void* irp, void* psessionid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6520,7 +6593,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_IoGetRequestorSessionId(void* 
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_IoIrpHasFsTrackOffsetExtensionType(void* irp) {
+bool windowssys_windows_wdk_storage_filesystem_ioIrpHasFsTrackOffsetExtensionType(void* irp) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6542,7 +6615,7 @@ bool windowssys_windows_wdk_storage_filesystem_IoIrpHasFsTrackOffsetExtensionTyp
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_IoIsOperationSynchronous(void* irp) {
+bool windowssys_windows_wdk_storage_filesystem_ioIsOperationSynchronous(void* irp) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6564,7 +6637,7 @@ bool windowssys_windows_wdk_storage_filesystem_IoIsOperationSynchronous(void* ir
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_IoIsSystemThread(int64_t thread) {
+bool windowssys_windows_wdk_storage_filesystem_ioIsSystemThread(int64_t thread) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6586,7 +6659,7 @@ bool windowssys_windows_wdk_storage_filesystem_IoIsSystemThread(int64_t thread) 
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_IoIsValidNameGraftingBuffer(void* irp, void* reparsebuffer) {
+bool windowssys_windows_wdk_storage_filesystem_ioIsValidNameGraftingBuffer(void* irp, void* reparsebuffer) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6609,7 +6682,7 @@ bool windowssys_windows_wdk_storage_filesystem_IoIsValidNameGraftingBuffer(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_IoPageRead(void* fileobject, void* memorydescriptorlist, void* startingoffset, void* event, void* iostatusblock) {
+int32_t windowssys_windows_wdk_storage_filesystem_ioPageRead(void* fileobject, void* memorydescriptorlist, void* startingoffset, void* event, void* iostatusblock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6635,7 +6708,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_IoPageRead(void* fileobject, v
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_IoQueryFileDosDeviceName(void* fileobject, void* objectnameinformation) {
+int32_t windowssys_windows_wdk_storage_filesystem_ioQueryFileDosDeviceName(void* fileobject, void* objectnameinformation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6658,7 +6731,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_IoQueryFileDosDeviceName(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_IoQueryFileInformation(void* fileobject, int32_t fileinformationclass, uint32_t length, void* fileinformation, void* returnedlength) {
+int32_t windowssys_windows_wdk_storage_filesystem_ioQueryFileInformation(void* fileobject, int32_t fileinformationclass, uint32_t length, void* fileinformation, void* returnedlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6684,7 +6757,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_IoQueryFileInformation(void* f
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_IoQueryVolumeInformation(void* fileobject, int32_t fsinformationclass, uint32_t length, void* fsinformation, void* returnedlength) {
+int32_t windowssys_windows_wdk_storage_filesystem_ioQueryVolumeInformation(void* fileobject, int32_t fsinformationclass, uint32_t length, void* fsinformation, void* returnedlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6710,7 +6783,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_IoQueryVolumeInformation(void*
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_IoQueueThreadIrp(void* irp) {
+void windowssys_windows_wdk_storage_filesystem_ioQueueThreadIrp(void* irp) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6731,7 +6804,7 @@ void windowssys_windows_wdk_storage_filesystem_IoQueueThreadIrp(void* irp) {
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_IoRegisterFileSystem(void* deviceobject) {
+void windowssys_windows_wdk_storage_filesystem_ioRegisterFileSystem(void* deviceobject) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6752,7 +6825,7 @@ void windowssys_windows_wdk_storage_filesystem_IoRegisterFileSystem(void* device
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_IoReleaseVpbSpinLock(uint8_t irql) {
+void windowssys_windows_wdk_storage_filesystem_ioReleaseVpbSpinLock(uint8_t irql) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6773,7 +6846,7 @@ void windowssys_windows_wdk_storage_filesystem_IoReleaseVpbSpinLock(uint8_t irql
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_IoReplaceFileObjectName(void* fileobject, void* newfilename, uint16_t filenamelength) {
+int32_t windowssys_windows_wdk_storage_filesystem_ioReplaceFileObjectName(void* fileobject, void* newfilename, uint16_t filenamelength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6797,7 +6870,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_IoReplaceFileObjectName(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_IoRequestDeviceRemovalForReset(void* physicaldeviceobject, uint32_t flags) {
+int32_t windowssys_windows_wdk_storage_filesystem_ioRequestDeviceRemovalForReset(void* physicaldeviceobject, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6820,7 +6893,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_IoRequestDeviceRemovalForReset
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_IoRetrievePriorityInfo(void* irp, void* fileobject, int64_t thread, void* priorityinfo) {
+int32_t windowssys_windows_wdk_storage_filesystem_ioRetrievePriorityInfo(void* irp, void* fileobject, int64_t thread, void* priorityinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6845,7 +6918,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_IoRetrievePriorityInfo(void* i
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_IoSetDeviceToVerify(int64_t thread, void* deviceobject) {
+void windowssys_windows_wdk_storage_filesystem_ioSetDeviceToVerify(int64_t thread, void* deviceobject) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6867,7 +6940,7 @@ void windowssys_windows_wdk_storage_filesystem_IoSetDeviceToVerify(int64_t threa
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_IoSetFsTrackOffsetState(void* irp, void* fstrackoffsetblob, int64_t trackedoffset) {
+int32_t windowssys_windows_wdk_storage_filesystem_ioSetFsTrackOffsetState(void* irp, void* fstrackoffsetblob, int64_t trackedoffset) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6891,7 +6964,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_IoSetFsTrackOffsetState(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_IoSetInformation(void* fileobject, int32_t fileinformationclass, uint32_t length, void* fileinformation) {
+int32_t windowssys_windows_wdk_storage_filesystem_ioSetInformation(void* fileobject, int32_t fileinformationclass, uint32_t length, void* fileinformation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6916,7 +6989,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_IoSetInformation(void* fileobj
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_IoSynchronousPageWrite(void* fileobject, void* memorydescriptorlist, void* startingoffset, void* event, void* iostatusblock) {
+int32_t windowssys_windows_wdk_storage_filesystem_ioSynchronousPageWrite(void* fileobject, void* memorydescriptorlist, void* startingoffset, void* event, void* iostatusblock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6942,7 +7015,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_IoSynchronousPageWrite(void* f
 #endif
 }
 
-int64_t windowssys_windows_wdk_storage_filesystem_IoThreadToProcess(int64_t thread) {
+int64_t windowssys_windows_wdk_storage_filesystem_ioThreadToProcess(int64_t thread) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6964,7 +7037,7 @@ int64_t windowssys_windows_wdk_storage_filesystem_IoThreadToProcess(int64_t thre
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_IoUnregisterFileSystem(void* deviceobject) {
+void windowssys_windows_wdk_storage_filesystem_ioUnregisterFileSystem(void* deviceobject) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6985,7 +7058,7 @@ void windowssys_windows_wdk_storage_filesystem_IoUnregisterFileSystem(void* devi
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_IoVerifyVolume(void* deviceobject, bool allowrawmount) {
+int32_t windowssys_windows_wdk_storage_filesystem_ioVerifyVolume(void* deviceobject, bool allowrawmount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -7008,7 +7081,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_IoVerifyVolume(void* deviceobj
 #endif
 }
 
-uint8_t windowssys_windows_wdk_storage_filesystem_KeAcquireQueuedSpinLock(int32_t number) {
+uint8_t windowssys_windows_wdk_storage_filesystem_keAcquireQueuedSpinLock(int32_t number) {
 #ifdef _WIN32
     typedef uint8_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7030,7 +7103,7 @@ uint8_t windowssys_windows_wdk_storage_filesystem_KeAcquireQueuedSpinLock(int32_
 #endif
 }
 
-uint8_t windowssys_windows_wdk_storage_filesystem_KeAcquireSpinLockRaiseToSynch(void* spinlock) {
+uint8_t windowssys_windows_wdk_storage_filesystem_keAcquireSpinLockRaiseToSynch(void* spinlock) {
 #ifdef _WIN32
     typedef uint8_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7052,7 +7125,7 @@ uint8_t windowssys_windows_wdk_storage_filesystem_KeAcquireSpinLockRaiseToSynch(
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_KeAttachProcess(int64_t process) {
+void windowssys_windows_wdk_storage_filesystem_keAttachProcess(int64_t process) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7073,7 +7146,7 @@ void windowssys_windows_wdk_storage_filesystem_KeAttachProcess(int64_t process) 
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_KeDetachProcess(void) {
+void windowssys_windows_wdk_storage_filesystem_keDetachProcess(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -7093,7 +7166,7 @@ void windowssys_windows_wdk_storage_filesystem_KeDetachProcess(void) {
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_KeInitializeMutant(void* mutant, bool initialowner) {
+void windowssys_windows_wdk_storage_filesystem_keInitializeMutant(void* mutant, bool initialowner) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -7115,7 +7188,7 @@ void windowssys_windows_wdk_storage_filesystem_KeInitializeMutant(void* mutant, 
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_KeInitializeQueue(void* queue, uint32_t count) {
+void windowssys_windows_wdk_storage_filesystem_keInitializeQueue(void* queue, uint32_t count) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7137,7 +7210,7 @@ void windowssys_windows_wdk_storage_filesystem_KeInitializeQueue(void* queue, ui
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_KeInsertHeadQueue(void* queue, void* entry) {
+int32_t windowssys_windows_wdk_storage_filesystem_keInsertHeadQueue(void* queue, void* entry) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7160,7 +7233,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_KeInsertHeadQueue(void* queue,
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_KeInsertQueue(void* queue, void* entry) {
+int32_t windowssys_windows_wdk_storage_filesystem_keInsertQueue(void* queue, void* entry) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7183,7 +7256,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_KeInsertQueue(void* queue, voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_KeReadStateMutant(void* mutant) {
+int32_t windowssys_windows_wdk_storage_filesystem_keReadStateMutant(void* mutant) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7205,7 +7278,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_KeReadStateMutant(void* mutant
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_KeReadStateQueue(void* queue) {
+int32_t windowssys_windows_wdk_storage_filesystem_keReadStateQueue(void* queue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7227,7 +7300,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_KeReadStateQueue(void* queue) 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_KeReleaseMutant(void* mutant, int32_t increment, bool abandoned, bool wait) {
+int32_t windowssys_windows_wdk_storage_filesystem_keReleaseMutant(void* mutant, int32_t increment, bool abandoned, bool wait) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, bool, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -7252,7 +7325,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_KeReleaseMutant(void* mutant, 
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_KeReleaseQueuedSpinLock(int32_t number, uint8_t oldirql) {
+void windowssys_windows_wdk_storage_filesystem_keReleaseQueuedSpinLock(int32_t number, uint8_t oldirql) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7274,7 +7347,7 @@ void windowssys_windows_wdk_storage_filesystem_KeReleaseQueuedSpinLock(int32_t n
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_KeRemoveQueue(void* queue, int8_t waitmode, void* timeout) {
+void* windowssys_windows_wdk_storage_filesystem_keRemoveQueue(void* queue, int8_t waitmode, void* timeout) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7298,7 +7371,7 @@ void* windowssys_windows_wdk_storage_filesystem_KeRemoveQueue(void* queue, int8_
 #endif
 }
 
-uint32_t windowssys_windows_wdk_storage_filesystem_KeRemoveQueueEx(void* queue, int8_t waitmode, bool alertable, void* timeout, void* entryarray, uint32_t count) {
+uint32_t windowssys_windows_wdk_storage_filesystem_keRemoveQueueEx(void* queue, int8_t waitmode, bool alertable, void* timeout, void* entryarray, uint32_t count) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int8_t, bool, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7325,7 +7398,7 @@ uint32_t windowssys_windows_wdk_storage_filesystem_KeRemoveQueueEx(void* queue, 
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_KeRundownQueue(void* queue) {
+void* windowssys_windows_wdk_storage_filesystem_keRundownQueue(void* queue) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7347,7 +7420,7 @@ void* windowssys_windows_wdk_storage_filesystem_KeRundownQueue(void* queue) {
 #endif
 }
 
-uint8_t windowssys_windows_wdk_storage_filesystem_KeSetIdealProcessorThread(int64_t thread, uint8_t processor) {
+uint8_t windowssys_windows_wdk_storage_filesystem_keSetIdealProcessorThread(int64_t thread, uint8_t processor) {
 #ifdef _WIN32
     typedef uint8_t (__stdcall *km_fn_t)(int64_t, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7370,7 +7443,7 @@ uint8_t windowssys_windows_wdk_storage_filesystem_KeSetIdealProcessorThread(int6
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_KeSetKernelStackSwapEnable(bool enable) {
+bool windowssys_windows_wdk_storage_filesystem_keSetKernelStackSwapEnable(bool enable) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -7392,7 +7465,7 @@ bool windowssys_windows_wdk_storage_filesystem_KeSetKernelStackSwapEnable(bool e
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_KeStackAttachProcess(int64_t process, void* apcstate) {
+void windowssys_windows_wdk_storage_filesystem_keStackAttachProcess(int64_t process, void* apcstate) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7414,7 +7487,7 @@ void windowssys_windows_wdk_storage_filesystem_KeStackAttachProcess(int64_t proc
 #endif
 }
 
-uint32_t windowssys_windows_wdk_storage_filesystem_KeTryToAcquireQueuedSpinLock(int32_t number, void* oldirql) {
+uint32_t windowssys_windows_wdk_storage_filesystem_keTryToAcquireQueuedSpinLock(int32_t number, void* oldirql) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7437,7 +7510,7 @@ uint32_t windowssys_windows_wdk_storage_filesystem_KeTryToAcquireQueuedSpinLock(
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_KeUnstackDetachProcess(void* apcstate) {
+void windowssys_windows_wdk_storage_filesystem_keUnstackDetachProcess(void* apcstate) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7458,7 +7531,7 @@ void windowssys_windows_wdk_storage_filesystem_KeUnstackDetachProcess(void* apcs
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_MakeSignature(void* phcontext, uint32_t fqop, void* pmessage, uint32_t messageseqno) {
+int32_t windowssys_windows_wdk_storage_filesystem_makeSignature(void* phcontext, uint32_t fqop, void* pmessage, uint32_t messageseqno) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7483,7 +7556,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_MakeSignature(void* phcontext,
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_MapSecurityError(int32_t secstatus) {
+int32_t windowssys_windows_wdk_storage_filesystem_mapSecurityError(int32_t secstatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7505,7 +7578,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_MapSecurityError(int32_t secst
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_MmCanFileBeTruncated(void* sectionpointer, void* newfilesize) {
+bool windowssys_windows_wdk_storage_filesystem_mmCanFileBeTruncated(void* sectionpointer, void* newfilesize) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7528,7 +7601,7 @@ bool windowssys_windows_wdk_storage_filesystem_MmCanFileBeTruncated(void* sectio
 #endif
 }
 
-uint32_t windowssys_windows_wdk_storage_filesystem_MmDoesFileHaveUserWritableReferences(void* sectionpointer) {
+uint32_t windowssys_windows_wdk_storage_filesystem_mmDoesFileHaveUserWritableReferences(void* sectionpointer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7550,7 +7623,7 @@ uint32_t windowssys_windows_wdk_storage_filesystem_MmDoesFileHaveUserWritableRef
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_MmFlushImageSection(void* sectionobjectpointer, int32_t flushtype) {
+bool windowssys_windows_wdk_storage_filesystem_mmFlushImageSection(void* sectionobjectpointer, int32_t flushtype) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7573,7 +7646,7 @@ bool windowssys_windows_wdk_storage_filesystem_MmFlushImageSection(void* section
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_MmForceSectionClosed(void* sectionobjectpointer, bool delayclose) {
+bool windowssys_windows_wdk_storage_filesystem_mmForceSectionClosed(void* sectionobjectpointer, bool delayclose) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -7596,7 +7669,7 @@ bool windowssys_windows_wdk_storage_filesystem_MmForceSectionClosed(void* sectio
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_MmForceSectionClosedEx(void* sectionobjectpointer, uint32_t forcecloseflags) {
+bool windowssys_windows_wdk_storage_filesystem_mmForceSectionClosedEx(void* sectionobjectpointer, uint32_t forcecloseflags) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7619,7 +7692,7 @@ bool windowssys_windows_wdk_storage_filesystem_MmForceSectionClosedEx(void* sect
 #endif
 }
 
-uint64_t windowssys_windows_wdk_storage_filesystem_MmGetMaximumFileSectionSize(void) {
+uint64_t windowssys_windows_wdk_storage_filesystem_mmGetMaximumFileSectionSize(void) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -7640,7 +7713,7 @@ uint64_t windowssys_windows_wdk_storage_filesystem_MmGetMaximumFileSectionSize(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_MmIsFileSectionActive(void* fssectionpointer, uint32_t flags, void* sectionisactive) {
+int32_t windowssys_windows_wdk_storage_filesystem_mmIsFileSectionActive(void* fssectionpointer, uint32_t flags, void* sectionisactive) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7664,7 +7737,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_MmIsFileSectionActive(void* fs
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_MmIsRecursiveIoFault(void) {
+bool windowssys_windows_wdk_storage_filesystem_mmIsRecursiveIoFault(void) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -7685,7 +7758,7 @@ bool windowssys_windows_wdk_storage_filesystem_MmIsRecursiveIoFault(void) {
 #endif
 }
 
-uint32_t windowssys_windows_wdk_storage_filesystem_MmMdlPagesAreZero(void* mdl) {
+uint32_t windowssys_windows_wdk_storage_filesystem_mmMdlPagesAreZero(void* mdl) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7707,7 +7780,7 @@ uint32_t windowssys_windows_wdk_storage_filesystem_MmMdlPagesAreZero(void* mdl) 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_MmPrefetchPages(uint32_t numberoflists, void* readlists) {
+int32_t windowssys_windows_wdk_storage_filesystem_mmPrefetchPages(uint32_t numberoflists, void* readlists) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7730,7 +7803,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_MmPrefetchPages(uint32_t numbe
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_MmSetAddressRangeModified(void* address, uint64_t length) {
+bool windowssys_windows_wdk_storage_filesystem_mmSetAddressRangeModified(void* address, uint64_t length) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7753,7 +7826,7 @@ bool windowssys_windows_wdk_storage_filesystem_MmSetAddressRangeModified(void* a
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtAccessCheckAndAuditAlarm(void* subsystemname, void* handleid, void* objecttypename, void* objectname, void* securitydescriptor, uint32_t desiredaccess, void* genericmapping, bool objectcreation, void* grantedaccess, void* accessstatus, void* generateonclose) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntAccessCheckAndAuditAlarm(void* subsystemname, void* handleid, void* objecttypename, void* objectname, void* securitydescriptor, uint32_t desiredaccess, void* genericmapping, bool objectcreation, void* grantedaccess, void* accessstatus, void* generateonclose) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, void*, bool, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7785,7 +7858,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtAccessCheckAndAuditAlarm(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtAccessCheckByTypeAndAuditAlarm(void* subsystemname, void* handleid, void* objecttypename, void* objectname, void* securitydescriptor, void* principalselfsid, uint32_t desiredaccess, int32_t audittype, uint32_t flags, void* objecttypelist, uint32_t objecttypelistlength, void* genericmapping, bool objectcreation, void* grantedaccess, void* accessstatus, void* generateonclose) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntAccessCheckByTypeAndAuditAlarm(void* subsystemname, void* handleid, void* objecttypename, void* objectname, void* securitydescriptor, void* principalselfsid, uint32_t desiredaccess, int32_t audittype, uint32_t flags, void* objecttypelist, uint32_t objecttypelistlength, void* genericmapping, bool objectcreation, void* grantedaccess, void* accessstatus, void* generateonclose) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, int32_t, uint32_t, void*, uint32_t, void*, bool, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7822,7 +7895,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtAccessCheckByTypeAndAuditAla
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtAccessCheckByTypeResultListAndAuditAlarm(void* subsystemname, void* handleid, void* objecttypename, void* objectname, void* securitydescriptor, void* principalselfsid, uint32_t desiredaccess, int32_t audittype, uint32_t flags, void* objecttypelist, uint32_t objecttypelistlength, void* genericmapping, bool objectcreation, void* grantedaccess, void* accessstatus, void* generateonclose) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntAccessCheckByTypeResultListAndAuditAlarm(void* subsystemname, void* handleid, void* objecttypename, void* objectname, void* securitydescriptor, void* principalselfsid, uint32_t desiredaccess, int32_t audittype, uint32_t flags, void* objecttypelist, uint32_t objecttypelistlength, void* genericmapping, bool objectcreation, void* grantedaccess, void* accessstatus, void* generateonclose) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, int32_t, uint32_t, void*, uint32_t, void*, bool, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7859,7 +7932,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtAccessCheckByTypeResultListA
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtAccessCheckByTypeResultListAndAuditAlarmByHandle(void* subsystemname, void* handleid, void* clienttoken, void* objecttypename, void* objectname, void* securitydescriptor, void* principalselfsid, uint32_t desiredaccess, int32_t audittype, uint32_t flags, void* objecttypelist, uint32_t objecttypelistlength, void* genericmapping, bool objectcreation, void* grantedaccess, void* accessstatus, void* generateonclose) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntAccessCheckByTypeResultListAndAuditAlarmByHandle(void* subsystemname, void* handleid, void* clienttoken, void* objecttypename, void* objectname, void* securitydescriptor, void* principalselfsid, uint32_t desiredaccess, int32_t audittype, uint32_t flags, void* objecttypelist, uint32_t objecttypelistlength, void* genericmapping, bool objectcreation, void* grantedaccess, void* accessstatus, void* generateonclose) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, uint32_t, int32_t, uint32_t, void*, uint32_t, void*, bool, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7897,7 +7970,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtAccessCheckByTypeResultListA
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtAdjustGroupsToken(void* tokenhandle, bool resettodefault, void* newstate, uint32_t bufferlength, void* previousstate, void* returnlength) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntAdjustGroupsToken(void* tokenhandle, bool resettodefault, void* newstate, uint32_t bufferlength, void* previousstate, void* returnlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, bool, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7924,7 +7997,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtAdjustGroupsToken(void* toke
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtAdjustPrivilegesToken(void* tokenhandle, bool disableallprivileges, void* newstate, uint32_t bufferlength, void* previousstate, void* returnlength) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntAdjustPrivilegesToken(void* tokenhandle, bool disableallprivileges, void* newstate, uint32_t bufferlength, void* previousstate, void* returnlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, bool, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7951,7 +8024,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtAdjustPrivilegesToken(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtAllocateVirtualMemory(void* processhandle, void* baseaddress, uint64_t zerobits, void* regionsize, uint32_t allocationtype, uint32_t protect) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntAllocateVirtualMemory(void* processhandle, void* baseaddress, uint64_t zerobits, void* regionsize, uint32_t allocationtype, uint32_t protect) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint64_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7978,7 +8051,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtAllocateVirtualMemory(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtAllocateVirtualMemoryEx(void* processhandle, void* baseaddress, void* regionsize, uint32_t allocationtype, uint32_t pageprotection, void* extendedparameters, uint32_t extendedparametercount) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntAllocateVirtualMemoryEx(void* processhandle, void* baseaddress, void* regionsize, uint32_t allocationtype, uint32_t pageprotection, void* extendedparameters, uint32_t extendedparametercount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8006,7 +8079,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtAllocateVirtualMemoryEx(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtCancelIoFileEx(void* filehandle, void* iorequesttocancel, void* iostatusblock) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntCancelIoFileEx(void* filehandle, void* iorequesttocancel, void* iostatusblock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8030,7 +8103,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtCancelIoFileEx(void* filehan
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtCloseObjectAuditAlarm(void* subsystemname, void* handleid, bool generateonclose) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntCloseObjectAuditAlarm(void* subsystemname, void* handleid, bool generateonclose) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -8054,7 +8127,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtCloseObjectAuditAlarm(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtCreateDirectoryObject(void* directoryhandle, uint32_t desiredaccess, void* objectattributes) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntCreateDirectoryObject(void* directoryhandle, uint32_t desiredaccess, void* objectattributes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8078,7 +8151,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtCreateDirectoryObject(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtCreateEvent(void* eventhandle, uint32_t desiredaccess, void* objectattributes, int32_t eventtype, bool initialstate) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntCreateEvent(void* eventhandle, uint32_t desiredaccess, void* objectattributes, int32_t eventtype, bool initialstate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, int32_t, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -8104,7 +8177,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtCreateEvent(void* eventhandl
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtCreateFile(void* filehandle, uint32_t desiredaccess, void* objectattributes, void* iostatusblock, void* allocationsize, uint32_t fileattributes, uint32_t shareaccess, uint32_t createdisposition, uint32_t createoptions, void* eabuffer, uint32_t ealength) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntCreateFile(void* filehandle, uint32_t desiredaccess, void* objectattributes, void* iostatusblock, void* allocationsize, uint32_t fileattributes, uint32_t shareaccess, uint32_t createdisposition, uint32_t createoptions, void* eabuffer, uint32_t ealength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, uint32_t, uint32_t, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8136,7 +8209,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtCreateFile(void* filehandle,
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtCreateSection(void* sectionhandle, uint32_t desiredaccess, void* objectattributes, void* maximumsize, uint32_t sectionpageprotection, uint32_t allocationattributes, void* filehandle) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntCreateSection(void* sectionhandle, uint32_t desiredaccess, void* objectattributes, void* maximumsize, uint32_t sectionpageprotection, uint32_t allocationattributes, void* filehandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8164,7 +8237,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtCreateSection(void* sectionh
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtCreateSectionEx(void* sectionhandle, uint32_t desiredaccess, void* objectattributes, void* maximumsize, uint32_t sectionpageprotection, uint32_t allocationattributes, void* filehandle, void* extendedparameters, uint32_t extendedparametercount) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntCreateSectionEx(void* sectionhandle, uint32_t desiredaccess, void* objectattributes, void* maximumsize, uint32_t sectionpageprotection, uint32_t allocationattributes, void* filehandle, void* extendedparameters, uint32_t extendedparametercount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8194,7 +8267,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtCreateSectionEx(void* sectio
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtDeleteFile(void* objectattributes) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntDeleteFile(void* objectattributes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8216,7 +8289,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtDeleteFile(void* objectattri
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtDeleteObjectAuditAlarm(void* subsystemname, void* handleid, bool generateonclose) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntDeleteObjectAuditAlarm(void* subsystemname, void* handleid, bool generateonclose) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -8240,7 +8313,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtDeleteObjectAuditAlarm(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtDuplicateObject(void* sourceprocesshandle, void* sourcehandle, void* targetprocesshandle, void* targethandle, uint32_t desiredaccess, uint32_t handleattributes, uint32_t options) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntDuplicateObject(void* sourceprocesshandle, void* sourcehandle, void* targetprocesshandle, void* targethandle, uint32_t desiredaccess, uint32_t handleattributes, uint32_t options) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8268,7 +8341,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtDuplicateObject(void* source
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtDuplicateToken(void* existingtokenhandle, uint32_t desiredaccess, void* objectattributes, bool effectiveonly, int32_t tokentype, void* newtokenhandle) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntDuplicateToken(void* existingtokenhandle, uint32_t desiredaccess, void* objectattributes, bool effectiveonly, int32_t tokentype, void* newtokenhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, bool, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8295,7 +8368,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtDuplicateToken(void* existin
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtFilterToken(void* existingtokenhandle, uint32_t flags, void* sidstodisable, void* privilegestodelete, void* restrictedsids, void* newtokenhandle) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntFilterToken(void* existingtokenhandle, uint32_t flags, void* sidstodisable, void* privilegestodelete, void* restrictedsids, void* newtokenhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8322,7 +8395,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtFilterToken(void* existingto
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtFlushBuffersFile(void* filehandle, void* iostatusblock) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntFlushBuffersFile(void* filehandle, void* iostatusblock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8345,7 +8418,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtFlushBuffersFile(void* fileh
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtFlushBuffersFileEx(void* filehandle, uint32_t flags, void* parameters, uint32_t parameterssize, void* iostatusblock) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntFlushBuffersFileEx(void* filehandle, uint32_t flags, void* parameters, uint32_t parameterssize, void* iostatusblock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8371,7 +8444,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtFlushBuffersFileEx(void* fil
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtFlushVirtualMemory(void* processhandle, void* baseaddress, void* regionsize, void* iostatus) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntFlushVirtualMemory(void* processhandle, void* baseaddress, void* regionsize, void* iostatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8396,7 +8469,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtFlushVirtualMemory(void* pro
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtFreeVirtualMemory(void* processhandle, void* baseaddress, void* regionsize, uint32_t freetype) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntFreeVirtualMemory(void* processhandle, void* baseaddress, void* regionsize, uint32_t freetype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8421,7 +8494,38 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtFreeVirtualMemory(void* proc
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtImpersonateAnonymousToken(void* threadhandle) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntFsControlFile(void* filehandle, void* event, void* apcroutine, void* apccontext, void* iostatusblock, uint32_t fscontrolcode, void* inputbuffer, uint32_t inputbufferlength, void* outputbuffer, uint32_t outputbufferlength) {
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, void*, uint32_t, void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NtFsControlFile");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        return km_fn_ptr(filehandle, event, apcroutine, apccontext, iostatusblock, fscontrolcode, inputbuffer, inputbufferlength, outputbuffer, outputbufferlength);
+    }
+    errno = ENOSYS;
+    return -1;
+#else
+    (void)filehandle;
+    (void)event;
+    (void)apcroutine;
+    (void)apccontext;
+    (void)iostatusblock;
+    (void)fscontrolcode;
+    (void)inputbuffer;
+    (void)inputbufferlength;
+    (void)outputbuffer;
+    (void)outputbufferlength;
+    errno = ENOSYS;
+    return -1;
+#endif
+}
+
+int32_t windowssys_windows_wdk_storage_filesystem_ntImpersonateAnonymousToken(void* threadhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8443,7 +8547,69 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtImpersonateAnonymousToken(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtOpenDirectoryObject(void* directoryhandle, uint32_t desiredaccess, void* objectattributes) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntLockFile(void* filehandle, void* event, void* apcroutine, void* apccontext, void* iostatusblock, void* byteoffset, void* length, uint32_t key, bool failimmediately, bool exclusivelock) {
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, uint32_t, bool, bool);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NtLockFile");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        return km_fn_ptr(filehandle, event, apcroutine, apccontext, iostatusblock, byteoffset, length, key, failimmediately, exclusivelock);
+    }
+    errno = ENOSYS;
+    return -1;
+#else
+    (void)filehandle;
+    (void)event;
+    (void)apcroutine;
+    (void)apccontext;
+    (void)iostatusblock;
+    (void)byteoffset;
+    (void)length;
+    (void)key;
+    (void)failimmediately;
+    (void)exclusivelock;
+    errno = ENOSYS;
+    return -1;
+#endif
+}
+
+int32_t windowssys_windows_wdk_storage_filesystem_ntNotifyChangeKey(void* keyhandle, void* event, void* apcroutine, void* apccontext, void* iostatusblock, uint32_t completionfilter, bool watchtree, void* buffer, uint32_t buffersize, bool asynchronous) {
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, bool, void*, uint32_t, bool);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NtNotifyChangeKey");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        return km_fn_ptr(keyhandle, event, apcroutine, apccontext, iostatusblock, completionfilter, watchtree, buffer, buffersize, asynchronous);
+    }
+    errno = ENOSYS;
+    return -1;
+#else
+    (void)keyhandle;
+    (void)event;
+    (void)apcroutine;
+    (void)apccontext;
+    (void)iostatusblock;
+    (void)completionfilter;
+    (void)watchtree;
+    (void)buffer;
+    (void)buffersize;
+    (void)asynchronous;
+    errno = ENOSYS;
+    return -1;
+#endif
+}
+
+int32_t windowssys_windows_wdk_storage_filesystem_ntOpenDirectoryObject(void* directoryhandle, uint32_t desiredaccess, void* objectattributes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8467,7 +8633,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtOpenDirectoryObject(void* di
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtOpenFile(void* filehandle, uint32_t desiredaccess, void* objectattributes, void* iostatusblock, uint32_t shareaccess, uint32_t openoptions) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntOpenFile(void* filehandle, uint32_t desiredaccess, void* objectattributes, void* iostatusblock, uint32_t shareaccess, uint32_t openoptions) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8494,7 +8660,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtOpenFile(void* filehandle, u
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtOpenObjectAuditAlarm(void* subsystemname, void* handleid, void* objecttypename, void* objectname, void* securitydescriptor, void* clienttoken, uint32_t desiredaccess, uint32_t grantedaccess, void* privileges, bool objectcreation, bool accessgranted, void* generateonclose) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntOpenObjectAuditAlarm(void* subsystemname, void* handleid, void* objecttypename, void* objectname, void* securitydescriptor, void* clienttoken, uint32_t desiredaccess, uint32_t grantedaccess, void* privileges, bool objectcreation, bool accessgranted, void* generateonclose) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, uint32_t, void*, bool, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8527,7 +8693,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtOpenObjectAuditAlarm(void* s
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtOpenProcessToken(void* processhandle, uint32_t desiredaccess, void* tokenhandle) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntOpenProcessToken(void* processhandle, uint32_t desiredaccess, void* tokenhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8551,7 +8717,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtOpenProcessToken(void* proce
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtOpenProcessTokenEx(void* processhandle, uint32_t desiredaccess, uint32_t handleattributes, void* tokenhandle) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntOpenProcessTokenEx(void* processhandle, uint32_t desiredaccess, uint32_t handleattributes, void* tokenhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8576,7 +8742,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtOpenProcessTokenEx(void* pro
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtOpenSymbolicLinkObject(void* linkhandle, uint32_t desiredaccess, void* objectattributes) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntOpenSymbolicLinkObject(void* linkhandle, uint32_t desiredaccess, void* objectattributes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8600,7 +8766,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtOpenSymbolicLinkObject(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtOpenThreadToken(void* threadhandle, uint32_t desiredaccess, bool openasself, void* tokenhandle) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntOpenThreadToken(void* threadhandle, uint32_t desiredaccess, bool openasself, void* tokenhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8625,7 +8791,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtOpenThreadToken(void* thread
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtOpenThreadTokenEx(void* threadhandle, uint32_t desiredaccess, bool openasself, uint32_t handleattributes, void* tokenhandle) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntOpenThreadTokenEx(void* threadhandle, uint32_t desiredaccess, bool openasself, uint32_t handleattributes, void* tokenhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, bool, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8651,7 +8817,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtOpenThreadTokenEx(void* thre
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtPrivilegeCheck(void* clienttoken, void* requiredprivileges, void* result) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntPrivilegeCheck(void* clienttoken, void* requiredprivileges, void* result) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8675,7 +8841,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtPrivilegeCheck(void* clientt
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtPrivilegeObjectAuditAlarm(void* subsystemname, void* handleid, void* clienttoken, uint32_t desiredaccess, void* privileges, bool accessgranted) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntPrivilegeObjectAuditAlarm(void* subsystemname, void* handleid, void* clienttoken, uint32_t desiredaccess, void* privileges, bool accessgranted) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -8702,7 +8868,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtPrivilegeObjectAuditAlarm(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtPrivilegedServiceAuditAlarm(void* subsystemname, void* servicename, void* clienttoken, void* privileges, bool accessgranted) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntPrivilegedServiceAuditAlarm(void* subsystemname, void* servicename, void* clienttoken, void* privileges, bool accessgranted) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -8728,7 +8894,70 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtPrivilegedServiceAuditAlarm(
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtQueryDirectoryObject(void* directoryhandle, void* buffer, uint32_t length, bool returnsingleentry, bool restartscan, void* context, void* returnlength) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntQueryDirectoryFile(void* filehandle, void* event, void* apcroutine, void* apccontext, void* iostatusblock, void* fileinformation, uint32_t length, int32_t fileinformationclass, bool returnsingleentry, void* filename, bool restartscan) {
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, int32_t, bool, void*, bool);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NtQueryDirectoryFile");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        return km_fn_ptr(filehandle, event, apcroutine, apccontext, iostatusblock, fileinformation, length, fileinformationclass, returnsingleentry, filename, restartscan);
+    }
+    errno = ENOSYS;
+    return -1;
+#else
+    (void)filehandle;
+    (void)event;
+    (void)apcroutine;
+    (void)apccontext;
+    (void)iostatusblock;
+    (void)fileinformation;
+    (void)length;
+    (void)fileinformationclass;
+    (void)returnsingleentry;
+    (void)filename;
+    (void)restartscan;
+    errno = ENOSYS;
+    return -1;
+#endif
+}
+
+int32_t windowssys_windows_wdk_storage_filesystem_ntQueryDirectoryFileEx(void* filehandle, void* event, void* apcroutine, void* apccontext, void* iostatusblock, void* fileinformation, uint32_t length, int32_t fileinformationclass, uint32_t queryflags, void* filename) {
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, int32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NtQueryDirectoryFileEx");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        return km_fn_ptr(filehandle, event, apcroutine, apccontext, iostatusblock, fileinformation, length, fileinformationclass, queryflags, filename);
+    }
+    errno = ENOSYS;
+    return -1;
+#else
+    (void)filehandle;
+    (void)event;
+    (void)apcroutine;
+    (void)apccontext;
+    (void)iostatusblock;
+    (void)fileinformation;
+    (void)length;
+    (void)fileinformationclass;
+    (void)queryflags;
+    (void)filename;
+    errno = ENOSYS;
+    return -1;
+#endif
+}
+
+int32_t windowssys_windows_wdk_storage_filesystem_ntQueryDirectoryObject(void* directoryhandle, void* buffer, uint32_t length, bool returnsingleentry, bool restartscan, void* context, void* returnlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, bool, bool, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8756,7 +8985,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtQueryDirectoryObject(void* d
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtQueryEaFile(void* filehandle, void* iostatusblock, void* buffer, uint32_t length, bool returnsingleentry, void* ealist, uint32_t ealistlength, void* eaindex, bool restartscan) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntQueryEaFile(void* filehandle, void* iostatusblock, void* buffer, uint32_t length, bool returnsingleentry, void* ealist, uint32_t ealistlength, void* eaindex, bool restartscan) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, bool, void*, uint32_t, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -8786,7 +9015,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtQueryEaFile(void* filehandle
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtQueryFullAttributesFile(void* objectattributes, void* fileinformation) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntQueryFullAttributesFile(void* objectattributes, void* fileinformation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8809,7 +9038,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtQueryFullAttributesFile(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtQueryInformationByName(void* objectattributes, void* iostatusblock, void* fileinformation, uint32_t length, int32_t fileinformationclass) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntQueryInformationByName(void* objectattributes, void* iostatusblock, void* fileinformation, uint32_t length, int32_t fileinformationclass) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8835,7 +9064,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtQueryInformationByName(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtQueryInformationFile(void* filehandle, void* iostatusblock, void* fileinformation, uint32_t length, int32_t fileinformationclass) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntQueryInformationFile(void* filehandle, void* iostatusblock, void* fileinformation, uint32_t length, int32_t fileinformationclass) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8861,7 +9090,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtQueryInformationFile(void* f
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtQueryInformationToken(void* tokenhandle, int32_t tokeninformationclass, void* tokeninformation, uint32_t tokeninformationlength, void* returnlength) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntQueryInformationToken(void* tokenhandle, int32_t tokeninformationclass, void* tokeninformation, uint32_t tokeninformationlength, void* returnlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8887,7 +9116,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtQueryInformationToken(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtQueryQuotaInformationFile(void* filehandle, void* iostatusblock, void* buffer, uint32_t length, bool returnsingleentry, void* sidlist, uint32_t sidlistlength, void* startsid, bool restartscan) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntQueryQuotaInformationFile(void* filehandle, void* iostatusblock, void* buffer, uint32_t length, bool returnsingleentry, void* sidlist, uint32_t sidlistlength, void* startsid, bool restartscan) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, bool, void*, uint32_t, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -8917,7 +9146,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtQueryQuotaInformationFile(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtQuerySecurityObject(void* handle, uint32_t securityinformation, void* securitydescriptor, uint32_t length, void* lengthneeded) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntQuerySecurityObject(void* handle, uint32_t securityinformation, void* securitydescriptor, uint32_t length, void* lengthneeded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8943,7 +9172,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtQuerySecurityObject(void* ha
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtQuerySymbolicLinkObject(void* linkhandle, void* linktarget, void* returnedlength) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntQuerySymbolicLinkObject(void* linkhandle, void* linktarget, void* returnedlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8967,7 +9196,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtQuerySymbolicLinkObject(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtQueryVirtualMemory(void* processhandle, void* baseaddress, int32_t memoryinformationclass, void* memoryinformation, uint64_t memoryinformationlength, void* returnlength) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntQueryVirtualMemory(void* processhandle, void* baseaddress, int32_t memoryinformationclass, void* memoryinformation, uint64_t memoryinformationlength, void* returnlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8994,7 +9223,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtQueryVirtualMemory(void* pro
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtQueryVolumeInformationFile(void* filehandle, void* iostatusblock, void* fsinformation, uint32_t length, int32_t fsinformationclass) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntQueryVolumeInformationFile(void* filehandle, void* iostatusblock, void* fsinformation, uint32_t length, int32_t fsinformationclass) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9020,7 +9249,37 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtQueryVolumeInformationFile(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtSetEaFile(void* filehandle, void* iostatusblock, void* buffer, uint32_t length) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntReadFile(void* filehandle, void* event, void* apcroutine, void* apccontext, void* iostatusblock, void* buffer, uint32_t length, void* byteoffset, void* key) {
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NtReadFile");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        return km_fn_ptr(filehandle, event, apcroutine, apccontext, iostatusblock, buffer, length, byteoffset, key);
+    }
+    errno = ENOSYS;
+    return -1;
+#else
+    (void)filehandle;
+    (void)event;
+    (void)apcroutine;
+    (void)apccontext;
+    (void)iostatusblock;
+    (void)buffer;
+    (void)length;
+    (void)byteoffset;
+    (void)key;
+    errno = ENOSYS;
+    return -1;
+#endif
+}
+
+int32_t windowssys_windows_wdk_storage_filesystem_ntSetEaFile(void* filehandle, void* iostatusblock, void* buffer, uint32_t length) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9045,7 +9304,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtSetEaFile(void* filehandle, 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtSetEvent(void* eventhandle, void* previousstate) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntSetEvent(void* eventhandle, void* previousstate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9068,7 +9327,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtSetEvent(void* eventhandle, 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtSetInformationFile(void* filehandle, void* iostatusblock, void* fileinformation, uint32_t length, int32_t fileinformationclass) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntSetInformationFile(void* filehandle, void* iostatusblock, void* fileinformation, uint32_t length, int32_t fileinformationclass) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9094,7 +9353,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtSetInformationFile(void* fil
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtSetInformationToken(void* tokenhandle, int32_t tokeninformationclass, void* tokeninformation, uint32_t tokeninformationlength) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntSetInformationToken(void* tokenhandle, int32_t tokeninformationclass, void* tokeninformation, uint32_t tokeninformationlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9119,7 +9378,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtSetInformationToken(void* to
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtSetInformationVirtualMemory(void* processhandle, int32_t vminformationclass, uint64_t numberofentries, void* virtualaddresses, void* vminformation, uint32_t vminformationlength) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntSetInformationVirtualMemory(void* processhandle, int32_t vminformationclass, uint64_t numberofentries, void* virtualaddresses, void* vminformation, uint32_t vminformationlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9146,7 +9405,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtSetInformationVirtualMemory(
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtSetQuotaInformationFile(void* filehandle, void* iostatusblock, void* buffer, uint32_t length) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntSetQuotaInformationFile(void* filehandle, void* iostatusblock, void* buffer, uint32_t length) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9171,7 +9430,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtSetQuotaInformationFile(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtSetSecurityObject(void* handle, uint32_t securityinformation, void* securitydescriptor) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntSetSecurityObject(void* handle, uint32_t securityinformation, void* securitydescriptor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9195,7 +9454,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtSetSecurityObject(void* hand
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtSetVolumeInformationFile(void* filehandle, void* iostatusblock, void* fsinformation, uint32_t length, int32_t fsinformationclass) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntSetVolumeInformationFile(void* filehandle, void* iostatusblock, void* fsinformation, uint32_t length, int32_t fsinformationclass) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9221,7 +9480,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtSetVolumeInformationFile(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_NtUnlockFile(void* filehandle, void* iostatusblock, void* byteoffset, void* length, uint32_t key) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntUnlockFile(void* filehandle, void* iostatusblock, void* byteoffset, void* length, uint32_t key) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9247,7 +9506,37 @@ int32_t windowssys_windows_wdk_storage_filesystem_NtUnlockFile(void* filehandle,
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ObInsertObject(void* object, void* passedaccessstate, uint32_t desiredaccess, uint32_t objectpointerbias, void* newobject, void* handle) {
+int32_t windowssys_windows_wdk_storage_filesystem_ntWriteFile(void* filehandle, void* event, void* apcroutine, void* apccontext, void* iostatusblock, void* buffer, uint32_t length, void* byteoffset, void* key) {
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NtWriteFile");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        return km_fn_ptr(filehandle, event, apcroutine, apccontext, iostatusblock, buffer, length, byteoffset, key);
+    }
+    errno = ENOSYS;
+    return -1;
+#else
+    (void)filehandle;
+    (void)event;
+    (void)apcroutine;
+    (void)apccontext;
+    (void)iostatusblock;
+    (void)buffer;
+    (void)length;
+    (void)byteoffset;
+    (void)key;
+    errno = ENOSYS;
+    return -1;
+#endif
+}
+
+int32_t windowssys_windows_wdk_storage_filesystem_obInsertObject(void* object, void* passedaccessstate, uint32_t desiredaccess, uint32_t objectpointerbias, void* newobject, void* handle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9274,7 +9563,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ObInsertObject(void* object, v
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_ObIsKernelHandle(void* handle) {
+bool windowssys_windows_wdk_storage_filesystem_obIsKernelHandle(void* handle) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9296,7 +9585,7 @@ bool windowssys_windows_wdk_storage_filesystem_ObIsKernelHandle(void* handle) {
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_ObMakeTemporaryObject(void* object) {
+void windowssys_windows_wdk_storage_filesystem_obMakeTemporaryObject(void* object) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9317,7 +9606,7 @@ void windowssys_windows_wdk_storage_filesystem_ObMakeTemporaryObject(void* objec
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ObOpenObjectByPointer(void* object, uint32_t handleattributes, void* passedaccessstate, uint32_t desiredaccess, int64_t objecttype, int8_t accessmode, void* handle) {
+int32_t windowssys_windows_wdk_storage_filesystem_obOpenObjectByPointer(void* object, uint32_t handleattributes, void* passedaccessstate, uint32_t desiredaccess, int64_t objecttype, int8_t accessmode, void* handle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, int64_t, int8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9345,7 +9634,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ObOpenObjectByPointer(void* ob
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ObOpenObjectByPointerWithTag(void* object, uint32_t handleattributes, void* passedaccessstate, uint32_t desiredaccess, int64_t objecttype, int8_t accessmode, uint32_t tag, void* handle) {
+int32_t windowssys_windows_wdk_storage_filesystem_obOpenObjectByPointerWithTag(void* object, uint32_t handleattributes, void* passedaccessstate, uint32_t desiredaccess, int64_t objecttype, int8_t accessmode, uint32_t tag, void* handle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, int64_t, int8_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9374,7 +9663,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ObOpenObjectByPointerWithTag(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ObQueryNameString(void* object, void* objectnameinfo, uint32_t length, void* returnlength) {
+int32_t windowssys_windows_wdk_storage_filesystem_obQueryNameString(void* object, void* objectnameinfo, uint32_t length, void* returnlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9399,7 +9688,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ObQueryNameString(void* object
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ObQueryObjectAuditingByHandle(void* handle, void* generateonclose) {
+int32_t windowssys_windows_wdk_storage_filesystem_obQueryObjectAuditingByHandle(void* handle, void* generateonclose) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9422,7 +9711,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ObQueryObjectAuditingByHandle(
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_PfxFindPrefix(void* prefixtable, void* fullname) {
+void* windowssys_windows_wdk_storage_filesystem_pfxFindPrefix(void* prefixtable, void* fullname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9445,7 +9734,7 @@ void* windowssys_windows_wdk_storage_filesystem_PfxFindPrefix(void* prefixtable,
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_PfxInitialize(void* prefixtable) {
+void windowssys_windows_wdk_storage_filesystem_pfxInitialize(void* prefixtable) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9466,7 +9755,7 @@ void windowssys_windows_wdk_storage_filesystem_PfxInitialize(void* prefixtable) 
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_PfxInsertPrefix(void* prefixtable, void* prefix, void* prefixtableentry) {
+bool windowssys_windows_wdk_storage_filesystem_pfxInsertPrefix(void* prefixtable, void* prefix, void* prefixtableentry) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9490,7 +9779,7 @@ bool windowssys_windows_wdk_storage_filesystem_PfxInsertPrefix(void* prefixtable
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_PfxRemovePrefix(void* prefixtable, void* prefixtableentry) {
+void windowssys_windows_wdk_storage_filesystem_pfxRemovePrefix(void* prefixtable, void* prefixtableentry) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9512,7 +9801,7 @@ void windowssys_windows_wdk_storage_filesystem_PfxRemovePrefix(void* prefixtable
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_PoQueueShutdownWorkItem(void* workitem) {
+int32_t windowssys_windows_wdk_storage_filesystem_poQueueShutdownWorkItem(void* workitem) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9534,7 +9823,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_PoQueueShutdownWorkItem(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_PsAssignImpersonationToken(int64_t thread, void* token) {
+int32_t windowssys_windows_wdk_storage_filesystem_psAssignImpersonationToken(int64_t thread, void* token) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9557,7 +9846,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_PsAssignImpersonationToken(int
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_PsChargePoolQuota(int64_t process, int32_t pooltype, uint64_t amount) {
+void windowssys_windows_wdk_storage_filesystem_psChargePoolQuota(int64_t process, int32_t pooltype, uint64_t amount) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, int32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9580,7 +9869,7 @@ void windowssys_windows_wdk_storage_filesystem_PsChargePoolQuota(int64_t process
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_PsChargeProcessPoolQuota(int64_t process, int32_t pooltype, uint64_t amount) {
+int32_t windowssys_windows_wdk_storage_filesystem_psChargeProcessPoolQuota(int64_t process, int32_t pooltype, uint64_t amount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9604,7 +9893,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_PsChargeProcessPoolQuota(int64
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_PsDereferenceImpersonationToken(void* impersonationtoken) {
+void windowssys_windows_wdk_storage_filesystem_psDereferenceImpersonationToken(void* impersonationtoken) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9625,7 +9914,7 @@ void windowssys_windows_wdk_storage_filesystem_PsDereferenceImpersonationToken(v
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_PsDereferencePrimaryToken(void* primarytoken) {
+void windowssys_windows_wdk_storage_filesystem_psDereferencePrimaryToken(void* primarytoken) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9646,7 +9935,7 @@ void windowssys_windows_wdk_storage_filesystem_PsDereferencePrimaryToken(void* p
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_PsDisableImpersonation(int64_t thread, void* impersonationstate) {
+bool windowssys_windows_wdk_storage_filesystem_psDisableImpersonation(int64_t thread, void* impersonationstate) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9669,7 +9958,7 @@ bool windowssys_windows_wdk_storage_filesystem_PsDisableImpersonation(int64_t th
 #endif
 }
 
-int64_t windowssys_windows_wdk_storage_filesystem_PsGetProcessExitTime(void) {
+int64_t windowssys_windows_wdk_storage_filesystem_psGetProcessExitTime(void) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -9690,7 +9979,7 @@ int64_t windowssys_windows_wdk_storage_filesystem_PsGetProcessExitTime(void) {
 #endif
 }
 
-int64_t windowssys_windows_wdk_storage_filesystem_PsGetThreadProcess(int64_t thread) {
+int64_t windowssys_windows_wdk_storage_filesystem_psGetThreadProcess(int64_t thread) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9712,7 +10001,7 @@ int64_t windowssys_windows_wdk_storage_filesystem_PsGetThreadProcess(int64_t thr
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_PsImpersonateClient(int64_t thread, void* token, bool copyonopen, bool effectiveonly, int32_t impersonationlevel) {
+int32_t windowssys_windows_wdk_storage_filesystem_psImpersonateClient(int64_t thread, void* token, bool copyonopen, bool effectiveonly, int32_t impersonationlevel) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, bool, bool, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9738,7 +10027,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_PsImpersonateClient(int64_t th
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_PsIsDiskCountersEnabled(void) {
+bool windowssys_windows_wdk_storage_filesystem_psIsDiskCountersEnabled(void) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -9759,7 +10048,7 @@ bool windowssys_windows_wdk_storage_filesystem_PsIsDiskCountersEnabled(void) {
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_PsIsSystemThread(int64_t thread) {
+bool windowssys_windows_wdk_storage_filesystem_psIsSystemThread(int64_t thread) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9781,7 +10070,7 @@ bool windowssys_windows_wdk_storage_filesystem_PsIsSystemThread(int64_t thread) 
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_PsIsThreadTerminating(int64_t thread) {
+bool windowssys_windows_wdk_storage_filesystem_psIsThreadTerminating(int64_t thread) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9803,7 +10092,7 @@ bool windowssys_windows_wdk_storage_filesystem_PsIsThreadTerminating(int64_t thr
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_PsLookupProcessByProcessId(void* processid, void* process) {
+int32_t windowssys_windows_wdk_storage_filesystem_psLookupProcessByProcessId(void* processid, void* process) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9826,7 +10115,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_PsLookupProcessByProcessId(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_PsLookupThreadByThreadId(void* threadid, void* thread) {
+int32_t windowssys_windows_wdk_storage_filesystem_psLookupThreadByThreadId(void* threadid, void* thread) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9849,7 +10138,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_PsLookupThreadByThreadId(void*
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_PsReferenceImpersonationToken(int64_t thread, void* copyonopen, void* effectiveonly, void* impersonationlevel) {
+void* windowssys_windows_wdk_storage_filesystem_psReferenceImpersonationToken(int64_t thread, void* copyonopen, void* effectiveonly, void* impersonationlevel) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9874,7 +10163,7 @@ void* windowssys_windows_wdk_storage_filesystem_PsReferenceImpersonationToken(in
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_PsReferencePrimaryToken(int64_t process) {
+void* windowssys_windows_wdk_storage_filesystem_psReferencePrimaryToken(int64_t process) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9896,7 +10185,7 @@ void* windowssys_windows_wdk_storage_filesystem_PsReferencePrimaryToken(int64_t 
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_PsRestoreImpersonation(int64_t thread, void* impersonationstate) {
+void windowssys_windows_wdk_storage_filesystem_psRestoreImpersonation(int64_t thread, void* impersonationstate) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9918,7 +10207,7 @@ void windowssys_windows_wdk_storage_filesystem_PsRestoreImpersonation(int64_t th
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_PsReturnPoolQuota(int64_t process, int32_t pooltype, uint64_t amount) {
+void windowssys_windows_wdk_storage_filesystem_psReturnPoolQuota(int64_t process, int32_t pooltype, uint64_t amount) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, int32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9941,7 +10230,7 @@ void windowssys_windows_wdk_storage_filesystem_PsReturnPoolQuota(int64_t process
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_PsRevertToSelf(void) {
+void windowssys_windows_wdk_storage_filesystem_psRevertToSelf(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -9961,7 +10250,7 @@ void windowssys_windows_wdk_storage_filesystem_PsRevertToSelf(void) {
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_PsUpdateDiskCounters(int64_t process, uint64_t bytesread, uint64_t byteswritten, uint32_t readoperationcount, uint32_t writeoperationcount, uint32_t flushoperationcount) {
+void windowssys_windows_wdk_storage_filesystem_psUpdateDiskCounters(int64_t process, uint64_t bytesread, uint64_t byteswritten, uint32_t readoperationcount, uint32_t writeoperationcount, uint32_t flushoperationcount) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, uint64_t, uint64_t, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9987,7 +10276,7 @@ void windowssys_windows_wdk_storage_filesystem_PsUpdateDiskCounters(int64_t proc
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_QuerySecurityContextToken(void* phcontext, void* token) {
+int32_t windowssys_windows_wdk_storage_filesystem_querySecurityContextToken(void* phcontext, void* token) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10010,7 +10299,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_QuerySecurityContextToken(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlAbsoluteToSelfRelativeSD(void* absolutesecuritydescriptor, void* selfrelativesecuritydescriptor, void* bufferlength) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlAbsoluteToSelfRelativeSD(void* absolutesecuritydescriptor, void* selfrelativesecuritydescriptor, void* bufferlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10034,7 +10323,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlAbsoluteToSelfRelativeSD(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlAddAccessAllowedAce(void* acl, uint32_t acerevision, uint32_t accessmask, void* sid) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlAddAccessAllowedAce(void* acl, uint32_t acerevision, uint32_t accessmask, void* sid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10059,7 +10348,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlAddAccessAllowedAce(void* a
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlAddAccessAllowedAceEx(void* acl, uint32_t acerevision, uint32_t aceflags, uint32_t accessmask, void* sid) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlAddAccessAllowedAceEx(void* acl, uint32_t acerevision, uint32_t aceflags, uint32_t accessmask, void* sid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10085,7 +10374,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlAddAccessAllowedAceEx(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlAddAce(void* acl, uint32_t acerevision, uint32_t startingaceindex, void* acelist, uint32_t acelistlength) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlAddAce(void* acl, uint32_t acerevision, uint32_t startingaceindex, void* acelist, uint32_t acelistlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10111,7 +10400,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlAddAce(void* acl, uint32_t 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlAllocateAndInitializeSid(void* identifierauthority, uint8_t subauthoritycount, uint32_t subauthority0, uint32_t subauthority1, uint32_t subauthority2, uint32_t subauthority3, uint32_t subauthority4, uint32_t subauthority5, uint32_t subauthority6, uint32_t subauthority7, void* sid) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlAllocateAndInitializeSid(void* identifierauthority, uint8_t subauthoritycount, uint32_t subauthority0, uint32_t subauthority1, uint32_t subauthority2, uint32_t subauthority3, uint32_t subauthority4, uint32_t subauthority5, uint32_t subauthority6, uint32_t subauthority7, void* sid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint8_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10143,7 +10432,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlAllocateAndInitializeSid(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlAllocateAndInitializeSidEx(void* identifierauthority, uint8_t subauthoritycount, void* subauthorities, void* sid) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlAllocateAndInitializeSidEx(void* identifierauthority, uint8_t subauthoritycount, void* subauthorities, void* sid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint8_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10168,7 +10457,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlAllocateAndInitializeSidEx(
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_RtlAllocateHeap(void* heaphandle, uint32_t flags, uint64_t size) {
+void* windowssys_windows_wdk_storage_filesystem_rtlAllocateHeap(void* heaphandle, uint32_t flags, uint64_t size) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10192,7 +10481,7 @@ void* windowssys_windows_wdk_storage_filesystem_RtlAllocateHeap(void* heaphandle
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlAppendStringToString(void* destination, void* source) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlAppendStringToString(void* destination, void* source) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10215,7 +10504,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlAppendStringToString(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlCompareAltitudes(void* altitude1, void* altitude2) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlCompareAltitudes(void* altitude1, void* altitude2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10238,7 +10527,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlCompareAltitudes(void* alti
 #endif
 }
 
-uint64_t windowssys_windows_wdk_storage_filesystem_RtlCompareMemoryUlong(void* source, uint64_t length, uint32_t pattern) {
+uint64_t windowssys_windows_wdk_storage_filesystem_rtlCompareMemoryUlong(void* source, uint64_t length, uint32_t pattern) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10262,7 +10551,7 @@ uint64_t windowssys_windows_wdk_storage_filesystem_RtlCompareMemoryUlong(void* s
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlCompressBuffer(uint16_t compressionformatandengine, void* uncompressedbuffer, uint32_t uncompressedbuffersize, void* compressedbuffer, uint32_t compressedbuffersize, uint32_t uncompressedchunksize, void* finalcompressedsize, void* workspace) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlCompressBuffer(uint16_t compressionformatandengine, void* uncompressedbuffer, uint32_t uncompressedbuffersize, void* compressedbuffer, uint32_t compressedbuffersize, uint32_t uncompressedchunksize, void* finalcompressedsize, void* workspace) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*, uint32_t, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10291,7 +10580,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlCompressBuffer(uint16_t com
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlCompressChunks(void* uncompressedbuffer, uint32_t uncompressedbuffersize, void* compressedbuffer, uint32_t compressedbuffersize, void* compresseddatainfo, uint32_t compresseddatainfolength, void* workspace) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlCompressChunks(void* uncompressedbuffer, uint32_t uncompressedbuffersize, void* compressedbuffer, uint32_t compressedbuffersize, void* compresseddatainfo, uint32_t compresseddatainfolength, void* workspace) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10319,7 +10608,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlCompressChunks(void* uncomp
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_RtlCopyLuid(void* destinationluid, void* sourceluid) {
+void windowssys_windows_wdk_storage_filesystem_rtlCopyLuid(void* destinationluid, void* sourceluid) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10341,7 +10630,7 @@ void windowssys_windows_wdk_storage_filesystem_RtlCopyLuid(void* destinationluid
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlCopySid(uint32_t destinationsidlength, void* destinationsid, void* sourcesid) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlCopySid(uint32_t destinationsidlength, void* destinationsid, void* sourcesid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10365,7 +10654,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlCopySid(uint32_t destinatio
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlCreateAcl(void* acl, uint32_t acllength, uint32_t aclrevision) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlCreateAcl(void* acl, uint32_t acllength, uint32_t aclrevision) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10389,7 +10678,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlCreateAcl(void* acl, uint32
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_RtlCreateHeap(uint32_t flags, void* heapbase, uint64_t reservesize, uint64_t commitsize, void* lock, void* parameters) {
+void* windowssys_windows_wdk_storage_filesystem_rtlCreateHeap(uint32_t flags, void* heapbase, uint64_t reservesize, uint64_t commitsize, void* lock, void* parameters) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, void*, uint64_t, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10416,7 +10705,7 @@ void* windowssys_windows_wdk_storage_filesystem_RtlCreateHeap(uint32_t flags, vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlCreateServiceSid(void* servicename, void* servicesid, void* servicesidlength) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlCreateServiceSid(void* servicename, void* servicesid, void* servicesidlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10440,7 +10729,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlCreateServiceSid(void* serv
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlCreateSystemVolumeInformationFolder(void* volumerootpath) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlCreateSystemVolumeInformationFolder(void* volumerootpath) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10462,7 +10751,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlCreateSystemVolumeInformati
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_RtlCreateUnicodeString(void* destinationstring, void* sourcestring) {
+bool windowssys_windows_wdk_storage_filesystem_rtlCreateUnicodeString(void* destinationstring, void* sourcestring) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10485,7 +10774,7 @@ bool windowssys_windows_wdk_storage_filesystem_RtlCreateUnicodeString(void* dest
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlCreateVirtualAccountSid(void* name, uint32_t basesubauthority, void* sid, void* sidlength) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlCreateVirtualAccountSid(void* name, uint32_t basesubauthority, void* sid, void* sidlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10510,7 +10799,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlCreateVirtualAccountSid(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlCustomCPToUnicodeN(void* customcp, void* unicodestring, uint32_t maxbytesinunicodestring, void* bytesinunicodestring, void* customcpstring, uint32_t bytesincustomcpstring) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlCustomCPToUnicodeN(void* customcp, void* unicodestring, uint32_t maxbytesinunicodestring, void* bytesinunicodestring, void* customcpstring, uint32_t bytesincustomcpstring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10537,7 +10826,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlCustomCPToUnicodeN(void* cu
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlDecompressBuffer(uint16_t compressionformat, void* uncompressedbuffer, uint32_t uncompressedbuffersize, void* compressedbuffer, uint32_t compressedbuffersize, void* finaluncompressedsize) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlDecompressBuffer(uint16_t compressionformat, void* uncompressedbuffer, uint32_t uncompressedbuffersize, void* compressedbuffer, uint32_t compressedbuffersize, void* finaluncompressedsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10564,7 +10853,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlDecompressBuffer(uint16_t c
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlDecompressBufferEx(uint16_t compressionformat, void* uncompressedbuffer, uint32_t uncompressedbuffersize, void* compressedbuffer, uint32_t compressedbuffersize, void* finaluncompressedsize, void* workspace) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlDecompressBufferEx(uint16_t compressionformat, void* uncompressedbuffer, uint32_t uncompressedbuffersize, void* compressedbuffer, uint32_t compressedbuffersize, void* finaluncompressedsize, void* workspace) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10592,7 +10881,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlDecompressBufferEx(uint16_t
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlDecompressBufferEx2(uint16_t compressionformat, void* uncompressedbuffer, uint32_t uncompressedbuffersize, void* compressedbuffer, uint32_t compressedbuffersize, uint32_t uncompressedchunksize, void* finaluncompressedsize, void* workspace) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlDecompressBufferEx2(uint16_t compressionformat, void* uncompressedbuffer, uint32_t uncompressedbuffersize, void* compressedbuffer, uint32_t compressedbuffersize, uint32_t uncompressedchunksize, void* finaluncompressedsize, void* workspace) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*, uint32_t, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10621,7 +10910,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlDecompressBufferEx2(uint16_
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlDecompressChunks(void* uncompressedbuffer, uint32_t uncompressedbuffersize, void* compressedbuffer, uint32_t compressedbuffersize, void* compressedtail, uint32_t compressedtailsize, void* compresseddatainfo) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlDecompressChunks(void* uncompressedbuffer, uint32_t uncompressedbuffersize, void* compressedbuffer, uint32_t compressedbuffersize, void* compressedtail, uint32_t compressedtailsize, void* compresseddatainfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10649,7 +10938,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlDecompressChunks(void* unco
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlDecompressFragment(uint16_t compressionformat, void* uncompressedfragment, uint32_t uncompressedfragmentsize, void* compressedbuffer, uint32_t compressedbuffersize, uint32_t fragmentoffset, void* finaluncompressedsize, void* workspace) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlDecompressFragment(uint16_t compressionformat, void* uncompressedfragment, uint32_t uncompressedfragmentsize, void* compressedbuffer, uint32_t compressedbuffersize, uint32_t fragmentoffset, void* finaluncompressedsize, void* workspace) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*, uint32_t, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10678,7 +10967,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlDecompressFragment(uint16_t
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlDecompressFragmentEx(uint16_t compressionformat, void* uncompressedfragment, uint32_t uncompressedfragmentsize, void* compressedbuffer, uint32_t compressedbuffersize, uint32_t fragmentoffset, uint32_t uncompressedchunksize, void* finaluncompressedsize, void* workspace) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlDecompressFragmentEx(uint16_t compressionformat, void* uncompressedfragment, uint32_t uncompressedfragmentsize, void* compressedbuffer, uint32_t compressedbuffersize, uint32_t fragmentoffset, uint32_t uncompressedchunksize, void* finaluncompressedsize, void* workspace) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*, uint32_t, void*, uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10708,7 +10997,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlDecompressFragmentEx(uint16
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlDeleteAce(void* acl, uint32_t aceindex) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlDeleteAce(void* acl, uint32_t aceindex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10731,7 +11020,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlDeleteAce(void* acl, uint32
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlDescribeChunk(uint16_t compressionformat, void* compressedbuffer, void* endofcompressedbufferplus1, void* chunkbuffer, void* chunksize) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlDescribeChunk(uint16_t compressionformat, void* compressedbuffer, void* endofcompressedbufferplus1, void* chunkbuffer, void* chunksize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10757,7 +11046,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlDescribeChunk(uint16_t comp
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_RtlDestroyHeap(void* heaphandle) {
+void* windowssys_windows_wdk_storage_filesystem_rtlDestroyHeap(void* heaphandle) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10779,7 +11068,7 @@ void* windowssys_windows_wdk_storage_filesystem_RtlDestroyHeap(void* heaphandle)
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlDosPathNameToNtPathName_U_WithStatus(void* dosfilename, void* ntfilename, void* filepart, void* reserved) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlDosPathNameToNtPathNameUWithStatus(void* dosfilename, void* ntfilename, void* filepart, void* reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10804,7 +11093,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlDosPathNameToNtPathName_U_W
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlDowncaseUnicodeString(void* destinationstring, void* sourcestring, bool allocatedestinationstring) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlDowncaseUnicodeString(void* destinationstring, void* sourcestring, bool allocatedestinationstring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -10828,7 +11117,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlDowncaseUnicodeString(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlDuplicateUnicodeString(uint32_t flags, void* stringin, void* stringout) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlDuplicateUnicodeString(uint32_t flags, void* stringin, void* stringout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10852,7 +11141,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlDuplicateUnicodeString(uint
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_RtlEqualPrefixSid(void* sid1, void* sid2) {
+bool windowssys_windows_wdk_storage_filesystem_rtlEqualPrefixSid(void* sid1, void* sid2) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10875,7 +11164,7 @@ bool windowssys_windows_wdk_storage_filesystem_RtlEqualPrefixSid(void* sid1, voi
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_RtlEqualSid(void* sid1, void* sid2) {
+bool windowssys_windows_wdk_storage_filesystem_rtlEqualSid(void* sid1, void* sid2) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10898,7 +11187,7 @@ bool windowssys_windows_wdk_storage_filesystem_RtlEqualSid(void* sid1, void* sid
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_RtlFindUnicodePrefix(void* prefixtable, void* fullname, uint32_t caseinsensitiveindex) {
+void* windowssys_windows_wdk_storage_filesystem_rtlFindUnicodePrefix(void* prefixtable, void* fullname, uint32_t caseinsensitiveindex) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10922,7 +11211,7 @@ void* windowssys_windows_wdk_storage_filesystem_RtlFindUnicodePrefix(void* prefi
 #endif
 }
 
-uint32_t windowssys_windows_wdk_storage_filesystem_RtlFreeHeap(void* heaphandle, uint32_t flags, void* baseaddress) {
+uint32_t windowssys_windows_wdk_storage_filesystem_rtlFreeHeap(void* heaphandle, uint32_t flags, void* baseaddress) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10946,7 +11235,7 @@ uint32_t windowssys_windows_wdk_storage_filesystem_RtlFreeHeap(void* heaphandle,
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_RtlFreeSid(void* sid) {
+void* windowssys_windows_wdk_storage_filesystem_rtlFreeSid(void* sid) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10968,7 +11257,7 @@ void* windowssys_windows_wdk_storage_filesystem_RtlFreeSid(void* sid) {
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlGenerate8dot3Name(void* name, bool allowextendedcharacters, void* context, void* name8dot3) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlGenerate8dot3Name(void* name, bool allowextendedcharacters, void* context, void* name8dot3) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, bool, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10993,7 +11282,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlGenerate8dot3Name(void* nam
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlGetAce(void* acl, uint32_t aceindex, void* ace) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlGetAce(void* acl, uint32_t aceindex, void* ace) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11017,7 +11306,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlGetAce(void* acl, uint32_t 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlGetCompressionWorkSpaceSize(uint16_t compressionformatandengine, void* compressbufferworkspacesize, void* compressfragmentworkspacesize) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlGetCompressionWorkSpaceSize(uint16_t compressionformatandengine, void* compressbufferworkspacesize, void* compressfragmentworkspacesize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11041,7 +11330,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlGetCompressionWorkSpaceSize
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlGetDaclSecurityDescriptor(void* securitydescriptor, void* daclpresent, void* dacl, void* dacldefaulted) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlGetDaclSecurityDescriptor(void* securitydescriptor, void* daclpresent, void* dacl, void* dacldefaulted) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11066,7 +11355,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlGetDaclSecurityDescriptor(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlGetGroupSecurityDescriptor(void* securitydescriptor, void* group, void* groupdefaulted) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlGetGroupSecurityDescriptor(void* securitydescriptor, void* group, void* groupdefaulted) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11090,7 +11379,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlGetGroupSecurityDescriptor(
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlGetOwnerSecurityDescriptor(void* securitydescriptor, void* owner, void* ownerdefaulted) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlGetOwnerSecurityDescriptor(void* securitydescriptor, void* owner, void* ownerdefaulted) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11114,7 +11403,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlGetOwnerSecurityDescriptor(
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlGetSaclSecurityDescriptor(void* securitydescriptor, void* saclpresent, void* sacl, void* sacldefaulted) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlGetSaclSecurityDescriptor(void* securitydescriptor, void* saclpresent, void* sacl, void* sacldefaulted) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11139,7 +11428,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlGetSaclSecurityDescriptor(v
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_RtlIdentifierAuthoritySid(void* sid) {
+void* windowssys_windows_wdk_storage_filesystem_rtlIdentifierAuthoritySid(void* sid) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11161,7 +11450,7 @@ void* windowssys_windows_wdk_storage_filesystem_RtlIdentifierAuthoritySid(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlIdnToAscii(uint32_t flags, void* sourcestring, int32_t sourcestringlength, void* destinationstring, void* destinationstringlength) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlIdnToAscii(uint32_t flags, void* sourcestring, int32_t sourcestringlength, void* destinationstring, void* destinationstringlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11187,7 +11476,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlIdnToAscii(uint32_t flags, 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlIdnToNameprepUnicode(uint32_t flags, void* sourcestring, int32_t sourcestringlength, void* destinationstring, void* destinationstringlength) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlIdnToNameprepUnicode(uint32_t flags, void* sourcestring, int32_t sourcestringlength, void* destinationstring, void* destinationstringlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11213,7 +11502,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlIdnToNameprepUnicode(uint32
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlIdnToUnicode(uint32_t flags, void* sourcestring, int32_t sourcestringlength, void* destinationstring, void* destinationstringlength) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlIdnToUnicode(uint32_t flags, void* sourcestring, int32_t sourcestringlength, void* destinationstring, void* destinationstringlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11239,7 +11528,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlIdnToUnicode(uint32_t flags
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_RtlInitCodePageTable(void* tablebase, void* codepagetable) {
+void windowssys_windows_wdk_storage_filesystem_rtlInitCodePageTable(void* tablebase, void* codepagetable) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11261,7 +11550,7 @@ void windowssys_windows_wdk_storage_filesystem_RtlInitCodePageTable(void* tableb
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlInitUnicodeStringEx(void* destinationstring, void* sourcestring) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlInitUnicodeStringEx(void* destinationstring, void* sourcestring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11284,7 +11573,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlInitUnicodeStringEx(void* d
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlInitializeSid(void* sid, void* identifierauthority, uint8_t subauthoritycount) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlInitializeSid(void* sid, void* identifierauthority, uint8_t subauthoritycount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11308,7 +11597,42 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlInitializeSid(void* sid, vo
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_RtlInitializeUnicodePrefix(void* prefixtable) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlInitializeSidEx(void* sid, void* identifierauthority, uint8_t subauthoritycount, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(void*, void*, uint8_t, ...);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RtlInitializeSidEx");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        switch (km_vac) {
+            case 0: return km_fn_ptr(sid, identifierauthority, subauthoritycount);
+            case 1: return km_fn_ptr(sid, identifierauthority, subauthoritycount, (intptr_t)km_va0);
+            case 2: return km_fn_ptr(sid, identifierauthority, subauthoritycount, (intptr_t)km_va0, (intptr_t)km_va1);
+            case 3: return km_fn_ptr(sid, identifierauthority, subauthoritycount, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2);
+            default: return km_fn_ptr(sid, identifierauthority, subauthoritycount, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3);
+        }
+    }
+    errno = ENOSYS;
+    return -1;
+#else
+    (void)sid;
+    (void)identifierauthority;
+    (void)subauthoritycount;
+    (void)km_vac;
+    (void)km_va0;
+    (void)km_va1;
+    (void)km_va2;
+    (void)km_va3;
+    errno = ENOSYS;
+    return -1;
+#endif
+}
+
+void windowssys_windows_wdk_storage_filesystem_rtlInitializeUnicodePrefix(void* prefixtable) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11329,7 +11653,7 @@ void windowssys_windows_wdk_storage_filesystem_RtlInitializeUnicodePrefix(void* 
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_RtlInsertUnicodePrefix(void* prefixtable, void* prefix, void* prefixtableentry) {
+bool windowssys_windows_wdk_storage_filesystem_rtlInsertUnicodePrefix(void* prefixtable, void* prefix, void* prefixtableentry) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11353,7 +11677,7 @@ bool windowssys_windows_wdk_storage_filesystem_RtlInsertUnicodePrefix(void* pref
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_RtlIsCloudFilesPlaceholder(uint32_t fileattributes, uint32_t reparsetag) {
+bool windowssys_windows_wdk_storage_filesystem_rtlIsCloudFilesPlaceholder(uint32_t fileattributes, uint32_t reparsetag) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11376,7 +11700,7 @@ bool windowssys_windows_wdk_storage_filesystem_RtlIsCloudFilesPlaceholder(uint32
 #endif
 }
 
-uint32_t windowssys_windows_wdk_storage_filesystem_RtlIsDosDeviceName_U(void* dosfilename) {
+uint32_t windowssys_windows_wdk_storage_filesystem_rtlIsDosDeviceNameU(void* dosfilename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11398,7 +11722,7 @@ uint32_t windowssys_windows_wdk_storage_filesystem_RtlIsDosDeviceName_U(void* do
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_RtlIsNonEmptyDirectoryReparsePointAllowed(uint32_t reparsetag) {
+bool windowssys_windows_wdk_storage_filesystem_rtlIsNonEmptyDirectoryReparsePointAllowed(uint32_t reparsetag) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11420,7 +11744,7 @@ bool windowssys_windows_wdk_storage_filesystem_RtlIsNonEmptyDirectoryReparsePoin
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlIsNormalizedString(uint32_t normform, void* sourcestring, int32_t sourcestringlength, void* normalized) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlIsNormalizedString(uint32_t normform, void* sourcestring, int32_t sourcestringlength, void* normalized) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11445,7 +11769,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlIsNormalizedString(uint32_t
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_RtlIsPartialPlaceholder(uint32_t fileattributes, uint32_t reparsetag) {
+bool windowssys_windows_wdk_storage_filesystem_rtlIsPartialPlaceholder(uint32_t fileattributes, uint32_t reparsetag) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11468,7 +11792,7 @@ bool windowssys_windows_wdk_storage_filesystem_RtlIsPartialPlaceholder(uint32_t 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlIsPartialPlaceholderFileHandle(void* filehandle, void* ispartialplaceholder) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlIsPartialPlaceholderFileHandle(void* filehandle, void* ispartialplaceholder) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11491,7 +11815,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlIsPartialPlaceholderFileHan
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlIsPartialPlaceholderFileInfo(void* infobuffer, int32_t infoclass, void* ispartialplaceholder) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlIsPartialPlaceholderFileInfo(void* infobuffer, int32_t infoclass, void* ispartialplaceholder) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11515,7 +11839,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlIsPartialPlaceholderFileInf
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_RtlIsSandboxedToken(void* context, int8_t previousmode) {
+bool windowssys_windows_wdk_storage_filesystem_rtlIsSandboxedToken(void* context, int8_t previousmode) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, int8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11538,7 +11862,7 @@ bool windowssys_windows_wdk_storage_filesystem_RtlIsSandboxedToken(void* context
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_RtlIsValidOemCharacter(void* arg_0_char) {
+bool windowssys_windows_wdk_storage_filesystem_rtlIsValidOemCharacter(void* arg_0_char) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11560,7 +11884,7 @@ bool windowssys_windows_wdk_storage_filesystem_RtlIsValidOemCharacter(void* arg_
 #endif
 }
 
-uint32_t windowssys_windows_wdk_storage_filesystem_RtlLengthRequiredSid(uint32_t subauthoritycount) {
+uint32_t windowssys_windows_wdk_storage_filesystem_rtlLengthRequiredSid(uint32_t subauthoritycount) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11582,7 +11906,7 @@ uint32_t windowssys_windows_wdk_storage_filesystem_RtlLengthRequiredSid(uint32_t
 #endif
 }
 
-uint32_t windowssys_windows_wdk_storage_filesystem_RtlLengthSid(void* sid) {
+uint32_t windowssys_windows_wdk_storage_filesystem_rtlLengthSid(void* sid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11604,7 +11928,7 @@ uint32_t windowssys_windows_wdk_storage_filesystem_RtlLengthSid(void* sid) {
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlMultiByteToUnicodeN(void* unicodestring, uint32_t maxbytesinunicodestring, void* bytesinunicodestring, void* multibytestring, uint32_t bytesinmultibytestring) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlMultiByteToUnicodeN(void* unicodestring, uint32_t maxbytesinunicodestring, void* bytesinunicodestring, void* multibytestring, uint32_t bytesinmultibytestring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11630,7 +11954,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlMultiByteToUnicodeN(void* u
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlMultiByteToUnicodeSize(void* bytesinunicodestring, void* multibytestring, uint32_t bytesinmultibytestring) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlMultiByteToUnicodeSize(void* bytesinunicodestring, void* multibytestring, uint32_t bytesinmultibytestring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11654,7 +11978,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlMultiByteToUnicodeSize(void
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_RtlNextUnicodePrefix(void* prefixtable, bool restart) {
+void* windowssys_windows_wdk_storage_filesystem_rtlNextUnicodePrefix(void* prefixtable, bool restart) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -11677,7 +12001,7 @@ void* windowssys_windows_wdk_storage_filesystem_RtlNextUnicodePrefix(void* prefi
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlNormalizeString(uint32_t normform, void* sourcestring, int32_t sourcestringlength, void* destinationstring, void* destinationstringlength) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlNormalizeString(uint32_t normform, void* sourcestring, int32_t sourcestringlength, void* destinationstring, void* destinationstringlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11703,7 +12027,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlNormalizeString(uint32_t no
 #endif
 }
 
-uint32_t windowssys_windows_wdk_storage_filesystem_RtlNtStatusToDosErrorNoTeb(int32_t status) {
+uint32_t windowssys_windows_wdk_storage_filesystem_rtlNtStatusToDosErrorNoTeb(int32_t status) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11725,7 +12049,7 @@ uint32_t windowssys_windows_wdk_storage_filesystem_RtlNtStatusToDosErrorNoTeb(in
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlOemStringToCountedUnicodeString(void* destinationstring, void* sourcestring, bool allocatedestinationstring) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlOemStringToCountedUnicodeString(void* destinationstring, void* sourcestring, bool allocatedestinationstring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -11749,7 +12073,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlOemStringToCountedUnicodeSt
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlOemStringToUnicodeString(void* destinationstring, void* sourcestring, bool allocatedestinationstring) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlOemStringToUnicodeString(void* destinationstring, void* sourcestring, bool allocatedestinationstring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -11773,7 +12097,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlOemStringToUnicodeString(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlOemToUnicodeN(void* unicodestring, uint32_t maxbytesinunicodestring, void* bytesinunicodestring, void* oemstring, uint32_t bytesinoemstring) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlOemToUnicodeN(void* unicodestring, uint32_t maxbytesinunicodestring, void* bytesinunicodestring, void* oemstring, uint32_t bytesinoemstring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11799,7 +12123,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlOemToUnicodeN(void* unicode
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_RtlPrefixString(void* string1, void* string2, bool caseinsensitive) {
+bool windowssys_windows_wdk_storage_filesystem_rtlPrefixString(void* string1, void* string2, bool caseinsensitive) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -11823,7 +12147,7 @@ bool windowssys_windows_wdk_storage_filesystem_RtlPrefixString(void* string1, vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlQueryPackageIdentity(void* tokenobject, void* packagefullname, void* packagesize, void* appid, void* appidsize, void* packaged) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlQueryPackageIdentity(void* tokenobject, void* packagefullname, void* packagesize, void* appid, void* appidsize, void* packaged) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11850,7 +12174,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlQueryPackageIdentity(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlQueryPackageIdentityEx(void* tokenobject, void* packagefullname, void* packagesize, void* appid, void* appidsize, void* dynamicid, void* flags) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlQueryPackageIdentityEx(void* tokenobject, void* packagefullname, void* packagesize, void* appid, void* appidsize, void* dynamicid, void* flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11878,7 +12202,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlQueryPackageIdentityEx(void
 #endif
 }
 
-int8_t windowssys_windows_wdk_storage_filesystem_RtlQueryProcessPlaceholderCompatibilityMode(void) {
+int8_t windowssys_windows_wdk_storage_filesystem_rtlQueryProcessPlaceholderCompatibilityMode(void) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -11899,7 +12223,7 @@ int8_t windowssys_windows_wdk_storage_filesystem_RtlQueryProcessPlaceholderCompa
 #endif
 }
 
-int8_t windowssys_windows_wdk_storage_filesystem_RtlQueryThreadPlaceholderCompatibilityMode(void) {
+int8_t windowssys_windows_wdk_storage_filesystem_rtlQueryThreadPlaceholderCompatibilityMode(void) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -11920,7 +12244,7 @@ int8_t windowssys_windows_wdk_storage_filesystem_RtlQueryThreadPlaceholderCompat
 #endif
 }
 
-uint32_t windowssys_windows_wdk_storage_filesystem_RtlRandom(void* seed) {
+uint32_t windowssys_windows_wdk_storage_filesystem_rtlRandom(void* seed) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11942,7 +12266,7 @@ uint32_t windowssys_windows_wdk_storage_filesystem_RtlRandom(void* seed) {
 #endif
 }
 
-uint32_t windowssys_windows_wdk_storage_filesystem_RtlRandomEx(void* seed) {
+uint32_t windowssys_windows_wdk_storage_filesystem_rtlRandomEx(void* seed) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11964,7 +12288,7 @@ uint32_t windowssys_windows_wdk_storage_filesystem_RtlRandomEx(void* seed) {
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_RtlRemoveUnicodePrefix(void* prefixtable, void* prefixtableentry) {
+void windowssys_windows_wdk_storage_filesystem_rtlRemoveUnicodePrefix(void* prefixtable, void* prefixtableentry) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11986,7 +12310,7 @@ void windowssys_windows_wdk_storage_filesystem_RtlRemoveUnicodePrefix(void* pref
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlReplaceSidInSd(void* securitydescriptor, void* oldsid, void* newsid, void* numchanges) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlReplaceSidInSd(void* securitydescriptor, void* oldsid, void* newsid, void* numchanges) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12011,7 +12335,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlReplaceSidInSd(void* securi
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlReserveChunk(uint16_t compressionformat, void* compressedbuffer, void* endofcompressedbufferplus1, void* chunkbuffer, uint32_t chunksize) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlReserveChunk(uint16_t compressionformat, void* compressedbuffer, void* endofcompressedbufferplus1, void* chunkbuffer, uint32_t chunksize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12037,7 +12361,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlReserveChunk(uint16_t compr
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_RtlSecondsSince1970ToTime(uint32_t elapsedseconds, void* arg_1_time) {
+void windowssys_windows_wdk_storage_filesystem_rtlSecondsSince1970ToTime(uint32_t elapsedseconds, void* arg_1_time) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12059,7 +12383,7 @@ void windowssys_windows_wdk_storage_filesystem_RtlSecondsSince1970ToTime(uint32_
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_RtlSecondsSince1980ToTime(uint32_t elapsedseconds, void* arg_1_time) {
+void windowssys_windows_wdk_storage_filesystem_rtlSecondsSince1980ToTime(uint32_t elapsedseconds, void* arg_1_time) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12081,7 +12405,7 @@ void windowssys_windows_wdk_storage_filesystem_RtlSecondsSince1980ToTime(uint32_
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlSelfRelativeToAbsoluteSD(void* selfrelativesecuritydescriptor, void* absolutesecuritydescriptor, void* absolutesecuritydescriptorsize, void* dacl, void* daclsize, void* sacl, void* saclsize, void* owner, void* ownersize, void* primarygroup, void* primarygroupsize) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlSelfRelativeToAbsoluteSD(void* selfrelativesecuritydescriptor, void* absolutesecuritydescriptor, void* absolutesecuritydescriptorsize, void* dacl, void* daclsize, void* sacl, void* saclsize, void* owner, void* ownersize, void* primarygroup, void* primarygroupsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12113,7 +12437,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlSelfRelativeToAbsoluteSD(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlSetGroupSecurityDescriptor(void* securitydescriptor, void* group, bool groupdefaulted) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlSetGroupSecurityDescriptor(void* securitydescriptor, void* group, bool groupdefaulted) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -12137,7 +12461,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlSetGroupSecurityDescriptor(
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlSetOwnerSecurityDescriptor(void* securitydescriptor, void* owner, bool ownerdefaulted) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlSetOwnerSecurityDescriptor(void* securitydescriptor, void* owner, bool ownerdefaulted) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -12161,7 +12485,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlSetOwnerSecurityDescriptor(
 #endif
 }
 
-int8_t windowssys_windows_wdk_storage_filesystem_RtlSetProcessPlaceholderCompatibilityMode(int8_t mode) {
+int8_t windowssys_windows_wdk_storage_filesystem_rtlSetProcessPlaceholderCompatibilityMode(int8_t mode) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(int8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12183,7 +12507,7 @@ int8_t windowssys_windows_wdk_storage_filesystem_RtlSetProcessPlaceholderCompati
 #endif
 }
 
-int8_t windowssys_windows_wdk_storage_filesystem_RtlSetThreadPlaceholderCompatibilityMode(int8_t mode) {
+int8_t windowssys_windows_wdk_storage_filesystem_rtlSetThreadPlaceholderCompatibilityMode(int8_t mode) {
 #ifdef _WIN32
     typedef int8_t (__stdcall *km_fn_t)(int8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12205,7 +12529,7 @@ int8_t windowssys_windows_wdk_storage_filesystem_RtlSetThreadPlaceholderCompatib
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_RtlSubAuthorityCountSid(void* sid) {
+void* windowssys_windows_wdk_storage_filesystem_rtlSubAuthorityCountSid(void* sid) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12227,7 +12551,7 @@ void* windowssys_windows_wdk_storage_filesystem_RtlSubAuthorityCountSid(void* si
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_RtlSubAuthoritySid(void* sid, uint32_t subauthority) {
+void* windowssys_windows_wdk_storage_filesystem_rtlSubAuthoritySid(void* sid, uint32_t subauthority) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12250,7 +12574,7 @@ void* windowssys_windows_wdk_storage_filesystem_RtlSubAuthoritySid(void* sid, ui
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_RtlTimeToSecondsSince1980(void* arg_0_time, void* elapsedseconds) {
+bool windowssys_windows_wdk_storage_filesystem_rtlTimeToSecondsSince1980(void* arg_0_time, void* elapsedseconds) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12273,7 +12597,7 @@ bool windowssys_windows_wdk_storage_filesystem_RtlTimeToSecondsSince1980(void* a
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlUnicodeStringToCountedOemString(void* destinationstring, void* sourcestring, bool allocatedestinationstring) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlUnicodeStringToCountedOemString(void* destinationstring, void* sourcestring, bool allocatedestinationstring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -12297,7 +12621,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlUnicodeStringToCountedOemSt
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlUnicodeToCustomCPN(void* customcp, void* customcpstring, uint32_t maxbytesincustomcpstring, void* bytesincustomcpstring, void* unicodestring, uint32_t bytesinunicodestring) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlUnicodeToCustomCPN(void* customcp, void* customcpstring, uint32_t maxbytesincustomcpstring, void* bytesincustomcpstring, void* unicodestring, uint32_t bytesinunicodestring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12324,7 +12648,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlUnicodeToCustomCPN(void* cu
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlUnicodeToMultiByteN(void* multibytestring, uint32_t maxbytesinmultibytestring, void* bytesinmultibytestring, void* unicodestring, uint32_t bytesinunicodestring) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlUnicodeToMultiByteN(void* multibytestring, uint32_t maxbytesinmultibytestring, void* bytesinmultibytestring, void* unicodestring, uint32_t bytesinunicodestring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12350,7 +12674,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlUnicodeToMultiByteN(void* m
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlUnicodeToOemN(void* oemstring, uint32_t maxbytesinoemstring, void* bytesinoemstring, void* unicodestring, uint32_t bytesinunicodestring) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlUnicodeToOemN(void* oemstring, uint32_t maxbytesinoemstring, void* bytesinoemstring, void* unicodestring, uint32_t bytesinunicodestring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12376,7 +12700,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlUnicodeToOemN(void* oemstri
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeStringToCountedOemString(void* destinationstring, void* sourcestring, bool allocatedestinationstring) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeStringToCountedOemString(void* destinationstring, void* sourcestring, bool allocatedestinationstring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -12400,7 +12724,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeStringToCounte
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeStringToOemString(void* destinationstring, void* sourcestring, bool allocatedestinationstring) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeStringToOemString(void* destinationstring, void* sourcestring, bool allocatedestinationstring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -12424,7 +12748,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeStringToOemStr
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeToCustomCPN(void* customcp, void* customcpstring, uint32_t maxbytesincustomcpstring, void* bytesincustomcpstring, void* unicodestring, uint32_t bytesinunicodestring) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeToCustomCPN(void* customcp, void* customcpstring, uint32_t maxbytesincustomcpstring, void* bytesincustomcpstring, void* unicodestring, uint32_t bytesinunicodestring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12451,7 +12775,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeToCustomCPN(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeToMultiByteN(void* multibytestring, uint32_t maxbytesinmultibytestring, void* bytesinmultibytestring, void* unicodestring, uint32_t bytesinunicodestring) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeToMultiByteN(void* multibytestring, uint32_t maxbytesinmultibytestring, void* bytesinmultibytestring, void* unicodestring, uint32_t bytesinunicodestring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12477,7 +12801,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeToMultiByteN(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeToOemN(void* oemstring, uint32_t maxbytesinoemstring, void* bytesinoemstring, void* unicodestring, uint32_t bytesinunicodestring) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlUpcaseUnicodeToOemN(void* oemstring, uint32_t maxbytesinoemstring, void* bytesinoemstring, void* unicodestring, uint32_t bytesinunicodestring) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12503,7 +12827,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlUpcaseUnicodeToOemN(void* o
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_RtlValidSid(void* sid) {
+bool windowssys_windows_wdk_storage_filesystem_rtlValidSid(void* sid) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12525,7 +12849,7 @@ bool windowssys_windows_wdk_storage_filesystem_RtlValidSid(void* sid) {
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_RtlValidateUnicodeString(uint32_t flags, void* string) {
+int32_t windowssys_windows_wdk_storage_filesystem_rtlValidateUnicodeString(uint32_t flags, void* string) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12548,7 +12872,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_RtlValidateUnicodeString(uint3
 #endif
 }
 
-uint32_t windowssys_windows_wdk_storage_filesystem_RtlxOemStringToUnicodeSize(void* oemstring) {
+uint32_t windowssys_windows_wdk_storage_filesystem_rtlxOemStringToUnicodeSize(void* oemstring) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12570,7 +12894,7 @@ uint32_t windowssys_windows_wdk_storage_filesystem_RtlxOemStringToUnicodeSize(vo
 #endif
 }
 
-uint32_t windowssys_windows_wdk_storage_filesystem_RtlxUnicodeStringToOemSize(void* unicodestring) {
+uint32_t windowssys_windows_wdk_storage_filesystem_rtlxUnicodeStringToOemSize(void* unicodestring) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12592,7 +12916,7 @@ uint32_t windowssys_windows_wdk_storage_filesystem_RtlxUnicodeStringToOemSize(vo
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_SeAccessCheckFromState(void* securitydescriptor, void* primarytokeninformation, void* clienttokeninformation, uint32_t desiredaccess, uint32_t previouslygrantedaccess, void* privileges, void* genericmapping, int8_t accessmode, void* grantedaccess, void* accessstatus) {
+bool windowssys_windows_wdk_storage_filesystem_seAccessCheckFromState(void* securitydescriptor, void* primarytokeninformation, void* clienttokeninformation, uint32_t desiredaccess, uint32_t previouslygrantedaccess, void* privileges, void* genericmapping, int8_t accessmode, void* grantedaccess, void* accessstatus) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, void*, void*, int8_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12623,7 +12947,7 @@ bool windowssys_windows_wdk_storage_filesystem_SeAccessCheckFromState(void* secu
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_SeAccessCheckFromStateEx(void* securitydescriptor, void* primarytoken, void* clienttoken, uint32_t desiredaccess, uint32_t previouslygrantedaccess, void* privileges, void* genericmapping, int8_t accessmode, void* grantedaccess, void* accessstatus) {
+bool windowssys_windows_wdk_storage_filesystem_seAccessCheckFromStateEx(void* securitydescriptor, void* primarytoken, void* clienttoken, uint32_t desiredaccess, uint32_t previouslygrantedaccess, void* privileges, void* genericmapping, int8_t accessmode, void* grantedaccess, void* accessstatus) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, void*, void*, int8_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12654,7 +12978,7 @@ bool windowssys_windows_wdk_storage_filesystem_SeAccessCheckFromStateEx(void* se
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_SeAdjustAccessStateForAccessConstraints(void* objecttype, void* securitydescriptor, void* accessstate) {
+void windowssys_windows_wdk_storage_filesystem_seAdjustAccessStateForAccessConstraints(void* objecttype, void* securitydescriptor, void* accessstate) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12677,7 +13001,7 @@ void windowssys_windows_wdk_storage_filesystem_SeAdjustAccessStateForAccessConst
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_SeAdjustAccessStateForTrustLabel(void* objecttype, void* securitydescriptor, void* accessstate) {
+void windowssys_windows_wdk_storage_filesystem_seAdjustAccessStateForTrustLabel(void* objecttype, void* securitydescriptor, void* accessstate) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12700,7 +13024,7 @@ void windowssys_windows_wdk_storage_filesystem_SeAdjustAccessStateForTrustLabel(
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_SeAdjustObjectSecurity(void* objectname, void* originaldescriptor, void* proposeddescriptor, void* subjectsecuritycontext, void* adjusteddescriptor, void* applyadjusteddescriptor) {
+int32_t windowssys_windows_wdk_storage_filesystem_seAdjustObjectSecurity(void* objectname, void* originaldescriptor, void* proposeddescriptor, void* subjectsecuritycontext, void* adjusteddescriptor, void* applyadjusteddescriptor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12727,7 +13051,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_SeAdjustObjectSecurity(void* o
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_SeAppendPrivileges(void* accessstate, void* privileges) {
+int32_t windowssys_windows_wdk_storage_filesystem_seAppendPrivileges(void* accessstate, void* privileges) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12750,7 +13074,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_SeAppendPrivileges(void* acces
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_SeAuditFipsCryptoSelftests(bool bsuccess, uint32_t selftestcode) {
+void windowssys_windows_wdk_storage_filesystem_seAuditFipsCryptoSelftests(bool bsuccess, uint32_t selftestcode) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(bool, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12772,7 +13096,7 @@ void windowssys_windows_wdk_storage_filesystem_SeAuditFipsCryptoSelftests(bool b
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_SeAuditHardLinkCreation(void* filename, void* linkname, bool bsuccess) {
+void windowssys_windows_wdk_storage_filesystem_seAuditHardLinkCreation(void* filename, void* linkname, bool bsuccess) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -12795,7 +13119,7 @@ void windowssys_windows_wdk_storage_filesystem_SeAuditHardLinkCreation(void* fil
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_SeAuditHardLinkCreationWithTransaction(void* filename, void* linkname, bool bsuccess, void* transactionid) {
+void windowssys_windows_wdk_storage_filesystem_seAuditHardLinkCreationWithTransaction(void* filename, void* linkname, bool bsuccess, void* transactionid) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12819,7 +13143,7 @@ void windowssys_windows_wdk_storage_filesystem_SeAuditHardLinkCreationWithTransa
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_SeAuditTransactionStateChange(void* transactionid, void* resourcemanagerid, uint32_t newtransactionstate) {
+void windowssys_windows_wdk_storage_filesystem_seAuditTransactionStateChange(void* transactionid, void* resourcemanagerid, uint32_t newtransactionstate) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12842,7 +13166,7 @@ void windowssys_windows_wdk_storage_filesystem_SeAuditTransactionStateChange(voi
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_SeAuditingAnyFileEventsWithContext(void* securitydescriptor, void* subjectsecuritycontext) {
+bool windowssys_windows_wdk_storage_filesystem_seAuditingAnyFileEventsWithContext(void* securitydescriptor, void* subjectsecuritycontext) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12865,7 +13189,7 @@ bool windowssys_windows_wdk_storage_filesystem_SeAuditingAnyFileEventsWithContex
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_SeAuditingAnyFileEventsWithContextEx(void* securitydescriptor, void* subjectsecuritycontext, void* stagingenabled) {
+bool windowssys_windows_wdk_storage_filesystem_seAuditingAnyFileEventsWithContextEx(void* securitydescriptor, void* subjectsecuritycontext, void* stagingenabled) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12889,7 +13213,7 @@ bool windowssys_windows_wdk_storage_filesystem_SeAuditingAnyFileEventsWithContex
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_SeAuditingFileEvents(bool accessgranted, void* securitydescriptor) {
+bool windowssys_windows_wdk_storage_filesystem_seAuditingFileEvents(bool accessgranted, void* securitydescriptor) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12912,7 +13236,7 @@ bool windowssys_windows_wdk_storage_filesystem_SeAuditingFileEvents(bool accessg
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_SeAuditingFileEventsWithContext(bool accessgranted, void* securitydescriptor, void* subjectsecuritycontext) {
+bool windowssys_windows_wdk_storage_filesystem_seAuditingFileEventsWithContext(bool accessgranted, void* securitydescriptor, void* subjectsecuritycontext) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(bool, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12936,7 +13260,7 @@ bool windowssys_windows_wdk_storage_filesystem_SeAuditingFileEventsWithContext(b
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_SeAuditingFileEventsWithContextEx(bool accessgranted, void* securitydescriptor, void* subjectsecuritycontext, void* stagingenabled) {
+bool windowssys_windows_wdk_storage_filesystem_seAuditingFileEventsWithContextEx(bool accessgranted, void* securitydescriptor, void* subjectsecuritycontext, void* stagingenabled) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(bool, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12961,7 +13285,7 @@ bool windowssys_windows_wdk_storage_filesystem_SeAuditingFileEventsWithContextEx
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_SeAuditingFileOrGlobalEvents(bool accessgranted, void* securitydescriptor, void* subjectsecuritycontext) {
+bool windowssys_windows_wdk_storage_filesystem_seAuditingFileOrGlobalEvents(bool accessgranted, void* securitydescriptor, void* subjectsecuritycontext) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(bool, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12985,7 +13309,7 @@ bool windowssys_windows_wdk_storage_filesystem_SeAuditingFileOrGlobalEvents(bool
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_SeAuditingHardLinkEvents(bool accessgranted, void* securitydescriptor) {
+bool windowssys_windows_wdk_storage_filesystem_seAuditingHardLinkEvents(bool accessgranted, void* securitydescriptor) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13008,7 +13332,7 @@ bool windowssys_windows_wdk_storage_filesystem_SeAuditingHardLinkEvents(bool acc
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_SeAuditingHardLinkEventsWithContext(bool accessgranted, void* securitydescriptor, void* subjectsecuritycontext) {
+bool windowssys_windows_wdk_storage_filesystem_seAuditingHardLinkEventsWithContext(bool accessgranted, void* securitydescriptor, void* subjectsecuritycontext) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(bool, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13032,7 +13356,7 @@ bool windowssys_windows_wdk_storage_filesystem_SeAuditingHardLinkEventsWithConte
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_SeCaptureSubjectContextEx(int64_t thread, int64_t process, void* subjectcontext) {
+void windowssys_windows_wdk_storage_filesystem_seCaptureSubjectContextEx(int64_t thread, int64_t process, void* subjectcontext) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13055,7 +13379,7 @@ void windowssys_windows_wdk_storage_filesystem_SeCaptureSubjectContextEx(int64_t
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_SeCheckForCriticalAceRemoval(void* currentdescriptor, void* newdescriptor, void* subjectsecuritycontext, void* aceremoved) {
+void windowssys_windows_wdk_storage_filesystem_seCheckForCriticalAceRemoval(void* currentdescriptor, void* newdescriptor, void* subjectsecuritycontext, void* aceremoved) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13079,7 +13403,7 @@ void windowssys_windows_wdk_storage_filesystem_SeCheckForCriticalAceRemoval(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_SeCreateClientSecurity(int64_t clientthread, void* clientsecurityqos, bool remotesession, void* clientcontext) {
+int32_t windowssys_windows_wdk_storage_filesystem_seCreateClientSecurity(int64_t clientthread, void* clientsecurityqos, bool remotesession, void* clientcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13104,7 +13428,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_SeCreateClientSecurity(int64_t
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_SeCreateClientSecurityFromSubjectContext(void* subjectcontext, void* clientsecurityqos, bool serverisremote, void* clientcontext) {
+int32_t windowssys_windows_wdk_storage_filesystem_seCreateClientSecurityFromSubjectContext(void* subjectcontext, void* clientsecurityqos, bool serverisremote, void* clientcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13129,7 +13453,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_SeCreateClientSecurityFromSubj
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_SeDeleteClientSecurity(void* clientcontext) {
+void windowssys_windows_wdk_storage_filesystem_seDeleteClientSecurity(void* clientcontext) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13150,7 +13474,7 @@ void windowssys_windows_wdk_storage_filesystem_SeDeleteClientSecurity(void* clie
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_SeDeleteObjectAuditAlarm(void* object, void* handle) {
+void windowssys_windows_wdk_storage_filesystem_seDeleteObjectAuditAlarm(void* object, void* handle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13172,7 +13496,7 @@ void windowssys_windows_wdk_storage_filesystem_SeDeleteObjectAuditAlarm(void* ob
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_SeDeleteObjectAuditAlarmWithTransaction(void* object, void* handle, void* transactionid) {
+void windowssys_windows_wdk_storage_filesystem_seDeleteObjectAuditAlarmWithTransaction(void* object, void* handle, void* transactionid) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13195,7 +13519,7 @@ void windowssys_windows_wdk_storage_filesystem_SeDeleteObjectAuditAlarmWithTrans
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_SeExamineSacl(void* sacl, void* resourcesacl, void* token, uint32_t desiredaccess, bool accessgranted, void* generateaudit, void* generatealarm) {
+void windowssys_windows_wdk_storage_filesystem_seExamineSacl(void* sacl, void* resourcesacl, void* token, uint32_t desiredaccess, bool accessgranted, void* generateaudit, void* generatealarm) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, bool, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13222,7 +13546,7 @@ void windowssys_windows_wdk_storage_filesystem_SeExamineSacl(void* sacl, void* r
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_SeFilterToken(void* existingtoken, uint32_t flags, void* sidstodisable, void* privilegestodelete, void* restrictedsids, void* filteredtoken) {
+int32_t windowssys_windows_wdk_storage_filesystem_seFilterToken(void* existingtoken, uint32_t flags, void* sidstodisable, void* privilegestodelete, void* restrictedsids, void* filteredtoken) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13249,7 +13573,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_SeFilterToken(void* existingto
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_SeFreePrivileges(void* privileges) {
+void windowssys_windows_wdk_storage_filesystem_seFreePrivileges(void* privileges) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13270,7 +13594,7 @@ void windowssys_windows_wdk_storage_filesystem_SeFreePrivileges(void* privileges
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_SeImpersonateClient(void* clientcontext, int64_t serverthread) {
+void windowssys_windows_wdk_storage_filesystem_seImpersonateClient(void* clientcontext, int64_t serverthread) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13292,7 +13616,7 @@ void windowssys_windows_wdk_storage_filesystem_SeImpersonateClient(void* clientc
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_SeImpersonateClientEx(void* clientcontext, int64_t serverthread) {
+int32_t windowssys_windows_wdk_storage_filesystem_seImpersonateClientEx(void* clientcontext, int64_t serverthread) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13315,7 +13639,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_SeImpersonateClientEx(void* cl
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_SeLocateProcessImageName(int64_t process, void* pimagefilename) {
+int32_t windowssys_windows_wdk_storage_filesystem_seLocateProcessImageName(int64_t process, void* pimagefilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13338,7 +13662,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_SeLocateProcessImageName(int64
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_SeMarkLogonSessionForTerminationNotification(void* logonid) {
+int32_t windowssys_windows_wdk_storage_filesystem_seMarkLogonSessionForTerminationNotification(void* logonid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13360,7 +13684,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_SeMarkLogonSessionForTerminati
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_SeMarkLogonSessionForTerminationNotificationEx(void* logonid, int64_t pserversilo) {
+int32_t windowssys_windows_wdk_storage_filesystem_seMarkLogonSessionForTerminationNotificationEx(void* logonid, int64_t pserversilo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13383,7 +13707,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_SeMarkLogonSessionForTerminati
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_SeOpenObjectAuditAlarm(void* objecttypename, void* object, void* absoluteobjectname, void* securitydescriptor, void* accessstate, bool objectcreated, bool accessgranted, int8_t accessmode, void* generateonclose) {
+void windowssys_windows_wdk_storage_filesystem_seOpenObjectAuditAlarm(void* objecttypename, void* object, void* absoluteobjectname, void* securitydescriptor, void* accessstate, bool objectcreated, bool accessgranted, int8_t accessmode, void* generateonclose) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, bool, bool, int8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13412,7 +13736,7 @@ void windowssys_windows_wdk_storage_filesystem_SeOpenObjectAuditAlarm(void* obje
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_SeOpenObjectAuditAlarmWithTransaction(void* objecttypename, void* object, void* absoluteobjectname, void* securitydescriptor, void* accessstate, bool objectcreated, bool accessgranted, int8_t accessmode, void* transactionid, void* generateonclose) {
+void windowssys_windows_wdk_storage_filesystem_seOpenObjectAuditAlarmWithTransaction(void* objecttypename, void* object, void* absoluteobjectname, void* securitydescriptor, void* accessstate, bool objectcreated, bool accessgranted, int8_t accessmode, void* transactionid, void* generateonclose) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, bool, bool, int8_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13442,7 +13766,7 @@ void windowssys_windows_wdk_storage_filesystem_SeOpenObjectAuditAlarmWithTransac
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_SeOpenObjectForDeleteAuditAlarm(void* objecttypename, void* object, void* absoluteobjectname, void* securitydescriptor, void* accessstate, bool objectcreated, bool accessgranted, int8_t accessmode, void* generateonclose) {
+void windowssys_windows_wdk_storage_filesystem_seOpenObjectForDeleteAuditAlarm(void* objecttypename, void* object, void* absoluteobjectname, void* securitydescriptor, void* accessstate, bool objectcreated, bool accessgranted, int8_t accessmode, void* generateonclose) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, bool, bool, int8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13471,7 +13795,7 @@ void windowssys_windows_wdk_storage_filesystem_SeOpenObjectForDeleteAuditAlarm(v
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_SeOpenObjectForDeleteAuditAlarmWithTransaction(void* objecttypename, void* object, void* absoluteobjectname, void* securitydescriptor, void* accessstate, bool objectcreated, bool accessgranted, int8_t accessmode, void* transactionid, void* generateonclose) {
+void windowssys_windows_wdk_storage_filesystem_seOpenObjectForDeleteAuditAlarmWithTransaction(void* objecttypename, void* object, void* absoluteobjectname, void* securitydescriptor, void* accessstate, bool objectcreated, bool accessgranted, int8_t accessmode, void* transactionid, void* generateonclose) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, bool, bool, int8_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13501,7 +13825,7 @@ void windowssys_windows_wdk_storage_filesystem_SeOpenObjectForDeleteAuditAlarmWi
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_SePrivilegeCheck(void* requiredprivileges, void* subjectsecuritycontext, int8_t accessmode) {
+bool windowssys_windows_wdk_storage_filesystem_sePrivilegeCheck(void* requiredprivileges, void* subjectsecuritycontext, int8_t accessmode) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, int8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13525,7 +13849,7 @@ bool windowssys_windows_wdk_storage_filesystem_SePrivilegeCheck(void* requiredpr
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_SeQueryAuthenticationIdToken(void* token, void* authenticationid) {
+int32_t windowssys_windows_wdk_storage_filesystem_seQueryAuthenticationIdToken(void* token, void* authenticationid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13548,7 +13872,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_SeQueryAuthenticationIdToken(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_SeQueryInformationToken(void* token, int32_t tokeninformationclass, void* tokeninformation) {
+int32_t windowssys_windows_wdk_storage_filesystem_seQueryInformationToken(void* token, int32_t tokeninformationclass, void* tokeninformation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13572,7 +13896,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_SeQueryInformationToken(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_SeQuerySecurityDescriptorInfo(void* securityinformation, void* securitydescriptor, void* length, void* objectssecuritydescriptor) {
+int32_t windowssys_windows_wdk_storage_filesystem_seQuerySecurityDescriptorInfo(void* securityinformation, void* securitydescriptor, void* length, void* objectssecuritydescriptor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13597,7 +13921,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_SeQuerySecurityDescriptorInfo(
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_SeQueryServerSiloToken(void* token, void* pserversilo) {
+int32_t windowssys_windows_wdk_storage_filesystem_seQueryServerSiloToken(void* token, void* pserversilo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13620,7 +13944,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_SeQueryServerSiloToken(void* t
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_SeQuerySessionIdToken(void* token, void* sessionid) {
+int32_t windowssys_windows_wdk_storage_filesystem_seQuerySessionIdToken(void* token, void* sessionid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13643,7 +13967,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_SeQuerySessionIdToken(void* to
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_SeQuerySessionIdTokenEx(void* token, void* sessionid, void* isservicesession) {
+int32_t windowssys_windows_wdk_storage_filesystem_seQuerySessionIdTokenEx(void* token, void* sessionid, void* isservicesession) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13667,7 +13991,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_SeQuerySessionIdTokenEx(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_SeRegisterLogonSessionTerminatedRoutine(void* callbackroutine) {
+int32_t windowssys_windows_wdk_storage_filesystem_seRegisterLogonSessionTerminatedRoutine(void* callbackroutine) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13689,7 +14013,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_SeRegisterLogonSessionTerminat
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_SeRegisterLogonSessionTerminatedRoutineEx(void* callbackroutine, void* context) {
+int32_t windowssys_windows_wdk_storage_filesystem_seRegisterLogonSessionTerminatedRoutineEx(void* callbackroutine, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13712,7 +14036,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_SeRegisterLogonSessionTerminat
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_SeReportSecurityEventWithSubCategory(uint32_t flags, void* sourcename, void* usersid, void* auditparameters, uint32_t auditsubcategoryid) {
+int32_t windowssys_windows_wdk_storage_filesystem_seReportSecurityEventWithSubCategory(uint32_t flags, void* sourcename, void* usersid, void* auditparameters, uint32_t auditsubcategoryid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13738,7 +14062,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_SeReportSecurityEventWithSubCa
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_SeSetAccessStateGenericMapping(void* accessstate, void* genericmapping) {
+void windowssys_windows_wdk_storage_filesystem_seSetAccessStateGenericMapping(void* accessstate, void* genericmapping) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13760,7 +14084,7 @@ void windowssys_windows_wdk_storage_filesystem_SeSetAccessStateGenericMapping(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_SeSetSecurityDescriptorInfo(void* object, void* securityinformation, void* modificationdescriptor, void* objectssecuritydescriptor, int32_t pooltype, void* genericmapping) {
+int32_t windowssys_windows_wdk_storage_filesystem_seSetSecurityDescriptorInfo(void* object, void* securityinformation, void* modificationdescriptor, void* objectssecuritydescriptor, int32_t pooltype, void* genericmapping) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13787,7 +14111,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_SeSetSecurityDescriptorInfo(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_SeSetSecurityDescriptorInfoEx(void* object, void* securityinformation, void* modificationdescriptor, void* objectssecuritydescriptor, uint32_t autoinheritflags, int32_t pooltype, void* genericmapping) {
+int32_t windowssys_windows_wdk_storage_filesystem_seSetSecurityDescriptorInfoEx(void* object, void* securityinformation, void* modificationdescriptor, void* objectssecuritydescriptor, uint32_t autoinheritflags, int32_t pooltype, void* genericmapping) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13815,7 +14139,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_SeSetSecurityDescriptorInfoEx(
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_SeShouldCheckForAccessRightsFromParent(void* objecttype, void* childdescriptor, void* accessstate) {
+bool windowssys_windows_wdk_storage_filesystem_seShouldCheckForAccessRightsFromParent(void* objecttype, void* childdescriptor, void* accessstate) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13839,7 +14163,7 @@ bool windowssys_windows_wdk_storage_filesystem_SeShouldCheckForAccessRightsFromP
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_SeTokenFromAccessInformation(void* accessinformation, void* token, uint32_t length, void* requiredlength) {
+int32_t windowssys_windows_wdk_storage_filesystem_seTokenFromAccessInformation(void* accessinformation, void* token, uint32_t length, void* requiredlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13864,7 +14188,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_SeTokenFromAccessInformation(v
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_SeTokenIsAdmin(void* token) {
+bool windowssys_windows_wdk_storage_filesystem_seTokenIsAdmin(void* token) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13886,7 +14210,7 @@ bool windowssys_windows_wdk_storage_filesystem_SeTokenIsAdmin(void* token) {
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_SeTokenIsRestricted(void* token) {
+bool windowssys_windows_wdk_storage_filesystem_seTokenIsRestricted(void* token) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13908,7 +14232,7 @@ bool windowssys_windows_wdk_storage_filesystem_SeTokenIsRestricted(void* token) 
 #endif
 }
 
-bool windowssys_windows_wdk_storage_filesystem_SeTokenIsWriteRestricted(void* token) {
+bool windowssys_windows_wdk_storage_filesystem_seTokenIsWriteRestricted(void* token) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13930,7 +14254,7 @@ bool windowssys_windows_wdk_storage_filesystem_SeTokenIsWriteRestricted(void* to
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_SeTokenType(void* token) {
+int32_t windowssys_windows_wdk_storage_filesystem_seTokenType(void* token) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13952,7 +14276,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_SeTokenType(void* token) {
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_SeUnregisterLogonSessionTerminatedRoutine(void* callbackroutine) {
+int32_t windowssys_windows_wdk_storage_filesystem_seUnregisterLogonSessionTerminatedRoutine(void* callbackroutine) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13974,7 +14298,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_SeUnregisterLogonSessionTermin
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_SeUnregisterLogonSessionTerminatedRoutineEx(void* callbackroutine, void* context) {
+int32_t windowssys_windows_wdk_storage_filesystem_seUnregisterLogonSessionTerminatedRoutineEx(void* callbackroutine, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13997,7 +14321,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_SeUnregisterLogonSessionTermin
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_SecLookupAccountName(void* name, void* sidsize, void* sid, void* nameuse, void* domainsize, void* referenceddomain) {
+int32_t windowssys_windows_wdk_storage_filesystem_secLookupAccountName(void* name, void* sidsize, void* sid, void* nameuse, void* domainsize, void* referenceddomain) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14024,7 +14348,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_SecLookupAccountName(void* nam
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_SecLookupAccountSid(void* sid, void* namesize, void* namebuffer, void* domainsize, void* domainbuffer, void* nameuse) {
+int32_t windowssys_windows_wdk_storage_filesystem_secLookupAccountSid(void* sid, void* namesize, void* namebuffer, void* domainsize, void* domainbuffer, void* nameuse) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14051,7 +14375,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_SecLookupAccountSid(void* sid,
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_SecLookupWellKnownSid(int32_t sidtype, void* sid, uint32_t sidbuffersize, void* sidsize) {
+int32_t windowssys_windows_wdk_storage_filesystem_secLookupWellKnownSid(int32_t sidtype, void* sid, uint32_t sidbuffersize, void* sidsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14076,7 +14400,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_SecLookupWellKnownSid(int32_t 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_SecMakeSPN(void* serviceclass, void* servicename, void* instancename, uint16_t instanceport, void* referrer, void* spn, void* length, bool allocate) {
+int32_t windowssys_windows_wdk_storage_filesystem_secMakeSPN(void* serviceclass, void* servicename, void* instancename, uint16_t instanceport, void* referrer, void* spn, void* length, bool allocate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint16_t, void*, void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -14105,7 +14429,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_SecMakeSPN(void* serviceclass,
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_SecMakeSPNEx(void* serviceclass, void* servicename, void* instancename, uint16_t instanceport, void* referrer, void* targetinfo, void* spn, void* length, bool allocate) {
+int32_t windowssys_windows_wdk_storage_filesystem_secMakeSPNEx(void* serviceclass, void* servicename, void* instancename, uint16_t instanceport, void* referrer, void* targetinfo, void* spn, void* length, bool allocate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint16_t, void*, void*, void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -14135,7 +14459,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_SecMakeSPNEx(void* serviceclas
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_SecMakeSPNEx2(void* serviceclass, void* servicename, void* instancename, uint16_t instanceport, void* referrer, void* intargetinfo, void* spn, void* totalsize, bool allocate, bool istargetinfomarshaled) {
+int32_t windowssys_windows_wdk_storage_filesystem_secMakeSPNEx2(void* serviceclass, void* servicename, void* instancename, uint16_t instanceport, void* referrer, void* intargetinfo, void* spn, void* totalsize, bool allocate, bool istargetinfomarshaled) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint16_t, void*, void*, void*, void*, bool, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -14166,7 +14490,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_SecMakeSPNEx2(void* servicecla
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_SetContextAttributesW(void* phcontext, uint32_t ulattribute, void* pbuffer, uint32_t cbbuffer) {
+int32_t windowssys_windows_wdk_storage_filesystem_setContextAttributesW(void* phcontext, uint32_t ulattribute, void* pbuffer, uint32_t cbbuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14191,7 +14515,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_SetContextAttributesW(void* ph
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_SspiAcceptSecurityContextAsync(void* asynccontext, void* phcredential, void* phcontext, void* pinput, uint32_t fcontextreq, uint32_t targetdatarep, void* phnewcontext, void* poutput, void* pfcontextattr, void* ptsexpiry) {
+int32_t windowssys_windows_wdk_storage_filesystem_sspiAcceptSecurityContextAsync(void* asynccontext, void* phcredential, void* phcontext, void* pinput, uint32_t fcontextreq, uint32_t targetdatarep, void* phnewcontext, void* poutput, void* pfcontextattr, void* ptsexpiry) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14222,7 +14546,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_SspiAcceptSecurityContextAsync
 #endif
 }
 
-void* windowssys_windows_wdk_storage_filesystem_SspiCreateAsyncContext(void) {
+void* windowssys_windows_wdk_storage_filesystem_sspiCreateAsyncContext(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -14243,7 +14567,7 @@ void* windowssys_windows_wdk_storage_filesystem_SspiCreateAsyncContext(void) {
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_SspiDeleteSecurityContextAsync(void* asynccontext, void* phcontext) {
+int32_t windowssys_windows_wdk_storage_filesystem_sspiDeleteSecurityContextAsync(void* asynccontext, void* phcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14266,7 +14590,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_SspiDeleteSecurityContextAsync
 #endif
 }
 
-void windowssys_windows_wdk_storage_filesystem_SspiFreeAsyncContext(void* handle) {
+void windowssys_windows_wdk_storage_filesystem_sspiFreeAsyncContext(void* handle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14287,7 +14611,7 @@ void windowssys_windows_wdk_storage_filesystem_SspiFreeAsyncContext(void* handle
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_SspiFreeCredentialsHandleAsync(void* asynccontext, void* phcredential) {
+int32_t windowssys_windows_wdk_storage_filesystem_sspiFreeCredentialsHandleAsync(void* asynccontext, void* phcredential) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14310,7 +14634,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_SspiFreeCredentialsHandleAsync
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_SspiGetAsyncCallStatus(void* handle) {
+int32_t windowssys_windows_wdk_storage_filesystem_sspiGetAsyncCallStatus(void* handle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14332,7 +14656,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_SspiGetAsyncCallStatus(void* h
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_SspiInitializeSecurityContextAsyncA(void* asynccontext, void* phcredential, void* phcontext, void* psztargetname, uint32_t fcontextreq, uint32_t reserved1, uint32_t targetdatarep, void* pinput, uint32_t reserved2, void* phnewcontext, void* poutput, void* pfcontextattr, void* ptsexpiry) {
+int32_t windowssys_windows_wdk_storage_filesystem_sspiInitializeSecurityContextAsyncA(void* asynccontext, void* phcredential, void* phcontext, void* psztargetname, uint32_t fcontextreq, uint32_t reserved1, uint32_t targetdatarep, void* pinput, uint32_t reserved2, void* phnewcontext, void* poutput, void* pfcontextattr, void* ptsexpiry) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, uint32_t, uint32_t, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14366,7 +14690,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_SspiInitializeSecurityContextA
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_SspiInitializeSecurityContextAsyncW(void* asynccontext, void* phcredential, void* phcontext, void* psztargetname, uint32_t fcontextreq, uint32_t reserved1, uint32_t targetdatarep, void* pinput, uint32_t reserved2, void* phnewcontext, void* poutput, void* pfcontextattr, void* ptsexpiry) {
+int32_t windowssys_windows_wdk_storage_filesystem_sspiInitializeSecurityContextAsyncW(void* asynccontext, void* phcredential, void* phcontext, void* psztargetname, uint32_t fcontextreq, uint32_t reserved1, uint32_t targetdatarep, void* pinput, uint32_t reserved2, void* phnewcontext, void* poutput, void* pfcontextattr, void* ptsexpiry) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, uint32_t, uint32_t, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14400,7 +14724,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_SspiInitializeSecurityContextA
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_SspiReinitAsyncContext(void* handle) {
+int32_t windowssys_windows_wdk_storage_filesystem_sspiReinitAsyncContext(void* handle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14422,7 +14746,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_SspiReinitAsyncContext(void* h
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_SspiSetAsyncNotifyCallback(void* context, void* callback, void* callbackdata) {
+int32_t windowssys_windows_wdk_storage_filesystem_sspiSetAsyncNotifyCallback(void* context, void* callback, void* callbackdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14446,7 +14770,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_SspiSetAsyncNotifyCallback(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_VerifySignature(void* phcontext, void* pmessage, uint32_t messageseqno, void* pfqop) {
+int32_t windowssys_windows_wdk_storage_filesystem_verifySignature(void* phcontext, void* pmessage, uint32_t messageseqno, void* pfqop) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14471,7 +14795,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_VerifySignature(void* phcontex
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwAccessCheckAndAuditAlarm(void* subsystemname, void* handleid, void* objecttypename, void* objectname, void* securitydescriptor, uint32_t desiredaccess, void* genericmapping, bool objectcreation, void* grantedaccess, void* accessstatus, void* generateonclose) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwAccessCheckAndAuditAlarm(void* subsystemname, void* handleid, void* objecttypename, void* objectname, void* securitydescriptor, uint32_t desiredaccess, void* genericmapping, bool objectcreation, void* grantedaccess, void* accessstatus, void* generateonclose) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, void*, bool, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14503,7 +14827,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwAccessCheckAndAuditAlarm(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwAccessCheckByTypeAndAuditAlarm(void* subsystemname, void* handleid, void* objecttypename, void* objectname, void* securitydescriptor, void* principalselfsid, uint32_t desiredaccess, int32_t audittype, uint32_t flags, void* objecttypelist, uint32_t objecttypelistlength, void* genericmapping, bool objectcreation, void* grantedaccess, void* accessstatus, void* generateonclose) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwAccessCheckByTypeAndAuditAlarm(void* subsystemname, void* handleid, void* objecttypename, void* objectname, void* securitydescriptor, void* principalselfsid, uint32_t desiredaccess, int32_t audittype, uint32_t flags, void* objecttypelist, uint32_t objecttypelistlength, void* genericmapping, bool objectcreation, void* grantedaccess, void* accessstatus, void* generateonclose) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, int32_t, uint32_t, void*, uint32_t, void*, bool, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14540,7 +14864,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwAccessCheckByTypeAndAuditAla
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwAccessCheckByTypeResultListAndAuditAlarm(void* subsystemname, void* handleid, void* objecttypename, void* objectname, void* securitydescriptor, void* principalselfsid, uint32_t desiredaccess, int32_t audittype, uint32_t flags, void* objecttypelist, uint32_t objecttypelistlength, void* genericmapping, bool objectcreation, void* grantedaccess, void* accessstatus, void* generateonclose) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwAccessCheckByTypeResultListAndAuditAlarm(void* subsystemname, void* handleid, void* objecttypename, void* objectname, void* securitydescriptor, void* principalselfsid, uint32_t desiredaccess, int32_t audittype, uint32_t flags, void* objecttypelist, uint32_t objecttypelistlength, void* genericmapping, bool objectcreation, void* grantedaccess, void* accessstatus, void* generateonclose) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, int32_t, uint32_t, void*, uint32_t, void*, bool, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14577,7 +14901,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwAccessCheckByTypeResultListA
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwAccessCheckByTypeResultListAndAuditAlarmByHandle(void* subsystemname, void* handleid, void* clienttoken, void* objecttypename, void* objectname, void* securitydescriptor, void* principalselfsid, uint32_t desiredaccess, int32_t audittype, uint32_t flags, void* objecttypelist, uint32_t objecttypelistlength, void* genericmapping, bool objectcreation, void* grantedaccess, void* accessstatus, void* generateonclose) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwAccessCheckByTypeResultListAndAuditAlarmByHandle(void* subsystemname, void* handleid, void* clienttoken, void* objecttypename, void* objectname, void* securitydescriptor, void* principalselfsid, uint32_t desiredaccess, int32_t audittype, uint32_t flags, void* objecttypelist, uint32_t objecttypelistlength, void* genericmapping, bool objectcreation, void* grantedaccess, void* accessstatus, void* generateonclose) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, uint32_t, int32_t, uint32_t, void*, uint32_t, void*, bool, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14615,7 +14939,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwAccessCheckByTypeResultListA
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwAdjustGroupsToken(void* tokenhandle, bool resettodefault, void* newstate, uint32_t bufferlength, void* previousstate, void* returnlength) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwAdjustGroupsToken(void* tokenhandle, bool resettodefault, void* newstate, uint32_t bufferlength, void* previousstate, void* returnlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, bool, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14642,7 +14966,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwAdjustGroupsToken(void* toke
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwAdjustPrivilegesToken(void* tokenhandle, bool disableallprivileges, void* newstate, uint32_t bufferlength, void* previousstate, void* returnlength) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwAdjustPrivilegesToken(void* tokenhandle, bool disableallprivileges, void* newstate, uint32_t bufferlength, void* previousstate, void* returnlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, bool, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14669,7 +14993,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwAdjustPrivilegesToken(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwAllocateVirtualMemory(void* processhandle, void* baseaddress, uint64_t zerobits, void* regionsize, uint32_t allocationtype, uint32_t protect) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwAllocateVirtualMemory(void* processhandle, void* baseaddress, uint64_t zerobits, void* regionsize, uint32_t allocationtype, uint32_t protect) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint64_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14696,7 +15020,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwAllocateVirtualMemory(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwAllocateVirtualMemoryEx(void* processhandle, void* baseaddress, void* regionsize, uint32_t allocationtype, uint32_t pageprotection, void* extendedparameters, uint32_t extendedparametercount) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwAllocateVirtualMemoryEx(void* processhandle, void* baseaddress, void* regionsize, uint32_t allocationtype, uint32_t pageprotection, void* extendedparameters, uint32_t extendedparametercount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14724,7 +15048,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwAllocateVirtualMemoryEx(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwCancelIoFileEx(void* filehandle, void* iorequesttocancel, void* iostatusblock) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwCancelIoFileEx(void* filehandle, void* iorequesttocancel, void* iostatusblock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14748,7 +15072,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwCancelIoFileEx(void* filehan
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwCloseObjectAuditAlarm(void* subsystemname, void* handleid, bool generateonclose) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwCloseObjectAuditAlarm(void* subsystemname, void* handleid, bool generateonclose) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -14772,7 +15096,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwCloseObjectAuditAlarm(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwCreateDirectoryObject(void* directoryhandle, uint32_t desiredaccess, void* objectattributes) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwCreateDirectoryObject(void* directoryhandle, uint32_t desiredaccess, void* objectattributes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14796,7 +15120,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwCreateDirectoryObject(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwCreateEvent(void* eventhandle, uint32_t desiredaccess, void* objectattributes, int32_t eventtype, bool initialstate) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwCreateEvent(void* eventhandle, uint32_t desiredaccess, void* objectattributes, int32_t eventtype, bool initialstate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, int32_t, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -14822,7 +15146,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwCreateEvent(void* eventhandl
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwCreateSectionEx(void* sectionhandle, uint32_t desiredaccess, void* objectattributes, void* maximumsize, uint32_t sectionpageprotection, uint32_t allocationattributes, void* filehandle, void* extendedparameters, uint32_t extendedparametercount) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwCreateSectionEx(void* sectionhandle, uint32_t desiredaccess, void* objectattributes, void* maximumsize, uint32_t sectionpageprotection, uint32_t allocationattributes, void* filehandle, void* extendedparameters, uint32_t extendedparametercount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14852,7 +15176,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwCreateSectionEx(void* sectio
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwDeleteFile(void* objectattributes) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwDeleteFile(void* objectattributes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14874,7 +15198,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwDeleteFile(void* objectattri
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwDeleteObjectAuditAlarm(void* subsystemname, void* handleid, bool generateonclose) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwDeleteObjectAuditAlarm(void* subsystemname, void* handleid, bool generateonclose) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -14898,7 +15222,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwDeleteObjectAuditAlarm(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwDuplicateObject(void* sourceprocesshandle, void* sourcehandle, void* targetprocesshandle, void* targethandle, uint32_t desiredaccess, uint32_t handleattributes, uint32_t options) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwDuplicateObject(void* sourceprocesshandle, void* sourcehandle, void* targetprocesshandle, void* targethandle, uint32_t desiredaccess, uint32_t handleattributes, uint32_t options) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14926,7 +15250,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwDuplicateObject(void* source
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwDuplicateToken(void* existingtokenhandle, uint32_t desiredaccess, void* objectattributes, bool effectiveonly, int32_t tokentype, void* newtokenhandle) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwDuplicateToken(void* existingtokenhandle, uint32_t desiredaccess, void* objectattributes, bool effectiveonly, int32_t tokentype, void* newtokenhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, bool, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14953,7 +15277,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwDuplicateToken(void* existin
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwFilterToken(void* existingtokenhandle, uint32_t flags, void* sidstodisable, void* privilegestodelete, void* restrictedsids, void* newtokenhandle) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwFilterToken(void* existingtokenhandle, uint32_t flags, void* sidstodisable, void* privilegestodelete, void* restrictedsids, void* newtokenhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14980,7 +15304,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwFilterToken(void* existingto
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwFlushBuffersFile(void* filehandle, void* iostatusblock) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwFlushBuffersFile(void* filehandle, void* iostatusblock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15003,7 +15327,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwFlushBuffersFile(void* fileh
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwFlushBuffersFileEx(void* filehandle, uint32_t flags, void* parameters, uint32_t parameterssize, void* iostatusblock) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwFlushBuffersFileEx(void* filehandle, uint32_t flags, void* parameters, uint32_t parameterssize, void* iostatusblock) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15029,7 +15353,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwFlushBuffersFileEx(void* fil
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwFlushVirtualMemory(void* processhandle, void* baseaddress, void* regionsize, void* iostatus) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwFlushVirtualMemory(void* processhandle, void* baseaddress, void* regionsize, void* iostatus) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15054,7 +15378,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwFlushVirtualMemory(void* pro
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwFreeVirtualMemory(void* processhandle, void* baseaddress, void* regionsize, uint32_t freetype) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwFreeVirtualMemory(void* processhandle, void* baseaddress, void* regionsize, uint32_t freetype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15079,7 +15403,38 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwFreeVirtualMemory(void* proc
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwImpersonateAnonymousToken(void* threadhandle) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwFsControlFile(void* filehandle, void* event, void* apcroutine, void* apccontext, void* iostatusblock, uint32_t fscontrolcode, void* inputbuffer, uint32_t inputbufferlength, void* outputbuffer, uint32_t outputbufferlength) {
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, void*, uint32_t, void*, uint32_t);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ZwFsControlFile");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        return km_fn_ptr(filehandle, event, apcroutine, apccontext, iostatusblock, fscontrolcode, inputbuffer, inputbufferlength, outputbuffer, outputbufferlength);
+    }
+    errno = ENOSYS;
+    return -1;
+#else
+    (void)filehandle;
+    (void)event;
+    (void)apcroutine;
+    (void)apccontext;
+    (void)iostatusblock;
+    (void)fscontrolcode;
+    (void)inputbuffer;
+    (void)inputbufferlength;
+    (void)outputbuffer;
+    (void)outputbufferlength;
+    errno = ENOSYS;
+    return -1;
+#endif
+}
+
+int32_t windowssys_windows_wdk_storage_filesystem_zwImpersonateAnonymousToken(void* threadhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15101,7 +15456,69 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwImpersonateAnonymousToken(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwOpenDirectoryObject(void* directoryhandle, uint32_t desiredaccess, void* objectattributes) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwLockFile(void* filehandle, void* event, void* apcroutine, void* apccontext, void* iostatusblock, void* byteoffset, void* length, uint32_t key, bool failimmediately, bool exclusivelock) {
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, uint32_t, bool, bool);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ZwLockFile");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        return km_fn_ptr(filehandle, event, apcroutine, apccontext, iostatusblock, byteoffset, length, key, failimmediately, exclusivelock);
+    }
+    errno = ENOSYS;
+    return -1;
+#else
+    (void)filehandle;
+    (void)event;
+    (void)apcroutine;
+    (void)apccontext;
+    (void)iostatusblock;
+    (void)byteoffset;
+    (void)length;
+    (void)key;
+    (void)failimmediately;
+    (void)exclusivelock;
+    errno = ENOSYS;
+    return -1;
+#endif
+}
+
+int32_t windowssys_windows_wdk_storage_filesystem_zwNotifyChangeKey(void* keyhandle, void* event, void* apcroutine, void* apccontext, void* iostatusblock, uint32_t completionfilter, bool watchtree, void* buffer, uint32_t buffersize, bool asynchronous) {
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, bool, void*, uint32_t, bool);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ZwNotifyChangeKey");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        return km_fn_ptr(keyhandle, event, apcroutine, apccontext, iostatusblock, completionfilter, watchtree, buffer, buffersize, asynchronous);
+    }
+    errno = ENOSYS;
+    return -1;
+#else
+    (void)keyhandle;
+    (void)event;
+    (void)apcroutine;
+    (void)apccontext;
+    (void)iostatusblock;
+    (void)completionfilter;
+    (void)watchtree;
+    (void)buffer;
+    (void)buffersize;
+    (void)asynchronous;
+    errno = ENOSYS;
+    return -1;
+#endif
+}
+
+int32_t windowssys_windows_wdk_storage_filesystem_zwOpenDirectoryObject(void* directoryhandle, uint32_t desiredaccess, void* objectattributes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15125,7 +15542,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwOpenDirectoryObject(void* di
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwOpenObjectAuditAlarm(void* subsystemname, void* handleid, void* objecttypename, void* objectname, void* securitydescriptor, void* clienttoken, uint32_t desiredaccess, uint32_t grantedaccess, void* privileges, bool objectcreation, bool accessgranted, void* generateonclose) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwOpenObjectAuditAlarm(void* subsystemname, void* handleid, void* objecttypename, void* objectname, void* securitydescriptor, void* clienttoken, uint32_t desiredaccess, uint32_t grantedaccess, void* privileges, bool objectcreation, bool accessgranted, void* generateonclose) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, uint32_t, void*, bool, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15158,7 +15575,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwOpenObjectAuditAlarm(void* s
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwOpenProcessToken(void* processhandle, uint32_t desiredaccess, void* tokenhandle) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwOpenProcessToken(void* processhandle, uint32_t desiredaccess, void* tokenhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15182,7 +15599,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwOpenProcessToken(void* proce
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwOpenProcessTokenEx(void* processhandle, uint32_t desiredaccess, uint32_t handleattributes, void* tokenhandle) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwOpenProcessTokenEx(void* processhandle, uint32_t desiredaccess, uint32_t handleattributes, void* tokenhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15207,7 +15624,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwOpenProcessTokenEx(void* pro
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwOpenThreadToken(void* threadhandle, uint32_t desiredaccess, bool openasself, void* tokenhandle) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwOpenThreadToken(void* threadhandle, uint32_t desiredaccess, bool openasself, void* tokenhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, bool, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15232,7 +15649,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwOpenThreadToken(void* thread
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwOpenThreadTokenEx(void* threadhandle, uint32_t desiredaccess, bool openasself, uint32_t handleattributes, void* tokenhandle) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwOpenThreadTokenEx(void* threadhandle, uint32_t desiredaccess, bool openasself, uint32_t handleattributes, void* tokenhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, bool, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15258,7 +15675,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwOpenThreadTokenEx(void* thre
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwPrivilegeCheck(void* clienttoken, void* requiredprivileges, void* result) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwPrivilegeCheck(void* clienttoken, void* requiredprivileges, void* result) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15282,7 +15699,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwPrivilegeCheck(void* clientt
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwPrivilegeObjectAuditAlarm(void* subsystemname, void* handleid, void* clienttoken, uint32_t desiredaccess, void* privileges, bool accessgranted) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwPrivilegeObjectAuditAlarm(void* subsystemname, void* handleid, void* clienttoken, uint32_t desiredaccess, void* privileges, bool accessgranted) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -15309,7 +15726,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwPrivilegeObjectAuditAlarm(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwPrivilegedServiceAuditAlarm(void* subsystemname, void* servicename, void* clienttoken, void* privileges, bool accessgranted) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwPrivilegedServiceAuditAlarm(void* subsystemname, void* servicename, void* clienttoken, void* privileges, bool accessgranted) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -15335,7 +15752,70 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwPrivilegedServiceAuditAlarm(
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwQueryDirectoryObject(void* directoryhandle, void* buffer, uint32_t length, bool returnsingleentry, bool restartscan, void* context, void* returnlength) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwQueryDirectoryFile(void* filehandle, void* event, void* apcroutine, void* apccontext, void* iostatusblock, void* fileinformation, uint32_t length, int32_t fileinformationclass, bool returnsingleentry, void* filename, bool restartscan) {
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, int32_t, bool, void*, bool);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ZwQueryDirectoryFile");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        return km_fn_ptr(filehandle, event, apcroutine, apccontext, iostatusblock, fileinformation, length, fileinformationclass, returnsingleentry, filename, restartscan);
+    }
+    errno = ENOSYS;
+    return -1;
+#else
+    (void)filehandle;
+    (void)event;
+    (void)apcroutine;
+    (void)apccontext;
+    (void)iostatusblock;
+    (void)fileinformation;
+    (void)length;
+    (void)fileinformationclass;
+    (void)returnsingleentry;
+    (void)filename;
+    (void)restartscan;
+    errno = ENOSYS;
+    return -1;
+#endif
+}
+
+int32_t windowssys_windows_wdk_storage_filesystem_zwQueryDirectoryFileEx(void* filehandle, void* event, void* apcroutine, void* apccontext, void* iostatusblock, void* fileinformation, uint32_t length, int32_t fileinformationclass, uint32_t queryflags, void* filename) {
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, int32_t, uint32_t, void*);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ZwQueryDirectoryFileEx");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        return km_fn_ptr(filehandle, event, apcroutine, apccontext, iostatusblock, fileinformation, length, fileinformationclass, queryflags, filename);
+    }
+    errno = ENOSYS;
+    return -1;
+#else
+    (void)filehandle;
+    (void)event;
+    (void)apcroutine;
+    (void)apccontext;
+    (void)iostatusblock;
+    (void)fileinformation;
+    (void)length;
+    (void)fileinformationclass;
+    (void)queryflags;
+    (void)filename;
+    errno = ENOSYS;
+    return -1;
+#endif
+}
+
+int32_t windowssys_windows_wdk_storage_filesystem_zwQueryDirectoryObject(void* directoryhandle, void* buffer, uint32_t length, bool returnsingleentry, bool restartscan, void* context, void* returnlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, bool, bool, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15363,7 +15843,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwQueryDirectoryObject(void* d
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwQueryEaFile(void* filehandle, void* iostatusblock, void* buffer, uint32_t length, bool returnsingleentry, void* ealist, uint32_t ealistlength, void* eaindex, bool restartscan) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwQueryEaFile(void* filehandle, void* iostatusblock, void* buffer, uint32_t length, bool returnsingleentry, void* ealist, uint32_t ealistlength, void* eaindex, bool restartscan) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, bool, void*, uint32_t, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -15393,7 +15873,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwQueryEaFile(void* filehandle
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwQueryFullAttributesFile(void* objectattributes, void* fileinformation) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwQueryFullAttributesFile(void* objectattributes, void* fileinformation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15416,7 +15896,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwQueryFullAttributesFile(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwQueryInformationToken(void* tokenhandle, int32_t tokeninformationclass, void* tokeninformation, uint32_t tokeninformationlength, void* returnlength) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwQueryInformationToken(void* tokenhandle, int32_t tokeninformationclass, void* tokeninformation, uint32_t tokeninformationlength, void* returnlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15442,7 +15922,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwQueryInformationToken(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwQueryObject(void* handle, int32_t objectinformationclass, void* objectinformation, uint32_t objectinformationlength, void* returnlength) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwQueryObject(void* handle, int32_t objectinformationclass, void* objectinformation, uint32_t objectinformationlength, void* returnlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15468,7 +15948,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwQueryObject(void* handle, in
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwQueryQuotaInformationFile(void* filehandle, void* iostatusblock, void* buffer, uint32_t length, bool returnsingleentry, void* sidlist, uint32_t sidlistlength, void* startsid, bool restartscan) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwQueryQuotaInformationFile(void* filehandle, void* iostatusblock, void* buffer, uint32_t length, bool returnsingleentry, void* sidlist, uint32_t sidlistlength, void* startsid, bool restartscan) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, bool, void*, uint32_t, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -15498,7 +15978,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwQueryQuotaInformationFile(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwQuerySecurityObject(void* handle, uint32_t securityinformation, void* securitydescriptor, uint32_t length, void* lengthneeded) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwQuerySecurityObject(void* handle, uint32_t securityinformation, void* securitydescriptor, uint32_t length, void* lengthneeded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15524,7 +16004,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwQuerySecurityObject(void* ha
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwQueryVirtualMemory(void* processhandle, void* baseaddress, int32_t memoryinformationclass, void* memoryinformation, uint64_t memoryinformationlength, void* returnlength) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwQueryVirtualMemory(void* processhandle, void* baseaddress, int32_t memoryinformationclass, void* memoryinformation, uint64_t memoryinformationlength, void* returnlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15551,7 +16031,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwQueryVirtualMemory(void* pro
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwQueryVolumeInformationFile(void* filehandle, void* iostatusblock, void* fsinformation, uint32_t length, int32_t fsinformationclass) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwQueryVolumeInformationFile(void* filehandle, void* iostatusblock, void* fsinformation, uint32_t length, int32_t fsinformationclass) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15577,7 +16057,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwQueryVolumeInformationFile(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwSetEaFile(void* filehandle, void* iostatusblock, void* buffer, uint32_t length) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwSetEaFile(void* filehandle, void* iostatusblock, void* buffer, uint32_t length) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15602,7 +16082,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwSetEaFile(void* filehandle, 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwSetEvent(void* eventhandle, void* previousstate) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwSetEvent(void* eventhandle, void* previousstate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15625,7 +16105,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwSetEvent(void* eventhandle, 
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwSetInformationToken(void* tokenhandle, int32_t tokeninformationclass, void* tokeninformation, uint32_t tokeninformationlength) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwSetInformationToken(void* tokenhandle, int32_t tokeninformationclass, void* tokeninformation, uint32_t tokeninformationlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15650,7 +16130,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwSetInformationToken(void* to
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwSetInformationVirtualMemory(void* processhandle, int32_t vminformationclass, uint64_t numberofentries, void* virtualaddresses, void* vminformation, uint32_t vminformationlength) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwSetInformationVirtualMemory(void* processhandle, int32_t vminformationclass, uint64_t numberofentries, void* virtualaddresses, void* vminformation, uint32_t vminformationlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15677,7 +16157,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwSetInformationVirtualMemory(
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwSetQuotaInformationFile(void* filehandle, void* iostatusblock, void* buffer, uint32_t length) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwSetQuotaInformationFile(void* filehandle, void* iostatusblock, void* buffer, uint32_t length) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15702,7 +16182,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwSetQuotaInformationFile(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwSetSecurityObject(void* handle, uint32_t securityinformation, void* securitydescriptor) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwSetSecurityObject(void* handle, uint32_t securityinformation, void* securitydescriptor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -15726,7 +16206,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwSetSecurityObject(void* hand
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwSetVolumeInformationFile(void* filehandle, void* iostatusblock, void* fsinformation, uint32_t length, int32_t fsinformationclass) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwSetVolumeInformationFile(void* filehandle, void* iostatusblock, void* fsinformation, uint32_t length, int32_t fsinformationclass) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -15752,7 +16232,7 @@ int32_t windowssys_windows_wdk_storage_filesystem_ZwSetVolumeInformationFile(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_storage_filesystem_ZwUnlockFile(void* filehandle, void* iostatusblock, void* byteoffset, void* length, uint32_t key) {
+int32_t windowssys_windows_wdk_storage_filesystem_zwUnlockFile(void* filehandle, void* iostatusblock, void* byteoffset, void* length, uint32_t key) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;

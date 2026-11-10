@@ -2,10 +2,11 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography.catalog
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
 private object WindowsWin32SecurityCryptographyCatalogJniBridge {
     init {
@@ -13,219 +14,219 @@ private object WindowsWin32SecurityCryptographyCatalogJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_catalog_CryptCATAdminAcquireContext(phcatadmin: Long, pgsubsystem: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminAcquireContext(phcatadmin: Long, pgsubsystem: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_catalog_CryptCATAdminAcquireContext2(phcatadmin: Long, pgsubsystem: Long, pwszhashalgorithm: Long, pstronghashpolicy: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminAcquireContext2(phcatadmin: Long, pgsubsystem: Long, pwszhashalgorithm: Long, pstronghashpolicy: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_catalog_CryptCATAdminAddCatalog(hcatadmin: Long, pwszcatalogfile: Long, pwszselectbasename: Long, dwflags: Int): Long
+    external fun windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminAddCatalog(hcatadmin: Long, pwszcatalogfile: Long, pwszselectbasename: Long, dwflags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_catalog_CryptCATAdminCalcHashFromFileHandle(hfile: Long, pcbhash: Long, pbhash: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminCalcHashFromFileHandle(hfile: Long, pcbhash: Long, pbhash: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_catalog_CryptCATAdminCalcHashFromFileHandle2(hcatadmin: Long, hfile: Long, pcbhash: Long, pbhash: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminCalcHashFromFileHandle2(hcatadmin: Long, hfile: Long, pcbhash: Long, pbhash: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_catalog_CryptCATAdminEnumCatalogFromHash(hcatadmin: Long, pbhash: Long, cbhash: Int, dwflags: Int, phprevcatinfo: Long): Long
+    external fun windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminEnumCatalogFromHash(hcatadmin: Long, pbhash: Long, cbhash: Int, dwflags: Int, phprevcatinfo: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_catalog_CryptCATAdminPauseServiceForBackup(dwflags: Int, fresume: Int): Int
+    external fun windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminPauseServiceForBackup(dwflags: Int, fresume: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_catalog_CryptCATAdminReleaseCatalogContext(hcatadmin: Long, hcatinfo: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminReleaseCatalogContext(hcatadmin: Long, hcatinfo: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_catalog_CryptCATAdminReleaseContext(hcatadmin: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminReleaseContext(hcatadmin: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_catalog_CryptCATAdminRemoveCatalog(hcatadmin: Long, pwszcatalogfile: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminRemoveCatalog(hcatadmin: Long, pwszcatalogfile: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_catalog_CryptCATAdminResolveCatalogPath(hcatadmin: Long, pwszcatalogfile: Long, pscatinfo: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminResolveCatalogPath(hcatadmin: Long, pwszcatalogfile: Long, pscatinfo: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_catalog_CryptCATAllocSortedMemberInfo(hcatalog: Long, pwszreferencetag: Long): Long
+    external fun windowssys_windows_win32_security_cryptography_catalog_cryptCATAllocSortedMemberInfo(hcatalog: Long, pwszreferencetag: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_catalog_CryptCATCDFClose(pcdf: Long): Int
+    external fun windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFClose(pcdf: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_catalog_CryptCATCDFEnumAttributes(pcdf: Long, pmember: Long, pprevattr: Long, pfnparseerror: Long): Long
+    external fun windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumAttributes(pcdf: Long, pmember: Long, pprevattr: Long, pfnparseerror: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_catalog_CryptCATCDFEnumAttributesWithCDFTag(pcdf: Long, pwszmembertag: Long, pmember: Long, pprevattr: Long, pfnparseerror: Long): Long
+    external fun windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumAttributesWithCDFTag(pcdf: Long, pwszmembertag: Long, pmember: Long, pprevattr: Long, pfnparseerror: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_catalog_CryptCATCDFEnumCatAttributes(pcdf: Long, pprevattr: Long, pfnparseerror: Long): Long
+    external fun windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumCatAttributes(pcdf: Long, pprevattr: Long, pfnparseerror: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_catalog_CryptCATCDFEnumMembers(pcdf: Long, pprevmember: Long, pfnparseerror: Long): Long
+    external fun windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumMembers(pcdf: Long, pprevmember: Long, pfnparseerror: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_catalog_CryptCATCDFEnumMembersByCDFTagEx(pcdf: Long, pwszprevcdftag: Long, pfnparseerror: Long, ppmember: Long, fcontinueonerror: Int, pvreserved: Long): Long
+    external fun windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumMembersByCDFTagEx(pcdf: Long, pwszprevcdftag: Long, pfnparseerror: Long, ppmember: Long, fcontinueonerror: Int, pvreserved: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_catalog_CryptCATCDFOpen(pwszfilepath: Long, pfnparseerror: Long): Long
+    external fun windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFOpen(pwszfilepath: Long, pfnparseerror: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_catalog_CryptCATCatalogInfoFromContext(hcatinfo: Long, pscatinfo: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_security_cryptography_catalog_cryptCATCatalogInfoFromContext(hcatinfo: Long, pscatinfo: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_catalog_CryptCATClose(hcatalog: Long): Int
+    external fun windowssys_windows_win32_security_cryptography_catalog_cryptCATClose(hcatalog: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_catalog_CryptCATEnumerateAttr(hcatalog: Long, pcatmember: Long, pprevattr: Long): Long
+    external fun windowssys_windows_win32_security_cryptography_catalog_cryptCATEnumerateAttr(hcatalog: Long, pcatmember: Long, pprevattr: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_catalog_CryptCATEnumerateCatAttr(hcatalog: Long, pprevattr: Long): Long
+    external fun windowssys_windows_win32_security_cryptography_catalog_cryptCATEnumerateCatAttr(hcatalog: Long, pprevattr: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_catalog_CryptCATEnumerateMember(hcatalog: Long, pprevmember: Long): Long
+    external fun windowssys_windows_win32_security_cryptography_catalog_cryptCATEnumerateMember(hcatalog: Long, pprevmember: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_catalog_CryptCATFreeSortedMemberInfo(hcatalog: Long, pcatmember: Long)
+    external fun windowssys_windows_win32_security_cryptography_catalog_cryptCATFreeSortedMemberInfo(hcatalog: Long, pcatmember: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_catalog_CryptCATGetAttrInfo(hcatalog: Long, pcatmember: Long, pwszreferencetag: Long): Long
+    external fun windowssys_windows_win32_security_cryptography_catalog_cryptCATGetAttrInfo(hcatalog: Long, pcatmember: Long, pwszreferencetag: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_catalog_CryptCATGetCatAttrInfo(hcatalog: Long, pwszreferencetag: Long): Long
+    external fun windowssys_windows_win32_security_cryptography_catalog_cryptCATGetCatAttrInfo(hcatalog: Long, pwszreferencetag: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_catalog_CryptCATGetMemberInfo(hcatalog: Long, pwszreferencetag: Long): Long
+    external fun windowssys_windows_win32_security_cryptography_catalog_cryptCATGetMemberInfo(hcatalog: Long, pwszreferencetag: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_catalog_CryptCATHandleFromStore(pcatstore: Long): Long
+    external fun windowssys_windows_win32_security_cryptography_catalog_cryptCATHandleFromStore(pcatstore: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_catalog_CryptCATOpen(pwszfilename: Long, fdwopenflags: Int, hprov: Long, dwpublicversion: Int, dwencodingtype: Int): Long
+    external fun windowssys_windows_win32_security_cryptography_catalog_cryptCATOpen(pwszfilename: Long, fdwopenflags: Int, hprov: Long, dwpublicversion: Int, dwencodingtype: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_catalog_CryptCATPersistStore(hcatalog: Long): Int
+    external fun windowssys_windows_win32_security_cryptography_catalog_cryptCATPersistStore(hcatalog: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_catalog_CryptCATPutAttrInfo(hcatalog: Long, pcatmember: Long, pwszreferencetag: Long, dwattrtypeandaction: Int, cbdata: Int, pbdata: Long): Long
+    external fun windowssys_windows_win32_security_cryptography_catalog_cryptCATPutAttrInfo(hcatalog: Long, pcatmember: Long, pwszreferencetag: Long, dwattrtypeandaction: Int, cbdata: Int, pbdata: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_catalog_CryptCATPutCatAttrInfo(hcatalog: Long, pwszreferencetag: Long, dwattrtypeandaction: Int, cbdata: Int, pbdata: Long): Long
+    external fun windowssys_windows_win32_security_cryptography_catalog_cryptCATPutCatAttrInfo(hcatalog: Long, pwszreferencetag: Long, dwattrtypeandaction: Int, cbdata: Int, pbdata: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_catalog_CryptCATPutMemberInfo(hcatalog: Long, pwszfilename: Long, pwszreferencetag: Long, pgsubjecttype: Long, dwcertversion: Int, cbsipindirectdata: Int, pbsipindirectdata: Long): Long
+    external fun windowssys_windows_win32_security_cryptography_catalog_cryptCATPutMemberInfo(hcatalog: Long, pwszfilename: Long, pwszreferencetag: Long, pgsubjecttype: Long, dwcertversion: Int, cbsipindirectdata: Int, pbsipindirectdata: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_catalog_CryptCATStoreFromHandle(hcatalog: Long): Long
+    external fun windowssys_windows_win32_security_cryptography_catalog_cryptCATStoreFromHandle(hcatalog: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_cryptography_catalog_IsCatalogFile(hfile: Long, pwszfilename: Long): Int
+    external fun windowssys_windows_win32_security_cryptography_catalog_isCatalogFile(hfile: Long, pwszfilename: Long): Int
 }
 
-public actual fun CryptCATAdminAcquireContext(phcatadmin: Long, pgsubsystem: Long, dwflags: UInt): BOOL =
-    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_CryptCATAdminAcquireContext(phcatadmin, pgsubsystem, dwflags.toInt())
+public actual fun cryptCATAdminAcquireContext(phcatadmin: COpaquePointer?, pgsubsystem: COpaquePointer?, dwflags: UInt): Bool =
+    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminAcquireContext((phcatadmin?.value ?: 0L), (pgsubsystem?.value ?: 0L), dwflags.toInt())
 
-public actual fun CryptCATAdminAcquireContext2(phcatadmin: Long, pgsubsystem: Long, pwszhashalgorithm: PCWSTR, pstronghashpolicy: Long, dwflags: UInt): BOOL =
-    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_CryptCATAdminAcquireContext2(phcatadmin, pgsubsystem, pwszhashalgorithm, pstronghashpolicy, dwflags.toInt())
+public actual fun cryptCATAdminAcquireContext2(phcatadmin: COpaquePointer?, pgsubsystem: COpaquePointer?, pwszhashalgorithm: Pcwstr, pstronghashpolicy: COpaquePointer?, dwflags: UInt): Bool =
+    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminAcquireContext2((phcatadmin?.value ?: 0L), (pgsubsystem?.value ?: 0L), (pwszhashalgorithm?.value ?: 0L), (pstronghashpolicy?.value ?: 0L), dwflags.toInt())
 
-public actual fun CryptCATAdminAddCatalog(hcatadmin: Long, pwszcatalogfile: PCWSTR, pwszselectbasename: PCWSTR, dwflags: UInt): Long =
-    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_CryptCATAdminAddCatalog(hcatadmin, pwszcatalogfile, pwszselectbasename, dwflags.toInt())
+public actual fun cryptCATAdminAddCatalog(hcatadmin: Long, pwszcatalogfile: Pcwstr, pwszselectbasename: Pcwstr, dwflags: UInt): Long =
+    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminAddCatalog(hcatadmin, (pwszcatalogfile?.value ?: 0L), (pwszselectbasename?.value ?: 0L), dwflags.toInt())
 
-public actual fun CryptCATAdminCalcHashFromFileHandle(hfile: HANDLE, pcbhash: Long, pbhash: Long, dwflags: UInt): BOOL =
-    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_CryptCATAdminCalcHashFromFileHandle(hfile, pcbhash, pbhash, dwflags.toInt())
+public actual fun cryptCATAdminCalcHashFromFileHandle(hfile: Handle, pcbhash: COpaquePointer?, pbhash: COpaquePointer?, dwflags: UInt): Bool =
+    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminCalcHashFromFileHandle((hfile?.value ?: 0L), (pcbhash?.value ?: 0L), (pbhash?.value ?: 0L), dwflags.toInt())
 
-public actual fun CryptCATAdminCalcHashFromFileHandle2(hcatadmin: Long, hfile: HANDLE, pcbhash: Long, pbhash: Long, dwflags: UInt): BOOL =
-    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_CryptCATAdminCalcHashFromFileHandle2(hcatadmin, hfile, pcbhash, pbhash, dwflags.toInt())
+public actual fun cryptCATAdminCalcHashFromFileHandle2(hcatadmin: Long, hfile: Handle, pcbhash: COpaquePointer?, pbhash: COpaquePointer?, dwflags: UInt): Bool =
+    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminCalcHashFromFileHandle2(hcatadmin, (hfile?.value ?: 0L), (pcbhash?.value ?: 0L), (pbhash?.value ?: 0L), dwflags.toInt())
 
-public actual fun CryptCATAdminEnumCatalogFromHash(hcatadmin: Long, pbhash: Long, cbhash: UInt, dwflags: UInt, phprevcatinfo: Long): Long =
-    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_CryptCATAdminEnumCatalogFromHash(hcatadmin, pbhash, cbhash.toInt(), dwflags.toInt(), phprevcatinfo)
+public actual fun cryptCATAdminEnumCatalogFromHash(hcatadmin: Long, pbhash: COpaquePointer?, cbhash: UInt, dwflags: UInt, phprevcatinfo: COpaquePointer?): Long =
+    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminEnumCatalogFromHash(hcatadmin, (pbhash?.value ?: 0L), cbhash.toInt(), dwflags.toInt(), (phprevcatinfo?.value ?: 0L))
 
-public actual fun CryptCATAdminPauseServiceForBackup(dwflags: UInt, fresume: BOOL): BOOL =
-    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_CryptCATAdminPauseServiceForBackup(dwflags.toInt(), fresume)
+public actual fun cryptCATAdminPauseServiceForBackup(dwflags: UInt, fresume: Bool): Bool =
+    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminPauseServiceForBackup(dwflags.toInt(), fresume)
 
-public actual fun CryptCATAdminReleaseCatalogContext(hcatadmin: Long, hcatinfo: Long, dwflags: UInt): BOOL =
-    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_CryptCATAdminReleaseCatalogContext(hcatadmin, hcatinfo, dwflags.toInt())
+public actual fun cryptCATAdminReleaseCatalogContext(hcatadmin: Long, hcatinfo: Long, dwflags: UInt): Bool =
+    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminReleaseCatalogContext(hcatadmin, hcatinfo, dwflags.toInt())
 
-public actual fun CryptCATAdminReleaseContext(hcatadmin: Long, dwflags: UInt): BOOL =
-    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_CryptCATAdminReleaseContext(hcatadmin, dwflags.toInt())
+public actual fun cryptCATAdminReleaseContext(hcatadmin: Long, dwflags: UInt): Bool =
+    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminReleaseContext(hcatadmin, dwflags.toInt())
 
-public actual fun CryptCATAdminRemoveCatalog(hcatadmin: Long, pwszcatalogfile: PCWSTR, dwflags: UInt): BOOL =
-    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_CryptCATAdminRemoveCatalog(hcatadmin, pwszcatalogfile, dwflags.toInt())
+public actual fun cryptCATAdminRemoveCatalog(hcatadmin: Long, pwszcatalogfile: Pcwstr, dwflags: UInt): Bool =
+    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminRemoveCatalog(hcatadmin, (pwszcatalogfile?.value ?: 0L), dwflags.toInt())
 
-public actual fun CryptCATAdminResolveCatalogPath(hcatadmin: Long, pwszcatalogfile: PCWSTR, pscatinfo: Long, dwflags: UInt): BOOL =
-    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_CryptCATAdminResolveCatalogPath(hcatadmin, pwszcatalogfile, pscatinfo, dwflags.toInt())
+public actual fun cryptCATAdminResolveCatalogPath(hcatadmin: Long, pwszcatalogfile: Pcwstr, pscatinfo: COpaquePointer?, dwflags: UInt): Bool =
+    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_cryptCATAdminResolveCatalogPath(hcatadmin, (pwszcatalogfile?.value ?: 0L), (pscatinfo?.value ?: 0L), dwflags.toInt())
 
-public actual fun CryptCATAllocSortedMemberInfo(hcatalog: HANDLE, pwszreferencetag: PCWSTR): Long =
-    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_CryptCATAllocSortedMemberInfo(hcatalog, pwszreferencetag)
+public actual fun cryptCATAllocSortedMemberInfo(hcatalog: Handle, pwszreferencetag: Pcwstr): COpaquePointer? =
+    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_cryptCATAllocSortedMemberInfo((hcatalog?.value ?: 0L), (pwszreferencetag?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CryptCATCDFClose(pcdf: Long): BOOL =
-    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_CryptCATCDFClose(pcdf)
+public actual fun cryptCATCDFClose(pcdf: COpaquePointer?): Bool =
+    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFClose((pcdf?.value ?: 0L))
 
-public actual fun CryptCATCDFEnumAttributes(pcdf: Long, pmember: Long, pprevattr: Long, pfnparseerror: PFN_CDF_PARSE_ERROR_CALLBACK): Long =
-    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_CryptCATCDFEnumAttributes(pcdf, pmember, pprevattr, pfnparseerror.toLong())
+public actual fun cryptCATCDFEnumAttributes(pcdf: COpaquePointer?, pmember: COpaquePointer?, pprevattr: COpaquePointer?, pfnparseerror: PfnCdfParseErrorCallback): COpaquePointer? =
+    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumAttributes((pcdf?.value ?: 0L), (pmember?.value ?: 0L), (pprevattr?.value ?: 0L), 0L).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CryptCATCDFEnumAttributesWithCDFTag(pcdf: Long, pwszmembertag: PCWSTR, pmember: Long, pprevattr: Long, pfnparseerror: PFN_CDF_PARSE_ERROR_CALLBACK): Long =
-    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_CryptCATCDFEnumAttributesWithCDFTag(pcdf, pwszmembertag, pmember, pprevattr, pfnparseerror.toLong())
+public actual fun cryptCATCDFEnumAttributesWithCDFTag(pcdf: COpaquePointer?, pwszmembertag: Pcwstr, pmember: COpaquePointer?, pprevattr: COpaquePointer?, pfnparseerror: PfnCdfParseErrorCallback): COpaquePointer? =
+    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumAttributesWithCDFTag((pcdf?.value ?: 0L), (pwszmembertag?.value ?: 0L), (pmember?.value ?: 0L), (pprevattr?.value ?: 0L), 0L).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CryptCATCDFEnumCatAttributes(pcdf: Long, pprevattr: Long, pfnparseerror: PFN_CDF_PARSE_ERROR_CALLBACK): Long =
-    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_CryptCATCDFEnumCatAttributes(pcdf, pprevattr, pfnparseerror.toLong())
+public actual fun cryptCATCDFEnumCatAttributes(pcdf: COpaquePointer?, pprevattr: COpaquePointer?, pfnparseerror: PfnCdfParseErrorCallback): COpaquePointer? =
+    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumCatAttributes((pcdf?.value ?: 0L), (pprevattr?.value ?: 0L), 0L).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CryptCATCDFEnumMembers(pcdf: Long, pprevmember: Long, pfnparseerror: PFN_CDF_PARSE_ERROR_CALLBACK): Long =
-    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_CryptCATCDFEnumMembers(pcdf, pprevmember, pfnparseerror.toLong())
+public actual fun cryptCATCDFEnumMembers(pcdf: COpaquePointer?, pprevmember: COpaquePointer?, pfnparseerror: PfnCdfParseErrorCallback): COpaquePointer? =
+    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumMembers((pcdf?.value ?: 0L), (pprevmember?.value ?: 0L), 0L).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CryptCATCDFEnumMembersByCDFTagEx(pcdf: Long, pwszprevcdftag: PWSTR, pfnparseerror: PFN_CDF_PARSE_ERROR_CALLBACK, ppmember: Long, fcontinueonerror: BOOL, pvreserved: Long): PWSTR =
-    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_CryptCATCDFEnumMembersByCDFTagEx(pcdf, pwszprevcdftag, pfnparseerror.toLong(), ppmember, fcontinueonerror, pvreserved)
+public actual fun cryptCATCDFEnumMembersByCDFTagEx(pcdf: COpaquePointer?, pwszprevcdftag: Pwstr, pfnparseerror: PfnCdfParseErrorCallback, ppmember: COpaquePointer?, fcontinueonerror: Bool, pvreserved: COpaquePointer?): Pwstr =
+    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFEnumMembersByCDFTagEx((pcdf?.value ?: 0L), (pwszprevcdftag?.value ?: 0L), 0L, (ppmember?.value ?: 0L), fcontinueonerror, (pvreserved?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CryptCATCDFOpen(pwszfilepath: PCWSTR, pfnparseerror: PFN_CDF_PARSE_ERROR_CALLBACK): Long =
-    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_CryptCATCDFOpen(pwszfilepath, pfnparseerror.toLong())
+public actual fun cryptCATCDFOpen(pwszfilepath: Pcwstr, pfnparseerror: PfnCdfParseErrorCallback): COpaquePointer? =
+    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_cryptCATCDFOpen((pwszfilepath?.value ?: 0L), 0L).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CryptCATCatalogInfoFromContext(hcatinfo: Long, pscatinfo: Long, dwflags: UInt): BOOL =
-    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_CryptCATCatalogInfoFromContext(hcatinfo, pscatinfo, dwflags.toInt())
+public actual fun cryptCATCatalogInfoFromContext(hcatinfo: Long, pscatinfo: COpaquePointer?, dwflags: UInt): Bool =
+    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_cryptCATCatalogInfoFromContext(hcatinfo, (pscatinfo?.value ?: 0L), dwflags.toInt())
 
-public actual fun CryptCATClose(hcatalog: HANDLE): BOOL =
-    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_CryptCATClose(hcatalog)
+public actual fun cryptCATClose(hcatalog: Handle): Bool =
+    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_cryptCATClose((hcatalog?.value ?: 0L))
 
-public actual fun CryptCATEnumerateAttr(hcatalog: HANDLE, pcatmember: Long, pprevattr: Long): Long =
-    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_CryptCATEnumerateAttr(hcatalog, pcatmember, pprevattr)
+public actual fun cryptCATEnumerateAttr(hcatalog: Handle, pcatmember: COpaquePointer?, pprevattr: COpaquePointer?): COpaquePointer? =
+    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_cryptCATEnumerateAttr((hcatalog?.value ?: 0L), (pcatmember?.value ?: 0L), (pprevattr?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CryptCATEnumerateCatAttr(hcatalog: HANDLE, pprevattr: Long): Long =
-    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_CryptCATEnumerateCatAttr(hcatalog, pprevattr)
+public actual fun cryptCATEnumerateCatAttr(hcatalog: Handle, pprevattr: COpaquePointer?): COpaquePointer? =
+    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_cryptCATEnumerateCatAttr((hcatalog?.value ?: 0L), (pprevattr?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CryptCATEnumerateMember(hcatalog: HANDLE, pprevmember: Long): Long =
-    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_CryptCATEnumerateMember(hcatalog, pprevmember)
+public actual fun cryptCATEnumerateMember(hcatalog: Handle, pprevmember: COpaquePointer?): COpaquePointer? =
+    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_cryptCATEnumerateMember((hcatalog?.value ?: 0L), (pprevmember?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CryptCATFreeSortedMemberInfo(hcatalog: HANDLE, pcatmember: Long) {
-    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_CryptCATFreeSortedMemberInfo(hcatalog, pcatmember)
+public actual fun cryptCATFreeSortedMemberInfo(hcatalog: Handle, pcatmember: COpaquePointer?) {
+    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_cryptCATFreeSortedMemberInfo((hcatalog?.value ?: 0L), (pcatmember?.value ?: 0L))
 }
 
-public actual fun CryptCATGetAttrInfo(hcatalog: HANDLE, pcatmember: Long, pwszreferencetag: PCWSTR): Long =
-    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_CryptCATGetAttrInfo(hcatalog, pcatmember, pwszreferencetag)
+public actual fun cryptCATGetAttrInfo(hcatalog: Handle, pcatmember: COpaquePointer?, pwszreferencetag: Pcwstr): COpaquePointer? =
+    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_cryptCATGetAttrInfo((hcatalog?.value ?: 0L), (pcatmember?.value ?: 0L), (pwszreferencetag?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CryptCATGetCatAttrInfo(hcatalog: HANDLE, pwszreferencetag: PCWSTR): Long =
-    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_CryptCATGetCatAttrInfo(hcatalog, pwszreferencetag)
+public actual fun cryptCATGetCatAttrInfo(hcatalog: Handle, pwszreferencetag: Pcwstr): COpaquePointer? =
+    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_cryptCATGetCatAttrInfo((hcatalog?.value ?: 0L), (pwszreferencetag?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CryptCATGetMemberInfo(hcatalog: HANDLE, pwszreferencetag: PCWSTR): Long =
-    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_CryptCATGetMemberInfo(hcatalog, pwszreferencetag)
+public actual fun cryptCATGetMemberInfo(hcatalog: Handle, pwszreferencetag: Pcwstr): COpaquePointer? =
+    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_cryptCATGetMemberInfo((hcatalog?.value ?: 0L), (pwszreferencetag?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CryptCATHandleFromStore(pcatstore: Long): HANDLE =
-    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_CryptCATHandleFromStore(pcatstore)
+public actual fun cryptCATHandleFromStore(pcatstore: COpaquePointer?): Handle =
+    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_cryptCATHandleFromStore((pcatstore?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CryptCATOpen(pwszfilename: PCWSTR, fdwopenflags: CRYPTCAT_OPEN_FLAGS, hprov: ULong, dwpublicversion: CRYPTCAT_VERSION, dwencodingtype: UInt): HANDLE =
-    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_CryptCATOpen(pwszfilename, fdwopenflags.toInt(), hprov.toLong(), dwpublicversion.toInt(), dwencodingtype.toInt())
+public actual fun cryptCATOpen(pwszfilename: Pcwstr, fdwopenflags: CryptcatOpenFlags, hprov: ULong, dwpublicversion: CryptcatVersion, dwencodingtype: UInt): Handle =
+    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_cryptCATOpen((pwszfilename?.value ?: 0L), fdwopenflags.toInt(), hprov.toLong(), dwpublicversion.toInt(), dwencodingtype.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CryptCATPersistStore(hcatalog: HANDLE): BOOL =
-    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_CryptCATPersistStore(hcatalog)
+public actual fun cryptCATPersistStore(hcatalog: Handle): Bool =
+    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_cryptCATPersistStore((hcatalog?.value ?: 0L))
 
-public actual fun CryptCATPutAttrInfo(hcatalog: HANDLE, pcatmember: Long, pwszreferencetag: PCWSTR, dwattrtypeandaction: UInt, cbdata: UInt, pbdata: Long): Long =
-    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_CryptCATPutAttrInfo(hcatalog, pcatmember, pwszreferencetag, dwattrtypeandaction.toInt(), cbdata.toInt(), pbdata)
+public actual fun cryptCATPutAttrInfo(hcatalog: Handle, pcatmember: COpaquePointer?, pwszreferencetag: Pcwstr, dwattrtypeandaction: UInt, cbdata: UInt, pbdata: COpaquePointer?): COpaquePointer? =
+    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_cryptCATPutAttrInfo((hcatalog?.value ?: 0L), (pcatmember?.value ?: 0L), (pwszreferencetag?.value ?: 0L), dwattrtypeandaction.toInt(), cbdata.toInt(), (pbdata?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CryptCATPutCatAttrInfo(hcatalog: HANDLE, pwszreferencetag: PCWSTR, dwattrtypeandaction: UInt, cbdata: UInt, pbdata: Long): Long =
-    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_CryptCATPutCatAttrInfo(hcatalog, pwszreferencetag, dwattrtypeandaction.toInt(), cbdata.toInt(), pbdata)
+public actual fun cryptCATPutCatAttrInfo(hcatalog: Handle, pwszreferencetag: Pcwstr, dwattrtypeandaction: UInt, cbdata: UInt, pbdata: COpaquePointer?): COpaquePointer? =
+    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_cryptCATPutCatAttrInfo((hcatalog?.value ?: 0L), (pwszreferencetag?.value ?: 0L), dwattrtypeandaction.toInt(), cbdata.toInt(), (pbdata?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CryptCATPutMemberInfo(hcatalog: HANDLE, pwszfilename: PCWSTR, pwszreferencetag: PCWSTR, pgsubjecttype: Long, dwcertversion: UInt, cbsipindirectdata: UInt, pbsipindirectdata: Long): Long =
-    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_CryptCATPutMemberInfo(hcatalog, pwszfilename, pwszreferencetag, pgsubjecttype, dwcertversion.toInt(), cbsipindirectdata.toInt(), pbsipindirectdata)
+public actual fun cryptCATPutMemberInfo(hcatalog: Handle, pwszfilename: Pcwstr, pwszreferencetag: Pcwstr, pgsubjecttype: COpaquePointer?, dwcertversion: UInt, cbsipindirectdata: UInt, pbsipindirectdata: COpaquePointer?): COpaquePointer? =
+    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_cryptCATPutMemberInfo((hcatalog?.value ?: 0L), (pwszfilename?.value ?: 0L), (pwszreferencetag?.value ?: 0L), (pgsubjecttype?.value ?: 0L), dwcertversion.toInt(), cbsipindirectdata.toInt(), (pbsipindirectdata?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CryptCATStoreFromHandle(hcatalog: HANDLE): Long =
-    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_CryptCATStoreFromHandle(hcatalog)
+public actual fun cryptCATStoreFromHandle(hcatalog: Handle): COpaquePointer? =
+    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_cryptCATStoreFromHandle((hcatalog?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun IsCatalogFile(hfile: HANDLE, pwszfilename: PCWSTR): BOOL =
-    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_IsCatalogFile(hfile, pwszfilename)
+public actual fun isCatalogFile(hfile: Handle, pwszfilename: Pcwstr): Bool =
+    WindowsWin32SecurityCryptographyCatalogJniBridge.windowssys_windows_win32_security_cryptography_catalog_isCatalogFile((hfile?.value ?: 0L), (pwszfilename?.value ?: 0L))

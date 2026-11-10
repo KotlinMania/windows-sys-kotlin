@@ -1,442 +1,444 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.wdk.system.systemservices
 
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.M128A
-import io.github.kotlinmania.windowssys.windows.win32.system.kernel.SINGLE_LIST_ENTRY
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
+import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.M128a
+import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.XsaveArea
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.SingleListEntry
 
-public data class WHEA_RECOVERY_CONTEXT_0(public var MemoryError: WHEA_RECOVERY_CONTEXT_0_0 = WHEA_RECOVERY_CONTEXT_0_0(), public var PmemError: WHEA_RECOVERY_CONTEXT_0_1 = WHEA_RECOVERY_CONTEXT_0_1())
+public data class WheaRecoveryContext0(public var memoryError: WheaRecoveryContext00 = WheaRecoveryContext00(), public var pmemError: WheaRecoveryContext01 = WheaRecoveryContext01())
 
-public data class WHEA_RECOVERY_CONTEXT_0_0(
-    public var Address: ULong = 0uL,
-    public var Consumed: Boolean = false,
-    public var ErrorCode: UShort = 0u,
-    public var ErrorIpValid: Boolean = false,
-    public var RestartIpValid: Boolean = false,
-    public var ClearPoison: Boolean = false,
+public data class WheaRecoveryContext00(
+    public var address: Int = 0,
+    public var consumed: Boolean = false,
+    public var errorCode: UShort = 0u,
+    public var errorIpValid: Boolean = false,
+    public var restartIpValid: Boolean = false,
+    public var clearPoison: Boolean = false,
 )
 
-public data class WHEA_RECOVERY_CONTEXT_0_1(public var PmemErrInfo: ULong = 0uL)
+public data class WheaRecoveryContext01(public var pmemErrInfo: Int = 0)
 
-public data class WHEA_REGISTER_KEY_NOTIFICATION_FAILED_EVENT(public var WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY = WHEA_EVENT_LOG_ENTRY())
+public data class WheaRegisterKeyNotificationFailedEvent(public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry())
 
-public data class WHEA_REPORT_HW_ERROR_DEVICE_DRIVER_FLAGS(public var Anonymous: WHEA_REPORT_HW_ERROR_DEVICE_DRIVER_FLAGS_0 = WHEA_REPORT_HW_ERROR_DEVICE_DRIVER_FLAGS_0(), public var AsULONG: UInt = 0u)
+public data class WheaReportHwErrorDeviceDriverFlags(public var anonymous: WheaReportHwErrorDeviceDriverFlags0 = WheaReportHwErrorDeviceDriverFlags0(), public var asULONG: UInt = 0u)
 
-public data class WHEA_REPORT_HW_ERROR_DEVICE_DRIVER_FLAGS_0(public var _bitfield: UInt = 0u)
+public data class WheaReportHwErrorDeviceDriverFlags0(public var bitfield: UInt = 0u)
 
-public data class WHEA_REVISION(public var Anonymous: WHEA_REVISION_0 = WHEA_REVISION_0(), public var AsUSHORT: UShort = 0u)
+public data class WheaRevision(public var anonymous: WheaRevision0 = WheaRevision0(), public var asUSHORT: UShort = 0u)
 
-public data class WHEA_REVISION_0(public var MinorRevision: UByte = 0u, public var MajorRevision: UByte = 0u)
+public data class WheaRevision0(public var minorRevision: UByte = 0u, public var majorRevision: UByte = 0u)
 
-public data class WHEA_SEA_SECTION(
-    public var Esr: UInt = 0u,
-    public var Far: ULong = 0uL,
-    public var Par: ULong = 0uL,
-    public var WasKernel: Boolean = false,
+public data class WheaSeaSection(
+    public var esr: UInt = 0u,
+    public var far: ULong = 0uL,
+    public var par: ULong = 0uL,
+    public var wasKernel: Boolean = false,
 )
 
-public data class WHEA_SEI_SECTION(public var Esr: UInt = 0u, public var Far: ULong = 0uL)
+public data class WheaSeiSection(public var esr: UInt = 0u, public var far: ULong = 0uL)
 
-public data class WHEA_SEL_BUGCHECK_PROGRESS(
-    public var WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY = WHEA_EVENT_LOG_ENTRY(),
-    public var BugCheckCode: UInt = 0u,
-    public var BugCheckProgressSummary: UInt = 0u,
+public data class WheaSelBugcheckProgress(
+    public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
+    public var bugCheckCode: UInt = 0u,
+    public var bugCheckProgressSummary: UInt = 0u,
 )
 
-public data class WHEA_SEL_BUGCHECK_RECOVERY_STATUS_MULTIPLE_BUGCHECK_EVENT(
-    public var WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY = WHEA_EVENT_LOG_ENTRY(),
-    public var IsBugcheckOwner: Boolean = false,
-    public var RecursionCount: UByte = 0u,
-    public var IsBugcheckRecoveryOwner: Boolean = false,
+public data class WheaSelBugcheckRecoveryStatusMultipleBugcheckEvent(
+    public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
+    public var isBugcheckOwner: Boolean = false,
+    public var recursionCount: UByte = 0u,
+    public var isBugcheckRecoveryOwner: Boolean = false,
 )
 
-public data class WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE1_EVENT(
-    public var WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY = WHEA_EVENT_LOG_ENTRY(),
-    public var Success: Boolean = false,
-    public var Version: UByte = 0u,
-    public var EntryCount: UShort = 0u,
-    public var Data: WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE1_EVENT_0 = WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE1_EVENT_0(),
+public data class WheaSelBugcheckRecoveryStatusPhase1Event(
+    public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
+    public var success: Boolean = false,
+    public var version: UByte = 0u,
+    public var entryCount: UShort = 0u,
+    public var data: WheaSelBugcheckRecoveryStatusPhase1Event0 = WheaSelBugcheckRecoveryStatusPhase1Event0(),
 )
 
-public data class WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE1_EVENT_0(public var DumpPolicy: UByte = 0u, public var Reserved: UByteArray = UByteArray(3)) {
+public data class WheaSelBugcheckRecoveryStatusPhase1Event0(public var dumpPolicy: UByte = 0u, public var reserved: UByteArray = UByteArray(3)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE1_EVENT_0) return false
-        if (this.DumpPolicy != other.DumpPolicy) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
+        if (other !is WheaSelBugcheckRecoveryStatusPhase1Event0) return false
+        if (this.dumpPolicy != other.dumpPolicy) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.DumpPolicy.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
+        var result = this.dumpPolicy.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
         return result
     }
 }
 
-public data class WHEA_SEL_BUGCHECK_RECOVERY_STATUS_PHASE2_EVENT(
-    public var WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY = WHEA_EVENT_LOG_ENTRY(),
-    public var BootId: UInt = 0u,
-    public var Success: Boolean = false,
+public data class WheaSelBugcheckRecoveryStatusPhase2Event(
+    public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
+    public var bootId: UInt = 0u,
+    public var success: Boolean = false,
 )
 
-public data class WHEA_SEL_BUGCHECK_RECOVERY_STATUS_START_EVENT(public var WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY = WHEA_EVENT_LOG_ENTRY(), public var StartingIrql: UByte = 0u)
+public data class WheaSelBugcheckRecoveryStatusStartEvent(public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(), public var startingIrql: UByte = 0u)
 
-public data class WHEA_SRAR_DETAIL_EVENT(
-    public var WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY = WHEA_EVENT_LOG_ENTRY(),
-    public var RecoveryContextFlags: UInt = 0u,
-    public var RecoveryContextPa: ULong = 0uL,
-    public var PageOfflineStatus: NTSTATUS = 0,
-    public var KernelConsumerError: Boolean = false,
+public data class WheaSrarDetailEvent(
+    public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
+    public var recoveryContextFlags: UInt = 0u,
+    public var recoveryContextPa: ULong = 0uL,
+    public var pageOfflineStatus: Ntstatus = 0,
+    public var kernelConsumerError: Boolean = false,
 )
 
-public data class WHEA_SRAS_TABLE_ENTRIES_EVENT(
-    public var WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY = WHEA_EVENT_LOG_ENTRY(),
-    public var LogNumber: UInt = 0u,
-    public var NumberSignals: UInt = 0u,
-    public var Data: UByteArray = UByteArray(1),
+public data class WheaSrasTableEntriesEvent(
+    public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
+    public var logNumber: UInt = 0u,
+    public var numberSignals: UInt = 0u,
+    public var data: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is WHEA_SRAS_TABLE_ENTRIES_EVENT) return false
-        if (this.WheaEventLogEntry != other.WheaEventLogEntry) return false
-        if (this.LogNumber != other.LogNumber) return false
-        if (this.NumberSignals != other.NumberSignals) return false
-        if (!this.Data.contentEquals(other.Data)) return false
+        if (other !is WheaSrasTableEntriesEvent) return false
+        if (this.wheaEventLogEntry != other.wheaEventLogEntry) return false
+        if (this.logNumber != other.logNumber) return false
+        if (this.numberSignals != other.numberSignals) return false
+        if (!this.data.contentEquals(other.data)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.WheaEventLogEntry.hashCode()
-        result = 31 * result + this.LogNumber.hashCode()
-        result = 31 * result + this.NumberSignals.hashCode()
-        result = 31 * result + this.Data.contentHashCode()
+        var result = this.wheaEventLogEntry.hashCode()
+        result = 31 * result + this.logNumber.hashCode()
+        result = 31 * result + this.numberSignals.hashCode()
+        result = 31 * result + this.data.contentHashCode()
         return result
     }
 }
 
-public data class WHEA_SRAS_TABLE_ERROR(public var WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY = WHEA_EVENT_LOG_ENTRY())
+public data class WheaSrasTableError(public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry())
 
-public data class WHEA_SRAS_TABLE_NOT_FOUND(public var WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY = WHEA_EVENT_LOG_ENTRY())
+public data class WheaSrasTableNotFound(public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry())
 
-public data class WHEA_THROTTLE_ADD_ERR_SRC_FAILED_EVENT(public var WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY = WHEA_EVENT_LOG_ENTRY())
+public data class WheaThrottleAddErrSrcFailedEvent(public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry())
 
-public data class WHEA_THROTTLE_MEMORY_ADD_OR_REMOVE_EVENT(
-    public var WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY = WHEA_EVENT_LOG_ENTRY(),
-    public var SocketId: UInt = 0u,
-    public var ChannelId: UInt = 0u,
-    public var DimmSlot: UInt = 0u,
+public data class WheaThrottleMemoryAddOrRemoveEvent(
+    public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
+    public var socketId: UInt = 0u,
+    public var channelId: UInt = 0u,
+    public var dimmSlot: UInt = 0u,
 )
 
-public data class WHEA_THROTTLE_PCIE_ADD_EVENT(
-    public var WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY = WHEA_EVENT_LOG_ENTRY(),
-    public var Address: WHEA_PCIE_ADDRESS = WHEA_PCIE_ADDRESS(),
-    public var Mask: UInt = 0u,
-    public var Updated: Boolean = false,
-    public var Status: NTSTATUS = 0,
+public data class WheaThrottlePcieAddEvent(
+    public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
+    public var address: WheaPcieAddress = WheaPcieAddress(),
+    public var mask: UInt = 0u,
+    public var updated: Boolean = false,
+    public var status: Ntstatus = 0,
 )
 
-public data class WHEA_THROTTLE_PCIE_REMOVE_EVENT(
-    public var WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY = WHEA_EVENT_LOG_ENTRY(),
-    public var Address: WHEA_PCIE_ADDRESS = WHEA_PCIE_ADDRESS(),
-    public var Mask: UInt = 0u,
+public data class WheaThrottlePcieRemoveEvent(
+    public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(),
+    public var address: WheaPcieAddress = WheaPcieAddress(),
+    public var mask: UInt = 0u,
 )
 
-public data class WHEA_THROTTLE_REGISTRY_CORRUPT_EVENT(public var WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY = WHEA_EVENT_LOG_ENTRY(), public var ThrottleType: WHEA_THROTTLE_TYPE = 0)
+public data class WheaThrottleRegistryCorruptEvent(public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(), public var throttleType: WheaThrottleType = 0)
 
-public data class WHEA_THROTTLE_REG_DATA_IGNORED_EVENT(public var WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY = WHEA_EVENT_LOG_ENTRY(), public var ThrottleType: WHEA_THROTTLE_TYPE = 0)
+public data class WheaThrottleRegDataIgnoredEvent(public var wheaEventLogEntry: WheaEventLogEntry = WheaEventLogEntry(), public var throttleType: WheaThrottleType = 0)
 
-public data class WHEA_TIMESTAMP(public var Anonymous: WHEA_TIMESTAMP_0 = WHEA_TIMESTAMP_0(), public var AsLARGE_INTEGER: Long = 0L)
+public data class WheaTimestamp(public var anonymous: WheaTimestamp0 = WheaTimestamp0(), public var asLargeInteger: Long = 0L)
 
-public data class WHEA_TIMESTAMP_0(public var _bitfield: ULong = 0uL)
+public data class WheaTimestamp0(public var bitfield: ULong = 0uL)
 
-public class WHEA_X64_REGISTER_STATE(
-    public var Rax: ULong = 0uL,
-    public var Rbx: ULong = 0uL,
-    public var Rcx: ULong = 0uL,
-    public var Rdx: ULong = 0uL,
-    public var Rsi: ULong = 0uL,
-    public var Rdi: ULong = 0uL,
-    public var Rbp: ULong = 0uL,
-    public var Rsp: ULong = 0uL,
-    public var R8: ULong = 0uL,
-    public var R9: ULong = 0uL,
-    public var R10: ULong = 0uL,
-    public var R11: ULong = 0uL,
-    public var R12: ULong = 0uL,
-    public var R13: ULong = 0uL,
-    public var R14: ULong = 0uL,
-    public var R15: ULong = 0uL,
-    public var Cs: UShort = 0u,
-    public var Ds: UShort = 0u,
-    public var Ss: UShort = 0u,
-    public var Es: UShort = 0u,
-    public var Fs: UShort = 0u,
-    public var Gs: UShort = 0u,
-    public var Reserved: UInt = 0u,
-    public var Rflags: ULong = 0uL,
-    public var Eip: ULong = 0uL,
-    public var Cr0: ULong = 0uL,
-    public var Cr1: ULong = 0uL,
-    public var Cr2: ULong = 0uL,
-    public var Cr3: ULong = 0uL,
-    public var Cr4: ULong = 0uL,
-    public var Cr8: ULong = 0uL,
-    public var Gdtr: WHEA128A = WHEA128A(),
-    public var Idtr: WHEA128A = WHEA128A(),
-    public var Ldtr: UShort = 0u,
-    public var Tr: UShort = 0u,
+public class WheaX64RegisterState(
+    public var rax: ULong = 0uL,
+    public var rbx: ULong = 0uL,
+    public var rcx: ULong = 0uL,
+    public var rdx: ULong = 0uL,
+    public var rsi: ULong = 0uL,
+    public var rdi: ULong = 0uL,
+    public var rbp: ULong = 0uL,
+    public var rsp: ULong = 0uL,
+    public var r8: ULong = 0uL,
+    public var r9: ULong = 0uL,
+    public var r10: ULong = 0uL,
+    public var r11: ULong = 0uL,
+    public var r12: ULong = 0uL,
+    public var r13: ULong = 0uL,
+    public var r14: ULong = 0uL,
+    public var r15: ULong = 0uL,
+    public var cs: UShort = 0u,
+    public var ds: UShort = 0u,
+    public var ss: UShort = 0u,
+    public var es: UShort = 0u,
+    public var fs: UShort = 0u,
+    public var gs: UShort = 0u,
+    public var reserved: UInt = 0u,
+    public var rflags: ULong = 0uL,
+    public var eip: ULong = 0uL,
+    public var cr0: ULong = 0uL,
+    public var cr1: ULong = 0uL,
+    public var cr2: ULong = 0uL,
+    public var cr3: ULong = 0uL,
+    public var cr4: ULong = 0uL,
+    public var cr8: ULong = 0uL,
+    public var gdtr: Whea128a = Whea128a(),
+    public var idtr: Whea128a = Whea128a(),
+    public var ldtr: UShort = 0u,
+    public var tr: UShort = 0u,
 )
 
-public class WHEA_X86_REGISTER_STATE(
-    public var Eax: UInt = 0u,
-    public var Ebx: UInt = 0u,
-    public var Ecx: UInt = 0u,
-    public var Edx: UInt = 0u,
-    public var Esi: UInt = 0u,
-    public var Edi: UInt = 0u,
-    public var Ebp: UInt = 0u,
-    public var Esp: UInt = 0u,
-    public var Cs: UShort = 0u,
-    public var Ds: UShort = 0u,
-    public var Ss: UShort = 0u,
-    public var Es: UShort = 0u,
-    public var Fs: UShort = 0u,
-    public var Gs: UShort = 0u,
-    public var Eflags: UInt = 0u,
-    public var Eip: UInt = 0u,
-    public var Cr0: UInt = 0u,
-    public var Cr1: UInt = 0u,
-    public var Cr2: UInt = 0u,
-    public var Cr3: UInt = 0u,
-    public var Cr4: UInt = 0u,
-    public var Gdtr: ULong = 0uL,
-    public var Idtr: ULong = 0uL,
-    public var Ldtr: UShort = 0u,
-    public var Tr: UShort = 0u,
+public class WheaX86RegisterState(
+    public var eax: UInt = 0u,
+    public var ebx: UInt = 0u,
+    public var ecx: UInt = 0u,
+    public var edx: UInt = 0u,
+    public var esi: UInt = 0u,
+    public var edi: UInt = 0u,
+    public var ebp: UInt = 0u,
+    public var esp: UInt = 0u,
+    public var cs: UShort = 0u,
+    public var ds: UShort = 0u,
+    public var ss: UShort = 0u,
+    public var es: UShort = 0u,
+    public var fs: UShort = 0u,
+    public var gs: UShort = 0u,
+    public var eflags: UInt = 0u,
+    public var eip: UInt = 0u,
+    public var cr0: UInt = 0u,
+    public var cr1: UInt = 0u,
+    public var cr2: UInt = 0u,
+    public var cr3: UInt = 0u,
+    public var cr4: UInt = 0u,
+    public var gdtr: ULong = 0uL,
+    public var idtr: ULong = 0uL,
+    public var ldtr: UShort = 0u,
+    public var tr: UShort = 0u,
 )
 
-public data class WHEA_XPF_BUS_CHECK(public var Anonymous: WHEA_XPF_BUS_CHECK_0 = WHEA_XPF_BUS_CHECK_0(), public var XpfBusCheck: ULong = 0uL)
+public data class WheaXpfBusCheck(public var anonymous: WheaXpfBusCheck0 = WheaXpfBusCheck0(), public var xpfBusCheck: ULong = 0uL)
 
-public data class WHEA_XPF_BUS_CHECK_0(public var _bitfield: ULong = 0uL)
+public data class WheaXpfBusCheck0(public var bitfield: ULong = 0uL)
 
-public data class WHEA_XPF_CACHE_CHECK(public var Anonymous: WHEA_XPF_CACHE_CHECK_0 = WHEA_XPF_CACHE_CHECK_0(), public var XpfCacheCheck: ULong = 0uL)
+public data class WheaXpfCacheCheck(public var anonymous: WheaXpfCacheCheck0 = WheaXpfCacheCheck0(), public var xpfCacheCheck: ULong = 0uL)
 
-public data class WHEA_XPF_CACHE_CHECK_0(public var _bitfield: ULong = 0uL)
+public data class WheaXpfCacheCheck0(public var bitfield: ULong = 0uL)
 
-public data class WHEA_XPF_CONTEXT_INFO(
-    public var RegisterContextType: UShort = 0u,
-    public var RegisterDataSize: UShort = 0u,
-    public var MSRAddress: UInt = 0u,
-    public var MmRegisterAddress: ULong = 0uL,
+public data class WheaXpfContextInfo(
+    public var registerContextType: UShort = 0u,
+    public var registerDataSize: UShort = 0u,
+    public var mSRAddress: UInt = 0u,
+    public var mmRegisterAddress: ULong = 0uL,
 )
 
-public data class WHEA_XPF_MCA_SECTION(
-    public var VersionNumber: UInt = 0u,
-    public var CpuVendor: WHEA_CPU_VENDOR = 0,
-    public var Timestamp: Long = 0L,
-    public var ProcessorNumber: UInt = 0u,
-    public var GlobalStatus: MCG_STATUS = MCG_STATUS(),
-    public var InstructionPointer: ULong = 0uL,
-    public var BankNumber: UInt = 0u,
-    public var Status: MCI_STATUS = MCI_STATUS(),
-    public var Address: ULong = 0uL,
-    public var Misc: ULong = 0uL,
-    public var ExtendedRegisterCount: UInt = 0u,
-    public var ApicId: UInt = 0u,
-    public var Anonymous: WHEA_XPF_MCA_SECTION_0 = WHEA_XPF_MCA_SECTION_0(),
-    public var GlobalCapability: MCG_CAP = MCG_CAP(),
-    public var RecoveryInfo: XPF_RECOVERY_INFO = XPF_RECOVERY_INFO(),
+public data class WheaXpfMcaSection(
+    public var versionNumber: UInt = 0u,
+    public var cpuVendor: WheaCpuVendor = 0,
+    public var timestamp: Long = 0L,
+    public var processorNumber: UInt = 0u,
+    public var globalStatus: McgStatus = McgStatus(),
+    public var instructionPointer: ULong = 0uL,
+    public var bankNumber: UInt = 0u,
+    public var status: MciStatus = MciStatus(),
+    public var address: ULong = 0uL,
+    public var misc: ULong = 0uL,
+    public var extendedRegisterCount: UInt = 0u,
+    public var apicId: UInt = 0u,
+    public var anonymous: WheaXpfMcaSection0 = WheaXpfMcaSection0(),
+    public var globalCapability: McgCap = McgCap(),
+    public var recoveryInfo: XpfRecoveryInfo = XpfRecoveryInfo(),
 )
 
-public data class WHEA_XPF_MCA_SECTION_0(public var ExtendedRegisters: ULongArray = ULongArray(24), public var AMDExtendedRegisters: WHEA_AMD_EXTENDED_REGISTERS = WHEA_AMD_EXTENDED_REGISTERS()) {
+public data class WheaXpfMcaSection0(public var extendedRegisters: ULongArray = ULongArray(24), public var aMDExtendedRegisters: WheaAmdExtendedRegisters = WheaAmdExtendedRegisters()) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is WHEA_XPF_MCA_SECTION_0) return false
-        if (!this.ExtendedRegisters.contentEquals(other.ExtendedRegisters)) return false
-        if (this.AMDExtendedRegisters != other.AMDExtendedRegisters) return false
+        if (other !is WheaXpfMcaSection0) return false
+        if (!this.extendedRegisters.contentEquals(other.extendedRegisters)) return false
+        if (this.aMDExtendedRegisters != other.aMDExtendedRegisters) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ExtendedRegisters.contentHashCode()
-        result = 31 * result + this.AMDExtendedRegisters.hashCode()
+        var result = this.extendedRegisters.contentHashCode()
+        result = 31 * result + this.aMDExtendedRegisters.hashCode()
         return result
     }
 }
 
-public data class WHEA_XPF_MS_CHECK(public var Anonymous: WHEA_XPF_MS_CHECK_0 = WHEA_XPF_MS_CHECK_0(), public var XpfMsCheck: ULong = 0uL)
+public data class WheaXpfMsCheck(public var anonymous: WheaXpfMsCheck0 = WheaXpfMsCheck0(), public var xpfMsCheck: ULong = 0uL)
 
-public data class WHEA_XPF_MS_CHECK_0(public var _bitfield: ULong = 0uL)
+public data class WheaXpfMsCheck0(public var bitfield: ULong = 0uL)
 
-public data class WHEA_XPF_PROCESSOR_ERROR_SECTION(
-    public var ValidBits: WHEA_XPF_PROCESSOR_ERROR_SECTION_VALIDBITS = WHEA_XPF_PROCESSOR_ERROR_SECTION_VALIDBITS(),
-    public var LocalAPICId: ULong = 0uL,
-    public var CpuId: UByteArray = UByteArray(48),
-    public var VariableInfo: UByteArray = UByteArray(1),
+public data class WheaXpfProcessorErrorSection(
+    public var validBits: WheaXpfProcessorErrorSectionValidbits = WheaXpfProcessorErrorSectionValidbits(),
+    public var localAPICId: ULong = 0uL,
+    public var cpuId: UByteArray = UByteArray(48),
+    public var variableInfo: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is WHEA_XPF_PROCESSOR_ERROR_SECTION) return false
-        if (this.ValidBits != other.ValidBits) return false
-        if (this.LocalAPICId != other.LocalAPICId) return false
-        if (!this.CpuId.contentEquals(other.CpuId)) return false
-        if (!this.VariableInfo.contentEquals(other.VariableInfo)) return false
+        if (other !is WheaXpfProcessorErrorSection) return false
+        if (this.validBits != other.validBits) return false
+        if (this.localAPICId != other.localAPICId) return false
+        if (!this.cpuId.contentEquals(other.cpuId)) return false
+        if (!this.variableInfo.contentEquals(other.variableInfo)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ValidBits.hashCode()
-        result = 31 * result + this.LocalAPICId.hashCode()
-        result = 31 * result + this.CpuId.contentHashCode()
-        result = 31 * result + this.VariableInfo.contentHashCode()
+        var result = this.validBits.hashCode()
+        result = 31 * result + this.localAPICId.hashCode()
+        result = 31 * result + this.cpuId.contentHashCode()
+        result = 31 * result + this.variableInfo.contentHashCode()
         return result
     }
 }
 
-public data class WHEA_XPF_PROCESSOR_ERROR_SECTION_VALIDBITS(public var Anonymous: WHEA_XPF_PROCESSOR_ERROR_SECTION_VALIDBITS_0 = WHEA_XPF_PROCESSOR_ERROR_SECTION_VALIDBITS_0(), public var ValidBits: ULong = 0uL)
+public data class WheaXpfProcessorErrorSectionValidbits(public var anonymous: WheaXpfProcessorErrorSectionValidbits0 = WheaXpfProcessorErrorSectionValidbits0(), public var validBits: ULong = 0uL)
 
-public data class WHEA_XPF_PROCESSOR_ERROR_SECTION_VALIDBITS_0(public var _bitfield: ULong = 0uL)
+public data class WheaXpfProcessorErrorSectionValidbits0(public var bitfield: ULong = 0uL)
 
-public data class WHEA_XPF_PROCINFO(
-    public var CheckInfoId: GUID = GUID(),
-    public var ValidBits: WHEA_XPF_PROCINFO_VALIDBITS = WHEA_XPF_PROCINFO_VALIDBITS(),
-    public var CheckInfo: WHEA_XPF_PROCINFO_0 = WHEA_XPF_PROCINFO_0(),
-    public var TargetId: ULong = 0uL,
-    public var RequesterId: ULong = 0uL,
-    public var ResponderId: ULong = 0uL,
-    public var InstructionPointer: ULong = 0uL,
+public data class WheaXpfProcinfo(
+    public var checkInfoId: Guid = Guid(),
+    public var validBits: WheaXpfProcinfoValidbits = WheaXpfProcinfoValidbits(),
+    public var checkInfo: WheaXpfProcinfo0 = WheaXpfProcinfo0(),
+    public var targetId: ULong = 0uL,
+    public var requesterId: ULong = 0uL,
+    public var responderId: ULong = 0uL,
+    public var instructionPointer: ULong = 0uL,
 )
 
-public data class WHEA_XPF_PROCINFO_0(
-    public var CacheCheck: WHEA_XPF_CACHE_CHECK = WHEA_XPF_CACHE_CHECK(),
-    public var TlbCheck: WHEA_XPF_TLB_CHECK = WHEA_XPF_TLB_CHECK(),
-    public var BusCheck: WHEA_XPF_BUS_CHECK = WHEA_XPF_BUS_CHECK(),
-    public var MsCheck: WHEA_XPF_MS_CHECK = WHEA_XPF_MS_CHECK(),
-    public var AsULONGLONG: ULong = 0uL,
+public data class WheaXpfProcinfo0(
+    public var cacheCheck: WheaXpfCacheCheck = WheaXpfCacheCheck(),
+    public var tlbCheck: WheaXpfTlbCheck = WheaXpfTlbCheck(),
+    public var busCheck: WheaXpfBusCheck = WheaXpfBusCheck(),
+    public var msCheck: WheaXpfMsCheck = WheaXpfMsCheck(),
+    public var asULONGLONG: ULong = 0uL,
 )
 
-public data class WHEA_XPF_PROCINFO_VALIDBITS(public var Anonymous: WHEA_XPF_PROCINFO_VALIDBITS_0 = WHEA_XPF_PROCINFO_VALIDBITS_0(), public var ValidBits: ULong = 0uL)
+public data class WheaXpfProcinfoValidbits(public var anonymous: WheaXpfProcinfoValidbits0 = WheaXpfProcinfoValidbits0(), public var validBits: ULong = 0uL)
 
-public data class WHEA_XPF_PROCINFO_VALIDBITS_0(public var _bitfield: ULong = 0uL)
+public data class WheaXpfProcinfoValidbits0(public var bitfield: ULong = 0uL)
 
-public data class WHEA_XPF_TLB_CHECK(public var Anonymous: WHEA_XPF_TLB_CHECK_0 = WHEA_XPF_TLB_CHECK_0(), public var XpfTLBCheck: ULong = 0uL)
+public data class WheaXpfTlbCheck(public var anonymous: WheaXpfTlbCheck0 = WheaXpfTlbCheck0(), public var xpfTLBCheck: ULong = 0uL)
 
-public data class WHEA_XPF_TLB_CHECK_0(public var _bitfield: ULong = 0uL)
+public data class WheaXpfTlbCheck0(public var bitfield: ULong = 0uL)
 
-public data class XPF_RECOVERY_INFO(
-    public var FailureReason: XPF_RECOVERY_INFO_0 = XPF_RECOVERY_INFO_0(),
-    public var Action: XPF_RECOVERY_INFO_1 = XPF_RECOVERY_INFO_1(),
-    public var ActionRequired: Boolean = false,
-    public var RecoverySucceeded: Boolean = false,
-    public var RecoveryKernel: Boolean = false,
-    public var Reserved: UByte = 0u,
-    public var Reserved2: UShort = 0u,
-    public var Reserved3: UShort = 0u,
-    public var Reserved4: UInt = 0u,
+public data class XpfRecoveryInfo(
+    public var failureReason: XpfRecoveryInfo0 = XpfRecoveryInfo0(),
+    public var action: XpfRecoveryInfo1 = XpfRecoveryInfo1(),
+    public var actionRequired: Boolean = false,
+    public var recoverySucceeded: Boolean = false,
+    public var recoveryKernel: Boolean = false,
+    public var reserved: UByte = 0u,
+    public var reserved2: UShort = 0u,
+    public var reserved3: UShort = 0u,
+    public var reserved4: UInt = 0u,
 )
 
-public data class XPF_RECOVERY_INFO_1(public var _bitfield: UInt = 0u)
+public data class XpfRecoveryInfo1(public var bitfield: UInt = 0u)
 
-public data class XPF_RECOVERY_INFO_0(public var _bitfield: UInt = 0u)
+public data class XpfRecoveryInfo0(public var bitfield: UInt = 0u)
 
-public data class XSAVE_FORMAT(
-    public var ControlWord: UShort = 0u,
-    public var StatusWord: UShort = 0u,
-    public var TagWord: UByte = 0u,
-    public var Reserved1: UByte = 0u,
-    public var ErrorOpcode: UShort = 0u,
-    public var ErrorOffset: UInt = 0u,
-    public var ErrorSelector: UShort = 0u,
-    public var Reserved2: UShort = 0u,
-    public var DataOffset: UInt = 0u,
-    public var DataSelector: UShort = 0u,
-    public var Reserved3: UShort = 0u,
-    public var MxCsr: UInt = 0u,
-    public var MxCsr_Mask: UInt = 0u,
-    public var FloatRegisters: List<M128A> = List(8) { M128A() },
-    public var XmmRegisters: List<M128A> = List(8) { M128A() },
-    public var Reserved4: UByteArray = UByteArray(224),
+public data class XsaveFormat(
+    public var controlWord: UShort = 0u,
+    public var statusWord: UShort = 0u,
+    public var tagWord: UByte = 0u,
+    public var reserved1: UByte = 0u,
+    public var errorOpcode: UShort = 0u,
+    public var errorOffset: UInt = 0u,
+    public var errorSelector: UShort = 0u,
+    public var reserved2: UShort = 0u,
+    public var dataOffset: UInt = 0u,
+    public var dataSelector: UShort = 0u,
+    public var reserved3: UShort = 0u,
+    public var mxCsr: UInt = 0u,
+    public var mxCsrMask: UInt = 0u,
+    public var floatRegisters: List<M128a> = List(8) { M128a() },
+    public var xmmRegisters: List<M128a> = List(8) { M128a() },
+    public var reserved4: UByteArray = UByteArray(224),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is XSAVE_FORMAT) return false
-        if (this.ControlWord != other.ControlWord) return false
-        if (this.StatusWord != other.StatusWord) return false
-        if (this.TagWord != other.TagWord) return false
-        if (this.Reserved1 != other.Reserved1) return false
-        if (this.ErrorOpcode != other.ErrorOpcode) return false
-        if (this.ErrorOffset != other.ErrorOffset) return false
-        if (this.ErrorSelector != other.ErrorSelector) return false
-        if (this.Reserved2 != other.Reserved2) return false
-        if (this.DataOffset != other.DataOffset) return false
-        if (this.DataSelector != other.DataSelector) return false
-        if (this.Reserved3 != other.Reserved3) return false
-        if (this.MxCsr != other.MxCsr) return false
-        if (this.MxCsr_Mask != other.MxCsr_Mask) return false
-        if (this.FloatRegisters != other.FloatRegisters) return false
-        if (this.XmmRegisters != other.XmmRegisters) return false
-        if (!this.Reserved4.contentEquals(other.Reserved4)) return false
+        if (other !is XsaveFormat) return false
+        if (this.controlWord != other.controlWord) return false
+        if (this.statusWord != other.statusWord) return false
+        if (this.tagWord != other.tagWord) return false
+        if (this.reserved1 != other.reserved1) return false
+        if (this.errorOpcode != other.errorOpcode) return false
+        if (this.errorOffset != other.errorOffset) return false
+        if (this.errorSelector != other.errorSelector) return false
+        if (this.reserved2 != other.reserved2) return false
+        if (this.dataOffset != other.dataOffset) return false
+        if (this.dataSelector != other.dataSelector) return false
+        if (this.reserved3 != other.reserved3) return false
+        if (this.mxCsr != other.mxCsr) return false
+        if (this.mxCsrMask != other.mxCsrMask) return false
+        if (this.floatRegisters != other.floatRegisters) return false
+        if (this.xmmRegisters != other.xmmRegisters) return false
+        if (!this.reserved4.contentEquals(other.reserved4)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ControlWord.hashCode()
-        result = 31 * result + this.StatusWord.hashCode()
-        result = 31 * result + this.TagWord.hashCode()
-        result = 31 * result + this.Reserved1.hashCode()
-        result = 31 * result + this.ErrorOpcode.hashCode()
-        result = 31 * result + this.ErrorOffset.hashCode()
-        result = 31 * result + this.ErrorSelector.hashCode()
-        result = 31 * result + this.Reserved2.hashCode()
-        result = 31 * result + this.DataOffset.hashCode()
-        result = 31 * result + this.DataSelector.hashCode()
-        result = 31 * result + this.Reserved3.hashCode()
-        result = 31 * result + this.MxCsr.hashCode()
-        result = 31 * result + this.MxCsr_Mask.hashCode()
-        result = 31 * result + this.FloatRegisters.hashCode()
-        result = 31 * result + this.XmmRegisters.hashCode()
-        result = 31 * result + this.Reserved4.contentHashCode()
+        var result = this.controlWord.hashCode()
+        result = 31 * result + this.statusWord.hashCode()
+        result = 31 * result + this.tagWord.hashCode()
+        result = 31 * result + this.reserved1.hashCode()
+        result = 31 * result + this.errorOpcode.hashCode()
+        result = 31 * result + this.errorOffset.hashCode()
+        result = 31 * result + this.errorSelector.hashCode()
+        result = 31 * result + this.reserved2.hashCode()
+        result = 31 * result + this.dataOffset.hashCode()
+        result = 31 * result + this.dataSelector.hashCode()
+        result = 31 * result + this.reserved3.hashCode()
+        result = 31 * result + this.mxCsr.hashCode()
+        result = 31 * result + this.mxCsrMask.hashCode()
+        result = 31 * result + this.floatRegisters.hashCode()
+        result = 31 * result + this.xmmRegisters.hashCode()
+        result = 31 * result + this.reserved4.contentHashCode()
         return result
     }
 }
 
-public data class XSTATE_CONTEXT(
-    public var Mask: ULong = 0uL,
-    public var Length: UInt = 0u,
-    public var Reserved1: UInt = 0u,
-    public var Area: Long = 0L,
-    public var Reserved2: UInt = 0u,
-    public var Buffer: Long = 0L,
-    public var Reserved3: UInt = 0u,
+public data class XstateContext(
+    public var mask: ULong = 0uL,
+    public var length: UInt = 0u,
+    public var reserved1: UInt = 0u,
+    public var area: XsaveArea? = null,
+    public var reserved2: UInt = 0u,
+    public var buffer: COpaquePointer? = null,
+    public var reserved3: UInt = 0u,
 )
 
-public data class XSTATE_SAVE(public var Anonymous: XSTATE_SAVE_0 = XSTATE_SAVE_0())
+public data class XstateSave(public var anonymous: XstateSave0 = XstateSave0())
 
-public data class XSTATE_SAVE_0(public var Anonymous: XSTATE_SAVE_0_0 = XSTATE_SAVE_0_0(), public var XStateContext: XSTATE_CONTEXT = XSTATE_CONTEXT())
+public data class XstateSave0(public var anonymous: XstateSave00 = XstateSave00(), public var xStateContext: XstateContext = XstateContext())
 
-public data class XSTATE_SAVE_0_0(
-    public var Reserved1: Long = 0L,
-    public var Reserved2: UInt = 0u,
-    public var Prev: Long = 0L,
-    public var Reserved3: Long = 0L,
-    public var Thread: Long = 0L,
-    public var Reserved4: Long = 0L,
-    public var Level: UByte = 0u,
+public data class XstateSave00(
+    public var reserved1: Long = 0L,
+    public var reserved2: UInt = 0u,
+    public var prev: XstateSave? = null,
+    public var reserved3: XsaveArea? = null,
+    public var thread: Int? = null,
+    public var reserved4: COpaquePointer? = null,
+    public var level: UByte = 0u,
 )
 
-public data class ZONE_HEADER(
-    public var FreeList: SINGLE_LIST_ENTRY = SINGLE_LIST_ENTRY(),
-    public var SegmentList: SINGLE_LIST_ENTRY = SINGLE_LIST_ENTRY(),
-    public var BlockSize: UInt = 0u,
-    public var TotalSegmentSize: UInt = 0u,
+public data class ZoneHeader(
+    public var freeList: SingleListEntry = SingleListEntry(),
+    public var segmentList: SingleListEntry = SingleListEntry(),
+    public var blockSize: UInt = 0u,
+    public var totalSegmentSize: UInt = 0u,
 )
 
-public data class ZONE_SEGMENT_HEADER(public var SegmentList: SINGLE_LIST_ENTRY = SINGLE_LIST_ENTRY(), public var Reserved: Long = 0L)
+public data class ZoneSegmentHeader(public var segmentList: SingleListEntry = SingleListEntry(), public var reserved: COpaquePointer? = null)
 
-public data class _EXT_SET_PARAMETERS_V0(
-    public var Version: UInt = 0u,
-    public var Reserved: UInt = 0u,
-    public var NoWakeTolerance: Long = 0L,
+public data class ExtSetParametersV0(
+    public var version: UInt = 0u,
+    public var reserved: UInt = 0u,
+    public var noWakeTolerance: Long = 0L,
 )

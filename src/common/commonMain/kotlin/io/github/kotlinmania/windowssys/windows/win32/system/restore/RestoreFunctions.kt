@@ -1,9 +1,10 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.restore
 
-import io.github.kotlinmania.windowssys.core.BOOL
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
 
-public expect fun SRRemoveRestorePoint(dwrpnum: UInt): UInt
+public expect fun sRRemoveRestorePoint(dwrpnum: UInt): UInt
 
-public expect fun SRSetRestorePointA(prestoreptspec: Long, psmgrstatus: Long): BOOL
+public expect fun sRSetRestorePointA(prestoreptspec: COpaquePointer?, psmgrstatus: COpaquePointer?): Bool
 
-public expect fun SRSetRestorePointW(prestoreptspec: Long, psmgrstatus: Long): BOOL
+public expect fun sRSetRestorePointW(prestoreptspec: COpaquePointer?, psmgrstatus: COpaquePointer?): Bool

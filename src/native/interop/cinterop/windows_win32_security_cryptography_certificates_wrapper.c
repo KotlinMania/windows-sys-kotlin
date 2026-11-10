@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_security_cryptography_certificates_CertSrvBackupClose(void* hbc) {
+int32_t windowssys_windows_win32_security_cryptography_certificates_certSrvBackupClose(void* hbc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ int32_t windowssys_windows_win32_security_cryptography_certificates_CertSrvBacku
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_certificates_CertSrvBackupEnd(void* hbc) {
+int32_t windowssys_windows_win32_security_cryptography_certificates_certSrvBackupEnd(void* hbc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -59,7 +59,7 @@ int32_t windowssys_windows_win32_security_cryptography_certificates_CertSrvBacku
 #endif
 }
 
-void windowssys_windows_win32_security_cryptography_certificates_CertSrvBackupFree(void* pv) {
+void windowssys_windows_win32_security_cryptography_certificates_certSrvBackupFree(void* pv) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -80,7 +80,7 @@ void windowssys_windows_win32_security_cryptography_certificates_CertSrvBackupFr
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_certificates_CertSrvBackupGetBackupLogsW(void* hbc, void* ppwszzbackuplogfiles, void* pcbsize) {
+int32_t windowssys_windows_win32_security_cryptography_certificates_certSrvBackupGetBackupLogsW(void* hbc, void* ppwszzbackuplogfiles, void* pcbsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -104,7 +104,7 @@ int32_t windowssys_windows_win32_security_cryptography_certificates_CertSrvBacku
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_certificates_CertSrvBackupGetDatabaseNamesW(void* hbc, void* ppwszzattachmentinformation, void* pcbsize) {
+int32_t windowssys_windows_win32_security_cryptography_certificates_certSrvBackupGetDatabaseNamesW(void* hbc, void* ppwszzattachmentinformation, void* pcbsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -128,7 +128,7 @@ int32_t windowssys_windows_win32_security_cryptography_certificates_CertSrvBacku
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_certificates_CertSrvBackupGetDynamicFileListW(void* hbc, void* ppwszzfilelist, void* pcbsize) {
+int32_t windowssys_windows_win32_security_cryptography_certificates_certSrvBackupGetDynamicFileListW(void* hbc, void* ppwszzfilelist, void* pcbsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -152,7 +152,7 @@ int32_t windowssys_windows_win32_security_cryptography_certificates_CertSrvBacku
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_certificates_CertSrvBackupOpenFileW(void* hbc, void* pwszattachmentname, uint32_t cbreadhintsize, void* plifilesize) {
+int32_t windowssys_windows_win32_security_cryptography_certificates_certSrvBackupOpenFileW(void* hbc, void* pwszattachmentname, uint32_t cbreadhintsize, void* plifilesize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -177,7 +177,7 @@ int32_t windowssys_windows_win32_security_cryptography_certificates_CertSrvBacku
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_certificates_CertSrvBackupPrepareW(void* pwszservername, uint32_t grbitjet, uint32_t dwbackupflags, void* phbc) {
+int32_t windowssys_windows_win32_security_cryptography_certificates_certSrvBackupPrepareW(void* pwszservername, uint32_t grbitjet, uint32_t dwbackupflags, void* phbc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -202,7 +202,7 @@ int32_t windowssys_windows_win32_security_cryptography_certificates_CertSrvBacku
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_certificates_CertSrvBackupRead(void* hbc, void* pvbuffer, uint32_t cbbuffer, void* pcbread) {
+int32_t windowssys_windows_win32_security_cryptography_certificates_certSrvBackupRead(void* hbc, void* pvbuffer, uint32_t cbbuffer, void* pcbread) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -227,7 +227,7 @@ int32_t windowssys_windows_win32_security_cryptography_certificates_CertSrvBacku
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_certificates_CertSrvBackupTruncateLogs(void* hbc) {
+int32_t windowssys_windows_win32_security_cryptography_certificates_certSrvBackupTruncateLogs(void* hbc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -249,7 +249,7 @@ int32_t windowssys_windows_win32_security_cryptography_certificates_CertSrvBacku
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_certificates_CertSrvIsServerOnlineW(void* pwszservername, void* pfserveronline) {
+int32_t windowssys_windows_win32_security_cryptography_certificates_certSrvIsServerOnlineW(void* pwszservername, void* pfserveronline) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -272,7 +272,7 @@ int32_t windowssys_windows_win32_security_cryptography_certificates_CertSrvIsSer
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_certificates_CertSrvRestoreEnd(void* hbc) {
+int32_t windowssys_windows_win32_security_cryptography_certificates_certSrvRestoreEnd(void* hbc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -294,7 +294,7 @@ int32_t windowssys_windows_win32_security_cryptography_certificates_CertSrvResto
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_certificates_CertSrvRestoreGetDatabaseLocationsW(void* hbc, void* ppwszzdatabaselocationlist, void* pcbsize) {
+int32_t windowssys_windows_win32_security_cryptography_certificates_certSrvRestoreGetDatabaseLocationsW(void* hbc, void* ppwszzdatabaselocationlist, void* pcbsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -318,7 +318,7 @@ int32_t windowssys_windows_win32_security_cryptography_certificates_CertSrvResto
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_certificates_CertSrvRestorePrepareW(void* pwszservername, uint32_t dwrestoreflags, void* phbc) {
+int32_t windowssys_windows_win32_security_cryptography_certificates_certSrvRestorePrepareW(void* pwszservername, uint32_t dwrestoreflags, void* phbc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -342,7 +342,7 @@ int32_t windowssys_windows_win32_security_cryptography_certificates_CertSrvResto
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_certificates_CertSrvRestoreRegisterComplete(void* hbc, int32_t hrrestorestate) {
+int32_t windowssys_windows_win32_security_cryptography_certificates_certSrvRestoreRegisterComplete(void* hbc, int32_t hrrestorestate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -365,7 +365,7 @@ int32_t windowssys_windows_win32_security_cryptography_certificates_CertSrvResto
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_certificates_CertSrvRestoreRegisterThroughFile(void* hbc, void* pwszcheckpointfilepath, void* pwszlogpath, void* rgrstmap, int32_t crstmap, void* pwszbackuplogpath, uint32_t genlow, uint32_t genhigh) {
+int32_t windowssys_windows_win32_security_cryptography_certificates_certSrvRestoreRegisterThroughFile(void* hbc, void* pwszcheckpointfilepath, void* pwszlogpath, void* rgrstmap, int32_t crstmap, void* pwszbackuplogpath, uint32_t genlow, uint32_t genhigh) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -394,7 +394,7 @@ int32_t windowssys_windows_win32_security_cryptography_certificates_CertSrvResto
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_certificates_CertSrvRestoreRegisterW(void* hbc, void* pwszcheckpointfilepath, void* pwszlogpath, void* rgrstmap, int32_t crstmap, void* pwszbackuplogpath, uint32_t genlow, uint32_t genhigh) {
+int32_t windowssys_windows_win32_security_cryptography_certificates_certSrvRestoreRegisterW(void* hbc, void* pwszcheckpointfilepath, void* pwszlogpath, void* rgrstmap, int32_t crstmap, void* pwszbackuplogpath, uint32_t genlow, uint32_t genhigh) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -423,7 +423,7 @@ int32_t windowssys_windows_win32_security_cryptography_certificates_CertSrvResto
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_certificates_CertSrvServerControlW(void* pwszservername, uint32_t dwcontrolflags, void* pcbout, void* ppbout) {
+int32_t windowssys_windows_win32_security_cryptography_certificates_certSrvServerControlW(void* pwszservername, uint32_t dwcontrolflags, void* pcbout, void* ppbout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -448,7 +448,7 @@ int32_t windowssys_windows_win32_security_cryptography_certificates_CertSrvServe
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_certificates_PstAcquirePrivateKey(void* pcert) {
+int32_t windowssys_windows_win32_security_cryptography_certificates_pstAcquirePrivateKey(void* pcert) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -470,7 +470,7 @@ int32_t windowssys_windows_win32_security_cryptography_certificates_PstAcquirePr
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_certificates_PstGetCertificateChain(void* pcert, void* ptrustedissuers, void* ppcertchaincontext) {
+int32_t windowssys_windows_win32_security_cryptography_certificates_pstGetCertificateChain(void* pcert, void* ptrustedissuers, void* ppcertchaincontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -494,7 +494,7 @@ int32_t windowssys_windows_win32_security_cryptography_certificates_PstGetCertif
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_certificates_PstGetCertificates(void* ptargetname, uint32_t ccriteria, void* rgpcriteria, int32_t bisclient, void* pdwcertchaincontextcount, void* ppcertchaincontexts) {
+int32_t windowssys_windows_win32_security_cryptography_certificates_pstGetCertificates(void* ptargetname, uint32_t ccriteria, void* rgpcriteria, int32_t bisclient, void* pdwcertchaincontextcount, void* ppcertchaincontexts) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -521,7 +521,7 @@ int32_t windowssys_windows_win32_security_cryptography_certificates_PstGetCertif
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_certificates_PstGetTrustAnchors(void* ptargetname, uint32_t ccriteria, void* rgpcriteria, void* pptrustedissuers) {
+int32_t windowssys_windows_win32_security_cryptography_certificates_pstGetTrustAnchors(void* ptargetname, uint32_t ccriteria, void* rgpcriteria, void* pptrustedissuers) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -546,7 +546,7 @@ int32_t windowssys_windows_win32_security_cryptography_certificates_PstGetTrustA
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_certificates_PstGetTrustAnchorsEx(void* ptargetname, uint32_t ccriteria, void* rgpcriteria, void* pcertcontext, void* pptrustedissuers) {
+int32_t windowssys_windows_win32_security_cryptography_certificates_pstGetTrustAnchorsEx(void* ptargetname, uint32_t ccriteria, void* rgpcriteria, void* pcertcontext, void* pptrustedissuers) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -572,7 +572,7 @@ int32_t windowssys_windows_win32_security_cryptography_certificates_PstGetTrustA
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_certificates_PstGetUserNameForCertificate(void* pcertcontext, void* username) {
+int32_t windowssys_windows_win32_security_cryptography_certificates_pstGetUserNameForCertificate(void* pcertcontext, void* username) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -595,7 +595,7 @@ int32_t windowssys_windows_win32_security_cryptography_certificates_PstGetUserNa
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_certificates_PstMapCertificate(void* pcert, void* ptokeninformationtype, void* pptokeninformation) {
+int32_t windowssys_windows_win32_security_cryptography_certificates_pstMapCertificate(void* pcert, void* ptokeninformationtype, void* pptokeninformation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -619,7 +619,7 @@ int32_t windowssys_windows_win32_security_cryptography_certificates_PstMapCertif
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_certificates_PstValidate(void* ptargetname, int32_t bisclient, void* prequestedissuancepolicy, void* phadditionalcertstore, void* pcert, void* pprovguid) {
+int32_t windowssys_windows_win32_security_cryptography_certificates_pstValidate(void* ptargetname, int32_t bisclient, void* prequestedissuancepolicy, void* phadditionalcertstore, void* pcert, void* pprovguid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

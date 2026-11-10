@@ -1,7 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.minifilters
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
+import io.github.kotlinmania.windowssys.core.Guid
 
 public val FLTFL_CALLBACK_DATA_DIRTY: UInt = 2147483648u
 
@@ -129,25 +129,25 @@ public val FLT_MAX_DEVICE_REPARSE_ATTEMPTS: UInt = 64u
 
 public val FLT_PORT_CONNECT: UInt = 1u
 
-public val FLT_POSTOP_DISALLOW_FSFILTER_IO: FLT_POSTOP_CALLBACK_STATUS = 2
+public val FLT_POSTOP_DISALLOW_FSFILTER_IO: FltPostopCallbackStatus = 2
 
-public val FLT_POSTOP_FINISHED_PROCESSING: FLT_POSTOP_CALLBACK_STATUS = 0
+public val FLT_POSTOP_FINISHED_PROCESSING: FltPostopCallbackStatus = 0
 
-public val FLT_POSTOP_MORE_PROCESSING_REQUIRED: FLT_POSTOP_CALLBACK_STATUS = 1
+public val FLT_POSTOP_MORE_PROCESSING_REQUIRED: FltPostopCallbackStatus = 1
 
-public val FLT_PREOP_COMPLETE: FLT_PREOP_CALLBACK_STATUS = 4
+public val FLT_PREOP_COMPLETE: FltPreopCallbackStatus = 4
 
-public val FLT_PREOP_DISALLOW_FASTIO: FLT_PREOP_CALLBACK_STATUS = 3
+public val FLT_PREOP_DISALLOW_FASTIO: FltPreopCallbackStatus = 3
 
-public val FLT_PREOP_DISALLOW_FSFILTER_IO: FLT_PREOP_CALLBACK_STATUS = 6
+public val FLT_PREOP_DISALLOW_FSFILTER_IO: FltPreopCallbackStatus = 6
 
-public val FLT_PREOP_PENDING: FLT_PREOP_CALLBACK_STATUS = 2
+public val FLT_PREOP_PENDING: FltPreopCallbackStatus = 2
 
-public val FLT_PREOP_SUCCESS_NO_CALLBACK: FLT_PREOP_CALLBACK_STATUS = 1
+public val FLT_PREOP_SUCCESS_NO_CALLBACK: FltPreopCallbackStatus = 1
 
-public val FLT_PREOP_SUCCESS_WITH_CALLBACK: FLT_PREOP_CALLBACK_STATUS = 0
+public val FLT_PREOP_SUCCESS_WITH_CALLBACK: FltPreopCallbackStatus = 0
 
-public val FLT_PREOP_SYNCHRONIZE: FLT_PREOP_CALLBACK_STATUS = 5
+public val FLT_PREOP_SYNCHRONIZE: FltPreopCallbackStatus = 5
 
 public val FLT_PUSH_LOCK_DISABLE_AUTO_BOOST: UInt = 2u
 
@@ -167,9 +167,9 @@ public val FLT_REGISTRATION_VERSION_0203: UInt = 515u
 
 public val FLT_SECTION_CONTEXT: UInt = 64u
 
-public val FLT_SET_CONTEXT_KEEP_IF_EXISTS: FLT_SET_CONTEXT_OPERATION = 1
+public val FLT_SET_CONTEXT_KEEP_IF_EXISTS: FltSetContextOperation = 1
 
-public val FLT_SET_CONTEXT_REPLACE_IF_EXISTS: FLT_SET_CONTEXT_OPERATION = 0
+public val FLT_SET_CONTEXT_REPLACE_IF_EXISTS: FltSetContextOperation = 0
 
 public val FLT_STREAMHANDLE_CONTEXT: UInt = 16u
 
@@ -185,38 +185,38 @@ public val FLT_VALID_FILE_NAME_QUERY_METHODS: UInt = 65280u
 
 public val FLT_VOLUME_CONTEXT: UInt = 1u
 
-public val GUID_ECP_FLT_CREATEFILE_TARGET: GUID = GUID.from_u128(U128(0xce08041df411447fuL, 0xb70dccee45c23facuL))
+public val GUID_ECP_FLT_CREATEFILE_TARGET: Guid = Guid.fromU128(U128(0xce08041df411447fuL, 0xb70dccee45c23facuL))
 
-public val IRP_MJ_ACQUIRE_FOR_CC_FLUSH: UShort = 65531u
+public val IRP_MJ_ACQUIRE_FOR_CC_FLUSH: UShort = 65531u.toUShort()
 
-public val IRP_MJ_ACQUIRE_FOR_MOD_WRITE: UShort = 65533u
+public val IRP_MJ_ACQUIRE_FOR_MOD_WRITE: UShort = 65533u.toUShort()
 
-public val IRP_MJ_ACQUIRE_FOR_SECTION_SYNCHRONIZATION: UShort = 65535u
+public val IRP_MJ_ACQUIRE_FOR_SECTION_SYNCHRONIZATION: UShort = 65535u.toUShort()
 
-public val IRP_MJ_FAST_IO_CHECK_IF_POSSIBLE: UShort = 65523u
+public val IRP_MJ_FAST_IO_CHECK_IF_POSSIBLE: UShort = 65523u.toUShort()
 
-public val IRP_MJ_MDL_READ: UShort = 65521u
+public val IRP_MJ_MDL_READ: UShort = 65521u.toUShort()
 
-public val IRP_MJ_MDL_READ_COMPLETE: UShort = 65520u
+public val IRP_MJ_MDL_READ_COMPLETE: UShort = 65520u.toUShort()
 
-public val IRP_MJ_MDL_WRITE_COMPLETE: UShort = 65518u
+public val IRP_MJ_MDL_WRITE_COMPLETE: UShort = 65518u.toUShort()
 
-public val IRP_MJ_NETWORK_QUERY_OPEN: UShort = 65522u
+public val IRP_MJ_NETWORK_QUERY_OPEN: UShort = 65522u.toUShort()
 
-public val IRP_MJ_OPERATION_END: UShort = 128u
+public val IRP_MJ_OPERATION_END: UShort = 128u.toUShort()
 
-public val IRP_MJ_PREPARE_MDL_WRITE: UShort = 65519u
+public val IRP_MJ_PREPARE_MDL_WRITE: UShort = 65519u.toUShort()
 
-public val IRP_MJ_QUERY_OPEN: UShort = 65529u
+public val IRP_MJ_QUERY_OPEN: UShort = 65529u.toUShort()
 
-public val IRP_MJ_RELEASE_FOR_CC_FLUSH: UShort = 65530u
+public val IRP_MJ_RELEASE_FOR_CC_FLUSH: UShort = 65530u.toUShort()
 
-public val IRP_MJ_RELEASE_FOR_MOD_WRITE: UShort = 65532u
+public val IRP_MJ_RELEASE_FOR_MOD_WRITE: UShort = 65532u.toUShort()
 
-public val IRP_MJ_RELEASE_FOR_SECTION_SYNCHRONIZATION: UShort = 65534u
+public val IRP_MJ_RELEASE_FOR_SECTION_SYNCHRONIZATION: UShort = 65534u.toUShort()
 
-public val IRP_MJ_VOLUME_DISMOUNT: UShort = 65516u
+public val IRP_MJ_VOLUME_DISMOUNT: UShort = 65516u.toUShort()
 
-public val IRP_MJ_VOLUME_MOUNT: UShort = 65517u
+public val IRP_MJ_VOLUME_MOUNT: UShort = 65517u.toUShort()
 
 public val VOL_PROP_FL_DAX_VOLUME: UInt = 1u

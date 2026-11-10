@@ -1,90 +1,91 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.system.dataexchange
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HMETAFILE
-import io.github.kotlinmania.windowssys.windows.win32.security.SECURITY_QUALITY_OF_SERVICE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hmetafile
+import io.github.kotlinmania.windowssys.windows.win32.security.SecurityQualityOfService
 
-public data class CONVCONTEXT(
+public data class Convcontext(
     public var cb: UInt = 0u,
     public var wFlags: UInt = 0u,
     public var wCountryID: UInt = 0u,
     public var iCodePage: Int = 0,
     public var dwLangID: UInt = 0u,
     public var dwSecurity: UInt = 0u,
-    public var qos: SECURITY_QUALITY_OF_SERVICE = SECURITY_QUALITY_OF_SERVICE(),
+    public var qos: SecurityQualityOfService = SecurityQualityOfService(),
 )
 
-public data class CONVINFO(
+public data class Convinfo(
     public var cb: UInt = 0u,
-    public var hUser: ULong = 0uL,
-    public var hConvPartner: HCONV = 0L,
-    public var hszSvcPartner: HSZ = 0L,
-    public var hszServiceReq: HSZ = 0L,
-    public var hszTopic: HSZ = 0L,
-    public var hszItem: HSZ = 0L,
+    public var hUser: Int = 0,
+    public var hConvPartner: Hconv = null,
+    public var hszSvcPartner: Hsz = null,
+    public var hszServiceReq: Hsz = null,
+    public var hszTopic: Hsz = null,
+    public var hszItem: Hsz = null,
     public var wFmt: UInt = 0u,
-    public var wType: DDE_CLIENT_TRANSACTION_TYPE = 0u,
-    public var wStatus: CONVINFO_STATUS = 0u,
-    public var wConvst: CONVINFO_CONVERSATION_STATE = 0u,
+    public var wType: DdeClientTransactionType = 0u,
+    public var wStatus: ConvinfoStatus = 0u,
+    public var wConvst: ConvinfoConversationState = 0u,
     public var wLastError: UInt = 0u,
-    public var hConvList: HCONVLIST = 0L,
-    public var ConvCtxt: CONVCONTEXT = CONVCONTEXT(),
-    public var hwnd: HWND = 0L,
-    public var hwndPartner: HWND = 0L,
+    public var hConvList: Hconvlist = null,
+    public var convCtxt: Convcontext = Convcontext(),
+    public var hwnd: Hwnd = null,
+    public var hwndPartner: Hwnd = null,
 )
 
-public data class COPYDATASTRUCT(
-    public var dwData: ULong = 0uL,
+public data class Copydatastruct(
+    public var dwData: Int = 0,
     public var cbData: UInt = 0u,
-    public var lpData: Long = 0L,
+    public var lpData: COpaquePointer? = null,
 )
 
-public data class DDEACK(public var _bitfield: UShort = 0u)
+public data class Ddeack(public var bitfield: UShort = 0u)
 
-public data class DDEADVISE(public var _bitfield: UShort = 0u, public var cfFormat: Short = 0)
+public data class Ddeadvise(public var bitfield: UShort = 0u, public var cfFormat: Short = 0)
 
-public data class DDEDATA(
-    public var _bitfield: UShort = 0u,
+public data class Ddedata(
+    public var bitfield: UShort = 0u,
     public var cfFormat: Short = 0,
-    public var Value: UByteArray = UByteArray(1),
+    public var value: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DDEDATA) return false
-        if (this._bitfield != other._bitfield) return false
+        if (other !is Ddedata) return false
+        if (this.bitfield != other.bitfield) return false
         if (this.cfFormat != other.cfFormat) return false
-        if (!this.Value.contentEquals(other.Value)) return false
+        if (!this.value.contentEquals(other.value)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this._bitfield.hashCode()
+        var result = this.bitfield.hashCode()
         result = 31 * result + this.cfFormat.hashCode()
-        result = 31 * result + this.Value.contentHashCode()
+        result = 31 * result + this.value.contentHashCode()
         return result
     }
 }
 
-public data class DDELN(public var _bitfield: UShort = 0u, public var cfFormat: Short = 0)
+public data class Ddeln(public var bitfield: UShort = 0u, public var cfFormat: Short = 0)
 
-public data class DDEML_MSG_HOOK_DATA(
-    public var uiLo: ULong = 0uL,
-    public var uiHi: ULong = 0uL,
+public data class DdemlMsgHookData(
+    public var uiLo: Int = 0,
+    public var uiHi: Int = 0,
     public var cbData: UInt = 0u,
-    public var Data: UIntArray = UIntArray(8),
+    public var data: UIntArray = UIntArray(8),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DDEML_MSG_HOOK_DATA) return false
+        if (other !is DdemlMsgHookData) return false
         if (this.uiLo != other.uiLo) return false
         if (this.uiHi != other.uiHi) return false
         if (this.cbData != other.cbData) return false
-        if (!this.Data.contentEquals(other.Data)) return false
+        if (!this.data.contentEquals(other.data)) return false
         return true
     }
 
@@ -92,84 +93,84 @@ public data class DDEML_MSG_HOOK_DATA(
         var result = this.uiLo.hashCode()
         result = 31 * result + this.uiHi.hashCode()
         result = 31 * result + this.cbData.hashCode()
-        result = 31 * result + this.Data.contentHashCode()
+        result = 31 * result + this.data.contentHashCode()
         return result
     }
 }
 
-public data class DDEPOKE(
-    public var _bitfield: UShort = 0u,
+public data class Ddepoke(
+    public var bitfield: UShort = 0u,
     public var cfFormat: Short = 0,
-    public var Value: UByteArray = UByteArray(1),
+    public var value: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DDEPOKE) return false
-        if (this._bitfield != other._bitfield) return false
+        if (other !is Ddepoke) return false
+        if (this.bitfield != other.bitfield) return false
         if (this.cfFormat != other.cfFormat) return false
-        if (!this.Value.contentEquals(other.Value)) return false
+        if (!this.value.contentEquals(other.value)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this._bitfield.hashCode()
+        var result = this.bitfield.hashCode()
         result = 31 * result + this.cfFormat.hashCode()
-        result = 31 * result + this.Value.contentHashCode()
+        result = 31 * result + this.value.contentHashCode()
         return result
     }
 }
 
-public data class DDEUP(
-    public var _bitfield: UShort = 0u,
+public data class Ddeup(
+    public var bitfield: UShort = 0u,
     public var cfFormat: Short = 0,
     public var rgb: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DDEUP) return false
-        if (this._bitfield != other._bitfield) return false
+        if (other !is Ddeup) return false
+        if (this.bitfield != other.bitfield) return false
         if (this.cfFormat != other.cfFormat) return false
         if (!this.rgb.contentEquals(other.rgb)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this._bitfield.hashCode()
+        var result = this.bitfield.hashCode()
         result = 31 * result + this.cfFormat.hashCode()
         result = 31 * result + this.rgb.contentHashCode()
         return result
     }
 }
 
-public data class HSZPAIR(public var hszSvc: HSZ = 0L, public var hszTopic: HSZ = 0L)
+public data class Hszpair(public var hszSvc: Hsz = null, public var hszTopic: Hsz = null)
 
-public data class METAFILEPICT(
+public data class Metafilepict(
     public var mm: Int = 0,
     public var xExt: Int = 0,
     public var yExt: Int = 0,
-    public var hMF: HMETAFILE = 0L,
+    public var hMF: Hmetafile = null,
 )
 
-public data class MONCBSTRUCT(
+public data class Moncbstruct(
     public var cb: UInt = 0u,
     public var dwTime: UInt = 0u,
-    public var hTask: HANDLE = 0L,
+    public var hTask: Handle = null,
     public var dwRet: UInt = 0u,
     public var wType: UInt = 0u,
     public var wFmt: UInt = 0u,
-    public var hConv: HCONV = 0L,
-    public var hsz1: HSZ = 0L,
-    public var hsz2: HSZ = 0L,
-    public var hData: HDDEDATA = 0L,
-    public var dwData1: ULong = 0uL,
-    public var dwData2: ULong = 0uL,
-    public var cc: CONVCONTEXT = CONVCONTEXT(),
+    public var hConv: Hconv = null,
+    public var hsz1: Hsz = null,
+    public var hsz2: Hsz = null,
+    public var hData: Hddedata = null,
+    public var dwData1: Int = 0,
+    public var dwData2: Int = 0,
+    public var cc: Convcontext = Convcontext(),
     public var cbData: UInt = 0u,
-    public var Data: UIntArray = UIntArray(8),
+    public var data: UIntArray = UIntArray(8),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MONCBSTRUCT) return false
+        if (other !is Moncbstruct) return false
         if (this.cb != other.cb) return false
         if (this.dwTime != other.dwTime) return false
         if (this.hTask != other.hTask) return false
@@ -184,7 +185,7 @@ public data class MONCBSTRUCT(
         if (this.dwData2 != other.dwData2) return false
         if (this.cc != other.cc) return false
         if (this.cbData != other.cbData) return false
-        if (!this.Data.contentEquals(other.Data)) return false
+        if (!this.data.contentEquals(other.data)) return false
         return true
     }
 
@@ -203,40 +204,40 @@ public data class MONCBSTRUCT(
         result = 31 * result + this.dwData2.hashCode()
         result = 31 * result + this.cc.hashCode()
         result = 31 * result + this.cbData.hashCode()
-        result = 31 * result + this.Data.contentHashCode()
+        result = 31 * result + this.data.contentHashCode()
         return result
     }
 }
 
-public data class MONCONVSTRUCT(
+public data class Monconvstruct(
     public var cb: UInt = 0u,
-    public var fConnect: BOOL = 0,
+    public var fConnect: Bool = 0,
     public var dwTime: UInt = 0u,
-    public var hTask: HANDLE = 0L,
-    public var hszSvc: HSZ = 0L,
-    public var hszTopic: HSZ = 0L,
-    public var hConvClient: HCONV = 0L,
-    public var hConvServer: HCONV = 0L,
+    public var hTask: Handle = null,
+    public var hszSvc: Hsz = null,
+    public var hszTopic: Hsz = null,
+    public var hConvClient: Hconv = null,
+    public var hConvServer: Hconv = null,
 )
 
-public data class MONERRSTRUCT(
+public data class Monerrstruct(
     public var cb: UInt = 0u,
     public var wLastError: UInt = 0u,
     public var dwTime: UInt = 0u,
-    public var hTask: HANDLE = 0L,
+    public var hTask: Handle = null,
 )
 
-public data class MONHSZSTRUCTA(
+public data class Monhszstructa(
     public var cb: UInt = 0u,
-    public var fsAction: BOOL = 0,
+    public var fsAction: Bool = 0,
     public var dwTime: UInt = 0u,
-    public var hsz: HSZ = 0L,
-    public var hTask: HANDLE = 0L,
+    public var hsz: Hsz = null,
+    public var hTask: Handle = null,
     public var str: ByteArray = ByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MONHSZSTRUCTA) return false
+        if (other !is Monhszstructa) return false
         if (this.cb != other.cb) return false
         if (this.fsAction != other.fsAction) return false
         if (this.dwTime != other.dwTime) return false
@@ -257,17 +258,17 @@ public data class MONHSZSTRUCTA(
     }
 }
 
-public data class MONHSZSTRUCTW(
+public data class Monhszstructw(
     public var cb: UInt = 0u,
-    public var fsAction: BOOL = 0,
+    public var fsAction: Bool = 0,
     public var dwTime: UInt = 0u,
-    public var hsz: HSZ = 0L,
-    public var hTask: HANDLE = 0L,
+    public var hsz: Hsz = null,
+    public var hTask: Handle = null,
     public var str: UShortArray = UShortArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MONHSZSTRUCTW) return false
+        if (other !is Monhszstructw) return false
         if (this.cb != other.cb) return false
         if (this.fsAction != other.fsAction) return false
         if (this.dwTime != other.dwTime) return false
@@ -288,28 +289,28 @@ public data class MONHSZSTRUCTW(
     }
 }
 
-public data class MONLINKSTRUCT(
+public data class Monlinkstruct(
     public var cb: UInt = 0u,
     public var dwTime: UInt = 0u,
-    public var hTask: HANDLE = 0L,
-    public var fEstablished: BOOL = 0,
-    public var fNoData: BOOL = 0,
-    public var hszSvc: HSZ = 0L,
-    public var hszTopic: HSZ = 0L,
-    public var hszItem: HSZ = 0L,
+    public var hTask: Handle = null,
+    public var fEstablished: Bool = 0,
+    public var fNoData: Bool = 0,
+    public var hszSvc: Hsz = null,
+    public var hszTopic: Hsz = null,
+    public var hszItem: Hsz = null,
     public var wFmt: UInt = 0u,
-    public var fServer: BOOL = 0,
-    public var hConvServer: HCONV = 0L,
-    public var hConvClient: HCONV = 0L,
+    public var fServer: Bool = 0,
+    public var hConvServer: Hconv = null,
+    public var hConvClient: Hconv = null,
 )
 
-public data class MONMSGSTRUCT(
+public data class Monmsgstruct(
     public var cb: UInt = 0u,
-    public var hwndTo: HWND = 0L,
+    public var hwndTo: Hwnd = null,
     public var dwTime: UInt = 0u,
-    public var hTask: HANDLE = 0L,
+    public var hTask: Handle = null,
     public var wMsg: UInt = 0u,
-    public var wParam: WPARAM = 0uL,
-    public var lParam: LPARAM = 0L,
-    public var dmhd: DDEML_MSG_HOOK_DATA = DDEML_MSG_HOOK_DATA(),
+    public var wParam: Wparam = 0uL,
+    public var lParam: Lparam = 0L,
+    public var dmhd: DdemlMsgHookData = DdemlMsgHookData(),
 )

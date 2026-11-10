@@ -1,19 +1,21 @@
 package io.github.kotlinmania.windowssys.windows.wdk.devices.humaninterfacedevice
 
-public fun interface EVT_VHF_ASYNC_OPERATIONFn {
-    public operator fun invoke(vhfclientcontext: Long, vhfoperationhandle: Long, vhfoperationcontext: Long, hidtransferpacket: Long)
+import io.github.kotlinmania.windowssys.COpaquePointer
+
+public fun interface EvtVhfAsyncOperationFn {
+    public operator fun invoke(vhfclientcontext: COpaquePointer?, vhfoperationhandle: COpaquePointer?, vhfoperationcontext: COpaquePointer?, hidtransferpacket: COpaquePointer?)
 }
 
-public typealias EVT_VHF_ASYNC_OPERATION = EVT_VHF_ASYNC_OPERATIONFn?
+public typealias EvtVhfAsyncOperation = EvtVhfAsyncOperationFn?
 
-public fun interface EVT_VHF_CLEANUPFn {
-    public operator fun invoke(vhfclientcontext: Long)
+public fun interface EvtVhfCleanupFn {
+    public operator fun invoke(vhfclientcontext: COpaquePointer?)
 }
 
-public typealias EVT_VHF_CLEANUP = EVT_VHF_CLEANUPFn?
+public typealias EvtVhfCleanup = EvtVhfCleanupFn?
 
-public fun interface EVT_VHF_READY_FOR_NEXT_READ_REPORTFn {
-    public operator fun invoke(vhfclientcontext: Long)
+public fun interface EvtVhfReadyForNextReadReportFn {
+    public operator fun invoke(vhfclientcontext: COpaquePointer?)
 }
 
-public typealias EVT_VHF_READY_FOR_NEXT_READ_REPORT = EVT_VHF_READY_FOR_NEXT_READ_REPORTFn?
+public typealias EvtVhfReadyForNextReadReport = EvtVhfReadyForNextReadReportFn?

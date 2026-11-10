@@ -2,13 +2,14 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.graphics.dwm
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HBITMAP
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbitmap
 
 private object WindowsWin32GraphicsDwmJniBridge {
     init {
@@ -16,185 +17,185 @@ private object WindowsWin32GraphicsDwmJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_dwm_DwmAttachMilContent(hwnd: Long): Int
+    external fun windowssys_windows_win32_graphics_dwm_dwmAttachMilContent(hwnd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_dwm_DwmDefWindowProc(hwnd: Long, msg: Int, wparam: Long, lparam: Long, plresult: Long): Int
+    external fun windowssys_windows_win32_graphics_dwm_dwmDefWindowProc(hwnd: Long, msg: Int, wparam: Long, lparam: Long, plresult: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_dwm_DwmDetachMilContent(hwnd: Long): Int
+    external fun windowssys_windows_win32_graphics_dwm_dwmDetachMilContent(hwnd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_dwm_DwmEnableBlurBehindWindow(hwnd: Long, pblurbehind: Long): Int
+    external fun windowssys_windows_win32_graphics_dwm_dwmEnableBlurBehindWindow(hwnd: Long, pblurbehind: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_dwm_DwmEnableComposition(ucompositionaction: Int): Int
+    external fun windowssys_windows_win32_graphics_dwm_dwmEnableComposition(ucompositionaction: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_dwm_DwmEnableMMCSS(fenablemmcss: Int): Int
+    external fun windowssys_windows_win32_graphics_dwm_dwmEnableMMCSS(fenablemmcss: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_dwm_DwmExtendFrameIntoClientArea(hwnd: Long, pmarinset: Long): Int
+    external fun windowssys_windows_win32_graphics_dwm_dwmExtendFrameIntoClientArea(hwnd: Long, pmarinset: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_dwm_DwmFlush(): Int
+    external fun windowssys_windows_win32_graphics_dwm_dwmFlush(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_dwm_DwmGetColorizationColor(pcrcolorization: Long, pfopaqueblend: Long): Int
+    external fun windowssys_windows_win32_graphics_dwm_dwmGetColorizationColor(pcrcolorization: Long, pfopaqueblend: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_dwm_DwmGetCompositionTimingInfo(hwnd: Long, ptiminginfo: Long): Int
+    external fun windowssys_windows_win32_graphics_dwm_dwmGetCompositionTimingInfo(hwnd: Long, ptiminginfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_dwm_DwmGetGraphicsStreamClient(uindex: Int, pclientuuid: Long): Int
+    external fun windowssys_windows_win32_graphics_dwm_dwmGetGraphicsStreamClient(uindex: Int, pclientuuid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_dwm_DwmGetGraphicsStreamTransformHint(uindex: Int, ptransform: Long): Int
+    external fun windowssys_windows_win32_graphics_dwm_dwmGetGraphicsStreamTransformHint(uindex: Int, ptransform: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_dwm_DwmGetTransportAttributes(pfisremoting: Long, pfisconnected: Long, pdwgeneration: Long): Int
+    external fun windowssys_windows_win32_graphics_dwm_dwmGetTransportAttributes(pfisremoting: Long, pfisconnected: Long, pdwgeneration: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_dwm_DwmGetUnmetTabRequirements(appwindow: Long, value: Long): Int
+    external fun windowssys_windows_win32_graphics_dwm_dwmGetUnmetTabRequirements(appwindow: Long, value: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_dwm_DwmGetWindowAttribute(hwnd: Long, dwattribute: Int, pvattribute: Long, cbattribute: Int): Int
+    external fun windowssys_windows_win32_graphics_dwm_dwmGetWindowAttribute(hwnd: Long, dwattribute: Int, pvattribute: Long, cbattribute: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_dwm_DwmInvalidateIconicBitmaps(hwnd: Long): Int
+    external fun windowssys_windows_win32_graphics_dwm_dwmInvalidateIconicBitmaps(hwnd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_dwm_DwmIsCompositionEnabled(pfenabled: Long): Int
+    external fun windowssys_windows_win32_graphics_dwm_dwmIsCompositionEnabled(pfenabled: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_dwm_DwmModifyPreviousDxFrameDuration(hwnd: Long, crefreshes: Int, frelative: Int): Int
+    external fun windowssys_windows_win32_graphics_dwm_dwmModifyPreviousDxFrameDuration(hwnd: Long, crefreshes: Int, frelative: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_dwm_DwmQueryThumbnailSourceSize(hthumbnail: Long, psize: Long): Int
+    external fun windowssys_windows_win32_graphics_dwm_dwmQueryThumbnailSourceSize(hthumbnail: Long, psize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_dwm_DwmRegisterThumbnail(hwnddestination: Long, hwndsource: Long, phthumbnailid: Long): Int
+    external fun windowssys_windows_win32_graphics_dwm_dwmRegisterThumbnail(hwnddestination: Long, hwndsource: Long, phthumbnailid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_dwm_DwmRenderGesture(gt: Int, ccontacts: Int, pdwpointerid: Long, ppoints: Long): Int
+    external fun windowssys_windows_win32_graphics_dwm_dwmRenderGesture(gt: Int, ccontacts: Int, pdwpointerid: Long, ppoints: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_dwm_DwmSetDxFrameDuration(hwnd: Long, crefreshes: Int): Int
+    external fun windowssys_windows_win32_graphics_dwm_dwmSetDxFrameDuration(hwnd: Long, crefreshes: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_dwm_DwmSetIconicLivePreviewBitmap(hwnd: Long, hbmp: Long, pptclient: Long, dwsitflags: Int): Int
+    external fun windowssys_windows_win32_graphics_dwm_dwmSetIconicLivePreviewBitmap(hwnd: Long, hbmp: Long, pptclient: Long, dwsitflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_dwm_DwmSetIconicThumbnail(hwnd: Long, hbmp: Long, dwsitflags: Int): Int
+    external fun windowssys_windows_win32_graphics_dwm_dwmSetIconicThumbnail(hwnd: Long, hbmp: Long, dwsitflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_dwm_DwmSetPresentParameters(hwnd: Long, ppresentparams: Long): Int
+    external fun windowssys_windows_win32_graphics_dwm_dwmSetPresentParameters(hwnd: Long, ppresentparams: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_dwm_DwmSetWindowAttribute(hwnd: Long, dwattribute: Int, pvattribute: Long, cbattribute: Int): Int
+    external fun windowssys_windows_win32_graphics_dwm_dwmSetWindowAttribute(hwnd: Long, dwattribute: Int, pvattribute: Long, cbattribute: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_dwm_DwmShowContact(dwpointerid: Int, eshowcontact: Int): Int
+    external fun windowssys_windows_win32_graphics_dwm_dwmShowContact(dwpointerid: Int, eshowcontact: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_dwm_DwmTransitionOwnedWindow(hwnd: Long, target: Int): Int
+    external fun windowssys_windows_win32_graphics_dwm_dwmTransitionOwnedWindow(hwnd: Long, target: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_dwm_DwmUnregisterThumbnail(hthumbnailid: Long): Int
+    external fun windowssys_windows_win32_graphics_dwm_dwmUnregisterThumbnail(hthumbnailid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_dwm_DwmUpdateThumbnailProperties(hthumbnailid: Long, ptnproperties: Long): Int
+    external fun windowssys_windows_win32_graphics_dwm_dwmUpdateThumbnailProperties(hthumbnailid: Long, ptnproperties: Long): Int
 }
 
-public actual fun DwmAttachMilContent(hwnd: HWND): HRESULT =
-    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_DwmAttachMilContent(hwnd)
+public actual fun dwmAttachMilContent(hwnd: Hwnd): Hresult =
+    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_dwmAttachMilContent((hwnd?.value ?: 0L))
 
-public actual fun DwmDefWindowProc(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM, plresult: Long): BOOL =
-    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_DwmDefWindowProc(hwnd, msg.toInt(), wparam.toLong(), lparam, plresult)
+public actual fun dwmDefWindowProc(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam, plresult: COpaquePointer?): Bool =
+    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_dwmDefWindowProc((hwnd?.value ?: 0L), msg.toInt(), wparam.toLong(), lparam, (plresult?.value ?: 0L))
 
-public actual fun DwmDetachMilContent(hwnd: HWND): HRESULT =
-    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_DwmDetachMilContent(hwnd)
+public actual fun dwmDetachMilContent(hwnd: Hwnd): Hresult =
+    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_dwmDetachMilContent((hwnd?.value ?: 0L))
 
-public actual fun DwmEnableBlurBehindWindow(hwnd: HWND, pblurbehind: Long): HRESULT =
-    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_DwmEnableBlurBehindWindow(hwnd, pblurbehind)
+public actual fun dwmEnableBlurBehindWindow(hwnd: Hwnd, pblurbehind: COpaquePointer?): Hresult =
+    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_dwmEnableBlurBehindWindow((hwnd?.value ?: 0L), (pblurbehind?.value ?: 0L))
 
-public actual fun DwmEnableComposition(ucompositionaction: UInt): HRESULT =
-    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_DwmEnableComposition(ucompositionaction.toInt())
+public actual fun dwmEnableComposition(ucompositionaction: UInt): Hresult =
+    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_dwmEnableComposition(ucompositionaction.toInt())
 
-public actual fun DwmEnableMMCSS(fenablemmcss: BOOL): HRESULT =
-    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_DwmEnableMMCSS(fenablemmcss)
+public actual fun dwmEnableMMCSS(fenablemmcss: Bool): Hresult =
+    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_dwmEnableMMCSS(fenablemmcss)
 
-public actual fun DwmExtendFrameIntoClientArea(hwnd: HWND, pmarinset: Long): HRESULT =
-    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_DwmExtendFrameIntoClientArea(hwnd, pmarinset)
+public actual fun dwmExtendFrameIntoClientArea(hwnd: Hwnd, pmarinset: COpaquePointer?): Hresult =
+    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_dwmExtendFrameIntoClientArea((hwnd?.value ?: 0L), (pmarinset?.value ?: 0L))
 
-public actual fun DwmFlush(): HRESULT =
-    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_DwmFlush()
+public actual fun dwmFlush(): Hresult =
+    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_dwmFlush()
 
-public actual fun DwmGetColorizationColor(pcrcolorization: Long, pfopaqueblend: Long): HRESULT =
-    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_DwmGetColorizationColor(pcrcolorization, pfopaqueblend)
+public actual fun dwmGetColorizationColor(pcrcolorization: COpaquePointer?, pfopaqueblend: COpaquePointer?): Hresult =
+    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_dwmGetColorizationColor((pcrcolorization?.value ?: 0L), (pfopaqueblend?.value ?: 0L))
 
-public actual fun DwmGetCompositionTimingInfo(hwnd: HWND, ptiminginfo: Long): HRESULT =
-    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_DwmGetCompositionTimingInfo(hwnd, ptiminginfo)
+public actual fun dwmGetCompositionTimingInfo(hwnd: Hwnd, ptiminginfo: COpaquePointer?): Hresult =
+    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_dwmGetCompositionTimingInfo((hwnd?.value ?: 0L), (ptiminginfo?.value ?: 0L))
 
-public actual fun DwmGetGraphicsStreamClient(uindex: UInt, pclientuuid: Long): HRESULT =
-    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_DwmGetGraphicsStreamClient(uindex.toInt(), pclientuuid)
+public actual fun dwmGetGraphicsStreamClient(uindex: UInt, pclientuuid: COpaquePointer?): Hresult =
+    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_dwmGetGraphicsStreamClient(uindex.toInt(), (pclientuuid?.value ?: 0L))
 
-public actual fun DwmGetGraphicsStreamTransformHint(uindex: UInt, ptransform: Long): HRESULT =
-    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_DwmGetGraphicsStreamTransformHint(uindex.toInt(), ptransform)
+public actual fun dwmGetGraphicsStreamTransformHint(uindex: UInt, ptransform: COpaquePointer?): Hresult =
+    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_dwmGetGraphicsStreamTransformHint(uindex.toInt(), (ptransform?.value ?: 0L))
 
-public actual fun DwmGetTransportAttributes(pfisremoting: Long, pfisconnected: Long, pdwgeneration: Long): HRESULT =
-    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_DwmGetTransportAttributes(pfisremoting, pfisconnected, pdwgeneration)
+public actual fun dwmGetTransportAttributes(pfisremoting: COpaquePointer?, pfisconnected: COpaquePointer?, pdwgeneration: COpaquePointer?): Hresult =
+    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_dwmGetTransportAttributes((pfisremoting?.value ?: 0L), (pfisconnected?.value ?: 0L), (pdwgeneration?.value ?: 0L))
 
-public actual fun DwmGetUnmetTabRequirements(appwindow: HWND, value: Long): HRESULT =
-    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_DwmGetUnmetTabRequirements(appwindow, value)
+public actual fun dwmGetUnmetTabRequirements(appwindow: Hwnd, value: COpaquePointer?): Hresult =
+    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_dwmGetUnmetTabRequirements((appwindow?.value ?: 0L), (value?.value ?: 0L))
 
-public actual fun DwmGetWindowAttribute(hwnd: HWND, dwattribute: UInt, pvattribute: Long, cbattribute: UInt): HRESULT =
-    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_DwmGetWindowAttribute(hwnd, dwattribute.toInt(), pvattribute, cbattribute.toInt())
+public actual fun dwmGetWindowAttribute(hwnd: Hwnd, dwattribute: UInt, pvattribute: COpaquePointer?, cbattribute: UInt): Hresult =
+    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_dwmGetWindowAttribute((hwnd?.value ?: 0L), dwattribute.toInt(), (pvattribute?.value ?: 0L), cbattribute.toInt())
 
-public actual fun DwmInvalidateIconicBitmaps(hwnd: HWND): HRESULT =
-    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_DwmInvalidateIconicBitmaps(hwnd)
+public actual fun dwmInvalidateIconicBitmaps(hwnd: Hwnd): Hresult =
+    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_dwmInvalidateIconicBitmaps((hwnd?.value ?: 0L))
 
-public actual fun DwmIsCompositionEnabled(pfenabled: Long): HRESULT =
-    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_DwmIsCompositionEnabled(pfenabled)
+public actual fun dwmIsCompositionEnabled(pfenabled: COpaquePointer?): Hresult =
+    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_dwmIsCompositionEnabled((pfenabled?.value ?: 0L))
 
-public actual fun DwmModifyPreviousDxFrameDuration(hwnd: HWND, crefreshes: Int, frelative: BOOL): HRESULT =
-    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_DwmModifyPreviousDxFrameDuration(hwnd, crefreshes, frelative)
+public actual fun dwmModifyPreviousDxFrameDuration(hwnd: Hwnd, crefreshes: Int, frelative: Bool): Hresult =
+    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_dwmModifyPreviousDxFrameDuration((hwnd?.value ?: 0L), crefreshes, frelative)
 
-public actual fun DwmQueryThumbnailSourceSize(hthumbnail: Long, psize: Long): HRESULT =
-    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_DwmQueryThumbnailSourceSize(hthumbnail, psize)
+public actual fun dwmQueryThumbnailSourceSize(hthumbnail: Long, psize: COpaquePointer?): Hresult =
+    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_dwmQueryThumbnailSourceSize(hthumbnail, (psize?.value ?: 0L))
 
-public actual fun DwmRegisterThumbnail(hwnddestination: HWND, hwndsource: HWND, phthumbnailid: Long): HRESULT =
-    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_DwmRegisterThumbnail(hwnddestination, hwndsource, phthumbnailid)
+public actual fun dwmRegisterThumbnail(hwnddestination: Hwnd, hwndsource: Hwnd, phthumbnailid: COpaquePointer?): Hresult =
+    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_dwmRegisterThumbnail((hwnddestination?.value ?: 0L), (hwndsource?.value ?: 0L), (phthumbnailid?.value ?: 0L))
 
-public actual fun DwmRenderGesture(gt: GESTURE_TYPE, ccontacts: UInt, pdwpointerid: Long, ppoints: Long): HRESULT =
-    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_DwmRenderGesture(gt, ccontacts.toInt(), pdwpointerid, ppoints)
+public actual fun dwmRenderGesture(gt: GestureType, ccontacts: UInt, pdwpointerid: COpaquePointer?, ppoints: COpaquePointer?): Hresult =
+    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_dwmRenderGesture(gt, ccontacts.toInt(), (pdwpointerid?.value ?: 0L), (ppoints?.value ?: 0L))
 
-public actual fun DwmSetDxFrameDuration(hwnd: HWND, crefreshes: Int): HRESULT =
-    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_DwmSetDxFrameDuration(hwnd, crefreshes)
+public actual fun dwmSetDxFrameDuration(hwnd: Hwnd, crefreshes: Int): Hresult =
+    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_dwmSetDxFrameDuration((hwnd?.value ?: 0L), crefreshes)
 
-public actual fun DwmSetIconicLivePreviewBitmap(hwnd: HWND, hbmp: HBITMAP, pptclient: Long, dwsitflags: UInt): HRESULT =
-    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_DwmSetIconicLivePreviewBitmap(hwnd, hbmp, pptclient, dwsitflags.toInt())
+public actual fun dwmSetIconicLivePreviewBitmap(hwnd: Hwnd, hbmp: Hbitmap, pptclient: COpaquePointer?, dwsitflags: UInt): Hresult =
+    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_dwmSetIconicLivePreviewBitmap((hwnd?.value ?: 0L), (hbmp?.value ?: 0L), (pptclient?.value ?: 0L), dwsitflags.toInt())
 
-public actual fun DwmSetIconicThumbnail(hwnd: HWND, hbmp: HBITMAP, dwsitflags: UInt): HRESULT =
-    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_DwmSetIconicThumbnail(hwnd, hbmp, dwsitflags.toInt())
+public actual fun dwmSetIconicThumbnail(hwnd: Hwnd, hbmp: Hbitmap, dwsitflags: UInt): Hresult =
+    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_dwmSetIconicThumbnail((hwnd?.value ?: 0L), (hbmp?.value ?: 0L), dwsitflags.toInt())
 
-public actual fun DwmSetPresentParameters(hwnd: HWND, ppresentparams: Long): HRESULT =
-    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_DwmSetPresentParameters(hwnd, ppresentparams)
+public actual fun dwmSetPresentParameters(hwnd: Hwnd, ppresentparams: COpaquePointer?): Hresult =
+    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_dwmSetPresentParameters((hwnd?.value ?: 0L), (ppresentparams?.value ?: 0L))
 
-public actual fun DwmSetWindowAttribute(hwnd: HWND, dwattribute: UInt, pvattribute: Long, cbattribute: UInt): HRESULT =
-    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_DwmSetWindowAttribute(hwnd, dwattribute.toInt(), pvattribute, cbattribute.toInt())
+public actual fun dwmSetWindowAttribute(hwnd: Hwnd, dwattribute: UInt, pvattribute: COpaquePointer?, cbattribute: UInt): Hresult =
+    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_dwmSetWindowAttribute((hwnd?.value ?: 0L), dwattribute.toInt(), (pvattribute?.value ?: 0L), cbattribute.toInt())
 
-public actual fun DwmShowContact(dwpointerid: UInt, eshowcontact: DWM_SHOWCONTACT): HRESULT =
-    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_DwmShowContact(dwpointerid.toInt(), eshowcontact.toInt())
+public actual fun dwmShowContact(dwpointerid: UInt, eshowcontact: DwmShowcontact): Hresult =
+    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_dwmShowContact(dwpointerid.toInt(), eshowcontact.toInt())
 
-public actual fun DwmTetherContact(dwpointerid: UInt, fenable: BOOL, pttether: POINT): HRESULT =
+public actual fun dwmTetherContact(dwpointerid: UInt, fenable: Bool, pttether: Point): Hresult =
     0
 
-public actual fun DwmTransitionOwnedWindow(hwnd: HWND, target: DWMTRANSITION_OWNEDWINDOW_TARGET): HRESULT =
-    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_DwmTransitionOwnedWindow(hwnd, target)
+public actual fun dwmTransitionOwnedWindow(hwnd: Hwnd, target: DwmtransitionOwnedwindowTarget): Hresult =
+    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_dwmTransitionOwnedWindow((hwnd?.value ?: 0L), target)
 
-public actual fun DwmUnregisterThumbnail(hthumbnailid: Long): HRESULT =
-    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_DwmUnregisterThumbnail(hthumbnailid)
+public actual fun dwmUnregisterThumbnail(hthumbnailid: Long): Hresult =
+    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_dwmUnregisterThumbnail(hthumbnailid)
 
-public actual fun DwmUpdateThumbnailProperties(hthumbnailid: Long, ptnproperties: Long): HRESULT =
-    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_DwmUpdateThumbnailProperties(hthumbnailid, ptnproperties)
+public actual fun dwmUpdateThumbnailProperties(hthumbnailid: Long, ptnproperties: COpaquePointer?): Hresult =
+    WindowsWin32GraphicsDwmJniBridge.windowssys_windows_win32_graphics_dwm_dwmUpdateThumbnailProperties(hthumbnailid, (ptnproperties?.value ?: 0L))

@@ -2,14 +2,15 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.com
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
 
 private object WindowsWin32SystemComJniBridge {
     init {
@@ -17,668 +18,668 @@ private object WindowsWin32SystemComJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_BindMoniker(pmk: Long, grfopt: Int, iidresult: Long, ppvresult: Long): Int
+    external fun windowssys_windows_win32_system_com_bindMoniker(pmk: Long, grfopt: Int, iidresult: Long, ppvresult: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CLSIDFromProgID(lpszprogid: Long, lpclsid: Long): Int
+    external fun windowssys_windows_win32_system_com_cLSIDFromProgID(lpszprogid: Long, lpclsid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CLSIDFromProgIDEx(lpszprogid: Long, lpclsid: Long): Int
+    external fun windowssys_windows_win32_system_com_cLSIDFromProgIDEx(lpszprogid: Long, lpclsid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CLSIDFromString(lpsz: Long, pclsid: Long): Int
+    external fun windowssys_windows_win32_system_com_cLSIDFromString(lpsz: Long, pclsid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoAddRefServerProcess(): Int
+    external fun windowssys_windows_win32_system_com_coAddRefServerProcess(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoAllowSetForegroundWindow(punk: Long, lpvreserved: Long): Int
+    external fun windowssys_windows_win32_system_com_coAllowSetForegroundWindow(punk: Long, lpvreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoAllowUnmarshalerCLSID(clsid: Long): Int
+    external fun windowssys_windows_win32_system_com_coAllowUnmarshalerCLSID(clsid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoBuildVersion(): Int
+    external fun windowssys_windows_win32_system_com_coBuildVersion(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoCancelCall(dwthreadid: Int, ultimeout: Int): Int
+    external fun windowssys_windows_win32_system_com_coCancelCall(dwthreadid: Int, ultimeout: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoCopyProxy(pproxy: Long, ppcopy: Long): Int
+    external fun windowssys_windows_win32_system_com_coCopyProxy(pproxy: Long, ppcopy: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoCreateFreeThreadedMarshaler(punkouter: Long, ppunkmarshal: Long): Int
+    external fun windowssys_windows_win32_system_com_coCreateFreeThreadedMarshaler(punkouter: Long, ppunkmarshal: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoCreateGuid(pguid: Long): Int
+    external fun windowssys_windows_win32_system_com_coCreateGuid(pguid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoCreateInstance(rclsid: Long, punkouter: Long, dwclscontext: Int, riid: Long, ppv: Long): Int
+    external fun windowssys_windows_win32_system_com_coCreateInstance(rclsid: Long, punkouter: Long, dwclscontext: Int, riid: Long, ppv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoCreateInstanceEx(clsid: Long, punkouter: Long, dwclsctx: Int, pserverinfo: Long, dwcount: Int, presults: Long): Int
+    external fun windowssys_windows_win32_system_com_coCreateInstanceEx(clsid: Long, punkouter: Long, dwclsctx: Int, pserverinfo: Long, dwcount: Int, presults: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoCreateInstanceFromApp(clsid: Long, punkouter: Long, dwclsctx: Int, reserved: Long, dwcount: Int, presults: Long): Int
+    external fun windowssys_windows_win32_system_com_coCreateInstanceFromApp(clsid: Long, punkouter: Long, dwclsctx: Int, reserved: Long, dwcount: Int, presults: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoDecrementMTAUsage(cookie: Long): Int
+    external fun windowssys_windows_win32_system_com_coDecrementMTAUsage(cookie: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoDisableCallCancellation(preserved: Long): Int
+    external fun windowssys_windows_win32_system_com_coDisableCallCancellation(preserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoDisconnectContext(dwtimeout: Int): Int
+    external fun windowssys_windows_win32_system_com_coDisconnectContext(dwtimeout: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoDisconnectObject(punk: Long, dwreserved: Int): Int
+    external fun windowssys_windows_win32_system_com_coDisconnectObject(punk: Long, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoDosDateTimeToFileTime(ndosdate: Short, ndostime: Short, lpfiletime: Long): Int
+    external fun windowssys_windows_win32_system_com_coDosDateTimeToFileTime(ndosdate: Short, ndostime: Short, lpfiletime: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoEnableCallCancellation(preserved: Long): Int
+    external fun windowssys_windows_win32_system_com_coEnableCallCancellation(preserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoFileTimeNow(lpfiletime: Long): Int
+    external fun windowssys_windows_win32_system_com_coFileTimeNow(lpfiletime: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoFileTimeToDosDateTime(lpfiletime: Long, lpdosdate: Long, lpdostime: Long): Int
+    external fun windowssys_windows_win32_system_com_coFileTimeToDosDateTime(lpfiletime: Long, lpdosdate: Long, lpdostime: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoFreeAllLibraries()
+    external fun windowssys_windows_win32_system_com_coFreeAllLibraries()
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoFreeLibrary(hinst: Long)
+    external fun windowssys_windows_win32_system_com_coFreeLibrary(hinst: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoFreeUnusedLibraries()
+    external fun windowssys_windows_win32_system_com_coFreeUnusedLibraries()
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoFreeUnusedLibrariesEx(dwunloaddelay: Int, dwreserved: Int)
+    external fun windowssys_windows_win32_system_com_coFreeUnusedLibrariesEx(dwunloaddelay: Int, dwreserved: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoGetApartmentType(papttype: Long, paptqualifier: Long): Int
+    external fun windowssys_windows_win32_system_com_coGetApartmentType(papttype: Long, paptqualifier: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoGetCallContext(riid: Long, ppinterface: Long): Int
+    external fun windowssys_windows_win32_system_com_coGetCallContext(riid: Long, ppinterface: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoGetCallerTID(lpdwtid: Long): Int
+    external fun windowssys_windows_win32_system_com_coGetCallerTID(lpdwtid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoGetCancelObject(dwthreadid: Int, iid: Long, ppunk: Long): Int
+    external fun windowssys_windows_win32_system_com_coGetCancelObject(dwthreadid: Int, iid: Long, ppunk: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoGetClassObject(rclsid: Long, dwclscontext: Int, pvreserved: Long, riid: Long, ppv: Long): Int
+    external fun windowssys_windows_win32_system_com_coGetClassObject(rclsid: Long, dwclscontext: Int, pvreserved: Long, riid: Long, ppv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoGetContextToken(ptoken: Long): Int
+    external fun windowssys_windows_win32_system_com_coGetContextToken(ptoken: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoGetCurrentLogicalThreadId(pguid: Long): Int
+    external fun windowssys_windows_win32_system_com_coGetCurrentLogicalThreadId(pguid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoGetCurrentProcess(): Int
+    external fun windowssys_windows_win32_system_com_coGetCurrentProcess(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoGetMalloc(dwmemcontext: Int, ppmalloc: Long): Int
+    external fun windowssys_windows_win32_system_com_coGetMalloc(dwmemcontext: Int, ppmalloc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoGetObject(pszname: Long, pbindoptions: Long, riid: Long, ppv: Long): Int
+    external fun windowssys_windows_win32_system_com_coGetObject(pszname: Long, pbindoptions: Long, riid: Long, ppv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoGetObjectContext(riid: Long, ppv: Long): Int
+    external fun windowssys_windows_win32_system_com_coGetObjectContext(riid: Long, ppv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoGetPSClsid(riid: Long, pclsid: Long): Int
+    external fun windowssys_windows_win32_system_com_coGetPSClsid(riid: Long, pclsid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoGetSystemSecurityPermissions(comsdtype: Int, ppsd: Long): Int
+    external fun windowssys_windows_win32_system_com_coGetSystemSecurityPermissions(comsdtype: Int, ppsd: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoGetTreatAsClass(clsidold: Long, pclsidnew: Long): Int
+    external fun windowssys_windows_win32_system_com_coGetTreatAsClass(clsidold: Long, pclsidnew: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoImpersonateClient(): Int
+    external fun windowssys_windows_win32_system_com_coImpersonateClient(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoIncrementMTAUsage(pcookie: Long): Int
+    external fun windowssys_windows_win32_system_com_coIncrementMTAUsage(pcookie: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoInitialize(pvreserved: Long): Int
+    external fun windowssys_windows_win32_system_com_coInitialize(pvreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoInitializeEx(pvreserved: Long, dwcoinit: Int): Int
+    external fun windowssys_windows_win32_system_com_coInitializeEx(pvreserved: Long, dwcoinit: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoInitializeSecurity(psecdesc: Long, cauthsvc: Int, asauthsvc: Long, preserved1: Long, dwauthnlevel: Int, dwimplevel: Int, pauthlist: Long, dwcapabilities: Int, preserved3: Long): Int
+    external fun windowssys_windows_win32_system_com_coInitializeSecurity(psecdesc: Long, cauthsvc: Int, asauthsvc: Long, preserved1: Long, dwauthnlevel: Int, dwimplevel: Int, pauthlist: Long, dwcapabilities: Int, preserved3: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoInstall(pbc: Long, dwflags: Int, pclassspec: Long, pquery: Long, pszcodebase: Long): Int
+    external fun windowssys_windows_win32_system_com_coInstall(pbc: Long, dwflags: Int, pclassspec: Long, pquery: Long, pszcodebase: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoInvalidateRemoteMachineBindings(pszmachinename: Long): Int
+    external fun windowssys_windows_win32_system_com_coInvalidateRemoteMachineBindings(pszmachinename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoIsHandlerConnected(punk: Long): Int
+    external fun windowssys_windows_win32_system_com_coIsHandlerConnected(punk: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoIsOle1Class(rclsid: Long): Int
+    external fun windowssys_windows_win32_system_com_coIsOle1Class(rclsid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoLoadLibrary(lpszlibname: Long, bautofree: Int): Long
+    external fun windowssys_windows_win32_system_com_coLoadLibrary(lpszlibname: Long, bautofree: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoLockObjectExternal(punk: Long, flock: Int, flastunlockreleases: Int): Int
+    external fun windowssys_windows_win32_system_com_coLockObjectExternal(punk: Long, flock: Int, flastunlockreleases: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoQueryAuthenticationServices(pcauthsvc: Long, asauthsvc: Long): Int
+    external fun windowssys_windows_win32_system_com_coQueryAuthenticationServices(pcauthsvc: Long, asauthsvc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoQueryClientBlanket(pauthnsvc: Long, pauthzsvc: Long, pserverprincname: Long, pauthnlevel: Long, pimplevel: Long, pprivs: Long, pcapabilities: Long): Int
+    external fun windowssys_windows_win32_system_com_coQueryClientBlanket(pauthnsvc: Long, pauthzsvc: Long, pserverprincname: Long, pauthnlevel: Long, pimplevel: Long, pprivs: Long, pcapabilities: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoQueryProxyBlanket(pproxy: Long, pwauthnsvc: Long, pauthzsvc: Long, pserverprincname: Long, pauthnlevel: Long, pimplevel: Long, pauthinfo: Long, pcapabilites: Long): Int
+    external fun windowssys_windows_win32_system_com_coQueryProxyBlanket(pproxy: Long, pwauthnsvc: Long, pauthzsvc: Long, pserverprincname: Long, pauthnlevel: Long, pimplevel: Long, pauthinfo: Long, pcapabilites: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoRegisterActivationFilter(pactivationfilter: Long): Int
+    external fun windowssys_windows_win32_system_com_coRegisterActivationFilter(pactivationfilter: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoRegisterChannelHook(extensionuuid: Long, pchannelhook: Long): Int
+    external fun windowssys_windows_win32_system_com_coRegisterChannelHook(extensionuuid: Long, pchannelhook: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoRegisterClassObject(rclsid: Long, punk: Long, dwclscontext: Int, flags: Int, lpdwregister: Long): Int
+    external fun windowssys_windows_win32_system_com_coRegisterClassObject(rclsid: Long, punk: Long, dwclscontext: Int, flags: Int, lpdwregister: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoRegisterDeviceCatalog(deviceinstanceid: Long, cookie: Long): Int
+    external fun windowssys_windows_win32_system_com_coRegisterDeviceCatalog(deviceinstanceid: Long, cookie: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoRegisterInitializeSpy(pspy: Long, pulicookie: Long): Int
+    external fun windowssys_windows_win32_system_com_coRegisterInitializeSpy(pspy: Long, pulicookie: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoRegisterMallocSpy(pmallocspy: Long): Int
+    external fun windowssys_windows_win32_system_com_coRegisterMallocSpy(pmallocspy: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoRegisterPSClsid(riid: Long, rclsid: Long): Int
+    external fun windowssys_windows_win32_system_com_coRegisterPSClsid(riid: Long, rclsid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoRegisterSurrogate(psurrogate: Long): Int
+    external fun windowssys_windows_win32_system_com_coRegisterSurrogate(psurrogate: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoReleaseServerProcess(): Int
+    external fun windowssys_windows_win32_system_com_coReleaseServerProcess(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoResumeClassObjects(): Int
+    external fun windowssys_windows_win32_system_com_coResumeClassObjects(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoRevertToSelf(): Int
+    external fun windowssys_windows_win32_system_com_coRevertToSelf(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoRevokeClassObject(dwregister: Int): Int
+    external fun windowssys_windows_win32_system_com_coRevokeClassObject(dwregister: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoRevokeDeviceCatalog(cookie: Long): Int
+    external fun windowssys_windows_win32_system_com_coRevokeDeviceCatalog(cookie: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoRevokeInitializeSpy(ulicookie: Long): Int
+    external fun windowssys_windows_win32_system_com_coRevokeInitializeSpy(ulicookie: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoRevokeMallocSpy(): Int
+    external fun windowssys_windows_win32_system_com_coRevokeMallocSpy(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoSetCancelObject(punk: Long): Int
+    external fun windowssys_windows_win32_system_com_coSetCancelObject(punk: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoSetProxyBlanket(pproxy: Long, dwauthnsvc: Int, dwauthzsvc: Int, pserverprincname: Long, dwauthnlevel: Int, dwimplevel: Int, pauthinfo: Long, dwcapabilities: Int): Int
+    external fun windowssys_windows_win32_system_com_coSetProxyBlanket(pproxy: Long, dwauthnsvc: Int, dwauthzsvc: Int, pserverprincname: Long, dwauthnlevel: Int, dwimplevel: Int, pauthinfo: Long, dwcapabilities: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoSuspendClassObjects(): Int
+    external fun windowssys_windows_win32_system_com_coSuspendClassObjects(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoSwitchCallContext(pnewobject: Long, ppoldobject: Long): Int
+    external fun windowssys_windows_win32_system_com_coSwitchCallContext(pnewobject: Long, ppoldobject: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoTaskMemAlloc(cb: Long): Long
+    external fun windowssys_windows_win32_system_com_coTaskMemAlloc(cb: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoTaskMemFree(pv: Long)
+    external fun windowssys_windows_win32_system_com_coTaskMemFree(pv: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoTaskMemRealloc(pv: Long, cb: Long): Long
+    external fun windowssys_windows_win32_system_com_coTaskMemRealloc(pv: Long, cb: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoTestCancel(): Int
+    external fun windowssys_windows_win32_system_com_coTestCancel(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoTreatAsClass(clsidold: Long, clsidnew: Long): Int
+    external fun windowssys_windows_win32_system_com_coTreatAsClass(clsidold: Long, clsidnew: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoUninitialize()
+    external fun windowssys_windows_win32_system_com_coUninitialize()
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoWaitForMultipleHandles(dwflags: Int, dwtimeout: Int, chandles: Int, phandles: Long, lpdwindex: Long): Int
+    external fun windowssys_windows_win32_system_com_coWaitForMultipleHandles(dwflags: Int, dwtimeout: Int, chandles: Int, phandles: Long, lpdwindex: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CoWaitForMultipleObjects(dwflags: Int, dwtimeout: Int, chandles: Int, phandles: Long, lpdwindex: Long): Int
+    external fun windowssys_windows_win32_system_com_coWaitForMultipleObjects(dwflags: Int, dwtimeout: Int, chandles: Int, phandles: Long, lpdwindex: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CreateAntiMoniker(ppmk: Long): Int
+    external fun windowssys_windows_win32_system_com_createAntiMoniker(ppmk: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CreateBindCtx(reserved: Int, ppbc: Long): Int
+    external fun windowssys_windows_win32_system_com_createBindCtx(reserved: Int, ppbc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CreateClassMoniker(rclsid: Long, ppmk: Long): Int
+    external fun windowssys_windows_win32_system_com_createClassMoniker(rclsid: Long, ppmk: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CreateDataAdviseHolder(ppdaholder: Long): Int
+    external fun windowssys_windows_win32_system_com_createDataAdviseHolder(ppdaholder: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CreateDataCache(punkouter: Long, rclsid: Long, iid: Long, ppv: Long): Int
+    external fun windowssys_windows_win32_system_com_createDataCache(punkouter: Long, rclsid: Long, iid: Long, ppv: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CreateFileMoniker(lpszpathname: Long, ppmk: Long): Int
+    external fun windowssys_windows_win32_system_com_createFileMoniker(lpszpathname: Long, ppmk: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CreateGenericComposite(pmkfirst: Long, pmkrest: Long, ppmkcomposite: Long): Int
+    external fun windowssys_windows_win32_system_com_createGenericComposite(pmkfirst: Long, pmkrest: Long, ppmkcomposite: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CreateIUriBuilder(piuri: Long, dwflags: Int, dwreserved: Long, ppiuribuilder: Long): Int
+    external fun windowssys_windows_win32_system_com_createIUriBuilder(piuri: Long, dwflags: Int, dwreserved: Long, ppiuribuilder: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CreateItemMoniker(lpszdelim: Long, lpszitem: Long, ppmk: Long): Int
+    external fun windowssys_windows_win32_system_com_createItemMoniker(lpszdelim: Long, lpszitem: Long, ppmk: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CreateObjrefMoniker(punk: Long, ppmk: Long): Int
+    external fun windowssys_windows_win32_system_com_createObjrefMoniker(punk: Long, ppmk: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CreatePointerMoniker(punk: Long, ppmk: Long): Int
+    external fun windowssys_windows_win32_system_com_createPointerMoniker(punk: Long, ppmk: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CreateStdProgressIndicator(hwndparent: Long, psztitle: Long, pibsccaller: Long, ppibsc: Long): Int
+    external fun windowssys_windows_win32_system_com_createStdProgressIndicator(hwndparent: Long, psztitle: Long, pibsccaller: Long, ppibsc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CreateUri(pwzuri: Long, dwflags: Int, dwreserved: Long, ppuri: Long): Int
+    external fun windowssys_windows_win32_system_com_createUri(pwzuri: Long, dwflags: Int, dwreserved: Long, ppuri: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CreateUriFromMultiByteString(pszansiinputuri: Long, dwencodingflags: Int, dwcodepage: Int, dwcreateflags: Int, dwreserved: Long, ppuri: Long): Int
+    external fun windowssys_windows_win32_system_com_createUriFromMultiByteString(pszansiinputuri: Long, dwencodingflags: Int, dwcodepage: Int, dwcreateflags: Int, dwreserved: Long, ppuri: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_CreateUriWithFragment(pwzuri: Long, pwzfragment: Long, dwflags: Int, dwreserved: Long, ppuri: Long): Int
+    external fun windowssys_windows_win32_system_com_createUriWithFragment(pwzuri: Long, pwzfragment: Long, dwflags: Int, dwreserved: Long, ppuri: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_DcomChannelSetHResult(pvreserved: Long, pulreserved: Long, appshr: Int): Int
+    external fun windowssys_windows_win32_system_com_dcomChannelSetHResult(pvreserved: Long, pulreserved: Long, appshr: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_GetClassFile(szfilename: Long, pclsid: Long): Int
+    external fun windowssys_windows_win32_system_com_getClassFile(szfilename: Long, pclsid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_GetErrorInfo(dwreserved: Int, pperrinfo: Long): Int
+    external fun windowssys_windows_win32_system_com_getErrorInfo(dwreserved: Int, pperrinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_GetRunningObjectTable(reserved: Int, pprot: Long): Int
+    external fun windowssys_windows_win32_system_com_getRunningObjectTable(reserved: Int, pprot: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_IIDFromString(lpsz: Long, lpiid: Long): Int
+    external fun windowssys_windows_win32_system_com_iIDFromString(lpsz: Long, lpiid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_MkParseDisplayName(pbc: Long, szusername: Long, pcheaten: Long, ppmk: Long): Int
+    external fun windowssys_windows_win32_system_com_mkParseDisplayName(pbc: Long, szusername: Long, pcheaten: Long, ppmk: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_MonikerCommonPrefixWith(pmkthis: Long, pmkother: Long, ppmkcommon: Long): Int
+    external fun windowssys_windows_win32_system_com_monikerCommonPrefixWith(pmkthis: Long, pmkother: Long, ppmkcommon: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_MonikerRelativePathTo(pmksrc: Long, pmkdest: Long, ppmkrelpath: Long, dwreserved: Int): Int
+    external fun windowssys_windows_win32_system_com_monikerRelativePathTo(pmksrc: Long, pmkdest: Long, ppmkrelpath: Long, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_ProgIDFromCLSID(clsid: Long, lplpszprogid: Long): Int
+    external fun windowssys_windows_win32_system_com_progIDFromCLSID(clsid: Long, lplpszprogid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_SetErrorInfo(dwreserved: Int, perrinfo: Long): Int
+    external fun windowssys_windows_win32_system_com_setErrorInfo(dwreserved: Int, perrinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_StringFromCLSID(rclsid: Long, lplpsz: Long): Int
+    external fun windowssys_windows_win32_system_com_stringFromCLSID(rclsid: Long, lplpsz: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_StringFromGUID2(rguid: Long, lpsz: Long, cchmax: Int): Int
+    external fun windowssys_windows_win32_system_com_stringFromGUID2(rguid: Long, lpsz: Long, cchmax: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_com_StringFromIID(rclsid: Long, lplpsz: Long): Int
+    external fun windowssys_windows_win32_system_com_stringFromIID(rclsid: Long, lplpsz: Long): Int
 }
 
-public actual fun BindMoniker(pmk: Long, grfopt: UInt, iidresult: Long, ppvresult: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_BindMoniker(pmk, grfopt.toInt(), iidresult, ppvresult)
+public actual fun bindMoniker(pmk: COpaquePointer?, grfopt: UInt, iidresult: COpaquePointer?, ppvresult: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_bindMoniker((pmk?.value ?: 0L), grfopt.toInt(), (iidresult?.value ?: 0L), (ppvresult?.value ?: 0L))
 
-public actual fun CLSIDFromProgID(lpszprogid: PCWSTR, lpclsid: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CLSIDFromProgID(lpszprogid, lpclsid)
+public actual fun cLSIDFromProgID(lpszprogid: Pcwstr, lpclsid: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_cLSIDFromProgID((lpszprogid?.value ?: 0L), (lpclsid?.value ?: 0L))
 
-public actual fun CLSIDFromProgIDEx(lpszprogid: PCWSTR, lpclsid: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CLSIDFromProgIDEx(lpszprogid, lpclsid)
+public actual fun cLSIDFromProgIDEx(lpszprogid: Pcwstr, lpclsid: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_cLSIDFromProgIDEx((lpszprogid?.value ?: 0L), (lpclsid?.value ?: 0L))
 
-public actual fun CLSIDFromString(lpsz: PCWSTR, pclsid: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CLSIDFromString(lpsz, pclsid)
+public actual fun cLSIDFromString(lpsz: Pcwstr, pclsid: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_cLSIDFromString((lpsz?.value ?: 0L), (pclsid?.value ?: 0L))
 
-public actual fun CoAddRefServerProcess(): UInt =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoAddRefServerProcess().toUInt()
+public actual fun coAddRefServerProcess(): UInt =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coAddRefServerProcess().toUInt()
 
-public actual fun CoAllowSetForegroundWindow(punk: Long, lpvreserved: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoAllowSetForegroundWindow(punk, lpvreserved)
+public actual fun coAllowSetForegroundWindow(punk: COpaquePointer?, lpvreserved: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coAllowSetForegroundWindow((punk?.value ?: 0L), (lpvreserved?.value ?: 0L))
 
-public actual fun CoAllowUnmarshalerCLSID(clsid: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoAllowUnmarshalerCLSID(clsid)
+public actual fun coAllowUnmarshalerCLSID(clsid: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coAllowUnmarshalerCLSID((clsid?.value ?: 0L))
 
-public actual fun CoBuildVersion(): UInt =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoBuildVersion().toUInt()
+public actual fun coBuildVersion(): UInt =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coBuildVersion().toUInt()
 
-public actual fun CoCancelCall(dwthreadid: UInt, ultimeout: UInt): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoCancelCall(dwthreadid.toInt(), ultimeout.toInt())
+public actual fun coCancelCall(dwthreadid: UInt, ultimeout: UInt): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coCancelCall(dwthreadid.toInt(), ultimeout.toInt())
 
-public actual fun CoCopyProxy(pproxy: Long, ppcopy: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoCopyProxy(pproxy, ppcopy)
+public actual fun coCopyProxy(pproxy: COpaquePointer?, ppcopy: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coCopyProxy((pproxy?.value ?: 0L), (ppcopy?.value ?: 0L))
 
-public actual fun CoCreateFreeThreadedMarshaler(punkouter: Long, ppunkmarshal: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoCreateFreeThreadedMarshaler(punkouter, ppunkmarshal)
+public actual fun coCreateFreeThreadedMarshaler(punkouter: COpaquePointer?, ppunkmarshal: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coCreateFreeThreadedMarshaler((punkouter?.value ?: 0L), (ppunkmarshal?.value ?: 0L))
 
-public actual fun CoCreateGuid(pguid: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoCreateGuid(pguid)
+public actual fun coCreateGuid(pguid: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coCreateGuid((pguid?.value ?: 0L))
 
-public actual fun CoCreateInstance(rclsid: Long, punkouter: Long, dwclscontext: CLSCTX, riid: Long, ppv: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoCreateInstance(rclsid, punkouter, dwclscontext.toInt(), riid, ppv)
+public actual fun coCreateInstance(rclsid: COpaquePointer?, punkouter: COpaquePointer?, dwclscontext: Clsctx, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coCreateInstance((rclsid?.value ?: 0L), (punkouter?.value ?: 0L), dwclscontext.toInt(), (riid?.value ?: 0L), (ppv?.value ?: 0L))
 
-public actual fun CoCreateInstanceEx(clsid: Long, punkouter: Long, dwclsctx: CLSCTX, pserverinfo: Long, dwcount: UInt, presults: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoCreateInstanceEx(clsid, punkouter, dwclsctx.toInt(), pserverinfo, dwcount.toInt(), presults)
+public actual fun coCreateInstanceEx(clsid: COpaquePointer?, punkouter: COpaquePointer?, dwclsctx: Clsctx, pserverinfo: COpaquePointer?, dwcount: UInt, presults: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coCreateInstanceEx((clsid?.value ?: 0L), (punkouter?.value ?: 0L), dwclsctx.toInt(), (pserverinfo?.value ?: 0L), dwcount.toInt(), (presults?.value ?: 0L))
 
-public actual fun CoCreateInstanceFromApp(clsid: Long, punkouter: Long, dwclsctx: CLSCTX, reserved: Long, dwcount: UInt, presults: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoCreateInstanceFromApp(clsid, punkouter, dwclsctx.toInt(), reserved, dwcount.toInt(), presults)
+public actual fun coCreateInstanceFromApp(clsid: COpaquePointer?, punkouter: COpaquePointer?, dwclsctx: Clsctx, reserved: COpaquePointer?, dwcount: UInt, presults: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coCreateInstanceFromApp((clsid?.value ?: 0L), (punkouter?.value ?: 0L), dwclsctx.toInt(), (reserved?.value ?: 0L), dwcount.toInt(), (presults?.value ?: 0L))
 
-public actual fun CoDecrementMTAUsage(cookie: CO_MTA_USAGE_COOKIE): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoDecrementMTAUsage(cookie)
+public actual fun coDecrementMTAUsage(cookie: CoMtaUsageCookie): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coDecrementMTAUsage((cookie?.value ?: 0L))
 
-public actual fun CoDisableCallCancellation(preserved: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoDisableCallCancellation(preserved)
+public actual fun coDisableCallCancellation(preserved: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coDisableCallCancellation((preserved?.value ?: 0L))
 
-public actual fun CoDisconnectContext(dwtimeout: UInt): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoDisconnectContext(dwtimeout.toInt())
+public actual fun coDisconnectContext(dwtimeout: UInt): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coDisconnectContext(dwtimeout.toInt())
 
-public actual fun CoDisconnectObject(punk: Long, dwreserved: UInt): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoDisconnectObject(punk, dwreserved.toInt())
+public actual fun coDisconnectObject(punk: COpaquePointer?, dwreserved: UInt): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coDisconnectObject((punk?.value ?: 0L), dwreserved.toInt())
 
-public actual fun CoDosDateTimeToFileTime(ndosdate: UShort, ndostime: UShort, lpfiletime: Long): BOOL =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoDosDateTimeToFileTime(ndosdate.toShort(), ndostime.toShort(), lpfiletime)
+public actual fun coDosDateTimeToFileTime(ndosdate: UShort, ndostime: UShort, lpfiletime: COpaquePointer?): Bool =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coDosDateTimeToFileTime(ndosdate.toShort(), ndostime.toShort(), (lpfiletime?.value ?: 0L))
 
-public actual fun CoEnableCallCancellation(preserved: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoEnableCallCancellation(preserved)
+public actual fun coEnableCallCancellation(preserved: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coEnableCallCancellation((preserved?.value ?: 0L))
 
-public actual fun CoFileTimeNow(lpfiletime: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoFileTimeNow(lpfiletime)
+public actual fun coFileTimeNow(lpfiletime: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coFileTimeNow((lpfiletime?.value ?: 0L))
 
-public actual fun CoFileTimeToDosDateTime(lpfiletime: Long, lpdosdate: Long, lpdostime: Long): BOOL =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoFileTimeToDosDateTime(lpfiletime, lpdosdate, lpdostime)
+public actual fun coFileTimeToDosDateTime(lpfiletime: COpaquePointer?, lpdosdate: COpaquePointer?, lpdostime: COpaquePointer?): Bool =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coFileTimeToDosDateTime((lpfiletime?.value ?: 0L), (lpdosdate?.value ?: 0L), (lpdostime?.value ?: 0L))
 
-public actual fun CoFreeAllLibraries() {
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoFreeAllLibraries()
+public actual fun coFreeAllLibraries() {
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coFreeAllLibraries()
 }
 
-public actual fun CoFreeLibrary(hinst: HINSTANCE) {
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoFreeLibrary(hinst)
+public actual fun coFreeLibrary(hinst: Hinstance) {
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coFreeLibrary((hinst?.value ?: 0L))
 }
 
-public actual fun CoFreeUnusedLibraries() {
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoFreeUnusedLibraries()
+public actual fun coFreeUnusedLibraries() {
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coFreeUnusedLibraries()
 }
 
-public actual fun CoFreeUnusedLibrariesEx(dwunloaddelay: UInt, dwreserved: UInt) {
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoFreeUnusedLibrariesEx(dwunloaddelay.toInt(), dwreserved.toInt())
+public actual fun coFreeUnusedLibrariesEx(dwunloaddelay: UInt, dwreserved: UInt) {
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coFreeUnusedLibrariesEx(dwunloaddelay.toInt(), dwreserved.toInt())
 }
 
-public actual fun CoGetApartmentType(papttype: Long, paptqualifier: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoGetApartmentType(papttype, paptqualifier)
+public actual fun coGetApartmentType(papttype: COpaquePointer?, paptqualifier: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coGetApartmentType((papttype?.value ?: 0L), (paptqualifier?.value ?: 0L))
 
-public actual fun CoGetCallContext(riid: Long, ppinterface: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoGetCallContext(riid, ppinterface)
+public actual fun coGetCallContext(riid: COpaquePointer?, ppinterface: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coGetCallContext((riid?.value ?: 0L), (ppinterface?.value ?: 0L))
 
-public actual fun CoGetCallerTID(lpdwtid: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoGetCallerTID(lpdwtid)
+public actual fun coGetCallerTID(lpdwtid: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coGetCallerTID((lpdwtid?.value ?: 0L))
 
-public actual fun CoGetCancelObject(dwthreadid: UInt, iid: Long, ppunk: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoGetCancelObject(dwthreadid.toInt(), iid, ppunk)
+public actual fun coGetCancelObject(dwthreadid: UInt, iid: COpaquePointer?, ppunk: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coGetCancelObject(dwthreadid.toInt(), (iid?.value ?: 0L), (ppunk?.value ?: 0L))
 
-public actual fun CoGetClassObject(rclsid: Long, dwclscontext: UInt, pvreserved: Long, riid: Long, ppv: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoGetClassObject(rclsid, dwclscontext.toInt(), pvreserved, riid, ppv)
+public actual fun coGetClassObject(rclsid: COpaquePointer?, dwclscontext: UInt, pvreserved: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coGetClassObject((rclsid?.value ?: 0L), dwclscontext.toInt(), (pvreserved?.value ?: 0L), (riid?.value ?: 0L), (ppv?.value ?: 0L))
 
-public actual fun CoGetContextToken(ptoken: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoGetContextToken(ptoken)
+public actual fun coGetContextToken(ptoken: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coGetContextToken((ptoken?.value ?: 0L))
 
-public actual fun CoGetCurrentLogicalThreadId(pguid: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoGetCurrentLogicalThreadId(pguid)
+public actual fun coGetCurrentLogicalThreadId(pguid: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coGetCurrentLogicalThreadId((pguid?.value ?: 0L))
 
-public actual fun CoGetCurrentProcess(): UInt =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoGetCurrentProcess().toUInt()
+public actual fun coGetCurrentProcess(): UInt =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coGetCurrentProcess().toUInt()
 
-public actual fun CoGetMalloc(dwmemcontext: UInt, ppmalloc: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoGetMalloc(dwmemcontext.toInt(), ppmalloc)
+public actual fun coGetMalloc(dwmemcontext: UInt, ppmalloc: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coGetMalloc(dwmemcontext.toInt(), (ppmalloc?.value ?: 0L))
 
-public actual fun CoGetObject(pszname: PCWSTR, pbindoptions: Long, riid: Long, ppv: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoGetObject(pszname, pbindoptions, riid, ppv)
+public actual fun coGetObject(pszname: Pcwstr, pbindoptions: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coGetObject((pszname?.value ?: 0L), (pbindoptions?.value ?: 0L), (riid?.value ?: 0L), (ppv?.value ?: 0L))
 
-public actual fun CoGetObjectContext(riid: Long, ppv: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoGetObjectContext(riid, ppv)
+public actual fun coGetObjectContext(riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coGetObjectContext((riid?.value ?: 0L), (ppv?.value ?: 0L))
 
-public actual fun CoGetPSClsid(riid: Long, pclsid: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoGetPSClsid(riid, pclsid)
+public actual fun coGetPSClsid(riid: COpaquePointer?, pclsid: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coGetPSClsid((riid?.value ?: 0L), (pclsid?.value ?: 0L))
 
-public actual fun CoGetSystemSecurityPermissions(comsdtype: COMSD, ppsd: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoGetSystemSecurityPermissions(comsdtype, ppsd)
+public actual fun coGetSystemSecurityPermissions(comsdtype: Comsd, ppsd: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coGetSystemSecurityPermissions(comsdtype, (ppsd?.value ?: 0L))
 
-public actual fun CoGetTreatAsClass(clsidold: Long, pclsidnew: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoGetTreatAsClass(clsidold, pclsidnew)
+public actual fun coGetTreatAsClass(clsidold: COpaquePointer?, pclsidnew: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coGetTreatAsClass((clsidold?.value ?: 0L), (pclsidnew?.value ?: 0L))
 
-public actual fun CoImpersonateClient(): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoImpersonateClient()
+public actual fun coImpersonateClient(): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coImpersonateClient()
 
-public actual fun CoIncrementMTAUsage(pcookie: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoIncrementMTAUsage(pcookie)
+public actual fun coIncrementMTAUsage(pcookie: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coIncrementMTAUsage((pcookie?.value ?: 0L))
 
-public actual fun CoInitialize(pvreserved: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoInitialize(pvreserved)
+public actual fun coInitialize(pvreserved: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coInitialize((pvreserved?.value ?: 0L))
 
-public actual fun CoInitializeEx(pvreserved: Long, dwcoinit: UInt): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoInitializeEx(pvreserved, dwcoinit.toInt())
+public actual fun coInitializeEx(pvreserved: COpaquePointer?, dwcoinit: UInt): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coInitializeEx((pvreserved?.value ?: 0L), dwcoinit.toInt())
 
-public actual fun CoInitializeSecurity(psecdesc: PSECURITY_DESCRIPTOR, cauthsvc: Int, asauthsvc: Long, preserved1: Long, dwauthnlevel: RPC_C_AUTHN_LEVEL, dwimplevel: RPC_C_IMP_LEVEL, pauthlist: Long, dwcapabilities: UInt, preserved3: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoInitializeSecurity(psecdesc, cauthsvc, asauthsvc, preserved1, dwauthnlevel.toInt(), dwimplevel.toInt(), pauthlist, dwcapabilities.toInt(), preserved3)
+public actual fun coInitializeSecurity(psecdesc: PsecurityDescriptor, cauthsvc: Int, asauthsvc: COpaquePointer?, preserved1: COpaquePointer?, dwauthnlevel: RpcCAuthnLevel, dwimplevel: RpcCImpLevel, pauthlist: COpaquePointer?, dwcapabilities: UInt, preserved3: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coInitializeSecurity((psecdesc?.value ?: 0L), cauthsvc, (asauthsvc?.value ?: 0L), (preserved1?.value ?: 0L), dwauthnlevel.toInt(), dwimplevel.toInt(), (pauthlist?.value ?: 0L), dwcapabilities.toInt(), (preserved3?.value ?: 0L))
 
-public actual fun CoInstall(pbc: Long, dwflags: UInt, pclassspec: Long, pquery: Long, pszcodebase: PCWSTR): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoInstall(pbc, dwflags.toInt(), pclassspec, pquery, pszcodebase)
+public actual fun coInstall(pbc: COpaquePointer?, dwflags: UInt, pclassspec: COpaquePointer?, pquery: COpaquePointer?, pszcodebase: Pcwstr): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coInstall((pbc?.value ?: 0L), dwflags.toInt(), (pclassspec?.value ?: 0L), (pquery?.value ?: 0L), (pszcodebase?.value ?: 0L))
 
-public actual fun CoInvalidateRemoteMachineBindings(pszmachinename: PCWSTR): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoInvalidateRemoteMachineBindings(pszmachinename)
+public actual fun coInvalidateRemoteMachineBindings(pszmachinename: Pcwstr): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coInvalidateRemoteMachineBindings((pszmachinename?.value ?: 0L))
 
-public actual fun CoIsHandlerConnected(punk: Long): BOOL =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoIsHandlerConnected(punk)
+public actual fun coIsHandlerConnected(punk: COpaquePointer?): Bool =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coIsHandlerConnected((punk?.value ?: 0L))
 
-public actual fun CoIsOle1Class(rclsid: Long): BOOL =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoIsOle1Class(rclsid)
+public actual fun coIsOle1Class(rclsid: COpaquePointer?): Bool =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coIsOle1Class((rclsid?.value ?: 0L))
 
-public actual fun CoLoadLibrary(lpszlibname: PCWSTR, bautofree: BOOL): HINSTANCE =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoLoadLibrary(lpszlibname, bautofree)
+public actual fun coLoadLibrary(lpszlibname: Pcwstr, bautofree: Bool): Hinstance =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coLoadLibrary((lpszlibname?.value ?: 0L), bautofree).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CoLockObjectExternal(punk: Long, flock: BOOL, flastunlockreleases: BOOL): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoLockObjectExternal(punk, flock, flastunlockreleases)
+public actual fun coLockObjectExternal(punk: COpaquePointer?, flock: Bool, flastunlockreleases: Bool): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coLockObjectExternal((punk?.value ?: 0L), flock, flastunlockreleases)
 
-public actual fun CoQueryAuthenticationServices(pcauthsvc: Long, asauthsvc: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoQueryAuthenticationServices(pcauthsvc, asauthsvc)
+public actual fun coQueryAuthenticationServices(pcauthsvc: COpaquePointer?, asauthsvc: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coQueryAuthenticationServices((pcauthsvc?.value ?: 0L), (asauthsvc?.value ?: 0L))
 
-public actual fun CoQueryClientBlanket(pauthnsvc: Long, pauthzsvc: Long, pserverprincname: Long, pauthnlevel: Long, pimplevel: Long, pprivs: Long, pcapabilities: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoQueryClientBlanket(pauthnsvc, pauthzsvc, pserverprincname, pauthnlevel, pimplevel, pprivs, pcapabilities)
+public actual fun coQueryClientBlanket(pauthnsvc: COpaquePointer?, pauthzsvc: COpaquePointer?, pserverprincname: COpaquePointer?, pauthnlevel: COpaquePointer?, pimplevel: COpaquePointer?, pprivs: COpaquePointer?, pcapabilities: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coQueryClientBlanket((pauthnsvc?.value ?: 0L), (pauthzsvc?.value ?: 0L), (pserverprincname?.value ?: 0L), (pauthnlevel?.value ?: 0L), (pimplevel?.value ?: 0L), (pprivs?.value ?: 0L), (pcapabilities?.value ?: 0L))
 
-public actual fun CoQueryProxyBlanket(pproxy: Long, pwauthnsvc: Long, pauthzsvc: Long, pserverprincname: Long, pauthnlevel: Long, pimplevel: Long, pauthinfo: Long, pcapabilites: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoQueryProxyBlanket(pproxy, pwauthnsvc, pauthzsvc, pserverprincname, pauthnlevel, pimplevel, pauthinfo, pcapabilites)
+public actual fun coQueryProxyBlanket(pproxy: COpaquePointer?, pwauthnsvc: COpaquePointer?, pauthzsvc: COpaquePointer?, pserverprincname: COpaquePointer?, pauthnlevel: COpaquePointer?, pimplevel: COpaquePointer?, pauthinfo: COpaquePointer?, pcapabilites: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coQueryProxyBlanket((pproxy?.value ?: 0L), (pwauthnsvc?.value ?: 0L), (pauthzsvc?.value ?: 0L), (pserverprincname?.value ?: 0L), (pauthnlevel?.value ?: 0L), (pimplevel?.value ?: 0L), (pauthinfo?.value ?: 0L), (pcapabilites?.value ?: 0L))
 
-public actual fun CoRegisterActivationFilter(pactivationfilter: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoRegisterActivationFilter(pactivationfilter)
+public actual fun coRegisterActivationFilter(pactivationfilter: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coRegisterActivationFilter((pactivationfilter?.value ?: 0L))
 
-public actual fun CoRegisterChannelHook(extensionuuid: Long, pchannelhook: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoRegisterChannelHook(extensionuuid, pchannelhook)
+public actual fun coRegisterChannelHook(extensionuuid: COpaquePointer?, pchannelhook: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coRegisterChannelHook((extensionuuid?.value ?: 0L), (pchannelhook?.value ?: 0L))
 
-public actual fun CoRegisterClassObject(rclsid: Long, punk: Long, dwclscontext: CLSCTX, flags: UInt, lpdwregister: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoRegisterClassObject(rclsid, punk, dwclscontext.toInt(), flags.toInt(), lpdwregister)
+public actual fun coRegisterClassObject(rclsid: COpaquePointer?, punk: COpaquePointer?, dwclscontext: Clsctx, flags: UInt, lpdwregister: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coRegisterClassObject((rclsid?.value ?: 0L), (punk?.value ?: 0L), dwclscontext.toInt(), flags.toInt(), (lpdwregister?.value ?: 0L))
 
-public actual fun CoRegisterDeviceCatalog(deviceinstanceid: PCWSTR, cookie: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoRegisterDeviceCatalog(deviceinstanceid, cookie)
+public actual fun coRegisterDeviceCatalog(deviceinstanceid: Pcwstr, cookie: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coRegisterDeviceCatalog((deviceinstanceid?.value ?: 0L), (cookie?.value ?: 0L))
 
-public actual fun CoRegisterInitializeSpy(pspy: Long, pulicookie: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoRegisterInitializeSpy(pspy, pulicookie)
+public actual fun coRegisterInitializeSpy(pspy: COpaquePointer?, pulicookie: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coRegisterInitializeSpy((pspy?.value ?: 0L), (pulicookie?.value ?: 0L))
 
-public actual fun CoRegisterMallocSpy(pmallocspy: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoRegisterMallocSpy(pmallocspy)
+public actual fun coRegisterMallocSpy(pmallocspy: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coRegisterMallocSpy((pmallocspy?.value ?: 0L))
 
-public actual fun CoRegisterPSClsid(riid: Long, rclsid: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoRegisterPSClsid(riid, rclsid)
+public actual fun coRegisterPSClsid(riid: COpaquePointer?, rclsid: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coRegisterPSClsid((riid?.value ?: 0L), (rclsid?.value ?: 0L))
 
-public actual fun CoRegisterSurrogate(psurrogate: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoRegisterSurrogate(psurrogate)
+public actual fun coRegisterSurrogate(psurrogate: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coRegisterSurrogate((psurrogate?.value ?: 0L))
 
-public actual fun CoReleaseServerProcess(): UInt =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoReleaseServerProcess().toUInt()
+public actual fun coReleaseServerProcess(): UInt =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coReleaseServerProcess().toUInt()
 
-public actual fun CoResumeClassObjects(): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoResumeClassObjects()
+public actual fun coResumeClassObjects(): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coResumeClassObjects()
 
-public actual fun CoRevertToSelf(): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoRevertToSelf()
+public actual fun coRevertToSelf(): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coRevertToSelf()
 
-public actual fun CoRevokeClassObject(dwregister: UInt): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoRevokeClassObject(dwregister.toInt())
+public actual fun coRevokeClassObject(dwregister: UInt): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coRevokeClassObject(dwregister.toInt())
 
-public actual fun CoRevokeDeviceCatalog(cookie: CO_DEVICE_CATALOG_COOKIE): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoRevokeDeviceCatalog(cookie)
+public actual fun coRevokeDeviceCatalog(cookie: CoDeviceCatalogCookie): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coRevokeDeviceCatalog((cookie?.value ?: 0L))
 
-public actual fun CoRevokeInitializeSpy(ulicookie: ULong): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoRevokeInitializeSpy(ulicookie.toLong())
+public actual fun coRevokeInitializeSpy(ulicookie: ULong): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coRevokeInitializeSpy(ulicookie.toLong())
 
-public actual fun CoRevokeMallocSpy(): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoRevokeMallocSpy()
+public actual fun coRevokeMallocSpy(): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coRevokeMallocSpy()
 
-public actual fun CoSetCancelObject(punk: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoSetCancelObject(punk)
+public actual fun coSetCancelObject(punk: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coSetCancelObject((punk?.value ?: 0L))
 
-public actual fun CoSetProxyBlanket(pproxy: Long, dwauthnsvc: UInt, dwauthzsvc: UInt, pserverprincname: PCWSTR, dwauthnlevel: RPC_C_AUTHN_LEVEL, dwimplevel: RPC_C_IMP_LEVEL, pauthinfo: Long, dwcapabilities: UInt): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoSetProxyBlanket(pproxy, dwauthnsvc.toInt(), dwauthzsvc.toInt(), pserverprincname, dwauthnlevel.toInt(), dwimplevel.toInt(), pauthinfo, dwcapabilities.toInt())
+public actual fun coSetProxyBlanket(pproxy: COpaquePointer?, dwauthnsvc: UInt, dwauthzsvc: UInt, pserverprincname: Pcwstr, dwauthnlevel: RpcCAuthnLevel, dwimplevel: RpcCImpLevel, pauthinfo: COpaquePointer?, dwcapabilities: UInt): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coSetProxyBlanket((pproxy?.value ?: 0L), dwauthnsvc.toInt(), dwauthzsvc.toInt(), (pserverprincname?.value ?: 0L), dwauthnlevel.toInt(), dwimplevel.toInt(), (pauthinfo?.value ?: 0L), dwcapabilities.toInt())
 
-public actual fun CoSuspendClassObjects(): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoSuspendClassObjects()
+public actual fun coSuspendClassObjects(): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coSuspendClassObjects()
 
-public actual fun CoSwitchCallContext(pnewobject: Long, ppoldobject: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoSwitchCallContext(pnewobject, ppoldobject)
+public actual fun coSwitchCallContext(pnewobject: COpaquePointer?, ppoldobject: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coSwitchCallContext((pnewobject?.value ?: 0L), (ppoldobject?.value ?: 0L))
 
-public actual fun CoTaskMemAlloc(cb: ULong): Long =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoTaskMemAlloc(cb.toLong())
+public actual fun coTaskMemAlloc(cb: ULong): COpaquePointer? =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coTaskMemAlloc(cb.toLong()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CoTaskMemFree(pv: Long) {
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoTaskMemFree(pv)
+public actual fun coTaskMemFree(pv: COpaquePointer?) {
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coTaskMemFree((pv?.value ?: 0L))
 }
 
-public actual fun CoTaskMemRealloc(pv: Long, cb: ULong): Long =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoTaskMemRealloc(pv, cb.toLong())
+public actual fun coTaskMemRealloc(pv: COpaquePointer?, cb: ULong): COpaquePointer? =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coTaskMemRealloc((pv?.value ?: 0L), cb.toLong()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CoTestCancel(): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoTestCancel()
+public actual fun coTestCancel(): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coTestCancel()
 
-public actual fun CoTreatAsClass(clsidold: Long, clsidnew: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoTreatAsClass(clsidold, clsidnew)
+public actual fun coTreatAsClass(clsidold: COpaquePointer?, clsidnew: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coTreatAsClass((clsidold?.value ?: 0L), (clsidnew?.value ?: 0L))
 
-public actual fun CoUninitialize() {
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoUninitialize()
+public actual fun coUninitialize() {
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coUninitialize()
 }
 
-public actual fun CoWaitForMultipleHandles(dwflags: UInt, dwtimeout: UInt, chandles: UInt, phandles: Long, lpdwindex: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoWaitForMultipleHandles(dwflags.toInt(), dwtimeout.toInt(), chandles.toInt(), phandles, lpdwindex)
+public actual fun coWaitForMultipleHandles(dwflags: UInt, dwtimeout: UInt, chandles: UInt, phandles: COpaquePointer?, lpdwindex: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coWaitForMultipleHandles(dwflags.toInt(), dwtimeout.toInt(), chandles.toInt(), (phandles?.value ?: 0L), (lpdwindex?.value ?: 0L))
 
-public actual fun CoWaitForMultipleObjects(dwflags: UInt, dwtimeout: UInt, chandles: UInt, phandles: Long, lpdwindex: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CoWaitForMultipleObjects(dwflags.toInt(), dwtimeout.toInt(), chandles.toInt(), phandles, lpdwindex)
+public actual fun coWaitForMultipleObjects(dwflags: UInt, dwtimeout: UInt, chandles: UInt, phandles: COpaquePointer?, lpdwindex: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_coWaitForMultipleObjects(dwflags.toInt(), dwtimeout.toInt(), chandles.toInt(), (phandles?.value ?: 0L), (lpdwindex?.value ?: 0L))
 
-public actual fun CreateAntiMoniker(ppmk: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CreateAntiMoniker(ppmk)
+public actual fun createAntiMoniker(ppmk: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_createAntiMoniker((ppmk?.value ?: 0L))
 
-public actual fun CreateBindCtx(reserved: UInt, ppbc: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CreateBindCtx(reserved.toInt(), ppbc)
+public actual fun createBindCtx(reserved: UInt, ppbc: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_createBindCtx(reserved.toInt(), (ppbc?.value ?: 0L))
 
-public actual fun CreateClassMoniker(rclsid: Long, ppmk: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CreateClassMoniker(rclsid, ppmk)
+public actual fun createClassMoniker(rclsid: COpaquePointer?, ppmk: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_createClassMoniker((rclsid?.value ?: 0L), (ppmk?.value ?: 0L))
 
-public actual fun CreateDataAdviseHolder(ppdaholder: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CreateDataAdviseHolder(ppdaholder)
+public actual fun createDataAdviseHolder(ppdaholder: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_createDataAdviseHolder((ppdaholder?.value ?: 0L))
 
-public actual fun CreateDataCache(punkouter: Long, rclsid: Long, iid: Long, ppv: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CreateDataCache(punkouter, rclsid, iid, ppv)
+public actual fun createDataCache(punkouter: COpaquePointer?, rclsid: COpaquePointer?, iid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_createDataCache((punkouter?.value ?: 0L), (rclsid?.value ?: 0L), (iid?.value ?: 0L), (ppv?.value ?: 0L))
 
-public actual fun CreateFileMoniker(lpszpathname: PCWSTR, ppmk: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CreateFileMoniker(lpszpathname, ppmk)
+public actual fun createFileMoniker(lpszpathname: Pcwstr, ppmk: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_createFileMoniker((lpszpathname?.value ?: 0L), (ppmk?.value ?: 0L))
 
-public actual fun CreateGenericComposite(pmkfirst: Long, pmkrest: Long, ppmkcomposite: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CreateGenericComposite(pmkfirst, pmkrest, ppmkcomposite)
+public actual fun createGenericComposite(pmkfirst: COpaquePointer?, pmkrest: COpaquePointer?, ppmkcomposite: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_createGenericComposite((pmkfirst?.value ?: 0L), (pmkrest?.value ?: 0L), (ppmkcomposite?.value ?: 0L))
 
-public actual fun CreateIUriBuilder(piuri: Long, dwflags: UInt, dwreserved: ULong, ppiuribuilder: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CreateIUriBuilder(piuri, dwflags.toInt(), dwreserved.toLong(), ppiuribuilder)
+public actual fun createIUriBuilder(piuri: COpaquePointer?, dwflags: UInt, dwreserved: ULong, ppiuribuilder: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_createIUriBuilder((piuri?.value ?: 0L), dwflags.toInt(), dwreserved.toLong(), (ppiuribuilder?.value ?: 0L))
 
-public actual fun CreateItemMoniker(lpszdelim: PCWSTR, lpszitem: PCWSTR, ppmk: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CreateItemMoniker(lpszdelim, lpszitem, ppmk)
+public actual fun createItemMoniker(lpszdelim: Pcwstr, lpszitem: Pcwstr, ppmk: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_createItemMoniker((lpszdelim?.value ?: 0L), (lpszitem?.value ?: 0L), (ppmk?.value ?: 0L))
 
-public actual fun CreateObjrefMoniker(punk: Long, ppmk: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CreateObjrefMoniker(punk, ppmk)
+public actual fun createObjrefMoniker(punk: COpaquePointer?, ppmk: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_createObjrefMoniker((punk?.value ?: 0L), (ppmk?.value ?: 0L))
 
-public actual fun CreatePointerMoniker(punk: Long, ppmk: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CreatePointerMoniker(punk, ppmk)
+public actual fun createPointerMoniker(punk: COpaquePointer?, ppmk: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_createPointerMoniker((punk?.value ?: 0L), (ppmk?.value ?: 0L))
 
-public actual fun CreateStdProgressIndicator(hwndparent: HWND, psztitle: PCWSTR, pibsccaller: Long, ppibsc: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CreateStdProgressIndicator(hwndparent, psztitle, pibsccaller, ppibsc)
+public actual fun createStdProgressIndicator(hwndparent: Hwnd, psztitle: Pcwstr, pibsccaller: COpaquePointer?, ppibsc: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_createStdProgressIndicator((hwndparent?.value ?: 0L), (psztitle?.value ?: 0L), (pibsccaller?.value ?: 0L), (ppibsc?.value ?: 0L))
 
-public actual fun CreateUri(pwzuri: PCWSTR, dwflags: URI_CREATE_FLAGS, dwreserved: ULong, ppuri: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CreateUri(pwzuri, dwflags.toInt(), dwreserved.toLong(), ppuri)
+public actual fun createUri(pwzuri: Pcwstr, dwflags: UriCreateFlags, dwreserved: ULong, ppuri: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_createUri((pwzuri?.value ?: 0L), dwflags.toInt(), dwreserved.toLong(), (ppuri?.value ?: 0L))
 
-public actual fun CreateUriFromMultiByteString(pszansiinputuri: PCSTR, dwencodingflags: UInt, dwcodepage: UInt, dwcreateflags: UInt, dwreserved: ULong, ppuri: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CreateUriFromMultiByteString(pszansiinputuri, dwencodingflags.toInt(), dwcodepage.toInt(), dwcreateflags.toInt(), dwreserved.toLong(), ppuri)
+public actual fun createUriFromMultiByteString(pszansiinputuri: Pcstr, dwencodingflags: UInt, dwcodepage: UInt, dwcreateflags: UInt, dwreserved: ULong, ppuri: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_createUriFromMultiByteString((pszansiinputuri?.value ?: 0L), dwencodingflags.toInt(), dwcodepage.toInt(), dwcreateflags.toInt(), dwreserved.toLong(), (ppuri?.value ?: 0L))
 
-public actual fun CreateUriWithFragment(pwzuri: PCWSTR, pwzfragment: PCWSTR, dwflags: UInt, dwreserved: ULong, ppuri: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_CreateUriWithFragment(pwzuri, pwzfragment, dwflags.toInt(), dwreserved.toLong(), ppuri)
+public actual fun createUriWithFragment(pwzuri: Pcwstr, pwzfragment: Pcwstr, dwflags: UInt, dwreserved: ULong, ppuri: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_createUriWithFragment((pwzuri?.value ?: 0L), (pwzfragment?.value ?: 0L), dwflags.toInt(), dwreserved.toLong(), (ppuri?.value ?: 0L))
 
-public actual fun DcomChannelSetHResult(pvreserved: Long, pulreserved: Long, appshr: HRESULT): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_DcomChannelSetHResult(pvreserved, pulreserved, appshr)
+public actual fun dcomChannelSetHResult(pvreserved: COpaquePointer?, pulreserved: COpaquePointer?, appshr: Hresult): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_dcomChannelSetHResult((pvreserved?.value ?: 0L), (pulreserved?.value ?: 0L), appshr)
 
-public actual fun GetClassFile(szfilename: PCWSTR, pclsid: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_GetClassFile(szfilename, pclsid)
+public actual fun getClassFile(szfilename: Pcwstr, pclsid: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_getClassFile((szfilename?.value ?: 0L), (pclsid?.value ?: 0L))
 
-public actual fun GetErrorInfo(dwreserved: UInt, pperrinfo: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_GetErrorInfo(dwreserved.toInt(), pperrinfo)
+public actual fun getErrorInfo(dwreserved: UInt, pperrinfo: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_getErrorInfo(dwreserved.toInt(), (pperrinfo?.value ?: 0L))
 
-public actual fun GetRunningObjectTable(reserved: UInt, pprot: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_GetRunningObjectTable(reserved.toInt(), pprot)
+public actual fun getRunningObjectTable(reserved: UInt, pprot: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_getRunningObjectTable(reserved.toInt(), (pprot?.value ?: 0L))
 
-public actual fun IIDFromString(lpsz: PCWSTR, lpiid: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_IIDFromString(lpsz, lpiid)
+public actual fun iIDFromString(lpsz: Pcwstr, lpiid: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_iIDFromString((lpsz?.value ?: 0L), (lpiid?.value ?: 0L))
 
-public actual fun MkParseDisplayName(pbc: Long, szusername: PCWSTR, pcheaten: Long, ppmk: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_MkParseDisplayName(pbc, szusername, pcheaten, ppmk)
+public actual fun mkParseDisplayName(pbc: COpaquePointer?, szusername: Pcwstr, pcheaten: COpaquePointer?, ppmk: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_mkParseDisplayName((pbc?.value ?: 0L), (szusername?.value ?: 0L), (pcheaten?.value ?: 0L), (ppmk?.value ?: 0L))
 
-public actual fun MonikerCommonPrefixWith(pmkthis: Long, pmkother: Long, ppmkcommon: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_MonikerCommonPrefixWith(pmkthis, pmkother, ppmkcommon)
+public actual fun monikerCommonPrefixWith(pmkthis: COpaquePointer?, pmkother: COpaquePointer?, ppmkcommon: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_monikerCommonPrefixWith((pmkthis?.value ?: 0L), (pmkother?.value ?: 0L), (ppmkcommon?.value ?: 0L))
 
-public actual fun MonikerRelativePathTo(pmksrc: Long, pmkdest: Long, ppmkrelpath: Long, dwreserved: BOOL): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_MonikerRelativePathTo(pmksrc, pmkdest, ppmkrelpath, dwreserved)
+public actual fun monikerRelativePathTo(pmksrc: COpaquePointer?, pmkdest: COpaquePointer?, ppmkrelpath: COpaquePointer?, dwreserved: Bool): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_monikerRelativePathTo((pmksrc?.value ?: 0L), (pmkdest?.value ?: 0L), (ppmkrelpath?.value ?: 0L), dwreserved)
 
-public actual fun ProgIDFromCLSID(clsid: Long, lplpszprogid: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_ProgIDFromCLSID(clsid, lplpszprogid)
+public actual fun progIDFromCLSID(clsid: COpaquePointer?, lplpszprogid: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_progIDFromCLSID((clsid?.value ?: 0L), (lplpszprogid?.value ?: 0L))
 
-public actual fun SetErrorInfo(dwreserved: UInt, perrinfo: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_SetErrorInfo(dwreserved.toInt(), perrinfo)
+public actual fun setErrorInfo(dwreserved: UInt, perrinfo: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_setErrorInfo(dwreserved.toInt(), (perrinfo?.value ?: 0L))
 
-public actual fun StringFromCLSID(rclsid: Long, lplpsz: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_StringFromCLSID(rclsid, lplpsz)
+public actual fun stringFromCLSID(rclsid: COpaquePointer?, lplpsz: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_stringFromCLSID((rclsid?.value ?: 0L), (lplpsz?.value ?: 0L))
 
-public actual fun StringFromGUID2(rguid: Long, lpsz: PWSTR, cchmax: Int): Int =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_StringFromGUID2(rguid, lpsz, cchmax)
+public actual fun stringFromGUID2(rguid: COpaquePointer?, lpsz: Pwstr, cchmax: Int): Int =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_stringFromGUID2((rguid?.value ?: 0L), (lpsz?.value ?: 0L), cchmax)
 
-public actual fun StringFromIID(rclsid: Long, lplpsz: Long): HRESULT =
-    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_StringFromIID(rclsid, lplpsz)
+public actual fun stringFromIID(rclsid: COpaquePointer?, lplpsz: COpaquePointer?): Hresult =
+    WindowsWin32SystemComJniBridge.windowssys_windows_win32_system_com_stringFromIID((rclsid?.value ?: 0L), (lplpsz?.value ?: 0L))

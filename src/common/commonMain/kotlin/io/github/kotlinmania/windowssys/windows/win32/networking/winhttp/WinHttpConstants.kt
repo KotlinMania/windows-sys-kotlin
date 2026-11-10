@@ -1,7 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.networking.winhttp
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
+import io.github.kotlinmania.windowssys.core.Guid
 
 public val API_GET_PROXY_FOR_URL: UInt = 6u
 
@@ -17,11 +17,11 @@ public val API_SEND_REQUEST: UInt = 5u
 
 public val API_WRITE_DATA: UInt = 4u
 
-public val AutoLogonPolicy_Always: WinHttpRequestAutoLogonPolicy = 0
+public val AUTO_LOGON_POLICY_ALWAYS: WinHttpRequestAutoLogonPolicy = 0
 
-public val AutoLogonPolicy_Never: WinHttpRequestAutoLogonPolicy = 2
+public val AUTO_LOGON_POLICY_NEVER: WinHttpRequestAutoLogonPolicy = 2
 
-public val AutoLogonPolicy_OnlyIfBypassProxy: WinHttpRequestAutoLogonPolicy = 1
+public val AUTO_LOGON_POLICY_ONLY_IF_BYPASS_PROXY: WinHttpRequestAutoLogonPolicy = 1
 
 public val ERROR_WINHTTP_AUTODETECTION_FAILED: UInt = 12180u
 
@@ -233,13 +233,13 @@ public val HTTP_STATUS_WEBDAV_MULTI_STATUS: UInt = 207u
 
 public val ICU_BROWSER_MODE: UInt = 33554432u
 
-public val ICU_DECODE: WIN_HTTP_CREATE_URL_FLAGS = 268435456u
+public val ICU_DECODE: WinHttpCreateUrlFlags = 268435456u
 
 public val ICU_ENCODE_PERCENT: UInt = 4096u
 
 public val ICU_ENCODE_SPACES_ONLY: UInt = 67108864u
 
-public val ICU_ESCAPE: WIN_HTTP_CREATE_URL_FLAGS = 2147483648u
+public val ICU_ESCAPE: WinHttpCreateUrlFlags = 2147483648u
 
 public val ICU_ESCAPE_AUTHORITY: UInt = 8192u
 
@@ -247,13 +247,13 @@ public val ICU_NO_ENCODE: UInt = 536870912u
 
 public val ICU_NO_META: UInt = 134217728u
 
-public val ICU_REJECT_USERPWD: WIN_HTTP_CREATE_URL_FLAGS = 16384u
+public val ICU_REJECT_USERPWD: WinHttpCreateUrlFlags = 16384u
 
-public val INTERNET_DEFAULT_HTTPS_PORT: UShort = 443u
+public val INTERNET_DEFAULT_HTTPS_PORT: UShort = 443u.toUShort()
 
-public val INTERNET_DEFAULT_HTTP_PORT: UShort = 80u
+public val INTERNET_DEFAULT_HTTP_PORT: UShort = 80u.toUShort()
 
-public val INTERNET_DEFAULT_PORT: UShort = 0u
+public val INTERNET_DEFAULT_PORT: UShort = 0u.toUShort()
 
 public val NETWORKING_KEY_BUFSIZE: UInt = 128u
 
@@ -273,35 +273,35 @@ public val SECURITY_FLAG_STRENGTH_STRONG: UInt = 536870912u
 
 public val SECURITY_FLAG_STRENGTH_WEAK: UInt = 268435456u
 
-public val SecureProtocol_ALL: WinHttpRequestSecureProtocols = 168
+public val SECURE_PROTOCOL_ALL: WinHttpRequestSecureProtocols = 168
 
-public val SecureProtocol_SSL2: WinHttpRequestSecureProtocols = 8
+public val SECURE_PROTOCOL_SSL2: WinHttpRequestSecureProtocols = 8
 
-public val SecureProtocol_SSL3: WinHttpRequestSecureProtocols = 32
+public val SECURE_PROTOCOL_SSL3: WinHttpRequestSecureProtocols = 32
 
-public val SecureProtocol_TLS1: WinHttpRequestSecureProtocols = 128
+public val SECURE_PROTOCOL_TLS1: WinHttpRequestSecureProtocols = 128
 
-public val SecureProtocol_TLS1_1: WinHttpRequestSecureProtocols = 512
+public val SECURE_PROTOCOL_TLS1_1: WinHttpRequestSecureProtocols = 512
 
-public val SecureProtocol_TLS1_2: WinHttpRequestSecureProtocols = 2048
+public val SECURE_PROTOCOL_TLS1_2: WinHttpRequestSecureProtocols = 2048
 
-public val SslErrorFlag_CertCNInvalid: WinHttpRequestSslErrorFlags = 4096
+public val SSL_ERROR_FLAG_CERT_CN_INVALID: WinHttpRequestSslErrorFlags = 4096
 
-public val SslErrorFlag_CertDateInvalid: WinHttpRequestSslErrorFlags = 8192
+public val SSL_ERROR_FLAG_CERT_DATE_INVALID: WinHttpRequestSslErrorFlags = 8192
 
-public val SslErrorFlag_CertWrongUsage: WinHttpRequestSslErrorFlags = 512
+public val SSL_ERROR_FLAG_CERT_WRONG_USAGE: WinHttpRequestSslErrorFlags = 512
 
-public val SslErrorFlag_Ignore_All: WinHttpRequestSslErrorFlags = 13056
+public val SSL_ERROR_FLAG_IGNORE_ALL: WinHttpRequestSslErrorFlags = 13056
 
-public val SslErrorFlag_UnknownCA: WinHttpRequestSslErrorFlags = 256
+public val SSL_ERROR_FLAG_UNKNOWN_CA: WinHttpRequestSslErrorFlags = 256
 
-public val WINHTTP_ACCESS_TYPE_AUTOMATIC_PROXY: WINHTTP_ACCESS_TYPE = 4u
+public val WINHTTP_ACCESS_TYPE_AUTOMATIC_PROXY: WinhttpAccessType = 4u
 
-public val WINHTTP_ACCESS_TYPE_DEFAULT_PROXY: WINHTTP_ACCESS_TYPE = 0u
+public val WINHTTP_ACCESS_TYPE_DEFAULT_PROXY: WinhttpAccessType = 0u
 
-public val WINHTTP_ACCESS_TYPE_NAMED_PROXY: WINHTTP_ACCESS_TYPE = 3u
+public val WINHTTP_ACCESS_TYPE_NAMED_PROXY: WinhttpAccessType = 3u
 
-public val WINHTTP_ACCESS_TYPE_NO_PROXY: WINHTTP_ACCESS_TYPE = 1u
+public val WINHTTP_ACCESS_TYPE_NO_PROXY: WinhttpAccessType = 1u
 
 public val WINHTTP_ADDREQ_FLAGS_MASK: UInt = 4294901760u
 
@@ -319,13 +319,13 @@ public val WINHTTP_ADDREQ_FLAG_REPLACE: UInt = 2147483648u
 
 public val WINHTTP_ADDREQ_INDEX_MASK: UInt = 65535u
 
-public val WINHTTP_AUTH_SCHEME_BASIC: WINHTTP_CREDS_AUTHSCHEME = 1u
+public val WINHTTP_AUTH_SCHEME_BASIC: WinhttpCredsAuthscheme = 1u
 
 public val WINHTTP_AUTH_SCHEME_DIGEST: UInt = 8u
 
-public val WINHTTP_AUTH_SCHEME_NEGOTIATE: WINHTTP_CREDS_AUTHSCHEME = 16u
+public val WINHTTP_AUTH_SCHEME_NEGOTIATE: WinhttpCredsAuthscheme = 16u
 
-public val WINHTTP_AUTH_SCHEME_NTLM: WINHTTP_CREDS_AUTHSCHEME = 2u
+public val WINHTTP_AUTH_SCHEME_NTLM: WinhttpCredsAuthscheme = 2u
 
 public val WINHTTP_AUTH_SCHEME_PASSPORT: UInt = 4u
 
@@ -647,19 +647,19 @@ public val WINHTTP_FLAG_ASYNC: UInt = 268435456u
 
 public val WINHTTP_FLAG_AUTOMATIC_CHUNKING: UInt = 512u
 
-public val WINHTTP_FLAG_BYPASS_PROXY_CACHE: WINHTTP_OPEN_REQUEST_FLAGS = 256u
+public val WINHTTP_FLAG_BYPASS_PROXY_CACHE: WinhttpOpenRequestFlags = 256u
 
-public val WINHTTP_FLAG_ESCAPE_DISABLE: WINHTTP_OPEN_REQUEST_FLAGS = 64u
+public val WINHTTP_FLAG_ESCAPE_DISABLE: WinhttpOpenRequestFlags = 64u
 
-public val WINHTTP_FLAG_ESCAPE_DISABLE_QUERY: WINHTTP_OPEN_REQUEST_FLAGS = 128u
+public val WINHTTP_FLAG_ESCAPE_DISABLE_QUERY: WinhttpOpenRequestFlags = 128u
 
-public val WINHTTP_FLAG_ESCAPE_PERCENT: WINHTTP_OPEN_REQUEST_FLAGS = 4u
+public val WINHTTP_FLAG_ESCAPE_PERCENT: WinhttpOpenRequestFlags = 4u
 
-public val WINHTTP_FLAG_NULL_CODEPAGE: WINHTTP_OPEN_REQUEST_FLAGS = 8u
+public val WINHTTP_FLAG_NULL_CODEPAGE: WinhttpOpenRequestFlags = 8u
 
-public val WINHTTP_FLAG_REFRESH: WINHTTP_OPEN_REQUEST_FLAGS = 256u
+public val WINHTTP_FLAG_REFRESH: WinhttpOpenRequestFlags = 256u
 
-public val WINHTTP_FLAG_SECURE: WINHTTP_OPEN_REQUEST_FLAGS = 8388608u
+public val WINHTTP_FLAG_SECURE: WinhttpOpenRequestFlags = 8388608u
 
 public val WINHTTP_FLAG_SECURE_DEFAULTS: UInt = 805306368u
 
@@ -687,13 +687,13 @@ public val WINHTTP_HANDLE_TYPE_WEBSOCKET: UInt = 5u
 
 public val WINHTTP_IGNORE_REQUEST_TOTAL_LENGTH: UInt = 0u
 
-public val WINHTTP_INTERNET_SCHEME_FTP: WINHTTP_INTERNET_SCHEME = 3
+public val WINHTTP_INTERNET_SCHEME_FTP: WinhttpInternetScheme = 3
 
-public val WINHTTP_INTERNET_SCHEME_HTTP: WINHTTP_INTERNET_SCHEME = 1
+public val WINHTTP_INTERNET_SCHEME_HTTP: WinhttpInternetScheme = 1
 
-public val WINHTTP_INTERNET_SCHEME_HTTPS: WINHTTP_INTERNET_SCHEME = 2
+public val WINHTTP_INTERNET_SCHEME_HTTPS: WinhttpInternetScheme = 2
 
-public val WINHTTP_INTERNET_SCHEME_SOCKS: WINHTTP_INTERNET_SCHEME = 4
+public val WINHTTP_INTERNET_SCHEME_SOCKS: WinhttpInternetScheme = 4
 
 public val WINHTTP_LAST_OPTION: UInt = 196u
 
@@ -1189,218 +1189,218 @@ public val WINHTTP_RESOLVER_CACHE_CONFIG_FLAG_USE_DNS_TTL: UInt = 4u
 
 public val WINHTTP_TIME_FORMAT_BUFSIZE: UInt = 62u
 
-public val WINHTTP_WEB_SOCKET_ABORTED_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = 1006
+public val WINHTTP_WEB_SOCKET_ABORTED_CLOSE_STATUS: WinhttpWebSocketCloseStatus = 1006
 
-public val WINHTTP_WEB_SOCKET_BINARY_FRAGMENT_BUFFER_TYPE: WINHTTP_WEB_SOCKET_BUFFER_TYPE = 1
+public val WINHTTP_WEB_SOCKET_BINARY_FRAGMENT_BUFFER_TYPE: WinhttpWebSocketBufferType = 1
 
-public val WINHTTP_WEB_SOCKET_BINARY_MESSAGE_BUFFER_TYPE: WINHTTP_WEB_SOCKET_BUFFER_TYPE = 0
+public val WINHTTP_WEB_SOCKET_BINARY_MESSAGE_BUFFER_TYPE: WinhttpWebSocketBufferType = 0
 
-public val WINHTTP_WEB_SOCKET_CLOSE_BUFFER_TYPE: WINHTTP_WEB_SOCKET_BUFFER_TYPE = 4
+public val WINHTTP_WEB_SOCKET_CLOSE_BUFFER_TYPE: WinhttpWebSocketBufferType = 4
 
-public val WINHTTP_WEB_SOCKET_CLOSE_OPERATION: WINHTTP_WEB_SOCKET_OPERATION = 2
+public val WINHTTP_WEB_SOCKET_CLOSE_OPERATION: WinhttpWebSocketOperation = 2
 
-public val WINHTTP_WEB_SOCKET_EMPTY_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = 1005
+public val WINHTTP_WEB_SOCKET_EMPTY_CLOSE_STATUS: WinhttpWebSocketCloseStatus = 1005
 
-public val WINHTTP_WEB_SOCKET_ENDPOINT_TERMINATED_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = 1001
+public val WINHTTP_WEB_SOCKET_ENDPOINT_TERMINATED_CLOSE_STATUS: WinhttpWebSocketCloseStatus = 1001
 
-public val WINHTTP_WEB_SOCKET_INVALID_DATA_TYPE_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = 1003
+public val WINHTTP_WEB_SOCKET_INVALID_DATA_TYPE_CLOSE_STATUS: WinhttpWebSocketCloseStatus = 1003
 
-public val WINHTTP_WEB_SOCKET_INVALID_PAYLOAD_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = 1007
+public val WINHTTP_WEB_SOCKET_INVALID_PAYLOAD_CLOSE_STATUS: WinhttpWebSocketCloseStatus = 1007
 
 public val WINHTTP_WEB_SOCKET_MAX_CLOSE_REASON_LENGTH: UInt = 123u
 
-public val WINHTTP_WEB_SOCKET_MESSAGE_TOO_BIG_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = 1009
+public val WINHTTP_WEB_SOCKET_MESSAGE_TOO_BIG_CLOSE_STATUS: WinhttpWebSocketCloseStatus = 1009
 
 public val WINHTTP_WEB_SOCKET_MIN_KEEPALIVE_VALUE: UInt = 15000u
 
-public val WINHTTP_WEB_SOCKET_POLICY_VIOLATION_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = 1008
+public val WINHTTP_WEB_SOCKET_POLICY_VIOLATION_CLOSE_STATUS: WinhttpWebSocketCloseStatus = 1008
 
-public val WINHTTP_WEB_SOCKET_PROTOCOL_ERROR_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = 1002
+public val WINHTTP_WEB_SOCKET_PROTOCOL_ERROR_CLOSE_STATUS: WinhttpWebSocketCloseStatus = 1002
 
-public val WINHTTP_WEB_SOCKET_RECEIVE_OPERATION: WINHTTP_WEB_SOCKET_OPERATION = 1
+public val WINHTTP_WEB_SOCKET_RECEIVE_OPERATION: WinhttpWebSocketOperation = 1
 
-public val WINHTTP_WEB_SOCKET_SECURE_HANDSHAKE_ERROR_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = 1015
+public val WINHTTP_WEB_SOCKET_SECURE_HANDSHAKE_ERROR_CLOSE_STATUS: WinhttpWebSocketCloseStatus = 1015
 
-public val WINHTTP_WEB_SOCKET_SEND_OPERATION: WINHTTP_WEB_SOCKET_OPERATION = 0
+public val WINHTTP_WEB_SOCKET_SEND_OPERATION: WinhttpWebSocketOperation = 0
 
-public val WINHTTP_WEB_SOCKET_SERVER_ERROR_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = 1011
+public val WINHTTP_WEB_SOCKET_SERVER_ERROR_CLOSE_STATUS: WinhttpWebSocketCloseStatus = 1011
 
-public val WINHTTP_WEB_SOCKET_SHUTDOWN_OPERATION: WINHTTP_WEB_SOCKET_OPERATION = 3
+public val WINHTTP_WEB_SOCKET_SHUTDOWN_OPERATION: WinhttpWebSocketOperation = 3
 
-public val WINHTTP_WEB_SOCKET_SUCCESS_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = 1000
+public val WINHTTP_WEB_SOCKET_SUCCESS_CLOSE_STATUS: WinhttpWebSocketCloseStatus = 1000
 
-public val WINHTTP_WEB_SOCKET_UNSUPPORTED_EXTENSIONS_CLOSE_STATUS: WINHTTP_WEB_SOCKET_CLOSE_STATUS = 1010
+public val WINHTTP_WEB_SOCKET_UNSUPPORTED_EXTENSIONS_CLOSE_STATUS: WinhttpWebSocketCloseStatus = 1010
 
-public val WINHTTP_WEB_SOCKET_UTF8_FRAGMENT_BUFFER_TYPE: WINHTTP_WEB_SOCKET_BUFFER_TYPE = 3
+public val WINHTTP_WEB_SOCKET_UTF8_FRAGMENT_BUFFER_TYPE: WinhttpWebSocketBufferType = 3
 
-public val WINHTTP_WEB_SOCKET_UTF8_MESSAGE_BUFFER_TYPE: WINHTTP_WEB_SOCKET_BUFFER_TYPE = 2
+public val WINHTTP_WEB_SOCKET_UTF8_MESSAGE_BUFFER_TYPE: WinhttpWebSocketBufferType = 2
 
-public val WinHttpConnectFailureCount: WINHTTP_REQUEST_STAT_ENTRY = 0
+public val WIN_HTTP_CONNECT_FAILURE_COUNT: WinhttpRequestStatEntry = 0
 
-public val WinHttpConnectionAcquireEnd: WINHTTP_REQUEST_TIME_ENTRY = 4
+public val WIN_HTTP_CONNECTION_ACQUIRE_END: WinhttpRequestTimeEntry = 4
 
-public val WinHttpConnectionAcquireStart: WINHTTP_REQUEST_TIME_ENTRY = 2
+public val WIN_HTTP_CONNECTION_ACQUIRE_START: WinhttpRequestTimeEntry = 2
 
-public val WinHttpConnectionAcquireWaitEnd: WINHTTP_REQUEST_TIME_ENTRY = 3
+public val WIN_HTTP_CONNECTION_ACQUIRE_WAIT_END: WinhttpRequestTimeEntry = 3
 
-public val WinHttpConnectionEstablishmentEnd: WINHTTP_REQUEST_TIME_ENTRY = 8
+public val WIN_HTTP_CONNECTION_ESTABLISHMENT_END: WinhttpRequestTimeEntry = 8
 
-public val WinHttpConnectionEstablishmentStart: WINHTTP_REQUEST_TIME_ENTRY = 7
+public val WIN_HTTP_CONNECTION_ESTABLISHMENT_START: WinhttpRequestTimeEntry = 7
 
-public val WinHttpNameResolutionEnd: WINHTTP_REQUEST_TIME_ENTRY = 6
+public val WIN_HTTP_NAME_RESOLUTION_END: WinhttpRequestTimeEntry = 6
 
-public val WinHttpNameResolutionStart: WINHTTP_REQUEST_TIME_ENTRY = 5
+public val WIN_HTTP_NAME_RESOLUTION_START: WinhttpRequestTimeEntry = 5
 
-public val WinHttpProxyDetectionEnd: WINHTTP_REQUEST_TIME_ENTRY = 1
+public val WIN_HTTP_PROXY_DETECTION_END: WinhttpRequestTimeEntry = 1
 
-public val WinHttpProxyDetectionStart: WINHTTP_REQUEST_TIME_ENTRY = 0
+public val WIN_HTTP_PROXY_DETECTION_START: WinhttpRequestTimeEntry = 0
 
-public val WinHttpProxyFailureCount: WINHTTP_REQUEST_STAT_ENTRY = 1
+public val WIN_HTTP_PROXY_FAILURE_COUNT: WinhttpRequestStatEntry = 1
 
-public val WinHttpProxySettingsTypeUnknown: WINHTTP_PROXY_SETTINGS_TYPE = 0
+public val WIN_HTTP_PROXY_SETTINGS_TYPE_UNKNOWN: WinhttpProxySettingsType = 0
 
-public val WinHttpProxySettingsTypeWsa: WINHTTP_PROXY_SETTINGS_TYPE = 2
+public val WIN_HTTP_PROXY_SETTINGS_TYPE_WSA: WinhttpProxySettingsType = 2
 
-public val WinHttpProxySettingsTypeWsl: WINHTTP_PROXY_SETTINGS_TYPE = 1
+public val WIN_HTTP_PROXY_SETTINGS_TYPE_WSL: WinhttpProxySettingsType = 1
 
-public val WinHttpProxyTlsHandshakeClientLeg1End: WINHTTP_REQUEST_TIME_ENTRY = 31
+public val WIN_HTTP_PROXY_TLS_HANDSHAKE_CLIENT_LEG1END: WinhttpRequestTimeEntry = 31
 
-public val WinHttpProxyTlsHandshakeClientLeg1Size: WINHTTP_REQUEST_STAT_ENTRY = 12
+public val WIN_HTTP_PROXY_TLS_HANDSHAKE_CLIENT_LEG1SIZE: WinhttpRequestStatEntry = 12
 
-public val WinHttpProxyTlsHandshakeClientLeg1Start: WINHTTP_REQUEST_TIME_ENTRY = 30
+public val WIN_HTTP_PROXY_TLS_HANDSHAKE_CLIENT_LEG1START: WinhttpRequestTimeEntry = 30
 
-public val WinHttpProxyTlsHandshakeClientLeg2End: WINHTTP_REQUEST_TIME_ENTRY = 33
+public val WIN_HTTP_PROXY_TLS_HANDSHAKE_CLIENT_LEG2END: WinhttpRequestTimeEntry = 33
 
-public val WinHttpProxyTlsHandshakeClientLeg2Size: WINHTTP_REQUEST_STAT_ENTRY = 14
+public val WIN_HTTP_PROXY_TLS_HANDSHAKE_CLIENT_LEG2SIZE: WinhttpRequestStatEntry = 14
 
-public val WinHttpProxyTlsHandshakeClientLeg2Start: WINHTTP_REQUEST_TIME_ENTRY = 32
+public val WIN_HTTP_PROXY_TLS_HANDSHAKE_CLIENT_LEG2START: WinhttpRequestTimeEntry = 32
 
-public val WinHttpProxyTlsHandshakeClientLeg3End: WINHTTP_REQUEST_TIME_ENTRY = 35
+public val WIN_HTTP_PROXY_TLS_HANDSHAKE_CLIENT_LEG3END: WinhttpRequestTimeEntry = 35
 
-public val WinHttpProxyTlsHandshakeClientLeg3Start: WINHTTP_REQUEST_TIME_ENTRY = 34
+public val WIN_HTTP_PROXY_TLS_HANDSHAKE_CLIENT_LEG3START: WinhttpRequestTimeEntry = 34
 
-public val WinHttpProxyTlsHandshakeServerLeg1Size: WINHTTP_REQUEST_STAT_ENTRY = 13
+public val WIN_HTTP_PROXY_TLS_HANDSHAKE_SERVER_LEG1SIZE: WinhttpRequestStatEntry = 13
 
-public val WinHttpProxyTlsHandshakeServerLeg2Size: WINHTTP_REQUEST_STAT_ENTRY = 15
+public val WIN_HTTP_PROXY_TLS_HANDSHAKE_SERVER_LEG2SIZE: WinhttpRequestStatEntry = 15
 
-public val WinHttpProxyTunnelEnd: WINHTTP_REQUEST_TIME_ENTRY = 29
+public val WIN_HTTP_PROXY_TUNNEL_END: WinhttpRequestTimeEntry = 29
 
-public val WinHttpProxyTunnelStart: WINHTTP_REQUEST_TIME_ENTRY = 28
+public val WIN_HTTP_PROXY_TUNNEL_START: WinhttpRequestTimeEntry = 28
 
-public val WinHttpReceiveResponseBodyDecompressionDelta: WINHTTP_REQUEST_TIME_ENTRY = 26
+public val WIN_HTTP_RECEIVE_RESPONSE_BODY_DECOMPRESSION_DELTA: WinhttpRequestTimeEntry = 26
 
-public val WinHttpReceiveResponseEnd: WINHTTP_REQUEST_TIME_ENTRY = 27
+public val WIN_HTTP_RECEIVE_RESPONSE_END: WinhttpRequestTimeEntry = 27
 
-public val WinHttpReceiveResponseHeadersDecompressionEnd: WINHTTP_REQUEST_TIME_ENTRY = 24
+public val WIN_HTTP_RECEIVE_RESPONSE_HEADERS_DECOMPRESSION_END: WinhttpRequestTimeEntry = 24
 
-public val WinHttpReceiveResponseHeadersDecompressionStart: WINHTTP_REQUEST_TIME_ENTRY = 23
+public val WIN_HTTP_RECEIVE_RESPONSE_HEADERS_DECOMPRESSION_START: WinhttpRequestTimeEntry = 23
 
-public val WinHttpReceiveResponseHeadersEnd: WINHTTP_REQUEST_TIME_ENTRY = 25
+public val WIN_HTTP_RECEIVE_RESPONSE_HEADERS_END: WinhttpRequestTimeEntry = 25
 
-public val WinHttpReceiveResponseStart: WINHTTP_REQUEST_TIME_ENTRY = 22
+public val WIN_HTTP_RECEIVE_RESPONSE_START: WinhttpRequestTimeEntry = 22
 
-public val WinHttpRequest: GUID = GUID.from_u128(U128(0x2087c2f42cef4953uL, 0xa8ab66779b670495uL))
+public val WIN_HTTP_REQUEST: Guid = Guid.fromU128(U128(0x2087c2f42cef4953uL, 0xa8ab66779b670495uL))
 
-public val WinHttpRequestHeadersCompressedSize: WINHTTP_REQUEST_STAT_ENTRY = 7
+public val WIN_HTTP_REQUEST_HEADERS_COMPRESSED_SIZE: WinhttpRequestStatEntry = 7
 
-public val WinHttpRequestHeadersSize: WINHTTP_REQUEST_STAT_ENTRY = 6
+public val WIN_HTTP_REQUEST_HEADERS_SIZE: WinhttpRequestStatEntry = 6
 
-public val WinHttpRequestOption_EnableCertificateRevocationCheck: WinHttpRequestOption = 18
+public val WIN_HTTP_REQUEST_OPTION_ENABLE_CERTIFICATE_REVOCATION_CHECK: WinHttpRequestOption = 18
 
-public val WinHttpRequestOption_EnableHttp1_1: WinHttpRequestOption = 17
+public val WIN_HTTP_REQUEST_OPTION_ENABLE_HTTP1_1: WinHttpRequestOption = 17
 
-public val WinHttpRequestOption_EnableHttpsToHttpRedirects: WinHttpRequestOption = 12
+public val WIN_HTTP_REQUEST_OPTION_ENABLE_HTTPS_TO_HTTP_REDIRECTS: WinHttpRequestOption = 12
 
-public val WinHttpRequestOption_EnablePassportAuthentication: WinHttpRequestOption = 13
+public val WIN_HTTP_REQUEST_OPTION_ENABLE_PASSPORT_AUTHENTICATION: WinHttpRequestOption = 13
 
-public val WinHttpRequestOption_EnableRedirects: WinHttpRequestOption = 6
+public val WIN_HTTP_REQUEST_OPTION_ENABLE_REDIRECTS: WinHttpRequestOption = 6
 
-public val WinHttpRequestOption_EnableTracing: WinHttpRequestOption = 10
+public val WIN_HTTP_REQUEST_OPTION_ENABLE_TRACING: WinHttpRequestOption = 10
 
-public val WinHttpRequestOption_EscapePercentInURL: WinHttpRequestOption = 3
+public val WIN_HTTP_REQUEST_OPTION_ESCAPE_PERCENT_IN_URL: WinHttpRequestOption = 3
 
-public val WinHttpRequestOption_MaxAutomaticRedirects: WinHttpRequestOption = 14
+public val WIN_HTTP_REQUEST_OPTION_MAX_AUTOMATIC_REDIRECTS: WinHttpRequestOption = 14
 
-public val WinHttpRequestOption_MaxResponseDrainSize: WinHttpRequestOption = 16
+public val WIN_HTTP_REQUEST_OPTION_MAX_RESPONSE_DRAIN_SIZE: WinHttpRequestOption = 16
 
-public val WinHttpRequestOption_MaxResponseHeaderSize: WinHttpRequestOption = 15
+public val WIN_HTTP_REQUEST_OPTION_MAX_RESPONSE_HEADER_SIZE: WinHttpRequestOption = 15
 
-public val WinHttpRequestOption_RejectUserpwd: WinHttpRequestOption = 19
+public val WIN_HTTP_REQUEST_OPTION_REJECT_USERPWD: WinHttpRequestOption = 19
 
-public val WinHttpRequestOption_RevertImpersonationOverSsl: WinHttpRequestOption = 11
+public val WIN_HTTP_REQUEST_OPTION_REVERT_IMPERSONATION_OVER_SSL: WinHttpRequestOption = 11
 
-public val WinHttpRequestOption_SecureProtocols: WinHttpRequestOption = 9
+public val WIN_HTTP_REQUEST_OPTION_SECURE_PROTOCOLS: WinHttpRequestOption = 9
 
-public val WinHttpRequestOption_SelectCertificate: WinHttpRequestOption = 5
+public val WIN_HTTP_REQUEST_OPTION_SELECT_CERTIFICATE: WinHttpRequestOption = 5
 
-public val WinHttpRequestOption_SslErrorIgnoreFlags: WinHttpRequestOption = 4
+public val WIN_HTTP_REQUEST_OPTION_SSL_ERROR_IGNORE_FLAGS: WinHttpRequestOption = 4
 
-public val WinHttpRequestOption_URL: WinHttpRequestOption = 1
+public val WIN_HTTP_REQUEST_OPTION_URL: WinHttpRequestOption = 1
 
-public val WinHttpRequestOption_URLCodePage: WinHttpRequestOption = 2
+public val WIN_HTTP_REQUEST_OPTION_URL_CODE_PAGE: WinHttpRequestOption = 2
 
-public val WinHttpRequestOption_UrlEscapeDisable: WinHttpRequestOption = 7
+public val WIN_HTTP_REQUEST_OPTION_URL_ESCAPE_DISABLE: WinHttpRequestOption = 7
 
-public val WinHttpRequestOption_UrlEscapeDisableQuery: WinHttpRequestOption = 8
+public val WIN_HTTP_REQUEST_OPTION_URL_ESCAPE_DISABLE_QUERY: WinHttpRequestOption = 8
 
-public val WinHttpRequestOption_UserAgentString: WinHttpRequestOption = 0
+public val WIN_HTTP_REQUEST_OPTION_USER_AGENT_STRING: WinHttpRequestOption = 0
 
-public val WinHttpRequestStatLast: WINHTTP_REQUEST_STAT_ENTRY = 16
+public val WIN_HTTP_REQUEST_STAT_LAST: WinhttpRequestStatEntry = 16
 
-public val WinHttpRequestStatMax: WINHTTP_REQUEST_STAT_ENTRY = 32
+public val WIN_HTTP_REQUEST_STAT_MAX: WinhttpRequestStatEntry = 32
 
-public val WinHttpRequestTimeLast: WINHTTP_REQUEST_TIME_ENTRY = 36
+public val WIN_HTTP_REQUEST_TIME_LAST: WinhttpRequestTimeEntry = 36
 
-public val WinHttpRequestTimeMax: WINHTTP_REQUEST_TIME_ENTRY = 64
+public val WIN_HTTP_REQUEST_TIME_MAX: WinhttpRequestTimeEntry = 64
 
-public val WinHttpResponseBodyCompressedSize: WINHTTP_REQUEST_STAT_ENTRY = 11
+public val WIN_HTTP_RESPONSE_BODY_COMPRESSED_SIZE: WinhttpRequestStatEntry = 11
 
-public val WinHttpResponseBodySize: WINHTTP_REQUEST_STAT_ENTRY = 10
+public val WIN_HTTP_RESPONSE_BODY_SIZE: WinhttpRequestStatEntry = 10
 
-public val WinHttpResponseHeadersCompressedSize: WINHTTP_REQUEST_STAT_ENTRY = 9
+public val WIN_HTTP_RESPONSE_HEADERS_COMPRESSED_SIZE: WinhttpRequestStatEntry = 9
 
-public val WinHttpResponseHeadersSize: WINHTTP_REQUEST_STAT_ENTRY = 8
+public val WIN_HTTP_RESPONSE_HEADERS_SIZE: WinhttpRequestStatEntry = 8
 
-public val WinHttpSecureDnsSettingDefault: WINHTTP_SECURE_DNS_SETTING = 0
+public val WIN_HTTP_SECURE_DNS_SETTING_DEFAULT: WinhttpSecureDnsSetting = 0
 
-public val WinHttpSecureDnsSettingForcePlaintext: WINHTTP_SECURE_DNS_SETTING = 1
+public val WIN_HTTP_SECURE_DNS_SETTING_FORCE_PLAINTEXT: WinhttpSecureDnsSetting = 1
 
-public val WinHttpSecureDnsSettingMax: WINHTTP_SECURE_DNS_SETTING = 4
+public val WIN_HTTP_SECURE_DNS_SETTING_MAX: WinhttpSecureDnsSetting = 4
 
-public val WinHttpSecureDnsSettingRequireEncryption: WINHTTP_SECURE_DNS_SETTING = 2
+public val WIN_HTTP_SECURE_DNS_SETTING_REQUIRE_ENCRYPTION: WinhttpSecureDnsSetting = 2
 
-public val WinHttpSecureDnsSettingTryEncryptionWithFallback: WINHTTP_SECURE_DNS_SETTING = 3
+public val WIN_HTTP_SECURE_DNS_SETTING_TRY_ENCRYPTION_WITH_FALLBACK: WinhttpSecureDnsSetting = 3
 
-public val WinHttpSendRequestEnd: WINHTTP_REQUEST_TIME_ENTRY = 21
+public val WIN_HTTP_SEND_REQUEST_END: WinhttpRequestTimeEntry = 21
 
-public val WinHttpSendRequestHeadersCompressionEnd: WINHTTP_REQUEST_TIME_ENTRY = 19
+public val WIN_HTTP_SEND_REQUEST_HEADERS_COMPRESSION_END: WinhttpRequestTimeEntry = 19
 
-public val WinHttpSendRequestHeadersCompressionStart: WINHTTP_REQUEST_TIME_ENTRY = 18
+public val WIN_HTTP_SEND_REQUEST_HEADERS_COMPRESSION_START: WinhttpRequestTimeEntry = 18
 
-public val WinHttpSendRequestHeadersEnd: WINHTTP_REQUEST_TIME_ENTRY = 20
+public val WIN_HTTP_SEND_REQUEST_HEADERS_END: WinhttpRequestTimeEntry = 20
 
-public val WinHttpSendRequestStart: WINHTTP_REQUEST_TIME_ENTRY = 17
+public val WIN_HTTP_SEND_REQUEST_START: WinhttpRequestTimeEntry = 17
 
-public val WinHttpStreamWaitEnd: WINHTTP_REQUEST_TIME_ENTRY = 16
+public val WIN_HTTP_STREAM_WAIT_END: WinhttpRequestTimeEntry = 16
 
-public val WinHttpStreamWaitStart: WINHTTP_REQUEST_TIME_ENTRY = 15
+public val WIN_HTTP_STREAM_WAIT_START: WinhttpRequestTimeEntry = 15
 
-public val WinHttpTlsHandshakeClientLeg1End: WINHTTP_REQUEST_TIME_ENTRY = 10
+public val WIN_HTTP_TLS_HANDSHAKE_CLIENT_LEG1END: WinhttpRequestTimeEntry = 10
 
-public val WinHttpTlsHandshakeClientLeg1Size: WINHTTP_REQUEST_STAT_ENTRY = 2
+public val WIN_HTTP_TLS_HANDSHAKE_CLIENT_LEG1SIZE: WinhttpRequestStatEntry = 2
 
-public val WinHttpTlsHandshakeClientLeg1Start: WINHTTP_REQUEST_TIME_ENTRY = 9
+public val WIN_HTTP_TLS_HANDSHAKE_CLIENT_LEG1START: WinhttpRequestTimeEntry = 9
 
-public val WinHttpTlsHandshakeClientLeg2End: WINHTTP_REQUEST_TIME_ENTRY = 12
+public val WIN_HTTP_TLS_HANDSHAKE_CLIENT_LEG2END: WinhttpRequestTimeEntry = 12
 
-public val WinHttpTlsHandshakeClientLeg2Size: WINHTTP_REQUEST_STAT_ENTRY = 4
+public val WIN_HTTP_TLS_HANDSHAKE_CLIENT_LEG2SIZE: WinhttpRequestStatEntry = 4
 
-public val WinHttpTlsHandshakeClientLeg2Start: WINHTTP_REQUEST_TIME_ENTRY = 11
+public val WIN_HTTP_TLS_HANDSHAKE_CLIENT_LEG2START: WinhttpRequestTimeEntry = 11
 
-public val WinHttpTlsHandshakeClientLeg3End: WINHTTP_REQUEST_TIME_ENTRY = 14
+public val WIN_HTTP_TLS_HANDSHAKE_CLIENT_LEG3END: WinhttpRequestTimeEntry = 14
 
-public val WinHttpTlsHandshakeClientLeg3Start: WINHTTP_REQUEST_TIME_ENTRY = 13
+public val WIN_HTTP_TLS_HANDSHAKE_CLIENT_LEG3START: WinhttpRequestTimeEntry = 13
 
-public val WinHttpTlsHandshakeServerLeg1Size: WINHTTP_REQUEST_STAT_ENTRY = 3
+public val WIN_HTTP_TLS_HANDSHAKE_SERVER_LEG1SIZE: WinhttpRequestStatEntry = 3
 
-public val WinHttpTlsHandshakeServerLeg2Size: WINHTTP_REQUEST_STAT_ENTRY = 5
+public val WIN_HTTP_TLS_HANDSHAKE_SERVER_LEG2SIZE: WinhttpRequestStatEntry = 5

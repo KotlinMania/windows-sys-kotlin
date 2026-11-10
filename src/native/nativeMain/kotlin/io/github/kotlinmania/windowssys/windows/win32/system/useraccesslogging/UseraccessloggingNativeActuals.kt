@@ -2,19 +2,20 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.useraccesslogging
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun UalInstrument(data: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.useraccesslogging.cinterop.windowssys_windows_win32_system_useraccesslogging_UalInstrument(data.toCPointer<ByteVar>())
+public actual fun ualInstrument(data: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.useraccesslogging.cinterop.windowssys_windows_win32_system_useraccesslogging_ualInstrument(data?.value?.toCPointer<ByteVar>())
 
-public actual fun UalRegisterProduct(wszproductname: PCWSTR, wszrolename: PCWSTR, wszguid: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.useraccesslogging.cinterop.windowssys_windows_win32_system_useraccesslogging_UalRegisterProduct(wszproductname.toCPointer<ByteVar>(), wszrolename.toCPointer<ByteVar>(), wszguid.toCPointer<ByteVar>())
+public actual fun ualRegisterProduct(wszproductname: Pcwstr, wszrolename: Pcwstr, wszguid: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.useraccesslogging.cinterop.windowssys_windows_win32_system_useraccesslogging_ualRegisterProduct(wszproductname?.value?.toCPointer<ByteVar>(), wszrolename?.value?.toCPointer<ByteVar>(), wszguid?.value?.toCPointer<ByteVar>())
 
-public actual fun UalStart(data: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.useraccesslogging.cinterop.windowssys_windows_win32_system_useraccesslogging_UalStart(data.toCPointer<ByteVar>())
+public actual fun ualStart(data: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.useraccesslogging.cinterop.windowssys_windows_win32_system_useraccesslogging_ualStart(data?.value?.toCPointer<ByteVar>())
 
-public actual fun UalStop(data: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.useraccesslogging.cinterop.windowssys_windows_win32_system_useraccesslogging_UalStop(data.toCPointer<ByteVar>())
+public actual fun ualStop(data: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.useraccesslogging.cinterop.windowssys_windows_win32_system_useraccesslogging_ualStop(data?.value?.toCPointer<ByteVar>())

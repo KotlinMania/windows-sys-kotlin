@@ -1,13 +1,13 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.humaninterfacedevice
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
-import io.github.kotlinmania.windowssys.windows.win32.foundation.DEVPROPKEY
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Devpropkey
 
 public val BALLPOINT_I8042_HARDWARE: UInt = 8u
 
@@ -47,37 +47,37 @@ public val BUTTON_BIT_VOLUMEUP: UInt = 4u
 
 public val BUTTON_BIT_WINDOWS: UInt = 2u
 
-public val CLSID_DirectInput: GUID = GUID.from_u128(U128(0x25e609e0b25911cfuL, 0xbfc7444553540000uL))
+public val CLSID_DIRECT_INPUT: Guid = Guid.fromU128(U128(0x25e609e0b25911cfuL, 0xbfc7444553540000uL))
 
-public val CLSID_DirectInput8: GUID = GUID.from_u128(U128(0x25e609e4b25911cfuL, 0xbfc7444553540000uL))
+public val CLSID_DIRECT_INPUT8: Guid = Guid.fromU128(U128(0x25e609e4b25911cfuL, 0xbfc7444553540000uL))
 
-public val CLSID_DirectInputDevice: GUID = GUID.from_u128(U128(0x25e609e1b25911cfuL, 0xbfc7444553540000uL))
+public val CLSID_DIRECT_INPUT_DEVICE: Guid = Guid.fromU128(U128(0x25e609e1b25911cfuL, 0xbfc7444553540000uL))
 
-public val CLSID_DirectInputDevice8: GUID = GUID.from_u128(U128(0x25e609e5b25911cfuL, 0xbfc7444553540000uL))
+public val CLSID_DIRECT_INPUT_DEVICE8: Guid = Guid.fromU128(U128(0x25e609e5b25911cfuL, 0xbfc7444553540000uL))
 
-public val DD_KEYBOARD_DEVICE_NAME: PCSTR = s("\\Device\\KeyboardClass")
+public val DD_KEYBOARD_DEVICE_NAME: Pcstr = s("\\Device\\KeyboardClass")
 
-public val DD_KEYBOARD_DEVICE_NAME_U: PCWSTR = w("\\Device\\KeyboardClass")
+public val DD_KEYBOARD_DEVICE_NAME_U: Pcwstr = w("\\Device\\KeyboardClass")
 
-public val DD_MOUSE_DEVICE_NAME: PCSTR = s("\\Device\\PointerClass")
+public val DD_MOUSE_DEVICE_NAME: Pcstr = s("\\Device\\PointerClass")
 
-public val DD_MOUSE_DEVICE_NAME_U: PCWSTR = w("\\Device\\PointerClass")
+public val DD_MOUSE_DEVICE_NAME_U: Pcwstr = w("\\Device\\PointerClass")
 
-public val DEVPKEY_DeviceInterface_HID_BackgroundAccess: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 8u)
+public val DEVPKEY_DEVICE_INTERFACE_HID_BACKGROUND_ACCESS: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 8u)
 
-public val DEVPKEY_DeviceInterface_HID_IsReadOnly: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 4u)
+public val DEVPKEY_DEVICE_INTERFACE_HID_IS_READ_ONLY: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 4u)
 
-public val DEVPKEY_DeviceInterface_HID_ProductId: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 6u)
+public val DEVPKEY_DEVICE_INTERFACE_HID_PRODUCT_ID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 6u)
 
-public val DEVPKEY_DeviceInterface_HID_UsageId: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 3u)
+public val DEVPKEY_DEVICE_INTERFACE_HID_USAGE_ID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 3u)
 
-public val DEVPKEY_DeviceInterface_HID_UsagePage: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 2u)
+public val DEVPKEY_DEVICE_INTERFACE_HID_USAGE_PAGE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 2u)
 
-public val DEVPKEY_DeviceInterface_HID_VendorId: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 5u)
+public val DEVPKEY_DEVICE_INTERFACE_HID_VENDOR_ID: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 5u)
 
-public val DEVPKEY_DeviceInterface_HID_VersionNumber: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 7u)
+public val DEVPKEY_DEVICE_INTERFACE_HID_VERSION_NUMBER: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 7u)
 
-public val DEVPKEY_DeviceInterface_HID_WakeScreenOnInputCapable: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 9u)
+public val DEVPKEY_DEVICE_INTERFACE_HID_WAKE_SCREEN_ON_INPUT_CAPABLE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0xcbf383104a174310uL, 0xa1eb247f0b67593buL)), pid = 9u)
 
 public val DI8DEVCLASS_ALL: UInt = 0u
 
@@ -2207,15 +2207,15 @@ public val DIEP_TRIGGERREPEATINTERVAL: UInt = 16u
 
 public val DIEP_TYPESPECIFICPARAMS: UInt = 256u
 
-public val DIERR_ACQUIRED: HRESULT = 0x800700AAu.toInt()
+public val DIERR_ACQUIRED: Hresult = 0x800700AAu.toInt()
 
-public val DIERR_ALREADYINITIALIZED: HRESULT = 0x800704DFu.toInt()
+public val DIERR_ALREADYINITIALIZED: Hresult = 0x800704DFu.toInt()
 
-public val DIERR_BADDRIVERVER: HRESULT = 0x80070077u.toInt()
+public val DIERR_BADDRIVERVER: Hresult = 0x80070077u.toInt()
 
 public val DIERR_BADINF: Int = -2147220478
 
-public val DIERR_BETADIRECTINPUTVERSION: HRESULT = 0x80070481u.toInt()
+public val DIERR_BETADIRECTINPUTVERSION: Hresult = 0x80070481u.toInt()
 
 public val DIERR_CANCELLED: Int = -2147220479
 
@@ -2237,7 +2237,7 @@ public val DIERR_HASEFFECTS: Int = -2147220988
 
 public val DIERR_INCOMPLETEEFFECT: Int = -2147220986
 
-public val DIERR_INPUTLOST: HRESULT = 0x8007001Eu.toInt()
+public val DIERR_INPUTLOST: Hresult = 0x8007001Eu.toInt()
 
 public val DIERR_INSUFFICIENTPRIVS: Int = -2147220992
 
@@ -2253,9 +2253,9 @@ public val DIERR_NOAGGREGATION: Int = -2147221232
 
 public val DIERR_NOINTERFACE: Int = -2147467262
 
-public val DIERR_NOMOREITEMS: HRESULT = 0x80070103u.toInt()
+public val DIERR_NOMOREITEMS: Hresult = 0x80070103u.toInt()
 
-public val DIERR_NOTACQUIRED: HRESULT = 0x8007000Cu.toInt()
+public val DIERR_NOTACQUIRED: Hresult = 0x8007000Cu.toInt()
 
 public val DIERR_NOTBUFFERED: Int = -2147220985
 
@@ -2263,13 +2263,13 @@ public val DIERR_NOTDOWNLOADED: Int = -2147220989
 
 public val DIERR_NOTEXCLUSIVEACQUIRED: Int = -2147220987
 
-public val DIERR_NOTFOUND: HRESULT = 0x80070002u.toInt()
+public val DIERR_NOTFOUND: Hresult = 0x80070002u.toInt()
 
-public val DIERR_NOTINITIALIZED: HRESULT = 0x80070015u.toInt()
+public val DIERR_NOTINITIALIZED: Hresult = 0x80070015u.toInt()
 
-public val DIERR_OBJECTNOTFOUND: HRESULT = 0x80070002u.toInt()
+public val DIERR_OBJECTNOTFOUND: Hresult = 0x80070002u.toInt()
 
-public val DIERR_OLDDIRECTINPUTVERSION: HRESULT = 0x8007047Eu.toInt()
+public val DIERR_OLDDIRECTINPUTVERSION: Hresult = 0x8007047Eu.toInt()
 
 public val DIERR_OTHERAPPHASPRIO: Int = -2147024891
 

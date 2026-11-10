@@ -1,81 +1,82 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.windows.win32.foundation.COLORREF
-import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.RECT
-import io.github.kotlinmania.windowssys.windows.win32.system.variant.VARIANT
-import io.github.kotlinmania.windowssys.windows.win32.ui.controls.NMHDR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Colorref
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
+import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Nmhdr
 
-public data class CHARACTER_RANGE(public var wcLow: UShort = 0u, public var cChars: UShort = 0u)
+public data class CharacterRange(public var wcLow: UShort = 0u, public var cChars: UShort = 0u)
 
-public data class DYNAMIC_RENDERER_CACHED_DATA(public var strokeId: Int = 0, public var dynamicRenderer: Long = 0L)
+public data class DynamicRendererCachedData(public var strokeId: Int = 0, public var dynamicRenderer: COpaquePointer? = null)
 
-public data class FLICK_DATA(public var _bitfield: Int = 0)
+public data class FlickData(public var bitfield: Int = 0)
 
-public data class FLICK_POINT(public var _bitfield: Int = 0)
+public data class FlickPoint(public var bitfield: Int = 0)
 
-public data class GESTURE_DATA(
+public data class GestureData(
     public var gestureId: Int = 0,
     public var recoConfidence: Int = 0,
     public var strokeCount: Int = 0,
 )
 
-public data class IEC_GESTUREINFO(
-    public var nmhdr: NMHDR = NMHDR(),
-    public var Cursor: Long = 0L,
-    public var Strokes: Long = 0L,
-    public var Gestures: VARIANT = VARIANT(),
+public data class IecGestureinfo(
+    public var nmhdr: Nmhdr = Nmhdr(),
+    public var cursor: COpaquePointer? = null,
+    public var strokes: COpaquePointer? = null,
+    public var gestures: Variant = Variant(),
 )
 
-public data class IEC_RECOGNITIONRESULTINFO(public var nmhdr: NMHDR = NMHDR(), public var RecognitionResult: Long = 0L)
+public data class IecRecognitionresultinfo(public var nmhdr: Nmhdr = Nmhdr(), public var recognitionResult: COpaquePointer? = null)
 
-public data class IEC_STROKEINFO(
-    public var nmhdr: NMHDR = NMHDR(),
-    public var Cursor: Long = 0L,
-    public var Stroke: Long = 0L,
+public data class IecStrokeinfo(
+    public var nmhdr: Nmhdr = Nmhdr(),
+    public var cursor: COpaquePointer? = null,
+    public var stroke: COpaquePointer? = null,
 )
 
-public data class INKMETRIC(
+public data class Inkmetric(
     public var iHeight: Int = 0,
     public var iFontAscent: Int = 0,
     public var iFontDescent: Int = 0,
     public var dwFlags: UInt = 0u,
-    public var color: COLORREF = 0u,
+    public var color: Colorref = 0u,
 )
 
 public data class InkRecoGuide(
-    public var rectWritingBox: RECT = RECT(),
-    public var rectDrawnBox: RECT = RECT(),
+    public var rectWritingBox: Rect = Rect(),
+    public var rectDrawnBox: Rect = Rect(),
     public var cRows: Int = 0,
     public var cColumns: Int = 0,
     public var midline: Int = 0,
 )
 
-public data class LATTICE_METRICS(public var lsBaseline: LINE_SEGMENT = LINE_SEGMENT(), public var iMidlineOffset: Short = 0)
+public data class LatticeMetrics(public var lsBaseline: LineSegment = LineSegment(), public var iMidlineOffset: Short = 0)
 
-public data class LINE_SEGMENT(public var PtA: POINT = POINT(), public var PtB: POINT = POINT())
+public data class LineSegment(public var ptA: Point = Point(), public var ptB: Point = Point())
 
-public data class PACKET_DESCRIPTION(
+public data class PacketDescription(
     public var cbPacketSize: UInt = 0u,
     public var cPacketProperties: UInt = 0u,
-    public var pPacketProperties: Long = 0L,
+    public var pPacketProperties: PacketProperty? = null,
     public var cButtons: UInt = 0u,
-    public var pguidButtons: Long = 0L,
+    public var pguidButtons: Guid? = null,
 )
 
-public data class PACKET_PROPERTY(public var guid: GUID = GUID(), public var PropertyMetrics: PROPERTY_METRICS = PROPERTY_METRICS())
+public data class PacketProperty(public var guid: Guid = Guid(), public var propertyMetrics: PropertyMetrics = PropertyMetrics())
 
-public data class PROPERTY_METRICS(
+public data class PropertyMetrics(
     public var nLogicalMin: Int = 0,
     public var nLogicalMax: Int = 0,
-    public var Units: PROPERTY_UNITS = 0,
+    public var units: PropertyUnits = 0,
     public var fResolution: Float = 0.0f,
 )
 
-public data class RECO_ATTRS(
+public data class RecoAttrs(
     public var dwRecoCapabilityFlags: UInt = 0u,
     public var awcVendorName: UShortArray = UShortArray(32),
     public var awcFriendlyName: UShortArray = UShortArray(64),
@@ -83,7 +84,7 @@ public data class RECO_ATTRS(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is RECO_ATTRS) return false
+        if (other !is RecoAttrs) return false
         if (this.dwRecoCapabilityFlags != other.dwRecoCapabilityFlags) return false
         if (!this.awcVendorName.contentEquals(other.awcVendorName)) return false
         if (!this.awcFriendlyName.contentEquals(other.awcFriendlyName)) return false
@@ -100,7 +101,7 @@ public data class RECO_ATTRS(
     }
 }
 
-public data class RECO_GUIDE(
+public data class RecoGuide(
     public var xOrigin: Int = 0,
     public var yOrigin: Int = 0,
     public var cxBox: Int = 0,
@@ -112,47 +113,47 @@ public data class RECO_GUIDE(
     public var cyMid: Int = 0,
 )
 
-public data class RECO_LATTICE(
+public data class RecoLattice(
     public var ulColumnCount: UInt = 0u,
-    public var pLatticeColumns: Long = 0L,
+    public var pLatticeColumns: RecoLatticeColumn? = null,
     public var ulPropertyCount: UInt = 0u,
-    public var pGuidProperties: Long = 0L,
+    public var pGuidProperties: Guid? = null,
     public var ulBestResultColumnCount: UInt = 0u,
-    public var pulBestResultColumns: Long = 0L,
-    public var pulBestResultIndexes: Long = 0L,
+    public var pulBestResultColumns: UInt? = null,
+    public var pulBestResultIndexes: UInt? = null,
 )
 
-public data class RECO_LATTICE_COLUMN(
+public data class RecoLatticeColumn(
     public var key: UInt = 0u,
-    public var cpProp: RECO_LATTICE_PROPERTIES = RECO_LATTICE_PROPERTIES(),
+    public var cpProp: RecoLatticeProperties = RecoLatticeProperties(),
     public var cStrokes: UInt = 0u,
-    public var pStrokes: Long = 0L,
+    public var pStrokes: UInt? = null,
     public var cLatticeElements: UInt = 0u,
-    public var pLatticeElements: Long = 0L,
+    public var pLatticeElements: RecoLatticeElement? = null,
 )
 
-public data class RECO_LATTICE_ELEMENT(
+public data class RecoLatticeElement(
     public var score: Int = 0,
     public var type: UShort = 0u,
-    public var pData: Long = 0L,
+    public var pData: COpaquePointer? = null,
     public var ulNextColumn: UInt = 0u,
     public var ulStrokeNumber: UInt = 0u,
-    public var epProp: RECO_LATTICE_PROPERTIES = RECO_LATTICE_PROPERTIES(),
+    public var epProp: RecoLatticeProperties = RecoLatticeProperties(),
 )
 
-public data class RECO_LATTICE_PROPERTIES(public var cProperties: UInt = 0u, public var apProps: Long = 0L)
+public data class RecoLatticeProperties(public var cProperties: UInt = 0u, public var apProps: COpaquePointer? = null)
 
-public data class RECO_LATTICE_PROPERTY(
-    public var guidProperty: GUID = GUID(),
+public data class RecoLatticeProperty(
+    public var guidProperty: Guid = Guid(),
     public var cbPropertyValue: UShort = 0u,
-    public var pPropertyValue: Long = 0L,
+    public var pPropertyValue: COpaquePointer? = null,
 )
 
-public data class RECO_RANGE(public var iwcBegin: UInt = 0u, public var cCount: UInt = 0u)
+public data class RecoRange(public var iwcBegin: UInt = 0u, public var cCount: UInt = 0u)
 
-public data class STROKE_RANGE(public var iStrokeBegin: UInt = 0u, public var iStrokeEnd: UInt = 0u)
+public data class StrokeRange(public var iStrokeBegin: UInt = 0u, public var iStrokeEnd: UInt = 0u)
 
-public data class SYSTEM_EVENT_DATA(
+public data class SystemEventData(
     public var bModifier: UByte = 0u,
     public var wKey: UShort = 0u,
     public var xPos: Int = 0,
@@ -164,5 +165,5 @@ public data class SYSTEM_EVENT_DATA(
 public data class StylusInfo(
     public var tcid: UInt = 0u,
     public var cid: UInt = 0u,
-    public var bIsInvertedCursor: BOOL = 0,
+    public var bIsInvertedCursor: Bool = 0,
 )

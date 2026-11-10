@@ -2,110 +2,111 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.usb
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
 private val _windowsWin32DevicesUsbNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun WinUsb_AbortPipe(interfacehandle: WINUSB_INTERFACE_HANDLE, pipeid: UByte): BOOL =
-    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_WinUsb_AbortPipe(interfacehandle.toString(), pipeid.toInt()) as Int) else 0
+public actual fun winUsbAbortPipe(interfacehandle: WinusbInterfaceHandle, pipeid: UByte): Bool =
+    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_winUsbAbortPipe((interfacehandle?.value ?: 0L).toString(), pipeid.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinUsb_ControlTransfer(interfacehandle: WINUSB_INTERFACE_HANDLE, setuppacket: WINUSB_SETUP_PACKET, buffer: Long, bufferlength: UInt, lengthtransferred: Long, overlapped: Long): BOOL =
-    0
+public actual fun winUsbControlTransfer(interfacehandle: WinusbInterfaceHandle, setuppacket: WinusbSetupPacket, buffer: COpaquePointer?, bufferlength: UInt, lengthtransferred: COpaquePointer?, overlapped: COpaquePointer?): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinUsb_FlushPipe(interfacehandle: WINUSB_INTERFACE_HANDLE, pipeid: UByte): BOOL =
-    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_WinUsb_FlushPipe(interfacehandle.toString(), pipeid.toInt()) as Int) else 0
+public actual fun winUsbFlushPipe(interfacehandle: WinusbInterfaceHandle, pipeid: UByte): Bool =
+    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_winUsbFlushPipe((interfacehandle?.value ?: 0L).toString(), pipeid.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinUsb_Free(interfacehandle: WINUSB_INTERFACE_HANDLE): BOOL =
-    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_WinUsb_Free(interfacehandle.toString()) as Int) else 0
+public actual fun winUsbFree(interfacehandle: WinusbInterfaceHandle): Bool =
+    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_winUsbFree((interfacehandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinUsb_GetAdjustedFrameNumber(currentframenumber: Long, timestamp: Long): BOOL =
-    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_WinUsb_GetAdjustedFrameNumber(currentframenumber.toString(), timestamp.toString()) as Int) else 0
+public actual fun winUsbGetAdjustedFrameNumber(currentframenumber: COpaquePointer?, timestamp: Long): Bool =
+    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_winUsbGetAdjustedFrameNumber((currentframenumber?.value ?: 0L).toString(), timestamp.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinUsb_GetAssociatedInterface(interfacehandle: WINUSB_INTERFACE_HANDLE, associatedinterfaceindex: UByte, associatedinterfacehandle: Long): BOOL =
-    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_WinUsb_GetAssociatedInterface(interfacehandle.toString(), associatedinterfaceindex.toInt(), associatedinterfacehandle.toString()) as Int) else 0
+public actual fun winUsbGetAssociatedInterface(interfacehandle: WinusbInterfaceHandle, associatedinterfaceindex: UByte, associatedinterfacehandle: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_winUsbGetAssociatedInterface((interfacehandle?.value ?: 0L).toString(), associatedinterfaceindex.toInt(), (associatedinterfacehandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinUsb_GetCurrentAlternateSetting(interfacehandle: WINUSB_INTERFACE_HANDLE, settingnumber: Long): BOOL =
-    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_WinUsb_GetCurrentAlternateSetting(interfacehandle.toString(), settingnumber.toString()) as Int) else 0
+public actual fun winUsbGetCurrentAlternateSetting(interfacehandle: WinusbInterfaceHandle, settingnumber: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_winUsbGetCurrentAlternateSetting((interfacehandle?.value ?: 0L).toString(), (settingnumber?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinUsb_GetCurrentFrameNumber(interfacehandle: WINUSB_INTERFACE_HANDLE, currentframenumber: Long, timestamp: Long): BOOL =
-    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_WinUsb_GetCurrentFrameNumber(interfacehandle.toString(), currentframenumber.toString(), timestamp.toString()) as Int) else 0
+public actual fun winUsbGetCurrentFrameNumber(interfacehandle: WinusbInterfaceHandle, currentframenumber: COpaquePointer?, timestamp: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_winUsbGetCurrentFrameNumber((interfacehandle?.value ?: 0L).toString(), (currentframenumber?.value ?: 0L).toString(), (timestamp?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinUsb_GetCurrentFrameNumberAndQpc(interfacehandle: WINUSB_INTERFACE_HANDLE, frameqpcinfo: Long): BOOL =
-    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_WinUsb_GetCurrentFrameNumberAndQpc(interfacehandle.toString(), frameqpcinfo.toString()) as Int) else 0
+public actual fun winUsbGetCurrentFrameNumberAndQpc(interfacehandle: WinusbInterfaceHandle, frameqpcinfo: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_winUsbGetCurrentFrameNumberAndQpc((interfacehandle?.value ?: 0L).toString(), (frameqpcinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinUsb_GetDescriptor(interfacehandle: WINUSB_INTERFACE_HANDLE, descriptortype: UByte, index: UByte, languageid: UShort, buffer: Long, bufferlength: UInt, lengthtransferred: Long): BOOL =
-    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_WinUsb_GetDescriptor(interfacehandle.toString(), descriptortype.toInt(), index.toInt(), languageid.toInt(), buffer.toString(), bufferlength.toInt(), lengthtransferred.toString()) as Int) else 0
+public actual fun winUsbGetDescriptor(interfacehandle: WinusbInterfaceHandle, descriptortype: UByte, index: UByte, languageid: UShort, buffer: COpaquePointer?, bufferlength: UInt, lengthtransferred: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_winUsbGetDescriptor((interfacehandle?.value ?: 0L).toString(), descriptortype.toInt(), index.toInt(), languageid.toInt(), (buffer?.value ?: 0L).toString(), bufferlength.toInt(), (lengthtransferred?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinUsb_GetOverlappedResult(interfacehandle: WINUSB_INTERFACE_HANDLE, lpoverlapped: Long, lpnumberofbytestransferred: Long, bwait: BOOL): BOOL =
-    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_WinUsb_GetOverlappedResult(interfacehandle.toString(), lpoverlapped.toString(), lpnumberofbytestransferred.toString(), bwait) as Int) else 0
+public actual fun winUsbGetOverlappedResult(interfacehandle: WinusbInterfaceHandle, lpoverlapped: COpaquePointer?, lpnumberofbytestransferred: COpaquePointer?, bwait: Bool): Bool =
+    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_winUsbGetOverlappedResult((interfacehandle?.value ?: 0L).toString(), (lpoverlapped?.value ?: 0L).toString(), (lpnumberofbytestransferred?.value ?: 0L).toString(), bwait) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinUsb_GetPipePolicy(interfacehandle: WINUSB_INTERFACE_HANDLE, pipeid: UByte, policytype: WINUSB_PIPE_POLICY, valuelength: Long, value: Long): BOOL =
-    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_WinUsb_GetPipePolicy(interfacehandle.toString(), pipeid.toInt(), policytype.toInt(), valuelength.toString(), value.toString()) as Int) else 0
+public actual fun winUsbGetPipePolicy(interfacehandle: WinusbInterfaceHandle, pipeid: UByte, policytype: WinusbPipePolicy, valuelength: COpaquePointer?, value: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_winUsbGetPipePolicy((interfacehandle?.value ?: 0L).toString(), pipeid.toInt(), policytype.toInt(), (valuelength?.value ?: 0L).toString(), (value?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinUsb_GetPowerPolicy(interfacehandle: WINUSB_INTERFACE_HANDLE, policytype: WINUSB_POWER_POLICY, valuelength: Long, value: Long): BOOL =
-    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_WinUsb_GetPowerPolicy(interfacehandle.toString(), policytype.toInt(), valuelength.toString(), value.toString()) as Int) else 0
+public actual fun winUsbGetPowerPolicy(interfacehandle: WinusbInterfaceHandle, policytype: WinusbPowerPolicy, valuelength: COpaquePointer?, value: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_winUsbGetPowerPolicy((interfacehandle?.value ?: 0L).toString(), policytype.toInt(), (valuelength?.value ?: 0L).toString(), (value?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinUsb_Initialize(devicehandle: HANDLE, interfacehandle: Long): BOOL =
-    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_WinUsb_Initialize(devicehandle.toString(), interfacehandle.toString()) as Int) else 0
+public actual fun winUsbInitialize(devicehandle: Handle, interfacehandle: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_winUsbInitialize((devicehandle?.value ?: 0L).toString(), (interfacehandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinUsb_ParseConfigurationDescriptor(configurationdescriptor: Long, startposition: Long, interfacenumber: Int, alternatesetting: Int, interfaceclass: Int, interfacesubclass: Int, interfaceprotocol: Int): Long =
-    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_WinUsb_ParseConfigurationDescriptor(configurationdescriptor.toString(), startposition.toString(), interfacenumber, alternatesetting, interfaceclass, interfacesubclass, interfaceprotocol) as String).toLong() else 0L
+public actual fun winUsbParseConfigurationDescriptor(configurationdescriptor: COpaquePointer?, startposition: COpaquePointer?, interfacenumber: Int, alternatesetting: Int, interfaceclass: Int, interfacesubclass: Int, interfaceprotocol: Int): COpaquePointer? =
+    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_winUsbParseConfigurationDescriptor((configurationdescriptor?.value ?: 0L).toString(), (startposition?.value ?: 0L).toString(), interfacenumber, alternatesetting, interfaceclass, interfacesubclass, interfaceprotocol) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinUsb_ParseDescriptors(descriptorbuffer: Long, totallength: UInt, startposition: Long, descriptortype: Int): Long =
-    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_WinUsb_ParseDescriptors(descriptorbuffer.toString(), totallength.toInt(), startposition.toString(), descriptortype) as String).toLong() else 0L
+public actual fun winUsbParseDescriptors(descriptorbuffer: COpaquePointer?, totallength: UInt, startposition: COpaquePointer?, descriptortype: Int): COpaquePointer? =
+    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_winUsbParseDescriptors((descriptorbuffer?.value ?: 0L).toString(), totallength.toInt(), (startposition?.value ?: 0L).toString(), descriptortype) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinUsb_QueryDeviceInformation(interfacehandle: WINUSB_INTERFACE_HANDLE, informationtype: UInt, bufferlength: Long, buffer: Long): BOOL =
-    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_WinUsb_QueryDeviceInformation(interfacehandle.toString(), informationtype.toInt(), bufferlength.toString(), buffer.toString()) as Int) else 0
+public actual fun winUsbQueryDeviceInformation(interfacehandle: WinusbInterfaceHandle, informationtype: UInt, bufferlength: COpaquePointer?, buffer: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_winUsbQueryDeviceInformation((interfacehandle?.value ?: 0L).toString(), informationtype.toInt(), (bufferlength?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinUsb_QueryInterfaceSettings(interfacehandle: WINUSB_INTERFACE_HANDLE, alternateinterfacenumber: UByte, usbaltinterfacedescriptor: Long): BOOL =
-    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_WinUsb_QueryInterfaceSettings(interfacehandle.toString(), alternateinterfacenumber.toInt(), usbaltinterfacedescriptor.toString()) as Int) else 0
+public actual fun winUsbQueryInterfaceSettings(interfacehandle: WinusbInterfaceHandle, alternateinterfacenumber: UByte, usbaltinterfacedescriptor: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_winUsbQueryInterfaceSettings((interfacehandle?.value ?: 0L).toString(), alternateinterfacenumber.toInt(), (usbaltinterfacedescriptor?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinUsb_QueryPipe(interfacehandle: WINUSB_INTERFACE_HANDLE, alternateinterfacenumber: UByte, pipeindex: UByte, pipeinformation: Long): BOOL =
-    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_WinUsb_QueryPipe(interfacehandle.toString(), alternateinterfacenumber.toInt(), pipeindex.toInt(), pipeinformation.toString()) as Int) else 0
+public actual fun winUsbQueryPipe(interfacehandle: WinusbInterfaceHandle, alternateinterfacenumber: UByte, pipeindex: UByte, pipeinformation: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_winUsbQueryPipe((interfacehandle?.value ?: 0L).toString(), alternateinterfacenumber.toInt(), pipeindex.toInt(), (pipeinformation?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinUsb_QueryPipeEx(interfacehandle: WINUSB_INTERFACE_HANDLE, alternatesettingnumber: UByte, pipeindex: UByte, pipeinformationex: Long): BOOL =
-    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_WinUsb_QueryPipeEx(interfacehandle.toString(), alternatesettingnumber.toInt(), pipeindex.toInt(), pipeinformationex.toString()) as Int) else 0
+public actual fun winUsbQueryPipeEx(interfacehandle: WinusbInterfaceHandle, alternatesettingnumber: UByte, pipeindex: UByte, pipeinformationex: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_winUsbQueryPipeEx((interfacehandle?.value ?: 0L).toString(), alternatesettingnumber.toInt(), pipeindex.toInt(), (pipeinformationex?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinUsb_ReadIsochPipe(bufferhandle: Long, offset: UInt, length: UInt, framenumber: Long, numberofpackets: UInt, isopacketdescriptors: Long, overlapped: Long): BOOL =
-    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_WinUsb_ReadIsochPipe(bufferhandle.toString(), offset.toInt(), length.toInt(), framenumber.toString(), numberofpackets.toInt(), isopacketdescriptors.toString(), overlapped.toString()) as Int) else 0
+public actual fun winUsbReadIsochPipe(bufferhandle: COpaquePointer?, offset: UInt, length: UInt, framenumber: COpaquePointer?, numberofpackets: UInt, isopacketdescriptors: COpaquePointer?, overlapped: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_winUsbReadIsochPipe((bufferhandle?.value ?: 0L).toString(), offset.toInt(), length.toInt(), (framenumber?.value ?: 0L).toString(), numberofpackets.toInt(), (isopacketdescriptors?.value ?: 0L).toString(), (overlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinUsb_ReadIsochPipeAsap(bufferhandle: Long, offset: UInt, length: UInt, continuestream: BOOL, numberofpackets: UInt, isopacketdescriptors: Long, overlapped: Long): BOOL =
-    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_WinUsb_ReadIsochPipeAsap(bufferhandle.toString(), offset.toInt(), length.toInt(), continuestream, numberofpackets.toInt(), isopacketdescriptors.toString(), overlapped.toString()) as Int) else 0
+public actual fun winUsbReadIsochPipeAsap(bufferhandle: COpaquePointer?, offset: UInt, length: UInt, continuestream: Bool, numberofpackets: UInt, isopacketdescriptors: COpaquePointer?, overlapped: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_winUsbReadIsochPipeAsap((bufferhandle?.value ?: 0L).toString(), offset.toInt(), length.toInt(), continuestream, numberofpackets.toInt(), (isopacketdescriptors?.value ?: 0L).toString(), (overlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinUsb_ReadPipe(interfacehandle: WINUSB_INTERFACE_HANDLE, pipeid: UByte, buffer: Long, bufferlength: UInt, lengthtransferred: Long, overlapped: Long): BOOL =
-    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_WinUsb_ReadPipe(interfacehandle.toString(), pipeid.toInt(), buffer.toString(), bufferlength.toInt(), lengthtransferred.toString(), overlapped.toString()) as Int) else 0
+public actual fun winUsbReadPipe(interfacehandle: WinusbInterfaceHandle, pipeid: UByte, buffer: COpaquePointer?, bufferlength: UInt, lengthtransferred: COpaquePointer?, overlapped: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_winUsbReadPipe((interfacehandle?.value ?: 0L).toString(), pipeid.toInt(), (buffer?.value ?: 0L).toString(), bufferlength.toInt(), (lengthtransferred?.value ?: 0L).toString(), (overlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinUsb_RegisterIsochBuffer(interfacehandle: WINUSB_INTERFACE_HANDLE, pipeid: UByte, buffer: Long, bufferlength: UInt, isochbufferhandle: Long): BOOL =
-    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_WinUsb_RegisterIsochBuffer(interfacehandle.toString(), pipeid.toInt(), buffer.toString(), bufferlength.toInt(), isochbufferhandle.toString()) as Int) else 0
+public actual fun winUsbRegisterIsochBuffer(interfacehandle: WinusbInterfaceHandle, pipeid: UByte, buffer: COpaquePointer?, bufferlength: UInt, isochbufferhandle: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_winUsbRegisterIsochBuffer((interfacehandle?.value ?: 0L).toString(), pipeid.toInt(), (buffer?.value ?: 0L).toString(), bufferlength.toInt(), (isochbufferhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinUsb_ResetPipe(interfacehandle: WINUSB_INTERFACE_HANDLE, pipeid: UByte): BOOL =
-    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_WinUsb_ResetPipe(interfacehandle.toString(), pipeid.toInt()) as Int) else 0
+public actual fun winUsbResetPipe(interfacehandle: WinusbInterfaceHandle, pipeid: UByte): Bool =
+    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_winUsbResetPipe((interfacehandle?.value ?: 0L).toString(), pipeid.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinUsb_SetCurrentAlternateSetting(interfacehandle: WINUSB_INTERFACE_HANDLE, settingnumber: UByte): BOOL =
-    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_WinUsb_SetCurrentAlternateSetting(interfacehandle.toString(), settingnumber.toInt()) as Int) else 0
+public actual fun winUsbSetCurrentAlternateSetting(interfacehandle: WinusbInterfaceHandle, settingnumber: UByte): Bool =
+    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_winUsbSetCurrentAlternateSetting((interfacehandle?.value ?: 0L).toString(), settingnumber.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinUsb_SetPipePolicy(interfacehandle: WINUSB_INTERFACE_HANDLE, pipeid: UByte, policytype: WINUSB_PIPE_POLICY, valuelength: UInt, value: Long): BOOL =
-    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_WinUsb_SetPipePolicy(interfacehandle.toString(), pipeid.toInt(), policytype.toInt(), valuelength.toInt(), value.toString()) as Int) else 0
+public actual fun winUsbSetPipePolicy(interfacehandle: WinusbInterfaceHandle, pipeid: UByte, policytype: WinusbPipePolicy, valuelength: UInt, value: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_winUsbSetPipePolicy((interfacehandle?.value ?: 0L).toString(), pipeid.toInt(), policytype.toInt(), valuelength.toInt(), (value?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinUsb_SetPowerPolicy(interfacehandle: WINUSB_INTERFACE_HANDLE, policytype: WINUSB_POWER_POLICY, valuelength: UInt, value: Long): BOOL =
-    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_WinUsb_SetPowerPolicy(interfacehandle.toString(), policytype.toInt(), valuelength.toInt(), value.toString()) as Int) else 0
+public actual fun winUsbSetPowerPolicy(interfacehandle: WinusbInterfaceHandle, policytype: WinusbPowerPolicy, valuelength: UInt, value: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_winUsbSetPowerPolicy((interfacehandle?.value ?: 0L).toString(), policytype.toInt(), valuelength.toInt(), (value?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinUsb_StartTrackingForTimeSync(interfacehandle: WINUSB_INTERFACE_HANDLE, starttrackinginfo: Long): BOOL =
-    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_WinUsb_StartTrackingForTimeSync(interfacehandle.toString(), starttrackinginfo.toString()) as Int) else 0
+public actual fun winUsbStartTrackingForTimeSync(interfacehandle: WinusbInterfaceHandle, starttrackinginfo: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_winUsbStartTrackingForTimeSync((interfacehandle?.value ?: 0L).toString(), (starttrackinginfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinUsb_StopTrackingForTimeSync(interfacehandle: WINUSB_INTERFACE_HANDLE, stoptrackinginfo: Long): BOOL =
-    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_WinUsb_StopTrackingForTimeSync(interfacehandle.toString(), stoptrackinginfo.toString()) as Int) else 0
+public actual fun winUsbStopTrackingForTimeSync(interfacehandle: WinusbInterfaceHandle, stoptrackinginfo: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_winUsbStopTrackingForTimeSync((interfacehandle?.value ?: 0L).toString(), (stoptrackinginfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinUsb_UnregisterIsochBuffer(isochbufferhandle: Long): BOOL =
-    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_WinUsb_UnregisterIsochBuffer(isochbufferhandle.toString()) as Int) else 0
+public actual fun winUsbUnregisterIsochBuffer(isochbufferhandle: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_winUsbUnregisterIsochBuffer((isochbufferhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinUsb_WriteIsochPipe(bufferhandle: Long, offset: UInt, length: UInt, framenumber: Long, overlapped: Long): BOOL =
-    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_WinUsb_WriteIsochPipe(bufferhandle.toString(), offset.toInt(), length.toInt(), framenumber.toString(), overlapped.toString()) as Int) else 0
+public actual fun winUsbWriteIsochPipe(bufferhandle: COpaquePointer?, offset: UInt, length: UInt, framenumber: COpaquePointer?, overlapped: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_winUsbWriteIsochPipe((bufferhandle?.value ?: 0L).toString(), offset.toInt(), length.toInt(), (framenumber?.value ?: 0L).toString(), (overlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinUsb_WriteIsochPipeAsap(bufferhandle: Long, offset: UInt, length: UInt, continuestream: BOOL, overlapped: Long): BOOL =
-    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_WinUsb_WriteIsochPipeAsap(bufferhandle.toString(), offset.toInt(), length.toInt(), continuestream, overlapped.toString()) as Int) else 0
+public actual fun winUsbWriteIsochPipeAsap(bufferhandle: COpaquePointer?, offset: UInt, length: UInt, continuestream: Bool, overlapped: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_winUsbWriteIsochPipeAsap((bufferhandle?.value ?: 0L).toString(), offset.toInt(), length.toInt(), continuestream, (overlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WinUsb_WritePipe(interfacehandle: WINUSB_INTERFACE_HANDLE, pipeid: UByte, buffer: Long, bufferlength: UInt, lengthtransferred: Long, overlapped: Long): BOOL =
-    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_WinUsb_WritePipe(interfacehandle.toString(), pipeid.toInt(), buffer.toString(), bufferlength.toInt(), lengthtransferred.toString(), overlapped.toString()) as Int) else 0
+public actual fun winUsbWritePipe(interfacehandle: WinusbInterfaceHandle, pipeid: UByte, buffer: COpaquePointer?, bufferlength: UInt, lengthtransferred: COpaquePointer?, overlapped: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesUsbNapiAddon != null) (_windowsWin32DevicesUsbNapiAddon.windowssys_windows_win32_devices_usb_winUsbWritePipe((interfacehandle?.value ?: 0L).toString(), pipeid.toInt(), (buffer?.value ?: 0L).toString(), bufferlength.toInt(), (lengthtransferred?.value ?: 0L).toString(), (overlapped?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

@@ -2,8 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networking.websocket
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
 
 private object WindowsWin32NetworkingWebsocketJniBridge {
     init {
@@ -11,83 +12,83 @@ private object WindowsWin32NetworkingWebsocketJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_websocket_WebSocketAbortHandle(hwebsocket: Long)
+    external fun windowssys_windows_win32_networking_websocket_webSocketAbortHandle(hwebsocket: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_websocket_WebSocketBeginClientHandshake(hwebsocket: Long, pszsubprotocols: Long, ulsubprotocolcount: Int, pszextensions: Long, ulextensioncount: Int, pinitialheaders: Long, ulinitialheadercount: Int, padditionalheaders: Long, puladditionalheadercount: Long): Int
+    external fun windowssys_windows_win32_networking_websocket_webSocketBeginClientHandshake(hwebsocket: Long, pszsubprotocols: Long, ulsubprotocolcount: Int, pszextensions: Long, ulextensioncount: Int, pinitialheaders: Long, ulinitialheadercount: Int, padditionalheaders: Long, puladditionalheadercount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_websocket_WebSocketBeginServerHandshake(hwebsocket: Long, pszsubprotocolselected: Long, pszextensionselected: Long, ulextensionselectedcount: Int, prequestheaders: Long, ulrequestheadercount: Int, presponseheaders: Long, pulresponseheadercount: Long): Int
+    external fun windowssys_windows_win32_networking_websocket_webSocketBeginServerHandshake(hwebsocket: Long, pszsubprotocolselected: Long, pszextensionselected: Long, ulextensionselectedcount: Int, prequestheaders: Long, ulrequestheadercount: Int, presponseheaders: Long, pulresponseheadercount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_websocket_WebSocketCompleteAction(hwebsocket: Long, pvactioncontext: Long, ulbytestransferred: Int)
+    external fun windowssys_windows_win32_networking_websocket_webSocketCompleteAction(hwebsocket: Long, pvactioncontext: Long, ulbytestransferred: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_websocket_WebSocketCreateClientHandle(pproperties: Long, ulpropertycount: Int, phwebsocket: Long): Int
+    external fun windowssys_windows_win32_networking_websocket_webSocketCreateClientHandle(pproperties: Long, ulpropertycount: Int, phwebsocket: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_websocket_WebSocketCreateServerHandle(pproperties: Long, ulpropertycount: Int, phwebsocket: Long): Int
+    external fun windowssys_windows_win32_networking_websocket_webSocketCreateServerHandle(pproperties: Long, ulpropertycount: Int, phwebsocket: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_websocket_WebSocketDeleteHandle(hwebsocket: Long)
+    external fun windowssys_windows_win32_networking_websocket_webSocketDeleteHandle(hwebsocket: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_websocket_WebSocketEndClientHandshake(hwebsocket: Long, presponseheaders: Long, ulreponseheadercount: Int, pulselectedextensions: Long, pulselectedextensioncount: Long, pulselectedsubprotocol: Long): Int
+    external fun windowssys_windows_win32_networking_websocket_webSocketEndClientHandshake(hwebsocket: Long, presponseheaders: Long, ulreponseheadercount: Int, pulselectedextensions: Long, pulselectedextensioncount: Long, pulselectedsubprotocol: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_websocket_WebSocketEndServerHandshake(hwebsocket: Long): Int
+    external fun windowssys_windows_win32_networking_websocket_webSocketEndServerHandshake(hwebsocket: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_websocket_WebSocketGetAction(hwebsocket: Long, eactionqueue: Int, pdatabuffers: Long, puldatabuffercount: Long, paction: Long, pbuffertype: Long, pvapplicationcontext: Long, pvactioncontext: Long): Int
+    external fun windowssys_windows_win32_networking_websocket_webSocketGetAction(hwebsocket: Long, eactionqueue: Int, pdatabuffers: Long, puldatabuffercount: Long, paction: Long, pbuffertype: Long, pvapplicationcontext: Long, pvactioncontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_websocket_WebSocketGetGlobalProperty(etype: Int, pvvalue: Long, ulsize: Long): Int
+    external fun windowssys_windows_win32_networking_websocket_webSocketGetGlobalProperty(etype: Int, pvvalue: Long, ulsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_websocket_WebSocketReceive(hwebsocket: Long, pbuffer: Long, pvcontext: Long): Int
+    external fun windowssys_windows_win32_networking_websocket_webSocketReceive(hwebsocket: Long, pbuffer: Long, pvcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_websocket_WebSocketSend(hwebsocket: Long, buffertype: Int, pbuffer: Long, context: Long): Int
+    external fun windowssys_windows_win32_networking_websocket_webSocketSend(hwebsocket: Long, buffertype: Int, pbuffer: Long, context: Long): Int
 }
 
-public actual fun WebSocketAbortHandle(hwebsocket: WEB_SOCKET_HANDLE) {
-    WindowsWin32NetworkingWebsocketJniBridge.windowssys_windows_win32_networking_websocket_WebSocketAbortHandle(hwebsocket)
+public actual fun webSocketAbortHandle(hwebsocket: WebSocketHandle) {
+    WindowsWin32NetworkingWebsocketJniBridge.windowssys_windows_win32_networking_websocket_webSocketAbortHandle((hwebsocket?.value ?: 0L))
 }
 
-public actual fun WebSocketBeginClientHandshake(hwebsocket: WEB_SOCKET_HANDLE, pszsubprotocols: Long, ulsubprotocolcount: UInt, pszextensions: Long, ulextensioncount: UInt, pinitialheaders: Long, ulinitialheadercount: UInt, padditionalheaders: Long, puladditionalheadercount: Long): HRESULT =
-    WindowsWin32NetworkingWebsocketJniBridge.windowssys_windows_win32_networking_websocket_WebSocketBeginClientHandshake(hwebsocket, pszsubprotocols, ulsubprotocolcount.toInt(), pszextensions, ulextensioncount.toInt(), pinitialheaders, ulinitialheadercount.toInt(), padditionalheaders, puladditionalheadercount)
+public actual fun webSocketBeginClientHandshake(hwebsocket: WebSocketHandle, pszsubprotocols: COpaquePointer?, ulsubprotocolcount: UInt, pszextensions: COpaquePointer?, ulextensioncount: UInt, pinitialheaders: COpaquePointer?, ulinitialheadercount: UInt, padditionalheaders: COpaquePointer?, puladditionalheadercount: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWebsocketJniBridge.windowssys_windows_win32_networking_websocket_webSocketBeginClientHandshake((hwebsocket?.value ?: 0L), (pszsubprotocols?.value ?: 0L), ulsubprotocolcount.toInt(), (pszextensions?.value ?: 0L), ulextensioncount.toInt(), (pinitialheaders?.value ?: 0L), ulinitialheadercount.toInt(), (padditionalheaders?.value ?: 0L), (puladditionalheadercount?.value ?: 0L))
 
-public actual fun WebSocketBeginServerHandshake(hwebsocket: WEB_SOCKET_HANDLE, pszsubprotocolselected: PCSTR, pszextensionselected: Long, ulextensionselectedcount: UInt, prequestheaders: Long, ulrequestheadercount: UInt, presponseheaders: Long, pulresponseheadercount: Long): HRESULT =
-    WindowsWin32NetworkingWebsocketJniBridge.windowssys_windows_win32_networking_websocket_WebSocketBeginServerHandshake(hwebsocket, pszsubprotocolselected, pszextensionselected, ulextensionselectedcount.toInt(), prequestheaders, ulrequestheadercount.toInt(), presponseheaders, pulresponseheadercount)
+public actual fun webSocketBeginServerHandshake(hwebsocket: WebSocketHandle, pszsubprotocolselected: Pcstr, pszextensionselected: COpaquePointer?, ulextensionselectedcount: UInt, prequestheaders: COpaquePointer?, ulrequestheadercount: UInt, presponseheaders: COpaquePointer?, pulresponseheadercount: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWebsocketJniBridge.windowssys_windows_win32_networking_websocket_webSocketBeginServerHandshake((hwebsocket?.value ?: 0L), (pszsubprotocolselected?.value ?: 0L), (pszextensionselected?.value ?: 0L), ulextensionselectedcount.toInt(), (prequestheaders?.value ?: 0L), ulrequestheadercount.toInt(), (presponseheaders?.value ?: 0L), (pulresponseheadercount?.value ?: 0L))
 
-public actual fun WebSocketCompleteAction(hwebsocket: WEB_SOCKET_HANDLE, pvactioncontext: Long, ulbytestransferred: UInt) {
-    WindowsWin32NetworkingWebsocketJniBridge.windowssys_windows_win32_networking_websocket_WebSocketCompleteAction(hwebsocket, pvactioncontext, ulbytestransferred.toInt())
+public actual fun webSocketCompleteAction(hwebsocket: WebSocketHandle, pvactioncontext: COpaquePointer?, ulbytestransferred: UInt) {
+    WindowsWin32NetworkingWebsocketJniBridge.windowssys_windows_win32_networking_websocket_webSocketCompleteAction((hwebsocket?.value ?: 0L), (pvactioncontext?.value ?: 0L), ulbytestransferred.toInt())
 }
 
-public actual fun WebSocketCreateClientHandle(pproperties: Long, ulpropertycount: UInt, phwebsocket: Long): HRESULT =
-    WindowsWin32NetworkingWebsocketJniBridge.windowssys_windows_win32_networking_websocket_WebSocketCreateClientHandle(pproperties, ulpropertycount.toInt(), phwebsocket)
+public actual fun webSocketCreateClientHandle(pproperties: COpaquePointer?, ulpropertycount: UInt, phwebsocket: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWebsocketJniBridge.windowssys_windows_win32_networking_websocket_webSocketCreateClientHandle((pproperties?.value ?: 0L), ulpropertycount.toInt(), (phwebsocket?.value ?: 0L))
 
-public actual fun WebSocketCreateServerHandle(pproperties: Long, ulpropertycount: UInt, phwebsocket: Long): HRESULT =
-    WindowsWin32NetworkingWebsocketJniBridge.windowssys_windows_win32_networking_websocket_WebSocketCreateServerHandle(pproperties, ulpropertycount.toInt(), phwebsocket)
+public actual fun webSocketCreateServerHandle(pproperties: COpaquePointer?, ulpropertycount: UInt, phwebsocket: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWebsocketJniBridge.windowssys_windows_win32_networking_websocket_webSocketCreateServerHandle((pproperties?.value ?: 0L), ulpropertycount.toInt(), (phwebsocket?.value ?: 0L))
 
-public actual fun WebSocketDeleteHandle(hwebsocket: WEB_SOCKET_HANDLE) {
-    WindowsWin32NetworkingWebsocketJniBridge.windowssys_windows_win32_networking_websocket_WebSocketDeleteHandle(hwebsocket)
+public actual fun webSocketDeleteHandle(hwebsocket: WebSocketHandle) {
+    WindowsWin32NetworkingWebsocketJniBridge.windowssys_windows_win32_networking_websocket_webSocketDeleteHandle((hwebsocket?.value ?: 0L))
 }
 
-public actual fun WebSocketEndClientHandshake(hwebsocket: WEB_SOCKET_HANDLE, presponseheaders: Long, ulreponseheadercount: UInt, pulselectedextensions: Long, pulselectedextensioncount: Long, pulselectedsubprotocol: Long): HRESULT =
-    WindowsWin32NetworkingWebsocketJniBridge.windowssys_windows_win32_networking_websocket_WebSocketEndClientHandshake(hwebsocket, presponseheaders, ulreponseheadercount.toInt(), pulselectedextensions, pulselectedextensioncount, pulselectedsubprotocol)
+public actual fun webSocketEndClientHandshake(hwebsocket: WebSocketHandle, presponseheaders: COpaquePointer?, ulreponseheadercount: UInt, pulselectedextensions: COpaquePointer?, pulselectedextensioncount: COpaquePointer?, pulselectedsubprotocol: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWebsocketJniBridge.windowssys_windows_win32_networking_websocket_webSocketEndClientHandshake((hwebsocket?.value ?: 0L), (presponseheaders?.value ?: 0L), ulreponseheadercount.toInt(), (pulselectedextensions?.value ?: 0L), (pulselectedextensioncount?.value ?: 0L), (pulselectedsubprotocol?.value ?: 0L))
 
-public actual fun WebSocketEndServerHandshake(hwebsocket: WEB_SOCKET_HANDLE): HRESULT =
-    WindowsWin32NetworkingWebsocketJniBridge.windowssys_windows_win32_networking_websocket_WebSocketEndServerHandshake(hwebsocket)
+public actual fun webSocketEndServerHandshake(hwebsocket: WebSocketHandle): Hresult =
+    WindowsWin32NetworkingWebsocketJniBridge.windowssys_windows_win32_networking_websocket_webSocketEndServerHandshake((hwebsocket?.value ?: 0L))
 
-public actual fun WebSocketGetAction(hwebsocket: WEB_SOCKET_HANDLE, eactionqueue: WEB_SOCKET_ACTION_QUEUE, pdatabuffers: Long, puldatabuffercount: Long, paction: Long, pbuffertype: Long, pvapplicationcontext: Long, pvactioncontext: Long): HRESULT =
-    WindowsWin32NetworkingWebsocketJniBridge.windowssys_windows_win32_networking_websocket_WebSocketGetAction(hwebsocket, eactionqueue, pdatabuffers, puldatabuffercount, paction, pbuffertype, pvapplicationcontext, pvactioncontext)
+public actual fun webSocketGetAction(hwebsocket: WebSocketHandle, eactionqueue: WebSocketActionQueue, pdatabuffers: COpaquePointer?, puldatabuffercount: COpaquePointer?, paction: COpaquePointer?, pbuffertype: COpaquePointer?, pvapplicationcontext: COpaquePointer?, pvactioncontext: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWebsocketJniBridge.windowssys_windows_win32_networking_websocket_webSocketGetAction((hwebsocket?.value ?: 0L), eactionqueue, (pdatabuffers?.value ?: 0L), (puldatabuffercount?.value ?: 0L), (paction?.value ?: 0L), (pbuffertype?.value ?: 0L), (pvapplicationcontext?.value ?: 0L), (pvactioncontext?.value ?: 0L))
 
-public actual fun WebSocketGetGlobalProperty(etype: WEB_SOCKET_PROPERTY_TYPE, pvvalue: Long, ulsize: Long): HRESULT =
-    WindowsWin32NetworkingWebsocketJniBridge.windowssys_windows_win32_networking_websocket_WebSocketGetGlobalProperty(etype, pvvalue, ulsize)
+public actual fun webSocketGetGlobalProperty(etype: WebSocketPropertyType, pvvalue: COpaquePointer?, ulsize: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWebsocketJniBridge.windowssys_windows_win32_networking_websocket_webSocketGetGlobalProperty(etype, (pvvalue?.value ?: 0L), (ulsize?.value ?: 0L))
 
-public actual fun WebSocketReceive(hwebsocket: WEB_SOCKET_HANDLE, pbuffer: Long, pvcontext: Long): HRESULT =
-    WindowsWin32NetworkingWebsocketJniBridge.windowssys_windows_win32_networking_websocket_WebSocketReceive(hwebsocket, pbuffer, pvcontext)
+public actual fun webSocketReceive(hwebsocket: WebSocketHandle, pbuffer: COpaquePointer?, pvcontext: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWebsocketJniBridge.windowssys_windows_win32_networking_websocket_webSocketReceive((hwebsocket?.value ?: 0L), (pbuffer?.value ?: 0L), (pvcontext?.value ?: 0L))
 
-public actual fun WebSocketSend(hwebsocket: WEB_SOCKET_HANDLE, buffertype: WEB_SOCKET_BUFFER_TYPE, pbuffer: Long, context: Long): HRESULT =
-    WindowsWin32NetworkingWebsocketJniBridge.windowssys_windows_win32_networking_websocket_WebSocketSend(hwebsocket, buffertype, pbuffer, context)
+public actual fun webSocketSend(hwebsocket: WebSocketHandle, buffertype: WebSocketBufferType, pbuffer: COpaquePointer?, context: COpaquePointer?): Hresult =
+    WindowsWin32NetworkingWebsocketJniBridge.windowssys_windows_win32_networking_websocket_webSocketSend((hwebsocket?.value ?: 0L), buffertype, (pbuffer?.value ?: 0L), (context?.value ?: 0L))

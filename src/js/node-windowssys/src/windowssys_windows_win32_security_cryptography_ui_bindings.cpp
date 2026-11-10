@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_ui_CertSelectionGetSerializedBlob_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_cryptography_ui_certSelectionGetSerializedBlob_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcsi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppoutbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -73,7 +73,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_ui_CertSelecti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_ui_CryptUIDlgCertMgr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_cryptography_ui_cryptUIDlgCertMgr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcryptuicertmgr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -91,7 +91,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_ui_CryptUIDlgC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_ui_CryptUIDlgSelectCertificateFromStore_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_cryptography_ui_cryptUIDlgSelectCertificateFromStore_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hcertstore = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -121,7 +121,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_ui_CryptUIDlgS
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_ui_CryptUIDlgViewCertificateA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_cryptography_ui_cryptUIDlgViewCertificateA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcertviewinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfpropertieschanged = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -141,7 +141,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_ui_CryptUIDlgV
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_ui_CryptUIDlgViewCertificateW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_cryptography_ui_cryptUIDlgViewCertificateW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcertviewinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfpropertieschanged = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -161,7 +161,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_ui_CryptUIDlgV
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_ui_CryptUIDlgViewContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_cryptography_ui_cryptUIDlgViewContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwcontexttype = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pvcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -189,7 +189,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_ui_CryptUIDlgV
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_ui_CryptUIWizDigitalSign_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_cryptography_ui_cryptUIWizDigitalSign_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -215,7 +215,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_ui_CryptUIWizD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_ui_CryptUIWizExport_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_cryptography_ui_cryptUIWizExport_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -241,7 +241,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_ui_CryptUIWizE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_ui_CryptUIWizFreeDigitalSignContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_cryptography_ui_cryptUIWizFreeDigitalSignContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psigncontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -259,7 +259,7 @@ static Napi::Value windowssys_windows_win32_security_cryptography_ui_CryptUIWizF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_security_cryptography_ui_CryptUIWizImport_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_security_cryptography_ui_cryptUIWizImport_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -286,16 +286,16 @@ static Napi::Value windowssys_windows_win32_security_cryptography_ui_CryptUIWizI
 }
 
 static void register_windows_win32_security_cryptography_ui_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_security_cryptography_ui_CertSelectionGetSerializedBlob", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_ui_CertSelectionGetSerializedBlob_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_ui_CryptUIDlgCertMgr", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_ui_CryptUIDlgCertMgr_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_ui_CryptUIDlgSelectCertificateFromStore", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_ui_CryptUIDlgSelectCertificateFromStore_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_ui_CryptUIDlgViewCertificateA", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_ui_CryptUIDlgViewCertificateA_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_ui_CryptUIDlgViewCertificateW", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_ui_CryptUIDlgViewCertificateW_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_ui_CryptUIDlgViewContext", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_ui_CryptUIDlgViewContext_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_ui_CryptUIWizDigitalSign", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_ui_CryptUIWizDigitalSign_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_ui_CryptUIWizExport", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_ui_CryptUIWizExport_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_ui_CryptUIWizFreeDigitalSignContext", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_ui_CryptUIWizFreeDigitalSignContext_napi));
-    exports.Set("windowssys_windows_win32_security_cryptography_ui_CryptUIWizImport", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_ui_CryptUIWizImport_napi));
+    exports.Set("windowssys_windows_win32_security_cryptography_ui_certSelectionGetSerializedBlob", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_ui_certSelectionGetSerializedBlob_napi));
+    exports.Set("windowssys_windows_win32_security_cryptography_ui_cryptUIDlgCertMgr", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_ui_cryptUIDlgCertMgr_napi));
+    exports.Set("windowssys_windows_win32_security_cryptography_ui_cryptUIDlgSelectCertificateFromStore", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_ui_cryptUIDlgSelectCertificateFromStore_napi));
+    exports.Set("windowssys_windows_win32_security_cryptography_ui_cryptUIDlgViewCertificateA", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_ui_cryptUIDlgViewCertificateA_napi));
+    exports.Set("windowssys_windows_win32_security_cryptography_ui_cryptUIDlgViewCertificateW", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_ui_cryptUIDlgViewCertificateW_napi));
+    exports.Set("windowssys_windows_win32_security_cryptography_ui_cryptUIDlgViewContext", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_ui_cryptUIDlgViewContext_napi));
+    exports.Set("windowssys_windows_win32_security_cryptography_ui_cryptUIWizDigitalSign", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_ui_cryptUIWizDigitalSign_napi));
+    exports.Set("windowssys_windows_win32_security_cryptography_ui_cryptUIWizExport", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_ui_cryptUIWizExport_napi));
+    exports.Set("windowssys_windows_win32_security_cryptography_ui_cryptUIWizFreeDigitalSignContext", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_ui_cryptUIWizFreeDigitalSignContext_napi));
+    exports.Set("windowssys_windows_win32_security_cryptography_ui_cryptUIWizImport", Napi::Function::New(env, windowssys_windows_win32_security_cryptography_ui_cryptUIWizImport_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_security_cryptography_ui_napi, nullptr };

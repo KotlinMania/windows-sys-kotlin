@@ -1,14 +1,14 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.shell
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
 
-public val SIIGBF_WIDETHUMBNAILS: SIIGBF = 64
+public val SIIGBF_WIDETHUMBNAILS: Siigbf = 64
 
 public val SIOM_ICONINDEX: UInt = 2u
 
@@ -22,103 +22,103 @@ public val SIOM_RESERVED_SHARED: UInt = 0u
 
 public val SIOM_RESERVED_SLOWFILE: UInt = 2u
 
-public val SLDF_ALLOW_LINK_TO_LINK: SHELL_LINK_DATA_FLAGS = 8388608
+public val SLDF_ALLOW_LINK_TO_LINK: ShellLinkDataFlags = 8388608
 
-public val SLDF_DEFAULT: SHELL_LINK_DATA_FLAGS = 0
+public val SLDF_DEFAULT: ShellLinkDataFlags = 0
 
-public val SLDF_DISABLE_KNOWNFOLDER_RELATIVE_TRACKING: SHELL_LINK_DATA_FLAGS = 2097152
+public val SLDF_DISABLE_KNOWNFOLDER_RELATIVE_TRACKING: ShellLinkDataFlags = 2097152
 
-public val SLDF_DISABLE_LINK_PATH_TRACKING: SHELL_LINK_DATA_FLAGS = 1048576
+public val SLDF_DISABLE_LINK_PATH_TRACKING: ShellLinkDataFlags = 1048576
 
-public val SLDF_ENABLE_TARGET_METADATA: SHELL_LINK_DATA_FLAGS = 524288
+public val SLDF_ENABLE_TARGET_METADATA: ShellLinkDataFlags = 524288
 
-public val SLDF_FORCE_NO_LINKINFO: SHELL_LINK_DATA_FLAGS = 256
+public val SLDF_FORCE_NO_LINKINFO: ShellLinkDataFlags = 256
 
-public val SLDF_FORCE_NO_LINKTRACK: SHELL_LINK_DATA_FLAGS = 262144
+public val SLDF_FORCE_NO_LINKTRACK: ShellLinkDataFlags = 262144
 
-public val SLDF_FORCE_UNCNAME: SHELL_LINK_DATA_FLAGS = 65536
+public val SLDF_FORCE_UNCNAME: ShellLinkDataFlags = 65536
 
-public val SLDF_HAS_ARGS: SHELL_LINK_DATA_FLAGS = 32
+public val SLDF_HAS_ARGS: ShellLinkDataFlags = 32
 
-public val SLDF_HAS_DARWINID: SHELL_LINK_DATA_FLAGS = 4096
+public val SLDF_HAS_DARWINID: ShellLinkDataFlags = 4096
 
-public val SLDF_HAS_EXP_ICON_SZ: SHELL_LINK_DATA_FLAGS = 16384
+public val SLDF_HAS_EXP_ICON_SZ: ShellLinkDataFlags = 16384
 
-public val SLDF_HAS_EXP_SZ: SHELL_LINK_DATA_FLAGS = 512
+public val SLDF_HAS_EXP_SZ: ShellLinkDataFlags = 512
 
-public val SLDF_HAS_ICONLOCATION: SHELL_LINK_DATA_FLAGS = 64
+public val SLDF_HAS_ICONLOCATION: ShellLinkDataFlags = 64
 
-public val SLDF_HAS_ID_LIST: SHELL_LINK_DATA_FLAGS = 1
+public val SLDF_HAS_ID_LIST: ShellLinkDataFlags = 1
 
-public val SLDF_HAS_LINK_INFO: SHELL_LINK_DATA_FLAGS = 2
+public val SLDF_HAS_LINK_INFO: ShellLinkDataFlags = 2
 
-public val SLDF_HAS_NAME: SHELL_LINK_DATA_FLAGS = 4
+public val SLDF_HAS_NAME: ShellLinkDataFlags = 4
 
-public val SLDF_HAS_RELPATH: SHELL_LINK_DATA_FLAGS = 8
+public val SLDF_HAS_RELPATH: ShellLinkDataFlags = 8
 
-public val SLDF_HAS_WORKINGDIR: SHELL_LINK_DATA_FLAGS = 16
+public val SLDF_HAS_WORKINGDIR: ShellLinkDataFlags = 16
 
-public val SLDF_KEEP_LOCAL_IDLIST_FOR_UNC_TARGET: SHELL_LINK_DATA_FLAGS = 67108864
+public val SLDF_KEEP_LOCAL_IDLIST_FOR_UNC_TARGET: ShellLinkDataFlags = 67108864
 
-public val SLDF_NO_KF_ALIAS: SHELL_LINK_DATA_FLAGS = 4194304
+public val SLDF_NO_KF_ALIAS: ShellLinkDataFlags = 4194304
 
-public val SLDF_NO_PIDL_ALIAS: SHELL_LINK_DATA_FLAGS = 32768
+public val SLDF_NO_PIDL_ALIAS: ShellLinkDataFlags = 32768
 
-public val SLDF_PERSIST_VOLUME_ID_RELATIVE: SHELL_LINK_DATA_FLAGS = 134217728
+public val SLDF_PERSIST_VOLUME_ID_RELATIVE: ShellLinkDataFlags = 134217728
 
-public val SLDF_PREFER_ENVIRONMENT_PATH: SHELL_LINK_DATA_FLAGS = 33554432
+public val SLDF_PREFER_ENVIRONMENT_PATH: ShellLinkDataFlags = 33554432
 
-public val SLDF_RESERVED: SHELL_LINK_DATA_FLAGS = -2147483648
+public val SLDF_RESERVED: ShellLinkDataFlags = -2147483648.toInt()
 
-public val SLDF_RUNAS_USER: SHELL_LINK_DATA_FLAGS = 8192
+public val SLDF_RUNAS_USER: ShellLinkDataFlags = 8192
 
-public val SLDF_RUN_IN_SEPARATE: SHELL_LINK_DATA_FLAGS = 1024
+public val SLDF_RUN_IN_SEPARATE: ShellLinkDataFlags = 1024
 
-public val SLDF_RUN_WITH_SHIMLAYER: SHELL_LINK_DATA_FLAGS = 131072
+public val SLDF_RUN_WITH_SHIMLAYER: ShellLinkDataFlags = 131072
 
-public val SLDF_UNALIAS_ON_SAVE: SHELL_LINK_DATA_FLAGS = 16777216
+public val SLDF_UNALIAS_ON_SAVE: ShellLinkDataFlags = 16777216
 
-public val SLDF_UNICODE: SHELL_LINK_DATA_FLAGS = 128
+public val SLDF_UNICODE: ShellLinkDataFlags = 128
 
-public val SLDF_VALID: SHELL_LINK_DATA_FLAGS = 268433407
+public val SLDF_VALID: ShellLinkDataFlags = 268433407
 
-public val SLGP_RAWPATH: SLGP_FLAGS = 4
+public val SLGP_RAWPATH: SlgpFlags = 4
 
-public val SLGP_RELATIVEPRIORITY: SLGP_FLAGS = 8
+public val SLGP_RELATIVEPRIORITY: SlgpFlags = 8
 
-public val SLGP_SHORTPATH: SLGP_FLAGS = 1
+public val SLGP_SHORTPATH: SlgpFlags = 1
 
-public val SLGP_UNCPRIORITY: SLGP_FLAGS = 2
+public val SLGP_UNCPRIORITY: SlgpFlags = 2
 
-public val SLR_ANY_MATCH: SLR_FLAGS = 2
+public val SLR_ANY_MATCH: SlrFlags = 2
 
-public val SLR_INVOKE_MSI: SLR_FLAGS = 128
+public val SLR_INVOKE_MSI: SlrFlags = 128
 
-public val SLR_KNOWNFOLDER: SLR_FLAGS = 1024
+public val SLR_KNOWNFOLDER: SlrFlags = 1024
 
-public val SLR_MACHINE_IN_LOCAL_TARGET: SLR_FLAGS = 2048
+public val SLR_MACHINE_IN_LOCAL_TARGET: SlrFlags = 2048
 
-public val SLR_NOLINKINFO: SLR_FLAGS = 64
+public val SLR_NOLINKINFO: SlrFlags = 64
 
-public val SLR_NONE: SLR_FLAGS = 0
+public val SLR_NONE: SlrFlags = 0
 
-public val SLR_NOSEARCH: SLR_FLAGS = 16
+public val SLR_NOSEARCH: SlrFlags = 16
 
-public val SLR_NOTRACK: SLR_FLAGS = 32
+public val SLR_NOTRACK: SlrFlags = 32
 
-public val SLR_NOUPDATE: SLR_FLAGS = 8
+public val SLR_NOUPDATE: SlrFlags = 8
 
-public val SLR_NO_OBJECT_ID: SLR_FLAGS = 8192
+public val SLR_NO_OBJECT_ID: SlrFlags = 8192
 
-public val SLR_NO_UI: SLR_FLAGS = 1
+public val SLR_NO_UI: SlrFlags = 1
 
-public val SLR_NO_UI_WITH_MSG_PUMP: SLR_FLAGS = 257
+public val SLR_NO_UI_WITH_MSG_PUMP: SlrFlags = 257
 
-public val SLR_OFFER_DELETE_WITHOUT_FILE: SLR_FLAGS = 512
+public val SLR_OFFER_DELETE_WITHOUT_FILE: SlrFlags = 512
 
-public val SLR_UPDATE: SLR_FLAGS = 4
+public val SLR_UPDATE: SlrFlags = 4
 
-public val SLR_UPDATE_MACHINE_AND_SID: SLR_FLAGS = 4096
+public val SLR_UPDATE_MACHINE_AND_SID: SlrFlags = 4096
 
 public val SMAE_CONTRACTED: UInt = 2u
 
@@ -186,37 +186,37 @@ public val SMDM_SHELLFOLDER: UInt = 1u
 
 public val SMDM_TOOLBAR: UInt = 4u
 
-public val SMIF_ACCELERATOR: SMINFOFLAGS = 2
+public val SMIF_ACCELERATOR: Sminfoflags = 2
 
-public val SMIF_ALTSTATE: SMINFOFLAGS = 2048
+public val SMIF_ALTSTATE: Sminfoflags = 2048
 
-public val SMIF_CHECKED: SMINFOFLAGS = 32
+public val SMIF_CHECKED: Sminfoflags = 32
 
-public val SMIF_DEMOTED: SMINFOFLAGS = 1024
+public val SMIF_DEMOTED: Sminfoflags = 1024
 
-public val SMIF_DISABLED: SMINFOFLAGS = 256
+public val SMIF_DISABLED: Sminfoflags = 256
 
-public val SMIF_DRAGNDROP: SMINFOFLAGS = 4096
+public val SMIF_DRAGNDROP: Sminfoflags = 4096
 
-public val SMIF_DROPCASCADE: SMINFOFLAGS = 64
+public val SMIF_DROPCASCADE: Sminfoflags = 64
 
-public val SMIF_DROPTARGET: SMINFOFLAGS = 4
+public val SMIF_DROPTARGET: Sminfoflags = 4
 
-public val SMIF_HIDDEN: SMINFOFLAGS = 128
+public val SMIF_HIDDEN: Sminfoflags = 128
 
-public val SMIF_ICON: SMINFOFLAGS = 1
+public val SMIF_ICON: Sminfoflags = 1
 
-public val SMIF_NEW: SMINFOFLAGS = 8192
+public val SMIF_NEW: Sminfoflags = 8192
 
-public val SMIF_SUBMENU: SMINFOFLAGS = 8
+public val SMIF_SUBMENU: Sminfoflags = 8
 
-public val SMIF_TRACKPOPUP: SMINFOFLAGS = 512
+public val SMIF_TRACKPOPUP: Sminfoflags = 512
 
-public val SMIM_FLAGS: SMINFOMASK = 2
+public val SMIM_FLAGS: Sminfomask = 2
 
-public val SMIM_ICON: SMINFOMASK = 4
+public val SMIM_ICON: Sminfomask = 4
 
-public val SMIM_TYPE: SMINFOMASK = 1
+public val SMIM_TYPE: Sminfomask = 1
 
 public val SMINIT_AUTOEXPAND: UInt = 256u
 
@@ -240,9 +240,9 @@ public val SMINV_ID: UInt = 8u
 
 public val SMINV_REFRESH: UInt = 1u
 
-public val SMIT_SEPARATOR: SMINFOTYPE = 1
+public val SMIT_SEPARATOR: Sminfotype = 1
 
-public val SMIT_STRING: SMINFOTYPE = 2
+public val SMIT_STRING: Sminfotype = 2
 
 public val SMSET_BOTTOM: UInt = 536870912u
 
@@ -250,63 +250,63 @@ public val SMSET_DONTOWN: UInt = 1u
 
 public val SMSET_TOP: UInt = 268435456u
 
-public val SORT_ASCENDING: SORTDIRECTION = 1
+public val SORT_ASCENDING: Sortdirection = 1
 
-public val SORT_DESCENDING: SORTDIRECTION = -1
+public val SORT_DESCENDING: Sortdirection = -1
 
-public val SOT_DEFAULT: SORT_ORDER_TYPE = 0
+public val SOT_DEFAULT: SortOrderType = 0
 
-public val SOT_IGNORE_FOLDERNESS: SORT_ORDER_TYPE = 1
+public val SOT_IGNORE_FOLDERNESS: SortOrderType = 1
 
-public val SPACTION_APPLYINGATTRIBS: SPACTION = 4
+public val SPACTION_APPLYINGATTRIBS: Spaction = 4
 
-public val SPACTION_CALCULATING: SPACTION = 7
+public val SPACTION_CALCULATING: Spaction = 7
 
-public val SPACTION_COPYING: SPACTION = 2
+public val SPACTION_COPYING: Spaction = 2
 
-public val SPACTION_COPY_MOVING: SPACTION = 13
+public val SPACTION_COPY_MOVING: Spaction = 13
 
-public val SPACTION_DELETING: SPACTION = 10
+public val SPACTION_DELETING: Spaction = 10
 
-public val SPACTION_DOWNLOADING: SPACTION = 5
+public val SPACTION_DOWNLOADING: Spaction = 5
 
-public val SPACTION_FORMATTING: SPACTION = 12
+public val SPACTION_FORMATTING: Spaction = 12
 
-public val SPACTION_MOVING: SPACTION = 1
+public val SPACTION_MOVING: Spaction = 1
 
-public val SPACTION_NONE: SPACTION = 0
+public val SPACTION_NONE: Spaction = 0
 
-public val SPACTION_RECYCLING: SPACTION = 3
+public val SPACTION_RECYCLING: Spaction = 3
 
-public val SPACTION_RENAMING: SPACTION = 11
+public val SPACTION_RENAMING: Spaction = 11
 
-public val SPACTION_SEARCHING_FILES: SPACTION = 9
+public val SPACTION_SEARCHING_FILES: Spaction = 9
 
-public val SPACTION_SEARCHING_INTERNET: SPACTION = 6
+public val SPACTION_SEARCHING_INTERNET: Spaction = 6
 
-public val SPACTION_UPLOADING: SPACTION = 8
+public val SPACTION_UPLOADING: Spaction = 8
 
-public val SPBEGINF_AUTOTIME: _SPBEGINF = 2
+public val SPBEGINF_AUTOTIME: Spbeginf = 2
 
-public val SPBEGINF_MARQUEEPROGRESS: _SPBEGINF = 32
+public val SPBEGINF_MARQUEEPROGRESS: Spbeginf = 32
 
-public val SPBEGINF_NOCANCELBUTTON: _SPBEGINF = 64
+public val SPBEGINF_NOCANCELBUTTON: Spbeginf = 64
 
-public val SPBEGINF_NOPROGRESSBAR: _SPBEGINF = 16
+public val SPBEGINF_NOPROGRESSBAR: Spbeginf = 16
 
-public val SPBEGINF_NORMAL: _SPBEGINF = 0
+public val SPBEGINF_NORMAL: Spbeginf = 0
 
-public val SPFF_CREATED_ON_THIS_DEVICE: STORAGE_PROVIDER_FILE_FLAGS = 2
+public val SPFF_CREATED_ON_THIS_DEVICE: StorageProviderFileFlags = 2
 
-public val SPFF_DOWNLOAD_BY_DEFAULT: STORAGE_PROVIDER_FILE_FLAGS = 1
+public val SPFF_DOWNLOAD_BY_DEFAULT: StorageProviderFileFlags = 1
 
-public val SPFF_NONE: STORAGE_PROVIDER_FILE_FLAGS = 0
+public val SPFF_NONE: StorageProviderFileFlags = 0
 
-public val SPINITF_MODAL: _SPINITF = 1
+public val SPINITF_MODAL: Spinitf = 1
 
-public val SPINITF_NOMINIMIZE: _SPINITF = 8
+public val SPINITF_NOMINIMIZE: Spinitf = 8
 
-public val SPINITF_NORMAL: _SPINITF = 0
+public val SPINITF_NORMAL: Spinitf = 0
 
 public val SPMODE_BROWSER: UInt = 8u
 
@@ -340,9 +340,9 @@ public val SPMODE_SHELL: UInt = 1u
 
 public val SPMODE_TEST: UInt = 4u
 
-public val SPTEXT_ACTIONDESCRIPTION: SPTEXT = 1
+public val SPTEXT_ACTIONDESCRIPTION: Sptext = 1
 
-public val SPTEXT_ACTIONDETAIL: SPTEXT = 2
+public val SPTEXT_ACTIONDETAIL: Sptext = 2
 
 public val SRRF_NOEXPAND: UInt = 268435456u
 
@@ -374,59 +374,59 @@ public val SRRF_RT_REG_SZ: UInt = 2u
 
 public val SRRF_ZEROONFAILURE: UInt = 536870912u
 
-public val SSF_AUTOCHECKSELECT: SSF_MASK = 8388608u
+public val SSF_AUTOCHECKSELECT: SsfMask = 8388608u
 
-public val SSF_DESKTOPHTML: SSF_MASK = 512u
+public val SSF_DESKTOPHTML: SsfMask = 512u
 
-public val SSF_DONTPRETTYPATH: SSF_MASK = 2048u
+public val SSF_DONTPRETTYPATH: SsfMask = 2048u
 
-public val SSF_DOUBLECLICKINWEBVIEW: SSF_MASK = 128u
+public val SSF_DOUBLECLICKINWEBVIEW: SsfMask = 128u
 
-public val SSF_FILTER: SSF_MASK = 65536u
+public val SSF_FILTER: SsfMask = 65536u
 
-public val SSF_HIDDENFILEEXTS: SSF_MASK = 4u
+public val SSF_HIDDENFILEEXTS: SsfMask = 4u
 
-public val SSF_HIDEICONS: SSF_MASK = 16384u
+public val SSF_HIDEICONS: SsfMask = 16384u
 
-public val SSF_ICONSONLY: SSF_MASK = 16777216u
+public val SSF_ICONSONLY: SsfMask = 16777216u
 
-public val SSF_MAPNETDRVBUTTON: SSF_MASK = 4096u
+public val SSF_MAPNETDRVBUTTON: SsfMask = 4096u
 
-public val SSF_NOCONFIRMRECYCLE: SSF_MASK = 32768u
+public val SSF_NOCONFIRMRECYCLE: SsfMask = 32768u
 
-public val SSF_NONETCRAWLING: SSF_MASK = 1048576u
+public val SSF_NONETCRAWLING: SsfMask = 1048576u
 
-public val SSF_SEPPROCESS: SSF_MASK = 524288u
+public val SSF_SEPPROCESS: SsfMask = 524288u
 
-public val SSF_SERVERADMINUI: SSF_MASK = 4u
+public val SSF_SERVERADMINUI: SsfMask = 4u
 
-public val SSF_SHOWALLOBJECTS: SSF_MASK = 1u
+public val SSF_SHOWALLOBJECTS: SsfMask = 1u
 
-public val SSF_SHOWATTRIBCOL: SSF_MASK = 256u
+public val SSF_SHOWATTRIBCOL: SsfMask = 256u
 
-public val SSF_SHOWCOMPCOLOR: SSF_MASK = 8u
+public val SSF_SHOWCOMPCOLOR: SsfMask = 8u
 
-public val SSF_SHOWEXTENSIONS: SSF_MASK = 2u
+public val SSF_SHOWEXTENSIONS: SsfMask = 2u
 
-public val SSF_SHOWINFOTIP: SSF_MASK = 8192u
+public val SSF_SHOWINFOTIP: SsfMask = 8192u
 
-public val SSF_SHOWSTARTPAGE: SSF_MASK = 4194304u
+public val SSF_SHOWSTARTPAGE: SsfMask = 4194304u
 
-public val SSF_SHOWSTATUSBAR: SSF_MASK = 67108864u
+public val SSF_SHOWSTATUSBAR: SsfMask = 67108864u
 
-public val SSF_SHOWSUPERHIDDEN: SSF_MASK = 262144u
+public val SSF_SHOWSUPERHIDDEN: SsfMask = 262144u
 
-public val SSF_SHOWSYSFILES: SSF_MASK = 32u
+public val SSF_SHOWSYSFILES: SsfMask = 32u
 
-public val SSF_SHOWTYPEOVERLAY: SSF_MASK = 33554432u
+public val SSF_SHOWTYPEOVERLAY: SsfMask = 33554432u
 
-public val SSF_SORTCOLUMNS: SSF_MASK = 16u
+public val SSF_SORTCOLUMNS: SsfMask = 16u
 
-public val SSF_STARTPANELON: SSF_MASK = 2097152u
+public val SSF_STARTPANELON: SsfMask = 2097152u
 
-public val SSF_WEBVIEW: SSF_MASK = 131072u
+public val SSF_WEBVIEW: SsfMask = 131072u
 
-public val SSF_WIN95CLASSIC: SSF_MASK = 1024u
+public val SSF_WIN95CLASSIC: SsfMask = 1024u
 
 public val SSM_CLEAR: UInt = 0u
 
@@ -436,175 +436,175 @@ public val SSM_SET: UInt = 1u
 
 public val SSM_UPDATE: UInt = 4u
 
-public val STGOP_APPLYPROPERTIES: STGOP = 8
+public val STGOP_APPLYPROPERTIES: Stgop = 8
 
-public val STGOP_COPY: STGOP = 2
+public val STGOP_COPY: Stgop = 2
 
-public val STGOP_MOVE: STGOP = 1
+public val STGOP_MOVE: Stgop = 1
 
-public val STGOP_NEW: STGOP = 10
+public val STGOP_NEW: Stgop = 10
 
-public val STGOP_REMOVE: STGOP = 5
+public val STGOP_REMOVE: Stgop = 5
 
-public val STGOP_RENAME: STGOP = 6
+public val STGOP_RENAME: Stgop = 6
 
-public val STGOP_SYNC: STGOP = 3
+public val STGOP_SYNC: Stgop = 3
 
 public val STIF_DEFAULT: Int = 0
 
 public val STIF_SUPPORT_HEX: Int = 1
 
-public val STORE_E_NEWER_VERSION_AVAILABLE: HRESULT = 0x80270104u.toInt()
+public val STORE_E_NEWER_VERSION_AVAILABLE: Hresult = 0x80270104u.toInt()
 
-public val STPF_NONE: STPFLAG = 0
+public val STPF_NONE: Stpflag = 0
 
-public val STPF_USEAPPPEEKALWAYS: STPFLAG = 4
+public val STPF_USEAPPPEEKALWAYS: Stpflag = 4
 
-public val STPF_USEAPPPEEKWHENACTIVE: STPFLAG = 8
+public val STPF_USEAPPPEEKWHENACTIVE: Stpflag = 8
 
-public val STPF_USEAPPTHUMBNAILALWAYS: STPFLAG = 1
+public val STPF_USEAPPTHUMBNAILALWAYS: Stpflag = 1
 
-public val STPF_USEAPPTHUMBNAILWHENACTIVE: STPFLAG = 2
+public val STPF_USEAPPTHUMBNAILWHENACTIVE: Stpflag = 2
 
-public val STR_AVOID_DRIVE_RESTRICTION_POLICY: PCWSTR = w("Avoid Drive Restriction Policy")
+public val STR_AVOID_DRIVE_RESTRICTION_POLICY: Pcwstr = w("Avoid Drive Restriction Policy")
 
-public val STR_BIND_DELEGATE_CREATE_OBJECT: PCWSTR = w("Delegate Object Creation")
+public val STR_BIND_DELEGATE_CREATE_OBJECT: Pcwstr = w("Delegate Object Creation")
 
-public val STR_BIND_FOLDERS_READ_ONLY: PCWSTR = w("Folders As Read Only")
+public val STR_BIND_FOLDERS_READ_ONLY: Pcwstr = w("Folders As Read Only")
 
-public val STR_BIND_FOLDER_ENUM_MODE: PCWSTR = w("Folder Enum Mode")
+public val STR_BIND_FOLDER_ENUM_MODE: Pcwstr = w("Folder Enum Mode")
 
-public val STR_BIND_FORCE_FOLDER_SHORTCUT_RESOLVE: PCWSTR = w("Force Folder Shortcut Resolve")
+public val STR_BIND_FORCE_FOLDER_SHORTCUT_RESOLVE: Pcwstr = w("Force Folder Shortcut Resolve")
 
-public val STR_DONT_PARSE_RELATIVE: PCWSTR = w("Don't Parse Relative")
+public val STR_DONT_PARSE_RELATIVE: Pcwstr = w("Don't Parse Relative")
 
-public val STR_DONT_RESOLVE_LINK: PCWSTR = w("Don't Resolve Link")
+public val STR_DONT_RESOLVE_LINK: Pcwstr = w("Don't Resolve Link")
 
-public val STR_ENUM_ITEMS_FLAGS: PCWSTR = w("SHCONTF")
+public val STR_ENUM_ITEMS_FLAGS: Pcwstr = w("SHCONTF")
 
-public val STR_FILE_SYS_BIND_DATA: PCWSTR = w("File System Bind Data")
+public val STR_FILE_SYS_BIND_DATA: Pcwstr = w("File System Bind Data")
 
-public val STR_FILE_SYS_BIND_DATA_WIN7_FORMAT: PCWSTR = w("Win7FileSystemIdList")
+public val STR_FILE_SYS_BIND_DATA_WIN7_FORMAT: Pcwstr = w("Win7FileSystemIdList")
 
-public val STR_GET_ASYNC_HANDLER: PCWSTR = w("GetAsyncHandler")
+public val STR_GET_ASYNC_HANDLER: Pcwstr = w("GetAsyncHandler")
 
-public val STR_GPS_BESTEFFORT: PCWSTR = w("GPS_BESTEFFORT")
+public val STR_GPS_BESTEFFORT: Pcwstr = w("GPS_BESTEFFORT")
 
-public val STR_GPS_DELAYCREATION: PCWSTR = w("GPS_DELAYCREATION")
+public val STR_GPS_DELAYCREATION: Pcwstr = w("GPS_DELAYCREATION")
 
-public val STR_GPS_FASTPROPERTIESONLY: PCWSTR = w("GPS_FASTPROPERTIESONLY")
+public val STR_GPS_FASTPROPERTIESONLY: Pcwstr = w("GPS_FASTPROPERTIESONLY")
 
-public val STR_GPS_HANDLERPROPERTIESONLY: PCWSTR = w("GPS_HANDLERPROPERTIESONLY")
+public val STR_GPS_HANDLERPROPERTIESONLY: Pcwstr = w("GPS_HANDLERPROPERTIESONLY")
 
-public val STR_GPS_NO_OPLOCK: PCWSTR = w("GPS_NO_OPLOCK")
+public val STR_GPS_NO_OPLOCK: Pcwstr = w("GPS_NO_OPLOCK")
 
-public val STR_GPS_OPENSLOWITEM: PCWSTR = w("GPS_OPENSLOWITEM")
+public val STR_GPS_OPENSLOWITEM: Pcwstr = w("GPS_OPENSLOWITEM")
 
-public val STR_INTERNAL_NAVIGATE: PCWSTR = w("Internal Navigation")
+public val STR_INTERNAL_NAVIGATE: Pcwstr = w("Internal Navigation")
 
-public val STR_INTERNETFOLDER_PARSE_ONLY_URLMON_BINDABLE: PCWSTR = w("Validate URL")
+public val STR_INTERNETFOLDER_PARSE_ONLY_URLMON_BINDABLE: Pcwstr = w("Validate URL")
 
-public val STR_ITEM_CACHE_CONTEXT: PCWSTR = w("ItemCacheContext")
+public val STR_ITEM_CACHE_CONTEXT: Pcwstr = w("ItemCacheContext")
 
-public val STR_MYDOCS_CLSID: PCSTR = s("{450D8FBA-AD25-11D0-98A8-0800361B1103}")
+public val STR_MYDOCS_CLSID: Pcstr = s("{450D8FBA-AD25-11D0-98A8-0800361B1103}")
 
-public val STR_NO_VALIDATE_FILENAME_CHARS: PCWSTR = w("NoValidateFilenameChars")
+public val STR_NO_VALIDATE_FILENAME_CHARS: Pcwstr = w("NoValidateFilenameChars")
 
-public val STR_PARSE_ALLOW_INTERNET_SHELL_FOLDERS: PCWSTR = w("Allow binding to Internet shell folder handlers and negate STR_PARSE_PREFER_WEB_BROWSING")
+public val STR_PARSE_ALLOW_INTERNET_SHELL_FOLDERS: Pcwstr = w("Allow binding to Internet shell folder handlers and negate STR_PARSE_PREFER_WEB_BROWSING")
 
-public val STR_PARSE_AND_CREATE_ITEM: PCWSTR = w("ParseAndCreateItem")
+public val STR_PARSE_AND_CREATE_ITEM: Pcwstr = w("ParseAndCreateItem")
 
-public val STR_PARSE_DONT_REQUIRE_VALIDATED_URLS: PCWSTR = w("Do not require validated URLs")
+public val STR_PARSE_DONT_REQUIRE_VALIDATED_URLS: Pcwstr = w("Do not require validated URLs")
 
-public val STR_PARSE_EXPLICIT_ASSOCIATION_SUCCESSFUL: PCWSTR = w("ExplicitAssociationSuccessful")
+public val STR_PARSE_EXPLICIT_ASSOCIATION_SUCCESSFUL: Pcwstr = w("ExplicitAssociationSuccessful")
 
-public val STR_PARSE_PARTIAL_IDLIST: PCWSTR = w("ParseOriginalItem")
+public val STR_PARSE_PARTIAL_IDLIST: Pcwstr = w("ParseOriginalItem")
 
-public val STR_PARSE_PREFER_FOLDER_BROWSING: PCWSTR = w("Parse Prefer Folder Browsing")
+public val STR_PARSE_PREFER_FOLDER_BROWSING: Pcwstr = w("Parse Prefer Folder Browsing")
 
-public val STR_PARSE_PREFER_WEB_BROWSING: PCWSTR = w("Do not bind to Internet shell folder handlers")
+public val STR_PARSE_PREFER_WEB_BROWSING: Pcwstr = w("Do not bind to Internet shell folder handlers")
 
-public val STR_PARSE_PROPERTYSTORE: PCWSTR = w("DelegateNamedProperties")
+public val STR_PARSE_PROPERTYSTORE: Pcwstr = w("DelegateNamedProperties")
 
-public val STR_PARSE_SHELL_PROTOCOL_TO_FILE_OBJECTS: PCWSTR = w("Parse Shell Protocol To File Objects")
+public val STR_PARSE_SHELL_PROTOCOL_TO_FILE_OBJECTS: Pcwstr = w("Parse Shell Protocol To File Objects")
 
-public val STR_PARSE_SHOW_NET_DIAGNOSTICS_UI: PCWSTR = w("Show network diagnostics UI")
+public val STR_PARSE_SHOW_NET_DIAGNOSTICS_UI: Pcwstr = w("Show network diagnostics UI")
 
-public val STR_PARSE_SKIP_NET_CACHE: PCWSTR = w("Skip Net Resource Cache")
+public val STR_PARSE_SKIP_NET_CACHE: Pcwstr = w("Skip Net Resource Cache")
 
-public val STR_PARSE_TRANSLATE_ALIASES: PCWSTR = w("Parse Translate Aliases")
+public val STR_PARSE_TRANSLATE_ALIASES: Pcwstr = w("Parse Translate Aliases")
 
-public val STR_PARSE_WITH_EXPLICIT_ASSOCAPP: PCWSTR = w("ExplicitAssociationApp")
+public val STR_PARSE_WITH_EXPLICIT_ASSOCAPP: Pcwstr = w("ExplicitAssociationApp")
 
-public val STR_PARSE_WITH_EXPLICIT_PROGID: PCWSTR = w("ExplicitProgid")
+public val STR_PARSE_WITH_EXPLICIT_PROGID: Pcwstr = w("ExplicitProgid")
 
-public val STR_PARSE_WITH_PROPERTIES: PCWSTR = w("ParseWithProperties")
+public val STR_PARSE_WITH_PROPERTIES: Pcwstr = w("ParseWithProperties")
 
-public val STR_PROPERTYBAG_PARAM: PCWSTR = w("SHBindCtxPropertyBag")
+public val STR_PROPERTYBAG_PARAM: Pcwstr = w("SHBindCtxPropertyBag")
 
-public val STR_REFERRER_IDENTIFIER: PCWSTR = w("Referrer Identifier")
+public val STR_REFERRER_IDENTIFIER: Pcwstr = w("Referrer Identifier")
 
-public val STR_SKIP_BINDING_CLSID: PCWSTR = w("Skip Binding CLSID")
+public val STR_SKIP_BINDING_CLSID: Pcwstr = w("Skip Binding CLSID")
 
-public val STR_STORAGEITEM_CREATION_FLAGS: PCWSTR = w("SHGETSTORAGEITEM")
+public val STR_STORAGEITEM_CREATION_FLAGS: Pcwstr = w("SHGETSTORAGEITEM")
 
-public val STR_TAB_REUSE_IDENTIFIER: PCWSTR = w("Tab Reuse Identifier")
+public val STR_TAB_REUSE_IDENTIFIER: Pcwstr = w("Tab Reuse Identifier")
 
-public val STR_TRACK_CLSID: PCWSTR = w("Track the CLSID")
+public val STR_TRACK_CLSID: Pcwstr = w("Track the CLSID")
 
-public val SV3CVW3_DEFAULT: _SV3CVW3_FLAGS = 0
+public val SV3CVW3_DEFAULT: Sv3cvw3Flags = 0
 
-public val SV3CVW3_FORCEFOLDERFLAGS: _SV3CVW3_FLAGS = 4
+public val SV3CVW3_FORCEFOLDERFLAGS: Sv3cvw3Flags = 4
 
-public val SV3CVW3_FORCEVIEWMODE: _SV3CVW3_FLAGS = 2
+public val SV3CVW3_FORCEVIEWMODE: Sv3cvw3Flags = 2
 
-public val SV3CVW3_NONINTERACTIVE: _SV3CVW3_FLAGS = 1
+public val SV3CVW3_NONINTERACTIVE: Sv3cvw3Flags = 1
 
-public val SVGIO_ALLVIEW: _SVGIO = 2
+public val SVGIO_ALLVIEW: Svgio = 2
 
-public val SVGIO_BACKGROUND: _SVGIO = 0
+public val SVGIO_BACKGROUND: Svgio = 0
 
-public val SVGIO_CHECKED: _SVGIO = 3
+public val SVGIO_CHECKED: Svgio = 3
 
-public val SVGIO_FLAG_VIEWORDER: _SVGIO = -2147483648
+public val SVGIO_FLAG_VIEWORDER: Svgio = -2147483648.toInt()
 
-public val SVGIO_SELECTION: _SVGIO = 1
+public val SVGIO_SELECTION: Svgio = 1
 
-public val SVGIO_TYPE_MASK: _SVGIO = 15
+public val SVGIO_TYPE_MASK: Svgio = 15
 
-public val SVSI_CHECK: _SVSIF = 256
+public val SVSI_CHECK: Svsif = 256
 
-public val SVSI_CHECK2: _SVSIF = 512
+public val SVSI_CHECK2: Svsif = 512
 
-public val SVSI_DESELECT: _SVSIF = 0
+public val SVSI_DESELECT: Svsif = 0
 
-public val SVSI_DESELECTOTHERS: _SVSIF = 4
+public val SVSI_DESELECTOTHERS: Svsif = 4
 
-public val SVSI_EDIT: _SVSIF = 3
+public val SVSI_EDIT: Svsif = 3
 
-public val SVSI_ENSUREVISIBLE: _SVSIF = 8
+public val SVSI_ENSUREVISIBLE: Svsif = 8
 
-public val SVSI_FOCUSED: _SVSIF = 16
+public val SVSI_FOCUSED: Svsif = 16
 
-public val SVSI_KEYBOARDSELECT: _SVSIF = 1025
+public val SVSI_KEYBOARDSELECT: Svsif = 1025
 
-public val SVSI_NOTAKEFOCUS: _SVSIF = 1073741824
+public val SVSI_NOTAKEFOCUS: Svsif = 1073741824
 
-public val SVSI_POSITIONITEM: _SVSIF = 128
+public val SVSI_POSITIONITEM: Svsif = 128
 
-public val SVSI_SELECT: _SVSIF = 1
+public val SVSI_SELECT: Svsif = 1
 
-public val SVSI_SELECTIONMARK: _SVSIF = 64
+public val SVSI_SELECTIONMARK: Svsif = 64
 
-public val SVSI_TRANSLATEPT: _SVSIF = 32
+public val SVSI_TRANSLATEPT: Svsif = 32
 
-public val SVUIA_ACTIVATE_FOCUS: SVUIA_STATUS = 2
+public val SVUIA_ACTIVATE_FOCUS: SvuiaStatus = 2
 
-public val SVUIA_ACTIVATE_NOFOCUS: SVUIA_STATUS = 1
+public val SVUIA_ACTIVATE_NOFOCUS: SvuiaStatus = 1
 
-public val SVUIA_DEACTIVATE: SVUIA_STATUS = 0
+public val SVUIA_DEACTIVATE: SvuiaStatus = 0
 
-public val SVUIA_INPLACEACTIVATE: SVUIA_STATUS = 3
+public val SVUIA_INPLACEACTIVATE: SvuiaStatus = 3
 
 public val SWC_3RDPARTY: ShellWindowTypeConstants = 2
 
@@ -622,57 +622,57 @@ public val SWFO_INCLUDEPENDING: ShellWindowFindWindowOptions = 2
 
 public val SWFO_NEEDDISPATCH: ShellWindowFindWindowOptions = 1
 
-public val SYNCMGRERRORFLAG_ENABLEJUMPTEXT: SYNCMGRERRORFLAGS = 1
+public val SYNCMGRERRORFLAG_ENABLEJUMPTEXT: Syncmgrerrorflags = 1
 
-public val SYNCMGRFLAG_CONNECT: SYNCMGRFLAG = 1
+public val SYNCMGRFLAG_CONNECT: Syncmgrflag = 1
 
-public val SYNCMGRFLAG_EVENTMASK: SYNCMGRFLAG = 255
+public val SYNCMGRFLAG_EVENTMASK: Syncmgrflag = 255
 
-public val SYNCMGRFLAG_IDLE: SYNCMGRFLAG = 4
+public val SYNCMGRFLAG_IDLE: Syncmgrflag = 4
 
-public val SYNCMGRFLAG_INVOKE: SYNCMGRFLAG = 5
+public val SYNCMGRFLAG_INVOKE: Syncmgrflag = 5
 
-public val SYNCMGRFLAG_MANUAL: SYNCMGRFLAG = 3
+public val SYNCMGRFLAG_MANUAL: Syncmgrflag = 3
 
-public val SYNCMGRFLAG_MAYBOTHERUSER: SYNCMGRFLAG = 512
+public val SYNCMGRFLAG_MAYBOTHERUSER: Syncmgrflag = 512
 
-public val SYNCMGRFLAG_PENDINGDISCONNECT: SYNCMGRFLAG = 2
+public val SYNCMGRFLAG_PENDINGDISCONNECT: Syncmgrflag = 2
 
-public val SYNCMGRFLAG_SCHEDULED: SYNCMGRFLAG = 6
+public val SYNCMGRFLAG_SCHEDULED: Syncmgrflag = 6
 
-public val SYNCMGRFLAG_SETTINGS: SYNCMGRFLAG = 256
+public val SYNCMGRFLAG_SETTINGS: Syncmgrflag = 256
 
 public val SYNCMGRHANDLERFLAG_MASK: UInt = 15u
 
-public val SYNCMGRHANDLER_ALWAYSLISTHANDLER: SYNCMGRHANDLERFLAGS = 4
+public val SYNCMGRHANDLER_ALWAYSLISTHANDLER: Syncmgrhandlerflags = 4
 
-public val SYNCMGRHANDLER_HASPROPERTIES: SYNCMGRHANDLERFLAGS = 1
+public val SYNCMGRHANDLER_HASPROPERTIES: Syncmgrhandlerflags = 1
 
-public val SYNCMGRHANDLER_HIDDEN: SYNCMGRHANDLERFLAGS = 8
+public val SYNCMGRHANDLER_HIDDEN: Syncmgrhandlerflags = 8
 
-public val SYNCMGRHANDLER_MAYESTABLISHCONNECTION: SYNCMGRHANDLERFLAGS = 2
+public val SYNCMGRHANDLER_MAYESTABLISHCONNECTION: Syncmgrhandlerflags = 2
 
-public val SYNCMGRINVOKE_MINIMIZED: SYNCMGRINVOKEFLAGS = 4
+public val SYNCMGRINVOKE_MINIMIZED: Syncmgrinvokeflags = 4
 
-public val SYNCMGRINVOKE_STARTSYNC: SYNCMGRINVOKEFLAGS = 2
+public val SYNCMGRINVOKE_STARTSYNC: Syncmgrinvokeflags = 2
 
-public val SYNCMGRITEMSTATE_CHECKED: SYNCMGRITEMSTATE = 1
+public val SYNCMGRITEMSTATE_CHECKED: Syncmgritemstate = 1
 
-public val SYNCMGRITEMSTATE_UNCHECKED: SYNCMGRITEMSTATE = 0
+public val SYNCMGRITEMSTATE_UNCHECKED: Syncmgritemstate = 0
 
-public val SYNCMGRITEM_HASPROPERTIES: SYNCMGRITEMFLAGS = 1
+public val SYNCMGRITEM_HASPROPERTIES: Syncmgritemflags = 1
 
-public val SYNCMGRITEM_HIDDEN: SYNCMGRITEMFLAGS = 32
+public val SYNCMGRITEM_HIDDEN: Syncmgritemflags = 32
 
 public val SYNCMGRITEM_ITEMFLAGMASK: UInt = 127u
 
-public val SYNCMGRITEM_LASTUPDATETIME: SYNCMGRITEMFLAGS = 8
+public val SYNCMGRITEM_LASTUPDATETIME: Syncmgritemflags = 8
 
-public val SYNCMGRITEM_MAYDELETEITEM: SYNCMGRITEMFLAGS = 16
+public val SYNCMGRITEM_MAYDELETEITEM: Syncmgritemflags = 16
 
-public val SYNCMGRITEM_ROAMINGUSER: SYNCMGRITEMFLAGS = 4
+public val SYNCMGRITEM_ROAMINGUSER: Syncmgritemflags = 4
 
-public val SYNCMGRITEM_TEMPORARY: SYNCMGRITEMFLAGS = 2
+public val SYNCMGRITEM_TEMPORARY: Syncmgritemflags = 2
 
 public val SYNCMGRLOGERROR_ERRORFLAGS: UInt = 1u
 
@@ -680,13 +680,13 @@ public val SYNCMGRLOGERROR_ERRORID: UInt = 2u
 
 public val SYNCMGRLOGERROR_ITEMID: UInt = 4u
 
-public val SYNCMGRLOGLEVEL_ERROR: SYNCMGRLOGLEVEL = 3
+public val SYNCMGRLOGLEVEL_ERROR: Syncmgrloglevel = 3
 
-public val SYNCMGRLOGLEVEL_INFORMATION: SYNCMGRLOGLEVEL = 1
+public val SYNCMGRLOGLEVEL_INFORMATION: Syncmgrloglevel = 1
 
-public val SYNCMGRLOGLEVEL_LOGLEVELMAX: SYNCMGRLOGLEVEL = 3
+public val SYNCMGRLOGLEVEL_LOGLEVELMAX: Syncmgrloglevel = 3
 
-public val SYNCMGRLOGLEVEL_WARNING: SYNCMGRLOGLEVEL = 2
+public val SYNCMGRLOGLEVEL_WARNING: Syncmgrloglevel = 2
 
 public val SYNCMGRPROGRESSITEM_MAXVALUE: UInt = 8u
 
@@ -698,369 +698,369 @@ public val SYNCMGRPROGRESSITEM_STATUSTYPE: UInt = 2u
 
 public val SYNCMGRREGISTERFLAGS_MASK: UInt = 7u
 
-public val SYNCMGRREGISTERFLAG_CONNECT: SYNCMGRREGISTERFLAGS = 1
+public val SYNCMGRREGISTERFLAG_CONNECT: Syncmgrregisterflags = 1
 
-public val SYNCMGRREGISTERFLAG_IDLE: SYNCMGRREGISTERFLAGS = 4
+public val SYNCMGRREGISTERFLAG_IDLE: Syncmgrregisterflags = 4
 
-public val SYNCMGRREGISTERFLAG_PENDINGDISCONNECT: SYNCMGRREGISTERFLAGS = 2
+public val SYNCMGRREGISTERFLAG_PENDINGDISCONNECT: Syncmgrregisterflags = 2
 
-public val SYNCMGRSTATUS_DELETED: SYNCMGRSTATUS = 256
+public val SYNCMGRSTATUS_DELETED: Syncmgrstatus = 256
 
-public val SYNCMGRSTATUS_FAILED: SYNCMGRSTATUS = 5
+public val SYNCMGRSTATUS_FAILED: Syncmgrstatus = 5
 
-public val SYNCMGRSTATUS_PAUSED: SYNCMGRSTATUS = 6
+public val SYNCMGRSTATUS_PAUSED: Syncmgrstatus = 6
 
-public val SYNCMGRSTATUS_PENDING: SYNCMGRSTATUS = 2
+public val SYNCMGRSTATUS_PENDING: Syncmgrstatus = 2
 
-public val SYNCMGRSTATUS_RESUMING: SYNCMGRSTATUS = 7
+public val SYNCMGRSTATUS_RESUMING: Syncmgrstatus = 7
 
-public val SYNCMGRSTATUS_SKIPPED: SYNCMGRSTATUS = 1
+public val SYNCMGRSTATUS_SKIPPED: Syncmgrstatus = 1
 
-public val SYNCMGRSTATUS_STOPPED: SYNCMGRSTATUS = 0
+public val SYNCMGRSTATUS_STOPPED: Syncmgrstatus = 0
 
-public val SYNCMGRSTATUS_SUCCEEDED: SYNCMGRSTATUS = 4
+public val SYNCMGRSTATUS_SUCCEEDED: Syncmgrstatus = 4
 
-public val SYNCMGRSTATUS_UPDATING: SYNCMGRSTATUS = 3
+public val SYNCMGRSTATUS_UPDATING: Syncmgrstatus = 3
 
-public val SYNCMGRSTATUS_UPDATING_INDETERMINATE: SYNCMGRSTATUS = 8
+public val SYNCMGRSTATUS_UPDATING_INDETERMINATE: Syncmgrstatus = 8
 
-public val SYNCMGR_CF_NONE: SYNCMGR_CONTROL_FLAGS = 0
+public val SYNCMGR_CF_NONE: SyncmgrControlFlags = 0
 
-public val SYNCMGR_CF_NOUI: SYNCMGR_CONTROL_FLAGS = 2
+public val SYNCMGR_CF_NOUI: SyncmgrControlFlags = 2
 
-public val SYNCMGR_CF_NOWAIT: SYNCMGR_CONTROL_FLAGS = 0
+public val SYNCMGR_CF_NOWAIT: SyncmgrControlFlags = 0
 
-public val SYNCMGR_CF_VALID: SYNCMGR_CONTROL_FLAGS = 3
+public val SYNCMGR_CF_VALID: SyncmgrControlFlags = 3
 
-public val SYNCMGR_CF_WAIT: SYNCMGR_CONTROL_FLAGS = 1
+public val SYNCMGR_CF_WAIT: SyncmgrControlFlags = 1
 
-public val SYNCMGR_CIT_DELETED: SYNCMGR_CONFLICT_ITEM_TYPE = 2
+public val SYNCMGR_CIT_DELETED: SyncmgrConflictItemType = 2
 
-public val SYNCMGR_CIT_UPDATED: SYNCMGR_CONFLICT_ITEM_TYPE = 1
+public val SYNCMGR_CIT_UPDATED: SyncmgrConflictItemType = 1
 
-public val SYNCMGR_CR_CANCEL_ALL: SYNCMGR_CANCEL_REQUEST = 2
+public val SYNCMGR_CR_CANCEL_ALL: SyncmgrCancelRequest = 2
 
-public val SYNCMGR_CR_CANCEL_ITEM: SYNCMGR_CANCEL_REQUEST = 1
+public val SYNCMGR_CR_CANCEL_ITEM: SyncmgrCancelRequest = 1
 
-public val SYNCMGR_CR_MAX: SYNCMGR_CANCEL_REQUEST = 2
+public val SYNCMGR_CR_MAX: SyncmgrCancelRequest = 2
 
-public val SYNCMGR_CR_NONE: SYNCMGR_CANCEL_REQUEST = 0
+public val SYNCMGR_CR_NONE: SyncmgrCancelRequest = 0
 
-public val SYNCMGR_EF_NONE: SYNCMGR_EVENT_FLAGS = 0
+public val SYNCMGR_EF_NONE: SyncmgrEventFlags = 0
 
-public val SYNCMGR_EF_VALID: SYNCMGR_EVENT_FLAGS = 0
+public val SYNCMGR_EF_VALID: SyncmgrEventFlags = 0
 
-public val SYNCMGR_EL_ERROR: SYNCMGR_EVENT_LEVEL = 3
+public val SYNCMGR_EL_ERROR: SyncmgrEventLevel = 3
 
-public val SYNCMGR_EL_INFORMATION: SYNCMGR_EVENT_LEVEL = 1
+public val SYNCMGR_EL_INFORMATION: SyncmgrEventLevel = 1
 
-public val SYNCMGR_EL_MAX: SYNCMGR_EVENT_LEVEL = 3
+public val SYNCMGR_EL_MAX: SyncmgrEventLevel = 3
 
-public val SYNCMGR_EL_WARNING: SYNCMGR_EVENT_LEVEL = 2
+public val SYNCMGR_EL_WARNING: SyncmgrEventLevel = 2
 
-public val SYNCMGR_HCM_CAN_BROWSE_CONTENT: SYNCMGR_HANDLER_CAPABILITIES = 65536
+public val SYNCMGR_HCM_CAN_BROWSE_CONTENT: SyncmgrHandlerCapabilities = 65536
 
-public val SYNCMGR_HCM_CAN_SHOW_SCHEDULE: SYNCMGR_HANDLER_CAPABILITIES = 131072
+public val SYNCMGR_HCM_CAN_SHOW_SCHEDULE: SyncmgrHandlerCapabilities = 131072
 
-public val SYNCMGR_HCM_CONFLICT_STORE: SYNCMGR_HANDLER_CAPABILITIES = 4
+public val SYNCMGR_HCM_CONFLICT_STORE: SyncmgrHandlerCapabilities = 4
 
-public val SYNCMGR_HCM_EVENT_STORE: SYNCMGR_HANDLER_CAPABILITIES = 2
+public val SYNCMGR_HCM_EVENT_STORE: SyncmgrHandlerCapabilities = 2
 
-public val SYNCMGR_HCM_NONE: SYNCMGR_HANDLER_CAPABILITIES = 0
+public val SYNCMGR_HCM_NONE: SyncmgrHandlerCapabilities = 0
 
-public val SYNCMGR_HCM_PROVIDES_ICON: SYNCMGR_HANDLER_CAPABILITIES = 1
+public val SYNCMGR_HCM_PROVIDES_ICON: SyncmgrHandlerCapabilities = 1
 
-public val SYNCMGR_HCM_QUERY_BEFORE_ACTIVATE: SYNCMGR_HANDLER_CAPABILITIES = 1048576
+public val SYNCMGR_HCM_QUERY_BEFORE_ACTIVATE: SyncmgrHandlerCapabilities = 1048576
 
-public val SYNCMGR_HCM_QUERY_BEFORE_DEACTIVATE: SYNCMGR_HANDLER_CAPABILITIES = 2097152
+public val SYNCMGR_HCM_QUERY_BEFORE_DEACTIVATE: SyncmgrHandlerCapabilities = 2097152
 
-public val SYNCMGR_HCM_QUERY_BEFORE_DISABLE: SYNCMGR_HANDLER_CAPABILITIES = 8388608
+public val SYNCMGR_HCM_QUERY_BEFORE_DISABLE: SyncmgrHandlerCapabilities = 8388608
 
-public val SYNCMGR_HCM_QUERY_BEFORE_ENABLE: SYNCMGR_HANDLER_CAPABILITIES = 4194304
+public val SYNCMGR_HCM_QUERY_BEFORE_ENABLE: SyncmgrHandlerCapabilities = 4194304
 
-public val SYNCMGR_HCM_SUPPORTS_CONCURRENT_SESSIONS: SYNCMGR_HANDLER_CAPABILITIES = 16
+public val SYNCMGR_HCM_SUPPORTS_CONCURRENT_SESSIONS: SyncmgrHandlerCapabilities = 16
 
-public val SYNCMGR_HCM_VALID_MASK: SYNCMGR_HANDLER_CAPABILITIES = 15925271
+public val SYNCMGR_HCM_VALID_MASK: SyncmgrHandlerCapabilities = 15925271
 
-public val SYNCMGR_HPM_BACKGROUND_SYNC_ONLY: SYNCMGR_HANDLER_POLICIES = 48
+public val SYNCMGR_HPM_BACKGROUND_SYNC_ONLY: SyncmgrHandlerPolicies = 48
 
-public val SYNCMGR_HPM_DISABLE_BROWSE: SYNCMGR_HANDLER_POLICIES = 4096
+public val SYNCMGR_HPM_DISABLE_BROWSE: SyncmgrHandlerPolicies = 4096
 
-public val SYNCMGR_HPM_DISABLE_DISABLE: SYNCMGR_HANDLER_POLICIES = 512
+public val SYNCMGR_HPM_DISABLE_DISABLE: SyncmgrHandlerPolicies = 512
 
-public val SYNCMGR_HPM_DISABLE_ENABLE: SYNCMGR_HANDLER_POLICIES = 256
+public val SYNCMGR_HPM_DISABLE_ENABLE: SyncmgrHandlerPolicies = 256
 
-public val SYNCMGR_HPM_DISABLE_SCHEDULE: SYNCMGR_HANDLER_POLICIES = 8192
+public val SYNCMGR_HPM_DISABLE_SCHEDULE: SyncmgrHandlerPolicies = 8192
 
-public val SYNCMGR_HPM_DISABLE_START_SYNC: SYNCMGR_HANDLER_POLICIES = 1024
+public val SYNCMGR_HPM_DISABLE_START_SYNC: SyncmgrHandlerPolicies = 1024
 
-public val SYNCMGR_HPM_DISABLE_STOP_SYNC: SYNCMGR_HANDLER_POLICIES = 2048
+public val SYNCMGR_HPM_DISABLE_STOP_SYNC: SyncmgrHandlerPolicies = 2048
 
-public val SYNCMGR_HPM_HIDDEN_BY_DEFAULT: SYNCMGR_HANDLER_POLICIES = 65536
+public val SYNCMGR_HPM_HIDDEN_BY_DEFAULT: SyncmgrHandlerPolicies = 65536
 
-public val SYNCMGR_HPM_NONE: SYNCMGR_HANDLER_POLICIES = 0
+public val SYNCMGR_HPM_NONE: SyncmgrHandlerPolicies = 0
 
-public val SYNCMGR_HPM_PREVENT_ACTIVATE: SYNCMGR_HANDLER_POLICIES = 1
+public val SYNCMGR_HPM_PREVENT_ACTIVATE: SyncmgrHandlerPolicies = 1
 
-public val SYNCMGR_HPM_PREVENT_DEACTIVATE: SYNCMGR_HANDLER_POLICIES = 2
+public val SYNCMGR_HPM_PREVENT_DEACTIVATE: SyncmgrHandlerPolicies = 2
 
-public val SYNCMGR_HPM_PREVENT_DISABLE: SYNCMGR_HANDLER_POLICIES = 8
+public val SYNCMGR_HPM_PREVENT_DISABLE: SyncmgrHandlerPolicies = 8
 
-public val SYNCMGR_HPM_PREVENT_ENABLE: SYNCMGR_HANDLER_POLICIES = 4
+public val SYNCMGR_HPM_PREVENT_ENABLE: SyncmgrHandlerPolicies = 4
 
-public val SYNCMGR_HPM_PREVENT_START_SYNC: SYNCMGR_HANDLER_POLICIES = 16
+public val SYNCMGR_HPM_PREVENT_START_SYNC: SyncmgrHandlerPolicies = 16
 
-public val SYNCMGR_HPM_PREVENT_STOP_SYNC: SYNCMGR_HANDLER_POLICIES = 32
+public val SYNCMGR_HPM_PREVENT_STOP_SYNC: SyncmgrHandlerPolicies = 32
 
-public val SYNCMGR_HPM_VALID_MASK: SYNCMGR_HANDLER_POLICIES = 77631
+public val SYNCMGR_HPM_VALID_MASK: SyncmgrHandlerPolicies = 77631
 
-public val SYNCMGR_HT_APPLICATION: SYNCMGR_HANDLER_TYPE = 1
+public val SYNCMGR_HT_APPLICATION: SyncmgrHandlerType = 1
 
-public val SYNCMGR_HT_COMPUTER: SYNCMGR_HANDLER_TYPE = 5
+public val SYNCMGR_HT_COMPUTER: SyncmgrHandlerType = 5
 
-public val SYNCMGR_HT_DEVICE: SYNCMGR_HANDLER_TYPE = 2
+public val SYNCMGR_HT_DEVICE: SyncmgrHandlerType = 2
 
-public val SYNCMGR_HT_FOLDER: SYNCMGR_HANDLER_TYPE = 3
+public val SYNCMGR_HT_FOLDER: SyncmgrHandlerType = 3
 
-public val SYNCMGR_HT_MAX: SYNCMGR_HANDLER_TYPE = 5
+public val SYNCMGR_HT_MAX: SyncmgrHandlerType = 5
 
-public val SYNCMGR_HT_MIN: SYNCMGR_HANDLER_TYPE = 0
+public val SYNCMGR_HT_MIN: SyncmgrHandlerType = 0
 
-public val SYNCMGR_HT_SERVICE: SYNCMGR_HANDLER_TYPE = 4
+public val SYNCMGR_HT_SERVICE: SyncmgrHandlerType = 4
 
-public val SYNCMGR_HT_UNSPECIFIED: SYNCMGR_HANDLER_TYPE = 0
+public val SYNCMGR_HT_UNSPECIFIED: SyncmgrHandlerType = 0
 
-public val SYNCMGR_ICM_CAN_BROWSE_CONTENT: SYNCMGR_ITEM_CAPABILITIES = 65536
+public val SYNCMGR_ICM_CAN_BROWSE_CONTENT: SyncmgrItemCapabilities = 65536
 
-public val SYNCMGR_ICM_CAN_DELETE: SYNCMGR_ITEM_CAPABILITIES = 16
+public val SYNCMGR_ICM_CAN_DELETE: SyncmgrItemCapabilities = 16
 
-public val SYNCMGR_ICM_CONFLICT_STORE: SYNCMGR_ITEM_CAPABILITIES = 4
+public val SYNCMGR_ICM_CONFLICT_STORE: SyncmgrItemCapabilities = 4
 
-public val SYNCMGR_ICM_EVENT_STORE: SYNCMGR_ITEM_CAPABILITIES = 2
+public val SYNCMGR_ICM_EVENT_STORE: SyncmgrItemCapabilities = 2
 
-public val SYNCMGR_ICM_NONE: SYNCMGR_ITEM_CAPABILITIES = 0
+public val SYNCMGR_ICM_NONE: SyncmgrItemCapabilities = 0
 
-public val SYNCMGR_ICM_PROVIDES_ICON: SYNCMGR_ITEM_CAPABILITIES = 1
+public val SYNCMGR_ICM_PROVIDES_ICON: SyncmgrItemCapabilities = 1
 
-public val SYNCMGR_ICM_QUERY_BEFORE_DELETE: SYNCMGR_ITEM_CAPABILITIES = 4194304
+public val SYNCMGR_ICM_QUERY_BEFORE_DELETE: SyncmgrItemCapabilities = 4194304
 
-public val SYNCMGR_ICM_QUERY_BEFORE_DISABLE: SYNCMGR_ITEM_CAPABILITIES = 2097152
+public val SYNCMGR_ICM_QUERY_BEFORE_DISABLE: SyncmgrItemCapabilities = 2097152
 
-public val SYNCMGR_ICM_QUERY_BEFORE_ENABLE: SYNCMGR_ITEM_CAPABILITIES = 1048576
+public val SYNCMGR_ICM_QUERY_BEFORE_ENABLE: SyncmgrItemCapabilities = 1048576
 
-public val SYNCMGR_ICM_VALID_MASK: SYNCMGR_ITEM_CAPABILITIES = 7405591
+public val SYNCMGR_ICM_VALID_MASK: SyncmgrItemCapabilities = 7405591
 
-public val SYNCMGR_IPM_DISABLE_BROWSE: SYNCMGR_ITEM_POLICIES = 256
+public val SYNCMGR_IPM_DISABLE_BROWSE: SyncmgrItemPolicies = 256
 
-public val SYNCMGR_IPM_DISABLE_DELETE: SYNCMGR_ITEM_POLICIES = 512
+public val SYNCMGR_IPM_DISABLE_DELETE: SyncmgrItemPolicies = 512
 
-public val SYNCMGR_IPM_DISABLE_DISABLE: SYNCMGR_ITEM_POLICIES = 32
+public val SYNCMGR_IPM_DISABLE_DISABLE: SyncmgrItemPolicies = 32
 
-public val SYNCMGR_IPM_DISABLE_ENABLE: SYNCMGR_ITEM_POLICIES = 16
+public val SYNCMGR_IPM_DISABLE_ENABLE: SyncmgrItemPolicies = 16
 
-public val SYNCMGR_IPM_DISABLE_START_SYNC: SYNCMGR_ITEM_POLICIES = 64
+public val SYNCMGR_IPM_DISABLE_START_SYNC: SyncmgrItemPolicies = 64
 
-public val SYNCMGR_IPM_DISABLE_STOP_SYNC: SYNCMGR_ITEM_POLICIES = 128
+public val SYNCMGR_IPM_DISABLE_STOP_SYNC: SyncmgrItemPolicies = 128
 
-public val SYNCMGR_IPM_HIDDEN_BY_DEFAULT: SYNCMGR_ITEM_POLICIES = 65536
+public val SYNCMGR_IPM_HIDDEN_BY_DEFAULT: SyncmgrItemPolicies = 65536
 
-public val SYNCMGR_IPM_NONE: SYNCMGR_ITEM_POLICIES = 0
+public val SYNCMGR_IPM_NONE: SyncmgrItemPolicies = 0
 
-public val SYNCMGR_IPM_PREVENT_DISABLE: SYNCMGR_ITEM_POLICIES = 2
+public val SYNCMGR_IPM_PREVENT_DISABLE: SyncmgrItemPolicies = 2
 
-public val SYNCMGR_IPM_PREVENT_ENABLE: SYNCMGR_ITEM_POLICIES = 1
+public val SYNCMGR_IPM_PREVENT_ENABLE: SyncmgrItemPolicies = 1
 
-public val SYNCMGR_IPM_PREVENT_START_SYNC: SYNCMGR_ITEM_POLICIES = 4
+public val SYNCMGR_IPM_PREVENT_START_SYNC: SyncmgrItemPolicies = 4
 
-public val SYNCMGR_IPM_PREVENT_STOP_SYNC: SYNCMGR_ITEM_POLICIES = 8
+public val SYNCMGR_IPM_PREVENT_STOP_SYNC: SyncmgrItemPolicies = 8
 
-public val SYNCMGR_IPM_VALID_MASK: SYNCMGR_ITEM_POLICIES = 66303
+public val SYNCMGR_IPM_VALID_MASK: SyncmgrItemPolicies = 66303
 
-public val SYNCMGR_OBJECTID_BrowseContent: GUID = GUID.from_u128(U128(0x57cbb584e9b447aeuL, 0xa120c4df3335dee2uL))
+public val SYNCMGR_OBJECTID_BROWSE_CONTENT: Guid = Guid.fromU128(U128(0x57cbb584e9b447aeuL, 0xa120c4df3335dee2uL))
 
-public val SYNCMGR_OBJECTID_ConflictStore: GUID = GUID.from_u128(U128(0xd78181f4238947e4uL, 0xa96060bcc2ed930buL))
+public val SYNCMGR_OBJECTID_CONFLICT_STORE: Guid = Guid.fromU128(U128(0xd78181f4238947e4uL, 0xa96060bcc2ed930buL))
 
-public val SYNCMGR_OBJECTID_EventLinkClick: GUID = GUID.from_u128(U128(0x2203bdc11af14082uL, 0x8c3028399f41384cuL))
+public val SYNCMGR_OBJECTID_EVENT_LINK_CLICK: Guid = Guid.fromU128(U128(0x2203bdc11af14082uL, 0x8c3028399f41384cuL))
 
-public val SYNCMGR_OBJECTID_EventStore: GUID = GUID.from_u128(U128(0x4bef34b9a7864075uL, 0xba880c2b9d89a98fuL))
+public val SYNCMGR_OBJECTID_EVENT_STORE: Guid = Guid.fromU128(U128(0x4bef34b9a7864075uL, 0xba880c2b9d89a98fuL))
 
-public val SYNCMGR_OBJECTID_Icon: GUID = GUID.from_u128(U128(0x6dbc85c35d074c72uL, 0xa7777fec78072c06uL))
+public val SYNCMGR_OBJECTID_ICON: Guid = Guid.fromU128(U128(0x6dbc85c35d074c72uL, 0xa7777fec78072c06uL))
 
-public val SYNCMGR_OBJECTID_QueryBeforeActivate: GUID = GUID.from_u128(U128(0xd882d80be7aa49eduL, 0x86b7e6e1f714cdfeuL))
+public val SYNCMGR_OBJECTID_QUERY_BEFORE_ACTIVATE: Guid = Guid.fromU128(U128(0xd882d80be7aa49eduL, 0x86b7e6e1f714cdfeuL))
 
-public val SYNCMGR_OBJECTID_QueryBeforeDeactivate: GUID = GUID.from_u128(U128(0xa0efc28260e0460euL, 0x9374ea88513cfc80uL))
+public val SYNCMGR_OBJECTID_QUERY_BEFORE_DEACTIVATE: Guid = Guid.fromU128(U128(0xa0efc28260e0460euL, 0x9374ea88513cfc80uL))
 
-public val SYNCMGR_OBJECTID_QueryBeforeDelete: GUID = GUID.from_u128(U128(0xf76c3397afb345d7uL, 0xa59f5a49e905437euL))
+public val SYNCMGR_OBJECTID_QUERY_BEFORE_DELETE: Guid = Guid.fromU128(U128(0xf76c3397afb345d7uL, 0xa59f5a49e905437euL))
 
-public val SYNCMGR_OBJECTID_QueryBeforeDisable: GUID = GUID.from_u128(U128(0xbb5f64aaf0044eb5uL, 0x8e4d26751966344cuL))
+public val SYNCMGR_OBJECTID_QUERY_BEFORE_DISABLE: Guid = Guid.fromU128(U128(0xbb5f64aaf0044eb5uL, 0x8e4d26751966344cuL))
 
-public val SYNCMGR_OBJECTID_QueryBeforeEnable: GUID = GUID.from_u128(U128(0x4cbf7f05beb4de1uL, 0xbc90908345c480f6uL))
+public val SYNCMGR_OBJECTID_QUERY_BEFORE_ENABLE: Guid = Guid.fromU128(U128(0x4cbf7f05beb4de1uL, 0xbc90908345c480f6uL))
 
-public val SYNCMGR_OBJECTID_ShowSchedule: GUID = GUID.from_u128(U128(0xedc6f3e384414109uL, 0xadf36c1ca0b7de47uL))
+public val SYNCMGR_OBJECTID_SHOW_SCHEDULE: Guid = Guid.fromU128(U128(0xedc6f3e384414109uL, 0xadf36c1ca0b7de47uL))
 
-public val SYNCMGR_PC_KEEP_MULTIPLE: SYNCMGR_PRESENTER_CHOICE = 2
+public val SYNCMGR_PC_KEEP_MULTIPLE: SyncmgrPresenterChoice = 2
 
-public val SYNCMGR_PC_KEEP_ONE: SYNCMGR_PRESENTER_CHOICE = 1
+public val SYNCMGR_PC_KEEP_ONE: SyncmgrPresenterChoice = 1
 
-public val SYNCMGR_PC_KEEP_RECENT: SYNCMGR_PRESENTER_CHOICE = 3
+public val SYNCMGR_PC_KEEP_RECENT: SyncmgrPresenterChoice = 3
 
-public val SYNCMGR_PC_NO_CHOICE: SYNCMGR_PRESENTER_CHOICE = 0
+public val SYNCMGR_PC_NO_CHOICE: SyncmgrPresenterChoice = 0
 
-public val SYNCMGR_PC_REMOVE_FROM_SYNC_SET: SYNCMGR_PRESENTER_CHOICE = 4
+public val SYNCMGR_PC_REMOVE_FROM_SYNC_SET: SyncmgrPresenterChoice = 4
 
-public val SYNCMGR_PC_SKIP: SYNCMGR_PRESENTER_CHOICE = 5
+public val SYNCMGR_PC_SKIP: SyncmgrPresenterChoice = 5
 
-public val SYNCMGR_PNS_CANCEL: SYNCMGR_PRESENTER_NEXT_STEP = 2
+public val SYNCMGR_PNS_CANCEL: SyncmgrPresenterNextStep = 2
 
-public val SYNCMGR_PNS_CONTINUE: SYNCMGR_PRESENTER_NEXT_STEP = 0
+public val SYNCMGR_PNS_CONTINUE: SyncmgrPresenterNextStep = 0
 
-public val SYNCMGR_PNS_DEFAULT: SYNCMGR_PRESENTER_NEXT_STEP = 1
+public val SYNCMGR_PNS_DEFAULT: SyncmgrPresenterNextStep = 1
 
-public val SYNCMGR_PS_CANCELED: SYNCMGR_PROGRESS_STATUS = 5
+public val SYNCMGR_PS_CANCELED: SyncmgrProgressStatus = 5
 
-public val SYNCMGR_PS_DISCONNECTED: SYNCMGR_PROGRESS_STATUS = 6
+public val SYNCMGR_PS_DISCONNECTED: SyncmgrProgressStatus = 6
 
-public val SYNCMGR_PS_FAILED: SYNCMGR_PROGRESS_STATUS = 4
+public val SYNCMGR_PS_FAILED: SyncmgrProgressStatus = 4
 
-public val SYNCMGR_PS_MAX: SYNCMGR_PROGRESS_STATUS = 6
+public val SYNCMGR_PS_MAX: SyncmgrProgressStatus = 6
 
-public val SYNCMGR_PS_SUCCEEDED: SYNCMGR_PROGRESS_STATUS = 3
+public val SYNCMGR_PS_SUCCEEDED: SyncmgrProgressStatus = 3
 
-public val SYNCMGR_PS_UPDATING: SYNCMGR_PROGRESS_STATUS = 1
+public val SYNCMGR_PS_UPDATING: SyncmgrProgressStatus = 1
 
-public val SYNCMGR_PS_UPDATING_INDETERMINATE: SYNCMGR_PROGRESS_STATUS = 2
+public val SYNCMGR_PS_UPDATING_INDETERMINATE: SyncmgrProgressStatus = 2
 
-public val SYNCMGR_RA_KEEPOTHER: SYNCMGR_RESOLUTION_ABILITIES = 1
+public val SYNCMGR_RA_KEEPOTHER: SyncmgrResolutionAbilities = 1
 
-public val SYNCMGR_RA_KEEPRECENT: SYNCMGR_RESOLUTION_ABILITIES = 2
+public val SYNCMGR_RA_KEEPRECENT: SyncmgrResolutionAbilities = 2
 
-public val SYNCMGR_RA_KEEP_MULTIPLE: SYNCMGR_RESOLUTION_ABILITIES = 16
+public val SYNCMGR_RA_KEEP_MULTIPLE: SyncmgrResolutionAbilities = 16
 
-public val SYNCMGR_RA_KEEP_SINGLE: SYNCMGR_RESOLUTION_ABILITIES = 8
+public val SYNCMGR_RA_KEEP_SINGLE: SyncmgrResolutionAbilities = 8
 
-public val SYNCMGR_RA_REMOVEFROMSYNCSET: SYNCMGR_RESOLUTION_ABILITIES = 4
+public val SYNCMGR_RA_REMOVEFROMSYNCSET: SyncmgrResolutionAbilities = 4
 
-public val SYNCMGR_RA_VALID: SYNCMGR_RESOLUTION_ABILITIES = 31
+public val SYNCMGR_RA_VALID: SyncmgrResolutionAbilities = 31
 
-public val SYNCMGR_RF_CANCEL: SYNCMGR_RESOLUTION_FEEDBACK = 2
+public val SYNCMGR_RF_CANCEL: SyncmgrResolutionFeedback = 2
 
-public val SYNCMGR_RF_CONTINUE: SYNCMGR_RESOLUTION_FEEDBACK = 0
+public val SYNCMGR_RF_CONTINUE: SyncmgrResolutionFeedback = 0
 
-public val SYNCMGR_RF_REFRESH: SYNCMGR_RESOLUTION_FEEDBACK = 1
+public val SYNCMGR_RF_REFRESH: SyncmgrResolutionFeedback = 1
 
-public val SYNCMGR_SCF_IGNORE_IF_ALREADY_SYNCING: SYNCMGR_SYNC_CONTROL_FLAGS = 1
+public val SYNCMGR_SCF_IGNORE_IF_ALREADY_SYNCING: SyncmgrSyncControlFlags = 1
 
-public val SYNCMGR_SCF_NONE: SYNCMGR_SYNC_CONTROL_FLAGS = 0
+public val SYNCMGR_SCF_NONE: SyncmgrSyncControlFlags = 0
 
-public val SYNCMGR_SCF_VALID: SYNCMGR_SYNC_CONTROL_FLAGS = 1
+public val SYNCMGR_SCF_VALID: SyncmgrSyncControlFlags = 1
 
-public val SYNCMGR_UR_ADDED: SYNCMGR_UPDATE_REASON = 0
+public val SYNCMGR_UR_ADDED: SyncmgrUpdateReason = 0
 
-public val SYNCMGR_UR_CHANGED: SYNCMGR_UPDATE_REASON = 1
+public val SYNCMGR_UR_CHANGED: SyncmgrUpdateReason = 1
 
-public val SYNCMGR_UR_MAX: SYNCMGR_UPDATE_REASON = 2
+public val SYNCMGR_UR_MAX: SyncmgrUpdateReason = 2
 
-public val SYNCMGR_UR_REMOVED: SYNCMGR_UPDATE_REASON = 2
+public val SYNCMGR_UR_REMOVED: SyncmgrUpdateReason = 2
 
-public val SZ_CONTENTTYPE_CDF: PCWSTR = w("application/x-cdf")
+public val SZ_CONTENTTYPE_CDF: Pcwstr = w("application/x-cdf")
 
-public val SZ_CONTENTTYPE_CDFA: PCSTR = s("application/x-cdf")
+public val SZ_CONTENTTYPE_CDFA: Pcstr = s("application/x-cdf")
 
-public val SZ_CONTENTTYPE_CDFW: PCWSTR = w("application/x-cdf")
+public val SZ_CONTENTTYPE_CDFW: Pcwstr = w("application/x-cdf")
 
-public val SZ_CONTENTTYPE_HTML: PCWSTR = w("text/html")
+public val SZ_CONTENTTYPE_HTML: Pcwstr = w("text/html")
 
-public val SZ_CONTENTTYPE_HTMLA: PCSTR = s("text/html")
+public val SZ_CONTENTTYPE_HTMLA: Pcstr = s("text/html")
 
-public val SZ_CONTENTTYPE_HTMLW: PCWSTR = w("text/html")
+public val SZ_CONTENTTYPE_HTMLW: Pcwstr = w("text/html")
 
-public val S_SYNCMGR_CANCELALL: HRESULT = 0x40204u.toInt()
+public val S_SYNCMGR_CANCELALL: Hresult = 0x40204u.toInt()
 
-public val S_SYNCMGR_CANCELITEM: HRESULT = 0x40203u.toInt()
+public val S_SYNCMGR_CANCELITEM: Hresult = 0x40203u.toInt()
 
-public val S_SYNCMGR_ENUMITEMS: HRESULT = 0x40211u.toInt()
+public val S_SYNCMGR_ENUMITEMS: Hresult = 0x40211u.toInt()
 
-public val S_SYNCMGR_ITEMDELETED: HRESULT = 0x40210u.toInt()
+public val S_SYNCMGR_ITEMDELETED: Hresult = 0x40210u.toInt()
 
-public val S_SYNCMGR_MISSINGITEMS: HRESULT = 0x40201u.toInt()
+public val S_SYNCMGR_MISSINGITEMS: Hresult = 0x40201u.toInt()
 
-public val S_SYNCMGR_RETRYSYNC: HRESULT = 0x40202u.toInt()
+public val S_SYNCMGR_RETRYSYNC: Hresult = 0x40202u.toInt()
 
-public val ScheduledTasks: GUID = GUID.from_u128(U128(0xd62779904c6a11cfuL, 0x8d8700aa0060f5bfuL))
+public val SCHEDULED_TASKS: Guid = Guid.fromU128(U128(0xd62779904c6a11cfuL, 0x8d8700aa0060f5bfuL))
 
-public val SearchFolderItemFactory: GUID = GUID.from_u128(U128(0x14010e02bbbd41f0uL, 0x88e3eda371216584uL))
+public val SEARCH_FOLDER_ITEM_FACTORY: Guid = Guid.fromU128(U128(0x14010e02bbbd41f0uL, 0x88e3eda371216584uL))
 
-public val SelectedItemCount_Property_GUID: GUID = GUID.from_u128(U128(0x8fe316d20e52460auL, 0x9c1e48f273d470a3uL))
+public val SELECTED_ITEM_COUNT_PROPERTY_GUID: Guid = Guid.fromU128(U128(0x8fe316d20e52460auL, 0x9c1e48f273d470a3uL))
 
-public val SharedBitmap: GUID = GUID.from_u128(U128(0x4db2647667874046uL, 0xb836e8412a9e8a27uL))
+public val SHARED_BITMAP: Guid = Guid.fromU128(U128(0x4db2647667874046uL, 0xb836e8412a9e8a27uL))
 
-public val SharingConfigurationManager: GUID = GUID.from_u128(U128(0x49f371e18c5c4d9cuL, 0x9a3b54a6827f513cuL))
+public val SHARING_CONFIGURATION_MANAGER: Guid = Guid.fromU128(U128(0x49f371e18c5c4d9cuL, 0x9a3b54a6827f513cuL))
 
-public val Shell: GUID = GUID.from_u128(U128(0x13709620c27911ceuL, 0xa49e444553540000uL))
+public val SHELL: Guid = Guid.fromU128(U128(0x13709620c27911ceuL, 0xa49e444553540000uL))
 
-public val ShellBrowserWindow: GUID = GUID.from_u128(U128(0xc08afd90f2a111d1uL, 0x845500a0c91f3880uL))
+public val SHELL_BROWSER_WINDOW: Guid = Guid.fromU128(U128(0xc08afd90f2a111d1uL, 0x845500a0c91f3880uL))
 
-public val ShellDesktop: GUID = GUID.from_u128(U128(0x2140000000000uL, 0xc000000000000046uL))
+public val SHELL_DESKTOP: Guid = Guid.fromU128(U128(0x2140000000000uL, 0xc000000000000046uL))
 
-public val ShellDispatchInproc: GUID = GUID.from_u128(U128(0xa89a860d7b111ceuL, 0x8350444553540000uL))
+public val SHELL_DISPATCH_INPROC: Guid = Guid.fromU128(U128(0xa89a860d7b111ceuL, 0x8350444553540000uL))
 
-public val ShellFSFolder: GUID = GUID.from_u128(U128(0xf3364ba065b911ceuL, 0xa9ba00aa004ae837uL))
+public val SHELL_FS_FOLDER: Guid = Guid.fromU128(U128(0xf3364ba065b911ceuL, 0xa9ba00aa004ae837uL))
 
-public val ShellFolderItem: GUID = GUID.from_u128(U128(0x2fe352eafd1f11d2uL, 0xb1f400c04f8eeb3euL))
+public val SHELL_FOLDER_ITEM: Guid = Guid.fromU128(U128(0x2fe352eafd1f11d2uL, 0xb1f400c04f8eeb3euL))
 
-public val ShellFolderView: GUID = GUID.from_u128(U128(0x62112aa1ebe411cfuL, 0xa5fb0020afe7292duL))
+public val SHELL_FOLDER_VIEW: Guid = Guid.fromU128(U128(0x62112aa1ebe411cfuL, 0xa5fb0020afe7292duL))
 
-public val ShellFolderViewOC: GUID = GUID.from_u128(U128(0x9ba05971f6a811cfuL, 0xa44200a0c90a8f39uL))
+public val SHELL_FOLDER_VIEW_OC: Guid = Guid.fromU128(U128(0x9ba05971f6a811cfuL, 0xa44200a0c90a8f39uL))
 
-public val ShellImageDataFactory: GUID = GUID.from_u128(U128(0x66e4e4fbf3854dd0uL, 0x8d74a2efd1bc6178uL))
+public val SHELL_IMAGE_DATA_FACTORY: Guid = Guid.fromU128(U128(0x66e4e4fbf3854dd0uL, 0x8d74a2efd1bc6178uL))
 
-public val ShellItem: GUID = GUID.from_u128(U128(0x9ac9fbe1e0a24ad6uL, 0xb4eee212013ea917uL))
+public val SHELL_ITEM: Guid = Guid.fromU128(U128(0x9ac9fbe1e0a24ad6uL, 0xb4eee212013ea917uL))
 
-public val ShellLibrary: GUID = GUID.from_u128(U128(0xd9b3211de57f4426uL, 0xaaef30a806add397uL))
+public val SHELL_LIBRARY: Guid = Guid.fromU128(U128(0xd9b3211de57f4426uL, 0xaaef30a806add397uL))
 
-public val ShellLink: GUID = GUID.from_u128(U128(0x2140100000000uL, 0xc000000000000046uL))
+public val SHELL_LINK: Guid = Guid.fromU128(U128(0x2140100000000uL, 0xc000000000000046uL))
 
-public val ShellLinkObject: GUID = GUID.from_u128(U128(0x11219420176811d1uL, 0x95be00609797ea4fuL))
+public val SHELL_LINK_OBJECT: Guid = Guid.fromU128(U128(0x11219420176811d1uL, 0x95be00609797ea4fuL))
 
-public val ShellNameSpace: GUID = GUID.from_u128(U128(0x55136805b2de11d1uL, 0xb9f200a0c98bc547uL))
+public val SHELL_NAME_SPACE: Guid = Guid.fromU128(U128(0x55136805b2de11d1uL, 0xb9f200a0c98bc547uL))
 
-public val ShellUIHelper: GUID = GUID.from_u128(U128(0x64ab4bb7111e11d1uL, 0x8f7900c04fc2fbe1uL))
+public val SHELL_UI_HELPER: Guid = Guid.fromU128(U128(0x64ab4bb7111e11d1uL, 0x8f7900c04fc2fbe1uL))
 
-public val ShellWindows: GUID = GUID.from_u128(U128(0x9ba05972f6a811cfuL, 0xa44200a0c90a8f39uL))
+public val SHELL_WINDOWS: Guid = Guid.fromU128(U128(0x9ba05972f6a811cfuL, 0xa44200a0c90a8f39uL))
 
-public val ShowInputPaneAnimationCoordinator: GUID = GUID.from_u128(U128(0x1f046abf32024dc1uL, 0x8cb53c67617ce1fauL))
+public val SHOW_INPUT_PANE_ANIMATION_COORDINATOR: Guid = Guid.fromU128(U128(0x1f046abf32024dc1uL, 0x8cb53c67617ce1fauL))
 
-public val SimpleConflictPresenter: GUID = GUID.from_u128(U128(0x7a0f6ab7ed8446b6uL, 0xb47e02aa159a152buL))
+public val SIMPLE_CONFLICT_PRESENTER: Guid = Guid.fromU128(U128(0x7a0f6ab7ed8446b6uL, 0xb47e02aa159a152buL))
 
-public val SizeCategorizer: GUID = GUID.from_u128(U128(0x55d7b852f6d142f2uL, 0xaa758728a1b2d264uL))
+public val SIZE_CATEGORIZER: Guid = Guid.fromU128(U128(0x55d7b852f6d142f2uL, 0xaa758728a1b2d264uL))
 
-public val SmartcardCredentialProvider: GUID = GUID.from_u128(U128(0x8fd7e19c3bf7489buL, 0xa72c846ab3678c96uL))
+public val SMARTCARD_CREDENTIAL_PROVIDER: Guid = Guid.fromU128(U128(0x8fd7e19c3bf7489buL, 0xa72c846ab3678c96uL))
 
-public val SmartcardPinProvider: GUID = GUID.from_u128(U128(0x94596c7e374441ceuL, 0x893ebbf09122f76auL))
+public val SMARTCARD_PIN_PROVIDER: Guid = Guid.fromU128(U128(0x94596c7e374441ceuL, 0x893ebbf09122f76auL))
 
-public val SmartcardReaderSelectionProvider: GUID = GUID.from_u128(U128(0x1b283861754f4022uL, 0xad47a5eaaa618894uL))
+public val SMARTCARD_READER_SELECTION_PROVIDER: Guid = Guid.fromU128(U128(0x1b283861754f4022uL, 0xad47a5eaaa618894uL))
 
-public val SmartcardWinRTProvider: GUID = GUID.from_u128(U128(0x1ee7337f85ac45e2uL, 0xa23c37c753209769uL))
+public val SMARTCARD_WIN_RT_PROVIDER: Guid = Guid.fromU128(U128(0x1ee7337f85ac45e2uL, 0xa23c37c753209769uL))
 
-public val StartMenuPin: GUID = GUID.from_u128(U128(0xa2a9545da0c242b4uL, 0x9708a0b2badd77c8uL))
+public val START_MENU_PIN: Guid = Guid.fromU128(U128(0xa2a9545da0c242b4uL, 0x9708a0b2badd77c8uL))
 
-public val StorageProviderBanners: GUID = GUID.from_u128(U128(0x7ccdf9f4e576455auL, 0x8bc7f6ec68d6f063uL))
+public val STORAGE_PROVIDER_BANNERS: Guid = Guid.fromU128(U128(0x7ccdf9f4e576455auL, 0x8bc7f6ec68d6f063uL))
 
-public val SuspensionDependencyManager: GUID = GUID.from_u128(U128(0x6b273fc561fd4918uL, 0x95a2c3b5e9d7f581uL))
+public val SUSPENSION_DEPENDENCY_MANAGER: Guid = Guid.fromU128(U128(0x6b273fc561fd4918uL, 0x95a2c3b5e9d7f581uL))
 
-public val SyncMgr: GUID = GUID.from_u128(U128(0x6295df2735ee11d1uL, 0x870700c04fd93327uL))
+public val SYNC_MGR: Guid = Guid.fromU128(U128(0x6295df2735ee11d1uL, 0x870700c04fd93327uL))
 
-public val SyncMgrClient: GUID = GUID.from_u128(U128(0x1202db601dac42c5uL, 0xaed51abdd432248euL))
+public val SYNC_MGR_CLIENT: Guid = Guid.fromU128(U128(0x1202db601dac42c5uL, 0xaed51abdd432248euL))
 
-public val SyncMgrControl: GUID = GUID.from_u128(U128(0x1a1f420606884e7fuL, 0xbe03d82ec69df9a5uL))
+public val SYNC_MGR_CONTROL: Guid = Guid.fromU128(U128(0x1a1f420606884e7fuL, 0xbe03d82ec69df9a5uL))
 
-public val SyncMgrFolder: GUID = GUID.from_u128(U128(0x9c73f5e57ae74e32uL, 0xa8e88d23b85255bfuL))
+public val SYNC_MGR_FOLDER: Guid = Guid.fromU128(U128(0x9c73f5e57ae74e32uL, 0xa8e88d23b85255bfuL))
 
-public val SyncMgrScheduleWizard: GUID = GUID.from_u128(U128(0x8d8b8e30c451421buL, 0x8553d2976afa648cuL))
+public val SYNC_MGR_SCHEDULE_WIZARD: Guid = Guid.fromU128(U128(0x8d8b8e30c451421buL, 0x8553d2976afa648cuL))
 
-public val SyncResultsFolder: GUID = GUID.from_u128(U128(0x71d994643b6b475cuL, 0xb241e15883207529uL))
+public val SYNC_RESULTS_FOLDER: Guid = Guid.fromU128(U128(0x71d994643b6b475cuL, 0xb241e15883207529uL))
 
-public val SyncSetupFolder: GUID = GUID.from_u128(U128(0x2e9e59c0b4374981uL, 0xa6479c34b9b90891uL))
+public val SYNC_SETUP_FOLDER: Guid = Guid.fromU128(U128(0x2e9e59c0b4374981uL, 0xa6479c34b9b90891uL))
 
 public val TBIF_APPEND: UInt = 0u
 
@@ -1076,57 +1076,57 @@ public val TBIF_REPLACE: UInt = 2u
 
 public val TBIF_STANDARDTOOLBAR: UInt = 131072u
 
-public val TBPF_ERROR: TBPFLAG = 4
+public val TBPF_ERROR: Tbpflag = 4
 
-public val TBPF_INDETERMINATE: TBPFLAG = 1
+public val TBPF_INDETERMINATE: Tbpflag = 1
 
-public val TBPF_NOPROGRESS: TBPFLAG = 0
+public val TBPF_NOPROGRESS: Tbpflag = 0
 
-public val TBPF_NORMAL: TBPFLAG = 2
+public val TBPF_NORMAL: Tbpflag = 2
 
-public val TBPF_PAUSED: TBPFLAG = 8
+public val TBPF_PAUSED: Tbpflag = 8
 
-public val THBF_DISABLED: THUMBBUTTONFLAGS = 1
+public val THBF_DISABLED: Thumbbuttonflags = 1
 
-public val THBF_DISMISSONCLICK: THUMBBUTTONFLAGS = 2
+public val THBF_DISMISSONCLICK: Thumbbuttonflags = 2
 
-public val THBF_ENABLED: THUMBBUTTONFLAGS = 0
+public val THBF_ENABLED: Thumbbuttonflags = 0
 
-public val THBF_HIDDEN: THUMBBUTTONFLAGS = 8
+public val THBF_HIDDEN: Thumbbuttonflags = 8
 
-public val THBF_NOBACKGROUND: THUMBBUTTONFLAGS = 4
+public val THBF_NOBACKGROUND: Thumbbuttonflags = 4
 
-public val THBF_NONINTERACTIVE: THUMBBUTTONFLAGS = 16
+public val THBF_NONINTERACTIVE: Thumbbuttonflags = 16
 
 public val THBN_CLICKED: UInt = 6144u
 
-public val THB_BITMAP: THUMBBUTTONMASK = 1
+public val THB_BITMAP: Thumbbuttonmask = 1
 
-public val THB_FLAGS: THUMBBUTTONMASK = 8
+public val THB_FLAGS: Thumbbuttonmask = 8
 
-public val THB_ICON: THUMBBUTTONMASK = 2
+public val THB_ICON: Thumbbuttonmask = 2
 
-public val THB_TOOLTIP: THUMBBUTTONMASK = 4
+public val THB_TOOLTIP: Thumbbuttonmask = 4
 
 public val TITLEBARNAMELEN: UInt = 40u
 
-public val TI_BITMAP: TI_FLAGS = 1
+public val TI_BITMAP: TiFlags = 1
 
-public val TI_JPEG: TI_FLAGS = 2
+public val TI_JPEG: TiFlags = 2
 
-public val TLEF_ABSOLUTE: TLENUMF = 49
+public val TLEF_ABSOLUTE: Tlenumf = 49
 
-public val TLEF_EXCLUDE_ABOUT_PAGES: TLENUMF = 256
+public val TLEF_EXCLUDE_ABOUT_PAGES: Tlenumf = 256
 
-public val TLEF_EXCLUDE_SUBFRAME_ENTRIES: TLENUMF = 128
+public val TLEF_EXCLUDE_SUBFRAME_ENTRIES: Tlenumf = 128
 
-public val TLEF_INCLUDE_UNINVOKEABLE: TLENUMF = 64
+public val TLEF_INCLUDE_UNINVOKEABLE: Tlenumf = 64
 
-public val TLEF_RELATIVE_BACK: TLENUMF = 16
+public val TLEF_RELATIVE_BACK: Tlenumf = 16
 
-public val TLEF_RELATIVE_FORE: TLENUMF = 32
+public val TLEF_RELATIVE_FORE: Tlenumf = 32
 
-public val TLEF_RELATIVE_INCLUDE_CURRENT: TLENUMF = 1
+public val TLEF_RELATIVE_INCLUDE_CURRENT: Tlenumf = 1
 
 public val TLMENUF_BACK: UInt = 16u
 
@@ -1140,75 +1140,75 @@ public val TLOG_CURRENT: UInt = 0u
 
 public val TLOG_FORE: UInt = 1u
 
-public val TRANSLATEURL_FL_GUESS_PROTOCOL: TRANSLATEURL_IN_FLAGS = 1
+public val TRANSLATEURL_FL_GUESS_PROTOCOL: TranslateurlInFlags = 1
 
-public val TRANSLATEURL_FL_USE_DEFAULT_PROTOCOL: TRANSLATEURL_IN_FLAGS = 2
+public val TRANSLATEURL_FL_USE_DEFAULT_PROTOCOL: TranslateurlInFlags = 2
 
-public val TSF_ALLOW_DECRYPTION: _TRANSFER_SOURCE_FLAGS = 4
+public val TSF_ALLOW_DECRYPTION: TransferSourceFlags = 4
 
-public val TSF_COPY_CREATION_TIME: _TRANSFER_SOURCE_FLAGS = 16
+public val TSF_COPY_CREATION_TIME: TransferSourceFlags = 16
 
-public val TSF_COPY_HARD_LINK: _TRANSFER_SOURCE_FLAGS = 256
+public val TSF_COPY_HARD_LINK: TransferSourceFlags = 256
 
-public val TSF_COPY_LOCALIZED_NAME: _TRANSFER_SOURCE_FLAGS = 512
+public val TSF_COPY_LOCALIZED_NAME: TransferSourceFlags = 512
 
-public val TSF_COPY_WRITE_TIME: _TRANSFER_SOURCE_FLAGS = 32
+public val TSF_COPY_WRITE_TIME: TransferSourceFlags = 32
 
-public val TSF_DELETE_RECYCLE_IF_POSSIBLE: _TRANSFER_SOURCE_FLAGS = 128
+public val TSF_DELETE_RECYCLE_IF_POSSIBLE: TransferSourceFlags = 128
 
-public val TSF_FAIL_EXIST: _TRANSFER_SOURCE_FLAGS = 0
+public val TSF_FAIL_EXIST: TransferSourceFlags = 0
 
-public val TSF_MOVE_AS_COPY_DELETE: _TRANSFER_SOURCE_FLAGS = 1024
+public val TSF_MOVE_AS_COPY_DELETE: TransferSourceFlags = 1024
 
-public val TSF_NORMAL: _TRANSFER_SOURCE_FLAGS = 0
+public val TSF_NORMAL: TransferSourceFlags = 0
 
-public val TSF_NO_SECURITY: _TRANSFER_SOURCE_FLAGS = 8
+public val TSF_NO_SECURITY: TransferSourceFlags = 8
 
-public val TSF_OVERWRITE_EXIST: _TRANSFER_SOURCE_FLAGS = 2
+public val TSF_OVERWRITE_EXIST: TransferSourceFlags = 2
 
-public val TSF_RENAME_EXIST: _TRANSFER_SOURCE_FLAGS = 1
+public val TSF_RENAME_EXIST: TransferSourceFlags = 1
 
-public val TSF_SUSPEND_SHELLEVENTS: _TRANSFER_SOURCE_FLAGS = 2048
+public val TSF_SUSPEND_SHELLEVENTS: TransferSourceFlags = 2048
 
-public val TSF_USE_FULL_ACCESS: _TRANSFER_SOURCE_FLAGS = 64
+public val TSF_USE_FULL_ACCESS: TransferSourceFlags = 64
 
-public val TS_INDETERMINATE: _TRANSFER_ADVISE_STATE = 4
+public val TS_INDETERMINATE: TransferAdviseState = 4
 
-public val TS_NONE: _TRANSFER_ADVISE_STATE = 0
+public val TS_NONE: TransferAdviseState = 0
 
-public val TS_PERFORMING: _TRANSFER_ADVISE_STATE = 1
+public val TS_PERFORMING: TransferAdviseState = 1
 
-public val TS_PREPARING: _TRANSFER_ADVISE_STATE = 2
+public val TS_PREPARING: TransferAdviseState = 2
 
-public val TaskbarList: GUID = GUID.from_u128(U128(0x56fdf344fd6d11d0uL, 0x958a006097c9a090uL))
+public val TASKBAR_LIST: Guid = Guid.fromU128(U128(0x56fdf344fd6d11d0uL, 0x958a006097c9a090uL))
 
-public val ThumbnailStreamCache: GUID = GUID.from_u128(U128(0xcbe0fed34b914e90uL, 0x83548a8c84ec6872uL))
+public val THUMBNAIL_STREAM_CACHE: Guid = Guid.fromU128(U128(0xcbe0fed34b914e90uL, 0x83548a8c84ec6872uL))
 
-public val TimeCategorizer: GUID = GUID.from_u128(U128(0x3bb4118fddfd4d30uL, 0xa3489fb5d6bf1afeuL))
+public val TIME_CATEGORIZER: Guid = Guid.fromU128(U128(0x3bb4118fddfd4d30uL, 0xa3489fb5d6bf1afeuL))
 
-public val TrackShellMenu: GUID = GUID.from_u128(U128(0x8278f9312a3e11d2uL, 0x838f00c04fd918d0uL))
+public val TRACK_SHELL_MENU: Guid = Guid.fromU128(U128(0x8278f9312a3e11d2uL, 0x838f00c04fd918d0uL))
 
-public val TrayBandSiteService: GUID = GUID.from_u128(U128(0xf60ad0a0e5e145cbuL, 0xb51ae15b9f8b2934uL))
+public val TRAY_BAND_SITE_SERVICE: Guid = Guid.fromU128(U128(0xf60ad0a0e5e145cbuL, 0xb51ae15b9f8b2934uL))
 
-public val TrayDeskBand: GUID = GUID.from_u128(U128(0xe64424376c684f52uL, 0x94dd2cfed267efb9uL))
+public val TRAY_DESK_BAND: Guid = Guid.fromU128(U128(0xe64424376c684f52uL, 0x94dd2cfed267efb9uL))
 
-public val URLASSOCDLG_FL_REGISTER_ASSOC: URLASSOCIATIONDIALOG_IN_FLAGS = 2
+public val URLASSOCDLG_FL_REGISTER_ASSOC: UrlassociationdialogInFlags = 2
 
-public val URLASSOCDLG_FL_USE_DEFAULT_NAME: URLASSOCIATIONDIALOG_IN_FLAGS = 1
+public val URLASSOCDLG_FL_USE_DEFAULT_NAME: UrlassociationdialogInFlags = 1
 
-public val URLIS_APPLIABLE: URLIS = 4
+public val URLIS_APPLIABLE: Urlis = 4
 
-public val URLIS_DIRECTORY: URLIS = 5
+public val URLIS_DIRECTORY: Urlis = 5
 
-public val URLIS_FILEURL: URLIS = 3
+public val URLIS_FILEURL: Urlis = 3
 
-public val URLIS_HASQUERY: URLIS = 6
+public val URLIS_HASQUERY: Urlis = 6
 
-public val URLIS_NOHISTORY: URLIS = 2
+public val URLIS_NOHISTORY: Urlis = 2
 
-public val URLIS_OPAQUE: URLIS = 1
+public val URLIS_OPAQUE: Urlis = 1
 
-public val URLIS_URL: URLIS = 0
+public val URLIS_URL: Urlis = 0
 
 public val URL_APPLY_DEFAULT: UInt = 1u
 
@@ -1242,9 +1242,9 @@ public val URL_ESCAPE_SPACES_ONLY: UInt = 67108864u
 
 public val URL_ESCAPE_UNSAFE: UInt = 536870912u
 
-public val URL_E_INVALID_SYNTAX: HRESULT = 0x80041001u.toInt()
+public val URL_E_INVALID_SYNTAX: Hresult = 0x80041001u.toInt()
 
-public val URL_E_UNREGISTERED_PROTOCOL: HRESULT = 0x80041002u.toInt()
+public val URL_E_UNREGISTERED_PROTOCOL: Hresult = 0x80041002u.toInt()
 
 public val URL_FILE_USE_PATHURL: UInt = 65536u
 
@@ -1254,79 +1254,79 @@ public val URL_NO_META: UInt = 134217728u
 
 public val URL_PARTFLAG_KEEPSCHEME: UInt = 1u
 
-public val URL_PART_HOSTNAME: URL_PART = 2
+public val URL_PART_HOSTNAME: UrlPart = 2
 
-public val URL_PART_NONE: URL_PART = 0
+public val URL_PART_NONE: UrlPart = 0
 
-public val URL_PART_PASSWORD: URL_PART = 4
+public val URL_PART_PASSWORD: UrlPart = 4
 
-public val URL_PART_PORT: URL_PART = 5
+public val URL_PART_PORT: UrlPart = 5
 
-public val URL_PART_QUERY: URL_PART = 6
+public val URL_PART_QUERY: UrlPart = 6
 
-public val URL_PART_SCHEME: URL_PART = 1
+public val URL_PART_SCHEME: UrlPart = 1
 
-public val URL_PART_USERNAME: URL_PART = 3
+public val URL_PART_USERNAME: UrlPart = 3
 
 public val URL_PLUGGABLE_PROTOCOL: UInt = 1073741824u
 
-public val URL_SCHEME_ABOUT: URL_SCHEME = 17
+public val URL_SCHEME_ABOUT: UrlScheme = 17
 
-public val URL_SCHEME_FILE: URL_SCHEME = 9
+public val URL_SCHEME_FILE: UrlScheme = 9
 
-public val URL_SCHEME_FTP: URL_SCHEME = 1
+public val URL_SCHEME_FTP: UrlScheme = 1
 
-public val URL_SCHEME_GOPHER: URL_SCHEME = 3
+public val URL_SCHEME_GOPHER: UrlScheme = 3
 
-public val URL_SCHEME_HTTP: URL_SCHEME = 2
+public val URL_SCHEME_HTTP: UrlScheme = 2
 
-public val URL_SCHEME_HTTPS: URL_SCHEME = 11
+public val URL_SCHEME_HTTPS: UrlScheme = 11
 
-public val URL_SCHEME_INVALID: URL_SCHEME = -1
+public val URL_SCHEME_INVALID: UrlScheme = -1
 
-public val URL_SCHEME_JAVASCRIPT: URL_SCHEME = 15
+public val URL_SCHEME_JAVASCRIPT: UrlScheme = 15
 
-public val URL_SCHEME_KNOWNFOLDER: URL_SCHEME = 26
+public val URL_SCHEME_KNOWNFOLDER: UrlScheme = 26
 
-public val URL_SCHEME_LOCAL: URL_SCHEME = 14
+public val URL_SCHEME_LOCAL: UrlScheme = 14
 
-public val URL_SCHEME_MAILTO: URL_SCHEME = 4
+public val URL_SCHEME_MAILTO: UrlScheme = 4
 
-public val URL_SCHEME_MAXVALUE: URL_SCHEME = 27
+public val URL_SCHEME_MAXVALUE: UrlScheme = 27
 
-public val URL_SCHEME_MK: URL_SCHEME = 10
+public val URL_SCHEME_MK: UrlScheme = 10
 
-public val URL_SCHEME_MSHELP: URL_SCHEME = 21
+public val URL_SCHEME_MSHELP: UrlScheme = 21
 
-public val URL_SCHEME_MSSHELLDEVICE: URL_SCHEME = 22
+public val URL_SCHEME_MSSHELLDEVICE: UrlScheme = 22
 
-public val URL_SCHEME_MSSHELLIDLIST: URL_SCHEME = 20
+public val URL_SCHEME_MSSHELLIDLIST: UrlScheme = 20
 
-public val URL_SCHEME_MSSHELLROOTED: URL_SCHEME = 19
+public val URL_SCHEME_MSSHELLROOTED: UrlScheme = 19
 
-public val URL_SCHEME_NEWS: URL_SCHEME = 5
+public val URL_SCHEME_NEWS: UrlScheme = 5
 
-public val URL_SCHEME_NNTP: URL_SCHEME = 6
+public val URL_SCHEME_NNTP: UrlScheme = 6
 
-public val URL_SCHEME_RES: URL_SCHEME = 18
+public val URL_SCHEME_RES: UrlScheme = 18
 
-public val URL_SCHEME_SEARCH: URL_SCHEME = 25
+public val URL_SCHEME_SEARCH: UrlScheme = 25
 
-public val URL_SCHEME_SEARCH_MS: URL_SCHEME = 24
+public val URL_SCHEME_SEARCH_MS: UrlScheme = 24
 
-public val URL_SCHEME_SHELL: URL_SCHEME = 12
+public val URL_SCHEME_SHELL: UrlScheme = 12
 
-public val URL_SCHEME_SNEWS: URL_SCHEME = 13
+public val URL_SCHEME_SNEWS: UrlScheme = 13
 
-public val URL_SCHEME_TELNET: URL_SCHEME = 7
+public val URL_SCHEME_TELNET: UrlScheme = 7
 
-public val URL_SCHEME_UNKNOWN: URL_SCHEME = 0
+public val URL_SCHEME_UNKNOWN: UrlScheme = 0
 
-public val URL_SCHEME_VBSCRIPT: URL_SCHEME = 16
+public val URL_SCHEME_VBSCRIPT: UrlScheme = 16
 
-public val URL_SCHEME_WAIS: URL_SCHEME = 8
+public val URL_SCHEME_WAIS: UrlScheme = 8
 
-public val URL_SCHEME_WILDCARD: URL_SCHEME = 23
+public val URL_SCHEME_WILDCARD: UrlScheme = 23
 
 public val URL_UNESCAPE: UInt = 268435456u
 
@@ -1340,43 +1340,43 @@ public val URL_UNESCAPE_URI_COMPONENT: UInt = 262144u
 
 public val URL_WININET_COMPATIBILITY: UInt = 2147483648u
 
-public val UR_MONITOR_DISCONNECT: UNDOCK_REASON = 1
+public val UR_MONITOR_DISCONNECT: UndockReason = 1
 
-public val UR_RESOLUTION_CHANGE: UNDOCK_REASON = 0
+public val UR_RESOLUTION_CHANGE: UndockReason = 0
 
-public val UserNotification: GUID = GUID.from_u128(U128(0x10890e8789413cuL, 0xadbc48f5b511b3afuL))
+public val USER_NOTIFICATION: Guid = Guid.fromU128(U128(0x10890e8789413cuL, 0xadbc48f5b511b3afuL))
 
-public val V1PasswordCredentialProvider: GUID = GUID.from_u128(U128(0x6f45dc1e5384457auL, 0xbc132cd81b0d28eduL))
+public val V1PASSWORD_CREDENTIAL_PROVIDER: Guid = Guid.fromU128(U128(0x6f45dc1e5384457auL, 0xbc132cd81b0d28eduL))
 
-public val V1SmartcardCredentialProvider: GUID = GUID.from_u128(U128(0x8bf9a910a8ff457fuL, 0x999fa5ca10b4a885uL))
+public val V1SMARTCARD_CREDENTIAL_PROVIDER: Guid = Guid.fromU128(U128(0x8bf9a910a8ff457fuL, 0x999fa5ca10b4a885uL))
 
-public val V1WinBioCredentialProvider: GUID = GUID.from_u128(U128(0xac3ac249e8204343uL, 0xa65b377ac634dc09uL))
+public val V1WIN_BIO_CREDENTIAL_PROVIDER: Guid = Guid.fromU128(U128(0xac3ac249e8204343uL, 0xa65b377ac634dc09uL))
 
-public val VALIDATEUNC_CONNECT: VALIDATEUNC_OPTION = 1
+public val VALIDATEUNC_CONNECT: ValidateuncOption = 1
 
-public val VALIDATEUNC_NOUI: VALIDATEUNC_OPTION = 2
+public val VALIDATEUNC_NOUI: ValidateuncOption = 2
 
-public val VALIDATEUNC_PERSIST: VALIDATEUNC_OPTION = 8
+public val VALIDATEUNC_PERSIST: ValidateuncOption = 8
 
-public val VALIDATEUNC_PRINT: VALIDATEUNC_OPTION = 4
+public val VALIDATEUNC_PRINT: ValidateuncOption = 4
 
-public val VALIDATEUNC_VALID: VALIDATEUNC_OPTION = 15
+public val VALIDATEUNC_VALID: ValidateuncOption = 15
 
-public val VID_Content: GUID = GUID.from_u128(U128(0x30c2c43408894c8duL, 0x985da9f71830b0a9uL))
+public val VID_CONTENT: Guid = Guid.fromU128(U128(0x30c2c43408894c8duL, 0x985da9f71830b0a9uL))
 
-public val VID_Details: GUID = GUID.from_u128(U128(0x137e7700357311cfuL, 0xae6908002b2e1262uL))
+public val VID_DETAILS: Guid = Guid.fromU128(U128(0x137e7700357311cfuL, 0xae6908002b2e1262uL))
 
-public val VID_LargeIcons: GUID = GUID.from_u128(U128(0x57d0e0357311cfuL, 0xae6908002b2e1262uL))
+public val VID_LARGE_ICONS: Guid = Guid.fromU128(U128(0x57d0e0357311cfuL, 0xae6908002b2e1262uL))
 
-public val VID_List: GUID = GUID.from_u128(U128(0xe1fa5e0357311cfuL, 0xae6908002b2e1262uL))
+public val VID_LIST: Guid = Guid.fromU128(U128(0xe1fa5e0357311cfuL, 0xae6908002b2e1262uL))
 
-public val VID_SmallIcons: GUID = GUID.from_u128(U128(0x89000c0357311cfuL, 0xae6908002b2e1262uL))
+public val VID_SMALL_ICONS: Guid = Guid.fromU128(U128(0x89000c0357311cfuL, 0xae6908002b2e1262uL))
 
-public val VID_ThumbStrip: GUID = GUID.from_u128(U128(0x8eefa624d1e9445buL, 0x94b774fbce2ea11auL))
+public val VID_THUMB_STRIP: Guid = Guid.fromU128(U128(0x8eefa624d1e9445buL, 0x94b774fbce2ea11auL))
 
-public val VID_Thumbnails: GUID = GUID.from_u128(U128(0x8bebb29052d011d0uL, 0xb7f400c04fd706ecuL))
+public val VID_THUMBNAILS: Guid = Guid.fromU128(U128(0x8bebb29052d011d0uL, 0xb7f400c04fd706ecuL))
 
-public val VID_Tile: GUID = GUID.from_u128(U128(0x65f125e57be14810uL, 0xba9dd271c8432ce3uL))
+public val VID_TILE: Guid = Guid.fromU128(U128(0x65f125e57be14810uL, 0xba9dd271c8432ce3uL))
 
 public val VIEW_PRIORITY_CACHEHIT: UInt = 80u
 
@@ -1398,27 +1398,27 @@ public val VIEW_PRIORITY_STALECACHEHIT: UInt = 69u
 
 public val VIEW_PRIORITY_USEASDEFAULT: UInt = 67u
 
-public val VOLUME_PREFIX: PCWSTR = w("\\\\?\\Volume")
+public val VOLUME_PREFIX: Pcwstr = w("\\\\?\\Volume")
 
-public val VPCF_BACKGROUND: VPCOLORFLAGS = 2
+public val VPCF_BACKGROUND: Vpcolorflags = 2
 
-public val VPCF_SORTCOLUMN: VPCOLORFLAGS = 3
+public val VPCF_SORTCOLUMN: Vpcolorflags = 3
 
-public val VPCF_SUBTEXT: VPCOLORFLAGS = 4
+public val VPCF_SUBTEXT: Vpcolorflags = 4
 
-public val VPCF_TEXT: VPCOLORFLAGS = 1
+public val VPCF_TEXT: Vpcolorflags = 1
 
-public val VPCF_TEXTBACKGROUND: VPCOLORFLAGS = 5
+public val VPCF_TEXTBACKGROUND: Vpcolorflags = 5
 
-public val VPWF_ALPHABLEND: VPWATERMARKFLAGS = 1
+public val VPWF_ALPHABLEND: Vpwatermarkflags = 1
 
-public val VPWF_DEFAULT: VPWATERMARKFLAGS = 0
+public val VPWF_DEFAULT: Vpwatermarkflags = 0
 
-public val VaultProvider: GUID = GUID.from_u128(U128(0x503739d04c5e4cfduL, 0xb3bad881334f0df2uL))
+public val VAULT_PROVIDER: Guid = Guid.fromU128(U128(0x503739d04c5e4cfduL, 0xb3bad881334f0df2uL))
 
-public val VirtualDesktopManager: GUID = GUID.from_u128(U128(0xaa5090865ca94c25uL, 0x8f95589d3c07b48auL))
+public val VIRTUAL_DESKTOP_MANAGER: Guid = Guid.fromU128(U128(0xaa5090865ca94c25uL, 0x8f95589d3c07b48auL))
 
-public val WC_NETADDRESS: PCWSTR = w("msctls_netaddress")
+public val WC_NETADDRESS: Pcwstr = w("msctls_netaddress")
 
 public val WM_CPL_LAUNCH: UInt = 2024u
 
@@ -1438,264 +1438,264 @@ public val WPSTYLE_STRETCH: UInt = 2u
 
 public val WPSTYLE_TILE: UInt = 1u
 
-public val WTSAT_ARGB: WTS_ALPHATYPE = 2
+public val WTSAT_ARGB: WtsAlphatype = 2
 
-public val WTSAT_RGB: WTS_ALPHATYPE = 1
+public val WTSAT_RGB: WtsAlphatype = 1
 
-public val WTSAT_UNKNOWN: WTS_ALPHATYPE = 0
+public val WTSAT_UNKNOWN: WtsAlphatype = 0
 
-public val WTSCF_APPSTYLE: WTS_CONTEXTFLAGS = 1
+public val WTSCF_APPSTYLE: WtsContextflags = 1
 
-public val WTSCF_DEFAULT: WTS_CONTEXTFLAGS = 0
+public val WTSCF_DEFAULT: WtsContextflags = 0
 
-public val WTSCF_FAST: WTS_CONTEXTFLAGS = 8
+public val WTSCF_FAST: WtsContextflags = 8
 
-public val WTSCF_SQUARE: WTS_CONTEXTFLAGS = 2
+public val WTSCF_SQUARE: WtsContextflags = 2
 
-public val WTSCF_WIDE: WTS_CONTEXTFLAGS = 4
+public val WTSCF_WIDE: WtsContextflags = 4
 
-public val WTS_APPSTYLE: WTS_FLAGS = 8192
+public val WTS_APPSTYLE: WtsFlags = 8192
 
-public val WTS_CACHED: WTS_CACHEFLAGS = 2
+public val WTS_CACHED: WtsCacheflags = 2
 
-public val WTS_CROPTOSQUARE: WTS_FLAGS = 512
+public val WTS_CROPTOSQUARE: WtsFlags = 512
 
-public val WTS_DEFAULT: WTS_CACHEFLAGS = 0
+public val WTS_DEFAULT: WtsCacheflags = 0
 
-public val WTS_EXTRACT: WTS_FLAGS = 0
+public val WTS_EXTRACT: WtsFlags = 0
 
-public val WTS_EXTRACTDONOTCACHE: WTS_FLAGS = 32
+public val WTS_EXTRACTDONOTCACHE: WtsFlags = 32
 
-public val WTS_EXTRACTINPROC: WTS_FLAGS = 256
+public val WTS_EXTRACTINPROC: WtsFlags = 256
 
-public val WTS_E_DATAFILEUNAVAILABLE: HRESULT = 0x8004B204u.toInt()
+public val WTS_E_DATAFILEUNAVAILABLE: Hresult = 0x8004B204u.toInt()
 
-public val WTS_E_EXTRACTIONBLOCKED: HRESULT = 0x8004B206u.toInt()
+public val WTS_E_EXTRACTIONBLOCKED: Hresult = 0x8004B206u.toInt()
 
-public val WTS_E_EXTRACTIONPENDING: HRESULT = 0x8004B205u.toInt()
+public val WTS_E_EXTRACTIONPENDING: Hresult = 0x8004B205u.toInt()
 
-public val WTS_E_EXTRACTIONTIMEDOUT: HRESULT = 0x8004B201u.toInt()
+public val WTS_E_EXTRACTIONTIMEDOUT: Hresult = 0x8004B201u.toInt()
 
-public val WTS_E_FAILEDEXTRACTION: HRESULT = 0x8004B200u.toInt()
+public val WTS_E_FAILEDEXTRACTION: Hresult = 0x8004B200u.toInt()
 
-public val WTS_E_FASTEXTRACTIONNOTSUPPORTED: HRESULT = 0x8004B203u.toInt()
+public val WTS_E_FASTEXTRACTIONNOTSUPPORTED: Hresult = 0x8004B203u.toInt()
 
-public val WTS_E_NOSTORAGEPROVIDERTHUMBNAILHANDLER: HRESULT = 0x8004B207u.toInt()
+public val WTS_E_NOSTORAGEPROVIDERTHUMBNAILHANDLER: Hresult = 0x8004B207u.toInt()
 
-public val WTS_E_SURROGATEUNAVAILABLE: HRESULT = 0x8004B202u.toInt()
+public val WTS_E_SURROGATEUNAVAILABLE: Hresult = 0x8004B202u.toInt()
 
-public val WTS_FASTEXTRACT: WTS_FLAGS = 2
+public val WTS_FASTEXTRACT: WtsFlags = 2
 
-public val WTS_FORCEEXTRACTION: WTS_FLAGS = 4
+public val WTS_FORCEEXTRACTION: WtsFlags = 4
 
-public val WTS_IDEALCACHESIZEONLY: WTS_FLAGS = 32768
+public val WTS_IDEALCACHESIZEONLY: WtsFlags = 32768
 
-public val WTS_INCACHEONLY: WTS_FLAGS = 1
+public val WTS_INCACHEONLY: WtsFlags = 1
 
-public val WTS_INSTANCESURROGATE: WTS_FLAGS = 1024
+public val WTS_INSTANCESURROGATE: WtsFlags = 1024
 
-public val WTS_LOWQUALITY: WTS_CACHEFLAGS = 1
+public val WTS_LOWQUALITY: WtsCacheflags = 1
 
-public val WTS_NONE: WTS_FLAGS = 0
+public val WTS_NONE: WtsFlags = 0
 
-public val WTS_REQUIRESURROGATE: WTS_FLAGS = 2048
+public val WTS_REQUIRESURROGATE: WtsFlags = 2048
 
-public val WTS_SCALETOREQUESTEDSIZE: WTS_FLAGS = 64
+public val WTS_SCALETOREQUESTEDSIZE: WtsFlags = 64
 
-public val WTS_SCALEUP: WTS_FLAGS = 65536
+public val WTS_SCALEUP: WtsFlags = 65536
 
-public val WTS_SKIPFASTEXTRACT: WTS_FLAGS = 128
+public val WTS_SKIPFASTEXTRACT: WtsFlags = 128
 
-public val WTS_SLOWRECLAIM: WTS_FLAGS = 8
+public val WTS_SLOWRECLAIM: WtsFlags = 8
 
-public val WTS_WIDETHUMBNAILS: WTS_FLAGS = 16384
+public val WTS_WIDETHUMBNAILS: WtsFlags = 16384
 
-public val WebBrowser: GUID = GUID.from_u128(U128(0x8856f961340a11d0uL, 0xa96b00c04fd705a2uL))
+public val WEB_BROWSER: Guid = Guid.fromU128(U128(0x8856f961340a11d0uL, 0xa96b00c04fd705a2uL))
 
-public val WebBrowser_V1: GUID = GUID.from_u128(U128(0xeab22ac330c111cfuL, 0xa7eb0000c05bae0buL))
+public val WEB_BROWSER_V1: Guid = Guid.fromU128(U128(0xeab22ac330c111cfuL, 0xa7eb0000c05bae0buL))
 
-public val WebWizardHost: GUID = GUID.from_u128(U128(0xc827f14955c14d28uL, 0x935e57e47caed973uL))
+public val WEB_WIZARD_HOST: Guid = Guid.fromU128(U128(0xc827f14955c14d28uL, 0x935e57e47caed973uL))
 
-public val WinBioCredentialProvider: GUID = GUID.from_u128(U128(0xbec09223b018416duL, 0xa0ac523971b639f5uL))
+public val WIN_BIO_CREDENTIAL_PROVIDER: Guid = Guid.fromU128(U128(0xbec09223b018416duL, 0xa0ac523971b639f5uL))
 
-public val __UNUSED_RECYCLE_WAS_GLOBALCOUNTER_CSCSYNCINPROGRESS: SHGLOBALCOUNTER = 13
+public val UNUSED_RECYCLE_WAS_GLOBALCOUNTER_CSCSYNCINPROGRESS: Shglobalcounter = 13
 
-public val __UNUSED_RECYCLE_WAS_GLOBALCOUNTER_RECYCLEDIRTYCOUNT_SERVERDRIVE: SHGLOBALCOUNTER = 42
+public val UNUSED_RECYCLE_WAS_GLOBALCOUNTER_RECYCLEDIRTYCOUNT_SERVERDRIVE: Shglobalcounter = 42
 
-public val __UNUSED_RECYCLE_WAS_GLOBALCOUNTER_RECYCLEGLOBALDIRTYCOUNT: SHGLOBALCOUNTER = 43
+public val UNUSED_RECYCLE_WAS_GLOBALCOUNTER_RECYCLEGLOBALDIRTYCOUNT: Shglobalcounter = 43
 
-public val idsAppName: UInt = 1007u
+public val IDS_APP_NAME: UInt = 1007u
 
-public val idsBadOldPW: UInt = 1006u
+public val IDS_BAD_OLD_PW: UInt = 1006u
 
-public val idsChangePW: UInt = 1005u
+public val IDS_CHANGE_PW: UInt = 1005u
 
-public val idsDefKeyword: UInt = 1010u
+public val IDS_DEF_KEYWORD: UInt = 1010u
 
-public val idsDifferentPW: UInt = 1004u
+public val IDS_DIFFERENT_PW: UInt = 1004u
 
-public val idsHelpFile: UInt = 1009u
+public val IDS_HELP_FILE: UInt = 1009u
 
-public val idsIniFile: UInt = 1001u
+public val IDS_INI_FILE: UInt = 1001u
 
-public val idsIsPassword: UInt = 1000u
+public val IDS_IS_PASSWORD: UInt = 1000u
 
-public val idsNoHelpMemory: UInt = 1008u
+public val IDS_NO_HELP_MEMORY: UInt = 1008u
 
-public val idsPassword: UInt = 1003u
+public val IDS_PASSWORD: UInt = 1003u
 
-public val idsScreenSaver: UInt = 1002u
+public val IDS_SCREEN_SAVER: UInt = 1002u
 
-public val navAllowAutosearch: BrowserNavConstants = 16
+public val NAV_ALLOW_AUTOSEARCH: BrowserNavConstants = 16
 
-public val navBlockRedirectsXDomain: BrowserNavConstants = 32768
+public val NAV_BLOCK_REDIRECTS_X_DOMAIN: BrowserNavConstants = 32768
 
-public val navBrowserBar: BrowserNavConstants = 32
+public val NAV_BROWSER_BAR: BrowserNavConstants = 32
 
-public val navDeferUnload: BrowserNavConstants = 262144
+public val NAV_DEFER_UNLOAD: BrowserNavConstants = 262144
 
-public val navEnforceRestricted: BrowserNavConstants = 128
+public val NAV_ENFORCE_RESTRICTED: BrowserNavConstants = 128
 
-public val navHomepageNavigate: BrowserNavConstants = 8388608
+public val NAV_HOMEPAGE_NAVIGATE: BrowserNavConstants = 8388608
 
-public val navHostNavigation: BrowserNavConstants = 33554432
+public val NAV_HOST_NAVIGATION: BrowserNavConstants = 33554432
 
-public val navHyperlink: BrowserNavConstants = 64
+public val NAV_HYPERLINK: BrowserNavConstants = 64
 
-public val navKeepWordWheelText: BrowserNavConstants = 8192
+public val NAV_KEEP_WORD_WHEEL_TEXT: BrowserNavConstants = 8192
 
-public val navNewWindowsManaged: BrowserNavConstants = 256
+public val NAV_NEW_WINDOWS_MANAGED: BrowserNavConstants = 256
 
-public val navNoHistory: BrowserNavConstants = 2
+public val NAV_NO_HISTORY: BrowserNavConstants = 2
 
-public val navNoReadFromCache: BrowserNavConstants = 4
+public val NAV_NO_READ_FROM_CACHE: BrowserNavConstants = 4
 
-public val navNoWriteToCache: BrowserNavConstants = 8
+public val NAV_NO_WRITE_TO_CACHE: BrowserNavConstants = 8
 
-public val navOpenInBackgroundTab: BrowserNavConstants = 4096
+public val NAV_OPEN_IN_BACKGROUND_TAB: BrowserNavConstants = 4096
 
-public val navOpenInNewTab: BrowserNavConstants = 2048
+public val NAV_OPEN_IN_NEW_TAB: BrowserNavConstants = 2048
 
-public val navOpenInNewWindow: BrowserNavConstants = 1
+public val NAV_OPEN_IN_NEW_WINDOW: BrowserNavConstants = 1
 
-public val navOpenNewForegroundTab: BrowserNavConstants = 65536
+public val NAV_OPEN_NEW_FOREGROUND_TAB: BrowserNavConstants = 65536
 
-public val navRefresh: BrowserNavConstants = 16777216
+public val NAV_REFRESH: BrowserNavConstants = 16777216
 
-public val navReserved1: BrowserNavConstants = 4194304
+public val NAV_RESERVED1: BrowserNavConstants = 4194304
 
-public val navReserved2: BrowserNavConstants = 67108864
+public val NAV_RESERVED2: BrowserNavConstants = 67108864
 
-public val navReserved3: BrowserNavConstants = 134217728
+public val NAV_RESERVED3: BrowserNavConstants = 134217728
 
-public val navReserved4: BrowserNavConstants = 268435456
+public val NAV_RESERVED4: BrowserNavConstants = 268435456
 
-public val navReserved5: BrowserNavConstants = 536870912
+public val NAV_RESERVED5: BrowserNavConstants = 536870912
 
-public val navReserved6: BrowserNavConstants = 1073741824
+public val NAV_RESERVED6: BrowserNavConstants = 1073741824
 
-public val navReserved7: BrowserNavConstants = -2147483648
+public val NAV_RESERVED7: BrowserNavConstants = -2147483648.toInt()
 
-public val navSpeculative: BrowserNavConstants = 524288
+public val NAV_SPECULATIVE: BrowserNavConstants = 524288
 
-public val navSuggestNewTab: BrowserNavConstants = 2097152
+public val NAV_SUGGEST_NEW_TAB: BrowserNavConstants = 2097152
 
-public val navSuggestNewWindow: BrowserNavConstants = 1048576
+public val NAV_SUGGEST_NEW_WINDOW: BrowserNavConstants = 1048576
 
-public val navTravelLogScreenshot: BrowserNavConstants = 131072
+public val NAV_TRAVEL_LOG_SCREENSHOT: BrowserNavConstants = 131072
 
-public val navTrustedForActiveX: BrowserNavConstants = 1024
+public val NAV_TRUSTED_FOR_ACTIVE_X: BrowserNavConstants = 1024
 
-public val navUntrustedForDownload: BrowserNavConstants = 512
+public val NAV_UNTRUSTED_FOR_DOWNLOAD: BrowserNavConstants = 512
 
-public val navVirtualTab: BrowserNavConstants = 16384
+public val NAV_VIRTUAL_TAB: BrowserNavConstants = 16384
 
-public val secureLockIconMixed: SecureLockIconConstants = 1
+public val SECURE_LOCK_ICON_MIXED: SecureLockIconConstants = 1
 
-public val secureLockIconSecure128Bit: SecureLockIconConstants = 6
+public val SECURE_LOCK_ICON_SECURE128BIT: SecureLockIconConstants = 6
 
-public val secureLockIconSecure40Bit: SecureLockIconConstants = 3
+public val SECURE_LOCK_ICON_SECURE40BIT: SecureLockIconConstants = 3
 
-public val secureLockIconSecure56Bit: SecureLockIconConstants = 4
+public val SECURE_LOCK_ICON_SECURE56BIT: SecureLockIconConstants = 4
 
-public val secureLockIconSecureFortezza: SecureLockIconConstants = 5
+public val SECURE_LOCK_ICON_SECURE_FORTEZZA: SecureLockIconConstants = 5
 
-public val secureLockIconSecureUnknownBits: SecureLockIconConstants = 2
+public val SECURE_LOCK_ICON_SECURE_UNKNOWN_BITS: SecureLockIconConstants = 2
 
-public val secureLockIconUnsecure: SecureLockIconConstants = 0
+public val SECURE_LOCK_ICON_UNSECURE: SecureLockIconConstants = 0
 
-public val ssfALTSTARTUP: ShellSpecialFolderConstants = 29
+public val SSF_ALTSTARTUP: ShellSpecialFolderConstants = 29
 
-public val ssfAPPDATA: ShellSpecialFolderConstants = 26
+public val SSF_APPDATA: ShellSpecialFolderConstants = 26
 
-public val ssfBITBUCKET: ShellSpecialFolderConstants = 10
+public val SSF_BITBUCKET: ShellSpecialFolderConstants = 10
 
-public val ssfCOMMONALTSTARTUP: ShellSpecialFolderConstants = 30
+public val SSF_COMMONALTSTARTUP: ShellSpecialFolderConstants = 30
 
-public val ssfCOMMONAPPDATA: ShellSpecialFolderConstants = 35
+public val SSF_COMMONAPPDATA: ShellSpecialFolderConstants = 35
 
-public val ssfCOMMONDESKTOPDIR: ShellSpecialFolderConstants = 25
+public val SSF_COMMONDESKTOPDIR: ShellSpecialFolderConstants = 25
 
-public val ssfCOMMONFAVORITES: ShellSpecialFolderConstants = 31
+public val SSF_COMMONFAVORITES: ShellSpecialFolderConstants = 31
 
-public val ssfCOMMONPROGRAMS: ShellSpecialFolderConstants = 23
+public val SSF_COMMONPROGRAMS: ShellSpecialFolderConstants = 23
 
-public val ssfCOMMONSTARTMENU: ShellSpecialFolderConstants = 22
+public val SSF_COMMONSTARTMENU: ShellSpecialFolderConstants = 22
 
-public val ssfCOMMONSTARTUP: ShellSpecialFolderConstants = 24
+public val SSF_COMMONSTARTUP: ShellSpecialFolderConstants = 24
 
-public val ssfCONTROLS: ShellSpecialFolderConstants = 3
+public val SSF_CONTROLS: ShellSpecialFolderConstants = 3
 
-public val ssfCOOKIES: ShellSpecialFolderConstants = 33
+public val SSF_COOKIES: ShellSpecialFolderConstants = 33
 
-public val ssfDESKTOP: ShellSpecialFolderConstants = 0
+public val SSF_DESKTOP: ShellSpecialFolderConstants = 0
 
-public val ssfDESKTOPDIRECTORY: ShellSpecialFolderConstants = 16
+public val SSF_DESKTOPDIRECTORY: ShellSpecialFolderConstants = 16
 
-public val ssfDRIVES: ShellSpecialFolderConstants = 17
+public val SSF_DRIVES: ShellSpecialFolderConstants = 17
 
-public val ssfFAVORITES: ShellSpecialFolderConstants = 6
+public val SSF_FAVORITES: ShellSpecialFolderConstants = 6
 
-public val ssfFONTS: ShellSpecialFolderConstants = 20
+public val SSF_FONTS: ShellSpecialFolderConstants = 20
 
-public val ssfHISTORY: ShellSpecialFolderConstants = 34
+public val SSF_HISTORY: ShellSpecialFolderConstants = 34
 
-public val ssfINTERNETCACHE: ShellSpecialFolderConstants = 32
+public val SSF_INTERNETCACHE: ShellSpecialFolderConstants = 32
 
-public val ssfLOCALAPPDATA: ShellSpecialFolderConstants = 28
+public val SSF_LOCALAPPDATA: ShellSpecialFolderConstants = 28
 
-public val ssfMYPICTURES: ShellSpecialFolderConstants = 39
+public val SSF_MYPICTURES: ShellSpecialFolderConstants = 39
 
-public val ssfNETHOOD: ShellSpecialFolderConstants = 19
+public val SSF_NETHOOD: ShellSpecialFolderConstants = 19
 
-public val ssfNETWORK: ShellSpecialFolderConstants = 18
+public val SSF_NETWORK: ShellSpecialFolderConstants = 18
 
-public val ssfPERSONAL: ShellSpecialFolderConstants = 5
+public val SSF_PERSONAL: ShellSpecialFolderConstants = 5
 
-public val ssfPRINTERS: ShellSpecialFolderConstants = 4
+public val SSF_PRINTERS: ShellSpecialFolderConstants = 4
 
-public val ssfPRINTHOOD: ShellSpecialFolderConstants = 27
+public val SSF_PRINTHOOD: ShellSpecialFolderConstants = 27
 
-public val ssfPROFILE: ShellSpecialFolderConstants = 40
+public val SSF_PROFILE: ShellSpecialFolderConstants = 40
 
-public val ssfPROGRAMFILES: ShellSpecialFolderConstants = 38
+public val SSF_PROGRAMFILES: ShellSpecialFolderConstants = 38
 
-public val ssfPROGRAMFILESx86: ShellSpecialFolderConstants = 48
+public val SSF_PROGRAMFILE_SX86: ShellSpecialFolderConstants = 48
 
-public val ssfPROGRAMS: ShellSpecialFolderConstants = 2
+public val SSF_PROGRAMS: ShellSpecialFolderConstants = 2
 
-public val ssfRECENT: ShellSpecialFolderConstants = 8
+public val SSF_RECENT: ShellSpecialFolderConstants = 8
 
-public val ssfSENDTO: ShellSpecialFolderConstants = 9
+public val SSF_SENDTO: ShellSpecialFolderConstants = 9
 
-public val ssfSTARTMENU: ShellSpecialFolderConstants = 11
+public val SSF_STARTMENU: ShellSpecialFolderConstants = 11
 
-public val ssfSTARTUP: ShellSpecialFolderConstants = 7
+public val SSF_STARTUP: ShellSpecialFolderConstants = 7
 
-public val ssfSYSTEM: ShellSpecialFolderConstants = 37
+public val SSF_SYSTEM: ShellSpecialFolderConstants = 37
 
-public val ssfSYSTEMx86: ShellSpecialFolderConstants = 41
+public val SSF_SYSTE_MX86: ShellSpecialFolderConstants = 41
 
-public val ssfTEMPLATES: ShellSpecialFolderConstants = 21
+public val SSF_TEMPLATES: ShellSpecialFolderConstants = 21
 
-public val ssfWINDOWS: ShellSpecialFolderConstants = 36
+public val SSF_WINDOWS: ShellSpecialFolderConstants = 36

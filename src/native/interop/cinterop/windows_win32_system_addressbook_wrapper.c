@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_system_addressbook_BuildDisplayTable(void* lpallocatebuffer, void* lpallocatemore, void* lpfreebuffer, void* lpmalloc, void* hinstance, uint32_t cpages, void* lppage, uint32_t ulflags, void* lpptable, void* lpptbldata) {
+int32_t windowssys_windows_win32_system_addressbook_buildDisplayTable(void* lpallocatebuffer, void* lpallocatemore, void* lpfreebuffer, void* lpmalloc, void* hinstance, uint32_t cpages, void* lppage, uint32_t ulflags, void* lpptable, void* lpptbldata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -46,7 +46,7 @@ int32_t windowssys_windows_win32_system_addressbook_BuildDisplayTable(void* lpal
 #endif
 }
 
-void windowssys_windows_win32_system_addressbook_ChangeIdleRoutine(void* ftg, void* lpfnidle, void* lpvidleparam, int16_t priidle, uint32_t csecidle, uint16_t iroidle, uint16_t ircidle) {
+void windowssys_windows_win32_system_addressbook_changeIdleRoutine(void* ftg, void* lpfnidle, void* lpvidleparam, int16_t priidle, uint32_t csecidle, uint16_t iroidle, uint16_t ircidle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, int16_t, uint32_t, uint16_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -73,7 +73,7 @@ void windowssys_windows_win32_system_addressbook_ChangeIdleRoutine(void* ftg, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_addressbook_CreateIProp(void* lpinterface, void* lpallocatebuffer, void* lpallocatemore, void* lpfreebuffer, void* lpvreserved, void* lpppropdata) {
+int32_t windowssys_windows_win32_system_addressbook_createIProp(void* lpinterface, void* lpallocatebuffer, void* lpallocatemore, void* lpfreebuffer, void* lpvreserved, void* lpppropdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -100,7 +100,7 @@ int32_t windowssys_windows_win32_system_addressbook_CreateIProp(void* lpinterfac
 #endif
 }
 
-int32_t windowssys_windows_win32_system_addressbook_CreateTable(void* lpinterface, void* lpallocatebuffer, void* lpallocatemore, void* lpfreebuffer, void* lpvreserved, uint32_t ultabletype, uint32_t ulproptagindexcolumn, void* lpsproptagarraycolumns, void* lpptabledata) {
+int32_t windowssys_windows_win32_system_addressbook_createTable(void* lpinterface, void* lpallocatebuffer, void* lpallocatemore, void* lpfreebuffer, void* lpvreserved, uint32_t ultabletype, uint32_t ulproptagindexcolumn, void* lpsproptagarraycolumns, void* lpptabledata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -130,7 +130,7 @@ int32_t windowssys_windows_win32_system_addressbook_CreateTable(void* lpinterfac
 #endif
 }
 
-void windowssys_windows_win32_system_addressbook_DeinitMapiUtil(void) {
+void windowssys_windows_win32_system_addressbook_deinitMapiUtil(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -150,7 +150,7 @@ void windowssys_windows_win32_system_addressbook_DeinitMapiUtil(void) {
 #endif
 }
 
-void windowssys_windows_win32_system_addressbook_DeregisterIdleRoutine(void* ftg) {
+void windowssys_windows_win32_system_addressbook_deregisterIdleRoutine(void* ftg) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -171,7 +171,7 @@ void windowssys_windows_win32_system_addressbook_DeregisterIdleRoutine(void* ftg
 #endif
 }
 
-void windowssys_windows_win32_system_addressbook_EnableIdleRoutine(void* ftg, int32_t fenable) {
+void windowssys_windows_win32_system_addressbook_enableIdleRoutine(void* ftg, int32_t fenable) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -193,7 +193,7 @@ void windowssys_windows_win32_system_addressbook_EnableIdleRoutine(void* ftg, in
 #endif
 }
 
-int32_t windowssys_windows_win32_system_addressbook_FEqualNames(void* lpname1, void* lpname2) {
+int32_t windowssys_windows_win32_system_addressbook_fEqualNames(void* lpname1, void* lpname2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -216,7 +216,7 @@ int32_t windowssys_windows_win32_system_addressbook_FEqualNames(void* lpname1, v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_addressbook_FPropCompareProp(void* lpspropvalue1, uint32_t ulrelop, void* lpspropvalue2) {
+int32_t windowssys_windows_win32_system_addressbook_fPropCompareProp(void* lpspropvalue1, uint32_t ulrelop, void* lpspropvalue2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -240,7 +240,7 @@ int32_t windowssys_windows_win32_system_addressbook_FPropCompareProp(void* lpspr
 #endif
 }
 
-int32_t windowssys_windows_win32_system_addressbook_FPropContainsProp(void* lpspropvaluedst, void* lpspropvaluesrc, uint32_t ulfuzzylevel) {
+int32_t windowssys_windows_win32_system_addressbook_fPropContainsProp(void* lpspropvaluedst, void* lpspropvaluesrc, uint32_t ulfuzzylevel) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -264,7 +264,7 @@ int32_t windowssys_windows_win32_system_addressbook_FPropContainsProp(void* lpsp
 #endif
 }
 
-int32_t windowssys_windows_win32_system_addressbook_FPropExists(void* lpmapiprop, uint32_t ulproptag) {
+int32_t windowssys_windows_win32_system_addressbook_fPropExists(void* lpmapiprop, uint32_t ulproptag) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -287,7 +287,7 @@ int32_t windowssys_windows_win32_system_addressbook_FPropExists(void* lpmapiprop
 #endif
 }
 
-void windowssys_windows_win32_system_addressbook_FreePadrlist(void* lpadrlist) {
+void windowssys_windows_win32_system_addressbook_freePadrlist(void* lpadrlist) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -308,7 +308,7 @@ void windowssys_windows_win32_system_addressbook_FreePadrlist(void* lpadrlist) {
 #endif
 }
 
-void windowssys_windows_win32_system_addressbook_FreeProws(void* lprows) {
+void windowssys_windows_win32_system_addressbook_freeProws(void* lprows) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -329,7 +329,7 @@ void windowssys_windows_win32_system_addressbook_FreeProws(void* lprows) {
 #endif
 }
 
-void* windowssys_windows_win32_system_addressbook_FtgRegisterIdleRoutine(void* lpfnidle, void* lpvidleparam, int16_t priidle, uint32_t csecidle, uint16_t iroidle) {
+void* windowssys_windows_win32_system_addressbook_ftgRegisterIdleRoutine(void* lpfnidle, void* lpvidleparam, int16_t priidle, uint32_t csecidle, uint16_t iroidle) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int16_t, uint32_t, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -355,7 +355,7 @@ void* windowssys_windows_win32_system_addressbook_FtgRegisterIdleRoutine(void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_system_addressbook_HrAddColumns(void* lptbl, void* lpproptagcolumnsnew, void* lpallocatebuffer, void* lpfreebuffer) {
+int32_t windowssys_windows_win32_system_addressbook_hrAddColumns(void* lptbl, void* lpproptagcolumnsnew, void* lpallocatebuffer, void* lpfreebuffer) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -380,7 +380,7 @@ int32_t windowssys_windows_win32_system_addressbook_HrAddColumns(void* lptbl, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_addressbook_HrAddColumnsEx(void* lptbl, void* lpproptagcolumnsnew, void* lpallocatebuffer, void* lpfreebuffer, int64_t lpfnfiltercolumns) {
+int32_t windowssys_windows_win32_system_addressbook_hrAddColumnsEx(void* lptbl, void* lpproptagcolumnsnew, void* lpallocatebuffer, void* lpfreebuffer, int64_t lpfnfiltercolumns) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -406,7 +406,7 @@ int32_t windowssys_windows_win32_system_addressbook_HrAddColumnsEx(void* lptbl, 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_addressbook_HrAllocAdviseSink(void* lpfncallback, void* lpvcontext, void* lppadvisesink) {
+int32_t windowssys_windows_win32_system_addressbook_hrAllocAdviseSink(void* lpfncallback, void* lpvcontext, void* lppadvisesink) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -430,7 +430,7 @@ int32_t windowssys_windows_win32_system_addressbook_HrAllocAdviseSink(void* lpfn
 #endif
 }
 
-int32_t windowssys_windows_win32_system_addressbook_HrDispatchNotifications(uint32_t ulflags) {
+int32_t windowssys_windows_win32_system_addressbook_hrDispatchNotifications(uint32_t ulflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -452,7 +452,7 @@ int32_t windowssys_windows_win32_system_addressbook_HrDispatchNotifications(uint
 #endif
 }
 
-int32_t windowssys_windows_win32_system_addressbook_HrGetOneProp(void* lpmapiprop, uint32_t ulproptag, void* lppprop) {
+int32_t windowssys_windows_win32_system_addressbook_hrGetOneProp(void* lpmapiprop, uint32_t ulproptag, void* lppprop) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -476,7 +476,7 @@ int32_t windowssys_windows_win32_system_addressbook_HrGetOneProp(void* lpmapipro
 #endif
 }
 
-int32_t windowssys_windows_win32_system_addressbook_HrIStorageFromStream(void* lpunkin, void* lpinterface, uint32_t ulflags, void* lppstorageout) {
+int32_t windowssys_windows_win32_system_addressbook_hrIStorageFromStream(void* lpunkin, void* lpinterface, uint32_t ulflags, void* lppstorageout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -501,7 +501,7 @@ int32_t windowssys_windows_win32_system_addressbook_HrIStorageFromStream(void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_system_addressbook_HrQueryAllRows(void* lptable, void* lpproptags, void* lprestriction, void* lpsortorderset, int32_t crowsmax, void* lpprows) {
+int32_t windowssys_windows_win32_system_addressbook_hrQueryAllRows(void* lptable, void* lpproptags, void* lprestriction, void* lpsortorderset, int32_t crowsmax, void* lpprows) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -528,7 +528,7 @@ int32_t windowssys_windows_win32_system_addressbook_HrQueryAllRows(void* lptable
 #endif
 }
 
-int32_t windowssys_windows_win32_system_addressbook_HrSetOneProp(void* lpmapiprop, void* lpprop) {
+int32_t windowssys_windows_win32_system_addressbook_hrSetOneProp(void* lpmapiprop, void* lpprop) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -551,7 +551,7 @@ int32_t windowssys_windows_win32_system_addressbook_HrSetOneProp(void* lpmapipro
 #endif
 }
 
-int32_t windowssys_windows_win32_system_addressbook_HrThisThreadAdviseSink(void* lpadvisesink, void* lppadvisesink) {
+int32_t windowssys_windows_win32_system_addressbook_hrThisThreadAdviseSink(void* lpadvisesink, void* lppadvisesink) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -574,7 +574,7 @@ int32_t windowssys_windows_win32_system_addressbook_HrThisThreadAdviseSink(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_addressbook_LPropCompareProp(void* lpspropvaluea, void* lpspropvalueb) {
+int32_t windowssys_windows_win32_system_addressbook_lPropCompareProp(void* lpspropvaluea, void* lpspropvalueb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -597,7 +597,7 @@ int32_t windowssys_windows_win32_system_addressbook_LPropCompareProp(void* lpspr
 #endif
 }
 
-void* windowssys_windows_win32_system_addressbook_LpValFindProp(uint32_t ulproptag, uint32_t cvalues, void* lpproparray) {
+void* windowssys_windows_win32_system_addressbook_lpValFindProp(uint32_t ulproptag, uint32_t cvalues, void* lpproparray) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -621,7 +621,7 @@ void* windowssys_windows_win32_system_addressbook_LpValFindProp(uint32_t ulpropt
 #endif
 }
 
-void windowssys_windows_win32_system_addressbook_MAPIDeinitIdle(void) {
+void windowssys_windows_win32_system_addressbook_mAPIDeinitIdle(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -641,7 +641,7 @@ void windowssys_windows_win32_system_addressbook_MAPIDeinitIdle(void) {
 #endif
 }
 
-void* windowssys_windows_win32_system_addressbook_MAPIGetDefaultMalloc(void) {
+void* windowssys_windows_win32_system_addressbook_mAPIGetDefaultMalloc(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -662,7 +662,7 @@ void* windowssys_windows_win32_system_addressbook_MAPIGetDefaultMalloc(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_addressbook_MAPIInitIdle(void* lpvreserved) {
+int32_t windowssys_windows_win32_system_addressbook_mAPIInitIdle(void* lpvreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -684,7 +684,7 @@ int32_t windowssys_windows_win32_system_addressbook_MAPIInitIdle(void* lpvreserv
 #endif
 }
 
-int32_t windowssys_windows_win32_system_addressbook_OpenStreamOnFile(void* lpallocatebuffer, void* lpfreebuffer, uint32_t ulflags, void* lpszfilename, void* lpszprefix, void* lppstream) {
+int32_t windowssys_windows_win32_system_addressbook_openStreamOnFile(void* lpallocatebuffer, void* lpfreebuffer, uint32_t ulflags, void* lpszfilename, void* lpszprefix, void* lppstream) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -711,7 +711,7 @@ int32_t windowssys_windows_win32_system_addressbook_OpenStreamOnFile(void* lpall
 #endif
 }
 
-void* windowssys_windows_win32_system_addressbook_PpropFindProp(void* lpproparray, uint32_t cvalues, uint32_t ulproptag) {
+void* windowssys_windows_win32_system_addressbook_ppropFindProp(void* lpproparray, uint32_t cvalues, uint32_t ulproptag) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -735,7 +735,7 @@ void* windowssys_windows_win32_system_addressbook_PpropFindProp(void* lpproparra
 #endif
 }
 
-int32_t windowssys_windows_win32_system_addressbook_PropCopyMore(void* lpspropvaluedest, void* lpspropvaluesrc, void* lpfallocmore, void* lpvobject) {
+int32_t windowssys_windows_win32_system_addressbook_propCopyMore(void* lpspropvaluedest, void* lpspropvaluesrc, void* lpfallocmore, void* lpvobject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -760,7 +760,7 @@ int32_t windowssys_windows_win32_system_addressbook_PropCopyMore(void* lpspropva
 #endif
 }
 
-int32_t windowssys_windows_win32_system_addressbook_RTFSync(void* lpmessage, uint32_t ulflags, void* lpfmessageupdated) {
+int32_t windowssys_windows_win32_system_addressbook_rTFSync(void* lpmessage, uint32_t ulflags, void* lpfmessageupdated) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -784,7 +784,7 @@ int32_t windowssys_windows_win32_system_addressbook_RTFSync(void* lpmessage, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_system_addressbook_ScCopyNotifications(int32_t cnotification, void* lpnotifications, void* lpvdst, void* lpcb) {
+int32_t windowssys_windows_win32_system_addressbook_scCopyNotifications(int32_t cnotification, void* lpnotifications, void* lpvdst, void* lpcb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -809,7 +809,7 @@ int32_t windowssys_windows_win32_system_addressbook_ScCopyNotifications(int32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_addressbook_ScCopyProps(int32_t cvalues, void* lpproparray, void* lpvdst, void* lpcb) {
+int32_t windowssys_windows_win32_system_addressbook_scCopyProps(int32_t cvalues, void* lpproparray, void* lpvdst, void* lpcb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -834,7 +834,7 @@ int32_t windowssys_windows_win32_system_addressbook_ScCopyProps(int32_t cvalues,
 #endif
 }
 
-int32_t windowssys_windows_win32_system_addressbook_ScCountNotifications(int32_t cnotifications, void* lpnotifications, void* lpcb) {
+int32_t windowssys_windows_win32_system_addressbook_scCountNotifications(int32_t cnotifications, void* lpnotifications, void* lpcb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -858,7 +858,7 @@ int32_t windowssys_windows_win32_system_addressbook_ScCountNotifications(int32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_system_addressbook_ScCountProps(int32_t cvalues, void* lpproparray, void* lpcb) {
+int32_t windowssys_windows_win32_system_addressbook_scCountProps(int32_t cvalues, void* lpproparray, void* lpcb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -882,7 +882,7 @@ int32_t windowssys_windows_win32_system_addressbook_ScCountProps(int32_t cvalues
 #endif
 }
 
-int32_t windowssys_windows_win32_system_addressbook_ScCreateConversationIndex(uint32_t cbparent, void* lpbparent, void* lpcbconvindex, void* lppbconvindex) {
+int32_t windowssys_windows_win32_system_addressbook_scCreateConversationIndex(uint32_t cbparent, void* lpbparent, void* lpcbconvindex, void* lppbconvindex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -907,7 +907,7 @@ int32_t windowssys_windows_win32_system_addressbook_ScCreateConversationIndex(ui
 #endif
 }
 
-int32_t windowssys_windows_win32_system_addressbook_ScDupPropset(int32_t cvalues, void* lpproparray, void* lpallocatebuffer, void* lppproparray) {
+int32_t windowssys_windows_win32_system_addressbook_scDupPropset(int32_t cvalues, void* lpproparray, void* lpallocatebuffer, void* lppproparray) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -932,7 +932,7 @@ int32_t windowssys_windows_win32_system_addressbook_ScDupPropset(int32_t cvalues
 #endif
 }
 
-int32_t windowssys_windows_win32_system_addressbook_ScInitMapiUtil(uint32_t ulflags) {
+int32_t windowssys_windows_win32_system_addressbook_scInitMapiUtil(uint32_t ulflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -954,7 +954,7 @@ int32_t windowssys_windows_win32_system_addressbook_ScInitMapiUtil(uint32_t ulfl
 #endif
 }
 
-int32_t windowssys_windows_win32_system_addressbook_ScLocalPathFromUNC(void* lpszunc, void* lpszlocal, uint32_t cchlocal) {
+int32_t windowssys_windows_win32_system_addressbook_scLocalPathFromUNC(void* lpszunc, void* lpszlocal, uint32_t cchlocal) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -978,7 +978,7 @@ int32_t windowssys_windows_win32_system_addressbook_ScLocalPathFromUNC(void* lps
 #endif
 }
 
-int32_t windowssys_windows_win32_system_addressbook_ScRelocNotifications(int32_t cnotification, void* lpnotifications, void* lpvbaseold, void* lpvbasenew, void* lpcb) {
+int32_t windowssys_windows_win32_system_addressbook_scRelocNotifications(int32_t cnotification, void* lpnotifications, void* lpvbaseold, void* lpvbasenew, void* lpcb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1004,7 +1004,7 @@ int32_t windowssys_windows_win32_system_addressbook_ScRelocNotifications(int32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_system_addressbook_ScRelocProps(int32_t cvalues, void* lpproparray, void* lpvbaseold, void* lpvbasenew, void* lpcb) {
+int32_t windowssys_windows_win32_system_addressbook_scRelocProps(int32_t cvalues, void* lpproparray, void* lpvbaseold, void* lpvbasenew, void* lpcb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1030,7 +1030,7 @@ int32_t windowssys_windows_win32_system_addressbook_ScRelocProps(int32_t cvalues
 #endif
 }
 
-int32_t windowssys_windows_win32_system_addressbook_ScUNCFromLocalPath(void* lpszlocal, void* lpszunc, uint32_t cchunc) {
+int32_t windowssys_windows_win32_system_addressbook_scUNCFromLocalPath(void* lpszlocal, void* lpszunc, uint32_t cchunc) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1054,7 +1054,7 @@ int32_t windowssys_windows_win32_system_addressbook_ScUNCFromLocalPath(void* lps
 #endif
 }
 
-void* windowssys_windows_win32_system_addressbook_SzFindCh(void* lpsz, uint16_t ch) {
+void* windowssys_windows_win32_system_addressbook_szFindCh(void* lpsz, uint16_t ch) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1077,7 +1077,7 @@ void* windowssys_windows_win32_system_addressbook_SzFindCh(void* lpsz, uint16_t 
 #endif
 }
 
-void* windowssys_windows_win32_system_addressbook_SzFindLastCh(void* lpsz, uint16_t ch) {
+void* windowssys_windows_win32_system_addressbook_szFindLastCh(void* lpsz, uint16_t ch) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1100,7 +1100,7 @@ void* windowssys_windows_win32_system_addressbook_SzFindLastCh(void* lpsz, uint1
 #endif
 }
 
-void* windowssys_windows_win32_system_addressbook_SzFindSz(void* lpsz, void* lpszkey) {
+void* windowssys_windows_win32_system_addressbook_szFindSz(void* lpsz, void* lpszkey) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1123,7 +1123,7 @@ void* windowssys_windows_win32_system_addressbook_SzFindSz(void* lpsz, void* lps
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_addressbook_UFromSz(void* lpsz) {
+uint32_t windowssys_windows_win32_system_addressbook_uFromSz(void* lpsz) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1145,7 +1145,7 @@ uint32_t windowssys_windows_win32_system_addressbook_UFromSz(void* lpsz) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_addressbook_UlAddRef(void* lpunk) {
+uint32_t windowssys_windows_win32_system_addressbook_ulAddRef(void* lpunk) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1167,7 +1167,7 @@ uint32_t windowssys_windows_win32_system_addressbook_UlAddRef(void* lpunk) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_addressbook_UlPropSize(void* lpspropvalue) {
+uint32_t windowssys_windows_win32_system_addressbook_ulPropSize(void* lpspropvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1189,7 +1189,7 @@ uint32_t windowssys_windows_win32_system_addressbook_UlPropSize(void* lpspropval
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_addressbook_UlRelease(void* lpunk) {
+uint32_t windowssys_windows_win32_system_addressbook_ulRelease(void* lpunk) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1211,7 +1211,7 @@ uint32_t windowssys_windows_win32_system_addressbook_UlRelease(void* lpunk) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_addressbook_WrapCompressedRTFStream(void* lpcompressedrtfstream, uint32_t ulflags, void* lpuncompressedrtfstream) {
+int32_t windowssys_windows_win32_system_addressbook_wrapCompressedRTFStream(void* lpcompressedrtfstream, uint32_t ulflags, void* lpuncompressedrtfstream) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1235,7 +1235,7 @@ int32_t windowssys_windows_win32_system_addressbook_WrapCompressedRTFStream(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_addressbook_WrapStoreEntryID(uint32_t ulflags, void* lpszdllname, uint32_t cborigentry, void* lporigentry, void* lpcbwrappedentry, void* lppwrappedentry) {
+int32_t windowssys_windows_win32_system_addressbook_wrapStoreEntryID(uint32_t ulflags, void* lpszdllname, uint32_t cborigentry, void* lporigentry, void* lpcbwrappedentry, void* lppwrappedentry) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

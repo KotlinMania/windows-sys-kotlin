@@ -1,27 +1,28 @@
 package io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement
 
-import io.github.kotlinmania.windowssys.core.HRESULT
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
 
-public typealias DRMATTESTTYPE = Int
+public typealias Drmattesttype = Int
 
-public fun interface DRMCALLBACKFn {
-    public operator fun invoke(param0: DRM_STATUS_MSG, param1: HRESULT, param2: Long, param3: Long): HRESULT
+public fun interface DrmcallbackFn {
+    public operator fun invoke(param0: DrmStatusMsg, param1: Hresult, param2: COpaquePointer?, param3: COpaquePointer?): Hresult
 }
 
-public typealias DRMCALLBACK = DRMCALLBACKFn?
+public typealias Drmcallback = DrmcallbackFn?
 
-public typealias DRMENCODINGTYPE = Int
+public typealias Drmencodingtype = Int
 
-public typealias DRMGLOBALOPTIONS = Int
+public typealias Drmglobaloptions = Int
 
-public typealias DRMSECURITYPROVIDERTYPE = Int
+public typealias Drmsecurityprovidertype = Int
 
-public typealias DRMSPECTYPE = Int
+public typealias Drmspectype = Int
 
-public typealias DRMTIMETYPE = Int
+public typealias Drmtimetype = Int
 
-public typealias DRM_DISTRIBUTION_POINT_INFO = Int
+public typealias DrmDistributionPointInfo = Int
 
-public typealias DRM_STATUS_MSG = Int
+public typealias DrmStatusMsg = Int
 
-public typealias DRM_USAGEPOLICY_TYPE = Int
+public typealias DrmUsagepolicyType = Int

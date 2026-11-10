@@ -1,41 +1,43 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.interactioncontext
 
-public typealias CROSS_SLIDE_FLAGS = UInt
+import io.github.kotlinmania.windowssys.COpaquePointer
 
-public typealias CROSS_SLIDE_THRESHOLD = Int
+public typealias CrossSlideFlags = UInt
 
-public typealias HINTERACTIONCONTEXT = Long
+public typealias CrossSlideThreshold = Int
 
-public typealias HOLD_PARAMETER = Int
+public typealias Hinteractioncontext = COpaquePointer?
 
-public typealias INERTIA_PARAMETER = Int
+public typealias HoldParameter = Int
 
-public typealias INTERACTION_CONFIGURATION_FLAGS = UInt
+public typealias InertiaParameter = Int
 
-public fun interface INTERACTION_CONTEXT_OUTPUT_CALLBACKFn {
-    public operator fun invoke(clientdata: Long, output: Long)
+public typealias InteractionConfigurationFlags = UInt
+
+public fun interface InteractionContextOutputCallbackFn {
+    public operator fun invoke(clientdata: COpaquePointer?, output: COpaquePointer?)
 }
 
-public typealias INTERACTION_CONTEXT_OUTPUT_CALLBACK = INTERACTION_CONTEXT_OUTPUT_CALLBACKFn?
+public typealias InteractionContextOutputCallback = InteractionContextOutputCallbackFn?
 
-public fun interface INTERACTION_CONTEXT_OUTPUT_CALLBACK2Fn {
-    public operator fun invoke(clientdata: Long, output: Long)
+public fun interface InteractionContextOutputCallback2Fn {
+    public operator fun invoke(clientdata: COpaquePointer?, output: COpaquePointer?)
 }
 
-public typealias INTERACTION_CONTEXT_OUTPUT_CALLBACK2 = INTERACTION_CONTEXT_OUTPUT_CALLBACK2Fn?
+public typealias InteractionContextOutputCallback2 = InteractionContextOutputCallback2Fn?
 
-public typealias INTERACTION_CONTEXT_PROPERTY = Int
+public typealias InteractionContextProperty = Int
 
-public typealias INTERACTION_FLAGS = UInt
+public typealias InteractionFlags = UInt
 
-public typealias INTERACTION_ID = Int
+public typealias InteractionId = Int
 
-public typealias INTERACTION_STATE = Int
+public typealias InteractionState = Int
 
-public typealias MANIPULATION_RAILS_STATE = Int
+public typealias ManipulationRailsState = Int
 
-public typealias MOUSE_WHEEL_PARAMETER = Int
+public typealias MouseWheelParameter = Int
 
-public typealias TAP_PARAMETER = Int
+public typealias TapParameter = Int
 
-public typealias TRANSLATION_PARAMETER = Int
+public typealias TranslationParameter = Int

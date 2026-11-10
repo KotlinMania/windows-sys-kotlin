@@ -1,11 +1,12 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.eventnotificationservice
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 
-public expect fun IsDestinationReachableA(lpszdestination: PCSTR, lpqocinfo: Long): BOOL
+public expect fun isDestinationReachableA(lpszdestination: Pcstr, lpqocinfo: COpaquePointer?): Bool
 
-public expect fun IsDestinationReachableW(lpszdestination: PCWSTR, lpqocinfo: Long): BOOL
+public expect fun isDestinationReachableW(lpszdestination: Pcwstr, lpqocinfo: COpaquePointer?): Bool
 
-public expect fun IsNetworkAlive(lpdwflags: Long): BOOL
+public expect fun isNetworkAlive(lpdwflags: COpaquePointer?): Bool

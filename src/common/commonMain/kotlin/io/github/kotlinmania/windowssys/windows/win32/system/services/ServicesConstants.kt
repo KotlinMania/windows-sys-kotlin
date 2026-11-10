@@ -1,53 +1,53 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.services
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
 
-public val CUSTOM_SYSTEM_STATE_CHANGE_EVENT_GUID: GUID = GUID.from_u128(U128(0x2d7a28160c5e45fcuL, 0x9ce7570e5ecde9c9uL))
+public val CUSTOM_SYSTEM_STATE_CHANGE_EVENT_GUID: Guid = Guid.fromU128(U128(0x2d7a28160c5e45fcuL, 0x9ce7570e5ecde9c9uL))
 
-public val DOMAIN_JOIN_GUID: GUID = GUID.from_u128(U128(0x1ce20aba98514421uL, 0x94301ddeb766e809uL))
+public val DOMAIN_JOIN_GUID: Guid = Guid.fromU128(U128(0x1ce20aba98514421uL, 0x94301ddeb766e809uL))
 
-public val DOMAIN_LEAVE_GUID: GUID = GUID.from_u128(U128(0xddaf516e58c24866uL, 0x9574c3b615d42ea1uL))
+public val DOMAIN_LEAVE_GUID: Guid = Guid.fromU128(U128(0xddaf516e58c24866uL, 0x9574c3b615d42ea1uL))
 
-public val FIREWALL_PORT_CLOSE_GUID: GUID = GUID.from_u128(U128(0xa144ed388e124de4uL, 0x9d96e64740b1a524uL))
+public val FIREWALL_PORT_CLOSE_GUID: Guid = Guid.fromU128(U128(0xa144ed388e124de4uL, 0x9d96e64740b1a524uL))
 
-public val FIREWALL_PORT_OPEN_GUID: GUID = GUID.from_u128(U128(0xb7569e0784214ee0uL, 0xad1086915afdad09uL))
+public val FIREWALL_PORT_OPEN_GUID: Guid = Guid.fromU128(U128(0xb7569e0784214ee0uL, 0xad1086915afdad09uL))
 
-public val MACHINE_POLICY_PRESENT_GUID: GUID = GUID.from_u128(U128(0x659fcae65bdb4da9uL, 0xb1ffca2a178d46e0uL))
+public val MACHINE_POLICY_PRESENT_GUID: Guid = Guid.fromU128(U128(0x659fcae65bdb4da9uL, 0xb1ffca2a178d46e0uL))
 
-public val MaxServiceRegistryStateType: SERVICE_REGISTRY_STATE_TYPE = 2
+public val MAX_SERVICE_REGISTRY_STATE_TYPE: ServiceRegistryStateType = 2
 
-public val NAMED_PIPE_EVENT_GUID: GUID = GUID.from_u128(U128(0x1f81d1313fac4537uL, 0x9e0c7e7b0c2f4b55uL))
+public val NAMED_PIPE_EVENT_GUID: Guid = Guid.fromU128(U128(0x1f81d1313fac4537uL, 0x9e0c7e7b0c2f4b55uL))
 
-public val NETWORK_MANAGER_FIRST_IP_ADDRESS_ARRIVAL_GUID: GUID = GUID.from_u128(U128(0x4f27f2de14e2430buL, 0xa5497cd48cbc8245uL))
+public val NETWORK_MANAGER_FIRST_IP_ADDRESS_ARRIVAL_GUID: Guid = Guid.fromU128(U128(0x4f27f2de14e2430buL, 0xa5497cd48cbc8245uL))
 
-public val NETWORK_MANAGER_LAST_IP_ADDRESS_REMOVAL_GUID: GUID = GUID.from_u128(U128(0xcc4ba62a162e4648uL, 0x847ab6bdf993e335uL))
+public val NETWORK_MANAGER_LAST_IP_ADDRESS_REMOVAL_GUID: Guid = Guid.fromU128(U128(0xcc4ba62a162e4648uL, 0x847ab6bdf993e335uL))
 
-public val RPC_INTERFACE_EVENT_GUID: GUID = GUID.from_u128(U128(0xbc90d16794704139uL, 0xa9babe0bbbf5b74duL))
+public val RPC_INTERFACE_EVENT_GUID: Guid = Guid.fromU128(U128(0xbc90d16794704139uL, 0xa9babe0bbbf5b74duL))
 
-public val SC_ACTION_NONE: SC_ACTION_TYPE = 0
+public val SC_ACTION_NONE: ScActionType = 0
 
-public val SC_ACTION_OWN_RESTART: SC_ACTION_TYPE = 4
+public val SC_ACTION_OWN_RESTART: ScActionType = 4
 
-public val SC_ACTION_REBOOT: SC_ACTION_TYPE = 2
+public val SC_ACTION_REBOOT: ScActionType = 2
 
-public val SC_ACTION_RESTART: SC_ACTION_TYPE = 1
+public val SC_ACTION_RESTART: ScActionType = 1
 
-public val SC_ACTION_RUN_COMMAND: SC_ACTION_TYPE = 3
+public val SC_ACTION_RUN_COMMAND: ScActionType = 3
 
-public val SC_AGGREGATE_STORAGE_KEY: PCWSTR = w("System\\CurrentControlSet\\Control\\ServiceAggregatedEvents")
+public val SC_AGGREGATE_STORAGE_KEY: Pcwstr = w("System\\CurrentControlSet\\Control\\ServiceAggregatedEvents")
 
-public val SC_ENUM_PROCESS_INFO: SC_ENUM_TYPE = 0
+public val SC_ENUM_PROCESS_INFO: ScEnumType = 0
 
-public val SC_EVENT_DATABASE_CHANGE: SC_EVENT_TYPE = 0
+public val SC_EVENT_DATABASE_CHANGE: ScEventType = 0
 
-public val SC_EVENT_PROPERTY_CHANGE: SC_EVENT_TYPE = 1
+public val SC_EVENT_PROPERTY_CHANGE: ScEventType = 1
 
-public val SC_EVENT_STATUS_CHANGE: SC_EVENT_TYPE = 2
+public val SC_EVENT_STATUS_CHANGE: ScEventType = 2
 
 public val SC_MANAGER_ALL_ACCESS: UInt = 983103u
 
@@ -63,19 +63,19 @@ public val SC_MANAGER_MODIFY_BOOT_CONFIG: UInt = 32u
 
 public val SC_MANAGER_QUERY_LOCK_STATUS: UInt = 16u
 
-public val SC_STATUS_PROCESS_INFO: SC_STATUS_TYPE = 0
+public val SC_STATUS_PROCESS_INFO: ScStatusType = 0
 
-public val SERVICES_ACTIVE_DATABASE: PCWSTR = w("ServicesActive")
+public val SERVICES_ACTIVE_DATABASE: Pcwstr = w("ServicesActive")
 
-public val SERVICES_ACTIVE_DATABASEA: PCSTR = s("ServicesActive")
+public val SERVICES_ACTIVE_DATABASEA: Pcstr = s("ServicesActive")
 
-public val SERVICES_ACTIVE_DATABASEW: PCWSTR = w("ServicesActive")
+public val SERVICES_ACTIVE_DATABASEW: Pcwstr = w("ServicesActive")
 
-public val SERVICES_FAILED_DATABASE: PCWSTR = w("ServicesFailed")
+public val SERVICES_FAILED_DATABASE: Pcwstr = w("ServicesFailed")
 
-public val SERVICES_FAILED_DATABASEA: PCSTR = s("ServicesFailed")
+public val SERVICES_FAILED_DATABASEA: Pcstr = s("ServicesFailed")
 
-public val SERVICES_FAILED_DATABASEW: PCWSTR = w("ServicesFailed")
+public val SERVICES_FAILED_DATABASEW: Pcwstr = w("ServicesFailed")
 
 public val SERVICE_ACCEPT_HARDWAREPROFILECHANGE: UInt = 32u
 
@@ -105,39 +105,39 @@ public val SERVICE_ACCEPT_TRIGGEREVENT: UInt = 1024u
 
 public val SERVICE_ACCEPT_USER_LOGOFF: UInt = 2048u
 
-public val SERVICE_ACTIVE: ENUM_SERVICE_STATE = 1u
+public val SERVICE_ACTIVE: EnumServiceState = 1u
 
-public val SERVICE_ADAPTER: ENUM_SERVICE_TYPE = 4u
+public val SERVICE_ADAPTER: EnumServiceType = 4u
 
 public val SERVICE_ALL_ACCESS: UInt = 983551u
 
-public val SERVICE_AUTO_START: SERVICE_START_TYPE = 2u
+public val SERVICE_AUTO_START: ServiceStartType = 2u
 
-public val SERVICE_BOOT_START: SERVICE_START_TYPE = 0u
+public val SERVICE_BOOT_START: ServiceStartType = 0u
 
 public val SERVICE_CHANGE_CONFIG: UInt = 2u
 
-public val SERVICE_CONFIG_DELAYED_AUTO_START_INFO: SERVICE_CONFIG = 3u
+public val SERVICE_CONFIG_DELAYED_AUTO_START_INFO: ServiceConfig = 3u
 
-public val SERVICE_CONFIG_DESCRIPTION: SERVICE_CONFIG = 1u
+public val SERVICE_CONFIG_DESCRIPTION: ServiceConfig = 1u
 
-public val SERVICE_CONFIG_FAILURE_ACTIONS: SERVICE_CONFIG = 2u
+public val SERVICE_CONFIG_FAILURE_ACTIONS: ServiceConfig = 2u
 
-public val SERVICE_CONFIG_FAILURE_ACTIONS_FLAG: SERVICE_CONFIG = 4u
+public val SERVICE_CONFIG_FAILURE_ACTIONS_FLAG: ServiceConfig = 4u
 
-public val SERVICE_CONFIG_LAUNCH_PROTECTED: SERVICE_CONFIG = 12u
+public val SERVICE_CONFIG_LAUNCH_PROTECTED: ServiceConfig = 12u
 
-public val SERVICE_CONFIG_PREFERRED_NODE: SERVICE_CONFIG = 9u
+public val SERVICE_CONFIG_PREFERRED_NODE: ServiceConfig = 9u
 
-public val SERVICE_CONFIG_PRESHUTDOWN_INFO: SERVICE_CONFIG = 7u
+public val SERVICE_CONFIG_PRESHUTDOWN_INFO: ServiceConfig = 7u
 
-public val SERVICE_CONFIG_REQUIRED_PRIVILEGES_INFO: SERVICE_CONFIG = 6u
+public val SERVICE_CONFIG_REQUIRED_PRIVILEGES_INFO: ServiceConfig = 6u
 
-public val SERVICE_CONFIG_SERVICE_SID_INFO: SERVICE_CONFIG = 5u
+public val SERVICE_CONFIG_SERVICE_SID_INFO: ServiceConfig = 5u
 
-public val SERVICE_CONFIG_TRIGGER_INFO: SERVICE_CONFIG = 8u
+public val SERVICE_CONFIG_TRIGGER_INFO: ServiceConfig = 8u
 
-public val SERVICE_CONTINUE_PENDING: SERVICE_STATUS_CURRENT_STATE = 5u
+public val SERVICE_CONTINUE_PENDING: ServiceStatusCurrentState = 5u
 
 public val SERVICE_CONTROL_CONTINUE: UInt = 3u
 
@@ -179,31 +179,31 @@ public val SERVICE_CONTROL_TIMECHANGE: UInt = 16u
 
 public val SERVICE_CONTROL_TRIGGEREVENT: UInt = 32u
 
-public val SERVICE_DEMAND_START: SERVICE_START_TYPE = 3u
+public val SERVICE_DEMAND_START: ServiceStartType = 3u
 
-public val SERVICE_DISABLED: SERVICE_START_TYPE = 4u
+public val SERVICE_DISABLED: ServiceStartType = 4u
 
-public val SERVICE_DRIVER: ENUM_SERVICE_TYPE = 11u
+public val SERVICE_DRIVER: EnumServiceType = 11u
 
 public val SERVICE_DYNAMIC_INFORMATION_LEVEL_START_REASON: UInt = 1u
 
 public val SERVICE_ENUMERATE_DEPENDENTS: UInt = 8u
 
-public val SERVICE_ERROR_CRITICAL: SERVICE_ERROR = 3u
+public val SERVICE_ERROR_CRITICAL: ServiceError = 3u
 
-public val SERVICE_ERROR_IGNORE: SERVICE_ERROR = 0u
+public val SERVICE_ERROR_IGNORE: ServiceError = 0u
 
-public val SERVICE_ERROR_NORMAL: SERVICE_ERROR = 1u
+public val SERVICE_ERROR_NORMAL: ServiceError = 1u
 
-public val SERVICE_ERROR_SEVERE: SERVICE_ERROR = 2u
+public val SERVICE_ERROR_SEVERE: ServiceError = 2u
 
-public val SERVICE_FILE_SYSTEM_DRIVER: ENUM_SERVICE_TYPE = 2u
+public val SERVICE_FILE_SYSTEM_DRIVER: EnumServiceType = 2u
 
-public val SERVICE_INACTIVE: ENUM_SERVICE_STATE = 2u
+public val SERVICE_INACTIVE: EnumServiceState = 2u
 
 public val SERVICE_INTERROGATE: UInt = 128u
 
-public val SERVICE_KERNEL_DRIVER: ENUM_SERVICE_TYPE = 1u
+public val SERVICE_KERNEL_DRIVER: EnumServiceType = 1u
 
 public val SERVICE_LAUNCH_PROTECTED_ANTIMALWARE_LIGHT: UInt = 3u
 
@@ -213,21 +213,21 @@ public val SERVICE_LAUNCH_PROTECTED_WINDOWS: UInt = 1u
 
 public val SERVICE_LAUNCH_PROTECTED_WINDOWS_LIGHT: UInt = 2u
 
-public val SERVICE_NOTIFY_CONTINUE_PENDING: SERVICE_NOTIFY = 16u
+public val SERVICE_NOTIFY_CONTINUE_PENDING: ServiceNotify = 16u
 
-public val SERVICE_NOTIFY_CREATED: SERVICE_NOTIFY = 128u
+public val SERVICE_NOTIFY_CREATED: ServiceNotify = 128u
 
-public val SERVICE_NOTIFY_DELETED: SERVICE_NOTIFY = 256u
+public val SERVICE_NOTIFY_DELETED: ServiceNotify = 256u
 
-public val SERVICE_NOTIFY_DELETE_PENDING: SERVICE_NOTIFY = 512u
+public val SERVICE_NOTIFY_DELETE_PENDING: ServiceNotify = 512u
 
-public val SERVICE_NOTIFY_PAUSED: SERVICE_NOTIFY = 64u
+public val SERVICE_NOTIFY_PAUSED: ServiceNotify = 64u
 
-public val SERVICE_NOTIFY_PAUSE_PENDING: SERVICE_NOTIFY = 32u
+public val SERVICE_NOTIFY_PAUSE_PENDING: ServiceNotify = 32u
 
-public val SERVICE_NOTIFY_RUNNING: SERVICE_NOTIFY = 8u
+public val SERVICE_NOTIFY_RUNNING: ServiceNotify = 8u
 
-public val SERVICE_NOTIFY_START_PENDING: SERVICE_NOTIFY = 2u
+public val SERVICE_NOTIFY_START_PENDING: ServiceNotify = 2u
 
 public val SERVICE_NOTIFY_STATUS_CHANGE: UInt = 2u
 
@@ -235,29 +235,29 @@ public val SERVICE_NOTIFY_STATUS_CHANGE_1: UInt = 1u
 
 public val SERVICE_NOTIFY_STATUS_CHANGE_2: UInt = 2u
 
-public val SERVICE_NOTIFY_STOPPED: SERVICE_NOTIFY = 1u
+public val SERVICE_NOTIFY_STOPPED: ServiceNotify = 1u
 
-public val SERVICE_NOTIFY_STOP_PENDING: SERVICE_NOTIFY = 4u
+public val SERVICE_NOTIFY_STOP_PENDING: ServiceNotify = 4u
 
 public val SERVICE_NO_CHANGE: UInt = 4294967295u
 
-public val SERVICE_PAUSED: SERVICE_STATUS_CURRENT_STATE = 7u
+public val SERVICE_PAUSED: ServiceStatusCurrentState = 7u
 
 public val SERVICE_PAUSE_CONTINUE: UInt = 64u
 
-public val SERVICE_PAUSE_PENDING: SERVICE_STATUS_CURRENT_STATE = 6u
+public val SERVICE_PAUSE_PENDING: ServiceStatusCurrentState = 6u
 
 public val SERVICE_QUERY_CONFIG: UInt = 1u
 
 public val SERVICE_QUERY_STATUS: UInt = 4u
 
-public val SERVICE_RECOGNIZER_DRIVER: ENUM_SERVICE_TYPE = 8u
+public val SERVICE_RECOGNIZER_DRIVER: EnumServiceType = 8u
 
-public val SERVICE_RUNNING: SERVICE_STATUS_CURRENT_STATE = 4u
+public val SERVICE_RUNNING: ServiceStatusCurrentState = 4u
 
-public val SERVICE_RUNS_IN_NON_SYSTEM_OR_NOT_RUNNING: SERVICE_RUNS_IN_PROCESS = 0u
+public val SERVICE_RUNS_IN_NON_SYSTEM_OR_NOT_RUNNING: ServiceRunsInProcess = 0u
 
-public val SERVICE_RUNS_IN_SYSTEM_PROCESS: SERVICE_RUNS_IN_PROCESS = 1u
+public val SERVICE_RUNS_IN_SYSTEM_PROCESS: ServiceRunsInProcess = 1u
 
 public val SERVICE_SID_TYPE_NONE: UInt = 0u
 
@@ -265,7 +265,7 @@ public val SERVICE_SID_TYPE_UNRESTRICTED: UInt = 1u
 
 public val SERVICE_START: UInt = 16u
 
-public val SERVICE_START_PENDING: SERVICE_STATUS_CURRENT_STATE = 2u
+public val SERVICE_START_PENDING: ServiceStatusCurrentState = 2u
 
 public val SERVICE_START_REASON_AUTO: UInt = 2u
 
@@ -277,13 +277,13 @@ public val SERVICE_START_REASON_RESTART_ON_FAILURE: UInt = 8u
 
 public val SERVICE_START_REASON_TRIGGER: UInt = 4u
 
-public val SERVICE_STATE_ALL: ENUM_SERVICE_STATE = 3u
+public val SERVICE_STATE_ALL: EnumServiceState = 3u
 
 public val SERVICE_STOP: UInt = 32u
 
-public val SERVICE_STOPPED: SERVICE_STATUS_CURRENT_STATE = 1u
+public val SERVICE_STOPPED: ServiceStatusCurrentState = 1u
 
-public val SERVICE_STOP_PENDING: SERVICE_STATUS_CURRENT_STATE = 3u
+public val SERVICE_STOP_PENDING: ServiceStatusCurrentState = 3u
 
 public val SERVICE_STOP_REASON_FLAG_CUSTOM: UInt = 536870912u
 
@@ -371,64 +371,64 @@ public val SERVICE_STOP_REASON_MINOR_UPGRADE: UInt = 4u
 
 public val SERVICE_STOP_REASON_MINOR_WMI: UInt = 18u
 
-public val SERVICE_SYSTEM_START: SERVICE_START_TYPE = 1u
+public val SERVICE_SYSTEM_START: ServiceStartType = 1u
 
-public val SERVICE_TRIGGER_ACTION_SERVICE_START: SERVICE_TRIGGER_ACTION = 1u
+public val SERVICE_TRIGGER_ACTION_SERVICE_START: ServiceTriggerAction = 1u
 
-public val SERVICE_TRIGGER_ACTION_SERVICE_STOP: SERVICE_TRIGGER_ACTION = 2u
+public val SERVICE_TRIGGER_ACTION_SERVICE_STOP: ServiceTriggerAction = 2u
 
-public val SERVICE_TRIGGER_DATA_TYPE_BINARY: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = 1u
+public val SERVICE_TRIGGER_DATA_TYPE_BINARY: ServiceTriggerSpecificDataItemDataType = 1u
 
-public val SERVICE_TRIGGER_DATA_TYPE_KEYWORD_ALL: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = 5u
+public val SERVICE_TRIGGER_DATA_TYPE_KEYWORD_ALL: ServiceTriggerSpecificDataItemDataType = 5u
 
-public val SERVICE_TRIGGER_DATA_TYPE_KEYWORD_ANY: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = 4u
+public val SERVICE_TRIGGER_DATA_TYPE_KEYWORD_ANY: ServiceTriggerSpecificDataItemDataType = 4u
 
-public val SERVICE_TRIGGER_DATA_TYPE_LEVEL: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = 3u
+public val SERVICE_TRIGGER_DATA_TYPE_LEVEL: ServiceTriggerSpecificDataItemDataType = 3u
 
-public val SERVICE_TRIGGER_DATA_TYPE_STRING: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = 2u
+public val SERVICE_TRIGGER_DATA_TYPE_STRING: ServiceTriggerSpecificDataItemDataType = 2u
 
-public val SERVICE_TRIGGER_STARTED_ARGUMENT: PCWSTR = w("TriggerStarted")
+public val SERVICE_TRIGGER_STARTED_ARGUMENT: Pcwstr = w("TriggerStarted")
 
 public val SERVICE_TRIGGER_TYPE_AGGREGATE: UInt = 30u
 
-public val SERVICE_TRIGGER_TYPE_CUSTOM: SERVICE_TRIGGER_TYPE = 20u
+public val SERVICE_TRIGGER_TYPE_CUSTOM: ServiceTriggerType = 20u
 
 public val SERVICE_TRIGGER_TYPE_CUSTOM_SYSTEM_STATE_CHANGE: UInt = 7u
 
-public val SERVICE_TRIGGER_TYPE_DEVICE_INTERFACE_ARRIVAL: SERVICE_TRIGGER_TYPE = 1u
+public val SERVICE_TRIGGER_TYPE_DEVICE_INTERFACE_ARRIVAL: ServiceTriggerType = 1u
 
-public val SERVICE_TRIGGER_TYPE_DOMAIN_JOIN: SERVICE_TRIGGER_TYPE = 3u
+public val SERVICE_TRIGGER_TYPE_DOMAIN_JOIN: ServiceTriggerType = 3u
 
-public val SERVICE_TRIGGER_TYPE_FIREWALL_PORT_EVENT: SERVICE_TRIGGER_TYPE = 4u
+public val SERVICE_TRIGGER_TYPE_FIREWALL_PORT_EVENT: ServiceTriggerType = 4u
 
-public val SERVICE_TRIGGER_TYPE_GROUP_POLICY: SERVICE_TRIGGER_TYPE = 5u
+public val SERVICE_TRIGGER_TYPE_GROUP_POLICY: ServiceTriggerType = 5u
 
-public val SERVICE_TRIGGER_TYPE_IP_ADDRESS_AVAILABILITY: SERVICE_TRIGGER_TYPE = 2u
+public val SERVICE_TRIGGER_TYPE_IP_ADDRESS_AVAILABILITY: ServiceTriggerType = 2u
 
-public val SERVICE_TRIGGER_TYPE_NETWORK_ENDPOINT: SERVICE_TRIGGER_TYPE = 6u
+public val SERVICE_TRIGGER_TYPE_NETWORK_ENDPOINT: ServiceTriggerType = 6u
 
 public val SERVICE_USER_DEFINED_CONTROL: UInt = 256u
 
-public val SERVICE_USER_OWN_PROCESS: ENUM_SERVICE_TYPE = 80u
+public val SERVICE_USER_OWN_PROCESS: EnumServiceType = 80u
 
-public val SERVICE_USER_SHARE_PROCESS: ENUM_SERVICE_TYPE = 96u
+public val SERVICE_USER_SHARE_PROCESS: EnumServiceType = 96u
 
-public val SERVICE_WIN32: ENUM_SERVICE_TYPE = 48u
+public val SERVICE_WIN32: EnumServiceType = 48u
 
-public val SERVICE_WIN32_OWN_PROCESS: ENUM_SERVICE_TYPE = 16u
+public val SERVICE_WIN32_OWN_PROCESS: EnumServiceType = 16u
 
-public val SERVICE_WIN32_SHARE_PROCESS: ENUM_SERVICE_TYPE = 32u
+public val SERVICE_WIN32_SHARE_PROCESS: EnumServiceType = 32u
 
-public val ServiceDirectoryPersistentState: SERVICE_DIRECTORY_TYPE = 0
+public val SERVICE_DIRECTORY_PERSISTENT_STATE: ServiceDirectoryType = 0
 
-public val ServiceDirectoryTypeMax: SERVICE_DIRECTORY_TYPE = 1
+public val SERVICE_DIRECTORY_TYPE_MAX: ServiceDirectoryType = 1
 
-public val ServiceRegistryStateParameters: SERVICE_REGISTRY_STATE_TYPE = 0
+public val SERVICE_REGISTRY_STATE_PARAMETERS: ServiceRegistryStateType = 0
 
-public val ServiceRegistryStatePersistent: SERVICE_REGISTRY_STATE_TYPE = 1
+public val SERVICE_REGISTRY_STATE_PERSISTENT: ServiceRegistryStateType = 1
 
-public val ServiceSharedDirectoryPersistentState: SERVICE_SHARED_DIRECTORY_TYPE = 0
+public val SERVICE_SHARED_DIRECTORY_PERSISTENT_STATE: ServiceSharedDirectoryType = 0
 
-public val ServiceSharedRegistryPersistentState: SERVICE_SHARED_REGISTRY_STATE_TYPE = 0
+public val SERVICE_SHARED_REGISTRY_PERSISTENT_STATE: ServiceSharedRegistryStateType = 0
 
-public val USER_POLICY_PRESENT_GUID: GUID = GUID.from_u128(U128(0x54fb46c8f089464cuL, 0xb1fd59d1b62c3b50uL))
+public val USER_POLICY_PRESENT_GUID: Guid = Guid.fromU128(U128(0x54fb46c8f089464cuL, 0xb1fd59d1b62c3b50uL))

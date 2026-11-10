@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_system_js_JsAddRef(void* ref, void* count) {
+uint32_t windowssys_windows_win32_system_js_jsAddRef(void* ref, void* count) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ uint32_t windowssys_windows_win32_system_js_JsAddRef(void* ref, void* count) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsBoolToBoolean(uint8_t value, void* booleanvalue) {
+uint32_t windowssys_windows_win32_system_js_jsBoolToBoolean(uint8_t value, void* booleanvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -61,7 +61,7 @@ uint32_t windowssys_windows_win32_system_js_JsBoolToBoolean(uint8_t value, void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsBooleanToBool(void* value, void* boolvalue) {
+uint32_t windowssys_windows_win32_system_js_jsBooleanToBool(void* value, void* boolvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -84,7 +84,7 @@ uint32_t windowssys_windows_win32_system_js_JsBooleanToBool(void* value, void* b
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsCallFunction(void* function, void* arguments, uint16_t argumentcount, void* result) {
+uint32_t windowssys_windows_win32_system_js_jsCallFunction(void* function, void* arguments, uint16_t argumentcount, void* result) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -109,7 +109,7 @@ uint32_t windowssys_windows_win32_system_js_JsCallFunction(void* function, void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsCollectGarbage(void* runtime) {
+uint32_t windowssys_windows_win32_system_js_jsCollectGarbage(void* runtime) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -131,7 +131,7 @@ uint32_t windowssys_windows_win32_system_js_JsCollectGarbage(void* runtime) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsConstructObject(void* function, void* arguments, uint16_t argumentcount, void* result) {
+uint32_t windowssys_windows_win32_system_js_jsConstructObject(void* function, void* arguments, uint16_t argumentcount, void* result) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -156,7 +156,7 @@ uint32_t windowssys_windows_win32_system_js_JsConstructObject(void* function, vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsConvertValueToBoolean(void* value, void* booleanvalue) {
+uint32_t windowssys_windows_win32_system_js_jsConvertValueToBoolean(void* value, void* booleanvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -179,7 +179,7 @@ uint32_t windowssys_windows_win32_system_js_JsConvertValueToBoolean(void* value,
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsConvertValueToNumber(void* value, void* numbervalue) {
+uint32_t windowssys_windows_win32_system_js_jsConvertValueToNumber(void* value, void* numbervalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -202,7 +202,7 @@ uint32_t windowssys_windows_win32_system_js_JsConvertValueToNumber(void* value, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsConvertValueToObject(void* value, void* object) {
+uint32_t windowssys_windows_win32_system_js_jsConvertValueToObject(void* value, void* object) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -225,7 +225,7 @@ uint32_t windowssys_windows_win32_system_js_JsConvertValueToObject(void* value, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsConvertValueToString(void* value, void* stringvalue) {
+uint32_t windowssys_windows_win32_system_js_jsConvertValueToString(void* value, void* stringvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -248,7 +248,7 @@ uint32_t windowssys_windows_win32_system_js_JsConvertValueToString(void* value, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsCreateArray(uint32_t length, void* result) {
+uint32_t windowssys_windows_win32_system_js_jsCreateArray(uint32_t length, void* result) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -271,7 +271,7 @@ uint32_t windowssys_windows_win32_system_js_JsCreateArray(uint32_t length, void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsCreateError(void* message, void* error) {
+uint32_t windowssys_windows_win32_system_js_jsCreateError(void* message, void* error) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -294,7 +294,7 @@ uint32_t windowssys_windows_win32_system_js_JsCreateError(void* message, void* e
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsCreateExternalObject(void* data, void* finalizecallback, void* object) {
+uint32_t windowssys_windows_win32_system_js_jsCreateExternalObject(void* data, void* finalizecallback, void* object) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -318,7 +318,7 @@ uint32_t windowssys_windows_win32_system_js_JsCreateExternalObject(void* data, v
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsCreateFunction(void* nativefunction, void* callbackstate, void* function) {
+uint32_t windowssys_windows_win32_system_js_jsCreateFunction(void* nativefunction, void* callbackstate, void* function) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -342,7 +342,7 @@ uint32_t windowssys_windows_win32_system_js_JsCreateFunction(void* nativefunctio
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsCreateObject(void* object) {
+uint32_t windowssys_windows_win32_system_js_jsCreateObject(void* object) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -364,7 +364,7 @@ uint32_t windowssys_windows_win32_system_js_JsCreateObject(void* object) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsCreateRangeError(void* message, void* error) {
+uint32_t windowssys_windows_win32_system_js_jsCreateRangeError(void* message, void* error) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -387,7 +387,7 @@ uint32_t windowssys_windows_win32_system_js_JsCreateRangeError(void* message, vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsCreateReferenceError(void* message, void* error) {
+uint32_t windowssys_windows_win32_system_js_jsCreateReferenceError(void* message, void* error) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -410,7 +410,7 @@ uint32_t windowssys_windows_win32_system_js_JsCreateReferenceError(void* message
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsCreateRuntime(int32_t attributes, int32_t runtimeversion, void* threadservice, void* runtime) {
+uint32_t windowssys_windows_win32_system_js_jsCreateRuntime(int32_t attributes, int32_t runtimeversion, void* threadservice, void* runtime) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -435,7 +435,7 @@ uint32_t windowssys_windows_win32_system_js_JsCreateRuntime(int32_t attributes, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsCreateSyntaxError(void* message, void* error) {
+uint32_t windowssys_windows_win32_system_js_jsCreateSyntaxError(void* message, void* error) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -458,7 +458,7 @@ uint32_t windowssys_windows_win32_system_js_JsCreateSyntaxError(void* message, v
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsCreateTypeError(void* message, void* error) {
+uint32_t windowssys_windows_win32_system_js_jsCreateTypeError(void* message, void* error) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -481,7 +481,7 @@ uint32_t windowssys_windows_win32_system_js_JsCreateTypeError(void* message, voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsCreateURIError(void* message, void* error) {
+uint32_t windowssys_windows_win32_system_js_jsCreateURIError(void* message, void* error) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -504,7 +504,7 @@ uint32_t windowssys_windows_win32_system_js_JsCreateURIError(void* message, void
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsDefineProperty(void* object, void* propertyid, void* propertydescriptor, void* result) {
+uint32_t windowssys_windows_win32_system_js_jsDefineProperty(void* object, void* propertyid, void* propertydescriptor, void* result) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -529,7 +529,7 @@ uint32_t windowssys_windows_win32_system_js_JsDefineProperty(void* object, void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsDeleteIndexedProperty(void* object, void* arg_1_index) {
+uint32_t windowssys_windows_win32_system_js_jsDeleteIndexedProperty(void* object, void* arg_1_index) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -552,7 +552,7 @@ uint32_t windowssys_windows_win32_system_js_JsDeleteIndexedProperty(void* object
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsDeleteProperty(void* object, void* propertyid, uint8_t usestrictrules, void* result) {
+uint32_t windowssys_windows_win32_system_js_jsDeleteProperty(void* object, void* propertyid, uint8_t usestrictrules, void* result) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -577,7 +577,7 @@ uint32_t windowssys_windows_win32_system_js_JsDeleteProperty(void* object, void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsDisableRuntimeExecution(void* runtime) {
+uint32_t windowssys_windows_win32_system_js_jsDisableRuntimeExecution(void* runtime) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -599,7 +599,7 @@ uint32_t windowssys_windows_win32_system_js_JsDisableRuntimeExecution(void* runt
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsDisposeRuntime(void* runtime) {
+uint32_t windowssys_windows_win32_system_js_jsDisposeRuntime(void* runtime) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -621,7 +621,7 @@ uint32_t windowssys_windows_win32_system_js_JsDisposeRuntime(void* runtime) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsDoubleToNumber(double doublevalue, void* value) {
+uint32_t windowssys_windows_win32_system_js_jsDoubleToNumber(double doublevalue, void* value) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(double, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -644,7 +644,7 @@ uint32_t windowssys_windows_win32_system_js_JsDoubleToNumber(double doublevalue,
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsEnableRuntimeExecution(void* runtime) {
+uint32_t windowssys_windows_win32_system_js_jsEnableRuntimeExecution(void* runtime) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -666,7 +666,7 @@ uint32_t windowssys_windows_win32_system_js_JsEnableRuntimeExecution(void* runti
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsEquals(void* object1, void* object2, void* result) {
+uint32_t windowssys_windows_win32_system_js_jsEquals(void* object1, void* object2, void* result) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -690,7 +690,7 @@ uint32_t windowssys_windows_win32_system_js_JsEquals(void* object1, void* object
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsGetAndClearException(void* exception) {
+uint32_t windowssys_windows_win32_system_js_jsGetAndClearException(void* exception) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -712,7 +712,7 @@ uint32_t windowssys_windows_win32_system_js_JsGetAndClearException(void* excepti
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsGetCurrentContext(void* currentcontext) {
+uint32_t windowssys_windows_win32_system_js_jsGetCurrentContext(void* currentcontext) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -734,7 +734,7 @@ uint32_t windowssys_windows_win32_system_js_JsGetCurrentContext(void* currentcon
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsGetExtensionAllowed(void* object, void* value) {
+uint32_t windowssys_windows_win32_system_js_jsGetExtensionAllowed(void* object, void* value) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -757,7 +757,7 @@ uint32_t windowssys_windows_win32_system_js_JsGetExtensionAllowed(void* object, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsGetExternalData(void* object, void* externaldata) {
+uint32_t windowssys_windows_win32_system_js_jsGetExternalData(void* object, void* externaldata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -780,7 +780,7 @@ uint32_t windowssys_windows_win32_system_js_JsGetExternalData(void* object, void
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsGetFalseValue(void* falsevalue) {
+uint32_t windowssys_windows_win32_system_js_jsGetFalseValue(void* falsevalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -802,7 +802,7 @@ uint32_t windowssys_windows_win32_system_js_JsGetFalseValue(void* falsevalue) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsGetGlobalObject(void* globalobject) {
+uint32_t windowssys_windows_win32_system_js_jsGetGlobalObject(void* globalobject) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -824,7 +824,7 @@ uint32_t windowssys_windows_win32_system_js_JsGetGlobalObject(void* globalobject
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsGetIndexedProperty(void* object, void* arg_1_index, void* result) {
+uint32_t windowssys_windows_win32_system_js_jsGetIndexedProperty(void* object, void* arg_1_index, void* result) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -848,7 +848,7 @@ uint32_t windowssys_windows_win32_system_js_JsGetIndexedProperty(void* object, v
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsGetNullValue(void* nullvalue) {
+uint32_t windowssys_windows_win32_system_js_jsGetNullValue(void* nullvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -870,7 +870,7 @@ uint32_t windowssys_windows_win32_system_js_JsGetNullValue(void* nullvalue) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsGetOwnPropertyDescriptor(void* object, void* propertyid, void* propertydescriptor) {
+uint32_t windowssys_windows_win32_system_js_jsGetOwnPropertyDescriptor(void* object, void* propertyid, void* propertydescriptor) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -894,7 +894,7 @@ uint32_t windowssys_windows_win32_system_js_JsGetOwnPropertyDescriptor(void* obj
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsGetOwnPropertyNames(void* object, void* propertynames) {
+uint32_t windowssys_windows_win32_system_js_jsGetOwnPropertyNames(void* object, void* propertynames) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -917,7 +917,7 @@ uint32_t windowssys_windows_win32_system_js_JsGetOwnPropertyNames(void* object, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsGetProperty(void* object, void* propertyid, void* value) {
+uint32_t windowssys_windows_win32_system_js_jsGetProperty(void* object, void* propertyid, void* value) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -941,7 +941,7 @@ uint32_t windowssys_windows_win32_system_js_JsGetProperty(void* object, void* pr
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsGetPropertyIdFromName(void* name, void* propertyid) {
+uint32_t windowssys_windows_win32_system_js_jsGetPropertyIdFromName(void* name, void* propertyid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -964,7 +964,7 @@ uint32_t windowssys_windows_win32_system_js_JsGetPropertyIdFromName(void* name, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsGetPropertyNameFromId(void* propertyid, void* name) {
+uint32_t windowssys_windows_win32_system_js_jsGetPropertyNameFromId(void* propertyid, void* name) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -987,7 +987,7 @@ uint32_t windowssys_windows_win32_system_js_JsGetPropertyNameFromId(void* proper
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsGetPrototype(void* object, void* prototypeobject) {
+uint32_t windowssys_windows_win32_system_js_jsGetPrototype(void* object, void* prototypeobject) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1010,7 +1010,7 @@ uint32_t windowssys_windows_win32_system_js_JsGetPrototype(void* object, void* p
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsGetRuntime(void* context, void* runtime) {
+uint32_t windowssys_windows_win32_system_js_jsGetRuntime(void* context, void* runtime) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1033,7 +1033,7 @@ uint32_t windowssys_windows_win32_system_js_JsGetRuntime(void* context, void* ru
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsGetRuntimeMemoryLimit(void* runtime, void* memorylimit) {
+uint32_t windowssys_windows_win32_system_js_jsGetRuntimeMemoryLimit(void* runtime, void* memorylimit) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1056,7 +1056,7 @@ uint32_t windowssys_windows_win32_system_js_JsGetRuntimeMemoryLimit(void* runtim
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsGetRuntimeMemoryUsage(void* runtime, void* memoryusage) {
+uint32_t windowssys_windows_win32_system_js_jsGetRuntimeMemoryUsage(void* runtime, void* memoryusage) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1079,7 +1079,7 @@ uint32_t windowssys_windows_win32_system_js_JsGetRuntimeMemoryUsage(void* runtim
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsGetStringLength(void* stringvalue, void* length) {
+uint32_t windowssys_windows_win32_system_js_jsGetStringLength(void* stringvalue, void* length) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1102,7 +1102,7 @@ uint32_t windowssys_windows_win32_system_js_JsGetStringLength(void* stringvalue,
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsGetTrueValue(void* truevalue) {
+uint32_t windowssys_windows_win32_system_js_jsGetTrueValue(void* truevalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1124,7 +1124,7 @@ uint32_t windowssys_windows_win32_system_js_JsGetTrueValue(void* truevalue) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsGetUndefinedValue(void* undefinedvalue) {
+uint32_t windowssys_windows_win32_system_js_jsGetUndefinedValue(void* undefinedvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1146,7 +1146,7 @@ uint32_t windowssys_windows_win32_system_js_JsGetUndefinedValue(void* undefinedv
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsGetValueType(void* value, void* type) {
+uint32_t windowssys_windows_win32_system_js_jsGetValueType(void* value, void* type) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1169,7 +1169,7 @@ uint32_t windowssys_windows_win32_system_js_JsGetValueType(void* value, void* ty
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsHasException(void* hasexception) {
+uint32_t windowssys_windows_win32_system_js_jsHasException(void* hasexception) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1191,7 +1191,7 @@ uint32_t windowssys_windows_win32_system_js_JsHasException(void* hasexception) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsHasExternalData(void* object, void* value) {
+uint32_t windowssys_windows_win32_system_js_jsHasExternalData(void* object, void* value) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1214,7 +1214,7 @@ uint32_t windowssys_windows_win32_system_js_JsHasExternalData(void* object, void
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsHasIndexedProperty(void* object, void* arg_1_index, void* result) {
+uint32_t windowssys_windows_win32_system_js_jsHasIndexedProperty(void* object, void* arg_1_index, void* result) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1238,7 +1238,7 @@ uint32_t windowssys_windows_win32_system_js_JsHasIndexedProperty(void* object, v
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsHasProperty(void* object, void* propertyid, void* hasproperty) {
+uint32_t windowssys_windows_win32_system_js_jsHasProperty(void* object, void* propertyid, void* hasproperty) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1262,7 +1262,7 @@ uint32_t windowssys_windows_win32_system_js_JsHasProperty(void* object, void* pr
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsIdle(void* nextidletick) {
+uint32_t windowssys_windows_win32_system_js_jsIdle(void* nextidletick) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1284,7 +1284,7 @@ uint32_t windowssys_windows_win32_system_js_JsIdle(void* nextidletick) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsIntToNumber(int32_t intvalue, void* value) {
+uint32_t windowssys_windows_win32_system_js_jsIntToNumber(int32_t intvalue, void* value) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1307,7 +1307,7 @@ uint32_t windowssys_windows_win32_system_js_JsIntToNumber(int32_t intvalue, void
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsIsEnumeratingHeap(void* isenumeratingheap) {
+uint32_t windowssys_windows_win32_system_js_jsIsEnumeratingHeap(void* isenumeratingheap) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1329,7 +1329,7 @@ uint32_t windowssys_windows_win32_system_js_JsIsEnumeratingHeap(void* isenumerat
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsIsRuntimeExecutionDisabled(void* runtime, void* isdisabled) {
+uint32_t windowssys_windows_win32_system_js_jsIsRuntimeExecutionDisabled(void* runtime, void* isdisabled) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1352,7 +1352,7 @@ uint32_t windowssys_windows_win32_system_js_JsIsRuntimeExecutionDisabled(void* r
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsNumberToDouble(void* value, void* doublevalue) {
+uint32_t windowssys_windows_win32_system_js_jsNumberToDouble(void* value, void* doublevalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1375,7 +1375,7 @@ uint32_t windowssys_windows_win32_system_js_JsNumberToDouble(void* value, void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsParseScript(void* script, uint64_t sourcecontext, void* sourceurl, void* result) {
+uint32_t windowssys_windows_win32_system_js_jsParseScript(void* script, uint64_t sourcecontext, void* sourceurl, void* result) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1400,7 +1400,7 @@ uint32_t windowssys_windows_win32_system_js_JsParseScript(void* script, uint64_t
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsParseSerializedScript(void* script, void* buffer, uint64_t sourcecontext, void* sourceurl, void* result) {
+uint32_t windowssys_windows_win32_system_js_jsParseSerializedScript(void* script, void* buffer, uint64_t sourcecontext, void* sourceurl, void* result) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1426,7 +1426,7 @@ uint32_t windowssys_windows_win32_system_js_JsParseSerializedScript(void* script
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsPointerToString(void* stringvalue, uint64_t stringlength, void* value) {
+uint32_t windowssys_windows_win32_system_js_jsPointerToString(void* stringvalue, uint64_t stringlength, void* value) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1450,7 +1450,7 @@ uint32_t windowssys_windows_win32_system_js_JsPointerToString(void* stringvalue,
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsPreventExtension(void* object) {
+uint32_t windowssys_windows_win32_system_js_jsPreventExtension(void* object) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1472,7 +1472,7 @@ uint32_t windowssys_windows_win32_system_js_JsPreventExtension(void* object) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsRelease(void* ref, void* count) {
+uint32_t windowssys_windows_win32_system_js_jsRelease(void* ref, void* count) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1495,7 +1495,7 @@ uint32_t windowssys_windows_win32_system_js_JsRelease(void* ref, void* count) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsRunScript(void* script, uint64_t sourcecontext, void* sourceurl, void* result) {
+uint32_t windowssys_windows_win32_system_js_jsRunScript(void* script, uint64_t sourcecontext, void* sourceurl, void* result) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1520,7 +1520,7 @@ uint32_t windowssys_windows_win32_system_js_JsRunScript(void* script, uint64_t s
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsRunSerializedScript(void* script, void* buffer, uint64_t sourcecontext, void* sourceurl, void* result) {
+uint32_t windowssys_windows_win32_system_js_jsRunSerializedScript(void* script, void* buffer, uint64_t sourcecontext, void* sourceurl, void* result) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1546,7 +1546,7 @@ uint32_t windowssys_windows_win32_system_js_JsRunSerializedScript(void* script, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsSerializeScript(void* script, void* buffer, void* buffersize) {
+uint32_t windowssys_windows_win32_system_js_jsSerializeScript(void* script, void* buffer, void* buffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1570,7 +1570,7 @@ uint32_t windowssys_windows_win32_system_js_JsSerializeScript(void* script, void
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsSetCurrentContext(void* context) {
+uint32_t windowssys_windows_win32_system_js_jsSetCurrentContext(void* context) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1592,7 +1592,7 @@ uint32_t windowssys_windows_win32_system_js_JsSetCurrentContext(void* context) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsSetException(void* exception) {
+uint32_t windowssys_windows_win32_system_js_jsSetException(void* exception) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1614,7 +1614,7 @@ uint32_t windowssys_windows_win32_system_js_JsSetException(void* exception) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsSetExternalData(void* object, void* externaldata) {
+uint32_t windowssys_windows_win32_system_js_jsSetExternalData(void* object, void* externaldata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1637,7 +1637,7 @@ uint32_t windowssys_windows_win32_system_js_JsSetExternalData(void* object, void
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsSetIndexedProperty(void* object, void* arg_1_index, void* value) {
+uint32_t windowssys_windows_win32_system_js_jsSetIndexedProperty(void* object, void* arg_1_index, void* value) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1661,7 +1661,7 @@ uint32_t windowssys_windows_win32_system_js_JsSetIndexedProperty(void* object, v
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsSetProperty(void* object, void* propertyid, void* value, uint8_t usestrictrules) {
+uint32_t windowssys_windows_win32_system_js_jsSetProperty(void* object, void* propertyid, void* value, uint8_t usestrictrules) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1686,7 +1686,7 @@ uint32_t windowssys_windows_win32_system_js_JsSetProperty(void* object, void* pr
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsSetPrototype(void* object, void* prototypeobject) {
+uint32_t windowssys_windows_win32_system_js_jsSetPrototype(void* object, void* prototypeobject) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1709,7 +1709,7 @@ uint32_t windowssys_windows_win32_system_js_JsSetPrototype(void* object, void* p
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsSetRuntimeBeforeCollectCallback(void* runtime, void* callbackstate, void* beforecollectcallback) {
+uint32_t windowssys_windows_win32_system_js_jsSetRuntimeBeforeCollectCallback(void* runtime, void* callbackstate, void* beforecollectcallback) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1733,7 +1733,7 @@ uint32_t windowssys_windows_win32_system_js_JsSetRuntimeBeforeCollectCallback(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsSetRuntimeMemoryAllocationCallback(void* runtime, void* callbackstate, void* allocationcallback) {
+uint32_t windowssys_windows_win32_system_js_jsSetRuntimeMemoryAllocationCallback(void* runtime, void* callbackstate, void* allocationcallback) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1757,7 +1757,7 @@ uint32_t windowssys_windows_win32_system_js_JsSetRuntimeMemoryAllocationCallback
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsSetRuntimeMemoryLimit(void* runtime, uint64_t memorylimit) {
+uint32_t windowssys_windows_win32_system_js_jsSetRuntimeMemoryLimit(void* runtime, uint64_t memorylimit) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1780,7 +1780,7 @@ uint32_t windowssys_windows_win32_system_js_JsSetRuntimeMemoryLimit(void* runtim
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsStopProfiling(int32_t reason) {
+uint32_t windowssys_windows_win32_system_js_jsStopProfiling(int32_t reason) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1802,7 +1802,7 @@ uint32_t windowssys_windows_win32_system_js_JsStopProfiling(int32_t reason) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsStrictEquals(void* object1, void* object2, void* result) {
+uint32_t windowssys_windows_win32_system_js_jsStrictEquals(void* object1, void* object2, void* result) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1826,7 +1826,7 @@ uint32_t windowssys_windows_win32_system_js_JsStrictEquals(void* object1, void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsStringToPointer(void* value, void* stringvalue, void* stringlength) {
+uint32_t windowssys_windows_win32_system_js_jsStringToPointer(void* value, void* stringvalue, void* stringlength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1850,7 +1850,7 @@ uint32_t windowssys_windows_win32_system_js_JsStringToPointer(void* value, void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsValueToVariant(void* object, void* variant) {
+uint32_t windowssys_windows_win32_system_js_jsValueToVariant(void* object, void* variant) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1873,7 +1873,7 @@ uint32_t windowssys_windows_win32_system_js_JsValueToVariant(void* object, void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_js_JsVariantToValue(void* variant, void* value) {
+uint32_t windowssys_windows_win32_system_js_jsVariantToValue(void* variant, void* value) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;

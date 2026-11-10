@@ -1,15 +1,17 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.kernel
 
-public expect fun RtlFirstEntrySList(listhead: Long): Long
+import io.github.kotlinmania.windowssys.COpaquePointer
 
-public expect fun RtlInitializeSListHead(listhead: Long)
+public expect fun rtlFirstEntrySList(listhead: COpaquePointer?): COpaquePointer?
 
-public expect fun RtlInterlockedFlushSList(listhead: Long): Long
+public expect fun rtlInitializeSListHead(listhead: COpaquePointer?)
 
-public expect fun RtlInterlockedPopEntrySList(listhead: Long): Long
+public expect fun rtlInterlockedFlushSList(listhead: COpaquePointer?): COpaquePointer?
 
-public expect fun RtlInterlockedPushEntrySList(listhead: Long, listentry: Long): Long
+public expect fun rtlInterlockedPopEntrySList(listhead: COpaquePointer?): COpaquePointer?
 
-public expect fun RtlInterlockedPushListSListEx(listhead: Long, list: Long, listend: Long, count: UInt): Long
+public expect fun rtlInterlockedPushEntrySList(listhead: COpaquePointer?, listentry: COpaquePointer?): COpaquePointer?
 
-public expect fun RtlQueryDepthSList(listhead: Long): UShort
+public expect fun rtlInterlockedPushListSListEx(listhead: COpaquePointer?, list: COpaquePointer?, listend: COpaquePointer?, count: UInt): COpaquePointer?
+
+public expect fun rtlQueryDepthSList(listhead: COpaquePointer?): UShort

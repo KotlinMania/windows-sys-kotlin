@@ -2,393 +2,394 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.accessibility
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.BSTR
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HMODULE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LRESULT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
-import io.github.kotlinmania.windowssys.windows.win32.system.variant.VARIANT
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.POINTER_INPUT_TYPE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Bstr
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hmodule
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Variant
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.PointerInputType
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun AccNotifyTouchInteraction(hwndapp: HWND, hwndtarget: HWND, pttarget: POINT): HRESULT =
+public actual fun accNotifyTouchInteraction(hwndapp: Hwnd, hwndtarget: Hwnd, pttarget: Point): Hresult =
     0
 
-public actual fun AccSetRunningUtilityState(hwndapp: HWND, dwutilitystatemask: UInt, dwutilitystate: ACC_UTILITY_STATE_FLAGS): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_AccSetRunningUtilityState(hwndapp.toCPointer<ByteVar>(), dwutilitystatemask, dwutilitystate)
+public actual fun accSetRunningUtilityState(hwndapp: Hwnd, dwutilitystatemask: UInt, dwutilitystate: AccUtilityStateFlags): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_accSetRunningUtilityState(hwndapp?.value?.toCPointer<ByteVar>(), dwutilitystatemask, dwutilitystate)
 
-public actual fun AccessibleChildren(pacccontainer: Long, ichildstart: Int, cchildren: Int, rgvarchildren: Long, pcobtained: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_AccessibleChildren(pacccontainer.toCPointer<ByteVar>(), ichildstart, cchildren, rgvarchildren.toCPointer<ByteVar>(), pcobtained.toCPointer<ByteVar>())
+public actual fun accessibleChildren(pacccontainer: COpaquePointer?, ichildstart: Int, cchildren: Int, rgvarchildren: COpaquePointer?, pcobtained: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_accessibleChildren(pacccontainer?.value?.toCPointer<ByteVar>(), ichildstart, cchildren, rgvarchildren?.value?.toCPointer<ByteVar>(), pcobtained?.value?.toCPointer<ByteVar>())
 
-public actual fun AccessibleObjectFromEvent(hwnd: HWND, dwid: UInt, dwchildid: UInt, ppacc: Long, pvarchild: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_AccessibleObjectFromEvent(hwnd.toCPointer<ByteVar>(), dwid, dwchildid, ppacc.toCPointer<ByteVar>(), pvarchild.toCPointer<ByteVar>())
+public actual fun accessibleObjectFromEvent(hwnd: Hwnd, dwid: UInt, dwchildid: UInt, ppacc: COpaquePointer?, pvarchild: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_accessibleObjectFromEvent(hwnd?.value?.toCPointer<ByteVar>(), dwid, dwchildid, ppacc?.value?.toCPointer<ByteVar>(), pvarchild?.value?.toCPointer<ByteVar>())
 
-public actual fun AccessibleObjectFromPoint(ptscreen: POINT, ppacc: Long, pvarchild: Long): HRESULT =
+public actual fun accessibleObjectFromPoint(ptscreen: Point, ppacc: COpaquePointer?, pvarchild: COpaquePointer?): Hresult =
     0
 
-public actual fun AccessibleObjectFromWindow(hwnd: HWND, dwid: UInt, riid: Long, ppvobject: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_AccessibleObjectFromWindow(hwnd.toCPointer<ByteVar>(), dwid, riid.toCPointer<ByteVar>(), ppvobject.toCPointer<ByteVar>())
+public actual fun accessibleObjectFromWindow(hwnd: Hwnd, dwid: UInt, riid: COpaquePointer?, ppvobject: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_accessibleObjectFromWindow(hwnd?.value?.toCPointer<ByteVar>(), dwid, riid?.value?.toCPointer<ByteVar>(), ppvobject?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateStdAccessibleObject(hwnd: HWND, idobject: Int, riid: Long, ppvobject: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_CreateStdAccessibleObject(hwnd.toCPointer<ByteVar>(), idobject, riid.toCPointer<ByteVar>(), ppvobject.toCPointer<ByteVar>())
+public actual fun createStdAccessibleObject(hwnd: Hwnd, idobject: Int, riid: COpaquePointer?, ppvobject: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_createStdAccessibleObject(hwnd?.value?.toCPointer<ByteVar>(), idobject, riid?.value?.toCPointer<ByteVar>(), ppvobject?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateStdAccessibleProxyA(hwnd: HWND, pclassname: PCSTR, idobject: Int, riid: Long, ppvobject: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_CreateStdAccessibleProxyA(hwnd.toCPointer<ByteVar>(), pclassname.toCPointer<ByteVar>(), idobject, riid.toCPointer<ByteVar>(), ppvobject.toCPointer<ByteVar>())
+public actual fun createStdAccessibleProxyA(hwnd: Hwnd, pclassname: Pcstr, idobject: Int, riid: COpaquePointer?, ppvobject: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_createStdAccessibleProxyA(hwnd?.value?.toCPointer<ByteVar>(), pclassname?.value?.toCPointer<ByteVar>(), idobject, riid?.value?.toCPointer<ByteVar>(), ppvobject?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateStdAccessibleProxyW(hwnd: HWND, pclassname: PCWSTR, idobject: Int, riid: Long, ppvobject: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_CreateStdAccessibleProxyW(hwnd.toCPointer<ByteVar>(), pclassname.toCPointer<ByteVar>(), idobject, riid.toCPointer<ByteVar>(), ppvobject.toCPointer<ByteVar>())
+public actual fun createStdAccessibleProxyW(hwnd: Hwnd, pclassname: Pcwstr, idobject: Int, riid: COpaquePointer?, ppvobject: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_createStdAccessibleProxyW(hwnd?.value?.toCPointer<ByteVar>(), pclassname?.value?.toCPointer<ByteVar>(), idobject, riid?.value?.toCPointer<ByteVar>(), ppvobject?.value?.toCPointer<ByteVar>())
 
-public actual fun DockPattern_SetDockPosition(hobj: HUIAPATTERNOBJECT, dockposition: DockPosition): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_DockPattern_SetDockPosition(hobj.toCPointer<ByteVar>(), dockposition)
+public actual fun dockPatternSetDockPosition(hobj: Huiapatternobject, dockposition: DockPosition): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_dockPatternSetDockPosition(hobj?.value?.toCPointer<ByteVar>(), dockposition)
 
-public actual fun ExpandCollapsePattern_Collapse(hobj: HUIAPATTERNOBJECT): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_ExpandCollapsePattern_Collapse(hobj.toCPointer<ByteVar>())
+public actual fun expandCollapsePatternCollapse(hobj: Huiapatternobject): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_expandCollapsePatternCollapse(hobj?.value?.toCPointer<ByteVar>())
 
-public actual fun ExpandCollapsePattern_Expand(hobj: HUIAPATTERNOBJECT): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_ExpandCollapsePattern_Expand(hobj.toCPointer<ByteVar>())
+public actual fun expandCollapsePatternExpand(hobj: Huiapatternobject): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_expandCollapsePatternExpand(hobj?.value?.toCPointer<ByteVar>())
 
-public actual fun GetOleaccVersionInfo(pver: Long, pbuild: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_GetOleaccVersionInfo(pver.toCPointer<ByteVar>(), pbuild.toCPointer<ByteVar>())
+public actual fun getOleaccVersionInfo(pver: COpaquePointer?, pbuild: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_getOleaccVersionInfo(pver?.value?.toCPointer<ByteVar>(), pbuild?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun GetRoleTextA(lrole: UInt, lpszrole: PSTR, cchrolemax: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_GetRoleTextA(lrole, lpszrole.toCPointer<ByteVar>(), cchrolemax)
+public actual fun getRoleTextA(lrole: UInt, lpszrole: Pstr, cchrolemax: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_getRoleTextA(lrole, lpszrole?.value?.toCPointer<ByteVar>(), cchrolemax)
 
-public actual fun GetRoleTextW(lrole: UInt, lpszrole: PWSTR, cchrolemax: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_GetRoleTextW(lrole, lpszrole.toCPointer<ByteVar>(), cchrolemax)
+public actual fun getRoleTextW(lrole: UInt, lpszrole: Pwstr, cchrolemax: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_getRoleTextW(lrole, lpszrole?.value?.toCPointer<ByteVar>(), cchrolemax)
 
-public actual fun GetStateTextA(lstatebit: UInt, lpszstate: PSTR, cchstate: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_GetStateTextA(lstatebit, lpszstate.toCPointer<ByteVar>(), cchstate)
+public actual fun getStateTextA(lstatebit: UInt, lpszstate: Pstr, cchstate: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_getStateTextA(lstatebit, lpszstate?.value?.toCPointer<ByteVar>(), cchstate)
 
-public actual fun GetStateTextW(lstatebit: UInt, lpszstate: PWSTR, cchstate: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_GetStateTextW(lstatebit, lpszstate.toCPointer<ByteVar>(), cchstate)
+public actual fun getStateTextW(lstatebit: UInt, lpszstate: Pwstr, cchstate: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_getStateTextW(lstatebit, lpszstate?.value?.toCPointer<ByteVar>(), cchstate)
 
-public actual fun GridPattern_GetItem(hobj: HUIAPATTERNOBJECT, row: Int, column: Int, presult: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_GridPattern_GetItem(hobj.toCPointer<ByteVar>(), row, column, presult.toCPointer<ByteVar>())
+public actual fun gridPatternGetItem(hobj: Huiapatternobject, row: Int, column: Int, presult: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_gridPatternGetItem(hobj?.value?.toCPointer<ByteVar>(), row, column, presult?.value?.toCPointer<ByteVar>())
 
-public actual fun InvokePattern_Invoke(hobj: HUIAPATTERNOBJECT): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_InvokePattern_Invoke(hobj.toCPointer<ByteVar>())
+public actual fun invokePatternInvoke(hobj: Huiapatternobject): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_invokePatternInvoke(hobj?.value?.toCPointer<ByteVar>())
 
-public actual fun IsWinEventHookInstalled(event: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_IsWinEventHookInstalled(event)
+public actual fun isWinEventHookInstalled(event: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_isWinEventHookInstalled(event)
 
-public actual fun ItemContainerPattern_FindItemByProperty(hobj: HUIAPATTERNOBJECT, hnodestartafter: HUIANODE, propertyid: Int, value: VARIANT, pfound: Long): HRESULT =
+public actual fun itemContainerPatternFindItemByProperty(hobj: Huiapatternobject, hnodestartafter: Huianode, propertyid: Int, value: Variant, pfound: COpaquePointer?): Hresult =
     0
 
-public actual fun LegacyIAccessiblePattern_DoDefaultAction(hobj: HUIAPATTERNOBJECT): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_LegacyIAccessiblePattern_DoDefaultAction(hobj.toCPointer<ByteVar>())
+public actual fun legacyIaccessiblePatternDoDefaultAction(hobj: Huiapatternobject): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_legacyIaccessiblePatternDoDefaultAction(hobj?.value?.toCPointer<ByteVar>())
 
-public actual fun LegacyIAccessiblePattern_GetIAccessible(hobj: HUIAPATTERNOBJECT, paccessible: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_LegacyIAccessiblePattern_GetIAccessible(hobj.toCPointer<ByteVar>(), paccessible.toCPointer<ByteVar>())
+public actual fun legacyIaccessiblePatternGetIaccessible(hobj: Huiapatternobject, paccessible: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_legacyIaccessiblePatternGetIaccessible(hobj?.value?.toCPointer<ByteVar>(), paccessible?.value?.toCPointer<ByteVar>())
 
-public actual fun LegacyIAccessiblePattern_Select(hobj: HUIAPATTERNOBJECT, flagsselect: Int): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_LegacyIAccessiblePattern_Select(hobj.toCPointer<ByteVar>(), flagsselect)
+public actual fun legacyIaccessiblePatternSelect(hobj: Huiapatternobject, flagsselect: Int): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_legacyIaccessiblePatternSelect(hobj?.value?.toCPointer<ByteVar>(), flagsselect)
 
-public actual fun LegacyIAccessiblePattern_SetValue(hobj: HUIAPATTERNOBJECT, szvalue: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_LegacyIAccessiblePattern_SetValue(hobj.toCPointer<ByteVar>(), szvalue.toCPointer<ByteVar>())
+public actual fun legacyIaccessiblePatternSetValue(hobj: Huiapatternobject, szvalue: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_legacyIaccessiblePatternSetValue(hobj?.value?.toCPointer<ByteVar>(), szvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun LresultFromObject(riid: Long, wparam: WPARAM, punk: Long): LRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_LresultFromObject(riid.toCPointer<ByteVar>(), wparam, punk.toCPointer<ByteVar>())
+public actual fun lresultFromObject(riid: COpaquePointer?, wparam: Wparam, punk: COpaquePointer?): Lresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_lresultFromObject(riid?.value?.toCPointer<ByteVar>(), wparam, punk?.value?.toCPointer<ByteVar>())
 
-public actual fun MultipleViewPattern_GetViewName(hobj: HUIAPATTERNOBJECT, viewid: Int, ppstr: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_MultipleViewPattern_GetViewName(hobj.toCPointer<ByteVar>(), viewid, ppstr.toCPointer<ByteVar>())
+public actual fun multipleViewPatternGetViewName(hobj: Huiapatternobject, viewid: Int, ppstr: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_multipleViewPatternGetViewName(hobj?.value?.toCPointer<ByteVar>(), viewid, ppstr?.value?.toCPointer<ByteVar>())
 
-public actual fun MultipleViewPattern_SetCurrentView(hobj: HUIAPATTERNOBJECT, viewid: Int): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_MultipleViewPattern_SetCurrentView(hobj.toCPointer<ByteVar>(), viewid)
+public actual fun multipleViewPatternSetCurrentView(hobj: Huiapatternobject, viewid: Int): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_multipleViewPatternSetCurrentView(hobj?.value?.toCPointer<ByteVar>(), viewid)
 
-public actual fun NotifyWinEvent(event: UInt, hwnd: HWND, idobject: Int, idchild: Int) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_NotifyWinEvent(event, hwnd.toCPointer<ByteVar>(), idobject, idchild)
+public actual fun notifyWinEvent(event: UInt, hwnd: Hwnd, idobject: Int, idchild: Int) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_notifyWinEvent(event, hwnd?.value?.toCPointer<ByteVar>(), idobject, idchild)
 }
 
-public actual fun ObjectFromLresult(lresult: LRESULT, riid: Long, wparam: WPARAM, ppvobject: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_ObjectFromLresult(lresult, riid.toCPointer<ByteVar>(), wparam, ppvobject.toCPointer<ByteVar>())
+public actual fun objectFromLresult(lresult: Lresult, riid: COpaquePointer?, wparam: Wparam, ppvobject: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_objectFromLresult(lresult, riid?.value?.toCPointer<ByteVar>(), wparam, ppvobject?.value?.toCPointer<ByteVar>())
 
-public actual fun RangeValuePattern_SetValue(hobj: HUIAPATTERNOBJECT, value: Double): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_RangeValuePattern_SetValue(hobj.toCPointer<ByteVar>(), value)
+public actual fun rangeValuePatternSetValue(hobj: Huiapatternobject, value: Double): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_rangeValuePatternSetValue(hobj?.value?.toCPointer<ByteVar>(), value)
 
-public actual fun RegisterPointerInputTarget(hwnd: HWND, pointertype: POINTER_INPUT_TYPE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_RegisterPointerInputTarget(hwnd.toCPointer<ByteVar>(), pointertype)
+public actual fun registerPointerInputTarget(hwnd: Hwnd, pointertype: PointerInputType): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_registerPointerInputTarget(hwnd?.value?.toCPointer<ByteVar>(), pointertype)
 
-public actual fun RegisterPointerInputTargetEx(hwnd: HWND, pointertype: POINTER_INPUT_TYPE, fobserve: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_RegisterPointerInputTargetEx(hwnd.toCPointer<ByteVar>(), pointertype, fobserve)
+public actual fun registerPointerInputTargetEx(hwnd: Hwnd, pointertype: PointerInputType, fobserve: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_registerPointerInputTargetEx(hwnd?.value?.toCPointer<ByteVar>(), pointertype, fobserve)
 
-public actual fun ScrollItemPattern_ScrollIntoView(hobj: HUIAPATTERNOBJECT): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_ScrollItemPattern_ScrollIntoView(hobj.toCPointer<ByteVar>())
+public actual fun scrollItemPatternScrollIntoView(hobj: Huiapatternobject): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_scrollItemPatternScrollIntoView(hobj?.value?.toCPointer<ByteVar>())
 
-public actual fun ScrollPattern_Scroll(hobj: HUIAPATTERNOBJECT, horizontalamount: ScrollAmount, verticalamount: ScrollAmount): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_ScrollPattern_Scroll(hobj.toCPointer<ByteVar>(), horizontalamount, verticalamount)
+public actual fun scrollPatternScroll(hobj: Huiapatternobject, horizontalamount: ScrollAmount, verticalamount: ScrollAmount): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_scrollPatternScroll(hobj?.value?.toCPointer<ByteVar>(), horizontalamount, verticalamount)
 
-public actual fun ScrollPattern_SetScrollPercent(hobj: HUIAPATTERNOBJECT, horizontalpercent: Double, verticalpercent: Double): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_ScrollPattern_SetScrollPercent(hobj.toCPointer<ByteVar>(), horizontalpercent, verticalpercent)
+public actual fun scrollPatternSetScrollPercent(hobj: Huiapatternobject, horizontalpercent: Double, verticalpercent: Double): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_scrollPatternSetScrollPercent(hobj?.value?.toCPointer<ByteVar>(), horizontalpercent, verticalpercent)
 
-public actual fun SelectionItemPattern_AddToSelection(hobj: HUIAPATTERNOBJECT): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_SelectionItemPattern_AddToSelection(hobj.toCPointer<ByteVar>())
+public actual fun selectionItemPatternAddToSelection(hobj: Huiapatternobject): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_selectionItemPatternAddToSelection(hobj?.value?.toCPointer<ByteVar>())
 
-public actual fun SelectionItemPattern_RemoveFromSelection(hobj: HUIAPATTERNOBJECT): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_SelectionItemPattern_RemoveFromSelection(hobj.toCPointer<ByteVar>())
+public actual fun selectionItemPatternRemoveFromSelection(hobj: Huiapatternobject): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_selectionItemPatternRemoveFromSelection(hobj?.value?.toCPointer<ByteVar>())
 
-public actual fun SelectionItemPattern_Select(hobj: HUIAPATTERNOBJECT): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_SelectionItemPattern_Select(hobj.toCPointer<ByteVar>())
+public actual fun selectionItemPatternSelect(hobj: Huiapatternobject): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_selectionItemPatternSelect(hobj?.value?.toCPointer<ByteVar>())
 
-public actual fun SetWinEventHook(eventmin: UInt, eventmax: UInt, hmodwineventproc: HMODULE, pfnwineventproc: WINEVENTPROC, idprocess: UInt, idthread: UInt, dwflags: UInt): HWINEVENTHOOK =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_SetWinEventHook(eventmin, eventmax, hmodwineventproc.toCPointer<ByteVar>(), pfnwineventproc.toLong().toCPointer<ByteVar>(), idprocess, idthread, dwflags)?.toLong() ?: 0L
+public actual fun setWinEventHook(eventmin: UInt, eventmax: UInt, hmodwineventproc: Hmodule, pfnwineventproc: Wineventproc, idprocess: UInt, idthread: UInt, dwflags: UInt): Hwineventhook =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_setWinEventHook(eventmin, eventmax, hmodwineventproc?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), idprocess, idthread, dwflags)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun SynchronizedInputPattern_Cancel(hobj: HUIAPATTERNOBJECT): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_SynchronizedInputPattern_Cancel(hobj.toCPointer<ByteVar>())
+public actual fun synchronizedInputPatternCancel(hobj: Huiapatternobject): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_synchronizedInputPatternCancel(hobj?.value?.toCPointer<ByteVar>())
 
-public actual fun SynchronizedInputPattern_StartListening(hobj: HUIAPATTERNOBJECT, inputtype: SynchronizedInputType): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_SynchronizedInputPattern_StartListening(hobj.toCPointer<ByteVar>(), inputtype)
+public actual fun synchronizedInputPatternStartListening(hobj: Huiapatternobject, inputtype: SynchronizedInputType): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_synchronizedInputPatternStartListening(hobj?.value?.toCPointer<ByteVar>(), inputtype)
 
-public actual fun TextPattern_GetSelection(hobj: HUIAPATTERNOBJECT, pretval: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_TextPattern_GetSelection(hobj.toCPointer<ByteVar>(), pretval.toCPointer<ByteVar>())
+public actual fun textPatternGetSelection(hobj: Huiapatternobject, pretval: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_textPatternGetSelection(hobj?.value?.toCPointer<ByteVar>(), pretval?.value?.toCPointer<ByteVar>())
 
-public actual fun TextPattern_GetVisibleRanges(hobj: HUIAPATTERNOBJECT, pretval: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_TextPattern_GetVisibleRanges(hobj.toCPointer<ByteVar>(), pretval.toCPointer<ByteVar>())
+public actual fun textPatternGetVisibleRanges(hobj: Huiapatternobject, pretval: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_textPatternGetVisibleRanges(hobj?.value?.toCPointer<ByteVar>(), pretval?.value?.toCPointer<ByteVar>())
 
-public actual fun TextPattern_RangeFromChild(hobj: HUIAPATTERNOBJECT, hnodechild: HUIANODE, pretval: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_TextPattern_RangeFromChild(hobj.toCPointer<ByteVar>(), hnodechild.toCPointer<ByteVar>(), pretval.toCPointer<ByteVar>())
+public actual fun textPatternRangeFromChild(hobj: Huiapatternobject, hnodechild: Huianode, pretval: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_textPatternRangeFromChild(hobj?.value?.toCPointer<ByteVar>(), hnodechild?.value?.toCPointer<ByteVar>(), pretval?.value?.toCPointer<ByteVar>())
 
-public actual fun TextPattern_RangeFromPoint(hobj: HUIAPATTERNOBJECT, point: UiaPoint, pretval: Long): HRESULT =
+public actual fun textPatternRangeFromPoint(hobj: Huiapatternobject, point: UiaPoint, pretval: COpaquePointer?): Hresult =
     0
 
-public actual fun TextPattern_get_DocumentRange(hobj: HUIAPATTERNOBJECT, pretval: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_TextPattern_get_DocumentRange(hobj.toCPointer<ByteVar>(), pretval.toCPointer<ByteVar>())
+public actual fun textPatternGetDocumentRange(hobj: Huiapatternobject, pretval: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_textPatternGetDocumentRange(hobj?.value?.toCPointer<ByteVar>(), pretval?.value?.toCPointer<ByteVar>())
 
-public actual fun TextPattern_get_SupportedTextSelection(hobj: HUIAPATTERNOBJECT, pretval: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_TextPattern_get_SupportedTextSelection(hobj.toCPointer<ByteVar>(), pretval.toCPointer<ByteVar>())
+public actual fun textPatternGetSupportedTextSelection(hobj: Huiapatternobject, pretval: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_textPatternGetSupportedTextSelection(hobj?.value?.toCPointer<ByteVar>(), pretval?.value?.toCPointer<ByteVar>())
 
-public actual fun TextRange_AddToSelection(hobj: HUIATEXTRANGE): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_TextRange_AddToSelection(hobj.toCPointer<ByteVar>())
+public actual fun textRangeAddToSelection(hobj: Huiatextrange): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_textRangeAddToSelection(hobj?.value?.toCPointer<ByteVar>())
 
-public actual fun TextRange_Clone(hobj: HUIATEXTRANGE, pretval: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_TextRange_Clone(hobj.toCPointer<ByteVar>(), pretval.toCPointer<ByteVar>())
+public actual fun textRangeClone(hobj: Huiatextrange, pretval: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_textRangeClone(hobj?.value?.toCPointer<ByteVar>(), pretval?.value?.toCPointer<ByteVar>())
 
-public actual fun TextRange_Compare(hobj: HUIATEXTRANGE, range: HUIATEXTRANGE, pretval: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_TextRange_Compare(hobj.toCPointer<ByteVar>(), range.toCPointer<ByteVar>(), pretval.toCPointer<ByteVar>())
+public actual fun textRangeCompare(hobj: Huiatextrange, range: Huiatextrange, pretval: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_textRangeCompare(hobj?.value?.toCPointer<ByteVar>(), range?.value?.toCPointer<ByteVar>(), pretval?.value?.toCPointer<ByteVar>())
 
-public actual fun TextRange_CompareEndpoints(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, targetrange: HUIATEXTRANGE, targetendpoint: TextPatternRangeEndpoint, pretval: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_TextRange_CompareEndpoints(hobj.toCPointer<ByteVar>(), endpoint, targetrange.toCPointer<ByteVar>(), targetendpoint, pretval.toCPointer<ByteVar>())
+public actual fun textRangeCompareEndpoints(hobj: Huiatextrange, endpoint: TextPatternRangeEndpoint, targetrange: Huiatextrange, targetendpoint: TextPatternRangeEndpoint, pretval: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_textRangeCompareEndpoints(hobj?.value?.toCPointer<ByteVar>(), endpoint, targetrange?.value?.toCPointer<ByteVar>(), targetendpoint, pretval?.value?.toCPointer<ByteVar>())
 
-public actual fun TextRange_ExpandToEnclosingUnit(hobj: HUIATEXTRANGE, unit: TextUnit): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_TextRange_ExpandToEnclosingUnit(hobj.toCPointer<ByteVar>(), unit)
+public actual fun textRangeExpandToEnclosingUnit(hobj: Huiatextrange, unit: TextUnit): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_textRangeExpandToEnclosingUnit(hobj?.value?.toCPointer<ByteVar>(), unit)
 
-public actual fun TextRange_FindAttribute(hobj: HUIATEXTRANGE, attributeid: Int, value: VARIANT, backward: BOOL, pretval: Long): HRESULT =
+public actual fun textRangeFindAttribute(hobj: Huiatextrange, attributeid: Int, value: Variant, backward: Bool, pretval: COpaquePointer?): Hresult =
     0
 
-public actual fun TextRange_FindText(hobj: HUIATEXTRANGE, text: BSTR, backward: BOOL, ignorecase: BOOL, pretval: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_TextRange_FindText(hobj.toCPointer<ByteVar>(), text.toCPointer<ByteVar>(), backward, ignorecase, pretval.toCPointer<ByteVar>())
+public actual fun textRangeFindText(hobj: Huiatextrange, text: Bstr, backward: Bool, ignorecase: Bool, pretval: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_textRangeFindText(hobj?.value?.toCPointer<ByteVar>(), text?.value?.toCPointer<ByteVar>(), backward, ignorecase, pretval?.value?.toCPointer<ByteVar>())
 
-public actual fun TextRange_GetAttributeValue(hobj: HUIATEXTRANGE, attributeid: Int, pretval: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_TextRange_GetAttributeValue(hobj.toCPointer<ByteVar>(), attributeid, pretval.toCPointer<ByteVar>())
+public actual fun textRangeGetAttributeValue(hobj: Huiatextrange, attributeid: Int, pretval: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_textRangeGetAttributeValue(hobj?.value?.toCPointer<ByteVar>(), attributeid, pretval?.value?.toCPointer<ByteVar>())
 
-public actual fun TextRange_GetBoundingRectangles(hobj: HUIATEXTRANGE, pretval: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_TextRange_GetBoundingRectangles(hobj.toCPointer<ByteVar>(), pretval.toCPointer<ByteVar>())
+public actual fun textRangeGetBoundingRectangles(hobj: Huiatextrange, pretval: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_textRangeGetBoundingRectangles(hobj?.value?.toCPointer<ByteVar>(), pretval?.value?.toCPointer<ByteVar>())
 
-public actual fun TextRange_GetChildren(hobj: HUIATEXTRANGE, pretval: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_TextRange_GetChildren(hobj.toCPointer<ByteVar>(), pretval.toCPointer<ByteVar>())
+public actual fun textRangeGetChildren(hobj: Huiatextrange, pretval: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_textRangeGetChildren(hobj?.value?.toCPointer<ByteVar>(), pretval?.value?.toCPointer<ByteVar>())
 
-public actual fun TextRange_GetEnclosingElement(hobj: HUIATEXTRANGE, pretval: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_TextRange_GetEnclosingElement(hobj.toCPointer<ByteVar>(), pretval.toCPointer<ByteVar>())
+public actual fun textRangeGetEnclosingElement(hobj: Huiatextrange, pretval: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_textRangeGetEnclosingElement(hobj?.value?.toCPointer<ByteVar>(), pretval?.value?.toCPointer<ByteVar>())
 
-public actual fun TextRange_GetText(hobj: HUIATEXTRANGE, maxlength: Int, pretval: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_TextRange_GetText(hobj.toCPointer<ByteVar>(), maxlength, pretval.toCPointer<ByteVar>())
+public actual fun textRangeGetText(hobj: Huiatextrange, maxlength: Int, pretval: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_textRangeGetText(hobj?.value?.toCPointer<ByteVar>(), maxlength, pretval?.value?.toCPointer<ByteVar>())
 
-public actual fun TextRange_Move(hobj: HUIATEXTRANGE, unit: TextUnit, count: Int, pretval: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_TextRange_Move(hobj.toCPointer<ByteVar>(), unit, count, pretval.toCPointer<ByteVar>())
+public actual fun textRangeMove(hobj: Huiatextrange, unit: TextUnit, count: Int, pretval: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_textRangeMove(hobj?.value?.toCPointer<ByteVar>(), unit, count, pretval?.value?.toCPointer<ByteVar>())
 
-public actual fun TextRange_MoveEndpointByRange(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, targetrange: HUIATEXTRANGE, targetendpoint: TextPatternRangeEndpoint): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_TextRange_MoveEndpointByRange(hobj.toCPointer<ByteVar>(), endpoint, targetrange.toCPointer<ByteVar>(), targetendpoint)
+public actual fun textRangeMoveEndpointByRange(hobj: Huiatextrange, endpoint: TextPatternRangeEndpoint, targetrange: Huiatextrange, targetendpoint: TextPatternRangeEndpoint): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_textRangeMoveEndpointByRange(hobj?.value?.toCPointer<ByteVar>(), endpoint, targetrange?.value?.toCPointer<ByteVar>(), targetendpoint)
 
-public actual fun TextRange_MoveEndpointByUnit(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: Int, pretval: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_TextRange_MoveEndpointByUnit(hobj.toCPointer<ByteVar>(), endpoint, unit, count, pretval.toCPointer<ByteVar>())
+public actual fun textRangeMoveEndpointByUnit(hobj: Huiatextrange, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: Int, pretval: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_textRangeMoveEndpointByUnit(hobj?.value?.toCPointer<ByteVar>(), endpoint, unit, count, pretval?.value?.toCPointer<ByteVar>())
 
-public actual fun TextRange_RemoveFromSelection(hobj: HUIATEXTRANGE): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_TextRange_RemoveFromSelection(hobj.toCPointer<ByteVar>())
+public actual fun textRangeRemoveFromSelection(hobj: Huiatextrange): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_textRangeRemoveFromSelection(hobj?.value?.toCPointer<ByteVar>())
 
-public actual fun TextRange_ScrollIntoView(hobj: HUIATEXTRANGE, aligntotop: BOOL): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_TextRange_ScrollIntoView(hobj.toCPointer<ByteVar>(), aligntotop)
+public actual fun textRangeScrollIntoView(hobj: Huiatextrange, aligntotop: Bool): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_textRangeScrollIntoView(hobj?.value?.toCPointer<ByteVar>(), aligntotop)
 
-public actual fun TextRange_Select(hobj: HUIATEXTRANGE): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_TextRange_Select(hobj.toCPointer<ByteVar>())
+public actual fun textRangeSelect(hobj: Huiatextrange): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_textRangeSelect(hobj?.value?.toCPointer<ByteVar>())
 
-public actual fun TogglePattern_Toggle(hobj: HUIAPATTERNOBJECT): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_TogglePattern_Toggle(hobj.toCPointer<ByteVar>())
+public actual fun togglePatternToggle(hobj: Huiapatternobject): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_togglePatternToggle(hobj?.value?.toCPointer<ByteVar>())
 
-public actual fun TransformPattern_Move(hobj: HUIAPATTERNOBJECT, x: Double, y: Double): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_TransformPattern_Move(hobj.toCPointer<ByteVar>(), x, y)
+public actual fun transformPatternMove(hobj: Huiapatternobject, x: Double, y: Double): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_transformPatternMove(hobj?.value?.toCPointer<ByteVar>(), x, y)
 
-public actual fun TransformPattern_Resize(hobj: HUIAPATTERNOBJECT, width: Double, height: Double): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_TransformPattern_Resize(hobj.toCPointer<ByteVar>(), width, height)
+public actual fun transformPatternResize(hobj: Huiapatternobject, width: Double, height: Double): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_transformPatternResize(hobj?.value?.toCPointer<ByteVar>(), width, height)
 
-public actual fun TransformPattern_Rotate(hobj: HUIAPATTERNOBJECT, degrees: Double): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_TransformPattern_Rotate(hobj.toCPointer<ByteVar>(), degrees)
+public actual fun transformPatternRotate(hobj: Huiapatternobject, degrees: Double): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_transformPatternRotate(hobj?.value?.toCPointer<ByteVar>(), degrees)
 
-public actual fun UiaAddEvent(hnode: HUIANODE, eventid: Int, pcallback: Long, scope: TreeScope, pproperties: Long, cproperties: Int, prequest: Long, phevent: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaAddEvent(hnode.toCPointer<ByteVar>(), eventid, pcallback.toCPointer<ByteVar>(), scope, pproperties.toCPointer<ByteVar>(), cproperties, prequest.toCPointer<ByteVar>(), phevent.toCPointer<ByteVar>())
+public actual fun uiaAddEvent(hnode: Huianode, eventid: Int, pcallback: COpaquePointer?, scope: TreeScope, pproperties: COpaquePointer?, cproperties: Int, prequest: COpaquePointer?, phevent: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaAddEvent(hnode?.value?.toCPointer<ByteVar>(), eventid, pcallback?.value?.toCPointer<ByteVar>(), scope, pproperties?.value?.toCPointer<ByteVar>(), cproperties, prequest?.value?.toCPointer<ByteVar>(), phevent?.value?.toCPointer<ByteVar>())
 
-public actual fun UiaClientsAreListening(): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaClientsAreListening()
+public actual fun uiaClientsAreListening(): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaClientsAreListening()
 
-public actual fun UiaDisconnectAllProviders(): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaDisconnectAllProviders()
+public actual fun uiaDisconnectAllProviders(): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaDisconnectAllProviders()
 
-public actual fun UiaDisconnectProvider(pprovider: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaDisconnectProvider(pprovider.toCPointer<ByteVar>())
+public actual fun uiaDisconnectProvider(pprovider: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaDisconnectProvider(pprovider?.value?.toCPointer<ByteVar>())
 
-public actual fun UiaEventAddWindow(hevent: HUIAEVENT, hwnd: HWND): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaEventAddWindow(hevent.toCPointer<ByteVar>(), hwnd.toCPointer<ByteVar>())
+public actual fun uiaEventAddWindow(hevent: Huiaevent, hwnd: Hwnd): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaEventAddWindow(hevent?.value?.toCPointer<ByteVar>(), hwnd?.value?.toCPointer<ByteVar>())
 
-public actual fun UiaEventRemoveWindow(hevent: HUIAEVENT, hwnd: HWND): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaEventRemoveWindow(hevent.toCPointer<ByteVar>(), hwnd.toCPointer<ByteVar>())
+public actual fun uiaEventRemoveWindow(hevent: Huiaevent, hwnd: Hwnd): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaEventRemoveWindow(hevent?.value?.toCPointer<ByteVar>(), hwnd?.value?.toCPointer<ByteVar>())
 
-public actual fun UiaFind(hnode: HUIANODE, pparams: Long, prequest: Long, pprequesteddata: Long, ppoffsets: Long, pptreestructures: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaFind(hnode.toCPointer<ByteVar>(), pparams.toCPointer<ByteVar>(), prequest.toCPointer<ByteVar>(), pprequesteddata.toCPointer<ByteVar>(), ppoffsets.toCPointer<ByteVar>(), pptreestructures.toCPointer<ByteVar>())
+public actual fun uiaFind(hnode: Huianode, pparams: COpaquePointer?, prequest: COpaquePointer?, pprequesteddata: COpaquePointer?, ppoffsets: COpaquePointer?, pptreestructures: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaFind(hnode?.value?.toCPointer<ByteVar>(), pparams?.value?.toCPointer<ByteVar>(), prequest?.value?.toCPointer<ByteVar>(), pprequesteddata?.value?.toCPointer<ByteVar>(), ppoffsets?.value?.toCPointer<ByteVar>(), pptreestructures?.value?.toCPointer<ByteVar>())
 
-public actual fun UiaGetErrorDescription(pdescription: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaGetErrorDescription(pdescription.toCPointer<ByteVar>())
+public actual fun uiaGetErrorDescription(pdescription: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaGetErrorDescription(pdescription?.value?.toCPointer<ByteVar>())
 
-public actual fun UiaGetPatternProvider(hnode: HUIANODE, patternid: Int, phobj: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaGetPatternProvider(hnode.toCPointer<ByteVar>(), patternid, phobj.toCPointer<ByteVar>())
+public actual fun uiaGetPatternProvider(hnode: Huianode, patternid: Int, phobj: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaGetPatternProvider(hnode?.value?.toCPointer<ByteVar>(), patternid, phobj?.value?.toCPointer<ByteVar>())
 
-public actual fun UiaGetPropertyValue(hnode: HUIANODE, propertyid: Int, pvalue: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaGetPropertyValue(hnode.toCPointer<ByteVar>(), propertyid, pvalue.toCPointer<ByteVar>())
+public actual fun uiaGetPropertyValue(hnode: Huianode, propertyid: Int, pvalue: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaGetPropertyValue(hnode?.value?.toCPointer<ByteVar>(), propertyid, pvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun UiaGetReservedMixedAttributeValue(punkmixedattributevalue: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaGetReservedMixedAttributeValue(punkmixedattributevalue.toCPointer<ByteVar>())
+public actual fun uiaGetReservedMixedAttributeValue(punkmixedattributevalue: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaGetReservedMixedAttributeValue(punkmixedattributevalue?.value?.toCPointer<ByteVar>())
 
-public actual fun UiaGetReservedNotSupportedValue(punknotsupportedvalue: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaGetReservedNotSupportedValue(punknotsupportedvalue.toCPointer<ByteVar>())
+public actual fun uiaGetReservedNotSupportedValue(punknotsupportedvalue: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaGetReservedNotSupportedValue(punknotsupportedvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun UiaGetRootNode(phnode: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaGetRootNode(phnode.toCPointer<ByteVar>())
+public actual fun uiaGetRootNode(phnode: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaGetRootNode(phnode?.value?.toCPointer<ByteVar>())
 
-public actual fun UiaGetRuntimeId(hnode: HUIANODE, pruntimeid: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaGetRuntimeId(hnode.toCPointer<ByteVar>(), pruntimeid.toCPointer<ByteVar>())
+public actual fun uiaGetRuntimeId(hnode: Huianode, pruntimeid: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaGetRuntimeId(hnode?.value?.toCPointer<ByteVar>(), pruntimeid?.value?.toCPointer<ByteVar>())
 
-public actual fun UiaGetUpdatedCache(hnode: HUIANODE, prequest: Long, normalizestate: NormalizeState, pnormalizecondition: Long, pprequesteddata: Long, pptreestructure: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaGetUpdatedCache(hnode.toCPointer<ByteVar>(), prequest.toCPointer<ByteVar>(), normalizestate, pnormalizecondition.toCPointer<ByteVar>(), pprequesteddata.toCPointer<ByteVar>(), pptreestructure.toCPointer<ByteVar>())
+public actual fun uiaGetUpdatedCache(hnode: Huianode, prequest: COpaquePointer?, normalizestate: NormalizeState, pnormalizecondition: COpaquePointer?, pprequesteddata: COpaquePointer?, pptreestructure: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaGetUpdatedCache(hnode?.value?.toCPointer<ByteVar>(), prequest?.value?.toCPointer<ByteVar>(), normalizestate, pnormalizecondition?.value?.toCPointer<ByteVar>(), pprequesteddata?.value?.toCPointer<ByteVar>(), pptreestructure?.value?.toCPointer<ByteVar>())
 
-public actual fun UiaHPatternObjectFromVariant(pvar: Long, phobj: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaHPatternObjectFromVariant(pvar.toCPointer<ByteVar>(), phobj.toCPointer<ByteVar>())
+public actual fun uiaHPatternObjectFromVariant(pvar: COpaquePointer?, phobj: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaHPatternObjectFromVariant(pvar?.value?.toCPointer<ByteVar>(), phobj?.value?.toCPointer<ByteVar>())
 
-public actual fun UiaHTextRangeFromVariant(pvar: Long, phtextrange: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaHTextRangeFromVariant(pvar.toCPointer<ByteVar>(), phtextrange.toCPointer<ByteVar>())
+public actual fun uiaHTextRangeFromVariant(pvar: COpaquePointer?, phtextrange: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaHTextRangeFromVariant(pvar?.value?.toCPointer<ByteVar>(), phtextrange?.value?.toCPointer<ByteVar>())
 
-public actual fun UiaHUiaNodeFromVariant(pvar: Long, phnode: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaHUiaNodeFromVariant(pvar.toCPointer<ByteVar>(), phnode.toCPointer<ByteVar>())
+public actual fun uiaHUiaNodeFromVariant(pvar: COpaquePointer?, phnode: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaHUiaNodeFromVariant(pvar?.value?.toCPointer<ByteVar>(), phnode?.value?.toCPointer<ByteVar>())
 
-public actual fun UiaHasServerSideProvider(hwnd: HWND): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaHasServerSideProvider(hwnd.toCPointer<ByteVar>())
+public actual fun uiaHasServerSideProvider(hwnd: Hwnd): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaHasServerSideProvider(hwnd?.value?.toCPointer<ByteVar>())
 
-public actual fun UiaHostProviderFromHwnd(hwnd: HWND, ppprovider: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaHostProviderFromHwnd(hwnd.toCPointer<ByteVar>(), ppprovider.toCPointer<ByteVar>())
+public actual fun uiaHostProviderFromHwnd(hwnd: Hwnd, ppprovider: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaHostProviderFromHwnd(hwnd?.value?.toCPointer<ByteVar>(), ppprovider?.value?.toCPointer<ByteVar>())
 
-public actual fun UiaIAccessibleFromProvider(pprovider: Long, dwflags: UInt, ppaccessible: Long, pvarchild: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaIAccessibleFromProvider(pprovider.toCPointer<ByteVar>(), dwflags, ppaccessible.toCPointer<ByteVar>(), pvarchild.toCPointer<ByteVar>())
+public actual fun uiaIAccessibleFromProvider(pprovider: COpaquePointer?, dwflags: UInt, ppaccessible: COpaquePointer?, pvarchild: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaIAccessibleFromProvider(pprovider?.value?.toCPointer<ByteVar>(), dwflags, ppaccessible?.value?.toCPointer<ByteVar>(), pvarchild?.value?.toCPointer<ByteVar>())
 
-public actual fun UiaLookupId(type: AutomationIdentifierType, pguid: Long): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaLookupId(type, pguid.toCPointer<ByteVar>())
+public actual fun uiaLookupId(type: AutomationIdentifierType, pguid: COpaquePointer?): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaLookupId(type, pguid?.value?.toCPointer<ByteVar>())
 
-public actual fun UiaNavigate(hnode: HUIANODE, direction: NavigateDirection, pcondition: Long, prequest: Long, pprequesteddata: Long, pptreestructure: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaNavigate(hnode.toCPointer<ByteVar>(), direction, pcondition.toCPointer<ByteVar>(), prequest.toCPointer<ByteVar>(), pprequesteddata.toCPointer<ByteVar>(), pptreestructure.toCPointer<ByteVar>())
+public actual fun uiaNavigate(hnode: Huianode, direction: NavigateDirection, pcondition: COpaquePointer?, prequest: COpaquePointer?, pprequesteddata: COpaquePointer?, pptreestructure: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaNavigate(hnode?.value?.toCPointer<ByteVar>(), direction, pcondition?.value?.toCPointer<ByteVar>(), prequest?.value?.toCPointer<ByteVar>(), pprequesteddata?.value?.toCPointer<ByteVar>(), pptreestructure?.value?.toCPointer<ByteVar>())
 
-public actual fun UiaNodeFromFocus(prequest: Long, pprequesteddata: Long, pptreestructure: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaNodeFromFocus(prequest.toCPointer<ByteVar>(), pprequesteddata.toCPointer<ByteVar>(), pptreestructure.toCPointer<ByteVar>())
+public actual fun uiaNodeFromFocus(prequest: COpaquePointer?, pprequesteddata: COpaquePointer?, pptreestructure: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaNodeFromFocus(prequest?.value?.toCPointer<ByteVar>(), pprequesteddata?.value?.toCPointer<ByteVar>(), pptreestructure?.value?.toCPointer<ByteVar>())
 
-public actual fun UiaNodeFromHandle(hwnd: HWND, phnode: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaNodeFromHandle(hwnd.toCPointer<ByteVar>(), phnode.toCPointer<ByteVar>())
+public actual fun uiaNodeFromHandle(hwnd: Hwnd, phnode: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaNodeFromHandle(hwnd?.value?.toCPointer<ByteVar>(), phnode?.value?.toCPointer<ByteVar>())
 
-public actual fun UiaNodeFromPoint(x: Double, y: Double, prequest: Long, pprequesteddata: Long, pptreestructure: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaNodeFromPoint(x, y, prequest.toCPointer<ByteVar>(), pprequesteddata.toCPointer<ByteVar>(), pptreestructure.toCPointer<ByteVar>())
+public actual fun uiaNodeFromPoint(x: Double, y: Double, prequest: COpaquePointer?, pprequesteddata: COpaquePointer?, pptreestructure: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaNodeFromPoint(x, y, prequest?.value?.toCPointer<ByteVar>(), pprequesteddata?.value?.toCPointer<ByteVar>(), pptreestructure?.value?.toCPointer<ByteVar>())
 
-public actual fun UiaNodeFromProvider(pprovider: Long, phnode: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaNodeFromProvider(pprovider.toCPointer<ByteVar>(), phnode.toCPointer<ByteVar>())
+public actual fun uiaNodeFromProvider(pprovider: COpaquePointer?, phnode: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaNodeFromProvider(pprovider?.value?.toCPointer<ByteVar>(), phnode?.value?.toCPointer<ByteVar>())
 
-public actual fun UiaNodeRelease(hnode: HUIANODE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaNodeRelease(hnode.toCPointer<ByteVar>())
+public actual fun uiaNodeRelease(hnode: Huianode): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaNodeRelease(hnode?.value?.toCPointer<ByteVar>())
 
-public actual fun UiaPatternRelease(hobj: HUIAPATTERNOBJECT): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaPatternRelease(hobj.toCPointer<ByteVar>())
+public actual fun uiaPatternRelease(hobj: Huiapatternobject): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaPatternRelease(hobj?.value?.toCPointer<ByteVar>())
 
-public actual fun UiaProviderForNonClient(hwnd: HWND, idobject: Int, idchild: Int, ppprovider: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaProviderForNonClient(hwnd.toCPointer<ByteVar>(), idobject, idchild, ppprovider.toCPointer<ByteVar>())
+public actual fun uiaProviderForNonClient(hwnd: Hwnd, idobject: Int, idchild: Int, ppprovider: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaProviderForNonClient(hwnd?.value?.toCPointer<ByteVar>(), idobject, idchild, ppprovider?.value?.toCPointer<ByteVar>())
 
-public actual fun UiaProviderFromIAccessible(paccessible: Long, idchild: Int, dwflags: UInt, ppprovider: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaProviderFromIAccessible(paccessible.toCPointer<ByteVar>(), idchild, dwflags, ppprovider.toCPointer<ByteVar>())
+public actual fun uiaProviderFromIAccessible(paccessible: COpaquePointer?, idchild: Int, dwflags: UInt, ppprovider: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaProviderFromIAccessible(paccessible?.value?.toCPointer<ByteVar>(), idchild, dwflags, ppprovider?.value?.toCPointer<ByteVar>())
 
-public actual fun UiaRaiseActiveTextPositionChangedEvent(provider: Long, textrange: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaRaiseActiveTextPositionChangedEvent(provider.toCPointer<ByteVar>(), textrange.toCPointer<ByteVar>())
+public actual fun uiaRaiseActiveTextPositionChangedEvent(provider: COpaquePointer?, textrange: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaRaiseActiveTextPositionChangedEvent(provider?.value?.toCPointer<ByteVar>(), textrange?.value?.toCPointer<ByteVar>())
 
-public actual fun UiaRaiseAsyncContentLoadedEvent(pprovider: Long, asynccontentloadedstate: AsyncContentLoadedState, percentcomplete: Double): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaRaiseAsyncContentLoadedEvent(pprovider.toCPointer<ByteVar>(), asynccontentloadedstate, percentcomplete)
+public actual fun uiaRaiseAsyncContentLoadedEvent(pprovider: COpaquePointer?, asynccontentloadedstate: AsyncContentLoadedState, percentcomplete: Double): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaRaiseAsyncContentLoadedEvent(pprovider?.value?.toCPointer<ByteVar>(), asynccontentloadedstate, percentcomplete)
 
-public actual fun UiaRaiseAutomationEvent(pprovider: Long, id: UIA_EVENT_ID): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaRaiseAutomationEvent(pprovider.toCPointer<ByteVar>(), id)
+public actual fun uiaRaiseAutomationEvent(pprovider: COpaquePointer?, id: UiaEventId): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaRaiseAutomationEvent(pprovider?.value?.toCPointer<ByteVar>(), id)
 
-public actual fun UiaRaiseAutomationPropertyChangedEvent(pprovider: Long, id: UIA_PROPERTY_ID, oldvalue: VARIANT, newvalue: VARIANT): HRESULT =
+public actual fun uiaRaiseAutomationPropertyChangedEvent(pprovider: COpaquePointer?, id: UiaPropertyId, oldvalue: Variant, newvalue: Variant): Hresult =
     0
 
-public actual fun UiaRaiseChangesEvent(pprovider: Long, eventidcount: Int, puiachanges: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaRaiseChangesEvent(pprovider.toCPointer<ByteVar>(), eventidcount, puiachanges.toCPointer<ByteVar>())
+public actual fun uiaRaiseChangesEvent(pprovider: COpaquePointer?, eventidcount: Int, puiachanges: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaRaiseChangesEvent(pprovider?.value?.toCPointer<ByteVar>(), eventidcount, puiachanges?.value?.toCPointer<ByteVar>())
 
-public actual fun UiaRaiseNotificationEvent(provider: Long, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: BSTR, activityid: BSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaRaiseNotificationEvent(provider.toCPointer<ByteVar>(), notificationkind, notificationprocessing, displaystring.toCPointer<ByteVar>(), activityid.toCPointer<ByteVar>())
+public actual fun uiaRaiseNotificationEvent(provider: COpaquePointer?, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: Bstr, activityid: Bstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaRaiseNotificationEvent(provider?.value?.toCPointer<ByteVar>(), notificationkind, notificationprocessing, displaystring?.value?.toCPointer<ByteVar>(), activityid?.value?.toCPointer<ByteVar>())
 
-public actual fun UiaRaiseStructureChangedEvent(pprovider: Long, structurechangetype: StructureChangeType, pruntimeid: Long, cruntimeidlen: Int): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaRaiseStructureChangedEvent(pprovider.toCPointer<ByteVar>(), structurechangetype, pruntimeid.toCPointer<ByteVar>(), cruntimeidlen)
+public actual fun uiaRaiseStructureChangedEvent(pprovider: COpaquePointer?, structurechangetype: StructureChangeType, pruntimeid: COpaquePointer?, cruntimeidlen: Int): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaRaiseStructureChangedEvent(pprovider?.value?.toCPointer<ByteVar>(), structurechangetype, pruntimeid?.value?.toCPointer<ByteVar>(), cruntimeidlen)
 
-public actual fun UiaRaiseTextEditTextChangedEvent(pprovider: Long, texteditchangetype: TextEditChangeType, pchangeddata: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaRaiseTextEditTextChangedEvent(pprovider.toCPointer<ByteVar>(), texteditchangetype, pchangeddata.toCPointer<ByteVar>())
+public actual fun uiaRaiseTextEditTextChangedEvent(pprovider: COpaquePointer?, texteditchangetype: TextEditChangeType, pchangeddata: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaRaiseTextEditTextChangedEvent(pprovider?.value?.toCPointer<ByteVar>(), texteditchangetype, pchangeddata?.value?.toCPointer<ByteVar>())
 
-public actual fun UiaRegisterProviderCallback(pcallback: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaRegisterProviderCallback(pcallback.toCPointer<ByteVar>())
+public actual fun uiaRegisterProviderCallback(pcallback: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaRegisterProviderCallback(pcallback?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun UiaRemoveEvent(hevent: HUIAEVENT): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaRemoveEvent(hevent.toCPointer<ByteVar>())
+public actual fun uiaRemoveEvent(hevent: Huiaevent): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaRemoveEvent(hevent?.value?.toCPointer<ByteVar>())
 
-public actual fun UiaReturnRawElementProvider(hwnd: HWND, wparam: WPARAM, lparam: LPARAM, el: Long): LRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaReturnRawElementProvider(hwnd.toCPointer<ByteVar>(), wparam, lparam, el.toCPointer<ByteVar>())
+public actual fun uiaReturnRawElementProvider(hwnd: Hwnd, wparam: Wparam, lparam: Lparam, el: COpaquePointer?): Lresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaReturnRawElementProvider(hwnd?.value?.toCPointer<ByteVar>(), wparam, lparam, el?.value?.toCPointer<ByteVar>())
 
-public actual fun UiaSetFocus(hnode: HUIANODE): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaSetFocus(hnode.toCPointer<ByteVar>())
+public actual fun uiaSetFocus(hnode: Huianode): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaSetFocus(hnode?.value?.toCPointer<ByteVar>())
 
-public actual fun UiaTextRangeRelease(hobj: HUIATEXTRANGE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UiaTextRangeRelease(hobj.toCPointer<ByteVar>())
+public actual fun uiaTextRangeRelease(hobj: Huiatextrange): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_uiaTextRangeRelease(hobj?.value?.toCPointer<ByteVar>())
 
-public actual fun UnhookWinEvent(hwineventhook: HWINEVENTHOOK): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UnhookWinEvent(hwineventhook.toCPointer<ByteVar>())
+public actual fun unhookWinEvent(hwineventhook: Hwineventhook): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_unhookWinEvent(hwineventhook?.value?.toCPointer<ByteVar>())
 
-public actual fun UnregisterPointerInputTarget(hwnd: HWND, pointertype: POINTER_INPUT_TYPE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UnregisterPointerInputTarget(hwnd.toCPointer<ByteVar>(), pointertype)
+public actual fun unregisterPointerInputTarget(hwnd: Hwnd, pointertype: PointerInputType): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_unregisterPointerInputTarget(hwnd?.value?.toCPointer<ByteVar>(), pointertype)
 
-public actual fun UnregisterPointerInputTargetEx(hwnd: HWND, pointertype: POINTER_INPUT_TYPE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_UnregisterPointerInputTargetEx(hwnd.toCPointer<ByteVar>(), pointertype)
+public actual fun unregisterPointerInputTargetEx(hwnd: Hwnd, pointertype: PointerInputType): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_unregisterPointerInputTargetEx(hwnd?.value?.toCPointer<ByteVar>(), pointertype)
 
-public actual fun ValuePattern_SetValue(hobj: HUIAPATTERNOBJECT, pval: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_ValuePattern_SetValue(hobj.toCPointer<ByteVar>(), pval.toCPointer<ByteVar>())
+public actual fun valuePatternSetValue(hobj: Huiapatternobject, pval: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_valuePatternSetValue(hobj?.value?.toCPointer<ByteVar>(), pval?.value?.toCPointer<ByteVar>())
 
-public actual fun VirtualizedItemPattern_Realize(hobj: HUIAPATTERNOBJECT): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_VirtualizedItemPattern_Realize(hobj.toCPointer<ByteVar>())
+public actual fun virtualizedItemPatternRealize(hobj: Huiapatternobject): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_virtualizedItemPatternRealize(hobj?.value?.toCPointer<ByteVar>())
 
-public actual fun WindowFromAccessibleObject(param0: Long, phwnd: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_WindowFromAccessibleObject(param0.toCPointer<ByteVar>(), phwnd.toCPointer<ByteVar>())
+public actual fun windowFromAccessibleObject(param0: COpaquePointer?, phwnd: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_windowFromAccessibleObject(param0?.value?.toCPointer<ByteVar>(), phwnd?.value?.toCPointer<ByteVar>())
 
-public actual fun WindowPattern_Close(hobj: HUIAPATTERNOBJECT): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_WindowPattern_Close(hobj.toCPointer<ByteVar>())
+public actual fun windowPatternClose(hobj: Huiapatternobject): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_windowPatternClose(hobj?.value?.toCPointer<ByteVar>())
 
-public actual fun WindowPattern_SetWindowVisualState(hobj: HUIAPATTERNOBJECT, state: WindowVisualState): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_WindowPattern_SetWindowVisualState(hobj.toCPointer<ByteVar>(), state)
+public actual fun windowPatternSetWindowVisualState(hobj: Huiapatternobject, state: WindowVisualState): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_windowPatternSetWindowVisualState(hobj?.value?.toCPointer<ByteVar>(), state)
 
-public actual fun WindowPattern_WaitForInputIdle(hobj: HUIAPATTERNOBJECT, milliseconds: Int, presult: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_WindowPattern_WaitForInputIdle(hobj.toCPointer<ByteVar>(), milliseconds, presult.toCPointer<ByteVar>())
+public actual fun windowPatternWaitForInputIdle(hobj: Huiapatternobject, milliseconds: Int, presult: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.accessibility.cinterop.windowssys_windows_win32_ui_accessibility_windowPatternWaitForInputIdle(hobj?.value?.toCPointer<ByteVar>(), milliseconds, presult?.value?.toCPointer<ByteVar>())

@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTAcquireKeyedMutex(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTAcquireKeyedMutex(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTAcquireKeyedMutex(void* p
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTAcquireKeyedMutex2(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTAcquireKeyedMutex2(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -59,7 +59,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTAcquireKeyedMutex2(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTAdjustFullscreenGamma(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTAdjustFullscreenGamma(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -81,7 +81,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTAdjustFullscreenGamma(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCancelPresents(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTCancelPresents(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -103,7 +103,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCancelPresents(void* para
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTChangeSurfacePointer(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTChangeSurfacePointer(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -125,7 +125,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTChangeSurfacePointer(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTChangeVideoMemoryReservation(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTChangeVideoMemoryReservation(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -147,7 +147,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTChangeVideoMemoryReservat
 #endif
 }
 
-bool windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckExclusiveOwnership(void) {
+bool windowssys_windows_wdk_graphics_direct3d_d3DKMTCheckExclusiveOwnership(void) {
 #ifdef _WIN32
     typedef bool (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -168,7 +168,7 @@ bool windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckExclusiveOwnership(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckMonitorPowerState(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTCheckMonitorPowerState(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -190,7 +190,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckMonitorPowerState(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckMultiPlaneOverlaySupport(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTCheckMultiPlaneOverlaySupport(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -212,7 +212,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckMultiPlaneOverlaySup
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckMultiPlaneOverlaySupport2(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTCheckMultiPlaneOverlaySupport2(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -234,7 +234,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckMultiPlaneOverlaySup
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckMultiPlaneOverlaySupport3(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTCheckMultiPlaneOverlaySupport3(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -256,7 +256,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckMultiPlaneOverlaySup
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckOcclusion(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTCheckOcclusion(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -278,7 +278,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckOcclusion(void* para
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckSharedResourceAccess(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTCheckSharedResourceAccess(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -300,7 +300,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckSharedResourceAccess
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckVidPnExclusiveOwnership(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTCheckVidPnExclusiveOwnership(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -322,7 +322,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCheckVidPnExclusiveOwners
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCloseAdapter(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTCloseAdapter(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -344,7 +344,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCloseAdapter(void* param0
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTConfigureSharedResource(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTConfigureSharedResource(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -366,7 +366,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTConfigureSharedResource(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateAllocation(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateAllocation(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -388,7 +388,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateAllocation(void* pa
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateAllocation2(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateAllocation2(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -410,7 +410,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateAllocation2(void* p
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateContext(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateContext(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -432,7 +432,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateContext(void* param
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateContextVirtual(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateContextVirtual(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -454,7 +454,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateContextVirtual(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateDCFromMemory(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateDCFromMemory(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -476,7 +476,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateDCFromMemory(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateDevice(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateDevice(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -498,7 +498,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateDevice(void* param0
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateHwContext(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateHwContext(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -520,7 +520,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateHwContext(void* par
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateHwQueue(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateHwQueue(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -542,7 +542,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateHwQueue(void* param
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateKeyedMutex(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateKeyedMutex(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -564,7 +564,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateKeyedMutex(void* pa
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateKeyedMutex2(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateKeyedMutex2(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -586,7 +586,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateKeyedMutex2(void* p
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateOutputDupl(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateOutputDupl(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -608,7 +608,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateOutputDupl(void* pa
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateOverlay(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateOverlay(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -630,7 +630,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateOverlay(void* param
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCreatePagingQueue(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTCreatePagingQueue(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -652,7 +652,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCreatePagingQueue(void* p
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateProtectedSession(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateProtectedSession(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -674,7 +674,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateProtectedSession(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateSynchronizationObject(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateSynchronizationObject(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -696,7 +696,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateSynchronizationObje
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateSynchronizationObject2(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTCreateSynchronizationObject2(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -718,7 +718,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTCreateSynchronizationObje
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyAllocation(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyAllocation(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -740,7 +740,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyAllocation(void* p
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyAllocation2(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyAllocation2(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -762,7 +762,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyAllocation2(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyContext(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyContext(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -784,7 +784,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyContext(void* para
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyDCFromMemory(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyDCFromMemory(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -806,7 +806,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyDCFromMemory(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyDevice(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyDevice(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -828,7 +828,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyDevice(void* param
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyHwContext(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyHwContext(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -850,7 +850,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyHwContext(void* pa
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyHwQueue(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyHwQueue(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -872,7 +872,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyHwQueue(void* para
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyKeyedMutex(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyKeyedMutex(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -894,7 +894,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyKeyedMutex(void* p
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyOutputDupl(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyOutputDupl(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -916,7 +916,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyOutputDupl(void* p
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyOverlay(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyOverlay(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -938,7 +938,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyOverlay(void* para
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyPagingQueue(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyPagingQueue(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -960,7 +960,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyPagingQueue(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyProtectedSession(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroyProtectedSession(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -982,7 +982,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroyProtectedSession(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroySynchronizationObject(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTDestroySynchronizationObject(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1004,7 +1004,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTDestroySynchronizationObj
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTEnumAdapters(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTEnumAdapters(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1026,7 +1026,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTEnumAdapters(void* param0
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTEnumAdapters2(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTEnumAdapters2(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1048,7 +1048,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTEnumAdapters2(void* param
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTEnumAdapters3(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTEnumAdapters3(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1070,7 +1070,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTEnumAdapters3(void* param
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTEscape(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTEscape(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1092,7 +1092,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTEscape(void* param0) {
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTEvict(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTEvict(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1114,7 +1114,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTEvict(void* param0) {
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTFlipOverlay(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTFlipOverlay(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1136,7 +1136,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTFlipOverlay(void* param0)
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTFlushHeapTransitions(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTFlushHeapTransitions(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1158,7 +1158,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTFlushHeapTransitions(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTFreeGpuVirtualAddress(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTFreeGpuVirtualAddress(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1180,7 +1180,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTFreeGpuVirtualAddress(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTGetAllocationPriority(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTGetAllocationPriority(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1202,7 +1202,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTGetAllocationPriority(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTGetContextInProcessSchedulingPriority(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTGetContextInProcessSchedulingPriority(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1224,7 +1224,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTGetContextInProcessSchedu
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTGetContextSchedulingPriority(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTGetContextSchedulingPriority(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1246,7 +1246,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTGetContextSchedulingPrior
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTGetDWMVerticalBlankEvent(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTGetDWMVerticalBlankEvent(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1268,7 +1268,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTGetDWMVerticalBlankEvent(
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTGetDeviceState(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTGetDeviceState(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1290,7 +1290,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTGetDeviceState(void* para
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTGetDisplayModeList(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTGetDisplayModeList(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1312,7 +1312,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTGetDisplayModeList(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTGetMultiPlaneOverlayCaps(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTGetMultiPlaneOverlayCaps(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1334,7 +1334,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTGetMultiPlaneOverlayCaps(
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTGetMultisampleMethodList(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTGetMultisampleMethodList(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1356,7 +1356,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTGetMultisampleMethodList(
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTGetOverlayState(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTGetOverlayState(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1378,7 +1378,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTGetOverlayState(void* par
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTGetPostCompositionCaps(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTGetPostCompositionCaps(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1400,7 +1400,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTGetPostCompositionCaps(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTGetPresentHistory(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTGetPresentHistory(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1422,7 +1422,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTGetPresentHistory(void* p
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTGetPresentQueueEvent(uint32_t hadapter, void* param1) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTGetPresentQueueEvent(uint32_t hadapter, void* param1) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1445,7 +1445,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTGetPresentQueueEvent(uint
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTGetProcessDeviceRemovalSupport(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTGetProcessDeviceRemovalSupport(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1467,7 +1467,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTGetProcessDeviceRemovalSu
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTGetProcessSchedulingPriorityClass(void* param0, void* param1) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTGetProcessSchedulingPriorityClass(void* param0, void* param1) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1490,7 +1490,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTGetProcessSchedulingPrior
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTGetResourcePresentPrivateDriverData(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTGetResourcePresentPrivateDriverData(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1512,7 +1512,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTGetResourcePresentPrivate
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTGetRuntimeData(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTGetRuntimeData(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1534,7 +1534,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTGetRuntimeData(void* para
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTGetScanLine(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTGetScanLine(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1556,7 +1556,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTGetScanLine(void* param0)
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTGetSharedPrimaryHandle(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTGetSharedPrimaryHandle(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1578,7 +1578,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTGetSharedPrimaryHandle(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTGetSharedResourceAdapterLuid(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTGetSharedResourceAdapterLuid(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1600,7 +1600,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTGetSharedResourceAdapterL
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTInvalidateActiveVidPn(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTInvalidateActiveVidPn(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1622,7 +1622,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTInvalidateActiveVidPn(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTInvalidateCache(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTInvalidateCache(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1644,7 +1644,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTInvalidateCache(void* par
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTLock(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTLock(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1666,7 +1666,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTLock(void* param0) {
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTLock2(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTLock2(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1688,7 +1688,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTLock2(void* param0) {
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTMakeResident(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTMakeResident(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1710,7 +1710,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTMakeResident(void* param0
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTMapGpuVirtualAddress(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTMapGpuVirtualAddress(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1732,7 +1732,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTMapGpuVirtualAddress(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTMarkDeviceAsError(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTMarkDeviceAsError(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1754,7 +1754,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTMarkDeviceAsError(void* p
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOfferAllocations(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTOfferAllocations(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1776,7 +1776,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOfferAllocations(void* pa
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenAdapterFromDeviceName(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenAdapterFromDeviceName(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1798,7 +1798,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenAdapterFromDeviceName
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenAdapterFromGdiDisplayName(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenAdapterFromGdiDisplayName(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1820,7 +1820,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenAdapterFromGdiDisplay
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenAdapterFromHdc(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenAdapterFromHdc(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1842,7 +1842,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenAdapterFromHdc(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenAdapterFromLuid(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenAdapterFromLuid(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1864,7 +1864,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenAdapterFromLuid(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenKeyedMutex(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenKeyedMutex(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1886,7 +1886,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenKeyedMutex(void* para
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenKeyedMutex2(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenKeyedMutex2(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1908,7 +1908,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenKeyedMutex2(void* par
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenKeyedMutexFromNtHandle(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenKeyedMutexFromNtHandle(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1930,7 +1930,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenKeyedMutexFromNtHandl
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenNtHandleFromName(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenNtHandleFromName(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1952,7 +1952,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenNtHandleFromName(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenProtectedSessionFromNtHandle(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenProtectedSessionFromNtHandle(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1974,7 +1974,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenProtectedSessionFromN
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenResource(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenResource(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1996,7 +1996,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenResource(void* param0
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenResource2(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenResource2(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2018,7 +2018,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenResource2(void* param
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenResourceFromNtHandle(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenResourceFromNtHandle(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2040,7 +2040,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenResourceFromNtHandle(
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenSyncObjectFromNtHandle(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenSyncObjectFromNtHandle(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2062,7 +2062,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenSyncObjectFromNtHandl
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenSyncObjectFromNtHandle2(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenSyncObjectFromNtHandle2(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2084,7 +2084,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenSyncObjectFromNtHandl
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenSyncObjectNtHandleFromName(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenSyncObjectNtHandleFromName(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2106,7 +2106,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenSyncObjectNtHandleFro
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenSynchronizationObject(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTOpenSynchronizationObject(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2128,7 +2128,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOpenSynchronizationObject
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOutputDuplGetFrameInfo(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTOutputDuplGetFrameInfo(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2150,7 +2150,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOutputDuplGetFrameInfo(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOutputDuplGetMetaData(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTOutputDuplGetMetaData(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2172,7 +2172,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOutputDuplGetMetaData(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOutputDuplGetPointerShapeData(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTOutputDuplGetPointerShapeData(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2194,7 +2194,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOutputDuplGetPointerShape
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOutputDuplPresent(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTOutputDuplPresent(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2216,7 +2216,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOutputDuplPresent(void* p
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOutputDuplPresentToHwQueue(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTOutputDuplPresentToHwQueue(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2238,7 +2238,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOutputDuplPresentToHwQueu
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOutputDuplReleaseFrame(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTOutputDuplReleaseFrame(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2260,7 +2260,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTOutputDuplReleaseFrame(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTPollDisplayChildren(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTPollDisplayChildren(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2282,7 +2282,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTPollDisplayChildren(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTPresent(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTPresent(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2304,7 +2304,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTPresent(void* param0) {
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTPresentMultiPlaneOverlay(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTPresentMultiPlaneOverlay(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2326,7 +2326,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTPresentMultiPlaneOverlay(
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTPresentMultiPlaneOverlay2(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTPresentMultiPlaneOverlay2(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2348,7 +2348,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTPresentMultiPlaneOverlay2
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTPresentMultiPlaneOverlay3(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTPresentMultiPlaneOverlay3(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2370,7 +2370,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTPresentMultiPlaneOverlay3
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTPresentRedirected(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTPresentRedirected(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2392,7 +2392,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTPresentRedirected(void* p
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryAdapterInfo(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryAdapterInfo(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2414,7 +2414,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryAdapterInfo(void* pa
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryAllocationResidency(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryAllocationResidency(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2436,7 +2436,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryAllocationResidency(
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryClockCalibration(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryClockCalibration(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2458,7 +2458,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryClockCalibration(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryFSEBlock(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryFSEBlock(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2480,7 +2480,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryFSEBlock(void* param
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryProcessOfferInfo(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryProcessOfferInfo(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2502,7 +2502,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryProcessOfferInfo(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryProtectedSessionInfoFromNtHandle(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryProtectedSessionInfoFromNtHandle(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2524,7 +2524,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryProtectedSessionInfo
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryProtectedSessionStatus(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryProtectedSessionStatus(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2546,7 +2546,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryProtectedSessionStat
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryRemoteVidPnSourceFromGdiDisplayName(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryRemoteVidPnSourceFromGdiDisplayName(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2568,7 +2568,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryRemoteVidPnSourceFro
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryResourceInfo(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryResourceInfo(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2590,7 +2590,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryResourceInfo(void* p
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryResourceInfoFromNtHandle(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryResourceInfoFromNtHandle(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2612,7 +2612,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryResourceInfoFromNtHa
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryStatistics(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryStatistics(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2634,7 +2634,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryStatistics(void* par
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryVidPnExclusiveOwnership(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryVidPnExclusiveOwnership(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2656,7 +2656,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryVidPnExclusiveOwners
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryVideoMemoryInfo(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTQueryVideoMemoryInfo(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2678,7 +2678,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTQueryVideoMemoryInfo(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTReclaimAllocations(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTReclaimAllocations(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2700,7 +2700,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTReclaimAllocations(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTReclaimAllocations2(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTReclaimAllocations2(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2722,7 +2722,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTReclaimAllocations2(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTRegisterTrimNotification(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTRegisterTrimNotification(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2744,7 +2744,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTRegisterTrimNotification(
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTRegisterVailProcess(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTRegisterVailProcess(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2766,7 +2766,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTRegisterVailProcess(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTReleaseKeyedMutex(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTReleaseKeyedMutex(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2788,7 +2788,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTReleaseKeyedMutex(void* p
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTReleaseKeyedMutex2(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTReleaseKeyedMutex2(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2810,7 +2810,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTReleaseKeyedMutex2(void* 
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTReleaseProcessVidPnSourceOwners(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTReleaseProcessVidPnSourceOwners(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2832,7 +2832,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTReleaseProcessVidPnSource
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTRender(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTRender(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2854,7 +2854,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTRender(void* param0) {
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTReserveGpuVirtualAddress(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTReserveGpuVirtualAddress(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2876,7 +2876,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTReserveGpuVirtualAddress(
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSetAllocationPriority(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTSetAllocationPriority(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2898,7 +2898,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSetAllocationPriority(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSetContextInProcessSchedulingPriority(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTSetContextInProcessSchedulingPriority(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2920,7 +2920,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSetContextInProcessSchedu
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSetContextSchedulingPriority(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTSetContextSchedulingPriority(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2942,7 +2942,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSetContextSchedulingPrior
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSetDisplayMode(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTSetDisplayMode(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2964,7 +2964,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSetDisplayMode(void* para
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSetDisplayPrivateDriverFormat(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTSetDisplayPrivateDriverFormat(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2986,7 +2986,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSetDisplayPrivateDriverFo
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSetFSEBlock(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTSetFSEBlock(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3008,7 +3008,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSetFSEBlock(void* param0)
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSetGammaRamp(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTSetGammaRamp(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3030,7 +3030,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSetGammaRamp(void* param0
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSetHwProtectionTeardownRecovery(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTSetHwProtectionTeardownRecovery(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3052,7 +3052,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSetHwProtectionTeardownRe
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSetMonitorColorSpaceTransform(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTSetMonitorColorSpaceTransform(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3074,7 +3074,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSetMonitorColorSpaceTrans
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSetProcessSchedulingPriorityClass(void* param0, int32_t param1) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTSetProcessSchedulingPriorityClass(void* param0, int32_t param1) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3097,7 +3097,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSetProcessSchedulingPrior
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSetQueuedLimit(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTSetQueuedLimit(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3119,7 +3119,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSetQueuedLimit(void* para
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSetStablePowerState(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTSetStablePowerState(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3141,7 +3141,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSetStablePowerState(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSetSyncRefreshCountWaitTarget(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTSetSyncRefreshCountWaitTarget(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3163,7 +3163,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSetSyncRefreshCountWaitTa
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSetVidPnSourceHwProtection(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTSetVidPnSourceHwProtection(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3185,7 +3185,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSetVidPnSourceHwProtectio
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSetVidPnSourceOwner(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTSetVidPnSourceOwner(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3207,7 +3207,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSetVidPnSourceOwner(void*
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSetVidPnSourceOwner1(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTSetVidPnSourceOwner1(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3229,7 +3229,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSetVidPnSourceOwner1(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSetVidPnSourceOwner2(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTSetVidPnSourceOwner2(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3251,7 +3251,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSetVidPnSourceOwner2(void
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTShareObjects(uint32_t cobjects, void* hobjects, void* pobjectattributes, uint32_t dwdesiredaccess, void* phsharednthandle) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTShareObjects(uint32_t cobjects, void* hobjects, void* pobjectattributes, uint32_t dwdesiredaccess, void* phsharednthandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3277,7 +3277,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTShareObjects(uint32_t cob
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSharedPrimaryLockNotification(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTSharedPrimaryLockNotification(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3299,7 +3299,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSharedPrimaryLockNotifica
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSharedPrimaryUnLockNotification(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTSharedPrimaryUnLockNotification(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3321,7 +3321,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSharedPrimaryUnLockNotifi
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSignalSynchronizationObject(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTSignalSynchronizationObject(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3343,7 +3343,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSignalSynchronizationObje
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSignalSynchronizationObject2(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTSignalSynchronizationObject2(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3365,7 +3365,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSignalSynchronizationObje
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSignalSynchronizationObjectFromCpu(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTSignalSynchronizationObjectFromCpu(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3387,7 +3387,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSignalSynchronizationObje
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSignalSynchronizationObjectFromGpu(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTSignalSynchronizationObjectFromGpu(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3409,7 +3409,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSignalSynchronizationObje
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSignalSynchronizationObjectFromGpu2(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTSignalSynchronizationObjectFromGpu2(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3431,7 +3431,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSignalSynchronizationObje
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSubmitCommand(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTSubmitCommand(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3453,7 +3453,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSubmitCommand(void* param
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSubmitCommandToHwQueue(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTSubmitCommandToHwQueue(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3475,7 +3475,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSubmitCommandToHwQueue(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSubmitPresentBltToHwQueue(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTSubmitPresentBltToHwQueue(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3497,7 +3497,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSubmitPresentBltToHwQueue
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSubmitPresentToHwQueue(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTSubmitPresentToHwQueue(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3519,7 +3519,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSubmitPresentToHwQueue(vo
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSubmitSignalSyncObjectsToHwQueue(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTSubmitSignalSyncObjectsToHwQueue(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3541,7 +3541,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSubmitSignalSyncObjectsTo
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSubmitWaitForSyncObjectsToHwQueue(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTSubmitWaitForSyncObjectsToHwQueue(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3563,7 +3563,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTSubmitWaitForSyncObjectsT
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTTrimProcessCommitment(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTTrimProcessCommitment(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3585,7 +3585,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTTrimProcessCommitment(voi
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTUnlock(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTUnlock(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3607,7 +3607,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTUnlock(void* param0) {
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTUnlock2(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTUnlock2(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3629,7 +3629,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTUnlock2(void* param0) {
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTUnregisterTrimNotification(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTUnregisterTrimNotification(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3651,7 +3651,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTUnregisterTrimNotificatio
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTUpdateAllocationProperty(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTUpdateAllocationProperty(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3673,7 +3673,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTUpdateAllocationProperty(
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTUpdateGpuVirtualAddress(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTUpdateGpuVirtualAddress(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3695,7 +3695,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTUpdateGpuVirtualAddress(v
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTUpdateOverlay(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTUpdateOverlay(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3717,7 +3717,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTUpdateOverlay(void* param
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForIdle(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTWaitForIdle(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3739,7 +3739,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForIdle(void* param0)
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForSynchronizationObject(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTWaitForSynchronizationObject(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3761,7 +3761,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForSynchronizationObj
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForSynchronizationObject2(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTWaitForSynchronizationObject2(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3783,7 +3783,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForSynchronizationObj
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForSynchronizationObjectFromCpu(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTWaitForSynchronizationObjectFromCpu(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3805,7 +3805,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForSynchronizationObj
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForSynchronizationObjectFromGpu(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTWaitForSynchronizationObjectFromGpu(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3827,7 +3827,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForSynchronizationObj
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForVerticalBlankEvent(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTWaitForVerticalBlankEvent(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3849,7 +3849,7 @@ int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForVerticalBlankEvent
 #endif
 }
 
-int32_t windowssys_windows_wdk_graphics_direct3d_D3DKMTWaitForVerticalBlankEvent2(void* param0) {
+int32_t windowssys_windows_wdk_graphics_direct3d_d3DKMTWaitForVerticalBlankEvent2(void* param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;

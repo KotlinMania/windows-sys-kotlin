@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpAddFilterV4(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong addfilterinfo, jint forceflag) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpAddFilterV4(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong addfilterinfo, jint forceflag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -38,7 +38,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpAddSecurityGroup(JNIEnv* km_env, jclass km_clazz, jlong pserver) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpAddSecurityGroup(JNIEnv* km_env, jclass km_clazz, jlong pserver) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -56,7 +56,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpAddServer(JNIEnv* km_env, jclass km_clazz, jint flags, jlong idinfo, jlong newserver, jlong callbackfn, jlong callbackdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpAddServer(JNIEnv* km_env, jclass km_clazz, jint flags, jlong idinfo, jlong newserver, jlong callbackfn, jlong callbackdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -78,7 +78,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpAddSubnetElement(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong addelementinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpAddSubnetElement(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong addelementinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -98,7 +98,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpAddSubnetElementV4(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong addelementinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpAddSubnetElementV4(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong addelementinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -118,7 +118,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpAddSubnetElementV5(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong addelementinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpAddSubnetElementV5(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong addelementinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -138,7 +138,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpAuditLogGetParams(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jlong auditlogdir, jlong diskcheckinterval, jlong maxlogfilessize, jlong minspaceondisk) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpAuditLogGetParams(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jlong auditlogdir, jlong diskcheckinterval, jlong maxlogfilessize, jlong minspaceondisk) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -161,7 +161,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpAuditLogSetParams(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jlong auditlogdir, jint diskcheckinterval, jint maxlogfilessize, jint minspaceondisk) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpAuditLogSetParams(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jlong auditlogdir, jint diskcheckinterval, jint maxlogfilessize, jint minspaceondisk) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -184,7 +184,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpCApiCleanup(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpCApiCleanup(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -199,7 +199,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpCApiInitialize(JNIEnv* km_env, jclass km_clazz, jlong version) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpCApiInitialize(JNIEnv* km_env, jclass km_clazz, jlong version) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -217,7 +217,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpCreateClass(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint reservedmustbezero, jlong classinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpCreateClass(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint reservedmustbezero, jlong classinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -237,7 +237,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpCreateClassV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint reservedmustbezero, jlong classinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpCreateClassV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint reservedmustbezero, jlong classinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -257,7 +257,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpCreateClientInfo(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong clientinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpCreateClientInfo(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong clientinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -276,7 +276,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpCreateClientInfoV4(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong clientinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpCreateClientInfoV4(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong clientinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -295,7 +295,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpCreateClientInfoVQ(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong clientinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpCreateClientInfoVQ(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong clientinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -314,7 +314,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpCreateOption(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint optionid, jlong optioninfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpCreateOption(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint optionid, jlong optioninfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -334,7 +334,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpCreateOptionV5(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jint optionid, jlong classname, jlong vendorname, jlong optioninfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpCreateOptionV5(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jint optionid, jlong classname, jlong vendorname, jlong optioninfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -357,7 +357,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpCreateOptionV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jint optionid, jlong classname, jlong vendorname, jlong optioninfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpCreateOptionV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jint optionid, jlong classname, jlong vendorname, jlong optioninfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -380,7 +380,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpCreateSubnet(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong subnetinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpCreateSubnet(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong subnetinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -400,7 +400,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpCreateSubnetVQ(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong subnetinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpCreateSubnetVQ(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong subnetinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -420,7 +420,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpDeRegisterParamChange(JNIEnv* km_env, jclass km_clazz, jint flags, jlong reserved, jlong event) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpDeRegisterParamChange(JNIEnv* km_env, jclass km_clazz, jint flags, jlong reserved, jlong event) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -440,7 +440,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpDeleteClass(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint reservedmustbezero, jlong classname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpDeleteClass(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint reservedmustbezero, jlong classname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -460,7 +460,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpDeleteClassV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint reservedmustbezero, jlong classname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpDeleteClassV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint reservedmustbezero, jlong classname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -480,7 +480,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpDeleteClientInfo(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong clientinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpDeleteClientInfo(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong clientinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -499,7 +499,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpDeleteClientInfoV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong clientinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpDeleteClientInfoV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong clientinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -518,7 +518,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpDeleteFilterV4(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong deletefilterinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpDeleteFilterV4(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong deletefilterinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -537,7 +537,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpDeleteServer(JNIEnv* km_env, jclass km_clazz, jint flags, jlong idinfo, jlong newserver, jlong callbackfn, jlong callbackdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpDeleteServer(JNIEnv* km_env, jclass km_clazz, jint flags, jlong idinfo, jlong newserver, jlong callbackfn, jlong callbackdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -559,7 +559,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpDeleteSubnet(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jint forceflag) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpDeleteSubnet(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jint forceflag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -579,7 +579,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpDeleteSuperScopeV4(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong superscopename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpDeleteSuperScopeV4(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong superscopename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -598,7 +598,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpDsCleanup(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpDsCleanup(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -613,7 +613,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpDsInit(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpDsInit(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -630,7 +630,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpEnumClasses(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint reservedmustbezero, jlong resumehandle, jint preferredmaximum, jlong classinfoarray, jlong nread, jlong ntotal) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpEnumClasses(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint reservedmustbezero, jlong resumehandle, jint preferredmaximum, jlong classinfoarray, jlong nread, jlong ntotal) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -654,7 +654,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpEnumClassesV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint reservedmustbezero, jlong resumehandle, jint preferredmaximum, jlong classinfoarray, jlong nread, jlong ntotal) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpEnumClassesV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint reservedmustbezero, jlong resumehandle, jint preferredmaximum, jlong classinfoarray, jlong nread, jlong ntotal) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -678,7 +678,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpEnumFilterV4(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong resumehandle, jint preferredmaximum, jint listtype, jlong enumfilterinfo, jlong elementsread, jlong elementstotal) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpEnumFilterV4(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong resumehandle, jint preferredmaximum, jint listtype, jlong enumfilterinfo, jlong elementsread, jlong elementstotal) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -702,7 +702,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpEnumOptionValues(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong scopeinfo, jlong resumehandle, jint preferredmaximum, jlong optionvalues, jlong optionsread, jlong optionstotal) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpEnumOptionValues(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong scopeinfo, jlong resumehandle, jint preferredmaximum, jlong optionvalues, jlong optionsread, jlong optionstotal) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -726,7 +726,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpEnumOptionValuesV5(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jlong classname, jlong vendorname, jlong scopeinfo, jlong resumehandle, jint preferredmaximum, jlong optionvalues, jlong optionsread, jlong optionstotal) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpEnumOptionValuesV5(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jlong classname, jlong vendorname, jlong scopeinfo, jlong resumehandle, jint preferredmaximum, jlong optionvalues, jlong optionsread, jlong optionstotal) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -753,7 +753,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpEnumOptionValuesV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jlong classname, jlong vendorname, jlong scopeinfo, jlong resumehandle, jint preferredmaximum, jlong optionvalues, jlong optionsread, jlong optionstotal) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpEnumOptionValuesV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jlong classname, jlong vendorname, jlong scopeinfo, jlong resumehandle, jint preferredmaximum, jlong optionvalues, jlong optionsread, jlong optionstotal) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -780,7 +780,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpEnumOptions(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong resumehandle, jint preferredmaximum, jlong options, jlong optionsread, jlong optionstotal) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpEnumOptions(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong resumehandle, jint preferredmaximum, jlong options, jlong optionsread, jlong optionstotal) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -803,7 +803,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpEnumOptionsV5(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jlong classname, jlong vendorname, jlong resumehandle, jint preferredmaximum, jlong options, jlong optionsread, jlong optionstotal) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpEnumOptionsV5(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jlong classname, jlong vendorname, jlong resumehandle, jint preferredmaximum, jlong options, jlong optionsread, jlong optionstotal) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -829,7 +829,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpEnumOptionsV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jlong classname, jlong vendorname, jlong resumehandle, jint preferredmaximum, jlong options, jlong optionsread, jlong optionstotal) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpEnumOptionsV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jlong classname, jlong vendorname, jlong resumehandle, jint preferredmaximum, jlong options, jlong optionsread, jlong optionstotal) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -855,7 +855,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpEnumServers(JNIEnv* km_env, jclass km_clazz, jint flags, jlong idinfo, jlong servers, jlong callbackfn, jlong callbackdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpEnumServers(JNIEnv* km_env, jclass km_clazz, jint flags, jlong idinfo, jlong servers, jlong callbackfn, jlong callbackdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -877,7 +877,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpEnumSubnetClients(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong resumehandle, jint preferredmaximum, jlong clientinfo, jlong clientsread, jlong clientstotal) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpEnumSubnetClients(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong resumehandle, jint preferredmaximum, jlong clientinfo, jlong clientsread, jlong clientstotal) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -901,7 +901,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpEnumSubnetClientsFilterStatusInfo(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong resumehandle, jint preferredmaximum, jlong clientinfo, jlong clientsread, jlong clientstotal) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpEnumSubnetClientsFilterStatusInfo(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong resumehandle, jint preferredmaximum, jlong clientinfo, jlong clientsread, jlong clientstotal) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -925,7 +925,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpEnumSubnetClientsV4(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong resumehandle, jint preferredmaximum, jlong clientinfo, jlong clientsread, jlong clientstotal) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpEnumSubnetClientsV4(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong resumehandle, jint preferredmaximum, jlong clientinfo, jlong clientsread, jlong clientstotal) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -949,7 +949,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpEnumSubnetClientsV5(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong resumehandle, jint preferredmaximum, jlong clientinfo, jlong clientsread, jlong clientstotal) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpEnumSubnetClientsV5(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong resumehandle, jint preferredmaximum, jlong clientinfo, jlong clientsread, jlong clientstotal) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -973,7 +973,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpEnumSubnetClientsVQ(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong resumehandle, jint preferredmaximum, jlong clientinfo, jlong clientsread, jlong clientstotal) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpEnumSubnetClientsVQ(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong resumehandle, jint preferredmaximum, jlong clientinfo, jlong clientsread, jlong clientstotal) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -997,7 +997,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpEnumSubnetElements(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jint enumelementtype, jlong resumehandle, jint preferredmaximum, jlong enumelementinfo, jlong elementsread, jlong elementstotal) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpEnumSubnetElements(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jint enumelementtype, jlong resumehandle, jint preferredmaximum, jlong enumelementinfo, jlong elementsread, jlong elementstotal) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1022,7 +1022,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpEnumSubnetElementsV4(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jint enumelementtype, jlong resumehandle, jint preferredmaximum, jlong enumelementinfo, jlong elementsread, jlong elementstotal) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpEnumSubnetElementsV4(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jint enumelementtype, jlong resumehandle, jint preferredmaximum, jlong enumelementinfo, jlong elementsread, jlong elementstotal) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1047,7 +1047,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpEnumSubnetElementsV5(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jint enumelementtype, jlong resumehandle, jint preferredmaximum, jlong enumelementinfo, jlong elementsread, jlong elementstotal) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpEnumSubnetElementsV5(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jint enumelementtype, jlong resumehandle, jint preferredmaximum, jlong enumelementinfo, jlong elementsread, jlong elementstotal) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1072,7 +1072,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpEnumSubnets(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong resumehandle, jint preferredmaximum, jlong enuminfo, jlong elementsread, jlong elementstotal) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpEnumSubnets(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong resumehandle, jint preferredmaximum, jlong enuminfo, jlong elementsread, jlong elementstotal) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1095,7 +1095,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpEnumSubnetsV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong resumehandle, jint preferredmaximum, jlong enuminfo, jlong elementsread, jlong elementstotal) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpEnumSubnetsV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong resumehandle, jint preferredmaximum, jlong enuminfo, jlong elementsread, jlong elementstotal) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1118,7 +1118,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpGetAllOptionValues(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jlong scopeinfo, jlong values) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpGetAllOptionValues(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jlong scopeinfo, jlong values) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1139,7 +1139,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpGetAllOptionValuesV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jlong scopeinfo, jlong values) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpGetAllOptionValuesV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jlong scopeinfo, jlong values) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1160,7 +1160,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpGetAllOptions(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jlong optionstruct) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpGetAllOptions(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jlong optionstruct) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1180,7 +1180,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpGetAllOptionsV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jlong optionstruct) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpGetAllOptionsV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jlong optionstruct) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1200,7 +1200,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpGetClassInfo(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint reservedmustbezero, jlong partialclassinfo, jlong filledclassinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpGetClassInfo(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint reservedmustbezero, jlong partialclassinfo, jlong filledclassinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1221,7 +1221,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpGetClientInfo(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong searchinfo, jlong clientinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpGetClientInfo(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong searchinfo, jlong clientinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1241,7 +1241,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpGetClientInfoV4(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong searchinfo, jlong clientinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpGetClientInfoV4(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong searchinfo, jlong clientinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1261,7 +1261,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpGetClientInfoV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong searchinfo, jlong clientinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpGetClientInfoV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong searchinfo, jlong clientinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1281,7 +1281,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpGetClientInfoVQ(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong searchinfo, jlong clientinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpGetClientInfoVQ(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong searchinfo, jlong clientinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1301,7 +1301,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpGetClientOptions(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint clientipaddress, jint clientsubnetmask, jlong clientoptions) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpGetClientOptions(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint clientipaddress, jint clientsubnetmask, jlong clientoptions) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1322,7 +1322,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpGetFilterV4(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong globalfilterinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpGetFilterV4(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong globalfilterinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1341,7 +1341,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpGetMibInfo(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong mibinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpGetMibInfo(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong mibinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1360,7 +1360,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpGetMibInfoV5(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong mibinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpGetMibInfoV5(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong mibinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1379,7 +1379,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpGetMibInfoV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong mibinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpGetMibInfoV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong mibinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1398,7 +1398,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpGetOptionInfo(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint optionid, jlong optioninfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpGetOptionInfo(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint optionid, jlong optioninfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1418,7 +1418,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpGetOptionInfoV5(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jint optionid, jlong classname, jlong vendorname, jlong optioninfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpGetOptionInfoV5(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jint optionid, jlong classname, jlong vendorname, jlong optioninfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1441,7 +1441,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpGetOptionInfoV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jint optionid, jlong classname, jlong vendorname, jlong optioninfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpGetOptionInfoV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jint optionid, jlong classname, jlong vendorname, jlong optioninfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1464,7 +1464,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpGetOptionValue(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint optionid, jlong scopeinfo, jlong optionvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpGetOptionValue(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint optionid, jlong scopeinfo, jlong optionvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1485,7 +1485,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpGetOptionValueV5(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jint optionid, jlong classname, jlong vendorname, jlong scopeinfo, jlong optionvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpGetOptionValueV5(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jint optionid, jlong classname, jlong vendorname, jlong scopeinfo, jlong optionvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1509,7 +1509,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpGetOptionValueV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jint optionid, jlong classname, jlong vendorname, jlong scopeinfo, jlong optionvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpGetOptionValueV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jint optionid, jlong classname, jlong vendorname, jlong scopeinfo, jlong optionvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1533,7 +1533,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpGetOriginalSubnetMask(JNIEnv* km_env, jclass km_clazz, jlong sadaptername, jlong dwsubnetmask) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpGetOriginalSubnetMask(JNIEnv* km_env, jclass km_clazz, jlong sadaptername, jlong dwsubnetmask) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1552,7 +1552,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpGetServerBindingInfo(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jlong bindelementsinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpGetServerBindingInfo(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jlong bindelementsinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1572,7 +1572,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpGetServerBindingInfoV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jlong bindelementsinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpGetServerBindingInfoV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jlong bindelementsinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1592,7 +1592,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpGetServerSpecificStrings(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong serverspecificstrings) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpGetServerSpecificStrings(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong serverspecificstrings) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1611,7 +1611,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpGetSubnetDelayOffer(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong timedelayinmilliseconds) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpGetSubnetDelayOffer(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong timedelayinmilliseconds) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1631,7 +1631,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpGetSubnetInfo(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong subnetinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpGetSubnetInfo(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong subnetinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1651,7 +1651,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpGetSubnetInfoVQ(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong subnetinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpGetSubnetInfoVQ(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong subnetinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1671,7 +1671,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpGetSuperScopeInfoV4(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong superscopetable) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpGetSuperScopeInfoV4(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong superscopetable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1690,7 +1690,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpGetThreadOptions(JNIEnv* km_env, jclass km_clazz, jlong pflags, jlong reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpGetThreadOptions(JNIEnv* km_env, jclass km_clazz, jlong pflags, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1709,7 +1709,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpGetVersion(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong majorversion, jlong minorversion) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpGetVersion(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong majorversion, jlong minorversion) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1729,7 +1729,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpHlprAddV4PolicyCondition(JNIEnv* km_env, jclass km_clazz, jlong policy, jint parentexpr, jint type, jint optionid, jint suboptionid, jlong vendorname, jint arg_6_operator, jlong value, jint valuelength, jlong conditionindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpHlprAddV4PolicyCondition(JNIEnv* km_env, jclass km_clazz, jlong policy, jint parentexpr, jint type, jint optionid, jint suboptionid, jlong vendorname, jint arg_6_operator, jlong value, jint valuelength, jlong conditionindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1756,7 +1756,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpHlprAddV4PolicyExpr(JNIEnv* km_env, jclass km_clazz, jlong policy, jint parentexpr, jint arg_2_operator, jlong exprindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpHlprAddV4PolicyExpr(JNIEnv* km_env, jclass km_clazz, jlong policy, jint parentexpr, jint arg_2_operator, jlong exprindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1777,7 +1777,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpHlprAddV4PolicyRange(JNIEnv* km_env, jclass km_clazz, jlong policy, jlong range) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpHlprAddV4PolicyRange(JNIEnv* km_env, jclass km_clazz, jlong policy, jlong range) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1796,7 +1796,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpHlprCreateV4Policy(JNIEnv* km_env, jclass km_clazz, jlong policyname, jint fglobalpolicy, jint subnet, jint processingorder, jint rootoperator, jlong description, jint enabled, jlong policy) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpHlprCreateV4Policy(JNIEnv* km_env, jclass km_clazz, jlong policyname, jint fglobalpolicy, jint subnet, jint processingorder, jint rootoperator, jlong description, jint enabled, jlong policy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1821,7 +1821,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpHlprCreateV4PolicyEx(JNIEnv* km_env, jclass km_clazz, jlong policyname, jint fglobalpolicy, jint subnet, jint processingorder, jint rootoperator, jlong description, jint enabled, jlong policy) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpHlprCreateV4PolicyEx(JNIEnv* km_env, jclass km_clazz, jlong policyname, jint fglobalpolicy, jint subnet, jint processingorder, jint rootoperator, jlong description, jint enabled, jlong policy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1846,7 +1846,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpHlprFindV4DhcpProperty(JNIEnv* km_env, jclass km_clazz, jlong propertyarray, jint id, jint type) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpHlprFindV4DhcpProperty(JNIEnv* km_env, jclass km_clazz, jlong propertyarray, jint id, jint type) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1866,7 +1866,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpHlprFreeV4DhcpProperty(JNIEnv* km_env, jclass km_clazz, jlong property) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpHlprFreeV4DhcpProperty(JNIEnv* km_env, jclass km_clazz, jlong property) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1882,7 +1882,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpHlprFreeV4DhcpPropertyArray(JNIEnv* km_env, jclass km_clazz, jlong propertyarray) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpHlprFreeV4DhcpPropertyArray(JNIEnv* km_env, jclass km_clazz, jlong propertyarray) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1898,7 +1898,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpHlprFreeV4Policy(JNIEnv* km_env, jclass km_clazz, jlong policy) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpHlprFreeV4Policy(JNIEnv* km_env, jclass km_clazz, jlong policy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1914,7 +1914,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpHlprFreeV4PolicyArray(JNIEnv* km_env, jclass km_clazz, jlong policyarray) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpHlprFreeV4PolicyArray(JNIEnv* km_env, jclass km_clazz, jlong policyarray) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1930,7 +1930,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpHlprFreeV4PolicyEx(JNIEnv* km_env, jclass km_clazz, jlong policyex) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpHlprFreeV4PolicyEx(JNIEnv* km_env, jclass km_clazz, jlong policyex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1946,7 +1946,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpHlprFreeV4PolicyExArray(JNIEnv* km_env, jclass km_clazz, jlong policyexarray) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpHlprFreeV4PolicyExArray(JNIEnv* km_env, jclass km_clazz, jlong policyexarray) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1962,7 +1962,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpHlprIsV4PolicySingleUC(JNIEnv* km_env, jclass km_clazz, jlong policy) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpHlprIsV4PolicySingleUC(JNIEnv* km_env, jclass km_clazz, jlong policy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1980,7 +1980,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpHlprIsV4PolicyValid(JNIEnv* km_env, jclass km_clazz, jlong ppolicy) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpHlprIsV4PolicyValid(JNIEnv* km_env, jclass km_clazz, jlong ppolicy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1998,7 +1998,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpHlprIsV4PolicyWellFormed(JNIEnv* km_env, jclass km_clazz, jlong ppolicy) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpHlprIsV4PolicyWellFormed(JNIEnv* km_env, jclass km_clazz, jlong ppolicy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2016,7 +2016,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpHlprModifyV4PolicyExpr(JNIEnv* km_env, jclass km_clazz, jlong policy, jint arg_1_operator) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpHlprModifyV4PolicyExpr(JNIEnv* km_env, jclass km_clazz, jlong policy, jint arg_1_operator) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2035,7 +2035,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpHlprResetV4PolicyExpr(JNIEnv* km_env, jclass km_clazz, jlong policy) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpHlprResetV4PolicyExpr(JNIEnv* km_env, jclass km_clazz, jlong policy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2053,7 +2053,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpModifyClass(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint reservedmustbezero, jlong classinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpModifyClass(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint reservedmustbezero, jlong classinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2073,7 +2073,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpModifyClassV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint reservedmustbezero, jlong classinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpModifyClassV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint reservedmustbezero, jlong classinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2093,7 +2093,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpRemoveDNSRegistrations(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpRemoveDNSRegistrations(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2110,7 +2110,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpRemoveOption(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint optionid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpRemoveOption(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint optionid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2129,7 +2129,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpRemoveOptionV5(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jint optionid, jlong classname, jlong vendorname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpRemoveOptionV5(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jint optionid, jlong classname, jlong vendorname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2151,7 +2151,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpRemoveOptionV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jint optionid, jlong classname, jlong vendorname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpRemoveOptionV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jint optionid, jlong classname, jlong vendorname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2173,7 +2173,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpRemoveOptionValue(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint optionid, jlong scopeinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpRemoveOptionValue(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint optionid, jlong scopeinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2193,7 +2193,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpRemoveOptionValueV5(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jint optionid, jlong classname, jlong vendorname, jlong scopeinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpRemoveOptionValueV5(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jint optionid, jlong classname, jlong vendorname, jlong scopeinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2216,7 +2216,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpRemoveOptionValueV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jint optionid, jlong classname, jlong vendorname, jlong scopeinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpRemoveOptionValueV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jint optionid, jlong classname, jlong vendorname, jlong scopeinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2239,7 +2239,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpRemoveSubnetElement(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong removeelementinfo, jint forceflag) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpRemoveSubnetElement(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong removeelementinfo, jint forceflag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2260,7 +2260,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpRemoveSubnetElementV4(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong removeelementinfo, jint forceflag) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpRemoveSubnetElementV4(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong removeelementinfo, jint forceflag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2281,7 +2281,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpRemoveSubnetElementV5(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong removeelementinfo, jint forceflag) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpRemoveSubnetElementV5(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong removeelementinfo, jint forceflag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2302,7 +2302,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpRpcFreeMemory(JNIEnv* km_env, jclass km_clazz, jlong bufferpointer) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpRpcFreeMemory(JNIEnv* km_env, jclass km_clazz, jlong bufferpointer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2318,7 +2318,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpScanDatabase(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jint fixflag, jlong scanlist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpScanDatabase(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jint fixflag, jlong scanlist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2339,7 +2339,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpServerAuditlogParamsFree(JNIEnv* km_env, jclass km_clazz, jlong configinfo) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpServerAuditlogParamsFree(JNIEnv* km_env, jclass km_clazz, jlong configinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2355,7 +2355,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpServerBackupDatabase(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong path) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpServerBackupDatabase(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong path) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2374,7 +2374,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpServerGetConfig(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong configinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpServerGetConfig(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong configinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2393,7 +2393,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpServerGetConfigV4(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong configinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpServerGetConfigV4(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong configinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2412,7 +2412,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpServerGetConfigV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong scopeinfo, jlong configinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpServerGetConfigV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong scopeinfo, jlong configinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2432,7 +2432,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpServerGetConfigVQ(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong configinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpServerGetConfigVQ(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong configinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2451,7 +2451,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpServerQueryAttribute(JNIEnv* km_env, jclass km_clazz, jlong serveripaddr, jint dwreserved, jint dhcpattribid, jlong pdhcpattrib) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpServerQueryAttribute(JNIEnv* km_env, jclass km_clazz, jlong serveripaddr, jint dwreserved, jint dhcpattribid, jlong pdhcpattrib) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2472,7 +2472,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpServerQueryAttributes(JNIEnv* km_env, jclass km_clazz, jlong serveripaddr, jint dwreserved, jint dwattribcount, jlong pdhcpattribs, jlong pdhcpattribarr) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpServerQueryAttributes(JNIEnv* km_env, jclass km_clazz, jlong serveripaddr, jint dwreserved, jint dwattribcount, jlong pdhcpattribs, jlong pdhcpattribarr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2494,7 +2494,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpServerQueryDnsRegCredentials(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint unamesize, jlong uname, jint domainsize, jlong domain) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpServerQueryDnsRegCredentials(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint unamesize, jlong uname, jint domainsize, jlong domain) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2516,7 +2516,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpServerRedoAuthorization(JNIEnv* km_env, jclass km_clazz, jlong serveripaddr, jint dwreserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpServerRedoAuthorization(JNIEnv* km_env, jclass km_clazz, jlong serveripaddr, jint dwreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2535,7 +2535,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpServerRestoreDatabase(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong path) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpServerRestoreDatabase(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong path) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2554,7 +2554,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpServerSetConfig(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint fieldstoset, jlong configinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpServerSetConfig(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint fieldstoset, jlong configinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2574,7 +2574,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpServerSetConfigV4(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint fieldstoset, jlong configinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpServerSetConfigV4(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint fieldstoset, jlong configinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2594,7 +2594,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpServerSetConfigV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong scopeinfo, jint fieldstoset, jlong configinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpServerSetConfigV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong scopeinfo, jint fieldstoset, jlong configinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2615,7 +2615,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpServerSetConfigVQ(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint fieldstoset, jlong configinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpServerSetConfigVQ(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint fieldstoset, jlong configinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2635,7 +2635,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpServerSetDnsRegCredentials(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong uname, jlong domain, jlong passwd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpServerSetDnsRegCredentials(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong uname, jlong domain, jlong passwd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2656,7 +2656,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpServerSetDnsRegCredentialsV5(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong uname, jlong domain, jlong passwd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpServerSetDnsRegCredentialsV5(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong uname, jlong domain, jlong passwd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2677,7 +2677,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpSetClientInfo(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong clientinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpSetClientInfo(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong clientinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2696,7 +2696,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpSetClientInfoV4(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong clientinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpSetClientInfoV4(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong clientinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2715,7 +2715,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpSetClientInfoV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong clientinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpSetClientInfoV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong clientinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2734,7 +2734,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpSetClientInfoVQ(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong clientinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpSetClientInfoVQ(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong clientinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2753,7 +2753,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpSetFilterV4(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong globalfilterinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpSetFilterV4(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong globalfilterinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2772,7 +2772,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpSetOptionInfo(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint optionid, jlong optioninfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpSetOptionInfo(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint optionid, jlong optioninfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2792,7 +2792,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpSetOptionInfoV5(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jint optionid, jlong classname, jlong vendorname, jlong optioninfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpSetOptionInfoV5(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jint optionid, jlong classname, jlong vendorname, jlong optioninfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2815,7 +2815,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpSetOptionInfoV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jint optionid, jlong classname, jlong vendorname, jlong optioninfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpSetOptionInfoV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jint optionid, jlong classname, jlong vendorname, jlong optioninfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2838,7 +2838,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpSetOptionValue(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint optionid, jlong scopeinfo, jlong optionvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpSetOptionValue(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint optionid, jlong scopeinfo, jlong optionvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2859,7 +2859,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpSetOptionValueV5(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jint optionid, jlong classname, jlong vendorname, jlong scopeinfo, jlong optionvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpSetOptionValueV5(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jint optionid, jlong classname, jlong vendorname, jlong scopeinfo, jlong optionvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2883,7 +2883,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpSetOptionValueV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jint optionid, jlong classname, jlong vendorname, jlong scopeinfo, jlong optionvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpSetOptionValueV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jint optionid, jlong classname, jlong vendorname, jlong scopeinfo, jlong optionvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2907,7 +2907,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpSetOptionValues(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong scopeinfo, jlong optionvalues) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpSetOptionValues(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong scopeinfo, jlong optionvalues) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2927,7 +2927,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpSetOptionValuesV5(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jlong classname, jlong vendorname, jlong scopeinfo, jlong optionvalues) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpSetOptionValuesV5(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jlong classname, jlong vendorname, jlong scopeinfo, jlong optionvalues) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2950,7 +2950,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpSetServerBindingInfo(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jlong bindelementinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpSetServerBindingInfo(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jlong bindelementinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2970,7 +2970,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpSetServerBindingInfoV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jlong bindelementinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpSetServerBindingInfoV6(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jlong bindelementinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2990,7 +2990,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpSetSubnetDelayOffer(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jshort timedelayinmilliseconds) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpSetSubnetDelayOffer(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jshort timedelayinmilliseconds) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3010,7 +3010,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpSetSubnetInfo(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong subnetinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpSetSubnetInfo(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong subnetinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3030,7 +3030,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpSetSubnetInfoVQ(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong subnetinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpSetSubnetInfoVQ(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong subnetinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3050,7 +3050,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpSetSuperScopeV4(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong superscopename, jint changeexisting) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpSetSuperScopeV4(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong superscopename, jint changeexisting) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3071,7 +3071,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpSetThreadOptions(JNIEnv* km_env, jclass km_clazz, jint flags, jlong reserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpSetThreadOptions(JNIEnv* km_env, jclass km_clazz, jint flags, jlong reserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3090,7 +3090,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpUndoRequestParams(JNIEnv* km_env, jclass km_clazz, jint flags, jlong reserved, jlong adaptername, jlong requestidstr) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpUndoRequestParams(JNIEnv* km_env, jclass km_clazz, jint flags, jlong reserved, jlong adaptername, jlong requestidstr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3111,7 +3111,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV4AddPolicyRange(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong policyname, jlong range) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV4AddPolicyRange(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong policyname, jlong range) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3132,7 +3132,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV4CreateClientInfo(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong clientinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV4CreateClientInfo(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong clientinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3151,7 +3151,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV4CreateClientInfoEx(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong clientinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV4CreateClientInfoEx(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong clientinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3170,7 +3170,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV4CreatePolicy(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong ppolicy) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV4CreatePolicy(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong ppolicy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3189,7 +3189,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV4CreatePolicyEx(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong policyex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV4CreatePolicyEx(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong policyex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3208,7 +3208,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV4DeletePolicy(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint fglobalpolicy, jint subnetaddress, jlong policyname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV4DeletePolicy(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint fglobalpolicy, jint subnetaddress, jlong policyname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3229,7 +3229,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV4EnumPolicies(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong resumehandle, jint preferredmaximum, jint fglobalpolicy, jint subnetaddress, jlong enuminfo, jlong elementsread, jlong elementstotal) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV4EnumPolicies(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong resumehandle, jint preferredmaximum, jint fglobalpolicy, jint subnetaddress, jlong enuminfo, jlong elementsread, jlong elementstotal) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3254,7 +3254,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV4EnumPoliciesEx(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong resumehandle, jint preferredmaximum, jint globalpolicy, jint subnetaddress, jlong enuminfo, jlong elementsread, jlong elementstotal) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV4EnumPoliciesEx(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong resumehandle, jint preferredmaximum, jint globalpolicy, jint subnetaddress, jlong enuminfo, jlong elementsread, jlong elementstotal) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3279,7 +3279,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV4EnumSubnetClients(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong resumehandle, jint preferredmaximum, jlong clientinfo, jlong clientsread, jlong clientstotal) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV4EnumSubnetClients(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong resumehandle, jint preferredmaximum, jlong clientinfo, jlong clientsread, jlong clientstotal) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3303,7 +3303,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV4EnumSubnetClientsEx(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong resumehandle, jint preferredmaximum, jlong clientinfo, jlong clientsread, jlong clientstotal) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV4EnumSubnetClientsEx(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong resumehandle, jint preferredmaximum, jlong clientinfo, jlong clientsread, jlong clientstotal) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3327,7 +3327,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV4EnumSubnetReservations(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong resumehandle, jint preferredmaximum, jlong enumelementinfo, jlong elementsread, jlong elementstotal) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV4EnumSubnetReservations(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong resumehandle, jint preferredmaximum, jlong enumelementinfo, jlong elementsread, jlong elementstotal) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3351,7 +3351,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV4FailoverAddScopeToRelationship(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong prelationship) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV4FailoverAddScopeToRelationship(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong prelationship) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3370,7 +3370,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV4FailoverCreateRelationship(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong prelationship) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV4FailoverCreateRelationship(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong prelationship) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3389,7 +3389,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV4FailoverDeleteRelationship(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong prelationshipname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV4FailoverDeleteRelationship(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong prelationshipname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3408,7 +3408,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV4FailoverDeleteScopeFromRelationship(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong prelationship) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV4FailoverDeleteScopeFromRelationship(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong prelationship) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3427,7 +3427,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV4FailoverEnumRelationship(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong resumehandle, jint preferredmaximum, jlong prelationship, jlong relationshipread, jlong relationshiptotal) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV4FailoverEnumRelationship(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong resumehandle, jint preferredmaximum, jlong prelationship, jlong relationshipread, jlong relationshiptotal) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3450,7 +3450,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV4FailoverGetAddressStatus(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong pstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV4FailoverGetAddressStatus(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong pstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3470,7 +3470,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV4FailoverGetClientInfo(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong searchinfo, jlong clientinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV4FailoverGetClientInfo(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong searchinfo, jlong clientinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3490,7 +3490,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV4FailoverGetRelationship(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong prelationshipname, jlong prelationship) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV4FailoverGetRelationship(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong prelationshipname, jlong prelationship) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3510,7 +3510,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV4FailoverGetScopeRelationship(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint scopeid, jlong prelationship) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV4FailoverGetScopeRelationship(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint scopeid, jlong prelationship) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3530,7 +3530,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV4FailoverGetScopeStatistics(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint scopeid, jlong pstats) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV4FailoverGetScopeStatistics(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint scopeid, jlong pstats) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3550,7 +3550,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV4FailoverGetSystemTime(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong ptime, jlong pmaxalloweddeltatime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV4FailoverGetSystemTime(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong ptime, jlong pmaxalloweddeltatime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3570,7 +3570,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV4FailoverSetRelationship(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jlong prelationship) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV4FailoverSetRelationship(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jlong prelationship) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3590,7 +3590,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV4FailoverTriggerAddrAllocation(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong pfailrelname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV4FailoverTriggerAddrAllocation(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong pfailrelname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3609,7 +3609,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV4GetAllOptionValues(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jlong scopeinfo, jlong values) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV4GetAllOptionValues(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jlong scopeinfo, jlong values) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3630,7 +3630,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV4GetClientInfo(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong searchinfo, jlong clientinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV4GetClientInfo(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong searchinfo, jlong clientinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3650,7 +3650,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV4GetClientInfoEx(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong searchinfo, jlong clientinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV4GetClientInfoEx(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong searchinfo, jlong clientinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3670,7 +3670,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV4GetFreeIPAddress(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint scopeid, jint startip, jint endip, jint numfreeaddrreq, jlong ipaddrlist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV4GetFreeIPAddress(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint scopeid, jint startip, jint endip, jint numfreeaddrreq, jlong ipaddrlist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3693,7 +3693,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV4GetOptionValue(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jint optionid, jlong policyname, jlong vendorname, jlong scopeinfo, jlong optionvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV4GetOptionValue(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jint optionid, jlong policyname, jlong vendorname, jlong scopeinfo, jlong optionvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3717,7 +3717,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV4GetPolicy(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint fglobalpolicy, jint subnetaddress, jlong policyname, jlong policy) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV4GetPolicy(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint fglobalpolicy, jint subnetaddress, jlong policyname, jlong policy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3739,7 +3739,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV4GetPolicyEx(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint globalpolicy, jint subnetaddress, jlong policyname, jlong policy) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV4GetPolicyEx(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint globalpolicy, jint subnetaddress, jlong policyname, jlong policy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3761,7 +3761,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV4QueryPolicyEnforcement(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint fglobalpolicy, jint subnetaddress, jlong enabled) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV4QueryPolicyEnforcement(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint fglobalpolicy, jint subnetaddress, jlong enabled) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3782,7 +3782,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV4RemoveOptionValue(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jint optionid, jlong policyname, jlong vendorname, jlong scopeinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV4RemoveOptionValue(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jint optionid, jlong policyname, jlong vendorname, jlong scopeinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3805,7 +3805,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV4RemovePolicyRange(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong policyname, jlong range) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV4RemovePolicyRange(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint subnetaddress, jlong policyname, jlong range) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3826,7 +3826,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV4SetOptionValue(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jint optionid, jlong policyname, jlong vendorname, jlong scopeinfo, jlong optionvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV4SetOptionValue(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jint optionid, jlong policyname, jlong vendorname, jlong scopeinfo, jlong optionvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3850,7 +3850,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV4SetOptionValues(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jlong policyname, jlong vendorname, jlong scopeinfo, jlong optionvalues) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV4SetOptionValues(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint flags, jlong policyname, jlong vendorname, jlong scopeinfo, jlong optionvalues) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3873,7 +3873,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV4SetPolicy(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint fieldsmodified, jint fglobalpolicy, jint subnetaddress, jlong policyname, jlong policy) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV4SetPolicy(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint fieldsmodified, jint fglobalpolicy, jint subnetaddress, jlong policyname, jlong policy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3896,7 +3896,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV4SetPolicyEnforcement(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint fglobalpolicy, jint subnetaddress, jint enable) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV4SetPolicyEnforcement(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint fglobalpolicy, jint subnetaddress, jint enable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3917,7 +3917,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV4SetPolicyEx(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint fieldsmodified, jint globalpolicy, jint subnetaddress, jlong policyname, jlong policy) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV4SetPolicyEx(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jint fieldsmodified, jint globalpolicy, jint subnetaddress, jlong policyname, jlong policy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3940,7 +3940,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV6CreateClientInfo(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong clientinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV6CreateClientInfo(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong clientinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3959,7 +3959,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1DhcpV6GetStatelessStatistics(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong statelessstats) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpV6GetStatelessStatistics(JNIEnv* km_env, jclass km_clazz, jlong serveripaddress, jlong statelessstats) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3978,7 +3978,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1Dhcpv6CApiCleanup(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpv6CApiCleanup(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3993,7 +3993,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1Dhcpv6CApiInitialize(JNIEnv* km_env, jclass km_clazz, jlong version) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpv6CApiInitialize(JNIEnv* km_env, jclass km_clazz, jlong version) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4009,7 +4009,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1Dhcpv6ReleasePrefix(JNIEnv* km_env, jclass km_clazz, jlong adaptername, jlong classid, jlong leaseinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpv6ReleasePrefix(JNIEnv* km_env, jclass km_clazz, jlong adaptername, jlong classid, jlong leaseinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4029,7 +4029,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1Dhcpv6RenewPrefix(JNIEnv* km_env, jclass km_clazz, jlong adaptername, jlong pclassid, jlong prefixleaseinfo, jlong pdwtimetowait, jint bvalidateprefix) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpv6RenewPrefix(JNIEnv* km_env, jclass km_clazz, jlong adaptername, jlong pclassid, jlong prefixleaseinfo, jlong pdwtimetowait, jint bvalidateprefix) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -4051,7 +4051,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1Dhcpv6RequestPrefix(JNIEnv* km_env, jclass km_clazz, jlong adaptername, jlong pclassid, jlong prefixleaseinfo, jlong pdwtimetowait) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_networkmanagement_dhcp_WindowsWin32NetworkmanagementDhcpJniBridge_windowssys_1windows_1win32_1networkmanagement_1dhcp_1dhcpv6RequestPrefix(JNIEnv* km_env, jclass km_clazz, jlong adaptername, jlong pclassid, jlong prefixleaseinfo, jlong pdwtimetowait) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

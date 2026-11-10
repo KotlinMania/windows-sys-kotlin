@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1ActivateKeyboardLayout(JNIEnv* km_env, jclass km_clazz, jlong hkl, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1activateKeyboardLayout(JNIEnv* km_env, jclass km_clazz, jlong hkl, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -37,7 +37,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_i
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1BlockInput(JNIEnv* km_env, jclass km_clazz, jint fblockit) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1blockInput(JNIEnv* km_env, jclass km_clazz, jint fblockit) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -55,7 +55,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1EnableWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint benable) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1enableWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint benable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -74,7 +74,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1GetActiveWindow(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1getActiveWindow(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -91,7 +91,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_i
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1GetAsyncKeyState(JNIEnv* km_env, jclass km_clazz, jint vkey) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1getAsyncKeyState(JNIEnv* km_env, jclass km_clazz, jint vkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -109,7 +109,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_
     return (jshort)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1GetCapture(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1getCapture(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -126,7 +126,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_i
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1GetDoubleClickTime(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1getDoubleClickTime(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -143,7 +143,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1GetFocus(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1getFocus(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -160,7 +160,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_i
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1GetKBCodePage(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1getKBCodePage(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -177,7 +177,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1GetKeyNameTextA(JNIEnv* km_env, jclass km_clazz, jint lparam, jlong lpstring, jint cchsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1getKeyNameTextA(JNIEnv* km_env, jclass km_clazz, jint lparam, jlong lpstring, jint cchsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -197,7 +197,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1GetKeyNameTextW(JNIEnv* km_env, jclass km_clazz, jint lparam, jlong lpstring, jint cchsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1getKeyNameTextW(JNIEnv* km_env, jclass km_clazz, jint lparam, jlong lpstring, jint cchsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -217,7 +217,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1GetKeyState(JNIEnv* km_env, jclass km_clazz, jint nvirtkey) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1getKeyState(JNIEnv* km_env, jclass km_clazz, jint nvirtkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -235,7 +235,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_
     return (jshort)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1GetKeyboardLayout(JNIEnv* km_env, jclass km_clazz, jint idthread) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1getKeyboardLayout(JNIEnv* km_env, jclass km_clazz, jint idthread) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -253,7 +253,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_i
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1GetKeyboardLayoutList(JNIEnv* km_env, jclass km_clazz, jint nbuff, jlong lplist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1getKeyboardLayoutList(JNIEnv* km_env, jclass km_clazz, jint nbuff, jlong lplist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -272,7 +272,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1GetKeyboardLayoutNameA(JNIEnv* km_env, jclass km_clazz, jlong pwszklid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1getKeyboardLayoutNameA(JNIEnv* km_env, jclass km_clazz, jlong pwszklid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -290,7 +290,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1GetKeyboardLayoutNameW(JNIEnv* km_env, jclass km_clazz, jlong pwszklid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1getKeyboardLayoutNameW(JNIEnv* km_env, jclass km_clazz, jlong pwszklid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -308,7 +308,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1GetKeyboardState(JNIEnv* km_env, jclass km_clazz, jlong lpkeystate) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1getKeyboardState(JNIEnv* km_env, jclass km_clazz, jlong lpkeystate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -326,7 +326,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1GetKeyboardType(JNIEnv* km_env, jclass km_clazz, jint ntypeflag) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1getKeyboardType(JNIEnv* km_env, jclass km_clazz, jint ntypeflag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -344,7 +344,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1GetLastInputInfo(JNIEnv* km_env, jclass km_clazz, jlong plii) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1getLastInputInfo(JNIEnv* km_env, jclass km_clazz, jlong plii) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -362,7 +362,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1GetMouseMovePointsEx(JNIEnv* km_env, jclass km_clazz, jint cbsize, jlong lppt, jlong lpptbuf, jint nbufpoints, jint resolution) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1getMouseMovePointsEx(JNIEnv* km_env, jclass km_clazz, jint cbsize, jlong lppt, jlong lpptbuf, jint nbufpoints, jint resolution) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -384,7 +384,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1IsWindowEnabled(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1isWindowEnabled(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -402,7 +402,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1LoadKeyboardLayoutA(JNIEnv* km_env, jclass km_clazz, jlong pwszklid, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1loadKeyboardLayoutA(JNIEnv* km_env, jclass km_clazz, jlong pwszklid, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -421,7 +421,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_i
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1LoadKeyboardLayoutW(JNIEnv* km_env, jclass km_clazz, jlong pwszklid, jint flags) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1loadKeyboardLayoutW(JNIEnv* km_env, jclass km_clazz, jlong pwszklid, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -440,7 +440,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_i
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1MapVirtualKeyA(JNIEnv* km_env, jclass km_clazz, jint ucode, jint umaptype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1mapVirtualKeyA(JNIEnv* km_env, jclass km_clazz, jint ucode, jint umaptype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -459,7 +459,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1MapVirtualKeyExA(JNIEnv* km_env, jclass km_clazz, jint ucode, jint umaptype, jlong dwhkl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1mapVirtualKeyExA(JNIEnv* km_env, jclass km_clazz, jint ucode, jint umaptype, jlong dwhkl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -479,7 +479,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1MapVirtualKeyExW(JNIEnv* km_env, jclass km_clazz, jint ucode, jint umaptype, jlong dwhkl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1mapVirtualKeyExW(JNIEnv* km_env, jclass km_clazz, jint ucode, jint umaptype, jlong dwhkl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -499,7 +499,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1MapVirtualKeyW(JNIEnv* km_env, jclass km_clazz, jint ucode, jint umaptype) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1mapVirtualKeyW(JNIEnv* km_env, jclass km_clazz, jint ucode, jint umaptype) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -518,7 +518,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1OemKeyScan(JNIEnv* km_env, jclass km_clazz, jshort woemchar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1oemKeyScan(JNIEnv* km_env, jclass km_clazz, jshort woemchar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -536,7 +536,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1RegisterHotKey(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint id, jint fsmodifiers, jint vk) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1registerHotKey(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint id, jint fsmodifiers, jint vk) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -557,7 +557,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1ReleaseCapture(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1releaseCapture(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -574,7 +574,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1SendInput(JNIEnv* km_env, jclass km_clazz, jint cinputs, jlong pinputs, jint cbsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1sendInput(JNIEnv* km_env, jclass km_clazz, jint cinputs, jlong pinputs, jint cbsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -594,7 +594,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1SetActiveWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1setActiveWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -612,7 +612,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_i
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1SetCapture(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1setCapture(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -630,7 +630,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_i
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1SetDoubleClickTime(JNIEnv* km_env, jclass km_clazz, jint param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1setDoubleClickTime(JNIEnv* km_env, jclass km_clazz, jint param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -648,7 +648,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1SetFocus(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1setFocus(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -666,7 +666,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_i
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1SetKeyboardState(JNIEnv* km_env, jclass km_clazz, jlong lpkeystate) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1setKeyboardState(JNIEnv* km_env, jclass km_clazz, jlong lpkeystate) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -684,7 +684,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1SwapMouseButton(JNIEnv* km_env, jclass km_clazz, jint fswap) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1swapMouseButton(JNIEnv* km_env, jclass km_clazz, jint fswap) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -702,7 +702,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1ToAscii(JNIEnv* km_env, jclass km_clazz, jint uvirtkey, jint uscancode, jlong lpkeystate, jlong lpchar, jint uflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1toAscii(JNIEnv* km_env, jclass km_clazz, jint uvirtkey, jint uscancode, jlong lpkeystate, jlong lpchar, jint uflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -724,7 +724,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1ToAsciiEx(JNIEnv* km_env, jclass km_clazz, jint uvirtkey, jint uscancode, jlong lpkeystate, jlong lpchar, jint uflags, jlong dwhkl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1toAsciiEx(JNIEnv* km_env, jclass km_clazz, jint uvirtkey, jint uscancode, jlong lpkeystate, jlong lpchar, jint uflags, jlong dwhkl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -747,7 +747,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1ToUnicode(JNIEnv* km_env, jclass km_clazz, jint wvirtkey, jint wscancode, jlong lpkeystate, jlong pwszbuff, jint cchbuff, jint wflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1toUnicode(JNIEnv* km_env, jclass km_clazz, jint wvirtkey, jint wscancode, jlong lpkeystate, jlong pwszbuff, jint cchbuff, jint wflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -770,7 +770,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1ToUnicodeEx(JNIEnv* km_env, jclass km_clazz, jint wvirtkey, jint wscancode, jlong lpkeystate, jlong pwszbuff, jint cchbuff, jint wflags, jlong dwhkl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1toUnicodeEx(JNIEnv* km_env, jclass km_clazz, jint wvirtkey, jint wscancode, jlong lpkeystate, jlong pwszbuff, jint cchbuff, jint wflags, jlong dwhkl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -794,7 +794,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1TrackMouseEvent(JNIEnv* km_env, jclass km_clazz, jlong lpeventtrack) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1trackMouseEvent(JNIEnv* km_env, jclass km_clazz, jlong lpeventtrack) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -812,7 +812,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1UnloadKeyboardLayout(JNIEnv* km_env, jclass km_clazz, jlong hkl) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1unloadKeyboardLayout(JNIEnv* km_env, jclass km_clazz, jlong hkl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -830,7 +830,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1UnregisterHotKey(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint id) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1unregisterHotKey(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint id) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -849,7 +849,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     return (jint)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1VkKeyScanA(JNIEnv* km_env, jclass km_clazz, jbyte ch) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1vkKeyScanA(JNIEnv* km_env, jclass km_clazz, jbyte ch) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -867,7 +867,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1VkKeyScanExA(JNIEnv* km_env, jclass km_clazz, jbyte ch, jlong dwhkl) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1vkKeyScanExA(JNIEnv* km_env, jclass km_clazz, jbyte ch, jlong dwhkl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -886,7 +886,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1VkKeyScanExW(JNIEnv* km_env, jclass km_clazz, jshort ch, jlong dwhkl) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1vkKeyScanExW(JNIEnv* km_env, jclass km_clazz, jshort ch, jlong dwhkl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -905,7 +905,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_
     return (jshort)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1VkKeyScanW(JNIEnv* km_env, jclass km_clazz, jshort ch) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1vkKeyScanW(JNIEnv* km_env, jclass km_clazz, jshort ch) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -923,25 +923,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_
     return (jshort)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1_1TrackMouseEvent(JNIEnv* km_env, jclass km_clazz, jlong lpeventtrack) {
-    (void)km_env;
-    (void)km_clazz;
-#ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*);
-    static km_fn_t km_fn_ptr = NULL;
-    if (km_fn_ptr == NULL) {
-        HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
-        if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "_TrackMouseEvent");
-    }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpeventtrack) : -1;
-#else
-    (void)lpeventtrack;
-    int32_t km_res = -1;
-#endif
-    return (jint)km_res;
-}
-
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1keybd_1event(JNIEnv* km_env, jclass km_clazz, jbyte bvk, jbyte bscan, jint dwflags, jlong dwextrainfo) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1keybdEvent(JNIEnv* km_env, jclass km_clazz, jbyte bvk, jbyte bscan, jint dwflags, jlong dwextrainfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -960,7 +942,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1mouse_1event(JNIEnv* km_env, jclass km_clazz, jint dwflags, jint dx, jint dy, jint dwdata, jlong dwextrainfo) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_input_keyboardandmouse_WindowsWin32UiInputKeyboardandmouseJniBridge_windowssys_1windows_1win32_1ui_1input_1keyboardandmouse_1mouseEvent(JNIEnv* km_env, jclass km_clazz, jint dwflags, jint dx, jint dy, jint dwdata, jlong dwextrainfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

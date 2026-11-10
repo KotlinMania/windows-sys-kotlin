@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CMP_WaitNoPendingInstallEvents(uint32_t dwtimeout) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmpWaitNoPendingInstallEvents(uint32_t dwtimeout) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CMP_WaitNo
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Add_Empty_Log_Conf(void* plclogconf, uint32_t dndevinst, int32_t priority, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddEmptyLogConf(void* plclogconf, uint32_t dndevinst, int32_t priority, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -62,7 +62,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Add_Emp
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Add_Empty_Log_Conf_Ex(void* plclogconf, uint32_t dndevinst, int32_t priority, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddEmptyLogConfEx(void* plclogconf, uint32_t dndevinst, int32_t priority, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -88,7 +88,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Add_Emp
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Add_IDA(uint32_t dndevinst, void* pszid, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddIda(uint32_t dndevinst, void* pszid, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -112,7 +112,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Add_IDA
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Add_IDW(uint32_t dndevinst, void* pszid, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddIdw(uint32_t dndevinst, void* pszid, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -136,7 +136,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Add_IDW
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Add_ID_ExA(uint32_t dndevinst, void* pszid, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddIdExA(uint32_t dndevinst, void* pszid, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -161,7 +161,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Add_ID_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Add_ID_ExW(uint32_t dndevinst, void* pszid, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddIdExW(uint32_t dndevinst, void* pszid, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -186,7 +186,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Add_ID_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Add_Range(uint64_t ullstartvalue, uint64_t ullendvalue, uint64_t rlh, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddRange(uint64_t ullstartvalue, uint64_t ullendvalue, uint64_t rlh, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -211,7 +211,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Add_Ran
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Add_Res_Des(void* prdresdes, uint64_t lclogconf, uint32_t resourceid, void* resourcedata, uint32_t resourcelen, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddResDes(void* prdresdes, uint64_t lclogconf, uint32_t resourceid, void* resourcedata, uint32_t resourcelen, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -238,7 +238,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Add_Res
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Add_Res_Des_Ex(void* prdresdes, uint64_t lclogconf, uint32_t resourceid, void* resourcedata, uint32_t resourcelen, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddResDesEx(void* prdresdes, uint64_t lclogconf, uint32_t resourceid, void* resourcedata, uint32_t resourcelen, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, void*, uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -266,7 +266,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Add_Res
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Connect_MachineA(void* uncservername, void* phmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmConnectMachineA(void* uncservername, void* phmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -289,7 +289,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Connect
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Connect_MachineW(void* uncservername, void* phmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmConnectMachineW(void* uncservername, void* phmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -312,7 +312,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Connect
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Create_DevNodeA(void* pdndevinst, void* pdeviceid, uint32_t dnparent, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmCreateDevNodeA(void* pdndevinst, void* pdeviceid, uint32_t dnparent, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -337,7 +337,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Create_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Create_DevNodeW(void* pdndevinst, void* pdeviceid, uint32_t dnparent, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmCreateDevNodeW(void* pdndevinst, void* pdeviceid, uint32_t dnparent, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -362,7 +362,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Create_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Create_DevNode_ExA(void* pdndevinst, void* pdeviceid, uint32_t dnparent, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmCreateDevNodeExA(void* pdndevinst, void* pdeviceid, uint32_t dnparent, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -388,7 +388,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Create_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Create_DevNode_ExW(void* pdndevinst, void* pdeviceid, uint32_t dnparent, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmCreateDevNodeExW(void* pdndevinst, void* pdeviceid, uint32_t dnparent, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -414,7 +414,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Create_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Create_Range_List(void* prlh, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmCreateRangeList(void* prlh, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -437,7 +437,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Create_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Delete_Class_Key(void* classguid, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteClassKey(void* classguid, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -460,7 +460,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Delete_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Delete_Class_Key_Ex(void* classguid, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteClassKeyEx(void* classguid, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -484,7 +484,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Delete_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Delete_DevNode_Key(uint32_t dndevnode, uint32_t ulhardwareprofile, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteDevNodeKey(uint32_t dndevnode, uint32_t ulhardwareprofile, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -508,7 +508,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Delete_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Delete_DevNode_Key_Ex(uint32_t dndevnode, uint32_t ulhardwareprofile, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteDevNodeKeyEx(uint32_t dndevnode, uint32_t ulhardwareprofile, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -533,7 +533,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Delete_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Delete_Device_Interface_KeyA(void* pszdeviceinterface, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteDeviceInterfaceKeyA(void* pszdeviceinterface, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -556,7 +556,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Delete_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Delete_Device_Interface_KeyW(void* pszdeviceinterface, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteDeviceInterfaceKeyW(void* pszdeviceinterface, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -579,7 +579,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Delete_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Delete_Device_Interface_Key_ExA(void* pszdeviceinterface, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteDeviceInterfaceKeyExA(void* pszdeviceinterface, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -603,7 +603,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Delete_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Delete_Device_Interface_Key_ExW(void* pszdeviceinterface, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteDeviceInterfaceKeyExW(void* pszdeviceinterface, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -627,7 +627,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Delete_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Delete_Range(uint64_t ullstartvalue, uint64_t ullendvalue, uint64_t rlh, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteRange(uint64_t ullstartvalue, uint64_t ullendvalue, uint64_t rlh, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -652,7 +652,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Delete_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Detect_Resource_Conflict(uint32_t dndevinst, uint32_t resourceid, void* resourcedata, uint32_t resourcelen, void* pbconflictdetected, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmDetectResourceConflict(uint32_t dndevinst, uint32_t resourceid, void* resourcedata, uint32_t resourcelen, void* pbconflictdetected, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -679,7 +679,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Detect_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Detect_Resource_Conflict_Ex(uint32_t dndevinst, uint32_t resourceid, void* resourcedata, uint32_t resourcelen, void* pbconflictdetected, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmDetectResourceConflictEx(uint32_t dndevinst, uint32_t resourceid, void* resourcedata, uint32_t resourcelen, void* pbconflictdetected, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -707,7 +707,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Detect_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Disable_DevNode(uint32_t dndevinst, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmDisableDevNode(uint32_t dndevinst, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -730,7 +730,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Disable
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Disable_DevNode_Ex(uint32_t dndevinst, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmDisableDevNodeEx(uint32_t dndevinst, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -754,7 +754,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Disable
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Disconnect_Machine(int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmDisconnectMachine(int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -776,7 +776,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Disconn
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Dup_Range_List(uint64_t rlhold, uint64_t rlhnew, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmDupRangeList(uint64_t rlhold, uint64_t rlhnew, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -800,7 +800,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Dup_Ran
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Enable_DevNode(uint32_t dndevinst, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnableDevNode(uint32_t dndevinst, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -823,7 +823,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Enable_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Enable_DevNode_Ex(uint32_t dndevinst, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnableDevNodeEx(uint32_t dndevinst, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -847,7 +847,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Enable_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Enumerate_Classes(uint32_t ulclassindex, void* classguid, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnumerateClasses(uint32_t ulclassindex, void* classguid, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -871,7 +871,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Enumera
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Enumerate_Classes_Ex(uint32_t ulclassindex, void* classguid, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnumerateClassesEx(uint32_t ulclassindex, void* classguid, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -896,7 +896,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Enumera
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Enumerate_EnumeratorsA(uint32_t ulenumindex, void* buffer, void* pullength, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnumerateEnumeratorsA(uint32_t ulenumindex, void* buffer, void* pullength, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -921,7 +921,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Enumera
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Enumerate_EnumeratorsW(uint32_t ulenumindex, void* buffer, void* pullength, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnumerateEnumeratorsW(uint32_t ulenumindex, void* buffer, void* pullength, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -946,7 +946,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Enumera
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Enumerate_Enumerators_ExA(uint32_t ulenumindex, void* buffer, void* pullength, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnumerateEnumeratorsExA(uint32_t ulenumindex, void* buffer, void* pullength, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -972,7 +972,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Enumera
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Enumerate_Enumerators_ExW(uint32_t ulenumindex, void* buffer, void* pullength, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnumerateEnumeratorsExW(uint32_t ulenumindex, void* buffer, void* pullength, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -998,7 +998,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Enumera
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Find_Range(void* pullstart, uint64_t ullstart, uint32_t ullength, uint64_t ullalignment, uint64_t ullend, uint64_t rlh, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmFindRange(void* pullstart, uint64_t ullstart, uint32_t ullength, uint64_t ullalignment, uint64_t ullend, uint64_t rlh, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, uint64_t, uint64_t, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1026,7 +1026,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Find_Ra
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_First_Range(uint64_t rlh, void* pullstart, void* pullend, void* preelement, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmFirstRange(uint64_t rlh, void* pullstart, void* pullend, void* preelement, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1052,7 +1052,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_First_R
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Free_Log_Conf(uint64_t lclogconftobefreed, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeLogConf(uint64_t lclogconftobefreed, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1075,7 +1075,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Free_Lo
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Free_Log_Conf_Ex(uint64_t lclogconftobefreed, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeLogConfEx(uint64_t lclogconftobefreed, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1099,7 +1099,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Free_Lo
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Free_Log_Conf_Handle(uint64_t lclogconf) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeLogConfHandle(uint64_t lclogconf) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1121,7 +1121,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Free_Lo
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Free_Range_List(uint64_t rlh, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeRangeList(uint64_t rlh, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1144,7 +1144,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Free_Ra
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Free_Res_Des(void* prdresdes, uint64_t rdresdes, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeResDes(void* prdresdes, uint64_t rdresdes, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1168,7 +1168,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Free_Re
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Free_Res_Des_Ex(void* prdresdes, uint64_t rdresdes, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeResDesEx(void* prdresdes, uint64_t rdresdes, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1193,7 +1193,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Free_Re
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Free_Res_Des_Handle(uint64_t rdresdes) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeResDesHandle(uint64_t rdresdes) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1215,7 +1215,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Free_Re
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Free_Resource_Conflict_Handle(uint64_t clconflictlist) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeResourceConflictHandle(uint64_t clconflictlist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1237,7 +1237,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Free_Re
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Child(void* pdndevinst, uint32_t dndevinst, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetChild(void* pdndevinst, uint32_t dndevinst, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1261,7 +1261,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Chi
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Child_Ex(void* pdndevinst, uint32_t dndevinst, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetChildEx(void* pdndevinst, uint32_t dndevinst, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1286,7 +1286,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Chi
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_Key_NameA(void* classguid, void* pszkeyname, void* pullength, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassKeyNameA(void* classguid, void* pszkeyname, void* pullength, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1311,7 +1311,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Cla
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_Key_NameW(void* classguid, void* pszkeyname, void* pullength, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassKeyNameW(void* classguid, void* pszkeyname, void* pullength, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1336,7 +1336,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Cla
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_Key_Name_ExA(void* classguid, void* pszkeyname, void* pullength, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassKeyNameExA(void* classguid, void* pszkeyname, void* pullength, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1362,7 +1362,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Cla
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_Key_Name_ExW(void* classguid, void* pszkeyname, void* pullength, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassKeyNameExW(void* classguid, void* pszkeyname, void* pullength, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1388,7 +1388,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Cla
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_NameA(void* classguid, void* buffer, void* pullength, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassNameA(void* classguid, void* buffer, void* pullength, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1413,7 +1413,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Cla
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_NameW(void* classguid, void* buffer, void* pullength, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassNameW(void* classguid, void* buffer, void* pullength, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1438,7 +1438,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Cla
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_Name_ExA(void* classguid, void* buffer, void* pullength, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassNameExA(void* classguid, void* buffer, void* pullength, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1464,7 +1464,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Cla
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_Name_ExW(void* classguid, void* buffer, void* pullength, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassNameExW(void* classguid, void* buffer, void* pullength, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1490,7 +1490,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Cla
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_PropertyW(void* classguid, void* propertykey, void* propertytype, void* propertybuffer, void* propertybuffersize, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassPropertyW(void* classguid, void* propertykey, void* propertytype, void* propertybuffer, void* propertybuffersize, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1517,7 +1517,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Cla
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_Property_ExW(void* classguid, void* propertykey, void* propertytype, void* propertybuffer, void* propertybuffersize, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassPropertyExW(void* classguid, void* propertykey, void* propertytype, void* propertybuffer, void* propertybuffersize, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1545,7 +1545,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Cla
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_Property_Keys(void* classguid, void* propertykeyarray, void* propertykeycount, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassPropertyKeys(void* classguid, void* propertykeyarray, void* propertykeycount, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1570,7 +1570,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Cla
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_Property_Keys_Ex(void* classguid, void* propertykeyarray, void* propertykeycount, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassPropertyKeysEx(void* classguid, void* propertykeyarray, void* propertykeycount, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1596,7 +1596,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Cla
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_Registry_PropertyA(void* classguid, uint32_t ulproperty, void* pulregdatatype, void* buffer, void* pullength, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassRegistryPropertyA(void* classguid, uint32_t ulproperty, void* pulregdatatype, void* buffer, void* pullength, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1624,7 +1624,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Cla
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_Registry_PropertyW(void* classguid, uint32_t ulproperty, void* pulregdatatype, void* buffer, void* pullength, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassRegistryPropertyW(void* classguid, uint32_t ulproperty, void* pulregdatatype, void* buffer, void* pullength, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1652,7 +1652,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Cla
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Depth(void* puldepth, uint32_t dndevinst, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDepth(void* puldepth, uint32_t dndevinst, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1676,7 +1676,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dep
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Depth_Ex(void* puldepth, uint32_t dndevinst, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDepthEx(void* puldepth, uint32_t dndevinst, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1701,7 +1701,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dep
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_Custom_PropertyA(uint32_t dndevinst, void* pszcustompropertyname, void* pulregdatatype, void* buffer, void* pullength, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeCustomPropertyA(uint32_t dndevinst, void* pszcustompropertyname, void* pulregdatatype, void* buffer, void* pullength, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1728,7 +1728,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_Custom_PropertyW(uint32_t dndevinst, void* pszcustompropertyname, void* pulregdatatype, void* buffer, void* pullength, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeCustomPropertyW(uint32_t dndevinst, void* pszcustompropertyname, void* pulregdatatype, void* buffer, void* pullength, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1755,7 +1755,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_Custom_Property_ExA(uint32_t dndevinst, void* pszcustompropertyname, void* pulregdatatype, void* buffer, void* pullength, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeCustomPropertyExA(uint32_t dndevinst, void* pszcustompropertyname, void* pulregdatatype, void* buffer, void* pullength, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1783,7 +1783,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_Custom_Property_ExW(uint32_t dndevinst, void* pszcustompropertyname, void* pulregdatatype, void* buffer, void* pullength, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeCustomPropertyExW(uint32_t dndevinst, void* pszcustompropertyname, void* pulregdatatype, void* buffer, void* pullength, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1811,7 +1811,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_PropertyW(uint32_t dndevinst, void* propertykey, void* propertytype, void* propertybuffer, void* propertybuffersize, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodePropertyW(uint32_t dndevinst, void* propertykey, void* propertytype, void* propertybuffer, void* propertybuffersize, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1838,7 +1838,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_Property_ExW(uint32_t dndevinst, void* propertykey, void* propertytype, void* propertybuffer, void* propertybuffersize, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodePropertyExW(uint32_t dndevinst, void* propertykey, void* propertytype, void* propertybuffer, void* propertybuffersize, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1866,7 +1866,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_Property_Keys(uint32_t dndevinst, void* propertykeyarray, void* propertykeycount, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodePropertyKeys(uint32_t dndevinst, void* propertykeyarray, void* propertykeycount, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1891,7 +1891,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_Property_Keys_Ex(uint32_t dndevinst, void* propertykeyarray, void* propertykeycount, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodePropertyKeysEx(uint32_t dndevinst, void* propertykeyarray, void* propertykeycount, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1917,7 +1917,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_Registry_PropertyA(uint32_t dndevinst, uint32_t ulproperty, void* pulregdatatype, void* buffer, void* pullength, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeRegistryPropertyA(uint32_t dndevinst, uint32_t ulproperty, void* pulregdatatype, void* buffer, void* pullength, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1944,7 +1944,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_Registry_PropertyW(uint32_t dndevinst, uint32_t ulproperty, void* pulregdatatype, void* buffer, void* pullength, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeRegistryPropertyW(uint32_t dndevinst, uint32_t ulproperty, void* pulregdatatype, void* buffer, void* pullength, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1971,7 +1971,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_Registry_Property_ExA(uint32_t dndevinst, uint32_t ulproperty, void* pulregdatatype, void* buffer, void* pullength, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeRegistryPropertyExA(uint32_t dndevinst, uint32_t ulproperty, void* pulregdatatype, void* buffer, void* pullength, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1999,7 +1999,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_Registry_Property_ExW(uint32_t dndevinst, uint32_t ulproperty, void* pulregdatatype, void* buffer, void* pullength, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeRegistryPropertyExW(uint32_t dndevinst, uint32_t ulproperty, void* pulregdatatype, void* buffer, void* pullength, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2027,7 +2027,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_Status(void* pulstatus, void* pulproblemnumber, uint32_t dndevinst, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeStatus(void* pulstatus, void* pulproblemnumber, uint32_t dndevinst, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2052,7 +2052,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_Status_Ex(void* pulstatus, void* pulproblemnumber, uint32_t dndevinst, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeStatusEx(void* pulstatus, void* pulproblemnumber, uint32_t dndevinst, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2078,7 +2078,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_IDA(uint32_t dndevinst, void* buffer, uint32_t bufferlen, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIda(uint32_t dndevinst, void* buffer, uint32_t bufferlen, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2103,7 +2103,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_IDW(uint32_t dndevinst, void* buffer, uint32_t bufferlen, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdw(uint32_t dndevinst, void* buffer, uint32_t bufferlen, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2128,7 +2128,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_ID_ExA(uint32_t dndevinst, void* buffer, uint32_t bufferlen, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdExA(uint32_t dndevinst, void* buffer, uint32_t bufferlen, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2154,7 +2154,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_ID_ExW(uint32_t dndevinst, void* buffer, uint32_t bufferlen, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdExW(uint32_t dndevinst, void* buffer, uint32_t bufferlen, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2180,7 +2180,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_ID_ListA(void* pszfilter, void* buffer, uint32_t bufferlen, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListA(void* pszfilter, void* buffer, uint32_t bufferlen, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2205,7 +2205,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_ID_ListW(void* pszfilter, void* buffer, uint32_t bufferlen, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListW(void* pszfilter, void* buffer, uint32_t bufferlen, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2230,7 +2230,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_ID_List_ExA(void* pszfilter, void* buffer, uint32_t bufferlen, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListExA(void* pszfilter, void* buffer, uint32_t bufferlen, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2256,7 +2256,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_ID_List_ExW(void* pszfilter, void* buffer, uint32_t bufferlen, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListExW(void* pszfilter, void* buffer, uint32_t bufferlen, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2282,7 +2282,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_ID_List_SizeA(void* pullen, void* pszfilter, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListSizeA(void* pullen, void* pszfilter, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2306,7 +2306,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_ID_List_SizeW(void* pullen, void* pszfilter, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListSizeW(void* pullen, void* pszfilter, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2330,7 +2330,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_ID_List_Size_ExA(void* pullen, void* pszfilter, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListSizeExA(void* pullen, void* pszfilter, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2355,7 +2355,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_ID_List_Size_ExW(void* pullen, void* pszfilter, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListSizeExW(void* pullen, void* pszfilter, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2380,7 +2380,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_ID_Size(void* pullen, uint32_t dndevinst, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdSize(void* pullen, uint32_t dndevinst, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2404,7 +2404,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_ID_Size_Ex(void* pullen, uint32_t dndevinst, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdSizeEx(void* pullen, uint32_t dndevinst, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2429,7 +2429,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_AliasA(void* pszdeviceinterface, void* aliasinterfaceguid, void* pszaliasdeviceinterface, void* pullength, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceAliasA(void* pszdeviceinterface, void* aliasinterfaceguid, void* pszaliasdeviceinterface, void* pullength, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2455,7 +2455,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_AliasW(void* pszdeviceinterface, void* aliasinterfaceguid, void* pszaliasdeviceinterface, void* pullength, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceAliasW(void* pszdeviceinterface, void* aliasinterfaceguid, void* pszaliasdeviceinterface, void* pullength, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2481,7 +2481,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_Alias_ExA(void* pszdeviceinterface, void* aliasinterfaceguid, void* pszaliasdeviceinterface, void* pullength, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceAliasExA(void* pszdeviceinterface, void* aliasinterfaceguid, void* pszaliasdeviceinterface, void* pullength, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2508,7 +2508,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_Alias_ExW(void* pszdeviceinterface, void* aliasinterfaceguid, void* pszaliasdeviceinterface, void* pullength, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceAliasExW(void* pszdeviceinterface, void* aliasinterfaceguid, void* pszaliasdeviceinterface, void* pullength, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2535,7 +2535,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_ListA(void* interfaceclassguid, void* pdeviceid, void* buffer, uint32_t bufferlen, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListA(void* interfaceclassguid, void* pdeviceid, void* buffer, uint32_t bufferlen, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2561,7 +2561,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_ListW(void* interfaceclassguid, void* pdeviceid, void* buffer, uint32_t bufferlen, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListW(void* interfaceclassguid, void* pdeviceid, void* buffer, uint32_t bufferlen, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2587,7 +2587,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_List_ExA(void* interfaceclassguid, void* pdeviceid, void* buffer, uint32_t bufferlen, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListExA(void* interfaceclassguid, void* pdeviceid, void* buffer, uint32_t bufferlen, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2614,7 +2614,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_List_ExW(void* interfaceclassguid, void* pdeviceid, void* buffer, uint32_t bufferlen, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListExW(void* interfaceclassguid, void* pdeviceid, void* buffer, uint32_t bufferlen, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2641,7 +2641,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_List_SizeA(void* pullen, void* interfaceclassguid, void* pdeviceid, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListSizeA(void* pullen, void* interfaceclassguid, void* pdeviceid, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2666,7 +2666,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_List_SizeW(void* pullen, void* interfaceclassguid, void* pdeviceid, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListSizeW(void* pullen, void* interfaceclassguid, void* pdeviceid, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2691,7 +2691,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_List_Size_ExA(void* pullen, void* interfaceclassguid, void* pdeviceid, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListSizeExA(void* pullen, void* interfaceclassguid, void* pdeviceid, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2717,7 +2717,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_List_Size_ExW(void* pullen, void* interfaceclassguid, void* pdeviceid, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListSizeExW(void* pullen, void* interfaceclassguid, void* pdeviceid, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2743,7 +2743,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_PropertyW(void* pszdeviceinterface, void* propertykey, void* propertytype, void* propertybuffer, void* propertybuffersize, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfacePropertyW(void* pszdeviceinterface, void* propertykey, void* propertytype, void* propertybuffer, void* propertybuffersize, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2770,7 +2770,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_Property_ExW(void* pszdeviceinterface, void* propertykey, void* propertytype, void* propertybuffer, void* propertybuffersize, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfacePropertyExW(void* pszdeviceinterface, void* propertykey, void* propertytype, void* propertybuffer, void* propertybuffersize, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2798,7 +2798,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_Property_KeysW(void* pszdeviceinterface, void* propertykeyarray, void* propertykeycount, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfacePropertyKeysW(void* pszdeviceinterface, void* propertykeyarray, void* propertykeycount, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2823,7 +2823,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_Property_Keys_ExW(void* pszdeviceinterface, void* propertykeyarray, void* propertykeycount, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfacePropertyKeysExW(void* pszdeviceinterface, void* propertykeyarray, void* propertykeycount, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2849,7 +2849,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_First_Log_Conf(void* plclogconf, uint32_t dndevinst, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetFirstLogConf(void* plclogconf, uint32_t dndevinst, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2873,7 +2873,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Fir
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_First_Log_Conf_Ex(void* plclogconf, uint32_t dndevinst, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetFirstLogConfEx(void* plclogconf, uint32_t dndevinst, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2898,7 +2898,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Fir
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Global_State(void* pulstate, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetGlobalState(void* pulstate, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2921,7 +2921,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Glo
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Global_State_Ex(void* pulstate, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetGlobalStateEx(void* pulstate, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2945,7 +2945,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Glo
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_HW_Prof_FlagsA(void* pdeviceid, uint32_t ulhardwareprofile, void* pulvalue, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHwProfFlagsA(void* pdeviceid, uint32_t ulhardwareprofile, void* pulvalue, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2970,7 +2970,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_HW_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_HW_Prof_FlagsW(void* pdeviceid, uint32_t ulhardwareprofile, void* pulvalue, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHwProfFlagsW(void* pdeviceid, uint32_t ulhardwareprofile, void* pulvalue, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2995,7 +2995,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_HW_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_HW_Prof_Flags_ExA(void* pdeviceid, uint32_t ulhardwareprofile, void* pulvalue, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHwProfFlagsExA(void* pdeviceid, uint32_t ulhardwareprofile, void* pulvalue, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3021,7 +3021,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_HW_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_HW_Prof_Flags_ExW(void* pdeviceid, uint32_t ulhardwareprofile, void* pulvalue, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHwProfFlagsExW(void* pdeviceid, uint32_t ulhardwareprofile, void* pulvalue, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3047,7 +3047,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_HW_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Hardware_Profile_InfoA(uint32_t ulindex, void* phwprofileinfo, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHardwareProfileInfoA(uint32_t ulindex, void* phwprofileinfo, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3071,7 +3071,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Har
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Hardware_Profile_InfoW(uint32_t ulindex, void* phwprofileinfo, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHardwareProfileInfoW(uint32_t ulindex, void* phwprofileinfo, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3095,7 +3095,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Har
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Hardware_Profile_Info_ExA(uint32_t ulindex, void* phwprofileinfo, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHardwareProfileInfoExA(uint32_t ulindex, void* phwprofileinfo, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3120,7 +3120,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Har
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Hardware_Profile_Info_ExW(uint32_t ulindex, void* phwprofileinfo, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHardwareProfileInfoExW(uint32_t ulindex, void* phwprofileinfo, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3145,7 +3145,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Har
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Log_Conf_Priority(uint64_t lclogconf, void* ppriority, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetLogConfPriority(uint64_t lclogconf, void* ppriority, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3169,7 +3169,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Log
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Log_Conf_Priority_Ex(uint64_t lclogconf, void* ppriority, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetLogConfPriorityEx(uint64_t lclogconf, void* ppriority, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3194,7 +3194,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Log
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Next_Log_Conf(void* plclogconf, uint64_t lclogconf, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetNextLogConf(void* plclogconf, uint64_t lclogconf, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3218,7 +3218,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Nex
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Next_Log_Conf_Ex(void* plclogconf, uint64_t lclogconf, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetNextLogConfEx(void* plclogconf, uint64_t lclogconf, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3243,7 +3243,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Nex
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Next_Res_Des(void* prdresdes, uint64_t rdresdes, uint32_t forresource, void* presourceid, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetNextResDes(void* prdresdes, uint64_t rdresdes, uint32_t forresource, void* presourceid, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3269,7 +3269,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Nex
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Next_Res_Des_Ex(void* prdresdes, uint64_t rdresdes, uint32_t forresource, void* presourceid, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetNextResDesEx(void* prdresdes, uint64_t rdresdes, uint32_t forresource, void* presourceid, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3296,7 +3296,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Nex
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Parent(void* pdndevinst, uint32_t dndevinst, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetParent(void* pdndevinst, uint32_t dndevinst, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3320,7 +3320,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Par
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Parent_Ex(void* pdndevinst, uint32_t dndevinst, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetParentEx(void* pdndevinst, uint32_t dndevinst, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3345,7 +3345,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Par
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Res_Des_Data(uint64_t rdresdes, void* buffer, uint32_t bufferlen, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResDesData(uint64_t rdresdes, void* buffer, uint32_t bufferlen, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3370,7 +3370,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Res
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Res_Des_Data_Ex(uint64_t rdresdes, void* buffer, uint32_t bufferlen, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResDesDataEx(uint64_t rdresdes, void* buffer, uint32_t bufferlen, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3396,7 +3396,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Res
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Res_Des_Data_Size(void* pulsize, uint64_t rdresdes, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResDesDataSize(void* pulsize, uint64_t rdresdes, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3420,7 +3420,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Res
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Res_Des_Data_Size_Ex(void* pulsize, uint64_t rdresdes, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResDesDataSizeEx(void* pulsize, uint64_t rdresdes, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3445,7 +3445,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Res
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Resource_Conflict_Count(uint64_t clconflictlist, void* pulcount) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResourceConflictCount(uint64_t clconflictlist, void* pulcount) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3468,7 +3468,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Res
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Resource_Conflict_DetailsA(uint64_t clconflictlist, uint32_t ulindex, void* pconflictdetails) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResourceConflictDetailsA(uint64_t clconflictlist, uint32_t ulindex, void* pconflictdetails) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3492,7 +3492,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Res
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Resource_Conflict_DetailsW(uint64_t clconflictlist, uint32_t ulindex, void* pconflictdetails) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResourceConflictDetailsW(uint64_t clconflictlist, uint32_t ulindex, void* pconflictdetails) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3516,7 +3516,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Res
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Sibling(void* pdndevinst, uint32_t dndevinst, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetSibling(void* pdndevinst, uint32_t dndevinst, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3540,7 +3540,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Sib
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Sibling_Ex(void* pdndevinst, uint32_t dndevinst, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetSiblingEx(void* pdndevinst, uint32_t dndevinst, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3565,7 +3565,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Sib
 #endif
 }
 
-uint16_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Version(void) {
+uint16_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetVersion(void) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -3586,7 +3586,7 @@ uint16_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Ver
 #endif
 }
 
-uint16_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Version_Ex(int64_t hmachine) {
+uint16_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetVersionEx(int64_t hmachine) {
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3608,7 +3608,7 @@ uint16_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Ver
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Intersect_Range_List(uint64_t rlhold1, uint64_t rlhold2, uint64_t rlhnew, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmIntersectRangeList(uint64_t rlhold1, uint64_t rlhold2, uint64_t rlhnew, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3633,7 +3633,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Interse
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Invert_Range_List(uint64_t rlhold, uint64_t rlhnew, uint64_t ullmaxvalue, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmInvertRangeList(uint64_t rlhold, uint64_t rlhnew, uint64_t ullmaxvalue, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3658,7 +3658,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Invert_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Is_Dock_Station_Present(void* pbpresent) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmIsDockStationPresent(void* pbpresent) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3680,7 +3680,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Is_Dock
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Is_Dock_Station_Present_Ex(void* pbpresent, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmIsDockStationPresentEx(void* pbpresent, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3703,7 +3703,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Is_Dock
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Is_Version_Available(uint16_t wversion) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmIsVersionAvailable(uint16_t wversion) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3725,7 +3725,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Is_Versi
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Is_Version_Available_Ex(uint16_t wversion, int64_t hmachine) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmIsVersionAvailableEx(uint16_t wversion, int64_t hmachine) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint16_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3748,7 +3748,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Is_Versi
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Locate_DevNodeA(void* pdndevinst, void* pdeviceid, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmLocateDevNodeA(void* pdndevinst, void* pdeviceid, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3772,7 +3772,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Locate_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Locate_DevNodeW(void* pdndevinst, void* pdeviceid, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmLocateDevNodeW(void* pdndevinst, void* pdeviceid, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3796,7 +3796,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Locate_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Locate_DevNode_ExA(void* pdndevinst, void* pdeviceid, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmLocateDevNodeExA(void* pdndevinst, void* pdeviceid, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3821,7 +3821,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Locate_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Locate_DevNode_ExW(void* pdndevinst, void* pdeviceid, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmLocateDevNodeExW(void* pdndevinst, void* pdeviceid, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3846,7 +3846,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Locate_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_MapCrToWin32Err(uint32_t cmreturncode, uint32_t defaulterr) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmMapCrToWin32Err(uint32_t cmreturncode, uint32_t defaulterr) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3869,7 +3869,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_MapCrTo
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Merge_Range_List(uint64_t rlhold1, uint64_t rlhold2, uint64_t rlhnew, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmMergeRangeList(uint64_t rlhold1, uint64_t rlhold2, uint64_t rlhnew, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3894,7 +3894,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Merge_R
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Modify_Res_Des(void* prdresdes, uint64_t rdresdes, uint32_t resourceid, void* resourcedata, uint32_t resourcelen, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmModifyResDes(void* prdresdes, uint64_t rdresdes, uint32_t resourceid, void* resourcedata, uint32_t resourcelen, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3921,7 +3921,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Modify_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Modify_Res_Des_Ex(void* prdresdes, uint64_t rdresdes, uint32_t resourceid, void* resourcedata, uint32_t resourcelen, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmModifyResDesEx(void* prdresdes, uint64_t rdresdes, uint32_t resourceid, void* resourcedata, uint32_t resourcelen, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, uint32_t, void*, uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3949,7 +3949,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Modify_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Move_DevNode(uint32_t dnfromdevinst, uint32_t dntodevinst, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmMoveDevNode(uint32_t dnfromdevinst, uint32_t dntodevinst, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3973,7 +3973,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Move_De
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Move_DevNode_Ex(uint32_t dnfromdevinst, uint32_t dntodevinst, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmMoveDevNodeEx(uint32_t dnfromdevinst, uint32_t dntodevinst, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3998,7 +3998,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Move_De
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Next_Range(void* preelement, void* pullstart, void* pullend, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmNextRange(void* preelement, void* pullstart, void* pullend, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4023,7 +4023,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Next_Ra
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_Class_KeyA(void* classguid, void* pszclassname, uint32_t samdesired, uint32_t disposition, void* phkclass, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenClassKeyA(void* classguid, void* pszclassname, uint32_t samdesired, uint32_t disposition, void* phkclass, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4050,7 +4050,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_Cl
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_Class_KeyW(void* classguid, void* pszclassname, uint32_t samdesired, uint32_t disposition, void* phkclass, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenClassKeyW(void* classguid, void* pszclassname, uint32_t samdesired, uint32_t disposition, void* phkclass, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4077,7 +4077,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_Cl
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_Class_Key_ExA(void* classguid, void* pszclassname, uint32_t samdesired, uint32_t disposition, void* phkclass, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenClassKeyExA(void* classguid, void* pszclassname, uint32_t samdesired, uint32_t disposition, void* phkclass, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4105,7 +4105,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_Cl
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_Class_Key_ExW(void* classguid, void* pszclassname, uint32_t samdesired, uint32_t disposition, void* phkclass, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenClassKeyExW(void* classguid, void* pszclassname, uint32_t samdesired, uint32_t disposition, void* phkclass, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4133,7 +4133,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_Cl
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_DevNode_Key(uint32_t dndevnode, uint32_t samdesired, uint32_t ulhardwareprofile, uint32_t disposition, void* phkdevice, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenDevNodeKey(uint32_t dndevnode, uint32_t samdesired, uint32_t ulhardwareprofile, uint32_t disposition, void* phkdevice, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4160,7 +4160,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_De
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_DevNode_Key_Ex(uint32_t dndevnode, uint32_t samdesired, uint32_t ulhardwareprofile, uint32_t disposition, void* phkdevice, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenDevNodeKeyEx(uint32_t dndevnode, uint32_t samdesired, uint32_t ulhardwareprofile, uint32_t disposition, void* phkdevice, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, uint32_t, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4188,7 +4188,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_De
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_Device_Interface_KeyA(void* pszdeviceinterface, uint32_t samdesired, uint32_t disposition, void* phkdeviceinterface, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenDeviceInterfaceKeyA(void* pszdeviceinterface, uint32_t samdesired, uint32_t disposition, void* phkdeviceinterface, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4214,7 +4214,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_De
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_Device_Interface_KeyW(void* pszdeviceinterface, uint32_t samdesired, uint32_t disposition, void* phkdeviceinterface, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenDeviceInterfaceKeyW(void* pszdeviceinterface, uint32_t samdesired, uint32_t disposition, void* phkdeviceinterface, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4240,7 +4240,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_De
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_Device_Interface_Key_ExA(void* pszdeviceinterface, uint32_t samdesired, uint32_t disposition, void* phkdeviceinterface, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenDeviceInterfaceKeyExA(void* pszdeviceinterface, uint32_t samdesired, uint32_t disposition, void* phkdeviceinterface, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4267,7 +4267,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_De
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_Device_Interface_Key_ExW(void* pszdeviceinterface, uint32_t samdesired, uint32_t disposition, void* phkdeviceinterface, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenDeviceInterfaceKeyExW(void* pszdeviceinterface, uint32_t samdesired, uint32_t disposition, void* phkdeviceinterface, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4294,7 +4294,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_De
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_And_Remove_SubTreeA(uint32_t dnancestor, void* pvetotype, void* pszvetoname, uint32_t ulnamelength, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryAndRemoveSubTreeA(uint32_t dnancestor, void* pvetotype, void* pszvetoname, uint32_t ulnamelength, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4320,7 +4320,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_A
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_And_Remove_SubTreeW(uint32_t dnancestor, void* pvetotype, void* pszvetoname, uint32_t ulnamelength, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryAndRemoveSubTreeW(uint32_t dnancestor, void* pvetotype, void* pszvetoname, uint32_t ulnamelength, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4346,7 +4346,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_A
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_And_Remove_SubTree_ExA(uint32_t dnancestor, void* pvetotype, void* pszvetoname, uint32_t ulnamelength, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryAndRemoveSubTreeExA(uint32_t dnancestor, void* pvetotype, void* pszvetoname, uint32_t ulnamelength, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4373,7 +4373,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_A
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_And_Remove_SubTree_ExW(uint32_t dnancestor, void* pvetotype, void* pszvetoname, uint32_t ulnamelength, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryAndRemoveSubTreeExW(uint32_t dnancestor, void* pvetotype, void* pszvetoname, uint32_t ulnamelength, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4400,7 +4400,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_A
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_Arbitrator_Free_Data(void* pdata, uint32_t datalen, uint32_t dndevinst, uint32_t resourceid, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryArbitratorFreeData(void* pdata, uint32_t datalen, uint32_t dndevinst, uint32_t resourceid, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4426,7 +4426,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_A
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_Arbitrator_Free_Data_Ex(void* pdata, uint32_t datalen, uint32_t dndevinst, uint32_t resourceid, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryArbitratorFreeDataEx(void* pdata, uint32_t datalen, uint32_t dndevinst, uint32_t resourceid, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4453,7 +4453,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_A
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_Arbitrator_Free_Size(void* pulsize, uint32_t dndevinst, uint32_t resourceid, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryArbitratorFreeSize(void* pulsize, uint32_t dndevinst, uint32_t resourceid, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4478,7 +4478,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_A
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_Arbitrator_Free_Size_Ex(void* pulsize, uint32_t dndevinst, uint32_t resourceid, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryArbitratorFreeSizeEx(void* pulsize, uint32_t dndevinst, uint32_t resourceid, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4504,7 +4504,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_A
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_Remove_SubTree(uint32_t dnancestor, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryRemoveSubTree(uint32_t dnancestor, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4527,7 +4527,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_R
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_Remove_SubTree_Ex(uint32_t dnancestor, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryRemoveSubTreeEx(uint32_t dnancestor, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4551,7 +4551,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_R
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_Resource_Conflict_List(void* pclconflictlist, uint32_t dndevinst, uint32_t resourceid, void* resourcedata, uint32_t resourcelen, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryResourceConflictList(void* pclconflictlist, uint32_t dndevinst, uint32_t resourceid, void* resourcedata, uint32_t resourcelen, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4579,7 +4579,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_R
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Reenumerate_DevNode(uint32_t dndevinst, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmReenumerateDevNode(uint32_t dndevinst, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4602,7 +4602,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Reenume
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Reenumerate_DevNode_Ex(uint32_t dndevinst, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmReenumerateDevNodeEx(uint32_t dndevinst, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4626,7 +4626,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Reenume
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Register_Device_Driver(uint32_t dndevinst, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterDeviceDriver(uint32_t dndevinst, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4649,7 +4649,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Registe
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Register_Device_Driver_Ex(uint32_t dndevinst, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterDeviceDriverEx(uint32_t dndevinst, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4673,7 +4673,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Registe
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Register_Device_InterfaceA(uint32_t dndevinst, void* interfaceclassguid, void* pszreference, void* pszdeviceinterface, void* pullength, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterDeviceInterfaceA(uint32_t dndevinst, void* interfaceclassguid, void* pszreference, void* pszdeviceinterface, void* pullength, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4700,7 +4700,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Registe
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Register_Device_InterfaceW(uint32_t dndevinst, void* interfaceclassguid, void* pszreference, void* pszdeviceinterface, void* pullength, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterDeviceInterfaceW(uint32_t dndevinst, void* interfaceclassguid, void* pszreference, void* pszdeviceinterface, void* pullength, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4727,7 +4727,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Registe
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Register_Device_Interface_ExA(uint32_t dndevinst, void* interfaceclassguid, void* pszreference, void* pszdeviceinterface, void* pullength, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterDeviceInterfaceExA(uint32_t dndevinst, void* interfaceclassguid, void* pszreference, void* pszdeviceinterface, void* pullength, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4755,7 +4755,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Registe
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Register_Device_Interface_ExW(uint32_t dndevinst, void* interfaceclassguid, void* pszreference, void* pszdeviceinterface, void* pullength, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterDeviceInterfaceExW(uint32_t dndevinst, void* interfaceclassguid, void* pszreference, void* pszdeviceinterface, void* pullength, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4783,7 +4783,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Registe
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Register_Notification(void* pfilter, void* pcontext, void* pcallback, void* pnotifycontext) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterNotification(void* pfilter, void* pcontext, void* pcallback, void* pnotifycontext) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -4808,7 +4808,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Registe
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Remove_SubTree(uint32_t dnancestor, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmRemoveSubTree(uint32_t dnancestor, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4831,7 +4831,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Remove_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Remove_SubTree_Ex(uint32_t dnancestor, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmRemoveSubTreeEx(uint32_t dnancestor, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4855,7 +4855,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Remove_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Request_Device_EjectA(uint32_t dndevinst, void* pvetotype, void* pszvetoname, uint32_t ulnamelength, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmRequestDeviceEjectA(uint32_t dndevinst, void* pvetotype, void* pszvetoname, uint32_t ulnamelength, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4881,7 +4881,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Request
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Request_Device_EjectW(uint32_t dndevinst, void* pvetotype, void* pszvetoname, uint32_t ulnamelength, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmRequestDeviceEjectW(uint32_t dndevinst, void* pvetotype, void* pszvetoname, uint32_t ulnamelength, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4907,7 +4907,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Request
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Request_Device_Eject_ExA(uint32_t dndevinst, void* pvetotype, void* pszvetoname, uint32_t ulnamelength, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmRequestDeviceEjectExA(uint32_t dndevinst, void* pvetotype, void* pszvetoname, uint32_t ulnamelength, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4934,7 +4934,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Request
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Request_Device_Eject_ExW(uint32_t dndevinst, void* pvetotype, void* pszvetoname, uint32_t ulnamelength, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmRequestDeviceEjectExW(uint32_t dndevinst, void* pvetotype, void* pszvetoname, uint32_t ulnamelength, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -4961,7 +4961,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Request
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Request_Eject_PC(void) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmRequestEjectPc(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -4982,7 +4982,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Request
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Request_Eject_PC_Ex(int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmRequestEjectPcEx(int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5004,7 +5004,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Request
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Run_Detection(uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmRunDetection(uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5026,7 +5026,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Run_Det
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Run_Detection_Ex(uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmRunDetectionEx(uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5049,7 +5049,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Run_Det
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_Class_PropertyW(void* classguid, void* propertykey, uint32_t propertytype, void* propertybuffer, uint32_t propertybuffersize, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetClassPropertyW(void* classguid, void* propertykey, uint32_t propertytype, void* propertybuffer, uint32_t propertybuffersize, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5076,7 +5076,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_Cla
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_Class_Property_ExW(void* classguid, void* propertykey, uint32_t propertytype, void* propertybuffer, uint32_t propertybuffersize, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetClassPropertyExW(void* classguid, void* propertykey, uint32_t propertytype, void* propertybuffer, uint32_t propertybuffersize, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5104,7 +5104,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_Cla
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_Class_Registry_PropertyA(void* classguid, uint32_t ulproperty, void* buffer, uint32_t ullength, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetClassRegistryPropertyA(void* classguid, uint32_t ulproperty, void* buffer, uint32_t ullength, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5131,7 +5131,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_Cla
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_Class_Registry_PropertyW(void* classguid, uint32_t ulproperty, void* buffer, uint32_t ullength, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetClassRegistryPropertyW(void* classguid, uint32_t ulproperty, void* buffer, uint32_t ullength, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5158,7 +5158,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_Cla
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_DevNode_Problem(uint32_t dndevinst, uint32_t ulproblem, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodeProblem(uint32_t dndevinst, uint32_t ulproblem, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5182,7 +5182,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_DevNode_Problem_Ex(uint32_t dndevinst, uint32_t ulproblem, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodeProblemEx(uint32_t dndevinst, uint32_t ulproblem, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5207,7 +5207,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_DevNode_PropertyW(uint32_t dndevinst, void* propertykey, uint32_t propertytype, void* propertybuffer, uint32_t propertybuffersize, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodePropertyW(uint32_t dndevinst, void* propertykey, uint32_t propertytype, void* propertybuffer, uint32_t propertybuffersize, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5234,7 +5234,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_DevNode_Property_ExW(uint32_t dndevinst, void* propertykey, uint32_t propertytype, void* propertybuffer, uint32_t propertybuffersize, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodePropertyExW(uint32_t dndevinst, void* propertykey, uint32_t propertytype, void* propertybuffer, uint32_t propertybuffersize, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5262,7 +5262,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_DevNode_Registry_PropertyA(uint32_t dndevinst, uint32_t ulproperty, void* buffer, uint32_t ullength, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodeRegistryPropertyA(uint32_t dndevinst, uint32_t ulproperty, void* buffer, uint32_t ullength, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5288,7 +5288,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_DevNode_Registry_PropertyW(uint32_t dndevinst, uint32_t ulproperty, void* buffer, uint32_t ullength, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodeRegistryPropertyW(uint32_t dndevinst, uint32_t ulproperty, void* buffer, uint32_t ullength, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5314,7 +5314,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_DevNode_Registry_Property_ExA(uint32_t dndevinst, uint32_t ulproperty, void* buffer, uint32_t ullength, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodeRegistryPropertyExA(uint32_t dndevinst, uint32_t ulproperty, void* buffer, uint32_t ullength, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5341,7 +5341,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_DevNode_Registry_Property_ExW(uint32_t dndevinst, uint32_t ulproperty, void* buffer, uint32_t ullength, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodeRegistryPropertyExW(uint32_t dndevinst, uint32_t ulproperty, void* buffer, uint32_t ullength, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5368,7 +5368,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_Device_Interface_PropertyW(void* pszdeviceinterface, void* propertykey, uint32_t propertytype, void* propertybuffer, uint32_t propertybuffersize, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDeviceInterfacePropertyW(void* pszdeviceinterface, void* propertykey, uint32_t propertytype, void* propertybuffer, uint32_t propertybuffersize, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5395,7 +5395,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_Device_Interface_Property_ExW(void* pszdeviceinterface, void* propertykey, uint32_t propertytype, void* propertybuffer, uint32_t propertybuffersize, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDeviceInterfacePropertyExW(void* pszdeviceinterface, void* propertykey, uint32_t propertytype, void* propertybuffer, uint32_t propertybuffersize, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5423,7 +5423,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_Dev
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_HW_Prof(uint32_t ulhardwareprofile, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetHwProf(uint32_t ulhardwareprofile, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5446,7 +5446,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_HW_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_HW_Prof_Ex(uint32_t ulhardwareprofile, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetHwProfEx(uint32_t ulhardwareprofile, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5470,7 +5470,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_HW_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_HW_Prof_FlagsA(void* pdeviceid, uint32_t ulconfig, uint32_t ulvalue, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetHwProfFlagsA(void* pdeviceid, uint32_t ulconfig, uint32_t ulvalue, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5495,7 +5495,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_HW_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_HW_Prof_FlagsW(void* pdeviceid, uint32_t ulconfig, uint32_t ulvalue, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetHwProfFlagsW(void* pdeviceid, uint32_t ulconfig, uint32_t ulvalue, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5520,7 +5520,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_HW_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_HW_Prof_Flags_ExA(void* pdeviceid, uint32_t ulconfig, uint32_t ulvalue, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetHwProfFlagsExA(void* pdeviceid, uint32_t ulconfig, uint32_t ulvalue, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5546,7 +5546,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_HW_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_HW_Prof_Flags_ExW(void* pdeviceid, uint32_t ulconfig, uint32_t ulvalue, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetHwProfFlagsExW(void* pdeviceid, uint32_t ulconfig, uint32_t ulvalue, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5572,7 +5572,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_HW_
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Setup_DevNode(uint32_t dndevinst, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetupDevNode(uint32_t dndevinst, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5595,7 +5595,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Setup_D
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Setup_DevNode_Ex(uint32_t dndevinst, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetupDevNodeEx(uint32_t dndevinst, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5619,7 +5619,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Setup_D
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Test_Range_Available(uint64_t ullstartvalue, uint64_t ullendvalue, uint64_t rlh, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmTestRangeAvailable(uint64_t ullstartvalue, uint64_t ullendvalue, uint64_t rlh, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint64_t, uint64_t, uint64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5644,7 +5644,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Test_Ra
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Uninstall_DevNode(uint32_t dndevinst, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmUninstallDevNode(uint32_t dndevinst, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5667,7 +5667,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Uninsta
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Uninstall_DevNode_Ex(uint32_t dndevinst, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmUninstallDevNodeEx(uint32_t dndevinst, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5691,7 +5691,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Uninsta
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Unregister_Device_InterfaceA(void* pszdeviceinterface, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmUnregisterDeviceInterfaceA(void* pszdeviceinterface, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5714,7 +5714,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Unregis
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Unregister_Device_InterfaceW(void* pszdeviceinterface, uint32_t ulflags) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmUnregisterDeviceInterfaceW(void* pszdeviceinterface, uint32_t ulflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5737,7 +5737,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Unregis
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Unregister_Device_Interface_ExA(void* pszdeviceinterface, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmUnregisterDeviceInterfaceExA(void* pszdeviceinterface, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5761,7 +5761,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Unregis
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Unregister_Device_Interface_ExW(void* pszdeviceinterface, uint32_t ulflags, int64_t hmachine) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmUnregisterDeviceInterfaceExW(void* pszdeviceinterface, uint32_t ulflags, int64_t hmachine) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -5785,7 +5785,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Unregis
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Unregister_Notification(void* notifycontext) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_cmUnregisterNotification(void* notifycontext) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5807,7 +5807,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Unregis
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_DiInstallDevice(void* hwndparent, int64_t deviceinfoset, void* deviceinfodata, void* driverinfodata, uint32_t flags, void* needreboot) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_diInstallDevice(void* hwndparent, int64_t deviceinfoset, void* deviceinfodata, void* driverinfodata, uint32_t flags, void* needreboot) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int64_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5834,7 +5834,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_DiInstallDe
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_DiInstallDriverA(void* hwndparent, void* infpath, uint32_t flags, void* needreboot) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_diInstallDriverA(void* hwndparent, void* infpath, uint32_t flags, void* needreboot) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5859,7 +5859,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_DiInstallDr
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_DiInstallDriverW(void* hwndparent, void* infpath, uint32_t flags, void* needreboot) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_diInstallDriverW(void* hwndparent, void* infpath, uint32_t flags, void* needreboot) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5884,7 +5884,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_DiInstallDr
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_DiRollbackDriver(int64_t deviceinfoset, void* deviceinfodata, void* hwndparent, uint32_t flags, void* needreboot) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_diRollbackDriver(int64_t deviceinfoset, void* deviceinfodata, void* hwndparent, uint32_t flags, void* needreboot) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5910,7 +5910,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_DiRollbackD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_DiShowUpdateDevice(void* hwndparent, int64_t deviceinfoset, void* deviceinfodata, uint32_t flags, void* needreboot) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_diShowUpdateDevice(void* hwndparent, int64_t deviceinfoset, void* deviceinfodata, uint32_t flags, void* needreboot) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5936,7 +5936,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_DiShowUpdat
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_DiShowUpdateDriver(void* hwndparent, void* filepath, uint32_t flags, void* needreboot) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_diShowUpdateDriver(void* hwndparent, void* filepath, uint32_t flags, void* needreboot) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5961,7 +5961,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_DiShowUpdat
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_DiUninstallDevice(void* hwndparent, int64_t deviceinfoset, void* deviceinfodata, uint32_t flags, void* needreboot) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_diUninstallDevice(void* hwndparent, int64_t deviceinfoset, void* deviceinfodata, uint32_t flags, void* needreboot) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -5987,7 +5987,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_DiUninstall
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_DiUninstallDriverA(void* hwndparent, void* infpath, uint32_t flags, void* needreboot) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_diUninstallDriverA(void* hwndparent, void* infpath, uint32_t flags, void* needreboot) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6012,7 +6012,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_DiUninstall
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_DiUninstallDriverW(void* hwndparent, void* infpath, uint32_t flags, void* needreboot) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_diUninstallDriverW(void* hwndparent, void* infpath, uint32_t flags, void* needreboot) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6037,7 +6037,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_DiUninstall
 #endif
 }
 
-void windowssys_windows_win32_devices_deviceanddriverinstallation_InstallHinfSectionA(void* window, void* modulehandle, void* commandline, int32_t showcommand) {
+void windowssys_windows_win32_devices_deviceanddriverinstallation_installHinfSectionA(void* window, void* modulehandle, void* commandline, int32_t showcommand) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6061,7 +6061,7 @@ void windowssys_windows_win32_devices_deviceanddriverinstallation_InstallHinfSec
 #endif
 }
 
-void windowssys_windows_win32_devices_deviceanddriverinstallation_InstallHinfSectionW(void* window, void* modulehandle, void* commandline, int32_t showcommand) {
+void windowssys_windows_win32_devices_deviceanddriverinstallation_installHinfSectionW(void* window, void* modulehandle, void* commandline, int32_t showcommand) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6085,7 +6085,7 @@ void windowssys_windows_win32_devices_deviceanddriverinstallation_InstallHinfSec
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAddInstallSectionToDiskSpaceListA(void* diskspace, void* infhandle, void* layoutinfhandle, void* sectionname, void* reserved1, uint32_t reserved2) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddInstallSectionToDiskSpaceListA(void* diskspace, void* infhandle, void* layoutinfhandle, void* sectionname, void* reserved1, uint32_t reserved2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6112,7 +6112,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAddIns
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAddInstallSectionToDiskSpaceListW(void* diskspace, void* infhandle, void* layoutinfhandle, void* sectionname, void* reserved1, uint32_t reserved2) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddInstallSectionToDiskSpaceListW(void* diskspace, void* infhandle, void* layoutinfhandle, void* sectionname, void* reserved1, uint32_t reserved2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6139,7 +6139,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAddIns
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAddSectionToDiskSpaceListA(void* diskspace, void* infhandle, void* listinfhandle, void* sectionname, uint32_t operation, void* reserved1, uint32_t reserved2) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddSectionToDiskSpaceListA(void* diskspace, void* infhandle, void* listinfhandle, void* sectionname, uint32_t operation, void* reserved1, uint32_t reserved2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6167,7 +6167,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAddSec
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAddSectionToDiskSpaceListW(void* diskspace, void* infhandle, void* listinfhandle, void* sectionname, uint32_t operation, void* reserved1, uint32_t reserved2) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddSectionToDiskSpaceListW(void* diskspace, void* infhandle, void* listinfhandle, void* sectionname, uint32_t operation, void* reserved1, uint32_t reserved2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6195,7 +6195,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAddSec
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAddToDiskSpaceListA(void* diskspace, void* targetfilespec, int64_t filesize, uint32_t operation, void* reserved1, uint32_t reserved2) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddToDiskSpaceListA(void* diskspace, void* targetfilespec, int64_t filesize, uint32_t operation, void* reserved1, uint32_t reserved2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int64_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6222,7 +6222,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAddToD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAddToDiskSpaceListW(void* diskspace, void* targetfilespec, int64_t filesize, uint32_t operation, void* reserved1, uint32_t reserved2) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddToDiskSpaceListW(void* diskspace, void* targetfilespec, int64_t filesize, uint32_t operation, void* reserved1, uint32_t reserved2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int64_t, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6249,7 +6249,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAddToD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAddToSourceListA(uint32_t flags, void* source) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddToSourceListA(uint32_t flags, void* source) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6272,7 +6272,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAddToS
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAddToSourceListW(uint32_t flags, void* source) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddToSourceListW(uint32_t flags, void* source) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6295,7 +6295,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAddToS
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAdjustDiskSpaceListA(void* diskspace, void* driveroot, int64_t amount, void* reserved1, uint32_t reserved2) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupAdjustDiskSpaceListA(void* diskspace, void* driveroot, int64_t amount, void* reserved1, uint32_t reserved2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6321,7 +6321,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAdjust
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAdjustDiskSpaceListW(void* diskspace, void* driveroot, int64_t amount, void* reserved1, uint32_t reserved2) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupAdjustDiskSpaceListW(void* diskspace, void* driveroot, int64_t amount, void* reserved1, uint32_t reserved2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6347,7 +6347,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAdjust
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupBackupErrorA(void* hwndparent, void* dialogtitle, void* sourcefile, void* targetfile, uint32_t win32errorcode, uint32_t style) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupBackupErrorA(void* hwndparent, void* dialogtitle, void* sourcefile, void* targetfile, uint32_t win32errorcode, uint32_t style) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6374,7 +6374,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupBacku
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupBackupErrorW(void* hwndparent, void* dialogtitle, void* sourcefile, void* targetfile, uint32_t win32errorcode, uint32_t style) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupBackupErrorW(void* hwndparent, void* dialogtitle, void* sourcefile, void* targetfile, uint32_t win32errorcode, uint32_t style) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6401,7 +6401,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupBacku
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCancelTemporarySourceList(void) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupCancelTemporarySourceList(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -6422,7 +6422,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCancel
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCloseFileQueue(void* queuehandle) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupCloseFileQueue(void* queuehandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6444,7 +6444,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCloseF
 #endif
 }
 
-void windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCloseInfFile(void* infhandle) {
+void windowssys_windows_win32_devices_deviceanddriverinstallation_setupCloseInfFile(void* infhandle) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6465,7 +6465,7 @@ void windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCloseInfF
 #endif
 }
 
-void windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCloseLog(void) {
+void windowssys_windows_win32_devices_deviceanddriverinstallation_setupCloseLog(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -6485,7 +6485,7 @@ void windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCloseLog(
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCommitFileQueueA(void* owner, void* queuehandle, void* msghandler, void* context) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupCommitFileQueueA(void* owner, void* queuehandle, void* msghandler, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6510,7 +6510,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCommit
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCommitFileQueueW(void* owner, void* queuehandle, void* msghandler, void* context) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupCommitFileQueueW(void* owner, void* queuehandle, void* msghandler, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6535,7 +6535,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCommit
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupConfigureWmiFromInfSectionA(void* infhandle, void* sectionname, uint32_t flags) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupConfigureWmiFromInfSectionA(void* infhandle, void* sectionname, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6559,7 +6559,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupConfig
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupConfigureWmiFromInfSectionW(void* infhandle, void* sectionname, uint32_t flags) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupConfigureWmiFromInfSectionW(void* infhandle, void* sectionname, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6583,7 +6583,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupConfig
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCopyErrorA(void* hwndparent, void* dialogtitle, void* diskname, void* pathtosource, void* sourcefile, void* targetpathfile, uint32_t win32errorcode, uint32_t style, void* pathbuffer, uint32_t pathbuffersize, void* pathrequiredsize) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupCopyErrorA(void* hwndparent, void* dialogtitle, void* diskname, void* pathtosource, void* sourcefile, void* targetpathfile, uint32_t win32errorcode, uint32_t style, void* pathbuffer, uint32_t pathbuffersize, void* pathrequiredsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6615,7 +6615,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCopyE
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCopyErrorW(void* hwndparent, void* dialogtitle, void* diskname, void* pathtosource, void* sourcefile, void* targetpathfile, uint32_t win32errorcode, uint32_t style, void* pathbuffer, uint32_t pathbuffersize, void* pathrequiredsize) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupCopyErrorW(void* hwndparent, void* dialogtitle, void* diskname, void* pathtosource, void* sourcefile, void* targetpathfile, uint32_t win32errorcode, uint32_t style, void* pathbuffer, uint32_t pathbuffersize, void* pathrequiredsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6647,7 +6647,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCopyE
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCopyOEMInfA(void* sourceinffilename, void* oemsourcemedialocation, uint32_t oemsourcemediatype, uint32_t copystyle, void* destinationinffilename, uint32_t destinationinffilenamesize, void* requiredsize, void* destinationinffilenamecomponent) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupCopyOEMInfA(void* sourceinffilename, void* oemsourcemedialocation, uint32_t oemsourcemediatype, uint32_t copystyle, void* destinationinffilename, uint32_t destinationinffilenamesize, void* requiredsize, void* destinationinffilenamecomponent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6676,7 +6676,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCopyOE
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCopyOEMInfW(void* sourceinffilename, void* oemsourcemedialocation, uint32_t oemsourcemediatype, uint32_t copystyle, void* destinationinffilename, uint32_t destinationinffilenamesize, void* requiredsize, void* destinationinffilenamecomponent) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupCopyOEMInfW(void* sourceinffilename, void* oemsourcemedialocation, uint32_t oemsourcemediatype, uint32_t copystyle, void* destinationinffilename, uint32_t destinationinffilenamesize, void* requiredsize, void* destinationinffilenamecomponent) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6705,7 +6705,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCopyOE
 #endif
 }
 
-void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCreateDiskSpaceListA(void* reserved1, uint32_t reserved2, uint32_t flags) {
+void* windowssys_windows_win32_devices_deviceanddriverinstallation_setupCreateDiskSpaceListA(void* reserved1, uint32_t reserved2, uint32_t flags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6729,7 +6729,7 @@ void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCreateDi
 #endif
 }
 
-void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCreateDiskSpaceListW(void* reserved1, uint32_t reserved2, uint32_t flags) {
+void* windowssys_windows_win32_devices_deviceanddriverinstallation_setupCreateDiskSpaceListW(void* reserved1, uint32_t reserved2, uint32_t flags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6753,7 +6753,7 @@ void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCreateDi
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDecompressOrCopyFileA(void* sourcefilename, void* targetfilename, void* compressiontype) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDecompressOrCopyFileA(void* sourcefilename, void* targetfilename, void* compressiontype) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6777,7 +6777,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDecom
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDecompressOrCopyFileW(void* sourcefilename, void* targetfilename, void* compressiontype) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDecompressOrCopyFileW(void* sourcefilename, void* targetfilename, void* compressiontype) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6801,7 +6801,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDecom
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDefaultQueueCallbackA(void* context, uint32_t notification, uint64_t param1, uint64_t param2) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDefaultQueueCallbackA(void* context, uint32_t notification, uint64_t param1, uint64_t param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6826,7 +6826,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDefau
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDefaultQueueCallbackW(void* context, uint32_t notification, uint64_t param1, uint64_t param2) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDefaultQueueCallbackW(void* context, uint32_t notification, uint64_t param1, uint64_t param2) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6851,7 +6851,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDefau
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDeleteErrorA(void* hwndparent, void* dialogtitle, void* file, uint32_t win32errorcode, uint32_t style) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDeleteErrorA(void* hwndparent, void* dialogtitle, void* file, uint32_t win32errorcode, uint32_t style) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6877,7 +6877,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDelet
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDeleteErrorW(void* hwndparent, void* dialogtitle, void* file, uint32_t win32errorcode, uint32_t style) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDeleteErrorW(void* hwndparent, void* dialogtitle, void* file, uint32_t win32errorcode, uint32_t style) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -6903,7 +6903,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDelet
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDestroyDiskSpaceList(void* diskspace) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDestroyDiskSpaceList(void* diskspace) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6925,7 +6925,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDestro
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiAskForOEMDisk(int64_t deviceinfoset, void* deviceinfodata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiAskForOEMDisk(int64_t deviceinfoset, void* deviceinfodata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6948,7 +6948,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiAskF
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiBuildClassInfoList(uint32_t flags, void* classguidlist, uint32_t classguidlistsize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiBuildClassInfoList(uint32_t flags, void* classguidlist, uint32_t classguidlistsize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -6973,7 +6973,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiBuil
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiBuildClassInfoListExA(uint32_t flags, void* classguidlist, uint32_t classguidlistsize, void* requiredsize, void* machinename, void* reserved) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiBuildClassInfoListExA(uint32_t flags, void* classguidlist, uint32_t classguidlistsize, void* requiredsize, void* machinename, void* reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7000,7 +7000,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiBuil
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiBuildClassInfoListExW(uint32_t flags, void* classguidlist, uint32_t classguidlistsize, void* requiredsize, void* machinename, void* reserved) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiBuildClassInfoListExW(uint32_t flags, void* classguidlist, uint32_t classguidlistsize, void* requiredsize, void* machinename, void* reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7027,7 +7027,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiBuil
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiBuildDriverInfoList(int64_t deviceinfoset, void* deviceinfodata, uint32_t drivertype) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiBuildDriverInfoList(int64_t deviceinfoset, void* deviceinfodata, uint32_t drivertype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7051,7 +7051,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiBuil
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCallClassInstaller(uint32_t installfunction, int64_t deviceinfoset, void* deviceinfodata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCallClassInstaller(uint32_t installfunction, int64_t deviceinfoset, void* deviceinfodata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7075,7 +7075,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCall
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCancelDriverInfoSearch(int64_t deviceinfoset) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCancelDriverInfoSearch(int64_t deviceinfoset) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7097,7 +7097,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCanc
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiChangeState(int64_t deviceinfoset, void* deviceinfodata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiChangeState(int64_t deviceinfoset, void* deviceinfodata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7120,7 +7120,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiChan
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiClassGuidsFromNameA(void* classname, void* classguidlist, uint32_t classguidlistsize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassGuidsFromNameA(void* classname, void* classguidlist, uint32_t classguidlistsize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7145,7 +7145,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiClas
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiClassGuidsFromNameExA(void* classname, void* classguidlist, uint32_t classguidlistsize, void* requiredsize, void* machinename, void* reserved) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassGuidsFromNameExA(void* classname, void* classguidlist, uint32_t classguidlistsize, void* requiredsize, void* machinename, void* reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7172,7 +7172,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiClas
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiClassGuidsFromNameExW(void* classname, void* classguidlist, uint32_t classguidlistsize, void* requiredsize, void* machinename, void* reserved) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassGuidsFromNameExW(void* classname, void* classguidlist, uint32_t classguidlistsize, void* requiredsize, void* machinename, void* reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7199,7 +7199,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiClas
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiClassGuidsFromNameW(void* classname, void* classguidlist, uint32_t classguidlistsize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassGuidsFromNameW(void* classname, void* classguidlist, uint32_t classguidlistsize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7224,7 +7224,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiClas
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiClassNameFromGuidA(void* classguid, void* classname, uint32_t classnamesize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassNameFromGuidA(void* classguid, void* classname, uint32_t classnamesize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7249,7 +7249,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiClas
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiClassNameFromGuidExA(void* classguid, void* classname, uint32_t classnamesize, void* requiredsize, void* machinename, void* reserved) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassNameFromGuidExA(void* classguid, void* classname, uint32_t classnamesize, void* requiredsize, void* machinename, void* reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7276,7 +7276,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiClas
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiClassNameFromGuidExW(void* classguid, void* classname, uint32_t classnamesize, void* requiredsize, void* machinename, void* reserved) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassNameFromGuidExW(void* classguid, void* classname, uint32_t classnamesize, void* requiredsize, void* machinename, void* reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7303,7 +7303,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiClas
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiClassNameFromGuidW(void* classguid, void* classname, uint32_t classnamesize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassNameFromGuidW(void* classguid, void* classname, uint32_t classnamesize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7328,7 +7328,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiClas
 #endif
 }
 
-void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCreateDevRegKeyA(int64_t deviceinfoset, void* deviceinfodata, uint32_t scope, uint32_t hwprofile, uint32_t keytype, void* infhandle, void* infsectionname) {
+void* windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDevRegKeyA(int64_t deviceinfoset, void* deviceinfodata, uint32_t scope, uint32_t hwprofile, uint32_t keytype, void* infhandle, void* infsectionname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t, void*, uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7356,7 +7356,7 @@ void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCreate
 #endif
 }
 
-void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCreateDevRegKeyW(int64_t deviceinfoset, void* deviceinfodata, uint32_t scope, uint32_t hwprofile, uint32_t keytype, void* infhandle, void* infsectionname) {
+void* windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDevRegKeyW(int64_t deviceinfoset, void* deviceinfodata, uint32_t scope, uint32_t hwprofile, uint32_t keytype, void* infhandle, void* infsectionname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t, void*, uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7384,7 +7384,7 @@ void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCreate
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCreateDeviceInfoA(int64_t deviceinfoset, void* devicename, void* classguid, void* devicedescription, void* hwndparent, uint32_t creationflags, void* deviceinfodata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInfoA(int64_t deviceinfoset, void* devicename, void* classguid, void* devicedescription, void* hwndparent, uint32_t creationflags, void* deviceinfodata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7412,7 +7412,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCrea
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCreateDeviceInfoList(void* classguid, void* hwndparent) {
+int64_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInfoList(void* classguid, void* hwndparent) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7435,7 +7435,7 @@ int64_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCrea
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCreateDeviceInfoListExA(void* classguid, void* hwndparent, void* machinename, void* reserved) {
+int64_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInfoListExA(void* classguid, void* hwndparent, void* machinename, void* reserved) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7460,7 +7460,7 @@ int64_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCrea
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCreateDeviceInfoListExW(void* classguid, void* hwndparent, void* machinename, void* reserved) {
+int64_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInfoListExW(void* classguid, void* hwndparent, void* machinename, void* reserved) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7485,7 +7485,7 @@ int64_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCrea
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCreateDeviceInfoW(int64_t deviceinfoset, void* devicename, void* classguid, void* devicedescription, void* hwndparent, uint32_t creationflags, void* deviceinfodata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInfoW(int64_t deviceinfoset, void* devicename, void* classguid, void* devicedescription, void* hwndparent, uint32_t creationflags, void* deviceinfodata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7513,7 +7513,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCrea
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCreateDeviceInterfaceA(int64_t deviceinfoset, void* deviceinfodata, void* interfaceclassguid, void* referencestring, uint32_t creationflags, void* deviceinterfacedata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInterfaceA(int64_t deviceinfoset, void* deviceinfodata, void* interfaceclassguid, void* referencestring, uint32_t creationflags, void* deviceinterfacedata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7540,7 +7540,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCrea
 #endif
 }
 
-void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCreateDeviceInterfaceRegKeyA(int64_t deviceinfoset, void* deviceinterfacedata, uint32_t reserved, uint32_t samdesired, void* infhandle, void* infsectionname) {
+void* windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInterfaceRegKeyA(int64_t deviceinfoset, void* deviceinterfacedata, uint32_t reserved, uint32_t samdesired, void* infhandle, void* infsectionname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7567,7 +7567,7 @@ void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCreate
 #endif
 }
 
-void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCreateDeviceInterfaceRegKeyW(int64_t deviceinfoset, void* deviceinterfacedata, uint32_t reserved, uint32_t samdesired, void* infhandle, void* infsectionname) {
+void* windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInterfaceRegKeyW(int64_t deviceinfoset, void* deviceinterfacedata, uint32_t reserved, uint32_t samdesired, void* infhandle, void* infsectionname) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7594,7 +7594,7 @@ void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCreate
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCreateDeviceInterfaceW(int64_t deviceinfoset, void* deviceinfodata, void* interfaceclassguid, void* referencestring, uint32_t creationflags, void* deviceinterfacedata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInterfaceW(int64_t deviceinfoset, void* deviceinfodata, void* interfaceclassguid, void* referencestring, uint32_t creationflags, void* deviceinterfacedata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7621,7 +7621,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCrea
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiDeleteDevRegKey(int64_t deviceinfoset, void* deviceinfodata, uint32_t scope, uint32_t hwprofile, uint32_t keytype) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDeleteDevRegKey(int64_t deviceinfoset, void* deviceinfodata, uint32_t scope, uint32_t hwprofile, uint32_t keytype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7647,7 +7647,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiDele
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiDeleteDeviceInfo(int64_t deviceinfoset, void* deviceinfodata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDeleteDeviceInfo(int64_t deviceinfoset, void* deviceinfodata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7670,7 +7670,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiDele
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiDeleteDeviceInterfaceData(int64_t deviceinfoset, void* deviceinterfacedata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDeleteDeviceInterfaceData(int64_t deviceinfoset, void* deviceinterfacedata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7693,7 +7693,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiDele
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiDeleteDeviceInterfaceRegKey(int64_t deviceinfoset, void* deviceinterfacedata, uint32_t reserved) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDeleteDeviceInterfaceRegKey(int64_t deviceinfoset, void* deviceinterfacedata, uint32_t reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7717,7 +7717,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiDele
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiDestroyClassImageList(void* classimagelistdata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDestroyClassImageList(void* classimagelistdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7739,7 +7739,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiDest
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiDestroyDeviceInfoList(int64_t deviceinfoset) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDestroyDeviceInfoList(int64_t deviceinfoset) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7761,7 +7761,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiDest
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiDestroyDriverInfoList(int64_t deviceinfoset, void* deviceinfodata, uint32_t drivertype) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDestroyDriverInfoList(int64_t deviceinfoset, void* deviceinfodata, uint32_t drivertype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -7785,7 +7785,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiDest
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiEnumDeviceInfo(int64_t deviceinfoset, uint32_t memberindex, void* deviceinfodata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiEnumDeviceInfo(int64_t deviceinfoset, uint32_t memberindex, void* deviceinfodata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7809,7 +7809,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiEnum
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiEnumDeviceInterfaces(int64_t deviceinfoset, void* deviceinfodata, void* interfaceclassguid, uint32_t memberindex, void* deviceinterfacedata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiEnumDeviceInterfaces(int64_t deviceinfoset, void* deviceinfodata, void* interfaceclassguid, uint32_t memberindex, void* deviceinterfacedata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7835,7 +7835,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiEnum
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiEnumDriverInfoA(int64_t deviceinfoset, void* deviceinfodata, uint32_t drivertype, uint32_t memberindex, void* driverinfodata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiEnumDriverInfoA(int64_t deviceinfoset, void* deviceinfodata, uint32_t drivertype, uint32_t memberindex, void* driverinfodata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7861,7 +7861,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiEnum
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiEnumDriverInfoW(int64_t deviceinfoset, void* deviceinfodata, uint32_t drivertype, uint32_t memberindex, void* driverinfodata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiEnumDriverInfoW(int64_t deviceinfoset, void* deviceinfodata, uint32_t drivertype, uint32_t memberindex, void* driverinfodata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7887,7 +7887,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiEnum
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetActualModelsSectionA(void* context, void* alternateplatforminfo, void* infsectionwithext, uint32_t infsectionwithextsize, void* requiredsize, void* reserved) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetActualModelsSectionA(void* context, void* alternateplatforminfo, void* infsectionwithext, uint32_t infsectionwithextsize, void* requiredsize, void* reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7914,7 +7914,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetA
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetActualModelsSectionW(void* context, void* alternateplatforminfo, void* infsectionwithext, uint32_t infsectionwithextsize, void* requiredsize, void* reserved) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetActualModelsSectionW(void* context, void* alternateplatforminfo, void* infsectionwithext, uint32_t infsectionwithextsize, void* requiredsize, void* reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7941,7 +7941,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetA
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetActualSectionToInstallA(void* infhandle, void* infsectionname, void* infsectionwithext, uint32_t infsectionwithextsize, void* requiredsize, void* extension) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetActualSectionToInstallA(void* infhandle, void* infsectionname, void* infsectionwithext, uint32_t infsectionwithextsize, void* requiredsize, void* extension) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7968,7 +7968,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetA
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetActualSectionToInstallExA(void* infhandle, void* infsectionname, void* alternateplatforminfo, void* infsectionwithext, uint32_t infsectionwithextsize, void* requiredsize, void* extension, void* reserved) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetActualSectionToInstallExA(void* infhandle, void* infsectionname, void* alternateplatforminfo, void* infsectionwithext, uint32_t infsectionwithextsize, void* requiredsize, void* extension, void* reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -7997,7 +7997,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetA
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetActualSectionToInstallExW(void* infhandle, void* infsectionname, void* alternateplatforminfo, void* infsectionwithext, uint32_t infsectionwithextsize, void* requiredsize, void* extension, void* reserved) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetActualSectionToInstallExW(void* infhandle, void* infsectionname, void* alternateplatforminfo, void* infsectionwithext, uint32_t infsectionwithextsize, void* requiredsize, void* extension, void* reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8026,7 +8026,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetA
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetActualSectionToInstallW(void* infhandle, void* infsectionname, void* infsectionwithext, uint32_t infsectionwithextsize, void* requiredsize, void* extension) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetActualSectionToInstallW(void* infhandle, void* infsectionname, void* infsectionwithext, uint32_t infsectionwithextsize, void* requiredsize, void* extension) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8053,7 +8053,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetA
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassBitmapIndex(void* classguid, void* miniiconindex) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassBitmapIndex(void* classguid, void* miniiconindex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8076,7 +8076,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetC
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassDescriptionA(void* classguid, void* classdescription, uint32_t classdescriptionsize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDescriptionA(void* classguid, void* classdescription, uint32_t classdescriptionsize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8101,7 +8101,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetC
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassDescriptionExA(void* classguid, void* classdescription, uint32_t classdescriptionsize, void* requiredsize, void* machinename, void* reserved) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDescriptionExA(void* classguid, void* classdescription, uint32_t classdescriptionsize, void* requiredsize, void* machinename, void* reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8128,7 +8128,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetC
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassDescriptionExW(void* classguid, void* classdescription, uint32_t classdescriptionsize, void* requiredsize, void* machinename, void* reserved) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDescriptionExW(void* classguid, void* classdescription, uint32_t classdescriptionsize, void* requiredsize, void* machinename, void* reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8155,7 +8155,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetC
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassDescriptionW(void* classguid, void* classdescription, uint32_t classdescriptionsize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDescriptionW(void* classguid, void* classdescription, uint32_t classdescriptionsize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8180,7 +8180,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetC
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassDevPropertySheetsA(int64_t deviceinfoset, void* deviceinfodata, void* propertysheetheader, uint32_t propertysheetheaderpagelistsize, void* requiredsize, uint32_t propertysheettype) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDevPropertySheetsA(int64_t deviceinfoset, void* deviceinfodata, void* propertysheetheader, uint32_t propertysheetheaderpagelistsize, void* requiredsize, uint32_t propertysheettype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8207,7 +8207,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetC
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassDevPropertySheetsW(int64_t deviceinfoset, void* deviceinfodata, void* propertysheetheader, uint32_t propertysheetheaderpagelistsize, void* requiredsize, uint32_t propertysheettype) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDevPropertySheetsW(int64_t deviceinfoset, void* deviceinfodata, void* propertysheetheader, uint32_t propertysheetheaderpagelistsize, void* requiredsize, uint32_t propertysheettype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8234,7 +8234,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetC
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassDevsA(void* classguid, void* enumerator, void* hwndparent, uint32_t flags) {
+int64_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDevsA(void* classguid, void* enumerator, void* hwndparent, uint32_t flags) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8259,7 +8259,7 @@ int64_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetC
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassDevsExA(void* classguid, void* enumerator, void* hwndparent, uint32_t flags, int64_t deviceinfoset, void* machinename, void* reserved) {
+int64_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDevsExA(void* classguid, void* enumerator, void* hwndparent, uint32_t flags, int64_t deviceinfoset, void* machinename, void* reserved) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8287,7 +8287,7 @@ int64_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetC
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassDevsExW(void* classguid, void* enumerator, void* hwndparent, uint32_t flags, int64_t deviceinfoset, void* machinename, void* reserved) {
+int64_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDevsExW(void* classguid, void* enumerator, void* hwndparent, uint32_t flags, int64_t deviceinfoset, void* machinename, void* reserved) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8315,7 +8315,7 @@ int64_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetC
 #endif
 }
 
-int64_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassDevsW(void* classguid, void* enumerator, void* hwndparent, uint32_t flags) {
+int64_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDevsW(void* classguid, void* enumerator, void* hwndparent, uint32_t flags) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8340,7 +8340,7 @@ int64_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetC
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassImageIndex(void* classimagelistdata, void* classguid, void* imageindex) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassImageIndex(void* classimagelistdata, void* classguid, void* imageindex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8364,7 +8364,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetC
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassImageList(void* classimagelistdata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassImageList(void* classimagelistdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8386,7 +8386,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetC
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassImageListExA(void* classimagelistdata, void* machinename, void* reserved) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassImageListExA(void* classimagelistdata, void* machinename, void* reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8410,7 +8410,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetC
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassImageListExW(void* classimagelistdata, void* machinename, void* reserved) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassImageListExW(void* classimagelistdata, void* machinename, void* reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8434,7 +8434,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetC
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassInstallParamsA(int64_t deviceinfoset, void* deviceinfodata, void* classinstallparams, uint32_t classinstallparamssize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassInstallParamsA(int64_t deviceinfoset, void* deviceinfodata, void* classinstallparams, uint32_t classinstallparamssize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8460,7 +8460,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetC
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassInstallParamsW(int64_t deviceinfoset, void* deviceinfodata, void* classinstallparams, uint32_t classinstallparamssize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassInstallParamsW(int64_t deviceinfoset, void* deviceinfodata, void* classinstallparams, uint32_t classinstallparamssize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8486,7 +8486,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetC
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassPropertyExW(void* classguid, void* propertykey, void* propertytype, void* propertybuffer, uint32_t propertybuffersize, void* requiredsize, uint32_t flags, void* machinename, void* reserved) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassPropertyExW(void* classguid, void* propertykey, void* propertytype, void* propertybuffer, uint32_t propertybuffersize, void* requiredsize, uint32_t flags, void* machinename, void* reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8516,7 +8516,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetC
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassPropertyKeys(void* classguid, void* propertykeyarray, uint32_t propertykeycount, void* requiredpropertykeycount, uint32_t flags) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassPropertyKeys(void* classguid, void* propertykeyarray, uint32_t propertykeycount, void* requiredpropertykeycount, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8542,7 +8542,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetC
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassPropertyKeysExW(void* classguid, void* propertykeyarray, uint32_t propertykeycount, void* requiredpropertykeycount, uint32_t flags, void* machinename, void* reserved) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassPropertyKeysExW(void* classguid, void* propertykeyarray, uint32_t propertykeycount, void* requiredpropertykeycount, uint32_t flags, void* machinename, void* reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8570,7 +8570,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetC
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassPropertyW(void* classguid, void* propertykey, void* propertytype, void* propertybuffer, uint32_t propertybuffersize, void* requiredsize, uint32_t flags) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassPropertyW(void* classguid, void* propertykey, void* propertytype, void* propertybuffer, uint32_t propertybuffersize, void* requiredsize, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8598,7 +8598,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetC
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassRegistryPropertyA(void* classguid, uint32_t property, void* propertyregdatatype, void* propertybuffer, uint32_t propertybuffersize, void* requiredsize, void* machinename, void* reserved) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassRegistryPropertyA(void* classguid, uint32_t property, void* propertyregdatatype, void* propertybuffer, uint32_t propertybuffersize, void* requiredsize, void* machinename, void* reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8627,7 +8627,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetC
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassRegistryPropertyW(void* classguid, uint32_t property, void* propertyregdatatype, void* propertybuffer, uint32_t propertybuffersize, void* requiredsize, void* machinename, void* reserved) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassRegistryPropertyW(void* classguid, uint32_t property, void* propertyregdatatype, void* propertybuffer, uint32_t propertybuffersize, void* requiredsize, void* machinename, void* reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8656,7 +8656,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetC
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetCustomDevicePropertyA(int64_t deviceinfoset, void* deviceinfodata, void* custompropertyname, uint32_t flags, void* propertyregdatatype, void* propertybuffer, uint32_t propertybuffersize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetCustomDevicePropertyA(int64_t deviceinfoset, void* deviceinfodata, void* custompropertyname, uint32_t flags, void* propertyregdatatype, void* propertybuffer, uint32_t propertybuffersize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8685,7 +8685,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetC
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetCustomDevicePropertyW(int64_t deviceinfoset, void* deviceinfodata, void* custompropertyname, uint32_t flags, void* propertyregdatatype, void* propertybuffer, uint32_t propertybuffersize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetCustomDevicePropertyW(int64_t deviceinfoset, void* deviceinfodata, void* custompropertyname, uint32_t flags, void* propertyregdatatype, void* propertybuffer, uint32_t propertybuffersize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8714,7 +8714,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetC
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceInfoListClass(int64_t deviceinfoset, void* classguid) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInfoListClass(int64_t deviceinfoset, void* classguid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8737,7 +8737,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceInfoListDetailA(int64_t deviceinfoset, void* deviceinfosetdetaildata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInfoListDetailA(int64_t deviceinfoset, void* deviceinfosetdetaildata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8760,7 +8760,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceInfoListDetailW(int64_t deviceinfoset, void* deviceinfosetdetaildata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInfoListDetailW(int64_t deviceinfoset, void* deviceinfosetdetaildata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8783,7 +8783,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceInstallParamsA(int64_t deviceinfoset, void* deviceinfodata, void* deviceinstallparams) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInstallParamsA(int64_t deviceinfoset, void* deviceinfodata, void* deviceinstallparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8807,7 +8807,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceInstallParamsW(int64_t deviceinfoset, void* deviceinfodata, void* deviceinstallparams) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInstallParamsW(int64_t deviceinfoset, void* deviceinfodata, void* deviceinstallparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8831,7 +8831,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceInstanceIdA(int64_t deviceinfoset, void* deviceinfodata, void* deviceinstanceid, uint32_t deviceinstanceidsize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInstanceIdA(int64_t deviceinfoset, void* deviceinfodata, void* deviceinstanceid, uint32_t deviceinstanceidsize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8857,7 +8857,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceInstanceIdW(int64_t deviceinfoset, void* deviceinfodata, void* deviceinstanceid, uint32_t deviceinstanceidsize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInstanceIdW(int64_t deviceinfoset, void* deviceinfodata, void* deviceinstanceid, uint32_t deviceinstanceidsize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8883,7 +8883,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceInterfaceAlias(int64_t deviceinfoset, void* deviceinterfacedata, void* aliasinterfaceclassguid, void* aliasdeviceinterfacedata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInterfaceAlias(int64_t deviceinfoset, void* deviceinterfacedata, void* aliasinterfaceclassguid, void* aliasdeviceinterfacedata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8908,7 +8908,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceInterfaceDetailA(int64_t deviceinfoset, void* deviceinterfacedata, void* deviceinterfacedetaildata, uint32_t deviceinterfacedetaildatasize, void* requiredsize, void* deviceinfodata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInterfaceDetailA(int64_t deviceinfoset, void* deviceinterfacedata, void* deviceinterfacedetaildata, uint32_t deviceinterfacedetaildatasize, void* requiredsize, void* deviceinfodata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8935,7 +8935,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceInterfaceDetailW(int64_t deviceinfoset, void* deviceinterfacedata, void* deviceinterfacedetaildata, uint32_t deviceinterfacedetaildatasize, void* requiredsize, void* deviceinfodata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInterfaceDetailW(int64_t deviceinfoset, void* deviceinterfacedata, void* deviceinterfacedetaildata, uint32_t deviceinterfacedetaildatasize, void* requiredsize, void* deviceinfodata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -8962,7 +8962,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceInterfacePropertyKeys(int64_t deviceinfoset, void* deviceinterfacedata, void* propertykeyarray, uint32_t propertykeycount, void* requiredpropertykeycount, uint32_t flags) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInterfacePropertyKeys(int64_t deviceinfoset, void* deviceinterfacedata, void* propertykeyarray, uint32_t propertykeycount, void* requiredpropertykeycount, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -8989,7 +8989,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceInterfacePropertyW(int64_t deviceinfoset, void* deviceinterfacedata, void* propertykey, void* propertytype, void* propertybuffer, uint32_t propertybuffersize, void* requiredsize, uint32_t flags) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInterfacePropertyW(int64_t deviceinfoset, void* deviceinterfacedata, void* propertykey, void* propertytype, void* propertybuffer, uint32_t propertybuffersize, void* requiredsize, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9018,7 +9018,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDevicePropertyKeys(int64_t deviceinfoset, void* deviceinfodata, void* propertykeyarray, uint32_t propertykeycount, void* requiredpropertykeycount, uint32_t flags) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDevicePropertyKeys(int64_t deviceinfoset, void* deviceinfodata, void* propertykeyarray, uint32_t propertykeycount, void* requiredpropertykeycount, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9045,7 +9045,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDevicePropertyW(int64_t deviceinfoset, void* deviceinfodata, void* propertykey, void* propertytype, void* propertybuffer, uint32_t propertybuffersize, void* requiredsize, uint32_t flags) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDevicePropertyW(int64_t deviceinfoset, void* deviceinfodata, void* propertykey, void* propertytype, void* propertybuffer, uint32_t propertybuffersize, void* requiredsize, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9074,7 +9074,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceRegistryPropertyA(int64_t deviceinfoset, void* deviceinfodata, uint32_t property, void* propertyregdatatype, void* propertybuffer, uint32_t propertybuffersize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceRegistryPropertyA(int64_t deviceinfoset, void* deviceinfodata, uint32_t property, void* propertyregdatatype, void* propertybuffer, uint32_t propertybuffersize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9102,7 +9102,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceRegistryPropertyW(int64_t deviceinfoset, void* deviceinfodata, uint32_t property, void* propertyregdatatype, void* propertybuffer, uint32_t propertybuffersize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceRegistryPropertyW(int64_t deviceinfoset, void* deviceinfodata, uint32_t property, void* propertyregdatatype, void* propertybuffer, uint32_t propertybuffersize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9130,7 +9130,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDriverInfoDetailA(int64_t deviceinfoset, void* deviceinfodata, void* driverinfodata, void* driverinfodetaildata, uint32_t driverinfodetaildatasize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDriverInfoDetailA(int64_t deviceinfoset, void* deviceinfodata, void* driverinfodata, void* driverinfodetaildata, uint32_t driverinfodetaildatasize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9157,7 +9157,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDriverInfoDetailW(int64_t deviceinfoset, void* deviceinfodata, void* driverinfodata, void* driverinfodetaildata, uint32_t driverinfodetaildatasize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDriverInfoDetailW(int64_t deviceinfoset, void* deviceinfodata, void* driverinfodata, void* driverinfodetaildata, uint32_t driverinfodetaildatasize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9184,7 +9184,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDriverInstallParamsA(int64_t deviceinfoset, void* deviceinfodata, void* driverinfodata, void* driverinstallparams) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDriverInstallParamsA(int64_t deviceinfoset, void* deviceinfodata, void* driverinfodata, void* driverinstallparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9209,7 +9209,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDriverInstallParamsW(int64_t deviceinfoset, void* deviceinfodata, void* driverinfodata, void* driverinstallparams) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDriverInstallParamsW(int64_t deviceinfoset, void* deviceinfodata, void* driverinfodata, void* driverinstallparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9234,7 +9234,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetHwProfileFriendlyNameA(uint32_t hwprofile, void* friendlyname, uint32_t friendlynamesize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileFriendlyNameA(uint32_t hwprofile, void* friendlyname, uint32_t friendlynamesize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9259,7 +9259,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetH
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetHwProfileFriendlyNameExA(uint32_t hwprofile, void* friendlyname, uint32_t friendlynamesize, void* requiredsize, void* machinename, void* reserved) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileFriendlyNameExA(uint32_t hwprofile, void* friendlyname, uint32_t friendlynamesize, void* requiredsize, void* machinename, void* reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9286,7 +9286,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetH
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetHwProfileFriendlyNameExW(uint32_t hwprofile, void* friendlyname, uint32_t friendlynamesize, void* requiredsize, void* machinename, void* reserved) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileFriendlyNameExW(uint32_t hwprofile, void* friendlyname, uint32_t friendlynamesize, void* requiredsize, void* machinename, void* reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9313,7 +9313,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetH
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetHwProfileFriendlyNameW(uint32_t hwprofile, void* friendlyname, uint32_t friendlynamesize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileFriendlyNameW(uint32_t hwprofile, void* friendlyname, uint32_t friendlynamesize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9338,7 +9338,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetH
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetHwProfileList(void* hwprofilelist, uint32_t hwprofilelistsize, void* requiredsize, void* currentlyactiveindex) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileList(void* hwprofilelist, uint32_t hwprofilelistsize, void* requiredsize, void* currentlyactiveindex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9363,7 +9363,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetH
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetHwProfileListExA(void* hwprofilelist, uint32_t hwprofilelistsize, void* requiredsize, void* currentlyactiveindex, void* machinename, void* reserved) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileListExA(void* hwprofilelist, uint32_t hwprofilelistsize, void* requiredsize, void* currentlyactiveindex, void* machinename, void* reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9390,7 +9390,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetH
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetHwProfileListExW(void* hwprofilelist, uint32_t hwprofilelistsize, void* requiredsize, void* currentlyactiveindex, void* machinename, void* reserved) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileListExW(void* hwprofilelist, uint32_t hwprofilelistsize, void* requiredsize, void* currentlyactiveindex, void* machinename, void* reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9417,7 +9417,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetH
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetINFClassA(void* infname, void* classguid, void* classname, uint32_t classnamesize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetINFClassA(void* infname, void* classguid, void* classname, uint32_t classnamesize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9443,7 +9443,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetI
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetINFClassW(void* infname, void* classguid, void* classname, uint32_t classnamesize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetINFClassW(void* infname, void* classguid, void* classname, uint32_t classnamesize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9469,7 +9469,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetI
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetSelectedDevice(int64_t deviceinfoset, void* deviceinfodata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetSelectedDevice(int64_t deviceinfoset, void* deviceinfodata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9492,7 +9492,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetS
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetSelectedDriverA(int64_t deviceinfoset, void* deviceinfodata, void* driverinfodata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetSelectedDriverA(int64_t deviceinfoset, void* deviceinfodata, void* driverinfodata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9516,7 +9516,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetS
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetSelectedDriverW(int64_t deviceinfoset, void* deviceinfodata, void* driverinfodata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetSelectedDriverW(int64_t deviceinfoset, void* deviceinfodata, void* driverinfodata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9540,7 +9540,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetS
 #endif
 }
 
-void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetWizardPage(int64_t deviceinfoset, void* deviceinfodata, void* installwizarddata, uint32_t pagetype, uint32_t flags) {
+void* windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetWizardPage(int64_t deviceinfoset, void* deviceinfodata, void* installwizarddata, uint32_t pagetype, uint32_t flags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9566,7 +9566,7 @@ void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetWiz
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiInstallClassA(void* hwndparent, void* inffilename, uint32_t flags, void* filequeue) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallClassA(void* hwndparent, void* inffilename, uint32_t flags, void* filequeue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9591,7 +9591,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiInst
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiInstallClassExA(void* hwndparent, void* inffilename, uint32_t flags, void* filequeue, void* interfaceclassguid, void* reserved1, void* reserved2) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallClassExA(void* hwndparent, void* inffilename, uint32_t flags, void* filequeue, void* interfaceclassguid, void* reserved1, void* reserved2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9619,7 +9619,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiInst
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiInstallClassExW(void* hwndparent, void* inffilename, uint32_t flags, void* filequeue, void* interfaceclassguid, void* reserved1, void* reserved2) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallClassExW(void* hwndparent, void* inffilename, uint32_t flags, void* filequeue, void* interfaceclassguid, void* reserved1, void* reserved2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9647,7 +9647,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiInst
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiInstallClassW(void* hwndparent, void* inffilename, uint32_t flags, void* filequeue) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallClassW(void* hwndparent, void* inffilename, uint32_t flags, void* filequeue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9672,7 +9672,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiInst
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiInstallDevice(int64_t deviceinfoset, void* deviceinfodata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallDevice(int64_t deviceinfoset, void* deviceinfodata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9695,7 +9695,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiInst
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiInstallDeviceInterfaces(int64_t deviceinfoset, void* deviceinfodata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallDeviceInterfaces(int64_t deviceinfoset, void* deviceinfodata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9718,7 +9718,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiInst
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiInstallDriverFiles(int64_t deviceinfoset, void* deviceinfodata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallDriverFiles(int64_t deviceinfoset, void* deviceinfodata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9741,7 +9741,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiInst
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiLoadClassIcon(void* classguid, void* largeicon, void* miniiconindex) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiLoadClassIcon(void* classguid, void* largeicon, void* miniiconindex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9765,7 +9765,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiLoad
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiLoadDeviceIcon(int64_t deviceinfoset, void* deviceinfodata, uint32_t cxicon, uint32_t cyicon, uint32_t flags, void* hicon) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiLoadDeviceIcon(int64_t deviceinfoset, void* deviceinfodata, uint32_t cxicon, uint32_t cyicon, uint32_t flags, void* hicon) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9792,7 +9792,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiLoad
 #endif
 }
 
-void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiOpenClassRegKey(void* classguid, uint32_t samdesired) {
+void* windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenClassRegKey(void* classguid, uint32_t samdesired) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9815,7 +9815,7 @@ void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiOpenCl
 #endif
 }
 
-void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiOpenClassRegKeyExA(void* classguid, uint32_t samdesired, uint32_t flags, void* machinename, void* reserved) {
+void* windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenClassRegKeyExA(void* classguid, uint32_t samdesired, uint32_t flags, void* machinename, void* reserved) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9841,7 +9841,7 @@ void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiOpenCl
 #endif
 }
 
-void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiOpenClassRegKeyExW(void* classguid, uint32_t samdesired, uint32_t flags, void* machinename, void* reserved) {
+void* windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenClassRegKeyExW(void* classguid, uint32_t samdesired, uint32_t flags, void* machinename, void* reserved) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9867,7 +9867,7 @@ void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiOpenCl
 #endif
 }
 
-void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiOpenDevRegKey(int64_t deviceinfoset, void* deviceinfodata, uint32_t scope, uint32_t hwprofile, uint32_t keytype, uint32_t samdesired) {
+void* windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenDevRegKey(int64_t deviceinfoset, void* deviceinfodata, uint32_t scope, uint32_t hwprofile, uint32_t keytype, uint32_t samdesired) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t, void*, uint32_t, uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9894,7 +9894,7 @@ void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiOpenDe
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiOpenDeviceInfoA(int64_t deviceinfoset, void* deviceinstanceid, void* hwndparent, uint32_t openflags, void* deviceinfodata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenDeviceInfoA(int64_t deviceinfoset, void* deviceinstanceid, void* hwndparent, uint32_t openflags, void* deviceinfodata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9920,7 +9920,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiOpen
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiOpenDeviceInfoW(int64_t deviceinfoset, void* deviceinstanceid, void* hwndparent, uint32_t openflags, void* deviceinfodata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenDeviceInfoW(int64_t deviceinfoset, void* deviceinstanceid, void* hwndparent, uint32_t openflags, void* deviceinfodata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9946,7 +9946,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiOpen
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiOpenDeviceInterfaceA(int64_t deviceinfoset, void* devicepath, uint32_t openflags, void* deviceinterfacedata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenDeviceInterfaceA(int64_t deviceinfoset, void* devicepath, uint32_t openflags, void* deviceinterfacedata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -9971,7 +9971,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiOpen
 #endif
 }
 
-void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiOpenDeviceInterfaceRegKey(int64_t deviceinfoset, void* deviceinterfacedata, uint32_t reserved, uint32_t samdesired) {
+void* windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenDeviceInterfaceRegKey(int64_t deviceinfoset, void* deviceinterfacedata, uint32_t reserved, uint32_t samdesired) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -9996,7 +9996,7 @@ void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiOpenDe
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiOpenDeviceInterfaceW(int64_t deviceinfoset, void* devicepath, uint32_t openflags, void* deviceinterfacedata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenDeviceInterfaceW(int64_t deviceinfoset, void* devicepath, uint32_t openflags, void* deviceinterfacedata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10021,7 +10021,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiOpen
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiRegisterCoDeviceInstallers(int64_t deviceinfoset, void* deviceinfodata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiRegisterCoDeviceInstallers(int64_t deviceinfoset, void* deviceinfodata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10044,7 +10044,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiRegi
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiRegisterDeviceInfo(int64_t deviceinfoset, void* deviceinfodata, uint32_t flags, void* compareproc, void* comparecontext, void* dupdeviceinfodata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiRegisterDeviceInfo(int64_t deviceinfoset, void* deviceinfodata, uint32_t flags, void* compareproc, void* comparecontext, void* dupdeviceinfodata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10071,7 +10071,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiRegi
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiRemoveDevice(int64_t deviceinfoset, void* deviceinfodata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiRemoveDevice(int64_t deviceinfoset, void* deviceinfodata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10094,7 +10094,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiRemo
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiRemoveDeviceInterface(int64_t deviceinfoset, void* deviceinterfacedata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiRemoveDeviceInterface(int64_t deviceinfoset, void* deviceinterfacedata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10117,7 +10117,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiRemo
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiRestartDevices(int64_t deviceinfoset, void* deviceinfodata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiRestartDevices(int64_t deviceinfoset, void* deviceinfodata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10140,7 +10140,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiRest
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSelectBestCompatDrv(int64_t deviceinfoset, void* deviceinfodata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSelectBestCompatDrv(int64_t deviceinfoset, void* deviceinfodata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10163,7 +10163,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSele
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSelectDevice(int64_t deviceinfoset, void* deviceinfodata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSelectDevice(int64_t deviceinfoset, void* deviceinfodata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10186,7 +10186,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSele
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSelectOEMDrv(void* hwndparent, int64_t deviceinfoset, void* deviceinfodata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSelectOEMDrv(void* hwndparent, int64_t deviceinfoset, void* deviceinfodata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10210,7 +10210,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSele
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetClassInstallParamsA(int64_t deviceinfoset, void* deviceinfodata, void* classinstallparams, uint32_t classinstallparamssize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetClassInstallParamsA(int64_t deviceinfoset, void* deviceinfodata, void* classinstallparams, uint32_t classinstallparamssize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10235,7 +10235,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetC
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetClassInstallParamsW(int64_t deviceinfoset, void* deviceinfodata, void* classinstallparams, uint32_t classinstallparamssize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetClassInstallParamsW(int64_t deviceinfoset, void* deviceinfodata, void* classinstallparams, uint32_t classinstallparamssize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10260,7 +10260,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetC
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetClassPropertyExW(void* classguid, void* propertykey, uint32_t propertytype, void* propertybuffer, uint32_t propertybuffersize, uint32_t flags, void* machinename, void* reserved) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetClassPropertyExW(void* classguid, void* propertykey, uint32_t propertytype, void* propertybuffer, uint32_t propertybuffersize, uint32_t flags, void* machinename, void* reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10289,7 +10289,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetC
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetClassPropertyW(void* classguid, void* propertykey, uint32_t propertytype, void* propertybuffer, uint32_t propertybuffersize, uint32_t flags) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetClassPropertyW(void* classguid, void* propertykey, uint32_t propertytype, void* propertybuffer, uint32_t propertybuffersize, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10316,7 +10316,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetC
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetClassRegistryPropertyA(void* classguid, uint32_t property, void* propertybuffer, uint32_t propertybuffersize, void* machinename, void* reserved) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetClassRegistryPropertyA(void* classguid, uint32_t property, void* propertybuffer, uint32_t propertybuffersize, void* machinename, void* reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10343,7 +10343,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetC
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetClassRegistryPropertyW(void* classguid, uint32_t property, void* propertybuffer, uint32_t propertybuffersize, void* machinename, void* reserved) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetClassRegistryPropertyW(void* classguid, uint32_t property, void* propertybuffer, uint32_t propertybuffersize, void* machinename, void* reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10370,7 +10370,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetC
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetDeviceInstallParamsA(int64_t deviceinfoset, void* deviceinfodata, void* deviceinstallparams) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDeviceInstallParamsA(int64_t deviceinfoset, void* deviceinfodata, void* deviceinstallparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10394,7 +10394,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetDeviceInstallParamsW(int64_t deviceinfoset, void* deviceinfodata, void* deviceinstallparams) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDeviceInstallParamsW(int64_t deviceinfoset, void* deviceinfodata, void* deviceinstallparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10418,7 +10418,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetDeviceInterfaceDefault(int64_t deviceinfoset, void* deviceinterfacedata, uint32_t flags, void* reserved) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDeviceInterfaceDefault(int64_t deviceinfoset, void* deviceinterfacedata, uint32_t flags, void* reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10443,7 +10443,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetDeviceInterfacePropertyW(int64_t deviceinfoset, void* deviceinterfacedata, void* propertykey, uint32_t propertytype, void* propertybuffer, uint32_t propertybuffersize, uint32_t flags) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDeviceInterfacePropertyW(int64_t deviceinfoset, void* deviceinterfacedata, void* propertykey, uint32_t propertytype, void* propertybuffer, uint32_t propertybuffersize, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10471,7 +10471,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetDevicePropertyW(int64_t deviceinfoset, void* deviceinfodata, void* propertykey, uint32_t propertytype, void* propertybuffer, uint32_t propertybuffersize, uint32_t flags) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDevicePropertyW(int64_t deviceinfoset, void* deviceinfodata, void* propertykey, uint32_t propertytype, void* propertybuffer, uint32_t propertybuffersize, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, uint32_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10499,7 +10499,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetDeviceRegistryPropertyA(int64_t deviceinfoset, void* deviceinfodata, uint32_t property, void* propertybuffer, uint32_t propertybuffersize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDeviceRegistryPropertyA(int64_t deviceinfoset, void* deviceinfodata, uint32_t property, void* propertybuffer, uint32_t propertybuffersize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10525,7 +10525,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetDeviceRegistryPropertyW(int64_t deviceinfoset, void* deviceinfodata, uint32_t property, void* propertybuffer, uint32_t propertybuffersize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDeviceRegistryPropertyW(int64_t deviceinfoset, void* deviceinfodata, uint32_t property, void* propertybuffer, uint32_t propertybuffersize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10551,7 +10551,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetDriverInstallParamsA(int64_t deviceinfoset, void* deviceinfodata, void* driverinfodata, void* driverinstallparams) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDriverInstallParamsA(int64_t deviceinfoset, void* deviceinfodata, void* driverinfodata, void* driverinstallparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10576,7 +10576,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetDriverInstallParamsW(int64_t deviceinfoset, void* deviceinfodata, void* driverinfodata, void* driverinstallparams) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDriverInstallParamsW(int64_t deviceinfoset, void* deviceinfodata, void* driverinfodata, void* driverinstallparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10601,7 +10601,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetSelectedDevice(int64_t deviceinfoset, void* deviceinfodata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetSelectedDevice(int64_t deviceinfoset, void* deviceinfodata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10624,7 +10624,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetS
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetSelectedDriverA(int64_t deviceinfoset, void* deviceinfodata, void* driverinfodata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetSelectedDriverA(int64_t deviceinfoset, void* deviceinfodata, void* driverinfodata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10648,7 +10648,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetS
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetSelectedDriverW(int64_t deviceinfoset, void* deviceinfodata, void* driverinfodata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetSelectedDriverW(int64_t deviceinfoset, void* deviceinfodata, void* driverinfodata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10672,7 +10672,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetS
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiUnremoveDevice(int64_t deviceinfoset, void* deviceinfodata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiUnremoveDevice(int64_t deviceinfoset, void* deviceinfodata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10695,7 +10695,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiUnre
 #endif
 }
 
-void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDuplicateDiskSpaceListA(void* diskspace, void* reserved1, uint32_t reserved2, uint32_t flags) {
+void* windowssys_windows_win32_devices_deviceanddriverinstallation_setupDuplicateDiskSpaceListA(void* diskspace, void* reserved1, uint32_t reserved2, uint32_t flags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10720,7 +10720,7 @@ void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDuplicat
 #endif
 }
 
-void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDuplicateDiskSpaceListW(void* diskspace, void* reserved1, uint32_t reserved2, uint32_t flags) {
+void* windowssys_windows_win32_devices_deviceanddriverinstallation_setupDuplicateDiskSpaceListW(void* diskspace, void* reserved1, uint32_t reserved2, uint32_t flags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10745,7 +10745,7 @@ void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDuplicat
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupEnumInfSectionsA(void* infhandle, uint32_t arg_1_index, void* buffer, uint32_t size, void* sizeneeded) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupEnumInfSectionsA(void* infhandle, uint32_t arg_1_index, void* buffer, uint32_t size, void* sizeneeded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10771,7 +10771,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupEnumIn
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupEnumInfSectionsW(void* infhandle, uint32_t arg_1_index, void* buffer, uint32_t size, void* sizeneeded) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupEnumInfSectionsW(void* infhandle, uint32_t arg_1_index, void* buffer, uint32_t size, void* sizeneeded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10797,7 +10797,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupEnumIn
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupFindFirstLineA(void* infhandle, void* section, void* key, void* context) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupFindFirstLineA(void* infhandle, void* section, void* key, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10822,7 +10822,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupFindFi
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupFindFirstLineW(void* infhandle, void* section, void* key, void* context) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupFindFirstLineW(void* infhandle, void* section, void* key, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10847,7 +10847,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupFindFi
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupFindNextLine(void* contextin, void* contextout) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupFindNextLine(void* contextin, void* contextout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10870,7 +10870,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupFindNe
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupFindNextMatchLineA(void* contextin, void* key, void* contextout) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupFindNextMatchLineA(void* contextin, void* key, void* contextout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10894,7 +10894,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupFindNe
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupFindNextMatchLineW(void* contextin, void* key, void* contextout) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupFindNextMatchLineW(void* contextin, void* key, void* contextout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10918,7 +10918,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupFindNe
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupFreeSourceListA(void* list, uint32_t count) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupFreeSourceListA(void* list, uint32_t count) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10941,7 +10941,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupFreeSo
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupFreeSourceListW(void* list, uint32_t count) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupFreeSourceListW(void* list, uint32_t count) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -10964,7 +10964,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupFreeSo
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetBackupInformationA(void* queuehandle, void* backupparams) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetBackupInformationA(void* queuehandle, void* backupparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -10987,7 +10987,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetBac
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetBackupInformationW(void* queuehandle, void* backupparams) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetBackupInformationW(void* queuehandle, void* backupparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11010,7 +11010,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetBac
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetBinaryField(void* context, uint32_t fieldindex, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetBinaryField(void* context, uint32_t fieldindex, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11036,7 +11036,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetBin
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetFieldCount(void* context) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFieldCount(void* context) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11058,7 +11058,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetFi
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetFileCompressionInfoA(void* sourcefilename, void* actualsourcefilename, void* sourcefilesize, void* targetfilesize, void* compressiontype) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFileCompressionInfoA(void* sourcefilename, void* actualsourcefilename, void* sourcefilesize, void* targetfilesize, void* compressiontype) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11084,7 +11084,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetFi
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetFileCompressionInfoExA(void* sourcefilename, void* actualsourcefilenamebuffer, uint32_t actualsourcefilenamebufferlen, void* requiredbufferlen, void* sourcefilesize, void* targetfilesize, void* compressiontype) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFileCompressionInfoExA(void* sourcefilename, void* actualsourcefilenamebuffer, uint32_t actualsourcefilenamebufferlen, void* requiredbufferlen, void* sourcefilesize, void* targetfilesize, void* compressiontype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11112,7 +11112,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetFil
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetFileCompressionInfoExW(void* sourcefilename, void* actualsourcefilenamebuffer, uint32_t actualsourcefilenamebufferlen, void* requiredbufferlen, void* sourcefilesize, void* targetfilesize, void* compressiontype) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFileCompressionInfoExW(void* sourcefilename, void* actualsourcefilenamebuffer, uint32_t actualsourcefilenamebufferlen, void* requiredbufferlen, void* sourcefilesize, void* targetfilesize, void* compressiontype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11140,7 +11140,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetFil
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetFileCompressionInfoW(void* sourcefilename, void* actualsourcefilename, void* sourcefilesize, void* targetfilesize, void* compressiontype) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFileCompressionInfoW(void* sourcefilename, void* actualsourcefilename, void* sourcefilesize, void* targetfilesize, void* compressiontype) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11166,7 +11166,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetFi
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetFileQueueCount(void* filequeue, uint32_t subqueuefileop, void* numoperations) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFileQueueCount(void* filequeue, uint32_t subqueuefileop, void* numoperations) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11190,7 +11190,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetFil
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetFileQueueFlags(void* filequeue, void* flags) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFileQueueFlags(void* filequeue, void* flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11213,7 +11213,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetFil
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetInfDriverStoreLocationA(void* filename, void* alternateplatforminfo, void* localename, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfDriverStoreLocationA(void* filename, void* alternateplatforminfo, void* localename, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11240,7 +11240,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetInf
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetInfDriverStoreLocationW(void* filename, void* alternateplatforminfo, void* localename, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfDriverStoreLocationW(void* filename, void* alternateplatforminfo, void* localename, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11267,7 +11267,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetInf
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetInfFileListA(void* directorypath, uint32_t infstyle, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfFileListA(void* directorypath, uint32_t infstyle, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11293,7 +11293,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetInf
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetInfFileListW(void* directorypath, uint32_t infstyle, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfFileListW(void* directorypath, uint32_t infstyle, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11319,7 +11319,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetInf
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetInfInformationA(void* infspec, uint32_t searchcontrol, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfInformationA(void* infspec, uint32_t searchcontrol, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11345,7 +11345,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetInf
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetInfInformationW(void* infspec, uint32_t searchcontrol, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfInformationW(void* infspec, uint32_t searchcontrol, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11371,7 +11371,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetInf
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetInfPublishedNameA(void* driverstorelocation, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfPublishedNameA(void* driverstorelocation, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11396,7 +11396,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetInf
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetInfPublishedNameW(void* driverstorelocation, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfPublishedNameW(void* driverstorelocation, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11421,7 +11421,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetInf
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetIntField(void* context, uint32_t fieldindex, void* integervalue) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetIntField(void* context, uint32_t fieldindex, void* integervalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11445,7 +11445,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetInt
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetLineByIndexA(void* infhandle, void* section, uint32_t arg_2_index, void* context) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetLineByIndexA(void* infhandle, void* section, uint32_t arg_2_index, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11470,7 +11470,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetLin
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetLineByIndexW(void* infhandle, void* section, uint32_t arg_2_index, void* context) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetLineByIndexW(void* infhandle, void* section, uint32_t arg_2_index, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11495,7 +11495,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetLin
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetLineCountA(void* infhandle, void* section) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetLineCountA(void* infhandle, void* section) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11518,7 +11518,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetLin
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetLineCountW(void* infhandle, void* section) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetLineCountW(void* infhandle, void* section) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11541,7 +11541,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetLin
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetLineTextA(void* context, void* infhandle, void* section, void* key, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetLineTextA(void* context, void* infhandle, void* section, void* key, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11569,7 +11569,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetLin
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetLineTextW(void* context, void* infhandle, void* section, void* key, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetLineTextW(void* context, void* infhandle, void* section, void* key, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11597,7 +11597,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetLin
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetMultiSzFieldA(void* context, uint32_t fieldindex, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetMultiSzFieldA(void* context, uint32_t fieldindex, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11623,7 +11623,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetMul
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetMultiSzFieldW(void* context, uint32_t fieldindex, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetMultiSzFieldW(void* context, uint32_t fieldindex, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11649,7 +11649,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetMul
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetNonInteractiveMode(void) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetNonInteractiveMode(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -11670,7 +11670,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetNon
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetSourceFileLocationA(void* infhandle, void* infcontext, void* filename, void* sourceid, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetSourceFileLocationA(void* infhandle, void* infcontext, void* filename, void* sourceid, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11698,7 +11698,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetSou
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetSourceFileLocationW(void* infhandle, void* infcontext, void* filename, void* sourceid, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetSourceFileLocationW(void* infhandle, void* infcontext, void* filename, void* sourceid, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11726,7 +11726,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetSou
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetSourceFileSizeA(void* infhandle, void* infcontext, void* filename, void* section, void* filesize, uint32_t roundingfactor) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetSourceFileSizeA(void* infhandle, void* infcontext, void* filename, void* section, void* filesize, uint32_t roundingfactor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11753,7 +11753,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetSou
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetSourceFileSizeW(void* infhandle, void* infcontext, void* filename, void* section, void* filesize, uint32_t roundingfactor) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetSourceFileSizeW(void* infhandle, void* infcontext, void* filename, void* section, void* filesize, uint32_t roundingfactor) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -11780,7 +11780,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetSou
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetSourceInfoA(void* infhandle, uint32_t sourceid, uint32_t infodesired, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetSourceInfoA(void* infhandle, uint32_t sourceid, uint32_t infodesired, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11807,7 +11807,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetSou
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetSourceInfoW(void* infhandle, uint32_t sourceid, uint32_t infodesired, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetSourceInfoW(void* infhandle, uint32_t sourceid, uint32_t infodesired, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11834,7 +11834,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetSou
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetStringFieldA(void* context, uint32_t fieldindex, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetStringFieldA(void* context, uint32_t fieldindex, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11860,7 +11860,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetStr
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetStringFieldW(void* context, uint32_t fieldindex, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetStringFieldW(void* context, uint32_t fieldindex, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11886,7 +11886,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetStr
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetTargetPathA(void* infhandle, void* infcontext, void* section, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetTargetPathA(void* infhandle, void* infcontext, void* section, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11913,7 +11913,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetTar
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetTargetPathW(void* infhandle, void* infcontext, void* section, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetTargetPathW(void* infhandle, void* infcontext, void* section, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11940,7 +11940,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetTar
 #endif
 }
 
-uint64_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetThreadLogToken(void) {
+uint64_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetThreadLogToken(void) {
 #ifdef _WIN32
     typedef uint64_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -11961,7 +11961,7 @@ uint64_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetTh
 #endif
 }
 
-void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInitDefaultQueueCallback(void* ownerwindow) {
+void* windowssys_windows_win32_devices_deviceanddriverinstallation_setupInitDefaultQueueCallback(void* ownerwindow) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -11983,7 +11983,7 @@ void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInitDefa
 #endif
 }
 
-void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInitDefaultQueueCallbackEx(void* ownerwindow, void* alternateprogresswindow, uint32_t progressmessage, uint32_t reserved1, void* reserved2) {
+void* windowssys_windows_win32_devices_deviceanddriverinstallation_setupInitDefaultQueueCallbackEx(void* ownerwindow, void* alternateprogresswindow, uint32_t progressmessage, uint32_t reserved1, void* reserved2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12009,7 +12009,7 @@ void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInitDefa
 #endif
 }
 
-void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInitializeFileLogA(void* logfilename, uint32_t flags) {
+void* windowssys_windows_win32_devices_deviceanddriverinstallation_setupInitializeFileLogA(void* logfilename, uint32_t flags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12032,7 +12032,7 @@ void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInitiali
 #endif
 }
 
-void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInitializeFileLogW(void* logfilename, uint32_t flags) {
+void* windowssys_windows_win32_devices_deviceanddriverinstallation_setupInitializeFileLogW(void* logfilename, uint32_t flags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12055,7 +12055,7 @@ void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInitiali
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstallFileA(void* infhandle, void* infcontext, void* sourcefile, void* sourcepathroot, void* destinationname, uint32_t copystyle, void* copymsghandler, void* context) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFileA(void* infhandle, void* infcontext, void* sourcefile, void* sourcepathroot, void* destinationname, uint32_t copystyle, void* copymsghandler, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12084,7 +12084,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstal
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstallFileExA(void* infhandle, void* infcontext, void* sourcefile, void* sourcepathroot, void* destinationname, uint32_t copystyle, void* copymsghandler, void* context, void* filewasinuse) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFileExA(void* infhandle, void* infcontext, void* sourcefile, void* sourcepathroot, void* destinationname, uint32_t copystyle, void* copymsghandler, void* context, void* filewasinuse) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12114,7 +12114,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstal
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstallFileExW(void* infhandle, void* infcontext, void* sourcefile, void* sourcepathroot, void* destinationname, uint32_t copystyle, void* copymsghandler, void* context, void* filewasinuse) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFileExW(void* infhandle, void* infcontext, void* sourcefile, void* sourcepathroot, void* destinationname, uint32_t copystyle, void* copymsghandler, void* context, void* filewasinuse) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12144,7 +12144,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstal
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstallFileW(void* infhandle, void* infcontext, void* sourcefile, void* sourcepathroot, void* destinationname, uint32_t copystyle, void* copymsghandler, void* context) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFileW(void* infhandle, void* infcontext, void* sourcefile, void* sourcepathroot, void* destinationname, uint32_t copystyle, void* copymsghandler, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12173,7 +12173,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstal
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstallFilesFromInfSectionA(void* infhandle, void* layoutinfhandle, void* filequeue, void* sectionname, void* sourcerootpath, uint32_t copyflags) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFilesFromInfSectionA(void* infhandle, void* layoutinfhandle, void* filequeue, void* sectionname, void* sourcerootpath, uint32_t copyflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12200,7 +12200,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstal
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstallFilesFromInfSectionW(void* infhandle, void* layoutinfhandle, void* filequeue, void* sectionname, void* sourcerootpath, uint32_t copyflags) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFilesFromInfSectionW(void* infhandle, void* layoutinfhandle, void* filequeue, void* sectionname, void* sourcerootpath, uint32_t copyflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12227,7 +12227,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstal
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstallFromInfSectionA(void* owner, void* infhandle, void* sectionname, uint32_t flags, void* relativekeyroot, void* sourcerootpath, uint32_t copyflags, void* msghandler, void* context, int64_t deviceinfoset, void* deviceinfodata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFromInfSectionA(void* owner, void* infhandle, void* sectionname, uint32_t flags, void* relativekeyroot, void* sourcerootpath, uint32_t copyflags, void* msghandler, void* context, int64_t deviceinfoset, void* deviceinfodata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*, uint32_t, void*, void*, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12259,7 +12259,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstal
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstallFromInfSectionW(void* owner, void* infhandle, void* sectionname, uint32_t flags, void* relativekeyroot, void* sourcerootpath, uint32_t copyflags, void* msghandler, void* context, int64_t deviceinfoset, void* deviceinfodata) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFromInfSectionW(void* owner, void* infhandle, void* sectionname, uint32_t flags, void* relativekeyroot, void* sourcerootpath, uint32_t copyflags, void* msghandler, void* context, int64_t deviceinfoset, void* deviceinfodata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*, void*, uint32_t, void*, void*, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12291,7 +12291,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstal
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstallServicesFromInfSectionA(void* infhandle, void* sectionname, uint32_t flags) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallServicesFromInfSectionA(void* infhandle, void* sectionname, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12315,7 +12315,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstal
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstallServicesFromInfSectionExA(void* infhandle, void* sectionname, uint32_t flags, int64_t deviceinfoset, void* deviceinfodata, void* reserved1, void* reserved2) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallServicesFromInfSectionExA(void* infhandle, void* sectionname, uint32_t flags, int64_t deviceinfoset, void* deviceinfodata, void* reserved1, void* reserved2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12343,7 +12343,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstal
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstallServicesFromInfSectionExW(void* infhandle, void* sectionname, uint32_t flags, int64_t deviceinfoset, void* deviceinfodata, void* reserved1, void* reserved2) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallServicesFromInfSectionExW(void* infhandle, void* sectionname, uint32_t flags, int64_t deviceinfoset, void* deviceinfodata, void* reserved1, void* reserved2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, int64_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12371,7 +12371,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstal
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstallServicesFromInfSectionW(void* infhandle, void* sectionname, uint32_t flags) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallServicesFromInfSectionW(void* infhandle, void* sectionname, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12395,7 +12395,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstal
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupIterateCabinetA(void* cabinetfile, uint32_t reserved, void* msghandler, void* context) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupIterateCabinetA(void* cabinetfile, uint32_t reserved, void* msghandler, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12420,7 +12420,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupIterat
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupIterateCabinetW(void* cabinetfile, uint32_t reserved, void* msghandler, void* context) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupIterateCabinetW(void* cabinetfile, uint32_t reserved, void* msghandler, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12445,7 +12445,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupIterat
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupLogErrorA(void* messagestring, uint32_t severity) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupLogErrorA(void* messagestring, uint32_t severity) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12468,7 +12468,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupLogErr
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupLogErrorW(void* messagestring, uint32_t severity) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupLogErrorW(void* messagestring, uint32_t severity) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12491,7 +12491,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupLogErr
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupLogFileA(void* fileloghandle, void* logsectionname, void* sourcefilename, void* targetfilename, uint32_t checksum, void* disktagfile, void* diskdescription, void* otherinfo, uint32_t flags) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupLogFileA(void* fileloghandle, void* logsectionname, void* sourcefilename, void* targetfilename, uint32_t checksum, void* disktagfile, void* diskdescription, void* otherinfo, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12521,7 +12521,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupLogFil
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupLogFileW(void* fileloghandle, void* logsectionname, void* sourcefilename, void* targetfilename, uint32_t checksum, void* disktagfile, void* diskdescription, void* otherinfo, uint32_t flags) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupLogFileW(void* fileloghandle, void* logsectionname, void* sourcefilename, void* targetfilename, uint32_t checksum, void* disktagfile, void* diskdescription, void* otherinfo, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12551,7 +12551,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupLogFil
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupOpenAppendInfFileA(void* filename, void* infhandle, void* errorline) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenAppendInfFileA(void* filename, void* infhandle, void* errorline) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12575,7 +12575,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupOpenAp
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupOpenAppendInfFileW(void* filename, void* infhandle, void* errorline) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenAppendInfFileW(void* filename, void* infhandle, void* errorline) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12599,7 +12599,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupOpenAp
 #endif
 }
 
-void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupOpenFileQueue(void) {
+void* windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenFileQueue(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -12620,7 +12620,7 @@ void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupOpenFile
 #endif
 }
 
-void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupOpenInfFileA(void* filename, void* infclass, uint32_t infstyle, void* errorline) {
+void* windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenInfFileA(void* filename, void* infclass, uint32_t infstyle, void* errorline) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12645,7 +12645,7 @@ void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupOpenInfF
 #endif
 }
 
-void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupOpenInfFileW(void* filename, void* infclass, uint32_t infstyle, void* errorline) {
+void* windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenInfFileW(void* filename, void* infclass, uint32_t infstyle, void* errorline) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12670,7 +12670,7 @@ void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupOpenInfF
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupOpenLog(int32_t erase) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenLog(int32_t erase) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12692,7 +12692,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupOpenLo
 #endif
 }
 
-void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupOpenMasterInf(void) {
+void* windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenMasterInf(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -12713,7 +12713,7 @@ void* windowssys_windows_win32_devices_deviceanddriverinstallation_SetupOpenMast
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupPrepareQueueForRestoreA(void* queuehandle, void* backuppath, uint32_t restoreflags) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupPrepareQueueForRestoreA(void* queuehandle, void* backuppath, uint32_t restoreflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12737,7 +12737,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupPrepar
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupPrepareQueueForRestoreW(void* queuehandle, void* backuppath, uint32_t restoreflags) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupPrepareQueueForRestoreW(void* queuehandle, void* backuppath, uint32_t restoreflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12761,7 +12761,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupPrepar
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupPromptForDiskA(void* hwndparent, void* dialogtitle, void* diskname, void* pathtosource, void* filesought, void* tagfile, uint32_t diskpromptstyle, void* pathbuffer, uint32_t pathbuffersize, void* pathrequiredsize) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupPromptForDiskA(void* hwndparent, void* dialogtitle, void* diskname, void* pathtosource, void* filesought, void* tagfile, uint32_t diskpromptstyle, void* pathbuffer, uint32_t pathbuffersize, void* pathrequiredsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12792,7 +12792,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupPromp
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupPromptForDiskW(void* hwndparent, void* dialogtitle, void* diskname, void* pathtosource, void* filesought, void* tagfile, uint32_t diskpromptstyle, void* pathbuffer, uint32_t pathbuffersize, void* pathrequiredsize) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupPromptForDiskW(void* hwndparent, void* dialogtitle, void* diskname, void* pathtosource, void* filesought, void* tagfile, uint32_t diskpromptstyle, void* pathbuffer, uint32_t pathbuffersize, void* pathrequiredsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12823,7 +12823,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupPromp
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupPromptReboot(void* filequeue, void* owner, int32_t scanonly) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupPromptReboot(void* filequeue, void* owner, int32_t scanonly) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -12847,7 +12847,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupPrompt
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryDrivesInDiskSpaceListA(void* diskspace, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryDrivesInDiskSpaceListA(void* diskspace, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12872,7 +12872,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryDrivesInDiskSpaceListW(void* diskspace, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryDrivesInDiskSpaceListW(void* diskspace, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12897,7 +12897,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryFileLogA(void* fileloghandle, void* logsectionname, void* targetfilename, int32_t desiredinfo, void* dataout, uint32_t returnbuffersize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryFileLogA(void* fileloghandle, void* logsectionname, void* targetfilename, int32_t desiredinfo, void* dataout, uint32_t returnbuffersize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12925,7 +12925,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryF
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryFileLogW(void* fileloghandle, void* logsectionname, void* targetfilename, int32_t desiredinfo, void* dataout, uint32_t returnbuffersize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryFileLogW(void* fileloghandle, void* logsectionname, void* targetfilename, int32_t desiredinfo, void* dataout, uint32_t returnbuffersize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12953,7 +12953,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryF
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryInfFileInformationA(void* infinformation, uint32_t infindex, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryInfFileInformationA(void* infinformation, uint32_t infindex, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -12979,7 +12979,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryI
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryInfFileInformationW(void* infinformation, uint32_t infindex, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryInfFileInformationW(void* infinformation, uint32_t infindex, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13005,7 +13005,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryI
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryInfOriginalFileInformationA(void* infinformation, uint32_t infindex, void* alternateplatforminfo, void* originalfileinfo) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryInfOriginalFileInformationA(void* infinformation, uint32_t infindex, void* alternateplatforminfo, void* originalfileinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13030,7 +13030,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryI
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryInfOriginalFileInformationW(void* infinformation, uint32_t infindex, void* alternateplatforminfo, void* originalfileinfo) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryInfOriginalFileInformationW(void* infinformation, uint32_t infindex, void* alternateplatforminfo, void* originalfileinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13055,7 +13055,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryI
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryInfVersionInformationA(void* infinformation, uint32_t infindex, void* key, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryInfVersionInformationA(void* infinformation, uint32_t infindex, void* key, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13082,7 +13082,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryI
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryInfVersionInformationW(void* infinformation, uint32_t infindex, void* key, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryInfVersionInformationW(void* infinformation, uint32_t infindex, void* key, void* returnbuffer, uint32_t returnbuffersize, void* requiredsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13109,7 +13109,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryI
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQuerySourceListA(uint32_t flags, void* list, void* count) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupQuerySourceListA(uint32_t flags, void* list, void* count) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13133,7 +13133,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryS
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQuerySourceListW(uint32_t flags, void* list, void* count) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupQuerySourceListW(uint32_t flags, void* list, void* count) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13157,7 +13157,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryS
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQuerySpaceRequiredOnDriveA(void* diskspace, void* drivespec, void* spacerequired, void* reserved1, uint32_t reserved2) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupQuerySpaceRequiredOnDriveA(void* diskspace, void* drivespec, void* spacerequired, void* reserved1, uint32_t reserved2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13183,7 +13183,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryS
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQuerySpaceRequiredOnDriveW(void* diskspace, void* drivespec, void* spacerequired, void* reserved1, uint32_t reserved2) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupQuerySpaceRequiredOnDriveW(void* diskspace, void* drivespec, void* spacerequired, void* reserved1, uint32_t reserved2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13209,7 +13209,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryS
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueCopyA(void* queuehandle, void* sourcerootpath, void* sourcepath, void* sourcefilename, void* sourcedescription, void* sourcetagfile, void* targetdirectory, void* targetfilename, uint32_t copystyle) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueCopyA(void* queuehandle, void* sourcerootpath, void* sourcepath, void* sourcefilename, void* sourcedescription, void* sourcetagfile, void* targetdirectory, void* targetfilename, uint32_t copystyle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13239,7 +13239,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueC
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueCopyIndirectA(void* copyparams) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueCopyIndirectA(void* copyparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13261,7 +13261,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueC
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueCopyIndirectW(void* copyparams) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueCopyIndirectW(void* copyparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13283,7 +13283,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueC
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueCopySectionA(void* queuehandle, void* sourcerootpath, void* infhandle, void* listinfhandle, void* section, uint32_t copystyle) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueCopySectionA(void* queuehandle, void* sourcerootpath, void* infhandle, void* listinfhandle, void* section, uint32_t copystyle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13310,7 +13310,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueC
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueCopySectionW(void* queuehandle, void* sourcerootpath, void* infhandle, void* listinfhandle, void* section, uint32_t copystyle) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueCopySectionW(void* queuehandle, void* sourcerootpath, void* infhandle, void* listinfhandle, void* section, uint32_t copystyle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13337,7 +13337,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueC
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueCopyW(void* queuehandle, void* sourcerootpath, void* sourcepath, void* sourcefilename, void* sourcedescription, void* sourcetagfile, void* targetdirectory, void* targetfilename, uint32_t copystyle) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueCopyW(void* queuehandle, void* sourcerootpath, void* sourcepath, void* sourcefilename, void* sourcedescription, void* sourcetagfile, void* targetdirectory, void* targetfilename, uint32_t copystyle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13367,7 +13367,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueC
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueDefaultCopyA(void* queuehandle, void* infhandle, void* sourcerootpath, void* sourcefilename, void* targetfilename, uint32_t copystyle) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueDefaultCopyA(void* queuehandle, void* infhandle, void* sourcerootpath, void* sourcefilename, void* targetfilename, uint32_t copystyle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13394,7 +13394,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueDefaultCopyW(void* queuehandle, void* infhandle, void* sourcerootpath, void* sourcefilename, void* targetfilename, uint32_t copystyle) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueDefaultCopyW(void* queuehandle, void* infhandle, void* sourcerootpath, void* sourcefilename, void* targetfilename, uint32_t copystyle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13421,7 +13421,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueDeleteA(void* queuehandle, void* pathpart1, void* pathpart2) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueDeleteA(void* queuehandle, void* pathpart1, void* pathpart2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13445,7 +13445,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueDeleteSectionA(void* queuehandle, void* infhandle, void* listinfhandle, void* section) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueDeleteSectionA(void* queuehandle, void* infhandle, void* listinfhandle, void* section) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13470,7 +13470,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueDeleteSectionW(void* queuehandle, void* infhandle, void* listinfhandle, void* section) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueDeleteSectionW(void* queuehandle, void* infhandle, void* listinfhandle, void* section) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13495,7 +13495,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueDeleteW(void* queuehandle, void* pathpart1, void* pathpart2) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueDeleteW(void* queuehandle, void* pathpart1, void* pathpart2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13519,7 +13519,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueD
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueRenameA(void* queuehandle, void* sourcepath, void* sourcefilename, void* targetpath, void* targetfilename) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueRenameA(void* queuehandle, void* sourcepath, void* sourcefilename, void* targetpath, void* targetfilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13545,7 +13545,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueR
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueRenameSectionA(void* queuehandle, void* infhandle, void* listinfhandle, void* section) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueRenameSectionA(void* queuehandle, void* infhandle, void* listinfhandle, void* section) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13570,7 +13570,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueR
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueRenameSectionW(void* queuehandle, void* infhandle, void* listinfhandle, void* section) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueRenameSectionW(void* queuehandle, void* infhandle, void* listinfhandle, void* section) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13595,7 +13595,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueR
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueRenameW(void* queuehandle, void* sourcepath, void* sourcefilename, void* targetpath, void* targetfilename) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueRenameW(void* queuehandle, void* sourcepath, void* sourcefilename, void* targetpath, void* targetfilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13621,7 +13621,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueR
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemoveFileLogEntryA(void* fileloghandle, void* logsectionname, void* targetfilename) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveFileLogEntryA(void* fileloghandle, void* logsectionname, void* targetfilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13645,7 +13645,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemove
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemoveFileLogEntryW(void* fileloghandle, void* logsectionname, void* targetfilename) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveFileLogEntryW(void* fileloghandle, void* logsectionname, void* targetfilename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13669,7 +13669,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemove
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemoveFromDiskSpaceListA(void* diskspace, void* targetfilespec, uint32_t operation, void* reserved1, uint32_t reserved2) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveFromDiskSpaceListA(void* diskspace, void* targetfilespec, uint32_t operation, void* reserved1, uint32_t reserved2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13695,7 +13695,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemove
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemoveFromDiskSpaceListW(void* diskspace, void* targetfilespec, uint32_t operation, void* reserved1, uint32_t reserved2) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveFromDiskSpaceListW(void* diskspace, void* targetfilespec, uint32_t operation, void* reserved1, uint32_t reserved2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13721,7 +13721,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemove
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemoveFromSourceListA(uint32_t flags, void* source) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveFromSourceListA(uint32_t flags, void* source) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13744,7 +13744,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemove
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemoveFromSourceListW(uint32_t flags, void* source) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveFromSourceListW(uint32_t flags, void* source) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13767,7 +13767,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemove
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemoveInstallSectionFromDiskSpaceListA(void* diskspace, void* infhandle, void* layoutinfhandle, void* sectionname, void* reserved1, uint32_t reserved2) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveInstallSectionFromDiskSpaceListA(void* diskspace, void* infhandle, void* layoutinfhandle, void* sectionname, void* reserved1, uint32_t reserved2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13794,7 +13794,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemove
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemoveInstallSectionFromDiskSpaceListW(void* diskspace, void* infhandle, void* layoutinfhandle, void* sectionname, void* reserved1, uint32_t reserved2) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveInstallSectionFromDiskSpaceListW(void* diskspace, void* infhandle, void* layoutinfhandle, void* sectionname, void* reserved1, uint32_t reserved2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13821,7 +13821,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemove
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemoveSectionFromDiskSpaceListA(void* diskspace, void* infhandle, void* listinfhandle, void* sectionname, uint32_t operation, void* reserved1, uint32_t reserved2) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveSectionFromDiskSpaceListA(void* diskspace, void* infhandle, void* listinfhandle, void* sectionname, uint32_t operation, void* reserved1, uint32_t reserved2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13849,7 +13849,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemove
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemoveSectionFromDiskSpaceListW(void* diskspace, void* infhandle, void* listinfhandle, void* sectionname, uint32_t operation, void* reserved1, uint32_t reserved2) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveSectionFromDiskSpaceListW(void* diskspace, void* infhandle, void* listinfhandle, void* sectionname, uint32_t operation, void* reserved1, uint32_t reserved2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13877,7 +13877,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemove
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRenameErrorA(void* hwndparent, void* dialogtitle, void* sourcefile, void* targetfile, uint32_t win32errorcode, uint32_t style) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupRenameErrorA(void* hwndparent, void* dialogtitle, void* sourcefile, void* targetfile, uint32_t win32errorcode, uint32_t style) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13904,7 +13904,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRenam
 #endif
 }
 
-uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRenameErrorW(void* hwndparent, void* dialogtitle, void* sourcefile, void* targetfile, uint32_t win32errorcode, uint32_t style) {
+uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupRenameErrorW(void* hwndparent, void* dialogtitle, void* sourcefile, void* targetfile, uint32_t win32errorcode, uint32_t style) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -13931,7 +13931,7 @@ uint32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRenam
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupScanFileQueueA(void* filequeue, uint32_t flags, void* window, void* callbackroutine, void* callbackcontext, void* result) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupScanFileQueueA(void* filequeue, uint32_t flags, void* window, void* callbackroutine, void* callbackcontext, void* result) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13958,7 +13958,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupScanFi
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupScanFileQueueW(void* filequeue, uint32_t flags, void* window, void* callbackroutine, void* callbackcontext, void* result) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupScanFileQueueW(void* filequeue, uint32_t flags, void* window, void* callbackroutine, void* callbackcontext, void* result) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -13985,7 +13985,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupScanFi
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetDirectoryIdA(void* infhandle, uint32_t id, void* directory) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetDirectoryIdA(void* infhandle, uint32_t id, void* directory) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14009,7 +14009,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetDir
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetDirectoryIdExA(void* infhandle, uint32_t id, void* directory, uint32_t flags, uint32_t reserved1, void* reserved2) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetDirectoryIdExA(void* infhandle, uint32_t id, void* directory, uint32_t flags, uint32_t reserved1, void* reserved2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14036,7 +14036,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetDir
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetDirectoryIdExW(void* infhandle, uint32_t id, void* directory, uint32_t flags, uint32_t reserved1, void* reserved2) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetDirectoryIdExW(void* infhandle, uint32_t id, void* directory, uint32_t flags, uint32_t reserved1, void* reserved2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14063,7 +14063,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetDir
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetDirectoryIdW(void* infhandle, uint32_t id, void* directory) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetDirectoryIdW(void* infhandle, uint32_t id, void* directory) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14087,7 +14087,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetDir
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetFileQueueAlternatePlatformA(void* queuehandle, void* alternateplatforminfo, void* alternatedefaultcatalogfile) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetFileQueueAlternatePlatformA(void* queuehandle, void* alternateplatforminfo, void* alternatedefaultcatalogfile) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14111,7 +14111,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetFil
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetFileQueueAlternatePlatformW(void* queuehandle, void* alternateplatforminfo, void* alternatedefaultcatalogfile) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetFileQueueAlternatePlatformW(void* queuehandle, void* alternateplatforminfo, void* alternatedefaultcatalogfile) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14135,7 +14135,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetFil
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetFileQueueFlags(void* filequeue, uint32_t flagmask, uint32_t flags) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetFileQueueFlags(void* filequeue, uint32_t flagmask, uint32_t flags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14159,7 +14159,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetFil
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetNonInteractiveMode(int32_t noninteractiveflag) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetNonInteractiveMode(int32_t noninteractiveflag) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14181,7 +14181,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetNon
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetPlatformPathOverrideA(void* override) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetPlatformPathOverrideA(void* override) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14203,7 +14203,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetPla
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetPlatformPathOverrideW(void* override) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetPlatformPathOverrideW(void* override) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14225,7 +14225,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetPla
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetSourceListA(uint32_t flags, void* sourcelist, uint32_t sourcecount) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetSourceListA(uint32_t flags, void* sourcelist, uint32_t sourcecount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14249,7 +14249,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetSou
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetSourceListW(uint32_t flags, void* sourcelist, uint32_t sourcecount) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetSourceListW(uint32_t flags, void* sourcelist, uint32_t sourcecount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14273,7 +14273,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetSou
 #endif
 }
 
-void windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetThreadLogToken(uint64_t logtoken) {
+void windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetThreadLogToken(uint64_t logtoken) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -14294,7 +14294,7 @@ void windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetThread
 #endif
 }
 
-void windowssys_windows_win32_devices_deviceanddriverinstallation_SetupTermDefaultQueueCallback(void* context) {
+void windowssys_windows_win32_devices_deviceanddriverinstallation_setupTermDefaultQueueCallback(void* context) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14315,7 +14315,7 @@ void windowssys_windows_win32_devices_deviceanddriverinstallation_SetupTermDefau
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupTerminateFileLog(void* fileloghandle) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupTerminateFileLog(void* fileloghandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14337,7 +14337,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupTermin
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupUninstallNewlyCopiedInfs(void* filequeue, uint32_t flags, void* reserved) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupUninstallNewlyCopiedInfs(void* filequeue, uint32_t flags, void* reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14361,7 +14361,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupUninst
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupUninstallOEMInfA(void* inffilename, uint32_t flags, void* reserved) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupUninstallOEMInfA(void* inffilename, uint32_t flags, void* reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14385,7 +14385,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupUninst
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupUninstallOEMInfW(void* inffilename, uint32_t flags, void* reserved) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupUninstallOEMInfW(void* inffilename, uint32_t flags, void* reserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14409,7 +14409,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupUninst
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupVerifyInfFileA(void* infname, void* altplatforminfo, void* infsignerinfo) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupVerifyInfFileA(void* infname, void* altplatforminfo, void* infsignerinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14433,7 +14433,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupVerify
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupVerifyInfFileW(void* infname, void* altplatforminfo, void* infsignerinfo) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_setupVerifyInfFileW(void* infname, void* altplatforminfo, void* infsignerinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14457,7 +14457,78 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_SetupVerify
 #endif
 }
 
-void windowssys_windows_win32_devices_deviceanddriverinstallation_SetupWriteTextLogInfLine(uint64_t logtoken, uint32_t flags, void* infhandle, void* context) {
+void windowssys_windows_win32_devices_deviceanddriverinstallation_setupWriteTextLog(uint64_t logtoken, uint32_t category, uint32_t flags, void* messagestr, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+#ifdef _WIN32
+    typedef void (*km_fn_t)(uint64_t, uint32_t, uint32_t, void*, ...);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SetupWriteTextLog");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        switch (km_vac) {
+            case 0: km_fn_ptr(logtoken, category, flags, messagestr); break;
+            case 1: km_fn_ptr(logtoken, category, flags, messagestr, (intptr_t)km_va0); break;
+            case 2: km_fn_ptr(logtoken, category, flags, messagestr, (intptr_t)km_va0, (intptr_t)km_va1); break;
+            case 3: km_fn_ptr(logtoken, category, flags, messagestr, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2); break;
+            default: km_fn_ptr(logtoken, category, flags, messagestr, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3); break;
+        }
+        return;
+    }
+    errno = ENOSYS;
+#else
+    (void)logtoken;
+    (void)category;
+    (void)flags;
+    (void)messagestr;
+    (void)km_vac;
+    (void)km_va0;
+    (void)km_va1;
+    (void)km_va2;
+    (void)km_va3;
+    errno = ENOSYS;
+#endif
+}
+
+void windowssys_windows_win32_devices_deviceanddriverinstallation_setupWriteTextLogError(uint64_t logtoken, uint32_t category, uint32_t logflags, uint32_t error, void* messagestr, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+#ifdef _WIN32
+    typedef void (*km_fn_t)(uint64_t, uint32_t, uint32_t, uint32_t, void*, ...);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SetupWriteTextLogError");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        switch (km_vac) {
+            case 0: km_fn_ptr(logtoken, category, logflags, error, messagestr); break;
+            case 1: km_fn_ptr(logtoken, category, logflags, error, messagestr, (intptr_t)km_va0); break;
+            case 2: km_fn_ptr(logtoken, category, logflags, error, messagestr, (intptr_t)km_va0, (intptr_t)km_va1); break;
+            case 3: km_fn_ptr(logtoken, category, logflags, error, messagestr, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2); break;
+            default: km_fn_ptr(logtoken, category, logflags, error, messagestr, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3); break;
+        }
+        return;
+    }
+    errno = ENOSYS;
+#else
+    (void)logtoken;
+    (void)category;
+    (void)logflags;
+    (void)error;
+    (void)messagestr;
+    (void)km_vac;
+    (void)km_va0;
+    (void)km_va1;
+    (void)km_va2;
+    (void)km_va3;
+    errno = ENOSYS;
+#endif
+}
+
+void windowssys_windows_win32_devices_deviceanddriverinstallation_setupWriteTextLogInfLine(uint64_t logtoken, uint32_t flags, void* infhandle, void* context) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14481,7 +14552,7 @@ void windowssys_windows_win32_devices_deviceanddriverinstallation_SetupWriteText
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_UpdateDriverForPlugAndPlayDevicesA(void* hwndparent, void* hardwareid, void* fullinfpath, uint32_t installflags, void* brebootrequired) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_updateDriverForPlugAndPlayDevicesA(void* hwndparent, void* hardwareid, void* fullinfpath, uint32_t installflags, void* brebootrequired) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -14507,7 +14578,7 @@ int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_UpdateDrive
 #endif
 }
 
-int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_UpdateDriverForPlugAndPlayDevicesW(void* hwndparent, void* hardwareid, void* fullinfpath, uint32_t installflags, void* brebootrequired) {
+int32_t windowssys_windows_win32_devices_deviceanddriverinstallation_updateDriverForPlugAndPlayDevicesW(void* hwndparent, void* hardwareid, void* fullinfpath, uint32_t installflags, void* brebootrequired) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;

@@ -1,67 +1,68 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.communication
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 
-public expect fun BuildCommDCBA(lpdef: PCSTR, lpdcb: Long): BOOL
+public expect fun buildCommDCBA(lpdef: Pcstr, lpdcb: COpaquePointer?): Bool
 
-public expect fun BuildCommDCBAndTimeoutsA(lpdef: PCSTR, lpdcb: Long, lpcommtimeouts: Long): BOOL
+public expect fun buildCommDCBAndTimeoutsA(lpdef: Pcstr, lpdcb: COpaquePointer?, lpcommtimeouts: COpaquePointer?): Bool
 
-public expect fun BuildCommDCBAndTimeoutsW(lpdef: PCWSTR, lpdcb: Long, lpcommtimeouts: Long): BOOL
+public expect fun buildCommDCBAndTimeoutsW(lpdef: Pcwstr, lpdcb: COpaquePointer?, lpcommtimeouts: COpaquePointer?): Bool
 
-public expect fun BuildCommDCBW(lpdef: PCWSTR, lpdcb: Long): BOOL
+public expect fun buildCommDCBW(lpdef: Pcwstr, lpdcb: COpaquePointer?): Bool
 
-public expect fun ClearCommBreak(hfile: HANDLE): BOOL
+public expect fun clearCommBreak(hfile: Handle): Bool
 
-public expect fun ClearCommError(hfile: HANDLE, lperrors: Long, lpstat: Long): BOOL
+public expect fun clearCommError(hfile: Handle, lperrors: COpaquePointer?, lpstat: COpaquePointer?): Bool
 
-public expect fun CommConfigDialogA(lpszname: PCSTR, hwnd: HWND, lpcc: Long): BOOL
+public expect fun commConfigDialogA(lpszname: Pcstr, hwnd: Hwnd, lpcc: COpaquePointer?): Bool
 
-public expect fun CommConfigDialogW(lpszname: PCWSTR, hwnd: HWND, lpcc: Long): BOOL
+public expect fun commConfigDialogW(lpszname: Pcwstr, hwnd: Hwnd, lpcc: COpaquePointer?): Bool
 
-public expect fun EscapeCommFunction(hfile: HANDLE, dwfunc: ESCAPE_COMM_FUNCTION): BOOL
+public expect fun escapeCommFunction(hfile: Handle, dwfunc: EscapeCommFunction): Bool
 
-public expect fun GetCommConfig(hcommdev: HANDLE, lpcc: Long, lpdwsize: Long): BOOL
+public expect fun getCommConfig(hcommdev: Handle, lpcc: COpaquePointer?, lpdwsize: COpaquePointer?): Bool
 
-public expect fun GetCommMask(hfile: HANDLE, lpevtmask: Long): BOOL
+public expect fun getCommMask(hfile: Handle, lpevtmask: COpaquePointer?): Bool
 
-public expect fun GetCommModemStatus(hfile: HANDLE, lpmodemstat: Long): BOOL
+public expect fun getCommModemStatus(hfile: Handle, lpmodemstat: COpaquePointer?): Bool
 
-public expect fun GetCommPorts(lpportnumbers: Long, uportnumberscount: UInt, puportnumbersfound: Long): UInt
+public expect fun getCommPorts(lpportnumbers: COpaquePointer?, uportnumberscount: UInt, puportnumbersfound: COpaquePointer?): UInt
 
-public expect fun GetCommProperties(hfile: HANDLE, lpcommprop: Long): BOOL
+public expect fun getCommProperties(hfile: Handle, lpcommprop: COpaquePointer?): Bool
 
-public expect fun GetCommState(hfile: HANDLE, lpdcb: Long): BOOL
+public expect fun getCommState(hfile: Handle, lpdcb: COpaquePointer?): Bool
 
-public expect fun GetCommTimeouts(hfile: HANDLE, lpcommtimeouts: Long): BOOL
+public expect fun getCommTimeouts(hfile: Handle, lpcommtimeouts: COpaquePointer?): Bool
 
-public expect fun GetDefaultCommConfigA(lpszname: PCSTR, lpcc: Long, lpdwsize: Long): BOOL
+public expect fun getDefaultCommConfigA(lpszname: Pcstr, lpcc: COpaquePointer?, lpdwsize: COpaquePointer?): Bool
 
-public expect fun GetDefaultCommConfigW(lpszname: PCWSTR, lpcc: Long, lpdwsize: Long): BOOL
+public expect fun getDefaultCommConfigW(lpszname: Pcwstr, lpcc: COpaquePointer?, lpdwsize: COpaquePointer?): Bool
 
-public expect fun OpenCommPort(uportnumber: UInt, dwdesiredaccess: UInt, dwflagsandattributes: UInt): HANDLE
+public expect fun openCommPort(uportnumber: UInt, dwdesiredaccess: UInt, dwflagsandattributes: UInt): Handle
 
-public expect fun PurgeComm(hfile: HANDLE, dwflags: PURGE_COMM_FLAGS): BOOL
+public expect fun purgeComm(hfile: Handle, dwflags: PurgeCommFlags): Bool
 
-public expect fun SetCommBreak(hfile: HANDLE): BOOL
+public expect fun setCommBreak(hfile: Handle): Bool
 
-public expect fun SetCommConfig(hcommdev: HANDLE, lpcc: Long, dwsize: UInt): BOOL
+public expect fun setCommConfig(hcommdev: Handle, lpcc: COpaquePointer?, dwsize: UInt): Bool
 
-public expect fun SetCommMask(hfile: HANDLE, dwevtmask: COMM_EVENT_MASK): BOOL
+public expect fun setCommMask(hfile: Handle, dwevtmask: CommEventMask): Bool
 
-public expect fun SetCommState(hfile: HANDLE, lpdcb: Long): BOOL
+public expect fun setCommState(hfile: Handle, lpdcb: COpaquePointer?): Bool
 
-public expect fun SetCommTimeouts(hfile: HANDLE, lpcommtimeouts: Long): BOOL
+public expect fun setCommTimeouts(hfile: Handle, lpcommtimeouts: COpaquePointer?): Bool
 
-public expect fun SetDefaultCommConfigA(lpszname: PCSTR, lpcc: Long, dwsize: UInt): BOOL
+public expect fun setDefaultCommConfigA(lpszname: Pcstr, lpcc: COpaquePointer?, dwsize: UInt): Bool
 
-public expect fun SetDefaultCommConfigW(lpszname: PCWSTR, lpcc: Long, dwsize: UInt): BOOL
+public expect fun setDefaultCommConfigW(lpszname: Pcwstr, lpcc: COpaquePointer?, dwsize: UInt): Bool
 
-public expect fun SetupComm(hfile: HANDLE, dwinqueue: UInt, dwoutqueue: UInt): BOOL
+public expect fun setupComm(hfile: Handle, dwinqueue: UInt, dwoutqueue: UInt): Bool
 
-public expect fun TransmitCommChar(hfile: HANDLE, cchar: Byte): BOOL
+public expect fun transmitCommChar(hfile: Handle, cchar: Byte): Bool
 
-public expect fun WaitCommEvent(hfile: HANDLE, lpevtmask: Long, lpoverlapped: Long): BOOL
+public expect fun waitCommEvent(hfile: Handle, lpevtmask: COpaquePointer?, lpoverlapped: COpaquePointer?): Bool

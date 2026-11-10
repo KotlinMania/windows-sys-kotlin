@@ -1,42 +1,43 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.storage.jet
 
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.storage.structuredstorage.JET_API_PTR
-import io.github.kotlinmania.windowssys.windows.win32.storage.structuredstorage.JET_TABLEID
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.storage.structuredstorage.JetApiPtr
+import io.github.kotlinmania.windowssys.windows.win32.storage.structuredstorage.JetTableid
 
-public data class JET_BKINFO(
-    public var lgposMark: JET_LGPOS = JET_LGPOS(),
-    public var Anonymous: JET_BKINFO_0 = JET_BKINFO_0(),
+public data class JetBkinfo(
+    public var lgposMark: JetLgpos = JetLgpos(),
+    public var anonymous: JetBkinfo0 = JetBkinfo0(),
     public var genLow: UInt = 0u,
     public var genHigh: UInt = 0u,
 )
 
-public data class JET_BKINFO_0(public var logtimeMark: JET_LOGTIME = JET_LOGTIME(), public var bklogtimeMark: JET_BKLOGTIME = JET_BKLOGTIME())
+public data class JetBkinfo0(public var logtimeMark: JetLogtime = JetLogtime(), public var bklogtimeMark: JetBklogtime = JetBklogtime())
 
-public data class JET_BKLOGTIME(
+public data class JetBklogtime(
     public var bSeconds: Byte = 0,
     public var bMinutes: Byte = 0,
     public var bHours: Byte = 0,
     public var bDay: Byte = 0,
     public var bMonth: Byte = 0,
     public var bYear: Byte = 0,
-    public var Anonymous1: JET_BKLOGTIME_0 = JET_BKLOGTIME_0(),
-    public var Anonymous2: JET_BKLOGTIME_1 = JET_BKLOGTIME_1(),
+    public var anonymous1: JetBklogtime0 = JetBklogtime0(),
+    public var anonymous2: JetBklogtime1 = JetBklogtime1(),
 )
 
-public data class JET_BKLOGTIME_0(public var bFiller1: Byte = 0, public var Anonymous: JET_BKLOGTIME_0_0 = JET_BKLOGTIME_0_0())
+public data class JetBklogtime0(public var bFiller1: Byte = 0, public var anonymous: JetBklogtime00 = JetBklogtime00())
 
-public data class JET_BKLOGTIME_0_0(public var _bitfield: UByte = 0u)
+public data class JetBklogtime00(public var bitfield: UByte = 0u)
 
-public data class JET_BKLOGTIME_1(public var bFiller2: Byte = 0, public var Anonymous: JET_BKLOGTIME_1_0 = JET_BKLOGTIME_1_0())
+public data class JetBklogtime1(public var bFiller2: Byte = 0, public var anonymous: JetBklogtime10 = JetBklogtime10())
 
-public data class JET_BKLOGTIME_1_0(public var _bitfield: UByte = 0u)
+public data class JetBklogtime10(public var bitfield: UByte = 0u)
 
-public data class JET_COLUMNBASE_A(
+public data class JetColumnbaseA(
     public var cbStruct: UInt = 0u,
     public var columnid: UInt = 0u,
     public var coltyp: UInt = 0u,
@@ -51,7 +52,7 @@ public data class JET_COLUMNBASE_A(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is JET_COLUMNBASE_A) return false
+        if (other !is JetColumnbaseA) return false
         if (this.cbStruct != other.cbStruct) return false
         if (this.columnid != other.columnid) return false
         if (this.coltyp != other.coltyp) return false
@@ -82,7 +83,7 @@ public data class JET_COLUMNBASE_A(
     }
 }
 
-public data class JET_COLUMNBASE_W(
+public data class JetColumnbaseW(
     public var cbStruct: UInt = 0u,
     public var columnid: UInt = 0u,
     public var coltyp: UInt = 0u,
@@ -97,7 +98,7 @@ public data class JET_COLUMNBASE_W(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is JET_COLUMNBASE_W) return false
+        if (other !is JetColumnbaseW) return false
         if (this.cbStruct != other.cbStruct) return false
         if (this.columnid != other.columnid) return false
         if (this.coltyp != other.coltyp) return false
@@ -128,33 +129,33 @@ public data class JET_COLUMNBASE_W(
     }
 }
 
-public data class JET_COLUMNCREATE_A(
+public data class JetColumncreateA(
     public var cbStruct: UInt = 0u,
-    public var szColumnName: PSTR = 0L,
+    public var szColumnName: Pstr = null,
     public var coltyp: UInt = 0u,
     public var cbMax: UInt = 0u,
     public var grbit: UInt = 0u,
-    public var pvDefault: Long = 0L,
+    public var pvDefault: COpaquePointer? = null,
     public var cbDefault: UInt = 0u,
     public var cp: UInt = 0u,
     public var columnid: UInt = 0u,
     public var err: Int = 0,
 )
 
-public data class JET_COLUMNCREATE_W(
+public data class JetColumncreateW(
     public var cbStruct: UInt = 0u,
-    public var szColumnName: PWSTR = 0L,
+    public var szColumnName: Pwstr = null,
     public var coltyp: UInt = 0u,
     public var cbMax: UInt = 0u,
     public var grbit: UInt = 0u,
-    public var pvDefault: Long = 0L,
+    public var pvDefault: COpaquePointer? = null,
     public var cbDefault: UInt = 0u,
     public var cp: UInt = 0u,
     public var columnid: UInt = 0u,
     public var err: Int = 0,
 )
 
-public data class JET_COLUMNDEF(
+public data class JetColumndef(
     public var cbStruct: UInt = 0u,
     public var columnid: UInt = 0u,
     public var coltyp: UInt = 0u,
@@ -166,9 +167,9 @@ public data class JET_COLUMNDEF(
     public var grbit: UInt = 0u,
 )
 
-public class JET_COLUMNLIST(
+public class JetColumnlist(
     public var cbStruct: UInt = 0u,
-    public var tableid: JET_TABLEID = 0uL,
+    public var tableid: JetTableid = 0uL,
     public var cRecord: UInt = 0u,
     public var columnidPresentationOrder: UInt = 0u,
     public var columnidcolumnname: UInt = 0u,
@@ -186,51 +187,51 @@ public class JET_COLUMNLIST(
     public var columnidDefinitionName: UInt = 0u,
 )
 
-public data class JET_COMMIT_ID(
-    public var signLog: JET_SIGNATURE = JET_SIGNATURE(),
+public data class JetCommitId(
+    public var signLog: JetSignature = JetSignature(),
     public var reserved: Int = 0,
     public var commitId: Long = 0L,
 )
 
-public data class JET_CONDITIONALCOLUMN_A(
+public data class JetConditionalcolumnA(
     public var cbStruct: UInt = 0u,
-    public var szColumnName: PSTR = 0L,
+    public var szColumnName: Pstr = null,
     public var grbit: UInt = 0u,
 )
 
-public data class JET_CONDITIONALCOLUMN_W(
+public data class JetConditionalcolumnW(
     public var cbStruct: UInt = 0u,
-    public var szColumnName: PWSTR = 0L,
+    public var szColumnName: Pwstr = null,
     public var grbit: UInt = 0u,
 )
 
-public data class JET_CONVERT_A(public var szOldDll: PSTR = 0L, public var Anonymous: JET_CONVERT_A_0 = JET_CONVERT_A_0())
+public data class JetConvertA(public var szOldDll: Pstr = null, public var anonymous: JetConvertA0 = JetConvertA0())
 
-public data class JET_CONVERT_A_0(public var fFlags: UInt = 0u, public var Anonymous: JET_CONVERT_A_0_0 = JET_CONVERT_A_0_0())
+public data class JetConvertA0(public var fFlags: UInt = 0u, public var anonymous: JetConvertA00 = JetConvertA00())
 
-public data class JET_CONVERT_A_0_0(public var _bitfield: UInt = 0u)
+public data class JetConvertA00(public var bitfield: UInt = 0u)
 
-public data class JET_CONVERT_W(public var szOldDll: PWSTR = 0L, public var Anonymous: JET_CONVERT_W_0 = JET_CONVERT_W_0())
+public data class JetConvertW(public var szOldDll: Pwstr = null, public var anonymous: JetConvertW0 = JetConvertW0())
 
-public data class JET_CONVERT_W_0(public var fFlags: UInt = 0u, public var Anonymous: JET_CONVERT_W_0_0 = JET_CONVERT_W_0_0())
+public data class JetConvertW0(public var fFlags: UInt = 0u, public var anonymous: JetConvertW00 = JetConvertW00())
 
-public data class JET_CONVERT_W_0_0(public var _bitfield: UInt = 0u)
+public data class JetConvertW00(public var bitfield: UInt = 0u)
 
-public class JET_DBINFOMISC(
+public class JetDbinfomisc(
     public var ulVersion: UInt = 0u,
     public var ulUpdate: UInt = 0u,
-    public var signDb: JET_SIGNATURE = JET_SIGNATURE(),
+    public var signDb: JetSignature = JetSignature(),
     public var dbstate: UInt = 0u,
-    public var lgposConsistent: JET_LGPOS = JET_LGPOS(),
-    public var logtimeConsistent: JET_LOGTIME = JET_LOGTIME(),
-    public var logtimeAttach: JET_LOGTIME = JET_LOGTIME(),
-    public var lgposAttach: JET_LGPOS = JET_LGPOS(),
-    public var logtimeDetach: JET_LOGTIME = JET_LOGTIME(),
-    public var lgposDetach: JET_LGPOS = JET_LGPOS(),
-    public var signLog: JET_SIGNATURE = JET_SIGNATURE(),
-    public var bkinfoFullPrev: JET_BKINFO = JET_BKINFO(),
-    public var bkinfoIncPrev: JET_BKINFO = JET_BKINFO(),
-    public var bkinfoFullCur: JET_BKINFO = JET_BKINFO(),
+    public var lgposConsistent: JetLgpos = JetLgpos(),
+    public var logtimeConsistent: JetLogtime = JetLogtime(),
+    public var logtimeAttach: JetLogtime = JetLogtime(),
+    public var lgposAttach: JetLgpos = JetLgpos(),
+    public var logtimeDetach: JetLogtime = JetLogtime(),
+    public var lgposDetach: JetLgpos = JetLgpos(),
+    public var signLog: JetSignature = JetSignature(),
+    public var bkinfoFullPrev: JetBkinfo = JetBkinfo(),
+    public var bkinfoIncPrev: JetBkinfo = JetBkinfo(),
+    public var bkinfoFullCur: JetBkinfo = JetBkinfo(),
     public var fShadowingDisabled: UInt = 0u,
     public var fUpgradeDb: UInt = 0u,
     public var dwMajorVersion: UInt = 0u,
@@ -240,21 +241,21 @@ public class JET_DBINFOMISC(
     public var cbPageSize: UInt = 0u,
 )
 
-public class JET_DBINFOMISC2(
+public class JetDbinfomisc2(
     public var ulVersion: UInt = 0u,
     public var ulUpdate: UInt = 0u,
-    public var signDb: JET_SIGNATURE = JET_SIGNATURE(),
+    public var signDb: JetSignature = JetSignature(),
     public var dbstate: UInt = 0u,
-    public var lgposConsistent: JET_LGPOS = JET_LGPOS(),
-    public var logtimeConsistent: JET_LOGTIME = JET_LOGTIME(),
-    public var logtimeAttach: JET_LOGTIME = JET_LOGTIME(),
-    public var lgposAttach: JET_LGPOS = JET_LGPOS(),
-    public var logtimeDetach: JET_LOGTIME = JET_LOGTIME(),
-    public var lgposDetach: JET_LGPOS = JET_LGPOS(),
-    public var signLog: JET_SIGNATURE = JET_SIGNATURE(),
-    public var bkinfoFullPrev: JET_BKINFO = JET_BKINFO(),
-    public var bkinfoIncPrev: JET_BKINFO = JET_BKINFO(),
-    public var bkinfoFullCur: JET_BKINFO = JET_BKINFO(),
+    public var lgposConsistent: JetLgpos = JetLgpos(),
+    public var logtimeConsistent: JetLogtime = JetLogtime(),
+    public var logtimeAttach: JetLogtime = JetLogtime(),
+    public var lgposAttach: JetLgpos = JetLgpos(),
+    public var logtimeDetach: JetLogtime = JetLogtime(),
+    public var lgposDetach: JetLgpos = JetLgpos(),
+    public var signLog: JetSignature = JetSignature(),
+    public var bkinfoFullPrev: JetBkinfo = JetBkinfo(),
+    public var bkinfoIncPrev: JetBkinfo = JetBkinfo(),
+    public var bkinfoFullCur: JetBkinfo = JetBkinfo(),
     public var fShadowingDisabled: UInt = 0u,
     public var fUpgradeDb: UInt = 0u,
     public var dwMajorVersion: UInt = 0u,
@@ -264,36 +265,36 @@ public class JET_DBINFOMISC2(
     public var cbPageSize: UInt = 0u,
     public var genMinRequired: UInt = 0u,
     public var genMaxRequired: UInt = 0u,
-    public var logtimeGenMaxCreate: JET_LOGTIME = JET_LOGTIME(),
+    public var logtimeGenMaxCreate: JetLogtime = JetLogtime(),
     public var ulRepairCount: UInt = 0u,
-    public var logtimeRepair: JET_LOGTIME = JET_LOGTIME(),
+    public var logtimeRepair: JetLogtime = JetLogtime(),
     public var ulRepairCountOld: UInt = 0u,
     public var ulECCFixSuccess: UInt = 0u,
-    public var logtimeECCFixSuccess: JET_LOGTIME = JET_LOGTIME(),
+    public var logtimeECCFixSuccess: JetLogtime = JetLogtime(),
     public var ulECCFixSuccessOld: UInt = 0u,
     public var ulECCFixFail: UInt = 0u,
-    public var logtimeECCFixFail: JET_LOGTIME = JET_LOGTIME(),
+    public var logtimeECCFixFail: JetLogtime = JetLogtime(),
     public var ulECCFixFailOld: UInt = 0u,
     public var ulBadChecksum: UInt = 0u,
-    public var logtimeBadChecksum: JET_LOGTIME = JET_LOGTIME(),
+    public var logtimeBadChecksum: JetLogtime = JetLogtime(),
     public var ulBadChecksumOld: UInt = 0u,
 )
 
-public class JET_DBINFOMISC3(
+public class JetDbinfomisc3(
     public var ulVersion: UInt = 0u,
     public var ulUpdate: UInt = 0u,
-    public var signDb: JET_SIGNATURE = JET_SIGNATURE(),
+    public var signDb: JetSignature = JetSignature(),
     public var dbstate: UInt = 0u,
-    public var lgposConsistent: JET_LGPOS = JET_LGPOS(),
-    public var logtimeConsistent: JET_LOGTIME = JET_LOGTIME(),
-    public var logtimeAttach: JET_LOGTIME = JET_LOGTIME(),
-    public var lgposAttach: JET_LGPOS = JET_LGPOS(),
-    public var logtimeDetach: JET_LOGTIME = JET_LOGTIME(),
-    public var lgposDetach: JET_LGPOS = JET_LGPOS(),
-    public var signLog: JET_SIGNATURE = JET_SIGNATURE(),
-    public var bkinfoFullPrev: JET_BKINFO = JET_BKINFO(),
-    public var bkinfoIncPrev: JET_BKINFO = JET_BKINFO(),
-    public var bkinfoFullCur: JET_BKINFO = JET_BKINFO(),
+    public var lgposConsistent: JetLgpos = JetLgpos(),
+    public var logtimeConsistent: JetLogtime = JetLogtime(),
+    public var logtimeAttach: JetLogtime = JetLogtime(),
+    public var lgposAttach: JetLgpos = JetLgpos(),
+    public var logtimeDetach: JetLogtime = JetLogtime(),
+    public var lgposDetach: JetLgpos = JetLgpos(),
+    public var signLog: JetSignature = JetSignature(),
+    public var bkinfoFullPrev: JetBkinfo = JetBkinfo(),
+    public var bkinfoIncPrev: JetBkinfo = JetBkinfo(),
+    public var bkinfoFullCur: JetBkinfo = JetBkinfo(),
     public var fShadowingDisabled: UInt = 0u,
     public var fUpgradeDb: UInt = 0u,
     public var dwMajorVersion: UInt = 0u,
@@ -303,37 +304,37 @@ public class JET_DBINFOMISC3(
     public var cbPageSize: UInt = 0u,
     public var genMinRequired: UInt = 0u,
     public var genMaxRequired: UInt = 0u,
-    public var logtimeGenMaxCreate: JET_LOGTIME = JET_LOGTIME(),
+    public var logtimeGenMaxCreate: JetLogtime = JetLogtime(),
     public var ulRepairCount: UInt = 0u,
-    public var logtimeRepair: JET_LOGTIME = JET_LOGTIME(),
+    public var logtimeRepair: JetLogtime = JetLogtime(),
     public var ulRepairCountOld: UInt = 0u,
     public var ulECCFixSuccess: UInt = 0u,
-    public var logtimeECCFixSuccess: JET_LOGTIME = JET_LOGTIME(),
+    public var logtimeECCFixSuccess: JetLogtime = JetLogtime(),
     public var ulECCFixSuccessOld: UInt = 0u,
     public var ulECCFixFail: UInt = 0u,
-    public var logtimeECCFixFail: JET_LOGTIME = JET_LOGTIME(),
+    public var logtimeECCFixFail: JetLogtime = JetLogtime(),
     public var ulECCFixFailOld: UInt = 0u,
     public var ulBadChecksum: UInt = 0u,
-    public var logtimeBadChecksum: JET_LOGTIME = JET_LOGTIME(),
+    public var logtimeBadChecksum: JetLogtime = JetLogtime(),
     public var ulBadChecksumOld: UInt = 0u,
     public var genCommitted: UInt = 0u,
 )
 
-public class JET_DBINFOMISC4(
+public class JetDbinfomisc4(
     public var ulVersion: UInt = 0u,
     public var ulUpdate: UInt = 0u,
-    public var signDb: JET_SIGNATURE = JET_SIGNATURE(),
+    public var signDb: JetSignature = JetSignature(),
     public var dbstate: UInt = 0u,
-    public var lgposConsistent: JET_LGPOS = JET_LGPOS(),
-    public var logtimeConsistent: JET_LOGTIME = JET_LOGTIME(),
-    public var logtimeAttach: JET_LOGTIME = JET_LOGTIME(),
-    public var lgposAttach: JET_LGPOS = JET_LGPOS(),
-    public var logtimeDetach: JET_LOGTIME = JET_LOGTIME(),
-    public var lgposDetach: JET_LGPOS = JET_LGPOS(),
-    public var signLog: JET_SIGNATURE = JET_SIGNATURE(),
-    public var bkinfoFullPrev: JET_BKINFO = JET_BKINFO(),
-    public var bkinfoIncPrev: JET_BKINFO = JET_BKINFO(),
-    public var bkinfoFullCur: JET_BKINFO = JET_BKINFO(),
+    public var lgposConsistent: JetLgpos = JetLgpos(),
+    public var logtimeConsistent: JetLogtime = JetLogtime(),
+    public var logtimeAttach: JetLogtime = JetLogtime(),
+    public var lgposAttach: JetLgpos = JetLgpos(),
+    public var logtimeDetach: JetLogtime = JetLogtime(),
+    public var lgposDetach: JetLgpos = JetLgpos(),
+    public var signLog: JetSignature = JetSignature(),
+    public var bkinfoFullPrev: JetBkinfo = JetBkinfo(),
+    public var bkinfoIncPrev: JetBkinfo = JetBkinfo(),
+    public var bkinfoFullCur: JetBkinfo = JetBkinfo(),
     public var fShadowingDisabled: UInt = 0u,
     public var fUpgradeDb: UInt = 0u,
     public var dwMajorVersion: UInt = 0u,
@@ -343,74 +344,74 @@ public class JET_DBINFOMISC4(
     public var cbPageSize: UInt = 0u,
     public var genMinRequired: UInt = 0u,
     public var genMaxRequired: UInt = 0u,
-    public var logtimeGenMaxCreate: JET_LOGTIME = JET_LOGTIME(),
+    public var logtimeGenMaxCreate: JetLogtime = JetLogtime(),
     public var ulRepairCount: UInt = 0u,
-    public var logtimeRepair: JET_LOGTIME = JET_LOGTIME(),
+    public var logtimeRepair: JetLogtime = JetLogtime(),
     public var ulRepairCountOld: UInt = 0u,
     public var ulECCFixSuccess: UInt = 0u,
-    public var logtimeECCFixSuccess: JET_LOGTIME = JET_LOGTIME(),
+    public var logtimeECCFixSuccess: JetLogtime = JetLogtime(),
     public var ulECCFixSuccessOld: UInt = 0u,
     public var ulECCFixFail: UInt = 0u,
-    public var logtimeECCFixFail: JET_LOGTIME = JET_LOGTIME(),
+    public var logtimeECCFixFail: JetLogtime = JetLogtime(),
     public var ulECCFixFailOld: UInt = 0u,
     public var ulBadChecksum: UInt = 0u,
-    public var logtimeBadChecksum: JET_LOGTIME = JET_LOGTIME(),
+    public var logtimeBadChecksum: JetLogtime = JetLogtime(),
     public var ulBadChecksumOld: UInt = 0u,
     public var genCommitted: UInt = 0u,
-    public var bkinfoCopyPrev: JET_BKINFO = JET_BKINFO(),
-    public var bkinfoDiffPrev: JET_BKINFO = JET_BKINFO(),
+    public var bkinfoCopyPrev: JetBkinfo = JetBkinfo(),
+    public var bkinfoDiffPrev: JetBkinfo = JetBkinfo(),
 )
 
-public data class JET_DBINFOUPGRADE(
+public data class JetDbinfoupgrade(
     public var cbStruct: UInt = 0u,
     public var cbFilesizeLow: UInt = 0u,
     public var cbFilesizeHigh: UInt = 0u,
     public var cbFreeSpaceRequiredLow: UInt = 0u,
     public var cbFreeSpaceRequiredHigh: UInt = 0u,
     public var csecToUpgrade: UInt = 0u,
-    public var Anonymous: JET_DBINFOUPGRADE_0 = JET_DBINFOUPGRADE_0(),
+    public var anonymous: JetDbinfoupgrade0 = JetDbinfoupgrade0(),
 )
 
-public data class JET_DBINFOUPGRADE_0(public var ulFlags: UInt = 0u, public var Anonymous: JET_DBINFOUPGRADE_0_0 = JET_DBINFOUPGRADE_0_0())
+public data class JetDbinfoupgrade0(public var ulFlags: UInt = 0u, public var anonymous: JetDbinfoupgrade00 = JetDbinfoupgrade00())
 
-public data class JET_DBINFOUPGRADE_0_0(public var _bitfield: UInt = 0u)
+public data class JetDbinfoupgrade00(public var bitfield: UInt = 0u)
 
-public data class JET_ENUMCOLUMN(
+public data class JetEnumcolumn(
     public var columnid: UInt = 0u,
     public var err: Int = 0,
-    public var Anonymous: JET_ENUMCOLUMN_0 = JET_ENUMCOLUMN_0(),
+    public var anonymous: JetEnumcolumn0 = JetEnumcolumn0(),
 )
 
-public data class JET_ENUMCOLUMN_0(public var Anonymous1: JET_ENUMCOLUMN_0_0 = JET_ENUMCOLUMN_0_0(), public var Anonymous2: JET_ENUMCOLUMN_0_1 = JET_ENUMCOLUMN_0_1())
+public data class JetEnumcolumn0(public var anonymous1: JetEnumcolumn00 = JetEnumcolumn00(), public var anonymous2: JetEnumcolumn01 = JetEnumcolumn01())
 
-public data class JET_ENUMCOLUMN_0_0(public var cEnumColumnValue: UInt = 0u, public var rgEnumColumnValue: Long = 0L)
+public data class JetEnumcolumn00(public var cEnumColumnValue: UInt = 0u, public var rgEnumColumnValue: JetEnumcolumnvalue? = null)
 
-public data class JET_ENUMCOLUMN_0_1(public var cbData: UInt = 0u, public var pvData: Long = 0L)
+public data class JetEnumcolumn01(public var cbData: UInt = 0u, public var pvData: COpaquePointer? = null)
 
-public data class JET_ENUMCOLUMNID(
+public data class JetEnumcolumnid(
     public var columnid: UInt = 0u,
     public var ctagSequence: UInt = 0u,
-    public var rgtagSequence: Long = 0L,
+    public var rgtagSequence: UInt? = null,
 )
 
-public data class JET_ENUMCOLUMNVALUE(
+public data class JetEnumcolumnvalue(
     public var itagSequence: UInt = 0u,
     public var err: Int = 0,
     public var cbData: UInt = 0u,
-    public var pvData: Long = 0L,
+    public var pvData: COpaquePointer? = null,
 )
 
-public data class JET_ERRINFOBASIC_W(
+public data class JetErrinfobasicW(
     public var cbStruct: UInt = 0u,
     public var errValue: Int = 0,
-    public var errcatMostSpecific: JET_ERRCAT = 0,
+    public var errcatMostSpecific: JetErrcat = 0,
     public var rgCategoricalHierarchy: UByteArray = UByteArray(8),
     public var lSourceLine: UInt = 0u,
     public var rgszSourceFile: UShortArray = UShortArray(64),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is JET_ERRINFOBASIC_W) return false
+        if (other !is JetErrinfobasicW) return false
         if (this.cbStruct != other.cbStruct) return false
         if (this.errValue != other.errValue) return false
         if (this.errcatMostSpecific != other.errcatMostSpecific) return false
@@ -431,124 +432,124 @@ public data class JET_ERRINFOBASIC_W(
     }
 }
 
-public data class JET_INDEXCREATE2_A(
+public data class JetIndexcreate2A(
     public var cbStruct: UInt = 0u,
-    public var szIndexName: PSTR = 0L,
-    public var szKey: PSTR = 0L,
+    public var szIndexName: Pstr = null,
+    public var szKey: Pstr = null,
     public var cbKey: UInt = 0u,
     public var grbit: UInt = 0u,
     public var ulDensity: UInt = 0u,
-    public var Anonymous1: JET_INDEXCREATE2_A_0 = JET_INDEXCREATE2_A_0(),
-    public var Anonymous2: JET_INDEXCREATE2_A_1 = JET_INDEXCREATE2_A_1(),
-    public var rgconditionalcolumn: Long = 0L,
+    public var anonymous1: JetIndexcreate2A0 = JetIndexcreate2A0(),
+    public var anonymous2: JetIndexcreate2A1 = JetIndexcreate2A1(),
+    public var rgconditionalcolumn: JetConditionalcolumnA? = null,
     public var cConditionalColumn: UInt = 0u,
     public var err: Int = 0,
     public var cbKeyMost: UInt = 0u,
-    public var pSpacehints: Long = 0L,
+    public var pSpacehints: JetSpacehints? = null,
 )
 
-public data class JET_INDEXCREATE2_A_0(public var lcid: UInt = 0u, public var pidxunicode: Long = 0L)
+public data class JetIndexcreate2A0(public var lcid: UInt = 0u, public var pidxunicode: JetUnicodeindex? = null)
 
-public data class JET_INDEXCREATE2_A_1(public var cbVarSegMac: UInt = 0u, public var ptuplelimits: Long = 0L)
+public data class JetIndexcreate2A1(public var cbVarSegMac: UInt = 0u, public var ptuplelimits: JetTuplelimits? = null)
 
-public data class JET_INDEXCREATE2_W(
+public data class JetIndexcreate2W(
     public var cbStruct: UInt = 0u,
-    public var szIndexName: PWSTR = 0L,
-    public var szKey: PWSTR = 0L,
+    public var szIndexName: Pwstr = null,
+    public var szKey: Pwstr = null,
     public var cbKey: UInt = 0u,
     public var grbit: UInt = 0u,
     public var ulDensity: UInt = 0u,
-    public var Anonymous1: JET_INDEXCREATE2_W_0 = JET_INDEXCREATE2_W_0(),
-    public var Anonymous2: JET_INDEXCREATE2_W_1 = JET_INDEXCREATE2_W_1(),
-    public var rgconditionalcolumn: Long = 0L,
+    public var anonymous1: JetIndexcreate2W0 = JetIndexcreate2W0(),
+    public var anonymous2: JetIndexcreate2W1 = JetIndexcreate2W1(),
+    public var rgconditionalcolumn: JetConditionalcolumnW? = null,
     public var cConditionalColumn: UInt = 0u,
     public var err: Int = 0,
     public var cbKeyMost: UInt = 0u,
-    public var pSpacehints: Long = 0L,
+    public var pSpacehints: JetSpacehints? = null,
 )
 
-public data class JET_INDEXCREATE2_W_0(public var lcid: UInt = 0u, public var pidxunicode: Long = 0L)
+public data class JetIndexcreate2W0(public var lcid: UInt = 0u, public var pidxunicode: JetUnicodeindex? = null)
 
-public data class JET_INDEXCREATE2_W_1(public var cbVarSegMac: UInt = 0u, public var ptuplelimits: Long = 0L)
+public data class JetIndexcreate2W1(public var cbVarSegMac: UInt = 0u, public var ptuplelimits: JetTuplelimits? = null)
 
-public data class JET_INDEXCREATE3_A(
+public data class JetIndexcreate3A(
     public var cbStruct: UInt = 0u,
-    public var szIndexName: PSTR = 0L,
-    public var szKey: PSTR = 0L,
+    public var szIndexName: Pstr = null,
+    public var szKey: Pstr = null,
     public var cbKey: UInt = 0u,
     public var grbit: UInt = 0u,
     public var ulDensity: UInt = 0u,
-    public var pidxunicode: Long = 0L,
-    public var Anonymous: JET_INDEXCREATE3_A_0 = JET_INDEXCREATE3_A_0(),
-    public var rgconditionalcolumn: Long = 0L,
+    public var pidxunicode: JetUnicodeindex2? = null,
+    public var anonymous: JetIndexcreate3A0 = JetIndexcreate3A0(),
+    public var rgconditionalcolumn: JetConditionalcolumnA? = null,
     public var cConditionalColumn: UInt = 0u,
     public var err: Int = 0,
     public var cbKeyMost: UInt = 0u,
-    public var pSpacehints: Long = 0L,
+    public var pSpacehints: JetSpacehints? = null,
 )
 
-public data class JET_INDEXCREATE3_A_0(public var cbVarSegMac: UInt = 0u, public var ptuplelimits: Long = 0L)
+public data class JetIndexcreate3A0(public var cbVarSegMac: UInt = 0u, public var ptuplelimits: JetTuplelimits? = null)
 
-public data class JET_INDEXCREATE3_W(
+public data class JetIndexcreate3W(
     public var cbStruct: UInt = 0u,
-    public var szIndexName: PWSTR = 0L,
-    public var szKey: PWSTR = 0L,
+    public var szIndexName: Pwstr = null,
+    public var szKey: Pwstr = null,
     public var cbKey: UInt = 0u,
     public var grbit: UInt = 0u,
     public var ulDensity: UInt = 0u,
-    public var pidxunicode: Long = 0L,
-    public var Anonymous: JET_INDEXCREATE3_W_0 = JET_INDEXCREATE3_W_0(),
-    public var rgconditionalcolumn: Long = 0L,
+    public var pidxunicode: JetUnicodeindex2? = null,
+    public var anonymous: JetIndexcreate3W0 = JetIndexcreate3W0(),
+    public var rgconditionalcolumn: JetConditionalcolumnW? = null,
     public var cConditionalColumn: UInt = 0u,
     public var err: Int = 0,
     public var cbKeyMost: UInt = 0u,
-    public var pSpacehints: Long = 0L,
+    public var pSpacehints: JetSpacehints? = null,
 )
 
-public data class JET_INDEXCREATE3_W_0(public var cbVarSegMac: UInt = 0u, public var ptuplelimits: Long = 0L)
+public data class JetIndexcreate3W0(public var cbVarSegMac: UInt = 0u, public var ptuplelimits: JetTuplelimits? = null)
 
-public data class JET_INDEXCREATE_A(
+public data class JetIndexcreateA(
     public var cbStruct: UInt = 0u,
-    public var szIndexName: PSTR = 0L,
-    public var szKey: PSTR = 0L,
+    public var szIndexName: Pstr = null,
+    public var szKey: Pstr = null,
     public var cbKey: UInt = 0u,
     public var grbit: UInt = 0u,
     public var ulDensity: UInt = 0u,
-    public var Anonymous1: JET_INDEXCREATE_A_0 = JET_INDEXCREATE_A_0(),
-    public var Anonymous2: JET_INDEXCREATE_A_1 = JET_INDEXCREATE_A_1(),
-    public var rgconditionalcolumn: Long = 0L,
-    public var cConditionalColumn: UInt = 0u,
-    public var err: Int = 0,
-    public var cbKeyMost: UInt = 0u,
-)
-
-public data class JET_INDEXCREATE_A_0(public var lcid: UInt = 0u, public var pidxunicode: Long = 0L)
-
-public data class JET_INDEXCREATE_A_1(public var cbVarSegMac: UInt = 0u, public var ptuplelimits: Long = 0L)
-
-public data class JET_INDEXCREATE_W(
-    public var cbStruct: UInt = 0u,
-    public var szIndexName: PWSTR = 0L,
-    public var szKey: PWSTR = 0L,
-    public var cbKey: UInt = 0u,
-    public var grbit: UInt = 0u,
-    public var ulDensity: UInt = 0u,
-    public var Anonymous1: JET_INDEXCREATE_W_0 = JET_INDEXCREATE_W_0(),
-    public var Anonymous2: JET_INDEXCREATE_W_1 = JET_INDEXCREATE_W_1(),
-    public var rgconditionalcolumn: Long = 0L,
+    public var anonymous1: JetIndexcreateA0 = JetIndexcreateA0(),
+    public var anonymous2: JetIndexcreateA1 = JetIndexcreateA1(),
+    public var rgconditionalcolumn: JetConditionalcolumnA? = null,
     public var cConditionalColumn: UInt = 0u,
     public var err: Int = 0,
     public var cbKeyMost: UInt = 0u,
 )
 
-public data class JET_INDEXCREATE_W_0(public var lcid: UInt = 0u, public var pidxunicode: Long = 0L)
+public data class JetIndexcreateA0(public var lcid: UInt = 0u, public var pidxunicode: JetUnicodeindex? = null)
 
-public data class JET_INDEXCREATE_W_1(public var cbVarSegMac: UInt = 0u, public var ptuplelimits: Long = 0L)
+public data class JetIndexcreateA1(public var cbVarSegMac: UInt = 0u, public var ptuplelimits: JetTuplelimits? = null)
 
-public data class JET_INDEXID(public var cbStruct: UInt = 0u, public var rgbIndexId: UByteArray = UByteArray(16)) {
+public data class JetIndexcreateW(
+    public var cbStruct: UInt = 0u,
+    public var szIndexName: Pwstr = null,
+    public var szKey: Pwstr = null,
+    public var cbKey: UInt = 0u,
+    public var grbit: UInt = 0u,
+    public var ulDensity: UInt = 0u,
+    public var anonymous1: JetIndexcreateW0 = JetIndexcreateW0(),
+    public var anonymous2: JetIndexcreateW1 = JetIndexcreateW1(),
+    public var rgconditionalcolumn: JetConditionalcolumnW? = null,
+    public var cConditionalColumn: UInt = 0u,
+    public var err: Int = 0,
+    public var cbKeyMost: UInt = 0u,
+)
+
+public data class JetIndexcreateW0(public var lcid: UInt = 0u, public var pidxunicode: JetUnicodeindex? = null)
+
+public data class JetIndexcreateW1(public var cbVarSegMac: UInt = 0u, public var ptuplelimits: JetTuplelimits? = null)
+
+public data class JetIndexid(public var cbStruct: UInt = 0u, public var rgbIndexId: UByteArray = UByteArray(16)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is JET_INDEXID) return false
+        if (other !is JetIndexid) return false
         if (this.cbStruct != other.cbStruct) return false
         if (!this.rgbIndexId.contentEquals(other.rgbIndexId)) return false
         return true
@@ -561,9 +562,9 @@ public data class JET_INDEXID(public var cbStruct: UInt = 0u, public var rgbInde
     }
 }
 
-public class JET_INDEXLIST(
+public class JetIndexlist(
     public var cbStruct: UInt = 0u,
-    public var tableid: JET_TABLEID = 0uL,
+    public var tableid: JetTableid = 0uL,
     public var cRecord: UInt = 0u,
     public var columnidindexname: UInt = 0u,
     public var columnidgrbitIndex: UInt = 0u,
@@ -583,52 +584,52 @@ public class JET_INDEXLIST(
     public var columnidLCMapFlags: UInt = 0u,
 )
 
-public data class JET_INDEXRANGE(
+public data class JetIndexrange(
     public var cbStruct: UInt = 0u,
-    public var tableid: JET_TABLEID = 0uL,
+    public var tableid: JetTableid = 0uL,
     public var grbit: UInt = 0u,
 )
 
-public data class JET_INDEX_COLUMN(
+public data class JetIndexColumn(
     public var columnid: UInt = 0u,
-    public var relop: JET_RELOP = 0,
-    public var pv: Long = 0L,
+    public var relop: JetRelop = 0,
+    public var pv: COpaquePointer? = null,
     public var cb: UInt = 0u,
     public var grbit: UInt = 0u,
 )
 
-public data class JET_INDEX_RANGE(
-    public var rgStartColumns: Long = 0L,
+public data class JetIndexRange(
+    public var rgStartColumns: JetIndexColumn? = null,
     public var cStartColumns: UInt = 0u,
-    public var rgEndColumns: Long = 0L,
+    public var rgEndColumns: JetIndexColumn? = null,
     public var cEndColumns: UInt = 0u,
 )
 
-public data class JET_INSTANCE_INFO_A(
-    public var hInstanceId: JET_INSTANCE = 0uL,
-    public var szInstanceName: PSTR = 0L,
-    public var cDatabases: JET_API_PTR = 0uL,
-    public var szDatabaseFileName: Long = 0L,
-    public var szDatabaseDisplayName: Long = 0L,
-    public var szDatabaseSLVFileName_Obsolete: Long = 0L,
+public data class JetInstanceInfoA(
+    public var hInstanceId: JetInstance = 0uL,
+    public var szInstanceName: Pstr = null,
+    public var cDatabases: JetApiPtr = 0uL,
+    public var szDatabaseFileName: COpaquePointer? = null,
+    public var szDatabaseDisplayName: COpaquePointer? = null,
+    public var szDatabaseSlvfileNameObsolete: COpaquePointer? = null,
 )
 
-public data class JET_INSTANCE_INFO_W(
-    public var hInstanceId: JET_INSTANCE = 0uL,
-    public var szInstanceName: PWSTR = 0L,
-    public var cDatabases: JET_API_PTR = 0uL,
-    public var szDatabaseFileName: Long = 0L,
-    public var szDatabaseDisplayName: Long = 0L,
-    public var szDatabaseSLVFileName_Obsolete: Long = 0L,
+public data class JetInstanceInfoW(
+    public var hInstanceId: JetInstance = 0uL,
+    public var szInstanceName: Pwstr = null,
+    public var cDatabases: JetApiPtr = 0uL,
+    public var szDatabaseFileName: COpaquePointer? = null,
+    public var szDatabaseDisplayName: COpaquePointer? = null,
+    public var szDatabaseSlvfileNameObsolete: COpaquePointer? = null,
 )
 
-public data class JET_LGPOS(
+public data class JetLgpos(
     public var ib: UShort = 0u,
     public var isec: UShort = 0u,
     public var lGeneration: Int = 0,
 )
 
-public data class JET_LOGINFO_A(
+public data class JetLoginfoA(
     public var cbSize: UInt = 0u,
     public var ulGenLow: UInt = 0u,
     public var ulGenHigh: UInt = 0u,
@@ -636,7 +637,7 @@ public data class JET_LOGINFO_A(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is JET_LOGINFO_A) return false
+        if (other !is JetLoginfoA) return false
         if (this.cbSize != other.cbSize) return false
         if (this.ulGenLow != other.ulGenLow) return false
         if (this.ulGenHigh != other.ulGenHigh) return false
@@ -653,7 +654,7 @@ public data class JET_LOGINFO_A(
     }
 }
 
-public data class JET_LOGINFO_W(
+public data class JetLoginfoW(
     public var cbSize: UInt = 0u,
     public var ulGenLow: UInt = 0u,
     public var ulGenHigh: UInt = 0u,
@@ -661,7 +662,7 @@ public data class JET_LOGINFO_W(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is JET_LOGINFO_W) return false
+        if (other !is JetLoginfoW) return false
         if (this.cbSize != other.cbSize) return false
         if (this.ulGenLow != other.ulGenLow) return false
         if (this.ulGenHigh != other.ulGenHigh) return false
@@ -678,26 +679,26 @@ public data class JET_LOGINFO_W(
     }
 }
 
-public data class JET_LOGTIME(
+public data class JetLogtime(
     public var bSeconds: Byte = 0,
     public var bMinutes: Byte = 0,
     public var bHours: Byte = 0,
     public var bDay: Byte = 0,
     public var bMonth: Byte = 0,
     public var bYear: Byte = 0,
-    public var Anonymous1: JET_LOGTIME_0 = JET_LOGTIME_0(),
-    public var Anonymous2: JET_LOGTIME_1 = JET_LOGTIME_1(),
+    public var anonymous1: JetLogtime0 = JetLogtime0(),
+    public var anonymous2: JetLogtime1 = JetLogtime1(),
 )
 
-public data class JET_LOGTIME_0(public var bFiller1: Byte = 0, public var Anonymous: JET_LOGTIME_0_0 = JET_LOGTIME_0_0())
+public data class JetLogtime0(public var bFiller1: Byte = 0, public var anonymous: JetLogtime00 = JetLogtime00())
 
-public data class JET_LOGTIME_0_0(public var _bitfield: UByte = 0u)
+public data class JetLogtime00(public var bitfield: UByte = 0u)
 
-public data class JET_LOGTIME_1(public var bFiller2: Byte = 0, public var Anonymous: JET_LOGTIME_1_0 = JET_LOGTIME_1_0())
+public data class JetLogtime1(public var bFiller2: Byte = 0, public var anonymous: JetLogtime10 = JetLogtime10())
 
-public data class JET_LOGTIME_1_0(public var _bitfield: UByte = 0u)
+public data class JetLogtime10(public var bitfield: UByte = 0u)
 
-public data class JET_OBJECTINFO(
+public data class JetObjectinfo(
     public var cbStruct: UInt = 0u,
     public var objtyp: UInt = 0u,
     public var dtCreate: Double = 0.0,
@@ -708,9 +709,9 @@ public data class JET_OBJECTINFO(
     public var cPage: UInt = 0u,
 )
 
-public data class JET_OBJECTLIST(
+public data class JetObjectlist(
     public var cbStruct: UInt = 0u,
-    public var tableid: JET_TABLEID = 0uL,
+    public var tableid: JetTableid = 0uL,
     public var cRecord: UInt = 0u,
     public var columnidcontainername: UInt = 0u,
     public var columnidobjectname: UInt = 0u,
@@ -723,31 +724,31 @@ public data class JET_OBJECTLIST(
     public var columnidcPage: UInt = 0u,
 )
 
-public data class JET_OPENTEMPORARYTABLE(
+public data class JetOpentemporarytable(
     public var cbStruct: UInt = 0u,
-    public var prgcolumndef: Long = 0L,
+    public var prgcolumndef: JetColumndef? = null,
     public var ccolumn: UInt = 0u,
-    public var pidxunicode: Long = 0L,
+    public var pidxunicode: JetUnicodeindex? = null,
     public var grbit: UInt = 0u,
-    public var prgcolumnid: Long = 0L,
+    public var prgcolumnid: UInt? = null,
     public var cbKeyMost: UInt = 0u,
     public var cbVarSegMac: UInt = 0u,
-    public var tableid: JET_TABLEID = 0uL,
+    public var tableid: JetTableid = 0uL,
 )
 
-public data class JET_OPENTEMPORARYTABLE2(
+public data class JetOpentemporarytable2(
     public var cbStruct: UInt = 0u,
-    public var prgcolumndef: Long = 0L,
+    public var prgcolumndef: JetColumndef? = null,
     public var ccolumn: UInt = 0u,
-    public var pidxunicode: Long = 0L,
+    public var pidxunicode: JetUnicodeindex2? = null,
     public var grbit: UInt = 0u,
-    public var prgcolumnid: Long = 0L,
+    public var prgcolumnid: UInt? = null,
     public var cbKeyMost: UInt = 0u,
     public var cbVarSegMac: UInt = 0u,
-    public var tableid: JET_TABLEID = 0uL,
+    public var tableid: JetTableid = 0uL,
 )
 
-public data class JET_OPERATIONCONTEXT(
+public data class JetOperationcontext(
     public var ulUserID: UInt = 0u,
     public var nOperationID: UByte = 0u,
     public var nOperationType: UByte = 0u,
@@ -755,21 +756,21 @@ public data class JET_OPERATIONCONTEXT(
     public var fFlags: UByte = 0u,
 )
 
-public data class JET_RECORDLIST(
+public data class JetRecordlist(
     public var cbStruct: UInt = 0u,
-    public var tableid: JET_TABLEID = 0uL,
+    public var tableid: JetTableid = 0uL,
     public var cRecord: UInt = 0u,
     public var columnidBookmark: UInt = 0u,
 )
 
-public data class JET_RECPOS(
+public data class JetRecpos(
     public var cbStruct: UInt = 0u,
     public var centriesLT: UInt = 0u,
     public var centriesInRange: UInt = 0u,
     public var centriesTotal: UInt = 0u,
 )
 
-public data class JET_RECPOS2(
+public data class JetRecpos2(
     public var cbStruct: UInt = 0u,
     public var centriesLTDeprecated: UInt = 0u,
     public var centriesInRangeDeprecated: UInt = 0u,
@@ -778,7 +779,7 @@ public data class JET_RECPOS2(
     public var centriesTotal: ULong = 0uL,
 )
 
-public data class JET_RECSIZE(
+public data class JetRecsize(
     public var cbData: ULong = 0uL,
     public var cbLongValueData: ULong = 0uL,
     public var cbOverhead: ULong = 0uL,
@@ -789,7 +790,7 @@ public data class JET_RECSIZE(
     public var cMultiValues: ULong = 0uL,
 )
 
-public data class JET_RECSIZE2(
+public data class JetRecsize2(
     public var cbData: ULong = 0uL,
     public var cbLongValueData: ULong = 0uL,
     public var cbOverhead: ULong = 0uL,
@@ -803,16 +804,16 @@ public data class JET_RECSIZE2(
     public var cbLongValueDataCompressed: ULong = 0uL,
 )
 
-public data class JET_RETINFO(
+public data class JetRetinfo(
     public var cbStruct: UInt = 0u,
     public var ibLongValue: UInt = 0u,
     public var itagSequence: UInt = 0u,
     public var columnidNextTagged: UInt = 0u,
 )
 
-public data class JET_RETRIEVECOLUMN(
+public data class JetRetrievecolumn(
     public var columnid: UInt = 0u,
-    public var pvData: Long = 0L,
+    public var pvData: COpaquePointer? = null,
     public var cbData: UInt = 0u,
     public var cbActual: UInt = 0u,
     public var grbit: UInt = 0u,
@@ -822,31 +823,31 @@ public data class JET_RETRIEVECOLUMN(
     public var err: Int = 0,
 )
 
-public data class JET_RSTINFO_A(
+public data class JetRstinfoA(
     public var cbStruct: UInt = 0u,
-    public var rgrstmap: Long = 0L,
+    public var rgrstmap: JetRstmapA? = null,
     public var crstmap: Int = 0,
-    public var lgposStop: JET_LGPOS = JET_LGPOS(),
-    public var logtimeStop: JET_LOGTIME = JET_LOGTIME(),
-    public var pfnStatus: JET_PFNSTATUS = null,
+    public var lgposStop: JetLgpos = JetLgpos(),
+    public var logtimeStop: JetLogtime = JetLogtime(),
+    public var pfnStatus: JetPfnstatus = null,
 )
 
-public data class JET_RSTINFO_W(
+public data class JetRstinfoW(
     public var cbStruct: UInt = 0u,
-    public var rgrstmap: Long = 0L,
+    public var rgrstmap: JetRstmapW? = null,
     public var crstmap: Int = 0,
-    public var lgposStop: JET_LGPOS = JET_LGPOS(),
-    public var logtimeStop: JET_LOGTIME = JET_LOGTIME(),
-    public var pfnStatus: JET_PFNSTATUS = null,
+    public var lgposStop: JetLgpos = JetLgpos(),
+    public var logtimeStop: JetLogtime = JetLogtime(),
+    public var pfnStatus: JetPfnstatus = null,
 )
 
-public data class JET_RSTMAP_A(public var szDatabaseName: PSTR = 0L, public var szNewDatabaseName: PSTR = 0L)
+public data class JetRstmapA(public var szDatabaseName: Pstr = null, public var szNewDatabaseName: Pstr = null)
 
-public data class JET_RSTMAP_W(public var szDatabaseName: PWSTR = 0L, public var szNewDatabaseName: PWSTR = 0L)
+public data class JetRstmapW(public var szDatabaseName: Pwstr = null, public var szNewDatabaseName: Pwstr = null)
 
-public data class JET_SETCOLUMN(
+public data class JetSetcolumn(
     public var columnid: UInt = 0u,
-    public var pvData: Long = 0L,
+    public var pvData: COpaquePointer? = null,
     public var cbData: UInt = 0u,
     public var grbit: UInt = 0u,
     public var ibLongValue: UInt = 0u,
@@ -854,34 +855,34 @@ public data class JET_SETCOLUMN(
     public var err: Int = 0,
 )
 
-public data class JET_SETINFO(
+public data class JetSetinfo(
     public var cbStruct: UInt = 0u,
     public var ibLongValue: UInt = 0u,
     public var itagSequence: UInt = 0u,
 )
 
-public data class JET_SETSYSPARAM_A(
+public data class JetSetsysparamA(
     public var paramid: UInt = 0u,
-    public var lParam: JET_API_PTR = 0uL,
-    public var sz: PCSTR = 0L,
+    public var lParam: JetApiPtr = 0uL,
+    public var sz: Pcstr = null,
     public var err: Int = 0,
 )
 
-public data class JET_SETSYSPARAM_W(
+public data class JetSetsysparamW(
     public var paramid: UInt = 0u,
-    public var lParam: JET_API_PTR = 0uL,
-    public var sz: PCWSTR = 0L,
+    public var lParam: JetApiPtr = 0uL,
+    public var sz: Pcwstr = null,
     public var err: Int = 0,
 )
 
-public data class JET_SIGNATURE(
+public data class JetSignature(
     public var ulRandom: UInt = 0u,
-    public var logtimeCreate: JET_LOGTIME = JET_LOGTIME(),
+    public var logtimeCreate: JetLogtime = JetLogtime(),
     public var szComputerName: ByteArray = ByteArray(16),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is JET_SIGNATURE) return false
+        if (other !is JetSignature) return false
         if (this.ulRandom != other.ulRandom) return false
         if (this.logtimeCreate != other.logtimeCreate) return false
         if (!this.szComputerName.contentEquals(other.szComputerName)) return false
@@ -896,13 +897,13 @@ public data class JET_SIGNATURE(
     }
 }
 
-public data class JET_SNPROG(
+public data class JetSnprog(
     public var cbStruct: UInt = 0u,
     public var cunitDone: UInt = 0u,
     public var cunitTotal: UInt = 0u,
 )
 
-public data class JET_SPACEHINTS(
+public data class JetSpacehints(
     public var cbStruct: UInt = 0u,
     public var ulInitialDensity: UInt = 0u,
     public var cbInitial: UInt = 0u,
@@ -913,151 +914,151 @@ public data class JET_SPACEHINTS(
     public var cbMaxExtent: UInt = 0u,
 )
 
-public data class JET_TABLECREATE2_A(
+public data class JetTablecreate2A(
     public var cbStruct: UInt = 0u,
-    public var szTableName: PSTR = 0L,
-    public var szTemplateTableName: PSTR = 0L,
+    public var szTableName: Pstr = null,
+    public var szTemplateTableName: Pstr = null,
     public var ulPages: UInt = 0u,
     public var ulDensity: UInt = 0u,
-    public var rgcolumncreate: Long = 0L,
+    public var rgcolumncreate: JetColumncreateA? = null,
     public var cColumns: UInt = 0u,
-    public var rgindexcreate: Long = 0L,
+    public var rgindexcreate: JetIndexcreateA? = null,
     public var cIndexes: UInt = 0u,
-    public var szCallback: PSTR = 0L,
+    public var szCallback: Pstr = null,
     public var cbtyp: UInt = 0u,
     public var grbit: UInt = 0u,
-    public var tableid: JET_TABLEID = 0uL,
+    public var tableid: JetTableid = 0uL,
     public var cCreated: UInt = 0u,
 )
 
-public data class JET_TABLECREATE2_W(
+public data class JetTablecreate2W(
     public var cbStruct: UInt = 0u,
-    public var szTableName: PWSTR = 0L,
-    public var szTemplateTableName: PWSTR = 0L,
+    public var szTableName: Pwstr = null,
+    public var szTemplateTableName: Pwstr = null,
     public var ulPages: UInt = 0u,
     public var ulDensity: UInt = 0u,
-    public var rgcolumncreate: Long = 0L,
+    public var rgcolumncreate: JetColumncreateW? = null,
     public var cColumns: UInt = 0u,
-    public var rgindexcreate: Long = 0L,
+    public var rgindexcreate: JetIndexcreateW? = null,
     public var cIndexes: UInt = 0u,
-    public var szCallback: PWSTR = 0L,
+    public var szCallback: Pwstr = null,
     public var cbtyp: UInt = 0u,
     public var grbit: UInt = 0u,
-    public var tableid: JET_TABLEID = 0uL,
+    public var tableid: JetTableid = 0uL,
     public var cCreated: UInt = 0u,
 )
 
-public class JET_TABLECREATE3_A(
+public class JetTablecreate3A(
     public var cbStruct: UInt = 0u,
-    public var szTableName: PSTR = 0L,
-    public var szTemplateTableName: PSTR = 0L,
+    public var szTableName: Pstr = null,
+    public var szTemplateTableName: Pstr = null,
     public var ulPages: UInt = 0u,
     public var ulDensity: UInt = 0u,
-    public var rgcolumncreate: Long = 0L,
+    public var rgcolumncreate: JetColumncreateA? = null,
     public var cColumns: UInt = 0u,
-    public var rgindexcreate: Long = 0L,
+    public var rgindexcreate: JetIndexcreate2A? = null,
     public var cIndexes: UInt = 0u,
-    public var szCallback: PSTR = 0L,
+    public var szCallback: Pstr = null,
     public var cbtyp: UInt = 0u,
     public var grbit: UInt = 0u,
-    public var pSeqSpacehints: Long = 0L,
-    public var pLVSpacehints: Long = 0L,
+    public var pSeqSpacehints: JetSpacehints? = null,
+    public var pLVSpacehints: JetSpacehints? = null,
     public var cbSeparateLV: UInt = 0u,
-    public var tableid: JET_TABLEID = 0uL,
+    public var tableid: JetTableid = 0uL,
     public var cCreated: UInt = 0u,
 )
 
-public class JET_TABLECREATE3_W(
+public class JetTablecreate3W(
     public var cbStruct: UInt = 0u,
-    public var szTableName: PWSTR = 0L,
-    public var szTemplateTableName: PWSTR = 0L,
+    public var szTableName: Pwstr = null,
+    public var szTemplateTableName: Pwstr = null,
     public var ulPages: UInt = 0u,
     public var ulDensity: UInt = 0u,
-    public var rgcolumncreate: Long = 0L,
+    public var rgcolumncreate: JetColumncreateW? = null,
     public var cColumns: UInt = 0u,
-    public var rgindexcreate: Long = 0L,
+    public var rgindexcreate: JetIndexcreate2W? = null,
     public var cIndexes: UInt = 0u,
-    public var szCallback: PWSTR = 0L,
+    public var szCallback: Pwstr = null,
     public var cbtyp: UInt = 0u,
     public var grbit: UInt = 0u,
-    public var pSeqSpacehints: Long = 0L,
-    public var pLVSpacehints: Long = 0L,
+    public var pSeqSpacehints: JetSpacehints? = null,
+    public var pLVSpacehints: JetSpacehints? = null,
     public var cbSeparateLV: UInt = 0u,
-    public var tableid: JET_TABLEID = 0uL,
+    public var tableid: JetTableid = 0uL,
     public var cCreated: UInt = 0u,
 )
 
-public class JET_TABLECREATE4_A(
+public class JetTablecreate4A(
     public var cbStruct: UInt = 0u,
-    public var szTableName: PSTR = 0L,
-    public var szTemplateTableName: PSTR = 0L,
+    public var szTableName: Pstr = null,
+    public var szTemplateTableName: Pstr = null,
     public var ulPages: UInt = 0u,
     public var ulDensity: UInt = 0u,
-    public var rgcolumncreate: Long = 0L,
+    public var rgcolumncreate: JetColumncreateA? = null,
     public var cColumns: UInt = 0u,
-    public var rgindexcreate: Long = 0L,
+    public var rgindexcreate: JetIndexcreate3A? = null,
     public var cIndexes: UInt = 0u,
-    public var szCallback: PSTR = 0L,
+    public var szCallback: Pstr = null,
     public var cbtyp: UInt = 0u,
     public var grbit: UInt = 0u,
-    public var pSeqSpacehints: Long = 0L,
-    public var pLVSpacehints: Long = 0L,
+    public var pSeqSpacehints: JetSpacehints? = null,
+    public var pLVSpacehints: JetSpacehints? = null,
     public var cbSeparateLV: UInt = 0u,
-    public var tableid: JET_TABLEID = 0uL,
+    public var tableid: JetTableid = 0uL,
     public var cCreated: UInt = 0u,
 )
 
-public class JET_TABLECREATE4_W(
+public class JetTablecreate4W(
     public var cbStruct: UInt = 0u,
-    public var szTableName: PWSTR = 0L,
-    public var szTemplateTableName: PWSTR = 0L,
+    public var szTableName: Pwstr = null,
+    public var szTemplateTableName: Pwstr = null,
     public var ulPages: UInt = 0u,
     public var ulDensity: UInt = 0u,
-    public var rgcolumncreate: Long = 0L,
+    public var rgcolumncreate: JetColumncreateW? = null,
     public var cColumns: UInt = 0u,
-    public var rgindexcreate: Long = 0L,
+    public var rgindexcreate: JetIndexcreate3W? = null,
     public var cIndexes: UInt = 0u,
-    public var szCallback: PWSTR = 0L,
+    public var szCallback: Pwstr = null,
     public var cbtyp: UInt = 0u,
     public var grbit: UInt = 0u,
-    public var pSeqSpacehints: Long = 0L,
-    public var pLVSpacehints: Long = 0L,
+    public var pSeqSpacehints: JetSpacehints? = null,
+    public var pLVSpacehints: JetSpacehints? = null,
     public var cbSeparateLV: UInt = 0u,
-    public var tableid: JET_TABLEID = 0uL,
+    public var tableid: JetTableid = 0uL,
     public var cCreated: UInt = 0u,
 )
 
-public data class JET_TABLECREATE_A(
+public data class JetTablecreateA(
     public var cbStruct: UInt = 0u,
-    public var szTableName: PSTR = 0L,
-    public var szTemplateTableName: PSTR = 0L,
+    public var szTableName: Pstr = null,
+    public var szTemplateTableName: Pstr = null,
     public var ulPages: UInt = 0u,
     public var ulDensity: UInt = 0u,
-    public var rgcolumncreate: Long = 0L,
+    public var rgcolumncreate: JetColumncreateA? = null,
     public var cColumns: UInt = 0u,
-    public var rgindexcreate: Long = 0L,
+    public var rgindexcreate: JetIndexcreateA? = null,
     public var cIndexes: UInt = 0u,
     public var grbit: UInt = 0u,
-    public var tableid: JET_TABLEID = 0uL,
+    public var tableid: JetTableid = 0uL,
     public var cCreated: UInt = 0u,
 )
 
-public data class JET_TABLECREATE_W(
+public data class JetTablecreateW(
     public var cbStruct: UInt = 0u,
-    public var szTableName: PWSTR = 0L,
-    public var szTemplateTableName: PWSTR = 0L,
+    public var szTableName: Pwstr = null,
+    public var szTemplateTableName: Pwstr = null,
     public var ulPages: UInt = 0u,
     public var ulDensity: UInt = 0u,
-    public var rgcolumncreate: Long = 0L,
+    public var rgcolumncreate: JetColumncreateW? = null,
     public var cColumns: UInt = 0u,
-    public var rgindexcreate: Long = 0L,
+    public var rgindexcreate: JetIndexcreateW? = null,
     public var cIndexes: UInt = 0u,
     public var grbit: UInt = 0u,
-    public var tableid: JET_TABLEID = 0uL,
+    public var tableid: JetTableid = 0uL,
     public var cCreated: UInt = 0u,
 )
 
-public data class JET_THREADSTATS(
+public data class JetThreadstats(
     public var cbStruct: UInt = 0u,
     public var cPageReferenced: UInt = 0u,
     public var cPageRead: UInt = 0u,
@@ -1068,7 +1069,7 @@ public data class JET_THREADSTATS(
     public var cbLogRecord: UInt = 0u,
 )
 
-public data class JET_THREADSTATS2(
+public data class JetThreadstats2(
     public var cbStruct: UInt = 0u,
     public var cPageReferenced: UInt = 0u,
     public var cPageRead: UInt = 0u,
@@ -1081,7 +1082,7 @@ public data class JET_THREADSTATS2(
     public var cPageCacheMiss: UInt = 0u,
 )
 
-public data class JET_TUPLELIMITS(
+public data class JetTuplelimits(
     public var chLengthMin: UInt = 0u,
     public var chLengthMax: UInt = 0u,
     public var chToIndexMax: UInt = 0u,
@@ -1089,20 +1090,20 @@ public data class JET_TUPLELIMITS(
     public var ichStart: UInt = 0u,
 )
 
-public data class JET_UNICODEINDEX(public var lcid: UInt = 0u, public var dwMapFlags: UInt = 0u)
+public data class JetUnicodeindex(public var lcid: UInt = 0u, public var dwMapFlags: UInt = 0u)
 
-public data class JET_UNICODEINDEX2(public var szLocaleName: PWSTR = 0L, public var dwMapFlags: UInt = 0u)
+public data class JetUnicodeindex2(public var szLocaleName: Pwstr = null, public var dwMapFlags: UInt = 0u)
 
-public data class JET_USERDEFINEDDEFAULT_A(
-    public var szCallback: PSTR = 0L,
-    public var pbUserData: Long = 0L,
+public data class JetUserdefineddefaultA(
+    public var szCallback: Pstr = null,
+    public var pbUserData: COpaquePointer? = null,
     public var cbUserData: UInt = 0u,
-    public var szDependantColumns: PSTR = 0L,
+    public var szDependantColumns: Pstr = null,
 )
 
-public data class JET_USERDEFINEDDEFAULT_W(
-    public var szCallback: PWSTR = 0L,
-    public var pbUserData: Long = 0L,
+public data class JetUserdefineddefaultW(
+    public var szCallback: Pwstr = null,
+    public var pbUserData: COpaquePointer? = null,
     public var cbUserData: UInt = 0u,
-    public var szDependantColumns: PWSTR = 0L,
+    public var szDependantColumns: Pwstr = null,
 )

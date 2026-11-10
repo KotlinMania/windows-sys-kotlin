@@ -2,32 +2,34 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.correlationvector
 
+import io.github.kotlinmania.windowssys.COpaquePointer
+
 private object WindowsWin32SystemCorrelationvectorJniBridge {
     init {
         System.loadLibrary("windowssys_jni")
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_correlationvector_RtlExtendCorrelationVector(correlationvector: Long): Int
+    external fun windowssys_windows_win32_system_correlationvector_rtlExtendCorrelationVector(correlationvector: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_correlationvector_RtlIncrementCorrelationVector(correlationvector: Long): Int
+    external fun windowssys_windows_win32_system_correlationvector_rtlIncrementCorrelationVector(correlationvector: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_correlationvector_RtlInitializeCorrelationVector(correlationvector: Long, version: Int, guid: Long): Int
+    external fun windowssys_windows_win32_system_correlationvector_rtlInitializeCorrelationVector(correlationvector: Long, version: Int, guid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_correlationvector_RtlValidateCorrelationVector(vector: Long): Int
+    external fun windowssys_windows_win32_system_correlationvector_rtlValidateCorrelationVector(vector: Long): Int
 }
 
-public actual fun RtlExtendCorrelationVector(correlationvector: Long): UInt =
-    WindowsWin32SystemCorrelationvectorJniBridge.windowssys_windows_win32_system_correlationvector_RtlExtendCorrelationVector(correlationvector).toUInt()
+public actual fun rtlExtendCorrelationVector(correlationvector: COpaquePointer?): UInt =
+    WindowsWin32SystemCorrelationvectorJniBridge.windowssys_windows_win32_system_correlationvector_rtlExtendCorrelationVector((correlationvector?.value ?: 0L)).toUInt()
 
-public actual fun RtlIncrementCorrelationVector(correlationvector: Long): UInt =
-    WindowsWin32SystemCorrelationvectorJniBridge.windowssys_windows_win32_system_correlationvector_RtlIncrementCorrelationVector(correlationvector).toUInt()
+public actual fun rtlIncrementCorrelationVector(correlationvector: COpaquePointer?): UInt =
+    WindowsWin32SystemCorrelationvectorJniBridge.windowssys_windows_win32_system_correlationvector_rtlIncrementCorrelationVector((correlationvector?.value ?: 0L)).toUInt()
 
-public actual fun RtlInitializeCorrelationVector(correlationvector: Long, version: Int, guid: Long): UInt =
-    WindowsWin32SystemCorrelationvectorJniBridge.windowssys_windows_win32_system_correlationvector_RtlInitializeCorrelationVector(correlationvector, version, guid).toUInt()
+public actual fun rtlInitializeCorrelationVector(correlationvector: COpaquePointer?, version: Int, guid: COpaquePointer?): UInt =
+    WindowsWin32SystemCorrelationvectorJniBridge.windowssys_windows_win32_system_correlationvector_rtlInitializeCorrelationVector((correlationvector?.value ?: 0L), version, (guid?.value ?: 0L)).toUInt()
 
-public actual fun RtlValidateCorrelationVector(vector: Long): UInt =
-    WindowsWin32SystemCorrelationvectorJniBridge.windowssys_windows_win32_system_correlationvector_RtlValidateCorrelationVector(vector).toUInt()
+public actual fun rtlValidateCorrelationVector(vector: COpaquePointer?): UInt =
+    WindowsWin32SystemCorrelationvectorJniBridge.windowssys_windows_win32_system_correlationvector_rtlValidateCorrelationVector((vector?.value ?: 0L)).toUInt()

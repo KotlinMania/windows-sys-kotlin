@@ -1,44 +1,45 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.hostcomputesystem
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
 
-public typealias HCS_CREATE_OPTIONS = Int
+public typealias HcsCreateOptions = Int
 
-public fun interface HCS_EVENT_CALLBACKFn {
-    public operator fun invoke(event: Long, context: Long)
+public fun interface HcsEventCallbackFn {
+    public operator fun invoke(event: COpaquePointer?, context: COpaquePointer?)
 }
 
-public typealias HCS_EVENT_CALLBACK = HCS_EVENT_CALLBACKFn?
+public typealias HcsEventCallback = HcsEventCallbackFn?
 
-public typealias HCS_EVENT_OPTIONS = Int
+public typealias HcsEventOptions = Int
 
-public typealias HCS_EVENT_TYPE = Int
+public typealias HcsEventType = Int
 
-public typealias HCS_NOTIFICATIONS = Int
+public typealias HcsNotifications = Int
 
-public fun interface HCS_NOTIFICATION_CALLBACKFn {
-    public operator fun invoke(notificationtype: UInt, context: Long, notificationstatus: HRESULT, notificationdata: PCWSTR)
+public fun interface HcsNotificationCallbackFn {
+    public operator fun invoke(notificationtype: UInt, context: COpaquePointer?, notificationstatus: Hresult, notificationdata: Pcwstr)
 }
 
-public typealias HCS_NOTIFICATION_CALLBACK = HCS_NOTIFICATION_CALLBACKFn?
+public typealias HcsNotificationCallback = HcsNotificationCallbackFn?
 
-public typealias HCS_NOTIFICATION_FLAGS = Int
+public typealias HcsNotificationFlags = Int
 
-public typealias HCS_OPERATION = Long
+public typealias HcsOperation = COpaquePointer?
 
-public fun interface HCS_OPERATION_COMPLETIONFn {
-    public operator fun invoke(operation: HCS_OPERATION, context: Long)
+public fun interface HcsOperationCompletionFn {
+    public operator fun invoke(operation: HcsOperation, context: COpaquePointer?)
 }
 
-public typealias HCS_OPERATION_COMPLETION = HCS_OPERATION_COMPLETIONFn?
+public typealias HcsOperationCompletion = HcsOperationCompletionFn?
 
-public typealias HCS_OPERATION_OPTIONS = Int
+public typealias HcsOperationOptions = Int
 
-public typealias HCS_OPERATION_TYPE = Int
+public typealias HcsOperationType = Int
 
-public typealias HCS_PROCESS = Long
+public typealias HcsProcess = COpaquePointer?
 
-public typealias HCS_RESOURCE_TYPE = Int
+public typealias HcsResourceType = Int
 
-public typealias HCS_SYSTEM = Long
+public typealias HcsSystem = COpaquePointer?

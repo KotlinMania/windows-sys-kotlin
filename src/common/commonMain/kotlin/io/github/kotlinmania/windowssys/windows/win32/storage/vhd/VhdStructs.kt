@@ -1,322 +1,323 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.storage.vhd
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
 
-public data class APPLY_SNAPSHOT_VHDSET_PARAMETERS(public var Version: APPLY_SNAPSHOT_VHDSET_VERSION = 0, public var Anonymous: APPLY_SNAPSHOT_VHDSET_PARAMETERS_0 = APPLY_SNAPSHOT_VHDSET_PARAMETERS_0())
+public data class ApplySnapshotVhdsetParameters(public var version: ApplySnapshotVhdsetVersion = 0, public var anonymous: ApplySnapshotVhdsetParameters0 = ApplySnapshotVhdsetParameters0())
 
-public data class APPLY_SNAPSHOT_VHDSET_PARAMETERS_0(public var Version1: APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0 = APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0())
+public data class ApplySnapshotVhdsetParameters0(public var version1: ApplySnapshotVhdsetParameters00 = ApplySnapshotVhdsetParameters00())
 
-public data class APPLY_SNAPSHOT_VHDSET_PARAMETERS_0_0(public var SnapshotId: GUID = GUID(), public var LeafSnapshotId: GUID = GUID())
+public data class ApplySnapshotVhdsetParameters00(public var snapshotId: Guid = Guid(), public var leafSnapshotId: Guid = Guid())
 
-public data class ATTACH_VIRTUAL_DISK_PARAMETERS(public var Version: ATTACH_VIRTUAL_DISK_VERSION = 0, public var Anonymous: ATTACH_VIRTUAL_DISK_PARAMETERS_0 = ATTACH_VIRTUAL_DISK_PARAMETERS_0())
+public data class AttachVirtualDiskParameters(public var version: AttachVirtualDiskVersion = 0, public var anonymous: AttachVirtualDiskParameters0 = AttachVirtualDiskParameters0())
 
-public data class ATTACH_VIRTUAL_DISK_PARAMETERS_0(public var Version1: ATTACH_VIRTUAL_DISK_PARAMETERS_0_0 = ATTACH_VIRTUAL_DISK_PARAMETERS_0_0(), public var Version2: ATTACH_VIRTUAL_DISK_PARAMETERS_0_1 = ATTACH_VIRTUAL_DISK_PARAMETERS_0_1())
+public data class AttachVirtualDiskParameters0(public var version1: AttachVirtualDiskParameters00 = AttachVirtualDiskParameters00(), public var version2: AttachVirtualDiskParameters01 = AttachVirtualDiskParameters01())
 
-public data class ATTACH_VIRTUAL_DISK_PARAMETERS_0_0(public var Reserved: UInt = 0u)
+public data class AttachVirtualDiskParameters00(public var reserved: UInt = 0u)
 
-public data class ATTACH_VIRTUAL_DISK_PARAMETERS_0_1(public var RestrictedOffset: ULong = 0uL, public var RestrictedLength: ULong = 0uL)
+public data class AttachVirtualDiskParameters01(public var restrictedOffset: ULong = 0uL, public var restrictedLength: ULong = 0uL)
 
-public data class COMPACT_VIRTUAL_DISK_PARAMETERS(public var Version: COMPACT_VIRTUAL_DISK_VERSION = 0, public var Anonymous: COMPACT_VIRTUAL_DISK_PARAMETERS_0 = COMPACT_VIRTUAL_DISK_PARAMETERS_0())
+public data class CompactVirtualDiskParameters(public var version: CompactVirtualDiskVersion = 0, public var anonymous: CompactVirtualDiskParameters0 = CompactVirtualDiskParameters0())
 
-public data class COMPACT_VIRTUAL_DISK_PARAMETERS_0(public var Version1: COMPACT_VIRTUAL_DISK_PARAMETERS_0_0 = COMPACT_VIRTUAL_DISK_PARAMETERS_0_0())
+public data class CompactVirtualDiskParameters0(public var version1: CompactVirtualDiskParameters00 = CompactVirtualDiskParameters00())
 
-public data class COMPACT_VIRTUAL_DISK_PARAMETERS_0_0(public var Reserved: UInt = 0u)
+public data class CompactVirtualDiskParameters00(public var reserved: UInt = 0u)
 
-public data class CREATE_VIRTUAL_DISK_PARAMETERS(public var Version: CREATE_VIRTUAL_DISK_VERSION = 0, public var Anonymous: CREATE_VIRTUAL_DISK_PARAMETERS_0 = CREATE_VIRTUAL_DISK_PARAMETERS_0())
+public data class CreateVirtualDiskParameters(public var version: CreateVirtualDiskVersion = 0, public var anonymous: CreateVirtualDiskParameters0 = CreateVirtualDiskParameters0())
 
-public data class CREATE_VIRTUAL_DISK_PARAMETERS_0(
-    public var Version1: CREATE_VIRTUAL_DISK_PARAMETERS_0_0 = CREATE_VIRTUAL_DISK_PARAMETERS_0_0(),
-    public var Version2: CREATE_VIRTUAL_DISK_PARAMETERS_0_1 = CREATE_VIRTUAL_DISK_PARAMETERS_0_1(),
-    public var Version3: CREATE_VIRTUAL_DISK_PARAMETERS_0_2 = CREATE_VIRTUAL_DISK_PARAMETERS_0_2(),
-    public var Version4: CREATE_VIRTUAL_DISK_PARAMETERS_0_3 = CREATE_VIRTUAL_DISK_PARAMETERS_0_3(),
+public data class CreateVirtualDiskParameters0(
+    public var version1: CreateVirtualDiskParameters00 = CreateVirtualDiskParameters00(),
+    public var version2: CreateVirtualDiskParameters01 = CreateVirtualDiskParameters01(),
+    public var version3: CreateVirtualDiskParameters02 = CreateVirtualDiskParameters02(),
+    public var version4: CreateVirtualDiskParameters03 = CreateVirtualDiskParameters03(),
 )
 
-public data class CREATE_VIRTUAL_DISK_PARAMETERS_0_0(
-    public var UniqueId: GUID = GUID(),
-    public var MaximumSize: ULong = 0uL,
-    public var BlockSizeInBytes: UInt = 0u,
-    public var SectorSizeInBytes: UInt = 0u,
-    public var ParentPath: PCWSTR = 0L,
-    public var SourcePath: PCWSTR = 0L,
+public data class CreateVirtualDiskParameters00(
+    public var uniqueId: Guid = Guid(),
+    public var maximumSize: ULong = 0uL,
+    public var blockSizeInBytes: UInt = 0u,
+    public var sectorSizeInBytes: UInt = 0u,
+    public var parentPath: Pcwstr = null,
+    public var sourcePath: Pcwstr = null,
 )
 
-public data class CREATE_VIRTUAL_DISK_PARAMETERS_0_1(
-    public var UniqueId: GUID = GUID(),
-    public var MaximumSize: ULong = 0uL,
-    public var BlockSizeInBytes: UInt = 0u,
-    public var SectorSizeInBytes: UInt = 0u,
-    public var PhysicalSectorSizeInBytes: UInt = 0u,
-    public var ParentPath: PCWSTR = 0L,
-    public var SourcePath: PCWSTR = 0L,
-    public var OpenFlags: OPEN_VIRTUAL_DISK_FLAG = 0,
-    public var ParentVirtualStorageType: VIRTUAL_STORAGE_TYPE = VIRTUAL_STORAGE_TYPE(),
-    public var SourceVirtualStorageType: VIRTUAL_STORAGE_TYPE = VIRTUAL_STORAGE_TYPE(),
-    public var ResiliencyGuid: GUID = GUID(),
+public data class CreateVirtualDiskParameters01(
+    public var uniqueId: Guid = Guid(),
+    public var maximumSize: ULong = 0uL,
+    public var blockSizeInBytes: UInt = 0u,
+    public var sectorSizeInBytes: UInt = 0u,
+    public var physicalSectorSizeInBytes: UInt = 0u,
+    public var parentPath: Pcwstr = null,
+    public var sourcePath: Pcwstr = null,
+    public var openFlags: OpenVirtualDiskFlag = 0,
+    public var parentVirtualStorageType: VirtualStorageType = VirtualStorageType(),
+    public var sourceVirtualStorageType: VirtualStorageType = VirtualStorageType(),
+    public var resiliencyGuid: Guid = Guid(),
 )
 
-public data class CREATE_VIRTUAL_DISK_PARAMETERS_0_2(
-    public var UniqueId: GUID = GUID(),
-    public var MaximumSize: ULong = 0uL,
-    public var BlockSizeInBytes: UInt = 0u,
-    public var SectorSizeInBytes: UInt = 0u,
-    public var PhysicalSectorSizeInBytes: UInt = 0u,
-    public var ParentPath: PCWSTR = 0L,
-    public var SourcePath: PCWSTR = 0L,
-    public var OpenFlags: OPEN_VIRTUAL_DISK_FLAG = 0,
-    public var ParentVirtualStorageType: VIRTUAL_STORAGE_TYPE = VIRTUAL_STORAGE_TYPE(),
-    public var SourceVirtualStorageType: VIRTUAL_STORAGE_TYPE = VIRTUAL_STORAGE_TYPE(),
-    public var ResiliencyGuid: GUID = GUID(),
-    public var SourceLimitPath: PCWSTR = 0L,
-    public var BackingStorageType: VIRTUAL_STORAGE_TYPE = VIRTUAL_STORAGE_TYPE(),
+public data class CreateVirtualDiskParameters02(
+    public var uniqueId: Guid = Guid(),
+    public var maximumSize: ULong = 0uL,
+    public var blockSizeInBytes: UInt = 0u,
+    public var sectorSizeInBytes: UInt = 0u,
+    public var physicalSectorSizeInBytes: UInt = 0u,
+    public var parentPath: Pcwstr = null,
+    public var sourcePath: Pcwstr = null,
+    public var openFlags: OpenVirtualDiskFlag = 0,
+    public var parentVirtualStorageType: VirtualStorageType = VirtualStorageType(),
+    public var sourceVirtualStorageType: VirtualStorageType = VirtualStorageType(),
+    public var resiliencyGuid: Guid = Guid(),
+    public var sourceLimitPath: Pcwstr = null,
+    public var backingStorageType: VirtualStorageType = VirtualStorageType(),
 )
 
-public data class CREATE_VIRTUAL_DISK_PARAMETERS_0_3(
-    public var UniqueId: GUID = GUID(),
-    public var MaximumSize: ULong = 0uL,
-    public var BlockSizeInBytes: UInt = 0u,
-    public var SectorSizeInBytes: UInt = 0u,
-    public var PhysicalSectorSizeInBytes: UInt = 0u,
-    public var ParentPath: PCWSTR = 0L,
-    public var SourcePath: PCWSTR = 0L,
-    public var OpenFlags: OPEN_VIRTUAL_DISK_FLAG = 0,
-    public var ParentVirtualStorageType: VIRTUAL_STORAGE_TYPE = VIRTUAL_STORAGE_TYPE(),
-    public var SourceVirtualStorageType: VIRTUAL_STORAGE_TYPE = VIRTUAL_STORAGE_TYPE(),
-    public var ResiliencyGuid: GUID = GUID(),
-    public var SourceLimitPath: PCWSTR = 0L,
-    public var BackingStorageType: VIRTUAL_STORAGE_TYPE = VIRTUAL_STORAGE_TYPE(),
-    public var PmemAddressAbstractionType: GUID = GUID(),
-    public var DataAlignment: ULong = 0uL,
+public data class CreateVirtualDiskParameters03(
+    public var uniqueId: Guid = Guid(),
+    public var maximumSize: ULong = 0uL,
+    public var blockSizeInBytes: UInt = 0u,
+    public var sectorSizeInBytes: UInt = 0u,
+    public var physicalSectorSizeInBytes: UInt = 0u,
+    public var parentPath: Pcwstr = null,
+    public var sourcePath: Pcwstr = null,
+    public var openFlags: OpenVirtualDiskFlag = 0,
+    public var parentVirtualStorageType: VirtualStorageType = VirtualStorageType(),
+    public var sourceVirtualStorageType: VirtualStorageType = VirtualStorageType(),
+    public var resiliencyGuid: Guid = Guid(),
+    public var sourceLimitPath: Pcwstr = null,
+    public var backingStorageType: VirtualStorageType = VirtualStorageType(),
+    public var pmemAddressAbstractionType: Guid = Guid(),
+    public var dataAlignment: ULong = 0uL,
 )
 
-public data class DELETE_SNAPSHOT_VHDSET_PARAMETERS(public var Version: DELETE_SNAPSHOT_VHDSET_VERSION = 0, public var Anonymous: DELETE_SNAPSHOT_VHDSET_PARAMETERS_0 = DELETE_SNAPSHOT_VHDSET_PARAMETERS_0())
+public data class DeleteSnapshotVhdsetParameters(public var version: DeleteSnapshotVhdsetVersion = 0, public var anonymous: DeleteSnapshotVhdsetParameters0 = DeleteSnapshotVhdsetParameters0())
 
-public data class DELETE_SNAPSHOT_VHDSET_PARAMETERS_0(public var Version1: DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0 = DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0())
+public data class DeleteSnapshotVhdsetParameters0(public var version1: DeleteSnapshotVhdsetParameters00 = DeleteSnapshotVhdsetParameters00())
 
-public data class DELETE_SNAPSHOT_VHDSET_PARAMETERS_0_0(public var SnapshotId: GUID = GUID())
+public data class DeleteSnapshotVhdsetParameters00(public var snapshotId: Guid = Guid())
 
-public data class EXPAND_VIRTUAL_DISK_PARAMETERS(public var Version: EXPAND_VIRTUAL_DISK_VERSION = 0, public var Anonymous: EXPAND_VIRTUAL_DISK_PARAMETERS_0 = EXPAND_VIRTUAL_DISK_PARAMETERS_0())
+public data class ExpandVirtualDiskParameters(public var version: ExpandVirtualDiskVersion = 0, public var anonymous: ExpandVirtualDiskParameters0 = ExpandVirtualDiskParameters0())
 
-public data class EXPAND_VIRTUAL_DISK_PARAMETERS_0(public var Version1: EXPAND_VIRTUAL_DISK_PARAMETERS_0_0 = EXPAND_VIRTUAL_DISK_PARAMETERS_0_0())
+public data class ExpandVirtualDiskParameters0(public var version1: ExpandVirtualDiskParameters00 = ExpandVirtualDiskParameters00())
 
-public data class EXPAND_VIRTUAL_DISK_PARAMETERS_0_0(public var NewSize: ULong = 0uL)
+public data class ExpandVirtualDiskParameters00(public var newSize: ULong = 0uL)
 
-public data class FORK_VIRTUAL_DISK_PARAMETERS(public var Version: FORK_VIRTUAL_DISK_VERSION = 0, public var Anonymous: FORK_VIRTUAL_DISK_PARAMETERS_0 = FORK_VIRTUAL_DISK_PARAMETERS_0())
+public data class ForkVirtualDiskParameters(public var version: ForkVirtualDiskVersion = 0, public var anonymous: ForkVirtualDiskParameters0 = ForkVirtualDiskParameters0())
 
-public data class FORK_VIRTUAL_DISK_PARAMETERS_0(public var Version1: FORK_VIRTUAL_DISK_PARAMETERS_0_0 = FORK_VIRTUAL_DISK_PARAMETERS_0_0())
+public data class ForkVirtualDiskParameters0(public var version1: ForkVirtualDiskParameters00 = ForkVirtualDiskParameters00())
 
-public data class FORK_VIRTUAL_DISK_PARAMETERS_0_0(public var ForkedVirtualDiskPath: PCWSTR = 0L)
+public data class ForkVirtualDiskParameters00(public var forkedVirtualDiskPath: Pcwstr = null)
 
-public data class GET_VIRTUAL_DISK_INFO(public var Version: GET_VIRTUAL_DISK_INFO_VERSION = 0, public var Anonymous: GET_VIRTUAL_DISK_INFO_0 = GET_VIRTUAL_DISK_INFO_0())
+public data class GetVirtualDiskInfo(public var version: GetVirtualDiskInfoVersion = 0, public var anonymous: GetVirtualDiskInfo0 = GetVirtualDiskInfo0())
 
-public data class GET_VIRTUAL_DISK_INFO_0(
-    public var Size: GET_VIRTUAL_DISK_INFO_0_0 = GET_VIRTUAL_DISK_INFO_0_0(),
-    public var Identifier: GUID = GUID(),
-    public var ParentLocation: GET_VIRTUAL_DISK_INFO_0_1 = GET_VIRTUAL_DISK_INFO_0_1(),
-    public var ParentIdentifier: GUID = GUID(),
-    public var ParentTimestamp: UInt = 0u,
-    public var VirtualStorageType: VIRTUAL_STORAGE_TYPE = VIRTUAL_STORAGE_TYPE(),
-    public var ProviderSubtype: UInt = 0u,
-    public var Is4kAligned: BOOL = 0,
-    public var IsLoaded: BOOL = 0,
-    public var PhysicalDisk: GET_VIRTUAL_DISK_INFO_0_2 = GET_VIRTUAL_DISK_INFO_0_2(),
-    public var VhdPhysicalSectorSize: UInt = 0u,
-    public var SmallestSafeVirtualSize: ULong = 0uL,
-    public var FragmentationPercentage: UInt = 0u,
-    public var VirtualDiskId: GUID = GUID(),
-    public var ChangeTrackingState: GET_VIRTUAL_DISK_INFO_0_3 = GET_VIRTUAL_DISK_INFO_0_3(),
+public data class GetVirtualDiskInfo0(
+    public var size: GetVirtualDiskInfo00 = GetVirtualDiskInfo00(),
+    public var identifier: Guid = Guid(),
+    public var parentLocation: GetVirtualDiskInfo01 = GetVirtualDiskInfo01(),
+    public var parentIdentifier: Guid = Guid(),
+    public var parentTimestamp: UInt = 0u,
+    public var virtualStorageType: VirtualStorageType = VirtualStorageType(),
+    public var providerSubtype: UInt = 0u,
+    public var is4kAligned: Bool = 0,
+    public var isLoaded: Bool = 0,
+    public var physicalDisk: GetVirtualDiskInfo02 = GetVirtualDiskInfo02(),
+    public var vhdPhysicalSectorSize: UInt = 0u,
+    public var smallestSafeVirtualSize: ULong = 0uL,
+    public var fragmentationPercentage: UInt = 0u,
+    public var virtualDiskId: Guid = Guid(),
+    public var changeTrackingState: GetVirtualDiskInfo03 = GetVirtualDiskInfo03(),
 )
 
-public data class GET_VIRTUAL_DISK_INFO_0_3(
-    public var Enabled: BOOL = 0,
-    public var NewerChanges: BOOL = 0,
-    public var MostRecentId: UShortArray = UShortArray(1),
+public data class GetVirtualDiskInfo03(
+    public var enabled: Bool = 0,
+    public var newerChanges: Bool = 0,
+    public var mostRecentId: UShortArray = UShortArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is GET_VIRTUAL_DISK_INFO_0_3) return false
-        if (this.Enabled != other.Enabled) return false
-        if (this.NewerChanges != other.NewerChanges) return false
-        if (!this.MostRecentId.contentEquals(other.MostRecentId)) return false
+        if (other !is GetVirtualDiskInfo03) return false
+        if (this.enabled != other.enabled) return false
+        if (this.newerChanges != other.newerChanges) return false
+        if (!this.mostRecentId.contentEquals(other.mostRecentId)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Enabled.hashCode()
-        result = 31 * result + this.NewerChanges.hashCode()
-        result = 31 * result + this.MostRecentId.contentHashCode()
+        var result = this.enabled.hashCode()
+        result = 31 * result + this.newerChanges.hashCode()
+        result = 31 * result + this.mostRecentId.contentHashCode()
         return result
     }
 }
 
-public data class GET_VIRTUAL_DISK_INFO_0_1(public var ParentResolved: BOOL = 0, public var ParentLocationBuffer: UShortArray = UShortArray(1)) {
+public data class GetVirtualDiskInfo01(public var parentResolved: Bool = 0, public var parentLocationBuffer: UShortArray = UShortArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is GET_VIRTUAL_DISK_INFO_0_1) return false
-        if (this.ParentResolved != other.ParentResolved) return false
-        if (!this.ParentLocationBuffer.contentEquals(other.ParentLocationBuffer)) return false
+        if (other !is GetVirtualDiskInfo01) return false
+        if (this.parentResolved != other.parentResolved) return false
+        if (!this.parentLocationBuffer.contentEquals(other.parentLocationBuffer)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ParentResolved.hashCode()
-        result = 31 * result + this.ParentLocationBuffer.contentHashCode()
+        var result = this.parentResolved.hashCode()
+        result = 31 * result + this.parentLocationBuffer.contentHashCode()
         return result
     }
 }
 
-public data class GET_VIRTUAL_DISK_INFO_0_2(
-    public var LogicalSectorSize: UInt = 0u,
-    public var PhysicalSectorSize: UInt = 0u,
-    public var IsRemote: BOOL = 0,
+public data class GetVirtualDiskInfo02(
+    public var logicalSectorSize: UInt = 0u,
+    public var physicalSectorSize: UInt = 0u,
+    public var isRemote: Bool = 0,
 )
 
-public data class GET_VIRTUAL_DISK_INFO_0_0(
-    public var VirtualSize: ULong = 0uL,
-    public var PhysicalSize: ULong = 0uL,
-    public var BlockSize: UInt = 0u,
-    public var SectorSize: UInt = 0u,
+public data class GetVirtualDiskInfo00(
+    public var virtualSize: ULong = 0uL,
+    public var physicalSize: ULong = 0uL,
+    public var blockSize: UInt = 0u,
+    public var sectorSize: UInt = 0u,
 )
 
-public data class MERGE_VIRTUAL_DISK_PARAMETERS(public var Version: MERGE_VIRTUAL_DISK_VERSION = 0, public var Anonymous: MERGE_VIRTUAL_DISK_PARAMETERS_0 = MERGE_VIRTUAL_DISK_PARAMETERS_0())
+public data class MergeVirtualDiskParameters(public var version: MergeVirtualDiskVersion = 0, public var anonymous: MergeVirtualDiskParameters0 = MergeVirtualDiskParameters0())
 
-public data class MERGE_VIRTUAL_DISK_PARAMETERS_0(public var Version1: MERGE_VIRTUAL_DISK_PARAMETERS_0_0 = MERGE_VIRTUAL_DISK_PARAMETERS_0_0(), public var Version2: MERGE_VIRTUAL_DISK_PARAMETERS_0_1 = MERGE_VIRTUAL_DISK_PARAMETERS_0_1())
+public data class MergeVirtualDiskParameters0(public var version1: MergeVirtualDiskParameters00 = MergeVirtualDiskParameters00(), public var version2: MergeVirtualDiskParameters01 = MergeVirtualDiskParameters01())
 
-public data class MERGE_VIRTUAL_DISK_PARAMETERS_0_0(public var MergeDepth: UInt = 0u)
+public data class MergeVirtualDiskParameters00(public var mergeDepth: UInt = 0u)
 
-public data class MERGE_VIRTUAL_DISK_PARAMETERS_0_1(public var MergeSourceDepth: UInt = 0u, public var MergeTargetDepth: UInt = 0u)
+public data class MergeVirtualDiskParameters01(public var mergeSourceDepth: UInt = 0u, public var mergeTargetDepth: UInt = 0u)
 
-public data class MIRROR_VIRTUAL_DISK_PARAMETERS(public var Version: MIRROR_VIRTUAL_DISK_VERSION = 0, public var Anonymous: MIRROR_VIRTUAL_DISK_PARAMETERS_0 = MIRROR_VIRTUAL_DISK_PARAMETERS_0())
+public data class MirrorVirtualDiskParameters(public var version: MirrorVirtualDiskVersion = 0, public var anonymous: MirrorVirtualDiskParameters0 = MirrorVirtualDiskParameters0())
 
-public data class MIRROR_VIRTUAL_DISK_PARAMETERS_0(public var Version1: MIRROR_VIRTUAL_DISK_PARAMETERS_0_0 = MIRROR_VIRTUAL_DISK_PARAMETERS_0_0())
+public data class MirrorVirtualDiskParameters0(public var version1: MirrorVirtualDiskParameters00 = MirrorVirtualDiskParameters00())
 
-public data class MIRROR_VIRTUAL_DISK_PARAMETERS_0_0(public var MirrorVirtualDiskPath: PCWSTR = 0L)
+public data class MirrorVirtualDiskParameters00(public var mirrorVirtualDiskPath: Pcwstr = null)
 
-public data class MODIFY_VHDSET_PARAMETERS(public var Version: MODIFY_VHDSET_VERSION = 0, public var Anonymous: MODIFY_VHDSET_PARAMETERS_0 = MODIFY_VHDSET_PARAMETERS_0())
+public data class ModifyVhdsetParameters(public var version: ModifyVhdsetVersion = 0, public var anonymous: ModifyVhdsetParameters0 = ModifyVhdsetParameters0())
 
-public data class MODIFY_VHDSET_PARAMETERS_0(
-    public var SnapshotPath: MODIFY_VHDSET_PARAMETERS_0_0 = MODIFY_VHDSET_PARAMETERS_0_0(),
-    public var SnapshotId: GUID = GUID(),
-    public var DefaultFilePath: PCWSTR = 0L,
+public data class ModifyVhdsetParameters0(
+    public var snapshotPath: ModifyVhdsetParameters00 = ModifyVhdsetParameters00(),
+    public var snapshotId: Guid = Guid(),
+    public var defaultFilePath: Pcwstr = null,
 )
 
-public data class MODIFY_VHDSET_PARAMETERS_0_0(public var SnapshotId: GUID = GUID(), public var SnapshotFilePath: PCWSTR = 0L)
+public data class ModifyVhdsetParameters00(public var snapshotId: Guid = Guid(), public var snapshotFilePath: Pcwstr = null)
 
-public data class OPEN_VIRTUAL_DISK_PARAMETERS(public var Version: OPEN_VIRTUAL_DISK_VERSION = 0, public var Anonymous: OPEN_VIRTUAL_DISK_PARAMETERS_0 = OPEN_VIRTUAL_DISK_PARAMETERS_0())
+public data class OpenVirtualDiskParameters(public var version: OpenVirtualDiskVersion = 0, public var anonymous: OpenVirtualDiskParameters0 = OpenVirtualDiskParameters0())
 
-public data class OPEN_VIRTUAL_DISK_PARAMETERS_0(
-    public var Version1: OPEN_VIRTUAL_DISK_PARAMETERS_0_0 = OPEN_VIRTUAL_DISK_PARAMETERS_0_0(),
-    public var Version2: OPEN_VIRTUAL_DISK_PARAMETERS_0_1 = OPEN_VIRTUAL_DISK_PARAMETERS_0_1(),
-    public var Version3: OPEN_VIRTUAL_DISK_PARAMETERS_0_2 = OPEN_VIRTUAL_DISK_PARAMETERS_0_2(),
+public data class OpenVirtualDiskParameters0(
+    public var version1: OpenVirtualDiskParameters00 = OpenVirtualDiskParameters00(),
+    public var version2: OpenVirtualDiskParameters01 = OpenVirtualDiskParameters01(),
+    public var version3: OpenVirtualDiskParameters02 = OpenVirtualDiskParameters02(),
 )
 
-public data class OPEN_VIRTUAL_DISK_PARAMETERS_0_0(public var RWDepth: UInt = 0u)
+public data class OpenVirtualDiskParameters00(public var rWDepth: UInt = 0u)
 
-public data class OPEN_VIRTUAL_DISK_PARAMETERS_0_1(
-    public var GetInfoOnly: BOOL = 0,
-    public var ReadOnly: BOOL = 0,
-    public var ResiliencyGuid: GUID = GUID(),
+public data class OpenVirtualDiskParameters01(
+    public var getInfoOnly: Bool = 0,
+    public var readOnly: Bool = 0,
+    public var resiliencyGuid: Guid = Guid(),
 )
 
-public data class OPEN_VIRTUAL_DISK_PARAMETERS_0_2(
-    public var GetInfoOnly: BOOL = 0,
-    public var ReadOnly: BOOL = 0,
-    public var ResiliencyGuid: GUID = GUID(),
-    public var SnapshotId: GUID = GUID(),
+public data class OpenVirtualDiskParameters02(
+    public var getInfoOnly: Bool = 0,
+    public var readOnly: Bool = 0,
+    public var resiliencyGuid: Guid = Guid(),
+    public var snapshotId: Guid = Guid(),
 )
 
-public data class QUERY_CHANGES_VIRTUAL_DISK_RANGE(
-    public var ByteOffset: ULong = 0uL,
-    public var ByteLength: ULong = 0uL,
-    public var Reserved: ULong = 0uL,
+public data class QueryChangesVirtualDiskRange(
+    public var byteOffset: ULong = 0uL,
+    public var byteLength: ULong = 0uL,
+    public var reserved: ULong = 0uL,
 )
 
-public data class RAW_SCSI_VIRTUAL_DISK_PARAMETERS(public var Version: RAW_SCSI_VIRTUAL_DISK_VERSION = 0, public var Anonymous: RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0 = RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0())
+public data class RawScsiVirtualDiskParameters(public var version: RawScsiVirtualDiskVersion = 0, public var anonymous: RawScsiVirtualDiskParameters0 = RawScsiVirtualDiskParameters0())
 
-public data class RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0(public var Version1: RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0 = RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0())
+public data class RawScsiVirtualDiskParameters0(public var version1: RawScsiVirtualDiskParameters00 = RawScsiVirtualDiskParameters00())
 
-public data class RAW_SCSI_VIRTUAL_DISK_PARAMETERS_0_0(
-    public var RSVDHandle: BOOL = 0,
-    public var DataIn: UByte = 0u,
-    public var CdbLength: UByte = 0u,
-    public var SenseInfoLength: UByte = 0u,
-    public var SrbFlags: UInt = 0u,
-    public var DataTransferLength: UInt = 0u,
-    public var DataBuffer: Long = 0L,
-    public var SenseInfo: Long = 0L,
-    public var Cdb: Long = 0L,
+public data class RawScsiVirtualDiskParameters00(
+    public var rSVDHandle: Bool = 0,
+    public var dataIn: UByte = 0u,
+    public var cdbLength: UByte = 0u,
+    public var senseInfoLength: UByte = 0u,
+    public var srbFlags: UInt = 0u,
+    public var dataTransferLength: UInt = 0u,
+    public var dataBuffer: COpaquePointer? = null,
+    public var senseInfo: COpaquePointer? = null,
+    public var cdb: COpaquePointer? = null,
 )
 
-public data class RAW_SCSI_VIRTUAL_DISK_RESPONSE(public var Version: RAW_SCSI_VIRTUAL_DISK_VERSION = 0, public var Anonymous: RAW_SCSI_VIRTUAL_DISK_RESPONSE_0 = RAW_SCSI_VIRTUAL_DISK_RESPONSE_0())
+public data class RawScsiVirtualDiskResponse(public var version: RawScsiVirtualDiskVersion = 0, public var anonymous: RawScsiVirtualDiskResponse0 = RawScsiVirtualDiskResponse0())
 
-public data class RAW_SCSI_VIRTUAL_DISK_RESPONSE_0(public var Version1: RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0 = RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0())
+public data class RawScsiVirtualDiskResponse0(public var version1: RawScsiVirtualDiskResponse00 = RawScsiVirtualDiskResponse00())
 
-public data class RAW_SCSI_VIRTUAL_DISK_RESPONSE_0_0(
-    public var ScsiStatus: UByte = 0u,
-    public var SenseInfoLength: UByte = 0u,
-    public var DataTransferLength: UInt = 0u,
+public data class RawScsiVirtualDiskResponse00(
+    public var scsiStatus: UByte = 0u,
+    public var senseInfoLength: UByte = 0u,
+    public var dataTransferLength: UInt = 0u,
 )
 
-public data class RESIZE_VIRTUAL_DISK_PARAMETERS(public var Version: RESIZE_VIRTUAL_DISK_VERSION = 0, public var Anonymous: RESIZE_VIRTUAL_DISK_PARAMETERS_0 = RESIZE_VIRTUAL_DISK_PARAMETERS_0())
+public data class ResizeVirtualDiskParameters(public var version: ResizeVirtualDiskVersion = 0, public var anonymous: ResizeVirtualDiskParameters0 = ResizeVirtualDiskParameters0())
 
-public data class RESIZE_VIRTUAL_DISK_PARAMETERS_0(public var Version1: RESIZE_VIRTUAL_DISK_PARAMETERS_0_0 = RESIZE_VIRTUAL_DISK_PARAMETERS_0_0())
+public data class ResizeVirtualDiskParameters0(public var version1: ResizeVirtualDiskParameters00 = ResizeVirtualDiskParameters00())
 
-public data class RESIZE_VIRTUAL_DISK_PARAMETERS_0_0(public var NewSize: ULong = 0uL)
+public data class ResizeVirtualDiskParameters00(public var newSize: ULong = 0uL)
 
-public data class SET_VIRTUAL_DISK_INFO(public var Version: SET_VIRTUAL_DISK_INFO_VERSION = 0, public var Anonymous: SET_VIRTUAL_DISK_INFO_0 = SET_VIRTUAL_DISK_INFO_0())
+public data class SetVirtualDiskInfo(public var version: SetVirtualDiskInfoVersion = 0, public var anonymous: SetVirtualDiskInfo0 = SetVirtualDiskInfo0())
 
-public data class SET_VIRTUAL_DISK_INFO_0(
-    public var ParentFilePath: PCWSTR = 0L,
-    public var UniqueIdentifier: GUID = GUID(),
-    public var ParentPathWithDepthInfo: SET_VIRTUAL_DISK_INFO_0_0 = SET_VIRTUAL_DISK_INFO_0_0(),
-    public var VhdPhysicalSectorSize: UInt = 0u,
-    public var VirtualDiskId: GUID = GUID(),
-    public var ChangeTrackingEnabled: BOOL = 0,
-    public var ParentLocator: SET_VIRTUAL_DISK_INFO_0_1 = SET_VIRTUAL_DISK_INFO_0_1(),
+public data class SetVirtualDiskInfo0(
+    public var parentFilePath: Pcwstr = null,
+    public var uniqueIdentifier: Guid = Guid(),
+    public var parentPathWithDepthInfo: SetVirtualDiskInfo00 = SetVirtualDiskInfo00(),
+    public var vhdPhysicalSectorSize: UInt = 0u,
+    public var virtualDiskId: Guid = Guid(),
+    public var changeTrackingEnabled: Bool = 0,
+    public var parentLocator: SetVirtualDiskInfo01 = SetVirtualDiskInfo01(),
 )
 
-public data class SET_VIRTUAL_DISK_INFO_0_1(public var LinkageId: GUID = GUID(), public var ParentFilePath: PCWSTR = 0L)
+public data class SetVirtualDiskInfo01(public var linkageId: Guid = Guid(), public var parentFilePath: Pcwstr = null)
 
-public data class SET_VIRTUAL_DISK_INFO_0_0(public var ChildDepth: UInt = 0u, public var ParentFilePath: PCWSTR = 0L)
+public data class SetVirtualDiskInfo00(public var childDepth: UInt = 0u, public var parentFilePath: Pcwstr = null)
 
-public data class STORAGE_DEPENDENCY_INFO(
-    public var Version: STORAGE_DEPENDENCY_INFO_VERSION = 0,
-    public var NumberEntries: UInt = 0u,
-    public var Anonymous: STORAGE_DEPENDENCY_INFO_0 = STORAGE_DEPENDENCY_INFO_0(),
+public data class StorageDependencyInfo(
+    public var version: StorageDependencyInfoVersion = 0,
+    public var numberEntries: UInt = 0u,
+    public var anonymous: StorageDependencyInfo0 = StorageDependencyInfo0(),
 )
 
-public data class STORAGE_DEPENDENCY_INFO_0(public var Version1Entries: List<STORAGE_DEPENDENCY_INFO_TYPE_1> = List(1) { STORAGE_DEPENDENCY_INFO_TYPE_1() }, public var Version2Entries: List<STORAGE_DEPENDENCY_INFO_TYPE_2> = List(1) { STORAGE_DEPENDENCY_INFO_TYPE_2() })
+public data class StorageDependencyInfo0(public var version1Entries: List<StorageDependencyInfoType1> = List(1) { StorageDependencyInfoType1() }, public var version2Entries: List<StorageDependencyInfoType2> = List(1) { StorageDependencyInfoType2() })
 
-public data class STORAGE_DEPENDENCY_INFO_TYPE_1(
-    public var DependencyTypeFlags: DEPENDENT_DISK_FLAG = 0,
-    public var ProviderSpecificFlags: UInt = 0u,
-    public var VirtualStorageType: VIRTUAL_STORAGE_TYPE = VIRTUAL_STORAGE_TYPE(),
+public data class StorageDependencyInfoType1(
+    public var dependencyTypeFlags: DependentDiskFlag = 0,
+    public var providerSpecificFlags: UInt = 0u,
+    public var virtualStorageType: VirtualStorageType = VirtualStorageType(),
 )
 
-public data class STORAGE_DEPENDENCY_INFO_TYPE_2(
-    public var DependencyTypeFlags: DEPENDENT_DISK_FLAG = 0,
-    public var ProviderSpecificFlags: UInt = 0u,
-    public var VirtualStorageType: VIRTUAL_STORAGE_TYPE = VIRTUAL_STORAGE_TYPE(),
-    public var AncestorLevel: UInt = 0u,
-    public var DependencyDeviceName: PWSTR = 0L,
-    public var HostVolumeName: PWSTR = 0L,
-    public var DependentVolumeName: PWSTR = 0L,
-    public var DependentVolumeRelativePath: PWSTR = 0L,
+public data class StorageDependencyInfoType2(
+    public var dependencyTypeFlags: DependentDiskFlag = 0,
+    public var providerSpecificFlags: UInt = 0u,
+    public var virtualStorageType: VirtualStorageType = VirtualStorageType(),
+    public var ancestorLevel: UInt = 0u,
+    public var dependencyDeviceName: Pwstr = null,
+    public var hostVolumeName: Pwstr = null,
+    public var dependentVolumeName: Pwstr = null,
+    public var dependentVolumeRelativePath: Pwstr = null,
 )
 
-public data class TAKE_SNAPSHOT_VHDSET_PARAMETERS(public var Version: TAKE_SNAPSHOT_VHDSET_VERSION = 0, public var Anonymous: TAKE_SNAPSHOT_VHDSET_PARAMETERS_0 = TAKE_SNAPSHOT_VHDSET_PARAMETERS_0())
+public data class TakeSnapshotVhdsetParameters(public var version: TakeSnapshotVhdsetVersion = 0, public var anonymous: TakeSnapshotVhdsetParameters0 = TakeSnapshotVhdsetParameters0())
 
-public data class TAKE_SNAPSHOT_VHDSET_PARAMETERS_0(public var Version1: TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0 = TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0())
+public data class TakeSnapshotVhdsetParameters0(public var version1: TakeSnapshotVhdsetParameters00 = TakeSnapshotVhdsetParameters00())
 
-public data class TAKE_SNAPSHOT_VHDSET_PARAMETERS_0_0(public var SnapshotId: GUID = GUID())
+public data class TakeSnapshotVhdsetParameters00(public var snapshotId: Guid = Guid())
 
-public data class VIRTUAL_DISK_PROGRESS(
-    public var OperationStatus: UInt = 0u,
-    public var CurrentValue: ULong = 0uL,
-    public var CompletionValue: ULong = 0uL,
+public data class VirtualDiskProgress(
+    public var operationStatus: UInt = 0u,
+    public var currentValue: ULong = 0uL,
+    public var completionValue: ULong = 0uL,
 )
 
-public data class VIRTUAL_STORAGE_TYPE(public var DeviceId: UInt = 0u, public var VendorId: GUID = GUID())
+public data class VirtualStorageType(public var deviceId: UInt = 0u, public var vendorId: Guid = Guid())

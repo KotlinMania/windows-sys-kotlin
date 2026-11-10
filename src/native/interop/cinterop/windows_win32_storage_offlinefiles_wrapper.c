@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_storage_offlinefiles_OfflineFilesEnable(int32_t benable, void* pbrebootrequired) {
+uint32_t windowssys_windows_win32_storage_offlinefiles_offlineFilesEnable(int32_t benable, void* pbrebootrequired) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ uint32_t windowssys_windows_win32_storage_offlinefiles_OfflineFilesEnable(int32_
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_offlinefiles_OfflineFilesQueryStatus(void* pbactive, void* pbenabled) {
+uint32_t windowssys_windows_win32_storage_offlinefiles_offlineFilesQueryStatus(void* pbactive, void* pbenabled) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -61,7 +61,7 @@ uint32_t windowssys_windows_win32_storage_offlinefiles_OfflineFilesQueryStatus(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_offlinefiles_OfflineFilesQueryStatusEx(void* pbactive, void* pbenabled, void* pbavailable) {
+uint32_t windowssys_windows_win32_storage_offlinefiles_offlineFilesQueryStatusEx(void* pbactive, void* pbenabled, void* pbavailable) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -85,7 +85,7 @@ uint32_t windowssys_windows_win32_storage_offlinefiles_OfflineFilesQueryStatusEx
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_offlinefiles_OfflineFilesStart(void) {
+uint32_t windowssys_windows_win32_storage_offlinefiles_offlineFilesStart(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;

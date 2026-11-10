@@ -1,26 +1,27 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.io
 
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
 
-public data class IO_STATUS_BLOCK(public var Anonymous: IO_STATUS_BLOCK_0 = IO_STATUS_BLOCK_0(), public var Information: ULong = 0uL)
+public data class IoStatusBlock(public var anonymous: IoStatusBlock0 = IoStatusBlock0(), public var information: Int = 0)
 
-public data class IO_STATUS_BLOCK_0(public var Status: NTSTATUS = 0, public var Pointer: Long = 0L)
+public data class IoStatusBlock0(public var status: Ntstatus = 0, public var pointer: COpaquePointer? = null)
 
-public data class OVERLAPPED(
-    public var Internal: ULong = 0uL,
-    public var InternalHigh: ULong = 0uL,
-    public var Anonymous: OVERLAPPED_0 = OVERLAPPED_0(),
-    public var hEvent: HANDLE = 0L,
+public data class Overlapped(
+    public var internal: Int = 0,
+    public var internalHigh: Int = 0,
+    public var anonymous: Overlapped0 = Overlapped0(),
+    public var hEvent: Handle = null,
 )
 
-public data class OVERLAPPED_0(public var Anonymous: OVERLAPPED_0_0 = OVERLAPPED_0_0(), public var Pointer: Long = 0L)
+public data class Overlapped0(public var anonymous: Overlapped00 = Overlapped00(), public var pointer: COpaquePointer? = null)
 
-public data class OVERLAPPED_0_0(public var Offset: UInt = 0u, public var OffsetHigh: UInt = 0u)
+public data class Overlapped00(public var offset: UInt = 0u, public var offsetHigh: UInt = 0u)
 
-public data class OVERLAPPED_ENTRY(
-    public var lpCompletionKey: ULong = 0uL,
-    public var lpOverlapped: Long = 0L,
-    public var Internal: ULong = 0uL,
+public data class OverlappedEntry(
+    public var lpCompletionKey: Int = 0,
+    public var lpOverlapped: Overlapped? = null,
+    public var internal: Int = 0,
     public var dwNumberOfBytesTransferred: UInt = 0u,
 )

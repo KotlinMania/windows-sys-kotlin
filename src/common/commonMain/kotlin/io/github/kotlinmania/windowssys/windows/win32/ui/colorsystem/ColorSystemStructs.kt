@@ -1,109 +1,110 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.CIEXYZ
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.CIEXYZTRIPLE
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.EMR
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.DLGPROC
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Ciexyz
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Ciexyztriple
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Emr
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.Dlgproc
 
-public data class BlackInformation(public var fBlackOnly: BOOL = 0, public var blackWeight: Float = 0.0f)
+public data class BlackInformation(public var fBlackOnly: Bool = 0, public var blackWeight: Float = 0.0f)
 
-public data class CMYKCOLOR(
+public data class Cmykcolor(
     public var cyan: UShort = 0u,
     public var magenta: UShort = 0u,
     public var yellow: UShort = 0u,
     public var black: UShort = 0u,
 )
 
-public data class COLOR(
-    public var gray: GRAYCOLOR = GRAYCOLOR(),
-    public var rgb: RGBCOLOR = RGBCOLOR(),
-    public var cmyk: CMYKCOLOR = CMYKCOLOR(),
-    public var XYZ: XYZCOLOR = XYZCOLOR(),
-    public var Yxy: YxyCOLOR = YxyCOLOR(),
-    public var Lab: LabCOLOR = LabCOLOR(),
-    public var gen3ch: GENERIC3CHANNEL = GENERIC3CHANNEL(),
-    public var named: NAMEDCOLOR = NAMEDCOLOR(),
+public data class Color(
+    public var gray: Graycolor = Graycolor(),
+    public var rgb: Rgbcolor = Rgbcolor(),
+    public var cmyk: Cmykcolor = Cmykcolor(),
+    public var xyz: Xyzcolor = Xyzcolor(),
+    public var yxy: YxyCOLOR = YxyCOLOR(),
+    public var lab: LabCOLOR = LabCOLOR(),
+    public var gen3ch: Generic3channel = Generic3channel(),
+    public var named: Namedcolor = Namedcolor(),
     public var hifi: HiFiCOLOR = HiFiCOLOR(),
-    public var Anonymous: COLOR_0 = COLOR_0(),
+    public var anonymous: Color0 = Color0(),
 )
 
-public data class COLOR_0(public var reserved1: UInt = 0u, public var reserved2: Long = 0L)
+public data class Color0(public var reserved1: UInt = 0u, public var reserved2: COpaquePointer? = null)
 
-public class COLORMATCHSETUPA(
+public class Colormatchsetupa(
     public var dwSize: UInt = 0u,
     public var dwVersion: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var hwndOwner: HWND = 0L,
-    public var pSourceName: PCSTR = 0L,
-    public var pDisplayName: PCSTR = 0L,
-    public var pPrinterName: PCSTR = 0L,
+    public var hwndOwner: Hwnd = null,
+    public var pSourceName: Pcstr = null,
+    public var pDisplayName: Pcstr = null,
+    public var pPrinterName: Pcstr = null,
     public var dwRenderIntent: UInt = 0u,
     public var dwProofingIntent: UInt = 0u,
-    public var pMonitorProfile: PSTR = 0L,
+    public var pMonitorProfile: Pstr = null,
     public var ccMonitorProfile: UInt = 0u,
-    public var pPrinterProfile: PSTR = 0L,
+    public var pPrinterProfile: Pstr = null,
     public var ccPrinterProfile: UInt = 0u,
-    public var pTargetProfile: PSTR = 0L,
+    public var pTargetProfile: Pstr = null,
     public var ccTargetProfile: UInt = 0u,
-    public var lpfnHook: DLGPROC = null,
-    public var lParam: LPARAM = 0L,
-    public var lpfnApplyCallback: PCMSCALLBACKA = null,
-    public var lParamApplyCallback: LPARAM = 0L,
+    public var lpfnHook: Dlgproc = null,
+    public var lParam: Lparam = 0L,
+    public var lpfnApplyCallback: Pcmscallbacka = null,
+    public var lParamApplyCallback: Lparam = 0L,
 )
 
-public class COLORMATCHSETUPW(
+public class Colormatchsetupw(
     public var dwSize: UInt = 0u,
     public var dwVersion: UInt = 0u,
     public var dwFlags: UInt = 0u,
-    public var hwndOwner: HWND = 0L,
-    public var pSourceName: PCWSTR = 0L,
-    public var pDisplayName: PCWSTR = 0L,
-    public var pPrinterName: PCWSTR = 0L,
+    public var hwndOwner: Hwnd = null,
+    public var pSourceName: Pcwstr = null,
+    public var pDisplayName: Pcwstr = null,
+    public var pPrinterName: Pcwstr = null,
     public var dwRenderIntent: UInt = 0u,
     public var dwProofingIntent: UInt = 0u,
-    public var pMonitorProfile: PWSTR = 0L,
+    public var pMonitorProfile: Pwstr = null,
     public var ccMonitorProfile: UInt = 0u,
-    public var pPrinterProfile: PWSTR = 0L,
+    public var pPrinterProfile: Pwstr = null,
     public var ccPrinterProfile: UInt = 0u,
-    public var pTargetProfile: PWSTR = 0L,
+    public var pTargetProfile: Pwstr = null,
     public var ccTargetProfile: UInt = 0u,
-    public var lpfnHook: DLGPROC = null,
-    public var lParam: LPARAM = 0L,
-    public var lpfnApplyCallback: PCMSCALLBACKW = null,
-    public var lParamApplyCallback: LPARAM = 0L,
+    public var lpfnHook: Dlgproc = null,
+    public var lParam: Lparam = 0L,
+    public var lpfnApplyCallback: Pcmscallbackw = null,
+    public var lParamApplyCallback: Lparam = 0L,
 )
 
-public data class EMRCREATECOLORSPACE(
-    public var emr: EMR = EMR(),
+public data class Emrcreatecolorspace(
+    public var emr: Emr = Emr(),
     public var ihCS: UInt = 0u,
-    public var lcs: LOGCOLORSPACEA = LOGCOLORSPACEA(),
+    public var lcs: Logcolorspacea = Logcolorspacea(),
 )
 
-public data class EMRCREATECOLORSPACEW(
-    public var emr: EMR = EMR(),
+public data class Emrcreatecolorspacew(
+    public var emr: Emr = Emr(),
     public var ihCS: UInt = 0u,
-    public var lcs: LOGCOLORSPACEW = LOGCOLORSPACEW(),
+    public var lcs: Logcolorspacew = Logcolorspacew(),
     public var dwFlags: UInt = 0u,
     public var cbData: UInt = 0u,
-    public var Data: UByteArray = UByteArray(1),
+    public var data: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is EMRCREATECOLORSPACEW) return false
+        if (other !is Emrcreatecolorspacew) return false
         if (this.emr != other.emr) return false
         if (this.ihCS != other.ihCS) return false
         if (this.lcs != other.lcs) return false
         if (this.dwFlags != other.dwFlags) return false
         if (this.cbData != other.cbData) return false
-        if (!this.Data.contentEquals(other.Data)) return false
+        if (!this.data.contentEquals(other.data)) return false
         return true
     }
 
@@ -113,16 +114,16 @@ public data class EMRCREATECOLORSPACEW(
         result = 31 * result + this.lcs.hashCode()
         result = 31 * result + this.dwFlags.hashCode()
         result = 31 * result + this.cbData.hashCode()
-        result = 31 * result + this.Data.contentHashCode()
+        result = 31 * result + this.data.contentHashCode()
         return result
     }
 }
 
-public class ENUMTYPEA(
+public class Enumtypea(
     public var dwSize: UInt = 0u,
     public var dwVersion: UInt = 0u,
     public var dwFields: UInt = 0u,
-    public var pDeviceName: PCSTR = 0L,
+    public var pDeviceName: Pcstr = null,
     public var dwMediaType: UInt = 0u,
     public var dwDitheringMode: UInt = 0u,
     public var dwResolution: UIntArray = UIntArray(2),
@@ -141,11 +142,11 @@ public class ENUMTYPEA(
     public var dwDeviceClass: UInt = 0u,
 )
 
-public class ENUMTYPEW(
+public class Enumtypew(
     public var dwSize: UInt = 0u,
     public var dwVersion: UInt = 0u,
     public var dwFields: UInt = 0u,
-    public var pDeviceName: PCWSTR = 0L,
+    public var pDeviceName: Pcwstr = null,
     public var dwMediaType: UInt = 0u,
     public var dwDitheringMode: UInt = 0u,
     public var dwResolution: UIntArray = UIntArray(2),
@@ -164,30 +165,30 @@ public class ENUMTYPEW(
     public var dwDeviceClass: UInt = 0u,
 )
 
-public data class GENERIC3CHANNEL(
+public data class Generic3channel(
     public var ch1: UShort = 0u,
     public var ch2: UShort = 0u,
     public var ch3: UShort = 0u,
 )
 
-public data class GRAYCOLOR(public var gray: UShort = 0u)
+public data class Graycolor(public var gray: UShort = 0u)
 
 public data class GamutBoundaryDescription(
-    public var pPrimaries: Long = 0L,
+    public var pPrimaries: PrimaryJabColors? = null,
     public var cNeutralSamples: UInt = 0u,
-    public var pNeutralSamples: Long = 0L,
-    public var pReferenceShell: Long = 0L,
-    public var pPlausibleShell: Long = 0L,
-    public var pPossibleShell: Long = 0L,
+    public var pNeutralSamples: JabColorF? = null,
+    public var pReferenceShell: GamutShell? = null,
+    public var pPlausibleShell: GamutShell? = null,
+    public var pPossibleShell: GamutShell? = null,
 )
 
 public data class GamutShell(
-    public var JMin: Float = 0.0f,
-    public var JMax: Float = 0.0f,
+    public var jMin: Float = 0.0f,
+    public var jMax: Float = 0.0f,
     public var cVertices: UInt = 0u,
     public var cTriangles: UInt = 0u,
-    public var pVertices: Long = 0L,
-    public var pTriangles: Long = 0L,
+    public var pVertices: JabColorF? = null,
+    public var pTriangles: GamutShellTriangle? = null,
 )
 
 public data class GamutShellTriangle(public var aVertexIndex: UIntArray = UIntArray(3)) {
@@ -217,24 +218,24 @@ public data class HiFiCOLOR(public var channel: UByteArray = UByteArray(8)) {
 }
 
 public data class JChColorF(
-    public var J: Float = 0.0f,
-    public var C: Float = 0.0f,
+    public var j: Float = 0.0f,
+    public var c: Float = 0.0f,
     public var h: Float = 0.0f,
 )
 
 public data class JabColorF(
-    public var J: Float = 0.0f,
+    public var j: Float = 0.0f,
     public var a: Float = 0.0f,
     public var b: Float = 0.0f,
 )
 
-public data class LOGCOLORSPACEA(
+public data class Logcolorspacea(
     public var lcsSignature: UInt = 0u,
     public var lcsVersion: UInt = 0u,
     public var lcsSize: UInt = 0u,
-    public var lcsCSType: LCSCSTYPE = 0,
+    public var lcsCSType: Lcscstype = 0,
     public var lcsIntent: Int = 0,
-    public var lcsEndpoints: CIEXYZTRIPLE = CIEXYZTRIPLE(),
+    public var lcsEndpoints: Ciexyztriple = Ciexyztriple(),
     public var lcsGammaRed: UInt = 0u,
     public var lcsGammaGreen: UInt = 0u,
     public var lcsGammaBlue: UInt = 0u,
@@ -242,7 +243,7 @@ public data class LOGCOLORSPACEA(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is LOGCOLORSPACEA) return false
+        if (other !is Logcolorspacea) return false
         if (this.lcsSignature != other.lcsSignature) return false
         if (this.lcsVersion != other.lcsVersion) return false
         if (this.lcsSize != other.lcsSize) return false
@@ -271,13 +272,13 @@ public data class LOGCOLORSPACEA(
     }
 }
 
-public data class LOGCOLORSPACEW(
+public data class Logcolorspacew(
     public var lcsSignature: UInt = 0u,
     public var lcsVersion: UInt = 0u,
     public var lcsSize: UInt = 0u,
-    public var lcsCSType: LCSCSTYPE = 0,
+    public var lcsCSType: Lcscstype = 0,
     public var lcsIntent: Int = 0,
-    public var lcsEndpoints: CIEXYZTRIPLE = CIEXYZTRIPLE(),
+    public var lcsEndpoints: Ciexyztriple = Ciexyztriple(),
     public var lcsGammaRed: UInt = 0u,
     public var lcsGammaGreen: UInt = 0u,
     public var lcsGammaBlue: UInt = 0u,
@@ -285,7 +286,7 @@ public data class LOGCOLORSPACEW(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is LOGCOLORSPACEW) return false
+        if (other !is Logcolorspacew) return false
         if (this.lcsSignature != other.lcsSignature) return false
         if (this.lcsVersion != other.lcsVersion) return false
         if (this.lcsSize != other.lcsSize) return false
@@ -315,14 +316,14 @@ public data class LOGCOLORSPACEW(
 }
 
 public data class LabCOLOR(
-    public var L: UShort = 0u,
+    public var l: UShort = 0u,
     public var a: UShort = 0u,
     public var b: UShort = 0u,
 )
 
-public data class NAMEDCOLOR(public var dwIndex: UInt = 0u)
+public data class Namedcolor(public var dwIndex: UInt = 0u)
 
-public data class NAMED_PROFILE_INFO(
+public data class NamedProfileInfo(
     public var dwFlags: UInt = 0u,
     public var dwCount: UInt = 0u,
     public var dwCountDevCoordinates: UInt = 0u,
@@ -331,7 +332,7 @@ public data class NAMED_PROFILE_INFO(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NAMED_PROFILE_INFO) return false
+        if (other !is NamedProfileInfo) return false
         if (this.dwFlags != other.dwFlags) return false
         if (this.dwCount != other.dwCount) return false
         if (this.dwCountDevCoordinates != other.dwCountDevCoordinates) return false
@@ -350,13 +351,13 @@ public data class NAMED_PROFILE_INFO(
     }
 }
 
-public data class PROFILE(
+public data class Profile(
     public var dwType: UInt = 0u,
-    public var pProfileData: Long = 0L,
+    public var pProfileData: COpaquePointer? = null,
     public var cbDataSize: UInt = 0u,
 )
 
-public class PROFILEHEADER(
+public class Profileheader(
     public var phSize: UInt = 0u,
     public var phCMMType: UInt = 0u,
     public var phVersion: UInt = 0u,
@@ -371,7 +372,7 @@ public class PROFILEHEADER(
     public var phModel: UInt = 0u,
     public var phAttributes: UIntArray = UIntArray(2),
     public var phRenderingIntent: UInt = 0u,
-    public var phIlluminant: CIEXYZ = CIEXYZ(),
+    public var phIlluminant: Ciexyz = Ciexyz(),
     public var phCreator: UInt = 0u,
     public var phReserved: UByteArray = UByteArray(44),
 )
@@ -398,36 +399,32 @@ public data class PrimaryXYZColors(
     public var white: XYZColorF = XYZColorF(),
 )
 
-public data class RGBCOLOR(
+public data class Rgbcolor(
     public var red: UShort = 0u,
     public var green: UShort = 0u,
     public var blue: UShort = 0u,
 )
 
-public data class WCS_DEVICE_MHC2_CAPABILITIES(
-    public var Size: UInt = 0u,
-    public var SupportsMhc2: BOOL = 0,
-    public var RegammaLutEntryCount: UInt = 0u,
-    public var CscXyzMatrixRows: UInt = 0u,
-    public var CscXyzMatrixColumns: UInt = 0u,
+public data class WcsDeviceMhc2Capabilities(
+    public var size: UInt = 0u,
+    public var supportsMhc2: Bool = 0,
+    public var regammaLutEntryCount: UInt = 0u,
+    public var cscXyzMatrixRows: UInt = 0u,
+    public var cscXyzMatrixColumns: UInt = 0u,
 )
 
-public data class WCS_DEVICE_VCGT_CAPABILITIES(public var Size: UInt = 0u, public var SupportsVcgt: BOOL = 0)
+public data class WcsDeviceVcgtCapabilities(public var size: UInt = 0u, public var supportsVcgt: Bool = 0)
 
-public data class XYZCOLOR(
-    public var X: UShort = 0u,
-    public var Y: UShort = 0u,
-    public var Z: UShort = 0u,
+public data class Xyzcolor(
+    public var x: UShort = 0u,
+    public var y: UShort = 0u,
+    public var z: UShort = 0u,
 )
 
 public data class XYZColorF(
-    public var X: Float = 0.0f,
-    public var Y: Float = 0.0f,
-    public var Z: Float = 0.0f,
+    public var x: Float = 0.0f,
+    public var y: Float = 0.0f,
+    public var z: Float = 0.0f,
 )
 
-public data class YxyCOLOR(
-    public var Y: UShort = 0u,
-    public var x: UShort = 0u,
-    public var y: UShort = 0u,
-)
+public data class YxyCOLOR(public var y: UShort = 0u, public var x: UShort = 0u)

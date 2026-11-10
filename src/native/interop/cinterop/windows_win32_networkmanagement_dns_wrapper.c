@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_networkmanagement_dns_DnsAcquireContextHandle_A(uint32_t credentialflags, void* credentials, void* pcontext) {
+int32_t windowssys_windows_win32_networkmanagement_dns_dnsAcquireContextHandleA(uint32_t credentialflags, void* credentials, void* pcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -39,7 +39,7 @@ int32_t windowssys_windows_win32_networkmanagement_dns_DnsAcquireContextHandle_A
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_dns_DnsAcquireContextHandle_W(uint32_t credentialflags, void* credentials, void* pcontext) {
+int32_t windowssys_windows_win32_networkmanagement_dns_dnsAcquireContextHandleW(uint32_t credentialflags, void* credentials, void* pcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -63,7 +63,7 @@ int32_t windowssys_windows_win32_networkmanagement_dns_DnsAcquireContextHandle_W
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_dns_DnsCancelQuery(void* pcancelhandle) {
+int32_t windowssys_windows_win32_networkmanagement_dns_dnsCancelQuery(void* pcancelhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -85,7 +85,7 @@ int32_t windowssys_windows_win32_networkmanagement_dns_DnsCancelQuery(void* pcan
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_dns_DnsCancelQueryRaw(void* cancelhandle) {
+int32_t windowssys_windows_win32_networkmanagement_dns_dnsCancelQueryRaw(void* cancelhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -107,7 +107,7 @@ int32_t windowssys_windows_win32_networkmanagement_dns_DnsCancelQueryRaw(void* c
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dns_DnsConnectionDeletePolicyEntries(int32_t policyentrytag) {
+uint32_t windowssys_windows_win32_networkmanagement_dns_dnsConnectionDeletePolicyEntries(int32_t policyentrytag) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -129,7 +129,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dns_DnsConnectionDeletePolic
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dns_DnsConnectionDeleteProxyInfo(void* pwszconnectionname, int32_t type) {
+uint32_t windowssys_windows_win32_networkmanagement_dns_dnsConnectionDeleteProxyInfo(void* pwszconnectionname, int32_t type) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -152,7 +152,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dns_DnsConnectionDeleteProxy
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_dns_DnsConnectionFreeNameList(void* pnamelist) {
+void windowssys_windows_win32_networkmanagement_dns_dnsConnectionFreeNameList(void* pnamelist) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -173,7 +173,7 @@ void windowssys_windows_win32_networkmanagement_dns_DnsConnectionFreeNameList(vo
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_dns_DnsConnectionFreeProxyInfo(void* pproxyinfo) {
+void windowssys_windows_win32_networkmanagement_dns_dnsConnectionFreeProxyInfo(void* pproxyinfo) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -194,7 +194,7 @@ void windowssys_windows_win32_networkmanagement_dns_DnsConnectionFreeProxyInfo(v
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_dns_DnsConnectionFreeProxyInfoEx(void* pproxyinfoex) {
+void windowssys_windows_win32_networkmanagement_dns_dnsConnectionFreeProxyInfoEx(void* pproxyinfoex) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -215,7 +215,7 @@ void windowssys_windows_win32_networkmanagement_dns_DnsConnectionFreeProxyInfoEx
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_dns_DnsConnectionFreeProxyList(void* pproxylist) {
+void windowssys_windows_win32_networkmanagement_dns_dnsConnectionFreeProxyList(void* pproxylist) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -236,7 +236,7 @@ void windowssys_windows_win32_networkmanagement_dns_DnsConnectionFreeProxyList(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dns_DnsConnectionGetNameList(void* pnamelist) {
+uint32_t windowssys_windows_win32_networkmanagement_dns_dnsConnectionGetNameList(void* pnamelist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -258,7 +258,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dns_DnsConnectionGetNameList
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dns_DnsConnectionGetProxyInfo(void* pwszconnectionname, int32_t type, void* pproxyinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dns_dnsConnectionGetProxyInfo(void* pwszconnectionname, int32_t type, void* pproxyinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -282,7 +282,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dns_DnsConnectionGetProxyInf
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dns_DnsConnectionGetProxyInfoForHostUrl(void* pwszhosturl, void* pselectioncontext, uint32_t dwselectioncontextlength, uint32_t dwexplicitinterfaceindex, void* pproxyinfoex) {
+uint32_t windowssys_windows_win32_networkmanagement_dns_dnsConnectionGetProxyInfoForHostUrl(void* pwszhosturl, void* pselectioncontext, uint32_t dwselectioncontextlength, uint32_t dwexplicitinterfaceindex, void* pproxyinfoex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -308,7 +308,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dns_DnsConnectionGetProxyInf
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dns_DnsConnectionGetProxyInfoForHostUrlEx(void* pwszhosturl, void* pselectioncontext, uint32_t dwselectioncontextlength, uint32_t dwexplicitinterfaceindex, void* pwszconnectionname, void* pproxyinfoex) {
+uint32_t windowssys_windows_win32_networkmanagement_dns_dnsConnectionGetProxyInfoForHostUrlEx(void* pwszhosturl, void* pselectioncontext, uint32_t dwselectioncontextlength, uint32_t dwexplicitinterfaceindex, void* pwszconnectionname, void* pproxyinfoex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -335,7 +335,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dns_DnsConnectionGetProxyInf
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dns_DnsConnectionGetProxyList(void* pwszconnectionname, void* pproxylist) {
+uint32_t windowssys_windows_win32_networkmanagement_dns_dnsConnectionGetProxyList(void* pwszconnectionname, void* pproxylist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -358,7 +358,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dns_DnsConnectionGetProxyLis
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dns_DnsConnectionSetPolicyEntries(int32_t policyentrytag, void* ppolicyentrylist) {
+uint32_t windowssys_windows_win32_networkmanagement_dns_dnsConnectionSetPolicyEntries(int32_t policyentrytag, void* ppolicyentrylist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -381,7 +381,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dns_DnsConnectionSetPolicyEn
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dns_DnsConnectionSetProxyInfo(void* pwszconnectionname, int32_t type, void* pproxyinfo) {
+uint32_t windowssys_windows_win32_networkmanagement_dns_dnsConnectionSetProxyInfo(void* pwszconnectionname, int32_t type, void* pproxyinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -405,7 +405,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dns_DnsConnectionSetProxyInf
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dns_DnsConnectionUpdateIfIndexTable(void* pconnectionifindexentries) {
+uint32_t windowssys_windows_win32_networkmanagement_dns_dnsConnectionUpdateIfIndexTable(void* pconnectionifindexentries) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -427,7 +427,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dns_DnsConnectionUpdateIfInd
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_dns_DnsExtractRecordsFromMessage_UTF8(void* pdnsbuffer, uint16_t wmessagelength, void* pprecord) {
+int32_t windowssys_windows_win32_networkmanagement_dns_dnsExtractRecordsFromMessageUtf8(void* pdnsbuffer, uint16_t wmessagelength, void* pprecord) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -451,7 +451,7 @@ int32_t windowssys_windows_win32_networkmanagement_dns_DnsExtractRecordsFromMess
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_dns_DnsExtractRecordsFromMessage_W(void* pdnsbuffer, uint16_t wmessagelength, void* pprecord) {
+int32_t windowssys_windows_win32_networkmanagement_dns_dnsExtractRecordsFromMessageW(void* pdnsbuffer, uint16_t wmessagelength, void* pprecord) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -475,7 +475,7 @@ int32_t windowssys_windows_win32_networkmanagement_dns_DnsExtractRecordsFromMess
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_dns_DnsFree(void* pdata, int32_t freetype) {
+void windowssys_windows_win32_networkmanagement_dns_dnsFree(void* pdata, int32_t freetype) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -497,7 +497,7 @@ void windowssys_windows_win32_networkmanagement_dns_DnsFree(void* pdata, int32_t
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_dns_DnsFreeCustomServers(void* pcservers, void* ppservers) {
+void windowssys_windows_win32_networkmanagement_dns_dnsFreeCustomServers(void* pcservers, void* ppservers) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -519,7 +519,7 @@ void windowssys_windows_win32_networkmanagement_dns_DnsFreeCustomServers(void* p
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_dns_DnsFreeProxyName(void* proxyname) {
+void windowssys_windows_win32_networkmanagement_dns_dnsFreeProxyName(void* proxyname) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -540,7 +540,7 @@ void windowssys_windows_win32_networkmanagement_dns_DnsFreeProxyName(void* proxy
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dns_DnsGetApplicationSettings(void* pcservers, void* ppdefaultservers, void* psettings) {
+uint32_t windowssys_windows_win32_networkmanagement_dns_dnsGetApplicationSettings(void* pcservers, void* ppdefaultservers, void* psettings) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -564,7 +564,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dns_DnsGetApplicationSetting
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dns_DnsGetProxyInformation(void* hostname, void* proxyinformation, void* defaultproxyinformation, void* completionroutine, void* completioncontext) {
+uint32_t windowssys_windows_win32_networkmanagement_dns_dnsGetProxyInformation(void* hostname, void* proxyinformation, void* defaultproxyinformation, void* completionroutine, void* completioncontext) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -590,7 +590,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dns_DnsGetProxyInformation(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_dns_DnsModifyRecordsInSet_A(void* paddrecords, void* pdeleterecords, uint32_t options, void* hcredentials, void* pextralist, void* preserved) {
+int32_t windowssys_windows_win32_networkmanagement_dns_dnsModifyRecordsInSetA(void* paddrecords, void* pdeleterecords, uint32_t options, void* hcredentials, void* pextralist, void* preserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -617,7 +617,7 @@ int32_t windowssys_windows_win32_networkmanagement_dns_DnsModifyRecordsInSet_A(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_dns_DnsModifyRecordsInSet_UTF8(void* paddrecords, void* pdeleterecords, uint32_t options, void* hcredentials, void* pextralist, void* preserved) {
+int32_t windowssys_windows_win32_networkmanagement_dns_dnsModifyRecordsInSetUtf8(void* paddrecords, void* pdeleterecords, uint32_t options, void* hcredentials, void* pextralist, void* preserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -644,7 +644,7 @@ int32_t windowssys_windows_win32_networkmanagement_dns_DnsModifyRecordsInSet_UTF
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_dns_DnsModifyRecordsInSet_W(void* paddrecords, void* pdeleterecords, uint32_t options, void* hcredentials, void* pextralist, void* preserved) {
+int32_t windowssys_windows_win32_networkmanagement_dns_dnsModifyRecordsInSetW(void* paddrecords, void* pdeleterecords, uint32_t options, void* hcredentials, void* pextralist, void* preserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -671,7 +671,7 @@ int32_t windowssys_windows_win32_networkmanagement_dns_DnsModifyRecordsInSet_W(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_dns_DnsNameCompare_A(void* pname1, void* pname2) {
+int32_t windowssys_windows_win32_networkmanagement_dns_dnsNameCompareA(void* pname1, void* pname2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -694,7 +694,7 @@ int32_t windowssys_windows_win32_networkmanagement_dns_DnsNameCompare_A(void* pn
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_dns_DnsNameCompare_W(void* pname1, void* pname2) {
+int32_t windowssys_windows_win32_networkmanagement_dns_dnsNameCompareW(void* pname1, void* pname2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -717,7 +717,7 @@ int32_t windowssys_windows_win32_networkmanagement_dns_DnsNameCompare_W(void* pn
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_dns_DnsQueryConfig(int32_t config, uint32_t flag, void* pwsadaptername, void* preserved, void* pbuffer, void* pbuflen) {
+int32_t windowssys_windows_win32_networkmanagement_dns_dnsQueryConfig(int32_t config, uint32_t flag, void* pwsadaptername, void* preserved, void* pbuffer, void* pbuflen) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -744,7 +744,7 @@ int32_t windowssys_windows_win32_networkmanagement_dns_DnsQueryConfig(int32_t co
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_dns_DnsQueryEx(void* pqueryrequest, void* pqueryresults, void* pcancelhandle) {
+int32_t windowssys_windows_win32_networkmanagement_dns_dnsQueryEx(void* pqueryrequest, void* pqueryresults, void* pcancelhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -768,7 +768,7 @@ int32_t windowssys_windows_win32_networkmanagement_dns_DnsQueryEx(void* pqueryre
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_dns_DnsQueryRaw(void* queryrequest, void* cancelhandle) {
+int32_t windowssys_windows_win32_networkmanagement_dns_dnsQueryRaw(void* queryrequest, void* cancelhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -791,7 +791,7 @@ int32_t windowssys_windows_win32_networkmanagement_dns_DnsQueryRaw(void* queryre
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_dns_DnsQueryRawResultFree(void* queryresults) {
+void windowssys_windows_win32_networkmanagement_dns_dnsQueryRawResultFree(void* queryresults) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -812,7 +812,7 @@ void windowssys_windows_win32_networkmanagement_dns_DnsQueryRawResultFree(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dns_DnsQuery_A(void* pszname, uint16_t wtype, uint32_t options, void* pextra, void* ppqueryresults, void* preserved) {
+uint32_t windowssys_windows_win32_networkmanagement_dns_dnsQueryA(void* pszname, uint16_t wtype, uint32_t options, void* pextra, void* ppqueryresults, void* preserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint16_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -839,7 +839,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dns_DnsQuery_A(void* pszname
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dns_DnsQuery_UTF8(void* pszname, uint16_t wtype, uint32_t options, void* pextra, void* ppqueryresults, void* preserved) {
+uint32_t windowssys_windows_win32_networkmanagement_dns_dnsQueryUtf8(void* pszname, uint16_t wtype, uint32_t options, void* pextra, void* ppqueryresults, void* preserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint16_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -866,7 +866,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dns_DnsQuery_UTF8(void* pszn
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dns_DnsQuery_W(void* pszname, uint16_t wtype, uint32_t options, void* pextra, void* ppqueryresults, void* preserved) {
+uint32_t windowssys_windows_win32_networkmanagement_dns_dnsQueryW(void* pszname, uint16_t wtype, uint32_t options, void* pextra, void* ppqueryresults, void* preserved) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint16_t, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -893,7 +893,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dns_DnsQuery_W(void* pszname
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_dns_DnsRecordCompare(void* precord1, void* precord2) {
+int32_t windowssys_windows_win32_networkmanagement_dns_dnsRecordCompare(void* precord1, void* precord2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -916,7 +916,7 @@ int32_t windowssys_windows_win32_networkmanagement_dns_DnsRecordCompare(void* pr
 #endif
 }
 
-void* windowssys_windows_win32_networkmanagement_dns_DnsRecordCopyEx(void* precord, int32_t charsetin, int32_t charsetout) {
+void* windowssys_windows_win32_networkmanagement_dns_dnsRecordCopyEx(void* precord, int32_t charsetin, int32_t charsetout) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -940,7 +940,7 @@ void* windowssys_windows_win32_networkmanagement_dns_DnsRecordCopyEx(void* preco
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_dns_DnsRecordSetCompare(void* prr1, void* prr2, void* ppdiff1, void* ppdiff2) {
+int32_t windowssys_windows_win32_networkmanagement_dns_dnsRecordSetCompare(void* prr1, void* prr2, void* ppdiff1, void* ppdiff2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -965,7 +965,7 @@ int32_t windowssys_windows_win32_networkmanagement_dns_DnsRecordSetCompare(void*
 #endif
 }
 
-void* windowssys_windows_win32_networkmanagement_dns_DnsRecordSetCopyEx(void* precordset, int32_t charsetin, int32_t charsetout) {
+void* windowssys_windows_win32_networkmanagement_dns_dnsRecordSetCopyEx(void* precordset, int32_t charsetin, int32_t charsetout) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -989,7 +989,7 @@ void* windowssys_windows_win32_networkmanagement_dns_DnsRecordSetCopyEx(void* pr
 #endif
 }
 
-void* windowssys_windows_win32_networkmanagement_dns_DnsRecordSetDetach(void* precordlist) {
+void* windowssys_windows_win32_networkmanagement_dns_dnsRecordSetDetach(void* precordlist) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1011,7 +1011,7 @@ void* windowssys_windows_win32_networkmanagement_dns_DnsRecordSetDetach(void* pr
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_dns_DnsReleaseContextHandle(void* hcontext) {
+void windowssys_windows_win32_networkmanagement_dns_dnsReleaseContextHandle(void* hcontext) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1032,7 +1032,7 @@ void windowssys_windows_win32_networkmanagement_dns_DnsReleaseContextHandle(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_dns_DnsReplaceRecordSetA(void* preplaceset, uint32_t options, void* hcontext, void* pextrainfo, void* preserved) {
+int32_t windowssys_windows_win32_networkmanagement_dns_dnsReplaceRecordSetA(void* preplaceset, uint32_t options, void* hcontext, void* pextrainfo, void* preserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1058,7 +1058,7 @@ int32_t windowssys_windows_win32_networkmanagement_dns_DnsReplaceRecordSetA(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_dns_DnsReplaceRecordSetUTF8(void* preplaceset, uint32_t options, void* hcontext, void* pextrainfo, void* preserved) {
+int32_t windowssys_windows_win32_networkmanagement_dns_dnsReplaceRecordSetUTF8(void* preplaceset, uint32_t options, void* hcontext, void* pextrainfo, void* preserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1084,7 +1084,7 @@ int32_t windowssys_windows_win32_networkmanagement_dns_DnsReplaceRecordSetUTF8(v
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_dns_DnsReplaceRecordSetW(void* preplaceset, uint32_t options, void* hcontext, void* pextrainfo, void* preserved) {
+int32_t windowssys_windows_win32_networkmanagement_dns_dnsReplaceRecordSetW(void* preplaceset, uint32_t options, void* hcontext, void* pextrainfo, void* preserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1110,7 +1110,7 @@ int32_t windowssys_windows_win32_networkmanagement_dns_DnsReplaceRecordSetW(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_dns_DnsServiceBrowse(void* prequest, void* pcancel) {
+int32_t windowssys_windows_win32_networkmanagement_dns_dnsServiceBrowse(void* prequest, void* pcancel) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1133,7 +1133,7 @@ int32_t windowssys_windows_win32_networkmanagement_dns_DnsServiceBrowse(void* pr
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_dns_DnsServiceBrowseCancel(void* pcancelhandle) {
+int32_t windowssys_windows_win32_networkmanagement_dns_dnsServiceBrowseCancel(void* pcancelhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1155,7 +1155,7 @@ int32_t windowssys_windows_win32_networkmanagement_dns_DnsServiceBrowseCancel(vo
 #endif
 }
 
-void* windowssys_windows_win32_networkmanagement_dns_DnsServiceConstructInstance(void* pservicename, void* phostname, void* pip4, void* pip6, uint16_t wport, uint16_t wpriority, uint16_t wweight, uint32_t dwpropertiescount, void* keys, void* values) {
+void* windowssys_windows_win32_networkmanagement_dns_dnsServiceConstructInstance(void* pservicename, void* phostname, void* pip4, void* pip6, uint16_t wport, uint16_t wpriority, uint16_t wweight, uint32_t dwpropertiescount, void* keys, void* values) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*, uint16_t, uint16_t, uint16_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1186,7 +1186,7 @@ void* windowssys_windows_win32_networkmanagement_dns_DnsServiceConstructInstance
 #endif
 }
 
-void* windowssys_windows_win32_networkmanagement_dns_DnsServiceCopyInstance(void* porig) {
+void* windowssys_windows_win32_networkmanagement_dns_dnsServiceCopyInstance(void* porig) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1208,7 +1208,7 @@ void* windowssys_windows_win32_networkmanagement_dns_DnsServiceCopyInstance(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dns_DnsServiceDeRegister(void* prequest, void* pcancel) {
+uint32_t windowssys_windows_win32_networkmanagement_dns_dnsServiceDeRegister(void* prequest, void* pcancel) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1231,7 +1231,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dns_DnsServiceDeRegister(voi
 #endif
 }
 
-void windowssys_windows_win32_networkmanagement_dns_DnsServiceFreeInstance(void* pinstance) {
+void windowssys_windows_win32_networkmanagement_dns_dnsServiceFreeInstance(void* pinstance) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1252,7 +1252,7 @@ void windowssys_windows_win32_networkmanagement_dns_DnsServiceFreeInstance(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dns_DnsServiceRegister(void* prequest, void* pcancel) {
+uint32_t windowssys_windows_win32_networkmanagement_dns_dnsServiceRegister(void* prequest, void* pcancel) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1275,7 +1275,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dns_DnsServiceRegister(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dns_DnsServiceRegisterCancel(void* pcancelhandle) {
+uint32_t windowssys_windows_win32_networkmanagement_dns_dnsServiceRegisterCancel(void* pcancelhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1297,7 +1297,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dns_DnsServiceRegisterCancel
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_dns_DnsServiceResolve(void* prequest, void* pcancel) {
+int32_t windowssys_windows_win32_networkmanagement_dns_dnsServiceResolve(void* prequest, void* pcancel) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1320,7 +1320,7 @@ int32_t windowssys_windows_win32_networkmanagement_dns_DnsServiceResolve(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_dns_DnsServiceResolveCancel(void* pcancelhandle) {
+int32_t windowssys_windows_win32_networkmanagement_dns_dnsServiceResolveCancel(void* pcancelhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1342,7 +1342,7 @@ int32_t windowssys_windows_win32_networkmanagement_dns_DnsServiceResolveCancel(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_dns_DnsSetApplicationSettings(uint32_t cservers, void* pservers, void* psettings) {
+uint32_t windowssys_windows_win32_networkmanagement_dns_dnsSetApplicationSettings(uint32_t cservers, void* pservers, void* psettings) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1366,7 +1366,7 @@ uint32_t windowssys_windows_win32_networkmanagement_dns_DnsSetApplicationSetting
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_dns_DnsStartMulticastQuery(void* pqueryrequest, void* phandle) {
+int32_t windowssys_windows_win32_networkmanagement_dns_dnsStartMulticastQuery(void* pqueryrequest, void* phandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1389,7 +1389,7 @@ int32_t windowssys_windows_win32_networkmanagement_dns_DnsStartMulticastQuery(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_dns_DnsStopMulticastQuery(void* phandle) {
+int32_t windowssys_windows_win32_networkmanagement_dns_dnsStopMulticastQuery(void* phandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1411,7 +1411,7 @@ int32_t windowssys_windows_win32_networkmanagement_dns_DnsStopMulticastQuery(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_dns_DnsValidateName_A(void* pszname, int32_t format) {
+int32_t windowssys_windows_win32_networkmanagement_dns_dnsValidateNameA(void* pszname, int32_t format) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1434,7 +1434,7 @@ int32_t windowssys_windows_win32_networkmanagement_dns_DnsValidateName_A(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_dns_DnsValidateName_UTF8(void* pszname, int32_t format) {
+int32_t windowssys_windows_win32_networkmanagement_dns_dnsValidateNameUtf8(void* pszname, int32_t format) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1457,7 +1457,7 @@ int32_t windowssys_windows_win32_networkmanagement_dns_DnsValidateName_UTF8(void
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_dns_DnsValidateName_W(void* pszname, int32_t format) {
+int32_t windowssys_windows_win32_networkmanagement_dns_dnsValidateNameW(void* pszname, int32_t format) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1480,7 +1480,7 @@ int32_t windowssys_windows_win32_networkmanagement_dns_DnsValidateName_W(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_dns_DnsWriteQuestionToBuffer_UTF8(void* pdnsbuffer, void* pdwbuffersize, void* pszname, uint16_t wtype, uint16_t xid, int32_t frecursiondesired) {
+int32_t windowssys_windows_win32_networkmanagement_dns_dnsWriteQuestionToBufferUtf8(void* pdnsbuffer, void* pdwbuffersize, void* pszname, uint16_t wtype, uint16_t xid, int32_t frecursiondesired) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint16_t, uint16_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1507,7 +1507,7 @@ int32_t windowssys_windows_win32_networkmanagement_dns_DnsWriteQuestionToBuffer_
 #endif
 }
 
-int32_t windowssys_windows_win32_networkmanagement_dns_DnsWriteQuestionToBuffer_W(void* pdnsbuffer, void* pdwbuffersize, void* pszname, uint16_t wtype, uint16_t xid, int32_t frecursiondesired) {
+int32_t windowssys_windows_win32_networkmanagement_dns_dnsWriteQuestionToBufferW(void* pdnsbuffer, void* pdwbuffersize, void* pszname, uint16_t wtype, uint16_t xid, int32_t frecursiondesired) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint16_t, uint16_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;

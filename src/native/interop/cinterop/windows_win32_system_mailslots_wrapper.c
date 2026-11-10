@@ -15,7 +15,7 @@
 #endif
 #endif
 
-void* windowssys_windows_win32_system_mailslots_CreateMailslotA(void* lpname, uint32_t nmaxmessagesize, uint32_t lreadtimeout, void* lpsecurityattributes) {
+void* windowssys_windows_win32_system_mailslots_createMailslotA(void* lpname, uint32_t nmaxmessagesize, uint32_t lreadtimeout, void* lpsecurityattributes) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -40,7 +40,7 @@ void* windowssys_windows_win32_system_mailslots_CreateMailslotA(void* lpname, ui
 #endif
 }
 
-void* windowssys_windows_win32_system_mailslots_CreateMailslotW(void* lpname, uint32_t nmaxmessagesize, uint32_t lreadtimeout, void* lpsecurityattributes) {
+void* windowssys_windows_win32_system_mailslots_createMailslotW(void* lpname, uint32_t nmaxmessagesize, uint32_t lreadtimeout, void* lpsecurityattributes) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -65,7 +65,7 @@ void* windowssys_windows_win32_system_mailslots_CreateMailslotW(void* lpname, ui
 #endif
 }
 
-int32_t windowssys_windows_win32_system_mailslots_GetMailslotInfo(void* hmailslot, void* lpmaxmessagesize, void* lpnextsize, void* lpmessagecount, void* lpreadtimeout) {
+int32_t windowssys_windows_win32_system_mailslots_getMailslotInfo(void* hmailslot, void* lpmaxmessagesize, void* lpnextsize, void* lpmessagecount, void* lpreadtimeout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -91,7 +91,7 @@ int32_t windowssys_windows_win32_system_mailslots_GetMailslotInfo(void* hmailslo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_mailslots_SetMailslotInfo(void* hmailslot, uint32_t lreadtimeout) {
+int32_t windowssys_windows_win32_system_mailslots_setMailslotInfo(void* hmailslot, uint32_t lreadtimeout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;

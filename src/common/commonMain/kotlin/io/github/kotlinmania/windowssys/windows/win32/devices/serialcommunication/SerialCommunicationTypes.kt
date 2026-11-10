@@ -1,17 +1,19 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.serialcommunication
 
-public typealias HCOMDB = Long
+import io.github.kotlinmania.windowssys.COpaquePointer
 
-public fun interface PSERENUM_READPORTFn {
-    public operator fun invoke(serportaddress: Long): UByte
+public typealias Hcomdb = COpaquePointer?
+
+public fun interface PserenumReadportFn {
+    public operator fun invoke(serportaddress: COpaquePointer?): UByte
 }
 
-public typealias PSERENUM_READPORT = PSERENUM_READPORTFn?
+public typealias PserenumReadport = PserenumReadportFn?
 
-public fun interface PSERENUM_WRITEPORTFn {
-    public operator fun invoke(serportaddress: Long, value: UByte)
+public fun interface PserenumWriteportFn {
+    public operator fun invoke(serportaddress: COpaquePointer?, value: UByte)
 }
 
-public typealias PSERENUM_WRITEPORT = PSERENUM_WRITEPORTFn?
+public typealias PserenumWriteport = PserenumWriteportFn?
 
-public typealias SERENUM_PORTION = Int
+public typealias SerenumPortion = Int

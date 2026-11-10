@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_multicast_McastApiCleanup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_multicast_mcastApiCleanup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
@@ -66,7 +66,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_multicast_McastApi
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_multicast_McastApiStartup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_multicast_mcastApiStartup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* version = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -84,7 +84,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_multicast_McastApi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_multicast_McastEnumerateScopes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_multicast_mcastEnumerateScopes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t addrfamily = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t requery = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -110,7 +110,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_multicast_McastEnu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_multicast_McastGenUID_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_multicast_mcastGenUID_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prequestid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -128,7 +128,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_multicast_McastGen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_multicast_McastReleaseAddress_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_multicast_mcastReleaseAddress_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t addrfamily = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* prequestid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -150,7 +150,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_multicast_McastRel
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_multicast_McastRenewAddress_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_multicast_mcastRenewAddress_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t addrfamily = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* prequestid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -174,7 +174,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_multicast_McastRen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_multicast_McastRequestAddress_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_multicast_mcastRequestAddress_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t addrfamily = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* prequestid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -201,13 +201,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_multicast_McastReq
 }
 
 static void register_windows_win32_networkmanagement_multicast_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_networkmanagement_multicast_McastApiCleanup", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_multicast_McastApiCleanup_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_multicast_McastApiStartup", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_multicast_McastApiStartup_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_multicast_McastEnumerateScopes", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_multicast_McastEnumerateScopes_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_multicast_McastGenUID", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_multicast_McastGenUID_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_multicast_McastReleaseAddress", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_multicast_McastReleaseAddress_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_multicast_McastRenewAddress", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_multicast_McastRenewAddress_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_multicast_McastRequestAddress", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_multicast_McastRequestAddress_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_multicast_mcastApiCleanup", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_multicast_mcastApiCleanup_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_multicast_mcastApiStartup", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_multicast_mcastApiStartup_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_multicast_mcastEnumerateScopes", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_multicast_mcastEnumerateScopes_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_multicast_mcastGenUID", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_multicast_mcastGenUID_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_multicast_mcastReleaseAddress", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_multicast_mcastReleaseAddress_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_multicast_mcastRenewAddress", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_multicast_mcastRenewAddress_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_multicast_mcastRequestAddress", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_multicast_mcastRequestAddress_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_networkmanagement_multicast_napi, nullptr };

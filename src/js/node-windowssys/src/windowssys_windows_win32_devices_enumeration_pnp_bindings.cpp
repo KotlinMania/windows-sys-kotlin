@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_devices_enumeration_pnp_SwDeviceClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_enumeration_pnp_swDeviceClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hswdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -68,7 +68,7 @@ static Napi::Value windowssys_windows_win32_devices_enumeration_pnp_SwDeviceClos
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_devices_enumeration_pnp_SwDeviceCreate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_enumeration_pnp_swDeviceCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszenumeratorname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszparentdeviceinstance = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -100,7 +100,7 @@ static Napi::Value windowssys_windows_win32_devices_enumeration_pnp_SwDeviceCrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_enumeration_pnp_SwDeviceGetLifetime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_enumeration_pnp_swDeviceGetLifetime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hswdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* plifetime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -120,7 +120,7 @@ static Napi::Value windowssys_windows_win32_devices_enumeration_pnp_SwDeviceGetL
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_enumeration_pnp_SwDeviceInterfacePropertySet_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_enumeration_pnp_swDeviceInterfacePropertySet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hswdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszdeviceinterfaceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -144,7 +144,7 @@ static Napi::Value windowssys_windows_win32_devices_enumeration_pnp_SwDeviceInte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_enumeration_pnp_SwDeviceInterfaceRegister_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_enumeration_pnp_swDeviceInterfaceRegister_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hswdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pinterfaceclassguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -174,7 +174,7 @@ static Napi::Value windowssys_windows_win32_devices_enumeration_pnp_SwDeviceInte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_enumeration_pnp_SwDeviceInterfaceSetState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_enumeration_pnp_swDeviceInterfaceSetState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hswdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszdeviceinterfaceid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -196,7 +196,7 @@ static Napi::Value windowssys_windows_win32_devices_enumeration_pnp_SwDeviceInte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_enumeration_pnp_SwDevicePropertySet_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_enumeration_pnp_swDevicePropertySet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hswdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cpropertycount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -218,7 +218,7 @@ static Napi::Value windowssys_windows_win32_devices_enumeration_pnp_SwDeviceProp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_enumeration_pnp_SwDeviceSetLifetime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_enumeration_pnp_swDeviceSetLifetime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hswdevice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t lifetime = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -238,7 +238,7 @@ static Napi::Value windowssys_windows_win32_devices_enumeration_pnp_SwDeviceSetL
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_devices_enumeration_pnp_SwMemFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_devices_enumeration_pnp_swMemFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -256,15 +256,15 @@ static Napi::Value windowssys_windows_win32_devices_enumeration_pnp_SwMemFree_na
 }
 
 static void register_windows_win32_devices_enumeration_pnp_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_devices_enumeration_pnp_SwDeviceClose", Napi::Function::New(env, windowssys_windows_win32_devices_enumeration_pnp_SwDeviceClose_napi));
-    exports.Set("windowssys_windows_win32_devices_enumeration_pnp_SwDeviceCreate", Napi::Function::New(env, windowssys_windows_win32_devices_enumeration_pnp_SwDeviceCreate_napi));
-    exports.Set("windowssys_windows_win32_devices_enumeration_pnp_SwDeviceGetLifetime", Napi::Function::New(env, windowssys_windows_win32_devices_enumeration_pnp_SwDeviceGetLifetime_napi));
-    exports.Set("windowssys_windows_win32_devices_enumeration_pnp_SwDeviceInterfacePropertySet", Napi::Function::New(env, windowssys_windows_win32_devices_enumeration_pnp_SwDeviceInterfacePropertySet_napi));
-    exports.Set("windowssys_windows_win32_devices_enumeration_pnp_SwDeviceInterfaceRegister", Napi::Function::New(env, windowssys_windows_win32_devices_enumeration_pnp_SwDeviceInterfaceRegister_napi));
-    exports.Set("windowssys_windows_win32_devices_enumeration_pnp_SwDeviceInterfaceSetState", Napi::Function::New(env, windowssys_windows_win32_devices_enumeration_pnp_SwDeviceInterfaceSetState_napi));
-    exports.Set("windowssys_windows_win32_devices_enumeration_pnp_SwDevicePropertySet", Napi::Function::New(env, windowssys_windows_win32_devices_enumeration_pnp_SwDevicePropertySet_napi));
-    exports.Set("windowssys_windows_win32_devices_enumeration_pnp_SwDeviceSetLifetime", Napi::Function::New(env, windowssys_windows_win32_devices_enumeration_pnp_SwDeviceSetLifetime_napi));
-    exports.Set("windowssys_windows_win32_devices_enumeration_pnp_SwMemFree", Napi::Function::New(env, windowssys_windows_win32_devices_enumeration_pnp_SwMemFree_napi));
+    exports.Set("windowssys_windows_win32_devices_enumeration_pnp_swDeviceClose", Napi::Function::New(env, windowssys_windows_win32_devices_enumeration_pnp_swDeviceClose_napi));
+    exports.Set("windowssys_windows_win32_devices_enumeration_pnp_swDeviceCreate", Napi::Function::New(env, windowssys_windows_win32_devices_enumeration_pnp_swDeviceCreate_napi));
+    exports.Set("windowssys_windows_win32_devices_enumeration_pnp_swDeviceGetLifetime", Napi::Function::New(env, windowssys_windows_win32_devices_enumeration_pnp_swDeviceGetLifetime_napi));
+    exports.Set("windowssys_windows_win32_devices_enumeration_pnp_swDeviceInterfacePropertySet", Napi::Function::New(env, windowssys_windows_win32_devices_enumeration_pnp_swDeviceInterfacePropertySet_napi));
+    exports.Set("windowssys_windows_win32_devices_enumeration_pnp_swDeviceInterfaceRegister", Napi::Function::New(env, windowssys_windows_win32_devices_enumeration_pnp_swDeviceInterfaceRegister_napi));
+    exports.Set("windowssys_windows_win32_devices_enumeration_pnp_swDeviceInterfaceSetState", Napi::Function::New(env, windowssys_windows_win32_devices_enumeration_pnp_swDeviceInterfaceSetState_napi));
+    exports.Set("windowssys_windows_win32_devices_enumeration_pnp_swDevicePropertySet", Napi::Function::New(env, windowssys_windows_win32_devices_enumeration_pnp_swDevicePropertySet_napi));
+    exports.Set("windowssys_windows_win32_devices_enumeration_pnp_swDeviceSetLifetime", Napi::Function::New(env, windowssys_windows_win32_devices_enumeration_pnp_swDeviceSetLifetime_napi));
+    exports.Set("windowssys_windows_win32_devices_enumeration_pnp_swMemFree", Napi::Function::New(env, windowssys_windows_win32_devices_enumeration_pnp_swMemFree_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_devices_enumeration_pnp_napi, nullptr };

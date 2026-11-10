@@ -1,1034 +1,1035 @@
 package io.github.kotlinmania.windowssys.windows.wdk.system.systemservices
 
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.PAFFINITY_TOKEN
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.PEJOB
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.PEPROCESS
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.PESILO
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.PETHREAD
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.PKDEFERRED_ROUTINE
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.PKINTERRUPT
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.PKTHREAD
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.POBJECT_TYPE
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.POHANDLE
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.POOL_TYPE
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.PPCW_BUFFER
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.PPCW_INSTANCE
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.PPCW_REGISTRATION
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.PSILO_MONITOR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
-import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
-import io.github.kotlinmania.windowssys.windows.win32.system.kernel.TIMER_TYPE
-import io.github.kotlinmania.windowssys.windows.win32.system.kernel.WAIT_TYPE
-import io.github.kotlinmania.windowssys.windows.win32.system.power.DEVICE_POWER_STATE
-import io.github.kotlinmania.windowssys.windows.win32.system.power.POWER_INFORMATION_LEVEL
-import io.github.kotlinmania.windowssys.windows.win32.system.power.POWER_REQUEST_TYPE
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.LOGICAL_PROCESSOR_RELATIONSHIP
-import io.github.kotlinmania.windowssys.windows.win32.system.systemservices.ENLISTMENT_INFORMATION_CLASS
-import io.github.kotlinmania.windowssys.windows.win32.system.systemservices.KTMOBJECT_TYPE
-import io.github.kotlinmania.windowssys.windows.win32.system.systemservices.RESOURCEMANAGER_INFORMATION_CLASS
-import io.github.kotlinmania.windowssys.windows.win32.system.systemservices.TRANSACTIONMANAGER_INFORMATION_CLASS
-import io.github.kotlinmania.windowssys.windows.win32.system.systemservices.TRANSACTION_INFORMATION_CLASS
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PaffinityToken
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.Pejob
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.Peprocess
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.Pesilo
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.Pethread
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PkdeferredRoutine
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.Pkinterrupt
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.Pkthread
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PobjectType
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.Pohandle
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PoolType
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PpcwBuffer
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PpcwInstance
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PpcwRegistration
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PsiloMonitor
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
+import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.TimerType
+import io.github.kotlinmania.windowssys.windows.win32.system.kernel.WaitType
+import io.github.kotlinmania.windowssys.windows.win32.system.power.DevicePowerState
+import io.github.kotlinmania.windowssys.windows.win32.system.power.PowerInformationLevel
+import io.github.kotlinmania.windowssys.windows.win32.system.power.PowerRequestType
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.LogicalProcessorRelationship
+import io.github.kotlinmania.windowssys.windows.win32.system.systemservices.EnlistmentInformationClass
+import io.github.kotlinmania.windowssys.windows.win32.system.systemservices.KtmobjectType
+import io.github.kotlinmania.windowssys.windows.win32.system.systemservices.ResourcemanagerInformationClass
+import io.github.kotlinmania.windowssys.windows.win32.system.systemservices.TransactionInformationClass
+import io.github.kotlinmania.windowssys.windows.win32.system.systemservices.TransactionmanagerInformationClass
 
-public expect fun KeInitializeMutex(mutex: Long, level: UInt)
+public expect fun keInitializeMutex(mutex: COpaquePointer?, level: UInt)
 
-public expect fun KeInitializeSemaphore(semaphore: Long, count: Int, limit: Int)
+public expect fun keInitializeSemaphore(semaphore: COpaquePointer?, count: Int, limit: Int)
 
-public expect fun KeInitializeSpinLock(spinlock: Long)
+public expect fun keInitializeSpinLock(spinlock: COpaquePointer?)
 
-public expect fun KeInitializeThreadedDpc(dpc: Long, deferredroutine: PKDEFERRED_ROUTINE, deferredcontext: Long)
+public expect fun keInitializeThreadedDpc(dpc: COpaquePointer?, deferredroutine: PkdeferredRoutine, deferredcontext: COpaquePointer?)
 
-public expect fun KeInitializeTimer(timer: Long)
+public expect fun keInitializeTimer(timer: COpaquePointer?)
 
-public expect fun KeInitializeTimerEx(timer: Long, type: TIMER_TYPE)
+public expect fun keInitializeTimerEx(timer: COpaquePointer?, type: TimerType)
 
-public expect fun KeInitializeTriageDumpDataArray(ktriagedumpdataarray: Long, size: UInt): NTSTATUS
+public expect fun keInitializeTriageDumpDataArray(ktriagedumpdataarray: COpaquePointer?, size: UInt): Ntstatus
 
-public expect fun KeInsertByKeyDeviceQueue(devicequeue: Long, devicequeueentry: Long, sortkey: UInt): Boolean
+public expect fun keInsertByKeyDeviceQueue(devicequeue: COpaquePointer?, devicequeueentry: COpaquePointer?, sortkey: UInt): Boolean
 
-public expect fun KeInsertDeviceQueue(devicequeue: Long, devicequeueentry: Long): Boolean
+public expect fun keInsertDeviceQueue(devicequeue: COpaquePointer?, devicequeueentry: COpaquePointer?): Boolean
 
-public expect fun KeInsertQueueDpc(dpc: Long, systemargument1: Long, systemargument2: Long): Boolean
+public expect fun keInsertQueueDpc(dpc: COpaquePointer?, systemargument1: COpaquePointer?, systemargument2: COpaquePointer?): Boolean
 
-public expect fun KeInvalidateAllCaches(): Boolean
+public expect fun keInvalidateAllCaches(): Boolean
 
-public expect fun KeInvalidateRangeAllCaches(baseaddress: Long, length: UInt)
+public expect fun keInvalidateRangeAllCaches(baseaddress: COpaquePointer?, length: UInt)
 
-public expect fun KeIpiGenericCall(broadcastfunction: PKIPI_BROADCAST_WORKER, context: ULong): ULong
+public expect fun keIpiGenericCall(broadcastfunction: PkipiBroadcastWorker, context: ULong): ULong
 
-public expect fun KeIsExecutingDpc(): UInt
+public expect fun keIsExecutingDpc(): UInt
 
-public expect fun KeLeaveCriticalRegion()
+public expect fun keLeaveCriticalRegion()
 
-public expect fun KeLeaveGuardedRegion()
+public expect fun keLeaveGuardedRegion()
 
-public expect fun KePulseEvent(event: Long, increment: Int, wait: Boolean): Int
+public expect fun kePulseEvent(event: COpaquePointer?, increment: Int, wait: Boolean): Int
 
-public expect fun KeQueryActiveGroupCount(): UShort
+public expect fun keQueryActiveGroupCount(): UShort
 
-public expect fun KeQueryActiveProcessorCount(activeprocessors: Long): UInt
+public expect fun keQueryActiveProcessorCount(activeprocessors: COpaquePointer?): UInt
 
-public expect fun KeQueryActiveProcessorCountEx(groupnumber: UShort): UInt
+public expect fun keQueryActiveProcessorCountEx(groupnumber: UShort): UInt
 
-public expect fun KeQueryActiveProcessors(): ULong
+public expect fun keQueryActiveProcessors(): ULong
 
-public expect fun KeQueryAuxiliaryCounterFrequency(auxiliarycounterfrequency: Long): NTSTATUS
+public expect fun keQueryAuxiliaryCounterFrequency(auxiliarycounterfrequency: COpaquePointer?): Ntstatus
 
-public expect fun KeQueryDpcWatchdogInformation(watchdoginformation: Long): NTSTATUS
+public expect fun keQueryDpcWatchdogInformation(watchdoginformation: COpaquePointer?): Ntstatus
 
-public expect fun KeQueryGroupAffinity(groupnumber: UShort): ULong
+public expect fun keQueryGroupAffinity(groupnumber: UShort): ULong
 
-public expect fun KeQueryHardwareCounterConfiguration(counterarray: Long, maximumcount: UInt, count: Long): NTSTATUS
+public expect fun keQueryHardwareCounterConfiguration(counterarray: COpaquePointer?, maximumcount: UInt, count: COpaquePointer?): Ntstatus
 
-public expect fun KeQueryHighestNodeNumber(): UShort
+public expect fun keQueryHighestNodeNumber(): UShort
 
-public expect fun KeQueryInterruptTimePrecise(qpctimestamp: Long): ULong
+public expect fun keQueryInterruptTimePrecise(qpctimestamp: COpaquePointer?): ULong
 
-public expect fun KeQueryLogicalProcessorRelationship(processornumber: Long, relationshiptype: LOGICAL_PROCESSOR_RELATIONSHIP, information: Long, length: Long): NTSTATUS
+public expect fun keQueryLogicalProcessorRelationship(processornumber: COpaquePointer?, relationshiptype: LogicalProcessorRelationship, information: COpaquePointer?, length: COpaquePointer?): Ntstatus
 
-public expect fun KeQueryMaximumGroupCount(): UShort
+public expect fun keQueryMaximumGroupCount(): UShort
 
-public expect fun KeQueryMaximumProcessorCount(): UInt
+public expect fun keQueryMaximumProcessorCount(): UInt
 
-public expect fun KeQueryMaximumProcessorCountEx(groupnumber: UShort): UInt
+public expect fun keQueryMaximumProcessorCountEx(groupnumber: UShort): UInt
 
-public expect fun KeQueryNodeActiveAffinity(nodenumber: UShort, affinity: Long, count: Long)
+public expect fun keQueryNodeActiveAffinity(nodenumber: UShort, affinity: COpaquePointer?, count: COpaquePointer?)
 
-public expect fun KeQueryNodeActiveAffinity2(nodenumber: UShort, groupaffinities: Long, groupaffinitiescount: UShort, groupaffinitiesrequired: Long): NTSTATUS
+public expect fun keQueryNodeActiveAffinity2(nodenumber: UShort, groupaffinities: COpaquePointer?, groupaffinitiescount: UShort, groupaffinitiesrequired: COpaquePointer?): Ntstatus
 
-public expect fun KeQueryNodeActiveProcessorCount(nodenumber: UShort): UInt
+public expect fun keQueryNodeActiveProcessorCount(nodenumber: UShort): UInt
 
-public expect fun KeQueryNodeMaximumProcessorCount(nodenumber: UShort): UShort
+public expect fun keQueryNodeMaximumProcessorCount(nodenumber: UShort): UShort
 
-public expect fun KeQueryPerformanceCounter(performancefrequency: Long): Long
+public expect fun keQueryPerformanceCounter(performancefrequency: COpaquePointer?): Long
 
-public expect fun KeQueryPriorityThread(thread: PKTHREAD): Int
+public expect fun keQueryPriorityThread(thread: Pkthread): Int
 
-public expect fun KeQueryRuntimeThread(thread: PKTHREAD, usertime: Long): UInt
+public expect fun keQueryRuntimeThread(thread: Pkthread, usertime: COpaquePointer?): UInt
 
-public expect fun KeQuerySystemTimePrecise(currenttime: Long)
+public expect fun keQuerySystemTimePrecise(currenttime: COpaquePointer?)
 
-public expect fun KeQueryTimeIncrement(): UInt
+public expect fun keQueryTimeIncrement(): UInt
 
-public expect fun KeQueryTotalCycleTimeThread(thread: PKTHREAD, cycletimestamp: Long): ULong
+public expect fun keQueryTotalCycleTimeThread(thread: Pkthread, cycletimestamp: COpaquePointer?): ULong
 
-public expect fun KeQueryUnbiasedInterruptTime(): ULong
+public expect fun keQueryUnbiasedInterruptTime(): ULong
 
-public expect fun KeQueryUnbiasedInterruptTimePrecise(qpctimestamp: Long): ULong
+public expect fun keQueryUnbiasedInterruptTimePrecise(qpctimestamp: COpaquePointer?): ULong
 
-public expect fun KeReadStateEvent(event: Long): Int
+public expect fun keReadStateEvent(event: COpaquePointer?): Int
 
-public expect fun KeReadStateMutex(mutex: Long): Int
+public expect fun keReadStateMutex(mutex: COpaquePointer?): Int
 
-public expect fun KeReadStateSemaphore(semaphore: Long): Int
+public expect fun keReadStateSemaphore(semaphore: COpaquePointer?): Int
 
-public expect fun KeReadStateTimer(timer: Long): Boolean
+public expect fun keReadStateTimer(timer: COpaquePointer?): Boolean
 
-public expect fun KeRegisterBoundCallback(callbackroutine: PBOUND_CALLBACK): Long
+public expect fun keRegisterBoundCallback(callbackroutine: PboundCallback): COpaquePointer?
 
-public expect fun KeRegisterBugCheckCallback(callbackrecord: Long, callbackroutine: PKBUGCHECK_CALLBACK_ROUTINE, buffer: Long, length: UInt, component: Long): Boolean
+public expect fun keRegisterBugCheckCallback(callbackrecord: COpaquePointer?, callbackroutine: PkbugcheckCallbackRoutine, buffer: COpaquePointer?, length: UInt, component: COpaquePointer?): Boolean
 
-public expect fun KeRegisterBugCheckReasonCallback(callbackrecord: Long, callbackroutine: PKBUGCHECK_REASON_CALLBACK_ROUTINE, reason: KBUGCHECK_CALLBACK_REASON, component: Long): Boolean
+public expect fun keRegisterBugCheckReasonCallback(callbackrecord: COpaquePointer?, callbackroutine: PkbugcheckReasonCallbackRoutine, reason: KbugcheckCallbackReason, component: COpaquePointer?): Boolean
 
-public expect fun KeRegisterNmiCallback(callbackroutine: PNMI_CALLBACK, context: Long): Long
+public expect fun keRegisterNmiCallback(callbackroutine: PnmiCallback, context: COpaquePointer?): COpaquePointer?
 
-public expect fun KeRegisterProcessorChangeCallback(callbackfunction: PPROCESSOR_CALLBACK_FUNCTION, callbackcontext: Long, flags: UInt): Long
+public expect fun keRegisterProcessorChangeCallback(callbackfunction: PprocessorCallbackFunction, callbackcontext: COpaquePointer?, flags: UInt): COpaquePointer?
 
-public expect fun KeReleaseGuardedMutex(mutex: Long)
+public expect fun keReleaseGuardedMutex(mutex: COpaquePointer?)
 
-public expect fun KeReleaseGuardedMutexUnsafe(fastmutex: Long)
+public expect fun keReleaseGuardedMutexUnsafe(fastmutex: COpaquePointer?)
 
-public expect fun KeReleaseInStackQueuedSpinLock(lockhandle: Long)
+public expect fun keReleaseInStackQueuedSpinLock(lockhandle: COpaquePointer?)
 
-public expect fun KeReleaseInStackQueuedSpinLockForDpc(lockhandle: Long)
+public expect fun keReleaseInStackQueuedSpinLockForDpc(lockhandle: COpaquePointer?)
 
-public expect fun KeReleaseInStackQueuedSpinLockFromDpcLevel(lockhandle: Long)
+public expect fun keReleaseInStackQueuedSpinLockFromDpcLevel(lockhandle: COpaquePointer?)
 
-public expect fun KeReleaseInterruptSpinLock(interrupt: PKINTERRUPT, oldirql: UByte)
+public expect fun keReleaseInterruptSpinLock(interrupt: Pkinterrupt, oldirql: UByte)
 
-public expect fun KeReleaseMutex(mutex: Long, wait: Boolean): Int
+public expect fun keReleaseMutex(mutex: COpaquePointer?, wait: Boolean): Int
 
-public expect fun KeReleaseSemaphore(semaphore: Long, increment: Int, adjustment: Int, wait: Boolean): Int
+public expect fun keReleaseSemaphore(semaphore: COpaquePointer?, increment: Int, adjustment: Int, wait: Boolean): Int
 
-public expect fun KeReleaseSpinLockForDpc(spinlock: Long, oldirql: UByte)
+public expect fun keReleaseSpinLockForDpc(spinlock: COpaquePointer?, oldirql: UByte)
 
-public expect fun KeRemoveByKeyDeviceQueue(devicequeue: Long, sortkey: UInt): Long
+public expect fun keRemoveByKeyDeviceQueue(devicequeue: COpaquePointer?, sortkey: UInt): COpaquePointer?
 
-public expect fun KeRemoveByKeyDeviceQueueIfBusy(devicequeue: Long, sortkey: UInt): Long
+public expect fun keRemoveByKeyDeviceQueueIfBusy(devicequeue: COpaquePointer?, sortkey: UInt): COpaquePointer?
 
-public expect fun KeRemoveDeviceQueue(devicequeue: Long): Long
+public expect fun keRemoveDeviceQueue(devicequeue: COpaquePointer?): COpaquePointer?
 
-public expect fun KeRemoveEntryDeviceQueue(devicequeue: Long, devicequeueentry: Long): Boolean
+public expect fun keRemoveEntryDeviceQueue(devicequeue: COpaquePointer?, devicequeueentry: COpaquePointer?): Boolean
 
-public expect fun KeRemoveQueueDpc(dpc: Long): Boolean
+public expect fun keRemoveQueueDpc(dpc: COpaquePointer?): Boolean
 
-public expect fun KeRemoveQueueDpcEx(dpc: Long, waitifactive: Boolean): Boolean
+public expect fun keRemoveQueueDpcEx(dpc: COpaquePointer?, waitifactive: Boolean): Boolean
 
-public expect fun KeResetEvent(event: Long): Int
+public expect fun keResetEvent(event: COpaquePointer?): Int
 
-public expect fun KeRestoreExtendedProcessorState(xstatesave: Long)
+public expect fun keRestoreExtendedProcessorState(xstatesave: COpaquePointer?)
 
-public expect fun KeRevertToUserAffinityThread()
+public expect fun keRevertToUserAffinityThread()
 
-public expect fun KeRevertToUserAffinityThreadEx(affinity: ULong)
+public expect fun keRevertToUserAffinityThreadEx(affinity: ULong)
 
-public expect fun KeRevertToUserGroupAffinityThread(previousaffinity: Long)
+public expect fun keRevertToUserGroupAffinityThread(previousaffinity: COpaquePointer?)
 
-public expect fun KeSaveExtendedProcessorState(mask: ULong, xstatesave: Long): NTSTATUS
+public expect fun keSaveExtendedProcessorState(mask: ULong, xstatesave: COpaquePointer?): Ntstatus
 
-public expect fun KeSetBasePriorityThread(thread: PKTHREAD, increment: Int): Int
+public expect fun keSetBasePriorityThread(thread: Pkthread, increment: Int): Int
 
-public expect fun KeSetCoalescableTimer(timer: Long, duetime: Long, period: UInt, tolerabledelay: UInt, dpc: Long): Boolean
+public expect fun keSetCoalescableTimer(timer: COpaquePointer?, duetime: Long, period: UInt, tolerabledelay: UInt, dpc: COpaquePointer?): Boolean
 
-public expect fun KeSetEvent(event: Long, increment: Int, wait: Boolean): Int
+public expect fun keSetEvent(event: COpaquePointer?, increment: Int, wait: Boolean): Int
 
-public expect fun KeSetHardwareCounterConfiguration(counterarray: Long, count: UInt): NTSTATUS
+public expect fun keSetHardwareCounterConfiguration(counterarray: COpaquePointer?, count: UInt): Ntstatus
 
-public expect fun KeSetImportanceDpc(dpc: Long, importance: KDPC_IMPORTANCE)
+public expect fun keSetImportanceDpc(dpc: COpaquePointer?, importance: KdpcImportance)
 
-public expect fun KeSetPriorityThread(thread: PKTHREAD, priority: Int): Int
+public expect fun keSetPriorityThread(thread: Pkthread, priority: Int): Int
 
-public expect fun KeSetSystemAffinityThread(affinity: ULong)
+public expect fun keSetSystemAffinityThread(affinity: ULong)
 
-public expect fun KeSetSystemAffinityThreadEx(affinity: ULong): ULong
+public expect fun keSetSystemAffinityThreadEx(affinity: ULong): ULong
 
-public expect fun KeSetSystemGroupAffinityThread(affinity: Long, previousaffinity: Long)
+public expect fun keSetSystemGroupAffinityThread(affinity: COpaquePointer?, previousaffinity: COpaquePointer?)
 
-public expect fun KeSetTargetProcessorDpc(dpc: Long, number: Byte)
+public expect fun keSetTargetProcessorDpc(dpc: COpaquePointer?, number: Byte)
 
-public expect fun KeSetTargetProcessorDpcEx(dpc: Long, procnumber: Long): NTSTATUS
+public expect fun keSetTargetProcessorDpcEx(dpc: COpaquePointer?, procnumber: COpaquePointer?): Ntstatus
 
-public expect fun KeSetTimer(timer: Long, duetime: Long, dpc: Long): Boolean
+public expect fun keSetTimer(timer: COpaquePointer?, duetime: Long, dpc: COpaquePointer?): Boolean
 
-public expect fun KeSetTimerEx(timer: Long, duetime: Long, period: Int, dpc: Long): Boolean
+public expect fun keSetTimerEx(timer: COpaquePointer?, duetime: Long, period: Int, dpc: COpaquePointer?): Boolean
 
-public expect fun KeShouldYieldProcessor(): UInt
+public expect fun keShouldYieldProcessor(): UInt
 
-public expect fun KeStallExecutionProcessor(microseconds: UInt)
+public expect fun keStallExecutionProcessor(microseconds: UInt)
 
-public expect fun KeSynchronizeExecution(interrupt: PKINTERRUPT, synchronizeroutine: PKSYNCHRONIZE_ROUTINE, synchronizecontext: Long): Boolean
+public expect fun keSynchronizeExecution(interrupt: Pkinterrupt, synchronizeroutine: PksynchronizeRoutine, synchronizecontext: COpaquePointer?): Boolean
 
-public expect fun KeTestSpinLock(spinlock: Long): Boolean
+public expect fun keTestSpinLock(spinlock: COpaquePointer?): Boolean
 
-public expect fun KeTryToAcquireGuardedMutex(mutex: Long): Boolean
+public expect fun keTryToAcquireGuardedMutex(mutex: COpaquePointer?): Boolean
 
-public expect fun KeTryToAcquireSpinLockAtDpcLevel(spinlock: Long): Boolean
+public expect fun keTryToAcquireSpinLockAtDpcLevel(spinlock: COpaquePointer?): Boolean
 
-public expect fun KeWaitForMultipleObjects(count: UInt, obj: Long, waittype: WAIT_TYPE, waitreason: KWAIT_REASON, waitmode: Byte, alertable: Boolean, timeout: Long, waitblockarray: Long): NTSTATUS
+public expect fun keWaitForMultipleObjects(count: UInt, obj: COpaquePointer?, waittype: WaitType, waitreason: KwaitReason, waitmode: Byte, alertable: Boolean, timeout: COpaquePointer?, waitblockarray: COpaquePointer?): Ntstatus
 
-public expect fun KeWaitForSingleObject(obj: Long, waitreason: KWAIT_REASON, waitmode: Byte, alertable: Boolean, timeout: Long): NTSTATUS
+public expect fun keWaitForSingleObject(obj: COpaquePointer?, waitreason: KwaitReason, waitmode: Byte, alertable: Boolean, timeout: COpaquePointer?): Ntstatus
 
-public expect fun KfRaiseIrql(newirql: UByte): UByte
+public expect fun kfRaiseIrql(newirql: UByte): UByte
 
-public expect fun MmAddPhysicalMemory(startaddress: Long, numberofbytes: Long): NTSTATUS
+public expect fun mmAddPhysicalMemory(startaddress: COpaquePointer?, numberofbytes: COpaquePointer?): Ntstatus
 
-public expect fun MmAddVerifierSpecialThunks(entryroutine: ULong, thunkbuffer: Long, thunkbuffersize: UInt): NTSTATUS
+public expect fun mmAddVerifierSpecialThunks(entryroutine: ULong, thunkbuffer: COpaquePointer?, thunkbuffersize: UInt): Ntstatus
 
-public expect fun MmAddVerifierThunks(thunkbuffer: Long, thunkbuffersize: UInt): NTSTATUS
+public expect fun mmAddVerifierThunks(thunkbuffer: COpaquePointer?, thunkbuffersize: UInt): Ntstatus
 
-public expect fun MmAdvanceMdl(mdl: Long, numberofbytes: UInt): NTSTATUS
+public expect fun mmAdvanceMdl(mdl: COpaquePointer?, numberofbytes: UInt): Ntstatus
 
-public expect fun MmAllocateContiguousMemory(numberofbytes: ULong, highestacceptableaddress: Long): Long
+public expect fun mmAllocateContiguousMemory(numberofbytes: ULong, highestacceptableaddress: Long): COpaquePointer?
 
-public expect fun MmAllocateContiguousMemoryEx(numberofbytes: Long, lowestacceptableaddress: Long, highestacceptableaddress: Long, boundaryaddressmultiple: Long, preferrednode: UInt, protect: UInt, partitionobject: Long, tag: UInt, flags: UInt, baseaddress: Long): NTSTATUS
+public expect fun mmAllocateContiguousMemoryEx(numberofbytes: COpaquePointer?, lowestacceptableaddress: Long, highestacceptableaddress: Long, boundaryaddressmultiple: Long, preferrednode: UInt, protect: UInt, partitionobject: COpaquePointer?, tag: UInt, flags: UInt, baseaddress: COpaquePointer?): Ntstatus
 
-public expect fun MmAllocateContiguousMemorySpecifyCache(numberofbytes: ULong, lowestacceptableaddress: Long, highestacceptableaddress: Long, boundaryaddressmultiple: Long, cachetype: MEMORY_CACHING_TYPE): Long
+public expect fun mmAllocateContiguousMemorySpecifyCache(numberofbytes: ULong, lowestacceptableaddress: Long, highestacceptableaddress: Long, boundaryaddressmultiple: Long, cachetype: MemoryCachingType): COpaquePointer?
 
-public expect fun MmAllocateContiguousMemorySpecifyCacheNode(numberofbytes: ULong, lowestacceptableaddress: Long, highestacceptableaddress: Long, boundaryaddressmultiple: Long, cachetype: MEMORY_CACHING_TYPE, preferrednode: UInt): Long
+public expect fun mmAllocateContiguousMemorySpecifyCacheNode(numberofbytes: ULong, lowestacceptableaddress: Long, highestacceptableaddress: Long, boundaryaddressmultiple: Long, cachetype: MemoryCachingType, preferrednode: UInt): COpaquePointer?
 
-public expect fun MmAllocateContiguousNodeMemory(numberofbytes: ULong, lowestacceptableaddress: Long, highestacceptableaddress: Long, boundaryaddressmultiple: Long, protect: UInt, preferrednode: UInt): Long
+public expect fun mmAllocateContiguousNodeMemory(numberofbytes: ULong, lowestacceptableaddress: Long, highestacceptableaddress: Long, boundaryaddressmultiple: Long, protect: UInt, preferrednode: UInt): COpaquePointer?
 
-public expect fun MmAllocateMappingAddress(numberofbytes: ULong, pooltag: UInt): Long
+public expect fun mmAllocateMappingAddress(numberofbytes: ULong, pooltag: UInt): COpaquePointer?
 
-public expect fun MmAllocateMappingAddressEx(numberofbytes: ULong, pooltag: UInt, flags: UInt): Long
+public expect fun mmAllocateMappingAddressEx(numberofbytes: ULong, pooltag: UInt, flags: UInt): COpaquePointer?
 
-public expect fun MmAllocateMdlForIoSpace(physicaladdresslist: Long, numberofentries: ULong, newmdl: Long): NTSTATUS
+public expect fun mmAllocateMdlForIoSpace(physicaladdresslist: COpaquePointer?, numberofentries: ULong, newmdl: COpaquePointer?): Ntstatus
 
-public expect fun MmAllocateNodePagesForMdlEx(lowaddress: Long, highaddress: Long, skipbytes: Long, totalbytes: ULong, cachetype: MEMORY_CACHING_TYPE, idealnode: UInt, flags: UInt): Long
+public expect fun mmAllocateNodePagesForMdlEx(lowaddress: Long, highaddress: Long, skipbytes: Long, totalbytes: ULong, cachetype: MemoryCachingType, idealnode: UInt, flags: UInt): COpaquePointer?
 
-public expect fun MmAllocateNonCachedMemory(numberofbytes: ULong): Long
+public expect fun mmAllocateNonCachedMemory(numberofbytes: ULong): COpaquePointer?
 
-public expect fun MmAllocatePagesForMdl(lowaddress: Long, highaddress: Long, skipbytes: Long, totalbytes: ULong): Long
+public expect fun mmAllocatePagesForMdl(lowaddress: Long, highaddress: Long, skipbytes: Long, totalbytes: ULong): COpaquePointer?
 
-public expect fun MmAllocatePagesForMdlEx(lowaddress: Long, highaddress: Long, skipbytes: Long, totalbytes: ULong, cachetype: MEMORY_CACHING_TYPE, flags: UInt): Long
+public expect fun mmAllocatePagesForMdlEx(lowaddress: Long, highaddress: Long, skipbytes: Long, totalbytes: ULong, cachetype: MemoryCachingType, flags: UInt): COpaquePointer?
 
-public expect fun MmAllocatePartitionNodePagesForMdlEx(lowaddress: Long, highaddress: Long, skipbytes: Long, totalbytes: ULong, cachetype: MEMORY_CACHING_TYPE, idealnode: UInt, flags: UInt, partitionobject: Long): Long
+public expect fun mmAllocatePartitionNodePagesForMdlEx(lowaddress: Long, highaddress: Long, skipbytes: Long, totalbytes: ULong, cachetype: MemoryCachingType, idealnode: UInt, flags: UInt, partitionobject: COpaquePointer?): COpaquePointer?
 
-public expect fun MmAreMdlPagesCached(memorydescriptorlist: Long): UInt
+public expect fun mmAreMdlPagesCached(memorydescriptorlist: COpaquePointer?): UInt
 
-public expect fun MmBuildMdlForNonPagedPool(memorydescriptorlist: Long)
+public expect fun mmBuildMdlForNonPagedPool(memorydescriptorlist: COpaquePointer?)
 
-public expect fun MmCopyMemory(targetaddress: Long, sourceaddress: MM_COPY_ADDRESS, numberofbytes: ULong, flags: UInt, numberofbytestransferred: Long): NTSTATUS
+public expect fun mmCopyMemory(targetaddress: COpaquePointer?, sourceaddress: MmCopyAddress, numberofbytes: ULong, flags: UInt, numberofbytestransferred: COpaquePointer?): Ntstatus
 
-public expect fun MmCreateMdl(memorydescriptorlist: Long, base: Long, length: ULong): Long
+public expect fun mmCreateMdl(memorydescriptorlist: COpaquePointer?, base: COpaquePointer?, length: ULong): COpaquePointer?
 
-public expect fun MmCreateMirror(): NTSTATUS
+public expect fun mmCreateMirror(): Ntstatus
 
-public expect fun MmFreeContiguousMemory(baseaddress: Long)
+public expect fun mmFreeContiguousMemory(baseaddress: COpaquePointer?)
 
-public expect fun MmFreeContiguousMemorySpecifyCache(baseaddress: Long, numberofbytes: ULong, cachetype: MEMORY_CACHING_TYPE)
+public expect fun mmFreeContiguousMemorySpecifyCache(baseaddress: COpaquePointer?, numberofbytes: ULong, cachetype: MemoryCachingType)
 
-public expect fun MmFreeMappingAddress(baseaddress: Long, pooltag: UInt)
+public expect fun mmFreeMappingAddress(baseaddress: COpaquePointer?, pooltag: UInt)
 
-public expect fun MmFreeNonCachedMemory(baseaddress: Long, numberofbytes: ULong)
+public expect fun mmFreeNonCachedMemory(baseaddress: COpaquePointer?, numberofbytes: ULong)
 
-public expect fun MmFreePagesFromMdl(memorydescriptorlist: Long)
+public expect fun mmFreePagesFromMdl(memorydescriptorlist: COpaquePointer?)
 
-public expect fun MmFreePagesFromMdlEx(memorydescriptorlist: Long, flags: UInt)
+public expect fun mmFreePagesFromMdlEx(memorydescriptorlist: COpaquePointer?, flags: UInt)
 
-public expect fun MmGetCacheAttribute(physicaladdress: Long, cachetype: Long): NTSTATUS
+public expect fun mmGetCacheAttribute(physicaladdress: Long, cachetype: COpaquePointer?): Ntstatus
 
-public expect fun MmGetCacheAttributeEx(physicaladdress: Long, flags: UInt, cachetype: Long): NTSTATUS
+public expect fun mmGetCacheAttributeEx(physicaladdress: Long, flags: UInt, cachetype: COpaquePointer?): Ntstatus
 
-public expect fun MmGetPhysicalAddress(baseaddress: Long): Long
+public expect fun mmGetPhysicalAddress(baseaddress: COpaquePointer?): Long
 
-public expect fun MmGetPhysicalMemoryRanges(): Long
+public expect fun mmGetPhysicalMemoryRanges(): COpaquePointer?
 
-public expect fun MmGetPhysicalMemoryRangesEx(partitionobject: Long): Long
+public expect fun mmGetPhysicalMemoryRangesEx(partitionobject: COpaquePointer?): COpaquePointer?
 
-public expect fun MmGetPhysicalMemoryRangesEx2(partitionobject: Long, flags: UInt): Long
+public expect fun mmGetPhysicalMemoryRangesEx2(partitionobject: COpaquePointer?, flags: UInt): COpaquePointer?
 
-public expect fun MmGetSystemRoutineAddress(systemroutinename: Long): Long
+public expect fun mmGetSystemRoutineAddress(systemroutinename: COpaquePointer?): COpaquePointer?
 
-public expect fun MmGetVirtualForPhysical(physicaladdress: Long): Long
+public expect fun mmGetVirtualForPhysical(physicaladdress: Long): COpaquePointer?
 
-public expect fun MmIsAddressValid(virtualaddress: Long): Boolean
+public expect fun mmIsAddressValid(virtualaddress: COpaquePointer?): Boolean
 
-public expect fun MmIsDriverSuspectForVerifier(driverobject: Long): UInt
+public expect fun mmIsDriverSuspectForVerifier(driverobject: COpaquePointer?): UInt
 
-public expect fun MmIsDriverVerifying(driverobject: Long): UInt
+public expect fun mmIsDriverVerifying(driverobject: COpaquePointer?): UInt
 
-public expect fun MmIsDriverVerifyingByAddress(addresswithinsection: Long): UInt
+public expect fun mmIsDriverVerifyingByAddress(addresswithinsection: COpaquePointer?): UInt
 
-public expect fun MmIsIoSpaceActive(startaddress: Long, numberofbytes: ULong): UInt
+public expect fun mmIsIoSpaceActive(startaddress: Long, numberofbytes: ULong): UInt
 
-public expect fun MmIsNonPagedSystemAddressValid(virtualaddress: Long): Boolean
+public expect fun mmIsNonPagedSystemAddressValid(virtualaddress: COpaquePointer?): Boolean
 
-public expect fun MmIsThisAnNtAsSystem(): Boolean
+public expect fun mmIsThisAnNtAsSystem(): Boolean
 
-public expect fun MmIsVerifierEnabled(verifierflags: Long): NTSTATUS
+public expect fun mmIsVerifierEnabled(verifierflags: COpaquePointer?): Ntstatus
 
-public expect fun MmLockPagableDataSection(addresswithinsection: Long): Long
+public expect fun mmLockPagableDataSection(addresswithinsection: COpaquePointer?): COpaquePointer?
 
-public expect fun MmLockPagableSectionByHandle(imagesectionhandle: Long)
+public expect fun mmLockPagableSectionByHandle(imagesectionhandle: COpaquePointer?)
 
-public expect fun MmMapIoSpace(physicaladdress: Long, numberofbytes: ULong, cachetype: MEMORY_CACHING_TYPE): Long
+public expect fun mmMapIoSpace(physicaladdress: Long, numberofbytes: ULong, cachetype: MemoryCachingType): COpaquePointer?
 
-public expect fun MmMapIoSpaceEx(physicaladdress: Long, numberofbytes: ULong, protect: UInt): Long
+public expect fun mmMapIoSpaceEx(physicaladdress: Long, numberofbytes: ULong, protect: UInt): COpaquePointer?
 
-public expect fun MmMapLockedPages(memorydescriptorlist: Long, accessmode: Byte): Long
+public expect fun mmMapLockedPages(memorydescriptorlist: COpaquePointer?, accessmode: Byte): COpaquePointer?
 
-public expect fun MmMapLockedPagesSpecifyCache(memorydescriptorlist: Long, accessmode: Byte, cachetype: MEMORY_CACHING_TYPE, requestedaddress: Long, bugcheckonfailure: UInt, priority: UInt): Long
+public expect fun mmMapLockedPagesSpecifyCache(memorydescriptorlist: COpaquePointer?, accessmode: Byte, cachetype: MemoryCachingType, requestedaddress: COpaquePointer?, bugcheckonfailure: UInt, priority: UInt): COpaquePointer?
 
-public expect fun MmMapLockedPagesWithReservedMapping(mappingaddress: Long, pooltag: UInt, memorydescriptorlist: Long, cachetype: MEMORY_CACHING_TYPE): Long
+public expect fun mmMapLockedPagesWithReservedMapping(mappingaddress: COpaquePointer?, pooltag: UInt, memorydescriptorlist: COpaquePointer?, cachetype: MemoryCachingType): COpaquePointer?
 
-public expect fun MmMapMdl(memorydescriptorlist: Long, protection: UInt, driverroutine: PMM_MDL_ROUTINE, drivercontext: Long): NTSTATUS
+public expect fun mmMapMdl(memorydescriptorlist: COpaquePointer?, protection: UInt, driverroutine: PmmMdlRoutine, drivercontext: COpaquePointer?): Ntstatus
 
-public expect fun MmMapMemoryDumpMdlEx(va: Long, pagetotal: UInt, memorydumpmdl: Long, flags: UInt): NTSTATUS
+public expect fun mmMapMemoryDumpMdlEx(va: COpaquePointer?, pagetotal: UInt, memorydumpmdl: COpaquePointer?, flags: UInt): Ntstatus
 
-public expect fun MmMapUserAddressesToPage(baseaddress: Long, numberofbytes: ULong, pageaddress: Long): NTSTATUS
+public expect fun mmMapUserAddressesToPage(baseaddress: COpaquePointer?, numberofbytes: ULong, pageaddress: COpaquePointer?): Ntstatus
 
-public expect fun MmMapVideoDisplay(physicaladdress: Long, numberofbytes: ULong, cachetype: MEMORY_CACHING_TYPE): Long
+public expect fun mmMapVideoDisplay(physicaladdress: Long, numberofbytes: ULong, cachetype: MemoryCachingType): COpaquePointer?
 
-public expect fun MmMapViewInSessionSpace(section: Long, mappedbase: Long, viewsize: Long): NTSTATUS
+public expect fun mmMapViewInSessionSpace(section: COpaquePointer?, mappedbase: COpaquePointer?, viewsize: COpaquePointer?): Ntstatus
 
-public expect fun MmMapViewInSessionSpaceEx(section: Long, mappedbase: Long, viewsize: Long, sectionoffset: Long, flags: ULong): NTSTATUS
+public expect fun mmMapViewInSessionSpaceEx(section: COpaquePointer?, mappedbase: COpaquePointer?, viewsize: COpaquePointer?, sectionoffset: COpaquePointer?, flags: ULong): Ntstatus
 
-public expect fun MmMapViewInSystemSpace(section: Long, mappedbase: Long, viewsize: Long): NTSTATUS
+public expect fun mmMapViewInSystemSpace(section: COpaquePointer?, mappedbase: COpaquePointer?, viewsize: COpaquePointer?): Ntstatus
 
-public expect fun MmMapViewInSystemSpaceEx(section: Long, mappedbase: Long, viewsize: Long, sectionoffset: Long, flags: ULong): NTSTATUS
+public expect fun mmMapViewInSystemSpaceEx(section: COpaquePointer?, mappedbase: COpaquePointer?, viewsize: COpaquePointer?, sectionoffset: COpaquePointer?, flags: ULong): Ntstatus
 
-public expect fun MmMdlPageContentsState(memorydescriptorlist: Long, state: MM_MDL_PAGE_CONTENTS_STATE): MM_MDL_PAGE_CONTENTS_STATE
+public expect fun mmMdlPageContentsState(memorydescriptorlist: COpaquePointer?, state: MmMdlPageContentsState): MmMdlPageContentsState
 
-public expect fun MmPageEntireDriver(addresswithinsection: Long): Long
+public expect fun mmPageEntireDriver(addresswithinsection: COpaquePointer?): COpaquePointer?
 
-public expect fun MmProbeAndLockPages(memorydescriptorlist: Long, accessmode: Byte, operation: LOCK_OPERATION)
+public expect fun mmProbeAndLockPages(memorydescriptorlist: COpaquePointer?, accessmode: Byte, operation: LockOperation)
 
-public expect fun MmProbeAndLockProcessPages(memorydescriptorlist: Long, process: PEPROCESS, accessmode: Byte, operation: LOCK_OPERATION)
+public expect fun mmProbeAndLockProcessPages(memorydescriptorlist: COpaquePointer?, process: Peprocess, accessmode: Byte, operation: LockOperation)
 
-public expect fun MmProbeAndLockSelectedPages(memorydescriptorlist: Long, segmentarray: Long, accessmode: Byte, operation: LOCK_OPERATION)
+public expect fun mmProbeAndLockSelectedPages(memorydescriptorlist: COpaquePointer?, segmentarray: COpaquePointer?, accessmode: Byte, operation: LockOperation)
 
-public expect fun MmProtectDriverSection(addresswithinsection: Long, size: ULong, flags: UInt): NTSTATUS
+public expect fun mmProtectDriverSection(addresswithinsection: COpaquePointer?, size: ULong, flags: UInt): Ntstatus
 
-public expect fun MmProtectMdlSystemAddress(memorydescriptorlist: Long, newprotect: UInt): NTSTATUS
+public expect fun mmProtectMdlSystemAddress(memorydescriptorlist: COpaquePointer?, newprotect: UInt): Ntstatus
 
-public expect fun MmQuerySystemSize(): MM_SYSTEMSIZE
+public expect fun mmQuerySystemSize(): MmSystemsize
 
-public expect fun MmRemovePhysicalMemory(startaddress: Long, numberofbytes: Long): NTSTATUS
+public expect fun mmRemovePhysicalMemory(startaddress: COpaquePointer?, numberofbytes: COpaquePointer?): Ntstatus
 
-public expect fun MmResetDriverPaging(addresswithinsection: Long)
+public expect fun mmResetDriverPaging(addresswithinsection: COpaquePointer?)
 
-public expect fun MmRotatePhysicalView(virtualaddress: Long, numberofbytes: Long, newmdl: Long, direction: MM_ROTATE_DIRECTION, copyfunction: PMM_ROTATE_COPY_CALLBACK_FUNCTION, context: Long): NTSTATUS
+public expect fun mmRotatePhysicalView(virtualaddress: COpaquePointer?, numberofbytes: COpaquePointer?, newmdl: COpaquePointer?, direction: MmRotateDirection, copyfunction: PmmRotateCopyCallbackFunction, context: COpaquePointer?): Ntstatus
 
-public expect fun MmSecureVirtualMemory(address: Long, size: ULong, probemode: UInt): HANDLE
+public expect fun mmSecureVirtualMemory(address: COpaquePointer?, size: ULong, probemode: UInt): Handle
 
-public expect fun MmSecureVirtualMemoryEx(address: Long, size: ULong, probemode: UInt, flags: UInt): HANDLE
+public expect fun mmSecureVirtualMemoryEx(address: COpaquePointer?, size: ULong, probemode: UInt, flags: UInt): Handle
 
-public expect fun MmSetPermanentCacheAttribute(startaddress: Long, numberofbytes: Long, cachetype: MEMORY_CACHING_TYPE, flags: UInt): NTSTATUS
+public expect fun mmSetPermanentCacheAttribute(startaddress: Long, numberofbytes: Long, cachetype: MemoryCachingType, flags: UInt): Ntstatus
 
-public expect fun MmSizeOfMdl(base: Long, length: ULong): ULong
+public expect fun mmSizeOfMdl(base: COpaquePointer?, length: ULong): ULong
 
-public expect fun MmUnlockPagableImageSection(imagesectionhandle: Long)
+public expect fun mmUnlockPagableImageSection(imagesectionhandle: COpaquePointer?)
 
-public expect fun MmUnlockPages(memorydescriptorlist: Long)
+public expect fun mmUnlockPages(memorydescriptorlist: COpaquePointer?)
 
-public expect fun MmUnmapIoSpace(baseaddress: Long, numberofbytes: ULong)
+public expect fun mmUnmapIoSpace(baseaddress: COpaquePointer?, numberofbytes: ULong)
 
-public expect fun MmUnmapLockedPages(baseaddress: Long, memorydescriptorlist: Long)
+public expect fun mmUnmapLockedPages(baseaddress: COpaquePointer?, memorydescriptorlist: COpaquePointer?)
 
-public expect fun MmUnmapReservedMapping(baseaddress: Long, pooltag: UInt, memorydescriptorlist: Long)
+public expect fun mmUnmapReservedMapping(baseaddress: COpaquePointer?, pooltag: UInt, memorydescriptorlist: COpaquePointer?)
 
-public expect fun MmUnmapVideoDisplay(baseaddress: Long, numberofbytes: ULong)
+public expect fun mmUnmapVideoDisplay(baseaddress: COpaquePointer?, numberofbytes: ULong)
 
-public expect fun MmUnmapViewInSessionSpace(mappedbase: Long): NTSTATUS
+public expect fun mmUnmapViewInSessionSpace(mappedbase: COpaquePointer?): Ntstatus
 
-public expect fun MmUnmapViewInSystemSpace(mappedbase: Long): NTSTATUS
+public expect fun mmUnmapViewInSystemSpace(mappedbase: COpaquePointer?): Ntstatus
 
-public expect fun MmUnsecureVirtualMemory(securehandle: HANDLE)
+public expect fun mmUnsecureVirtualMemory(securehandle: Handle)
 
-public expect fun NtAllocateLocallyUniqueId(luid: Long): NTSTATUS
+public expect fun ntAllocateLocallyUniqueId(luid: COpaquePointer?): Ntstatus
 
-public expect fun NtCommitComplete(enlistmenthandle: HANDLE, tmvirtualclock: Long): NTSTATUS
+public expect fun ntCommitComplete(enlistmenthandle: Handle, tmvirtualclock: COpaquePointer?): Ntstatus
 
-public expect fun NtCommitEnlistment(enlistmenthandle: HANDLE, tmvirtualclock: Long): NTSTATUS
+public expect fun ntCommitEnlistment(enlistmenthandle: Handle, tmvirtualclock: COpaquePointer?): Ntstatus
 
-public expect fun NtCommitTransaction(transactionhandle: HANDLE, wait: Boolean): NTSTATUS
+public expect fun ntCommitTransaction(transactionhandle: Handle, wait: Boolean): Ntstatus
 
-public expect fun NtCreateEnlistment(enlistmenthandle: Long, desiredaccess: UInt, resourcemanagerhandle: HANDLE, transactionhandle: HANDLE, objectattributes: Long, createoptions: UInt, notificationmask: UInt, enlistmentkey: Long): NTSTATUS
+public expect fun ntCreateEnlistment(enlistmenthandle: COpaquePointer?, desiredaccess: UInt, resourcemanagerhandle: Handle, transactionhandle: Handle, objectattributes: COpaquePointer?, createoptions: UInt, notificationmask: UInt, enlistmentkey: COpaquePointer?): Ntstatus
 
-public expect fun NtCreateResourceManager(resourcemanagerhandle: Long, desiredaccess: UInt, tmhandle: HANDLE, rmguid: Long, objectattributes: Long, createoptions: UInt, description: Long): NTSTATUS
+public expect fun ntCreateResourceManager(resourcemanagerhandle: COpaquePointer?, desiredaccess: UInt, tmhandle: Handle, rmguid: COpaquePointer?, objectattributes: COpaquePointer?, createoptions: UInt, description: COpaquePointer?): Ntstatus
 
-public expect fun NtCreateTransaction(transactionhandle: Long, desiredaccess: UInt, objectattributes: Long, uow: Long, tmhandle: HANDLE, createoptions: UInt, isolationlevel: UInt, isolationflags: UInt, timeout: Long, description: Long): NTSTATUS
+public expect fun ntCreateTransaction(transactionhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, uow: COpaquePointer?, tmhandle: Handle, createoptions: UInt, isolationlevel: UInt, isolationflags: UInt, timeout: COpaquePointer?, description: COpaquePointer?): Ntstatus
 
-public expect fun NtCreateTransactionManager(tmhandle: Long, desiredaccess: UInt, objectattributes: Long, logfilename: Long, createoptions: UInt, commitstrength: UInt): NTSTATUS
+public expect fun ntCreateTransactionManager(tmhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, logfilename: COpaquePointer?, createoptions: UInt, commitstrength: UInt): Ntstatus
 
-public expect fun NtDisplayString(string: Long): NTSTATUS
+public expect fun ntDisplayString(string: COpaquePointer?): Ntstatus
 
-public expect fun NtEnumerateTransactionObject(rootobjecthandle: HANDLE, querytype: KTMOBJECT_TYPE, objectcursor: Long, objectcursorlength: UInt, returnlength: Long): NTSTATUS
+public expect fun ntEnumerateTransactionObject(rootobjecthandle: Handle, querytype: KtmobjectType, objectcursor: COpaquePointer?, objectcursorlength: UInt, returnlength: COpaquePointer?): Ntstatus
 
-public expect fun NtGetNotificationResourceManager(resourcemanagerhandle: HANDLE, transactionnotification: Long, notificationlength: UInt, timeout: Long, returnlength: Long, asynchronous: UInt, asynchronouscontext: ULong): NTSTATUS
+public expect fun ntGetNotificationResourceManager(resourcemanagerhandle: Handle, transactionnotification: COpaquePointer?, notificationlength: UInt, timeout: COpaquePointer?, returnlength: COpaquePointer?, asynchronous: UInt, asynchronouscontext: ULong): Ntstatus
 
-public expect fun NtLoadDriver(driverservicename: Long): NTSTATUS
+public expect fun ntLoadDriver(driverservicename: COpaquePointer?): Ntstatus
 
-public expect fun NtMakeTemporaryObject(handle: HANDLE): NTSTATUS
+public expect fun ntMakeTemporaryObject(handle: Handle): Ntstatus
 
-public expect fun NtManagePartition(targethandle: HANDLE, sourcehandle: HANDLE, partitioninformationclass: PARTITION_INFORMATION_CLASS, partitioninformation: Long, partitioninformationlength: UInt): NTSTATUS
+public expect fun ntManagePartition(targethandle: Handle, sourcehandle: Handle, partitioninformationclass: PartitionInformationClass, partitioninformation: COpaquePointer?, partitioninformationlength: UInt): Ntstatus
 
-public expect fun NtOpenEnlistment(enlistmenthandle: Long, desiredaccess: UInt, resourcemanagerhandle: HANDLE, enlistmentguid: Long, objectattributes: Long): NTSTATUS
+public expect fun ntOpenEnlistment(enlistmenthandle: COpaquePointer?, desiredaccess: UInt, resourcemanagerhandle: Handle, enlistmentguid: COpaquePointer?, objectattributes: COpaquePointer?): Ntstatus
 
-public expect fun NtOpenResourceManager(resourcemanagerhandle: Long, desiredaccess: UInt, tmhandle: HANDLE, resourcemanagerguid: Long, objectattributes: Long): NTSTATUS
+public expect fun ntOpenResourceManager(resourcemanagerhandle: COpaquePointer?, desiredaccess: UInt, tmhandle: Handle, resourcemanagerguid: COpaquePointer?, objectattributes: COpaquePointer?): Ntstatus
 
-public expect fun NtOpenTransaction(transactionhandle: Long, desiredaccess: UInt, objectattributes: Long, uow: Long, tmhandle: HANDLE): NTSTATUS
+public expect fun ntOpenTransaction(transactionhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, uow: COpaquePointer?, tmhandle: Handle): Ntstatus
 
-public expect fun NtOpenTransactionManager(tmhandle: Long, desiredaccess: UInt, objectattributes: Long, logfilename: Long, tmidentity: Long, openoptions: UInt): NTSTATUS
+public expect fun ntOpenTransactionManager(tmhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, logfilename: COpaquePointer?, tmidentity: COpaquePointer?, openoptions: UInt): Ntstatus
 
-public expect fun NtPowerInformation(informationlevel: POWER_INFORMATION_LEVEL, inputbuffer: Long, inputbufferlength: UInt, outputbuffer: Long, outputbufferlength: UInt): NTSTATUS
+public expect fun ntPowerInformation(informationlevel: PowerInformationLevel, inputbuffer: COpaquePointer?, inputbufferlength: UInt, outputbuffer: COpaquePointer?, outputbufferlength: UInt): Ntstatus
 
-public expect fun NtPrePrepareComplete(enlistmenthandle: HANDLE, tmvirtualclock: Long): NTSTATUS
+public expect fun ntPrePrepareComplete(enlistmenthandle: Handle, tmvirtualclock: COpaquePointer?): Ntstatus
 
-public expect fun NtPrePrepareEnlistment(enlistmenthandle: HANDLE, tmvirtualclock: Long): NTSTATUS
+public expect fun ntPrePrepareEnlistment(enlistmenthandle: Handle, tmvirtualclock: COpaquePointer?): Ntstatus
 
-public expect fun NtPrepareComplete(enlistmenthandle: HANDLE, tmvirtualclock: Long): NTSTATUS
+public expect fun ntPrepareComplete(enlistmenthandle: Handle, tmvirtualclock: COpaquePointer?): Ntstatus
 
-public expect fun NtPrepareEnlistment(enlistmenthandle: HANDLE, tmvirtualclock: Long): NTSTATUS
+public expect fun ntPrepareEnlistment(enlistmenthandle: Handle, tmvirtualclock: COpaquePointer?): Ntstatus
 
-public expect fun NtPropagationComplete(resourcemanagerhandle: HANDLE, requestcookie: UInt, bufferlength: UInt, buffer: Long): NTSTATUS
+public expect fun ntPropagationComplete(resourcemanagerhandle: Handle, requestcookie: UInt, bufferlength: UInt, buffer: COpaquePointer?): Ntstatus
 
-public expect fun NtPropagationFailed(resourcemanagerhandle: HANDLE, requestcookie: UInt, propstatus: NTSTATUS): NTSTATUS
+public expect fun ntPropagationFailed(resourcemanagerhandle: Handle, requestcookie: UInt, propstatus: Ntstatus): Ntstatus
 
-public expect fun NtQueryInformationEnlistment(enlistmenthandle: HANDLE, enlistmentinformationclass: ENLISTMENT_INFORMATION_CLASS, enlistmentinformation: Long, enlistmentinformationlength: UInt, returnlength: Long): NTSTATUS
+public expect fun ntQueryInformationEnlistment(enlistmenthandle: Handle, enlistmentinformationclass: EnlistmentInformationClass, enlistmentinformation: COpaquePointer?, enlistmentinformationlength: UInt, returnlength: COpaquePointer?): Ntstatus
 
-public expect fun NtQueryInformationResourceManager(resourcemanagerhandle: HANDLE, resourcemanagerinformationclass: RESOURCEMANAGER_INFORMATION_CLASS, resourcemanagerinformation: Long, resourcemanagerinformationlength: UInt, returnlength: Long): NTSTATUS
+public expect fun ntQueryInformationResourceManager(resourcemanagerhandle: Handle, resourcemanagerinformationclass: ResourcemanagerInformationClass, resourcemanagerinformation: COpaquePointer?, resourcemanagerinformationlength: UInt, returnlength: COpaquePointer?): Ntstatus
 
-public expect fun NtQueryInformationTransaction(transactionhandle: HANDLE, transactioninformationclass: TRANSACTION_INFORMATION_CLASS, transactioninformation: Long, transactioninformationlength: UInt, returnlength: Long): NTSTATUS
+public expect fun ntQueryInformationTransaction(transactionhandle: Handle, transactioninformationclass: TransactionInformationClass, transactioninformation: COpaquePointer?, transactioninformationlength: UInt, returnlength: COpaquePointer?): Ntstatus
 
-public expect fun NtQueryInformationTransactionManager(transactionmanagerhandle: HANDLE, transactionmanagerinformationclass: TRANSACTIONMANAGER_INFORMATION_CLASS, transactionmanagerinformation: Long, transactionmanagerinformationlength: UInt, returnlength: Long): NTSTATUS
+public expect fun ntQueryInformationTransactionManager(transactionmanagerhandle: Handle, transactionmanagerinformationclass: TransactionmanagerInformationClass, transactionmanagerinformation: COpaquePointer?, transactionmanagerinformationlength: UInt, returnlength: COpaquePointer?): Ntstatus
 
-public expect fun NtReadOnlyEnlistment(enlistmenthandle: HANDLE, tmvirtualclock: Long): NTSTATUS
+public expect fun ntReadOnlyEnlistment(enlistmenthandle: Handle, tmvirtualclock: COpaquePointer?): Ntstatus
 
-public expect fun NtRecoverEnlistment(enlistmenthandle: HANDLE, enlistmentkey: Long): NTSTATUS
+public expect fun ntRecoverEnlistment(enlistmenthandle: Handle, enlistmentkey: COpaquePointer?): Ntstatus
 
-public expect fun NtRecoverResourceManager(resourcemanagerhandle: HANDLE): NTSTATUS
+public expect fun ntRecoverResourceManager(resourcemanagerhandle: Handle): Ntstatus
 
-public expect fun NtRecoverTransactionManager(transactionmanagerhandle: HANDLE): NTSTATUS
+public expect fun ntRecoverTransactionManager(transactionmanagerhandle: Handle): Ntstatus
 
-public expect fun NtRegisterProtocolAddressInformation(resourcemanager: HANDLE, protocolid: Long, protocolinformationsize: UInt, protocolinformation: Long, createoptions: UInt): NTSTATUS
+public expect fun ntRegisterProtocolAddressInformation(resourcemanager: Handle, protocolid: COpaquePointer?, protocolinformationsize: UInt, protocolinformation: COpaquePointer?, createoptions: UInt): Ntstatus
 
-public expect fun NtRenameTransactionManager(logfilename: Long, existingtransactionmanagerguid: Long): NTSTATUS
+public expect fun ntRenameTransactionManager(logfilename: COpaquePointer?, existingtransactionmanagerguid: COpaquePointer?): Ntstatus
 
-public expect fun NtRollbackComplete(enlistmenthandle: HANDLE, tmvirtualclock: Long): NTSTATUS
+public expect fun ntRollbackComplete(enlistmenthandle: Handle, tmvirtualclock: COpaquePointer?): Ntstatus
 
-public expect fun NtRollbackEnlistment(enlistmenthandle: HANDLE, tmvirtualclock: Long): NTSTATUS
+public expect fun ntRollbackEnlistment(enlistmenthandle: Handle, tmvirtualclock: COpaquePointer?): Ntstatus
 
-public expect fun NtRollbackTransaction(transactionhandle: HANDLE, wait: Boolean): NTSTATUS
+public expect fun ntRollbackTransaction(transactionhandle: Handle, wait: Boolean): Ntstatus
 
-public expect fun NtRollforwardTransactionManager(transactionmanagerhandle: HANDLE, tmvirtualclock: Long): NTSTATUS
+public expect fun ntRollforwardTransactionManager(transactionmanagerhandle: Handle, tmvirtualclock: COpaquePointer?): Ntstatus
 
-public expect fun NtSetInformationEnlistment(enlistmenthandle: HANDLE, enlistmentinformationclass: ENLISTMENT_INFORMATION_CLASS, enlistmentinformation: Long, enlistmentinformationlength: UInt): NTSTATUS
+public expect fun ntSetInformationEnlistment(enlistmenthandle: Handle, enlistmentinformationclass: EnlistmentInformationClass, enlistmentinformation: COpaquePointer?, enlistmentinformationlength: UInt): Ntstatus
 
-public expect fun NtSetInformationResourceManager(resourcemanagerhandle: HANDLE, resourcemanagerinformationclass: RESOURCEMANAGER_INFORMATION_CLASS, resourcemanagerinformation: Long, resourcemanagerinformationlength: UInt): NTSTATUS
+public expect fun ntSetInformationResourceManager(resourcemanagerhandle: Handle, resourcemanagerinformationclass: ResourcemanagerInformationClass, resourcemanagerinformation: COpaquePointer?, resourcemanagerinformationlength: UInt): Ntstatus
 
-public expect fun NtSetInformationTransaction(transactionhandle: HANDLE, transactioninformationclass: TRANSACTION_INFORMATION_CLASS, transactioninformation: Long, transactioninformationlength: UInt): NTSTATUS
+public expect fun ntSetInformationTransaction(transactionhandle: Handle, transactioninformationclass: TransactionInformationClass, transactioninformation: COpaquePointer?, transactioninformationlength: UInt): Ntstatus
 
-public expect fun NtSetInformationTransactionManager(tmhandle: HANDLE, transactionmanagerinformationclass: TRANSACTIONMANAGER_INFORMATION_CLASS, transactionmanagerinformation: Long, transactionmanagerinformationlength: UInt): NTSTATUS
+public expect fun ntSetInformationTransactionManager(tmhandle: Handle, transactionmanagerinformationclass: TransactionmanagerInformationClass, transactionmanagerinformation: COpaquePointer?, transactionmanagerinformationlength: UInt): Ntstatus
 
-public expect fun NtSinglePhaseReject(enlistmenthandle: HANDLE, tmvirtualclock: Long): NTSTATUS
+public expect fun ntSinglePhaseReject(enlistmenthandle: Handle, tmvirtualclock: COpaquePointer?): Ntstatus
 
-public expect fun NtUnloadDriver(driverservicename: Long): NTSTATUS
+public expect fun ntUnloadDriver(driverservicename: COpaquePointer?): Ntstatus
 
-public expect fun ObCloseHandle(handle: HANDLE, previousmode: Byte): NTSTATUS
+public expect fun obCloseHandle(handle: Handle, previousmode: Byte): Ntstatus
 
-public expect fun ObDereferenceObjectDeferDelete(obj: Long)
+public expect fun obDereferenceObjectDeferDelete(obj: COpaquePointer?)
 
-public expect fun ObDereferenceObjectDeferDeleteWithTag(obj: Long, tag: UInt)
+public expect fun obDereferenceObjectDeferDeleteWithTag(obj: COpaquePointer?, tag: UInt)
 
-public expect fun ObGetFilterVersion(): UShort
+public expect fun obGetFilterVersion(): UShort
 
-public expect fun ObGetObjectSecurity(obj: Long, securitydescriptor: Long, memoryallocated: Long): NTSTATUS
+public expect fun obGetObjectSecurity(obj: COpaquePointer?, securitydescriptor: COpaquePointer?, memoryallocated: COpaquePointer?): Ntstatus
 
-public expect fun ObReferenceObjectByHandle(handle: HANDLE, desiredaccess: UInt, objecttype: POBJECT_TYPE, accessmode: Byte, obj: Long, handleinformation: Long): NTSTATUS
+public expect fun obReferenceObjectByHandle(handle: Handle, desiredaccess: UInt, objecttype: PobjectType, accessmode: Byte, obj: COpaquePointer?, handleinformation: COpaquePointer?): Ntstatus
 
-public expect fun ObReferenceObjectByHandleWithTag(handle: HANDLE, desiredaccess: UInt, objecttype: POBJECT_TYPE, accessmode: Byte, tag: UInt, obj: Long, handleinformation: Long): NTSTATUS
+public expect fun obReferenceObjectByHandleWithTag(handle: Handle, desiredaccess: UInt, objecttype: PobjectType, accessmode: Byte, tag: UInt, obj: COpaquePointer?, handleinformation: COpaquePointer?): Ntstatus
 
-public expect fun ObReferenceObjectByPointer(obj: Long, desiredaccess: UInt, objecttype: POBJECT_TYPE, accessmode: Byte): NTSTATUS
+public expect fun obReferenceObjectByPointer(obj: COpaquePointer?, desiredaccess: UInt, objecttype: PobjectType, accessmode: Byte): Ntstatus
 
-public expect fun ObReferenceObjectByPointerWithTag(obj: Long, desiredaccess: UInt, objecttype: POBJECT_TYPE, accessmode: Byte, tag: UInt): NTSTATUS
+public expect fun obReferenceObjectByPointerWithTag(obj: COpaquePointer?, desiredaccess: UInt, objecttype: PobjectType, accessmode: Byte, tag: UInt): Ntstatus
 
-public expect fun ObReferenceObjectSafe(obj: Long): Boolean
+public expect fun obReferenceObjectSafe(obj: COpaquePointer?): Boolean
 
-public expect fun ObReferenceObjectSafeWithTag(obj: Long, tag: UInt): Boolean
+public expect fun obReferenceObjectSafeWithTag(obj: COpaquePointer?, tag: UInt): Boolean
 
-public expect fun ObRegisterCallbacks(callbackregistration: Long, registrationhandle: Long): NTSTATUS
+public expect fun obRegisterCallbacks(callbackregistration: COpaquePointer?, registrationhandle: COpaquePointer?): Ntstatus
 
-public expect fun ObReleaseObjectSecurity(securitydescriptor: PSECURITY_DESCRIPTOR, memoryallocated: Boolean)
+public expect fun obReleaseObjectSecurity(securitydescriptor: PsecurityDescriptor, memoryallocated: Boolean)
 
-public expect fun ObUnRegisterCallbacks(registrationhandle: Long)
+public expect fun obUnRegisterCallbacks(registrationhandle: COpaquePointer?)
 
-public expect fun ObfDereferenceObject(obj: Long): Long
+public expect fun obfDereferenceObject(obj: COpaquePointer?): Long
 
-public expect fun ObfDereferenceObjectWithTag(obj: Long, tag: UInt): Long
+public expect fun obfDereferenceObjectWithTag(obj: COpaquePointer?, tag: UInt): Long
 
-public expect fun ObfReferenceObject(obj: Long): Long
+public expect fun obfReferenceObject(obj: COpaquePointer?): Long
 
-public expect fun ObfReferenceObjectWithTag(obj: Long, tag: UInt): Long
+public expect fun obfReferenceObjectWithTag(obj: COpaquePointer?, tag: UInt): Long
 
-public expect fun PcwAddInstance(buffer: PPCW_BUFFER, name: Long, id: UInt, count: UInt, data: Long): NTSTATUS
+public expect fun pcwAddInstance(buffer: PpcwBuffer, name: COpaquePointer?, id: UInt, count: UInt, data: COpaquePointer?): Ntstatus
 
-public expect fun PcwCloseInstance(instance: PPCW_INSTANCE)
+public expect fun pcwCloseInstance(instance: PpcwInstance)
 
-public expect fun PcwCreateInstance(instance: Long, registration: PPCW_REGISTRATION, name: Long, count: UInt, data: Long): NTSTATUS
+public expect fun pcwCreateInstance(instance: COpaquePointer?, registration: PpcwRegistration, name: COpaquePointer?, count: UInt, data: COpaquePointer?): Ntstatus
 
-public expect fun PcwRegister(registration: Long, info: Long): NTSTATUS
+public expect fun pcwRegister(registration: COpaquePointer?, info: COpaquePointer?): Ntstatus
 
-public expect fun PcwUnregister(registration: PPCW_REGISTRATION)
+public expect fun pcwUnregister(registration: PpcwRegistration)
 
-public expect fun PoCallDriver(deviceobject: Long, irp: Long): NTSTATUS
+public expect fun poCallDriver(deviceobject: COpaquePointer?, irp: COpaquePointer?): Ntstatus
 
-public expect fun PoClearPowerRequest(powerrequest: Long, type: POWER_REQUEST_TYPE): NTSTATUS
+public expect fun poClearPowerRequest(powerrequest: COpaquePointer?, type: PowerRequestType): Ntstatus
 
-public expect fun PoCreatePowerRequest(powerrequest: Long, deviceobject: Long, context: Long): NTSTATUS
+public expect fun poCreatePowerRequest(powerrequest: COpaquePointer?, deviceobject: COpaquePointer?, context: COpaquePointer?): Ntstatus
 
-public expect fun PoCreateThermalRequest(thermalrequest: Long, targetdeviceobject: Long, policydeviceobject: Long, context: Long, flags: UInt): NTSTATUS
+public expect fun poCreateThermalRequest(thermalrequest: COpaquePointer?, targetdeviceobject: COpaquePointer?, policydeviceobject: COpaquePointer?, context: COpaquePointer?, flags: UInt): Ntstatus
 
-public expect fun PoDeletePowerRequest(powerrequest: Long)
+public expect fun poDeletePowerRequest(powerrequest: COpaquePointer?)
 
-public expect fun PoDeleteThermalRequest(thermalrequest: Long)
+public expect fun poDeleteThermalRequest(thermalrequest: COpaquePointer?)
 
-public expect fun PoEndDeviceBusy(idlepointer: Long)
+public expect fun poEndDeviceBusy(idlepointer: COpaquePointer?)
 
-public expect fun PoFxActivateComponent(handle: POHANDLE, component: UInt, flags: UInt)
+public expect fun poFxActivateComponent(handle: Pohandle, component: UInt, flags: UInt)
 
-public expect fun PoFxCompleteDevicePowerNotRequired(handle: POHANDLE)
+public expect fun poFxCompleteDevicePowerNotRequired(handle: Pohandle)
 
-public expect fun PoFxCompleteDirectedPowerDown(handle: POHANDLE)
+public expect fun poFxCompleteDirectedPowerDown(handle: Pohandle)
 
-public expect fun PoFxCompleteIdleCondition(handle: POHANDLE, component: UInt)
+public expect fun poFxCompleteIdleCondition(handle: Pohandle, component: UInt)
 
-public expect fun PoFxCompleteIdleState(handle: POHANDLE, component: UInt)
+public expect fun poFxCompleteIdleState(handle: Pohandle, component: UInt)
 
-public expect fun PoFxIdleComponent(handle: POHANDLE, component: UInt, flags: UInt)
+public expect fun poFxIdleComponent(handle: Pohandle, component: UInt, flags: UInt)
 
-public expect fun PoFxIssueComponentPerfStateChange(handle: POHANDLE, flags: UInt, component: UInt, perfchange: Long, context: Long)
+public expect fun poFxIssueComponentPerfStateChange(handle: Pohandle, flags: UInt, component: UInt, perfchange: COpaquePointer?, context: COpaquePointer?)
 
-public expect fun PoFxIssueComponentPerfStateChangeMultiple(handle: POHANDLE, flags: UInt, component: UInt, perfchangescount: UInt, perfchanges: Long, context: Long)
+public expect fun poFxIssueComponentPerfStateChangeMultiple(handle: Pohandle, flags: UInt, component: UInt, perfchangescount: UInt, perfchanges: COpaquePointer?, context: COpaquePointer?)
 
-public expect fun PoFxNotifySurprisePowerOn(pdo: Long)
+public expect fun poFxNotifySurprisePowerOn(pdo: COpaquePointer?)
 
-public expect fun PoFxPowerControl(handle: POHANDLE, powercontrolcode: Long, inbuffer: Long, inbuffersize: ULong, outbuffer: Long, outbuffersize: ULong, bytesreturned: Long): NTSTATUS
+public expect fun poFxPowerControl(handle: Pohandle, powercontrolcode: COpaquePointer?, inbuffer: COpaquePointer?, inbuffersize: ULong, outbuffer: COpaquePointer?, outbuffersize: ULong, bytesreturned: COpaquePointer?): Ntstatus
 
-public expect fun PoFxPowerOnCrashdumpDevice(handle: POHANDLE, context: Long): NTSTATUS
+public expect fun poFxPowerOnCrashdumpDevice(handle: Pohandle, context: COpaquePointer?): Ntstatus
 
-public expect fun PoFxQueryCurrentComponentPerfState(handle: POHANDLE, flags: UInt, component: UInt, setindex: UInt, currentperf: Long): NTSTATUS
+public expect fun poFxQueryCurrentComponentPerfState(handle: Pohandle, flags: UInt, component: UInt, setindex: UInt, currentperf: COpaquePointer?): Ntstatus
 
-public expect fun PoFxRegisterComponentPerfStates(handle: POHANDLE, component: UInt, flags: ULong, componentperfstatecallback: PPO_FX_COMPONENT_PERF_STATE_CALLBACK, inputstateinfo: Long, outputstateinfo: Long): NTSTATUS
+public expect fun poFxRegisterComponentPerfStates(handle: Pohandle, component: UInt, flags: ULong, componentperfstatecallback: PpoFxComponentPerfStateCallback, inputstateinfo: COpaquePointer?, outputstateinfo: COpaquePointer?): Ntstatus
 
-public expect fun PoFxRegisterCrashdumpDevice(handle: POHANDLE): NTSTATUS
+public expect fun poFxRegisterCrashdumpDevice(handle: Pohandle): Ntstatus
 
-public expect fun PoFxRegisterDevice(pdo: Long, device: Long, handle: Long): NTSTATUS
+public expect fun poFxRegisterDevice(pdo: COpaquePointer?, device: COpaquePointer?, handle: COpaquePointer?): Ntstatus
 
-public expect fun PoFxRegisterDripsWatchdogCallback(handle: POHANDLE, callback: PPO_FX_DRIPS_WATCHDOG_CALLBACK, includechilddevices: Boolean, matchingdriverobject: Long)
+public expect fun poFxRegisterDripsWatchdogCallback(handle: Pohandle, callback: PpoFxDripsWatchdogCallback, includechilddevices: Boolean, matchingdriverobject: COpaquePointer?)
 
-public expect fun PoFxReportDevicePoweredOn(handle: POHANDLE)
+public expect fun poFxReportDevicePoweredOn(handle: Pohandle)
 
-public expect fun PoFxSetComponentLatency(handle: POHANDLE, component: UInt, latency: ULong)
+public expect fun poFxSetComponentLatency(handle: Pohandle, component: UInt, latency: ULong)
 
-public expect fun PoFxSetComponentResidency(handle: POHANDLE, component: UInt, residency: ULong)
+public expect fun poFxSetComponentResidency(handle: Pohandle, component: UInt, residency: ULong)
 
-public expect fun PoFxSetComponentWake(handle: POHANDLE, component: UInt, wakehint: Boolean)
+public expect fun poFxSetComponentWake(handle: Pohandle, component: UInt, wakehint: Boolean)
 
-public expect fun PoFxSetDeviceIdleTimeout(handle: POHANDLE, idletimeout: ULong)
+public expect fun poFxSetDeviceIdleTimeout(handle: Pohandle, idletimeout: ULong)
 
-public expect fun PoFxSetTargetDripsDevicePowerState(handle: POHANDLE, targetstate: DEVICE_POWER_STATE): NTSTATUS
+public expect fun poFxSetTargetDripsDevicePowerState(handle: Pohandle, targetstate: DevicePowerState): Ntstatus
 
-public expect fun PoFxStartDevicePowerManagement(handle: POHANDLE)
+public expect fun poFxStartDevicePowerManagement(handle: Pohandle)
 
-public expect fun PoFxUnregisterDevice(handle: POHANDLE)
+public expect fun poFxUnregisterDevice(handle: Pohandle)
 
-public expect fun PoGetSystemWake(irp: Long): Boolean
+public expect fun poGetSystemWake(irp: COpaquePointer?): Boolean
 
-public expect fun PoGetThermalRequestSupport(thermalrequest: Long, type: PO_THERMAL_REQUEST_TYPE): Boolean
+public expect fun poGetThermalRequestSupport(thermalrequest: COpaquePointer?, type: PoThermalRequestType): Boolean
 
-public expect fun PoQueryWatchdogTime(pdo: Long, secondsremaining: Long): Boolean
+public expect fun poQueryWatchdogTime(pdo: COpaquePointer?, secondsremaining: COpaquePointer?): Boolean
 
-public expect fun PoRegisterDeviceForIdleDetection(deviceobject: Long, conservationidletime: UInt, performanceidletime: UInt, state: DEVICE_POWER_STATE): Long
+public expect fun poRegisterDeviceForIdleDetection(deviceobject: COpaquePointer?, conservationidletime: UInt, performanceidletime: UInt, state: DevicePowerState): COpaquePointer?
 
-public expect fun PoRegisterPowerSettingCallback(deviceobject: Long, settingguid: Long, callback: PPOWER_SETTING_CALLBACK, context: Long, handle: Long): NTSTATUS
+public expect fun poRegisterPowerSettingCallback(deviceobject: COpaquePointer?, settingguid: COpaquePointer?, callback: PpowerSettingCallback, context: COpaquePointer?, handle: COpaquePointer?): Ntstatus
 
-public expect fun PoRegisterSystemState(statehandle: Long, flags: UInt): Long
+public expect fun poRegisterSystemState(statehandle: COpaquePointer?, flags: UInt): COpaquePointer?
 
-public expect fun PoRequestPowerIrp(deviceobject: Long, minorfunction: UByte, powerstate: POWER_STATE, completionfunction: PREQUEST_POWER_COMPLETE, context: Long, irp: Long): NTSTATUS
+public expect fun poRequestPowerIrp(deviceobject: COpaquePointer?, minorfunction: UByte, powerstate: PowerState, completionfunction: PrequestPowerComplete, context: COpaquePointer?, irp: COpaquePointer?): Ntstatus
 
-public expect fun PoSetDeviceBusyEx(idlepointer: Long)
+public expect fun poSetDeviceBusyEx(idlepointer: COpaquePointer?)
 
-public expect fun PoSetHiberRange(memorymap: Long, flags: UInt, address: Long, length: ULong, tag: UInt)
+public expect fun poSetHiberRange(memorymap: COpaquePointer?, flags: UInt, address: COpaquePointer?, length: ULong, tag: UInt)
 
-public expect fun PoSetPowerRequest(powerrequest: Long, type: POWER_REQUEST_TYPE): NTSTATUS
+public expect fun poSetPowerRequest(powerrequest: COpaquePointer?, type: PowerRequestType): Ntstatus
 
-public expect fun PoSetPowerState(deviceobject: Long, type: POWER_STATE_TYPE, state: POWER_STATE): POWER_STATE
+public expect fun poSetPowerState(deviceobject: COpaquePointer?, type: PowerStateType, state: PowerState): PowerState
 
-public expect fun PoSetSystemState(flags: UInt)
+public expect fun poSetSystemState(flags: UInt)
 
-public expect fun PoSetSystemWake(irp: Long)
+public expect fun poSetSystemWake(irp: COpaquePointer?)
 
-public expect fun PoSetSystemWakeDevice(deviceobject: Long)
+public expect fun poSetSystemWakeDevice(deviceobject: COpaquePointer?)
 
-public expect fun PoSetThermalActiveCooling(thermalrequest: Long, engaged: Boolean): NTSTATUS
+public expect fun poSetThermalActiveCooling(thermalrequest: COpaquePointer?, engaged: Boolean): Ntstatus
 
-public expect fun PoSetThermalPassiveCooling(thermalrequest: Long, throttle: UByte): NTSTATUS
+public expect fun poSetThermalPassiveCooling(thermalrequest: COpaquePointer?, throttle: UByte): Ntstatus
 
-public expect fun PoStartDeviceBusy(idlepointer: Long)
+public expect fun poStartDeviceBusy(idlepointer: COpaquePointer?)
 
-public expect fun PoStartNextPowerIrp(irp: Long)
+public expect fun poStartNextPowerIrp(irp: COpaquePointer?)
 
-public expect fun PoUnregisterPowerSettingCallback(handle: Long): NTSTATUS
+public expect fun poUnregisterPowerSettingCallback(handle: COpaquePointer?): Ntstatus
 
-public expect fun PoUnregisterSystemState(statehandle: Long)
+public expect fun poUnregisterSystemState(statehandle: COpaquePointer?)
 
-public expect fun ProbeForRead(address: Long, length: ULong, alignment: UInt)
+public expect fun probeForRead(address: COpaquePointer?, length: ULong, alignment: UInt)
 
-public expect fun ProbeForWrite(address: Long, length: ULong, alignment: UInt)
+public expect fun probeForWrite(address: COpaquePointer?, length: ULong, alignment: UInt)
 
-public expect fun PsAcquireSiloHardReference(silo: PESILO): NTSTATUS
+public expect fun psAcquireSiloHardReference(silo: Pesilo): Ntstatus
 
-public expect fun PsAllocSiloContextSlot(reserved: ULong, returnedcontextslot: Long): NTSTATUS
+public expect fun psAllocSiloContextSlot(reserved: ULong, returnedcontextslot: COpaquePointer?): Ntstatus
 
-public expect fun PsAllocateAffinityToken(affinitytoken: Long): NTSTATUS
+public expect fun psAllocateAffinityToken(affinitytoken: COpaquePointer?): Ntstatus
 
-public expect fun PsAttachSiloToCurrentThread(silo: PESILO): PESILO
+public expect fun psAttachSiloToCurrentThread(silo: Pesilo): Pesilo
 
-public expect fun PsCreateSiloContext(silo: PESILO, size: UInt, pooltype: POOL_TYPE, contextcleanupcallback: SILO_CONTEXT_CLEANUP_CALLBACK, returnedsilocontext: Long): NTSTATUS
+public expect fun psCreateSiloContext(silo: Pesilo, size: UInt, pooltype: PoolType, contextcleanupcallback: SiloContextCleanupCallback, returnedsilocontext: COpaquePointer?): Ntstatus
 
-public expect fun PsCreateSystemThread(threadhandle: Long, desiredaccess: UInt, objectattributes: Long, processhandle: HANDLE, clientid: Long, startroutine: PKSTART_ROUTINE, startcontext: Long): NTSTATUS
+public expect fun psCreateSystemThread(threadhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, processhandle: Handle, clientid: COpaquePointer?, startroutine: PkstartRoutine, startcontext: COpaquePointer?): Ntstatus
 
-public expect fun PsDereferenceSiloContext(silocontext: Long)
+public expect fun psDereferenceSiloContext(silocontext: COpaquePointer?)
 
-public expect fun PsDetachSiloFromCurrentThread(previoussilo: PESILO)
+public expect fun psDetachSiloFromCurrentThread(previoussilo: Pesilo)
 
-public expect fun PsFreeAffinityToken(affinitytoken: PAFFINITY_TOKEN)
+public expect fun psFreeAffinityToken(affinitytoken: PaffinityToken)
 
-public expect fun PsFreeSiloContextSlot(contextslot: UInt): NTSTATUS
+public expect fun psFreeSiloContextSlot(contextslot: UInt): Ntstatus
 
-public expect fun PsGetCurrentProcessId(): HANDLE
+public expect fun psGetCurrentProcessId(): Handle
 
-public expect fun PsGetCurrentServerSilo(): PESILO
+public expect fun psGetCurrentServerSilo(): Pesilo
 
-public expect fun PsGetCurrentServerSiloName(): Long
+public expect fun psGetCurrentServerSiloName(): COpaquePointer?
 
-public expect fun PsGetCurrentSilo(): PESILO
+public expect fun psGetCurrentSilo(): Pesilo
 
-public expect fun PsGetCurrentThreadId(): HANDLE
+public expect fun psGetCurrentThreadId(): Handle
 
-public expect fun PsGetCurrentThreadTeb(): Long
+public expect fun psGetCurrentThreadTeb(): COpaquePointer?
 
-public expect fun PsGetEffectiveServerSilo(silo: PESILO): PESILO
+public expect fun psGetEffectiveServerSilo(silo: Pesilo): Pesilo
 
-public expect fun PsGetHostSilo(): PESILO
+public expect fun psGetHostSilo(): Pesilo
 
-public expect fun PsGetJobServerSilo(job: PEJOB, serversilo: Long): NTSTATUS
+public expect fun psGetJobServerSilo(job: Pejob, serversilo: COpaquePointer?): Ntstatus
 
-public expect fun PsGetJobSilo(job: PEJOB, silo: Long): NTSTATUS
+public expect fun psGetJobSilo(job: Pejob, silo: COpaquePointer?): Ntstatus
 
-public expect fun PsGetParentSilo(job: PEJOB): PESILO
+public expect fun psGetParentSilo(job: Pejob): Pesilo
 
-public expect fun PsGetPermanentSiloContext(silo: PESILO, contextslot: UInt, returnedsilocontext: Long): NTSTATUS
+public expect fun psGetPermanentSiloContext(silo: Pesilo, contextslot: UInt, returnedsilocontext: COpaquePointer?): Ntstatus
 
-public expect fun PsGetProcessCreateTimeQuadPart(process: PEPROCESS): Long
+public expect fun psGetProcessCreateTimeQuadPart(process: Peprocess): Long
 
-public expect fun PsGetProcessExitStatus(process: PEPROCESS): NTSTATUS
+public expect fun psGetProcessExitStatus(process: Peprocess): Ntstatus
 
-public expect fun PsGetProcessId(process: PEPROCESS): HANDLE
+public expect fun psGetProcessId(process: Peprocess): Handle
 
-public expect fun PsGetProcessStartKey(process: PEPROCESS): ULong
+public expect fun psGetProcessStartKey(process: Peprocess): ULong
 
-public expect fun PsGetServerSiloServiceSessionId(silo: PESILO): UInt
+public expect fun psGetServerSiloServiceSessionId(silo: Pesilo): UInt
 
-public expect fun PsGetSiloContainerId(silo: PESILO): Long
+public expect fun psGetSiloContainerId(silo: Pesilo): COpaquePointer?
 
-public expect fun PsGetSiloContext(silo: PESILO, contextslot: UInt, returnedsilocontext: Long): NTSTATUS
+public expect fun psGetSiloContext(silo: Pesilo, contextslot: UInt, returnedsilocontext: COpaquePointer?): Ntstatus
 
-public expect fun PsGetSiloMonitorContextSlot(monitor: PSILO_MONITOR): UInt
+public expect fun psGetSiloMonitorContextSlot(monitor: PsiloMonitor): UInt
 
-public expect fun PsGetThreadCreateTime(thread: PETHREAD): Long
+public expect fun psGetThreadCreateTime(thread: Pethread): Long
 
-public expect fun PsGetThreadExitStatus(thread: PETHREAD): NTSTATUS
+public expect fun psGetThreadExitStatus(thread: Pethread): Ntstatus
 
-public expect fun PsGetThreadId(thread: PETHREAD): HANDLE
+public expect fun psGetThreadId(thread: Pethread): Handle
 
-public expect fun PsGetThreadProcessId(thread: PETHREAD): HANDLE
+public expect fun psGetThreadProcessId(thread: Pethread): Handle
 
-public expect fun PsGetThreadProperty(thread: PETHREAD, key: ULong, flags: UInt): Long
+public expect fun psGetThreadProperty(thread: Pethread, key: ULong, flags: UInt): COpaquePointer?
 
-public expect fun PsGetThreadServerSilo(thread: PETHREAD): PESILO
+public expect fun psGetThreadServerSilo(thread: Pethread): Pesilo
 
-public expect fun PsGetVersion(majorversion: Long, minorversion: Long, buildnumber: Long, csdversion: Long): Boolean
+public expect fun psGetVersion(majorversion: COpaquePointer?, minorversion: COpaquePointer?, buildnumber: COpaquePointer?, csdversion: COpaquePointer?): Boolean
 
-public expect fun PsInsertPermanentSiloContext(silo: PESILO, contextslot: UInt, silocontext: Long): NTSTATUS
+public expect fun psInsertPermanentSiloContext(silo: Pesilo, contextslot: UInt, silocontext: COpaquePointer?): Ntstatus
 
-public expect fun PsInsertSiloContext(silo: PESILO, contextslot: UInt, silocontext: Long): NTSTATUS
+public expect fun psInsertSiloContext(silo: Pesilo, contextslot: UInt, silocontext: COpaquePointer?): Ntstatus
 
-public expect fun PsIsCurrentThreadInServerSilo(): Boolean
+public expect fun psIsCurrentThreadInServerSilo(): Boolean
 
-public expect fun PsIsCurrentThreadPrefetching(): Boolean
+public expect fun psIsCurrentThreadPrefetching(): Boolean
 
-public expect fun PsIsHostSilo(silo: PESILO): Boolean
+public expect fun psIsHostSilo(silo: Pesilo): Boolean
 
-public expect fun PsMakeSiloContextPermanent(silo: PESILO, contextslot: UInt): NTSTATUS
+public expect fun psMakeSiloContextPermanent(silo: Pesilo, contextslot: UInt): Ntstatus
 
-public expect fun PsQueryTotalCycleTimeProcess(process: PEPROCESS, cycletimestamp: Long): ULong
+public expect fun psQueryTotalCycleTimeProcess(process: Peprocess, cycletimestamp: COpaquePointer?): ULong
 
-public expect fun PsReferenceSiloContext(silocontext: Long)
+public expect fun psReferenceSiloContext(silocontext: COpaquePointer?)
 
-public expect fun PsRegisterSiloMonitor(registration: Long, returnedmonitor: Long): NTSTATUS
+public expect fun psRegisterSiloMonitor(registration: COpaquePointer?, returnedmonitor: COpaquePointer?): Ntstatus
 
-public expect fun PsReleaseSiloHardReference(silo: PESILO)
+public expect fun psReleaseSiloHardReference(silo: Pesilo)
 
-public expect fun PsRemoveCreateThreadNotifyRoutine(notifyroutine: PCREATE_THREAD_NOTIFY_ROUTINE): NTSTATUS
+public expect fun psRemoveCreateThreadNotifyRoutine(notifyroutine: PcreateThreadNotifyRoutine): Ntstatus
 
-public expect fun PsRemoveLoadImageNotifyRoutine(notifyroutine: PLOAD_IMAGE_NOTIFY_ROUTINE): NTSTATUS
+public expect fun psRemoveLoadImageNotifyRoutine(notifyroutine: PloadImageNotifyRoutine): Ntstatus
 
-public expect fun PsRemoveSiloContext(silo: PESILO, contextslot: UInt, removedsilocontext: Long): NTSTATUS
+public expect fun psRemoveSiloContext(silo: Pesilo, contextslot: UInt, removedsilocontext: COpaquePointer?): Ntstatus
 
-public expect fun PsReplaceSiloContext(silo: PESILO, contextslot: UInt, newsilocontext: Long, oldsilocontext: Long): NTSTATUS
+public expect fun psReplaceSiloContext(silo: Pesilo, contextslot: UInt, newsilocontext: COpaquePointer?, oldsilocontext: COpaquePointer?): Ntstatus
 
-public expect fun PsRevertToUserMultipleGroupAffinityThread(affinitytoken: PAFFINITY_TOKEN)
+public expect fun psRevertToUserMultipleGroupAffinityThread(affinitytoken: PaffinityToken)
 
-public expect fun PsSetCreateProcessNotifyRoutine(notifyroutine: PCREATE_PROCESS_NOTIFY_ROUTINE, remove: Boolean): NTSTATUS
+public expect fun psSetCreateProcessNotifyRoutine(notifyroutine: PcreateProcessNotifyRoutine, remove: Boolean): Ntstatus
 
-public expect fun PsSetCreateProcessNotifyRoutineEx(notifyroutine: PCREATE_PROCESS_NOTIFY_ROUTINE_EX, remove: Boolean): NTSTATUS
+public expect fun psSetCreateProcessNotifyRoutineEx(notifyroutine: PcreateProcessNotifyRoutineEx, remove: Boolean): Ntstatus
 
-public expect fun PsSetCreateProcessNotifyRoutineEx2(notifytype: PSCREATEPROCESSNOTIFYTYPE, notifyinformation: Long, remove: Boolean): NTSTATUS
+public expect fun psSetCreateProcessNotifyRoutineEx2(notifytype: Pscreateprocessnotifytype, notifyinformation: COpaquePointer?, remove: Boolean): Ntstatus
 
-public expect fun PsSetCreateThreadNotifyRoutine(notifyroutine: PCREATE_THREAD_NOTIFY_ROUTINE): NTSTATUS
+public expect fun psSetCreateThreadNotifyRoutine(notifyroutine: PcreateThreadNotifyRoutine): Ntstatus
 
-public expect fun PsSetCreateThreadNotifyRoutineEx(notifytype: PSCREATETHREADNOTIFYTYPE, notifyinformation: Long): NTSTATUS
+public expect fun psSetCreateThreadNotifyRoutineEx(notifytype: Pscreatethreadnotifytype, notifyinformation: COpaquePointer?): Ntstatus
 
-public expect fun PsSetCurrentThreadPrefetching(prefetching: Boolean): Boolean
+public expect fun psSetCurrentThreadPrefetching(prefetching: Boolean): Boolean
 
-public expect fun PsSetLoadImageNotifyRoutine(notifyroutine: PLOAD_IMAGE_NOTIFY_ROUTINE): NTSTATUS
+public expect fun psSetLoadImageNotifyRoutine(notifyroutine: PloadImageNotifyRoutine): Ntstatus
 
-public expect fun PsSetLoadImageNotifyRoutineEx(notifyroutine: PLOAD_IMAGE_NOTIFY_ROUTINE, flags: ULong): NTSTATUS
+public expect fun psSetLoadImageNotifyRoutineEx(notifyroutine: PloadImageNotifyRoutine, flags: ULong): Ntstatus
 
-public expect fun PsSetSystemMultipleGroupAffinityThread(groupaffinities: Long, groupcount: UShort, affinitytoken: PAFFINITY_TOKEN): NTSTATUS
+public expect fun psSetSystemMultipleGroupAffinityThread(groupaffinities: COpaquePointer?, groupcount: UShort, affinitytoken: PaffinityToken): Ntstatus
 
-public expect fun PsStartSiloMonitor(monitor: PSILO_MONITOR): NTSTATUS
+public expect fun psStartSiloMonitor(monitor: PsiloMonitor): Ntstatus
 
-public expect fun PsTerminateServerSilo(serversilo: PESILO, exitstatus: NTSTATUS)
+public expect fun psTerminateServerSilo(serversilo: Pesilo, exitstatus: Ntstatus)
 
-public expect fun PsTerminateSystemThread(exitstatus: NTSTATUS): NTSTATUS
+public expect fun psTerminateSystemThread(exitstatus: Ntstatus): Ntstatus
 
-public expect fun PsUnregisterSiloMonitor(monitor: PSILO_MONITOR)
+public expect fun psUnregisterSiloMonitor(monitor: PsiloMonitor)
 
-public expect fun PsWrapApcWow64Thread(apccontext: Long, apcroutine: Long): NTSTATUS
+public expect fun psWrapApcWow64Thread(apccontext: COpaquePointer?, apcroutine: COpaquePointer?): Ntstatus
 
-public expect fun PshedAllocateMemory(size: UInt): Long
+public expect fun pshedAllocateMemory(size: UInt): COpaquePointer?
 
-public expect fun PshedFreeMemory(address: Long)
+public expect fun pshedFreeMemory(address: COpaquePointer?)
 
-public expect fun PshedIsSystemWheaEnabled(): Boolean
+public expect fun pshedIsSystemWheaEnabled(): Boolean
 
-public expect fun PshedRegisterPlugin(packet: Long): NTSTATUS
+public expect fun pshedRegisterPlugin(packet: COpaquePointer?): Ntstatus
 
-public expect fun PshedSynchronizeExecution(errorsource: Long, synchronizeroutine: PKSYNCHRONIZE_ROUTINE, synchronizecontext: Long): Boolean
+public expect fun pshedSynchronizeExecution(errorsource: COpaquePointer?, synchronizeroutine: PksynchronizeRoutine, synchronizecontext: COpaquePointer?): Boolean
 
-public expect fun PshedUnregisterPlugin(pluginhandle: Long)
+public expect fun pshedUnregisterPlugin(pluginhandle: COpaquePointer?)
 
-public expect fun RtlAppendUnicodeStringToString(destination: Long, source: Long): NTSTATUS
+public expect fun rtlAppendUnicodeStringToString(destination: COpaquePointer?, source: COpaquePointer?): Ntstatus
 
-public expect fun RtlAppendUnicodeToString(destination: Long, source: PCWSTR): NTSTATUS
+public expect fun rtlAppendUnicodeToString(destination: COpaquePointer?, source: Pcwstr): Ntstatus
 
-public expect fun RtlAreBitsClear(bitmapheader: Long, startingindex: UInt, length: UInt): Boolean
+public expect fun rtlAreBitsClear(bitmapheader: COpaquePointer?, startingindex: UInt, length: UInt): Boolean
 
-public expect fun RtlAreBitsSet(bitmapheader: Long, startingindex: UInt, length: UInt): Boolean
+public expect fun rtlAreBitsSet(bitmapheader: COpaquePointer?, startingindex: UInt, length: UInt): Boolean
 
-public expect fun RtlAssert(voidfailedassertion: Long, voidfilename: Long, linenumber: UInt, mutablemessage: PCSTR)
+public expect fun rtlAssert(voidfailedassertion: COpaquePointer?, voidfilename: COpaquePointer?, linenumber: UInt, mutablemessage: Pcstr)
 
-public expect fun RtlCheckRegistryKey(relativeto: UInt, path: PCWSTR): NTSTATUS
+public expect fun rtlCheckRegistryKey(relativeto: UInt, path: Pcwstr): Ntstatus
 
-public expect fun RtlClearAllBits(bitmapheader: Long)
+public expect fun rtlClearAllBits(bitmapheader: COpaquePointer?)
 
-public expect fun RtlClearBit(bitmapheader: Long, bitnumber: UInt)
+public expect fun rtlClearBit(bitmapheader: COpaquePointer?, bitnumber: UInt)
 
-public expect fun RtlClearBits(bitmapheader: Long, startingindex: UInt, numbertoclear: UInt)
+public expect fun rtlClearBits(bitmapheader: COpaquePointer?, startingindex: UInt, numbertoclear: UInt)
 
-public expect fun RtlCmDecodeMemIoResource(descriptor: Long, start: Long): ULong
+public expect fun rtlCmDecodeMemIoResource(descriptor: COpaquePointer?, start: COpaquePointer?): ULong
 
-public expect fun RtlCmEncodeMemIoResource(descriptor: Long, type: UByte, length: ULong, start: ULong): NTSTATUS
+public expect fun rtlCmEncodeMemIoResource(descriptor: COpaquePointer?, type: UByte, length: ULong, start: ULong): Ntstatus
 
-public expect fun RtlCompareString(string1: Long, string2: Long, caseinsensitive: Boolean): Int
+public expect fun rtlCompareString(string1: COpaquePointer?, string2: COpaquePointer?, caseinsensitive: Boolean): Int
 
-public expect fun RtlCompareUnicodeString(string1: Long, string2: Long, caseinsensitive: Boolean): Int
+public expect fun rtlCompareUnicodeString(string1: COpaquePointer?, string2: COpaquePointer?, caseinsensitive: Boolean): Int
 
-public expect fun RtlCompareUnicodeStrings(string1: Long, string1length: ULong, string2: Long, string2length: ULong, caseinsensitive: Boolean): Int
+public expect fun rtlCompareUnicodeStrings(string1: COpaquePointer?, string1length: ULong, string2: COpaquePointer?, string2length: ULong, caseinsensitive: Boolean): Int
 
-public expect fun RtlContractHashTable(hashtable: Long): Boolean
+public expect fun rtlContractHashTable(hashtable: COpaquePointer?): Boolean
 
-public expect fun RtlCopyBitMap(source: Long, destination: Long, targetbit: UInt)
+public expect fun rtlCopyBitMap(source: COpaquePointer?, destination: COpaquePointer?, targetbit: UInt)
 
-public expect fun RtlCopyString(destinationstring: Long, sourcestring: Long)
+public expect fun rtlCopyString(destinationstring: COpaquePointer?, sourcestring: COpaquePointer?)
 
-public expect fun RtlCopyUnicodeString(destinationstring: Long, sourcestring: Long)
+public expect fun rtlCopyUnicodeString(destinationstring: COpaquePointer?, sourcestring: COpaquePointer?)
 
-public expect fun RtlCreateHashTable(hashtable: Long, shift: UInt, flags: UInt): Boolean
+public expect fun rtlCreateHashTable(hashtable: COpaquePointer?, shift: UInt, flags: UInt): Boolean
 
-public expect fun RtlCreateHashTableEx(hashtable: Long, initialsize: UInt, shift: UInt, flags: UInt): Boolean
+public expect fun rtlCreateHashTableEx(hashtable: COpaquePointer?, initialsize: UInt, shift: UInt, flags: UInt): Boolean
 
-public expect fun RtlCreateRegistryKey(relativeto: UInt, path: PCWSTR): NTSTATUS
+public expect fun rtlCreateRegistryKey(relativeto: UInt, path: Pcwstr): Ntstatus
 
-public expect fun RtlCreateSecurityDescriptor(securitydescriptor: PSECURITY_DESCRIPTOR, revision: UInt): NTSTATUS
+public expect fun rtlCreateSecurityDescriptor(securitydescriptor: PsecurityDescriptor, revision: UInt): Ntstatus
 
-public expect fun RtlDelete(links: Long): Long
+public expect fun rtlDelete(links: COpaquePointer?): COpaquePointer?
 
-public expect fun RtlDeleteElementGenericTable(table: Long, buffer: Long): Boolean
+public expect fun rtlDeleteElementGenericTable(table: COpaquePointer?, buffer: COpaquePointer?): Boolean
 
-public expect fun RtlDeleteElementGenericTableAvl(table: Long, buffer: Long): Boolean
+public expect fun rtlDeleteElementGenericTableAvl(table: COpaquePointer?, buffer: COpaquePointer?): Boolean
 
-public expect fun RtlDeleteElementGenericTableAvlEx(table: Long, nodeorparent: Long)
+public expect fun rtlDeleteElementGenericTableAvlEx(table: COpaquePointer?, nodeorparent: COpaquePointer?)
 
-public expect fun RtlDeleteHashTable(hashtable: Long)
+public expect fun rtlDeleteHashTable(hashtable: COpaquePointer?)
 
-public expect fun RtlDeleteNoSplay(links: Long, root: Long)
+public expect fun rtlDeleteNoSplay(links: COpaquePointer?, root: COpaquePointer?)
 
-public expect fun RtlDeleteRegistryValue(relativeto: UInt, path: PCWSTR, valuename: PCWSTR): NTSTATUS
+public expect fun rtlDeleteRegistryValue(relativeto: UInt, path: Pcwstr, valuename: Pcwstr): Ntstatus
 
-public expect fun RtlDowncaseUnicodeChar(sourcecharacter: UShort): UShort
+public expect fun rtlDowncaseUnicodeChar(sourcecharacter: UShort): UShort
 
-public expect fun RtlEndEnumerationHashTable(hashtable: Long, enumerator: Long)
+public expect fun rtlEndEnumerationHashTable(hashtable: COpaquePointer?, enumerator: COpaquePointer?)
 
-public expect fun RtlEndStrongEnumerationHashTable(hashtable: Long, enumerator: Long)
+public expect fun rtlEndStrongEnumerationHashTable(hashtable: COpaquePointer?, enumerator: COpaquePointer?)
 
-public expect fun RtlEndWeakEnumerationHashTable(hashtable: Long, enumerator: Long)
+public expect fun rtlEndWeakEnumerationHashTable(hashtable: COpaquePointer?, enumerator: COpaquePointer?)
 
-public expect fun RtlEnumerateEntryHashTable(hashtable: Long, enumerator: Long): Long
+public expect fun rtlEnumerateEntryHashTable(hashtable: COpaquePointer?, enumerator: COpaquePointer?): COpaquePointer?
 
-public expect fun RtlEnumerateGenericTable(table: Long, restart: Boolean): Long
+public expect fun rtlEnumerateGenericTable(table: COpaquePointer?, restart: Boolean): COpaquePointer?
 
-public expect fun RtlEnumerateGenericTableAvl(table: Long, restart: Boolean): Long
+public expect fun rtlEnumerateGenericTableAvl(table: COpaquePointer?, restart: Boolean): COpaquePointer?
 
-public expect fun RtlEnumerateGenericTableLikeADirectory(table: Long, matchfunction: PRTL_AVL_MATCH_FUNCTION, matchdata: Long, nextflag: UInt, restartkey: Long, deletecount: Long, buffer: Long): Long
+public expect fun rtlEnumerateGenericTableLikeADirectory(table: COpaquePointer?, matchfunction: PrtlAvlMatchFunction, matchdata: COpaquePointer?, nextflag: UInt, restartkey: COpaquePointer?, deletecount: COpaquePointer?, buffer: COpaquePointer?): COpaquePointer?
 
-public expect fun RtlEnumerateGenericTableWithoutSplaying(table: Long, restartkey: Long): Long
+public expect fun rtlEnumerateGenericTableWithoutSplaying(table: COpaquePointer?, restartkey: COpaquePointer?): COpaquePointer?
 
-public expect fun RtlEnumerateGenericTableWithoutSplayingAvl(table: Long, restartkey: Long): Long
+public expect fun rtlEnumerateGenericTableWithoutSplayingAvl(table: COpaquePointer?, restartkey: COpaquePointer?): COpaquePointer?
 
-public expect fun RtlEqualString(string1: Long, string2: Long, caseinsensitive: Boolean): Boolean
+public expect fun rtlEqualString(string1: COpaquePointer?, string2: COpaquePointer?, caseinsensitive: Boolean): Boolean
 
-public expect fun RtlEqualUnicodeString(string1: Long, string2: Long, caseinsensitive: Boolean): Boolean
+public expect fun rtlEqualUnicodeString(string1: COpaquePointer?, string2: COpaquePointer?, caseinsensitive: Boolean): Boolean
 
-public expect fun RtlExpandHashTable(hashtable: Long): Boolean
+public expect fun rtlExpandHashTable(hashtable: COpaquePointer?): Boolean
 
-public expect fun RtlExtractBitMap(source: Long, destination: Long, targetbit: UInt, numberofbits: UInt)
+public expect fun rtlExtractBitMap(source: COpaquePointer?, destination: COpaquePointer?, targetbit: UInt, numberofbits: UInt)
 
-public expect fun RtlFindClearBits(bitmapheader: Long, numbertofind: UInt, hintindex: UInt): UInt
+public expect fun rtlFindClearBits(bitmapheader: COpaquePointer?, numbertofind: UInt, hintindex: UInt): UInt
 
-public expect fun RtlFindClearBitsAndSet(bitmapheader: Long, numbertofind: UInt, hintindex: UInt): UInt
+public expect fun rtlFindClearBitsAndSet(bitmapheader: COpaquePointer?, numbertofind: UInt, hintindex: UInt): UInt
 
-public expect fun RtlFindClearRuns(bitmapheader: Long, runarray: Long, sizeofrunarray: UInt, locatelongestruns: Boolean): UInt
+public expect fun rtlFindClearRuns(bitmapheader: COpaquePointer?, runarray: COpaquePointer?, sizeofrunarray: UInt, locatelongestruns: Boolean): UInt
 
-public expect fun RtlFindClosestEncodableLength(sourcelength: ULong, targetlength: Long): NTSTATUS
+public expect fun rtlFindClosestEncodableLength(sourcelength: ULong, targetlength: COpaquePointer?): Ntstatus
 
-public expect fun RtlFindFirstRunClear(bitmapheader: Long, startingindex: Long): UInt
+public expect fun rtlFindFirstRunClear(bitmapheader: COpaquePointer?, startingindex: COpaquePointer?): UInt
 
-public expect fun RtlFindLastBackwardRunClear(bitmapheader: Long, fromindex: UInt, startingrunindex: Long): UInt
+public expect fun rtlFindLastBackwardRunClear(bitmapheader: COpaquePointer?, fromindex: UInt, startingrunindex: COpaquePointer?): UInt
 
-public expect fun RtlFindLeastSignificantBit(set: ULong): Byte
+public expect fun rtlFindLeastSignificantBit(set: ULong): Byte
 
-public expect fun RtlFindLongestRunClear(bitmapheader: Long, startingindex: Long): UInt
+public expect fun rtlFindLongestRunClear(bitmapheader: COpaquePointer?, startingindex: COpaquePointer?): UInt
 
-public expect fun RtlFindMostSignificantBit(set: ULong): Byte
+public expect fun rtlFindMostSignificantBit(set: ULong): Byte
 
-public expect fun RtlFindNextForwardRunClear(bitmapheader: Long, fromindex: UInt, startingrunindex: Long): UInt
+public expect fun rtlFindNextForwardRunClear(bitmapheader: COpaquePointer?, fromindex: UInt, startingrunindex: COpaquePointer?): UInt
 
-public expect fun RtlFindSetBits(bitmapheader: Long, numbertofind: UInt, hintindex: UInt): UInt
+public expect fun rtlFindSetBits(bitmapheader: COpaquePointer?, numbertofind: UInt, hintindex: UInt): UInt
 
-public expect fun RtlFindSetBitsAndClear(bitmapheader: Long, numbertofind: UInt, hintindex: UInt): UInt
+public expect fun rtlFindSetBitsAndClear(bitmapheader: COpaquePointer?, numbertofind: UInt, hintindex: UInt): UInt
 
-public expect fun RtlFreeUTF8String(utf8string: Long)
+public expect fun rtlFreeUTF8String(utf8string: COpaquePointer?)
 
-public expect fun RtlGUIDFromString(guidstring: Long, guid: Long): NTSTATUS
+public expect fun rtlGUIDFromString(guidstring: COpaquePointer?, guid: COpaquePointer?): Ntstatus
 
-public expect fun RtlGenerateClass5Guid(namespaceguid: Long, buffer: Long, buffersize: UInt, guid: Long): NTSTATUS
+public expect fun rtlGenerateClass5Guid(namespaceguid: COpaquePointer?, buffer: COpaquePointer?, buffersize: UInt, guid: COpaquePointer?): Ntstatus
 
-public expect fun RtlGetActiveConsoleId(): UInt
+public expect fun rtlGetActiveConsoleId(): UInt
 
-public expect fun RtlGetCallersAddress(callersaddress: Long, callerscaller: Long)
+public expect fun rtlGetCallersAddress(callersaddress: COpaquePointer?, callerscaller: COpaquePointer?)
 
-public expect fun RtlGetConsoleSessionForegroundProcessId(): ULong
+public expect fun rtlGetConsoleSessionForegroundProcessId(): ULong
 
-public expect fun RtlGetElementGenericTable(table: Long, i: UInt): Long
+public expect fun rtlGetElementGenericTable(table: COpaquePointer?, i: UInt): COpaquePointer?
 
-public expect fun RtlGetElementGenericTableAvl(table: Long, i: UInt): Long
+public expect fun rtlGetElementGenericTableAvl(table: COpaquePointer?, i: UInt): COpaquePointer?
 
-public expect fun RtlGetEnabledExtendedFeatures(featuremask: ULong): ULong
+public expect fun rtlGetEnabledExtendedFeatures(featuremask: ULong): ULong
 
-public expect fun RtlGetNextEntryHashTable(hashtable: Long, context: Long): Long
+public expect fun rtlGetNextEntryHashTable(hashtable: COpaquePointer?, context: COpaquePointer?): COpaquePointer?
 
-public expect fun RtlGetNtProductType(ntproducttype: Long): Boolean
+public expect fun rtlGetNtProductType(ntproducttype: COpaquePointer?): Boolean
 
-public expect fun RtlGetNtSystemRoot(): PCWSTR
+public expect fun rtlGetNtSystemRoot(): Pcwstr
 
-public expect fun RtlGetPersistedStateLocation(sourceid: PCWSTR, customvalue: PCWSTR, defaultpath: PCWSTR, statelocationtype: STATE_LOCATION_TYPE, targetpath: PWSTR, bufferlengthin: UInt, bufferlengthout: Long): NTSTATUS
+public expect fun rtlGetPersistedStateLocation(sourceid: Pcwstr, customvalue: Pcwstr, defaultpath: Pcwstr, statelocationtype: StateLocationType, targetpath: Pwstr, bufferlengthin: UInt, bufferlengthout: COpaquePointer?): Ntstatus
 
-public expect fun RtlGetSuiteMask(): UInt
+public expect fun rtlGetSuiteMask(): UInt
 
-public expect fun RtlGetVersion(lpversioninformation: Long): NTSTATUS
+public expect fun rtlGetVersion(lpversioninformation: COpaquePointer?): Ntstatus
 
-public expect fun RtlHashUnicodeString(string: Long, caseinsensitive: Boolean, hashalgorithm: UInt, hashvalue: Long): NTSTATUS
+public expect fun rtlHashUnicodeString(string: COpaquePointer?, caseinsensitive: Boolean, hashalgorithm: UInt, hashvalue: COpaquePointer?): Ntstatus
 
-public expect fun RtlInitEnumerationHashTable(hashtable: Long, enumerator: Long): Boolean
+public expect fun rtlInitEnumerationHashTable(hashtable: COpaquePointer?, enumerator: COpaquePointer?): Boolean
 
-public expect fun RtlInitStrongEnumerationHashTable(hashtable: Long, enumerator: Long): Boolean
+public expect fun rtlInitStrongEnumerationHashTable(hashtable: COpaquePointer?, enumerator: COpaquePointer?): Boolean
 
-public expect fun RtlInitUTF8String(destinationstring: Long, sourcestring: Long)
+public expect fun rtlInitUTF8String(destinationstring: COpaquePointer?, sourcestring: COpaquePointer?)
 
-public expect fun RtlInitUTF8StringEx(destinationstring: Long, sourcestring: Long): NTSTATUS
+public expect fun rtlInitUTF8StringEx(destinationstring: COpaquePointer?, sourcestring: COpaquePointer?): Ntstatus
 
-public expect fun RtlInitWeakEnumerationHashTable(hashtable: Long, enumerator: Long): Boolean
+public expect fun rtlInitWeakEnumerationHashTable(hashtable: COpaquePointer?, enumerator: COpaquePointer?): Boolean
 
-public expect fun RtlInitializeBitMap(bitmapheader: Long, bitmapbuffer: Long, sizeofbitmap: UInt)
+public expect fun rtlInitializeBitMap(bitmapheader: COpaquePointer?, bitmapbuffer: COpaquePointer?, sizeofbitmap: UInt)
 
-public expect fun RtlInitializeGenericTable(table: Long, compareroutine: PRTL_GENERIC_COMPARE_ROUTINE, allocateroutine: PRTL_GENERIC_ALLOCATE_ROUTINE, freeroutine: PRTL_GENERIC_FREE_ROUTINE, tablecontext: Long)
+public expect fun rtlInitializeGenericTable(table: COpaquePointer?, compareroutine: PrtlGenericCompareRoutine, allocateroutine: PrtlGenericAllocateRoutine, freeroutine: PrtlGenericFreeRoutine, tablecontext: COpaquePointer?)
 
-public expect fun RtlInitializeGenericTableAvl(table: Long, compareroutine: PRTL_AVL_COMPARE_ROUTINE, allocateroutine: PRTL_AVL_ALLOCATE_ROUTINE, freeroutine: PRTL_AVL_FREE_ROUTINE, tablecontext: Long)
+public expect fun rtlInitializeGenericTableAvl(table: COpaquePointer?, compareroutine: PrtlAvlCompareRoutine, allocateroutine: PrtlAvlAllocateRoutine, freeroutine: PrtlAvlFreeRoutine, tablecontext: COpaquePointer?)
 
-public expect fun RtlInsertElementGenericTable(table: Long, buffer: Long, buffersize: UInt, newelement: Long): Long
+public expect fun rtlInsertElementGenericTable(table: COpaquePointer?, buffer: COpaquePointer?, buffersize: UInt, newelement: COpaquePointer?): COpaquePointer?
 
-public expect fun RtlInsertElementGenericTableAvl(table: Long, buffer: Long, buffersize: UInt, newelement: Long): Long
+public expect fun rtlInsertElementGenericTableAvl(table: COpaquePointer?, buffer: COpaquePointer?, buffersize: UInt, newelement: COpaquePointer?): COpaquePointer?
 
-public expect fun RtlInsertElementGenericTableFull(table: Long, buffer: Long, buffersize: UInt, newelement: Long, nodeorparent: Long, searchresult: TABLE_SEARCH_RESULT): Long
+public expect fun rtlInsertElementGenericTableFull(table: COpaquePointer?, buffer: COpaquePointer?, buffersize: UInt, newelement: COpaquePointer?, nodeorparent: COpaquePointer?, searchresult: TableSearchResult): COpaquePointer?
 
-public expect fun RtlInsertElementGenericTableFullAvl(table: Long, buffer: Long, buffersize: UInt, newelement: Long, nodeorparent: Long, searchresult: TABLE_SEARCH_RESULT): Long
+public expect fun rtlInsertElementGenericTableFullAvl(table: COpaquePointer?, buffer: COpaquePointer?, buffersize: UInt, newelement: COpaquePointer?, nodeorparent: COpaquePointer?, searchresult: TableSearchResult): COpaquePointer?
 
-public expect fun RtlInsertEntryHashTable(hashtable: Long, entry: Long, signature: ULong, context: Long): Boolean
+public expect fun rtlInsertEntryHashTable(hashtable: COpaquePointer?, entry: COpaquePointer?, signature: ULong, context: COpaquePointer?): Boolean
 
-public expect fun RtlInt64ToUnicodeString(value: ULong, base: UInt, string: Long): NTSTATUS
+public expect fun rtlInt64ToUnicodeString(value: ULong, base: UInt, string: COpaquePointer?): Ntstatus
 
-public expect fun RtlIntegerToUnicodeString(value: UInt, base: UInt, string: Long): NTSTATUS
+public expect fun rtlIntegerToUnicodeString(value: UInt, base: UInt, string: COpaquePointer?): Ntstatus
 
-public expect fun RtlIoDecodeMemIoResource(descriptor: Long, alignment: Long, minimumaddress: Long, maximumaddress: Long): ULong
+public expect fun rtlIoDecodeMemIoResource(descriptor: COpaquePointer?, alignment: COpaquePointer?, minimumaddress: COpaquePointer?, maximumaddress: COpaquePointer?): ULong
 
-public expect fun RtlIoEncodeMemIoResource(descriptor: Long, type: UByte, length: ULong, alignment: ULong, minimumaddress: ULong, maximumaddress: ULong): NTSTATUS
+public expect fun rtlIoEncodeMemIoResource(descriptor: COpaquePointer?, type: UByte, length: ULong, alignment: ULong, minimumaddress: ULong, maximumaddress: ULong): Ntstatus
 
-public expect fun RtlIsApiSetImplemented(apisetname: PCSTR): NTSTATUS
+public expect fun rtlIsApiSetImplemented(apisetname: Pcstr): Ntstatus
 
-public expect fun RtlIsGenericTableEmpty(table: Long): Boolean
+public expect fun rtlIsGenericTableEmpty(table: COpaquePointer?): Boolean
 
-public expect fun RtlIsGenericTableEmptyAvl(table: Long): Boolean
+public expect fun rtlIsGenericTableEmptyAvl(table: COpaquePointer?): Boolean
 
-public expect fun RtlIsMultiSessionSku(): Boolean
+public expect fun rtlIsMultiSessionSku(): Boolean
 
-public expect fun RtlIsMultiUsersInSessionSku(): Boolean
+public expect fun rtlIsMultiUsersInSessionSku(): Boolean
 
-public expect fun RtlIsNtDdiVersionAvailable(version: UInt): Boolean
+public expect fun rtlIsNtDdiVersionAvailable(version: UInt): Boolean
 
-public expect fun RtlIsServicePackVersionInstalled(version: UInt): Boolean
+public expect fun rtlIsServicePackVersionInstalled(version: UInt): Boolean
 
-public expect fun RtlIsStateSeparationEnabled(): Boolean
+public expect fun rtlIsStateSeparationEnabled(): Boolean
 
-public expect fun RtlIsUntrustedObject(handle: HANDLE, obj: Long, untrustedobject: Long): NTSTATUS
+public expect fun rtlIsUntrustedObject(handle: Handle, obj: COpaquePointer?, untrustedobject: COpaquePointer?): Ntstatus
 
-public expect fun RtlLengthSecurityDescriptor(securitydescriptor: PSECURITY_DESCRIPTOR): UInt
+public expect fun rtlLengthSecurityDescriptor(securitydescriptor: PsecurityDescriptor): UInt
 
-public expect fun RtlLookupElementGenericTable(table: Long, buffer: Long): Long
+public expect fun rtlLookupElementGenericTable(table: COpaquePointer?, buffer: COpaquePointer?): COpaquePointer?
 
-public expect fun RtlLookupElementGenericTableAvl(table: Long, buffer: Long): Long
+public expect fun rtlLookupElementGenericTableAvl(table: COpaquePointer?, buffer: COpaquePointer?): COpaquePointer?
 
-public expect fun RtlLookupElementGenericTableFull(table: Long, buffer: Long, nodeorparent: Long, searchresult: Long): Long
+public expect fun rtlLookupElementGenericTableFull(table: COpaquePointer?, buffer: COpaquePointer?, nodeorparent: COpaquePointer?, searchresult: COpaquePointer?): COpaquePointer?
 
-public expect fun RtlLookupElementGenericTableFullAvl(table: Long, buffer: Long, nodeorparent: Long, searchresult: Long): Long
+public expect fun rtlLookupElementGenericTableFullAvl(table: COpaquePointer?, buffer: COpaquePointer?, nodeorparent: COpaquePointer?, searchresult: COpaquePointer?): COpaquePointer?
 
-public expect fun RtlLookupEntryHashTable(hashtable: Long, signature: ULong, context: Long): Long
+public expect fun rtlLookupEntryHashTable(hashtable: COpaquePointer?, signature: ULong, context: COpaquePointer?): COpaquePointer?
 
-public expect fun RtlLookupFirstMatchingElementGenericTableAvl(table: Long, buffer: Long, restartkey: Long): Long
+public expect fun rtlLookupFirstMatchingElementGenericTableAvl(table: COpaquePointer?, buffer: COpaquePointer?, restartkey: COpaquePointer?): COpaquePointer?
 
-public expect fun RtlMapGenericMask(accessmask: Long, genericmapping: Long)
+public expect fun rtlMapGenericMask(accessmask: COpaquePointer?, genericmapping: COpaquePointer?)
 
-public expect fun RtlNormalizeSecurityDescriptor(securitydescriptor: Long, securitydescriptorlength: UInt, newsecuritydescriptor: Long, newsecuritydescriptorlength: Long, checkonly: Boolean): Boolean
+public expect fun rtlNormalizeSecurityDescriptor(securitydescriptor: COpaquePointer?, securitydescriptorlength: UInt, newsecuritydescriptor: COpaquePointer?, newsecuritydescriptorlength: COpaquePointer?, checkonly: Boolean): Boolean
 
-public expect fun RtlNumberGenericTableElements(table: Long): UInt
+public expect fun rtlNumberGenericTableElements(table: COpaquePointer?): UInt
 
-public expect fun RtlNumberGenericTableElementsAvl(table: Long): UInt
+public expect fun rtlNumberGenericTableElementsAvl(table: COpaquePointer?): UInt
 
-public expect fun RtlNumberOfClearBits(bitmapheader: Long): UInt
+public expect fun rtlNumberOfClearBits(bitmapheader: COpaquePointer?): UInt
 
-public expect fun RtlNumberOfClearBitsInRange(bitmapheader: Long, startingindex: UInt, length: UInt): UInt
+public expect fun rtlNumberOfClearBitsInRange(bitmapheader: COpaquePointer?, startingindex: UInt, length: UInt): UInt
 
-public expect fun RtlNumberOfSetBits(bitmapheader: Long): UInt
+public expect fun rtlNumberOfSetBits(bitmapheader: COpaquePointer?): UInt
 
-public expect fun RtlNumberOfSetBitsInRange(bitmapheader: Long, startingindex: UInt, length: UInt): UInt
+public expect fun rtlNumberOfSetBitsInRange(bitmapheader: COpaquePointer?, startingindex: UInt, length: UInt): UInt
 
-public expect fun RtlNumberOfSetBitsUlongPtr(target: ULong): UInt
+public expect fun rtlNumberOfSetBitsUlongPtr(target: ULong): UInt
 
-public expect fun RtlPrefetchMemoryNonTemporal(source: Long, length: ULong)
+public expect fun rtlPrefetchMemoryNonTemporal(source: COpaquePointer?, length: ULong)
 
-public expect fun RtlPrefixUnicodeString(string1: Long, string2: Long, caseinsensitive: Boolean): Boolean
+public expect fun rtlPrefixUnicodeString(string1: COpaquePointer?, string2: COpaquePointer?, caseinsensitive: Boolean): Boolean
 
-public expect fun RtlQueryRegistryValueWithFallback(primaryhandle: HANDLE, fallbackhandle: HANDLE, valuename: Long, valuelength: UInt, valuetype: Long, valuedata: Long, resultlength: Long): NTSTATUS
+public expect fun rtlQueryRegistryValueWithFallback(primaryhandle: Handle, fallbackhandle: Handle, valuename: COpaquePointer?, valuelength: UInt, valuetype: COpaquePointer?, valuedata: COpaquePointer?, resultlength: COpaquePointer?): Ntstatus
 
-public expect fun RtlQueryRegistryValues(relativeto: UInt, path: PCWSTR, querytable: Long, context: Long, environment: Long): NTSTATUS
+public expect fun rtlQueryRegistryValues(relativeto: UInt, path: Pcwstr, querytable: COpaquePointer?, context: COpaquePointer?, environment: COpaquePointer?): Ntstatus
 
-public expect fun RtlQueryValidationRunlevel(componentname: Long): UInt
+public expect fun rtlQueryValidationRunlevel(componentname: COpaquePointer?): UInt
 
-public expect fun RtlRealPredecessor(links: Long): Long
+public expect fun rtlRealPredecessor(links: COpaquePointer?): COpaquePointer?
 
-public expect fun RtlRealSuccessor(links: Long): Long
+public expect fun rtlRealSuccessor(links: COpaquePointer?): COpaquePointer?
 
-public expect fun RtlRemoveEntryHashTable(hashtable: Long, entry: Long, context: Long): Boolean
+public expect fun rtlRemoveEntryHashTable(hashtable: COpaquePointer?, entry: COpaquePointer?, context: COpaquePointer?): Boolean
 
-public expect fun RtlRunOnceBeginInitialize(runonce: Long, flags: UInt, context: Long): NTSTATUS
+public expect fun rtlRunOnceBeginInitialize(runonce: COpaquePointer?, flags: UInt, context: COpaquePointer?): Ntstatus
 
-public expect fun RtlRunOnceComplete(runonce: Long, flags: UInt, context: Long): NTSTATUS
+public expect fun rtlRunOnceComplete(runonce: COpaquePointer?, flags: UInt, context: COpaquePointer?): Ntstatus
 
-public expect fun RtlRunOnceExecuteOnce(runonce: Long, initfn: PRTL_RUN_ONCE_INIT_FN, parameter: Long, context: Long): NTSTATUS
+public expect fun rtlRunOnceExecuteOnce(runonce: COpaquePointer?, initfn: PrtlRunOnceInitFn, parameter: COpaquePointer?, context: COpaquePointer?): Ntstatus
 
-public expect fun RtlRunOnceInitialize(runonce: Long)
+public expect fun rtlRunOnceInitialize(runonce: COpaquePointer?)
 
-public expect fun RtlSetAllBits(bitmapheader: Long)
+public expect fun rtlSetAllBits(bitmapheader: COpaquePointer?)
 
-public expect fun RtlSetBit(bitmapheader: Long, bitnumber: UInt)
+public expect fun rtlSetBit(bitmapheader: COpaquePointer?, bitnumber: UInt)
 
-public expect fun RtlSetBits(bitmapheader: Long, startingindex: UInt, numbertoset: UInt)
+public expect fun rtlSetBits(bitmapheader: COpaquePointer?, startingindex: UInt, numbertoset: UInt)
 
-public expect fun RtlSetDaclSecurityDescriptor(securitydescriptor: PSECURITY_DESCRIPTOR, daclpresent: Boolean, dacl: Long, dacldefaulted: Boolean): NTSTATUS
+public expect fun rtlSetDaclSecurityDescriptor(securitydescriptor: PsecurityDescriptor, daclpresent: Boolean, dacl: COpaquePointer?, dacldefaulted: Boolean): Ntstatus

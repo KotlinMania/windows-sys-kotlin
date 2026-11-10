@@ -4,24 +4,24 @@ public val HF32_DEFAULT: UInt = 1u
 
 public val HF32_SHARED: UInt = 2u
 
-public val LF32_FIXED: HEAPENTRY32_FLAGS = 1u
+public val LF32_FIXED: Heapentry32Flags = 1u
 
-public val LF32_FREE: HEAPENTRY32_FLAGS = 2u
+public val LF32_FREE: Heapentry32Flags = 2u
 
-public val LF32_MOVEABLE: HEAPENTRY32_FLAGS = 4u
+public val LF32_MOVEABLE: Heapentry32Flags = 4u
 
 public val MAX_MODULE_NAME32: UInt = 255u
 
-public val TH32CS_INHERIT: CREATE_TOOLHELP_SNAPSHOT_FLAGS = 2147483648u
+public val TH32CS_INHERIT: CreateToolhelpSnapshotFlags = 2147483648u
 
-public val TH32CS_SNAPALL: CREATE_TOOLHELP_SNAPSHOT_FLAGS = 15u
+public val TH32CS_SNAPALL: CreateToolhelpSnapshotFlags = 15u
 
-public val TH32CS_SNAPHEAPLIST: CREATE_TOOLHELP_SNAPSHOT_FLAGS = 1u
+public val TH32CS_SNAPHEAPLIST: CreateToolhelpSnapshotFlags = 1u
 
-public val TH32CS_SNAPMODULE: CREATE_TOOLHELP_SNAPSHOT_FLAGS = 8u
+public val TH32CS_SNAPMODULE: CreateToolhelpSnapshotFlags = 8u
 
-public val TH32CS_SNAPMODULE32: CREATE_TOOLHELP_SNAPSHOT_FLAGS = 16u
+public val TH32CS_SNAPMODULE32: CreateToolhelpSnapshotFlags = 16u
 
-public val TH32CS_SNAPPROCESS: CREATE_TOOLHELP_SNAPSHOT_FLAGS = 2u
+public val TH32CS_SNAPPROCESS: CreateToolhelpSnapshotFlags = 2u
 
-public val TH32CS_SNAPTHREAD: CREATE_TOOLHELP_SNAPSHOT_FLAGS = 4u
+public val TH32CS_SNAPTHREAD: CreateToolhelpSnapshotFlags = 4u

@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_time_EnumDynamicTimeZoneInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_time_enumDynamicTimeZoneInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwindex = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lptimezoneinformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -71,7 +71,7 @@ static Napi::Value windowssys_windows_win32_system_time_EnumDynamicTimeZoneInfor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_time_FileTimeToSystemTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_time_fileTimeToSystemTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfiletime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpsystemtime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -91,7 +91,7 @@ static Napi::Value windowssys_windows_win32_system_time_FileTimeToSystemTime_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_time_GetDynamicTimeZoneInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_time_getDynamicTimeZoneInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ptimezoneinformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -109,7 +109,7 @@ static Napi::Value windowssys_windows_win32_system_time_GetDynamicTimeZoneInform
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_time_GetDynamicTimeZoneInformationEffectiveYears_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_time_getDynamicTimeZoneInformationEffectiveYears_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lptimezoneinformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* firstyear = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -131,7 +131,7 @@ static Napi::Value windowssys_windows_win32_system_time_GetDynamicTimeZoneInform
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_time_GetTimeZoneInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_time_getTimeZoneInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lptimezoneinformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -149,7 +149,7 @@ static Napi::Value windowssys_windows_win32_system_time_GetTimeZoneInformation_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_time_GetTimeZoneInformationForYear_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_time_getTimeZoneInformationForYear_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t wyear = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pdtzi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -171,7 +171,7 @@ static Napi::Value windowssys_windows_win32_system_time_GetTimeZoneInformationFo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_time_LocalFileTimeToLocalSystemTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_time_localFileTimeToLocalSystemTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* timezoneinformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* localfiletime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -193,7 +193,7 @@ static Napi::Value windowssys_windows_win32_system_time_LocalFileTimeToLocalSyst
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_time_LocalSystemTimeToLocalFileTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_time_localSystemTimeToLocalFileTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* timezoneinformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* localsystemtime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -215,7 +215,7 @@ static Napi::Value windowssys_windows_win32_system_time_LocalSystemTimeToLocalFi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_time_SetDynamicTimeZoneInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_time_setDynamicTimeZoneInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lptimezoneinformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -233,7 +233,7 @@ static Napi::Value windowssys_windows_win32_system_time_SetDynamicTimeZoneInform
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_time_SetTimeZoneInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_time_setTimeZoneInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lptimezoneinformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -251,7 +251,7 @@ static Napi::Value windowssys_windows_win32_system_time_SetTimeZoneInformation_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_time_SystemTimeToFileTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_time_systemTimeToFileTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsystemtime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfiletime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -271,7 +271,7 @@ static Napi::Value windowssys_windows_win32_system_time_SystemTimeToFileTime_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_time_SystemTimeToTzSpecificLocalTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_time_systemTimeToTzSpecificLocalTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lptimezoneinformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpuniversaltime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -293,7 +293,7 @@ static Napi::Value windowssys_windows_win32_system_time_SystemTimeToTzSpecificLo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_time_SystemTimeToTzSpecificLocalTimeEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_time_systemTimeToTzSpecificLocalTimeEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lptimezoneinformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpuniversaltime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -315,7 +315,7 @@ static Napi::Value windowssys_windows_win32_system_time_SystemTimeToTzSpecificLo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_time_TzSpecificLocalTimeToSystemTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_time_tzSpecificLocalTimeToSystemTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lptimezoneinformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lplocaltime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -337,7 +337,7 @@ static Napi::Value windowssys_windows_win32_system_time_TzSpecificLocalTimeToSys
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_time_TzSpecificLocalTimeToSystemTimeEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_time_tzSpecificLocalTimeToSystemTimeEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lptimezoneinformation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lplocaltime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -360,21 +360,21 @@ static Napi::Value windowssys_windows_win32_system_time_TzSpecificLocalTimeToSys
 }
 
 static void register_windows_win32_system_time_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_time_EnumDynamicTimeZoneInformation", Napi::Function::New(env, windowssys_windows_win32_system_time_EnumDynamicTimeZoneInformation_napi));
-    exports.Set("windowssys_windows_win32_system_time_FileTimeToSystemTime", Napi::Function::New(env, windowssys_windows_win32_system_time_FileTimeToSystemTime_napi));
-    exports.Set("windowssys_windows_win32_system_time_GetDynamicTimeZoneInformation", Napi::Function::New(env, windowssys_windows_win32_system_time_GetDynamicTimeZoneInformation_napi));
-    exports.Set("windowssys_windows_win32_system_time_GetDynamicTimeZoneInformationEffectiveYears", Napi::Function::New(env, windowssys_windows_win32_system_time_GetDynamicTimeZoneInformationEffectiveYears_napi));
-    exports.Set("windowssys_windows_win32_system_time_GetTimeZoneInformation", Napi::Function::New(env, windowssys_windows_win32_system_time_GetTimeZoneInformation_napi));
-    exports.Set("windowssys_windows_win32_system_time_GetTimeZoneInformationForYear", Napi::Function::New(env, windowssys_windows_win32_system_time_GetTimeZoneInformationForYear_napi));
-    exports.Set("windowssys_windows_win32_system_time_LocalFileTimeToLocalSystemTime", Napi::Function::New(env, windowssys_windows_win32_system_time_LocalFileTimeToLocalSystemTime_napi));
-    exports.Set("windowssys_windows_win32_system_time_LocalSystemTimeToLocalFileTime", Napi::Function::New(env, windowssys_windows_win32_system_time_LocalSystemTimeToLocalFileTime_napi));
-    exports.Set("windowssys_windows_win32_system_time_SetDynamicTimeZoneInformation", Napi::Function::New(env, windowssys_windows_win32_system_time_SetDynamicTimeZoneInformation_napi));
-    exports.Set("windowssys_windows_win32_system_time_SetTimeZoneInformation", Napi::Function::New(env, windowssys_windows_win32_system_time_SetTimeZoneInformation_napi));
-    exports.Set("windowssys_windows_win32_system_time_SystemTimeToFileTime", Napi::Function::New(env, windowssys_windows_win32_system_time_SystemTimeToFileTime_napi));
-    exports.Set("windowssys_windows_win32_system_time_SystemTimeToTzSpecificLocalTime", Napi::Function::New(env, windowssys_windows_win32_system_time_SystemTimeToTzSpecificLocalTime_napi));
-    exports.Set("windowssys_windows_win32_system_time_SystemTimeToTzSpecificLocalTimeEx", Napi::Function::New(env, windowssys_windows_win32_system_time_SystemTimeToTzSpecificLocalTimeEx_napi));
-    exports.Set("windowssys_windows_win32_system_time_TzSpecificLocalTimeToSystemTime", Napi::Function::New(env, windowssys_windows_win32_system_time_TzSpecificLocalTimeToSystemTime_napi));
-    exports.Set("windowssys_windows_win32_system_time_TzSpecificLocalTimeToSystemTimeEx", Napi::Function::New(env, windowssys_windows_win32_system_time_TzSpecificLocalTimeToSystemTimeEx_napi));
+    exports.Set("windowssys_windows_win32_system_time_enumDynamicTimeZoneInformation", Napi::Function::New(env, windowssys_windows_win32_system_time_enumDynamicTimeZoneInformation_napi));
+    exports.Set("windowssys_windows_win32_system_time_fileTimeToSystemTime", Napi::Function::New(env, windowssys_windows_win32_system_time_fileTimeToSystemTime_napi));
+    exports.Set("windowssys_windows_win32_system_time_getDynamicTimeZoneInformation", Napi::Function::New(env, windowssys_windows_win32_system_time_getDynamicTimeZoneInformation_napi));
+    exports.Set("windowssys_windows_win32_system_time_getDynamicTimeZoneInformationEffectiveYears", Napi::Function::New(env, windowssys_windows_win32_system_time_getDynamicTimeZoneInformationEffectiveYears_napi));
+    exports.Set("windowssys_windows_win32_system_time_getTimeZoneInformation", Napi::Function::New(env, windowssys_windows_win32_system_time_getTimeZoneInformation_napi));
+    exports.Set("windowssys_windows_win32_system_time_getTimeZoneInformationForYear", Napi::Function::New(env, windowssys_windows_win32_system_time_getTimeZoneInformationForYear_napi));
+    exports.Set("windowssys_windows_win32_system_time_localFileTimeToLocalSystemTime", Napi::Function::New(env, windowssys_windows_win32_system_time_localFileTimeToLocalSystemTime_napi));
+    exports.Set("windowssys_windows_win32_system_time_localSystemTimeToLocalFileTime", Napi::Function::New(env, windowssys_windows_win32_system_time_localSystemTimeToLocalFileTime_napi));
+    exports.Set("windowssys_windows_win32_system_time_setDynamicTimeZoneInformation", Napi::Function::New(env, windowssys_windows_win32_system_time_setDynamicTimeZoneInformation_napi));
+    exports.Set("windowssys_windows_win32_system_time_setTimeZoneInformation", Napi::Function::New(env, windowssys_windows_win32_system_time_setTimeZoneInformation_napi));
+    exports.Set("windowssys_windows_win32_system_time_systemTimeToFileTime", Napi::Function::New(env, windowssys_windows_win32_system_time_systemTimeToFileTime_napi));
+    exports.Set("windowssys_windows_win32_system_time_systemTimeToTzSpecificLocalTime", Napi::Function::New(env, windowssys_windows_win32_system_time_systemTimeToTzSpecificLocalTime_napi));
+    exports.Set("windowssys_windows_win32_system_time_systemTimeToTzSpecificLocalTimeEx", Napi::Function::New(env, windowssys_windows_win32_system_time_systemTimeToTzSpecificLocalTimeEx_napi));
+    exports.Set("windowssys_windows_win32_system_time_tzSpecificLocalTimeToSystemTime", Napi::Function::New(env, windowssys_windows_win32_system_time_tzSpecificLocalTimeToSystemTime_napi));
+    exports.Set("windowssys_windows_win32_system_time_tzSpecificLocalTimeToSystemTimeEx", Napi::Function::New(env, windowssys_windows_win32_system_time_tzSpecificLocalTimeToSystemTimeEx_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_time_napi, nullptr };

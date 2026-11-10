@@ -1,33 +1,34 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.time
 
-import io.github.kotlinmania.windowssys.core.BOOL
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
 
-public expect fun EnumDynamicTimeZoneInformation(dwindex: UInt, lptimezoneinformation: Long): UInt
+public expect fun enumDynamicTimeZoneInformation(dwindex: UInt, lptimezoneinformation: COpaquePointer?): UInt
 
-public expect fun FileTimeToSystemTime(lpfiletime: Long, lpsystemtime: Long): BOOL
+public expect fun fileTimeToSystemTime(lpfiletime: COpaquePointer?, lpsystemtime: COpaquePointer?): Bool
 
-public expect fun GetDynamicTimeZoneInformation(ptimezoneinformation: Long): UInt
+public expect fun getDynamicTimeZoneInformation(ptimezoneinformation: COpaquePointer?): UInt
 
-public expect fun GetDynamicTimeZoneInformationEffectiveYears(lptimezoneinformation: Long, firstyear: Long, lastyear: Long): UInt
+public expect fun getDynamicTimeZoneInformationEffectiveYears(lptimezoneinformation: COpaquePointer?, firstyear: COpaquePointer?, lastyear: COpaquePointer?): UInt
 
-public expect fun GetTimeZoneInformation(lptimezoneinformation: Long): UInt
+public expect fun getTimeZoneInformation(lptimezoneinformation: COpaquePointer?): UInt
 
-public expect fun GetTimeZoneInformationForYear(wyear: UShort, pdtzi: Long, ptzi: Long): BOOL
+public expect fun getTimeZoneInformationForYear(wyear: UShort, pdtzi: COpaquePointer?, ptzi: COpaquePointer?): Bool
 
-public expect fun LocalFileTimeToLocalSystemTime(timezoneinformation: Long, localfiletime: Long, localsystemtime: Long): BOOL
+public expect fun localFileTimeToLocalSystemTime(timezoneinformation: COpaquePointer?, localfiletime: COpaquePointer?, localsystemtime: COpaquePointer?): Bool
 
-public expect fun LocalSystemTimeToLocalFileTime(timezoneinformation: Long, localsystemtime: Long, localfiletime: Long): BOOL
+public expect fun localSystemTimeToLocalFileTime(timezoneinformation: COpaquePointer?, localsystemtime: COpaquePointer?, localfiletime: COpaquePointer?): Bool
 
-public expect fun SetDynamicTimeZoneInformation(lptimezoneinformation: Long): BOOL
+public expect fun setDynamicTimeZoneInformation(lptimezoneinformation: COpaquePointer?): Bool
 
-public expect fun SetTimeZoneInformation(lptimezoneinformation: Long): BOOL
+public expect fun setTimeZoneInformation(lptimezoneinformation: COpaquePointer?): Bool
 
-public expect fun SystemTimeToFileTime(lpsystemtime: Long, lpfiletime: Long): BOOL
+public expect fun systemTimeToFileTime(lpsystemtime: COpaquePointer?, lpfiletime: COpaquePointer?): Bool
 
-public expect fun SystemTimeToTzSpecificLocalTime(lptimezoneinformation: Long, lpuniversaltime: Long, lplocaltime: Long): BOOL
+public expect fun systemTimeToTzSpecificLocalTime(lptimezoneinformation: COpaquePointer?, lpuniversaltime: COpaquePointer?, lplocaltime: COpaquePointer?): Bool
 
-public expect fun SystemTimeToTzSpecificLocalTimeEx(lptimezoneinformation: Long, lpuniversaltime: Long, lplocaltime: Long): BOOL
+public expect fun systemTimeToTzSpecificLocalTimeEx(lptimezoneinformation: COpaquePointer?, lpuniversaltime: COpaquePointer?, lplocaltime: COpaquePointer?): Bool
 
-public expect fun TzSpecificLocalTimeToSystemTime(lptimezoneinformation: Long, lplocaltime: Long, lpuniversaltime: Long): BOOL
+public expect fun tzSpecificLocalTimeToSystemTime(lptimezoneinformation: COpaquePointer?, lplocaltime: COpaquePointer?, lpuniversaltime: COpaquePointer?): Bool
 
-public expect fun TzSpecificLocalTimeToSystemTimeEx(lptimezoneinformation: Long, lplocaltime: Long, lpuniversaltime: Long): BOOL
+public expect fun tzSpecificLocalTimeToSystemTimeEx(lptimezoneinformation: COpaquePointer?, lplocaltime: COpaquePointer?, lpuniversaltime: COpaquePointer?): Bool

@@ -1,101 +1,102 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw
 
-import io.github.kotlinmania.windowssys.core.BOOL
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
 
-public typealias DECODING_SOURCE = Int
+public typealias DecodingSource = Int
 
-public typealias ENABLECALLBACK_ENABLED_STATE = UInt
+public typealias EnablecallbackEnabledState = UInt
 
-public typealias ETW_COMPRESSION_RESUMPTION_MODE = Int
+public typealias EtwCompressionResumptionMode = Int
 
-public typealias ETW_PMC_COUNTER_OWNER_TYPE = Int
+public typealias EtwPmcCounterOwnerType = Int
 
-public typealias ETW_PROCESS_HANDLE_INFO_TYPE = Int
+public typealias EtwProcessHandleInfoType = Int
 
-public typealias ETW_PROCESS_TRACE_MODES = Int
+public typealias EtwProcessTraceModes = Int
 
-public typealias ETW_PROVIDER_TRAIT_TYPE = Int
+public typealias EtwProviderTraitType = Int
 
-public typealias EVENTSECURITYOPERATION = Int
+public typealias Eventsecurityoperation = Int
 
-public typealias EVENT_FIELD_TYPE = Int
+public typealias EventFieldType = Int
 
-public typealias EVENT_INFO_CLASS = Int
+public typealias EventInfoClass = Int
 
-public typealias EVENT_TRACE_CONTROL = UInt
+public typealias EventTraceControl = UInt
 
-public typealias EVENT_TRACE_FLAG = UInt
+public typealias EventTraceFlag = UInt
 
-public typealias MAP_FLAGS = Int
+public typealias MapFlags = Int
 
-public typealias MAP_VALUETYPE = Int
+public typealias MapValuetype = Int
 
-public typealias PAYLOAD_OPERATOR = Int
+public typealias PayloadOperator = Int
 
-public fun interface PENABLECALLBACKFn {
-    public operator fun invoke(sourceid: Long, isenabled: ENABLECALLBACK_ENABLED_STATE, level: UByte, matchanykeyword: ULong, matchallkeyword: ULong, filterdata: Long, callbackcontext: Long)
+public fun interface PenablecallbackFn {
+    public operator fun invoke(sourceid: COpaquePointer?, isenabled: EnablecallbackEnabledState, level: UByte, matchanykeyword: ULong, matchallkeyword: ULong, filterdata: COpaquePointer?, callbackcontext: COpaquePointer?)
 }
 
-public typealias PENABLECALLBACK = PENABLECALLBACKFn?
+public typealias Penablecallback = PenablecallbackFn?
 
-public fun interface PETW_BUFFER_CALLBACKFn {
-    public operator fun invoke(buffer: Long, buffersize: UInt, consumerinfo: Long, callbackcontext: Long): BOOL
+public fun interface PetwBufferCallbackFn {
+    public operator fun invoke(buffer: COpaquePointer?, buffersize: UInt, consumerinfo: COpaquePointer?, callbackcontext: COpaquePointer?): Bool
 }
 
-public typealias PETW_BUFFER_CALLBACK = PETW_BUFFER_CALLBACKFn?
+public typealias PetwBufferCallback = PetwBufferCallbackFn?
 
-public fun interface PETW_BUFFER_COMPLETION_CALLBACKFn {
-    public operator fun invoke(buffer: Long, callbackcontext: Long)
+public fun interface PetwBufferCompletionCallbackFn {
+    public operator fun invoke(buffer: COpaquePointer?, callbackcontext: COpaquePointer?)
 }
 
-public typealias PETW_BUFFER_COMPLETION_CALLBACK = PETW_BUFFER_COMPLETION_CALLBACKFn?
+public typealias PetwBufferCompletionCallback = PetwBufferCompletionCallbackFn?
 
-public fun interface PEVENT_CALLBACKFn {
-    public operator fun invoke(pevent: Long)
+public fun interface PeventCallbackFn {
+    public operator fun invoke(pevent: COpaquePointer?)
 }
 
-public typealias PEVENT_CALLBACK = PEVENT_CALLBACKFn?
+public typealias PeventCallback = PeventCallbackFn?
 
-public fun interface PEVENT_RECORD_CALLBACKFn {
-    public operator fun invoke(eventrecord: Long)
+public fun interface PeventRecordCallbackFn {
+    public operator fun invoke(eventrecord: COpaquePointer?)
 }
 
-public typealias PEVENT_RECORD_CALLBACK = PEVENT_RECORD_CALLBACKFn?
+public typealias PeventRecordCallback = PeventRecordCallbackFn?
 
-public fun interface PEVENT_TRACE_BUFFER_CALLBACKAFn {
-    public operator fun invoke(logfile: Long): UInt
+public fun interface PeventTraceBufferCallbackaFn {
+    public operator fun invoke(logfile: COpaquePointer?): UInt
 }
 
-public typealias PEVENT_TRACE_BUFFER_CALLBACKA = PEVENT_TRACE_BUFFER_CALLBACKAFn?
+public typealias PeventTraceBufferCallbacka = PeventTraceBufferCallbackaFn?
 
-public fun interface PEVENT_TRACE_BUFFER_CALLBACKWFn {
-    public operator fun invoke(logfile: Long): UInt
+public fun interface PeventTraceBufferCallbackwFn {
+    public operator fun invoke(logfile: COpaquePointer?): UInt
 }
 
-public typealias PEVENT_TRACE_BUFFER_CALLBACKW = PEVENT_TRACE_BUFFER_CALLBACKWFn?
+public typealias PeventTraceBufferCallbackw = PeventTraceBufferCallbackwFn?
 
-public typealias PROPERTY_FLAGS = Int
+public typealias PropertyFlags = Int
 
-public typealias REGHANDLE = Long
+public typealias Reghandle = Long
 
-public typealias TDH_CONTEXT_TYPE = Int
+public typealias TdhContextType = Int
 
-public typealias TDH_HANDLE = Long
+public typealias TdhHandle = Long
 
-public typealias TEMPLATE_FLAGS = Int
+public typealias TemplateFlags = Int
 
-public typealias TRACE_MESSAGE_FLAGS = UInt
+public typealias TraceMessageFlags = UInt
 
-public typealias TRACE_QUERY_INFO_CLASS = Int
+public typealias TraceQueryInfoClass = Int
 
-public fun interface WMIDPREQUESTFn {
-    public operator fun invoke(requestcode: WMIDPREQUESTCODE, requestcontext: Long, buffersize: Long, buffer: Long): UInt
+public fun interface WmidprequestFn {
+    public operator fun invoke(requestcode: Wmidprequestcode, requestcontext: COpaquePointer?, buffersize: COpaquePointer?, buffer: COpaquePointer?): UInt
 }
 
-public typealias WMIDPREQUEST = WMIDPREQUESTFn?
+public typealias Wmidprequest = WmidprequestFn?
 
-public typealias WMIDPREQUESTCODE = Int
+public typealias Wmidprequestcode = Int
 
-public typealias _TDH_IN_TYPE = Int
+public typealias TdhInType = Int
 
-public typealias _TDH_OUT_TYPE = Int
+public typealias TdhOutType = Int

@@ -1,44 +1,45 @@
 package io.github.kotlinmania.windowssys.windows.win32.networking.ldap
 
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 
-public fun interface DBGPRINTFn {
-    public operator fun invoke(format: PCSTR): UInt
+public fun interface DbgprintFn {
+    public operator fun invoke(format: Pcstr): UInt
 }
 
-public typealias DBGPRINT = DBGPRINTFn?
+public typealias Dbgprint = DbgprintFn?
 
-public fun interface DEREFERENCECONNECTIONFn {
-    public operator fun invoke(primaryconnection: Long, connectiontodereference: Long): UInt
+public fun interface DereferenceconnectionFn {
+    public operator fun invoke(primaryconnection: COpaquePointer?, connectiontodereference: COpaquePointer?): UInt
 }
 
-public typealias DEREFERENCECONNECTION = DEREFERENCECONNECTIONFn?
+public typealias Dereferenceconnection = DereferenceconnectionFn?
 
-public typealias LDAP_RETCODE = Int
+public typealias LdapRetcode = Int
 
-public fun interface NOTIFYOFNEWCONNECTIONFn {
-    public operator fun invoke(primaryconnection: Long, referralfromconnection: Long, newdn: PCWSTR, hostname: PCSTR, newconnection: Long, portnumber: UInt, secauthidentity: Long, currentuser: Long, errorcodefrombind: UInt): Boolean
+public fun interface NotifyofnewconnectionFn {
+    public operator fun invoke(primaryconnection: COpaquePointer?, referralfromconnection: COpaquePointer?, newdn: Pcwstr, hostname: Pcstr, newconnection: COpaquePointer?, portnumber: UInt, secauthidentity: COpaquePointer?, currentuser: COpaquePointer?, errorcodefrombind: UInt): Boolean
 }
 
-public typealias NOTIFYOFNEWCONNECTION = NOTIFYOFNEWCONNECTIONFn?
+public typealias Notifyofnewconnection = NotifyofnewconnectionFn?
 
 public typealias PLDAPSearch = Long
 
-public fun interface QUERYCLIENTCERTFn {
-    public operator fun invoke(connection: Long, trusted_cas: Long, ppcertificate: Long): Boolean
+public fun interface QueryclientcertFn {
+    public operator fun invoke(connection: COpaquePointer?, trustedCas: COpaquePointer?, ppcertificate: COpaquePointer?): Boolean
 }
 
-public typealias QUERYCLIENTCERT = QUERYCLIENTCERTFn?
+public typealias Queryclientcert = QueryclientcertFn?
 
-public fun interface QUERYFORCONNECTIONFn {
-    public operator fun invoke(primaryconnection: Long, referralfromconnection: Long, newdn: PCWSTR, hostname: PCSTR, portnumber: UInt, secauthidentity: Long, currentusertoken: Long, connectiontouse: Long): UInt
+public fun interface QueryforconnectionFn {
+    public operator fun invoke(primaryconnection: COpaquePointer?, referralfromconnection: COpaquePointer?, newdn: Pcwstr, hostname: Pcstr, portnumber: UInt, secauthidentity: COpaquePointer?, currentusertoken: COpaquePointer?, connectiontouse: COpaquePointer?): UInt
 }
 
-public typealias QUERYFORCONNECTION = QUERYFORCONNECTIONFn?
+public typealias Queryforconnection = QueryforconnectionFn?
 
-public fun interface VERIFYSERVERCERTFn {
-    public operator fun invoke(connection: Long, pservercert: Long): Boolean
+public fun interface VerifyservercertFn {
+    public operator fun invoke(connection: COpaquePointer?, pservercert: COpaquePointer?): Boolean
 }
 
-public typealias VERIFYSERVERCERT = VERIFYSERVERCERTFn?
+public typealias Verifyservercert = VerifyservercertFn?

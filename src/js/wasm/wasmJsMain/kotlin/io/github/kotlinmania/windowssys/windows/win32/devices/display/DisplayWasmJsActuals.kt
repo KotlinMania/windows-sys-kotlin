@@ -1,366 +1,794 @@
-@file:OptIn(kotlin.ExperimentalUnsignedTypes::class)
+@file:OptIn(kotlin.ExperimentalUnsignedTypes::class, kotlin.js.ExperimentalWasmJsInterop::class)
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.display
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.SIZE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WIN32_ERROR
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HBITMAP
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HMONITOR
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HPALETTE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Size
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Win32Error
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hbitmap
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hmonitor
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hpalette
 
-public actual fun BRUSHOBJ_hGetColorTransform(pbo: Long): HANDLE =
-    0L
+@JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
+private external fun _initWindowsWin32DevicesDisplayNapiAddon(): Boolean
 
-public actual fun BRUSHOBJ_pvAllocRbrush(pbo: Long, cj: UInt): Long =
-    0L
+private val _windowsWin32DevicesDisplayNapiAvailable: Boolean = _initWindowsWin32DevicesDisplayNapiAddon()
 
-public actual fun BRUSHOBJ_pvGetRbrush(pbo: Long): Long =
-    0L
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_brushobjHGetColorTransform(p0)")
+private external fun _wasm_windowssys_windows_win32_devices_display_brushobjHGetColorTransform(p0: String): String
 
-public actual fun BRUSHOBJ_ulGetBrushColor(pbo: Long): UInt =
-    0u
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_brushobjPvAllocRbrush(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_devices_display_brushobjPvAllocRbrush(p0: String, p1: Int): String
 
-public actual fun CLIPOBJ_bEnum(pco: Long, cj: UInt, pul: Long): BOOL =
-    0
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_brushobjPvGetRbrush(p0)")
+private external fun _wasm_windowssys_windows_win32_devices_display_brushobjPvGetRbrush(p0: String): String
 
-public actual fun CLIPOBJ_cEnumStart(pco: Long, ball: BOOL, itype: UInt, idirection: UInt, climit: UInt): UInt =
-    0u
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_brushobjUlGetBrushColor(p0)")
+private external fun _wasm_windowssys_windows_win32_devices_display_brushobjUlGetBrushColor(p0: String): Int
 
-public actual fun CLIPOBJ_ppoGetPath(pco: Long): Long =
-    0L
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_clipobjBEnum(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_devices_display_clipobjBEnum(p0: String, p1: Int, p2: String): Int
 
-public actual fun CapabilitiesRequestAndCapabilitiesReply(hmonitor: HANDLE, pszasciicapabilitiesstring: PSTR, dwcapabilitiesstringlengthincharacters: UInt): Int =
-    0
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_clipobjCEnumStart(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_devices_display_clipobjCEnumStart(p0: String, p1: Int, p2: Int, p3: Int, p4: Int): Int
 
-public actual fun DegaussMonitor(hmonitor: HANDLE): Int =
-    0
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_clipobjPpoGetPath(p0)")
+private external fun _wasm_windowssys_windows_win32_devices_display_clipobjPpoGetPath(p0: String): String
 
-public actual fun DestroyPhysicalMonitor(hmonitor: HANDLE): BOOL =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_capabilitiesRequestAndCapabilitiesReply(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_devices_display_capabilitiesRequestAndCapabilitiesReply(p0: String, p1: String, p2: Int): Int
 
-public actual fun DestroyPhysicalMonitors(dwphysicalmonitorarraysize: UInt, pphysicalmonitorarray: Long): BOOL =
-    0
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_degaussMonitor(p0)")
+private external fun _wasm_windowssys_windows_win32_devices_display_degaussMonitor(p0: String): Int
 
-public actual fun DisplayConfigGetDeviceInfo(requestpacket: Long): Int =
-    0
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_destroyPhysicalMonitor(p0)")
+private external fun _wasm_windowssys_windows_win32_devices_display_destroyPhysicalMonitor(p0: String): Int
 
-public actual fun DisplayConfigSetDeviceInfo(setpacket: Long): Int =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_destroyPhysicalMonitors(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_devices_display_destroyPhysicalMonitors(p0: Int, p1: String): Int
 
-public actual fun EngAcquireSemaphore(hsem: HSEMAPHORE) {
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_displayConfigGetDeviceInfo(p0)")
+private external fun _wasm_windowssys_windows_win32_devices_display_displayConfigGetDeviceInfo(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_displayConfigSetDeviceInfo(p0)")
+private external fun _wasm_windowssys_windows_win32_devices_display_displayConfigSetDeviceInfo(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engAcquireSemaphore(p0)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engAcquireSemaphore(p0: String)
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engAlphaBlend(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engAlphaBlend(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engAssociateSurface(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engAssociateSurface(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engBitBlt(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engBitBlt(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String, p7: String, p8: String, p9: String, p10: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engCheckAbort(p0)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engCheckAbort(p0: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engComputeGlyphSet(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engComputeGlyphSet(p0: Int, p1: Int, p2: Int): String
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engCopyBits(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engCopyBits(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String): Int
+
+@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engCreateClip()")
+private external fun _wasm_windowssys_windows_win32_devices_display_engCreateClip(): String
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engCreatePalette(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engCreatePalette(p0: Int, p1: Int, p2: String, p3: Int, p4: Int, p5: Int): String
+
+@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engCreateSemaphore()")
+private external fun _wasm_windowssys_windows_win32_devices_display_engCreateSemaphore(): String
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engDeleteClip(p0)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engDeleteClip(p0: String)
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engDeletePalette(p0)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engDeletePalette(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engDeletePath(p0)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engDeletePath(p0: String)
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engDeleteSemaphore(p0)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engDeleteSemaphore(p0: String)
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engDeleteSurface(p0)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engDeleteSurface(p0: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engEraseSurface(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engEraseSurface(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engFillPath(p0, p1, p2, p3, p4, p5, p6)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engFillPath(p0: String, p1: String, p2: String, p3: String, p4: String, p5: Int, p6: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engFindResource(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engFindResource(p0: String, p1: Int, p2: Int, p3: String): String
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engFreeModule(p0)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engFreeModule(p0: String)
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engGetCurrentCodePage(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engGetCurrentCodePage(p0: String, p1: String)
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engGetDriverName(p0)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engGetDriverName(p0: String): String
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engGetPrinterDataFileName(p0)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engGetPrinterDataFileName(p0: String): String
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engGradientFill(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engGradientFill(p0: String, p1: String, p2: String, p3: String, p4: Int, p5: String, p6: Int, p7: String, p8: String, p9: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engLineTo(p0, p1, p2, p3, p4, p5, p6, p7, p8)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engLineTo(p0: String, p1: String, p2: String, p3: Int, p4: Int, p5: Int, p6: Int, p7: String, p8: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engLoadModule(p0)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engLoadModule(p0: String): String
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engLockSurface(p0)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engLockSurface(p0: String): String
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engMarkBandingSurface(p0)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engMarkBandingSurface(p0: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engMultiByteToUnicodeN(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engMultiByteToUnicodeN(p0: String, p1: Int, p2: String, p3: String, p4: Int)
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engMultiByteToWideChar(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engMultiByteToWideChar(p0: Int, p1: String, p2: Int, p3: String, p4: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engPaint(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engPaint(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engPlgBlt(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engPlgBlt(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String, p7: String, p8: String, p9: String, p10: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engQueryEMFInfo(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engQueryEMFInfo(p0: String, p1: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engQueryLocalTime(p0)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engQueryLocalTime(p0: String)
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engReleaseSemaphore(p0)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engReleaseSemaphore(p0: String)
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engStretchBlt(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engStretchBlt(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String, p7: String, p8: String, p9: String, p10: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engStretchBltROP(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engStretchBltROP(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String, p7: String, p8: String, p9: String, p10: Int, p11: String, p12: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engStrokeAndFillPath(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engStrokeAndFillPath(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String, p7: String, p8: Int, p9: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engStrokePath(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engStrokePath(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String, p7: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engTextOut(p0, p1, p2, p3, p4, p5, p6, p7, p8, p9)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engTextOut(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String, p7: String, p8: String, p9: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engTransparentBlt(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engTransparentBlt(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: Int, p7: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engUnicodeToMultiByteN(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engUnicodeToMultiByteN(p0: String, p1: Int, p2: String, p3: String, p4: Int)
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engUnlockSurface(p0)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engUnlockSurface(p0: String)
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_engWideCharToMultiByte(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_devices_display_engWideCharToMultiByte(p0: Int, p1: String, p2: Int, p3: String, p4: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_fontobjCGetAllGlyphHandles(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_devices_display_fontobjCGetAllGlyphHandles(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_fontobjCGetGlyphs(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_devices_display_fontobjCGetGlyphs(p0: String, p1: Int, p2: Int, p3: String, p4: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_fontobjPQueryGlyphAttrs(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_devices_display_fontobjPQueryGlyphAttrs(p0: String, p1: Int): String
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_fontobjPfdg(p0)")
+private external fun _wasm_windowssys_windows_win32_devices_display_fontobjPfdg(p0: String): String
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_fontobjPifi(p0)")
+private external fun _wasm_windowssys_windows_win32_devices_display_fontobjPifi(p0: String): String
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_fontobjPvTrueTypeFontFile(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_devices_display_fontobjPvTrueTypeFontFile(p0: String, p1: String): String
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_fontobjPxoGetXform(p0)")
+private external fun _wasm_windowssys_windows_win32_devices_display_fontobjPxoGetXform(p0: String): String
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_fontobjVGetInfo(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_devices_display_fontobjVGetInfo(p0: String, p1: Int, p2: String)
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_getAutoRotationState(p0)")
+private external fun _wasm_windowssys_windows_win32_devices_display_getAutoRotationState(p0: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_getCapabilitiesStringLength(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_devices_display_getCapabilitiesStringLength(p0: String, p1: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_getDisplayAutoRotationPreferences(p0)")
+private external fun _wasm_windowssys_windows_win32_devices_display_getDisplayAutoRotationPreferences(p0: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_getDisplayConfigBufferSizes(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_devices_display_getDisplayConfigBufferSizes(p0: Int, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_getMonitorBrightness(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_devices_display_getMonitorBrightness(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_getMonitorCapabilities(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_devices_display_getMonitorCapabilities(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_getMonitorColorTemperature(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_devices_display_getMonitorColorTemperature(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_getMonitorContrast(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_devices_display_getMonitorContrast(p0: String, p1: String, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_getMonitorDisplayAreaPosition(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_devices_display_getMonitorDisplayAreaPosition(p0: String, p1: Int, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_getMonitorDisplayAreaSize(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_devices_display_getMonitorDisplayAreaSize(p0: String, p1: Int, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_getMonitorRedGreenOrBlueDrive(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_devices_display_getMonitorRedGreenOrBlueDrive(p0: String, p1: Int, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_getMonitorRedGreenOrBlueGain(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_devices_display_getMonitorRedGreenOrBlueGain(p0: String, p1: Int, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_getMonitorTechnologyType(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_devices_display_getMonitorTechnologyType(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_getNumberOfPhysicalMonitorsFromHMONITOR(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_devices_display_getNumberOfPhysicalMonitorsFromHMONITOR(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_getPhysicalMonitorsFromHMONITOR(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_devices_display_getPhysicalMonitorsFromHMONITOR(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_getTimingReport(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_devices_display_getTimingReport(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_getVCPFeatureAndVCPFeatureReply(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_devices_display_getVCPFeatureAndVCPFeatureReply(p0: String, p1: Int, p2: String, p3: String, p4: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_htGet8BppformatPalette(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_devices_display_htGet8BppformatPalette(p0: String, p1: Int, p2: Int, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_htGet8BppmaskPalette(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_devices_display_htGet8BppmaskPalette(p0: String, p1: Int, p2: Int, p3: Int, p4: Int, p5: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_pathobjBEnum(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_devices_display_pathobjBEnum(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_pathobjBEnumClipLines(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_devices_display_pathobjBEnumClipLines(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_pathobjVEnumStart(p0)")
+private external fun _wasm_windowssys_windows_win32_devices_display_pathobjVEnumStart(p0: String)
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_pathobjVEnumStartClipLines(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_devices_display_pathobjVEnumStartClipLines(p0: String, p1: String, p2: String, p3: String)
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_pathobjVGetBounds(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_devices_display_pathobjVGetBounds(p0: String, p1: String)
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_queryDisplayConfig(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_devices_display_queryDisplayConfig(p0: Int, p1: String, p2: String, p3: String, p4: String, p5: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_restoreMonitorFactoryColorDefaults(p0)")
+private external fun _wasm_windowssys_windows_win32_devices_display_restoreMonitorFactoryColorDefaults(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_restoreMonitorFactoryDefaults(p0)")
+private external fun _wasm_windowssys_windows_win32_devices_display_restoreMonitorFactoryDefaults(p0: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_strobjBEnum(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_devices_display_strobjBEnum(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_strobjBEnumPositionsOnly(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_devices_display_strobjBEnumPositionsOnly(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_strobjBGetAdvanceWidths(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_devices_display_strobjBGetAdvanceWidths(p0: String, p1: Int, p2: Int, p3: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_strobjDwGetCodePage(p0)")
+private external fun _wasm_windowssys_windows_win32_devices_display_strobjDwGetCodePage(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_strobjVEnumStart(p0)")
+private external fun _wasm_windowssys_windows_win32_devices_display_strobjVEnumStart(p0: String)
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_saveCurrentMonitorSettings(p0)")
+private external fun _wasm_windowssys_windows_win32_devices_display_saveCurrentMonitorSettings(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_saveCurrentSettings(p0)")
+private external fun _wasm_windowssys_windows_win32_devices_display_saveCurrentSettings(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_setDisplayAutoRotationPreferences(p0)")
+private external fun _wasm_windowssys_windows_win32_devices_display_setDisplayAutoRotationPreferences(p0: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_setDisplayConfig(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_devices_display_setDisplayConfig(p0: Int, p1: String, p2: Int, p3: String, p4: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_setMonitorBrightness(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_devices_display_setMonitorBrightness(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_setMonitorColorTemperature(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_devices_display_setMonitorColorTemperature(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_setMonitorContrast(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_devices_display_setMonitorContrast(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_setMonitorDisplayAreaPosition(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_devices_display_setMonitorDisplayAreaPosition(p0: String, p1: Int, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_setMonitorDisplayAreaSize(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_devices_display_setMonitorDisplayAreaSize(p0: String, p1: Int, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_setMonitorRedGreenOrBlueDrive(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_devices_display_setMonitorRedGreenOrBlueDrive(p0: String, p1: Int, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_setMonitorRedGreenOrBlueGain(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_devices_display_setMonitorRedGreenOrBlueGain(p0: String, p1: Int, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_setVCPFeature(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_devices_display_setVCPFeature(p0: String, p1: Int, p2: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_xformobjBApplyXform(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_devices_display_xformobjBApplyXform(p0: String, p1: Int, p2: Int, p3: String, p4: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_xformobjIGetXform(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_devices_display_xformobjIGetXform(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_xlateobjCGetPalette(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_devices_display_xlateobjCGetPalette(p0: String, p1: Int, p2: Int, p3: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_xlateobjHGetColorTransform(p0)")
+private external fun _wasm_windowssys_windows_win32_devices_display_xlateobjHGetColorTransform(p0: String): String
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_xlateobjIXlate(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_devices_display_xlateobjIXlate(p0: String, p1: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_devices_display_xlateobjPiVector(p0)")
+private external fun _wasm_windowssys_windows_win32_devices_display_xlateobjPiVector(p0: String): String
+
+public actual fun brushobjHGetColorTransform(pbo: COpaquePointer?): Handle =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_brushobjHGetColorTransform((pbo?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun brushobjPvAllocRbrush(pbo: COpaquePointer?, cj: UInt): COpaquePointer? =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_brushobjPvAllocRbrush((pbo?.value ?: 0L).toString(), cj.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun brushobjPvGetRbrush(pbo: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_brushobjPvGetRbrush((pbo?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun brushobjUlGetBrushColor(pbo: COpaquePointer?): UInt =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_brushobjUlGetBrushColor((pbo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun clipobjBEnum(pco: COpaquePointer?, cj: UInt, pul: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_clipobjBEnum((pco?.value ?: 0L).toString(), cj.toInt(), (pul?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun clipobjCEnumStart(pco: COpaquePointer?, ball: Bool, itype: UInt, idirection: UInt, climit: UInt): UInt =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_clipobjCEnumStart((pco?.value ?: 0L).toString(), ball, itype.toInt(), idirection.toInt(), climit.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun clipobjPpoGetPath(pco: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_clipobjPpoGetPath((pco?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun capabilitiesRequestAndCapabilitiesReply(hmonitor: Handle, pszasciicapabilitiesstring: Pstr, dwcapabilitiesstringlengthincharacters: UInt): Int =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_capabilitiesRequestAndCapabilitiesReply((hmonitor?.value ?: 0L).toString(), (pszasciicapabilitiesstring?.value ?: 0L).toString(), dwcapabilitiesstringlengthincharacters.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun degaussMonitor(hmonitor: Handle): Int =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_degaussMonitor((hmonitor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun destroyPhysicalMonitor(hmonitor: Handle): Bool =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_destroyPhysicalMonitor((hmonitor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun destroyPhysicalMonitors(dwphysicalmonitorarraysize: UInt, pphysicalmonitorarray: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_destroyPhysicalMonitors(dwphysicalmonitorarraysize.toInt(), (pphysicalmonitorarray?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun displayConfigGetDeviceInfo(requestpacket: COpaquePointer?): Int =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_displayConfigGetDeviceInfo((requestpacket?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun displayConfigSetDeviceInfo(setpacket: COpaquePointer?): Int =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_displayConfigSetDeviceInfo((setpacket?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun engAcquireSemaphore(hsem: Hsemaphore) {
+    if (_windowsWin32DevicesDisplayNapiAvailable) {
+        _wasm_windowssys_windows_win32_devices_display_engAcquireSemaphore((hsem?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun EngAlphaBlend(psodest: Long, psosrc: Long, pco: Long, pxlo: Long, prcldest: Long, prclsrc: Long, pblendobj: Long): BOOL =
-    0
+public actual fun engAlphaBlend(psodest: COpaquePointer?, psosrc: COpaquePointer?, pco: COpaquePointer?, pxlo: COpaquePointer?, prcldest: COpaquePointer?, prclsrc: COpaquePointer?, pblendobj: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_engAlphaBlend((psodest?.value ?: 0L).toString(), (psosrc?.value ?: 0L).toString(), (pco?.value ?: 0L).toString(), (pxlo?.value ?: 0L).toString(), (prcldest?.value ?: 0L).toString(), (prclsrc?.value ?: 0L).toString(), (pblendobj?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EngAssociateSurface(hsurf: HSURF, hdev: HDEV, flhooks: UInt): BOOL =
-    0
+public actual fun engAssociateSurface(hsurf: Hsurf, hdev: Hdev, flhooks: UInt): Bool =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_engAssociateSurface((hsurf?.value ?: 0L).toString(), (hdev?.value ?: 0L).toString(), flhooks.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EngBitBlt(psotrg: Long, psosrc: Long, psomask: Long, pco: Long, pxlo: Long, prcltrg: Long, pptlsrc: Long, pptlmask: Long, pbo: Long, pptlbrush: Long, rop4: UInt): BOOL =
-    0
+public actual fun engBitBlt(psotrg: COpaquePointer?, psosrc: COpaquePointer?, psomask: COpaquePointer?, pco: COpaquePointer?, pxlo: COpaquePointer?, prcltrg: COpaquePointer?, pptlsrc: COpaquePointer?, pptlmask: COpaquePointer?, pbo: COpaquePointer?, pptlbrush: COpaquePointer?, rop4: UInt): Bool =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_engBitBlt((psotrg?.value ?: 0L).toString(), (psosrc?.value ?: 0L).toString(), (psomask?.value ?: 0L).toString(), (pco?.value ?: 0L).toString(), (pxlo?.value ?: 0L).toString(), (prcltrg?.value ?: 0L).toString(), (pptlsrc?.value ?: 0L).toString(), (pptlmask?.value ?: 0L).toString(), (pbo?.value ?: 0L).toString(), (pptlbrush?.value ?: 0L).toString(), rop4.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EngCheckAbort(pso: Long): BOOL =
-    0
+public actual fun engCheckAbort(pso: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_engCheckAbort((pso?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EngComputeGlyphSet(ncodepage: Int, nfirstchar: Int, cchars: Int): Long =
-    0L
+public actual fun engComputeGlyphSet(ncodepage: Int, nfirstchar: Int, cchars: Int): COpaquePointer? =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_engComputeGlyphSet(ncodepage, nfirstchar, cchars).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EngCopyBits(psodest: Long, psosrc: Long, pco: Long, pxlo: Long, prcldest: Long, pptlsrc: Long): BOOL =
-    0
+public actual fun engCopyBits(psodest: COpaquePointer?, psosrc: COpaquePointer?, pco: COpaquePointer?, pxlo: COpaquePointer?, prcldest: COpaquePointer?, pptlsrc: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_engCopyBits((psodest?.value ?: 0L).toString(), (psosrc?.value ?: 0L).toString(), (pco?.value ?: 0L).toString(), (pxlo?.value ?: 0L).toString(), (prcldest?.value ?: 0L).toString(), (pptlsrc?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EngCreateBitmap(sizl: SIZE, lwidth: Int, iformat: UInt, fl: UInt, pvbits: Long): HBITMAP =
-    0L
+public actual fun engCreateBitmap(sizl: Size, lwidth: Int, iformat: UInt, fl: UInt, pvbits: COpaquePointer?): Hbitmap =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EngCreateClip(): Long =
-    0L
+public actual fun engCreateClip(): COpaquePointer? =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_engCreateClip().toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EngCreateDeviceBitmap(dhsurf: DHSURF, sizl: SIZE, iformatcompat: UInt): HBITMAP =
-    0L
+public actual fun engCreateDeviceBitmap(dhsurf: Dhsurf, sizl: Size, iformatcompat: UInt): Hbitmap =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EngCreateDeviceSurface(dhsurf: DHSURF, sizl: SIZE, iformatcompat: UInt): HSURF =
-    0L
+public actual fun engCreateDeviceSurface(dhsurf: Dhsurf, sizl: Size, iformatcompat: UInt): Hsurf =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EngCreatePalette(imode: UInt, ccolors: UInt, pulcolors: Long, flred: UInt, flgreen: UInt, flblue: UInt): HPALETTE =
-    0L
+public actual fun engCreatePalette(imode: UInt, ccolors: UInt, pulcolors: COpaquePointer?, flred: UInt, flgreen: UInt, flblue: UInt): Hpalette =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_engCreatePalette(imode.toInt(), ccolors.toInt(), (pulcolors?.value ?: 0L).toString(), flred.toInt(), flgreen.toInt(), flblue.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EngCreateSemaphore(): HSEMAPHORE =
-    0L
+public actual fun engCreateSemaphore(): Hsemaphore =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_engCreateSemaphore().toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EngDeleteClip(pco: Long) {
+public actual fun engDeleteClip(pco: COpaquePointer?) {
+    if (_windowsWin32DevicesDisplayNapiAvailable) {
+        _wasm_windowssys_windows_win32_devices_display_engDeleteClip((pco?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun EngDeletePalette(hpal: HPALETTE): BOOL =
-    0
+public actual fun engDeletePalette(hpal: Hpalette): Bool =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_engDeletePalette((hpal?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EngDeletePath(ppo: Long) {
+public actual fun engDeletePath(ppo: COpaquePointer?) {
+    if (_windowsWin32DevicesDisplayNapiAvailable) {
+        _wasm_windowssys_windows_win32_devices_display_engDeletePath((ppo?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun EngDeleteSemaphore(hsem: HSEMAPHORE) {
+public actual fun engDeleteSemaphore(hsem: Hsemaphore) {
+    if (_windowsWin32DevicesDisplayNapiAvailable) {
+        _wasm_windowssys_windows_win32_devices_display_engDeleteSemaphore((hsem?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun EngDeleteSurface(hsurf: HSURF): BOOL =
-    0
+public actual fun engDeleteSurface(hsurf: Hsurf): Bool =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_engDeleteSurface((hsurf?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EngEraseSurface(pso: Long, prcl: Long, icolor: UInt): BOOL =
-    0
+public actual fun engEraseSurface(pso: COpaquePointer?, prcl: COpaquePointer?, icolor: UInt): Bool =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_engEraseSurface((pso?.value ?: 0L).toString(), (prcl?.value ?: 0L).toString(), icolor.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EngFillPath(pso: Long, ppo: Long, pco: Long, pbo: Long, pptlbrushorg: Long, mix: UInt, floptions: UInt): BOOL =
-    0
+public actual fun engFillPath(pso: COpaquePointer?, ppo: COpaquePointer?, pco: COpaquePointer?, pbo: COpaquePointer?, pptlbrushorg: COpaquePointer?, mix: UInt, floptions: UInt): Bool =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_engFillPath((pso?.value ?: 0L).toString(), (ppo?.value ?: 0L).toString(), (pco?.value ?: 0L).toString(), (pbo?.value ?: 0L).toString(), (pptlbrushorg?.value ?: 0L).toString(), mix.toInt(), floptions.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EngFindResource(h: HANDLE, iname: Int, itype: Int, pulsize: Long): Long =
-    0L
+public actual fun engFindResource(h: Handle, iname: Int, itype: Int, pulsize: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_engFindResource((h?.value ?: 0L).toString(), iname, itype, (pulsize?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EngFreeModule(h: HANDLE) {
+public actual fun engFreeModule(h: Handle) {
+    if (_windowsWin32DevicesDisplayNapiAvailable) {
+        _wasm_windowssys_windows_win32_devices_display_engFreeModule((h?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun EngGetCurrentCodePage(oemcodepage: Long, ansicodepage: Long) {
+public actual fun engGetCurrentCodePage(oemcodepage: COpaquePointer?, ansicodepage: COpaquePointer?) {
+    if (_windowsWin32DevicesDisplayNapiAvailable) {
+        _wasm_windowssys_windows_win32_devices_display_engGetCurrentCodePage((oemcodepage?.value ?: 0L).toString(), (ansicodepage?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun EngGetDriverName(hdev: HDEV): PWSTR =
-    0L
+public actual fun engGetDriverName(hdev: Hdev): Pwstr =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_engGetDriverName((hdev?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EngGetPrinterDataFileName(hdev: HDEV): PWSTR =
-    0L
+public actual fun engGetPrinterDataFileName(hdev: Hdev): Pwstr =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_engGetPrinterDataFileName((hdev?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EngGradientFill(psodest: Long, pco: Long, pxlo: Long, pvertex: Long, nvertex: UInt, pmesh: Long, nmesh: UInt, prclextents: Long, pptlditherorg: Long, ulmode: UInt): BOOL =
-    0
+public actual fun engGradientFill(psodest: COpaquePointer?, pco: COpaquePointer?, pxlo: COpaquePointer?, pvertex: COpaquePointer?, nvertex: UInt, pmesh: COpaquePointer?, nmesh: UInt, prclextents: COpaquePointer?, pptlditherorg: COpaquePointer?, ulmode: UInt): Bool =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_engGradientFill((psodest?.value ?: 0L).toString(), (pco?.value ?: 0L).toString(), (pxlo?.value ?: 0L).toString(), (pvertex?.value ?: 0L).toString(), nvertex.toInt(), (pmesh?.value ?: 0L).toString(), nmesh.toInt(), (prclextents?.value ?: 0L).toString(), (pptlditherorg?.value ?: 0L).toString(), ulmode.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EngLineTo(pso: Long, pco: Long, pbo: Long, x1: Int, y1: Int, x2: Int, y2: Int, prclbounds: Long, mix: UInt): BOOL =
-    0
+public actual fun engLineTo(pso: COpaquePointer?, pco: COpaquePointer?, pbo: COpaquePointer?, x1: Int, y1: Int, x2: Int, y2: Int, prclbounds: COpaquePointer?, mix: UInt): Bool =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_engLineTo((pso?.value ?: 0L).toString(), (pco?.value ?: 0L).toString(), (pbo?.value ?: 0L).toString(), x1, y1, x2, y2, (prclbounds?.value ?: 0L).toString(), mix.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EngLoadModule(pwsz: PCWSTR): HANDLE =
-    0L
+public actual fun engLoadModule(pwsz: Pcwstr): Handle =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_engLoadModule((pwsz?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EngLockSurface(hsurf: HSURF): Long =
-    0L
+public actual fun engLockSurface(hsurf: Hsurf): COpaquePointer? =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_engLockSurface((hsurf?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EngMarkBandingSurface(hsurf: HSURF): BOOL =
-    0
+public actual fun engMarkBandingSurface(hsurf: Hsurf): Bool =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_engMarkBandingSurface((hsurf?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EngMultiByteToUnicodeN(unicodestring: PWSTR, maxbytesinunicodestring: UInt, bytesinunicodestring: Long, multibytestring: PCSTR, bytesinmultibytestring: UInt) {
+public actual fun engMultiByteToUnicodeN(unicodestring: Pwstr, maxbytesinunicodestring: UInt, bytesinunicodestring: COpaquePointer?, multibytestring: Pcstr, bytesinmultibytestring: UInt) {
+    if (_windowsWin32DevicesDisplayNapiAvailable) {
+        _wasm_windowssys_windows_win32_devices_display_engMultiByteToUnicodeN((unicodestring?.value ?: 0L).toString(), maxbytesinunicodestring.toInt(), (bytesinunicodestring?.value ?: 0L).toString(), (multibytestring?.value ?: 0L).toString(), bytesinmultibytestring.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun EngMultiByteToWideChar(codepage: UInt, widecharstring: PWSTR, bytesinwidecharstring: Int, multibytestring: PCSTR, bytesinmultibytestring: Int): Int =
-    0
+public actual fun engMultiByteToWideChar(codepage: UInt, widecharstring: Pwstr, bytesinwidecharstring: Int, multibytestring: Pcstr, bytesinmultibytestring: Int): Int =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_engMultiByteToWideChar(codepage.toInt(), (widecharstring?.value ?: 0L).toString(), bytesinwidecharstring, (multibytestring?.value ?: 0L).toString(), bytesinmultibytestring) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EngPaint(pso: Long, pco: Long, pbo: Long, pptlbrushorg: Long, mix: UInt): BOOL =
-    0
+public actual fun engPaint(pso: COpaquePointer?, pco: COpaquePointer?, pbo: COpaquePointer?, pptlbrushorg: COpaquePointer?, mix: UInt): Bool =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_engPaint((pso?.value ?: 0L).toString(), (pco?.value ?: 0L).toString(), (pbo?.value ?: 0L).toString(), (pptlbrushorg?.value ?: 0L).toString(), mix.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EngPlgBlt(psotrg: Long, psosrc: Long, psomsk: Long, pco: Long, pxlo: Long, pca: Long, pptlbrushorg: Long, pptfx: Long, prcl: Long, pptl: Long, imode: UInt): BOOL =
-    0
+public actual fun engPlgBlt(psotrg: COpaquePointer?, psosrc: COpaquePointer?, psomsk: COpaquePointer?, pco: COpaquePointer?, pxlo: COpaquePointer?, pca: COpaquePointer?, pptlbrushorg: COpaquePointer?, pptfx: COpaquePointer?, prcl: COpaquePointer?, pptl: COpaquePointer?, imode: UInt): Bool =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_engPlgBlt((psotrg?.value ?: 0L).toString(), (psosrc?.value ?: 0L).toString(), (psomsk?.value ?: 0L).toString(), (pco?.value ?: 0L).toString(), (pxlo?.value ?: 0L).toString(), (pca?.value ?: 0L).toString(), (pptlbrushorg?.value ?: 0L).toString(), (pptfx?.value ?: 0L).toString(), (prcl?.value ?: 0L).toString(), (pptl?.value ?: 0L).toString(), imode.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EngQueryEMFInfo(hdev: HDEV, pemfinfo: Long): BOOL =
-    0
+public actual fun engQueryEMFInfo(hdev: Hdev, pemfinfo: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_engQueryEMFInfo((hdev?.value ?: 0L).toString(), (pemfinfo?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EngQueryLocalTime(param0: Long) {
+public actual fun engQueryLocalTime(param0: COpaquePointer?) {
+    if (_windowsWin32DevicesDisplayNapiAvailable) {
+        _wasm_windowssys_windows_win32_devices_display_engQueryLocalTime((param0?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun EngReleaseSemaphore(hsem: HSEMAPHORE) {
+public actual fun engReleaseSemaphore(hsem: Hsemaphore) {
+    if (_windowsWin32DevicesDisplayNapiAvailable) {
+        _wasm_windowssys_windows_win32_devices_display_engReleaseSemaphore((hsem?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun EngStretchBlt(psodest: Long, psosrc: Long, psomask: Long, pco: Long, pxlo: Long, pca: Long, pptlhtorg: Long, prcldest: Long, prclsrc: Long, pptlmask: Long, imode: UInt): BOOL =
-    0
+public actual fun engStretchBlt(psodest: COpaquePointer?, psosrc: COpaquePointer?, psomask: COpaquePointer?, pco: COpaquePointer?, pxlo: COpaquePointer?, pca: COpaquePointer?, pptlhtorg: COpaquePointer?, prcldest: COpaquePointer?, prclsrc: COpaquePointer?, pptlmask: COpaquePointer?, imode: UInt): Bool =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_engStretchBlt((psodest?.value ?: 0L).toString(), (psosrc?.value ?: 0L).toString(), (psomask?.value ?: 0L).toString(), (pco?.value ?: 0L).toString(), (pxlo?.value ?: 0L).toString(), (pca?.value ?: 0L).toString(), (pptlhtorg?.value ?: 0L).toString(), (prcldest?.value ?: 0L).toString(), (prclsrc?.value ?: 0L).toString(), (pptlmask?.value ?: 0L).toString(), imode.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EngStretchBltROP(psodest: Long, psosrc: Long, psomask: Long, pco: Long, pxlo: Long, pca: Long, pptlhtorg: Long, prcldest: Long, prclsrc: Long, pptlmask: Long, imode: UInt, pbo: Long, rop4: UInt): BOOL =
-    0
+public actual fun engStretchBltROP(psodest: COpaquePointer?, psosrc: COpaquePointer?, psomask: COpaquePointer?, pco: COpaquePointer?, pxlo: COpaquePointer?, pca: COpaquePointer?, pptlhtorg: COpaquePointer?, prcldest: COpaquePointer?, prclsrc: COpaquePointer?, pptlmask: COpaquePointer?, imode: UInt, pbo: COpaquePointer?, rop4: UInt): Bool =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_engStretchBltROP((psodest?.value ?: 0L).toString(), (psosrc?.value ?: 0L).toString(), (psomask?.value ?: 0L).toString(), (pco?.value ?: 0L).toString(), (pxlo?.value ?: 0L).toString(), (pca?.value ?: 0L).toString(), (pptlhtorg?.value ?: 0L).toString(), (prcldest?.value ?: 0L).toString(), (prclsrc?.value ?: 0L).toString(), (pptlmask?.value ?: 0L).toString(), imode.toInt(), (pbo?.value ?: 0L).toString(), rop4.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EngStrokeAndFillPath(pso: Long, ppo: Long, pco: Long, pxo: Long, pbostroke: Long, plineattrs: Long, pbofill: Long, pptlbrushorg: Long, mixfill: UInt, floptions: UInt): BOOL =
-    0
+public actual fun engStrokeAndFillPath(pso: COpaquePointer?, ppo: COpaquePointer?, pco: COpaquePointer?, pxo: COpaquePointer?, pbostroke: COpaquePointer?, plineattrs: COpaquePointer?, pbofill: COpaquePointer?, pptlbrushorg: COpaquePointer?, mixfill: UInt, floptions: UInt): Bool =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_engStrokeAndFillPath((pso?.value ?: 0L).toString(), (ppo?.value ?: 0L).toString(), (pco?.value ?: 0L).toString(), (pxo?.value ?: 0L).toString(), (pbostroke?.value ?: 0L).toString(), (plineattrs?.value ?: 0L).toString(), (pbofill?.value ?: 0L).toString(), (pptlbrushorg?.value ?: 0L).toString(), mixfill.toInt(), floptions.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EngStrokePath(pso: Long, ppo: Long, pco: Long, pxo: Long, pbo: Long, pptlbrushorg: Long, plineattrs: Long, mix: UInt): BOOL =
-    0
+public actual fun engStrokePath(pso: COpaquePointer?, ppo: COpaquePointer?, pco: COpaquePointer?, pxo: COpaquePointer?, pbo: COpaquePointer?, pptlbrushorg: COpaquePointer?, plineattrs: COpaquePointer?, mix: UInt): Bool =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_engStrokePath((pso?.value ?: 0L).toString(), (ppo?.value ?: 0L).toString(), (pco?.value ?: 0L).toString(), (pxo?.value ?: 0L).toString(), (pbo?.value ?: 0L).toString(), (pptlbrushorg?.value ?: 0L).toString(), (plineattrs?.value ?: 0L).toString(), mix.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EngTextOut(pso: Long, pstro: Long, pfo: Long, pco: Long, prclextra: Long, prclopaque: Long, pbofore: Long, pboopaque: Long, pptlorg: Long, mix: UInt): BOOL =
-    0
+public actual fun engTextOut(pso: COpaquePointer?, pstro: COpaquePointer?, pfo: COpaquePointer?, pco: COpaquePointer?, prclextra: COpaquePointer?, prclopaque: COpaquePointer?, pbofore: COpaquePointer?, pboopaque: COpaquePointer?, pptlorg: COpaquePointer?, mix: UInt): Bool =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_engTextOut((pso?.value ?: 0L).toString(), (pstro?.value ?: 0L).toString(), (pfo?.value ?: 0L).toString(), (pco?.value ?: 0L).toString(), (prclextra?.value ?: 0L).toString(), (prclopaque?.value ?: 0L).toString(), (pbofore?.value ?: 0L).toString(), (pboopaque?.value ?: 0L).toString(), (pptlorg?.value ?: 0L).toString(), mix.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EngTransparentBlt(psodst: Long, psosrc: Long, pco: Long, pxlo: Long, prcldst: Long, prclsrc: Long, transcolor: UInt, bcalledfrombitblt: UInt): BOOL =
-    0
+public actual fun engTransparentBlt(psodst: COpaquePointer?, psosrc: COpaquePointer?, pco: COpaquePointer?, pxlo: COpaquePointer?, prcldst: COpaquePointer?, prclsrc: COpaquePointer?, transcolor: UInt, bcalledfrombitblt: UInt): Bool =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_engTransparentBlt((psodst?.value ?: 0L).toString(), (psosrc?.value ?: 0L).toString(), (pco?.value ?: 0L).toString(), (pxlo?.value ?: 0L).toString(), (prcldst?.value ?: 0L).toString(), (prclsrc?.value ?: 0L).toString(), transcolor.toInt(), bcalledfrombitblt.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EngUnicodeToMultiByteN(multibytestring: PSTR, maxbytesinmultibytestring: UInt, bytesinmultibytestring: Long, unicodestring: PCWSTR, bytesinunicodestring: UInt) {
+public actual fun engUnicodeToMultiByteN(multibytestring: Pstr, maxbytesinmultibytestring: UInt, bytesinmultibytestring: COpaquePointer?, unicodestring: Pcwstr, bytesinunicodestring: UInt) {
+    if (_windowsWin32DevicesDisplayNapiAvailable) {
+        _wasm_windowssys_windows_win32_devices_display_engUnicodeToMultiByteN((multibytestring?.value ?: 0L).toString(), maxbytesinmultibytestring.toInt(), (bytesinmultibytestring?.value ?: 0L).toString(), (unicodestring?.value ?: 0L).toString(), bytesinunicodestring.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun EngUnlockSurface(pso: Long) {
+public actual fun engUnlockSurface(pso: COpaquePointer?) {
+    if (_windowsWin32DevicesDisplayNapiAvailable) {
+        _wasm_windowssys_windows_win32_devices_display_engUnlockSurface((pso?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun EngWideCharToMultiByte(codepage: UInt, widecharstring: PCWSTR, bytesinwidecharstring: Int, multibytestring: PSTR, bytesinmultibytestring: Int): Int =
-    0
+public actual fun engWideCharToMultiByte(codepage: UInt, widecharstring: Pcwstr, bytesinwidecharstring: Int, multibytestring: Pstr, bytesinmultibytestring: Int): Int =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_engWideCharToMultiByte(codepage.toInt(), (widecharstring?.value ?: 0L).toString(), bytesinwidecharstring, (multibytestring?.value ?: 0L).toString(), bytesinmultibytestring) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FONTOBJ_cGetAllGlyphHandles(pfo: Long, phg: Long): UInt =
-    0u
+public actual fun fontobjCGetAllGlyphHandles(pfo: COpaquePointer?, phg: COpaquePointer?): UInt =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_fontobjCGetAllGlyphHandles((pfo?.value ?: 0L).toString(), (phg?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FONTOBJ_cGetGlyphs(pfo: Long, imode: UInt, cglyph: UInt, phg: Long, ppvglyph: Long): UInt =
-    0u
+public actual fun fontobjCGetGlyphs(pfo: COpaquePointer?, imode: UInt, cglyph: UInt, phg: COpaquePointer?, ppvglyph: COpaquePointer?): UInt =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_fontobjCGetGlyphs((pfo?.value ?: 0L).toString(), imode.toInt(), cglyph.toInt(), (phg?.value ?: 0L).toString(), (ppvglyph?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FONTOBJ_pQueryGlyphAttrs(pfo: Long, imode: UInt): Long =
-    0L
+public actual fun fontobjPQueryGlyphAttrs(pfo: COpaquePointer?, imode: UInt): COpaquePointer? =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_fontobjPQueryGlyphAttrs((pfo?.value ?: 0L).toString(), imode.toInt()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FONTOBJ_pfdg(pfo: Long): Long =
-    0L
+public actual fun fontobjPfdg(pfo: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_fontobjPfdg((pfo?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FONTOBJ_pifi(pfo: Long): Long =
-    0L
+public actual fun fontobjPifi(pfo: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_fontobjPifi((pfo?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FONTOBJ_pvTrueTypeFontFile(pfo: Long, pcjfile: Long): Long =
-    0L
+public actual fun fontobjPvTrueTypeFontFile(pfo: COpaquePointer?, pcjfile: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_fontobjPvTrueTypeFontFile((pfo?.value ?: 0L).toString(), (pcjfile?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FONTOBJ_pxoGetXform(pfo: Long): Long =
-    0L
+public actual fun fontobjPxoGetXform(pfo: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_fontobjPxoGetXform((pfo?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FONTOBJ_vGetInfo(pfo: Long, cjsize: UInt, pfi: Long) {
+public actual fun fontobjVGetInfo(pfo: COpaquePointer?, cjsize: UInt, pfi: COpaquePointer?) {
+    if (_windowsWin32DevicesDisplayNapiAvailable) {
+        _wasm_windowssys_windows_win32_devices_display_fontobjVGetInfo((pfo?.value ?: 0L).toString(), cjsize.toInt(), (pfi?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun GetAutoRotationState(pstate: Long): BOOL =
-    0
+public actual fun getAutoRotationState(pstate: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_getAutoRotationState((pstate?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetCapabilitiesStringLength(hmonitor: HANDLE, pdwcapabilitiesstringlengthincharacters: Long): Int =
-    0
+public actual fun getCapabilitiesStringLength(hmonitor: Handle, pdwcapabilitiesstringlengthincharacters: COpaquePointer?): Int =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_getCapabilitiesStringLength((hmonitor?.value ?: 0L).toString(), (pdwcapabilitiesstringlengthincharacters?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetDisplayAutoRotationPreferences(porientation: Long): BOOL =
-    0
+public actual fun getDisplayAutoRotationPreferences(porientation: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_getDisplayAutoRotationPreferences((porientation?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetDisplayConfigBufferSizes(flags: QUERY_DISPLAY_CONFIG_FLAGS, numpatharrayelements: Long, nummodeinfoarrayelements: Long): WIN32_ERROR =
-    0u
+public actual fun getDisplayConfigBufferSizes(flags: QueryDisplayConfigFlags, numpatharrayelements: COpaquePointer?, nummodeinfoarrayelements: COpaquePointer?): Win32Error =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_getDisplayConfigBufferSizes(flags.toInt(), (numpatharrayelements?.value ?: 0L).toString(), (nummodeinfoarrayelements?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetMonitorBrightness(hmonitor: HANDLE, pdwminimumbrightness: Long, pdwcurrentbrightness: Long, pdwmaximumbrightness: Long): Int =
-    0
+public actual fun getMonitorBrightness(hmonitor: Handle, pdwminimumbrightness: COpaquePointer?, pdwcurrentbrightness: COpaquePointer?, pdwmaximumbrightness: COpaquePointer?): Int =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_getMonitorBrightness((hmonitor?.value ?: 0L).toString(), (pdwminimumbrightness?.value ?: 0L).toString(), (pdwcurrentbrightness?.value ?: 0L).toString(), (pdwmaximumbrightness?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetMonitorCapabilities(hmonitor: HANDLE, pdwmonitorcapabilities: Long, pdwsupportedcolortemperatures: Long): Int =
-    0
+public actual fun getMonitorCapabilities(hmonitor: Handle, pdwmonitorcapabilities: COpaquePointer?, pdwsupportedcolortemperatures: COpaquePointer?): Int =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_getMonitorCapabilities((hmonitor?.value ?: 0L).toString(), (pdwmonitorcapabilities?.value ?: 0L).toString(), (pdwsupportedcolortemperatures?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetMonitorColorTemperature(hmonitor: HANDLE, pctcurrentcolortemperature: Long): Int =
-    0
+public actual fun getMonitorColorTemperature(hmonitor: Handle, pctcurrentcolortemperature: COpaquePointer?): Int =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_getMonitorColorTemperature((hmonitor?.value ?: 0L).toString(), (pctcurrentcolortemperature?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetMonitorContrast(hmonitor: HANDLE, pdwminimumcontrast: Long, pdwcurrentcontrast: Long, pdwmaximumcontrast: Long): Int =
-    0
+public actual fun getMonitorContrast(hmonitor: Handle, pdwminimumcontrast: COpaquePointer?, pdwcurrentcontrast: COpaquePointer?, pdwmaximumcontrast: COpaquePointer?): Int =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_getMonitorContrast((hmonitor?.value ?: 0L).toString(), (pdwminimumcontrast?.value ?: 0L).toString(), (pdwcurrentcontrast?.value ?: 0L).toString(), (pdwmaximumcontrast?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetMonitorDisplayAreaPosition(hmonitor: HANDLE, ptpositiontype: MC_POSITION_TYPE, pdwminimumposition: Long, pdwcurrentposition: Long, pdwmaximumposition: Long): Int =
-    0
+public actual fun getMonitorDisplayAreaPosition(hmonitor: Handle, ptpositiontype: McPositionType, pdwminimumposition: COpaquePointer?, pdwcurrentposition: COpaquePointer?, pdwmaximumposition: COpaquePointer?): Int =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_getMonitorDisplayAreaPosition((hmonitor?.value ?: 0L).toString(), ptpositiontype, (pdwminimumposition?.value ?: 0L).toString(), (pdwcurrentposition?.value ?: 0L).toString(), (pdwmaximumposition?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetMonitorDisplayAreaSize(hmonitor: HANDLE, stsizetype: MC_SIZE_TYPE, pdwminimumwidthorheight: Long, pdwcurrentwidthorheight: Long, pdwmaximumwidthorheight: Long): Int =
-    0
+public actual fun getMonitorDisplayAreaSize(hmonitor: Handle, stsizetype: McSizeType, pdwminimumwidthorheight: COpaquePointer?, pdwcurrentwidthorheight: COpaquePointer?, pdwmaximumwidthorheight: COpaquePointer?): Int =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_getMonitorDisplayAreaSize((hmonitor?.value ?: 0L).toString(), stsizetype, (pdwminimumwidthorheight?.value ?: 0L).toString(), (pdwcurrentwidthorheight?.value ?: 0L).toString(), (pdwmaximumwidthorheight?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetMonitorRedGreenOrBlueDrive(hmonitor: HANDLE, dtdrivetype: MC_DRIVE_TYPE, pdwminimumdrive: Long, pdwcurrentdrive: Long, pdwmaximumdrive: Long): Int =
-    0
+public actual fun getMonitorRedGreenOrBlueDrive(hmonitor: Handle, dtdrivetype: McDriveType, pdwminimumdrive: COpaquePointer?, pdwcurrentdrive: COpaquePointer?, pdwmaximumdrive: COpaquePointer?): Int =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_getMonitorRedGreenOrBlueDrive((hmonitor?.value ?: 0L).toString(), dtdrivetype, (pdwminimumdrive?.value ?: 0L).toString(), (pdwcurrentdrive?.value ?: 0L).toString(), (pdwmaximumdrive?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetMonitorRedGreenOrBlueGain(hmonitor: HANDLE, gtgaintype: MC_GAIN_TYPE, pdwminimumgain: Long, pdwcurrentgain: Long, pdwmaximumgain: Long): Int =
-    0
+public actual fun getMonitorRedGreenOrBlueGain(hmonitor: Handle, gtgaintype: McGainType, pdwminimumgain: COpaquePointer?, pdwcurrentgain: COpaquePointer?, pdwmaximumgain: COpaquePointer?): Int =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_getMonitorRedGreenOrBlueGain((hmonitor?.value ?: 0L).toString(), gtgaintype, (pdwminimumgain?.value ?: 0L).toString(), (pdwcurrentgain?.value ?: 0L).toString(), (pdwmaximumgain?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetMonitorTechnologyType(hmonitor: HANDLE, pdtydisplaytechnologytype: Long): Int =
-    0
+public actual fun getMonitorTechnologyType(hmonitor: Handle, pdtydisplaytechnologytype: COpaquePointer?): Int =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_getMonitorTechnologyType((hmonitor?.value ?: 0L).toString(), (pdtydisplaytechnologytype?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetNumberOfPhysicalMonitorsFromHMONITOR(hmonitor: HMONITOR, pdwnumberofphysicalmonitors: Long): BOOL =
-    0
+public actual fun getNumberOfPhysicalMonitorsFromHMONITOR(hmonitor: Hmonitor, pdwnumberofphysicalmonitors: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_getNumberOfPhysicalMonitorsFromHMONITOR((hmonitor?.value ?: 0L).toString(), (pdwnumberofphysicalmonitors?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetPhysicalMonitorsFromHMONITOR(hmonitor: HMONITOR, dwphysicalmonitorarraysize: UInt, pphysicalmonitorarray: Long): BOOL =
-    0
+public actual fun getPhysicalMonitorsFromHMONITOR(hmonitor: Hmonitor, dwphysicalmonitorarraysize: UInt, pphysicalmonitorarray: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_getPhysicalMonitorsFromHMONITOR((hmonitor?.value ?: 0L).toString(), dwphysicalmonitorarraysize.toInt(), (pphysicalmonitorarray?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetTimingReport(hmonitor: HANDLE, pmtrmonitortimingreport: Long): Int =
-    0
+public actual fun getTimingReport(hmonitor: Handle, pmtrmonitortimingreport: COpaquePointer?): Int =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_getTimingReport((hmonitor?.value ?: 0L).toString(), (pmtrmonitortimingreport?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetVCPFeatureAndVCPFeatureReply(hmonitor: HANDLE, bvcpcode: UByte, pvct: Long, pdwcurrentvalue: Long, pdwmaximumvalue: Long): Int =
-    0
+public actual fun getVCPFeatureAndVCPFeatureReply(hmonitor: Handle, bvcpcode: UByte, pvct: COpaquePointer?, pdwcurrentvalue: COpaquePointer?, pdwmaximumvalue: COpaquePointer?): Int =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_getVCPFeatureAndVCPFeatureReply((hmonitor?.value ?: 0L).toString(), bvcpcode.toInt(), (pvct?.value ?: 0L).toString(), (pdwcurrentvalue?.value ?: 0L).toString(), (pdwmaximumvalue?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HT_Get8BPPFormatPalette(ppaletteentry: Long, redgamma: UShort, greengamma: UShort, bluegamma: UShort): Int =
-    0
+public actual fun htGet8BppformatPalette(ppaletteentry: COpaquePointer?, redgamma: UShort, greengamma: UShort, bluegamma: UShort): Int =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_htGet8BppformatPalette((ppaletteentry?.value ?: 0L).toString(), redgamma.toInt(), greengamma.toInt(), bluegamma.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun HT_Get8BPPMaskPalette(ppaletteentry: Long, use8bppmaskpal: BOOL, cmymask: UByte, redgamma: UShort, greengamma: UShort, bluegamma: UShort): Int =
-    0
+public actual fun htGet8BppmaskPalette(ppaletteentry: COpaquePointer?, use8bppmaskpal: Bool, cmymask: UByte, redgamma: UShort, greengamma: UShort, bluegamma: UShort): Int =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_htGet8BppmaskPalette((ppaletteentry?.value ?: 0L).toString(), use8bppmaskpal, cmymask.toInt(), redgamma.toInt(), greengamma.toInt(), bluegamma.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PATHOBJ_bEnum(ppo: Long, ppd: Long): BOOL =
-    0
+public actual fun pathobjBEnum(ppo: COpaquePointer?, ppd: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_pathobjBEnum((ppo?.value ?: 0L).toString(), (ppd?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PATHOBJ_bEnumClipLines(ppo: Long, cb: UInt, pcl: Long): BOOL =
-    0
+public actual fun pathobjBEnumClipLines(ppo: COpaquePointer?, cb: UInt, pcl: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_pathobjBEnumClipLines((ppo?.value ?: 0L).toString(), cb.toInt(), (pcl?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PATHOBJ_vEnumStart(ppo: Long) {
+public actual fun pathobjVEnumStart(ppo: COpaquePointer?) {
+    if (_windowsWin32DevicesDisplayNapiAvailable) {
+        _wasm_windowssys_windows_win32_devices_display_pathobjVEnumStart((ppo?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun PATHOBJ_vEnumStartClipLines(ppo: Long, pco: Long, pso: Long, pla: Long) {
+public actual fun pathobjVEnumStartClipLines(ppo: COpaquePointer?, pco: COpaquePointer?, pso: COpaquePointer?, pla: COpaquePointer?) {
+    if (_windowsWin32DevicesDisplayNapiAvailable) {
+        _wasm_windowssys_windows_win32_devices_display_pathobjVEnumStartClipLines((ppo?.value ?: 0L).toString(), (pco?.value ?: 0L).toString(), (pso?.value ?: 0L).toString(), (pla?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun PATHOBJ_vGetBounds(ppo: Long, prectfx: Long) {
+public actual fun pathobjVGetBounds(ppo: COpaquePointer?, prectfx: COpaquePointer?) {
+    if (_windowsWin32DevicesDisplayNapiAvailable) {
+        _wasm_windowssys_windows_win32_devices_display_pathobjVGetBounds((ppo?.value ?: 0L).toString(), (prectfx?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun QueryDisplayConfig(flags: QUERY_DISPLAY_CONFIG_FLAGS, numpatharrayelements: Long, patharray: Long, nummodeinfoarrayelements: Long, modeinfoarray: Long, currenttopologyid: Long): WIN32_ERROR =
-    0u
+public actual fun queryDisplayConfig(flags: QueryDisplayConfigFlags, numpatharrayelements: COpaquePointer?, patharray: COpaquePointer?, nummodeinfoarrayelements: COpaquePointer?, modeinfoarray: COpaquePointer?, currenttopologyid: COpaquePointer?): Win32Error =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_queryDisplayConfig(flags.toInt(), (numpatharrayelements?.value ?: 0L).toString(), (patharray?.value ?: 0L).toString(), (nummodeinfoarrayelements?.value ?: 0L).toString(), (modeinfoarray?.value ?: 0L).toString(), (currenttopologyid?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RestoreMonitorFactoryColorDefaults(hmonitor: HANDLE): Int =
-    0
+public actual fun restoreMonitorFactoryColorDefaults(hmonitor: Handle): Int =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_restoreMonitorFactoryColorDefaults((hmonitor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RestoreMonitorFactoryDefaults(hmonitor: HANDLE): Int =
-    0
+public actual fun restoreMonitorFactoryDefaults(hmonitor: Handle): Int =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_restoreMonitorFactoryDefaults((hmonitor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun STROBJ_bEnum(pstro: Long, pc: Long, ppgpos: Long): BOOL =
-    0
+public actual fun strobjBEnum(pstro: COpaquePointer?, pc: COpaquePointer?, ppgpos: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_strobjBEnum((pstro?.value ?: 0L).toString(), (pc?.value ?: 0L).toString(), (ppgpos?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun STROBJ_bEnumPositionsOnly(pstro: Long, pc: Long, ppgpos: Long): BOOL =
-    0
+public actual fun strobjBEnumPositionsOnly(pstro: COpaquePointer?, pc: COpaquePointer?, ppgpos: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_strobjBEnumPositionsOnly((pstro?.value ?: 0L).toString(), (pc?.value ?: 0L).toString(), (ppgpos?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun STROBJ_bGetAdvanceWidths(pso: Long, ifirst: UInt, c: UInt, pptqd: Long): BOOL =
-    0
+public actual fun strobjBGetAdvanceWidths(pso: COpaquePointer?, ifirst: UInt, c: UInt, pptqd: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_strobjBGetAdvanceWidths((pso?.value ?: 0L).toString(), ifirst.toInt(), c.toInt(), (pptqd?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun STROBJ_dwGetCodePage(pstro: Long): UInt =
-    0u
+public actual fun strobjDwGetCodePage(pstro: COpaquePointer?): UInt =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_strobjDwGetCodePage((pstro?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun STROBJ_vEnumStart(pstro: Long) {
+public actual fun strobjVEnumStart(pstro: COpaquePointer?) {
+    if (_windowsWin32DevicesDisplayNapiAvailable) {
+        _wasm_windowssys_windows_win32_devices_display_strobjVEnumStart((pstro?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
 }
 
-public actual fun SaveCurrentMonitorSettings(hmonitor: HANDLE): Int =
-    0
+public actual fun saveCurrentMonitorSettings(hmonitor: Handle): Int =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_saveCurrentMonitorSettings((hmonitor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SaveCurrentSettings(hmonitor: HANDLE): Int =
-    0
+public actual fun saveCurrentSettings(hmonitor: Handle): Int =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_saveCurrentSettings((hmonitor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetDisplayAutoRotationPreferences(orientation: ORIENTATION_PREFERENCE): BOOL =
-    0
+public actual fun setDisplayAutoRotationPreferences(orientation: OrientationPreference): Bool =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_setDisplayAutoRotationPreferences(orientation) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetDisplayConfig(numpatharrayelements: UInt, patharray: Long, nummodeinfoarrayelements: UInt, modeinfoarray: Long, flags: SET_DISPLAY_CONFIG_FLAGS): Int =
-    0
+public actual fun setDisplayConfig(numpatharrayelements: UInt, patharray: COpaquePointer?, nummodeinfoarrayelements: UInt, modeinfoarray: COpaquePointer?, flags: SetDisplayConfigFlags): Int =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_setDisplayConfig(numpatharrayelements.toInt(), (patharray?.value ?: 0L).toString(), nummodeinfoarrayelements.toInt(), (modeinfoarray?.value ?: 0L).toString(), flags.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetMonitorBrightness(hmonitor: HANDLE, dwnewbrightness: UInt): Int =
-    0
+public actual fun setMonitorBrightness(hmonitor: Handle, dwnewbrightness: UInt): Int =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_setMonitorBrightness((hmonitor?.value ?: 0L).toString(), dwnewbrightness.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetMonitorColorTemperature(hmonitor: HANDLE, ctcurrentcolortemperature: MC_COLOR_TEMPERATURE): Int =
-    0
+public actual fun setMonitorColorTemperature(hmonitor: Handle, ctcurrentcolortemperature: McColorTemperature): Int =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_setMonitorColorTemperature((hmonitor?.value ?: 0L).toString(), ctcurrentcolortemperature) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetMonitorContrast(hmonitor: HANDLE, dwnewcontrast: UInt): Int =
-    0
+public actual fun setMonitorContrast(hmonitor: Handle, dwnewcontrast: UInt): Int =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_setMonitorContrast((hmonitor?.value ?: 0L).toString(), dwnewcontrast.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetMonitorDisplayAreaPosition(hmonitor: HANDLE, ptpositiontype: MC_POSITION_TYPE, dwnewposition: UInt): Int =
-    0
+public actual fun setMonitorDisplayAreaPosition(hmonitor: Handle, ptpositiontype: McPositionType, dwnewposition: UInt): Int =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_setMonitorDisplayAreaPosition((hmonitor?.value ?: 0L).toString(), ptpositiontype, dwnewposition.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetMonitorDisplayAreaSize(hmonitor: HANDLE, stsizetype: MC_SIZE_TYPE, dwnewdisplayareawidthorheight: UInt): Int =
-    0
+public actual fun setMonitorDisplayAreaSize(hmonitor: Handle, stsizetype: McSizeType, dwnewdisplayareawidthorheight: UInt): Int =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_setMonitorDisplayAreaSize((hmonitor?.value ?: 0L).toString(), stsizetype, dwnewdisplayareawidthorheight.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetMonitorRedGreenOrBlueDrive(hmonitor: HANDLE, dtdrivetype: MC_DRIVE_TYPE, dwnewdrive: UInt): Int =
-    0
+public actual fun setMonitorRedGreenOrBlueDrive(hmonitor: Handle, dtdrivetype: McDriveType, dwnewdrive: UInt): Int =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_setMonitorRedGreenOrBlueDrive((hmonitor?.value ?: 0L).toString(), dtdrivetype, dwnewdrive.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetMonitorRedGreenOrBlueGain(hmonitor: HANDLE, gtgaintype: MC_GAIN_TYPE, dwnewgain: UInt): Int =
-    0
+public actual fun setMonitorRedGreenOrBlueGain(hmonitor: Handle, gtgaintype: McGainType, dwnewgain: UInt): Int =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_setMonitorRedGreenOrBlueGain((hmonitor?.value ?: 0L).toString(), gtgaintype, dwnewgain.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetVCPFeature(hmonitor: HANDLE, bvcpcode: UByte, dwnewvalue: UInt): Int =
-    0
+public actual fun setVCPFeature(hmonitor: Handle, bvcpcode: UByte, dwnewvalue: UInt): Int =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_setVCPFeature((hmonitor?.value ?: 0L).toString(), bvcpcode.toInt(), dwnewvalue.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun XFORMOBJ_bApplyXform(pxo: Long, imode: UInt, cpoints: UInt, pvin: Long, pvout: Long): BOOL =
-    0
+public actual fun xformobjBApplyXform(pxo: COpaquePointer?, imode: UInt, cpoints: UInt, pvin: COpaquePointer?, pvout: COpaquePointer?): Bool =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_xformobjBApplyXform((pxo?.value ?: 0L).toString(), imode.toInt(), cpoints.toInt(), (pvin?.value ?: 0L).toString(), (pvout?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun XFORMOBJ_iGetXform(pxo: Long, pxform: Long): UInt =
-    0u
+public actual fun xformobjIGetXform(pxo: COpaquePointer?, pxform: COpaquePointer?): UInt =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_xformobjIGetXform((pxo?.value ?: 0L).toString(), (pxform?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun XLATEOBJ_cGetPalette(pxlo: Long, ipal: UInt, cpal: UInt, ppal: Long): UInt =
-    0u
+public actual fun xlateobjCGetPalette(pxlo: COpaquePointer?, ipal: UInt, cpal: UInt, ppal: COpaquePointer?): UInt =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_xlateobjCGetPalette((pxlo?.value ?: 0L).toString(), ipal.toInt(), cpal.toInt(), (ppal?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun XLATEOBJ_hGetColorTransform(pxlo: Long): HANDLE =
-    0L
+public actual fun xlateobjHGetColorTransform(pxlo: COpaquePointer?): Handle =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_xlateobjHGetColorTransform((pxlo?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun XLATEOBJ_iXlate(pxlo: Long, icolor: UInt): UInt =
-    0u
+public actual fun xlateobjIXlate(pxlo: COpaquePointer?, icolor: UInt): UInt =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_xlateobjIXlate((pxlo?.value ?: 0L).toString(), icolor.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun XLATEOBJ_piVector(pxlo: Long): Long =
-    0L
+public actual fun xlateobjPiVector(pxlo: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32DevicesDisplayNapiAvailable) _wasm_windowssys_windows_win32_devices_display_xlateobjPiVector((pxlo?.value ?: 0L).toString()).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")

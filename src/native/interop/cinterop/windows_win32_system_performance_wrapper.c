@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_system_performance_BackupPerfRegistryToFileW(void* szfilename, void* szcommentstring) {
+uint32_t windowssys_windows_win32_system_performance_backupPerfRegistryToFileW(void* szfilename, void* szcommentstring) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ uint32_t windowssys_windows_win32_system_performance_BackupPerfRegistryToFileW(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_InstallPerfDllA(void* szcomputername, void* lpinifile, uint64_t dwflags) {
+uint32_t windowssys_windows_win32_system_performance_installPerfDllA(void* szcomputername, void* lpinifile, uint64_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -62,7 +62,7 @@ uint32_t windowssys_windows_win32_system_performance_InstallPerfDllA(void* szcom
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_InstallPerfDllW(void* szcomputername, void* lpinifile, uint64_t dwflags) {
+uint32_t windowssys_windows_win32_system_performance_installPerfDllW(void* szcomputername, void* lpinifile, uint64_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -86,7 +86,7 @@ uint32_t windowssys_windows_win32_system_performance_InstallPerfDllW(void* szcom
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_LoadPerfCounterTextStringsA(void* lpcommandline, int32_t bquietmodearg) {
+uint32_t windowssys_windows_win32_system_performance_loadPerfCounterTextStringsA(void* lpcommandline, int32_t bquietmodearg) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -109,7 +109,7 @@ uint32_t windowssys_windows_win32_system_performance_LoadPerfCounterTextStringsA
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_LoadPerfCounterTextStringsW(void* lpcommandline, int32_t bquietmodearg) {
+uint32_t windowssys_windows_win32_system_performance_loadPerfCounterTextStringsW(void* lpcommandline, int32_t bquietmodearg) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -132,7 +132,7 @@ uint32_t windowssys_windows_win32_system_performance_LoadPerfCounterTextStringsW
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhAddCounterA(void* hquery, void* szfullcounterpath, uint64_t dwuserdata, void* phcounter) {
+uint32_t windowssys_windows_win32_system_performance_pdhAddCounterA(void* hquery, void* szfullcounterpath, uint64_t dwuserdata, void* phcounter) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -157,7 +157,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhAddCounterA(void* hquery
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhAddCounterW(void* hquery, void* szfullcounterpath, uint64_t dwuserdata, void* phcounter) {
+uint32_t windowssys_windows_win32_system_performance_pdhAddCounterW(void* hquery, void* szfullcounterpath, uint64_t dwuserdata, void* phcounter) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -182,7 +182,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhAddCounterW(void* hquery
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhAddEnglishCounterA(void* hquery, void* szfullcounterpath, uint64_t dwuserdata, void* phcounter) {
+uint32_t windowssys_windows_win32_system_performance_pdhAddEnglishCounterA(void* hquery, void* szfullcounterpath, uint64_t dwuserdata, void* phcounter) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -207,7 +207,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhAddEnglishCounterA(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhAddEnglishCounterW(void* hquery, void* szfullcounterpath, uint64_t dwuserdata, void* phcounter) {
+uint32_t windowssys_windows_win32_system_performance_pdhAddEnglishCounterW(void* hquery, void* szfullcounterpath, uint64_t dwuserdata, void* phcounter) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -232,7 +232,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhAddEnglishCounterW(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhBindInputDataSourceA(void* phdatasource, void* logfilenamelist) {
+uint32_t windowssys_windows_win32_system_performance_pdhBindInputDataSourceA(void* phdatasource, void* logfilenamelist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -255,7 +255,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhBindInputDataSourceA(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhBindInputDataSourceW(void* phdatasource, void* logfilenamelist) {
+uint32_t windowssys_windows_win32_system_performance_pdhBindInputDataSourceW(void* phdatasource, void* logfilenamelist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -278,7 +278,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhBindInputDataSourceW(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhBrowseCountersA(void* pbrowsedlgdata) {
+uint32_t windowssys_windows_win32_system_performance_pdhBrowseCountersA(void* pbrowsedlgdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -300,7 +300,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhBrowseCountersA(void* pb
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhBrowseCountersHA(void* pbrowsedlgdata) {
+uint32_t windowssys_windows_win32_system_performance_pdhBrowseCountersHA(void* pbrowsedlgdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -322,7 +322,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhBrowseCountersHA(void* p
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhBrowseCountersHW(void* pbrowsedlgdata) {
+uint32_t windowssys_windows_win32_system_performance_pdhBrowseCountersHW(void* pbrowsedlgdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -344,7 +344,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhBrowseCountersHW(void* p
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhBrowseCountersW(void* pbrowsedlgdata) {
+uint32_t windowssys_windows_win32_system_performance_pdhBrowseCountersW(void* pbrowsedlgdata) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -366,7 +366,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhBrowseCountersW(void* pb
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhCalculateCounterFromRawValue(void* hcounter, uint32_t dwformat, void* rawvalue1, void* rawvalue2, void* fmtvalue) {
+uint32_t windowssys_windows_win32_system_performance_pdhCalculateCounterFromRawValue(void* hcounter, uint32_t dwformat, void* rawvalue1, void* rawvalue2, void* fmtvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -392,7 +392,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhCalculateCounterFromRawV
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhCloseLog(void* hlog, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_system_performance_pdhCloseLog(void* hlog, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -415,7 +415,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhCloseLog(void* hlog, uin
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhCloseQuery(void* hquery) {
+uint32_t windowssys_windows_win32_system_performance_pdhCloseQuery(void* hquery) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -437,7 +437,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhCloseQuery(void* hquery)
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhCollectQueryData(void* hquery) {
+uint32_t windowssys_windows_win32_system_performance_pdhCollectQueryData(void* hquery) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -459,7 +459,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhCollectQueryData(void* h
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhCollectQueryDataEx(void* hquery, uint32_t dwintervaltime, void* hnewdataevent) {
+uint32_t windowssys_windows_win32_system_performance_pdhCollectQueryDataEx(void* hquery, uint32_t dwintervaltime, void* hnewdataevent) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -483,7 +483,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhCollectQueryDataEx(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhCollectQueryDataWithTime(void* hquery, void* plltimestamp) {
+uint32_t windowssys_windows_win32_system_performance_pdhCollectQueryDataWithTime(void* hquery, void* plltimestamp) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -506,7 +506,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhCollectQueryDataWithTime
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhComputeCounterStatistics(void* hcounter, uint32_t dwformat, uint32_t dwfirstentry, uint32_t dwnumentries, void* lprawvaluearray, void* data) {
+uint32_t windowssys_windows_win32_system_performance_pdhComputeCounterStatistics(void* hcounter, uint32_t dwformat, uint32_t dwfirstentry, uint32_t dwnumentries, void* lprawvaluearray, void* data) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -533,7 +533,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhComputeCounterStatistics
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhConnectMachineA(void* szmachinename) {
+uint32_t windowssys_windows_win32_system_performance_pdhConnectMachineA(void* szmachinename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -555,7 +555,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhConnectMachineA(void* sz
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhConnectMachineW(void* szmachinename) {
+uint32_t windowssys_windows_win32_system_performance_pdhConnectMachineW(void* szmachinename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -577,7 +577,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhConnectMachineW(void* sz
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhCreateSQLTablesA(void* szdatasource) {
+uint32_t windowssys_windows_win32_system_performance_pdhCreateSQLTablesA(void* szdatasource) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -599,7 +599,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhCreateSQLTablesA(void* s
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhCreateSQLTablesW(void* szdatasource) {
+uint32_t windowssys_windows_win32_system_performance_pdhCreateSQLTablesW(void* szdatasource) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -621,7 +621,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhCreateSQLTablesW(void* s
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhEnumLogSetNamesA(void* szdatasource, void* mszdatasetnamelist, void* pcchbufferlength) {
+uint32_t windowssys_windows_win32_system_performance_pdhEnumLogSetNamesA(void* szdatasource, void* mszdatasetnamelist, void* pcchbufferlength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -645,7 +645,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhEnumLogSetNamesA(void* s
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhEnumLogSetNamesW(void* szdatasource, void* mszdatasetnamelist, void* pcchbufferlength) {
+uint32_t windowssys_windows_win32_system_performance_pdhEnumLogSetNamesW(void* szdatasource, void* mszdatasetnamelist, void* pcchbufferlength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -669,7 +669,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhEnumLogSetNamesW(void* s
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhEnumMachinesA(void* szdatasource, void* mszmachinelist, void* pcchbuffersize) {
+uint32_t windowssys_windows_win32_system_performance_pdhEnumMachinesA(void* szdatasource, void* mszmachinelist, void* pcchbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -693,7 +693,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhEnumMachinesA(void* szda
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhEnumMachinesHA(void* hdatasource, void* mszmachinelist, void* pcchbuffersize) {
+uint32_t windowssys_windows_win32_system_performance_pdhEnumMachinesHA(void* hdatasource, void* mszmachinelist, void* pcchbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -717,7 +717,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhEnumMachinesHA(void* hda
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhEnumMachinesHW(void* hdatasource, void* mszmachinelist, void* pcchbuffersize) {
+uint32_t windowssys_windows_win32_system_performance_pdhEnumMachinesHW(void* hdatasource, void* mszmachinelist, void* pcchbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -741,7 +741,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhEnumMachinesHW(void* hda
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhEnumMachinesW(void* szdatasource, void* mszmachinelist, void* pcchbuffersize) {
+uint32_t windowssys_windows_win32_system_performance_pdhEnumMachinesW(void* szdatasource, void* mszmachinelist, void* pcchbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -765,7 +765,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhEnumMachinesW(void* szda
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhEnumObjectItemsA(void* szdatasource, void* szmachinename, void* szobjectname, void* mszcounterlist, void* pcchcounterlistlength, void* mszinstancelist, void* pcchinstancelistlength, uint32_t dwdetaillevel, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_system_performance_pdhEnumObjectItemsA(void* szdatasource, void* szmachinename, void* szobjectname, void* mszcounterlist, void* pcchcounterlistlength, void* mszinstancelist, void* pcchinstancelistlength, uint32_t dwdetaillevel, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -795,7 +795,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhEnumObjectItemsA(void* s
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhEnumObjectItemsHA(void* hdatasource, void* szmachinename, void* szobjectname, void* mszcounterlist, void* pcchcounterlistlength, void* mszinstancelist, void* pcchinstancelistlength, uint32_t dwdetaillevel, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_system_performance_pdhEnumObjectItemsHA(void* hdatasource, void* szmachinename, void* szobjectname, void* mszcounterlist, void* pcchcounterlistlength, void* mszinstancelist, void* pcchinstancelistlength, uint32_t dwdetaillevel, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -825,7 +825,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhEnumObjectItemsHA(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhEnumObjectItemsHW(void* hdatasource, void* szmachinename, void* szobjectname, void* mszcounterlist, void* pcchcounterlistlength, void* mszinstancelist, void* pcchinstancelistlength, uint32_t dwdetaillevel, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_system_performance_pdhEnumObjectItemsHW(void* hdatasource, void* szmachinename, void* szobjectname, void* mszcounterlist, void* pcchcounterlistlength, void* mszinstancelist, void* pcchinstancelistlength, uint32_t dwdetaillevel, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -855,7 +855,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhEnumObjectItemsHW(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhEnumObjectItemsW(void* szdatasource, void* szmachinename, void* szobjectname, void* mszcounterlist, void* pcchcounterlistlength, void* mszinstancelist, void* pcchinstancelistlength, uint32_t dwdetaillevel, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_system_performance_pdhEnumObjectItemsW(void* szdatasource, void* szmachinename, void* szobjectname, void* mszcounterlist, void* pcchcounterlistlength, void* mszinstancelist, void* pcchinstancelistlength, uint32_t dwdetaillevel, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -885,7 +885,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhEnumObjectItemsW(void* s
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhEnumObjectsA(void* szdatasource, void* szmachinename, void* mszobjectlist, void* pcchbuffersize, uint32_t dwdetaillevel, int32_t brefresh) {
+uint32_t windowssys_windows_win32_system_performance_pdhEnumObjectsA(void* szdatasource, void* szmachinename, void* mszobjectlist, void* pcchbuffersize, uint32_t dwdetaillevel, int32_t brefresh) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -912,7 +912,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhEnumObjectsA(void* szdat
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhEnumObjectsHA(void* hdatasource, void* szmachinename, void* mszobjectlist, void* pcchbuffersize, uint32_t dwdetaillevel, int32_t brefresh) {
+uint32_t windowssys_windows_win32_system_performance_pdhEnumObjectsHA(void* hdatasource, void* szmachinename, void* mszobjectlist, void* pcchbuffersize, uint32_t dwdetaillevel, int32_t brefresh) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -939,7 +939,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhEnumObjectsHA(void* hdat
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhEnumObjectsHW(void* hdatasource, void* szmachinename, void* mszobjectlist, void* pcchbuffersize, uint32_t dwdetaillevel, int32_t brefresh) {
+uint32_t windowssys_windows_win32_system_performance_pdhEnumObjectsHW(void* hdatasource, void* szmachinename, void* mszobjectlist, void* pcchbuffersize, uint32_t dwdetaillevel, int32_t brefresh) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -966,7 +966,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhEnumObjectsHW(void* hdat
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhEnumObjectsW(void* szdatasource, void* szmachinename, void* mszobjectlist, void* pcchbuffersize, uint32_t dwdetaillevel, int32_t brefresh) {
+uint32_t windowssys_windows_win32_system_performance_pdhEnumObjectsW(void* szdatasource, void* szmachinename, void* mszobjectlist, void* pcchbuffersize, uint32_t dwdetaillevel, int32_t brefresh) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -993,7 +993,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhEnumObjectsW(void* szdat
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhExpandCounterPathA(void* szwildcardpath, void* mszexpandedpathlist, void* pcchpathlistlength) {
+uint32_t windowssys_windows_win32_system_performance_pdhExpandCounterPathA(void* szwildcardpath, void* mszexpandedpathlist, void* pcchpathlistlength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1017,7 +1017,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhExpandCounterPathA(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhExpandCounterPathW(void* szwildcardpath, void* mszexpandedpathlist, void* pcchpathlistlength) {
+uint32_t windowssys_windows_win32_system_performance_pdhExpandCounterPathW(void* szwildcardpath, void* mszexpandedpathlist, void* pcchpathlistlength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1041,7 +1041,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhExpandCounterPathW(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhExpandWildCardPathA(void* szdatasource, void* szwildcardpath, void* mszexpandedpathlist, void* pcchpathlistlength, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_system_performance_pdhExpandWildCardPathA(void* szdatasource, void* szwildcardpath, void* mszexpandedpathlist, void* pcchpathlistlength, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1067,7 +1067,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhExpandWildCardPathA(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhExpandWildCardPathHA(void* hdatasource, void* szwildcardpath, void* mszexpandedpathlist, void* pcchpathlistlength, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_system_performance_pdhExpandWildCardPathHA(void* hdatasource, void* szwildcardpath, void* mszexpandedpathlist, void* pcchpathlistlength, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1093,7 +1093,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhExpandWildCardPathHA(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhExpandWildCardPathHW(void* hdatasource, void* szwildcardpath, void* mszexpandedpathlist, void* pcchpathlistlength, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_system_performance_pdhExpandWildCardPathHW(void* hdatasource, void* szwildcardpath, void* mszexpandedpathlist, void* pcchpathlistlength, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1119,7 +1119,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhExpandWildCardPathHW(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhExpandWildCardPathW(void* szdatasource, void* szwildcardpath, void* mszexpandedpathlist, void* pcchpathlistlength, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_system_performance_pdhExpandWildCardPathW(void* szdatasource, void* szwildcardpath, void* mszexpandedpathlist, void* pcchpathlistlength, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1145,7 +1145,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhExpandWildCardPathW(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhFormatFromRawValue(uint32_t dwcountertype, uint32_t dwformat, void* ptimebase, void* prawvalue1, void* prawvalue2, void* pfmtvalue) {
+uint32_t windowssys_windows_win32_system_performance_pdhFormatFromRawValue(uint32_t dwcountertype, uint32_t dwformat, void* ptimebase, void* prawvalue1, void* prawvalue2, void* pfmtvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1172,7 +1172,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhFormatFromRawValue(uint3
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhGetCounterInfoA(void* hcounter, bool bretrieveexplaintext, void* pdwbuffersize, void* lpbuffer) {
+uint32_t windowssys_windows_win32_system_performance_pdhGetCounterInfoA(void* hcounter, bool bretrieveexplaintext, void* pdwbuffersize, void* lpbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, bool, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1197,7 +1197,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhGetCounterInfoA(void* hc
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhGetCounterInfoW(void* hcounter, bool bretrieveexplaintext, void* pdwbuffersize, void* lpbuffer) {
+uint32_t windowssys_windows_win32_system_performance_pdhGetCounterInfoW(void* hcounter, bool bretrieveexplaintext, void* pdwbuffersize, void* lpbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, bool, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1222,7 +1222,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhGetCounterInfoW(void* hc
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhGetCounterTimeBase(void* hcounter, void* ptimebase) {
+uint32_t windowssys_windows_win32_system_performance_pdhGetCounterTimeBase(void* hcounter, void* ptimebase) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1245,7 +1245,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhGetCounterTimeBase(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhGetDataSourceTimeRangeA(void* szdatasource, void* pdwnumentries, void* pinfo, void* pdwbuffersize) {
+uint32_t windowssys_windows_win32_system_performance_pdhGetDataSourceTimeRangeA(void* szdatasource, void* pdwnumentries, void* pinfo, void* pdwbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1270,7 +1270,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhGetDataSourceTimeRangeA(
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhGetDataSourceTimeRangeH(void* hdatasource, void* pdwnumentries, void* pinfo, void* pdwbuffersize) {
+uint32_t windowssys_windows_win32_system_performance_pdhGetDataSourceTimeRangeH(void* hdatasource, void* pdwnumentries, void* pinfo, void* pdwbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1295,7 +1295,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhGetDataSourceTimeRangeH(
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhGetDataSourceTimeRangeW(void* szdatasource, void* pdwnumentries, void* pinfo, void* pdwbuffersize) {
+uint32_t windowssys_windows_win32_system_performance_pdhGetDataSourceTimeRangeW(void* szdatasource, void* pdwnumentries, void* pinfo, void* pdwbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1320,7 +1320,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhGetDataSourceTimeRangeW(
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhGetDefaultPerfCounterA(void* szdatasource, void* szmachinename, void* szobjectname, void* szdefaultcountername, void* pcchbuffersize) {
+uint32_t windowssys_windows_win32_system_performance_pdhGetDefaultPerfCounterA(void* szdatasource, void* szmachinename, void* szobjectname, void* szdefaultcountername, void* pcchbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1346,7 +1346,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhGetDefaultPerfCounterA(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhGetDefaultPerfCounterHA(void* hdatasource, void* szmachinename, void* szobjectname, void* szdefaultcountername, void* pcchbuffersize) {
+uint32_t windowssys_windows_win32_system_performance_pdhGetDefaultPerfCounterHA(void* hdatasource, void* szmachinename, void* szobjectname, void* szdefaultcountername, void* pcchbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1372,7 +1372,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhGetDefaultPerfCounterHA(
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhGetDefaultPerfCounterHW(void* hdatasource, void* szmachinename, void* szobjectname, void* szdefaultcountername, void* pcchbuffersize) {
+uint32_t windowssys_windows_win32_system_performance_pdhGetDefaultPerfCounterHW(void* hdatasource, void* szmachinename, void* szobjectname, void* szdefaultcountername, void* pcchbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1398,7 +1398,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhGetDefaultPerfCounterHW(
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhGetDefaultPerfCounterW(void* szdatasource, void* szmachinename, void* szobjectname, void* szdefaultcountername, void* pcchbuffersize) {
+uint32_t windowssys_windows_win32_system_performance_pdhGetDefaultPerfCounterW(void* szdatasource, void* szmachinename, void* szobjectname, void* szdefaultcountername, void* pcchbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1424,7 +1424,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhGetDefaultPerfCounterW(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhGetDefaultPerfObjectA(void* szdatasource, void* szmachinename, void* szdefaultobjectname, void* pcchbuffersize) {
+uint32_t windowssys_windows_win32_system_performance_pdhGetDefaultPerfObjectA(void* szdatasource, void* szmachinename, void* szdefaultobjectname, void* pcchbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1449,7 +1449,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhGetDefaultPerfObjectA(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhGetDefaultPerfObjectHA(void* hdatasource, void* szmachinename, void* szdefaultobjectname, void* pcchbuffersize) {
+uint32_t windowssys_windows_win32_system_performance_pdhGetDefaultPerfObjectHA(void* hdatasource, void* szmachinename, void* szdefaultobjectname, void* pcchbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1474,7 +1474,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhGetDefaultPerfObjectHA(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhGetDefaultPerfObjectHW(void* hdatasource, void* szmachinename, void* szdefaultobjectname, void* pcchbuffersize) {
+uint32_t windowssys_windows_win32_system_performance_pdhGetDefaultPerfObjectHW(void* hdatasource, void* szmachinename, void* szdefaultobjectname, void* pcchbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1499,7 +1499,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhGetDefaultPerfObjectHW(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhGetDefaultPerfObjectW(void* szdatasource, void* szmachinename, void* szdefaultobjectname, void* pcchbuffersize) {
+uint32_t windowssys_windows_win32_system_performance_pdhGetDefaultPerfObjectW(void* szdatasource, void* szmachinename, void* szdefaultobjectname, void* pcchbuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1524,7 +1524,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhGetDefaultPerfObjectW(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhGetDllVersion(void* lpdwversion) {
+uint32_t windowssys_windows_win32_system_performance_pdhGetDllVersion(void* lpdwversion) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1546,7 +1546,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhGetDllVersion(void* lpdw
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhGetFormattedCounterArrayA(void* hcounter, uint32_t dwformat, void* lpdwbuffersize, void* lpdwitemcount, void* itembuffer) {
+uint32_t windowssys_windows_win32_system_performance_pdhGetFormattedCounterArrayA(void* hcounter, uint32_t dwformat, void* lpdwbuffersize, void* lpdwitemcount, void* itembuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1572,7 +1572,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhGetFormattedCounterArray
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhGetFormattedCounterArrayW(void* hcounter, uint32_t dwformat, void* lpdwbuffersize, void* lpdwitemcount, void* itembuffer) {
+uint32_t windowssys_windows_win32_system_performance_pdhGetFormattedCounterArrayW(void* hcounter, uint32_t dwformat, void* lpdwbuffersize, void* lpdwitemcount, void* itembuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1598,7 +1598,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhGetFormattedCounterArray
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhGetFormattedCounterValue(void* hcounter, uint32_t dwformat, void* lpdwtype, void* pvalue) {
+uint32_t windowssys_windows_win32_system_performance_pdhGetFormattedCounterValue(void* hcounter, uint32_t dwformat, void* lpdwtype, void* pvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1623,7 +1623,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhGetFormattedCounterValue
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhGetLogFileSize(void* hlog, void* llsize) {
+uint32_t windowssys_windows_win32_system_performance_pdhGetLogFileSize(void* hlog, void* llsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1646,7 +1646,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhGetLogFileSize(void* hlo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhGetLogSetGUID(void* hlog, void* pguid, void* prunid) {
+uint32_t windowssys_windows_win32_system_performance_pdhGetLogSetGUID(void* hlog, void* pguid, void* prunid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1670,7 +1670,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhGetLogSetGUID(void* hlog
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhGetRawCounterArrayA(void* hcounter, void* lpdwbuffersize, void* lpdwitemcount, void* itembuffer) {
+uint32_t windowssys_windows_win32_system_performance_pdhGetRawCounterArrayA(void* hcounter, void* lpdwbuffersize, void* lpdwitemcount, void* itembuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1695,7 +1695,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhGetRawCounterArrayA(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhGetRawCounterArrayW(void* hcounter, void* lpdwbuffersize, void* lpdwitemcount, void* itembuffer) {
+uint32_t windowssys_windows_win32_system_performance_pdhGetRawCounterArrayW(void* hcounter, void* lpdwbuffersize, void* lpdwitemcount, void* itembuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1720,7 +1720,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhGetRawCounterArrayW(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhGetRawCounterValue(void* hcounter, void* lpdwtype, void* pvalue) {
+uint32_t windowssys_windows_win32_system_performance_pdhGetRawCounterValue(void* hcounter, void* lpdwtype, void* pvalue) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1744,7 +1744,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhGetRawCounterValue(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_performance_PdhIsRealTimeQuery(void* hquery) {
+int32_t windowssys_windows_win32_system_performance_pdhIsRealTimeQuery(void* hquery) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1766,7 +1766,7 @@ int32_t windowssys_windows_win32_system_performance_PdhIsRealTimeQuery(void* hqu
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhLookupPerfIndexByNameA(void* szmachinename, void* sznamebuffer, void* pdwindex) {
+uint32_t windowssys_windows_win32_system_performance_pdhLookupPerfIndexByNameA(void* szmachinename, void* sznamebuffer, void* pdwindex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1790,7 +1790,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhLookupPerfIndexByNameA(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhLookupPerfIndexByNameW(void* szmachinename, void* sznamebuffer, void* pdwindex) {
+uint32_t windowssys_windows_win32_system_performance_pdhLookupPerfIndexByNameW(void* szmachinename, void* sznamebuffer, void* pdwindex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1814,7 +1814,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhLookupPerfIndexByNameW(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhLookupPerfNameByIndexA(void* szmachinename, uint32_t dwnameindex, void* sznamebuffer, void* pcchnamebuffersize) {
+uint32_t windowssys_windows_win32_system_performance_pdhLookupPerfNameByIndexA(void* szmachinename, uint32_t dwnameindex, void* sznamebuffer, void* pcchnamebuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1839,7 +1839,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhLookupPerfNameByIndexA(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhLookupPerfNameByIndexW(void* szmachinename, uint32_t dwnameindex, void* sznamebuffer, void* pcchnamebuffersize) {
+uint32_t windowssys_windows_win32_system_performance_pdhLookupPerfNameByIndexW(void* szmachinename, uint32_t dwnameindex, void* sznamebuffer, void* pcchnamebuffersize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1864,7 +1864,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhLookupPerfNameByIndexW(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhMakeCounterPathA(void* pcounterpathelements, void* szfullpathbuffer, void* pcchbuffersize, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_system_performance_pdhMakeCounterPathA(void* pcounterpathelements, void* szfullpathbuffer, void* pcchbuffersize, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1889,7 +1889,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhMakeCounterPathA(void* p
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhMakeCounterPathW(void* pcounterpathelements, void* szfullpathbuffer, void* pcchbuffersize, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_system_performance_pdhMakeCounterPathW(void* pcounterpathelements, void* szfullpathbuffer, void* pcchbuffersize, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1914,7 +1914,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhMakeCounterPathW(void* p
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhOpenLogA(void* szlogfilename, uint32_t dwaccessflags, void* lpdwlogtype, void* hquery, uint32_t dwmaxsize, void* szusercaption, void* phlog) {
+uint32_t windowssys_windows_win32_system_performance_pdhOpenLogA(void* szlogfilename, uint32_t dwaccessflags, void* lpdwlogtype, void* hquery, uint32_t dwmaxsize, void* szusercaption, void* phlog) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1942,7 +1942,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhOpenLogA(void* szlogfile
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhOpenLogW(void* szlogfilename, uint32_t dwaccessflags, void* lpdwlogtype, void* hquery, uint32_t dwmaxsize, void* szusercaption, void* phlog) {
+uint32_t windowssys_windows_win32_system_performance_pdhOpenLogW(void* szlogfilename, uint32_t dwaccessflags, void* lpdwlogtype, void* hquery, uint32_t dwmaxsize, void* szusercaption, void* phlog) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1970,7 +1970,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhOpenLogW(void* szlogfile
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhOpenQueryA(void* szdatasource, uint64_t dwuserdata, void* phquery) {
+uint32_t windowssys_windows_win32_system_performance_pdhOpenQueryA(void* szdatasource, uint64_t dwuserdata, void* phquery) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1994,7 +1994,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhOpenQueryA(void* szdatas
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhOpenQueryH(void* hdatasource, uint64_t dwuserdata, void* phquery) {
+uint32_t windowssys_windows_win32_system_performance_pdhOpenQueryH(void* hdatasource, uint64_t dwuserdata, void* phquery) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2018,7 +2018,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhOpenQueryH(void* hdataso
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhOpenQueryW(void* szdatasource, uint64_t dwuserdata, void* phquery) {
+uint32_t windowssys_windows_win32_system_performance_pdhOpenQueryW(void* szdatasource, uint64_t dwuserdata, void* phquery) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2042,7 +2042,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhOpenQueryW(void* szdatas
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhParseCounterPathA(void* szfullpathbuffer, void* pcounterpathelements, void* pdwbuffersize, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_system_performance_pdhParseCounterPathA(void* szfullpathbuffer, void* pcounterpathelements, void* pdwbuffersize, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2067,7 +2067,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhParseCounterPathA(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhParseCounterPathW(void* szfullpathbuffer, void* pcounterpathelements, void* pdwbuffersize, uint32_t dwflags) {
+uint32_t windowssys_windows_win32_system_performance_pdhParseCounterPathW(void* szfullpathbuffer, void* pcounterpathelements, void* pdwbuffersize, uint32_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2092,7 +2092,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhParseCounterPathW(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhParseInstanceNameA(void* szinstancestring, void* szinstancename, void* pcchinstancenamelength, void* szparentname, void* pcchparentnamelength, void* lpindex) {
+uint32_t windowssys_windows_win32_system_performance_pdhParseInstanceNameA(void* szinstancestring, void* szinstancename, void* pcchinstancenamelength, void* szparentname, void* pcchparentnamelength, void* lpindex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2119,7 +2119,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhParseInstanceNameA(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhParseInstanceNameW(void* szinstancestring, void* szinstancename, void* pcchinstancenamelength, void* szparentname, void* pcchparentnamelength, void* lpindex) {
+uint32_t windowssys_windows_win32_system_performance_pdhParseInstanceNameW(void* szinstancestring, void* szinstancename, void* pcchinstancenamelength, void* szparentname, void* pcchparentnamelength, void* lpindex) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2146,7 +2146,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhParseInstanceNameW(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhRemoveCounter(void* hcounter) {
+uint32_t windowssys_windows_win32_system_performance_pdhRemoveCounter(void* hcounter) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2168,7 +2168,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhRemoveCounter(void* hcou
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhSelectDataSourceA(void* hwndowner, uint32_t dwflags, void* szdatasource, void* pcchbufferlength) {
+uint32_t windowssys_windows_win32_system_performance_pdhSelectDataSourceA(void* hwndowner, uint32_t dwflags, void* szdatasource, void* pcchbufferlength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2193,7 +2193,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhSelectDataSourceA(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhSelectDataSourceW(void* hwndowner, uint32_t dwflags, void* szdatasource, void* pcchbufferlength) {
+uint32_t windowssys_windows_win32_system_performance_pdhSelectDataSourceW(void* hwndowner, uint32_t dwflags, void* szdatasource, void* pcchbufferlength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2218,7 +2218,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhSelectDataSourceW(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhSetCounterScaleFactor(void* hcounter, int32_t lfactor) {
+uint32_t windowssys_windows_win32_system_performance_pdhSetCounterScaleFactor(void* hcounter, int32_t lfactor) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2241,7 +2241,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhSetCounterScaleFactor(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhSetDefaultRealTimeDataSource(uint32_t dwdatasourceid) {
+uint32_t windowssys_windows_win32_system_performance_pdhSetDefaultRealTimeDataSource(uint32_t dwdatasourceid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2263,7 +2263,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhSetDefaultRealTimeDataSo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhSetLogSetRunID(void* hlog, int32_t runid) {
+uint32_t windowssys_windows_win32_system_performance_pdhSetLogSetRunID(void* hlog, int32_t runid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2286,7 +2286,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhSetLogSetRunID(void* hlo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhSetQueryTimeRange(void* hquery, void* pinfo) {
+uint32_t windowssys_windows_win32_system_performance_pdhSetQueryTimeRange(void* hquery, void* pinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2309,7 +2309,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhSetQueryTimeRange(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhUpdateLogA(void* hlog, void* szuserstring) {
+uint32_t windowssys_windows_win32_system_performance_pdhUpdateLogA(void* hlog, void* szuserstring) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2332,7 +2332,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhUpdateLogA(void* hlog, v
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhUpdateLogFileCatalog(void* hlog) {
+uint32_t windowssys_windows_win32_system_performance_pdhUpdateLogFileCatalog(void* hlog) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2354,7 +2354,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhUpdateLogFileCatalog(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhUpdateLogW(void* hlog, void* szuserstring) {
+uint32_t windowssys_windows_win32_system_performance_pdhUpdateLogW(void* hlog, void* szuserstring) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2377,7 +2377,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhUpdateLogW(void* hlog, v
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhValidatePathA(void* szfullpathbuffer) {
+uint32_t windowssys_windows_win32_system_performance_pdhValidatePathA(void* szfullpathbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2399,7 +2399,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhValidatePathA(void* szfu
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhValidatePathExA(void* hdatasource, void* szfullpathbuffer) {
+uint32_t windowssys_windows_win32_system_performance_pdhValidatePathExA(void* hdatasource, void* szfullpathbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2422,7 +2422,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhValidatePathExA(void* hd
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhValidatePathExW(void* hdatasource, void* szfullpathbuffer) {
+uint32_t windowssys_windows_win32_system_performance_pdhValidatePathExW(void* hdatasource, void* szfullpathbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2445,7 +2445,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhValidatePathExW(void* hd
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhValidatePathW(void* szfullpathbuffer) {
+uint32_t windowssys_windows_win32_system_performance_pdhValidatePathW(void* szfullpathbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2467,7 +2467,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhValidatePathW(void* szfu
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhVerifySQLDBA(void* szdatasource) {
+uint32_t windowssys_windows_win32_system_performance_pdhVerifySQLDBA(void* szdatasource) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2489,7 +2489,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhVerifySQLDBA(void* szdat
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PdhVerifySQLDBW(void* szdatasource) {
+uint32_t windowssys_windows_win32_system_performance_pdhVerifySQLDBW(void* szdatasource) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2511,7 +2511,7 @@ uint32_t windowssys_windows_win32_system_performance_PdhVerifySQLDBW(void* szdat
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PerfAddCounters(void* hquery, void* pcounters, uint32_t cbcounters) {
+uint32_t windowssys_windows_win32_system_performance_perfAddCounters(void* hquery, void* pcounters, uint32_t cbcounters) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2535,7 +2535,7 @@ uint32_t windowssys_windows_win32_system_performance_PerfAddCounters(void* hquer
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PerfCloseQueryHandle(void* hquery) {
+uint32_t windowssys_windows_win32_system_performance_perfCloseQueryHandle(void* hquery) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2557,7 +2557,7 @@ uint32_t windowssys_windows_win32_system_performance_PerfCloseQueryHandle(void* 
 #endif
 }
 
-void* windowssys_windows_win32_system_performance_PerfCreateInstance(void* providerhandle, void* countersetguid, void* name, uint32_t id) {
+void* windowssys_windows_win32_system_performance_perfCreateInstance(void* providerhandle, void* countersetguid, void* name, uint32_t id) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2582,7 +2582,7 @@ void* windowssys_windows_win32_system_performance_PerfCreateInstance(void* provi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PerfDecrementULongCounterValue(void* provider, void* instance, uint32_t counterid, uint32_t value) {
+uint32_t windowssys_windows_win32_system_performance_perfDecrementULongCounterValue(void* provider, void* instance, uint32_t counterid, uint32_t value) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2607,7 +2607,7 @@ uint32_t windowssys_windows_win32_system_performance_PerfDecrementULongCounterVa
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PerfDecrementULongLongCounterValue(void* provider, void* instance, uint32_t counterid, uint64_t value) {
+uint32_t windowssys_windows_win32_system_performance_perfDecrementULongLongCounterValue(void* provider, void* instance, uint32_t counterid, uint64_t value) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2632,7 +2632,7 @@ uint32_t windowssys_windows_win32_system_performance_PerfDecrementULongLongCount
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PerfDeleteCounters(void* hquery, void* pcounters, uint32_t cbcounters) {
+uint32_t windowssys_windows_win32_system_performance_perfDeleteCounters(void* hquery, void* pcounters, uint32_t cbcounters) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2656,7 +2656,7 @@ uint32_t windowssys_windows_win32_system_performance_PerfDeleteCounters(void* hq
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PerfDeleteInstance(void* provider, void* instanceblock) {
+uint32_t windowssys_windows_win32_system_performance_perfDeleteInstance(void* provider, void* instanceblock) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2679,7 +2679,7 @@ uint32_t windowssys_windows_win32_system_performance_PerfDeleteInstance(void* pr
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PerfEnumerateCounterSet(void* szmachine, void* pcountersetids, uint32_t ccountersetids, void* pccountersetidsactual) {
+uint32_t windowssys_windows_win32_system_performance_perfEnumerateCounterSet(void* szmachine, void* pcountersetids, uint32_t ccountersetids, void* pccountersetidsactual) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2704,7 +2704,7 @@ uint32_t windowssys_windows_win32_system_performance_PerfEnumerateCounterSet(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PerfEnumerateCounterSetInstances(void* szmachine, void* pcountersetid, void* pinstances, uint32_t cbinstances, void* pcbinstancesactual) {
+uint32_t windowssys_windows_win32_system_performance_perfEnumerateCounterSetInstances(void* szmachine, void* pcountersetid, void* pinstances, uint32_t cbinstances, void* pcbinstancesactual) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2730,7 +2730,7 @@ uint32_t windowssys_windows_win32_system_performance_PerfEnumerateCounterSetInst
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PerfIncrementULongCounterValue(void* provider, void* instance, uint32_t counterid, uint32_t value) {
+uint32_t windowssys_windows_win32_system_performance_perfIncrementULongCounterValue(void* provider, void* instance, uint32_t counterid, uint32_t value) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2755,7 +2755,7 @@ uint32_t windowssys_windows_win32_system_performance_PerfIncrementULongCounterVa
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PerfIncrementULongLongCounterValue(void* provider, void* instance, uint32_t counterid, uint64_t value) {
+uint32_t windowssys_windows_win32_system_performance_perfIncrementULongLongCounterValue(void* provider, void* instance, uint32_t counterid, uint64_t value) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2780,7 +2780,7 @@ uint32_t windowssys_windows_win32_system_performance_PerfIncrementULongLongCount
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PerfOpenQueryHandle(void* szmachine, void* phquery) {
+uint32_t windowssys_windows_win32_system_performance_perfOpenQueryHandle(void* szmachine, void* phquery) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2803,7 +2803,7 @@ uint32_t windowssys_windows_win32_system_performance_PerfOpenQueryHandle(void* s
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PerfQueryCounterData(void* hquery, void* pcounterblock, uint32_t cbcounterblock, void* pcbcounterblockactual) {
+uint32_t windowssys_windows_win32_system_performance_perfQueryCounterData(void* hquery, void* pcounterblock, uint32_t cbcounterblock, void* pcbcounterblockactual) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2828,7 +2828,7 @@ uint32_t windowssys_windows_win32_system_performance_PerfQueryCounterData(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PerfQueryCounterInfo(void* hquery, void* pcounters, uint32_t cbcounters, void* pcbcountersactual) {
+uint32_t windowssys_windows_win32_system_performance_perfQueryCounterInfo(void* hquery, void* pcounters, uint32_t cbcounters, void* pcbcountersactual) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2853,7 +2853,7 @@ uint32_t windowssys_windows_win32_system_performance_PerfQueryCounterInfo(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PerfQueryCounterSetRegistrationInfo(void* szmachine, void* pcountersetid, int32_t requestcode, uint32_t requestlangid, void* pbreginfo, uint32_t cbreginfo, void* pcbreginfoactual) {
+uint32_t windowssys_windows_win32_system_performance_perfQueryCounterSetRegistrationInfo(void* szmachine, void* pcountersetid, int32_t requestcode, uint32_t requestlangid, void* pbreginfo, uint32_t cbreginfo, void* pcbreginfoactual) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2881,7 +2881,7 @@ uint32_t windowssys_windows_win32_system_performance_PerfQueryCounterSetRegistra
 #endif
 }
 
-void* windowssys_windows_win32_system_performance_PerfQueryInstance(void* providerhandle, void* countersetguid, void* name, uint32_t id) {
+void* windowssys_windows_win32_system_performance_perfQueryInstance(void* providerhandle, void* countersetguid, void* name, uint32_t id) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2906,7 +2906,7 @@ void* windowssys_windows_win32_system_performance_PerfQueryInstance(void* provid
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PerfSetCounterRefValue(void* provider, void* instance, uint32_t counterid, void* address) {
+uint32_t windowssys_windows_win32_system_performance_perfSetCounterRefValue(void* provider, void* instance, uint32_t counterid, void* address) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2931,7 +2931,7 @@ uint32_t windowssys_windows_win32_system_performance_PerfSetCounterRefValue(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PerfSetCounterSetInfo(void* providerhandle, void* arg_1_template, uint32_t templatesize) {
+uint32_t windowssys_windows_win32_system_performance_perfSetCounterSetInfo(void* providerhandle, void* arg_1_template, uint32_t templatesize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2955,7 +2955,7 @@ uint32_t windowssys_windows_win32_system_performance_PerfSetCounterSetInfo(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PerfSetULongCounterValue(void* provider, void* instance, uint32_t counterid, uint32_t value) {
+uint32_t windowssys_windows_win32_system_performance_perfSetULongCounterValue(void* provider, void* instance, uint32_t counterid, uint32_t value) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2980,7 +2980,7 @@ uint32_t windowssys_windows_win32_system_performance_PerfSetULongCounterValue(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PerfSetULongLongCounterValue(void* provider, void* instance, uint32_t counterid, uint64_t value) {
+uint32_t windowssys_windows_win32_system_performance_perfSetULongLongCounterValue(void* provider, void* instance, uint32_t counterid, uint64_t value) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3005,7 +3005,7 @@ uint32_t windowssys_windows_win32_system_performance_PerfSetULongLongCounterValu
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PerfStartProvider(void* providerguid, void* controlcallback, void* phprovider) {
+uint32_t windowssys_windows_win32_system_performance_perfStartProvider(void* providerguid, void* controlcallback, void* phprovider) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3029,7 +3029,7 @@ uint32_t windowssys_windows_win32_system_performance_PerfStartProvider(void* pro
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PerfStartProviderEx(void* providerguid, void* providercontext, void* provider) {
+uint32_t windowssys_windows_win32_system_performance_perfStartProviderEx(void* providerguid, void* providercontext, void* provider) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3053,7 +3053,7 @@ uint32_t windowssys_windows_win32_system_performance_PerfStartProviderEx(void* p
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_PerfStopProvider(void* providerhandle) {
+uint32_t windowssys_windows_win32_system_performance_perfStopProvider(void* providerhandle) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3075,7 +3075,7 @@ uint32_t windowssys_windows_win32_system_performance_PerfStopProvider(void* prov
 #endif
 }
 
-int32_t windowssys_windows_win32_system_performance_QueryPerformanceCounter(void* lpperformancecount) {
+int32_t windowssys_windows_win32_system_performance_queryPerformanceCounter(void* lpperformancecount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3097,7 +3097,7 @@ int32_t windowssys_windows_win32_system_performance_QueryPerformanceCounter(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_performance_QueryPerformanceFrequency(void* lpfrequency) {
+int32_t windowssys_windows_win32_system_performance_queryPerformanceFrequency(void* lpfrequency) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3119,7 +3119,7 @@ int32_t windowssys_windows_win32_system_performance_QueryPerformanceFrequency(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_RestorePerfRegistryFromFileW(void* szfilename, void* szlangid) {
+uint32_t windowssys_windows_win32_system_performance_restorePerfRegistryFromFileW(void* szfilename, void* szlangid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3142,7 +3142,7 @@ uint32_t windowssys_windows_win32_system_performance_RestorePerfRegistryFromFile
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_SetServiceAsTrustedA(void* szreserved, void* szservicename) {
+uint32_t windowssys_windows_win32_system_performance_setServiceAsTrustedA(void* szreserved, void* szservicename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3165,7 +3165,7 @@ uint32_t windowssys_windows_win32_system_performance_SetServiceAsTrustedA(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_SetServiceAsTrustedW(void* szreserved, void* szservicename) {
+uint32_t windowssys_windows_win32_system_performance_setServiceAsTrustedW(void* szreserved, void* szservicename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -3188,7 +3188,7 @@ uint32_t windowssys_windows_win32_system_performance_SetServiceAsTrustedW(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_UnloadPerfCounterTextStringsA(void* lpcommandline, int32_t bquietmodearg) {
+uint32_t windowssys_windows_win32_system_performance_unloadPerfCounterTextStringsA(void* lpcommandline, int32_t bquietmodearg) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3211,7 +3211,7 @@ uint32_t windowssys_windows_win32_system_performance_UnloadPerfCounterTextString
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_UnloadPerfCounterTextStringsW(void* lpcommandline, int32_t bquietmodearg) {
+uint32_t windowssys_windows_win32_system_performance_unloadPerfCounterTextStringsW(void* lpcommandline, int32_t bquietmodearg) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3234,7 +3234,7 @@ uint32_t windowssys_windows_win32_system_performance_UnloadPerfCounterTextString
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_UpdatePerfNameFilesA(void* sznewctrfilepath, void* sznewhlpfilepath, void* szlanguageid, uint64_t dwflags) {
+uint32_t windowssys_windows_win32_system_performance_updatePerfNameFilesA(void* sznewctrfilepath, void* sznewhlpfilepath, void* szlanguageid, uint64_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -3259,7 +3259,7 @@ uint32_t windowssys_windows_win32_system_performance_UpdatePerfNameFilesA(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_performance_UpdatePerfNameFilesW(void* sznewctrfilepath, void* sznewhlpfilepath, void* szlanguageid, uint64_t dwflags) {
+uint32_t windowssys_windows_win32_system_performance_updatePerfNameFilesW(void* sznewctrfilepath, void* sznewhlpfilepath, void* szlanguageid, uint64_t dwflags) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, uint64_t);
     static km_fn_t km_fn_ptr = NULL;

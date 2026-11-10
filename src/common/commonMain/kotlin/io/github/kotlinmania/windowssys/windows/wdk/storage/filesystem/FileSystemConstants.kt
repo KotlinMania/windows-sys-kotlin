@@ -1,9 +1,9 @@
 package io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
 
@@ -69,31 +69,31 @@ public val ATOMIC_CREATE_ECP_OUT_FLAG_VDL_SET: UInt = 8u
 
 public val ATOMIC_CREATE_ECP_OUT_OP_FLAG_CASE_SENSITIVE_FLAGS_SET: UInt = 1u
 
-public val AuditAccessCheck: SE_AUDIT_OPERATION = 2
+public val AUDIT_ACCESS_CHECK: SeAuditOperation = 2
 
-public val AuditCloseNonObject: SE_AUDIT_OPERATION = 9
+public val AUDIT_CLOSE_NON_OBJECT: SeAuditOperation = 9
 
-public val AuditCloseObject: SE_AUDIT_OPERATION = 5
+public val AUDIT_CLOSE_OBJECT: SeAuditOperation = 5
 
-public val AuditDeleteObject: SE_AUDIT_OPERATION = 6
+public val AUDIT_DELETE_OBJECT: SeAuditOperation = 6
 
-public val AuditHandleCreation: SE_AUDIT_OPERATION = 12
+public val AUDIT_HANDLE_CREATION: SeAuditOperation = 12
 
-public val AuditObjectReference: SE_AUDIT_OPERATION = 11
+public val AUDIT_OBJECT_REFERENCE: SeAuditOperation = 11
 
-public val AuditOpenNonObject: SE_AUDIT_OPERATION = 10
+public val AUDIT_OPEN_NON_OBJECT: SeAuditOperation = 10
 
-public val AuditOpenObject: SE_AUDIT_OPERATION = 3
+public val AUDIT_OPEN_OBJECT: SeAuditOperation = 3
 
-public val AuditOpenObjectForDelete: SE_AUDIT_OPERATION = 7
+public val AUDIT_OPEN_OBJECT_FOR_DELETE: SeAuditOperation = 7
 
-public val AuditOpenObjectForDeleteWithTransaction: SE_AUDIT_OPERATION = 8
+public val AUDIT_OPEN_OBJECT_FOR_DELETE_WITH_TRANSACTION: SeAuditOperation = 8
 
-public val AuditOpenObjectWithTransaction: SE_AUDIT_OPERATION = 4
+public val AUDIT_OPEN_OBJECT_WITH_TRANSACTION: SeAuditOperation = 4
 
-public val AuditPrivilegeObject: SE_AUDIT_OPERATION = 0
+public val AUDIT_PRIVILEGE_OBJECT: SeAuditOperation = 0
 
-public val AuditPrivilegeService: SE_AUDIT_OPERATION = 1
+public val AUDIT_PRIVILEGE_SERVICE: SeAuditOperation = 1
 
 public val CACHE_MANAGER_CALLBACKS_EX_V1: UInt = 1u
 
@@ -145,17 +145,17 @@ public val CREATE_REDIRECTION_FLAGS_SERVICED_FROM_USER_MODE: UInt = 16u
 
 public val CSV_SET_HANDLE_PROPERTIES_ECP_CONTEXT_FLAGS_VALID_ONLY_IF_CSV_COORDINATOR: UInt = 1u
 
-public val ChangeDataControlArea: FSRTL_CHANGE_BACKING_TYPE = 0
+public val CHANGE_DATA_CONTROL_AREA: FsrtlChangeBackingType = 0
 
-public val ChangeImageControlArea: FSRTL_CHANGE_BACKING_TYPE = 1
+public val CHANGE_IMAGE_CONTROL_AREA: FsrtlChangeBackingType = 1
 
-public val ChangeSharedCacheMap: FSRTL_CHANGE_BACKING_TYPE = 2
+public val CHANGE_SHARED_CACHE_MAP: FsrtlChangeBackingType = 2
 
-public val CsvCsvFsInternalFileObject: CSV_DOWN_LEVEL_FILE_TYPE = 1
+public val CSV_CSV_FS_INTERNAL_FILE_OBJECT: CsvDownLevelFileType = 1
 
-public val CsvDownLevelFileObject: CSV_DOWN_LEVEL_FILE_TYPE = 0
+public val CSV_DOWN_LEVEL_FILE_OBJECT: CsvDownLevelFileType = 0
 
-public val DD_MUP_DEVICE_NAME: PCWSTR = w("\\Device\\Mup")
+public val DD_MUP_DEVICE_NAME: Pcwstr = w("\\Device\\Mup")
 
 public val DEVICE_RESET_KEEP_STACK: UInt = 4u
 
@@ -219,15 +219,15 @@ public val DO_VERIFY_VOLUME: UInt = 2u
 
 public val DO_VOLUME_DEVICE_OBJECT: UInt = 1048576u
 
-public val DfsLinkTrackingInformation: LINK_TRACKING_INFORMATION_TYPE = 1
+public val DFS_LINK_TRACKING_INFORMATION: LinkTrackingInformationType = 1
 
-public val EA_NAME_NETWORK_OPEN_ECP_INTEGRITY: PCSTR = s("ECP{c584edbf-00df-4d28-00b8-8435baca8911e8}-INTEGRITY")
+public val EA_NAME_NETWORK_OPEN_ECP_INTEGRITY: Pcstr = s("ECP{c584edbf-00df-4d28-00b8-8435baca8911e8}-INTEGRITY")
 
-public val EA_NAME_NETWORK_OPEN_ECP_INTEGRITY_U: PCWSTR = w("ECP{c584edbf-00df-4d28-00b8-8435baca8911e8}-INTEGRITY")
+public val EA_NAME_NETWORK_OPEN_ECP_INTEGRITY_U: Pcwstr = w("ECP{c584edbf-00df-4d28-00b8-8435baca8911e8}-INTEGRITY")
 
-public val EA_NAME_NETWORK_OPEN_ECP_PRIVACY: PCSTR = s("ECP{c584edbf-00df-4d28-00b8-8435baca8911e8}-PRIVACY")
+public val EA_NAME_NETWORK_OPEN_ECP_PRIVACY: Pcstr = s("ECP{c584edbf-00df-4d28-00b8-8435baca8911e8}-PRIVACY")
 
-public val EA_NAME_NETWORK_OPEN_ECP_PRIVACY_U: PCWSTR = w("ECP{c584edbf-00df-4d28-00b8-8435baca8911e8}-PRIVACY")
+public val EA_NAME_NETWORK_OPEN_ECP_PRIVACY_U: Pcwstr = w("ECP{c584edbf-00df-4d28-00b8-8435baca8911e8}-PRIVACY")
 
 public val ECP_OPEN_PARAMETERS_FLAG_FAIL_ON_CASE_SENSITIVE_DIR: UInt = 16u
 
@@ -239,15 +239,15 @@ public val ECP_OPEN_PARAMETERS_FLAG_OPEN_FOR_READ: UInt = 1u
 
 public val ECP_OPEN_PARAMETERS_FLAG_OPEN_FOR_WRITE: UInt = 2u
 
-public val ECP_TYPE_CLFS_CREATE_CONTAINER: GUID = GUID.from_u128(U128(0x8650c9fe0cec8bf6uL, 0xbd1e835956541090uL))
+public val ECP_TYPE_CLFS_CREATE_CONTAINER: Guid = Guid.fromU128(U128(0x8650c9fe0cec8bf6uL, 0xbd1e835956541090uL))
 
-public val ECP_TYPE_IO_STOP_ON_SYMLINK_FILTER_GUID: GUID = GUID.from_u128(U128(0x940e5d5616464d3cuL, 0x87b6577ec36a1466uL))
+public val ECP_TYPE_IO_STOP_ON_SYMLINK_FILTER_GUID: Guid = Guid.fromU128(U128(0x940e5d5616464d3cuL, 0x87b6577ec36a1466uL))
 
-public val ECP_TYPE_OPEN_REPARSE_GUID: GUID = GUID.from_u128(U128(0x323eb6a8affd4d95uL, 0x8230863bce09d37auL))
+public val ECP_TYPE_OPEN_REPARSE_GUID: Guid = Guid.fromU128(U128(0x323eb6a8affd4d95uL, 0x8230863bce09d37auL))
 
 public val EVENT_INCREMENT: UInt = 1u
 
-public val EqualTo: FSRTL_COMPARISON_RESULT = 0
+public val EQUAL_TO: FsrtlComparisonResult = 0
 
 public val FILE_ACTION_ADDED_STREAM: UInt = 6u
 
@@ -275,31 +275,31 @@ public val FILE_CLEANUP_UNKNOWN: UInt = 0u
 
 public val FILE_CLEANUP_WRONG_DEVICE: UInt = 1u
 
-public val FILE_COMPLETE_IF_OPLOCKED: NTCREATEFILE_CREATE_OPTIONS = 256u
+public val FILE_COMPLETE_IF_OPLOCKED: NtcreatefileCreateOptions = 256u
 
-public val FILE_CONTAINS_EXTENDED_CREATE_INFORMATION: NTCREATEFILE_CREATE_OPTIONS = 268435456u
+public val FILE_CONTAINS_EXTENDED_CREATE_INFORMATION: NtcreatefileCreateOptions = 268435456u
 
-public val FILE_CREATE: NTCREATEFILE_CREATE_DISPOSITION = 2u
+public val FILE_CREATE: NtcreatefileCreateDisposition = 2u
 
-public val FILE_CREATE_TREE_CONNECTION: NTCREATEFILE_CREATE_OPTIONS = 128u
+public val FILE_CREATE_TREE_CONNECTION: NtcreatefileCreateOptions = 128u
 
-public val FILE_DELETE_ON_CLOSE: NTCREATEFILE_CREATE_OPTIONS = 4096u
+public val FILE_DELETE_ON_CLOSE: NtcreatefileCreateOptions = 4096u
 
-public val FILE_DIRECTORY_FILE: NTCREATEFILE_CREATE_OPTIONS = 1u
+public val FILE_DIRECTORY_FILE: NtcreatefileCreateOptions = 1u
 
-public val FILE_DISALLOW_EXCLUSIVE: NTCREATEFILE_CREATE_OPTIONS = 131072u
+public val FILE_DISALLOW_EXCLUSIVE: NtcreatefileCreateOptions = 131072u
 
-public val FILE_DISPOSITION_DELETE: FILE_DISPOSITION_INFORMATION_EX_FLAGS = 1u
+public val FILE_DISPOSITION_DELETE: FileDispositionInformationExFlags = 1u
 
-public val FILE_DISPOSITION_DO_NOT_DELETE: FILE_DISPOSITION_INFORMATION_EX_FLAGS = 0u
+public val FILE_DISPOSITION_DO_NOT_DELETE: FileDispositionInformationExFlags = 0u
 
-public val FILE_DISPOSITION_FORCE_IMAGE_SECTION_CHECK: FILE_DISPOSITION_INFORMATION_EX_FLAGS = 4u
+public val FILE_DISPOSITION_FORCE_IMAGE_SECTION_CHECK: FileDispositionInformationExFlags = 4u
 
-public val FILE_DISPOSITION_IGNORE_READONLY_ATTRIBUTE: FILE_DISPOSITION_INFORMATION_EX_FLAGS = 16u
+public val FILE_DISPOSITION_IGNORE_READONLY_ATTRIBUTE: FileDispositionInformationExFlags = 16u
 
-public val FILE_DISPOSITION_ON_CLOSE: FILE_DISPOSITION_INFORMATION_EX_FLAGS = 8u
+public val FILE_DISPOSITION_ON_CLOSE: FileDispositionInformationExFlags = 8u
 
-public val FILE_DISPOSITION_POSIX_SEMANTICS: FILE_DISPOSITION_INFORMATION_EX_FLAGS = 2u
+public val FILE_DISPOSITION_POSIX_SEMANTICS: FileDispositionInformationExFlags = 2u
 
 public val FILE_EA_TYPE_ASCII: UInt = 65533u
 
@@ -349,7 +349,7 @@ public val FILE_LINK_SUPPRESS_STORAGE_RESERVE_INHERITANCE: UInt = 8u
 
 public val FILE_NEED_EA: UInt = 128u
 
-public val FILE_NON_DIRECTORY_FILE: NTCREATEFILE_CREATE_OPTIONS = 64u
+public val FILE_NON_DIRECTORY_FILE: NtcreatefileCreateOptions = 64u
 
 public val FILE_NOTIFY_CHANGE_EA: UInt = 128u
 
@@ -363,37 +363,37 @@ public val FILE_NOTIFY_CHANGE_STREAM_WRITE: UInt = 2048u
 
 public val FILE_NOTIFY_VALID_MASK: UInt = 4095u
 
-public val FILE_NO_COMPRESSION: NTCREATEFILE_CREATE_OPTIONS = 32768u
+public val FILE_NO_COMPRESSION: NtcreatefileCreateOptions = 32768u
 
-public val FILE_NO_EA_KNOWLEDGE: NTCREATEFILE_CREATE_OPTIONS = 512u
+public val FILE_NO_EA_KNOWLEDGE: NtcreatefileCreateOptions = 512u
 
-public val FILE_NO_INTERMEDIATE_BUFFERING: NTCREATEFILE_CREATE_OPTIONS = 8u
+public val FILE_NO_INTERMEDIATE_BUFFERING: NtcreatefileCreateOptions = 8u
 
 public val FILE_OPBATCH_BREAK_UNDERWAY: UInt = 9u
 
-public val FILE_OPEN: NTCREATEFILE_CREATE_DISPOSITION = 1u
+public val FILE_OPEN: NtcreatefileCreateDisposition = 1u
 
-public val FILE_OPEN_BY_FILE_ID: NTCREATEFILE_CREATE_OPTIONS = 8192u
+public val FILE_OPEN_BY_FILE_ID: NtcreatefileCreateOptions = 8192u
 
-public val FILE_OPEN_FOR_BACKUP_INTENT: NTCREATEFILE_CREATE_OPTIONS = 16384u
+public val FILE_OPEN_FOR_BACKUP_INTENT: NtcreatefileCreateOptions = 16384u
 
-public val FILE_OPEN_FOR_FREE_SPACE_QUERY: NTCREATEFILE_CREATE_OPTIONS = 8388608u
+public val FILE_OPEN_FOR_FREE_SPACE_QUERY: NtcreatefileCreateOptions = 8388608u
 
-public val FILE_OPEN_IF: NTCREATEFILE_CREATE_DISPOSITION = 3u
+public val FILE_OPEN_IF: NtcreatefileCreateDisposition = 3u
 
-public val FILE_OPEN_NO_RECALL: NTCREATEFILE_CREATE_OPTIONS = 4194304u
+public val FILE_OPEN_NO_RECALL: NtcreatefileCreateOptions = 4194304u
 
-public val FILE_OPEN_REPARSE_POINT: NTCREATEFILE_CREATE_OPTIONS = 2097152u
+public val FILE_OPEN_REPARSE_POINT: NtcreatefileCreateOptions = 2097152u
 
-public val FILE_OPEN_REQUIRING_OPLOCK: NTCREATEFILE_CREATE_OPTIONS = 65536u
+public val FILE_OPEN_REQUIRING_OPLOCK: NtcreatefileCreateOptions = 65536u
 
 public val FILE_OPLOCK_BROKEN_TO_LEVEL_2: UInt = 7u
 
 public val FILE_OPLOCK_BROKEN_TO_NONE: UInt = 8u
 
-public val FILE_OVERWRITE: NTCREATEFILE_CREATE_DISPOSITION = 4u
+public val FILE_OVERWRITE: NtcreatefileCreateDisposition = 4u
 
-public val FILE_OVERWRITE_IF: NTCREATEFILE_CREATE_DISPOSITION = 5u
+public val FILE_OVERWRITE_IF: NtcreatefileCreateDisposition = 5u
 
 public val FILE_PIPE_ACCEPT_REMOTE_CLIENTS: UInt = 0u
 
@@ -441,7 +441,7 @@ public val FILE_PIPE_TYPE_VALID_MASK: UInt = 3u
 
 public val FILE_PIPE_WRITE_SPACE: UInt = 1u
 
-public val FILE_RANDOM_ACCESS: NTCREATEFILE_CREATE_OPTIONS = 2048u
+public val FILE_RANDOM_ACCESS: NtcreatefileCreateOptions = 2048u
 
 public val FILE_RENAME_FORCE_RESIZE_SOURCE_SR: UInt = 256u
 
@@ -465,17 +465,17 @@ public val FILE_RENAME_SUPPRESS_PIN_STATE_INHERITANCE: UInt = 4u
 
 public val FILE_RENAME_SUPPRESS_STORAGE_RESERVE_INHERITANCE: UInt = 8u
 
-public val FILE_RESERVE_OPFILTER: NTCREATEFILE_CREATE_OPTIONS = 1048576u
+public val FILE_RESERVE_OPFILTER: NtcreatefileCreateOptions = 1048576u
 
-public val FILE_SEQUENTIAL_ONLY: NTCREATEFILE_CREATE_OPTIONS = 4u
+public val FILE_SEQUENTIAL_ONLY: NtcreatefileCreateOptions = 4u
 
-public val FILE_SESSION_AWARE: NTCREATEFILE_CREATE_OPTIONS = 262144u
+public val FILE_SESSION_AWARE: NtcreatefileCreateOptions = 262144u
 
-public val FILE_SUPERSEDE: NTCREATEFILE_CREATE_DISPOSITION = 0u
+public val FILE_SUPERSEDE: NtcreatefileCreateDisposition = 0u
 
-public val FILE_SYNCHRONOUS_IO_ALERT: NTCREATEFILE_CREATE_OPTIONS = 16u
+public val FILE_SYNCHRONOUS_IO_ALERT: NtcreatefileCreateOptions = 16u
 
-public val FILE_SYNCHRONOUS_IO_NONALERT: NTCREATEFILE_CREATE_OPTIONS = 32u
+public val FILE_SYNCHRONOUS_IO_NONALERT: NtcreatefileCreateOptions = 32u
 
 public val FILE_VC_CONTENT_INDEX_DISABLED: UInt = 8u
 
@@ -501,7 +501,7 @@ public val FILE_VC_QUOTA_TRACK: UInt = 1u
 
 public val FILE_VC_VALID_MASK: UInt = 1023u
 
-public val FILE_WRITE_THROUGH: NTCREATEFILE_CREATE_OPTIONS = 2u
+public val FILE_WRITE_THROUGH: NtcreatefileCreateOptions = 2u
 
 public val FLAGS_DELAY_REASONS_BITMAP_SCANNED: UInt = 2u
 
@@ -693,19 +693,19 @@ public val FSRTL_VOLUME_WORM_NEAR_FULL: UInt = 8u
 
 public val FSRTL_WILD_CHARACTER: UInt = 8u
 
-public val FS_FILTER_ACQUIRE_FOR_CC_FLUSH: UShort = 65531u
+public val FS_FILTER_ACQUIRE_FOR_CC_FLUSH: UShort = 65531u.toUShort()
 
-public val FS_FILTER_ACQUIRE_FOR_MOD_WRITE: UShort = 65533u
+public val FS_FILTER_ACQUIRE_FOR_MOD_WRITE: UShort = 65533u.toUShort()
 
-public val FS_FILTER_ACQUIRE_FOR_SECTION_SYNCHRONIZATION: UShort = 65535u
+public val FS_FILTER_ACQUIRE_FOR_SECTION_SYNCHRONIZATION: UShort = 65535u.toUShort()
 
-public val FS_FILTER_QUERY_OPEN: UShort = 65529u
+public val FS_FILTER_QUERY_OPEN: UShort = 65529u.toUShort()
 
-public val FS_FILTER_RELEASE_FOR_CC_FLUSH: UShort = 65530u
+public val FS_FILTER_RELEASE_FOR_CC_FLUSH: UShort = 65530u.toUShort()
 
-public val FS_FILTER_RELEASE_FOR_MOD_WRITE: UShort = 65532u
+public val FS_FILTER_RELEASE_FOR_MOD_WRITE: UShort = 65532u.toUShort()
 
-public val FS_FILTER_RELEASE_FOR_SECTION_SYNCHRONIZATION: UShort = 65534u
+public val FS_FILTER_RELEASE_FOR_SECTION_SYNCHRONIZATION: UShort = 65534u.toUShort()
 
 public val FS_FILTER_SECTION_SYNC_IMAGE_EXTENTS_ARE_NOT_RVA: UInt = 8u
 
@@ -719,195 +719,195 @@ public val FS_FILTER_SECTION_SYNC_SUPPORTS_DIRECT_MAP_DATA: UInt = 2u
 
 public val FS_FILTER_SECTION_SYNC_SUPPORTS_DIRECT_MAP_IMAGE: UInt = 4u
 
-public val FastIoIsNotPossible: FAST_IO_POSSIBLE = 0
+public val FAST_IO_IS_NOT_POSSIBLE: FastIoPossible = 0
 
-public val FastIoIsPossible: FAST_IO_POSSIBLE = 1
+public val FAST_IO_IS_POSSIBLE: FastIoPossible = 1
 
-public val FastIoIsQuestionable: FAST_IO_POSSIBLE = 2
+public val FAST_IO_IS_QUESTIONABLE: FastIoPossible = 2
 
-public val FileAccessInformation: FILE_INFORMATION_CLASS = 8
+public val FILE_ACCESS_INFORMATION: FileInformationClass = 8
 
-public val FileAlignmentInformation: FILE_INFORMATION_CLASS = 17
+public val FILE_ALIGNMENT_INFORMATION: FileInformationClass = 17
 
-public val FileAllInformation: FILE_INFORMATION_CLASS = 18
+public val FILE_ALL_INFORMATION: FileInformationClass = 18
 
-public val FileAllocationInformation: FILE_INFORMATION_CLASS = 19
+public val FILE_ALLOCATION_INFORMATION: FileInformationClass = 19
 
-public val FileAlternateNameInformation: FILE_INFORMATION_CLASS = 21
+public val FILE_ALTERNATE_NAME_INFORMATION: FileInformationClass = 21
 
-public val FileAttributeTagInformation: FILE_INFORMATION_CLASS = 35
+public val FILE_ATTRIBUTE_TAG_INFORMATION: FileInformationClass = 35
 
-public val FileBasicInformation: FILE_INFORMATION_CLASS = 4
+public val FILE_BASIC_INFORMATION: FileInformationClass = 4
 
-public val FileBothDirectoryInformation: FILE_INFORMATION_CLASS = 3
+public val FILE_BOTH_DIRECTORY_INFORMATION: FileInformationClass = 3
 
-public val FileCaseSensitiveInformation: FILE_INFORMATION_CLASS = 71
+public val FILE_CASE_SENSITIVE_INFORMATION: FileInformationClass = 71
 
-public val FileCaseSensitiveInformationForceAccessCheck: FILE_INFORMATION_CLASS = 75
+public val FILE_CASE_SENSITIVE_INFORMATION_FORCE_ACCESS_CHECK: FileInformationClass = 75
 
-public val FileCompletionInformation: FILE_INFORMATION_CLASS = 30
+public val FILE_COMPLETION_INFORMATION: FileInformationClass = 30
 
-public val FileCompressionInformation: FILE_INFORMATION_CLASS = 28
+public val FILE_COMPRESSION_INFORMATION: FileInformationClass = 28
 
-public val FileDesiredStorageClassInformation: FILE_INFORMATION_CLASS = 67
+public val FILE_DESIRED_STORAGE_CLASS_INFORMATION: FileInformationClass = 67
 
-public val FileDirectoryInformation: FILE_INFORMATION_CLASS = 1
+public val FILE_DIRECTORY_INFORMATION: FileInformationClass = 1
 
-public val FileDispositionInformation: FILE_INFORMATION_CLASS = 13
+public val FILE_DISPOSITION_INFORMATION: FileInformationClass = 13
 
-public val FileDispositionInformationEx: FILE_INFORMATION_CLASS = 64
+public val FILE_DISPOSITION_INFORMATION_EX: FileInformationClass = 64
 
-public val FileEaInformation: FILE_INFORMATION_CLASS = 7
+public val FILE_EA_INFORMATION: FileInformationClass = 7
 
-public val FileEndOfFileInformation: FILE_INFORMATION_CLASS = 20
+public val FILE_END_OF_FILE_INFORMATION: FileInformationClass = 20
 
-public val FileFsAttributeInformation: FS_INFORMATION_CLASS = 5
+public val FILE_FS_ATTRIBUTE_INFORMATION: FsInformationClass = 5
 
-public val FileFsControlInformation: FS_INFORMATION_CLASS = 6
+public val FILE_FS_CONTROL_INFORMATION: FsInformationClass = 6
 
-public val FileFsDataCopyInformation: FS_INFORMATION_CLASS = 12
+public val FILE_FS_DATA_COPY_INFORMATION: FsInformationClass = 12
 
-public val FileFsDeviceInformation: FS_INFORMATION_CLASS = 4
+public val FILE_FS_DEVICE_INFORMATION: FsInformationClass = 4
 
-public val FileFsDriverPathInformation: FS_INFORMATION_CLASS = 9
+public val FILE_FS_DRIVER_PATH_INFORMATION: FsInformationClass = 9
 
-public val FileFsFullSizeInformation: FS_INFORMATION_CLASS = 7
+public val FILE_FS_FULL_SIZE_INFORMATION: FsInformationClass = 7
 
-public val FileFsFullSizeInformationEx: FS_INFORMATION_CLASS = 14
+public val FILE_FS_FULL_SIZE_INFORMATION_EX: FsInformationClass = 14
 
-public val FileFsLabelInformation: FS_INFORMATION_CLASS = 2
+public val FILE_FS_LABEL_INFORMATION: FsInformationClass = 2
 
-public val FileFsMaximumInformation: FS_INFORMATION_CLASS = 15
+public val FILE_FS_MAXIMUM_INFORMATION: FsInformationClass = 15
 
-public val FileFsMetadataSizeInformation: FS_INFORMATION_CLASS = 13
+public val FILE_FS_METADATA_SIZE_INFORMATION: FsInformationClass = 13
 
-public val FileFsObjectIdInformation: FS_INFORMATION_CLASS = 8
+public val FILE_FS_OBJECT_ID_INFORMATION: FsInformationClass = 8
 
-public val FileFsSectorSizeInformation: FS_INFORMATION_CLASS = 11
+public val FILE_FS_SECTOR_SIZE_INFORMATION: FsInformationClass = 11
 
-public val FileFsSizeInformation: FS_INFORMATION_CLASS = 3
+public val FILE_FS_SIZE_INFORMATION: FsInformationClass = 3
 
-public val FileFsVolumeFlagsInformation: FS_INFORMATION_CLASS = 10
+public val FILE_FS_VOLUME_FLAGS_INFORMATION: FsInformationClass = 10
 
-public val FileFsVolumeInformation: FS_INFORMATION_CLASS = 1
+public val FILE_FS_VOLUME_INFORMATION: FsInformationClass = 1
 
-public val FileFullDirectoryInformation: FILE_INFORMATION_CLASS = 2
+public val FILE_FULL_DIRECTORY_INFORMATION: FileInformationClass = 2
 
-public val FileFullEaInformation: FILE_INFORMATION_CLASS = 15
+public val FILE_FULL_EA_INFORMATION: FileInformationClass = 15
 
-public val FileHardLinkFullIdInformation: FILE_INFORMATION_CLASS = 62
+public val FILE_HARD_LINK_FULL_ID_INFORMATION: FileInformationClass = 62
 
-public val FileHardLinkInformation: FILE_INFORMATION_CLASS = 46
+public val FILE_HARD_LINK_INFORMATION: FileInformationClass = 46
 
-public val FileIdBothDirectoryInformation: FILE_INFORMATION_CLASS = 37
+public val FILE_ID_BOTH_DIRECTORY_INFORMATION: FileInformationClass = 37
 
-public val FileIdExtdBothDirectoryInformation: FILE_INFORMATION_CLASS = 63
+public val FILE_ID_EXTD_BOTH_DIRECTORY_INFORMATION: FileInformationClass = 63
 
-public val FileIdExtdDirectoryInformation: FILE_INFORMATION_CLASS = 60
+public val FILE_ID_EXTD_DIRECTORY_INFORMATION: FileInformationClass = 60
 
-public val FileIdFullDirectoryInformation: FILE_INFORMATION_CLASS = 38
+public val FILE_ID_FULL_DIRECTORY_INFORMATION: FileInformationClass = 38
 
-public val FileIdGlobalTxDirectoryInformation: FILE_INFORMATION_CLASS = 50
+public val FILE_ID_GLOBAL_TX_DIRECTORY_INFORMATION: FileInformationClass = 50
 
-public val FileIdInformation: FILE_INFORMATION_CLASS = 59
+public val FILE_ID_INFORMATION: FileInformationClass = 59
 
-public val FileInternalInformation: FILE_INFORMATION_CLASS = 6
+public val FILE_INTERNAL_INFORMATION: FileInformationClass = 6
 
-public val FileIoCompletionNotificationInformation: FILE_INFORMATION_CLASS = 41
+public val FILE_IO_COMPLETION_NOTIFICATION_INFORMATION: FileInformationClass = 41
 
-public val FileIoPriorityHintInformation: FILE_INFORMATION_CLASS = 43
+public val FILE_IO_PRIORITY_HINT_INFORMATION: FileInformationClass = 43
 
-public val FileIoStatusBlockRangeInformation: FILE_INFORMATION_CLASS = 42
+public val FILE_IO_STATUS_BLOCK_RANGE_INFORMATION: FileInformationClass = 42
 
-public val FileIsRemoteDeviceInformation: FILE_INFORMATION_CLASS = 51
+public val FILE_IS_REMOTE_DEVICE_INFORMATION: FileInformationClass = 51
 
-public val FileKnownFolderInformation: FILE_INFORMATION_CLASS = 76
+public val FILE_KNOWN_FOLDER_INFORMATION: FileInformationClass = 76
 
-public val FileLinkInformation: FILE_INFORMATION_CLASS = 11
+public val FILE_LINK_INFORMATION: FileInformationClass = 11
 
-public val FileLinkInformationBypassAccessCheck: FILE_INFORMATION_CLASS = 57
+public val FILE_LINK_INFORMATION_BYPASS_ACCESS_CHECK: FileInformationClass = 57
 
-public val FileLinkInformationEx: FILE_INFORMATION_CLASS = 72
+public val FILE_LINK_INFORMATION_EX: FileInformationClass = 72
 
-public val FileLinkInformationExBypassAccessCheck: FILE_INFORMATION_CLASS = 73
+public val FILE_LINK_INFORMATION_EX_BYPASS_ACCESS_CHECK: FileInformationClass = 73
 
-public val FileMailslotQueryInformation: FILE_INFORMATION_CLASS = 26
+public val FILE_MAILSLOT_QUERY_INFORMATION: FileInformationClass = 26
 
-public val FileMailslotSetInformation: FILE_INFORMATION_CLASS = 27
+public val FILE_MAILSLOT_SET_INFORMATION: FileInformationClass = 27
 
-public val FileMaximumInformation: FILE_INFORMATION_CLASS = 77
+public val FILE_MAXIMUM_INFORMATION: FileInformationClass = 77
 
-public val FileMemoryPartitionInformation: FILE_INFORMATION_CLASS = 69
+public val FILE_MEMORY_PARTITION_INFORMATION: FileInformationClass = 69
 
-public val FileModeInformation: FILE_INFORMATION_CLASS = 16
+public val FILE_MODE_INFORMATION: FileInformationClass = 16
 
-public val FileMoveClusterInformation: FILE_INFORMATION_CLASS = 31
+public val FILE_MOVE_CLUSTER_INFORMATION: FileInformationClass = 31
 
-public val FileNameInformation: FILE_INFORMATION_CLASS = 9
+public val FILE_NAME_INFORMATION: FileInformationClass = 9
 
-public val FileNamesInformation: FILE_INFORMATION_CLASS = 12
+public val FILE_NAMES_INFORMATION: FileInformationClass = 12
 
-public val FileNetworkOpenInformation: FILE_INFORMATION_CLASS = 34
+public val FILE_NETWORK_OPEN_INFORMATION: FileInformationClass = 34
 
-public val FileNetworkPhysicalNameInformation: FILE_INFORMATION_CLASS = 49
+public val FILE_NETWORK_PHYSICAL_NAME_INFORMATION: FileInformationClass = 49
 
-public val FileNormalizedNameInformation: FILE_INFORMATION_CLASS = 48
+public val FILE_NORMALIZED_NAME_INFORMATION: FileInformationClass = 48
 
-public val FileNumaNodeInformation: FILE_INFORMATION_CLASS = 53
+public val FILE_NUMA_NODE_INFORMATION: FileInformationClass = 53
 
-public val FileObjectIdInformation: FILE_INFORMATION_CLASS = 29
+public val FILE_OBJECT_ID_INFORMATION: FileInformationClass = 29
 
-public val FilePipeInformation: FILE_INFORMATION_CLASS = 23
+public val FILE_PIPE_INFORMATION: FileInformationClass = 23
 
-public val FilePipeLocalInformation: FILE_INFORMATION_CLASS = 24
+public val FILE_PIPE_LOCAL_INFORMATION: FileInformationClass = 24
 
-public val FilePipeRemoteInformation: FILE_INFORMATION_CLASS = 25
+public val FILE_PIPE_REMOTE_INFORMATION: FileInformationClass = 25
 
-public val FilePositionInformation: FILE_INFORMATION_CLASS = 14
+public val FILE_POSITION_INFORMATION: FileInformationClass = 14
 
-public val FileProcessIdsUsingFileInformation: FILE_INFORMATION_CLASS = 47
+public val FILE_PROCESS_IDS_USING_FILE_INFORMATION: FileInformationClass = 47
 
-public val FileQuotaInformation: FILE_INFORMATION_CLASS = 32
+public val FILE_QUOTA_INFORMATION: FileInformationClass = 32
 
-public val FileRemoteProtocolInformation: FILE_INFORMATION_CLASS = 55
+public val FILE_REMOTE_PROTOCOL_INFORMATION: FileInformationClass = 55
 
-public val FileRenameInformation: FILE_INFORMATION_CLASS = 10
+public val FILE_RENAME_INFORMATION: FileInformationClass = 10
 
-public val FileRenameInformationBypassAccessCheck: FILE_INFORMATION_CLASS = 56
+public val FILE_RENAME_INFORMATION_BYPASS_ACCESS_CHECK: FileInformationClass = 56
 
-public val FileRenameInformationEx: FILE_INFORMATION_CLASS = 65
+public val FILE_RENAME_INFORMATION_EX: FileInformationClass = 65
 
-public val FileRenameInformationExBypassAccessCheck: FILE_INFORMATION_CLASS = 66
+public val FILE_RENAME_INFORMATION_EX_BYPASS_ACCESS_CHECK: FileInformationClass = 66
 
-public val FileReparsePointInformation: FILE_INFORMATION_CLASS = 33
+public val FILE_REPARSE_POINT_INFORMATION: FileInformationClass = 33
 
-public val FileReplaceCompletionInformation: FILE_INFORMATION_CLASS = 61
+public val FILE_REPLACE_COMPLETION_INFORMATION: FileInformationClass = 61
 
-public val FileSfioReserveInformation: FILE_INFORMATION_CLASS = 44
+public val FILE_SFIO_RESERVE_INFORMATION: FileInformationClass = 44
 
-public val FileSfioVolumeInformation: FILE_INFORMATION_CLASS = 45
+public val FILE_SFIO_VOLUME_INFORMATION: FileInformationClass = 45
 
-public val FileShortNameInformation: FILE_INFORMATION_CLASS = 40
+public val FILE_SHORT_NAME_INFORMATION: FileInformationClass = 40
 
-public val FileStandardInformation: FILE_INFORMATION_CLASS = 5
+public val FILE_STANDARD_INFORMATION: FileInformationClass = 5
 
-public val FileStandardLinkInformation: FILE_INFORMATION_CLASS = 54
+public val FILE_STANDARD_LINK_INFORMATION: FileInformationClass = 54
 
-public val FileStatInformation: FILE_INFORMATION_CLASS = 68
+public val FILE_STAT_INFORMATION: FileInformationClass = 68
 
-public val FileStatLxInformation: FILE_INFORMATION_CLASS = 70
+public val FILE_STAT_LX_INFORMATION: FileInformationClass = 70
 
-public val FileStorageReserveIdInformation: FILE_INFORMATION_CLASS = 74
+public val FILE_STORAGE_RESERVE_ID_INFORMATION: FileInformationClass = 74
 
-public val FileStreamInformation: FILE_INFORMATION_CLASS = 22
+public val FILE_STREAM_INFORMATION: FileInformationClass = 22
 
-public val FileTrackingInformation: FILE_INFORMATION_CLASS = 36
+public val FILE_TRACKING_INFORMATION: FileInformationClass = 36
 
-public val FileUnusedInformation: FILE_INFORMATION_CLASS = 52
+public val FILE_UNUSED_INFORMATION: FileInformationClass = 52
 
-public val FileValidDataLengthInformation: FILE_INFORMATION_CLASS = 39
+public val FILE_VALID_DATA_LENGTH_INFORMATION: FileInformationClass = 39
 
-public val FileVolumeNameInformation: FILE_INFORMATION_CLASS = 58
+public val FILE_VOLUME_NAME_INFORMATION: FileInformationClass = 58
 
 public val GCR_ALLOW_LM: UInt = 4096u
 
@@ -929,45 +929,45 @@ public val GCR_VSM_PROTECTED_PASSWORD: UInt = 16384u
 
 public val GENERATE_CLIENT_CHALLENGE: UInt = 16u
 
-public val GUID_ECP_ATOMIC_CREATE: GUID = GUID.from_u128(U128(0x4720bd8352ac4104uL, 0xa130d1ec6a8cc8e5uL))
+public val GUID_ECP_ATOMIC_CREATE: Guid = Guid.fromU128(U128(0x4720bd8352ac4104uL, 0xa130d1ec6a8cc8e5uL))
 
-public val GUID_ECP_CLOUDFILES_ATTRIBUTION: GUID = GUID.from_u128(U128(0x2932ff5283784fc1uL, 0x8edb6bdc8f602709uL))
+public val GUID_ECP_CLOUDFILES_ATTRIBUTION: Guid = Guid.fromU128(U128(0x2932ff5283784fc1uL, 0x8edb6bdc8f602709uL))
 
-public val GUID_ECP_CREATE_REDIRECTION: GUID = GUID.from_u128(U128(0x188d6bd6a1264fa8uL, 0xbdf21ccdf896f3e0uL))
+public val GUID_ECP_CREATE_REDIRECTION: Guid = Guid.fromU128(U128(0x188d6bd6a1264fa8uL, 0xbdf21ccdf896f3e0uL))
 
-public val GUID_ECP_CSV_DOWN_LEVEL_OPEN: GUID = GUID.from_u128(U128(0x4248be44647f488fuL, 0x8be5a08aaf70f028uL))
+public val GUID_ECP_CSV_DOWN_LEVEL_OPEN: Guid = Guid.fromU128(U128(0x4248be44647f488fuL, 0x8be5a08aaf70f028uL))
 
-public val GUID_ECP_CSV_QUERY_FILE_REVISION: GUID = GUID.from_u128(U128(0x44aec90bde654d46uL, 0x8fbf763f9d970b1duL))
+public val GUID_ECP_CSV_QUERY_FILE_REVISION: Guid = Guid.fromU128(U128(0x44aec90bde654d46uL, 0x8fbf763f9d970b1duL))
 
-public val GUID_ECP_CSV_QUERY_FILE_REVISION_FILE_ID_128: GUID = GUID.from_u128(U128(0x7a3a4aa1aa744bc6uL, 0xb070ab56a38c1feduL))
+public val GUID_ECP_CSV_QUERY_FILE_REVISION_FILE_ID_128: Guid = Guid.fromU128(U128(0x7a3a4aa1aa744bc6uL, 0xb070ab56a38c1feduL))
 
-public val GUID_ECP_CSV_SET_HANDLE_PROPERTIES: GUID = GUID.from_u128(U128(0x7a9fdd947b5842bbuL, 0x97403cb86983a615uL))
+public val GUID_ECP_CSV_SET_HANDLE_PROPERTIES: Guid = Guid.fromU128(U128(0x7a9fdd947b5842bbuL, 0x97403cb86983a615uL))
 
-public val GUID_ECP_DUAL_OPLOCK_KEY: GUID = GUID.from_u128(U128(0x41621a14b08b4df1uL, 0xb676a05ffdf01beauL))
+public val GUID_ECP_DUAL_OPLOCK_KEY: Guid = Guid.fromU128(U128(0x41621a14b08b4df1uL, 0xb676a05ffdf01beauL))
 
-public val GUID_ECP_IO_DEVICE_HINT: GUID = GUID.from_u128(U128(0xf315b732ac6b4d4duL, 0xbe0cb3126490e1a3uL))
+public val GUID_ECP_IO_DEVICE_HINT: Guid = Guid.fromU128(U128(0xf315b732ac6b4d4duL, 0xbe0cb3126490e1a3uL))
 
-public val GUID_ECP_NETWORK_APP_INSTANCE: GUID = GUID.from_u128(U128(0x6aa6bc45a7ef4af7uL, 0x9008fa462e144d74uL))
+public val GUID_ECP_NETWORK_APP_INSTANCE: Guid = Guid.fromU128(U128(0x6aa6bc45a7ef4af7uL, 0x9008fa462e144d74uL))
 
-public val GUID_ECP_NETWORK_APP_INSTANCE_VERSION: GUID = GUID.from_u128(U128(0xb7d082b9563b4f07uL, 0xa07b524a8116a010uL))
+public val GUID_ECP_NETWORK_APP_INSTANCE_VERSION: Guid = Guid.fromU128(U128(0xb7d082b9563b4f07uL, 0xa07b524a8116a010uL))
 
-public val GUID_ECP_NETWORK_OPEN_CONTEXT: GUID = GUID.from_u128(U128(0xc584edbf00df4d28uL, 0xb88435baca8911e8uL))
+public val GUID_ECP_NETWORK_OPEN_CONTEXT: Guid = Guid.fromU128(U128(0xc584edbf00df4d28uL, 0xb88435baca8911e8uL))
 
-public val GUID_ECP_NFS_OPEN: GUID = GUID.from_u128(U128(0xf326d30ce5f84fe7uL, 0xab74f5a3196d92dbuL))
+public val GUID_ECP_NFS_OPEN: Guid = Guid.fromU128(U128(0xf326d30ce5f84fe7uL, 0xab74f5a3196d92dbuL))
 
-public val GUID_ECP_OPEN_PARAMETERS: GUID = GUID.from_u128(U128(0xcd0a93c33bb7463duL, 0xaccb969d3435a5a5uL))
+public val GUID_ECP_OPEN_PARAMETERS: Guid = Guid.fromU128(U128(0xcd0a93c33bb7463duL, 0xaccb969d3435a5a5uL))
 
-public val GUID_ECP_OPLOCK_KEY: GUID = GUID.from_u128(U128(0x4885059630504be7uL, 0x9863fec350ce8d7fuL))
+public val GUID_ECP_OPLOCK_KEY: Guid = Guid.fromU128(U128(0x4885059630504be7uL, 0x9863fec350ce8d7fuL))
 
-public val GUID_ECP_PREFETCH_OPEN: GUID = GUID.from_u128(U128(0xe1777b21847e4837uL, 0xaa4564161d280655uL))
+public val GUID_ECP_PREFETCH_OPEN: Guid = Guid.fromU128(U128(0xe1777b21847e4837uL, 0xaa4564161d280655uL))
 
-public val GUID_ECP_QUERY_ON_CREATE: GUID = GUID.from_u128(U128(0x1aca62e9abb44ff2uL, 0xbb5c1c79025e417fuL))
+public val GUID_ECP_QUERY_ON_CREATE: Guid = Guid.fromU128(U128(0x1aca62e9abb44ff2uL, 0xbb5c1c79025e417fuL))
 
-public val GUID_ECP_RKF_BYPASS: GUID = GUID.from_u128(U128(0x2378cc6f73c489cuL, 0x8282564d1a99131buL))
+public val GUID_ECP_RKF_BYPASS: Guid = Guid.fromU128(U128(0x2378cc6f73c489cuL, 0x8282564d1a99131buL))
 
-public val GUID_ECP_SRV_OPEN: GUID = GUID.from_u128(U128(0xbebfaebcaabf489duL, 0x9d2ce9e361102853uL))
+public val GUID_ECP_SRV_OPEN: Guid = Guid.fromU128(U128(0xbebfaebcaabf489duL, 0x9d2ce9e361102853uL))
 
-public val GreaterThan: FSRTL_COMPARISON_RESULT = 1
+public val GREATER_THAN: FsrtlComparisonResult = 1
 
 public val HEAP_CLASS_0: UInt = 0u
 
@@ -1033,7 +1033,7 @@ public val HEAP_TAIL_CHECKING_ENABLED: UInt = 32u
 
 public val HEAP_ZERO_MEMORY: UInt = 8u
 
-public val HeapMemoryBasicInformation: HEAP_MEMORY_INFO_CLASS = 0
+public val HEAP_MEMORY_BASIC_INFORMATION: HeapMemoryInfoClass = 0
 
 public val INVALID_PROCESSOR_INDEX: UInt = 4294967295u
 
@@ -1285,33 +1285,33 @@ public val IO_REPARSE_TAG_ZLTI_HSM: Int = 56
 
 public val IO_STOP_ON_SYMLINK: UInt = 8u
 
-public val KnownFolderDesktop: FILE_KNOWN_FOLDER_TYPE = 1
+public val KNOWN_FOLDER_DESKTOP: FileKnownFolderType = 1
 
-public val KnownFolderDocuments: FILE_KNOWN_FOLDER_TYPE = 2
+public val KNOWN_FOLDER_DOCUMENTS: FileKnownFolderType = 2
 
-public val KnownFolderDownloads: FILE_KNOWN_FOLDER_TYPE = 3
+public val KNOWN_FOLDER_DOWNLOADS: FileKnownFolderType = 3
 
-public val KnownFolderMax: FILE_KNOWN_FOLDER_TYPE = 7
+public val KNOWN_FOLDER_MAX: FileKnownFolderType = 7
 
-public val KnownFolderMusic: FILE_KNOWN_FOLDER_TYPE = 4
+public val KNOWN_FOLDER_MUSIC: FileKnownFolderType = 4
 
-public val KnownFolderNone: FILE_KNOWN_FOLDER_TYPE = 0
+public val KNOWN_FOLDER_NONE: FileKnownFolderType = 0
 
-public val KnownFolderOther: FILE_KNOWN_FOLDER_TYPE = 7
+public val KNOWN_FOLDER_OTHER: FileKnownFolderType = 7
 
-public val KnownFolderPictures: FILE_KNOWN_FOLDER_TYPE = 5
+public val KNOWN_FOLDER_PICTURES: FileKnownFolderType = 5
 
-public val KnownFolderVideos: FILE_KNOWN_FOLDER_TYPE = 6
+public val KNOWN_FOLDER_VIDEOS: FileKnownFolderType = 6
 
-public val LCN_CHECKSUM_VALID: _LCN_WEAK_REFERENCE_STATE = 2
+public val LCN_CHECKSUM_VALID: LcnWeakReferenceState = 2
 
-public val LCN_WEAK_REFERENCE_VALID: _LCN_WEAK_REFERENCE_STATE = 1
+public val LCN_WEAK_REFERENCE_VALID: LcnWeakReferenceState = 1
 
 public val LX_FILE_CASE_SENSITIVE_DIR: UInt = 16u
 
-public val LX_FILE_METADATA_DEVICE_ID_EA_NAME: PCSTR = s("\$LXDEV")
+public val LX_FILE_METADATA_DEVICE_ID_EA_NAME: Pcstr = s("\$LXDEV")
 
-public val LX_FILE_METADATA_GID_EA_NAME: PCSTR = s("\$LXGID")
+public val LX_FILE_METADATA_GID_EA_NAME: Pcstr = s("\$LXGID")
 
 public val LX_FILE_METADATA_HAS_DEVICE_ID: UInt = 8u
 
@@ -1321,11 +1321,11 @@ public val LX_FILE_METADATA_HAS_MODE: UInt = 4u
 
 public val LX_FILE_METADATA_HAS_UID: UInt = 1u
 
-public val LX_FILE_METADATA_MODE_EA_NAME: PCSTR = s("\$LXMOD")
+public val LX_FILE_METADATA_MODE_EA_NAME: Pcstr = s("\$LXMOD")
 
-public val LX_FILE_METADATA_UID_EA_NAME: PCSTR = s("\$LXUID")
+public val LX_FILE_METADATA_UID_EA_NAME: Pcstr = s("\$LXUID")
 
-public val LessThan: FSRTL_COMPARISON_RESULT = -1
+public val LESS_THAN: FsrtlComparisonResult = -1
 
 public val MAP_DISABLE_PAGEFAULT_CLUSTERING: UInt = 256u
 
@@ -1353,47 +1353,47 @@ public val MM_IS_FILE_SECTION_ACTIVE_IMAGE: UInt = 1u
 
 public val MM_IS_FILE_SECTION_ACTIVE_USER: UInt = 4u
 
-public val MemoryBasicInformation: MEMORY_INFORMATION_CLASS = 0
+public val MEMORY_BASIC_INFORMATION: MemoryInformationClass = 0
 
-public val MemoryType64KPage: RTL_MEMORY_TYPE = 2
+public val MEMORY_TYPE64K_PAGE: RtlMemoryType = 2
 
-public val MemoryTypeCustom: RTL_MEMORY_TYPE = 5
+public val MEMORY_TYPE_CUSTOM: RtlMemoryType = 5
 
-public val MemoryTypeHugePage: RTL_MEMORY_TYPE = 4
+public val MEMORY_TYPE_HUGE_PAGE: RtlMemoryType = 4
 
-public val MemoryTypeLargePage: RTL_MEMORY_TYPE = 3
+public val MEMORY_TYPE_LARGE_PAGE: RtlMemoryType = 3
 
-public val MemoryTypeMax: RTL_MEMORY_TYPE = 6
+public val MEMORY_TYPE_MAX: RtlMemoryType = 6
 
-public val MemoryTypeNonPaged: RTL_MEMORY_TYPE = 1
+public val MEMORY_TYPE_NON_PAGED: RtlMemoryType = 1
 
-public val MemoryTypePaged: RTL_MEMORY_TYPE = 0
+public val MEMORY_TYPE_PAGED: RtlMemoryType = 0
 
-public val MmFlushForDelete: MMFLUSH_TYPE = 0
+public val MM_FLUSH_FOR_DELETE: MmflushType = 0
 
-public val MmFlushForWrite: MMFLUSH_TYPE = 1
+public val MM_FLUSH_FOR_WRITE: MmflushType = 1
 
-public val MsvAvChannelBindings: MSV1_0_AVID = 10
+public val MSV_AV_CHANNEL_BINDINGS: Msv10Avid = 10
 
-public val MsvAvDnsComputerName: MSV1_0_AVID = 3
+public val MSV_AV_DNS_COMPUTER_NAME: Msv10Avid = 3
 
-public val MsvAvDnsDomainName: MSV1_0_AVID = 4
+public val MSV_AV_DNS_DOMAIN_NAME: Msv10Avid = 4
 
-public val MsvAvDnsTreeName: MSV1_0_AVID = 5
+public val MSV_AV_DNS_TREE_NAME: Msv10Avid = 5
 
-public val MsvAvEOL: MSV1_0_AVID = 0
+public val MSV_AV_EOL: Msv10Avid = 0
 
-public val MsvAvFlags: MSV1_0_AVID = 6
+public val MSV_AV_FLAGS: Msv10Avid = 6
 
-public val MsvAvNbComputerName: MSV1_0_AVID = 1
+public val MSV_AV_NB_COMPUTER_NAME: Msv10Avid = 1
 
-public val MsvAvNbDomainName: MSV1_0_AVID = 2
+public val MSV_AV_NB_DOMAIN_NAME: Msv10Avid = 2
 
-public val MsvAvRestrictions: MSV1_0_AVID = 8
+public val MSV_AV_RESTRICTIONS: Msv10Avid = 8
 
-public val MsvAvTargetName: MSV1_0_AVID = 9
+public val MSV_AV_TARGET_NAME: Msv10Avid = 9
 
-public val MsvAvTimestamp: MSV1_0_AVID = 7
+public val MSV_AV_TIMESTAMP: Msv10Avid = 7
 
 public val NETWORK_OPEN_ECP_IN_FLAG_DISABLE_HANDLE_COLLAPSING: UInt = 1u
 
@@ -1411,27 +1411,27 @@ public val NETWORK_OPEN_ECP_OUT_FLAG_RET_MUTUAL_AUTH: UInt = 8u
 
 public val NO_8DOT3_NAME_PRESENT: UInt = 1u
 
-public val NetworkOpenIntegrityAny: NETWORK_OPEN_INTEGRITY_QUALIFIER = 0
+public val NETWORK_OPEN_INTEGRITY_ANY: NetworkOpenIntegrityQualifier = 0
 
-public val NetworkOpenIntegrityEncrypted: NETWORK_OPEN_INTEGRITY_QUALIFIER = 3
+public val NETWORK_OPEN_INTEGRITY_ENCRYPTED: NetworkOpenIntegrityQualifier = 3
 
-public val NetworkOpenIntegrityMaximum: NETWORK_OPEN_INTEGRITY_QUALIFIER = 4
+public val NETWORK_OPEN_INTEGRITY_MAXIMUM: NetworkOpenIntegrityQualifier = 4
 
-public val NetworkOpenIntegrityNone: NETWORK_OPEN_INTEGRITY_QUALIFIER = 1
+public val NETWORK_OPEN_INTEGRITY_NONE: NetworkOpenIntegrityQualifier = 1
 
-public val NetworkOpenIntegritySigned: NETWORK_OPEN_INTEGRITY_QUALIFIER = 2
+public val NETWORK_OPEN_INTEGRITY_SIGNED: NetworkOpenIntegrityQualifier = 2
 
-public val NetworkOpenLocationAny: NETWORK_OPEN_LOCATION_QUALIFIER = 0
+public val NETWORK_OPEN_LOCATION_ANY: NetworkOpenLocationQualifier = 0
 
-public val NetworkOpenLocationLoopback: NETWORK_OPEN_LOCATION_QUALIFIER = 2
+public val NETWORK_OPEN_LOCATION_LOOPBACK: NetworkOpenLocationQualifier = 2
 
-public val NetworkOpenLocationRemote: NETWORK_OPEN_LOCATION_QUALIFIER = 1
+public val NETWORK_OPEN_LOCATION_REMOTE: NetworkOpenLocationQualifier = 1
 
-public val NotifyTypeCreate: FS_FILTER_STREAM_FO_NOTIFICATION_TYPE = 0
+public val NOTIFY_TYPE_CREATE: FsFilterStreamFoNotificationType = 0
 
-public val NotifyTypeRetired: FS_FILTER_STREAM_FO_NOTIFICATION_TYPE = 1
+public val NOTIFY_TYPE_RETIRED: FsFilterStreamFoNotificationType = 1
 
-public val NtfsLinkTrackingInformation: LINK_TRACKING_INFORMATION_TYPE = 0
+public val NTFS_LINK_TRACKING_INFORMATION: LinkTrackingInformationType = 0
 
 public val OPEN_REPARSE_POINT_OVERRIDE_CREATE_OPTION: UInt = 64u
 
@@ -1483,9 +1483,9 @@ public val OPLOCK_FLAG_REMOVING_FILE_OR_LINK: UInt = 64u
 
 public val OPLOCK_FSCTRL_FLAG_ALL_KEYS_MATCH: UInt = 1u
 
-public val OPLOCK_NOTIFY_BREAK_WAIT_INTERIM_TIMEOUT: OPLOCK_NOTIFY_REASON = 0
+public val OPLOCK_NOTIFY_BREAK_WAIT_INTERIM_TIMEOUT: OplockNotifyReason = 0
 
-public val OPLOCK_NOTIFY_BREAK_WAIT_TERMINATED: OPLOCK_NOTIFY_REASON = 1
+public val OPLOCK_NOTIFY_BREAK_WAIT_TERMINATED: OplockNotifyReason = 1
 
 public val OPLOCK_UPPER_FLAG_CHECK_NO_BREAK: UInt = 65536u
 
@@ -1529,61 +1529,61 @@ public val QUERY_DIRECT_ACCESS_DATA_EXTENTS: UInt = 2u
 
 public val QUERY_DIRECT_ACCESS_IMAGE_EXTENTS: UInt = 1u
 
-public val QoCFileEaInformation: UInt = 4u
+public val QO_C_FILE_EA_INFORMATION: UInt = 4u
 
-public val QoCFileLxInformation: UInt = 2u
+public val QO_C_FILE_LX_INFORMATION: UInt = 2u
 
-public val QoCFileStatInformation: UInt = 1u
+public val QO_C_FILE_STAT_INFORMATION: UInt = 1u
 
-public val REFS_COMPRESSION_FORMAT_LZ4: REFS_COMPRESSION_FORMATS = 1
+public val REFS_COMPRESSION_FORMAT_LZ4: RefsCompressionFormats = 1
 
-public val REFS_COMPRESSION_FORMAT_MAX: REFS_COMPRESSION_FORMATS = 3
+public val REFS_COMPRESSION_FORMAT_MAX: RefsCompressionFormats = 3
 
-public val REFS_COMPRESSION_FORMAT_UNCOMPRESSED: REFS_COMPRESSION_FORMATS = 0
+public val REFS_COMPRESSION_FORMAT_UNCOMPRESSED: RefsCompressionFormats = 0
 
-public val REFS_COMPRESSION_FORMAT_ZSTD: REFS_COMPRESSION_FORMATS = 2
+public val REFS_COMPRESSION_FORMAT_ZSTD: RefsCompressionFormats = 2
 
-public val REFS_DEALLOCATE_RANGES_ALLOCATOR_CAA: REFS_DEALLOCATE_RANGES_ALLOCATOR = 2
+public val REFS_DEALLOCATE_RANGES_ALLOCATOR_CAA: RefsDeallocateRangesAllocator = 2
 
-public val REFS_DEALLOCATE_RANGES_ALLOCATOR_MAA: REFS_DEALLOCATE_RANGES_ALLOCATOR = 3
+public val REFS_DEALLOCATE_RANGES_ALLOCATOR_MAA: RefsDeallocateRangesAllocator = 3
 
-public val REFS_DEALLOCATE_RANGES_ALLOCATOR_NONE: REFS_DEALLOCATE_RANGES_ALLOCATOR = 0
+public val REFS_DEALLOCATE_RANGES_ALLOCATOR_NONE: RefsDeallocateRangesAllocator = 0
 
-public val REFS_DEALLOCATE_RANGES_ALLOCATOR_SAA: REFS_DEALLOCATE_RANGES_ALLOCATOR = 1
+public val REFS_DEALLOCATE_RANGES_ALLOCATOR_SAA: RefsDeallocateRangesAllocator = 1
 
-public val REFS_SET_VOLUME_COMPRESSION_INFO_FLAG_COMPRESS_SYNC: REFS_SET_VOLUME_COMPRESSION_INFO_FLAGS = 1
+public val REFS_SET_VOLUME_COMPRESSION_INFO_FLAG_COMPRESS_SYNC: RefsSetVolumeCompressionInfoFlags = 1
 
-public val REFS_SET_VOLUME_COMPRESSION_INFO_FLAG_MAX: REFS_SET_VOLUME_COMPRESSION_INFO_FLAGS = 1
+public val REFS_SET_VOLUME_COMPRESSION_INFO_FLAG_MAX: RefsSetVolumeCompressionInfoFlags = 1
 
-public val REFS_STREAM_EXTENT_PROPERTY_CRC32: _REFS_STREAM_EXTENT_PROPERTIES = 128
+public val REFS_STREAM_EXTENT_PROPERTY_CRC32: RefsStreamExtentProperties = 128
 
-public val REFS_STREAM_EXTENT_PROPERTY_CRC64: _REFS_STREAM_EXTENT_PROPERTIES = 256
+public val REFS_STREAM_EXTENT_PROPERTY_CRC64: RefsStreamExtentProperties = 256
 
-public val REFS_STREAM_EXTENT_PROPERTY_GHOSTED: _REFS_STREAM_EXTENT_PROPERTIES = 512
+public val REFS_STREAM_EXTENT_PROPERTY_GHOSTED: RefsStreamExtentProperties = 512
 
-public val REFS_STREAM_EXTENT_PROPERTY_READONLY: _REFS_STREAM_EXTENT_PROPERTIES = 1024
+public val REFS_STREAM_EXTENT_PROPERTY_READONLY: RefsStreamExtentProperties = 1024
 
-public val REFS_STREAM_EXTENT_PROPERTY_SPARSE: _REFS_STREAM_EXTENT_PROPERTIES = 8
+public val REFS_STREAM_EXTENT_PROPERTY_SPARSE: RefsStreamExtentProperties = 8
 
-public val REFS_STREAM_EXTENT_PROPERTY_STREAM_RESERVED: _REFS_STREAM_EXTENT_PROPERTIES = 32
+public val REFS_STREAM_EXTENT_PROPERTY_STREAM_RESERVED: RefsStreamExtentProperties = 32
 
-public val REFS_STREAM_EXTENT_PROPERTY_VALID: _REFS_STREAM_EXTENT_PROPERTIES = 16
+public val REFS_STREAM_EXTENT_PROPERTY_VALID: RefsStreamExtentProperties = 16
 
-public val REFS_STREAM_SNAPSHOT_OPERATION_CLEAR_SHADOW_BTREE: REFS_STREAM_SNAPSHOT_OPERATION = 6
+public val REFS_STREAM_SNAPSHOT_OPERATION_CLEAR_SHADOW_BTREE: RefsStreamSnapshotOperation = 6
 
-public val REFS_STREAM_SNAPSHOT_OPERATION_CREATE: REFS_STREAM_SNAPSHOT_OPERATION = 1
+public val REFS_STREAM_SNAPSHOT_OPERATION_CREATE: RefsStreamSnapshotOperation = 1
 
-public val REFS_STREAM_SNAPSHOT_OPERATION_INVALID: REFS_STREAM_SNAPSHOT_OPERATION = 0
+public val REFS_STREAM_SNAPSHOT_OPERATION_INVALID: RefsStreamSnapshotOperation = 0
 
-public val REFS_STREAM_SNAPSHOT_OPERATION_LIST: REFS_STREAM_SNAPSHOT_OPERATION = 2
+public val REFS_STREAM_SNAPSHOT_OPERATION_LIST: RefsStreamSnapshotOperation = 2
 
-public val REFS_STREAM_SNAPSHOT_OPERATION_MAX: REFS_STREAM_SNAPSHOT_OPERATION = 6
+public val REFS_STREAM_SNAPSHOT_OPERATION_MAX: RefsStreamSnapshotOperation = 6
 
-public val REFS_STREAM_SNAPSHOT_OPERATION_QUERY_DELTAS: REFS_STREAM_SNAPSHOT_OPERATION = 3
+public val REFS_STREAM_SNAPSHOT_OPERATION_QUERY_DELTAS: RefsStreamSnapshotOperation = 3
 
-public val REFS_STREAM_SNAPSHOT_OPERATION_REVERT: REFS_STREAM_SNAPSHOT_OPERATION = 4
+public val REFS_STREAM_SNAPSHOT_OPERATION_REVERT: RefsStreamSnapshotOperation = 4
 
-public val REFS_STREAM_SNAPSHOT_OPERATION_SET_SHADOW_BTREE: REFS_STREAM_SNAPSHOT_OPERATION = 5
+public val REFS_STREAM_SNAPSHOT_OPERATION_SET_SHADOW_BTREE: RefsStreamSnapshotOperation = 5
 
 public val REMOTE_PROTOCOL_FLAG_INTEGRITY: UInt = 16u
 
@@ -1653,7 +1653,7 @@ public val RTL_DUPLICATE_UNICODE_STRING_NULL_TERMINATE: UInt = 1u
 
 public val RTL_HEAP_MEMORY_LIMIT_CURRENT_VERSION: UInt = 1u
 
-public val RTL_SYSTEM_VOLUME_INFORMATION_FOLDER: PCWSTR = w("System Volume Information")
+public val RTL_SYSTEM_VOLUME_INFORMATION_FOLDER: Pcwstr = w("System Volume Information")
 
 public val SECURITY_ANONYMOUS_LOGON_RID: Int = 7
 
@@ -1695,35 +1695,35 @@ public val SYMLINK_RESERVED_MASK: UInt = 4026531840u
 
 public val SYSTEM_PAGE_PRIORITY_BITS: UInt = 3u
 
-public val SharedVirtualDiskCDPSnapshotsSupported: SharedVirtualDiskSupportType = 7
+public val SHARED_VIRTUAL_DISK_CDP_SNAPSHOTS_SUPPORTED: SharedVirtualDiskSupportType = 7
 
-public val SharedVirtualDiskHandleStateFileShared: SharedVirtualDiskHandleState = 1
+public val SHARED_VIRTUAL_DISK_HANDLE_STATE_FILE_SHARED: SharedVirtualDiskHandleState = 1
 
-public val SharedVirtualDiskHandleStateHandleShared: SharedVirtualDiskHandleState = 3
+public val SHARED_VIRTUAL_DISK_HANDLE_STATE_HANDLE_SHARED: SharedVirtualDiskHandleState = 3
 
-public val SharedVirtualDiskHandleStateNone: SharedVirtualDiskHandleState = 0
+public val SHARED_VIRTUAL_DISK_HANDLE_STATE_NONE: SharedVirtualDiskHandleState = 0
 
-public val SharedVirtualDiskSnapshotsSupported: SharedVirtualDiskSupportType = 3
+public val SHARED_VIRTUAL_DISK_SNAPSHOTS_SUPPORTED: SharedVirtualDiskSupportType = 3
 
-public val SharedVirtualDisksSupported: SharedVirtualDiskSupportType = 1
+public val SHARED_VIRTUAL_DISKS_SUPPORTED: SharedVirtualDiskSupportType = 1
 
-public val SharedVirtualDisksUnsupported: SharedVirtualDiskSupportType = 0
+public val SHARED_VIRTUAL_DISKS_UNSUPPORTED: SharedVirtualDiskSupportType = 0
 
-public val SrvInstanceTypeCsv: SRV_INSTANCE_TYPE = 2
+public val SRV_INSTANCE_TYPE_CSV: SrvInstanceType = 2
 
-public val SrvInstanceTypePrimary: SRV_INSTANCE_TYPE = 1
+public val SRV_INSTANCE_TYPE_PRIMARY: SrvInstanceType = 1
 
-public val SrvInstanceTypeSBL: SRV_INSTANCE_TYPE = 3
+public val SRV_INSTANCE_TYPE_SBL: SrvInstanceType = 3
 
-public val SrvInstanceTypeSR: SRV_INSTANCE_TYPE = 4
+public val SRV_INSTANCE_TYPE_SR: SrvInstanceType = 4
 
-public val SrvInstanceTypeUndefined: SRV_INSTANCE_TYPE = 0
+public val SRV_INSTANCE_TYPE_UNDEFINED: SrvInstanceType = 0
 
-public val SrvInstanceTypeVSMB: SRV_INSTANCE_TYPE = 5
+public val SRV_INSTANCE_TYPE_VSMB: SrvInstanceType = 5
 
-public val SyncTypeCreateSection: FS_FILTER_SECTION_SYNC_TYPE = 1
+public val SYNC_TYPE_CREATE_SECTION: FsFilterSectionSyncType = 1
 
-public val SyncTypeOther: FS_FILTER_SECTION_SYNC_TYPE = 0
+public val SYNC_TYPE_OTHER: FsFilterSectionSyncType = 0
 
 public val TOKEN_AUDIT_NO_CHILD_PROCESS: UInt = 2097152u
 
@@ -1787,7 +1787,7 @@ public val VALID_INHERIT_FLAGS: UInt = 31u
 
 public val VOLSNAPCONTROLTYPE: UInt = 83u
 
-public val VmPrefetchInformation: VIRTUAL_MEMORY_INFORMATION_CLASS = 0
+public val VM_PREFETCH_INFORMATION: VirtualMemoryInformationClass = 0
 
 public val WCIFS_REDIRECTION_FLAGS_CREATE_SERVICED_FROM_LAYER: UInt = 1u
 

@@ -2,5 +2,7 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.mapi
 
-public actual fun MAPIFreeBuffer(pv: Long): UInt =
-    0u
+import io.github.kotlinmania.windowssys.COpaquePointer
+
+public actual fun mAPIFreeBuffer(pv: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

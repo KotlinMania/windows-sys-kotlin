@@ -2,7 +2,8 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.setupandmigration
 
-import io.github.kotlinmania.windowssys.core.BOOL
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
 
 private object WindowsWin32SystemSetupandmigrationJniBridge {
     init {
@@ -10,20 +11,20 @@ private object WindowsWin32SystemSetupandmigrationJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_setupandmigration_OOBEComplete(isoobecomplete: Long): Int
+    external fun windowssys_windows_win32_system_setupandmigration_oOBEComplete(isoobecomplete: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_setupandmigration_RegisterWaitUntilOOBECompleted(oobecompletedcallback: Long, callbackcontext: Long, waithandle: Long): Int
+    external fun windowssys_windows_win32_system_setupandmigration_registerWaitUntilOOBECompleted(oobecompletedcallback: Long, callbackcontext: Long, waithandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_setupandmigration_UnregisterWaitUntilOOBECompleted(waithandle: Long): Int
+    external fun windowssys_windows_win32_system_setupandmigration_unregisterWaitUntilOOBECompleted(waithandle: Long): Int
 }
 
-public actual fun OOBEComplete(isoobecomplete: Long): BOOL =
-    WindowsWin32SystemSetupandmigrationJniBridge.windowssys_windows_win32_system_setupandmigration_OOBEComplete(isoobecomplete)
+public actual fun oOBEComplete(isoobecomplete: COpaquePointer?): Bool =
+    WindowsWin32SystemSetupandmigrationJniBridge.windowssys_windows_win32_system_setupandmigration_oOBEComplete((isoobecomplete?.value ?: 0L))
 
-public actual fun RegisterWaitUntilOOBECompleted(oobecompletedcallback: OOBE_COMPLETED_CALLBACK, callbackcontext: Long, waithandle: Long): BOOL =
-    WindowsWin32SystemSetupandmigrationJniBridge.windowssys_windows_win32_system_setupandmigration_RegisterWaitUntilOOBECompleted(oobecompletedcallback.toLong(), callbackcontext, waithandle)
+public actual fun registerWaitUntilOOBECompleted(oobecompletedcallback: OobeCompletedCallback, callbackcontext: COpaquePointer?, waithandle: COpaquePointer?): Bool =
+    WindowsWin32SystemSetupandmigrationJniBridge.windowssys_windows_win32_system_setupandmigration_registerWaitUntilOOBECompleted(0L, (callbackcontext?.value ?: 0L), (waithandle?.value ?: 0L))
 
-public actual fun UnregisterWaitUntilOOBECompleted(waithandle: Long): BOOL =
-    WindowsWin32SystemSetupandmigrationJniBridge.windowssys_windows_win32_system_setupandmigration_UnregisterWaitUntilOOBECompleted(waithandle)
+public actual fun unregisterWaitUntilOOBECompleted(waithandle: COpaquePointer?): Bool =
+    WindowsWin32SystemSetupandmigrationJniBridge.windowssys_windows_win32_system_setupandmigration_unregisterWaitUntilOOBECompleted((waithandle?.value ?: 0L))

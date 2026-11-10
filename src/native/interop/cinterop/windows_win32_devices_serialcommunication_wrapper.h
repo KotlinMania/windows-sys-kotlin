@@ -9,13 +9,13 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_win32_devices_serialcommunication_ComDBClaimNextFreePort(void* hcomdb, void* comnumber);
-int32_t windowssys_windows_win32_devices_serialcommunication_ComDBClaimPort(void* hcomdb, uint32_t comnumber, int32_t forceclaim, void* forced);
-int32_t windowssys_windows_win32_devices_serialcommunication_ComDBClose(void* hcomdb);
-int32_t windowssys_windows_win32_devices_serialcommunication_ComDBGetCurrentPortUsage(void* hcomdb, void* buffer, uint32_t buffersize, uint32_t reporttype, void* maxportsreported);
-int32_t windowssys_windows_win32_devices_serialcommunication_ComDBOpen(void* phcomdb);
-int32_t windowssys_windows_win32_devices_serialcommunication_ComDBReleasePort(void* hcomdb, uint32_t comnumber);
-int32_t windowssys_windows_win32_devices_serialcommunication_ComDBResizeDatabase(void* hcomdb, uint32_t newsize);
+int32_t windowssys_windows_win32_devices_serialcommunication_comDBClaimNextFreePort(void* hcomdb, void* comnumber);
+int32_t windowssys_windows_win32_devices_serialcommunication_comDBClaimPort(void* hcomdb, uint32_t comnumber, int32_t forceclaim, void* forced);
+int32_t windowssys_windows_win32_devices_serialcommunication_comDBClose(void* hcomdb);
+int32_t windowssys_windows_win32_devices_serialcommunication_comDBGetCurrentPortUsage(void* hcomdb, void* buffer, uint32_t buffersize, uint32_t reporttype, void* maxportsreported);
+int32_t windowssys_windows_win32_devices_serialcommunication_comDBOpen(void* phcomdb);
+int32_t windowssys_windows_win32_devices_serialcommunication_comDBReleasePort(void* hcomdb, uint32_t comnumber);
+int32_t windowssys_windows_win32_devices_serialcommunication_comDBResizeDatabase(void* hcomdb, uint32_t newsize);
 
 #ifdef __cplusplus
 }

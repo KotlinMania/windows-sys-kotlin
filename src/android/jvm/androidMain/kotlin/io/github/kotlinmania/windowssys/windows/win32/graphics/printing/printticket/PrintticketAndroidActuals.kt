@@ -2,8 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.graphics.printing.printticket
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
 
 private object WindowsWin32GraphicsPrintingPrintticketJniBridge {
     init {
@@ -11,68 +12,68 @@ private object WindowsWin32GraphicsPrintingPrintticketJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_printticket_PTCloseProvider(hprovider: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_printticket_pTCloseProvider(hprovider: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_printticket_PTConvertDevModeToPrintTicket(hprovider: Long, cbdevmode: Int, pdevmode: Long, scope: Int, pprintticket: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_printticket_pTConvertDevModeToPrintTicket(hprovider: Long, cbdevmode: Int, pdevmode: Long, scope: Int, pprintticket: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_printticket_PTConvertPrintTicketToDevMode(hprovider: Long, pprintticket: Long, basedevmodetype: Int, scope: Int, pcbdevmode: Long, ppdevmode: Long, pbstrerrormessage: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_printticket_pTConvertPrintTicketToDevMode(hprovider: Long, pprintticket: Long, basedevmodetype: Int, scope: Int, pcbdevmode: Long, ppdevmode: Long, pbstrerrormessage: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_printticket_PTGetPrintCapabilities(hprovider: Long, pprintticket: Long, pcapabilities: Long, pbstrerrormessage: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_printticket_pTGetPrintCapabilities(hprovider: Long, pprintticket: Long, pcapabilities: Long, pbstrerrormessage: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_printticket_PTGetPrintDeviceCapabilities(hprovider: Long, pprintticket: Long, pdevicecapabilities: Long, pbstrerrormessage: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_printticket_pTGetPrintDeviceCapabilities(hprovider: Long, pprintticket: Long, pdevicecapabilities: Long, pbstrerrormessage: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_printticket_PTGetPrintDeviceResources(hprovider: Long, pszlocalename: Long, pprintticket: Long, pdeviceresources: Long, pbstrerrormessage: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_printticket_pTGetPrintDeviceResources(hprovider: Long, pszlocalename: Long, pprintticket: Long, pdeviceresources: Long, pbstrerrormessage: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_printticket_PTMergeAndValidatePrintTicket(hprovider: Long, pbaseticket: Long, pdeltaticket: Long, scope: Int, presultticket: Long, pbstrerrormessage: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_printticket_pTMergeAndValidatePrintTicket(hprovider: Long, pbaseticket: Long, pdeltaticket: Long, scope: Int, presultticket: Long, pbstrerrormessage: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_printticket_PTOpenProvider(pszprintername: Long, dwversion: Int, phprovider: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_printticket_pTOpenProvider(pszprintername: Long, dwversion: Int, phprovider: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_printticket_PTOpenProviderEx(pszprintername: Long, dwmaxversion: Int, dwprefversion: Int, phprovider: Long, pusedversion: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_printticket_pTOpenProviderEx(pszprintername: Long, dwmaxversion: Int, dwprefversion: Int, phprovider: Long, pusedversion: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_printticket_PTQuerySchemaVersionSupport(pszprintername: Long, pmaxversion: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_printticket_pTQuerySchemaVersionSupport(pszprintername: Long, pmaxversion: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_graphics_printing_printticket_PTReleaseMemory(pbuffer: Long): Int
+    external fun windowssys_windows_win32_graphics_printing_printticket_pTReleaseMemory(pbuffer: Long): Int
 }
 
-public actual fun PTCloseProvider(hprovider: HPTPROVIDER): HRESULT =
-    WindowsWin32GraphicsPrintingPrintticketJniBridge.windowssys_windows_win32_graphics_printing_printticket_PTCloseProvider(hprovider)
+public actual fun pTCloseProvider(hprovider: Hptprovider): Hresult =
+    WindowsWin32GraphicsPrintingPrintticketJniBridge.windowssys_windows_win32_graphics_printing_printticket_pTCloseProvider((hprovider?.value ?: 0L))
 
-public actual fun PTConvertDevModeToPrintTicket(hprovider: HPTPROVIDER, cbdevmode: UInt, pdevmode: Long, scope: EPrintTicketScope, pprintticket: Long): HRESULT =
-    WindowsWin32GraphicsPrintingPrintticketJniBridge.windowssys_windows_win32_graphics_printing_printticket_PTConvertDevModeToPrintTicket(hprovider, cbdevmode.toInt(), pdevmode, scope, pprintticket)
+public actual fun pTConvertDevModeToPrintTicket(hprovider: Hptprovider, cbdevmode: UInt, pdevmode: COpaquePointer?, scope: EPrintTicketScope, pprintticket: COpaquePointer?): Hresult =
+    WindowsWin32GraphicsPrintingPrintticketJniBridge.windowssys_windows_win32_graphics_printing_printticket_pTConvertDevModeToPrintTicket((hprovider?.value ?: 0L), cbdevmode.toInt(), (pdevmode?.value ?: 0L), scope, (pprintticket?.value ?: 0L))
 
-public actual fun PTConvertPrintTicketToDevMode(hprovider: HPTPROVIDER, pprintticket: Long, basedevmodetype: EDefaultDevmodeType, scope: EPrintTicketScope, pcbdevmode: Long, ppdevmode: Long, pbstrerrormessage: Long): HRESULT =
-    WindowsWin32GraphicsPrintingPrintticketJniBridge.windowssys_windows_win32_graphics_printing_printticket_PTConvertPrintTicketToDevMode(hprovider, pprintticket, basedevmodetype, scope, pcbdevmode, ppdevmode, pbstrerrormessage)
+public actual fun pTConvertPrintTicketToDevMode(hprovider: Hptprovider, pprintticket: COpaquePointer?, basedevmodetype: EDefaultDevmodeType, scope: EPrintTicketScope, pcbdevmode: COpaquePointer?, ppdevmode: COpaquePointer?, pbstrerrormessage: COpaquePointer?): Hresult =
+    WindowsWin32GraphicsPrintingPrintticketJniBridge.windowssys_windows_win32_graphics_printing_printticket_pTConvertPrintTicketToDevMode((hprovider?.value ?: 0L), (pprintticket?.value ?: 0L), basedevmodetype, scope, (pcbdevmode?.value ?: 0L), (ppdevmode?.value ?: 0L), (pbstrerrormessage?.value ?: 0L))
 
-public actual fun PTGetPrintCapabilities(hprovider: HPTPROVIDER, pprintticket: Long, pcapabilities: Long, pbstrerrormessage: Long): HRESULT =
-    WindowsWin32GraphicsPrintingPrintticketJniBridge.windowssys_windows_win32_graphics_printing_printticket_PTGetPrintCapabilities(hprovider, pprintticket, pcapabilities, pbstrerrormessage)
+public actual fun pTGetPrintCapabilities(hprovider: Hptprovider, pprintticket: COpaquePointer?, pcapabilities: COpaquePointer?, pbstrerrormessage: COpaquePointer?): Hresult =
+    WindowsWin32GraphicsPrintingPrintticketJniBridge.windowssys_windows_win32_graphics_printing_printticket_pTGetPrintCapabilities((hprovider?.value ?: 0L), (pprintticket?.value ?: 0L), (pcapabilities?.value ?: 0L), (pbstrerrormessage?.value ?: 0L))
 
-public actual fun PTGetPrintDeviceCapabilities(hprovider: HPTPROVIDER, pprintticket: Long, pdevicecapabilities: Long, pbstrerrormessage: Long): HRESULT =
-    WindowsWin32GraphicsPrintingPrintticketJniBridge.windowssys_windows_win32_graphics_printing_printticket_PTGetPrintDeviceCapabilities(hprovider, pprintticket, pdevicecapabilities, pbstrerrormessage)
+public actual fun pTGetPrintDeviceCapabilities(hprovider: Hptprovider, pprintticket: COpaquePointer?, pdevicecapabilities: COpaquePointer?, pbstrerrormessage: COpaquePointer?): Hresult =
+    WindowsWin32GraphicsPrintingPrintticketJniBridge.windowssys_windows_win32_graphics_printing_printticket_pTGetPrintDeviceCapabilities((hprovider?.value ?: 0L), (pprintticket?.value ?: 0L), (pdevicecapabilities?.value ?: 0L), (pbstrerrormessage?.value ?: 0L))
 
-public actual fun PTGetPrintDeviceResources(hprovider: HPTPROVIDER, pszlocalename: PCWSTR, pprintticket: Long, pdeviceresources: Long, pbstrerrormessage: Long): HRESULT =
-    WindowsWin32GraphicsPrintingPrintticketJniBridge.windowssys_windows_win32_graphics_printing_printticket_PTGetPrintDeviceResources(hprovider, pszlocalename, pprintticket, pdeviceresources, pbstrerrormessage)
+public actual fun pTGetPrintDeviceResources(hprovider: Hptprovider, pszlocalename: Pcwstr, pprintticket: COpaquePointer?, pdeviceresources: COpaquePointer?, pbstrerrormessage: COpaquePointer?): Hresult =
+    WindowsWin32GraphicsPrintingPrintticketJniBridge.windowssys_windows_win32_graphics_printing_printticket_pTGetPrintDeviceResources((hprovider?.value ?: 0L), (pszlocalename?.value ?: 0L), (pprintticket?.value ?: 0L), (pdeviceresources?.value ?: 0L), (pbstrerrormessage?.value ?: 0L))
 
-public actual fun PTMergeAndValidatePrintTicket(hprovider: HPTPROVIDER, pbaseticket: Long, pdeltaticket: Long, scope: EPrintTicketScope, presultticket: Long, pbstrerrormessage: Long): HRESULT =
-    WindowsWin32GraphicsPrintingPrintticketJniBridge.windowssys_windows_win32_graphics_printing_printticket_PTMergeAndValidatePrintTicket(hprovider, pbaseticket, pdeltaticket, scope, presultticket, pbstrerrormessage)
+public actual fun pTMergeAndValidatePrintTicket(hprovider: Hptprovider, pbaseticket: COpaquePointer?, pdeltaticket: COpaquePointer?, scope: EPrintTicketScope, presultticket: COpaquePointer?, pbstrerrormessage: COpaquePointer?): Hresult =
+    WindowsWin32GraphicsPrintingPrintticketJniBridge.windowssys_windows_win32_graphics_printing_printticket_pTMergeAndValidatePrintTicket((hprovider?.value ?: 0L), (pbaseticket?.value ?: 0L), (pdeltaticket?.value ?: 0L), scope, (presultticket?.value ?: 0L), (pbstrerrormessage?.value ?: 0L))
 
-public actual fun PTOpenProvider(pszprintername: PCWSTR, dwversion: UInt, phprovider: Long): HRESULT =
-    WindowsWin32GraphicsPrintingPrintticketJniBridge.windowssys_windows_win32_graphics_printing_printticket_PTOpenProvider(pszprintername, dwversion.toInt(), phprovider)
+public actual fun pTOpenProvider(pszprintername: Pcwstr, dwversion: UInt, phprovider: COpaquePointer?): Hresult =
+    WindowsWin32GraphicsPrintingPrintticketJniBridge.windowssys_windows_win32_graphics_printing_printticket_pTOpenProvider((pszprintername?.value ?: 0L), dwversion.toInt(), (phprovider?.value ?: 0L))
 
-public actual fun PTOpenProviderEx(pszprintername: PCWSTR, dwmaxversion: UInt, dwprefversion: UInt, phprovider: Long, pusedversion: Long): HRESULT =
-    WindowsWin32GraphicsPrintingPrintticketJniBridge.windowssys_windows_win32_graphics_printing_printticket_PTOpenProviderEx(pszprintername, dwmaxversion.toInt(), dwprefversion.toInt(), phprovider, pusedversion)
+public actual fun pTOpenProviderEx(pszprintername: Pcwstr, dwmaxversion: UInt, dwprefversion: UInt, phprovider: COpaquePointer?, pusedversion: COpaquePointer?): Hresult =
+    WindowsWin32GraphicsPrintingPrintticketJniBridge.windowssys_windows_win32_graphics_printing_printticket_pTOpenProviderEx((pszprintername?.value ?: 0L), dwmaxversion.toInt(), dwprefversion.toInt(), (phprovider?.value ?: 0L), (pusedversion?.value ?: 0L))
 
-public actual fun PTQuerySchemaVersionSupport(pszprintername: PCWSTR, pmaxversion: Long): HRESULT =
-    WindowsWin32GraphicsPrintingPrintticketJniBridge.windowssys_windows_win32_graphics_printing_printticket_PTQuerySchemaVersionSupport(pszprintername, pmaxversion)
+public actual fun pTQuerySchemaVersionSupport(pszprintername: Pcwstr, pmaxversion: COpaquePointer?): Hresult =
+    WindowsWin32GraphicsPrintingPrintticketJniBridge.windowssys_windows_win32_graphics_printing_printticket_pTQuerySchemaVersionSupport((pszprintername?.value ?: 0L), (pmaxversion?.value ?: 0L))
 
-public actual fun PTReleaseMemory(pbuffer: Long): HRESULT =
-    WindowsWin32GraphicsPrintingPrintticketJniBridge.windowssys_windows_win32_graphics_printing_printticket_PTReleaseMemory(pbuffer)
+public actual fun pTReleaseMemory(pbuffer: COpaquePointer?): Hresult =
+    WindowsWin32GraphicsPrintingPrintticketJniBridge.windowssys_windows_win32_graphics_printing_printticket_pTReleaseMemory((pbuffer?.value ?: 0L))

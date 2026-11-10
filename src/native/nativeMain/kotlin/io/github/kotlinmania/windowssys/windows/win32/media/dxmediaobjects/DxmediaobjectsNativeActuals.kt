@@ -2,41 +2,42 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.media.dxmediaobjects
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun DMOEnum(guidcategory: Long, dwflags: UInt, cintypes: UInt, pintypes: Long, couttypes: UInt, pouttypes: Long, ppenum: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.media.dxmediaobjects.cinterop.windowssys_windows_win32_media_dxmediaobjects_DMOEnum(guidcategory.toCPointer<ByteVar>(), dwflags, cintypes, pintypes.toCPointer<ByteVar>(), couttypes, pouttypes.toCPointer<ByteVar>(), ppenum.toCPointer<ByteVar>())
+public actual fun dMOEnum(guidcategory: COpaquePointer?, dwflags: UInt, cintypes: UInt, pintypes: COpaquePointer?, couttypes: UInt, pouttypes: COpaquePointer?, ppenum: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.media.dxmediaobjects.cinterop.windowssys_windows_win32_media_dxmediaobjects_dMOEnum(guidcategory?.value?.toCPointer<ByteVar>(), dwflags, cintypes, pintypes?.value?.toCPointer<ByteVar>(), couttypes, pouttypes?.value?.toCPointer<ByteVar>(), ppenum?.value?.toCPointer<ByteVar>())
 
-public actual fun DMOGetName(clsiddmo: Long, szname: PWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.media.dxmediaobjects.cinterop.windowssys_windows_win32_media_dxmediaobjects_DMOGetName(clsiddmo.toCPointer<ByteVar>(), szname.toCPointer<ByteVar>())
+public actual fun dMOGetName(clsiddmo: COpaquePointer?, szname: Pwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.media.dxmediaobjects.cinterop.windowssys_windows_win32_media_dxmediaobjects_dMOGetName(clsiddmo?.value?.toCPointer<ByteVar>(), szname?.value?.toCPointer<ByteVar>())
 
-public actual fun DMOGetTypes(clsiddmo: Long, ulinputtypesrequested: UInt, pulinputtypessupplied: Long, pinputtypes: Long, uloutputtypesrequested: UInt, puloutputtypessupplied: Long, poutputtypes: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.media.dxmediaobjects.cinterop.windowssys_windows_win32_media_dxmediaobjects_DMOGetTypes(clsiddmo.toCPointer<ByteVar>(), ulinputtypesrequested, pulinputtypessupplied.toCPointer<ByteVar>(), pinputtypes.toCPointer<ByteVar>(), uloutputtypesrequested, puloutputtypessupplied.toCPointer<ByteVar>(), poutputtypes.toCPointer<ByteVar>())
+public actual fun dMOGetTypes(clsiddmo: COpaquePointer?, ulinputtypesrequested: UInt, pulinputtypessupplied: COpaquePointer?, pinputtypes: COpaquePointer?, uloutputtypesrequested: UInt, puloutputtypessupplied: COpaquePointer?, poutputtypes: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.media.dxmediaobjects.cinterop.windowssys_windows_win32_media_dxmediaobjects_dMOGetTypes(clsiddmo?.value?.toCPointer<ByteVar>(), ulinputtypesrequested, pulinputtypessupplied?.value?.toCPointer<ByteVar>(), pinputtypes?.value?.toCPointer<ByteVar>(), uloutputtypesrequested, puloutputtypessupplied?.value?.toCPointer<ByteVar>(), poutputtypes?.value?.toCPointer<ByteVar>())
 
-public actual fun DMORegister(szname: PCWSTR, clsiddmo: Long, guidcategory: Long, dwflags: UInt, cintypes: UInt, pintypes: Long, couttypes: UInt, pouttypes: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.media.dxmediaobjects.cinterop.windowssys_windows_win32_media_dxmediaobjects_DMORegister(szname.toCPointer<ByteVar>(), clsiddmo.toCPointer<ByteVar>(), guidcategory.toCPointer<ByteVar>(), dwflags, cintypes, pintypes.toCPointer<ByteVar>(), couttypes, pouttypes.toCPointer<ByteVar>())
+public actual fun dMORegister(szname: Pcwstr, clsiddmo: COpaquePointer?, guidcategory: COpaquePointer?, dwflags: UInt, cintypes: UInt, pintypes: COpaquePointer?, couttypes: UInt, pouttypes: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.media.dxmediaobjects.cinterop.windowssys_windows_win32_media_dxmediaobjects_dMORegister(szname?.value?.toCPointer<ByteVar>(), clsiddmo?.value?.toCPointer<ByteVar>(), guidcategory?.value?.toCPointer<ByteVar>(), dwflags, cintypes, pintypes?.value?.toCPointer<ByteVar>(), couttypes, pouttypes?.value?.toCPointer<ByteVar>())
 
-public actual fun DMOUnregister(clsiddmo: Long, guidcategory: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.media.dxmediaobjects.cinterop.windowssys_windows_win32_media_dxmediaobjects_DMOUnregister(clsiddmo.toCPointer<ByteVar>(), guidcategory.toCPointer<ByteVar>())
+public actual fun dMOUnregister(clsiddmo: COpaquePointer?, guidcategory: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.media.dxmediaobjects.cinterop.windowssys_windows_win32_media_dxmediaobjects_dMOUnregister(clsiddmo?.value?.toCPointer<ByteVar>(), guidcategory?.value?.toCPointer<ByteVar>())
 
-public actual fun MoCopyMediaType(pmtdest: Long, pmtsrc: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.media.dxmediaobjects.cinterop.windowssys_windows_win32_media_dxmediaobjects_MoCopyMediaType(pmtdest.toCPointer<ByteVar>(), pmtsrc.toCPointer<ByteVar>())
+public actual fun moCopyMediaType(pmtdest: COpaquePointer?, pmtsrc: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.media.dxmediaobjects.cinterop.windowssys_windows_win32_media_dxmediaobjects_moCopyMediaType(pmtdest?.value?.toCPointer<ByteVar>(), pmtsrc?.value?.toCPointer<ByteVar>())
 
-public actual fun MoCreateMediaType(ppmt: Long, cbformat: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.media.dxmediaobjects.cinterop.windowssys_windows_win32_media_dxmediaobjects_MoCreateMediaType(ppmt.toCPointer<ByteVar>(), cbformat)
+public actual fun moCreateMediaType(ppmt: COpaquePointer?, cbformat: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.media.dxmediaobjects.cinterop.windowssys_windows_win32_media_dxmediaobjects_moCreateMediaType(ppmt?.value?.toCPointer<ByteVar>(), cbformat)
 
-public actual fun MoDeleteMediaType(pmt: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.media.dxmediaobjects.cinterop.windowssys_windows_win32_media_dxmediaobjects_MoDeleteMediaType(pmt.toCPointer<ByteVar>())
+public actual fun moDeleteMediaType(pmt: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.media.dxmediaobjects.cinterop.windowssys_windows_win32_media_dxmediaobjects_moDeleteMediaType(pmt?.value?.toCPointer<ByteVar>())
 
-public actual fun MoDuplicateMediaType(ppmtdest: Long, pmtsrc: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.media.dxmediaobjects.cinterop.windowssys_windows_win32_media_dxmediaobjects_MoDuplicateMediaType(ppmtdest.toCPointer<ByteVar>(), pmtsrc.toCPointer<ByteVar>())
+public actual fun moDuplicateMediaType(ppmtdest: COpaquePointer?, pmtsrc: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.media.dxmediaobjects.cinterop.windowssys_windows_win32_media_dxmediaobjects_moDuplicateMediaType(ppmtdest?.value?.toCPointer<ByteVar>(), pmtsrc?.value?.toCPointer<ByteVar>())
 
-public actual fun MoFreeMediaType(pmt: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.media.dxmediaobjects.cinterop.windowssys_windows_win32_media_dxmediaobjects_MoFreeMediaType(pmt.toCPointer<ByteVar>())
+public actual fun moFreeMediaType(pmt: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.media.dxmediaobjects.cinterop.windowssys_windows_win32_media_dxmediaobjects_moFreeMediaType(pmt?.value?.toCPointer<ByteVar>())
 
-public actual fun MoInitMediaType(pmt: Long, cbformat: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.media.dxmediaobjects.cinterop.windowssys_windows_win32_media_dxmediaobjects_MoInitMediaType(pmt.toCPointer<ByteVar>(), cbformat)
+public actual fun moInitMediaType(pmt: COpaquePointer?, cbformat: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.media.dxmediaobjects.cinterop.windowssys_windows_win32_media_dxmediaobjects_moInitMediaType(pmt?.value?.toCPointer<ByteVar>(), cbformat)

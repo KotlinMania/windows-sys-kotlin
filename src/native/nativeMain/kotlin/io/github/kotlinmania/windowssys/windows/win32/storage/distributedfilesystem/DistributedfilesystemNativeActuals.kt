@@ -2,73 +2,74 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem
 
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun NetDfsAdd(dfsentrypath: PCWSTR, servername: PCWSTR, sharename: PCWSTR, comment: PCWSTR, flags: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_NetDfsAdd(dfsentrypath.toCPointer<ByteVar>(), servername.toCPointer<ByteVar>(), sharename.toCPointer<ByteVar>(), comment.toCPointer<ByteVar>(), flags)
+public actual fun netDfsAdd(dfsentrypath: Pcwstr, servername: Pcwstr, sharename: Pcwstr, comment: Pcwstr, flags: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_netDfsAdd(dfsentrypath?.value?.toCPointer<ByteVar>(), servername?.value?.toCPointer<ByteVar>(), sharename?.value?.toCPointer<ByteVar>(), comment?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun NetDfsAddFtRoot(servername: PCWSTR, rootshare: PCWSTR, ftdfsname: PCWSTR, comment: PCWSTR, flags: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_NetDfsAddFtRoot(servername.toCPointer<ByteVar>(), rootshare.toCPointer<ByteVar>(), ftdfsname.toCPointer<ByteVar>(), comment.toCPointer<ByteVar>(), flags)
+public actual fun netDfsAddFtRoot(servername: Pcwstr, rootshare: Pcwstr, ftdfsname: Pcwstr, comment: Pcwstr, flags: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_netDfsAddFtRoot(servername?.value?.toCPointer<ByteVar>(), rootshare?.value?.toCPointer<ByteVar>(), ftdfsname?.value?.toCPointer<ByteVar>(), comment?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun NetDfsAddRootTarget(pdfspath: PCWSTR, ptargetpath: PCWSTR, majorversion: UInt, pcomment: PCWSTR, flags: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_NetDfsAddRootTarget(pdfspath.toCPointer<ByteVar>(), ptargetpath.toCPointer<ByteVar>(), majorversion, pcomment.toCPointer<ByteVar>(), flags)
+public actual fun netDfsAddRootTarget(pdfspath: Pcwstr, ptargetpath: Pcwstr, majorversion: UInt, pcomment: Pcwstr, flags: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_netDfsAddRootTarget(pdfspath?.value?.toCPointer<ByteVar>(), ptargetpath?.value?.toCPointer<ByteVar>(), majorversion, pcomment?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun NetDfsAddStdRoot(servername: PCWSTR, rootshare: PCWSTR, comment: PCWSTR, flags: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_NetDfsAddStdRoot(servername.toCPointer<ByteVar>(), rootshare.toCPointer<ByteVar>(), comment.toCPointer<ByteVar>(), flags)
+public actual fun netDfsAddStdRoot(servername: Pcwstr, rootshare: Pcwstr, comment: Pcwstr, flags: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_netDfsAddStdRoot(servername?.value?.toCPointer<ByteVar>(), rootshare?.value?.toCPointer<ByteVar>(), comment?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun NetDfsEnum(dfsname: PCWSTR, level: UInt, prefmaxlen: UInt, buffer: Long, entriesread: Long, resumehandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_NetDfsEnum(dfsname.toCPointer<ByteVar>(), level, prefmaxlen, buffer.toCPointer<ByteVar>(), entriesread.toCPointer<ByteVar>(), resumehandle.toCPointer<ByteVar>())
+public actual fun netDfsEnum(dfsname: Pcwstr, level: UInt, prefmaxlen: UInt, buffer: COpaquePointer?, entriesread: COpaquePointer?, resumehandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_netDfsEnum(dfsname?.value?.toCPointer<ByteVar>(), level, prefmaxlen, buffer?.value?.toCPointer<ByteVar>(), entriesread?.value?.toCPointer<ByteVar>(), resumehandle?.value?.toCPointer<ByteVar>())
 
-public actual fun NetDfsGetClientInfo(dfsentrypath: PCWSTR, servername: PCWSTR, sharename: PCWSTR, level: UInt, buffer: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_NetDfsGetClientInfo(dfsentrypath.toCPointer<ByteVar>(), servername.toCPointer<ByteVar>(), sharename.toCPointer<ByteVar>(), level, buffer.toCPointer<ByteVar>())
+public actual fun netDfsGetClientInfo(dfsentrypath: Pcwstr, servername: Pcwstr, sharename: Pcwstr, level: UInt, buffer: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_netDfsGetClientInfo(dfsentrypath?.value?.toCPointer<ByteVar>(), servername?.value?.toCPointer<ByteVar>(), sharename?.value?.toCPointer<ByteVar>(), level, buffer?.value?.toCPointer<ByteVar>())
 
-public actual fun NetDfsGetFtContainerSecurity(domainname: PCWSTR, securityinformation: UInt, ppsecuritydescriptor: Long, lpcbsecuritydescriptor: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_NetDfsGetFtContainerSecurity(domainname.toCPointer<ByteVar>(), securityinformation, ppsecuritydescriptor.toCPointer<ByteVar>(), lpcbsecuritydescriptor.toCPointer<ByteVar>())
+public actual fun netDfsGetFtContainerSecurity(domainname: Pcwstr, securityinformation: UInt, ppsecuritydescriptor: COpaquePointer?, lpcbsecuritydescriptor: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_netDfsGetFtContainerSecurity(domainname?.value?.toCPointer<ByteVar>(), securityinformation, ppsecuritydescriptor?.value?.toCPointer<ByteVar>(), lpcbsecuritydescriptor?.value?.toCPointer<ByteVar>())
 
-public actual fun NetDfsGetInfo(dfsentrypath: PCWSTR, servername: PCWSTR, sharename: PCWSTR, level: UInt, buffer: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_NetDfsGetInfo(dfsentrypath.toCPointer<ByteVar>(), servername.toCPointer<ByteVar>(), sharename.toCPointer<ByteVar>(), level, buffer.toCPointer<ByteVar>())
+public actual fun netDfsGetInfo(dfsentrypath: Pcwstr, servername: Pcwstr, sharename: Pcwstr, level: UInt, buffer: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_netDfsGetInfo(dfsentrypath?.value?.toCPointer<ByteVar>(), servername?.value?.toCPointer<ByteVar>(), sharename?.value?.toCPointer<ByteVar>(), level, buffer?.value?.toCPointer<ByteVar>())
 
-public actual fun NetDfsGetSecurity(dfsentrypath: PCWSTR, securityinformation: UInt, ppsecuritydescriptor: Long, lpcbsecuritydescriptor: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_NetDfsGetSecurity(dfsentrypath.toCPointer<ByteVar>(), securityinformation, ppsecuritydescriptor.toCPointer<ByteVar>(), lpcbsecuritydescriptor.toCPointer<ByteVar>())
+public actual fun netDfsGetSecurity(dfsentrypath: Pcwstr, securityinformation: UInt, ppsecuritydescriptor: COpaquePointer?, lpcbsecuritydescriptor: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_netDfsGetSecurity(dfsentrypath?.value?.toCPointer<ByteVar>(), securityinformation, ppsecuritydescriptor?.value?.toCPointer<ByteVar>(), lpcbsecuritydescriptor?.value?.toCPointer<ByteVar>())
 
-public actual fun NetDfsGetStdContainerSecurity(machinename: PCWSTR, securityinformation: UInt, ppsecuritydescriptor: Long, lpcbsecuritydescriptor: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_NetDfsGetStdContainerSecurity(machinename.toCPointer<ByteVar>(), securityinformation, ppsecuritydescriptor.toCPointer<ByteVar>(), lpcbsecuritydescriptor.toCPointer<ByteVar>())
+public actual fun netDfsGetStdContainerSecurity(machinename: Pcwstr, securityinformation: UInt, ppsecuritydescriptor: COpaquePointer?, lpcbsecuritydescriptor: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_netDfsGetStdContainerSecurity(machinename?.value?.toCPointer<ByteVar>(), securityinformation, ppsecuritydescriptor?.value?.toCPointer<ByteVar>(), lpcbsecuritydescriptor?.value?.toCPointer<ByteVar>())
 
-public actual fun NetDfsGetSupportedNamespaceVersion(origin: DFS_NAMESPACE_VERSION_ORIGIN, pname: PCWSTR, ppversioninfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_NetDfsGetSupportedNamespaceVersion(origin, pname.toCPointer<ByteVar>(), ppversioninfo.toCPointer<ByteVar>())
+public actual fun netDfsGetSupportedNamespaceVersion(origin: DfsNamespaceVersionOrigin, pname: Pcwstr, ppversioninfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_netDfsGetSupportedNamespaceVersion(origin, pname?.value?.toCPointer<ByteVar>(), ppversioninfo?.value?.toCPointer<ByteVar>())
 
-public actual fun NetDfsMove(olddfsentrypath: PCWSTR, newdfsentrypath: PCWSTR, flags: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_NetDfsMove(olddfsentrypath.toCPointer<ByteVar>(), newdfsentrypath.toCPointer<ByteVar>(), flags)
+public actual fun netDfsMove(olddfsentrypath: Pcwstr, newdfsentrypath: Pcwstr, flags: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_netDfsMove(olddfsentrypath?.value?.toCPointer<ByteVar>(), newdfsentrypath?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun NetDfsRemove(dfsentrypath: PCWSTR, servername: PCWSTR, sharename: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_NetDfsRemove(dfsentrypath.toCPointer<ByteVar>(), servername.toCPointer<ByteVar>(), sharename.toCPointer<ByteVar>())
+public actual fun netDfsRemove(dfsentrypath: Pcwstr, servername: Pcwstr, sharename: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_netDfsRemove(dfsentrypath?.value?.toCPointer<ByteVar>(), servername?.value?.toCPointer<ByteVar>(), sharename?.value?.toCPointer<ByteVar>())
 
-public actual fun NetDfsRemoveFtRoot(servername: PCWSTR, rootshare: PCWSTR, ftdfsname: PCWSTR, flags: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_NetDfsRemoveFtRoot(servername.toCPointer<ByteVar>(), rootshare.toCPointer<ByteVar>(), ftdfsname.toCPointer<ByteVar>(), flags)
+public actual fun netDfsRemoveFtRoot(servername: Pcwstr, rootshare: Pcwstr, ftdfsname: Pcwstr, flags: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_netDfsRemoveFtRoot(servername?.value?.toCPointer<ByteVar>(), rootshare?.value?.toCPointer<ByteVar>(), ftdfsname?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun NetDfsRemoveFtRootForced(domainname: PCWSTR, servername: PCWSTR, rootshare: PCWSTR, ftdfsname: PCWSTR, flags: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_NetDfsRemoveFtRootForced(domainname.toCPointer<ByteVar>(), servername.toCPointer<ByteVar>(), rootshare.toCPointer<ByteVar>(), ftdfsname.toCPointer<ByteVar>(), flags)
+public actual fun netDfsRemoveFtRootForced(domainname: Pcwstr, servername: Pcwstr, rootshare: Pcwstr, ftdfsname: Pcwstr, flags: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_netDfsRemoveFtRootForced(domainname?.value?.toCPointer<ByteVar>(), servername?.value?.toCPointer<ByteVar>(), rootshare?.value?.toCPointer<ByteVar>(), ftdfsname?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun NetDfsRemoveRootTarget(pdfspath: PCWSTR, ptargetpath: PCWSTR, flags: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_NetDfsRemoveRootTarget(pdfspath.toCPointer<ByteVar>(), ptargetpath.toCPointer<ByteVar>(), flags)
+public actual fun netDfsRemoveRootTarget(pdfspath: Pcwstr, ptargetpath: Pcwstr, flags: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_netDfsRemoveRootTarget(pdfspath?.value?.toCPointer<ByteVar>(), ptargetpath?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun NetDfsRemoveStdRoot(servername: PCWSTR, rootshare: PCWSTR, flags: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_NetDfsRemoveStdRoot(servername.toCPointer<ByteVar>(), rootshare.toCPointer<ByteVar>(), flags)
+public actual fun netDfsRemoveStdRoot(servername: Pcwstr, rootshare: Pcwstr, flags: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_netDfsRemoveStdRoot(servername?.value?.toCPointer<ByteVar>(), rootshare?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun NetDfsSetClientInfo(dfsentrypath: PCWSTR, servername: PCWSTR, sharename: PCWSTR, level: UInt, buffer: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_NetDfsSetClientInfo(dfsentrypath.toCPointer<ByteVar>(), servername.toCPointer<ByteVar>(), sharename.toCPointer<ByteVar>(), level, buffer.toCPointer<ByteVar>())
+public actual fun netDfsSetClientInfo(dfsentrypath: Pcwstr, servername: Pcwstr, sharename: Pcwstr, level: UInt, buffer: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_netDfsSetClientInfo(dfsentrypath?.value?.toCPointer<ByteVar>(), servername?.value?.toCPointer<ByteVar>(), sharename?.value?.toCPointer<ByteVar>(), level, buffer?.value?.toCPointer<ByteVar>())
 
-public actual fun NetDfsSetFtContainerSecurity(domainname: PCWSTR, securityinformation: UInt, psecuritydescriptor: PSECURITY_DESCRIPTOR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_NetDfsSetFtContainerSecurity(domainname.toCPointer<ByteVar>(), securityinformation, psecuritydescriptor.toCPointer<ByteVar>())
+public actual fun netDfsSetFtContainerSecurity(domainname: Pcwstr, securityinformation: UInt, psecuritydescriptor: PsecurityDescriptor): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_netDfsSetFtContainerSecurity(domainname?.value?.toCPointer<ByteVar>(), securityinformation, psecuritydescriptor?.value?.toCPointer<ByteVar>())
 
-public actual fun NetDfsSetInfo(dfsentrypath: PCWSTR, servername: PCWSTR, sharename: PCWSTR, level: UInt, buffer: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_NetDfsSetInfo(dfsentrypath.toCPointer<ByteVar>(), servername.toCPointer<ByteVar>(), sharename.toCPointer<ByteVar>(), level, buffer.toCPointer<ByteVar>())
+public actual fun netDfsSetInfo(dfsentrypath: Pcwstr, servername: Pcwstr, sharename: Pcwstr, level: UInt, buffer: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_netDfsSetInfo(dfsentrypath?.value?.toCPointer<ByteVar>(), servername?.value?.toCPointer<ByteVar>(), sharename?.value?.toCPointer<ByteVar>(), level, buffer?.value?.toCPointer<ByteVar>())
 
-public actual fun NetDfsSetSecurity(dfsentrypath: PCWSTR, securityinformation: UInt, psecuritydescriptor: PSECURITY_DESCRIPTOR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_NetDfsSetSecurity(dfsentrypath.toCPointer<ByteVar>(), securityinformation, psecuritydescriptor.toCPointer<ByteVar>())
+public actual fun netDfsSetSecurity(dfsentrypath: Pcwstr, securityinformation: UInt, psecuritydescriptor: PsecurityDescriptor): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_netDfsSetSecurity(dfsentrypath?.value?.toCPointer<ByteVar>(), securityinformation, psecuritydescriptor?.value?.toCPointer<ByteVar>())
 
-public actual fun NetDfsSetStdContainerSecurity(machinename: PCWSTR, securityinformation: UInt, psecuritydescriptor: PSECURITY_DESCRIPTOR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_NetDfsSetStdContainerSecurity(machinename.toCPointer<ByteVar>(), securityinformation, psecuritydescriptor.toCPointer<ByteVar>())
+public actual fun netDfsSetStdContainerSecurity(machinename: Pcwstr, securityinformation: UInt, psecuritydescriptor: PsecurityDescriptor): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.storage.distributedfilesystem.cinterop.windowssys_windows_win32_storage_distributedfilesystem_netDfsSetStdContainerSecurity(machinename?.value?.toCPointer<ByteVar>(), securityinformation, psecuritydescriptor?.value?.toCPointer<ByteVar>())

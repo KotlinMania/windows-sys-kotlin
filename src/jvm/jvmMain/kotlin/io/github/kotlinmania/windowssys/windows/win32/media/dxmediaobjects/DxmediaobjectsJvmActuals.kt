@@ -2,9 +2,10 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.media.dxmediaobjects
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
 
 private object WindowsWin32MediaDxmediaobjectsJniBridge {
     init {
@@ -12,68 +13,68 @@ private object WindowsWin32MediaDxmediaobjectsJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_media_dxmediaobjects_DMOEnum(guidcategory: Long, dwflags: Int, cintypes: Int, pintypes: Long, couttypes: Int, pouttypes: Long, ppenum: Long): Int
+    external fun windowssys_windows_win32_media_dxmediaobjects_dMOEnum(guidcategory: Long, dwflags: Int, cintypes: Int, pintypes: Long, couttypes: Int, pouttypes: Long, ppenum: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_media_dxmediaobjects_DMOGetName(clsiddmo: Long, szname: Long): Int
+    external fun windowssys_windows_win32_media_dxmediaobjects_dMOGetName(clsiddmo: Long, szname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_media_dxmediaobjects_DMOGetTypes(clsiddmo: Long, ulinputtypesrequested: Int, pulinputtypessupplied: Long, pinputtypes: Long, uloutputtypesrequested: Int, puloutputtypessupplied: Long, poutputtypes: Long): Int
+    external fun windowssys_windows_win32_media_dxmediaobjects_dMOGetTypes(clsiddmo: Long, ulinputtypesrequested: Int, pulinputtypessupplied: Long, pinputtypes: Long, uloutputtypesrequested: Int, puloutputtypessupplied: Long, poutputtypes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_media_dxmediaobjects_DMORegister(szname: Long, clsiddmo: Long, guidcategory: Long, dwflags: Int, cintypes: Int, pintypes: Long, couttypes: Int, pouttypes: Long): Int
+    external fun windowssys_windows_win32_media_dxmediaobjects_dMORegister(szname: Long, clsiddmo: Long, guidcategory: Long, dwflags: Int, cintypes: Int, pintypes: Long, couttypes: Int, pouttypes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_media_dxmediaobjects_DMOUnregister(clsiddmo: Long, guidcategory: Long): Int
+    external fun windowssys_windows_win32_media_dxmediaobjects_dMOUnregister(clsiddmo: Long, guidcategory: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_media_dxmediaobjects_MoCopyMediaType(pmtdest: Long, pmtsrc: Long): Int
+    external fun windowssys_windows_win32_media_dxmediaobjects_moCopyMediaType(pmtdest: Long, pmtsrc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_media_dxmediaobjects_MoCreateMediaType(ppmt: Long, cbformat: Int): Int
+    external fun windowssys_windows_win32_media_dxmediaobjects_moCreateMediaType(ppmt: Long, cbformat: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_media_dxmediaobjects_MoDeleteMediaType(pmt: Long): Int
+    external fun windowssys_windows_win32_media_dxmediaobjects_moDeleteMediaType(pmt: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_media_dxmediaobjects_MoDuplicateMediaType(ppmtdest: Long, pmtsrc: Long): Int
+    external fun windowssys_windows_win32_media_dxmediaobjects_moDuplicateMediaType(ppmtdest: Long, pmtsrc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_media_dxmediaobjects_MoFreeMediaType(pmt: Long): Int
+    external fun windowssys_windows_win32_media_dxmediaobjects_moFreeMediaType(pmt: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_media_dxmediaobjects_MoInitMediaType(pmt: Long, cbformat: Int): Int
+    external fun windowssys_windows_win32_media_dxmediaobjects_moInitMediaType(pmt: Long, cbformat: Int): Int
 }
 
-public actual fun DMOEnum(guidcategory: Long, dwflags: UInt, cintypes: UInt, pintypes: Long, couttypes: UInt, pouttypes: Long, ppenum: Long): HRESULT =
-    WindowsWin32MediaDxmediaobjectsJniBridge.windowssys_windows_win32_media_dxmediaobjects_DMOEnum(guidcategory, dwflags.toInt(), cintypes.toInt(), pintypes, couttypes.toInt(), pouttypes, ppenum)
+public actual fun dMOEnum(guidcategory: COpaquePointer?, dwflags: UInt, cintypes: UInt, pintypes: COpaquePointer?, couttypes: UInt, pouttypes: COpaquePointer?, ppenum: COpaquePointer?): Hresult =
+    WindowsWin32MediaDxmediaobjectsJniBridge.windowssys_windows_win32_media_dxmediaobjects_dMOEnum((guidcategory?.value ?: 0L), dwflags.toInt(), cintypes.toInt(), (pintypes?.value ?: 0L), couttypes.toInt(), (pouttypes?.value ?: 0L), (ppenum?.value ?: 0L))
 
-public actual fun DMOGetName(clsiddmo: Long, szname: PWSTR): HRESULT =
-    WindowsWin32MediaDxmediaobjectsJniBridge.windowssys_windows_win32_media_dxmediaobjects_DMOGetName(clsiddmo, szname)
+public actual fun dMOGetName(clsiddmo: COpaquePointer?, szname: Pwstr): Hresult =
+    WindowsWin32MediaDxmediaobjectsJniBridge.windowssys_windows_win32_media_dxmediaobjects_dMOGetName((clsiddmo?.value ?: 0L), (szname?.value ?: 0L))
 
-public actual fun DMOGetTypes(clsiddmo: Long, ulinputtypesrequested: UInt, pulinputtypessupplied: Long, pinputtypes: Long, uloutputtypesrequested: UInt, puloutputtypessupplied: Long, poutputtypes: Long): HRESULT =
-    WindowsWin32MediaDxmediaobjectsJniBridge.windowssys_windows_win32_media_dxmediaobjects_DMOGetTypes(clsiddmo, ulinputtypesrequested.toInt(), pulinputtypessupplied, pinputtypes, uloutputtypesrequested.toInt(), puloutputtypessupplied, poutputtypes)
+public actual fun dMOGetTypes(clsiddmo: COpaquePointer?, ulinputtypesrequested: UInt, pulinputtypessupplied: COpaquePointer?, pinputtypes: COpaquePointer?, uloutputtypesrequested: UInt, puloutputtypessupplied: COpaquePointer?, poutputtypes: COpaquePointer?): Hresult =
+    WindowsWin32MediaDxmediaobjectsJniBridge.windowssys_windows_win32_media_dxmediaobjects_dMOGetTypes((clsiddmo?.value ?: 0L), ulinputtypesrequested.toInt(), (pulinputtypessupplied?.value ?: 0L), (pinputtypes?.value ?: 0L), uloutputtypesrequested.toInt(), (puloutputtypessupplied?.value ?: 0L), (poutputtypes?.value ?: 0L))
 
-public actual fun DMORegister(szname: PCWSTR, clsiddmo: Long, guidcategory: Long, dwflags: UInt, cintypes: UInt, pintypes: Long, couttypes: UInt, pouttypes: Long): HRESULT =
-    WindowsWin32MediaDxmediaobjectsJniBridge.windowssys_windows_win32_media_dxmediaobjects_DMORegister(szname, clsiddmo, guidcategory, dwflags.toInt(), cintypes.toInt(), pintypes, couttypes.toInt(), pouttypes)
+public actual fun dMORegister(szname: Pcwstr, clsiddmo: COpaquePointer?, guidcategory: COpaquePointer?, dwflags: UInt, cintypes: UInt, pintypes: COpaquePointer?, couttypes: UInt, pouttypes: COpaquePointer?): Hresult =
+    WindowsWin32MediaDxmediaobjectsJniBridge.windowssys_windows_win32_media_dxmediaobjects_dMORegister((szname?.value ?: 0L), (clsiddmo?.value ?: 0L), (guidcategory?.value ?: 0L), dwflags.toInt(), cintypes.toInt(), (pintypes?.value ?: 0L), couttypes.toInt(), (pouttypes?.value ?: 0L))
 
-public actual fun DMOUnregister(clsiddmo: Long, guidcategory: Long): HRESULT =
-    WindowsWin32MediaDxmediaobjectsJniBridge.windowssys_windows_win32_media_dxmediaobjects_DMOUnregister(clsiddmo, guidcategory)
+public actual fun dMOUnregister(clsiddmo: COpaquePointer?, guidcategory: COpaquePointer?): Hresult =
+    WindowsWin32MediaDxmediaobjectsJniBridge.windowssys_windows_win32_media_dxmediaobjects_dMOUnregister((clsiddmo?.value ?: 0L), (guidcategory?.value ?: 0L))
 
-public actual fun MoCopyMediaType(pmtdest: Long, pmtsrc: Long): HRESULT =
-    WindowsWin32MediaDxmediaobjectsJniBridge.windowssys_windows_win32_media_dxmediaobjects_MoCopyMediaType(pmtdest, pmtsrc)
+public actual fun moCopyMediaType(pmtdest: COpaquePointer?, pmtsrc: COpaquePointer?): Hresult =
+    WindowsWin32MediaDxmediaobjectsJniBridge.windowssys_windows_win32_media_dxmediaobjects_moCopyMediaType((pmtdest?.value ?: 0L), (pmtsrc?.value ?: 0L))
 
-public actual fun MoCreateMediaType(ppmt: Long, cbformat: UInt): HRESULT =
-    WindowsWin32MediaDxmediaobjectsJniBridge.windowssys_windows_win32_media_dxmediaobjects_MoCreateMediaType(ppmt, cbformat.toInt())
+public actual fun moCreateMediaType(ppmt: COpaquePointer?, cbformat: UInt): Hresult =
+    WindowsWin32MediaDxmediaobjectsJniBridge.windowssys_windows_win32_media_dxmediaobjects_moCreateMediaType((ppmt?.value ?: 0L), cbformat.toInt())
 
-public actual fun MoDeleteMediaType(pmt: Long): HRESULT =
-    WindowsWin32MediaDxmediaobjectsJniBridge.windowssys_windows_win32_media_dxmediaobjects_MoDeleteMediaType(pmt)
+public actual fun moDeleteMediaType(pmt: COpaquePointer?): Hresult =
+    WindowsWin32MediaDxmediaobjectsJniBridge.windowssys_windows_win32_media_dxmediaobjects_moDeleteMediaType((pmt?.value ?: 0L))
 
-public actual fun MoDuplicateMediaType(ppmtdest: Long, pmtsrc: Long): HRESULT =
-    WindowsWin32MediaDxmediaobjectsJniBridge.windowssys_windows_win32_media_dxmediaobjects_MoDuplicateMediaType(ppmtdest, pmtsrc)
+public actual fun moDuplicateMediaType(ppmtdest: COpaquePointer?, pmtsrc: COpaquePointer?): Hresult =
+    WindowsWin32MediaDxmediaobjectsJniBridge.windowssys_windows_win32_media_dxmediaobjects_moDuplicateMediaType((ppmtdest?.value ?: 0L), (pmtsrc?.value ?: 0L))
 
-public actual fun MoFreeMediaType(pmt: Long): HRESULT =
-    WindowsWin32MediaDxmediaobjectsJniBridge.windowssys_windows_win32_media_dxmediaobjects_MoFreeMediaType(pmt)
+public actual fun moFreeMediaType(pmt: COpaquePointer?): Hresult =
+    WindowsWin32MediaDxmediaobjectsJniBridge.windowssys_windows_win32_media_dxmediaobjects_moFreeMediaType((pmt?.value ?: 0L))
 
-public actual fun MoInitMediaType(pmt: Long, cbformat: UInt): HRESULT =
-    WindowsWin32MediaDxmediaobjectsJniBridge.windowssys_windows_win32_media_dxmediaobjects_MoInitMediaType(pmt, cbformat.toInt())
+public actual fun moInitMediaType(pmt: COpaquePointer?, cbformat: UInt): Hresult =
+    WindowsWin32MediaDxmediaobjectsJniBridge.windowssys_windows_win32_media_dxmediaobjects_moInitMediaType((pmt?.value ?: 0L), cbformat.toInt())

@@ -2,13 +2,14 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.licenseprotection
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun RegisterLicenseKeyWithExpiration(licensekey: PCWSTR, validityindays: UInt, status: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.licenseprotection.cinterop.windowssys_windows_win32_security_licenseprotection_RegisterLicenseKeyWithExpiration(licensekey.toCPointer<ByteVar>(), validityindays, status.toCPointer<ByteVar>())
+public actual fun registerLicenseKeyWithExpiration(licensekey: Pcwstr, validityindays: UInt, status: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.licenseprotection.cinterop.windowssys_windows_win32_security_licenseprotection_registerLicenseKeyWithExpiration(licensekey?.value?.toCPointer<ByteVar>(), validityindays, status?.value?.toCPointer<ByteVar>())
 
-public actual fun ValidateLicenseKeyProtection(licensekey: PCWSTR, notvalidbefore: Long, notvalidafter: Long, status: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.licenseprotection.cinterop.windowssys_windows_win32_security_licenseprotection_ValidateLicenseKeyProtection(licensekey.toCPointer<ByteVar>(), notvalidbefore.toCPointer<ByteVar>(), notvalidafter.toCPointer<ByteVar>(), status.toCPointer<ByteVar>())
+public actual fun validateLicenseKeyProtection(licensekey: Pcwstr, notvalidbefore: COpaquePointer?, notvalidafter: COpaquePointer?, status: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.licenseprotection.cinterop.windowssys_windows_win32_security_licenseprotection_validateLicenseKeyProtection(licensekey?.value?.toCPointer<ByteVar>(), notvalidbefore?.value?.toCPointer<ByteVar>(), notvalidafter?.value?.toCPointer<ByteVar>(), status?.value?.toCPointer<ByteVar>())

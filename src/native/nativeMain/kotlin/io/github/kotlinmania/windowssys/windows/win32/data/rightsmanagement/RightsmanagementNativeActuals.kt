@@ -2,262 +2,263 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun DRMAcquireAdvisories(hlicensestorage: UInt, wszlicense: PCWSTR, wszurl: PCWSTR, pvcontext: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMAcquireAdvisories(hlicensestorage, wszlicense.toCPointer<ByteVar>(), wszurl.toCPointer<ByteVar>(), pvcontext.toCPointer<ByteVar>())
+public actual fun dRMAcquireAdvisories(hlicensestorage: UInt, wszlicense: Pcwstr, wszurl: Pcwstr, pvcontext: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMAcquireAdvisories(hlicensestorage, wszlicense?.value?.toCPointer<ByteVar>(), wszurl?.value?.toCPointer<ByteVar>(), pvcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMAcquireIssuanceLicenseTemplate(hclient: UInt, uflags: UInt, pvreserved: Long, ctemplates: UInt, pwsztemplateids: Long, wszurl: PCWSTR, pvcontext: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMAcquireIssuanceLicenseTemplate(hclient, uflags, pvreserved.toCPointer<ByteVar>(), ctemplates, pwsztemplateids.toCPointer<ByteVar>(), wszurl.toCPointer<ByteVar>(), pvcontext.toCPointer<ByteVar>())
+public actual fun dRMAcquireIssuanceLicenseTemplate(hclient: UInt, uflags: UInt, pvreserved: COpaquePointer?, ctemplates: UInt, pwsztemplateids: COpaquePointer?, wszurl: Pcwstr, pvcontext: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMAcquireIssuanceLicenseTemplate(hclient, uflags, pvreserved?.value?.toCPointer<ByteVar>(), ctemplates, pwsztemplateids?.value?.toCPointer<ByteVar>(), wszurl?.value?.toCPointer<ByteVar>(), pvcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMAcquireLicense(hsession: UInt, uflags: UInt, wszgroupidentitycredential: PCWSTR, wszrequestedrights: PCWSTR, wszcustomdata: PCWSTR, wszurl: PCWSTR, pvcontext: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMAcquireLicense(hsession, uflags, wszgroupidentitycredential.toCPointer<ByteVar>(), wszrequestedrights.toCPointer<ByteVar>(), wszcustomdata.toCPointer<ByteVar>(), wszurl.toCPointer<ByteVar>(), pvcontext.toCPointer<ByteVar>())
+public actual fun dRMAcquireLicense(hsession: UInt, uflags: UInt, wszgroupidentitycredential: Pcwstr, wszrequestedrights: Pcwstr, wszcustomdata: Pcwstr, wszurl: Pcwstr, pvcontext: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMAcquireLicense(hsession, uflags, wszgroupidentitycredential?.value?.toCPointer<ByteVar>(), wszrequestedrights?.value?.toCPointer<ByteVar>(), wszcustomdata?.value?.toCPointer<ByteVar>(), wszurl?.value?.toCPointer<ByteVar>(), pvcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMActivate(hclient: UInt, uflags: UInt, ulangid: UInt, pactservinfo: Long, pvcontext: Long, hparentwnd: HWND): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMActivate(hclient, uflags, ulangid, pactservinfo.toCPointer<ByteVar>(), pvcontext.toCPointer<ByteVar>(), hparentwnd.toCPointer<ByteVar>())
+public actual fun dRMActivate(hclient: UInt, uflags: UInt, ulangid: UInt, pactservinfo: COpaquePointer?, pvcontext: COpaquePointer?, hparentwnd: Hwnd): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMActivate(hclient, uflags, ulangid, pactservinfo?.value?.toCPointer<ByteVar>(), pvcontext?.value?.toCPointer<ByteVar>(), hparentwnd?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMAddLicense(hlicensestorage: UInt, uflags: UInt, wszlicense: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMAddLicense(hlicensestorage, uflags, wszlicense.toCPointer<ByteVar>())
+public actual fun dRMAddLicense(hlicensestorage: UInt, uflags: UInt, wszlicense: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMAddLicense(hlicensestorage, uflags, wszlicense?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMAddRightWithUser(hissuancelicense: UInt, hright: UInt, huser: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMAddRightWithUser(hissuancelicense, hright, huser)
+public actual fun dRMAddRightWithUser(hissuancelicense: UInt, hright: UInt, huser: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMAddRightWithUser(hissuancelicense, hright, huser)
 
-public actual fun DRMAttest(henablingprincipal: UInt, wszdata: PCWSTR, etype: DRMATTESTTYPE, pcattestedblob: Long, wszattestedblob: PWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMAttest(henablingprincipal, wszdata.toCPointer<ByteVar>(), etype, pcattestedblob.toCPointer<ByteVar>(), wszattestedblob.toCPointer<ByteVar>())
+public actual fun dRMAttest(henablingprincipal: UInt, wszdata: Pcwstr, etype: Drmattesttype, pcattestedblob: COpaquePointer?, wszattestedblob: Pwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMAttest(henablingprincipal, wszdata?.value?.toCPointer<ByteVar>(), etype, pcattestedblob?.value?.toCPointer<ByteVar>(), wszattestedblob?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMCheckSecurity(henv: UInt, clevel: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMCheckSecurity(henv, clevel)
+public actual fun dRMCheckSecurity(henv: UInt, clevel: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMCheckSecurity(henv, clevel)
 
-public actual fun DRMClearAllRights(hissuancelicense: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMClearAllRights(hissuancelicense)
+public actual fun dRMClearAllRights(hissuancelicense: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMClearAllRights(hissuancelicense)
 
-public actual fun DRMCloseEnvironmentHandle(henv: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMCloseEnvironmentHandle(henv)
+public actual fun dRMCloseEnvironmentHandle(henv: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMCloseEnvironmentHandle(henv)
 
-public actual fun DRMCloseHandle(handle: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMCloseHandle(handle)
+public actual fun dRMCloseHandle(handle: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMCloseHandle(handle)
 
-public actual fun DRMClosePubHandle(hpub: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMClosePubHandle(hpub)
+public actual fun dRMClosePubHandle(hpub: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMClosePubHandle(hpub)
 
-public actual fun DRMCloseQueryHandle(hquery: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMCloseQueryHandle(hquery)
+public actual fun dRMCloseQueryHandle(hquery: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMCloseQueryHandle(hquery)
 
-public actual fun DRMCloseSession(hsession: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMCloseSession(hsession)
+public actual fun dRMCloseSession(hsession: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMCloseSession(hsession)
 
-public actual fun DRMConstructCertificateChain(ccertificates: UInt, rgwszcertificates: Long, pcchain: Long, wszchain: PWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMConstructCertificateChain(ccertificates, rgwszcertificates.toCPointer<ByteVar>(), pcchain.toCPointer<ByteVar>(), wszchain.toCPointer<ByteVar>())
+public actual fun dRMConstructCertificateChain(ccertificates: UInt, rgwszcertificates: COpaquePointer?, pcchain: COpaquePointer?, wszchain: Pwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMConstructCertificateChain(ccertificates, rgwszcertificates?.value?.toCPointer<ByteVar>(), pcchain?.value?.toCPointer<ByteVar>(), wszchain?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMCreateBoundLicense(henv: UInt, pparams: Long, wszlicensechain: PCWSTR, phboundlicense: Long, pherrorlog: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMCreateBoundLicense(henv, pparams.toCPointer<ByteVar>(), wszlicensechain.toCPointer<ByteVar>(), phboundlicense.toCPointer<ByteVar>(), pherrorlog.toCPointer<ByteVar>())
+public actual fun dRMCreateBoundLicense(henv: UInt, pparams: COpaquePointer?, wszlicensechain: Pcwstr, phboundlicense: COpaquePointer?, pherrorlog: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMCreateBoundLicense(henv, pparams?.value?.toCPointer<ByteVar>(), wszlicensechain?.value?.toCPointer<ByteVar>(), phboundlicense?.value?.toCPointer<ByteVar>(), pherrorlog?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMCreateClientSession(pfncallback: DRMCALLBACK, ucallbackversion: UInt, wszgroupidprovidertype: PCWSTR, wszgroupid: PCWSTR, phclient: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMCreateClientSession(pfncallback.toLong().toCPointer<ByteVar>(), ucallbackversion, wszgroupidprovidertype.toCPointer<ByteVar>(), wszgroupid.toCPointer<ByteVar>(), phclient.toCPointer<ByteVar>())
+public actual fun dRMCreateClientSession(pfncallback: Drmcallback, ucallbackversion: UInt, wszgroupidprovidertype: Pcwstr, wszgroupid: Pcwstr, phclient: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMCreateClientSession(0L.toCPointer<ByteVar>(), ucallbackversion, wszgroupidprovidertype?.value?.toCPointer<ByteVar>(), wszgroupid?.value?.toCPointer<ByteVar>(), phclient?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMCreateEnablingBitsDecryptor(hboundlicense: UInt, wszright: PCWSTR, hauxlib: UInt, wszauxplug: PCWSTR, phdecryptor: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMCreateEnablingBitsDecryptor(hboundlicense, wszright.toCPointer<ByteVar>(), hauxlib, wszauxplug.toCPointer<ByteVar>(), phdecryptor.toCPointer<ByteVar>())
+public actual fun dRMCreateEnablingBitsDecryptor(hboundlicense: UInt, wszright: Pcwstr, hauxlib: UInt, wszauxplug: Pcwstr, phdecryptor: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMCreateEnablingBitsDecryptor(hboundlicense, wszright?.value?.toCPointer<ByteVar>(), hauxlib, wszauxplug?.value?.toCPointer<ByteVar>(), phdecryptor?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMCreateEnablingBitsEncryptor(hboundlicense: UInt, wszright: PCWSTR, hauxlib: UInt, wszauxplug: PCWSTR, phencryptor: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMCreateEnablingBitsEncryptor(hboundlicense, wszright.toCPointer<ByteVar>(), hauxlib, wszauxplug.toCPointer<ByteVar>(), phencryptor.toCPointer<ByteVar>())
+public actual fun dRMCreateEnablingBitsEncryptor(hboundlicense: UInt, wszright: Pcwstr, hauxlib: UInt, wszauxplug: Pcwstr, phencryptor: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMCreateEnablingBitsEncryptor(hboundlicense, wszright?.value?.toCPointer<ByteVar>(), hauxlib, wszauxplug?.value?.toCPointer<ByteVar>(), phencryptor?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMCreateEnablingPrincipal(henv: UInt, hlibrary: UInt, wszobject: PCWSTR, pidprincipal: Long, wszcredentials: PCWSTR, phenablingprincipal: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMCreateEnablingPrincipal(henv, hlibrary, wszobject.toCPointer<ByteVar>(), pidprincipal.toCPointer<ByteVar>(), wszcredentials.toCPointer<ByteVar>(), phenablingprincipal.toCPointer<ByteVar>())
+public actual fun dRMCreateEnablingPrincipal(henv: UInt, hlibrary: UInt, wszobject: Pcwstr, pidprincipal: COpaquePointer?, wszcredentials: Pcwstr, phenablingprincipal: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMCreateEnablingPrincipal(henv, hlibrary, wszobject?.value?.toCPointer<ByteVar>(), pidprincipal?.value?.toCPointer<ByteVar>(), wszcredentials?.value?.toCPointer<ByteVar>(), phenablingprincipal?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMCreateIssuanceLicense(psttimefrom: Long, psttimeuntil: Long, wszreferralinfoname: PCWSTR, wszreferralinfourl: PCWSTR, howner: UInt, wszissuancelicense: PCWSTR, hboundlicense: UInt, phissuancelicense: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMCreateIssuanceLicense(psttimefrom.toCPointer<ByteVar>(), psttimeuntil.toCPointer<ByteVar>(), wszreferralinfoname.toCPointer<ByteVar>(), wszreferralinfourl.toCPointer<ByteVar>(), howner, wszissuancelicense.toCPointer<ByteVar>(), hboundlicense, phissuancelicense.toCPointer<ByteVar>())
+public actual fun dRMCreateIssuanceLicense(psttimefrom: COpaquePointer?, psttimeuntil: COpaquePointer?, wszreferralinfoname: Pcwstr, wszreferralinfourl: Pcwstr, howner: UInt, wszissuancelicense: Pcwstr, hboundlicense: UInt, phissuancelicense: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMCreateIssuanceLicense(psttimefrom?.value?.toCPointer<ByteVar>(), psttimeuntil?.value?.toCPointer<ByteVar>(), wszreferralinfoname?.value?.toCPointer<ByteVar>(), wszreferralinfourl?.value?.toCPointer<ByteVar>(), howner, wszissuancelicense?.value?.toCPointer<ByteVar>(), hboundlicense, phissuancelicense?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMCreateLicenseStorageSession(henv: UInt, hdefaultlibrary: UInt, hclient: UInt, uflags: UInt, wszissuancelicense: PCWSTR, phlicensestorage: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMCreateLicenseStorageSession(henv, hdefaultlibrary, hclient, uflags, wszissuancelicense.toCPointer<ByteVar>(), phlicensestorage.toCPointer<ByteVar>())
+public actual fun dRMCreateLicenseStorageSession(henv: UInt, hdefaultlibrary: UInt, hclient: UInt, uflags: UInt, wszissuancelicense: Pcwstr, phlicensestorage: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMCreateLicenseStorageSession(henv, hdefaultlibrary, hclient, uflags, wszissuancelicense?.value?.toCPointer<ByteVar>(), phlicensestorage?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMCreateRight(wszrightname: PCWSTR, pstfrom: Long, pstuntil: Long, cextendedinfo: UInt, pwszextendedinfoname: Long, pwszextendedinfovalue: Long, phright: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMCreateRight(wszrightname.toCPointer<ByteVar>(), pstfrom.toCPointer<ByteVar>(), pstuntil.toCPointer<ByteVar>(), cextendedinfo, pwszextendedinfoname.toCPointer<ByteVar>(), pwszextendedinfovalue.toCPointer<ByteVar>(), phright.toCPointer<ByteVar>())
+public actual fun dRMCreateRight(wszrightname: Pcwstr, pstfrom: COpaquePointer?, pstuntil: COpaquePointer?, cextendedinfo: UInt, pwszextendedinfoname: COpaquePointer?, pwszextendedinfovalue: COpaquePointer?, phright: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMCreateRight(wszrightname?.value?.toCPointer<ByteVar>(), pstfrom?.value?.toCPointer<ByteVar>(), pstuntil?.value?.toCPointer<ByteVar>(), cextendedinfo, pwszextendedinfoname?.value?.toCPointer<ByteVar>(), pwszextendedinfovalue?.value?.toCPointer<ByteVar>(), phright?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMCreateUser(wszusername: PCWSTR, wszuserid: PCWSTR, wszuseridtype: PCWSTR, phuser: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMCreateUser(wszusername.toCPointer<ByteVar>(), wszuserid.toCPointer<ByteVar>(), wszuseridtype.toCPointer<ByteVar>(), phuser.toCPointer<ByteVar>())
+public actual fun dRMCreateUser(wszusername: Pcwstr, wszuserid: Pcwstr, wszuseridtype: Pcwstr, phuser: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMCreateUser(wszusername?.value?.toCPointer<ByteVar>(), wszuserid?.value?.toCPointer<ByteVar>(), wszuseridtype?.value?.toCPointer<ByteVar>(), phuser?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMDecode(wszalgid: PCWSTR, wszencodedstring: PCWSTR, pudecodeddatalen: Long, pbdecodeddata: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMDecode(wszalgid.toCPointer<ByteVar>(), wszencodedstring.toCPointer<ByteVar>(), pudecodeddatalen.toCPointer<ByteVar>(), pbdecodeddata.toCPointer<ByteVar>())
+public actual fun dRMDecode(wszalgid: Pcwstr, wszencodedstring: Pcwstr, pudecodeddatalen: COpaquePointer?, pbdecodeddata: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMDecode(wszalgid?.value?.toCPointer<ByteVar>(), wszencodedstring?.value?.toCPointer<ByteVar>(), pudecodeddatalen?.value?.toCPointer<ByteVar>(), pbdecodeddata?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMDeconstructCertificateChain(wszchain: PCWSTR, iwhich: UInt, pccert: Long, wszcert: PWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMDeconstructCertificateChain(wszchain.toCPointer<ByteVar>(), iwhich, pccert.toCPointer<ByteVar>(), wszcert.toCPointer<ByteVar>())
+public actual fun dRMDeconstructCertificateChain(wszchain: Pcwstr, iwhich: UInt, pccert: COpaquePointer?, wszcert: Pwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMDeconstructCertificateChain(wszchain?.value?.toCPointer<ByteVar>(), iwhich, pccert?.value?.toCPointer<ByteVar>(), wszcert?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMDecrypt(hcryptoprovider: UInt, iposition: UInt, cnuminbytes: UInt, pbindata: Long, pcnumoutbytes: Long, pboutdata: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMDecrypt(hcryptoprovider, iposition, cnuminbytes, pbindata.toCPointer<ByteVar>(), pcnumoutbytes.toCPointer<ByteVar>(), pboutdata.toCPointer<ByteVar>())
+public actual fun dRMDecrypt(hcryptoprovider: UInt, iposition: UInt, cnuminbytes: UInt, pbindata: COpaquePointer?, pcnumoutbytes: COpaquePointer?, pboutdata: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMDecrypt(hcryptoprovider, iposition, cnuminbytes, pbindata?.value?.toCPointer<ByteVar>(), pcnumoutbytes?.value?.toCPointer<ByteVar>(), pboutdata?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMDeleteLicense(hsession: UInt, wszlicenseid: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMDeleteLicense(hsession, wszlicenseid.toCPointer<ByteVar>())
+public actual fun dRMDeleteLicense(hsession: UInt, wszlicenseid: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMDeleteLicense(hsession, wszlicenseid?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMDuplicateEnvironmentHandle(htocopy: UInt, phcopy: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMDuplicateEnvironmentHandle(htocopy, phcopy.toCPointer<ByteVar>())
+public actual fun dRMDuplicateEnvironmentHandle(htocopy: UInt, phcopy: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMDuplicateEnvironmentHandle(htocopy, phcopy?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMDuplicateHandle(htocopy: UInt, phcopy: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMDuplicateHandle(htocopy, phcopy.toCPointer<ByteVar>())
+public actual fun dRMDuplicateHandle(htocopy: UInt, phcopy: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMDuplicateHandle(htocopy, phcopy?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMDuplicatePubHandle(hpubin: UInt, phpubout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMDuplicatePubHandle(hpubin, phpubout.toCPointer<ByteVar>())
+public actual fun dRMDuplicatePubHandle(hpubin: UInt, phpubout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMDuplicatePubHandle(hpubin, phpubout?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMDuplicateSession(hsessionin: UInt, phsessionout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMDuplicateSession(hsessionin, phsessionout.toCPointer<ByteVar>())
+public actual fun dRMDuplicateSession(hsessionin: UInt, phsessionout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMDuplicateSession(hsessionin, phsessionout?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMEncode(wszalgid: PCWSTR, udatalen: UInt, pbdecodeddata: Long, puencodedstringlen: Long, wszencodedstring: PWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMEncode(wszalgid.toCPointer<ByteVar>(), udatalen, pbdecodeddata.toCPointer<ByteVar>(), puencodedstringlen.toCPointer<ByteVar>(), wszencodedstring.toCPointer<ByteVar>())
+public actual fun dRMEncode(wszalgid: Pcwstr, udatalen: UInt, pbdecodeddata: COpaquePointer?, puencodedstringlen: COpaquePointer?, wszencodedstring: Pwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMEncode(wszalgid?.value?.toCPointer<ByteVar>(), udatalen, pbdecodeddata?.value?.toCPointer<ByteVar>(), puencodedstringlen?.value?.toCPointer<ByteVar>(), wszencodedstring?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMEncrypt(hcryptoprovider: UInt, iposition: UInt, cnuminbytes: UInt, pbindata: Long, pcnumoutbytes: Long, pboutdata: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMEncrypt(hcryptoprovider, iposition, cnuminbytes, pbindata.toCPointer<ByteVar>(), pcnumoutbytes.toCPointer<ByteVar>(), pboutdata.toCPointer<ByteVar>())
+public actual fun dRMEncrypt(hcryptoprovider: UInt, iposition: UInt, cnuminbytes: UInt, pbindata: COpaquePointer?, pcnumoutbytes: COpaquePointer?, pboutdata: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMEncrypt(hcryptoprovider, iposition, cnuminbytes, pbindata?.value?.toCPointer<ByteVar>(), pcnumoutbytes?.value?.toCPointer<ByteVar>(), pboutdata?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMEnumerateLicense(hsession: UInt, uflags: UInt, uindex: UInt, pfsharedflag: Long, pucertificatedatalen: Long, wszcertificatedata: PWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMEnumerateLicense(hsession, uflags, uindex, pfsharedflag.toCPointer<ByteVar>(), pucertificatedatalen.toCPointer<ByteVar>(), wszcertificatedata.toCPointer<ByteVar>())
+public actual fun dRMEnumerateLicense(hsession: UInt, uflags: UInt, uindex: UInt, pfsharedflag: COpaquePointer?, pucertificatedatalen: COpaquePointer?, wszcertificatedata: Pwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMEnumerateLicense(hsession, uflags, uindex, pfsharedflag?.value?.toCPointer<ByteVar>(), pucertificatedatalen?.value?.toCPointer<ByteVar>(), wszcertificatedata?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMGetApplicationSpecificData(hissuancelicense: UInt, uindex: UInt, punamelength: Long, wszname: PWSTR, puvaluelength: Long, wszvalue: PWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMGetApplicationSpecificData(hissuancelicense, uindex, punamelength.toCPointer<ByteVar>(), wszname.toCPointer<ByteVar>(), puvaluelength.toCPointer<ByteVar>(), wszvalue.toCPointer<ByteVar>())
+public actual fun dRMGetApplicationSpecificData(hissuancelicense: UInt, uindex: UInt, punamelength: COpaquePointer?, wszname: Pwstr, puvaluelength: COpaquePointer?, wszvalue: Pwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMGetApplicationSpecificData(hissuancelicense, uindex, punamelength?.value?.toCPointer<ByteVar>(), wszname?.value?.toCPointer<ByteVar>(), puvaluelength?.value?.toCPointer<ByteVar>(), wszvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMGetBoundLicenseAttribute(hqueryroot: UInt, wszattribute: PCWSTR, iwhich: UInt, peencoding: Long, pcbuffer: Long, pbbuffer: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMGetBoundLicenseAttribute(hqueryroot, wszattribute.toCPointer<ByteVar>(), iwhich, peencoding.toCPointer<ByteVar>(), pcbuffer.toCPointer<ByteVar>(), pbbuffer.toCPointer<ByteVar>())
+public actual fun dRMGetBoundLicenseAttribute(hqueryroot: UInt, wszattribute: Pcwstr, iwhich: UInt, peencoding: COpaquePointer?, pcbuffer: COpaquePointer?, pbbuffer: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseAttribute(hqueryroot, wszattribute?.value?.toCPointer<ByteVar>(), iwhich, peencoding?.value?.toCPointer<ByteVar>(), pcbuffer?.value?.toCPointer<ByteVar>(), pbbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMGetBoundLicenseAttributeCount(hqueryroot: UInt, wszattribute: PCWSTR, pcattributes: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMGetBoundLicenseAttributeCount(hqueryroot, wszattribute.toCPointer<ByteVar>(), pcattributes.toCPointer<ByteVar>())
+public actual fun dRMGetBoundLicenseAttributeCount(hqueryroot: UInt, wszattribute: Pcwstr, pcattributes: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseAttributeCount(hqueryroot, wszattribute?.value?.toCPointer<ByteVar>(), pcattributes?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMGetBoundLicenseObject(hqueryroot: UInt, wszsubobjecttype: PCWSTR, iwhich: UInt, phsubobject: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMGetBoundLicenseObject(hqueryroot, wszsubobjecttype.toCPointer<ByteVar>(), iwhich, phsubobject.toCPointer<ByteVar>())
+public actual fun dRMGetBoundLicenseObject(hqueryroot: UInt, wszsubobjecttype: Pcwstr, iwhich: UInt, phsubobject: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseObject(hqueryroot, wszsubobjecttype?.value?.toCPointer<ByteVar>(), iwhich, phsubobject?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMGetBoundLicenseObjectCount(hqueryroot: UInt, wszsubobjecttype: PCWSTR, pcsubobjects: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMGetBoundLicenseObjectCount(hqueryroot, wszsubobjecttype.toCPointer<ByteVar>(), pcsubobjects.toCPointer<ByteVar>())
+public actual fun dRMGetBoundLicenseObjectCount(hqueryroot: UInt, wszsubobjecttype: Pcwstr, pcsubobjects: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLicenseObjectCount(hqueryroot, wszsubobjecttype?.value?.toCPointer<ByteVar>(), pcsubobjects?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMGetCertificateChainCount(wszchain: PCWSTR, pccertcount: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMGetCertificateChainCount(wszchain.toCPointer<ByteVar>(), pccertcount.toCPointer<ByteVar>())
+public actual fun dRMGetCertificateChainCount(wszchain: Pcwstr, pccertcount: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMGetCertificateChainCount(wszchain?.value?.toCPointer<ByteVar>(), pccertcount?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMGetClientVersion(pdrmclientversioninfo: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMGetClientVersion(pdrmclientversioninfo.toCPointer<ByteVar>())
+public actual fun dRMGetClientVersion(pdrmclientversioninfo: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMGetClientVersion(pdrmclientversioninfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMGetEnvironmentInfo(handle: UInt, wszattribute: PCWSTR, peencoding: Long, pcbuffer: Long, pbbuffer: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMGetEnvironmentInfo(handle, wszattribute.toCPointer<ByteVar>(), peencoding.toCPointer<ByteVar>(), pcbuffer.toCPointer<ByteVar>(), pbbuffer.toCPointer<ByteVar>())
+public actual fun dRMGetEnvironmentInfo(handle: UInt, wszattribute: Pcwstr, peencoding: COpaquePointer?, pcbuffer: COpaquePointer?, pbbuffer: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMGetEnvironmentInfo(handle, wszattribute?.value?.toCPointer<ByteVar>(), peencoding?.value?.toCPointer<ByteVar>(), pcbuffer?.value?.toCPointer<ByteVar>(), pbbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMGetInfo(handle: UInt, wszattribute: PCWSTR, peencoding: Long, pcbuffer: Long, pbbuffer: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMGetInfo(handle, wszattribute.toCPointer<ByteVar>(), peencoding.toCPointer<ByteVar>(), pcbuffer.toCPointer<ByteVar>(), pbbuffer.toCPointer<ByteVar>())
+public actual fun dRMGetInfo(handle: UInt, wszattribute: Pcwstr, peencoding: COpaquePointer?, pcbuffer: COpaquePointer?, pbbuffer: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMGetInfo(handle, wszattribute?.value?.toCPointer<ByteVar>(), peencoding?.value?.toCPointer<ByteVar>(), pcbuffer?.value?.toCPointer<ByteVar>(), pbbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMGetIntervalTime(hissuancelicense: UInt, pcdays: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMGetIntervalTime(hissuancelicense, pcdays.toCPointer<ByteVar>())
+public actual fun dRMGetIntervalTime(hissuancelicense: UInt, pcdays: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMGetIntervalTime(hissuancelicense, pcdays?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMGetIssuanceLicenseInfo(hissuancelicense: UInt, psttimefrom: Long, psttimeuntil: Long, uflags: UInt, pudistributionpointnamelength: Long, wszdistributionpointname: PWSTR, pudistributionpointurllength: Long, wszdistributionpointurl: PWSTR, phowner: Long, pfofficial: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMGetIssuanceLicenseInfo(hissuancelicense, psttimefrom.toCPointer<ByteVar>(), psttimeuntil.toCPointer<ByteVar>(), uflags, pudistributionpointnamelength.toCPointer<ByteVar>(), wszdistributionpointname.toCPointer<ByteVar>(), pudistributionpointurllength.toCPointer<ByteVar>(), wszdistributionpointurl.toCPointer<ByteVar>(), phowner.toCPointer<ByteVar>(), pfofficial.toCPointer<ByteVar>())
+public actual fun dRMGetIssuanceLicenseInfo(hissuancelicense: UInt, psttimefrom: COpaquePointer?, psttimeuntil: COpaquePointer?, uflags: UInt, pudistributionpointnamelength: COpaquePointer?, wszdistributionpointname: Pwstr, pudistributionpointurllength: COpaquePointer?, wszdistributionpointurl: Pwstr, phowner: COpaquePointer?, pfofficial: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMGetIssuanceLicenseInfo(hissuancelicense, psttimefrom?.value?.toCPointer<ByteVar>(), psttimeuntil?.value?.toCPointer<ByteVar>(), uflags, pudistributionpointnamelength?.value?.toCPointer<ByteVar>(), wszdistributionpointname?.value?.toCPointer<ByteVar>(), pudistributionpointurllength?.value?.toCPointer<ByteVar>(), wszdistributionpointurl?.value?.toCPointer<ByteVar>(), phowner?.value?.toCPointer<ByteVar>(), pfofficial?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMGetIssuanceLicenseTemplate(hissuancelicense: UInt, puissuancelicensetemplatelength: Long, wszissuancelicensetemplate: PWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMGetIssuanceLicenseTemplate(hissuancelicense, puissuancelicensetemplatelength.toCPointer<ByteVar>(), wszissuancelicensetemplate.toCPointer<ByteVar>())
+public actual fun dRMGetIssuanceLicenseTemplate(hissuancelicense: UInt, puissuancelicensetemplatelength: COpaquePointer?, wszissuancelicensetemplate: Pwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMGetIssuanceLicenseTemplate(hissuancelicense, puissuancelicensetemplatelength?.value?.toCPointer<ByteVar>(), wszissuancelicensetemplate?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMGetMetaData(hissuancelicense: UInt, pucontentidlength: Long, wszcontentid: PWSTR, pucontentidtypelength: Long, wszcontentidtype: PWSTR, puskuidlength: Long, wszskuid: PWSTR, puskuidtypelength: Long, wszskuidtype: PWSTR, pucontenttypelength: Long, wszcontenttype: PWSTR, pucontentnamelength: Long, wszcontentname: PWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMGetMetaData(hissuancelicense, pucontentidlength.toCPointer<ByteVar>(), wszcontentid.toCPointer<ByteVar>(), pucontentidtypelength.toCPointer<ByteVar>(), wszcontentidtype.toCPointer<ByteVar>(), puskuidlength.toCPointer<ByteVar>(), wszskuid.toCPointer<ByteVar>(), puskuidtypelength.toCPointer<ByteVar>(), wszskuidtype.toCPointer<ByteVar>(), pucontenttypelength.toCPointer<ByteVar>(), wszcontenttype.toCPointer<ByteVar>(), pucontentnamelength.toCPointer<ByteVar>(), wszcontentname.toCPointer<ByteVar>())
+public actual fun dRMGetMetaData(hissuancelicense: UInt, pucontentidlength: COpaquePointer?, wszcontentid: Pwstr, pucontentidtypelength: COpaquePointer?, wszcontentidtype: Pwstr, puskuidlength: COpaquePointer?, wszskuid: Pwstr, puskuidtypelength: COpaquePointer?, wszskuidtype: Pwstr, pucontenttypelength: COpaquePointer?, wszcontenttype: Pwstr, pucontentnamelength: COpaquePointer?, wszcontentname: Pwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMGetMetaData(hissuancelicense, pucontentidlength?.value?.toCPointer<ByteVar>(), wszcontentid?.value?.toCPointer<ByteVar>(), pucontentidtypelength?.value?.toCPointer<ByteVar>(), wszcontentidtype?.value?.toCPointer<ByteVar>(), puskuidlength?.value?.toCPointer<ByteVar>(), wszskuid?.value?.toCPointer<ByteVar>(), puskuidtypelength?.value?.toCPointer<ByteVar>(), wszskuidtype?.value?.toCPointer<ByteVar>(), pucontenttypelength?.value?.toCPointer<ByteVar>(), wszcontenttype?.value?.toCPointer<ByteVar>(), pucontentnamelength?.value?.toCPointer<ByteVar>(), wszcontentname?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMGetNameAndDescription(hissuancelicense: UInt, uindex: UInt, pulcid: Long, punamelength: Long, wszname: PWSTR, pudescriptionlength: Long, wszdescription: PWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMGetNameAndDescription(hissuancelicense, uindex, pulcid.toCPointer<ByteVar>(), punamelength.toCPointer<ByteVar>(), wszname.toCPointer<ByteVar>(), pudescriptionlength.toCPointer<ByteVar>(), wszdescription.toCPointer<ByteVar>())
+public actual fun dRMGetNameAndDescription(hissuancelicense: UInt, uindex: UInt, pulcid: COpaquePointer?, punamelength: COpaquePointer?, wszname: Pwstr, pudescriptionlength: COpaquePointer?, wszdescription: Pwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMGetNameAndDescription(hissuancelicense, uindex, pulcid?.value?.toCPointer<ByteVar>(), punamelength?.value?.toCPointer<ByteVar>(), wszname?.value?.toCPointer<ByteVar>(), pudescriptionlength?.value?.toCPointer<ByteVar>(), wszdescription?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMGetOwnerLicense(hissuancelicense: UInt, puownerlicenselength: Long, wszownerlicense: PWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMGetOwnerLicense(hissuancelicense, puownerlicenselength.toCPointer<ByteVar>(), wszownerlicense.toCPointer<ByteVar>())
+public actual fun dRMGetOwnerLicense(hissuancelicense: UInt, puownerlicenselength: COpaquePointer?, wszownerlicense: Pwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMGetOwnerLicense(hissuancelicense, puownerlicenselength?.value?.toCPointer<ByteVar>(), wszownerlicense?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMGetProcAddress(hlibrary: UInt, wszprocname: PCWSTR, ppfnprocaddress: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMGetProcAddress(hlibrary, wszprocname.toCPointer<ByteVar>(), ppfnprocaddress.toCPointer<ByteVar>())
+public actual fun dRMGetProcAddress(hlibrary: UInt, wszprocname: Pcwstr, ppfnprocaddress: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMGetProcAddress(hlibrary, wszprocname?.value?.toCPointer<ByteVar>(), ppfnprocaddress?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMGetRevocationPoint(hissuancelicense: UInt, puidlength: Long, wszid: PWSTR, puidtypelength: Long, wszidtype: PWSTR, puurllength: Long, wszrl: PWSTR, pstfrequency: Long, punamelength: Long, wszname: PWSTR, pupublickeylength: Long, wszpublickey: PWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMGetRevocationPoint(hissuancelicense, puidlength.toCPointer<ByteVar>(), wszid.toCPointer<ByteVar>(), puidtypelength.toCPointer<ByteVar>(), wszidtype.toCPointer<ByteVar>(), puurllength.toCPointer<ByteVar>(), wszrl.toCPointer<ByteVar>(), pstfrequency.toCPointer<ByteVar>(), punamelength.toCPointer<ByteVar>(), wszname.toCPointer<ByteVar>(), pupublickeylength.toCPointer<ByteVar>(), wszpublickey.toCPointer<ByteVar>())
+public actual fun dRMGetRevocationPoint(hissuancelicense: UInt, puidlength: COpaquePointer?, wszid: Pwstr, puidtypelength: COpaquePointer?, wszidtype: Pwstr, puurllength: COpaquePointer?, wszrl: Pwstr, pstfrequency: COpaquePointer?, punamelength: COpaquePointer?, wszname: Pwstr, pupublickeylength: COpaquePointer?, wszpublickey: Pwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMGetRevocationPoint(hissuancelicense, puidlength?.value?.toCPointer<ByteVar>(), wszid?.value?.toCPointer<ByteVar>(), puidtypelength?.value?.toCPointer<ByteVar>(), wszidtype?.value?.toCPointer<ByteVar>(), puurllength?.value?.toCPointer<ByteVar>(), wszrl?.value?.toCPointer<ByteVar>(), pstfrequency?.value?.toCPointer<ByteVar>(), punamelength?.value?.toCPointer<ByteVar>(), wszname?.value?.toCPointer<ByteVar>(), pupublickeylength?.value?.toCPointer<ByteVar>(), wszpublickey?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMGetRightExtendedInfo(hright: UInt, uindex: UInt, puextendedinfonamelength: Long, wszextendedinfoname: PWSTR, puextendedinfovaluelength: Long, wszextendedinfovalue: PWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMGetRightExtendedInfo(hright, uindex, puextendedinfonamelength.toCPointer<ByteVar>(), wszextendedinfoname.toCPointer<ByteVar>(), puextendedinfovaluelength.toCPointer<ByteVar>(), wszextendedinfovalue.toCPointer<ByteVar>())
+public actual fun dRMGetRightExtendedInfo(hright: UInt, uindex: UInt, puextendedinfonamelength: COpaquePointer?, wszextendedinfoname: Pwstr, puextendedinfovaluelength: COpaquePointer?, wszextendedinfovalue: Pwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMGetRightExtendedInfo(hright, uindex, puextendedinfonamelength?.value?.toCPointer<ByteVar>(), wszextendedinfoname?.value?.toCPointer<ByteVar>(), puextendedinfovaluelength?.value?.toCPointer<ByteVar>(), wszextendedinfovalue?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMGetRightInfo(hright: UInt, purightnamelength: Long, wszrightname: PWSTR, pstfrom: Long, pstuntil: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMGetRightInfo(hright, purightnamelength.toCPointer<ByteVar>(), wszrightname.toCPointer<ByteVar>(), pstfrom.toCPointer<ByteVar>(), pstuntil.toCPointer<ByteVar>())
+public actual fun dRMGetRightInfo(hright: UInt, purightnamelength: COpaquePointer?, wszrightname: Pwstr, pstfrom: COpaquePointer?, pstuntil: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMGetRightInfo(hright, purightnamelength?.value?.toCPointer<ByteVar>(), wszrightname?.value?.toCPointer<ByteVar>(), pstfrom?.value?.toCPointer<ByteVar>(), pstuntil?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMGetSecurityProvider(uflags: UInt, putypelen: Long, wsztype: PWSTR, pupathlen: Long, wszpath: PWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMGetSecurityProvider(uflags, putypelen.toCPointer<ByteVar>(), wsztype.toCPointer<ByteVar>(), pupathlen.toCPointer<ByteVar>(), wszpath.toCPointer<ByteVar>())
+public actual fun dRMGetSecurityProvider(uflags: UInt, putypelen: COpaquePointer?, wsztype: Pwstr, pupathlen: COpaquePointer?, wszpath: Pwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMGetSecurityProvider(uflags, putypelen?.value?.toCPointer<ByteVar>(), wsztype?.value?.toCPointer<ByteVar>(), pupathlen?.value?.toCPointer<ByteVar>(), wszpath?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMGetServiceLocation(hclient: UInt, uservicetype: UInt, uservicelocation: UInt, wszissuancelicense: PCWSTR, puserviceurllength: Long, wszserviceurl: PWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMGetServiceLocation(hclient, uservicetype, uservicelocation, wszissuancelicense.toCPointer<ByteVar>(), puserviceurllength.toCPointer<ByteVar>(), wszserviceurl.toCPointer<ByteVar>())
+public actual fun dRMGetServiceLocation(hclient: UInt, uservicetype: UInt, uservicelocation: UInt, wszissuancelicense: Pcwstr, puserviceurllength: COpaquePointer?, wszserviceurl: Pwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMGetServiceLocation(hclient, uservicetype, uservicelocation, wszissuancelicense?.value?.toCPointer<ByteVar>(), puserviceurllength?.value?.toCPointer<ByteVar>(), wszserviceurl?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMGetSignedIssuanceLicense(henv: UInt, hissuancelicense: UInt, uflags: UInt, pbsymkey: Long, cbsymkey: UInt, wszsymkeytype: PCWSTR, wszclientlicensorcertificate: PCWSTR, pfncallback: DRMCALLBACK, wszurl: PCWSTR, pvcontext: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMGetSignedIssuanceLicense(henv, hissuancelicense, uflags, pbsymkey.toCPointer<ByteVar>(), cbsymkey, wszsymkeytype.toCPointer<ByteVar>(), wszclientlicensorcertificate.toCPointer<ByteVar>(), pfncallback.toLong().toCPointer<ByteVar>(), wszurl.toCPointer<ByteVar>(), pvcontext.toCPointer<ByteVar>())
+public actual fun dRMGetSignedIssuanceLicense(henv: UInt, hissuancelicense: UInt, uflags: UInt, pbsymkey: COpaquePointer?, cbsymkey: UInt, wszsymkeytype: Pcwstr, wszclientlicensorcertificate: Pcwstr, pfncallback: Drmcallback, wszurl: Pcwstr, pvcontext: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMGetSignedIssuanceLicense(henv, hissuancelicense, uflags, pbsymkey?.value?.toCPointer<ByteVar>(), cbsymkey, wszsymkeytype?.value?.toCPointer<ByteVar>(), wszclientlicensorcertificate?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), wszurl?.value?.toCPointer<ByteVar>(), pvcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMGetSignedIssuanceLicenseEx(henv: UInt, hissuancelicense: UInt, uflags: UInt, pbsymkey: Long, cbsymkey: UInt, wszsymkeytype: PCWSTR, pvreserved: Long, henablingprincipal: UInt, hboundlicenseclc: UInt, pfncallback: DRMCALLBACK, pvcontext: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMGetSignedIssuanceLicenseEx(henv, hissuancelicense, uflags, pbsymkey.toCPointer<ByteVar>(), cbsymkey, wszsymkeytype.toCPointer<ByteVar>(), pvreserved.toCPointer<ByteVar>(), henablingprincipal, hboundlicenseclc, pfncallback.toLong().toCPointer<ByteVar>(), pvcontext.toCPointer<ByteVar>())
+public actual fun dRMGetSignedIssuanceLicenseEx(henv: UInt, hissuancelicense: UInt, uflags: UInt, pbsymkey: COpaquePointer?, cbsymkey: UInt, wszsymkeytype: Pcwstr, pvreserved: COpaquePointer?, henablingprincipal: UInt, hboundlicenseclc: UInt, pfncallback: Drmcallback, pvcontext: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMGetSignedIssuanceLicenseEx(henv, hissuancelicense, uflags, pbsymkey?.value?.toCPointer<ByteVar>(), cbsymkey, wszsymkeytype?.value?.toCPointer<ByteVar>(), pvreserved?.value?.toCPointer<ByteVar>(), henablingprincipal, hboundlicenseclc, 0L.toCPointer<ByteVar>(), pvcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMGetTime(henv: UInt, etimeridtype: DRMTIMETYPE, potimeobject: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMGetTime(henv, etimeridtype, potimeobject.toCPointer<ByteVar>())
+public actual fun dRMGetTime(henv: UInt, etimeridtype: Drmtimetype, potimeobject: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMGetTime(henv, etimeridtype, potimeobject?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMGetUnboundLicenseAttribute(hqueryroot: UInt, wszattributetype: PCWSTR, iwhich: UInt, peencoding: Long, pcbuffer: Long, pbbuffer: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMGetUnboundLicenseAttribute(hqueryroot, wszattributetype.toCPointer<ByteVar>(), iwhich, peencoding.toCPointer<ByteVar>(), pcbuffer.toCPointer<ByteVar>(), pbbuffer.toCPointer<ByteVar>())
+public actual fun dRMGetUnboundLicenseAttribute(hqueryroot: UInt, wszattributetype: Pcwstr, iwhich: UInt, peencoding: COpaquePointer?, pcbuffer: COpaquePointer?, pbbuffer: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseAttribute(hqueryroot, wszattributetype?.value?.toCPointer<ByteVar>(), iwhich, peencoding?.value?.toCPointer<ByteVar>(), pcbuffer?.value?.toCPointer<ByteVar>(), pbbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMGetUnboundLicenseAttributeCount(hqueryroot: UInt, wszattributetype: PCWSTR, pcattributes: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMGetUnboundLicenseAttributeCount(hqueryroot, wszattributetype.toCPointer<ByteVar>(), pcattributes.toCPointer<ByteVar>())
+public actual fun dRMGetUnboundLicenseAttributeCount(hqueryroot: UInt, wszattributetype: Pcwstr, pcattributes: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseAttributeCount(hqueryroot, wszattributetype?.value?.toCPointer<ByteVar>(), pcattributes?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMGetUnboundLicenseObject(hqueryroot: UInt, wszsubobjecttype: PCWSTR, iindex: UInt, phsubquery: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMGetUnboundLicenseObject(hqueryroot, wszsubobjecttype.toCPointer<ByteVar>(), iindex, phsubquery.toCPointer<ByteVar>())
+public actual fun dRMGetUnboundLicenseObject(hqueryroot: UInt, wszsubobjecttype: Pcwstr, iindex: UInt, phsubquery: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseObject(hqueryroot, wszsubobjecttype?.value?.toCPointer<ByteVar>(), iindex, phsubquery?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMGetUnboundLicenseObjectCount(hqueryroot: UInt, wszsubobjecttype: PCWSTR, pcsubobjects: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMGetUnboundLicenseObjectCount(hqueryroot, wszsubobjecttype.toCPointer<ByteVar>(), pcsubobjects.toCPointer<ByteVar>())
+public actual fun dRMGetUnboundLicenseObjectCount(hqueryroot: UInt, wszsubobjecttype: Pcwstr, pcsubobjects: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundLicenseObjectCount(hqueryroot, wszsubobjecttype?.value?.toCPointer<ByteVar>(), pcsubobjects?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMGetUsagePolicy(hissuancelicense: UInt, uindex: UInt, peusagepolicytype: Long, pfexclusion: Long, punamelength: Long, wszname: PWSTR, puminversionlength: Long, wszminversion: PWSTR, pumaxversionlength: Long, wszmaxversion: PWSTR, pupublickeylength: Long, wszpublickey: PWSTR, pudigestalgorithmlength: Long, wszdigestalgorithm: PWSTR, pcbdigest: Long, pbdigest: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMGetUsagePolicy(hissuancelicense, uindex, peusagepolicytype.toCPointer<ByteVar>(), pfexclusion.toCPointer<ByteVar>(), punamelength.toCPointer<ByteVar>(), wszname.toCPointer<ByteVar>(), puminversionlength.toCPointer<ByteVar>(), wszminversion.toCPointer<ByteVar>(), pumaxversionlength.toCPointer<ByteVar>(), wszmaxversion.toCPointer<ByteVar>(), pupublickeylength.toCPointer<ByteVar>(), wszpublickey.toCPointer<ByteVar>(), pudigestalgorithmlength.toCPointer<ByteVar>(), wszdigestalgorithm.toCPointer<ByteVar>(), pcbdigest.toCPointer<ByteVar>(), pbdigest.toCPointer<ByteVar>())
+public actual fun dRMGetUsagePolicy(hissuancelicense: UInt, uindex: UInt, peusagepolicytype: COpaquePointer?, pfexclusion: COpaquePointer?, punamelength: COpaquePointer?, wszname: Pwstr, puminversionlength: COpaquePointer?, wszminversion: Pwstr, pumaxversionlength: COpaquePointer?, wszmaxversion: Pwstr, pupublickeylength: COpaquePointer?, wszpublickey: Pwstr, pudigestalgorithmlength: COpaquePointer?, wszdigestalgorithm: Pwstr, pcbdigest: COpaquePointer?, pbdigest: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMGetUsagePolicy(hissuancelicense, uindex, peusagepolicytype?.value?.toCPointer<ByteVar>(), pfexclusion?.value?.toCPointer<ByteVar>(), punamelength?.value?.toCPointer<ByteVar>(), wszname?.value?.toCPointer<ByteVar>(), puminversionlength?.value?.toCPointer<ByteVar>(), wszminversion?.value?.toCPointer<ByteVar>(), pumaxversionlength?.value?.toCPointer<ByteVar>(), wszmaxversion?.value?.toCPointer<ByteVar>(), pupublickeylength?.value?.toCPointer<ByteVar>(), wszpublickey?.value?.toCPointer<ByteVar>(), pudigestalgorithmlength?.value?.toCPointer<ByteVar>(), wszdigestalgorithm?.value?.toCPointer<ByteVar>(), pcbdigest?.value?.toCPointer<ByteVar>(), pbdigest?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMGetUserInfo(huser: UInt, puusernamelength: Long, wszusername: PWSTR, puuseridlength: Long, wszuserid: PWSTR, puuseridtypelength: Long, wszuseridtype: PWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMGetUserInfo(huser, puusernamelength.toCPointer<ByteVar>(), wszusername.toCPointer<ByteVar>(), puuseridlength.toCPointer<ByteVar>(), wszuserid.toCPointer<ByteVar>(), puuseridtypelength.toCPointer<ByteVar>(), wszuseridtype.toCPointer<ByteVar>())
+public actual fun dRMGetUserInfo(huser: UInt, puusernamelength: COpaquePointer?, wszusername: Pwstr, puuseridlength: COpaquePointer?, wszuserid: Pwstr, puuseridtypelength: COpaquePointer?, wszuseridtype: Pwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMGetUserInfo(huser, puusernamelength?.value?.toCPointer<ByteVar>(), wszusername?.value?.toCPointer<ByteVar>(), puuseridlength?.value?.toCPointer<ByteVar>(), wszuserid?.value?.toCPointer<ByteVar>(), puuseridtypelength?.value?.toCPointer<ByteVar>(), wszuseridtype?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMGetUserRights(hissuancelicense: UInt, huser: UInt, uindex: UInt, phright: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMGetUserRights(hissuancelicense, huser, uindex, phright.toCPointer<ByteVar>())
+public actual fun dRMGetUserRights(hissuancelicense: UInt, huser: UInt, uindex: UInt, phright: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMGetUserRights(hissuancelicense, huser, uindex, phright?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMGetUsers(hissuancelicense: UInt, uindex: UInt, phuser: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMGetUsers(hissuancelicense, uindex, phuser.toCPointer<ByteVar>())
+public actual fun dRMGetUsers(hissuancelicense: UInt, uindex: UInt, phuser: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMGetUsers(hissuancelicense, uindex, phuser?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMInitEnvironment(esecurityprovidertype: DRMSECURITYPROVIDERTYPE, especification: DRMSPECTYPE, wszsecurityprovider: PCWSTR, wszmanifestcredentials: PCWSTR, wszmachinecredentials: PCWSTR, phenv: Long, phdefaultlibrary: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMInitEnvironment(esecurityprovidertype, especification, wszsecurityprovider.toCPointer<ByteVar>(), wszmanifestcredentials.toCPointer<ByteVar>(), wszmachinecredentials.toCPointer<ByteVar>(), phenv.toCPointer<ByteVar>(), phdefaultlibrary.toCPointer<ByteVar>())
+public actual fun dRMInitEnvironment(esecurityprovidertype: Drmsecurityprovidertype, especification: Drmspectype, wszsecurityprovider: Pcwstr, wszmanifestcredentials: Pcwstr, wszmachinecredentials: Pcwstr, phenv: COpaquePointer?, phdefaultlibrary: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMInitEnvironment(esecurityprovidertype, especification, wszsecurityprovider?.value?.toCPointer<ByteVar>(), wszmanifestcredentials?.value?.toCPointer<ByteVar>(), wszmachinecredentials?.value?.toCPointer<ByteVar>(), phenv?.value?.toCPointer<ByteVar>(), phdefaultlibrary?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMIsActivated(hclient: UInt, uflags: UInt, pactservinfo: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMIsActivated(hclient, uflags, pactservinfo.toCPointer<ByteVar>())
+public actual fun dRMIsActivated(hclient: UInt, uflags: UInt, pactservinfo: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMIsActivated(hclient, uflags, pactservinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMIsWindowProtected(hwnd: HWND, pfprotected: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMIsWindowProtected(hwnd.toCPointer<ByteVar>(), pfprotected.toCPointer<ByteVar>())
+public actual fun dRMIsWindowProtected(hwnd: Hwnd, pfprotected: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMIsWindowProtected(hwnd?.value?.toCPointer<ByteVar>(), pfprotected?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMLoadLibrary(henv: UInt, especification: DRMSPECTYPE, wszlibraryprovider: PCWSTR, wszcredentials: PCWSTR, phlibrary: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMLoadLibrary(henv, especification, wszlibraryprovider.toCPointer<ByteVar>(), wszcredentials.toCPointer<ByteVar>(), phlibrary.toCPointer<ByteVar>())
+public actual fun dRMLoadLibrary(henv: UInt, especification: Drmspectype, wszlibraryprovider: Pcwstr, wszcredentials: Pcwstr, phlibrary: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMLoadLibrary(henv, especification, wszlibraryprovider?.value?.toCPointer<ByteVar>(), wszcredentials?.value?.toCPointer<ByteVar>(), phlibrary?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMParseUnboundLicense(wszcertificate: PCWSTR, phqueryroot: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMParseUnboundLicense(wszcertificate.toCPointer<ByteVar>(), phqueryroot.toCPointer<ByteVar>())
+public actual fun dRMParseUnboundLicense(wszcertificate: Pcwstr, phqueryroot: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMParseUnboundLicense(wszcertificate?.value?.toCPointer<ByteVar>(), phqueryroot?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMRegisterContent(fregister: BOOL): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMRegisterContent(fregister)
+public actual fun dRMRegisterContent(fregister: Bool): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMRegisterContent(fregister)
 
-public actual fun DRMRegisterProtectedWindow(henv: UInt, hwnd: HWND): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMRegisterProtectedWindow(henv, hwnd.toCPointer<ByteVar>())
+public actual fun dRMRegisterProtectedWindow(henv: UInt, hwnd: Hwnd): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMRegisterProtectedWindow(henv, hwnd?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMRegisterRevocationList(henv: UInt, wszrevocationlist: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMRegisterRevocationList(henv, wszrevocationlist.toCPointer<ByteVar>())
+public actual fun dRMRegisterRevocationList(henv: UInt, wszrevocationlist: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMRegisterRevocationList(henv, wszrevocationlist?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMRepair(): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMRepair()
+public actual fun dRMRepair(): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMRepair()
 
-public actual fun DRMSetApplicationSpecificData(hissuancelicense: UInt, fdelete: BOOL, wszname: PCWSTR, wszvalue: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMSetApplicationSpecificData(hissuancelicense, fdelete, wszname.toCPointer<ByteVar>(), wszvalue.toCPointer<ByteVar>())
+public actual fun dRMSetApplicationSpecificData(hissuancelicense: UInt, fdelete: Bool, wszname: Pcwstr, wszvalue: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMSetApplicationSpecificData(hissuancelicense, fdelete, wszname?.value?.toCPointer<ByteVar>(), wszvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMSetGlobalOptions(eglobaloptions: DRMGLOBALOPTIONS, pvdata: Long, dwlen: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMSetGlobalOptions(eglobaloptions, pvdata.toCPointer<ByteVar>(), dwlen)
+public actual fun dRMSetGlobalOptions(eglobaloptions: Drmglobaloptions, pvdata: COpaquePointer?, dwlen: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMSetGlobalOptions(eglobaloptions, pvdata?.value?.toCPointer<ByteVar>(), dwlen)
 
-public actual fun DRMSetIntervalTime(hissuancelicense: UInt, cdays: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMSetIntervalTime(hissuancelicense, cdays)
+public actual fun dRMSetIntervalTime(hissuancelicense: UInt, cdays: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMSetIntervalTime(hissuancelicense, cdays)
 
-public actual fun DRMSetMetaData(hissuancelicense: UInt, wszcontentid: PCWSTR, wszcontentidtype: PCWSTR, wszskuid: PCWSTR, wszskuidtype: PCWSTR, wszcontenttype: PCWSTR, wszcontentname: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMSetMetaData(hissuancelicense, wszcontentid.toCPointer<ByteVar>(), wszcontentidtype.toCPointer<ByteVar>(), wszskuid.toCPointer<ByteVar>(), wszskuidtype.toCPointer<ByteVar>(), wszcontenttype.toCPointer<ByteVar>(), wszcontentname.toCPointer<ByteVar>())
+public actual fun dRMSetMetaData(hissuancelicense: UInt, wszcontentid: Pcwstr, wszcontentidtype: Pcwstr, wszskuid: Pcwstr, wszskuidtype: Pcwstr, wszcontenttype: Pcwstr, wszcontentname: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMSetMetaData(hissuancelicense, wszcontentid?.value?.toCPointer<ByteVar>(), wszcontentidtype?.value?.toCPointer<ByteVar>(), wszskuid?.value?.toCPointer<ByteVar>(), wszskuidtype?.value?.toCPointer<ByteVar>(), wszcontenttype?.value?.toCPointer<ByteVar>(), wszcontentname?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMSetNameAndDescription(hissuancelicense: UInt, fdelete: BOOL, lcid: UInt, wszname: PCWSTR, wszdescription: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMSetNameAndDescription(hissuancelicense, fdelete, lcid, wszname.toCPointer<ByteVar>(), wszdescription.toCPointer<ByteVar>())
+public actual fun dRMSetNameAndDescription(hissuancelicense: UInt, fdelete: Bool, lcid: UInt, wszname: Pcwstr, wszdescription: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMSetNameAndDescription(hissuancelicense, fdelete, lcid, wszname?.value?.toCPointer<ByteVar>(), wszdescription?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMSetRevocationPoint(hissuancelicense: UInt, fdelete: BOOL, wszid: PCWSTR, wszidtype: PCWSTR, wszurl: PCWSTR, pstfrequency: Long, wszname: PCWSTR, wszpublickey: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMSetRevocationPoint(hissuancelicense, fdelete, wszid.toCPointer<ByteVar>(), wszidtype.toCPointer<ByteVar>(), wszurl.toCPointer<ByteVar>(), pstfrequency.toCPointer<ByteVar>(), wszname.toCPointer<ByteVar>(), wszpublickey.toCPointer<ByteVar>())
+public actual fun dRMSetRevocationPoint(hissuancelicense: UInt, fdelete: Bool, wszid: Pcwstr, wszidtype: Pcwstr, wszurl: Pcwstr, pstfrequency: COpaquePointer?, wszname: Pcwstr, wszpublickey: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMSetRevocationPoint(hissuancelicense, fdelete, wszid?.value?.toCPointer<ByteVar>(), wszidtype?.value?.toCPointer<ByteVar>(), wszurl?.value?.toCPointer<ByteVar>(), pstfrequency?.value?.toCPointer<ByteVar>(), wszname?.value?.toCPointer<ByteVar>(), wszpublickey?.value?.toCPointer<ByteVar>())
 
-public actual fun DRMSetUsagePolicy(hissuancelicense: UInt, eusagepolicytype: DRM_USAGEPOLICY_TYPE, fdelete: BOOL, fexclusion: BOOL, wszname: PCWSTR, wszminversion: PCWSTR, wszmaxversion: PCWSTR, wszpublickey: PCWSTR, wszdigestalgorithm: PCWSTR, pbdigest: Long, cbdigest: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMSetUsagePolicy(hissuancelicense, eusagepolicytype, fdelete, fexclusion, wszname.toCPointer<ByteVar>(), wszminversion.toCPointer<ByteVar>(), wszmaxversion.toCPointer<ByteVar>(), wszpublickey.toCPointer<ByteVar>(), wszdigestalgorithm.toCPointer<ByteVar>(), pbdigest.toCPointer<ByteVar>(), cbdigest)
+public actual fun dRMSetUsagePolicy(hissuancelicense: UInt, eusagepolicytype: DrmUsagepolicyType, fdelete: Bool, fexclusion: Bool, wszname: Pcwstr, wszminversion: Pcwstr, wszmaxversion: Pcwstr, wszpublickey: Pcwstr, wszdigestalgorithm: Pcwstr, pbdigest: COpaquePointer?, cbdigest: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMSetUsagePolicy(hissuancelicense, eusagepolicytype, fdelete, fexclusion, wszname?.value?.toCPointer<ByteVar>(), wszminversion?.value?.toCPointer<ByteVar>(), wszmaxversion?.value?.toCPointer<ByteVar>(), wszpublickey?.value?.toCPointer<ByteVar>(), wszdigestalgorithm?.value?.toCPointer<ByteVar>(), pbdigest?.value?.toCPointer<ByteVar>(), cbdigest)
 
-public actual fun DRMVerify(wszdata: PCWSTR, pcattesteddata: Long, wszattesteddata: PWSTR, petype: Long, pcprincipal: Long, wszprincipal: PWSTR, pcmanifest: Long, wszmanifest: PWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_DRMVerify(wszdata.toCPointer<ByteVar>(), pcattesteddata.toCPointer<ByteVar>(), wszattesteddata.toCPointer<ByteVar>(), petype.toCPointer<ByteVar>(), pcprincipal.toCPointer<ByteVar>(), wszprincipal.toCPointer<ByteVar>(), pcmanifest.toCPointer<ByteVar>(), wszmanifest.toCPointer<ByteVar>())
+public actual fun dRMVerify(wszdata: Pcwstr, pcattesteddata: COpaquePointer?, wszattesteddata: Pwstr, petype: COpaquePointer?, pcprincipal: COpaquePointer?, wszprincipal: Pwstr, pcmanifest: COpaquePointer?, wszmanifest: Pwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.data.rightsmanagement.cinterop.windowssys_windows_win32_data_rightsmanagement_dRMVerify(wszdata?.value?.toCPointer<ByteVar>(), pcattesteddata?.value?.toCPointer<ByteVar>(), wszattesteddata?.value?.toCPointer<ByteVar>(), petype?.value?.toCPointer<ByteVar>(), pcprincipal?.value?.toCPointer<ByteVar>(), wszprincipal?.value?.toCPointer<ByteVar>(), pcmanifest?.value?.toCPointer<ByteVar>(), wszmanifest?.value?.toCPointer<ByteVar>())

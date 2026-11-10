@@ -2,80 +2,81 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry
 
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WIN32_ERROR
-import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Win32Error
+import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
 
-public actual fun ORCloseHive(handle: ORHKEY): WIN32_ERROR =
-    0u
+public actual fun oRCloseHive(handle: Orhkey): Win32Error =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ORCloseKey(keyhandle: ORHKEY): WIN32_ERROR =
-    0u
+public actual fun oRCloseKey(keyhandle: Orhkey): Win32Error =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ORCreateHive(horkey: Long): WIN32_ERROR =
-    0u
+public actual fun oRCreateHive(horkey: COpaquePointer?): Win32Error =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ORCreateKey(keyhandle: ORHKEY, lpsubkey: PCWSTR, lpclass: PCWSTR, dwoptions: UInt, psecuritydescriptor: PSECURITY_DESCRIPTOR, phkresult: Long, pdwdisposition: Long): WIN32_ERROR =
-    0u
+public actual fun oRCreateKey(keyhandle: Orhkey, lpsubkey: Pcwstr, lpclass: Pcwstr, dwoptions: UInt, psecuritydescriptor: PsecurityDescriptor, phkresult: COpaquePointer?, pdwdisposition: COpaquePointer?): Win32Error =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ORDeleteKey(handle: ORHKEY, lpsubkey: PCWSTR): WIN32_ERROR =
-    0u
+public actual fun oRDeleteKey(handle: Orhkey, lpsubkey: Pcwstr): Win32Error =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ORDeleteValue(handle: ORHKEY, lpvaluename: PCWSTR): WIN32_ERROR =
-    0u
+public actual fun oRDeleteValue(handle: Orhkey, lpvaluename: Pcwstr): Win32Error =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OREnumKey(handle: ORHKEY, dwindex: UInt, lpname: PWSTR, lpcname: Long, lpclass: PWSTR, lpcclass: Long, lpftlastwritetime: Long): WIN32_ERROR =
-    0u
+public actual fun oREnumKey(handle: Orhkey, dwindex: UInt, lpname: Pwstr, lpcname: COpaquePointer?, lpclass: Pwstr, lpcclass: COpaquePointer?, lpftlastwritetime: COpaquePointer?): Win32Error =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OREnumValue(handle: ORHKEY, dwindex: UInt, lpvaluename: PWSTR, lpcvaluename: Long, lptype: Long, lpdata: Long, lpcbdata: Long): WIN32_ERROR =
-    0u
+public actual fun oREnumValue(handle: Orhkey, dwindex: UInt, lpvaluename: Pwstr, lpcvaluename: COpaquePointer?, lptype: COpaquePointer?, lpdata: COpaquePointer?, lpcbdata: COpaquePointer?): Win32Error =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ORGetKeySecurity(handle: ORHKEY, securityinformation: UInt, psecuritydescriptor: PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: Long): WIN32_ERROR =
-    0u
+public actual fun oRGetKeySecurity(handle: Orhkey, securityinformation: UInt, psecuritydescriptor: PsecurityDescriptor, lpcbsecuritydescriptor: COpaquePointer?): Win32Error =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ORGetValue(handle: ORHKEY, lpsubkey: PCWSTR, lpvalue: PCWSTR, pdwtype: Long, pvdata: Long, pcbdata: Long): WIN32_ERROR =
-    0u
+public actual fun oRGetValue(handle: Orhkey, lpsubkey: Pcwstr, lpvalue: Pcwstr, pdwtype: COpaquePointer?, pvdata: COpaquePointer?, pcbdata: COpaquePointer?): Win32Error =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ORGetVersion(pdwmajorversion: Long, pdwminorversion: Long): WIN32_ERROR =
-    0u
+public actual fun oRGetVersion(pdwmajorversion: COpaquePointer?, pdwminorversion: COpaquePointer?): Win32Error =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ORGetVirtualFlags(handle: ORHKEY, pdwflags: Long): WIN32_ERROR =
-    0u
+public actual fun oRGetVirtualFlags(handle: Orhkey, pdwflags: COpaquePointer?): Win32Error =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ORMergeHives(hivehandles: Long, hivecount: UInt, phkresult: Long): WIN32_ERROR =
-    0u
+public actual fun oRMergeHives(hivehandles: COpaquePointer?, hivecount: UInt, phkresult: COpaquePointer?): Win32Error =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OROpenHive(filepath: PCWSTR, horkey: Long): WIN32_ERROR =
-    0u
+public actual fun oROpenHive(filepath: Pcwstr, horkey: COpaquePointer?): Win32Error =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OROpenHiveByHandle(filehandle: HANDLE, horkey: Long): WIN32_ERROR =
-    0u
+public actual fun oROpenHiveByHandle(filehandle: Handle, horkey: COpaquePointer?): Win32Error =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun OROpenKey(handle: ORHKEY, lpsubkey: PCWSTR, phkresult: Long): WIN32_ERROR =
-    0u
+public actual fun oROpenKey(handle: Orhkey, lpsubkey: Pcwstr, phkresult: COpaquePointer?): Win32Error =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ORQueryInfoKey(handle: ORHKEY, lpclass: PWSTR, lpcclass: Long, lpcsubkeys: Long, lpcmaxsubkeylen: Long, lpcmaxclasslen: Long, lpcvalues: Long, lpcmaxvaluenamelen: Long, lpcmaxvaluelen: Long, lpcbsecuritydescriptor: Long, lpftlastwritetime: Long): WIN32_ERROR =
-    0u
+public actual fun oRQueryInfoKey(handle: Orhkey, lpclass: Pwstr, lpcclass: COpaquePointer?, lpcsubkeys: COpaquePointer?, lpcmaxsubkeylen: COpaquePointer?, lpcmaxclasslen: COpaquePointer?, lpcvalues: COpaquePointer?, lpcmaxvaluenamelen: COpaquePointer?, lpcmaxvaluelen: COpaquePointer?, lpcbsecuritydescriptor: COpaquePointer?, lpftlastwritetime: COpaquePointer?): Win32Error =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ORRenameKey(handle: ORHKEY, lpnewname: PCWSTR): WIN32_ERROR =
-    0u
+public actual fun oRRenameKey(handle: Orhkey, lpnewname: Pcwstr): Win32Error =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ORSaveHive(horkey: ORHKEY, hivepath: PCWSTR, osmajorversion: UInt, osminorversion: UInt): WIN32_ERROR =
-    0u
+public actual fun oRSaveHive(horkey: Orhkey, hivepath: Pcwstr, osmajorversion: UInt, osminorversion: UInt): Win32Error =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ORSetKeySecurity(handle: ORHKEY, securityinformation: UInt, psecuritydescriptor: PSECURITY_DESCRIPTOR): WIN32_ERROR =
-    0u
+public actual fun oRSetKeySecurity(handle: Orhkey, securityinformation: UInt, psecuritydescriptor: PsecurityDescriptor): Win32Error =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ORSetValue(handle: ORHKEY, lpvaluename: PCWSTR, dwtype: UInt, lpdata: Long, cbdata: UInt): WIN32_ERROR =
-    0u
+public actual fun oRSetValue(handle: Orhkey, lpvaluename: Pcwstr, dwtype: UInt, lpdata: COpaquePointer?, cbdata: UInt): Win32Error =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ORSetVirtualFlags(handle: ORHKEY, dwflags: UInt): WIN32_ERROR =
-    0u
+public actual fun oRSetVirtualFlags(handle: Orhkey, dwflags: UInt): Win32Error =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ORShutdown(): WIN32_ERROR =
-    0u
+public actual fun oRShutdown(): Win32Error =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ORStart(): WIN32_ERROR =
-    0u
+public actual fun oRStart(): Win32Error =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

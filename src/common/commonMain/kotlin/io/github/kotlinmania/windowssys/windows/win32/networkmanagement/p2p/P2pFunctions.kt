@@ -1,408 +1,409 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.p2p
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 
-public expect fun DrtClose(hdrt: Long)
+public expect fun drtClose(hdrt: COpaquePointer?)
 
-public expect fun DrtContinueSearch(hsearchcontext: Long): HRESULT
+public expect fun drtContinueSearch(hsearchcontext: COpaquePointer?): Hresult
 
-public expect fun DrtCreateDerivedKey(plocalcert: Long, pkey: Long): HRESULT
+public expect fun drtCreateDerivedKey(plocalcert: COpaquePointer?, pkey: COpaquePointer?): Hresult
 
-public expect fun DrtCreateDerivedKeySecurityProvider(prootcert: Long, plocalcert: Long, ppsecurityprovider: Long): HRESULT
+public expect fun drtCreateDerivedKeySecurityProvider(prootcert: COpaquePointer?, plocalcert: COpaquePointer?, ppsecurityprovider: COpaquePointer?): Hresult
 
-public expect fun DrtCreateDnsBootstrapResolver(port: UShort, pwszaddress: PCWSTR, ppmodule: Long): HRESULT
+public expect fun drtCreateDnsBootstrapResolver(port: UShort, pwszaddress: Pcwstr, ppmodule: COpaquePointer?): Hresult
 
-public expect fun DrtCreateIpv6UdpTransport(scope: DRT_SCOPE, dwscopeid: UInt, dwlocalitythreshold: UInt, pwport: Long, phtransport: Long): HRESULT
+public expect fun drtCreateIpv6UdpTransport(scope: DrtScope, dwscopeid: UInt, dwlocalitythreshold: UInt, pwport: COpaquePointer?, phtransport: COpaquePointer?): Hresult
 
-public expect fun DrtCreateNullSecurityProvider(ppsecurityprovider: Long): HRESULT
+public expect fun drtCreateNullSecurityProvider(ppsecurityprovider: COpaquePointer?): Hresult
 
-public expect fun DrtCreatePnrpBootstrapResolver(fpublish: BOOL, pwzpeername: PCWSTR, pwzcloudname: PCWSTR, pwzpublishingidentity: PCWSTR, ppresolver: Long): HRESULT
+public expect fun drtCreatePnrpBootstrapResolver(fpublish: Bool, pwzpeername: Pcwstr, pwzcloudname: Pcwstr, pwzpublishingidentity: Pcwstr, ppresolver: COpaquePointer?): Hresult
 
-public expect fun DrtDeleteDerivedKeySecurityProvider(psecurityprovider: Long)
+public expect fun drtDeleteDerivedKeySecurityProvider(psecurityprovider: COpaquePointer?)
 
-public expect fun DrtDeleteDnsBootstrapResolver(presolver: Long)
+public expect fun drtDeleteDnsBootstrapResolver(presolver: COpaquePointer?)
 
-public expect fun DrtDeleteIpv6UdpTransport(htransport: Long): HRESULT
+public expect fun drtDeleteIpv6UdpTransport(htransport: COpaquePointer?): Hresult
 
-public expect fun DrtDeleteNullSecurityProvider(psecurityprovider: Long)
+public expect fun drtDeleteNullSecurityProvider(psecurityprovider: COpaquePointer?)
 
-public expect fun DrtDeletePnrpBootstrapResolver(presolver: Long)
+public expect fun drtDeletePnrpBootstrapResolver(presolver: COpaquePointer?)
 
-public expect fun DrtEndSearch(hsearchcontext: Long): HRESULT
+public expect fun drtEndSearch(hsearchcontext: COpaquePointer?): Hresult
 
-public expect fun DrtGetEventData(hdrt: Long, uleventdatalen: UInt, peventdata: Long): HRESULT
+public expect fun drtGetEventData(hdrt: COpaquePointer?, uleventdatalen: UInt, peventdata: COpaquePointer?): Hresult
 
-public expect fun DrtGetEventDataSize(hdrt: Long, puleventdatalen: Long): HRESULT
+public expect fun drtGetEventDataSize(hdrt: COpaquePointer?, puleventdatalen: COpaquePointer?): Hresult
 
-public expect fun DrtGetInstanceName(hdrt: Long, ulcbinstancenamesize: UInt, pwzdrtinstancename: PWSTR): HRESULT
+public expect fun drtGetInstanceName(hdrt: COpaquePointer?, ulcbinstancenamesize: UInt, pwzdrtinstancename: Pwstr): Hresult
 
-public expect fun DrtGetInstanceNameSize(hdrt: Long, pulcbinstancenamesize: Long): HRESULT
+public expect fun drtGetInstanceNameSize(hdrt: COpaquePointer?, pulcbinstancenamesize: COpaquePointer?): Hresult
 
-public expect fun DrtGetSearchPath(hsearchcontext: Long, ulsearchpathsize: UInt, psearchpath: Long): HRESULT
+public expect fun drtGetSearchPath(hsearchcontext: COpaquePointer?, ulsearchpathsize: UInt, psearchpath: COpaquePointer?): Hresult
 
-public expect fun DrtGetSearchPathSize(hsearchcontext: Long, pulsearchpathsize: Long): HRESULT
+public expect fun drtGetSearchPathSize(hsearchcontext: COpaquePointer?, pulsearchpathsize: COpaquePointer?): Hresult
 
-public expect fun DrtGetSearchResult(hsearchcontext: Long, ulsearchresultsize: UInt, psearchresult: Long): HRESULT
+public expect fun drtGetSearchResult(hsearchcontext: COpaquePointer?, ulsearchresultsize: UInt, psearchresult: COpaquePointer?): Hresult
 
-public expect fun DrtGetSearchResultSize(hsearchcontext: Long, pulsearchresultsize: Long): HRESULT
+public expect fun drtGetSearchResultSize(hsearchcontext: COpaquePointer?, pulsearchresultsize: COpaquePointer?): Hresult
 
-public expect fun DrtOpen(psettings: Long, hevent: HANDLE, pvcontext: Long, phdrt: Long): HRESULT
+public expect fun drtOpen(psettings: COpaquePointer?, hevent: Handle, pvcontext: COpaquePointer?, phdrt: COpaquePointer?): Hresult
 
-public expect fun DrtRegisterKey(hdrt: Long, pregistration: Long, pvkeycontext: Long, phkeyregistration: Long): HRESULT
+public expect fun drtRegisterKey(hdrt: COpaquePointer?, pregistration: COpaquePointer?, pvkeycontext: COpaquePointer?, phkeyregistration: COpaquePointer?): Hresult
 
-public expect fun DrtStartSearch(hdrt: Long, pkey: Long, pinfo: Long, timeout: UInt, hevent: HANDLE, pvcontext: Long, hsearchcontext: Long): HRESULT
+public expect fun drtStartSearch(hdrt: COpaquePointer?, pkey: COpaquePointer?, pinfo: COpaquePointer?, timeout: UInt, hevent: Handle, pvcontext: COpaquePointer?, hsearchcontext: COpaquePointer?): Hresult
 
-public expect fun DrtUnregisterKey(hkeyregistration: Long)
+public expect fun drtUnregisterKey(hkeyregistration: COpaquePointer?)
 
-public expect fun DrtUpdateKey(hkeyregistration: Long, pappdata: Long): HRESULT
+public expect fun drtUpdateKey(hkeyregistration: COpaquePointer?, pappdata: COpaquePointer?): Hresult
 
-public expect fun PeerCollabAddContact(pwzcontactdata: PCWSTR, ppcontact: Long): HRESULT
+public expect fun peerCollabAddContact(pwzcontactdata: Pcwstr, ppcontact: COpaquePointer?): Hresult
 
-public expect fun PeerCollabAsyncInviteContact(pccontact: Long, pcendpoint: Long, pcinvitation: Long, hevent: HANDLE, phinvitation: Long): HRESULT
+public expect fun peerCollabAsyncInviteContact(pccontact: COpaquePointer?, pcendpoint: COpaquePointer?, pcinvitation: COpaquePointer?, hevent: Handle, phinvitation: COpaquePointer?): Hresult
 
-public expect fun PeerCollabAsyncInviteEndpoint(pcendpoint: Long, pcinvitation: Long, hevent: HANDLE, phinvitation: Long): HRESULT
+public expect fun peerCollabAsyncInviteEndpoint(pcendpoint: COpaquePointer?, pcinvitation: COpaquePointer?, hevent: Handle, phinvitation: COpaquePointer?): Hresult
 
-public expect fun PeerCollabCancelInvitation(hinvitation: HANDLE): HRESULT
+public expect fun peerCollabCancelInvitation(hinvitation: Handle): Hresult
 
-public expect fun PeerCollabCloseHandle(hinvitation: HANDLE): HRESULT
+public expect fun peerCollabCloseHandle(hinvitation: Handle): Hresult
 
-public expect fun PeerCollabDeleteContact(pwzpeername: PCWSTR): HRESULT
+public expect fun peerCollabDeleteContact(pwzpeername: Pcwstr): Hresult
 
-public expect fun PeerCollabDeleteEndpointData(pcendpoint: Long): HRESULT
+public expect fun peerCollabDeleteEndpointData(pcendpoint: COpaquePointer?): Hresult
 
-public expect fun PeerCollabDeleteObject(pobjectid: Long): HRESULT
+public expect fun peerCollabDeleteObject(pobjectid: COpaquePointer?): Hresult
 
-public expect fun PeerCollabEnumApplicationRegistrationInfo(registrationtype: PEER_APPLICATION_REGISTRATION_TYPE, phpeerenum: Long): HRESULT
+public expect fun peerCollabEnumApplicationRegistrationInfo(registrationtype: PeerApplicationRegistrationType, phpeerenum: COpaquePointer?): Hresult
 
-public expect fun PeerCollabEnumApplications(pcendpoint: Long, papplicationid: Long, phpeerenum: Long): HRESULT
+public expect fun peerCollabEnumApplications(pcendpoint: COpaquePointer?, papplicationid: COpaquePointer?, phpeerenum: COpaquePointer?): Hresult
 
-public expect fun PeerCollabEnumContacts(phpeerenum: Long): HRESULT
+public expect fun peerCollabEnumContacts(phpeerenum: COpaquePointer?): Hresult
 
-public expect fun PeerCollabEnumEndpoints(pccontact: Long, phpeerenum: Long): HRESULT
+public expect fun peerCollabEnumEndpoints(pccontact: COpaquePointer?, phpeerenum: COpaquePointer?): Hresult
 
-public expect fun PeerCollabEnumObjects(pcendpoint: Long, pobjectid: Long, phpeerenum: Long): HRESULT
+public expect fun peerCollabEnumObjects(pcendpoint: COpaquePointer?, pobjectid: COpaquePointer?, phpeerenum: COpaquePointer?): Hresult
 
-public expect fun PeerCollabEnumPeopleNearMe(phpeerenum: Long): HRESULT
+public expect fun peerCollabEnumPeopleNearMe(phpeerenum: COpaquePointer?): Hresult
 
-public expect fun PeerCollabExportContact(pwzpeername: PCWSTR, ppwzcontactdata: Long): HRESULT
+public expect fun peerCollabExportContact(pwzpeername: Pcwstr, ppwzcontactdata: COpaquePointer?): Hresult
 
-public expect fun PeerCollabGetAppLaunchInfo(pplaunchinfo: Long): HRESULT
+public expect fun peerCollabGetAppLaunchInfo(pplaunchinfo: COpaquePointer?): Hresult
 
-public expect fun PeerCollabGetApplicationRegistrationInfo(papplicationid: Long, registrationtype: PEER_APPLICATION_REGISTRATION_TYPE, ppapplication: Long): HRESULT
+public expect fun peerCollabGetApplicationRegistrationInfo(papplicationid: COpaquePointer?, registrationtype: PeerApplicationRegistrationType, ppapplication: COpaquePointer?): Hresult
 
-public expect fun PeerCollabGetContact(pwzpeername: PCWSTR, ppcontact: Long): HRESULT
+public expect fun peerCollabGetContact(pwzpeername: Pcwstr, ppcontact: COpaquePointer?): Hresult
 
-public expect fun PeerCollabGetEndpointName(ppwzendpointname: Long): HRESULT
+public expect fun peerCollabGetEndpointName(ppwzendpointname: COpaquePointer?): Hresult
 
-public expect fun PeerCollabGetEventData(hpeerevent: Long, ppeventdata: Long): HRESULT
+public expect fun peerCollabGetEventData(hpeerevent: COpaquePointer?, ppeventdata: COpaquePointer?): Hresult
 
-public expect fun PeerCollabGetInvitationResponse(hinvitation: HANDLE, ppinvitationresponse: Long): HRESULT
+public expect fun peerCollabGetInvitationResponse(hinvitation: Handle, ppinvitationresponse: COpaquePointer?): Hresult
 
-public expect fun PeerCollabGetPresenceInfo(pcendpoint: Long, pppresenceinfo: Long): HRESULT
+public expect fun peerCollabGetPresenceInfo(pcendpoint: COpaquePointer?, pppresenceinfo: COpaquePointer?): Hresult
 
-public expect fun PeerCollabGetSigninOptions(pdwsigninoptions: Long): HRESULT
+public expect fun peerCollabGetSigninOptions(pdwsigninoptions: COpaquePointer?): Hresult
 
-public expect fun PeerCollabInviteContact(pccontact: Long, pcendpoint: Long, pcinvitation: Long, ppresponse: Long): HRESULT
+public expect fun peerCollabInviteContact(pccontact: COpaquePointer?, pcendpoint: COpaquePointer?, pcinvitation: COpaquePointer?, ppresponse: COpaquePointer?): Hresult
 
-public expect fun PeerCollabInviteEndpoint(pcendpoint: Long, pcinvitation: Long, ppresponse: Long): HRESULT
+public expect fun peerCollabInviteEndpoint(pcendpoint: COpaquePointer?, pcinvitation: COpaquePointer?, ppresponse: COpaquePointer?): Hresult
 
-public expect fun PeerCollabParseContact(pwzcontactdata: PCWSTR, ppcontact: Long): HRESULT
+public expect fun peerCollabParseContact(pwzcontactdata: Pcwstr, ppcontact: COpaquePointer?): Hresult
 
-public expect fun PeerCollabQueryContactData(pcendpoint: Long, ppwzcontactdata: Long): HRESULT
+public expect fun peerCollabQueryContactData(pcendpoint: COpaquePointer?, ppwzcontactdata: COpaquePointer?): Hresult
 
-public expect fun PeerCollabRefreshEndpointData(pcendpoint: Long): HRESULT
+public expect fun peerCollabRefreshEndpointData(pcendpoint: COpaquePointer?): Hresult
 
-public expect fun PeerCollabRegisterApplication(pcapplication: Long, registrationtype: PEER_APPLICATION_REGISTRATION_TYPE): HRESULT
+public expect fun peerCollabRegisterApplication(pcapplication: COpaquePointer?, registrationtype: PeerApplicationRegistrationType): Hresult
 
-public expect fun PeerCollabRegisterEvent(hevent: HANDLE, ceventregistration: UInt, peventregistrations: Long, phpeerevent: Long): HRESULT
+public expect fun peerCollabRegisterEvent(hevent: Handle, ceventregistration: UInt, peventregistrations: COpaquePointer?, phpeerevent: COpaquePointer?): Hresult
 
-public expect fun PeerCollabSetEndpointName(pwzendpointname: PCWSTR): HRESULT
+public expect fun peerCollabSetEndpointName(pwzendpointname: Pcwstr): Hresult
 
-public expect fun PeerCollabSetObject(pcobject: Long): HRESULT
+public expect fun peerCollabSetObject(pcobject: COpaquePointer?): Hresult
 
-public expect fun PeerCollabSetPresenceInfo(pcpresenceinfo: Long): HRESULT
+public expect fun peerCollabSetPresenceInfo(pcpresenceinfo: COpaquePointer?): Hresult
 
-public expect fun PeerCollabShutdown(): HRESULT
+public expect fun peerCollabShutdown(): Hresult
 
-public expect fun PeerCollabSignin(hwndparent: HWND, dwsigninoptions: UInt): HRESULT
+public expect fun peerCollabSignin(hwndparent: Hwnd, dwsigninoptions: UInt): Hresult
 
-public expect fun PeerCollabSignout(dwsigninoptions: UInt): HRESULT
+public expect fun peerCollabSignout(dwsigninoptions: UInt): Hresult
 
-public expect fun PeerCollabStartup(wversionrequested: UShort): HRESULT
+public expect fun peerCollabStartup(wversionrequested: UShort): Hresult
 
-public expect fun PeerCollabSubscribeEndpointData(pcendpoint: Long): HRESULT
+public expect fun peerCollabSubscribeEndpointData(pcendpoint: COpaquePointer?): Hresult
 
-public expect fun PeerCollabUnregisterApplication(papplicationid: Long, registrationtype: PEER_APPLICATION_REGISTRATION_TYPE): HRESULT
+public expect fun peerCollabUnregisterApplication(papplicationid: COpaquePointer?, registrationtype: PeerApplicationRegistrationType): Hresult
 
-public expect fun PeerCollabUnregisterEvent(hpeerevent: Long): HRESULT
+public expect fun peerCollabUnregisterEvent(hpeerevent: COpaquePointer?): Hresult
 
-public expect fun PeerCollabUnsubscribeEndpointData(pcendpoint: Long): HRESULT
+public expect fun peerCollabUnsubscribeEndpointData(pcendpoint: COpaquePointer?): Hresult
 
-public expect fun PeerCollabUpdateContact(pcontact: Long): HRESULT
+public expect fun peerCollabUpdateContact(pcontact: COpaquePointer?): Hresult
 
-public expect fun PeerCreatePeerName(pwzidentity: PCWSTR, pwzclassifier: PCWSTR, ppwzpeername: Long): HRESULT
+public expect fun peerCreatePeerName(pwzidentity: Pcwstr, pwzclassifier: Pcwstr, ppwzpeername: COpaquePointer?): Hresult
 
-public expect fun PeerDistClientAddContentInformation(hpeerdist: Long, hcontenthandle: Long, cbnumberofbytes: UInt, pbuffer: Long, lpoverlapped: Long): UInt
+public expect fun peerDistClientAddContentInformation(hpeerdist: Long, hcontenthandle: Long, cbnumberofbytes: UInt, pbuffer: COpaquePointer?, lpoverlapped: COpaquePointer?): UInt
 
-public expect fun PeerDistClientAddData(hpeerdist: Long, hcontenthandle: Long, cbnumberofbytes: UInt, pbuffer: Long, lpoverlapped: Long): UInt
+public expect fun peerDistClientAddData(hpeerdist: Long, hcontenthandle: Long, cbnumberofbytes: UInt, pbuffer: COpaquePointer?, lpoverlapped: COpaquePointer?): UInt
 
-public expect fun PeerDistClientBlockRead(hpeerdist: Long, hcontenthandle: Long, cbmaxnumberofbytes: UInt, pbuffer: Long, dwtimeoutinmilliseconds: UInt, lpoverlapped: Long): UInt
+public expect fun peerDistClientBlockRead(hpeerdist: Long, hcontenthandle: Long, cbmaxnumberofbytes: UInt, pbuffer: COpaquePointer?, dwtimeoutinmilliseconds: UInt, lpoverlapped: COpaquePointer?): UInt
 
-public expect fun PeerDistClientCancelAsyncOperation(hpeerdist: Long, hcontenthandle: Long, poverlapped: Long): UInt
+public expect fun peerDistClientCancelAsyncOperation(hpeerdist: Long, hcontenthandle: Long, poverlapped: COpaquePointer?): UInt
 
-public expect fun PeerDistClientCloseContent(hpeerdist: Long, hcontenthandle: Long): UInt
+public expect fun peerDistClientCloseContent(hpeerdist: Long, hcontenthandle: Long): UInt
 
-public expect fun PeerDistClientCompleteContentInformation(hpeerdist: Long, hcontenthandle: Long, lpoverlapped: Long): UInt
+public expect fun peerDistClientCompleteContentInformation(hpeerdist: Long, hcontenthandle: Long, lpoverlapped: COpaquePointer?): UInt
 
-public expect fun PeerDistClientFlushContent(hpeerdist: Long, pcontenttag: Long, hcompletionport: HANDLE, ulcompletionkey: ULong, lpoverlapped: Long): UInt
+public expect fun peerDistClientFlushContent(hpeerdist: Long, pcontenttag: COpaquePointer?, hcompletionport: Handle, ulcompletionkey: ULong, lpoverlapped: COpaquePointer?): UInt
 
-public expect fun PeerDistClientGetInformationByHandle(hpeerdist: Long, hcontenthandle: Long, peerdistclientinfoclass: PEERDIST_CLIENT_INFO_BY_HANDLE_CLASS, dwbuffersize: UInt, lpinformation: Long): UInt
+public expect fun peerDistClientGetInformationByHandle(hpeerdist: Long, hcontenthandle: Long, peerdistclientinfoclass: PeerdistClientInfoByHandleClass, dwbuffersize: UInt, lpinformation: COpaquePointer?): UInt
 
-public expect fun PeerDistClientOpenContent(hpeerdist: Long, pcontenttag: Long, hcompletionport: HANDLE, ulcompletionkey: ULong, phcontenthandle: Long): UInt
+public expect fun peerDistClientOpenContent(hpeerdist: Long, pcontenttag: COpaquePointer?, hcompletionport: Handle, ulcompletionkey: ULong, phcontenthandle: COpaquePointer?): UInt
 
-public expect fun PeerDistClientStreamRead(hpeerdist: Long, hcontenthandle: Long, cbmaxnumberofbytes: UInt, pbuffer: Long, dwtimeoutinmilliseconds: UInt, lpoverlapped: Long): UInt
+public expect fun peerDistClientStreamRead(hpeerdist: Long, hcontenthandle: Long, cbmaxnumberofbytes: UInt, pbuffer: COpaquePointer?, dwtimeoutinmilliseconds: UInt, lpoverlapped: COpaquePointer?): UInt
 
-public expect fun PeerDistGetOverlappedResult(lpoverlapped: Long, lpnumberofbytestransferred: Long, bwait: BOOL): BOOL
+public expect fun peerDistGetOverlappedResult(lpoverlapped: COpaquePointer?, lpnumberofbytestransferred: COpaquePointer?, bwait: Bool): Bool
 
-public expect fun PeerDistGetStatus(hpeerdist: Long, ppeerdiststatus: Long): UInt
+public expect fun peerDistGetStatus(hpeerdist: Long, ppeerdiststatus: COpaquePointer?): UInt
 
-public expect fun PeerDistGetStatusEx(hpeerdist: Long, ppeerdiststatus: Long): UInt
+public expect fun peerDistGetStatusEx(hpeerdist: Long, ppeerdiststatus: COpaquePointer?): UInt
 
-public expect fun PeerDistRegisterForStatusChangeNotification(hpeerdist: Long, hcompletionport: HANDLE, ulcompletionkey: ULong, lpoverlapped: Long, ppeerdiststatus: Long): UInt
+public expect fun peerDistRegisterForStatusChangeNotification(hpeerdist: Long, hcompletionport: Handle, ulcompletionkey: ULong, lpoverlapped: COpaquePointer?, ppeerdiststatus: COpaquePointer?): UInt
 
-public expect fun PeerDistRegisterForStatusChangeNotificationEx(hpeerdist: Long, hcompletionport: HANDLE, ulcompletionkey: ULong, lpoverlapped: Long, ppeerdiststatus: Long): UInt
+public expect fun peerDistRegisterForStatusChangeNotificationEx(hpeerdist: Long, hcompletionport: Handle, ulcompletionkey: ULong, lpoverlapped: COpaquePointer?, ppeerdiststatus: COpaquePointer?): UInt
 
-public expect fun PeerDistServerCancelAsyncOperation(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: Long, poverlapped: Long): UInt
+public expect fun peerDistServerCancelAsyncOperation(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: COpaquePointer?, poverlapped: COpaquePointer?): UInt
 
-public expect fun PeerDistServerCloseContentInformation(hpeerdist: Long, hcontentinfo: Long): UInt
+public expect fun peerDistServerCloseContentInformation(hpeerdist: Long, hcontentinfo: Long): UInt
 
-public expect fun PeerDistServerCloseStreamHandle(hpeerdist: Long, hstream: Long): UInt
+public expect fun peerDistServerCloseStreamHandle(hpeerdist: Long, hstream: Long): UInt
 
-public expect fun PeerDistServerOpenContentInformation(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: Long, ullcontentoffset: ULong, cbcontentlength: ULong, hcompletionport: HANDLE, ulcompletionkey: ULong, phcontentinfo: Long): UInt
+public expect fun peerDistServerOpenContentInformation(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: COpaquePointer?, ullcontentoffset: ULong, cbcontentlength: ULong, hcompletionport: Handle, ulcompletionkey: ULong, phcontentinfo: COpaquePointer?): UInt
 
-public expect fun PeerDistServerOpenContentInformationEx(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: Long, ullcontentoffset: ULong, cbcontentlength: ULong, pretrievaloptions: Long, hcompletionport: HANDLE, ulcompletionkey: ULong, phcontentinfo: Long): UInt
+public expect fun peerDistServerOpenContentInformationEx(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: COpaquePointer?, ullcontentoffset: ULong, cbcontentlength: ULong, pretrievaloptions: COpaquePointer?, hcompletionport: Handle, ulcompletionkey: ULong, phcontentinfo: COpaquePointer?): UInt
 
-public expect fun PeerDistServerPublishAddToStream(hpeerdist: Long, hstream: Long, cbnumberofbytes: UInt, pbuffer: Long, lpoverlapped: Long): UInt
+public expect fun peerDistServerPublishAddToStream(hpeerdist: Long, hstream: Long, cbnumberofbytes: UInt, pbuffer: COpaquePointer?, lpoverlapped: COpaquePointer?): UInt
 
-public expect fun PeerDistServerPublishCompleteStream(hpeerdist: Long, hstream: Long, lpoverlapped: Long): UInt
+public expect fun peerDistServerPublishCompleteStream(hpeerdist: Long, hstream: Long, lpoverlapped: COpaquePointer?): UInt
 
-public expect fun PeerDistServerPublishStream(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: Long, cbcontentlength: ULong, ppublishoptions: Long, hcompletionport: HANDLE, ulcompletionkey: ULong, phstream: Long): UInt
+public expect fun peerDistServerPublishStream(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: COpaquePointer?, cbcontentlength: ULong, ppublishoptions: COpaquePointer?, hcompletionport: Handle, ulcompletionkey: ULong, phstream: COpaquePointer?): UInt
 
-public expect fun PeerDistServerRetrieveContentInformation(hpeerdist: Long, hcontentinfo: Long, cbmaxnumberofbytes: UInt, pbuffer: Long, lpoverlapped: Long): UInt
+public expect fun peerDistServerRetrieveContentInformation(hpeerdist: Long, hcontentinfo: Long, cbmaxnumberofbytes: UInt, pbuffer: COpaquePointer?, lpoverlapped: COpaquePointer?): UInt
 
-public expect fun PeerDistServerUnpublish(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: Long): UInt
+public expect fun peerDistServerUnpublish(hpeerdist: Long, cbcontentidentifier: UInt, pcontentidentifier: COpaquePointer?): UInt
 
-public expect fun PeerDistShutdown(hpeerdist: Long): UInt
+public expect fun peerDistShutdown(hpeerdist: Long): UInt
 
-public expect fun PeerDistStartup(dwversionrequested: UInt, phpeerdist: Long, pdwsupportedversion: Long): UInt
+public expect fun peerDistStartup(dwversionrequested: UInt, phpeerdist: COpaquePointer?, pdwsupportedversion: COpaquePointer?): UInt
 
-public expect fun PeerDistUnregisterForStatusChangeNotification(hpeerdist: Long): UInt
+public expect fun peerDistUnregisterForStatusChangeNotification(hpeerdist: Long): UInt
 
-public expect fun PeerEndEnumeration(hpeerenum: Long): HRESULT
+public expect fun peerEndEnumeration(hpeerenum: COpaquePointer?): Hresult
 
-public expect fun PeerEnumGroups(pwzidentity: PCWSTR, phpeerenum: Long): HRESULT
+public expect fun peerEnumGroups(pwzidentity: Pcwstr, phpeerenum: COpaquePointer?): Hresult
 
-public expect fun PeerEnumIdentities(phpeerenum: Long): HRESULT
+public expect fun peerEnumIdentities(phpeerenum: COpaquePointer?): Hresult
 
-public expect fun PeerFreeData(pvdata: Long)
+public expect fun peerFreeData(pvdata: COpaquePointer?)
 
-public expect fun PeerGetItemCount(hpeerenum: Long, pcount: Long): HRESULT
+public expect fun peerGetItemCount(hpeerenum: COpaquePointer?, pcount: COpaquePointer?): Hresult
 
-public expect fun PeerGetNextItem(hpeerenum: Long, pcount: Long, pppvitems: Long): HRESULT
+public expect fun peerGetNextItem(hpeerenum: COpaquePointer?, pcount: COpaquePointer?, pppvitems: COpaquePointer?): Hresult
 
-public expect fun PeerGraphAddRecord(hgraph: Long, precord: Long, precordid: Long): HRESULT
+public expect fun peerGraphAddRecord(hgraph: COpaquePointer?, precord: COpaquePointer?, precordid: COpaquePointer?): Hresult
 
-public expect fun PeerGraphClose(hgraph: Long): HRESULT
+public expect fun peerGraphClose(hgraph: COpaquePointer?): Hresult
 
-public expect fun PeerGraphCloseDirectConnection(hgraph: Long, ullconnectionid: ULong): HRESULT
+public expect fun peerGraphCloseDirectConnection(hgraph: COpaquePointer?, ullconnectionid: ULong): Hresult
 
-public expect fun PeerGraphConnect(hgraph: Long, pwzpeerid: PCWSTR, paddress: Long, pullconnectionid: Long): HRESULT
+public expect fun peerGraphConnect(hgraph: COpaquePointer?, pwzpeerid: Pcwstr, paddress: COpaquePointer?, pullconnectionid: COpaquePointer?): Hresult
 
-public expect fun PeerGraphCreate(pgraphproperties: Long, pwzdatabasename: PCWSTR, psecurityinterface: Long, phgraph: Long): HRESULT
+public expect fun peerGraphCreate(pgraphproperties: COpaquePointer?, pwzdatabasename: Pcwstr, psecurityinterface: COpaquePointer?, phgraph: COpaquePointer?): Hresult
 
-public expect fun PeerGraphDelete(pwzgraphid: PCWSTR, pwzpeerid: PCWSTR, pwzdatabasename: PCWSTR): HRESULT
+public expect fun peerGraphDelete(pwzgraphid: Pcwstr, pwzpeerid: Pcwstr, pwzdatabasename: Pcwstr): Hresult
 
-public expect fun PeerGraphDeleteRecord(hgraph: Long, precordid: Long, flocal: BOOL): HRESULT
+public expect fun peerGraphDeleteRecord(hgraph: COpaquePointer?, precordid: COpaquePointer?, flocal: Bool): Hresult
 
-public expect fun PeerGraphEndEnumeration(hpeerenum: Long): HRESULT
+public expect fun peerGraphEndEnumeration(hpeerenum: COpaquePointer?): Hresult
 
-public expect fun PeerGraphEnumConnections(hgraph: Long, dwflags: UInt, phpeerenum: Long): HRESULT
+public expect fun peerGraphEnumConnections(hgraph: COpaquePointer?, dwflags: UInt, phpeerenum: COpaquePointer?): Hresult
 
-public expect fun PeerGraphEnumNodes(hgraph: Long, pwzpeerid: PCWSTR, phpeerenum: Long): HRESULT
+public expect fun peerGraphEnumNodes(hgraph: COpaquePointer?, pwzpeerid: Pcwstr, phpeerenum: COpaquePointer?): Hresult
 
-public expect fun PeerGraphEnumRecords(hgraph: Long, precordtype: Long, pwzpeerid: PCWSTR, phpeerenum: Long): HRESULT
+public expect fun peerGraphEnumRecords(hgraph: COpaquePointer?, precordtype: COpaquePointer?, pwzpeerid: Pcwstr, phpeerenum: COpaquePointer?): Hresult
 
-public expect fun PeerGraphExportDatabase(hgraph: Long, pwzfilepath: PCWSTR): HRESULT
+public expect fun peerGraphExportDatabase(hgraph: COpaquePointer?, pwzfilepath: Pcwstr): Hresult
 
-public expect fun PeerGraphFreeData(pvdata: Long)
+public expect fun peerGraphFreeData(pvdata: COpaquePointer?)
 
-public expect fun PeerGraphGetEventData(hpeerevent: Long, ppeventdata: Long): HRESULT
+public expect fun peerGraphGetEventData(hpeerevent: COpaquePointer?, ppeventdata: COpaquePointer?): Hresult
 
-public expect fun PeerGraphGetItemCount(hpeerenum: Long, pcount: Long): HRESULT
+public expect fun peerGraphGetItemCount(hpeerenum: COpaquePointer?, pcount: COpaquePointer?): Hresult
 
-public expect fun PeerGraphGetNextItem(hpeerenum: Long, pcount: Long, pppvitems: Long): HRESULT
+public expect fun peerGraphGetNextItem(hpeerenum: COpaquePointer?, pcount: COpaquePointer?, pppvitems: COpaquePointer?): Hresult
 
-public expect fun PeerGraphGetNodeInfo(hgraph: Long, ullnodeid: ULong, ppnodeinfo: Long): HRESULT
+public expect fun peerGraphGetNodeInfo(hgraph: COpaquePointer?, ullnodeid: ULong, ppnodeinfo: COpaquePointer?): Hresult
 
-public expect fun PeerGraphGetProperties(hgraph: Long, ppgraphproperties: Long): HRESULT
+public expect fun peerGraphGetProperties(hgraph: COpaquePointer?, ppgraphproperties: COpaquePointer?): Hresult
 
-public expect fun PeerGraphGetRecord(hgraph: Long, precordid: Long, pprecord: Long): HRESULT
+public expect fun peerGraphGetRecord(hgraph: COpaquePointer?, precordid: COpaquePointer?, pprecord: COpaquePointer?): Hresult
 
-public expect fun PeerGraphGetStatus(hgraph: Long, pdwstatus: Long): HRESULT
+public expect fun peerGraphGetStatus(hgraph: COpaquePointer?, pdwstatus: COpaquePointer?): Hresult
 
-public expect fun PeerGraphImportDatabase(hgraph: Long, pwzfilepath: PCWSTR): HRESULT
+public expect fun peerGraphImportDatabase(hgraph: COpaquePointer?, pwzfilepath: Pcwstr): Hresult
 
-public expect fun PeerGraphListen(hgraph: Long, dwscope: UInt, dwscopeid: UInt, wport: UShort): HRESULT
+public expect fun peerGraphListen(hgraph: COpaquePointer?, dwscope: UInt, dwscopeid: UInt, wport: UShort): Hresult
 
-public expect fun PeerGraphOpen(pwzgraphid: PCWSTR, pwzpeerid: PCWSTR, pwzdatabasename: PCWSTR, psecurityinterface: Long, crecordtypesyncprecedence: UInt, precordtypesyncprecedence: Long, phgraph: Long): HRESULT
+public expect fun peerGraphOpen(pwzgraphid: Pcwstr, pwzpeerid: Pcwstr, pwzdatabasename: Pcwstr, psecurityinterface: COpaquePointer?, crecordtypesyncprecedence: UInt, precordtypesyncprecedence: COpaquePointer?, phgraph: COpaquePointer?): Hresult
 
-public expect fun PeerGraphOpenDirectConnection(hgraph: Long, pwzpeerid: PCWSTR, paddress: Long, pullconnectionid: Long): HRESULT
+public expect fun peerGraphOpenDirectConnection(hgraph: COpaquePointer?, pwzpeerid: Pcwstr, paddress: COpaquePointer?, pullconnectionid: COpaquePointer?): Hresult
 
-public expect fun PeerGraphPeerTimeToUniversalTime(hgraph: Long, pftpeertime: Long, pftuniversaltime: Long): HRESULT
+public expect fun peerGraphPeerTimeToUniversalTime(hgraph: COpaquePointer?, pftpeertime: COpaquePointer?, pftuniversaltime: COpaquePointer?): Hresult
 
-public expect fun PeerGraphRegisterEvent(hgraph: Long, hevent: HANDLE, ceventregistrations: UInt, peventregistrations: Long, phpeerevent: Long): HRESULT
+public expect fun peerGraphRegisterEvent(hgraph: COpaquePointer?, hevent: Handle, ceventregistrations: UInt, peventregistrations: COpaquePointer?, phpeerevent: COpaquePointer?): Hresult
 
-public expect fun PeerGraphSearchRecords(hgraph: Long, pwzcriteria: PCWSTR, phpeerenum: Long): HRESULT
+public expect fun peerGraphSearchRecords(hgraph: COpaquePointer?, pwzcriteria: Pcwstr, phpeerenum: COpaquePointer?): Hresult
 
-public expect fun PeerGraphSendData(hgraph: Long, ullconnectionid: ULong, ptype: Long, cbdata: UInt, pvdata: Long): HRESULT
+public expect fun peerGraphSendData(hgraph: COpaquePointer?, ullconnectionid: ULong, ptype: COpaquePointer?, cbdata: UInt, pvdata: COpaquePointer?): Hresult
 
-public expect fun PeerGraphSetNodeAttributes(hgraph: Long, pwzattributes: PCWSTR): HRESULT
+public expect fun peerGraphSetNodeAttributes(hgraph: COpaquePointer?, pwzattributes: Pcwstr): Hresult
 
-public expect fun PeerGraphSetPresence(hgraph: Long, fpresent: BOOL): HRESULT
+public expect fun peerGraphSetPresence(hgraph: COpaquePointer?, fpresent: Bool): Hresult
 
-public expect fun PeerGraphSetProperties(hgraph: Long, pgraphproperties: Long): HRESULT
+public expect fun peerGraphSetProperties(hgraph: COpaquePointer?, pgraphproperties: COpaquePointer?): Hresult
 
-public expect fun PeerGraphShutdown(): HRESULT
+public expect fun peerGraphShutdown(): Hresult
 
-public expect fun PeerGraphStartup(wversionrequested: UShort, pversiondata: Long): HRESULT
+public expect fun peerGraphStartup(wversionrequested: UShort, pversiondata: COpaquePointer?): Hresult
 
-public expect fun PeerGraphUniversalTimeToPeerTime(hgraph: Long, pftuniversaltime: Long, pftpeertime: Long): HRESULT
+public expect fun peerGraphUniversalTimeToPeerTime(hgraph: COpaquePointer?, pftuniversaltime: COpaquePointer?, pftpeertime: COpaquePointer?): Hresult
 
-public expect fun PeerGraphUnregisterEvent(hpeerevent: Long): HRESULT
+public expect fun peerGraphUnregisterEvent(hpeerevent: COpaquePointer?): Hresult
 
-public expect fun PeerGraphUpdateRecord(hgraph: Long, precord: Long): HRESULT
+public expect fun peerGraphUpdateRecord(hgraph: COpaquePointer?, precord: COpaquePointer?): Hresult
 
-public expect fun PeerGraphValidateDeferredRecords(hgraph: Long, crecordids: UInt, precordids: Long): HRESULT
+public expect fun peerGraphValidateDeferredRecords(hgraph: COpaquePointer?, crecordids: UInt, precordids: COpaquePointer?): Hresult
 
-public expect fun PeerGroupAddRecord(hgroup: Long, precord: Long, precordid: Long): HRESULT
+public expect fun peerGroupAddRecord(hgroup: COpaquePointer?, precord: COpaquePointer?, precordid: COpaquePointer?): Hresult
 
-public expect fun PeerGroupClose(hgroup: Long): HRESULT
+public expect fun peerGroupClose(hgroup: COpaquePointer?): Hresult
 
-public expect fun PeerGroupCloseDirectConnection(hgroup: Long, ullconnectionid: ULong): HRESULT
+public expect fun peerGroupCloseDirectConnection(hgroup: COpaquePointer?, ullconnectionid: ULong): Hresult
 
-public expect fun PeerGroupConnect(hgroup: Long): HRESULT
+public expect fun peerGroupConnect(hgroup: COpaquePointer?): Hresult
 
-public expect fun PeerGroupConnectByAddress(hgroup: Long, caddresses: UInt, paddresses: Long): HRESULT
+public expect fun peerGroupConnectByAddress(hgroup: COpaquePointer?, caddresses: UInt, paddresses: COpaquePointer?): Hresult
 
-public expect fun PeerGroupCreate(pproperties: Long, phgroup: Long): HRESULT
+public expect fun peerGroupCreate(pproperties: COpaquePointer?, phgroup: COpaquePointer?): Hresult
 
-public expect fun PeerGroupCreateInvitation(hgroup: Long, pwzidentityinfo: PCWSTR, pftexpiration: Long, croles: UInt, proles: Long, ppwzinvitation: Long): HRESULT
+public expect fun peerGroupCreateInvitation(hgroup: COpaquePointer?, pwzidentityinfo: Pcwstr, pftexpiration: COpaquePointer?, croles: UInt, proles: COpaquePointer?, ppwzinvitation: COpaquePointer?): Hresult
 
-public expect fun PeerGroupCreatePasswordInvitation(hgroup: Long, ppwzinvitation: Long): HRESULT
+public expect fun peerGroupCreatePasswordInvitation(hgroup: COpaquePointer?, ppwzinvitation: COpaquePointer?): Hresult
 
-public expect fun PeerGroupDelete(pwzidentity: PCWSTR, pwzgrouppeername: PCWSTR): HRESULT
+public expect fun peerGroupDelete(pwzidentity: Pcwstr, pwzgrouppeername: Pcwstr): Hresult
 
-public expect fun PeerGroupDeleteRecord(hgroup: Long, precordid: Long): HRESULT
+public expect fun peerGroupDeleteRecord(hgroup: COpaquePointer?, precordid: COpaquePointer?): Hresult
 
-public expect fun PeerGroupEnumConnections(hgroup: Long, dwflags: UInt, phpeerenum: Long): HRESULT
+public expect fun peerGroupEnumConnections(hgroup: COpaquePointer?, dwflags: UInt, phpeerenum: COpaquePointer?): Hresult
 
-public expect fun PeerGroupEnumMembers(hgroup: Long, dwflags: UInt, pwzidentity: PCWSTR, phpeerenum: Long): HRESULT
+public expect fun peerGroupEnumMembers(hgroup: COpaquePointer?, dwflags: UInt, pwzidentity: Pcwstr, phpeerenum: COpaquePointer?): Hresult
 
-public expect fun PeerGroupEnumRecords(hgroup: Long, precordtype: Long, phpeerenum: Long): HRESULT
+public expect fun peerGroupEnumRecords(hgroup: COpaquePointer?, precordtype: COpaquePointer?, phpeerenum: COpaquePointer?): Hresult
 
-public expect fun PeerGroupExportConfig(hgroup: Long, pwzpassword: PCWSTR, ppwzxml: Long): HRESULT
+public expect fun peerGroupExportConfig(hgroup: COpaquePointer?, pwzpassword: Pcwstr, ppwzxml: COpaquePointer?): Hresult
 
-public expect fun PeerGroupExportDatabase(hgroup: Long, pwzfilepath: PCWSTR): HRESULT
+public expect fun peerGroupExportDatabase(hgroup: COpaquePointer?, pwzfilepath: Pcwstr): Hresult
 
-public expect fun PeerGroupGetEventData(hpeerevent: Long, ppeventdata: Long): HRESULT
+public expect fun peerGroupGetEventData(hpeerevent: COpaquePointer?, ppeventdata: COpaquePointer?): Hresult
 
-public expect fun PeerGroupGetProperties(hgroup: Long, ppproperties: Long): HRESULT
+public expect fun peerGroupGetProperties(hgroup: COpaquePointer?, ppproperties: COpaquePointer?): Hresult
 
-public expect fun PeerGroupGetRecord(hgroup: Long, precordid: Long, pprecord: Long): HRESULT
+public expect fun peerGroupGetRecord(hgroup: COpaquePointer?, precordid: COpaquePointer?, pprecord: COpaquePointer?): Hresult
 
-public expect fun PeerGroupGetStatus(hgroup: Long, pdwstatus: Long): HRESULT
+public expect fun peerGroupGetStatus(hgroup: COpaquePointer?, pdwstatus: COpaquePointer?): Hresult
 
-public expect fun PeerGroupImportConfig(pwzxml: PCWSTR, pwzpassword: PCWSTR, foverwrite: BOOL, ppwzidentity: Long, ppwzgroup: Long): HRESULT
+public expect fun peerGroupImportConfig(pwzxml: Pcwstr, pwzpassword: Pcwstr, foverwrite: Bool, ppwzidentity: COpaquePointer?, ppwzgroup: COpaquePointer?): Hresult
 
-public expect fun PeerGroupImportDatabase(hgroup: Long, pwzfilepath: PCWSTR): HRESULT
+public expect fun peerGroupImportDatabase(hgroup: COpaquePointer?, pwzfilepath: Pcwstr): Hresult
 
-public expect fun PeerGroupIssueCredentials(hgroup: Long, pwzsubjectidentity: PCWSTR, pcredentialinfo: Long, dwflags: UInt, ppwzinvitation: Long): HRESULT
+public expect fun peerGroupIssueCredentials(hgroup: COpaquePointer?, pwzsubjectidentity: Pcwstr, pcredentialinfo: COpaquePointer?, dwflags: UInt, ppwzinvitation: COpaquePointer?): Hresult
 
-public expect fun PeerGroupJoin(pwzidentity: PCWSTR, pwzinvitation: PCWSTR, pwzcloud: PCWSTR, phgroup: Long): HRESULT
+public expect fun peerGroupJoin(pwzidentity: Pcwstr, pwzinvitation: Pcwstr, pwzcloud: Pcwstr, phgroup: COpaquePointer?): Hresult
 
-public expect fun PeerGroupOpen(pwzidentity: PCWSTR, pwzgrouppeername: PCWSTR, pwzcloud: PCWSTR, phgroup: Long): HRESULT
+public expect fun peerGroupOpen(pwzidentity: Pcwstr, pwzgrouppeername: Pcwstr, pwzcloud: Pcwstr, phgroup: COpaquePointer?): Hresult
 
-public expect fun PeerGroupOpenDirectConnection(hgroup: Long, pwzidentity: PCWSTR, paddress: Long, pullconnectionid: Long): HRESULT
+public expect fun peerGroupOpenDirectConnection(hgroup: COpaquePointer?, pwzidentity: Pcwstr, paddress: COpaquePointer?, pullconnectionid: COpaquePointer?): Hresult
 
-public expect fun PeerGroupParseInvitation(pwzinvitation: PCWSTR, ppinvitationinfo: Long): HRESULT
+public expect fun peerGroupParseInvitation(pwzinvitation: Pcwstr, ppinvitationinfo: COpaquePointer?): Hresult
 
-public expect fun PeerGroupPasswordJoin(pwzidentity: PCWSTR, pwzinvitation: PCWSTR, pwzpassword: PCWSTR, pwzcloud: PCWSTR, phgroup: Long): HRESULT
+public expect fun peerGroupPasswordJoin(pwzidentity: Pcwstr, pwzinvitation: Pcwstr, pwzpassword: Pcwstr, pwzcloud: Pcwstr, phgroup: COpaquePointer?): Hresult
 
-public expect fun PeerGroupPeerTimeToUniversalTime(hgroup: Long, pftpeertime: Long, pftuniversaltime: Long): HRESULT
+public expect fun peerGroupPeerTimeToUniversalTime(hgroup: COpaquePointer?, pftpeertime: COpaquePointer?, pftuniversaltime: COpaquePointer?): Hresult
 
-public expect fun PeerGroupRegisterEvent(hgroup: Long, hevent: HANDLE, ceventregistration: UInt, peventregistrations: Long, phpeerevent: Long): HRESULT
+public expect fun peerGroupRegisterEvent(hgroup: COpaquePointer?, hevent: Handle, ceventregistration: UInt, peventregistrations: COpaquePointer?, phpeerevent: COpaquePointer?): Hresult
 
-public expect fun PeerGroupResumePasswordAuthentication(hgroup: Long, hpeereventhandle: Long): HRESULT
+public expect fun peerGroupResumePasswordAuthentication(hgroup: COpaquePointer?, hpeereventhandle: COpaquePointer?): Hresult
 
-public expect fun PeerGroupSearchRecords(hgroup: Long, pwzcriteria: PCWSTR, phpeerenum: Long): HRESULT
+public expect fun peerGroupSearchRecords(hgroup: COpaquePointer?, pwzcriteria: Pcwstr, phpeerenum: COpaquePointer?): Hresult
 
-public expect fun PeerGroupSendData(hgroup: Long, ullconnectionid: ULong, ptype: Long, cbdata: UInt, pvdata: Long): HRESULT
+public expect fun peerGroupSendData(hgroup: COpaquePointer?, ullconnectionid: ULong, ptype: COpaquePointer?, cbdata: UInt, pvdata: COpaquePointer?): Hresult
 
-public expect fun PeerGroupSetProperties(hgroup: Long, pproperties: Long): HRESULT
+public expect fun peerGroupSetProperties(hgroup: COpaquePointer?, pproperties: COpaquePointer?): Hresult
 
-public expect fun PeerGroupShutdown(): HRESULT
+public expect fun peerGroupShutdown(): Hresult
 
-public expect fun PeerGroupStartup(wversionrequested: UShort, pversiondata: Long): HRESULT
+public expect fun peerGroupStartup(wversionrequested: UShort, pversiondata: COpaquePointer?): Hresult
 
-public expect fun PeerGroupUniversalTimeToPeerTime(hgroup: Long, pftuniversaltime: Long, pftpeertime: Long): HRESULT
+public expect fun peerGroupUniversalTimeToPeerTime(hgroup: COpaquePointer?, pftuniversaltime: COpaquePointer?, pftpeertime: COpaquePointer?): Hresult
 
-public expect fun PeerGroupUnregisterEvent(hpeerevent: Long): HRESULT
+public expect fun peerGroupUnregisterEvent(hpeerevent: COpaquePointer?): Hresult
 
-public expect fun PeerGroupUpdateRecord(hgroup: Long, precord: Long): HRESULT
+public expect fun peerGroupUpdateRecord(hgroup: COpaquePointer?, precord: COpaquePointer?): Hresult
 
-public expect fun PeerHostNameToPeerName(pwzhostname: PCWSTR, ppwzpeername: Long): HRESULT
+public expect fun peerHostNameToPeerName(pwzhostname: Pcwstr, ppwzpeername: COpaquePointer?): Hresult
 
-public expect fun PeerIdentityCreate(pwzclassifier: PCWSTR, pwzfriendlyname: PCWSTR, hcryptprov: ULong, ppwzidentity: Long): HRESULT
+public expect fun peerIdentityCreate(pwzclassifier: Pcwstr, pwzfriendlyname: Pcwstr, hcryptprov: ULong, ppwzidentity: COpaquePointer?): Hresult
 
-public expect fun PeerIdentityDelete(pwzidentity: PCWSTR): HRESULT
+public expect fun peerIdentityDelete(pwzidentity: Pcwstr): Hresult
 
-public expect fun PeerIdentityExport(pwzidentity: PCWSTR, pwzpassword: PCWSTR, ppwzexportxml: Long): HRESULT
+public expect fun peerIdentityExport(pwzidentity: Pcwstr, pwzpassword: Pcwstr, ppwzexportxml: COpaquePointer?): Hresult
 
-public expect fun PeerIdentityGetCryptKey(pwzidentity: PCWSTR, phcryptprov: Long): HRESULT
+public expect fun peerIdentityGetCryptKey(pwzidentity: Pcwstr, phcryptprov: COpaquePointer?): Hresult
 
-public expect fun PeerIdentityGetDefault(ppwzpeername: Long): HRESULT
+public expect fun peerIdentityGetDefault(ppwzpeername: COpaquePointer?): Hresult
 
-public expect fun PeerIdentityGetFriendlyName(pwzidentity: PCWSTR, ppwzfriendlyname: Long): HRESULT
+public expect fun peerIdentityGetFriendlyName(pwzidentity: Pcwstr, ppwzfriendlyname: COpaquePointer?): Hresult
 
-public expect fun PeerIdentityGetXML(pwzidentity: PCWSTR, ppwzidentityxml: Long): HRESULT
+public expect fun peerIdentityGetXML(pwzidentity: Pcwstr, ppwzidentityxml: COpaquePointer?): Hresult
 
-public expect fun PeerIdentityImport(pwzimportxml: PCWSTR, pwzpassword: PCWSTR, ppwzidentity: Long): HRESULT
+public expect fun peerIdentityImport(pwzimportxml: Pcwstr, pwzpassword: Pcwstr, ppwzidentity: COpaquePointer?): Hresult
 
-public expect fun PeerIdentitySetFriendlyName(pwzidentity: PCWSTR, pwzfriendlyname: PCWSTR): HRESULT
+public expect fun peerIdentitySetFriendlyName(pwzidentity: Pcwstr, pwzfriendlyname: Pcwstr): Hresult
 
-public expect fun PeerNameToPeerHostName(pwzpeername: PCWSTR, ppwzhostname: Long): HRESULT
+public expect fun peerNameToPeerHostName(pwzpeername: Pcwstr, ppwzhostname: COpaquePointer?): Hresult
 
-public expect fun PeerPnrpEndResolve(hresolve: Long): HRESULT
+public expect fun peerPnrpEndResolve(hresolve: COpaquePointer?): Hresult
 
-public expect fun PeerPnrpGetCloudInfo(pcnumclouds: Long, ppcloudinfo: Long): HRESULT
+public expect fun peerPnrpGetCloudInfo(pcnumclouds: COpaquePointer?, ppcloudinfo: COpaquePointer?): Hresult
 
-public expect fun PeerPnrpGetEndpoint(hresolve: Long, ppendpoint: Long): HRESULT
+public expect fun peerPnrpGetEndpoint(hresolve: COpaquePointer?, ppendpoint: COpaquePointer?): Hresult
 
-public expect fun PeerPnrpRegister(pcwzpeername: PCWSTR, pregistrationinfo: Long, phregistration: Long): HRESULT
+public expect fun peerPnrpRegister(pcwzpeername: Pcwstr, pregistrationinfo: COpaquePointer?, phregistration: COpaquePointer?): Hresult
 
-public expect fun PeerPnrpResolve(pcwzpeername: PCWSTR, pcwzcloudname: PCWSTR, pcendpoints: Long, ppendpoints: Long): HRESULT
+public expect fun peerPnrpResolve(pcwzpeername: Pcwstr, pcwzcloudname: Pcwstr, pcendpoints: COpaquePointer?, ppendpoints: COpaquePointer?): Hresult
 
-public expect fun PeerPnrpShutdown(): HRESULT
+public expect fun peerPnrpShutdown(): Hresult
 
-public expect fun PeerPnrpStartResolve(pcwzpeername: PCWSTR, pcwzcloudname: PCWSTR, cmaxendpoints: UInt, hevent: HANDLE, phresolve: Long): HRESULT
+public expect fun peerPnrpStartResolve(pcwzpeername: Pcwstr, pcwzcloudname: Pcwstr, cmaxendpoints: UInt, hevent: Handle, phresolve: COpaquePointer?): Hresult
 
-public expect fun PeerPnrpStartup(wversionrequested: UShort): HRESULT
+public expect fun peerPnrpStartup(wversionrequested: UShort): Hresult
 
-public expect fun PeerPnrpUnregister(hregistration: Long): HRESULT
+public expect fun peerPnrpUnregister(hregistration: COpaquePointer?): Hresult
 
-public expect fun PeerPnrpUpdateRegistration(hregistration: Long, pregistrationinfo: Long): HRESULT
+public expect fun peerPnrpUpdateRegistration(hregistration: COpaquePointer?, pregistrationinfo: COpaquePointer?): Hresult

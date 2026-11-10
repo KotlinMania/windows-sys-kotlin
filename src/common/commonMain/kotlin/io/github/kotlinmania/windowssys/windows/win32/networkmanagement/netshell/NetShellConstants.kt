@@ -1,23 +1,23 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.netshell
 
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
 
-public val CMD_FLAG_HIDDEN: NS_CMD_FLAGS = 32
+public val CMD_FLAG_HIDDEN: NsCmdFlags = 32
 
-public val CMD_FLAG_INTERACTIVE: NS_CMD_FLAGS = 2
+public val CMD_FLAG_INTERACTIVE: NsCmdFlags = 2
 
-public val CMD_FLAG_LIMIT_MASK: NS_CMD_FLAGS = 65535
+public val CMD_FLAG_LIMIT_MASK: NsCmdFlags = 65535
 
-public val CMD_FLAG_LOCAL: NS_CMD_FLAGS = 8
+public val CMD_FLAG_LOCAL: NsCmdFlags = 8
 
-public val CMD_FLAG_ONLINE: NS_CMD_FLAGS = 16
+public val CMD_FLAG_ONLINE: NsCmdFlags = 16
 
-public val CMD_FLAG_PRIORITY: NS_CMD_FLAGS = -2147483648
+public val CMD_FLAG_PRIORITY: NsCmdFlags = -2147483648.toInt()
 
-public val CMD_FLAG_PRIVATE: NS_CMD_FLAGS = 1
+public val CMD_FLAG_PRIVATE: NsCmdFlags = 1
 
 public val DEFAULT_CONTEXT_PRIORITY: UInt = 100u
 
@@ -63,50 +63,50 @@ public val ERROR_TAG_ALREADY_PRESENT: UInt = 15008u
 
 public val ERROR_TRANSPORT_NOT_PRESENT: UInt = 15012u
 
-public val GET_RESOURCE_STRING_FN_NAME: PCSTR = s("GetResourceString")
+public val GET_RESOURCE_STRING_FN_NAME: Pcstr = s("GetResourceString")
 
 public val MAX_NAME_LEN: UInt = 48u
 
-public val NETSH_ARG_DELIMITER: PCWSTR = w("=")
+public val NETSH_ARG_DELIMITER: Pcwstr = w("=")
 
-public val NETSH_CMD_DELIMITER: PCWSTR = w(" ")
+public val NETSH_CMD_DELIMITER: Pcwstr = w(" ")
 
-public val NETSH_COMMIT: NS_MODE_CHANGE = 0
+public val NETSH_COMMIT: NsModeChange = 0
 
-public val NETSH_COMMIT_STATE: NS_MODE_CHANGE = 3
+public val NETSH_COMMIT_STATE: NsModeChange = 3
 
 public val NETSH_ERROR_BASE: UInt = 15000u
 
 public val NETSH_ERROR_END: UInt = 15019u
 
-public val NETSH_FLUSH: NS_MODE_CHANGE = 2
+public val NETSH_FLUSH: NsModeChange = 2
 
 public val NETSH_MAX_CMD_TOKEN_LENGTH: UInt = 128u
 
 public val NETSH_MAX_TOKEN_LENGTH: UInt = 64u
 
-public val NETSH_SAVE: NS_MODE_CHANGE = 4
+public val NETSH_SAVE: NsModeChange = 4
 
-public val NETSH_UNCOMMIT: NS_MODE_CHANGE = 1
+public val NETSH_UNCOMMIT: NsModeChange = 1
 
 public val NETSH_VERSION_50: UInt = 20480u
 
-public val NS_EVENT_FROM_N: NS_EVENTS = 4
+public val NS_EVENT_FROM_N: NsEvents = 4
 
-public val NS_EVENT_FROM_START: NS_EVENTS = 8
+public val NS_EVENT_FROM_START: NsEvents = 8
 
-public val NS_EVENT_LAST_N: NS_EVENTS = 1
+public val NS_EVENT_LAST_N: NsEvents = 1
 
-public val NS_EVENT_LAST_SECS: NS_EVENTS = 2
+public val NS_EVENT_LAST_SECS: NsEvents = 2
 
-public val NS_EVENT_LOOP: NS_EVENTS = 65536
+public val NS_EVENT_LOOP: NsEvents = 65536
 
-public val NS_GET_EVENT_IDS_FN_NAME: PCSTR = s("GetEventIds")
+public val NS_GET_EVENT_IDS_FN_NAME: Pcstr = s("GetEventIds")
 
-public val NS_REQ_ALLOW_MULTIPLE: NS_REQS = 2
+public val NS_REQ_ALLOW_MULTIPLE: NsReqs = 2
 
-public val NS_REQ_ONE_OR_MORE: NS_REQS = 3
+public val NS_REQ_ONE_OR_MORE: NsReqs = 3
 
-public val NS_REQ_PRESENT: NS_REQS = 1
+public val NS_REQ_PRESENT: NsReqs = 1
 
-public val NS_REQ_ZERO: NS_REQS = 0
+public val NS_REQ_ZERO: NsReqs = 0

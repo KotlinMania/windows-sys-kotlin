@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpCancelMsg_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpCancelMsg_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t session = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t reqid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -71,7 +71,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpCancelMsg
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpCleanup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpCleanup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -87,7 +87,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpCleanup_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpCleanupEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpCleanupEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -103,7 +103,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpCleanupEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t session = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -121,7 +121,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpClose_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpContextToStr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpContextToStr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t context = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* string = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -141,7 +141,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpContextTo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpCountVbl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpCountVbl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t vbl = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -159,7 +159,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpCountVbl_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpCreatePdu_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpCreatePdu_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t session = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t pdu_type = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -187,7 +187,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpCreatePdu
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpCreateSession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpCreateSession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t wmsg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -211,7 +211,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpCreateSes
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpCreateVbl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpCreateVbl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t session = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -233,7 +233,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpCreateVbl
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpDecodeMsg_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpDecodeMsg_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t session = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* srcentity = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -261,7 +261,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpDecodeMsg
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpDeleteVb_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpDeleteVb_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t vbl = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t arg_1_index = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -281,7 +281,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpDeleteVb_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpDuplicatePdu_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpDuplicatePdu_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t session = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t pdu = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -301,7 +301,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpDuplicate
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpDuplicateVbl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpDuplicateVbl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t session = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t vbl = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -321,7 +321,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpDuplicate
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpEncodeMsg_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpEncodeMsg_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t session = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t srcentity = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -349,7 +349,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpEncodeMsg
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpEntityToStr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpEntityToStr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t entity = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t size = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -371,7 +371,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpEntityToS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpFreeContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpFreeContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t context = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -389,7 +389,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpFreeConte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpFreeDescriptor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpFreeDescriptor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t syntax = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* descriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -409,7 +409,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpFreeDescr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpFreeEntity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpFreeEntity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t entity = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -427,7 +427,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpFreeEntit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpFreePdu_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpFreePdu_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t pdu = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -445,7 +445,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpFreePdu_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpFreeVbl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpFreeVbl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t vbl = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -463,7 +463,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpFreeVbl_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpGetLastError_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpGetLastError_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t session = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -481,7 +481,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpGetLastEr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpGetPduData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpGetPduData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t pdu = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pdu_type = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -509,7 +509,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpGetPduDat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpGetRetransmitMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpGetRetransmitMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* nretransmitmode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -527,7 +527,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpGetRetran
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpGetRetry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpGetRetry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hentity = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* npolicyretry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -549,7 +549,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpGetRetry_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpGetTimeout_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpGetTimeout_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hentity = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* npolicytimeout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -571,7 +571,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpGetTimeou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpGetTranslateMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpGetTranslateMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ntranslatemode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -589,7 +589,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpGetTransl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpGetVb_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpGetVb_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t vbl = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t arg_1_index = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -613,7 +613,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpGetVb_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpGetVendorInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpGetVendorInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* vendorinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -631,7 +631,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpGetVendor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpListen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpListen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hentity = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t lstatus = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -651,7 +651,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpListen_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpListenEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpListenEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hentity = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t lstatus = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -673,7 +673,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpListenEx_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpMgrClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpMgrClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* session = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -691,7 +691,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpMgrClose_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpMgrCtl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpMgrCtl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* session = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwctlcode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -721,7 +721,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpMgrCtl_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpMgrGetTrap_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpMgrGetTrap_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enterprise = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ipaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -749,7 +749,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpMgrGetTra
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpMgrGetTrapEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpMgrGetTrapEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* enterprise = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* agentaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -781,7 +781,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpMgrGetTra
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpMgrOidToStr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpMgrOidToStr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* oid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* string = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -801,7 +801,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpMgrOidToS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpMgrOpen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpMgrOpen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpagentaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpagentcommunity = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -825,7 +825,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpMgrOpen_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpMgrRequest_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpMgrRequest_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* session = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint8_t requesttype = static_cast<uint8_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -851,7 +851,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpMgrReques
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpMgrStrToOid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpMgrStrToOid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* string = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* oid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -871,7 +871,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpMgrStrToO
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpMgrTrapListen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpMgrTrapListen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phtrapavailable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -889,7 +889,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpMgrTrapLi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpOidCompare_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpOidCompare_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* xoid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* yoid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -913,7 +913,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpOidCompar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpOidCopy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpOidCopy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* srcoid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dstoid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -933,7 +933,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpOidCopy_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpOidToStr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpOidToStr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* srcoid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t size = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -955,7 +955,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpOidToStr_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpOpen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpOpen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t wmsg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -975,7 +975,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpOpen_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpRecvMsg_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpRecvMsg_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t session = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* srcentity = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1001,7 +1001,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpRecvMsg_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpRegister_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpRegister_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t session = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t srcentity = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1029,7 +1029,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpRegister_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpSendMsg_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpSendMsg_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t session = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t srcentity = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1055,7 +1055,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpSendMsg_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpSetPduData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpSetPduData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t pdu = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pdu_type = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1083,7 +1083,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpSetPduDat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpSetPort_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpSetPort_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hentity = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t nport = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1103,7 +1103,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpSetPort_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpSetRetransmitMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpSetRetransmitMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t nretransmitmode = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -1121,7 +1121,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpSetRetran
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpSetRetry_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpSetRetry_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hentity = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t npolicyretry = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1141,7 +1141,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpSetRetry_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpSetTimeout_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpSetTimeout_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hentity = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t npolicytimeout = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1161,7 +1161,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpSetTimeou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpSetTranslateMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpSetTranslateMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ntranslatemode = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -1179,7 +1179,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpSetTransl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpSetVb_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpSetVb_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t vbl = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t arg_1_index = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1203,7 +1203,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpSetVb_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpStartup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpStartup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* nmajorversion = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* nminorversion = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1229,7 +1229,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpStartup_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpStartupEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpStartupEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* nmajorversion = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* nminorversion = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1255,7 +1255,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpStartupEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpStrToContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpStrToContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t session = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* string = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1275,7 +1275,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpStrToCont
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpStrToEntity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpStrToEntity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t session = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* string = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1295,7 +1295,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpStrToEnti
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpStrToOid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpStrToOid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* string = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dstoid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1315,7 +1315,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpStrToOid_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpSvcGetUptime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpSvcGetUptime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -1331,7 +1331,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpSvcGetUpt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpSvcSetLogLevel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpSvcSetLogLevel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t nloglevel = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -1348,7 +1348,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpSvcSetLog
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpSvcSetLogType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpSvcSetLogType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t nlogtype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -1365,7 +1365,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpSvcSetLog
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilAsnAnyCpy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilAsnAnyCpy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* panydst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* panysrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1385,7 +1385,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilAsnAn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilAsnAnyFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilAsnAnyFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pany = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1402,7 +1402,40 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilAsnAn
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilIdsToA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilDbgPrint_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    int32_t nloglevel = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
+    void* szformat = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    int32_t km_vac = km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0;
+    int64_t km_va0 = km_info.Length() > 3 ? km_napi_arg_i64(km_info[3]) : 0;
+    int64_t km_va1 = km_info.Length() > 4 ? km_napi_arg_i64(km_info[4]) : 0;
+    int64_t km_va2 = km_info.Length() > 5 ? km_napi_arg_i64(km_info[5]) : 0;
+    int64_t km_va3 = km_info.Length() > 6 ? km_napi_arg_i64(km_info[6]) : 0;
+#ifdef _WIN32
+    typedef void (*km_fn_t)(int32_t, void*, ...);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("snmpapi.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpUtilDbgPrint")));
+    }
+    if (km_fn_ptr != nullptr) {
+        switch (km_vac) {
+            case 0: km_fn_ptr(nloglevel, szformat); break;
+            case 1: km_fn_ptr(nloglevel, szformat, static_cast<intptr_t>(km_va0)); break;
+            case 2: km_fn_ptr(nloglevel, szformat, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1)); break;
+            case 3: km_fn_ptr(nloglevel, szformat, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
+            default: km_fn_ptr(nloglevel, szformat, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
+        }
+    }
+#else
+    (void)nloglevel;
+    (void)szformat;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+#endif
+    return km_env.Undefined();
+}
+
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilIdsToA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ids = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t idlength = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1422,7 +1455,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilIdsTo
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilMemAlloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilMemAlloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t nbytes = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -1440,7 +1473,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilMemAl
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilMemFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilMemFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1457,7 +1490,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilMemFr
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilMemReAlloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilMemReAlloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t nbytes = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1477,7 +1510,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilMemRe
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOctetsCmp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilOctetsCmp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* poctets1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* poctets2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1497,7 +1530,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOctet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOctetsCpy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilOctetsCpy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* poctetsdst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* poctetssrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1517,7 +1550,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOctet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOctetsFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilOctetsFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* poctets = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1534,7 +1567,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOctet
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOctetsNCmp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilOctetsNCmp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* poctets1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* poctets2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1556,7 +1589,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOctet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOidAppend_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilOidAppend_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* poiddst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* poidsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1576,7 +1609,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOidAp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOidCmp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilOidCmp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* poid1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* poid2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1596,7 +1629,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOidCm
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOidCpy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilOidCpy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* poiddst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* poidsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1616,7 +1649,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOidCp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOidFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilOidFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* poid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1633,7 +1666,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOidFr
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOidNCmp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilOidNCmp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* poid1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* poid2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1655,7 +1688,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOidNC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOidToA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilOidToA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* oid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1673,7 +1706,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOidTo
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilPrintAsnAny_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilPrintAsnAny_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pany = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1690,7 +1723,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilPrint
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilPrintOid_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilPrintOid_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* oid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1707,7 +1740,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilPrint
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilVarBindCpy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilVarBindCpy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvbdst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvbsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1727,7 +1760,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilVarBi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilVarBindFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilVarBindFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvb = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1744,7 +1777,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilVarBi
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilVarBindListCpy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilVarBindListCpy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvbldst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvblsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1764,7 +1797,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilVarBi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilVarBindListFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilVarBindListFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvbl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1782,89 +1815,90 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_SnmpUtilVarBi
 }
 
 static void register_windows_win32_networkmanagement_snmp_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpCancelMsg", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpCancelMsg_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpCleanup", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpCleanup_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpCleanupEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpCleanupEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpClose", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpClose_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpContextToStr", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpContextToStr_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpCountVbl", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpCountVbl_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpCreatePdu", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpCreatePdu_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpCreateSession", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpCreateSession_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpCreateVbl", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpCreateVbl_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpDecodeMsg", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpDecodeMsg_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpDeleteVb", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpDeleteVb_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpDuplicatePdu", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpDuplicatePdu_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpDuplicateVbl", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpDuplicateVbl_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpEncodeMsg", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpEncodeMsg_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpEntityToStr", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpEntityToStr_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpFreeContext", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpFreeContext_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpFreeDescriptor", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpFreeDescriptor_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpFreeEntity", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpFreeEntity_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpFreePdu", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpFreePdu_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpFreeVbl", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpFreeVbl_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpGetLastError", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpGetLastError_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpGetPduData", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpGetPduData_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpGetRetransmitMode", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpGetRetransmitMode_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpGetRetry", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpGetRetry_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpGetTimeout", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpGetTimeout_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpGetTranslateMode", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpGetTranslateMode_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpGetVb", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpGetVb_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpGetVendorInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpGetVendorInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpListen", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpListen_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpListenEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpListenEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpMgrClose", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpMgrClose_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpMgrCtl", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpMgrCtl_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpMgrGetTrap", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpMgrGetTrap_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpMgrGetTrapEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpMgrGetTrapEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpMgrOidToStr", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpMgrOidToStr_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpMgrOpen", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpMgrOpen_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpMgrRequest", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpMgrRequest_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpMgrStrToOid", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpMgrStrToOid_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpMgrTrapListen", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpMgrTrapListen_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpOidCompare", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpOidCompare_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpOidCopy", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpOidCopy_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpOidToStr", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpOidToStr_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpOpen", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpOpen_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpRecvMsg", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpRecvMsg_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpRegister", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpRegister_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpSendMsg", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpSendMsg_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpSetPduData", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpSetPduData_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpSetPort", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpSetPort_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpSetRetransmitMode", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpSetRetransmitMode_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpSetRetry", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpSetRetry_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpSetTimeout", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpSetTimeout_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpSetTranslateMode", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpSetTranslateMode_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpSetVb", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpSetVb_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpStartup", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpStartup_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpStartupEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpStartupEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpStrToContext", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpStrToContext_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpStrToEntity", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpStrToEntity_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpStrToOid", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpStrToOid_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpSvcGetUptime", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpSvcGetUptime_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpSvcSetLogLevel", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpSvcSetLogLevel_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpSvcSetLogType", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpSvcSetLogType_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpUtilAsnAnyCpy", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpUtilAsnAnyCpy_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpUtilAsnAnyFree", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpUtilAsnAnyFree_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpUtilIdsToA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpUtilIdsToA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpUtilMemAlloc", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpUtilMemAlloc_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpUtilMemFree", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpUtilMemFree_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpUtilMemReAlloc", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpUtilMemReAlloc_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOctetsCmp", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOctetsCmp_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOctetsCpy", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOctetsCpy_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOctetsFree", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOctetsFree_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOctetsNCmp", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOctetsNCmp_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOidAppend", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOidAppend_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOidCmp", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOidCmp_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOidCpy", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOidCpy_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOidFree", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOidFree_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOidNCmp", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOidNCmp_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOidToA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpUtilOidToA_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpUtilPrintAsnAny", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpUtilPrintAsnAny_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpUtilPrintOid", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpUtilPrintOid_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpUtilVarBindCpy", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpUtilVarBindCpy_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpUtilVarBindFree", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpUtilVarBindFree_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpUtilVarBindListCpy", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpUtilVarBindListCpy_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_snmp_SnmpUtilVarBindListFree", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_SnmpUtilVarBindListFree_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpCancelMsg", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpCancelMsg_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpCleanup", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpCleanup_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpCleanupEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpCleanupEx_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpClose", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpClose_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpContextToStr", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpContextToStr_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpCountVbl", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpCountVbl_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpCreatePdu", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpCreatePdu_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpCreateSession", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpCreateSession_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpCreateVbl", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpCreateVbl_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpDecodeMsg", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpDecodeMsg_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpDeleteVb", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpDeleteVb_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpDuplicatePdu", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpDuplicatePdu_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpDuplicateVbl", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpDuplicateVbl_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpEncodeMsg", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpEncodeMsg_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpEntityToStr", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpEntityToStr_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpFreeContext", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpFreeContext_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpFreeDescriptor", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpFreeDescriptor_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpFreeEntity", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpFreeEntity_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpFreePdu", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpFreePdu_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpFreeVbl", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpFreeVbl_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpGetLastError", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpGetLastError_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpGetPduData", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpGetPduData_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpGetRetransmitMode", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpGetRetransmitMode_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpGetRetry", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpGetRetry_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpGetTimeout", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpGetTimeout_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpGetTranslateMode", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpGetTranslateMode_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpGetVb", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpGetVb_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpGetVendorInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpGetVendorInfo_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpListen", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpListen_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpListenEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpListenEx_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpMgrClose", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpMgrClose_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpMgrCtl", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpMgrCtl_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpMgrGetTrap", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpMgrGetTrap_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpMgrGetTrapEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpMgrGetTrapEx_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpMgrOidToStr", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpMgrOidToStr_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpMgrOpen", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpMgrOpen_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpMgrRequest", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpMgrRequest_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpMgrStrToOid", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpMgrStrToOid_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpMgrTrapListen", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpMgrTrapListen_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpOidCompare", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpOidCompare_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpOidCopy", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpOidCopy_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpOidToStr", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpOidToStr_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpOpen", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpOpen_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpRecvMsg", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpRecvMsg_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpRegister", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpRegister_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpSendMsg", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpSendMsg_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpSetPduData", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpSetPduData_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpSetPort", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpSetPort_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpSetRetransmitMode", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpSetRetransmitMode_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpSetRetry", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpSetRetry_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpSetTimeout", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpSetTimeout_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpSetTranslateMode", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpSetTranslateMode_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpSetVb", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpSetVb_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpStartup", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpStartup_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpStartupEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpStartupEx_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpStrToContext", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpStrToContext_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpStrToEntity", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpStrToEntity_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpStrToOid", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpStrToOid_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpSvcGetUptime", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpSvcGetUptime_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpSvcSetLogLevel", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpSvcSetLogLevel_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpSvcSetLogType", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpSvcSetLogType_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpUtilAsnAnyCpy", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpUtilAsnAnyCpy_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpUtilAsnAnyFree", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpUtilAsnAnyFree_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpUtilDbgPrint", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpUtilDbgPrint_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpUtilIdsToA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpUtilIdsToA_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpUtilMemAlloc", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpUtilMemAlloc_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpUtilMemFree", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpUtilMemFree_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpUtilMemReAlloc", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpUtilMemReAlloc_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpUtilOctetsCmp", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpUtilOctetsCmp_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpUtilOctetsCpy", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpUtilOctetsCpy_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpUtilOctetsFree", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpUtilOctetsFree_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpUtilOctetsNCmp", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpUtilOctetsNCmp_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpUtilOidAppend", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpUtilOidAppend_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpUtilOidCmp", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpUtilOidCmp_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpUtilOidCpy", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpUtilOidCpy_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpUtilOidFree", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpUtilOidFree_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpUtilOidNCmp", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpUtilOidNCmp_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpUtilOidToA", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpUtilOidToA_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpUtilPrintAsnAny", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpUtilPrintAsnAny_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpUtilPrintOid", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpUtilPrintOid_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpUtilVarBindCpy", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpUtilVarBindCpy_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpUtilVarBindFree", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpUtilVarBindFree_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpUtilVarBindListCpy", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpUtilVarBindListCpy_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_snmp_snmpUtilVarBindListFree", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_snmp_snmpUtilVarBindListFree_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_networkmanagement_snmp_napi, nullptr };

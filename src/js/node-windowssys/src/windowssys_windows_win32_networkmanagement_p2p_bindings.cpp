@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdrt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -68,7 +68,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtClose_napi(
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtContinueSearch_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtContinueSearch_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsearchcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -86,7 +86,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtContinueSea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtCreateDerivedKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtCreateDerivedKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* plocalcert = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -106,7 +106,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtCreateDeriv
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtCreateDerivedKeySecurityProvider_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtCreateDerivedKeySecurityProvider_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prootcert = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* plocalcert = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -128,7 +128,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtCreateDeriv
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtCreateDnsBootstrapResolver_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtCreateDnsBootstrapResolver_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t port = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pwszaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -150,7 +150,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtCreateDnsBo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtCreateIpv6UdpTransport_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtCreateIpv6UdpTransport_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t scope = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwscopeid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -176,7 +176,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtCreateIpv6U
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtCreateNullSecurityProvider_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtCreateNullSecurityProvider_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppsecurityprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -194,7 +194,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtCreateNullS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtCreatePnrpBootstrapResolver_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtCreatePnrpBootstrapResolver_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t fpublish = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pwzpeername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -220,7 +220,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtCreatePnrpB
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtDeleteDerivedKeySecurityProvider_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtDeleteDerivedKeySecurityProvider_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psecurityprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -237,7 +237,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtDeleteDeriv
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtDeleteDnsBootstrapResolver_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtDeleteDnsBootstrapResolver_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* presolver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -254,7 +254,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtDeleteDnsBo
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtDeleteIpv6UdpTransport_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtDeleteIpv6UdpTransport_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* htransport = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -272,7 +272,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtDeleteIpv6U
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtDeleteNullSecurityProvider_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtDeleteNullSecurityProvider_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psecurityprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -289,7 +289,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtDeleteNullS
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtDeletePnrpBootstrapResolver_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtDeletePnrpBootstrapResolver_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* presolver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -306,7 +306,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtDeletePnrpB
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtEndSearch_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtEndSearch_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsearchcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -324,7 +324,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtEndSearch_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtGetEventData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtGetEventData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdrt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uleventdatalen = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -346,7 +346,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtGetEventDat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtGetEventDataSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtGetEventDataSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdrt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* puleventdatalen = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -366,7 +366,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtGetEventDat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtGetInstanceName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtGetInstanceName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdrt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulcbinstancenamesize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -388,7 +388,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtGetInstance
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtGetInstanceNameSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtGetInstanceNameSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdrt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pulcbinstancenamesize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -408,7 +408,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtGetInstance
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtGetSearchPath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtGetSearchPath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsearchcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulsearchpathsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -430,7 +430,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtGetSearchPa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtGetSearchPathSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtGetSearchPathSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsearchcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pulsearchpathsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -450,7 +450,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtGetSearchPa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtGetSearchResult_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtGetSearchResult_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsearchcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulsearchresultsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -472,7 +472,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtGetSearchRe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtGetSearchResultSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtGetSearchResultSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsearchcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pulsearchresultsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -492,7 +492,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtGetSearchRe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtOpen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtOpen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psettings = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hevent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -516,7 +516,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtOpen_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtRegisterKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtRegisterKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdrt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pregistration = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -540,7 +540,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtRegisterKey
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtStartSearch_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtStartSearch_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdrt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -570,7 +570,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtStartSearch
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtUnregisterKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtUnregisterKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkeyregistration = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -587,7 +587,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtUnregisterK
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtUpdateKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtUpdateKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkeyregistration = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pappdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -607,7 +607,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_DrtUpdateKey_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabAddContact_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabAddContact_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzcontactdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppcontact = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -627,7 +627,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabAddC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabAsyncInviteContact_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabAsyncInviteContact_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pccontact = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcendpoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -653,7 +653,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabAsyn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabAsyncInviteEndpoint_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabAsyncInviteEndpoint_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcendpoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcinvitation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -677,7 +677,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabAsyn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabCancelInvitation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabCancelInvitation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinvitation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -695,7 +695,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabCanc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabCloseHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabCloseHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinvitation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -713,7 +713,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabClos
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabDeleteContact_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabDeleteContact_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzpeername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -731,7 +731,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabDele
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabDeleteEndpointData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabDeleteEndpointData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcendpoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -749,7 +749,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabDele
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabDeleteObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabDeleteObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pobjectid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -767,7 +767,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabDele
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabEnumApplicationRegistrationInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumApplicationRegistrationInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t registrationtype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* phpeerenum = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -787,7 +787,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabEnum
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabEnumApplications_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumApplications_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcendpoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* papplicationid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -809,7 +809,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabEnum
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabEnumContacts_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumContacts_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phpeerenum = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -827,7 +827,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabEnum
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabEnumEndpoints_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumEndpoints_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pccontact = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phpeerenum = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -847,7 +847,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabEnum
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabEnumObjects_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumObjects_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcendpoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pobjectid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -869,7 +869,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabEnum
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabEnumPeopleNearMe_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumPeopleNearMe_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phpeerenum = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -887,7 +887,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabEnum
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabExportContact_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabExportContact_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzpeername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppwzcontactdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -907,7 +907,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabExpo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetAppLaunchInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabGetAppLaunchInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pplaunchinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -925,7 +925,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetApplicationRegistrationInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabGetApplicationRegistrationInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* papplicationid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t registrationtype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -947,7 +947,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetContact_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabGetContact_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzpeername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppcontact = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -967,7 +967,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetEndpointName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabGetEndpointName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppwzendpointname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -985,7 +985,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetEventData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabGetEventData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hpeerevent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppeventdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1005,7 +1005,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetInvitationResponse_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabGetInvitationResponse_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinvitation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppinvitationresponse = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1025,7 +1025,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetPresenceInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabGetPresenceInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcendpoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pppresenceinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1045,7 +1045,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetSigninOptions_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabGetSigninOptions_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdwsigninoptions = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1063,7 +1063,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabInviteContact_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabInviteContact_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pccontact = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcendpoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1087,7 +1087,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabInvi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabInviteEndpoint_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabInviteEndpoint_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcendpoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcinvitation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1109,7 +1109,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabInvi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabParseContact_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabParseContact_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzcontactdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppcontact = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1129,7 +1129,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabPars
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabQueryContactData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabQueryContactData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcendpoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppwzcontactdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1149,7 +1149,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabQuer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabRefreshEndpointData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabRefreshEndpointData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcendpoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1167,7 +1167,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabRefr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabRegisterApplication_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabRegisterApplication_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcapplication = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t registrationtype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1187,7 +1187,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabRegi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabRegisterEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabRegisterEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hevent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ceventregistration = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1211,7 +1211,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabRegi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabSetEndpointName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabSetEndpointName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzendpointname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1229,7 +1229,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabSetE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabSetObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabSetObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1247,7 +1247,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabSetO
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabSetPresenceInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabSetPresenceInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcpresenceinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1265,7 +1265,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabSetP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabShutdown_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabShutdown_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -1281,7 +1281,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabShut
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabSignin_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabSignin_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwsigninoptions = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1301,7 +1301,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabSign
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabSignout_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabSignout_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwsigninoptions = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -1319,7 +1319,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabSign
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabStartup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabStartup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t wversionrequested = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -1337,7 +1337,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabStar
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabSubscribeEndpointData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabSubscribeEndpointData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcendpoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1355,7 +1355,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabSubs
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabUnregisterApplication_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabUnregisterApplication_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* papplicationid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t registrationtype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1375,7 +1375,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabUnre
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabUnregisterEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabUnregisterEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hpeerevent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1393,7 +1393,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabUnre
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabUnsubscribeEndpointData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabUnsubscribeEndpointData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcendpoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1411,7 +1411,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabUnsu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabUpdateContact_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabUpdateContact_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcontact = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1429,7 +1429,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCollabUpda
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCreatePeerName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCreatePeerName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzidentity = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzclassifier = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1451,7 +1451,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerCreatePeer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistClientAddContentInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistClientAddContentInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hpeerdist = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hcontenthandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1477,7 +1477,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistClient
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistClientAddData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistClientAddData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hpeerdist = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hcontenthandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1503,7 +1503,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistClient
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistClientBlockRead_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistClientBlockRead_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hpeerdist = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hcontenthandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1531,7 +1531,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistClient
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistClientCancelAsyncOperation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistClientCancelAsyncOperation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hpeerdist = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hcontenthandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1553,7 +1553,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistClient
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistClientCloseContent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistClientCloseContent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hpeerdist = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hcontenthandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1573,7 +1573,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistClient
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistClientCompleteContentInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistClientCompleteContentInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hpeerdist = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hcontenthandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1595,7 +1595,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistClient
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistClientFlushContent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistClientFlushContent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hpeerdist = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pcontenttag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1621,7 +1621,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistClient
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistClientGetInformationByHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistClientGetInformationByHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hpeerdist = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hcontenthandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1647,7 +1647,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistClient
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistClientOpenContent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistClientOpenContent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hpeerdist = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pcontenttag = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1673,7 +1673,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistClient
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistClientStreamRead_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistClientStreamRead_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hpeerdist = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hcontenthandle = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1701,7 +1701,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistClient
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistGetOverlappedResult_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistGetOverlappedResult_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpoverlapped = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpnumberofbytestransferred = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1723,7 +1723,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistGetOve
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistGetStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistGetStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hpeerdist = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* ppeerdiststatus = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1743,7 +1743,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistGetSta
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistGetStatusEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistGetStatusEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hpeerdist = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* ppeerdiststatus = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1763,7 +1763,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistGetSta
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistRegisterForStatusChangeNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistRegisterForStatusChangeNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hpeerdist = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hcompletionport = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1789,7 +1789,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistRegist
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistRegisterForStatusChangeNotificationEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistRegisterForStatusChangeNotificationEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hpeerdist = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* hcompletionport = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1815,7 +1815,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistRegist
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistServerCancelAsyncOperation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistServerCancelAsyncOperation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hpeerdist = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t cbcontentidentifier = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1839,7 +1839,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistServer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistServerCloseContentInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistServerCloseContentInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hpeerdist = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hcontentinfo = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1859,7 +1859,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistServer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistServerCloseStreamHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistServerCloseStreamHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hpeerdist = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hstream = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1879,7 +1879,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistServer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistServerOpenContentInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistServerOpenContentInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hpeerdist = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t cbcontentidentifier = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1911,7 +1911,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistServer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistServerOpenContentInformationEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistServerOpenContentInformationEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hpeerdist = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t cbcontentidentifier = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1945,7 +1945,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistServer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistServerPublishAddToStream_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistServerPublishAddToStream_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hpeerdist = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hstream = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1971,7 +1971,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistServer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistServerPublishCompleteStream_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistServerPublishCompleteStream_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hpeerdist = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hstream = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -1993,7 +1993,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistServer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistServerPublishStream_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistServerPublishStream_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hpeerdist = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t cbcontentidentifier = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2025,7 +2025,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistServer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistServerRetrieveContentInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistServerRetrieveContentInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hpeerdist = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int64_t hcontentinfo = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -2051,7 +2051,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistServer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistServerUnpublish_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistServerUnpublish_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hpeerdist = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t cbcontentidentifier = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2073,7 +2073,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistServer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistShutdown_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistShutdown_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hpeerdist = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2091,7 +2091,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistShutdo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistStartup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistStartup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwversionrequested = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* phpeerdist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2113,7 +2113,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistStartu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistUnregisterForStatusChangeNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistUnregisterForStatusChangeNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t hpeerdist = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -2131,7 +2131,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerDistUnregi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerEndEnumeration_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerEndEnumeration_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hpeerenum = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2149,7 +2149,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerEndEnumera
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerEnumGroups_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerEnumGroups_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzidentity = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phpeerenum = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2169,7 +2169,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerEnumGroups
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerEnumIdentities_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerEnumIdentities_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phpeerenum = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2187,7 +2187,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerEnumIdenti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerFreeData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerFreeData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2204,7 +2204,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerFreeData_n
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGetItemCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGetItemCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hpeerenum = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2224,7 +2224,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGetItemCou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGetNextItem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGetNextItem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hpeerenum = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2246,7 +2246,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGetNextIte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphAddRecord_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphAddRecord_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgraph = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* precord = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2268,7 +2268,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphAddRe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgraph = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2286,7 +2286,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphClose
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphCloseDirectConnection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphCloseDirectConnection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgraph = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t ullconnectionid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2306,7 +2306,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphClose
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphConnect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphConnect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgraph = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzpeerid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2330,7 +2330,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphConne
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphCreate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pgraphproperties = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzdatabasename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2354,7 +2354,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphCreat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphDelete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphDelete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzgraphid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzpeerid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2376,7 +2376,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphDelet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphDeleteRecord_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphDeleteRecord_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgraph = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* precordid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2398,7 +2398,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphDelet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphEndEnumeration_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphEndEnumeration_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hpeerenum = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2416,7 +2416,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphEndEn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphEnumConnections_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphEnumConnections_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgraph = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2438,7 +2438,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphEnumC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphEnumNodes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphEnumNodes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgraph = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzpeerid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2460,7 +2460,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphEnumN
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphEnumRecords_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphEnumRecords_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgraph = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* precordtype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2484,7 +2484,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphEnumR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphExportDatabase_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphExportDatabase_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgraph = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzfilepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2504,7 +2504,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphExpor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphFreeData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphFreeData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2521,7 +2521,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphFreeD
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetEventData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphGetEventData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hpeerevent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppeventdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2541,7 +2541,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetEv
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetItemCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphGetItemCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hpeerenum = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2561,7 +2561,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetIt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetNextItem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphGetNextItem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hpeerenum = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2583,7 +2583,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetNe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetNodeInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphGetNodeInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgraph = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t ullnodeid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2605,7 +2605,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetNo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetProperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphGetProperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgraph = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppgraphproperties = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2625,7 +2625,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetPr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetRecord_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphGetRecord_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgraph = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* precordid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2647,7 +2647,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetRe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphGetStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgraph = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwstatus = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2667,7 +2667,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetSt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphImportDatabase_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphImportDatabase_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgraph = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzfilepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2687,7 +2687,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphImpor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphListen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphListen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgraph = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwscope = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2711,7 +2711,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphListe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphOpen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphOpen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzgraphid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzpeerid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2741,7 +2741,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphOpen_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphOpenDirectConnection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphOpenDirectConnection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgraph = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzpeerid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2765,7 +2765,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphOpenD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphPeerTimeToUniversalTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphPeerTimeToUniversalTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgraph = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pftpeertime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2787,7 +2787,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphPeerT
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphRegisterEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphRegisterEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgraph = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hevent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2813,7 +2813,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphRegis
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphSearchRecords_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphSearchRecords_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgraph = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzcriteria = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2835,7 +2835,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphSearc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphSendData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphSendData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgraph = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t ullconnectionid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2861,7 +2861,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphSendD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphSetNodeAttributes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphSetNodeAttributes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgraph = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2881,7 +2881,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphSetNo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphSetPresence_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphSetPresence_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgraph = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fpresent = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2901,7 +2901,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphSetPr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphSetProperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphSetProperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgraph = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pgraphproperties = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2921,7 +2921,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphSetPr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphShutdown_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphShutdown_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -2937,7 +2937,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphShutd
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphStartup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphStartup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t wversionrequested = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pversiondata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2957,7 +2957,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphStart
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphUniversalTimeToPeerTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphUniversalTimeToPeerTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgraph = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pftuniversaltime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2979,7 +2979,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphUnive
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphUnregisterEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphUnregisterEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hpeerevent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2997,7 +2997,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphUnreg
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphUpdateRecord_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphUpdateRecord_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgraph = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* precord = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3017,7 +3017,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphUpdat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphValidateDeferredRecords_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphValidateDeferredRecords_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgraph = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t crecordids = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3039,7 +3039,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGraphValid
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupAddRecord_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupAddRecord_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgroup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* precord = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3061,7 +3061,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupAddRe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupClose_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgroup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3079,7 +3079,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupClose
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupCloseDirectConnection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupCloseDirectConnection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgroup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t ullconnectionid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3099,7 +3099,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupClose
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupConnect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupConnect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgroup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3117,7 +3117,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupConne
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupConnectByAddress_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupConnectByAddress_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgroup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t caddresses = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3139,7 +3139,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupConne
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupCreate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pproperties = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phgroup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3159,7 +3159,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupCreat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupCreateInvitation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupCreateInvitation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgroup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzidentityinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3187,7 +3187,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupCreat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupCreatePasswordInvitation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupCreatePasswordInvitation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgroup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppwzinvitation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3207,7 +3207,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupCreat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupDelete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupDelete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzidentity = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzgrouppeername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3227,7 +3227,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupDelet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupDeleteRecord_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupDeleteRecord_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgroup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* precordid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3247,7 +3247,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupDelet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupEnumConnections_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupEnumConnections_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgroup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3269,7 +3269,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupEnumC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupEnumMembers_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupEnumMembers_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgroup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3293,7 +3293,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupEnumM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupEnumRecords_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupEnumRecords_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgroup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* precordtype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3315,7 +3315,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupEnumR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupExportConfig_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupExportConfig_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgroup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzpassword = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3337,7 +3337,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupExpor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupExportDatabase_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupExportDatabase_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgroup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzfilepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3357,7 +3357,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupExpor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupGetEventData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupGetEventData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hpeerevent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppeventdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3377,7 +3377,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupGetEv
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupGetProperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupGetProperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgroup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppproperties = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3397,7 +3397,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupGetPr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupGetRecord_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupGetRecord_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgroup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* precordid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3419,7 +3419,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupGetRe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupGetStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupGetStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgroup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwstatus = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3439,7 +3439,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupGetSt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupImportConfig_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupImportConfig_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzxml = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzpassword = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3465,7 +3465,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupImpor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupImportDatabase_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupImportDatabase_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgroup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzfilepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3485,7 +3485,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupImpor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupIssueCredentials_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupIssueCredentials_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgroup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzsubjectidentity = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3511,7 +3511,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupIssue
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupJoin_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupJoin_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzidentity = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzinvitation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3535,7 +3535,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupJoin_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupOpen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupOpen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzidentity = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzgrouppeername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3559,7 +3559,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupOpen_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupOpenDirectConnection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupOpenDirectConnection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgroup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzidentity = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3583,7 +3583,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupOpenD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupParseInvitation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupParseInvitation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzinvitation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppinvitationinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3603,7 +3603,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupParse
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupPasswordJoin_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupPasswordJoin_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzidentity = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzinvitation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3629,7 +3629,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupPassw
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupPeerTimeToUniversalTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupPeerTimeToUniversalTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgroup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pftpeertime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3651,7 +3651,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupPeerT
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupRegisterEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupRegisterEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgroup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hevent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3677,7 +3677,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupRegis
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupResumePasswordAuthentication_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupResumePasswordAuthentication_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgroup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hpeereventhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3697,7 +3697,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupResum
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupSearchRecords_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupSearchRecords_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgroup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzcriteria = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3719,7 +3719,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupSearc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupSendData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupSendData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgroup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t ullconnectionid = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3745,7 +3745,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupSendD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupSetProperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupSetProperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgroup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pproperties = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3765,7 +3765,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupSetPr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupShutdown_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupShutdown_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -3781,7 +3781,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupShutd
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupStartup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupStartup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t wversionrequested = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pversiondata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3801,7 +3801,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupStart
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupUniversalTimeToPeerTime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupUniversalTimeToPeerTime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgroup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pftuniversaltime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3823,7 +3823,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupUnive
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupUnregisterEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupUnregisterEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hpeerevent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3841,7 +3841,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupUnreg
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupUpdateRecord_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupUpdateRecord_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hgroup = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* precord = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3861,7 +3861,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerGroupUpdat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerHostNameToPeerName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerHostNameToPeerName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzhostname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppwzpeername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3881,7 +3881,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerHostNameTo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerIdentityCreate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerIdentityCreate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzclassifier = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzfriendlyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3905,7 +3905,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerIdentityCr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerIdentityDelete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerIdentityDelete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzidentity = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3923,7 +3923,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerIdentityDe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerIdentityExport_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerIdentityExport_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzidentity = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzpassword = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3945,7 +3945,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerIdentityEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerIdentityGetCryptKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerIdentityGetCryptKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzidentity = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phcryptprov = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3965,7 +3965,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerIdentityGe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerIdentityGetDefault_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerIdentityGetDefault_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppwzpeername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3983,7 +3983,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerIdentityGe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerIdentityGetFriendlyName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerIdentityGetFriendlyName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzidentity = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppwzfriendlyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4003,7 +4003,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerIdentityGe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerIdentityGetXML_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerIdentityGetXML_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzidentity = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppwzidentityxml = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4023,7 +4023,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerIdentityGe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerIdentityImport_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerIdentityImport_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzimportxml = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzpassword = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4045,7 +4045,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerIdentityIm
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerIdentitySetFriendlyName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerIdentitySetFriendlyName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzidentity = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzfriendlyname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4065,7 +4065,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerIdentitySe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerNameToPeerHostName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerNameToPeerHostName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzpeername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppwzhostname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4085,7 +4085,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerNameToPeer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerPnrpEndResolve_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerPnrpEndResolve_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hresolve = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4103,7 +4103,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerPnrpEndRes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerPnrpGetCloudInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerPnrpGetCloudInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcnumclouds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppcloudinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4123,7 +4123,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerPnrpGetClo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerPnrpGetEndpoint_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerPnrpGetEndpoint_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hresolve = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppendpoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4143,7 +4143,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerPnrpGetEnd
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerPnrpRegister_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerPnrpRegister_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcwzpeername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pregistrationinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4165,7 +4165,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerPnrpRegist
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerPnrpResolve_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerPnrpResolve_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcwzpeername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcwzcloudname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4189,7 +4189,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerPnrpResolv
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerPnrpShutdown_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerPnrpShutdown_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -4205,7 +4205,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerPnrpShutdo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerPnrpStartResolve_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerPnrpStartResolve_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcwzpeername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcwzcloudname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4231,7 +4231,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerPnrpStartR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerPnrpStartup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerPnrpStartup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t wversionrequested = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -4249,7 +4249,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerPnrpStartu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerPnrpUnregister_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerPnrpUnregister_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hregistration = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4267,7 +4267,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerPnrpUnregi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerPnrpUpdateRegistration_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerPnrpUpdateRegistration_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hregistration = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pregistrationinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4288,206 +4288,206 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_PeerPnrpUpdate
 }
 
 static void register_windows_win32_networkmanagement_p2p_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_DrtClose", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_DrtClose_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_DrtContinueSearch", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_DrtContinueSearch_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_DrtCreateDerivedKey", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_DrtCreateDerivedKey_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_DrtCreateDerivedKeySecurityProvider", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_DrtCreateDerivedKeySecurityProvider_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_DrtCreateDnsBootstrapResolver", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_DrtCreateDnsBootstrapResolver_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_DrtCreateIpv6UdpTransport", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_DrtCreateIpv6UdpTransport_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_DrtCreateNullSecurityProvider", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_DrtCreateNullSecurityProvider_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_DrtCreatePnrpBootstrapResolver", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_DrtCreatePnrpBootstrapResolver_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_DrtDeleteDerivedKeySecurityProvider", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_DrtDeleteDerivedKeySecurityProvider_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_DrtDeleteDnsBootstrapResolver", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_DrtDeleteDnsBootstrapResolver_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_DrtDeleteIpv6UdpTransport", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_DrtDeleteIpv6UdpTransport_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_DrtDeleteNullSecurityProvider", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_DrtDeleteNullSecurityProvider_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_DrtDeletePnrpBootstrapResolver", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_DrtDeletePnrpBootstrapResolver_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_DrtEndSearch", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_DrtEndSearch_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_DrtGetEventData", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_DrtGetEventData_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_DrtGetEventDataSize", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_DrtGetEventDataSize_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_DrtGetInstanceName", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_DrtGetInstanceName_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_DrtGetInstanceNameSize", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_DrtGetInstanceNameSize_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_DrtGetSearchPath", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_DrtGetSearchPath_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_DrtGetSearchPathSize", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_DrtGetSearchPathSize_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_DrtGetSearchResult", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_DrtGetSearchResult_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_DrtGetSearchResultSize", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_DrtGetSearchResultSize_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_DrtOpen", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_DrtOpen_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_DrtRegisterKey", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_DrtRegisterKey_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_DrtStartSearch", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_DrtStartSearch_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_DrtUnregisterKey", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_DrtUnregisterKey_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_DrtUpdateKey", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_DrtUpdateKey_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabAddContact", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabAddContact_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabAsyncInviteContact", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabAsyncInviteContact_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabAsyncInviteEndpoint", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabAsyncInviteEndpoint_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabCancelInvitation", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabCancelInvitation_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabCloseHandle", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabCloseHandle_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabDeleteContact", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabDeleteContact_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabDeleteEndpointData", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabDeleteEndpointData_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabDeleteObject", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabDeleteObject_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabEnumApplicationRegistrationInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabEnumApplicationRegistrationInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabEnumApplications", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabEnumApplications_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabEnumContacts", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabEnumContacts_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabEnumEndpoints", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabEnumEndpoints_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabEnumObjects", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabEnumObjects_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabEnumPeopleNearMe", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabEnumPeopleNearMe_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabExportContact", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabExportContact_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetAppLaunchInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetAppLaunchInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetApplicationRegistrationInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetApplicationRegistrationInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetContact", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetContact_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetEndpointName", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetEndpointName_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetEventData", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetEventData_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetInvitationResponse", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetInvitationResponse_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetPresenceInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetPresenceInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetSigninOptions", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabGetSigninOptions_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabInviteContact", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabInviteContact_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabInviteEndpoint", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabInviteEndpoint_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabParseContact", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabParseContact_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabQueryContactData", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabQueryContactData_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabRefreshEndpointData", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabRefreshEndpointData_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabRegisterApplication", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabRegisterApplication_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabRegisterEvent", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabRegisterEvent_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabSetEndpointName", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabSetEndpointName_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabSetObject", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabSetObject_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabSetPresenceInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabSetPresenceInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabShutdown", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabShutdown_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabSignin", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabSignin_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabSignout", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabSignout_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabStartup", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabStartup_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabSubscribeEndpointData", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabSubscribeEndpointData_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabUnregisterApplication", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabUnregisterApplication_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabUnregisterEvent", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabUnregisterEvent_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabUnsubscribeEndpointData", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabUnsubscribeEndpointData_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCollabUpdateContact", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCollabUpdateContact_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerCreatePeerName", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerCreatePeerName_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerDistClientAddContentInformation", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerDistClientAddContentInformation_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerDistClientAddData", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerDistClientAddData_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerDistClientBlockRead", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerDistClientBlockRead_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerDistClientCancelAsyncOperation", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerDistClientCancelAsyncOperation_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerDistClientCloseContent", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerDistClientCloseContent_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerDistClientCompleteContentInformation", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerDistClientCompleteContentInformation_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerDistClientFlushContent", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerDistClientFlushContent_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerDistClientGetInformationByHandle", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerDistClientGetInformationByHandle_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerDistClientOpenContent", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerDistClientOpenContent_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerDistClientStreamRead", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerDistClientStreamRead_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerDistGetOverlappedResult", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerDistGetOverlappedResult_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerDistGetStatus", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerDistGetStatus_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerDistGetStatusEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerDistGetStatusEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerDistRegisterForStatusChangeNotification", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerDistRegisterForStatusChangeNotification_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerDistRegisterForStatusChangeNotificationEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerDistRegisterForStatusChangeNotificationEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerDistServerCancelAsyncOperation", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerDistServerCancelAsyncOperation_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerDistServerCloseContentInformation", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerDistServerCloseContentInformation_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerDistServerCloseStreamHandle", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerDistServerCloseStreamHandle_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerDistServerOpenContentInformation", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerDistServerOpenContentInformation_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerDistServerOpenContentInformationEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerDistServerOpenContentInformationEx_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerDistServerPublishAddToStream", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerDistServerPublishAddToStream_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerDistServerPublishCompleteStream", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerDistServerPublishCompleteStream_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerDistServerPublishStream", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerDistServerPublishStream_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerDistServerRetrieveContentInformation", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerDistServerRetrieveContentInformation_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerDistServerUnpublish", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerDistServerUnpublish_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerDistShutdown", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerDistShutdown_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerDistStartup", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerDistStartup_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerDistUnregisterForStatusChangeNotification", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerDistUnregisterForStatusChangeNotification_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerEndEnumeration", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerEndEnumeration_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerEnumGroups", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerEnumGroups_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerEnumIdentities", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerEnumIdentities_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerFreeData", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerFreeData_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGetItemCount", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGetItemCount_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGetNextItem", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGetNextItem_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGraphAddRecord", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGraphAddRecord_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGraphClose", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGraphClose_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGraphCloseDirectConnection", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGraphCloseDirectConnection_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGraphConnect", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGraphConnect_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGraphCreate", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGraphCreate_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGraphDelete", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGraphDelete_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGraphDeleteRecord", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGraphDeleteRecord_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGraphEndEnumeration", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGraphEndEnumeration_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGraphEnumConnections", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGraphEnumConnections_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGraphEnumNodes", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGraphEnumNodes_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGraphEnumRecords", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGraphEnumRecords_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGraphExportDatabase", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGraphExportDatabase_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGraphFreeData", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGraphFreeData_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetEventData", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetEventData_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetItemCount", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetItemCount_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetNextItem", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetNextItem_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetNodeInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetNodeInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetProperties", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetProperties_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetRecord", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetRecord_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetStatus", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGraphGetStatus_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGraphImportDatabase", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGraphImportDatabase_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGraphListen", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGraphListen_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGraphOpen", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGraphOpen_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGraphOpenDirectConnection", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGraphOpenDirectConnection_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGraphPeerTimeToUniversalTime", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGraphPeerTimeToUniversalTime_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGraphRegisterEvent", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGraphRegisterEvent_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGraphSearchRecords", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGraphSearchRecords_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGraphSendData", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGraphSendData_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGraphSetNodeAttributes", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGraphSetNodeAttributes_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGraphSetPresence", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGraphSetPresence_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGraphSetProperties", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGraphSetProperties_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGraphShutdown", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGraphShutdown_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGraphStartup", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGraphStartup_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGraphUniversalTimeToPeerTime", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGraphUniversalTimeToPeerTime_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGraphUnregisterEvent", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGraphUnregisterEvent_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGraphUpdateRecord", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGraphUpdateRecord_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGraphValidateDeferredRecords", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGraphValidateDeferredRecords_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGroupAddRecord", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGroupAddRecord_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGroupClose", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGroupClose_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGroupCloseDirectConnection", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGroupCloseDirectConnection_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGroupConnect", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGroupConnect_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGroupConnectByAddress", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGroupConnectByAddress_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGroupCreate", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGroupCreate_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGroupCreateInvitation", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGroupCreateInvitation_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGroupCreatePasswordInvitation", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGroupCreatePasswordInvitation_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGroupDelete", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGroupDelete_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGroupDeleteRecord", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGroupDeleteRecord_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGroupEnumConnections", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGroupEnumConnections_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGroupEnumMembers", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGroupEnumMembers_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGroupEnumRecords", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGroupEnumRecords_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGroupExportConfig", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGroupExportConfig_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGroupExportDatabase", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGroupExportDatabase_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGroupGetEventData", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGroupGetEventData_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGroupGetProperties", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGroupGetProperties_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGroupGetRecord", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGroupGetRecord_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGroupGetStatus", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGroupGetStatus_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGroupImportConfig", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGroupImportConfig_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGroupImportDatabase", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGroupImportDatabase_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGroupIssueCredentials", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGroupIssueCredentials_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGroupJoin", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGroupJoin_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGroupOpen", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGroupOpen_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGroupOpenDirectConnection", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGroupOpenDirectConnection_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGroupParseInvitation", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGroupParseInvitation_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGroupPasswordJoin", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGroupPasswordJoin_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGroupPeerTimeToUniversalTime", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGroupPeerTimeToUniversalTime_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGroupRegisterEvent", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGroupRegisterEvent_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGroupResumePasswordAuthentication", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGroupResumePasswordAuthentication_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGroupSearchRecords", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGroupSearchRecords_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGroupSendData", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGroupSendData_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGroupSetProperties", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGroupSetProperties_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGroupShutdown", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGroupShutdown_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGroupStartup", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGroupStartup_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGroupUniversalTimeToPeerTime", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGroupUniversalTimeToPeerTime_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGroupUnregisterEvent", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGroupUnregisterEvent_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerGroupUpdateRecord", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerGroupUpdateRecord_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerHostNameToPeerName", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerHostNameToPeerName_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerIdentityCreate", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerIdentityCreate_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerIdentityDelete", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerIdentityDelete_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerIdentityExport", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerIdentityExport_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerIdentityGetCryptKey", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerIdentityGetCryptKey_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerIdentityGetDefault", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerIdentityGetDefault_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerIdentityGetFriendlyName", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerIdentityGetFriendlyName_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerIdentityGetXML", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerIdentityGetXML_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerIdentityImport", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerIdentityImport_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerIdentitySetFriendlyName", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerIdentitySetFriendlyName_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerNameToPeerHostName", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerNameToPeerHostName_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerPnrpEndResolve", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerPnrpEndResolve_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerPnrpGetCloudInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerPnrpGetCloudInfo_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerPnrpGetEndpoint", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerPnrpGetEndpoint_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerPnrpRegister", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerPnrpRegister_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerPnrpResolve", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerPnrpResolve_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerPnrpShutdown", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerPnrpShutdown_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerPnrpStartResolve", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerPnrpStartResolve_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerPnrpStartup", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerPnrpStartup_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerPnrpUnregister", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerPnrpUnregister_napi));
-    exports.Set("windowssys_windows_win32_networkmanagement_p2p_PeerPnrpUpdateRegistration", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_PeerPnrpUpdateRegistration_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_drtClose", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_drtClose_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_drtContinueSearch", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_drtContinueSearch_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_drtCreateDerivedKey", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_drtCreateDerivedKey_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_drtCreateDerivedKeySecurityProvider", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_drtCreateDerivedKeySecurityProvider_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_drtCreateDnsBootstrapResolver", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_drtCreateDnsBootstrapResolver_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_drtCreateIpv6UdpTransport", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_drtCreateIpv6UdpTransport_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_drtCreateNullSecurityProvider", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_drtCreateNullSecurityProvider_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_drtCreatePnrpBootstrapResolver", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_drtCreatePnrpBootstrapResolver_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_drtDeleteDerivedKeySecurityProvider", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_drtDeleteDerivedKeySecurityProvider_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_drtDeleteDnsBootstrapResolver", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_drtDeleteDnsBootstrapResolver_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_drtDeleteIpv6UdpTransport", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_drtDeleteIpv6UdpTransport_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_drtDeleteNullSecurityProvider", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_drtDeleteNullSecurityProvider_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_drtDeletePnrpBootstrapResolver", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_drtDeletePnrpBootstrapResolver_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_drtEndSearch", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_drtEndSearch_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_drtGetEventData", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_drtGetEventData_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_drtGetEventDataSize", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_drtGetEventDataSize_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_drtGetInstanceName", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_drtGetInstanceName_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_drtGetInstanceNameSize", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_drtGetInstanceNameSize_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_drtGetSearchPath", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_drtGetSearchPath_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_drtGetSearchPathSize", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_drtGetSearchPathSize_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_drtGetSearchResult", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_drtGetSearchResult_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_drtGetSearchResultSize", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_drtGetSearchResultSize_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_drtOpen", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_drtOpen_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_drtRegisterKey", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_drtRegisterKey_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_drtStartSearch", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_drtStartSearch_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_drtUnregisterKey", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_drtUnregisterKey_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_drtUpdateKey", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_drtUpdateKey_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabAddContact", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabAddContact_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabAsyncInviteContact", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabAsyncInviteContact_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabAsyncInviteEndpoint", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabAsyncInviteEndpoint_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabCancelInvitation", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabCancelInvitation_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabCloseHandle", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabCloseHandle_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabDeleteContact", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabDeleteContact_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabDeleteEndpointData", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabDeleteEndpointData_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabDeleteObject", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabDeleteObject_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumApplicationRegistrationInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumApplicationRegistrationInfo_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumApplications", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumApplications_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumContacts", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumContacts_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumEndpoints", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumEndpoints_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumObjects", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumObjects_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumPeopleNearMe", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabEnumPeopleNearMe_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabExportContact", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabExportContact_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabGetAppLaunchInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabGetAppLaunchInfo_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabGetApplicationRegistrationInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabGetApplicationRegistrationInfo_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabGetContact", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabGetContact_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabGetEndpointName", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabGetEndpointName_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabGetEventData", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabGetEventData_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabGetInvitationResponse", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabGetInvitationResponse_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabGetPresenceInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabGetPresenceInfo_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabGetSigninOptions", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabGetSigninOptions_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabInviteContact", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabInviteContact_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabInviteEndpoint", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabInviteEndpoint_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabParseContact", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabParseContact_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabQueryContactData", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabQueryContactData_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabRefreshEndpointData", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabRefreshEndpointData_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabRegisterApplication", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabRegisterApplication_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabRegisterEvent", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabRegisterEvent_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabSetEndpointName", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabSetEndpointName_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabSetObject", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabSetObject_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabSetPresenceInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabSetPresenceInfo_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabShutdown", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabShutdown_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabSignin", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabSignin_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabSignout", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabSignout_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabStartup", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabStartup_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabSubscribeEndpointData", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabSubscribeEndpointData_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabUnregisterApplication", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabUnregisterApplication_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabUnregisterEvent", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabUnregisterEvent_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabUnsubscribeEndpointData", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabUnsubscribeEndpointData_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCollabUpdateContact", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCollabUpdateContact_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerCreatePeerName", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerCreatePeerName_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerDistClientAddContentInformation", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerDistClientAddContentInformation_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerDistClientAddData", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerDistClientAddData_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerDistClientBlockRead", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerDistClientBlockRead_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerDistClientCancelAsyncOperation", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerDistClientCancelAsyncOperation_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerDistClientCloseContent", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerDistClientCloseContent_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerDistClientCompleteContentInformation", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerDistClientCompleteContentInformation_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerDistClientFlushContent", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerDistClientFlushContent_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerDistClientGetInformationByHandle", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerDistClientGetInformationByHandle_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerDistClientOpenContent", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerDistClientOpenContent_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerDistClientStreamRead", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerDistClientStreamRead_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerDistGetOverlappedResult", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerDistGetOverlappedResult_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerDistGetStatus", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerDistGetStatus_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerDistGetStatusEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerDistGetStatusEx_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerDistRegisterForStatusChangeNotification", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerDistRegisterForStatusChangeNotification_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerDistRegisterForStatusChangeNotificationEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerDistRegisterForStatusChangeNotificationEx_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerDistServerCancelAsyncOperation", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerDistServerCancelAsyncOperation_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerDistServerCloseContentInformation", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerDistServerCloseContentInformation_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerDistServerCloseStreamHandle", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerDistServerCloseStreamHandle_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerDistServerOpenContentInformation", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerDistServerOpenContentInformation_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerDistServerOpenContentInformationEx", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerDistServerOpenContentInformationEx_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerDistServerPublishAddToStream", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerDistServerPublishAddToStream_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerDistServerPublishCompleteStream", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerDistServerPublishCompleteStream_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerDistServerPublishStream", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerDistServerPublishStream_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerDistServerRetrieveContentInformation", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerDistServerRetrieveContentInformation_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerDistServerUnpublish", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerDistServerUnpublish_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerDistShutdown", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerDistShutdown_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerDistStartup", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerDistStartup_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerDistUnregisterForStatusChangeNotification", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerDistUnregisterForStatusChangeNotification_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerEndEnumeration", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerEndEnumeration_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerEnumGroups", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerEnumGroups_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerEnumIdentities", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerEnumIdentities_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerFreeData", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerFreeData_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGetItemCount", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGetItemCount_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGetNextItem", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGetNextItem_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGraphAddRecord", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGraphAddRecord_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGraphClose", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGraphClose_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGraphCloseDirectConnection", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGraphCloseDirectConnection_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGraphConnect", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGraphConnect_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGraphCreate", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGraphCreate_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGraphDelete", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGraphDelete_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGraphDeleteRecord", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGraphDeleteRecord_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGraphEndEnumeration", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGraphEndEnumeration_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGraphEnumConnections", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGraphEnumConnections_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGraphEnumNodes", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGraphEnumNodes_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGraphEnumRecords", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGraphEnumRecords_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGraphExportDatabase", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGraphExportDatabase_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGraphFreeData", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGraphFreeData_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGraphGetEventData", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGraphGetEventData_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGraphGetItemCount", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGraphGetItemCount_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGraphGetNextItem", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGraphGetNextItem_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGraphGetNodeInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGraphGetNodeInfo_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGraphGetProperties", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGraphGetProperties_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGraphGetRecord", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGraphGetRecord_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGraphGetStatus", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGraphGetStatus_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGraphImportDatabase", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGraphImportDatabase_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGraphListen", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGraphListen_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGraphOpen", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGraphOpen_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGraphOpenDirectConnection", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGraphOpenDirectConnection_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGraphPeerTimeToUniversalTime", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGraphPeerTimeToUniversalTime_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGraphRegisterEvent", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGraphRegisterEvent_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGraphSearchRecords", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGraphSearchRecords_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGraphSendData", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGraphSendData_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGraphSetNodeAttributes", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGraphSetNodeAttributes_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGraphSetPresence", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGraphSetPresence_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGraphSetProperties", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGraphSetProperties_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGraphShutdown", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGraphShutdown_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGraphStartup", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGraphStartup_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGraphUniversalTimeToPeerTime", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGraphUniversalTimeToPeerTime_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGraphUnregisterEvent", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGraphUnregisterEvent_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGraphUpdateRecord", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGraphUpdateRecord_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGraphValidateDeferredRecords", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGraphValidateDeferredRecords_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGroupAddRecord", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGroupAddRecord_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGroupClose", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGroupClose_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGroupCloseDirectConnection", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGroupCloseDirectConnection_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGroupConnect", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGroupConnect_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGroupConnectByAddress", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGroupConnectByAddress_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGroupCreate", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGroupCreate_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGroupCreateInvitation", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGroupCreateInvitation_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGroupCreatePasswordInvitation", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGroupCreatePasswordInvitation_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGroupDelete", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGroupDelete_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGroupDeleteRecord", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGroupDeleteRecord_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGroupEnumConnections", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGroupEnumConnections_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGroupEnumMembers", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGroupEnumMembers_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGroupEnumRecords", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGroupEnumRecords_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGroupExportConfig", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGroupExportConfig_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGroupExportDatabase", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGroupExportDatabase_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGroupGetEventData", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGroupGetEventData_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGroupGetProperties", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGroupGetProperties_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGroupGetRecord", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGroupGetRecord_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGroupGetStatus", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGroupGetStatus_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGroupImportConfig", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGroupImportConfig_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGroupImportDatabase", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGroupImportDatabase_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGroupIssueCredentials", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGroupIssueCredentials_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGroupJoin", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGroupJoin_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGroupOpen", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGroupOpen_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGroupOpenDirectConnection", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGroupOpenDirectConnection_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGroupParseInvitation", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGroupParseInvitation_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGroupPasswordJoin", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGroupPasswordJoin_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGroupPeerTimeToUniversalTime", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGroupPeerTimeToUniversalTime_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGroupRegisterEvent", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGroupRegisterEvent_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGroupResumePasswordAuthentication", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGroupResumePasswordAuthentication_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGroupSearchRecords", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGroupSearchRecords_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGroupSendData", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGroupSendData_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGroupSetProperties", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGroupSetProperties_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGroupShutdown", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGroupShutdown_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGroupStartup", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGroupStartup_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGroupUniversalTimeToPeerTime", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGroupUniversalTimeToPeerTime_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGroupUnregisterEvent", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGroupUnregisterEvent_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerGroupUpdateRecord", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerGroupUpdateRecord_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerHostNameToPeerName", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerHostNameToPeerName_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerIdentityCreate", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerIdentityCreate_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerIdentityDelete", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerIdentityDelete_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerIdentityExport", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerIdentityExport_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerIdentityGetCryptKey", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerIdentityGetCryptKey_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerIdentityGetDefault", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerIdentityGetDefault_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerIdentityGetFriendlyName", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerIdentityGetFriendlyName_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerIdentityGetXML", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerIdentityGetXML_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerIdentityImport", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerIdentityImport_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerIdentitySetFriendlyName", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerIdentitySetFriendlyName_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerNameToPeerHostName", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerNameToPeerHostName_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerPnrpEndResolve", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerPnrpEndResolve_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerPnrpGetCloudInfo", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerPnrpGetCloudInfo_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerPnrpGetEndpoint", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerPnrpGetEndpoint_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerPnrpRegister", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerPnrpRegister_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerPnrpResolve", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerPnrpResolve_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerPnrpShutdown", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerPnrpShutdown_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerPnrpStartResolve", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerPnrpStartResolve_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerPnrpStartup", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerPnrpStartup_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerPnrpUnregister", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerPnrpUnregister_napi));
+    exports.Set("windowssys_windows_win32_networkmanagement_p2p_peerPnrpUpdateRegistration", Napi::Function::New(env, windowssys_windows_win32_networkmanagement_p2p_peerPnrpUpdateRegistration_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_networkmanagement_p2p_napi, nullptr };

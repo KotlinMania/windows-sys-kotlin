@@ -1,180 +1,181 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.threading
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.windows.win32.system.systemservices.RTL_UMS_SCHEDULER_REASON
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.windows.win32.system.systemservices.RtlUmsSchedulerReason
 
-public fun interface APC_CALLBACK_FUNCTIONFn {
-    public operator fun invoke(param0: UInt, param1: Long, param2: Long)
+public fun interface ApcCallbackFunctionFn {
+    public operator fun invoke(param0: UInt, param1: COpaquePointer?, param2: COpaquePointer?)
 }
 
-public typealias APC_CALLBACK_FUNCTION = APC_CALLBACK_FUNCTIONFn?
+public typealias ApcCallbackFunction = ApcCallbackFunctionFn?
 
-public typealias AVRT_PRIORITY = Int
+public typealias AvrtPriority = Int
 
-public typealias CREATE_EVENT = UInt
+public typealias CreateEvent = UInt
 
-public typealias CREATE_PROCESS_LOGON_FLAGS = UInt
+public typealias CreateProcessLogonFlags = UInt
 
-public typealias GET_GUI_RESOURCES_FLAGS = UInt
+public typealias GetGuiResourcesFlags = UInt
 
-public fun interface LPFIBER_START_ROUTINEFn {
-    public operator fun invoke(lpfiberparameter: Long)
+public fun interface LpfiberStartRoutineFn {
+    public operator fun invoke(lpfiberparameter: COpaquePointer?)
 }
 
-public typealias LPFIBER_START_ROUTINE = LPFIBER_START_ROUTINEFn?
+public typealias LpfiberStartRoutine = LpfiberStartRoutineFn?
 
-public typealias LPPROC_THREAD_ATTRIBUTE_LIST = Long
+public typealias LpprocThreadAttributeList = COpaquePointer?
 
-public fun interface LPTHREAD_START_ROUTINEFn {
-    public operator fun invoke(lpthreadparameter: Long): UInt
+public fun interface LpthreadStartRoutineFn {
+    public operator fun invoke(lpthreadparameter: COpaquePointer?): UInt
 }
 
-public typealias LPTHREAD_START_ROUTINE = LPTHREAD_START_ROUTINEFn?
+public typealias LpthreadStartRoutine = LpthreadStartRoutineFn?
 
-public typealias MACHINE_ATTRIBUTES = Int
+public typealias MachineAttributes = Int
 
-public typealias MEMORY_PRIORITY = UInt
+public typealias MemoryPriority = UInt
 
-public fun interface PFLS_CALLBACK_FUNCTIONFn {
-    public operator fun invoke(lpflsdata: Long)
+public fun interface PflsCallbackFunctionFn {
+    public operator fun invoke(lpflsdata: COpaquePointer?)
 }
 
-public typealias PFLS_CALLBACK_FUNCTION = PFLS_CALLBACK_FUNCTIONFn?
+public typealias PflsCallbackFunction = PflsCallbackFunctionFn?
 
-public fun interface PINIT_ONCE_FNFn {
-    public operator fun invoke(initonce: Long, parameter: Long, context: Long): BOOL
+public fun interface PinitOnceFnFn {
+    public operator fun invoke(initonce: COpaquePointer?, parameter: COpaquePointer?, context: COpaquePointer?): Bool
 }
 
-public typealias PINIT_ONCE_FN = PINIT_ONCE_FNFn?
+public typealias PinitOnceFn = PinitOnceFnFn?
 
-public typealias POWER_REQUEST_CONTEXT_FLAGS = UInt
+public typealias PowerRequestContextFlags = UInt
 
-public fun interface PPS_POST_PROCESS_INIT_ROUTINEFn {
+public fun interface PpsPostProcessInitRoutineFn {
     public operator fun invoke()
 }
 
-public typealias PPS_POST_PROCESS_INIT_ROUTINE = PPS_POST_PROCESS_INIT_ROUTINEFn?
+public typealias PpsPostProcessInitRoutine = PpsPostProcessInitRoutineFn?
 
-public typealias PROCESSOR_FEATURE_ID = UInt
+public typealias ProcessorFeatureId = UInt
 
-public typealias PROCESS_ACCESS_RIGHTS = UInt
+public typealias ProcessAccessRights = UInt
 
-public typealias PROCESS_AFFINITY_AUTO_UPDATE_FLAGS = UInt
+public typealias ProcessAffinityAutoUpdateFlags = UInt
 
-public typealias PROCESS_CREATION_FLAGS = UInt
+public typealias ProcessCreationFlags = UInt
 
-public typealias PROCESS_DEP_FLAGS = UInt
+public typealias ProcessDepFlags = UInt
 
-public typealias PROCESS_INFORMATION_CLASS = Int
+public typealias ProcessInformationClass = Int
 
-public typealias PROCESS_MEMORY_EXHAUSTION_TYPE = Int
+public typealias ProcessMemoryExhaustionType = Int
 
-public typealias PROCESS_MITIGATION_POLICY = Int
+public typealias ProcessMitigationPolicy = Int
 
-public typealias PROCESS_NAME_FORMAT = UInt
+public typealias ProcessNameFormat = UInt
 
-public typealias PROCESS_PROTECTION_LEVEL = UInt
+public typealias ProcessProtectionLevel = UInt
 
-public typealias PROC_THREAD_ATTRIBUTE_NUM = UInt
+public typealias ProcThreadAttributeNum = UInt
 
-public fun interface PRTL_UMS_SCHEDULER_ENTRY_POINTFn {
-    public operator fun invoke(reason: RTL_UMS_SCHEDULER_REASON, activationpayload: ULong, schedulerparam: Long)
+public fun interface PrtlUmsSchedulerEntryPointFn {
+    public operator fun invoke(reason: RtlUmsSchedulerReason, activationpayload: ULong, schedulerparam: COpaquePointer?)
 }
 
-public typealias PRTL_UMS_SCHEDULER_ENTRY_POINT = PRTL_UMS_SCHEDULER_ENTRY_POINTFn?
+public typealias PrtlUmsSchedulerEntryPoint = PrtlUmsSchedulerEntryPointFn?
 
-public fun interface PTIMERAPCROUTINEFn {
-    public operator fun invoke(lpargtocompletionroutine: Long, dwtimerlowvalue: UInt, dwtimerhighvalue: UInt)
+public fun interface PtimerapcroutineFn {
+    public operator fun invoke(lpargtocompletionroutine: COpaquePointer?, dwtimerlowvalue: UInt, dwtimerhighvalue: UInt)
 }
 
-public typealias PTIMERAPCROUTINE = PTIMERAPCROUTINEFn?
+public typealias Ptimerapcroutine = PtimerapcroutineFn?
 
-public typealias PTP_CALLBACK_INSTANCE = Long
+public typealias PtpCallbackInstance = Long
 
-public typealias PTP_CLEANUP_GROUP = Long
+public typealias PtpCleanupGroup = Long
 
-public fun interface PTP_CLEANUP_GROUP_CANCEL_CALLBACKFn {
-    public operator fun invoke(objectcontext: Long, cleanupcontext: Long)
+public fun interface PtpCleanupGroupCancelCallbackFn {
+    public operator fun invoke(objectcontext: COpaquePointer?, cleanupcontext: COpaquePointer?)
 }
 
-public typealias PTP_CLEANUP_GROUP_CANCEL_CALLBACK = PTP_CLEANUP_GROUP_CANCEL_CALLBACKFn?
+public typealias PtpCleanupGroupCancelCallback = PtpCleanupGroupCancelCallbackFn?
 
-public typealias PTP_IO = Long
+public typealias PtpIo = Long
 
-public typealias PTP_POOL = Long
+public typealias PtpPool = Long
 
-public fun interface PTP_SIMPLE_CALLBACKFn {
-    public operator fun invoke(instance: PTP_CALLBACK_INSTANCE, context: Long)
+public fun interface PtpSimpleCallbackFn {
+    public operator fun invoke(instance: PtpCallbackInstance, context: COpaquePointer?)
 }
 
-public typealias PTP_SIMPLE_CALLBACK = PTP_SIMPLE_CALLBACKFn?
+public typealias PtpSimpleCallback = PtpSimpleCallbackFn?
 
-public typealias PTP_TIMER = Long
+public typealias PtpTimer = Long
 
-public fun interface PTP_TIMER_CALLBACKFn {
-    public operator fun invoke(instance: PTP_CALLBACK_INSTANCE, context: Long, timer: PTP_TIMER)
+public fun interface PtpTimerCallbackFn {
+    public operator fun invoke(instance: PtpCallbackInstance, context: COpaquePointer?, timer: PtpTimer)
 }
 
-public typealias PTP_TIMER_CALLBACK = PTP_TIMER_CALLBACKFn?
+public typealias PtpTimerCallback = PtpTimerCallbackFn?
 
-public typealias PTP_WAIT = Long
+public typealias PtpWait = Long
 
-public fun interface PTP_WAIT_CALLBACKFn {
-    public operator fun invoke(instance: PTP_CALLBACK_INSTANCE, context: Long, wait: PTP_WAIT, waitresult: UInt)
+public fun interface PtpWaitCallbackFn {
+    public operator fun invoke(instance: PtpCallbackInstance, context: COpaquePointer?, wait: PtpWait, waitresult: UInt)
 }
 
-public typealias PTP_WAIT_CALLBACK = PTP_WAIT_CALLBACKFn?
+public typealias PtpWaitCallback = PtpWaitCallbackFn?
 
-public fun interface PTP_WIN32_IO_CALLBACKFn {
-    public operator fun invoke(instance: PTP_CALLBACK_INSTANCE, context: Long, overlapped: Long, ioresult: UInt, numberofbytestransferred: ULong, io: PTP_IO)
+public fun interface PtpWin32IoCallbackFn {
+    public operator fun invoke(instance: PtpCallbackInstance, context: COpaquePointer?, overlapped: COpaquePointer?, ioresult: UInt, numberofbytestransferred: ULong, io: PtpIo)
 }
 
-public typealias PTP_WIN32_IO_CALLBACK = PTP_WIN32_IO_CALLBACKFn?
+public typealias PtpWin32IoCallback = PtpWin32IoCallbackFn?
 
-public typealias PTP_WORK = Long
+public typealias PtpWork = Long
 
-public fun interface PTP_WORK_CALLBACKFn {
-    public operator fun invoke(instance: PTP_CALLBACK_INSTANCE, context: Long, work: PTP_WORK)
+public fun interface PtpWorkCallbackFn {
+    public operator fun invoke(instance: PtpCallbackInstance, context: COpaquePointer?, work: PtpWork)
 }
 
-public typealias PTP_WORK_CALLBACK = PTP_WORK_CALLBACKFn?
+public typealias PtpWorkCallback = PtpWorkCallbackFn?
 
-public typealias QUEUE_USER_APC_FLAGS = Int
+public typealias QueueUserApcFlags = Int
 
-public fun interface RTWQPERIODICCALLBACKFn {
-    public operator fun invoke(context: Long)
+public fun interface RtwqperiodiccallbackFn {
+    public operator fun invoke(context: COpaquePointer?)
 }
 
-public typealias RTWQPERIODICCALLBACK = RTWQPERIODICCALLBACKFn?
+public typealias Rtwqperiodiccallback = RtwqperiodiccallbackFn?
 
-public typealias RTWQ_WORKQUEUE_TYPE = Int
+public typealias RtwqWorkqueueType = Int
 
-public typealias STARTUPINFOW_FLAGS = UInt
+public typealias StartupinfowFlags = UInt
 
-public typealias SYNCHRONIZATION_ACCESS_RIGHTS = UInt
+public typealias SynchronizationAccessRights = UInt
 
-public typealias THREAD_ACCESS_RIGHTS = UInt
+public typealias ThreadAccessRights = UInt
 
-public typealias THREAD_CREATION_FLAGS = UInt
+public typealias ThreadCreationFlags = UInt
 
-public typealias THREAD_INFORMATION_CLASS = Int
+public typealias ThreadInformationClass = Int
 
-public typealias THREAD_PRIORITY = Int
+public typealias ThreadPriority = Int
 
-public typealias TP_CALLBACK_PRIORITY = Int
+public typealias TpCallbackPriority = Int
 
-public typealias UMS_THREAD_INFO_CLASS = Int
+public typealias UmsThreadInfoClass = Int
 
-public fun interface WAITORTIMERCALLBACKFn {
-    public operator fun invoke(param0: Long, param1: Boolean)
+public fun interface WaitortimercallbackFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: Boolean)
 }
 
-public typealias WAITORTIMERCALLBACK = WAITORTIMERCALLBACKFn?
+public typealias Waitortimercallback = WaitortimercallbackFn?
 
-public fun interface WORKERCALLBACKFUNCFn {
-    public operator fun invoke(param0: Long)
+public fun interface WorkercallbackfuncFn {
+    public operator fun invoke(param0: COpaquePointer?)
 }
 
-public typealias WORKERCALLBACKFUNC = WORKERCALLBACKFUNCFn?
+public typealias Workercallbackfunc = WorkercallbackfuncFn?
 
-public typealias WORKER_THREAD_FLAGS = UInt
+public typealias WorkerThreadFlags = UInt

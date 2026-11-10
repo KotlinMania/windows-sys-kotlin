@@ -1,54 +1,55 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.graphics.gdi
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.COLORREF
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.POINT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.POINTL
-import io.github.kotlinmania.windowssys.windows.win32.foundation.POINTS
-import io.github.kotlinmania.windowssys.windows.win32.foundation.RECT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.RECTL
-import io.github.kotlinmania.windowssys.windows.win32.foundation.SIZE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Colorref
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Point
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Pointl
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Points
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Rectl
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Size
 
-public data class ABC(
+public data class Abc(
     public var abcA: Int = 0,
     public var abcB: UInt = 0u,
     public var abcC: Int = 0,
 )
 
-public data class ABCFLOAT(
+public data class Abcfloat(
     public var abcfA: Float = 0.0f,
     public var abcfB: Float = 0.0f,
     public var abcfC: Float = 0.0f,
 )
 
-public data class ABORTPATH(public var emr: EMR = EMR())
+public data class Abortpath(public var emr: Emr = Emr())
 
-public data class AXESLISTA(
+public data class Axeslista(
     public var axlReserved: UInt = 0u,
     public var axlNumAxes: UInt = 0u,
-    public var axlAxisInfo: List<AXISINFOA> = List(16) { AXISINFOA() },
+    public var axlAxisInfo: List<Axisinfoa> = List(16) { Axisinfoa() },
 )
 
-public data class AXESLISTW(
+public data class Axeslistw(
     public var axlReserved: UInt = 0u,
     public var axlNumAxes: UInt = 0u,
-    public var axlAxisInfo: List<AXISINFOW> = List(16) { AXISINFOW() },
+    public var axlAxisInfo: List<Axisinfow> = List(16) { Axisinfow() },
 )
 
-public data class AXISINFOA(
+public data class Axisinfoa(
     public var axMinValue: Int = 0,
     public var axMaxValue: Int = 0,
     public var axAxisName: UByteArray = UByteArray(16),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is AXISINFOA) return false
+        if (other !is Axisinfoa) return false
         if (this.axMinValue != other.axMinValue) return false
         if (this.axMaxValue != other.axMaxValue) return false
         if (!this.axAxisName.contentEquals(other.axAxisName)) return false
@@ -63,14 +64,14 @@ public data class AXISINFOA(
     }
 }
 
-public data class AXISINFOW(
+public data class Axisinfow(
     public var axMinValue: Int = 0,
     public var axMaxValue: Int = 0,
     public var axAxisName: UShortArray = UShortArray(16),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is AXISINFOW) return false
+        if (other !is Axisinfow) return false
         if (this.axMinValue != other.axMinValue) return false
         if (this.axMaxValue != other.axMaxValue) return false
         if (!this.axAxisName.contentEquals(other.axAxisName)) return false
@@ -85,17 +86,17 @@ public data class AXISINFOW(
     }
 }
 
-public data class BITMAP(
+public data class Bitmap(
     public var bmType: Int = 0,
     public var bmWidth: Int = 0,
     public var bmHeight: Int = 0,
     public var bmWidthBytes: Int = 0,
     public var bmPlanes: UShort = 0u,
     public var bmBitsPixel: UShort = 0u,
-    public var bmBits: Long = 0L,
+    public var bmBits: COpaquePointer? = null,
 )
 
-public data class BITMAPCOREHEADER(
+public data class Bitmapcoreheader(
     public var bcSize: UInt = 0u,
     public var bcWidth: UShort = 0u,
     public var bcHeight: UShort = 0u,
@@ -103,9 +104,9 @@ public data class BITMAPCOREHEADER(
     public var bcBitCount: UShort = 0u,
 )
 
-public data class BITMAPCOREINFO(public var bmciHeader: BITMAPCOREHEADER = BITMAPCOREHEADER(), public var bmciColors: List<RGBTRIPLE> = List(1) { RGBTRIPLE() })
+public data class Bitmapcoreinfo(public var bmciHeader: Bitmapcoreheader = Bitmapcoreheader(), public var bmciColors: List<Rgbtriple> = List(1) { Rgbtriple() })
 
-public data class BITMAPFILEHEADER(
+public data class Bitmapfileheader(
     public var bfType: UShort = 0u,
     public var bfSize: UInt = 0u,
     public var bfReserved1: UShort = 0u,
@@ -113,9 +114,9 @@ public data class BITMAPFILEHEADER(
     public var bfOffBits: UInt = 0u,
 )
 
-public data class BITMAPINFO(public var bmiHeader: BITMAPINFOHEADER = BITMAPINFOHEADER(), public var bmiColors: List<RGBQUAD> = List(1) { RGBQUAD() })
+public data class Bitmapinfo(public var bmiHeader: Bitmapinfoheader = Bitmapinfoheader(), public var bmiColors: List<Rgbquad> = List(1) { Rgbquad() })
 
-public data class BITMAPINFOHEADER(
+public data class Bitmapinfoheader(
     public var biSize: UInt = 0u,
     public var biWidth: Int = 0,
     public var biHeight: Int = 0,
@@ -129,13 +130,13 @@ public data class BITMAPINFOHEADER(
     public var biClrImportant: UInt = 0u,
 )
 
-public class BITMAPV4HEADER(
+public class Bitmapv4header(
     public var bV4Size: UInt = 0u,
     public var bV4Width: Int = 0,
     public var bV4Height: Int = 0,
     public var bV4Planes: UShort = 0u,
     public var bV4BitCount: UShort = 0u,
-    public var bV4V4Compression: BI_COMPRESSION = 0u,
+    public var bV4V4Compression: BiCompression = 0u,
     public var bV4SizeImage: UInt = 0u,
     public var bV4XPelsPerMeter: Int = 0,
     public var bV4YPelsPerMeter: Int = 0,
@@ -146,19 +147,19 @@ public class BITMAPV4HEADER(
     public var bV4BlueMask: UInt = 0u,
     public var bV4AlphaMask: UInt = 0u,
     public var bV4CSType: UInt = 0u,
-    public var bV4Endpoints: CIEXYZTRIPLE = CIEXYZTRIPLE(),
+    public var bV4Endpoints: Ciexyztriple = Ciexyztriple(),
     public var bV4GammaRed: UInt = 0u,
     public var bV4GammaGreen: UInt = 0u,
     public var bV4GammaBlue: UInt = 0u,
 )
 
-public class BITMAPV5HEADER(
+public class Bitmapv5header(
     public var bV5Size: UInt = 0u,
     public var bV5Width: Int = 0,
     public var bV5Height: Int = 0,
     public var bV5Planes: UShort = 0u,
     public var bV5BitCount: UShort = 0u,
-    public var bV5Compression: BI_COMPRESSION = 0u,
+    public var bV5Compression: BiCompression = 0u,
     public var bV5SizeImage: UInt = 0u,
     public var bV5XPelsPerMeter: Int = 0,
     public var bV5YPelsPerMeter: Int = 0,
@@ -169,7 +170,7 @@ public class BITMAPV5HEADER(
     public var bV5BlueMask: UInt = 0u,
     public var bV5AlphaMask: UInt = 0u,
     public var bV5CSType: UInt = 0u,
-    public var bV5Endpoints: CIEXYZTRIPLE = CIEXYZTRIPLE(),
+    public var bV5Endpoints: Ciexyztriple = Ciexyztriple(),
     public var bV5GammaRed: UInt = 0u,
     public var bV5GammaGreen: UInt = 0u,
     public var bV5GammaBlue: UInt = 0u,
@@ -179,26 +180,26 @@ public class BITMAPV5HEADER(
     public var bV5Reserved: UInt = 0u,
 )
 
-public data class BLENDFUNCTION(
-    public var BlendOp: UByte = 0u,
-    public var BlendFlags: UByte = 0u,
-    public var SourceConstantAlpha: UByte = 0u,
-    public var AlphaFormat: UByte = 0u,
+public data class Blendfunction(
+    public var blendOp: UByte = 0u,
+    public var blendFlags: UByte = 0u,
+    public var sourceConstantAlpha: UByte = 0u,
+    public var alphaFormat: UByte = 0u,
 )
 
-public data class CIEXYZ(
+public data class Ciexyz(
     public var ciexyzX: Int = 0,
     public var ciexyzY: Int = 0,
     public var ciexyzZ: Int = 0,
 )
 
-public data class CIEXYZTRIPLE(
-    public var ciexyzRed: CIEXYZ = CIEXYZ(),
-    public var ciexyzGreen: CIEXYZ = CIEXYZ(),
-    public var ciexyzBlue: CIEXYZ = CIEXYZ(),
+public data class Ciexyztriple(
+    public var ciexyzRed: Ciexyz = Ciexyz(),
+    public var ciexyzGreen: Ciexyz = Ciexyz(),
+    public var ciexyzBlue: Ciexyz = Ciexyz(),
 )
 
-public data class COLORADJUSTMENT(
+public data class Coloradjustment(
     public var caSize: UShort = 0u,
     public var caFlags: UShort = 0u,
     public var caIlluminantIndex: UShort = 0u,
@@ -213,14 +214,14 @@ public data class COLORADJUSTMENT(
     public var caRedGreenTint: Short = 0,
 )
 
-public data class DESIGNVECTOR(
+public data class Designvector(
     public var dvReserved: UInt = 0u,
     public var dvNumAxes: UInt = 0u,
     public var dvValues: IntArray = IntArray(16),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DESIGNVECTOR) return false
+        if (other !is Designvector) return false
         if (this.dvReserved != other.dvReserved) return false
         if (this.dvNumAxes != other.dvNumAxes) return false
         if (!this.dvValues.contentEquals(other.dvValues)) return false
@@ -235,25 +236,25 @@ public data class DESIGNVECTOR(
     }
 }
 
-public class DEVMODEA(
+public class Devmodea(
     public var dmDeviceName: UByteArray = UByteArray(32),
     public var dmSpecVersion: UShort = 0u,
     public var dmDriverVersion: UShort = 0u,
     public var dmSize: UShort = 0u,
     public var dmDriverExtra: UShort = 0u,
-    public var dmFields: DEVMODE_FIELD_FLAGS = 0u,
-    public var Anonymous1: DEVMODEA_0 = DEVMODEA_0(),
-    public var dmColor: DEVMODE_COLOR = 0,
-    public var dmDuplex: DEVMODE_DUPLEX = 0,
+    public var dmFields: DevmodeFieldFlags = 0u,
+    public var anonymous1: Devmodea0 = Devmodea0(),
+    public var dmColor: DevmodeColor = 0,
+    public var dmDuplex: DevmodeDuplex = 0,
     public var dmYResolution: Short = 0,
-    public var dmTTOption: DEVMODE_TRUETYPE_OPTION = 0,
-    public var dmCollate: DEVMODE_COLLATE = 0,
+    public var dmTTOption: DevmodeTruetypeOption = 0,
+    public var dmCollate: DevmodeCollate = 0,
     public var dmFormName: UByteArray = UByteArray(32),
     public var dmLogPixels: UShort = 0u,
     public var dmBitsPerPel: UInt = 0u,
     public var dmPelsWidth: UInt = 0u,
     public var dmPelsHeight: UInt = 0u,
-    public var Anonymous2: DEVMODEA_1 = DEVMODEA_1(),
+    public var anonymous2: Devmodea1 = Devmodea1(),
     public var dmDisplayFrequency: UInt = 0u,
     public var dmICMMethod: UInt = 0u,
     public var dmICMIntent: UInt = 0u,
@@ -265,9 +266,9 @@ public class DEVMODEA(
     public var dmPanningHeight: UInt = 0u,
 )
 
-public data class DEVMODEA_0(public var Anonymous1: DEVMODEA_0_0 = DEVMODEA_0_0(), public var Anonymous2: DEVMODEA_0_1 = DEVMODEA_0_1())
+public data class Devmodea0(public var anonymous1: Devmodea00 = Devmodea00(), public var anonymous2: Devmodea01 = Devmodea01())
 
-public data class DEVMODEA_0_0(
+public data class Devmodea00(
     public var dmOrientation: Short = 0,
     public var dmPaperSize: Short = 0,
     public var dmPaperLength: Short = 0,
@@ -278,33 +279,33 @@ public data class DEVMODEA_0_0(
     public var dmPrintQuality: Short = 0,
 )
 
-public data class DEVMODEA_0_1(
-    public var dmPosition: POINTL = POINTL(),
-    public var dmDisplayOrientation: DEVMODE_DISPLAY_ORIENTATION = 0u,
-    public var dmDisplayFixedOutput: DEVMODE_DISPLAY_FIXED_OUTPUT = 0u,
+public data class Devmodea01(
+    public var dmPosition: Pointl = Pointl(),
+    public var dmDisplayOrientation: DevmodeDisplayOrientation = 0u,
+    public var dmDisplayFixedOutput: DevmodeDisplayFixedOutput = 0u,
 )
 
-public data class DEVMODEA_1(public var dmDisplayFlags: UInt = 0u, public var dmNup: UInt = 0u)
+public data class Devmodea1(public var dmDisplayFlags: UInt = 0u, public var dmNup: UInt = 0u)
 
-public class DEVMODEW(
+public class Devmodew(
     public var dmDeviceName: UShortArray = UShortArray(32),
     public var dmSpecVersion: UShort = 0u,
     public var dmDriverVersion: UShort = 0u,
     public var dmSize: UShort = 0u,
     public var dmDriverExtra: UShort = 0u,
-    public var dmFields: DEVMODE_FIELD_FLAGS = 0u,
-    public var Anonymous1: DEVMODEW_0 = DEVMODEW_0(),
-    public var dmColor: DEVMODE_COLOR = 0,
-    public var dmDuplex: DEVMODE_DUPLEX = 0,
+    public var dmFields: DevmodeFieldFlags = 0u,
+    public var anonymous1: Devmodew0 = Devmodew0(),
+    public var dmColor: DevmodeColor = 0,
+    public var dmDuplex: DevmodeDuplex = 0,
     public var dmYResolution: Short = 0,
-    public var dmTTOption: DEVMODE_TRUETYPE_OPTION = 0,
-    public var dmCollate: DEVMODE_COLLATE = 0,
+    public var dmTTOption: DevmodeTruetypeOption = 0,
+    public var dmCollate: DevmodeCollate = 0,
     public var dmFormName: UShortArray = UShortArray(32),
     public var dmLogPixels: UShort = 0u,
     public var dmBitsPerPel: UInt = 0u,
     public var dmPelsWidth: UInt = 0u,
     public var dmPelsHeight: UInt = 0u,
-    public var Anonymous2: DEVMODEW_1 = DEVMODEW_1(),
+    public var anonymous2: Devmodew1 = Devmodew1(),
     public var dmDisplayFrequency: UInt = 0u,
     public var dmICMMethod: UInt = 0u,
     public var dmICMIntent: UInt = 0u,
@@ -316,9 +317,9 @@ public class DEVMODEW(
     public var dmPanningHeight: UInt = 0u,
 )
 
-public data class DEVMODEW_0(public var Anonymous1: DEVMODEW_0_0 = DEVMODEW_0_0(), public var Anonymous2: DEVMODEW_0_1 = DEVMODEW_0_1())
+public data class Devmodew0(public var anonymous1: Devmodew00 = Devmodew00(), public var anonymous2: Devmodew01 = Devmodew01())
 
-public data class DEVMODEW_0_0(
+public data class Devmodew00(
     public var dmOrientation: Short = 0,
     public var dmPaperSize: Short = 0,
     public var dmPaperLength: Short = 0,
@@ -329,24 +330,24 @@ public data class DEVMODEW_0_0(
     public var dmPrintQuality: Short = 0,
 )
 
-public data class DEVMODEW_0_1(
-    public var dmPosition: POINTL = POINTL(),
-    public var dmDisplayOrientation: DEVMODE_DISPLAY_ORIENTATION = 0u,
-    public var dmDisplayFixedOutput: DEVMODE_DISPLAY_FIXED_OUTPUT = 0u,
+public data class Devmodew01(
+    public var dmPosition: Pointl = Pointl(),
+    public var dmDisplayOrientation: DevmodeDisplayOrientation = 0u,
+    public var dmDisplayFixedOutput: DevmodeDisplayFixedOutput = 0u,
 )
 
-public data class DEVMODEW_1(public var dmDisplayFlags: UInt = 0u, public var dmNup: UInt = 0u)
+public data class Devmodew1(public var dmDisplayFlags: UInt = 0u, public var dmNup: UInt = 0u)
 
-public data class DIBSECTION(
-    public var dsBm: BITMAP = BITMAP(),
-    public var dsBmih: BITMAPINFOHEADER = BITMAPINFOHEADER(),
+public data class Dibsection(
+    public var dsBm: Bitmap = Bitmap(),
+    public var dsBmih: Bitmapinfoheader = Bitmapinfoheader(),
     public var dsBitfields: UIntArray = UIntArray(3),
-    public var dshSection: HANDLE = 0L,
+    public var dshSection: Handle = null,
     public var dsOffset: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DIBSECTION) return false
+        if (other !is Dibsection) return false
         if (this.dsBm != other.dsBm) return false
         if (this.dsBmih != other.dsBmih) return false
         if (!this.dsBitfields.contentEquals(other.dsBitfields)) return false
@@ -365,69 +366,69 @@ public data class DIBSECTION(
     }
 }
 
-public data class DISPLAY_DEVICEA(
+public data class DisplayDevicea(
     public var cb: UInt = 0u,
-    public var DeviceName: ByteArray = ByteArray(32),
-    public var DeviceString: ByteArray = ByteArray(128),
-    public var StateFlags: DISPLAY_DEVICE_STATE_FLAGS = 0u,
-    public var DeviceID: ByteArray = ByteArray(128),
-    public var DeviceKey: ByteArray = ByteArray(128),
+    public var deviceName: ByteArray = ByteArray(32),
+    public var deviceString: ByteArray = ByteArray(128),
+    public var stateFlags: DisplayDeviceStateFlags = 0u,
+    public var deviceID: ByteArray = ByteArray(128),
+    public var deviceKey: ByteArray = ByteArray(128),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DISPLAY_DEVICEA) return false
+        if (other !is DisplayDevicea) return false
         if (this.cb != other.cb) return false
-        if (!this.DeviceName.contentEquals(other.DeviceName)) return false
-        if (!this.DeviceString.contentEquals(other.DeviceString)) return false
-        if (this.StateFlags != other.StateFlags) return false
-        if (!this.DeviceID.contentEquals(other.DeviceID)) return false
-        if (!this.DeviceKey.contentEquals(other.DeviceKey)) return false
+        if (!this.deviceName.contentEquals(other.deviceName)) return false
+        if (!this.deviceString.contentEquals(other.deviceString)) return false
+        if (this.stateFlags != other.stateFlags) return false
+        if (!this.deviceID.contentEquals(other.deviceID)) return false
+        if (!this.deviceKey.contentEquals(other.deviceKey)) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.cb.hashCode()
-        result = 31 * result + this.DeviceName.contentHashCode()
-        result = 31 * result + this.DeviceString.contentHashCode()
-        result = 31 * result + this.StateFlags.hashCode()
-        result = 31 * result + this.DeviceID.contentHashCode()
-        result = 31 * result + this.DeviceKey.contentHashCode()
+        result = 31 * result + this.deviceName.contentHashCode()
+        result = 31 * result + this.deviceString.contentHashCode()
+        result = 31 * result + this.stateFlags.hashCode()
+        result = 31 * result + this.deviceID.contentHashCode()
+        result = 31 * result + this.deviceKey.contentHashCode()
         return result
     }
 }
 
-public data class DISPLAY_DEVICEW(
+public data class DisplayDevicew(
     public var cb: UInt = 0u,
-    public var DeviceName: UShortArray = UShortArray(32),
-    public var DeviceString: UShortArray = UShortArray(128),
-    public var StateFlags: DISPLAY_DEVICE_STATE_FLAGS = 0u,
-    public var DeviceID: UShortArray = UShortArray(128),
-    public var DeviceKey: UShortArray = UShortArray(128),
+    public var deviceName: UShortArray = UShortArray(32),
+    public var deviceString: UShortArray = UShortArray(128),
+    public var stateFlags: DisplayDeviceStateFlags = 0u,
+    public var deviceID: UShortArray = UShortArray(128),
+    public var deviceKey: UShortArray = UShortArray(128),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DISPLAY_DEVICEW) return false
+        if (other !is DisplayDevicew) return false
         if (this.cb != other.cb) return false
-        if (!this.DeviceName.contentEquals(other.DeviceName)) return false
-        if (!this.DeviceString.contentEquals(other.DeviceString)) return false
-        if (this.StateFlags != other.StateFlags) return false
-        if (!this.DeviceID.contentEquals(other.DeviceID)) return false
-        if (!this.DeviceKey.contentEquals(other.DeviceKey)) return false
+        if (!this.deviceName.contentEquals(other.deviceName)) return false
+        if (!this.deviceString.contentEquals(other.deviceString)) return false
+        if (this.stateFlags != other.stateFlags) return false
+        if (!this.deviceID.contentEquals(other.deviceID)) return false
+        if (!this.deviceKey.contentEquals(other.deviceKey)) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.cb.hashCode()
-        result = 31 * result + this.DeviceName.contentHashCode()
-        result = 31 * result + this.DeviceString.contentHashCode()
-        result = 31 * result + this.StateFlags.hashCode()
-        result = 31 * result + this.DeviceID.contentHashCode()
-        result = 31 * result + this.DeviceKey.contentHashCode()
+        result = 31 * result + this.deviceName.contentHashCode()
+        result = 31 * result + this.deviceString.contentHashCode()
+        result = 31 * result + this.stateFlags.hashCode()
+        result = 31 * result + this.deviceID.contentHashCode()
+        result = 31 * result + this.deviceKey.contentHashCode()
         return result
     }
 }
 
-public data class DRAWTEXTPARAMS(
+public data class Drawtextparams(
     public var cbSize: UInt = 0u,
     public var iTabLength: Int = 0,
     public var iLeftMargin: Int = 0,
@@ -435,11 +436,11 @@ public data class DRAWTEXTPARAMS(
     public var uiLengthDrawn: UInt = 0u,
 )
 
-public data class EMR(public var iType: ENHANCED_METAFILE_RECORD_TYPE = 0u, public var nSize: UInt = 0u)
+public data class Emr(public var iType: EnhancedMetafileRecordType = 0u, public var nSize: UInt = 0u)
 
-public class EMRALPHABLEND(
-    public var emr: EMR = EMR(),
-    public var rclBounds: RECTL = RECTL(),
+public class Emralphablend(
+    public var emr: Emr = Emr(),
+    public var rclBounds: Rectl = Rectl(),
     public var xDest: Int = 0,
     public var yDest: Int = 0,
     public var cxDest: Int = 0,
@@ -447,8 +448,8 @@ public class EMRALPHABLEND(
     public var dwRop: UInt = 0u,
     public var xSrc: Int = 0,
     public var ySrc: Int = 0,
-    public var xformSrc: XFORM = XFORM(),
-    public var crBkColorSrc: COLORREF = 0u,
+    public var xformSrc: Xform = Xform(),
+    public var crBkColorSrc: Colorref = 0u,
     public var iUsageSrc: UInt = 0u,
     public var offBmiSrc: UInt = 0u,
     public var cbBmiSrc: UInt = 0u,
@@ -458,24 +459,24 @@ public class EMRALPHABLEND(
     public var cySrc: Int = 0,
 )
 
-public data class EMRANGLEARC(
-    public var emr: EMR = EMR(),
-    public var ptlCenter: POINTL = POINTL(),
+public data class Emranglearc(
+    public var emr: Emr = Emr(),
+    public var ptlCenter: Pointl = Pointl(),
     public var nRadius: UInt = 0u,
     public var eStartAngle: Float = 0.0f,
     public var eSweepAngle: Float = 0.0f,
 )
 
-public data class EMRARC(
-    public var emr: EMR = EMR(),
-    public var rclBox: RECTL = RECTL(),
-    public var ptlStart: POINTL = POINTL(),
-    public var ptlEnd: POINTL = POINTL(),
+public data class Emrarc(
+    public var emr: Emr = Emr(),
+    public var rclBox: Rectl = Rectl(),
+    public var ptlStart: Pointl = Pointl(),
+    public var ptlEnd: Pointl = Pointl(),
 )
 
-public data class EMRBITBLT(
-    public var emr: EMR = EMR(),
-    public var rclBounds: RECTL = RECTL(),
+public data class Emrbitblt(
+    public var emr: Emr = Emr(),
+    public var rclBounds: Rectl = Rectl(),
     public var xDest: Int = 0,
     public var yDest: Int = 0,
     public var cxDest: Int = 0,
@@ -483,8 +484,8 @@ public data class EMRBITBLT(
     public var dwRop: UInt = 0u,
     public var xSrc: Int = 0,
     public var ySrc: Int = 0,
-    public var xformSrc: XFORM = XFORM(),
-    public var crBkColorSrc: COLORREF = 0u,
+    public var xformSrc: Xform = Xform(),
+    public var crBkColorSrc: Colorref = 0u,
     public var iUsageSrc: UInt = 0u,
     public var offBmiSrc: UInt = 0u,
     public var cbBmiSrc: UInt = 0u,
@@ -492,31 +493,31 @@ public data class EMRBITBLT(
     public var cbBitsSrc: UInt = 0u,
 )
 
-public data class EMRCOLORCORRECTPALETTE(
-    public var emr: EMR = EMR(),
+public data class Emrcolorcorrectpalette(
+    public var emr: Emr = Emr(),
     public var ihPalette: UInt = 0u,
     public var nFirstEntry: UInt = 0u,
     public var nPalEntries: UInt = 0u,
     public var nReserved: UInt = 0u,
 )
 
-public data class EMRCOLORMATCHTOTARGET(
-    public var emr: EMR = EMR(),
+public data class Emrcolormatchtotarget(
+    public var emr: Emr = Emr(),
     public var dwAction: UInt = 0u,
     public var dwFlags: UInt = 0u,
     public var cbName: UInt = 0u,
     public var cbData: UInt = 0u,
-    public var Data: UByteArray = UByteArray(1),
+    public var data: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is EMRCOLORMATCHTOTARGET) return false
+        if (other !is Emrcolormatchtotarget) return false
         if (this.emr != other.emr) return false
         if (this.dwAction != other.dwAction) return false
         if (this.dwFlags != other.dwFlags) return false
         if (this.cbName != other.cbName) return false
         if (this.cbData != other.cbData) return false
-        if (!this.Data.contentEquals(other.Data)) return false
+        if (!this.data.contentEquals(other.data)) return false
         return true
     }
 
@@ -526,29 +527,19 @@ public data class EMRCOLORMATCHTOTARGET(
         result = 31 * result + this.dwFlags.hashCode()
         result = 31 * result + this.cbName.hashCode()
         result = 31 * result + this.cbData.hashCode()
-        result = 31 * result + this.Data.contentHashCode()
+        result = 31 * result + this.data.contentHashCode()
         return result
     }
 }
 
-public data class EMRCREATEBRUSHINDIRECT(
-    public var emr: EMR = EMR(),
+public data class Emrcreatebrushindirect(
+    public var emr: Emr = Emr(),
     public var ihBrush: UInt = 0u,
-    public var lb: LOGBRUSH32 = LOGBRUSH32(),
+    public var lb: Logbrush32 = Logbrush32(),
 )
 
-public data class EMRCREATEDIBPATTERNBRUSHPT(
-    public var emr: EMR = EMR(),
-    public var ihBrush: UInt = 0u,
-    public var iUsage: UInt = 0u,
-    public var offBmi: UInt = 0u,
-    public var cbBmi: UInt = 0u,
-    public var offBits: UInt = 0u,
-    public var cbBits: UInt = 0u,
-)
-
-public data class EMRCREATEMONOBRUSH(
-    public var emr: EMR = EMR(),
+public data class Emrcreatedibpatternbrushpt(
+    public var emr: Emr = Emr(),
     public var ihBrush: UInt = 0u,
     public var iUsage: UInt = 0u,
     public var offBmi: UInt = 0u,
@@ -557,58 +548,68 @@ public data class EMRCREATEMONOBRUSH(
     public var cbBits: UInt = 0u,
 )
 
-public data class EMRCREATEPALETTE(
-    public var emr: EMR = EMR(),
+public data class Emrcreatemonobrush(
+    public var emr: Emr = Emr(),
+    public var ihBrush: UInt = 0u,
+    public var iUsage: UInt = 0u,
+    public var offBmi: UInt = 0u,
+    public var cbBmi: UInt = 0u,
+    public var offBits: UInt = 0u,
+    public var cbBits: UInt = 0u,
+)
+
+public data class Emrcreatepalette(
+    public var emr: Emr = Emr(),
     public var ihPal: UInt = 0u,
-    public var lgpl: LOGPALETTE = LOGPALETTE(),
+    public var lgpl: Logpalette = Logpalette(),
 )
 
-public data class EMRCREATEPEN(
-    public var emr: EMR = EMR(),
+public data class Emrcreatepen(
+    public var emr: Emr = Emr(),
     public var ihPen: UInt = 0u,
-    public var lopn: LOGPEN = LOGPEN(),
+    public var lopn: Logpen = Logpen(),
 )
 
-public data class EMRELLIPSE(public var emr: EMR = EMR(), public var rclBox: RECTL = RECTL())
+public data class Emrellipse(public var emr: Emr = Emr(), public var rclBox: Rectl = Rectl())
 
-public data class EMREOF(
-    public var emr: EMR = EMR(),
+public data class Emreof(
+    public var emr: Emr = Emr(),
     public var nPalEntries: UInt = 0u,
     public var offPalEntries: UInt = 0u,
     public var nSizeLast: UInt = 0u,
 )
 
-public data class EMREXCLUDECLIPRECT(public var emr: EMR = EMR(), public var rclClip: RECTL = RECTL())
+public data class Emrexcludecliprect(public var emr: Emr = Emr(), public var rclClip: Rectl = Rectl())
 
-public data class EMREXTCREATEFONTINDIRECTW(
-    public var emr: EMR = EMR(),
+public data class Emrextcreatefontindirectw(
+    public var emr: Emr = Emr(),
     public var ihFont: UInt = 0u,
-    public var elfw: EXTLOGFONTW = EXTLOGFONTW(),
+    public var elfw: Extlogfontw = Extlogfontw(),
 )
 
-public data class EMREXTCREATEPEN(
-    public var emr: EMR = EMR(),
+public data class Emrextcreatepen(
+    public var emr: Emr = Emr(),
     public var ihPen: UInt = 0u,
     public var offBmi: UInt = 0u,
     public var cbBmi: UInt = 0u,
     public var offBits: UInt = 0u,
     public var cbBits: UInt = 0u,
-    public var elp: EXTLOGPEN32 = EXTLOGPEN32(),
+    public var elp: Extlogpen32 = Extlogpen32(),
 )
 
-public data class EMREXTESCAPE(
-    public var emr: EMR = EMR(),
+public data class Emrextescape(
+    public var emr: Emr = Emr(),
     public var iEscape: Int = 0,
     public var cbEscData: Int = 0,
-    public var EscData: UByteArray = UByteArray(1),
+    public var escData: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is EMREXTESCAPE) return false
+        if (other !is Emrextescape) return false
         if (this.emr != other.emr) return false
         if (this.iEscape != other.iEscape) return false
         if (this.cbEscData != other.cbEscData) return false
-        if (!this.EscData.contentEquals(other.EscData)) return false
+        if (!this.escData.contentEquals(other.escData)) return false
         return true
     }
 
@@ -616,31 +617,31 @@ public data class EMREXTESCAPE(
         var result = this.emr.hashCode()
         result = 31 * result + this.iEscape.hashCode()
         result = 31 * result + this.cbEscData.hashCode()
-        result = 31 * result + this.EscData.contentHashCode()
+        result = 31 * result + this.escData.contentHashCode()
         return result
     }
 }
 
-public data class EMREXTFLOODFILL(
-    public var emr: EMR = EMR(),
-    public var ptlStart: POINTL = POINTL(),
-    public var crColor: COLORREF = 0u,
+public data class Emrextfloodfill(
+    public var emr: Emr = Emr(),
+    public var ptlStart: Pointl = Pointl(),
+    public var crColor: Colorref = 0u,
     public var iMode: UInt = 0u,
 )
 
-public data class EMREXTSELECTCLIPRGN(
-    public var emr: EMR = EMR(),
+public data class Emrextselectcliprgn(
+    public var emr: Emr = Emr(),
     public var cbRgnData: UInt = 0u,
     public var iMode: UInt = 0u,
-    public var RgnData: UByteArray = UByteArray(1),
+    public var rgnData: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is EMREXTSELECTCLIPRGN) return false
+        if (other !is Emrextselectcliprgn) return false
         if (this.emr != other.emr) return false
         if (this.cbRgnData != other.cbRgnData) return false
         if (this.iMode != other.iMode) return false
-        if (!this.RgnData.contentEquals(other.RgnData)) return false
+        if (!this.rgnData.contentEquals(other.rgnData)) return false
         return true
     }
 
@@ -648,37 +649,37 @@ public data class EMREXTSELECTCLIPRGN(
         var result = this.emr.hashCode()
         result = 31 * result + this.cbRgnData.hashCode()
         result = 31 * result + this.iMode.hashCode()
-        result = 31 * result + this.RgnData.contentHashCode()
+        result = 31 * result + this.rgnData.contentHashCode()
         return result
     }
 }
 
-public data class EMREXTTEXTOUTA(
-    public var emr: EMR = EMR(),
-    public var rclBounds: RECTL = RECTL(),
+public data class Emrexttextouta(
+    public var emr: Emr = Emr(),
+    public var rclBounds: Rectl = Rectl(),
     public var iGraphicsMode: UInt = 0u,
     public var exScale: Float = 0.0f,
     public var eyScale: Float = 0.0f,
-    public var emrtext: EMRTEXT = EMRTEXT(),
+    public var emrtext: Emrtext = Emrtext(),
 )
 
-public data class EMRFILLPATH(public var emr: EMR = EMR(), public var rclBounds: RECTL = RECTL())
+public data class Emrfillpath(public var emr: Emr = Emr(), public var rclBounds: Rectl = Rectl())
 
-public data class EMRFILLRGN(
-    public var emr: EMR = EMR(),
-    public var rclBounds: RECTL = RECTL(),
+public data class Emrfillrgn(
+    public var emr: Emr = Emr(),
+    public var rclBounds: Rectl = Rectl(),
     public var cbRgnData: UInt = 0u,
     public var ihBrush: UInt = 0u,
-    public var RgnData: UByteArray = UByteArray(1),
+    public var rgnData: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is EMRFILLRGN) return false
+        if (other !is Emrfillrgn) return false
         if (this.emr != other.emr) return false
         if (this.rclBounds != other.rclBounds) return false
         if (this.cbRgnData != other.cbRgnData) return false
         if (this.ihBrush != other.ihBrush) return false
-        if (!this.RgnData.contentEquals(other.RgnData)) return false
+        if (!this.rgnData.contentEquals(other.rgnData)) return false
         return true
     }
 
@@ -687,35 +688,35 @@ public data class EMRFILLRGN(
         result = 31 * result + this.rclBounds.hashCode()
         result = 31 * result + this.cbRgnData.hashCode()
         result = 31 * result + this.ihBrush.hashCode()
-        result = 31 * result + this.RgnData.contentHashCode()
+        result = 31 * result + this.rgnData.contentHashCode()
         return result
     }
 }
 
-public data class EMRFORMAT(
+public data class Emrformat(
     public var dSignature: UInt = 0u,
     public var nVersion: UInt = 0u,
     public var cbData: UInt = 0u,
     public var offData: UInt = 0u,
 )
 
-public data class EMRFRAMERGN(
-    public var emr: EMR = EMR(),
-    public var rclBounds: RECTL = RECTL(),
+public data class Emrframergn(
+    public var emr: Emr = Emr(),
+    public var rclBounds: Rectl = Rectl(),
     public var cbRgnData: UInt = 0u,
     public var ihBrush: UInt = 0u,
-    public var szlStroke: SIZE = SIZE(),
-    public var RgnData: UByteArray = UByteArray(1),
+    public var szlStroke: Size = Size(),
+    public var rgnData: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is EMRFRAMERGN) return false
+        if (other !is Emrframergn) return false
         if (this.emr != other.emr) return false
         if (this.rclBounds != other.rclBounds) return false
         if (this.cbRgnData != other.cbRgnData) return false
         if (this.ihBrush != other.ihBrush) return false
         if (this.szlStroke != other.szlStroke) return false
-        if (!this.RgnData.contentEquals(other.RgnData)) return false
+        if (!this.rgnData.contentEquals(other.rgnData)) return false
         return true
     }
 
@@ -725,46 +726,46 @@ public data class EMRFRAMERGN(
         result = 31 * result + this.cbRgnData.hashCode()
         result = 31 * result + this.ihBrush.hashCode()
         result = 31 * result + this.szlStroke.hashCode()
-        result = 31 * result + this.RgnData.contentHashCode()
+        result = 31 * result + this.rgnData.contentHashCode()
         return result
     }
 }
 
-public data class EMRGDICOMMENT(
-    public var emr: EMR = EMR(),
+public data class Emrgdicomment(
+    public var emr: Emr = Emr(),
     public var cbData: UInt = 0u,
-    public var Data: UByteArray = UByteArray(1),
+    public var data: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is EMRGDICOMMENT) return false
+        if (other !is Emrgdicomment) return false
         if (this.emr != other.emr) return false
         if (this.cbData != other.cbData) return false
-        if (!this.Data.contentEquals(other.Data)) return false
+        if (!this.data.contentEquals(other.data)) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.emr.hashCode()
         result = 31 * result + this.cbData.hashCode()
-        result = 31 * result + this.Data.contentHashCode()
+        result = 31 * result + this.data.contentHashCode()
         return result
     }
 }
 
-public data class EMRGLSBOUNDEDRECORD(
-    public var emr: EMR = EMR(),
-    public var rclBounds: RECTL = RECTL(),
+public data class Emrglsboundedrecord(
+    public var emr: Emr = Emr(),
+    public var rclBounds: Rectl = Rectl(),
     public var cbData: UInt = 0u,
-    public var Data: UByteArray = UByteArray(1),
+    public var data: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is EMRGLSBOUNDEDRECORD) return false
+        if (other !is Emrglsboundedrecord) return false
         if (this.emr != other.emr) return false
         if (this.rclBounds != other.rclBounds) return false
         if (this.cbData != other.cbData) return false
-        if (!this.Data.contentEquals(other.Data)) return false
+        if (!this.data.contentEquals(other.data)) return false
         return true
     }
 
@@ -772,55 +773,55 @@ public data class EMRGLSBOUNDEDRECORD(
         var result = this.emr.hashCode()
         result = 31 * result + this.rclBounds.hashCode()
         result = 31 * result + this.cbData.hashCode()
-        result = 31 * result + this.Data.contentHashCode()
+        result = 31 * result + this.data.contentHashCode()
         return result
     }
 }
 
-public data class EMRGLSRECORD(
-    public var emr: EMR = EMR(),
+public data class Emrglsrecord(
+    public var emr: Emr = Emr(),
     public var cbData: UInt = 0u,
-    public var Data: UByteArray = UByteArray(1),
+    public var data: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is EMRGLSRECORD) return false
+        if (other !is Emrglsrecord) return false
         if (this.emr != other.emr) return false
         if (this.cbData != other.cbData) return false
-        if (!this.Data.contentEquals(other.Data)) return false
+        if (!this.data.contentEquals(other.data)) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.emr.hashCode()
         result = 31 * result + this.cbData.hashCode()
-        result = 31 * result + this.Data.contentHashCode()
+        result = 31 * result + this.data.contentHashCode()
         return result
     }
 }
 
-public data class EMRGRADIENTFILL(
-    public var emr: EMR = EMR(),
-    public var rclBounds: RECTL = RECTL(),
+public data class Emrgradientfill(
+    public var emr: Emr = Emr(),
+    public var rclBounds: Rectl = Rectl(),
     public var nVer: UInt = 0u,
     public var nTri: UInt = 0u,
-    public var ulMode: GRADIENT_FILL = 0u,
-    public var Ver: List<TRIVERTEX> = List(1) { TRIVERTEX() },
+    public var ulMode: GradientFill = 0u,
+    public var ver: List<Trivertex> = List(1) { Trivertex() },
 )
 
-public data class EMRINVERTRGN(
-    public var emr: EMR = EMR(),
-    public var rclBounds: RECTL = RECTL(),
+public data class Emrinvertrgn(
+    public var emr: Emr = Emr(),
+    public var rclBounds: Rectl = Rectl(),
     public var cbRgnData: UInt = 0u,
-    public var RgnData: UByteArray = UByteArray(1),
+    public var rgnData: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is EMRINVERTRGN) return false
+        if (other !is Emrinvertrgn) return false
         if (this.emr != other.emr) return false
         if (this.rclBounds != other.rclBounds) return false
         if (this.cbRgnData != other.cbRgnData) return false
-        if (!this.RgnData.contentEquals(other.RgnData)) return false
+        if (!this.rgnData.contentEquals(other.rgnData)) return false
         return true
     }
 
@@ -828,16 +829,16 @@ public data class EMRINVERTRGN(
         var result = this.emr.hashCode()
         result = 31 * result + this.rclBounds.hashCode()
         result = 31 * result + this.cbRgnData.hashCode()
-        result = 31 * result + this.RgnData.contentHashCode()
+        result = 31 * result + this.rgnData.contentHashCode()
         return result
     }
 }
 
-public data class EMRLINETO(public var emr: EMR = EMR(), public var ptl: POINTL = POINTL())
+public data class Emrlineto(public var emr: Emr = Emr(), public var ptl: Pointl = Pointl())
 
-public class EMRMASKBLT(
-    public var emr: EMR = EMR(),
-    public var rclBounds: RECTL = RECTL(),
+public class Emrmaskblt(
+    public var emr: Emr = Emr(),
+    public var rclBounds: Rectl = Rectl(),
     public var xDest: Int = 0,
     public var yDest: Int = 0,
     public var cxDest: Int = 0,
@@ -845,8 +846,8 @@ public class EMRMASKBLT(
     public var dwRop: UInt = 0u,
     public var xSrc: Int = 0,
     public var ySrc: Int = 0,
-    public var xformSrc: XFORM = XFORM(),
-    public var crBkColorSrc: COLORREF = 0u,
+    public var xformSrc: Xform = Xform(),
+    public var crBkColorSrc: Colorref = 0u,
     public var iUsageSrc: UInt = 0u,
     public var offBmiSrc: UInt = 0u,
     public var cbBmiSrc: UInt = 0u,
@@ -861,27 +862,27 @@ public class EMRMASKBLT(
     public var cbBitsMask: UInt = 0u,
 )
 
-public data class EMRMODIFYWORLDTRANSFORM(
-    public var emr: EMR = EMR(),
-    public var xform: XFORM = XFORM(),
-    public var iMode: MODIFY_WORLD_TRANSFORM_MODE = 0u,
+public data class Emrmodifyworldtransform(
+    public var emr: Emr = Emr(),
+    public var xform: Xform = Xform(),
+    public var iMode: ModifyWorldTransformMode = 0u,
 )
 
-public data class EMRNAMEDESCAPE(
-    public var emr: EMR = EMR(),
+public data class Emrnamedescape(
+    public var emr: Emr = Emr(),
     public var iEscape: Int = 0,
     public var cbDriver: Int = 0,
     public var cbEscData: Int = 0,
-    public var EscData: UByteArray = UByteArray(1),
+    public var escData: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is EMRNAMEDESCAPE) return false
+        if (other !is Emrnamedescape) return false
         if (this.emr != other.emr) return false
         if (this.iEscape != other.iEscape) return false
         if (this.cbDriver != other.cbDriver) return false
         if (this.cbEscData != other.cbEscData) return false
-        if (!this.EscData.contentEquals(other.EscData)) return false
+        if (!this.escData.contentEquals(other.escData)) return false
         return true
     }
 
@@ -890,23 +891,23 @@ public data class EMRNAMEDESCAPE(
         result = 31 * result + this.iEscape.hashCode()
         result = 31 * result + this.cbDriver.hashCode()
         result = 31 * result + this.cbEscData.hashCode()
-        result = 31 * result + this.EscData.contentHashCode()
+        result = 31 * result + this.escData.contentHashCode()
         return result
     }
 }
 
-public data class EMROFFSETCLIPRGN(public var emr: EMR = EMR(), public var ptlOffset: POINTL = POINTL())
+public data class Emroffsetcliprgn(public var emr: Emr = Emr(), public var ptlOffset: Pointl = Pointl())
 
-public class EMRPLGBLT(
-    public var emr: EMR = EMR(),
-    public var rclBounds: RECTL = RECTL(),
-    public var aptlDest: List<POINTL> = List(3) { POINTL() },
+public class Emrplgblt(
+    public var emr: Emr = Emr(),
+    public var rclBounds: Rectl = Rectl(),
+    public var aptlDest: List<Pointl> = List(3) { Pointl() },
     public var xSrc: Int = 0,
     public var ySrc: Int = 0,
     public var cxSrc: Int = 0,
     public var cySrc: Int = 0,
-    public var xformSrc: XFORM = XFORM(),
-    public var crBkColorSrc: COLORREF = 0u,
+    public var xformSrc: Xform = Xform(),
+    public var crBkColorSrc: Colorref = 0u,
     public var iUsageSrc: UInt = 0u,
     public var offBmiSrc: UInt = 0u,
     public var cbBmiSrc: UInt = 0u,
@@ -921,16 +922,16 @@ public class EMRPLGBLT(
     public var cbBitsMask: UInt = 0u,
 )
 
-public data class EMRPOLYDRAW(
-    public var emr: EMR = EMR(),
-    public var rclBounds: RECTL = RECTL(),
+public data class Emrpolydraw(
+    public var emr: Emr = Emr(),
+    public var rclBounds: Rectl = Rectl(),
     public var cptl: UInt = 0u,
-    public var aptl: List<POINTL> = List(1) { POINTL() },
+    public var aptl: List<Pointl> = List(1) { Pointl() },
     public var abTypes: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is EMRPOLYDRAW) return false
+        if (other !is Emrpolydraw) return false
         if (this.emr != other.emr) return false
         if (this.rclBounds != other.rclBounds) return false
         if (this.cptl != other.cptl) return false
@@ -949,16 +950,16 @@ public data class EMRPOLYDRAW(
     }
 }
 
-public data class EMRPOLYDRAW16(
-    public var emr: EMR = EMR(),
-    public var rclBounds: RECTL = RECTL(),
+public data class Emrpolydraw16(
+    public var emr: Emr = Emr(),
+    public var rclBounds: Rectl = Rectl(),
     public var cpts: UInt = 0u,
-    public var apts: List<POINTS> = List(1) { POINTS() },
+    public var apts: List<Points> = List(1) { Points() },
     public var abTypes: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is EMRPOLYDRAW16) return false
+        if (other !is Emrpolydraw16) return false
         if (this.emr != other.emr) return false
         if (this.rclBounds != other.rclBounds) return false
         if (this.cpts != other.cpts) return false
@@ -977,31 +978,31 @@ public data class EMRPOLYDRAW16(
     }
 }
 
-public data class EMRPOLYLINE(
-    public var emr: EMR = EMR(),
-    public var rclBounds: RECTL = RECTL(),
+public data class Emrpolyline(
+    public var emr: Emr = Emr(),
+    public var rclBounds: Rectl = Rectl(),
     public var cptl: UInt = 0u,
-    public var aptl: List<POINTL> = List(1) { POINTL() },
+    public var aptl: List<Pointl> = List(1) { Pointl() },
 )
 
-public data class EMRPOLYLINE16(
-    public var emr: EMR = EMR(),
-    public var rclBounds: RECTL = RECTL(),
+public data class Emrpolyline16(
+    public var emr: Emr = Emr(),
+    public var rclBounds: Rectl = Rectl(),
     public var cpts: UInt = 0u,
-    public var apts: List<POINTS> = List(1) { POINTS() },
+    public var apts: List<Points> = List(1) { Points() },
 )
 
-public data class EMRPOLYPOLYLINE(
-    public var emr: EMR = EMR(),
-    public var rclBounds: RECTL = RECTL(),
+public data class Emrpolypolyline(
+    public var emr: Emr = Emr(),
+    public var rclBounds: Rectl = Rectl(),
     public var nPolys: UInt = 0u,
     public var cptl: UInt = 0u,
     public var aPolyCounts: UIntArray = UIntArray(1),
-    public var aptl: List<POINTL> = List(1) { POINTL() },
+    public var aptl: List<Pointl> = List(1) { Pointl() },
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is EMRPOLYPOLYLINE) return false
+        if (other !is Emrpolypolyline) return false
         if (this.emr != other.emr) return false
         if (this.rclBounds != other.rclBounds) return false
         if (this.nPolys != other.nPolys) return false
@@ -1022,17 +1023,17 @@ public data class EMRPOLYPOLYLINE(
     }
 }
 
-public data class EMRPOLYPOLYLINE16(
-    public var emr: EMR = EMR(),
-    public var rclBounds: RECTL = RECTL(),
+public data class Emrpolypolyline16(
+    public var emr: Emr = Emr(),
+    public var rclBounds: Rectl = Rectl(),
     public var nPolys: UInt = 0u,
     public var cpts: UInt = 0u,
     public var aPolyCounts: UIntArray = UIntArray(1),
-    public var apts: List<POINTS> = List(1) { POINTS() },
+    public var apts: List<Points> = List(1) { Points() },
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is EMRPOLYPOLYLINE16) return false
+        if (other !is Emrpolypolyline16) return false
         if (this.emr != other.emr) return false
         if (this.rclBounds != other.rclBounds) return false
         if (this.nPolys != other.nPolys) return false
@@ -1053,53 +1054,53 @@ public data class EMRPOLYPOLYLINE16(
     }
 }
 
-public data class EMRPOLYTEXTOUTA(
-    public var emr: EMR = EMR(),
-    public var rclBounds: RECTL = RECTL(),
+public data class Emrpolytextouta(
+    public var emr: Emr = Emr(),
+    public var rclBounds: Rectl = Rectl(),
     public var iGraphicsMode: UInt = 0u,
     public var exScale: Float = 0.0f,
     public var eyScale: Float = 0.0f,
     public var cStrings: Int = 0,
-    public var aemrtext: List<EMRTEXT> = List(1) { EMRTEXT() },
+    public var aemrtext: List<Emrtext> = List(1) { Emrtext() },
 )
 
-public data class EMRRESIZEPALETTE(
-    public var emr: EMR = EMR(),
+public data class Emrresizepalette(
+    public var emr: Emr = Emr(),
     public var ihPal: UInt = 0u,
     public var cEntries: UInt = 0u,
 )
 
-public data class EMRRESTOREDC(public var emr: EMR = EMR(), public var iRelative: Int = 0)
+public data class Emrrestoredc(public var emr: Emr = Emr(), public var iRelative: Int = 0)
 
-public data class EMRROUNDRECT(
-    public var emr: EMR = EMR(),
-    public var rclBox: RECTL = RECTL(),
-    public var szlCorner: SIZE = SIZE(),
+public data class Emrroundrect(
+    public var emr: Emr = Emr(),
+    public var rclBox: Rectl = Rectl(),
+    public var szlCorner: Size = Size(),
 )
 
-public data class EMRSCALEVIEWPORTEXTEX(
-    public var emr: EMR = EMR(),
+public data class Emrscaleviewportextex(
+    public var emr: Emr = Emr(),
     public var xNum: Int = 0,
     public var xDenom: Int = 0,
     public var yNum: Int = 0,
     public var yDenom: Int = 0,
 )
 
-public data class EMRSELECTCLIPPATH(public var emr: EMR = EMR(), public var iMode: UInt = 0u)
+public data class Emrselectclippath(public var emr: Emr = Emr(), public var iMode: UInt = 0u)
 
-public data class EMRSELECTOBJECT(public var emr: EMR = EMR(), public var ihObject: UInt = 0u)
+public data class Emrselectobject(public var emr: Emr = Emr(), public var ihObject: UInt = 0u)
 
-public data class EMRSELECTPALETTE(public var emr: EMR = EMR(), public var ihPal: UInt = 0u)
+public data class Emrselectpalette(public var emr: Emr = Emr(), public var ihPal: UInt = 0u)
 
-public data class EMRSETARCDIRECTION(public var emr: EMR = EMR(), public var iArcDirection: UInt = 0u)
+public data class Emrsetarcdirection(public var emr: Emr = Emr(), public var iArcDirection: UInt = 0u)
 
-public data class EMRSETCOLORADJUSTMENT(public var emr: EMR = EMR(), public var ColorAdjustment: COLORADJUSTMENT = COLORADJUSTMENT())
+public data class Emrsetcoloradjustment(public var emr: Emr = Emr(), public var colorAdjustment: Coloradjustment = Coloradjustment())
 
-public data class EMRSETCOLORSPACE(public var emr: EMR = EMR(), public var ihCS: UInt = 0u)
+public data class Emrsetcolorspace(public var emr: Emr = Emr(), public var ihCS: UInt = 0u)
 
-public data class EMRSETDIBITSTODEVICE(
-    public var emr: EMR = EMR(),
-    public var rclBounds: RECTL = RECTL(),
+public data class Emrsetdibitstodevice(
+    public var emr: Emr = Emr(),
+    public var rclBounds: Rectl = Rectl(),
     public var xDest: Int = 0,
     public var yDest: Int = 0,
     public var xSrc: Int = 0,
@@ -1115,21 +1116,21 @@ public data class EMRSETDIBITSTODEVICE(
     public var cScans: UInt = 0u,
 )
 
-public data class EMRSETICMPROFILE(
-    public var emr: EMR = EMR(),
+public data class Emrseticmprofile(
+    public var emr: Emr = Emr(),
     public var dwFlags: UInt = 0u,
     public var cbName: UInt = 0u,
     public var cbData: UInt = 0u,
-    public var Data: UByteArray = UByteArray(1),
+    public var data: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is EMRSETICMPROFILE) return false
+        if (other !is Emrseticmprofile) return false
         if (this.emr != other.emr) return false
         if (this.dwFlags != other.dwFlags) return false
         if (this.cbName != other.cbName) return false
         if (this.cbData != other.cbData) return false
-        if (!this.Data.contentEquals(other.Data)) return false
+        if (!this.data.contentEquals(other.data)) return false
         return true
     }
 
@@ -1138,40 +1139,40 @@ public data class EMRSETICMPROFILE(
         result = 31 * result + this.dwFlags.hashCode()
         result = 31 * result + this.cbName.hashCode()
         result = 31 * result + this.cbData.hashCode()
-        result = 31 * result + this.Data.contentHashCode()
+        result = 31 * result + this.data.contentHashCode()
         return result
     }
 }
 
-public data class EMRSETMAPPERFLAGS(public var emr: EMR = EMR(), public var dwFlags: UInt = 0u)
+public data class Emrsetmapperflags(public var emr: Emr = Emr(), public var dwFlags: UInt = 0u)
 
-public data class EMRSETMITERLIMIT(public var emr: EMR = EMR(), public var eMiterLimit: Float = 0.0f)
+public data class Emrsetmiterlimit(public var emr: Emr = Emr(), public var eMiterLimit: Float = 0.0f)
 
-public data class EMRSETPALETTEENTRIES(
-    public var emr: EMR = EMR(),
+public data class Emrsetpaletteentries(
+    public var emr: Emr = Emr(),
     public var ihPal: UInt = 0u,
     public var iStart: UInt = 0u,
     public var cEntries: UInt = 0u,
-    public var aPalEntries: List<PALETTEENTRY> = List(1) { PALETTEENTRY() },
+    public var aPalEntries: List<Paletteentry> = List(1) { Paletteentry() },
 )
 
-public data class EMRSETPIXELV(
-    public var emr: EMR = EMR(),
-    public var ptlPixel: POINTL = POINTL(),
-    public var crColor: COLORREF = 0u,
+public data class Emrsetpixelv(
+    public var emr: Emr = Emr(),
+    public var ptlPixel: Pointl = Pointl(),
+    public var crColor: Colorref = 0u,
 )
 
-public data class EMRSETTEXTCOLOR(public var emr: EMR = EMR(), public var crColor: COLORREF = 0u)
+public data class Emrsettextcolor(public var emr: Emr = Emr(), public var crColor: Colorref = 0u)
 
-public data class EMRSETVIEWPORTEXTEX(public var emr: EMR = EMR(), public var szlExtent: SIZE = SIZE())
+public data class Emrsetviewportextex(public var emr: Emr = Emr(), public var szlExtent: Size = Size())
 
-public data class EMRSETVIEWPORTORGEX(public var emr: EMR = EMR(), public var ptlOrigin: POINTL = POINTL())
+public data class Emrsetviewportorgex(public var emr: Emr = Emr(), public var ptlOrigin: Pointl = Pointl())
 
-public data class EMRSETWORLDTRANSFORM(public var emr: EMR = EMR(), public var xform: XFORM = XFORM())
+public data class Emrsetworldtransform(public var emr: Emr = Emr(), public var xform: Xform = Xform())
 
-public class EMRSTRETCHBLT(
-    public var emr: EMR = EMR(),
-    public var rclBounds: RECTL = RECTL(),
+public class Emrstretchblt(
+    public var emr: Emr = Emr(),
+    public var rclBounds: Rectl = Rectl(),
     public var xDest: Int = 0,
     public var yDest: Int = 0,
     public var cxDest: Int = 0,
@@ -1179,8 +1180,8 @@ public class EMRSTRETCHBLT(
     public var dwRop: UInt = 0u,
     public var xSrc: Int = 0,
     public var ySrc: Int = 0,
-    public var xformSrc: XFORM = XFORM(),
-    public var crBkColorSrc: COLORREF = 0u,
+    public var xformSrc: Xform = Xform(),
+    public var crBkColorSrc: Colorref = 0u,
     public var iUsageSrc: UInt = 0u,
     public var offBmiSrc: UInt = 0u,
     public var cbBmiSrc: UInt = 0u,
@@ -1190,9 +1191,9 @@ public class EMRSTRETCHBLT(
     public var cySrc: Int = 0,
 )
 
-public data class EMRSTRETCHDIBITS(
-    public var emr: EMR = EMR(),
-    public var rclBounds: RECTL = RECTL(),
+public data class Emrstretchdibits(
+    public var emr: Emr = Emr(),
+    public var rclBounds: Rectl = Rectl(),
     public var xDest: Int = 0,
     public var yDest: Int = 0,
     public var xSrc: Int = 0,
@@ -1209,18 +1210,18 @@ public data class EMRSTRETCHDIBITS(
     public var cyDest: Int = 0,
 )
 
-public data class EMRTEXT(
-    public var ptlReference: POINTL = POINTL(),
+public data class Emrtext(
+    public var ptlReference: Pointl = Pointl(),
     public var nChars: UInt = 0u,
     public var offString: UInt = 0u,
     public var fOptions: UInt = 0u,
-    public var rcl: RECTL = RECTL(),
+    public var rcl: Rectl = Rectl(),
     public var offDx: UInt = 0u,
 )
 
-public class EMRTRANSPARENTBLT(
-    public var emr: EMR = EMR(),
-    public var rclBounds: RECTL = RECTL(),
+public class Emrtransparentblt(
+    public var emr: Emr = Emr(),
+    public var rclBounds: Rectl = Rectl(),
     public var xDest: Int = 0,
     public var yDest: Int = 0,
     public var cxDest: Int = 0,
@@ -1228,8 +1229,8 @@ public class EMRTRANSPARENTBLT(
     public var dwRop: UInt = 0u,
     public var xSrc: Int = 0,
     public var ySrc: Int = 0,
-    public var xformSrc: XFORM = XFORM(),
-    public var crBkColorSrc: COLORREF = 0u,
+    public var xformSrc: Xform = Xform(),
+    public var crBkColorSrc: Colorref = 0u,
     public var iUsageSrc: UInt = 0u,
     public var offBmiSrc: UInt = 0u,
     public var cbBmiSrc: UInt = 0u,
@@ -1239,11 +1240,11 @@ public class EMRTRANSPARENTBLT(
     public var cySrc: Int = 0,
 )
 
-public class ENHMETAHEADER(
+public class Enhmetaheader(
     public var iType: UInt = 0u,
     public var nSize: UInt = 0u,
-    public var rclBounds: RECTL = RECTL(),
-    public var rclFrame: RECTL = RECTL(),
+    public var rclBounds: Rectl = Rectl(),
+    public var rclFrame: Rectl = Rectl(),
     public var dSignature: UInt = 0u,
     public var nVersion: UInt = 0u,
     public var nBytes: UInt = 0u,
@@ -1253,22 +1254,22 @@ public class ENHMETAHEADER(
     public var nDescription: UInt = 0u,
     public var offDescription: UInt = 0u,
     public var nPalEntries: UInt = 0u,
-    public var szlDevice: SIZE = SIZE(),
-    public var szlMillimeters: SIZE = SIZE(),
+    public var szlDevice: Size = Size(),
+    public var szlMillimeters: Size = Size(),
     public var cbPixelFormat: UInt = 0u,
     public var offPixelFormat: UInt = 0u,
     public var bOpenGL: UInt = 0u,
-    public var szlMicrometers: SIZE = SIZE(),
+    public var szlMicrometers: Size = Size(),
 )
 
-public data class ENHMETARECORD(
-    public var iType: ENHANCED_METAFILE_RECORD_TYPE = 0u,
+public data class Enhmetarecord(
+    public var iType: EnhancedMetafileRecordType = 0u,
     public var nSize: UInt = 0u,
     public var dParm: UIntArray = UIntArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is ENHMETARECORD) return false
+        if (other !is Enhmetarecord) return false
         if (this.iType != other.iType) return false
         if (this.nSize != other.nSize) return false
         if (!this.dParm.contentEquals(other.dParm)) return false
@@ -1283,14 +1284,14 @@ public data class ENHMETARECORD(
     }
 }
 
-public data class ENUMLOGFONTA(
-    public var elfLogFont: LOGFONTA = LOGFONTA(),
+public data class Enumlogfonta(
+    public var elfLogFont: Logfonta = Logfonta(),
     public var elfFullName: UByteArray = UByteArray(64),
     public var elfStyle: UByteArray = UByteArray(32),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is ENUMLOGFONTA) return false
+        if (other !is Enumlogfonta) return false
         if (this.elfLogFont != other.elfLogFont) return false
         if (!this.elfFullName.contentEquals(other.elfFullName)) return false
         if (!this.elfStyle.contentEquals(other.elfStyle)) return false
@@ -1305,15 +1306,15 @@ public data class ENUMLOGFONTA(
     }
 }
 
-public data class ENUMLOGFONTEXA(
-    public var elfLogFont: LOGFONTA = LOGFONTA(),
+public data class Enumlogfontexa(
+    public var elfLogFont: Logfonta = Logfonta(),
     public var elfFullName: UByteArray = UByteArray(64),
     public var elfStyle: UByteArray = UByteArray(32),
     public var elfScript: UByteArray = UByteArray(32),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is ENUMLOGFONTEXA) return false
+        if (other !is Enumlogfontexa) return false
         if (this.elfLogFont != other.elfLogFont) return false
         if (!this.elfFullName.contentEquals(other.elfFullName)) return false
         if (!this.elfStyle.contentEquals(other.elfStyle)) return false
@@ -1330,19 +1331,19 @@ public data class ENUMLOGFONTEXA(
     }
 }
 
-public data class ENUMLOGFONTEXDVA(public var elfEnumLogfontEx: ENUMLOGFONTEXA = ENUMLOGFONTEXA(), public var elfDesignVector: DESIGNVECTOR = DESIGNVECTOR())
+public data class Enumlogfontexdva(public var elfEnumLogfontEx: Enumlogfontexa = Enumlogfontexa(), public var elfDesignVector: Designvector = Designvector())
 
-public data class ENUMLOGFONTEXDVW(public var elfEnumLogfontEx: ENUMLOGFONTEXW = ENUMLOGFONTEXW(), public var elfDesignVector: DESIGNVECTOR = DESIGNVECTOR())
+public data class Enumlogfontexdvw(public var elfEnumLogfontEx: Enumlogfontexw = Enumlogfontexw(), public var elfDesignVector: Designvector = Designvector())
 
-public data class ENUMLOGFONTEXW(
-    public var elfLogFont: LOGFONTW = LOGFONTW(),
+public data class Enumlogfontexw(
+    public var elfLogFont: Logfontw = Logfontw(),
     public var elfFullName: UShortArray = UShortArray(64),
     public var elfStyle: UShortArray = UShortArray(32),
     public var elfScript: UShortArray = UShortArray(32),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is ENUMLOGFONTEXW) return false
+        if (other !is Enumlogfontexw) return false
         if (this.elfLogFont != other.elfLogFont) return false
         if (!this.elfFullName.contentEquals(other.elfFullName)) return false
         if (!this.elfStyle.contentEquals(other.elfStyle)) return false
@@ -1359,14 +1360,14 @@ public data class ENUMLOGFONTEXW(
     }
 }
 
-public data class ENUMLOGFONTW(
-    public var elfLogFont: LOGFONTW = LOGFONTW(),
+public data class Enumlogfontw(
+    public var elfLogFont: Logfontw = Logfontw(),
     public var elfFullName: UShortArray = UShortArray(64),
     public var elfStyle: UShortArray = UShortArray(32),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is ENUMLOGFONTW) return false
+        if (other !is Enumlogfontw) return false
         if (this.elfLogFont != other.elfLogFont) return false
         if (!this.elfFullName.contentEquals(other.elfFullName)) return false
         if (!this.elfStyle.contentEquals(other.elfStyle)) return false
@@ -1381,8 +1382,8 @@ public data class ENUMLOGFONTW(
     }
 }
 
-public data class EXTLOGFONTA(
-    public var elfLogFont: LOGFONTA = LOGFONTA(),
+public data class Extlogfonta(
+    public var elfLogFont: Logfonta = Logfonta(),
     public var elfFullName: UByteArray = UByteArray(64),
     public var elfStyle: UByteArray = UByteArray(32),
     public var elfVersion: UInt = 0u,
@@ -1391,11 +1392,11 @@ public data class EXTLOGFONTA(
     public var elfReserved: UInt = 0u,
     public var elfVendorId: UByteArray = UByteArray(4),
     public var elfCulture: UInt = 0u,
-    public var elfPanose: PANOSE = PANOSE(),
+    public var elfPanose: Panose = Panose(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is EXTLOGFONTA) return false
+        if (other !is Extlogfonta) return false
         if (this.elfLogFont != other.elfLogFont) return false
         if (!this.elfFullName.contentEquals(other.elfFullName)) return false
         if (!this.elfStyle.contentEquals(other.elfStyle)) return false
@@ -1424,8 +1425,8 @@ public data class EXTLOGFONTA(
     }
 }
 
-public data class EXTLOGFONTW(
-    public var elfLogFont: LOGFONTW = LOGFONTW(),
+public data class Extlogfontw(
+    public var elfLogFont: Logfontw = Logfontw(),
     public var elfFullName: UShortArray = UShortArray(64),
     public var elfStyle: UShortArray = UShortArray(32),
     public var elfVersion: UInt = 0u,
@@ -1434,11 +1435,11 @@ public data class EXTLOGFONTW(
     public var elfReserved: UInt = 0u,
     public var elfVendorId: UByteArray = UByteArray(4),
     public var elfCulture: UInt = 0u,
-    public var elfPanose: PANOSE = PANOSE(),
+    public var elfPanose: Panose = Panose(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is EXTLOGFONTW) return false
+        if (other !is Extlogfontw) return false
         if (this.elfLogFont != other.elfLogFont) return false
         if (!this.elfFullName.contentEquals(other.elfFullName)) return false
         if (!this.elfStyle.contentEquals(other.elfStyle)) return false
@@ -1467,18 +1468,18 @@ public data class EXTLOGFONTW(
     }
 }
 
-public data class EXTLOGPEN(
+public data class Extlogpen(
     public var elpPenStyle: UInt = 0u,
     public var elpWidth: UInt = 0u,
     public var elpBrushStyle: UInt = 0u,
-    public var elpColor: COLORREF = 0u,
-    public var elpHatch: ULong = 0uL,
+    public var elpColor: Colorref = 0u,
+    public var elpHatch: Int = 0,
     public var elpNumEntries: UInt = 0u,
     public var elpStyleEntry: UIntArray = UIntArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is EXTLOGPEN) return false
+        if (other !is Extlogpen) return false
         if (this.elpPenStyle != other.elpPenStyle) return false
         if (this.elpWidth != other.elpWidth) return false
         if (this.elpBrushStyle != other.elpBrushStyle) return false
@@ -1501,18 +1502,18 @@ public data class EXTLOGPEN(
     }
 }
 
-public data class EXTLOGPEN32(
+public data class Extlogpen32(
     public var elpPenStyle: UInt = 0u,
     public var elpWidth: UInt = 0u,
     public var elpBrushStyle: UInt = 0u,
-    public var elpColor: COLORREF = 0u,
+    public var elpColor: Colorref = 0u,
     public var elpHatch: UInt = 0u,
     public var elpNumEntries: UInt = 0u,
     public var elpStyleEntry: UIntArray = UIntArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is EXTLOGPEN32) return false
+        if (other !is Extlogpen32) return false
         if (this.elpPenStyle != other.elpPenStyle) return false
         if (this.elpWidth != other.elpWidth) return false
         if (this.elpBrushStyle != other.elpBrushStyle) return false
@@ -1535,88 +1536,77 @@ public data class EXTLOGPEN32(
     }
 }
 
-public data class FIXED(public var fract: UShort = 0u, public var value: Short = 0)
+public data class Fixed(public var fract: UShort = 0u, public var value: Short = 0)
 
-public data class GCP_RESULTSA(
+public data class GcpResultsa(
     public var lStructSize: UInt = 0u,
-    public var lpOutString: PSTR = 0L,
-    public var lpOrder: Long = 0L,
-    public var lpDx: Long = 0L,
-    public var lpCaretPos: Long = 0L,
-    public var lpClass: PSTR = 0L,
-    public var lpGlyphs: PWSTR = 0L,
+    public var lpOutString: Pstr = null,
+    public var lpOrder: UInt? = null,
+    public var lpDx: Int? = null,
+    public var lpCaretPos: Int? = null,
+    public var lpClass: Pstr = null,
+    public var lpGlyphs: Pwstr = null,
     public var nGlyphs: UInt = 0u,
     public var nMaxFit: Int = 0,
 )
 
-public data class GCP_RESULTSW(
+public data class GcpResultsw(
     public var lStructSize: UInt = 0u,
-    public var lpOutString: PWSTR = 0L,
-    public var lpOrder: Long = 0L,
-    public var lpDx: Long = 0L,
-    public var lpCaretPos: Long = 0L,
-    public var lpClass: PSTR = 0L,
-    public var lpGlyphs: PWSTR = 0L,
+    public var lpOutString: Pwstr = null,
+    public var lpOrder: UInt? = null,
+    public var lpDx: Int? = null,
+    public var lpCaretPos: Int? = null,
+    public var lpClass: Pstr = null,
+    public var lpGlyphs: Pwstr = null,
     public var nGlyphs: UInt = 0u,
     public var nMaxFit: Int = 0,
 )
 
-public data class GLYPHMETRICS(
+public data class Glyphmetrics(
     public var gmBlackBoxX: UInt = 0u,
     public var gmBlackBoxY: UInt = 0u,
-    public var gmptGlyphOrigin: POINT = POINT(),
+    public var gmptGlyphOrigin: Point = Point(),
     public var gmCellIncX: Short = 0,
     public var gmCellIncY: Short = 0,
 )
 
-public data class GLYPHSET(
+public data class Glyphset(
     public var cbThis: UInt = 0u,
     public var flAccel: UInt = 0u,
     public var cGlyphsSupported: UInt = 0u,
     public var cRanges: UInt = 0u,
-    public var ranges: List<WCRANGE> = List(1) { WCRANGE() },
+    public var ranges: List<Wcrange> = List(1) { Wcrange() },
 )
 
-public data class GRADIENT_RECT(public var UpperLeft: UInt = 0u, public var LowerRight: UInt = 0u)
+public data class GradientRect(public var upperLeft: UInt = 0u, public var lowerRight: UInt = 0u)
 
-public data class GRADIENT_TRIANGLE(
-    public var Vertex1: UInt = 0u,
-    public var Vertex2: UInt = 0u,
-    public var Vertex3: UInt = 0u,
+public data class GradientTriangle(
+    public var vertex1: UInt = 0u,
+    public var vertex2: UInt = 0u,
+    public var vertex3: UInt = 0u,
 )
 
-public data class HANDLETABLE(public var objectHandle: LongArray = LongArray(1)) {
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (other !is HANDLETABLE) return false
-        if (!this.objectHandle.contentEquals(other.objectHandle)) return false
-        return true
-    }
+public data class Handletable(public var objectHandle: List<COpaquePointer> = List(1) { COpaquePointer(0L) })
 
-    override fun hashCode(): Int {
-        return this.objectHandle.contentHashCode()
-    }
-}
-
-public data class KERNINGPAIR(
+public data class Kerningpair(
     public var wFirst: UShort = 0u,
     public var wSecond: UShort = 0u,
     public var iKernAmount: Int = 0,
 )
 
-public data class LOGBRUSH(
-    public var lbStyle: BRUSH_STYLE = 0u,
-    public var lbColor: COLORREF = 0u,
-    public var lbHatch: ULong = 0uL,
+public data class Logbrush(
+    public var lbStyle: BrushStyle = 0u,
+    public var lbColor: Colorref = 0u,
+    public var lbHatch: Int = 0,
 )
 
-public data class LOGBRUSH32(
-    public var lbStyle: BRUSH_STYLE = 0u,
-    public var lbColor: COLORREF = 0u,
+public data class Logbrush32(
+    public var lbStyle: BrushStyle = 0u,
+    public var lbColor: Colorref = 0u,
     public var lbHatch: UInt = 0u,
 )
 
-public data class LOGFONTA(
+public data class Logfonta(
     public var lfHeight: Int = 0,
     public var lfWidth: Int = 0,
     public var lfEscapement: Int = 0,
@@ -1625,16 +1615,16 @@ public data class LOGFONTA(
     public var lfItalic: UByte = 0u,
     public var lfUnderline: UByte = 0u,
     public var lfStrikeOut: UByte = 0u,
-    public var lfCharSet: FONT_CHARSET = 0u,
-    public var lfOutPrecision: FONT_OUTPUT_PRECISION = 0u,
-    public var lfClipPrecision: FONT_CLIP_PRECISION = 0u,
-    public var lfQuality: FONT_QUALITY = 0u,
+    public var lfCharSet: FontCharset = 0u,
+    public var lfOutPrecision: FontOutputPrecision = 0u,
+    public var lfClipPrecision: FontClipPrecision = 0u,
+    public var lfQuality: FontQuality = 0u,
     public var lfPitchAndFamily: UByte = 0u,
     public var lfFaceName: ByteArray = ByteArray(32),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is LOGFONTA) return false
+        if (other !is Logfonta) return false
         if (this.lfHeight != other.lfHeight) return false
         if (this.lfWidth != other.lfWidth) return false
         if (this.lfEscapement != other.lfEscapement) return false
@@ -1671,7 +1661,7 @@ public data class LOGFONTA(
     }
 }
 
-public data class LOGFONTW(
+public data class Logfontw(
     public var lfHeight: Int = 0,
     public var lfWidth: Int = 0,
     public var lfEscapement: Int = 0,
@@ -1680,16 +1670,16 @@ public data class LOGFONTW(
     public var lfItalic: UByte = 0u,
     public var lfUnderline: UByte = 0u,
     public var lfStrikeOut: UByte = 0u,
-    public var lfCharSet: FONT_CHARSET = 0u,
-    public var lfOutPrecision: FONT_OUTPUT_PRECISION = 0u,
-    public var lfClipPrecision: FONT_CLIP_PRECISION = 0u,
-    public var lfQuality: FONT_QUALITY = 0u,
+    public var lfCharSet: FontCharset = 0u,
+    public var lfOutPrecision: FontOutputPrecision = 0u,
+    public var lfClipPrecision: FontClipPrecision = 0u,
+    public var lfQuality: FontQuality = 0u,
     public var lfPitchAndFamily: UByte = 0u,
     public var lfFaceName: UShortArray = UShortArray(32),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is LOGFONTW) return false
+        if (other !is Logfontw) return false
         if (this.lfHeight != other.lfHeight) return false
         if (this.lfWidth != other.lfWidth) return false
         if (this.lfEscapement != other.lfEscapement) return false
@@ -1726,26 +1716,26 @@ public data class LOGFONTW(
     }
 }
 
-public data class LOGPALETTE(
+public data class Logpalette(
     public var palVersion: UShort = 0u,
     public var palNumEntries: UShort = 0u,
-    public var palPalEntry: List<PALETTEENTRY> = List(1) { PALETTEENTRY() },
+    public var palPalEntry: List<Paletteentry> = List(1) { Paletteentry() },
 )
 
-public data class LOGPEN(
+public data class Logpen(
     public var lopnStyle: UInt = 0u,
-    public var lopnWidth: POINT = POINT(),
-    public var lopnColor: COLORREF = 0u,
+    public var lopnWidth: Point = Point(),
+    public var lopnColor: Colorref = 0u,
 )
 
-public data class MAT2(
-    public var eM11: FIXED = FIXED(),
-    public var eM12: FIXED = FIXED(),
-    public var eM21: FIXED = FIXED(),
-    public var eM22: FIXED = FIXED(),
+public data class Mat2(
+    public var eM11: Fixed = Fixed(),
+    public var eM12: Fixed = Fixed(),
+    public var eM21: Fixed = Fixed(),
+    public var eM22: Fixed = Fixed(),
 )
 
-public data class METAHEADER(
+public data class Metaheader(
     public var mtType: UShort = 0u,
     public var mtHeaderSize: UShort = 0u,
     public var mtVersion: UShort = 0u,
@@ -1755,14 +1745,14 @@ public data class METAHEADER(
     public var mtNoParameters: UShort = 0u,
 )
 
-public data class METARECORD(
+public data class Metarecord(
     public var rdSize: UInt = 0u,
     public var rdFunction: UShort = 0u,
     public var rdParm: UShortArray = UShortArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is METARECORD) return false
+        if (other !is Metarecord) return false
         if (this.rdSize != other.rdSize) return false
         if (this.rdFunction != other.rdFunction) return false
         if (!this.rdParm.contentEquals(other.rdParm)) return false
@@ -1777,17 +1767,17 @@ public data class METARECORD(
     }
 }
 
-public data class MONITORINFO(
+public data class Monitorinfo(
     public var cbSize: UInt = 0u,
-    public var rcMonitor: RECT = RECT(),
-    public var rcWork: RECT = RECT(),
+    public var rcMonitor: Rect = Rect(),
+    public var rcWork: Rect = Rect(),
     public var dwFlags: UInt = 0u,
 )
 
-public data class MONITORINFOEXA(public var monitorInfo: MONITORINFO = MONITORINFO(), public var szDevice: ByteArray = ByteArray(32)) {
+public data class Monitorinfoexa(public var monitorInfo: Monitorinfo = Monitorinfo(), public var szDevice: ByteArray = ByteArray(32)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MONITORINFOEXA) return false
+        if (other !is Monitorinfoexa) return false
         if (this.monitorInfo != other.monitorInfo) return false
         if (!this.szDevice.contentEquals(other.szDevice)) return false
         return true
@@ -1800,10 +1790,10 @@ public data class MONITORINFOEXA(public var monitorInfo: MONITORINFO = MONITORIN
     }
 }
 
-public data class MONITORINFOEXW(public var monitorInfo: MONITORINFO = MONITORINFO(), public var szDevice: UShortArray = UShortArray(32)) {
+public data class Monitorinfoexw(public var monitorInfo: Monitorinfo = Monitorinfo(), public var szDevice: UShortArray = UShortArray(32)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MONITORINFOEXW) return false
+        if (other !is Monitorinfoexw) return false
         if (this.monitorInfo != other.monitorInfo) return false
         if (!this.szDevice.contentEquals(other.szDevice)) return false
         return true
@@ -1816,7 +1806,7 @@ public data class MONITORINFOEXW(public var monitorInfo: MONITORINFO = MONITORIN
     }
 }
 
-public class NEWTEXTMETRICA(
+public class Newtextmetrica(
     public var tmHeight: Int = 0,
     public var tmAscent: Int = 0,
     public var tmDescent: Int = 0,
@@ -1835,7 +1825,7 @@ public class NEWTEXTMETRICA(
     public var tmItalic: UByte = 0u,
     public var tmUnderlined: UByte = 0u,
     public var tmStruckOut: UByte = 0u,
-    public var tmPitchAndFamily: TMPF_FLAGS = 0u,
+    public var tmPitchAndFamily: TmpfFlags = 0u,
     public var tmCharSet: UByte = 0u,
     public var ntmFlags: UInt = 0u,
     public var ntmSizeEM: UInt = 0u,
@@ -1843,7 +1833,7 @@ public class NEWTEXTMETRICA(
     public var ntmAvgWidth: UInt = 0u,
 )
 
-public class NEWTEXTMETRICW(
+public class Newtextmetricw(
     public var tmHeight: Int = 0,
     public var tmAscent: Int = 0,
     public var tmDescent: Int = 0,
@@ -1862,7 +1852,7 @@ public class NEWTEXTMETRICW(
     public var tmItalic: UByte = 0u,
     public var tmUnderlined: UByte = 0u,
     public var tmStruckOut: UByte = 0u,
-    public var tmPitchAndFamily: TMPF_FLAGS = 0u,
+    public var tmPitchAndFamily: TmpfFlags = 0u,
     public var tmCharSet: UByte = 0u,
     public var ntmFlags: UInt = 0u,
     public var ntmSizeEM: UInt = 0u,
@@ -1870,11 +1860,11 @@ public class NEWTEXTMETRICW(
     public var ntmAvgWidth: UInt = 0u,
 )
 
-public class OUTLINETEXTMETRICA(
+public class Outlinetextmetrica(
     public var otmSize: UInt = 0u,
-    public var otmTextMetrics: TEXTMETRICA = TEXTMETRICA(),
+    public var otmTextMetrics: Textmetrica = Textmetrica(),
     public var otmFiller: UByte = 0u,
-    public var otmPanoseNumber: PANOSE = PANOSE(),
+    public var otmPanoseNumber: Panose = Panose(),
     public var otmfsSelection: UInt = 0u,
     public var otmfsType: UInt = 0u,
     public var otmsCharSlopeRise: Int = 0,
@@ -1886,30 +1876,30 @@ public class OUTLINETEXTMETRICA(
     public var otmLineGap: UInt = 0u,
     public var otmsCapEmHeight: UInt = 0u,
     public var otmsXHeight: UInt = 0u,
-    public var otmrcFontBox: RECT = RECT(),
+    public var otmrcFontBox: Rect = Rect(),
     public var otmMacAscent: Int = 0,
     public var otmMacDescent: Int = 0,
     public var otmMacLineGap: UInt = 0u,
     public var otmusMinimumPPEM: UInt = 0u,
-    public var otmptSubscriptSize: POINT = POINT(),
-    public var otmptSubscriptOffset: POINT = POINT(),
-    public var otmptSuperscriptSize: POINT = POINT(),
-    public var otmptSuperscriptOffset: POINT = POINT(),
+    public var otmptSubscriptSize: Point = Point(),
+    public var otmptSubscriptOffset: Point = Point(),
+    public var otmptSuperscriptSize: Point = Point(),
+    public var otmptSuperscriptOffset: Point = Point(),
     public var otmsStrikeoutSize: UInt = 0u,
     public var otmsStrikeoutPosition: Int = 0,
     public var otmsUnderscoreSize: Int = 0,
     public var otmsUnderscorePosition: Int = 0,
-    public var otmpFamilyName: PSTR = 0L,
-    public var otmpFaceName: PSTR = 0L,
-    public var otmpStyleName: PSTR = 0L,
-    public var otmpFullName: PSTR = 0L,
+    public var otmpFamilyName: Pstr = null,
+    public var otmpFaceName: Pstr = null,
+    public var otmpStyleName: Pstr = null,
+    public var otmpFullName: Pstr = null,
 )
 
-public class OUTLINETEXTMETRICW(
+public class Outlinetextmetricw(
     public var otmSize: UInt = 0u,
-    public var otmTextMetrics: TEXTMETRICW = TEXTMETRICW(),
+    public var otmTextMetrics: Textmetricw = Textmetricw(),
     public var otmFiller: UByte = 0u,
-    public var otmPanoseNumber: PANOSE = PANOSE(),
+    public var otmPanoseNumber: Panose = Panose(),
     public var otmfsSelection: UInt = 0u,
     public var otmfsType: UInt = 0u,
     public var otmsCharSlopeRise: Int = 0,
@@ -1921,36 +1911,36 @@ public class OUTLINETEXTMETRICW(
     public var otmLineGap: UInt = 0u,
     public var otmsCapEmHeight: UInt = 0u,
     public var otmsXHeight: UInt = 0u,
-    public var otmrcFontBox: RECT = RECT(),
+    public var otmrcFontBox: Rect = Rect(),
     public var otmMacAscent: Int = 0,
     public var otmMacDescent: Int = 0,
     public var otmMacLineGap: UInt = 0u,
     public var otmusMinimumPPEM: UInt = 0u,
-    public var otmptSubscriptSize: POINT = POINT(),
-    public var otmptSubscriptOffset: POINT = POINT(),
-    public var otmptSuperscriptSize: POINT = POINT(),
-    public var otmptSuperscriptOffset: POINT = POINT(),
+    public var otmptSubscriptSize: Point = Point(),
+    public var otmptSubscriptOffset: Point = Point(),
+    public var otmptSuperscriptSize: Point = Point(),
+    public var otmptSuperscriptOffset: Point = Point(),
     public var otmsStrikeoutSize: UInt = 0u,
     public var otmsStrikeoutPosition: Int = 0,
     public var otmsUnderscoreSize: Int = 0,
     public var otmsUnderscorePosition: Int = 0,
-    public var otmpFamilyName: PSTR = 0L,
-    public var otmpFaceName: PSTR = 0L,
-    public var otmpStyleName: PSTR = 0L,
-    public var otmpFullName: PSTR = 0L,
+    public var otmpFamilyName: Pstr = null,
+    public var otmpFaceName: Pstr = null,
+    public var otmpStyleName: Pstr = null,
+    public var otmpFullName: Pstr = null,
 )
 
-public data class PAINTSTRUCT(
-    public var hdc: HDC = 0L,
-    public var fErase: BOOL = 0,
-    public var rcPaint: RECT = RECT(),
-    public var fRestore: BOOL = 0,
-    public var fIncUpdate: BOOL = 0,
+public data class Paintstruct(
+    public var hdc: Hdc = null,
+    public var fErase: Bool = 0,
+    public var rcPaint: Rect = Rect(),
+    public var fRestore: Bool = 0,
+    public var fIncUpdate: Bool = 0,
     public var rgbReserved: UByteArray = UByteArray(32),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is PAINTSTRUCT) return false
+        if (other !is Paintstruct) return false
         if (this.hdc != other.hdc) return false
         if (this.fErase != other.fErase) return false
         if (this.rcPaint != other.rcPaint) return false
@@ -1971,27 +1961,27 @@ public data class PAINTSTRUCT(
     }
 }
 
-public data class PALETTEENTRY(
+public data class Paletteentry(
     public var peRed: UByte = 0u,
     public var peGreen: UByte = 0u,
     public var peBlue: UByte = 0u,
     public var peFlags: UByte = 0u,
 )
 
-public data class PANOSE(
-    public var bFamilyType: PAN_FAMILY_TYPE = 0u,
-    public var bSerifStyle: PAN_SERIF_STYLE = 0u,
-    public var bWeight: PAN_WEIGHT = 0u,
-    public var bProportion: PAN_PROPORTION = 0u,
-    public var bContrast: PAN_CONTRAST = 0u,
-    public var bStrokeVariation: PAN_STROKE_VARIATION = 0u,
-    public var bArmStyle: PAN_ARM_STYLE = 0u,
-    public var bLetterform: PAN_LETT_FORM = 0u,
-    public var bMidline: PAN_MIDLINE = 0u,
-    public var bXHeight: PAN_XHEIGHT = 0u,
+public data class Panose(
+    public var bFamilyType: PanFamilyType = 0u,
+    public var bSerifStyle: PanSerifStyle = 0u,
+    public var bWeight: PanWeight = 0u,
+    public var bProportion: PanProportion = 0u,
+    public var bContrast: PanContrast = 0u,
+    public var bStrokeVariation: PanStrokeVariation = 0u,
+    public var bArmStyle: PanArmStyle = 0u,
+    public var bLetterform: PanLettForm = 0u,
+    public var bMidline: PanMidline = 0u,
+    public var bXHeight: PanXheight = 0u,
 )
 
-public data class PELARRAY(
+public data class Pelarray(
     public var paXCount: Int = 0,
     public var paYCount: Int = 0,
     public var paXExt: Int = 0,
@@ -1999,72 +1989,72 @@ public data class PELARRAY(
     public var paRGBs: UByte = 0u,
 )
 
-public data class POINTFX(public var x: FIXED = FIXED(), public var y: FIXED = FIXED())
+public data class Pointfx(public var x: Fixed = Fixed(), public var y: Fixed = Fixed())
 
-public data class POLYTEXTA(
+public data class Polytexta(
     public var x: Int = 0,
     public var y: Int = 0,
     public var n: UInt = 0u,
-    public var lpstr: PCSTR = 0L,
+    public var lpstr: Pcstr = null,
     public var uiFlags: UInt = 0u,
-    public var rcl: RECT = RECT(),
-    public var pdx: Long = 0L,
+    public var rcl: Rect = Rect(),
+    public var pdx: Int? = null,
 )
 
-public data class POLYTEXTW(
+public data class Polytextw(
     public var x: Int = 0,
     public var y: Int = 0,
     public var n: UInt = 0u,
-    public var lpstr: PCWSTR = 0L,
+    public var lpstr: Pcwstr = null,
     public var uiFlags: UInt = 0u,
-    public var rcl: RECT = RECT(),
-    public var pdx: Long = 0L,
+    public var rcl: Rect = Rect(),
+    public var pdx: Int? = null,
 )
 
-public data class RASTERIZER_STATUS(
+public data class RasterizerStatus(
     public var nSize: Short = 0,
     public var wFlags: Short = 0,
     public var nLanguageID: Short = 0,
 )
 
-public data class RGBQUAD(
+public data class Rgbquad(
     public var rgbBlue: UByte = 0u,
     public var rgbGreen: UByte = 0u,
     public var rgbRed: UByte = 0u,
     public var rgbReserved: UByte = 0u,
 )
 
-public data class RGBTRIPLE(
+public data class Rgbtriple(
     public var rgbtBlue: UByte = 0u,
     public var rgbtGreen: UByte = 0u,
     public var rgbtRed: UByte = 0u,
 )
 
-public data class RGNDATA(public var rdh: RGNDATAHEADER = RGNDATAHEADER(), public var Buffer: ByteArray = ByteArray(1)) {
+public data class Rgndata(public var rdh: Rgndataheader = Rgndataheader(), public var buffer: ByteArray = ByteArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is RGNDATA) return false
+        if (other !is Rgndata) return false
         if (this.rdh != other.rdh) return false
-        if (!this.Buffer.contentEquals(other.Buffer)) return false
+        if (!this.buffer.contentEquals(other.buffer)) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.rdh.hashCode()
-        result = 31 * result + this.Buffer.contentHashCode()
+        result = 31 * result + this.buffer.contentHashCode()
         return result
     }
 }
 
-public data class RGNDATAHEADER(
+public data class Rgndataheader(
     public var dwSize: UInt = 0u,
     public var iType: UInt = 0u,
     public var nCount: UInt = 0u,
     public var nRgnSize: UInt = 0u,
-    public var rcBound: RECT = RECT(),
+    public var rcBound: Rect = Rect(),
 )
 
-public class TEXTMETRICA(
+public class Textmetrica(
     public var tmHeight: Int = 0,
     public var tmAscent: Int = 0,
     public var tmDescent: Int = 0,
@@ -2083,11 +2073,11 @@ public class TEXTMETRICA(
     public var tmItalic: UByte = 0u,
     public var tmUnderlined: UByte = 0u,
     public var tmStruckOut: UByte = 0u,
-    public var tmPitchAndFamily: TMPF_FLAGS = 0u,
+    public var tmPitchAndFamily: TmpfFlags = 0u,
     public var tmCharSet: UByte = 0u,
 )
 
-public class TEXTMETRICW(
+public class Textmetricw(
     public var tmHeight: Int = 0,
     public var tmAscent: Int = 0,
     public var tmDescent: Int = 0,
@@ -2106,68 +2096,68 @@ public class TEXTMETRICW(
     public var tmItalic: UByte = 0u,
     public var tmUnderlined: UByte = 0u,
     public var tmStruckOut: UByte = 0u,
-    public var tmPitchAndFamily: TMPF_FLAGS = 0u,
+    public var tmPitchAndFamily: TmpfFlags = 0u,
     public var tmCharSet: UByte = 0u,
 )
 
-public data class TRIVERTEX(
+public data class Trivertex(
     public var x: Int = 0,
     public var y: Int = 0,
-    public var Red: UShort = 0u,
-    public var Green: UShort = 0u,
-    public var Blue: UShort = 0u,
-    public var Alpha: UShort = 0u,
+    public var red: UShort = 0u,
+    public var green: UShort = 0u,
+    public var blue: UShort = 0u,
+    public var alpha: UShort = 0u,
 )
 
-public data class TTEMBEDINFO(
+public data class Ttembedinfo(
     public var usStructSize: UShort = 0u,
     public var usRootStrSize: UShort = 0u,
-    public var pusRootStr: Long = 0L,
+    public var pusRootStr: UShort? = null,
 )
 
-public data class TTLOADINFO(
+public data class Ttloadinfo(
     public var usStructSize: UShort = 0u,
     public var usRefStrSize: UShort = 0u,
-    public var pusRefStr: Long = 0L,
+    public var pusRefStr: UShort? = null,
 )
 
-public data class TTPOLYCURVE(
+public data class Ttpolycurve(
     public var wType: UShort = 0u,
     public var cpfx: UShort = 0u,
-    public var apfx: List<POINTFX> = List(1) { POINTFX() },
+    public var apfx: List<Pointfx> = List(1) { Pointfx() },
 )
 
-public data class TTPOLYGONHEADER(
+public data class Ttpolygonheader(
     public var cb: UInt = 0u,
     public var dwType: UInt = 0u,
-    public var pfxStart: POINTFX = POINTFX(),
+    public var pfxStart: Pointfx = Pointfx(),
 )
 
-public data class TTVALIDATIONTESTSPARAMS(
+public data class Ttvalidationtestsparams(
     public var ulStructSize: UInt = 0u,
     public var lTestFromSize: Int = 0,
     public var lTestToSize: Int = 0,
     public var ulCharSet: UInt = 0u,
     public var usReserved1: UShort = 0u,
     public var usCharCodeCount: UShort = 0u,
-    public var pusCharCodeSet: Long = 0L,
+    public var pusCharCodeSet: UShort? = null,
 )
 
-public data class TTVALIDATIONTESTSPARAMSEX(
+public data class Ttvalidationtestsparamsex(
     public var ulStructSize: UInt = 0u,
     public var lTestFromSize: Int = 0,
     public var lTestToSize: Int = 0,
     public var ulCharSet: UInt = 0u,
     public var usReserved1: UShort = 0u,
     public var usCharCodeCount: UShort = 0u,
-    public var pulCharCodeSet: Long = 0L,
+    public var pulCharCodeSet: UInt? = null,
 )
 
-public data class WCRANGE(public var wcLow: UShort = 0u, public var cGlyphs: UShort = 0u)
+public data class Wcrange(public var wcLow: UShort = 0u, public var cGlyphs: UShort = 0u)
 
-public data class WGLSWAP(public var hdc: HDC = 0L, public var uiFlags: UInt = 0u)
+public data class Wglswap(public var hdc: Hdc = null, public var uiFlags: UInt = 0u)
 
-public data class XFORM(
+public data class Xform(
     public var eM11: Float = 0.0f,
     public var eM12: Float = 0.0f,
     public var eM21: Float = 0.0f,

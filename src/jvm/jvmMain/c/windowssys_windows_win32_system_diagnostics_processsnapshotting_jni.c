@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_processsnapshotting_WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1processsnapshotting_1PssCaptureSnapshot(JNIEnv* km_env, jclass km_clazz, jlong processhandle, jint captureflags, jint threadcontextflags, jlong snapshothandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_processsnapshotting_WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1processsnapshotting_1pssCaptureSnapshot(JNIEnv* km_env, jclass km_clazz, jlong processhandle, jint captureflags, jint threadcontextflags, jlong snapshothandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -39,7 +39,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_processsnapshotting_WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1processsnapshotting_1PssDuplicateSnapshot(JNIEnv* km_env, jclass km_clazz, jlong sourceprocesshandle, jlong snapshothandle, jlong targetprocesshandle, jlong targetsnapshothandle, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_processsnapshotting_WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1processsnapshotting_1pssDuplicateSnapshot(JNIEnv* km_env, jclass km_clazz, jlong sourceprocesshandle, jlong snapshothandle, jlong targetprocesshandle, jlong targetsnapshothandle, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -61,7 +61,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_processsnapshotting_WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1processsnapshotting_1PssFreeSnapshot(JNIEnv* km_env, jclass km_clazz, jlong processhandle, jlong snapshothandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_processsnapshotting_WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1processsnapshotting_1pssFreeSnapshot(JNIEnv* km_env, jclass km_clazz, jlong processhandle, jlong snapshothandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -80,7 +80,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_processsnapshotting_WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1processsnapshotting_1PssQuerySnapshot(JNIEnv* km_env, jclass km_clazz, jlong snapshothandle, jint informationclass, jlong buffer, jint bufferlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_processsnapshotting_WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1processsnapshotting_1pssQuerySnapshot(JNIEnv* km_env, jclass km_clazz, jlong snapshothandle, jint informationclass, jlong buffer, jint bufferlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -101,7 +101,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_processsnapshotting_WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1processsnapshotting_1PssWalkMarkerCreate(JNIEnv* km_env, jclass km_clazz, jlong allocator, jlong walkmarkerhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_processsnapshotting_WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1processsnapshotting_1pssWalkMarkerCreate(JNIEnv* km_env, jclass km_clazz, jlong allocator, jlong walkmarkerhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -120,7 +120,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_processsnapshotting_WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1processsnapshotting_1PssWalkMarkerFree(JNIEnv* km_env, jclass km_clazz, jlong walkmarkerhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_processsnapshotting_WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1processsnapshotting_1pssWalkMarkerFree(JNIEnv* km_env, jclass km_clazz, jlong walkmarkerhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -138,7 +138,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_processsnapshotting_WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1processsnapshotting_1PssWalkMarkerGetPosition(JNIEnv* km_env, jclass km_clazz, jlong walkmarkerhandle, jlong position) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_processsnapshotting_WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1processsnapshotting_1pssWalkMarkerGetPosition(JNIEnv* km_env, jclass km_clazz, jlong walkmarkerhandle, jlong position) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -157,7 +157,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_processsnapshotting_WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1processsnapshotting_1PssWalkMarkerSeekToBeginning(JNIEnv* km_env, jclass km_clazz, jlong walkmarkerhandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_processsnapshotting_WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1processsnapshotting_1pssWalkMarkerSeekToBeginning(JNIEnv* km_env, jclass km_clazz, jlong walkmarkerhandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -175,7 +175,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_processsnapshotting_WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1processsnapshotting_1PssWalkMarkerSetPosition(JNIEnv* km_env, jclass km_clazz, jlong walkmarkerhandle, jlong position) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_processsnapshotting_WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1processsnapshotting_1pssWalkMarkerSetPosition(JNIEnv* km_env, jclass km_clazz, jlong walkmarkerhandle, jlong position) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -194,7 +194,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_processsnapshotting_WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1processsnapshotting_1PssWalkSnapshot(JNIEnv* km_env, jclass km_clazz, jlong snapshothandle, jint informationclass, jlong walkmarkerhandle, jlong buffer, jint bufferlength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_processsnapshotting_WindowsWin32SystemDiagnosticsProcesssnapshottingJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1processsnapshotting_1pssWalkSnapshot(JNIEnv* km_env, jclass km_clazz, jlong snapshothandle, jint informationclass, jlong walkmarkerhandle, jlong buffer, jint bufferlength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_security_enterprisedata_ProtectFileToEnterpriseIdentity(void* fileorfolderpath, void* identity) {
+int32_t windowssys_windows_win32_security_enterprisedata_protectFileToEnterpriseIdentity(void* fileorfolderpath, void* identity) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ int32_t windowssys_windows_win32_security_enterprisedata_ProtectFileToEnterprise
 #endif
 }
 
-int32_t windowssys_windows_win32_security_enterprisedata_SrpCloseThreadNetworkContext(void* threadnetworkcontext) {
+int32_t windowssys_windows_win32_security_enterprisedata_srpCloseThreadNetworkContext(void* threadnetworkcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -60,7 +60,7 @@ int32_t windowssys_windows_win32_security_enterprisedata_SrpCloseThreadNetworkCo
 #endif
 }
 
-int32_t windowssys_windows_win32_security_enterprisedata_SrpCreateThreadNetworkContext(void* enterpriseid, void* threadnetworkcontext) {
+int32_t windowssys_windows_win32_security_enterprisedata_srpCreateThreadNetworkContext(void* enterpriseid, void* threadnetworkcontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -83,7 +83,7 @@ int32_t windowssys_windows_win32_security_enterprisedata_SrpCreateThreadNetworkC
 #endif
 }
 
-int32_t windowssys_windows_win32_security_enterprisedata_SrpDisablePermissiveModeFileEncryption(void) {
+int32_t windowssys_windows_win32_security_enterprisedata_srpDisablePermissiveModeFileEncryption(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -104,7 +104,7 @@ int32_t windowssys_windows_win32_security_enterprisedata_SrpDisablePermissiveMod
 #endif
 }
 
-int32_t windowssys_windows_win32_security_enterprisedata_SrpDoesPolicyAllowAppExecution(void* packageid, void* isallowed) {
+int32_t windowssys_windows_win32_security_enterprisedata_srpDoesPolicyAllowAppExecution(void* packageid, void* isallowed) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -127,7 +127,7 @@ int32_t windowssys_windows_win32_security_enterprisedata_SrpDoesPolicyAllowAppEx
 #endif
 }
 
-int32_t windowssys_windows_win32_security_enterprisedata_SrpEnablePermissiveModeFileEncryption(void* enterpriseid) {
+int32_t windowssys_windows_win32_security_enterprisedata_srpEnablePermissiveModeFileEncryption(void* enterpriseid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -149,7 +149,7 @@ int32_t windowssys_windows_win32_security_enterprisedata_SrpEnablePermissiveMode
 #endif
 }
 
-int32_t windowssys_windows_win32_security_enterprisedata_SrpGetEnterpriseIds(void* tokenhandle, void* numberofbytes, void* enterpriseids, void* enterpriseidcount) {
+int32_t windowssys_windows_win32_security_enterprisedata_srpGetEnterpriseIds(void* tokenhandle, void* numberofbytes, void* enterpriseids, void* enterpriseidcount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -174,7 +174,7 @@ int32_t windowssys_windows_win32_security_enterprisedata_SrpGetEnterpriseIds(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_security_enterprisedata_SrpGetEnterprisePolicy(void* tokenhandle, void* policyflags) {
+int32_t windowssys_windows_win32_security_enterprisedata_srpGetEnterprisePolicy(void* tokenhandle, void* policyflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -197,7 +197,7 @@ int32_t windowssys_windows_win32_security_enterprisedata_SrpGetEnterprisePolicy(
 #endif
 }
 
-int32_t windowssys_windows_win32_security_enterprisedata_SrpHostingInitialize(int32_t version, int32_t type, void* pvdata, uint32_t cbdata) {
+int32_t windowssys_windows_win32_security_enterprisedata_srpHostingInitialize(int32_t version, int32_t type, void* pvdata, uint32_t cbdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -222,7 +222,7 @@ int32_t windowssys_windows_win32_security_enterprisedata_SrpHostingInitialize(in
 #endif
 }
 
-void windowssys_windows_win32_security_enterprisedata_SrpHostingTerminate(int32_t type) {
+void windowssys_windows_win32_security_enterprisedata_srpHostingTerminate(int32_t type) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -243,7 +243,7 @@ void windowssys_windows_win32_security_enterprisedata_SrpHostingTerminate(int32_
 #endif
 }
 
-int32_t windowssys_windows_win32_security_enterprisedata_SrpIsTokenService(void* tokenhandle, void* istokenservice) {
+int32_t windowssys_windows_win32_security_enterprisedata_srpIsTokenService(void* tokenhandle, void* istokenservice) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -266,7 +266,7 @@ int32_t windowssys_windows_win32_security_enterprisedata_SrpIsTokenService(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_security_enterprisedata_SrpSetTokenEnterpriseId(void* tokenhandle, void* enterpriseid) {
+int32_t windowssys_windows_win32_security_enterprisedata_srpSetTokenEnterpriseId(void* tokenhandle, void* enterpriseid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -289,7 +289,7 @@ int32_t windowssys_windows_win32_security_enterprisedata_SrpSetTokenEnterpriseId
 #endif
 }
 
-int32_t windowssys_windows_win32_security_enterprisedata_UnprotectFile(void* fileorfolderpath, void* options) {
+int32_t windowssys_windows_win32_security_enterprisedata_unprotectFile(void* fileorfolderpath, void* options) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;

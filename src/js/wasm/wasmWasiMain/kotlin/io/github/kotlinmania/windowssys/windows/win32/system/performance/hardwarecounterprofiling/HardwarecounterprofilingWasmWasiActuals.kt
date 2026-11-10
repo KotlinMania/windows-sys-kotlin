@@ -2,16 +2,17 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.performance.hardwarecounterprofiling
 
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
-public actual fun DisableThreadProfiling(performancedatahandle: HANDLE): UInt =
-    0u
+public actual fun disableThreadProfiling(performancedatahandle: Handle): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun EnableThreadProfiling(threadhandle: HANDLE, flags: UInt, hardwarecounters: ULong, performancedatahandle: Long): UInt =
-    0u
+public actual fun enableThreadProfiling(threadhandle: Handle, flags: UInt, hardwarecounters: ULong, performancedatahandle: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun QueryThreadProfiling(threadhandle: HANDLE, enabled: Long): UInt =
-    0u
+public actual fun queryThreadProfiling(threadhandle: Handle, enabled: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun ReadThreadProfilingData(performancedatahandle: HANDLE, flags: UInt, performancedata: Long): UInt =
-    0u
+public actual fun readThreadProfilingData(performancedatahandle: Handle, flags: UInt, performancedata: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

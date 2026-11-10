@@ -1,209 +1,210 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.hypervisor
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
 
-public fun interface FOUND_IMAGE_CALLBACKFn {
-    public operator fun invoke(context: Long, imageinfo: Long): BOOL
+public fun interface FoundImageCallbackFn {
+    public operator fun invoke(context: COpaquePointer?, imageinfo: COpaquePointer?): Bool
 }
 
-public typealias FOUND_IMAGE_CALLBACK = FOUND_IMAGE_CALLBACKFn?
+public typealias FoundImageCallback = FoundImageCallbackFn?
 
-public typealias GUEST_OS_MICROSOFT_IDS = Int
+public typealias GuestOsMicrosoftIds = Int
 
-public typealias GUEST_OS_OPENSOURCE_IDS = Int
+public typealias GuestOsOpensourceIds = Int
 
-public typealias GUEST_OS_VENDOR = Int
+public typealias GuestOsVendor = Int
 
-public fun interface GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACKFn {
-    public operator fun invoke(infomessage: PCSTR)
+public fun interface GuestSymbolsProviderDebugInfoCallbackFn {
+    public operator fun invoke(infomessage: Pcstr)
 }
 
-public typealias GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK = GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACKFn?
+public typealias GuestSymbolsProviderDebugInfoCallback = GuestSymbolsProviderDebugInfoCallbackFn?
 
-public typealias HDV_DEVICE_HOST_FLAGS = Int
+public typealias HdvDeviceHostFlags = Int
 
-public typealias HDV_DEVICE_TYPE = Int
+public typealias HdvDeviceType = Int
 
-public typealias HDV_DOORBELL_FLAGS = Int
+public typealias HdvDoorbellFlags = Int
 
-public typealias HDV_MMIO_MAPPING_FLAGS = Int
+public typealias HdvMmioMappingFlags = Int
 
-public typealias HDV_PCI_BAR_SELECTOR = Int
+public typealias HdvPciBarSelector = Int
 
-public fun interface HDV_PCI_DEVICE_GET_DETAILSFn {
-    public operator fun invoke(devicecontext: Long, pnpid: Long, probedbarscount: UInt, probedbars: Long): HRESULT
+public fun interface HdvPciDeviceGetDetailsFn {
+    public operator fun invoke(devicecontext: COpaquePointer?, pnpid: COpaquePointer?, probedbarscount: UInt, probedbars: COpaquePointer?): Hresult
 }
 
-public typealias HDV_PCI_DEVICE_GET_DETAILS = HDV_PCI_DEVICE_GET_DETAILSFn?
+public typealias HdvPciDeviceGetDetails = HdvPciDeviceGetDetailsFn?
 
-public fun interface HDV_PCI_DEVICE_INITIALIZEFn {
-    public operator fun invoke(devicecontext: Long): HRESULT
+public fun interface HdvPciDeviceInitializeFn {
+    public operator fun invoke(devicecontext: COpaquePointer?): Hresult
 }
 
-public typealias HDV_PCI_DEVICE_INITIALIZE = HDV_PCI_DEVICE_INITIALIZEFn?
+public typealias HdvPciDeviceInitialize = HdvPciDeviceInitializeFn?
 
-public fun interface HDV_PCI_DEVICE_SET_CONFIGURATIONFn {
-    public operator fun invoke(devicecontext: Long, configurationvaluecount: UInt, configurationvalues: Long): HRESULT
+public fun interface HdvPciDeviceSetConfigurationFn {
+    public operator fun invoke(devicecontext: COpaquePointer?, configurationvaluecount: UInt, configurationvalues: COpaquePointer?): Hresult
 }
 
-public typealias HDV_PCI_DEVICE_SET_CONFIGURATION = HDV_PCI_DEVICE_SET_CONFIGURATIONFn?
+public typealias HdvPciDeviceSetConfiguration = HdvPciDeviceSetConfigurationFn?
 
-public fun interface HDV_PCI_DEVICE_STARTFn {
-    public operator fun invoke(devicecontext: Long): HRESULT
+public fun interface HdvPciDeviceStartFn {
+    public operator fun invoke(devicecontext: COpaquePointer?): Hresult
 }
 
-public typealias HDV_PCI_DEVICE_START = HDV_PCI_DEVICE_STARTFn?
+public typealias HdvPciDeviceStart = HdvPciDeviceStartFn?
 
-public fun interface HDV_PCI_DEVICE_STOPFn {
-    public operator fun invoke(devicecontext: Long)
+public fun interface HdvPciDeviceStopFn {
+    public operator fun invoke(devicecontext: COpaquePointer?)
 }
 
-public typealias HDV_PCI_DEVICE_STOP = HDV_PCI_DEVICE_STOPFn?
+public typealias HdvPciDeviceStop = HdvPciDeviceStopFn?
 
-public fun interface HDV_PCI_DEVICE_TEARDOWNFn {
-    public operator fun invoke(devicecontext: Long)
+public fun interface HdvPciDeviceTeardownFn {
+    public operator fun invoke(devicecontext: COpaquePointer?)
 }
 
-public typealias HDV_PCI_DEVICE_TEARDOWN = HDV_PCI_DEVICE_TEARDOWNFn?
+public typealias HdvPciDeviceTeardown = HdvPciDeviceTeardownFn?
 
-public typealias HDV_PCI_INTERFACE_VERSION = Int
+public typealias HdvPciInterfaceVersion = Int
 
-public fun interface HDV_PCI_READ_CONFIG_SPACEFn {
-    public operator fun invoke(devicecontext: Long, offset: UInt, value: Long): HRESULT
+public fun interface HdvPciReadConfigSpaceFn {
+    public operator fun invoke(devicecontext: COpaquePointer?, offset: UInt, value: COpaquePointer?): Hresult
 }
 
-public typealias HDV_PCI_READ_CONFIG_SPACE = HDV_PCI_READ_CONFIG_SPACEFn?
+public typealias HdvPciReadConfigSpace = HdvPciReadConfigSpaceFn?
 
-public fun interface HDV_PCI_READ_INTERCEPTED_MEMORYFn {
-    public operator fun invoke(devicecontext: Long, barindex: HDV_PCI_BAR_SELECTOR, offset: ULong, length: ULong, value: Long): HRESULT
+public fun interface HdvPciReadInterceptedMemoryFn {
+    public operator fun invoke(devicecontext: COpaquePointer?, barindex: HdvPciBarSelector, offset: ULong, length: ULong, value: COpaquePointer?): Hresult
 }
 
-public typealias HDV_PCI_READ_INTERCEPTED_MEMORY = HDV_PCI_READ_INTERCEPTED_MEMORYFn?
+public typealias HdvPciReadInterceptedMemory = HdvPciReadInterceptedMemoryFn?
 
-public fun interface HDV_PCI_WRITE_CONFIG_SPACEFn {
-    public operator fun invoke(devicecontext: Long, offset: UInt, value: UInt): HRESULT
+public fun interface HdvPciWriteConfigSpaceFn {
+    public operator fun invoke(devicecontext: COpaquePointer?, offset: UInt, value: UInt): Hresult
 }
 
-public typealias HDV_PCI_WRITE_CONFIG_SPACE = HDV_PCI_WRITE_CONFIG_SPACEFn?
+public typealias HdvPciWriteConfigSpace = HdvPciWriteConfigSpaceFn?
 
-public fun interface HDV_PCI_WRITE_INTERCEPTED_MEMORYFn {
-    public operator fun invoke(devicecontext: Long, barindex: HDV_PCI_BAR_SELECTOR, offset: ULong, length: ULong, value: Long): HRESULT
+public fun interface HdvPciWriteInterceptedMemoryFn {
+    public operator fun invoke(devicecontext: COpaquePointer?, barindex: HdvPciBarSelector, offset: ULong, length: ULong, value: COpaquePointer?): Hresult
 }
 
-public typealias HDV_PCI_WRITE_INTERCEPTED_MEMORY = HDV_PCI_WRITE_INTERCEPTED_MEMORYFn?
+public typealias HdvPciWriteInterceptedMemory = HdvPciWriteInterceptedMemoryFn?
 
-public typealias PAGING_MODE = Int
+public typealias PagingMode = Int
 
-public typealias REGISTER_ID = Int
+public typealias RegisterId = Int
 
-public typealias VIRTUAL_PROCESSOR_ARCH = Int
+public typealias VirtualProcessorArch = Int
 
-public typealias VIRTUAL_PROCESSOR_VENDOR = Int
+public typealias VirtualProcessorVendor = Int
 
-public typealias WHV_ADVISE_GPA_RANGE_CODE = Int
+public typealias WhvAdviseGpaRangeCode = Int
 
-public typealias WHV_ALLOCATE_VPCI_RESOURCE_FLAGS = Int
+public typealias WhvAllocateVpciResourceFlags = Int
 
-public typealias WHV_CACHE_TYPE = Int
+public typealias WhvCacheType = Int
 
-public typealias WHV_CAPABILITY_CODE = Int
+public typealias WhvCapabilityCode = Int
 
-public typealias WHV_CREATE_VPCI_DEVICE_FLAGS = Int
+public typealias WhvCreateVpciDeviceFlags = Int
 
-public fun interface WHV_EMULATOR_GET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACKFn {
-    public operator fun invoke(context: Long, registernames: Long, registercount: UInt, registervalues: Long): HRESULT
+public fun interface WhvEmulatorGetVirtualProcessorRegistersCallbackFn {
+    public operator fun invoke(context: COpaquePointer?, registernames: COpaquePointer?, registercount: UInt, registervalues: COpaquePointer?): Hresult
 }
 
-public typealias WHV_EMULATOR_GET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK = WHV_EMULATOR_GET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACKFn?
+public typealias WhvEmulatorGetVirtualProcessorRegistersCallback = WhvEmulatorGetVirtualProcessorRegistersCallbackFn?
 
-public fun interface WHV_EMULATOR_IO_PORT_CALLBACKFn {
-    public operator fun invoke(context: Long, ioaccess: Long): HRESULT
+public fun interface WhvEmulatorIoPortCallbackFn {
+    public operator fun invoke(context: COpaquePointer?, ioaccess: COpaquePointer?): Hresult
 }
 
-public typealias WHV_EMULATOR_IO_PORT_CALLBACK = WHV_EMULATOR_IO_PORT_CALLBACKFn?
+public typealias WhvEmulatorIoPortCallback = WhvEmulatorIoPortCallbackFn?
 
-public fun interface WHV_EMULATOR_MEMORY_CALLBACKFn {
-    public operator fun invoke(context: Long, memoryaccess: Long): HRESULT
+public fun interface WhvEmulatorMemoryCallbackFn {
+    public operator fun invoke(context: COpaquePointer?, memoryaccess: COpaquePointer?): Hresult
 }
 
-public typealias WHV_EMULATOR_MEMORY_CALLBACK = WHV_EMULATOR_MEMORY_CALLBACKFn?
+public typealias WhvEmulatorMemoryCallback = WhvEmulatorMemoryCallbackFn?
 
-public fun interface WHV_EMULATOR_SET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACKFn {
-    public operator fun invoke(context: Long, registernames: Long, registercount: UInt, registervalues: Long): HRESULT
+public fun interface WhvEmulatorSetVirtualProcessorRegistersCallbackFn {
+    public operator fun invoke(context: COpaquePointer?, registernames: COpaquePointer?, registercount: UInt, registervalues: COpaquePointer?): Hresult
 }
 
-public typealias WHV_EMULATOR_SET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACK = WHV_EMULATOR_SET_VIRTUAL_PROCESSOR_REGISTERS_CALLBACKFn?
+public typealias WhvEmulatorSetVirtualProcessorRegistersCallback = WhvEmulatorSetVirtualProcessorRegistersCallbackFn?
 
-public fun interface WHV_EMULATOR_TRANSLATE_GVA_PAGE_CALLBACKFn {
-    public operator fun invoke(context: Long, gva: ULong, translateflags: WHV_TRANSLATE_GVA_FLAGS, translationresult: Long, gpa: Long): HRESULT
+public fun interface WhvEmulatorTranslateGvaPageCallbackFn {
+    public operator fun invoke(context: COpaquePointer?, gva: ULong, translateflags: WhvTranslateGvaFlags, translationresult: COpaquePointer?, gpa: COpaquePointer?): Hresult
 }
 
-public typealias WHV_EMULATOR_TRANSLATE_GVA_PAGE_CALLBACK = WHV_EMULATOR_TRANSLATE_GVA_PAGE_CALLBACKFn?
+public typealias WhvEmulatorTranslateGvaPageCallback = WhvEmulatorTranslateGvaPageCallbackFn?
 
-public typealias WHV_EXCEPTION_TYPE = Int
+public typealias WhvExceptionType = Int
 
-public typealias WHV_INTERRUPT_DESTINATION_MODE = Int
+public typealias WhvInterruptDestinationMode = Int
 
-public typealias WHV_INTERRUPT_TRIGGER_MODE = Int
+public typealias WhvInterruptTriggerMode = Int
 
-public typealias WHV_INTERRUPT_TYPE = Int
+public typealias WhvInterruptType = Int
 
-public typealias WHV_MAP_GPA_RANGE_FLAGS = Int
+public typealias WhvMapGpaRangeFlags = Int
 
-public typealias WHV_MEMORY_ACCESS_TYPE = Int
+public typealias WhvMemoryAccessType = Int
 
-public typealias WHV_MSR_ACTION = Int
+public typealias WhvMsrAction = Int
 
-public typealias WHV_NOTIFICATION_PORT_PROPERTY_CODE = Int
+public typealias WhvNotificationPortPropertyCode = Int
 
-public typealias WHV_NOTIFICATION_PORT_TYPE = Int
+public typealias WhvNotificationPortType = Int
 
-public typealias WHV_PARTITION_COUNTER_SET = Int
+public typealias WhvPartitionCounterSet = Int
 
-public typealias WHV_PARTITION_HANDLE = Long
+public typealias WhvPartitionHandle = Long
 
-public typealias WHV_PARTITION_PROPERTY_CODE = Int
+public typealias WhvPartitionPropertyCode = Int
 
-public typealias WHV_PROCESSOR_COUNTER_SET = Int
+public typealias WhvProcessorCounterSet = Int
 
-public typealias WHV_PROCESSOR_VENDOR = Int
+public typealias WhvProcessorVendor = Int
 
-public typealias WHV_REGISTER_NAME = Int
+public typealias WhvRegisterName = Int
 
-public typealias WHV_RUN_VP_CANCEL_REASON = Int
+public typealias WhvRunVpCancelReason = Int
 
-public typealias WHV_RUN_VP_EXIT_REASON = Int
+public typealias WhvRunVpExitReason = Int
 
-public typealias WHV_TRANSLATE_GVA_FLAGS = Int
+public typealias WhvTranslateGvaFlags = Int
 
-public typealias WHV_TRANSLATE_GVA_RESULT_CODE = Int
+public typealias WhvTranslateGvaResultCode = Int
 
-public typealias WHV_TRIGGER_TYPE = Int
+public typealias WhvTriggerType = Int
 
-public typealias WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE = Int
+public typealias WhvVirtualProcessorPropertyCode = Int
 
-public typealias WHV_VIRTUAL_PROCESSOR_STATE_TYPE = Int
+public typealias WhvVirtualProcessorStateType = Int
 
-public typealias WHV_VPCI_DEVICE_NOTIFICATION_TYPE = Int
+public typealias WhvVpciDeviceNotificationType = Int
 
-public typealias WHV_VPCI_DEVICE_PROPERTY_CODE = Int
+public typealias WhvVpciDevicePropertyCode = Int
 
-public typealias WHV_VPCI_DEVICE_REGISTER_SPACE = Int
+public typealias WhvVpciDeviceRegisterSpace = Int
 
-public typealias WHV_VPCI_INTERRUPT_TARGET_FLAGS = Int
+public typealias WhvVpciInterruptTargetFlags = Int
 
-public typealias WHV_VPCI_MMIO_RANGE_FLAGS = Int
+public typealias WhvVpciMmioRangeFlags = Int
 
-public typealias WHV_X64_APIC_WRITE_TYPE = Int
+public typealias WhvX64ApicWriteType = Int
 
-public typealias WHV_X64_CPUID_RESULT2_FLAGS = Int
+public typealias WhvX64CpuidResult2Flags = Int
 
-public typealias WHV_X64_LOCAL_APIC_EMULATION_MODE = Int
+public typealias WhvX64LocalApicEmulationMode = Int
 
-public typealias WHV_X64_PENDING_EVENT_TYPE = Int
+public typealias WhvX64PendingEventType = Int
 
-public typealias WHV_X64_PENDING_INTERRUPTION_TYPE = Int
+public typealias WhvX64PendingInterruptionType = Int
 
-public typealias WHV_X64_UNSUPPORTED_FEATURE_CODE = Int
+public typealias WhvX64UnsupportedFeatureCode = Int

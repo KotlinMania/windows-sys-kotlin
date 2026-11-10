@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTAcquireKeyedMutex(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTAcquireKeyedMutex(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -36,7 +36,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTAcquireKeyedMutex2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTAcquireKeyedMutex2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -54,7 +54,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTAdjustFullscreenGamma(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTAdjustFullscreenGamma(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -72,7 +72,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTCancelPresents(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTCancelPresents(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -90,7 +90,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTChangeSurfacePointer(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTChangeSurfacePointer(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -108,7 +108,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTChangeVideoMemoryReservation(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTChangeVideoMemoryReservation(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -126,7 +126,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTCheckExclusiveOwnership(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTCheckExclusiveOwnership(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -143,7 +143,7 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_gra
     return (jboolean)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTCheckMonitorPowerState(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTCheckMonitorPowerState(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -161,7 +161,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTCheckMultiPlaneOverlaySupport(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTCheckMultiPlaneOverlaySupport(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -179,7 +179,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTCheckMultiPlaneOverlaySupport2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTCheckMultiPlaneOverlaySupport2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -197,7 +197,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTCheckMultiPlaneOverlaySupport3(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTCheckMultiPlaneOverlaySupport3(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -215,7 +215,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTCheckOcclusion(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTCheckOcclusion(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -233,7 +233,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTCheckSharedResourceAccess(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTCheckSharedResourceAccess(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -251,7 +251,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTCheckVidPnExclusiveOwnership(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTCheckVidPnExclusiveOwnership(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -269,7 +269,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTCloseAdapter(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTCloseAdapter(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -287,7 +287,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTConfigureSharedResource(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTConfigureSharedResource(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -305,7 +305,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTCreateAllocation(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTCreateAllocation(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -323,7 +323,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTCreateAllocation2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTCreateAllocation2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -341,7 +341,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTCreateContext(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTCreateContext(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -359,7 +359,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTCreateContextVirtual(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTCreateContextVirtual(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -377,7 +377,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTCreateDCFromMemory(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTCreateDCFromMemory(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -395,7 +395,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTCreateDevice(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTCreateDevice(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -413,7 +413,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTCreateHwContext(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTCreateHwContext(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -431,7 +431,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTCreateHwQueue(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTCreateHwQueue(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -449,7 +449,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTCreateKeyedMutex(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTCreateKeyedMutex(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -467,7 +467,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTCreateKeyedMutex2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTCreateKeyedMutex2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -485,7 +485,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTCreateOutputDupl(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTCreateOutputDupl(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -503,7 +503,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTCreateOverlay(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTCreateOverlay(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -521,7 +521,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTCreatePagingQueue(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTCreatePagingQueue(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -539,7 +539,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTCreateProtectedSession(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTCreateProtectedSession(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -557,7 +557,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTCreateSynchronizationObject(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTCreateSynchronizationObject(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -575,7 +575,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTCreateSynchronizationObject2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTCreateSynchronizationObject2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -593,7 +593,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTDestroyAllocation(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTDestroyAllocation(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -611,7 +611,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTDestroyAllocation2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTDestroyAllocation2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -629,7 +629,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTDestroyContext(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTDestroyContext(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -647,7 +647,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTDestroyDCFromMemory(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTDestroyDCFromMemory(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -665,7 +665,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTDestroyDevice(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTDestroyDevice(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -683,7 +683,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTDestroyHwContext(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTDestroyHwContext(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -701,7 +701,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTDestroyHwQueue(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTDestroyHwQueue(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -719,7 +719,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTDestroyKeyedMutex(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTDestroyKeyedMutex(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -737,7 +737,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTDestroyOutputDupl(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTDestroyOutputDupl(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -755,7 +755,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTDestroyOverlay(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTDestroyOverlay(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -773,7 +773,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTDestroyPagingQueue(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTDestroyPagingQueue(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -791,7 +791,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTDestroyProtectedSession(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTDestroyProtectedSession(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -809,7 +809,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTDestroySynchronizationObject(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTDestroySynchronizationObject(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -827,7 +827,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTEnumAdapters(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTEnumAdapters(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -845,7 +845,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTEnumAdapters2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTEnumAdapters2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -863,7 +863,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTEnumAdapters3(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTEnumAdapters3(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -881,7 +881,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTEscape(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTEscape(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -899,7 +899,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTEvict(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTEvict(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -917,7 +917,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTFlipOverlay(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTFlipOverlay(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -935,7 +935,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTFlushHeapTransitions(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTFlushHeapTransitions(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -953,7 +953,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTFreeGpuVirtualAddress(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTFreeGpuVirtualAddress(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -971,7 +971,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTGetAllocationPriority(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTGetAllocationPriority(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -989,7 +989,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTGetContextInProcessSchedulingPriority(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTGetContextInProcessSchedulingPriority(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1007,7 +1007,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTGetContextSchedulingPriority(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTGetContextSchedulingPriority(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1025,7 +1025,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTGetDWMVerticalBlankEvent(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTGetDWMVerticalBlankEvent(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1043,7 +1043,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTGetDeviceState(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTGetDeviceState(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1061,7 +1061,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTGetDisplayModeList(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTGetDisplayModeList(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1079,7 +1079,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTGetMultiPlaneOverlayCaps(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTGetMultiPlaneOverlayCaps(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1097,7 +1097,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTGetMultisampleMethodList(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTGetMultisampleMethodList(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1115,7 +1115,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTGetOverlayState(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTGetOverlayState(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1133,7 +1133,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTGetPostCompositionCaps(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTGetPostCompositionCaps(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1151,7 +1151,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTGetPresentHistory(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTGetPresentHistory(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1169,7 +1169,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTGetPresentQueueEvent(JNIEnv* km_env, jclass km_clazz, jint hadapter, jlong param1) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTGetPresentQueueEvent(JNIEnv* km_env, jclass km_clazz, jint hadapter, jlong param1) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1188,7 +1188,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTGetProcessDeviceRemovalSupport(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTGetProcessDeviceRemovalSupport(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1206,7 +1206,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTGetProcessSchedulingPriorityClass(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTGetProcessSchedulingPriorityClass(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1225,7 +1225,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTGetResourcePresentPrivateDriverData(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTGetResourcePresentPrivateDriverData(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1243,7 +1243,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTGetRuntimeData(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTGetRuntimeData(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1261,7 +1261,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTGetScanLine(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTGetScanLine(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1279,7 +1279,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTGetSharedPrimaryHandle(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTGetSharedPrimaryHandle(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1297,7 +1297,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTGetSharedResourceAdapterLuid(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTGetSharedResourceAdapterLuid(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1315,7 +1315,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTInvalidateActiveVidPn(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTInvalidateActiveVidPn(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1333,7 +1333,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTInvalidateCache(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTInvalidateCache(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1351,7 +1351,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTLock(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTLock(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1369,7 +1369,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTLock2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTLock2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1387,7 +1387,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTMakeResident(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTMakeResident(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1405,7 +1405,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTMapGpuVirtualAddress(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTMapGpuVirtualAddress(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1423,7 +1423,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTMarkDeviceAsError(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTMarkDeviceAsError(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1441,7 +1441,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTOfferAllocations(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTOfferAllocations(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1459,7 +1459,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTOpenAdapterFromDeviceName(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTOpenAdapterFromDeviceName(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1477,7 +1477,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTOpenAdapterFromGdiDisplayName(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTOpenAdapterFromGdiDisplayName(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1495,7 +1495,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTOpenAdapterFromHdc(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTOpenAdapterFromHdc(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1513,7 +1513,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTOpenAdapterFromLuid(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTOpenAdapterFromLuid(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1531,7 +1531,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTOpenKeyedMutex(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTOpenKeyedMutex(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1549,7 +1549,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTOpenKeyedMutex2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTOpenKeyedMutex2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1567,7 +1567,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTOpenKeyedMutexFromNtHandle(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTOpenKeyedMutexFromNtHandle(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1585,7 +1585,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTOpenNtHandleFromName(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTOpenNtHandleFromName(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1603,7 +1603,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTOpenProtectedSessionFromNtHandle(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTOpenProtectedSessionFromNtHandle(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1621,7 +1621,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTOpenResource(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTOpenResource(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1639,7 +1639,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTOpenResource2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTOpenResource2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1657,7 +1657,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTOpenResourceFromNtHandle(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTOpenResourceFromNtHandle(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1675,7 +1675,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTOpenSyncObjectFromNtHandle(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTOpenSyncObjectFromNtHandle(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1693,7 +1693,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTOpenSyncObjectFromNtHandle2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTOpenSyncObjectFromNtHandle2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1711,7 +1711,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTOpenSyncObjectNtHandleFromName(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTOpenSyncObjectNtHandleFromName(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1729,7 +1729,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTOpenSynchronizationObject(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTOpenSynchronizationObject(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1747,7 +1747,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTOutputDuplGetFrameInfo(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTOutputDuplGetFrameInfo(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1765,7 +1765,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTOutputDuplGetMetaData(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTOutputDuplGetMetaData(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1783,7 +1783,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTOutputDuplGetPointerShapeData(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTOutputDuplGetPointerShapeData(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1801,7 +1801,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTOutputDuplPresent(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTOutputDuplPresent(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1819,7 +1819,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTOutputDuplPresentToHwQueue(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTOutputDuplPresentToHwQueue(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1837,7 +1837,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTOutputDuplReleaseFrame(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTOutputDuplReleaseFrame(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1855,7 +1855,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTPollDisplayChildren(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTPollDisplayChildren(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1873,7 +1873,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTPresent(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTPresent(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1891,7 +1891,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTPresentMultiPlaneOverlay(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTPresentMultiPlaneOverlay(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1909,7 +1909,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTPresentMultiPlaneOverlay2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTPresentMultiPlaneOverlay2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1927,7 +1927,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTPresentMultiPlaneOverlay3(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTPresentMultiPlaneOverlay3(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1945,7 +1945,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTPresentRedirected(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTPresentRedirected(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1963,7 +1963,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTQueryAdapterInfo(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTQueryAdapterInfo(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1981,7 +1981,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTQueryAllocationResidency(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTQueryAllocationResidency(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1999,7 +1999,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTQueryClockCalibration(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTQueryClockCalibration(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2017,7 +2017,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTQueryFSEBlock(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTQueryFSEBlock(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2035,7 +2035,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTQueryProcessOfferInfo(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTQueryProcessOfferInfo(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2053,7 +2053,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTQueryProtectedSessionInfoFromNtHandle(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTQueryProtectedSessionInfoFromNtHandle(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2071,7 +2071,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTQueryProtectedSessionStatus(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTQueryProtectedSessionStatus(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2089,7 +2089,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTQueryRemoteVidPnSourceFromGdiDisplayName(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTQueryRemoteVidPnSourceFromGdiDisplayName(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2107,7 +2107,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTQueryResourceInfo(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTQueryResourceInfo(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2125,7 +2125,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTQueryResourceInfoFromNtHandle(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTQueryResourceInfoFromNtHandle(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2143,7 +2143,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTQueryStatistics(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTQueryStatistics(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2161,7 +2161,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTQueryVidPnExclusiveOwnership(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTQueryVidPnExclusiveOwnership(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2179,7 +2179,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTQueryVideoMemoryInfo(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTQueryVideoMemoryInfo(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2197,7 +2197,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTReclaimAllocations(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTReclaimAllocations(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2215,7 +2215,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTReclaimAllocations2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTReclaimAllocations2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2233,7 +2233,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTRegisterTrimNotification(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTRegisterTrimNotification(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2251,7 +2251,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTRegisterVailProcess(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTRegisterVailProcess(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2269,7 +2269,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTReleaseKeyedMutex(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTReleaseKeyedMutex(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2287,7 +2287,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTReleaseKeyedMutex2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTReleaseKeyedMutex2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2305,7 +2305,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTReleaseProcessVidPnSourceOwners(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTReleaseProcessVidPnSourceOwners(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2323,7 +2323,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTRender(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTRender(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2341,7 +2341,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTReserveGpuVirtualAddress(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTReserveGpuVirtualAddress(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2359,7 +2359,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTSetAllocationPriority(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTSetAllocationPriority(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2377,7 +2377,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTSetContextInProcessSchedulingPriority(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTSetContextInProcessSchedulingPriority(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2395,7 +2395,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTSetContextSchedulingPriority(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTSetContextSchedulingPriority(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2413,7 +2413,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTSetDisplayMode(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTSetDisplayMode(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2431,7 +2431,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTSetDisplayPrivateDriverFormat(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTSetDisplayPrivateDriverFormat(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2449,7 +2449,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTSetFSEBlock(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTSetFSEBlock(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2467,7 +2467,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTSetGammaRamp(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTSetGammaRamp(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2485,7 +2485,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTSetHwProtectionTeardownRecovery(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTSetHwProtectionTeardownRecovery(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2503,7 +2503,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTSetMonitorColorSpaceTransform(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTSetMonitorColorSpaceTransform(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2521,7 +2521,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTSetProcessSchedulingPriorityClass(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTSetProcessSchedulingPriorityClass(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2540,7 +2540,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTSetQueuedLimit(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTSetQueuedLimit(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2558,7 +2558,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTSetStablePowerState(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTSetStablePowerState(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2576,7 +2576,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTSetSyncRefreshCountWaitTarget(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTSetSyncRefreshCountWaitTarget(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2594,7 +2594,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTSetVidPnSourceHwProtection(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTSetVidPnSourceHwProtection(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2612,7 +2612,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTSetVidPnSourceOwner(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTSetVidPnSourceOwner(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2630,7 +2630,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTSetVidPnSourceOwner1(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTSetVidPnSourceOwner1(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2648,7 +2648,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTSetVidPnSourceOwner2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTSetVidPnSourceOwner2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2666,7 +2666,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTShareObjects(JNIEnv* km_env, jclass km_clazz, jint cobjects, jlong hobjects, jlong pobjectattributes, jint dwdesiredaccess, jlong phsharednthandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTShareObjects(JNIEnv* km_env, jclass km_clazz, jint cobjects, jlong hobjects, jlong pobjectattributes, jint dwdesiredaccess, jlong phsharednthandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2688,7 +2688,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTSharedPrimaryLockNotification(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTSharedPrimaryLockNotification(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2706,7 +2706,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTSharedPrimaryUnLockNotification(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTSharedPrimaryUnLockNotification(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2724,7 +2724,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTSignalSynchronizationObject(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTSignalSynchronizationObject(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2742,7 +2742,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTSignalSynchronizationObject2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTSignalSynchronizationObject2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2760,7 +2760,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTSignalSynchronizationObjectFromCpu(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTSignalSynchronizationObjectFromCpu(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2778,7 +2778,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTSignalSynchronizationObjectFromGpu(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTSignalSynchronizationObjectFromGpu(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2796,7 +2796,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTSignalSynchronizationObjectFromGpu2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTSignalSynchronizationObjectFromGpu2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2814,7 +2814,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTSubmitCommand(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTSubmitCommand(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2832,7 +2832,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTSubmitCommandToHwQueue(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTSubmitCommandToHwQueue(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2850,7 +2850,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTSubmitPresentBltToHwQueue(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTSubmitPresentBltToHwQueue(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2868,7 +2868,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTSubmitPresentToHwQueue(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTSubmitPresentToHwQueue(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2886,7 +2886,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTSubmitSignalSyncObjectsToHwQueue(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTSubmitSignalSyncObjectsToHwQueue(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2904,7 +2904,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTSubmitWaitForSyncObjectsToHwQueue(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTSubmitWaitForSyncObjectsToHwQueue(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2922,7 +2922,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTTrimProcessCommitment(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTTrimProcessCommitment(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2940,7 +2940,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTUnlock(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTUnlock(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2958,7 +2958,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTUnlock2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTUnlock2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2976,7 +2976,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTUnregisterTrimNotification(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTUnregisterTrimNotification(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -2994,7 +2994,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTUpdateAllocationProperty(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTUpdateAllocationProperty(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3012,7 +3012,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTUpdateGpuVirtualAddress(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTUpdateGpuVirtualAddress(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3030,7 +3030,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTUpdateOverlay(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTUpdateOverlay(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3048,7 +3048,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTWaitForIdle(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTWaitForIdle(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3066,7 +3066,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTWaitForSynchronizationObject(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTWaitForSynchronizationObject(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3084,7 +3084,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTWaitForSynchronizationObject2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTWaitForSynchronizationObject2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3102,7 +3102,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTWaitForSynchronizationObjectFromCpu(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTWaitForSynchronizationObjectFromCpu(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3120,7 +3120,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTWaitForSynchronizationObjectFromGpu(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTWaitForSynchronizationObjectFromGpu(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3138,7 +3138,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTWaitForVerticalBlankEvent(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTWaitForVerticalBlankEvent(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -3156,7 +3156,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphic
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1D3DKMTWaitForVerticalBlankEvent2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_graphics_direct3d_WindowsWdkGraphicsDirect3dJniBridge_windowssys_1windows_1wdk_1graphics_1direct3d_1d3DKMTWaitForVerticalBlankEvent2(JNIEnv* km_env, jclass km_clazz, jlong param0) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

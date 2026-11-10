@@ -2,91 +2,92 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun AddStroke(hrc: HRECOCONTEXT, ppacketdesc: Long, cbpacket: UInt, ppacket: Long, pxform: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_AddStroke(hrc.toCPointer<ByteVar>(), ppacketdesc.toCPointer<ByteVar>(), cbpacket, ppacket.toCPointer<ByteVar>(), pxform.toCPointer<ByteVar>())
+public actual fun addStroke(hrc: Hrecocontext, ppacketdesc: COpaquePointer?, cbpacket: UInt, ppacket: COpaquePointer?, pxform: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_addStroke(hrc?.value?.toCPointer<ByteVar>(), ppacketdesc?.value?.toCPointer<ByteVar>(), cbpacket, ppacket?.value?.toCPointer<ByteVar>(), pxform?.value?.toCPointer<ByteVar>())
 
-public actual fun AddWordsToWordList(hwl: HRECOWORDLIST, pwcwords: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_AddWordsToWordList(hwl.toCPointer<ByteVar>(), pwcwords.toCPointer<ByteVar>())
+public actual fun addWordsToWordList(hwl: Hrecowordlist, pwcwords: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_addWordsToWordList(hwl?.value?.toCPointer<ByteVar>(), pwcwords?.value?.toCPointer<ByteVar>())
 
-public actual fun AdviseInkChange(hrc: HRECOCONTEXT, bnewstroke: BOOL): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_AdviseInkChange(hrc.toCPointer<ByteVar>(), bnewstroke)
+public actual fun adviseInkChange(hrc: Hrecocontext, bnewstroke: Bool): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_adviseInkChange(hrc?.value?.toCPointer<ByteVar>(), bnewstroke)
 
-public actual fun CreateContext(hrec: HRECOGNIZER, phrc: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_CreateContext(hrec.toCPointer<ByteVar>(), phrc.toCPointer<ByteVar>())
+public actual fun createContext(hrec: Hrecognizer, phrc: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_createContext(hrec?.value?.toCPointer<ByteVar>(), phrc?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateRecognizer(pclsid: Long, phrec: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_CreateRecognizer(pclsid.toCPointer<ByteVar>(), phrec.toCPointer<ByteVar>())
+public actual fun createRecognizer(pclsid: COpaquePointer?, phrec: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_createRecognizer(pclsid?.value?.toCPointer<ByteVar>(), phrec?.value?.toCPointer<ByteVar>())
 
-public actual fun DestroyContext(hrc: HRECOCONTEXT): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_DestroyContext(hrc.toCPointer<ByteVar>())
+public actual fun destroyContext(hrc: Hrecocontext): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_destroyContext(hrc?.value?.toCPointer<ByteVar>())
 
-public actual fun DestroyRecognizer(hrec: HRECOGNIZER): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_DestroyRecognizer(hrec.toCPointer<ByteVar>())
+public actual fun destroyRecognizer(hrec: Hrecognizer): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_destroyRecognizer(hrec?.value?.toCPointer<ByteVar>())
 
-public actual fun DestroyWordList(hwl: HRECOWORDLIST): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_DestroyWordList(hwl.toCPointer<ByteVar>())
+public actual fun destroyWordList(hwl: Hrecowordlist): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_destroyWordList(hwl?.value?.toCPointer<ByteVar>())
 
-public actual fun EndInkInput(hrc: HRECOCONTEXT): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_EndInkInput(hrc.toCPointer<ByteVar>())
+public actual fun endInkInput(hrc: Hrecocontext): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_endInkInput(hrc?.value?.toCPointer<ByteVar>())
 
-public actual fun GetAllRecognizers(recognizerclsids: Long, count: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_GetAllRecognizers(recognizerclsids.toCPointer<ByteVar>(), count.toCPointer<ByteVar>())
+public actual fun getAllRecognizers(recognizerclsids: COpaquePointer?, count: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_getAllRecognizers(recognizerclsids?.value?.toCPointer<ByteVar>(), count?.value?.toCPointer<ByteVar>())
 
-public actual fun GetBestResultString(hrc: HRECOCONTEXT, pcsize: Long, pwcbestresult: PWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_GetBestResultString(hrc.toCPointer<ByteVar>(), pcsize.toCPointer<ByteVar>(), pwcbestresult.toCPointer<ByteVar>())
+public actual fun getBestResultString(hrc: Hrecocontext, pcsize: COpaquePointer?, pwcbestresult: Pwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_getBestResultString(hrc?.value?.toCPointer<ByteVar>(), pcsize?.value?.toCPointer<ByteVar>(), pwcbestresult?.value?.toCPointer<ByteVar>())
 
-public actual fun GetLatticePtr(hrc: HRECOCONTEXT, pplattice: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_GetLatticePtr(hrc.toCPointer<ByteVar>(), pplattice.toCPointer<ByteVar>())
+public actual fun getLatticePtr(hrc: Hrecocontext, pplattice: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_getLatticePtr(hrc?.value?.toCPointer<ByteVar>(), pplattice?.value?.toCPointer<ByteVar>())
 
-public actual fun GetLeftSeparator(hrc: HRECOCONTEXT, pcsize: Long, pwcleftseparator: PWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_GetLeftSeparator(hrc.toCPointer<ByteVar>(), pcsize.toCPointer<ByteVar>(), pwcleftseparator.toCPointer<ByteVar>())
+public actual fun getLeftSeparator(hrc: Hrecocontext, pcsize: COpaquePointer?, pwcleftseparator: Pwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_getLeftSeparator(hrc?.value?.toCPointer<ByteVar>(), pcsize?.value?.toCPointer<ByteVar>(), pwcleftseparator?.value?.toCPointer<ByteVar>())
 
-public actual fun GetRecoAttributes(hrec: HRECOGNIZER, precoattrs: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_GetRecoAttributes(hrec.toCPointer<ByteVar>(), precoattrs.toCPointer<ByteVar>())
+public actual fun getRecoAttributes(hrec: Hrecognizer, precoattrs: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_getRecoAttributes(hrec?.value?.toCPointer<ByteVar>(), precoattrs?.value?.toCPointer<ByteVar>())
 
-public actual fun GetResultPropertyList(hrec: HRECOGNIZER, ppropertycount: Long, ppropertyguid: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_GetResultPropertyList(hrec.toCPointer<ByteVar>(), ppropertycount.toCPointer<ByteVar>(), ppropertyguid.toCPointer<ByteVar>())
+public actual fun getResultPropertyList(hrec: Hrecognizer, ppropertycount: COpaquePointer?, ppropertyguid: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_getResultPropertyList(hrec?.value?.toCPointer<ByteVar>(), ppropertycount?.value?.toCPointer<ByteVar>(), ppropertyguid?.value?.toCPointer<ByteVar>())
 
-public actual fun GetRightSeparator(hrc: HRECOCONTEXT, pcsize: Long, pwcrightseparator: PWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_GetRightSeparator(hrc.toCPointer<ByteVar>(), pcsize.toCPointer<ByteVar>(), pwcrightseparator.toCPointer<ByteVar>())
+public actual fun getRightSeparator(hrc: Hrecocontext, pcsize: COpaquePointer?, pwcrightseparator: Pwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_getRightSeparator(hrc?.value?.toCPointer<ByteVar>(), pcsize?.value?.toCPointer<ByteVar>(), pwcrightseparator?.value?.toCPointer<ByteVar>())
 
-public actual fun GetUnicodeRanges(hrec: HRECOGNIZER, pcranges: Long, pcr: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_GetUnicodeRanges(hrec.toCPointer<ByteVar>(), pcranges.toCPointer<ByteVar>(), pcr.toCPointer<ByteVar>())
+public actual fun getUnicodeRanges(hrec: Hrecognizer, pcranges: COpaquePointer?, pcr: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_getUnicodeRanges(hrec?.value?.toCPointer<ByteVar>(), pcranges?.value?.toCPointer<ByteVar>(), pcr?.value?.toCPointer<ByteVar>())
 
-public actual fun IsStringSupported(hrc: HRECOCONTEXT, wcstring: UInt, pwcstring: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_IsStringSupported(hrc.toCPointer<ByteVar>(), wcstring, pwcstring.toCPointer<ByteVar>())
+public actual fun isStringSupported(hrc: Hrecocontext, wcstring: UInt, pwcstring: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_isStringSupported(hrc?.value?.toCPointer<ByteVar>(), wcstring, pwcstring?.value?.toCPointer<ByteVar>())
 
-public actual fun LoadCachedAttributes(clsid: GUID, precoattributes: Long): HRESULT =
+public actual fun loadCachedAttributes(clsid: Guid, precoattributes: COpaquePointer?): Hresult =
     0
 
-public actual fun MakeWordList(hrec: HRECOGNIZER, pbuffer: PCWSTR, phwl: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_MakeWordList(hrec.toCPointer<ByteVar>(), pbuffer.toCPointer<ByteVar>(), phwl.toCPointer<ByteVar>())
+public actual fun makeWordList(hrec: Hrecognizer, pbuffer: Pcwstr, phwl: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_makeWordList(hrec?.value?.toCPointer<ByteVar>(), pbuffer?.value?.toCPointer<ByteVar>(), phwl?.value?.toCPointer<ByteVar>())
 
-public actual fun Process(hrc: HRECOCONTEXT, pbpartialprocessing: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_Process(hrc.toCPointer<ByteVar>(), pbpartialprocessing.toCPointer<ByteVar>())
+public actual fun process(hrc: Hrecocontext, pbpartialprocessing: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_process(hrc?.value?.toCPointer<ByteVar>(), pbpartialprocessing?.value?.toCPointer<ByteVar>())
 
-public actual fun SetEnabledUnicodeRanges(hrc: HRECOCONTEXT, cranges: UInt, pcr: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_SetEnabledUnicodeRanges(hrc.toCPointer<ByteVar>(), cranges, pcr.toCPointer<ByteVar>())
+public actual fun setEnabledUnicodeRanges(hrc: Hrecocontext, cranges: UInt, pcr: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_setEnabledUnicodeRanges(hrc?.value?.toCPointer<ByteVar>(), cranges, pcr?.value?.toCPointer<ByteVar>())
 
-public actual fun SetFactoid(hrc: HRECOCONTEXT, cwcfactoid: UInt, pwcfactoid: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_SetFactoid(hrc.toCPointer<ByteVar>(), cwcfactoid, pwcfactoid.toCPointer<ByteVar>())
+public actual fun setFactoid(hrc: Hrecocontext, cwcfactoid: UInt, pwcfactoid: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_setFactoid(hrc?.value?.toCPointer<ByteVar>(), cwcfactoid, pwcfactoid?.value?.toCPointer<ByteVar>())
 
-public actual fun SetFlags(hrc: HRECOCONTEXT, dwflags: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_SetFlags(hrc.toCPointer<ByteVar>(), dwflags)
+public actual fun setFlags(hrc: Hrecocontext, dwflags: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_setFlags(hrc?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun SetGuide(hrc: HRECOCONTEXT, pguide: Long, iindex: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_SetGuide(hrc.toCPointer<ByteVar>(), pguide.toCPointer<ByteVar>(), iindex)
+public actual fun setGuide(hrc: Hrecocontext, pguide: COpaquePointer?, iindex: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_setGuide(hrc?.value?.toCPointer<ByteVar>(), pguide?.value?.toCPointer<ByteVar>(), iindex)
 
-public actual fun SetTextContext(hrc: HRECOCONTEXT, cwcbefore: UInt, pwcbefore: PCWSTR, cwcafter: UInt, pwcafter: PCWSTR): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_SetTextContext(hrc.toCPointer<ByteVar>(), cwcbefore, pwcbefore.toCPointer<ByteVar>(), cwcafter, pwcafter.toCPointer<ByteVar>())
+public actual fun setTextContext(hrc: Hrecocontext, cwcbefore: UInt, pwcbefore: Pcwstr, cwcafter: UInt, pwcafter: Pcwstr): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_setTextContext(hrc?.value?.toCPointer<ByteVar>(), cwcbefore, pwcbefore?.value?.toCPointer<ByteVar>(), cwcafter, pwcafter?.value?.toCPointer<ByteVar>())
 
-public actual fun SetWordList(hrc: HRECOCONTEXT, hwl: HRECOWORDLIST): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_SetWordList(hrc.toCPointer<ByteVar>(), hwl.toCPointer<ByteVar>())
+public actual fun setWordList(hrc: Hrecocontext, hwl: Hrecowordlist): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc.cinterop.windowssys_windows_win32_ui_tabletpc_setWordList(hrc?.value?.toCPointer<ByteVar>(), hwl?.value?.toCPointer<ByteVar>())

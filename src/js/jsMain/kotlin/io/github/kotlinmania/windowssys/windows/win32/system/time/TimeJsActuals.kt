@@ -2,52 +2,53 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.time
 
-import io.github.kotlinmania.windowssys.core.BOOL
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
 
 private val _windowsWin32SystemTimeNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun EnumDynamicTimeZoneInformation(dwindex: UInt, lptimezoneinformation: Long): UInt =
-    if (_windowsWin32SystemTimeNapiAddon != null) (_windowsWin32SystemTimeNapiAddon.windowssys_windows_win32_system_time_EnumDynamicTimeZoneInformation(dwindex.toInt(), lptimezoneinformation.toString()) as Int).toUInt() else 0u
+public actual fun enumDynamicTimeZoneInformation(dwindex: UInt, lptimezoneinformation: COpaquePointer?): UInt =
+    if (_windowsWin32SystemTimeNapiAddon != null) (_windowsWin32SystemTimeNapiAddon.windowssys_windows_win32_system_time_enumDynamicTimeZoneInformation(dwindex.toInt(), (lptimezoneinformation?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FileTimeToSystemTime(lpfiletime: Long, lpsystemtime: Long): BOOL =
-    if (_windowsWin32SystemTimeNapiAddon != null) (_windowsWin32SystemTimeNapiAddon.windowssys_windows_win32_system_time_FileTimeToSystemTime(lpfiletime.toString(), lpsystemtime.toString()) as Int) else 0
+public actual fun fileTimeToSystemTime(lpfiletime: COpaquePointer?, lpsystemtime: COpaquePointer?): Bool =
+    if (_windowsWin32SystemTimeNapiAddon != null) (_windowsWin32SystemTimeNapiAddon.windowssys_windows_win32_system_time_fileTimeToSystemTime((lpfiletime?.value ?: 0L).toString(), (lpsystemtime?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetDynamicTimeZoneInformation(ptimezoneinformation: Long): UInt =
-    if (_windowsWin32SystemTimeNapiAddon != null) (_windowsWin32SystemTimeNapiAddon.windowssys_windows_win32_system_time_GetDynamicTimeZoneInformation(ptimezoneinformation.toString()) as Int).toUInt() else 0u
+public actual fun getDynamicTimeZoneInformation(ptimezoneinformation: COpaquePointer?): UInt =
+    if (_windowsWin32SystemTimeNapiAddon != null) (_windowsWin32SystemTimeNapiAddon.windowssys_windows_win32_system_time_getDynamicTimeZoneInformation((ptimezoneinformation?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetDynamicTimeZoneInformationEffectiveYears(lptimezoneinformation: Long, firstyear: Long, lastyear: Long): UInt =
-    if (_windowsWin32SystemTimeNapiAddon != null) (_windowsWin32SystemTimeNapiAddon.windowssys_windows_win32_system_time_GetDynamicTimeZoneInformationEffectiveYears(lptimezoneinformation.toString(), firstyear.toString(), lastyear.toString()) as Int).toUInt() else 0u
+public actual fun getDynamicTimeZoneInformationEffectiveYears(lptimezoneinformation: COpaquePointer?, firstyear: COpaquePointer?, lastyear: COpaquePointer?): UInt =
+    if (_windowsWin32SystemTimeNapiAddon != null) (_windowsWin32SystemTimeNapiAddon.windowssys_windows_win32_system_time_getDynamicTimeZoneInformationEffectiveYears((lptimezoneinformation?.value ?: 0L).toString(), (firstyear?.value ?: 0L).toString(), (lastyear?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetTimeZoneInformation(lptimezoneinformation: Long): UInt =
-    if (_windowsWin32SystemTimeNapiAddon != null) (_windowsWin32SystemTimeNapiAddon.windowssys_windows_win32_system_time_GetTimeZoneInformation(lptimezoneinformation.toString()) as Int).toUInt() else 0u
+public actual fun getTimeZoneInformation(lptimezoneinformation: COpaquePointer?): UInt =
+    if (_windowsWin32SystemTimeNapiAddon != null) (_windowsWin32SystemTimeNapiAddon.windowssys_windows_win32_system_time_getTimeZoneInformation((lptimezoneinformation?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetTimeZoneInformationForYear(wyear: UShort, pdtzi: Long, ptzi: Long): BOOL =
-    if (_windowsWin32SystemTimeNapiAddon != null) (_windowsWin32SystemTimeNapiAddon.windowssys_windows_win32_system_time_GetTimeZoneInformationForYear(wyear.toInt(), pdtzi.toString(), ptzi.toString()) as Int) else 0
+public actual fun getTimeZoneInformationForYear(wyear: UShort, pdtzi: COpaquePointer?, ptzi: COpaquePointer?): Bool =
+    if (_windowsWin32SystemTimeNapiAddon != null) (_windowsWin32SystemTimeNapiAddon.windowssys_windows_win32_system_time_getTimeZoneInformationForYear(wyear.toInt(), (pdtzi?.value ?: 0L).toString(), (ptzi?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LocalFileTimeToLocalSystemTime(timezoneinformation: Long, localfiletime: Long, localsystemtime: Long): BOOL =
-    if (_windowsWin32SystemTimeNapiAddon != null) (_windowsWin32SystemTimeNapiAddon.windowssys_windows_win32_system_time_LocalFileTimeToLocalSystemTime(timezoneinformation.toString(), localfiletime.toString(), localsystemtime.toString()) as Int) else 0
+public actual fun localFileTimeToLocalSystemTime(timezoneinformation: COpaquePointer?, localfiletime: COpaquePointer?, localsystemtime: COpaquePointer?): Bool =
+    if (_windowsWin32SystemTimeNapiAddon != null) (_windowsWin32SystemTimeNapiAddon.windowssys_windows_win32_system_time_localFileTimeToLocalSystemTime((timezoneinformation?.value ?: 0L).toString(), (localfiletime?.value ?: 0L).toString(), (localsystemtime?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LocalSystemTimeToLocalFileTime(timezoneinformation: Long, localsystemtime: Long, localfiletime: Long): BOOL =
-    if (_windowsWin32SystemTimeNapiAddon != null) (_windowsWin32SystemTimeNapiAddon.windowssys_windows_win32_system_time_LocalSystemTimeToLocalFileTime(timezoneinformation.toString(), localsystemtime.toString(), localfiletime.toString()) as Int) else 0
+public actual fun localSystemTimeToLocalFileTime(timezoneinformation: COpaquePointer?, localsystemtime: COpaquePointer?, localfiletime: COpaquePointer?): Bool =
+    if (_windowsWin32SystemTimeNapiAddon != null) (_windowsWin32SystemTimeNapiAddon.windowssys_windows_win32_system_time_localSystemTimeToLocalFileTime((timezoneinformation?.value ?: 0L).toString(), (localsystemtime?.value ?: 0L).toString(), (localfiletime?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetDynamicTimeZoneInformation(lptimezoneinformation: Long): BOOL =
-    if (_windowsWin32SystemTimeNapiAddon != null) (_windowsWin32SystemTimeNapiAddon.windowssys_windows_win32_system_time_SetDynamicTimeZoneInformation(lptimezoneinformation.toString()) as Int) else 0
+public actual fun setDynamicTimeZoneInformation(lptimezoneinformation: COpaquePointer?): Bool =
+    if (_windowsWin32SystemTimeNapiAddon != null) (_windowsWin32SystemTimeNapiAddon.windowssys_windows_win32_system_time_setDynamicTimeZoneInformation((lptimezoneinformation?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetTimeZoneInformation(lptimezoneinformation: Long): BOOL =
-    if (_windowsWin32SystemTimeNapiAddon != null) (_windowsWin32SystemTimeNapiAddon.windowssys_windows_win32_system_time_SetTimeZoneInformation(lptimezoneinformation.toString()) as Int) else 0
+public actual fun setTimeZoneInformation(lptimezoneinformation: COpaquePointer?): Bool =
+    if (_windowsWin32SystemTimeNapiAddon != null) (_windowsWin32SystemTimeNapiAddon.windowssys_windows_win32_system_time_setTimeZoneInformation((lptimezoneinformation?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SystemTimeToFileTime(lpsystemtime: Long, lpfiletime: Long): BOOL =
-    if (_windowsWin32SystemTimeNapiAddon != null) (_windowsWin32SystemTimeNapiAddon.windowssys_windows_win32_system_time_SystemTimeToFileTime(lpsystemtime.toString(), lpfiletime.toString()) as Int) else 0
+public actual fun systemTimeToFileTime(lpsystemtime: COpaquePointer?, lpfiletime: COpaquePointer?): Bool =
+    if (_windowsWin32SystemTimeNapiAddon != null) (_windowsWin32SystemTimeNapiAddon.windowssys_windows_win32_system_time_systemTimeToFileTime((lpsystemtime?.value ?: 0L).toString(), (lpfiletime?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SystemTimeToTzSpecificLocalTime(lptimezoneinformation: Long, lpuniversaltime: Long, lplocaltime: Long): BOOL =
-    if (_windowsWin32SystemTimeNapiAddon != null) (_windowsWin32SystemTimeNapiAddon.windowssys_windows_win32_system_time_SystemTimeToTzSpecificLocalTime(lptimezoneinformation.toString(), lpuniversaltime.toString(), lplocaltime.toString()) as Int) else 0
+public actual fun systemTimeToTzSpecificLocalTime(lptimezoneinformation: COpaquePointer?, lpuniversaltime: COpaquePointer?, lplocaltime: COpaquePointer?): Bool =
+    if (_windowsWin32SystemTimeNapiAddon != null) (_windowsWin32SystemTimeNapiAddon.windowssys_windows_win32_system_time_systemTimeToTzSpecificLocalTime((lptimezoneinformation?.value ?: 0L).toString(), (lpuniversaltime?.value ?: 0L).toString(), (lplocaltime?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SystemTimeToTzSpecificLocalTimeEx(lptimezoneinformation: Long, lpuniversaltime: Long, lplocaltime: Long): BOOL =
-    if (_windowsWin32SystemTimeNapiAddon != null) (_windowsWin32SystemTimeNapiAddon.windowssys_windows_win32_system_time_SystemTimeToTzSpecificLocalTimeEx(lptimezoneinformation.toString(), lpuniversaltime.toString(), lplocaltime.toString()) as Int) else 0
+public actual fun systemTimeToTzSpecificLocalTimeEx(lptimezoneinformation: COpaquePointer?, lpuniversaltime: COpaquePointer?, lplocaltime: COpaquePointer?): Bool =
+    if (_windowsWin32SystemTimeNapiAddon != null) (_windowsWin32SystemTimeNapiAddon.windowssys_windows_win32_system_time_systemTimeToTzSpecificLocalTimeEx((lptimezoneinformation?.value ?: 0L).toString(), (lpuniversaltime?.value ?: 0L).toString(), (lplocaltime?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TzSpecificLocalTimeToSystemTime(lptimezoneinformation: Long, lplocaltime: Long, lpuniversaltime: Long): BOOL =
-    if (_windowsWin32SystemTimeNapiAddon != null) (_windowsWin32SystemTimeNapiAddon.windowssys_windows_win32_system_time_TzSpecificLocalTimeToSystemTime(lptimezoneinformation.toString(), lplocaltime.toString(), lpuniversaltime.toString()) as Int) else 0
+public actual fun tzSpecificLocalTimeToSystemTime(lptimezoneinformation: COpaquePointer?, lplocaltime: COpaquePointer?, lpuniversaltime: COpaquePointer?): Bool =
+    if (_windowsWin32SystemTimeNapiAddon != null) (_windowsWin32SystemTimeNapiAddon.windowssys_windows_win32_system_time_tzSpecificLocalTimeToSystemTime((lptimezoneinformation?.value ?: 0L).toString(), (lplocaltime?.value ?: 0L).toString(), (lpuniversaltime?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun TzSpecificLocalTimeToSystemTimeEx(lptimezoneinformation: Long, lplocaltime: Long, lpuniversaltime: Long): BOOL =
-    if (_windowsWin32SystemTimeNapiAddon != null) (_windowsWin32SystemTimeNapiAddon.windowssys_windows_win32_system_time_TzSpecificLocalTimeToSystemTimeEx(lptimezoneinformation.toString(), lplocaltime.toString(), lpuniversaltime.toString()) as Int) else 0
+public actual fun tzSpecificLocalTimeToSystemTimeEx(lptimezoneinformation: COpaquePointer?, lplocaltime: COpaquePointer?, lpuniversaltime: COpaquePointer?): Bool =
+    if (_windowsWin32SystemTimeNapiAddon != null) (_windowsWin32SystemTimeNapiAddon.windowssys_windows_win32_system_time_tzSpecificLocalTimeToSystemTimeEx((lptimezoneinformation?.value ?: 0L).toString(), (lplocaltime?.value ?: 0L).toString(), (lpuniversaltime?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

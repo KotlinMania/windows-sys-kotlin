@@ -2,88 +2,89 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun CertSrvBackupClose(hbc: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_CertSrvBackupClose(hbc.toCPointer<ByteVar>())
+public actual fun certSrvBackupClose(hbc: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_certSrvBackupClose(hbc?.value?.toCPointer<ByteVar>())
 
-public actual fun CertSrvBackupEnd(hbc: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_CertSrvBackupEnd(hbc.toCPointer<ByteVar>())
+public actual fun certSrvBackupEnd(hbc: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_certSrvBackupEnd(hbc?.value?.toCPointer<ByteVar>())
 
-public actual fun CertSrvBackupFree(pv: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_CertSrvBackupFree(pv.toCPointer<ByteVar>())
+public actual fun certSrvBackupFree(pv: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_certSrvBackupFree(pv?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun CertSrvBackupGetBackupLogsW(hbc: Long, ppwszzbackuplogfiles: Long, pcbsize: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_CertSrvBackupGetBackupLogsW(hbc.toCPointer<ByteVar>(), ppwszzbackuplogfiles.toCPointer<ByteVar>(), pcbsize.toCPointer<ByteVar>())
+public actual fun certSrvBackupGetBackupLogsW(hbc: COpaquePointer?, ppwszzbackuplogfiles: COpaquePointer?, pcbsize: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_certSrvBackupGetBackupLogsW(hbc?.value?.toCPointer<ByteVar>(), ppwszzbackuplogfiles?.value?.toCPointer<ByteVar>(), pcbsize?.value?.toCPointer<ByteVar>())
 
-public actual fun CertSrvBackupGetDatabaseNamesW(hbc: Long, ppwszzattachmentinformation: Long, pcbsize: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_CertSrvBackupGetDatabaseNamesW(hbc.toCPointer<ByteVar>(), ppwszzattachmentinformation.toCPointer<ByteVar>(), pcbsize.toCPointer<ByteVar>())
+public actual fun certSrvBackupGetDatabaseNamesW(hbc: COpaquePointer?, ppwszzattachmentinformation: COpaquePointer?, pcbsize: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_certSrvBackupGetDatabaseNamesW(hbc?.value?.toCPointer<ByteVar>(), ppwszzattachmentinformation?.value?.toCPointer<ByteVar>(), pcbsize?.value?.toCPointer<ByteVar>())
 
-public actual fun CertSrvBackupGetDynamicFileListW(hbc: Long, ppwszzfilelist: Long, pcbsize: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_CertSrvBackupGetDynamicFileListW(hbc.toCPointer<ByteVar>(), ppwszzfilelist.toCPointer<ByteVar>(), pcbsize.toCPointer<ByteVar>())
+public actual fun certSrvBackupGetDynamicFileListW(hbc: COpaquePointer?, ppwszzfilelist: COpaquePointer?, pcbsize: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_certSrvBackupGetDynamicFileListW(hbc?.value?.toCPointer<ByteVar>(), ppwszzfilelist?.value?.toCPointer<ByteVar>(), pcbsize?.value?.toCPointer<ByteVar>())
 
-public actual fun CertSrvBackupOpenFileW(hbc: Long, pwszattachmentname: PCWSTR, cbreadhintsize: UInt, plifilesize: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_CertSrvBackupOpenFileW(hbc.toCPointer<ByteVar>(), pwszattachmentname.toCPointer<ByteVar>(), cbreadhintsize, plifilesize.toCPointer<ByteVar>())
+public actual fun certSrvBackupOpenFileW(hbc: COpaquePointer?, pwszattachmentname: Pcwstr, cbreadhintsize: UInt, plifilesize: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_certSrvBackupOpenFileW(hbc?.value?.toCPointer<ByteVar>(), pwszattachmentname?.value?.toCPointer<ByteVar>(), cbreadhintsize, plifilesize?.value?.toCPointer<ByteVar>())
 
-public actual fun CertSrvBackupPrepareW(pwszservername: PCWSTR, grbitjet: UInt, dwbackupflags: CSBACKUP_TYPE, phbc: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_CertSrvBackupPrepareW(pwszservername.toCPointer<ByteVar>(), grbitjet, dwbackupflags, phbc.toCPointer<ByteVar>())
+public actual fun certSrvBackupPrepareW(pwszservername: Pcwstr, grbitjet: UInt, dwbackupflags: CsbackupType, phbc: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_certSrvBackupPrepareW(pwszservername?.value?.toCPointer<ByteVar>(), grbitjet, dwbackupflags, phbc?.value?.toCPointer<ByteVar>())
 
-public actual fun CertSrvBackupRead(hbc: Long, pvbuffer: Long, cbbuffer: UInt, pcbread: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_CertSrvBackupRead(hbc.toCPointer<ByteVar>(), pvbuffer.toCPointer<ByteVar>(), cbbuffer, pcbread.toCPointer<ByteVar>())
+public actual fun certSrvBackupRead(hbc: COpaquePointer?, pvbuffer: COpaquePointer?, cbbuffer: UInt, pcbread: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_certSrvBackupRead(hbc?.value?.toCPointer<ByteVar>(), pvbuffer?.value?.toCPointer<ByteVar>(), cbbuffer, pcbread?.value?.toCPointer<ByteVar>())
 
-public actual fun CertSrvBackupTruncateLogs(hbc: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_CertSrvBackupTruncateLogs(hbc.toCPointer<ByteVar>())
+public actual fun certSrvBackupTruncateLogs(hbc: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_certSrvBackupTruncateLogs(hbc?.value?.toCPointer<ByteVar>())
 
-public actual fun CertSrvIsServerOnlineW(pwszservername: PCWSTR, pfserveronline: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_CertSrvIsServerOnlineW(pwszservername.toCPointer<ByteVar>(), pfserveronline.toCPointer<ByteVar>())
+public actual fun certSrvIsServerOnlineW(pwszservername: Pcwstr, pfserveronline: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_certSrvIsServerOnlineW(pwszservername?.value?.toCPointer<ByteVar>(), pfserveronline?.value?.toCPointer<ByteVar>())
 
-public actual fun CertSrvRestoreEnd(hbc: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_CertSrvRestoreEnd(hbc.toCPointer<ByteVar>())
+public actual fun certSrvRestoreEnd(hbc: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_certSrvRestoreEnd(hbc?.value?.toCPointer<ByteVar>())
 
-public actual fun CertSrvRestoreGetDatabaseLocationsW(hbc: Long, ppwszzdatabaselocationlist: Long, pcbsize: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_CertSrvRestoreGetDatabaseLocationsW(hbc.toCPointer<ByteVar>(), ppwszzdatabaselocationlist.toCPointer<ByteVar>(), pcbsize.toCPointer<ByteVar>())
+public actual fun certSrvRestoreGetDatabaseLocationsW(hbc: COpaquePointer?, ppwszzdatabaselocationlist: COpaquePointer?, pcbsize: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_certSrvRestoreGetDatabaseLocationsW(hbc?.value?.toCPointer<ByteVar>(), ppwszzdatabaselocationlist?.value?.toCPointer<ByteVar>(), pcbsize?.value?.toCPointer<ByteVar>())
 
-public actual fun CertSrvRestorePrepareW(pwszservername: PCWSTR, dwrestoreflags: UInt, phbc: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_CertSrvRestorePrepareW(pwszservername.toCPointer<ByteVar>(), dwrestoreflags, phbc.toCPointer<ByteVar>())
+public actual fun certSrvRestorePrepareW(pwszservername: Pcwstr, dwrestoreflags: UInt, phbc: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_certSrvRestorePrepareW(pwszservername?.value?.toCPointer<ByteVar>(), dwrestoreflags, phbc?.value?.toCPointer<ByteVar>())
 
-public actual fun CertSrvRestoreRegisterComplete(hbc: Long, hrrestorestate: HRESULT): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_CertSrvRestoreRegisterComplete(hbc.toCPointer<ByteVar>(), hrrestorestate)
+public actual fun certSrvRestoreRegisterComplete(hbc: COpaquePointer?, hrrestorestate: Hresult): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_certSrvRestoreRegisterComplete(hbc?.value?.toCPointer<ByteVar>(), hrrestorestate)
 
-public actual fun CertSrvRestoreRegisterThroughFile(hbc: Long, pwszcheckpointfilepath: PCWSTR, pwszlogpath: PCWSTR, rgrstmap: Long, crstmap: Int, pwszbackuplogpath: PCWSTR, genlow: UInt, genhigh: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_CertSrvRestoreRegisterThroughFile(hbc.toCPointer<ByteVar>(), pwszcheckpointfilepath.toCPointer<ByteVar>(), pwszlogpath.toCPointer<ByteVar>(), rgrstmap.toCPointer<ByteVar>(), crstmap, pwszbackuplogpath.toCPointer<ByteVar>(), genlow, genhigh)
+public actual fun certSrvRestoreRegisterThroughFile(hbc: COpaquePointer?, pwszcheckpointfilepath: Pcwstr, pwszlogpath: Pcwstr, rgrstmap: COpaquePointer?, crstmap: Int, pwszbackuplogpath: Pcwstr, genlow: UInt, genhigh: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_certSrvRestoreRegisterThroughFile(hbc?.value?.toCPointer<ByteVar>(), pwszcheckpointfilepath?.value?.toCPointer<ByteVar>(), pwszlogpath?.value?.toCPointer<ByteVar>(), rgrstmap?.value?.toCPointer<ByteVar>(), crstmap, pwszbackuplogpath?.value?.toCPointer<ByteVar>(), genlow, genhigh)
 
-public actual fun CertSrvRestoreRegisterW(hbc: Long, pwszcheckpointfilepath: PCWSTR, pwszlogpath: PCWSTR, rgrstmap: Long, crstmap: Int, pwszbackuplogpath: PCWSTR, genlow: UInt, genhigh: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_CertSrvRestoreRegisterW(hbc.toCPointer<ByteVar>(), pwszcheckpointfilepath.toCPointer<ByteVar>(), pwszlogpath.toCPointer<ByteVar>(), rgrstmap.toCPointer<ByteVar>(), crstmap, pwszbackuplogpath.toCPointer<ByteVar>(), genlow, genhigh)
+public actual fun certSrvRestoreRegisterW(hbc: COpaquePointer?, pwszcheckpointfilepath: Pcwstr, pwszlogpath: Pcwstr, rgrstmap: COpaquePointer?, crstmap: Int, pwszbackuplogpath: Pcwstr, genlow: UInt, genhigh: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_certSrvRestoreRegisterW(hbc?.value?.toCPointer<ByteVar>(), pwszcheckpointfilepath?.value?.toCPointer<ByteVar>(), pwszlogpath?.value?.toCPointer<ByteVar>(), rgrstmap?.value?.toCPointer<ByteVar>(), crstmap, pwszbackuplogpath?.value?.toCPointer<ByteVar>(), genlow, genhigh)
 
-public actual fun CertSrvServerControlW(pwszservername: PCWSTR, dwcontrolflags: UInt, pcbout: Long, ppbout: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_CertSrvServerControlW(pwszservername.toCPointer<ByteVar>(), dwcontrolflags, pcbout.toCPointer<ByteVar>(), ppbout.toCPointer<ByteVar>())
+public actual fun certSrvServerControlW(pwszservername: Pcwstr, dwcontrolflags: UInt, pcbout: COpaquePointer?, ppbout: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_certSrvServerControlW(pwszservername?.value?.toCPointer<ByteVar>(), dwcontrolflags, pcbout?.value?.toCPointer<ByteVar>(), ppbout?.value?.toCPointer<ByteVar>())
 
-public actual fun PstAcquirePrivateKey(pcert: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_PstAcquirePrivateKey(pcert.toCPointer<ByteVar>())
+public actual fun pstAcquirePrivateKey(pcert: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_pstAcquirePrivateKey(pcert?.value?.toCPointer<ByteVar>())
 
-public actual fun PstGetCertificateChain(pcert: Long, ptrustedissuers: Long, ppcertchaincontext: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_PstGetCertificateChain(pcert.toCPointer<ByteVar>(), ptrustedissuers.toCPointer<ByteVar>(), ppcertchaincontext.toCPointer<ByteVar>())
+public actual fun pstGetCertificateChain(pcert: COpaquePointer?, ptrustedissuers: COpaquePointer?, ppcertchaincontext: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_pstGetCertificateChain(pcert?.value?.toCPointer<ByteVar>(), ptrustedissuers?.value?.toCPointer<ByteVar>(), ppcertchaincontext?.value?.toCPointer<ByteVar>())
 
-public actual fun PstGetCertificates(ptargetname: Long, ccriteria: UInt, rgpcriteria: Long, bisclient: BOOL, pdwcertchaincontextcount: Long, ppcertchaincontexts: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_PstGetCertificates(ptargetname.toCPointer<ByteVar>(), ccriteria, rgpcriteria.toCPointer<ByteVar>(), bisclient, pdwcertchaincontextcount.toCPointer<ByteVar>(), ppcertchaincontexts.toCPointer<ByteVar>())
+public actual fun pstGetCertificates(ptargetname: COpaquePointer?, ccriteria: UInt, rgpcriteria: COpaquePointer?, bisclient: Bool, pdwcertchaincontextcount: COpaquePointer?, ppcertchaincontexts: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_pstGetCertificates(ptargetname?.value?.toCPointer<ByteVar>(), ccriteria, rgpcriteria?.value?.toCPointer<ByteVar>(), bisclient, pdwcertchaincontextcount?.value?.toCPointer<ByteVar>(), ppcertchaincontexts?.value?.toCPointer<ByteVar>())
 
-public actual fun PstGetTrustAnchors(ptargetname: Long, ccriteria: UInt, rgpcriteria: Long, pptrustedissuers: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_PstGetTrustAnchors(ptargetname.toCPointer<ByteVar>(), ccriteria, rgpcriteria.toCPointer<ByteVar>(), pptrustedissuers.toCPointer<ByteVar>())
+public actual fun pstGetTrustAnchors(ptargetname: COpaquePointer?, ccriteria: UInt, rgpcriteria: COpaquePointer?, pptrustedissuers: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_pstGetTrustAnchors(ptargetname?.value?.toCPointer<ByteVar>(), ccriteria, rgpcriteria?.value?.toCPointer<ByteVar>(), pptrustedissuers?.value?.toCPointer<ByteVar>())
 
-public actual fun PstGetTrustAnchorsEx(ptargetname: Long, ccriteria: UInt, rgpcriteria: Long, pcertcontext: Long, pptrustedissuers: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_PstGetTrustAnchorsEx(ptargetname.toCPointer<ByteVar>(), ccriteria, rgpcriteria.toCPointer<ByteVar>(), pcertcontext.toCPointer<ByteVar>(), pptrustedissuers.toCPointer<ByteVar>())
+public actual fun pstGetTrustAnchorsEx(ptargetname: COpaquePointer?, ccriteria: UInt, rgpcriteria: COpaquePointer?, pcertcontext: COpaquePointer?, pptrustedissuers: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_pstGetTrustAnchorsEx(ptargetname?.value?.toCPointer<ByteVar>(), ccriteria, rgpcriteria?.value?.toCPointer<ByteVar>(), pcertcontext?.value?.toCPointer<ByteVar>(), pptrustedissuers?.value?.toCPointer<ByteVar>())
 
-public actual fun PstGetUserNameForCertificate(pcertcontext: Long, username: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_PstGetUserNameForCertificate(pcertcontext.toCPointer<ByteVar>(), username.toCPointer<ByteVar>())
+public actual fun pstGetUserNameForCertificate(pcertcontext: COpaquePointer?, username: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_pstGetUserNameForCertificate(pcertcontext?.value?.toCPointer<ByteVar>(), username?.value?.toCPointer<ByteVar>())
 
-public actual fun PstMapCertificate(pcert: Long, ptokeninformationtype: Long, pptokeninformation: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_PstMapCertificate(pcert.toCPointer<ByteVar>(), ptokeninformationtype.toCPointer<ByteVar>(), pptokeninformation.toCPointer<ByteVar>())
+public actual fun pstMapCertificate(pcert: COpaquePointer?, ptokeninformationtype: COpaquePointer?, pptokeninformation: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_pstMapCertificate(pcert?.value?.toCPointer<ByteVar>(), ptokeninformationtype?.value?.toCPointer<ByteVar>(), pptokeninformation?.value?.toCPointer<ByteVar>())
 
-public actual fun PstValidate(ptargetname: Long, bisclient: BOOL, prequestedissuancepolicy: Long, phadditionalcertstore: Long, pcert: Long, pprovguid: Long): NTSTATUS =
-    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_PstValidate(ptargetname.toCPointer<ByteVar>(), bisclient, prequestedissuancepolicy.toCPointer<ByteVar>(), phadditionalcertstore.toCPointer<ByteVar>(), pcert.toCPointer<ByteVar>(), pprovguid.toCPointer<ByteVar>())
+public actual fun pstValidate(ptargetname: COpaquePointer?, bisclient: Bool, prequestedissuancepolicy: COpaquePointer?, phadditionalcertstore: COpaquePointer?, pcert: COpaquePointer?, pprovguid: COpaquePointer?): Ntstatus =
+    io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates.cinterop.windowssys_windows_win32_security_cryptography_certificates_pstValidate(ptargetname?.value?.toCPointer<ByteVar>(), bisclient, prequestedissuancepolicy?.value?.toCPointer<ByteVar>(), phadditionalcertstore?.value?.toCPointer<ByteVar>(), pcert?.value?.toCPointer<ByteVar>(), pprovguid?.value?.toCPointer<ByteVar>())

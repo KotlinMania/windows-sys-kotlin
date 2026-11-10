@@ -2,14 +2,16 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.correlationvector
 
-public actual fun RtlExtendCorrelationVector(correlationvector: Long): UInt =
-    0u
+import io.github.kotlinmania.windowssys.COpaquePointer
 
-public actual fun RtlIncrementCorrelationVector(correlationvector: Long): UInt =
-    0u
+public actual fun rtlExtendCorrelationVector(correlationvector: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RtlInitializeCorrelationVector(correlationvector: Long, version: Int, guid: Long): UInt =
-    0u
+public actual fun rtlIncrementCorrelationVector(correlationvector: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RtlValidateCorrelationVector(vector: Long): UInt =
-    0u
+public actual fun rtlInitializeCorrelationVector(correlationvector: COpaquePointer?, version: Int, guid: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
+
+public actual fun rtlValidateCorrelationVector(vector: COpaquePointer?): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

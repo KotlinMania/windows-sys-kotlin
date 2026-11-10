@@ -2,15 +2,16 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.setupandmigration
 
-import io.github.kotlinmania.windowssys.core.BOOL
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun OOBEComplete(isoobecomplete: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.setupandmigration.cinterop.windowssys_windows_win32_system_setupandmigration_OOBEComplete(isoobecomplete.toCPointer<ByteVar>())
+public actual fun oOBEComplete(isoobecomplete: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.setupandmigration.cinterop.windowssys_windows_win32_system_setupandmigration_oOBEComplete(isoobecomplete?.value?.toCPointer<ByteVar>())
 
-public actual fun RegisterWaitUntilOOBECompleted(oobecompletedcallback: OOBE_COMPLETED_CALLBACK, callbackcontext: Long, waithandle: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.setupandmigration.cinterop.windowssys_windows_win32_system_setupandmigration_RegisterWaitUntilOOBECompleted(oobecompletedcallback.toLong().toCPointer<ByteVar>(), callbackcontext.toCPointer<ByteVar>(), waithandle.toCPointer<ByteVar>())
+public actual fun registerWaitUntilOOBECompleted(oobecompletedcallback: OobeCompletedCallback, callbackcontext: COpaquePointer?, waithandle: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.setupandmigration.cinterop.windowssys_windows_win32_system_setupandmigration_registerWaitUntilOOBECompleted(0L.toCPointer<ByteVar>(), callbackcontext?.value?.toCPointer<ByteVar>(), waithandle?.value?.toCPointer<ByteVar>())
 
-public actual fun UnregisterWaitUntilOOBECompleted(waithandle: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.setupandmigration.cinterop.windowssys_windows_win32_system_setupandmigration_UnregisterWaitUntilOOBECompleted(waithandle.toCPointer<ByteVar>())
+public actual fun unregisterWaitUntilOOBECompleted(waithandle: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.setupandmigration.cinterop.windowssys_windows_win32_system_setupandmigration_unregisterWaitUntilOOBECompleted(waithandle?.value?.toCPointer<ByteVar>())

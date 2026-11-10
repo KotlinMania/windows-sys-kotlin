@@ -1,7 +1,7 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
+import io.github.kotlinmania.windowssys.core.Guid
 
 public val OID_FDDI_LONG_MAX_LIST_SIZE: UInt = 50397444u
 
@@ -1243,40 +1243,40 @@ public val TIMED_SEND_CAPABLE: UInt = 16u
 
 public val TIME_STAMP_CAPABLE: UInt = 32u
 
-public val TUNNEL_TYPE_6TO4: TUNNEL_TYPE = 11
+public val TUNNEL_TYPE_6TO4: TunnelType = 11
 
-public val TUNNEL_TYPE_DIRECT: TUNNEL_TYPE = 2
+public val TUNNEL_TYPE_DIRECT: TunnelType = 2
 
-public val TUNNEL_TYPE_IPHTTPS: TUNNEL_TYPE = 15
+public val TUNNEL_TYPE_IPHTTPS: TunnelType = 15
 
-public val TUNNEL_TYPE_ISATAP: TUNNEL_TYPE = 13
+public val TUNNEL_TYPE_ISATAP: TunnelType = 13
 
-public val TUNNEL_TYPE_NONE: TUNNEL_TYPE = 0
+public val TUNNEL_TYPE_NONE: TunnelType = 0
 
-public val TUNNEL_TYPE_OTHER: TUNNEL_TYPE = 1
+public val TUNNEL_TYPE_OTHER: TunnelType = 1
 
-public val TUNNEL_TYPE_TEREDO: TUNNEL_TYPE = 14
+public val TUNNEL_TYPE_TEREDO: TunnelType = 14
 
-public val UNSPECIFIED_NETWORK_GUID: GUID = GUID.from_u128(U128(0x12ba5bde143e4c0duL, 0xb66d2379bb141913uL))
+public val UNSPECIFIED_NETWORK_GUID: Guid = Guid.fromU128(U128(0x12ba5bde143e4c0duL, 0xb66d2379bb141913uL))
 
 public val WAN_PROTOCOL_KEEPS_STATS: UInt = 1u
 
-public val fNDIS_GUID_ALLOW_READ: UInt = 32u
+public val F_NDIS_GUID_ALLOW_READ: UInt = 32u
 
-public val fNDIS_GUID_ALLOW_WRITE: UInt = 64u
+public val F_NDIS_GUID_ALLOW_WRITE: UInt = 64u
 
-public val fNDIS_GUID_ANSI_STRING: UInt = 4u
+public val F_NDIS_GUID_ANSI_STRING: UInt = 4u
 
-public val fNDIS_GUID_ARRAY: UInt = 16u
+public val F_NDIS_GUID_ARRAY: UInt = 16u
 
-public val fNDIS_GUID_METHOD: UInt = 128u
+public val F_NDIS_GUID_METHOD: UInt = 128u
 
-public val fNDIS_GUID_NDIS_RESERVED: UInt = 256u
+public val F_NDIS_GUID_NDIS_RESERVED: UInt = 256u
 
-public val fNDIS_GUID_SUPPORT_COMMON_HEADER: UInt = 512u
+public val F_NDIS_GUID_SUPPORT_COMMON_HEADER: UInt = 512u
 
-public val fNDIS_GUID_TO_OID: UInt = 1u
+public val F_NDIS_GUID_TO_OID: UInt = 1u
 
-public val fNDIS_GUID_TO_STATUS: UInt = 2u
+public val F_NDIS_GUID_TO_STATUS: UInt = 2u
 
-public val fNDIS_GUID_UNICODE_STRING: UInt = 8u
+public val F_NDIS_GUID_UNICODE_STRING: UInt = 8u

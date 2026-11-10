@@ -2,66 +2,67 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.magnification
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.RECT
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
 
 private val _windowsWin32UiMagnificationNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun MagGetColorEffect(hwnd: HWND, peffect: Long): BOOL =
-    if (_windowsWin32UiMagnificationNapiAddon != null) (_windowsWin32UiMagnificationNapiAddon.windowssys_windows_win32_ui_magnification_MagGetColorEffect(hwnd.toString(), peffect.toString()) as Int) else 0
+public actual fun magGetColorEffect(hwnd: Hwnd, peffect: COpaquePointer?): Bool =
+    if (_windowsWin32UiMagnificationNapiAddon != null) (_windowsWin32UiMagnificationNapiAddon.windowssys_windows_win32_ui_magnification_magGetColorEffect((hwnd?.value ?: 0L).toString(), (peffect?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MagGetFullscreenColorEffect(peffect: Long): BOOL =
-    if (_windowsWin32UiMagnificationNapiAddon != null) (_windowsWin32UiMagnificationNapiAddon.windowssys_windows_win32_ui_magnification_MagGetFullscreenColorEffect(peffect.toString()) as Int) else 0
+public actual fun magGetFullscreenColorEffect(peffect: COpaquePointer?): Bool =
+    if (_windowsWin32UiMagnificationNapiAddon != null) (_windowsWin32UiMagnificationNapiAddon.windowssys_windows_win32_ui_magnification_magGetFullscreenColorEffect((peffect?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MagGetFullscreenTransform(pmaglevel: Long, pxoffset: Long, pyoffset: Long): BOOL =
-    if (_windowsWin32UiMagnificationNapiAddon != null) (_windowsWin32UiMagnificationNapiAddon.windowssys_windows_win32_ui_magnification_MagGetFullscreenTransform(pmaglevel.toString(), pxoffset.toString(), pyoffset.toString()) as Int) else 0
+public actual fun magGetFullscreenTransform(pmaglevel: COpaquePointer?, pxoffset: COpaquePointer?, pyoffset: COpaquePointer?): Bool =
+    if (_windowsWin32UiMagnificationNapiAddon != null) (_windowsWin32UiMagnificationNapiAddon.windowssys_windows_win32_ui_magnification_magGetFullscreenTransform((pmaglevel?.value ?: 0L).toString(), (pxoffset?.value ?: 0L).toString(), (pyoffset?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MagGetImageScalingCallback(hwnd: HWND): MagImageScalingCallback =
-    if (_windowsWin32UiMagnificationNapiAddon != null) (_windowsWin32UiMagnificationNapiAddon.windowssys_windows_win32_ui_magnification_MagGetImageScalingCallback(hwnd.toString()) as String).toLong() else null
+public actual fun magGetImageScalingCallback(hwnd: Hwnd): MagImageScalingCallback =
+    if (_windowsWin32UiMagnificationNapiAddon != null) null else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MagGetInputTransform(pfenabled: Long, prectsource: Long, prectdest: Long): BOOL =
-    if (_windowsWin32UiMagnificationNapiAddon != null) (_windowsWin32UiMagnificationNapiAddon.windowssys_windows_win32_ui_magnification_MagGetInputTransform(pfenabled.toString(), prectsource.toString(), prectdest.toString()) as Int) else 0
+public actual fun magGetInputTransform(pfenabled: COpaquePointer?, prectsource: COpaquePointer?, prectdest: COpaquePointer?): Bool =
+    if (_windowsWin32UiMagnificationNapiAddon != null) (_windowsWin32UiMagnificationNapiAddon.windowssys_windows_win32_ui_magnification_magGetInputTransform((pfenabled?.value ?: 0L).toString(), (prectsource?.value ?: 0L).toString(), (prectdest?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MagGetWindowFilterList(hwnd: HWND, pdwfiltermode: Long, count: Int, phwnd: Long): Int =
-    if (_windowsWin32UiMagnificationNapiAddon != null) (_windowsWin32UiMagnificationNapiAddon.windowssys_windows_win32_ui_magnification_MagGetWindowFilterList(hwnd.toString(), pdwfiltermode.toString(), count, phwnd.toString()) as Int) else 0
+public actual fun magGetWindowFilterList(hwnd: Hwnd, pdwfiltermode: COpaquePointer?, count: Int, phwnd: COpaquePointer?): Int =
+    if (_windowsWin32UiMagnificationNapiAddon != null) (_windowsWin32UiMagnificationNapiAddon.windowssys_windows_win32_ui_magnification_magGetWindowFilterList((hwnd?.value ?: 0L).toString(), (pdwfiltermode?.value ?: 0L).toString(), count, (phwnd?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MagGetWindowSource(hwnd: HWND, prect: Long): BOOL =
-    if (_windowsWin32UiMagnificationNapiAddon != null) (_windowsWin32UiMagnificationNapiAddon.windowssys_windows_win32_ui_magnification_MagGetWindowSource(hwnd.toString(), prect.toString()) as Int) else 0
+public actual fun magGetWindowSource(hwnd: Hwnd, prect: COpaquePointer?): Bool =
+    if (_windowsWin32UiMagnificationNapiAddon != null) (_windowsWin32UiMagnificationNapiAddon.windowssys_windows_win32_ui_magnification_magGetWindowSource((hwnd?.value ?: 0L).toString(), (prect?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MagGetWindowTransform(hwnd: HWND, ptransform: Long): BOOL =
-    if (_windowsWin32UiMagnificationNapiAddon != null) (_windowsWin32UiMagnificationNapiAddon.windowssys_windows_win32_ui_magnification_MagGetWindowTransform(hwnd.toString(), ptransform.toString()) as Int) else 0
+public actual fun magGetWindowTransform(hwnd: Hwnd, ptransform: COpaquePointer?): Bool =
+    if (_windowsWin32UiMagnificationNapiAddon != null) (_windowsWin32UiMagnificationNapiAddon.windowssys_windows_win32_ui_magnification_magGetWindowTransform((hwnd?.value ?: 0L).toString(), (ptransform?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MagInitialize(): BOOL =
-    if (_windowsWin32UiMagnificationNapiAddon != null) (_windowsWin32UiMagnificationNapiAddon.windowssys_windows_win32_ui_magnification_MagInitialize() as Int) else 0
+public actual fun magInitialize(): Bool =
+    if (_windowsWin32UiMagnificationNapiAddon != null) (_windowsWin32UiMagnificationNapiAddon.windowssys_windows_win32_ui_magnification_magInitialize() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MagSetColorEffect(hwnd: HWND, peffect: Long): BOOL =
-    if (_windowsWin32UiMagnificationNapiAddon != null) (_windowsWin32UiMagnificationNapiAddon.windowssys_windows_win32_ui_magnification_MagSetColorEffect(hwnd.toString(), peffect.toString()) as Int) else 0
+public actual fun magSetColorEffect(hwnd: Hwnd, peffect: COpaquePointer?): Bool =
+    if (_windowsWin32UiMagnificationNapiAddon != null) (_windowsWin32UiMagnificationNapiAddon.windowssys_windows_win32_ui_magnification_magSetColorEffect((hwnd?.value ?: 0L).toString(), (peffect?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MagSetFullscreenColorEffect(peffect: Long): BOOL =
-    if (_windowsWin32UiMagnificationNapiAddon != null) (_windowsWin32UiMagnificationNapiAddon.windowssys_windows_win32_ui_magnification_MagSetFullscreenColorEffect(peffect.toString()) as Int) else 0
+public actual fun magSetFullscreenColorEffect(peffect: COpaquePointer?): Bool =
+    if (_windowsWin32UiMagnificationNapiAddon != null) (_windowsWin32UiMagnificationNapiAddon.windowssys_windows_win32_ui_magnification_magSetFullscreenColorEffect((peffect?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MagSetFullscreenTransform(maglevel: Float, xoffset: Int, yoffset: Int): BOOL =
-    if (_windowsWin32UiMagnificationNapiAddon != null) (_windowsWin32UiMagnificationNapiAddon.windowssys_windows_win32_ui_magnification_MagSetFullscreenTransform(maglevel.toDouble(), xoffset, yoffset) as Int) else 0
+public actual fun magSetFullscreenTransform(maglevel: Float, xoffset: Int, yoffset: Int): Bool =
+    if (_windowsWin32UiMagnificationNapiAddon != null) (_windowsWin32UiMagnificationNapiAddon.windowssys_windows_win32_ui_magnification_magSetFullscreenTransform(maglevel.toDouble(), xoffset, yoffset) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MagSetImageScalingCallback(hwnd: HWND, callback: MagImageScalingCallback): BOOL =
-    if (_windowsWin32UiMagnificationNapiAddon != null) (_windowsWin32UiMagnificationNapiAddon.windowssys_windows_win32_ui_magnification_MagSetImageScalingCallback(hwnd.toString(), callback.toLong().toString()) as Int) else 0
+public actual fun magSetImageScalingCallback(hwnd: Hwnd, callback: MagImageScalingCallback): Bool =
+    if (_windowsWin32UiMagnificationNapiAddon != null) (_windowsWin32UiMagnificationNapiAddon.windowssys_windows_win32_ui_magnification_magSetImageScalingCallback((hwnd?.value ?: 0L).toString(), 0L.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MagSetInputTransform(fenabled: BOOL, prectsource: Long, prectdest: Long): BOOL =
-    if (_windowsWin32UiMagnificationNapiAddon != null) (_windowsWin32UiMagnificationNapiAddon.windowssys_windows_win32_ui_magnification_MagSetInputTransform(fenabled, prectsource.toString(), prectdest.toString()) as Int) else 0
+public actual fun magSetInputTransform(fenabled: Bool, prectsource: COpaquePointer?, prectdest: COpaquePointer?): Bool =
+    if (_windowsWin32UiMagnificationNapiAddon != null) (_windowsWin32UiMagnificationNapiAddon.windowssys_windows_win32_ui_magnification_magSetInputTransform(fenabled, (prectsource?.value ?: 0L).toString(), (prectdest?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MagSetWindowFilterList(hwnd: HWND, dwfiltermode: MW_FILTERMODE, count: Int, phwnd: Long): BOOL =
-    if (_windowsWin32UiMagnificationNapiAddon != null) (_windowsWin32UiMagnificationNapiAddon.windowssys_windows_win32_ui_magnification_MagSetWindowFilterList(hwnd.toString(), dwfiltermode.toInt(), count, phwnd.toString()) as Int) else 0
+public actual fun magSetWindowFilterList(hwnd: Hwnd, dwfiltermode: MwFiltermode, count: Int, phwnd: COpaquePointer?): Bool =
+    if (_windowsWin32UiMagnificationNapiAddon != null) (_windowsWin32UiMagnificationNapiAddon.windowssys_windows_win32_ui_magnification_magSetWindowFilterList((hwnd?.value ?: 0L).toString(), dwfiltermode.toInt(), count, (phwnd?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MagSetWindowSource(hwnd: HWND, rect: RECT): BOOL =
-    0
+public actual fun magSetWindowSource(hwnd: Hwnd, rect: Rect): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MagSetWindowTransform(hwnd: HWND, ptransform: Long): BOOL =
-    if (_windowsWin32UiMagnificationNapiAddon != null) (_windowsWin32UiMagnificationNapiAddon.windowssys_windows_win32_ui_magnification_MagSetWindowTransform(hwnd.toString(), ptransform.toString()) as Int) else 0
+public actual fun magSetWindowTransform(hwnd: Hwnd, ptransform: COpaquePointer?): Bool =
+    if (_windowsWin32UiMagnificationNapiAddon != null) (_windowsWin32UiMagnificationNapiAddon.windowssys_windows_win32_ui_magnification_magSetWindowTransform((hwnd?.value ?: 0L).toString(), (ptransform?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MagShowSystemCursor(fshowcursor: BOOL): BOOL =
-    if (_windowsWin32UiMagnificationNapiAddon != null) (_windowsWin32UiMagnificationNapiAddon.windowssys_windows_win32_ui_magnification_MagShowSystemCursor(fshowcursor) as Int) else 0
+public actual fun magShowSystemCursor(fshowcursor: Bool): Bool =
+    if (_windowsWin32UiMagnificationNapiAddon != null) (_windowsWin32UiMagnificationNapiAddon.windowssys_windows_win32_ui_magnification_magShowSystemCursor(fshowcursor) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MagUninitialize(): BOOL =
-    if (_windowsWin32UiMagnificationNapiAddon != null) (_windowsWin32UiMagnificationNapiAddon.windowssys_windows_win32_ui_magnification_MagUninitialize() as Int) else 0
+public actual fun magUninitialize(): Bool =
+    if (_windowsWin32UiMagnificationNapiAddon != null) (_windowsWin32UiMagnificationNapiAddon.windowssys_windows_win32_ui_magnification_magUninitialize() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

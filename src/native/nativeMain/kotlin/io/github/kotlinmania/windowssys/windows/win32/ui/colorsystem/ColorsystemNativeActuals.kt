@@ -2,380 +2,381 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.COLORREF
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LUID
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HPALETTE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Colorref
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Luid
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hpalette
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun AssociateColorProfileWithDeviceA(pmachinename: PCSTR, pprofilename: PCSTR, pdevicename: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_AssociateColorProfileWithDeviceA(pmachinename.toCPointer<ByteVar>(), pprofilename.toCPointer<ByteVar>(), pdevicename.toCPointer<ByteVar>())
+public actual fun associateColorProfileWithDeviceA(pmachinename: Pcstr, pprofilename: Pcstr, pdevicename: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_associateColorProfileWithDeviceA(pmachinename?.value?.toCPointer<ByteVar>(), pprofilename?.value?.toCPointer<ByteVar>(), pdevicename?.value?.toCPointer<ByteVar>())
 
-public actual fun AssociateColorProfileWithDeviceW(pmachinename: PCWSTR, pprofilename: PCWSTR, pdevicename: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_AssociateColorProfileWithDeviceW(pmachinename.toCPointer<ByteVar>(), pprofilename.toCPointer<ByteVar>(), pdevicename.toCPointer<ByteVar>())
+public actual fun associateColorProfileWithDeviceW(pmachinename: Pcwstr, pprofilename: Pcwstr, pdevicename: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_associateColorProfileWithDeviceW(pmachinename?.value?.toCPointer<ByteVar>(), pprofilename?.value?.toCPointer<ByteVar>(), pdevicename?.value?.toCPointer<ByteVar>())
 
-public actual fun CMCheckColors(hcmtransform: Long, lpainputcolors: Long, ncolors: UInt, ctinput: COLORTYPE, lparesult: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_CMCheckColors(hcmtransform, lpainputcolors.toCPointer<ByteVar>(), ncolors, ctinput, lparesult.toCPointer<ByteVar>())
+public actual fun cMCheckColors(hcmtransform: Long, lpainputcolors: COpaquePointer?, ncolors: UInt, ctinput: Colortype, lparesult: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_cMCheckColors(hcmtransform, lpainputcolors?.value?.toCPointer<ByteVar>(), ncolors, ctinput, lparesult?.value?.toCPointer<ByteVar>())
 
-public actual fun CMCheckColorsInGamut(hcmtransform: Long, lpargbtriple: Long, lparesult: Long, ncount: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_CMCheckColorsInGamut(hcmtransform, lpargbtriple.toCPointer<ByteVar>(), lparesult.toCPointer<ByteVar>(), ncount)
+public actual fun cMCheckColorsInGamut(hcmtransform: Long, lpargbtriple: COpaquePointer?, lparesult: COpaquePointer?, ncount: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_cMCheckColorsInGamut(hcmtransform, lpargbtriple?.value?.toCPointer<ByteVar>(), lparesult?.value?.toCPointer<ByteVar>(), ncount)
 
-public actual fun CMCheckRGBs(hcmtransform: Long, lpsrcbits: Long, bminput: BMFORMAT, dwwidth: UInt, dwheight: UInt, dwstride: UInt, lparesult: Long, pfncallback: LPBMCALLBACKFN, ulcallbackdata: LPARAM): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_CMCheckRGBs(hcmtransform, lpsrcbits.toCPointer<ByteVar>(), bminput, dwwidth, dwheight, dwstride, lparesult.toCPointer<ByteVar>(), pfncallback.toLong().toCPointer<ByteVar>(), ulcallbackdata)
+public actual fun cMCheckRGBs(hcmtransform: Long, lpsrcbits: COpaquePointer?, bminput: Bmformat, dwwidth: UInt, dwheight: UInt, dwstride: UInt, lparesult: COpaquePointer?, pfncallback: Lpbmcallbackfn, ulcallbackdata: Lparam): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_cMCheckRGBs(hcmtransform, lpsrcbits?.value?.toCPointer<ByteVar>(), bminput, dwwidth, dwheight, dwstride, lparesult?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), ulcallbackdata)
 
-public actual fun CMConvertColorNameToIndex(hprofile: Long, pacolorname: Long, paindex: Long, dwcount: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_CMConvertColorNameToIndex(hprofile, pacolorname.toCPointer<ByteVar>(), paindex.toCPointer<ByteVar>(), dwcount)
+public actual fun cMConvertColorNameToIndex(hprofile: Long, pacolorname: COpaquePointer?, paindex: COpaquePointer?, dwcount: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_cMConvertColorNameToIndex(hprofile, pacolorname?.value?.toCPointer<ByteVar>(), paindex?.value?.toCPointer<ByteVar>(), dwcount)
 
-public actual fun CMConvertIndexToColorName(hprofile: Long, paindex: Long, pacolorname: Long, dwcount: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_CMConvertIndexToColorName(hprofile, paindex.toCPointer<ByteVar>(), pacolorname.toCPointer<ByteVar>(), dwcount)
+public actual fun cMConvertIndexToColorName(hprofile: Long, paindex: COpaquePointer?, pacolorname: COpaquePointer?, dwcount: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_cMConvertIndexToColorName(hprofile, paindex?.value?.toCPointer<ByteVar>(), pacolorname?.value?.toCPointer<ByteVar>(), dwcount)
 
-public actual fun CMCreateDeviceLinkProfile(pahprofiles: Long, nprofiles: UInt, padwintents: Long, nintents: UInt, dwflags: UInt, lpprofiledata: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_CMCreateDeviceLinkProfile(pahprofiles.toCPointer<ByteVar>(), nprofiles, padwintents.toCPointer<ByteVar>(), nintents, dwflags, lpprofiledata.toCPointer<ByteVar>())
+public actual fun cMCreateDeviceLinkProfile(pahprofiles: COpaquePointer?, nprofiles: UInt, padwintents: COpaquePointer?, nintents: UInt, dwflags: UInt, lpprofiledata: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_cMCreateDeviceLinkProfile(pahprofiles?.value?.toCPointer<ByteVar>(), nprofiles, padwintents?.value?.toCPointer<ByteVar>(), nintents, dwflags, lpprofiledata?.value?.toCPointer<ByteVar>())
 
-public actual fun CMCreateMultiProfileTransform(pahprofiles: Long, nprofiles: UInt, padwintents: Long, nintents: UInt, dwflags: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_CMCreateMultiProfileTransform(pahprofiles.toCPointer<ByteVar>(), nprofiles, padwintents.toCPointer<ByteVar>(), nintents, dwflags)
+public actual fun cMCreateMultiProfileTransform(pahprofiles: COpaquePointer?, nprofiles: UInt, padwintents: COpaquePointer?, nintents: UInt, dwflags: UInt): Long =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_cMCreateMultiProfileTransform(pahprofiles?.value?.toCPointer<ByteVar>(), nprofiles, padwintents?.value?.toCPointer<ByteVar>(), nintents, dwflags)
 
-public actual fun CMCreateProfile(lpcolorspace: Long, lpprofiledata: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_CMCreateProfile(lpcolorspace.toCPointer<ByteVar>(), lpprofiledata.toCPointer<ByteVar>())
+public actual fun cMCreateProfile(lpcolorspace: COpaquePointer?, lpprofiledata: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_cMCreateProfile(lpcolorspace?.value?.toCPointer<ByteVar>(), lpprofiledata?.value?.toCPointer<ByteVar>())
 
-public actual fun CMCreateProfileW(lpcolorspace: Long, lpprofiledata: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_CMCreateProfileW(lpcolorspace.toCPointer<ByteVar>(), lpprofiledata.toCPointer<ByteVar>())
+public actual fun cMCreateProfileW(lpcolorspace: COpaquePointer?, lpprofiledata: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_cMCreateProfileW(lpcolorspace?.value?.toCPointer<ByteVar>(), lpprofiledata?.value?.toCPointer<ByteVar>())
 
-public actual fun CMCreateTransform(lpcolorspace: Long, lpdevcharacter: Long, lptargetdevcharacter: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_CMCreateTransform(lpcolorspace.toCPointer<ByteVar>(), lpdevcharacter.toCPointer<ByteVar>(), lptargetdevcharacter.toCPointer<ByteVar>())
+public actual fun cMCreateTransform(lpcolorspace: COpaquePointer?, lpdevcharacter: COpaquePointer?, lptargetdevcharacter: COpaquePointer?): Long =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_cMCreateTransform(lpcolorspace?.value?.toCPointer<ByteVar>(), lpdevcharacter?.value?.toCPointer<ByteVar>(), lptargetdevcharacter?.value?.toCPointer<ByteVar>())
 
-public actual fun CMCreateTransformExt(lpcolorspace: Long, lpdevcharacter: Long, lptargetdevcharacter: Long, dwflags: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_CMCreateTransformExt(lpcolorspace.toCPointer<ByteVar>(), lpdevcharacter.toCPointer<ByteVar>(), lptargetdevcharacter.toCPointer<ByteVar>(), dwflags)
+public actual fun cMCreateTransformExt(lpcolorspace: COpaquePointer?, lpdevcharacter: COpaquePointer?, lptargetdevcharacter: COpaquePointer?, dwflags: UInt): Long =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_cMCreateTransformExt(lpcolorspace?.value?.toCPointer<ByteVar>(), lpdevcharacter?.value?.toCPointer<ByteVar>(), lptargetdevcharacter?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun CMCreateTransformExtW(lpcolorspace: Long, lpdevcharacter: Long, lptargetdevcharacter: Long, dwflags: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_CMCreateTransformExtW(lpcolorspace.toCPointer<ByteVar>(), lpdevcharacter.toCPointer<ByteVar>(), lptargetdevcharacter.toCPointer<ByteVar>(), dwflags)
+public actual fun cMCreateTransformExtW(lpcolorspace: COpaquePointer?, lpdevcharacter: COpaquePointer?, lptargetdevcharacter: COpaquePointer?, dwflags: UInt): Long =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_cMCreateTransformExtW(lpcolorspace?.value?.toCPointer<ByteVar>(), lpdevcharacter?.value?.toCPointer<ByteVar>(), lptargetdevcharacter?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun CMCreateTransformW(lpcolorspace: Long, lpdevcharacter: Long, lptargetdevcharacter: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_CMCreateTransformW(lpcolorspace.toCPointer<ByteVar>(), lpdevcharacter.toCPointer<ByteVar>(), lptargetdevcharacter.toCPointer<ByteVar>())
+public actual fun cMCreateTransformW(lpcolorspace: COpaquePointer?, lpdevcharacter: COpaquePointer?, lptargetdevcharacter: COpaquePointer?): Long =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_cMCreateTransformW(lpcolorspace?.value?.toCPointer<ByteVar>(), lpdevcharacter?.value?.toCPointer<ByteVar>(), lptargetdevcharacter?.value?.toCPointer<ByteVar>())
 
-public actual fun CMDeleteTransform(hcmtransform: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_CMDeleteTransform(hcmtransform)
+public actual fun cMDeleteTransform(hcmtransform: Long): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_cMDeleteTransform(hcmtransform)
 
-public actual fun CMGetInfo(dwinfo: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_CMGetInfo(dwinfo)
+public actual fun cMGetInfo(dwinfo: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_cMGetInfo(dwinfo)
 
-public actual fun CMGetNamedProfileInfo(hprofile: Long, pnamedprofileinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_CMGetNamedProfileInfo(hprofile, pnamedprofileinfo.toCPointer<ByteVar>())
+public actual fun cMGetNamedProfileInfo(hprofile: Long, pnamedprofileinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_cMGetNamedProfileInfo(hprofile, pnamedprofileinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun CMIsProfileValid(hprofile: Long, lpbvalid: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_CMIsProfileValid(hprofile, lpbvalid.toCPointer<ByteVar>())
+public actual fun cMIsProfileValid(hprofile: Long, lpbvalid: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_cMIsProfileValid(hprofile, lpbvalid?.value?.toCPointer<ByteVar>())
 
-public actual fun CMTranslateColors(hcmtransform: Long, lpainputcolors: Long, ncolors: UInt, ctinput: COLORTYPE, lpaoutputcolors: Long, ctoutput: COLORTYPE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_CMTranslateColors(hcmtransform, lpainputcolors.toCPointer<ByteVar>(), ncolors, ctinput, lpaoutputcolors.toCPointer<ByteVar>(), ctoutput)
+public actual fun cMTranslateColors(hcmtransform: Long, lpainputcolors: COpaquePointer?, ncolors: UInt, ctinput: Colortype, lpaoutputcolors: COpaquePointer?, ctoutput: Colortype): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_cMTranslateColors(hcmtransform, lpainputcolors?.value?.toCPointer<ByteVar>(), ncolors, ctinput, lpaoutputcolors?.value?.toCPointer<ByteVar>(), ctoutput)
 
-public actual fun CMTranslateRGB(hcmtransform: Long, colorref: COLORREF, lpcolorref: Long, dwflags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_CMTranslateRGB(hcmtransform, colorref, lpcolorref.toCPointer<ByteVar>(), dwflags)
+public actual fun cMTranslateRGB(hcmtransform: Long, colorref: Colorref, lpcolorref: COpaquePointer?, dwflags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_cMTranslateRGB(hcmtransform, colorref, lpcolorref?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun CMTranslateRGBs(hcmtransform: Long, lpsrcbits: Long, bminput: BMFORMAT, dwwidth: UInt, dwheight: UInt, dwstride: UInt, lpdestbits: Long, bmoutput: BMFORMAT, dwtranslatedirection: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_CMTranslateRGBs(hcmtransform, lpsrcbits.toCPointer<ByteVar>(), bminput, dwwidth, dwheight, dwstride, lpdestbits.toCPointer<ByteVar>(), bmoutput, dwtranslatedirection)
+public actual fun cMTranslateRGBs(hcmtransform: Long, lpsrcbits: COpaquePointer?, bminput: Bmformat, dwwidth: UInt, dwheight: UInt, dwstride: UInt, lpdestbits: COpaquePointer?, bmoutput: Bmformat, dwtranslatedirection: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_cMTranslateRGBs(hcmtransform, lpsrcbits?.value?.toCPointer<ByteVar>(), bminput, dwwidth, dwheight, dwstride, lpdestbits?.value?.toCPointer<ByteVar>(), bmoutput, dwtranslatedirection)
 
-public actual fun CMTranslateRGBsExt(hcmtransform: Long, lpsrcbits: Long, bminput: BMFORMAT, dwwidth: UInt, dwheight: UInt, dwinputstride: UInt, lpdestbits: Long, bmoutput: BMFORMAT, dwoutputstride: UInt, lpfncallback: LPBMCALLBACKFN, ulcallbackdata: LPARAM): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_CMTranslateRGBsExt(hcmtransform, lpsrcbits.toCPointer<ByteVar>(), bminput, dwwidth, dwheight, dwinputstride, lpdestbits.toCPointer<ByteVar>(), bmoutput, dwoutputstride, lpfncallback.toLong().toCPointer<ByteVar>(), ulcallbackdata)
+public actual fun cMTranslateRGBsExt(hcmtransform: Long, lpsrcbits: COpaquePointer?, bminput: Bmformat, dwwidth: UInt, dwheight: UInt, dwinputstride: UInt, lpdestbits: COpaquePointer?, bmoutput: Bmformat, dwoutputstride: UInt, lpfncallback: Lpbmcallbackfn, ulcallbackdata: Lparam): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_cMTranslateRGBsExt(hcmtransform, lpsrcbits?.value?.toCPointer<ByteVar>(), bminput, dwwidth, dwheight, dwinputstride, lpdestbits?.value?.toCPointer<ByteVar>(), bmoutput, dwoutputstride, 0L.toCPointer<ByteVar>(), ulcallbackdata)
 
-public actual fun CheckBitmapBits(hcolortransform: Long, psrcbits: Long, bminput: BMFORMAT, dwwidth: UInt, dwheight: UInt, dwstride: UInt, paresult: Long, pfncallback: LPBMCALLBACKFN, lpcallbackdata: LPARAM): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_CheckBitmapBits(hcolortransform, psrcbits.toCPointer<ByteVar>(), bminput, dwwidth, dwheight, dwstride, paresult.toCPointer<ByteVar>(), pfncallback.toLong().toCPointer<ByteVar>(), lpcallbackdata)
+public actual fun checkBitmapBits(hcolortransform: Long, psrcbits: COpaquePointer?, bminput: Bmformat, dwwidth: UInt, dwheight: UInt, dwstride: UInt, paresult: COpaquePointer?, pfncallback: Lpbmcallbackfn, lpcallbackdata: Lparam): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_checkBitmapBits(hcolortransform, psrcbits?.value?.toCPointer<ByteVar>(), bminput, dwwidth, dwheight, dwstride, paresult?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), lpcallbackdata)
 
-public actual fun CheckColors(hcolortransform: Long, painputcolors: Long, ncolors: UInt, ctinput: COLORTYPE, paresult: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_CheckColors(hcolortransform, painputcolors.toCPointer<ByteVar>(), ncolors, ctinput, paresult.toCPointer<ByteVar>())
+public actual fun checkColors(hcolortransform: Long, painputcolors: COpaquePointer?, ncolors: UInt, ctinput: Colortype, paresult: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_checkColors(hcolortransform, painputcolors?.value?.toCPointer<ByteVar>(), ncolors, ctinput, paresult?.value?.toCPointer<ByteVar>())
 
-public actual fun CheckColorsInGamut(hdc: HDC, lprgbtriple: Long, dlpbuffer: Long, ncount: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_CheckColorsInGamut(hdc.toCPointer<ByteVar>(), lprgbtriple.toCPointer<ByteVar>(), dlpbuffer.toCPointer<ByteVar>(), ncount)
+public actual fun checkColorsInGamut(hdc: Hdc, lprgbtriple: COpaquePointer?, dlpbuffer: COpaquePointer?, ncount: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_checkColorsInGamut(hdc?.value?.toCPointer<ByteVar>(), lprgbtriple?.value?.toCPointer<ByteVar>(), dlpbuffer?.value?.toCPointer<ByteVar>(), ncount)
 
-public actual fun CloseColorProfile(hprofile: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_CloseColorProfile(hprofile)
+public actual fun closeColorProfile(hprofile: Long): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_closeColorProfile(hprofile)
 
-public actual fun ColorCorrectPalette(hdc: HDC, hpal: HPALETTE, defirst: UInt, num: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_ColorCorrectPalette(hdc.toCPointer<ByteVar>(), hpal.toCPointer<ByteVar>(), defirst, num)
+public actual fun colorCorrectPalette(hdc: Hdc, hpal: Hpalette, defirst: UInt, num: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_colorCorrectPalette(hdc?.value?.toCPointer<ByteVar>(), hpal?.value?.toCPointer<ByteVar>(), defirst, num)
 
-public actual fun ColorMatchToTarget(hdc: HDC, hdctarget: HDC, action: COLOR_MATCH_TO_TARGET_ACTION): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_ColorMatchToTarget(hdc.toCPointer<ByteVar>(), hdctarget.toCPointer<ByteVar>(), action)
+public actual fun colorMatchToTarget(hdc: Hdc, hdctarget: Hdc, action: ColorMatchToTargetAction): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_colorMatchToTarget(hdc?.value?.toCPointer<ByteVar>(), hdctarget?.value?.toCPointer<ByteVar>(), action)
 
-public actual fun ColorProfileAddDisplayAssociation(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: PCWSTR, targetadapterid: LUID, sourceid: UInt, setasdefault: BOOL, associateasadvancedcolor: BOOL): HRESULT =
+public actual fun colorProfileAddDisplayAssociation(scope: WcsProfileManagementScope, profilename: Pcwstr, targetadapterid: Luid, sourceid: UInt, setasdefault: Bool, associateasadvancedcolor: Bool): Hresult =
     0
 
-public actual fun ColorProfileGetDisplayDefault(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: LUID, sourceid: UInt, profiletype: COLORPROFILETYPE, profilesubtype: COLORPROFILESUBTYPE, profilename: Long): HRESULT =
+public actual fun colorProfileGetDisplayDefault(scope: WcsProfileManagementScope, targetadapterid: Luid, sourceid: UInt, profiletype: Colorprofiletype, profilesubtype: Colorprofilesubtype, profilename: COpaquePointer?): Hresult =
     0
 
-public actual fun ColorProfileGetDisplayList(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: LUID, sourceid: UInt, profilelist: Long, profilecount: Long): HRESULT =
+public actual fun colorProfileGetDisplayList(scope: WcsProfileManagementScope, targetadapterid: Luid, sourceid: UInt, profilelist: COpaquePointer?, profilecount: COpaquePointer?): Hresult =
     0
 
-public actual fun ColorProfileGetDisplayUserScope(targetadapterid: LUID, sourceid: UInt, scope: Long): HRESULT =
+public actual fun colorProfileGetDisplayUserScope(targetadapterid: Luid, sourceid: UInt, scope: COpaquePointer?): Hresult =
     0
 
-public actual fun ColorProfileRemoveDisplayAssociation(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: PCWSTR, targetadapterid: LUID, sourceid: UInt, dissociateadvancedcolor: BOOL): HRESULT =
+public actual fun colorProfileRemoveDisplayAssociation(scope: WcsProfileManagementScope, profilename: Pcwstr, targetadapterid: Luid, sourceid: UInt, dissociateadvancedcolor: Bool): Hresult =
     0
 
-public actual fun ColorProfileSetDisplayDefaultAssociation(scope: WCS_PROFILE_MANAGEMENT_SCOPE, profilename: PCWSTR, profiletype: COLORPROFILETYPE, profilesubtype: COLORPROFILESUBTYPE, targetadapterid: LUID, sourceid: UInt): HRESULT =
+public actual fun colorProfileSetDisplayDefaultAssociation(scope: WcsProfileManagementScope, profilename: Pcwstr, profiletype: Colorprofiletype, profilesubtype: Colorprofilesubtype, targetadapterid: Luid, sourceid: UInt): Hresult =
     0
 
-public actual fun ConvertColorNameToIndex(hprofile: Long, pacolorname: Long, paindex: Long, dwcount: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_ConvertColorNameToIndex(hprofile, pacolorname.toCPointer<ByteVar>(), paindex.toCPointer<ByteVar>(), dwcount)
+public actual fun convertColorNameToIndex(hprofile: Long, pacolorname: COpaquePointer?, paindex: COpaquePointer?, dwcount: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_convertColorNameToIndex(hprofile, pacolorname?.value?.toCPointer<ByteVar>(), paindex?.value?.toCPointer<ByteVar>(), dwcount)
 
-public actual fun ConvertIndexToColorName(hprofile: Long, paindex: Long, pacolorname: Long, dwcount: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_ConvertIndexToColorName(hprofile, paindex.toCPointer<ByteVar>(), pacolorname.toCPointer<ByteVar>(), dwcount)
+public actual fun convertIndexToColorName(hprofile: Long, paindex: COpaquePointer?, pacolorname: COpaquePointer?, dwcount: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_convertIndexToColorName(hprofile, paindex?.value?.toCPointer<ByteVar>(), pacolorname?.value?.toCPointer<ByteVar>(), dwcount)
 
-public actual fun CreateColorSpaceA(lplcs: Long): HCOLORSPACE =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_CreateColorSpaceA(lplcs.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createColorSpaceA(lplcs: COpaquePointer?): Hcolorspace =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_createColorSpaceA(lplcs?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateColorSpaceW(lplcs: Long): HCOLORSPACE =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_CreateColorSpaceW(lplcs.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createColorSpaceW(lplcs: COpaquePointer?): Hcolorspace =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_createColorSpaceW(lplcs?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateColorTransformA(plogcolorspace: Long, hdestprofile: Long, htargetprofile: Long, dwflags: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_CreateColorTransformA(plogcolorspace.toCPointer<ByteVar>(), hdestprofile, htargetprofile, dwflags)
+public actual fun createColorTransformA(plogcolorspace: COpaquePointer?, hdestprofile: Long, htargetprofile: Long, dwflags: UInt): Long =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_createColorTransformA(plogcolorspace?.value?.toCPointer<ByteVar>(), hdestprofile, htargetprofile, dwflags)
 
-public actual fun CreateColorTransformW(plogcolorspace: Long, hdestprofile: Long, htargetprofile: Long, dwflags: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_CreateColorTransformW(plogcolorspace.toCPointer<ByteVar>(), hdestprofile, htargetprofile, dwflags)
+public actual fun createColorTransformW(plogcolorspace: COpaquePointer?, hdestprofile: Long, htargetprofile: Long, dwflags: UInt): Long =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_createColorTransformW(plogcolorspace?.value?.toCPointer<ByteVar>(), hdestprofile, htargetprofile, dwflags)
 
-public actual fun CreateDeviceLinkProfile(hprofile: Long, nprofiles: UInt, padwintent: Long, nintents: UInt, dwflags: UInt, pprofiledata: Long, indexpreferredcmm: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_CreateDeviceLinkProfile(hprofile.toCPointer<ByteVar>(), nprofiles, padwintent.toCPointer<ByteVar>(), nintents, dwflags, pprofiledata.toCPointer<ByteVar>(), indexpreferredcmm)
+public actual fun createDeviceLinkProfile(hprofile: COpaquePointer?, nprofiles: UInt, padwintent: COpaquePointer?, nintents: UInt, dwflags: UInt, pprofiledata: COpaquePointer?, indexpreferredcmm: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_createDeviceLinkProfile(hprofile?.value?.toCPointer<ByteVar>(), nprofiles, padwintent?.value?.toCPointer<ByteVar>(), nintents, dwflags, pprofiledata?.value?.toCPointer<ByteVar>(), indexpreferredcmm)
 
-public actual fun CreateMultiProfileTransform(pahprofiles: Long, nprofiles: UInt, padwintent: Long, nintents: UInt, dwflags: UInt, indexpreferredcmm: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_CreateMultiProfileTransform(pahprofiles.toCPointer<ByteVar>(), nprofiles, padwintent.toCPointer<ByteVar>(), nintents, dwflags, indexpreferredcmm)
+public actual fun createMultiProfileTransform(pahprofiles: COpaquePointer?, nprofiles: UInt, padwintent: COpaquePointer?, nintents: UInt, dwflags: UInt, indexpreferredcmm: UInt): Long =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_createMultiProfileTransform(pahprofiles?.value?.toCPointer<ByteVar>(), nprofiles, padwintent?.value?.toCPointer<ByteVar>(), nintents, dwflags, indexpreferredcmm)
 
-public actual fun CreateProfileFromLogColorSpaceA(plogcolorspace: Long, pprofile: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_CreateProfileFromLogColorSpaceA(plogcolorspace.toCPointer<ByteVar>(), pprofile.toCPointer<ByteVar>())
+public actual fun createProfileFromLogColorSpaceA(plogcolorspace: COpaquePointer?, pprofile: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_createProfileFromLogColorSpaceA(plogcolorspace?.value?.toCPointer<ByteVar>(), pprofile?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateProfileFromLogColorSpaceW(plogcolorspace: Long, pprofile: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_CreateProfileFromLogColorSpaceW(plogcolorspace.toCPointer<ByteVar>(), pprofile.toCPointer<ByteVar>())
+public actual fun createProfileFromLogColorSpaceW(plogcolorspace: COpaquePointer?, pprofile: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_createProfileFromLogColorSpaceW(plogcolorspace?.value?.toCPointer<ByteVar>(), pprofile?.value?.toCPointer<ByteVar>())
 
-public actual fun DeleteColorSpace(hcs: HCOLORSPACE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_DeleteColorSpace(hcs.toCPointer<ByteVar>())
+public actual fun deleteColorSpace(hcs: Hcolorspace): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_deleteColorSpace(hcs?.value?.toCPointer<ByteVar>())
 
-public actual fun DeleteColorTransform(hxform: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_DeleteColorTransform(hxform)
+public actual fun deleteColorTransform(hxform: Long): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_deleteColorTransform(hxform)
 
-public actual fun DisassociateColorProfileFromDeviceA(pmachinename: PCSTR, pprofilename: PCSTR, pdevicename: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_DisassociateColorProfileFromDeviceA(pmachinename.toCPointer<ByteVar>(), pprofilename.toCPointer<ByteVar>(), pdevicename.toCPointer<ByteVar>())
+public actual fun disassociateColorProfileFromDeviceA(pmachinename: Pcstr, pprofilename: Pcstr, pdevicename: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_disassociateColorProfileFromDeviceA(pmachinename?.value?.toCPointer<ByteVar>(), pprofilename?.value?.toCPointer<ByteVar>(), pdevicename?.value?.toCPointer<ByteVar>())
 
-public actual fun DisassociateColorProfileFromDeviceW(pmachinename: PCWSTR, pprofilename: PCWSTR, pdevicename: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_DisassociateColorProfileFromDeviceW(pmachinename.toCPointer<ByteVar>(), pprofilename.toCPointer<ByteVar>(), pdevicename.toCPointer<ByteVar>())
+public actual fun disassociateColorProfileFromDeviceW(pmachinename: Pcwstr, pprofilename: Pcwstr, pdevicename: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_disassociateColorProfileFromDeviceW(pmachinename?.value?.toCPointer<ByteVar>(), pprofilename?.value?.toCPointer<ByteVar>(), pdevicename?.value?.toCPointer<ByteVar>())
 
-public actual fun EnumColorProfilesA(pmachinename: PCSTR, penumrecord: Long, penumerationbuffer: Long, pdwsizeofenumerationbuffer: Long, pnprofiles: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_EnumColorProfilesA(pmachinename.toCPointer<ByteVar>(), penumrecord.toCPointer<ByteVar>(), penumerationbuffer.toCPointer<ByteVar>(), pdwsizeofenumerationbuffer.toCPointer<ByteVar>(), pnprofiles.toCPointer<ByteVar>())
+public actual fun enumColorProfilesA(pmachinename: Pcstr, penumrecord: COpaquePointer?, penumerationbuffer: COpaquePointer?, pdwsizeofenumerationbuffer: COpaquePointer?, pnprofiles: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_enumColorProfilesA(pmachinename?.value?.toCPointer<ByteVar>(), penumrecord?.value?.toCPointer<ByteVar>(), penumerationbuffer?.value?.toCPointer<ByteVar>(), pdwsizeofenumerationbuffer?.value?.toCPointer<ByteVar>(), pnprofiles?.value?.toCPointer<ByteVar>())
 
-public actual fun EnumColorProfilesW(pmachinename: PCWSTR, penumrecord: Long, penumerationbuffer: Long, pdwsizeofenumerationbuffer: Long, pnprofiles: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_EnumColorProfilesW(pmachinename.toCPointer<ByteVar>(), penumrecord.toCPointer<ByteVar>(), penumerationbuffer.toCPointer<ByteVar>(), pdwsizeofenumerationbuffer.toCPointer<ByteVar>(), pnprofiles.toCPointer<ByteVar>())
+public actual fun enumColorProfilesW(pmachinename: Pcwstr, penumrecord: COpaquePointer?, penumerationbuffer: COpaquePointer?, pdwsizeofenumerationbuffer: COpaquePointer?, pnprofiles: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_enumColorProfilesW(pmachinename?.value?.toCPointer<ByteVar>(), penumrecord?.value?.toCPointer<ByteVar>(), penumerationbuffer?.value?.toCPointer<ByteVar>(), pdwsizeofenumerationbuffer?.value?.toCPointer<ByteVar>(), pnprofiles?.value?.toCPointer<ByteVar>())
 
-public actual fun EnumICMProfilesA(hdc: HDC, proc: ICMENUMPROCA, param2: LPARAM): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_EnumICMProfilesA(hdc.toCPointer<ByteVar>(), proc.toLong().toCPointer<ByteVar>(), param2)
+public actual fun enumICMProfilesA(hdc: Hdc, proc: Icmenumproca, param2: Lparam): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_enumICMProfilesA(hdc?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), param2)
 
-public actual fun EnumICMProfilesW(hdc: HDC, proc: ICMENUMPROCW, param2: LPARAM): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_EnumICMProfilesW(hdc.toCPointer<ByteVar>(), proc.toLong().toCPointer<ByteVar>(), param2)
+public actual fun enumICMProfilesW(hdc: Hdc, proc: Icmenumprocw, param2: Lparam): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_enumICMProfilesW(hdc?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), param2)
 
-public actual fun GetCMMInfo(hcolortransform: Long, param1: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_GetCMMInfo(hcolortransform, param1)
+public actual fun getCMMInfo(hcolortransform: Long, param1: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_getCMMInfo(hcolortransform, param1)
 
-public actual fun GetColorDirectoryA(pmachinename: PCSTR, pbuffer: PSTR, pdwsize: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_GetColorDirectoryA(pmachinename.toCPointer<ByteVar>(), pbuffer.toCPointer<ByteVar>(), pdwsize.toCPointer<ByteVar>())
+public actual fun getColorDirectoryA(pmachinename: Pcstr, pbuffer: Pstr, pdwsize: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_getColorDirectoryA(pmachinename?.value?.toCPointer<ByteVar>(), pbuffer?.value?.toCPointer<ByteVar>(), pdwsize?.value?.toCPointer<ByteVar>())
 
-public actual fun GetColorDirectoryW(pmachinename: PCWSTR, pbuffer: PWSTR, pdwsize: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_GetColorDirectoryW(pmachinename.toCPointer<ByteVar>(), pbuffer.toCPointer<ByteVar>(), pdwsize.toCPointer<ByteVar>())
+public actual fun getColorDirectoryW(pmachinename: Pcwstr, pbuffer: Pwstr, pdwsize: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_getColorDirectoryW(pmachinename?.value?.toCPointer<ByteVar>(), pbuffer?.value?.toCPointer<ByteVar>(), pdwsize?.value?.toCPointer<ByteVar>())
 
-public actual fun GetColorProfileElement(hprofile: Long, tag: UInt, dwoffset: UInt, pcbelement: Long, pelement: Long, pbreference: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_GetColorProfileElement(hprofile, tag, dwoffset, pcbelement.toCPointer<ByteVar>(), pelement.toCPointer<ByteVar>(), pbreference.toCPointer<ByteVar>())
+public actual fun getColorProfileElement(hprofile: Long, tag: UInt, dwoffset: UInt, pcbelement: COpaquePointer?, pelement: COpaquePointer?, pbreference: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_getColorProfileElement(hprofile, tag, dwoffset, pcbelement?.value?.toCPointer<ByteVar>(), pelement?.value?.toCPointer<ByteVar>(), pbreference?.value?.toCPointer<ByteVar>())
 
-public actual fun GetColorProfileElementTag(hprofile: Long, dwindex: UInt, ptag: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_GetColorProfileElementTag(hprofile, dwindex, ptag.toCPointer<ByteVar>())
+public actual fun getColorProfileElementTag(hprofile: Long, dwindex: UInt, ptag: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_getColorProfileElementTag(hprofile, dwindex, ptag?.value?.toCPointer<ByteVar>())
 
-public actual fun GetColorProfileFromHandle(hprofile: Long, pprofile: Long, pcbprofile: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_GetColorProfileFromHandle(hprofile, pprofile.toCPointer<ByteVar>(), pcbprofile.toCPointer<ByteVar>())
+public actual fun getColorProfileFromHandle(hprofile: Long, pprofile: COpaquePointer?, pcbprofile: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_getColorProfileFromHandle(hprofile, pprofile?.value?.toCPointer<ByteVar>(), pcbprofile?.value?.toCPointer<ByteVar>())
 
-public actual fun GetColorProfileHeader(hprofile: Long, pheader: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_GetColorProfileHeader(hprofile, pheader.toCPointer<ByteVar>())
+public actual fun getColorProfileHeader(hprofile: Long, pheader: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_getColorProfileHeader(hprofile, pheader?.value?.toCPointer<ByteVar>())
 
-public actual fun GetColorSpace(hdc: HDC): HCOLORSPACE =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_GetColorSpace(hdc.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun getColorSpace(hdc: Hdc): Hcolorspace =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_getColorSpace(hdc?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GetCountColorProfileElements(hprofile: Long, pnelementcount: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_GetCountColorProfileElements(hprofile, pnelementcount.toCPointer<ByteVar>())
+public actual fun getCountColorProfileElements(hprofile: Long, pnelementcount: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_getCountColorProfileElements(hprofile, pnelementcount?.value?.toCPointer<ByteVar>())
 
-public actual fun GetDeviceGammaRamp(hdc: HDC, lpramp: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_GetDeviceGammaRamp(hdc.toCPointer<ByteVar>(), lpramp.toCPointer<ByteVar>())
+public actual fun getDeviceGammaRamp(hdc: Hdc, lpramp: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_getDeviceGammaRamp(hdc?.value?.toCPointer<ByteVar>(), lpramp?.value?.toCPointer<ByteVar>())
 
-public actual fun GetICMProfileA(hdc: HDC, pbufsize: Long, pszfilename: PSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_GetICMProfileA(hdc.toCPointer<ByteVar>(), pbufsize.toCPointer<ByteVar>(), pszfilename.toCPointer<ByteVar>())
+public actual fun getICMProfileA(hdc: Hdc, pbufsize: COpaquePointer?, pszfilename: Pstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_getICMProfileA(hdc?.value?.toCPointer<ByteVar>(), pbufsize?.value?.toCPointer<ByteVar>(), pszfilename?.value?.toCPointer<ByteVar>())
 
-public actual fun GetICMProfileW(hdc: HDC, pbufsize: Long, pszfilename: PWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_GetICMProfileW(hdc.toCPointer<ByteVar>(), pbufsize.toCPointer<ByteVar>(), pszfilename.toCPointer<ByteVar>())
+public actual fun getICMProfileW(hdc: Hdc, pbufsize: COpaquePointer?, pszfilename: Pwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_getICMProfileW(hdc?.value?.toCPointer<ByteVar>(), pbufsize?.value?.toCPointer<ByteVar>(), pszfilename?.value?.toCPointer<ByteVar>())
 
-public actual fun GetLogColorSpaceA(hcolorspace: HCOLORSPACE, lpbuffer: Long, nsize: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_GetLogColorSpaceA(hcolorspace.toCPointer<ByteVar>(), lpbuffer.toCPointer<ByteVar>(), nsize)
+public actual fun getLogColorSpaceA(hcolorspace: Hcolorspace, lpbuffer: COpaquePointer?, nsize: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_getLogColorSpaceA(hcolorspace?.value?.toCPointer<ByteVar>(), lpbuffer?.value?.toCPointer<ByteVar>(), nsize)
 
-public actual fun GetLogColorSpaceW(hcolorspace: HCOLORSPACE, lpbuffer: Long, nsize: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_GetLogColorSpaceW(hcolorspace.toCPointer<ByteVar>(), lpbuffer.toCPointer<ByteVar>(), nsize)
+public actual fun getLogColorSpaceW(hcolorspace: Hcolorspace, lpbuffer: COpaquePointer?, nsize: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_getLogColorSpaceW(hcolorspace?.value?.toCPointer<ByteVar>(), lpbuffer?.value?.toCPointer<ByteVar>(), nsize)
 
-public actual fun GetNamedProfileInfo(hprofile: Long, pnamedprofileinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_GetNamedProfileInfo(hprofile, pnamedprofileinfo.toCPointer<ByteVar>())
+public actual fun getNamedProfileInfo(hprofile: Long, pnamedprofileinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_getNamedProfileInfo(hprofile, pnamedprofileinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun GetPS2ColorRenderingDictionary(hprofile: Long, dwintent: UInt, pps2colorrenderingdictionary: Long, pcbps2colorrenderingdictionary: Long, pbbinary: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_GetPS2ColorRenderingDictionary(hprofile, dwintent, pps2colorrenderingdictionary.toCPointer<ByteVar>(), pcbps2colorrenderingdictionary.toCPointer<ByteVar>(), pbbinary.toCPointer<ByteVar>())
+public actual fun getPS2ColorRenderingDictionary(hprofile: Long, dwintent: UInt, pps2colorrenderingdictionary: COpaquePointer?, pcbps2colorrenderingdictionary: COpaquePointer?, pbbinary: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_getPS2ColorRenderingDictionary(hprofile, dwintent, pps2colorrenderingdictionary?.value?.toCPointer<ByteVar>(), pcbps2colorrenderingdictionary?.value?.toCPointer<ByteVar>(), pbbinary?.value?.toCPointer<ByteVar>())
 
-public actual fun GetPS2ColorRenderingIntent(hprofile: Long, dwintent: UInt, pbuffer: Long, pcbps2colorrenderingintent: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_GetPS2ColorRenderingIntent(hprofile, dwintent, pbuffer.toCPointer<ByteVar>(), pcbps2colorrenderingintent.toCPointer<ByteVar>())
+public actual fun getPS2ColorRenderingIntent(hprofile: Long, dwintent: UInt, pbuffer: COpaquePointer?, pcbps2colorrenderingintent: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_getPS2ColorRenderingIntent(hprofile, dwintent, pbuffer?.value?.toCPointer<ByteVar>(), pcbps2colorrenderingintent?.value?.toCPointer<ByteVar>())
 
-public actual fun GetPS2ColorSpaceArray(hprofile: Long, dwintent: UInt, dwcsatype: UInt, pps2colorspacearray: Long, pcbps2colorspacearray: Long, pbbinary: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_GetPS2ColorSpaceArray(hprofile, dwintent, dwcsatype, pps2colorspacearray.toCPointer<ByteVar>(), pcbps2colorspacearray.toCPointer<ByteVar>(), pbbinary.toCPointer<ByteVar>())
+public actual fun getPS2ColorSpaceArray(hprofile: Long, dwintent: UInt, dwcsatype: UInt, pps2colorspacearray: COpaquePointer?, pcbps2colorspacearray: COpaquePointer?, pbbinary: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_getPS2ColorSpaceArray(hprofile, dwintent, dwcsatype, pps2colorspacearray?.value?.toCPointer<ByteVar>(), pcbps2colorspacearray?.value?.toCPointer<ByteVar>(), pbbinary?.value?.toCPointer<ByteVar>())
 
-public actual fun GetStandardColorSpaceProfileA(pmachinename: PCSTR, dwscs: UInt, pbuffer: PSTR, pcbsize: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_GetStandardColorSpaceProfileA(pmachinename.toCPointer<ByteVar>(), dwscs, pbuffer.toCPointer<ByteVar>(), pcbsize.toCPointer<ByteVar>())
+public actual fun getStandardColorSpaceProfileA(pmachinename: Pcstr, dwscs: UInt, pbuffer: Pstr, pcbsize: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_getStandardColorSpaceProfileA(pmachinename?.value?.toCPointer<ByteVar>(), dwscs, pbuffer?.value?.toCPointer<ByteVar>(), pcbsize?.value?.toCPointer<ByteVar>())
 
-public actual fun GetStandardColorSpaceProfileW(pmachinename: PCWSTR, dwscs: UInt, pbuffer: PWSTR, pcbsize: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_GetStandardColorSpaceProfileW(pmachinename.toCPointer<ByteVar>(), dwscs, pbuffer.toCPointer<ByteVar>(), pcbsize.toCPointer<ByteVar>())
+public actual fun getStandardColorSpaceProfileW(pmachinename: Pcwstr, dwscs: UInt, pbuffer: Pwstr, pcbsize: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_getStandardColorSpaceProfileW(pmachinename?.value?.toCPointer<ByteVar>(), dwscs, pbuffer?.value?.toCPointer<ByteVar>(), pcbsize?.value?.toCPointer<ByteVar>())
 
-public actual fun InstallColorProfileA(pmachinename: PCSTR, pprofilename: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_InstallColorProfileA(pmachinename.toCPointer<ByteVar>(), pprofilename.toCPointer<ByteVar>())
+public actual fun installColorProfileA(pmachinename: Pcstr, pprofilename: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_installColorProfileA(pmachinename?.value?.toCPointer<ByteVar>(), pprofilename?.value?.toCPointer<ByteVar>())
 
-public actual fun InstallColorProfileW(pmachinename: PCWSTR, pprofilename: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_InstallColorProfileW(pmachinename.toCPointer<ByteVar>(), pprofilename.toCPointer<ByteVar>())
+public actual fun installColorProfileW(pmachinename: Pcwstr, pprofilename: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_installColorProfileW(pmachinename?.value?.toCPointer<ByteVar>(), pprofilename?.value?.toCPointer<ByteVar>())
 
-public actual fun IsColorProfileTagPresent(hprofile: Long, tag: UInt, pbpresent: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_IsColorProfileTagPresent(hprofile, tag, pbpresent.toCPointer<ByteVar>())
+public actual fun isColorProfileTagPresent(hprofile: Long, tag: UInt, pbpresent: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_isColorProfileTagPresent(hprofile, tag, pbpresent?.value?.toCPointer<ByteVar>())
 
-public actual fun IsColorProfileValid(hprofile: Long, pbvalid: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_IsColorProfileValid(hprofile, pbvalid.toCPointer<ByteVar>())
+public actual fun isColorProfileValid(hprofile: Long, pbvalid: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_isColorProfileValid(hprofile, pbvalid?.value?.toCPointer<ByteVar>())
 
-public actual fun OpenColorProfileA(pprofile: Long, dwdesiredaccess: UInt, dwsharemode: UInt, dwcreationmode: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_OpenColorProfileA(pprofile.toCPointer<ByteVar>(), dwdesiredaccess, dwsharemode, dwcreationmode)
+public actual fun openColorProfileA(pprofile: COpaquePointer?, dwdesiredaccess: UInt, dwsharemode: UInt, dwcreationmode: UInt): Long =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_openColorProfileA(pprofile?.value?.toCPointer<ByteVar>(), dwdesiredaccess, dwsharemode, dwcreationmode)
 
-public actual fun OpenColorProfileW(pprofile: Long, dwdesiredaccess: UInt, dwsharemode: UInt, dwcreationmode: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_OpenColorProfileW(pprofile.toCPointer<ByteVar>(), dwdesiredaccess, dwsharemode, dwcreationmode)
+public actual fun openColorProfileW(pprofile: COpaquePointer?, dwdesiredaccess: UInt, dwsharemode: UInt, dwcreationmode: UInt): Long =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_openColorProfileW(pprofile?.value?.toCPointer<ByteVar>(), dwdesiredaccess, dwsharemode, dwcreationmode)
 
-public actual fun RegisterCMMA(pmachinename: PCSTR, cmmid: UInt, pcmmdll: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_RegisterCMMA(pmachinename.toCPointer<ByteVar>(), cmmid, pcmmdll.toCPointer<ByteVar>())
+public actual fun registerCMMA(pmachinename: Pcstr, cmmid: UInt, pcmmdll: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_registerCMMA(pmachinename?.value?.toCPointer<ByteVar>(), cmmid, pcmmdll?.value?.toCPointer<ByteVar>())
 
-public actual fun RegisterCMMW(pmachinename: PCWSTR, cmmid: UInt, pcmmdll: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_RegisterCMMW(pmachinename.toCPointer<ByteVar>(), cmmid, pcmmdll.toCPointer<ByteVar>())
+public actual fun registerCMMW(pmachinename: Pcwstr, cmmid: UInt, pcmmdll: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_registerCMMW(pmachinename?.value?.toCPointer<ByteVar>(), cmmid, pcmmdll?.value?.toCPointer<ByteVar>())
 
-public actual fun SelectCMM(dwcmmtype: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_SelectCMM(dwcmmtype)
+public actual fun selectCMM(dwcmmtype: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_selectCMM(dwcmmtype)
 
-public actual fun SetColorProfileElement(hprofile: Long, tag: UInt, dwoffset: UInt, pcbelement: Long, pelement: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_SetColorProfileElement(hprofile, tag, dwoffset, pcbelement.toCPointer<ByteVar>(), pelement.toCPointer<ByteVar>())
+public actual fun setColorProfileElement(hprofile: Long, tag: UInt, dwoffset: UInt, pcbelement: COpaquePointer?, pelement: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_setColorProfileElement(hprofile, tag, dwoffset, pcbelement?.value?.toCPointer<ByteVar>(), pelement?.value?.toCPointer<ByteVar>())
 
-public actual fun SetColorProfileElementReference(hprofile: Long, newtag: UInt, reftag: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_SetColorProfileElementReference(hprofile, newtag, reftag)
+public actual fun setColorProfileElementReference(hprofile: Long, newtag: UInt, reftag: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_setColorProfileElementReference(hprofile, newtag, reftag)
 
-public actual fun SetColorProfileElementSize(hprofile: Long, tagtype: UInt, pcbelement: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_SetColorProfileElementSize(hprofile, tagtype, pcbelement)
+public actual fun setColorProfileElementSize(hprofile: Long, tagtype: UInt, pcbelement: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_setColorProfileElementSize(hprofile, tagtype, pcbelement)
 
-public actual fun SetColorProfileHeader(hprofile: Long, pheader: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_SetColorProfileHeader(hprofile, pheader.toCPointer<ByteVar>())
+public actual fun setColorProfileHeader(hprofile: Long, pheader: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_setColorProfileHeader(hprofile, pheader?.value?.toCPointer<ByteVar>())
 
-public actual fun SetColorSpace(hdc: HDC, hcs: HCOLORSPACE): HCOLORSPACE =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_SetColorSpace(hdc.toCPointer<ByteVar>(), hcs.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun setColorSpace(hdc: Hdc, hcs: Hcolorspace): Hcolorspace =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_setColorSpace(hdc?.value?.toCPointer<ByteVar>(), hcs?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun SetDeviceGammaRamp(hdc: HDC, lpramp: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_SetDeviceGammaRamp(hdc.toCPointer<ByteVar>(), lpramp.toCPointer<ByteVar>())
+public actual fun setDeviceGammaRamp(hdc: Hdc, lpramp: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_setDeviceGammaRamp(hdc?.value?.toCPointer<ByteVar>(), lpramp?.value?.toCPointer<ByteVar>())
 
-public actual fun SetICMMode(hdc: HDC, mode: ICM_MODE): Int =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_SetICMMode(hdc.toCPointer<ByteVar>(), mode)
+public actual fun setICMMode(hdc: Hdc, mode: IcmMode): Int =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_setICMMode(hdc?.value?.toCPointer<ByteVar>(), mode)
 
-public actual fun SetICMProfileA(hdc: HDC, lpfilename: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_SetICMProfileA(hdc.toCPointer<ByteVar>(), lpfilename.toCPointer<ByteVar>())
+public actual fun setICMProfileA(hdc: Hdc, lpfilename: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_setICMProfileA(hdc?.value?.toCPointer<ByteVar>(), lpfilename?.value?.toCPointer<ByteVar>())
 
-public actual fun SetICMProfileW(hdc: HDC, lpfilename: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_SetICMProfileW(hdc.toCPointer<ByteVar>(), lpfilename.toCPointer<ByteVar>())
+public actual fun setICMProfileW(hdc: Hdc, lpfilename: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_setICMProfileW(hdc?.value?.toCPointer<ByteVar>(), lpfilename?.value?.toCPointer<ByteVar>())
 
-public actual fun SetStandardColorSpaceProfileA(pmachinename: PCSTR, dwprofileid: UInt, pprofilename: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_SetStandardColorSpaceProfileA(pmachinename.toCPointer<ByteVar>(), dwprofileid, pprofilename.toCPointer<ByteVar>())
+public actual fun setStandardColorSpaceProfileA(pmachinename: Pcstr, dwprofileid: UInt, pprofilename: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_setStandardColorSpaceProfileA(pmachinename?.value?.toCPointer<ByteVar>(), dwprofileid, pprofilename?.value?.toCPointer<ByteVar>())
 
-public actual fun SetStandardColorSpaceProfileW(pmachinename: PCWSTR, dwprofileid: UInt, pprofilename: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_SetStandardColorSpaceProfileW(pmachinename.toCPointer<ByteVar>(), dwprofileid, pprofilename.toCPointer<ByteVar>())
+public actual fun setStandardColorSpaceProfileW(pmachinename: Pcwstr, dwprofileid: UInt, pprofilename: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_setStandardColorSpaceProfileW(pmachinename?.value?.toCPointer<ByteVar>(), dwprofileid, pprofilename?.value?.toCPointer<ByteVar>())
 
-public actual fun SetupColorMatchingA(pcms: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_SetupColorMatchingA(pcms.toCPointer<ByteVar>())
+public actual fun setupColorMatchingA(pcms: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_setupColorMatchingA(pcms?.value?.toCPointer<ByteVar>())
 
-public actual fun SetupColorMatchingW(pcms: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_SetupColorMatchingW(pcms.toCPointer<ByteVar>())
+public actual fun setupColorMatchingW(pcms: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_setupColorMatchingW(pcms?.value?.toCPointer<ByteVar>())
 
-public actual fun TranslateBitmapBits(hcolortransform: Long, psrcbits: Long, bminput: BMFORMAT, dwwidth: UInt, dwheight: UInt, dwinputstride: UInt, pdestbits: Long, bmoutput: BMFORMAT, dwoutputstride: UInt, pfncallback: LPBMCALLBACKFN, ulcallbackdata: LPARAM): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_TranslateBitmapBits(hcolortransform, psrcbits.toCPointer<ByteVar>(), bminput, dwwidth, dwheight, dwinputstride, pdestbits.toCPointer<ByteVar>(), bmoutput, dwoutputstride, pfncallback.toLong().toCPointer<ByteVar>(), ulcallbackdata)
+public actual fun translateBitmapBits(hcolortransform: Long, psrcbits: COpaquePointer?, bminput: Bmformat, dwwidth: UInt, dwheight: UInt, dwinputstride: UInt, pdestbits: COpaquePointer?, bmoutput: Bmformat, dwoutputstride: UInt, pfncallback: Lpbmcallbackfn, ulcallbackdata: Lparam): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_translateBitmapBits(hcolortransform, psrcbits?.value?.toCPointer<ByteVar>(), bminput, dwwidth, dwheight, dwinputstride, pdestbits?.value?.toCPointer<ByteVar>(), bmoutput, dwoutputstride, 0L.toCPointer<ByteVar>(), ulcallbackdata)
 
-public actual fun TranslateColors(hcolortransform: Long, painputcolors: Long, ncolors: UInt, ctinput: COLORTYPE, paoutputcolors: Long, ctoutput: COLORTYPE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_TranslateColors(hcolortransform, painputcolors.toCPointer<ByteVar>(), ncolors, ctinput, paoutputcolors.toCPointer<ByteVar>(), ctoutput)
+public actual fun translateColors(hcolortransform: Long, painputcolors: COpaquePointer?, ncolors: UInt, ctinput: Colortype, paoutputcolors: COpaquePointer?, ctoutput: Colortype): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_translateColors(hcolortransform, painputcolors?.value?.toCPointer<ByteVar>(), ncolors, ctinput, paoutputcolors?.value?.toCPointer<ByteVar>(), ctoutput)
 
-public actual fun UninstallColorProfileA(pmachinename: PCSTR, pprofilename: PCSTR, bdelete: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_UninstallColorProfileA(pmachinename.toCPointer<ByteVar>(), pprofilename.toCPointer<ByteVar>(), bdelete)
+public actual fun uninstallColorProfileA(pmachinename: Pcstr, pprofilename: Pcstr, bdelete: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_uninstallColorProfileA(pmachinename?.value?.toCPointer<ByteVar>(), pprofilename?.value?.toCPointer<ByteVar>(), bdelete)
 
-public actual fun UninstallColorProfileW(pmachinename: PCWSTR, pprofilename: PCWSTR, bdelete: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_UninstallColorProfileW(pmachinename.toCPointer<ByteVar>(), pprofilename.toCPointer<ByteVar>(), bdelete)
+public actual fun uninstallColorProfileW(pmachinename: Pcwstr, pprofilename: Pcwstr, bdelete: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_uninstallColorProfileW(pmachinename?.value?.toCPointer<ByteVar>(), pprofilename?.value?.toCPointer<ByteVar>(), bdelete)
 
-public actual fun UnregisterCMMA(pmachinename: PCSTR, cmmid: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_UnregisterCMMA(pmachinename.toCPointer<ByteVar>(), cmmid)
+public actual fun unregisterCMMA(pmachinename: Pcstr, cmmid: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_unregisterCMMA(pmachinename?.value?.toCPointer<ByteVar>(), cmmid)
 
-public actual fun UnregisterCMMW(pmachinename: PCWSTR, cmmid: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_UnregisterCMMW(pmachinename.toCPointer<ByteVar>(), cmmid)
+public actual fun unregisterCMMW(pmachinename: Pcwstr, cmmid: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_unregisterCMMW(pmachinename?.value?.toCPointer<ByteVar>(), cmmid)
 
-public actual fun UpdateICMRegKeyA(reserved: UInt, lpszcmid: PCSTR, lpszfilename: PCSTR, command: ICM_COMMAND): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_UpdateICMRegKeyA(reserved, lpszcmid.toCPointer<ByteVar>(), lpszfilename.toCPointer<ByteVar>(), command)
+public actual fun updateICMRegKeyA(reserved: UInt, lpszcmid: Pcstr, lpszfilename: Pcstr, command: IcmCommand): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_updateICMRegKeyA(reserved, lpszcmid?.value?.toCPointer<ByteVar>(), lpszfilename?.value?.toCPointer<ByteVar>(), command)
 
-public actual fun UpdateICMRegKeyW(reserved: UInt, lpszcmid: PCWSTR, lpszfilename: PCWSTR, command: ICM_COMMAND): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_UpdateICMRegKeyW(reserved, lpszcmid.toCPointer<ByteVar>(), lpszfilename.toCPointer<ByteVar>(), command)
+public actual fun updateICMRegKeyW(reserved: UInt, lpszcmid: Pcwstr, lpszfilename: Pcwstr, command: IcmCommand): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_updateICMRegKeyW(reserved, lpszcmid?.value?.toCPointer<ByteVar>(), lpszfilename?.value?.toCPointer<ByteVar>(), command)
 
-public actual fun WcsAssociateColorProfileWithDevice(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pprofilename: PCWSTR, pdevicename: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_WcsAssociateColorProfileWithDevice(scope, pprofilename.toCPointer<ByteVar>(), pdevicename.toCPointer<ByteVar>())
+public actual fun wcsAssociateColorProfileWithDevice(scope: WcsProfileManagementScope, pprofilename: Pcwstr, pdevicename: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_wcsAssociateColorProfileWithDevice(scope, pprofilename?.value?.toCPointer<ByteVar>(), pdevicename?.value?.toCPointer<ByteVar>())
 
-public actual fun WcsCheckColors(hcolortransform: Long, ncolors: UInt, ninputchannels: UInt, cdtinput: COLORDATATYPE, cbinput: UInt, pinputdata: Long, paresult: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_WcsCheckColors(hcolortransform, ncolors, ninputchannels, cdtinput, cbinput, pinputdata.toCPointer<ByteVar>(), paresult.toCPointer<ByteVar>())
+public actual fun wcsCheckColors(hcolortransform: Long, ncolors: UInt, ninputchannels: UInt, cdtinput: Colordatatype, cbinput: UInt, pinputdata: COpaquePointer?, paresult: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_wcsCheckColors(hcolortransform, ncolors, ninputchannels, cdtinput, cbinput, pinputdata?.value?.toCPointer<ByteVar>(), paresult?.value?.toCPointer<ByteVar>())
 
-public actual fun WcsCreateIccProfile(hwcsprofile: Long, dwoptions: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_WcsCreateIccProfile(hwcsprofile, dwoptions)
+public actual fun wcsCreateIccProfile(hwcsprofile: Long, dwoptions: UInt): Long =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_wcsCreateIccProfile(hwcsprofile, dwoptions)
 
-public actual fun WcsDisassociateColorProfileFromDevice(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pprofilename: PCWSTR, pdevicename: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_WcsDisassociateColorProfileFromDevice(scope, pprofilename.toCPointer<ByteVar>(), pdevicename.toCPointer<ByteVar>())
+public actual fun wcsDisassociateColorProfileFromDevice(scope: WcsProfileManagementScope, pprofilename: Pcwstr, pdevicename: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_wcsDisassociateColorProfileFromDevice(scope, pprofilename?.value?.toCPointer<ByteVar>(), pdevicename?.value?.toCPointer<ByteVar>())
 
-public actual fun WcsEnumColorProfiles(scope: WCS_PROFILE_MANAGEMENT_SCOPE, penumrecord: Long, pbuffer: Long, dwsize: UInt, pnprofiles: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_WcsEnumColorProfiles(scope, penumrecord.toCPointer<ByteVar>(), pbuffer.toCPointer<ByteVar>(), dwsize, pnprofiles.toCPointer<ByteVar>())
+public actual fun wcsEnumColorProfiles(scope: WcsProfileManagementScope, penumrecord: COpaquePointer?, pbuffer: COpaquePointer?, dwsize: UInt, pnprofiles: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_wcsEnumColorProfiles(scope, penumrecord?.value?.toCPointer<ByteVar>(), pbuffer?.value?.toCPointer<ByteVar>(), dwsize, pnprofiles?.value?.toCPointer<ByteVar>())
 
-public actual fun WcsEnumColorProfilesSize(scope: WCS_PROFILE_MANAGEMENT_SCOPE, penumrecord: Long, pdwsize: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_WcsEnumColorProfilesSize(scope, penumrecord.toCPointer<ByteVar>(), pdwsize.toCPointer<ByteVar>())
+public actual fun wcsEnumColorProfilesSize(scope: WcsProfileManagementScope, penumrecord: COpaquePointer?, pdwsize: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_wcsEnumColorProfilesSize(scope, penumrecord?.value?.toCPointer<ByteVar>(), pdwsize?.value?.toCPointer<ByteVar>())
 
-public actual fun WcsGetCalibrationManagementState(pbisenabled: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_WcsGetCalibrationManagementState(pbisenabled.toCPointer<ByteVar>())
+public actual fun wcsGetCalibrationManagementState(pbisenabled: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_wcsGetCalibrationManagementState(pbisenabled?.value?.toCPointer<ByteVar>())
 
-public actual fun WcsGetDefaultColorProfile(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename: PCWSTR, cptcolorprofiletype: COLORPROFILETYPE, cpstcolorprofilesubtype: COLORPROFILESUBTYPE, dwprofileid: UInt, cbprofilename: UInt, pprofilename: PWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_WcsGetDefaultColorProfile(scope, pdevicename.toCPointer<ByteVar>(), cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid, cbprofilename, pprofilename.toCPointer<ByteVar>())
+public actual fun wcsGetDefaultColorProfile(scope: WcsProfileManagementScope, pdevicename: Pcwstr, cptcolorprofiletype: Colorprofiletype, cpstcolorprofilesubtype: Colorprofilesubtype, dwprofileid: UInt, cbprofilename: UInt, pprofilename: Pwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_wcsGetDefaultColorProfile(scope, pdevicename?.value?.toCPointer<ByteVar>(), cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid, cbprofilename, pprofilename?.value?.toCPointer<ByteVar>())
 
-public actual fun WcsGetDefaultColorProfileSize(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename: PCWSTR, cptcolorprofiletype: COLORPROFILETYPE, cpstcolorprofilesubtype: COLORPROFILESUBTYPE, dwprofileid: UInt, pcbprofilename: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_WcsGetDefaultColorProfileSize(scope, pdevicename.toCPointer<ByteVar>(), cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid, pcbprofilename.toCPointer<ByteVar>())
+public actual fun wcsGetDefaultColorProfileSize(scope: WcsProfileManagementScope, pdevicename: Pcwstr, cptcolorprofiletype: Colorprofiletype, cpstcolorprofilesubtype: Colorprofilesubtype, dwprofileid: UInt, pcbprofilename: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_wcsGetDefaultColorProfileSize(scope, pdevicename?.value?.toCPointer<ByteVar>(), cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid, pcbprofilename?.value?.toCPointer<ByteVar>())
 
-public actual fun WcsGetDefaultRenderingIntent(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdwrenderingintent: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_WcsGetDefaultRenderingIntent(scope, pdwrenderingintent.toCPointer<ByteVar>())
+public actual fun wcsGetDefaultRenderingIntent(scope: WcsProfileManagementScope, pdwrenderingintent: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_wcsGetDefaultRenderingIntent(scope, pdwrenderingintent?.value?.toCPointer<ByteVar>())
 
-public actual fun WcsGetUsePerUserProfiles(pdevicename: PCWSTR, dwdeviceclass: UInt, puseperuserprofiles: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_WcsGetUsePerUserProfiles(pdevicename.toCPointer<ByteVar>(), dwdeviceclass, puseperuserprofiles.toCPointer<ByteVar>())
+public actual fun wcsGetUsePerUserProfiles(pdevicename: Pcwstr, dwdeviceclass: UInt, puseperuserprofiles: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_wcsGetUsePerUserProfiles(pdevicename?.value?.toCPointer<ByteVar>(), dwdeviceclass, puseperuserprofiles?.value?.toCPointer<ByteVar>())
 
-public actual fun WcsOpenColorProfileA(pcdmpprofile: Long, pcampprofile: Long, pgmmpprofile: Long, dwdesireaccess: UInt, dwsharemode: UInt, dwcreationmode: UInt, dwflags: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_WcsOpenColorProfileA(pcdmpprofile.toCPointer<ByteVar>(), pcampprofile.toCPointer<ByteVar>(), pgmmpprofile.toCPointer<ByteVar>(), dwdesireaccess, dwsharemode, dwcreationmode, dwflags)
+public actual fun wcsOpenColorProfileA(pcdmpprofile: COpaquePointer?, pcampprofile: COpaquePointer?, pgmmpprofile: COpaquePointer?, dwdesireaccess: UInt, dwsharemode: UInt, dwcreationmode: UInt, dwflags: UInt): Long =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_wcsOpenColorProfileA(pcdmpprofile?.value?.toCPointer<ByteVar>(), pcampprofile?.value?.toCPointer<ByteVar>(), pgmmpprofile?.value?.toCPointer<ByteVar>(), dwdesireaccess, dwsharemode, dwcreationmode, dwflags)
 
-public actual fun WcsOpenColorProfileW(pcdmpprofile: Long, pcampprofile: Long, pgmmpprofile: Long, dwdesireaccess: UInt, dwsharemode: UInt, dwcreationmode: UInt, dwflags: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_WcsOpenColorProfileW(pcdmpprofile.toCPointer<ByteVar>(), pcampprofile.toCPointer<ByteVar>(), pgmmpprofile.toCPointer<ByteVar>(), dwdesireaccess, dwsharemode, dwcreationmode, dwflags)
+public actual fun wcsOpenColorProfileW(pcdmpprofile: COpaquePointer?, pcampprofile: COpaquePointer?, pgmmpprofile: COpaquePointer?, dwdesireaccess: UInt, dwsharemode: UInt, dwcreationmode: UInt, dwflags: UInt): Long =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_wcsOpenColorProfileW(pcdmpprofile?.value?.toCPointer<ByteVar>(), pcampprofile?.value?.toCPointer<ByteVar>(), pgmmpprofile?.value?.toCPointer<ByteVar>(), dwdesireaccess, dwsharemode, dwcreationmode, dwflags)
 
-public actual fun WcsSetCalibrationManagementState(bisenabled: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_WcsSetCalibrationManagementState(bisenabled)
+public actual fun wcsSetCalibrationManagementState(bisenabled: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_wcsSetCalibrationManagementState(bisenabled)
 
-public actual fun WcsSetDefaultColorProfile(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename: PCWSTR, cptcolorprofiletype: COLORPROFILETYPE, cpstcolorprofilesubtype: COLORPROFILESUBTYPE, dwprofileid: UInt, pprofilename: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_WcsSetDefaultColorProfile(scope, pdevicename.toCPointer<ByteVar>(), cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid, pprofilename.toCPointer<ByteVar>())
+public actual fun wcsSetDefaultColorProfile(scope: WcsProfileManagementScope, pdevicename: Pcwstr, cptcolorprofiletype: Colorprofiletype, cpstcolorprofilesubtype: Colorprofilesubtype, dwprofileid: UInt, pprofilename: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_wcsSetDefaultColorProfile(scope, pdevicename?.value?.toCPointer<ByteVar>(), cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid, pprofilename?.value?.toCPointer<ByteVar>())
 
-public actual fun WcsSetDefaultRenderingIntent(scope: WCS_PROFILE_MANAGEMENT_SCOPE, dwrenderingintent: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_WcsSetDefaultRenderingIntent(scope, dwrenderingintent)
+public actual fun wcsSetDefaultRenderingIntent(scope: WcsProfileManagementScope, dwrenderingintent: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_wcsSetDefaultRenderingIntent(scope, dwrenderingintent)
 
-public actual fun WcsSetUsePerUserProfiles(pdevicename: PCWSTR, dwdeviceclass: UInt, useperuserprofiles: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_WcsSetUsePerUserProfiles(pdevicename.toCPointer<ByteVar>(), dwdeviceclass, useperuserprofiles)
+public actual fun wcsSetUsePerUserProfiles(pdevicename: Pcwstr, dwdeviceclass: UInt, useperuserprofiles: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_wcsSetUsePerUserProfiles(pdevicename?.value?.toCPointer<ByteVar>(), dwdeviceclass, useperuserprofiles)
 
-public actual fun WcsTranslateColors(hcolortransform: Long, ncolors: UInt, ninputchannels: UInt, cdtinput: COLORDATATYPE, cbinput: UInt, pinputdata: Long, noutputchannels: UInt, cdtoutput: COLORDATATYPE, cboutput: UInt, poutputdata: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_WcsTranslateColors(hcolortransform, ncolors, ninputchannels, cdtinput, cbinput, pinputdata.toCPointer<ByteVar>(), noutputchannels, cdtoutput, cboutput, poutputdata.toCPointer<ByteVar>())
+public actual fun wcsTranslateColors(hcolortransform: Long, ncolors: UInt, ninputchannels: UInt, cdtinput: Colordatatype, cbinput: UInt, pinputdata: COpaquePointer?, noutputchannels: UInt, cdtoutput: Colordatatype, cboutput: UInt, poutputdata: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.ui.colorsystem.cinterop.windowssys_windows_win32_ui_colorsystem_wcsTranslateColors(hcolortransform, ncolors, ninputchannels, cdtinput, cbinput, pinputdata?.value?.toCPointer<ByteVar>(), noutputchannels, cdtoutput, cboutput, poutputdata?.value?.toCPointer<ByteVar>())

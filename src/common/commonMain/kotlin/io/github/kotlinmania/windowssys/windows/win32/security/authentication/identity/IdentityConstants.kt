@@ -1,10 +1,10 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.authentication.identity
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
 
@@ -16,57 +16,57 @@ public val ACCOUNT_ADJUST_SYSTEM_ACCESS: Int = 8
 
 public val ACCOUNT_VIEW: Int = 1
 
-public val ASC_REQ_ALLOCATE_MEMORY: ASC_REQ_FLAGS = 256u
+public val ASC_REQ_ALLOCATE_MEMORY: AscReqFlags = 256u
 
-public val ASC_REQ_ALLOW_CONTEXT_REPLAY: ASC_REQ_FLAGS = 4194304u
+public val ASC_REQ_ALLOW_CONTEXT_REPLAY: AscReqFlags = 4194304u
 
-public val ASC_REQ_ALLOW_MISSING_BINDINGS: ASC_REQ_FLAGS = 268435456u
+public val ASC_REQ_ALLOW_MISSING_BINDINGS: AscReqFlags = 268435456u
 
-public val ASC_REQ_ALLOW_NON_USER_LOGONS: ASC_REQ_FLAGS = 2097152u
+public val ASC_REQ_ALLOW_NON_USER_LOGONS: AscReqFlags = 2097152u
 
-public val ASC_REQ_ALLOW_NULL_SESSION: ASC_REQ_FLAGS = 1048576u
+public val ASC_REQ_ALLOW_NULL_SESSION: AscReqFlags = 1048576u
 
-public val ASC_REQ_CALL_LEVEL: ASC_REQ_FLAGS = 4096u
+public val ASC_REQ_CALL_LEVEL: AscReqFlags = 4096u
 
-public val ASC_REQ_CONFIDENTIALITY: ASC_REQ_FLAGS = 16u
+public val ASC_REQ_CONFIDENTIALITY: AscReqFlags = 16u
 
-public val ASC_REQ_CONNECTION: ASC_REQ_FLAGS = 2048u
+public val ASC_REQ_CONNECTION: AscReqFlags = 2048u
 
-public val ASC_REQ_DATAGRAM: ASC_REQ_FLAGS = 1024u
+public val ASC_REQ_DATAGRAM: AscReqFlags = 1024u
 
-public val ASC_REQ_DELEGATE: ASC_REQ_FLAGS = 1u
+public val ASC_REQ_DELEGATE: AscReqFlags = 1u
 
-public val ASC_REQ_EXTENDED_ERROR: ASC_REQ_FLAGS = 32768u
+public val ASC_REQ_EXTENDED_ERROR: AscReqFlags = 32768u
 
-public val ASC_REQ_FRAGMENT_SUPPLIED: ASC_REQ_FLAGS = 8192u
+public val ASC_REQ_FRAGMENT_SUPPLIED: AscReqFlags = 8192u
 
-public val ASC_REQ_FRAGMENT_TO_FIT: ASC_REQ_FLAGS = 8388608u
+public val ASC_REQ_FRAGMENT_TO_FIT: AscReqFlags = 8388608u
 
-public val ASC_REQ_IDENTIFY: ASC_REQ_FLAGS = 524288u
+public val ASC_REQ_IDENTIFY: AscReqFlags = 524288u
 
-public val ASC_REQ_INTEGRITY: ASC_REQ_FLAGS = 131072u
+public val ASC_REQ_INTEGRITY: AscReqFlags = 131072u
 
-public val ASC_REQ_LICENSING: ASC_REQ_FLAGS = 262144u
+public val ASC_REQ_LICENSING: AscReqFlags = 262144u
 
-public val ASC_REQ_MESSAGES: ASC_REQ_HIGH_FLAGS = 4294967296uL
+public val ASC_REQ_MESSAGES: AscReqHighFlags = 4294967296uL
 
-public val ASC_REQ_MUTUAL_AUTH: ASC_REQ_FLAGS = 2u
+public val ASC_REQ_MUTUAL_AUTH: AscReqFlags = 2u
 
-public val ASC_REQ_NO_TOKEN: ASC_REQ_FLAGS = 16777216u
+public val ASC_REQ_NO_TOKEN: AscReqFlags = 16777216u
 
-public val ASC_REQ_PROXY_BINDINGS: ASC_REQ_FLAGS = 67108864u
+public val ASC_REQ_PROXY_BINDINGS: AscReqFlags = 67108864u
 
-public val ASC_REQ_REPLAY_DETECT: ASC_REQ_FLAGS = 4u
+public val ASC_REQ_REPLAY_DETECT: AscReqFlags = 4u
 
-public val ASC_REQ_SEQUENCE_DETECT: ASC_REQ_FLAGS = 8u
+public val ASC_REQ_SEQUENCE_DETECT: AscReqFlags = 8u
 
-public val ASC_REQ_SESSION_TICKET: ASC_REQ_FLAGS = 64u
+public val ASC_REQ_SESSION_TICKET: AscReqFlags = 64u
 
-public val ASC_REQ_STREAM: ASC_REQ_FLAGS = 65536u
+public val ASC_REQ_STREAM: AscReqFlags = 65536u
 
-public val ASC_REQ_USE_DCE_STYLE: ASC_REQ_FLAGS = 512u
+public val ASC_REQ_USE_DCE_STYLE: AscReqFlags = 512u
 
-public val ASC_REQ_USE_SESSION_KEY: ASC_REQ_FLAGS = 32u
+public val ASC_REQ_USE_SESSION_KEY: AscReqFlags = 32u
 
 public val ASC_RET_ALLOCATED_MEMORY: UInt = 256u
 
@@ -156,161 +156,161 @@ public val AUTH_REQ_TRANSITIVE_TRUST: UInt = 1024u
 
 public val AUTH_REQ_VALIDATE_CLIENT: UInt = 128u
 
-public val AccountDomainInformation: LSA_LOOKUP_DOMAIN_INFO_CLASS = 5
+public val ACCOUNT_DOMAIN_INFORMATION: LsaLookupDomainInfoClass = 5
 
-public val AuditCategoryAccountLogon: POLICY_AUDIT_EVENT_TYPE = 8
+public val AUDIT_CATEGORY_ACCOUNT_LOGON: PolicyAuditEventType = 8
 
-public val AuditCategoryAccountManagement: POLICY_AUDIT_EVENT_TYPE = 6
+public val AUDIT_CATEGORY_ACCOUNT_MANAGEMENT: PolicyAuditEventType = 6
 
-public val AuditCategoryDetailedTracking: POLICY_AUDIT_EVENT_TYPE = 4
+public val AUDIT_CATEGORY_DETAILED_TRACKING: PolicyAuditEventType = 4
 
-public val AuditCategoryDirectoryServiceAccess: POLICY_AUDIT_EVENT_TYPE = 7
+public val AUDIT_CATEGORY_DIRECTORY_SERVICE_ACCESS: PolicyAuditEventType = 7
 
-public val AuditCategoryLogon: POLICY_AUDIT_EVENT_TYPE = 1
+public val AUDIT_CATEGORY_LOGON: PolicyAuditEventType = 1
 
-public val AuditCategoryObjectAccess: POLICY_AUDIT_EVENT_TYPE = 2
+public val AUDIT_CATEGORY_OBJECT_ACCESS: PolicyAuditEventType = 2
 
-public val AuditCategoryPolicyChange: POLICY_AUDIT_EVENT_TYPE = 5
+public val AUDIT_CATEGORY_POLICY_CHANGE: PolicyAuditEventType = 5
 
-public val AuditCategoryPrivilegeUse: POLICY_AUDIT_EVENT_TYPE = 3
+public val AUDIT_CATEGORY_PRIVILEGE_USE: PolicyAuditEventType = 3
 
-public val AuditCategorySystem: POLICY_AUDIT_EVENT_TYPE = 0
+public val AUDIT_CATEGORY_SYSTEM: PolicyAuditEventType = 0
 
-public val Audit_AccountLogon: GUID = GUID.from_u128(U128(0x69979850797a11d9uL, 0xbed3505054503030uL))
+public val AUDIT_ACCOUNT_LOGON: Guid = Guid.fromU128(U128(0x69979850797a11d9uL, 0xbed3505054503030uL))
 
-public val Audit_AccountLogon_CredentialValidation: GUID = GUID.from_u128(U128(0xcce923f69ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_ACCOUNT_LOGON_CREDENTIAL_VALIDATION: Guid = Guid.fromU128(U128(0xcce923f69ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_AccountLogon_KerbCredentialValidation: GUID = GUID.from_u128(U128(0xcce924269ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_ACCOUNT_LOGON_KERB_CREDENTIAL_VALIDATION: Guid = Guid.fromU128(U128(0xcce924269ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_AccountLogon_Kerberos: GUID = GUID.from_u128(U128(0xcce924069ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_ACCOUNT_LOGON_KERBEROS: Guid = Guid.fromU128(U128(0xcce924069ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_AccountLogon_Others: GUID = GUID.from_u128(U128(0xcce924169ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_ACCOUNT_LOGON_OTHERS: Guid = Guid.fromU128(U128(0xcce924169ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_AccountManagement: GUID = GUID.from_u128(U128(0x6997984e797a11d9uL, 0xbed3505054503030uL))
+public val AUDIT_ACCOUNT_MANAGEMENT: Guid = Guid.fromU128(U128(0x6997984e797a11d9uL, 0xbed3505054503030uL))
 
-public val Audit_AccountManagement_ApplicationGroup: GUID = GUID.from_u128(U128(0xcce923969ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_ACCOUNT_MANAGEMENT_APPLICATION_GROUP: Guid = Guid.fromU128(U128(0xcce923969ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_AccountManagement_ComputerAccount: GUID = GUID.from_u128(U128(0xcce923669ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_ACCOUNT_MANAGEMENT_COMPUTER_ACCOUNT: Guid = Guid.fromU128(U128(0xcce923669ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_AccountManagement_DistributionGroup: GUID = GUID.from_u128(U128(0xcce923869ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_ACCOUNT_MANAGEMENT_DISTRIBUTION_GROUP: Guid = Guid.fromU128(U128(0xcce923869ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_AccountManagement_Others: GUID = GUID.from_u128(U128(0xcce923a69ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_ACCOUNT_MANAGEMENT_OTHERS: Guid = Guid.fromU128(U128(0xcce923a69ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_AccountManagement_SecurityGroup: GUID = GUID.from_u128(U128(0xcce923769ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_ACCOUNT_MANAGEMENT_SECURITY_GROUP: Guid = Guid.fromU128(U128(0xcce923769ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_AccountManagement_UserAccount: GUID = GUID.from_u128(U128(0xcce923569ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_ACCOUNT_MANAGEMENT_USER_ACCOUNT: Guid = Guid.fromU128(U128(0xcce923569ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_DSAccess_DSAccess: GUID = GUID.from_u128(U128(0xcce923b69ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_DS_ACCESS_DS_ACCESS: Guid = Guid.fromU128(U128(0xcce923b69ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_DetailedTracking: GUID = GUID.from_u128(U128(0x6997984c797a11d9uL, 0xbed3505054503030uL))
+public val AUDIT_DETAILED_TRACKING: Guid = Guid.fromU128(U128(0x6997984c797a11d9uL, 0xbed3505054503030uL))
 
-public val Audit_DetailedTracking_DpapiActivity: GUID = GUID.from_u128(U128(0xcce922d69ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_DETAILED_TRACKING_DPAPI_ACTIVITY: Guid = Guid.fromU128(U128(0xcce922d69ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_DetailedTracking_PnpActivity: GUID = GUID.from_u128(U128(0xcce924869ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_DETAILED_TRACKING_PNP_ACTIVITY: Guid = Guid.fromU128(U128(0xcce924869ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_DetailedTracking_ProcessCreation: GUID = GUID.from_u128(U128(0xcce922b69ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_DETAILED_TRACKING_PROCESS_CREATION: Guid = Guid.fromU128(U128(0xcce922b69ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_DetailedTracking_ProcessTermination: GUID = GUID.from_u128(U128(0xcce922c69ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_DETAILED_TRACKING_PROCESS_TERMINATION: Guid = Guid.fromU128(U128(0xcce922c69ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_DetailedTracking_RpcCall: GUID = GUID.from_u128(U128(0xcce922e69ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_DETAILED_TRACKING_RPC_CALL: Guid = Guid.fromU128(U128(0xcce922e69ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_DetailedTracking_TokenRightAdjusted: GUID = GUID.from_u128(U128(0xcce924a69ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_DETAILED_TRACKING_TOKEN_RIGHT_ADJUSTED: Guid = Guid.fromU128(U128(0xcce924a69ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_DirectoryServiceAccess: GUID = GUID.from_u128(U128(0x6997984f797a11d9uL, 0xbed3505054503030uL))
+public val AUDIT_DIRECTORY_SERVICE_ACCESS: Guid = Guid.fromU128(U128(0x6997984f797a11d9uL, 0xbed3505054503030uL))
 
-public val Audit_DsAccess_AdAuditChanges: GUID = GUID.from_u128(U128(0xcce923c69ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_DS_ACCESS_AD_AUDIT_CHANGES: Guid = Guid.fromU128(U128(0xcce923c69ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_Ds_DetailedReplication: GUID = GUID.from_u128(U128(0xcce923e69ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_DS_DETAILED_REPLICATION: Guid = Guid.fromU128(U128(0xcce923e69ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_Ds_Replication: GUID = GUID.from_u128(U128(0xcce923d69ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_DS_REPLICATION: Guid = Guid.fromU128(U128(0xcce923d69ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_Logon: GUID = GUID.from_u128(U128(0x69979849797a11d9uL, 0xbed3505054503030uL))
+public val AUDIT_LOGON: Guid = Guid.fromU128(U128(0x69979849797a11d9uL, 0xbed3505054503030uL))
 
-public val Audit_Logon_AccountLockout: GUID = GUID.from_u128(U128(0xcce921769ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_LOGON_ACCOUNT_LOCKOUT: Guid = Guid.fromU128(U128(0xcce921769ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_Logon_Claims: GUID = GUID.from_u128(U128(0xcce924769ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_LOGON_CLAIMS: Guid = Guid.fromU128(U128(0xcce924769ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_Logon_Groups: GUID = GUID.from_u128(U128(0xcce924969ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_LOGON_GROUPS: Guid = Guid.fromU128(U128(0xcce924969ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_Logon_IPSecMainMode: GUID = GUID.from_u128(U128(0xcce921869ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_LOGON_IP_SEC_MAIN_MODE: Guid = Guid.fromU128(U128(0xcce921869ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_Logon_IPSecQuickMode: GUID = GUID.from_u128(U128(0xcce921969ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_LOGON_IP_SEC_QUICK_MODE: Guid = Guid.fromU128(U128(0xcce921969ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_Logon_IPSecUserMode: GUID = GUID.from_u128(U128(0xcce921a69ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_LOGON_IP_SEC_USER_MODE: Guid = Guid.fromU128(U128(0xcce921a69ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_Logon_Logoff: GUID = GUID.from_u128(U128(0xcce921669ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_LOGON_LOGOFF: Guid = Guid.fromU128(U128(0xcce921669ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_Logon_Logon: GUID = GUID.from_u128(U128(0xcce921569ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_LOGON_LOGON: Guid = Guid.fromU128(U128(0xcce921569ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_Logon_NPS: GUID = GUID.from_u128(U128(0xcce924369ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_LOGON_NPS: Guid = Guid.fromU128(U128(0xcce924369ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_Logon_Others: GUID = GUID.from_u128(U128(0xcce921c69ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_LOGON_OTHERS: Guid = Guid.fromU128(U128(0xcce921c69ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_Logon_SpecialLogon: GUID = GUID.from_u128(U128(0xcce921b69ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_LOGON_SPECIAL_LOGON: Guid = Guid.fromU128(U128(0xcce921b69ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_ObjectAccess: GUID = GUID.from_u128(U128(0x6997984a797a11d9uL, 0xbed3505054503030uL))
+public val AUDIT_OBJECT_ACCESS: Guid = Guid.fromU128(U128(0x6997984a797a11d9uL, 0xbed3505054503030uL))
 
-public val Audit_ObjectAccess_ApplicationGenerated: GUID = GUID.from_u128(U128(0xcce922269ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_OBJECT_ACCESS_APPLICATION_GENERATED: Guid = Guid.fromU128(U128(0xcce922269ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_ObjectAccess_CbacStaging: GUID = GUID.from_u128(U128(0xcce924669ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_OBJECT_ACCESS_CBAC_STAGING: Guid = Guid.fromU128(U128(0xcce924669ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_ObjectAccess_CertificationServices: GUID = GUID.from_u128(U128(0xcce922169ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_OBJECT_ACCESS_CERTIFICATION_SERVICES: Guid = Guid.fromU128(U128(0xcce922169ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_ObjectAccess_DetailedFileShare: GUID = GUID.from_u128(U128(0xcce924469ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_OBJECT_ACCESS_DETAILED_FILE_SHARE: Guid = Guid.fromU128(U128(0xcce924469ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_ObjectAccess_FileSystem: GUID = GUID.from_u128(U128(0xcce921d69ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_OBJECT_ACCESS_FILE_SYSTEM: Guid = Guid.fromU128(U128(0xcce921d69ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_ObjectAccess_FirewallConnection: GUID = GUID.from_u128(U128(0xcce922669ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_OBJECT_ACCESS_FIREWALL_CONNECTION: Guid = Guid.fromU128(U128(0xcce922669ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_ObjectAccess_FirewallPacketDrops: GUID = GUID.from_u128(U128(0xcce922569ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_OBJECT_ACCESS_FIREWALL_PACKET_DROPS: Guid = Guid.fromU128(U128(0xcce922569ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_ObjectAccess_Handle: GUID = GUID.from_u128(U128(0xcce922369ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_OBJECT_ACCESS_HANDLE: Guid = Guid.fromU128(U128(0xcce922369ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_ObjectAccess_Kernel: GUID = GUID.from_u128(U128(0xcce921f69ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_OBJECT_ACCESS_KERNEL: Guid = Guid.fromU128(U128(0xcce921f69ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_ObjectAccess_Other: GUID = GUID.from_u128(U128(0xcce922769ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_OBJECT_ACCESS_OTHER: Guid = Guid.fromU128(U128(0xcce922769ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_ObjectAccess_Registry: GUID = GUID.from_u128(U128(0xcce921e69ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_OBJECT_ACCESS_REGISTRY: Guid = Guid.fromU128(U128(0xcce921e69ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_ObjectAccess_RemovableStorage: GUID = GUID.from_u128(U128(0xcce924569ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_OBJECT_ACCESS_REMOVABLE_STORAGE: Guid = Guid.fromU128(U128(0xcce924569ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_ObjectAccess_Sam: GUID = GUID.from_u128(U128(0xcce922069ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_OBJECT_ACCESS_SAM: Guid = Guid.fromU128(U128(0xcce922069ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_ObjectAccess_Share: GUID = GUID.from_u128(U128(0xcce922469ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_OBJECT_ACCESS_SHARE: Guid = Guid.fromU128(U128(0xcce922469ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_PolicyChange: GUID = GUID.from_u128(U128(0x6997984d797a11d9uL, 0xbed3505054503030uL))
+public val AUDIT_POLICY_CHANGE: Guid = Guid.fromU128(U128(0x6997984d797a11d9uL, 0xbed3505054503030uL))
 
-public val Audit_PolicyChange_AuditPolicy: GUID = GUID.from_u128(U128(0xcce922f69ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_POLICY_CHANGE_AUDIT_POLICY: Guid = Guid.fromU128(U128(0xcce922f69ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_PolicyChange_AuthenticationPolicy: GUID = GUID.from_u128(U128(0xcce923069ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_POLICY_CHANGE_AUTHENTICATION_POLICY: Guid = Guid.fromU128(U128(0xcce923069ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_PolicyChange_AuthorizationPolicy: GUID = GUID.from_u128(U128(0xcce923169ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_POLICY_CHANGE_AUTHORIZATION_POLICY: Guid = Guid.fromU128(U128(0xcce923169ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_PolicyChange_MpsscvRulePolicy: GUID = GUID.from_u128(U128(0xcce923269ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_POLICY_CHANGE_MPSSCV_RULE_POLICY: Guid = Guid.fromU128(U128(0xcce923269ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_PolicyChange_Others: GUID = GUID.from_u128(U128(0xcce923469ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_POLICY_CHANGE_OTHERS: Guid = Guid.fromU128(U128(0xcce923469ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_PolicyChange_WfpIPSecPolicy: GUID = GUID.from_u128(U128(0xcce923369ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_POLICY_CHANGE_WFP_IP_SEC_POLICY: Guid = Guid.fromU128(U128(0xcce923369ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_PrivilegeUse: GUID = GUID.from_u128(U128(0x6997984b797a11d9uL, 0xbed3505054503030uL))
+public val AUDIT_PRIVILEGE_USE: Guid = Guid.fromU128(U128(0x6997984b797a11d9uL, 0xbed3505054503030uL))
 
-public val Audit_PrivilegeUse_NonSensitive: GUID = GUID.from_u128(U128(0xcce922969ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_PRIVILEGE_USE_NON_SENSITIVE: Guid = Guid.fromU128(U128(0xcce922969ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_PrivilegeUse_Others: GUID = GUID.from_u128(U128(0xcce922a69ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_PRIVILEGE_USE_OTHERS: Guid = Guid.fromU128(U128(0xcce922a69ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_PrivilegeUse_Sensitive: GUID = GUID.from_u128(U128(0xcce922869ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_PRIVILEGE_USE_SENSITIVE: Guid = Guid.fromU128(U128(0xcce922869ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_System: GUID = GUID.from_u128(U128(0x69979848797a11d9uL, 0xbed3505054503030uL))
+public val AUDIT_SYSTEM: Guid = Guid.fromU128(U128(0x69979848797a11d9uL, 0xbed3505054503030uL))
 
-public val Audit_System_IPSecDriverEvents: GUID = GUID.from_u128(U128(0xcce921369ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_SYSTEM_IP_SEC_DRIVER_EVENTS: Guid = Guid.fromU128(U128(0xcce921369ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_System_Integrity: GUID = GUID.from_u128(U128(0xcce921269ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_SYSTEM_INTEGRITY: Guid = Guid.fromU128(U128(0xcce921269ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_System_Others: GUID = GUID.from_u128(U128(0xcce921469ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_SYSTEM_OTHERS: Guid = Guid.fromU128(U128(0xcce921469ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_System_SecurityStateChange: GUID = GUID.from_u128(U128(0xcce921069ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_SYSTEM_SECURITY_STATE_CHANGE: Guid = Guid.fromU128(U128(0xcce921069ae11d9uL, 0xbed3505054503030uL))
 
-public val Audit_System_SecuritySubsystemExtension: GUID = GUID.from_u128(U128(0xcce921169ae11d9uL, 0xbed3505054503030uL))
+public val AUDIT_SYSTEM_SECURITY_SUBSYSTEM_EXTENSION: Guid = Guid.fromU128(U128(0xcce921169ae11d9uL, 0xbed3505054503030uL))
 
 public val CENTRAL_ACCESS_POLICY_OWNER_RIGHTS_PRESENT_FLAG: UInt = 1u
 
@@ -320,9 +320,9 @@ public val CENTRAL_ACCESS_POLICY_STAGED_OWNER_RIGHTS_PRESENT_FLAG: UInt = 256u
 
 public val CLEAR_BLOCK_LENGTH: UInt = 8u
 
-public val CLOUDAP_NAME: PCWSTR = w("CloudAP")
+public val CLOUDAP_NAME: Pcwstr = w("CloudAP")
 
-public val CLOUDAP_NAME_W: PCWSTR = w("CloudAP")
+public val CLOUDAP_NAME_W: Pcwstr = w("CloudAP")
 
 public val CREDP_FLAGS_CLEAR_PASSWORD: UInt = 8u
 
@@ -342,135 +342,135 @@ public val CRED_MARSHALED_TI_SIZE_SIZE: UInt = 12u
 
 public val CYPHER_BLOCK_LENGTH: UInt = 8u
 
-public val CertHashInfo: KERB_CERTIFICATE_INFO_TYPE = 1
+public val CERT_HASH_INFO: KerbCertificateInfoType = 1
 
-public val ClOUDAP_NAME_A: PCSTR = s("CloudAP")
+public val CL_OUDAP_NAME_A: Pcstr = s("CloudAP")
 
-public val CollisionOther: LSA_FOREST_TRUST_COLLISION_RECORD_TYPE = 2
+public val COLLISION_OTHER: LsaForestTrustCollisionRecordType = 2
 
-public val CollisionTdo: LSA_FOREST_TRUST_COLLISION_RECORD_TYPE = 0
+public val COLLISION_TDO: LsaForestTrustCollisionRecordType = 0
 
-public val CollisionXref: LSA_FOREST_TRUST_COLLISION_RECORD_TYPE = 1
+public val COLLISION_XREF: LsaForestTrustCollisionRecordType = 1
 
-public val CredFetchDPAPI: CRED_FETCH = 1
+public val CRED_FETCH_DPAPI: CredFetch = 1
 
-public val CredFetchDefault: CRED_FETCH = 0
+public val CRED_FETCH_DEFAULT: CredFetch = 0
 
-public val CredFetchForced: CRED_FETCH = 2
+public val CRED_FETCH_FORCED: CredFetch = 2
 
-public val DEFAULT_TLS_SSP_NAME: PCWSTR = w("Default TLS SSP")
+public val DEFAULT_TLS_SSP_NAME: Pcwstr = w("Default TLS SSP")
 
-public val DEFAULT_TLS_SSP_NAME_A: PCSTR = s("Default TLS SSP")
+public val DEFAULT_TLS_SSP_NAME_A: Pcstr = s("Default TLS SSP")
 
-public val DEFAULT_TLS_SSP_NAME_W: PCWSTR = w("Default TLS SSP")
+public val DEFAULT_TLS_SSP_NAME_W: Pcwstr = w("Default TLS SSP")
 
-public val DOMAIN_LOCKOUT_ADMINS: DOMAIN_PASSWORD_PROPERTIES = 8u
+public val DOMAIN_LOCKOUT_ADMINS: DomainPasswordProperties = 8u
 
 public val DOMAIN_NO_LM_OWF_CHANGE: Int = 64
 
-public val DOMAIN_PASSWORD_COMPLEX: DOMAIN_PASSWORD_PROPERTIES = 1u
+public val DOMAIN_PASSWORD_COMPLEX: DomainPasswordProperties = 1u
 
-public val DOMAIN_PASSWORD_NO_ANON_CHANGE: DOMAIN_PASSWORD_PROPERTIES = 2u
+public val DOMAIN_PASSWORD_NO_ANON_CHANGE: DomainPasswordProperties = 2u
 
-public val DOMAIN_PASSWORD_NO_CLEAR_CHANGE: DOMAIN_PASSWORD_PROPERTIES = 4u
+public val DOMAIN_PASSWORD_NO_CLEAR_CHANGE: DomainPasswordProperties = 4u
 
-public val DOMAIN_PASSWORD_STORE_CLEARTEXT: DOMAIN_PASSWORD_PROPERTIES = 16u
+public val DOMAIN_PASSWORD_STORE_CLEARTEXT: DomainPasswordProperties = 16u
 
-public val DOMAIN_REFUSE_PASSWORD_CHANGE: DOMAIN_PASSWORD_PROPERTIES = 32u
+public val DOMAIN_REFUSE_PASSWORD_CHANGE: DomainPasswordProperties = 32u
 
-public val DS_INET_ADDRESS: KERB_ADDRESS_TYPE = 1u
+public val DS_INET_ADDRESS: KerbAddressType = 1u
 
-public val DS_NETBIOS_ADDRESS: KERB_ADDRESS_TYPE = 2u
+public val DS_NETBIOS_ADDRESS: KerbAddressType = 2u
 
 public val DS_UNKNOWN_ADDRESS_TYPE: UInt = 0u
 
-public val DeprecatedIUMCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = 1
+public val DEPRECATED_IUM_CRED_KEY: Msv10CredentialKeyType = 1
 
-public val DnsDomainInformation: LSA_LOOKUP_DOMAIN_INFO_CLASS = 12
+public val DNS_DOMAIN_INFORMATION: LsaLookupDomainInfoClass = 12
 
-public val DomainUserCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = 2
+public val DOMAIN_USER_CRED_KEY: Msv10CredentialKeyType = 2
 
 public val ENABLE_TLS_CLIENT_EARLY_START: UInt = 1u
 
-public val E_RM_UNKNOWN_ERROR: HRESULT = 0xC004FC03u.toInt()
+public val E_RM_UNKNOWN_ERROR: Hresult = 0xC004FC03u.toInt()
 
-public val ExternallySuppliedCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = 4
+public val EXTERNALLY_SUPPLIED_CRED_KEY: Msv10CredentialKeyType = 4
 
 public val FACILITY_SL_ITF: UInt = 4u
 
-public val ForestTrustBinaryInfo: LSA_FOREST_TRUST_RECORD_TYPE = 3
+public val FOREST_TRUST_BINARY_INFO: LsaForestTrustRecordType = 3
 
-public val ForestTrustDomainInfo: LSA_FOREST_TRUST_RECORD_TYPE = 2
+public val FOREST_TRUST_DOMAIN_INFO: LsaForestTrustRecordType = 2
 
-public val ForestTrustRecordTypeLast: LSA_FOREST_TRUST_RECORD_TYPE = 4
+public val FOREST_TRUST_RECORD_TYPE_LAST: LsaForestTrustRecordType = 4
 
-public val ForestTrustScannerInfo: LSA_FOREST_TRUST_RECORD_TYPE = 4
+public val FOREST_TRUST_SCANNER_INFO: LsaForestTrustRecordType = 4
 
-public val ForestTrustTopLevelName: LSA_FOREST_TRUST_RECORD_TYPE = 0
+public val FOREST_TRUST_TOP_LEVEL_NAME: LsaForestTrustRecordType = 0
 
-public val ForestTrustTopLevelNameEx: LSA_FOREST_TRUST_RECORD_TYPE = 1
+public val FOREST_TRUST_TOP_LEVEL_NAME_EX: LsaForestTrustRecordType = 1
 
-public val ID_CAP_SLAPI: PCWSTR = w("slapiQueryLicenseValue")
+public val ID_CAP_SLAPI: Pcwstr = w("slapiQueryLicenseValue")
 
-public val ISC_REQ_ALLOCATE_MEMORY: ISC_REQ_FLAGS = 256u
+public val ISC_REQ_ALLOCATE_MEMORY: IscReqFlags = 256u
 
-public val ISC_REQ_CALL_LEVEL: ISC_REQ_FLAGS = 4096u
+public val ISC_REQ_CALL_LEVEL: IscReqFlags = 4096u
 
-public val ISC_REQ_CONFIDENTIALITY: ISC_REQ_FLAGS = 16u
+public val ISC_REQ_CONFIDENTIALITY: IscReqFlags = 16u
 
-public val ISC_REQ_CONFIDENTIALITY_ONLY: ISC_REQ_FLAGS = 1073741824u
+public val ISC_REQ_CONFIDENTIALITY_ONLY: IscReqFlags = 1073741824u
 
-public val ISC_REQ_CONNECTION: ISC_REQ_FLAGS = 2048u
+public val ISC_REQ_CONNECTION: IscReqFlags = 2048u
 
-public val ISC_REQ_DATAGRAM: ISC_REQ_FLAGS = 1024u
+public val ISC_REQ_DATAGRAM: IscReqFlags = 1024u
 
-public val ISC_REQ_DEFERRED_CRED_VALIDATION: ISC_REQ_HIGH_FLAGS = 8589934592uL
+public val ISC_REQ_DEFERRED_CRED_VALIDATION: IscReqHighFlags = 8589934592uL
 
-public val ISC_REQ_DELEGATE: ISC_REQ_FLAGS = 1u
+public val ISC_REQ_DELEGATE: IscReqFlags = 1u
 
-public val ISC_REQ_EXTENDED_ERROR: ISC_REQ_FLAGS = 16384u
+public val ISC_REQ_EXTENDED_ERROR: IscReqFlags = 16384u
 
-public val ISC_REQ_FORWARD_CREDENTIALS: ISC_REQ_FLAGS = 4194304u
+public val ISC_REQ_FORWARD_CREDENTIALS: IscReqFlags = 4194304u
 
-public val ISC_REQ_FRAGMENT_SUPPLIED: ISC_REQ_FLAGS = 8192u
+public val ISC_REQ_FRAGMENT_SUPPLIED: IscReqFlags = 8192u
 
-public val ISC_REQ_FRAGMENT_TO_FIT: ISC_REQ_FLAGS = 2097152u
+public val ISC_REQ_FRAGMENT_TO_FIT: IscReqFlags = 2097152u
 
-public val ISC_REQ_IDENTIFY: ISC_REQ_FLAGS = 131072u
+public val ISC_REQ_IDENTIFY: IscReqFlags = 131072u
 
-public val ISC_REQ_INTEGRITY: ISC_REQ_FLAGS = 65536u
+public val ISC_REQ_INTEGRITY: IscReqFlags = 65536u
 
-public val ISC_REQ_MANUAL_CRED_VALIDATION: ISC_REQ_FLAGS = 524288u
+public val ISC_REQ_MANUAL_CRED_VALIDATION: IscReqFlags = 524288u
 
-public val ISC_REQ_MESSAGES: ISC_REQ_HIGH_FLAGS = 4294967296uL
+public val ISC_REQ_MESSAGES: IscReqHighFlags = 4294967296uL
 
-public val ISC_REQ_MUTUAL_AUTH: ISC_REQ_FLAGS = 2u
+public val ISC_REQ_MUTUAL_AUTH: IscReqFlags = 2u
 
-public val ISC_REQ_NO_INTEGRITY: ISC_REQ_FLAGS = 8388608u
+public val ISC_REQ_NO_INTEGRITY: IscReqFlags = 8388608u
 
-public val ISC_REQ_NO_POST_HANDSHAKE_AUTH: ISC_REQ_HIGH_FLAGS = 17179869184uL
+public val ISC_REQ_NO_POST_HANDSHAKE_AUTH: IscReqHighFlags = 17179869184uL
 
-public val ISC_REQ_NULL_SESSION: ISC_REQ_FLAGS = 262144u
+public val ISC_REQ_NULL_SESSION: IscReqFlags = 262144u
 
-public val ISC_REQ_PROMPT_FOR_CREDS: ISC_REQ_FLAGS = 64u
+public val ISC_REQ_PROMPT_FOR_CREDS: IscReqFlags = 64u
 
-public val ISC_REQ_REPLAY_DETECT: ISC_REQ_FLAGS = 4u
+public val ISC_REQ_REPLAY_DETECT: IscReqFlags = 4u
 
-public val ISC_REQ_RESERVED1: ISC_REQ_FLAGS = 1048576u
+public val ISC_REQ_RESERVED1: IscReqFlags = 1048576u
 
-public val ISC_REQ_SEQUENCE_DETECT: ISC_REQ_FLAGS = 8u
+public val ISC_REQ_SEQUENCE_DETECT: IscReqFlags = 8u
 
-public val ISC_REQ_STREAM: ISC_REQ_FLAGS = 32768u
+public val ISC_REQ_STREAM: IscReqFlags = 32768u
 
-public val ISC_REQ_UNVERIFIED_TARGET_NAME: ISC_REQ_FLAGS = 536870912u
+public val ISC_REQ_UNVERIFIED_TARGET_NAME: IscReqFlags = 536870912u
 
-public val ISC_REQ_USE_DCE_STYLE: ISC_REQ_FLAGS = 512u
+public val ISC_REQ_USE_DCE_STYLE: IscReqFlags = 512u
 
-public val ISC_REQ_USE_HTTP_STYLE: ISC_REQ_FLAGS = 16777216u
+public val ISC_REQ_USE_HTTP_STYLE: IscReqFlags = 16777216u
 
-public val ISC_REQ_USE_SESSION_KEY: ISC_REQ_FLAGS = 32u
+public val ISC_REQ_USE_SESSION_KEY: IscReqFlags = 32u
 
-public val ISC_REQ_USE_SUPPLIED_CREDS: ISC_REQ_FLAGS = 128u
+public val ISC_REQ_USE_SUPPLIED_CREDS: IscReqFlags = 128u
 
 public val ISC_RET_ALLOCATED_MEMORY: UInt = 256u
 
@@ -536,7 +536,7 @@ public val ISSP_LEVEL: UInt = 32u
 
 public val ISSP_MODE: UInt = 1u
 
-public val InvalidCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = 0
+public val INVALID_CRED_KEY: Msv10CredentialKeyType = 0
 
 public val KDC_PROXY_SETTINGS_FLAGS_FORCEPROXY: UInt = 1u
 
@@ -568,11 +568,11 @@ public val KERB_CHECKSUM_HMAC_MD5: Int = -138
 
 public val KERB_CHECKSUM_HMAC_SHA1_96_AES128: UInt = 15u
 
-public val KERB_CHECKSUM_HMAC_SHA1_96_AES128_Ki: Int = -150
+public val KERB_CHECKSUM_HMAC_SHA1_96_AES128_KI: Int = -150
 
 public val KERB_CHECKSUM_HMAC_SHA1_96_AES256: UInt = 16u
 
-public val KERB_CHECKSUM_HMAC_SHA1_96_AES256_Ki: Int = -151
+public val KERB_CHECKSUM_HMAC_SHA1_96_AES256_KI: Int = -151
 
 public val KERB_CHECKSUM_KRB_DES_MAC: UInt = 4u
 
@@ -626,11 +626,11 @@ public val KERB_ETYPE_DES3_CBC_SHA1: UInt = 7u
 
 public val KERB_ETYPE_DES3_CBC_SHA1_KD: UInt = 16u
 
-public val KERB_ETYPE_DES_CBC_CRC: KERB_CRYPTO_KEY_TYPE = 1
+public val KERB_ETYPE_DES_CBC_CRC: KerbCryptoKeyType = 1
 
-public val KERB_ETYPE_DES_CBC_MD4: KERB_CRYPTO_KEY_TYPE = 2
+public val KERB_ETYPE_DES_CBC_MD4: KerbCryptoKeyType = 2
 
-public val KERB_ETYPE_DES_CBC_MD5: KERB_CRYPTO_KEY_TYPE = 3
+public val KERB_ETYPE_DES_CBC_MD5: KerbCryptoKeyType = 3
 
 public val KERB_ETYPE_DES_CBC_MD5_NT: UInt = 20u
 
@@ -642,13 +642,13 @@ public val KERB_ETYPE_DSA_SHA1_CMS: UInt = 9u
 
 public val KERB_ETYPE_DSA_SIGN: UInt = 8u
 
-public val KERB_ETYPE_NULL: KERB_CRYPTO_KEY_TYPE = 0
+public val KERB_ETYPE_NULL: KerbCryptoKeyType = 0
 
 public val KERB_ETYPE_PKCS7_PUB: UInt = 13u
 
 public val KERB_ETYPE_RC2_CBC_ENV: UInt = 12u
 
-public val KERB_ETYPE_RC4_HMAC_NT: KERB_CRYPTO_KEY_TYPE = 23
+public val KERB_ETYPE_RC4_HMAC_NT: KerbCryptoKeyType = 23
 
 public val KERB_ETYPE_RC4_HMAC_NT_EXP: UInt = 24u
 
@@ -658,7 +658,7 @@ public val KERB_ETYPE_RC4_HMAC_OLD_EXP: Int = -135
 
 public val KERB_ETYPE_RC4_LM: Int = -130
 
-public val KERB_ETYPE_RC4_MD4: KERB_CRYPTO_KEY_TYPE = -128
+public val KERB_ETYPE_RC4_MD4: KerbCryptoKeyType = -128
 
 public val KERB_ETYPE_RC4_PLAIN: Int = -140
 
@@ -704,11 +704,11 @@ public val KERB_REFRESH_SCCRED_GETTGT: UInt = 1u
 
 public val KERB_REFRESH_SCCRED_RELEASE: UInt = 0u
 
-public val KERB_REQUEST_ADD_CREDENTIAL: KERB_REQUEST_FLAGS = 1u
+public val KERB_REQUEST_ADD_CREDENTIAL: KerbRequestFlags = 1u
 
-public val KERB_REQUEST_REMOVE_CREDENTIAL: KERB_REQUEST_FLAGS = 4u
+public val KERB_REQUEST_REMOVE_CREDENTIAL: KerbRequestFlags = 4u
 
-public val KERB_REQUEST_REPLACE_CREDENTIAL: KERB_REQUEST_FLAGS = 2u
+public val KERB_REQUEST_REPLACE_CREDENTIAL: KerbRequestFlags = 2u
 
 public val KERB_RETRIEVE_TICKET_AS_KERB_CRED: UInt = 8u
 
@@ -738,39 +738,39 @@ public val KERB_SETPASS_USE_CREDHANDLE: UInt = 2u
 
 public val KERB_SETPASS_USE_LOGONID: UInt = 1u
 
-public val KERB_TICKET_FLAGS_cname_in_pa_data: UInt = 262144u
+public val KERB_TICKET_FLAGS_CNAME_IN_PA_DATA: UInt = 262144u
 
-public val KERB_TICKET_FLAGS_enc_pa_rep: UInt = 65536u
+public val KERB_TICKET_FLAGS_ENC_PA_REP: UInt = 65536u
 
-public val KERB_TICKET_FLAGS_forwardable: KERB_TICKET_FLAGS = 1073741824u
+public val KERB_TICKET_FLAGS_FORWARDABLE: KerbTicketFlags = 1073741824u
 
-public val KERB_TICKET_FLAGS_forwarded: KERB_TICKET_FLAGS = 536870912u
+public val KERB_TICKET_FLAGS_FORWARDED: KerbTicketFlags = 536870912u
 
-public val KERB_TICKET_FLAGS_hw_authent: KERB_TICKET_FLAGS = 1048576u
+public val KERB_TICKET_FLAGS_HW_AUTHENT: KerbTicketFlags = 1048576u
 
-public val KERB_TICKET_FLAGS_initial: KERB_TICKET_FLAGS = 4194304u
+public val KERB_TICKET_FLAGS_INITIAL: KerbTicketFlags = 4194304u
 
-public val KERB_TICKET_FLAGS_invalid: KERB_TICKET_FLAGS = 16777216u
+public val KERB_TICKET_FLAGS_INVALID: KerbTicketFlags = 16777216u
 
-public val KERB_TICKET_FLAGS_may_postdate: KERB_TICKET_FLAGS = 67108864u
+public val KERB_TICKET_FLAGS_MAY_POSTDATE: KerbTicketFlags = 67108864u
 
-public val KERB_TICKET_FLAGS_name_canonicalize: UInt = 65536u
+public val KERB_TICKET_FLAGS_NAME_CANONICALIZE: UInt = 65536u
 
-public val KERB_TICKET_FLAGS_ok_as_delegate: KERB_TICKET_FLAGS = 262144u
+public val KERB_TICKET_FLAGS_OK_AS_DELEGATE: KerbTicketFlags = 262144u
 
-public val KERB_TICKET_FLAGS_postdated: KERB_TICKET_FLAGS = 33554432u
+public val KERB_TICKET_FLAGS_POSTDATED: KerbTicketFlags = 33554432u
 
-public val KERB_TICKET_FLAGS_pre_authent: KERB_TICKET_FLAGS = 2097152u
+public val KERB_TICKET_FLAGS_PRE_AUTHENT: KerbTicketFlags = 2097152u
 
-public val KERB_TICKET_FLAGS_proxiable: KERB_TICKET_FLAGS = 268435456u
+public val KERB_TICKET_FLAGS_PROXIABLE: KerbTicketFlags = 268435456u
 
-public val KERB_TICKET_FLAGS_proxy: KERB_TICKET_FLAGS = 134217728u
+public val KERB_TICKET_FLAGS_PROXY: KerbTicketFlags = 134217728u
 
-public val KERB_TICKET_FLAGS_renewable: KERB_TICKET_FLAGS = 8388608u
+public val KERB_TICKET_FLAGS_RENEWABLE: KerbTicketFlags = 8388608u
 
-public val KERB_TICKET_FLAGS_reserved: KERB_TICKET_FLAGS = 2147483648u
+public val KERB_TICKET_FLAGS_RESERVED: KerbTicketFlags = 2147483648u
 
-public val KERB_TICKET_FLAGS_reserved1: KERB_TICKET_FLAGS = 1u
+public val KERB_TICKET_FLAGS_RESERVED1: KerbTicketFlags = 1u
 
 public val KERB_TRANSFER_CRED_CLEANUP_CREDENTIALS: UInt = 2u
 
@@ -782,7 +782,7 @@ public val KERB_WRAP_NO_ENCRYPT: UInt = 2147483649u
 
 public val KERN_CONTEXT_CERT_INFO_V1: UInt = 0u
 
-public val KRB_ANONYMOUS_STRING: PCWSTR = w("ANONYMOUS")
+public val KRB_ANONYMOUS_STRING: Pcwstr = w("ANONYMOUS")
 
 public val KRB_NT_ENTERPRISE_PRINCIPAL: UInt = 10u
 
@@ -814,117 +814,117 @@ public val KRB_NT_WELLKNOWN: UInt = 11u
 
 public val KRB_NT_X500_PRINCIPAL: UInt = 6u
 
-public val KRB_WELLKNOWN_STRING: PCWSTR = w("WELLKNOWN")
+public val KRB_WELLKNOWN_STRING: Pcwstr = w("WELLKNOWN")
 
-public val KSecNonPaged: KSEC_CONTEXT_TYPE = 1
+public val K_SEC_NON_PAGED: KsecContextType = 1
 
-public val KSecPaged: KSEC_CONTEXT_TYPE = 0
+public val K_SEC_PAGED: KsecContextType = 0
 
-public val KerbAddBindingCacheEntryExMessage: KERB_PROTOCOL_MESSAGE_TYPE = 27
+public val KERB_ADD_BINDING_CACHE_ENTRY_EX_MESSAGE: KerbProtocolMessageType = 27
 
-public val KerbAddBindingCacheEntryMessage: KERB_PROTOCOL_MESSAGE_TYPE = 10
+public val KERB_ADD_BINDING_CACHE_ENTRY_MESSAGE: KerbProtocolMessageType = 10
 
-public val KerbAddExtraCredentialsExMessage: KERB_PROTOCOL_MESSAGE_TYPE = 22
+public val KERB_ADD_EXTRA_CREDENTIALS_EX_MESSAGE: KerbProtocolMessageType = 22
 
-public val KerbAddExtraCredentialsMessage: KERB_PROTOCOL_MESSAGE_TYPE = 17
+public val KERB_ADD_EXTRA_CREDENTIALS_MESSAGE: KerbProtocolMessageType = 17
 
-public val KerbCertificateLogon: KERB_LOGON_SUBMIT_TYPE = 13
+public val KERB_CERTIFICATE_LOGON: KerbLogonSubmitType = 13
 
-public val KerbCertificateS4ULogon: KERB_LOGON_SUBMIT_TYPE = 14
+public val KERB_CERTIFICATE_S4U_LOGON: KerbLogonSubmitType = 14
 
-public val KerbCertificateUnlockLogon: KERB_LOGON_SUBMIT_TYPE = 15
+public val KERB_CERTIFICATE_UNLOCK_LOGON: KerbLogonSubmitType = 15
 
-public val KerbChangeMachinePasswordMessage: KERB_PROTOCOL_MESSAGE_TYPE = 2
+public val KERB_CHANGE_MACHINE_PASSWORD_MESSAGE: KerbProtocolMessageType = 2
 
-public val KerbChangePasswordMessage: KERB_PROTOCOL_MESSAGE_TYPE = 7
+public val KERB_CHANGE_PASSWORD_MESSAGE: KerbProtocolMessageType = 7
 
-public val KerbCleanupMachinePkinitCredsMessage: KERB_PROTOCOL_MESSAGE_TYPE = 26
+public val KERB_CLEANUP_MACHINE_PKINIT_CREDS_MESSAGE: KerbProtocolMessageType = 26
 
-public val KerbDebugRequestMessage: KERB_PROTOCOL_MESSAGE_TYPE = 0
+public val KERB_DEBUG_REQUEST_MESSAGE: KerbProtocolMessageType = 0
 
-public val KerbDecryptDataMessage: KERB_PROTOCOL_MESSAGE_TYPE = 9
+public val KERB_DECRYPT_DATA_MESSAGE: KerbProtocolMessageType = 9
 
-public val KerbInteractiveLogon: KERB_LOGON_SUBMIT_TYPE = 2
+public val KERB_INTERACTIVE_LOGON: KerbLogonSubmitType = 2
 
-public val KerbInteractiveProfile: KERB_PROFILE_BUFFER_TYPE = 2
+public val KERB_INTERACTIVE_PROFILE: KerbProfileBufferType = 2
 
-public val KerbLuidLogon: KERB_LOGON_SUBMIT_TYPE = 84
+public val KERB_LUID_LOGON: KerbLogonSubmitType = 84
 
-public val KerbNoElevationLogon: KERB_LOGON_SUBMIT_TYPE = 83
+public val KERB_NO_ELEVATION_LOGON: KerbLogonSubmitType = 83
 
-public val KerbPinKdcMessage: KERB_PROTOCOL_MESSAGE_TYPE = 30
+public val KERB_PIN_KDC_MESSAGE: KerbProtocolMessageType = 30
 
-public val KerbPrintCloudKerberosDebugMessage: KERB_PROTOCOL_MESSAGE_TYPE = 36
+public val KERB_PRINT_CLOUD_KERBEROS_DEBUG_MESSAGE: KerbProtocolMessageType = 36
 
-public val KerbProxyLogon: KERB_LOGON_SUBMIT_TYPE = 9
+public val KERB_PROXY_LOGON: KerbLogonSubmitType = 9
 
-public val KerbPurgeBindingCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = 29
+public val KERB_PURGE_BINDING_CACHE_MESSAGE: KerbProtocolMessageType = 29
 
-public val KerbPurgeKdcProxyCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = 24
+public val KERB_PURGE_KDC_PROXY_CACHE_MESSAGE: KerbProtocolMessageType = 24
 
-public val KerbPurgeTicketCacheExMessage: KERB_PROTOCOL_MESSAGE_TYPE = 15
+public val KERB_PURGE_TICKET_CACHE_EX_MESSAGE: KerbProtocolMessageType = 15
 
-public val KerbPurgeTicketCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = 6
+public val KERB_PURGE_TICKET_CACHE_MESSAGE: KerbProtocolMessageType = 6
 
-public val KerbQueryBindingCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = 28
+public val KERB_QUERY_BINDING_CACHE_MESSAGE: KerbProtocolMessageType = 28
 
-public val KerbQueryDomainExtendedPoliciesMessage: KERB_PROTOCOL_MESSAGE_TYPE = 32
+public val KERB_QUERY_DOMAIN_EXTENDED_POLICIES_MESSAGE: KerbProtocolMessageType = 32
 
-public val KerbQueryKdcProxyCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = 23
+public val KERB_QUERY_KDC_PROXY_CACHE_MESSAGE: KerbProtocolMessageType = 23
 
-public val KerbQueryS4U2ProxyCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = 33
+public val KERB_QUERY_S4U2PROXY_CACHE_MESSAGE: KerbProtocolMessageType = 33
 
-public val KerbQuerySupplementalCredentialsMessage: KERB_PROTOCOL_MESSAGE_TYPE = 18
+public val KERB_QUERY_SUPPLEMENTAL_CREDENTIALS_MESSAGE: KerbProtocolMessageType = 18
 
-public val KerbQueryTicketCacheEx2Message: KERB_PROTOCOL_MESSAGE_TYPE = 20
+public val KERB_QUERY_TICKET_CACHE_EX2MESSAGE: KerbProtocolMessageType = 20
 
-public val KerbQueryTicketCacheEx3Message: KERB_PROTOCOL_MESSAGE_TYPE = 25
+public val KERB_QUERY_TICKET_CACHE_EX3MESSAGE: KerbProtocolMessageType = 25
 
-public val KerbQueryTicketCacheExMessage: KERB_PROTOCOL_MESSAGE_TYPE = 14
+public val KERB_QUERY_TICKET_CACHE_EX_MESSAGE: KerbProtocolMessageType = 14
 
-public val KerbQueryTicketCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = 1
+public val KERB_QUERY_TICKET_CACHE_MESSAGE: KerbProtocolMessageType = 1
 
-public val KerbRefreshPolicyMessage: KERB_PROTOCOL_MESSAGE_TYPE = 35
+public val KERB_REFRESH_POLICY_MESSAGE: KerbProtocolMessageType = 35
 
-public val KerbRefreshSmartcardCredentialsMessage: KERB_PROTOCOL_MESSAGE_TYPE = 16
+public val KERB_REFRESH_SMARTCARD_CREDENTIALS_MESSAGE: KerbProtocolMessageType = 16
 
-public val KerbRetrieveEncodedTicketMessage: KERB_PROTOCOL_MESSAGE_TYPE = 8
+public val KERB_RETRIEVE_ENCODED_TICKET_MESSAGE: KerbProtocolMessageType = 8
 
-public val KerbRetrieveKeyTabMessage: KERB_PROTOCOL_MESSAGE_TYPE = 34
+public val KERB_RETRIEVE_KEY_TAB_MESSAGE: KerbProtocolMessageType = 34
 
-public val KerbRetrieveTicketMessage: KERB_PROTOCOL_MESSAGE_TYPE = 4
+public val KERB_RETRIEVE_TICKET_MESSAGE: KerbProtocolMessageType = 4
 
-public val KerbS4ULogon: KERB_LOGON_SUBMIT_TYPE = 12
+public val KERB_S4U_LOGON: KerbLogonSubmitType = 12
 
-public val KerbSetPasswordExMessage: KERB_PROTOCOL_MESSAGE_TYPE = 12
+public val KERB_SET_PASSWORD_EX_MESSAGE: KerbProtocolMessageType = 12
 
-public val KerbSetPasswordMessage: KERB_PROTOCOL_MESSAGE_TYPE = 11
+public val KERB_SET_PASSWORD_MESSAGE: KerbProtocolMessageType = 11
 
-public val KerbSmartCardLogon: KERB_LOGON_SUBMIT_TYPE = 6
+public val KERB_SMART_CARD_LOGON: KerbLogonSubmitType = 6
 
-public val KerbSmartCardProfile: KERB_PROFILE_BUFFER_TYPE = 4
+public val KERB_SMART_CARD_PROFILE: KerbProfileBufferType = 4
 
-public val KerbSmartCardUnlockLogon: KERB_LOGON_SUBMIT_TYPE = 8
+public val KERB_SMART_CARD_UNLOCK_LOGON: KerbLogonSubmitType = 8
 
-public val KerbSubmitTicketMessage: KERB_PROTOCOL_MESSAGE_TYPE = 21
+public val KERB_SUBMIT_TICKET_MESSAGE: KerbProtocolMessageType = 21
 
-public val KerbTicketLogon: KERB_LOGON_SUBMIT_TYPE = 10
+public val KERB_TICKET_LOGON: KerbLogonSubmitType = 10
 
-public val KerbTicketProfile: KERB_PROFILE_BUFFER_TYPE = 6
+public val KERB_TICKET_PROFILE: KerbProfileBufferType = 6
 
-public val KerbTicketUnlockLogon: KERB_LOGON_SUBMIT_TYPE = 11
+public val KERB_TICKET_UNLOCK_LOGON: KerbLogonSubmitType = 11
 
-public val KerbTransferCredentialsMessage: KERB_PROTOCOL_MESSAGE_TYPE = 19
+public val KERB_TRANSFER_CREDENTIALS_MESSAGE: KerbProtocolMessageType = 19
 
-public val KerbUnpinAllKdcsMessage: KERB_PROTOCOL_MESSAGE_TYPE = 31
+public val KERB_UNPIN_ALL_KDCS_MESSAGE: KerbProtocolMessageType = 31
 
-public val KerbUpdateAddressesMessage: KERB_PROTOCOL_MESSAGE_TYPE = 5
+public val KERB_UPDATE_ADDRESSES_MESSAGE: KerbProtocolMessageType = 5
 
-public val KerbVerifyCredentialsMessage: KERB_PROTOCOL_MESSAGE_TYPE = 13
+public val KERB_VERIFY_CREDENTIALS_MESSAGE: KerbProtocolMessageType = 13
 
-public val KerbVerifyPacMessage: KERB_PROTOCOL_MESSAGE_TYPE = 3
+public val KERB_VERIFY_PAC_MESSAGE: KerbProtocolMessageType = 3
 
-public val KerbWorkstationUnlockLogon: KERB_LOGON_SUBMIT_TYPE = 7
+public val KERB_WORKSTATION_UNLOCK_LOGON: KerbLogonSubmitType = 7
 
 public val LCRED_CRED_EXISTS: UInt = 1u
 
@@ -932,19 +932,19 @@ public val LCRED_STATUS_NOCRED: UInt = 0u
 
 public val LCRED_STATUS_UNKNOWN_ISSUER: UInt = 2u
 
-public val LOGON_CACHED_ACCOUNT: MSV_SUB_AUTHENTICATION_FILTER = 4u
+public val LOGON_CACHED_ACCOUNT: MsvSubAuthenticationFilter = 4u
 
-public val LOGON_EXTRA_SIDS: MSV_SUB_AUTHENTICATION_FILTER = 32u
+public val LOGON_EXTRA_SIDS: MsvSubAuthenticationFilter = 32u
 
 public val LOGON_GRACE_LOGON: UInt = 16777216u
 
-public val LOGON_GUEST: MSV_SUB_AUTHENTICATION_FILTER = 1u
+public val LOGON_GUEST: MsvSubAuthenticationFilter = 1u
 
 public val LOGON_LM_V2: UInt = 4096u
 
 public val LOGON_MANAGED_SERVICE: UInt = 524288u
 
-public val LOGON_NOENCRYPTION: MSV_SUB_AUTHENTICATION_FILTER = 2u
+public val LOGON_NOENCRYPTION: MsvSubAuthenticationFilter = 2u
 
 public val LOGON_NO_ELEVATION: UInt = 262144u
 
@@ -960,15 +960,15 @@ public val LOGON_OPTIMIZED: UInt = 16384u
 
 public val LOGON_PKINIT: UInt = 65536u
 
-public val LOGON_PROFILE_PATH_RETURNED: MSV_SUB_AUTHENTICATION_FILTER = 1024u
+public val LOGON_PROFILE_PATH_RETURNED: MsvSubAuthenticationFilter = 1024u
 
-public val LOGON_RESOURCE_GROUPS: MSV_SUB_AUTHENTICATION_FILTER = 512u
+public val LOGON_RESOURCE_GROUPS: MsvSubAuthenticationFilter = 512u
 
-public val LOGON_SERVER_TRUST_ACCOUNT: MSV_SUB_AUTHENTICATION_FILTER = 128u
+public val LOGON_SERVER_TRUST_ACCOUNT: MsvSubAuthenticationFilter = 128u
 
-public val LOGON_SUBAUTH_SESSION_KEY: MSV_SUB_AUTHENTICATION_FILTER = 64u
+public val LOGON_SUBAUTH_SESSION_KEY: MsvSubAuthenticationFilter = 64u
 
-public val LOGON_USED_LM_PASSWORD: MSV_SUB_AUTHENTICATION_FILTER = 8u
+public val LOGON_USED_LM_PASSWORD: MsvSubAuthenticationFilter = 8u
 
 public val LOGON_WINLOGON: UInt = 32768u
 
@@ -988,25 +988,25 @@ public val LSASETCAPS_RELOAD_FLAG: UInt = 1u
 
 public val LSASETCAPS_VALID_FLAG_MASK: UInt = 1u
 
-public val LSA_ADT_LEGACY_SECURITY_SOURCE_NAME: PCWSTR = w("Security")
+public val LSA_ADT_LEGACY_SECURITY_SOURCE_NAME: Pcwstr = w("Security")
 
-public val LSA_ADT_SECURITY_SOURCE_NAME: PCWSTR = w("Microsoft-Windows-Security-Auditing")
+public val LSA_ADT_SECURITY_SOURCE_NAME: Pcwstr = w("Microsoft-Windows-Security-Auditing")
 
-public val LSA_AP_NAME_CALL_PACKAGE: PCSTR = s("LsaApCallPackage\u0000")
+public val LSA_AP_NAME_CALL_PACKAGE: Pcstr = s("LsaApCallPackage\u0000")
 
-public val LSA_AP_NAME_CALL_PACKAGE_PASSTHROUGH: PCSTR = s("LsaApCallPackagePassthrough\u0000")
+public val LSA_AP_NAME_CALL_PACKAGE_PASSTHROUGH: Pcstr = s("LsaApCallPackagePassthrough\u0000")
 
-public val LSA_AP_NAME_CALL_PACKAGE_UNTRUSTED: PCSTR = s("LsaApCallPackageUntrusted\u0000")
+public val LSA_AP_NAME_CALL_PACKAGE_UNTRUSTED: Pcstr = s("LsaApCallPackageUntrusted\u0000")
 
-public val LSA_AP_NAME_INITIALIZE_PACKAGE: PCSTR = s("LsaApInitializePackage\u0000")
+public val LSA_AP_NAME_INITIALIZE_PACKAGE: Pcstr = s("LsaApInitializePackage\u0000")
 
-public val LSA_AP_NAME_LOGON_TERMINATED: PCSTR = s("LsaApLogonTerminated\u0000")
+public val LSA_AP_NAME_LOGON_TERMINATED: Pcstr = s("LsaApLogonTerminated\u0000")
 
-public val LSA_AP_NAME_LOGON_USER: PCSTR = s("LsaApLogonUser\u0000")
+public val LSA_AP_NAME_LOGON_USER: Pcstr = s("LsaApLogonUser\u0000")
 
-public val LSA_AP_NAME_LOGON_USER_EX: PCSTR = s("LsaApLogonUserEx\u0000")
+public val LSA_AP_NAME_LOGON_USER_EX: Pcstr = s("LsaApLogonUserEx\u0000")
 
-public val LSA_AP_NAME_LOGON_USER_EX2: PCSTR = s("LsaApLogonUserEx2\u0000")
+public val LSA_AP_NAME_LOGON_USER_EX2: Pcstr = s("LsaApLogonUserEx2\u0000")
 
 public val LSA_CALL_LICENSE_SERVER: UInt = 2147483648u
 
@@ -1014,11 +1014,11 @@ public val LSA_FOREST_TRUST_RECORD_TYPE_UNRECOGNIZED: UInt = 2147483648u
 
 public val LSA_FTRECORD_DISABLED_REASONS: Int = 65535
 
-public val LSA_GLOBAL_SECRET_PREFIX: PCWSTR = w("G\$")
+public val LSA_GLOBAL_SECRET_PREFIX: Pcwstr = w("G\$")
 
 public val LSA_GLOBAL_SECRET_PREFIX_LENGTH: UInt = 2u
 
-public val LSA_LOCAL_SECRET_PREFIX: PCWSTR = w("L\$")
+public val LSA_LOCAL_SECRET_PREFIX: Pcwstr = w("L\$")
 
 public val LSA_LOCAL_SECRET_PREFIX_LENGTH: UInt = 2u
 
@@ -1028,7 +1028,7 @@ public val LSA_LOOKUP_ISOLATED_AS_LOCAL: UInt = 2147483648u
 
 public val LSA_LOOKUP_PREFER_INTERNET_NAMES: UInt = 1073741824u
 
-public val LSA_MACHINE_SECRET_PREFIX: PCWSTR = w("M\$")
+public val LSA_MACHINE_SECRET_PREFIX: Pcwstr = w("M\$")
 
 public val LSA_MAXIMUM_ENUMERATION_LENGTH: UInt = 32000u
 
@@ -1066,15 +1066,15 @@ public val LSA_TLN_DISABLED_CONFLICT: Int = 4
 
 public val LSA_TLN_DISABLED_NEW: Int = 1
 
-public val LocalUserCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = 3
+public val LOCAL_USER_CRED_KEY: Msv10CredentialKeyType = 3
 
-public val LsaTokenInformationNull: LSA_TOKEN_INFORMATION_TYPE = 0
+public val LSA_TOKEN_INFORMATION_NULL: LsaTokenInformationType = 0
 
-public val LsaTokenInformationV1: LSA_TOKEN_INFORMATION_TYPE = 1
+public val LSA_TOKEN_INFORMATION_V1: LsaTokenInformationType = 1
 
-public val LsaTokenInformationV2: LSA_TOKEN_INFORMATION_TYPE = 2
+public val LSA_TOKEN_INFORMATION_V2: LsaTokenInformationType = 2
 
-public val LsaTokenInformationV3: LSA_TOKEN_INFORMATION_TYPE = 3
+public val LSA_TOKEN_INFORMATION_V3: LsaTokenInformationType = 3
 
 public val MAXIMUM_CAPES_PER_CAP: UInt = 127u
 
@@ -1086,19 +1086,19 @@ public val MAX_RECORDS_IN_FOREST_TRUST_INFO: UInt = 4000u
 
 public val MAX_USER_RECORDS: UInt = 1000u
 
-public val MICROSOFT_KERBEROS_NAME: PCWSTR = w("Kerberos")
+public val MICROSOFT_KERBEROS_NAME: Pcwstr = w("Kerberos")
 
-public val MICROSOFT_KERBEROS_NAME_A: PCSTR = s("Kerberos")
+public val MICROSOFT_KERBEROS_NAME_A: Pcstr = s("Kerberos")
 
-public val MICROSOFT_KERBEROS_NAME_W: PCWSTR = w("Kerberos")
+public val MICROSOFT_KERBEROS_NAME_W: Pcwstr = w("Kerberos")
 
 public val MSV1_0_ALLOW_FORCE_GUEST: UInt = 8192u
 
 public val MSV1_0_ALLOW_MSVCHAPV2: UInt = 65536u
 
-public val MSV1_0_ALLOW_SERVER_TRUST_ACCOUNT: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 32u
+public val MSV1_0_ALLOW_SERVER_TRUST_ACCOUNT: MsvSubauthLogonParameterControl = 32u
 
-public val MSV1_0_ALLOW_WORKSTATION_TRUST_ACCOUNT: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 2048u
+public val MSV1_0_ALLOW_WORKSTATION_TRUST_ACCOUNT: MsvSubauthLogonParameterControl = 2048u
 
 public val MSV1_0_AV_FLAG_FORCE_GUEST: UInt = 1u
 
@@ -1110,7 +1110,7 @@ public val MSV1_0_CHALLENGE_LENGTH: UInt = 8u
 
 public val MSV1_0_CHECK_LOGONHOURS_FOR_S4U: UInt = 262144u
 
-public val MSV1_0_CLEARTEXT_PASSWORD_ALLOWED: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 2u
+public val MSV1_0_CLEARTEXT_PASSWORD_ALLOWED: MsvSubauthLogonParameterControl = 2u
 
 public val MSV1_0_CLEARTEXT_PASSWORD_SUPPLIED: UInt = 16384u
 
@@ -1118,15 +1118,15 @@ public val MSV1_0_CREDENTIAL_KEY_LENGTH: UInt = 20u
 
 public val MSV1_0_CRED_CREDKEY_PRESENT: UInt = 8u
 
-public val MSV1_0_CRED_LM_PRESENT: MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS = 1u
+public val MSV1_0_CRED_LM_PRESENT: MsvSupplementalCredentialFlags = 1u
 
-public val MSV1_0_CRED_NT_PRESENT: MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS = 2u
+public val MSV1_0_CRED_NT_PRESENT: MsvSupplementalCredentialFlags = 2u
 
 public val MSV1_0_CRED_REMOVED: UInt = 4u
 
 public val MSV1_0_CRED_SHA_PRESENT: UInt = 16u
 
-public val MSV1_0_CRED_VERSION: MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS = 0u
+public val MSV1_0_CRED_VERSION: MsvSupplementalCredentialFlags = 0u
 
 public val MSV1_0_CRED_VERSION_ARSO: UInt = 4294901763u
 
@@ -1144,9 +1144,9 @@ public val MSV1_0_CRED_VERSION_V3: UInt = 4u
 
 public val MSV1_0_DISABLE_PERSONAL_FALLBACK: UInt = 4096u
 
-public val MSV1_0_DONT_TRY_GUEST_ACCOUNT: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 16u
+public val MSV1_0_DONT_TRY_GUEST_ACCOUNT: MsvSubauthLogonParameterControl = 16u
 
-public val MSV1_0_GUEST_LOGON: MSV1_0 = 2u
+public val MSV1_0_GUEST_LOGON: Msv10 = 2u
 
 public val MSV1_0_INTERNET_DOMAIN: UInt = 524288u
 
@@ -1164,17 +1164,17 @@ public val MSV1_0_NTLM3_RESPONSE_LENGTH: UInt = 16u
 
 public val MSV1_0_OWF_PASSWORD_LENGTH: UInt = 16u
 
-public val MSV1_0_PACKAGE_NAME: PCSTR = s("MICROSOFT_AUTHENTICATION_PACKAGE_V1_0")
+public val MSV1_0_PACKAGE_NAME: Pcstr = s("MICROSOFT_AUTHENTICATION_PACKAGE_V1_0")
 
-public val MSV1_0_PACKAGE_NAMEW: PCWSTR = w("MICROSOFT_AUTHENTICATION_PACKAGE_V1_0")
+public val MSV1_0_PACKAGE_NAMEW: Pcwstr = w("MICROSOFT_AUTHENTICATION_PACKAGE_V1_0")
 
-public val MSV1_0_PASSTHRU: MSV1_0 = 1u
+public val MSV1_0_PASSTHRU: Msv10 = 1u
 
-public val MSV1_0_RETURN_PASSWORD_EXPIRY: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 64u
+public val MSV1_0_RETURN_PASSWORD_EXPIRY: MsvSubauthLogonParameterControl = 64u
 
-public val MSV1_0_RETURN_PROFILE_PATH: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 512u
+public val MSV1_0_RETURN_PROFILE_PATH: MsvSubauthLogonParameterControl = 512u
 
-public val MSV1_0_RETURN_USER_PARAMETERS: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 8u
+public val MSV1_0_RETURN_USER_PARAMETERS: MsvSubauthLogonParameterControl = 8u
 
 public val MSV1_0_S4U2SELF: UInt = 131072u
 
@@ -1194,9 +1194,9 @@ public val MSV1_0_SUBAUTHENTICATION_DLL_SHIFT: UInt = 24u
 
 public val MSV1_0_SUBAUTHENTICATION_FLAGS: UInt = 4278190080u
 
-public val MSV1_0_SUBAUTHENTICATION_KEY: PCSTR = s("SYSTEM\\CurrentControlSet\\Control\\Lsa\\MSV1_0")
+public val MSV1_0_SUBAUTHENTICATION_KEY: Pcstr = s("SYSTEM\\CurrentControlSet\\Control\\Lsa\\MSV1_0")
 
-public val MSV1_0_SUBAUTHENTICATION_VALUE: PCSTR = s("Auth")
+public val MSV1_0_SUBAUTHENTICATION_VALUE: Pcstr = s("Auth")
 
 public val MSV1_0_SUBAUTH_ACCOUNT_DISABLED: UInt = 1u
 
@@ -1214,11 +1214,11 @@ public val MSV1_0_SUBAUTH_PASSWORD_EXPIRY: UInt = 32u
 
 public val MSV1_0_SUBAUTH_WORKSTATIONS: UInt = 4u
 
-public val MSV1_0_TRY_GUEST_ACCOUNT_ONLY: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 256u
+public val MSV1_0_TRY_GUEST_ACCOUNT_ONLY: MsvSubauthLogonParameterControl = 256u
 
-public val MSV1_0_TRY_SPECIFIED_DOMAIN_ONLY: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 1024u
+public val MSV1_0_TRY_SPECIFIED_DOMAIN_ONLY: MsvSubauthLogonParameterControl = 1024u
 
-public val MSV1_0_UPDATE_LOGON_STATISTICS: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 4u
+public val MSV1_0_UPDATE_LOGON_STATISTICS: MsvSubauthLogonParameterControl = 4u
 
 public val MSV1_0_USER_SESSION_KEY_LENGTH: UInt = 16u
 
@@ -1240,107 +1240,107 @@ public val MSV1_0_VALIDATION_USER_FLAGS: UInt = 32u
 
 public val MSV1_0_VALIDATION_USER_ID: UInt = 64u
 
-public val MsV1_0CacheLogon: MSV1_0_PROTOCOL_MESSAGE_TYPE = 8
+public val MS_V1_0CACHE_LOGON: Msv10ProtocolMessageType = 8
 
-public val MsV1_0CacheLookup: MSV1_0_PROTOCOL_MESSAGE_TYPE = 11
+public val MS_V1_0CACHE_LOOKUP: Msv10ProtocolMessageType = 11
 
-public val MsV1_0CacheLookupEx: MSV1_0_PROTOCOL_MESSAGE_TYPE = 17
+public val MS_V1_0CACHE_LOOKUP_EX: Msv10ProtocolMessageType = 17
 
-public val MsV1_0ChangeCachedPassword: MSV1_0_PROTOCOL_MESSAGE_TYPE = 6
+public val MS_V1_0CHANGE_CACHED_PASSWORD: Msv10ProtocolMessageType = 6
 
-public val MsV1_0ChangePassword: MSV1_0_PROTOCOL_MESSAGE_TYPE = 5
+public val MS_V1_0CHANGE_PASSWORD: Msv10ProtocolMessageType = 5
 
-public val MsV1_0ClearCachedCredentials: MSV1_0_PROTOCOL_MESSAGE_TYPE = 14
+public val MS_V1_0CLEAR_CACHED_CREDENTIALS: Msv10ProtocolMessageType = 14
 
-public val MsV1_0ConfigLocalAliases: MSV1_0_PROTOCOL_MESSAGE_TYPE = 13
+public val MS_V1_0CONFIG_LOCAL_ALIASES: Msv10ProtocolMessageType = 13
 
-public val MsV1_0DecryptDpapiMasterKey: MSV1_0_PROTOCOL_MESSAGE_TYPE = 20
+public val MS_V1_0DECRYPT_DPAPI_MASTER_KEY: Msv10ProtocolMessageType = 20
 
-public val MsV1_0DeleteTbalSecrets: MSV1_0_PROTOCOL_MESSAGE_TYPE = 24
+public val MS_V1_0DELETE_TBAL_SECRETS: Msv10ProtocolMessageType = 24
 
-public val MsV1_0DeriveCredential: MSV1_0_PROTOCOL_MESSAGE_TYPE = 10
+public val MS_V1_0DERIVE_CREDENTIAL: Msv10ProtocolMessageType = 10
 
-public val MsV1_0EnumerateUsers: MSV1_0_PROTOCOL_MESSAGE_TYPE = 2
+public val MS_V1_0ENUMERATE_USERS: Msv10ProtocolMessageType = 2
 
-public val MsV1_0GenericPassthrough: MSV1_0_PROTOCOL_MESSAGE_TYPE = 7
+public val MS_V1_0GENERIC_PASSTHROUGH: Msv10ProtocolMessageType = 7
 
-public val MsV1_0GetCredentialKey: MSV1_0_PROTOCOL_MESSAGE_TYPE = 18
+public val MS_V1_0GET_CREDENTIAL_KEY: Msv10ProtocolMessageType = 18
 
-public val MsV1_0GetStrongCredentialKey: MSV1_0_PROTOCOL_MESSAGE_TYPE = 21
+public val MS_V1_0GET_STRONG_CREDENTIAL_KEY: Msv10ProtocolMessageType = 21
 
-public val MsV1_0GetUserInfo: MSV1_0_PROTOCOL_MESSAGE_TYPE = 3
+public val MS_V1_0GET_USER_INFO: Msv10ProtocolMessageType = 3
 
-public val MsV1_0InteractiveLogon: MSV1_0_LOGON_SUBMIT_TYPE = 2
+public val MS_V1_0INTERACTIVE_LOGON: Msv10LogonSubmitType = 2
 
-public val MsV1_0InteractiveProfile: MSV1_0_PROFILE_BUFFER_TYPE = 2
+public val MS_V1_0INTERACTIVE_PROFILE: Msv10ProfileBufferType = 2
 
-public val MsV1_0Lm20ChallengeRequest: MSV1_0_PROTOCOL_MESSAGE_TYPE = 0
+public val MS_V1_0LM20CHALLENGE_REQUEST: Msv10ProtocolMessageType = 0
 
-public val MsV1_0Lm20GetChallengeResponse: MSV1_0_PROTOCOL_MESSAGE_TYPE = 1
+public val MS_V1_0LM20GET_CHALLENGE_RESPONSE: Msv10ProtocolMessageType = 1
 
-public val MsV1_0Lm20Logon: MSV1_0_LOGON_SUBMIT_TYPE = 3
+public val MS_V1_0LM20LOGON: Msv10LogonSubmitType = 3
 
-public val MsV1_0Lm20LogonProfile: MSV1_0_PROFILE_BUFFER_TYPE = 3
+public val MS_V1_0LM20LOGON_PROFILE: Msv10ProfileBufferType = 3
 
-public val MsV1_0LookupToken: MSV1_0_PROTOCOL_MESSAGE_TYPE = 15
+public val MS_V1_0LOOKUP_TOKEN: Msv10ProtocolMessageType = 15
 
-public val MsV1_0LuidLogon: MSV1_0_LOGON_SUBMIT_TYPE = 84
+public val MS_V1_0LUID_LOGON: Msv10LogonSubmitType = 84
 
-public val MsV1_0NetworkLogon: MSV1_0_LOGON_SUBMIT_TYPE = 4
+public val MS_V1_0NETWORK_LOGON: Msv10LogonSubmitType = 4
 
-public val MsV1_0NoElevationLogon: MSV1_0_LOGON_SUBMIT_TYPE = 83
+public val MS_V1_0NO_ELEVATION_LOGON: Msv10LogonSubmitType = 83
 
-public val MsV1_0ProvisionTbal: MSV1_0_PROTOCOL_MESSAGE_TYPE = 23
+public val MS_V1_0PROVISION_TBAL: Msv10ProtocolMessageType = 23
 
-public val MsV1_0ReLogonUsers: MSV1_0_PROTOCOL_MESSAGE_TYPE = 4
+public val MS_V1_0RE_LOGON_USERS: Msv10ProtocolMessageType = 4
 
-public val MsV1_0S4ULogon: MSV1_0_LOGON_SUBMIT_TYPE = 12
+public val MS_V1_0S4U_LOGON: Msv10LogonSubmitType = 12
 
-public val MsV1_0SetProcessOption: MSV1_0_PROTOCOL_MESSAGE_TYPE = 12
+public val MS_V1_0SET_PROCESS_OPTION: Msv10ProtocolMessageType = 12
 
-public val MsV1_0SetThreadOption: MSV1_0_PROTOCOL_MESSAGE_TYPE = 19
+public val MS_V1_0SET_THREAD_OPTION: Msv10ProtocolMessageType = 19
 
-public val MsV1_0SmartCardProfile: MSV1_0_PROFILE_BUFFER_TYPE = 4
+public val MS_V1_0SMART_CARD_PROFILE: Msv10ProfileBufferType = 4
 
-public val MsV1_0SubAuth: MSV1_0_PROTOCOL_MESSAGE_TYPE = 9
+public val MS_V1_0SUB_AUTH: Msv10ProtocolMessageType = 9
 
-public val MsV1_0SubAuthLogon: MSV1_0_LOGON_SUBMIT_TYPE = 5
+public val MS_V1_0SUB_AUTH_LOGON: Msv10LogonSubmitType = 5
 
-public val MsV1_0TransferCred: MSV1_0_PROTOCOL_MESSAGE_TYPE = 22
+public val MS_V1_0TRANSFER_CRED: Msv10ProtocolMessageType = 22
 
-public val MsV1_0ValidateAuth: MSV1_0_PROTOCOL_MESSAGE_TYPE = 16
+public val MS_V1_0VALIDATE_AUTH: Msv10ProtocolMessageType = 16
 
-public val MsV1_0VirtualLogon: MSV1_0_LOGON_SUBMIT_TYPE = 82
+public val MS_V1_0VIRTUAL_LOGON: Msv10LogonSubmitType = 82
 
-public val MsV1_0WorkstationUnlockLogon: MSV1_0_LOGON_SUBMIT_TYPE = 7
+public val MS_V1_0WORKSTATION_UNLOCK_LOGON: Msv10LogonSubmitType = 7
 
-public val MsvAvChannelBindings: MSV1_0_AVID = 10
+public val MSV_AV_CHANNEL_BINDINGS: Msv10Avid = 10
 
-public val MsvAvDnsComputerName: MSV1_0_AVID = 3
+public val MSV_AV_DNS_COMPUTER_NAME: Msv10Avid = 3
 
-public val MsvAvDnsDomainName: MSV1_0_AVID = 4
+public val MSV_AV_DNS_DOMAIN_NAME: Msv10Avid = 4
 
-public val MsvAvDnsTreeName: MSV1_0_AVID = 5
+public val MSV_AV_DNS_TREE_NAME: Msv10Avid = 5
 
-public val MsvAvEOL: MSV1_0_AVID = 0
+public val MSV_AV_EOL: Msv10Avid = 0
 
-public val MsvAvFlags: MSV1_0_AVID = 6
+public val MSV_AV_FLAGS: Msv10Avid = 6
 
-public val MsvAvNbComputerName: MSV1_0_AVID = 1
+public val MSV_AV_NB_COMPUTER_NAME: Msv10Avid = 1
 
-public val MsvAvNbDomainName: MSV1_0_AVID = 2
+public val MSV_AV_NB_DOMAIN_NAME: Msv10Avid = 2
 
-public val MsvAvRestrictions: MSV1_0_AVID = 8
+public val MSV_AV_RESTRICTIONS: Msv10Avid = 8
 
-public val MsvAvTargetName: MSV1_0_AVID = 9
+public val MSV_AV_TARGET_NAME: Msv10Avid = 9
 
-public val MsvAvTimestamp: MSV1_0_AVID = 7
+public val MSV_AV_TIMESTAMP: Msv10Avid = 7
 
-public val NEGOSSP_NAME: PCWSTR = w("Negotiate")
+public val NEGOSSP_NAME: Pcwstr = w("Negotiate")
 
-public val NEGOSSP_NAME_A: PCSTR = s("Negotiate")
+public val NEGOSSP_NAME_A: Pcstr = s("Negotiate")
 
-public val NEGOSSP_NAME_W: PCWSTR = w("Negotiate")
+public val NEGOSSP_NAME_W: Pcwstr = w("Negotiate")
 
 public val NEGOTIATE_ALLOW_NTLM: UInt = 268435456u
 
@@ -1382,63 +1382,63 @@ public val NOTIFY_CLASS_ROLE_CHANGE: UInt = 2u
 
 public val NO_LONG_NAMES: UInt = 2u
 
-public val NTLMSP_NAME: PCWSTR = w("NTLM")
+public val NTLMSP_NAME: Pcwstr = w("NTLM")
 
-public val NTLMSP_NAME_A: PCSTR = s("NTLM")
+public val NTLMSP_NAME_A: Pcstr = s("NTLM")
 
-public val NameCanonical: EXTENDED_NAME_FORMAT = 7
+public val NAME_CANONICAL: ExtendedNameFormat = 7
 
-public val NameCanonicalEx: EXTENDED_NAME_FORMAT = 9
+public val NAME_CANONICAL_EX: ExtendedNameFormat = 9
 
-public val NameDisplay: EXTENDED_NAME_FORMAT = 3
+public val NAME_DISPLAY: ExtendedNameFormat = 3
 
-public val NameDnsDomain: EXTENDED_NAME_FORMAT = 12
+public val NAME_DNS_DOMAIN: ExtendedNameFormat = 12
 
-public val NameFullyQualifiedDN: EXTENDED_NAME_FORMAT = 1
+public val NAME_FULLY_QUALIFIED_DN: ExtendedNameFormat = 1
 
-public val NameGivenName: EXTENDED_NAME_FORMAT = 13
+public val NAME_GIVEN_NAME: ExtendedNameFormat = 13
 
-public val NameSamCompatible: EXTENDED_NAME_FORMAT = 2
+public val NAME_SAM_COMPATIBLE: ExtendedNameFormat = 2
 
-public val NameServicePrincipal: EXTENDED_NAME_FORMAT = 10
+public val NAME_SERVICE_PRINCIPAL: ExtendedNameFormat = 10
 
-public val NameSurname: EXTENDED_NAME_FORMAT = 14
+public val NAME_SURNAME: ExtendedNameFormat = 14
 
-public val NameUniqueId: EXTENDED_NAME_FORMAT = 6
+public val NAME_UNIQUE_ID: ExtendedNameFormat = 6
 
-public val NameUnknown: EXTENDED_NAME_FORMAT = 0
+public val NAME_UNKNOWN: ExtendedNameFormat = 0
 
-public val NameUserPrincipal: EXTENDED_NAME_FORMAT = 8
+public val NAME_USER_PRINCIPAL: ExtendedNameFormat = 8
 
-public val NegCallPackageMax: NEGOTIATE_MESSAGES = 4
+public val NEG_CALL_PACKAGE_MAX: NegotiateMessages = 4
 
-public val NegEnumPackagePrefixes: NEGOTIATE_MESSAGES = 0
+public val NEG_ENUM_PACKAGE_PREFIXES: NegotiateMessages = 0
 
-public val NegGetCallerName: NEGOTIATE_MESSAGES = 1
+public val NEG_GET_CALLER_NAME: NegotiateMessages = 1
 
-public val NegMsgReserved1: NEGOTIATE_MESSAGES = 3
+public val NEG_MSG_RESERVED1: NegotiateMessages = 3
 
-public val NegTransferCredentials: NEGOTIATE_MESSAGES = 2
+public val NEG_TRANSFER_CREDENTIALS: NegotiateMessages = 2
 
-public val NetlogonGenericInformation: NETLOGON_LOGON_INFO_CLASS = 4
+public val NETLOGON_GENERIC_INFORMATION: NetlogonLogonInfoClass = 4
 
-public val NetlogonInteractiveInformation: NETLOGON_LOGON_INFO_CLASS = 1
+public val NETLOGON_INTERACTIVE_INFORMATION: NetlogonLogonInfoClass = 1
 
-public val NetlogonInteractiveTransitiveInformation: NETLOGON_LOGON_INFO_CLASS = 5
+public val NETLOGON_INTERACTIVE_TRANSITIVE_INFORMATION: NetlogonLogonInfoClass = 5
 
-public val NetlogonNetworkInformation: NETLOGON_LOGON_INFO_CLASS = 2
+public val NETLOGON_NETWORK_INFORMATION: NetlogonLogonInfoClass = 2
 
-public val NetlogonNetworkTransitiveInformation: NETLOGON_LOGON_INFO_CLASS = 6
+public val NETLOGON_NETWORK_TRANSITIVE_INFORMATION: NetlogonLogonInfoClass = 6
 
-public val NetlogonServiceInformation: NETLOGON_LOGON_INFO_CLASS = 3
+public val NETLOGON_SERVICE_INFORMATION: NetlogonLogonInfoClass = 3
 
-public val NetlogonServiceTransitiveInformation: NETLOGON_LOGON_INFO_CLASS = 7
+public val NETLOGON_SERVICE_TRANSITIVE_INFORMATION: NetlogonLogonInfoClass = 7
 
-public val PCT1SP_NAME: PCWSTR = w("Microsoft PCT 1.0")
+public val PCT1SP_NAME: Pcwstr = w("Microsoft PCT 1.0")
 
-public val PCT1SP_NAME_A: PCSTR = s("Microsoft PCT 1.0")
+public val PCT1SP_NAME_A: Pcstr = s("Microsoft PCT 1.0")
 
-public val PCT1SP_NAME_W: PCWSTR = w("Microsoft PCT 1.0")
+public val PCT1SP_NAME_W: Pcwstr = w("Microsoft PCT 1.0")
 
 public val PER_USER_AUDIT_FAILURE_EXCLUDE: UInt = 8u
 
@@ -1452,11 +1452,11 @@ public val PER_USER_AUDIT_SUCCESS_INCLUDE: UInt = 1u
 
 public val PER_USER_POLICY_UNCHANGED: UInt = 0u
 
-public val PKU2U_PACKAGE_NAME: PCWSTR = w("pku2u")
+public val PKU2U_PACKAGE_NAME: Pcwstr = w("pku2u")
 
-public val PKU2U_PACKAGE_NAME_A: PCSTR = s("pku2u")
+public val PKU2U_PACKAGE_NAME_A: Pcstr = s("pku2u")
 
-public val PKU2U_PACKAGE_NAME_W: PCWSTR = w("pku2u")
+public val PKU2U_PACKAGE_NAME_W: Pcwstr = w("pku2u")
 
 public val POLICY_AUDIT_EVENT_FAILURE: Int = 2
 
@@ -1562,67 +1562,67 @@ public val PRIMARY_CRED_TRANSFER: UInt = 8192u
 
 public val PRIMARY_CRED_UPDATE: UInt = 4u
 
-public val Pku2uCertificateS4ULogon: PKU2U_LOGON_SUBMIT_TYPE = 14
+public val PKU2U_CERTIFICATE_S4U_LOGON: Pku2uLogonSubmitType = 14
 
-public val PolicyAccountDomainInformation: POLICY_INFORMATION_CLASS = 5
+public val POLICY_ACCOUNT_DOMAIN_INFORMATION: PolicyInformationClass = 5
 
-public val PolicyAuditEventsInformation: POLICY_INFORMATION_CLASS = 2
+public val POLICY_AUDIT_EVENTS_INFORMATION: PolicyInformationClass = 2
 
-public val PolicyAuditFullQueryInformation: POLICY_INFORMATION_CLASS = 11
+public val POLICY_AUDIT_FULL_QUERY_INFORMATION: PolicyInformationClass = 11
 
-public val PolicyAuditFullSetInformation: POLICY_INFORMATION_CLASS = 10
+public val POLICY_AUDIT_FULL_SET_INFORMATION: PolicyInformationClass = 10
 
-public val PolicyAuditLogInformation: POLICY_INFORMATION_CLASS = 1
+public val POLICY_AUDIT_LOG_INFORMATION: PolicyInformationClass = 1
 
-public val PolicyDefaultQuotaInformation: POLICY_INFORMATION_CLASS = 8
+public val POLICY_DEFAULT_QUOTA_INFORMATION: PolicyInformationClass = 8
 
-public val PolicyDnsDomainInformation: POLICY_INFORMATION_CLASS = 12
+public val POLICY_DNS_DOMAIN_INFORMATION: PolicyInformationClass = 12
 
-public val PolicyDnsDomainInformationInt: POLICY_INFORMATION_CLASS = 13
+public val POLICY_DNS_DOMAIN_INFORMATION_INT: PolicyInformationClass = 13
 
-public val PolicyDomainEfsInformation: POLICY_DOMAIN_INFORMATION_CLASS = 2
+public val POLICY_DOMAIN_EFS_INFORMATION: PolicyDomainInformationClass = 2
 
-public val PolicyDomainKerberosTicketInformation: POLICY_DOMAIN_INFORMATION_CLASS = 3
+public val POLICY_DOMAIN_KERBEROS_TICKET_INFORMATION: PolicyDomainInformationClass = 3
 
-public val PolicyLastEntry: POLICY_INFORMATION_CLASS = 17
+public val POLICY_LAST_ENTRY: PolicyInformationClass = 17
 
-public val PolicyLocalAccountDomainInformation: POLICY_INFORMATION_CLASS = 14
+public val POLICY_LOCAL_ACCOUNT_DOMAIN_INFORMATION: PolicyInformationClass = 14
 
-public val PolicyLsaServerRoleInformation: POLICY_INFORMATION_CLASS = 6
+public val POLICY_LSA_SERVER_ROLE_INFORMATION: PolicyInformationClass = 6
 
-public val PolicyMachineAccountInformation: POLICY_INFORMATION_CLASS = 15
+public val POLICY_MACHINE_ACCOUNT_INFORMATION: PolicyInformationClass = 15
 
-public val PolicyMachineAccountInformation2: POLICY_INFORMATION_CLASS = 16
+public val POLICY_MACHINE_ACCOUNT_INFORMATION2: PolicyInformationClass = 16
 
-public val PolicyModificationInformation: POLICY_INFORMATION_CLASS = 9
+public val POLICY_MODIFICATION_INFORMATION: PolicyInformationClass = 9
 
-public val PolicyNotifyAccountDomainInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = 2
+public val POLICY_NOTIFY_ACCOUNT_DOMAIN_INFORMATION: PolicyNotificationInformationClass = 2
 
-public val PolicyNotifyAuditEventsInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = 1
+public val POLICY_NOTIFY_AUDIT_EVENTS_INFORMATION: PolicyNotificationInformationClass = 1
 
-public val PolicyNotifyDnsDomainInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = 4
+public val POLICY_NOTIFY_DNS_DOMAIN_INFORMATION: PolicyNotificationInformationClass = 4
 
-public val PolicyNotifyDomainEfsInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = 5
+public val POLICY_NOTIFY_DOMAIN_EFS_INFORMATION: PolicyNotificationInformationClass = 5
 
-public val PolicyNotifyDomainKerberosTicketInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = 6
+public val POLICY_NOTIFY_DOMAIN_KERBEROS_TICKET_INFORMATION: PolicyNotificationInformationClass = 6
 
-public val PolicyNotifyGlobalSaclInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = 8
+public val POLICY_NOTIFY_GLOBAL_SACL_INFORMATION: PolicyNotificationInformationClass = 8
 
-public val PolicyNotifyMachineAccountPasswordInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = 7
+public val POLICY_NOTIFY_MACHINE_ACCOUNT_PASSWORD_INFORMATION: PolicyNotificationInformationClass = 7
 
-public val PolicyNotifyMax: POLICY_NOTIFICATION_INFORMATION_CLASS = 9
+public val POLICY_NOTIFY_MAX: PolicyNotificationInformationClass = 9
 
-public val PolicyNotifyServerRoleInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = 3
+public val POLICY_NOTIFY_SERVER_ROLE_INFORMATION: PolicyNotificationInformationClass = 3
 
-public val PolicyPdAccountInformation: POLICY_INFORMATION_CLASS = 4
+public val POLICY_PD_ACCOUNT_INFORMATION: PolicyInformationClass = 4
 
-public val PolicyPrimaryDomainInformation: POLICY_INFORMATION_CLASS = 3
+public val POLICY_PRIMARY_DOMAIN_INFORMATION: PolicyInformationClass = 3
 
-public val PolicyReplicaSourceInformation: POLICY_INFORMATION_CLASS = 7
+public val POLICY_REPLICA_SOURCE_INFORMATION: PolicyInformationClass = 7
 
-public val PolicyServerRoleBackup: POLICY_LSA_SERVER_ROLE = 2
+public val POLICY_SERVER_ROLE_BACKUP: PolicyLsaServerRole = 2
 
-public val PolicyServerRolePrimary: POLICY_LSA_SERVER_ROLE = 3
+public val POLICY_SERVER_ROLE_PRIMARY: PolicyLsaServerRole = 3
 
 public val RCRED_CRED_EXISTS: UInt = 1u
 
@@ -1638,21 +1638,21 @@ public val RTL_ENCRYPT_OPTION_FOR_SYSTEM: UInt = 4u
 
 public val RTL_ENCRYPT_OPTION_SAME_LOGON: UInt = 2u
 
-public val SAM_CREDENTIAL_UPDATE_FREE_ROUTINE: PCSTR = s("CredentialUpdateFree")
+public val SAM_CREDENTIAL_UPDATE_FREE_ROUTINE: Pcstr = s("CredentialUpdateFree")
 
-public val SAM_CREDENTIAL_UPDATE_NOTIFY_ROUTINE: PCSTR = s("CredentialUpdateNotify")
+public val SAM_CREDENTIAL_UPDATE_NOTIFY_ROUTINE: Pcstr = s("CredentialUpdateNotify")
 
-public val SAM_CREDENTIAL_UPDATE_REGISTER_MAPPED_ENTRYPOINTS_ROUTINE: PCSTR = s("RegisterMappedEntrypoints")
+public val SAM_CREDENTIAL_UPDATE_REGISTER_MAPPED_ENTRYPOINTS_ROUTINE: Pcstr = s("RegisterMappedEntrypoints")
 
-public val SAM_CREDENTIAL_UPDATE_REGISTER_ROUTINE: PCSTR = s("CredentialUpdateRegister")
+public val SAM_CREDENTIAL_UPDATE_REGISTER_ROUTINE: Pcstr = s("CredentialUpdateRegister")
 
 public val SAM_DAYS_PER_WEEK: UInt = 7u
 
-public val SAM_INIT_NOTIFICATION_ROUTINE: PCSTR = s("InitializeChangeNotify")
+public val SAM_INIT_NOTIFICATION_ROUTINE: Pcstr = s("InitializeChangeNotify")
 
-public val SAM_PASSWORD_CHANGE_NOTIFY_ROUTINE: PCSTR = s("PasswordChangeNotify")
+public val SAM_PASSWORD_CHANGE_NOTIFY_ROUTINE: Pcstr = s("PasswordChangeNotify")
 
-public val SAM_PASSWORD_FILTER_ROUTINE: PCSTR = s("PasswordFilter")
+public val SAM_PASSWORD_FILTER_ROUTINE: Pcstr = s("PasswordFilter")
 
 public val SASL_OPTION_AUTHZ_PROCESSING: UInt = 4u
 
@@ -1666,11 +1666,11 @@ public val SCHANNEL_ALERT: UInt = 2u
 
 public val SCHANNEL_CRED_VERSION: UInt = 4u
 
-public val SCHANNEL_NAME: PCWSTR = w("Schannel")
+public val SCHANNEL_NAME: Pcwstr = w("Schannel")
 
-public val SCHANNEL_NAME_A: PCSTR = s("Schannel")
+public val SCHANNEL_NAME_A: Pcstr = s("Schannel")
 
-public val SCHANNEL_NAME_W: PCWSTR = w("Schannel")
+public val SCHANNEL_NAME_W: Pcwstr = w("Schannel")
 
 public val SCHANNEL_RENEGOTIATE: UInt = 0u
 
@@ -1686,11 +1686,11 @@ public val SCH_ALLOW_NULL_ENCRYPTION: UInt = 33554432u
 
 public val SCH_CREDENTIALS_VERSION: UInt = 5u
 
-public val SCH_CRED_AUTO_CRED_VALIDATION: SCHANNEL_CRED_FLAGS = 32u
+public val SCH_CRED_AUTO_CRED_VALIDATION: SchannelCredFlags = 32u
 
 public val SCH_CRED_CACHE_ONLY_URL_RETRIEVAL: UInt = 32768u
 
-public val SCH_CRED_CACHE_ONLY_URL_RETRIEVAL_ON_CREATE: SCHANNEL_CRED_FLAGS = 131072u
+public val SCH_CRED_CACHE_ONLY_URL_RETRIEVAL_ON_CREATE: SchannelCredFlags = 131072u
 
 public val SCH_CRED_CERT_CONTEXT: UInt = 3u
 
@@ -1704,11 +1704,11 @@ public val SCH_CRED_FORMAT_CERT_HASH: UInt = 1u
 
 public val SCH_CRED_FORMAT_CERT_HASH_STORE: UInt = 2u
 
-public val SCH_CRED_IGNORE_NO_REVOCATION_CHECK: SCHANNEL_CRED_FLAGS = 2048u
+public val SCH_CRED_IGNORE_NO_REVOCATION_CHECK: SchannelCredFlags = 2048u
 
-public val SCH_CRED_IGNORE_REVOCATION_OFFLINE: SCHANNEL_CRED_FLAGS = 4096u
+public val SCH_CRED_IGNORE_REVOCATION_OFFLINE: SchannelCredFlags = 4096u
 
-public val SCH_CRED_MANUAL_CRED_VALIDATION: SCHANNEL_CRED_FLAGS = 8u
+public val SCH_CRED_MANUAL_CRED_VALIDATION: SchannelCredFlags = 8u
 
 public val SCH_CRED_MAX_STORE_NAME_SIZE: UInt = 128u
 
@@ -1726,27 +1726,27 @@ public val SCH_CRED_MAX_SUPPORTED_PARAMETERS: UInt = 16u
 
 public val SCH_CRED_MEMORY_STORE_CERT: UInt = 65536u
 
-public val SCH_CRED_NO_DEFAULT_CREDS: SCHANNEL_CRED_FLAGS = 16u
+public val SCH_CRED_NO_DEFAULT_CREDS: SchannelCredFlags = 16u
 
-public val SCH_CRED_NO_SERVERNAME_CHECK: SCHANNEL_CRED_FLAGS = 4u
+public val SCH_CRED_NO_SERVERNAME_CHECK: SchannelCredFlags = 4u
 
-public val SCH_CRED_NO_SYSTEM_MAPPER: SCHANNEL_CRED_FLAGS = 2u
+public val SCH_CRED_NO_SYSTEM_MAPPER: SchannelCredFlags = 2u
 
 public val SCH_CRED_RESTRICTED_ROOTS: UInt = 8192u
 
 public val SCH_CRED_REVOCATION_CHECK_CACHE_ONLY: UInt = 16384u
 
-public val SCH_CRED_REVOCATION_CHECK_CHAIN: SCHANNEL_CRED_FLAGS = 512u
+public val SCH_CRED_REVOCATION_CHECK_CHAIN: SchannelCredFlags = 512u
 
-public val SCH_CRED_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT: SCHANNEL_CRED_FLAGS = 1024u
+public val SCH_CRED_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT: SchannelCredFlags = 1024u
 
-public val SCH_CRED_REVOCATION_CHECK_END_CERT: SCHANNEL_CRED_FLAGS = 256u
+public val SCH_CRED_REVOCATION_CHECK_END_CERT: SchannelCredFlags = 256u
 
 public val SCH_CRED_SNI_CREDENTIAL: UInt = 524288u
 
 public val SCH_CRED_SNI_ENABLE_OCSP: UInt = 1048576u
 
-public val SCH_CRED_USE_DEFAULT_CREDS: SCHANNEL_CRED_FLAGS = 64u
+public val SCH_CRED_USE_DEFAULT_CREDS: SchannelCredFlags = 64u
 
 public val SCH_CRED_V1: UInt = 1u
 
@@ -1760,7 +1760,7 @@ public val SCH_CRED_X509_CAPI: UInt = 2u
 
 public val SCH_CRED_X509_CERTCHAIN: UInt = 1u
 
-public val SCH_DISABLE_RECONNECTS: SCHANNEL_CRED_FLAGS = 128u
+public val SCH_DISABLE_RECONNECTS: SchannelCredFlags = 128u
 
 public val SCH_EXTENSIONS_OPTIONS_NONE: SchGetExtensionsOptions = 0
 
@@ -1770,15 +1770,15 @@ public val SCH_MAX_EXT_SUBSCRIPTIONS: UInt = 2u
 
 public val SCH_NO_RECORD_HEADER: SchGetExtensionsOptions = 1
 
-public val SCH_SEND_AUX_RECORD: SCHANNEL_CRED_FLAGS = 2097152u
+public val SCH_SEND_AUX_RECORD: SchannelCredFlags = 2097152u
 
-public val SCH_SEND_ROOT_CERT: SCHANNEL_CRED_FLAGS = 262144u
+public val SCH_SEND_ROOT_CERT: SchannelCredFlags = 262144u
 
 public val SCH_USE_DTLS_ONLY: UInt = 16777216u
 
-public val SCH_USE_PRESHAREDKEY_ONLY: SCHANNEL_CRED_FLAGS = 8388608u
+public val SCH_USE_PRESHAREDKEY_ONLY: SchannelCredFlags = 8388608u
 
-public val SCH_USE_STRONG_CRYPTO: SCHANNEL_CRED_FLAGS = 4194304u
+public val SCH_USE_STRONG_CRYPTO: SchannelCredFlags = 4194304u
 
 public val SECBUFFER_ALERT: UInt = 17u
 
@@ -1862,15 +1862,15 @@ public val SECPKGCONTEXT_CONNECTION_INFO_EX_V1: UInt = 1u
 
 public val SECPKG_ANSI_ATTRIBUTE: UInt = 0u
 
-public val SECPKG_ATTR_ACCESS_TOKEN: SECPKG_ATTR = 18u
+public val SECPKG_ATTR_ACCESS_TOKEN: SecpkgAttr = 18u
 
 public val SECPKG_ATTR_APPLICATION_PROTOCOL: UInt = 35u
 
-public val SECPKG_ATTR_APP_DATA: SECPKG_ATTR = 94u
+public val SECPKG_ATTR_APP_DATA: SecpkgAttr = 94u
 
 public val SECPKG_ATTR_AUTHENTICATION_ID: UInt = 20u
 
-public val SECPKG_ATTR_AUTHORITY: SECPKG_ATTR = 6u
+public val SECPKG_ATTR_AUTHORITY: SecpkgAttr = 6u
 
 public val SECPKG_ATTR_CC_POLICY_RESULT: UInt = 97u
 
@@ -1878,7 +1878,7 @@ public val SECPKG_ATTR_CERT_CHECK_RESULT: UInt = 113u
 
 public val SECPKG_ATTR_CERT_CHECK_RESULT_INPROC: UInt = 114u
 
-public val SECPKG_ATTR_CERT_TRUST_STATUS: SECPKG_ATTR = 2147483780u
+public val SECPKG_ATTR_CERT_TRUST_STATUS: SecpkgAttr = 2147483780u
 
 public val SECPKG_ATTR_CIPHER_INFO: UInt = 100u
 
@@ -1886,9 +1886,9 @@ public val SECPKG_ATTR_CIPHER_STRENGTHS: UInt = 87u
 
 public val SECPKG_ATTR_CLIENT_CERT_POLICY: UInt = 96u
 
-public val SECPKG_ATTR_CLIENT_SPECIFIED_TARGET: SECPKG_ATTR = 27u
+public val SECPKG_ATTR_CLIENT_SPECIFIED_TARGET: SecpkgAttr = 27u
 
-public val SECPKG_ATTR_CONNECTION_INFO: SECPKG_ATTR = 90u
+public val SECPKG_ATTR_CONNECTION_INFO: SecpkgAttr = 90u
 
 public val SECPKG_ATTR_CONNECTION_INFO_EX: UInt = 110u
 
@@ -1896,67 +1896,67 @@ public val SECPKG_ATTR_CONTEXT_DELETED: UInt = 33u
 
 public val SECPKG_ATTR_CREDENTIAL_NAME: UInt = 16u
 
-public val SECPKG_ATTR_CREDS: SECPKG_ATTR = 2147483776u
+public val SECPKG_ATTR_CREDS: SecpkgAttr = 2147483776u
 
-public val SECPKG_ATTR_CREDS_2: SECPKG_ATTR = 2147483782u
+public val SECPKG_ATTR_CREDS_2: SecpkgAttr = 2147483782u
 
-public val SECPKG_ATTR_C_ACCESS_TOKEN: SECPKG_ATTR = 2147483666u
+public val SECPKG_ATTR_C_ACCESS_TOKEN: SecpkgAttr = 2147483666u
 
-public val SECPKG_ATTR_C_FULL_ACCESS_TOKEN: SECPKG_ATTR = 2147483778u
+public val SECPKG_ATTR_C_FULL_ACCESS_TOKEN: SecpkgAttr = 2147483778u
 
-public val SECPKG_ATTR_DCE_INFO: SECPKG_ATTR = 3u
+public val SECPKG_ATTR_DCE_INFO: SecpkgAttr = 3u
 
-public val SECPKG_ATTR_DTLS_MTU: SECPKG_ATTR = 34u
+public val SECPKG_ATTR_DTLS_MTU: SecpkgAttr = 34u
 
-public val SECPKG_ATTR_EAP_KEY_BLOCK: SECPKG_ATTR = 91u
+public val SECPKG_ATTR_EAP_KEY_BLOCK: SecpkgAttr = 91u
 
-public val SECPKG_ATTR_EAP_PRF_INFO: SECPKG_ATTR = 101u
+public val SECPKG_ATTR_EAP_PRF_INFO: SecpkgAttr = 101u
 
-public val SECPKG_ATTR_EARLY_START: SECPKG_ATTR = 105u
+public val SECPKG_ATTR_EARLY_START: SecpkgAttr = 105u
 
-public val SECPKG_ATTR_ENDPOINT_BINDINGS: SECPKG_ATTR = 26u
+public val SECPKG_ATTR_ENDPOINT_BINDINGS: SecpkgAttr = 26u
 
-public val SECPKG_ATTR_FLAGS: SECPKG_ATTR = 14u
+public val SECPKG_ATTR_FLAGS: SecpkgAttr = 14u
 
 public val SECPKG_ATTR_ISSUER_LIST: UInt = 80u
 
-public val SECPKG_ATTR_ISSUER_LIST_EX: SECPKG_ATTR = 89u
+public val SECPKG_ATTR_ISSUER_LIST_EX: SecpkgAttr = 89u
 
 public val SECPKG_ATTR_IS_LOOPBACK: UInt = 37u
 
 public val SECPKG_ATTR_KEYING_MATERIAL: UInt = 107u
 
-public val SECPKG_ATTR_KEYING_MATERIAL_INFO: SECPKG_ATTR = 106u
+public val SECPKG_ATTR_KEYING_MATERIAL_INFO: SecpkgAttr = 106u
 
 public val SECPKG_ATTR_KEYING_MATERIAL_INPROC: UInt = 112u
 
 public val SECPKG_ATTR_KEYING_MATERIAL_TOKEN_BINDING: UInt = 111u
 
-public val SECPKG_ATTR_KEY_INFO: SECPKG_ATTR = 5u
+public val SECPKG_ATTR_KEY_INFO: SecpkgAttr = 5u
 
-public val SECPKG_ATTR_LAST_CLIENT_TOKEN_STATUS: SECPKG_ATTR = 30u
+public val SECPKG_ATTR_LAST_CLIENT_TOKEN_STATUS: SecpkgAttr = 30u
 
-public val SECPKG_ATTR_LIFESPAN: SECPKG_ATTR = 2u
+public val SECPKG_ATTR_LIFESPAN: SecpkgAttr = 2u
 
-public val SECPKG_ATTR_LOCAL_CERT_CONTEXT: SECPKG_ATTR = 84u
+public val SECPKG_ATTR_LOCAL_CERT_CONTEXT: SecpkgAttr = 84u
 
 public val SECPKG_ATTR_LOCAL_CERT_INFO: UInt = 99u
 
-public val SECPKG_ATTR_LOCAL_CRED: SECPKG_ATTR = 82u
+public val SECPKG_ATTR_LOCAL_CRED: SecpkgAttr = 82u
 
 public val SECPKG_ATTR_LOGOFF_TIME: UInt = 21u
 
 public val SECPKG_ATTR_MAPPED_CRED_ATTR: UInt = 92u
 
-public val SECPKG_ATTR_NAMES: SECPKG_ATTR = 1u
+public val SECPKG_ATTR_NAMES: SecpkgAttr = 1u
 
-public val SECPKG_ATTR_NATIVE_NAMES: SECPKG_ATTR = 13u
+public val SECPKG_ATTR_NATIVE_NAMES: SecpkgAttr = 13u
 
 public val SECPKG_ATTR_NEGOTIATED_TLS_EXTENSIONS: UInt = 36u
 
-public val SECPKG_ATTR_NEGOTIATION_INFO: SECPKG_ATTR = 12u
+public val SECPKG_ATTR_NEGOTIATION_INFO: SecpkgAttr = 12u
 
-public val SECPKG_ATTR_NEGOTIATION_PACKAGE: SECPKG_ATTR = 2147483777u
+public val SECPKG_ATTR_NEGOTIATION_PACKAGE: SecpkgAttr = 2147483777u
 
 public val SECPKG_ATTR_NEGO_INFO_FLAG_NO_KERBEROS: UInt = 1u
 
@@ -1968,9 +1968,9 @@ public val SECPKG_ATTR_NEGO_PKG_INFO: UInt = 31u
 
 public val SECPKG_ATTR_NEGO_STATUS: UInt = 32u
 
-public val SECPKG_ATTR_PACKAGE_INFO: SECPKG_ATTR = 10u
+public val SECPKG_ATTR_PACKAGE_INFO: SecpkgAttr = 10u
 
-public val SECPKG_ATTR_PASSWORD_EXPIRY: SECPKG_ATTR = 8u
+public val SECPKG_ATTR_PASSWORD_EXPIRY: SecpkgAttr = 8u
 
 public val SECPKG_ATTR_PROMPTING_NEEDED: UInt = 24u
 
@@ -1980,11 +1980,11 @@ public val SECPKG_ATTR_REMOTE_CERTIFICATES: UInt = 95u
 
 public val SECPKG_ATTR_REMOTE_CERT_CHAIN: UInt = 103u
 
-public val SECPKG_ATTR_REMOTE_CERT_CONTEXT: SECPKG_ATTR = 83u
+public val SECPKG_ATTR_REMOTE_CERT_CONTEXT: SecpkgAttr = 83u
 
 public val SECPKG_ATTR_REMOTE_CRED: UInt = 81u
 
-public val SECPKG_ATTR_ROOT_STORE: SECPKG_ATTR = 85u
+public val SECPKG_ATTR_ROOT_STORE: SecpkgAttr = 85u
 
 public val SECPKG_ATTR_SASL_CONTEXT: UInt = 65536u
 
@@ -1992,31 +1992,31 @@ public val SECPKG_ATTR_SERIALIZED_REMOTE_CERT_CONTEXT: UInt = 117u
 
 public val SECPKG_ATTR_SERIALIZED_REMOTE_CERT_CONTEXT_INPROC: UInt = 116u
 
-public val SECPKG_ATTR_SERVER_AUTH_FLAGS: SECPKG_ATTR = 2147483779u
+public val SECPKG_ATTR_SERVER_AUTH_FLAGS: SecpkgAttr = 2147483779u
 
-public val SECPKG_ATTR_SESSION_INFO: SECPKG_ATTR = 93u
+public val SECPKG_ATTR_SESSION_INFO: SecpkgAttr = 93u
 
-public val SECPKG_ATTR_SESSION_KEY: SECPKG_ATTR = 9u
+public val SECPKG_ATTR_SESSION_KEY: SecpkgAttr = 9u
 
 public val SECPKG_ATTR_SESSION_TICKET_KEYS: UInt = 115u
 
-public val SECPKG_ATTR_SIZES: SECPKG_ATTR = 0u
+public val SECPKG_ATTR_SIZES: SecpkgAttr = 0u
 
 public val SECPKG_ATTR_SRTP_PARAMETERS: UInt = 108u
 
-public val SECPKG_ATTR_STREAM_SIZES: SECPKG_ATTR = 4u
+public val SECPKG_ATTR_STREAM_SIZES: SecpkgAttr = 4u
 
-public val SECPKG_ATTR_SUBJECT_SECURITY_ATTRIBUTES: SECPKG_ATTR = 124u
+public val SECPKG_ATTR_SUBJECT_SECURITY_ATTRIBUTES: SecpkgAttr = 124u
 
 public val SECPKG_ATTR_SUPPORTED_ALGS: UInt = 86u
 
 public val SECPKG_ATTR_SUPPORTED_PROTOCOLS: UInt = 88u
 
-public val SECPKG_ATTR_SUPPORTED_SIGNATURES: SECPKG_ATTR = 102u
+public val SECPKG_ATTR_SUPPORTED_SIGNATURES: SecpkgAttr = 102u
 
 public val SECPKG_ATTR_TARGET: UInt = 19u
 
-public val SECPKG_ATTR_TARGET_INFORMATION: SECPKG_ATTR = 17u
+public val SECPKG_ATTR_TARGET_INFORMATION: SecpkgAttr = 17u
 
 public val SECPKG_ATTR_THUNK_ALL: UInt = 65536u
 
@@ -2024,7 +2024,7 @@ public val SECPKG_ATTR_TOKEN_BINDING: UInt = 109u
 
 public val SECPKG_ATTR_UI_INFO: UInt = 104u
 
-public val SECPKG_ATTR_UNIQUE_BINDINGS: SECPKG_ATTR = 25u
+public val SECPKG_ATTR_UNIQUE_BINDINGS: SecpkgAttr = 25u
 
 public val SECPKG_ATTR_USER_FLAGS: UInt = 11u
 
@@ -2092,11 +2092,11 @@ public val SECPKG_CLIENT_PROCESS_TERMINATED: UInt = 1u
 
 public val SECPKG_CLIENT_THREAD_TERMINATED: UInt = 2u
 
-public val SECPKG_CONTEXT_EXPORT_DELETE_OLD: EXPORT_SECURITY_CONTEXT_FLAGS = 2u
+public val SECPKG_CONTEXT_EXPORT_DELETE_OLD: ExportSecurityContextFlags = 2u
 
-public val SECPKG_CONTEXT_EXPORT_RESET_NEW: EXPORT_SECURITY_CONTEXT_FLAGS = 1u
+public val SECPKG_CONTEXT_EXPORT_RESET_NEW: ExportSecurityContextFlags = 1u
 
-public val SECPKG_CONTEXT_EXPORT_TO_KERNEL: EXPORT_SECURITY_CONTEXT_FLAGS = 4u
+public val SECPKG_CONTEXT_EXPORT_TO_KERNEL: ExportSecurityContextFlags = 4u
 
 public val SECPKG_CREDENTIAL_ATTRIBUTE: UInt = 0u
 
@@ -2122,9 +2122,9 @@ public val SECPKG_CRED_BOTH: UInt = 3u
 
 public val SECPKG_CRED_DEFAULT: UInt = 4u
 
-public val SECPKG_CRED_INBOUND: SECPKG_CRED = 1u
+public val SECPKG_CRED_INBOUND: SecpkgCred = 1u
 
-public val SECPKG_CRED_OUTBOUND: SECPKG_CRED = 2u
+public val SECPKG_CRED_OUTBOUND: SecpkgCred = 2u
 
 public val SECPKG_CRED_PROCESS_POLICY_ONLY: UInt = 32u
 
@@ -2206,7 +2206,7 @@ public val SECPKG_INTERFACE_VERSION_8: UInt = 8388608u
 
 public val SECPKG_INTERFACE_VERSION_9: UInt = 16777216u
 
-public val SECPKG_LSAMODEINIT_NAME: PCSTR = s("SpLsaModeInitialize")
+public val SECPKG_LSAMODEINIT_NAME: Pcstr = s("SpLsaModeInitialize")
 
 public val SECPKG_MAX_OID_LENGTH: UInt = 32u
 
@@ -2226,21 +2226,21 @@ public val SECPKG_NEGOTIATION_TRY_MULTICRED: UInt = 4u
 
 public val SECPKG_OPTIONS_PERMANENT: UInt = 1u
 
-public val SECPKG_OPTIONS_TYPE_LSA: SECURITY_PACKAGE_OPTIONS_TYPE = 1u
+public val SECPKG_OPTIONS_TYPE_LSA: SecurityPackageOptionsType = 1u
 
-public val SECPKG_OPTIONS_TYPE_SSPI: SECURITY_PACKAGE_OPTIONS_TYPE = 2u
+public val SECPKG_OPTIONS_TYPE_SSPI: SecurityPackageOptionsType = 2u
 
-public val SECPKG_OPTIONS_TYPE_UNKNOWN: SECURITY_PACKAGE_OPTIONS_TYPE = 0u
+public val SECPKG_OPTIONS_TYPE_UNKNOWN: SecurityPackageOptionsType = 0u
 
-public val SECPKG_PACKAGE_CHANGE_LOAD: SECPKG_PACKAGE_CHANGE_TYPE = 0u
+public val SECPKG_PACKAGE_CHANGE_LOAD: SecpkgPackageChangeType = 0u
 
-public val SECPKG_PACKAGE_CHANGE_SELECT: SECPKG_PACKAGE_CHANGE_TYPE = 2u
+public val SECPKG_PACKAGE_CHANGE_SELECT: SecpkgPackageChangeType = 2u
 
-public val SECPKG_PACKAGE_CHANGE_UNLOAD: SECPKG_PACKAGE_CHANGE_TYPE = 1u
+public val SECPKG_PACKAGE_CHANGE_UNLOAD: SecpkgPackageChangeType = 1u
 
 public val SECPKG_PRIMARY_CRED_EX_FLAGS_EX_DELEGATION_TOKEN: UInt = 1u
 
-public val SECPKG_REDIRECTED_LOGON_GUID_INITIALIZER: GUID = GUID.from_u128(U128(0xc2be545782eb483euL, 0xae4e7468ef14d509uL))
+public val SECPKG_REDIRECTED_LOGON_GUID_INITIALIZER: Guid = Guid.fromU128(U128(0xc2be545782eb483euL, 0xae4e7468ef14d509uL))
 
 public val SECPKG_STATE_CRED_ISOLATION_ENABLED: UInt = 32u
 
@@ -2260,7 +2260,7 @@ public val SECPKG_SURROGATE_LOGON_VERSION_1: UInt = 1u
 
 public val SECPKG_UNICODE_ATTRIBUTE: UInt = 2147483648u
 
-public val SECPKG_USERMODEINIT_NAME: PCSTR = s("SpUserModeInitialize")
+public val SECPKG_USERMODEINIT_NAME: Pcstr = s("SpUserModeInitialize")
 
 public val SECQOP_WRAP_NO_ENCRYPT: UInt = 2147483649u
 
@@ -2270,15 +2270,15 @@ public val SECRET_QUERY_VALUE: Int = 2
 
 public val SECRET_SET_VALUE: Int = 1
 
-public val SECURITY_ENTRYPOINT: PCWSTR = w("INITSECURITYINTERFACEA")
+public val SECURITY_ENTRYPOINT: Pcwstr = w("INITSECURITYINTERFACEA")
 
-public val SECURITY_ENTRYPOINT16: PCSTR = s("INITSECURITYINTERFACEA")
+public val SECURITY_ENTRYPOINT16: Pcstr = s("INITSECURITYINTERFACEA")
 
-public val SECURITY_ENTRYPOINT_ANSI: PCWSTR = w("InitSecurityInterfaceW")
+public val SECURITY_ENTRYPOINT_ANSI: Pcwstr = w("InitSecurityInterfaceW")
 
-public val SECURITY_ENTRYPOINT_ANSIA: PCSTR = s("InitSecurityInterfaceA")
+public val SECURITY_ENTRYPOINT_ANSIA: Pcstr = s("InitSecurityInterfaceA")
 
-public val SECURITY_ENTRYPOINT_ANSIW: PCSTR = s("InitSecurityInterfaceW")
+public val SECURITY_ENTRYPOINT_ANSIW: Pcstr = s("InitSecurityInterfaceW")
 
 public val SECURITY_NATIVE_DREP: UInt = 16u
 
@@ -2372,638 +2372,638 @@ public val SE_ADT_PARAMETER_WRITE_SYNCHRONOUS: UInt = 16u
 
 public val SE_ADT_POLICY_AUDIT_EVENT_TYPE_EX_BEGIN: UInt = 100u
 
-public val SE_BATCH_LOGON_NAME: PCWSTR = w("SeBatchLogonRight")
+public val SE_BATCH_LOGON_NAME: Pcwstr = w("SeBatchLogonRight")
 
-public val SE_DENY_BATCH_LOGON_NAME: PCWSTR = w("SeDenyBatchLogonRight")
+public val SE_DENY_BATCH_LOGON_NAME: Pcwstr = w("SeDenyBatchLogonRight")
 
-public val SE_DENY_INTERACTIVE_LOGON_NAME: PCWSTR = w("SeDenyInteractiveLogonRight")
+public val SE_DENY_INTERACTIVE_LOGON_NAME: Pcwstr = w("SeDenyInteractiveLogonRight")
 
-public val SE_DENY_NETWORK_LOGON_NAME: PCWSTR = w("SeDenyNetworkLogonRight")
+public val SE_DENY_NETWORK_LOGON_NAME: Pcwstr = w("SeDenyNetworkLogonRight")
 
-public val SE_DENY_REMOTE_INTERACTIVE_LOGON_NAME: PCWSTR = w("SeDenyRemoteInteractiveLogonRight")
+public val SE_DENY_REMOTE_INTERACTIVE_LOGON_NAME: Pcwstr = w("SeDenyRemoteInteractiveLogonRight")
 
-public val SE_DENY_SERVICE_LOGON_NAME: PCWSTR = w("SeDenyServiceLogonRight")
+public val SE_DENY_SERVICE_LOGON_NAME: Pcwstr = w("SeDenyServiceLogonRight")
 
-public val SE_INTERACTIVE_LOGON_NAME: PCWSTR = w("SeInteractiveLogonRight")
+public val SE_INTERACTIVE_LOGON_NAME: Pcwstr = w("SeInteractiveLogonRight")
 
 public val SE_MAX_AUDIT_PARAMETERS: UInt = 32u
 
 public val SE_MAX_GENERIC_AUDIT_PARAMETERS: UInt = 28u
 
-public val SE_NETWORK_LOGON_NAME: PCWSTR = w("SeNetworkLogonRight")
+public val SE_NETWORK_LOGON_NAME: Pcwstr = w("SeNetworkLogonRight")
 
-public val SE_REMOTE_INTERACTIVE_LOGON_NAME: PCWSTR = w("SeRemoteInteractiveLogonRight")
+public val SE_REMOTE_INTERACTIVE_LOGON_NAME: Pcwstr = w("SeRemoteInteractiveLogonRight")
 
-public val SE_SERVICE_LOGON_NAME: PCWSTR = w("SeServiceLogonRight")
+public val SE_SERVICE_LOGON_NAME: Pcwstr = w("SeServiceLogonRight")
 
-public val SL_ACTIVATION_TYPE_ACTIVE_DIRECTORY: SL_ACTIVATION_TYPE = 1
+public val SL_ACTIVATION_TYPE_ACTIVE_DIRECTORY: SlActivationType = 1
 
-public val SL_ACTIVATION_TYPE_DEFAULT: SL_ACTIVATION_TYPE = 0
+public val SL_ACTIVATION_TYPE_DEFAULT: SlActivationType = 0
 
 public val SL_CLIENTAPI_ZONE: UInt = 61440u
 
-public val SL_DATA_BINARY: SLDATATYPE = 3u
+public val SL_DATA_BINARY: Sldatatype = 3u
 
-public val SL_DATA_DWORD: SLDATATYPE = 4u
+public val SL_DATA_DWORD: Sldatatype = 4u
 
-public val SL_DATA_MULTI_SZ: SLDATATYPE = 7u
+public val SL_DATA_MULTI_SZ: Sldatatype = 7u
 
-public val SL_DATA_NONE: SLDATATYPE = 0u
+public val SL_DATA_NONE: Sldatatype = 0u
 
-public val SL_DATA_SUM: SLDATATYPE = 100u
+public val SL_DATA_SUM: Sldatatype = 100u
 
-public val SL_DATA_SZ: SLDATATYPE = 1u
+public val SL_DATA_SZ: Sldatatype = 1u
 
-public val SL_DEFAULT_MIGRATION_ENCRYPTOR_URI: PCWSTR = w("msft:spp/migrationencryptor/tokenact/1.0")
+public val SL_DEFAULT_MIGRATION_ENCRYPTOR_URI: Pcwstr = w("msft:spp/migrationencryptor/tokenact/1.0")
 
-public val SL_EVENT_LICENSING_STATE_CHANGED: PCWSTR = w("msft:rm/event/licensingstatechanged")
+public val SL_EVENT_LICENSING_STATE_CHANGED: Pcwstr = w("msft:rm/event/licensingstatechanged")
 
-public val SL_EVENT_POLICY_CHANGED: PCWSTR = w("msft:rm/event/policychanged")
+public val SL_EVENT_POLICY_CHANGED: Pcwstr = w("msft:rm/event/policychanged")
 
-public val SL_EVENT_USER_NOTIFICATION: PCWSTR = w("msft:rm/event/usernotification")
+public val SL_EVENT_USER_NOTIFICATION: Pcwstr = w("msft:rm/event/usernotification")
 
-public val SL_E_ACTIVATION_IN_PROGRESS: HRESULT = 0xC004E028u.toInt()
+public val SL_E_ACTIVATION_IN_PROGRESS: Hresult = 0xC004E028u.toInt()
 
-public val SL_E_APPLICATION_POLICIES_MISSING: HRESULT = 0xC004F072u.toInt()
+public val SL_E_APPLICATION_POLICIES_MISSING: Hresult = 0xC004F072u.toInt()
 
-public val SL_E_APPLICATION_POLICIES_NOT_LOADED: HRESULT = 0xC004F073u.toInt()
+public val SL_E_APPLICATION_POLICIES_NOT_LOADED: Hresult = 0xC004F073u.toInt()
 
-public val SL_E_AUTHN_CANT_VERIFY: HRESULT = 0xC004F07Au.toInt()
+public val SL_E_AUTHN_CANT_VERIFY: Hresult = 0xC004F07Au.toInt()
 
-public val SL_E_AUTHN_CHALLENGE_NOT_SET: HRESULT = 0xC004F079u.toInt()
+public val SL_E_AUTHN_CHALLENGE_NOT_SET: Hresult = 0xC004F079u.toInt()
 
-public val SL_E_AUTHN_MISMATCHED_KEY: HRESULT = 0xC004F078u.toInt()
+public val SL_E_AUTHN_MISMATCHED_KEY: Hresult = 0xC004F078u.toInt()
 
-public val SL_E_AUTHN_WRONG_VERSION: HRESULT = 0xC004F077u.toInt()
+public val SL_E_AUTHN_WRONG_VERSION: Hresult = 0xC004F077u.toInt()
 
-public val SL_E_BASE_SKU_NOT_AVAILABLE: HRESULT = 0xC004F055u.toInt()
+public val SL_E_BASE_SKU_NOT_AVAILABLE: Hresult = 0xC004F055u.toInt()
 
-public val SL_E_BIOS_KEY: HRESULT = 0xC004F215u.toInt()
+public val SL_E_BIOS_KEY: Hresult = 0xC004F215u.toInt()
 
-public val SL_E_BLOCKED_PRODUCT_KEY: HRESULT = 0xC004F051u.toInt()
+public val SL_E_BLOCKED_PRODUCT_KEY: Hresult = 0xC004F051u.toInt()
 
-public val SL_E_CHPA_ACTCONFIG_ID_NOT_FOUND: HRESULT = 0xC004C009u.toInt()
+public val SL_E_CHPA_ACTCONFIG_ID_NOT_FOUND: Hresult = 0xC004C009u.toInt()
 
-public val SL_E_CHPA_BINDING_MAPPING_NOT_FOUND: HRESULT = 0xC004C006u.toInt()
+public val SL_E_CHPA_BINDING_MAPPING_NOT_FOUND: Hresult = 0xC004C006u.toInt()
 
-public val SL_E_CHPA_BINDING_NOT_FOUND: HRESULT = 0xC004C005u.toInt()
+public val SL_E_CHPA_BINDING_NOT_FOUND: Hresult = 0xC004C005u.toInt()
 
-public val SL_E_CHPA_BUSINESS_RULE_INPUT_NOT_FOUND: HRESULT = 0xC004C700u.toInt()
+public val SL_E_CHPA_BUSINESS_RULE_INPUT_NOT_FOUND: Hresult = 0xC004C700u.toInt()
 
-public val SL_E_CHPA_DATABASE_ERROR: HRESULT = 0xC004C013u.toInt()
+public val SL_E_CHPA_DATABASE_ERROR: Hresult = 0xC004C013u.toInt()
 
-public val SL_E_CHPA_DIGITALMARKER_BINDING_NOT_CONFIGURED: HRESULT = 0xC004C052u.toInt()
+public val SL_E_CHPA_DIGITALMARKER_BINDING_NOT_CONFIGURED: Hresult = 0xC004C052u.toInt()
 
-public val SL_E_CHPA_DIGITALMARKER_INVALID_BINDING: HRESULT = 0xC004C051u.toInt()
+public val SL_E_CHPA_DIGITALMARKER_INVALID_BINDING: Hresult = 0xC004C051u.toInt()
 
-public val SL_E_CHPA_DMAK_EXTENSION_LIMIT_EXCEEDED: HRESULT = 0xC004C021u.toInt()
+public val SL_E_CHPA_DMAK_EXTENSION_LIMIT_EXCEEDED: Hresult = 0xC004C021u.toInt()
 
-public val SL_E_CHPA_DMAK_LIMIT_EXCEEDED: HRESULT = 0xC004C020u.toInt()
+public val SL_E_CHPA_DMAK_LIMIT_EXCEEDED: Hresult = 0xC004C020u.toInt()
 
-public val SL_E_CHPA_DYNAMICALLY_BLOCKED_PRODUCT_KEY: HRESULT = 0xC004C060u.toInt()
+public val SL_E_CHPA_DYNAMICALLY_BLOCKED_PRODUCT_KEY: Hresult = 0xC004C060u.toInt()
 
-public val SL_E_CHPA_FAILED_TO_DELETE_PRODUCTKEY_BINDING: HRESULT = 0xC004C757u.toInt()
+public val SL_E_CHPA_FAILED_TO_DELETE_PRODUCTKEY_BINDING: Hresult = 0xC004C757u.toInt()
 
-public val SL_E_CHPA_FAILED_TO_DELETE_PRODUCT_KEY_PROPERTY: HRESULT = 0xC004C75Cu.toInt()
+public val SL_E_CHPA_FAILED_TO_DELETE_PRODUCT_KEY_PROPERTY: Hresult = 0xC004C75Cu.toInt()
 
-public val SL_E_CHPA_FAILED_TO_INSERT_PRODUCTKEY_BINDING: HRESULT = 0xC004C756u.toInt()
+public val SL_E_CHPA_FAILED_TO_INSERT_PRODUCTKEY_BINDING: Hresult = 0xC004C756u.toInt()
 
-public val SL_E_CHPA_FAILED_TO_INSERT_PRODUCT_KEY_PROPERTY: HRESULT = 0xC004C75Au.toInt()
+public val SL_E_CHPA_FAILED_TO_INSERT_PRODUCT_KEY_PROPERTY: Hresult = 0xC004C75Au.toInt()
 
-public val SL_E_CHPA_FAILED_TO_INSERT_PRODUCT_KEY_RECORD: HRESULT = 0xC004C780u.toInt()
+public val SL_E_CHPA_FAILED_TO_INSERT_PRODUCT_KEY_RECORD: Hresult = 0xC004C780u.toInt()
 
-public val SL_E_CHPA_FAILED_TO_PROCESS_PRODUCT_KEY_BINDINGS_XML: HRESULT = 0xC004C758u.toInt()
+public val SL_E_CHPA_FAILED_TO_PROCESS_PRODUCT_KEY_BINDINGS_XML: Hresult = 0xC004C758u.toInt()
 
-public val SL_E_CHPA_FAILED_TO_UPDATE_PRODUCTKEY_BINDING: HRESULT = 0xC004C755u.toInt()
+public val SL_E_CHPA_FAILED_TO_UPDATE_PRODUCTKEY_BINDING: Hresult = 0xC004C755u.toInt()
 
-public val SL_E_CHPA_FAILED_TO_UPDATE_PRODUCT_KEY_PROPERTY: HRESULT = 0xC004C75Bu.toInt()
+public val SL_E_CHPA_FAILED_TO_UPDATE_PRODUCT_KEY_PROPERTY: Hresult = 0xC004C75Bu.toInt()
 
-public val SL_E_CHPA_FAILED_TO_UPDATE_PRODUCT_KEY_RECORD: HRESULT = 0xC004C781u.toInt()
+public val SL_E_CHPA_FAILED_TO_UPDATE_PRODUCT_KEY_RECORD: Hresult = 0xC004C781u.toInt()
 
-public val SL_E_CHPA_GENERAL_ERROR: HRESULT = 0xC004C050u.toInt()
+public val SL_E_CHPA_GENERAL_ERROR: Hresult = 0xC004C050u.toInt()
 
-public val SL_E_CHPA_INVALID_ACTCONFIG_ID: HRESULT = 0xC004C00Du.toInt()
+public val SL_E_CHPA_INVALID_ACTCONFIG_ID: Hresult = 0xC004C00Du.toInt()
 
-public val SL_E_CHPA_INVALID_ARGUMENT: HRESULT = 0xC004C014u.toInt()
+public val SL_E_CHPA_INVALID_ARGUMENT: Hresult = 0xC004C014u.toInt()
 
-public val SL_E_CHPA_INVALID_BINDING: HRESULT = 0xC004C002u.toInt()
+public val SL_E_CHPA_INVALID_BINDING: Hresult = 0xC004C002u.toInt()
 
-public val SL_E_CHPA_INVALID_BINDING_URI: HRESULT = 0xC004C011u.toInt()
+public val SL_E_CHPA_INVALID_BINDING_URI: Hresult = 0xC004C011u.toInt()
 
-public val SL_E_CHPA_INVALID_PRODUCT_DATA: HRESULT = 0xC004C00Bu.toInt()
+public val SL_E_CHPA_INVALID_PRODUCT_DATA: Hresult = 0xC004C00Bu.toInt()
 
-public val SL_E_CHPA_INVALID_PRODUCT_DATA_ID: HRESULT = 0xC004C00Au.toInt()
+public val SL_E_CHPA_INVALID_PRODUCT_DATA_ID: Hresult = 0xC004C00Au.toInt()
 
-public val SL_E_CHPA_INVALID_PRODUCT_KEY: HRESULT = 0xC004C004u.toInt()
+public val SL_E_CHPA_INVALID_PRODUCT_KEY: Hresult = 0xC004C004u.toInt()
 
-public val SL_E_CHPA_INVALID_PRODUCT_KEY_CHAR: HRESULT = 0xC004C010u.toInt()
+public val SL_E_CHPA_INVALID_PRODUCT_KEY_CHAR: Hresult = 0xC004C010u.toInt()
 
-public val SL_E_CHPA_INVALID_PRODUCT_KEY_FORMAT: HRESULT = 0xC004C00Fu.toInt()
+public val SL_E_CHPA_INVALID_PRODUCT_KEY_FORMAT: Hresult = 0xC004C00Fu.toInt()
 
-public val SL_E_CHPA_INVALID_PRODUCT_KEY_LENGTH: HRESULT = 0xC004C00Eu.toInt()
+public val SL_E_CHPA_INVALID_PRODUCT_KEY_LENGTH: Hresult = 0xC004C00Eu.toInt()
 
-public val SL_E_CHPA_MAXIMUM_UNLOCK_EXCEEDED: HRESULT = 0xC004C008u.toInt()
+public val SL_E_CHPA_MAXIMUM_UNLOCK_EXCEEDED: Hresult = 0xC004C008u.toInt()
 
-public val SL_E_CHPA_MSCH_RESPONSE_NOT_AVAILABLE_VGA: HRESULT = 0xC004C3FFu.toInt()
+public val SL_E_CHPA_MSCH_RESPONSE_NOT_AVAILABLE_VGA: Hresult = 0xC004C3FFu.toInt()
 
-public val SL_E_CHPA_NETWORK_ERROR: HRESULT = 0xC004C012u.toInt()
+public val SL_E_CHPA_NETWORK_ERROR: Hresult = 0xC004C012u.toInt()
 
-public val SL_E_CHPA_NO_RULES_TO_ACTIVATE: HRESULT = 0xC004C04Fu.toInt()
+public val SL_E_CHPA_NO_RULES_TO_ACTIVATE: Hresult = 0xC004C04Fu.toInt()
 
-public val SL_E_CHPA_NULL_VALUE_FOR_PROPERTY_NAME_OR_ID: HRESULT = 0xC004C750u.toInt()
+public val SL_E_CHPA_NULL_VALUE_FOR_PROPERTY_NAME_OR_ID: Hresult = 0xC004C750u.toInt()
 
-public val SL_E_CHPA_OEM_SLP_COA0: HRESULT = 0xC004C016u.toInt()
+public val SL_E_CHPA_OEM_SLP_COA0: Hresult = 0xC004C016u.toInt()
 
-public val SL_E_CHPA_OVERRIDE_REQUEST_NOT_FOUND: HRESULT = 0xC004C023u.toInt()
+public val SL_E_CHPA_OVERRIDE_REQUEST_NOT_FOUND: Hresult = 0xC004C023u.toInt()
 
-public val SL_E_CHPA_PRODUCT_KEY_BEING_USED: HRESULT = 0xC004C770u.toInt()
+public val SL_E_CHPA_PRODUCT_KEY_BEING_USED: Hresult = 0xC004C770u.toInt()
 
-public val SL_E_CHPA_PRODUCT_KEY_BLOCKED: HRESULT = 0xC004C003u.toInt()
+public val SL_E_CHPA_PRODUCT_KEY_BLOCKED: Hresult = 0xC004C003u.toInt()
 
-public val SL_E_CHPA_PRODUCT_KEY_BLOCKED_IPLOCATION: HRESULT = 0xC004C017u.toInt()
+public val SL_E_CHPA_PRODUCT_KEY_BLOCKED_IPLOCATION: Hresult = 0xC004C017u.toInt()
 
-public val SL_E_CHPA_PRODUCT_KEY_OUT_OF_RANGE: HRESULT = 0xC004C001u.toInt()
+public val SL_E_CHPA_PRODUCT_KEY_OUT_OF_RANGE: Hresult = 0xC004C001u.toInt()
 
-public val SL_E_CHPA_REISSUANCE_LIMIT_NOT_FOUND: HRESULT = 0xC004C022u.toInt()
+public val SL_E_CHPA_REISSUANCE_LIMIT_NOT_FOUND: Hresult = 0xC004C022u.toInt()
 
-public val SL_E_CHPA_RESPONSE_NOT_AVAILABLE: HRESULT = 0xC004C015u.toInt()
+public val SL_E_CHPA_RESPONSE_NOT_AVAILABLE: Hresult = 0xC004C015u.toInt()
 
-public val SL_E_CHPA_SYSTEM_ERROR: HRESULT = 0xC004C00Cu.toInt()
+public val SL_E_CHPA_SYSTEM_ERROR: Hresult = 0xC004C00Cu.toInt()
 
-public val SL_E_CHPA_TIMEBASED_ACTIVATION_AFTER_END_DATE: HRESULT = 0xC004C031u.toInt()
+public val SL_E_CHPA_TIMEBASED_ACTIVATION_AFTER_END_DATE: Hresult = 0xC004C031u.toInt()
 
-public val SL_E_CHPA_TIMEBASED_ACTIVATION_BEFORE_START_DATE: HRESULT = 0xC004C030u.toInt()
+public val SL_E_CHPA_TIMEBASED_ACTIVATION_BEFORE_START_DATE: Hresult = 0xC004C030u.toInt()
 
-public val SL_E_CHPA_TIMEBASED_ACTIVATION_NOT_AVAILABLE: HRESULT = 0xC004C032u.toInt()
+public val SL_E_CHPA_TIMEBASED_ACTIVATION_NOT_AVAILABLE: Hresult = 0xC004C032u.toInt()
 
-public val SL_E_CHPA_TIMEBASED_PRODUCT_KEY_NOT_CONFIGURED: HRESULT = 0xC004C033u.toInt()
+public val SL_E_CHPA_TIMEBASED_PRODUCT_KEY_NOT_CONFIGURED: Hresult = 0xC004C033u.toInt()
 
-public val SL_E_CHPA_UNKNOWN_PRODUCT_KEY_TYPE: HRESULT = 0xC004C764u.toInt()
+public val SL_E_CHPA_UNKNOWN_PRODUCT_KEY_TYPE: Hresult = 0xC004C764u.toInt()
 
-public val SL_E_CHPA_UNKNOWN_PROPERTY_ID: HRESULT = 0xC004C752u.toInt()
+public val SL_E_CHPA_UNKNOWN_PROPERTY_ID: Hresult = 0xC004C752u.toInt()
 
-public val SL_E_CHPA_UNKNOWN_PROPERTY_NAME: HRESULT = 0xC004C751u.toInt()
+public val SL_E_CHPA_UNKNOWN_PROPERTY_NAME: Hresult = 0xC004C751u.toInt()
 
-public val SL_E_CHPA_UNSUPPORTED_PRODUCT_KEY: HRESULT = 0xC004C007u.toInt()
+public val SL_E_CHPA_UNSUPPORTED_PRODUCT_KEY: Hresult = 0xC004C007u.toInt()
 
-public val SL_E_CIDIID_INVALID_CHECK_DIGITS: HRESULT = 0xC004F04Du.toInt()
+public val SL_E_CIDIID_INVALID_CHECK_DIGITS: Hresult = 0xC004F04Du.toInt()
 
-public val SL_E_CIDIID_INVALID_DATA: HRESULT = 0xC004F02Cu.toInt()
+public val SL_E_CIDIID_INVALID_DATA: Hresult = 0xC004F02Cu.toInt()
 
-public val SL_E_CIDIID_INVALID_DATA_LENGTH: HRESULT = 0xC004F02Fu.toInt()
+public val SL_E_CIDIID_INVALID_DATA_LENGTH: Hresult = 0xC004F02Fu.toInt()
 
-public val SL_E_CIDIID_INVALID_VERSION: HRESULT = 0xC004F02Du.toInt()
+public val SL_E_CIDIID_INVALID_VERSION: Hresult = 0xC004F02Du.toInt()
 
-public val SL_E_CIDIID_MISMATCHED: HRESULT = 0xC004F031u.toInt()
+public val SL_E_CIDIID_MISMATCHED: Hresult = 0xC004F031u.toInt()
 
-public val SL_E_CIDIID_MISMATCHED_PKEY: HRESULT = 0xC004F07Eu.toInt()
+public val SL_E_CIDIID_MISMATCHED_PKEY: Hresult = 0xC004F07Eu.toInt()
 
-public val SL_E_CIDIID_NOT_BOUND: HRESULT = 0xC004F07Fu.toInt()
+public val SL_E_CIDIID_NOT_BOUND: Hresult = 0xC004F07Fu.toInt()
 
-public val SL_E_CIDIID_NOT_DEPOSITED: HRESULT = 0xC004F030u.toInt()
+public val SL_E_CIDIID_NOT_DEPOSITED: Hresult = 0xC004F030u.toInt()
 
-public val SL_E_CIDIID_VERSION_NOT_SUPPORTED: HRESULT = 0xC004F02Eu.toInt()
+public val SL_E_CIDIID_VERSION_NOT_SUPPORTED: Hresult = 0xC004F02Eu.toInt()
 
-public val SL_E_DATATYPE_MISMATCHED: HRESULT = 0xC004F01Eu.toInt()
+public val SL_E_DATATYPE_MISMATCHED: Hresult = 0xC004F01Eu.toInt()
 
-public val SL_E_DECRYPTION_LICENSES_NOT_AVAILABLE: HRESULT = 0xC004F01Cu.toInt()
+public val SL_E_DECRYPTION_LICENSES_NOT_AVAILABLE: Hresult = 0xC004F01Cu.toInt()
 
-public val SL_E_DEPENDENT_PROPERTY_NOT_SET: HRESULT = 0xC004F066u.toInt()
+public val SL_E_DEPENDENT_PROPERTY_NOT_SET: Hresult = 0xC004F066u.toInt()
 
-public val SL_E_DOWNLEVEL_SETUP_KEY: HRESULT = 0xC004F214u.toInt()
+public val SL_E_DOWNLEVEL_SETUP_KEY: Hresult = 0xC004F214u.toInt()
 
-public val SL_E_DUPLICATE_POLICY: HRESULT = 0xC004F052u.toInt()
+public val SL_E_DUPLICATE_POLICY: Hresult = 0xC004F052u.toInt()
 
-public val SL_E_EDITION_MISMATCHED: HRESULT = 0xC004F210u.toInt()
+public val SL_E_EDITION_MISMATCHED: Hresult = 0xC004F210u.toInt()
 
-public val SL_E_ENGINE_DETECTED_EXPLOIT: HRESULT = 0xC004C4B1u.toInt()
+public val SL_E_ENGINE_DETECTED_EXPLOIT: Hresult = 0xC004C4B1u.toInt()
 
-public val SL_E_EUL_CONSUMPTION_FAILED: HRESULT = 0xC004E015u.toInt()
+public val SL_E_EUL_CONSUMPTION_FAILED: Hresult = 0xC004E015u.toInt()
 
-public val SL_E_EUL_NOT_AVAILABLE: HRESULT = 0xC004F034u.toInt()
+public val SL_E_EUL_NOT_AVAILABLE: Hresult = 0xC004F034u.toInt()
 
-public val SL_E_EVALUATION_FAILED: HRESULT = 0xC004E003u.toInt()
+public val SL_E_EVALUATION_FAILED: Hresult = 0xC004E003u.toInt()
 
-public val SL_E_EVENT_ALREADY_REGISTERED: HRESULT = 0xC004F01Bu.toInt()
+public val SL_E_EVENT_ALREADY_REGISTERED: Hresult = 0xC004F01Bu.toInt()
 
-public val SL_E_EVENT_NOT_REGISTERED: HRESULT = 0xC004F01Au.toInt()
+public val SL_E_EVENT_NOT_REGISTERED: Hresult = 0xC004F01Au.toInt()
 
-public val SL_E_EXTERNAL_SIGNATURE_NOT_FOUND: HRESULT = 0xC004F006u.toInt()
+public val SL_E_EXTERNAL_SIGNATURE_NOT_FOUND: Hresult = 0xC004F006u.toInt()
 
-public val SL_E_GRACE_TIME_EXPIRED: HRESULT = 0xC004F009u.toInt()
+public val SL_E_GRACE_TIME_EXPIRED: Hresult = 0xC004F009u.toInt()
 
-public val SL_E_HEALTH_CHECK_FAILED_MUI_FILES: HRESULT = 0xC004C4AEu.toInt()
+public val SL_E_HEALTH_CHECK_FAILED_MUI_FILES: Hresult = 0xC004C4AEu.toInt()
 
-public val SL_E_HEALTH_CHECK_FAILED_NEUTRAL_FILES: HRESULT = 0xC004C4ADu.toInt()
+public val SL_E_HEALTH_CHECK_FAILED_NEUTRAL_FILES: Hresult = 0xC004C4ADu.toInt()
 
-public val SL_E_HWID_CHANGED: HRESULT = 0xC004F211u.toInt()
+public val SL_E_HWID_CHANGED: Hresult = 0xC004F211u.toInt()
 
-public val SL_E_HWID_ERROR: HRESULT = 0xC004E01Bu.toInt()
+public val SL_E_HWID_ERROR: Hresult = 0xC004E01Bu.toInt()
 
-public val SL_E_IA_ID_MISMATCH: HRESULT = 0xC004FD03u.toInt()
+public val SL_E_IA_ID_MISMATCH: Hresult = 0xC004FD03u.toInt()
 
-public val SL_E_IA_INVALID_VIRTUALIZATION_PLATFORM: HRESULT = 0xC004FD01u.toInt()
+public val SL_E_IA_INVALID_VIRTUALIZATION_PLATFORM: Hresult = 0xC004FD01u.toInt()
 
-public val SL_E_IA_MACHINE_NOT_BOUND: HRESULT = 0xC004FD04u.toInt()
+public val SL_E_IA_MACHINE_NOT_BOUND: Hresult = 0xC004FD04u.toInt()
 
-public val SL_E_IA_PARENT_PARTITION_NOT_ACTIVATED: HRESULT = 0xC004FD02u.toInt()
+public val SL_E_IA_PARENT_PARTITION_NOT_ACTIVATED: Hresult = 0xC004FD02u.toInt()
 
-public val SL_E_IA_THROTTLE_LIMIT_EXCEEDED: HRESULT = 0xC004FD00u.toInt()
+public val SL_E_IA_THROTTLE_LIMIT_EXCEEDED: Hresult = 0xC004FD00u.toInt()
 
-public val SL_E_INTERNAL_ERROR: HRESULT = 0xC004F001u.toInt()
+public val SL_E_INTERNAL_ERROR: Hresult = 0xC004F001u.toInt()
 
-public val SL_E_INVALID_AD_DATA: HRESULT = 0xC004C4AFu.toInt()
+public val SL_E_INVALID_AD_DATA: Hresult = 0xC004C4AFu.toInt()
 
-public val SL_E_INVALID_BINDING_BLOB: HRESULT = 0xC004F032u.toInt()
+public val SL_E_INVALID_BINDING_BLOB: Hresult = 0xC004F032u.toInt()
 
-public val SL_E_INVALID_CLIENT_TOKEN: HRESULT = 0xC004C328u.toInt()
+public val SL_E_INVALID_CLIENT_TOKEN: Hresult = 0xC004C328u.toInt()
 
-public val SL_E_INVALID_CONTEXT: HRESULT = 0xC004E001u.toInt()
+public val SL_E_INVALID_CONTEXT: Hresult = 0xC004E001u.toInt()
 
-public val SL_E_INVALID_CONTEXT_DATA: HRESULT = 0xC004E024u.toInt()
+public val SL_E_INVALID_CONTEXT_DATA: Hresult = 0xC004E024u.toInt()
 
-public val SL_E_INVALID_EVENT_ID: HRESULT = 0xC004F019u.toInt()
+public val SL_E_INVALID_EVENT_ID: Hresult = 0xC004F019u.toInt()
 
-public val SL_E_INVALID_FILE_HASH: HRESULT = 0xC004C4A1u.toInt()
+public val SL_E_INVALID_FILE_HASH: Hresult = 0xC004C4A1u.toInt()
 
-public val SL_E_INVALID_GUID: HRESULT = 0xC004E006u.toInt()
+public val SL_E_INVALID_GUID: Hresult = 0xC004E006u.toInt()
 
-public val SL_E_INVALID_HASH: HRESULT = 0xC004E025u.toInt()
+public val SL_E_INVALID_HASH: Hresult = 0xC004E025u.toInt()
 
-public val SL_E_INVALID_LICENSE: HRESULT = 0xC004F01Fu.toInt()
+public val SL_E_INVALID_LICENSE: Hresult = 0xC004F01Fu.toInt()
 
-public val SL_E_INVALID_LICENSE_STATE: HRESULT = 0xC004C4A8u.toInt()
+public val SL_E_INVALID_LICENSE_STATE: Hresult = 0xC004C4A8u.toInt()
 
-public val SL_E_INVALID_LICENSE_STATE_BREACH_GRACE: HRESULT = 0xC004C291u.toInt()
+public val SL_E_INVALID_LICENSE_STATE_BREACH_GRACE: Hresult = 0xC004C291u.toInt()
 
-public val SL_E_INVALID_LICENSE_STATE_BREACH_GRACE_EXPIRED: HRESULT = 0xC004C292u.toInt()
+public val SL_E_INVALID_LICENSE_STATE_BREACH_GRACE_EXPIRED: Hresult = 0xC004C292u.toInt()
 
-public val SL_E_INVALID_OEM_OR_VOLUME_BINDING_DATA: HRESULT = 0xC004C4A7u.toInt()
+public val SL_E_INVALID_OEM_OR_VOLUME_BINDING_DATA: Hresult = 0xC004C4A7u.toInt()
 
-public val SL_E_INVALID_OFFLINE_BLOB: HRESULT = 0xC004C329u.toInt()
+public val SL_E_INVALID_OFFLINE_BLOB: Hresult = 0xC004C329u.toInt()
 
-public val SL_E_INVALID_OSVERSION_TEMPLATEID: HRESULT = 0xC004C32Bu.toInt()
+public val SL_E_INVALID_OSVERSION_TEMPLATEID: Hresult = 0xC004C32Bu.toInt()
 
-public val SL_E_INVALID_OS_FOR_PRODUCT_KEY: HRESULT = 0xC004C401u.toInt()
+public val SL_E_INVALID_OS_FOR_PRODUCT_KEY: Hresult = 0xC004C401u.toInt()
 
-public val SL_E_INVALID_PACKAGE: HRESULT = 0xC004F020u.toInt()
+public val SL_E_INVALID_PACKAGE: Hresult = 0xC004F020u.toInt()
 
-public val SL_E_INVALID_PACKAGE_VERSION: HRESULT = 0xC004F060u.toInt()
+public val SL_E_INVALID_PACKAGE_VERSION: Hresult = 0xC004F060u.toInt()
 
-public val SL_E_INVALID_PKEY: HRESULT = 0xC004F010u.toInt()
+public val SL_E_INVALID_PKEY: Hresult = 0xC004F010u.toInt()
 
-public val SL_E_INVALID_PRODUCT_KEY: HRESULT = 0xC004F050u.toInt()
+public val SL_E_INVALID_PRODUCT_KEY: Hresult = 0xC004F050u.toInt()
 
-public val SL_E_INVALID_PRODUCT_KEY_TYPE: HRESULT = 0xC004F07Du.toInt()
+public val SL_E_INVALID_PRODUCT_KEY_TYPE: Hresult = 0xC004F07Du.toInt()
 
-public val SL_E_INVALID_RSDP_COUNT: HRESULT = 0xC004C4B0u.toInt()
+public val SL_E_INVALID_RSDP_COUNT: Hresult = 0xC004C4B0u.toInt()
 
-public val SL_E_INVALID_RULESET_RULE: HRESULT = 0xC004E023u.toInt()
+public val SL_E_INVALID_RULESET_RULE: Hresult = 0xC004E023u.toInt()
 
-public val SL_E_INVALID_RUNNING_MODE: HRESULT = 0xC004F029u.toInt()
+public val SL_E_INVALID_RUNNING_MODE: Hresult = 0xC004F029u.toInt()
 
-public val SL_E_INVALID_TEMPLATE_ID: HRESULT = 0xC004C2F6u.toInt()
+public val SL_E_INVALID_TEMPLATE_ID: Hresult = 0xC004C2F6u.toInt()
 
-public val SL_E_INVALID_TOKEN_DATA: HRESULT = 0xC004C4ACu.toInt()
+public val SL_E_INVALID_TOKEN_DATA: Hresult = 0xC004C4ACu.toInt()
 
-public val SL_E_INVALID_USE_OF_ADD_ON_PKEY: HRESULT = 0x8004E026u.toInt()
+public val SL_E_INVALID_USE_OF_ADD_ON_PKEY: Hresult = 0x8004E026u.toInt()
 
-public val SL_E_INVALID_XML_BLOB: HRESULT = 0xC004C2FAu.toInt()
+public val SL_E_INVALID_XML_BLOB: Hresult = 0xC004C2FAu.toInt()
 
-public val SL_E_IP_LOCATION_FALIED: HRESULT = 0xC004C4A9u.toInt()
+public val SL_E_IP_LOCATION_FALIED: Hresult = 0xC004C4A9u.toInt()
 
-public val SL_E_ISSUANCE_LICENSE_NOT_INSTALLED: HRESULT = 0xC004F062u.toInt()
+public val SL_E_ISSUANCE_LICENSE_NOT_INSTALLED: Hresult = 0xC004F062u.toInt()
 
-public val SL_E_LICENSE_AUTHORIZATION_FAILED: HRESULT = 0xC004F022u.toInt()
+public val SL_E_LICENSE_AUTHORIZATION_FAILED: Hresult = 0xC004F022u.toInt()
 
-public val SL_E_LICENSE_DECRYPTION_FAILED: HRESULT = 0xC004F023u.toInt()
+public val SL_E_LICENSE_DECRYPTION_FAILED: Hresult = 0xC004F023u.toInt()
 
-public val SL_E_LICENSE_FILE_NOT_INSTALLED: HRESULT = 0xC004F011u.toInt()
+public val SL_E_LICENSE_FILE_NOT_INSTALLED: Hresult = 0xC004F011u.toInt()
 
-public val SL_E_LICENSE_INVALID_ADDON_INFO: HRESULT = 0xC004E01Au.toInt()
+public val SL_E_LICENSE_INVALID_ADDON_INFO: Hresult = 0xC004E01Au.toInt()
 
-public val SL_E_LICENSE_MANAGEMENT_DATA_DUPLICATED: HRESULT = 0xC004F054u.toInt()
+public val SL_E_LICENSE_MANAGEMENT_DATA_DUPLICATED: Hresult = 0xC004F054u.toInt()
 
-public val SL_E_LICENSE_MANAGEMENT_DATA_NOT_FOUND: HRESULT = 0xC004F04Fu.toInt()
+public val SL_E_LICENSE_MANAGEMENT_DATA_NOT_FOUND: Hresult = 0xC004F04Fu.toInt()
 
-public val SL_E_LICENSE_NOT_BOUND: HRESULT = 0xC004F080u.toInt()
+public val SL_E_LICENSE_NOT_BOUND: Hresult = 0xC004F080u.toInt()
 
-public val SL_E_LICENSE_SERVER_URL_NOT_FOUND: HRESULT = 0xC004F018u.toInt()
+public val SL_E_LICENSE_SERVER_URL_NOT_FOUND: Hresult = 0xC004F018u.toInt()
 
-public val SL_E_LICENSE_SIGNATURE_VERIFICATION_FAILED: HRESULT = 0xC004F01Du.toInt()
+public val SL_E_LICENSE_SIGNATURE_VERIFICATION_FAILED: Hresult = 0xC004F01Du.toInt()
 
-public val SL_E_LUA_ACCESSDENIED: HRESULT = 0xC004F025u.toInt()
+public val SL_E_LUA_ACCESSDENIED: Hresult = 0xC004F025u.toInt()
 
-public val SL_E_MISMATCHED_APPID: HRESULT = 0xC004F00Au.toInt()
+public val SL_E_MISMATCHED_APPID: Hresult = 0xC004F00Au.toInt()
 
-public val SL_E_MISMATCHED_KEY_TYPES: HRESULT = 0xC004C4A4u.toInt()
+public val SL_E_MISMATCHED_KEY_TYPES: Hresult = 0xC004C4A4u.toInt()
 
-public val SL_E_MISMATCHED_PID: HRESULT = 0xC004F005u.toInt()
+public val SL_E_MISMATCHED_PID: Hresult = 0xC004F005u.toInt()
 
-public val SL_E_MISMATCHED_PKEY_RANGE: HRESULT = 0xC004F004u.toInt()
+public val SL_E_MISMATCHED_PKEY_RANGE: Hresult = 0xC004F004u.toInt()
 
-public val SL_E_MISMATCHED_PRODUCT_SKU: HRESULT = 0xC004F069u.toInt()
+public val SL_E_MISMATCHED_PRODUCT_SKU: Hresult = 0xC004F069u.toInt()
 
-public val SL_E_MISMATCHED_SECURITY_PROCESSOR: HRESULT = 0xC004F00Eu.toInt()
+public val SL_E_MISMATCHED_SECURITY_PROCESSOR: Hresult = 0xC004F00Eu.toInt()
 
-public val SL_E_MISSING_OVERRIDE_ONLY_ATTRIBUTE: HRESULT = 0xC004F053u.toInt()
+public val SL_E_MISSING_OVERRIDE_ONLY_ATTRIBUTE: Hresult = 0xC004F053u.toInt()
 
-public val SL_E_NONGENUINE_GRACE_TIME_EXPIRED: HRESULT = 0xC004F064u.toInt()
+public val SL_E_NONGENUINE_GRACE_TIME_EXPIRED: Hresult = 0xC004F064u.toInt()
 
-public val SL_E_NONGENUINE_GRACE_TIME_EXPIRED_2: HRESULT = 0xC004F067u.toInt()
+public val SL_E_NONGENUINE_GRACE_TIME_EXPIRED_2: Hresult = 0xC004F067u.toInt()
 
-public val SL_E_NON_GENUINE_STATUS_LAST: HRESULT = 0xC004C600u.toInt()
+public val SL_E_NON_GENUINE_STATUS_LAST: Hresult = 0xC004C600u.toInt()
 
-public val SL_E_NOTIFICATION_BREACH_DETECTED: HRESULT = 0xC004C531u.toInt()
+public val SL_E_NOTIFICATION_BREACH_DETECTED: Hresult = 0xC004C531u.toInt()
 
-public val SL_E_NOTIFICATION_GRACE_EXPIRED: HRESULT = 0xC004C532u.toInt()
+public val SL_E_NOTIFICATION_GRACE_EXPIRED: Hresult = 0xC004C532u.toInt()
 
-public val SL_E_NOTIFICATION_OTHER_REASONS: HRESULT = 0xC004C533u.toInt()
+public val SL_E_NOTIFICATION_OTHER_REASONS: Hresult = 0xC004C533u.toInt()
 
-public val SL_E_NOT_ACTIVATED: HRESULT = 0xC004E005u.toInt()
+public val SL_E_NOT_ACTIVATED: Hresult = 0xC004E005u.toInt()
 
-public val SL_E_NOT_EVALUATED: HRESULT = 0xC004E004u.toInt()
+public val SL_E_NOT_EVALUATED: Hresult = 0xC004E004u.toInt()
 
-public val SL_E_NOT_GENUINE: HRESULT = 0xC004F200u.toInt()
+public val SL_E_NOT_GENUINE: Hresult = 0xC004F200u.toInt()
 
-public val SL_E_NOT_SUPPORTED: HRESULT = 0xC004F016u.toInt()
+public val SL_E_NOT_SUPPORTED: Hresult = 0xC004F016u.toInt()
 
-public val SL_E_NO_PID_CONFIG_DATA: HRESULT = 0xC004F00Bu.toInt()
+public val SL_E_NO_PID_CONFIG_DATA: Hresult = 0xC004F00Bu.toInt()
 
-public val SL_E_NO_PRODUCT_KEY_FOUND: HRESULT = 0xC004F213u.toInt()
+public val SL_E_NO_PRODUCT_KEY_FOUND: Hresult = 0xC004F213u.toInt()
 
-public val SL_E_OEM_KEY_EDITION_MISMATCH: HRESULT = 0xC004F212u.toInt()
+public val SL_E_OEM_KEY_EDITION_MISMATCH: Hresult = 0xC004F212u.toInt()
 
-public val SL_E_OFFLINE_GENUINE_BLOB_NOT_FOUND: HRESULT = 0xC004C32Du.toInt()
+public val SL_E_OFFLINE_GENUINE_BLOB_NOT_FOUND: Hresult = 0xC004C32Du.toInt()
 
-public val SL_E_OFFLINE_GENUINE_BLOB_REVOKED: HRESULT = 0xC004C32Cu.toInt()
+public val SL_E_OFFLINE_GENUINE_BLOB_REVOKED: Hresult = 0xC004C32Cu.toInt()
 
-public val SL_E_OFFLINE_VALIDATION_BLOB_PARAM_NOT_FOUND: HRESULT = 0xC004C32Au.toInt()
+public val SL_E_OFFLINE_VALIDATION_BLOB_PARAM_NOT_FOUND: Hresult = 0xC004C32Au.toInt()
 
-public val SL_E_OPERATION_NOT_ALLOWED: HRESULT = 0xC004F06Au.toInt()
+public val SL_E_OPERATION_NOT_ALLOWED: Hresult = 0xC004F06Au.toInt()
 
-public val SL_E_OUT_OF_TOLERANCE: HRESULT = 0xC004F00Fu.toInt()
+public val SL_E_OUT_OF_TOLERANCE: Hresult = 0xC004F00Fu.toInt()
 
-public val SL_E_PKEY_INTERNAL_ERROR: HRESULT = 0xC004E019u.toInt()
+public val SL_E_PKEY_INTERNAL_ERROR: Hresult = 0xC004E019u.toInt()
 
-public val SL_E_PKEY_INVALID_ALGORITHM: HRESULT = 0xC004E018u.toInt()
+public val SL_E_PKEY_INVALID_ALGORITHM: Hresult = 0xC004E018u.toInt()
 
-public val SL_E_PKEY_INVALID_CONFIG: HRESULT = 0xC004E016u.toInt()
+public val SL_E_PKEY_INVALID_CONFIG: Hresult = 0xC004E016u.toInt()
 
-public val SL_E_PKEY_INVALID_KEYCHANGE1: HRESULT = 0xC004E01Cu.toInt()
+public val SL_E_PKEY_INVALID_KEYCHANGE1: Hresult = 0xC004E01Cu.toInt()
 
-public val SL_E_PKEY_INVALID_KEYCHANGE2: HRESULT = 0xC004E01Du.toInt()
+public val SL_E_PKEY_INVALID_KEYCHANGE2: Hresult = 0xC004E01Du.toInt()
 
-public val SL_E_PKEY_INVALID_KEYCHANGE3: HRESULT = 0xC004E01Eu.toInt()
+public val SL_E_PKEY_INVALID_KEYCHANGE3: Hresult = 0xC004E01Eu.toInt()
 
-public val SL_E_PKEY_INVALID_UNIQUEID: HRESULT = 0xC004E017u.toInt()
+public val SL_E_PKEY_INVALID_UNIQUEID: Hresult = 0xC004E017u.toInt()
 
-public val SL_E_PKEY_INVALID_UPGRADE: HRESULT = 0xC004F061u.toInt()
+public val SL_E_PKEY_INVALID_UPGRADE: Hresult = 0xC004F061u.toInt()
 
-public val SL_E_PKEY_NOT_INSTALLED: HRESULT = 0xC004F014u.toInt()
+public val SL_E_PKEY_NOT_INSTALLED: Hresult = 0xC004F014u.toInt()
 
-public val SL_E_PLUGIN_INVALID_MANIFEST: HRESULT = 0xC004F071u.toInt()
+public val SL_E_PLUGIN_INVALID_MANIFEST: Hresult = 0xC004F071u.toInt()
 
-public val SL_E_PLUGIN_NOT_REGISTERED: HRESULT = 0xC004F076u.toInt()
+public val SL_E_PLUGIN_NOT_REGISTERED: Hresult = 0xC004F076u.toInt()
 
-public val SL_E_POLICY_CACHE_INVALID: HRESULT = 0xC004F028u.toInt()
+public val SL_E_POLICY_CACHE_INVALID: Hresult = 0xC004F028u.toInt()
 
-public val SL_E_POLICY_OTHERINFO_MISMATCH: HRESULT = 0xC004E020u.toInt()
+public val SL_E_POLICY_OTHERINFO_MISMATCH: Hresult = 0xC004E020u.toInt()
 
-public val SL_E_PRODUCT_KEY_INSTALLATION_NOT_ALLOWED: HRESULT = 0xC004F033u.toInt()
+public val SL_E_PRODUCT_KEY_INSTALLATION_NOT_ALLOWED: Hresult = 0xC004F033u.toInt()
 
-public val SL_E_PRODUCT_SKU_NOT_INSTALLED: HRESULT = 0xC004F015u.toInt()
+public val SL_E_PRODUCT_SKU_NOT_INSTALLED: Hresult = 0xC004F015u.toInt()
 
-public val SL_E_PRODUCT_UNIQUENESS_GROUP_ID_INVALID: HRESULT = 0xC004E021u.toInt()
+public val SL_E_PRODUCT_UNIQUENESS_GROUP_ID_INVALID: Hresult = 0xC004E021u.toInt()
 
-public val SL_E_PROXY_KEY_NOT_FOUND: HRESULT = 0xC004F026u.toInt()
+public val SL_E_PROXY_KEY_NOT_FOUND: Hresult = 0xC004F026u.toInt()
 
-public val SL_E_PROXY_POLICY_NOT_UPDATED: HRESULT = 0xC004F047u.toInt()
+public val SL_E_PROXY_POLICY_NOT_UPDATED: Hresult = 0xC004F047u.toInt()
 
-public val SL_E_PUBLISHING_LICENSE_NOT_INSTALLED: HRESULT = 0xC004F017u.toInt()
+public val SL_E_PUBLISHING_LICENSE_NOT_INSTALLED: Hresult = 0xC004F017u.toInt()
 
-public val SL_E_RAC_NOT_AVAILABLE: HRESULT = 0xC004F007u.toInt()
+public val SL_E_RAC_NOT_AVAILABLE: Hresult = 0xC004F007u.toInt()
 
-public val SL_E_RIGHT_NOT_CONSUMED: HRESULT = 0xC004F002u.toInt()
+public val SL_E_RIGHT_NOT_CONSUMED: Hresult = 0xC004F002u.toInt()
 
-public val SL_E_RIGHT_NOT_GRANTED: HRESULT = 0xC004F013u.toInt()
+public val SL_E_RIGHT_NOT_GRANTED: Hresult = 0xC004F013u.toInt()
 
-public val SL_E_SECURE_STORE_ID_MISMATCH: HRESULT = 0xC004E022u.toInt()
+public val SL_E_SECURE_STORE_ID_MISMATCH: Hresult = 0xC004E022u.toInt()
 
-public val SL_E_SERVICE_RUNNING: HRESULT = 0xC004F07Bu.toInt()
+public val SL_E_SERVICE_RUNNING: Hresult = 0xC004F07Bu.toInt()
 
-public val SL_E_SERVICE_STOPPING: HRESULT = 0xC004F075u.toInt()
+public val SL_E_SERVICE_STOPPING: Hresult = 0xC004F075u.toInt()
 
-public val SL_E_SFS_BAD_TOKEN_EXT: HRESULT = 0x8004E105u.toInt()
+public val SL_E_SFS_BAD_TOKEN_EXT: Hresult = 0x8004E105u.toInt()
 
-public val SL_E_SFS_BAD_TOKEN_NAME: HRESULT = 0x8004E104u.toInt()
+public val SL_E_SFS_BAD_TOKEN_NAME: Hresult = 0x8004E104u.toInt()
 
-public val SL_E_SFS_DUPLICATE_TOKEN_NAME: HRESULT = 0x8004E106u.toInt()
+public val SL_E_SFS_DUPLICATE_TOKEN_NAME: Hresult = 0x8004E106u.toInt()
 
-public val SL_E_SFS_FILE_READ_ERROR: HRESULT = 0x8004E109u.toInt()
+public val SL_E_SFS_FILE_READ_ERROR: Hresult = 0x8004E109u.toInt()
 
-public val SL_E_SFS_FILE_WRITE_ERROR: HRESULT = 0x8004E10Au.toInt()
+public val SL_E_SFS_FILE_WRITE_ERROR: Hresult = 0x8004E10Au.toInt()
 
-public val SL_E_SFS_INVALID_FD_TABLE: HRESULT = 0x8004E102u.toInt()
+public val SL_E_SFS_INVALID_FD_TABLE: Hresult = 0x8004E102u.toInt()
 
-public val SL_E_SFS_INVALID_FILE_POSITION: HRESULT = 0x8004E10Bu.toInt()
+public val SL_E_SFS_INVALID_FILE_POSITION: Hresult = 0x8004E10Bu.toInt()
 
-public val SL_E_SFS_INVALID_FS_HEADER: HRESULT = 0x8004E10Du.toInt()
+public val SL_E_SFS_INVALID_FS_HEADER: Hresult = 0x8004E10Du.toInt()
 
-public val SL_E_SFS_INVALID_FS_VERSION: HRESULT = 0x8004E101u.toInt()
+public val SL_E_SFS_INVALID_FS_VERSION: Hresult = 0x8004E101u.toInt()
 
-public val SL_E_SFS_INVALID_SYNC: HRESULT = 0x8004E103u.toInt()
+public val SL_E_SFS_INVALID_SYNC: Hresult = 0x8004E103u.toInt()
 
-public val SL_E_SFS_INVALID_TOKEN_DATA_HASH: HRESULT = 0x8004E108u.toInt()
+public val SL_E_SFS_INVALID_TOKEN_DATA_HASH: Hresult = 0x8004E108u.toInt()
 
-public val SL_E_SFS_INVALID_TOKEN_DESCRIPTOR: HRESULT = 0x8004E10Eu.toInt()
+public val SL_E_SFS_INVALID_TOKEN_DESCRIPTOR: Hresult = 0x8004E10Eu.toInt()
 
-public val SL_E_SFS_NO_ACTIVE_TRANSACTION: HRESULT = 0x8004E10Cu.toInt()
+public val SL_E_SFS_NO_ACTIVE_TRANSACTION: Hresult = 0x8004E10Cu.toInt()
 
-public val SL_E_SFS_TOKEN_SIZE_MISMATCH: HRESULT = 0x8004E107u.toInt()
+public val SL_E_SFS_TOKEN_SIZE_MISMATCH: Hresult = 0x8004E107u.toInt()
 
-public val SL_E_SLP_BAD_FORMAT: HRESULT = 0xC004F059u.toInt()
+public val SL_E_SLP_BAD_FORMAT: Hresult = 0xC004F059u.toInt()
 
-public val SL_E_SLP_INVALID_MARKER_VERSION: HRESULT = 0xC004F07Cu.toInt()
+public val SL_E_SLP_INVALID_MARKER_VERSION: Hresult = 0xC004F07Cu.toInt()
 
-public val SL_E_SLP_MISSING_ACPI_SLIC: HRESULT = 0xC004F057u.toInt()
+public val SL_E_SLP_MISSING_ACPI_SLIC: Hresult = 0xC004F057u.toInt()
 
-public val SL_E_SLP_MISSING_SLP_MARKER: HRESULT = 0xC004F058u.toInt()
+public val SL_E_SLP_MISSING_SLP_MARKER: Hresult = 0xC004F058u.toInt()
 
-public val SL_E_SLP_NOT_SIGNED: HRESULT = 0xC004F02Au.toInt()
+public val SL_E_SLP_NOT_SIGNED: Hresult = 0xC004F02Au.toInt()
 
-public val SL_E_SLP_OEM_CERT_MISSING: HRESULT = 0xC004F063u.toInt()
+public val SL_E_SLP_OEM_CERT_MISSING: Hresult = 0xC004F063u.toInt()
 
-public val SL_E_SOFTMOD_EXPLOIT_DETECTED: HRESULT = 0xC004C4ABu.toInt()
+public val SL_E_SOFTMOD_EXPLOIT_DETECTED: Hresult = 0xC004C4ABu.toInt()
 
-public val SL_E_SPC_NOT_AVAILABLE: HRESULT = 0xC004F008u.toInt()
+public val SL_E_SPC_NOT_AVAILABLE: Hresult = 0xC004F008u.toInt()
 
-public val SL_E_SRV_AUTHORIZATION_FAILED: HRESULT = 0xC004B005u.toInt()
+public val SL_E_SRV_AUTHORIZATION_FAILED: Hresult = 0xC004B005u.toInt()
 
-public val SL_E_SRV_BUSINESS_TOKEN_ENTRY_NOT_FOUND: HRESULT = 0xC004B010u.toInt()
+public val SL_E_SRV_BUSINESS_TOKEN_ENTRY_NOT_FOUND: Hresult = 0xC004B010u.toInt()
 
-public val SL_E_SRV_CLIENT_CLOCK_OUT_OF_SYNC: HRESULT = 0xC004B011u.toInt()
+public val SL_E_SRV_CLIENT_CLOCK_OUT_OF_SYNC: Hresult = 0xC004B011u.toInt()
 
-public val SL_E_SRV_GENERAL_ERROR: HRESULT = 0xC004B100u.toInt()
+public val SL_E_SRV_GENERAL_ERROR: Hresult = 0xC004B100u.toInt()
 
-public val SL_E_SRV_INVALID_BINDING: HRESULT = 0xC004B006u.toInt()
+public val SL_E_SRV_INVALID_BINDING: Hresult = 0xC004B006u.toInt()
 
-public val SL_E_SRV_INVALID_LICENSE_STRUCTURE: HRESULT = 0xC004B004u.toInt()
+public val SL_E_SRV_INVALID_LICENSE_STRUCTURE: Hresult = 0xC004B004u.toInt()
 
-public val SL_E_SRV_INVALID_PAYLOAD: HRESULT = 0xC004B008u.toInt()
+public val SL_E_SRV_INVALID_PAYLOAD: Hresult = 0xC004B008u.toInt()
 
-public val SL_E_SRV_INVALID_PRODUCT_KEY_LICENSE: HRESULT = 0xC004B002u.toInt()
+public val SL_E_SRV_INVALID_PRODUCT_KEY_LICENSE: Hresult = 0xC004B002u.toInt()
 
-public val SL_E_SRV_INVALID_PUBLISH_LICENSE: HRESULT = 0xC004B001u.toInt()
+public val SL_E_SRV_INVALID_PUBLISH_LICENSE: Hresult = 0xC004B001u.toInt()
 
-public val SL_E_SRV_INVALID_RIGHTS_ACCOUNT_LICENSE: HRESULT = 0xC004B003u.toInt()
+public val SL_E_SRV_INVALID_RIGHTS_ACCOUNT_LICENSE: Hresult = 0xC004B003u.toInt()
 
-public val SL_E_SRV_INVALID_SECURITY_PROCESSOR_LICENSE: HRESULT = 0xC004B009u.toInt()
+public val SL_E_SRV_INVALID_SECURITY_PROCESSOR_LICENSE: Hresult = 0xC004B009u.toInt()
 
-public val SL_E_SRV_SERVER_PONG: HRESULT = 0xC004B007u.toInt()
+public val SL_E_SRV_SERVER_PONG: Hresult = 0xC004B007u.toInt()
 
-public val SL_E_STORE_UPGRADE_TOKEN_NOT_AUTHORIZED: HRESULT = 0xC004E02Eu.toInt()
+public val SL_E_STORE_UPGRADE_TOKEN_NOT_AUTHORIZED: Hresult = 0xC004E02Eu.toInt()
 
-public val SL_E_STORE_UPGRADE_TOKEN_NOT_PRS_SIGNED: HRESULT = 0xC004E02Cu.toInt()
+public val SL_E_STORE_UPGRADE_TOKEN_NOT_PRS_SIGNED: Hresult = 0xC004E02Cu.toInt()
 
-public val SL_E_STORE_UPGRADE_TOKEN_REQUIRED: HRESULT = 0xC004E029u.toInt()
+public val SL_E_STORE_UPGRADE_TOKEN_REQUIRED: Hresult = 0xC004E029u.toInt()
 
-public val SL_E_STORE_UPGRADE_TOKEN_WRONG_EDITION: HRESULT = 0xC004E02Au.toInt()
+public val SL_E_STORE_UPGRADE_TOKEN_WRONG_EDITION: Hresult = 0xC004E02Au.toInt()
 
-public val SL_E_STORE_UPGRADE_TOKEN_WRONG_PID: HRESULT = 0xC004E02Bu.toInt()
+public val SL_E_STORE_UPGRADE_TOKEN_WRONG_PID: Hresult = 0xC004E02Bu.toInt()
 
-public val SL_E_STORE_UPGRADE_TOKEN_WRONG_VERSION: HRESULT = 0xC004E02Du.toInt()
+public val SL_E_STORE_UPGRADE_TOKEN_WRONG_VERSION: Hresult = 0xC004E02Du.toInt()
 
-public val SL_E_TAMPER_DETECTED: HRESULT = 0xC004F027u.toInt()
+public val SL_E_TAMPER_DETECTED: Hresult = 0xC004F027u.toInt()
 
-public val SL_E_TAMPER_RECOVERY_REQUIRES_ACTIVATION: HRESULT = 0xC004FE00u.toInt()
+public val SL_E_TAMPER_RECOVERY_REQUIRES_ACTIVATION: Hresult = 0xC004FE00u.toInt()
 
-public val SL_E_TKA_CERT_CNG_NOT_AVAILABLE: HRESULT = 0xC004F313u.toInt()
+public val SL_E_TKA_CERT_CNG_NOT_AVAILABLE: Hresult = 0xC004F313u.toInt()
 
-public val SL_E_TKA_CERT_NOT_FOUND: HRESULT = 0xC004F305u.toInt()
+public val SL_E_TKA_CERT_NOT_FOUND: Hresult = 0xC004F305u.toInt()
 
-public val SL_E_TKA_CHALLENGE_EXPIRED: HRESULT = 0xC004F301u.toInt()
+public val SL_E_TKA_CHALLENGE_EXPIRED: Hresult = 0xC004F301u.toInt()
 
-public val SL_E_TKA_CHALLENGE_MISMATCH: HRESULT = 0xC004F309u.toInt()
+public val SL_E_TKA_CHALLENGE_MISMATCH: Hresult = 0xC004F309u.toInt()
 
-public val SL_E_TKA_CRITERIA_MISMATCH: HRESULT = 0xC004F30Fu.toInt()
+public val SL_E_TKA_CRITERIA_MISMATCH: Hresult = 0xC004F30Fu.toInt()
 
-public val SL_E_TKA_FAILED_GRANT_PARSING: HRESULT = 0xC004F30Cu.toInt()
+public val SL_E_TKA_FAILED_GRANT_PARSING: Hresult = 0xC004F30Cu.toInt()
 
-public val SL_E_TKA_GRANT_NOT_FOUND: HRESULT = 0xC004F304u.toInt()
+public val SL_E_TKA_GRANT_NOT_FOUND: Hresult = 0xC004F304u.toInt()
 
-public val SL_E_TKA_INVALID_BLOB: HRESULT = 0xC004F307u.toInt()
+public val SL_E_TKA_INVALID_BLOB: Hresult = 0xC004F307u.toInt()
 
-public val SL_E_TKA_INVALID_CERTIFICATE: HRESULT = 0xC004F30Au.toInt()
+public val SL_E_TKA_INVALID_CERTIFICATE: Hresult = 0xC004F30Au.toInt()
 
-public val SL_E_TKA_INVALID_CERT_CHAIN: HRESULT = 0xC004F303u.toInt()
+public val SL_E_TKA_INVALID_CERT_CHAIN: Hresult = 0xC004F303u.toInt()
 
-public val SL_E_TKA_INVALID_SKU_ID: HRESULT = 0xC004F306u.toInt()
+public val SL_E_TKA_INVALID_SKU_ID: Hresult = 0xC004F306u.toInt()
 
-public val SL_E_TKA_INVALID_SMARTCARD: HRESULT = 0xC004F30Bu.toInt()
+public val SL_E_TKA_INVALID_SMARTCARD: Hresult = 0xC004F30Bu.toInt()
 
-public val SL_E_TKA_INVALID_THUMBPRINT: HRESULT = 0xC004F30Du.toInt()
+public val SL_E_TKA_INVALID_THUMBPRINT: Hresult = 0xC004F30Du.toInt()
 
-public val SL_E_TKA_SILENT_ACTIVATION_FAILURE: HRESULT = 0xC004F302u.toInt()
+public val SL_E_TKA_SILENT_ACTIVATION_FAILURE: Hresult = 0xC004F302u.toInt()
 
-public val SL_E_TKA_SOFT_CERT_DISALLOWED: HRESULT = 0xC004F311u.toInt()
+public val SL_E_TKA_SOFT_CERT_DISALLOWED: Hresult = 0xC004F311u.toInt()
 
-public val SL_E_TKA_SOFT_CERT_INVALID: HRESULT = 0xC004F312u.toInt()
+public val SL_E_TKA_SOFT_CERT_INVALID: Hresult = 0xC004F312u.toInt()
 
-public val SL_E_TKA_TAMPERED_CERT_CHAIN: HRESULT = 0xC004F308u.toInt()
+public val SL_E_TKA_TAMPERED_CERT_CHAIN: Hresult = 0xC004F308u.toInt()
 
-public val SL_E_TKA_THUMBPRINT_CERT_NOT_FOUND: HRESULT = 0xC004F30Eu.toInt()
+public val SL_E_TKA_THUMBPRINT_CERT_NOT_FOUND: Hresult = 0xC004F30Eu.toInt()
 
-public val SL_E_TKA_TPID_MISMATCH: HRESULT = 0xC004F310u.toInt()
+public val SL_E_TKA_TPID_MISMATCH: Hresult = 0xC004F310u.toInt()
 
-public val SL_E_TOKEN_STORE_INVALID_STATE: HRESULT = 0xC004E002u.toInt()
+public val SL_E_TOKEN_STORE_INVALID_STATE: Hresult = 0xC004E002u.toInt()
 
-public val SL_E_TOKSTO_ALREADY_INITIALIZED: HRESULT = 0xC004E00Au.toInt()
+public val SL_E_TOKSTO_ALREADY_INITIALIZED: Hresult = 0xC004E00Au.toInt()
 
-public val SL_E_TOKSTO_CANT_ACQUIRE_MUTEX: HRESULT = 0xC004E013u.toInt()
+public val SL_E_TOKSTO_CANT_ACQUIRE_MUTEX: Hresult = 0xC004E013u.toInt()
 
-public val SL_E_TOKSTO_CANT_CREATE_FILE: HRESULT = 0xC004E00Cu.toInt()
+public val SL_E_TOKSTO_CANT_CREATE_FILE: Hresult = 0xC004E00Cu.toInt()
 
-public val SL_E_TOKSTO_CANT_CREATE_MUTEX: HRESULT = 0xC004E012u.toInt()
+public val SL_E_TOKSTO_CANT_CREATE_MUTEX: Hresult = 0xC004E012u.toInt()
 
-public val SL_E_TOKSTO_CANT_PARSE_PROPERTIES: HRESULT = 0xC004E00Fu.toInt()
+public val SL_E_TOKSTO_CANT_PARSE_PROPERTIES: Hresult = 0xC004E00Fu.toInt()
 
-public val SL_E_TOKSTO_CANT_READ_FILE: HRESULT = 0xC004E00Eu.toInt()
+public val SL_E_TOKSTO_CANT_READ_FILE: Hresult = 0xC004E00Eu.toInt()
 
-public val SL_E_TOKSTO_CANT_WRITE_TO_FILE: HRESULT = 0xC004E00Du.toInt()
+public val SL_E_TOKSTO_CANT_WRITE_TO_FILE: Hresult = 0xC004E00Du.toInt()
 
-public val SL_E_TOKSTO_INVALID_FILE: HRESULT = 0xC004E011u.toInt()
+public val SL_E_TOKSTO_INVALID_FILE: Hresult = 0xC004E011u.toInt()
 
-public val SL_E_TOKSTO_NOT_INITIALIZED: HRESULT = 0xC004E009u.toInt()
+public val SL_E_TOKSTO_NOT_INITIALIZED: Hresult = 0xC004E009u.toInt()
 
-public val SL_E_TOKSTO_NO_ID_SET: HRESULT = 0xC004E00Bu.toInt()
+public val SL_E_TOKSTO_NO_ID_SET: Hresult = 0xC004E00Bu.toInt()
 
-public val SL_E_TOKSTO_NO_PROPERTIES: HRESULT = 0xC004E008u.toInt()
+public val SL_E_TOKSTO_NO_PROPERTIES: Hresult = 0xC004E008u.toInt()
 
-public val SL_E_TOKSTO_NO_TOKEN_DATA: HRESULT = 0xC004E014u.toInt()
+public val SL_E_TOKSTO_NO_TOKEN_DATA: Hresult = 0xC004E014u.toInt()
 
-public val SL_E_TOKSTO_PROPERTY_NOT_FOUND: HRESULT = 0xC004E010u.toInt()
+public val SL_E_TOKSTO_PROPERTY_NOT_FOUND: Hresult = 0xC004E010u.toInt()
 
-public val SL_E_TOKSTO_TOKEN_NOT_FOUND: HRESULT = 0xC004E007u.toInt()
+public val SL_E_TOKSTO_TOKEN_NOT_FOUND: Hresult = 0xC004E007u.toInt()
 
-public val SL_E_USE_LICENSE_NOT_INSTALLED: HRESULT = 0xC004F003u.toInt()
+public val SL_E_USE_LICENSE_NOT_INSTALLED: Hresult = 0xC004F003u.toInt()
 
-public val SL_E_VALIDATION_BLOB_PARAM_NOT_FOUND: HRESULT = 0xC004C327u.toInt()
+public val SL_E_VALIDATION_BLOB_PARAM_NOT_FOUND: Hresult = 0xC004C327u.toInt()
 
-public val SL_E_VALIDATION_BLOCKED_PRODUCT_KEY: HRESULT = 0xC004C4A2u.toInt()
+public val SL_E_VALIDATION_BLOCKED_PRODUCT_KEY: Hresult = 0xC004C4A2u.toInt()
 
-public val SL_E_VALIDATION_INVALID_PRODUCT_KEY: HRESULT = 0xC004C4A5u.toInt()
+public val SL_E_VALIDATION_INVALID_PRODUCT_KEY: Hresult = 0xC004C4A5u.toInt()
 
-public val SL_E_VALIDITY_PERIOD_EXPIRED: HRESULT = 0xC004FC07u.toInt()
+public val SL_E_VALIDITY_PERIOD_EXPIRED: Hresult = 0xC004FC07u.toInt()
 
-public val SL_E_VALIDITY_TIME_EXPIRED: HRESULT = 0xC004F021u.toInt()
+public val SL_E_VALIDITY_TIME_EXPIRED: Hresult = 0xC004F021u.toInt()
 
-public val SL_E_VALUE_NOT_FOUND: HRESULT = 0xC004F012u.toInt()
+public val SL_E_VALUE_NOT_FOUND: Hresult = 0xC004F012u.toInt()
 
-public val SL_E_VL_AD_AO_NAME_TOO_LONG: HRESULT = 0xC004F082u.toInt()
+public val SL_E_VL_AD_AO_NAME_TOO_LONG: Hresult = 0xC004F082u.toInt()
 
-public val SL_E_VL_AD_AO_NOT_FOUND: HRESULT = 0xC004F081u.toInt()
+public val SL_E_VL_AD_AO_NOT_FOUND: Hresult = 0xC004F081u.toInt()
 
-public val SL_E_VL_AD_SCHEMA_VERSION_NOT_SUPPORTED: HRESULT = 0xC004F083u.toInt()
+public val SL_E_VL_AD_SCHEMA_VERSION_NOT_SUPPORTED: Hresult = 0xC004F083u.toInt()
 
-public val SL_E_VL_BINDING_SERVICE_NOT_ENABLED: HRESULT = 0xC004F039u.toInt()
+public val SL_E_VL_BINDING_SERVICE_NOT_ENABLED: Hresult = 0xC004F039u.toInt()
 
-public val SL_E_VL_BINDING_SERVICE_UNAVAILABLE: HRESULT = 0xC004F074u.toInt()
+public val SL_E_VL_BINDING_SERVICE_UNAVAILABLE: Hresult = 0xC004F074u.toInt()
 
-public val SL_E_VL_INFO_PRODUCT_USER_RIGHT: HRESULT = 0x4004F040u.toInt()
+public val SL_E_VL_INFO_PRODUCT_USER_RIGHT: Hresult = 0x4004F040u.toInt()
 
-public val SL_E_VL_INVALID_TIMESTAMP: HRESULT = 0xC004F06Cu.toInt()
+public val SL_E_VL_INVALID_TIMESTAMP: Hresult = 0xC004F06Cu.toInt()
 
-public val SL_E_VL_KEY_MANAGEMENT_SERVICE_ID_MISMATCH: HRESULT = 0xC004F042u.toInt()
+public val SL_E_VL_KEY_MANAGEMENT_SERVICE_ID_MISMATCH: Hresult = 0xC004F042u.toInt()
 
-public val SL_E_VL_KEY_MANAGEMENT_SERVICE_NOT_ACTIVATED: HRESULT = 0xC004F041u.toInt()
+public val SL_E_VL_KEY_MANAGEMENT_SERVICE_NOT_ACTIVATED: Hresult = 0xC004F041u.toInt()
 
-public val SL_E_VL_KEY_MANAGEMENT_SERVICE_VM_NOT_SUPPORTED: HRESULT = 0xC004F06Bu.toInt()
+public val SL_E_VL_KEY_MANAGEMENT_SERVICE_VM_NOT_SUPPORTED: Hresult = 0xC004F06Bu.toInt()
 
-public val SL_E_VL_MACHINE_NOT_BOUND: HRESULT = 0xC004F056u.toInt()
+public val SL_E_VL_MACHINE_NOT_BOUND: Hresult = 0xC004F056u.toInt()
 
-public val SL_E_VL_NOT_ENOUGH_COUNT: HRESULT = 0xC004F038u.toInt()
+public val SL_E_VL_NOT_ENOUGH_COUNT: Hresult = 0xC004F038u.toInt()
 
-public val SL_E_VL_NOT_WINDOWS_SLP: HRESULT = 0xC004F035u.toInt()
+public val SL_E_VL_NOT_WINDOWS_SLP: Hresult = 0xC004F035u.toInt()
 
-public val SL_E_WINDOWS_INVALID_LICENSE_STATE: HRESULT = 0xC004F024u.toInt()
+public val SL_E_WINDOWS_INVALID_LICENSE_STATE: Hresult = 0xC004F024u.toInt()
 
-public val SL_E_WINDOWS_VERSION_MISMATCH: HRESULT = 0xC004E027u.toInt()
+public val SL_E_WINDOWS_VERSION_MISMATCH: Hresult = 0xC004E027u.toInt()
 
-public val SL_GEN_STATE_INVALID_LICENSE: SL_GENUINE_STATE = 1
+public val SL_GEN_STATE_INVALID_LICENSE: SlGenuineState = 1
 
-public val SL_GEN_STATE_IS_GENUINE: SL_GENUINE_STATE = 0
+public val SL_GEN_STATE_IS_GENUINE: SlGenuineState = 0
 
-public val SL_GEN_STATE_LAST: SL_GENUINE_STATE = 4
+public val SL_GEN_STATE_LAST: SlGenuineState = 4
 
-public val SL_GEN_STATE_OFFLINE: SL_GENUINE_STATE = 3
+public val SL_GEN_STATE_OFFLINE: SlGenuineState = 3
 
-public val SL_GEN_STATE_TAMPERED: SL_GENUINE_STATE = 2
+public val SL_GEN_STATE_TAMPERED: SlGenuineState = 2
 
-public val SL_ID_ALL_LICENSES: SLIDTYPE = 5
+public val SL_ID_ALL_LICENSES: Slidtype = 5
 
-public val SL_ID_ALL_LICENSE_FILES: SLIDTYPE = 6
+public val SL_ID_ALL_LICENSE_FILES: Slidtype = 6
 
-public val SL_ID_APPLICATION: SLIDTYPE = 0
+public val SL_ID_APPLICATION: Slidtype = 0
 
-public val SL_ID_LAST: SLIDTYPE = 8
+public val SL_ID_LAST: Slidtype = 8

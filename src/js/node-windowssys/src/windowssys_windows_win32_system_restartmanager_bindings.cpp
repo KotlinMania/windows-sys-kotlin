@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_restartmanager_RmAddFilter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_restartmanager_rmAddFilter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwsessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* strmodulename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -77,7 +77,7 @@ static Napi::Value windowssys_windows_win32_system_restartmanager_RmAddFilter_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_restartmanager_RmCancelCurrentTask_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_restartmanager_rmCancelCurrentTask_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwsessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -95,7 +95,7 @@ static Napi::Value windowssys_windows_win32_system_restartmanager_RmCancelCurren
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_restartmanager_RmEndSession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_restartmanager_rmEndSession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwsessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -113,7 +113,7 @@ static Napi::Value windowssys_windows_win32_system_restartmanager_RmEndSession_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_restartmanager_RmGetFilterList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_restartmanager_rmGetFilterList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwsessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pbfilterbuf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -137,7 +137,7 @@ static Napi::Value windowssys_windows_win32_system_restartmanager_RmGetFilterLis
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_restartmanager_RmGetList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_restartmanager_rmGetList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwsessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pnprocinfoneeded = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -163,7 +163,7 @@ static Napi::Value windowssys_windows_win32_system_restartmanager_RmGetList_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_restartmanager_RmJoinSession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_restartmanager_rmJoinSession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psessionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* strsessionkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -183,7 +183,7 @@ static Napi::Value windowssys_windows_win32_system_restartmanager_RmJoinSession_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_restartmanager_RmRegisterResources_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_restartmanager_rmRegisterResources_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwsessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t nfiles = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -213,7 +213,7 @@ static Napi::Value windowssys_windows_win32_system_restartmanager_RmRegisterReso
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_restartmanager_RmRemoveFilter_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_restartmanager_rmRemoveFilter_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwsessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* strmodulename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -237,7 +237,7 @@ static Napi::Value windowssys_windows_win32_system_restartmanager_RmRemoveFilter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_restartmanager_RmRestart_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_restartmanager_rmRestart_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwsessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwrestartflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -259,7 +259,7 @@ static Napi::Value windowssys_windows_win32_system_restartmanager_RmRestart_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_restartmanager_RmShutdown_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_restartmanager_rmShutdown_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwsessionhandle = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t lactionflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -281,7 +281,7 @@ static Napi::Value windowssys_windows_win32_system_restartmanager_RmShutdown_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_restartmanager_RmStartSession_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_restartmanager_rmStartSession_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psessionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwsessionflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -304,17 +304,17 @@ static Napi::Value windowssys_windows_win32_system_restartmanager_RmStartSession
 }
 
 static void register_windows_win32_system_restartmanager_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_restartmanager_RmAddFilter", Napi::Function::New(env, windowssys_windows_win32_system_restartmanager_RmAddFilter_napi));
-    exports.Set("windowssys_windows_win32_system_restartmanager_RmCancelCurrentTask", Napi::Function::New(env, windowssys_windows_win32_system_restartmanager_RmCancelCurrentTask_napi));
-    exports.Set("windowssys_windows_win32_system_restartmanager_RmEndSession", Napi::Function::New(env, windowssys_windows_win32_system_restartmanager_RmEndSession_napi));
-    exports.Set("windowssys_windows_win32_system_restartmanager_RmGetFilterList", Napi::Function::New(env, windowssys_windows_win32_system_restartmanager_RmGetFilterList_napi));
-    exports.Set("windowssys_windows_win32_system_restartmanager_RmGetList", Napi::Function::New(env, windowssys_windows_win32_system_restartmanager_RmGetList_napi));
-    exports.Set("windowssys_windows_win32_system_restartmanager_RmJoinSession", Napi::Function::New(env, windowssys_windows_win32_system_restartmanager_RmJoinSession_napi));
-    exports.Set("windowssys_windows_win32_system_restartmanager_RmRegisterResources", Napi::Function::New(env, windowssys_windows_win32_system_restartmanager_RmRegisterResources_napi));
-    exports.Set("windowssys_windows_win32_system_restartmanager_RmRemoveFilter", Napi::Function::New(env, windowssys_windows_win32_system_restartmanager_RmRemoveFilter_napi));
-    exports.Set("windowssys_windows_win32_system_restartmanager_RmRestart", Napi::Function::New(env, windowssys_windows_win32_system_restartmanager_RmRestart_napi));
-    exports.Set("windowssys_windows_win32_system_restartmanager_RmShutdown", Napi::Function::New(env, windowssys_windows_win32_system_restartmanager_RmShutdown_napi));
-    exports.Set("windowssys_windows_win32_system_restartmanager_RmStartSession", Napi::Function::New(env, windowssys_windows_win32_system_restartmanager_RmStartSession_napi));
+    exports.Set("windowssys_windows_win32_system_restartmanager_rmAddFilter", Napi::Function::New(env, windowssys_windows_win32_system_restartmanager_rmAddFilter_napi));
+    exports.Set("windowssys_windows_win32_system_restartmanager_rmCancelCurrentTask", Napi::Function::New(env, windowssys_windows_win32_system_restartmanager_rmCancelCurrentTask_napi));
+    exports.Set("windowssys_windows_win32_system_restartmanager_rmEndSession", Napi::Function::New(env, windowssys_windows_win32_system_restartmanager_rmEndSession_napi));
+    exports.Set("windowssys_windows_win32_system_restartmanager_rmGetFilterList", Napi::Function::New(env, windowssys_windows_win32_system_restartmanager_rmGetFilterList_napi));
+    exports.Set("windowssys_windows_win32_system_restartmanager_rmGetList", Napi::Function::New(env, windowssys_windows_win32_system_restartmanager_rmGetList_napi));
+    exports.Set("windowssys_windows_win32_system_restartmanager_rmJoinSession", Napi::Function::New(env, windowssys_windows_win32_system_restartmanager_rmJoinSession_napi));
+    exports.Set("windowssys_windows_win32_system_restartmanager_rmRegisterResources", Napi::Function::New(env, windowssys_windows_win32_system_restartmanager_rmRegisterResources_napi));
+    exports.Set("windowssys_windows_win32_system_restartmanager_rmRemoveFilter", Napi::Function::New(env, windowssys_windows_win32_system_restartmanager_rmRemoveFilter_napi));
+    exports.Set("windowssys_windows_win32_system_restartmanager_rmRestart", Napi::Function::New(env, windowssys_windows_win32_system_restartmanager_rmRestart_napi));
+    exports.Set("windowssys_windows_win32_system_restartmanager_rmShutdown", Napi::Function::New(env, windowssys_windows_win32_system_restartmanager_rmShutdown_napi));
+    exports.Set("windowssys_windows_win32_system_restartmanager_rmStartSession", Napi::Function::New(env, windowssys_windows_win32_system_restartmanager_rmStartSession_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_restartmanager_napi, nullptr };

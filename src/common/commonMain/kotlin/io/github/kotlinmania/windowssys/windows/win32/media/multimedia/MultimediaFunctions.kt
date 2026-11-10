@@ -1,358 +1,359 @@
 package io.github.kotlinmania.windowssys.windows.win32.media.multimedia
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FARPROC
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HMODULE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LRESULT
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HPALETTE
-import io.github.kotlinmania.windowssys.windows.win32.media.HTASK
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Farproc
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hmodule
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hpalette
+import io.github.kotlinmania.windowssys.windows.win32.media.Htask
 
-public expect fun AVIBuildFilterA(lpszfilter: PSTR, cbfilter: Int, fsaving: BOOL): HRESULT
+public expect fun aVIBuildFilterA(lpszfilter: Pstr, cbfilter: Int, fsaving: Bool): Hresult
 
-public expect fun AVIBuildFilterW(lpszfilter: PWSTR, cbfilter: Int, fsaving: BOOL): HRESULT
+public expect fun aVIBuildFilterW(lpszfilter: Pwstr, cbfilter: Int, fsaving: Bool): Hresult
 
-public expect fun AVIClearClipboard(): HRESULT
+public expect fun aVIClearClipboard(): Hresult
 
-public expect fun AVIFileAddRef(pfile: Long): UInt
+public expect fun aVIFileAddRef(pfile: COpaquePointer?): UInt
 
-public expect fun AVIFileCreateStreamA(pfile: Long, ppavi: Long, psi: Long): HRESULT
+public expect fun aVIFileCreateStreamA(pfile: COpaquePointer?, ppavi: COpaquePointer?, psi: COpaquePointer?): Hresult
 
-public expect fun AVIFileCreateStreamW(pfile: Long, ppavi: Long, psi: Long): HRESULT
+public expect fun aVIFileCreateStreamW(pfile: COpaquePointer?, ppavi: COpaquePointer?, psi: COpaquePointer?): Hresult
 
-public expect fun AVIFileEndRecord(pfile: Long): HRESULT
+public expect fun aVIFileEndRecord(pfile: COpaquePointer?): Hresult
 
-public expect fun AVIFileExit()
+public expect fun aVIFileExit()
 
-public expect fun AVIFileGetStream(pfile: Long, ppavi: Long, fcctype: UInt, lparam: Int): HRESULT
+public expect fun aVIFileGetStream(pfile: COpaquePointer?, ppavi: COpaquePointer?, fcctype: UInt, lparam: Int): Hresult
 
-public expect fun AVIFileInfoA(pfile: Long, pfi: Long, lsize: Int): HRESULT
+public expect fun aVIFileInfoA(pfile: COpaquePointer?, pfi: COpaquePointer?, lsize: Int): Hresult
 
-public expect fun AVIFileInfoW(pfile: Long, pfi: Long, lsize: Int): HRESULT
+public expect fun aVIFileInfoW(pfile: COpaquePointer?, pfi: COpaquePointer?, lsize: Int): Hresult
 
-public expect fun AVIFileInit()
+public expect fun aVIFileInit()
 
-public expect fun AVIFileOpenA(ppfile: Long, szfile: PCSTR, umode: UInt, lphandler: Long): HRESULT
+public expect fun aVIFileOpenA(ppfile: COpaquePointer?, szfile: Pcstr, umode: UInt, lphandler: COpaquePointer?): Hresult
 
-public expect fun AVIFileOpenW(ppfile: Long, szfile: PCWSTR, umode: UInt, lphandler: Long): HRESULT
+public expect fun aVIFileOpenW(ppfile: COpaquePointer?, szfile: Pcwstr, umode: UInt, lphandler: COpaquePointer?): Hresult
 
-public expect fun AVIFileReadData(pfile: Long, ckid: UInt, lpdata: Long, lpcbdata: Long): HRESULT
+public expect fun aVIFileReadData(pfile: COpaquePointer?, ckid: UInt, lpdata: COpaquePointer?, lpcbdata: COpaquePointer?): Hresult
 
-public expect fun AVIFileRelease(pfile: Long): UInt
+public expect fun aVIFileRelease(pfile: COpaquePointer?): UInt
 
-public expect fun AVIFileWriteData(pfile: Long, ckid: UInt, lpdata: Long, cbdata: Int): HRESULT
+public expect fun aVIFileWriteData(pfile: COpaquePointer?, ckid: UInt, lpdata: COpaquePointer?, cbdata: Int): Hresult
 
-public expect fun AVIGetFromClipboard(lppf: Long): HRESULT
+public expect fun aVIGetFromClipboard(lppf: COpaquePointer?): Hresult
 
-public expect fun AVIMakeCompressedStream(ppscompressed: Long, ppssource: Long, lpoptions: Long, pclsidhandler: Long): HRESULT
+public expect fun aVIMakeCompressedStream(ppscompressed: COpaquePointer?, ppssource: COpaquePointer?, lpoptions: COpaquePointer?, pclsidhandler: COpaquePointer?): Hresult
 
-public expect fun AVIMakeFileFromStreams(ppfile: Long, nstreams: Int, papstreams: Long): HRESULT
+public expect fun aVIMakeFileFromStreams(ppfile: COpaquePointer?, nstreams: Int, papstreams: COpaquePointer?): Hresult
 
-public expect fun AVIMakeStreamFromClipboard(cfformat: UInt, hglobal: HANDLE, ppstream: Long): HRESULT
+public expect fun aVIMakeStreamFromClipboard(cfformat: UInt, hglobal: Handle, ppstream: COpaquePointer?): Hresult
 
-public expect fun AVIPutFileOnClipboard(pf: Long): HRESULT
+public expect fun aVIPutFileOnClipboard(pf: COpaquePointer?): Hresult
 
-public expect fun AVISaveA(szfile: PCSTR, pclsidhandler: Long, lpfncallback: AVISAVECALLBACK, nstreams: Int, pfile: Long, lpoptions: Long, vararg variadicArgs: Long): HRESULT
+public expect fun aVISaveA(szfile: Pcstr, pclsidhandler: COpaquePointer?, lpfncallback: Avisavecallback, nstreams: Int, pfile: COpaquePointer?, lpoptions: COpaquePointer?, vararg variadicArgs: Long): Hresult
 
-public expect fun AVISaveOptions(hwnd: HWND, uiflags: UInt, nstreams: Int, ppavi: Long, plpoptions: Long): Long
+public expect fun aVISaveOptions(hwnd: Hwnd, uiflags: UInt, nstreams: Int, ppavi: COpaquePointer?, plpoptions: COpaquePointer?): Long
 
-public expect fun AVISaveOptionsFree(nstreams: Int, plpoptions: Long): HRESULT
+public expect fun aVISaveOptionsFree(nstreams: Int, plpoptions: COpaquePointer?): Hresult
 
-public expect fun AVISaveVA(szfile: PCSTR, pclsidhandler: Long, lpfncallback: AVISAVECALLBACK, nstreams: Int, ppavi: Long, plpoptions: Long): HRESULT
+public expect fun aVISaveVA(szfile: Pcstr, pclsidhandler: COpaquePointer?, lpfncallback: Avisavecallback, nstreams: Int, ppavi: COpaquePointer?, plpoptions: COpaquePointer?): Hresult
 
-public expect fun AVISaveVW(szfile: PCWSTR, pclsidhandler: Long, lpfncallback: AVISAVECALLBACK, nstreams: Int, ppavi: Long, plpoptions: Long): HRESULT
+public expect fun aVISaveVW(szfile: Pcwstr, pclsidhandler: COpaquePointer?, lpfncallback: Avisavecallback, nstreams: Int, ppavi: COpaquePointer?, plpoptions: COpaquePointer?): Hresult
 
-public expect fun AVISaveW(szfile: PCWSTR, pclsidhandler: Long, lpfncallback: AVISAVECALLBACK, nstreams: Int, pfile: Long, lpoptions: Long, vararg variadicArgs: Long): HRESULT
+public expect fun aVISaveW(szfile: Pcwstr, pclsidhandler: COpaquePointer?, lpfncallback: Avisavecallback, nstreams: Int, pfile: COpaquePointer?, lpoptions: COpaquePointer?, vararg variadicArgs: Long): Hresult
 
-public expect fun AVIStreamAddRef(pavi: Long): UInt
+public expect fun aVIStreamAddRef(pavi: COpaquePointer?): UInt
 
-public expect fun AVIStreamBeginStreaming(pavi: Long, lstart: Int, lend: Int, lrate: Int): HRESULT
+public expect fun aVIStreamBeginStreaming(pavi: COpaquePointer?, lstart: Int, lend: Int, lrate: Int): Hresult
 
-public expect fun AVIStreamCreate(ppavi: Long, lparam1: Int, lparam2: Int, pclsidhandler: Long): HRESULT
+public expect fun aVIStreamCreate(ppavi: COpaquePointer?, lparam1: Int, lparam2: Int, pclsidhandler: COpaquePointer?): Hresult
 
-public expect fun AVIStreamEndStreaming(pavi: Long): HRESULT
+public expect fun aVIStreamEndStreaming(pavi: COpaquePointer?): Hresult
 
-public expect fun AVIStreamFindSample(pavi: Long, lpos: Int, lflags: Int): Int
+public expect fun aVIStreamFindSample(pavi: COpaquePointer?, lpos: Int, lflags: Int): Int
 
-public expect fun AVIStreamGetFrame(pg: Long, lpos: Int): Long
+public expect fun aVIStreamGetFrame(pg: COpaquePointer?, lpos: Int): COpaquePointer?
 
-public expect fun AVIStreamGetFrameClose(pg: Long): HRESULT
+public expect fun aVIStreamGetFrameClose(pg: COpaquePointer?): Hresult
 
-public expect fun AVIStreamGetFrameOpen(pavi: Long, lpbiwanted: Long): Long
+public expect fun aVIStreamGetFrameOpen(pavi: COpaquePointer?, lpbiwanted: COpaquePointer?): COpaquePointer?
 
-public expect fun AVIStreamInfoA(pavi: Long, psi: Long, lsize: Int): HRESULT
+public expect fun aVIStreamInfoA(pavi: COpaquePointer?, psi: COpaquePointer?, lsize: Int): Hresult
 
-public expect fun AVIStreamInfoW(pavi: Long, psi: Long, lsize: Int): HRESULT
+public expect fun aVIStreamInfoW(pavi: COpaquePointer?, psi: COpaquePointer?, lsize: Int): Hresult
 
-public expect fun AVIStreamLength(pavi: Long): Int
+public expect fun aVIStreamLength(pavi: COpaquePointer?): Int
 
-public expect fun AVIStreamOpenFromFileA(ppavi: Long, szfile: PCSTR, fcctype: UInt, lparam: Int, mode: UInt, pclsidhandler: Long): HRESULT
+public expect fun aVIStreamOpenFromFileA(ppavi: COpaquePointer?, szfile: Pcstr, fcctype: UInt, lparam: Int, mode: UInt, pclsidhandler: COpaquePointer?): Hresult
 
-public expect fun AVIStreamOpenFromFileW(ppavi: Long, szfile: PCWSTR, fcctype: UInt, lparam: Int, mode: UInt, pclsidhandler: Long): HRESULT
+public expect fun aVIStreamOpenFromFileW(ppavi: COpaquePointer?, szfile: Pcwstr, fcctype: UInt, lparam: Int, mode: UInt, pclsidhandler: COpaquePointer?): Hresult
 
-public expect fun AVIStreamRead(pavi: Long, lstart: Int, lsamples: Int, lpbuffer: Long, cbbuffer: Int, plbytes: Long, plsamples: Long): HRESULT
+public expect fun aVIStreamRead(pavi: COpaquePointer?, lstart: Int, lsamples: Int, lpbuffer: COpaquePointer?, cbbuffer: Int, plbytes: COpaquePointer?, plsamples: COpaquePointer?): Hresult
 
-public expect fun AVIStreamReadData(pavi: Long, fcc: UInt, lp: Long, lpcb: Long): HRESULT
+public expect fun aVIStreamReadData(pavi: COpaquePointer?, fcc: UInt, lp: COpaquePointer?, lpcb: COpaquePointer?): Hresult
 
-public expect fun AVIStreamReadFormat(pavi: Long, lpos: Int, lpformat: Long, lpcbformat: Long): HRESULT
+public expect fun aVIStreamReadFormat(pavi: COpaquePointer?, lpos: Int, lpformat: COpaquePointer?, lpcbformat: COpaquePointer?): Hresult
 
-public expect fun AVIStreamRelease(pavi: Long): UInt
+public expect fun aVIStreamRelease(pavi: COpaquePointer?): UInt
 
-public expect fun AVIStreamSampleToTime(pavi: Long, lsample: Int): Int
+public expect fun aVIStreamSampleToTime(pavi: COpaquePointer?, lsample: Int): Int
 
-public expect fun AVIStreamSetFormat(pavi: Long, lpos: Int, lpformat: Long, cbformat: Int): HRESULT
+public expect fun aVIStreamSetFormat(pavi: COpaquePointer?, lpos: Int, lpformat: COpaquePointer?, cbformat: Int): Hresult
 
-public expect fun AVIStreamStart(pavi: Long): Int
+public expect fun aVIStreamStart(pavi: COpaquePointer?): Int
 
-public expect fun AVIStreamTimeToSample(pavi: Long, ltime: Int): Int
+public expect fun aVIStreamTimeToSample(pavi: COpaquePointer?, ltime: Int): Int
 
-public expect fun AVIStreamWrite(pavi: Long, lstart: Int, lsamples: Int, lpbuffer: Long, cbbuffer: Int, dwflags: UInt, plsampwritten: Long, plbyteswritten: Long): HRESULT
+public expect fun aVIStreamWrite(pavi: COpaquePointer?, lstart: Int, lsamples: Int, lpbuffer: COpaquePointer?, cbbuffer: Int, dwflags: UInt, plsampwritten: COpaquePointer?, plbyteswritten: COpaquePointer?): Hresult
 
-public expect fun AVIStreamWriteData(pavi: Long, fcc: UInt, lp: Long, cb: Int): HRESULT
+public expect fun aVIStreamWriteData(pavi: COpaquePointer?, fcc: UInt, lp: COpaquePointer?, cb: Int): Hresult
 
-public expect fun CloseDriver(hdriver: HDRVR, lparam1: LPARAM, lparam2: LPARAM): LRESULT
+public expect fun closeDriver(hdriver: Hdrvr, lparam1: Lparam, lparam2: Lparam): Lresult
 
-public expect fun CreateEditableStream(ppseditable: Long, pssource: Long): HRESULT
+public expect fun createEditableStream(ppseditable: COpaquePointer?, pssource: COpaquePointer?): Hresult
 
-public expect fun DefDriverProc(dwdriveridentifier: ULong, hdrvr: HDRVR, umsg: UInt, lparam1: LPARAM, lparam2: LPARAM): LRESULT
+public expect fun defDriverProc(dwdriveridentifier: ULong, hdrvr: Hdrvr, umsg: UInt, lparam1: Lparam, lparam2: Lparam): Lresult
 
-public expect fun DrawDibBegin(hdd: Long, hdc: HDC, dxdst: Int, dydst: Int, lpbi: Long, dxsrc: Int, dysrc: Int, wflags: UInt): BOOL
+public expect fun drawDibBegin(hdd: Long, hdc: Hdc, dxdst: Int, dydst: Int, lpbi: COpaquePointer?, dxsrc: Int, dysrc: Int, wflags: UInt): Bool
 
-public expect fun DrawDibChangePalette(hdd: Long, istart: Int, ilen: Int, lppe: Long): BOOL
+public expect fun drawDibChangePalette(hdd: Long, istart: Int, ilen: Int, lppe: COpaquePointer?): Bool
 
-public expect fun DrawDibClose(hdd: Long): BOOL
+public expect fun drawDibClose(hdd: Long): Bool
 
-public expect fun DrawDibDraw(hdd: Long, hdc: HDC, xdst: Int, ydst: Int, dxdst: Int, dydst: Int, lpbi: Long, lpbits: Long, xsrc: Int, ysrc: Int, dxsrc: Int, dysrc: Int, wflags: UInt): BOOL
+public expect fun drawDibDraw(hdd: Long, hdc: Hdc, xdst: Int, ydst: Int, dxdst: Int, dydst: Int, lpbi: COpaquePointer?, lpbits: COpaquePointer?, xsrc: Int, ysrc: Int, dxsrc: Int, dysrc: Int, wflags: UInt): Bool
 
-public expect fun DrawDibEnd(hdd: Long): BOOL
+public expect fun drawDibEnd(hdd: Long): Bool
 
-public expect fun DrawDibGetBuffer(hdd: Long, lpbi: Long, dwsize: UInt, dwflags: UInt): Long
+public expect fun drawDibGetBuffer(hdd: Long, lpbi: COpaquePointer?, dwsize: UInt, dwflags: UInt): COpaquePointer?
 
-public expect fun DrawDibGetPalette(hdd: Long): HPALETTE
+public expect fun drawDibGetPalette(hdd: Long): Hpalette
 
-public expect fun DrawDibOpen(): Long
+public expect fun drawDibOpen(): Long
 
-public expect fun DrawDibProfileDisplay(lpbi: Long): LRESULT
+public expect fun drawDibProfileDisplay(lpbi: COpaquePointer?): Lresult
 
-public expect fun DrawDibRealize(hdd: Long, hdc: HDC, fbackground: BOOL): UInt
+public expect fun drawDibRealize(hdd: Long, hdc: Hdc, fbackground: Bool): UInt
 
-public expect fun DrawDibSetPalette(hdd: Long, hpal: HPALETTE): BOOL
+public expect fun drawDibSetPalette(hdd: Long, hpal: Hpalette): Bool
 
-public expect fun DrawDibStart(hdd: Long, rate: UInt): BOOL
+public expect fun drawDibStart(hdd: Long, rate: UInt): Bool
 
-public expect fun DrawDibStop(hdd: Long): BOOL
+public expect fun drawDibStop(hdd: Long): Bool
 
-public expect fun DrawDibTime(hdd: Long, lpddtime: Long): BOOL
+public expect fun drawDibTime(hdd: Long, lpddtime: COpaquePointer?): Bool
 
-public expect fun DriverCallback(dwcallback: ULong, dwflags: UInt, hdevice: HDRVR, dwmsg: UInt, dwuser: ULong, dwparam1: ULong, dwparam2: ULong): BOOL
+public expect fun driverCallback(dwcallback: ULong, dwflags: UInt, hdevice: Hdrvr, dwmsg: UInt, dwuser: ULong, dwparam1: ULong, dwparam2: ULong): Bool
 
-public expect fun DrvGetModuleHandle(hdriver: HDRVR): HMODULE
+public expect fun drvGetModuleHandle(hdriver: Hdrvr): Hmodule
 
-public expect fun EditStreamClone(pavi: Long, ppresult: Long): HRESULT
+public expect fun editStreamClone(pavi: COpaquePointer?, ppresult: COpaquePointer?): Hresult
 
-public expect fun EditStreamCopy(pavi: Long, plstart: Long, pllength: Long, ppresult: Long): HRESULT
+public expect fun editStreamCopy(pavi: COpaquePointer?, plstart: COpaquePointer?, pllength: COpaquePointer?, ppresult: COpaquePointer?): Hresult
 
-public expect fun EditStreamCut(pavi: Long, plstart: Long, pllength: Long, ppresult: Long): HRESULT
+public expect fun editStreamCut(pavi: COpaquePointer?, plstart: COpaquePointer?, pllength: COpaquePointer?, ppresult: COpaquePointer?): Hresult
 
-public expect fun EditStreamPaste(pavi: Long, plpos: Long, pllength: Long, pstream: Long, lstart: Int, lend: Int): HRESULT
+public expect fun editStreamPaste(pavi: COpaquePointer?, plpos: COpaquePointer?, pllength: COpaquePointer?, pstream: COpaquePointer?, lstart: Int, lend: Int): Hresult
 
-public expect fun EditStreamSetInfoA(pavi: Long, lpinfo: Long, cbinfo: Int): HRESULT
+public expect fun editStreamSetInfoA(pavi: COpaquePointer?, lpinfo: COpaquePointer?, cbinfo: Int): Hresult
 
-public expect fun EditStreamSetInfoW(pavi: Long, lpinfo: Long, cbinfo: Int): HRESULT
+public expect fun editStreamSetInfoW(pavi: COpaquePointer?, lpinfo: COpaquePointer?, cbinfo: Int): Hresult
 
-public expect fun EditStreamSetNameA(pavi: Long, lpszname: PCSTR): HRESULT
+public expect fun editStreamSetNameA(pavi: COpaquePointer?, lpszname: Pcstr): Hresult
 
-public expect fun EditStreamSetNameW(pavi: Long, lpszname: PCWSTR): HRESULT
+public expect fun editStreamSetNameW(pavi: COpaquePointer?, lpszname: Pcwstr): Hresult
 
-public expect fun GetDriverModuleHandle(hdriver: HDRVR): HMODULE
+public expect fun getDriverModuleHandle(hdriver: Hdrvr): Hmodule
 
-public expect fun GetOpenFileNamePreviewA(lpofn: Long): BOOL
+public expect fun getOpenFileNamePreviewA(lpofn: COpaquePointer?): Bool
 
-public expect fun GetOpenFileNamePreviewW(lpofn: Long): BOOL
+public expect fun getOpenFileNamePreviewW(lpofn: COpaquePointer?): Bool
 
-public expect fun GetSaveFileNamePreviewA(lpofn: Long): BOOL
+public expect fun getSaveFileNamePreviewA(lpofn: COpaquePointer?): Bool
 
-public expect fun GetSaveFileNamePreviewW(lpofn: Long): BOOL
+public expect fun getSaveFileNamePreviewW(lpofn: COpaquePointer?): Bool
 
-public expect fun ICClose(hic: HIC): LRESULT
+public expect fun iCClose(hic: Hic): Lresult
 
-public expect fun ICCompress(hic: HIC, dwflags: UInt, lpbioutput: Long, lpdata: Long, lpbiinput: Long, lpbits: Long, lpckid: Long, lpdwflags: Long, lframenum: Int, dwframesize: UInt, dwquality: UInt, lpbiprev: Long, lpprev: Long): UInt
+public expect fun iCCompress(hic: Hic, dwflags: UInt, lpbioutput: COpaquePointer?, lpdata: COpaquePointer?, lpbiinput: COpaquePointer?, lpbits: COpaquePointer?, lpckid: COpaquePointer?, lpdwflags: COpaquePointer?, lframenum: Int, dwframesize: UInt, dwquality: UInt, lpbiprev: COpaquePointer?, lpprev: COpaquePointer?): UInt
 
-public expect fun ICCompressorChoose(hwnd: HWND, uiflags: UInt, pvin: Long, lpdata: Long, pc: Long, lpsztitle: PCSTR): BOOL
+public expect fun iCCompressorChoose(hwnd: Hwnd, uiflags: UInt, pvin: COpaquePointer?, lpdata: COpaquePointer?, pc: COpaquePointer?, lpsztitle: Pcstr): Bool
 
-public expect fun ICCompressorFree(pc: Long)
+public expect fun iCCompressorFree(pc: COpaquePointer?)
 
-public expect fun ICDecompress(hic: HIC, dwflags: UInt, lpbiformat: Long, lpdata: Long, lpbi: Long, lpbits: Long): UInt
+public expect fun iCDecompress(hic: Hic, dwflags: UInt, lpbiformat: COpaquePointer?, lpdata: COpaquePointer?, lpbi: COpaquePointer?, lpbits: COpaquePointer?): UInt
 
-public expect fun ICDraw(hic: HIC, dwflags: UInt, lpformat: Long, lpdata: Long, cbdata: UInt, ltime: Int): UInt
+public expect fun iCDraw(hic: Hic, dwflags: UInt, lpformat: COpaquePointer?, lpdata: COpaquePointer?, cbdata: UInt, ltime: Int): UInt
 
-public expect fun ICDrawBegin(hic: HIC, dwflags: UInt, hpal: HPALETTE, hwnd: HWND, hdc: HDC, xdst: Int, ydst: Int, dxdst: Int, dydst: Int, lpbi: Long, xsrc: Int, ysrc: Int, dxsrc: Int, dysrc: Int, dwrate: UInt, dwscale: UInt): UInt
+public expect fun iCDrawBegin(hic: Hic, dwflags: UInt, hpal: Hpalette, hwnd: Hwnd, hdc: Hdc, xdst: Int, ydst: Int, dxdst: Int, dydst: Int, lpbi: COpaquePointer?, xsrc: Int, ysrc: Int, dxsrc: Int, dysrc: Int, dwrate: UInt, dwscale: UInt): UInt
 
-public expect fun ICGetDisplayFormat(hic: HIC, lpbiin: Long, lpbiout: Long, bitdepth: Int, dx: Int, dy: Int): HIC
+public expect fun iCGetDisplayFormat(hic: Hic, lpbiin: COpaquePointer?, lpbiout: COpaquePointer?, bitdepth: Int, dx: Int, dy: Int): Hic
 
-public expect fun ICGetInfo(hic: HIC, picinfo: Long, cb: UInt): LRESULT
+public expect fun iCGetInfo(hic: Hic, picinfo: COpaquePointer?, cb: UInt): Lresult
 
-public expect fun ICImageCompress(hic: HIC, uiflags: UInt, lpbiin: Long, lpbits: Long, lpbiout: Long, lquality: Int, plsize: Long): HANDLE
+public expect fun iCImageCompress(hic: Hic, uiflags: UInt, lpbiin: COpaquePointer?, lpbits: COpaquePointer?, lpbiout: COpaquePointer?, lquality: Int, plsize: COpaquePointer?): Handle
 
-public expect fun ICImageDecompress(hic: HIC, uiflags: UInt, lpbiin: Long, lpbits: Long, lpbiout: Long): HANDLE
+public expect fun iCImageDecompress(hic: Hic, uiflags: UInt, lpbiin: COpaquePointer?, lpbits: COpaquePointer?, lpbiout: COpaquePointer?): Handle
 
-public expect fun ICInfo(fcctype: UInt, fcchandler: UInt, lpicinfo: Long): BOOL
+public expect fun iCInfo(fcctype: UInt, fcchandler: UInt, lpicinfo: COpaquePointer?): Bool
 
-public expect fun ICInstall(fcctype: UInt, fcchandler: UInt, lparam: LPARAM, szdesc: PCSTR, wflags: UInt): BOOL
+public expect fun iCInstall(fcctype: UInt, fcchandler: UInt, lparam: Lparam, szdesc: Pcstr, wflags: UInt): Bool
 
-public expect fun ICLocate(fcctype: UInt, fcchandler: UInt, lpbiin: Long, lpbiout: Long, wflags: UShort): HIC
+public expect fun iCLocate(fcctype: UInt, fcchandler: UInt, lpbiin: COpaquePointer?, lpbiout: COpaquePointer?, wflags: UShort): Hic
 
-public expect fun ICOpen(fcctype: UInt, fcchandler: UInt, wmode: UInt): HIC
+public expect fun iCOpen(fcctype: UInt, fcchandler: UInt, wmode: UInt): Hic
 
-public expect fun ICOpenFunction(fcctype: UInt, fcchandler: UInt, wmode: UInt, lpfnhandler: FARPROC): HIC
+public expect fun iCOpenFunction(fcctype: UInt, fcchandler: UInt, wmode: UInt, lpfnhandler: Farproc): Hic
 
-public expect fun ICRemove(fcctype: UInt, fcchandler: UInt, wflags: UInt): BOOL
+public expect fun iCRemove(fcctype: UInt, fcchandler: UInt, wflags: UInt): Bool
 
-public expect fun ICSendMessage(hic: HIC, msg: UInt, dw1: ULong, dw2: ULong): LRESULT
+public expect fun iCSendMessage(hic: Hic, msg: UInt, dw1: ULong, dw2: ULong): Lresult
 
-public expect fun ICSeqCompressFrame(pc: Long, uiflags: UInt, lpbits: Long, pfkey: Long, plsize: Long): Long
+public expect fun iCSeqCompressFrame(pc: COpaquePointer?, uiflags: UInt, lpbits: COpaquePointer?, pfkey: COpaquePointer?, plsize: COpaquePointer?): COpaquePointer?
 
-public expect fun ICSeqCompressFrameEnd(pc: Long)
+public expect fun iCSeqCompressFrameEnd(pc: COpaquePointer?)
 
-public expect fun ICSeqCompressFrameStart(pc: Long, lpbiin: Long): BOOL
+public expect fun iCSeqCompressFrameStart(pc: COpaquePointer?, lpbiin: COpaquePointer?): Bool
 
-public expect fun MCIWndCreateA(hwndparent: HWND, hinstance: HINSTANCE, dwstyle: UInt, szfile: PCSTR): HWND
+public expect fun mCIWndCreateA(hwndparent: Hwnd, hinstance: Hinstance, dwstyle: UInt, szfile: Pcstr): Hwnd
 
-public expect fun MCIWndCreateW(hwndparent: HWND, hinstance: HINSTANCE, dwstyle: UInt, szfile: PCWSTR): HWND
+public expect fun mCIWndCreateW(hwndparent: Hwnd, hinstance: Hinstance, dwstyle: UInt, szfile: Pcwstr): Hwnd
 
-public expect fun MCIWndRegisterClass(): BOOL
+public expect fun mCIWndRegisterClass(): Bool
 
-public expect fun OpenDriver(szdrivername: PCWSTR, szsectionname: PCWSTR, lparam2: LPARAM): HDRVR
+public expect fun openDriver(szdrivername: Pcwstr, szsectionname: Pcwstr, lparam2: Lparam): Hdrvr
 
-public expect fun SendDriverMessage(hdriver: HDRVR, message: UInt, lparam1: LPARAM, lparam2: LPARAM): LRESULT
+public expect fun sendDriverMessage(hdriver: Hdrvr, message: UInt, lparam1: Lparam, lparam2: Lparam): Lresult
 
-public expect fun VideoForWindowsVersion(): UInt
+public expect fun videoForWindowsVersion(): UInt
 
-public expect fun capCreateCaptureWindowA(lpszwindowname: PCSTR, dwstyle: UInt, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: HWND, nid: Int): HWND
+public expect fun capCreateCaptureWindowA(lpszwindowname: Pcstr, dwstyle: UInt, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: Hwnd, nid: Int): Hwnd
 
-public expect fun capCreateCaptureWindowW(lpszwindowname: PCWSTR, dwstyle: UInt, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: HWND, nid: Int): HWND
+public expect fun capCreateCaptureWindowW(lpszwindowname: Pcwstr, dwstyle: UInt, x: Int, y: Int, nwidth: Int, nheight: Int, hwndparent: Hwnd, nid: Int): Hwnd
 
-public expect fun capGetDriverDescriptionA(wdriverindex: UInt, lpszname: PSTR, cbname: Int, lpszver: PSTR, cbver: Int): BOOL
+public expect fun capGetDriverDescriptionA(wdriverindex: UInt, lpszname: Pstr, cbname: Int, lpszver: Pstr, cbver: Int): Bool
 
-public expect fun capGetDriverDescriptionW(wdriverindex: UInt, lpszname: PWSTR, cbname: Int, lpszver: PWSTR, cbver: Int): BOOL
+public expect fun capGetDriverDescriptionW(wdriverindex: UInt, lpszname: Pwstr, cbname: Int, lpszver: Pwstr, cbver: Int): Bool
 
-public expect fun joyGetDevCapsA(ujoyid: ULong, pjc: Long, cbjc: UInt): UInt
+public expect fun joyGetDevCapsA(ujoyid: ULong, pjc: COpaquePointer?, cbjc: UInt): UInt
 
-public expect fun joyGetDevCapsW(ujoyid: ULong, pjc: Long, cbjc: UInt): UInt
+public expect fun joyGetDevCapsW(ujoyid: ULong, pjc: COpaquePointer?, cbjc: UInt): UInt
 
 public expect fun joyGetNumDevs(): UInt
 
-public expect fun joyGetPos(ujoyid: UInt, pji: Long): UInt
+public expect fun joyGetPos(ujoyid: UInt, pji: COpaquePointer?): UInt
 
-public expect fun joyGetPosEx(ujoyid: UInt, pji: Long): UInt
+public expect fun joyGetPosEx(ujoyid: UInt, pji: COpaquePointer?): UInt
 
-public expect fun joyGetThreshold(ujoyid: UInt, puthreshold: Long): UInt
+public expect fun joyGetThreshold(ujoyid: UInt, puthreshold: COpaquePointer?): UInt
 
 public expect fun joyReleaseCapture(ujoyid: UInt): UInt
 
-public expect fun joySetCapture(hwnd: HWND, ujoyid: UInt, uperiod: UInt, fchanged: BOOL): UInt
+public expect fun joySetCapture(hwnd: Hwnd, ujoyid: UInt, uperiod: UInt, fchanged: Bool): UInt
 
 public expect fun joySetThreshold(ujoyid: UInt, uthreshold: UInt): UInt
 
-public expect fun mciDriverNotify(hwndcallback: HANDLE, wdeviceid: UInt, ustatus: UInt): BOOL
+public expect fun mciDriverNotify(hwndcallback: Handle, wdeviceid: UInt, ustatus: UInt): Bool
 
 public expect fun mciDriverYield(wdeviceid: UInt): UInt
 
-public expect fun mciFreeCommandResource(wtable: UInt): BOOL
+public expect fun mciFreeCommandResource(wtable: UInt): Bool
 
-public expect fun mciGetCreatorTask(mciid: UInt): HTASK
+public expect fun mciGetCreatorTask(mciid: UInt): Htask
 
-public expect fun mciGetDeviceIDA(pszdevice: PCSTR): UInt
+public expect fun mciGetDeviceIDA(pszdevice: Pcstr): UInt
 
-public expect fun mciGetDeviceIDFromElementIDA(dwelementid: UInt, lpstrtype: PCSTR): UInt
+public expect fun mciGetDeviceIDFromElementIDA(dwelementid: UInt, lpstrtype: Pcstr): UInt
 
-public expect fun mciGetDeviceIDFromElementIDW(dwelementid: UInt, lpstrtype: PCWSTR): UInt
+public expect fun mciGetDeviceIDFromElementIDW(dwelementid: UInt, lpstrtype: Pcwstr): UInt
 
-public expect fun mciGetDeviceIDW(pszdevice: PCWSTR): UInt
+public expect fun mciGetDeviceIDW(pszdevice: Pcwstr): UInt
 
 public expect fun mciGetDriverData(wdeviceid: UInt): ULong
 
-public expect fun mciGetErrorStringA(mcierr: UInt, psztext: PSTR, cchtext: UInt): BOOL
+public expect fun mciGetErrorStringA(mcierr: UInt, psztext: Pstr, cchtext: UInt): Bool
 
-public expect fun mciGetErrorStringW(mcierr: UInt, psztext: PWSTR, cchtext: UInt): BOOL
+public expect fun mciGetErrorStringW(mcierr: UInt, psztext: Pwstr, cchtext: UInt): Bool
 
-public expect fun mciGetYieldProc(mciid: UInt, pdwyielddata: Long): YIELDPROC
+public expect fun mciGetYieldProc(mciid: UInt, pdwyielddata: COpaquePointer?): Yieldproc
 
-public expect fun mciLoadCommandResource(hinstance: HANDLE, lpresname: PCWSTR, wtype: UInt): UInt
+public expect fun mciLoadCommandResource(hinstance: Handle, lpresname: Pcwstr, wtype: UInt): UInt
 
 public expect fun mciSendCommandA(mciid: UInt, umsg: UInt, dwparam1: ULong, dwparam2: ULong): UInt
 
 public expect fun mciSendCommandW(mciid: UInt, umsg: UInt, dwparam1: ULong, dwparam2: ULong): UInt
 
-public expect fun mciSendStringA(lpstrcommand: PCSTR, lpstrreturnstring: PSTR, ureturnlength: UInt, hwndcallback: HWND): UInt
+public expect fun mciSendStringA(lpstrcommand: Pcstr, lpstrreturnstring: Pstr, ureturnlength: UInt, hwndcallback: Hwnd): UInt
 
-public expect fun mciSendStringW(lpstrcommand: PCWSTR, lpstrreturnstring: PWSTR, ureturnlength: UInt, hwndcallback: HWND): UInt
+public expect fun mciSendStringW(lpstrcommand: Pcwstr, lpstrreturnstring: Pwstr, ureturnlength: UInt, hwndcallback: Hwnd): UInt
 
-public expect fun mciSetDriverData(wdeviceid: UInt, dwdata: ULong): BOOL
+public expect fun mciSetDriverData(wdeviceid: UInt, dwdata: ULong): Bool
 
-public expect fun mciSetYieldProc(mciid: UInt, fpyieldproc: YIELDPROC, dwyielddata: UInt): BOOL
+public expect fun mciSetYieldProc(mciid: UInt, fpyieldproc: Yieldproc, dwyielddata: UInt): Bool
 
-public expect fun mmDrvInstall(hdriver: HDRVR, wszdrventry: PCWSTR, drvmessage: DRIVERMSGPROC, wflags: UInt): UInt
+public expect fun mmDrvInstall(hdriver: Hdrvr, wszdrventry: Pcwstr, drvmessage: Drivermsgproc, wflags: UInt): UInt
 
 public expect fun mmGetCurrentTask(): UInt
 
 public expect fun mmTaskBlock(h: UInt)
 
-public expect fun mmTaskCreate(lpfn: LPTASKCALLBACK, lph: Long, dwinst: ULong): UInt
+public expect fun mmTaskCreate(lpfn: Lptaskcallback, lph: COpaquePointer?, dwinst: ULong): UInt
 
-public expect fun mmTaskSignal(h: UInt): BOOL
+public expect fun mmTaskSignal(h: UInt): Bool
 
 public expect fun mmTaskYield()
 
-public expect fun mmioAdvance(hmmio: HMMIO, pmmioinfo: Long, fuadvance: UInt): UInt
+public expect fun mmioAdvance(hmmio: Hmmio, pmmioinfo: COpaquePointer?, fuadvance: UInt): UInt
 
-public expect fun mmioAscend(hmmio: HMMIO, pmmcki: Long, fuascend: UInt): UInt
+public expect fun mmioAscend(hmmio: Hmmio, pmmcki: COpaquePointer?, fuascend: UInt): UInt
 
-public expect fun mmioClose(hmmio: HMMIO, fuclose: UInt): UInt
+public expect fun mmioClose(hmmio: Hmmio, fuclose: UInt): UInt
 
-public expect fun mmioCreateChunk(hmmio: HMMIO, pmmcki: Long, fucreate: UInt): UInt
+public expect fun mmioCreateChunk(hmmio: Hmmio, pmmcki: COpaquePointer?, fucreate: UInt): UInt
 
-public expect fun mmioDescend(hmmio: HMMIO, pmmcki: Long, pmmckiparent: Long, fudescend: UInt): UInt
+public expect fun mmioDescend(hmmio: Hmmio, pmmcki: COpaquePointer?, pmmckiparent: COpaquePointer?, fudescend: UInt): UInt
 
-public expect fun mmioFlush(hmmio: HMMIO, fuflush: UInt): UInt
+public expect fun mmioFlush(hmmio: Hmmio, fuflush: UInt): UInt
 
-public expect fun mmioGetInfo(hmmio: HMMIO, pmmioinfo: Long, fuinfo: UInt): UInt
+public expect fun mmioGetInfo(hmmio: Hmmio, pmmioinfo: COpaquePointer?, fuinfo: UInt): UInt
 
-public expect fun mmioInstallIOProcA(fccioproc: UInt, pioproc: LPMMIOPROC, dwflags: UInt): LPMMIOPROC
+public expect fun mmioInstallIOProcA(fccioproc: UInt, pioproc: Lpmmioproc, dwflags: UInt): Lpmmioproc
 
-public expect fun mmioInstallIOProcW(fccioproc: UInt, pioproc: LPMMIOPROC, dwflags: UInt): LPMMIOPROC
+public expect fun mmioInstallIOProcW(fccioproc: UInt, pioproc: Lpmmioproc, dwflags: UInt): Lpmmioproc
 
-public expect fun mmioOpenA(pszfilename: PSTR, pmmioinfo: Long, fdwopen: UInt): HMMIO
+public expect fun mmioOpenA(pszfilename: Pstr, pmmioinfo: COpaquePointer?, fdwopen: UInt): Hmmio
 
-public expect fun mmioOpenW(pszfilename: PWSTR, pmmioinfo: Long, fdwopen: UInt): HMMIO
+public expect fun mmioOpenW(pszfilename: Pwstr, pmmioinfo: COpaquePointer?, fdwopen: UInt): Hmmio
 
-public expect fun mmioRead(hmmio: HMMIO, pch: Long, cch: Int): Int
+public expect fun mmioRead(hmmio: Hmmio, pch: COpaquePointer?, cch: Int): Int
 
-public expect fun mmioRenameA(pszfilename: PCSTR, psznewfilename: PCSTR, pmmioinfo: Long, fdwrename: UInt): UInt
+public expect fun mmioRenameA(pszfilename: Pcstr, psznewfilename: Pcstr, pmmioinfo: COpaquePointer?, fdwrename: UInt): UInt
 
-public expect fun mmioRenameW(pszfilename: PCWSTR, psznewfilename: PCWSTR, pmmioinfo: Long, fdwrename: UInt): UInt
+public expect fun mmioRenameW(pszfilename: Pcwstr, psznewfilename: Pcwstr, pmmioinfo: COpaquePointer?, fdwrename: UInt): UInt
 
-public expect fun mmioSeek(hmmio: HMMIO, loffset: Int, iorigin: Int): Int
+public expect fun mmioSeek(hmmio: Hmmio, loffset: Int, iorigin: Int): Int
 
-public expect fun mmioSendMessage(hmmio: HMMIO, umsg: UInt, lparam1: LPARAM, lparam2: LPARAM): LRESULT
+public expect fun mmioSendMessage(hmmio: Hmmio, umsg: UInt, lparam1: Lparam, lparam2: Lparam): Lresult
 
-public expect fun mmioSetBuffer(hmmio: HMMIO, pchbuffer: PSTR, cchbuffer: Int, fubuffer: UInt): UInt
+public expect fun mmioSetBuffer(hmmio: Hmmio, pchbuffer: Pstr, cchbuffer: Int, fubuffer: UInt): UInt
 
-public expect fun mmioSetInfo(hmmio: HMMIO, pmmioinfo: Long, fuinfo: UInt): UInt
+public expect fun mmioSetInfo(hmmio: Hmmio, pmmioinfo: COpaquePointer?, fuinfo: UInt): UInt
 
-public expect fun mmioStringToFOURCCA(sz: PCSTR, uflags: UInt): UInt
+public expect fun mmioStringToFOURCCA(sz: Pcstr, uflags: UInt): UInt
 
-public expect fun mmioStringToFOURCCW(sz: PCWSTR, uflags: UInt): UInt
+public expect fun mmioStringToFOURCCW(sz: Pcwstr, uflags: UInt): UInt
 
-public expect fun mmioWrite(hmmio: HMMIO, pch: PCSTR, cch: Int): Int
+public expect fun mmioWrite(hmmio: Hmmio, pch: Pcstr, cch: Int): Int
 
-public expect fun sndOpenSound(eventname: PCWSTR, appname: PCWSTR, flags: Int, filehandle: Long): Int
+public expect fun sndOpenSound(eventname: Pcwstr, appname: Pcwstr, flags: Int, filehandle: COpaquePointer?): Int

@@ -1,268 +1,272 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.system.systemservices
 
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.security.PSID
-import io.github.kotlinmania.windowssys.windows.win32.security.SID
-import io.github.kotlinmania.windowssys.windows.win32.security.SID_AND_ATTRIBUTES
-import io.github.kotlinmania.windowssys.windows.win32.security.TOKEN_USER
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.security.Psid
+import io.github.kotlinmania.windowssys.windows.win32.security.Sid
+import io.github.kotlinmania.windowssys.windows.win32.security.SidAndAttributes
+import io.github.kotlinmania.windowssys.windows.win32.security.TokenUser
+import io.github.kotlinmania.windowssys.windows.win32.system.com.ByteBlob
+import io.github.kotlinmania.windowssys.windows.win32.system.com.DwordBlob
+import io.github.kotlinmania.windowssys.windows.win32.system.com.FlaggedByteBlob
 
-public data class ANON_OBJECT_HEADER(
-    public var Sig1: UShort = 0u,
-    public var Sig2: UShort = 0u,
-    public var Version: UShort = 0u,
-    public var Machine: UShort = 0u,
-    public var TimeDateStamp: UInt = 0u,
-    public var ClassID: GUID = GUID(),
-    public var SizeOfData: UInt = 0u,
+public data class AnonObjectHeader(
+    public var sig1: UShort = 0u,
+    public var sig2: UShort = 0u,
+    public var version: UShort = 0u,
+    public var machine: UShort = 0u,
+    public var timeDateStamp: UInt = 0u,
+    public var classID: Guid = Guid(),
+    public var sizeOfData: UInt = 0u,
 )
 
-public data class ANON_OBJECT_HEADER_BIGOBJ(
-    public var Sig1: UShort = 0u,
-    public var Sig2: UShort = 0u,
-    public var Version: UShort = 0u,
-    public var Machine: UShort = 0u,
-    public var TimeDateStamp: UInt = 0u,
-    public var ClassID: GUID = GUID(),
-    public var SizeOfData: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var MetaDataSize: UInt = 0u,
-    public var MetaDataOffset: UInt = 0u,
-    public var NumberOfSections: UInt = 0u,
-    public var PointerToSymbolTable: UInt = 0u,
-    public var NumberOfSymbols: UInt = 0u,
+public data class AnonObjectHeaderBigobj(
+    public var sig1: UShort = 0u,
+    public var sig2: UShort = 0u,
+    public var version: UShort = 0u,
+    public var machine: UShort = 0u,
+    public var timeDateStamp: UInt = 0u,
+    public var classID: Guid = Guid(),
+    public var sizeOfData: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var metaDataSize: UInt = 0u,
+    public var metaDataOffset: UInt = 0u,
+    public var numberOfSections: UInt = 0u,
+    public var pointerToSymbolTable: UInt = 0u,
+    public var numberOfSymbols: UInt = 0u,
 )
 
-public data class ANON_OBJECT_HEADER_V2(
-    public var Sig1: UShort = 0u,
-    public var Sig2: UShort = 0u,
-    public var Version: UShort = 0u,
-    public var Machine: UShort = 0u,
-    public var TimeDateStamp: UInt = 0u,
-    public var ClassID: GUID = GUID(),
-    public var SizeOfData: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var MetaDataSize: UInt = 0u,
-    public var MetaDataOffset: UInt = 0u,
+public data class AnonObjectHeaderV2(
+    public var sig1: UShort = 0u,
+    public var sig2: UShort = 0u,
+    public var version: UShort = 0u,
+    public var machine: UShort = 0u,
+    public var timeDateStamp: UInt = 0u,
+    public var classID: Guid = Guid(),
+    public var sizeOfData: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var metaDataSize: UInt = 0u,
+    public var metaDataOffset: UInt = 0u,
 )
 
-public data class APPLICATIONLAUNCH_SETTING_VALUE(
-    public var ActivationTime: Long = 0L,
-    public var Flags: UInt = 0u,
-    public var ButtonInstanceID: UInt = 0u,
+public data class ApplicationlaunchSettingValue(
+    public var activationTime: Long = 0L,
+    public var flags: UInt = 0u,
+    public var buttonInstanceID: UInt = 0u,
 )
 
-public data class COMPONENT_FILTER(public var ComponentFlags: UInt = 0u)
+public data class ComponentFilter(public var componentFlags: UInt = 0u)
 
-public data class DISPATCHER_CONTEXT_NONVOLREG_ARM64(public var Buffer: UByteArray = UByteArray(152), public var Anonymous: DISPATCHER_CONTEXT_NONVOLREG_ARM64_0 = DISPATCHER_CONTEXT_NONVOLREG_ARM64_0()) {
+public data class DispatcherContextNonvolregArm64(public var buffer: UByteArray = UByteArray(152), public var anonymous: DispatcherContextNonvolregArm640 = DispatcherContextNonvolregArm640()) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DISPATCHER_CONTEXT_NONVOLREG_ARM64) return false
-        if (!this.Buffer.contentEquals(other.Buffer)) return false
-        if (this.Anonymous != other.Anonymous) return false
+        if (other !is DispatcherContextNonvolregArm64) return false
+        if (!this.buffer.contentEquals(other.buffer)) return false
+        if (this.anonymous != other.anonymous) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Buffer.contentHashCode()
-        result = 31 * result + this.Anonymous.hashCode()
+        var result = this.buffer.contentHashCode()
+        result = 31 * result + this.anonymous.hashCode()
         return result
     }
 }
 
-public data class DISPATCHER_CONTEXT_NONVOLREG_ARM64_0(public var GpNvRegs: ULongArray = ULongArray(11), public var FpNvRegs: DoubleArray = DoubleArray(8)) {
+public data class DispatcherContextNonvolregArm640(public var gpNvRegs: ULongArray = ULongArray(11), public var fpNvRegs: DoubleArray = DoubleArray(8)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DISPATCHER_CONTEXT_NONVOLREG_ARM64_0) return false
-        if (!this.GpNvRegs.contentEquals(other.GpNvRegs)) return false
-        if (!this.FpNvRegs.contentEquals(other.FpNvRegs)) return false
+        if (other !is DispatcherContextNonvolregArm640) return false
+        if (!this.gpNvRegs.contentEquals(other.gpNvRegs)) return false
+        if (!this.fpNvRegs.contentEquals(other.fpNvRegs)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.GpNvRegs.contentHashCode()
-        result = 31 * result + this.FpNvRegs.contentHashCode()
+        var result = this.gpNvRegs.contentHashCode()
+        result = 31 * result + this.fpNvRegs.contentHashCode()
         return result
     }
 }
 
-public data class ENLISTMENT_BASIC_INFORMATION(
-    public var EnlistmentId: GUID = GUID(),
-    public var TransactionId: GUID = GUID(),
-    public var ResourceManagerId: GUID = GUID(),
+public data class EnlistmentBasicInformation(
+    public var enlistmentId: Guid = Guid(),
+    public var transactionId: Guid = Guid(),
+    public var resourceManagerId: Guid = Guid(),
 )
 
-public data class ENLISTMENT_CRM_INFORMATION(
-    public var CrmTransactionManagerId: GUID = GUID(),
-    public var CrmResourceManagerId: GUID = GUID(),
-    public var CrmEnlistmentId: GUID = GUID(),
+public data class EnlistmentCrmInformation(
+    public var crmTransactionManagerId: Guid = Guid(),
+    public var crmResourceManagerId: Guid = Guid(),
+    public var crmEnlistmentId: Guid = Guid(),
 )
 
-public data class FILE_NOTIFY_FULL_INFORMATION(
-    public var NextEntryOffset: UInt = 0u,
-    public var Action: UInt = 0u,
-    public var CreationTime: Long = 0L,
-    public var LastModificationTime: Long = 0L,
-    public var LastChangeTime: Long = 0L,
-    public var LastAccessTime: Long = 0L,
-    public var AllocatedLength: Long = 0L,
-    public var FileSize: Long = 0L,
-    public var FileAttributes: UInt = 0u,
-    public var Anonymous: FILE_NOTIFY_FULL_INFORMATION_0 = FILE_NOTIFY_FULL_INFORMATION_0(),
-    public var FileId: Long = 0L,
-    public var ParentFileId: Long = 0L,
-    public var FileNameLength: UShort = 0u,
-    public var FileNameFlags: UByte = 0u,
-    public var Reserved: UByte = 0u,
-    public var FileName: UShortArray = UShortArray(1),
+public data class FileNotifyFullInformation(
+    public var nextEntryOffset: UInt = 0u,
+    public var action: UInt = 0u,
+    public var creationTime: Long = 0L,
+    public var lastModificationTime: Long = 0L,
+    public var lastChangeTime: Long = 0L,
+    public var lastAccessTime: Long = 0L,
+    public var allocatedLength: Long = 0L,
+    public var fileSize: Long = 0L,
+    public var fileAttributes: UInt = 0u,
+    public var anonymous: FileNotifyFullInformation0 = FileNotifyFullInformation0(),
+    public var fileId: Long = 0L,
+    public var parentFileId: Long = 0L,
+    public var fileNameLength: UShort = 0u,
+    public var fileNameFlags: UByte = 0u,
+    public var reserved: UByte = 0u,
+    public var fileName: UShortArray = UShortArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is FILE_NOTIFY_FULL_INFORMATION) return false
-        if (this.NextEntryOffset != other.NextEntryOffset) return false
-        if (this.Action != other.Action) return false
-        if (this.CreationTime != other.CreationTime) return false
-        if (this.LastModificationTime != other.LastModificationTime) return false
-        if (this.LastChangeTime != other.LastChangeTime) return false
-        if (this.LastAccessTime != other.LastAccessTime) return false
-        if (this.AllocatedLength != other.AllocatedLength) return false
-        if (this.FileSize != other.FileSize) return false
-        if (this.FileAttributes != other.FileAttributes) return false
-        if (this.Anonymous != other.Anonymous) return false
-        if (this.FileId != other.FileId) return false
-        if (this.ParentFileId != other.ParentFileId) return false
-        if (this.FileNameLength != other.FileNameLength) return false
-        if (this.FileNameFlags != other.FileNameFlags) return false
-        if (this.Reserved != other.Reserved) return false
-        if (!this.FileName.contentEquals(other.FileName)) return false
+        if (other !is FileNotifyFullInformation) return false
+        if (this.nextEntryOffset != other.nextEntryOffset) return false
+        if (this.action != other.action) return false
+        if (this.creationTime != other.creationTime) return false
+        if (this.lastModificationTime != other.lastModificationTime) return false
+        if (this.lastChangeTime != other.lastChangeTime) return false
+        if (this.lastAccessTime != other.lastAccessTime) return false
+        if (this.allocatedLength != other.allocatedLength) return false
+        if (this.fileSize != other.fileSize) return false
+        if (this.fileAttributes != other.fileAttributes) return false
+        if (this.anonymous != other.anonymous) return false
+        if (this.fileId != other.fileId) return false
+        if (this.parentFileId != other.parentFileId) return false
+        if (this.fileNameLength != other.fileNameLength) return false
+        if (this.fileNameFlags != other.fileNameFlags) return false
+        if (this.reserved != other.reserved) return false
+        if (!this.fileName.contentEquals(other.fileName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.NextEntryOffset.hashCode()
-        result = 31 * result + this.Action.hashCode()
-        result = 31 * result + this.CreationTime.hashCode()
-        result = 31 * result + this.LastModificationTime.hashCode()
-        result = 31 * result + this.LastChangeTime.hashCode()
-        result = 31 * result + this.LastAccessTime.hashCode()
-        result = 31 * result + this.AllocatedLength.hashCode()
-        result = 31 * result + this.FileSize.hashCode()
-        result = 31 * result + this.FileAttributes.hashCode()
-        result = 31 * result + this.Anonymous.hashCode()
-        result = 31 * result + this.FileId.hashCode()
-        result = 31 * result + this.ParentFileId.hashCode()
-        result = 31 * result + this.FileNameLength.hashCode()
-        result = 31 * result + this.FileNameFlags.hashCode()
-        result = 31 * result + this.Reserved.hashCode()
-        result = 31 * result + this.FileName.contentHashCode()
+        var result = this.nextEntryOffset.hashCode()
+        result = 31 * result + this.action.hashCode()
+        result = 31 * result + this.creationTime.hashCode()
+        result = 31 * result + this.lastModificationTime.hashCode()
+        result = 31 * result + this.lastChangeTime.hashCode()
+        result = 31 * result + this.lastAccessTime.hashCode()
+        result = 31 * result + this.allocatedLength.hashCode()
+        result = 31 * result + this.fileSize.hashCode()
+        result = 31 * result + this.fileAttributes.hashCode()
+        result = 31 * result + this.anonymous.hashCode()
+        result = 31 * result + this.fileId.hashCode()
+        result = 31 * result + this.parentFileId.hashCode()
+        result = 31 * result + this.fileNameLength.hashCode()
+        result = 31 * result + this.fileNameFlags.hashCode()
+        result = 31 * result + this.reserved.hashCode()
+        result = 31 * result + this.fileName.contentHashCode()
         return result
     }
 }
 
-public data class FILE_NOTIFY_FULL_INFORMATION_0(public var ReparsePointTag: UInt = 0u, public var EaSize: UInt = 0u)
+public data class FileNotifyFullInformation0(public var reparsePointTag: UInt = 0u, public var eaSize: UInt = 0u)
 
-public data class GDI_NONREMOTE(public var fContext: Int = 0, public var u: GDI_NONREMOTE_0 = GDI_NONREMOTE_0())
+public data class GdiNonremote(public var fContext: Int = 0, public var u: GdiNonremote0 = GdiNonremote0())
 
-public data class GDI_NONREMOTE_0(public var hInproc: Int = 0, public var hRemote: Long = 0L)
+public data class GdiNonremote0(public var hInproc: Int = 0, public var hRemote: DwordBlob? = null)
 
-public data class HEAP_OPTIMIZE_RESOURCES_INFORMATION(public var Version: UInt = 0u, public var Flags: UInt = 0u)
+public data class HeapOptimizeResourcesInformation(public var version: UInt = 0u, public var flags: UInt = 0u)
 
-public data class HIBERFILE_BUCKET(public var MaxPhysicalMemory: ULong = 0uL, public var PhysicalMemoryPercent: UIntArray = UIntArray(3)) {
+public data class HiberfileBucket(public var maxPhysicalMemory: ULong = 0uL, public var physicalMemoryPercent: UIntArray = UIntArray(3)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is HIBERFILE_BUCKET) return false
-        if (this.MaxPhysicalMemory != other.MaxPhysicalMemory) return false
-        if (!this.PhysicalMemoryPercent.contentEquals(other.PhysicalMemoryPercent)) return false
+        if (other !is HiberfileBucket) return false
+        if (this.maxPhysicalMemory != other.maxPhysicalMemory) return false
+        if (!this.physicalMemoryPercent.contentEquals(other.physicalMemoryPercent)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.MaxPhysicalMemory.hashCode()
-        result = 31 * result + this.PhysicalMemoryPercent.contentHashCode()
+        var result = this.maxPhysicalMemory.hashCode()
+        result = 31 * result + this.physicalMemoryPercent.contentHashCode()
         return result
     }
 }
 
-public data class IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY(
-    public var BeginAddress: ULong = 0uL,
-    public var EndAddress: ULong = 0uL,
-    public var ExceptionHandler: ULong = 0uL,
-    public var HandlerData: ULong = 0uL,
-    public var PrologEndAddress: ULong = 0uL,
+public data class ImageAlpha64RuntimeFunctionEntry(
+    public var beginAddress: ULong = 0uL,
+    public var endAddress: ULong = 0uL,
+    public var exceptionHandler: ULong = 0uL,
+    public var handlerData: ULong = 0uL,
+    public var prologEndAddress: ULong = 0uL,
 )
 
-public data class IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY(
-    public var BeginAddress: UInt = 0u,
-    public var EndAddress: UInt = 0u,
-    public var ExceptionHandler: UInt = 0u,
-    public var HandlerData: UInt = 0u,
-    public var PrologEndAddress: UInt = 0u,
+public data class ImageAlphaRuntimeFunctionEntry(
+    public var beginAddress: UInt = 0u,
+    public var endAddress: UInt = 0u,
+    public var exceptionHandler: UInt = 0u,
+    public var handlerData: UInt = 0u,
+    public var prologEndAddress: UInt = 0u,
 )
 
-public data class IMAGE_ARCHITECTURE_ENTRY(public var FixupInstRVA: UInt = 0u, public var NewInst: UInt = 0u)
+public data class ImageArchitectureEntry(public var fixupInstRVA: UInt = 0u, public var newInst: UInt = 0u)
 
-public data class IMAGE_ARCHITECTURE_HEADER(public var _bitfield: UInt = 0u, public var FirstEntryRVA: UInt = 0u)
+public data class ImageArchitectureHeader(public var bitfield: UInt = 0u, public var firstEntryRVA: UInt = 0u)
 
-public data class IMAGE_ARCHIVE_MEMBER_HEADER(
-    public var Name: UByteArray = UByteArray(16),
-    public var Date: UByteArray = UByteArray(12),
-    public var UserID: UByteArray = UByteArray(6),
-    public var GroupID: UByteArray = UByteArray(6),
-    public var Mode: UByteArray = UByteArray(8),
-    public var Size: UByteArray = UByteArray(10),
-    public var EndHeader: UByteArray = UByteArray(2),
+public data class ImageArchiveMemberHeader(
+    public var name: UByteArray = UByteArray(16),
+    public var date: UByteArray = UByteArray(12),
+    public var userID: UByteArray = UByteArray(6),
+    public var groupID: UByteArray = UByteArray(6),
+    public var mode: UByteArray = UByteArray(8),
+    public var size: UByteArray = UByteArray(10),
+    public var endHeader: UByteArray = UByteArray(2),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IMAGE_ARCHIVE_MEMBER_HEADER) return false
-        if (!this.Name.contentEquals(other.Name)) return false
-        if (!this.Date.contentEquals(other.Date)) return false
-        if (!this.UserID.contentEquals(other.UserID)) return false
-        if (!this.GroupID.contentEquals(other.GroupID)) return false
-        if (!this.Mode.contentEquals(other.Mode)) return false
-        if (!this.Size.contentEquals(other.Size)) return false
-        if (!this.EndHeader.contentEquals(other.EndHeader)) return false
+        if (other !is ImageArchiveMemberHeader) return false
+        if (!this.name.contentEquals(other.name)) return false
+        if (!this.date.contentEquals(other.date)) return false
+        if (!this.userID.contentEquals(other.userID)) return false
+        if (!this.groupID.contentEquals(other.groupID)) return false
+        if (!this.mode.contentEquals(other.mode)) return false
+        if (!this.size.contentEquals(other.size)) return false
+        if (!this.endHeader.contentEquals(other.endHeader)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Name.contentHashCode()
-        result = 31 * result + this.Date.contentHashCode()
-        result = 31 * result + this.UserID.contentHashCode()
-        result = 31 * result + this.GroupID.contentHashCode()
-        result = 31 * result + this.Mode.contentHashCode()
-        result = 31 * result + this.Size.contentHashCode()
-        result = 31 * result + this.EndHeader.contentHashCode()
+        var result = this.name.contentHashCode()
+        result = 31 * result + this.date.contentHashCode()
+        result = 31 * result + this.userID.contentHashCode()
+        result = 31 * result + this.groupID.contentHashCode()
+        result = 31 * result + this.mode.contentHashCode()
+        result = 31 * result + this.size.contentHashCode()
+        result = 31 * result + this.endHeader.contentHashCode()
         return result
     }
 }
 
-public data class IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA(public var HeaderData: UInt = 0u, public var Anonymous: IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0 = IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0())
+public data class ImageArm64RuntimeFunctionEntryXdata(public var headerData: UInt = 0u, public var anonymous: ImageArm64RuntimeFunctionEntryXdata0 = ImageArm64RuntimeFunctionEntryXdata0())
 
-public data class IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0(public var _bitfield: UInt = 0u)
+public data class ImageArm64RuntimeFunctionEntryXdata0(public var bitfield: UInt = 0u)
 
-public data class IMAGE_ARM_RUNTIME_FUNCTION_ENTRY(public var BeginAddress: UInt = 0u, public var Anonymous: IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0 = IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0())
+public data class ImageArmRuntimeFunctionEntry(public var beginAddress: UInt = 0u, public var anonymous: ImageArmRuntimeFunctionEntry0 = ImageArmRuntimeFunctionEntry0())
 
-public data class IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0(public var UnwindData: UInt = 0u, public var Anonymous: IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0 = IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0())
+public data class ImageArmRuntimeFunctionEntry0(public var unwindData: UInt = 0u, public var anonymous: ImageArmRuntimeFunctionEntry00 = ImageArmRuntimeFunctionEntry00())
 
-public data class IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0(public var _bitfield: UInt = 0u)
+public data class ImageArmRuntimeFunctionEntry00(public var bitfield: UInt = 0u)
 
-public data class IMAGE_AUX_SYMBOL(
-    public var Sym: IMAGE_AUX_SYMBOL_0 = IMAGE_AUX_SYMBOL_0(),
-    public var File: IMAGE_AUX_SYMBOL_1 = IMAGE_AUX_SYMBOL_1(),
-    public var Section: IMAGE_AUX_SYMBOL_2 = IMAGE_AUX_SYMBOL_2(),
-    public var TokenDef: IMAGE_AUX_SYMBOL_TOKEN_DEF = IMAGE_AUX_SYMBOL_TOKEN_DEF(),
-    public var CRC: IMAGE_AUX_SYMBOL_3 = IMAGE_AUX_SYMBOL_3(),
+public data class ImageAuxSymbol(
+    public var sym: ImageAuxSymbol0 = ImageAuxSymbol0(),
+    public var file: ImageAuxSymbol1 = ImageAuxSymbol1(),
+    public var section: ImageAuxSymbol2 = ImageAuxSymbol2(),
+    public var tokenDef: ImageAuxSymbolTokenDef = ImageAuxSymbolTokenDef(),
+    public var crc: ImageAuxSymbol3 = ImageAuxSymbol3(),
 )
 
-public data class IMAGE_AUX_SYMBOL_3(public var crc: UInt = 0u, public var rgbReserved: UByteArray = UByteArray(14)) {
+public data class ImageAuxSymbol3(public var crc: UInt = 0u, public var rgbReserved: UByteArray = UByteArray(14)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IMAGE_AUX_SYMBOL_3) return false
+        if (other !is ImageAuxSymbol3) return false
         if (this.crc != other.crc) return false
         if (!this.rgbReserved.contentEquals(other.rgbReserved)) return false
         return true
@@ -275,86 +279,86 @@ public data class IMAGE_AUX_SYMBOL_3(public var crc: UInt = 0u, public var rgbRe
     }
 }
 
-public data class IMAGE_AUX_SYMBOL_1(public var Name: UByteArray = UByteArray(18)) {
+public data class ImageAuxSymbol1(public var name: UByteArray = UByteArray(18)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IMAGE_AUX_SYMBOL_1) return false
-        if (!this.Name.contentEquals(other.Name)) return false
+        if (other !is ImageAuxSymbol1) return false
+        if (!this.name.contentEquals(other.name)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        return this.Name.contentHashCode()
+        return this.name.contentHashCode()
     }
 }
 
-public data class IMAGE_AUX_SYMBOL_2(
-    public var Length: UInt = 0u,
-    public var NumberOfRelocations: UShort = 0u,
-    public var NumberOfLinenumbers: UShort = 0u,
-    public var CheckSum: UInt = 0u,
-    public var Number: Short = 0,
-    public var Selection: UByte = 0u,
+public data class ImageAuxSymbol2(
+    public var length: UInt = 0u,
+    public var numberOfRelocations: UShort = 0u,
+    public var numberOfLinenumbers: UShort = 0u,
+    public var checkSum: UInt = 0u,
+    public var number: Short = 0,
+    public var selection: UByte = 0u,
     public var bReserved: UByte = 0u,
-    public var HighNumber: Short = 0,
+    public var highNumber: Short = 0,
 )
 
-public data class IMAGE_AUX_SYMBOL_0(
-    public var TagIndex: UInt = 0u,
-    public var Misc: IMAGE_AUX_SYMBOL_0_0 = IMAGE_AUX_SYMBOL_0_0(),
-    public var FcnAry: IMAGE_AUX_SYMBOL_0_1 = IMAGE_AUX_SYMBOL_0_1(),
-    public var TvIndex: UShort = 0u,
+public data class ImageAuxSymbol0(
+    public var tagIndex: UInt = 0u,
+    public var misc: ImageAuxSymbol00 = ImageAuxSymbol00(),
+    public var fcnAry: ImageAuxSymbol01 = ImageAuxSymbol01(),
+    public var tvIndex: UShort = 0u,
 )
 
-public data class IMAGE_AUX_SYMBOL_0_1(public var Function: IMAGE_AUX_SYMBOL_0_1_0 = IMAGE_AUX_SYMBOL_0_1_0(), public var Array: IMAGE_AUX_SYMBOL_0_1_1 = IMAGE_AUX_SYMBOL_0_1_1())
+public data class ImageAuxSymbol01(public var function: ImageAuxSymbol010 = ImageAuxSymbol010(), public var array: ImageAuxSymbol011 = ImageAuxSymbol011())
 
-public data class IMAGE_AUX_SYMBOL_0_1_1(public var Dimension: UShortArray = UShortArray(4)) {
+public data class ImageAuxSymbol011(public var dimension: UShortArray = UShortArray(4)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IMAGE_AUX_SYMBOL_0_1_1) return false
-        if (!this.Dimension.contentEquals(other.Dimension)) return false
+        if (other !is ImageAuxSymbol011) return false
+        if (!this.dimension.contentEquals(other.dimension)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        return this.Dimension.contentHashCode()
+        return this.dimension.contentHashCode()
     }
 }
 
-public data class IMAGE_AUX_SYMBOL_0_1_0(public var PointerToLinenumber: UInt = 0u, public var PointerToNextFunction: UInt = 0u)
+public data class ImageAuxSymbol010(public var pointerToLinenumber: UInt = 0u, public var pointerToNextFunction: UInt = 0u)
 
-public data class IMAGE_AUX_SYMBOL_0_0(public var LnSz: IMAGE_AUX_SYMBOL_0_0_0 = IMAGE_AUX_SYMBOL_0_0_0(), public var TotalSize: UInt = 0u)
+public data class ImageAuxSymbol00(public var lnSz: ImageAuxSymbol000 = ImageAuxSymbol000(), public var totalSize: UInt = 0u)
 
-public data class IMAGE_AUX_SYMBOL_0_0_0(public var Linenumber: UShort = 0u, public var Size: UShort = 0u)
+public data class ImageAuxSymbol000(public var linenumber: UShort = 0u, public var size: UShort = 0u)
 
-public data class IMAGE_AUX_SYMBOL_EX(
-    public var Sym: IMAGE_AUX_SYMBOL_EX_0 = IMAGE_AUX_SYMBOL_EX_0(),
-    public var File: IMAGE_AUX_SYMBOL_EX_1 = IMAGE_AUX_SYMBOL_EX_1(),
-    public var Section: IMAGE_AUX_SYMBOL_EX_2 = IMAGE_AUX_SYMBOL_EX_2(),
-    public var Anonymous: IMAGE_AUX_SYMBOL_EX_3 = IMAGE_AUX_SYMBOL_EX_3(),
-    public var CRC: IMAGE_AUX_SYMBOL_EX_4 = IMAGE_AUX_SYMBOL_EX_4(),
+public data class ImageAuxSymbolEx(
+    public var sym: ImageAuxSymbolEx0 = ImageAuxSymbolEx0(),
+    public var file: ImageAuxSymbolEx1 = ImageAuxSymbolEx1(),
+    public var section: ImageAuxSymbolEx2 = ImageAuxSymbolEx2(),
+    public var anonymous: ImageAuxSymbolEx3 = ImageAuxSymbolEx3(),
+    public var crc: ImageAuxSymbolEx4 = ImageAuxSymbolEx4(),
 )
 
-public data class IMAGE_AUX_SYMBOL_EX_3(public var TokenDef: IMAGE_AUX_SYMBOL_TOKEN_DEF = IMAGE_AUX_SYMBOL_TOKEN_DEF(), public var rgbReserved: UByteArray = UByteArray(2)) {
+public data class ImageAuxSymbolEx3(public var tokenDef: ImageAuxSymbolTokenDef = ImageAuxSymbolTokenDef(), public var rgbReserved: UByteArray = UByteArray(2)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IMAGE_AUX_SYMBOL_EX_3) return false
-        if (this.TokenDef != other.TokenDef) return false
+        if (other !is ImageAuxSymbolEx3) return false
+        if (this.tokenDef != other.tokenDef) return false
         if (!this.rgbReserved.contentEquals(other.rgbReserved)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.TokenDef.hashCode()
+        var result = this.tokenDef.hashCode()
         result = 31 * result + this.rgbReserved.contentHashCode()
         return result
     }
 }
 
-public data class IMAGE_AUX_SYMBOL_EX_4(public var crc: UInt = 0u, public var rgbReserved: UByteArray = UByteArray(16)) {
+public data class ImageAuxSymbolEx4(public var crc: UInt = 0u, public var rgbReserved: UByteArray = UByteArray(16)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IMAGE_AUX_SYMBOL_EX_4) return false
+        if (other !is ImageAuxSymbolEx4) return false
         if (this.crc != other.crc) return false
         if (!this.rgbReserved.contentEquals(other.rgbReserved)) return false
         return true
@@ -367,93 +371,93 @@ public data class IMAGE_AUX_SYMBOL_EX_4(public var crc: UInt = 0u, public var rg
     }
 }
 
-public data class IMAGE_AUX_SYMBOL_EX_1(public var Name: UByteArray = UByteArray(20)) {
+public data class ImageAuxSymbolEx1(public var name: UByteArray = UByteArray(20)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IMAGE_AUX_SYMBOL_EX_1) return false
-        if (!this.Name.contentEquals(other.Name)) return false
+        if (other !is ImageAuxSymbolEx1) return false
+        if (!this.name.contentEquals(other.name)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        return this.Name.contentHashCode()
+        return this.name.contentHashCode()
     }
 }
 
-public data class IMAGE_AUX_SYMBOL_EX_2(
-    public var Length: UInt = 0u,
-    public var NumberOfRelocations: UShort = 0u,
-    public var NumberOfLinenumbers: UShort = 0u,
-    public var CheckSum: UInt = 0u,
-    public var Number: Short = 0,
-    public var Selection: UByte = 0u,
+public data class ImageAuxSymbolEx2(
+    public var length: UInt = 0u,
+    public var numberOfRelocations: UShort = 0u,
+    public var numberOfLinenumbers: UShort = 0u,
+    public var checkSum: UInt = 0u,
+    public var number: Short = 0,
+    public var selection: UByte = 0u,
     public var bReserved: UByte = 0u,
-    public var HighNumber: Short = 0,
+    public var highNumber: Short = 0,
     public var rgbReserved: UByteArray = UByteArray(2),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IMAGE_AUX_SYMBOL_EX_2) return false
-        if (this.Length != other.Length) return false
-        if (this.NumberOfRelocations != other.NumberOfRelocations) return false
-        if (this.NumberOfLinenumbers != other.NumberOfLinenumbers) return false
-        if (this.CheckSum != other.CheckSum) return false
-        if (this.Number != other.Number) return false
-        if (this.Selection != other.Selection) return false
+        if (other !is ImageAuxSymbolEx2) return false
+        if (this.length != other.length) return false
+        if (this.numberOfRelocations != other.numberOfRelocations) return false
+        if (this.numberOfLinenumbers != other.numberOfLinenumbers) return false
+        if (this.checkSum != other.checkSum) return false
+        if (this.number != other.number) return false
+        if (this.selection != other.selection) return false
         if (this.bReserved != other.bReserved) return false
-        if (this.HighNumber != other.HighNumber) return false
+        if (this.highNumber != other.highNumber) return false
         if (!this.rgbReserved.contentEquals(other.rgbReserved)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Length.hashCode()
-        result = 31 * result + this.NumberOfRelocations.hashCode()
-        result = 31 * result + this.NumberOfLinenumbers.hashCode()
-        result = 31 * result + this.CheckSum.hashCode()
-        result = 31 * result + this.Number.hashCode()
-        result = 31 * result + this.Selection.hashCode()
+        var result = this.length.hashCode()
+        result = 31 * result + this.numberOfRelocations.hashCode()
+        result = 31 * result + this.numberOfLinenumbers.hashCode()
+        result = 31 * result + this.checkSum.hashCode()
+        result = 31 * result + this.number.hashCode()
+        result = 31 * result + this.selection.hashCode()
         result = 31 * result + this.bReserved.hashCode()
-        result = 31 * result + this.HighNumber.hashCode()
+        result = 31 * result + this.highNumber.hashCode()
         result = 31 * result + this.rgbReserved.contentHashCode()
         return result
     }
 }
 
-public data class IMAGE_AUX_SYMBOL_EX_0(
-    public var WeakDefaultSymIndex: UInt = 0u,
-    public var WeakSearchType: UInt = 0u,
+public data class ImageAuxSymbolEx0(
+    public var weakDefaultSymIndex: UInt = 0u,
+    public var weakSearchType: UInt = 0u,
     public var rgbReserved: UByteArray = UByteArray(12),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IMAGE_AUX_SYMBOL_EX_0) return false
-        if (this.WeakDefaultSymIndex != other.WeakDefaultSymIndex) return false
-        if (this.WeakSearchType != other.WeakSearchType) return false
+        if (other !is ImageAuxSymbolEx0) return false
+        if (this.weakDefaultSymIndex != other.weakDefaultSymIndex) return false
+        if (this.weakSearchType != other.weakSearchType) return false
         if (!this.rgbReserved.contentEquals(other.rgbReserved)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.WeakDefaultSymIndex.hashCode()
-        result = 31 * result + this.WeakSearchType.hashCode()
+        var result = this.weakDefaultSymIndex.hashCode()
+        result = 31 * result + this.weakSearchType.hashCode()
         result = 31 * result + this.rgbReserved.contentHashCode()
         return result
     }
 }
 
-public data class IMAGE_AUX_SYMBOL_TOKEN_DEF(
+public data class ImageAuxSymbolTokenDef(
     public var bAuxType: UByte = 0u,
     public var bReserved: UByte = 0u,
-    public var SymbolTableIndex: UInt = 0u,
+    public var symbolTableIndex: UInt = 0u,
     public var rgbReserved: UByteArray = UByteArray(12),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IMAGE_AUX_SYMBOL_TOKEN_DEF) return false
+        if (other !is ImageAuxSymbolTokenDef) return false
         if (this.bAuxType != other.bAuxType) return false
         if (this.bReserved != other.bReserved) return false
-        if (this.SymbolTableIndex != other.SymbolTableIndex) return false
+        if (this.symbolTableIndex != other.symbolTableIndex) return false
         if (!this.rgbReserved.contentEquals(other.rgbReserved)) return false
         return true
     }
@@ -461,661 +465,661 @@ public data class IMAGE_AUX_SYMBOL_TOKEN_DEF(
     override fun hashCode(): Int {
         var result = this.bAuxType.hashCode()
         result = 31 * result + this.bReserved.hashCode()
-        result = 31 * result + this.SymbolTableIndex.hashCode()
+        result = 31 * result + this.symbolTableIndex.hashCode()
         result = 31 * result + this.rgbReserved.contentHashCode()
         return result
     }
 }
 
-public data class IMAGE_BASE_RELOCATION(public var VirtualAddress: UInt = 0u, public var SizeOfBlock: UInt = 0u)
+public data class ImageBaseRelocation(public var virtualAddress: UInt = 0u, public var sizeOfBlock: UInt = 0u)
 
-public data class IMAGE_BDD_DYNAMIC_RELOCATION(
-    public var Left: UShort = 0u,
-    public var Right: UShort = 0u,
-    public var Value: UInt = 0u,
+public data class ImageBddDynamicRelocation(
+    public var left: UShort = 0u,
+    public var right: UShort = 0u,
+    public var value: UInt = 0u,
 )
 
-public data class IMAGE_BDD_INFO(public var Version: UInt = 0u, public var BDDSize: UInt = 0u)
+public data class ImageBddInfo(public var version: UInt = 0u, public var bDDSize: UInt = 0u)
 
-public data class IMAGE_BOUND_FORWARDER_REF(
-    public var TimeDateStamp: UInt = 0u,
-    public var OffsetModuleName: UShort = 0u,
-    public var Reserved: UShort = 0u,
+public data class ImageBoundForwarderRef(
+    public var timeDateStamp: UInt = 0u,
+    public var offsetModuleName: UShort = 0u,
+    public var reserved: UShort = 0u,
 )
 
-public data class IMAGE_BOUND_IMPORT_DESCRIPTOR(
-    public var TimeDateStamp: UInt = 0u,
-    public var OffsetModuleName: UShort = 0u,
-    public var NumberOfModuleForwarderRefs: UShort = 0u,
+public data class ImageBoundImportDescriptor(
+    public var timeDateStamp: UInt = 0u,
+    public var offsetModuleName: UShort = 0u,
+    public var numberOfModuleForwarderRefs: UShort = 0u,
 )
 
-public data class IMAGE_CE_RUNTIME_FUNCTION_ENTRY(public var FuncStart: UInt = 0u, public var _bitfield: UInt = 0u)
+public data class ImageCeRuntimeFunctionEntry(public var funcStart: UInt = 0u, public var bitfield: UInt = 0u)
 
-public data class IMAGE_DEBUG_MISC(
-    public var DataType: UInt = 0u,
-    public var Length: UInt = 0u,
-    public var Unicode: Boolean = false,
-    public var Reserved: UByteArray = UByteArray(3),
-    public var Data: UByteArray = UByteArray(1),
+public data class ImageDebugMisc(
+    public var dataType: UInt = 0u,
+    public var length: UInt = 0u,
+    public var unicode: Boolean = false,
+    public var reserved: UByteArray = UByteArray(3),
+    public var data: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IMAGE_DEBUG_MISC) return false
-        if (this.DataType != other.DataType) return false
-        if (this.Length != other.Length) return false
-        if (this.Unicode != other.Unicode) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
-        if (!this.Data.contentEquals(other.Data)) return false
+        if (other !is ImageDebugMisc) return false
+        if (this.dataType != other.dataType) return false
+        if (this.length != other.length) return false
+        if (this.unicode != other.unicode) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
+        if (!this.data.contentEquals(other.data)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.DataType.hashCode()
-        result = 31 * result + this.Length.hashCode()
-        result = 31 * result + this.Unicode.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
-        result = 31 * result + this.Data.contentHashCode()
+        var result = this.dataType.hashCode()
+        result = 31 * result + this.length.hashCode()
+        result = 31 * result + this.unicode.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
+        result = 31 * result + this.data.contentHashCode()
         return result
     }
 }
 
-public class IMAGE_DOS_HEADER(
-    public var e_magic: UShort = 0u,
-    public var e_cblp: UShort = 0u,
-    public var e_cp: UShort = 0u,
-    public var e_crlc: UShort = 0u,
-    public var e_cparhdr: UShort = 0u,
-    public var e_minalloc: UShort = 0u,
-    public var e_maxalloc: UShort = 0u,
-    public var e_ss: UShort = 0u,
-    public var e_sp: UShort = 0u,
-    public var e_csum: UShort = 0u,
-    public var e_ip: UShort = 0u,
-    public var e_cs: UShort = 0u,
-    public var e_lfarlc: UShort = 0u,
-    public var e_ovno: UShort = 0u,
-    public var e_res: UShortArray = UShortArray(4),
-    public var e_oemid: UShort = 0u,
-    public var e_oeminfo: UShort = 0u,
-    public var e_res2: UShortArray = UShortArray(10),
-    public var e_lfanew: Int = 0,
+public class ImageDosHeader(
+    public var eMagic: UShort = 0u,
+    public var eCblp: UShort = 0u,
+    public var eCp: UShort = 0u,
+    public var eCrlc: UShort = 0u,
+    public var eCparhdr: UShort = 0u,
+    public var eMinalloc: UShort = 0u,
+    public var eMaxalloc: UShort = 0u,
+    public var eSs: UShort = 0u,
+    public var eSp: UShort = 0u,
+    public var eCsum: UShort = 0u,
+    public var eIp: UShort = 0u,
+    public var eCs: UShort = 0u,
+    public var eLfarlc: UShort = 0u,
+    public var eOvno: UShort = 0u,
+    public var eRes: UShortArray = UShortArray(4),
+    public var eOemid: UShort = 0u,
+    public var eOeminfo: UShort = 0u,
+    public var eRes2: UShortArray = UShortArray(10),
+    public var eLfanew: Int = 0,
 )
 
-public data class IMAGE_DYNAMIC_RELOCATION32(public var Symbol: UInt = 0u, public var BaseRelocSize: UInt = 0u)
+public data class ImageDynamicRelocation32(public var symbol: UInt = 0u, public var baseRelocSize: UInt = 0u)
 
-public data class IMAGE_DYNAMIC_RELOCATION32_V2(
-    public var HeaderSize: UInt = 0u,
-    public var FixupInfoSize: UInt = 0u,
-    public var Symbol: UInt = 0u,
-    public var SymbolGroup: UInt = 0u,
-    public var Flags: UInt = 0u,
+public data class ImageDynamicRelocation32V2(
+    public var headerSize: UInt = 0u,
+    public var fixupInfoSize: UInt = 0u,
+    public var symbol: UInt = 0u,
+    public var symbolGroup: UInt = 0u,
+    public var flags: UInt = 0u,
 )
 
-public data class IMAGE_DYNAMIC_RELOCATION64(public var Symbol: ULong = 0uL, public var BaseRelocSize: UInt = 0u)
+public data class ImageDynamicRelocation64(public var symbol: ULong = 0uL, public var baseRelocSize: UInt = 0u)
 
-public data class IMAGE_DYNAMIC_RELOCATION64_V2(
-    public var HeaderSize: UInt = 0u,
-    public var FixupInfoSize: UInt = 0u,
-    public var Symbol: ULong = 0uL,
-    public var SymbolGroup: UInt = 0u,
-    public var Flags: UInt = 0u,
+public data class ImageDynamicRelocation64V2(
+    public var headerSize: UInt = 0u,
+    public var fixupInfoSize: UInt = 0u,
+    public var symbol: ULong = 0uL,
+    public var symbolGroup: UInt = 0u,
+    public var flags: UInt = 0u,
 )
 
-public data class IMAGE_DYNAMIC_RELOCATION_TABLE(public var Version: UInt = 0u, public var Size: UInt = 0u)
+public data class ImageDynamicRelocationTable(public var version: UInt = 0u, public var size: UInt = 0u)
 
-public data class IMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER(
-    public var EpilogueCount: UInt = 0u,
-    public var EpilogueByteCount: UByte = 0u,
-    public var BranchDescriptorElementSize: UByte = 0u,
-    public var BranchDescriptorCount: UShort = 0u,
+public data class ImageEpilogueDynamicRelocationHeader(
+    public var epilogueCount: UInt = 0u,
+    public var epilogueByteCount: UByte = 0u,
+    public var branchDescriptorElementSize: UByte = 0u,
+    public var branchDescriptorCount: UShort = 0u,
 )
 
-public data class IMAGE_EXPORT_DIRECTORY(
-    public var Characteristics: UInt = 0u,
-    public var TimeDateStamp: UInt = 0u,
-    public var MajorVersion: UShort = 0u,
-    public var MinorVersion: UShort = 0u,
-    public var Name: UInt = 0u,
-    public var Base: UInt = 0u,
-    public var NumberOfFunctions: UInt = 0u,
-    public var NumberOfNames: UInt = 0u,
-    public var AddressOfFunctions: UInt = 0u,
-    public var AddressOfNames: UInt = 0u,
-    public var AddressOfNameOrdinals: UInt = 0u,
+public data class ImageExportDirectory(
+    public var characteristics: UInt = 0u,
+    public var timeDateStamp: UInt = 0u,
+    public var majorVersion: UShort = 0u,
+    public var minorVersion: UShort = 0u,
+    public var name: UInt = 0u,
+    public var base: UInt = 0u,
+    public var numberOfFunctions: UInt = 0u,
+    public var numberOfNames: UInt = 0u,
+    public var addressOfFunctions: UInt = 0u,
+    public var addressOfNames: UInt = 0u,
+    public var addressOfNameOrdinals: UInt = 0u,
 )
 
-public data class IMAGE_FUNCTION_OVERRIDE_DYNAMIC_RELOCATION(
-    public var OriginalRva: UInt = 0u,
-    public var BDDOffset: UInt = 0u,
-    public var RvaSize: UInt = 0u,
-    public var BaseRelocSize: UInt = 0u,
+public data class ImageFunctionOverrideDynamicRelocation(
+    public var originalRva: UInt = 0u,
+    public var bDDOffset: UInt = 0u,
+    public var rvaSize: UInt = 0u,
+    public var baseRelocSize: UInt = 0u,
 )
 
-public data class IMAGE_FUNCTION_OVERRIDE_HEADER(public var FuncOverrideSize: UInt = 0u)
+public data class ImageFunctionOverrideHeader(public var funcOverrideSize: UInt = 0u)
 
-public data class IMAGE_HOT_PATCH_BASE(
-    public var SequenceNumber: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var OriginalTimeDateStamp: UInt = 0u,
-    public var OriginalCheckSum: UInt = 0u,
-    public var CodeIntegrityInfo: UInt = 0u,
-    public var CodeIntegritySize: UInt = 0u,
-    public var PatchTable: UInt = 0u,
-    public var BufferOffset: UInt = 0u,
+public data class ImageHotPatchBase(
+    public var sequenceNumber: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var originalTimeDateStamp: UInt = 0u,
+    public var originalCheckSum: UInt = 0u,
+    public var codeIntegrityInfo: UInt = 0u,
+    public var codeIntegritySize: UInt = 0u,
+    public var patchTable: UInt = 0u,
+    public var bufferOffset: UInt = 0u,
 )
 
-public data class IMAGE_HOT_PATCH_HASHES(public var SHA256: UByteArray = UByteArray(32), public var SHA1: UByteArray = UByteArray(20)) {
+public data class ImageHotPatchHashes(public var sha256: UByteArray = UByteArray(32), public var sha1: UByteArray = UByteArray(20)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IMAGE_HOT_PATCH_HASHES) return false
-        if (!this.SHA256.contentEquals(other.SHA256)) return false
-        if (!this.SHA1.contentEquals(other.SHA1)) return false
+        if (other !is ImageHotPatchHashes) return false
+        if (!this.sha256.contentEquals(other.sha256)) return false
+        if (!this.sha1.contentEquals(other.sha1)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.SHA256.contentHashCode()
-        result = 31 * result + this.SHA1.contentHashCode()
+        var result = this.sha256.contentHashCode()
+        result = 31 * result + this.sha1.contentHashCode()
         return result
     }
 }
 
-public data class IMAGE_HOT_PATCH_INFO(
-    public var Version: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var SequenceNumber: UInt = 0u,
-    public var BaseImageList: UInt = 0u,
-    public var BaseImageCount: UInt = 0u,
-    public var BufferOffset: UInt = 0u,
-    public var ExtraPatchSize: UInt = 0u,
+public data class ImageHotPatchInfo(
+    public var version: UInt = 0u,
+    public var size: UInt = 0u,
+    public var sequenceNumber: UInt = 0u,
+    public var baseImageList: UInt = 0u,
+    public var baseImageCount: UInt = 0u,
+    public var bufferOffset: UInt = 0u,
+    public var extraPatchSize: UInt = 0u,
 )
 
-public data class IMAGE_IMPORT_BY_NAME(public var Hint: UShort = 0u, public var Name: ByteArray = ByteArray(1)) {
+public data class ImageImportByName(public var hint: UShort = 0u, public var name: ByteArray = ByteArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IMAGE_IMPORT_BY_NAME) return false
-        if (this.Hint != other.Hint) return false
-        if (!this.Name.contentEquals(other.Name)) return false
+        if (other !is ImageImportByName) return false
+        if (this.hint != other.hint) return false
+        if (!this.name.contentEquals(other.name)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Hint.hashCode()
-        result = 31 * result + this.Name.contentHashCode()
+        var result = this.hint.hashCode()
+        result = 31 * result + this.name.contentHashCode()
         return result
     }
 }
 
-public data class IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION(public var _bitfield: UInt = 0u)
+public data class ImageImportControlTransferDynamicRelocation(public var bitfield: UInt = 0u)
 
-public data class IMAGE_IMPORT_DESCRIPTOR(
-    public var Anonymous: IMAGE_IMPORT_DESCRIPTOR_0 = IMAGE_IMPORT_DESCRIPTOR_0(),
-    public var TimeDateStamp: UInt = 0u,
-    public var ForwarderChain: UInt = 0u,
-    public var Name: UInt = 0u,
-    public var FirstThunk: UInt = 0u,
+public data class ImageImportDescriptor(
+    public var anonymous: ImageImportDescriptor0 = ImageImportDescriptor0(),
+    public var timeDateStamp: UInt = 0u,
+    public var forwarderChain: UInt = 0u,
+    public var name: UInt = 0u,
+    public var firstThunk: UInt = 0u,
 )
 
-public data class IMAGE_IMPORT_DESCRIPTOR_0(public var Characteristics: UInt = 0u, public var OriginalFirstThunk: UInt = 0u)
+public data class ImageImportDescriptor0(public var characteristics: UInt = 0u, public var originalFirstThunk: UInt = 0u)
 
-public data class IMAGE_INDIR_CONTROL_TRANSFER_DYNAMIC_RELOCATION(public var _bitfield: UShort = 0u)
+public data class ImageIndirControlTransferDynamicRelocation(public var bitfield: UShort = 0u)
 
-public data class IMAGE_LINENUMBER(public var Type: IMAGE_LINENUMBER_0 = IMAGE_LINENUMBER_0(), public var Linenumber: UShort = 0u)
+public data class ImageLinenumber(public var type: ImageLinenumber0 = ImageLinenumber0(), public var linenumber: UShort = 0u)
 
-public data class IMAGE_LINENUMBER_0(public var SymbolTableIndex: UInt = 0u, public var VirtualAddress: UInt = 0u)
+public data class ImageLinenumber0(public var symbolTableIndex: UInt = 0u, public var virtualAddress: UInt = 0u)
 
-public class IMAGE_OS2_HEADER(
-    public var ne_magic: UShort = 0u,
-    public var ne_ver: Byte = 0,
-    public var ne_rev: Byte = 0,
-    public var ne_enttab: UShort = 0u,
-    public var ne_cbenttab: UShort = 0u,
-    public var ne_crc: Int = 0,
-    public var ne_flags: UShort = 0u,
-    public var ne_autodata: UShort = 0u,
-    public var ne_heap: UShort = 0u,
-    public var ne_stack: UShort = 0u,
-    public var ne_csip: Int = 0,
-    public var ne_sssp: Int = 0,
-    public var ne_cseg: UShort = 0u,
-    public var ne_cmod: UShort = 0u,
-    public var ne_cbnrestab: UShort = 0u,
-    public var ne_segtab: UShort = 0u,
-    public var ne_rsrctab: UShort = 0u,
-    public var ne_restab: UShort = 0u,
-    public var ne_modtab: UShort = 0u,
-    public var ne_imptab: UShort = 0u,
-    public var ne_nrestab: Int = 0,
-    public var ne_cmovent: UShort = 0u,
-    public var ne_align: UShort = 0u,
-    public var ne_cres: UShort = 0u,
-    public var ne_exetyp: UByte = 0u,
-    public var ne_flagsothers: UByte = 0u,
-    public var ne_pretthunks: UShort = 0u,
-    public var ne_psegrefbytes: UShort = 0u,
-    public var ne_swaparea: UShort = 0u,
-    public var ne_expver: UShort = 0u,
+public class ImageOs2Header(
+    public var neMagic: UShort = 0u,
+    public var neVer: Byte = 0,
+    public var neRev: Byte = 0,
+    public var neEnttab: UShort = 0u,
+    public var neCbenttab: UShort = 0u,
+    public var neCrc: Int = 0,
+    public var neFlags: UShort = 0u,
+    public var neAutodata: UShort = 0u,
+    public var neHeap: UShort = 0u,
+    public var neStack: UShort = 0u,
+    public var neCsip: Int = 0,
+    public var neSssp: Int = 0,
+    public var neCseg: UShort = 0u,
+    public var neCmod: UShort = 0u,
+    public var neCbnrestab: UShort = 0u,
+    public var neSegtab: UShort = 0u,
+    public var neRsrctab: UShort = 0u,
+    public var neRestab: UShort = 0u,
+    public var neModtab: UShort = 0u,
+    public var neImptab: UShort = 0u,
+    public var neNrestab: Int = 0,
+    public var neCmovent: UShort = 0u,
+    public var neAlign: UShort = 0u,
+    public var neCres: UShort = 0u,
+    public var neExetyp: UByte = 0u,
+    public var neFlagsothers: UByte = 0u,
+    public var nePretthunks: UShort = 0u,
+    public var nePsegrefbytes: UShort = 0u,
+    public var neSwaparea: UShort = 0u,
+    public var neExpver: UShort = 0u,
 )
 
-public data class IMAGE_POLICY_ENTRY(
-    public var Type: IMAGE_POLICY_ENTRY_TYPE = 0,
-    public var PolicyId: IMAGE_POLICY_ID = 0,
-    public var u: IMAGE_POLICY_ENTRY_0 = IMAGE_POLICY_ENTRY_0(),
+public data class ImagePolicyEntry(
+    public var type: ImagePolicyEntryType = 0,
+    public var policyId: ImagePolicyId = 0,
+    public var u: ImagePolicyEntry0 = ImagePolicyEntry0(),
 )
 
-public data class IMAGE_POLICY_ENTRY_0(
-    public var None: Long = 0L,
-    public var BoolValue: Boolean = false,
-    public var Int8Value: Byte = 0,
-    public var UInt8Value: UByte = 0u,
-    public var Int16Value: Short = 0,
-    public var UInt16Value: UShort = 0u,
-    public var Int32Value: Int = 0,
-    public var UInt32Value: UInt = 0u,
-    public var Int64Value: Long = 0L,
-    public var UInt64Value: ULong = 0uL,
-    public var AnsiStringValue: PCSTR = 0L,
-    public var UnicodeStringValue: PCWSTR = 0L,
+public data class ImagePolicyEntry0(
+    public var none: COpaquePointer? = null,
+    public var boolValue: Boolean = false,
+    public var int8Value: Byte = 0,
+    public var uInt8Value: UByte = 0u,
+    public var int16Value: Short = 0,
+    public var uInt16Value: UShort = 0u,
+    public var int32Value: Int = 0,
+    public var uInt32Value: UInt = 0u,
+    public var int64Value: Long = 0L,
+    public var uInt64Value: ULong = 0uL,
+    public var ansiStringValue: Pcstr = null,
+    public var unicodeStringValue: Pcwstr = null,
 )
 
-public data class IMAGE_POLICY_METADATA(
-    public var Version: UByte = 0u,
-    public var Reserved0: UByteArray = UByteArray(7),
-    public var ApplicationId: ULong = 0uL,
-    public var Policies: List<IMAGE_POLICY_ENTRY> = List(1) { IMAGE_POLICY_ENTRY() },
+public data class ImagePolicyMetadata(
+    public var version: UByte = 0u,
+    public var reserved0: UByteArray = UByteArray(7),
+    public var applicationId: ULong = 0uL,
+    public var policies: List<ImagePolicyEntry> = List(1) { ImagePolicyEntry() },
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IMAGE_POLICY_METADATA) return false
-        if (this.Version != other.Version) return false
-        if (!this.Reserved0.contentEquals(other.Reserved0)) return false
-        if (this.ApplicationId != other.ApplicationId) return false
-        if (this.Policies != other.Policies) return false
+        if (other !is ImagePolicyMetadata) return false
+        if (this.version != other.version) return false
+        if (!this.reserved0.contentEquals(other.reserved0)) return false
+        if (this.applicationId != other.applicationId) return false
+        if (this.policies != other.policies) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Version.hashCode()
-        result = 31 * result + this.Reserved0.contentHashCode()
-        result = 31 * result + this.ApplicationId.hashCode()
-        result = 31 * result + this.Policies.hashCode()
+        var result = this.version.hashCode()
+        result = 31 * result + this.reserved0.contentHashCode()
+        result = 31 * result + this.applicationId.hashCode()
+        result = 31 * result + this.policies.hashCode()
         return result
     }
 }
 
-public data class IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER(public var PrologueByteCount: UByte = 0u)
+public data class ImagePrologueDynamicRelocationHeader(public var prologueByteCount: UByte = 0u)
 
-public data class IMAGE_RELOCATION(
-    public var Anonymous: IMAGE_RELOCATION_0 = IMAGE_RELOCATION_0(),
-    public var SymbolTableIndex: UInt = 0u,
-    public var Type: UShort = 0u,
+public data class ImageRelocation(
+    public var anonymous: ImageRelocation0 = ImageRelocation0(),
+    public var symbolTableIndex: UInt = 0u,
+    public var type: UShort = 0u,
 )
 
-public data class IMAGE_RELOCATION_0(public var VirtualAddress: UInt = 0u, public var RelocCount: UInt = 0u)
+public data class ImageRelocation0(public var virtualAddress: UInt = 0u, public var relocCount: UInt = 0u)
 
-public data class IMAGE_RESOURCE_DATA_ENTRY(
-    public var OffsetToData: UInt = 0u,
-    public var Size: UInt = 0u,
-    public var CodePage: UInt = 0u,
-    public var Reserved: UInt = 0u,
+public data class ImageResourceDataEntry(
+    public var offsetToData: UInt = 0u,
+    public var size: UInt = 0u,
+    public var codePage: UInt = 0u,
+    public var reserved: UInt = 0u,
 )
 
-public data class IMAGE_RESOURCE_DIRECTORY(
-    public var Characteristics: UInt = 0u,
-    public var TimeDateStamp: UInt = 0u,
-    public var MajorVersion: UShort = 0u,
-    public var MinorVersion: UShort = 0u,
-    public var NumberOfNamedEntries: UShort = 0u,
-    public var NumberOfIdEntries: UShort = 0u,
+public data class ImageResourceDirectory(
+    public var characteristics: UInt = 0u,
+    public var timeDateStamp: UInt = 0u,
+    public var majorVersion: UShort = 0u,
+    public var minorVersion: UShort = 0u,
+    public var numberOfNamedEntries: UShort = 0u,
+    public var numberOfIdEntries: UShort = 0u,
 )
 
-public data class IMAGE_RESOURCE_DIRECTORY_ENTRY(public var Anonymous1: IMAGE_RESOURCE_DIRECTORY_ENTRY_0 = IMAGE_RESOURCE_DIRECTORY_ENTRY_0(), public var Anonymous2: IMAGE_RESOURCE_DIRECTORY_ENTRY_1 = IMAGE_RESOURCE_DIRECTORY_ENTRY_1())
+public data class ImageResourceDirectoryEntry(public var anonymous1: ImageResourceDirectoryEntry0 = ImageResourceDirectoryEntry0(), public var anonymous2: ImageResourceDirectoryEntry1 = ImageResourceDirectoryEntry1())
 
-public data class IMAGE_RESOURCE_DIRECTORY_ENTRY_0(
-    public var Anonymous: IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0 = IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0(),
-    public var Name: UInt = 0u,
-    public var Id: UShort = 0u,
+public data class ImageResourceDirectoryEntry0(
+    public var anonymous: ImageResourceDirectoryEntry00 = ImageResourceDirectoryEntry00(),
+    public var name: UInt = 0u,
+    public var id: UShort = 0u,
 )
 
-public data class IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0(public var _bitfield: UInt = 0u)
+public data class ImageResourceDirectoryEntry00(public var bitfield: UInt = 0u)
 
-public data class IMAGE_RESOURCE_DIRECTORY_ENTRY_1(public var OffsetToData: UInt = 0u, public var Anonymous: IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0 = IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0())
+public data class ImageResourceDirectoryEntry1(public var offsetToData: UInt = 0u, public var anonymous: ImageResourceDirectoryEntry10 = ImageResourceDirectoryEntry10())
 
-public data class IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0(public var _bitfield: UInt = 0u)
+public data class ImageResourceDirectoryEntry10(public var bitfield: UInt = 0u)
 
-public data class IMAGE_RESOURCE_DIRECTORY_STRING(public var Length: UShort = 0u, public var NameString: ByteArray = ByteArray(1)) {
+public data class ImageResourceDirectoryString(public var length: UShort = 0u, public var nameString: ByteArray = ByteArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IMAGE_RESOURCE_DIRECTORY_STRING) return false
-        if (this.Length != other.Length) return false
-        if (!this.NameString.contentEquals(other.NameString)) return false
+        if (other !is ImageResourceDirectoryString) return false
+        if (this.length != other.length) return false
+        if (!this.nameString.contentEquals(other.nameString)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Length.hashCode()
-        result = 31 * result + this.NameString.contentHashCode()
+        var result = this.length.hashCode()
+        result = 31 * result + this.nameString.contentHashCode()
         return result
     }
 }
 
-public data class IMAGE_RESOURCE_DIR_STRING_U(public var Length: UShort = 0u, public var NameString: UShortArray = UShortArray(1)) {
+public data class ImageResourceDirStringU(public var length: UShort = 0u, public var nameString: UShortArray = UShortArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IMAGE_RESOURCE_DIR_STRING_U) return false
-        if (this.Length != other.Length) return false
-        if (!this.NameString.contentEquals(other.NameString)) return false
+        if (other !is ImageResourceDirStringU) return false
+        if (this.length != other.length) return false
+        if (!this.nameString.contentEquals(other.nameString)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Length.hashCode()
-        result = 31 * result + this.NameString.contentHashCode()
+        var result = this.length.hashCode()
+        result = 31 * result + this.nameString.contentHashCode()
         return result
     }
 }
 
-public data class IMAGE_SEPARATE_DEBUG_HEADER(
-    public var Signature: UShort = 0u,
-    public var Flags: UShort = 0u,
-    public var Machine: UShort = 0u,
-    public var Characteristics: UShort = 0u,
-    public var TimeDateStamp: UInt = 0u,
-    public var CheckSum: UInt = 0u,
-    public var ImageBase: UInt = 0u,
-    public var SizeOfImage: UInt = 0u,
-    public var NumberOfSections: UInt = 0u,
-    public var ExportedNamesSize: UInt = 0u,
-    public var DebugDirectorySize: UInt = 0u,
-    public var SectionAlignment: UInt = 0u,
-    public var Reserved: UIntArray = UIntArray(2),
+public data class ImageSeparateDebugHeader(
+    public var signature: UShort = 0u,
+    public var flags: UShort = 0u,
+    public var machine: UShort = 0u,
+    public var characteristics: UShort = 0u,
+    public var timeDateStamp: UInt = 0u,
+    public var checkSum: UInt = 0u,
+    public var imageBase: UInt = 0u,
+    public var sizeOfImage: UInt = 0u,
+    public var numberOfSections: UInt = 0u,
+    public var exportedNamesSize: UInt = 0u,
+    public var debugDirectorySize: UInt = 0u,
+    public var sectionAlignment: UInt = 0u,
+    public var reserved: UIntArray = UIntArray(2),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IMAGE_SEPARATE_DEBUG_HEADER) return false
-        if (this.Signature != other.Signature) return false
-        if (this.Flags != other.Flags) return false
-        if (this.Machine != other.Machine) return false
-        if (this.Characteristics != other.Characteristics) return false
-        if (this.TimeDateStamp != other.TimeDateStamp) return false
-        if (this.CheckSum != other.CheckSum) return false
-        if (this.ImageBase != other.ImageBase) return false
-        if (this.SizeOfImage != other.SizeOfImage) return false
-        if (this.NumberOfSections != other.NumberOfSections) return false
-        if (this.ExportedNamesSize != other.ExportedNamesSize) return false
-        if (this.DebugDirectorySize != other.DebugDirectorySize) return false
-        if (this.SectionAlignment != other.SectionAlignment) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
+        if (other !is ImageSeparateDebugHeader) return false
+        if (this.signature != other.signature) return false
+        if (this.flags != other.flags) return false
+        if (this.machine != other.machine) return false
+        if (this.characteristics != other.characteristics) return false
+        if (this.timeDateStamp != other.timeDateStamp) return false
+        if (this.checkSum != other.checkSum) return false
+        if (this.imageBase != other.imageBase) return false
+        if (this.sizeOfImage != other.sizeOfImage) return false
+        if (this.numberOfSections != other.numberOfSections) return false
+        if (this.exportedNamesSize != other.exportedNamesSize) return false
+        if (this.debugDirectorySize != other.debugDirectorySize) return false
+        if (this.sectionAlignment != other.sectionAlignment) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Signature.hashCode()
-        result = 31 * result + this.Flags.hashCode()
-        result = 31 * result + this.Machine.hashCode()
-        result = 31 * result + this.Characteristics.hashCode()
-        result = 31 * result + this.TimeDateStamp.hashCode()
-        result = 31 * result + this.CheckSum.hashCode()
-        result = 31 * result + this.ImageBase.hashCode()
-        result = 31 * result + this.SizeOfImage.hashCode()
-        result = 31 * result + this.NumberOfSections.hashCode()
-        result = 31 * result + this.ExportedNamesSize.hashCode()
-        result = 31 * result + this.DebugDirectorySize.hashCode()
-        result = 31 * result + this.SectionAlignment.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
+        var result = this.signature.hashCode()
+        result = 31 * result + this.flags.hashCode()
+        result = 31 * result + this.machine.hashCode()
+        result = 31 * result + this.characteristics.hashCode()
+        result = 31 * result + this.timeDateStamp.hashCode()
+        result = 31 * result + this.checkSum.hashCode()
+        result = 31 * result + this.imageBase.hashCode()
+        result = 31 * result + this.sizeOfImage.hashCode()
+        result = 31 * result + this.numberOfSections.hashCode()
+        result = 31 * result + this.exportedNamesSize.hashCode()
+        result = 31 * result + this.debugDirectorySize.hashCode()
+        result = 31 * result + this.sectionAlignment.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
         return result
     }
 }
 
-public data class IMAGE_SWITCHTABLE_BRANCH_DYNAMIC_RELOCATION(public var _bitfield: UShort = 0u)
+public data class ImageSwitchtableBranchDynamicRelocation(public var bitfield: UShort = 0u)
 
-public data class IMAGE_SYMBOL(
-    public var N: IMAGE_SYMBOL_0 = IMAGE_SYMBOL_0(),
-    public var Value: UInt = 0u,
-    public var SectionNumber: Short = 0,
-    public var Type: UShort = 0u,
-    public var StorageClass: UByte = 0u,
-    public var NumberOfAuxSymbols: UByte = 0u,
+public data class ImageSymbol(
+    public var n: ImageSymbol0 = ImageSymbol0(),
+    public var value: UInt = 0u,
+    public var sectionNumber: Short = 0,
+    public var type: UShort = 0u,
+    public var storageClass: UByte = 0u,
+    public var numberOfAuxSymbols: UByte = 0u,
 )
 
-public data class IMAGE_SYMBOL_0(
-    public var ShortName: UByteArray = UByteArray(8),
-    public var Name: IMAGE_SYMBOL_0_0 = IMAGE_SYMBOL_0_0(),
-    public var LongName: UIntArray = UIntArray(2),
+public data class ImageSymbol0(
+    public var shortName: UByteArray = UByteArray(8),
+    public var name: ImageSymbol00 = ImageSymbol00(),
+    public var longName: UIntArray = UIntArray(2),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IMAGE_SYMBOL_0) return false
-        if (!this.ShortName.contentEquals(other.ShortName)) return false
-        if (this.Name != other.Name) return false
-        if (!this.LongName.contentEquals(other.LongName)) return false
+        if (other !is ImageSymbol0) return false
+        if (!this.shortName.contentEquals(other.shortName)) return false
+        if (this.name != other.name) return false
+        if (!this.longName.contentEquals(other.longName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ShortName.contentHashCode()
-        result = 31 * result + this.Name.hashCode()
-        result = 31 * result + this.LongName.contentHashCode()
+        var result = this.shortName.contentHashCode()
+        result = 31 * result + this.name.hashCode()
+        result = 31 * result + this.longName.contentHashCode()
         return result
     }
 }
 
-public data class IMAGE_SYMBOL_0_0(public var Short: UInt = 0u, public var Long: UInt = 0u)
+public data class ImageSymbol00(public var short: UInt = 0u, public var long: UInt = 0u)
 
-public data class IMAGE_SYMBOL_EX(
-    public var N: IMAGE_SYMBOL_EX_0 = IMAGE_SYMBOL_EX_0(),
-    public var Value: UInt = 0u,
-    public var SectionNumber: Int = 0,
-    public var Type: UShort = 0u,
-    public var StorageClass: UByte = 0u,
-    public var NumberOfAuxSymbols: UByte = 0u,
+public data class ImageSymbolEx(
+    public var n: ImageSymbolEx0 = ImageSymbolEx0(),
+    public var value: UInt = 0u,
+    public var sectionNumber: Int = 0,
+    public var type: UShort = 0u,
+    public var storageClass: UByte = 0u,
+    public var numberOfAuxSymbols: UByte = 0u,
 )
 
-public data class IMAGE_SYMBOL_EX_0(
-    public var ShortName: UByteArray = UByteArray(8),
-    public var Name: IMAGE_SYMBOL_EX_0_0 = IMAGE_SYMBOL_EX_0_0(),
-    public var LongName: UIntArray = UIntArray(2),
+public data class ImageSymbolEx0(
+    public var shortName: UByteArray = UByteArray(8),
+    public var name: ImageSymbolEx00 = ImageSymbolEx00(),
+    public var longName: UIntArray = UIntArray(2),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IMAGE_SYMBOL_EX_0) return false
-        if (!this.ShortName.contentEquals(other.ShortName)) return false
-        if (this.Name != other.Name) return false
-        if (!this.LongName.contentEquals(other.LongName)) return false
+        if (other !is ImageSymbolEx0) return false
+        if (!this.shortName.contentEquals(other.shortName)) return false
+        if (this.name != other.name) return false
+        if (!this.longName.contentEquals(other.longName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ShortName.contentHashCode()
-        result = 31 * result + this.Name.hashCode()
-        result = 31 * result + this.LongName.contentHashCode()
+        var result = this.shortName.contentHashCode()
+        result = 31 * result + this.name.hashCode()
+        result = 31 * result + this.longName.contentHashCode()
         return result
     }
 }
 
-public data class IMAGE_SYMBOL_EX_0_0(public var Short: UInt = 0u, public var Long: UInt = 0u)
+public data class ImageSymbolEx00(public var short: UInt = 0u, public var long: UInt = 0u)
 
-public data class IMAGE_TLS_DIRECTORY32(
-    public var StartAddressOfRawData: UInt = 0u,
-    public var EndAddressOfRawData: UInt = 0u,
-    public var AddressOfIndex: UInt = 0u,
-    public var AddressOfCallBacks: UInt = 0u,
-    public var SizeOfZeroFill: UInt = 0u,
-    public var Anonymous: IMAGE_TLS_DIRECTORY32_0 = IMAGE_TLS_DIRECTORY32_0(),
+public data class ImageTlsDirectory32(
+    public var startAddressOfRawData: UInt = 0u,
+    public var endAddressOfRawData: UInt = 0u,
+    public var addressOfIndex: UInt = 0u,
+    public var addressOfCallBacks: UInt = 0u,
+    public var sizeOfZeroFill: UInt = 0u,
+    public var anonymous: ImageTlsDirectory320 = ImageTlsDirectory320(),
 )
 
-public data class IMAGE_TLS_DIRECTORY32_0(public var Characteristics: UInt = 0u, public var Anonymous: IMAGE_TLS_DIRECTORY32_0_0 = IMAGE_TLS_DIRECTORY32_0_0())
+public data class ImageTlsDirectory320(public var characteristics: UInt = 0u, public var anonymous: ImageTlsDirectory3200 = ImageTlsDirectory3200())
 
-public data class IMAGE_TLS_DIRECTORY32_0_0(public var _bitfield: UInt = 0u)
+public data class ImageTlsDirectory3200(public var bitfield: UInt = 0u)
 
-public data class IMAGE_TLS_DIRECTORY64(
-    public var StartAddressOfRawData: ULong = 0uL,
-    public var EndAddressOfRawData: ULong = 0uL,
-    public var AddressOfIndex: ULong = 0uL,
-    public var AddressOfCallBacks: ULong = 0uL,
-    public var SizeOfZeroFill: UInt = 0u,
-    public var Anonymous: IMAGE_TLS_DIRECTORY64_0 = IMAGE_TLS_DIRECTORY64_0(),
+public data class ImageTlsDirectory64(
+    public var startAddressOfRawData: ULong = 0uL,
+    public var endAddressOfRawData: ULong = 0uL,
+    public var addressOfIndex: ULong = 0uL,
+    public var addressOfCallBacks: ULong = 0uL,
+    public var sizeOfZeroFill: UInt = 0u,
+    public var anonymous: ImageTlsDirectory640 = ImageTlsDirectory640(),
 )
 
-public data class IMAGE_TLS_DIRECTORY64_0(public var Characteristics: UInt = 0u, public var Anonymous: IMAGE_TLS_DIRECTORY64_0_0 = IMAGE_TLS_DIRECTORY64_0_0())
+public data class ImageTlsDirectory640(public var characteristics: UInt = 0u, public var anonymous: ImageTlsDirectory6400 = ImageTlsDirectory6400())
 
-public data class IMAGE_TLS_DIRECTORY64_0_0(public var _bitfield: UInt = 0u)
+public data class ImageTlsDirectory6400(public var bitfield: UInt = 0u)
 
-public class IMAGE_VXD_HEADER(
-    public var e32_magic: UShort = 0u,
-    public var e32_border: UByte = 0u,
-    public var e32_worder: UByte = 0u,
-    public var e32_level: UInt = 0u,
-    public var e32_cpu: UShort = 0u,
-    public var e32_os: UShort = 0u,
-    public var e32_ver: UInt = 0u,
-    public var e32_mflags: UInt = 0u,
-    public var e32_mpages: UInt = 0u,
-    public var e32_startobj: UInt = 0u,
-    public var e32_eip: UInt = 0u,
-    public var e32_stackobj: UInt = 0u,
-    public var e32_esp: UInt = 0u,
-    public var e32_pagesize: UInt = 0u,
-    public var e32_lastpagesize: UInt = 0u,
-    public var e32_fixupsize: UInt = 0u,
-    public var e32_fixupsum: UInt = 0u,
-    public var e32_ldrsize: UInt = 0u,
-    public var e32_ldrsum: UInt = 0u,
-    public var e32_objtab: UInt = 0u,
-    public var e32_objcnt: UInt = 0u,
-    public var e32_objmap: UInt = 0u,
-    public var e32_itermap: UInt = 0u,
-    public var e32_rsrctab: UInt = 0u,
-    public var e32_rsrccnt: UInt = 0u,
-    public var e32_restab: UInt = 0u,
-    public var e32_enttab: UInt = 0u,
-    public var e32_dirtab: UInt = 0u,
-    public var e32_dircnt: UInt = 0u,
-    public var e32_fpagetab: UInt = 0u,
-    public var e32_frectab: UInt = 0u,
-    public var e32_impmod: UInt = 0u,
-    public var e32_impmodcnt: UInt = 0u,
-    public var e32_impproc: UInt = 0u,
-    public var e32_pagesum: UInt = 0u,
-    public var e32_datapage: UInt = 0u,
-    public var e32_preload: UInt = 0u,
-    public var e32_nrestab: UInt = 0u,
-    public var e32_cbnrestab: UInt = 0u,
-    public var e32_nressum: UInt = 0u,
-    public var e32_autodata: UInt = 0u,
-    public var e32_debuginfo: UInt = 0u,
-    public var e32_debuglen: UInt = 0u,
-    public var e32_instpreload: UInt = 0u,
-    public var e32_instdemand: UInt = 0u,
-    public var e32_heapsize: UInt = 0u,
-    public var e32_res3: UByteArray = UByteArray(12),
-    public var e32_winresoff: UInt = 0u,
-    public var e32_winreslen: UInt = 0u,
-    public var e32_devid: UShort = 0u,
-    public var e32_ddkver: UShort = 0u,
+public class ImageVxdHeader(
+    public var e32Magic: UShort = 0u,
+    public var e32Border: UByte = 0u,
+    public var e32Worder: UByte = 0u,
+    public var e32Level: UInt = 0u,
+    public var e32Cpu: UShort = 0u,
+    public var e32Os: UShort = 0u,
+    public var e32Ver: UInt = 0u,
+    public var e32Mflags: UInt = 0u,
+    public var e32Mpages: UInt = 0u,
+    public var e32Startobj: UInt = 0u,
+    public var e32Eip: UInt = 0u,
+    public var e32Stackobj: UInt = 0u,
+    public var e32Esp: UInt = 0u,
+    public var e32Pagesize: UInt = 0u,
+    public var e32Lastpagesize: UInt = 0u,
+    public var e32Fixupsize: UInt = 0u,
+    public var e32Fixupsum: UInt = 0u,
+    public var e32Ldrsize: UInt = 0u,
+    public var e32Ldrsum: UInt = 0u,
+    public var e32Objtab: UInt = 0u,
+    public var e32Objcnt: UInt = 0u,
+    public var e32Objmap: UInt = 0u,
+    public var e32Itermap: UInt = 0u,
+    public var e32Rsrctab: UInt = 0u,
+    public var e32Rsrccnt: UInt = 0u,
+    public var e32Restab: UInt = 0u,
+    public var e32Enttab: UInt = 0u,
+    public var e32Dirtab: UInt = 0u,
+    public var e32Dircnt: UInt = 0u,
+    public var e32Fpagetab: UInt = 0u,
+    public var e32Frectab: UInt = 0u,
+    public var e32Impmod: UInt = 0u,
+    public var e32Impmodcnt: UInt = 0u,
+    public var e32Impproc: UInt = 0u,
+    public var e32Pagesum: UInt = 0u,
+    public var e32Datapage: UInt = 0u,
+    public var e32Preload: UInt = 0u,
+    public var e32Nrestab: UInt = 0u,
+    public var e32Cbnrestab: UInt = 0u,
+    public var e32Nressum: UInt = 0u,
+    public var e32Autodata: UInt = 0u,
+    public var e32Debuginfo: UInt = 0u,
+    public var e32Debuglen: UInt = 0u,
+    public var e32Instpreload: UInt = 0u,
+    public var e32Instdemand: UInt = 0u,
+    public var e32Heapsize: UInt = 0u,
+    public var e32Res3: UByteArray = UByteArray(12),
+    public var e32Winresoff: UInt = 0u,
+    public var e32Winreslen: UInt = 0u,
+    public var e32Devid: UShort = 0u,
+    public var e32Ddkver: UShort = 0u,
 )
 
-public data class IMPORT_OBJECT_HEADER(
-    public var Sig1: UShort = 0u,
-    public var Sig2: UShort = 0u,
-    public var Version: UShort = 0u,
-    public var Machine: UShort = 0u,
-    public var TimeDateStamp: UInt = 0u,
-    public var SizeOfData: UInt = 0u,
-    public var Anonymous: IMPORT_OBJECT_HEADER_0 = IMPORT_OBJECT_HEADER_0(),
-    public var _bitfield: UShort = 0u,
+public data class ImportObjectHeader(
+    public var sig1: UShort = 0u,
+    public var sig2: UShort = 0u,
+    public var version: UShort = 0u,
+    public var machine: UShort = 0u,
+    public var timeDateStamp: UInt = 0u,
+    public var sizeOfData: UInt = 0u,
+    public var anonymous: ImportObjectHeader0 = ImportObjectHeader0(),
+    public var bitfield: UShort = 0u,
 )
 
-public data class IMPORT_OBJECT_HEADER_0(public var Ordinal: UShort = 0u, public var Hint: UShort = 0u)
+public data class ImportObjectHeader0(public var ordinal: UShort = 0u, public var hint: UShort = 0u)
 
-public data class KERNEL_CET_CONTEXT(
-    public var Ssp: ULong = 0uL,
-    public var Rip: ULong = 0uL,
-    public var SegCs: UShort = 0u,
-    public var Anonymous: KERNEL_CET_CONTEXT_0 = KERNEL_CET_CONTEXT_0(),
-    public var Fill: UShortArray = UShortArray(2),
+public data class KernelCetContext(
+    public var ssp: ULong = 0uL,
+    public var rip: ULong = 0uL,
+    public var segCs: UShort = 0u,
+    public var anonymous: KernelCetContext0 = KernelCetContext0(),
+    public var fill: UShortArray = UShortArray(2),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is KERNEL_CET_CONTEXT) return false
-        if (this.Ssp != other.Ssp) return false
-        if (this.Rip != other.Rip) return false
-        if (this.SegCs != other.SegCs) return false
-        if (this.Anonymous != other.Anonymous) return false
-        if (!this.Fill.contentEquals(other.Fill)) return false
+        if (other !is KernelCetContext) return false
+        if (this.ssp != other.ssp) return false
+        if (this.rip != other.rip) return false
+        if (this.segCs != other.segCs) return false
+        if (this.anonymous != other.anonymous) return false
+        if (!this.fill.contentEquals(other.fill)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Ssp.hashCode()
-        result = 31 * result + this.Rip.hashCode()
-        result = 31 * result + this.SegCs.hashCode()
-        result = 31 * result + this.Anonymous.hashCode()
-        result = 31 * result + this.Fill.contentHashCode()
+        var result = this.ssp.hashCode()
+        result = 31 * result + this.rip.hashCode()
+        result = 31 * result + this.segCs.hashCode()
+        result = 31 * result + this.anonymous.hashCode()
+        result = 31 * result + this.fill.contentHashCode()
         return result
     }
 }
 
-public data class KERNEL_CET_CONTEXT_0(public var AllFlags: UShort = 0u, public var Anonymous: KERNEL_CET_CONTEXT_0_0 = KERNEL_CET_CONTEXT_0_0())
+public data class KernelCetContext0(public var allFlags: UShort = 0u, public var anonymous: KernelCetContext00 = KernelCetContext00())
 
-public data class KERNEL_CET_CONTEXT_0_0(public var _bitfield: UShort = 0u)
+public data class KernelCetContext00(public var bitfield: UShort = 0u)
 
-public data class KTMOBJECT_CURSOR(
-    public var LastQuery: GUID = GUID(),
-    public var ObjectIdCount: UInt = 0u,
-    public var ObjectIds: List<GUID> = List(1) { GUID() },
+public data class KtmobjectCursor(
+    public var lastQuery: Guid = Guid(),
+    public var objectIdCount: UInt = 0u,
+    public var objectIds: List<Guid> = List(1) { Guid() },
 )
 
-public data class MAXVERSIONTESTED_INFO(public var MaxVersionTested: ULong = 0uL)
+public data class MaxversiontestedInfo(public var maxVersionTested: ULong = 0uL)
 
-public data class NETWORK_APP_INSTANCE_EA(public var AppInstanceID: GUID = GUID(), public var CsvFlags: UInt = 0u)
+public data class NetworkAppInstanceEa(public var appInstanceID: Guid = Guid(), public var csvFlags: UInt = 0u)
 
-public data class NON_PAGED_DEBUG_INFO(
-    public var Signature: UShort = 0u,
-    public var Flags: UShort = 0u,
-    public var Size: UInt = 0u,
-    public var Machine: UShort = 0u,
-    public var Characteristics: UShort = 0u,
-    public var TimeDateStamp: UInt = 0u,
-    public var CheckSum: UInt = 0u,
-    public var SizeOfImage: UInt = 0u,
-    public var ImageBase: ULong = 0uL,
+public data class NonPagedDebugInfo(
+    public var signature: UShort = 0u,
+    public var flags: UShort = 0u,
+    public var size: UInt = 0u,
+    public var machine: UShort = 0u,
+    public var characteristics: UShort = 0u,
+    public var timeDateStamp: UInt = 0u,
+    public var checkSum: UInt = 0u,
+    public var sizeOfImage: UInt = 0u,
+    public var imageBase: ULong = 0uL,
 )
 
-public data class NOTIFY_USER_POWER_SETTING(public var Guid: GUID = GUID())
+public data class NotifyUserPowerSetting(public var guid: Guid = Guid())
 
-public data class NT_TIB32(
-    public var ExceptionList: UInt = 0u,
-    public var StackBase: UInt = 0u,
-    public var StackLimit: UInt = 0u,
-    public var SubSystemTib: UInt = 0u,
-    public var Anonymous: NT_TIB32_0 = NT_TIB32_0(),
-    public var ArbitraryUserPointer: UInt = 0u,
-    public var Self_: UInt = 0u,
+public data class NtTib32(
+    public var exceptionList: UInt = 0u,
+    public var stackBase: UInt = 0u,
+    public var stackLimit: UInt = 0u,
+    public var subSystemTib: UInt = 0u,
+    public var anonymous: NtTib320 = NtTib320(),
+    public var arbitraryUserPointer: UInt = 0u,
+    public var self: UInt = 0u,
 )
 
-public data class NT_TIB32_0(public var FiberData: UInt = 0u, public var Version: UInt = 0u)
+public data class NtTib320(public var fiberData: UInt = 0u, public var version: UInt = 0u)
 
-public data class NT_TIB64(
-    public var ExceptionList: ULong = 0uL,
-    public var StackBase: ULong = 0uL,
-    public var StackLimit: ULong = 0uL,
-    public var SubSystemTib: ULong = 0uL,
-    public var Anonymous: NT_TIB64_0 = NT_TIB64_0(),
-    public var ArbitraryUserPointer: ULong = 0uL,
-    public var Self_: ULong = 0uL,
+public data class NtTib64(
+    public var exceptionList: ULong = 0uL,
+    public var stackBase: ULong = 0uL,
+    public var stackLimit: ULong = 0uL,
+    public var subSystemTib: ULong = 0uL,
+    public var anonymous: NtTib640 = NtTib640(),
+    public var arbitraryUserPointer: ULong = 0uL,
+    public var self: ULong = 0uL,
 )
 
-public data class NT_TIB64_0(public var FiberData: ULong = 0uL, public var Version: UInt = 0u)
+public data class NtTib640(public var fiberData: ULong = 0uL, public var version: UInt = 0u)
 
-public data class PACKEDEVENTINFO(
+public data class Packedeventinfo(
     public var ulSize: UInt = 0u,
     public var ulNumEventsForLogFile: UInt = 0u,
     public var ulOffsets: UIntArray = UIntArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is PACKEDEVENTINFO) return false
+        if (other !is Packedeventinfo) return false
         if (this.ulSize != other.ulSize) return false
         if (this.ulNumEventsForLogFile != other.ulNumEventsForLogFile) return false
         if (!this.ulOffsets.contentEquals(other.ulOffsets)) return false
@@ -1130,240 +1134,240 @@ public data class PACKEDEVENTINFO(
     }
 }
 
-public data class PROCESSOR_IDLESTATE_INFO(
-    public var TimeCheck: UInt = 0u,
-    public var DemotePercent: UByte = 0u,
-    public var PromotePercent: UByte = 0u,
-    public var Spare: UByteArray = UByteArray(2),
+public data class ProcessorIdlestateInfo(
+    public var timeCheck: UInt = 0u,
+    public var demotePercent: UByte = 0u,
+    public var promotePercent: UByte = 0u,
+    public var spare: UByteArray = UByteArray(2),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is PROCESSOR_IDLESTATE_INFO) return false
-        if (this.TimeCheck != other.TimeCheck) return false
-        if (this.DemotePercent != other.DemotePercent) return false
-        if (this.PromotePercent != other.PromotePercent) return false
-        if (!this.Spare.contentEquals(other.Spare)) return false
+        if (other !is ProcessorIdlestateInfo) return false
+        if (this.timeCheck != other.timeCheck) return false
+        if (this.demotePercent != other.demotePercent) return false
+        if (this.promotePercent != other.promotePercent) return false
+        if (!this.spare.contentEquals(other.spare)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.TimeCheck.hashCode()
-        result = 31 * result + this.DemotePercent.hashCode()
-        result = 31 * result + this.PromotePercent.hashCode()
-        result = 31 * result + this.Spare.contentHashCode()
+        var result = this.timeCheck.hashCode()
+        result = 31 * result + this.demotePercent.hashCode()
+        result = 31 * result + this.promotePercent.hashCode()
+        result = 31 * result + this.spare.contentHashCode()
         return result
     }
 }
 
-public data class PROCESSOR_IDLESTATE_POLICY(
-    public var Revision: UShort = 0u,
-    public var Flags: PROCESSOR_IDLESTATE_POLICY_0 = PROCESSOR_IDLESTATE_POLICY_0(),
-    public var PolicyCount: UInt = 0u,
-    public var Policy: List<PROCESSOR_IDLESTATE_INFO> = List(3) { PROCESSOR_IDLESTATE_INFO() },
+public data class ProcessorIdlestatePolicy(
+    public var revision: UShort = 0u,
+    public var flags: ProcessorIdlestatePolicy0 = ProcessorIdlestatePolicy0(),
+    public var policyCount: UInt = 0u,
+    public var policy: List<ProcessorIdlestateInfo> = List(3) { ProcessorIdlestateInfo() },
 )
 
-public data class PROCESSOR_IDLESTATE_POLICY_0(public var AsWORD: UShort = 0u, public var Anonymous: PROCESSOR_IDLESTATE_POLICY_0_0 = PROCESSOR_IDLESTATE_POLICY_0_0())
+public data class ProcessorIdlestatePolicy0(public var asWORD: UShort = 0u, public var anonymous: ProcessorIdlestatePolicy00 = ProcessorIdlestatePolicy00())
 
-public data class PROCESSOR_IDLESTATE_POLICY_0_0(public var _bitfield: UShort = 0u)
+public data class ProcessorIdlestatePolicy00(public var bitfield: UShort = 0u)
 
-public data class PROCESSOR_PERFSTATE_POLICY(
-    public var Revision: UInt = 0u,
-    public var MaxThrottle: UByte = 0u,
-    public var MinThrottle: UByte = 0u,
-    public var BusyAdjThreshold: UByte = 0u,
-    public var Anonymous: PROCESSOR_PERFSTATE_POLICY_0 = PROCESSOR_PERFSTATE_POLICY_0(),
-    public var TimeCheck: UInt = 0u,
-    public var IncreaseTime: UInt = 0u,
-    public var DecreaseTime: UInt = 0u,
-    public var IncreasePercent: UInt = 0u,
-    public var DecreasePercent: UInt = 0u,
+public data class ProcessorPerfstatePolicy(
+    public var revision: UInt = 0u,
+    public var maxThrottle: UByte = 0u,
+    public var minThrottle: UByte = 0u,
+    public var busyAdjThreshold: UByte = 0u,
+    public var anonymous: ProcessorPerfstatePolicy0 = ProcessorPerfstatePolicy0(),
+    public var timeCheck: UInt = 0u,
+    public var increaseTime: UInt = 0u,
+    public var decreaseTime: UInt = 0u,
+    public var increasePercent: UInt = 0u,
+    public var decreasePercent: UInt = 0u,
 )
 
-public data class PROCESSOR_PERFSTATE_POLICY_0(public var Spare: UByte = 0u, public var Flags: PROCESSOR_PERFSTATE_POLICY_0_0 = PROCESSOR_PERFSTATE_POLICY_0_0())
+public data class ProcessorPerfstatePolicy0(public var spare: UByte = 0u, public var flags: ProcessorPerfstatePolicy00 = ProcessorPerfstatePolicy00())
 
-public data class PROCESSOR_PERFSTATE_POLICY_0_0(public var AsBYTE: UByte = 0u, public var Anonymous: PROCESSOR_PERFSTATE_POLICY_0_0_0 = PROCESSOR_PERFSTATE_POLICY_0_0_0())
+public data class ProcessorPerfstatePolicy00(public var asBYTE: UByte = 0u, public var anonymous: ProcessorPerfstatePolicy000 = ProcessorPerfstatePolicy000())
 
-public data class PROCESSOR_PERFSTATE_POLICY_0_0_0(public var _bitfield: UByte = 0u)
+public data class ProcessorPerfstatePolicy000(public var bitfield: UByte = 0u)
 
-public data class PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY(public var Anonymous: PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0 = PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0())
+public data class ProcessMitigationActivationContextTrustPolicy(public var anonymous: ProcessMitigationActivationContextTrustPolicy0 = ProcessMitigationActivationContextTrustPolicy0())
 
-public data class PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0(public var Flags: UInt = 0u, public var Anonymous: PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0_0 = PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0_0())
+public data class ProcessMitigationActivationContextTrustPolicy0(public var flags: UInt = 0u, public var anonymous: ProcessMitigationActivationContextTrustPolicy00 = ProcessMitigationActivationContextTrustPolicy00())
 
-public data class PROCESS_MITIGATION_ACTIVATION_CONTEXT_TRUST_POLICY_0_0(public var _bitfield: UInt = 0u)
+public data class ProcessMitigationActivationContextTrustPolicy00(public var bitfield: UInt = 0u)
 
-public data class PROCESS_MITIGATION_ASLR_POLICY(public var Anonymous: PROCESS_MITIGATION_ASLR_POLICY_0 = PROCESS_MITIGATION_ASLR_POLICY_0())
+public data class ProcessMitigationAslrPolicy(public var anonymous: ProcessMitigationAslrPolicy0 = ProcessMitigationAslrPolicy0())
 
-public data class PROCESS_MITIGATION_ASLR_POLICY_0(public var Flags: UInt = 0u, public var Anonymous: PROCESS_MITIGATION_ASLR_POLICY_0_0 = PROCESS_MITIGATION_ASLR_POLICY_0_0())
+public data class ProcessMitigationAslrPolicy0(public var flags: UInt = 0u, public var anonymous: ProcessMitigationAslrPolicy00 = ProcessMitigationAslrPolicy00())
 
-public data class PROCESS_MITIGATION_ASLR_POLICY_0_0(public var _bitfield: UInt = 0u)
+public data class ProcessMitigationAslrPolicy00(public var bitfield: UInt = 0u)
 
-public data class PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY(public var Anonymous: PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0 = PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0())
+public data class ProcessMitigationBinarySignaturePolicy(public var anonymous: ProcessMitigationBinarySignaturePolicy0 = ProcessMitigationBinarySignaturePolicy0())
 
-public data class PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0(public var Flags: UInt = 0u, public var Anonymous: PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0 = PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0())
+public data class ProcessMitigationBinarySignaturePolicy0(public var flags: UInt = 0u, public var anonymous: ProcessMitigationBinarySignaturePolicy00 = ProcessMitigationBinarySignaturePolicy00())
 
-public data class PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0(public var _bitfield: UInt = 0u)
+public data class ProcessMitigationBinarySignaturePolicy00(public var bitfield: UInt = 0u)
 
-public data class PROCESS_MITIGATION_CHILD_PROCESS_POLICY(public var Anonymous: PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0 = PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0())
+public data class ProcessMitigationChildProcessPolicy(public var anonymous: ProcessMitigationChildProcessPolicy0 = ProcessMitigationChildProcessPolicy0())
 
-public data class PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0(public var Flags: UInt = 0u, public var Anonymous: PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0 = PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0())
+public data class ProcessMitigationChildProcessPolicy0(public var flags: UInt = 0u, public var anonymous: ProcessMitigationChildProcessPolicy00 = ProcessMitigationChildProcessPolicy00())
 
-public data class PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0(public var _bitfield: UInt = 0u)
+public data class ProcessMitigationChildProcessPolicy00(public var bitfield: UInt = 0u)
 
-public data class PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY(public var Anonymous: PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0 = PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0())
+public data class ProcessMitigationControlFlowGuardPolicy(public var anonymous: ProcessMitigationControlFlowGuardPolicy0 = ProcessMitigationControlFlowGuardPolicy0())
 
-public data class PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0(public var Flags: UInt = 0u, public var Anonymous: PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0 = PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0())
+public data class ProcessMitigationControlFlowGuardPolicy0(public var flags: UInt = 0u, public var anonymous: ProcessMitigationControlFlowGuardPolicy00 = ProcessMitigationControlFlowGuardPolicy00())
 
-public data class PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0(public var _bitfield: UInt = 0u)
+public data class ProcessMitigationControlFlowGuardPolicy00(public var bitfield: UInt = 0u)
 
-public data class PROCESS_MITIGATION_DEP_POLICY(public var Anonymous: PROCESS_MITIGATION_DEP_POLICY_0 = PROCESS_MITIGATION_DEP_POLICY_0(), public var Permanent: Boolean = false)
+public data class ProcessMitigationDepPolicy(public var anonymous: ProcessMitigationDepPolicy0 = ProcessMitigationDepPolicy0(), public var permanent: Boolean = false)
 
-public data class PROCESS_MITIGATION_DEP_POLICY_0(public var Flags: UInt = 0u, public var Anonymous: PROCESS_MITIGATION_DEP_POLICY_0_0 = PROCESS_MITIGATION_DEP_POLICY_0_0())
+public data class ProcessMitigationDepPolicy0(public var flags: UInt = 0u, public var anonymous: ProcessMitigationDepPolicy00 = ProcessMitigationDepPolicy00())
 
-public data class PROCESS_MITIGATION_DEP_POLICY_0_0(public var _bitfield: UInt = 0u)
+public data class ProcessMitigationDepPolicy00(public var bitfield: UInt = 0u)
 
-public data class PROCESS_MITIGATION_DYNAMIC_CODE_POLICY(public var Anonymous: PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0 = PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0())
+public data class ProcessMitigationDynamicCodePolicy(public var anonymous: ProcessMitigationDynamicCodePolicy0 = ProcessMitigationDynamicCodePolicy0())
 
-public data class PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0(public var Flags: UInt = 0u, public var Anonymous: PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0 = PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0())
+public data class ProcessMitigationDynamicCodePolicy0(public var flags: UInt = 0u, public var anonymous: ProcessMitigationDynamicCodePolicy00 = ProcessMitigationDynamicCodePolicy00())
 
-public data class PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0(public var _bitfield: UInt = 0u)
+public data class ProcessMitigationDynamicCodePolicy00(public var bitfield: UInt = 0u)
 
-public data class PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY(public var Anonymous: PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0 = PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0())
+public data class ProcessMitigationExtensionPointDisablePolicy(public var anonymous: ProcessMitigationExtensionPointDisablePolicy0 = ProcessMitigationExtensionPointDisablePolicy0())
 
-public data class PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0(public var Flags: UInt = 0u, public var Anonymous: PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0 = PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0())
+public data class ProcessMitigationExtensionPointDisablePolicy0(public var flags: UInt = 0u, public var anonymous: ProcessMitigationExtensionPointDisablePolicy00 = ProcessMitigationExtensionPointDisablePolicy00())
 
-public data class PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0(public var _bitfield: UInt = 0u)
+public data class ProcessMitigationExtensionPointDisablePolicy00(public var bitfield: UInt = 0u)
 
-public data class PROCESS_MITIGATION_FONT_DISABLE_POLICY(public var Anonymous: PROCESS_MITIGATION_FONT_DISABLE_POLICY_0 = PROCESS_MITIGATION_FONT_DISABLE_POLICY_0())
+public data class ProcessMitigationFontDisablePolicy(public var anonymous: ProcessMitigationFontDisablePolicy0 = ProcessMitigationFontDisablePolicy0())
 
-public data class PROCESS_MITIGATION_FONT_DISABLE_POLICY_0(public var Flags: UInt = 0u, public var Anonymous: PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0 = PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0())
+public data class ProcessMitigationFontDisablePolicy0(public var flags: UInt = 0u, public var anonymous: ProcessMitigationFontDisablePolicy00 = ProcessMitigationFontDisablePolicy00())
 
-public data class PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0(public var _bitfield: UInt = 0u)
+public data class ProcessMitigationFontDisablePolicy00(public var bitfield: UInt = 0u)
 
-public data class PROCESS_MITIGATION_IMAGE_LOAD_POLICY(public var Anonymous: PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0 = PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0())
+public data class ProcessMitigationImageLoadPolicy(public var anonymous: ProcessMitigationImageLoadPolicy0 = ProcessMitigationImageLoadPolicy0())
 
-public data class PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0(public var Flags: UInt = 0u, public var Anonymous: PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0 = PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0())
+public data class ProcessMitigationImageLoadPolicy0(public var flags: UInt = 0u, public var anonymous: ProcessMitigationImageLoadPolicy00 = ProcessMitigationImageLoadPolicy00())
 
-public data class PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0(public var _bitfield: UInt = 0u)
+public data class ProcessMitigationImageLoadPolicy00(public var bitfield: UInt = 0u)
 
-public data class PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY(public var Anonymous: PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0 = PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0())
+public data class ProcessMitigationPayloadRestrictionPolicy(public var anonymous: ProcessMitigationPayloadRestrictionPolicy0 = ProcessMitigationPayloadRestrictionPolicy0())
 
-public data class PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0(public var Flags: UInt = 0u, public var Anonymous: PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0 = PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0())
+public data class ProcessMitigationPayloadRestrictionPolicy0(public var flags: UInt = 0u, public var anonymous: ProcessMitigationPayloadRestrictionPolicy00 = ProcessMitigationPayloadRestrictionPolicy00())
 
-public data class PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0(public var _bitfield: UInt = 0u)
+public data class ProcessMitigationPayloadRestrictionPolicy00(public var bitfield: UInt = 0u)
 
-public data class PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY(public var Anonymous: PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0 = PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0())
+public data class ProcessMitigationRedirectionTrustPolicy(public var anonymous: ProcessMitigationRedirectionTrustPolicy0 = ProcessMitigationRedirectionTrustPolicy0())
 
-public data class PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0(public var Flags: UInt = 0u, public var Anonymous: PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0 = PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0())
+public data class ProcessMitigationRedirectionTrustPolicy0(public var flags: UInt = 0u, public var anonymous: ProcessMitigationRedirectionTrustPolicy00 = ProcessMitigationRedirectionTrustPolicy00())
 
-public data class PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0(public var _bitfield: UInt = 0u)
+public data class ProcessMitigationRedirectionTrustPolicy00(public var bitfield: UInt = 0u)
 
-public data class PROCESS_MITIGATION_SEHOP_POLICY(public var Anonymous: PROCESS_MITIGATION_SEHOP_POLICY_0 = PROCESS_MITIGATION_SEHOP_POLICY_0())
+public data class ProcessMitigationSehopPolicy(public var anonymous: ProcessMitigationSehopPolicy0 = ProcessMitigationSehopPolicy0())
 
-public data class PROCESS_MITIGATION_SEHOP_POLICY_0(public var Flags: UInt = 0u, public var Anonymous: PROCESS_MITIGATION_SEHOP_POLICY_0_0 = PROCESS_MITIGATION_SEHOP_POLICY_0_0())
+public data class ProcessMitigationSehopPolicy0(public var flags: UInt = 0u, public var anonymous: ProcessMitigationSehopPolicy00 = ProcessMitigationSehopPolicy00())
 
-public data class PROCESS_MITIGATION_SEHOP_POLICY_0_0(public var _bitfield: UInt = 0u)
+public data class ProcessMitigationSehopPolicy00(public var bitfield: UInt = 0u)
 
-public data class PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY(public var Anonymous: PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0 = PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0())
+public data class ProcessMitigationSideChannelIsolationPolicy(public var anonymous: ProcessMitigationSideChannelIsolationPolicy0 = ProcessMitigationSideChannelIsolationPolicy0())
 
-public data class PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0(public var Flags: UInt = 0u, public var Anonymous: PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0 = PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0())
+public data class ProcessMitigationSideChannelIsolationPolicy0(public var flags: UInt = 0u, public var anonymous: ProcessMitigationSideChannelIsolationPolicy00 = ProcessMitigationSideChannelIsolationPolicy00())
 
-public data class PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0(public var _bitfield: UInt = 0u)
+public data class ProcessMitigationSideChannelIsolationPolicy00(public var bitfield: UInt = 0u)
 
-public data class PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY(public var Anonymous: PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0 = PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0())
+public data class ProcessMitigationStrictHandleCheckPolicy(public var anonymous: ProcessMitigationStrictHandleCheckPolicy0 = ProcessMitigationStrictHandleCheckPolicy0())
 
-public data class PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0(public var Flags: UInt = 0u, public var Anonymous: PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0 = PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0())
+public data class ProcessMitigationStrictHandleCheckPolicy0(public var flags: UInt = 0u, public var anonymous: ProcessMitigationStrictHandleCheckPolicy00 = ProcessMitigationStrictHandleCheckPolicy00())
 
-public data class PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0(public var _bitfield: UInt = 0u)
+public data class ProcessMitigationStrictHandleCheckPolicy00(public var bitfield: UInt = 0u)
 
-public data class PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY(public var Anonymous: PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0 = PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0())
+public data class ProcessMitigationSystemCallDisablePolicy(public var anonymous: ProcessMitigationSystemCallDisablePolicy0 = ProcessMitigationSystemCallDisablePolicy0())
 
-public data class PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0(public var Flags: UInt = 0u, public var Anonymous: PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0 = PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0())
+public data class ProcessMitigationSystemCallDisablePolicy0(public var flags: UInt = 0u, public var anonymous: ProcessMitigationSystemCallDisablePolicy00 = ProcessMitigationSystemCallDisablePolicy00())
 
-public data class PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0(public var _bitfield: UInt = 0u)
+public data class ProcessMitigationSystemCallDisablePolicy00(public var bitfield: UInt = 0u)
 
-public data class PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY(public var Anonymous: PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0 = PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0())
+public data class ProcessMitigationSystemCallFilterPolicy(public var anonymous: ProcessMitigationSystemCallFilterPolicy0 = ProcessMitigationSystemCallFilterPolicy0())
 
-public data class PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0(public var Flags: UInt = 0u, public var Anonymous: PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0 = PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0())
+public data class ProcessMitigationSystemCallFilterPolicy0(public var flags: UInt = 0u, public var anonymous: ProcessMitigationSystemCallFilterPolicy00 = ProcessMitigationSystemCallFilterPolicy00())
 
-public data class PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0(public var _bitfield: UInt = 0u)
+public data class ProcessMitigationSystemCallFilterPolicy00(public var bitfield: UInt = 0u)
 
-public data class PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY(public var Anonymous: PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0 = PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0())
+public data class ProcessMitigationUserPointerAuthPolicy(public var anonymous: ProcessMitigationUserPointerAuthPolicy0 = ProcessMitigationUserPointerAuthPolicy0())
 
-public data class PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0(public var Flags: UInt = 0u, public var Anonymous: PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0_0 = PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0_0())
+public data class ProcessMitigationUserPointerAuthPolicy0(public var flags: UInt = 0u, public var anonymous: ProcessMitigationUserPointerAuthPolicy00 = ProcessMitigationUserPointerAuthPolicy00())
 
-public data class PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0_0(public var _bitfield: UInt = 0u)
+public data class ProcessMitigationUserPointerAuthPolicy00(public var bitfield: UInt = 0u)
 
-public data class PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY(public var Anonymous: PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0 = PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0())
+public data class ProcessMitigationUserShadowStackPolicy(public var anonymous: ProcessMitigationUserShadowStackPolicy0 = ProcessMitigationUserShadowStackPolicy0())
 
-public data class PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0(public var Flags: UInt = 0u, public var Anonymous: PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0 = PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0())
+public data class ProcessMitigationUserShadowStackPolicy0(public var flags: UInt = 0u, public var anonymous: ProcessMitigationUserShadowStackPolicy00 = ProcessMitigationUserShadowStackPolicy00())
 
-public data class PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0(public var _bitfield: UInt = 0u)
+public data class ProcessMitigationUserShadowStackPolicy00(public var bitfield: UInt = 0u)
 
-public data class QUOTA_LIMITS_EX(
-    public var PagedPoolLimit: ULong = 0uL,
-    public var NonPagedPoolLimit: ULong = 0uL,
-    public var MinimumWorkingSetSize: ULong = 0uL,
-    public var MaximumWorkingSetSize: ULong = 0uL,
-    public var PagefileLimit: ULong = 0uL,
-    public var TimeLimit: Long = 0L,
-    public var WorkingSetLimit: ULong = 0uL,
-    public var Reserved2: ULong = 0uL,
-    public var Reserved3: ULong = 0uL,
-    public var Reserved4: ULong = 0uL,
-    public var Flags: UInt = 0u,
-    public var CpuRateLimit: RATE_QUOTA_LIMIT = RATE_QUOTA_LIMIT(),
+public data class QuotaLimitsEx(
+    public var pagedPoolLimit: Int = 0,
+    public var nonPagedPoolLimit: Int = 0,
+    public var minimumWorkingSetSize: Int = 0,
+    public var maximumWorkingSetSize: Int = 0,
+    public var pagefileLimit: Int = 0,
+    public var timeLimit: Long = 0L,
+    public var workingSetLimit: Int = 0,
+    public var reserved2: Int = 0,
+    public var reserved3: Int = 0,
+    public var reserved4: Int = 0,
+    public var flags: UInt = 0u,
+    public var cpuRateLimit: RateQuotaLimit = RateQuotaLimit(),
 )
 
-public data class RATE_QUOTA_LIMIT(public var RateData: UInt = 0u, public var Anonymous: RATE_QUOTA_LIMIT_0 = RATE_QUOTA_LIMIT_0())
+public data class RateQuotaLimit(public var rateData: UInt = 0u, public var anonymous: RateQuotaLimit0 = RateQuotaLimit0())
 
-public data class RATE_QUOTA_LIMIT_0(public var _bitfield: UInt = 0u)
+public data class RateQuotaLimit0(public var bitfield: UInt = 0u)
 
-public data class REARRANGE_FILE_DATA(
-    public var SourceStartingOffset: ULong = 0uL,
-    public var TargetOffset: ULong = 0uL,
-    public var SourceFileHandle: HANDLE = 0L,
-    public var Length: UInt = 0u,
-    public var Flags: UInt = 0u,
+public data class RearrangeFileData(
+    public var sourceStartingOffset: ULong = 0uL,
+    public var targetOffset: ULong = 0uL,
+    public var sourceFileHandle: Handle = null,
+    public var length: UInt = 0u,
+    public var flags: UInt = 0u,
 )
 
-public data class REARRANGE_FILE_DATA32(
-    public var SourceStartingOffset: ULong = 0uL,
-    public var TargetOffset: ULong = 0uL,
-    public var SourceFileHandle: UInt = 0u,
-    public var Length: UInt = 0u,
-    public var Flags: UInt = 0u,
+public data class RearrangeFileData32(
+    public var sourceStartingOffset: ULong = 0uL,
+    public var targetOffset: ULong = 0uL,
+    public var sourceFileHandle: UInt = 0u,
+    public var length: UInt = 0u,
+    public var flags: UInt = 0u,
 )
 
-public data class REDBOOK_DIGITAL_AUDIO_EXTRACTION_INFO(
-    public var Version: UInt = 0u,
-    public var Accurate: UInt = 0u,
-    public var Supported: UInt = 0u,
-    public var AccurateMask0: UInt = 0u,
+public data class RedbookDigitalAudioExtractionInfo(
+    public var version: UInt = 0u,
+    public var accurate: UInt = 0u,
+    public var supported: UInt = 0u,
+    public var accurateMask0: UInt = 0u,
 )
 
-public data class RESOURCEMANAGER_BASIC_INFORMATION(
-    public var ResourceManagerId: GUID = GUID(),
-    public var DescriptionLength: UInt = 0u,
-    public var Description: UShortArray = UShortArray(1),
+public data class ResourcemanagerBasicInformation(
+    public var resourceManagerId: Guid = Guid(),
+    public var descriptionLength: UInt = 0u,
+    public var description: UShortArray = UShortArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is RESOURCEMANAGER_BASIC_INFORMATION) return false
-        if (this.ResourceManagerId != other.ResourceManagerId) return false
-        if (this.DescriptionLength != other.DescriptionLength) return false
-        if (!this.Description.contentEquals(other.Description)) return false
+        if (other !is ResourcemanagerBasicInformation) return false
+        if (this.resourceManagerId != other.resourceManagerId) return false
+        if (this.descriptionLength != other.descriptionLength) return false
+        if (!this.description.contentEquals(other.description)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ResourceManagerId.hashCode()
-        result = 31 * result + this.DescriptionLength.hashCode()
-        result = 31 * result + this.Description.contentHashCode()
+        var result = this.resourceManagerId.hashCode()
+        result = 31 * result + this.descriptionLength.hashCode()
+        result = 31 * result + this.description.contentHashCode()
         return result
     }
 }
 
-public data class RESOURCEMANAGER_COMPLETION_INFORMATION(public var IoCompletionPortHandle: HANDLE = 0L, public var CompletionKey: ULong = 0uL)
+public data class ResourcemanagerCompletionInformation(public var ioCompletionPortHandle: Handle = null, public var completionKey: Int = 0)
 
 public data class RemHBITMAP(public var cbData: UInt = 0u, public var data: UByteArray = UByteArray(1)) {
     override fun equals(other: Any?): Boolean {
@@ -1479,311 +1483,311 @@ public data class RemHPALETTE(public var cbData: UInt = 0u, public var data: UBy
     }
 }
 
-public data class RemotableHandle(public var fContext: Int = 0, public var u: RemotableHandle_0 = RemotableHandle_0())
+public data class RemotableHandle(public var fContext: Int = 0, public var u: RemotableHandle0 = RemotableHandle0())
 
-public data class RemotableHandle_0(public var hInproc: Int = 0, public var hRemote: Int = 0)
+public data class RemotableHandle0(public var hInproc: Int = 0, public var hRemote: Int = 0)
 
-public data class SCOPE_TABLE_AMD64(public var Count: UInt = 0u, public var ScopeRecord: List<SCOPE_TABLE_AMD64_0> = List(1) { SCOPE_TABLE_AMD64_0() })
+public data class ScopeTableAmd64(public var count: UInt = 0u, public var scopeRecord: List<ScopeTableAmd640> = List(1) { ScopeTableAmd640() })
 
-public data class SCOPE_TABLE_AMD64_0(
-    public var BeginAddress: UInt = 0u,
-    public var EndAddress: UInt = 0u,
-    public var HandlerAddress: UInt = 0u,
-    public var JumpTarget: UInt = 0u,
+public data class ScopeTableAmd640(
+    public var beginAddress: UInt = 0u,
+    public var endAddress: UInt = 0u,
+    public var handlerAddress: UInt = 0u,
+    public var jumpTarget: UInt = 0u,
 )
 
-public data class SCOPE_TABLE_ARM(public var Count: UInt = 0u, public var ScopeRecord: List<SCOPE_TABLE_ARM_0> = List(1) { SCOPE_TABLE_ARM_0() })
+public data class ScopeTableArm(public var count: UInt = 0u, public var scopeRecord: List<ScopeTableArm0> = List(1) { ScopeTableArm0() })
 
-public data class SCOPE_TABLE_ARM_0(
-    public var BeginAddress: UInt = 0u,
-    public var EndAddress: UInt = 0u,
-    public var HandlerAddress: UInt = 0u,
-    public var JumpTarget: UInt = 0u,
+public data class ScopeTableArm0(
+    public var beginAddress: UInt = 0u,
+    public var endAddress: UInt = 0u,
+    public var handlerAddress: UInt = 0u,
+    public var jumpTarget: UInt = 0u,
 )
 
-public data class SCOPE_TABLE_ARM64(public var Count: UInt = 0u, public var ScopeRecord: List<SCOPE_TABLE_ARM64_0> = List(1) { SCOPE_TABLE_ARM64_0() })
+public data class ScopeTableArm64(public var count: UInt = 0u, public var scopeRecord: List<ScopeTableArm640> = List(1) { ScopeTableArm640() })
 
-public data class SCOPE_TABLE_ARM64_0(
-    public var BeginAddress: UInt = 0u,
-    public var EndAddress: UInt = 0u,
-    public var HandlerAddress: UInt = 0u,
-    public var JumpTarget: UInt = 0u,
+public data class ScopeTableArm640(
+    public var beginAddress: UInt = 0u,
+    public var endAddress: UInt = 0u,
+    public var handlerAddress: UInt = 0u,
+    public var jumpTarget: UInt = 0u,
 )
 
-public data class SCRUB_DATA_INPUT(
-    public var Size: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var MaximumIos: UInt = 0u,
-    public var ObjectId: UIntArray = UIntArray(4),
-    public var Reserved: UIntArray = UIntArray(41),
-    public var ResumeContext: UByteArray = UByteArray(1040),
+public data class ScrubDataInput(
+    public var size: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var maximumIos: UInt = 0u,
+    public var objectId: UIntArray = UIntArray(4),
+    public var reserved: UIntArray = UIntArray(41),
+    public var resumeContext: UByteArray = UByteArray(1040),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SCRUB_DATA_INPUT) return false
-        if (this.Size != other.Size) return false
-        if (this.Flags != other.Flags) return false
-        if (this.MaximumIos != other.MaximumIos) return false
-        if (!this.ObjectId.contentEquals(other.ObjectId)) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
-        if (!this.ResumeContext.contentEquals(other.ResumeContext)) return false
+        if (other !is ScrubDataInput) return false
+        if (this.size != other.size) return false
+        if (this.flags != other.flags) return false
+        if (this.maximumIos != other.maximumIos) return false
+        if (!this.objectId.contentEquals(other.objectId)) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
+        if (!this.resumeContext.contentEquals(other.resumeContext)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Size.hashCode()
-        result = 31 * result + this.Flags.hashCode()
-        result = 31 * result + this.MaximumIos.hashCode()
-        result = 31 * result + this.ObjectId.contentHashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
-        result = 31 * result + this.ResumeContext.contentHashCode()
+        var result = this.size.hashCode()
+        result = 31 * result + this.flags.hashCode()
+        result = 31 * result + this.maximumIos.hashCode()
+        result = 31 * result + this.objectId.contentHashCode()
+        result = 31 * result + this.reserved.contentHashCode()
+        result = 31 * result + this.resumeContext.contentHashCode()
         return result
     }
 }
 
-public class SCRUB_DATA_OUTPUT(
-    public var Size: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var Status: UInt = 0u,
-    public var ErrorFileOffset: ULong = 0uL,
-    public var ErrorLength: ULong = 0uL,
-    public var NumberOfBytesRepaired: ULong = 0uL,
-    public var NumberOfBytesFailed: ULong = 0uL,
-    public var InternalFileReference: ULong = 0uL,
-    public var ResumeContextLength: UShort = 0u,
-    public var ParityExtentDataOffset: UShort = 0u,
-    public var Reserved: UIntArray = UIntArray(9),
-    public var NumberOfMetadataBytesProcessed: ULong = 0uL,
-    public var NumberOfDataBytesProcessed: ULong = 0uL,
-    public var TotalNumberOfMetadataBytesInUse: ULong = 0uL,
-    public var TotalNumberOfDataBytesInUse: ULong = 0uL,
-    public var DataBytesSkippedDueToNoAllocation: ULong = 0uL,
-    public var DataBytesSkippedDueToInvalidRun: ULong = 0uL,
-    public var DataBytesSkippedDueToIntegrityStream: ULong = 0uL,
-    public var DataBytesSkippedDueToRegionBeingClean: ULong = 0uL,
-    public var DataBytesSkippedDueToLockConflict: ULong = 0uL,
-    public var DataBytesSkippedDueToNoScrubDataFlag: ULong = 0uL,
-    public var DataBytesSkippedDueToNoScrubNonIntegrityStreamFlag: ULong = 0uL,
-    public var DataBytesScrubbed: ULong = 0uL,
-    public var ResumeContext: UByteArray = UByteArray(1040),
+public class ScrubDataOutput(
+    public var size: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var status: UInt = 0u,
+    public var errorFileOffset: ULong = 0uL,
+    public var errorLength: ULong = 0uL,
+    public var numberOfBytesRepaired: ULong = 0uL,
+    public var numberOfBytesFailed: ULong = 0uL,
+    public var internalFileReference: ULong = 0uL,
+    public var resumeContextLength: UShort = 0u,
+    public var parityExtentDataOffset: UShort = 0u,
+    public var reserved: UIntArray = UIntArray(9),
+    public var numberOfMetadataBytesProcessed: ULong = 0uL,
+    public var numberOfDataBytesProcessed: ULong = 0uL,
+    public var totalNumberOfMetadataBytesInUse: ULong = 0uL,
+    public var totalNumberOfDataBytesInUse: ULong = 0uL,
+    public var dataBytesSkippedDueToNoAllocation: ULong = 0uL,
+    public var dataBytesSkippedDueToInvalidRun: ULong = 0uL,
+    public var dataBytesSkippedDueToIntegrityStream: ULong = 0uL,
+    public var dataBytesSkippedDueToRegionBeingClean: ULong = 0uL,
+    public var dataBytesSkippedDueToLockConflict: ULong = 0uL,
+    public var dataBytesSkippedDueToNoScrubDataFlag: ULong = 0uL,
+    public var dataBytesSkippedDueToNoScrubNonIntegrityStreamFlag: ULong = 0uL,
+    public var dataBytesScrubbed: ULong = 0uL,
+    public var resumeContext: UByteArray = UByteArray(1040),
 )
 
-public data class SCRUB_PARITY_EXTENT(public var Offset: Long = 0L, public var Length: ULong = 0uL)
+public data class ScrubParityExtent(public var offset: Long = 0L, public var length: ULong = 0uL)
 
-public data class SCRUB_PARITY_EXTENT_DATA(
-    public var Size: UShort = 0u,
-    public var Flags: UShort = 0u,
-    public var NumberOfParityExtents: UShort = 0u,
-    public var MaximumNumberOfParityExtents: UShort = 0u,
-    public var ParityExtents: List<SCRUB_PARITY_EXTENT> = List(1) { SCRUB_PARITY_EXTENT() },
+public data class ScrubParityExtentData(
+    public var size: UShort = 0u,
+    public var flags: UShort = 0u,
+    public var numberOfParityExtents: UShort = 0u,
+    public var maximumNumberOfParityExtents: UShort = 0u,
+    public var parityExtents: List<ScrubParityExtent> = List(1) { ScrubParityExtent() },
 )
 
-public data class SECURITY_OBJECT_AI_PARAMS(public var Size: UInt = 0u, public var ConstraintMask: UInt = 0u)
+public data class SecurityObjectAiParams(public var size: UInt = 0u, public var constraintMask: UInt = 0u)
 
-public data class SERVERSILO_BASIC_INFORMATION(
-    public var ServiceSessionId: UInt = 0u,
-    public var State: SERVERSILO_STATE = 0,
-    public var ExitStatus: UInt = 0u,
-    public var IsDownlevelContainer: Boolean = false,
-    public var ApiSetSchema: Long = 0L,
-    public var HostApiSetSchema: Long = 0L,
+public data class ServersiloBasicInformation(
+    public var serviceSessionId: UInt = 0u,
+    public var state: ServersiloState = 0,
+    public var exitStatus: UInt = 0u,
+    public var isDownlevelContainer: Boolean = false,
+    public var apiSetSchema: COpaquePointer? = null,
+    public var hostApiSetSchema: COpaquePointer? = null,
 )
 
-public data class SE_TOKEN_USER(public var Anonymous1: SE_TOKEN_USER_0 = SE_TOKEN_USER_0(), public var Anonymous2: SE_TOKEN_USER_1 = SE_TOKEN_USER_1())
+public data class SeTokenUser(public var anonymous1: SeTokenUser0 = SeTokenUser0(), public var anonymous2: SeTokenUser1 = SeTokenUser1())
 
-public data class SE_TOKEN_USER_0(public var TokenUser: TOKEN_USER = TOKEN_USER(), public var User: SID_AND_ATTRIBUTES = SID_AND_ATTRIBUTES())
+public data class SeTokenUser0(public var tokenUser: TokenUser = TokenUser(), public var user: SidAndAttributes = SidAndAttributes())
 
-public data class SE_TOKEN_USER_1(public var Sid: SID = SID(), public var Buffer: UByteArray = UByteArray(68)) {
+public data class SeTokenUser1(public var sid: Sid = Sid(), public var buffer: UByteArray = UByteArray(68)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SE_TOKEN_USER_1) return false
-        if (this.Sid != other.Sid) return false
-        if (!this.Buffer.contentEquals(other.Buffer)) return false
+        if (other !is SeTokenUser1) return false
+        if (this.sid != other.sid) return false
+        if (!this.buffer.contentEquals(other.buffer)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Sid.hashCode()
-        result = 31 * result + this.Buffer.contentHashCode()
+        var result = this.sid.hashCode()
+        result = 31 * result + this.buffer.contentHashCode()
         return result
     }
 }
 
-public data class SHARED_VIRTUAL_DISK_SUPPORT(public var SharedVirtualDiskSupport: SharedVirtualDiskSupportType = 0, public var HandleState: SharedVirtualDiskHandleState = 0)
+public data class SharedVirtualDiskSupport(public var sharedVirtualDiskSupport: SharedVirtualDiskSupportType = 0, public var handleState: SharedVirtualDiskHandleState = 0)
 
-public data class SHUFFLE_FILE_DATA(
-    public var StartingOffset: Long = 0L,
-    public var Length: Long = 0L,
-    public var Flags: UInt = 0u,
+public data class ShuffleFileData(
+    public var startingOffset: Long = 0L,
+    public var length: Long = 0L,
+    public var flags: UInt = 0u,
 )
 
-public data class SILOOBJECT_BASIC_INFORMATION(
-    public var SiloId: UInt = 0u,
-    public var SiloParentId: UInt = 0u,
-    public var NumberOfProcesses: UInt = 0u,
-    public var IsInServerSilo: Boolean = false,
-    public var Reserved: UByteArray = UByteArray(3),
+public data class SiloobjectBasicInformation(
+    public var siloId: UInt = 0u,
+    public var siloParentId: UInt = 0u,
+    public var numberOfProcesses: UInt = 0u,
+    public var isInServerSilo: Boolean = false,
+    public var reserved: UByteArray = UByteArray(3),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SILOOBJECT_BASIC_INFORMATION) return false
-        if (this.SiloId != other.SiloId) return false
-        if (this.SiloParentId != other.SiloParentId) return false
-        if (this.NumberOfProcesses != other.NumberOfProcesses) return false
-        if (this.IsInServerSilo != other.IsInServerSilo) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
+        if (other !is SiloobjectBasicInformation) return false
+        if (this.siloId != other.siloId) return false
+        if (this.siloParentId != other.siloParentId) return false
+        if (this.numberOfProcesses != other.numberOfProcesses) return false
+        if (this.isInServerSilo != other.isInServerSilo) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.SiloId.hashCode()
-        result = 31 * result + this.SiloParentId.hashCode()
-        result = 31 * result + this.NumberOfProcesses.hashCode()
-        result = 31 * result + this.IsInServerSilo.hashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
+        var result = this.siloId.hashCode()
+        result = 31 * result + this.siloParentId.hashCode()
+        result = 31 * result + this.numberOfProcesses.hashCode()
+        result = 31 * result + this.isInServerSilo.hashCode()
+        result = 31 * result + this.reserved.contentHashCode()
         return result
     }
 }
 
-public data class SUPPORTED_OS_INFO(public var MajorVersion: UShort = 0u, public var MinorVersion: UShort = 0u)
+public data class SupportedOsInfo(public var majorVersion: UShort = 0u, public var minorVersion: UShort = 0u)
 
-public data class TAPE_CREATE_PARTITION(
-    public var Method: UInt = 0u,
-    public var Count: UInt = 0u,
-    public var Size: UInt = 0u,
+public data class TapeCreatePartition(
+    public var method: UInt = 0u,
+    public var count: UInt = 0u,
+    public var size: UInt = 0u,
 )
 
-public data class TAPE_GET_DRIVE_PARAMETERS(
-    public var ECC: Boolean = false,
-    public var Compression: Boolean = false,
-    public var DataPadding: Boolean = false,
-    public var ReportSetmarks: Boolean = false,
-    public var DefaultBlockSize: UInt = 0u,
-    public var MaximumBlockSize: UInt = 0u,
-    public var MinimumBlockSize: UInt = 0u,
-    public var MaximumPartitionCount: UInt = 0u,
-    public var FeaturesLow: UInt = 0u,
-    public var FeaturesHigh: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 0u,
-    public var EOTWarningZoneSize: UInt = 0u,
+public data class TapeGetDriveParameters(
+    public var ecc: Boolean = false,
+    public var compression: Boolean = false,
+    public var dataPadding: Boolean = false,
+    public var reportSetmarks: Boolean = false,
+    public var defaultBlockSize: UInt = 0u,
+    public var maximumBlockSize: UInt = 0u,
+    public var minimumBlockSize: UInt = 0u,
+    public var maximumPartitionCount: UInt = 0u,
+    public var featuresLow: UInt = 0u,
+    public var featuresHigh: TapeGetDriveParametersFeaturesHigh = 0u,
+    public var eOTWarningZoneSize: UInt = 0u,
 )
 
-public data class TAPE_GET_MEDIA_PARAMETERS(
-    public var Capacity: Long = 0L,
-    public var Remaining: Long = 0L,
-    public var BlockSize: UInt = 0u,
-    public var PartitionCount: UInt = 0u,
-    public var WriteProtected: Boolean = false,
+public data class TapeGetMediaParameters(
+    public var capacity: Long = 0L,
+    public var remaining: Long = 0L,
+    public var blockSize: UInt = 0u,
+    public var partitionCount: UInt = 0u,
+    public var writeProtected: Boolean = false,
 )
 
-public data class TAPE_SET_DRIVE_PARAMETERS(
-    public var ECC: Boolean = false,
-    public var Compression: Boolean = false,
-    public var DataPadding: Boolean = false,
-    public var ReportSetmarks: Boolean = false,
-    public var EOTWarningZoneSize: UInt = 0u,
+public data class TapeSetDriveParameters(
+    public var ecc: Boolean = false,
+    public var compression: Boolean = false,
+    public var dataPadding: Boolean = false,
+    public var reportSetmarks: Boolean = false,
+    public var eOTWarningZoneSize: UInt = 0u,
 )
 
-public data class TAPE_SET_MEDIA_PARAMETERS(public var BlockSize: UInt = 0u)
+public data class TapeSetMediaParameters(public var blockSize: UInt = 0u)
 
-public data class TAPE_WMI_OPERATIONS(
-    public var Method: UInt = 0u,
-    public var DataBufferSize: UInt = 0u,
-    public var DataBuffer: Long = 0L,
+public data class TapeWmiOperations(
+    public var method: UInt = 0u,
+    public var dataBufferSize: UInt = 0u,
+    public var dataBuffer: COpaquePointer? = null,
 )
 
-public data class TOKEN_BNO_ISOLATION_INFORMATION(public var IsolationPrefix: PWSTR = 0L, public var IsolationEnabled: Boolean = false)
+public data class TokenBnoIsolationInformation(public var isolationPrefix: Pwstr = null, public var isolationEnabled: Boolean = false)
 
-public data class TOKEN_SID_INFORMATION(public var Sid: PSID = 0L)
+public data class TokenSidInformation(public var sid: Psid = null)
 
-public data class TRANSACTIONMANAGER_BASIC_INFORMATION(public var TmIdentity: GUID = GUID(), public var VirtualClock: Long = 0L)
+public data class TransactionmanagerBasicInformation(public var tmIdentity: Guid = Guid(), public var virtualClock: Long = 0L)
 
-public data class TRANSACTIONMANAGER_LOGPATH_INFORMATION(public var LogPathLength: UInt = 0u, public var LogPath: UShortArray = UShortArray(1)) {
+public data class TransactionmanagerLogpathInformation(public var logPathLength: UInt = 0u, public var logPath: UShortArray = UShortArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is TRANSACTIONMANAGER_LOGPATH_INFORMATION) return false
-        if (this.LogPathLength != other.LogPathLength) return false
-        if (!this.LogPath.contentEquals(other.LogPath)) return false
+        if (other !is TransactionmanagerLogpathInformation) return false
+        if (this.logPathLength != other.logPathLength) return false
+        if (!this.logPath.contentEquals(other.logPath)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.LogPathLength.hashCode()
-        result = 31 * result + this.LogPath.contentHashCode()
+        var result = this.logPathLength.hashCode()
+        result = 31 * result + this.logPath.contentHashCode()
         return result
     }
 }
 
-public data class TRANSACTIONMANAGER_LOG_INFORMATION(public var LogIdentity: GUID = GUID())
+public data class TransactionmanagerLogInformation(public var logIdentity: Guid = Guid())
 
-public data class TRANSACTIONMANAGER_OLDEST_INFORMATION(public var OldestTransactionGuid: GUID = GUID())
+public data class TransactionmanagerOldestInformation(public var oldestTransactionGuid: Guid = Guid())
 
-public data class TRANSACTIONMANAGER_RECOVERY_INFORMATION(public var LastRecoveredLsn: ULong = 0uL)
+public data class TransactionmanagerRecoveryInformation(public var lastRecoveredLsn: ULong = 0uL)
 
-public data class TRANSACTION_BASIC_INFORMATION(
-    public var TransactionId: GUID = GUID(),
-    public var State: UInt = 0u,
-    public var Outcome: UInt = 0u,
+public data class TransactionBasicInformation(
+    public var transactionId: Guid = Guid(),
+    public var state: UInt = 0u,
+    public var outcome: UInt = 0u,
 )
 
-public data class TRANSACTION_BIND_INFORMATION(public var TmHandle: HANDLE = 0L)
+public data class TransactionBindInformation(public var tmHandle: Handle = null)
 
-public data class TRANSACTION_ENLISTMENTS_INFORMATION(public var NumberOfEnlistments: UInt = 0u, public var EnlistmentPair: List<TRANSACTION_ENLISTMENT_PAIR> = List(1) { TRANSACTION_ENLISTMENT_PAIR() })
+public data class TransactionEnlistmentsInformation(public var numberOfEnlistments: UInt = 0u, public var enlistmentPair: List<TransactionEnlistmentPair> = List(1) { TransactionEnlistmentPair() })
 
-public data class TRANSACTION_ENLISTMENT_PAIR(public var EnlistmentId: GUID = GUID(), public var ResourceManagerId: GUID = GUID())
+public data class TransactionEnlistmentPair(public var enlistmentId: Guid = Guid(), public var resourceManagerId: Guid = Guid())
 
-public data class TRANSACTION_LIST_ENTRY(public var UOW: GUID = GUID())
+public data class TransactionListEntry(public var uow: Guid = Guid())
 
-public data class TRANSACTION_LIST_INFORMATION(public var NumberOfTransactions: UInt = 0u, public var TransactionInformation: List<TRANSACTION_LIST_ENTRY> = List(1) { TRANSACTION_LIST_ENTRY() })
+public data class TransactionListInformation(public var numberOfTransactions: UInt = 0u, public var transactionInformation: List<TransactionListEntry> = List(1) { TransactionListEntry() })
 
-public data class TRANSACTION_PROPERTIES_INFORMATION(
-    public var IsolationLevel: UInt = 0u,
-    public var IsolationFlags: UInt = 0u,
-    public var Timeout: Long = 0L,
-    public var Outcome: UInt = 0u,
-    public var DescriptionLength: UInt = 0u,
-    public var Description: UShortArray = UShortArray(1),
+public data class TransactionPropertiesInformation(
+    public var isolationLevel: UInt = 0u,
+    public var isolationFlags: UInt = 0u,
+    public var timeout: Long = 0L,
+    public var outcome: UInt = 0u,
+    public var descriptionLength: UInt = 0u,
+    public var description: UShortArray = UShortArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is TRANSACTION_PROPERTIES_INFORMATION) return false
-        if (this.IsolationLevel != other.IsolationLevel) return false
-        if (this.IsolationFlags != other.IsolationFlags) return false
-        if (this.Timeout != other.Timeout) return false
-        if (this.Outcome != other.Outcome) return false
-        if (this.DescriptionLength != other.DescriptionLength) return false
-        if (!this.Description.contentEquals(other.Description)) return false
+        if (other !is TransactionPropertiesInformation) return false
+        if (this.isolationLevel != other.isolationLevel) return false
+        if (this.isolationFlags != other.isolationFlags) return false
+        if (this.timeout != other.timeout) return false
+        if (this.outcome != other.outcome) return false
+        if (this.descriptionLength != other.descriptionLength) return false
+        if (!this.description.contentEquals(other.description)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.IsolationLevel.hashCode()
-        result = 31 * result + this.IsolationFlags.hashCode()
-        result = 31 * result + this.Timeout.hashCode()
-        result = 31 * result + this.Outcome.hashCode()
-        result = 31 * result + this.DescriptionLength.hashCode()
-        result = 31 * result + this.Description.contentHashCode()
+        var result = this.isolationLevel.hashCode()
+        result = 31 * result + this.isolationFlags.hashCode()
+        result = 31 * result + this.timeout.hashCode()
+        result = 31 * result + this.outcome.hashCode()
+        result = 31 * result + this.descriptionLength.hashCode()
+        result = 31 * result + this.description.contentHashCode()
         return result
     }
 }
 
-public data class TRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION(public var SuperiorEnlistmentPair: TRANSACTION_ENLISTMENT_PAIR = TRANSACTION_ENLISTMENT_PAIR())
+public data class TransactionSuperiorEnlistmentInformation(public var superiorEnlistmentPair: TransactionEnlistmentPair = TransactionEnlistmentPair())
 
-public data class UMS_CREATE_THREAD_ATTRIBUTES(
-    public var UmsVersion: UInt = 0u,
-    public var UmsContext: Long = 0L,
-    public var UmsCompletionList: Long = 0L,
+public data class UmsCreateThreadAttributes(
+    public var umsVersion: UInt = 0u,
+    public var umsContext: COpaquePointer? = null,
+    public var umsCompletionList: COpaquePointer? = null,
 )
 
-public data class XSAVE_CET_U_FORMAT(public var Ia32CetUMsr: ULong = 0uL, public var Ia32Pl3SspMsr: ULong = 0uL)
+public data class XsaveCetUFormat(public var ia32CetUMsr: ULong = 0uL, public var ia32Pl3SspMsr: ULong = 0uL)
 
-public data class remoteMETAFILEPICT(
+public data class RemoteMetafilepict(
     public var mm: Int = 0,
     public var xExt: Int = 0,
     public var yExt: Int = 0,
-    public var hMF: Long = 0L,
+    public var hMF: UserHmetafile? = null,
 )
 
-public data class userBITMAP(
+public data class UserBitmap(
     public var bmType: Int = 0,
     public var bmWidth: Int = 0,
     public var bmHeight: Int = 0,
@@ -1795,7 +1799,7 @@ public data class userBITMAP(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is userBITMAP) return false
+        if (other !is UserBitmap) return false
         if (this.bmType != other.bmType) return false
         if (this.bmWidth != other.bmWidth) return false
         if (this.bmHeight != other.bmHeight) return false
@@ -1820,38 +1824,38 @@ public data class userBITMAP(
     }
 }
 
-public data class userCLIPFORMAT(public var fContext: Int = 0, public var u: userCLIPFORMAT_0 = userCLIPFORMAT_0())
+public data class UserClipformat(public var fContext: Int = 0, public var u: UserClipformat0 = UserClipformat0())
 
-public data class userCLIPFORMAT_0(public var dwValue: UInt = 0u, public var pwszName: PWSTR = 0L)
+public data class UserClipformat0(public var dwValue: UInt = 0u, public var pwszName: Pwstr = null)
 
-public data class userHBITMAP(public var fContext: Int = 0, public var u: userHBITMAP_0 = userHBITMAP_0())
+public data class UserHbitmap(public var fContext: Int = 0, public var u: UserHbitmap0 = UserHbitmap0())
 
-public data class userHBITMAP_0(
+public data class UserHbitmap0(
     public var hInproc: Int = 0,
-    public var hRemote: Long = 0L,
+    public var hRemote: UserBitmap? = null,
     public var hInproc64: Long = 0L,
 )
 
-public data class userHENHMETAFILE(public var fContext: Int = 0, public var u: userHENHMETAFILE_0 = userHENHMETAFILE_0())
+public data class UserHenhmetafile(public var fContext: Int = 0, public var u: UserHenhmetafile0 = UserHenhmetafile0())
 
-public data class userHENHMETAFILE_0(
+public data class UserHenhmetafile0(
     public var hInproc: Int = 0,
-    public var hRemote: Long = 0L,
+    public var hRemote: ByteBlob? = null,
     public var hInproc64: Long = 0L,
 )
 
-public data class userHGLOBAL(public var fContext: Int = 0, public var u: userHGLOBAL_0 = userHGLOBAL_0())
+public data class UserHglobal(public var fContext: Int = 0, public var u: UserHglobal0 = UserHglobal0())
 
-public data class userHGLOBAL_0(
+public data class UserHglobal0(
     public var hInproc: Int = 0,
-    public var hRemote: Long = 0L,
+    public var hRemote: FlaggedByteBlob? = null,
     public var hInproc64: Long = 0L,
 )
 
-public data class userHMETAFILE(public var fContext: Int = 0, public var u: userHMETAFILE_0 = userHMETAFILE_0())
+public data class UserHmetafile(public var fContext: Int = 0, public var u: UserHmetafile0 = UserHmetafile0())
 
-public data class userHMETAFILE_0(
+public data class UserHmetafile0(
     public var hInproc: Int = 0,
-    public var hRemote: Long = 0L,
+    public var hRemote: ByteBlob? = null,
     public var hInproc64: Long = 0L,
 )

@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_graphics_opengl_ChoosePixelFormat_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_opengl_choosePixelFormat_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppfd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -71,7 +71,7 @@ static Napi::Value windowssys_windows_win32_graphics_opengl_ChoosePixelFormat_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_opengl_DescribePixelFormat_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_opengl_describePixelFormat_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t ipixelformat = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -95,7 +95,7 @@ static Napi::Value windowssys_windows_win32_graphics_opengl_DescribePixelFormat_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_opengl_GetEnhMetaFilePixelFormat_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_opengl_getEnhMetaFilePixelFormat_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hemf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbbuffer = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -117,7 +117,7 @@ static Napi::Value windowssys_windows_win32_graphics_opengl_GetEnhMetaFilePixelF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_opengl_GetPixelFormat_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_opengl_getPixelFormat_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -135,7 +135,7 @@ static Napi::Value windowssys_windows_win32_graphics_opengl_GetPixelFormat_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_opengl_SetPixelFormat_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_opengl_setPixelFormat_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t format = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -157,7 +157,7 @@ static Napi::Value windowssys_windows_win32_graphics_opengl_SetPixelFormat_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_graphics_opengl_SwapBuffers_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_graphics_opengl_swapBuffers_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8082,6 +8082,24 @@ static Napi::Value windowssys_windows_win32_graphics_opengl_wglGetLayerPaletteEn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
+static Napi::Value windowssys_windows_win32_graphics_opengl_wglGetProcAddress_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+#ifdef _WIN32
+    typedef void* (__stdcall *km_fn_t)(void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("opengl32.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "wglGetProcAddress")));
+    }
+    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0) : NULL;
+#else
+    (void)param0;
+    void* km_res = NULL;
+#endif
+    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
+}
+
 static Napi::Value windowssys_windows_win32_graphics_opengl_wglMakeCurrent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
@@ -8303,12 +8321,12 @@ static Napi::Value windowssys_windows_win32_graphics_opengl_wglUseFontOutlinesW_
 }
 
 static void register_windows_win32_graphics_opengl_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_graphics_opengl_ChoosePixelFormat", Napi::Function::New(env, windowssys_windows_win32_graphics_opengl_ChoosePixelFormat_napi));
-    exports.Set("windowssys_windows_win32_graphics_opengl_DescribePixelFormat", Napi::Function::New(env, windowssys_windows_win32_graphics_opengl_DescribePixelFormat_napi));
-    exports.Set("windowssys_windows_win32_graphics_opengl_GetEnhMetaFilePixelFormat", Napi::Function::New(env, windowssys_windows_win32_graphics_opengl_GetEnhMetaFilePixelFormat_napi));
-    exports.Set("windowssys_windows_win32_graphics_opengl_GetPixelFormat", Napi::Function::New(env, windowssys_windows_win32_graphics_opengl_GetPixelFormat_napi));
-    exports.Set("windowssys_windows_win32_graphics_opengl_SetPixelFormat", Napi::Function::New(env, windowssys_windows_win32_graphics_opengl_SetPixelFormat_napi));
-    exports.Set("windowssys_windows_win32_graphics_opengl_SwapBuffers", Napi::Function::New(env, windowssys_windows_win32_graphics_opengl_SwapBuffers_napi));
+    exports.Set("windowssys_windows_win32_graphics_opengl_choosePixelFormat", Napi::Function::New(env, windowssys_windows_win32_graphics_opengl_choosePixelFormat_napi));
+    exports.Set("windowssys_windows_win32_graphics_opengl_describePixelFormat", Napi::Function::New(env, windowssys_windows_win32_graphics_opengl_describePixelFormat_napi));
+    exports.Set("windowssys_windows_win32_graphics_opengl_getEnhMetaFilePixelFormat", Napi::Function::New(env, windowssys_windows_win32_graphics_opengl_getEnhMetaFilePixelFormat_napi));
+    exports.Set("windowssys_windows_win32_graphics_opengl_getPixelFormat", Napi::Function::New(env, windowssys_windows_win32_graphics_opengl_getPixelFormat_napi));
+    exports.Set("windowssys_windows_win32_graphics_opengl_setPixelFormat", Napi::Function::New(env, windowssys_windows_win32_graphics_opengl_setPixelFormat_napi));
+    exports.Set("windowssys_windows_win32_graphics_opengl_swapBuffers", Napi::Function::New(env, windowssys_windows_win32_graphics_opengl_swapBuffers_napi));
     exports.Set("windowssys_windows_win32_graphics_opengl_glAccum", Napi::Function::New(env, windowssys_windows_win32_graphics_opengl_glAccum_napi));
     exports.Set("windowssys_windows_win32_graphics_opengl_glAlphaFunc", Napi::Function::New(env, windowssys_windows_win32_graphics_opengl_glAlphaFunc_napi));
     exports.Set("windowssys_windows_win32_graphics_opengl_glAreTexturesResident", Napi::Function::New(env, windowssys_windows_win32_graphics_opengl_glAreTexturesResident_napi));
@@ -8705,6 +8723,7 @@ static void register_windows_win32_graphics_opengl_napi(Napi::Env env, Napi::Obj
     exports.Set("windowssys_windows_win32_graphics_opengl_wglGetCurrentContext", Napi::Function::New(env, windowssys_windows_win32_graphics_opengl_wglGetCurrentContext_napi));
     exports.Set("windowssys_windows_win32_graphics_opengl_wglGetCurrentDC", Napi::Function::New(env, windowssys_windows_win32_graphics_opengl_wglGetCurrentDC_napi));
     exports.Set("windowssys_windows_win32_graphics_opengl_wglGetLayerPaletteEntries", Napi::Function::New(env, windowssys_windows_win32_graphics_opengl_wglGetLayerPaletteEntries_napi));
+    exports.Set("windowssys_windows_win32_graphics_opengl_wglGetProcAddress", Napi::Function::New(env, windowssys_windows_win32_graphics_opengl_wglGetProcAddress_napi));
     exports.Set("windowssys_windows_win32_graphics_opengl_wglMakeCurrent", Napi::Function::New(env, windowssys_windows_win32_graphics_opengl_wglMakeCurrent_napi));
     exports.Set("windowssys_windows_win32_graphics_opengl_wglRealizeLayerPalette", Napi::Function::New(env, windowssys_windows_win32_graphics_opengl_wglRealizeLayerPalette_napi));
     exports.Set("windowssys_windows_win32_graphics_opengl_wglSetLayerPaletteEntries", Napi::Function::New(env, windowssys_windows_win32_graphics_opengl_wglSetLayerPaletteEntries_napi));

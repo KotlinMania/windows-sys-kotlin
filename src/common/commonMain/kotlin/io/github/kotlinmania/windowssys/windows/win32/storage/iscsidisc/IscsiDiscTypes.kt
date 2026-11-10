@@ -1,29 +1,31 @@
 package io.github.kotlinmania.windowssys.windows.win32.storage.iscsidisc
 
-public typealias IKE_AUTHENTICATION_METHOD = Int
+import io.github.kotlinmania.windowssys.COpaquePointer
 
-public typealias ISCSI_AUTH_TYPES = Int
+public typealias IkeAuthenticationMethod = Int
 
-public typealias ISCSI_DIGEST_TYPES = Int
+public typealias IscsiAuthTypes = Int
 
-public typealias MP_STORAGE_DIAGNOSTIC_LEVEL = Int
+public typealias IscsiDigestTypes = Int
 
-public typealias MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = Int
+public typealias MpStorageDiagnosticLevel = Int
 
-public typealias NVCACHE_STATUS = Int
+public typealias MpStorageDiagnosticTargetType = Int
 
-public typealias NVCACHE_TYPE = Int
+public typealias NvcacheStatus = Int
 
-public typealias NV_SEP_WRITE_CACHE_TYPE = Int
+public typealias NvcacheType = Int
 
-public fun interface PDUMP_DEVICE_POWERON_ROUTINEFn {
-    public operator fun invoke(context: Long): Int
+public typealias NvSepWriteCacheType = Int
+
+public fun interface PdumpDevicePoweronRoutineFn {
+    public operator fun invoke(context: COpaquePointer?): Int
 }
 
-public typealias PDUMP_DEVICE_POWERON_ROUTINE = PDUMP_DEVICE_POWERON_ROUTINEFn?
+public typealias PdumpDevicePoweronRoutine = PdumpDevicePoweronRoutineFn?
 
-public typealias TARGETPROTOCOLTYPE = Int
+public typealias Targetprotocoltype = Int
 
-public typealias TARGET_INFORMATION_CLASS = Int
+public typealias TargetInformationClass = Int
 
-public typealias _ADAPTER_OBJECT = Long
+public typealias AdapterObject = Long

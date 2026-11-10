@@ -1,488 +1,968 @@
-@file:OptIn(kotlin.ExperimentalUnsignedTypes::class)
+@file:OptIn(kotlin.ExperimentalUnsignedTypes::class, kotlin.js.ExperimentalWasmJsInterop::class)
 
 package io.github.kotlinmania.windowssys.windows.win32.media.audio
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HMODULE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LRESULT
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hmodule
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
 
-public actual fun ActivateAudioInterfaceAsync(deviceinterfacepath: PCWSTR, riid: Long, activationparams: Long, completionhandler: Long, activationoperation: Long): HRESULT =
-    0
+@JsFun("() => { if (typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys !== null; if (typeof process === 'undefined' || !process.versions || !process.versions.node) { globalThis.__km_napi_windowssys = null; return false; } var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) { globalThis.__km_napi_windowssys = null; return false; } try { globalThis.__km_napi_windowssys = req('@kotlinmania/windowssys-native-bindings'); return true; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { globalThis.__km_napi_windowssys = req(c); return true; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } globalThis.__km_napi_windowssys = null; return false; }")
+private external fun _initWindowsWin32MediaAudioNapiAddon(): Boolean
 
-public actual fun CoRegisterMessageFilter(lpmessagefilter: Long, lplpmessagefilter: Long): HRESULT =
-    0
+private val _windowsWin32MediaAudioNapiAvailable: Boolean = _initWindowsWin32MediaAudioNapiAddon()
 
-public actual fun CreateCaptureAudioStateMonitor(audiostatemonitor: Long): HRESULT =
-    0
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_activateAudioInterfaceAsync(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_media_audio_activateAudioInterfaceAsync(p0: String, p1: String, p2: String, p3: String, p4: String): Int
 
-public actual fun CreateCaptureAudioStateMonitorForCategory(category: AUDIO_STREAM_CATEGORY, audiostatemonitor: Long): HRESULT =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_coRegisterMessageFilter(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_media_audio_coRegisterMessageFilter(p0: String, p1: String): Int
 
-public actual fun CreateCaptureAudioStateMonitorForCategoryAndDeviceId(category: AUDIO_STREAM_CATEGORY, deviceid: PCWSTR, audiostatemonitor: Long): HRESULT =
-    0
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_createCaptureAudioStateMonitor(p0)")
+private external fun _wasm_windowssys_windows_win32_media_audio_createCaptureAudioStateMonitor(p0: String): Int
 
-public actual fun CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(category: AUDIO_STREAM_CATEGORY, role: ERole, audiostatemonitor: Long): HRESULT =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_createCaptureAudioStateMonitorForCategory(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_media_audio_createCaptureAudioStateMonitorForCategory(p0: Int, p1: String): Int
 
-public actual fun CreateRenderAudioStateMonitor(audiostatemonitor: Long): HRESULT =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_createCaptureAudioStateMonitorForCategoryAndDeviceId(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_createCaptureAudioStateMonitorForCategoryAndDeviceId(p0: Int, p1: String, p2: String): Int
 
-public actual fun CreateRenderAudioStateMonitorForCategory(category: AUDIO_STREAM_CATEGORY, audiostatemonitor: Long): HRESULT =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_createCaptureAudioStateMonitorForCategoryAndDeviceRole(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_createCaptureAudioStateMonitorForCategoryAndDeviceRole(p0: Int, p1: Int, p2: String): Int
 
-public actual fun CreateRenderAudioStateMonitorForCategoryAndDeviceId(category: AUDIO_STREAM_CATEGORY, deviceid: PCWSTR, audiostatemonitor: Long): HRESULT =
-    0
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_createRenderAudioStateMonitor(p0)")
+private external fun _wasm_windowssys_windows_win32_media_audio_createRenderAudioStateMonitor(p0: String): Int
 
-public actual fun CreateRenderAudioStateMonitorForCategoryAndDeviceRole(category: AUDIO_STREAM_CATEGORY, role: ERole, audiostatemonitor: Long): HRESULT =
-    0
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_createRenderAudioStateMonitorForCategory(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_media_audio_createRenderAudioStateMonitorForCategory(p0: Int, p1: String): Int
 
-public actual fun PlaySoundA(pszsound: PCSTR, hmod: HMODULE, fdwsound: SND_FLAGS): BOOL =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_createRenderAudioStateMonitorForCategoryAndDeviceId(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_createRenderAudioStateMonitorForCategoryAndDeviceId(p0: Int, p1: String, p2: String): Int
 
-public actual fun PlaySoundW(pszsound: PCWSTR, hmod: HMODULE, fdwsound: SND_FLAGS): BOOL =
-    0
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_createRenderAudioStateMonitorForCategoryAndDeviceRole(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_createRenderAudioStateMonitorForCategoryAndDeviceRole(p0: Int, p1: Int, p2: String): Int
 
-public actual fun acmDriverAddA(phadid: Long, hinstmodule: HINSTANCE, lparam: LPARAM, dwpriority: UInt, fdwadd: UInt): UInt =
-    0u
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_playSoundA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_playSoundA(p0: String, p1: String, p2: Int): Int
 
-public actual fun acmDriverAddW(phadid: Long, hinstmodule: HINSTANCE, lparam: LPARAM, dwpriority: UInt, fdwadd: UInt): UInt =
-    0u
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_playSoundW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_playSoundW(p0: String, p1: String, p2: Int): Int
 
-public actual fun acmDriverClose(had: HACMDRIVER, fdwclose: UInt): UInt =
-    0u
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmDriverAddA(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmDriverAddA(p0: String, p1: String, p2: String, p3: Int, p4: Int): Int
 
-public actual fun acmDriverDetailsA(hadid: HACMDRIVERID, padd: Long, fdwdetails: UInt): UInt =
-    0u
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmDriverAddW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmDriverAddW(p0: String, p1: String, p2: String, p3: Int, p4: Int): Int
 
-public actual fun acmDriverDetailsW(hadid: HACMDRIVERID, padd: Long, fdwdetails: UInt): UInt =
-    0u
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmDriverClose(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmDriverClose(p0: String, p1: Int): Int
 
-public actual fun acmDriverEnum(fncallback: ACMDRIVERENUMCB, dwinstance: ULong, fdwenum: UInt): UInt =
-    0u
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmDriverDetailsA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmDriverDetailsA(p0: String, p1: String, p2: Int): Int
 
-public actual fun acmDriverID(hao: HACMOBJ, phadid: Long, fdwdriverid: UInt): UInt =
-    0u
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmDriverDetailsW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmDriverDetailsW(p0: String, p1: String, p2: Int): Int
 
-public actual fun acmDriverMessage(had: HACMDRIVER, umsg: UInt, lparam1: LPARAM, lparam2: LPARAM): LRESULT =
-    0L
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmDriverEnum(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmDriverEnum(p0: String, p1: String, p2: Int): Int
 
-public actual fun acmDriverOpen(phad: Long, hadid: HACMDRIVERID, fdwopen: UInt): UInt =
-    0u
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmDriverID(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmDriverID(p0: String, p1: String, p2: Int): Int
 
-public actual fun acmDriverPriority(hadid: HACMDRIVERID, dwpriority: UInt, fdwpriority: UInt): UInt =
-    0u
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmDriverMessage(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmDriverMessage(p0: String, p1: Int, p2: String, p3: String): String
 
-public actual fun acmDriverRemove(hadid: HACMDRIVERID, fdwremove: UInt): UInt =
-    0u
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmDriverOpen(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmDriverOpen(p0: String, p1: String, p2: Int): Int
 
-public actual fun acmFilterChooseA(pafltrc: Long): UInt =
-    0u
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmDriverPriority(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmDriverPriority(p0: String, p1: Int, p2: Int): Int
 
-public actual fun acmFilterChooseW(pafltrc: Long): UInt =
-    0u
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmDriverRemove(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmDriverRemove(p0: String, p1: Int): Int
 
-public actual fun acmFilterDetailsA(had: HACMDRIVER, pafd: Long, fdwdetails: UInt): UInt =
-    0u
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmFilterChooseA(p0)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmFilterChooseA(p0: String): Int
 
-public actual fun acmFilterDetailsW(had: HACMDRIVER, pafd: Long, fdwdetails: UInt): UInt =
-    0u
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmFilterChooseW(p0)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmFilterChooseW(p0: String): Int
 
-public actual fun acmFilterEnumA(had: HACMDRIVER, pafd: Long, fncallback: ACMFILTERENUMCBA, dwinstance: ULong, fdwenum: UInt): UInt =
-    0u
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmFilterDetailsA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmFilterDetailsA(p0: String, p1: String, p2: Int): Int
 
-public actual fun acmFilterEnumW(had: HACMDRIVER, pafd: Long, fncallback: ACMFILTERENUMCBW, dwinstance: ULong, fdwenum: UInt): UInt =
-    0u
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmFilterDetailsW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmFilterDetailsW(p0: String, p1: String, p2: Int): Int
 
-public actual fun acmFilterTagDetailsA(had: HACMDRIVER, paftd: Long, fdwdetails: UInt): UInt =
-    0u
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmFilterEnumA(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmFilterEnumA(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
 
-public actual fun acmFilterTagDetailsW(had: HACMDRIVER, paftd: Long, fdwdetails: UInt): UInt =
-    0u
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmFilterEnumW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmFilterEnumW(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
 
-public actual fun acmFilterTagEnumA(had: HACMDRIVER, paftd: Long, fncallback: ACMFILTERTAGENUMCBA, dwinstance: ULong, fdwenum: UInt): UInt =
-    0u
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmFilterTagDetailsA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmFilterTagDetailsA(p0: String, p1: String, p2: Int): Int
 
-public actual fun acmFilterTagEnumW(had: HACMDRIVER, paftd: Long, fncallback: ACMFILTERTAGENUMCBW, dwinstance: ULong, fdwenum: UInt): UInt =
-    0u
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmFilterTagDetailsW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmFilterTagDetailsW(p0: String, p1: String, p2: Int): Int
 
-public actual fun acmFormatChooseA(pafmtc: Long): UInt =
-    0u
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmFilterTagEnumA(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmFilterTagEnumA(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
 
-public actual fun acmFormatChooseW(pafmtc: Long): UInt =
-    0u
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmFilterTagEnumW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmFilterTagEnumW(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
 
-public actual fun acmFormatDetailsA(had: HACMDRIVER, pafd: Long, fdwdetails: UInt): UInt =
-    0u
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmFormatChooseA(p0)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmFormatChooseA(p0: String): Int
 
-public actual fun acmFormatDetailsW(had: HACMDRIVER, pafd: Long, fdwdetails: UInt): UInt =
-    0u
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmFormatChooseW(p0)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmFormatChooseW(p0: String): Int
 
-public actual fun acmFormatEnumA(had: HACMDRIVER, pafd: Long, fncallback: ACMFORMATENUMCBA, dwinstance: ULong, fdwenum: UInt): UInt =
-    0u
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmFormatDetailsA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmFormatDetailsA(p0: String, p1: String, p2: Int): Int
 
-public actual fun acmFormatEnumW(had: HACMDRIVER, pafd: Long, fncallback: ACMFORMATENUMCBW, dwinstance: ULong, fdwenum: UInt): UInt =
-    0u
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmFormatDetailsW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmFormatDetailsW(p0: String, p1: String, p2: Int): Int
 
-public actual fun acmFormatSuggest(had: HACMDRIVER, pwfxsrc: Long, pwfxdst: Long, cbwfxdst: UInt, fdwsuggest: UInt): UInt =
-    0u
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmFormatEnumA(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmFormatEnumA(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
 
-public actual fun acmFormatTagDetailsA(had: HACMDRIVER, paftd: Long, fdwdetails: UInt): UInt =
-    0u
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmFormatEnumW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmFormatEnumW(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
 
-public actual fun acmFormatTagDetailsW(had: HACMDRIVER, paftd: Long, fdwdetails: UInt): UInt =
-    0u
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmFormatSuggest(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmFormatSuggest(p0: String, p1: String, p2: String, p3: Int, p4: Int): Int
 
-public actual fun acmFormatTagEnumA(had: HACMDRIVER, paftd: Long, fncallback: ACMFORMATTAGENUMCBA, dwinstance: ULong, fdwenum: UInt): UInt =
-    0u
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmFormatTagDetailsA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmFormatTagDetailsA(p0: String, p1: String, p2: Int): Int
 
-public actual fun acmFormatTagEnumW(had: HACMDRIVER, paftd: Long, fncallback: ACMFORMATTAGENUMCBW, dwinstance: ULong, fdwenum: UInt): UInt =
-    0u
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmFormatTagDetailsW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmFormatTagDetailsW(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmFormatTagEnumA(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmFormatTagEnumA(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmFormatTagEnumW(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmFormatTagEnumW(p0: String, p1: String, p2: String, p3: String, p4: Int): Int
+
+@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmGetVersion()")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmGetVersion(): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmMetrics(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmMetrics(p0: String, p1: Int, p2: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmStreamClose(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmStreamClose(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmStreamConvert(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmStreamConvert(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmStreamMessage(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmStreamMessage(p0: String, p1: Int, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5, p6, p7) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmStreamOpen(p0, p1, p2, p3, p4, p5, p6, p7)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmStreamOpen(p0: String, p1: String, p2: String, p3: String, p4: String, p5: String, p6: String, p7: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmStreamPrepareHeader(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmStreamPrepareHeader(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmStreamReset(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmStreamReset(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmStreamSize(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmStreamSize(p0: String, p1: Int, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_acmStreamUnprepareHeader(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_acmStreamUnprepareHeader(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_auxGetDevCapsA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_auxGetDevCapsA(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_auxGetDevCapsW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_auxGetDevCapsW(p0: String, p1: String, p2: Int): Int
+
+@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_auxGetNumDevs()")
+private external fun _wasm_windowssys_windows_win32_media_audio_auxGetNumDevs(): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_auxGetVolume(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_media_audio_auxGetVolume(p0: Int, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_auxOutMessage(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_media_audio_auxOutMessage(p0: Int, p1: Int, p2: String, p3: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_auxSetVolume(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_media_audio_auxSetVolume(p0: Int, p1: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiConnect(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiConnect(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiDisconnect(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiDisconnect(p0: String, p1: String, p2: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiInAddBuffer(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiInAddBuffer(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiInClose(p0)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiInClose(p0: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiInGetDevCapsA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiInGetDevCapsA(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiInGetDevCapsW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiInGetDevCapsW(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiInGetErrorTextA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiInGetErrorTextA(p0: Int, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiInGetErrorTextW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiInGetErrorTextW(p0: Int, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiInGetID(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiInGetID(p0: String, p1: String): Int
+
+@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiInGetNumDevs()")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiInGetNumDevs(): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiInMessage(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiInMessage(p0: String, p1: Int, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiInOpen(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiInOpen(p0: String, p1: Int, p2: String, p3: String, p4: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiInPrepareHeader(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiInPrepareHeader(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiInReset(p0)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiInReset(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiInStart(p0)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiInStart(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiInStop(p0)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiInStop(p0: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiInUnprepareHeader(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiInUnprepareHeader(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiOutCacheDrumPatches(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiOutCacheDrumPatches(p0: String, p1: Int, p2: String, p3: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiOutCachePatches(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiOutCachePatches(p0: String, p1: Int, p2: String, p3: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiOutClose(p0)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiOutClose(p0: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiOutGetDevCapsA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiOutGetDevCapsA(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiOutGetDevCapsW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiOutGetDevCapsW(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiOutGetErrorTextA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiOutGetErrorTextA(p0: Int, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiOutGetErrorTextW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiOutGetErrorTextW(p0: Int, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiOutGetID(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiOutGetID(p0: String, p1: String): Int
+
+@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiOutGetNumDevs()")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiOutGetNumDevs(): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiOutGetVolume(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiOutGetVolume(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiOutLongMsg(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiOutLongMsg(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiOutMessage(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiOutMessage(p0: String, p1: Int, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiOutOpen(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiOutOpen(p0: String, p1: Int, p2: String, p3: String, p4: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiOutPrepareHeader(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiOutPrepareHeader(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiOutReset(p0)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiOutReset(p0: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiOutSetVolume(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiOutSetVolume(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiOutShortMsg(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiOutShortMsg(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiOutUnprepareHeader(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiOutUnprepareHeader(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiStreamClose(p0)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiStreamClose(p0: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiStreamOpen(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiStreamOpen(p0: String, p1: String, p2: Int, p3: String, p4: String, p5: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiStreamOut(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiStreamOut(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiStreamPause(p0)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiStreamPause(p0: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiStreamPosition(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiStreamPosition(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiStreamProperty(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiStreamProperty(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiStreamRestart(p0)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiStreamRestart(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_midiStreamStop(p0)")
+private external fun _wasm_windowssys_windows_win32_media_audio_midiStreamStop(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_mixerClose(p0)")
+private external fun _wasm_windowssys_windows_win32_media_audio_mixerClose(p0: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_mixerGetControlDetailsA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_mixerGetControlDetailsA(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_mixerGetControlDetailsW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_mixerGetControlDetailsW(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_mixerGetDevCapsA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_mixerGetDevCapsA(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_mixerGetDevCapsW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_mixerGetDevCapsW(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_mixerGetID(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_mixerGetID(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_mixerGetLineControlsA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_mixerGetLineControlsA(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_mixerGetLineControlsW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_mixerGetLineControlsW(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_mixerGetLineInfoA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_mixerGetLineInfoA(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_mixerGetLineInfoW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_mixerGetLineInfoW(p0: String, p1: String, p2: Int): Int
+
+@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_mixerGetNumDevs()")
+private external fun _wasm_windowssys_windows_win32_media_audio_mixerGetNumDevs(): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_mixerMessage(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_media_audio_mixerMessage(p0: String, p1: Int, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_mixerOpen(p0, p1, p2, p3, p4)")
+private external fun _wasm_windowssys_windows_win32_media_audio_mixerOpen(p0: String, p1: Int, p2: String, p3: String, p4: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_mixerSetControlDetails(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_mixerSetControlDetails(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_sndPlaySoundA(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_media_audio_sndPlaySoundA(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_sndPlaySoundW(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_media_audio_sndPlaySoundW(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_waveInAddBuffer(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_waveInAddBuffer(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_waveInClose(p0)")
+private external fun _wasm_windowssys_windows_win32_media_audio_waveInClose(p0: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_waveInGetDevCapsA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_waveInGetDevCapsA(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_waveInGetDevCapsW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_waveInGetDevCapsW(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_waveInGetErrorTextA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_waveInGetErrorTextA(p0: Int, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_waveInGetErrorTextW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_waveInGetErrorTextW(p0: Int, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_waveInGetID(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_media_audio_waveInGetID(p0: String, p1: String): Int
+
+@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_waveInGetNumDevs()")
+private external fun _wasm_windowssys_windows_win32_media_audio_waveInGetNumDevs(): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_waveInGetPosition(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_waveInGetPosition(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_waveInMessage(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_media_audio_waveInMessage(p0: String, p1: Int, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_waveInOpen(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_media_audio_waveInOpen(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_waveInPrepareHeader(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_waveInPrepareHeader(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_waveInReset(p0)")
+private external fun _wasm_windowssys_windows_win32_media_audio_waveInReset(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_waveInStart(p0)")
+private external fun _wasm_windowssys_windows_win32_media_audio_waveInStart(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_waveInStop(p0)")
+private external fun _wasm_windowssys_windows_win32_media_audio_waveInStop(p0: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_waveInUnprepareHeader(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_waveInUnprepareHeader(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_waveOutBreakLoop(p0)")
+private external fun _wasm_windowssys_windows_win32_media_audio_waveOutBreakLoop(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_waveOutClose(p0)")
+private external fun _wasm_windowssys_windows_win32_media_audio_waveOutClose(p0: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_waveOutGetDevCapsA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_waveOutGetDevCapsA(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_waveOutGetDevCapsW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_waveOutGetDevCapsW(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_waveOutGetErrorTextA(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_waveOutGetErrorTextA(p0: Int, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_waveOutGetErrorTextW(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_waveOutGetErrorTextW(p0: Int, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_waveOutGetID(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_media_audio_waveOutGetID(p0: String, p1: String): Int
+
+@JsFun("() => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_waveOutGetNumDevs()")
+private external fun _wasm_windowssys_windows_win32_media_audio_waveOutGetNumDevs(): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_waveOutGetPitch(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_media_audio_waveOutGetPitch(p0: String, p1: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_waveOutGetPlaybackRate(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_media_audio_waveOutGetPlaybackRate(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_waveOutGetPosition(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_waveOutGetPosition(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_waveOutGetVolume(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_media_audio_waveOutGetVolume(p0: String, p1: String): Int
+
+@JsFun("(p0, p1, p2, p3) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_waveOutMessage(p0, p1, p2, p3)")
+private external fun _wasm_windowssys_windows_win32_media_audio_waveOutMessage(p0: String, p1: Int, p2: String, p3: String): Int
+
+@JsFun("(p0, p1, p2, p3, p4, p5) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_waveOutOpen(p0, p1, p2, p3, p4, p5)")
+private external fun _wasm_windowssys_windows_win32_media_audio_waveOutOpen(p0: String, p1: Int, p2: String, p3: String, p4: String, p5: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_waveOutPause(p0)")
+private external fun _wasm_windowssys_windows_win32_media_audio_waveOutPause(p0: String): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_waveOutPrepareHeader(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_waveOutPrepareHeader(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_waveOutReset(p0)")
+private external fun _wasm_windowssys_windows_win32_media_audio_waveOutReset(p0: String): Int
+
+@JsFun("(p0) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_waveOutRestart(p0)")
+private external fun _wasm_windowssys_windows_win32_media_audio_waveOutRestart(p0: String): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_waveOutSetPitch(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_media_audio_waveOutSetPitch(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_waveOutSetPlaybackRate(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_media_audio_waveOutSetPlaybackRate(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_waveOutSetVolume(p0, p1)")
+private external fun _wasm_windowssys_windows_win32_media_audio_waveOutSetVolume(p0: String, p1: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_waveOutUnprepareHeader(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_waveOutUnprepareHeader(p0: String, p1: String, p2: Int): Int
+
+@JsFun("(p0, p1, p2) => globalThis.__km_napi_windowssys.windowssys_windows_win32_media_audio_waveOutWrite(p0, p1, p2)")
+private external fun _wasm_windowssys_windows_win32_media_audio_waveOutWrite(p0: String, p1: String, p2: Int): Int
+
+public actual fun activateAudioInterfaceAsync(deviceinterfacepath: Pcwstr, riid: COpaquePointer?, activationparams: COpaquePointer?, completionhandler: COpaquePointer?, activationoperation: COpaquePointer?): Hresult =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_activateAudioInterfaceAsync((deviceinterfacepath?.value ?: 0L).toString(), (riid?.value ?: 0L).toString(), (activationparams?.value ?: 0L).toString(), (completionhandler?.value ?: 0L).toString(), (activationoperation?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun coRegisterMessageFilter(lpmessagefilter: COpaquePointer?, lplpmessagefilter: COpaquePointer?): Hresult =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_coRegisterMessageFilter((lpmessagefilter?.value ?: 0L).toString(), (lplpmessagefilter?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun createCaptureAudioStateMonitor(audiostatemonitor: COpaquePointer?): Hresult =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_createCaptureAudioStateMonitor((audiostatemonitor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun createCaptureAudioStateMonitorForCategory(category: AudioStreamCategory, audiostatemonitor: COpaquePointer?): Hresult =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_createCaptureAudioStateMonitorForCategory(category, (audiostatemonitor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun createCaptureAudioStateMonitorForCategoryAndDeviceId(category: AudioStreamCategory, deviceid: Pcwstr, audiostatemonitor: COpaquePointer?): Hresult =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_createCaptureAudioStateMonitorForCategoryAndDeviceId(category, (deviceid?.value ?: 0L).toString(), (audiostatemonitor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun createCaptureAudioStateMonitorForCategoryAndDeviceRole(category: AudioStreamCategory, role: ERole, audiostatemonitor: COpaquePointer?): Hresult =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_createCaptureAudioStateMonitorForCategoryAndDeviceRole(category, role, (audiostatemonitor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun createRenderAudioStateMonitor(audiostatemonitor: COpaquePointer?): Hresult =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_createRenderAudioStateMonitor((audiostatemonitor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun createRenderAudioStateMonitorForCategory(category: AudioStreamCategory, audiostatemonitor: COpaquePointer?): Hresult =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_createRenderAudioStateMonitorForCategory(category, (audiostatemonitor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun createRenderAudioStateMonitorForCategoryAndDeviceId(category: AudioStreamCategory, deviceid: Pcwstr, audiostatemonitor: COpaquePointer?): Hresult =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_createRenderAudioStateMonitorForCategoryAndDeviceId(category, (deviceid?.value ?: 0L).toString(), (audiostatemonitor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun createRenderAudioStateMonitorForCategoryAndDeviceRole(category: AudioStreamCategory, role: ERole, audiostatemonitor: COpaquePointer?): Hresult =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_createRenderAudioStateMonitorForCategoryAndDeviceRole(category, role, (audiostatemonitor?.value ?: 0L).toString()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun playSoundA(pszsound: Pcstr, hmod: Hmodule, fdwsound: SndFlags): Bool =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_playSoundA((pszsound?.value ?: 0L).toString(), (hmod?.value ?: 0L).toString(), fdwsound.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun playSoundW(pszsound: Pcwstr, hmod: Hmodule, fdwsound: SndFlags): Bool =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_playSoundW((pszsound?.value ?: 0L).toString(), (hmod?.value ?: 0L).toString(), fdwsound.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun acmDriverAddA(phadid: COpaquePointer?, hinstmodule: Hinstance, lparam: Lparam, dwpriority: UInt, fdwadd: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmDriverAddA((phadid?.value ?: 0L).toString(), (hinstmodule?.value ?: 0L).toString(), lparam.toString(), dwpriority.toInt(), fdwadd.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun acmDriverAddW(phadid: COpaquePointer?, hinstmodule: Hinstance, lparam: Lparam, dwpriority: UInt, fdwadd: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmDriverAddW((phadid?.value ?: 0L).toString(), (hinstmodule?.value ?: 0L).toString(), lparam.toString(), dwpriority.toInt(), fdwadd.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun acmDriverClose(had: Hacmdriver, fdwclose: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmDriverClose((had?.value ?: 0L).toString(), fdwclose.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun acmDriverDetailsA(hadid: Hacmdriverid, padd: COpaquePointer?, fdwdetails: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmDriverDetailsA((hadid?.value ?: 0L).toString(), (padd?.value ?: 0L).toString(), fdwdetails.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun acmDriverDetailsW(hadid: Hacmdriverid, padd: COpaquePointer?, fdwdetails: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmDriverDetailsW((hadid?.value ?: 0L).toString(), (padd?.value ?: 0L).toString(), fdwdetails.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun acmDriverEnum(fncallback: Acmdriverenumcb, dwinstance: ULong, fdwenum: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmDriverEnum(0L.toString(), dwinstance.toString(), fdwenum.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun acmDriverID(hao: Hacmobj, phadid: COpaquePointer?, fdwdriverid: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmDriverID((hao?.value ?: 0L).toString(), (phadid?.value ?: 0L).toString(), fdwdriverid.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun acmDriverMessage(had: Hacmdriver, umsg: UInt, lparam1: Lparam, lparam2: Lparam): Lresult =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmDriverMessage((had?.value ?: 0L).toString(), umsg.toInt(), lparam1.toString(), lparam2.toString()).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun acmDriverOpen(phad: COpaquePointer?, hadid: Hacmdriverid, fdwopen: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmDriverOpen((phad?.value ?: 0L).toString(), (hadid?.value ?: 0L).toString(), fdwopen.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun acmDriverPriority(hadid: Hacmdriverid, dwpriority: UInt, fdwpriority: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmDriverPriority((hadid?.value ?: 0L).toString(), dwpriority.toInt(), fdwpriority.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun acmDriverRemove(hadid: Hacmdriverid, fdwremove: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmDriverRemove((hadid?.value ?: 0L).toString(), fdwremove.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun acmFilterChooseA(pafltrc: COpaquePointer?): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmFilterChooseA((pafltrc?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun acmFilterChooseW(pafltrc: COpaquePointer?): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmFilterChooseW((pafltrc?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun acmFilterDetailsA(had: Hacmdriver, pafd: COpaquePointer?, fdwdetails: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmFilterDetailsA((had?.value ?: 0L).toString(), (pafd?.value ?: 0L).toString(), fdwdetails.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun acmFilterDetailsW(had: Hacmdriver, pafd: COpaquePointer?, fdwdetails: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmFilterDetailsW((had?.value ?: 0L).toString(), (pafd?.value ?: 0L).toString(), fdwdetails.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun acmFilterEnumA(had: Hacmdriver, pafd: COpaquePointer?, fncallback: Acmfilterenumcba, dwinstance: ULong, fdwenum: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmFilterEnumA((had?.value ?: 0L).toString(), (pafd?.value ?: 0L).toString(), 0L.toString(), dwinstance.toString(), fdwenum.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun acmFilterEnumW(had: Hacmdriver, pafd: COpaquePointer?, fncallback: Acmfilterenumcbw, dwinstance: ULong, fdwenum: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmFilterEnumW((had?.value ?: 0L).toString(), (pafd?.value ?: 0L).toString(), 0L.toString(), dwinstance.toString(), fdwenum.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun acmFilterTagDetailsA(had: Hacmdriver, paftd: COpaquePointer?, fdwdetails: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmFilterTagDetailsA((had?.value ?: 0L).toString(), (paftd?.value ?: 0L).toString(), fdwdetails.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun acmFilterTagDetailsW(had: Hacmdriver, paftd: COpaquePointer?, fdwdetails: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmFilterTagDetailsW((had?.value ?: 0L).toString(), (paftd?.value ?: 0L).toString(), fdwdetails.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun acmFilterTagEnumA(had: Hacmdriver, paftd: COpaquePointer?, fncallback: Acmfiltertagenumcba, dwinstance: ULong, fdwenum: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmFilterTagEnumA((had?.value ?: 0L).toString(), (paftd?.value ?: 0L).toString(), 0L.toString(), dwinstance.toString(), fdwenum.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun acmFilterTagEnumW(had: Hacmdriver, paftd: COpaquePointer?, fncallback: Acmfiltertagenumcbw, dwinstance: ULong, fdwenum: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmFilterTagEnumW((had?.value ?: 0L).toString(), (paftd?.value ?: 0L).toString(), 0L.toString(), dwinstance.toString(), fdwenum.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun acmFormatChooseA(pafmtc: COpaquePointer?): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmFormatChooseA((pafmtc?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun acmFormatChooseW(pafmtc: COpaquePointer?): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmFormatChooseW((pafmtc?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun acmFormatDetailsA(had: Hacmdriver, pafd: COpaquePointer?, fdwdetails: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmFormatDetailsA((had?.value ?: 0L).toString(), (pafd?.value ?: 0L).toString(), fdwdetails.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun acmFormatDetailsW(had: Hacmdriver, pafd: COpaquePointer?, fdwdetails: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmFormatDetailsW((had?.value ?: 0L).toString(), (pafd?.value ?: 0L).toString(), fdwdetails.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun acmFormatEnumA(had: Hacmdriver, pafd: COpaquePointer?, fncallback: Acmformatenumcba, dwinstance: ULong, fdwenum: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmFormatEnumA((had?.value ?: 0L).toString(), (pafd?.value ?: 0L).toString(), 0L.toString(), dwinstance.toString(), fdwenum.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun acmFormatEnumW(had: Hacmdriver, pafd: COpaquePointer?, fncallback: Acmformatenumcbw, dwinstance: ULong, fdwenum: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmFormatEnumW((had?.value ?: 0L).toString(), (pafd?.value ?: 0L).toString(), 0L.toString(), dwinstance.toString(), fdwenum.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun acmFormatSuggest(had: Hacmdriver, pwfxsrc: COpaquePointer?, pwfxdst: COpaquePointer?, cbwfxdst: UInt, fdwsuggest: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmFormatSuggest((had?.value ?: 0L).toString(), (pwfxsrc?.value ?: 0L).toString(), (pwfxdst?.value ?: 0L).toString(), cbwfxdst.toInt(), fdwsuggest.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun acmFormatTagDetailsA(had: Hacmdriver, paftd: COpaquePointer?, fdwdetails: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmFormatTagDetailsA((had?.value ?: 0L).toString(), (paftd?.value ?: 0L).toString(), fdwdetails.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun acmFormatTagDetailsW(had: Hacmdriver, paftd: COpaquePointer?, fdwdetails: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmFormatTagDetailsW((had?.value ?: 0L).toString(), (paftd?.value ?: 0L).toString(), fdwdetails.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun acmFormatTagEnumA(had: Hacmdriver, paftd: COpaquePointer?, fncallback: Acmformattagenumcba, dwinstance: ULong, fdwenum: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmFormatTagEnumA((had?.value ?: 0L).toString(), (paftd?.value ?: 0L).toString(), 0L.toString(), dwinstance.toString(), fdwenum.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun acmFormatTagEnumW(had: Hacmdriver, paftd: COpaquePointer?, fncallback: Acmformattagenumcbw, dwinstance: ULong, fdwenum: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmFormatTagEnumW((had?.value ?: 0L).toString(), (paftd?.value ?: 0L).toString(), 0L.toString(), dwinstance.toString(), fdwenum.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun acmGetVersion(): UInt =
-    0u
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmGetVersion().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmMetrics(hao: HACMOBJ, umetric: UInt, pmetric: Long): UInt =
-    0u
+public actual fun acmMetrics(hao: Hacmobj, umetric: UInt, pmetric: COpaquePointer?): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmMetrics((hao?.value ?: 0L).toString(), umetric.toInt(), (pmetric?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmStreamClose(has: HACMSTREAM, fdwclose: UInt): UInt =
-    0u
+public actual fun acmStreamClose(has: Hacmstream, fdwclose: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmStreamClose((has?.value ?: 0L).toString(), fdwclose.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmStreamConvert(has: HACMSTREAM, pash: Long, fdwconvert: UInt): UInt =
-    0u
+public actual fun acmStreamConvert(has: Hacmstream, pash: COpaquePointer?, fdwconvert: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmStreamConvert((has?.value ?: 0L).toString(), (pash?.value ?: 0L).toString(), fdwconvert.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmStreamMessage(has: HACMSTREAM, umsg: UInt, lparam1: LPARAM, lparam2: LPARAM): UInt =
-    0u
+public actual fun acmStreamMessage(has: Hacmstream, umsg: UInt, lparam1: Lparam, lparam2: Lparam): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmStreamMessage((has?.value ?: 0L).toString(), umsg.toInt(), lparam1.toString(), lparam2.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmStreamOpen(phas: Long, had: HACMDRIVER, pwfxsrc: Long, pwfxdst: Long, pwfltr: Long, dwcallback: ULong, dwinstance: ULong, fdwopen: UInt): UInt =
-    0u
+public actual fun acmStreamOpen(phas: COpaquePointer?, had: Hacmdriver, pwfxsrc: COpaquePointer?, pwfxdst: COpaquePointer?, pwfltr: COpaquePointer?, dwcallback: ULong, dwinstance: ULong, fdwopen: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmStreamOpen((phas?.value ?: 0L).toString(), (had?.value ?: 0L).toString(), (pwfxsrc?.value ?: 0L).toString(), (pwfxdst?.value ?: 0L).toString(), (pwfltr?.value ?: 0L).toString(), dwcallback.toString(), dwinstance.toString(), fdwopen.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmStreamPrepareHeader(has: HACMSTREAM, pash: Long, fdwprepare: UInt): UInt =
-    0u
+public actual fun acmStreamPrepareHeader(has: Hacmstream, pash: COpaquePointer?, fdwprepare: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmStreamPrepareHeader((has?.value ?: 0L).toString(), (pash?.value ?: 0L).toString(), fdwprepare.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmStreamReset(has: HACMSTREAM, fdwreset: UInt): UInt =
-    0u
+public actual fun acmStreamReset(has: Hacmstream, fdwreset: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmStreamReset((has?.value ?: 0L).toString(), fdwreset.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmStreamSize(has: HACMSTREAM, cbinput: UInt, pdwoutputbytes: Long, fdwsize: UInt): UInt =
-    0u
+public actual fun acmStreamSize(has: Hacmstream, cbinput: UInt, pdwoutputbytes: COpaquePointer?, fdwsize: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmStreamSize((has?.value ?: 0L).toString(), cbinput.toInt(), (pdwoutputbytes?.value ?: 0L).toString(), fdwsize.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun acmStreamUnprepareHeader(has: HACMSTREAM, pash: Long, fdwunprepare: UInt): UInt =
-    0u
+public actual fun acmStreamUnprepareHeader(has: Hacmstream, pash: COpaquePointer?, fdwunprepare: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_acmStreamUnprepareHeader((has?.value ?: 0L).toString(), (pash?.value ?: 0L).toString(), fdwunprepare.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun auxGetDevCapsA(udeviceid: ULong, pac: Long, cbac: UInt): UInt =
-    0u
+public actual fun auxGetDevCapsA(udeviceid: ULong, pac: COpaquePointer?, cbac: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_auxGetDevCapsA(udeviceid.toString(), (pac?.value ?: 0L).toString(), cbac.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun auxGetDevCapsW(udeviceid: ULong, pac: Long, cbac: UInt): UInt =
-    0u
+public actual fun auxGetDevCapsW(udeviceid: ULong, pac: COpaquePointer?, cbac: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_auxGetDevCapsW(udeviceid.toString(), (pac?.value ?: 0L).toString(), cbac.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun auxGetNumDevs(): UInt =
-    0u
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_auxGetNumDevs().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun auxGetVolume(udeviceid: UInt, pdwvolume: Long): UInt =
-    0u
+public actual fun auxGetVolume(udeviceid: UInt, pdwvolume: COpaquePointer?): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_auxGetVolume(udeviceid.toInt(), (pdwvolume?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun auxOutMessage(udeviceid: UInt, umsg: UInt, dw1: ULong, dw2: ULong): UInt =
-    0u
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_auxOutMessage(udeviceid.toInt(), umsg.toInt(), dw1.toString(), dw2.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun auxSetVolume(udeviceid: UInt, dwvolume: UInt): UInt =
-    0u
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_auxSetVolume(udeviceid.toInt(), dwvolume.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiConnect(hmi: HMIDI, hmo: HMIDIOUT, preserved: Long): UInt =
-    0u
+public actual fun midiConnect(hmi: Hmidi, hmo: Hmidiout, preserved: COpaquePointer?): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiConnect((hmi?.value ?: 0L).toString(), (hmo?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiDisconnect(hmi: HMIDI, hmo: HMIDIOUT, preserved: Long): UInt =
-    0u
+public actual fun midiDisconnect(hmi: Hmidi, hmo: Hmidiout, preserved: COpaquePointer?): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiDisconnect((hmi?.value ?: 0L).toString(), (hmo?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiInAddBuffer(hmi: HMIDIIN, pmh: Long, cbmh: UInt): UInt =
-    0u
+public actual fun midiInAddBuffer(hmi: Hmidiin, pmh: COpaquePointer?, cbmh: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiInAddBuffer((hmi?.value ?: 0L).toString(), (pmh?.value ?: 0L).toString(), cbmh.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiInClose(hmi: HMIDIIN): UInt =
-    0u
+public actual fun midiInClose(hmi: Hmidiin): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiInClose((hmi?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiInGetDevCapsA(udeviceid: ULong, pmic: Long, cbmic: UInt): UInt =
-    0u
+public actual fun midiInGetDevCapsA(udeviceid: ULong, pmic: COpaquePointer?, cbmic: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiInGetDevCapsA(udeviceid.toString(), (pmic?.value ?: 0L).toString(), cbmic.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiInGetDevCapsW(udeviceid: ULong, pmic: Long, cbmic: UInt): UInt =
-    0u
+public actual fun midiInGetDevCapsW(udeviceid: ULong, pmic: COpaquePointer?, cbmic: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiInGetDevCapsW(udeviceid.toString(), (pmic?.value ?: 0L).toString(), cbmic.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiInGetErrorTextA(mmrerror: UInt, psztext: PSTR, cchtext: UInt): UInt =
-    0u
+public actual fun midiInGetErrorTextA(mmrerror: UInt, psztext: Pstr, cchtext: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiInGetErrorTextA(mmrerror.toInt(), (psztext?.value ?: 0L).toString(), cchtext.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiInGetErrorTextW(mmrerror: UInt, psztext: PWSTR, cchtext: UInt): UInt =
-    0u
+public actual fun midiInGetErrorTextW(mmrerror: UInt, psztext: Pwstr, cchtext: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiInGetErrorTextW(mmrerror.toInt(), (psztext?.value ?: 0L).toString(), cchtext.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiInGetID(hmi: HMIDIIN, pudeviceid: Long): UInt =
-    0u
+public actual fun midiInGetID(hmi: Hmidiin, pudeviceid: COpaquePointer?): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiInGetID((hmi?.value ?: 0L).toString(), (pudeviceid?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun midiInGetNumDevs(): UInt =
-    0u
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiInGetNumDevs().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiInMessage(hmi: HMIDIIN, umsg: UInt, dw1: ULong, dw2: ULong): UInt =
-    0u
+public actual fun midiInMessage(hmi: Hmidiin, umsg: UInt, dw1: ULong, dw2: ULong): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiInMessage((hmi?.value ?: 0L).toString(), umsg.toInt(), dw1.toString(), dw2.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiInOpen(phmi: Long, udeviceid: UInt, dwcallback: ULong, dwinstance: ULong, fdwopen: MIDI_WAVE_OPEN_TYPE): UInt =
-    0u
+public actual fun midiInOpen(phmi: COpaquePointer?, udeviceid: UInt, dwcallback: ULong, dwinstance: ULong, fdwopen: MidiWaveOpenType): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiInOpen((phmi?.value ?: 0L).toString(), udeviceid.toInt(), dwcallback.toString(), dwinstance.toString(), fdwopen.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiInPrepareHeader(hmi: HMIDIIN, pmh: Long, cbmh: UInt): UInt =
-    0u
+public actual fun midiInPrepareHeader(hmi: Hmidiin, pmh: COpaquePointer?, cbmh: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiInPrepareHeader((hmi?.value ?: 0L).toString(), (pmh?.value ?: 0L).toString(), cbmh.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiInReset(hmi: HMIDIIN): UInt =
-    0u
+public actual fun midiInReset(hmi: Hmidiin): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiInReset((hmi?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiInStart(hmi: HMIDIIN): UInt =
-    0u
+public actual fun midiInStart(hmi: Hmidiin): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiInStart((hmi?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiInStop(hmi: HMIDIIN): UInt =
-    0u
+public actual fun midiInStop(hmi: Hmidiin): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiInStop((hmi?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiInUnprepareHeader(hmi: HMIDIIN, pmh: Long, cbmh: UInt): UInt =
-    0u
+public actual fun midiInUnprepareHeader(hmi: Hmidiin, pmh: COpaquePointer?, cbmh: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiInUnprepareHeader((hmi?.value ?: 0L).toString(), (pmh?.value ?: 0L).toString(), cbmh.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiOutCacheDrumPatches(hmo: HMIDIOUT, upatch: UInt, pwkya: Long, fucache: UInt): UInt =
-    0u
+public actual fun midiOutCacheDrumPatches(hmo: Hmidiout, upatch: UInt, pwkya: COpaquePointer?, fucache: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiOutCacheDrumPatches((hmo?.value ?: 0L).toString(), upatch.toInt(), (pwkya?.value ?: 0L).toString(), fucache.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiOutCachePatches(hmo: HMIDIOUT, ubank: UInt, pwpa: Long, fucache: UInt): UInt =
-    0u
+public actual fun midiOutCachePatches(hmo: Hmidiout, ubank: UInt, pwpa: COpaquePointer?, fucache: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiOutCachePatches((hmo?.value ?: 0L).toString(), ubank.toInt(), (pwpa?.value ?: 0L).toString(), fucache.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiOutClose(hmo: HMIDIOUT): UInt =
-    0u
+public actual fun midiOutClose(hmo: Hmidiout): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiOutClose((hmo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiOutGetDevCapsA(udeviceid: ULong, pmoc: Long, cbmoc: UInt): UInt =
-    0u
+public actual fun midiOutGetDevCapsA(udeviceid: ULong, pmoc: COpaquePointer?, cbmoc: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiOutGetDevCapsA(udeviceid.toString(), (pmoc?.value ?: 0L).toString(), cbmoc.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiOutGetDevCapsW(udeviceid: ULong, pmoc: Long, cbmoc: UInt): UInt =
-    0u
+public actual fun midiOutGetDevCapsW(udeviceid: ULong, pmoc: COpaquePointer?, cbmoc: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiOutGetDevCapsW(udeviceid.toString(), (pmoc?.value ?: 0L).toString(), cbmoc.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiOutGetErrorTextA(mmrerror: UInt, psztext: PSTR, cchtext: UInt): UInt =
-    0u
+public actual fun midiOutGetErrorTextA(mmrerror: UInt, psztext: Pstr, cchtext: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiOutGetErrorTextA(mmrerror.toInt(), (psztext?.value ?: 0L).toString(), cchtext.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiOutGetErrorTextW(mmrerror: UInt, psztext: PWSTR, cchtext: UInt): UInt =
-    0u
+public actual fun midiOutGetErrorTextW(mmrerror: UInt, psztext: Pwstr, cchtext: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiOutGetErrorTextW(mmrerror.toInt(), (psztext?.value ?: 0L).toString(), cchtext.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiOutGetID(hmo: HMIDIOUT, pudeviceid: Long): UInt =
-    0u
+public actual fun midiOutGetID(hmo: Hmidiout, pudeviceid: COpaquePointer?): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiOutGetID((hmo?.value ?: 0L).toString(), (pudeviceid?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun midiOutGetNumDevs(): UInt =
-    0u
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiOutGetNumDevs().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiOutGetVolume(hmo: HMIDIOUT, pdwvolume: Long): UInt =
-    0u
+public actual fun midiOutGetVolume(hmo: Hmidiout, pdwvolume: COpaquePointer?): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiOutGetVolume((hmo?.value ?: 0L).toString(), (pdwvolume?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiOutLongMsg(hmo: HMIDIOUT, pmh: Long, cbmh: UInt): UInt =
-    0u
+public actual fun midiOutLongMsg(hmo: Hmidiout, pmh: COpaquePointer?, cbmh: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiOutLongMsg((hmo?.value ?: 0L).toString(), (pmh?.value ?: 0L).toString(), cbmh.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiOutMessage(hmo: HMIDIOUT, umsg: UInt, dw1: ULong, dw2: ULong): UInt =
-    0u
+public actual fun midiOutMessage(hmo: Hmidiout, umsg: UInt, dw1: ULong, dw2: ULong): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiOutMessage((hmo?.value ?: 0L).toString(), umsg.toInt(), dw1.toString(), dw2.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiOutOpen(phmo: Long, udeviceid: UInt, dwcallback: ULong, dwinstance: ULong, fdwopen: MIDI_WAVE_OPEN_TYPE): UInt =
-    0u
+public actual fun midiOutOpen(phmo: COpaquePointer?, udeviceid: UInt, dwcallback: ULong, dwinstance: ULong, fdwopen: MidiWaveOpenType): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiOutOpen((phmo?.value ?: 0L).toString(), udeviceid.toInt(), dwcallback.toString(), dwinstance.toString(), fdwopen.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiOutPrepareHeader(hmo: HMIDIOUT, pmh: Long, cbmh: UInt): UInt =
-    0u
+public actual fun midiOutPrepareHeader(hmo: Hmidiout, pmh: COpaquePointer?, cbmh: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiOutPrepareHeader((hmo?.value ?: 0L).toString(), (pmh?.value ?: 0L).toString(), cbmh.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiOutReset(hmo: HMIDIOUT): UInt =
-    0u
+public actual fun midiOutReset(hmo: Hmidiout): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiOutReset((hmo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiOutSetVolume(hmo: HMIDIOUT, dwvolume: UInt): UInt =
-    0u
+public actual fun midiOutSetVolume(hmo: Hmidiout, dwvolume: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiOutSetVolume((hmo?.value ?: 0L).toString(), dwvolume.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiOutShortMsg(hmo: HMIDIOUT, dwmsg: UInt): UInt =
-    0u
+public actual fun midiOutShortMsg(hmo: Hmidiout, dwmsg: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiOutShortMsg((hmo?.value ?: 0L).toString(), dwmsg.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiOutUnprepareHeader(hmo: HMIDIOUT, pmh: Long, cbmh: UInt): UInt =
-    0u
+public actual fun midiOutUnprepareHeader(hmo: Hmidiout, pmh: COpaquePointer?, cbmh: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiOutUnprepareHeader((hmo?.value ?: 0L).toString(), (pmh?.value ?: 0L).toString(), cbmh.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiStreamClose(hms: HMIDISTRM): UInt =
-    0u
+public actual fun midiStreamClose(hms: Hmidistrm): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiStreamClose((hms?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiStreamOpen(phms: Long, pudeviceid: Long, cmidi: UInt, dwcallback: ULong, dwinstance: ULong, fdwopen: UInt): UInt =
-    0u
+public actual fun midiStreamOpen(phms: COpaquePointer?, pudeviceid: COpaquePointer?, cmidi: UInt, dwcallback: ULong, dwinstance: ULong, fdwopen: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiStreamOpen((phms?.value ?: 0L).toString(), (pudeviceid?.value ?: 0L).toString(), cmidi.toInt(), dwcallback.toString(), dwinstance.toString(), fdwopen.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiStreamOut(hms: HMIDISTRM, pmh: Long, cbmh: UInt): UInt =
-    0u
+public actual fun midiStreamOut(hms: Hmidistrm, pmh: COpaquePointer?, cbmh: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiStreamOut((hms?.value ?: 0L).toString(), (pmh?.value ?: 0L).toString(), cbmh.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiStreamPause(hms: HMIDISTRM): UInt =
-    0u
+public actual fun midiStreamPause(hms: Hmidistrm): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiStreamPause((hms?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiStreamPosition(hms: HMIDISTRM, lpmmt: Long, cbmmt: UInt): UInt =
-    0u
+public actual fun midiStreamPosition(hms: Hmidistrm, lpmmt: COpaquePointer?, cbmmt: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiStreamPosition((hms?.value ?: 0L).toString(), (lpmmt?.value ?: 0L).toString(), cbmmt.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiStreamProperty(hms: HMIDISTRM, lppropdata: Long, dwproperty: UInt): UInt =
-    0u
+public actual fun midiStreamProperty(hms: Hmidistrm, lppropdata: COpaquePointer?, dwproperty: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiStreamProperty((hms?.value ?: 0L).toString(), (lppropdata?.value ?: 0L).toString(), dwproperty.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiStreamRestart(hms: HMIDISTRM): UInt =
-    0u
+public actual fun midiStreamRestart(hms: Hmidistrm): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiStreamRestart((hms?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun midiStreamStop(hms: HMIDISTRM): UInt =
-    0u
+public actual fun midiStreamStop(hms: Hmidistrm): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_midiStreamStop((hms?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mixerClose(hmx: HMIXER): UInt =
-    0u
+public actual fun mixerClose(hmx: Hmixer): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_mixerClose((hmx?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mixerGetControlDetailsA(hmxobj: HMIXEROBJ, pmxcd: Long, fdwdetails: UInt): UInt =
-    0u
+public actual fun mixerGetControlDetailsA(hmxobj: Hmixerobj, pmxcd: COpaquePointer?, fdwdetails: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_mixerGetControlDetailsA((hmxobj?.value ?: 0L).toString(), (pmxcd?.value ?: 0L).toString(), fdwdetails.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mixerGetControlDetailsW(hmxobj: HMIXEROBJ, pmxcd: Long, fdwdetails: UInt): UInt =
-    0u
+public actual fun mixerGetControlDetailsW(hmxobj: Hmixerobj, pmxcd: COpaquePointer?, fdwdetails: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_mixerGetControlDetailsW((hmxobj?.value ?: 0L).toString(), (pmxcd?.value ?: 0L).toString(), fdwdetails.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mixerGetDevCapsA(umxid: ULong, pmxcaps: Long, cbmxcaps: UInt): UInt =
-    0u
+public actual fun mixerGetDevCapsA(umxid: ULong, pmxcaps: COpaquePointer?, cbmxcaps: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_mixerGetDevCapsA(umxid.toString(), (pmxcaps?.value ?: 0L).toString(), cbmxcaps.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mixerGetDevCapsW(umxid: ULong, pmxcaps: Long, cbmxcaps: UInt): UInt =
-    0u
+public actual fun mixerGetDevCapsW(umxid: ULong, pmxcaps: COpaquePointer?, cbmxcaps: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_mixerGetDevCapsW(umxid.toString(), (pmxcaps?.value ?: 0L).toString(), cbmxcaps.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mixerGetID(hmxobj: HMIXEROBJ, pumxid: Long, fdwid: UInt): UInt =
-    0u
+public actual fun mixerGetID(hmxobj: Hmixerobj, pumxid: COpaquePointer?, fdwid: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_mixerGetID((hmxobj?.value ?: 0L).toString(), (pumxid?.value ?: 0L).toString(), fdwid.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mixerGetLineControlsA(hmxobj: HMIXEROBJ, pmxlc: Long, fdwcontrols: UInt): UInt =
-    0u
+public actual fun mixerGetLineControlsA(hmxobj: Hmixerobj, pmxlc: COpaquePointer?, fdwcontrols: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_mixerGetLineControlsA((hmxobj?.value ?: 0L).toString(), (pmxlc?.value ?: 0L).toString(), fdwcontrols.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mixerGetLineControlsW(hmxobj: HMIXEROBJ, pmxlc: Long, fdwcontrols: UInt): UInt =
-    0u
+public actual fun mixerGetLineControlsW(hmxobj: Hmixerobj, pmxlc: COpaquePointer?, fdwcontrols: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_mixerGetLineControlsW((hmxobj?.value ?: 0L).toString(), (pmxlc?.value ?: 0L).toString(), fdwcontrols.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mixerGetLineInfoA(hmxobj: HMIXEROBJ, pmxl: Long, fdwinfo: UInt): UInt =
-    0u
+public actual fun mixerGetLineInfoA(hmxobj: Hmixerobj, pmxl: COpaquePointer?, fdwinfo: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_mixerGetLineInfoA((hmxobj?.value ?: 0L).toString(), (pmxl?.value ?: 0L).toString(), fdwinfo.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mixerGetLineInfoW(hmxobj: HMIXEROBJ, pmxl: Long, fdwinfo: UInt): UInt =
-    0u
+public actual fun mixerGetLineInfoW(hmxobj: Hmixerobj, pmxl: COpaquePointer?, fdwinfo: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_mixerGetLineInfoW((hmxobj?.value ?: 0L).toString(), (pmxl?.value ?: 0L).toString(), fdwinfo.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun mixerGetNumDevs(): UInt =
-    0u
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_mixerGetNumDevs().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mixerMessage(hmx: HMIXER, umsg: UInt, dwparam1: ULong, dwparam2: ULong): UInt =
-    0u
+public actual fun mixerMessage(hmx: Hmixer, umsg: UInt, dwparam1: ULong, dwparam2: ULong): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_mixerMessage((hmx?.value ?: 0L).toString(), umsg.toInt(), dwparam1.toString(), dwparam2.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mixerOpen(phmx: Long, umxid: UInt, dwcallback: ULong, dwinstance: ULong, fdwopen: UInt): UInt =
-    0u
+public actual fun mixerOpen(phmx: COpaquePointer?, umxid: UInt, dwcallback: ULong, dwinstance: ULong, fdwopen: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_mixerOpen((phmx?.value ?: 0L).toString(), umxid.toInt(), dwcallback.toString(), dwinstance.toString(), fdwopen.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun mixerSetControlDetails(hmxobj: HMIXEROBJ, pmxcd: Long, fdwdetails: UInt): UInt =
-    0u
+public actual fun mixerSetControlDetails(hmxobj: Hmixerobj, pmxcd: COpaquePointer?, fdwdetails: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_mixerSetControlDetails((hmxobj?.value ?: 0L).toString(), (pmxcd?.value ?: 0L).toString(), fdwdetails.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sndPlaySoundA(pszsound: PCSTR, fusound: UInt): BOOL =
-    0
+public actual fun sndPlaySoundA(pszsound: Pcstr, fusound: UInt): Bool =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_sndPlaySoundA((pszsound?.value ?: 0L).toString(), fusound.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun sndPlaySoundW(pszsound: PCWSTR, fusound: UInt): BOOL =
-    0
+public actual fun sndPlaySoundW(pszsound: Pcwstr, fusound: UInt): Bool =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_sndPlaySoundW((pszsound?.value ?: 0L).toString(), fusound.toInt()) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveInAddBuffer(hwi: HWAVEIN, pwh: Long, cbwh: UInt): UInt =
-    0u
+public actual fun waveInAddBuffer(hwi: Hwavein, pwh: COpaquePointer?, cbwh: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_waveInAddBuffer((hwi?.value ?: 0L).toString(), (pwh?.value ?: 0L).toString(), cbwh.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveInClose(hwi: HWAVEIN): UInt =
-    0u
+public actual fun waveInClose(hwi: Hwavein): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_waveInClose((hwi?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveInGetDevCapsA(udeviceid: ULong, pwic: Long, cbwic: UInt): UInt =
-    0u
+public actual fun waveInGetDevCapsA(udeviceid: ULong, pwic: COpaquePointer?, cbwic: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_waveInGetDevCapsA(udeviceid.toString(), (pwic?.value ?: 0L).toString(), cbwic.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveInGetDevCapsW(udeviceid: ULong, pwic: Long, cbwic: UInt): UInt =
-    0u
+public actual fun waveInGetDevCapsW(udeviceid: ULong, pwic: COpaquePointer?, cbwic: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_waveInGetDevCapsW(udeviceid.toString(), (pwic?.value ?: 0L).toString(), cbwic.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveInGetErrorTextA(mmrerror: UInt, psztext: PSTR, cchtext: UInt): UInt =
-    0u
+public actual fun waveInGetErrorTextA(mmrerror: UInt, psztext: Pstr, cchtext: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_waveInGetErrorTextA(mmrerror.toInt(), (psztext?.value ?: 0L).toString(), cchtext.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveInGetErrorTextW(mmrerror: UInt, psztext: PWSTR, cchtext: UInt): UInt =
-    0u
+public actual fun waveInGetErrorTextW(mmrerror: UInt, psztext: Pwstr, cchtext: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_waveInGetErrorTextW(mmrerror.toInt(), (psztext?.value ?: 0L).toString(), cchtext.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveInGetID(hwi: HWAVEIN, pudeviceid: Long): UInt =
-    0u
+public actual fun waveInGetID(hwi: Hwavein, pudeviceid: COpaquePointer?): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_waveInGetID((hwi?.value ?: 0L).toString(), (pudeviceid?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun waveInGetNumDevs(): UInt =
-    0u
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_waveInGetNumDevs().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveInGetPosition(hwi: HWAVEIN, pmmt: Long, cbmmt: UInt): UInt =
-    0u
+public actual fun waveInGetPosition(hwi: Hwavein, pmmt: COpaquePointer?, cbmmt: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_waveInGetPosition((hwi?.value ?: 0L).toString(), (pmmt?.value ?: 0L).toString(), cbmmt.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveInMessage(hwi: HWAVEIN, umsg: UInt, dw1: ULong, dw2: ULong): UInt =
-    0u
+public actual fun waveInMessage(hwi: Hwavein, umsg: UInt, dw1: ULong, dw2: ULong): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_waveInMessage((hwi?.value ?: 0L).toString(), umsg.toInt(), dw1.toString(), dw2.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveInOpen(phwi: Long, udeviceid: UInt, pwfx: Long, dwcallback: ULong, dwinstance: ULong, fdwopen: MIDI_WAVE_OPEN_TYPE): UInt =
-    0u
+public actual fun waveInOpen(phwi: COpaquePointer?, udeviceid: UInt, pwfx: COpaquePointer?, dwcallback: ULong, dwinstance: ULong, fdwopen: MidiWaveOpenType): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_waveInOpen((phwi?.value ?: 0L).toString(), udeviceid.toInt(), (pwfx?.value ?: 0L).toString(), dwcallback.toString(), dwinstance.toString(), fdwopen.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveInPrepareHeader(hwi: HWAVEIN, pwh: Long, cbwh: UInt): UInt =
-    0u
+public actual fun waveInPrepareHeader(hwi: Hwavein, pwh: COpaquePointer?, cbwh: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_waveInPrepareHeader((hwi?.value ?: 0L).toString(), (pwh?.value ?: 0L).toString(), cbwh.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveInReset(hwi: HWAVEIN): UInt =
-    0u
+public actual fun waveInReset(hwi: Hwavein): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_waveInReset((hwi?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveInStart(hwi: HWAVEIN): UInt =
-    0u
+public actual fun waveInStart(hwi: Hwavein): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_waveInStart((hwi?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveInStop(hwi: HWAVEIN): UInt =
-    0u
+public actual fun waveInStop(hwi: Hwavein): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_waveInStop((hwi?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveInUnprepareHeader(hwi: HWAVEIN, pwh: Long, cbwh: UInt): UInt =
-    0u
+public actual fun waveInUnprepareHeader(hwi: Hwavein, pwh: COpaquePointer?, cbwh: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_waveInUnprepareHeader((hwi?.value ?: 0L).toString(), (pwh?.value ?: 0L).toString(), cbwh.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveOutBreakLoop(hwo: HWAVEOUT): UInt =
-    0u
+public actual fun waveOutBreakLoop(hwo: Hwaveout): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_waveOutBreakLoop((hwo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveOutClose(hwo: HWAVEOUT): UInt =
-    0u
+public actual fun waveOutClose(hwo: Hwaveout): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_waveOutClose((hwo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveOutGetDevCapsA(udeviceid: ULong, pwoc: Long, cbwoc: UInt): UInt =
-    0u
+public actual fun waveOutGetDevCapsA(udeviceid: ULong, pwoc: COpaquePointer?, cbwoc: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_waveOutGetDevCapsA(udeviceid.toString(), (pwoc?.value ?: 0L).toString(), cbwoc.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveOutGetDevCapsW(udeviceid: ULong, pwoc: Long, cbwoc: UInt): UInt =
-    0u
+public actual fun waveOutGetDevCapsW(udeviceid: ULong, pwoc: COpaquePointer?, cbwoc: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_waveOutGetDevCapsW(udeviceid.toString(), (pwoc?.value ?: 0L).toString(), cbwoc.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveOutGetErrorTextA(mmrerror: UInt, psztext: PSTR, cchtext: UInt): UInt =
-    0u
+public actual fun waveOutGetErrorTextA(mmrerror: UInt, psztext: Pstr, cchtext: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_waveOutGetErrorTextA(mmrerror.toInt(), (psztext?.value ?: 0L).toString(), cchtext.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveOutGetErrorTextW(mmrerror: UInt, psztext: PWSTR, cchtext: UInt): UInt =
-    0u
+public actual fun waveOutGetErrorTextW(mmrerror: UInt, psztext: Pwstr, cchtext: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_waveOutGetErrorTextW(mmrerror.toInt(), (psztext?.value ?: 0L).toString(), cchtext.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveOutGetID(hwo: HWAVEOUT, pudeviceid: Long): UInt =
-    0u
+public actual fun waveOutGetID(hwo: Hwaveout, pudeviceid: COpaquePointer?): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_waveOutGetID((hwo?.value ?: 0L).toString(), (pudeviceid?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
 public actual fun waveOutGetNumDevs(): UInt =
-    0u
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_waveOutGetNumDevs().toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveOutGetPitch(hwo: HWAVEOUT, pdwpitch: Long): UInt =
-    0u
+public actual fun waveOutGetPitch(hwo: Hwaveout, pdwpitch: COpaquePointer?): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_waveOutGetPitch((hwo?.value ?: 0L).toString(), (pdwpitch?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveOutGetPlaybackRate(hwo: HWAVEOUT, pdwrate: Long): UInt =
-    0u
+public actual fun waveOutGetPlaybackRate(hwo: Hwaveout, pdwrate: COpaquePointer?): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_waveOutGetPlaybackRate((hwo?.value ?: 0L).toString(), (pdwrate?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveOutGetPosition(hwo: HWAVEOUT, pmmt: Long, cbmmt: UInt): UInt =
-    0u
+public actual fun waveOutGetPosition(hwo: Hwaveout, pmmt: COpaquePointer?, cbmmt: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_waveOutGetPosition((hwo?.value ?: 0L).toString(), (pmmt?.value ?: 0L).toString(), cbmmt.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveOutGetVolume(hwo: HWAVEOUT, pdwvolume: Long): UInt =
-    0u
+public actual fun waveOutGetVolume(hwo: Hwaveout, pdwvolume: COpaquePointer?): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_waveOutGetVolume((hwo?.value ?: 0L).toString(), (pdwvolume?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveOutMessage(hwo: HWAVEOUT, umsg: UInt, dw1: ULong, dw2: ULong): UInt =
-    0u
+public actual fun waveOutMessage(hwo: Hwaveout, umsg: UInt, dw1: ULong, dw2: ULong): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_waveOutMessage((hwo?.value ?: 0L).toString(), umsg.toInt(), dw1.toString(), dw2.toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveOutOpen(phwo: Long, udeviceid: UInt, pwfx: Long, dwcallback: ULong, dwinstance: ULong, fdwopen: MIDI_WAVE_OPEN_TYPE): UInt =
-    0u
+public actual fun waveOutOpen(phwo: COpaquePointer?, udeviceid: UInt, pwfx: COpaquePointer?, dwcallback: ULong, dwinstance: ULong, fdwopen: MidiWaveOpenType): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_waveOutOpen((phwo?.value ?: 0L).toString(), udeviceid.toInt(), (pwfx?.value ?: 0L).toString(), dwcallback.toString(), dwinstance.toString(), fdwopen.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveOutPause(hwo: HWAVEOUT): UInt =
-    0u
+public actual fun waveOutPause(hwo: Hwaveout): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_waveOutPause((hwo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveOutPrepareHeader(hwo: HWAVEOUT, pwh: Long, cbwh: UInt): UInt =
-    0u
+public actual fun waveOutPrepareHeader(hwo: Hwaveout, pwh: COpaquePointer?, cbwh: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_waveOutPrepareHeader((hwo?.value ?: 0L).toString(), (pwh?.value ?: 0L).toString(), cbwh.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveOutReset(hwo: HWAVEOUT): UInt =
-    0u
+public actual fun waveOutReset(hwo: Hwaveout): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_waveOutReset((hwo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveOutRestart(hwo: HWAVEOUT): UInt =
-    0u
+public actual fun waveOutRestart(hwo: Hwaveout): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_waveOutRestart((hwo?.value ?: 0L).toString()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveOutSetPitch(hwo: HWAVEOUT, dwpitch: UInt): UInt =
-    0u
+public actual fun waveOutSetPitch(hwo: Hwaveout, dwpitch: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_waveOutSetPitch((hwo?.value ?: 0L).toString(), dwpitch.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveOutSetPlaybackRate(hwo: HWAVEOUT, dwrate: UInt): UInt =
-    0u
+public actual fun waveOutSetPlaybackRate(hwo: Hwaveout, dwrate: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_waveOutSetPlaybackRate((hwo?.value ?: 0L).toString(), dwrate.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveOutSetVolume(hwo: HWAVEOUT, dwvolume: UInt): UInt =
-    0u
+public actual fun waveOutSetVolume(hwo: Hwaveout, dwvolume: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_waveOutSetVolume((hwo?.value ?: 0L).toString(), dwvolume.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveOutUnprepareHeader(hwo: HWAVEOUT, pwh: Long, cbwh: UInt): UInt =
-    0u
+public actual fun waveOutUnprepareHeader(hwo: Hwaveout, pwh: COpaquePointer?, cbwh: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_waveOutUnprepareHeader((hwo?.value ?: 0L).toString(), (pwh?.value ?: 0L).toString(), cbwh.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun waveOutWrite(hwo: HWAVEOUT, pwh: Long, cbwh: UInt): UInt =
-    0u
+public actual fun waveOutWrite(hwo: Hwaveout, pwh: COpaquePointer?, cbwh: UInt): UInt =
+    if (_windowsWin32MediaAudioNapiAvailable) _wasm_windowssys_windows_win32_media_audio_waveOutWrite((hwo?.value ?: 0L).toString(), (pwh?.value ?: 0L).toString(), cbwh.toInt()).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")

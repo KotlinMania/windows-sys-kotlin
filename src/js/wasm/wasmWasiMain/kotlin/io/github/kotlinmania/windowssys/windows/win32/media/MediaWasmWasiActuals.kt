@@ -2,23 +2,25 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.media
 
+import io.github.kotlinmania.windowssys.COpaquePointer
+
 public actual fun timeBeginPeriod(uperiod: UInt): UInt =
-    0u
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
 public actual fun timeEndPeriod(uperiod: UInt): UInt =
-    0u
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun timeGetDevCaps(ptc: Long, cbtc: UInt): UInt =
-    0u
+public actual fun timeGetDevCaps(ptc: COpaquePointer?, cbtc: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun timeGetSystemTime(pmmt: Long, cbmmt: UInt): UInt =
-    0u
+public actual fun timeGetSystemTime(pmmt: COpaquePointer?, cbmmt: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
 public actual fun timeGetTime(): UInt =
-    0u
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
 public actual fun timeKillEvent(utimerid: UInt): UInt =
-    0u
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun timeSetEvent(udelay: UInt, uresolution: UInt, fptc: LPTIMECALLBACK, dwuser: ULong, fuevent: UInt): UInt =
-    0u
+public actual fun timeSetEvent(udelay: UInt, uresolution: UInt, fptc: Lptimecallback, dwuser: ULong, fuevent: UInt): UInt =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

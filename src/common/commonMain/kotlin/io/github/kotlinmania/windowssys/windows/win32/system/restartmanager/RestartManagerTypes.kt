@@ -1,19 +1,19 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.restartmanager
 
-public typealias RM_APP_STATUS = Int
+public typealias RmAppStatus = Int
 
-public typealias RM_APP_TYPE = Int
+public typealias RmAppType = Int
 
-public typealias RM_FILTER_ACTION = Int
+public typealias RmFilterAction = Int
 
-public typealias RM_FILTER_TRIGGER = Int
+public typealias RmFilterTrigger = Int
 
-public typealias RM_REBOOT_REASON = Int
+public typealias RmRebootReason = Int
 
-public typealias RM_SHUTDOWN_TYPE = Int
+public typealias RmShutdownType = Int
 
-public fun interface RM_WRITE_STATUS_CALLBACKFn {
+public fun interface RmWriteStatusCallbackFn {
     public operator fun invoke(npercentcomplete: UInt)
 }
 
-public typealias RM_WRITE_STATUS_CALLBACK = RM_WRITE_STATUS_CALLBACKFn?
+public typealias RmWriteStatusCallback = RmWriteStatusCallbackFn?

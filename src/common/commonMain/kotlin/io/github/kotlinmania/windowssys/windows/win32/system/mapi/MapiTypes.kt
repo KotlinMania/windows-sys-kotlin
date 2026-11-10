@@ -1,81 +1,82 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.mapi
 
-import io.github.kotlinmania.windowssys.core.PCSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Pcstr
 
-public fun interface LPMAPIADDRESSFn {
-    public operator fun invoke(lhsession: ULong, uluiparam: ULong, lpszcaption: PCSTR, neditfields: UInt, lpszlabels: PCSTR, nrecips: UInt, lprecips: Long, flflags: UInt, ulreserved: UInt, lpnnewrecips: Long, lppnewrecips: Long): UInt
+public fun interface LpmapiaddressFn {
+    public operator fun invoke(lhsession: ULong, uluiparam: ULong, lpszcaption: Pcstr, neditfields: UInt, lpszlabels: Pcstr, nrecips: UInt, lprecips: COpaquePointer?, flflags: UInt, ulreserved: UInt, lpnnewrecips: COpaquePointer?, lppnewrecips: COpaquePointer?): UInt
 }
 
-public typealias LPMAPIADDRESS = LPMAPIADDRESSFn?
+public typealias Lpmapiaddress = LpmapiaddressFn?
 
-public fun interface LPMAPIDELETEMAILFn {
-    public operator fun invoke(lhsession: ULong, uluiparam: ULong, lpszmessageid: PCSTR, flflags: UInt, ulreserved: UInt): UInt
+public fun interface LpmapideletemailFn {
+    public operator fun invoke(lhsession: ULong, uluiparam: ULong, lpszmessageid: Pcstr, flflags: UInt, ulreserved: UInt): UInt
 }
 
-public typealias LPMAPIDELETEMAIL = LPMAPIDELETEMAILFn?
+public typealias Lpmapideletemail = LpmapideletemailFn?
 
-public fun interface LPMAPIDETAILSFn {
-    public operator fun invoke(lhsession: ULong, uluiparam: ULong, lprecip: Long, flflags: UInt, ulreserved: UInt): UInt
+public fun interface LpmapidetailsFn {
+    public operator fun invoke(lhsession: ULong, uluiparam: ULong, lprecip: COpaquePointer?, flflags: UInt, ulreserved: UInt): UInt
 }
 
-public typealias LPMAPIDETAILS = LPMAPIDETAILSFn?
+public typealias Lpmapidetails = LpmapidetailsFn?
 
-public fun interface LPMAPIFINDNEXTFn {
-    public operator fun invoke(lhsession: ULong, uluiparam: ULong, lpszmessagetype: PCSTR, lpszseedmessageid: PCSTR, flflags: UInt, ulreserved: UInt, lpszmessageid: PCSTR): UInt
+public fun interface LpmapifindnextFn {
+    public operator fun invoke(lhsession: ULong, uluiparam: ULong, lpszmessagetype: Pcstr, lpszseedmessageid: Pcstr, flflags: UInt, ulreserved: UInt, lpszmessageid: Pcstr): UInt
 }
 
-public typealias LPMAPIFINDNEXT = LPMAPIFINDNEXTFn?
+public typealias Lpmapifindnext = LpmapifindnextFn?
 
-public fun interface LPMAPIFREEBUFFERFn {
-    public operator fun invoke(pv: Long): UInt
+public fun interface LpmapifreebufferFn {
+    public operator fun invoke(pv: COpaquePointer?): UInt
 }
 
-public typealias LPMAPIFREEBUFFER = LPMAPIFREEBUFFERFn?
+public typealias Lpmapifreebuffer = LpmapifreebufferFn?
 
-public fun interface LPMAPILOGOFFFn {
+public fun interface LpmapilogoffFn {
     public operator fun invoke(lhsession: ULong, uluiparam: ULong, flflags: UInt, ulreserved: UInt): UInt
 }
 
-public typealias LPMAPILOGOFF = LPMAPILOGOFFFn?
+public typealias Lpmapilogoff = LpmapilogoffFn?
 
-public fun interface LPMAPILOGONFn {
-    public operator fun invoke(uluiparam: ULong, lpszprofilename: PCSTR, lpszpassword: PCSTR, flflags: UInt, ulreserved: UInt, lplhsession: Long): UInt
+public fun interface LpmapilogonFn {
+    public operator fun invoke(uluiparam: ULong, lpszprofilename: Pcstr, lpszpassword: Pcstr, flflags: UInt, ulreserved: UInt, lplhsession: COpaquePointer?): UInt
 }
 
-public typealias LPMAPILOGON = LPMAPILOGONFn?
+public typealias Lpmapilogon = LpmapilogonFn?
 
-public fun interface LPMAPIREADMAILFn {
-    public operator fun invoke(lhsession: ULong, uluiparam: ULong, lpszmessageid: PCSTR, flflags: UInt, ulreserved: UInt, lppmessage: Long): UInt
+public fun interface LpmapireadmailFn {
+    public operator fun invoke(lhsession: ULong, uluiparam: ULong, lpszmessageid: Pcstr, flflags: UInt, ulreserved: UInt, lppmessage: COpaquePointer?): UInt
 }
 
-public typealias LPMAPIREADMAIL = LPMAPIREADMAILFn?
+public typealias Lpmapireadmail = LpmapireadmailFn?
 
-public fun interface LPMAPIRESOLVENAMEFn {
-    public operator fun invoke(lhsession: ULong, uluiparam: ULong, lpszname: PCSTR, flflags: UInt, ulreserved: UInt, lpprecip: Long): UInt
+public fun interface LpmapiresolvenameFn {
+    public operator fun invoke(lhsession: ULong, uluiparam: ULong, lpszname: Pcstr, flflags: UInt, ulreserved: UInt, lpprecip: COpaquePointer?): UInt
 }
 
-public typealias LPMAPIRESOLVENAME = LPMAPIRESOLVENAMEFn?
+public typealias Lpmapiresolvename = LpmapiresolvenameFn?
 
-public fun interface LPMAPISAVEMAILFn {
-    public operator fun invoke(lhsession: ULong, uluiparam: ULong, lpmessage: Long, flflags: UInt, ulreserved: UInt, lpszmessageid: PCSTR): UInt
+public fun interface LpmapisavemailFn {
+    public operator fun invoke(lhsession: ULong, uluiparam: ULong, lpmessage: COpaquePointer?, flflags: UInt, ulreserved: UInt, lpszmessageid: Pcstr): UInt
 }
 
-public typealias LPMAPISAVEMAIL = LPMAPISAVEMAILFn?
+public typealias Lpmapisavemail = LpmapisavemailFn?
 
-public fun interface LPMAPISENDDOCUMENTSFn {
-    public operator fun invoke(uluiparam: ULong, lpszdelimchar: PCSTR, lpszfilepaths: PCSTR, lpszfilenames: PCSTR, ulreserved: UInt): UInt
+public fun interface LpmapisenddocumentsFn {
+    public operator fun invoke(uluiparam: ULong, lpszdelimchar: Pcstr, lpszfilepaths: Pcstr, lpszfilenames: Pcstr, ulreserved: UInt): UInt
 }
 
-public typealias LPMAPISENDDOCUMENTS = LPMAPISENDDOCUMENTSFn?
+public typealias Lpmapisenddocuments = LpmapisenddocumentsFn?
 
-public fun interface LPMAPISENDMAILFn {
-    public operator fun invoke(lhsession: ULong, uluiparam: ULong, lpmessage: Long, flflags: UInt, ulreserved: UInt): UInt
+public fun interface LpmapisendmailFn {
+    public operator fun invoke(lhsession: ULong, uluiparam: ULong, lpmessage: COpaquePointer?, flflags: UInt, ulreserved: UInt): UInt
 }
 
-public typealias LPMAPISENDMAIL = LPMAPISENDMAILFn?
+public typealias Lpmapisendmail = LpmapisendmailFn?
 
-public fun interface LPMAPISENDMAILWFn {
-    public operator fun invoke(lhsession: ULong, uluiparam: ULong, lpmessage: Long, flflags: UInt, ulreserved: UInt): UInt
+public fun interface LpmapisendmailwFn {
+    public operator fun invoke(lhsession: ULong, uluiparam: ULong, lpmessage: COpaquePointer?, flflags: UInt, ulreserved: UInt): UInt
 }
 
-public typealias LPMAPISENDMAILW = LPMAPISENDMAILWFn?
+public typealias Lpmapisendmailw = LpmapisendmailwFn?

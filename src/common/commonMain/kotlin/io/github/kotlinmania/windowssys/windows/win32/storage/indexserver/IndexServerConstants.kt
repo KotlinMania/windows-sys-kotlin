@@ -1,28 +1,28 @@
 package io.github.kotlinmania.windowssys.windows.win32.storage.indexserver
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.w
 
-public val CHUNK_EOC: CHUNK_BREAKTYPE = 4
+public val CHUNK_EOC: ChunkBreaktype = 4
 
-public val CHUNK_EOP: CHUNK_BREAKTYPE = 3
+public val CHUNK_EOP: ChunkBreaktype = 3
 
-public val CHUNK_EOS: CHUNK_BREAKTYPE = 2
+public val CHUNK_EOS: ChunkBreaktype = 2
 
-public val CHUNK_EOW: CHUNK_BREAKTYPE = 1
+public val CHUNK_EOW: ChunkBreaktype = 1
 
-public val CHUNK_FILTER_OWNED_VALUE: CHUNKSTATE = 4
+public val CHUNK_FILTER_OWNED_VALUE: Chunkstate = 4
 
-public val CHUNK_NO_BREAK: CHUNK_BREAKTYPE = 0
+public val CHUNK_NO_BREAK: ChunkBreaktype = 0
 
-public val CHUNK_TEXT: CHUNKSTATE = 1
+public val CHUNK_TEXT: Chunkstate = 1
 
-public val CHUNK_VALUE: CHUNKSTATE = 2
+public val CHUNK_VALUE: Chunkstate = 2
 
-public val CIADMIN: PCWSTR = w("::_nodocstore_::")
+public val CIADMIN: Pcwstr = w("::_nodocstore_::")
 
 public val CICAT_ALL_OPENED: UInt = 32u
 
@@ -36,7 +36,7 @@ public val CICAT_STOPPED: UInt = 1u
 
 public val CICAT_WRITABLE: UInt = 4u
 
-public val CINULLCATALOG: PCWSTR = w("::_noindex_::")
+public val CINULLCATALOG: Pcwstr = w("::_noindex_::")
 
 public val CI_PROVIDER_ALL: UInt = 4294967295u
 
@@ -88,31 +88,31 @@ public val CI_VERSION_WDS40: UInt = 265u
 
 public val CI_VERSION_WIN70: UInt = 1792u
 
-public val CLSID_INDEX_SERVER_DSO: GUID = GUID.from_u128(U128(0xf9ae89807e5211d0uL, 0x896400c04fd611d7uL))
+public val CLSID_INDEX_SERVER_DSO: Guid = Guid.fromU128(U128(0xf9ae89807e5211d0uL, 0x896400c04fd611d7uL))
 
-public val DBKIND_GUID: DBKINDENUM = 6
+public val DBKIND_GUID: Dbkindenum = 6
 
-public val DBKIND_GUID_NAME: DBKINDENUM = 0
+public val DBKIND_GUID_NAME: Dbkindenum = 0
 
-public val DBKIND_GUID_PROPID: DBKINDENUM = 1
+public val DBKIND_GUID_PROPID: Dbkindenum = 1
 
-public val DBKIND_NAME: DBKINDENUM = 2
+public val DBKIND_NAME: Dbkindenum = 2
 
-public val DBKIND_PGUID_NAME: DBKINDENUM = 3
+public val DBKIND_PGUID_NAME: Dbkindenum = 3
 
-public val DBKIND_PGUID_PROPID: DBKINDENUM = 4
+public val DBKIND_PGUID_PROPID: Dbkindenum = 4
 
-public val DBKIND_PROPID: DBKINDENUM = 5
+public val DBKIND_PROPID: Dbkindenum = 5
 
-public val DBPROPSET_CIFRMWRKCORE_EXT: GUID = GUID.from_u128(U128(0xafafaca5b5d111d0uL, 0x8c6200c04fc2db8duL))
+public val DBPROPSET_CIFRMWRKCORE_EXT: Guid = Guid.fromU128(U128(0xafafaca5b5d111d0uL, 0x8c6200c04fc2db8duL))
 
-public val DBPROPSET_FSCIFRMWRK_EXT: GUID = GUID.from_u128(U128(0xa9bd15266a8011d0uL, 0x8c9d0020af1d740euL))
+public val DBPROPSET_FSCIFRMWRK_EXT: Guid = Guid.fromU128(U128(0xa9bd15266a8011d0uL, 0x8c9d0020af1d740euL))
 
-public val DBPROPSET_MSIDXS_ROWSETEXT: GUID = GUID.from_u128(U128(0xaa6ee6b0e82811d0uL, 0xb23e00aa0047fc01uL))
+public val DBPROPSET_MSIDXS_ROWSETEXT: Guid = Guid.fromU128(U128(0xaa6ee6b0e82811d0uL, 0xb23e00aa0047fc01uL))
 
-public val DBPROPSET_QUERYEXT: GUID = GUID.from_u128(U128(0xa7ac77edf8d711ceuL, 0xa7980020f8008025uL))
+public val DBPROPSET_QUERYEXT: Guid = Guid.fromU128(U128(0xa7ac77edf8d711ceuL, 0xa7980020f8008025uL))
 
-public val DBPROPSET_SESS_QUERYEXT: GUID = GUID.from_u128(U128(0x636233092d8b4d17uL, 0xb1526e2956c26a70uL))
+public val DBPROPSET_SESS_QUERYEXT: Guid = Guid.fromU128(U128(0x636233092d8b4d17uL, 0xb1526e2956c26a70uL))
 
 public val DBPROP_APPLICATION_NAME: UInt = 11u
 
@@ -172,31 +172,31 @@ public val DBSETFUNC_DISTINCT: UInt = 2u
 
 public val DBSETFUNC_NONE: UInt = 0u
 
-public val FILTER_E_ACCESS: HRESULT = 0x80041703u.toInt()
+public val FILTER_E_ACCESS: Hresult = 0x80041703u.toInt()
 
-public val FILTER_E_EMBEDDING_UNAVAILABLE: HRESULT = 0x80041707u.toInt()
+public val FILTER_E_EMBEDDING_UNAVAILABLE: Hresult = 0x80041707u.toInt()
 
-public val FILTER_E_END_OF_CHUNKS: HRESULT = 0x80041700u.toInt()
+public val FILTER_E_END_OF_CHUNKS: Hresult = 0x80041700u.toInt()
 
-public val FILTER_E_LINK_UNAVAILABLE: HRESULT = 0x80041708u.toInt()
+public val FILTER_E_LINK_UNAVAILABLE: Hresult = 0x80041708u.toInt()
 
-public val FILTER_E_NO_MORE_TEXT: HRESULT = 0x80041701u.toInt()
+public val FILTER_E_NO_MORE_TEXT: Hresult = 0x80041701u.toInt()
 
-public val FILTER_E_NO_MORE_VALUES: HRESULT = 0x80041702u.toInt()
+public val FILTER_E_NO_MORE_VALUES: Hresult = 0x80041702u.toInt()
 
-public val FILTER_E_NO_TEXT: HRESULT = 0x80041705u.toInt()
+public val FILTER_E_NO_TEXT: Hresult = 0x80041705u.toInt()
 
-public val FILTER_E_NO_VALUES: HRESULT = 0x80041706u.toInt()
+public val FILTER_E_NO_VALUES: Hresult = 0x80041706u.toInt()
 
-public val FILTER_E_PASSWORD: HRESULT = 0x8004170Bu.toInt()
+public val FILTER_E_PASSWORD: Hresult = 0x8004170Bu.toInt()
 
-public val FILTER_E_UNKNOWNFORMAT: HRESULT = 0x8004170Cu.toInt()
+public val FILTER_E_UNKNOWNFORMAT: Hresult = 0x8004170Cu.toInt()
 
-public val FILTER_S_LAST_TEXT: HRESULT = 0x41709u.toInt()
+public val FILTER_S_LAST_TEXT: Hresult = 0x41709u.toInt()
 
-public val FILTER_S_LAST_VALUES: HRESULT = 0x4170Au.toInt()
+public val FILTER_S_LAST_VALUES: Hresult = 0x4170Au.toInt()
 
-public val FILTER_W_MONIKER_CLIPPED: HRESULT = 0x41704u.toInt()
+public val FILTER_W_MONIKER_CLIPPED: Hresult = 0x41704u.toInt()
 
 public val GENERATE_METHOD_EXACT: UInt = 0u
 
@@ -204,33 +204,33 @@ public val GENERATE_METHOD_INFLECT: UInt = 2u
 
 public val GENERATE_METHOD_PREFIX: UInt = 1u
 
-public val IFILTER_FLAGS_OLE_PROPERTIES: IFILTER_FLAGS = 1
+public val IFILTER_FLAGS_OLE_PROPERTIES: IfilterFlags = 1
 
-public val IFILTER_INIT_APPLY_CRAWL_ATTRIBUTES: IFILTER_INIT = 256
+public val IFILTER_INIT_APPLY_CRAWL_ATTRIBUTES: IfilterInit = 256
 
-public val IFILTER_INIT_APPLY_INDEX_ATTRIBUTES: IFILTER_INIT = 16
+public val IFILTER_INIT_APPLY_INDEX_ATTRIBUTES: IfilterInit = 16
 
-public val IFILTER_INIT_APPLY_OTHER_ATTRIBUTES: IFILTER_INIT = 32
+public val IFILTER_INIT_APPLY_OTHER_ATTRIBUTES: IfilterInit = 32
 
-public val IFILTER_INIT_CANON_HYPHENS: IFILTER_INIT = 4
+public val IFILTER_INIT_CANON_HYPHENS: IfilterInit = 4
 
-public val IFILTER_INIT_CANON_PARAGRAPHS: IFILTER_INIT = 1
+public val IFILTER_INIT_CANON_PARAGRAPHS: IfilterInit = 1
 
-public val IFILTER_INIT_CANON_SPACES: IFILTER_INIT = 8
+public val IFILTER_INIT_CANON_SPACES: IfilterInit = 8
 
-public val IFILTER_INIT_DISABLE_EMBEDDED: IFILTER_INIT = 2048
+public val IFILTER_INIT_DISABLE_EMBEDDED: IfilterInit = 2048
 
-public val IFILTER_INIT_EMIT_FORMATTING: IFILTER_INIT = 4096
+public val IFILTER_INIT_EMIT_FORMATTING: IfilterInit = 4096
 
-public val IFILTER_INIT_FILTER_AGGRESSIVE_BREAK: IFILTER_INIT = 1024
+public val IFILTER_INIT_FILTER_AGGRESSIVE_BREAK: IfilterInit = 1024
 
-public val IFILTER_INIT_FILTER_OWNED_VALUE_OK: IFILTER_INIT = 512
+public val IFILTER_INIT_FILTER_OWNED_VALUE_OK: IfilterInit = 512
 
-public val IFILTER_INIT_HARD_LINE_BREAKS: IFILTER_INIT = 2
+public val IFILTER_INIT_HARD_LINE_BREAKS: IfilterInit = 2
 
-public val IFILTER_INIT_INDEXING_ONLY: IFILTER_INIT = 64
+public val IFILTER_INIT_INDEXING_ONLY: IfilterInit = 64
 
-public val IFILTER_INIT_SEARCH_LINKS: IFILTER_INIT = 128
+public val IFILTER_INIT_SEARCH_LINKS: IfilterInit = 128
 
 public val LIFF_FORCE_TEXT_FILTER_FALLBACK: UInt = 3u
 
@@ -264,7 +264,7 @@ public val MSIDXSPROP_SERVER_WINVER_MINOR: UInt = 11u
 
 public val MSIDXSPROP_WHEREID: UInt = 8u
 
-public val NOT_AN_ERROR: HRESULT = 0x80000u.toInt()
+public val NOT_AN_ERROR: Hresult = 0x80000u.toInt()
 
 public val PID_FILENAME: UInt = 100u
 
@@ -294,7 +294,7 @@ public val PROXIMITY_UNIT_SENTENCE: UInt = 1u
 
 public val PROXIMITY_UNIT_WORD: UInt = 0u
 
-public val PSGUID_FILENAME: GUID = GUID.from_u128(U128(0x41cf5ae0f75a4806uL, 0xbd8759c7d9248eb9uL))
+public val PSGUID_FILENAME: Guid = Guid.fromU128(U128(0x41cf5ae0f75a4806uL, 0xbd8759c7d9248eb9uL))
 
 public val QUERY_DEEP: UInt = 1u
 
@@ -356,10 +356,10 @@ public val VECTOR_RANK_MAX: UInt = 1u
 
 public val VECTOR_RANK_MIN: UInt = 0u
 
-public val WORDREP_BREAK_EOC: WORDREP_BREAK_TYPE = 3
+public val WORDREP_BREAK_EOC: WordrepBreakType = 3
 
-public val WORDREP_BREAK_EOP: WORDREP_BREAK_TYPE = 2
+public val WORDREP_BREAK_EOP: WordrepBreakType = 2
 
-public val WORDREP_BREAK_EOS: WORDREP_BREAK_TYPE = 1
+public val WORDREP_BREAK_EOS: WordrepBreakType = 1
 
-public val WORDREP_BREAK_EOW: WORDREP_BREAK_TYPE = 0
+public val WORDREP_BREAK_EOW: WordrepBreakType = 0

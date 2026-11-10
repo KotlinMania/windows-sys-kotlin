@@ -2,17 +2,18 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networking.wininet
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.WIN_HTTP_CREATE_URL_FLAGS
-import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.ALG_ID
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.WinHttpCreateUrlFlags
+import io.github.kotlinmania.windowssys.windows.win32.security.cryptography.AlgId
 
 private object WindowsWin32NetworkingWininetJniBridge {
     init {
@@ -20,1772 +21,1772 @@ private object WindowsWin32NetworkingWininetJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_AppCacheCheckManifest(pwszmasterurl: Long, pwszmanifesturl: Long, pbmanifestdata: Long, dwmanifestdatasize: Int, pbmanifestresponseheaders: Long, dwmanifestresponseheaderssize: Int, pestate: Long, phnewappcache: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_appCacheCheckManifest(pwszmasterurl: Long, pwszmanifesturl: Long, pbmanifestdata: Long, dwmanifestdatasize: Int, pbmanifestresponseheaders: Long, dwmanifestresponseheaderssize: Int, pestate: Long, phnewappcache: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_AppCacheCloseHandle(happcache: Long)
+    external fun windowssys_windows_win32_networking_wininet_appCacheCloseHandle(happcache: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_AppCacheCreateAndCommitFile(happcache: Long, pwszsourcefilepath: Long, pwszurl: Long, pbresponseheaders: Long, dwresponseheaderssize: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_appCacheCreateAndCommitFile(happcache: Long, pwszsourcefilepath: Long, pwszurl: Long, pbresponseheaders: Long, dwresponseheaderssize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_AppCacheDeleteGroup(pwszmanifesturl: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_appCacheDeleteGroup(pwszmanifesturl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_AppCacheDeleteIEGroup(pwszmanifesturl: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_appCacheDeleteIEGroup(pwszmanifesturl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_AppCacheDuplicateHandle(happcache: Long, phduplicatedappcache: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_appCacheDuplicateHandle(happcache: Long, phduplicatedappcache: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_AppCacheFinalize(happcache: Long, pbmanifestdata: Long, dwmanifestdatasize: Int, pestate: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_appCacheFinalize(happcache: Long, pbmanifestdata: Long, dwmanifestdatasize: Int, pestate: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_AppCacheFreeDownloadList(pdownloadlist: Long)
+    external fun windowssys_windows_win32_networking_wininet_appCacheFreeDownloadList(pdownloadlist: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_AppCacheFreeGroupList(pappcachegrouplist: Long)
+    external fun windowssys_windows_win32_networking_wininet_appCacheFreeGroupList(pappcachegrouplist: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_AppCacheGetDownloadList(happcache: Long, pdownloadlist: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_appCacheGetDownloadList(happcache: Long, pdownloadlist: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_AppCacheGetFallbackUrl(happcache: Long, pwszurl: Long, ppwszfallbackurl: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_appCacheGetFallbackUrl(happcache: Long, pwszurl: Long, ppwszfallbackurl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_AppCacheGetGroupList(pappcachegrouplist: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_appCacheGetGroupList(pappcachegrouplist: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_AppCacheGetIEGroupList(pappcachegrouplist: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_appCacheGetIEGroupList(pappcachegrouplist: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_AppCacheGetInfo(happcache: Long, pappcacheinfo: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_appCacheGetInfo(happcache: Long, pappcacheinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_AppCacheGetManifestUrl(happcache: Long, ppwszmanifesturl: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_appCacheGetManifestUrl(happcache: Long, ppwszmanifesturl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_AppCacheLookup(pwszurl: Long, dwflags: Int, phappcache: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_appCacheLookup(pwszurl: Long, dwflags: Int, phappcache: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_CreateMD5SSOHash(pszchallengeinfo: Long, pwszrealm: Long, pwsztarget: Long, pbhexhash: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_createMD5SSOHash(pszchallengeinfo: Long, pwszrealm: Long, pwsztarget: Long, pbhexhash: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_CreateUrlCacheContainerA(name: Long, lpcacheprefix: Long, lpszcachepath: Long, kbcachelimit: Int, dwcontainertype: Int, dwoptions: Int, pvbuffer: Long, cbbuffer: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_createUrlCacheContainerA(name: Long, lpcacheprefix: Long, lpszcachepath: Long, kbcachelimit: Int, dwcontainertype: Int, dwoptions: Int, pvbuffer: Long, cbbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_CreateUrlCacheContainerW(name: Long, lpcacheprefix: Long, lpszcachepath: Long, kbcachelimit: Int, dwcontainertype: Int, dwoptions: Int, pvbuffer: Long, cbbuffer: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_createUrlCacheContainerW(name: Long, lpcacheprefix: Long, lpszcachepath: Long, kbcachelimit: Int, dwcontainertype: Int, dwoptions: Int, pvbuffer: Long, cbbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_CreateUrlCacheEntryA(lpszurlname: Long, dwexpectedfilesize: Int, lpszfileextension: Long, lpszfilename: Long, dwreserved: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_createUrlCacheEntryA(lpszurlname: Long, dwexpectedfilesize: Int, lpszfileextension: Long, lpszfilename: Long, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_CreateUrlCacheEntryExW(lpszurlname: Long, dwexpectedfilesize: Int, lpszfileextension: Long, lpszfilename: Long, dwreserved: Int, fpreserveincomingfilename: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_createUrlCacheEntryExW(lpszurlname: Long, dwexpectedfilesize: Int, lpszfileextension: Long, lpszfilename: Long, dwreserved: Int, fpreserveincomingfilename: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_CreateUrlCacheEntryW(lpszurlname: Long, dwexpectedfilesize: Int, lpszfileextension: Long, lpszfilename: Long, dwreserved: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_createUrlCacheEntryW(lpszurlname: Long, dwexpectedfilesize: Int, lpszfileextension: Long, lpszfilename: Long, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_CreateUrlCacheGroup(dwflags: Int, lpreserved: Long): Long
+    external fun windowssys_windows_win32_networking_wininet_createUrlCacheGroup(dwflags: Int, lpreserved: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_DeleteIE3Cache(hwnd: Long, hinst: Long, lpszcmd: Long, ncmdshow: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_deleteIE3Cache(hwnd: Long, hinst: Long, lpszcmd: Long, ncmdshow: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_DeleteUrlCacheContainerA(name: Long, dwoptions: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_deleteUrlCacheContainerA(name: Long, dwoptions: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_DeleteUrlCacheContainerW(name: Long, dwoptions: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_deleteUrlCacheContainerW(name: Long, dwoptions: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_DeleteUrlCacheEntry(lpszurlname: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_deleteUrlCacheEntry(lpszurlname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_DeleteUrlCacheEntryA(lpszurlname: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_deleteUrlCacheEntryA(lpszurlname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_DeleteUrlCacheEntryW(lpszurlname: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_deleteUrlCacheEntryW(lpszurlname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_DeleteUrlCacheGroup(groupid: Long, dwflags: Int, lpreserved: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_deleteUrlCacheGroup(groupid: Long, dwflags: Int, lpreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_DeleteWpadCacheForNetworks(param0: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_deleteWpadCacheForNetworks(param0: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_DetectAutoProxyUrl(pszautoproxyurl: Long, cchautoproxyurl: Int, dwdetectflags: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_detectAutoProxyUrl(pszautoproxyurl: Long, cchautoproxyurl: Int, dwdetectflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_DoConnectoidsExist(): Int
+    external fun windowssys_windows_win32_networking_wininet_doConnectoidsExist(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_ExportCookieFileA(szfilename: Long, fappend: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_exportCookieFileA(szfilename: Long, fappend: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_ExportCookieFileW(szfilename: Long, fappend: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_exportCookieFileW(szfilename: Long, fappend: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FindCloseUrlCache(henumhandle: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_findCloseUrlCache(henumhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FindFirstUrlCacheContainerA(pdwmodified: Long, lpcontainerinfo: Long, lpcbcontainerinfo: Long, dwoptions: Int): Long
+    external fun windowssys_windows_win32_networking_wininet_findFirstUrlCacheContainerA(pdwmodified: Long, lpcontainerinfo: Long, lpcbcontainerinfo: Long, dwoptions: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FindFirstUrlCacheContainerW(pdwmodified: Long, lpcontainerinfo: Long, lpcbcontainerinfo: Long, dwoptions: Int): Long
+    external fun windowssys_windows_win32_networking_wininet_findFirstUrlCacheContainerW(pdwmodified: Long, lpcontainerinfo: Long, lpcbcontainerinfo: Long, dwoptions: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FindFirstUrlCacheEntryA(lpszurlsearchpattern: Long, lpfirstcacheentryinfo: Long, lpcbcacheentryinfo: Long): Long
+    external fun windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryA(lpszurlsearchpattern: Long, lpfirstcacheentryinfo: Long, lpcbcacheentryinfo: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FindFirstUrlCacheEntryExA(lpszurlsearchpattern: Long, dwflags: Int, dwfilter: Int, groupid: Long, lpfirstcacheentryinfo: Long, lpcbcacheentryinfo: Long, lpgroupattributes: Long, lpcbgroupattributes: Long, lpreserved: Long): Long
+    external fun windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryExA(lpszurlsearchpattern: Long, dwflags: Int, dwfilter: Int, groupid: Long, lpfirstcacheentryinfo: Long, lpcbcacheentryinfo: Long, lpgroupattributes: Long, lpcbgroupattributes: Long, lpreserved: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FindFirstUrlCacheEntryExW(lpszurlsearchpattern: Long, dwflags: Int, dwfilter: Int, groupid: Long, lpfirstcacheentryinfo: Long, lpcbcacheentryinfo: Long, lpgroupattributes: Long, lpcbgroupattributes: Long, lpreserved: Long): Long
+    external fun windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryExW(lpszurlsearchpattern: Long, dwflags: Int, dwfilter: Int, groupid: Long, lpfirstcacheentryinfo: Long, lpcbcacheentryinfo: Long, lpgroupattributes: Long, lpcbgroupattributes: Long, lpreserved: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FindFirstUrlCacheEntryW(lpszurlsearchpattern: Long, lpfirstcacheentryinfo: Long, lpcbcacheentryinfo: Long): Long
+    external fun windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryW(lpszurlsearchpattern: Long, lpfirstcacheentryinfo: Long, lpcbcacheentryinfo: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FindFirstUrlCacheGroup(dwflags: Int, dwfilter: Int, lpsearchcondition: Long, dwsearchcondition: Int, lpgroupid: Long, lpreserved: Long): Long
+    external fun windowssys_windows_win32_networking_wininet_findFirstUrlCacheGroup(dwflags: Int, dwfilter: Int, lpsearchcondition: Long, dwsearchcondition: Int, lpgroupid: Long, lpreserved: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FindNextUrlCacheContainerA(henumhandle: Long, lpcontainerinfo: Long, lpcbcontainerinfo: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_findNextUrlCacheContainerA(henumhandle: Long, lpcontainerinfo: Long, lpcbcontainerinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FindNextUrlCacheContainerW(henumhandle: Long, lpcontainerinfo: Long, lpcbcontainerinfo: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_findNextUrlCacheContainerW(henumhandle: Long, lpcontainerinfo: Long, lpcbcontainerinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FindNextUrlCacheEntryA(henumhandle: Long, lpnextcacheentryinfo: Long, lpcbcacheentryinfo: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryA(henumhandle: Long, lpnextcacheentryinfo: Long, lpcbcacheentryinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FindNextUrlCacheEntryExA(henumhandle: Long, lpnextcacheentryinfo: Long, lpcbcacheentryinfo: Long, lpgroupattributes: Long, lpcbgroupattributes: Long, lpreserved: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryExA(henumhandle: Long, lpnextcacheentryinfo: Long, lpcbcacheentryinfo: Long, lpgroupattributes: Long, lpcbgroupattributes: Long, lpreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FindNextUrlCacheEntryExW(henumhandle: Long, lpnextcacheentryinfo: Long, lpcbcacheentryinfo: Long, lpgroupattributes: Long, lpcbgroupattributes: Long, lpreserved: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryExW(henumhandle: Long, lpnextcacheentryinfo: Long, lpcbcacheentryinfo: Long, lpgroupattributes: Long, lpcbgroupattributes: Long, lpreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FindNextUrlCacheEntryW(henumhandle: Long, lpnextcacheentryinfo: Long, lpcbcacheentryinfo: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryW(henumhandle: Long, lpnextcacheentryinfo: Long, lpcbcacheentryinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FindNextUrlCacheGroup(hfind: Long, lpgroupid: Long, lpreserved: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_findNextUrlCacheGroup(hfind: Long, lpgroupid: Long, lpreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FindP3PPolicySymbol(pszsymbol: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_findP3PPolicySymbol(pszsymbol: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FreeUrlCacheSpaceA(lpszcachepath: Long, dwsize: Int, dwfilter: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_freeUrlCacheSpaceA(lpszcachepath: Long, dwsize: Int, dwfilter: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FreeUrlCacheSpaceW(lpszcachepath: Long, dwsize: Int, dwfilter: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_freeUrlCacheSpaceW(lpszcachepath: Long, dwsize: Int, dwfilter: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FtpCommandA(hconnect: Long, fexpectresponse: Int, dwflags: Int, lpszcommand: Long, dwcontext: Long, phftpcommand: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_ftpCommandA(hconnect: Long, fexpectresponse: Int, dwflags: Int, lpszcommand: Long, dwcontext: Long, phftpcommand: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FtpCommandW(hconnect: Long, fexpectresponse: Int, dwflags: Int, lpszcommand: Long, dwcontext: Long, phftpcommand: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_ftpCommandW(hconnect: Long, fexpectresponse: Int, dwflags: Int, lpszcommand: Long, dwcontext: Long, phftpcommand: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FtpCreateDirectoryA(hconnect: Long, lpszdirectory: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_ftpCreateDirectoryA(hconnect: Long, lpszdirectory: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FtpCreateDirectoryW(hconnect: Long, lpszdirectory: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_ftpCreateDirectoryW(hconnect: Long, lpszdirectory: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FtpDeleteFileA(hconnect: Long, lpszfilename: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_ftpDeleteFileA(hconnect: Long, lpszfilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FtpDeleteFileW(hconnect: Long, lpszfilename: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_ftpDeleteFileW(hconnect: Long, lpszfilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FtpFindFirstFileA(hconnect: Long, lpszsearchfile: Long, lpfindfiledata: Long, dwflags: Int, dwcontext: Long): Long
+    external fun windowssys_windows_win32_networking_wininet_ftpFindFirstFileA(hconnect: Long, lpszsearchfile: Long, lpfindfiledata: Long, dwflags: Int, dwcontext: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FtpFindFirstFileW(hconnect: Long, lpszsearchfile: Long, lpfindfiledata: Long, dwflags: Int, dwcontext: Long): Long
+    external fun windowssys_windows_win32_networking_wininet_ftpFindFirstFileW(hconnect: Long, lpszsearchfile: Long, lpfindfiledata: Long, dwflags: Int, dwcontext: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FtpGetCurrentDirectoryA(hconnect: Long, lpszcurrentdirectory: Long, lpdwcurrentdirectory: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_ftpGetCurrentDirectoryA(hconnect: Long, lpszcurrentdirectory: Long, lpdwcurrentdirectory: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FtpGetCurrentDirectoryW(hconnect: Long, lpszcurrentdirectory: Long, lpdwcurrentdirectory: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_ftpGetCurrentDirectoryW(hconnect: Long, lpszcurrentdirectory: Long, lpdwcurrentdirectory: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FtpGetFileA(hconnect: Long, lpszremotefile: Long, lpsznewfile: Long, ffailifexists: Int, dwflagsandattributes: Int, dwflags: Int, dwcontext: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_ftpGetFileA(hconnect: Long, lpszremotefile: Long, lpsznewfile: Long, ffailifexists: Int, dwflagsandattributes: Int, dwflags: Int, dwcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FtpGetFileEx(hftpsession: Long, lpszremotefile: Long, lpsznewfile: Long, ffailifexists: Int, dwflagsandattributes: Int, dwflags: Int, dwcontext: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_ftpGetFileEx(hftpsession: Long, lpszremotefile: Long, lpsznewfile: Long, ffailifexists: Int, dwflagsandattributes: Int, dwflags: Int, dwcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FtpGetFileSize(hfile: Long, lpdwfilesizehigh: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_ftpGetFileSize(hfile: Long, lpdwfilesizehigh: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FtpGetFileW(hconnect: Long, lpszremotefile: Long, lpsznewfile: Long, ffailifexists: Int, dwflagsandattributes: Int, dwflags: Int, dwcontext: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_ftpGetFileW(hconnect: Long, lpszremotefile: Long, lpsznewfile: Long, ffailifexists: Int, dwflagsandattributes: Int, dwflags: Int, dwcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FtpOpenFileA(hconnect: Long, lpszfilename: Long, dwaccess: Int, dwflags: Int, dwcontext: Long): Long
+    external fun windowssys_windows_win32_networking_wininet_ftpOpenFileA(hconnect: Long, lpszfilename: Long, dwaccess: Int, dwflags: Int, dwcontext: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FtpOpenFileW(hconnect: Long, lpszfilename: Long, dwaccess: Int, dwflags: Int, dwcontext: Long): Long
+    external fun windowssys_windows_win32_networking_wininet_ftpOpenFileW(hconnect: Long, lpszfilename: Long, dwaccess: Int, dwflags: Int, dwcontext: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FtpPutFileA(hconnect: Long, lpszlocalfile: Long, lpsznewremotefile: Long, dwflags: Int, dwcontext: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_ftpPutFileA(hconnect: Long, lpszlocalfile: Long, lpsznewremotefile: Long, dwflags: Int, dwcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FtpPutFileEx(hftpsession: Long, lpszlocalfile: Long, lpsznewremotefile: Long, dwflags: Int, dwcontext: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_ftpPutFileEx(hftpsession: Long, lpszlocalfile: Long, lpsznewremotefile: Long, dwflags: Int, dwcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FtpPutFileW(hconnect: Long, lpszlocalfile: Long, lpsznewremotefile: Long, dwflags: Int, dwcontext: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_ftpPutFileW(hconnect: Long, lpszlocalfile: Long, lpsznewremotefile: Long, dwflags: Int, dwcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FtpRemoveDirectoryA(hconnect: Long, lpszdirectory: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_ftpRemoveDirectoryA(hconnect: Long, lpszdirectory: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FtpRemoveDirectoryW(hconnect: Long, lpszdirectory: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_ftpRemoveDirectoryW(hconnect: Long, lpszdirectory: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FtpRenameFileA(hconnect: Long, lpszexisting: Long, lpsznew: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_ftpRenameFileA(hconnect: Long, lpszexisting: Long, lpsznew: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FtpRenameFileW(hconnect: Long, lpszexisting: Long, lpsznew: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_ftpRenameFileW(hconnect: Long, lpszexisting: Long, lpsznew: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FtpSetCurrentDirectoryA(hconnect: Long, lpszdirectory: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_ftpSetCurrentDirectoryA(hconnect: Long, lpszdirectory: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_FtpSetCurrentDirectoryW(hconnect: Long, lpszdirectory: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_ftpSetCurrentDirectoryW(hconnect: Long, lpszdirectory: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_GetDiskInfoA(pszpath: Long, pdwclustersize: Long, pdlavail: Long, pdltotal: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_getDiskInfoA(pszpath: Long, pdwclustersize: Long, pdlavail: Long, pdltotal: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_GetUrlCacheConfigInfoA(lpcacheconfiginfo: Long, lpcbcacheconfiginfo: Long, dwfieldcontrol: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_getUrlCacheConfigInfoA(lpcacheconfiginfo: Long, lpcbcacheconfiginfo: Long, dwfieldcontrol: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_GetUrlCacheConfigInfoW(lpcacheconfiginfo: Long, lpcbcacheconfiginfo: Long, dwfieldcontrol: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_getUrlCacheConfigInfoW(lpcacheconfiginfo: Long, lpcbcacheconfiginfo: Long, dwfieldcontrol: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_GetUrlCacheEntryBinaryBlob(pwszurlname: Long, dwtype: Long, pftexpiretime: Long, pftaccesstime: Long, pftmodifiedtime: Long, ppbblob: Long, pcbblob: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_getUrlCacheEntryBinaryBlob(pwszurlname: Long, dwtype: Long, pftexpiretime: Long, pftaccesstime: Long, pftmodifiedtime: Long, ppbblob: Long, pcbblob: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_GetUrlCacheEntryInfoA(lpszurlname: Long, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoA(lpszurlname: Long, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_GetUrlCacheEntryInfoExA(lpszurl: Long, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long, lpszredirecturl: Long, lpcbredirecturl: Long, lpreserved: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoExA(lpszurl: Long, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long, lpszredirecturl: Long, lpcbredirecturl: Long, lpreserved: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_GetUrlCacheEntryInfoExW(lpszurl: Long, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long, lpszredirecturl: Long, lpcbredirecturl: Long, lpreserved: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoExW(lpszurl: Long, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long, lpszredirecturl: Long, lpcbredirecturl: Long, lpreserved: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_GetUrlCacheEntryInfoW(lpszurlname: Long, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoW(lpszurlname: Long, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_GetUrlCacheGroupAttributeA(gid: Long, dwflags: Int, dwattributes: Int, lpgroupinfo: Long, lpcbgroupinfo: Long, lpreserved: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_getUrlCacheGroupAttributeA(gid: Long, dwflags: Int, dwattributes: Int, lpgroupinfo: Long, lpcbgroupinfo: Long, lpreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_GetUrlCacheGroupAttributeW(gid: Long, dwflags: Int, dwattributes: Int, lpgroupinfo: Long, lpcbgroupinfo: Long, lpreserved: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_getUrlCacheGroupAttributeW(gid: Long, dwflags: Int, dwattributes: Int, lpgroupinfo: Long, lpcbgroupinfo: Long, lpreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_GetUrlCacheHeaderData(nidx: Int, lpdwdata: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_getUrlCacheHeaderData(nidx: Int, lpdwdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_GopherCreateLocatorA(lpszhost: Long, nserverport: Short, lpszdisplaystring: Long, lpszselectorstring: Long, dwgophertype: Int, lpszlocator: Long, lpdwbufferlength: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_gopherCreateLocatorA(lpszhost: Long, nserverport: Short, lpszdisplaystring: Long, lpszselectorstring: Long, dwgophertype: Int, lpszlocator: Long, lpdwbufferlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_GopherCreateLocatorW(lpszhost: Long, nserverport: Short, lpszdisplaystring: Long, lpszselectorstring: Long, dwgophertype: Int, lpszlocator: Long, lpdwbufferlength: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_gopherCreateLocatorW(lpszhost: Long, nserverport: Short, lpszdisplaystring: Long, lpszselectorstring: Long, dwgophertype: Int, lpszlocator: Long, lpdwbufferlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_GopherFindFirstFileA(hconnect: Long, lpszlocator: Long, lpszsearchstring: Long, lpfinddata: Long, dwflags: Int, dwcontext: Long): Long
+    external fun windowssys_windows_win32_networking_wininet_gopherFindFirstFileA(hconnect: Long, lpszlocator: Long, lpszsearchstring: Long, lpfinddata: Long, dwflags: Int, dwcontext: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_GopherFindFirstFileW(hconnect: Long, lpszlocator: Long, lpszsearchstring: Long, lpfinddata: Long, dwflags: Int, dwcontext: Long): Long
+    external fun windowssys_windows_win32_networking_wininet_gopherFindFirstFileW(hconnect: Long, lpszlocator: Long, lpszsearchstring: Long, lpfinddata: Long, dwflags: Int, dwcontext: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_GopherGetAttributeA(hconnect: Long, lpszlocator: Long, lpszattributename: Long, lpbuffer: Long, dwbufferlength: Int, lpdwcharactersreturned: Long, lpfnenumerator: Long, dwcontext: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_gopherGetAttributeA(hconnect: Long, lpszlocator: Long, lpszattributename: Long, lpbuffer: Long, dwbufferlength: Int, lpdwcharactersreturned: Long, lpfnenumerator: Long, dwcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_GopherGetAttributeW(hconnect: Long, lpszlocator: Long, lpszattributename: Long, lpbuffer: Long, dwbufferlength: Int, lpdwcharactersreturned: Long, lpfnenumerator: Long, dwcontext: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_gopherGetAttributeW(hconnect: Long, lpszlocator: Long, lpszattributename: Long, lpbuffer: Long, dwbufferlength: Int, lpdwcharactersreturned: Long, lpfnenumerator: Long, dwcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_GopherGetLocatorTypeA(lpszlocator: Long, lpdwgophertype: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_gopherGetLocatorTypeA(lpszlocator: Long, lpdwgophertype: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_GopherGetLocatorTypeW(lpszlocator: Long, lpdwgophertype: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_gopherGetLocatorTypeW(lpszlocator: Long, lpdwgophertype: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_GopherOpenFileA(hconnect: Long, lpszlocator: Long, lpszview: Long, dwflags: Int, dwcontext: Long): Long
+    external fun windowssys_windows_win32_networking_wininet_gopherOpenFileA(hconnect: Long, lpszlocator: Long, lpszview: Long, dwflags: Int, dwcontext: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_GopherOpenFileW(hconnect: Long, lpszlocator: Long, lpszview: Long, dwflags: Int, dwcontext: Long): Long
+    external fun windowssys_windows_win32_networking_wininet_gopherOpenFileW(hconnect: Long, lpszlocator: Long, lpszview: Long, dwflags: Int, dwcontext: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_HttpAddRequestHeadersA(hrequest: Long, lpszheaders: Long, dwheaderslength: Int, dwmodifiers: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_httpAddRequestHeadersA(hrequest: Long, lpszheaders: Long, dwheaderslength: Int, dwmodifiers: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_HttpAddRequestHeadersW(hrequest: Long, lpszheaders: Long, dwheaderslength: Int, dwmodifiers: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_httpAddRequestHeadersW(hrequest: Long, lpszheaders: Long, dwheaderslength: Int, dwmodifiers: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_HttpCheckDavComplianceA(lpszurl: Long, lpszcompliancetoken: Long, lpffound: Long, hwnd: Long, lpvreserved: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_httpCheckDavComplianceA(lpszurl: Long, lpszcompliancetoken: Long, lpffound: Long, hwnd: Long, lpvreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_HttpCheckDavComplianceW(lpszurl: Long, lpszcompliancetoken: Long, lpffound: Long, hwnd: Long, lpvreserved: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_httpCheckDavComplianceW(lpszurl: Long, lpszcompliancetoken: Long, lpffound: Long, hwnd: Long, lpvreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_HttpCloseDependencyHandle(hdependencyhandle: Long)
+    external fun windowssys_windows_win32_networking_wininet_httpCloseDependencyHandle(hdependencyhandle: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_HttpDuplicateDependencyHandle(hdependencyhandle: Long, phduplicateddependencyhandle: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_httpDuplicateDependencyHandle(hdependencyhandle: Long, phduplicateddependencyhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_HttpEndRequestA(hrequest: Long, lpbuffersout: Long, dwflags: Int, dwcontext: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_httpEndRequestA(hrequest: Long, lpbuffersout: Long, dwflags: Int, dwcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_HttpEndRequestW(hrequest: Long, lpbuffersout: Long, dwflags: Int, dwcontext: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_httpEndRequestW(hrequest: Long, lpbuffersout: Long, dwflags: Int, dwcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_HttpGetServerCredentials(pwszurl: Long, ppwszusername: Long, ppwszpassword: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_httpGetServerCredentials(pwszurl: Long, ppwszusername: Long, ppwszpassword: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_HttpIndicatePageLoadComplete(hdependencyhandle: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_httpIndicatePageLoadComplete(hdependencyhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_HttpIsHostHstsEnabled(pcwszurl: Long, pfishsts: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_httpIsHostHstsEnabled(pcwszurl: Long, pfishsts: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_HttpOpenDependencyHandle(hrequesthandle: Long, fbackground: Int, phdependencyhandle: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_httpOpenDependencyHandle(hrequesthandle: Long, fbackground: Int, phdependencyhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_HttpOpenRequestA(hconnect: Long, lpszverb: Long, lpszobjectname: Long, lpszversion: Long, lpszreferrer: Long, lplpszaccepttypes: Long, dwflags: Int, dwcontext: Long): Long
+    external fun windowssys_windows_win32_networking_wininet_httpOpenRequestA(hconnect: Long, lpszverb: Long, lpszobjectname: Long, lpszversion: Long, lpszreferrer: Long, lplpszaccepttypes: Long, dwflags: Int, dwcontext: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_HttpOpenRequestW(hconnect: Long, lpszverb: Long, lpszobjectname: Long, lpszversion: Long, lpszreferrer: Long, lplpszaccepttypes: Long, dwflags: Int, dwcontext: Long): Long
+    external fun windowssys_windows_win32_networking_wininet_httpOpenRequestW(hconnect: Long, lpszverb: Long, lpszobjectname: Long, lpszversion: Long, lpszreferrer: Long, lplpszaccepttypes: Long, dwflags: Int, dwcontext: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_HttpPushClose(hwait: Long)
+    external fun windowssys_windows_win32_networking_wininet_httpPushClose(hwait: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_HttpPushEnable(hrequest: Long, ptransportsetting: Long, phwait: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_httpPushEnable(hrequest: Long, ptransportsetting: Long, phwait: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_HttpPushWait(hwait: Long, etype: Int, pnotificationstatus: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_httpPushWait(hwait: Long, etype: Int, pnotificationstatus: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_HttpQueryInfoA(hrequest: Long, dwinfolevel: Int, lpbuffer: Long, lpdwbufferlength: Long, lpdwindex: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_httpQueryInfoA(hrequest: Long, dwinfolevel: Int, lpbuffer: Long, lpdwbufferlength: Long, lpdwindex: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_HttpQueryInfoW(hrequest: Long, dwinfolevel: Int, lpbuffer: Long, lpdwbufferlength: Long, lpdwindex: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_httpQueryInfoW(hrequest: Long, dwinfolevel: Int, lpbuffer: Long, lpdwbufferlength: Long, lpdwindex: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_HttpSendRequestA(hrequest: Long, lpszheaders: Long, dwheaderslength: Int, lpoptional: Long, dwoptionallength: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_httpSendRequestA(hrequest: Long, lpszheaders: Long, dwheaderslength: Int, lpoptional: Long, dwoptionallength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_HttpSendRequestExA(hrequest: Long, lpbuffersin: Long, lpbuffersout: Long, dwflags: Int, dwcontext: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_httpSendRequestExA(hrequest: Long, lpbuffersin: Long, lpbuffersout: Long, dwflags: Int, dwcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_HttpSendRequestExW(hrequest: Long, lpbuffersin: Long, lpbuffersout: Long, dwflags: Int, dwcontext: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_httpSendRequestExW(hrequest: Long, lpbuffersin: Long, lpbuffersout: Long, dwflags: Int, dwcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_HttpSendRequestW(hrequest: Long, lpszheaders: Long, dwheaderslength: Int, lpoptional: Long, dwoptionallength: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_httpSendRequestW(hrequest: Long, lpszheaders: Long, dwheaderslength: Int, lpoptional: Long, dwoptionallength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_HttpWebSocketClose(hwebsocket: Long, usstatus: Short, pvreason: Long, dwreasonlength: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_httpWebSocketClose(hwebsocket: Long, usstatus: Short, pvreason: Long, dwreasonlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_HttpWebSocketCompleteUpgrade(hrequest: Long, dwcontext: Long): Long
+    external fun windowssys_windows_win32_networking_wininet_httpWebSocketCompleteUpgrade(hrequest: Long, dwcontext: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_HttpWebSocketQueryCloseStatus(hwebsocket: Long, pusstatus: Long, pvreason: Long, dwreasonlength: Int, pdwreasonlengthconsumed: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_httpWebSocketQueryCloseStatus(hwebsocket: Long, pusstatus: Long, pvreason: Long, dwreasonlength: Int, pdwreasonlengthconsumed: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_HttpWebSocketReceive(hwebsocket: Long, pvbuffer: Long, dwbufferlength: Int, pdwbytesread: Long, pbuffertype: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_httpWebSocketReceive(hwebsocket: Long, pvbuffer: Long, dwbufferlength: Int, pdwbytesread: Long, pbuffertype: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_HttpWebSocketSend(hwebsocket: Long, buffertype: Int, pvbuffer: Long, dwbufferlength: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_httpWebSocketSend(hwebsocket: Long, buffertype: Int, pvbuffer: Long, dwbufferlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_HttpWebSocketShutdown(hwebsocket: Long, usstatus: Short, pvreason: Long, dwreasonlength: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_httpWebSocketShutdown(hwebsocket: Long, usstatus: Short, pvreason: Long, dwreasonlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_ImportCookieFileA(szfilename: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_importCookieFileA(szfilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_ImportCookieFileW(szfilename: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_importCookieFileW(szfilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_IncrementUrlCacheHeaderData(nidx: Int, lpdwdata: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_incrementUrlCacheHeaderData(nidx: Int, lpdwdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternalInternetGetCookie(lpszurl: Long, lpszcookiedata: Long, lpdwdatasize: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internalInternetGetCookie(lpszurl: Long, lpszcookiedata: Long, lpdwdatasize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetAlgIdToStringA(ai: Int, lpstr: Long, lpdwstrlength: Long, dwreserved: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetAlgIdToStringA(ai: Int, lpstr: Long, lpdwstrlength: Long, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetAlgIdToStringW(ai: Int, lpstr: Long, lpdwstrlength: Long, dwreserved: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetAlgIdToStringW(ai: Int, lpstr: Long, lpdwstrlength: Long, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetAttemptConnect(dwreserved: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetAttemptConnect(dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetAutodial(dwflags: Int, hwndparent: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetAutodial(dwflags: Int, hwndparent: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetAutodialHangup(dwreserved: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetAutodialHangup(dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetCanonicalizeUrlA(lpszurl: Long, lpszbuffer: Long, lpdwbufferlength: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetCanonicalizeUrlA(lpszurl: Long, lpszbuffer: Long, lpdwbufferlength: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetCanonicalizeUrlW(lpszurl: Long, lpszbuffer: Long, lpdwbufferlength: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetCanonicalizeUrlW(lpszurl: Long, lpszbuffer: Long, lpdwbufferlength: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetCheckConnectionA(lpszurl: Long, dwflags: Int, dwreserved: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetCheckConnectionA(lpszurl: Long, dwflags: Int, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetCheckConnectionW(lpszurl: Long, dwflags: Int, dwreserved: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetCheckConnectionW(lpszurl: Long, dwflags: Int, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetClearAllPerSiteCookieDecisions(): Int
+    external fun windowssys_windows_win32_networking_wininet_internetClearAllPerSiteCookieDecisions(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetCloseHandle(hinternet: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetCloseHandle(hinternet: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetCombineUrlA(lpszbaseurl: Long, lpszrelativeurl: Long, lpszbuffer: Long, lpdwbufferlength: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetCombineUrlA(lpszbaseurl: Long, lpszrelativeurl: Long, lpszbuffer: Long, lpdwbufferlength: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetCombineUrlW(lpszbaseurl: Long, lpszrelativeurl: Long, lpszbuffer: Long, lpdwbufferlength: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetCombineUrlW(lpszbaseurl: Long, lpszrelativeurl: Long, lpszbuffer: Long, lpdwbufferlength: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetConfirmZoneCrossing(hwnd: Long, szurlprev: Long, szurlnew: Long, bpost: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetConfirmZoneCrossing(hwnd: Long, szurlprev: Long, szurlnew: Long, bpost: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetConfirmZoneCrossingA(hwnd: Long, szurlprev: Long, szurlnew: Long, bpost: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetConfirmZoneCrossingA(hwnd: Long, szurlprev: Long, szurlnew: Long, bpost: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetConfirmZoneCrossingW(hwnd: Long, szurlprev: Long, szurlnew: Long, bpost: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetConfirmZoneCrossingW(hwnd: Long, szurlprev: Long, szurlnew: Long, bpost: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetConnectA(hinternet: Long, lpszservername: Long, nserverport: Short, lpszusername: Long, lpszpassword: Long, dwservice: Int, dwflags: Int, dwcontext: Long): Long
+    external fun windowssys_windows_win32_networking_wininet_internetConnectA(hinternet: Long, lpszservername: Long, nserverport: Short, lpszusername: Long, lpszpassword: Long, dwservice: Int, dwflags: Int, dwcontext: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetConnectW(hinternet: Long, lpszservername: Long, nserverport: Short, lpszusername: Long, lpszpassword: Long, dwservice: Int, dwflags: Int, dwcontext: Long): Long
+    external fun windowssys_windows_win32_networking_wininet_internetConnectW(hinternet: Long, lpszservername: Long, nserverport: Short, lpszusername: Long, lpszpassword: Long, dwservice: Int, dwflags: Int, dwcontext: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetConvertUrlFromWireToWideChar(pcszurl: Long, cchurl: Int, pcwszbaseurl: Long, dwcodepagehost: Int, dwcodepagepath: Int, fencodepathextra: Int, dwcodepageextra: Int, ppwszconvertedurl: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetConvertUrlFromWireToWideChar(pcszurl: Long, cchurl: Int, pcwszbaseurl: Long, dwcodepagehost: Int, dwcodepagepath: Int, fencodepathextra: Int, dwcodepageextra: Int, ppwszconvertedurl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetCrackUrlA(lpszurl: Long, dwurllength: Int, dwflags: Int, lpurlcomponents: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetCrackUrlA(lpszurl: Long, dwurllength: Int, dwflags: Int, lpurlcomponents: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetCrackUrlW(lpszurl: Long, dwurllength: Int, dwflags: Int, lpurlcomponents: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetCrackUrlW(lpszurl: Long, dwurllength: Int, dwflags: Int, lpurlcomponents: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetCreateUrlA(lpurlcomponents: Long, dwflags: Int, lpszurl: Long, lpdwurllength: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetCreateUrlA(lpurlcomponents: Long, dwflags: Int, lpszurl: Long, lpdwurllength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetCreateUrlW(lpurlcomponents: Long, dwflags: Int, lpszurl: Long, lpdwurllength: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetCreateUrlW(lpurlcomponents: Long, dwflags: Int, lpszurl: Long, lpdwurllength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetDial(hwndparent: Long, lpszconnectoid: Long, dwflags: Int, lpdwconnection: Long, dwreserved: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetDial(hwndparent: Long, lpszconnectoid: Long, dwflags: Int, lpdwconnection: Long, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetDialA(hwndparent: Long, lpszconnectoid: Long, dwflags: Int, lpdwconnection: Long, dwreserved: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetDialA(hwndparent: Long, lpszconnectoid: Long, dwflags: Int, lpdwconnection: Long, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetDialW(hwndparent: Long, lpszconnectoid: Long, dwflags: Int, lpdwconnection: Long, dwreserved: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetDialW(hwndparent: Long, lpszconnectoid: Long, dwflags: Int, lpdwconnection: Long, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetEnumPerSiteCookieDecisionA(pszsitename: Long, pcsitenamesize: Long, pdwdecision: Long, dwindex: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetEnumPerSiteCookieDecisionA(pszsitename: Long, pcsitenamesize: Long, pdwdecision: Long, dwindex: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetEnumPerSiteCookieDecisionW(pszsitename: Long, pcsitenamesize: Long, pdwdecision: Long, dwindex: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetEnumPerSiteCookieDecisionW(pszsitename: Long, pcsitenamesize: Long, pdwdecision: Long, dwindex: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetErrorDlg(hwnd: Long, hrequest: Long, dwerror: Int, dwflags: Int, lppvdata: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetErrorDlg(hwnd: Long, hrequest: Long, dwerror: Int, dwflags: Int, lppvdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetFindNextFileA(hfind: Long, lpvfinddata: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetFindNextFileA(hfind: Long, lpvfinddata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetFindNextFileW(hfind: Long, lpvfinddata: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetFindNextFileW(hfind: Long, lpvfinddata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetFortezzaCommand(dwcommand: Int, hwnd: Long, dwreserved: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetFortezzaCommand(dwcommand: Int, hwnd: Long, dwreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetFreeCookies(pcookies: Long, dwcookiecount: Int)
+    external fun windowssys_windows_win32_networking_wininet_internetFreeCookies(pcookies: Long, dwcookiecount: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetFreeProxyInfoList(pproxyinfolist: Long)
+    external fun windowssys_windows_win32_networking_wininet_internetFreeProxyInfoList(pproxyinfolist: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetGetConnectedState(lpdwflags: Long, dwreserved: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetGetConnectedState(lpdwflags: Long, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetGetConnectedStateEx(lpdwflags: Long, lpszconnectionname: Long, dwnamelen: Int, dwreserved: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetGetConnectedStateEx(lpdwflags: Long, lpszconnectionname: Long, dwnamelen: Int, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetGetConnectedStateExA(lpdwflags: Long, lpszconnectionname: Long, cchnamelen: Int, dwreserved: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetGetConnectedStateExA(lpdwflags: Long, lpszconnectionname: Long, cchnamelen: Int, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetGetConnectedStateExW(lpdwflags: Long, lpszconnectionname: Long, cchnamelen: Int, dwreserved: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetGetConnectedStateExW(lpdwflags: Long, lpszconnectionname: Long, cchnamelen: Int, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetGetCookieA(lpszurl: Long, lpszcookiename: Long, lpszcookiedata: Long, lpdwsize: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetGetCookieA(lpszurl: Long, lpszcookiename: Long, lpszcookiedata: Long, lpdwsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetGetCookieEx2(pcwszurl: Long, pcwszcookiename: Long, dwflags: Int, ppcookies: Long, pdwcookiecount: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetGetCookieEx2(pcwszurl: Long, pcwszcookiename: Long, dwflags: Int, ppcookies: Long, pdwcookiecount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetGetCookieExA(lpszurl: Long, lpszcookiename: Long, lpszcookiedata: Long, lpdwsize: Long, dwflags: Int, lpreserved: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetGetCookieExA(lpszurl: Long, lpszcookiename: Long, lpszcookiedata: Long, lpdwsize: Long, dwflags: Int, lpreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetGetCookieExW(lpszurl: Long, lpszcookiename: Long, lpszcookiedata: Long, lpdwsize: Long, dwflags: Int, lpreserved: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetGetCookieExW(lpszurl: Long, lpszcookiename: Long, lpszcookiedata: Long, lpdwsize: Long, dwflags: Int, lpreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetGetCookieW(lpszurl: Long, lpszcookiename: Long, lpszcookiedata: Long, lpdwsize: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetGetCookieW(lpszurl: Long, lpszcookiename: Long, lpszcookiedata: Long, lpdwsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetGetLastResponseInfoA(lpdwerror: Long, lpszbuffer: Long, lpdwbufferlength: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetGetLastResponseInfoA(lpdwerror: Long, lpszbuffer: Long, lpdwbufferlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetGetLastResponseInfoW(lpdwerror: Long, lpszbuffer: Long, lpdwbufferlength: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetGetLastResponseInfoW(lpdwerror: Long, lpszbuffer: Long, lpdwbufferlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetGetPerSiteCookieDecisionA(pchhostname: Long, presult: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetGetPerSiteCookieDecisionA(pchhostname: Long, presult: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetGetPerSiteCookieDecisionW(pchhostname: Long, presult: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetGetPerSiteCookieDecisionW(pchhostname: Long, presult: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetGetProxyForUrl(hinternet: Long, pcwszurl: Long, pproxyinfolist: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetGetProxyForUrl(hinternet: Long, pcwszurl: Long, pproxyinfolist: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetGetSecurityInfoByURL(lpszurl: Long, ppcertchain: Long, pdwsecureflags: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetGetSecurityInfoByURL(lpszurl: Long, ppcertchain: Long, pdwsecureflags: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetGetSecurityInfoByURLA(lpszurl: Long, ppcertchain: Long, pdwsecureflags: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetGetSecurityInfoByURLA(lpszurl: Long, ppcertchain: Long, pdwsecureflags: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetGetSecurityInfoByURLW(lpszurl: Long, ppcertchain: Long, pdwsecureflags: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetGetSecurityInfoByURLW(lpszurl: Long, ppcertchain: Long, pdwsecureflags: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetGoOnline(lpszurl: Long, hwndparent: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetGoOnline(lpszurl: Long, hwndparent: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetGoOnlineA(lpszurl: Long, hwndparent: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetGoOnlineA(lpszurl: Long, hwndparent: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetGoOnlineW(lpszurl: Long, hwndparent: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetGoOnlineW(lpszurl: Long, hwndparent: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetHangUp(dwconnection: Long, dwreserved: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetHangUp(dwconnection: Long, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetInitializeAutoProxyDll(dwreserved: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetInitializeAutoProxyDll(dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetLockRequestFile(hinternet: Long, lphlockrequestinfo: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetLockRequestFile(hinternet: Long, lphlockrequestinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetOpenA(lpszagent: Long, dwaccesstype: Int, lpszproxy: Long, lpszproxybypass: Long, dwflags: Int): Long
+    external fun windowssys_windows_win32_networking_wininet_internetOpenA(lpszagent: Long, dwaccesstype: Int, lpszproxy: Long, lpszproxybypass: Long, dwflags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetOpenUrlA(hinternet: Long, lpszurl: Long, lpszheaders: Long, dwheaderslength: Int, dwflags: Int, dwcontext: Long): Long
+    external fun windowssys_windows_win32_networking_wininet_internetOpenUrlA(hinternet: Long, lpszurl: Long, lpszheaders: Long, dwheaderslength: Int, dwflags: Int, dwcontext: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetOpenUrlW(hinternet: Long, lpszurl: Long, lpszheaders: Long, dwheaderslength: Int, dwflags: Int, dwcontext: Long): Long
+    external fun windowssys_windows_win32_networking_wininet_internetOpenUrlW(hinternet: Long, lpszurl: Long, lpszheaders: Long, dwheaderslength: Int, dwflags: Int, dwcontext: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetOpenW(lpszagent: Long, dwaccesstype: Int, lpszproxy: Long, lpszproxybypass: Long, dwflags: Int): Long
+    external fun windowssys_windows_win32_networking_wininet_internetOpenW(lpszagent: Long, dwaccesstype: Int, lpszproxy: Long, lpszproxybypass: Long, dwflags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetQueryDataAvailable(hfile: Long, lpdwnumberofbytesavailable: Long, dwflags: Int, dwcontext: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetQueryDataAvailable(hfile: Long, lpdwnumberofbytesavailable: Long, dwflags: Int, dwcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetQueryFortezzaStatus(pdwstatus: Long, dwreserved: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetQueryFortezzaStatus(pdwstatus: Long, dwreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetQueryOptionA(hinternet: Long, dwoption: Int, lpbuffer: Long, lpdwbufferlength: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetQueryOptionA(hinternet: Long, dwoption: Int, lpbuffer: Long, lpdwbufferlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetQueryOptionW(hinternet: Long, dwoption: Int, lpbuffer: Long, lpdwbufferlength: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetQueryOptionW(hinternet: Long, dwoption: Int, lpbuffer: Long, lpdwbufferlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetReadFile(hfile: Long, lpbuffer: Long, dwnumberofbytestoread: Int, lpdwnumberofbytesread: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetReadFile(hfile: Long, lpbuffer: Long, dwnumberofbytestoread: Int, lpdwnumberofbytesread: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetReadFileExA(hfile: Long, lpbuffersout: Long, dwflags: Int, dwcontext: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetReadFileExA(hfile: Long, lpbuffersout: Long, dwflags: Int, dwcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetReadFileExW(hfile: Long, lpbuffersout: Long, dwflags: Int, dwcontext: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetReadFileExW(hfile: Long, lpbuffersout: Long, dwflags: Int, dwcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetSecurityProtocolToStringA(dwprotocol: Int, lpstr: Long, lpdwstrlength: Long, dwreserved: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetSecurityProtocolToStringA(dwprotocol: Int, lpstr: Long, lpdwstrlength: Long, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetSecurityProtocolToStringW(dwprotocol: Int, lpstr: Long, lpdwstrlength: Long, dwreserved: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetSecurityProtocolToStringW(dwprotocol: Int, lpstr: Long, lpdwstrlength: Long, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetSetCookieA(lpszurl: Long, lpszcookiename: Long, lpszcookiedata: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetSetCookieA(lpszurl: Long, lpszcookiename: Long, lpszcookiedata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetSetCookieEx2(pcwszurl: Long, pcookie: Long, pcwszp3ppolicy: Long, dwflags: Int, pdwcookiestate: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetSetCookieEx2(pcwszurl: Long, pcookie: Long, pcwszp3ppolicy: Long, dwflags: Int, pdwcookiestate: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetSetCookieExA(lpszurl: Long, lpszcookiename: Long, lpszcookiedata: Long, dwflags: Int, dwreserved: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetSetCookieExA(lpszurl: Long, lpszcookiename: Long, lpszcookiedata: Long, dwflags: Int, dwreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetSetCookieExW(lpszurl: Long, lpszcookiename: Long, lpszcookiedata: Long, dwflags: Int, dwreserved: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetSetCookieExW(lpszurl: Long, lpszcookiename: Long, lpszcookiedata: Long, dwflags: Int, dwreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetSetCookieW(lpszurl: Long, lpszcookiename: Long, lpszcookiedata: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetSetCookieW(lpszurl: Long, lpszcookiename: Long, lpszcookiedata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetSetDialState(lpszconnectoid: Long, dwstate: Int, dwreserved: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetSetDialState(lpszconnectoid: Long, dwstate: Int, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetSetDialStateA(lpszconnectoid: Long, dwstate: Int, dwreserved: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetSetDialStateA(lpszconnectoid: Long, dwstate: Int, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetSetDialStateW(lpszconnectoid: Long, dwstate: Int, dwreserved: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetSetDialStateW(lpszconnectoid: Long, dwstate: Int, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetSetFilePointer(hfile: Long, ldistancetomove: Int, lpdistancetomovehigh: Long, dwmovemethod: Int, dwcontext: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetSetFilePointer(hfile: Long, ldistancetomove: Int, lpdistancetomovehigh: Long, dwmovemethod: Int, dwcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetSetOptionA(hinternet: Long, dwoption: Int, lpbuffer: Long, dwbufferlength: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetSetOptionA(hinternet: Long, dwoption: Int, lpbuffer: Long, dwbufferlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetSetOptionExA(hinternet: Long, dwoption: Int, lpbuffer: Long, dwbufferlength: Int, dwflags: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetSetOptionExA(hinternet: Long, dwoption: Int, lpbuffer: Long, dwbufferlength: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetSetOptionExW(hinternet: Long, dwoption: Int, lpbuffer: Long, dwbufferlength: Int, dwflags: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetSetOptionExW(hinternet: Long, dwoption: Int, lpbuffer: Long, dwbufferlength: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetSetOptionW(hinternet: Long, dwoption: Int, lpbuffer: Long, dwbufferlength: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetSetOptionW(hinternet: Long, dwoption: Int, lpbuffer: Long, dwbufferlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetSetPerSiteCookieDecisionA(pchhostname: Long, dwdecision: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetSetPerSiteCookieDecisionA(pchhostname: Long, dwdecision: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetSetPerSiteCookieDecisionW(pchhostname: Long, dwdecision: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetSetPerSiteCookieDecisionW(pchhostname: Long, dwdecision: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetSetStatusCallback(hinternet: Long, lpfninternetcallback: Long): Long
+    external fun windowssys_windows_win32_networking_wininet_internetSetStatusCallback(hinternet: Long, lpfninternetcallback: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetSetStatusCallbackA(hinternet: Long, lpfninternetcallback: Long): Long
+    external fun windowssys_windows_win32_networking_wininet_internetSetStatusCallbackA(hinternet: Long, lpfninternetcallback: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetSetStatusCallbackW(hinternet: Long, lpfninternetcallback: Long): Long
+    external fun windowssys_windows_win32_networking_wininet_internetSetStatusCallbackW(hinternet: Long, lpfninternetcallback: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetShowSecurityInfoByURL(lpszurl: Long, hwndparent: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetShowSecurityInfoByURL(lpszurl: Long, hwndparent: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetShowSecurityInfoByURLA(lpszurl: Long, hwndparent: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetShowSecurityInfoByURLA(lpszurl: Long, hwndparent: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetShowSecurityInfoByURLW(lpszurl: Long, hwndparent: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetShowSecurityInfoByURLW(lpszurl: Long, hwndparent: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetTimeFromSystemTime(pst: Long, dwrfc: Int, lpsztime: Long, cbtime: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetTimeFromSystemTime(pst: Long, dwrfc: Int, lpsztime: Long, cbtime: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetTimeFromSystemTimeA(pst: Long, dwrfc: Int, lpsztime: Long, cbtime: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetTimeFromSystemTimeA(pst: Long, dwrfc: Int, lpsztime: Long, cbtime: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetTimeFromSystemTimeW(pst: Long, dwrfc: Int, lpsztime: Long, cbtime: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetTimeFromSystemTimeW(pst: Long, dwrfc: Int, lpsztime: Long, cbtime: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetTimeToSystemTime(lpsztime: Long, pst: Long, dwreserved: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetTimeToSystemTime(lpsztime: Long, pst: Long, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetTimeToSystemTimeA(lpsztime: Long, pst: Long, dwreserved: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetTimeToSystemTimeA(lpsztime: Long, pst: Long, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetTimeToSystemTimeW(lpsztime: Long, pst: Long, dwreserved: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_internetTimeToSystemTimeW(lpsztime: Long, pst: Long, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetUnlockRequestFile(hlockrequestinfo: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetUnlockRequestFile(hlockrequestinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetWriteFile(hfile: Long, lpbuffer: Long, dwnumberofbytestowrite: Int, lpdwnumberofbyteswritten: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetWriteFile(hfile: Long, lpbuffer: Long, dwnumberofbytestowrite: Int, lpdwnumberofbyteswritten: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetWriteFileExA(hfile: Long, lpbuffersin: Long, dwflags: Int, dwcontext: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetWriteFileExA(hfile: Long, lpbuffersin: Long, dwflags: Int, dwcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_InternetWriteFileExW(hfile: Long, lpbuffersin: Long, dwflags: Int, dwcontext: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_internetWriteFileExW(hfile: Long, lpbuffersin: Long, dwflags: Int, dwcontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_IsDomainLegalCookieDomainA(pchdomain: Long, pchfulldomain: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_isDomainLegalCookieDomainA(pchdomain: Long, pchfulldomain: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_IsDomainLegalCookieDomainW(pchdomain: Long, pchfulldomain: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_isDomainLegalCookieDomainW(pchdomain: Long, pchfulldomain: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_IsHostInProxyBypassList(tscheme: Int, lpszhost: Long, cchhost: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_isHostInProxyBypassList(tscheme: Int, lpszhost: Long, cchhost: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_IsProfilesEnabled(): Int
+    external fun windowssys_windows_win32_networking_wininet_isProfilesEnabled(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_IsUrlCacheEntryExpiredA(lpszurlname: Long, dwflags: Int, pftlastmodified: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_isUrlCacheEntryExpiredA(lpszurlname: Long, dwflags: Int, pftlastmodified: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_IsUrlCacheEntryExpiredW(lpszurlname: Long, dwflags: Int, pftlastmodified: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_isUrlCacheEntryExpiredW(lpszurlname: Long, dwflags: Int, pftlastmodified: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_LoadUrlCacheContent(): Int
+    external fun windowssys_windows_win32_networking_wininet_loadUrlCacheContent(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_ParseX509EncodedCertificateForListBoxEntry(lpcert: Long, cbcert: Int, lpszlistboxentry: Long, lpdwlistboxentry: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_parseX509EncodedCertificateForListBoxEntry(lpcert: Long, cbcert: Int, lpszlistboxentry: Long, lpdwlistboxentry: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_PerformOperationOverUrlCacheA(pszurlsearchpattern: Long, dwflags: Int, dwfilter: Int, groupid: Long, preserved1: Long, pdwreserved2: Long, preserved3: Long, op: Long, poperatordata: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_performOperationOverUrlCacheA(pszurlsearchpattern: Long, dwflags: Int, dwfilter: Int, groupid: Long, preserved1: Long, pdwreserved2: Long, preserved3: Long, op: Long, poperatordata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_PrivacyGetZonePreferenceW(dwzone: Int, dwtype: Int, pdwtemplate: Long, pszbuffer: Long, pdwbufferlength: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_privacyGetZonePreferenceW(dwzone: Int, dwtype: Int, pdwtemplate: Long, pszbuffer: Long, pdwbufferlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_PrivacySetZonePreferenceW(dwzone: Int, dwtype: Int, dwtemplate: Int, pszpreference: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_privacySetZonePreferenceW(dwzone: Int, dwtype: Int, dwtemplate: Int, pszpreference: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_ReadGuidsForConnectedNetworks(pcnetworks: Long, pppwsznetworkguids: Long, pppbstrnetworknames: Long, pppwszgwmacs: Long, pcgatewaymacs: Long, pdwflags: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_readGuidsForConnectedNetworks(pcnetworks: Long, pppwsznetworkguids: Long, pppbstrnetworknames: Long, pppwszgwmacs: Long, pcgatewaymacs: Long, pdwflags: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_ReadUrlCacheEntryStream(hurlcachestream: Long, dwlocation: Int, lpbuffer: Long, lpdwlen: Long, reserved: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_readUrlCacheEntryStream(hurlcachestream: Long, dwlocation: Int, lpbuffer: Long, lpdwlen: Long, reserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_ReadUrlCacheEntryStreamEx(hurlcachestream: Long, qwlocation: Long, lpbuffer: Long, lpdwlen: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_readUrlCacheEntryStreamEx(hurlcachestream: Long, qwlocation: Long, lpbuffer: Long, lpdwlen: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_RegisterUrlCacheNotification(hwnd: Long, umsg: Int, gid: Long, dwopsfilter: Int, dwreserved: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_registerUrlCacheNotification(hwnd: Long, umsg: Int, gid: Long, dwopsfilter: Int, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_ResumeSuspendedDownload(hrequest: Long, dwresultcode: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_resumeSuspendedDownload(hrequest: Long, dwresultcode: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_RetrieveUrlCacheEntryFileA(lpszurlname: Long, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long, dwreserved: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryFileA(lpszurlname: Long, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_RetrieveUrlCacheEntryFileW(lpszurlname: Long, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long, dwreserved: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryFileW(lpszurlname: Long, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_RetrieveUrlCacheEntryStreamA(lpszurlname: Long, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long, frandomread: Int, dwreserved: Int): Long
+    external fun windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryStreamA(lpszurlname: Long, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long, frandomread: Int, dwreserved: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_RetrieveUrlCacheEntryStreamW(lpszurlname: Long, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long, frandomread: Int, dwreserved: Int): Long
+    external fun windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryStreamW(lpszurlname: Long, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long, frandomread: Int, dwreserved: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_RunOnceUrlCache(hwnd: Long, hinst: Long, lpszcmd: Long, ncmdshow: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_runOnceUrlCache(hwnd: Long, hinst: Long, lpszcmd: Long, ncmdshow: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_SetUrlCacheConfigInfoA(lpcacheconfiginfo: Long, dwfieldcontrol: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_setUrlCacheConfigInfoA(lpcacheconfiginfo: Long, dwfieldcontrol: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_SetUrlCacheConfigInfoW(lpcacheconfiginfo: Long, dwfieldcontrol: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_setUrlCacheConfigInfoW(lpcacheconfiginfo: Long, dwfieldcontrol: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_SetUrlCacheEntryGroup(lpszurlname: Long, dwflags: Int, groupid: Long, pbgroupattributes: Long, cbgroupattributes: Int, lpreserved: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_setUrlCacheEntryGroup(lpszurlname: Long, dwflags: Int, groupid: Long, pbgroupattributes: Long, cbgroupattributes: Int, lpreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_SetUrlCacheEntryGroupA(lpszurlname: Long, dwflags: Int, groupid: Long, pbgroupattributes: Long, cbgroupattributes: Int, lpreserved: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_setUrlCacheEntryGroupA(lpszurlname: Long, dwflags: Int, groupid: Long, pbgroupattributes: Long, cbgroupattributes: Int, lpreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_SetUrlCacheEntryGroupW(lpszurlname: Long, dwflags: Int, groupid: Long, pbgroupattributes: Long, cbgroupattributes: Int, lpreserved: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_setUrlCacheEntryGroupW(lpszurlname: Long, dwflags: Int, groupid: Long, pbgroupattributes: Long, cbgroupattributes: Int, lpreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_SetUrlCacheEntryInfoA(lpszurlname: Long, lpcacheentryinfo: Long, dwfieldcontrol: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_setUrlCacheEntryInfoA(lpszurlname: Long, lpcacheentryinfo: Long, dwfieldcontrol: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_SetUrlCacheEntryInfoW(lpszurlname: Long, lpcacheentryinfo: Long, dwfieldcontrol: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_setUrlCacheEntryInfoW(lpszurlname: Long, lpcacheentryinfo: Long, dwfieldcontrol: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_SetUrlCacheGroupAttributeA(gid: Long, dwflags: Int, dwattributes: Int, lpgroupinfo: Long, lpreserved: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_setUrlCacheGroupAttributeA(gid: Long, dwflags: Int, dwattributes: Int, lpgroupinfo: Long, lpreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_SetUrlCacheGroupAttributeW(gid: Long, dwflags: Int, dwattributes: Int, lpgroupinfo: Long, lpreserved: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_setUrlCacheGroupAttributeW(gid: Long, dwflags: Int, dwattributes: Int, lpgroupinfo: Long, lpreserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_SetUrlCacheHeaderData(nidx: Int, dwdata: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_setUrlCacheHeaderData(nidx: Int, dwdata: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_ShowClientAuthCerts(hwndparent: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_showClientAuthCerts(hwndparent: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_ShowSecurityInfo(hwndparent: Long, psecurityinfo: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_showSecurityInfo(hwndparent: Long, psecurityinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_ShowX509EncodedCertificate(hwndparent: Long, lpcert: Long, cbcert: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_showX509EncodedCertificate(hwndparent: Long, lpcert: Long, cbcert: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_UnlockUrlCacheEntryFile(lpszurlname: Long, dwreserved: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryFile(lpszurlname: Long, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_UnlockUrlCacheEntryFileA(lpszurlname: Long, dwreserved: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryFileA(lpszurlname: Long, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_UnlockUrlCacheEntryFileW(lpszurlname: Long, dwreserved: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryFileW(lpszurlname: Long, dwreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_UnlockUrlCacheEntryStream(hurlcachestream: Long, reserved: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryStream(hurlcachestream: Long, reserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_UpdateUrlCacheContentPath(sznewpath: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_updateUrlCacheContentPath(sznewpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_UrlCacheCheckEntriesExist(rgpwszurls: Long, centries: Int, rgfexist: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_urlCacheCheckEntriesExist(rgpwszurls: Long, centries: Int, rgfexist: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_UrlCacheCloseEntryHandle(hentryfile: Long)
+    external fun windowssys_windows_win32_networking_wininet_urlCacheCloseEntryHandle(hentryfile: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_UrlCacheContainerSetEntryMaximumAge(pwszprefix: Long, dwentrymaxage: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_urlCacheContainerSetEntryMaximumAge(pwszprefix: Long, dwentrymaxage: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_UrlCacheCreateContainer(pwszname: Long, pwszprefix: Long, pwszdirectory: Long, ulllimit: Long, dwoptions: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_urlCacheCreateContainer(pwszname: Long, pwszprefix: Long, pwszdirectory: Long, ulllimit: Long, dwoptions: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_UrlCacheFindFirstEntry(pwszprefix: Long, dwflags: Int, dwfilter: Int, groupid: Long, pcacheentryinfo: Long, phfind: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_urlCacheFindFirstEntry(pwszprefix: Long, dwflags: Int, dwfilter: Int, groupid: Long, pcacheentryinfo: Long, phfind: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_UrlCacheFindNextEntry(hfind: Long, pcacheentryinfo: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_urlCacheFindNextEntry(hfind: Long, pcacheentryinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_UrlCacheFreeEntryInfo(pcacheentryinfo: Long)
+    external fun windowssys_windows_win32_networking_wininet_urlCacheFreeEntryInfo(pcacheentryinfo: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_UrlCacheFreeGlobalSpace(ulltargetsize: Long, dwfilter: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_urlCacheFreeGlobalSpace(ulltargetsize: Long, dwfilter: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_UrlCacheGetContentPaths(pppwszdirectories: Long, pcdirectories: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_urlCacheGetContentPaths(pppwszdirectories: Long, pcdirectories: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_UrlCacheGetEntryInfo(happcache: Long, pcwszurl: Long, pcacheentryinfo: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_urlCacheGetEntryInfo(happcache: Long, pcwszurl: Long, pcacheentryinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_UrlCacheGetGlobalCacheSize(dwfilter: Int, pullsize: Long, pulllimit: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_urlCacheGetGlobalCacheSize(dwfilter: Int, pullsize: Long, pulllimit: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_UrlCacheGetGlobalLimit(limittype: Int, pulllimit: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_urlCacheGetGlobalLimit(limittype: Int, pulllimit: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_UrlCacheReadEntryStream(hurlcachestream: Long, ulllocation: Long, pbuffer: Long, dwbufferlen: Int, pdwbufferlen: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_urlCacheReadEntryStream(hurlcachestream: Long, ulllocation: Long, pbuffer: Long, dwbufferlen: Int, pdwbufferlen: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_UrlCacheReloadSettings(): Int
+    external fun windowssys_windows_win32_networking_wininet_urlCacheReloadSettings(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_UrlCacheRetrieveEntryFile(happcache: Long, pcwszurl: Long, pcacheentryinfo: Long, phentryfile: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_urlCacheRetrieveEntryFile(happcache: Long, pcwszurl: Long, pcacheentryinfo: Long, phentryfile: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_UrlCacheRetrieveEntryStream(happcache: Long, pcwszurl: Long, frandomread: Int, pcacheentryinfo: Long, phentrystream: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_urlCacheRetrieveEntryStream(happcache: Long, pcwszurl: Long, frandomread: Int, pcacheentryinfo: Long, phentrystream: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_UrlCacheServer(): Int
+    external fun windowssys_windows_win32_networking_wininet_urlCacheServer(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_UrlCacheSetGlobalLimit(limittype: Int, ulllimit: Long): Int
+    external fun windowssys_windows_win32_networking_wininet_urlCacheSetGlobalLimit(limittype: Int, ulllimit: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_wininet_UrlCacheUpdateEntryExtraData(happcache: Long, pcwszurl: Long, pbextradata: Long, cbextradata: Int): Int
+    external fun windowssys_windows_win32_networking_wininet_urlCacheUpdateEntryExtraData(happcache: Long, pcwszurl: Long, pbextradata: Long, cbextradata: Int): Int
 }
 
-public actual fun AppCacheCheckManifest(pwszmasterurl: PCWSTR, pwszmanifesturl: PCWSTR, pbmanifestdata: Long, dwmanifestdatasize: UInt, pbmanifestresponseheaders: Long, dwmanifestresponseheaderssize: UInt, pestate: Long, phnewappcache: Long): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_AppCacheCheckManifest(pwszmasterurl, pwszmanifesturl, pbmanifestdata, dwmanifestdatasize.toInt(), pbmanifestresponseheaders, dwmanifestresponseheaderssize.toInt(), pestate, phnewappcache).toUInt()
+public actual fun appCacheCheckManifest(pwszmasterurl: Pcwstr, pwszmanifesturl: Pcwstr, pbmanifestdata: COpaquePointer?, dwmanifestdatasize: UInt, pbmanifestresponseheaders: COpaquePointer?, dwmanifestresponseheaderssize: UInt, pestate: COpaquePointer?, phnewappcache: COpaquePointer?): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_appCacheCheckManifest((pwszmasterurl?.value ?: 0L), (pwszmanifesturl?.value ?: 0L), (pbmanifestdata?.value ?: 0L), dwmanifestdatasize.toInt(), (pbmanifestresponseheaders?.value ?: 0L), dwmanifestresponseheaderssize.toInt(), (pestate?.value ?: 0L), (phnewappcache?.value ?: 0L)).toUInt()
 
-public actual fun AppCacheCloseHandle(happcache: Long) {
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_AppCacheCloseHandle(happcache)
+public actual fun appCacheCloseHandle(happcache: COpaquePointer?) {
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_appCacheCloseHandle((happcache?.value ?: 0L))
 }
 
-public actual fun AppCacheCreateAndCommitFile(happcache: Long, pwszsourcefilepath: PCWSTR, pwszurl: PCWSTR, pbresponseheaders: Long, dwresponseheaderssize: UInt): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_AppCacheCreateAndCommitFile(happcache, pwszsourcefilepath, pwszurl, pbresponseheaders, dwresponseheaderssize.toInt()).toUInt()
+public actual fun appCacheCreateAndCommitFile(happcache: COpaquePointer?, pwszsourcefilepath: Pcwstr, pwszurl: Pcwstr, pbresponseheaders: COpaquePointer?, dwresponseheaderssize: UInt): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_appCacheCreateAndCommitFile((happcache?.value ?: 0L), (pwszsourcefilepath?.value ?: 0L), (pwszurl?.value ?: 0L), (pbresponseheaders?.value ?: 0L), dwresponseheaderssize.toInt()).toUInt()
 
-public actual fun AppCacheDeleteGroup(pwszmanifesturl: PCWSTR): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_AppCacheDeleteGroup(pwszmanifesturl).toUInt()
+public actual fun appCacheDeleteGroup(pwszmanifesturl: Pcwstr): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_appCacheDeleteGroup((pwszmanifesturl?.value ?: 0L)).toUInt()
 
-public actual fun AppCacheDeleteIEGroup(pwszmanifesturl: PCWSTR): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_AppCacheDeleteIEGroup(pwszmanifesturl).toUInt()
+public actual fun appCacheDeleteIEGroup(pwszmanifesturl: Pcwstr): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_appCacheDeleteIEGroup((pwszmanifesturl?.value ?: 0L)).toUInt()
 
-public actual fun AppCacheDuplicateHandle(happcache: Long, phduplicatedappcache: Long): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_AppCacheDuplicateHandle(happcache, phduplicatedappcache).toUInt()
+public actual fun appCacheDuplicateHandle(happcache: COpaquePointer?, phduplicatedappcache: COpaquePointer?): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_appCacheDuplicateHandle((happcache?.value ?: 0L), (phduplicatedappcache?.value ?: 0L)).toUInt()
 
-public actual fun AppCacheFinalize(happcache: Long, pbmanifestdata: Long, dwmanifestdatasize: UInt, pestate: Long): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_AppCacheFinalize(happcache, pbmanifestdata, dwmanifestdatasize.toInt(), pestate).toUInt()
+public actual fun appCacheFinalize(happcache: COpaquePointer?, pbmanifestdata: COpaquePointer?, dwmanifestdatasize: UInt, pestate: COpaquePointer?): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_appCacheFinalize((happcache?.value ?: 0L), (pbmanifestdata?.value ?: 0L), dwmanifestdatasize.toInt(), (pestate?.value ?: 0L)).toUInt()
 
-public actual fun AppCacheFreeDownloadList(pdownloadlist: Long) {
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_AppCacheFreeDownloadList(pdownloadlist)
+public actual fun appCacheFreeDownloadList(pdownloadlist: COpaquePointer?) {
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_appCacheFreeDownloadList((pdownloadlist?.value ?: 0L))
 }
 
-public actual fun AppCacheFreeGroupList(pappcachegrouplist: Long) {
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_AppCacheFreeGroupList(pappcachegrouplist)
+public actual fun appCacheFreeGroupList(pappcachegrouplist: COpaquePointer?) {
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_appCacheFreeGroupList((pappcachegrouplist?.value ?: 0L))
 }
 
-public actual fun AppCacheFreeIESpace(ftcutoff: FILETIME): UInt =
+public actual fun appCacheFreeIESpace(ftcutoff: Filetime): UInt =
     0u
 
-public actual fun AppCacheFreeSpace(ftcutoff: FILETIME): UInt =
+public actual fun appCacheFreeSpace(ftcutoff: Filetime): UInt =
     0u
 
-public actual fun AppCacheGetDownloadList(happcache: Long, pdownloadlist: Long): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_AppCacheGetDownloadList(happcache, pdownloadlist).toUInt()
+public actual fun appCacheGetDownloadList(happcache: COpaquePointer?, pdownloadlist: COpaquePointer?): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_appCacheGetDownloadList((happcache?.value ?: 0L), (pdownloadlist?.value ?: 0L)).toUInt()
 
-public actual fun AppCacheGetFallbackUrl(happcache: Long, pwszurl: PCWSTR, ppwszfallbackurl: Long): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_AppCacheGetFallbackUrl(happcache, pwszurl, ppwszfallbackurl).toUInt()
+public actual fun appCacheGetFallbackUrl(happcache: COpaquePointer?, pwszurl: Pcwstr, ppwszfallbackurl: COpaquePointer?): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_appCacheGetFallbackUrl((happcache?.value ?: 0L), (pwszurl?.value ?: 0L), (ppwszfallbackurl?.value ?: 0L)).toUInt()
 
-public actual fun AppCacheGetGroupList(pappcachegrouplist: Long): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_AppCacheGetGroupList(pappcachegrouplist).toUInt()
+public actual fun appCacheGetGroupList(pappcachegrouplist: COpaquePointer?): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_appCacheGetGroupList((pappcachegrouplist?.value ?: 0L)).toUInt()
 
-public actual fun AppCacheGetIEGroupList(pappcachegrouplist: Long): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_AppCacheGetIEGroupList(pappcachegrouplist).toUInt()
+public actual fun appCacheGetIEGroupList(pappcachegrouplist: COpaquePointer?): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_appCacheGetIEGroupList((pappcachegrouplist?.value ?: 0L)).toUInt()
 
-public actual fun AppCacheGetInfo(happcache: Long, pappcacheinfo: Long): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_AppCacheGetInfo(happcache, pappcacheinfo).toUInt()
+public actual fun appCacheGetInfo(happcache: COpaquePointer?, pappcacheinfo: COpaquePointer?): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_appCacheGetInfo((happcache?.value ?: 0L), (pappcacheinfo?.value ?: 0L)).toUInt()
 
-public actual fun AppCacheGetManifestUrl(happcache: Long, ppwszmanifesturl: Long): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_AppCacheGetManifestUrl(happcache, ppwszmanifesturl).toUInt()
+public actual fun appCacheGetManifestUrl(happcache: COpaquePointer?, ppwszmanifesturl: COpaquePointer?): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_appCacheGetManifestUrl((happcache?.value ?: 0L), (ppwszmanifesturl?.value ?: 0L)).toUInt()
 
-public actual fun AppCacheLookup(pwszurl: PCWSTR, dwflags: UInt, phappcache: Long): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_AppCacheLookup(pwszurl, dwflags.toInt(), phappcache).toUInt()
+public actual fun appCacheLookup(pwszurl: Pcwstr, dwflags: UInt, phappcache: COpaquePointer?): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_appCacheLookup((pwszurl?.value ?: 0L), dwflags.toInt(), (phappcache?.value ?: 0L)).toUInt()
 
-public actual fun CommitUrlCacheEntryA(lpszurlname: PCSTR, lpszlocalfilename: PCSTR, expiretime: FILETIME, lastmodifiedtime: FILETIME, cacheentrytype: UInt, lpheaderinfo: Long, cchheaderinfo: UInt, lpszfileextension: PCSTR, lpszoriginalurl: PCSTR): BOOL =
+public actual fun commitUrlCacheEntryA(lpszurlname: Pcstr, lpszlocalfilename: Pcstr, expiretime: Filetime, lastmodifiedtime: Filetime, cacheentrytype: UInt, lpheaderinfo: COpaquePointer?, cchheaderinfo: UInt, lpszfileextension: Pcstr, lpszoriginalurl: Pcstr): Bool =
     0
 
-public actual fun CommitUrlCacheEntryBinaryBlob(pwszurlname: PCWSTR, dwtype: UInt, ftexpiretime: FILETIME, ftmodifiedtime: FILETIME, pbblob: Long, cbblob: UInt): UInt =
+public actual fun commitUrlCacheEntryBinaryBlob(pwszurlname: Pcwstr, dwtype: UInt, ftexpiretime: Filetime, ftmodifiedtime: Filetime, pbblob: COpaquePointer?, cbblob: UInt): UInt =
     0u
 
-public actual fun CommitUrlCacheEntryW(lpszurlname: PCWSTR, lpszlocalfilename: PCWSTR, expiretime: FILETIME, lastmodifiedtime: FILETIME, cacheentrytype: UInt, lpszheaderinfo: PCWSTR, cchheaderinfo: UInt, lpszfileextension: PCWSTR, lpszoriginalurl: PCWSTR): BOOL =
+public actual fun commitUrlCacheEntryW(lpszurlname: Pcwstr, lpszlocalfilename: Pcwstr, expiretime: Filetime, lastmodifiedtime: Filetime, cacheentrytype: UInt, lpszheaderinfo: Pcwstr, cchheaderinfo: UInt, lpszfileextension: Pcwstr, lpszoriginalurl: Pcwstr): Bool =
     0
 
-public actual fun CreateMD5SSOHash(pszchallengeinfo: PCWSTR, pwszrealm: PCWSTR, pwsztarget: PCWSTR, pbhexhash: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_CreateMD5SSOHash(pszchallengeinfo, pwszrealm, pwsztarget, pbhexhash)
+public actual fun createMD5SSOHash(pszchallengeinfo: Pcwstr, pwszrealm: Pcwstr, pwsztarget: Pcwstr, pbhexhash: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_createMD5SSOHash((pszchallengeinfo?.value ?: 0L), (pwszrealm?.value ?: 0L), (pwsztarget?.value ?: 0L), (pbhexhash?.value ?: 0L))
 
-public actual fun CreateUrlCacheContainerA(name: PCSTR, lpcacheprefix: PCSTR, lpszcachepath: PCSTR, kbcachelimit: UInt, dwcontainertype: UInt, dwoptions: UInt, pvbuffer: Long, cbbuffer: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_CreateUrlCacheContainerA(name, lpcacheprefix, lpszcachepath, kbcachelimit.toInt(), dwcontainertype.toInt(), dwoptions.toInt(), pvbuffer, cbbuffer)
+public actual fun createUrlCacheContainerA(name: Pcstr, lpcacheprefix: Pcstr, lpszcachepath: Pcstr, kbcachelimit: UInt, dwcontainertype: UInt, dwoptions: UInt, pvbuffer: COpaquePointer?, cbbuffer: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_createUrlCacheContainerA((name?.value ?: 0L), (lpcacheprefix?.value ?: 0L), (lpszcachepath?.value ?: 0L), kbcachelimit.toInt(), dwcontainertype.toInt(), dwoptions.toInt(), (pvbuffer?.value ?: 0L), (cbbuffer?.value ?: 0L))
 
-public actual fun CreateUrlCacheContainerW(name: PCWSTR, lpcacheprefix: PCWSTR, lpszcachepath: PCWSTR, kbcachelimit: UInt, dwcontainertype: UInt, dwoptions: UInt, pvbuffer: Long, cbbuffer: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_CreateUrlCacheContainerW(name, lpcacheprefix, lpszcachepath, kbcachelimit.toInt(), dwcontainertype.toInt(), dwoptions.toInt(), pvbuffer, cbbuffer)
+public actual fun createUrlCacheContainerW(name: Pcwstr, lpcacheprefix: Pcwstr, lpszcachepath: Pcwstr, kbcachelimit: UInt, dwcontainertype: UInt, dwoptions: UInt, pvbuffer: COpaquePointer?, cbbuffer: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_createUrlCacheContainerW((name?.value ?: 0L), (lpcacheprefix?.value ?: 0L), (lpszcachepath?.value ?: 0L), kbcachelimit.toInt(), dwcontainertype.toInt(), dwoptions.toInt(), (pvbuffer?.value ?: 0L), (cbbuffer?.value ?: 0L))
 
-public actual fun CreateUrlCacheEntryA(lpszurlname: PCSTR, dwexpectedfilesize: UInt, lpszfileextension: PCSTR, lpszfilename: PSTR, dwreserved: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_CreateUrlCacheEntryA(lpszurlname, dwexpectedfilesize.toInt(), lpszfileextension, lpszfilename, dwreserved.toInt())
+public actual fun createUrlCacheEntryA(lpszurlname: Pcstr, dwexpectedfilesize: UInt, lpszfileextension: Pcstr, lpszfilename: Pstr, dwreserved: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_createUrlCacheEntryA((lpszurlname?.value ?: 0L), dwexpectedfilesize.toInt(), (lpszfileextension?.value ?: 0L), (lpszfilename?.value ?: 0L), dwreserved.toInt())
 
-public actual fun CreateUrlCacheEntryExW(lpszurlname: PCWSTR, dwexpectedfilesize: UInt, lpszfileextension: PCWSTR, lpszfilename: PWSTR, dwreserved: UInt, fpreserveincomingfilename: BOOL): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_CreateUrlCacheEntryExW(lpszurlname, dwexpectedfilesize.toInt(), lpszfileextension, lpszfilename, dwreserved.toInt(), fpreserveincomingfilename)
+public actual fun createUrlCacheEntryExW(lpszurlname: Pcwstr, dwexpectedfilesize: UInt, lpszfileextension: Pcwstr, lpszfilename: Pwstr, dwreserved: UInt, fpreserveincomingfilename: Bool): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_createUrlCacheEntryExW((lpszurlname?.value ?: 0L), dwexpectedfilesize.toInt(), (lpszfileextension?.value ?: 0L), (lpszfilename?.value ?: 0L), dwreserved.toInt(), fpreserveincomingfilename)
 
-public actual fun CreateUrlCacheEntryW(lpszurlname: PCWSTR, dwexpectedfilesize: UInt, lpszfileextension: PCWSTR, lpszfilename: PWSTR, dwreserved: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_CreateUrlCacheEntryW(lpszurlname, dwexpectedfilesize.toInt(), lpszfileextension, lpszfilename, dwreserved.toInt())
+public actual fun createUrlCacheEntryW(lpszurlname: Pcwstr, dwexpectedfilesize: UInt, lpszfileextension: Pcwstr, lpszfilename: Pwstr, dwreserved: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_createUrlCacheEntryW((lpszurlname?.value ?: 0L), dwexpectedfilesize.toInt(), (lpszfileextension?.value ?: 0L), (lpszfilename?.value ?: 0L), dwreserved.toInt())
 
-public actual fun CreateUrlCacheGroup(dwflags: UInt, lpreserved: Long): Long =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_CreateUrlCacheGroup(dwflags.toInt(), lpreserved)
+public actual fun createUrlCacheGroup(dwflags: UInt, lpreserved: COpaquePointer?): Long =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_createUrlCacheGroup(dwflags.toInt(), (lpreserved?.value ?: 0L))
 
-public actual fun DeleteIE3Cache(hwnd: HWND, hinst: HINSTANCE, lpszcmd: PCSTR, ncmdshow: Int): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_DeleteIE3Cache(hwnd, hinst, lpszcmd, ncmdshow).toUInt()
+public actual fun deleteIE3Cache(hwnd: Hwnd, hinst: Hinstance, lpszcmd: Pcstr, ncmdshow: Int): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_deleteIE3Cache((hwnd?.value ?: 0L), (hinst?.value ?: 0L), (lpszcmd?.value ?: 0L), ncmdshow).toUInt()
 
-public actual fun DeleteUrlCacheContainerA(name: PCSTR, dwoptions: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_DeleteUrlCacheContainerA(name, dwoptions.toInt())
+public actual fun deleteUrlCacheContainerA(name: Pcstr, dwoptions: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_deleteUrlCacheContainerA((name?.value ?: 0L), dwoptions.toInt())
 
-public actual fun DeleteUrlCacheContainerW(name: PCWSTR, dwoptions: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_DeleteUrlCacheContainerW(name, dwoptions.toInt())
+public actual fun deleteUrlCacheContainerW(name: Pcwstr, dwoptions: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_deleteUrlCacheContainerW((name?.value ?: 0L), dwoptions.toInt())
 
-public actual fun DeleteUrlCacheEntry(lpszurlname: PCSTR): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_DeleteUrlCacheEntry(lpszurlname)
+public actual fun deleteUrlCacheEntry(lpszurlname: Pcstr): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_deleteUrlCacheEntry((lpszurlname?.value ?: 0L))
 
-public actual fun DeleteUrlCacheEntryA(lpszurlname: PCSTR): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_DeleteUrlCacheEntryA(lpszurlname)
+public actual fun deleteUrlCacheEntryA(lpszurlname: Pcstr): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_deleteUrlCacheEntryA((lpszurlname?.value ?: 0L))
 
-public actual fun DeleteUrlCacheEntryW(lpszurlname: PCWSTR): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_DeleteUrlCacheEntryW(lpszurlname)
+public actual fun deleteUrlCacheEntryW(lpszurlname: Pcwstr): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_deleteUrlCacheEntryW((lpszurlname?.value ?: 0L))
 
-public actual fun DeleteUrlCacheGroup(groupid: Long, dwflags: UInt, lpreserved: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_DeleteUrlCacheGroup(groupid, dwflags.toInt(), lpreserved)
+public actual fun deleteUrlCacheGroup(groupid: Long, dwflags: UInt, lpreserved: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_deleteUrlCacheGroup(groupid, dwflags.toInt(), (lpreserved?.value ?: 0L))
 
-public actual fun DeleteWpadCacheForNetworks(param0: WPAD_CACHE_DELETE): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_DeleteWpadCacheForNetworks(param0)
+public actual fun deleteWpadCacheForNetworks(param0: WpadCacheDelete): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_deleteWpadCacheForNetworks(param0)
 
-public actual fun DetectAutoProxyUrl(pszautoproxyurl: PSTR, cchautoproxyurl: UInt, dwdetectflags: PROXY_AUTO_DETECT_TYPE): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_DetectAutoProxyUrl(pszautoproxyurl, cchautoproxyurl.toInt(), dwdetectflags.toInt())
+public actual fun detectAutoProxyUrl(pszautoproxyurl: Pstr, cchautoproxyurl: UInt, dwdetectflags: ProxyAutoDetectType): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_detectAutoProxyUrl((pszautoproxyurl?.value ?: 0L), cchautoproxyurl.toInt(), dwdetectflags.toInt())
 
-public actual fun DoConnectoidsExist(): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_DoConnectoidsExist()
+public actual fun doConnectoidsExist(): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_doConnectoidsExist()
 
-public actual fun ExportCookieFileA(szfilename: PCSTR, fappend: BOOL): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_ExportCookieFileA(szfilename, fappend)
+public actual fun exportCookieFileA(szfilename: Pcstr, fappend: Bool): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_exportCookieFileA((szfilename?.value ?: 0L), fappend)
 
-public actual fun ExportCookieFileW(szfilename: PCWSTR, fappend: BOOL): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_ExportCookieFileW(szfilename, fappend)
+public actual fun exportCookieFileW(szfilename: Pcwstr, fappend: Bool): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_exportCookieFileW((szfilename?.value ?: 0L), fappend)
 
-public actual fun FindCloseUrlCache(henumhandle: HANDLE): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FindCloseUrlCache(henumhandle)
+public actual fun findCloseUrlCache(henumhandle: Handle): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_findCloseUrlCache((henumhandle?.value ?: 0L))
 
-public actual fun FindFirstUrlCacheContainerA(pdwmodified: Long, lpcontainerinfo: Long, lpcbcontainerinfo: Long, dwoptions: UInt): HANDLE =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FindFirstUrlCacheContainerA(pdwmodified, lpcontainerinfo, lpcbcontainerinfo, dwoptions.toInt())
+public actual fun findFirstUrlCacheContainerA(pdwmodified: COpaquePointer?, lpcontainerinfo: COpaquePointer?, lpcbcontainerinfo: COpaquePointer?, dwoptions: UInt): Handle =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_findFirstUrlCacheContainerA((pdwmodified?.value ?: 0L), (lpcontainerinfo?.value ?: 0L), (lpcbcontainerinfo?.value ?: 0L), dwoptions.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun FindFirstUrlCacheContainerW(pdwmodified: Long, lpcontainerinfo: Long, lpcbcontainerinfo: Long, dwoptions: UInt): HANDLE =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FindFirstUrlCacheContainerW(pdwmodified, lpcontainerinfo, lpcbcontainerinfo, dwoptions.toInt())
+public actual fun findFirstUrlCacheContainerW(pdwmodified: COpaquePointer?, lpcontainerinfo: COpaquePointer?, lpcbcontainerinfo: COpaquePointer?, dwoptions: UInt): Handle =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_findFirstUrlCacheContainerW((pdwmodified?.value ?: 0L), (lpcontainerinfo?.value ?: 0L), (lpcbcontainerinfo?.value ?: 0L), dwoptions.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun FindFirstUrlCacheEntryA(lpszurlsearchpattern: PCSTR, lpfirstcacheentryinfo: Long, lpcbcacheentryinfo: Long): HANDLE =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FindFirstUrlCacheEntryA(lpszurlsearchpattern, lpfirstcacheentryinfo, lpcbcacheentryinfo)
+public actual fun findFirstUrlCacheEntryA(lpszurlsearchpattern: Pcstr, lpfirstcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?): Handle =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryA((lpszurlsearchpattern?.value ?: 0L), (lpfirstcacheentryinfo?.value ?: 0L), (lpcbcacheentryinfo?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun FindFirstUrlCacheEntryExA(lpszurlsearchpattern: PCSTR, dwflags: UInt, dwfilter: UInt, groupid: Long, lpfirstcacheentryinfo: Long, lpcbcacheentryinfo: Long, lpgroupattributes: Long, lpcbgroupattributes: Long, lpreserved: Long): HANDLE =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FindFirstUrlCacheEntryExA(lpszurlsearchpattern, dwflags.toInt(), dwfilter.toInt(), groupid, lpfirstcacheentryinfo, lpcbcacheentryinfo, lpgroupattributes, lpcbgroupattributes, lpreserved)
+public actual fun findFirstUrlCacheEntryExA(lpszurlsearchpattern: Pcstr, dwflags: UInt, dwfilter: UInt, groupid: Long, lpfirstcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?, lpgroupattributes: COpaquePointer?, lpcbgroupattributes: COpaquePointer?, lpreserved: COpaquePointer?): Handle =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryExA((lpszurlsearchpattern?.value ?: 0L), dwflags.toInt(), dwfilter.toInt(), groupid, (lpfirstcacheentryinfo?.value ?: 0L), (lpcbcacheentryinfo?.value ?: 0L), (lpgroupattributes?.value ?: 0L), (lpcbgroupattributes?.value ?: 0L), (lpreserved?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun FindFirstUrlCacheEntryExW(lpszurlsearchpattern: PCWSTR, dwflags: UInt, dwfilter: UInt, groupid: Long, lpfirstcacheentryinfo: Long, lpcbcacheentryinfo: Long, lpgroupattributes: Long, lpcbgroupattributes: Long, lpreserved: Long): HANDLE =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FindFirstUrlCacheEntryExW(lpszurlsearchpattern, dwflags.toInt(), dwfilter.toInt(), groupid, lpfirstcacheentryinfo, lpcbcacheentryinfo, lpgroupattributes, lpcbgroupattributes, lpreserved)
+public actual fun findFirstUrlCacheEntryExW(lpszurlsearchpattern: Pcwstr, dwflags: UInt, dwfilter: UInt, groupid: Long, lpfirstcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?, lpgroupattributes: COpaquePointer?, lpcbgroupattributes: COpaquePointer?, lpreserved: COpaquePointer?): Handle =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryExW((lpszurlsearchpattern?.value ?: 0L), dwflags.toInt(), dwfilter.toInt(), groupid, (lpfirstcacheentryinfo?.value ?: 0L), (lpcbcacheentryinfo?.value ?: 0L), (lpgroupattributes?.value ?: 0L), (lpcbgroupattributes?.value ?: 0L), (lpreserved?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun FindFirstUrlCacheEntryW(lpszurlsearchpattern: PCWSTR, lpfirstcacheentryinfo: Long, lpcbcacheentryinfo: Long): HANDLE =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FindFirstUrlCacheEntryW(lpszurlsearchpattern, lpfirstcacheentryinfo, lpcbcacheentryinfo)
+public actual fun findFirstUrlCacheEntryW(lpszurlsearchpattern: Pcwstr, lpfirstcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?): Handle =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_findFirstUrlCacheEntryW((lpszurlsearchpattern?.value ?: 0L), (lpfirstcacheentryinfo?.value ?: 0L), (lpcbcacheentryinfo?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun FindFirstUrlCacheGroup(dwflags: UInt, dwfilter: UInt, lpsearchcondition: Long, dwsearchcondition: UInt, lpgroupid: Long, lpreserved: Long): HANDLE =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FindFirstUrlCacheGroup(dwflags.toInt(), dwfilter.toInt(), lpsearchcondition, dwsearchcondition.toInt(), lpgroupid, lpreserved)
+public actual fun findFirstUrlCacheGroup(dwflags: UInt, dwfilter: UInt, lpsearchcondition: COpaquePointer?, dwsearchcondition: UInt, lpgroupid: COpaquePointer?, lpreserved: COpaquePointer?): Handle =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_findFirstUrlCacheGroup(dwflags.toInt(), dwfilter.toInt(), (lpsearchcondition?.value ?: 0L), dwsearchcondition.toInt(), (lpgroupid?.value ?: 0L), (lpreserved?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun FindNextUrlCacheContainerA(henumhandle: HANDLE, lpcontainerinfo: Long, lpcbcontainerinfo: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FindNextUrlCacheContainerA(henumhandle, lpcontainerinfo, lpcbcontainerinfo)
+public actual fun findNextUrlCacheContainerA(henumhandle: Handle, lpcontainerinfo: COpaquePointer?, lpcbcontainerinfo: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_findNextUrlCacheContainerA((henumhandle?.value ?: 0L), (lpcontainerinfo?.value ?: 0L), (lpcbcontainerinfo?.value ?: 0L))
 
-public actual fun FindNextUrlCacheContainerW(henumhandle: HANDLE, lpcontainerinfo: Long, lpcbcontainerinfo: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FindNextUrlCacheContainerW(henumhandle, lpcontainerinfo, lpcbcontainerinfo)
+public actual fun findNextUrlCacheContainerW(henumhandle: Handle, lpcontainerinfo: COpaquePointer?, lpcbcontainerinfo: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_findNextUrlCacheContainerW((henumhandle?.value ?: 0L), (lpcontainerinfo?.value ?: 0L), (lpcbcontainerinfo?.value ?: 0L))
 
-public actual fun FindNextUrlCacheEntryA(henumhandle: HANDLE, lpnextcacheentryinfo: Long, lpcbcacheentryinfo: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FindNextUrlCacheEntryA(henumhandle, lpnextcacheentryinfo, lpcbcacheentryinfo)
+public actual fun findNextUrlCacheEntryA(henumhandle: Handle, lpnextcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryA((henumhandle?.value ?: 0L), (lpnextcacheentryinfo?.value ?: 0L), (lpcbcacheentryinfo?.value ?: 0L))
 
-public actual fun FindNextUrlCacheEntryExA(henumhandle: HANDLE, lpnextcacheentryinfo: Long, lpcbcacheentryinfo: Long, lpgroupattributes: Long, lpcbgroupattributes: Long, lpreserved: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FindNextUrlCacheEntryExA(henumhandle, lpnextcacheentryinfo, lpcbcacheentryinfo, lpgroupattributes, lpcbgroupattributes, lpreserved)
+public actual fun findNextUrlCacheEntryExA(henumhandle: Handle, lpnextcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?, lpgroupattributes: COpaquePointer?, lpcbgroupattributes: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryExA((henumhandle?.value ?: 0L), (lpnextcacheentryinfo?.value ?: 0L), (lpcbcacheentryinfo?.value ?: 0L), (lpgroupattributes?.value ?: 0L), (lpcbgroupattributes?.value ?: 0L), (lpreserved?.value ?: 0L))
 
-public actual fun FindNextUrlCacheEntryExW(henumhandle: HANDLE, lpnextcacheentryinfo: Long, lpcbcacheentryinfo: Long, lpgroupattributes: Long, lpcbgroupattributes: Long, lpreserved: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FindNextUrlCacheEntryExW(henumhandle, lpnextcacheentryinfo, lpcbcacheentryinfo, lpgroupattributes, lpcbgroupattributes, lpreserved)
+public actual fun findNextUrlCacheEntryExW(henumhandle: Handle, lpnextcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?, lpgroupattributes: COpaquePointer?, lpcbgroupattributes: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryExW((henumhandle?.value ?: 0L), (lpnextcacheentryinfo?.value ?: 0L), (lpcbcacheentryinfo?.value ?: 0L), (lpgroupattributes?.value ?: 0L), (lpcbgroupattributes?.value ?: 0L), (lpreserved?.value ?: 0L))
 
-public actual fun FindNextUrlCacheEntryW(henumhandle: HANDLE, lpnextcacheentryinfo: Long, lpcbcacheentryinfo: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FindNextUrlCacheEntryW(henumhandle, lpnextcacheentryinfo, lpcbcacheentryinfo)
+public actual fun findNextUrlCacheEntryW(henumhandle: Handle, lpnextcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_findNextUrlCacheEntryW((henumhandle?.value ?: 0L), (lpnextcacheentryinfo?.value ?: 0L), (lpcbcacheentryinfo?.value ?: 0L))
 
-public actual fun FindNextUrlCacheGroup(hfind: HANDLE, lpgroupid: Long, lpreserved: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FindNextUrlCacheGroup(hfind, lpgroupid, lpreserved)
+public actual fun findNextUrlCacheGroup(hfind: Handle, lpgroupid: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_findNextUrlCacheGroup((hfind?.value ?: 0L), (lpgroupid?.value ?: 0L), (lpreserved?.value ?: 0L))
 
-public actual fun FindP3PPolicySymbol(pszsymbol: PCSTR): Int =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FindP3PPolicySymbol(pszsymbol)
+public actual fun findP3PPolicySymbol(pszsymbol: Pcstr): Int =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_findP3PPolicySymbol((pszsymbol?.value ?: 0L))
 
-public actual fun FreeUrlCacheSpaceA(lpszcachepath: PCSTR, dwsize: UInt, dwfilter: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FreeUrlCacheSpaceA(lpszcachepath, dwsize.toInt(), dwfilter.toInt())
+public actual fun freeUrlCacheSpaceA(lpszcachepath: Pcstr, dwsize: UInt, dwfilter: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_freeUrlCacheSpaceA((lpszcachepath?.value ?: 0L), dwsize.toInt(), dwfilter.toInt())
 
-public actual fun FreeUrlCacheSpaceW(lpszcachepath: PCWSTR, dwsize: UInt, dwfilter: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FreeUrlCacheSpaceW(lpszcachepath, dwsize.toInt(), dwfilter.toInt())
+public actual fun freeUrlCacheSpaceW(lpszcachepath: Pcwstr, dwsize: UInt, dwfilter: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_freeUrlCacheSpaceW((lpszcachepath?.value ?: 0L), dwsize.toInt(), dwfilter.toInt())
 
-public actual fun FtpCommandA(hconnect: Long, fexpectresponse: BOOL, dwflags: FTP_FLAGS, lpszcommand: PCSTR, dwcontext: ULong, phftpcommand: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FtpCommandA(hconnect, fexpectresponse, dwflags.toInt(), lpszcommand, dwcontext.toLong(), phftpcommand)
+public actual fun ftpCommandA(hconnect: COpaquePointer?, fexpectresponse: Bool, dwflags: FtpFlags, lpszcommand: Pcstr, dwcontext: ULong, phftpcommand: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_ftpCommandA((hconnect?.value ?: 0L), fexpectresponse, dwflags.toInt(), (lpszcommand?.value ?: 0L), dwcontext.toLong(), (phftpcommand?.value ?: 0L))
 
-public actual fun FtpCommandW(hconnect: Long, fexpectresponse: BOOL, dwflags: FTP_FLAGS, lpszcommand: PCWSTR, dwcontext: ULong, phftpcommand: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FtpCommandW(hconnect, fexpectresponse, dwflags.toInt(), lpszcommand, dwcontext.toLong(), phftpcommand)
+public actual fun ftpCommandW(hconnect: COpaquePointer?, fexpectresponse: Bool, dwflags: FtpFlags, lpszcommand: Pcwstr, dwcontext: ULong, phftpcommand: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_ftpCommandW((hconnect?.value ?: 0L), fexpectresponse, dwflags.toInt(), (lpszcommand?.value ?: 0L), dwcontext.toLong(), (phftpcommand?.value ?: 0L))
 
-public actual fun FtpCreateDirectoryA(hconnect: Long, lpszdirectory: PCSTR): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FtpCreateDirectoryA(hconnect, lpszdirectory)
+public actual fun ftpCreateDirectoryA(hconnect: COpaquePointer?, lpszdirectory: Pcstr): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_ftpCreateDirectoryA((hconnect?.value ?: 0L), (lpszdirectory?.value ?: 0L))
 
-public actual fun FtpCreateDirectoryW(hconnect: Long, lpszdirectory: PCWSTR): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FtpCreateDirectoryW(hconnect, lpszdirectory)
+public actual fun ftpCreateDirectoryW(hconnect: COpaquePointer?, lpszdirectory: Pcwstr): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_ftpCreateDirectoryW((hconnect?.value ?: 0L), (lpszdirectory?.value ?: 0L))
 
-public actual fun FtpDeleteFileA(hconnect: Long, lpszfilename: PCSTR): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FtpDeleteFileA(hconnect, lpszfilename)
+public actual fun ftpDeleteFileA(hconnect: COpaquePointer?, lpszfilename: Pcstr): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_ftpDeleteFileA((hconnect?.value ?: 0L), (lpszfilename?.value ?: 0L))
 
-public actual fun FtpDeleteFileW(hconnect: Long, lpszfilename: PCWSTR): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FtpDeleteFileW(hconnect, lpszfilename)
+public actual fun ftpDeleteFileW(hconnect: COpaquePointer?, lpszfilename: Pcwstr): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_ftpDeleteFileW((hconnect?.value ?: 0L), (lpszfilename?.value ?: 0L))
 
-public actual fun FtpFindFirstFileA(hconnect: Long, lpszsearchfile: PCSTR, lpfindfiledata: Long, dwflags: UInt, dwcontext: ULong): Long =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FtpFindFirstFileA(hconnect, lpszsearchfile, lpfindfiledata, dwflags.toInt(), dwcontext.toLong())
+public actual fun ftpFindFirstFileA(hconnect: COpaquePointer?, lpszsearchfile: Pcstr, lpfindfiledata: COpaquePointer?, dwflags: UInt, dwcontext: ULong): COpaquePointer? =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_ftpFindFirstFileA((hconnect?.value ?: 0L), (lpszsearchfile?.value ?: 0L), (lpfindfiledata?.value ?: 0L), dwflags.toInt(), dwcontext.toLong()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun FtpFindFirstFileW(hconnect: Long, lpszsearchfile: PCWSTR, lpfindfiledata: Long, dwflags: UInt, dwcontext: ULong): Long =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FtpFindFirstFileW(hconnect, lpszsearchfile, lpfindfiledata, dwflags.toInt(), dwcontext.toLong())
+public actual fun ftpFindFirstFileW(hconnect: COpaquePointer?, lpszsearchfile: Pcwstr, lpfindfiledata: COpaquePointer?, dwflags: UInt, dwcontext: ULong): COpaquePointer? =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_ftpFindFirstFileW((hconnect?.value ?: 0L), (lpszsearchfile?.value ?: 0L), (lpfindfiledata?.value ?: 0L), dwflags.toInt(), dwcontext.toLong()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun FtpGetCurrentDirectoryA(hconnect: Long, lpszcurrentdirectory: PSTR, lpdwcurrentdirectory: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FtpGetCurrentDirectoryA(hconnect, lpszcurrentdirectory, lpdwcurrentdirectory)
+public actual fun ftpGetCurrentDirectoryA(hconnect: COpaquePointer?, lpszcurrentdirectory: Pstr, lpdwcurrentdirectory: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_ftpGetCurrentDirectoryA((hconnect?.value ?: 0L), (lpszcurrentdirectory?.value ?: 0L), (lpdwcurrentdirectory?.value ?: 0L))
 
-public actual fun FtpGetCurrentDirectoryW(hconnect: Long, lpszcurrentdirectory: PWSTR, lpdwcurrentdirectory: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FtpGetCurrentDirectoryW(hconnect, lpszcurrentdirectory, lpdwcurrentdirectory)
+public actual fun ftpGetCurrentDirectoryW(hconnect: COpaquePointer?, lpszcurrentdirectory: Pwstr, lpdwcurrentdirectory: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_ftpGetCurrentDirectoryW((hconnect?.value ?: 0L), (lpszcurrentdirectory?.value ?: 0L), (lpdwcurrentdirectory?.value ?: 0L))
 
-public actual fun FtpGetFileA(hconnect: Long, lpszremotefile: PCSTR, lpsznewfile: PCSTR, ffailifexists: BOOL, dwflagsandattributes: UInt, dwflags: UInt, dwcontext: ULong): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FtpGetFileA(hconnect, lpszremotefile, lpsznewfile, ffailifexists, dwflagsandattributes.toInt(), dwflags.toInt(), dwcontext.toLong())
+public actual fun ftpGetFileA(hconnect: COpaquePointer?, lpszremotefile: Pcstr, lpsznewfile: Pcstr, ffailifexists: Bool, dwflagsandattributes: UInt, dwflags: UInt, dwcontext: ULong): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_ftpGetFileA((hconnect?.value ?: 0L), (lpszremotefile?.value ?: 0L), (lpsznewfile?.value ?: 0L), ffailifexists, dwflagsandattributes.toInt(), dwflags.toInt(), dwcontext.toLong())
 
-public actual fun FtpGetFileEx(hftpsession: Long, lpszremotefile: PCSTR, lpsznewfile: PCWSTR, ffailifexists: BOOL, dwflagsandattributes: UInt, dwflags: UInt, dwcontext: ULong): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FtpGetFileEx(hftpsession, lpszremotefile, lpsznewfile, ffailifexists, dwflagsandattributes.toInt(), dwflags.toInt(), dwcontext.toLong())
+public actual fun ftpGetFileEx(hftpsession: COpaquePointer?, lpszremotefile: Pcstr, lpsznewfile: Pcwstr, ffailifexists: Bool, dwflagsandattributes: UInt, dwflags: UInt, dwcontext: ULong): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_ftpGetFileEx((hftpsession?.value ?: 0L), (lpszremotefile?.value ?: 0L), (lpsznewfile?.value ?: 0L), ffailifexists, dwflagsandattributes.toInt(), dwflags.toInt(), dwcontext.toLong())
 
-public actual fun FtpGetFileSize(hfile: Long, lpdwfilesizehigh: Long): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FtpGetFileSize(hfile, lpdwfilesizehigh).toUInt()
+public actual fun ftpGetFileSize(hfile: COpaquePointer?, lpdwfilesizehigh: COpaquePointer?): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_ftpGetFileSize((hfile?.value ?: 0L), (lpdwfilesizehigh?.value ?: 0L)).toUInt()
 
-public actual fun FtpGetFileW(hconnect: Long, lpszremotefile: PCWSTR, lpsznewfile: PCWSTR, ffailifexists: BOOL, dwflagsandattributes: UInt, dwflags: UInt, dwcontext: ULong): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FtpGetFileW(hconnect, lpszremotefile, lpsznewfile, ffailifexists, dwflagsandattributes.toInt(), dwflags.toInt(), dwcontext.toLong())
+public actual fun ftpGetFileW(hconnect: COpaquePointer?, lpszremotefile: Pcwstr, lpsznewfile: Pcwstr, ffailifexists: Bool, dwflagsandattributes: UInt, dwflags: UInt, dwcontext: ULong): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_ftpGetFileW((hconnect?.value ?: 0L), (lpszremotefile?.value ?: 0L), (lpsznewfile?.value ?: 0L), ffailifexists, dwflagsandattributes.toInt(), dwflags.toInt(), dwcontext.toLong())
 
-public actual fun FtpOpenFileA(hconnect: Long, lpszfilename: PCSTR, dwaccess: UInt, dwflags: FTP_FLAGS, dwcontext: ULong): Long =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FtpOpenFileA(hconnect, lpszfilename, dwaccess.toInt(), dwflags.toInt(), dwcontext.toLong())
+public actual fun ftpOpenFileA(hconnect: COpaquePointer?, lpszfilename: Pcstr, dwaccess: UInt, dwflags: FtpFlags, dwcontext: ULong): COpaquePointer? =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_ftpOpenFileA((hconnect?.value ?: 0L), (lpszfilename?.value ?: 0L), dwaccess.toInt(), dwflags.toInt(), dwcontext.toLong()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun FtpOpenFileW(hconnect: Long, lpszfilename: PCWSTR, dwaccess: UInt, dwflags: FTP_FLAGS, dwcontext: ULong): Long =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FtpOpenFileW(hconnect, lpszfilename, dwaccess.toInt(), dwflags.toInt(), dwcontext.toLong())
+public actual fun ftpOpenFileW(hconnect: COpaquePointer?, lpszfilename: Pcwstr, dwaccess: UInt, dwflags: FtpFlags, dwcontext: ULong): COpaquePointer? =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_ftpOpenFileW((hconnect?.value ?: 0L), (lpszfilename?.value ?: 0L), dwaccess.toInt(), dwflags.toInt(), dwcontext.toLong()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun FtpPutFileA(hconnect: Long, lpszlocalfile: PCSTR, lpsznewremotefile: PCSTR, dwflags: FTP_FLAGS, dwcontext: ULong): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FtpPutFileA(hconnect, lpszlocalfile, lpsznewremotefile, dwflags.toInt(), dwcontext.toLong())
+public actual fun ftpPutFileA(hconnect: COpaquePointer?, lpszlocalfile: Pcstr, lpsznewremotefile: Pcstr, dwflags: FtpFlags, dwcontext: ULong): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_ftpPutFileA((hconnect?.value ?: 0L), (lpszlocalfile?.value ?: 0L), (lpsznewremotefile?.value ?: 0L), dwflags.toInt(), dwcontext.toLong())
 
-public actual fun FtpPutFileEx(hftpsession: Long, lpszlocalfile: PCWSTR, lpsznewremotefile: PCSTR, dwflags: UInt, dwcontext: ULong): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FtpPutFileEx(hftpsession, lpszlocalfile, lpsznewremotefile, dwflags.toInt(), dwcontext.toLong())
+public actual fun ftpPutFileEx(hftpsession: COpaquePointer?, lpszlocalfile: Pcwstr, lpsznewremotefile: Pcstr, dwflags: UInt, dwcontext: ULong): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_ftpPutFileEx((hftpsession?.value ?: 0L), (lpszlocalfile?.value ?: 0L), (lpsznewremotefile?.value ?: 0L), dwflags.toInt(), dwcontext.toLong())
 
-public actual fun FtpPutFileW(hconnect: Long, lpszlocalfile: PCWSTR, lpsznewremotefile: PCWSTR, dwflags: FTP_FLAGS, dwcontext: ULong): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FtpPutFileW(hconnect, lpszlocalfile, lpsznewremotefile, dwflags.toInt(), dwcontext.toLong())
+public actual fun ftpPutFileW(hconnect: COpaquePointer?, lpszlocalfile: Pcwstr, lpsznewremotefile: Pcwstr, dwflags: FtpFlags, dwcontext: ULong): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_ftpPutFileW((hconnect?.value ?: 0L), (lpszlocalfile?.value ?: 0L), (lpsznewremotefile?.value ?: 0L), dwflags.toInt(), dwcontext.toLong())
 
-public actual fun FtpRemoveDirectoryA(hconnect: Long, lpszdirectory: PCSTR): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FtpRemoveDirectoryA(hconnect, lpszdirectory)
+public actual fun ftpRemoveDirectoryA(hconnect: COpaquePointer?, lpszdirectory: Pcstr): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_ftpRemoveDirectoryA((hconnect?.value ?: 0L), (lpszdirectory?.value ?: 0L))
 
-public actual fun FtpRemoveDirectoryW(hconnect: Long, lpszdirectory: PCWSTR): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FtpRemoveDirectoryW(hconnect, lpszdirectory)
+public actual fun ftpRemoveDirectoryW(hconnect: COpaquePointer?, lpszdirectory: Pcwstr): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_ftpRemoveDirectoryW((hconnect?.value ?: 0L), (lpszdirectory?.value ?: 0L))
 
-public actual fun FtpRenameFileA(hconnect: Long, lpszexisting: PCSTR, lpsznew: PCSTR): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FtpRenameFileA(hconnect, lpszexisting, lpsznew)
+public actual fun ftpRenameFileA(hconnect: COpaquePointer?, lpszexisting: Pcstr, lpsznew: Pcstr): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_ftpRenameFileA((hconnect?.value ?: 0L), (lpszexisting?.value ?: 0L), (lpsznew?.value ?: 0L))
 
-public actual fun FtpRenameFileW(hconnect: Long, lpszexisting: PCWSTR, lpsznew: PCWSTR): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FtpRenameFileW(hconnect, lpszexisting, lpsznew)
+public actual fun ftpRenameFileW(hconnect: COpaquePointer?, lpszexisting: Pcwstr, lpsznew: Pcwstr): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_ftpRenameFileW((hconnect?.value ?: 0L), (lpszexisting?.value ?: 0L), (lpsznew?.value ?: 0L))
 
-public actual fun FtpSetCurrentDirectoryA(hconnect: Long, lpszdirectory: PCSTR): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FtpSetCurrentDirectoryA(hconnect, lpszdirectory)
+public actual fun ftpSetCurrentDirectoryA(hconnect: COpaquePointer?, lpszdirectory: Pcstr): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_ftpSetCurrentDirectoryA((hconnect?.value ?: 0L), (lpszdirectory?.value ?: 0L))
 
-public actual fun FtpSetCurrentDirectoryW(hconnect: Long, lpszdirectory: PCWSTR): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_FtpSetCurrentDirectoryW(hconnect, lpszdirectory)
+public actual fun ftpSetCurrentDirectoryW(hconnect: COpaquePointer?, lpszdirectory: Pcwstr): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_ftpSetCurrentDirectoryW((hconnect?.value ?: 0L), (lpszdirectory?.value ?: 0L))
 
-public actual fun GetDiskInfoA(pszpath: PCSTR, pdwclustersize: Long, pdlavail: Long, pdltotal: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_GetDiskInfoA(pszpath, pdwclustersize, pdlavail, pdltotal)
+public actual fun getDiskInfoA(pszpath: Pcstr, pdwclustersize: COpaquePointer?, pdlavail: COpaquePointer?, pdltotal: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_getDiskInfoA((pszpath?.value ?: 0L), (pdwclustersize?.value ?: 0L), (pdlavail?.value ?: 0L), (pdltotal?.value ?: 0L))
 
-public actual fun GetUrlCacheConfigInfoA(lpcacheconfiginfo: Long, lpcbcacheconfiginfo: Long, dwfieldcontrol: CACHE_CONFIG): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_GetUrlCacheConfigInfoA(lpcacheconfiginfo, lpcbcacheconfiginfo, dwfieldcontrol.toInt())
+public actual fun getUrlCacheConfigInfoA(lpcacheconfiginfo: COpaquePointer?, lpcbcacheconfiginfo: COpaquePointer?, dwfieldcontrol: CacheConfig): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_getUrlCacheConfigInfoA((lpcacheconfiginfo?.value ?: 0L), (lpcbcacheconfiginfo?.value ?: 0L), dwfieldcontrol.toInt())
 
-public actual fun GetUrlCacheConfigInfoW(lpcacheconfiginfo: Long, lpcbcacheconfiginfo: Long, dwfieldcontrol: CACHE_CONFIG): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_GetUrlCacheConfigInfoW(lpcacheconfiginfo, lpcbcacheconfiginfo, dwfieldcontrol.toInt())
+public actual fun getUrlCacheConfigInfoW(lpcacheconfiginfo: COpaquePointer?, lpcbcacheconfiginfo: COpaquePointer?, dwfieldcontrol: CacheConfig): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_getUrlCacheConfigInfoW((lpcacheconfiginfo?.value ?: 0L), (lpcbcacheconfiginfo?.value ?: 0L), dwfieldcontrol.toInt())
 
-public actual fun GetUrlCacheEntryBinaryBlob(pwszurlname: PCWSTR, dwtype: Long, pftexpiretime: Long, pftaccesstime: Long, pftmodifiedtime: Long, ppbblob: Long, pcbblob: Long): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_GetUrlCacheEntryBinaryBlob(pwszurlname, dwtype, pftexpiretime, pftaccesstime, pftmodifiedtime, ppbblob, pcbblob).toUInt()
+public actual fun getUrlCacheEntryBinaryBlob(pwszurlname: Pcwstr, dwtype: COpaquePointer?, pftexpiretime: COpaquePointer?, pftaccesstime: COpaquePointer?, pftmodifiedtime: COpaquePointer?, ppbblob: COpaquePointer?, pcbblob: COpaquePointer?): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_getUrlCacheEntryBinaryBlob((pwszurlname?.value ?: 0L), (dwtype?.value ?: 0L), (pftexpiretime?.value ?: 0L), (pftaccesstime?.value ?: 0L), (pftmodifiedtime?.value ?: 0L), (ppbblob?.value ?: 0L), (pcbblob?.value ?: 0L)).toUInt()
 
-public actual fun GetUrlCacheEntryInfoA(lpszurlname: PCSTR, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_GetUrlCacheEntryInfoA(lpszurlname, lpcacheentryinfo, lpcbcacheentryinfo)
+public actual fun getUrlCacheEntryInfoA(lpszurlname: Pcstr, lpcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoA((lpszurlname?.value ?: 0L), (lpcacheentryinfo?.value ?: 0L), (lpcbcacheentryinfo?.value ?: 0L))
 
-public actual fun GetUrlCacheEntryInfoExA(lpszurl: PCSTR, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long, lpszredirecturl: PCSTR, lpcbredirecturl: Long, lpreserved: Long, dwflags: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_GetUrlCacheEntryInfoExA(lpszurl, lpcacheentryinfo, lpcbcacheentryinfo, lpszredirecturl, lpcbredirecturl, lpreserved, dwflags.toInt())
+public actual fun getUrlCacheEntryInfoExA(lpszurl: Pcstr, lpcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?, lpszredirecturl: Pcstr, lpcbredirecturl: COpaquePointer?, lpreserved: COpaquePointer?, dwflags: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoExA((lpszurl?.value ?: 0L), (lpcacheentryinfo?.value ?: 0L), (lpcbcacheentryinfo?.value ?: 0L), (lpszredirecturl?.value ?: 0L), (lpcbredirecturl?.value ?: 0L), (lpreserved?.value ?: 0L), dwflags.toInt())
 
-public actual fun GetUrlCacheEntryInfoExW(lpszurl: PCWSTR, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long, lpszredirecturl: PCWSTR, lpcbredirecturl: Long, lpreserved: Long, dwflags: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_GetUrlCacheEntryInfoExW(lpszurl, lpcacheentryinfo, lpcbcacheentryinfo, lpszredirecturl, lpcbredirecturl, lpreserved, dwflags.toInt())
+public actual fun getUrlCacheEntryInfoExW(lpszurl: Pcwstr, lpcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?, lpszredirecturl: Pcwstr, lpcbredirecturl: COpaquePointer?, lpreserved: COpaquePointer?, dwflags: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoExW((lpszurl?.value ?: 0L), (lpcacheentryinfo?.value ?: 0L), (lpcbcacheentryinfo?.value ?: 0L), (lpszredirecturl?.value ?: 0L), (lpcbredirecturl?.value ?: 0L), (lpreserved?.value ?: 0L), dwflags.toInt())
 
-public actual fun GetUrlCacheEntryInfoW(lpszurlname: PCWSTR, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_GetUrlCacheEntryInfoW(lpszurlname, lpcacheentryinfo, lpcbcacheentryinfo)
+public actual fun getUrlCacheEntryInfoW(lpszurlname: Pcwstr, lpcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_getUrlCacheEntryInfoW((lpszurlname?.value ?: 0L), (lpcacheentryinfo?.value ?: 0L), (lpcbcacheentryinfo?.value ?: 0L))
 
-public actual fun GetUrlCacheGroupAttributeA(gid: Long, dwflags: UInt, dwattributes: UInt, lpgroupinfo: Long, lpcbgroupinfo: Long, lpreserved: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_GetUrlCacheGroupAttributeA(gid, dwflags.toInt(), dwattributes.toInt(), lpgroupinfo, lpcbgroupinfo, lpreserved)
+public actual fun getUrlCacheGroupAttributeA(gid: Long, dwflags: UInt, dwattributes: UInt, lpgroupinfo: COpaquePointer?, lpcbgroupinfo: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_getUrlCacheGroupAttributeA(gid, dwflags.toInt(), dwattributes.toInt(), (lpgroupinfo?.value ?: 0L), (lpcbgroupinfo?.value ?: 0L), (lpreserved?.value ?: 0L))
 
-public actual fun GetUrlCacheGroupAttributeW(gid: Long, dwflags: UInt, dwattributes: UInt, lpgroupinfo: Long, lpcbgroupinfo: Long, lpreserved: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_GetUrlCacheGroupAttributeW(gid, dwflags.toInt(), dwattributes.toInt(), lpgroupinfo, lpcbgroupinfo, lpreserved)
+public actual fun getUrlCacheGroupAttributeW(gid: Long, dwflags: UInt, dwattributes: UInt, lpgroupinfo: COpaquePointer?, lpcbgroupinfo: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_getUrlCacheGroupAttributeW(gid, dwflags.toInt(), dwattributes.toInt(), (lpgroupinfo?.value ?: 0L), (lpcbgroupinfo?.value ?: 0L), (lpreserved?.value ?: 0L))
 
-public actual fun GetUrlCacheHeaderData(nidx: UInt, lpdwdata: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_GetUrlCacheHeaderData(nidx.toInt(), lpdwdata)
+public actual fun getUrlCacheHeaderData(nidx: UInt, lpdwdata: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_getUrlCacheHeaderData(nidx.toInt(), (lpdwdata?.value ?: 0L))
 
-public actual fun GopherCreateLocatorA(lpszhost: PCSTR, nserverport: UShort, lpszdisplaystring: PCSTR, lpszselectorstring: PCSTR, dwgophertype: UInt, lpszlocator: PSTR, lpdwbufferlength: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_GopherCreateLocatorA(lpszhost, nserverport.toShort(), lpszdisplaystring, lpszselectorstring, dwgophertype.toInt(), lpszlocator, lpdwbufferlength)
+public actual fun gopherCreateLocatorA(lpszhost: Pcstr, nserverport: UShort, lpszdisplaystring: Pcstr, lpszselectorstring: Pcstr, dwgophertype: UInt, lpszlocator: Pstr, lpdwbufferlength: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_gopherCreateLocatorA((lpszhost?.value ?: 0L), nserverport.toShort(), (lpszdisplaystring?.value ?: 0L), (lpszselectorstring?.value ?: 0L), dwgophertype.toInt(), (lpszlocator?.value ?: 0L), (lpdwbufferlength?.value ?: 0L))
 
-public actual fun GopherCreateLocatorW(lpszhost: PCWSTR, nserverport: UShort, lpszdisplaystring: PCWSTR, lpszselectorstring: PCWSTR, dwgophertype: UInt, lpszlocator: PWSTR, lpdwbufferlength: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_GopherCreateLocatorW(lpszhost, nserverport.toShort(), lpszdisplaystring, lpszselectorstring, dwgophertype.toInt(), lpszlocator, lpdwbufferlength)
+public actual fun gopherCreateLocatorW(lpszhost: Pcwstr, nserverport: UShort, lpszdisplaystring: Pcwstr, lpszselectorstring: Pcwstr, dwgophertype: UInt, lpszlocator: Pwstr, lpdwbufferlength: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_gopherCreateLocatorW((lpszhost?.value ?: 0L), nserverport.toShort(), (lpszdisplaystring?.value ?: 0L), (lpszselectorstring?.value ?: 0L), dwgophertype.toInt(), (lpszlocator?.value ?: 0L), (lpdwbufferlength?.value ?: 0L))
 
-public actual fun GopherFindFirstFileA(hconnect: Long, lpszlocator: PCSTR, lpszsearchstring: PCSTR, lpfinddata: Long, dwflags: UInt, dwcontext: ULong): Long =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_GopherFindFirstFileA(hconnect, lpszlocator, lpszsearchstring, lpfinddata, dwflags.toInt(), dwcontext.toLong())
+public actual fun gopherFindFirstFileA(hconnect: COpaquePointer?, lpszlocator: Pcstr, lpszsearchstring: Pcstr, lpfinddata: COpaquePointer?, dwflags: UInt, dwcontext: ULong): COpaquePointer? =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_gopherFindFirstFileA((hconnect?.value ?: 0L), (lpszlocator?.value ?: 0L), (lpszsearchstring?.value ?: 0L), (lpfinddata?.value ?: 0L), dwflags.toInt(), dwcontext.toLong()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GopherFindFirstFileW(hconnect: Long, lpszlocator: PCWSTR, lpszsearchstring: PCWSTR, lpfinddata: Long, dwflags: UInt, dwcontext: ULong): Long =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_GopherFindFirstFileW(hconnect, lpszlocator, lpszsearchstring, lpfinddata, dwflags.toInt(), dwcontext.toLong())
+public actual fun gopherFindFirstFileW(hconnect: COpaquePointer?, lpszlocator: Pcwstr, lpszsearchstring: Pcwstr, lpfinddata: COpaquePointer?, dwflags: UInt, dwcontext: ULong): COpaquePointer? =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_gopherFindFirstFileW((hconnect?.value ?: 0L), (lpszlocator?.value ?: 0L), (lpszsearchstring?.value ?: 0L), (lpfinddata?.value ?: 0L), dwflags.toInt(), dwcontext.toLong()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GopherGetAttributeA(hconnect: Long, lpszlocator: PCSTR, lpszattributename: PCSTR, lpbuffer: Long, dwbufferlength: UInt, lpdwcharactersreturned: Long, lpfnenumerator: GOPHER_ATTRIBUTE_ENUMERATOR, dwcontext: ULong): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_GopherGetAttributeA(hconnect, lpszlocator, lpszattributename, lpbuffer, dwbufferlength.toInt(), lpdwcharactersreturned, lpfnenumerator.toLong(), dwcontext.toLong())
+public actual fun gopherGetAttributeA(hconnect: COpaquePointer?, lpszlocator: Pcstr, lpszattributename: Pcstr, lpbuffer: COpaquePointer?, dwbufferlength: UInt, lpdwcharactersreturned: COpaquePointer?, lpfnenumerator: GopherAttributeEnumerator, dwcontext: ULong): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_gopherGetAttributeA((hconnect?.value ?: 0L), (lpszlocator?.value ?: 0L), (lpszattributename?.value ?: 0L), (lpbuffer?.value ?: 0L), dwbufferlength.toInt(), (lpdwcharactersreturned?.value ?: 0L), 0L, dwcontext.toLong())
 
-public actual fun GopherGetAttributeW(hconnect: Long, lpszlocator: PCWSTR, lpszattributename: PCWSTR, lpbuffer: Long, dwbufferlength: UInt, lpdwcharactersreturned: Long, lpfnenumerator: GOPHER_ATTRIBUTE_ENUMERATOR, dwcontext: ULong): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_GopherGetAttributeW(hconnect, lpszlocator, lpszattributename, lpbuffer, dwbufferlength.toInt(), lpdwcharactersreturned, lpfnenumerator.toLong(), dwcontext.toLong())
+public actual fun gopherGetAttributeW(hconnect: COpaquePointer?, lpszlocator: Pcwstr, lpszattributename: Pcwstr, lpbuffer: COpaquePointer?, dwbufferlength: UInt, lpdwcharactersreturned: COpaquePointer?, lpfnenumerator: GopherAttributeEnumerator, dwcontext: ULong): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_gopherGetAttributeW((hconnect?.value ?: 0L), (lpszlocator?.value ?: 0L), (lpszattributename?.value ?: 0L), (lpbuffer?.value ?: 0L), dwbufferlength.toInt(), (lpdwcharactersreturned?.value ?: 0L), 0L, dwcontext.toLong())
 
-public actual fun GopherGetLocatorTypeA(lpszlocator: PCSTR, lpdwgophertype: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_GopherGetLocatorTypeA(lpszlocator, lpdwgophertype)
+public actual fun gopherGetLocatorTypeA(lpszlocator: Pcstr, lpdwgophertype: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_gopherGetLocatorTypeA((lpszlocator?.value ?: 0L), (lpdwgophertype?.value ?: 0L))
 
-public actual fun GopherGetLocatorTypeW(lpszlocator: PCWSTR, lpdwgophertype: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_GopherGetLocatorTypeW(lpszlocator, lpdwgophertype)
+public actual fun gopherGetLocatorTypeW(lpszlocator: Pcwstr, lpdwgophertype: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_gopherGetLocatorTypeW((lpszlocator?.value ?: 0L), (lpdwgophertype?.value ?: 0L))
 
-public actual fun GopherOpenFileA(hconnect: Long, lpszlocator: PCSTR, lpszview: PCSTR, dwflags: UInt, dwcontext: ULong): Long =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_GopherOpenFileA(hconnect, lpszlocator, lpszview, dwflags.toInt(), dwcontext.toLong())
+public actual fun gopherOpenFileA(hconnect: COpaquePointer?, lpszlocator: Pcstr, lpszview: Pcstr, dwflags: UInt, dwcontext: ULong): COpaquePointer? =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_gopherOpenFileA((hconnect?.value ?: 0L), (lpszlocator?.value ?: 0L), (lpszview?.value ?: 0L), dwflags.toInt(), dwcontext.toLong()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GopherOpenFileW(hconnect: Long, lpszlocator: PCWSTR, lpszview: PCWSTR, dwflags: UInt, dwcontext: ULong): Long =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_GopherOpenFileW(hconnect, lpszlocator, lpszview, dwflags.toInt(), dwcontext.toLong())
+public actual fun gopherOpenFileW(hconnect: COpaquePointer?, lpszlocator: Pcwstr, lpszview: Pcwstr, dwflags: UInt, dwcontext: ULong): COpaquePointer? =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_gopherOpenFileW((hconnect?.value ?: 0L), (lpszlocator?.value ?: 0L), (lpszview?.value ?: 0L), dwflags.toInt(), dwcontext.toLong()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun HttpAddRequestHeadersA(hrequest: Long, lpszheaders: PCSTR, dwheaderslength: UInt, dwmodifiers: HTTP_ADDREQ_FLAG): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_HttpAddRequestHeadersA(hrequest, lpszheaders, dwheaderslength.toInt(), dwmodifiers.toInt())
+public actual fun httpAddRequestHeadersA(hrequest: COpaquePointer?, lpszheaders: Pcstr, dwheaderslength: UInt, dwmodifiers: HttpAddreqFlag): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_httpAddRequestHeadersA((hrequest?.value ?: 0L), (lpszheaders?.value ?: 0L), dwheaderslength.toInt(), dwmodifiers.toInt())
 
-public actual fun HttpAddRequestHeadersW(hrequest: Long, lpszheaders: PCWSTR, dwheaderslength: UInt, dwmodifiers: HTTP_ADDREQ_FLAG): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_HttpAddRequestHeadersW(hrequest, lpszheaders, dwheaderslength.toInt(), dwmodifiers.toInt())
+public actual fun httpAddRequestHeadersW(hrequest: COpaquePointer?, lpszheaders: Pcwstr, dwheaderslength: UInt, dwmodifiers: HttpAddreqFlag): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_httpAddRequestHeadersW((hrequest?.value ?: 0L), (lpszheaders?.value ?: 0L), dwheaderslength.toInt(), dwmodifiers.toInt())
 
-public actual fun HttpCheckDavComplianceA(lpszurl: PCSTR, lpszcompliancetoken: PCSTR, lpffound: Long, hwnd: HWND, lpvreserved: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_HttpCheckDavComplianceA(lpszurl, lpszcompliancetoken, lpffound, hwnd, lpvreserved)
+public actual fun httpCheckDavComplianceA(lpszurl: Pcstr, lpszcompliancetoken: Pcstr, lpffound: COpaquePointer?, hwnd: Hwnd, lpvreserved: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_httpCheckDavComplianceA((lpszurl?.value ?: 0L), (lpszcompliancetoken?.value ?: 0L), (lpffound?.value ?: 0L), (hwnd?.value ?: 0L), (lpvreserved?.value ?: 0L))
 
-public actual fun HttpCheckDavComplianceW(lpszurl: PCWSTR, lpszcompliancetoken: PCWSTR, lpffound: Long, hwnd: HWND, lpvreserved: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_HttpCheckDavComplianceW(lpszurl, lpszcompliancetoken, lpffound, hwnd, lpvreserved)
+public actual fun httpCheckDavComplianceW(lpszurl: Pcwstr, lpszcompliancetoken: Pcwstr, lpffound: COpaquePointer?, hwnd: Hwnd, lpvreserved: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_httpCheckDavComplianceW((lpszurl?.value ?: 0L), (lpszcompliancetoken?.value ?: 0L), (lpffound?.value ?: 0L), (hwnd?.value ?: 0L), (lpvreserved?.value ?: 0L))
 
-public actual fun HttpCloseDependencyHandle(hdependencyhandle: Long) {
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_HttpCloseDependencyHandle(hdependencyhandle)
+public actual fun httpCloseDependencyHandle(hdependencyhandle: COpaquePointer?) {
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_httpCloseDependencyHandle((hdependencyhandle?.value ?: 0L))
 }
 
-public actual fun HttpDuplicateDependencyHandle(hdependencyhandle: Long, phduplicateddependencyhandle: Long): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_HttpDuplicateDependencyHandle(hdependencyhandle, phduplicateddependencyhandle).toUInt()
+public actual fun httpDuplicateDependencyHandle(hdependencyhandle: COpaquePointer?, phduplicateddependencyhandle: COpaquePointer?): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_httpDuplicateDependencyHandle((hdependencyhandle?.value ?: 0L), (phduplicateddependencyhandle?.value ?: 0L)).toUInt()
 
-public actual fun HttpEndRequestA(hrequest: Long, lpbuffersout: Long, dwflags: UInt, dwcontext: ULong): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_HttpEndRequestA(hrequest, lpbuffersout, dwflags.toInt(), dwcontext.toLong())
+public actual fun httpEndRequestA(hrequest: COpaquePointer?, lpbuffersout: COpaquePointer?, dwflags: UInt, dwcontext: ULong): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_httpEndRequestA((hrequest?.value ?: 0L), (lpbuffersout?.value ?: 0L), dwflags.toInt(), dwcontext.toLong())
 
-public actual fun HttpEndRequestW(hrequest: Long, lpbuffersout: Long, dwflags: UInt, dwcontext: ULong): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_HttpEndRequestW(hrequest, lpbuffersout, dwflags.toInt(), dwcontext.toLong())
+public actual fun httpEndRequestW(hrequest: COpaquePointer?, lpbuffersout: COpaquePointer?, dwflags: UInt, dwcontext: ULong): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_httpEndRequestW((hrequest?.value ?: 0L), (lpbuffersout?.value ?: 0L), dwflags.toInt(), dwcontext.toLong())
 
-public actual fun HttpGetServerCredentials(pwszurl: PCWSTR, ppwszusername: Long, ppwszpassword: Long): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_HttpGetServerCredentials(pwszurl, ppwszusername, ppwszpassword).toUInt()
+public actual fun httpGetServerCredentials(pwszurl: Pcwstr, ppwszusername: COpaquePointer?, ppwszpassword: COpaquePointer?): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_httpGetServerCredentials((pwszurl?.value ?: 0L), (ppwszusername?.value ?: 0L), (ppwszpassword?.value ?: 0L)).toUInt()
 
-public actual fun HttpIndicatePageLoadComplete(hdependencyhandle: Long): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_HttpIndicatePageLoadComplete(hdependencyhandle).toUInt()
+public actual fun httpIndicatePageLoadComplete(hdependencyhandle: COpaquePointer?): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_httpIndicatePageLoadComplete((hdependencyhandle?.value ?: 0L)).toUInt()
 
-public actual fun HttpIsHostHstsEnabled(pcwszurl: PCWSTR, pfishsts: Long): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_HttpIsHostHstsEnabled(pcwszurl, pfishsts).toUInt()
+public actual fun httpIsHostHstsEnabled(pcwszurl: Pcwstr, pfishsts: COpaquePointer?): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_httpIsHostHstsEnabled((pcwszurl?.value ?: 0L), (pfishsts?.value ?: 0L)).toUInt()
 
-public actual fun HttpOpenDependencyHandle(hrequesthandle: Long, fbackground: BOOL, phdependencyhandle: Long): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_HttpOpenDependencyHandle(hrequesthandle, fbackground, phdependencyhandle).toUInt()
+public actual fun httpOpenDependencyHandle(hrequesthandle: COpaquePointer?, fbackground: Bool, phdependencyhandle: COpaquePointer?): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_httpOpenDependencyHandle((hrequesthandle?.value ?: 0L), fbackground, (phdependencyhandle?.value ?: 0L)).toUInt()
 
-public actual fun HttpOpenRequestA(hconnect: Long, lpszverb: PCSTR, lpszobjectname: PCSTR, lpszversion: PCSTR, lpszreferrer: PCSTR, lplpszaccepttypes: Long, dwflags: UInt, dwcontext: ULong): Long =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_HttpOpenRequestA(hconnect, lpszverb, lpszobjectname, lpszversion, lpszreferrer, lplpszaccepttypes, dwflags.toInt(), dwcontext.toLong())
+public actual fun httpOpenRequestA(hconnect: COpaquePointer?, lpszverb: Pcstr, lpszobjectname: Pcstr, lpszversion: Pcstr, lpszreferrer: Pcstr, lplpszaccepttypes: COpaquePointer?, dwflags: UInt, dwcontext: ULong): COpaquePointer? =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_httpOpenRequestA((hconnect?.value ?: 0L), (lpszverb?.value ?: 0L), (lpszobjectname?.value ?: 0L), (lpszversion?.value ?: 0L), (lpszreferrer?.value ?: 0L), (lplpszaccepttypes?.value ?: 0L), dwflags.toInt(), dwcontext.toLong()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun HttpOpenRequestW(hconnect: Long, lpszverb: PCWSTR, lpszobjectname: PCWSTR, lpszversion: PCWSTR, lpszreferrer: PCWSTR, lplpszaccepttypes: Long, dwflags: UInt, dwcontext: ULong): Long =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_HttpOpenRequestW(hconnect, lpszverb, lpszobjectname, lpszversion, lpszreferrer, lplpszaccepttypes, dwflags.toInt(), dwcontext.toLong())
+public actual fun httpOpenRequestW(hconnect: COpaquePointer?, lpszverb: Pcwstr, lpszobjectname: Pcwstr, lpszversion: Pcwstr, lpszreferrer: Pcwstr, lplpszaccepttypes: COpaquePointer?, dwflags: UInt, dwcontext: ULong): COpaquePointer? =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_httpOpenRequestW((hconnect?.value ?: 0L), (lpszverb?.value ?: 0L), (lpszobjectname?.value ?: 0L), (lpszversion?.value ?: 0L), (lpszreferrer?.value ?: 0L), (lplpszaccepttypes?.value ?: 0L), dwflags.toInt(), dwcontext.toLong()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun HttpPushClose(hwait: HTTP_PUSH_WAIT_HANDLE) {
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_HttpPushClose(hwait)
+public actual fun httpPushClose(hwait: HttpPushWaitHandle) {
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_httpPushClose((hwait?.value ?: 0L))
 }
 
-public actual fun HttpPushEnable(hrequest: Long, ptransportsetting: Long, phwait: Long): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_HttpPushEnable(hrequest, ptransportsetting, phwait).toUInt()
+public actual fun httpPushEnable(hrequest: COpaquePointer?, ptransportsetting: COpaquePointer?, phwait: COpaquePointer?): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_httpPushEnable((hrequest?.value ?: 0L), (ptransportsetting?.value ?: 0L), (phwait?.value ?: 0L)).toUInt()
 
-public actual fun HttpPushWait(hwait: HTTP_PUSH_WAIT_HANDLE, etype: HTTP_PUSH_WAIT_TYPE, pnotificationstatus: Long): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_HttpPushWait(hwait, etype, pnotificationstatus).toUInt()
+public actual fun httpPushWait(hwait: HttpPushWaitHandle, etype: HttpPushWaitType, pnotificationstatus: COpaquePointer?): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_httpPushWait((hwait?.value ?: 0L), etype, (pnotificationstatus?.value ?: 0L)).toUInt()
 
-public actual fun HttpQueryInfoA(hrequest: Long, dwinfolevel: UInt, lpbuffer: Long, lpdwbufferlength: Long, lpdwindex: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_HttpQueryInfoA(hrequest, dwinfolevel.toInt(), lpbuffer, lpdwbufferlength, lpdwindex)
+public actual fun httpQueryInfoA(hrequest: COpaquePointer?, dwinfolevel: UInt, lpbuffer: COpaquePointer?, lpdwbufferlength: COpaquePointer?, lpdwindex: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_httpQueryInfoA((hrequest?.value ?: 0L), dwinfolevel.toInt(), (lpbuffer?.value ?: 0L), (lpdwbufferlength?.value ?: 0L), (lpdwindex?.value ?: 0L))
 
-public actual fun HttpQueryInfoW(hrequest: Long, dwinfolevel: UInt, lpbuffer: Long, lpdwbufferlength: Long, lpdwindex: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_HttpQueryInfoW(hrequest, dwinfolevel.toInt(), lpbuffer, lpdwbufferlength, lpdwindex)
+public actual fun httpQueryInfoW(hrequest: COpaquePointer?, dwinfolevel: UInt, lpbuffer: COpaquePointer?, lpdwbufferlength: COpaquePointer?, lpdwindex: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_httpQueryInfoW((hrequest?.value ?: 0L), dwinfolevel.toInt(), (lpbuffer?.value ?: 0L), (lpdwbufferlength?.value ?: 0L), (lpdwindex?.value ?: 0L))
 
-public actual fun HttpSendRequestA(hrequest: Long, lpszheaders: PCSTR, dwheaderslength: UInt, lpoptional: Long, dwoptionallength: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_HttpSendRequestA(hrequest, lpszheaders, dwheaderslength.toInt(), lpoptional, dwoptionallength.toInt())
+public actual fun httpSendRequestA(hrequest: COpaquePointer?, lpszheaders: Pcstr, dwheaderslength: UInt, lpoptional: COpaquePointer?, dwoptionallength: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_httpSendRequestA((hrequest?.value ?: 0L), (lpszheaders?.value ?: 0L), dwheaderslength.toInt(), (lpoptional?.value ?: 0L), dwoptionallength.toInt())
 
-public actual fun HttpSendRequestExA(hrequest: Long, lpbuffersin: Long, lpbuffersout: Long, dwflags: UInt, dwcontext: ULong): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_HttpSendRequestExA(hrequest, lpbuffersin, lpbuffersout, dwflags.toInt(), dwcontext.toLong())
+public actual fun httpSendRequestExA(hrequest: COpaquePointer?, lpbuffersin: COpaquePointer?, lpbuffersout: COpaquePointer?, dwflags: UInt, dwcontext: ULong): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_httpSendRequestExA((hrequest?.value ?: 0L), (lpbuffersin?.value ?: 0L), (lpbuffersout?.value ?: 0L), dwflags.toInt(), dwcontext.toLong())
 
-public actual fun HttpSendRequestExW(hrequest: Long, lpbuffersin: Long, lpbuffersout: Long, dwflags: UInt, dwcontext: ULong): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_HttpSendRequestExW(hrequest, lpbuffersin, lpbuffersout, dwflags.toInt(), dwcontext.toLong())
+public actual fun httpSendRequestExW(hrequest: COpaquePointer?, lpbuffersin: COpaquePointer?, lpbuffersout: COpaquePointer?, dwflags: UInt, dwcontext: ULong): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_httpSendRequestExW((hrequest?.value ?: 0L), (lpbuffersin?.value ?: 0L), (lpbuffersout?.value ?: 0L), dwflags.toInt(), dwcontext.toLong())
 
-public actual fun HttpSendRequestW(hrequest: Long, lpszheaders: PCWSTR, dwheaderslength: UInt, lpoptional: Long, dwoptionallength: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_HttpSendRequestW(hrequest, lpszheaders, dwheaderslength.toInt(), lpoptional, dwoptionallength.toInt())
+public actual fun httpSendRequestW(hrequest: COpaquePointer?, lpszheaders: Pcwstr, dwheaderslength: UInt, lpoptional: COpaquePointer?, dwoptionallength: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_httpSendRequestW((hrequest?.value ?: 0L), (lpszheaders?.value ?: 0L), dwheaderslength.toInt(), (lpoptional?.value ?: 0L), dwoptionallength.toInt())
 
-public actual fun HttpWebSocketClose(hwebsocket: Long, usstatus: UShort, pvreason: Long, dwreasonlength: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_HttpWebSocketClose(hwebsocket, usstatus.toShort(), pvreason, dwreasonlength.toInt())
+public actual fun httpWebSocketClose(hwebsocket: COpaquePointer?, usstatus: UShort, pvreason: COpaquePointer?, dwreasonlength: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_httpWebSocketClose((hwebsocket?.value ?: 0L), usstatus.toShort(), (pvreason?.value ?: 0L), dwreasonlength.toInt())
 
-public actual fun HttpWebSocketCompleteUpgrade(hrequest: Long, dwcontext: ULong): Long =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_HttpWebSocketCompleteUpgrade(hrequest, dwcontext.toLong())
+public actual fun httpWebSocketCompleteUpgrade(hrequest: COpaquePointer?, dwcontext: ULong): COpaquePointer? =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_httpWebSocketCompleteUpgrade((hrequest?.value ?: 0L), dwcontext.toLong()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun HttpWebSocketQueryCloseStatus(hwebsocket: Long, pusstatus: Long, pvreason: Long, dwreasonlength: UInt, pdwreasonlengthconsumed: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_HttpWebSocketQueryCloseStatus(hwebsocket, pusstatus, pvreason, dwreasonlength.toInt(), pdwreasonlengthconsumed)
+public actual fun httpWebSocketQueryCloseStatus(hwebsocket: COpaquePointer?, pusstatus: COpaquePointer?, pvreason: COpaquePointer?, dwreasonlength: UInt, pdwreasonlengthconsumed: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_httpWebSocketQueryCloseStatus((hwebsocket?.value ?: 0L), (pusstatus?.value ?: 0L), (pvreason?.value ?: 0L), dwreasonlength.toInt(), (pdwreasonlengthconsumed?.value ?: 0L))
 
-public actual fun HttpWebSocketReceive(hwebsocket: Long, pvbuffer: Long, dwbufferlength: UInt, pdwbytesread: Long, pbuffertype: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_HttpWebSocketReceive(hwebsocket, pvbuffer, dwbufferlength.toInt(), pdwbytesread, pbuffertype)
+public actual fun httpWebSocketReceive(hwebsocket: COpaquePointer?, pvbuffer: COpaquePointer?, dwbufferlength: UInt, pdwbytesread: COpaquePointer?, pbuffertype: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_httpWebSocketReceive((hwebsocket?.value ?: 0L), (pvbuffer?.value ?: 0L), dwbufferlength.toInt(), (pdwbytesread?.value ?: 0L), (pbuffertype?.value ?: 0L))
 
-public actual fun HttpWebSocketSend(hwebsocket: Long, buffertype: HTTP_WEB_SOCKET_BUFFER_TYPE, pvbuffer: Long, dwbufferlength: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_HttpWebSocketSend(hwebsocket, buffertype, pvbuffer, dwbufferlength.toInt())
+public actual fun httpWebSocketSend(hwebsocket: COpaquePointer?, buffertype: HttpWebSocketBufferType, pvbuffer: COpaquePointer?, dwbufferlength: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_httpWebSocketSend((hwebsocket?.value ?: 0L), buffertype, (pvbuffer?.value ?: 0L), dwbufferlength.toInt())
 
-public actual fun HttpWebSocketShutdown(hwebsocket: Long, usstatus: UShort, pvreason: Long, dwreasonlength: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_HttpWebSocketShutdown(hwebsocket, usstatus.toShort(), pvreason, dwreasonlength.toInt())
+public actual fun httpWebSocketShutdown(hwebsocket: COpaquePointer?, usstatus: UShort, pvreason: COpaquePointer?, dwreasonlength: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_httpWebSocketShutdown((hwebsocket?.value ?: 0L), usstatus.toShort(), (pvreason?.value ?: 0L), dwreasonlength.toInt())
 
-public actual fun ImportCookieFileA(szfilename: PCSTR): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_ImportCookieFileA(szfilename)
+public actual fun importCookieFileA(szfilename: Pcstr): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_importCookieFileA((szfilename?.value ?: 0L))
 
-public actual fun ImportCookieFileW(szfilename: PCWSTR): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_ImportCookieFileW(szfilename)
+public actual fun importCookieFileW(szfilename: Pcwstr): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_importCookieFileW((szfilename?.value ?: 0L))
 
-public actual fun IncrementUrlCacheHeaderData(nidx: UInt, lpdwdata: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_IncrementUrlCacheHeaderData(nidx.toInt(), lpdwdata)
+public actual fun incrementUrlCacheHeaderData(nidx: UInt, lpdwdata: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_incrementUrlCacheHeaderData(nidx.toInt(), (lpdwdata?.value ?: 0L))
 
-public actual fun InternalInternetGetCookie(lpszurl: PCSTR, lpszcookiedata: PSTR, lpdwdatasize: Long): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternalInternetGetCookie(lpszurl, lpszcookiedata, lpdwdatasize).toUInt()
+public actual fun internalInternetGetCookie(lpszurl: Pcstr, lpszcookiedata: Pstr, lpdwdatasize: COpaquePointer?): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internalInternetGetCookie((lpszurl?.value ?: 0L), (lpszcookiedata?.value ?: 0L), (lpdwdatasize?.value ?: 0L)).toUInt()
 
-public actual fun InternetAlgIdToStringA(ai: ALG_ID, lpstr: PSTR, lpdwstrlength: Long, dwreserved: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetAlgIdToStringA(ai.toInt(), lpstr, lpdwstrlength, dwreserved.toInt())
+public actual fun internetAlgIdToStringA(ai: AlgId, lpstr: Pstr, lpdwstrlength: COpaquePointer?, dwreserved: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetAlgIdToStringA(ai.toInt(), (lpstr?.value ?: 0L), (lpdwstrlength?.value ?: 0L), dwreserved.toInt())
 
-public actual fun InternetAlgIdToStringW(ai: ALG_ID, lpstr: PWSTR, lpdwstrlength: Long, dwreserved: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetAlgIdToStringW(ai.toInt(), lpstr, lpdwstrlength, dwreserved.toInt())
+public actual fun internetAlgIdToStringW(ai: AlgId, lpstr: Pwstr, lpdwstrlength: COpaquePointer?, dwreserved: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetAlgIdToStringW(ai.toInt(), (lpstr?.value ?: 0L), (lpdwstrlength?.value ?: 0L), dwreserved.toInt())
 
-public actual fun InternetAttemptConnect(dwreserved: UInt): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetAttemptConnect(dwreserved.toInt()).toUInt()
+public actual fun internetAttemptConnect(dwreserved: UInt): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetAttemptConnect(dwreserved.toInt()).toUInt()
 
-public actual fun InternetAutodial(dwflags: INTERNET_AUTODIAL, hwndparent: HWND): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetAutodial(dwflags.toInt(), hwndparent)
+public actual fun internetAutodial(dwflags: InternetAutodial, hwndparent: Hwnd): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetAutodial(dwflags.toInt(), (hwndparent?.value ?: 0L))
 
-public actual fun InternetAutodialHangup(dwreserved: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetAutodialHangup(dwreserved.toInt())
+public actual fun internetAutodialHangup(dwreserved: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetAutodialHangup(dwreserved.toInt())
 
-public actual fun InternetCanonicalizeUrlA(lpszurl: PCSTR, lpszbuffer: PSTR, lpdwbufferlength: Long, dwflags: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetCanonicalizeUrlA(lpszurl, lpszbuffer, lpdwbufferlength, dwflags.toInt())
+public actual fun internetCanonicalizeUrlA(lpszurl: Pcstr, lpszbuffer: Pstr, lpdwbufferlength: COpaquePointer?, dwflags: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetCanonicalizeUrlA((lpszurl?.value ?: 0L), (lpszbuffer?.value ?: 0L), (lpdwbufferlength?.value ?: 0L), dwflags.toInt())
 
-public actual fun InternetCanonicalizeUrlW(lpszurl: PCWSTR, lpszbuffer: PWSTR, lpdwbufferlength: Long, dwflags: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetCanonicalizeUrlW(lpszurl, lpszbuffer, lpdwbufferlength, dwflags.toInt())
+public actual fun internetCanonicalizeUrlW(lpszurl: Pcwstr, lpszbuffer: Pwstr, lpdwbufferlength: COpaquePointer?, dwflags: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetCanonicalizeUrlW((lpszurl?.value ?: 0L), (lpszbuffer?.value ?: 0L), (lpdwbufferlength?.value ?: 0L), dwflags.toInt())
 
-public actual fun InternetCheckConnectionA(lpszurl: PCSTR, dwflags: UInt, dwreserved: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetCheckConnectionA(lpszurl, dwflags.toInt(), dwreserved.toInt())
+public actual fun internetCheckConnectionA(lpszurl: Pcstr, dwflags: UInt, dwreserved: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetCheckConnectionA((lpszurl?.value ?: 0L), dwflags.toInt(), dwreserved.toInt())
 
-public actual fun InternetCheckConnectionW(lpszurl: PCWSTR, dwflags: UInt, dwreserved: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetCheckConnectionW(lpszurl, dwflags.toInt(), dwreserved.toInt())
+public actual fun internetCheckConnectionW(lpszurl: Pcwstr, dwflags: UInt, dwreserved: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetCheckConnectionW((lpszurl?.value ?: 0L), dwflags.toInt(), dwreserved.toInt())
 
-public actual fun InternetClearAllPerSiteCookieDecisions(): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetClearAllPerSiteCookieDecisions()
+public actual fun internetClearAllPerSiteCookieDecisions(): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetClearAllPerSiteCookieDecisions()
 
-public actual fun InternetCloseHandle(hinternet: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetCloseHandle(hinternet)
+public actual fun internetCloseHandle(hinternet: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetCloseHandle((hinternet?.value ?: 0L))
 
-public actual fun InternetCombineUrlA(lpszbaseurl: PCSTR, lpszrelativeurl: PCSTR, lpszbuffer: PSTR, lpdwbufferlength: Long, dwflags: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetCombineUrlA(lpszbaseurl, lpszrelativeurl, lpszbuffer, lpdwbufferlength, dwflags.toInt())
+public actual fun internetCombineUrlA(lpszbaseurl: Pcstr, lpszrelativeurl: Pcstr, lpszbuffer: Pstr, lpdwbufferlength: COpaquePointer?, dwflags: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetCombineUrlA((lpszbaseurl?.value ?: 0L), (lpszrelativeurl?.value ?: 0L), (lpszbuffer?.value ?: 0L), (lpdwbufferlength?.value ?: 0L), dwflags.toInt())
 
-public actual fun InternetCombineUrlW(lpszbaseurl: PCWSTR, lpszrelativeurl: PCWSTR, lpszbuffer: PWSTR, lpdwbufferlength: Long, dwflags: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetCombineUrlW(lpszbaseurl, lpszrelativeurl, lpszbuffer, lpdwbufferlength, dwflags.toInt())
+public actual fun internetCombineUrlW(lpszbaseurl: Pcwstr, lpszrelativeurl: Pcwstr, lpszbuffer: Pwstr, lpdwbufferlength: COpaquePointer?, dwflags: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetCombineUrlW((lpszbaseurl?.value ?: 0L), (lpszrelativeurl?.value ?: 0L), (lpszbuffer?.value ?: 0L), (lpdwbufferlength?.value ?: 0L), dwflags.toInt())
 
-public actual fun InternetConfirmZoneCrossing(hwnd: HWND, szurlprev: PCSTR, szurlnew: PCSTR, bpost: BOOL): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetConfirmZoneCrossing(hwnd, szurlprev, szurlnew, bpost).toUInt()
+public actual fun internetConfirmZoneCrossing(hwnd: Hwnd, szurlprev: Pcstr, szurlnew: Pcstr, bpost: Bool): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetConfirmZoneCrossing((hwnd?.value ?: 0L), (szurlprev?.value ?: 0L), (szurlnew?.value ?: 0L), bpost).toUInt()
 
-public actual fun InternetConfirmZoneCrossingA(hwnd: HWND, szurlprev: PCSTR, szurlnew: PCSTR, bpost: BOOL): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetConfirmZoneCrossingA(hwnd, szurlprev, szurlnew, bpost).toUInt()
+public actual fun internetConfirmZoneCrossingA(hwnd: Hwnd, szurlprev: Pcstr, szurlnew: Pcstr, bpost: Bool): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetConfirmZoneCrossingA((hwnd?.value ?: 0L), (szurlprev?.value ?: 0L), (szurlnew?.value ?: 0L), bpost).toUInt()
 
-public actual fun InternetConfirmZoneCrossingW(hwnd: HWND, szurlprev: PCWSTR, szurlnew: PCWSTR, bpost: BOOL): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetConfirmZoneCrossingW(hwnd, szurlprev, szurlnew, bpost).toUInt()
+public actual fun internetConfirmZoneCrossingW(hwnd: Hwnd, szurlprev: Pcwstr, szurlnew: Pcwstr, bpost: Bool): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetConfirmZoneCrossingW((hwnd?.value ?: 0L), (szurlprev?.value ?: 0L), (szurlnew?.value ?: 0L), bpost).toUInt()
 
-public actual fun InternetConnectA(hinternet: Long, lpszservername: PCSTR, nserverport: UShort, lpszusername: PCSTR, lpszpassword: PCSTR, dwservice: UInt, dwflags: UInt, dwcontext: ULong): Long =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetConnectA(hinternet, lpszservername, nserverport.toShort(), lpszusername, lpszpassword, dwservice.toInt(), dwflags.toInt(), dwcontext.toLong())
+public actual fun internetConnectA(hinternet: COpaquePointer?, lpszservername: Pcstr, nserverport: UShort, lpszusername: Pcstr, lpszpassword: Pcstr, dwservice: UInt, dwflags: UInt, dwcontext: ULong): COpaquePointer? =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetConnectA((hinternet?.value ?: 0L), (lpszservername?.value ?: 0L), nserverport.toShort(), (lpszusername?.value ?: 0L), (lpszpassword?.value ?: 0L), dwservice.toInt(), dwflags.toInt(), dwcontext.toLong()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun InternetConnectW(hinternet: Long, lpszservername: PCWSTR, nserverport: UShort, lpszusername: PCWSTR, lpszpassword: PCWSTR, dwservice: UInt, dwflags: UInt, dwcontext: ULong): Long =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetConnectW(hinternet, lpszservername, nserverport.toShort(), lpszusername, lpszpassword, dwservice.toInt(), dwflags.toInt(), dwcontext.toLong())
+public actual fun internetConnectW(hinternet: COpaquePointer?, lpszservername: Pcwstr, nserverport: UShort, lpszusername: Pcwstr, lpszpassword: Pcwstr, dwservice: UInt, dwflags: UInt, dwcontext: ULong): COpaquePointer? =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetConnectW((hinternet?.value ?: 0L), (lpszservername?.value ?: 0L), nserverport.toShort(), (lpszusername?.value ?: 0L), (lpszpassword?.value ?: 0L), dwservice.toInt(), dwflags.toInt(), dwcontext.toLong()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun InternetConvertUrlFromWireToWideChar(pcszurl: PCSTR, cchurl: UInt, pcwszbaseurl: PCWSTR, dwcodepagehost: UInt, dwcodepagepath: UInt, fencodepathextra: BOOL, dwcodepageextra: UInt, ppwszconvertedurl: Long): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetConvertUrlFromWireToWideChar(pcszurl, cchurl.toInt(), pcwszbaseurl, dwcodepagehost.toInt(), dwcodepagepath.toInt(), fencodepathextra, dwcodepageextra.toInt(), ppwszconvertedurl).toUInt()
+public actual fun internetConvertUrlFromWireToWideChar(pcszurl: Pcstr, cchurl: UInt, pcwszbaseurl: Pcwstr, dwcodepagehost: UInt, dwcodepagepath: UInt, fencodepathextra: Bool, dwcodepageextra: UInt, ppwszconvertedurl: COpaquePointer?): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetConvertUrlFromWireToWideChar((pcszurl?.value ?: 0L), cchurl.toInt(), (pcwszbaseurl?.value ?: 0L), dwcodepagehost.toInt(), dwcodepagepath.toInt(), fencodepathextra, dwcodepageextra.toInt(), (ppwszconvertedurl?.value ?: 0L)).toUInt()
 
-public actual fun InternetCrackUrlA(lpszurl: PCSTR, dwurllength: UInt, dwflags: WIN_HTTP_CREATE_URL_FLAGS, lpurlcomponents: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetCrackUrlA(lpszurl, dwurllength.toInt(), dwflags.toInt(), lpurlcomponents)
+public actual fun internetCrackUrlA(lpszurl: Pcstr, dwurllength: UInt, dwflags: WinHttpCreateUrlFlags, lpurlcomponents: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetCrackUrlA((lpszurl?.value ?: 0L), dwurllength.toInt(), dwflags.toInt(), (lpurlcomponents?.value ?: 0L))
 
-public actual fun InternetCrackUrlW(lpszurl: PCWSTR, dwurllength: UInt, dwflags: WIN_HTTP_CREATE_URL_FLAGS, lpurlcomponents: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetCrackUrlW(lpszurl, dwurllength.toInt(), dwflags.toInt(), lpurlcomponents)
+public actual fun internetCrackUrlW(lpszurl: Pcwstr, dwurllength: UInt, dwflags: WinHttpCreateUrlFlags, lpurlcomponents: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetCrackUrlW((lpszurl?.value ?: 0L), dwurllength.toInt(), dwflags.toInt(), (lpurlcomponents?.value ?: 0L))
 
-public actual fun InternetCreateUrlA(lpurlcomponents: Long, dwflags: UInt, lpszurl: PSTR, lpdwurllength: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetCreateUrlA(lpurlcomponents, dwflags.toInt(), lpszurl, lpdwurllength)
+public actual fun internetCreateUrlA(lpurlcomponents: COpaquePointer?, dwflags: UInt, lpszurl: Pstr, lpdwurllength: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetCreateUrlA((lpurlcomponents?.value ?: 0L), dwflags.toInt(), (lpszurl?.value ?: 0L), (lpdwurllength?.value ?: 0L))
 
-public actual fun InternetCreateUrlW(lpurlcomponents: Long, dwflags: UInt, lpszurl: PWSTR, lpdwurllength: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetCreateUrlW(lpurlcomponents, dwflags.toInt(), lpszurl, lpdwurllength)
+public actual fun internetCreateUrlW(lpurlcomponents: COpaquePointer?, dwflags: UInt, lpszurl: Pwstr, lpdwurllength: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetCreateUrlW((lpurlcomponents?.value ?: 0L), dwflags.toInt(), (lpszurl?.value ?: 0L), (lpdwurllength?.value ?: 0L))
 
-public actual fun InternetDial(hwndparent: HWND, lpszconnectoid: PCSTR, dwflags: UInt, lpdwconnection: Long, dwreserved: UInt): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetDial(hwndparent, lpszconnectoid, dwflags.toInt(), lpdwconnection, dwreserved.toInt()).toUInt()
+public actual fun internetDial(hwndparent: Hwnd, lpszconnectoid: Pcstr, dwflags: UInt, lpdwconnection: COpaquePointer?, dwreserved: UInt): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetDial((hwndparent?.value ?: 0L), (lpszconnectoid?.value ?: 0L), dwflags.toInt(), (lpdwconnection?.value ?: 0L), dwreserved.toInt()).toUInt()
 
-public actual fun InternetDialA(hwndparent: HWND, lpszconnectoid: PCSTR, dwflags: UInt, lpdwconnection: Long, dwreserved: UInt): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetDialA(hwndparent, lpszconnectoid, dwflags.toInt(), lpdwconnection, dwreserved.toInt()).toUInt()
+public actual fun internetDialA(hwndparent: Hwnd, lpszconnectoid: Pcstr, dwflags: UInt, lpdwconnection: COpaquePointer?, dwreserved: UInt): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetDialA((hwndparent?.value ?: 0L), (lpszconnectoid?.value ?: 0L), dwflags.toInt(), (lpdwconnection?.value ?: 0L), dwreserved.toInt()).toUInt()
 
-public actual fun InternetDialW(hwndparent: HWND, lpszconnectoid: PCWSTR, dwflags: UInt, lpdwconnection: Long, dwreserved: UInt): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetDialW(hwndparent, lpszconnectoid, dwflags.toInt(), lpdwconnection, dwreserved.toInt()).toUInt()
+public actual fun internetDialW(hwndparent: Hwnd, lpszconnectoid: Pcwstr, dwflags: UInt, lpdwconnection: COpaquePointer?, dwreserved: UInt): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetDialW((hwndparent?.value ?: 0L), (lpszconnectoid?.value ?: 0L), dwflags.toInt(), (lpdwconnection?.value ?: 0L), dwreserved.toInt()).toUInt()
 
-public actual fun InternetEnumPerSiteCookieDecisionA(pszsitename: PSTR, pcsitenamesize: Long, pdwdecision: Long, dwindex: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetEnumPerSiteCookieDecisionA(pszsitename, pcsitenamesize, pdwdecision, dwindex.toInt())
+public actual fun internetEnumPerSiteCookieDecisionA(pszsitename: Pstr, pcsitenamesize: COpaquePointer?, pdwdecision: COpaquePointer?, dwindex: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetEnumPerSiteCookieDecisionA((pszsitename?.value ?: 0L), (pcsitenamesize?.value ?: 0L), (pdwdecision?.value ?: 0L), dwindex.toInt())
 
-public actual fun InternetEnumPerSiteCookieDecisionW(pszsitename: PWSTR, pcsitenamesize: Long, pdwdecision: Long, dwindex: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetEnumPerSiteCookieDecisionW(pszsitename, pcsitenamesize, pdwdecision, dwindex.toInt())
+public actual fun internetEnumPerSiteCookieDecisionW(pszsitename: Pwstr, pcsitenamesize: COpaquePointer?, pdwdecision: COpaquePointer?, dwindex: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetEnumPerSiteCookieDecisionW((pszsitename?.value ?: 0L), (pcsitenamesize?.value ?: 0L), (pdwdecision?.value ?: 0L), dwindex.toInt())
 
-public actual fun InternetErrorDlg(hwnd: HWND, hrequest: Long, dwerror: UInt, dwflags: UInt, lppvdata: Long): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetErrorDlg(hwnd, hrequest, dwerror.toInt(), dwflags.toInt(), lppvdata).toUInt()
+public actual fun internetErrorDlg(hwnd: Hwnd, hrequest: COpaquePointer?, dwerror: UInt, dwflags: UInt, lppvdata: COpaquePointer?): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetErrorDlg((hwnd?.value ?: 0L), (hrequest?.value ?: 0L), dwerror.toInt(), dwflags.toInt(), (lppvdata?.value ?: 0L)).toUInt()
 
-public actual fun InternetFindNextFileA(hfind: Long, lpvfinddata: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetFindNextFileA(hfind, lpvfinddata)
+public actual fun internetFindNextFileA(hfind: COpaquePointer?, lpvfinddata: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetFindNextFileA((hfind?.value ?: 0L), (lpvfinddata?.value ?: 0L))
 
-public actual fun InternetFindNextFileW(hfind: Long, lpvfinddata: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetFindNextFileW(hfind, lpvfinddata)
+public actual fun internetFindNextFileW(hfind: COpaquePointer?, lpvfinddata: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetFindNextFileW((hfind?.value ?: 0L), (lpvfinddata?.value ?: 0L))
 
-public actual fun InternetFortezzaCommand(dwcommand: UInt, hwnd: HWND, dwreserved: ULong): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetFortezzaCommand(dwcommand.toInt(), hwnd, dwreserved.toLong())
+public actual fun internetFortezzaCommand(dwcommand: UInt, hwnd: Hwnd, dwreserved: ULong): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetFortezzaCommand(dwcommand.toInt(), (hwnd?.value ?: 0L), dwreserved.toLong())
 
-public actual fun InternetFreeCookies(pcookies: Long, dwcookiecount: UInt) {
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetFreeCookies(pcookies, dwcookiecount.toInt())
+public actual fun internetFreeCookies(pcookies: COpaquePointer?, dwcookiecount: UInt) {
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetFreeCookies((pcookies?.value ?: 0L), dwcookiecount.toInt())
 }
 
-public actual fun InternetFreeProxyInfoList(pproxyinfolist: Long) {
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetFreeProxyInfoList(pproxyinfolist)
+public actual fun internetFreeProxyInfoList(pproxyinfolist: COpaquePointer?) {
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetFreeProxyInfoList((pproxyinfolist?.value ?: 0L))
 }
 
-public actual fun InternetGetConnectedState(lpdwflags: Long, dwreserved: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetGetConnectedState(lpdwflags, dwreserved.toInt())
+public actual fun internetGetConnectedState(lpdwflags: COpaquePointer?, dwreserved: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetGetConnectedState((lpdwflags?.value ?: 0L), dwreserved.toInt())
 
-public actual fun InternetGetConnectedStateEx(lpdwflags: Long, lpszconnectionname: PSTR, dwnamelen: UInt, dwreserved: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetGetConnectedStateEx(lpdwflags, lpszconnectionname, dwnamelen.toInt(), dwreserved.toInt())
+public actual fun internetGetConnectedStateEx(lpdwflags: COpaquePointer?, lpszconnectionname: Pstr, dwnamelen: UInt, dwreserved: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetGetConnectedStateEx((lpdwflags?.value ?: 0L), (lpszconnectionname?.value ?: 0L), dwnamelen.toInt(), dwreserved.toInt())
 
-public actual fun InternetGetConnectedStateExA(lpdwflags: Long, lpszconnectionname: PSTR, cchnamelen: UInt, dwreserved: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetGetConnectedStateExA(lpdwflags, lpszconnectionname, cchnamelen.toInt(), dwreserved.toInt())
+public actual fun internetGetConnectedStateExA(lpdwflags: COpaquePointer?, lpszconnectionname: Pstr, cchnamelen: UInt, dwreserved: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetGetConnectedStateExA((lpdwflags?.value ?: 0L), (lpszconnectionname?.value ?: 0L), cchnamelen.toInt(), dwreserved.toInt())
 
-public actual fun InternetGetConnectedStateExW(lpdwflags: Long, lpszconnectionname: PWSTR, cchnamelen: UInt, dwreserved: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetGetConnectedStateExW(lpdwflags, lpszconnectionname, cchnamelen.toInt(), dwreserved.toInt())
+public actual fun internetGetConnectedStateExW(lpdwflags: COpaquePointer?, lpszconnectionname: Pwstr, cchnamelen: UInt, dwreserved: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetGetConnectedStateExW((lpdwflags?.value ?: 0L), (lpszconnectionname?.value ?: 0L), cchnamelen.toInt(), dwreserved.toInt())
 
-public actual fun InternetGetCookieA(lpszurl: PCSTR, lpszcookiename: PCSTR, lpszcookiedata: PSTR, lpdwsize: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetGetCookieA(lpszurl, lpszcookiename, lpszcookiedata, lpdwsize)
+public actual fun internetGetCookieA(lpszurl: Pcstr, lpszcookiename: Pcstr, lpszcookiedata: Pstr, lpdwsize: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetGetCookieA((lpszurl?.value ?: 0L), (lpszcookiename?.value ?: 0L), (lpszcookiedata?.value ?: 0L), (lpdwsize?.value ?: 0L))
 
-public actual fun InternetGetCookieEx2(pcwszurl: PCWSTR, pcwszcookiename: PCWSTR, dwflags: UInt, ppcookies: Long, pdwcookiecount: Long): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetGetCookieEx2(pcwszurl, pcwszcookiename, dwflags.toInt(), ppcookies, pdwcookiecount).toUInt()
+public actual fun internetGetCookieEx2(pcwszurl: Pcwstr, pcwszcookiename: Pcwstr, dwflags: UInt, ppcookies: COpaquePointer?, pdwcookiecount: COpaquePointer?): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetGetCookieEx2((pcwszurl?.value ?: 0L), (pcwszcookiename?.value ?: 0L), dwflags.toInt(), (ppcookies?.value ?: 0L), (pdwcookiecount?.value ?: 0L)).toUInt()
 
-public actual fun InternetGetCookieExA(lpszurl: PCSTR, lpszcookiename: PCSTR, lpszcookiedata: PCSTR, lpdwsize: Long, dwflags: INTERNET_COOKIE_FLAGS, lpreserved: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetGetCookieExA(lpszurl, lpszcookiename, lpszcookiedata, lpdwsize, dwflags.toInt(), lpreserved)
+public actual fun internetGetCookieExA(lpszurl: Pcstr, lpszcookiename: Pcstr, lpszcookiedata: Pcstr, lpdwsize: COpaquePointer?, dwflags: InternetCookieFlags, lpreserved: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetGetCookieExA((lpszurl?.value ?: 0L), (lpszcookiename?.value ?: 0L), (lpszcookiedata?.value ?: 0L), (lpdwsize?.value ?: 0L), dwflags.toInt(), (lpreserved?.value ?: 0L))
 
-public actual fun InternetGetCookieExW(lpszurl: PCWSTR, lpszcookiename: PCWSTR, lpszcookiedata: PCWSTR, lpdwsize: Long, dwflags: INTERNET_COOKIE_FLAGS, lpreserved: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetGetCookieExW(lpszurl, lpszcookiename, lpszcookiedata, lpdwsize, dwflags.toInt(), lpreserved)
+public actual fun internetGetCookieExW(lpszurl: Pcwstr, lpszcookiename: Pcwstr, lpszcookiedata: Pcwstr, lpdwsize: COpaquePointer?, dwflags: InternetCookieFlags, lpreserved: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetGetCookieExW((lpszurl?.value ?: 0L), (lpszcookiename?.value ?: 0L), (lpszcookiedata?.value ?: 0L), (lpdwsize?.value ?: 0L), dwflags.toInt(), (lpreserved?.value ?: 0L))
 
-public actual fun InternetGetCookieW(lpszurl: PCWSTR, lpszcookiename: PCWSTR, lpszcookiedata: PWSTR, lpdwsize: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetGetCookieW(lpszurl, lpszcookiename, lpszcookiedata, lpdwsize)
+public actual fun internetGetCookieW(lpszurl: Pcwstr, lpszcookiename: Pcwstr, lpszcookiedata: Pwstr, lpdwsize: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetGetCookieW((lpszurl?.value ?: 0L), (lpszcookiename?.value ?: 0L), (lpszcookiedata?.value ?: 0L), (lpdwsize?.value ?: 0L))
 
-public actual fun InternetGetLastResponseInfoA(lpdwerror: Long, lpszbuffer: PSTR, lpdwbufferlength: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetGetLastResponseInfoA(lpdwerror, lpszbuffer, lpdwbufferlength)
+public actual fun internetGetLastResponseInfoA(lpdwerror: COpaquePointer?, lpszbuffer: Pstr, lpdwbufferlength: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetGetLastResponseInfoA((lpdwerror?.value ?: 0L), (lpszbuffer?.value ?: 0L), (lpdwbufferlength?.value ?: 0L))
 
-public actual fun InternetGetLastResponseInfoW(lpdwerror: Long, lpszbuffer: PWSTR, lpdwbufferlength: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetGetLastResponseInfoW(lpdwerror, lpszbuffer, lpdwbufferlength)
+public actual fun internetGetLastResponseInfoW(lpdwerror: COpaquePointer?, lpszbuffer: Pwstr, lpdwbufferlength: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetGetLastResponseInfoW((lpdwerror?.value ?: 0L), (lpszbuffer?.value ?: 0L), (lpdwbufferlength?.value ?: 0L))
 
-public actual fun InternetGetPerSiteCookieDecisionA(pchhostname: PCSTR, presult: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetGetPerSiteCookieDecisionA(pchhostname, presult)
+public actual fun internetGetPerSiteCookieDecisionA(pchhostname: Pcstr, presult: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetGetPerSiteCookieDecisionA((pchhostname?.value ?: 0L), (presult?.value ?: 0L))
 
-public actual fun InternetGetPerSiteCookieDecisionW(pchhostname: PCWSTR, presult: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetGetPerSiteCookieDecisionW(pchhostname, presult)
+public actual fun internetGetPerSiteCookieDecisionW(pchhostname: Pcwstr, presult: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetGetPerSiteCookieDecisionW((pchhostname?.value ?: 0L), (presult?.value ?: 0L))
 
-public actual fun InternetGetProxyForUrl(hinternet: Long, pcwszurl: PCWSTR, pproxyinfolist: Long): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetGetProxyForUrl(hinternet, pcwszurl, pproxyinfolist).toUInt()
+public actual fun internetGetProxyForUrl(hinternet: COpaquePointer?, pcwszurl: Pcwstr, pproxyinfolist: COpaquePointer?): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetGetProxyForUrl((hinternet?.value ?: 0L), (pcwszurl?.value ?: 0L), (pproxyinfolist?.value ?: 0L)).toUInt()
 
-public actual fun InternetGetSecurityInfoByURL(lpszurl: PCSTR, ppcertchain: Long, pdwsecureflags: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetGetSecurityInfoByURL(lpszurl, ppcertchain, pdwsecureflags)
+public actual fun internetGetSecurityInfoByURL(lpszurl: Pcstr, ppcertchain: COpaquePointer?, pdwsecureflags: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetGetSecurityInfoByURL((lpszurl?.value ?: 0L), (ppcertchain?.value ?: 0L), (pdwsecureflags?.value ?: 0L))
 
-public actual fun InternetGetSecurityInfoByURLA(lpszurl: PCSTR, ppcertchain: Long, pdwsecureflags: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetGetSecurityInfoByURLA(lpszurl, ppcertchain, pdwsecureflags)
+public actual fun internetGetSecurityInfoByURLA(lpszurl: Pcstr, ppcertchain: COpaquePointer?, pdwsecureflags: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetGetSecurityInfoByURLA((lpszurl?.value ?: 0L), (ppcertchain?.value ?: 0L), (pdwsecureflags?.value ?: 0L))
 
-public actual fun InternetGetSecurityInfoByURLW(lpszurl: PCWSTR, ppcertchain: Long, pdwsecureflags: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetGetSecurityInfoByURLW(lpszurl, ppcertchain, pdwsecureflags)
+public actual fun internetGetSecurityInfoByURLW(lpszurl: Pcwstr, ppcertchain: COpaquePointer?, pdwsecureflags: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetGetSecurityInfoByURLW((lpszurl?.value ?: 0L), (ppcertchain?.value ?: 0L), (pdwsecureflags?.value ?: 0L))
 
-public actual fun InternetGoOnline(lpszurl: PCSTR, hwndparent: HWND, dwflags: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetGoOnline(lpszurl, hwndparent, dwflags.toInt())
+public actual fun internetGoOnline(lpszurl: Pcstr, hwndparent: Hwnd, dwflags: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetGoOnline((lpszurl?.value ?: 0L), (hwndparent?.value ?: 0L), dwflags.toInt())
 
-public actual fun InternetGoOnlineA(lpszurl: PCSTR, hwndparent: HWND, dwflags: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetGoOnlineA(lpszurl, hwndparent, dwflags.toInt())
+public actual fun internetGoOnlineA(lpszurl: Pcstr, hwndparent: Hwnd, dwflags: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetGoOnlineA((lpszurl?.value ?: 0L), (hwndparent?.value ?: 0L), dwflags.toInt())
 
-public actual fun InternetGoOnlineW(lpszurl: PCWSTR, hwndparent: HWND, dwflags: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetGoOnlineW(lpszurl, hwndparent, dwflags.toInt())
+public actual fun internetGoOnlineW(lpszurl: Pcwstr, hwndparent: Hwnd, dwflags: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetGoOnlineW((lpszurl?.value ?: 0L), (hwndparent?.value ?: 0L), dwflags.toInt())
 
-public actual fun InternetHangUp(dwconnection: ULong, dwreserved: UInt): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetHangUp(dwconnection.toLong(), dwreserved.toInt()).toUInt()
+public actual fun internetHangUp(dwconnection: ULong, dwreserved: UInt): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetHangUp(dwconnection.toLong(), dwreserved.toInt()).toUInt()
 
-public actual fun InternetInitializeAutoProxyDll(dwreserved: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetInitializeAutoProxyDll(dwreserved.toInt())
+public actual fun internetInitializeAutoProxyDll(dwreserved: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetInitializeAutoProxyDll(dwreserved.toInt())
 
-public actual fun InternetLockRequestFile(hinternet: Long, lphlockrequestinfo: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetLockRequestFile(hinternet, lphlockrequestinfo)
+public actual fun internetLockRequestFile(hinternet: COpaquePointer?, lphlockrequestinfo: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetLockRequestFile((hinternet?.value ?: 0L), (lphlockrequestinfo?.value ?: 0L))
 
-public actual fun InternetOpenA(lpszagent: PCSTR, dwaccesstype: UInt, lpszproxy: PCSTR, lpszproxybypass: PCSTR, dwflags: UInt): Long =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetOpenA(lpszagent, dwaccesstype.toInt(), lpszproxy, lpszproxybypass, dwflags.toInt())
+public actual fun internetOpenA(lpszagent: Pcstr, dwaccesstype: UInt, lpszproxy: Pcstr, lpszproxybypass: Pcstr, dwflags: UInt): COpaquePointer? =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetOpenA((lpszagent?.value ?: 0L), dwaccesstype.toInt(), (lpszproxy?.value ?: 0L), (lpszproxybypass?.value ?: 0L), dwflags.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun InternetOpenUrlA(hinternet: Long, lpszurl: PCSTR, lpszheaders: PCSTR, dwheaderslength: UInt, dwflags: UInt, dwcontext: ULong): Long =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetOpenUrlA(hinternet, lpszurl, lpszheaders, dwheaderslength.toInt(), dwflags.toInt(), dwcontext.toLong())
+public actual fun internetOpenUrlA(hinternet: COpaquePointer?, lpszurl: Pcstr, lpszheaders: Pcstr, dwheaderslength: UInt, dwflags: UInt, dwcontext: ULong): COpaquePointer? =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetOpenUrlA((hinternet?.value ?: 0L), (lpszurl?.value ?: 0L), (lpszheaders?.value ?: 0L), dwheaderslength.toInt(), dwflags.toInt(), dwcontext.toLong()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun InternetOpenUrlW(hinternet: Long, lpszurl: PCWSTR, lpszheaders: PCWSTR, dwheaderslength: UInt, dwflags: UInt, dwcontext: ULong): Long =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetOpenUrlW(hinternet, lpszurl, lpszheaders, dwheaderslength.toInt(), dwflags.toInt(), dwcontext.toLong())
+public actual fun internetOpenUrlW(hinternet: COpaquePointer?, lpszurl: Pcwstr, lpszheaders: Pcwstr, dwheaderslength: UInt, dwflags: UInt, dwcontext: ULong): COpaquePointer? =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetOpenUrlW((hinternet?.value ?: 0L), (lpszurl?.value ?: 0L), (lpszheaders?.value ?: 0L), dwheaderslength.toInt(), dwflags.toInt(), dwcontext.toLong()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun InternetOpenW(lpszagent: PCWSTR, dwaccesstype: UInt, lpszproxy: PCWSTR, lpszproxybypass: PCWSTR, dwflags: UInt): Long =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetOpenW(lpszagent, dwaccesstype.toInt(), lpszproxy, lpszproxybypass, dwflags.toInt())
+public actual fun internetOpenW(lpszagent: Pcwstr, dwaccesstype: UInt, lpszproxy: Pcwstr, lpszproxybypass: Pcwstr, dwflags: UInt): COpaquePointer? =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetOpenW((lpszagent?.value ?: 0L), dwaccesstype.toInt(), (lpszproxy?.value ?: 0L), (lpszproxybypass?.value ?: 0L), dwflags.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun InternetQueryDataAvailable(hfile: Long, lpdwnumberofbytesavailable: Long, dwflags: UInt, dwcontext: ULong): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetQueryDataAvailable(hfile, lpdwnumberofbytesavailable, dwflags.toInt(), dwcontext.toLong())
+public actual fun internetQueryDataAvailable(hfile: COpaquePointer?, lpdwnumberofbytesavailable: COpaquePointer?, dwflags: UInt, dwcontext: ULong): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetQueryDataAvailable((hfile?.value ?: 0L), (lpdwnumberofbytesavailable?.value ?: 0L), dwflags.toInt(), dwcontext.toLong())
 
-public actual fun InternetQueryFortezzaStatus(pdwstatus: Long, dwreserved: ULong): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetQueryFortezzaStatus(pdwstatus, dwreserved.toLong())
+public actual fun internetQueryFortezzaStatus(pdwstatus: COpaquePointer?, dwreserved: ULong): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetQueryFortezzaStatus((pdwstatus?.value ?: 0L), dwreserved.toLong())
 
-public actual fun InternetQueryOptionA(hinternet: Long, dwoption: UInt, lpbuffer: Long, lpdwbufferlength: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetQueryOptionA(hinternet, dwoption.toInt(), lpbuffer, lpdwbufferlength)
+public actual fun internetQueryOptionA(hinternet: COpaquePointer?, dwoption: UInt, lpbuffer: COpaquePointer?, lpdwbufferlength: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetQueryOptionA((hinternet?.value ?: 0L), dwoption.toInt(), (lpbuffer?.value ?: 0L), (lpdwbufferlength?.value ?: 0L))
 
-public actual fun InternetQueryOptionW(hinternet: Long, dwoption: UInt, lpbuffer: Long, lpdwbufferlength: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetQueryOptionW(hinternet, dwoption.toInt(), lpbuffer, lpdwbufferlength)
+public actual fun internetQueryOptionW(hinternet: COpaquePointer?, dwoption: UInt, lpbuffer: COpaquePointer?, lpdwbufferlength: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetQueryOptionW((hinternet?.value ?: 0L), dwoption.toInt(), (lpbuffer?.value ?: 0L), (lpdwbufferlength?.value ?: 0L))
 
-public actual fun InternetReadFile(hfile: Long, lpbuffer: Long, dwnumberofbytestoread: UInt, lpdwnumberofbytesread: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetReadFile(hfile, lpbuffer, dwnumberofbytestoread.toInt(), lpdwnumberofbytesread)
+public actual fun internetReadFile(hfile: COpaquePointer?, lpbuffer: COpaquePointer?, dwnumberofbytestoread: UInt, lpdwnumberofbytesread: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetReadFile((hfile?.value ?: 0L), (lpbuffer?.value ?: 0L), dwnumberofbytestoread.toInt(), (lpdwnumberofbytesread?.value ?: 0L))
 
-public actual fun InternetReadFileExA(hfile: Long, lpbuffersout: Long, dwflags: UInt, dwcontext: ULong): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetReadFileExA(hfile, lpbuffersout, dwflags.toInt(), dwcontext.toLong())
+public actual fun internetReadFileExA(hfile: COpaquePointer?, lpbuffersout: COpaquePointer?, dwflags: UInt, dwcontext: ULong): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetReadFileExA((hfile?.value ?: 0L), (lpbuffersout?.value ?: 0L), dwflags.toInt(), dwcontext.toLong())
 
-public actual fun InternetReadFileExW(hfile: Long, lpbuffersout: Long, dwflags: UInt, dwcontext: ULong): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetReadFileExW(hfile, lpbuffersout, dwflags.toInt(), dwcontext.toLong())
+public actual fun internetReadFileExW(hfile: COpaquePointer?, lpbuffersout: COpaquePointer?, dwflags: UInt, dwcontext: ULong): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetReadFileExW((hfile?.value ?: 0L), (lpbuffersout?.value ?: 0L), dwflags.toInt(), dwcontext.toLong())
 
-public actual fun InternetSecurityProtocolToStringA(dwprotocol: UInt, lpstr: PSTR, lpdwstrlength: Long, dwreserved: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetSecurityProtocolToStringA(dwprotocol.toInt(), lpstr, lpdwstrlength, dwreserved.toInt())
+public actual fun internetSecurityProtocolToStringA(dwprotocol: UInt, lpstr: Pstr, lpdwstrlength: COpaquePointer?, dwreserved: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetSecurityProtocolToStringA(dwprotocol.toInt(), (lpstr?.value ?: 0L), (lpdwstrlength?.value ?: 0L), dwreserved.toInt())
 
-public actual fun InternetSecurityProtocolToStringW(dwprotocol: UInt, lpstr: PWSTR, lpdwstrlength: Long, dwreserved: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetSecurityProtocolToStringW(dwprotocol.toInt(), lpstr, lpdwstrlength, dwreserved.toInt())
+public actual fun internetSecurityProtocolToStringW(dwprotocol: UInt, lpstr: Pwstr, lpdwstrlength: COpaquePointer?, dwreserved: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetSecurityProtocolToStringW(dwprotocol.toInt(), (lpstr?.value ?: 0L), (lpdwstrlength?.value ?: 0L), dwreserved.toInt())
 
-public actual fun InternetSetCookieA(lpszurl: PCSTR, lpszcookiename: PCSTR, lpszcookiedata: PCSTR): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetSetCookieA(lpszurl, lpszcookiename, lpszcookiedata)
+public actual fun internetSetCookieA(lpszurl: Pcstr, lpszcookiename: Pcstr, lpszcookiedata: Pcstr): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetSetCookieA((lpszurl?.value ?: 0L), (lpszcookiename?.value ?: 0L), (lpszcookiedata?.value ?: 0L))
 
-public actual fun InternetSetCookieEx2(pcwszurl: PCWSTR, pcookie: Long, pcwszp3ppolicy: PCWSTR, dwflags: UInt, pdwcookiestate: Long): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetSetCookieEx2(pcwszurl, pcookie, pcwszp3ppolicy, dwflags.toInt(), pdwcookiestate).toUInt()
+public actual fun internetSetCookieEx2(pcwszurl: Pcwstr, pcookie: COpaquePointer?, pcwszp3ppolicy: Pcwstr, dwflags: UInt, pdwcookiestate: COpaquePointer?): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetSetCookieEx2((pcwszurl?.value ?: 0L), (pcookie?.value ?: 0L), (pcwszp3ppolicy?.value ?: 0L), dwflags.toInt(), (pdwcookiestate?.value ?: 0L)).toUInt()
 
-public actual fun InternetSetCookieExA(lpszurl: PCSTR, lpszcookiename: PCSTR, lpszcookiedata: PCSTR, dwflags: UInt, dwreserved: ULong): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetSetCookieExA(lpszurl, lpszcookiename, lpszcookiedata, dwflags.toInt(), dwreserved.toLong()).toUInt()
+public actual fun internetSetCookieExA(lpszurl: Pcstr, lpszcookiename: Pcstr, lpszcookiedata: Pcstr, dwflags: UInt, dwreserved: ULong): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetSetCookieExA((lpszurl?.value ?: 0L), (lpszcookiename?.value ?: 0L), (lpszcookiedata?.value ?: 0L), dwflags.toInt(), dwreserved.toLong()).toUInt()
 
-public actual fun InternetSetCookieExW(lpszurl: PCWSTR, lpszcookiename: PCWSTR, lpszcookiedata: PCWSTR, dwflags: UInt, dwreserved: ULong): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetSetCookieExW(lpszurl, lpszcookiename, lpszcookiedata, dwflags.toInt(), dwreserved.toLong()).toUInt()
+public actual fun internetSetCookieExW(lpszurl: Pcwstr, lpszcookiename: Pcwstr, lpszcookiedata: Pcwstr, dwflags: UInt, dwreserved: ULong): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetSetCookieExW((lpszurl?.value ?: 0L), (lpszcookiename?.value ?: 0L), (lpszcookiedata?.value ?: 0L), dwflags.toInt(), dwreserved.toLong()).toUInt()
 
-public actual fun InternetSetCookieW(lpszurl: PCWSTR, lpszcookiename: PCWSTR, lpszcookiedata: PCWSTR): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetSetCookieW(lpszurl, lpszcookiename, lpszcookiedata)
+public actual fun internetSetCookieW(lpszurl: Pcwstr, lpszcookiename: Pcwstr, lpszcookiedata: Pcwstr): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetSetCookieW((lpszurl?.value ?: 0L), (lpszcookiename?.value ?: 0L), (lpszcookiedata?.value ?: 0L))
 
-public actual fun InternetSetDialState(lpszconnectoid: PCSTR, dwstate: UInt, dwreserved: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetSetDialState(lpszconnectoid, dwstate.toInt(), dwreserved.toInt())
+public actual fun internetSetDialState(lpszconnectoid: Pcstr, dwstate: UInt, dwreserved: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetSetDialState((lpszconnectoid?.value ?: 0L), dwstate.toInt(), dwreserved.toInt())
 
-public actual fun InternetSetDialStateA(lpszconnectoid: PCSTR, dwstate: UInt, dwreserved: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetSetDialStateA(lpszconnectoid, dwstate.toInt(), dwreserved.toInt())
+public actual fun internetSetDialStateA(lpszconnectoid: Pcstr, dwstate: UInt, dwreserved: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetSetDialStateA((lpszconnectoid?.value ?: 0L), dwstate.toInt(), dwreserved.toInt())
 
-public actual fun InternetSetDialStateW(lpszconnectoid: PCWSTR, dwstate: UInt, dwreserved: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetSetDialStateW(lpszconnectoid, dwstate.toInt(), dwreserved.toInt())
+public actual fun internetSetDialStateW(lpszconnectoid: Pcwstr, dwstate: UInt, dwreserved: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetSetDialStateW((lpszconnectoid?.value ?: 0L), dwstate.toInt(), dwreserved.toInt())
 
-public actual fun InternetSetFilePointer(hfile: Long, ldistancetomove: Int, lpdistancetomovehigh: Long, dwmovemethod: UInt, dwcontext: ULong): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetSetFilePointer(hfile, ldistancetomove, lpdistancetomovehigh, dwmovemethod.toInt(), dwcontext.toLong()).toUInt()
+public actual fun internetSetFilePointer(hfile: COpaquePointer?, ldistancetomove: Int, lpdistancetomovehigh: COpaquePointer?, dwmovemethod: UInt, dwcontext: ULong): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetSetFilePointer((hfile?.value ?: 0L), ldistancetomove, (lpdistancetomovehigh?.value ?: 0L), dwmovemethod.toInt(), dwcontext.toLong()).toUInt()
 
-public actual fun InternetSetOptionA(hinternet: Long, dwoption: UInt, lpbuffer: Long, dwbufferlength: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetSetOptionA(hinternet, dwoption.toInt(), lpbuffer, dwbufferlength.toInt())
+public actual fun internetSetOptionA(hinternet: COpaquePointer?, dwoption: UInt, lpbuffer: COpaquePointer?, dwbufferlength: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetSetOptionA((hinternet?.value ?: 0L), dwoption.toInt(), (lpbuffer?.value ?: 0L), dwbufferlength.toInt())
 
-public actual fun InternetSetOptionExA(hinternet: Long, dwoption: UInt, lpbuffer: Long, dwbufferlength: UInt, dwflags: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetSetOptionExA(hinternet, dwoption.toInt(), lpbuffer, dwbufferlength.toInt(), dwflags.toInt())
+public actual fun internetSetOptionExA(hinternet: COpaquePointer?, dwoption: UInt, lpbuffer: COpaquePointer?, dwbufferlength: UInt, dwflags: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetSetOptionExA((hinternet?.value ?: 0L), dwoption.toInt(), (lpbuffer?.value ?: 0L), dwbufferlength.toInt(), dwflags.toInt())
 
-public actual fun InternetSetOptionExW(hinternet: Long, dwoption: UInt, lpbuffer: Long, dwbufferlength: UInt, dwflags: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetSetOptionExW(hinternet, dwoption.toInt(), lpbuffer, dwbufferlength.toInt(), dwflags.toInt())
+public actual fun internetSetOptionExW(hinternet: COpaquePointer?, dwoption: UInt, lpbuffer: COpaquePointer?, dwbufferlength: UInt, dwflags: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetSetOptionExW((hinternet?.value ?: 0L), dwoption.toInt(), (lpbuffer?.value ?: 0L), dwbufferlength.toInt(), dwflags.toInt())
 
-public actual fun InternetSetOptionW(hinternet: Long, dwoption: UInt, lpbuffer: Long, dwbufferlength: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetSetOptionW(hinternet, dwoption.toInt(), lpbuffer, dwbufferlength.toInt())
+public actual fun internetSetOptionW(hinternet: COpaquePointer?, dwoption: UInt, lpbuffer: COpaquePointer?, dwbufferlength: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetSetOptionW((hinternet?.value ?: 0L), dwoption.toInt(), (lpbuffer?.value ?: 0L), dwbufferlength.toInt())
 
-public actual fun InternetSetPerSiteCookieDecisionA(pchhostname: PCSTR, dwdecision: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetSetPerSiteCookieDecisionA(pchhostname, dwdecision.toInt())
+public actual fun internetSetPerSiteCookieDecisionA(pchhostname: Pcstr, dwdecision: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetSetPerSiteCookieDecisionA((pchhostname?.value ?: 0L), dwdecision.toInt())
 
-public actual fun InternetSetPerSiteCookieDecisionW(pchhostname: PCWSTR, dwdecision: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetSetPerSiteCookieDecisionW(pchhostname, dwdecision.toInt())
+public actual fun internetSetPerSiteCookieDecisionW(pchhostname: Pcwstr, dwdecision: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetSetPerSiteCookieDecisionW((pchhostname?.value ?: 0L), dwdecision.toInt())
 
-public actual fun InternetSetStatusCallback(hinternet: Long, lpfninternetcallback: LPINTERNET_STATUS_CALLBACK): LPINTERNET_STATUS_CALLBACK =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetSetStatusCallback(hinternet, lpfninternetcallback.toLong())
+public actual fun internetSetStatusCallback(hinternet: COpaquePointer?, lpfninternetcallback: LpinternetStatusCallback): LpinternetStatusCallback =
+    null
 
-public actual fun InternetSetStatusCallbackA(hinternet: Long, lpfninternetcallback: LPINTERNET_STATUS_CALLBACK): LPINTERNET_STATUS_CALLBACK =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetSetStatusCallbackA(hinternet, lpfninternetcallback.toLong())
+public actual fun internetSetStatusCallbackA(hinternet: COpaquePointer?, lpfninternetcallback: LpinternetStatusCallback): LpinternetStatusCallback =
+    null
 
-public actual fun InternetSetStatusCallbackW(hinternet: Long, lpfninternetcallback: LPINTERNET_STATUS_CALLBACK): LPINTERNET_STATUS_CALLBACK =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetSetStatusCallbackW(hinternet, lpfninternetcallback.toLong())
+public actual fun internetSetStatusCallbackW(hinternet: COpaquePointer?, lpfninternetcallback: LpinternetStatusCallback): LpinternetStatusCallback =
+    null
 
-public actual fun InternetShowSecurityInfoByURL(lpszurl: PCSTR, hwndparent: HWND): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetShowSecurityInfoByURL(lpszurl, hwndparent)
+public actual fun internetShowSecurityInfoByURL(lpszurl: Pcstr, hwndparent: Hwnd): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetShowSecurityInfoByURL((lpszurl?.value ?: 0L), (hwndparent?.value ?: 0L))
 
-public actual fun InternetShowSecurityInfoByURLA(lpszurl: PCSTR, hwndparent: HWND): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetShowSecurityInfoByURLA(lpszurl, hwndparent)
+public actual fun internetShowSecurityInfoByURLA(lpszurl: Pcstr, hwndparent: Hwnd): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetShowSecurityInfoByURLA((lpszurl?.value ?: 0L), (hwndparent?.value ?: 0L))
 
-public actual fun InternetShowSecurityInfoByURLW(lpszurl: PCWSTR, hwndparent: HWND): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetShowSecurityInfoByURLW(lpszurl, hwndparent)
+public actual fun internetShowSecurityInfoByURLW(lpszurl: Pcwstr, hwndparent: Hwnd): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetShowSecurityInfoByURLW((lpszurl?.value ?: 0L), (hwndparent?.value ?: 0L))
 
-public actual fun InternetTimeFromSystemTime(pst: Long, dwrfc: UInt, lpsztime: PSTR, cbtime: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetTimeFromSystemTime(pst, dwrfc.toInt(), lpsztime, cbtime.toInt())
+public actual fun internetTimeFromSystemTime(pst: COpaquePointer?, dwrfc: UInt, lpsztime: Pstr, cbtime: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetTimeFromSystemTime((pst?.value ?: 0L), dwrfc.toInt(), (lpsztime?.value ?: 0L), cbtime.toInt())
 
-public actual fun InternetTimeFromSystemTimeA(pst: Long, dwrfc: UInt, lpsztime: PSTR, cbtime: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetTimeFromSystemTimeA(pst, dwrfc.toInt(), lpsztime, cbtime.toInt())
+public actual fun internetTimeFromSystemTimeA(pst: COpaquePointer?, dwrfc: UInt, lpsztime: Pstr, cbtime: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetTimeFromSystemTimeA((pst?.value ?: 0L), dwrfc.toInt(), (lpsztime?.value ?: 0L), cbtime.toInt())
 
-public actual fun InternetTimeFromSystemTimeW(pst: Long, dwrfc: UInt, lpsztime: PWSTR, cbtime: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetTimeFromSystemTimeW(pst, dwrfc.toInt(), lpsztime, cbtime.toInt())
+public actual fun internetTimeFromSystemTimeW(pst: COpaquePointer?, dwrfc: UInt, lpsztime: Pwstr, cbtime: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetTimeFromSystemTimeW((pst?.value ?: 0L), dwrfc.toInt(), (lpsztime?.value ?: 0L), cbtime.toInt())
 
-public actual fun InternetTimeToSystemTime(lpsztime: PCSTR, pst: Long, dwreserved: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetTimeToSystemTime(lpsztime, pst, dwreserved.toInt())
+public actual fun internetTimeToSystemTime(lpsztime: Pcstr, pst: COpaquePointer?, dwreserved: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetTimeToSystemTime((lpsztime?.value ?: 0L), (pst?.value ?: 0L), dwreserved.toInt())
 
-public actual fun InternetTimeToSystemTimeA(lpsztime: PCSTR, pst: Long, dwreserved: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetTimeToSystemTimeA(lpsztime, pst, dwreserved.toInt())
+public actual fun internetTimeToSystemTimeA(lpsztime: Pcstr, pst: COpaquePointer?, dwreserved: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetTimeToSystemTimeA((lpsztime?.value ?: 0L), (pst?.value ?: 0L), dwreserved.toInt())
 
-public actual fun InternetTimeToSystemTimeW(lpsztime: PCWSTR, pst: Long, dwreserved: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetTimeToSystemTimeW(lpsztime, pst, dwreserved.toInt())
+public actual fun internetTimeToSystemTimeW(lpsztime: Pcwstr, pst: COpaquePointer?, dwreserved: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetTimeToSystemTimeW((lpsztime?.value ?: 0L), (pst?.value ?: 0L), dwreserved.toInt())
 
-public actual fun InternetUnlockRequestFile(hlockrequestinfo: HANDLE): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetUnlockRequestFile(hlockrequestinfo)
+public actual fun internetUnlockRequestFile(hlockrequestinfo: Handle): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetUnlockRequestFile((hlockrequestinfo?.value ?: 0L))
 
-public actual fun InternetWriteFile(hfile: Long, lpbuffer: Long, dwnumberofbytestowrite: UInt, lpdwnumberofbyteswritten: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetWriteFile(hfile, lpbuffer, dwnumberofbytestowrite.toInt(), lpdwnumberofbyteswritten)
+public actual fun internetWriteFile(hfile: COpaquePointer?, lpbuffer: COpaquePointer?, dwnumberofbytestowrite: UInt, lpdwnumberofbyteswritten: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetWriteFile((hfile?.value ?: 0L), (lpbuffer?.value ?: 0L), dwnumberofbytestowrite.toInt(), (lpdwnumberofbyteswritten?.value ?: 0L))
 
-public actual fun InternetWriteFileExA(hfile: Long, lpbuffersin: Long, dwflags: UInt, dwcontext: ULong): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetWriteFileExA(hfile, lpbuffersin, dwflags.toInt(), dwcontext.toLong())
+public actual fun internetWriteFileExA(hfile: COpaquePointer?, lpbuffersin: COpaquePointer?, dwflags: UInt, dwcontext: ULong): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetWriteFileExA((hfile?.value ?: 0L), (lpbuffersin?.value ?: 0L), dwflags.toInt(), dwcontext.toLong())
 
-public actual fun InternetWriteFileExW(hfile: Long, lpbuffersin: Long, dwflags: UInt, dwcontext: ULong): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_InternetWriteFileExW(hfile, lpbuffersin, dwflags.toInt(), dwcontext.toLong())
+public actual fun internetWriteFileExW(hfile: COpaquePointer?, lpbuffersin: COpaquePointer?, dwflags: UInt, dwcontext: ULong): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_internetWriteFileExW((hfile?.value ?: 0L), (lpbuffersin?.value ?: 0L), dwflags.toInt(), dwcontext.toLong())
 
-public actual fun IsDomainLegalCookieDomainA(pchdomain: PCSTR, pchfulldomain: PCSTR): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_IsDomainLegalCookieDomainA(pchdomain, pchfulldomain)
+public actual fun isDomainLegalCookieDomainA(pchdomain: Pcstr, pchfulldomain: Pcstr): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_isDomainLegalCookieDomainA((pchdomain?.value ?: 0L), (pchfulldomain?.value ?: 0L))
 
-public actual fun IsDomainLegalCookieDomainW(pchdomain: PCWSTR, pchfulldomain: PCWSTR): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_IsDomainLegalCookieDomainW(pchdomain, pchfulldomain)
+public actual fun isDomainLegalCookieDomainW(pchdomain: Pcwstr, pchfulldomain: Pcwstr): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_isDomainLegalCookieDomainW((pchdomain?.value ?: 0L), (pchfulldomain?.value ?: 0L))
 
-public actual fun IsHostInProxyBypassList(tscheme: INTERNET_SCHEME, lpszhost: PCSTR, cchhost: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_IsHostInProxyBypassList(tscheme, lpszhost, cchhost.toInt())
+public actual fun isHostInProxyBypassList(tscheme: InternetScheme, lpszhost: Pcstr, cchhost: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_isHostInProxyBypassList(tscheme, (lpszhost?.value ?: 0L), cchhost.toInt())
 
-public actual fun IsProfilesEnabled(): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_IsProfilesEnabled()
+public actual fun isProfilesEnabled(): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_isProfilesEnabled()
 
-public actual fun IsUrlCacheEntryExpiredA(lpszurlname: PCSTR, dwflags: UInt, pftlastmodified: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_IsUrlCacheEntryExpiredA(lpszurlname, dwflags.toInt(), pftlastmodified)
+public actual fun isUrlCacheEntryExpiredA(lpszurlname: Pcstr, dwflags: UInt, pftlastmodified: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_isUrlCacheEntryExpiredA((lpszurlname?.value ?: 0L), dwflags.toInt(), (pftlastmodified?.value ?: 0L))
 
-public actual fun IsUrlCacheEntryExpiredW(lpszurlname: PCWSTR, dwflags: UInt, pftlastmodified: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_IsUrlCacheEntryExpiredW(lpszurlname, dwflags.toInt(), pftlastmodified)
+public actual fun isUrlCacheEntryExpiredW(lpszurlname: Pcwstr, dwflags: UInt, pftlastmodified: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_isUrlCacheEntryExpiredW((lpszurlname?.value ?: 0L), dwflags.toInt(), (pftlastmodified?.value ?: 0L))
 
-public actual fun LoadUrlCacheContent(): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_LoadUrlCacheContent()
+public actual fun loadUrlCacheContent(): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_loadUrlCacheContent()
 
-public actual fun ParseX509EncodedCertificateForListBoxEntry(lpcert: Long, cbcert: UInt, lpszlistboxentry: PSTR, lpdwlistboxentry: Long): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_ParseX509EncodedCertificateForListBoxEntry(lpcert, cbcert.toInt(), lpszlistboxentry, lpdwlistboxentry).toUInt()
+public actual fun parseX509EncodedCertificateForListBoxEntry(lpcert: COpaquePointer?, cbcert: UInt, lpszlistboxentry: Pstr, lpdwlistboxentry: COpaquePointer?): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_parseX509EncodedCertificateForListBoxEntry((lpcert?.value ?: 0L), cbcert.toInt(), (lpszlistboxentry?.value ?: 0L), (lpdwlistboxentry?.value ?: 0L)).toUInt()
 
-public actual fun PerformOperationOverUrlCacheA(pszurlsearchpattern: PCSTR, dwflags: UInt, dwfilter: UInt, groupid: Long, preserved1: Long, pdwreserved2: Long, preserved3: Long, op: CACHE_OPERATOR, poperatordata: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_PerformOperationOverUrlCacheA(pszurlsearchpattern, dwflags.toInt(), dwfilter.toInt(), groupid, preserved1, pdwreserved2, preserved3, op.toLong(), poperatordata)
+public actual fun performOperationOverUrlCacheA(pszurlsearchpattern: Pcstr, dwflags: UInt, dwfilter: UInt, groupid: Long, preserved1: COpaquePointer?, pdwreserved2: COpaquePointer?, preserved3: COpaquePointer?, op: CacheOperator, poperatordata: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_performOperationOverUrlCacheA((pszurlsearchpattern?.value ?: 0L), dwflags.toInt(), dwfilter.toInt(), groupid, (preserved1?.value ?: 0L), (pdwreserved2?.value ?: 0L), (preserved3?.value ?: 0L), 0L, (poperatordata?.value ?: 0L))
 
-public actual fun PrivacyGetZonePreferenceW(dwzone: UInt, dwtype: UInt, pdwtemplate: Long, pszbuffer: PWSTR, pdwbufferlength: Long): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_PrivacyGetZonePreferenceW(dwzone.toInt(), dwtype.toInt(), pdwtemplate, pszbuffer, pdwbufferlength).toUInt()
+public actual fun privacyGetZonePreferenceW(dwzone: UInt, dwtype: UInt, pdwtemplate: COpaquePointer?, pszbuffer: Pwstr, pdwbufferlength: COpaquePointer?): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_privacyGetZonePreferenceW(dwzone.toInt(), dwtype.toInt(), (pdwtemplate?.value ?: 0L), (pszbuffer?.value ?: 0L), (pdwbufferlength?.value ?: 0L)).toUInt()
 
-public actual fun PrivacySetZonePreferenceW(dwzone: UInt, dwtype: UInt, dwtemplate: UInt, pszpreference: PCWSTR): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_PrivacySetZonePreferenceW(dwzone.toInt(), dwtype.toInt(), dwtemplate.toInt(), pszpreference).toUInt()
+public actual fun privacySetZonePreferenceW(dwzone: UInt, dwtype: UInt, dwtemplate: UInt, pszpreference: Pcwstr): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_privacySetZonePreferenceW(dwzone.toInt(), dwtype.toInt(), dwtemplate.toInt(), (pszpreference?.value ?: 0L)).toUInt()
 
-public actual fun ReadGuidsForConnectedNetworks(pcnetworks: Long, pppwsznetworkguids: Long, pppbstrnetworknames: Long, pppwszgwmacs: Long, pcgatewaymacs: Long, pdwflags: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_ReadGuidsForConnectedNetworks(pcnetworks, pppwsznetworkguids, pppbstrnetworknames, pppwszgwmacs, pcgatewaymacs, pdwflags)
+public actual fun readGuidsForConnectedNetworks(pcnetworks: COpaquePointer?, pppwsznetworkguids: COpaquePointer?, pppbstrnetworknames: COpaquePointer?, pppwszgwmacs: COpaquePointer?, pcgatewaymacs: COpaquePointer?, pdwflags: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_readGuidsForConnectedNetworks((pcnetworks?.value ?: 0L), (pppwsznetworkguids?.value ?: 0L), (pppbstrnetworknames?.value ?: 0L), (pppwszgwmacs?.value ?: 0L), (pcgatewaymacs?.value ?: 0L), (pdwflags?.value ?: 0L))
 
-public actual fun ReadUrlCacheEntryStream(hurlcachestream: HANDLE, dwlocation: UInt, lpbuffer: Long, lpdwlen: Long, reserved: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_ReadUrlCacheEntryStream(hurlcachestream, dwlocation.toInt(), lpbuffer, lpdwlen, reserved.toInt())
+public actual fun readUrlCacheEntryStream(hurlcachestream: Handle, dwlocation: UInt, lpbuffer: COpaquePointer?, lpdwlen: COpaquePointer?, reserved: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_readUrlCacheEntryStream((hurlcachestream?.value ?: 0L), dwlocation.toInt(), (lpbuffer?.value ?: 0L), (lpdwlen?.value ?: 0L), reserved.toInt())
 
-public actual fun ReadUrlCacheEntryStreamEx(hurlcachestream: HANDLE, qwlocation: ULong, lpbuffer: Long, lpdwlen: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_ReadUrlCacheEntryStreamEx(hurlcachestream, qwlocation.toLong(), lpbuffer, lpdwlen)
+public actual fun readUrlCacheEntryStreamEx(hurlcachestream: Handle, qwlocation: ULong, lpbuffer: COpaquePointer?, lpdwlen: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_readUrlCacheEntryStreamEx((hurlcachestream?.value ?: 0L), qwlocation.toLong(), (lpbuffer?.value ?: 0L), (lpdwlen?.value ?: 0L))
 
-public actual fun RegisterUrlCacheNotification(hwnd: HWND, umsg: UInt, gid: Long, dwopsfilter: UInt, dwreserved: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_RegisterUrlCacheNotification(hwnd, umsg.toInt(), gid, dwopsfilter.toInt(), dwreserved.toInt())
+public actual fun registerUrlCacheNotification(hwnd: Hwnd, umsg: UInt, gid: Long, dwopsfilter: UInt, dwreserved: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_registerUrlCacheNotification((hwnd?.value ?: 0L), umsg.toInt(), gid, dwopsfilter.toInt(), dwreserved.toInt())
 
-public actual fun ResumeSuspendedDownload(hrequest: Long, dwresultcode: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_ResumeSuspendedDownload(hrequest, dwresultcode.toInt())
+public actual fun resumeSuspendedDownload(hrequest: COpaquePointer?, dwresultcode: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_resumeSuspendedDownload((hrequest?.value ?: 0L), dwresultcode.toInt())
 
-public actual fun RetrieveUrlCacheEntryFileA(lpszurlname: PCSTR, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long, dwreserved: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_RetrieveUrlCacheEntryFileA(lpszurlname, lpcacheentryinfo, lpcbcacheentryinfo, dwreserved.toInt())
+public actual fun retrieveUrlCacheEntryFileA(lpszurlname: Pcstr, lpcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?, dwreserved: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryFileA((lpszurlname?.value ?: 0L), (lpcacheentryinfo?.value ?: 0L), (lpcbcacheentryinfo?.value ?: 0L), dwreserved.toInt())
 
-public actual fun RetrieveUrlCacheEntryFileW(lpszurlname: PCWSTR, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long, dwreserved: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_RetrieveUrlCacheEntryFileW(lpszurlname, lpcacheentryinfo, lpcbcacheentryinfo, dwreserved.toInt())
+public actual fun retrieveUrlCacheEntryFileW(lpszurlname: Pcwstr, lpcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?, dwreserved: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryFileW((lpszurlname?.value ?: 0L), (lpcacheentryinfo?.value ?: 0L), (lpcbcacheentryinfo?.value ?: 0L), dwreserved.toInt())
 
-public actual fun RetrieveUrlCacheEntryStreamA(lpszurlname: PCSTR, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long, frandomread: BOOL, dwreserved: UInt): HANDLE =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_RetrieveUrlCacheEntryStreamA(lpszurlname, lpcacheentryinfo, lpcbcacheentryinfo, frandomread, dwreserved.toInt())
+public actual fun retrieveUrlCacheEntryStreamA(lpszurlname: Pcstr, lpcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?, frandomread: Bool, dwreserved: UInt): Handle =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryStreamA((lpszurlname?.value ?: 0L), (lpcacheentryinfo?.value ?: 0L), (lpcbcacheentryinfo?.value ?: 0L), frandomread, dwreserved.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun RetrieveUrlCacheEntryStreamW(lpszurlname: PCWSTR, lpcacheentryinfo: Long, lpcbcacheentryinfo: Long, frandomread: BOOL, dwreserved: UInt): HANDLE =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_RetrieveUrlCacheEntryStreamW(lpszurlname, lpcacheentryinfo, lpcbcacheentryinfo, frandomread, dwreserved.toInt())
+public actual fun retrieveUrlCacheEntryStreamW(lpszurlname: Pcwstr, lpcacheentryinfo: COpaquePointer?, lpcbcacheentryinfo: COpaquePointer?, frandomread: Bool, dwreserved: UInt): Handle =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_retrieveUrlCacheEntryStreamW((lpszurlname?.value ?: 0L), (lpcacheentryinfo?.value ?: 0L), (lpcbcacheentryinfo?.value ?: 0L), frandomread, dwreserved.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun RunOnceUrlCache(hwnd: HWND, hinst: HINSTANCE, lpszcmd: PCSTR, ncmdshow: Int): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_RunOnceUrlCache(hwnd, hinst, lpszcmd, ncmdshow).toUInt()
+public actual fun runOnceUrlCache(hwnd: Hwnd, hinst: Hinstance, lpszcmd: Pcstr, ncmdshow: Int): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_runOnceUrlCache((hwnd?.value ?: 0L), (hinst?.value ?: 0L), (lpszcmd?.value ?: 0L), ncmdshow).toUInt()
 
-public actual fun SetUrlCacheConfigInfoA(lpcacheconfiginfo: Long, dwfieldcontrol: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_SetUrlCacheConfigInfoA(lpcacheconfiginfo, dwfieldcontrol.toInt())
+public actual fun setUrlCacheConfigInfoA(lpcacheconfiginfo: COpaquePointer?, dwfieldcontrol: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_setUrlCacheConfigInfoA((lpcacheconfiginfo?.value ?: 0L), dwfieldcontrol.toInt())
 
-public actual fun SetUrlCacheConfigInfoW(lpcacheconfiginfo: Long, dwfieldcontrol: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_SetUrlCacheConfigInfoW(lpcacheconfiginfo, dwfieldcontrol.toInt())
+public actual fun setUrlCacheConfigInfoW(lpcacheconfiginfo: COpaquePointer?, dwfieldcontrol: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_setUrlCacheConfigInfoW((lpcacheconfiginfo?.value ?: 0L), dwfieldcontrol.toInt())
 
-public actual fun SetUrlCacheEntryGroup(lpszurlname: PCSTR, dwflags: UInt, groupid: Long, pbgroupattributes: Long, cbgroupattributes: UInt, lpreserved: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_SetUrlCacheEntryGroup(lpszurlname, dwflags.toInt(), groupid, pbgroupattributes, cbgroupattributes.toInt(), lpreserved)
+public actual fun setUrlCacheEntryGroup(lpszurlname: Pcstr, dwflags: UInt, groupid: Long, pbgroupattributes: COpaquePointer?, cbgroupattributes: UInt, lpreserved: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_setUrlCacheEntryGroup((lpszurlname?.value ?: 0L), dwflags.toInt(), groupid, (pbgroupattributes?.value ?: 0L), cbgroupattributes.toInt(), (lpreserved?.value ?: 0L))
 
-public actual fun SetUrlCacheEntryGroupA(lpszurlname: PCSTR, dwflags: UInt, groupid: Long, pbgroupattributes: Long, cbgroupattributes: UInt, lpreserved: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_SetUrlCacheEntryGroupA(lpszurlname, dwflags.toInt(), groupid, pbgroupattributes, cbgroupattributes.toInt(), lpreserved)
+public actual fun setUrlCacheEntryGroupA(lpszurlname: Pcstr, dwflags: UInt, groupid: Long, pbgroupattributes: COpaquePointer?, cbgroupattributes: UInt, lpreserved: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_setUrlCacheEntryGroupA((lpszurlname?.value ?: 0L), dwflags.toInt(), groupid, (pbgroupattributes?.value ?: 0L), cbgroupattributes.toInt(), (lpreserved?.value ?: 0L))
 
-public actual fun SetUrlCacheEntryGroupW(lpszurlname: PCWSTR, dwflags: UInt, groupid: Long, pbgroupattributes: Long, cbgroupattributes: UInt, lpreserved: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_SetUrlCacheEntryGroupW(lpszurlname, dwflags.toInt(), groupid, pbgroupattributes, cbgroupattributes.toInt(), lpreserved)
+public actual fun setUrlCacheEntryGroupW(lpszurlname: Pcwstr, dwflags: UInt, groupid: Long, pbgroupattributes: COpaquePointer?, cbgroupattributes: UInt, lpreserved: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_setUrlCacheEntryGroupW((lpszurlname?.value ?: 0L), dwflags.toInt(), groupid, (pbgroupattributes?.value ?: 0L), cbgroupattributes.toInt(), (lpreserved?.value ?: 0L))
 
-public actual fun SetUrlCacheEntryInfoA(lpszurlname: PCSTR, lpcacheentryinfo: Long, dwfieldcontrol: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_SetUrlCacheEntryInfoA(lpszurlname, lpcacheentryinfo, dwfieldcontrol.toInt())
+public actual fun setUrlCacheEntryInfoA(lpszurlname: Pcstr, lpcacheentryinfo: COpaquePointer?, dwfieldcontrol: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_setUrlCacheEntryInfoA((lpszurlname?.value ?: 0L), (lpcacheentryinfo?.value ?: 0L), dwfieldcontrol.toInt())
 
-public actual fun SetUrlCacheEntryInfoW(lpszurlname: PCWSTR, lpcacheentryinfo: Long, dwfieldcontrol: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_SetUrlCacheEntryInfoW(lpszurlname, lpcacheentryinfo, dwfieldcontrol.toInt())
+public actual fun setUrlCacheEntryInfoW(lpszurlname: Pcwstr, lpcacheentryinfo: COpaquePointer?, dwfieldcontrol: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_setUrlCacheEntryInfoW((lpszurlname?.value ?: 0L), (lpcacheentryinfo?.value ?: 0L), dwfieldcontrol.toInt())
 
-public actual fun SetUrlCacheGroupAttributeA(gid: Long, dwflags: UInt, dwattributes: UInt, lpgroupinfo: Long, lpreserved: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_SetUrlCacheGroupAttributeA(gid, dwflags.toInt(), dwattributes.toInt(), lpgroupinfo, lpreserved)
+public actual fun setUrlCacheGroupAttributeA(gid: Long, dwflags: UInt, dwattributes: UInt, lpgroupinfo: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_setUrlCacheGroupAttributeA(gid, dwflags.toInt(), dwattributes.toInt(), (lpgroupinfo?.value ?: 0L), (lpreserved?.value ?: 0L))
 
-public actual fun SetUrlCacheGroupAttributeW(gid: Long, dwflags: UInt, dwattributes: UInt, lpgroupinfo: Long, lpreserved: Long): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_SetUrlCacheGroupAttributeW(gid, dwflags.toInt(), dwattributes.toInt(), lpgroupinfo, lpreserved)
+public actual fun setUrlCacheGroupAttributeW(gid: Long, dwflags: UInt, dwattributes: UInt, lpgroupinfo: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_setUrlCacheGroupAttributeW(gid, dwflags.toInt(), dwattributes.toInt(), (lpgroupinfo?.value ?: 0L), (lpreserved?.value ?: 0L))
 
-public actual fun SetUrlCacheHeaderData(nidx: UInt, dwdata: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_SetUrlCacheHeaderData(nidx.toInt(), dwdata.toInt())
+public actual fun setUrlCacheHeaderData(nidx: UInt, dwdata: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_setUrlCacheHeaderData(nidx.toInt(), dwdata.toInt())
 
-public actual fun ShowClientAuthCerts(hwndparent: HWND): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_ShowClientAuthCerts(hwndparent).toUInt()
+public actual fun showClientAuthCerts(hwndparent: Hwnd): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_showClientAuthCerts((hwndparent?.value ?: 0L)).toUInt()
 
-public actual fun ShowSecurityInfo(hwndparent: HWND, psecurityinfo: Long): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_ShowSecurityInfo(hwndparent, psecurityinfo).toUInt()
+public actual fun showSecurityInfo(hwndparent: Hwnd, psecurityinfo: COpaquePointer?): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_showSecurityInfo((hwndparent?.value ?: 0L), (psecurityinfo?.value ?: 0L)).toUInt()
 
-public actual fun ShowX509EncodedCertificate(hwndparent: HWND, lpcert: Long, cbcert: UInt): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_ShowX509EncodedCertificate(hwndparent, lpcert, cbcert.toInt()).toUInt()
+public actual fun showX509EncodedCertificate(hwndparent: Hwnd, lpcert: COpaquePointer?, cbcert: UInt): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_showX509EncodedCertificate((hwndparent?.value ?: 0L), (lpcert?.value ?: 0L), cbcert.toInt()).toUInt()
 
-public actual fun UnlockUrlCacheEntryFile(lpszurlname: PCSTR, dwreserved: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_UnlockUrlCacheEntryFile(lpszurlname, dwreserved.toInt())
+public actual fun unlockUrlCacheEntryFile(lpszurlname: Pcstr, dwreserved: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryFile((lpszurlname?.value ?: 0L), dwreserved.toInt())
 
-public actual fun UnlockUrlCacheEntryFileA(lpszurlname: PCSTR, dwreserved: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_UnlockUrlCacheEntryFileA(lpszurlname, dwreserved.toInt())
+public actual fun unlockUrlCacheEntryFileA(lpszurlname: Pcstr, dwreserved: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryFileA((lpszurlname?.value ?: 0L), dwreserved.toInt())
 
-public actual fun UnlockUrlCacheEntryFileW(lpszurlname: PCWSTR, dwreserved: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_UnlockUrlCacheEntryFileW(lpszurlname, dwreserved.toInt())
+public actual fun unlockUrlCacheEntryFileW(lpszurlname: Pcwstr, dwreserved: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryFileW((lpszurlname?.value ?: 0L), dwreserved.toInt())
 
-public actual fun UnlockUrlCacheEntryStream(hurlcachestream: HANDLE, reserved: UInt): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_UnlockUrlCacheEntryStream(hurlcachestream, reserved.toInt())
+public actual fun unlockUrlCacheEntryStream(hurlcachestream: Handle, reserved: UInt): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_unlockUrlCacheEntryStream((hurlcachestream?.value ?: 0L), reserved.toInt())
 
-public actual fun UpdateUrlCacheContentPath(sznewpath: PCSTR): BOOL =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_UpdateUrlCacheContentPath(sznewpath)
+public actual fun updateUrlCacheContentPath(sznewpath: Pcstr): Bool =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_updateUrlCacheContentPath((sznewpath?.value ?: 0L))
 
-public actual fun UrlCacheCheckEntriesExist(rgpwszurls: Long, centries: UInt, rgfexist: Long): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_UrlCacheCheckEntriesExist(rgpwszurls, centries.toInt(), rgfexist).toUInt()
+public actual fun urlCacheCheckEntriesExist(rgpwszurls: COpaquePointer?, centries: UInt, rgfexist: COpaquePointer?): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_urlCacheCheckEntriesExist((rgpwszurls?.value ?: 0L), centries.toInt(), (rgfexist?.value ?: 0L)).toUInt()
 
-public actual fun UrlCacheCloseEntryHandle(hentryfile: Long) {
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_UrlCacheCloseEntryHandle(hentryfile)
+public actual fun urlCacheCloseEntryHandle(hentryfile: COpaquePointer?) {
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_urlCacheCloseEntryHandle((hentryfile?.value ?: 0L))
 }
 
-public actual fun UrlCacheContainerSetEntryMaximumAge(pwszprefix: PCWSTR, dwentrymaxage: UInt): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_UrlCacheContainerSetEntryMaximumAge(pwszprefix, dwentrymaxage.toInt()).toUInt()
+public actual fun urlCacheContainerSetEntryMaximumAge(pwszprefix: Pcwstr, dwentrymaxage: UInt): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_urlCacheContainerSetEntryMaximumAge((pwszprefix?.value ?: 0L), dwentrymaxage.toInt()).toUInt()
 
-public actual fun UrlCacheCreateContainer(pwszname: PCWSTR, pwszprefix: PCWSTR, pwszdirectory: PCWSTR, ulllimit: ULong, dwoptions: UInt): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_UrlCacheCreateContainer(pwszname, pwszprefix, pwszdirectory, ulllimit.toLong(), dwoptions.toInt()).toUInt()
+public actual fun urlCacheCreateContainer(pwszname: Pcwstr, pwszprefix: Pcwstr, pwszdirectory: Pcwstr, ulllimit: ULong, dwoptions: UInt): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_urlCacheCreateContainer((pwszname?.value ?: 0L), (pwszprefix?.value ?: 0L), (pwszdirectory?.value ?: 0L), ulllimit.toLong(), dwoptions.toInt()).toUInt()
 
-public actual fun UrlCacheFindFirstEntry(pwszprefix: PCWSTR, dwflags: UInt, dwfilter: UInt, groupid: Long, pcacheentryinfo: Long, phfind: Long): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_UrlCacheFindFirstEntry(pwszprefix, dwflags.toInt(), dwfilter.toInt(), groupid, pcacheentryinfo, phfind).toUInt()
+public actual fun urlCacheFindFirstEntry(pwszprefix: Pcwstr, dwflags: UInt, dwfilter: UInt, groupid: Long, pcacheentryinfo: COpaquePointer?, phfind: COpaquePointer?): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_urlCacheFindFirstEntry((pwszprefix?.value ?: 0L), dwflags.toInt(), dwfilter.toInt(), groupid, (pcacheentryinfo?.value ?: 0L), (phfind?.value ?: 0L)).toUInt()
 
-public actual fun UrlCacheFindNextEntry(hfind: HANDLE, pcacheentryinfo: Long): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_UrlCacheFindNextEntry(hfind, pcacheentryinfo).toUInt()
+public actual fun urlCacheFindNextEntry(hfind: Handle, pcacheentryinfo: COpaquePointer?): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_urlCacheFindNextEntry((hfind?.value ?: 0L), (pcacheentryinfo?.value ?: 0L)).toUInt()
 
-public actual fun UrlCacheFreeEntryInfo(pcacheentryinfo: Long) {
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_UrlCacheFreeEntryInfo(pcacheentryinfo)
+public actual fun urlCacheFreeEntryInfo(pcacheentryinfo: COpaquePointer?) {
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_urlCacheFreeEntryInfo((pcacheentryinfo?.value ?: 0L))
 }
 
-public actual fun UrlCacheFreeGlobalSpace(ulltargetsize: ULong, dwfilter: UInt): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_UrlCacheFreeGlobalSpace(ulltargetsize.toLong(), dwfilter.toInt()).toUInt()
+public actual fun urlCacheFreeGlobalSpace(ulltargetsize: ULong, dwfilter: UInt): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_urlCacheFreeGlobalSpace(ulltargetsize.toLong(), dwfilter.toInt()).toUInt()
 
-public actual fun UrlCacheGetContentPaths(pppwszdirectories: Long, pcdirectories: Long): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_UrlCacheGetContentPaths(pppwszdirectories, pcdirectories).toUInt()
+public actual fun urlCacheGetContentPaths(pppwszdirectories: COpaquePointer?, pcdirectories: COpaquePointer?): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_urlCacheGetContentPaths((pppwszdirectories?.value ?: 0L), (pcdirectories?.value ?: 0L)).toUInt()
 
-public actual fun UrlCacheGetEntryInfo(happcache: Long, pcwszurl: PCWSTR, pcacheentryinfo: Long): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_UrlCacheGetEntryInfo(happcache, pcwszurl, pcacheentryinfo).toUInt()
+public actual fun urlCacheGetEntryInfo(happcache: COpaquePointer?, pcwszurl: Pcwstr, pcacheentryinfo: COpaquePointer?): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_urlCacheGetEntryInfo((happcache?.value ?: 0L), (pcwszurl?.value ?: 0L), (pcacheentryinfo?.value ?: 0L)).toUInt()
 
-public actual fun UrlCacheGetGlobalCacheSize(dwfilter: UInt, pullsize: Long, pulllimit: Long): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_UrlCacheGetGlobalCacheSize(dwfilter.toInt(), pullsize, pulllimit).toUInt()
+public actual fun urlCacheGetGlobalCacheSize(dwfilter: UInt, pullsize: COpaquePointer?, pulllimit: COpaquePointer?): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_urlCacheGetGlobalCacheSize(dwfilter.toInt(), (pullsize?.value ?: 0L), (pulllimit?.value ?: 0L)).toUInt()
 
-public actual fun UrlCacheGetGlobalLimit(limittype: URL_CACHE_LIMIT_TYPE, pulllimit: Long): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_UrlCacheGetGlobalLimit(limittype, pulllimit).toUInt()
+public actual fun urlCacheGetGlobalLimit(limittype: UrlCacheLimitType, pulllimit: COpaquePointer?): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_urlCacheGetGlobalLimit(limittype, (pulllimit?.value ?: 0L)).toUInt()
 
-public actual fun UrlCacheReadEntryStream(hurlcachestream: Long, ulllocation: ULong, pbuffer: Long, dwbufferlen: UInt, pdwbufferlen: Long): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_UrlCacheReadEntryStream(hurlcachestream, ulllocation.toLong(), pbuffer, dwbufferlen.toInt(), pdwbufferlen).toUInt()
+public actual fun urlCacheReadEntryStream(hurlcachestream: COpaquePointer?, ulllocation: ULong, pbuffer: COpaquePointer?, dwbufferlen: UInt, pdwbufferlen: COpaquePointer?): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_urlCacheReadEntryStream((hurlcachestream?.value ?: 0L), ulllocation.toLong(), (pbuffer?.value ?: 0L), dwbufferlen.toInt(), (pdwbufferlen?.value ?: 0L)).toUInt()
 
-public actual fun UrlCacheReloadSettings(): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_UrlCacheReloadSettings().toUInt()
+public actual fun urlCacheReloadSettings(): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_urlCacheReloadSettings().toUInt()
 
-public actual fun UrlCacheRetrieveEntryFile(happcache: Long, pcwszurl: PCWSTR, pcacheentryinfo: Long, phentryfile: Long): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_UrlCacheRetrieveEntryFile(happcache, pcwszurl, pcacheentryinfo, phentryfile).toUInt()
+public actual fun urlCacheRetrieveEntryFile(happcache: COpaquePointer?, pcwszurl: Pcwstr, pcacheentryinfo: COpaquePointer?, phentryfile: COpaquePointer?): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_urlCacheRetrieveEntryFile((happcache?.value ?: 0L), (pcwszurl?.value ?: 0L), (pcacheentryinfo?.value ?: 0L), (phentryfile?.value ?: 0L)).toUInt()
 
-public actual fun UrlCacheRetrieveEntryStream(happcache: Long, pcwszurl: PCWSTR, frandomread: BOOL, pcacheentryinfo: Long, phentrystream: Long): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_UrlCacheRetrieveEntryStream(happcache, pcwszurl, frandomread, pcacheentryinfo, phentrystream).toUInt()
+public actual fun urlCacheRetrieveEntryStream(happcache: COpaquePointer?, pcwszurl: Pcwstr, frandomread: Bool, pcacheentryinfo: COpaquePointer?, phentrystream: COpaquePointer?): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_urlCacheRetrieveEntryStream((happcache?.value ?: 0L), (pcwszurl?.value ?: 0L), frandomread, (pcacheentryinfo?.value ?: 0L), (phentrystream?.value ?: 0L)).toUInt()
 
-public actual fun UrlCacheServer(): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_UrlCacheServer().toUInt()
+public actual fun urlCacheServer(): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_urlCacheServer().toUInt()
 
-public actual fun UrlCacheSetGlobalLimit(limittype: URL_CACHE_LIMIT_TYPE, ulllimit: ULong): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_UrlCacheSetGlobalLimit(limittype, ulllimit.toLong()).toUInt()
+public actual fun urlCacheSetGlobalLimit(limittype: UrlCacheLimitType, ulllimit: ULong): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_urlCacheSetGlobalLimit(limittype, ulllimit.toLong()).toUInt()
 
-public actual fun UrlCacheUpdateEntryExtraData(happcache: Long, pcwszurl: PCWSTR, pbextradata: Long, cbextradata: UInt): UInt =
-    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_UrlCacheUpdateEntryExtraData(happcache, pcwszurl, pbextradata, cbextradata.toInt()).toUInt()
+public actual fun urlCacheUpdateEntryExtraData(happcache: COpaquePointer?, pcwszurl: Pcwstr, pbextradata: COpaquePointer?, cbextradata: UInt): UInt =
+    WindowsWin32NetworkingWininetJniBridge.windowssys_windows_win32_networking_wininet_urlCacheUpdateEntryExtraData((happcache?.value ?: 0L), (pcwszurl?.value ?: 0L), (pbextradata?.value ?: 0L), cbextradata.toInt()).toUInt()

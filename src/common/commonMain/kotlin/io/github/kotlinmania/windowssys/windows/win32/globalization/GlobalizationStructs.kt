@@ -1,138 +1,139 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.globalization
 
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.AXESLISTA
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.AXESLISTW
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.NEWTEXTMETRICA
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.NEWTEXTMETRICW
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Axeslista
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Axeslistw
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Newtextmetrica
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Newtextmetricw
 
-public data class CALDATETIME(
-    public var CalId: UInt = 0u,
-    public var Era: UInt = 0u,
-    public var Year: UInt = 0u,
-    public var Month: UInt = 0u,
-    public var Day: UInt = 0u,
-    public var DayOfWeek: UInt = 0u,
-    public var Hour: UInt = 0u,
-    public var Minute: UInt = 0u,
-    public var Second: UInt = 0u,
-    public var Tick: UInt = 0u,
+public data class Caldatetime(
+    public var calId: UInt = 0u,
+    public var era: UInt = 0u,
+    public var year: UInt = 0u,
+    public var month: UInt = 0u,
+    public var day: UInt = 0u,
+    public var dayOfWeek: UInt = 0u,
+    public var hour: UInt = 0u,
+    public var minute: UInt = 0u,
+    public var second: UInt = 0u,
+    public var tick: UInt = 0u,
 )
 
-public data class CHARSETINFO(
+public data class Charsetinfo(
     public var ciCharset: UInt = 0u,
     public var ciACP: UInt = 0u,
-    public var fs: FONTSIGNATURE = FONTSIGNATURE(),
+    public var fs: Fontsignature = Fontsignature(),
 )
 
-public data class CPINFO(
-    public var MaxCharSize: UInt = 0u,
-    public var DefaultChar: UByteArray = UByteArray(2),
-    public var LeadByte: UByteArray = UByteArray(12),
+public data class Cpinfo(
+    public var maxCharSize: UInt = 0u,
+    public var defaultChar: UByteArray = UByteArray(2),
+    public var leadByte: UByteArray = UByteArray(12),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CPINFO) return false
-        if (this.MaxCharSize != other.MaxCharSize) return false
-        if (!this.DefaultChar.contentEquals(other.DefaultChar)) return false
-        if (!this.LeadByte.contentEquals(other.LeadByte)) return false
+        if (other !is Cpinfo) return false
+        if (this.maxCharSize != other.maxCharSize) return false
+        if (!this.defaultChar.contentEquals(other.defaultChar)) return false
+        if (!this.leadByte.contentEquals(other.leadByte)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.MaxCharSize.hashCode()
-        result = 31 * result + this.DefaultChar.contentHashCode()
-        result = 31 * result + this.LeadByte.contentHashCode()
+        var result = this.maxCharSize.hashCode()
+        result = 31 * result + this.defaultChar.contentHashCode()
+        result = 31 * result + this.leadByte.contentHashCode()
         return result
     }
 }
 
-public data class CPINFOEXA(
-    public var MaxCharSize: UInt = 0u,
-    public var DefaultChar: UByteArray = UByteArray(2),
-    public var LeadByte: UByteArray = UByteArray(12),
-    public var UnicodeDefaultChar: UShort = 0u,
-    public var CodePage: UInt = 0u,
-    public var CodePageName: ByteArray = ByteArray(260),
+public data class Cpinfoexa(
+    public var maxCharSize: UInt = 0u,
+    public var defaultChar: UByteArray = UByteArray(2),
+    public var leadByte: UByteArray = UByteArray(12),
+    public var unicodeDefaultChar: UShort = 0u,
+    public var codePage: UInt = 0u,
+    public var codePageName: ByteArray = ByteArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CPINFOEXA) return false
-        if (this.MaxCharSize != other.MaxCharSize) return false
-        if (!this.DefaultChar.contentEquals(other.DefaultChar)) return false
-        if (!this.LeadByte.contentEquals(other.LeadByte)) return false
-        if (this.UnicodeDefaultChar != other.UnicodeDefaultChar) return false
-        if (this.CodePage != other.CodePage) return false
-        if (!this.CodePageName.contentEquals(other.CodePageName)) return false
+        if (other !is Cpinfoexa) return false
+        if (this.maxCharSize != other.maxCharSize) return false
+        if (!this.defaultChar.contentEquals(other.defaultChar)) return false
+        if (!this.leadByte.contentEquals(other.leadByte)) return false
+        if (this.unicodeDefaultChar != other.unicodeDefaultChar) return false
+        if (this.codePage != other.codePage) return false
+        if (!this.codePageName.contentEquals(other.codePageName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.MaxCharSize.hashCode()
-        result = 31 * result + this.DefaultChar.contentHashCode()
-        result = 31 * result + this.LeadByte.contentHashCode()
-        result = 31 * result + this.UnicodeDefaultChar.hashCode()
-        result = 31 * result + this.CodePage.hashCode()
-        result = 31 * result + this.CodePageName.contentHashCode()
+        var result = this.maxCharSize.hashCode()
+        result = 31 * result + this.defaultChar.contentHashCode()
+        result = 31 * result + this.leadByte.contentHashCode()
+        result = 31 * result + this.unicodeDefaultChar.hashCode()
+        result = 31 * result + this.codePage.hashCode()
+        result = 31 * result + this.codePageName.contentHashCode()
         return result
     }
 }
 
-public data class CPINFOEXW(
-    public var MaxCharSize: UInt = 0u,
-    public var DefaultChar: UByteArray = UByteArray(2),
-    public var LeadByte: UByteArray = UByteArray(12),
-    public var UnicodeDefaultChar: UShort = 0u,
-    public var CodePage: UInt = 0u,
-    public var CodePageName: UShortArray = UShortArray(260),
+public data class Cpinfoexw(
+    public var maxCharSize: UInt = 0u,
+    public var defaultChar: UByteArray = UByteArray(2),
+    public var leadByte: UByteArray = UByteArray(12),
+    public var unicodeDefaultChar: UShort = 0u,
+    public var codePage: UInt = 0u,
+    public var codePageName: UShortArray = UShortArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CPINFOEXW) return false
-        if (this.MaxCharSize != other.MaxCharSize) return false
-        if (!this.DefaultChar.contentEquals(other.DefaultChar)) return false
-        if (!this.LeadByte.contentEquals(other.LeadByte)) return false
-        if (this.UnicodeDefaultChar != other.UnicodeDefaultChar) return false
-        if (this.CodePage != other.CodePage) return false
-        if (!this.CodePageName.contentEquals(other.CodePageName)) return false
+        if (other !is Cpinfoexw) return false
+        if (this.maxCharSize != other.maxCharSize) return false
+        if (!this.defaultChar.contentEquals(other.defaultChar)) return false
+        if (!this.leadByte.contentEquals(other.leadByte)) return false
+        if (this.unicodeDefaultChar != other.unicodeDefaultChar) return false
+        if (this.codePage != other.codePage) return false
+        if (!this.codePageName.contentEquals(other.codePageName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.MaxCharSize.hashCode()
-        result = 31 * result + this.DefaultChar.contentHashCode()
-        result = 31 * result + this.LeadByte.contentHashCode()
-        result = 31 * result + this.UnicodeDefaultChar.hashCode()
-        result = 31 * result + this.CodePage.hashCode()
-        result = 31 * result + this.CodePageName.contentHashCode()
+        var result = this.maxCharSize.hashCode()
+        result = 31 * result + this.defaultChar.contentHashCode()
+        result = 31 * result + this.leadByte.contentHashCode()
+        result = 31 * result + this.unicodeDefaultChar.hashCode()
+        result = 31 * result + this.codePage.hashCode()
+        result = 31 * result + this.codePageName.contentHashCode()
         return result
     }
 }
 
-public data class CURRENCYFMTA(
-    public var NumDigits: UInt = 0u,
-    public var LeadingZero: UInt = 0u,
-    public var Grouping: UInt = 0u,
-    public var lpDecimalSep: PSTR = 0L,
-    public var lpThousandSep: PSTR = 0L,
-    public var NegativeOrder: UInt = 0u,
-    public var PositiveOrder: UInt = 0u,
-    public var lpCurrencySymbol: PSTR = 0L,
+public data class Currencyfmta(
+    public var numDigits: UInt = 0u,
+    public var leadingZero: UInt = 0u,
+    public var grouping: UInt = 0u,
+    public var lpDecimalSep: Pstr = null,
+    public var lpThousandSep: Pstr = null,
+    public var negativeOrder: UInt = 0u,
+    public var positiveOrder: UInt = 0u,
+    public var lpCurrencySymbol: Pstr = null,
 )
 
-public data class CURRENCYFMTW(
-    public var NumDigits: UInt = 0u,
-    public var LeadingZero: UInt = 0u,
-    public var Grouping: UInt = 0u,
-    public var lpDecimalSep: PWSTR = 0L,
-    public var lpThousandSep: PWSTR = 0L,
-    public var NegativeOrder: UInt = 0u,
-    public var PositiveOrder: UInt = 0u,
-    public var lpCurrencySymbol: PWSTR = 0L,
+public data class Currencyfmtw(
+    public var numDigits: UInt = 0u,
+    public var leadingZero: UInt = 0u,
+    public var grouping: UInt = 0u,
+    public var lpDecimalSep: Pwstr = null,
+    public var lpThousandSep: Pwstr = null,
+    public var negativeOrder: UInt = 0u,
+    public var positiveOrder: UInt = 0u,
+    public var lpCurrencySymbol: Pwstr = null,
 )
 
 public data class DetectEncodingInfo(
@@ -142,11 +143,11 @@ public data class DetectEncodingInfo(
     public var nConfidence: Int = 0,
 )
 
-public data class ENUMTEXTMETRICA(public var etmNewTextMetricEx: NEWTEXTMETRICEXA = NEWTEXTMETRICEXA(), public var etmAxesList: AXESLISTA = AXESLISTA())
+public data class Enumtextmetrica(public var etmNewTextMetricEx: Newtextmetricexa = Newtextmetricexa(), public var etmAxesList: Axeslista = Axeslista())
 
-public data class ENUMTEXTMETRICW(public var etmNewTextMetricEx: NEWTEXTMETRICEXW = NEWTEXTMETRICEXW(), public var etmAxesList: AXESLISTW = AXESLISTW())
+public data class Enumtextmetricw(public var etmNewTextMetricEx: Newtextmetricexw = Newtextmetricexw(), public var etmAxesList: Axeslistw = Axeslistw())
 
-public data class FILEMUIINFO(
+public data class Filemuiinfo(
     public var dwSize: UInt = 0u,
     public var dwVersion: UInt = 0u,
     public var dwFileType: UInt = 0u,
@@ -163,7 +164,7 @@ public data class FILEMUIINFO(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is FILEMUIINFO) return false
+        if (other !is Filemuiinfo) return false
         if (this.dwSize != other.dwSize) return false
         if (this.dwVersion != other.dwVersion) return false
         if (this.dwFileType != other.dwFileType) return false
@@ -198,10 +199,10 @@ public data class FILEMUIINFO(
     }
 }
 
-public data class FONTSIGNATURE(public var fsUsb: UIntArray = UIntArray(4), public var fsCsb: UIntArray = UIntArray(2)) {
+public data class Fontsignature(public var fsUsb: UIntArray = UIntArray(4), public var fsCsb: UIntArray = UIntArray(2)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is FONTSIGNATURE) return false
+        if (other !is Fontsignature) return false
         if (!this.fsUsb.contentEquals(other.fsUsb)) return false
         if (!this.fsCsb.contentEquals(other.fsCsb)) return false
         return true
@@ -214,16 +215,16 @@ public data class FONTSIGNATURE(public var fsUsb: UIntArray = UIntArray(4), publ
     }
 }
 
-public data class GOFFSET(public var du: Int = 0, public var dv: Int = 0)
+public data class Goffset(public var du: Int = 0, public var dv: Int = 0)
 
-public data class LOCALESIGNATURE(
+public data class Localesignature(
     public var lsUsb: UIntArray = UIntArray(4),
     public var lsCsbDefault: UIntArray = UIntArray(2),
     public var lsCsbSupported: UIntArray = UIntArray(2),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is LOCALESIGNATURE) return false
+        if (other !is Localesignature) return false
         if (!this.lsUsb.contentEquals(other.lsUsb)) return false
         if (!this.lsCsbDefault.contentEquals(other.lsCsbDefault)) return false
         if (!this.lsCsbSupported.contentEquals(other.lsCsbSupported)) return false
@@ -238,91 +239,91 @@ public data class LOCALESIGNATURE(
     }
 }
 
-public data class MAPPING_DATA_RANGE(
+public data class MappingDataRange(
     public var dwStartIndex: UInt = 0u,
     public var dwEndIndex: UInt = 0u,
-    public var pszDescription: PWSTR = 0L,
+    public var pszDescription: Pwstr = null,
     public var dwDescriptionLength: UInt = 0u,
-    public var pData: Long = 0L,
+    public var pData: COpaquePointer? = null,
     public var dwDataSize: UInt = 0u,
-    public var pszContentType: PWSTR = 0L,
-    public var prgActionIds: Long = 0L,
+    public var pszContentType: Pwstr = null,
+    public var prgActionIds: Pwstr? = null,
     public var dwActionsCount: UInt = 0u,
-    public var prgActionDisplayNames: Long = 0L,
+    public var prgActionDisplayNames: Pwstr? = null,
 )
 
-public data class MAPPING_ENUM_OPTIONS(
-    public var Size: ULong = 0uL,
-    public var pszCategory: PWSTR = 0L,
-    public var pszInputLanguage: PWSTR = 0L,
-    public var pszOutputLanguage: PWSTR = 0L,
-    public var pszInputScript: PWSTR = 0L,
-    public var pszOutputScript: PWSTR = 0L,
-    public var pszInputContentType: PWSTR = 0L,
-    public var pszOutputContentType: PWSTR = 0L,
-    public var pGuid: Long = 0L,
-    public var _bitfield: UInt = 0u,
+public data class MappingEnumOptions(
+    public var size: Int = 0,
+    public var pszCategory: Pwstr = null,
+    public var pszInputLanguage: Pwstr = null,
+    public var pszOutputLanguage: Pwstr = null,
+    public var pszInputScript: Pwstr = null,
+    public var pszOutputScript: Pwstr = null,
+    public var pszInputContentType: Pwstr = null,
+    public var pszOutputContentType: Pwstr = null,
+    public var pGuid: Guid? = null,
+    public var bitfield: UInt = 0u,
 )
 
-public data class MAPPING_OPTIONS(
-    public var Size: ULong = 0uL,
-    public var pszInputLanguage: PWSTR = 0L,
-    public var pszOutputLanguage: PWSTR = 0L,
-    public var pszInputScript: PWSTR = 0L,
-    public var pszOutputScript: PWSTR = 0L,
-    public var pszInputContentType: PWSTR = 0L,
-    public var pszOutputContentType: PWSTR = 0L,
-    public var pszUILanguage: PWSTR = 0L,
-    public var pfnRecognizeCallback: PFN_MAPPINGCALLBACKPROC = null,
-    public var pRecognizeCallerData: Long = 0L,
+public data class MappingOptions(
+    public var size: Int = 0,
+    public var pszInputLanguage: Pwstr = null,
+    public var pszOutputLanguage: Pwstr = null,
+    public var pszInputScript: Pwstr = null,
+    public var pszOutputScript: Pwstr = null,
+    public var pszInputContentType: Pwstr = null,
+    public var pszOutputContentType: Pwstr = null,
+    public var pszUILanguage: Pwstr = null,
+    public var pfnRecognizeCallback: PfnMappingcallbackproc = null,
+    public var pRecognizeCallerData: COpaquePointer? = null,
     public var dwRecognizeCallerDataSize: UInt = 0u,
-    public var pfnActionCallback: PFN_MAPPINGCALLBACKPROC = null,
-    public var pActionCallerData: Long = 0L,
+    public var pfnActionCallback: PfnMappingcallbackproc = null,
+    public var pActionCallerData: COpaquePointer? = null,
     public var dwActionCallerDataSize: UInt = 0u,
     public var dwServiceFlag: UInt = 0u,
-    public var _bitfield: UInt = 0u,
+    public var bitfield: UInt = 0u,
 )
 
-public data class MAPPING_PROPERTY_BAG(
-    public var Size: ULong = 0uL,
-    public var prgResultRanges: Long = 0L,
+public data class MappingPropertyBag(
+    public var size: Int = 0,
+    public var prgResultRanges: MappingDataRange? = null,
     public var dwRangesCount: UInt = 0u,
-    public var pServiceData: Long = 0L,
+    public var pServiceData: COpaquePointer? = null,
     public var dwServiceDataSize: UInt = 0u,
-    public var pCallerData: Long = 0L,
+    public var pCallerData: COpaquePointer? = null,
     public var dwCallerDataSize: UInt = 0u,
-    public var pContext: Long = 0L,
+    public var pContext: COpaquePointer? = null,
 )
 
-public class MAPPING_SERVICE_INFO(
-    public var Size: ULong = 0uL,
-    public var pszCopyright: PWSTR = 0L,
+public class MappingServiceInfo(
+    public var size: Int = 0,
+    public var pszCopyright: Pwstr = null,
     public var wMajorVersion: UShort = 0u,
     public var wMinorVersion: UShort = 0u,
     public var wBuildVersion: UShort = 0u,
     public var wStepVersion: UShort = 0u,
     public var dwInputContentTypesCount: UInt = 0u,
-    public var prgInputContentTypes: Long = 0L,
+    public var prgInputContentTypes: Pwstr? = null,
     public var dwOutputContentTypesCount: UInt = 0u,
-    public var prgOutputContentTypes: Long = 0L,
+    public var prgOutputContentTypes: Pwstr? = null,
     public var dwInputLanguagesCount: UInt = 0u,
-    public var prgInputLanguages: Long = 0L,
+    public var prgInputLanguages: Pwstr? = null,
     public var dwOutputLanguagesCount: UInt = 0u,
-    public var prgOutputLanguages: Long = 0L,
+    public var prgOutputLanguages: Pwstr? = null,
     public var dwInputScriptsCount: UInt = 0u,
-    public var prgInputScripts: Long = 0L,
+    public var prgInputScripts: Pwstr? = null,
     public var dwOutputScriptsCount: UInt = 0u,
-    public var prgOutputScripts: Long = 0L,
-    public var guid: GUID = GUID(),
-    public var pszCategory: PWSTR = 0L,
-    public var pszDescription: PWSTR = 0L,
+    public var prgOutputScripts: Pwstr? = null,
+    public var guid: Guid = Guid(),
+    public var pszCategory: Pwstr = null,
+    public var pszDescription: Pwstr = null,
     public var dwPrivateDataSize: UInt = 0u,
-    public var pPrivateData: Long = 0L,
-    public var pContext: Long = 0L,
-    public var _bitfield: UInt = 0u,
+    public var pPrivateData: COpaquePointer? = null,
+    public var pContext: COpaquePointer? = null,
+    public var bitfield: UInt = 0u,
 )
 
-public data class MIMECPINFO(
+public data class Mimecpinfo(
     public var dwFlags: UInt = 0u,
     public var uiCodePage: UInt = 0u,
     public var uiFamilyCodePage: UInt = 0u,
@@ -336,7 +337,7 @@ public data class MIMECPINFO(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIMECPINFO) return false
+        if (other !is Mimecpinfo) return false
         if (this.dwFlags != other.dwFlags) return false
         if (this.uiCodePage != other.uiCodePage) return false
         if (this.uiFamilyCodePage != other.uiFamilyCodePage) return false
@@ -365,14 +366,14 @@ public data class MIMECPINFO(
     }
 }
 
-public data class MIMECSETINFO(
+public data class Mimecsetinfo(
     public var uiCodePage: UInt = 0u,
     public var uiInternetEncoding: UInt = 0u,
     public var wszCharset: UShortArray = UShortArray(50),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MIMECSETINFO) return false
+        if (other !is Mimecsetinfo) return false
         if (this.uiCodePage != other.uiCodePage) return false
         if (this.uiInternetEncoding != other.uiInternetEncoding) return false
         if (!this.wszCharset.contentEquals(other.wszCharset)) return false
@@ -387,54 +388,54 @@ public data class MIMECSETINFO(
     }
 }
 
-public data class NEWTEXTMETRICEXA(public var ntmTm: NEWTEXTMETRICA = NEWTEXTMETRICA(), public var ntmFontSig: FONTSIGNATURE = FONTSIGNATURE())
+public data class Newtextmetricexa(public var ntmTm: Newtextmetrica = Newtextmetrica(), public var ntmFontSig: Fontsignature = Fontsignature())
 
-public data class NEWTEXTMETRICEXW(public var ntmTm: NEWTEXTMETRICW = NEWTEXTMETRICW(), public var ntmFontSig: FONTSIGNATURE = FONTSIGNATURE())
+public data class Newtextmetricexw(public var ntmTm: Newtextmetricw = Newtextmetricw(), public var ntmFontSig: Fontsignature = Fontsignature())
 
-public data class NLSVERSIONINFO(
+public data class Nlsversioninfo(
     public var dwNLSVersionInfoSize: UInt = 0u,
     public var dwNLSVersion: UInt = 0u,
     public var dwDefinedVersion: UInt = 0u,
     public var dwEffectiveId: UInt = 0u,
-    public var guidCustomVersion: GUID = GUID(),
+    public var guidCustomVersion: Guid = Guid(),
 )
 
-public data class NLSVERSIONINFOEX(
+public data class Nlsversioninfoex(
     public var dwNLSVersionInfoSize: UInt = 0u,
     public var dwNLSVersion: UInt = 0u,
     public var dwDefinedVersion: UInt = 0u,
     public var dwEffectiveId: UInt = 0u,
-    public var guidCustomVersion: GUID = GUID(),
+    public var guidCustomVersion: Guid = Guid(),
 )
 
-public data class NUMBERFMTA(
-    public var NumDigits: UInt = 0u,
-    public var LeadingZero: UInt = 0u,
-    public var Grouping: UInt = 0u,
-    public var lpDecimalSep: PSTR = 0L,
-    public var lpThousandSep: PSTR = 0L,
-    public var NegativeOrder: UInt = 0u,
+public data class Numberfmta(
+    public var numDigits: UInt = 0u,
+    public var leadingZero: UInt = 0u,
+    public var grouping: UInt = 0u,
+    public var lpDecimalSep: Pstr = null,
+    public var lpThousandSep: Pstr = null,
+    public var negativeOrder: UInt = 0u,
 )
 
-public data class NUMBERFMTW(
-    public var NumDigits: UInt = 0u,
-    public var LeadingZero: UInt = 0u,
-    public var Grouping: UInt = 0u,
-    public var lpDecimalSep: PWSTR = 0L,
-    public var lpThousandSep: PWSTR = 0L,
-    public var NegativeOrder: UInt = 0u,
+public data class Numberfmtw(
+    public var numDigits: UInt = 0u,
+    public var leadingZero: UInt = 0u,
+    public var grouping: UInt = 0u,
+    public var lpDecimalSep: Pwstr = null,
+    public var lpThousandSep: Pwstr = null,
+    public var negativeOrder: UInt = 0u,
 )
 
-public data class OPENTYPE_FEATURE_RECORD(public var tagFeature: UInt = 0u, public var lParameter: Int = 0)
+public data class OpentypeFeatureRecord(public var tagFeature: UInt = 0u, public var lParameter: Int = 0)
 
-public data class RFC1766INFO(
+public data class Rfc1766info(
     public var lcid: UInt = 0u,
     public var wszRfc1766: UShortArray = UShortArray(6),
     public var wszLocaleName: UShortArray = UShortArray(32),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is RFC1766INFO) return false
+        if (other !is Rfc1766info) return false
         if (this.lcid != other.lcid) return false
         if (!this.wszRfc1766.contentEquals(other.wszRfc1766)) return false
         if (!this.wszLocaleName.contentEquals(other.wszLocaleName)) return false
@@ -449,10 +450,10 @@ public data class RFC1766INFO(
     }
 }
 
-public data class SCRIPTFONTINFO(public var scripts: Long = 0L, public var wszFont: UShortArray = UShortArray(32)) {
+public data class Scriptfontinfo(public var scripts: Long = 0L, public var wszFont: UShortArray = UShortArray(32)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SCRIPTFONTINFO) return false
+        if (other !is Scriptfontinfo) return false
         if (this.scripts != other.scripts) return false
         if (!this.wszFont.contentEquals(other.wszFont)) return false
         return true
@@ -465,8 +466,8 @@ public data class SCRIPTFONTINFO(public var scripts: Long = 0L, public var wszFo
     }
 }
 
-public data class SCRIPTINFO(
-    public var ScriptId: UByte = 0u,
+public data class Scriptinfo(
+    public var scriptId: UByte = 0u,
     public var uiCodePage: UInt = 0u,
     public var wszDescription: UShortArray = UShortArray(48),
     public var wszFixedWidthFont: UShortArray = UShortArray(32),
@@ -474,8 +475,8 @@ public data class SCRIPTINFO(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SCRIPTINFO) return false
-        if (this.ScriptId != other.ScriptId) return false
+        if (other !is Scriptinfo) return false
+        if (this.scriptId != other.scriptId) return false
         if (this.uiCodePage != other.uiCodePage) return false
         if (!this.wszDescription.contentEquals(other.wszDescription)) return false
         if (!this.wszFixedWidthFont.contentEquals(other.wszFixedWidthFont)) return false
@@ -484,7 +485,7 @@ public data class SCRIPTINFO(
     }
 
     override fun hashCode(): Int {
-        var result = this.ScriptId.hashCode()
+        var result = this.scriptId.hashCode()
         result = 31 * result + this.uiCodePage.hashCode()
         result = 31 * result + this.wszDescription.contentHashCode()
         result = 31 * result + this.wszFixedWidthFont.contentHashCode()
@@ -493,19 +494,19 @@ public data class SCRIPTINFO(
     }
 }
 
-public data class SCRIPT_ANALYSIS(public var _bitfield: UShort = 0u, public var s: SCRIPT_STATE = SCRIPT_STATE())
+public data class ScriptAnalysis(public var bitfield: UShort = 0u, public var s: ScriptState = ScriptState())
 
-public data class SCRIPT_CHARPROP(public var _bitfield: UShort = 0u)
+public data class ScriptCharprop(public var bitfield: UShort = 0u)
 
-public data class SCRIPT_CONTROL(public var _bitfield: UInt = 0u)
+public data class ScriptControl(public var bitfield: UInt = 0u)
 
-public data class SCRIPT_DIGITSUBSTITUTE(
-    public var _bitfield1: UInt = 0u,
-    public var _bitfield2: UInt = 0u,
+public data class ScriptDigitsubstitute(
+    public var bitfield1: UInt = 0u,
+    public var bitfield2: UInt = 0u,
     public var dwReserved: UInt = 0u,
 )
 
-public data class SCRIPT_FONTPROPERTIES(
+public data class ScriptFontproperties(
     public var cBytes: Int = 0,
     public var wgBlank: UShort = 0u,
     public var wgDefault: UShort = 0u,
@@ -514,29 +515,29 @@ public data class SCRIPT_FONTPROPERTIES(
     public var iKashidaWidth: Int = 0,
 )
 
-public data class SCRIPT_GLYPHPROP(public var sva: SCRIPT_VISATTR = SCRIPT_VISATTR(), public var reserved: UShort = 0u)
+public data class ScriptGlyphprop(public var sva: ScriptVisattr = ScriptVisattr(), public var reserved: UShort = 0u)
 
-public data class SCRIPT_ITEM(public var iCharPos: Int = 0, public var a: SCRIPT_ANALYSIS = SCRIPT_ANALYSIS())
+public data class ScriptItem(public var iCharPos: Int = 0, public var a: ScriptAnalysis = ScriptAnalysis())
 
-public data class SCRIPT_LOGATTR(public var _bitfield: UByte = 0u)
+public data class ScriptLogattr(public var bitfield: UByte = 0u)
 
-public data class SCRIPT_PROPERTIES(public var _bitfield1: UInt = 0u, public var _bitfield2: UInt = 0u)
+public data class ScriptProperties(public var bitfield1: UInt = 0u, public var bitfield2: UInt = 0u)
 
-public data class SCRIPT_STATE(public var _bitfield: UShort = 0u)
+public data class ScriptState(public var bitfield: UShort = 0u)
 
-public data class SCRIPT_TABDEF(
+public data class ScriptTabdef(
     public var cTabStops: Int = 0,
     public var iScale: Int = 0,
-    public var pTabStops: Long = 0L,
+    public var pTabStops: Int? = null,
     public var iTabOrigin: Int = 0,
 )
 
-public data class SCRIPT_VISATTR(public var _bitfield: UShort = 0u)
+public data class ScriptVisattr(public var bitfield: UShort = 0u)
 
-public data class TEXTRANGE_PROPERTIES(public var potfRecords: Long = 0L, public var cotfRecords: Int = 0)
+public data class TextrangeProperties(public var potfRecords: OpentypeFeatureRecord? = null, public var cotfRecords: Int = 0)
 
 public data class UCPTrie(
-    public var index: Long = 0L,
+    public var index: UShort? = null,
     public var data: UCPTrieData = UCPTrieData(),
     public var indexLength: Int = 0,
     public var dataLength: Int = 0,
@@ -552,14 +553,14 @@ public data class UCPTrie(
 )
 
 public data class UCPTrieData(
-    public var ptr0: Long = 0L,
-    public var ptr16: Long = 0L,
-    public var ptr32: Long = 0L,
-    public var ptr8: Long = 0L,
+    public var ptr0: COpaquePointer? = null,
+    public var ptr16: UShort? = null,
+    public var ptr32: UInt? = null,
+    public var ptr8: COpaquePointer? = null,
 )
 
 public data class UCharIterator(
-    public var context: Long = 0L,
+    public var context: COpaquePointer? = null,
     public var length: Int = 0,
     public var start: Int = 0,
     public var index: Int = 0,
@@ -580,23 +581,23 @@ public data class UCharIterator(
 public data class UConverterFromUnicodeArgs(
     public var size: UShort = 0u,
     public var flush: Byte = 0,
-    public var converter: Long = 0L,
-    public var source: Long = 0L,
-    public var sourceLimit: Long = 0L,
-    public var target: PSTR = 0L,
-    public var targetLimit: PCSTR = 0L,
-    public var offsets: Long = 0L,
+    public var converter: Int? = null,
+    public var source: UShort? = null,
+    public var sourceLimit: UShort? = null,
+    public var target: Pstr = null,
+    public var targetLimit: Pcstr = null,
+    public var offsets: Int? = null,
 )
 
 public data class UConverterToUnicodeArgs(
     public var size: UShort = 0u,
     public var flush: Byte = 0,
-    public var converter: Long = 0L,
-    public var source: PCSTR = 0L,
-    public var sourceLimit: PCSTR = 0L,
-    public var target: Long = 0L,
-    public var targetLimit: Long = 0L,
-    public var offsets: Long = 0L,
+    public var converter: Int? = null,
+    public var source: Pcstr = null,
+    public var sourceLimit: Pcstr = null,
+    public var target: UShort? = null,
+    public var targetLimit: UShort? = null,
+    public var offsets: Int? = null,
 )
 
 public data class UFieldPosition(
@@ -614,7 +615,7 @@ public data class UIDNAInfo(
     public var reservedI3: Int = 0,
 )
 
-public data class UNICODERANGE(public var wcFrom: UShort = 0u, public var wcTo: UShort = 0u)
+public data class Unicoderange(public var wcFrom: UShort = 0u, public var wcTo: UShort = 0u)
 
 public data class UParseError(
     public var line: Int = 0,
@@ -642,16 +643,16 @@ public data class UParseError(
 }
 
 public data class UReplaceableCallbacks(
-    public var length: Long = 0L,
-    public var charAt: Long = 0L,
-    public var char32At: Long = 0L,
-    public var replace: Long = 0L,
-    public var extract: Long = 0L,
-    public var copy: Long = 0L,
+    public var length: Int = 0,
+    public var charAt: Int = 0,
+    public var char32At: Int = 0,
+    public var replace: Int = 0,
+    public var extract: Int = 0,
+    public var copy: Int = 0,
 )
 
 public data class USerializedSet(
-    public var array: Long = 0L,
+    public var array: UShort? = null,
     public var bmpLength: Int = 0,
     public var length: Int = 0,
     public var staticArray: UShortArray = UShortArray(8),
@@ -686,14 +687,14 @@ public class UText(
     public var chunkNativeStart: Long = 0L,
     public var chunkOffset: Int = 0,
     public var chunkLength: Int = 0,
-    public var chunkContents: Long = 0L,
-    public var pFuncs: Long = 0L,
-    public var pExtra: Long = 0L,
-    public var context: Long = 0L,
-    public var p: Long = 0L,
-    public var q: Long = 0L,
-    public var r: Long = 0L,
-    public var privP: Long = 0L,
+    public var chunkContents: UShort? = null,
+    public var pFuncs: UTextFuncs? = null,
+    public var pExtra: COpaquePointer? = null,
+    public var context: COpaquePointer? = null,
+    public var p: COpaquePointer? = null,
+    public var q: COpaquePointer? = null,
+    public var r: COpaquePointer? = null,
+    public var privP: COpaquePointer? = null,
     public var a: Long = 0L,
     public var b: Int = 0,
     public var c: Int = 0,

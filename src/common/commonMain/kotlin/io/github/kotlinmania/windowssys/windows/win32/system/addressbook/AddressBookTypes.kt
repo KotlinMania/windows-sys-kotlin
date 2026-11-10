@@ -1,110 +1,111 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.addressbook
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
 
-public fun interface CALLERRELEASEFn {
-    public operator fun invoke(ulcallerdata: UInt, lptbldata: Long, lpvue: Long)
+public fun interface CallerreleaseFn {
+    public operator fun invoke(ulcallerdata: UInt, lptbldata: COpaquePointer?, lpvue: COpaquePointer?)
 }
 
-public typealias CALLERRELEASE = CALLERRELEASEFn?
+public typealias Callerrelease = CallerreleaseFn?
 
 public typealias Gender = Int
 
-public fun interface LPALLOCATEBUFFERFn {
-    public operator fun invoke(cbsize: UInt, lppbuffer: Long): Int
+public fun interface LpallocatebufferFn {
+    public operator fun invoke(cbsize: UInt, lppbuffer: COpaquePointer?): Int
 }
 
-public typealias LPALLOCATEBUFFER = LPALLOCATEBUFFERFn?
+public typealias Lpallocatebuffer = LpallocatebufferFn?
 
-public fun interface LPALLOCATEMOREFn {
-    public operator fun invoke(cbsize: UInt, lpobject: Long, lppbuffer: Long): Int
+public fun interface LpallocatemoreFn {
+    public operator fun invoke(cbsize: UInt, lpobject: COpaquePointer?, lppbuffer: COpaquePointer?): Int
 }
 
-public typealias LPALLOCATEMORE = LPALLOCATEMOREFn?
+public typealias Lpallocatemore = LpallocatemoreFn?
 
-public fun interface LPCREATECONVERSATIONINDEXFn {
-    public operator fun invoke(cbparent: UInt, lpbparent: Long, lpcbconvindex: Long, lppbconvindex: Long): Int
+public fun interface LpcreateconversationindexFn {
+    public operator fun invoke(cbparent: UInt, lpbparent: COpaquePointer?, lpcbconvindex: COpaquePointer?, lppbconvindex: COpaquePointer?): Int
 }
 
-public typealias LPCREATECONVERSATIONINDEX = LPCREATECONVERSATIONINDEXFn?
+public typealias Lpcreateconversationindex = LpcreateconversationindexFn?
 
-public fun interface LPDISPATCHNOTIFICATIONSFn {
-    public operator fun invoke(ulflags: UInt): HRESULT
+public fun interface LpdispatchnotificationsFn {
+    public operator fun invoke(ulflags: UInt): Hresult
 }
 
-public typealias LPDISPATCHNOTIFICATIONS = LPDISPATCHNOTIFICATIONSFn?
+public typealias Lpdispatchnotifications = LpdispatchnotificationsFn?
 
-public fun interface LPFNABSDIFn {
-    public operator fun invoke(uluiparam: ULong, lpvmsg: Long): BOOL
+public fun interface LpfnabsdiFn {
+    public operator fun invoke(uluiparam: ULong, lpvmsg: COpaquePointer?): Bool
 }
 
-public typealias LPFNABSDI = LPFNABSDIFn?
+public typealias Lpfnabsdi = LpfnabsdiFn?
 
-public fun interface LPFNBUTTONFn {
-    public operator fun invoke(uluiparam: ULong, lpvcontext: Long, cbentryid: UInt, lpselection: Long, ulflags: UInt): Int
+public fun interface LpfnbuttonFn {
+    public operator fun invoke(uluiparam: ULong, lpvcontext: COpaquePointer?, cbentryid: UInt, lpselection: COpaquePointer?, ulflags: UInt): Int
 }
 
-public typealias LPFNBUTTON = LPFNBUTTONFn?
+public typealias Lpfnbutton = LpfnbuttonFn?
 
-public fun interface LPFNDISMISSFn {
-    public operator fun invoke(uluiparam: ULong, lpvcontext: Long)
+public fun interface LpfndismissFn {
+    public operator fun invoke(uluiparam: ULong, lpvcontext: COpaquePointer?)
 }
 
-public typealias LPFNDISMISS = LPFNDISMISSFn?
+public typealias Lpfndismiss = LpfndismissFn?
 
-public fun interface LPFREEBUFFERFn {
-    public operator fun invoke(lpbuffer: Long): UInt
+public fun interface LpfreebufferFn {
+    public operator fun invoke(lpbuffer: COpaquePointer?): UInt
 }
 
-public typealias LPFREEBUFFER = LPFREEBUFFERFn?
+public typealias Lpfreebuffer = LpfreebufferFn?
 
-public fun interface LPNOTIFCALLBACKFn {
-    public operator fun invoke(lpvcontext: Long, cnotification: UInt, lpnotifications: Long): Int
+public fun interface LpnotifcallbackFn {
+    public operator fun invoke(lpvcontext: COpaquePointer?, cnotification: UInt, lpnotifications: COpaquePointer?): Int
 }
 
-public typealias LPNOTIFCALLBACK = LPNOTIFCALLBACKFn?
+public typealias Lpnotifcallback = LpnotifcallbackFn?
 
-public fun interface LPOPENSTREAMONFILEFn {
-    public operator fun invoke(lpallocatebuffer: LPALLOCATEBUFFER, lpfreebuffer: LPFREEBUFFER, ulflags: UInt, lpszfilename: Long, lpszprefix: Long, lppstream: Long): HRESULT
+public fun interface LpopenstreamonfileFn {
+    public operator fun invoke(lpallocatebuffer: Lpallocatebuffer, lpfreebuffer: Lpfreebuffer, ulflags: UInt, lpszfilename: COpaquePointer?, lpszprefix: COpaquePointer?, lppstream: COpaquePointer?): Hresult
 }
 
-public typealias LPOPENSTREAMONFILE = LPOPENSTREAMONFILEFn?
+public typealias Lpopenstreamonfile = LpopenstreamonfileFn?
 
-public typealias LPWABACTIONITEM = Long
+public typealias Lpwabactionitem = Long
 
-public fun interface LPWABALLOCATEBUFFERFn {
-    public operator fun invoke(lpwabobject: Long, cbsize: UInt, lppbuffer: Long): Int
+public fun interface LpwaballocatebufferFn {
+    public operator fun invoke(lpwabobject: COpaquePointer?, cbsize: UInt, lppbuffer: COpaquePointer?): Int
 }
 
-public typealias LPWABALLOCATEBUFFER = LPWABALLOCATEBUFFERFn?
+public typealias Lpwaballocatebuffer = LpwaballocatebufferFn?
 
-public fun interface LPWABALLOCATEMOREFn {
-    public operator fun invoke(lpwabobject: Long, cbsize: UInt, lpobject: Long, lppbuffer: Long): Int
+public fun interface LpwaballocatemoreFn {
+    public operator fun invoke(lpwabobject: COpaquePointer?, cbsize: UInt, lpobject: COpaquePointer?, lppbuffer: COpaquePointer?): Int
 }
 
-public typealias LPWABALLOCATEMORE = LPWABALLOCATEMOREFn?
+public typealias Lpwaballocatemore = LpwaballocatemoreFn?
 
-public fun interface LPWABFREEBUFFERFn {
-    public operator fun invoke(lpwabobject: Long, lpbuffer: Long): UInt
+public fun interface LpwabfreebufferFn {
+    public operator fun invoke(lpwabobject: COpaquePointer?, lpbuffer: COpaquePointer?): UInt
 }
 
-public typealias LPWABFREEBUFFER = LPWABFREEBUFFERFn?
+public typealias Lpwabfreebuffer = LpwabfreebufferFn?
 
-public fun interface LPWABOPENFn {
-    public operator fun invoke(lppadrbook: Long, lppwabobject: Long, lpwp: Long, reserved2: UInt): HRESULT
+public fun interface LpwabopenFn {
+    public operator fun invoke(lppadrbook: COpaquePointer?, lppwabobject: COpaquePointer?, lpwp: COpaquePointer?, reserved2: UInt): Hresult
 }
 
-public typealias LPWABOPEN = LPWABOPENFn?
+public typealias Lpwabopen = LpwabopenFn?
 
-public fun interface LPWABOPENEXFn {
-    public operator fun invoke(lppadrbook: Long, lppwabobject: Long, lpwp: Long, reserved: UInt, fnallocatebuffer: LPALLOCATEBUFFER, fnallocatemore: LPALLOCATEMORE, fnfreebuffer: LPFREEBUFFER): HRESULT
+public fun interface LpwabopenexFn {
+    public operator fun invoke(lppadrbook: COpaquePointer?, lppwabobject: COpaquePointer?, lpwp: COpaquePointer?, reserved: UInt, fnallocatebuffer: Lpallocatebuffer, fnallocatemore: Lpallocatemore, fnfreebuffer: Lpfreebuffer): Hresult
 }
 
-public typealias LPWABOPENEX = LPWABOPENEXFn?
+public typealias Lpwabopenex = LpwabopenexFn?
 
-public fun interface PFNIDLEFn {
-    public operator fun invoke(param0: Long): BOOL
+public fun interface PfnidleFn {
+    public operator fun invoke(param0: COpaquePointer?): Bool
 }
 
-public typealias PFNIDLE = PFNIDLEFn?
+public typealias Pfnidle = PfnidleFn?

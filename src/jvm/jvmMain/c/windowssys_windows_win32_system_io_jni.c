@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_io_WindowsWin32SystemIoJniBridge_windowssys_1windows_1win32_1system_1io_1BindIoCompletionCallback(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jlong function, jint flags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_io_WindowsWin32SystemIoJniBridge_windowssys_1windows_1win32_1system_1io_1bindIoCompletionCallback(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jlong function, jint flags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -38,7 +38,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_io_WindowsWin32SystemIoJniBridge_windowssys_1windows_1win32_1system_1io_1CancelIo(JNIEnv* km_env, jclass km_clazz, jlong hfile) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_io_WindowsWin32SystemIoJniBridge_windowssys_1windows_1win32_1system_1io_1cancelIo(JNIEnv* km_env, jclass km_clazz, jlong hfile) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -56,7 +56,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_io_WindowsWin32SystemIoJniBridge_windowssys_1windows_1win32_1system_1io_1CancelIoEx(JNIEnv* km_env, jclass km_clazz, jlong hfile, jlong lpoverlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_io_WindowsWin32SystemIoJniBridge_windowssys_1windows_1win32_1system_1io_1cancelIoEx(JNIEnv* km_env, jclass km_clazz, jlong hfile, jlong lpoverlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -75,7 +75,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_io_WindowsWin32SystemIoJniBridge_windowssys_1windows_1win32_1system_1io_1CancelSynchronousIo(JNIEnv* km_env, jclass km_clazz, jlong hthread) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_io_WindowsWin32SystemIoJniBridge_windowssys_1windows_1win32_1system_1io_1cancelSynchronousIo(JNIEnv* km_env, jclass km_clazz, jlong hthread) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -93,7 +93,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_io_WindowsWin32SystemIoJniBridge_windowssys_1windows_1win32_1system_1io_1CreateIoCompletionPort(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jlong existingcompletionport, jlong completionkey, jint numberofconcurrentthreads) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_io_WindowsWin32SystemIoJniBridge_windowssys_1windows_1win32_1system_1io_1createIoCompletionPort(JNIEnv* km_env, jclass km_clazz, jlong filehandle, jlong existingcompletionport, jlong completionkey, jint numberofconcurrentthreads) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -114,7 +114,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_io_WindowsWin32SystemIoJniBridge_windowssys_1windows_1win32_1system_1io_1DeviceIoControl(JNIEnv* km_env, jclass km_clazz, jlong hdevice, jint dwiocontrolcode, jlong lpinbuffer, jint ninbuffersize, jlong lpoutbuffer, jint noutbuffersize, jlong lpbytesreturned, jlong lpoverlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_io_WindowsWin32SystemIoJniBridge_windowssys_1windows_1win32_1system_1io_1deviceIoControl(JNIEnv* km_env, jclass km_clazz, jlong hdevice, jint dwiocontrolcode, jlong lpinbuffer, jint ninbuffersize, jlong lpoutbuffer, jint noutbuffersize, jlong lpbytesreturned, jlong lpoverlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -139,7 +139,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_io_WindowsWin32SystemIoJniBridge_windowssys_1windows_1win32_1system_1io_1GetOverlappedResult(JNIEnv* km_env, jclass km_clazz, jlong hfile, jlong lpoverlapped, jlong lpnumberofbytestransferred, jint bwait) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_io_WindowsWin32SystemIoJniBridge_windowssys_1windows_1win32_1system_1io_1getOverlappedResult(JNIEnv* km_env, jclass km_clazz, jlong hfile, jlong lpoverlapped, jlong lpnumberofbytestransferred, jint bwait) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -160,7 +160,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_io_WindowsWin32SystemIoJniBridge_windowssys_1windows_1win32_1system_1io_1GetOverlappedResultEx(JNIEnv* km_env, jclass km_clazz, jlong hfile, jlong lpoverlapped, jlong lpnumberofbytestransferred, jint dwmilliseconds, jint balertable) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_io_WindowsWin32SystemIoJniBridge_windowssys_1windows_1win32_1system_1io_1getOverlappedResultEx(JNIEnv* km_env, jclass km_clazz, jlong hfile, jlong lpoverlapped, jlong lpnumberofbytestransferred, jint dwmilliseconds, jint balertable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -182,7 +182,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_io_WindowsWin32SystemIoJniBridge_windowssys_1windows_1win32_1system_1io_1GetQueuedCompletionStatus(JNIEnv* km_env, jclass km_clazz, jlong completionport, jlong lpnumberofbytestransferred, jlong lpcompletionkey, jlong lpoverlapped, jint dwmilliseconds) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_io_WindowsWin32SystemIoJniBridge_windowssys_1windows_1win32_1system_1io_1getQueuedCompletionStatus(JNIEnv* km_env, jclass km_clazz, jlong completionport, jlong lpnumberofbytestransferred, jlong lpcompletionkey, jlong lpoverlapped, jint dwmilliseconds) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -204,7 +204,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_io_WindowsWin32SystemIoJniBridge_windowssys_1windows_1win32_1system_1io_1GetQueuedCompletionStatusEx(JNIEnv* km_env, jclass km_clazz, jlong completionport, jlong lpcompletionportentries, jint ulcount, jlong ulnumentriesremoved, jint dwmilliseconds, jint falertable) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_io_WindowsWin32SystemIoJniBridge_windowssys_1windows_1win32_1system_1io_1getQueuedCompletionStatusEx(JNIEnv* km_env, jclass km_clazz, jlong completionport, jlong lpcompletionportentries, jint ulcount, jlong ulnumentriesremoved, jint dwmilliseconds, jint falertable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -227,7 +227,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_io_WindowsWin32SystemIoJniBridge_windowssys_1windows_1win32_1system_1io_1PostQueuedCompletionStatus(JNIEnv* km_env, jclass km_clazz, jlong completionport, jint dwnumberofbytestransferred, jlong dwcompletionkey, jlong lpoverlapped) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_io_WindowsWin32SystemIoJniBridge_windowssys_1windows_1win32_1system_1io_1postQueuedCompletionStatus(JNIEnv* km_env, jclass km_clazz, jlong completionport, jint dwnumberofbytestransferred, jlong dwcompletionkey, jlong lpoverlapped) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

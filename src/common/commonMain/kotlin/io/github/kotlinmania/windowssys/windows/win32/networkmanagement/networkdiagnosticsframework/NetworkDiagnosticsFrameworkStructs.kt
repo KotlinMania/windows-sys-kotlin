@@ -1,14 +1,15 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.networkdiagnosticsframework
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
 
-public data class DIAG_SOCKADDR(public var family: UShort = 0u, public var data: ByteArray = ByteArray(126)) {
+public data class DiagSockaddr(public var family: UShort = 0u, public var data: ByteArray = ByteArray(126)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is DIAG_SOCKADDR) return false
+        if (other !is DiagSockaddr) return false
         if (this.family != other.family) return false
         if (!this.data.contentEquals(other.data)) return false
         return true
@@ -23,81 +24,81 @@ public data class DIAG_SOCKADDR(public var family: UShort = 0u, public var data:
 
 public data class DiagnosticsInfo(public var cost: Int = 0, public var flags: UInt = 0u)
 
-public data class HELPER_ATTRIBUTE(
-    public var pwszName: PWSTR = 0L,
-    public var type: ATTRIBUTE_TYPE = 0,
-    public var Anonymous: HELPER_ATTRIBUTE_0 = HELPER_ATTRIBUTE_0(),
+public data class HelperAttribute(
+    public var pwszName: Pwstr = null,
+    public var type: AttributeType = 0,
+    public var anonymous: HelperAttribute0 = HelperAttribute0(),
 )
 
-public data class HELPER_ATTRIBUTE_0(
-    public var Boolean: BOOL = 0,
-    public var Char: UByte = 0u,
-    public var Byte: UByte = 0u,
-    public var Short: Short = 0,
-    public var Word: UShort = 0u,
-    public var Int: Int = 0,
-    public var DWord: UInt = 0u,
-    public var Int64: Long = 0L,
-    public var UInt64: ULong = 0uL,
-    public var PWStr: PWSTR = 0L,
-    public var Guid: GUID = GUID(),
-    public var LifeTime: LIFE_TIME = LIFE_TIME(),
-    public var Address: DIAG_SOCKADDR = DIAG_SOCKADDR(),
-    public var OctetString: OCTET_STRING = OCTET_STRING(),
+public data class HelperAttribute0(
+    public var boolean: Bool = 0,
+    public var char: UByte = 0u,
+    public var byte: UByte = 0u,
+    public var short: Short = 0,
+    public var word: UShort = 0u,
+    public var int: Int = 0,
+    public var dWord: UInt = 0u,
+    public var int64: Long = 0L,
+    public var uInt64: ULong = 0uL,
+    public var pWStr: Pwstr = null,
+    public var guid: Guid = Guid(),
+    public var lifeTime: LifeTime = LifeTime(),
+    public var address: DiagSockaddr = DiagSockaddr(),
+    public var octetString: OctetString = OctetString(),
 )
 
-public data class HYPOTHESIS(
-    public var pwszClassName: PWSTR = 0L,
-    public var pwszDescription: PWSTR = 0L,
+public data class Hypothesis(
+    public var pwszClassName: Pwstr = null,
+    public var pwszDescription: Pwstr = null,
     public var celt: UInt = 0u,
-    public var rgAttributes: Long = 0L,
+    public var rgAttributes: HelperAttribute? = null,
 )
 
-public data class HelperAttributeInfo(public var pwszName: PWSTR = 0L, public var type: ATTRIBUTE_TYPE = 0)
+public data class HelperAttributeInfo(public var pwszName: Pwstr = null, public var type: AttributeType = 0)
 
-public data class HypothesisResult(public var hypothesis: HYPOTHESIS = HYPOTHESIS(), public var pathStatus: DIAGNOSIS_STATUS = 0)
+public data class HypothesisResult(public var hypothesis: Hypothesis = Hypothesis(), public var pathStatus: DiagnosisStatus = 0)
 
-public data class LIFE_TIME(public var startTime: FILETIME = FILETIME(), public var endTime: FILETIME = FILETIME())
+public data class LifeTime(public var startTime: Filetime = Filetime(), public var endTime: Filetime = Filetime())
 
-public data class OCTET_STRING(public var dwLength: UInt = 0u, public var lpValue: Long = 0L)
+public data class OctetString(public var dwLength: UInt = 0u, public var lpValue: COpaquePointer? = null)
 
 public data class RepairInfo(
-    public var guid: GUID = GUID(),
-    public var pwszClassName: PWSTR = 0L,
-    public var pwszDescription: PWSTR = 0L,
+    public var guid: Guid = Guid(),
+    public var pwszClassName: Pwstr = null,
+    public var pwszDescription: Pwstr = null,
     public var sidType: UInt = 0u,
     public var cost: Int = 0,
     public var flags: UInt = 0u,
-    public var scope: REPAIR_SCOPE = 0,
-    public var risk: REPAIR_RISK = 0,
-    public var UiInfo: UiInfo = UiInfo(),
+    public var scope: RepairScope = 0,
+    public var risk: RepairRisk = 0,
+    public var uiInfo: UiInfo = UiInfo(),
     public var rootCauseIndex: Int = 0,
 )
 
 public data class RepairInfoEx(public var repair: RepairInfo = RepairInfo(), public var repairRank: UShort = 0u)
 
 public data class RootCauseInfo(
-    public var pwszDescription: PWSTR = 0L,
-    public var rootCauseID: GUID = GUID(),
+    public var pwszDescription: Pwstr = null,
+    public var rootCauseID: Guid = Guid(),
     public var rootCauseFlags: UInt = 0u,
-    public var networkInterfaceID: GUID = GUID(),
-    public var pRepairs: Long = 0L,
+    public var networkInterfaceID: Guid = Guid(),
+    public var pRepairs: RepairInfoEx? = null,
     public var repairCount: UShort = 0u,
 )
 
 public data class ShellCommandInfo(
-    public var pwszOperation: PWSTR = 0L,
-    public var pwszFile: PWSTR = 0L,
-    public var pwszParameters: PWSTR = 0L,
-    public var pwszDirectory: PWSTR = 0L,
+    public var pwszOperation: Pwstr = null,
+    public var pwszFile: Pwstr = null,
+    public var pwszParameters: Pwstr = null,
+    public var pwszDirectory: Pwstr = null,
     public var nShowCmd: UInt = 0u,
 )
 
-public data class UiInfo(public var type: UI_INFO_TYPE = 0, public var Anonymous: UiInfo_0 = UiInfo_0())
+public data class UiInfo(public var type: UiInfoType = 0, public var anonymous: UiInfo0 = UiInfo0())
 
-public data class UiInfo_0(
-    public var pwzNull: PWSTR = 0L,
-    public var ShellInfo: ShellCommandInfo = ShellCommandInfo(),
-    public var pwzHelpUrl: PWSTR = 0L,
-    public var pwzDui: PWSTR = 0L,
+public data class UiInfo0(
+    public var pwzNull: Pwstr = null,
+    public var shellInfo: ShellCommandInfo = ShellCommandInfo(),
+    public var pwzHelpUrl: Pwstr = null,
+    public var pwzDui: Pwstr = null,
 )

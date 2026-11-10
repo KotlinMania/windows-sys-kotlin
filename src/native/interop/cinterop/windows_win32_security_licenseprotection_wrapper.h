@@ -9,8 +9,8 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_win32_security_licenseprotection_RegisterLicenseKeyWithExpiration(void* licensekey, uint32_t validityindays, void* status);
-int32_t windowssys_windows_win32_security_licenseprotection_ValidateLicenseKeyProtection(void* licensekey, void* notvalidbefore, void* notvalidafter, void* status);
+int32_t windowssys_windows_win32_security_licenseprotection_registerLicenseKeyWithExpiration(void* licensekey, uint32_t validityindays, void* status);
+int32_t windowssys_windows_win32_security_licenseprotection_validateLicenseKeyProtection(void* licensekey, void* notvalidbefore, void* notvalidafter, void* status);
 
 #ifdef __cplusplus
 }

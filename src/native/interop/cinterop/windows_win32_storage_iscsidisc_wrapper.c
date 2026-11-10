@@ -15,7 +15,7 @@
 #endif
 #endif
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_AddISNSServerA(void* address) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_addISNSServerA(void* address) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_AddISNSServerA(void* address
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_AddISNSServerW(void* address) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_addISNSServerW(void* address) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -59,7 +59,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_AddISNSServerW(void* address
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_AddIScsiConnectionA(void* uniquesessionid, void* reserved, uint32_t initiatorportnumber, void* targetportal, uint64_t securityflags, void* loginoptions, uint32_t keysize, void* key, void* connectionid) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_addIScsiConnectionA(void* uniquesessionid, void* reserved, uint32_t initiatorportnumber, void* targetportal, uint64_t securityflags, void* loginoptions, uint32_t keysize, void* key, void* connectionid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint64_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -89,7 +89,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_AddIScsiConnectionA(void* un
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_AddIScsiConnectionW(void* uniquesessionid, void* reserved, uint32_t initiatorportnumber, void* targetportal, uint64_t securityflags, void* loginoptions, uint32_t keysize, void* key, void* connectionid) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_addIScsiConnectionW(void* uniquesessionid, void* reserved, uint32_t initiatorportnumber, void* targetportal, uint64_t securityflags, void* loginoptions, uint32_t keysize, void* key, void* connectionid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, uint64_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -119,7 +119,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_AddIScsiConnectionW(void* un
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_AddIScsiSendTargetPortalA(void* initiatorinstance, uint32_t initiatorportnumber, void* loginoptions, uint64_t securityflags, void* portal) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_addIScsiSendTargetPortalA(void* initiatorinstance, uint32_t initiatorportnumber, void* loginoptions, uint64_t securityflags, void* portal) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -145,7 +145,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_AddIScsiSendTargetPortalA(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_AddIScsiSendTargetPortalW(void* initiatorinstance, uint32_t initiatorportnumber, void* loginoptions, uint64_t securityflags, void* portal) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_addIScsiSendTargetPortalW(void* initiatorinstance, uint32_t initiatorportnumber, void* loginoptions, uint64_t securityflags, void* portal) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -171,7 +171,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_AddIScsiSendTargetPortalW(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_AddIScsiStaticTargetA(void* targetname, void* targetalias, uint32_t targetflags, bool persist, void* mappings, void* loginoptions, void* portalgroup) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_addIScsiStaticTargetA(void* targetname, void* targetalias, uint32_t targetflags, bool persist, void* mappings, void* loginoptions, void* portalgroup) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, bool, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -199,7 +199,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_AddIScsiStaticTargetA(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_AddIScsiStaticTargetW(void* targetname, void* targetalias, uint32_t targetflags, bool persist, void* mappings, void* loginoptions, void* portalgroup) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_addIScsiStaticTargetW(void* targetname, void* targetalias, uint32_t targetflags, bool persist, void* mappings, void* loginoptions, void* portalgroup) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, bool, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -227,7 +227,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_AddIScsiStaticTargetW(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_AddPersistentIScsiDeviceA(void* devicepath) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_addPersistentIScsiDeviceA(void* devicepath) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -249,7 +249,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_AddPersistentIScsiDeviceA(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_AddPersistentIScsiDeviceW(void* devicepath) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_addPersistentIScsiDeviceW(void* devicepath) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -271,7 +271,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_AddPersistentIScsiDeviceW(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_AddRadiusServerA(void* address) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_addRadiusServerA(void* address) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -293,7 +293,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_AddRadiusServerA(void* addre
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_AddRadiusServerW(void* address) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_addRadiusServerW(void* address) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -315,7 +315,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_AddRadiusServerW(void* addre
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_ClearPersistentIScsiDevices(void) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_clearPersistentIScsiDevices(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -336,7 +336,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_ClearPersistentIScsiDevices(
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_GetDevicesForIScsiSessionA(void* uniquesessionid, void* devicecount, void* devices) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_getDevicesForIScsiSessionA(void* uniquesessionid, void* devicecount, void* devices) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -360,7 +360,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_GetDevicesForIScsiSessionA(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_GetDevicesForIScsiSessionW(void* uniquesessionid, void* devicecount, void* devices) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_getDevicesForIScsiSessionW(void* uniquesessionid, void* devicecount, void* devices) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -384,7 +384,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_GetDevicesForIScsiSessionW(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_GetIScsiIKEInfoA(void* initiatorname, uint32_t initiatorportnumber, void* reserved, void* authinfo) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_getIScsiIKEInfoA(void* initiatorname, uint32_t initiatorportnumber, void* reserved, void* authinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -409,7 +409,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_GetIScsiIKEInfoA(void* initi
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_GetIScsiIKEInfoW(void* initiatorname, uint32_t initiatorportnumber, void* reserved, void* authinfo) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_getIScsiIKEInfoW(void* initiatorname, uint32_t initiatorportnumber, void* reserved, void* authinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -434,7 +434,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_GetIScsiIKEInfoW(void* initi
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_GetIScsiInitiatorNodeNameA(void* initiatornodename) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_getIScsiInitiatorNodeNameA(void* initiatornodename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -456,7 +456,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_GetIScsiInitiatorNodeNameA(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_GetIScsiInitiatorNodeNameW(void* initiatornodename) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_getIScsiInitiatorNodeNameW(void* initiatornodename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -478,7 +478,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_GetIScsiInitiatorNodeNameW(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_GetIScsiSessionListA(void* buffersize, void* sessioncount, void* sessioninfo) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_getIScsiSessionListA(void* buffersize, void* sessioncount, void* sessioninfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -502,7 +502,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_GetIScsiSessionListA(void* b
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_GetIScsiSessionListEx(void* buffersize, void* sessioncountptr, void* sessioninfo) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_getIScsiSessionListEx(void* buffersize, void* sessioncountptr, void* sessioninfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -526,7 +526,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_GetIScsiSessionListEx(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_GetIScsiSessionListW(void* buffersize, void* sessioncount, void* sessioninfo) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_getIScsiSessionListW(void* buffersize, void* sessioncount, void* sessioninfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -550,7 +550,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_GetIScsiSessionListW(void* b
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_GetIScsiTargetInformationA(void* targetname, void* discoverymechanism, int32_t infoclass, void* buffersize, void* buffer) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_getIScsiTargetInformationA(void* targetname, void* discoverymechanism, int32_t infoclass, void* buffersize, void* buffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -576,7 +576,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_GetIScsiTargetInformationA(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_GetIScsiTargetInformationW(void* targetname, void* discoverymechanism, int32_t infoclass, void* buffersize, void* buffer) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_getIScsiTargetInformationW(void* targetname, void* discoverymechanism, int32_t infoclass, void* buffersize, void* buffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -602,7 +602,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_GetIScsiTargetInformationW(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_GetIScsiVersionInformation(void* versioninfo) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_getIScsiVersionInformation(void* versioninfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -624,7 +624,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_GetIScsiVersionInformation(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_LoginIScsiTargetA(void* targetname, bool isinformationalsession, void* initiatorinstance, uint32_t initiatorportnumber, void* targetportal, uint64_t securityflags, void* mappings, void* loginoptions, uint32_t keysize, void* key, bool ispersistent, void* uniquesessionid, void* uniqueconnectionid) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_loginIScsiTargetA(void* targetname, bool isinformationalsession, void* initiatorinstance, uint32_t initiatorportnumber, void* targetportal, uint64_t securityflags, void* mappings, void* loginoptions, uint32_t keysize, void* key, bool ispersistent, void* uniquesessionid, void* uniqueconnectionid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, bool, void*, uint32_t, void*, uint64_t, void*, void*, uint32_t, void*, bool, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -658,7 +658,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_LoginIScsiTargetA(void* targ
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_LoginIScsiTargetW(void* targetname, bool isinformationalsession, void* initiatorinstance, uint32_t initiatorportnumber, void* targetportal, uint64_t securityflags, void* mappings, void* loginoptions, uint32_t keysize, void* key, bool ispersistent, void* uniquesessionid, void* uniqueconnectionid) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_loginIScsiTargetW(void* targetname, bool isinformationalsession, void* initiatorinstance, uint32_t initiatorportnumber, void* targetportal, uint64_t securityflags, void* mappings, void* loginoptions, uint32_t keysize, void* key, bool ispersistent, void* uniquesessionid, void* uniqueconnectionid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, bool, void*, uint32_t, void*, uint64_t, void*, void*, uint32_t, void*, bool, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -692,7 +692,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_LoginIScsiTargetW(void* targ
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_LogoutIScsiTarget(void* uniquesessionid) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_logoutIScsiTarget(void* uniquesessionid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -714,7 +714,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_LogoutIScsiTarget(void* uniq
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_RefreshISNSServerA(void* address) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_refreshISNSServerA(void* address) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -736,7 +736,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_RefreshISNSServerA(void* add
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_RefreshISNSServerW(void* address) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_refreshISNSServerW(void* address) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -758,7 +758,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_RefreshISNSServerW(void* add
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_RefreshIScsiSendTargetPortalA(void* initiatorinstance, uint32_t initiatorportnumber, void* portal) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_refreshIScsiSendTargetPortalA(void* initiatorinstance, uint32_t initiatorportnumber, void* portal) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -782,7 +782,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_RefreshIScsiSendTargetPortal
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_RefreshIScsiSendTargetPortalW(void* initiatorinstance, uint32_t initiatorportnumber, void* portal) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_refreshIScsiSendTargetPortalW(void* initiatorinstance, uint32_t initiatorportnumber, void* portal) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -806,7 +806,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_RefreshIScsiSendTargetPortal
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_RemoveISNSServerA(void* address) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_removeISNSServerA(void* address) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -828,7 +828,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_RemoveISNSServerA(void* addr
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_RemoveISNSServerW(void* address) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_removeISNSServerW(void* address) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -850,7 +850,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_RemoveISNSServerW(void* addr
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_RemoveIScsiConnection(void* uniquesessionid, void* connectionid) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_removeIScsiConnection(void* uniquesessionid, void* connectionid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -873,7 +873,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_RemoveIScsiConnection(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_RemoveIScsiPersistentTargetA(void* initiatorinstance, uint32_t initiatorportnumber, void* targetname, void* portal) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_removeIScsiPersistentTargetA(void* initiatorinstance, uint32_t initiatorportnumber, void* targetname, void* portal) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -898,7 +898,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_RemoveIScsiPersistentTargetA
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_RemoveIScsiPersistentTargetW(void* initiatorinstance, uint32_t initiatorportnumber, void* targetname, void* portal) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_removeIScsiPersistentTargetW(void* initiatorinstance, uint32_t initiatorportnumber, void* targetname, void* portal) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -923,7 +923,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_RemoveIScsiPersistentTargetW
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_RemoveIScsiSendTargetPortalA(void* initiatorinstance, uint32_t initiatorportnumber, void* portal) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_removeIScsiSendTargetPortalA(void* initiatorinstance, uint32_t initiatorportnumber, void* portal) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -947,7 +947,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_RemoveIScsiSendTargetPortalA
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_RemoveIScsiSendTargetPortalW(void* initiatorinstance, uint32_t initiatorportnumber, void* portal) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_removeIScsiSendTargetPortalW(void* initiatorinstance, uint32_t initiatorportnumber, void* portal) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -971,7 +971,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_RemoveIScsiSendTargetPortalW
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_RemoveIScsiStaticTargetA(void* targetname) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_removeIScsiStaticTargetA(void* targetname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -993,7 +993,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_RemoveIScsiStaticTargetA(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_RemoveIScsiStaticTargetW(void* targetname) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_removeIScsiStaticTargetW(void* targetname) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1015,7 +1015,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_RemoveIScsiStaticTargetW(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_RemovePersistentIScsiDeviceA(void* devicepath) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_removePersistentIScsiDeviceA(void* devicepath) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1037,7 +1037,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_RemovePersistentIScsiDeviceA
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_RemovePersistentIScsiDeviceW(void* devicepath) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_removePersistentIScsiDeviceW(void* devicepath) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1059,7 +1059,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_RemovePersistentIScsiDeviceW
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_RemoveRadiusServerA(void* address) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_removeRadiusServerA(void* address) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1081,7 +1081,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_RemoveRadiusServerA(void* ad
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_RemoveRadiusServerW(void* address) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_removeRadiusServerW(void* address) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1103,7 +1103,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_RemoveRadiusServerW(void* ad
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_ReportActiveIScsiTargetMappingsA(void* buffersize, void* mappingcount, void* mappings) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_reportActiveIScsiTargetMappingsA(void* buffersize, void* mappingcount, void* mappings) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1127,7 +1127,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_ReportActiveIScsiTargetMappi
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_ReportActiveIScsiTargetMappingsW(void* buffersize, void* mappingcount, void* mappings) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_reportActiveIScsiTargetMappingsW(void* buffersize, void* mappingcount, void* mappings) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1151,7 +1151,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_ReportActiveIScsiTargetMappi
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_ReportISNSServerListA(void* buffersizeinchar, void* buffer) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_reportISNSServerListA(void* buffersizeinchar, void* buffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1174,7 +1174,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_ReportISNSServerListA(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_ReportISNSServerListW(void* buffersizeinchar, void* buffer) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_reportISNSServerListW(void* buffersizeinchar, void* buffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1197,7 +1197,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_ReportISNSServerListW(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_ReportIScsiInitiatorListA(void* buffersize, void* buffer) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_reportIScsiInitiatorListA(void* buffersize, void* buffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1220,7 +1220,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_ReportIScsiInitiatorListA(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_ReportIScsiInitiatorListW(void* buffersize, void* buffer) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_reportIScsiInitiatorListW(void* buffersize, void* buffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1243,7 +1243,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_ReportIScsiInitiatorListW(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_ReportIScsiPersistentLoginsA(void* count, void* persistentlogininfo, void* buffersizeinbytes) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_reportIScsiPersistentLoginsA(void* count, void* persistentlogininfo, void* buffersizeinbytes) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1267,7 +1267,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_ReportIScsiPersistentLoginsA
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_ReportIScsiPersistentLoginsW(void* count, void* persistentlogininfo, void* buffersizeinbytes) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_reportIScsiPersistentLoginsW(void* count, void* persistentlogininfo, void* buffersizeinbytes) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1291,7 +1291,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_ReportIScsiPersistentLoginsW
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_ReportIScsiSendTargetPortalsA(void* portalcount, void* portalinfo) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsA(void* portalcount, void* portalinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1314,7 +1314,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_ReportIScsiSendTargetPortals
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_ReportIScsiSendTargetPortalsExA(void* portalcount, void* portalinfosize, void* portalinfo) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsExA(void* portalcount, void* portalinfosize, void* portalinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1338,7 +1338,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_ReportIScsiSendTargetPortals
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_ReportIScsiSendTargetPortalsExW(void* portalcount, void* portalinfosize, void* portalinfo) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsExW(void* portalcount, void* portalinfosize, void* portalinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1362,7 +1362,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_ReportIScsiSendTargetPortals
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_ReportIScsiSendTargetPortalsW(void* portalcount, void* portalinfo) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTargetPortalsW(void* portalcount, void* portalinfo) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1385,7 +1385,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_ReportIScsiSendTargetPortals
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_ReportIScsiTargetPortalsA(void* initiatorname, void* targetname, void* targetportaltag, void* elementcount, void* portals) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetPortalsA(void* initiatorname, void* targetname, void* targetportaltag, void* elementcount, void* portals) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1411,7 +1411,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_ReportIScsiTargetPortalsA(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_ReportIScsiTargetPortalsW(void* initiatorname, void* targetname, void* targetportaltag, void* elementcount, void* portals) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetPortalsW(void* initiatorname, void* targetname, void* targetportaltag, void* elementcount, void* portals) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1437,7 +1437,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_ReportIScsiTargetPortalsW(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_ReportIScsiTargetsA(bool forceupdate, void* buffersize, void* buffer) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetsA(bool forceupdate, void* buffersize, void* buffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(bool, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1461,7 +1461,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_ReportIScsiTargetsA(bool for
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_ReportIScsiTargetsW(bool forceupdate, void* buffersize, void* buffer) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetsW(bool forceupdate, void* buffersize, void* buffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(bool, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1485,7 +1485,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_ReportIScsiTargetsW(bool for
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_ReportPersistentIScsiDevicesA(void* buffersizeinchar, void* buffer) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_reportPersistentIScsiDevicesA(void* buffersizeinchar, void* buffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1508,7 +1508,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_ReportPersistentIScsiDevices
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_ReportPersistentIScsiDevicesW(void* buffersizeinchar, void* buffer) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_reportPersistentIScsiDevicesW(void* buffersizeinchar, void* buffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1531,7 +1531,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_ReportPersistentIScsiDevices
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_ReportRadiusServerListA(void* buffersizeinchar, void* buffer) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_reportRadiusServerListA(void* buffersizeinchar, void* buffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1554,7 +1554,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_ReportRadiusServerListA(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_ReportRadiusServerListW(void* buffersizeinchar, void* buffer) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_reportRadiusServerListW(void* buffersizeinchar, void* buffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1577,7 +1577,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_ReportRadiusServerListW(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_SendScsiInquiry(void* uniquesessionid, uint64_t lun, uint8_t evpdcmddt, uint8_t pagecode, void* scsistatus, void* responsesize, void* responsebuffer, void* sensesize, void* sensebuffer) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_sendScsiInquiry(void* uniquesessionid, uint64_t lun, uint8_t evpdcmddt, uint8_t pagecode, void* scsistatus, void* responsesize, void* responsebuffer, void* sensesize, void* sensebuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, uint8_t, uint8_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1607,7 +1607,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_SendScsiInquiry(void* unique
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_SendScsiReadCapacity(void* uniquesessionid, uint64_t lun, void* scsistatus, void* responsesize, void* responsebuffer, void* sensesize, void* sensebuffer) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_sendScsiReadCapacity(void* uniquesessionid, uint64_t lun, void* scsistatus, void* responsesize, void* responsebuffer, void* sensesize, void* sensebuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint64_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1635,7 +1635,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_SendScsiReadCapacity(void* u
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_SendScsiReportLuns(void* uniquesessionid, void* scsistatus, void* responsesize, void* responsebuffer, void* sensesize, void* sensebuffer) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_sendScsiReportLuns(void* uniquesessionid, void* scsistatus, void* responsesize, void* responsebuffer, void* sensesize, void* sensebuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1662,7 +1662,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_SendScsiReportLuns(void* uni
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_SetIScsiGroupPresharedKey(uint32_t keylength, void* key, bool persist) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_setIScsiGroupPresharedKey(uint32_t keylength, void* key, bool persist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -1686,7 +1686,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_SetIScsiGroupPresharedKey(ui
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_SetIScsiIKEInfoA(void* initiatorname, uint32_t initiatorportnumber, void* authinfo, bool persist) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_setIScsiIKEInfoA(void* initiatorname, uint32_t initiatorportnumber, void* authinfo, bool persist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -1711,7 +1711,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_SetIScsiIKEInfoA(void* initi
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_SetIScsiIKEInfoW(void* initiatorname, uint32_t initiatorportnumber, void* authinfo, bool persist) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_setIScsiIKEInfoW(void* initiatorname, uint32_t initiatorportnumber, void* authinfo, bool persist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -1736,7 +1736,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_SetIScsiIKEInfoW(void* initi
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_SetIScsiInitiatorCHAPSharedSecret(uint32_t sharedsecretlength, void* sharedsecret) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorCHAPSharedSecret(uint32_t sharedsecretlength, void* sharedsecret) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1759,7 +1759,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_SetIScsiInitiatorCHAPSharedS
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_SetIScsiInitiatorNodeNameA(void* initiatornodename) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorNodeNameA(void* initiatornodename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1781,7 +1781,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_SetIScsiInitiatorNodeNameA(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_SetIScsiInitiatorNodeNameW(void* initiatornodename) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorNodeNameW(void* initiatornodename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1803,7 +1803,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_SetIScsiInitiatorNodeNameW(v
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_SetIScsiInitiatorRADIUSSharedSecret(uint32_t sharedsecretlength, void* sharedsecret) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorRADIUSSharedSecret(uint32_t sharedsecretlength, void* sharedsecret) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1826,7 +1826,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_SetIScsiInitiatorRADIUSShare
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_SetIScsiTunnelModeOuterAddressA(void* initiatorname, uint32_t initiatorportnumber, void* destinationaddress, void* outermodeaddress, bool persist) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_setIScsiTunnelModeOuterAddressA(void* initiatorname, uint32_t initiatorportnumber, void* destinationaddress, void* outermodeaddress, bool persist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -1852,7 +1852,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_SetIScsiTunnelModeOuterAddre
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_SetIScsiTunnelModeOuterAddressW(void* initiatorname, uint32_t initiatorportnumber, void* destinationaddress, void* outermodeaddress, bool persist) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_setIScsiTunnelModeOuterAddressW(void* initiatorname, uint32_t initiatorportnumber, void* destinationaddress, void* outermodeaddress, bool persist) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, bool);
     static km_fn_t km_fn_ptr = NULL;
@@ -1878,7 +1878,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_SetIScsiTunnelModeOuterAddre
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_SetupPersistentIScsiDevices(void) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_setupPersistentIScsiDevices(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1899,7 +1899,7 @@ uint32_t windowssys_windows_win32_storage_iscsidisc_SetupPersistentIScsiDevices(
 #endif
 }
 
-uint32_t windowssys_windows_win32_storage_iscsidisc_SetupPersistentIScsiVolumes(void) {
+uint32_t windowssys_windows_win32_storage_iscsidisc_setupPersistentIScsiVolumes(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;

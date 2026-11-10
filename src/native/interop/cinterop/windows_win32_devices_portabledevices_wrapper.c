@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_devices_portabledevices_DMProcessConfigXMLFiltered(void* pszxmlin, void* rgszallowedcspnodes, uint32_t dwnumallowedcspnodes, void* pbstrxmlout) {
+int32_t windowssys_windows_win32_devices_portabledevices_dMProcessConfigXMLFiltered(void* pszxmlin, void* rgszallowedcspnodes, uint32_t dwnumallowedcspnodes, void* pbstrxmlout) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;

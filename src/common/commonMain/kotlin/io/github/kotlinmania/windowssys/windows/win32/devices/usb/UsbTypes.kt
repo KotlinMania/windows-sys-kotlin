@@ -1,53 +1,55 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.usb
 
-public typealias PIPE_TYPE = Int
+import io.github.kotlinmania.windowssys.COpaquePointer
 
-public typealias RAW_PIPE_TYPE = Int
+public typealias PipeType = Int
 
-public typealias USBD_ENDPOINT_OFFLOAD_MODE = Int
+public typealias RawPipeType = Int
 
-public typealias USBD_PIPE_TYPE = Int
+public typealias UsbdEndpointOffloadMode = Int
 
-public typealias USBFN_BUS_SPEED = Int
+public typealias UsbdPipeType = Int
 
-public typealias USBFN_DEVICE_STATE = Int
+public typealias UsbfnBusSpeed = Int
 
-public typealias USBFN_DIRECTION = Int
+public typealias UsbfnDeviceState = Int
 
-public typealias USBFN_EVENT = Int
+public typealias UsbfnDirection = Int
 
-public typealias USBFN_PORT_TYPE = Int
+public typealias UsbfnEvent = Int
 
-public typealias USB_CHANGE_REGISTRATION_HANDLE = Long
+public typealias UsbfnPortType = Int
 
-public typealias USB_CONNECTION_STATUS = Int
+public typealias UsbChangeRegistrationHandle = COpaquePointer?
 
-public typealias USB_CONTROLLER_FLAVOR = Int
+public typealias UsbConnectionStatus = Int
 
-public typealias USB_DEVICE_SPEED = Int
+public typealias UsbControllerFlavor = Int
 
-public typealias USB_DEVICE_TYPE = Int
+public typealias UsbDeviceSpeed = Int
 
-public typealias USB_HUB_NODE = Int
+public typealias UsbDeviceType = Int
 
-public typealias USB_HUB_TYPE = Int
+public typealias UsbHubNode = Int
 
-public fun interface USB_IDLE_CALLBACKFn {
-    public operator fun invoke(context: Long)
+public typealias UsbHubType = Int
+
+public fun interface UsbIdleCallbackFn {
+    public operator fun invoke(context: COpaquePointer?)
 }
 
-public typealias USB_IDLE_CALLBACK = USB_IDLE_CALLBACKFn?
+public typealias UsbIdleCallback = UsbIdleCallbackFn?
 
-public typealias USB_NOTIFICATION_TYPE = Int
+public typealias UsbNotificationType = Int
 
-public typealias USB_USER_ERROR_CODE = Int
+public typealias UsbUserErrorCode = Int
 
-public typealias USB_WMI_DEVICE_NODE_TYPE = Int
+public typealias UsbWmiDeviceNodeType = Int
 
-public typealias WDMUSB_POWER_STATE = Int
+public typealias WdmusbPowerState = Int
 
-public typealias WINUSB_INTERFACE_HANDLE = Long
+public typealias WinusbInterfaceHandle = COpaquePointer?
 
-public typealias WINUSB_PIPE_POLICY = UInt
+public typealias WinusbPipePolicy = UInt
 
-public typealias WINUSB_POWER_POLICY = UInt
+public typealias WinusbPowerPolicy = UInt

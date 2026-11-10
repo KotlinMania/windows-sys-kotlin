@@ -1,17 +1,19 @@
 package io.github.kotlinmania.windowssys.core
 
-public typealias BOOL = Int
+import io.github.kotlinmania.windowssys.COpaquePointer
 
-public typealias HRESULT = Int
+public typealias Bool = Int
 
-public typealias PSTR = Long
+public typealias Hresult = Int
 
-public typealias PWSTR = Long
+public typealias Pstr = COpaquePointer?
 
-public typealias PCSTR = Long
+public typealias Pwstr = UShort?
 
-public typealias PCWSTR = Long
+public typealias Pcstr = COpaquePointer?
 
-public typealias BSTR = Long
+public typealias Pcwstr = UShort?
 
-public typealias HSTRING = Long
+public typealias Bstr = UShort?
+
+public typealias Hstring = COpaquePointer?

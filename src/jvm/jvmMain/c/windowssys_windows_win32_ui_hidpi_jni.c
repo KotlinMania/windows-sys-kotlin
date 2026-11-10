@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1AdjustWindowRectExForDpi(JNIEnv* km_env, jclass km_clazz, jlong lprect, jint dwstyle, jint bmenu, jint dwexstyle, jint dpi) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1adjustWindowRectExForDpi(JNIEnv* km_env, jclass km_clazz, jlong lprect, jint dwstyle, jint bmenu, jint dwexstyle, jint dpi) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -40,7 +40,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1AreDpiAwarenessContextsEqual(JNIEnv* km_env, jclass km_clazz, jlong dpicontexta, jlong dpicontextb) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1areDpiAwarenessContextsEqual(JNIEnv* km_env, jclass km_clazz, jlong dpicontexta, jlong dpicontextb) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -59,7 +59,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1EnableNonClientDpiScaling(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1enableNonClientDpiScaling(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -77,7 +77,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1GetAwarenessFromDpiAwarenessContext(JNIEnv* km_env, jclass km_clazz, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1getAwarenessFromDpiAwarenessContext(JNIEnv* km_env, jclass km_clazz, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -95,7 +95,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1GetDialogControlDpiChangeBehavior(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1getDialogControlDpiChangeBehavior(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -113,7 +113,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1GetDialogDpiChangeBehavior(JNIEnv* km_env, jclass km_clazz, jlong hdlg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1getDialogDpiChangeBehavior(JNIEnv* km_env, jclass km_clazz, jlong hdlg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -131,7 +131,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hi
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1GetDpiAwarenessContextForProcess(JNIEnv* km_env, jclass km_clazz, jlong hprocess) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1getDpiAwarenessContextForProcess(JNIEnv* km_env, jclass km_clazz, jlong hprocess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -149,7 +149,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_h
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1GetDpiForMonitor(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jint dpitype, jlong dpix, jlong dpiy) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1getDpiForMonitor(JNIEnv* km_env, jclass km_clazz, jlong hmonitor, jint dpitype, jlong dpix, jlong dpiy) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -170,7 +170,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1GetDpiForSystem(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1getDpiForSystem(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -187,7 +187,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1GetDpiForWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1getDpiForWindow(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -205,7 +205,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1GetDpiFromDpiAwarenessContext(JNIEnv* km_env, jclass km_clazz, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1getDpiFromDpiAwarenessContext(JNIEnv* km_env, jclass km_clazz, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -223,7 +223,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1GetProcessDpiAwareness(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1getProcessDpiAwareness(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -242,7 +242,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1GetSystemDpiForProcess(JNIEnv* km_env, jclass km_clazz, jlong hprocess) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1getSystemDpiForProcess(JNIEnv* km_env, jclass km_clazz, jlong hprocess) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -260,7 +260,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1GetSystemMetricsForDpi(JNIEnv* km_env, jclass km_clazz, jint nindex, jint dpi) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1getSystemMetricsForDpi(JNIEnv* km_env, jclass km_clazz, jint nindex, jint dpi) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -279,7 +279,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hi
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1GetThreadDpiAwarenessContext(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1getThreadDpiAwarenessContext(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -296,7 +296,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_h
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1GetThreadDpiHostingBehavior(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1getThreadDpiHostingBehavior(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -313,7 +313,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hi
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1GetWindowDpiAwarenessContext(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1getWindowDpiAwarenessContext(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -331,7 +331,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_h
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1GetWindowDpiHostingBehavior(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1getWindowDpiHostingBehavior(JNIEnv* km_env, jclass km_clazz, jlong hwnd) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -349,7 +349,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1IsValidDpiAwarenessContext(JNIEnv* km_env, jclass km_clazz, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1isValidDpiAwarenessContext(JNIEnv* km_env, jclass km_clazz, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -367,7 +367,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1LogicalToPhysicalPointForPerMonitorDPI(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lppoint) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1logicalToPhysicalPointForPerMonitorDPI(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lppoint) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -386,7 +386,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hi
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1OpenThemeDataForDpi(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pszclasslist, jint dpi) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1openThemeDataForDpi(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong pszclasslist, jint dpi) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -406,7 +406,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_h
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1PhysicalToLogicalPointForPerMonitorDPI(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lppoint) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1physicalToLogicalPointForPerMonitorDPI(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jlong lppoint) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -425,7 +425,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1SetDialogControlDpiChangeBehavior(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint mask, jint values) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1setDialogControlDpiChangeBehavior(JNIEnv* km_env, jclass km_clazz, jlong hwnd, jint mask, jint values) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -445,7 +445,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1SetDialogDpiChangeBehavior(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jint mask, jint values) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1setDialogDpiChangeBehavior(JNIEnv* km_env, jclass km_clazz, jlong hdlg, jint mask, jint values) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -465,7 +465,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1SetProcessDpiAwareness(JNIEnv* km_env, jclass km_clazz, jint value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1setProcessDpiAwareness(JNIEnv* km_env, jclass km_clazz, jint value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -483,7 +483,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1SetProcessDpiAwarenessContext(JNIEnv* km_env, jclass km_clazz, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1setProcessDpiAwarenessContext(JNIEnv* km_env, jclass km_clazz, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -501,7 +501,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hi
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1SetThreadDpiAwarenessContext(JNIEnv* km_env, jclass km_clazz, jlong dpicontext) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1setThreadDpiAwarenessContext(JNIEnv* km_env, jclass km_clazz, jlong dpicontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -519,7 +519,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_h
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1SetThreadDpiHostingBehavior(JNIEnv* km_env, jclass km_clazz, jint value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1setThreadDpiHostingBehavior(JNIEnv* km_env, jclass km_clazz, jint value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -537,7 +537,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hi
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1SystemParametersInfoForDpi(JNIEnv* km_env, jclass km_clazz, jint uiaction, jint uiparam, jlong pvparam, jint fwinini, jint dpi) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_hidpi_WindowsWin32UiHidpiJniBridge_windowssys_1windows_1win32_1ui_1hidpi_1systemParametersInfoForDpi(JNIEnv* km_env, jclass km_clazz, jint uiaction, jint uiparam, jlong pvparam, jint fwinini, jint dpi) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

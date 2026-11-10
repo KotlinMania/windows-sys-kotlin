@@ -1,3 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.wdk.system.offlineregistry
 
-public typealias ORHKEY = Long
+import io.github.kotlinmania.windowssys.COpaquePointer
+
+public typealias Orhkey = COpaquePointer?

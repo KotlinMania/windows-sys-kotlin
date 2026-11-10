@@ -1,7 +1,9 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.setupandmigration
 
-public fun interface OOBE_COMPLETED_CALLBACKFn {
-    public operator fun invoke(callbackcontext: Long)
+import io.github.kotlinmania.windowssys.COpaquePointer
+
+public fun interface OobeCompletedCallbackFn {
+    public operator fun invoke(callbackcontext: COpaquePointer?)
 }
 
-public typealias OOBE_COMPLETED_CALLBACK = OOBE_COMPLETED_CALLBACKFn?
+public typealias OobeCompletedCallback = OobeCompletedCallbackFn?

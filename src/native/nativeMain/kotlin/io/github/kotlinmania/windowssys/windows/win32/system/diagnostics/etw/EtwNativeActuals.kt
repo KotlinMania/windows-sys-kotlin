@@ -2,273 +2,274 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw
 
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WIN32_ERROR
-import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
-import io.github.kotlinmania.windowssys.windows.win32.security.PSID
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Win32Error
+import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
+import io.github.kotlinmania.windowssys.windows.win32.security.Psid
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun CloseTrace(tracehandle: PROCESSTRACE_HANDLE): WIN32_ERROR =
+public actual fun closeTrace(tracehandle: ProcesstraceHandle): Win32Error =
     0u
 
-public actual fun ControlTraceA(tracehandle: CONTROLTRACE_HANDLE, instancename: PCSTR, properties: Long, controlcode: EVENT_TRACE_CONTROL): WIN32_ERROR =
+public actual fun controlTraceA(tracehandle: ControltraceHandle, instancename: Pcstr, properties: COpaquePointer?, controlcode: EventTraceControl): Win32Error =
     0u
 
-public actual fun ControlTraceW(tracehandle: CONTROLTRACE_HANDLE, instancename: PCWSTR, properties: Long, controlcode: EVENT_TRACE_CONTROL): WIN32_ERROR =
+public actual fun controlTraceW(tracehandle: ControltraceHandle, instancename: Pcwstr, properties: COpaquePointer?, controlcode: EventTraceControl): Win32Error =
     0u
 
-public actual fun CreateTraceInstanceId(reghandle: HANDLE, instinfo: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_CreateTraceInstanceId(reghandle.toCPointer<ByteVar>(), instinfo.toCPointer<ByteVar>())
+public actual fun createTraceInstanceId(reghandle: Handle, instinfo: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_createTraceInstanceId(reghandle?.value?.toCPointer<ByteVar>(), instinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun CveEventWrite(cveid: PCWSTR, additionaldetails: PCWSTR): Int =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_CveEventWrite(cveid.toCPointer<ByteVar>(), additionaldetails.toCPointer<ByteVar>())
+public actual fun cveEventWrite(cveid: Pcwstr, additionaldetails: Pcwstr): Int =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_cveEventWrite(cveid?.value?.toCPointer<ByteVar>(), additionaldetails?.value?.toCPointer<ByteVar>())
 
-public actual fun EnableTrace(enable: UInt, enableflag: UInt, enablelevel: UInt, controlguid: Long, tracehandle: CONTROLTRACE_HANDLE): WIN32_ERROR =
+public actual fun enableTrace(enable: UInt, enableflag: UInt, enablelevel: UInt, controlguid: COpaquePointer?, tracehandle: ControltraceHandle): Win32Error =
     0u
 
-public actual fun EnableTraceEx(providerid: Long, sourceid: Long, tracehandle: CONTROLTRACE_HANDLE, isenabled: UInt, level: UByte, matchanykeyword: ULong, matchallkeyword: ULong, enableproperty: UInt, enablefilterdesc: Long): WIN32_ERROR =
+public actual fun enableTraceEx(providerid: COpaquePointer?, sourceid: COpaquePointer?, tracehandle: ControltraceHandle, isenabled: UInt, level: UByte, matchanykeyword: ULong, matchallkeyword: ULong, enableproperty: UInt, enablefilterdesc: COpaquePointer?): Win32Error =
     0u
 
-public actual fun EnableTraceEx2(tracehandle: CONTROLTRACE_HANDLE, providerid: Long, controlcode: UInt, level: UByte, matchanykeyword: ULong, matchallkeyword: ULong, timeout: UInt, enableparameters: Long): WIN32_ERROR =
+public actual fun enableTraceEx2(tracehandle: ControltraceHandle, providerid: COpaquePointer?, controlcode: UInt, level: UByte, matchanykeyword: ULong, matchallkeyword: ULong, timeout: UInt, enableparameters: COpaquePointer?): Win32Error =
     0u
 
-public actual fun EnumerateTraceGuids(guidpropertiesarray: Long, propertyarraycount: UInt, guidcount: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_EnumerateTraceGuids(guidpropertiesarray.toCPointer<ByteVar>(), propertyarraycount, guidcount.toCPointer<ByteVar>())
+public actual fun enumerateTraceGuids(guidpropertiesarray: COpaquePointer?, propertyarraycount: UInt, guidcount: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_enumerateTraceGuids(guidpropertiesarray?.value?.toCPointer<ByteVar>(), propertyarraycount, guidcount?.value?.toCPointer<ByteVar>())
 
-public actual fun EnumerateTraceGuidsEx(tracequeryinfoclass: TRACE_QUERY_INFO_CLASS, inbuffer: Long, inbuffersize: UInt, outbuffer: Long, outbuffersize: UInt, returnlength: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_EnumerateTraceGuidsEx(tracequeryinfoclass, inbuffer.toCPointer<ByteVar>(), inbuffersize, outbuffer.toCPointer<ByteVar>(), outbuffersize, returnlength.toCPointer<ByteVar>())
+public actual fun enumerateTraceGuidsEx(tracequeryinfoclass: TraceQueryInfoClass, inbuffer: COpaquePointer?, inbuffersize: UInt, outbuffer: COpaquePointer?, outbuffersize: UInt, returnlength: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_enumerateTraceGuidsEx(tracequeryinfoclass, inbuffer?.value?.toCPointer<ByteVar>(), inbuffersize, outbuffer?.value?.toCPointer<ByteVar>(), outbuffersize, returnlength?.value?.toCPointer<ByteVar>())
 
-public actual fun EventAccessControl(guid: Long, operation: UInt, sid: PSID, rights: UInt, allowordeny: Boolean): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_EventAccessControl(guid.toCPointer<ByteVar>(), operation, sid.toCPointer<ByteVar>(), rights, allowordeny)
+public actual fun eventAccessControl(guid: COpaquePointer?, operation: UInt, sid: Psid, rights: UInt, allowordeny: Boolean): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_eventAccessControl(guid?.value?.toCPointer<ByteVar>(), operation, sid?.value?.toCPointer<ByteVar>(), rights, allowordeny)
 
-public actual fun EventAccessQuery(guid: Long, buffer: PSECURITY_DESCRIPTOR, buffersize: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_EventAccessQuery(guid.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), buffersize.toCPointer<ByteVar>())
+public actual fun eventAccessQuery(guid: COpaquePointer?, buffer: PsecurityDescriptor, buffersize: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_eventAccessQuery(guid?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), buffersize?.value?.toCPointer<ByteVar>())
 
-public actual fun EventAccessRemove(guid: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_EventAccessRemove(guid.toCPointer<ByteVar>())
+public actual fun eventAccessRemove(guid: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_eventAccessRemove(guid?.value?.toCPointer<ByteVar>())
 
-public actual fun EventActivityIdControl(controlcode: UInt, activityid: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_EventActivityIdControl(controlcode, activityid.toCPointer<ByteVar>())
+public actual fun eventActivityIdControl(controlcode: UInt, activityid: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_eventActivityIdControl(controlcode, activityid?.value?.toCPointer<ByteVar>())
 
-public actual fun EventEnabled(reghandle: REGHANDLE, eventdescriptor: Long): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_EventEnabled(reghandle, eventdescriptor.toCPointer<ByteVar>())
+public actual fun eventEnabled(reghandle: Reghandle, eventdescriptor: COpaquePointer?): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_eventEnabled(reghandle, eventdescriptor?.value?.toCPointer<ByteVar>())
 
-public actual fun EventProviderEnabled(reghandle: REGHANDLE, level: UByte, keyword: ULong): Boolean =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_EventProviderEnabled(reghandle, level, keyword)
+public actual fun eventProviderEnabled(reghandle: Reghandle, level: UByte, keyword: ULong): Boolean =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_eventProviderEnabled(reghandle, level, keyword)
 
-public actual fun EventRegister(providerid: Long, enablecallback: PENABLECALLBACK, callbackcontext: Long, reghandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_EventRegister(providerid.toCPointer<ByteVar>(), enablecallback.toLong().toCPointer<ByteVar>(), callbackcontext.toCPointer<ByteVar>(), reghandle.toCPointer<ByteVar>())
+public actual fun eventRegister(providerid: COpaquePointer?, enablecallback: Penablecallback, callbackcontext: COpaquePointer?, reghandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_eventRegister(providerid?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), callbackcontext?.value?.toCPointer<ByteVar>(), reghandle?.value?.toCPointer<ByteVar>())
 
-public actual fun EventSetInformation(reghandle: REGHANDLE, informationclass: EVENT_INFO_CLASS, eventinformation: Long, informationlength: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_EventSetInformation(reghandle, informationclass, eventinformation.toCPointer<ByteVar>(), informationlength)
+public actual fun eventSetInformation(reghandle: Reghandle, informationclass: EventInfoClass, eventinformation: COpaquePointer?, informationlength: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_eventSetInformation(reghandle, informationclass, eventinformation?.value?.toCPointer<ByteVar>(), informationlength)
 
-public actual fun EventUnregister(reghandle: REGHANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_EventUnregister(reghandle)
+public actual fun eventUnregister(reghandle: Reghandle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_eventUnregister(reghandle)
 
-public actual fun EventWrite(reghandle: REGHANDLE, eventdescriptor: Long, userdatacount: UInt, userdata: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_EventWrite(reghandle, eventdescriptor.toCPointer<ByteVar>(), userdatacount, userdata.toCPointer<ByteVar>())
+public actual fun eventWrite(reghandle: Reghandle, eventdescriptor: COpaquePointer?, userdatacount: UInt, userdata: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_eventWrite(reghandle, eventdescriptor?.value?.toCPointer<ByteVar>(), userdatacount, userdata?.value?.toCPointer<ByteVar>())
 
-public actual fun EventWriteEx(reghandle: REGHANDLE, eventdescriptor: Long, filter: ULong, flags: UInt, activityid: Long, relatedactivityid: Long, userdatacount: UInt, userdata: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_EventWriteEx(reghandle, eventdescriptor.toCPointer<ByteVar>(), filter, flags, activityid.toCPointer<ByteVar>(), relatedactivityid.toCPointer<ByteVar>(), userdatacount, userdata.toCPointer<ByteVar>())
+public actual fun eventWriteEx(reghandle: Reghandle, eventdescriptor: COpaquePointer?, filter: ULong, flags: UInt, activityid: COpaquePointer?, relatedactivityid: COpaquePointer?, userdatacount: UInt, userdata: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_eventWriteEx(reghandle, eventdescriptor?.value?.toCPointer<ByteVar>(), filter, flags, activityid?.value?.toCPointer<ByteVar>(), relatedactivityid?.value?.toCPointer<ByteVar>(), userdatacount, userdata?.value?.toCPointer<ByteVar>())
 
-public actual fun EventWriteString(reghandle: REGHANDLE, level: UByte, keyword: ULong, string: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_EventWriteString(reghandle, level, keyword, string.toCPointer<ByteVar>())
+public actual fun eventWriteString(reghandle: Reghandle, level: UByte, keyword: ULong, string: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_eventWriteString(reghandle, level, keyword, string?.value?.toCPointer<ByteVar>())
 
-public actual fun EventWriteTransfer(reghandle: REGHANDLE, eventdescriptor: Long, activityid: Long, relatedactivityid: Long, userdatacount: UInt, userdata: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_EventWriteTransfer(reghandle, eventdescriptor.toCPointer<ByteVar>(), activityid.toCPointer<ByteVar>(), relatedactivityid.toCPointer<ByteVar>(), userdatacount, userdata.toCPointer<ByteVar>())
+public actual fun eventWriteTransfer(reghandle: Reghandle, eventdescriptor: COpaquePointer?, activityid: COpaquePointer?, relatedactivityid: COpaquePointer?, userdatacount: UInt, userdata: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_eventWriteTransfer(reghandle, eventdescriptor?.value?.toCPointer<ByteVar>(), activityid?.value?.toCPointer<ByteVar>(), relatedactivityid?.value?.toCPointer<ByteVar>(), userdatacount, userdata?.value?.toCPointer<ByteVar>())
 
-public actual fun FlushTraceA(tracehandle: CONTROLTRACE_HANDLE, instancename: PCSTR, properties: Long): WIN32_ERROR =
+public actual fun flushTraceA(tracehandle: ControltraceHandle, instancename: Pcstr, properties: COpaquePointer?): Win32Error =
     0u
 
-public actual fun FlushTraceW(tracehandle: CONTROLTRACE_HANDLE, instancename: PCWSTR, properties: Long): WIN32_ERROR =
+public actual fun flushTraceW(tracehandle: ControltraceHandle, instancename: Pcwstr, properties: COpaquePointer?): Win32Error =
     0u
 
-public actual fun GetTraceEnableFlags(tracehandle: ULong): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_GetTraceEnableFlags(tracehandle)
+public actual fun getTraceEnableFlags(tracehandle: ULong): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_getTraceEnableFlags(tracehandle)
 
-public actual fun GetTraceEnableLevel(tracehandle: ULong): UByte =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_GetTraceEnableLevel(tracehandle)
+public actual fun getTraceEnableLevel(tracehandle: ULong): UByte =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_getTraceEnableLevel(tracehandle)
 
-public actual fun GetTraceLoggerHandle(buffer: Long): ULong =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_GetTraceLoggerHandle(buffer.toCPointer<ByteVar>())
+public actual fun getTraceLoggerHandle(buffer: COpaquePointer?): ULong =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_getTraceLoggerHandle(buffer?.value?.toCPointer<ByteVar>())
 
-public actual fun OpenTraceA(logfile: Long): PROCESSTRACE_HANDLE =
-    PROCESSTRACE_HANDLE()
+public actual fun openTraceA(logfile: COpaquePointer?): ProcesstraceHandle =
+    ProcesstraceHandle()
 
-public actual fun OpenTraceFromBufferStream(options: Long, buffercompletioncallback: PETW_BUFFER_COMPLETION_CALLBACK, buffercompletioncontext: Long): ULong =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_OpenTraceFromBufferStream(options.toCPointer<ByteVar>(), buffercompletioncallback.toLong().toCPointer<ByteVar>(), buffercompletioncontext.toCPointer<ByteVar>())
+public actual fun openTraceFromBufferStream(options: COpaquePointer?, buffercompletioncallback: PetwBufferCompletionCallback, buffercompletioncontext: COpaquePointer?): ULong =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_openTraceFromBufferStream(options?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), buffercompletioncontext?.value?.toCPointer<ByteVar>())
 
-public actual fun OpenTraceFromFile(logfilename: PCWSTR, options: Long, logfileheader: Long): ULong =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_OpenTraceFromFile(logfilename.toCPointer<ByteVar>(), options.toCPointer<ByteVar>(), logfileheader.toCPointer<ByteVar>())
+public actual fun openTraceFromFile(logfilename: Pcwstr, options: COpaquePointer?, logfileheader: COpaquePointer?): ULong =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_openTraceFromFile(logfilename?.value?.toCPointer<ByteVar>(), options?.value?.toCPointer<ByteVar>(), logfileheader?.value?.toCPointer<ByteVar>())
 
-public actual fun OpenTraceFromRealTimeLogger(loggername: PCWSTR, options: Long, logfileheader: Long): ULong =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_OpenTraceFromRealTimeLogger(loggername.toCPointer<ByteVar>(), options.toCPointer<ByteVar>(), logfileheader.toCPointer<ByteVar>())
+public actual fun openTraceFromRealTimeLogger(loggername: Pcwstr, options: COpaquePointer?, logfileheader: COpaquePointer?): ULong =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_openTraceFromRealTimeLogger(loggername?.value?.toCPointer<ByteVar>(), options?.value?.toCPointer<ByteVar>(), logfileheader?.value?.toCPointer<ByteVar>())
 
-public actual fun OpenTraceFromRealTimeLoggerWithAllocationOptions(loggername: PCWSTR, options: Long, allocationsize: ULong, memorypartitionhandle: HANDLE, logfileheader: Long): ULong =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_OpenTraceFromRealTimeLoggerWithAllocationOptions(loggername.toCPointer<ByteVar>(), options.toCPointer<ByteVar>(), allocationsize, memorypartitionhandle.toCPointer<ByteVar>(), logfileheader.toCPointer<ByteVar>())
+public actual fun openTraceFromRealTimeLoggerWithAllocationOptions(loggername: Pcwstr, options: COpaquePointer?, allocationsize: ULong, memorypartitionhandle: Handle, logfileheader: COpaquePointer?): ULong =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_openTraceFromRealTimeLoggerWithAllocationOptions(loggername?.value?.toCPointer<ByteVar>(), options?.value?.toCPointer<ByteVar>(), allocationsize, memorypartitionhandle?.value?.toCPointer<ByteVar>(), logfileheader?.value?.toCPointer<ByteVar>())
 
-public actual fun OpenTraceW(logfile: Long): PROCESSTRACE_HANDLE =
-    PROCESSTRACE_HANDLE()
+public actual fun openTraceW(logfile: COpaquePointer?): ProcesstraceHandle =
+    ProcesstraceHandle()
 
-public actual fun ProcessTrace(handlearray: Long, handlecount: UInt, starttime: Long, endtime: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_ProcessTrace(handlearray.toCPointer<ByteVar>(), handlecount, starttime.toCPointer<ByteVar>(), endtime.toCPointer<ByteVar>())
+public actual fun processTrace(handlearray: COpaquePointer?, handlecount: UInt, starttime: COpaquePointer?, endtime: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_processTrace(handlearray?.value?.toCPointer<ByteVar>(), handlecount, starttime?.value?.toCPointer<ByteVar>(), endtime?.value?.toCPointer<ByteVar>())
 
-public actual fun ProcessTraceAddBufferToBufferStream(tracehandle: ULong, buffer: Long, buffersize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_ProcessTraceAddBufferToBufferStream(tracehandle, buffer.toCPointer<ByteVar>(), buffersize)
+public actual fun processTraceAddBufferToBufferStream(tracehandle: ULong, buffer: COpaquePointer?, buffersize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_processTraceAddBufferToBufferStream(tracehandle, buffer?.value?.toCPointer<ByteVar>(), buffersize)
 
-public actual fun ProcessTraceBufferDecrementReference(buffer: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_ProcessTraceBufferDecrementReference(buffer.toCPointer<ByteVar>())
+public actual fun processTraceBufferDecrementReference(buffer: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_processTraceBufferDecrementReference(buffer?.value?.toCPointer<ByteVar>())
 
-public actual fun ProcessTraceBufferIncrementReference(tracehandle: ULong, buffer: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_ProcessTraceBufferIncrementReference(tracehandle, buffer.toCPointer<ByteVar>())
+public actual fun processTraceBufferIncrementReference(tracehandle: ULong, buffer: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_processTraceBufferIncrementReference(tracehandle, buffer?.value?.toCPointer<ByteVar>())
 
-public actual fun QueryAllTracesA(propertyarray: Long, propertyarraycount: UInt, loggercount: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_QueryAllTracesA(propertyarray.toCPointer<ByteVar>(), propertyarraycount, loggercount.toCPointer<ByteVar>())
+public actual fun queryAllTracesA(propertyarray: COpaquePointer?, propertyarraycount: UInt, loggercount: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_queryAllTracesA(propertyarray?.value?.toCPointer<ByteVar>(), propertyarraycount, loggercount?.value?.toCPointer<ByteVar>())
 
-public actual fun QueryAllTracesW(propertyarray: Long, propertyarraycount: UInt, loggercount: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_QueryAllTracesW(propertyarray.toCPointer<ByteVar>(), propertyarraycount, loggercount.toCPointer<ByteVar>())
+public actual fun queryAllTracesW(propertyarray: COpaquePointer?, propertyarraycount: UInt, loggercount: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_queryAllTracesW(propertyarray?.value?.toCPointer<ByteVar>(), propertyarraycount, loggercount?.value?.toCPointer<ByteVar>())
 
-public actual fun QueryTraceA(tracehandle: CONTROLTRACE_HANDLE, instancename: PCSTR, properties: Long): WIN32_ERROR =
+public actual fun queryTraceA(tracehandle: ControltraceHandle, instancename: Pcstr, properties: COpaquePointer?): Win32Error =
     0u
 
-public actual fun QueryTraceProcessingHandle(processinghandle: PROCESSTRACE_HANDLE, informationclass: ETW_PROCESS_HANDLE_INFO_TYPE, inbuffer: Long, inbuffersize: UInt, outbuffer: Long, outbuffersize: UInt, returnlength: Long): WIN32_ERROR =
+public actual fun queryTraceProcessingHandle(processinghandle: ProcesstraceHandle, informationclass: EtwProcessHandleInfoType, inbuffer: COpaquePointer?, inbuffersize: UInt, outbuffer: COpaquePointer?, outbuffersize: UInt, returnlength: COpaquePointer?): Win32Error =
     0u
 
-public actual fun QueryTraceW(tracehandle: CONTROLTRACE_HANDLE, instancename: PCWSTR, properties: Long): WIN32_ERROR =
+public actual fun queryTraceW(tracehandle: ControltraceHandle, instancename: Pcwstr, properties: COpaquePointer?): Win32Error =
     0u
 
-public actual fun RegisterTraceGuidsA(requestaddress: WMIDPREQUEST, requestcontext: Long, controlguid: Long, guidcount: UInt, traceguidreg: Long, mofimagepath: PCSTR, mofresourcename: PCSTR, registrationhandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_RegisterTraceGuidsA(requestaddress.toLong().toCPointer<ByteVar>(), requestcontext.toCPointer<ByteVar>(), controlguid.toCPointer<ByteVar>(), guidcount, traceguidreg.toCPointer<ByteVar>(), mofimagepath.toCPointer<ByteVar>(), mofresourcename.toCPointer<ByteVar>(), registrationhandle.toCPointer<ByteVar>())
+public actual fun registerTraceGuidsA(requestaddress: Wmidprequest, requestcontext: COpaquePointer?, controlguid: COpaquePointer?, guidcount: UInt, traceguidreg: COpaquePointer?, mofimagepath: Pcstr, mofresourcename: Pcstr, registrationhandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_registerTraceGuidsA(0L.toCPointer<ByteVar>(), requestcontext?.value?.toCPointer<ByteVar>(), controlguid?.value?.toCPointer<ByteVar>(), guidcount, traceguidreg?.value?.toCPointer<ByteVar>(), mofimagepath?.value?.toCPointer<ByteVar>(), mofresourcename?.value?.toCPointer<ByteVar>(), registrationhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun RegisterTraceGuidsW(requestaddress: WMIDPREQUEST, requestcontext: Long, controlguid: Long, guidcount: UInt, traceguidreg: Long, mofimagepath: PCWSTR, mofresourcename: PCWSTR, registrationhandle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_RegisterTraceGuidsW(requestaddress.toLong().toCPointer<ByteVar>(), requestcontext.toCPointer<ByteVar>(), controlguid.toCPointer<ByteVar>(), guidcount, traceguidreg.toCPointer<ByteVar>(), mofimagepath.toCPointer<ByteVar>(), mofresourcename.toCPointer<ByteVar>(), registrationhandle.toCPointer<ByteVar>())
+public actual fun registerTraceGuidsW(requestaddress: Wmidprequest, requestcontext: COpaquePointer?, controlguid: COpaquePointer?, guidcount: UInt, traceguidreg: COpaquePointer?, mofimagepath: Pcwstr, mofresourcename: Pcwstr, registrationhandle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_registerTraceGuidsW(0L.toCPointer<ByteVar>(), requestcontext?.value?.toCPointer<ByteVar>(), controlguid?.value?.toCPointer<ByteVar>(), guidcount, traceguidreg?.value?.toCPointer<ByteVar>(), mofimagepath?.value?.toCPointer<ByteVar>(), mofresourcename?.value?.toCPointer<ByteVar>(), registrationhandle?.value?.toCPointer<ByteVar>())
 
-public actual fun RemoveTraceCallback(pguid: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_RemoveTraceCallback(pguid.toCPointer<ByteVar>())
+public actual fun removeTraceCallback(pguid: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_removeTraceCallback(pguid?.value?.toCPointer<ByteVar>())
 
-public actual fun SetTraceCallback(pguid: Long, eventcallback: PEVENT_CALLBACK): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_SetTraceCallback(pguid.toCPointer<ByteVar>(), eventcallback.toLong().toCPointer<ByteVar>())
+public actual fun setTraceCallback(pguid: COpaquePointer?, eventcallback: PeventCallback): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_setTraceCallback(pguid?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>())
 
-public actual fun StartTraceA(tracehandle: Long, instancename: PCSTR, properties: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_StartTraceA(tracehandle.toCPointer<ByteVar>(), instancename.toCPointer<ByteVar>(), properties.toCPointer<ByteVar>())
+public actual fun startTraceA(tracehandle: COpaquePointer?, instancename: Pcstr, properties: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_startTraceA(tracehandle?.value?.toCPointer<ByteVar>(), instancename?.value?.toCPointer<ByteVar>(), properties?.value?.toCPointer<ByteVar>())
 
-public actual fun StartTraceW(tracehandle: Long, instancename: PCWSTR, properties: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_StartTraceW(tracehandle.toCPointer<ByteVar>(), instancename.toCPointer<ByteVar>(), properties.toCPointer<ByteVar>())
+public actual fun startTraceW(tracehandle: COpaquePointer?, instancename: Pcwstr, properties: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_startTraceW(tracehandle?.value?.toCPointer<ByteVar>(), instancename?.value?.toCPointer<ByteVar>(), properties?.value?.toCPointer<ByteVar>())
 
-public actual fun StopTraceA(tracehandle: CONTROLTRACE_HANDLE, instancename: PCSTR, properties: Long): WIN32_ERROR =
+public actual fun stopTraceA(tracehandle: ControltraceHandle, instancename: Pcstr, properties: COpaquePointer?): Win32Error =
     0u
 
-public actual fun StopTraceW(tracehandle: CONTROLTRACE_HANDLE, instancename: PCWSTR, properties: Long): WIN32_ERROR =
+public actual fun stopTraceW(tracehandle: ControltraceHandle, instancename: Pcwstr, properties: COpaquePointer?): Win32Error =
     0u
 
-public actual fun TdhAggregatePayloadFilters(payloadfiltercount: UInt, payloadfilterptrs: Long, eventmatchallflags: Long, eventfilterdescriptor: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_TdhAggregatePayloadFilters(payloadfiltercount, payloadfilterptrs.toCPointer<ByteVar>(), eventmatchallflags.toCPointer<ByteVar>(), eventfilterdescriptor.toCPointer<ByteVar>())
+public actual fun tdhAggregatePayloadFilters(payloadfiltercount: UInt, payloadfilterptrs: COpaquePointer?, eventmatchallflags: COpaquePointer?, eventfilterdescriptor: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_tdhAggregatePayloadFilters(payloadfiltercount, payloadfilterptrs?.value?.toCPointer<ByteVar>(), eventmatchallflags?.value?.toCPointer<ByteVar>(), eventfilterdescriptor?.value?.toCPointer<ByteVar>())
 
-public actual fun TdhCleanupPayloadEventFilterDescriptor(eventfilterdescriptor: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_TdhCleanupPayloadEventFilterDescriptor(eventfilterdescriptor.toCPointer<ByteVar>())
+public actual fun tdhCleanupPayloadEventFilterDescriptor(eventfilterdescriptor: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_tdhCleanupPayloadEventFilterDescriptor(eventfilterdescriptor?.value?.toCPointer<ByteVar>())
 
-public actual fun TdhCloseDecodingHandle(handle: TDH_HANDLE): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_TdhCloseDecodingHandle(handle)
+public actual fun tdhCloseDecodingHandle(handle: TdhHandle): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_tdhCloseDecodingHandle(handle.toLong())
 
-public actual fun TdhCreatePayloadFilter(providerguid: Long, eventdescriptor: Long, eventmatchany: Boolean, payloadpredicatecount: UInt, payloadpredicates: Long, payloadfilter: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_TdhCreatePayloadFilter(providerguid.toCPointer<ByteVar>(), eventdescriptor.toCPointer<ByteVar>(), eventmatchany, payloadpredicatecount, payloadpredicates.toCPointer<ByteVar>(), payloadfilter.toCPointer<ByteVar>())
+public actual fun tdhCreatePayloadFilter(providerguid: COpaquePointer?, eventdescriptor: COpaquePointer?, eventmatchany: Boolean, payloadpredicatecount: UInt, payloadpredicates: COpaquePointer?, payloadfilter: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_tdhCreatePayloadFilter(providerguid?.value?.toCPointer<ByteVar>(), eventdescriptor?.value?.toCPointer<ByteVar>(), eventmatchany, payloadpredicatecount, payloadpredicates?.value?.toCPointer<ByteVar>(), payloadfilter?.value?.toCPointer<ByteVar>())
 
-public actual fun TdhDeletePayloadFilter(payloadfilter: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_TdhDeletePayloadFilter(payloadfilter.toCPointer<ByteVar>())
+public actual fun tdhDeletePayloadFilter(payloadfilter: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_tdhDeletePayloadFilter(payloadfilter?.value?.toCPointer<ByteVar>())
 
-public actual fun TdhEnumerateManifestProviderEvents(providerguid: Long, buffer: Long, buffersize: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateManifestProviderEvents(providerguid.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), buffersize.toCPointer<ByteVar>())
+public actual fun tdhEnumerateManifestProviderEvents(providerguid: COpaquePointer?, buffer: COpaquePointer?, buffersize: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateManifestProviderEvents(providerguid?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), buffersize?.value?.toCPointer<ByteVar>())
 
-public actual fun TdhEnumerateProviderFieldInformation(pguid: Long, eventfieldtype: EVENT_FIELD_TYPE, pbuffer: Long, pbuffersize: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateProviderFieldInformation(pguid.toCPointer<ByteVar>(), eventfieldtype, pbuffer.toCPointer<ByteVar>(), pbuffersize.toCPointer<ByteVar>())
+public actual fun tdhEnumerateProviderFieldInformation(pguid: COpaquePointer?, eventfieldtype: EventFieldType, pbuffer: COpaquePointer?, pbuffersize: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateProviderFieldInformation(pguid?.value?.toCPointer<ByteVar>(), eventfieldtype, pbuffer?.value?.toCPointer<ByteVar>(), pbuffersize?.value?.toCPointer<ByteVar>())
 
-public actual fun TdhEnumerateProviderFilters(guid: Long, tdhcontextcount: UInt, tdhcontext: Long, filtercount: Long, buffer: Long, buffersize: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateProviderFilters(guid.toCPointer<ByteVar>(), tdhcontextcount, tdhcontext.toCPointer<ByteVar>(), filtercount.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), buffersize.toCPointer<ByteVar>())
+public actual fun tdhEnumerateProviderFilters(guid: COpaquePointer?, tdhcontextcount: UInt, tdhcontext: COpaquePointer?, filtercount: COpaquePointer?, buffer: COpaquePointer?, buffersize: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateProviderFilters(guid?.value?.toCPointer<ByteVar>(), tdhcontextcount, tdhcontext?.value?.toCPointer<ByteVar>(), filtercount?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), buffersize?.value?.toCPointer<ByteVar>())
 
-public actual fun TdhEnumerateProviders(pbuffer: Long, pbuffersize: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateProviders(pbuffer.toCPointer<ByteVar>(), pbuffersize.toCPointer<ByteVar>())
+public actual fun tdhEnumerateProviders(pbuffer: COpaquePointer?, pbuffersize: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateProviders(pbuffer?.value?.toCPointer<ByteVar>(), pbuffersize?.value?.toCPointer<ByteVar>())
 
-public actual fun TdhEnumerateProvidersForDecodingSource(filter: DECODING_SOURCE, buffer: Long, buffersize: UInt, bufferrequired: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_TdhEnumerateProvidersForDecodingSource(filter, buffer.toCPointer<ByteVar>(), buffersize, bufferrequired.toCPointer<ByteVar>())
+public actual fun tdhEnumerateProvidersForDecodingSource(filter: DecodingSource, buffer: COpaquePointer?, buffersize: UInt, bufferrequired: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateProvidersForDecodingSource(filter, buffer?.value?.toCPointer<ByteVar>(), buffersize, bufferrequired?.value?.toCPointer<ByteVar>())
 
-public actual fun TdhFormatProperty(eventinfo: Long, mapinfo: Long, pointersize: UInt, propertyintype: UShort, propertyouttype: UShort, propertylength: UShort, userdatalength: UShort, userdata: Long, buffersize: Long, buffer: PWSTR, userdataconsumed: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_TdhFormatProperty(eventinfo.toCPointer<ByteVar>(), mapinfo.toCPointer<ByteVar>(), pointersize, propertyintype, propertyouttype, propertylength, userdatalength, userdata.toCPointer<ByteVar>(), buffersize.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), userdataconsumed.toCPointer<ByteVar>())
+public actual fun tdhFormatProperty(eventinfo: COpaquePointer?, mapinfo: COpaquePointer?, pointersize: UInt, propertyintype: UShort, propertyouttype: UShort, propertylength: UShort, userdatalength: UShort, userdata: COpaquePointer?, buffersize: COpaquePointer?, buffer: Pwstr, userdataconsumed: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_tdhFormatProperty(eventinfo?.value?.toCPointer<ByteVar>(), mapinfo?.value?.toCPointer<ByteVar>(), pointersize, propertyintype, propertyouttype, propertylength, userdatalength, userdata?.value?.toCPointer<ByteVar>(), buffersize?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), userdataconsumed?.value?.toCPointer<ByteVar>())
 
-public actual fun TdhGetDecodingParameter(handle: TDH_HANDLE, tdhcontext: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_TdhGetDecodingParameter(handle, tdhcontext.toCPointer<ByteVar>())
+public actual fun tdhGetDecodingParameter(handle: TdhHandle, tdhcontext: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_tdhGetDecodingParameter(handle.toLong(), tdhcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun TdhGetEventInformation(event: Long, tdhcontextcount: UInt, tdhcontext: Long, buffer: Long, buffersize: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_TdhGetEventInformation(event.toCPointer<ByteVar>(), tdhcontextcount, tdhcontext.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), buffersize.toCPointer<ByteVar>())
+public actual fun tdhGetEventInformation(event: COpaquePointer?, tdhcontextcount: UInt, tdhcontext: COpaquePointer?, buffer: COpaquePointer?, buffersize: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_tdhGetEventInformation(event?.value?.toCPointer<ByteVar>(), tdhcontextcount, tdhcontext?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), buffersize?.value?.toCPointer<ByteVar>())
 
-public actual fun TdhGetEventMapInformation(pevent: Long, pmapname: PCWSTR, pbuffer: Long, pbuffersize: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_TdhGetEventMapInformation(pevent.toCPointer<ByteVar>(), pmapname.toCPointer<ByteVar>(), pbuffer.toCPointer<ByteVar>(), pbuffersize.toCPointer<ByteVar>())
+public actual fun tdhGetEventMapInformation(pevent: COpaquePointer?, pmapname: Pcwstr, pbuffer: COpaquePointer?, pbuffersize: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_tdhGetEventMapInformation(pevent?.value?.toCPointer<ByteVar>(), pmapname?.value?.toCPointer<ByteVar>(), pbuffer?.value?.toCPointer<ByteVar>(), pbuffersize?.value?.toCPointer<ByteVar>())
 
-public actual fun TdhGetManifestEventInformation(providerguid: Long, eventdescriptor: Long, buffer: Long, buffersize: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_TdhGetManifestEventInformation(providerguid.toCPointer<ByteVar>(), eventdescriptor.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), buffersize.toCPointer<ByteVar>())
+public actual fun tdhGetManifestEventInformation(providerguid: COpaquePointer?, eventdescriptor: COpaquePointer?, buffer: COpaquePointer?, buffersize: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_tdhGetManifestEventInformation(providerguid?.value?.toCPointer<ByteVar>(), eventdescriptor?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), buffersize?.value?.toCPointer<ByteVar>())
 
-public actual fun TdhGetProperty(pevent: Long, tdhcontextcount: UInt, ptdhcontext: Long, propertydatacount: UInt, ppropertydata: Long, buffersize: UInt, pbuffer: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_TdhGetProperty(pevent.toCPointer<ByteVar>(), tdhcontextcount, ptdhcontext.toCPointer<ByteVar>(), propertydatacount, ppropertydata.toCPointer<ByteVar>(), buffersize, pbuffer.toCPointer<ByteVar>())
+public actual fun tdhGetProperty(pevent: COpaquePointer?, tdhcontextcount: UInt, ptdhcontext: COpaquePointer?, propertydatacount: UInt, ppropertydata: COpaquePointer?, buffersize: UInt, pbuffer: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_tdhGetProperty(pevent?.value?.toCPointer<ByteVar>(), tdhcontextcount, ptdhcontext?.value?.toCPointer<ByteVar>(), propertydatacount, ppropertydata?.value?.toCPointer<ByteVar>(), buffersize, pbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun TdhGetPropertySize(pevent: Long, tdhcontextcount: UInt, ptdhcontext: Long, propertydatacount: UInt, ppropertydata: Long, ppropertysize: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_TdhGetPropertySize(pevent.toCPointer<ByteVar>(), tdhcontextcount, ptdhcontext.toCPointer<ByteVar>(), propertydatacount, ppropertydata.toCPointer<ByteVar>(), ppropertysize.toCPointer<ByteVar>())
+public actual fun tdhGetPropertySize(pevent: COpaquePointer?, tdhcontextcount: UInt, ptdhcontext: COpaquePointer?, propertydatacount: UInt, ppropertydata: COpaquePointer?, ppropertysize: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_tdhGetPropertySize(pevent?.value?.toCPointer<ByteVar>(), tdhcontextcount, ptdhcontext?.value?.toCPointer<ByteVar>(), propertydatacount, ppropertydata?.value?.toCPointer<ByteVar>(), ppropertysize?.value?.toCPointer<ByteVar>())
 
-public actual fun TdhGetWppMessage(handle: TDH_HANDLE, eventrecord: Long, buffersize: Long, buffer: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_TdhGetWppMessage(handle, eventrecord.toCPointer<ByteVar>(), buffersize.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>())
+public actual fun tdhGetWppMessage(handle: TdhHandle, eventrecord: COpaquePointer?, buffersize: COpaquePointer?, buffer: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_tdhGetWppMessage(handle.toLong(), eventrecord?.value?.toCPointer<ByteVar>(), buffersize?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>())
 
-public actual fun TdhGetWppProperty(handle: TDH_HANDLE, eventrecord: Long, propertyname: PCWSTR, buffersize: Long, buffer: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_TdhGetWppProperty(handle, eventrecord.toCPointer<ByteVar>(), propertyname.toCPointer<ByteVar>(), buffersize.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>())
+public actual fun tdhGetWppProperty(handle: TdhHandle, eventrecord: COpaquePointer?, propertyname: Pcwstr, buffersize: COpaquePointer?, buffer: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_tdhGetWppProperty(handle.toLong(), eventrecord?.value?.toCPointer<ByteVar>(), propertyname?.value?.toCPointer<ByteVar>(), buffersize?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>())
 
-public actual fun TdhLoadManifest(manifest: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_TdhLoadManifest(manifest.toCPointer<ByteVar>())
+public actual fun tdhLoadManifest(manifest: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_tdhLoadManifest(manifest?.value?.toCPointer<ByteVar>())
 
-public actual fun TdhLoadManifestFromBinary(binarypath: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_TdhLoadManifestFromBinary(binarypath.toCPointer<ByteVar>())
+public actual fun tdhLoadManifestFromBinary(binarypath: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_tdhLoadManifestFromBinary(binarypath?.value?.toCPointer<ByteVar>())
 
-public actual fun TdhLoadManifestFromMemory(pdata: Long, cbdata: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_TdhLoadManifestFromMemory(pdata.toCPointer<ByteVar>(), cbdata)
+public actual fun tdhLoadManifestFromMemory(pdata: COpaquePointer?, cbdata: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_tdhLoadManifestFromMemory(pdata?.value?.toCPointer<ByteVar>(), cbdata)
 
-public actual fun TdhOpenDecodingHandle(handle: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_TdhOpenDecodingHandle(handle.toCPointer<ByteVar>())
+public actual fun tdhOpenDecodingHandle(handle: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_tdhOpenDecodingHandle(handle?.value?.toCPointer<ByteVar>())
 
-public actual fun TdhQueryProviderFieldInformation(pguid: Long, eventfieldvalue: ULong, eventfieldtype: EVENT_FIELD_TYPE, pbuffer: Long, pbuffersize: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_TdhQueryProviderFieldInformation(pguid.toCPointer<ByteVar>(), eventfieldvalue, eventfieldtype, pbuffer.toCPointer<ByteVar>(), pbuffersize.toCPointer<ByteVar>())
+public actual fun tdhQueryProviderFieldInformation(pguid: COpaquePointer?, eventfieldvalue: ULong, eventfieldtype: EventFieldType, pbuffer: COpaquePointer?, pbuffersize: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_tdhQueryProviderFieldInformation(pguid?.value?.toCPointer<ByteVar>(), eventfieldvalue, eventfieldtype, pbuffer?.value?.toCPointer<ByteVar>(), pbuffersize?.value?.toCPointer<ByteVar>())
 
-public actual fun TdhSetDecodingParameter(handle: TDH_HANDLE, tdhcontext: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_TdhSetDecodingParameter(handle, tdhcontext.toCPointer<ByteVar>())
+public actual fun tdhSetDecodingParameter(handle: TdhHandle, tdhcontext: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_tdhSetDecodingParameter(handle.toLong(), tdhcontext?.value?.toCPointer<ByteVar>())
 
-public actual fun TdhUnloadManifest(manifest: PCWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_TdhUnloadManifest(manifest.toCPointer<ByteVar>())
+public actual fun tdhUnloadManifest(manifest: Pcwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_tdhUnloadManifest(manifest?.value?.toCPointer<ByteVar>())
 
-public actual fun TdhUnloadManifestFromMemory(pdata: Long, cbdata: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_TdhUnloadManifestFromMemory(pdata.toCPointer<ByteVar>(), cbdata)
+public actual fun tdhUnloadManifestFromMemory(pdata: COpaquePointer?, cbdata: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_tdhUnloadManifestFromMemory(pdata?.value?.toCPointer<ByteVar>(), cbdata)
 
-public actual fun TraceEvent(tracehandle: ULong, eventtrace: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_TraceEvent(tracehandle, eventtrace.toCPointer<ByteVar>())
+public actual fun traceEvent(tracehandle: ULong, eventtrace: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_traceEvent(tracehandle, eventtrace?.value?.toCPointer<ByteVar>())
 
-public actual fun TraceEventInstance(tracehandle: ULong, eventtrace: Long, instinfo: Long, parentinstinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_TraceEventInstance(tracehandle, eventtrace.toCPointer<ByteVar>(), instinfo.toCPointer<ByteVar>(), parentinstinfo.toCPointer<ByteVar>())
+public actual fun traceEventInstance(tracehandle: ULong, eventtrace: COpaquePointer?, instinfo: COpaquePointer?, parentinstinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_traceEventInstance(tracehandle, eventtrace?.value?.toCPointer<ByteVar>(), instinfo?.value?.toCPointer<ByteVar>(), parentinstinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun TraceMessage(loggerhandle: ULong, messageflags: TRACE_MESSAGE_FLAGS, messageguid: Long, messagenumber: UShort): WIN32_ERROR =
+public actual fun traceMessage(loggerhandle: ULong, messageflags: TraceMessageFlags, messageguid: COpaquePointer?, messagenumber: UShort, vararg variadicArgs: Long): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_traceMessage(loggerhandle, messageflags, messageguid?.value?.toCPointer<ByteVar>(), messagenumber, variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
+
+public actual fun traceMessageVa(loggerhandle: ULong, messageflags: TraceMessageFlags, messageguid: COpaquePointer?, messagenumber: UShort, messagearglist: COpaquePointer?): Win32Error =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_traceMessageVa(loggerhandle, messageflags, messageguid?.value?.toCPointer<ByteVar>(), messagenumber, messagearglist?.value?.toCPointer<ByteVar>())
+
+public actual fun traceQueryInformation(sessionhandle: ControltraceHandle, informationclass: TraceQueryInfoClass, traceinformation: COpaquePointer?, informationlength: UInt, returnlength: COpaquePointer?): Win32Error =
     0u
 
-public actual fun TraceMessageVa(loggerhandle: ULong, messageflags: TRACE_MESSAGE_FLAGS, messageguid: Long, messagenumber: UShort, messagearglist: Long): WIN32_ERROR =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_TraceMessageVa(loggerhandle, messageflags, messageguid.toCPointer<ByteVar>(), messagenumber, messagearglist.toCPointer<ByteVar>())
-
-public actual fun TraceQueryInformation(sessionhandle: CONTROLTRACE_HANDLE, informationclass: TRACE_QUERY_INFO_CLASS, traceinformation: Long, informationlength: UInt, returnlength: Long): WIN32_ERROR =
+public actual fun traceSetInformation(sessionhandle: ControltraceHandle, informationclass: TraceQueryInfoClass, traceinformation: COpaquePointer?, informationlength: UInt): Win32Error =
     0u
 
-public actual fun TraceSetInformation(sessionhandle: CONTROLTRACE_HANDLE, informationclass: TRACE_QUERY_INFO_CLASS, traceinformation: Long, informationlength: UInt): WIN32_ERROR =
+public actual fun unregisterTraceGuids(registrationhandle: ULong): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_unregisterTraceGuids(registrationhandle)
+
+public actual fun updateTraceA(tracehandle: ControltraceHandle, instancename: Pcstr, properties: COpaquePointer?): Win32Error =
     0u
 
-public actual fun UnregisterTraceGuids(registrationhandle: ULong): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw.cinterop.windowssys_windows_win32_system_diagnostics_etw_UnregisterTraceGuids(registrationhandle)
-
-public actual fun UpdateTraceA(tracehandle: CONTROLTRACE_HANDLE, instancename: PCSTR, properties: Long): WIN32_ERROR =
-    0u
-
-public actual fun UpdateTraceW(tracehandle: CONTROLTRACE_HANDLE, instancename: PCWSTR, properties: Long): WIN32_ERROR =
+public actual fun updateTraceW(tracehandle: ControltraceHandle, instancename: Pcwstr, properties: COpaquePointer?): Win32Error =
     0u

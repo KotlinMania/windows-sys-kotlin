@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_ADsBuildEnumerator_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_aDsBuildEnumerator_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* padscontainer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppenumvariant = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -71,7 +71,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_ADsBuildE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_ADsBuildVarArrayInt_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_aDsBuildVarArrayInt_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpdwobjecttypes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwobjecttypes = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -93,7 +93,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_ADsBuildV
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_ADsBuildVarArrayStr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_aDsBuildVarArrayStr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpppathnames = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwpathnames = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -115,7 +115,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_ADsBuildV
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_ADsDecodeBinaryData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_aDsDecodeBinaryData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* szsrcdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppbdestdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -137,7 +137,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_ADsDecode
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_ADsEncodeBinaryData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_aDsEncodeBinaryData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbsrcdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwsrclen = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -159,7 +159,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_ADsEncode
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_ADsEnumerateNext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_aDsEnumerateNext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* penumvariant = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t celements = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -183,7 +183,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_ADsEnumer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_ADsFreeEnumerator_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_aDsFreeEnumerator_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* penumvariant = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -201,7 +201,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_ADsFreeEn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_ADsGetLastError_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_aDsGetLastError_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lperror = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lperrorbuf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -227,7 +227,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_ADsGetLas
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_ADsGetObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_aDsGetObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszpathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -249,7 +249,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_ADsGetObj
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_ADsOpenObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_aDsOpenObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszpathname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -277,7 +277,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_ADsOpenOb
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_ADsPropCheckIfWritable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_aDsPropCheckIfWritable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzattr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwritableattrs = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -297,7 +297,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_ADsPropCh
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_ADsPropCreateNotifyObj_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_aDsPropCreateNotifyObj_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pappthddataobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzadsobjname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -319,7 +319,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_ADsPropCr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_ADsPropGetInitInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_aDsPropGetInitInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hnotifyobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pinitparams = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -339,7 +339,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_ADsPropGe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_ADsPropSendErrorMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_aDsPropSendErrorMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hnotifyobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* perror = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -359,7 +359,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_ADsPropSe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_ADsPropSetHwnd_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_aDsPropSetHwnd_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hnotifyobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hpage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -379,7 +379,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_ADsPropSe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_ADsPropSetHwndWithTitle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_aDsPropSetHwndWithTitle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hnotifyobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hpage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -401,7 +401,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_ADsPropSe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_ADsPropShowErrorDialog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_aDsPropShowErrorDialog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hnotifyobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hpage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -421,7 +421,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_ADsPropSh
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_ADsSetLastError_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_aDsSetLastError_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwerr = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pszerror = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -442,7 +442,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_ADsSetLas
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_AdsFreeAdsValues_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_adsFreeAdsValues_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* padsvalues = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwnumvalues = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -461,7 +461,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_AdsFreeAd
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_AdsTypeToPropVariant_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_adsTypeToPropVariant_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* padsvalues = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwnumvalues = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -483,7 +483,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_AdsTypeTo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_AllocADsMem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_allocADsMem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t cb = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -501,7 +501,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_AllocADsM
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_AllocADsStr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_allocADsStr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -519,7 +519,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_AllocADsS
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_BinarySDToSecurityDescriptor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_binarySDToSecurityDescriptor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psecuritydescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pvarsec = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -547,7 +547,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_BinarySDT
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsAddSidHistoryA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsAddSidHistoryA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -579,7 +579,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsAddSidH
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsAddSidHistoryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsAddSidHistoryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -611,7 +611,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsAddSidH
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsAddressToSiteNamesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsAddressToSiteNamesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* computername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t entrycount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -635,7 +635,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsAddress
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsAddressToSiteNamesExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsAddressToSiteNamesExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* computername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t entrycount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -661,7 +661,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsAddress
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsAddressToSiteNamesExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsAddressToSiteNamesExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* computername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t entrycount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -687,7 +687,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsAddress
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsAddressToSiteNamesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsAddressToSiteNamesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* computername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t entrycount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -711,7 +711,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsAddress
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsBindA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsBindA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* domaincontrollername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dnsdomainname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -733,7 +733,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsBindA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsBindByInstanceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsBindByInstanceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* annotation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -765,7 +765,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsBindByI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsBindByInstanceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsBindByInstanceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* annotation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -797,7 +797,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsBindByI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsBindToISTGA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsBindToISTGA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sitename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -817,7 +817,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsBindToI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsBindToISTGW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsBindToISTGW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* sitename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -837,7 +837,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsBindToI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsBindW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsBindW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* domaincontrollername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dnsdomainname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -859,7 +859,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsBindW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsBindWithCredA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsBindWithCredA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* domaincontrollername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dnsdomainname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -883,7 +883,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsBindWit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsBindWithCredW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsBindWithCredW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* domaincontrollername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dnsdomainname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -907,7 +907,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsBindWit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsBindWithSpnA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsBindWithSpnA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* domaincontrollername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dnsdomainname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -933,7 +933,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsBindWit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsBindWithSpnExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsBindWithSpnExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* domaincontrollername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dnsdomainname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -961,7 +961,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsBindWit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsBindWithSpnExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsBindWithSpnExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* domaincontrollername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dnsdomainname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -989,7 +989,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsBindWit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsBindWithSpnW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsBindWithSpnW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* domaincontrollername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dnsdomainname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1015,7 +1015,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsBindWit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsBindingSetTimeout_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsBindingSetTimeout_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ctimeoutsecs = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1035,7 +1035,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsBinding
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsBrowseForContainerA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsBrowseForContainerA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1053,7 +1053,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsBrowseF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsBrowseForContainerW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsBrowseForContainerW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1071,7 +1071,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsBrowseF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsClientMakeSpnForTargetServerA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsClientMakeSpnForTargetServerA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serviceclass = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* servicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1095,7 +1095,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsClientM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsClientMakeSpnForTargetServerW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsClientMakeSpnForTargetServerW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serviceclass = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* servicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1119,7 +1119,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsClientM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsCrackNamesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsCrackNamesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t flags = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1149,7 +1149,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsCrackNa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsCrackNamesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsCrackNamesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t flags = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1179,7 +1179,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsCrackNa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsCrackSpn2A_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsCrackSpn2A_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszspn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cspn = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1213,7 +1213,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsCrackSp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsCrackSpn2W_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsCrackSpn2W_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszspn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cspn = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1247,7 +1247,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsCrackSp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsCrackSpn3W_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsCrackSpn3W_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszspn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cspn = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1285,7 +1285,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsCrackSp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsCrackSpn4W_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsCrackSpn4W_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszspn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cspn = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1325,7 +1325,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsCrackSp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsCrackSpnA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsCrackSpnA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszspn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcserviceclass = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1357,7 +1357,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsCrackSp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsCrackSpnW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsCrackSpnW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszspn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcserviceclass = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1389,7 +1389,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsCrackSp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsCrackUnquotedMangledRdnA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsCrackUnquotedMangledRdnA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszrdn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cchrdn = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1413,7 +1413,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsCrackUn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsCrackUnquotedMangledRdnW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsCrackUnquotedMangledRdnW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszrdn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cchrdn = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1437,7 +1437,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsCrackUn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsDeregisterDnsHostRecordsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsDeregisterDnsHostRecordsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dnsdomainname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1463,7 +1463,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsDeregis
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsDeregisterDnsHostRecordsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsDeregisterDnsHostRecordsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dnsdomainname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1489,7 +1489,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsDeregis
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsEnumerateDomainTrustsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsEnumerateDomainTrustsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1513,7 +1513,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsEnumera
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsEnumerateDomainTrustsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsEnumerateDomainTrustsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1537,7 +1537,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsEnumera
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsFreeDomainControllerInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsFreeDomainControllerInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t infolevel = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t cinfo = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1558,7 +1558,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsFreeDom
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsFreeDomainControllerInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsFreeDomainControllerInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t infolevel = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t cinfo = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1579,7 +1579,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsFreeDom
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsFreeNameResultA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsFreeNameResultA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* presult = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1596,7 +1596,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsFreeNam
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsFreeNameResultW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsFreeNameResultW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* presult = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1613,7 +1613,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsFreeNam
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsFreePasswordCredentials_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsFreePasswordCredentials_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* authidentity = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1630,7 +1630,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsFreePas
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsFreeSchemaGuidMapA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsFreeSchemaGuidMapA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pguidmap = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1647,7 +1647,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsFreeSch
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsFreeSchemaGuidMapW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsFreeSchemaGuidMapW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pguidmap = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1664,7 +1664,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsFreeSch
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsFreeSpnArrayA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsFreeSpnArrayA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t cspn = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* rpszspn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1683,7 +1683,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsFreeSpn
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsFreeSpnArrayW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsFreeSpnArrayW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t cspn = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* rpszspn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1702,7 +1702,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsFreeSpn
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsGetDcCloseW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsGetDcCloseW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* getdccontexthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1719,7 +1719,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsGetDcCl
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsGetDcNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsGetDcNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* computername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* domainname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1747,7 +1747,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsGetDcNa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsGetDcNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsGetDcNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* computername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* domainname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1775,7 +1775,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsGetDcNa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsGetDcNextA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsGetDcNextA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* getdccontexthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sockaddresscount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1799,7 +1799,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsGetDcNe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsGetDcNextW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsGetDcNextW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* getdccontexthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sockaddresscount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1823,7 +1823,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsGetDcNe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsGetDcOpenA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsGetDcOpenA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* dnsname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t optionflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1853,7 +1853,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsGetDcOp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsGetDcOpenW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsGetDcOpenW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* dnsname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t optionflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1883,7 +1883,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsGetDcOp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsGetDcSiteCoverageA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsGetDcSiteCoverageA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* entrycount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1905,7 +1905,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsGetDcSi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsGetDcSiteCoverageW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsGetDcSiteCoverageW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* entrycount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1927,7 +1927,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsGetDcSi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsGetDomainControllerInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsGetDomainControllerInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* domainname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1953,7 +1953,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsGetDoma
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsGetDomainControllerInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsGetDomainControllerInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* domainname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1979,7 +1979,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsGetDoma
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsGetForestTrustInformationW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsGetForestTrustInformationW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* servername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* trusteddomainname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2003,7 +2003,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsGetFore
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsGetFriendlyClassName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsGetFriendlyClassName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszobjectclass = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2025,7 +2025,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsGetFrie
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsGetIcon_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsGetIcon_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pszobjectclass = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2049,7 +2049,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsGetIcon
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsGetRdnW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsGetRdnW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppdn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcdn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2077,7 +2077,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsGetRdnW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsGetSiteNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsGetSiteNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* computername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sitename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2097,7 +2097,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsGetSite
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsGetSiteNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsGetSiteNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* computername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* sitename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2117,7 +2117,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsGetSite
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsGetSpnA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsGetSpnA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t servicetype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* serviceclass = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2151,7 +2151,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsGetSpnA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsGetSpnW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsGetSpnW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t servicetype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* serviceclass = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2185,7 +2185,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsGetSpnW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsInheritSecurityIdentityA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsInheritSecurityIdentityA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2209,7 +2209,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsInherit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsInheritSecurityIdentityW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsInheritSecurityIdentityW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2233,7 +2233,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsInherit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsIsMangledDnA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsIsMangledDnA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t edsmanglefor = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2253,7 +2253,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsIsMangl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsIsMangledDnW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsIsMangledDnW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t edsmanglefor = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2273,7 +2273,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsIsMangl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsIsMangledRdnValueA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsIsMangledRdnValueA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszrdn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t crdn = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2295,7 +2295,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsIsMangl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsIsMangledRdnValueW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsIsMangledRdnValueW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszrdn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t crdn = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2317,7 +2317,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsIsMangl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsListDomainsInSiteA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsListDomainsInSiteA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* site = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2339,7 +2339,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsListDom
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsListDomainsInSiteW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsListDomainsInSiteW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* site = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2361,7 +2361,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsListDom
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsListInfoForServerA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsListInfoForServerA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* server = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2383,7 +2383,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsListInf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsListInfoForServerW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsListInfoForServerW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* server = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2405,7 +2405,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsListInf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsListRolesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsListRolesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pproles = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2425,7 +2425,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsListRol
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsListRolesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsListRolesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pproles = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2445,7 +2445,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsListRol
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsListServersForDomainInSiteA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsListServersForDomainInSiteA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* domain = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2469,7 +2469,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsListSer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsListServersForDomainInSiteW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsListServersForDomainInSiteW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* domain = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2493,7 +2493,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsListSer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsListServersInSiteA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsListServersInSiteA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* site = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2515,7 +2515,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsListSer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsListServersInSiteW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsListServersInSiteW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* site = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2537,7 +2537,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsListSer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsListSitesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsListSitesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppsites = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2557,7 +2557,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsListSit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsListSitesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsListSitesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppsites = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2577,7 +2577,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsListSit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsMakePasswordCredentialsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsMakePasswordCredentialsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* user = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* domain = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2601,7 +2601,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsMakePas
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsMakePasswordCredentialsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsMakePasswordCredentialsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* user = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* domain = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2625,7 +2625,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsMakePas
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsMakeSpnA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsMakeSpnA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serviceclass = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* servicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2655,7 +2655,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsMakeSpn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsMakeSpnW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsMakeSpnW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* serviceclass = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* servicename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2685,7 +2685,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsMakeSpn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsMapSchemaGuidsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsMapSchemaGuidsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cguids = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2709,7 +2709,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsMapSche
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsMapSchemaGuidsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsMapSchemaGuidsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cguids = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2733,7 +2733,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsMapSche
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsMergeForestTrustInformationW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsMergeForestTrustInformationW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* domainname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* newforesttrustinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2757,7 +2757,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsMergeFo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsQuerySitesByCostA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsQuerySitesByCostA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszfromsite = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2785,7 +2785,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsQuerySi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsQuerySitesByCostW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsQuerySitesByCostW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwszfromsite = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2813,7 +2813,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsQuerySi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsQuerySitesFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsQuerySitesFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rgsiteinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2830,7 +2830,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsQuerySi
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsQuoteRdnValueA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsQuoteRdnValueA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t cunquotedrdnvaluelength = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* psunquotedrdnvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2854,7 +2854,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsQuoteRd
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsQuoteRdnValueW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsQuoteRdnValueW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t cunquotedrdnvaluelength = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* psunquotedrdnvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2878,7 +2878,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsQuoteRd
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsRemoveDsDomainA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsRemoveDsDomainA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* domaindn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2898,7 +2898,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsRemoveD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsRemoveDsDomainW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsRemoveDsDomainW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* domaindn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2918,7 +2918,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsRemoveD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsRemoveDsServerA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsRemoveDsServerA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* serverdn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2944,7 +2944,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsRemoveD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsRemoveDsServerW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsRemoveDsServerW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* serverdn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2970,7 +2970,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsRemoveD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsReplicaAddA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsReplicaAddA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* namecontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3000,7 +3000,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsReplica
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsReplicaAddW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsReplicaAddW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* namecontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3030,7 +3030,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsReplica
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsReplicaConsistencyCheck_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsReplicaConsistencyCheck_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t taskid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3052,7 +3052,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsReplica
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsReplicaDelA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsReplicaDelA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* namecontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3076,7 +3076,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsReplica
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsReplicaDelW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsReplicaDelW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* namecontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3100,7 +3100,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsReplica
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsReplicaFreeInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsReplicaFreeInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t infotype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3119,7 +3119,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsReplica
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsReplicaGetInfo2W_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsReplicaGetInfo2W_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t infotype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3153,7 +3153,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsReplica
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsReplicaGetInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsReplicaGetInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t infotype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3179,7 +3179,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsReplica
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsReplicaModifyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsReplicaModifyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* namecontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3213,7 +3213,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsReplica
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsReplicaModifyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsReplicaModifyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* namecontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3247,7 +3247,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsReplica
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsReplicaSyncA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsReplicaSyncA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* namecontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3271,7 +3271,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsReplica
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsReplicaSyncAllA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsReplicaSyncAllA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psznamecontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3299,7 +3299,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsReplica
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsReplicaSyncAllW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsReplicaSyncAllW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psznamecontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3327,7 +3327,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsReplica
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsReplicaSyncW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsReplicaSyncW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* namecontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3351,7 +3351,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsReplica
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsReplicaUpdateRefsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsReplicaUpdateRefsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* namecontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3377,7 +3377,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsReplica
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsReplicaUpdateRefsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsReplicaUpdateRefsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* namecontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3403,7 +3403,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsReplica
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsReplicaVerifyObjectsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsReplicaVerifyObjectsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* namecontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3427,7 +3427,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsReplica
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsReplicaVerifyObjectsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsReplicaVerifyObjectsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* namecontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3451,7 +3451,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsReplica
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsRoleFreeMemory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsRoleFreeMemory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3468,7 +3468,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsRoleFre
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsRoleGetPrimaryDomainInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsRoleGetPrimaryDomainInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t infolevel = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3490,7 +3490,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsRoleGet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsServerRegisterSpnA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsServerRegisterSpnA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t operation = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* serviceclass = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3512,7 +3512,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsServerR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsServerRegisterSpnW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsServerRegisterSpnW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t operation = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* serviceclass = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3534,7 +3534,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsServerR
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsUnBindA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsUnBindA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3552,7 +3552,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsUnBindA
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsUnBindW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsUnBindW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3570,7 +3570,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsUnBindW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsUnquoteRdnValueA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsUnquoteRdnValueA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t cquotedrdnvaluelength = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* psquotedrdnvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3594,7 +3594,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsUnquote
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsUnquoteRdnValueW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsUnquoteRdnValueW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t cquotedrdnvaluelength = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* psquotedrdnvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3618,7 +3618,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsUnquote
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsValidateSubnetNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsValidateSubnetNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* subnetname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3636,7 +3636,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsValidat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsValidateSubnetNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsValidateSubnetNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* subnetname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3654,7 +3654,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsValidat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsWriteAccountSpnA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsWriteAccountSpnA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t operation = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3680,7 +3680,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsWriteAc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_DsWriteAccountSpnW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_dsWriteAccountSpnW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hds = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t operation = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3706,7 +3706,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_DsWriteAc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_FreeADsMem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_freeADsMem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pmem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3724,7 +3724,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_FreeADsMe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_FreeADsStr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_freeADsStr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3742,7 +3742,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_FreeADsSt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_PropVariantToAdsType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_propVariantToAdsType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvariant = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwnumvariant = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3766,7 +3766,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_PropVaria
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_ReallocADsMem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_reallocADsMem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* poldmem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbold = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3788,7 +3788,7 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_ReallocAD
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_networking_activedirectory_ReallocADsStr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_networking_activedirectory_reallocADsStr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppstr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pstr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3809,163 +3809,163 @@ static Napi::Value windowssys_windows_win32_networking_activedirectory_ReallocAD
 }
 
 static void register_windows_win32_networking_activedirectory_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_networking_activedirectory_ADsBuildEnumerator", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_ADsBuildEnumerator_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_ADsBuildVarArrayInt", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_ADsBuildVarArrayInt_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_ADsBuildVarArrayStr", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_ADsBuildVarArrayStr_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_ADsDecodeBinaryData", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_ADsDecodeBinaryData_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_ADsEncodeBinaryData", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_ADsEncodeBinaryData_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_ADsEnumerateNext", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_ADsEnumerateNext_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_ADsFreeEnumerator", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_ADsFreeEnumerator_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_ADsGetLastError", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_ADsGetLastError_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_ADsGetObject", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_ADsGetObject_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_ADsOpenObject", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_ADsOpenObject_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_ADsPropCheckIfWritable", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_ADsPropCheckIfWritable_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_ADsPropCreateNotifyObj", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_ADsPropCreateNotifyObj_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_ADsPropGetInitInfo", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_ADsPropGetInitInfo_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_ADsPropSendErrorMessage", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_ADsPropSendErrorMessage_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_ADsPropSetHwnd", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_ADsPropSetHwnd_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_ADsPropSetHwndWithTitle", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_ADsPropSetHwndWithTitle_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_ADsPropShowErrorDialog", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_ADsPropShowErrorDialog_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_ADsSetLastError", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_ADsSetLastError_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_AdsFreeAdsValues", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_AdsFreeAdsValues_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_AdsTypeToPropVariant", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_AdsTypeToPropVariant_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_AllocADsMem", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_AllocADsMem_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_AllocADsStr", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_AllocADsStr_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_BinarySDToSecurityDescriptor", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_BinarySDToSecurityDescriptor_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsAddSidHistoryA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsAddSidHistoryA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsAddSidHistoryW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsAddSidHistoryW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsAddressToSiteNamesA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsAddressToSiteNamesA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsAddressToSiteNamesExA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsAddressToSiteNamesExA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsAddressToSiteNamesExW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsAddressToSiteNamesExW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsAddressToSiteNamesW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsAddressToSiteNamesW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsBindA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsBindA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsBindByInstanceA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsBindByInstanceA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsBindByInstanceW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsBindByInstanceW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsBindToISTGA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsBindToISTGA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsBindToISTGW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsBindToISTGW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsBindW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsBindW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsBindWithCredA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsBindWithCredA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsBindWithCredW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsBindWithCredW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsBindWithSpnA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsBindWithSpnA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsBindWithSpnExA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsBindWithSpnExA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsBindWithSpnExW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsBindWithSpnExW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsBindWithSpnW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsBindWithSpnW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsBindingSetTimeout", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsBindingSetTimeout_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsBrowseForContainerA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsBrowseForContainerA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsBrowseForContainerW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsBrowseForContainerW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsClientMakeSpnForTargetServerA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsClientMakeSpnForTargetServerA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsClientMakeSpnForTargetServerW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsClientMakeSpnForTargetServerW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsCrackNamesA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsCrackNamesA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsCrackNamesW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsCrackNamesW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsCrackSpn2A", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsCrackSpn2A_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsCrackSpn2W", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsCrackSpn2W_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsCrackSpn3W", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsCrackSpn3W_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsCrackSpn4W", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsCrackSpn4W_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsCrackSpnA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsCrackSpnA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsCrackSpnW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsCrackSpnW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsCrackUnquotedMangledRdnA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsCrackUnquotedMangledRdnA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsCrackUnquotedMangledRdnW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsCrackUnquotedMangledRdnW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsDeregisterDnsHostRecordsA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsDeregisterDnsHostRecordsA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsDeregisterDnsHostRecordsW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsDeregisterDnsHostRecordsW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsEnumerateDomainTrustsA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsEnumerateDomainTrustsA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsEnumerateDomainTrustsW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsEnumerateDomainTrustsW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsFreeDomainControllerInfoA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsFreeDomainControllerInfoA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsFreeDomainControllerInfoW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsFreeDomainControllerInfoW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsFreeNameResultA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsFreeNameResultA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsFreeNameResultW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsFreeNameResultW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsFreePasswordCredentials", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsFreePasswordCredentials_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsFreeSchemaGuidMapA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsFreeSchemaGuidMapA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsFreeSchemaGuidMapW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsFreeSchemaGuidMapW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsFreeSpnArrayA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsFreeSpnArrayA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsFreeSpnArrayW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsFreeSpnArrayW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsGetDcCloseW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsGetDcCloseW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsGetDcNameA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsGetDcNameA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsGetDcNameW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsGetDcNameW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsGetDcNextA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsGetDcNextA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsGetDcNextW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsGetDcNextW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsGetDcOpenA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsGetDcOpenA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsGetDcOpenW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsGetDcOpenW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsGetDcSiteCoverageA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsGetDcSiteCoverageA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsGetDcSiteCoverageW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsGetDcSiteCoverageW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsGetDomainControllerInfoA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsGetDomainControllerInfoA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsGetDomainControllerInfoW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsGetDomainControllerInfoW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsGetForestTrustInformationW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsGetForestTrustInformationW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsGetFriendlyClassName", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsGetFriendlyClassName_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsGetIcon", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsGetIcon_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsGetRdnW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsGetRdnW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsGetSiteNameA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsGetSiteNameA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsGetSiteNameW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsGetSiteNameW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsGetSpnA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsGetSpnA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsGetSpnW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsGetSpnW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsInheritSecurityIdentityA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsInheritSecurityIdentityA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsInheritSecurityIdentityW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsInheritSecurityIdentityW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsIsMangledDnA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsIsMangledDnA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsIsMangledDnW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsIsMangledDnW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsIsMangledRdnValueA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsIsMangledRdnValueA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsIsMangledRdnValueW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsIsMangledRdnValueW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsListDomainsInSiteA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsListDomainsInSiteA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsListDomainsInSiteW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsListDomainsInSiteW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsListInfoForServerA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsListInfoForServerA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsListInfoForServerW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsListInfoForServerW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsListRolesA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsListRolesA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsListRolesW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsListRolesW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsListServersForDomainInSiteA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsListServersForDomainInSiteA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsListServersForDomainInSiteW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsListServersForDomainInSiteW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsListServersInSiteA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsListServersInSiteA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsListServersInSiteW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsListServersInSiteW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsListSitesA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsListSitesA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsListSitesW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsListSitesW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsMakePasswordCredentialsA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsMakePasswordCredentialsA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsMakePasswordCredentialsW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsMakePasswordCredentialsW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsMakeSpnA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsMakeSpnA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsMakeSpnW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsMakeSpnW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsMapSchemaGuidsA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsMapSchemaGuidsA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsMapSchemaGuidsW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsMapSchemaGuidsW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsMergeForestTrustInformationW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsMergeForestTrustInformationW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsQuerySitesByCostA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsQuerySitesByCostA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsQuerySitesByCostW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsQuerySitesByCostW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsQuerySitesFree", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsQuerySitesFree_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsQuoteRdnValueA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsQuoteRdnValueA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsQuoteRdnValueW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsQuoteRdnValueW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsRemoveDsDomainA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsRemoveDsDomainA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsRemoveDsDomainW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsRemoveDsDomainW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsRemoveDsServerA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsRemoveDsServerA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsRemoveDsServerW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsRemoveDsServerW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsReplicaAddA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsReplicaAddA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsReplicaAddW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsReplicaAddW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsReplicaConsistencyCheck", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsReplicaConsistencyCheck_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsReplicaDelA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsReplicaDelA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsReplicaDelW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsReplicaDelW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsReplicaFreeInfo", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsReplicaFreeInfo_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsReplicaGetInfo2W", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsReplicaGetInfo2W_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsReplicaGetInfoW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsReplicaGetInfoW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsReplicaModifyA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsReplicaModifyA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsReplicaModifyW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsReplicaModifyW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsReplicaSyncA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsReplicaSyncA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsReplicaSyncAllA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsReplicaSyncAllA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsReplicaSyncAllW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsReplicaSyncAllW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsReplicaSyncW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsReplicaSyncW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsReplicaUpdateRefsA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsReplicaUpdateRefsA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsReplicaUpdateRefsW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsReplicaUpdateRefsW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsReplicaVerifyObjectsA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsReplicaVerifyObjectsA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsReplicaVerifyObjectsW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsReplicaVerifyObjectsW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsRoleFreeMemory", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsRoleFreeMemory_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsRoleGetPrimaryDomainInformation", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsRoleGetPrimaryDomainInformation_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsServerRegisterSpnA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsServerRegisterSpnA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsServerRegisterSpnW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsServerRegisterSpnW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsUnBindA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsUnBindA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsUnBindW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsUnBindW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsUnquoteRdnValueA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsUnquoteRdnValueA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsUnquoteRdnValueW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsUnquoteRdnValueW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsValidateSubnetNameA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsValidateSubnetNameA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsValidateSubnetNameW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsValidateSubnetNameW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsWriteAccountSpnA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsWriteAccountSpnA_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_DsWriteAccountSpnW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_DsWriteAccountSpnW_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_FreeADsMem", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_FreeADsMem_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_FreeADsStr", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_FreeADsStr_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_PropVariantToAdsType", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_PropVariantToAdsType_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_ReallocADsMem", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_ReallocADsMem_napi));
-    exports.Set("windowssys_windows_win32_networking_activedirectory_ReallocADsStr", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_ReallocADsStr_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_aDsBuildEnumerator", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_aDsBuildEnumerator_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_aDsBuildVarArrayInt", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_aDsBuildVarArrayInt_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_aDsBuildVarArrayStr", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_aDsBuildVarArrayStr_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_aDsDecodeBinaryData", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_aDsDecodeBinaryData_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_aDsEncodeBinaryData", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_aDsEncodeBinaryData_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_aDsEnumerateNext", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_aDsEnumerateNext_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_aDsFreeEnumerator", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_aDsFreeEnumerator_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_aDsGetLastError", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_aDsGetLastError_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_aDsGetObject", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_aDsGetObject_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_aDsOpenObject", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_aDsOpenObject_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_aDsPropCheckIfWritable", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_aDsPropCheckIfWritable_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_aDsPropCreateNotifyObj", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_aDsPropCreateNotifyObj_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_aDsPropGetInitInfo", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_aDsPropGetInitInfo_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_aDsPropSendErrorMessage", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_aDsPropSendErrorMessage_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_aDsPropSetHwnd", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_aDsPropSetHwnd_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_aDsPropSetHwndWithTitle", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_aDsPropSetHwndWithTitle_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_aDsPropShowErrorDialog", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_aDsPropShowErrorDialog_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_aDsSetLastError", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_aDsSetLastError_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_adsFreeAdsValues", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_adsFreeAdsValues_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_adsTypeToPropVariant", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_adsTypeToPropVariant_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_allocADsMem", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_allocADsMem_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_allocADsStr", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_allocADsStr_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_binarySDToSecurityDescriptor", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_binarySDToSecurityDescriptor_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsAddSidHistoryA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsAddSidHistoryA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsAddSidHistoryW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsAddSidHistoryW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsAddressToSiteNamesA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsAddressToSiteNamesA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsAddressToSiteNamesExA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsAddressToSiteNamesExA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsAddressToSiteNamesExW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsAddressToSiteNamesExW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsAddressToSiteNamesW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsAddressToSiteNamesW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsBindA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsBindA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsBindByInstanceA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsBindByInstanceA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsBindByInstanceW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsBindByInstanceW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsBindToISTGA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsBindToISTGA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsBindToISTGW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsBindToISTGW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsBindW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsBindW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsBindWithCredA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsBindWithCredA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsBindWithCredW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsBindWithCredW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsBindWithSpnA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsBindWithSpnA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsBindWithSpnExA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsBindWithSpnExA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsBindWithSpnExW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsBindWithSpnExW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsBindWithSpnW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsBindWithSpnW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsBindingSetTimeout", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsBindingSetTimeout_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsBrowseForContainerA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsBrowseForContainerA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsBrowseForContainerW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsBrowseForContainerW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsClientMakeSpnForTargetServerA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsClientMakeSpnForTargetServerA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsClientMakeSpnForTargetServerW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsClientMakeSpnForTargetServerW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsCrackNamesA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsCrackNamesA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsCrackNamesW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsCrackNamesW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsCrackSpn2A", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsCrackSpn2A_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsCrackSpn2W", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsCrackSpn2W_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsCrackSpn3W", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsCrackSpn3W_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsCrackSpn4W", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsCrackSpn4W_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsCrackSpnA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsCrackSpnA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsCrackSpnW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsCrackSpnW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsCrackUnquotedMangledRdnA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsCrackUnquotedMangledRdnA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsCrackUnquotedMangledRdnW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsCrackUnquotedMangledRdnW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsDeregisterDnsHostRecordsA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsDeregisterDnsHostRecordsA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsDeregisterDnsHostRecordsW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsDeregisterDnsHostRecordsW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsEnumerateDomainTrustsA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsEnumerateDomainTrustsA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsEnumerateDomainTrustsW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsEnumerateDomainTrustsW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsFreeDomainControllerInfoA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsFreeDomainControllerInfoA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsFreeDomainControllerInfoW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsFreeDomainControllerInfoW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsFreeNameResultA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsFreeNameResultA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsFreeNameResultW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsFreeNameResultW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsFreePasswordCredentials", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsFreePasswordCredentials_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsFreeSchemaGuidMapA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsFreeSchemaGuidMapA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsFreeSchemaGuidMapW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsFreeSchemaGuidMapW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsFreeSpnArrayA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsFreeSpnArrayA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsFreeSpnArrayW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsFreeSpnArrayW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsGetDcCloseW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsGetDcCloseW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsGetDcNameA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsGetDcNameA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsGetDcNameW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsGetDcNameW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsGetDcNextA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsGetDcNextA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsGetDcNextW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsGetDcNextW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsGetDcOpenA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsGetDcOpenA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsGetDcOpenW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsGetDcOpenW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsGetDcSiteCoverageA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsGetDcSiteCoverageA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsGetDcSiteCoverageW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsGetDcSiteCoverageW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsGetDomainControllerInfoA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsGetDomainControllerInfoA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsGetDomainControllerInfoW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsGetDomainControllerInfoW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsGetForestTrustInformationW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsGetForestTrustInformationW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsGetFriendlyClassName", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsGetFriendlyClassName_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsGetIcon", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsGetIcon_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsGetRdnW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsGetRdnW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsGetSiteNameA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsGetSiteNameA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsGetSiteNameW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsGetSiteNameW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsGetSpnA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsGetSpnA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsGetSpnW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsGetSpnW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsInheritSecurityIdentityA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsInheritSecurityIdentityA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsInheritSecurityIdentityW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsInheritSecurityIdentityW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsIsMangledDnA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsIsMangledDnA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsIsMangledDnW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsIsMangledDnW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsIsMangledRdnValueA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsIsMangledRdnValueA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsIsMangledRdnValueW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsIsMangledRdnValueW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsListDomainsInSiteA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsListDomainsInSiteA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsListDomainsInSiteW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsListDomainsInSiteW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsListInfoForServerA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsListInfoForServerA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsListInfoForServerW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsListInfoForServerW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsListRolesA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsListRolesA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsListRolesW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsListRolesW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsListServersForDomainInSiteA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsListServersForDomainInSiteA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsListServersForDomainInSiteW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsListServersForDomainInSiteW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsListServersInSiteA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsListServersInSiteA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsListServersInSiteW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsListServersInSiteW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsListSitesA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsListSitesA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsListSitesW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsListSitesW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsMakePasswordCredentialsA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsMakePasswordCredentialsA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsMakePasswordCredentialsW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsMakePasswordCredentialsW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsMakeSpnA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsMakeSpnA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsMakeSpnW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsMakeSpnW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsMapSchemaGuidsA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsMapSchemaGuidsA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsMapSchemaGuidsW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsMapSchemaGuidsW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsMergeForestTrustInformationW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsMergeForestTrustInformationW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsQuerySitesByCostA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsQuerySitesByCostA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsQuerySitesByCostW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsQuerySitesByCostW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsQuerySitesFree", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsQuerySitesFree_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsQuoteRdnValueA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsQuoteRdnValueA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsQuoteRdnValueW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsQuoteRdnValueW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsRemoveDsDomainA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsRemoveDsDomainA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsRemoveDsDomainW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsRemoveDsDomainW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsRemoveDsServerA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsRemoveDsServerA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsRemoveDsServerW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsRemoveDsServerW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsReplicaAddA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsReplicaAddA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsReplicaAddW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsReplicaAddW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsReplicaConsistencyCheck", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsReplicaConsistencyCheck_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsReplicaDelA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsReplicaDelA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsReplicaDelW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsReplicaDelW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsReplicaFreeInfo", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsReplicaFreeInfo_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsReplicaGetInfo2W", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsReplicaGetInfo2W_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsReplicaGetInfoW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsReplicaGetInfoW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsReplicaModifyA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsReplicaModifyA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsReplicaModifyW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsReplicaModifyW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsReplicaSyncA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsReplicaSyncA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsReplicaSyncAllA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsReplicaSyncAllA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsReplicaSyncAllW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsReplicaSyncAllW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsReplicaSyncW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsReplicaSyncW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsReplicaUpdateRefsA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsReplicaUpdateRefsA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsReplicaUpdateRefsW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsReplicaUpdateRefsW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsReplicaVerifyObjectsA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsReplicaVerifyObjectsA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsReplicaVerifyObjectsW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsReplicaVerifyObjectsW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsRoleFreeMemory", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsRoleFreeMemory_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsRoleGetPrimaryDomainInformation", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsRoleGetPrimaryDomainInformation_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsServerRegisterSpnA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsServerRegisterSpnA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsServerRegisterSpnW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsServerRegisterSpnW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsUnBindA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsUnBindA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsUnBindW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsUnBindW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsUnquoteRdnValueA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsUnquoteRdnValueA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsUnquoteRdnValueW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsUnquoteRdnValueW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsValidateSubnetNameA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsValidateSubnetNameA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsValidateSubnetNameW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsValidateSubnetNameW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsWriteAccountSpnA", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsWriteAccountSpnA_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_dsWriteAccountSpnW", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_dsWriteAccountSpnW_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_freeADsMem", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_freeADsMem_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_freeADsStr", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_freeADsStr_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_propVariantToAdsType", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_propVariantToAdsType_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_reallocADsMem", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_reallocADsMem_napi));
+    exports.Set("windowssys_windows_win32_networking_activedirectory_reallocADsStr", Napi::Function::New(env, windowssys_windows_win32_networking_activedirectory_reallocADsStr_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_networking_activedirectory_napi, nullptr };

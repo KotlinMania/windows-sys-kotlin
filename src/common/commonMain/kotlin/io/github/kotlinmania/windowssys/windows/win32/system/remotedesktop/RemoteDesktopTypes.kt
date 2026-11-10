@@ -1,7 +1,8 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
 
 public typealias AAAccountingDataType = Int
 
@@ -9,142 +10,142 @@ public typealias AAAuthSchemes = Int
 
 public typealias AATrustClassID = Int
 
-public typealias AE_POSITION_FLAGS = Int
+public typealias AePositionFlags = Int
 
-public typealias CLIENT_MESSAGE_TYPE = Int
+public typealias ClientMessageType = Int
 
-public typealias CONNECTION_CHANGE_NOTIFICATION = Int
+public typealias ConnectionChangeNotification = Int
 
 public typealias KeyCombinationType = Int
 
-public fun interface PCHANNEL_INIT_EVENT_FNFn {
-    public operator fun invoke(pinithandle: Long, event: UInt, pdata: Long, datalength: UInt)
+public fun interface PchannelInitEventFnFn {
+    public operator fun invoke(pinithandle: COpaquePointer?, event: UInt, pdata: COpaquePointer?, datalength: UInt)
 }
 
-public typealias PCHANNEL_INIT_EVENT_FN = PCHANNEL_INIT_EVENT_FNFn?
+public typealias PchannelInitEventFn = PchannelInitEventFnFn?
 
-public fun interface PCHANNEL_OPEN_EVENT_FNFn {
-    public operator fun invoke(openhandle: UInt, event: UInt, pdata: Long, datalength: UInt, totallength: UInt, dataflags: UInt)
+public fun interface PchannelOpenEventFnFn {
+    public operator fun invoke(openhandle: UInt, event: UInt, pdata: COpaquePointer?, datalength: UInt, totallength: UInt, dataflags: UInt)
 }
 
-public typealias PCHANNEL_OPEN_EVENT_FN = PCHANNEL_OPEN_EVENT_FNFn?
+public typealias PchannelOpenEventFn = PchannelOpenEventFnFn?
 
-public typealias PLUGIN_TYPE = Int
+public typealias PluginType = Int
 
-public fun interface PVIRTUALCHANNELCLOSEFn {
+public fun interface PvirtualchannelcloseFn {
     public operator fun invoke(openhandle: UInt): UInt
 }
 
-public typealias PVIRTUALCHANNELCLOSE = PVIRTUALCHANNELCLOSEFn?
+public typealias Pvirtualchannelclose = PvirtualchannelcloseFn?
 
-public fun interface PVIRTUALCHANNELENTRYFn {
-    public operator fun invoke(pentrypoints: Long): BOOL
+public fun interface PvirtualchannelentryFn {
+    public operator fun invoke(pentrypoints: COpaquePointer?): Bool
 }
 
-public typealias PVIRTUALCHANNELENTRY = PVIRTUALCHANNELENTRYFn?
+public typealias Pvirtualchannelentry = PvirtualchannelentryFn?
 
-public fun interface PVIRTUALCHANNELINITFn {
-    public operator fun invoke(ppinithandle: Long, pchannel: Long, channelcount: Int, versionrequested: UInt, pchanneliniteventproc: PCHANNEL_INIT_EVENT_FN): UInt
+public fun interface PvirtualchannelinitFn {
+    public operator fun invoke(ppinithandle: COpaquePointer?, pchannel: COpaquePointer?, channelcount: Int, versionrequested: UInt, pchanneliniteventproc: PchannelInitEventFn): UInt
 }
 
-public typealias PVIRTUALCHANNELINIT = PVIRTUALCHANNELINITFn?
+public typealias Pvirtualchannelinit = PvirtualchannelinitFn?
 
-public fun interface PVIRTUALCHANNELOPENFn {
-    public operator fun invoke(pinithandle: Long, popenhandle: Long, pchannelname: PCSTR, pchannelopeneventproc: PCHANNEL_OPEN_EVENT_FN): UInt
+public fun interface PvirtualchannelopenFn {
+    public operator fun invoke(pinithandle: COpaquePointer?, popenhandle: COpaquePointer?, pchannelname: Pcstr, pchannelopeneventproc: PchannelOpenEventFn): UInt
 }
 
-public typealias PVIRTUALCHANNELOPEN = PVIRTUALCHANNELOPENFn?
+public typealias Pvirtualchannelopen = PvirtualchannelopenFn?
 
-public fun interface PVIRTUALCHANNELWRITEFn {
-    public operator fun invoke(openhandle: UInt, pdata: Long, datalength: UInt, puserdata: Long): UInt
+public fun interface PvirtualchannelwriteFn {
+    public operator fun invoke(openhandle: UInt, pdata: COpaquePointer?, datalength: UInt, puserdata: COpaquePointer?): UInt
 }
 
-public typealias PVIRTUALCHANNELWRITE = PVIRTUALCHANNELWRITEFn?
+public typealias Pvirtualchannelwrite = PvirtualchannelwriteFn?
 
 public typealias PasswordEncodingType = Int
 
 public typealias PolicyAttributeType = Int
 
-public typealias RDV_TASK_STATUS = Int
+public typealias RdvTaskStatus = Int
 
-public typealias RD_FARM_TYPE = Int
+public typealias RdFarmType = Int
 
 public typealias RemoteActionType = Int
 
-public typealias SESSION_TIMEOUT_ACTION_TYPE = Int
+public typealias SessionTimeoutActionType = Int
 
 public typealias SnapshotEncodingType = Int
 
 public typealias SnapshotFormatType = Int
 
-public typealias TARGET_CHANGE_TYPE = Int
+public typealias TargetChangeType = Int
 
-public typealias TARGET_OWNER = Int
+public typealias TargetOwner = Int
 
-public typealias TARGET_PATCH_STATE = Int
+public typealias TargetPatchState = Int
 
-public typealias TARGET_STATE = Int
+public typealias TargetState = Int
 
-public typealias TARGET_TYPE = Int
+public typealias TargetType = Int
 
-public typealias TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE = Int
+public typealias TspubPluginPdAssignmentType = Int
 
-public typealias TSPUB_PLUGIN_PD_RESOLUTION_TYPE = Int
+public typealias TspubPluginPdResolutionType = Int
 
-public typealias TSSB_NOTIFICATION_TYPE = Int
+public typealias TssbNotificationType = Int
 
-public typealias TSSD_AddrV46Type = Int
+public typealias TssdAddrV46Type = Int
 
-public typealias TSSESSION_STATE = Int
+public typealias TssessionState = Int
 
-public typealias TS_SB_SORT_BY = Int
+public typealias TsSbSortBy = Int
 
-public typealias VM_HOST_NOTIFY_STATUS = Int
+public typealias VmHostNotifyStatus = Int
 
-public typealias VM_NOTIFY_STATUS = Int
+public typealias VmNotifyStatus = Int
 
-public typealias WRDS_CONNECTION_SETTING_LEVEL = Int
+public typealias WrdsConnectionSettingLevel = Int
 
-public typealias WRDS_LISTENER_SETTING_LEVEL = Int
+public typealias WrdsListenerSettingLevel = Int
 
-public typealias WRDS_SETTING_LEVEL = Int
+public typealias WrdsSettingLevel = Int
 
-public typealias WRDS_SETTING_STATUS = Int
+public typealias WrdsSettingStatus = Int
 
-public typealias WRDS_SETTING_TYPE = Int
+public typealias WrdsSettingType = Int
 
 public typealias WRdsGraphicsChannelType = Int
 
-public typealias WTSSBX_ADDRESS_FAMILY = Int
+public typealias WtssbxAddressFamily = Int
 
-public typealias WTSSBX_MACHINE_DRAIN = Int
+public typealias WtssbxMachineDrain = Int
 
-public typealias WTSSBX_MACHINE_SESSION_MODE = Int
+public typealias WtssbxMachineSessionMode = Int
 
-public typealias WTSSBX_MACHINE_STATE = Int
+public typealias WtssbxMachineState = Int
 
-public typealias WTSSBX_NOTIFICATION_TYPE = Int
+public typealias WtssbxNotificationType = Int
 
-public typealias WTSSBX_SESSION_STATE = Int
+public typealias WtssbxSessionState = Int
 
-public typealias WTS_CERT_TYPE = Int
+public typealias WtsCertType = Int
 
-public typealias WTS_CONFIG_CLASS = Int
+public typealias WtsConfigClass = Int
 
-public typealias WTS_CONFIG_SOURCE = Int
+public typealias WtsConfigSource = Int
 
-public typealias WTS_CONNECTSTATE_CLASS = Int
+public typealias WtsConnectstateClass = Int
 
-public typealias WTS_INFO_CLASS = Int
+public typealias WtsInfoClass = Int
 
-public typealias WTS_LOGON_ERROR_REDIRECTOR_RESPONSE = Int
+public typealias WtsLogonErrorRedirectorResponse = Int
 
-public typealias WTS_RCM_DRAIN_STATE = Int
+public typealias WtsRcmDrainState = Int
 
-public typealias WTS_RCM_SERVICE_STATE = Int
+public typealias WtsRcmServiceState = Int
 
-public typealias WTS_SECURITY_FLAGS = UInt
+public typealias WtsSecurityFlags = UInt
 
-public typealias WTS_TYPE_CLASS = Int
+public typealias WtsTypeClass = Int
 
-public typealias WTS_VIRTUAL_CLASS = Int
+public typealias WtsVirtualClass = Int

@@ -2,9 +2,10 @@
 
 package io.github.kotlinmania.windowssys.windows.wdk.system.registry
 
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
-import io.github.kotlinmania.windowssys.windows.win32.system.io.PIO_APC_ROUTINE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
+import io.github.kotlinmania.windowssys.windows.win32.system.io.PioApcRoutine
 
 private object WindowsWdkSystemRegistryJniBridge {
     init {
@@ -12,296 +13,302 @@ private object WindowsWdkSystemRegistryJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_NtCommitRegistryTransaction(transactionhandle: Long, flags: Int): Int
+    external fun windowssys_windows_wdk_system_registry_ntCommitRegistryTransaction(transactionhandle: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_NtCreateKey(keyhandle: Long, desiredaccess: Int, objectattributes: Long, titleindex: Int, cls: Long, createoptions: Int, disposition: Long): Int
+    external fun windowssys_windows_wdk_system_registry_ntCreateKey(keyhandle: Long, desiredaccess: Int, objectattributes: Long, titleindex: Int, cls: Long, createoptions: Int, disposition: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_NtCreateKeyTransacted(keyhandle: Long, desiredaccess: Int, objectattributes: Long, titleindex: Int, cls: Long, createoptions: Int, transactionhandle: Long, disposition: Long): Int
+    external fun windowssys_windows_wdk_system_registry_ntCreateKeyTransacted(keyhandle: Long, desiredaccess: Int, objectattributes: Long, titleindex: Int, cls: Long, createoptions: Int, transactionhandle: Long, disposition: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_NtCreateRegistryTransaction(transactionhandle: Long, desiredaccess: Int, objectattributes: Long, createoptions: Int): Int
+    external fun windowssys_windows_wdk_system_registry_ntCreateRegistryTransaction(transactionhandle: Long, desiredaccess: Int, objectattributes: Long, createoptions: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_NtDeleteKey(keyhandle: Long): Int
+    external fun windowssys_windows_wdk_system_registry_ntDeleteKey(keyhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_NtDeleteValueKey(keyhandle: Long, valuename: Long): Int
+    external fun windowssys_windows_wdk_system_registry_ntDeleteValueKey(keyhandle: Long, valuename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_NtEnumerateKey(keyhandle: Long, index: Int, keyinformationclass: Int, keyinformation: Long, length: Int, resultlength: Long): Int
+    external fun windowssys_windows_wdk_system_registry_ntEnumerateKey(keyhandle: Long, index: Int, keyinformationclass: Int, keyinformation: Long, length: Int, resultlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_NtEnumerateValueKey(keyhandle: Long, index: Int, keyvalueinformationclass: Int, keyvalueinformation: Long, length: Int, resultlength: Long): Int
+    external fun windowssys_windows_wdk_system_registry_ntEnumerateValueKey(keyhandle: Long, index: Int, keyvalueinformationclass: Int, keyvalueinformation: Long, length: Int, resultlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_NtFlushKey(keyhandle: Long): Int
+    external fun windowssys_windows_wdk_system_registry_ntFlushKey(keyhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_NtOpenKey(keyhandle: Long, desiredaccess: Int, objectattributes: Long): Int
+    external fun windowssys_windows_wdk_system_registry_ntNotifyChangeMultipleKeys(masterkeyhandle: Long, count: Int, subordinateobjects: Long, event: Long, apcroutine: Long, apccontext: Long, iostatusblock: Long, completionfilter: Int, watchtree: Boolean, buffer: Long, buffersize: Int, asynchronous: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_NtOpenKeyEx(keyhandle: Long, desiredaccess: Int, objectattributes: Long, openoptions: Int): Int
+    external fun windowssys_windows_wdk_system_registry_ntOpenKey(keyhandle: Long, desiredaccess: Int, objectattributes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_NtOpenKeyTransacted(keyhandle: Long, desiredaccess: Int, objectattributes: Long, transactionhandle: Long): Int
+    external fun windowssys_windows_wdk_system_registry_ntOpenKeyEx(keyhandle: Long, desiredaccess: Int, objectattributes: Long, openoptions: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_NtOpenKeyTransactedEx(keyhandle: Long, desiredaccess: Int, objectattributes: Long, openoptions: Int, transactionhandle: Long): Int
+    external fun windowssys_windows_wdk_system_registry_ntOpenKeyTransacted(keyhandle: Long, desiredaccess: Int, objectattributes: Long, transactionhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_NtOpenRegistryTransaction(transactionhandle: Long, desiredaccess: Int, objectattributes: Long): Int
+    external fun windowssys_windows_wdk_system_registry_ntOpenKeyTransactedEx(keyhandle: Long, desiredaccess: Int, objectattributes: Long, openoptions: Int, transactionhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_NtQueryKey(keyhandle: Long, keyinformationclass: Int, keyinformation: Long, length: Int, resultlength: Long): Int
+    external fun windowssys_windows_wdk_system_registry_ntOpenRegistryTransaction(transactionhandle: Long, desiredaccess: Int, objectattributes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_NtQueryMultipleValueKey(keyhandle: Long, valueentries: Long, entrycount: Int, valuebuffer: Long, bufferlength: Long, requiredbufferlength: Long): Int
+    external fun windowssys_windows_wdk_system_registry_ntQueryKey(keyhandle: Long, keyinformationclass: Int, keyinformation: Long, length: Int, resultlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_NtQueryValueKey(keyhandle: Long, valuename: Long, keyvalueinformationclass: Int, keyvalueinformation: Long, length: Int, resultlength: Long): Int
+    external fun windowssys_windows_wdk_system_registry_ntQueryMultipleValueKey(keyhandle: Long, valueentries: Long, entrycount: Int, valuebuffer: Long, bufferlength: Long, requiredbufferlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_NtRenameKey(keyhandle: Long, newname: Long): Int
+    external fun windowssys_windows_wdk_system_registry_ntQueryValueKey(keyhandle: Long, valuename: Long, keyvalueinformationclass: Int, keyvalueinformation: Long, length: Int, resultlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_NtRestoreKey(keyhandle: Long, filehandle: Long, flags: Int): Int
+    external fun windowssys_windows_wdk_system_registry_ntRenameKey(keyhandle: Long, newname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_NtRollbackRegistryTransaction(transactionhandle: Long, flags: Int): Int
+    external fun windowssys_windows_wdk_system_registry_ntRestoreKey(keyhandle: Long, filehandle: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_NtSaveKey(keyhandle: Long, filehandle: Long): Int
+    external fun windowssys_windows_wdk_system_registry_ntRollbackRegistryTransaction(transactionhandle: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_NtSaveKeyEx(keyhandle: Long, filehandle: Long, format: Int): Int
+    external fun windowssys_windows_wdk_system_registry_ntSaveKey(keyhandle: Long, filehandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_NtSetInformationKey(keyhandle: Long, keysetinformationclass: Int, keysetinformation: Long, keysetinformationlength: Int): Int
+    external fun windowssys_windows_wdk_system_registry_ntSaveKeyEx(keyhandle: Long, filehandle: Long, format: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_NtSetValueKey(keyhandle: Long, valuename: Long, titleindex: Int, type: Int, data: Long, datasize: Int): Int
+    external fun windowssys_windows_wdk_system_registry_ntSetInformationKey(keyhandle: Long, keysetinformationclass: Int, keysetinformation: Long, keysetinformationlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_ZwCommitRegistryTransaction(transactionhandle: Long, flags: Int): Int
+    external fun windowssys_windows_wdk_system_registry_ntSetValueKey(keyhandle: Long, valuename: Long, titleindex: Int, type: Int, data: Long, datasize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_ZwCreateKey(keyhandle: Long, desiredaccess: Int, objectattributes: Long, titleindex: Int, cls: Long, createoptions: Int, disposition: Long): Int
+    external fun windowssys_windows_wdk_system_registry_zwCommitRegistryTransaction(transactionhandle: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_ZwCreateKeyTransacted(keyhandle: Long, desiredaccess: Int, objectattributes: Long, titleindex: Int, cls: Long, createoptions: Int, transactionhandle: Long, disposition: Long): Int
+    external fun windowssys_windows_wdk_system_registry_zwCreateKey(keyhandle: Long, desiredaccess: Int, objectattributes: Long, titleindex: Int, cls: Long, createoptions: Int, disposition: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_ZwCreateRegistryTransaction(transactionhandle: Long, desiredaccess: Int, objectattributes: Long, createoptions: Int): Int
+    external fun windowssys_windows_wdk_system_registry_zwCreateKeyTransacted(keyhandle: Long, desiredaccess: Int, objectattributes: Long, titleindex: Int, cls: Long, createoptions: Int, transactionhandle: Long, disposition: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_ZwDeleteKey(keyhandle: Long): Int
+    external fun windowssys_windows_wdk_system_registry_zwCreateRegistryTransaction(transactionhandle: Long, desiredaccess: Int, objectattributes: Long, createoptions: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_ZwDeleteValueKey(keyhandle: Long, valuename: Long): Int
+    external fun windowssys_windows_wdk_system_registry_zwDeleteKey(keyhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_ZwEnumerateKey(keyhandle: Long, index: Int, keyinformationclass: Int, keyinformation: Long, length: Int, resultlength: Long): Int
+    external fun windowssys_windows_wdk_system_registry_zwDeleteValueKey(keyhandle: Long, valuename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_ZwEnumerateValueKey(keyhandle: Long, index: Int, keyvalueinformationclass: Int, keyvalueinformation: Long, length: Int, resultlength: Long): Int
+    external fun windowssys_windows_wdk_system_registry_zwEnumerateKey(keyhandle: Long, index: Int, keyinformationclass: Int, keyinformation: Long, length: Int, resultlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_ZwFlushKey(keyhandle: Long): Int
+    external fun windowssys_windows_wdk_system_registry_zwEnumerateValueKey(keyhandle: Long, index: Int, keyvalueinformationclass: Int, keyvalueinformation: Long, length: Int, resultlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_ZwOpenKey(keyhandle: Long, desiredaccess: Int, objectattributes: Long): Int
+    external fun windowssys_windows_wdk_system_registry_zwFlushKey(keyhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_ZwOpenKeyEx(keyhandle: Long, desiredaccess: Int, objectattributes: Long, openoptions: Int): Int
+    external fun windowssys_windows_wdk_system_registry_zwNotifyChangeMultipleKeys(masterkeyhandle: Long, count: Int, subordinateobjects: Long, event: Long, apcroutine: Long, apccontext: Long, iostatusblock: Long, completionfilter: Int, watchtree: Boolean, buffer: Long, buffersize: Int, asynchronous: Boolean): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_ZwOpenKeyTransacted(keyhandle: Long, desiredaccess: Int, objectattributes: Long, transactionhandle: Long): Int
+    external fun windowssys_windows_wdk_system_registry_zwOpenKey(keyhandle: Long, desiredaccess: Int, objectattributes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_ZwOpenKeyTransactedEx(keyhandle: Long, desiredaccess: Int, objectattributes: Long, openoptions: Int, transactionhandle: Long): Int
+    external fun windowssys_windows_wdk_system_registry_zwOpenKeyEx(keyhandle: Long, desiredaccess: Int, objectattributes: Long, openoptions: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_ZwOpenRegistryTransaction(transactionhandle: Long, desiredaccess: Int, objectattributes: Long): Int
+    external fun windowssys_windows_wdk_system_registry_zwOpenKeyTransacted(keyhandle: Long, desiredaccess: Int, objectattributes: Long, transactionhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_ZwQueryKey(keyhandle: Long, keyinformationclass: Int, keyinformation: Long, length: Int, resultlength: Long): Int
+    external fun windowssys_windows_wdk_system_registry_zwOpenKeyTransactedEx(keyhandle: Long, desiredaccess: Int, objectattributes: Long, openoptions: Int, transactionhandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_ZwQueryMultipleValueKey(keyhandle: Long, valueentries: Long, entrycount: Int, valuebuffer: Long, bufferlength: Long, requiredbufferlength: Long): Int
+    external fun windowssys_windows_wdk_system_registry_zwOpenRegistryTransaction(transactionhandle: Long, desiredaccess: Int, objectattributes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_ZwQueryValueKey(keyhandle: Long, valuename: Long, keyvalueinformationclass: Int, keyvalueinformation: Long, length: Int, resultlength: Long): Int
+    external fun windowssys_windows_wdk_system_registry_zwQueryKey(keyhandle: Long, keyinformationclass: Int, keyinformation: Long, length: Int, resultlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_ZwRenameKey(keyhandle: Long, newname: Long): Int
+    external fun windowssys_windows_wdk_system_registry_zwQueryMultipleValueKey(keyhandle: Long, valueentries: Long, entrycount: Int, valuebuffer: Long, bufferlength: Long, requiredbufferlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_ZwRestoreKey(keyhandle: Long, filehandle: Long, flags: Int): Int
+    external fun windowssys_windows_wdk_system_registry_zwQueryValueKey(keyhandle: Long, valuename: Long, keyvalueinformationclass: Int, keyvalueinformation: Long, length: Int, resultlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_ZwRollbackRegistryTransaction(transactionhandle: Long, flags: Int): Int
+    external fun windowssys_windows_wdk_system_registry_zwRenameKey(keyhandle: Long, newname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_ZwSaveKey(keyhandle: Long, filehandle: Long): Int
+    external fun windowssys_windows_wdk_system_registry_zwRestoreKey(keyhandle: Long, filehandle: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_ZwSaveKeyEx(keyhandle: Long, filehandle: Long, format: Int): Int
+    external fun windowssys_windows_wdk_system_registry_zwRollbackRegistryTransaction(transactionhandle: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_ZwSetInformationKey(keyhandle: Long, keysetinformationclass: Int, keysetinformation: Long, keysetinformationlength: Int): Int
+    external fun windowssys_windows_wdk_system_registry_zwSaveKey(keyhandle: Long, filehandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_wdk_system_registry_ZwSetValueKey(keyhandle: Long, valuename: Long, titleindex: Int, type: Int, data: Long, datasize: Int): Int
+    external fun windowssys_windows_wdk_system_registry_zwSaveKeyEx(keyhandle: Long, filehandle: Long, format: Int): Int
+
+    @JvmStatic
+    external fun windowssys_windows_wdk_system_registry_zwSetInformationKey(keyhandle: Long, keysetinformationclass: Int, keysetinformation: Long, keysetinformationlength: Int): Int
+
+    @JvmStatic
+    external fun windowssys_windows_wdk_system_registry_zwSetValueKey(keyhandle: Long, valuename: Long, titleindex: Int, type: Int, data: Long, datasize: Int): Int
 }
 
-public actual fun NtCommitRegistryTransaction(transactionhandle: HANDLE, flags: UInt): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_NtCommitRegistryTransaction(transactionhandle, flags.toInt())
+public actual fun ntCommitRegistryTransaction(transactionhandle: Handle, flags: UInt): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ntCommitRegistryTransaction((transactionhandle?.value ?: 0L), flags.toInt())
 
-public actual fun NtCreateKey(keyhandle: Long, desiredaccess: UInt, objectattributes: Long, titleindex: UInt, cls: Long, createoptions: UInt, disposition: Long): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_NtCreateKey(keyhandle, desiredaccess.toInt(), objectattributes, titleindex.toInt(), cls, createoptions.toInt(), disposition)
+public actual fun ntCreateKey(keyhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, titleindex: UInt, cls: COpaquePointer?, createoptions: UInt, disposition: COpaquePointer?): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ntCreateKey((keyhandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L), titleindex.toInt(), (cls?.value ?: 0L), createoptions.toInt(), (disposition?.value ?: 0L))
 
-public actual fun NtCreateKeyTransacted(keyhandle: Long, desiredaccess: UInt, objectattributes: Long, titleindex: UInt, cls: Long, createoptions: UInt, transactionhandle: HANDLE, disposition: Long): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_NtCreateKeyTransacted(keyhandle, desiredaccess.toInt(), objectattributes, titleindex.toInt(), cls, createoptions.toInt(), transactionhandle, disposition)
+public actual fun ntCreateKeyTransacted(keyhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, titleindex: UInt, cls: COpaquePointer?, createoptions: UInt, transactionhandle: Handle, disposition: COpaquePointer?): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ntCreateKeyTransacted((keyhandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L), titleindex.toInt(), (cls?.value ?: 0L), createoptions.toInt(), (transactionhandle?.value ?: 0L), (disposition?.value ?: 0L))
 
-public actual fun NtCreateRegistryTransaction(transactionhandle: Long, desiredaccess: UInt, objectattributes: Long, createoptions: UInt): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_NtCreateRegistryTransaction(transactionhandle, desiredaccess.toInt(), objectattributes, createoptions.toInt())
+public actual fun ntCreateRegistryTransaction(transactionhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, createoptions: UInt): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ntCreateRegistryTransaction((transactionhandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L), createoptions.toInt())
 
-public actual fun NtDeleteKey(keyhandle: HANDLE): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_NtDeleteKey(keyhandle)
+public actual fun ntDeleteKey(keyhandle: Handle): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ntDeleteKey((keyhandle?.value ?: 0L))
 
-public actual fun NtDeleteValueKey(keyhandle: HANDLE, valuename: Long): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_NtDeleteValueKey(keyhandle, valuename)
+public actual fun ntDeleteValueKey(keyhandle: Handle, valuename: COpaquePointer?): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ntDeleteValueKey((keyhandle?.value ?: 0L), (valuename?.value ?: 0L))
 
-public actual fun NtEnumerateKey(keyhandle: HANDLE, index: UInt, keyinformationclass: KEY_INFORMATION_CLASS, keyinformation: Long, length: UInt, resultlength: Long): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_NtEnumerateKey(keyhandle, index.toInt(), keyinformationclass, keyinformation, length.toInt(), resultlength)
+public actual fun ntEnumerateKey(keyhandle: Handle, index: UInt, keyinformationclass: KeyInformationClass, keyinformation: COpaquePointer?, length: UInt, resultlength: COpaquePointer?): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ntEnumerateKey((keyhandle?.value ?: 0L), index.toInt(), keyinformationclass, (keyinformation?.value ?: 0L), length.toInt(), (resultlength?.value ?: 0L))
 
-public actual fun NtEnumerateValueKey(keyhandle: HANDLE, index: UInt, keyvalueinformationclass: KEY_VALUE_INFORMATION_CLASS, keyvalueinformation: Long, length: UInt, resultlength: Long): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_NtEnumerateValueKey(keyhandle, index.toInt(), keyvalueinformationclass, keyvalueinformation, length.toInt(), resultlength)
+public actual fun ntEnumerateValueKey(keyhandle: Handle, index: UInt, keyvalueinformationclass: KeyValueInformationClass, keyvalueinformation: COpaquePointer?, length: UInt, resultlength: COpaquePointer?): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ntEnumerateValueKey((keyhandle?.value ?: 0L), index.toInt(), keyvalueinformationclass, (keyvalueinformation?.value ?: 0L), length.toInt(), (resultlength?.value ?: 0L))
 
-public actual fun NtFlushKey(keyhandle: HANDLE): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_NtFlushKey(keyhandle)
+public actual fun ntFlushKey(keyhandle: Handle): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ntFlushKey((keyhandle?.value ?: 0L))
 
-public actual fun NtNotifyChangeMultipleKeys(masterkeyhandle: HANDLE, count: UInt, subordinateobjects: Long, event: HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: Long, iostatusblock: Long, completionfilter: UInt, watchtree: Boolean, buffer: Long, buffersize: UInt, asynchronous: Boolean): NTSTATUS =
-    0
+public actual fun ntNotifyChangeMultipleKeys(masterkeyhandle: Handle, count: UInt, subordinateobjects: COpaquePointer?, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, completionfilter: UInt, watchtree: Boolean, buffer: COpaquePointer?, buffersize: UInt, asynchronous: Boolean): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ntNotifyChangeMultipleKeys((masterkeyhandle?.value ?: 0L), count.toInt(), (subordinateobjects?.value ?: 0L), (event?.value ?: 0L), 0L, (apccontext?.value ?: 0L), (iostatusblock?.value ?: 0L), completionfilter.toInt(), watchtree, (buffer?.value ?: 0L), buffersize.toInt(), asynchronous)
 
-public actual fun NtOpenKey(keyhandle: Long, desiredaccess: UInt, objectattributes: Long): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_NtOpenKey(keyhandle, desiredaccess.toInt(), objectattributes)
+public actual fun ntOpenKey(keyhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ntOpenKey((keyhandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L))
 
-public actual fun NtOpenKeyEx(keyhandle: Long, desiredaccess: UInt, objectattributes: Long, openoptions: UInt): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_NtOpenKeyEx(keyhandle, desiredaccess.toInt(), objectattributes, openoptions.toInt())
+public actual fun ntOpenKeyEx(keyhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, openoptions: UInt): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ntOpenKeyEx((keyhandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L), openoptions.toInt())
 
-public actual fun NtOpenKeyTransacted(keyhandle: Long, desiredaccess: UInt, objectattributes: Long, transactionhandle: HANDLE): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_NtOpenKeyTransacted(keyhandle, desiredaccess.toInt(), objectattributes, transactionhandle)
+public actual fun ntOpenKeyTransacted(keyhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, transactionhandle: Handle): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ntOpenKeyTransacted((keyhandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L), (transactionhandle?.value ?: 0L))
 
-public actual fun NtOpenKeyTransactedEx(keyhandle: Long, desiredaccess: UInt, objectattributes: Long, openoptions: UInt, transactionhandle: HANDLE): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_NtOpenKeyTransactedEx(keyhandle, desiredaccess.toInt(), objectattributes, openoptions.toInt(), transactionhandle)
+public actual fun ntOpenKeyTransactedEx(keyhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, openoptions: UInt, transactionhandle: Handle): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ntOpenKeyTransactedEx((keyhandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L), openoptions.toInt(), (transactionhandle?.value ?: 0L))
 
-public actual fun NtOpenRegistryTransaction(transactionhandle: Long, desiredaccess: UInt, objectattributes: Long): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_NtOpenRegistryTransaction(transactionhandle, desiredaccess.toInt(), objectattributes)
+public actual fun ntOpenRegistryTransaction(transactionhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ntOpenRegistryTransaction((transactionhandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L))
 
-public actual fun NtQueryKey(keyhandle: HANDLE, keyinformationclass: KEY_INFORMATION_CLASS, keyinformation: Long, length: UInt, resultlength: Long): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_NtQueryKey(keyhandle, keyinformationclass, keyinformation, length.toInt(), resultlength)
+public actual fun ntQueryKey(keyhandle: Handle, keyinformationclass: KeyInformationClass, keyinformation: COpaquePointer?, length: UInt, resultlength: COpaquePointer?): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ntQueryKey((keyhandle?.value ?: 0L), keyinformationclass, (keyinformation?.value ?: 0L), length.toInt(), (resultlength?.value ?: 0L))
 
-public actual fun NtQueryMultipleValueKey(keyhandle: HANDLE, valueentries: Long, entrycount: UInt, valuebuffer: Long, bufferlength: Long, requiredbufferlength: Long): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_NtQueryMultipleValueKey(keyhandle, valueentries, entrycount.toInt(), valuebuffer, bufferlength, requiredbufferlength)
+public actual fun ntQueryMultipleValueKey(keyhandle: Handle, valueentries: COpaquePointer?, entrycount: UInt, valuebuffer: COpaquePointer?, bufferlength: COpaquePointer?, requiredbufferlength: COpaquePointer?): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ntQueryMultipleValueKey((keyhandle?.value ?: 0L), (valueentries?.value ?: 0L), entrycount.toInt(), (valuebuffer?.value ?: 0L), (bufferlength?.value ?: 0L), (requiredbufferlength?.value ?: 0L))
 
-public actual fun NtQueryValueKey(keyhandle: HANDLE, valuename: Long, keyvalueinformationclass: KEY_VALUE_INFORMATION_CLASS, keyvalueinformation: Long, length: UInt, resultlength: Long): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_NtQueryValueKey(keyhandle, valuename, keyvalueinformationclass, keyvalueinformation, length.toInt(), resultlength)
+public actual fun ntQueryValueKey(keyhandle: Handle, valuename: COpaquePointer?, keyvalueinformationclass: KeyValueInformationClass, keyvalueinformation: COpaquePointer?, length: UInt, resultlength: COpaquePointer?): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ntQueryValueKey((keyhandle?.value ?: 0L), (valuename?.value ?: 0L), keyvalueinformationclass, (keyvalueinformation?.value ?: 0L), length.toInt(), (resultlength?.value ?: 0L))
 
-public actual fun NtRenameKey(keyhandle: HANDLE, newname: Long): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_NtRenameKey(keyhandle, newname)
+public actual fun ntRenameKey(keyhandle: Handle, newname: COpaquePointer?): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ntRenameKey((keyhandle?.value ?: 0L), (newname?.value ?: 0L))
 
-public actual fun NtRestoreKey(keyhandle: HANDLE, filehandle: HANDLE, flags: UInt): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_NtRestoreKey(keyhandle, filehandle, flags.toInt())
+public actual fun ntRestoreKey(keyhandle: Handle, filehandle: Handle, flags: UInt): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ntRestoreKey((keyhandle?.value ?: 0L), (filehandle?.value ?: 0L), flags.toInt())
 
-public actual fun NtRollbackRegistryTransaction(transactionhandle: HANDLE, flags: UInt): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_NtRollbackRegistryTransaction(transactionhandle, flags.toInt())
+public actual fun ntRollbackRegistryTransaction(transactionhandle: Handle, flags: UInt): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ntRollbackRegistryTransaction((transactionhandle?.value ?: 0L), flags.toInt())
 
-public actual fun NtSaveKey(keyhandle: HANDLE, filehandle: HANDLE): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_NtSaveKey(keyhandle, filehandle)
+public actual fun ntSaveKey(keyhandle: Handle, filehandle: Handle): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ntSaveKey((keyhandle?.value ?: 0L), (filehandle?.value ?: 0L))
 
-public actual fun NtSaveKeyEx(keyhandle: HANDLE, filehandle: HANDLE, format: UInt): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_NtSaveKeyEx(keyhandle, filehandle, format.toInt())
+public actual fun ntSaveKeyEx(keyhandle: Handle, filehandle: Handle, format: UInt): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ntSaveKeyEx((keyhandle?.value ?: 0L), (filehandle?.value ?: 0L), format.toInt())
 
-public actual fun NtSetInformationKey(keyhandle: HANDLE, keysetinformationclass: KEY_SET_INFORMATION_CLASS, keysetinformation: Long, keysetinformationlength: UInt): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_NtSetInformationKey(keyhandle, keysetinformationclass, keysetinformation, keysetinformationlength.toInt())
+public actual fun ntSetInformationKey(keyhandle: Handle, keysetinformationclass: KeySetInformationClass, keysetinformation: COpaquePointer?, keysetinformationlength: UInt): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ntSetInformationKey((keyhandle?.value ?: 0L), keysetinformationclass, (keysetinformation?.value ?: 0L), keysetinformationlength.toInt())
 
-public actual fun NtSetValueKey(keyhandle: HANDLE, valuename: Long, titleindex: UInt, type: UInt, data: Long, datasize: UInt): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_NtSetValueKey(keyhandle, valuename, titleindex.toInt(), type.toInt(), data, datasize.toInt())
+public actual fun ntSetValueKey(keyhandle: Handle, valuename: COpaquePointer?, titleindex: UInt, type: UInt, data: COpaquePointer?, datasize: UInt): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ntSetValueKey((keyhandle?.value ?: 0L), (valuename?.value ?: 0L), titleindex.toInt(), type.toInt(), (data?.value ?: 0L), datasize.toInt())
 
-public actual fun ZwCommitRegistryTransaction(transactionhandle: HANDLE, flags: UInt): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ZwCommitRegistryTransaction(transactionhandle, flags.toInt())
+public actual fun zwCommitRegistryTransaction(transactionhandle: Handle, flags: UInt): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_zwCommitRegistryTransaction((transactionhandle?.value ?: 0L), flags.toInt())
 
-public actual fun ZwCreateKey(keyhandle: Long, desiredaccess: UInt, objectattributes: Long, titleindex: UInt, cls: Long, createoptions: UInt, disposition: Long): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ZwCreateKey(keyhandle, desiredaccess.toInt(), objectattributes, titleindex.toInt(), cls, createoptions.toInt(), disposition)
+public actual fun zwCreateKey(keyhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, titleindex: UInt, cls: COpaquePointer?, createoptions: UInt, disposition: COpaquePointer?): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_zwCreateKey((keyhandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L), titleindex.toInt(), (cls?.value ?: 0L), createoptions.toInt(), (disposition?.value ?: 0L))
 
-public actual fun ZwCreateKeyTransacted(keyhandle: Long, desiredaccess: UInt, objectattributes: Long, titleindex: UInt, cls: Long, createoptions: UInt, transactionhandle: HANDLE, disposition: Long): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ZwCreateKeyTransacted(keyhandle, desiredaccess.toInt(), objectattributes, titleindex.toInt(), cls, createoptions.toInt(), transactionhandle, disposition)
+public actual fun zwCreateKeyTransacted(keyhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, titleindex: UInt, cls: COpaquePointer?, createoptions: UInt, transactionhandle: Handle, disposition: COpaquePointer?): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_zwCreateKeyTransacted((keyhandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L), titleindex.toInt(), (cls?.value ?: 0L), createoptions.toInt(), (transactionhandle?.value ?: 0L), (disposition?.value ?: 0L))
 
-public actual fun ZwCreateRegistryTransaction(transactionhandle: Long, desiredaccess: UInt, objectattributes: Long, createoptions: UInt): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ZwCreateRegistryTransaction(transactionhandle, desiredaccess.toInt(), objectattributes, createoptions.toInt())
+public actual fun zwCreateRegistryTransaction(transactionhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, createoptions: UInt): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_zwCreateRegistryTransaction((transactionhandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L), createoptions.toInt())
 
-public actual fun ZwDeleteKey(keyhandle: HANDLE): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ZwDeleteKey(keyhandle)
+public actual fun zwDeleteKey(keyhandle: Handle): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_zwDeleteKey((keyhandle?.value ?: 0L))
 
-public actual fun ZwDeleteValueKey(keyhandle: HANDLE, valuename: Long): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ZwDeleteValueKey(keyhandle, valuename)
+public actual fun zwDeleteValueKey(keyhandle: Handle, valuename: COpaquePointer?): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_zwDeleteValueKey((keyhandle?.value ?: 0L), (valuename?.value ?: 0L))
 
-public actual fun ZwEnumerateKey(keyhandle: HANDLE, index: UInt, keyinformationclass: KEY_INFORMATION_CLASS, keyinformation: Long, length: UInt, resultlength: Long): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ZwEnumerateKey(keyhandle, index.toInt(), keyinformationclass, keyinformation, length.toInt(), resultlength)
+public actual fun zwEnumerateKey(keyhandle: Handle, index: UInt, keyinformationclass: KeyInformationClass, keyinformation: COpaquePointer?, length: UInt, resultlength: COpaquePointer?): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_zwEnumerateKey((keyhandle?.value ?: 0L), index.toInt(), keyinformationclass, (keyinformation?.value ?: 0L), length.toInt(), (resultlength?.value ?: 0L))
 
-public actual fun ZwEnumerateValueKey(keyhandle: HANDLE, index: UInt, keyvalueinformationclass: KEY_VALUE_INFORMATION_CLASS, keyvalueinformation: Long, length: UInt, resultlength: Long): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ZwEnumerateValueKey(keyhandle, index.toInt(), keyvalueinformationclass, keyvalueinformation, length.toInt(), resultlength)
+public actual fun zwEnumerateValueKey(keyhandle: Handle, index: UInt, keyvalueinformationclass: KeyValueInformationClass, keyvalueinformation: COpaquePointer?, length: UInt, resultlength: COpaquePointer?): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_zwEnumerateValueKey((keyhandle?.value ?: 0L), index.toInt(), keyvalueinformationclass, (keyvalueinformation?.value ?: 0L), length.toInt(), (resultlength?.value ?: 0L))
 
-public actual fun ZwFlushKey(keyhandle: HANDLE): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ZwFlushKey(keyhandle)
+public actual fun zwFlushKey(keyhandle: Handle): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_zwFlushKey((keyhandle?.value ?: 0L))
 
-public actual fun ZwNotifyChangeMultipleKeys(masterkeyhandle: HANDLE, count: UInt, subordinateobjects: Long, event: HANDLE, apcroutine: PIO_APC_ROUTINE, apccontext: Long, iostatusblock: Long, completionfilter: UInt, watchtree: Boolean, buffer: Long, buffersize: UInt, asynchronous: Boolean): NTSTATUS =
-    0
+public actual fun zwNotifyChangeMultipleKeys(masterkeyhandle: Handle, count: UInt, subordinateobjects: COpaquePointer?, event: Handle, apcroutine: PioApcRoutine, apccontext: COpaquePointer?, iostatusblock: COpaquePointer?, completionfilter: UInt, watchtree: Boolean, buffer: COpaquePointer?, buffersize: UInt, asynchronous: Boolean): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_zwNotifyChangeMultipleKeys((masterkeyhandle?.value ?: 0L), count.toInt(), (subordinateobjects?.value ?: 0L), (event?.value ?: 0L), 0L, (apccontext?.value ?: 0L), (iostatusblock?.value ?: 0L), completionfilter.toInt(), watchtree, (buffer?.value ?: 0L), buffersize.toInt(), asynchronous)
 
-public actual fun ZwOpenKey(keyhandle: Long, desiredaccess: UInt, objectattributes: Long): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ZwOpenKey(keyhandle, desiredaccess.toInt(), objectattributes)
+public actual fun zwOpenKey(keyhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_zwOpenKey((keyhandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L))
 
-public actual fun ZwOpenKeyEx(keyhandle: Long, desiredaccess: UInt, objectattributes: Long, openoptions: UInt): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ZwOpenKeyEx(keyhandle, desiredaccess.toInt(), objectattributes, openoptions.toInt())
+public actual fun zwOpenKeyEx(keyhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, openoptions: UInt): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_zwOpenKeyEx((keyhandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L), openoptions.toInt())
 
-public actual fun ZwOpenKeyTransacted(keyhandle: Long, desiredaccess: UInt, objectattributes: Long, transactionhandle: HANDLE): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ZwOpenKeyTransacted(keyhandle, desiredaccess.toInt(), objectattributes, transactionhandle)
+public actual fun zwOpenKeyTransacted(keyhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, transactionhandle: Handle): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_zwOpenKeyTransacted((keyhandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L), (transactionhandle?.value ?: 0L))
 
-public actual fun ZwOpenKeyTransactedEx(keyhandle: Long, desiredaccess: UInt, objectattributes: Long, openoptions: UInt, transactionhandle: HANDLE): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ZwOpenKeyTransactedEx(keyhandle, desiredaccess.toInt(), objectattributes, openoptions.toInt(), transactionhandle)
+public actual fun zwOpenKeyTransactedEx(keyhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?, openoptions: UInt, transactionhandle: Handle): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_zwOpenKeyTransactedEx((keyhandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L), openoptions.toInt(), (transactionhandle?.value ?: 0L))
 
-public actual fun ZwOpenRegistryTransaction(transactionhandle: Long, desiredaccess: UInt, objectattributes: Long): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ZwOpenRegistryTransaction(transactionhandle, desiredaccess.toInt(), objectattributes)
+public actual fun zwOpenRegistryTransaction(transactionhandle: COpaquePointer?, desiredaccess: UInt, objectattributes: COpaquePointer?): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_zwOpenRegistryTransaction((transactionhandle?.value ?: 0L), desiredaccess.toInt(), (objectattributes?.value ?: 0L))
 
-public actual fun ZwQueryKey(keyhandle: HANDLE, keyinformationclass: KEY_INFORMATION_CLASS, keyinformation: Long, length: UInt, resultlength: Long): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ZwQueryKey(keyhandle, keyinformationclass, keyinformation, length.toInt(), resultlength)
+public actual fun zwQueryKey(keyhandle: Handle, keyinformationclass: KeyInformationClass, keyinformation: COpaquePointer?, length: UInt, resultlength: COpaquePointer?): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_zwQueryKey((keyhandle?.value ?: 0L), keyinformationclass, (keyinformation?.value ?: 0L), length.toInt(), (resultlength?.value ?: 0L))
 
-public actual fun ZwQueryMultipleValueKey(keyhandle: HANDLE, valueentries: Long, entrycount: UInt, valuebuffer: Long, bufferlength: Long, requiredbufferlength: Long): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ZwQueryMultipleValueKey(keyhandle, valueentries, entrycount.toInt(), valuebuffer, bufferlength, requiredbufferlength)
+public actual fun zwQueryMultipleValueKey(keyhandle: Handle, valueentries: COpaquePointer?, entrycount: UInt, valuebuffer: COpaquePointer?, bufferlength: COpaquePointer?, requiredbufferlength: COpaquePointer?): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_zwQueryMultipleValueKey((keyhandle?.value ?: 0L), (valueentries?.value ?: 0L), entrycount.toInt(), (valuebuffer?.value ?: 0L), (bufferlength?.value ?: 0L), (requiredbufferlength?.value ?: 0L))
 
-public actual fun ZwQueryValueKey(keyhandle: HANDLE, valuename: Long, keyvalueinformationclass: KEY_VALUE_INFORMATION_CLASS, keyvalueinformation: Long, length: UInt, resultlength: Long): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ZwQueryValueKey(keyhandle, valuename, keyvalueinformationclass, keyvalueinformation, length.toInt(), resultlength)
+public actual fun zwQueryValueKey(keyhandle: Handle, valuename: COpaquePointer?, keyvalueinformationclass: KeyValueInformationClass, keyvalueinformation: COpaquePointer?, length: UInt, resultlength: COpaquePointer?): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_zwQueryValueKey((keyhandle?.value ?: 0L), (valuename?.value ?: 0L), keyvalueinformationclass, (keyvalueinformation?.value ?: 0L), length.toInt(), (resultlength?.value ?: 0L))
 
-public actual fun ZwRenameKey(keyhandle: HANDLE, newname: Long): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ZwRenameKey(keyhandle, newname)
+public actual fun zwRenameKey(keyhandle: Handle, newname: COpaquePointer?): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_zwRenameKey((keyhandle?.value ?: 0L), (newname?.value ?: 0L))
 
-public actual fun ZwRestoreKey(keyhandle: HANDLE, filehandle: HANDLE, flags: UInt): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ZwRestoreKey(keyhandle, filehandle, flags.toInt())
+public actual fun zwRestoreKey(keyhandle: Handle, filehandle: Handle, flags: UInt): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_zwRestoreKey((keyhandle?.value ?: 0L), (filehandle?.value ?: 0L), flags.toInt())
 
-public actual fun ZwRollbackRegistryTransaction(transactionhandle: HANDLE, flags: UInt): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ZwRollbackRegistryTransaction(transactionhandle, flags.toInt())
+public actual fun zwRollbackRegistryTransaction(transactionhandle: Handle, flags: UInt): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_zwRollbackRegistryTransaction((transactionhandle?.value ?: 0L), flags.toInt())
 
-public actual fun ZwSaveKey(keyhandle: HANDLE, filehandle: HANDLE): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ZwSaveKey(keyhandle, filehandle)
+public actual fun zwSaveKey(keyhandle: Handle, filehandle: Handle): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_zwSaveKey((keyhandle?.value ?: 0L), (filehandle?.value ?: 0L))
 
-public actual fun ZwSaveKeyEx(keyhandle: HANDLE, filehandle: HANDLE, format: UInt): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ZwSaveKeyEx(keyhandle, filehandle, format.toInt())
+public actual fun zwSaveKeyEx(keyhandle: Handle, filehandle: Handle, format: UInt): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_zwSaveKeyEx((keyhandle?.value ?: 0L), (filehandle?.value ?: 0L), format.toInt())
 
-public actual fun ZwSetInformationKey(keyhandle: HANDLE, keysetinformationclass: KEY_SET_INFORMATION_CLASS, keysetinformation: Long, keysetinformationlength: UInt): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ZwSetInformationKey(keyhandle, keysetinformationclass, keysetinformation, keysetinformationlength.toInt())
+public actual fun zwSetInformationKey(keyhandle: Handle, keysetinformationclass: KeySetInformationClass, keysetinformation: COpaquePointer?, keysetinformationlength: UInt): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_zwSetInformationKey((keyhandle?.value ?: 0L), keysetinformationclass, (keysetinformation?.value ?: 0L), keysetinformationlength.toInt())
 
-public actual fun ZwSetValueKey(keyhandle: HANDLE, valuename: Long, titleindex: UInt, type: UInt, data: Long, datasize: UInt): NTSTATUS =
-    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_ZwSetValueKey(keyhandle, valuename, titleindex.toInt(), type.toInt(), data, datasize.toInt())
+public actual fun zwSetValueKey(keyhandle: Handle, valuename: COpaquePointer?, titleindex: UInt, type: UInt, data: COpaquePointer?, datasize: UInt): Ntstatus =
+    WindowsWdkSystemRegistryJniBridge.windowssys_windows_wdk_system_registry_zwSetValueKey((keyhandle?.value ?: 0L), (valuename?.value ?: 0L), titleindex.toInt(), type.toInt(), (data?.value ?: 0L), datasize.toInt())

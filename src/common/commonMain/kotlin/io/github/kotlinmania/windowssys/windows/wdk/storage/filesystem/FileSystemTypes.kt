@@ -1,315 +1,316 @@
 package io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem
 
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.PESILO
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.Pesilo
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
 
-public fun interface ALLOCATE_VIRTUAL_MEMORY_EX_CALLBACKFn {
-    public operator fun invoke(callbackcontext: HANDLE, processhandle: HANDLE, baseaddress: Long, regionsize: Long, allocationtype: UInt, pageprotection: UInt, extendedparameters: Long, extendedparametercount: UInt): NTSTATUS
+public fun interface AllocateVirtualMemoryExCallbackFn {
+    public operator fun invoke(callbackcontext: Handle, processhandle: Handle, baseaddress: COpaquePointer?, regionsize: COpaquePointer?, allocationtype: UInt, pageprotection: UInt, extendedparameters: COpaquePointer?, extendedparametercount: UInt): Ntstatus
 }
 
-public typealias ALLOCATE_VIRTUAL_MEMORY_EX_CALLBACK = ALLOCATE_VIRTUAL_MEMORY_EX_CALLBACKFn?
+public typealias AllocateVirtualMemoryExCallback = AllocateVirtualMemoryExCallbackFn?
 
-public typealias CSV_DOWN_LEVEL_FILE_TYPE = Int
+public typealias CsvDownLevelFileType = Int
 
-public typealias FAST_IO_POSSIBLE = Int
+public typealias FastIoPossible = Int
 
-public typealias FILE_DISPOSITION_INFORMATION_EX_FLAGS = UInt
+public typealias FileDispositionInformationExFlags = UInt
 
-public typealias FILE_INFORMATION_CLASS = Int
+public typealias FileInformationClass = Int
 
-public typealias FILE_KNOWN_FOLDER_TYPE = Int
+public typealias FileKnownFolderType = Int
 
-public fun interface FREE_VIRTUAL_MEMORY_EX_CALLBACKFn {
-    public operator fun invoke(callbackcontext: HANDLE, processhandle: HANDLE, baseaddress: Long, regionsize: Long, freetype: UInt): NTSTATUS
+public fun interface FreeVirtualMemoryExCallbackFn {
+    public operator fun invoke(callbackcontext: Handle, processhandle: Handle, baseaddress: COpaquePointer?, regionsize: COpaquePointer?, freetype: UInt): Ntstatus
 }
 
-public typealias FREE_VIRTUAL_MEMORY_EX_CALLBACK = FREE_VIRTUAL_MEMORY_EX_CALLBACKFn?
+public typealias FreeVirtualMemoryExCallback = FreeVirtualMemoryExCallbackFn?
 
-public typealias FSRTL_CHANGE_BACKING_TYPE = Int
+public typealias FsrtlChangeBackingType = Int
 
-public typealias FSRTL_COMPARISON_RESULT = Int
+public typealias FsrtlComparisonResult = Int
 
-public typealias FS_FILTER_SECTION_SYNC_TYPE = Int
+public typealias FsFilterSectionSyncType = Int
 
-public typealias FS_FILTER_STREAM_FO_NOTIFICATION_TYPE = Int
+public typealias FsFilterStreamFoNotificationType = Int
 
-public typealias FS_INFORMATION_CLASS = Int
+public typealias FsInformationClass = Int
 
-public typealias HEAP_MEMORY_INFO_CLASS = Int
+public typealias HeapMemoryInfoClass = Int
 
-public typealias LINK_TRACKING_INFORMATION_TYPE = Int
+public typealias LinkTrackingInformationType = Int
 
-public typealias MEMORY_INFORMATION_CLASS = Int
+public typealias MemoryInformationClass = Int
 
-public typealias MMFLUSH_TYPE = Int
+public typealias MmflushType = Int
 
-public typealias MSV1_0_AVID = Int
+public typealias Msv10Avid = Int
 
-public typealias NETWORK_OPEN_INTEGRITY_QUALIFIER = Int
+public typealias NetworkOpenIntegrityQualifier = Int
 
-public typealias NETWORK_OPEN_LOCATION_QUALIFIER = Int
+public typealias NetworkOpenLocationQualifier = Int
 
-public typealias NTCREATEFILE_CREATE_DISPOSITION = UInt
+public typealias NtcreatefileCreateDisposition = UInt
 
-public typealias NTCREATEFILE_CREATE_OPTIONS = UInt
+public typealias NtcreatefileCreateOptions = UInt
 
-public typealias OPLOCK_NOTIFY_REASON = Int
+public typealias OplockNotifyReason = Int
 
-public fun interface PACQUIRE_FOR_LAZY_WRITEFn {
-    public operator fun invoke(context: Long, wait: Boolean): Boolean
+public fun interface PacquireForLazyWriteFn {
+    public operator fun invoke(context: COpaquePointer?, wait: Boolean): Boolean
 }
 
-public typealias PACQUIRE_FOR_LAZY_WRITE = PACQUIRE_FOR_LAZY_WRITEFn?
+public typealias PacquireForLazyWrite = PacquireForLazyWriteFn?
 
-public fun interface PACQUIRE_FOR_LAZY_WRITE_EXFn {
-    public operator fun invoke(context: Long, inflags: UInt, outflags: Long): Boolean
+public fun interface PacquireForLazyWriteExFn {
+    public operator fun invoke(context: COpaquePointer?, inflags: UInt, outflags: COpaquePointer?): Boolean
 }
 
-public typealias PACQUIRE_FOR_LAZY_WRITE_EX = PACQUIRE_FOR_LAZY_WRITE_EXFn?
+public typealias PacquireForLazyWriteEx = PacquireForLazyWriteExFn?
 
-public fun interface PACQUIRE_FOR_READ_AHEADFn {
-    public operator fun invoke(context: Long, wait: Boolean): Boolean
+public fun interface PacquireForReadAheadFn {
+    public operator fun invoke(context: COpaquePointer?, wait: Boolean): Boolean
 }
 
-public typealias PACQUIRE_FOR_READ_AHEAD = PACQUIRE_FOR_READ_AHEADFn?
+public typealias PacquireForReadAhead = PacquireForReadAheadFn?
 
-public fun interface PALLOCATE_VIRTUAL_MEMORY_EX_CALLBACKFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PallocateVirtualMemoryExCallbackFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PALLOCATE_VIRTUAL_MEMORY_EX_CALLBACK = PALLOCATE_VIRTUAL_MEMORY_EX_CALLBACKFn?
+public typealias PallocateVirtualMemoryExCallback = PallocateVirtualMemoryExCallbackFn?
 
-public fun interface PASYNC_READ_COMPLETION_CALLBACKFn {
-    public operator fun invoke(context: Long): Boolean
+public fun interface PasyncReadCompletionCallbackFn {
+    public operator fun invoke(context: COpaquePointer?): Boolean
 }
 
-public typealias PASYNC_READ_COMPLETION_CALLBACK = PASYNC_READ_COMPLETION_CALLBACKFn?
+public typealias PasyncReadCompletionCallback = PasyncReadCompletionCallbackFn?
 
-public fun interface PCC_POST_DEFERRED_WRITEFn {
-    public operator fun invoke(context1: Long, context2: Long)
+public fun interface PccPostDeferredWriteFn {
+    public operator fun invoke(context1: COpaquePointer?, context2: COpaquePointer?)
 }
 
-public typealias PCC_POST_DEFERRED_WRITE = PCC_POST_DEFERRED_WRITEFn?
+public typealias PccPostDeferredWrite = PccPostDeferredWriteFn?
 
-public fun interface PCHECK_FOR_TRAVERSE_ACCESSFn {
-    public operator fun invoke(notifycontext: Long, targetcontext: Long, subjectcontext: Long): Boolean
+public fun interface PcheckForTraverseAccessFn {
+    public operator fun invoke(notifycontext: COpaquePointer?, targetcontext: COpaquePointer?, subjectcontext: COpaquePointer?): Boolean
 }
 
-public typealias PCHECK_FOR_TRAVERSE_ACCESS = PCHECK_FOR_TRAVERSE_ACCESSFn?
+public typealias PcheckForTraverseAccess = PcheckForTraverseAccessFn?
 
-public fun interface PCOMPLETE_LOCK_IRP_ROUTINEFn {
-    public operator fun invoke(context: Long, irp: Long): NTSTATUS
+public fun interface PcompleteLockIrpRoutineFn {
+    public operator fun invoke(context: COpaquePointer?, irp: COpaquePointer?): Ntstatus
 }
 
-public typealias PCOMPLETE_LOCK_IRP_ROUTINE = PCOMPLETE_LOCK_IRP_ROUTINEFn?
+public typealias PcompleteLockIrpRoutine = PcompleteLockIrpRoutineFn?
 
-public fun interface PDIRTY_PAGE_ROUTINEFn {
-    public operator fun invoke(fileobject: Long, fileoffset: Long, length: UInt, oldestlsn: Long, newestlsn: Long, context1: Long, context2: Long)
+public fun interface PdirtyPageRoutineFn {
+    public operator fun invoke(fileobject: COpaquePointer?, fileoffset: COpaquePointer?, length: UInt, oldestlsn: COpaquePointer?, newestlsn: COpaquePointer?, context1: COpaquePointer?, context2: COpaquePointer?)
 }
 
-public typealias PDIRTY_PAGE_ROUTINE = PDIRTY_PAGE_ROUTINEFn?
+public typealias PdirtyPageRoutine = PdirtyPageRoutineFn?
 
-public fun interface PFILTER_REPORT_CHANGEFn {
-    public operator fun invoke(notifycontext: Long, filtercontext: Long): Boolean
+public fun interface PfilterReportChangeFn {
+    public operator fun invoke(notifycontext: COpaquePointer?, filtercontext: COpaquePointer?): Boolean
 }
 
-public typealias PFILTER_REPORT_CHANGE = PFILTER_REPORT_CHANGEFn?
+public typealias PfilterReportChange = PfilterReportChangeFn?
 
-public fun interface PFLUSH_TO_LSNFn {
-    public operator fun invoke(loghandle: Long, lsn: Long)
+public fun interface PflushToLsnFn {
+    public operator fun invoke(loghandle: COpaquePointer?, lsn: Long)
 }
 
-public typealias PFLUSH_TO_LSN = PFLUSH_TO_LSNFn?
+public typealias PflushToLsn = PflushToLsnFn?
 
-public fun interface PFN_FSRTLTEARDOWNPERSTREAMCONTEXTSFn {
-    public operator fun invoke(advancedheader: Long)
+public fun interface PfnFsrtlteardownperstreamcontextsFn {
+    public operator fun invoke(advancedheader: COpaquePointer?)
 }
 
-public typealias PFN_FSRTLTEARDOWNPERSTREAMCONTEXTS = PFN_FSRTLTEARDOWNPERSTREAMCONTEXTSFn?
+public typealias PfnFsrtlteardownperstreamcontexts = PfnFsrtlteardownperstreamcontextsFn?
 
-public fun interface PFREE_VIRTUAL_MEMORY_EX_CALLBACKFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PfreeVirtualMemoryExCallbackFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PFREE_VIRTUAL_MEMORY_EX_CALLBACK = PFREE_VIRTUAL_MEMORY_EX_CALLBACKFn?
+public typealias PfreeVirtualMemoryExCallback = PfreeVirtualMemoryExCallbackFn?
 
-public fun interface PFSRTL_EXTRA_CREATE_PARAMETER_CLEANUP_CALLBACKFn {
-    public operator fun invoke(ecpcontext: Long, ecptype: Long)
+public fun interface PfsrtlExtraCreateParameterCleanupCallbackFn {
+    public operator fun invoke(ecpcontext: COpaquePointer?, ecptype: COpaquePointer?)
 }
 
-public typealias PFSRTL_EXTRA_CREATE_PARAMETER_CLEANUP_CALLBACK = PFSRTL_EXTRA_CREATE_PARAMETER_CLEANUP_CALLBACKFn?
+public typealias PfsrtlExtraCreateParameterCleanupCallback = PfsrtlExtraCreateParameterCleanupCallbackFn?
 
-public fun interface PFSRTL_STACK_OVERFLOW_ROUTINEFn {
-    public operator fun invoke(context: Long, event: Long)
+public fun interface PfsrtlStackOverflowRoutineFn {
+    public operator fun invoke(context: COpaquePointer?, event: COpaquePointer?)
 }
 
-public typealias PFSRTL_STACK_OVERFLOW_ROUTINE = PFSRTL_STACK_OVERFLOW_ROUTINEFn?
+public typealias PfsrtlStackOverflowRoutine = PfsrtlStackOverflowRoutineFn?
 
-public fun interface PFS_FILTER_CALLBACKFn {
-    public operator fun invoke(data: Long, completioncontext: Long): NTSTATUS
+public fun interface PfsFilterCallbackFn {
+    public operator fun invoke(data: COpaquePointer?, completioncontext: COpaquePointer?): Ntstatus
 }
 
-public typealias PFS_FILTER_CALLBACK = PFS_FILTER_CALLBACKFn?
+public typealias PfsFilterCallback = PfsFilterCallbackFn?
 
-public fun interface PFS_FILTER_COMPLETION_CALLBACKFn {
-    public operator fun invoke(data: Long, operationstatus: NTSTATUS, completioncontext: Long)
+public fun interface PfsFilterCompletionCallbackFn {
+    public operator fun invoke(data: COpaquePointer?, operationstatus: Ntstatus, completioncontext: COpaquePointer?)
 }
 
-public typealias PFS_FILTER_COMPLETION_CALLBACK = PFS_FILTER_COMPLETION_CALLBACKFn?
+public typealias PfsFilterCompletionCallback = PfsFilterCompletionCallbackFn?
 
-public fun interface POPLOCK_FS_PREPOST_IRPFn {
-    public operator fun invoke(context: Long, irp: Long)
+public fun interface PoplockFsPrepostIrpFn {
+    public operator fun invoke(context: COpaquePointer?, irp: COpaquePointer?)
 }
 
-public typealias POPLOCK_FS_PREPOST_IRP = POPLOCK_FS_PREPOST_IRPFn?
+public typealias PoplockFsPrepostIrp = PoplockFsPrepostIrpFn?
 
-public fun interface POPLOCK_NOTIFY_ROUTINEFn {
-    public operator fun invoke(notifyparams: Long): NTSTATUS
+public fun interface PoplockNotifyRoutineFn {
+    public operator fun invoke(notifyparams: COpaquePointer?): Ntstatus
 }
 
-public typealias POPLOCK_NOTIFY_ROUTINE = POPLOCK_NOTIFY_ROUTINEFn?
+public typealias PoplockNotifyRoutine = PoplockNotifyRoutineFn?
 
-public fun interface POPLOCK_WAIT_COMPLETE_ROUTINEFn {
-    public operator fun invoke(context: Long, irp: Long)
+public fun interface PoplockWaitCompleteRoutineFn {
+    public operator fun invoke(context: COpaquePointer?, irp: COpaquePointer?)
 }
 
-public typealias POPLOCK_WAIT_COMPLETE_ROUTINE = POPLOCK_WAIT_COMPLETE_ROUTINEFn?
+public typealias PoplockWaitCompleteRoutine = PoplockWaitCompleteRoutineFn?
 
-public fun interface PQUERY_LOG_USAGEFn {
-    public operator fun invoke(loghandle: Long, percentagefull: Long)
+public fun interface PqueryLogUsageFn {
+    public operator fun invoke(loghandle: COpaquePointer?, percentagefull: COpaquePointer?)
 }
 
-public typealias PQUERY_LOG_USAGE = PQUERY_LOG_USAGEFn?
+public typealias PqueryLogUsage = PqueryLogUsageFn?
 
-public fun interface PQUERY_VIRTUAL_MEMORY_CALLBACKFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PqueryVirtualMemoryCallbackFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PQUERY_VIRTUAL_MEMORY_CALLBACK = PQUERY_VIRTUAL_MEMORY_CALLBACKFn?
+public typealias PqueryVirtualMemoryCallback = PqueryVirtualMemoryCallbackFn?
 
-public fun interface PRELEASE_FROM_LAZY_WRITEFn {
-    public operator fun invoke(context: Long)
+public fun interface PreleaseFromLazyWriteFn {
+    public operator fun invoke(context: COpaquePointer?)
 }
 
-public typealias PRELEASE_FROM_LAZY_WRITE = PRELEASE_FROM_LAZY_WRITEFn?
+public typealias PreleaseFromLazyWrite = PreleaseFromLazyWriteFn?
 
-public fun interface PRELEASE_FROM_READ_AHEADFn {
-    public operator fun invoke(context: Long)
+public fun interface PreleaseFromReadAheadFn {
+    public operator fun invoke(context: COpaquePointer?)
 }
 
-public typealias PRELEASE_FROM_READ_AHEAD = PRELEASE_FROM_READ_AHEADFn?
+public typealias PreleaseFromReadAhead = PreleaseFromReadAheadFn?
 
-public fun interface PRTL_ALLOCATE_STRING_ROUTINEFn {
-    public operator fun invoke(): Long
+public fun interface PrtlAllocateStringRoutineFn {
+    public operator fun invoke(): COpaquePointer?
 }
 
-public typealias PRTL_ALLOCATE_STRING_ROUTINE = PRTL_ALLOCATE_STRING_ROUTINEFn?
+public typealias PrtlAllocateStringRoutine = PrtlAllocateStringRoutineFn?
 
-public fun interface PRTL_FREE_STRING_ROUTINEFn {
+public fun interface PrtlFreeStringRoutineFn {
     public operator fun invoke()
 }
 
-public typealias PRTL_FREE_STRING_ROUTINE = PRTL_FREE_STRING_ROUTINEFn?
+public typealias PrtlFreeStringRoutine = PrtlFreeStringRoutineFn?
 
-public fun interface PRTL_HEAP_COMMIT_ROUTINEFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PrtlHeapCommitRoutineFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PRTL_HEAP_COMMIT_ROUTINE = PRTL_HEAP_COMMIT_ROUTINEFn?
+public typealias PrtlHeapCommitRoutine = PrtlHeapCommitRoutineFn?
 
-public fun interface PRTL_REALLOCATE_STRING_ROUTINEFn {
-    public operator fun invoke(): Long
+public fun interface PrtlReallocateStringRoutineFn {
+    public operator fun invoke(): COpaquePointer?
 }
 
-public typealias PRTL_REALLOCATE_STRING_ROUTINE = PRTL_REALLOCATE_STRING_ROUTINEFn?
+public typealias PrtlReallocateStringRoutine = PrtlReallocateStringRoutineFn?
 
-public fun interface PSE_LOGON_SESSION_TERMINATED_ROUTINEFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PseLogonSessionTerminatedRoutineFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PSE_LOGON_SESSION_TERMINATED_ROUTINE = PSE_LOGON_SESSION_TERMINATED_ROUTINEFn?
+public typealias PseLogonSessionTerminatedRoutine = PseLogonSessionTerminatedRoutineFn?
 
-public fun interface PSE_LOGON_SESSION_TERMINATED_ROUTINE_EXFn {
-    public operator fun invoke(): NTSTATUS
+public fun interface PseLogonSessionTerminatedRoutineExFn {
+    public operator fun invoke(): Ntstatus
 }
 
-public typealias PSE_LOGON_SESSION_TERMINATED_ROUTINE_EX = PSE_LOGON_SESSION_TERMINATED_ROUTINE_EXFn?
+public typealias PseLogonSessionTerminatedRoutineEx = PseLogonSessionTerminatedRoutineExFn?
 
-public fun interface PUNLOCK_ROUTINEFn {
-    public operator fun invoke(context: Long, filelockinfo: Long)
+public fun interface PunlockRoutineFn {
+    public operator fun invoke(context: COpaquePointer?, filelockinfo: COpaquePointer?)
 }
 
-public typealias PUNLOCK_ROUTINE = PUNLOCK_ROUTINEFn?
+public typealias PunlockRoutine = PunlockRoutineFn?
 
-public fun interface QUERY_VIRTUAL_MEMORY_CALLBACKFn {
-    public operator fun invoke(callbackcontext: HANDLE, processhandle: HANDLE, baseaddress: Long, memoryinformationclass: HEAP_MEMORY_INFO_CLASS, memoryinformation: Long, memoryinformationlength: ULong, returnlength: Long): NTSTATUS
+public fun interface QueryVirtualMemoryCallbackFn {
+    public operator fun invoke(callbackcontext: Handle, processhandle: Handle, baseaddress: COpaquePointer?, memoryinformationclass: HeapMemoryInfoClass, memoryinformation: COpaquePointer?, memoryinformationlength: ULong, returnlength: COpaquePointer?): Ntstatus
 }
 
-public typealias QUERY_VIRTUAL_MEMORY_CALLBACK = QUERY_VIRTUAL_MEMORY_CALLBACKFn?
+public typealias QueryVirtualMemoryCallback = QueryVirtualMemoryCallbackFn?
 
-public typealias REFS_COMPRESSION_FORMATS = Int
+public typealias RefsCompressionFormats = Int
 
-public typealias REFS_DEALLOCATE_RANGES_ALLOCATOR = Int
+public typealias RefsDeallocateRangesAllocator = Int
 
-public typealias REFS_SET_VOLUME_COMPRESSION_INFO_FLAGS = Int
+public typealias RefsSetVolumeCompressionInfoFlags = Int
 
-public typealias REFS_STREAM_SNAPSHOT_OPERATION = Int
+public typealias RefsStreamSnapshotOperation = Int
 
-public fun interface RTL_ALLOCATE_STRING_ROUTINEFn {
-    public operator fun invoke(numberofbytes: ULong): Long
+public fun interface RtlAllocateStringRoutineFn {
+    public operator fun invoke(numberofbytes: ULong): COpaquePointer?
 }
 
-public typealias RTL_ALLOCATE_STRING_ROUTINE = RTL_ALLOCATE_STRING_ROUTINEFn?
+public typealias RtlAllocateStringRoutine = RtlAllocateStringRoutineFn?
 
-public fun interface RTL_FREE_STRING_ROUTINEFn {
-    public operator fun invoke(buffer: Long)
+public fun interface RtlFreeStringRoutineFn {
+    public operator fun invoke(buffer: COpaquePointer?)
 }
 
-public typealias RTL_FREE_STRING_ROUTINE = RTL_FREE_STRING_ROUTINEFn?
+public typealias RtlFreeStringRoutine = RtlFreeStringRoutineFn?
 
-public fun interface RTL_HEAP_COMMIT_ROUTINEFn {
-    public operator fun invoke(base: Long, commitaddress: Long, commitsize: Long): NTSTATUS
+public fun interface RtlHeapCommitRoutineFn {
+    public operator fun invoke(base: COpaquePointer?, commitaddress: COpaquePointer?, commitsize: COpaquePointer?): Ntstatus
 }
 
-public typealias RTL_HEAP_COMMIT_ROUTINE = RTL_HEAP_COMMIT_ROUTINEFn?
+public typealias RtlHeapCommitRoutine = RtlHeapCommitRoutineFn?
 
-public typealias RTL_MEMORY_TYPE = Int
+public typealias RtlMemoryType = Int
 
-public fun interface RTL_REALLOCATE_STRING_ROUTINEFn {
-    public operator fun invoke(numberofbytes: ULong, buffer: Long): Long
+public fun interface RtlReallocateStringRoutineFn {
+    public operator fun invoke(numberofbytes: ULong, buffer: COpaquePointer?): COpaquePointer?
 }
 
-public typealias RTL_REALLOCATE_STRING_ROUTINE = RTL_REALLOCATE_STRING_ROUTINEFn?
+public typealias RtlReallocateStringRoutine = RtlReallocateStringRoutineFn?
 
-public typealias SE_AUDIT_OPERATION = Int
+public typealias SeAuditOperation = Int
 
-public fun interface SE_LOGON_SESSION_TERMINATED_ROUTINEFn {
-    public operator fun invoke(logonid: Long): NTSTATUS
+public fun interface SeLogonSessionTerminatedRoutineFn {
+    public operator fun invoke(logonid: COpaquePointer?): Ntstatus
 }
 
-public typealias SE_LOGON_SESSION_TERMINATED_ROUTINE = SE_LOGON_SESSION_TERMINATED_ROUTINEFn?
+public typealias SeLogonSessionTerminatedRoutine = SeLogonSessionTerminatedRoutineFn?
 
-public fun interface SE_LOGON_SESSION_TERMINATED_ROUTINE_EXFn {
-    public operator fun invoke(logonid: Long, pserversilo: PESILO, context: Long): NTSTATUS
+public fun interface SeLogonSessionTerminatedRoutineExFn {
+    public operator fun invoke(logonid: COpaquePointer?, pserversilo: Pesilo, context: COpaquePointer?): Ntstatus
 }
 
-public typealias SE_LOGON_SESSION_TERMINATED_ROUTINE_EX = SE_LOGON_SESSION_TERMINATED_ROUTINE_EXFn?
+public typealias SeLogonSessionTerminatedRoutineEx = SeLogonSessionTerminatedRoutineExFn?
 
-public typealias SRV_INSTANCE_TYPE = Int
+public typealias SrvInstanceType = Int
 
 public typealias SharedVirtualDiskHandleState = Int
 
 public typealias SharedVirtualDiskSupportType = Int
 
 public fun interface SspiAsyncNotifyCallbackFn {
-    public operator fun invoke(handle: Long, callbackdata: Long)
+    public operator fun invoke(handle: COpaquePointer?, callbackdata: COpaquePointer?)
 }
 
 public typealias SspiAsyncNotifyCallback = SspiAsyncNotifyCallbackFn?
 
-public typealias VIRTUAL_MEMORY_INFORMATION_CLASS = Int
+public typealias VirtualMemoryInformationClass = Int
 
-public typealias _LCN_WEAK_REFERENCE_STATE = Int
+public typealias LcnWeakReferenceState = Int
 
-public typealias _REFS_STREAM_EXTENT_PROPERTIES = Int
+public typealias RefsStreamExtentProperties = Int

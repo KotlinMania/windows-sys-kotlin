@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnCloseEndpoint_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnCloseEndpoint_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* endpoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -69,7 +69,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnCloseEn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnCloseGuestNetworkService_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnCloseGuestNetworkService_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* guestnetworkservice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -87,7 +87,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnCloseGu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnCloseLoadBalancer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnCloseLoadBalancer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* loadbalancer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -105,7 +105,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnCloseLo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnCloseNamespace_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnCloseNamespace_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* arg_0_namespace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -123,7 +123,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnCloseNa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnCloseNetwork_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnCloseNetwork_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* network = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -141,7 +141,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnCloseNe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnCreateEndpoint_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnCreateEndpoint_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* network = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* id = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -167,7 +167,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnCreateE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnCreateGuestNetworkService_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnCreateGuestNetworkService_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* id = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* settings = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -191,7 +191,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnCreateG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnCreateLoadBalancer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnCreateLoadBalancer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* id = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* settings = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -215,7 +215,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnCreateL
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnCreateNamespace_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnCreateNamespace_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* id = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* settings = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -239,7 +239,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnCreateN
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnCreateNetwork_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnCreateNetwork_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* id = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* settings = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -263,7 +263,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnCreateN
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnDeleteEndpoint_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnDeleteEndpoint_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* id = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* errorrecord = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -283,7 +283,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnDeleteE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnDeleteGuestNetworkService_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnDeleteGuestNetworkService_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* id = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* errorrecord = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -303,7 +303,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnDeleteG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnDeleteLoadBalancer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnDeleteLoadBalancer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* id = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* errorrecord = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -323,7 +323,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnDeleteL
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnDeleteNamespace_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnDeleteNamespace_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* id = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* errorrecord = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -343,7 +343,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnDeleteN
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnDeleteNetwork_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnDeleteNetwork_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* id = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* errorrecord = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -363,7 +363,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnDeleteN
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnEnumerateEndpoints_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnEnumerateEndpoints_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* query = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* endpoints = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -385,7 +385,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnEnumera
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnEnumerateGuestNetworkPortReservations_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnEnumerateGuestNetworkPortReservations_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* returncount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* portentries = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -405,7 +405,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnEnumera
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnEnumerateLoadBalancers_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnEnumerateLoadBalancers_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* query = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* loadbalancer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -427,7 +427,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnEnumera
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnEnumerateNamespaces_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnEnumerateNamespaces_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* query = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* namespaces = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -449,7 +449,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnEnumera
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnEnumerateNetworks_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnEnumerateNetworks_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* query = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* networks = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -471,7 +471,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnEnumera
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnFreeGuestNetworkPortReservations_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnFreeGuestNetworkPortReservations_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* portentries = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -488,7 +488,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnFreeGue
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnModifyEndpoint_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnModifyEndpoint_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* endpoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* settings = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -510,7 +510,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnModifyE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnModifyGuestNetworkService_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnModifyGuestNetworkService_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* guestnetworkservice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* settings = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -532,7 +532,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnModifyG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnModifyLoadBalancer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnModifyLoadBalancer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* loadbalancer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* settings = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -554,7 +554,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnModifyL
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnModifyNamespace_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnModifyNamespace_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* arg_0_namespace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* settings = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -576,7 +576,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnModifyN
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnModifyNetwork_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnModifyNetwork_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* network = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* settings = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -598,7 +598,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnModifyN
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnOpenEndpoint_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnOpenEndpoint_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* id = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* endpoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -620,7 +620,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnOpenEnd
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnOpenLoadBalancer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnOpenLoadBalancer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* id = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* loadbalancer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -642,7 +642,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnOpenLoa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnOpenNamespace_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnOpenNamespace_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* id = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* arg_1_namespace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -664,7 +664,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnOpenNam
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnOpenNetwork_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnOpenNetwork_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* id = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* network = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -686,7 +686,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnOpenNet
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnQueryEndpointAddresses_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnQueryEndpointAddresses_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* endpoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* query = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -710,7 +710,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnQueryEn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnQueryEndpointProperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnQueryEndpointProperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* endpoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* query = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -734,7 +734,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnQueryEn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnQueryEndpointStats_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnQueryEndpointStats_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* endpoint = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* query = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -758,7 +758,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnQueryEn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnQueryLoadBalancerProperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnQueryLoadBalancerProperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* loadbalancer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* query = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -782,7 +782,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnQueryLo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnQueryNamespaceProperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnQueryNamespaceProperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* arg_0_namespace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* query = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -806,7 +806,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnQueryNa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnQueryNetworkProperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnQueryNetworkProperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* network = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* query = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -830,7 +830,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnQueryNe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnRegisterGuestNetworkServiceCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnRegisterGuestNetworkServiceCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* guestnetworkservice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* callback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -854,7 +854,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnRegiste
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnRegisterServiceCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnRegisterServiceCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* callback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -876,7 +876,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnRegiste
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnReleaseGuestNetworkServicePortReservationHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnReleaseGuestNetworkServicePortReservationHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* portreservationhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -894,7 +894,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnRelease
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnReserveGuestNetworkServicePort_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnReserveGuestNetworkServicePort_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* guestnetworkservice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t protocol = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -920,7 +920,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnReserve
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnReserveGuestNetworkServicePortRange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnReserveGuestNetworkServicePortRange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* guestnetworkservice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t portcount = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -944,7 +944,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnReserve
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnUnregisterGuestNetworkServiceCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnUnregisterGuestNetworkServiceCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* callbackhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -962,7 +962,7 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnUnregis
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnUnregisterServiceCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnUnregisterServiceCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* callbackhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -981,49 +981,49 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_HcnUnregis
 }
 
 static void register_windows_win32_system_hostcomputenetwork_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnCloseEndpoint", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnCloseEndpoint_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnCloseGuestNetworkService", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnCloseGuestNetworkService_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnCloseLoadBalancer", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnCloseLoadBalancer_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnCloseNamespace", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnCloseNamespace_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnCloseNetwork", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnCloseNetwork_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnCreateEndpoint", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnCreateEndpoint_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnCreateGuestNetworkService", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnCreateGuestNetworkService_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnCreateLoadBalancer", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnCreateLoadBalancer_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnCreateNamespace", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnCreateNamespace_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnCreateNetwork", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnCreateNetwork_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnDeleteEndpoint", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnDeleteEndpoint_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnDeleteGuestNetworkService", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnDeleteGuestNetworkService_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnDeleteLoadBalancer", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnDeleteLoadBalancer_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnDeleteNamespace", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnDeleteNamespace_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnDeleteNetwork", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnDeleteNetwork_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnEnumerateEndpoints", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnEnumerateEndpoints_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnEnumerateGuestNetworkPortReservations", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnEnumerateGuestNetworkPortReservations_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnEnumerateLoadBalancers", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnEnumerateLoadBalancers_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnEnumerateNamespaces", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnEnumerateNamespaces_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnEnumerateNetworks", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnEnumerateNetworks_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnFreeGuestNetworkPortReservations", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnFreeGuestNetworkPortReservations_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnModifyEndpoint", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnModifyEndpoint_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnModifyGuestNetworkService", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnModifyGuestNetworkService_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnModifyLoadBalancer", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnModifyLoadBalancer_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnModifyNamespace", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnModifyNamespace_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnModifyNetwork", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnModifyNetwork_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnOpenEndpoint", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnOpenEndpoint_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnOpenLoadBalancer", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnOpenLoadBalancer_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnOpenNamespace", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnOpenNamespace_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnOpenNetwork", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnOpenNetwork_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnQueryEndpointAddresses", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnQueryEndpointAddresses_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnQueryEndpointProperties", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnQueryEndpointProperties_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnQueryEndpointStats", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnQueryEndpointStats_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnQueryLoadBalancerProperties", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnQueryLoadBalancerProperties_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnQueryNamespaceProperties", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnQueryNamespaceProperties_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnQueryNetworkProperties", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnQueryNetworkProperties_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnRegisterGuestNetworkServiceCallback", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnRegisterGuestNetworkServiceCallback_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnRegisterServiceCallback", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnRegisterServiceCallback_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnReleaseGuestNetworkServicePortReservationHandle", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnReleaseGuestNetworkServicePortReservationHandle_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnReserveGuestNetworkServicePort", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnReserveGuestNetworkServicePort_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnReserveGuestNetworkServicePortRange", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnReserveGuestNetworkServicePortRange_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnUnregisterGuestNetworkServiceCallback", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnUnregisterGuestNetworkServiceCallback_napi));
-    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_HcnUnregisterServiceCallback", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_HcnUnregisterServiceCallback_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnCloseEndpoint", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnCloseEndpoint_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnCloseGuestNetworkService", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnCloseGuestNetworkService_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnCloseLoadBalancer", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnCloseLoadBalancer_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnCloseNamespace", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnCloseNamespace_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnCloseNetwork", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnCloseNetwork_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnCreateEndpoint", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnCreateEndpoint_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnCreateGuestNetworkService", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnCreateGuestNetworkService_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnCreateLoadBalancer", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnCreateLoadBalancer_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnCreateNamespace", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnCreateNamespace_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnCreateNetwork", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnCreateNetwork_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnDeleteEndpoint", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnDeleteEndpoint_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnDeleteGuestNetworkService", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnDeleteGuestNetworkService_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnDeleteLoadBalancer", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnDeleteLoadBalancer_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnDeleteNamespace", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnDeleteNamespace_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnDeleteNetwork", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnDeleteNetwork_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnEnumerateEndpoints", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnEnumerateEndpoints_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnEnumerateGuestNetworkPortReservations", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnEnumerateGuestNetworkPortReservations_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnEnumerateLoadBalancers", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnEnumerateLoadBalancers_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnEnumerateNamespaces", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnEnumerateNamespaces_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnEnumerateNetworks", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnEnumerateNetworks_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnFreeGuestNetworkPortReservations", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnFreeGuestNetworkPortReservations_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnModifyEndpoint", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnModifyEndpoint_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnModifyGuestNetworkService", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnModifyGuestNetworkService_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnModifyLoadBalancer", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnModifyLoadBalancer_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnModifyNamespace", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnModifyNamespace_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnModifyNetwork", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnModifyNetwork_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnOpenEndpoint", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnOpenEndpoint_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnOpenLoadBalancer", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnOpenLoadBalancer_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnOpenNamespace", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnOpenNamespace_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnOpenNetwork", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnOpenNetwork_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnQueryEndpointAddresses", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnQueryEndpointAddresses_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnQueryEndpointProperties", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnQueryEndpointProperties_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnQueryEndpointStats", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnQueryEndpointStats_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnQueryLoadBalancerProperties", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnQueryLoadBalancerProperties_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnQueryNamespaceProperties", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnQueryNamespaceProperties_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnQueryNetworkProperties", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnQueryNetworkProperties_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnRegisterGuestNetworkServiceCallback", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnRegisterGuestNetworkServiceCallback_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnRegisterServiceCallback", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnRegisterServiceCallback_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnReleaseGuestNetworkServicePortReservationHandle", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnReleaseGuestNetworkServicePortReservationHandle_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnReserveGuestNetworkServicePort", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnReserveGuestNetworkServicePort_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnReserveGuestNetworkServicePortRange", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnReserveGuestNetworkServicePortRange_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnUnregisterGuestNetworkServiceCallback", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnUnregisterGuestNetworkServiceCallback_napi));
+    exports.Set("windowssys_windows_win32_system_hostcomputenetwork_hcnUnregisterServiceCallback", Napi::Function::New(env, windowssys_windows_win32_system_hostcomputenetwork_hcnUnregisterServiceCallback_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_hostcomputenetwork_napi, nullptr };

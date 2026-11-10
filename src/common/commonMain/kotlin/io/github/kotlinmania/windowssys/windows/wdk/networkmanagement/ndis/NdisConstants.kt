@@ -1,11 +1,11 @@
 package io.github.kotlinmania.windowssys.windows.wdk.networkmanagement.ndis
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.w
 
-public val AUTHENTICATE: OFFLOAD_OPERATION_E = 1
+public val AUTHENTICATE: OffloadOperationE = 1
 
 public val BINARY_COMPATIBLE: UInt = 0u
 
@@ -37,11 +37,11 @@ public val CRYPTO_TUNNEL_AH_AUTH_FAILED: UInt = 4u
 
 public val CRYPTO_TUNNEL_ESP_AUTH_FAILED: UInt = 5u
 
-public val CachedNetBufferList: NDIS_PER_PACKET_INFO = 10
+public val CACHED_NET_BUFFER_LIST: NdisPerPacketInfo = 10
 
-public val ClassificationHandlePacketInfo: NDIS_PER_PACKET_INFO = 3
+public val CLASSIFICATION_HANDLE_PACKET_INFO: NdisPerPacketInfo = 3
 
-public val DD_NDIS_DEVICE_NAME: PCWSTR = w("\\Device\\NDIS")
+public val DD_NDIS_DEVICE_NAME: Pcwstr = w("\\Device\\NDIS")
 
 public val DOT11_RSN_KCK_LENGTH: UInt = 16u
 
@@ -51,15 +51,15 @@ public val DOT11_RSN_MAX_CIPHER_KEY_LENGTH: UInt = 32u
 
 public val EAPOL_REQUEST_ID_WOL_FLAG_MUST_ENCRYPT: UInt = 1u
 
-public val ENCRYPT: OFFLOAD_OPERATION_E = 2
+public val ENCRYPT: OffloadOperationE = 2
 
 public val ERRED_PACKET_INDICATION: UInt = 1u
 
 public val ETHERNET_LENGTH_OF_ADDRESS: UInt = 6u
 
-public val GUID_NDIS_NDK_CAPABILITIES: GUID = GUID.from_u128(U128(0x7969ba4ddd804bc7uL, 0xb3e668043997e519uL))
+public val GUID_NDIS_NDK_CAPABILITIES: Guid = Guid.fromU128(U128(0x7969ba4ddd804bc7uL, 0xb3e668043997e519uL))
 
-public val GUID_NDIS_NDK_STATE: GUID = GUID.from_u128(U128(0x530c69c92f5149deuL, 0xa1af088d54ffa474uL))
+public val GUID_NDIS_NDK_STATE: Guid = Guid.fromU128(U128(0x530c69c92f5149deuL, 0xa1af088d54ffa474uL))
 
 public val INDICATE_END_OF_TX: UInt = 32u
 
@@ -107,7 +107,7 @@ public val IPSEC_OFFLOAD_V2_ESN_SA: UInt = 1u
 
 public val IPSEC_OFFLOAD_V2_INBOUND: UInt = 1u
 
-public val IPSEC_OFFLOAD_V2_IPv6: UInt = 16u
+public val IPSEC_OFFLOAD_V2_I_PV6: UInt = 16u
 
 public val IPSEC_OFFLOAD_V2_MAX_EXTENSION_HEADERS: UInt = 2u
 
@@ -137,9 +137,9 @@ public val IPSEC_TUN_UDPESP_ENCAPTYPE_IKE: UInt = 2u
 
 public val IPSEC_TUN_UDPESP_ENCAPTYPE_OTHER: UInt = 32u
 
-public val Ieee8021QInfo: NDIS_PER_PACKET_INFO = 6
+public val IEEE8021Q_INFO: NdisPerPacketInfo = 6
 
-public val IpSecPacketInfo: NDIS_PER_PACKET_INFO = 1
+public val IP_SEC_PACKET_INFO: NdisPerPacketInfo = 1
 
 public val MAXIMUM_IP_OPER_STATUS_ADDRESS_FAMILIES_SUPPORTED: UInt = 32u
 
@@ -147,7 +147,7 @@ public val MAX_HASHES: UInt = 4u
 
 public val MULTIPOINT_VC: UInt = 16u
 
-public val MaxPerPacketInfo: NDIS_PER_PACKET_INFO = 12
+public val MAX_PER_PACKET_INFO: NdisPerPacketInfo = 12
 
 public val NBL_FLAGS_MINIPORT_RESERVED: UInt = 61440u
 
@@ -2283,9 +2283,9 @@ public val NDIS_TCP_CONNECTION_OFFLOAD_REVISION_1: UInt = 1u
 
 public val NDIS_TCP_CONNECTION_OFFLOAD_REVISION_2: UInt = 2u
 
-public val NDIS_TCP_LARGE_SEND_OFFLOAD_IPv4: UInt = 0u
+public val NDIS_TCP_LARGE_SEND_OFFLOAD_I_PV4: UInt = 0u
 
-public val NDIS_TCP_LARGE_SEND_OFFLOAD_IPv6: UInt = 1u
+public val NDIS_TCP_LARGE_SEND_OFFLOAD_I_PV6: UInt = 1u
 
 public val NDIS_TCP_LARGE_SEND_OFFLOAD_V1_TYPE: UInt = 0u
 
@@ -2395,549 +2395,549 @@ public val NET_PNP_EVENT_NOTIFICATION_REVISION_1: UInt = 1u
 
 public val NET_PNP_EVENT_NOTIFICATION_REVISION_2: UInt = 2u
 
-public val Ndis802_11AuthModeAutoSwitch: NDIS_802_11_AUTHENTICATION_MODE = 2
+public val NDIS802_11AUTH_MODE_AUTO_SWITCH: Ndis80211AuthenticationMode = 2
 
-public val Ndis802_11AuthModeMax: NDIS_802_11_AUTHENTICATION_MODE = 11
+public val NDIS802_11AUTH_MODE_MAX: Ndis80211AuthenticationMode = 11
 
-public val Ndis802_11AuthModeOpen: NDIS_802_11_AUTHENTICATION_MODE = 0
+public val NDIS802_11AUTH_MODE_OPEN: Ndis80211AuthenticationMode = 0
 
-public val Ndis802_11AuthModeShared: NDIS_802_11_AUTHENTICATION_MODE = 1
+public val NDIS802_11AUTH_MODE_SHARED: Ndis80211AuthenticationMode = 1
 
-public val Ndis802_11AuthModeWPA: NDIS_802_11_AUTHENTICATION_MODE = 3
+public val NDIS802_11AUTH_MODE_WPA: Ndis80211AuthenticationMode = 3
 
-public val Ndis802_11AuthModeWPA2: NDIS_802_11_AUTHENTICATION_MODE = 6
+public val NDIS802_11AUTH_MODE_WPA2: Ndis80211AuthenticationMode = 6
 
-public val Ndis802_11AuthModeWPA2PSK: NDIS_802_11_AUTHENTICATION_MODE = 7
+public val NDIS802_11AUTH_MODE_WPA2PSK: Ndis80211AuthenticationMode = 7
 
-public val Ndis802_11AuthModeWPA3: NDIS_802_11_AUTHENTICATION_MODE = 8
+public val NDIS802_11AUTH_MODE_WPA3: Ndis80211AuthenticationMode = 8
 
-public val Ndis802_11AuthModeWPA3Ent: NDIS_802_11_AUTHENTICATION_MODE = 10
+public val NDIS802_11AUTH_MODE_WPA3ENT: Ndis80211AuthenticationMode = 10
 
-public val Ndis802_11AuthModeWPA3Ent192: NDIS_802_11_AUTHENTICATION_MODE = 8
+public val NDIS802_11AUTH_MODE_WPA3ENT192: Ndis80211AuthenticationMode = 8
 
-public val Ndis802_11AuthModeWPA3SAE: NDIS_802_11_AUTHENTICATION_MODE = 9
+public val NDIS802_11AUTH_MODE_WPA3SAE: Ndis80211AuthenticationMode = 9
 
-public val Ndis802_11AuthModeWPANone: NDIS_802_11_AUTHENTICATION_MODE = 5
+public val NDIS802_11AUTH_MODE_WPA_NONE: Ndis80211AuthenticationMode = 5
 
-public val Ndis802_11AuthModeWPAPSK: NDIS_802_11_AUTHENTICATION_MODE = 4
+public val NDIS802_11AUTH_MODE_WPAPSK: Ndis80211AuthenticationMode = 4
 
-public val Ndis802_11AutoUnknown: NDIS_802_11_NETWORK_INFRASTRUCTURE = 2
+public val NDIS802_11AUTO_UNKNOWN: Ndis80211NetworkInfrastructure = 2
 
-public val Ndis802_11Automode: NDIS_802_11_NETWORK_TYPE = 4
+public val NDIS802_11AUTOMODE: Ndis80211NetworkType = 4
 
-public val Ndis802_11DS: NDIS_802_11_NETWORK_TYPE = 1
+public val NDIS802_11DS: Ndis80211NetworkType = 1
 
-public val Ndis802_11Encryption1Enabled: NDIS_802_11_WEP_STATUS = 0
+public val NDIS802_11ENCRYPTION1ENABLED: Ndis80211WepStatus = 0
 
-public val Ndis802_11Encryption1KeyAbsent: NDIS_802_11_WEP_STATUS = 2
+public val NDIS802_11ENCRYPTION1KEY_ABSENT: Ndis80211WepStatus = 2
 
-public val Ndis802_11Encryption2Enabled: NDIS_802_11_WEP_STATUS = 4
+public val NDIS802_11ENCRYPTION2ENABLED: Ndis80211WepStatus = 4
 
-public val Ndis802_11Encryption2KeyAbsent: NDIS_802_11_WEP_STATUS = 5
+public val NDIS802_11ENCRYPTION2KEY_ABSENT: Ndis80211WepStatus = 5
 
-public val Ndis802_11Encryption3Enabled: NDIS_802_11_WEP_STATUS = 6
+public val NDIS802_11ENCRYPTION3ENABLED: Ndis80211WepStatus = 6
 
-public val Ndis802_11Encryption3KeyAbsent: NDIS_802_11_WEP_STATUS = 7
+public val NDIS802_11ENCRYPTION3KEY_ABSENT: Ndis80211WepStatus = 7
 
-public val Ndis802_11EncryptionDisabled: NDIS_802_11_WEP_STATUS = 1
+public val NDIS802_11ENCRYPTION_DISABLED: Ndis80211WepStatus = 1
 
-public val Ndis802_11EncryptionNotSupported: NDIS_802_11_WEP_STATUS = 3
+public val NDIS802_11ENCRYPTION_NOT_SUPPORTED: Ndis80211WepStatus = 3
 
-public val Ndis802_11FH: NDIS_802_11_NETWORK_TYPE = 0
+public val NDIS802_11FH: Ndis80211NetworkType = 0
 
-public val Ndis802_11IBSS: NDIS_802_11_NETWORK_INFRASTRUCTURE = 0
+public val NDIS802_11IBSS: Ndis80211NetworkInfrastructure = 0
 
-public val Ndis802_11Infrastructure: NDIS_802_11_NETWORK_INFRASTRUCTURE = 1
+public val NDIS802_11INFRASTRUCTURE: Ndis80211NetworkInfrastructure = 1
 
-public val Ndis802_11InfrastructureMax: NDIS_802_11_NETWORK_INFRASTRUCTURE = 3
+public val NDIS802_11INFRASTRUCTURE_MAX: Ndis80211NetworkInfrastructure = 3
 
-public val Ndis802_11MediaStreamOff: NDIS_802_11_MEDIA_STREAM_MODE = 0
+public val NDIS802_11MEDIA_STREAM_OFF: Ndis80211MediaStreamMode = 0
 
-public val Ndis802_11MediaStreamOn: NDIS_802_11_MEDIA_STREAM_MODE = 1
+public val NDIS802_11MEDIA_STREAM_ON: Ndis80211MediaStreamMode = 1
 
-public val Ndis802_11NetworkTypeMax: NDIS_802_11_NETWORK_TYPE = 5
+public val NDIS802_11NETWORK_TYPE_MAX: Ndis80211NetworkType = 5
 
-public val Ndis802_11OFDM24: NDIS_802_11_NETWORK_TYPE = 3
+public val NDIS802_11OFDM24: Ndis80211NetworkType = 3
 
-public val Ndis802_11OFDM5: NDIS_802_11_NETWORK_TYPE = 2
+public val NDIS802_11OFDM5: Ndis80211NetworkType = 2
 
-public val Ndis802_11PowerModeCAM: NDIS_802_11_POWER_MODE = 0
+public val NDIS802_11POWER_MODE_CAM: Ndis80211PowerMode = 0
 
-public val Ndis802_11PowerModeFast_PSP: NDIS_802_11_POWER_MODE = 2
+public val NDIS802_11POWER_MODE_FAST_PSP: Ndis80211PowerMode = 2
 
-public val Ndis802_11PowerModeMAX_PSP: NDIS_802_11_POWER_MODE = 1
+public val NDIS802_11POWER_MODE_MAX_PSP: Ndis80211PowerMode = 1
 
-public val Ndis802_11PowerModeMax: NDIS_802_11_POWER_MODE = 3
+public val NDIS802_11POWER_MODE_MAX: Ndis80211PowerMode = 3
 
-public val Ndis802_11PrivFilter8021xWEP: NDIS_802_11_PRIVACY_FILTER = 1
+public val NDIS802_11PRIV_FILTER8021X_WEP: Ndis80211PrivacyFilter = 1
 
-public val Ndis802_11PrivFilterAcceptAll: NDIS_802_11_PRIVACY_FILTER = 0
+public val NDIS802_11PRIV_FILTER_ACCEPT_ALL: Ndis80211PrivacyFilter = 0
 
-public val Ndis802_11RadioStatusHardwareOff: NDIS_802_11_RADIO_STATUS = 1
+public val NDIS802_11RADIO_STATUS_HARDWARE_OFF: Ndis80211RadioStatus = 1
 
-public val Ndis802_11RadioStatusHardwareSoftwareOff: NDIS_802_11_RADIO_STATUS = 3
+public val NDIS802_11RADIO_STATUS_HARDWARE_SOFTWARE_OFF: Ndis80211RadioStatus = 3
 
-public val Ndis802_11RadioStatusMax: NDIS_802_11_RADIO_STATUS = 4
+public val NDIS802_11RADIO_STATUS_MAX: Ndis80211RadioStatus = 4
 
-public val Ndis802_11RadioStatusOn: NDIS_802_11_RADIO_STATUS = 0
+public val NDIS802_11RADIO_STATUS_ON: Ndis80211RadioStatus = 0
 
-public val Ndis802_11RadioStatusSoftwareOff: NDIS_802_11_RADIO_STATUS = 2
+public val NDIS802_11RADIO_STATUS_SOFTWARE_OFF: Ndis80211RadioStatus = 2
 
-public val Ndis802_11ReloadWEPKeys: NDIS_802_11_RELOAD_DEFAULTS = 0
+public val NDIS802_11RELOAD_WEP_KEYS: Ndis80211ReloadDefaults = 0
 
-public val Ndis802_11StatusTypeMax: NDIS_802_11_STATUS_TYPE = 3
+public val NDIS802_11STATUS_TYPE_MAX: Ndis80211StatusType = 3
 
-public val Ndis802_11StatusType_Authentication: NDIS_802_11_STATUS_TYPE = 0
+public val NDIS802_11STATUS_TYPE_AUTHENTICATION: Ndis80211StatusType = 0
 
-public val Ndis802_11StatusType_MediaStreamMode: NDIS_802_11_STATUS_TYPE = 1
+public val NDIS802_11STATUS_TYPE_MEDIA_STREAM_MODE: Ndis80211StatusType = 1
 
-public val Ndis802_11StatusType_PMKID_CandidateList: NDIS_802_11_STATUS_TYPE = 2
+public val NDIS802_11STATUS_TYPE_PMKID_CANDIDATE_LIST: Ndis80211StatusType = 2
 
-public val Ndis802_11WEPDisabled: NDIS_802_11_WEP_STATUS = 1
+public val NDIS802_11WEP_DISABLED: Ndis80211WepStatus = 1
 
-public val Ndis802_11WEPEnabled: NDIS_802_11_WEP_STATUS = 0
+public val NDIS802_11WEP_ENABLED: Ndis80211WepStatus = 0
 
-public val Ndis802_11WEPKeyAbsent: NDIS_802_11_WEP_STATUS = 2
+public val NDIS802_11WEP_KEY_ABSENT: Ndis80211WepStatus = 2
 
-public val Ndis802_11WEPNotSupported: NDIS_802_11_WEP_STATUS = 3
+public val NDIS802_11WEP_NOT_SUPPORTED: Ndis80211WepStatus = 3
 
-public val NdisClass802_3Priority: NDIS_CLASS_ID = 0
+public val NDIS_CLASS802_3PRIORITY: NdisClassId = 0
 
-public val NdisClassAtmAALInfo: NDIS_CLASS_ID = 3
+public val NDIS_CLASS_ATM_AAL_INFO: NdisClassId = 3
 
-public val NdisClassIrdaPacketInfo: NDIS_CLASS_ID = 2
+public val NDIS_CLASS_IRDA_PACKET_INFO: NdisClassId = 2
 
-public val NdisClassWirelessWanMbxMailbox: NDIS_CLASS_ID = 1
+public val NDIS_CLASS_WIRELESS_WAN_MBX_MAILBOX: NdisClassId = 1
 
-public val NdisDefinitelyNetworkChange: NDIS_NETWORK_CHANGE_TYPE = 2
+public val NDIS_DEFINITELY_NETWORK_CHANGE: NdisNetworkChangeType = 2
 
-public val NdisDevicePnPEventMaximum: NDIS_DEVICE_PNP_EVENT = 6
+public val NDIS_DEVICE_PN_P_EVENT_MAXIMUM: NdisDevicePnpEvent = 6
 
-public val NdisDevicePnPEventPowerProfileChanged: NDIS_DEVICE_PNP_EVENT = 5
+public val NDIS_DEVICE_PN_P_EVENT_POWER_PROFILE_CHANGED: NdisDevicePnpEvent = 5
 
-public val NdisDevicePnPEventQueryRemoved: NDIS_DEVICE_PNP_EVENT = 0
+public val NDIS_DEVICE_PN_P_EVENT_QUERY_REMOVED: NdisDevicePnpEvent = 0
 
-public val NdisDevicePnPEventQueryStopped: NDIS_DEVICE_PNP_EVENT = 3
+public val NDIS_DEVICE_PN_P_EVENT_QUERY_STOPPED: NdisDevicePnpEvent = 3
 
-public val NdisDevicePnPEventRemoved: NDIS_DEVICE_PNP_EVENT = 1
+public val NDIS_DEVICE_PN_P_EVENT_REMOVED: NdisDevicePnpEvent = 1
 
-public val NdisDevicePnPEventStopped: NDIS_DEVICE_PNP_EVENT = 4
+public val NDIS_DEVICE_PN_P_EVENT_STOPPED: NdisDevicePnpEvent = 4
 
-public val NdisDevicePnPEventSurpriseRemoved: NDIS_DEVICE_PNP_EVENT = 2
+public val NDIS_DEVICE_PN_P_EVENT_SURPRISE_REMOVED: NdisDevicePnpEvent = 2
 
-public val NdisDeviceStateD0: NDIS_DEVICE_POWER_STATE = 1
+public val NDIS_DEVICE_STATE_D0: NdisDevicePowerState = 1
 
-public val NdisDeviceStateD1: NDIS_DEVICE_POWER_STATE = 2
+public val NDIS_DEVICE_STATE_D1: NdisDevicePowerState = 2
 
-public val NdisDeviceStateD2: NDIS_DEVICE_POWER_STATE = 3
+public val NDIS_DEVICE_STATE_D2: NdisDevicePowerState = 3
 
-public val NdisDeviceStateD3: NDIS_DEVICE_POWER_STATE = 4
+public val NDIS_DEVICE_STATE_D3: NdisDevicePowerState = 4
 
-public val NdisDeviceStateMaximum: NDIS_DEVICE_POWER_STATE = 5
+public val NDIS_DEVICE_STATE_MAXIMUM: NdisDevicePowerState = 5
 
-public val NdisDeviceStateUnspecified: NDIS_DEVICE_POWER_STATE = 0
+public val NDIS_DEVICE_STATE_UNSPECIFIED: NdisDevicePowerState = 0
 
-public val NdisEnvironmentWindows: NDIS_ENVIRONMENT_TYPE = 0
+public val NDIS_ENVIRONMENT_WINDOWS: NdisEnvironmentType = 0
 
-public val NdisEnvironmentWindowsNt: NDIS_ENVIRONMENT_TYPE = 1
+public val NDIS_ENVIRONMENT_WINDOWS_NT: NdisEnvironmentType = 1
 
-public val NdisFddiRingDetect: NDIS_FDDI_RING_MGT_STATE = 4
+public val NDIS_FDDI_RING_DETECT: NdisFddiRingMgtState = 4
 
-public val NdisFddiRingDirected: NDIS_FDDI_RING_MGT_STATE = 7
+public val NDIS_FDDI_RING_DIRECTED: NdisFddiRingMgtState = 7
 
-public val NdisFddiRingIsolated: NDIS_FDDI_RING_MGT_STATE = 1
+public val NDIS_FDDI_RING_ISOLATED: NdisFddiRingMgtState = 1
 
-public val NdisFddiRingNonOperational: NDIS_FDDI_RING_MGT_STATE = 2
+public val NDIS_FDDI_RING_NON_OPERATIONAL: NdisFddiRingMgtState = 2
 
-public val NdisFddiRingNonOperationalDup: NDIS_FDDI_RING_MGT_STATE = 5
+public val NDIS_FDDI_RING_NON_OPERATIONAL_DUP: NdisFddiRingMgtState = 5
 
-public val NdisFddiRingOperational: NDIS_FDDI_RING_MGT_STATE = 3
+public val NDIS_FDDI_RING_OPERATIONAL: NdisFddiRingMgtState = 3
 
-public val NdisFddiRingOperationalDup: NDIS_FDDI_RING_MGT_STATE = 6
+public val NDIS_FDDI_RING_OPERATIONAL_DUP: NdisFddiRingMgtState = 6
 
-public val NdisFddiRingTrace: NDIS_FDDI_RING_MGT_STATE = 8
+public val NDIS_FDDI_RING_TRACE: NdisFddiRingMgtState = 8
 
-public val NdisFddiStateActive: NDIS_FDDI_LCONNECTION_STATE = 9
+public val NDIS_FDDI_STATE_ACTIVE: NdisFddiLconnectionState = 9
 
-public val NdisFddiStateBreak: NDIS_FDDI_LCONNECTION_STATE = 2
+public val NDIS_FDDI_STATE_BREAK: NdisFddiLconnectionState = 2
 
-public val NdisFddiStateConnect: NDIS_FDDI_LCONNECTION_STATE = 4
+public val NDIS_FDDI_STATE_CONNECT: NdisFddiLconnectionState = 4
 
-public val NdisFddiStateJoin: NDIS_FDDI_LCONNECTION_STATE = 7
+public val NDIS_FDDI_STATE_JOIN: NdisFddiLconnectionState = 7
 
-public val NdisFddiStateMaintenance: NDIS_FDDI_LCONNECTION_STATE = 10
+public val NDIS_FDDI_STATE_MAINTENANCE: NdisFddiLconnectionState = 10
 
-public val NdisFddiStateNext: NDIS_FDDI_LCONNECTION_STATE = 5
+public val NDIS_FDDI_STATE_NEXT: NdisFddiLconnectionState = 5
 
-public val NdisFddiStateOff: NDIS_FDDI_LCONNECTION_STATE = 1
+public val NDIS_FDDI_STATE_OFF: NdisFddiLconnectionState = 1
 
-public val NdisFddiStateSignal: NDIS_FDDI_LCONNECTION_STATE = 6
+public val NDIS_FDDI_STATE_SIGNAL: NdisFddiLconnectionState = 6
 
-public val NdisFddiStateTrace: NDIS_FDDI_LCONNECTION_STATE = 3
+public val NDIS_FDDI_STATE_TRACE: NdisFddiLconnectionState = 3
 
-public val NdisFddiStateVerify: NDIS_FDDI_LCONNECTION_STATE = 8
+public val NDIS_FDDI_STATE_VERIFY: NdisFddiLconnectionState = 8
 
-public val NdisFddiTypeCWrapA: NDIS_FDDI_ATTACHMENT_TYPE = 10
+public val NDIS_FDDI_TYPE_C_WRAP_A: NdisFddiAttachmentType = 10
 
-public val NdisFddiTypeCWrapB: NDIS_FDDI_ATTACHMENT_TYPE = 11
+public val NDIS_FDDI_TYPE_C_WRAP_B: NdisFddiAttachmentType = 11
 
-public val NdisFddiTypeCWrapS: NDIS_FDDI_ATTACHMENT_TYPE = 12
+public val NDIS_FDDI_TYPE_C_WRAP_S: NdisFddiAttachmentType = 12
 
-public val NdisFddiTypeIsolated: NDIS_FDDI_ATTACHMENT_TYPE = 1
+public val NDIS_FDDI_TYPE_ISOLATED: NdisFddiAttachmentType = 1
 
-public val NdisFddiTypeLocalA: NDIS_FDDI_ATTACHMENT_TYPE = 2
+public val NDIS_FDDI_TYPE_LOCAL_A: NdisFddiAttachmentType = 2
 
-public val NdisFddiTypeLocalAB: NDIS_FDDI_ATTACHMENT_TYPE = 4
+public val NDIS_FDDI_TYPE_LOCAL_AB: NdisFddiAttachmentType = 4
 
-public val NdisFddiTypeLocalB: NDIS_FDDI_ATTACHMENT_TYPE = 3
+public val NDIS_FDDI_TYPE_LOCAL_B: NdisFddiAttachmentType = 3
 
-public val NdisFddiTypeLocalS: NDIS_FDDI_ATTACHMENT_TYPE = 5
+public val NDIS_FDDI_TYPE_LOCAL_S: NdisFddiAttachmentType = 5
 
-public val NdisFddiTypeThrough: NDIS_FDDI_ATTACHMENT_TYPE = 13
+public val NDIS_FDDI_TYPE_THROUGH: NdisFddiAttachmentType = 13
 
-public val NdisFddiTypeWrapA: NDIS_FDDI_ATTACHMENT_TYPE = 6
+public val NDIS_FDDI_TYPE_WRAP_A: NdisFddiAttachmentType = 6
 
-public val NdisFddiTypeWrapAB: NDIS_FDDI_ATTACHMENT_TYPE = 8
+public val NDIS_FDDI_TYPE_WRAP_AB: NdisFddiAttachmentType = 8
 
-public val NdisFddiTypeWrapB: NDIS_FDDI_ATTACHMENT_TYPE = 7
+public val NDIS_FDDI_TYPE_WRAP_B: NdisFddiAttachmentType = 7
 
-public val NdisFddiTypeWrapS: NDIS_FDDI_ATTACHMENT_TYPE = 9
+public val NDIS_FDDI_TYPE_WRAP_S: NdisFddiAttachmentType = 9
 
-public val NdisHardwareStatusClosing: NDIS_HARDWARE_STATUS = 3
+public val NDIS_HARDWARE_STATUS_CLOSING: NdisHardwareStatus = 3
 
-public val NdisHardwareStatusInitializing: NDIS_HARDWARE_STATUS = 1
+public val NDIS_HARDWARE_STATUS_INITIALIZING: NdisHardwareStatus = 1
 
-public val NdisHardwareStatusNotReady: NDIS_HARDWARE_STATUS = 4
+public val NDIS_HARDWARE_STATUS_NOT_READY: NdisHardwareStatus = 4
 
-public val NdisHardwareStatusReady: NDIS_HARDWARE_STATUS = 0
+public val NDIS_HARDWARE_STATUS_READY: NdisHardwareStatus = 0
 
-public val NdisHardwareStatusReset: NDIS_HARDWARE_STATUS = 2
+public val NDIS_HARDWARE_STATUS_RESET: NdisHardwareStatus = 2
 
-public val NdisHashFunctionReserved1: UInt = 2u
+public val NDIS_HASH_FUNCTION_RESERVED1: UInt = 2u
 
-public val NdisHashFunctionReserved2: UInt = 4u
+public val NDIS_HASH_FUNCTION_RESERVED2: UInt = 4u
 
-public val NdisHashFunctionReserved3: UInt = 8u
+public val NDIS_HASH_FUNCTION_RESERVED3: UInt = 8u
 
-public val NdisHashFunctionToeplitz: UInt = 1u
+public val NDIS_HASH_FUNCTION_TOEPLITZ: UInt = 1u
 
-public val NdisInterface1394: NDIS_INTERFACE_TYPE = 18
+public val NDIS_INTERFACE1394: NdisInterfaceType = 18
 
-public val NdisInterfaceCBus: NDIS_INTERFACE_TYPE = 9
+public val NDIS_INTERFACE_C_BUS: NdisInterfaceType = 9
 
-public val NdisInterfaceEisa: NDIS_INTERFACE_TYPE = 2
+public val NDIS_INTERFACE_EISA: NdisInterfaceType = 2
 
-public val NdisInterfaceInternal: NDIS_INTERFACE_TYPE = 0
+public val NDIS_INTERFACE_INTERNAL: NdisInterfaceType = 0
 
-public val NdisInterfaceInternalPowerBus: NDIS_INTERFACE_TYPE = 13
+public val NDIS_INTERFACE_INTERNAL_POWER_BUS: NdisInterfaceType = 13
 
-public val NdisInterfaceIrda: NDIS_INTERFACE_TYPE = 17
+public val NDIS_INTERFACE_IRDA: NdisInterfaceType = 17
 
-public val NdisInterfaceIsa: NDIS_INTERFACE_TYPE = 1
+public val NDIS_INTERFACE_ISA: NdisInterfaceType = 1
 
-public val NdisInterfaceMPIBus: NDIS_INTERFACE_TYPE = 10
+public val NDIS_INTERFACE_MPI_BUS: NdisInterfaceType = 10
 
-public val NdisInterfaceMPSABus: NDIS_INTERFACE_TYPE = 11
+public val NDIS_INTERFACE_MPSA_BUS: NdisInterfaceType = 11
 
-public val NdisInterfaceMca: NDIS_INTERFACE_TYPE = 3
+public val NDIS_INTERFACE_MCA: NdisInterfaceType = 3
 
-public val NdisInterfacePNPBus: NDIS_INTERFACE_TYPE = 15
+public val NDIS_INTERFACE_PNP_BUS: NdisInterfaceType = 15
 
-public val NdisInterfacePNPISABus: NDIS_INTERFACE_TYPE = 14
+public val NDIS_INTERFACE_PNPISA_BUS: NdisInterfaceType = 14
 
-public val NdisInterfacePcMcia: NDIS_INTERFACE_TYPE = 8
+public val NDIS_INTERFACE_PC_MCIA: NdisInterfaceType = 8
 
-public val NdisInterfacePci: NDIS_INTERFACE_TYPE = 5
+public val NDIS_INTERFACE_PCI: NdisInterfaceType = 5
 
-public val NdisInterfaceProcessorInternal: NDIS_INTERFACE_TYPE = 12
+public val NDIS_INTERFACE_PROCESSOR_INTERNAL: NdisInterfaceType = 12
 
-public val NdisInterfaceTurboChannel: NDIS_INTERFACE_TYPE = 4
+public val NDIS_INTERFACE_TURBO_CHANNEL: NdisInterfaceType = 4
 
-public val NdisInterfaceUSB: NDIS_INTERFACE_TYPE = 16
+public val NDIS_INTERFACE_USB: NdisInterfaceType = 16
 
-public val NdisInterruptModerationDisabled: NDIS_INTERRUPT_MODERATION = 3
+public val NDIS_INTERRUPT_MODERATION_DISABLED: NdisInterruptModeration = 3
 
-public val NdisInterruptModerationEnabled: NDIS_INTERRUPT_MODERATION = 2
+public val NDIS_INTERRUPT_MODERATION_ENABLED: NdisInterruptModeration = 2
 
-public val NdisInterruptModerationNotSupported: NDIS_INTERRUPT_MODERATION = 1
+public val NDIS_INTERRUPT_MODERATION_NOT_SUPPORTED: NdisInterruptModeration = 1
 
-public val NdisInterruptModerationUnknown: NDIS_INTERRUPT_MODERATION = 0
+public val NDIS_INTERRUPT_MODERATION_UNKNOWN: NdisInterruptModeration = 0
 
-public val NdisMaximumInterfaceType: NDIS_INTERFACE_TYPE = 19
+public val NDIS_MAXIMUM_INTERFACE_TYPE: NdisInterfaceType = 19
 
-public val NdisMediaStateConnected: NDIS_MEDIA_STATE = 0
+public val NDIS_MEDIA_STATE_CONNECTED: NdisMediaState = 0
 
-public val NdisMediaStateDisconnected: NDIS_MEDIA_STATE = 1
+public val NDIS_MEDIA_STATE_DISCONNECTED: NdisMediaState = 1
 
-public val NdisMedium1394: NDIS_MEDIUM = 13
+public val NDIS_MEDIUM1394: NdisMedium = 13
 
-public val NdisMedium802_3: NDIS_MEDIUM = 0
+public val NDIS_MEDIUM802_3: NdisMedium = 0
 
-public val NdisMedium802_5: NDIS_MEDIUM = 1
+public val NDIS_MEDIUM802_5: NdisMedium = 1
 
-public val NdisMediumArcnet878_2: NDIS_MEDIUM = 7
+public val NDIS_MEDIUM_ARCNET878_2: NdisMedium = 7
 
-public val NdisMediumArcnetRaw: NDIS_MEDIUM = 6
+public val NDIS_MEDIUM_ARCNET_RAW: NdisMedium = 6
 
-public val NdisMediumAtm: NDIS_MEDIUM = 8
+public val NDIS_MEDIUM_ATM: NdisMedium = 8
 
-public val NdisMediumBpc: NDIS_MEDIUM = 11
+public val NDIS_MEDIUM_BPC: NdisMedium = 11
 
-public val NdisMediumCoWan: NDIS_MEDIUM = 12
+public val NDIS_MEDIUM_CO_WAN: NdisMedium = 12
 
-public val NdisMediumDix: NDIS_MEDIUM = 5
+public val NDIS_MEDIUM_DIX: NdisMedium = 5
 
-public val NdisMediumFddi: NDIS_MEDIUM = 2
+public val NDIS_MEDIUM_FDDI: NdisMedium = 2
 
-public val NdisMediumIP: NDIS_MEDIUM = 19
+public val NDIS_MEDIUM_IP: NdisMedium = 19
 
-public val NdisMediumInfiniBand: NDIS_MEDIUM = 14
+public val NDIS_MEDIUM_INFINI_BAND: NdisMedium = 14
 
-public val NdisMediumIrda: NDIS_MEDIUM = 10
+public val NDIS_MEDIUM_IRDA: NdisMedium = 10
 
-public val NdisMediumLocalTalk: NDIS_MEDIUM = 4
+public val NDIS_MEDIUM_LOCAL_TALK: NdisMedium = 4
 
-public val NdisMediumLoopback: NDIS_MEDIUM = 17
+public val NDIS_MEDIUM_LOOPBACK: NdisMedium = 17
 
-public val NdisMediumMax: NDIS_MEDIUM = 20
+public val NDIS_MEDIUM_MAX: NdisMedium = 20
 
-public val NdisMediumNative802_11: NDIS_MEDIUM = 16
+public val NDIS_MEDIUM_NATIVE802_11: NdisMedium = 16
 
-public val NdisMediumTunnel: NDIS_MEDIUM = 15
+public val NDIS_MEDIUM_TUNNEL: NdisMedium = 15
 
-public val NdisMediumWan: NDIS_MEDIUM = 3
+public val NDIS_MEDIUM_WAN: NdisMedium = 3
 
-public val NdisMediumWiMAX: NDIS_MEDIUM = 18
+public val NDIS_MEDIUM_WI_MAX: NdisMedium = 18
 
-public val NdisMediumWirelessWan: NDIS_MEDIUM = 9
+public val NDIS_MEDIUM_WIRELESS_WAN: NdisMedium = 9
 
-public val NdisNetworkChangeFromMediaConnect: NDIS_NETWORK_CHANGE_TYPE = 3
+public val NDIS_NETWORK_CHANGE_FROM_MEDIA_CONNECT: NdisNetworkChangeType = 3
 
-public val NdisNetworkChangeMax: NDIS_NETWORK_CHANGE_TYPE = 4
+public val NDIS_NETWORK_CHANGE_MAX: NdisNetworkChangeType = 4
 
-public val NdisParameterBinary: NDIS_PARAMETER_TYPE = 4
+public val NDIS_PARAMETER_BINARY: NdisParameterType = 4
 
-public val NdisParameterHexInteger: NDIS_PARAMETER_TYPE = 1
+public val NDIS_PARAMETER_HEX_INTEGER: NdisParameterType = 1
 
-public val NdisParameterInteger: NDIS_PARAMETER_TYPE = 0
+public val NDIS_PARAMETER_INTEGER: NdisParameterType = 0
 
-public val NdisParameterMultiString: NDIS_PARAMETER_TYPE = 3
+public val NDIS_PARAMETER_MULTI_STRING: NdisParameterType = 3
 
-public val NdisParameterString: NDIS_PARAMETER_TYPE = 2
+public val NDIS_PARAMETER_STRING: NdisParameterType = 2
 
-public val NdisPauseFunctionsReceiveOnly: NDIS_SUPPORTED_PAUSE_FUNCTIONS = 2
+public val NDIS_PAUSE_FUNCTIONS_RECEIVE_ONLY: NdisSupportedPauseFunctions = 2
 
-public val NdisPauseFunctionsSendAndReceive: NDIS_SUPPORTED_PAUSE_FUNCTIONS = 3
+public val NDIS_PAUSE_FUNCTIONS_SEND_AND_RECEIVE: NdisSupportedPauseFunctions = 3
 
-public val NdisPauseFunctionsSendOnly: NDIS_SUPPORTED_PAUSE_FUNCTIONS = 1
+public val NDIS_PAUSE_FUNCTIONS_SEND_ONLY: NdisSupportedPauseFunctions = 1
 
-public val NdisPauseFunctionsUnknown: NDIS_SUPPORTED_PAUSE_FUNCTIONS = 4
+public val NDIS_PAUSE_FUNCTIONS_UNKNOWN: NdisSupportedPauseFunctions = 4
 
-public val NdisPauseFunctionsUnsupported: NDIS_SUPPORTED_PAUSE_FUNCTIONS = 0
+public val NDIS_PAUSE_FUNCTIONS_UNSUPPORTED: NdisSupportedPauseFunctions = 0
 
-public val NdisPhysicalMedium1394: NDIS_PHYSICAL_MEDIUM = 7
+public val NDIS_PHYSICAL_MEDIUM1394: NdisPhysicalMedium = 7
 
-public val NdisPhysicalMedium802_3: NDIS_PHYSICAL_MEDIUM = 14
+public val NDIS_PHYSICAL_MEDIUM802_3: NdisPhysicalMedium = 14
 
-public val NdisPhysicalMedium802_5: NDIS_PHYSICAL_MEDIUM = 15
+public val NDIS_PHYSICAL_MEDIUM802_5: NdisPhysicalMedium = 15
 
-public val NdisPhysicalMediumBluetooth: NDIS_PHYSICAL_MEDIUM = 10
+public val NDIS_PHYSICAL_MEDIUM_BLUETOOTH: NdisPhysicalMedium = 10
 
-public val NdisPhysicalMediumCableModem: NDIS_PHYSICAL_MEDIUM = 2
+public val NDIS_PHYSICAL_MEDIUM_CABLE_MODEM: NdisPhysicalMedium = 2
 
-public val NdisPhysicalMediumDSL: NDIS_PHYSICAL_MEDIUM = 5
+public val NDIS_PHYSICAL_MEDIUM_DSL: NdisPhysicalMedium = 5
 
-public val NdisPhysicalMediumFibreChannel: NDIS_PHYSICAL_MEDIUM = 6
+public val NDIS_PHYSICAL_MEDIUM_FIBRE_CHANNEL: NdisPhysicalMedium = 6
 
-public val NdisPhysicalMediumInfiniband: NDIS_PHYSICAL_MEDIUM = 11
+public val NDIS_PHYSICAL_MEDIUM_INFINIBAND: NdisPhysicalMedium = 11
 
-public val NdisPhysicalMediumIrda: NDIS_PHYSICAL_MEDIUM = 16
+public val NDIS_PHYSICAL_MEDIUM_IRDA: NdisPhysicalMedium = 16
 
-public val NdisPhysicalMediumMax: NDIS_PHYSICAL_MEDIUM = 21
+public val NDIS_PHYSICAL_MEDIUM_MAX: NdisPhysicalMedium = 21
 
-public val NdisPhysicalMediumNative802_11: NDIS_PHYSICAL_MEDIUM = 9
+public val NDIS_PHYSICAL_MEDIUM_NATIVE802_11: NdisPhysicalMedium = 9
 
-public val NdisPhysicalMediumNative802_15_4: NDIS_PHYSICAL_MEDIUM = 20
+public val NDIS_PHYSICAL_MEDIUM_NATIVE802_15_4: NdisPhysicalMedium = 20
 
-public val NdisPhysicalMediumOther: NDIS_PHYSICAL_MEDIUM = 19
+public val NDIS_PHYSICAL_MEDIUM_OTHER: NdisPhysicalMedium = 19
 
-public val NdisPhysicalMediumPhoneLine: NDIS_PHYSICAL_MEDIUM = 3
+public val NDIS_PHYSICAL_MEDIUM_PHONE_LINE: NdisPhysicalMedium = 3
 
-public val NdisPhysicalMediumPowerLine: NDIS_PHYSICAL_MEDIUM = 4
+public val NDIS_PHYSICAL_MEDIUM_POWER_LINE: NdisPhysicalMedium = 4
 
-public val NdisPhysicalMediumUWB: NDIS_PHYSICAL_MEDIUM = 13
+public val NDIS_PHYSICAL_MEDIUM_UWB: NdisPhysicalMedium = 13
 
-public val NdisPhysicalMediumUnspecified: NDIS_PHYSICAL_MEDIUM = 0
+public val NDIS_PHYSICAL_MEDIUM_UNSPECIFIED: NdisPhysicalMedium = 0
 
-public val NdisPhysicalMediumWiMax: NDIS_PHYSICAL_MEDIUM = 12
+public val NDIS_PHYSICAL_MEDIUM_WI_MAX: NdisPhysicalMedium = 12
 
-public val NdisPhysicalMediumWiredCoWan: NDIS_PHYSICAL_MEDIUM = 18
+public val NDIS_PHYSICAL_MEDIUM_WIRED_CO_WAN: NdisPhysicalMedium = 18
 
-public val NdisPhysicalMediumWiredWAN: NDIS_PHYSICAL_MEDIUM = 17
+public val NDIS_PHYSICAL_MEDIUM_WIRED_WAN: NdisPhysicalMedium = 17
 
-public val NdisPhysicalMediumWirelessLan: NDIS_PHYSICAL_MEDIUM = 1
+public val NDIS_PHYSICAL_MEDIUM_WIRELESS_LAN: NdisPhysicalMedium = 1
 
-public val NdisPhysicalMediumWirelessWan: NDIS_PHYSICAL_MEDIUM = 8
+public val NDIS_PHYSICAL_MEDIUM_WIRELESS_WAN: NdisPhysicalMedium = 8
 
-public val NdisPortAuthorizationUnknown: NDIS_PORT_AUTHORIZATION_STATE = 0
+public val NDIS_PORT_AUTHORIZATION_UNKNOWN: NdisPortAuthorizationState = 0
 
-public val NdisPortAuthorized: NDIS_PORT_AUTHORIZATION_STATE = 1
+public val NDIS_PORT_AUTHORIZED: NdisPortAuthorizationState = 1
 
-public val NdisPortControlStateControlled: NDIS_PORT_CONTROL_STATE = 1
+public val NDIS_PORT_CONTROL_STATE_CONTROLLED: NdisPortControlState = 1
 
-public val NdisPortControlStateUncontrolled: NDIS_PORT_CONTROL_STATE = 2
+public val NDIS_PORT_CONTROL_STATE_UNCONTROLLED: NdisPortControlState = 2
 
-public val NdisPortControlStateUnknown: NDIS_PORT_CONTROL_STATE = 0
+public val NDIS_PORT_CONTROL_STATE_UNKNOWN: NdisPortControlState = 0
 
-public val NdisPortReauthorizing: NDIS_PORT_AUTHORIZATION_STATE = 3
+public val NDIS_PORT_REAUTHORIZING: NdisPortAuthorizationState = 3
 
-public val NdisPortType8021xSupplicant: NDIS_PORT_TYPE = 3
+public val NDIS_PORT_TYPE8021X_SUPPLICANT: NdisPortType = 3
 
-public val NdisPortTypeBridge: NDIS_PORT_TYPE = 1
+public val NDIS_PORT_TYPE_BRIDGE: NdisPortType = 1
 
-public val NdisPortTypeMax: NDIS_PORT_TYPE = 4
+public val NDIS_PORT_TYPE_MAX: NdisPortType = 4
 
-public val NdisPortTypeRasConnection: NDIS_PORT_TYPE = 2
+public val NDIS_PORT_TYPE_RAS_CONNECTION: NdisPortType = 2
 
-public val NdisPortTypeUndefined: NDIS_PORT_TYPE = 0
+public val NDIS_PORT_TYPE_UNDEFINED: NdisPortType = 0
 
-public val NdisPortUnauthorized: NDIS_PORT_AUTHORIZATION_STATE = 2
+public val NDIS_PORT_UNAUTHORIZED: NdisPortAuthorizationState = 2
 
-public val NdisPossibleNetworkChange: NDIS_NETWORK_CHANGE_TYPE = 1
+public val NDIS_POSSIBLE_NETWORK_CHANGE: NdisNetworkChangeType = 1
 
-public val NdisPowerProfileAcOnLine: NDIS_POWER_PROFILE = 1
+public val NDIS_POWER_PROFILE_AC_ON_LINE: NdisPowerProfile = 1
 
-public val NdisPowerProfileBattery: NDIS_POWER_PROFILE = 0
+public val NDIS_POWER_PROFILE_BATTERY: NdisPowerProfile = 0
 
-public val NdisProcessorAlpha: NDIS_PROCESSOR_TYPE = 2
+public val NDIS_PROCESSOR_ALPHA: NdisProcessorType = 2
 
-public val NdisProcessorAmd64: NDIS_PROCESSOR_TYPE = 4
+public val NDIS_PROCESSOR_AMD64: NdisProcessorType = 4
 
-public val NdisProcessorArm: NDIS_PROCESSOR_TYPE = 6
+public val NDIS_PROCESSOR_ARM: NdisProcessorType = 6
 
-public val NdisProcessorArm64: NDIS_PROCESSOR_TYPE = 7
+public val NDIS_PROCESSOR_ARM64: NdisProcessorType = 7
 
-public val NdisProcessorIA64: NDIS_PROCESSOR_TYPE = 5
+public val NDIS_PROCESSOR_IA64: NdisProcessorType = 5
 
-public val NdisProcessorMips: NDIS_PROCESSOR_TYPE = 1
+public val NDIS_PROCESSOR_MIPS: NdisProcessorType = 1
 
-public val NdisProcessorPpc: NDIS_PROCESSOR_TYPE = 3
+public val NDIS_PROCESSOR_PPC: NdisProcessorType = 3
 
-public val NdisProcessorVendorAuthenticAMD: NDIS_PROCESSOR_VENDOR = 2
+public val NDIS_PROCESSOR_VENDOR_AUTHENTIC_AMD: NdisProcessorVendor = 2
 
-public val NdisProcessorVendorGenuinIntel: NDIS_PROCESSOR_VENDOR = 1
+public val NDIS_PROCESSOR_VENDOR_GENUIN_INTEL: NdisProcessorVendor = 1
 
-public val NdisProcessorVendorGenuineIntel: NDIS_PROCESSOR_VENDOR = 1
+public val NDIS_PROCESSOR_VENDOR_GENUINE_INTEL: NdisProcessorVendor = 1
 
-public val NdisProcessorVendorUnknown: NDIS_PROCESSOR_VENDOR = 0
+public val NDIS_PROCESSOR_VENDOR_UNKNOWN: NdisProcessorVendor = 0
 
-public val NdisProcessorX86: NDIS_PROCESSOR_TYPE = 0
+public val NDIS_PROCESSOR_X86: NdisProcessorType = 0
 
-public val NdisRequestClose: NDIS_REQUEST_TYPE = 4
+public val NDIS_REQUEST_CLOSE: NdisRequestType = 4
 
-public val NdisRequestGeneric1: NDIS_REQUEST_TYPE = 8
+public val NDIS_REQUEST_GENERIC1: NdisRequestType = 8
 
-public val NdisRequestGeneric2: NDIS_REQUEST_TYPE = 9
+public val NDIS_REQUEST_GENERIC2: NdisRequestType = 9
 
-public val NdisRequestGeneric3: NDIS_REQUEST_TYPE = 10
+public val NDIS_REQUEST_GENERIC3: NdisRequestType = 10
 
-public val NdisRequestGeneric4: NDIS_REQUEST_TYPE = 11
+public val NDIS_REQUEST_GENERIC4: NdisRequestType = 11
 
-public val NdisRequestOpen: NDIS_REQUEST_TYPE = 3
+public val NDIS_REQUEST_OPEN: NdisRequestType = 3
 
-public val NdisRequestQueryInformation: NDIS_REQUEST_TYPE = 0
+public val NDIS_REQUEST_QUERY_INFORMATION: NdisRequestType = 0
 
-public val NdisRequestQueryStatistics: NDIS_REQUEST_TYPE = 2
+public val NDIS_REQUEST_QUERY_STATISTICS: NdisRequestType = 2
 
-public val NdisRequestReset: NDIS_REQUEST_TYPE = 7
+public val NDIS_REQUEST_RESET: NdisRequestType = 7
 
-public val NdisRequestSend: NDIS_REQUEST_TYPE = 5
+public val NDIS_REQUEST_SEND: NdisRequestType = 5
 
-public val NdisRequestSetInformation: NDIS_REQUEST_TYPE = 1
+public val NDIS_REQUEST_SET_INFORMATION: NdisRequestType = 1
 
-public val NdisRequestTransferData: NDIS_REQUEST_TYPE = 6
+public val NDIS_REQUEST_TRANSFER_DATA: NdisRequestType = 6
 
-public val NdisReserved: NDIS_PER_PACKET_INFO = 4
+public val NDIS_RESERVED: NdisPerPacketInfo = 4
 
-public val NdisRingStateClosed: NDIS_802_5_RING_STATE = 2
+public val NDIS_RING_STATE_CLOSED: Ndis8025RingState = 2
 
-public val NdisRingStateClosing: NDIS_802_5_RING_STATE = 4
+public val NDIS_RING_STATE_CLOSING: Ndis8025RingState = 4
 
-public val NdisRingStateOpenFailure: NDIS_802_5_RING_STATE = 5
+public val NDIS_RING_STATE_OPEN_FAILURE: Ndis8025RingState = 5
 
-public val NdisRingStateOpened: NDIS_802_5_RING_STATE = 1
+public val NDIS_RING_STATE_OPENED: Ndis8025RingState = 1
 
-public val NdisRingStateOpening: NDIS_802_5_RING_STATE = 3
+public val NDIS_RING_STATE_OPENING: Ndis8025RingState = 3
 
-public val NdisRingStateRingFailure: NDIS_802_5_RING_STATE = 6
+public val NDIS_RING_STATE_RING_FAILURE: Ndis8025RingState = 6
 
-public val NdisWanErrorControl: NDIS_WAN_QUALITY = 1
+public val NDIS_WAN_ERROR_CONTROL: NdisWanQuality = 1
 
-public val NdisWanHeaderEthernet: NDIS_WAN_HEADER_FORMAT = 1
+public val NDIS_WAN_HEADER_ETHERNET: NdisWanHeaderFormat = 1
 
-public val NdisWanHeaderNative: NDIS_WAN_HEADER_FORMAT = 0
+public val NDIS_WAN_HEADER_NATIVE: NdisWanHeaderFormat = 0
 
-public val NdisWanMediumAgileVPN: NDIS_WAN_MEDIUM_SUBTYPE = 14
+public val NDIS_WAN_MEDIUM_AGILE_VPN: NdisWanMediumSubtype = 14
 
-public val NdisWanMediumAtm: NDIS_WAN_MEDIUM_SUBTYPE = 5
+public val NDIS_WAN_MEDIUM_ATM: NdisWanMediumSubtype = 5
 
-public val NdisWanMediumFrameRelay: NDIS_WAN_MEDIUM_SUBTYPE = 4
+public val NDIS_WAN_MEDIUM_FRAME_RELAY: NdisWanMediumSubtype = 4
 
-public val NdisWanMediumGre: NDIS_WAN_MEDIUM_SUBTYPE = 15
+public val NDIS_WAN_MEDIUM_GRE: NdisWanMediumSubtype = 15
 
-public val NdisWanMediumHub: NDIS_WAN_MEDIUM_SUBTYPE = 0
+public val NDIS_WAN_MEDIUM_HUB: NdisWanMediumSubtype = 0
 
-public val NdisWanMediumIrda: NDIS_WAN_MEDIUM_SUBTYPE = 10
+public val NDIS_WAN_MEDIUM_IRDA: NdisWanMediumSubtype = 10
 
-public val NdisWanMediumIsdn: NDIS_WAN_MEDIUM_SUBTYPE = 2
+public val NDIS_WAN_MEDIUM_ISDN: NdisWanMediumSubtype = 2
 
-public val NdisWanMediumL2TP: NDIS_WAN_MEDIUM_SUBTYPE = 9
+public val NDIS_WAN_MEDIUM_L2TP: NdisWanMediumSubtype = 9
 
-public val NdisWanMediumPPTP: NDIS_WAN_MEDIUM_SUBTYPE = 8
+public val NDIS_WAN_MEDIUM_PPTP: NdisWanMediumSubtype = 8
 
-public val NdisWanMediumParallel: NDIS_WAN_MEDIUM_SUBTYPE = 11
+public val NDIS_WAN_MEDIUM_PARALLEL: NdisWanMediumSubtype = 11
 
-public val NdisWanMediumPppoe: NDIS_WAN_MEDIUM_SUBTYPE = 12
+public val NDIS_WAN_MEDIUM_PPPOE: NdisWanMediumSubtype = 12
 
-public val NdisWanMediumSSTP: NDIS_WAN_MEDIUM_SUBTYPE = 13
+public val NDIS_WAN_MEDIUM_SSTP: NdisWanMediumSubtype = 13
 
-public val NdisWanMediumSW56K: NDIS_WAN_MEDIUM_SUBTYPE = 7
+public val NDIS_WAN_MEDIUM_SW56K: NdisWanMediumSubtype = 7
 
-public val NdisWanMediumSerial: NDIS_WAN_MEDIUM_SUBTYPE = 3
+public val NDIS_WAN_MEDIUM_SERIAL: NdisWanMediumSubtype = 3
 
-public val NdisWanMediumSonet: NDIS_WAN_MEDIUM_SUBTYPE = 6
+public val NDIS_WAN_MEDIUM_SONET: NdisWanMediumSubtype = 6
 
-public val NdisWanMediumSubTypeMax: NDIS_WAN_MEDIUM_SUBTYPE = 16
+public val NDIS_WAN_MEDIUM_SUB_TYPE_MAX: NdisWanMediumSubtype = 16
 
-public val NdisWanMediumX_25: NDIS_WAN_MEDIUM_SUBTYPE = 1
+public val NDIS_WAN_MEDIUM_X_25: NdisWanMediumSubtype = 1
 
-public val NdisWanRaw: NDIS_WAN_QUALITY = 0
+public val NDIS_WAN_RAW: NdisWanQuality = 0
 
-public val NdisWanReliable: NDIS_WAN_QUALITY = 2
+public val NDIS_WAN_RELIABLE: NdisWanQuality = 2
 
 public val OFFLOAD_INBOUND_SA: UInt = 1u
 
-public val OFFLOAD_IPSEC_CONF_3_DES: OFFLOAD_CONF_ALGO = 3
+public val OFFLOAD_IPSEC_CONF_3_DES: OffloadConfAlgo = 3
 
-public val OFFLOAD_IPSEC_CONF_DES: OFFLOAD_CONF_ALGO = 1
+public val OFFLOAD_IPSEC_CONF_DES: OffloadConfAlgo = 1
 
-public val OFFLOAD_IPSEC_CONF_MAX: OFFLOAD_CONF_ALGO = 4
+public val OFFLOAD_IPSEC_CONF_MAX: OffloadConfAlgo = 4
 
-public val OFFLOAD_IPSEC_CONF_NONE: OFFLOAD_CONF_ALGO = 0
+public val OFFLOAD_IPSEC_CONF_NONE: OffloadConfAlgo = 0
 
-public val OFFLOAD_IPSEC_CONF_RESERVED: OFFLOAD_CONF_ALGO = 2
+public val OFFLOAD_IPSEC_CONF_RESERVED: OffloadConfAlgo = 2
 
-public val OFFLOAD_IPSEC_INTEGRITY_MAX: OFFLOAD_INTEGRITY_ALGO = 3
+public val OFFLOAD_IPSEC_INTEGRITY_MAX: OffloadIntegrityAlgo = 3
 
-public val OFFLOAD_IPSEC_INTEGRITY_MD5: OFFLOAD_INTEGRITY_ALGO = 1
+public val OFFLOAD_IPSEC_INTEGRITY_MD5: OffloadIntegrityAlgo = 1
 
-public val OFFLOAD_IPSEC_INTEGRITY_NONE: OFFLOAD_INTEGRITY_ALGO = 0
+public val OFFLOAD_IPSEC_INTEGRITY_NONE: OffloadIntegrityAlgo = 0
 
-public val OFFLOAD_IPSEC_INTEGRITY_SHA: OFFLOAD_INTEGRITY_ALGO = 2
+public val OFFLOAD_IPSEC_INTEGRITY_SHA: OffloadIntegrityAlgo = 2
 
-public val OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_IKE: UDP_ENCAP_TYPE = 0
+public val OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_IKE: UdpEncapType = 0
 
-public val OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_OTHER: UDP_ENCAP_TYPE = 1
+public val OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_OTHER: UdpEncapType = 1
 
 public val OFFLOAD_MAX_SAS: UInt = 3u
 

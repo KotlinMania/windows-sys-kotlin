@@ -1,852 +1,853 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.controls
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HFONT
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hfont
 
-public typealias AEROWIZARDPARTS = Int
+public typealias Aerowizardparts = Int
 
-public typealias ARROWBTNSTATES = Int
+public typealias Arrowbtnstates = Int
 
-public typealias BACKGROUNDSTATES = Int
+public typealias Backgroundstates = Int
 
-public typealias BACKGROUNDWITHBORDERSTATES = Int
+public typealias Backgroundwithborderstates = Int
 
-public typealias BALLOONSTATES = Int
+public typealias Balloonstates = Int
 
-public typealias BALLOONSTEMSTATES = Int
+public typealias Balloonstemstates = Int
 
-public typealias BARBACKGROUNDSTATES = Int
+public typealias Barbackgroundstates = Int
 
-public typealias BARITEMSTATES = Int
+public typealias Baritemstates = Int
 
-public typealias BGTYPE = Int
+public typealias Bgtype = Int
 
-public typealias BODYSTATES = Int
+public typealias Bodystates = Int
 
-public typealias BORDERSTATES = Int
+public typealias Borderstates = Int
 
-public typealias BORDERTYPE = Int
+public typealias Bordertype = Int
 
-public typealias BORDER_HSCROLLSTATES = Int
+public typealias BorderHscrollstates = Int
 
-public typealias BORDER_HVSCROLLSTATES = Int
+public typealias BorderHvscrollstates = Int
 
-public typealias BORDER_NOSCROLLSTATES = Int
+public typealias BorderNoscrollstates = Int
 
-public typealias BORDER_VSCROLLSTATES = Int
+public typealias BorderVscrollstates = Int
 
-public typealias BP_ANIMATIONSTYLE = Int
+public typealias BpAnimationstyle = Int
 
-public typealias BP_BUFFERFORMAT = Int
+public typealias BpBufferformat = Int
 
-public typealias BP_PAINTPARAMS_FLAGS = UInt
+public typealias BpPaintparamsFlags = UInt
 
-public typealias BUTTONPARTS = Int
+public typealias Buttonparts = Int
 
-public typealias BUTTON_IMAGELIST_ALIGN = UInt
+public typealias ButtonImagelistAlign = UInt
 
-public typealias CAPTIONSTATES = Int
+public typealias Captionstates = Int
 
-public typealias CHECKBOXSTATES = Int
+public typealias Checkboxstates = Int
 
-public typealias CHEVRONSTATES = Int
+public typealias Chevronstates = Int
 
-public typealias CHEVRONVERTSTATES = Int
+public typealias Chevronvertstates = Int
 
-public typealias CLOCKPARTS = Int
+public typealias Clockparts = Int
 
-public typealias CLOCKSTATES = Int
+public typealias Clockstates = Int
 
-public typealias CLOSEBUTTONSTATES = Int
+public typealias Closebuttonstates = Int
 
-public typealias CLOSESTATES = Int
+public typealias Closestates = Int
 
-public typealias COLLAPSEBUTTONSTATES = Int
+public typealias Collapsebuttonstates = Int
 
-public typealias COMBOBOXINFO_BUTTON_STATE = UInt
+public typealias ComboboxinfoButtonState = UInt
 
-public typealias COMBOBOXPARTS = Int
+public typealias Comboboxparts = Int
 
-public typealias COMBOBOXSTYLESTATES = Int
+public typealias Comboboxstylestates = Int
 
-public typealias COMBOBOX_EX_ITEM_FLAGS = UInt
+public typealias ComboboxExItemFlags = UInt
 
-public typealias COMMANDLINKGLYPHSTATES = Int
+public typealias Commandlinkglyphstates = Int
 
-public typealias COMMANDLINKSTATES = Int
+public typealias Commandlinkstates = Int
 
-public typealias COMMUNICATIONSPARTS = Int
+public typealias Communicationsparts = Int
 
-public typealias CONTENTALIGNMENT = Int
+public typealias Contentalignment = Int
 
-public typealias CONTENTAREASTATES = Int
+public typealias Contentareastates = Int
 
-public typealias CONTENTLINKSTATES = Int
+public typealias Contentlinkstates = Int
 
-public typealias CONTENTPANESTATES = Int
+public typealias Contentpanestates = Int
 
-public typealias CONTROLLABELSTATES = Int
+public typealias Controllabelstates = Int
 
-public typealias CONTROLPANELPARTS = Int
+public typealias Controlpanelparts = Int
 
-public typealias COPYSTATES = Int
+public typealias Copystates = Int
 
-public typealias CREATELINKSTATES = Int
+public typealias Createlinkstates = Int
 
-public typealias CUEBANNERSTATES = Int
+public typealias Cuebannerstates = Int
 
-public typealias DATEBORDERSTATES = Int
+public typealias Dateborderstates = Int
 
-public typealias DATEPICKERPARTS = Int
+public typealias Datepickerparts = Int
 
-public typealias DATETEXTSTATES = Int
+public typealias Datetextstates = Int
 
-public typealias DLG_BUTTON_CHECK_STATE = UInt
+public typealias DlgButtonCheckState = UInt
 
-public typealias DLG_DIR_LIST_FILE_TYPE = UInt
+public typealias DlgDirListFileType = UInt
 
-public typealias DOWNHORZSTATES = Int
+public typealias Downhorzstates = Int
 
-public typealias DOWNSTATES = Int
+public typealias Downstates = Int
 
-public typealias DPAMM_MESSAGE = UInt
+public typealias DpammMessage = UInt
 
-public typealias DRAGDROPPARTS = Int
+public typealias Dragdropparts = Int
 
-public typealias DRAGLISTINFO_NOTIFICATION_FLAGS = UInt
+public typealias DraglistinfoNotificationFlags = UInt
 
-public typealias DRAWITEMSTRUCT_CTL_TYPE = UInt
+public typealias DrawitemstructCtlType = UInt
 
-public typealias DRAW_THEME_PARENT_BACKGROUND_FLAGS = UInt
+public typealias DrawThemeParentBackgroundFlags = UInt
 
-public typealias DROPDOWNBUTTONLEFTSTATES = Int
+public typealias Dropdownbuttonleftstates = Int
 
-public typealias DROPDOWNBUTTONRIGHTSTATES = Int
+public typealias Dropdownbuttonrightstates = Int
 
-public typealias DROPDOWNITEMSTATES = Int
+public typealias Dropdownitemstates = Int
 
-public typealias DTTOPTS_FLAGS = UInt
+public typealias DttoptsFlags = UInt
 
-public fun interface DTT_CALLBACK_PROCFn {
-    public operator fun invoke(hdc: HDC, psztext: PWSTR, cchtext: Int, prc: Long, dwflags: UInt, lparam: LPARAM): Int
+public fun interface DttCallbackProcFn {
+    public operator fun invoke(hdc: Hdc, psztext: Pwstr, cchtext: Int, prc: COpaquePointer?, dwflags: UInt, lparam: Lparam): Int
 }
 
-public typealias DTT_CALLBACK_PROC = DTT_CALLBACK_PROCFn?
+public typealias DttCallbackProc = DttCallbackProcFn?
 
-public typealias EC_ENDOFLINE = Int
+public typealias EcEndofline = Int
 
-public typealias EC_SEARCHWEB_ENTRYPOINT = Int
+public typealias EcSearchwebEntrypoint = Int
 
-public typealias EDITBALLOONTIP_ICON = Int
+public typealias EditballoontipIcon = Int
 
-public typealias EDITBORDER_HSCROLLSTATES = Int
+public typealias EditborderHscrollstates = Int
 
-public typealias EDITBORDER_HVSCROLLSTATES = Int
+public typealias EditborderHvscrollstates = Int
 
-public typealias EDITBORDER_NOSCROLLSTATES = Int
+public typealias EditborderNoscrollstates = Int
 
-public typealias EDITBORDER_VSCROLLSTATES = Int
+public typealias EditborderVscrollstates = Int
 
-public typealias EDITPARTS = Int
+public typealias Editparts = Int
 
-public typealias EDITTEXTSTATES = Int
+public typealias Edittextstates = Int
 
-public fun interface EDITWORDBREAKPROCAFn {
-    public operator fun invoke(lpch: PCSTR, ichcurrent: Int, cch: Int, code: WORD_BREAK_ACTION): Int
+public fun interface EditwordbreakprocaFn {
+    public operator fun invoke(lpch: Pcstr, ichcurrent: Int, cch: Int, code: WordBreakAction): Int
 }
 
-public typealias EDITWORDBREAKPROCA = EDITWORDBREAKPROCAFn?
+public typealias Editwordbreakproca = EditwordbreakprocaFn?
 
-public fun interface EDITWORDBREAKPROCWFn {
-    public operator fun invoke(lpch: PCWSTR, ichcurrent: Int, cch: Int, code: WORD_BREAK_ACTION): Int
+public fun interface EditwordbreakprocwFn {
+    public operator fun invoke(lpch: Pcwstr, ichcurrent: Int, cch: Int, code: WordBreakAction): Int
 }
 
-public typealias EDITWORDBREAKPROCW = EDITWORDBREAKPROCWFn?
+public typealias Editwordbreakprocw = EditwordbreakprocwFn?
 
-public typealias EMPTYMARKUPPARTS = Int
+public typealias Emptymarkupparts = Int
 
-public typealias ENABLE_SCROLL_BAR_ARROWS = UInt
+public typealias EnableScrollBarArrows = UInt
 
-public typealias EXPANDBUTTONSTATES = Int
+public typealias Expandbuttonstates = Int
 
-public typealias EXPANDOBUTTONSTATES = Int
+public typealias Expandobuttonstates = Int
 
-public typealias EXPLORERBARPARTS = Int
+public typealias Explorerbarparts = Int
 
-public typealias FEEDBACK_TYPE = Int
+public typealias FeedbackType = Int
 
-public typealias FILLSTATES = Int
+public typealias Fillstates = Int
 
-public typealias FILLTYPE = Int
+public typealias Filltype = Int
 
-public typealias FILLVERTSTATES = Int
+public typealias Fillvertstates = Int
 
-public typealias FLYOUTPARTS = Int
+public typealias Flyoutparts = Int
 
-public typealias FRAMEBOTTOMSTATES = Int
+public typealias Framebottomstates = Int
 
-public typealias FRAMELEFTSTATES = Int
+public typealias Frameleftstates = Int
 
-public typealias FRAMERIGHTSTATES = Int
+public typealias Framerightstates = Int
 
-public typealias FRAMESTATES = Int
+public typealias Framestates = Int
 
-public typealias GET_THEME_BITMAP_FLAGS = UInt
+public typealias GetThemeBitmapFlags = UInt
 
-public typealias GLYPHFONTSIZINGTYPE = Int
+public typealias Glyphfontsizingtype = Int
 
-public typealias GLYPHSTATES = Int
+public typealias Glyphstates = Int
 
-public typealias GLYPHTYPE = Int
+public typealias Glyphtype = Int
 
-public typealias GRIDCELLBACKGROUNDSTATES = Int
+public typealias Gridcellbackgroundstates = Int
 
-public typealias GRIDCELLSTATES = Int
+public typealias Gridcellstates = Int
 
-public typealias GRIDCELLUPPERSTATES = Int
+public typealias Gridcellupperstates = Int
 
-public typealias GRIPPERSTATES = Int
+public typealias Gripperstates = Int
 
-public typealias GROUPBOXSTATES = Int
+public typealias Groupboxstates = Int
 
-public typealias GROUPHEADERLINESTATES = Int
+public typealias Groupheaderlinestates = Int
 
-public typealias GROUPHEADERSTATES = Int
+public typealias Groupheaderstates = Int
 
-public typealias HALIGN = Int
+public typealias Halign = Int
 
-public typealias HDI_MASK = UInt
+public typealias HdiMask = UInt
 
-public typealias HDPA = Long
+public typealias Hdpa = Long
 
-public typealias HDSA = Long
+public typealias Hdsa = Long
 
-public typealias HEADERAREASTATES = Int
+public typealias Headerareastates = Int
 
-public typealias HEADERCLOSESTATES = Int
+public typealias Headerclosestates = Int
 
-public typealias HEADERDROPDOWNFILTERSTATES = Int
+public typealias Headerdropdownfilterstates = Int
 
-public typealias HEADERDROPDOWNSTATES = Int
+public typealias Headerdropdownstates = Int
 
-public typealias HEADERITEMLEFTSTATES = Int
+public typealias Headeritemleftstates = Int
 
-public typealias HEADERITEMRIGHTSTATES = Int
+public typealias Headeritemrightstates = Int
 
-public typealias HEADERITEMSTATES = Int
+public typealias Headeritemstates = Int
 
-public typealias HEADEROVERFLOWSTATES = Int
+public typealias Headeroverflowstates = Int
 
-public typealias HEADERPARTS = Int
+public typealias Headerparts = Int
 
-public typealias HEADERPINSTATES = Int
+public typealias Headerpinstates = Int
 
-public typealias HEADERSORTARROWSTATES = Int
+public typealias Headersortarrowstates = Int
 
-public typealias HEADERSTYLESTATES = Int
+public typealias Headerstylestates = Int
 
-public typealias HEADER_CONTROL_FORMAT_FLAGS = Int
+public typealias HeaderControlFormatFlags = Int
 
-public typealias HEADER_CONTROL_FORMAT_STATE = UInt
+public typealias HeaderControlFormatState = UInt
 
-public typealias HEADER_CONTROL_FORMAT_TYPE = UInt
+public typealias HeaderControlFormatType = UInt
 
-public typealias HEADER_CONTROL_NOTIFICATION_BUTTON = Int
+public typealias HeaderControlNotificationButton = Int
 
-public typealias HEADER_HITTEST_INFO_FLAGS = UInt
+public typealias HeaderHittestInfoFlags = UInt
 
-public typealias HELPBUTTONSTATES = Int
+public typealias Helpbuttonstates = Int
 
-public typealias HELPLINKSTATES = Int
+public typealias Helplinkstates = Int
 
-public typealias HIMAGELIST = Long
+public typealias Himagelist = Long
 
-public typealias HIT_TEST_BACKGROUND_OPTIONS = UInt
+public typealias HitTestBackgroundOptions = UInt
 
-public typealias HORZSCROLLSTATES = Int
+public typealias Horzscrollstates = Int
 
-public typealias HORZTHUMBSTATES = Int
+public typealias Horzthumbstates = Int
 
-public typealias HOTGLYPHSTATES = Int
+public typealias Hotglyphstates = Int
 
-public typealias HOVERBACKGROUNDSTATES = Int
+public typealias Hoverbackgroundstates = Int
 
-public typealias HPROPSHEETPAGE = Long
+public typealias Hpropsheetpage = COpaquePointer?
 
-public typealias HSYNTHETICPOINTERDEVICE = Long
+public typealias Hsyntheticpointerdevice = COpaquePointer?
 
-public typealias HTHEME = Long
+public typealias Htheme = Long
 
-public typealias HTREEITEM = Long
+public typealias Htreeitem = Long
 
-public typealias HYPERLINKSTATES = Int
+public typealias Hyperlinkstates = Int
 
-public typealias HYPERLINKTEXTSTATES = Int
+public typealias Hyperlinktextstates = Int
 
-public typealias ICONEFFECT = Int
+public typealias Iconeffect = Int
 
-public typealias IEBARMENUSTATES = Int
+public typealias Iebarmenustates = Int
 
-public typealias IMAGELAYOUT = Int
+public typealias Imagelayout = Int
 
-public typealias IMAGELIST_CREATION_FLAGS = UInt
+public typealias ImagelistCreationFlags = UInt
 
-public typealias IMAGESELECTTYPE = Int
+public typealias Imageselecttype = Int
 
-public typealias IMAGE_LIST_COPY_FLAGS = UInt
+public typealias ImageListCopyFlags = UInt
 
-public typealias IMAGE_LIST_DRAW_STYLE = UInt
+public typealias ImageListDrawStyle = UInt
 
-public typealias IMAGE_LIST_ITEM_FLAGS = UInt
+public typealias ImageListItemFlags = UInt
 
-public typealias IMAGE_LIST_WRITE_STREAM_FLAGS = UInt
+public typealias ImageListWriteStreamFlags = UInt
 
-public typealias INITCOMMONCONTROLSEX_ICC = UInt
+public typealias InitcommoncontrolsexIcc = UInt
 
-public typealias ITEMSTATES = Int
+public typealias Itemstates = Int
 
-public typealias LABELSTATES = Int
+public typealias Labelstates = Int
 
-public typealias LINKHEADERSTATES = Int
+public typealias Linkheaderstates = Int
 
-public typealias LINKPARTS = Int
+public typealias Linkparts = Int
 
-public typealias LINKSTATES = Int
+public typealias Linkstates = Int
 
-public typealias LISTBOXPARTS = Int
+public typealias Listboxparts = Int
 
-public typealias LISTITEMSTATES = Int
+public typealias Listitemstates = Int
 
-public typealias LISTVIEWPARTS = Int
+public typealias Listviewparts = Int
 
-public typealias LIST_ITEM_FLAGS = UInt
+public typealias ListItemFlags = UInt
 
-public typealias LIST_ITEM_STATE_FLAGS = UInt
+public typealias ListItemStateFlags = UInt
 
-public typealias LIST_VIEW_BACKGROUND_IMAGE_FLAGS = UInt
+public typealias ListViewBackgroundImageFlags = UInt
 
-public typealias LIST_VIEW_GROUP_ALIGN_FLAGS = UInt
+public typealias ListViewGroupAlignFlags = UInt
 
-public typealias LIST_VIEW_GROUP_STATE_FLAGS = UInt
+public typealias ListViewGroupStateFlags = UInt
 
-public typealias LIST_VIEW_ITEM_COLUMN_FORMAT_FLAGS = Int
+public typealias ListViewItemColumnFormatFlags = Int
 
-public typealias LIST_VIEW_ITEM_FLAGS = UInt
+public typealias ListViewItemFlags = UInt
 
-public typealias LIST_VIEW_ITEM_STATE_FLAGS = UInt
+public typealias ListViewItemStateFlags = UInt
 
-public typealias LOGOFFBUTTONSSTATES = Int
+public typealias Logoffbuttonsstates = Int
 
-public fun interface LPFNADDPROPSHEETPAGESFn {
-    public operator fun invoke(param0: Long, param1: LPFNSVADDPROPSHEETPAGE, param2: LPARAM): BOOL
+public fun interface LpfnaddpropsheetpagesFn {
+    public operator fun invoke(param0: COpaquePointer?, param1: Lpfnsvaddpropsheetpage, param2: Lparam): Bool
 }
 
-public typealias LPFNADDPROPSHEETPAGES = LPFNADDPROPSHEETPAGESFn?
+public typealias Lpfnaddpropsheetpages = LpfnaddpropsheetpagesFn?
 
-public fun interface LPFNCCINFOAFn {
-    public operator fun invoke(acci: Long): UInt
+public fun interface LpfnccinfoaFn {
+    public operator fun invoke(acci: COpaquePointer?): UInt
 }
 
-public typealias LPFNCCINFOA = LPFNCCINFOAFn?
+public typealias Lpfnccinfoa = LpfnccinfoaFn?
 
-public fun interface LPFNCCINFOWFn {
-    public operator fun invoke(acci: Long): UInt
+public fun interface LpfnccinfowFn {
+    public operator fun invoke(acci: COpaquePointer?): UInt
 }
 
-public typealias LPFNCCINFOW = LPFNCCINFOWFn?
+public typealias Lpfnccinfow = LpfnccinfowFn?
 
-public fun interface LPFNCCSIZETOTEXTAFn {
-    public operator fun invoke(flstyle: UInt, flextstyle: UInt, hfont: HFONT, psztext: PCSTR): Int
+public fun interface LpfnccsizetotextaFn {
+    public operator fun invoke(flstyle: UInt, flextstyle: UInt, hfont: Hfont, psztext: Pcstr): Int
 }
 
-public typealias LPFNCCSIZETOTEXTA = LPFNCCSIZETOTEXTAFn?
+public typealias Lpfnccsizetotexta = LpfnccsizetotextaFn?
 
-public fun interface LPFNCCSIZETOTEXTWFn {
-    public operator fun invoke(flstyle: UInt, flextstyle: UInt, hfont: HFONT, psztext: PCWSTR): Int
+public fun interface LpfnccsizetotextwFn {
+    public operator fun invoke(flstyle: UInt, flextstyle: UInt, hfont: Hfont, psztext: Pcwstr): Int
 }
 
-public typealias LPFNCCSIZETOTEXTW = LPFNCCSIZETOTEXTWFn?
+public typealias Lpfnccsizetotextw = LpfnccsizetotextwFn?
 
-public fun interface LPFNCCSTYLEAFn {
-    public operator fun invoke(hwndparent: HWND, pccs: Long): BOOL
+public fun interface LpfnccstyleaFn {
+    public operator fun invoke(hwndparent: Hwnd, pccs: COpaquePointer?): Bool
 }
 
-public typealias LPFNCCSTYLEA = LPFNCCSTYLEAFn?
+public typealias Lpfnccstylea = LpfnccstyleaFn?
 
-public fun interface LPFNCCSTYLEWFn {
-    public operator fun invoke(hwndparent: HWND, pccs: Long): BOOL
+public fun interface LpfnccstylewFn {
+    public operator fun invoke(hwndparent: Hwnd, pccs: COpaquePointer?): Bool
 }
 
-public typealias LPFNCCSTYLEW = LPFNCCSTYLEWFn?
+public typealias Lpfnccstylew = LpfnccstylewFn?
 
-public fun interface LPFNPSPCALLBACKAFn {
-    public operator fun invoke(hwnd: HWND, umsg: PSPCB_MESSAGE, ppsp: Long): UInt
+public fun interface LpfnpspcallbackaFn {
+    public operator fun invoke(hwnd: Hwnd, umsg: PspcbMessage, ppsp: COpaquePointer?): UInt
 }
 
-public typealias LPFNPSPCALLBACKA = LPFNPSPCALLBACKAFn?
+public typealias Lpfnpspcallbacka = LpfnpspcallbackaFn?
 
-public fun interface LPFNPSPCALLBACKWFn {
-    public operator fun invoke(hwnd: HWND, umsg: PSPCB_MESSAGE, ppsp: Long): UInt
+public fun interface LpfnpspcallbackwFn {
+    public operator fun invoke(hwnd: Hwnd, umsg: PspcbMessage, ppsp: COpaquePointer?): UInt
 }
 
-public typealias LPFNPSPCALLBACKW = LPFNPSPCALLBACKWFn?
+public typealias Lpfnpspcallbackw = LpfnpspcallbackwFn?
 
-public fun interface LPFNSVADDPROPSHEETPAGEFn {
-    public operator fun invoke(param0: HPROPSHEETPAGE, param1: LPARAM): BOOL
+public fun interface LpfnsvaddpropsheetpageFn {
+    public operator fun invoke(param0: Hpropsheetpage, param1: Lparam): Bool
 }
 
-public typealias LPFNSVADDPROPSHEETPAGE = LPFNSVADDPROPSHEETPAGEFn?
+public typealias Lpfnsvaddpropsheetpage = LpfnsvaddpropsheetpageFn?
 
-public typealias LVCOLUMNW_FORMAT = Int
+public typealias LvcolumnwFormat = Int
 
-public typealias LVCOLUMNW_MASK = UInt
+public typealias LvcolumnwMask = UInt
 
-public typealias LVFINDINFOW_FLAGS = UInt
+public typealias LvfindinfowFlags = UInt
 
-public typealias LVFOOTERITEM_MASK = UInt
+public typealias LvfooteritemMask = UInt
 
-public typealias LVGROUP_MASK = UInt
+public typealias LvgroupMask = UInt
 
-public typealias LVHITTESTINFO_FLAGS = UInt
+public typealias LvhittestinfoFlags = UInt
 
-public typealias LVITEMA_GROUP_ID = Int
+public typealias LvitemaGroupId = Int
 
-public typealias LVTILEVIEWINFO_FLAGS = UInt
+public typealias LvtileviewinfoFlags = UInt
 
-public typealias LVTILEVIEWINFO_MASK = UInt
+public typealias LvtileviewinfoMask = UInt
 
-public typealias MARKUPTEXTSTATES = Int
+public typealias Markuptextstates = Int
 
-public typealias MAXBUTTONSTATES = Int
+public typealias Maxbuttonstates = Int
 
-public typealias MAXCAPTIONSTATES = Int
+public typealias Maxcaptionstates = Int
 
-public typealias MCGRIDINFO_FLAGS = UInt
+public typealias McgridinfoFlags = UInt
 
-public typealias MCGRIDINFO_PART = UInt
+public typealias McgridinfoPart = UInt
 
-public typealias MCHITTESTINFO_HIT_FLAGS = UInt
+public typealias MchittestinfoHitFlags = UInt
 
-public typealias MDICLOSEBUTTONSTATES = Int
+public typealias Mdiclosebuttonstates = Int
 
-public typealias MDIMINBUTTONSTATES = Int
+public typealias Mdiminbuttonstates = Int
 
-public typealias MDIRESTOREBUTTONSTATES = Int
+public typealias Mdirestorebuttonstates = Int
 
-public typealias MENUBANDPARTS = Int
+public typealias Menubandparts = Int
 
-public typealias MENUBANDSTATES = Int
+public typealias Menubandstates = Int
 
-public typealias MENUPARTS = Int
+public typealias Menuparts = Int
 
-public typealias MINBUTTONSTATES = Int
+public typealias Minbuttonstates = Int
 
-public typealias MINCAPTIONSTATES = Int
+public typealias Mincaptionstates = Int
 
-public typealias MONTHCALPARTS = Int
+public typealias Monthcalparts = Int
 
-public typealias MONTH_CALDENDAR_MESSAGES_VIEW = UInt
+public typealias MonthCaldendarMessagesView = UInt
 
-public typealias MOREPROGRAMSARROWBACKSTATES = Int
+public typealias Moreprogramsarrowbackstates = Int
 
-public typealias MOREPROGRAMSARROWSTATES = Int
+public typealias Moreprogramsarrowstates = Int
 
-public typealias MOREPROGRAMSTABSTATES = Int
+public typealias Moreprogramstabstates = Int
 
-public typealias MOVESTATES = Int
+public typealias Movestates = Int
 
-public typealias NAVIGATIONPARTS = Int
+public typealias Navigationparts = Int
 
-public typealias NAVNEXTSTATES = Int
+public typealias Navnextstates = Int
 
-public typealias NAVPREVSTATES = Int
+public typealias Navprevstates = Int
 
-public typealias NAV_BACKBUTTONSTATES = Int
+public typealias NavBackbuttonstates = Int
 
-public typealias NAV_FORWARDBUTTONSTATES = Int
+public typealias NavForwardbuttonstates = Int
 
-public typealias NAV_MENUBUTTONSTATES = Int
+public typealias NavMenubuttonstates = Int
 
-public typealias NMCUSTOMDRAW_DRAW_STAGE = UInt
+public typealias NmcustomdrawDrawStage = UInt
 
-public typealias NMCUSTOMDRAW_DRAW_STATE_FLAGS = UInt
+public typealias NmcustomdrawDrawStateFlags = UInt
 
-public typealias NMDATETIMECHANGE_FLAGS = UInt
+public typealias NmdatetimechangeFlags = UInt
 
-public typealias NMLVCUSTOMDRAW_ITEM_TYPE = UInt
+public typealias NmlvcustomdrawItemType = UInt
 
-public typealias NMLVEMPTYMARKUP_FLAGS = UInt
+public typealias NmlvemptymarkupFlags = UInt
 
-public typealias NMLVGETINFOTIP_FLAGS = UInt
+public typealias NmlvgetinfotipFlags = UInt
 
-public typealias NMPGCALCSIZE_FLAGS = UInt
+public typealias NmpgcalcsizeFlags = UInt
 
-public typealias NMPGSCROLL_DIR = Int
+public typealias NmpgscrollDir = Int
 
-public typealias NMPGSCROLL_KEYS = UShort
+public typealias NmpgscrollKeys = UShort
 
-public typealias NMREBAR_MASK_FLAGS = UInt
+public typealias NmrebarMaskFlags = UInt
 
-public typealias NMTBDISPINFOW_MASK = UInt
+public typealias NmtbdispinfowMask = UInt
 
-public typealias NMTBHOTITEM_FLAGS = UInt
+public typealias NmtbhotitemFlags = UInt
 
-public typealias NM_TREEVIEW_ACTION = UInt
+public typealias NmTreeviewAction = UInt
 
-public typealias NONESTATES = Int
+public typealias Nonestates = Int
 
-public typealias NORMALGROUPCOLLAPSESTATES = Int
+public typealias Normalgroupcollapsestates = Int
 
-public typealias NORMALGROUPEXPANDSTATES = Int
+public typealias Normalgroupexpandstates = Int
 
-public typealias ODA_FLAGS = UInt
+public typealias OdaFlags = UInt
 
-public typealias ODS_FLAGS = UInt
+public typealias OdsFlags = UInt
 
-public typealias OFFSETTYPE = Int
+public typealias Offsettype = Int
 
-public typealias OPENBOXSTATES = Int
+public typealias Openboxstates = Int
 
-public typealias OPEN_THEME_DATA_FLAGS = UInt
+public typealias OpenThemeDataFlags = UInt
 
-public typealias PAGEPARTS = Int
+public typealias Pageparts = Int
 
-public fun interface PFNDACOMPAREFn {
-    public operator fun invoke(p1: Long, p2: Long, lparam: LPARAM): Int
+public fun interface PfndacompareFn {
+    public operator fun invoke(p1: COpaquePointer?, p2: COpaquePointer?, lparam: Lparam): Int
 }
 
-public typealias PFNDACOMPARE = PFNDACOMPAREFn?
+public typealias Pfndacompare = PfndacompareFn?
 
-public fun interface PFNDACOMPARECONSTFn {
-    public operator fun invoke(p1: Long, p2: Long, lparam: LPARAM): Int
+public fun interface PfndacompareconstFn {
+    public operator fun invoke(p1: COpaquePointer?, p2: COpaquePointer?, lparam: Lparam): Int
 }
 
-public typealias PFNDACOMPARECONST = PFNDACOMPARECONSTFn?
+public typealias Pfndacompareconst = PfndacompareconstFn?
 
-public fun interface PFNDAENUMCALLBACKFn {
-    public operator fun invoke(p: Long, pdata: Long): Int
+public fun interface PfndaenumcallbackFn {
+    public operator fun invoke(p: COpaquePointer?, pdata: COpaquePointer?): Int
 }
 
-public typealias PFNDAENUMCALLBACK = PFNDAENUMCALLBACKFn?
+public typealias Pfndaenumcallback = PfndaenumcallbackFn?
 
-public fun interface PFNDAENUMCALLBACKCONSTFn {
-    public operator fun invoke(p: Long, pdata: Long): Int
+public fun interface PfndaenumcallbackconstFn {
+    public operator fun invoke(p: COpaquePointer?, pdata: COpaquePointer?): Int
 }
 
-public typealias PFNDAENUMCALLBACKCONST = PFNDAENUMCALLBACKCONSTFn?
+public typealias Pfndaenumcallbackconst = PfndaenumcallbackconstFn?
 
-public fun interface PFNDPAMERGEFn {
-    public operator fun invoke(umsg: DPAMM_MESSAGE, pvdest: Long, pvsrc: Long, lparam: LPARAM): Long
+public fun interface PfndpamergeFn {
+    public operator fun invoke(umsg: DpammMessage, pvdest: COpaquePointer?, pvsrc: COpaquePointer?, lparam: Lparam): COpaquePointer?
 }
 
-public typealias PFNDPAMERGE = PFNDPAMERGEFn?
+public typealias Pfndpamerge = PfndpamergeFn?
 
-public fun interface PFNDPAMERGECONSTFn {
-    public operator fun invoke(umsg: DPAMM_MESSAGE, pvdest: Long, pvsrc: Long, lparam: LPARAM): Long
+public fun interface PfndpamergeconstFn {
+    public operator fun invoke(umsg: DpammMessage, pvdest: COpaquePointer?, pvsrc: COpaquePointer?, lparam: Lparam): COpaquePointer?
 }
 
-public typealias PFNDPAMERGECONST = PFNDPAMERGECONSTFn?
+public typealias Pfndpamergeconst = PfndpamergeconstFn?
 
-public fun interface PFNDPASTREAMFn {
-    public operator fun invoke(pinfo: Long, pstream: Long, pvinstdata: Long): HRESULT
+public fun interface PfndpastreamFn {
+    public operator fun invoke(pinfo: COpaquePointer?, pstream: COpaquePointer?, pvinstdata: COpaquePointer?): Hresult
 }
 
-public typealias PFNDPASTREAM = PFNDPASTREAMFn?
+public typealias Pfndpastream = PfndpastreamFn?
 
-public fun interface PFNLVCOMPAREFn {
-    public operator fun invoke(param0: LPARAM, param1: LPARAM, param2: LPARAM): Int
+public fun interface PfnlvcompareFn {
+    public operator fun invoke(param0: Lparam, param1: Lparam, param2: Lparam): Int
 }
 
-public typealias PFNLVCOMPARE = PFNLVCOMPAREFn?
+public typealias Pfnlvcompare = PfnlvcompareFn?
 
-public fun interface PFNLVGROUPCOMPAREFn {
-    public operator fun invoke(param0: Int, param1: Int, param2: Long): Int
+public fun interface PfnlvgroupcompareFn {
+    public operator fun invoke(param0: Int, param1: Int, param2: COpaquePointer?): Int
 }
 
-public typealias PFNLVGROUPCOMPARE = PFNLVGROUPCOMPAREFn?
+public typealias Pfnlvgroupcompare = PfnlvgroupcompareFn?
 
-public fun interface PFNPROPSHEETCALLBACKFn {
-    public operator fun invoke(param0: HWND, param1: UInt, param2: LPARAM): Int
+public fun interface PfnpropsheetcallbackFn {
+    public operator fun invoke(param0: Hwnd, param1: UInt, param2: Lparam): Int
 }
 
-public typealias PFNPROPSHEETCALLBACK = PFNPROPSHEETCALLBACKFn?
+public typealias Pfnpropsheetcallback = PfnpropsheetcallbackFn?
 
-public fun interface PFNTVCOMPAREFn {
-    public operator fun invoke(lparam1: LPARAM, lparam2: LPARAM, lparamsort: LPARAM): Int
+public fun interface PfntvcompareFn {
+    public operator fun invoke(lparam1: Lparam, lparam2: Lparam, lparamsort: Lparam): Int
 }
 
-public typealias PFNTVCOMPARE = PFNTVCOMPAREFn?
+public typealias Pfntvcompare = PfntvcompareFn?
 
-public fun interface PFTASKDIALOGCALLBACKFn {
-    public operator fun invoke(hwnd: HWND, msg: UInt, wparam: WPARAM, lparam: LPARAM, lprefdata: Long): HRESULT
+public fun interface PftaskdialogcallbackFn {
+    public operator fun invoke(hwnd: Hwnd, msg: UInt, wparam: Wparam, lparam: Lparam, lprefdata: Long): Hresult
 }
 
-public typealias PFTASKDIALOGCALLBACK = PFTASKDIALOGCALLBACKFn?
+public typealias Pftaskdialogcallback = PftaskdialogcallbackFn?
 
-public typealias POINTER_DEVICE_CURSOR_TYPE = Int
+public typealias PointerDeviceCursorType = Int
 
-public typealias POINTER_DEVICE_TYPE = Int
+public typealias PointerDeviceType = Int
 
-public typealias POINTER_FEEDBACK_MODE = Int
+public typealias PointerFeedbackMode = Int
 
-public typealias POPUPCHECKBACKGROUNDSTATES = Int
+public typealias Popupcheckbackgroundstates = Int
 
-public typealias POPUPCHECKSTATES = Int
+public typealias Popupcheckstates = Int
 
-public typealias POPUPITEMFOCUSABLESTATES = Int
+public typealias Popupitemfocusablestates = Int
 
-public typealias POPUPITEMKBFOCUSSTATES = Int
+public typealias Popupitemkbfocusstates = Int
 
-public typealias POPUPITEMSTATES = Int
+public typealias Popupitemstates = Int
 
-public typealias POPUPSUBMENUHCHOTSTATES = Int
+public typealias Popupsubmenuhchotstates = Int
 
-public typealias POPUPSUBMENUSTATES = Int
+public typealias Popupsubmenustates = Int
 
-public typealias PROGRESSPARTS = Int
+public typealias Progressparts = Int
 
-public typealias PROPERTYORIGIN = Int
+public typealias Propertyorigin = Int
 
-public typealias PSPCB_MESSAGE = UInt
+public typealias PspcbMessage = UInt
 
-public typealias PUSHBUTTONDROPDOWNSTATES = Int
+public typealias Pushbuttondropdownstates = Int
 
-public typealias PUSHBUTTONSTATES = Int
+public typealias Pushbuttonstates = Int
 
-public typealias RADIOBUTTONSTATES = Int
+public typealias Radiobuttonstates = Int
 
-public typealias READONLYSTATES = Int
+public typealias Readonlystates = Int
 
-public typealias REBARPARTS = Int
+public typealias Rebarparts = Int
 
-public typealias RESTOREBUTTONSTATES = Int
+public typealias Restorebuttonstates = Int
 
-public typealias SCROLLBARPARTS = Int
+public typealias Scrollbarparts = Int
 
-public typealias SCROLLBARSTYLESTATES = Int
+public typealias Scrollbarstylestates = Int
 
-public typealias SECTIONTITLELINKSTATES = Int
+public typealias Sectiontitlelinkstates = Int
 
-public typealias SET_THEME_APP_PROPERTIES_FLAGS = UInt
+public typealias SetThemeAppPropertiesFlags = UInt
 
-public typealias SHOWCALENDARBUTTONRIGHTSTATES = Int
+public typealias Showcalendarbuttonrightstates = Int
 
-public typealias SIZEBOXSTATES = Int
+public typealias Sizeboxstates = Int
 
-public typealias SIZINGTYPE = Int
+public typealias Sizingtype = Int
 
-public typealias SMALLCAPTIONSTATES = Int
+public typealias Smallcaptionstates = Int
 
-public typealias SMALLCLOSEBUTTONSTATES = Int
+public typealias Smallclosebuttonstates = Int
 
-public typealias SMALLFRAMEBOTTOMSTATES = Int
+public typealias Smallframebottomstates = Int
 
-public typealias SMALLFRAMELEFTSTATES = Int
+public typealias Smallframeleftstates = Int
 
-public typealias SMALLFRAMERIGHTSTATES = Int
+public typealias Smallframerightstates = Int
 
-public typealias SOFTWAREEXPLORERSTATES = Int
+public typealias Softwareexplorerstates = Int
 
-public typealias SPECIALGROUPCOLLAPSESTATES = Int
+public typealias Specialgroupcollapsestates = Int
 
-public typealias SPECIALGROUPEXPANDSTATES = Int
+public typealias Specialgroupexpandstates = Int
 
-public typealias SPINPARTS = Int
+public typealias Spinparts = Int
 
-public typealias SPLITTERSTATES = Int
+public typealias Splitterstates = Int
 
-public typealias SPLITTERVERTSTATES = Int
+public typealias Splittervertstates = Int
 
-public typealias STANDARDSTATES = Int
+public typealias Standardstates = Int
 
-public typealias STARTPANELPARTS = Int
+public typealias Startpanelparts = Int
 
-public typealias STATICPARTS = Int
+public typealias Staticparts = Int
 
-public typealias STATUSPARTS = Int
+public typealias Statusparts = Int
 
-public typealias SYSBUTTONSTATES = Int
+public typealias Sysbuttonstates = Int
 
-public typealias SYSTEMCLOSEHCHOTSTATES = Int
+public typealias Systemclosehchotstates = Int
 
-public typealias SYSTEMCLOSESTATES = Int
+public typealias Systemclosestates = Int
 
-public typealias SYSTEMMAXIMIZEHCHOTSTATES = Int
+public typealias Systemmaximizehchotstates = Int
 
-public typealias SYSTEMMAXIMIZESTATES = Int
+public typealias Systemmaximizestates = Int
 
-public typealias SYSTEMMINIMIZEHCHOTSTATES = Int
+public typealias Systemminimizehchotstates = Int
 
-public typealias SYSTEMMINIMIZESTATES = Int
+public typealias Systemminimizestates = Int
 
-public typealias SYSTEMRESTOREHCHOTSTATES = Int
+public typealias Systemrestorehchotstates = Int
 
-public typealias SYSTEMRESTORESTATES = Int
+public typealias Systemrestorestates = Int
 
-public typealias TABITEMBOTHEDGESTATES = Int
+public typealias Tabitembothedgestates = Int
 
-public typealias TABITEMLEFTEDGESTATES = Int
+public typealias Tabitemleftedgestates = Int
 
-public typealias TABITEMRIGHTEDGESTATES = Int
+public typealias Tabitemrightedgestates = Int
 
-public typealias TABITEMSTATES = Int
+public typealias Tabitemstates = Int
 
-public typealias TABPARTS = Int
+public typealias Tabparts = Int
 
-public typealias TABSTATES = Int
+public typealias Tabstates = Int
 
-public typealias TAB_CONTROL_ITEM_STATE = UInt
+public typealias TabControlItemState = UInt
 
-public typealias TASKBANDPARTS = Int
+public typealias Taskbandparts = Int
 
-public typealias TASKBARPARTS = Int
+public typealias Taskbarparts = Int
 
-public typealias TASKDIALOGPARTS = Int
+public typealias Taskdialogparts = Int
 
-public typealias TASKDIALOG_COMMON_BUTTON_FLAGS = Int
+public typealias TaskdialogCommonButtonFlags = Int
 
-public typealias TASKDIALOG_ELEMENTS = Int
+public typealias TaskdialogElements = Int
 
-public typealias TASKDIALOG_FLAGS = Int
+public typealias TaskdialogFlags = Int
 
-public typealias TASKDIALOG_ICON_ELEMENTS = Int
+public typealias TaskdialogIconElements = Int
 
-public typealias TASKDIALOG_MESSAGES = Int
+public typealias TaskdialogMessages = Int
 
-public typealias TASKDIALOG_NOTIFICATIONS = Int
+public typealias TaskdialogNotifications = Int
 
-public typealias TASKLINKSTATES = Int
+public typealias Tasklinkstates = Int
 
-public typealias TA_PROPERTY = Int
+public typealias TaProperty = Int
 
-public typealias TA_PROPERTY_FLAG = Int
+public typealias TaPropertyFlag = Int
 
-public typealias TA_TIMINGFUNCTION_TYPE = Int
+public typealias TaTimingfunctionType = Int
 
-public typealias TA_TRANSFORM_FLAG = Int
+public typealias TaTransformFlag = Int
 
-public typealias TA_TRANSFORM_TYPE = Int
+public typealias TaTransformType = Int
 
-public typealias TBBUTTONINFOW_MASK = UInt
+public typealias TbbuttoninfowMask = UInt
 
-public typealias TBINSERTMARK_FLAGS = UInt
+public typealias TbinsertmarkFlags = UInt
 
-public typealias TCHITTESTINFO_FLAGS = UInt
+public typealias TchittestinfoFlags = UInt
 
-public typealias TCITEMHEADERA_MASK = UInt
+public typealias TcitemheaderaMask = UInt
 
-public typealias TEXTSELECTIONGRIPPERPARTS = Int
+public typealias Textselectiongripperparts = Int
 
-public typealias TEXTSHADOWTYPE = Int
+public typealias Textshadowtype = Int
 
-public typealias TEXTSTYLEPARTS = Int
+public typealias Textstyleparts = Int
 
-public typealias THEMESIZE = Int
+public typealias Themesize = Int
 
-public typealias THEME_PROPERTY_SYMBOL_ID = UInt
+public typealias ThemePropertySymbolId = UInt
 
-public typealias THUMBBOTTOMSTATES = Int
+public typealias Thumbbottomstates = Int
 
-public typealias THUMBLEFTSTATES = Int
+public typealias Thumbleftstates = Int
 
-public typealias THUMBRIGHTSTATES = Int
+public typealias Thumbrightstates = Int
 
-public typealias THUMBSTATES = Int
+public typealias Thumbstates = Int
 
-public typealias THUMBTOPSTATES = Int
+public typealias Thumbtopstates = Int
 
-public typealias THUMBVERTSTATES = Int
+public typealias Thumbvertstates = Int
 
-public typealias TICSSTATES = Int
+public typealias Ticsstates = Int
 
-public typealias TICSVERTSTATES = Int
+public typealias Ticsvertstates = Int
 
-public typealias TITLEBARSTATES = Int
+public typealias Titlebarstates = Int
 
-public typealias TOOLBARPARTS = Int
+public typealias Toolbarparts = Int
 
-public typealias TOOLBARSTYLESTATES = Int
+public typealias Toolbarstylestates = Int
 
-public typealias TOOLTIPPARTS = Int
+public typealias Tooltipparts = Int
 
-public typealias TOOLTIP_FLAGS = UInt
+public typealias TooltipFlags = UInt
 
-public typealias TOPTABITEMBOTHEDGESTATES = Int
+public typealias Toptabitembothedgestates = Int
 
-public typealias TOPTABITEMLEFTEDGESTATES = Int
+public typealias Toptabitemleftedgestates = Int
 
-public typealias TOPTABITEMRIGHTEDGESTATES = Int
+public typealias Toptabitemrightedgestates = Int
 
-public typealias TOPTABITEMSTATES = Int
+public typealias Toptabitemstates = Int
 
-public typealias TRACKBARPARTS = Int
+public typealias Trackbarparts = Int
 
-public typealias TRACKBARSTYLESTATES = Int
+public typealias Trackbarstylestates = Int
 
-public typealias TRACKSTATES = Int
+public typealias Trackstates = Int
 
-public typealias TRACKVERTSTATES = Int
+public typealias Trackvertstates = Int
 
-public typealias TRAILINGGRIDCELLSTATES = Int
+public typealias Trailinggridcellstates = Int
 
-public typealias TRAILINGGRIDCELLUPPERSTATES = Int
+public typealias Trailinggridcellupperstates = Int
 
-public typealias TRANSPARENTBACKGROUNDSTATES = Int
+public typealias Transparentbackgroundstates = Int
 
-public typealias TRANSPARENTBARSTATES = Int
+public typealias Transparentbarstates = Int
 
-public typealias TRANSPARENTBARVERTSTATES = Int
+public typealias Transparentbarvertstates = Int
 
-public typealias TRAYNOTIFYPARTS = Int
+public typealias Traynotifyparts = Int
 
-public typealias TREEITEMSTATES = Int
+public typealias Treeitemstates = Int
 
-public typealias TREEVIEWPARTS = Int
+public typealias Treeviewparts = Int
 
-public typealias TREE_VIEW_ITEM_STATE_FLAGS = UInt
+public typealias TreeViewItemStateFlags = UInt
 
-public typealias TRUESIZESCALINGTYPE = Int
+public typealias Truesizescalingtype = Int
 
-public typealias TVHITTESTINFO_FLAGS = UInt
+public typealias TvhittestinfoFlags = UInt
 
-public typealias TVITEMEXW_CHILDREN = Int
+public typealias TvitemexwChildren = Int
 
-public typealias TVITEMPART = Int
+public typealias Tvitempart = Int
 
-public typealias TVITEM_MASK = UInt
+public typealias TvitemMask = UInt
 
-public typealias UPDATEMETADATASTATES = Int
+public typealias Updatemetadatastates = Int
 
-public typealias UPHORZSTATES = Int
+public typealias Uphorzstates = Int
 
-public typealias UPSTATES = Int
+public typealias Upstates = Int
 
-public typealias USERTILEPARTS = Int
+public typealias Usertileparts = Int
 
-public typealias VALIGN = Int
+public typealias Valign = Int
 
-public typealias VERTSCROLLSTATES = Int
+public typealias Vertscrollstates = Int
 
-public typealias VERTTHUMBSTATES = Int
+public typealias Vertthumbstates = Int
 
-public typealias WARNINGSTATES = Int
+public typealias Warningstates = Int
 
-public typealias WINDOWPARTS = Int
+public typealias Windowparts = Int
 
-public typealias WINDOWTHEMEATTRIBUTETYPE = Int
+public typealias Windowthemeattributetype = Int
 
-public typealias WORD_BREAK_ACTION = Int
+public typealias WordBreakAction = Int
 
-public typealias WRENCHSTATES = Int
+public typealias Wrenchstates = Int
 
-public typealias WSB_PROP = Int
+public typealias WsbProp = Int
 
-public typealias _LI_METRIC = Int
+public typealias LiMetric = Int

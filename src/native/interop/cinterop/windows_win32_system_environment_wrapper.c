@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_system_environment_CallEnclave(int64_t lproutine, void* lpparameter, int32_t fwaitforthread, void* lpreturnvalue) {
+int32_t windowssys_windows_win32_system_environment_callEnclave(int64_t lproutine, void* lpparameter, int32_t fwaitforthread, void* lpreturnvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -40,7 +40,7 @@ int32_t windowssys_windows_win32_system_environment_CallEnclave(int64_t lproutin
 #endif
 }
 
-void* windowssys_windows_win32_system_environment_CreateEnclave(void* hprocess, void* lpaddress, uint64_t dwsize, uint64_t dwinitialcommitment, uint32_t flenclavetype, void* lpenclaveinformation, uint32_t dwinfolength, void* lpenclaveerror) {
+void* windowssys_windows_win32_system_environment_createEnclave(void* hprocess, void* lpaddress, uint64_t dwsize, uint64_t dwinitialcommitment, uint32_t flenclavetype, void* lpenclaveinformation, uint32_t dwinfolength, void* lpenclaveerror) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint64_t, uint64_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -69,7 +69,7 @@ void* windowssys_windows_win32_system_environment_CreateEnclave(void* hprocess, 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_environment_CreateEnvironmentBlock(void* lpenvironment, void* htoken, int32_t binherit) {
+int32_t windowssys_windows_win32_system_environment_createEnvironmentBlock(void* lpenvironment, void* htoken, int32_t binherit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -93,7 +93,7 @@ int32_t windowssys_windows_win32_system_environment_CreateEnvironmentBlock(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_environment_DeleteEnclave(void* lpaddress) {
+int32_t windowssys_windows_win32_system_environment_deleteEnclave(void* lpaddress) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -115,7 +115,7 @@ int32_t windowssys_windows_win32_system_environment_DeleteEnclave(void* lpaddres
 #endif
 }
 
-int32_t windowssys_windows_win32_system_environment_DestroyEnvironmentBlock(void* lpenvironment) {
+int32_t windowssys_windows_win32_system_environment_destroyEnvironmentBlock(void* lpenvironment) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -137,7 +137,7 @@ int32_t windowssys_windows_win32_system_environment_DestroyEnvironmentBlock(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_environment_EnclaveGetAttestationReport(void* enclavedata, void* report, uint32_t buffersize, void* outputsize) {
+int32_t windowssys_windows_win32_system_environment_enclaveGetAttestationReport(void* enclavedata, void* report, uint32_t buffersize, void* outputsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -162,7 +162,7 @@ int32_t windowssys_windows_win32_system_environment_EnclaveGetAttestationReport(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_environment_EnclaveGetEnclaveInformation(uint32_t informationsize, void* enclaveinformation) {
+int32_t windowssys_windows_win32_system_environment_enclaveGetEnclaveInformation(uint32_t informationsize, void* enclaveinformation) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -185,7 +185,7 @@ int32_t windowssys_windows_win32_system_environment_EnclaveGetEnclaveInformation
 #endif
 }
 
-int32_t windowssys_windows_win32_system_environment_EnclaveSealData(void* datatoencrypt, uint32_t datatoencryptsize, int32_t identitypolicy, uint32_t runtimepolicy, void* protectedblob, uint32_t buffersize, void* protectedblobsize) {
+int32_t windowssys_windows_win32_system_environment_enclaveSealData(void* datatoencrypt, uint32_t datatoencryptsize, int32_t identitypolicy, uint32_t runtimepolicy, void* protectedblob, uint32_t buffersize, void* protectedblobsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -213,7 +213,7 @@ int32_t windowssys_windows_win32_system_environment_EnclaveSealData(void* datato
 #endif
 }
 
-int32_t windowssys_windows_win32_system_environment_EnclaveUnsealData(void* protectedblob, uint32_t protectedblobsize, void* decrypteddata, uint32_t buffersize, void* decrypteddatasize, void* sealingidentity, void* unsealingflags) {
+int32_t windowssys_windows_win32_system_environment_enclaveUnsealData(void* protectedblob, uint32_t protectedblobsize, void* decrypteddata, uint32_t buffersize, void* decrypteddatasize, void* sealingidentity, void* unsealingflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -241,7 +241,7 @@ int32_t windowssys_windows_win32_system_environment_EnclaveUnsealData(void* prot
 #endif
 }
 
-int32_t windowssys_windows_win32_system_environment_EnclaveVerifyAttestationReport(uint32_t enclavetype, void* report, uint32_t reportsize) {
+int32_t windowssys_windows_win32_system_environment_enclaveVerifyAttestationReport(uint32_t enclavetype, void* report, uint32_t reportsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -265,7 +265,7 @@ int32_t windowssys_windows_win32_system_environment_EnclaveVerifyAttestationRepo
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_environment_ExpandEnvironmentStringsA(void* lpsrc, void* lpdst, uint32_t nsize) {
+uint32_t windowssys_windows_win32_system_environment_expandEnvironmentStringsA(void* lpsrc, void* lpdst, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -289,7 +289,7 @@ uint32_t windowssys_windows_win32_system_environment_ExpandEnvironmentStringsA(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_environment_ExpandEnvironmentStringsForUserA(void* htoken, void* lpsrc, void* lpdest, uint32_t dwsize) {
+int32_t windowssys_windows_win32_system_environment_expandEnvironmentStringsForUserA(void* htoken, void* lpsrc, void* lpdest, uint32_t dwsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -314,7 +314,7 @@ int32_t windowssys_windows_win32_system_environment_ExpandEnvironmentStringsForU
 #endif
 }
 
-int32_t windowssys_windows_win32_system_environment_ExpandEnvironmentStringsForUserW(void* htoken, void* lpsrc, void* lpdest, uint32_t dwsize) {
+int32_t windowssys_windows_win32_system_environment_expandEnvironmentStringsForUserW(void* htoken, void* lpsrc, void* lpdest, uint32_t dwsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -339,7 +339,7 @@ int32_t windowssys_windows_win32_system_environment_ExpandEnvironmentStringsForU
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_environment_ExpandEnvironmentStringsW(void* lpsrc, void* lpdst, uint32_t nsize) {
+uint32_t windowssys_windows_win32_system_environment_expandEnvironmentStringsW(void* lpsrc, void* lpdst, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -363,7 +363,7 @@ uint32_t windowssys_windows_win32_system_environment_ExpandEnvironmentStringsW(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_environment_FreeEnvironmentStringsA(void* penv) {
+int32_t windowssys_windows_win32_system_environment_freeEnvironmentStringsA(void* penv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -385,7 +385,7 @@ int32_t windowssys_windows_win32_system_environment_FreeEnvironmentStringsA(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_environment_FreeEnvironmentStringsW(void* penv) {
+int32_t windowssys_windows_win32_system_environment_freeEnvironmentStringsW(void* penv) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -407,7 +407,7 @@ int32_t windowssys_windows_win32_system_environment_FreeEnvironmentStringsW(void
 #endif
 }
 
-void* windowssys_windows_win32_system_environment_GetCommandLineA(void) {
+void* windowssys_windows_win32_system_environment_getCommandLineA(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -428,7 +428,7 @@ void* windowssys_windows_win32_system_environment_GetCommandLineA(void) {
 #endif
 }
 
-void* windowssys_windows_win32_system_environment_GetCommandLineW(void) {
+void* windowssys_windows_win32_system_environment_getCommandLineW(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -449,7 +449,7 @@ void* windowssys_windows_win32_system_environment_GetCommandLineW(void) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_environment_GetCurrentDirectoryA(uint32_t nbufferlength, void* lpbuffer) {
+uint32_t windowssys_windows_win32_system_environment_getCurrentDirectoryA(uint32_t nbufferlength, void* lpbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -472,7 +472,7 @@ uint32_t windowssys_windows_win32_system_environment_GetCurrentDirectoryA(uint32
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_environment_GetCurrentDirectoryW(uint32_t nbufferlength, void* lpbuffer) {
+uint32_t windowssys_windows_win32_system_environment_getCurrentDirectoryW(uint32_t nbufferlength, void* lpbuffer) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -495,7 +495,7 @@ uint32_t windowssys_windows_win32_system_environment_GetCurrentDirectoryW(uint32
 #endif
 }
 
-void* windowssys_windows_win32_system_environment_GetEnvironmentStrings(void) {
+void* windowssys_windows_win32_system_environment_getEnvironmentStrings(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -516,7 +516,7 @@ void* windowssys_windows_win32_system_environment_GetEnvironmentStrings(void) {
 #endif
 }
 
-void* windowssys_windows_win32_system_environment_GetEnvironmentStringsW(void) {
+void* windowssys_windows_win32_system_environment_getEnvironmentStringsW(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -537,7 +537,7 @@ void* windowssys_windows_win32_system_environment_GetEnvironmentStringsW(void) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_environment_GetEnvironmentVariableA(void* lpname, void* lpbuffer, uint32_t nsize) {
+uint32_t windowssys_windows_win32_system_environment_getEnvironmentVariableA(void* lpname, void* lpbuffer, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -561,7 +561,7 @@ uint32_t windowssys_windows_win32_system_environment_GetEnvironmentVariableA(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_environment_GetEnvironmentVariableW(void* lpname, void* lpbuffer, uint32_t nsize) {
+uint32_t windowssys_windows_win32_system_environment_getEnvironmentVariableW(void* lpname, void* lpbuffer, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -585,7 +585,7 @@ uint32_t windowssys_windows_win32_system_environment_GetEnvironmentVariableW(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_environment_InitializeEnclave(void* hprocess, void* lpaddress, void* lpenclaveinformation, uint32_t dwinfolength, void* lpenclaveerror) {
+int32_t windowssys_windows_win32_system_environment_initializeEnclave(void* hprocess, void* lpaddress, void* lpenclaveinformation, uint32_t dwinfolength, void* lpenclaveerror) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -611,7 +611,7 @@ int32_t windowssys_windows_win32_system_environment_InitializeEnclave(void* hpro
 #endif
 }
 
-int32_t windowssys_windows_win32_system_environment_IsEnclaveTypeSupported(uint32_t flenclavetype) {
+int32_t windowssys_windows_win32_system_environment_isEnclaveTypeSupported(uint32_t flenclavetype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -633,7 +633,7 @@ int32_t windowssys_windows_win32_system_environment_IsEnclaveTypeSupported(uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_system_environment_LoadEnclaveData(void* hprocess, void* lpaddress, void* lpbuffer, uint64_t nsize, uint32_t flprotect, void* lppageinformation, uint32_t dwinfolength, void* lpnumberofbyteswritten, void* lpenclaveerror) {
+int32_t windowssys_windows_win32_system_environment_loadEnclaveData(void* hprocess, void* lpaddress, void* lpbuffer, uint64_t nsize, uint32_t flprotect, void* lppageinformation, uint32_t dwinfolength, void* lpnumberofbyteswritten, void* lpenclaveerror) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint64_t, uint32_t, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -663,7 +663,7 @@ int32_t windowssys_windows_win32_system_environment_LoadEnclaveData(void* hproce
 #endif
 }
 
-int32_t windowssys_windows_win32_system_environment_LoadEnclaveImageA(void* lpenclaveaddress, void* lpimagename) {
+int32_t windowssys_windows_win32_system_environment_loadEnclaveImageA(void* lpenclaveaddress, void* lpimagename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -686,7 +686,7 @@ int32_t windowssys_windows_win32_system_environment_LoadEnclaveImageA(void* lpen
 #endif
 }
 
-int32_t windowssys_windows_win32_system_environment_LoadEnclaveImageW(void* lpenclaveaddress, void* lpimagename) {
+int32_t windowssys_windows_win32_system_environment_loadEnclaveImageW(void* lpenclaveaddress, void* lpimagename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -709,7 +709,7 @@ int32_t windowssys_windows_win32_system_environment_LoadEnclaveImageW(void* lpen
 #endif
 }
 
-int32_t windowssys_windows_win32_system_environment_NeedCurrentDirectoryForExePathA(void* exename) {
+int32_t windowssys_windows_win32_system_environment_needCurrentDirectoryForExePathA(void* exename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -731,7 +731,7 @@ int32_t windowssys_windows_win32_system_environment_NeedCurrentDirectoryForExePa
 #endif
 }
 
-int32_t windowssys_windows_win32_system_environment_NeedCurrentDirectoryForExePathW(void* exename) {
+int32_t windowssys_windows_win32_system_environment_needCurrentDirectoryForExePathW(void* exename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -753,7 +753,7 @@ int32_t windowssys_windows_win32_system_environment_NeedCurrentDirectoryForExePa
 #endif
 }
 
-int32_t windowssys_windows_win32_system_environment_SetCurrentDirectoryA(void* lppathname) {
+int32_t windowssys_windows_win32_system_environment_setCurrentDirectoryA(void* lppathname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -775,7 +775,7 @@ int32_t windowssys_windows_win32_system_environment_SetCurrentDirectoryA(void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_system_environment_SetCurrentDirectoryW(void* lppathname) {
+int32_t windowssys_windows_win32_system_environment_setCurrentDirectoryW(void* lppathname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -797,7 +797,7 @@ int32_t windowssys_windows_win32_system_environment_SetCurrentDirectoryW(void* l
 #endif
 }
 
-int32_t windowssys_windows_win32_system_environment_SetEnvironmentStringsW(void* newenvironment) {
+int32_t windowssys_windows_win32_system_environment_setEnvironmentStringsW(void* newenvironment) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -819,7 +819,7 @@ int32_t windowssys_windows_win32_system_environment_SetEnvironmentStringsW(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_environment_SetEnvironmentVariableA(void* lpname, void* lpvalue) {
+int32_t windowssys_windows_win32_system_environment_setEnvironmentVariableA(void* lpname, void* lpvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -842,7 +842,7 @@ int32_t windowssys_windows_win32_system_environment_SetEnvironmentVariableA(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_environment_SetEnvironmentVariableW(void* lpname, void* lpvalue) {
+int32_t windowssys_windows_win32_system_environment_setEnvironmentVariableW(void* lpname, void* lpvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -865,7 +865,7 @@ int32_t windowssys_windows_win32_system_environment_SetEnvironmentVariableW(void
 #endif
 }
 
-int32_t windowssys_windows_win32_system_environment_TerminateEnclave(void* lpaddress, int32_t fwait) {
+int32_t windowssys_windows_win32_system_environment_terminateEnclave(void* lpaddress, int32_t fwait) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;

@@ -1,3 +1,5 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.hostcompute
 
-public typealias HCS_CALLBACK = Long
+import io.github.kotlinmania.windowssys.COpaquePointer
+
+public typealias HcsCallback = COpaquePointer?

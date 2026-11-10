@@ -1,35 +1,35 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.etw
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
 
-public val ALPCGuid: GUID = GUID.from_u128(U128(0x45d8cccd539f4b72uL, 0xa8b75c683142609auL))
+public val ALPC_GUID: Guid = Guid.fromU128(U128(0x45d8cccd539f4b72uL, 0xa8b75c683142609auL))
 
-public val CLSID_TraceRelogger: GUID = GUID.from_u128(U128(0x7b40792d05ff44c4uL, 0x9058f440c71f17d4uL))
+public val CLSID_TRACE_RELOGGER: Guid = Guid.fromU128(U128(0x7b40792d05ff44c4uL, 0x9058f440c71f17d4uL))
 
-public val CTraceRelogger: GUID = GUID.from_u128(U128(0x7b40792d05ff44c4uL, 0x9058f440c71f17d4uL))
+public val C_TRACE_RELOGGER: Guid = Guid.fromU128(U128(0x7b40792d05ff44c4uL, 0x9058f440c71f17d4uL))
 
-public val DIAG_LOGGER_NAMEA: PCSTR = s("DiagLog")
+public val DIAG_LOGGER_NAMEA: Pcstr = s("DiagLog")
 
-public val DIAG_LOGGER_NAMEW: PCWSTR = w("DiagLog")
+public val DIAG_LOGGER_NAMEW: Pcwstr = w("DiagLog")
 
-public val DecodingSourceMax: DECODING_SOURCE = 4
+public val DECODING_SOURCE_MAX: DecodingSource = 4
 
-public val DecodingSourceTlg: DECODING_SOURCE = 3
+public val DECODING_SOURCE_TLG: DecodingSource = 3
 
-public val DecodingSourceWPP: DECODING_SOURCE = 2
+public val DECODING_SOURCE_WPP: DecodingSource = 2
 
-public val DecodingSourceWbem: DECODING_SOURCE = 1
+public val DECODING_SOURCE_WBEM: DecodingSource = 1
 
-public val DecodingSourceXMLFile: DECODING_SOURCE = 0
+public val DECODING_SOURCE_XML_FILE: DecodingSource = 0
 
-public val DefaultTraceSecurityGuid: GUID = GUID.from_u128(U128(0x811c1af7a074a06uL, 0x82ed869455cdf713uL))
+public val DEFAULT_TRACE_SECURITY_GUID: Guid = Guid.fromU128(U128(0x811c1af7a074a06uL, 0x82ed869455cdf713uL))
 
-public val DiskIoGuid: GUID = GUID.from_u128(U128(0x3d6fa8d4fe0511d0uL, 0x9dda00c04fd7ba7cuL))
+public val DISK_IO_GUID: Guid = Guid.fromU128(U128(0x3d6fa8d4fe0511d0uL, 0x9dda00c04fd7ba7cuL))
 
 public val ENABLE_TRACE_PARAMETERS_VERSION: UInt = 1u
 
@@ -75,9 +75,9 @@ public val ETW_OBJECT_TYPE_VALUE: UInt = 1u
 
 public val ETW_POINTER_TYPE_VALUE: UInt = 105u
 
-public val ETW_PROCESS_TRACE_MODE_NONE: ETW_PROCESS_TRACE_MODES = 0
+public val ETW_PROCESS_TRACE_MODE_NONE: EtwProcessTraceModes = 0
 
-public val ETW_PROCESS_TRACE_MODE_RAW_TIMESTAMP: ETW_PROCESS_TRACE_MODES = 1
+public val ETW_PROCESS_TRACE_MODE_RAW_TIMESTAMP: EtwProcessTraceModes = 1
 
 public val ETW_PTVECTOR_TYPE_VALUE: UInt = 117u
 
@@ -111,23 +111,23 @@ public val ETW_VARIANT_TYPE_VALUE: UInt = 116u
 
 public val ETW_WMITIME_TYPE_VALUE: UInt = 118u
 
-public val EVENTMAP_ENTRY_VALUETYPE_STRING: MAP_VALUETYPE = 1
+public val EVENTMAP_ENTRY_VALUETYPE_STRING: MapValuetype = 1
 
-public val EVENTMAP_ENTRY_VALUETYPE_ULONG: MAP_VALUETYPE = 0
+public val EVENTMAP_ENTRY_VALUETYPE_ULONG: MapValuetype = 0
 
-public val EVENTMAP_INFO_FLAG_MANIFEST_BITMAP: MAP_FLAGS = 2
+public val EVENTMAP_INFO_FLAG_MANIFEST_BITMAP: MapFlags = 2
 
-public val EVENTMAP_INFO_FLAG_MANIFEST_PATTERNMAP: MAP_FLAGS = 4
+public val EVENTMAP_INFO_FLAG_MANIFEST_PATTERNMAP: MapFlags = 4
 
-public val EVENTMAP_INFO_FLAG_MANIFEST_VALUEMAP: MAP_FLAGS = 1
+public val EVENTMAP_INFO_FLAG_MANIFEST_VALUEMAP: MapFlags = 1
 
-public val EVENTMAP_INFO_FLAG_WBEM_BITMAP: MAP_FLAGS = 16
+public val EVENTMAP_INFO_FLAG_WBEM_BITMAP: MapFlags = 16
 
-public val EVENTMAP_INFO_FLAG_WBEM_FLAG: MAP_FLAGS = 32
+public val EVENTMAP_INFO_FLAG_WBEM_FLAG: MapFlags = 32
 
-public val EVENTMAP_INFO_FLAG_WBEM_NO_MAP: MAP_FLAGS = 64
+public val EVENTMAP_INFO_FLAG_WBEM_NO_MAP: MapFlags = 64
 
-public val EVENTMAP_INFO_FLAG_WBEM_VALUEMAP: MAP_FLAGS = 8
+public val EVENTMAP_INFO_FLAG_WBEM_VALUEMAP: MapFlags = 8
 
 public val EVENT_ACTIVITY_CTRL_CREATE_ID: UInt = 3u
 
@@ -139,11 +139,11 @@ public val EVENT_ACTIVITY_CTRL_GET_SET_ID: UInt = 4u
 
 public val EVENT_ACTIVITY_CTRL_SET_ID: UInt = 2u
 
-public val EVENT_CONTROL_CODE_CAPTURE_STATE: ENABLECALLBACK_ENABLED_STATE = 2u
+public val EVENT_CONTROL_CODE_CAPTURE_STATE: EnablecallbackEnabledState = 2u
 
-public val EVENT_CONTROL_CODE_DISABLE_PROVIDER: ENABLECALLBACK_ENABLED_STATE = 0u
+public val EVENT_CONTROL_CODE_DISABLE_PROVIDER: EnablecallbackEnabledState = 0u
 
-public val EVENT_CONTROL_CODE_ENABLE_PROVIDER: ENABLECALLBACK_ENABLED_STATE = 1u
+public val EVENT_CONTROL_CODE_ENABLE_PROVIDER: EnablecallbackEnabledState = 1u
 
 public val EVENT_DATA_DESCRIPTOR_TYPE_EVENT_METADATA: UInt = 1u
 
@@ -273,11 +273,11 @@ public val EVENT_HEADER_PROPERTY_RELOGGABLE: UInt = 8u
 
 public val EVENT_HEADER_PROPERTY_XML: UInt = 1u
 
-public val EVENT_LOGGER_NAME: PCWSTR = w("EventLog")
+public val EVENT_LOGGER_NAME: Pcwstr = w("EventLog")
 
-public val EVENT_LOGGER_NAMEA: PCSTR = s("EventLog")
+public val EVENT_LOGGER_NAMEA: Pcstr = s("EventLog")
 
-public val EVENT_LOGGER_NAMEW: PCWSTR = w("EventLog")
+public val EVENT_LOGGER_NAMEW: Pcwstr = w("EventLog")
 
 public val EVENT_MAX_LEVEL: UInt = 255u
 
@@ -293,15 +293,15 @@ public val EVENT_TRACE_COMPRESSED_MODE: UInt = 67108864u
 
 public val EVENT_TRACE_CONTROL_CONVERT_TO_REALTIME: UInt = 5u
 
-public val EVENT_TRACE_CONTROL_FLUSH: EVENT_TRACE_CONTROL = 3u
+public val EVENT_TRACE_CONTROL_FLUSH: EventTraceControl = 3u
 
 public val EVENT_TRACE_CONTROL_INCREMENT_FILE: UInt = 4u
 
-public val EVENT_TRACE_CONTROL_QUERY: EVENT_TRACE_CONTROL = 0u
+public val EVENT_TRACE_CONTROL_QUERY: EventTraceControl = 0u
 
-public val EVENT_TRACE_CONTROL_STOP: EVENT_TRACE_CONTROL = 1u
+public val EVENT_TRACE_CONTROL_STOP: EventTraceControl = 1u
 
-public val EVENT_TRACE_CONTROL_UPDATE: EVENT_TRACE_CONTROL = 2u
+public val EVENT_TRACE_CONTROL_UPDATE: EventTraceControl = 2u
 
 public val EVENT_TRACE_DELAY_OPEN_FILE_MODE: UInt = 512u
 
@@ -317,67 +317,67 @@ public val EVENT_TRACE_FILE_MODE_PREALLOCATE: UInt = 32u
 
 public val EVENT_TRACE_FILE_MODE_SEQUENTIAL: UInt = 1u
 
-public val EVENT_TRACE_FLAG_ALPC: EVENT_TRACE_FLAG = 1048576u
+public val EVENT_TRACE_FLAG_ALPC: EventTraceFlag = 1048576u
 
-public val EVENT_TRACE_FLAG_CSWITCH: EVENT_TRACE_FLAG = 16u
+public val EVENT_TRACE_FLAG_CSWITCH: EventTraceFlag = 16u
 
-public val EVENT_TRACE_FLAG_DBGPRINT: EVENT_TRACE_FLAG = 262144u
+public val EVENT_TRACE_FLAG_DBGPRINT: EventTraceFlag = 262144u
 
 public val EVENT_TRACE_FLAG_DEBUG_EVENTS: UInt = 4194304u
 
-public val EVENT_TRACE_FLAG_DISK_FILE_IO: EVENT_TRACE_FLAG = 512u
+public val EVENT_TRACE_FLAG_DISK_FILE_IO: EventTraceFlag = 512u
 
-public val EVENT_TRACE_FLAG_DISK_IO: EVENT_TRACE_FLAG = 256u
+public val EVENT_TRACE_FLAG_DISK_IO: EventTraceFlag = 256u
 
-public val EVENT_TRACE_FLAG_DISK_IO_INIT: EVENT_TRACE_FLAG = 1024u
+public val EVENT_TRACE_FLAG_DISK_IO_INIT: EventTraceFlag = 1024u
 
-public val EVENT_TRACE_FLAG_DISPATCHER: EVENT_TRACE_FLAG = 2048u
+public val EVENT_TRACE_FLAG_DISPATCHER: EventTraceFlag = 2048u
 
-public val EVENT_TRACE_FLAG_DPC: EVENT_TRACE_FLAG = 32u
+public val EVENT_TRACE_FLAG_DPC: EventTraceFlag = 32u
 
-public val EVENT_TRACE_FLAG_DRIVER: EVENT_TRACE_FLAG = 8388608u
+public val EVENT_TRACE_FLAG_DRIVER: EventTraceFlag = 8388608u
 
 public val EVENT_TRACE_FLAG_ENABLE_RESERVE: UInt = 536870912u
 
 public val EVENT_TRACE_FLAG_EXTENSION: UInt = 2147483648u
 
-public val EVENT_TRACE_FLAG_FILE_IO: EVENT_TRACE_FLAG = 33554432u
+public val EVENT_TRACE_FLAG_FILE_IO: EventTraceFlag = 33554432u
 
-public val EVENT_TRACE_FLAG_FILE_IO_INIT: EVENT_TRACE_FLAG = 67108864u
+public val EVENT_TRACE_FLAG_FILE_IO_INIT: EventTraceFlag = 67108864u
 
 public val EVENT_TRACE_FLAG_FORWARD_WMI: UInt = 1073741824u
 
-public val EVENT_TRACE_FLAG_IMAGE_LOAD: EVENT_TRACE_FLAG = 4u
+public val EVENT_TRACE_FLAG_IMAGE_LOAD: EventTraceFlag = 4u
 
-public val EVENT_TRACE_FLAG_INTERRUPT: EVENT_TRACE_FLAG = 64u
+public val EVENT_TRACE_FLAG_INTERRUPT: EventTraceFlag = 64u
 
-public val EVENT_TRACE_FLAG_JOB: EVENT_TRACE_FLAG = 524288u
+public val EVENT_TRACE_FLAG_JOB: EventTraceFlag = 524288u
 
-public val EVENT_TRACE_FLAG_MEMORY_HARD_FAULTS: EVENT_TRACE_FLAG = 8192u
+public val EVENT_TRACE_FLAG_MEMORY_HARD_FAULTS: EventTraceFlag = 8192u
 
-public val EVENT_TRACE_FLAG_MEMORY_PAGE_FAULTS: EVENT_TRACE_FLAG = 4096u
+public val EVENT_TRACE_FLAG_MEMORY_PAGE_FAULTS: EventTraceFlag = 4096u
 
-public val EVENT_TRACE_FLAG_NETWORK_TCPIP: EVENT_TRACE_FLAG = 65536u
+public val EVENT_TRACE_FLAG_NETWORK_TCPIP: EventTraceFlag = 65536u
 
-public val EVENT_TRACE_FLAG_NO_SYSCONFIG: EVENT_TRACE_FLAG = 268435456u
+public val EVENT_TRACE_FLAG_NO_SYSCONFIG: EventTraceFlag = 268435456u
 
-public val EVENT_TRACE_FLAG_PROCESS: EVENT_TRACE_FLAG = 1u
+public val EVENT_TRACE_FLAG_PROCESS: EventTraceFlag = 1u
 
-public val EVENT_TRACE_FLAG_PROCESS_COUNTERS: EVENT_TRACE_FLAG = 8u
+public val EVENT_TRACE_FLAG_PROCESS_COUNTERS: EventTraceFlag = 8u
 
-public val EVENT_TRACE_FLAG_PROFILE: EVENT_TRACE_FLAG = 16777216u
+public val EVENT_TRACE_FLAG_PROFILE: EventTraceFlag = 16777216u
 
-public val EVENT_TRACE_FLAG_REGISTRY: EVENT_TRACE_FLAG = 131072u
+public val EVENT_TRACE_FLAG_REGISTRY: EventTraceFlag = 131072u
 
-public val EVENT_TRACE_FLAG_SPLIT_IO: EVENT_TRACE_FLAG = 2097152u
+public val EVENT_TRACE_FLAG_SPLIT_IO: EventTraceFlag = 2097152u
 
-public val EVENT_TRACE_FLAG_SYSTEMCALL: EVENT_TRACE_FLAG = 128u
+public val EVENT_TRACE_FLAG_SYSTEMCALL: EventTraceFlag = 128u
 
-public val EVENT_TRACE_FLAG_THREAD: EVENT_TRACE_FLAG = 2u
+public val EVENT_TRACE_FLAG_THREAD: EventTraceFlag = 2u
 
-public val EVENT_TRACE_FLAG_VAMAP: EVENT_TRACE_FLAG = 32768u
+public val EVENT_TRACE_FLAG_VAMAP: EventTraceFlag = 32768u
 
-public val EVENT_TRACE_FLAG_VIRTUAL_ALLOC: EVENT_TRACE_FLAG = 16384u
+public val EVENT_TRACE_FLAG_VIRTUAL_ALLOC: EventTraceFlag = 16384u
 
 public val EVENT_TRACE_INDEPENDENT_SESSION_MODE: UInt = 134217728u
 
@@ -639,85 +639,85 @@ public val EVENT_WRITE_FLAG_INPRIVATE: UInt = 2u
 
 public val EVENT_WRITE_FLAG_NO_FAULTING: UInt = 1u
 
-public val EtwCompressionModeNoDisable: ETW_COMPRESSION_RESUMPTION_MODE = 1
+public val ETW_COMPRESSION_MODE_NO_DISABLE: EtwCompressionResumptionMode = 1
 
-public val EtwCompressionModeNoRestart: ETW_COMPRESSION_RESUMPTION_MODE = 2
+public val ETW_COMPRESSION_MODE_NO_RESTART: EtwCompressionResumptionMode = 2
 
-public val EtwCompressionModeRestart: ETW_COMPRESSION_RESUMPTION_MODE = 0
+public val ETW_COMPRESSION_MODE_RESTART: EtwCompressionResumptionMode = 0
 
-public val EtwPmcOwnerFree: ETW_PMC_COUNTER_OWNER_TYPE = 0
+public val ETW_PMC_OWNER_FREE: EtwPmcCounterOwnerType = 0
 
-public val EtwPmcOwnerTagged: ETW_PMC_COUNTER_OWNER_TYPE = 2
+public val ETW_PMC_OWNER_TAGGED: EtwPmcCounterOwnerType = 2
 
-public val EtwPmcOwnerTaggedWithSource: ETW_PMC_COUNTER_OWNER_TYPE = 3
+public val ETW_PMC_OWNER_TAGGED_WITH_SOURCE: EtwPmcCounterOwnerType = 3
 
-public val EtwPmcOwnerUntagged: ETW_PMC_COUNTER_OWNER_TYPE = 1
+public val ETW_PMC_OWNER_UNTAGGED: EtwPmcCounterOwnerType = 1
 
-public val EtwProviderTraitDecodeGuid: ETW_PROVIDER_TRAIT_TYPE = 2
+public val ETW_PROVIDER_TRAIT_DECODE_GUID: EtwProviderTraitType = 2
 
-public val EtwProviderTraitTypeGroup: ETW_PROVIDER_TRAIT_TYPE = 1
+public val ETW_PROVIDER_TRAIT_TYPE_GROUP: EtwProviderTraitType = 1
 
-public val EtwProviderTraitTypeMax: ETW_PROVIDER_TRAIT_TYPE = 3
+public val ETW_PROVIDER_TRAIT_TYPE_MAX: EtwProviderTraitType = 3
 
-public val EtwQueryLastDroppedTimes: ETW_PROCESS_HANDLE_INFO_TYPE = 3
+public val ETW_QUERY_LAST_DROPPED_TIMES: EtwProcessHandleInfoType = 3
 
-public val EtwQueryLogFileHeader: ETW_PROCESS_HANDLE_INFO_TYPE = 4
+public val ETW_QUERY_LOG_FILE_HEADER: EtwProcessHandleInfoType = 4
 
-public val EtwQueryPartitionInformation: ETW_PROCESS_HANDLE_INFO_TYPE = 1
+public val ETW_QUERY_PARTITION_INFORMATION: EtwProcessHandleInfoType = 1
 
-public val EtwQueryPartitionInformationV2: ETW_PROCESS_HANDLE_INFO_TYPE = 2
+public val ETW_QUERY_PARTITION_INFORMATION_V2: EtwProcessHandleInfoType = 2
 
-public val EtwQueryProcessHandleInfoMax: ETW_PROCESS_HANDLE_INFO_TYPE = 5
+public val ETW_QUERY_PROCESS_HANDLE_INFO_MAX: EtwProcessHandleInfoType = 5
 
-public val EventChannelInformation: EVENT_FIELD_TYPE = 2
+public val EVENT_CHANNEL_INFORMATION: EventFieldType = 2
 
-public val EventInformationMax: EVENT_FIELD_TYPE = 5
+public val EVENT_INFORMATION_MAX: EventFieldType = 5
 
-public val EventKeywordInformation: EVENT_FIELD_TYPE = 0
+public val EVENT_KEYWORD_INFORMATION: EventFieldType = 0
 
-public val EventLevelInformation: EVENT_FIELD_TYPE = 1
+public val EVENT_LEVEL_INFORMATION: EventFieldType = 1
 
-public val EventOpcodeInformation: EVENT_FIELD_TYPE = 4
+public val EVENT_OPCODE_INFORMATION: EventFieldType = 4
 
-public val EventProviderBinaryTrackInfo: EVENT_INFO_CLASS = 0
+public val EVENT_PROVIDER_BINARY_TRACK_INFO: EventInfoClass = 0
 
-public val EventProviderSetReserved1: EVENT_INFO_CLASS = 1
+public val EVENT_PROVIDER_SET_RESERVED1: EventInfoClass = 1
 
-public val EventProviderSetTraits: EVENT_INFO_CLASS = 2
+public val EVENT_PROVIDER_SET_TRAITS: EventInfoClass = 2
 
-public val EventProviderUseDescriptorType: EVENT_INFO_CLASS = 3
+public val EVENT_PROVIDER_USE_DESCRIPTOR_TYPE: EventInfoClass = 3
 
-public val EventSecurityAddDACL: EVENTSECURITYOPERATION = 2
+public val EVENT_SECURITY_ADD_DACL: Eventsecurityoperation = 2
 
-public val EventSecurityAddSACL: EVENTSECURITYOPERATION = 3
+public val EVENT_SECURITY_ADD_SACL: Eventsecurityoperation = 3
 
-public val EventSecurityMax: EVENTSECURITYOPERATION = 4
+public val EVENT_SECURITY_MAX: Eventsecurityoperation = 4
 
-public val EventSecuritySetDACL: EVENTSECURITYOPERATION = 0
+public val EVENT_SECURITY_SET_DACL: Eventsecurityoperation = 0
 
-public val EventSecuritySetSACL: EVENTSECURITYOPERATION = 1
+public val EVENT_SECURITY_SET_SACL: Eventsecurityoperation = 1
 
-public val EventTaskInformation: EVENT_FIELD_TYPE = 3
+public val EVENT_TASK_INFORMATION: EventFieldType = 3
 
-public val EventTraceConfigGuid: GUID = GUID.from_u128(U128(0x1853a65418f4f36uL, 0xaefcdc0f1d2fd235uL))
+public val EVENT_TRACE_CONFIG_GUID: Guid = Guid.fromU128(U128(0x1853a65418f4f36uL, 0xaefcdc0f1d2fd235uL))
 
-public val EventTraceGuid: GUID = GUID.from_u128(U128(0x68fdd9004a3e11d1uL, 0x84f40000f80464e3uL))
+public val EVENT_TRACE_GUID: Guid = Guid.fromU128(U128(0x68fdd9004a3e11d1uL, 0x84f40000f80464e3uL))
 
-public val FileIoGuid: GUID = GUID.from_u128(U128(0x90cbdc394a3e11d1uL, 0x84f40000f80464e3uL))
+public val FILE_IO_GUID: Guid = Guid.fromU128(U128(0x90cbdc394a3e11d1uL, 0x84f40000f80464e3uL))
 
-public val GLOBAL_LOGGER_NAME: PCWSTR = w("GlobalLogger")
+public val GLOBAL_LOGGER_NAME: Pcwstr = w("GlobalLogger")
 
-public val GLOBAL_LOGGER_NAMEA: PCSTR = s("GlobalLogger")
+public val GLOBAL_LOGGER_NAMEA: Pcstr = s("GlobalLogger")
 
-public val GLOBAL_LOGGER_NAMEW: PCWSTR = w("GlobalLogger")
+public val GLOBAL_LOGGER_NAMEW: Pcwstr = w("GlobalLogger")
 
-public val ImageLoadGuid: GUID = GUID.from_u128(U128(0x2cb15d1d5fc111d2uL, 0xabe100a0c911f518uL))
+public val IMAGE_LOAD_GUID: Guid = Guid.fromU128(U128(0x2cb15d1d5fc111d2uL, 0xabe100a0c911f518uL))
 
-public val KERNEL_LOGGER_NAME: PCWSTR = w("NT Kernel Logger")
+public val KERNEL_LOGGER_NAME: Pcwstr = w("NT Kernel Logger")
 
-public val KERNEL_LOGGER_NAMEA: PCSTR = s("NT Kernel Logger")
+public val KERNEL_LOGGER_NAMEA: Pcstr = s("NT Kernel Logger")
 
-public val KERNEL_LOGGER_NAMEW: PCWSTR = w("NT Kernel Logger")
+public val KERNEL_LOGGER_NAMEW: Pcwstr = w("NT Kernel Logger")
 
 public val MAX_EVENT_DATA_DESCRIPTORS: UInt = 128u
 
@@ -737,37 +737,37 @@ public val MAX_MOF_FIELDS: UInt = 16u
 
 public val MAX_PAYLOAD_PREDICATES: UInt = 8u
 
-public val MaxEventInfo: EVENT_INFO_CLASS = 4
+public val MAX_EVENT_INFO: EventInfoClass = 4
 
-public val MaxTraceSetInfoClass: TRACE_QUERY_INFO_CLASS = 28
+public val MAX_TRACE_SET_INFO_CLASS: TraceQueryInfoClass = 28
 
-public val PAYLOADFIELD_BETWEEN: PAYLOAD_OPERATOR = 6
+public val PAYLOADFIELD_BETWEEN: PayloadOperator = 6
 
-public val PAYLOADFIELD_CONTAINS: PAYLOAD_OPERATOR = 20
+public val PAYLOADFIELD_CONTAINS: PayloadOperator = 20
 
-public val PAYLOADFIELD_DOESNTCONTAIN: PAYLOAD_OPERATOR = 21
+public val PAYLOADFIELD_DOESNTCONTAIN: PayloadOperator = 21
 
-public val PAYLOADFIELD_EQ: PAYLOAD_OPERATOR = 0
+public val PAYLOADFIELD_EQ: PayloadOperator = 0
 
-public val PAYLOADFIELD_GE: PAYLOAD_OPERATOR = 5
+public val PAYLOADFIELD_GE: PayloadOperator = 5
 
-public val PAYLOADFIELD_GT: PAYLOAD_OPERATOR = 3
+public val PAYLOADFIELD_GT: PayloadOperator = 3
 
-public val PAYLOADFIELD_INVALID: PAYLOAD_OPERATOR = 32
+public val PAYLOADFIELD_INVALID: PayloadOperator = 32
 
-public val PAYLOADFIELD_IS: PAYLOAD_OPERATOR = 30
+public val PAYLOADFIELD_IS: PayloadOperator = 30
 
-public val PAYLOADFIELD_ISNOT: PAYLOAD_OPERATOR = 31
+public val PAYLOADFIELD_ISNOT: PayloadOperator = 31
 
-public val PAYLOADFIELD_LE: PAYLOAD_OPERATOR = 2
+public val PAYLOADFIELD_LE: PayloadOperator = 2
 
-public val PAYLOADFIELD_LT: PAYLOAD_OPERATOR = 4
+public val PAYLOADFIELD_LT: PayloadOperator = 4
 
-public val PAYLOADFIELD_MODULO: PAYLOAD_OPERATOR = 8
+public val PAYLOADFIELD_MODULO: PayloadOperator = 8
 
-public val PAYLOADFIELD_NE: PAYLOAD_OPERATOR = 1
+public val PAYLOADFIELD_NE: PayloadOperator = 1
 
-public val PAYLOADFIELD_NOTBETWEEN: PAYLOAD_OPERATOR = 7
+public val PAYLOADFIELD_NOTBETWEEN: PayloadOperator = 7
 
 public val PROCESS_TRACE_MODE_EVENT_RECORD: UInt = 268435456u
 
@@ -775,31 +775,31 @@ public val PROCESS_TRACE_MODE_RAW_TIMESTAMP: UInt = 4096u
 
 public val PROCESS_TRACE_MODE_REAL_TIME: UInt = 256u
 
-public val PageFaultGuid: GUID = GUID.from_u128(U128(0x3d6fa8d3fe0511d0uL, 0x9dda00c04fd7ba7cuL))
+public val PAGE_FAULT_GUID: Guid = Guid.fromU128(U128(0x3d6fa8d3fe0511d0uL, 0x9dda00c04fd7ba7cuL))
 
-public val PerfInfoGuid: GUID = GUID.from_u128(U128(0xce1dbfb4137e4da6uL, 0x87b03f59aa102cbcuL))
+public val PERF_INFO_GUID: Guid = Guid.fromU128(U128(0xce1dbfb4137e4da6uL, 0x87b03f59aa102cbcuL))
 
-public val PrivateLoggerNotificationGuid: GUID = GUID.from_u128(U128(0x3595ab5c042a4c8euL, 0xb9422d059bfeb1b1uL))
+public val PRIVATE_LOGGER_NOTIFICATION_GUID: Guid = Guid.fromU128(U128(0x3595ab5c042a4c8euL, 0xb9422d059bfeb1b1uL))
 
-public val ProcessGuid: GUID = GUID.from_u128(U128(0x3d6fa8d0fe0511d0uL, 0x9dda00c04fd7ba7cuL))
+public val PROCESS_GUID: Guid = Guid.fromU128(U128(0x3d6fa8d0fe0511d0uL, 0x9dda00c04fd7ba7cuL))
 
-public val PropertyHasCustomSchema: PROPERTY_FLAGS = 128
+public val PROPERTY_HAS_CUSTOM_SCHEMA: PropertyFlags = 128
 
-public val PropertyHasTags: PROPERTY_FLAGS = 64
+public val PROPERTY_HAS_TAGS: PropertyFlags = 64
 
-public val PropertyParamCount: PROPERTY_FLAGS = 4
+public val PROPERTY_PARAM_COUNT: PropertyFlags = 4
 
-public val PropertyParamFixedCount: PROPERTY_FLAGS = 32
+public val PROPERTY_PARAM_FIXED_COUNT: PropertyFlags = 32
 
-public val PropertyParamFixedLength: PROPERTY_FLAGS = 16
+public val PROPERTY_PARAM_FIXED_LENGTH: PropertyFlags = 16
 
-public val PropertyParamLength: PROPERTY_FLAGS = 2
+public val PROPERTY_PARAM_LENGTH: PropertyFlags = 2
 
-public val PropertyStruct: PROPERTY_FLAGS = 1
+public val PROPERTY_STRUCT: PropertyFlags = 1
 
-public val PropertyWBEMXmlFragment: PROPERTY_FLAGS = 8
+public val PROPERTY_WBEM_XML_FRAGMENT: PropertyFlags = 8
 
-public val RegistryGuid: GUID = GUID.from_u128(U128(0xae53722ec86311d2uL, 0x865900c04fa321a1uL))
+public val REGISTRY_GUID: Guid = Guid.fromU128(U128(0xae53722ec86311d2uL, 0x865900c04fa321a1uL))
 
 public val SYSTEM_ALPC_KW_GENERAL: ULong = 1uL
 
@@ -991,217 +991,217 @@ public val SYSTEM_TIMER_KW_CLOCK_TIMER: ULong = 2uL
 
 public val SYSTEM_TIMER_KW_GENERAL: ULong = 1uL
 
-public val SplitIoGuid: GUID = GUID.from_u128(U128(0xd837ca9212b944a5uL, 0xad6a3a65b3578aa8uL))
+public val SPLIT_IO_GUID: Guid = Guid.fromU128(U128(0xd837ca9212b944a5uL, 0xad6a3a65b3578aa8uL))
 
-public val SystemAlpcProviderGuid: GUID = GUID.from_u128(U128(0xfcb9baafe5294980uL, 0x92e9ced1a6aadfdfuL))
+public val SYSTEM_ALPC_PROVIDER_GUID: Guid = Guid.fromU128(U128(0xfcb9baafe5294980uL, 0x92e9ced1a6aadfdfuL))
 
-public val SystemConfigProviderGuid: GUID = GUID.from_u128(U128(0xfef3a8b6318d4b67uL, 0xa96a3b0f6b8f18feuL))
+public val SYSTEM_CONFIG_PROVIDER_GUID: Guid = Guid.fromU128(U128(0xfef3a8b6318d4b67uL, 0xa96a3b0f6b8f18feuL))
 
-public val SystemCpuProviderGuid: GUID = GUID.from_u128(U128(0xc6c5265feae84650uL, 0xaae49d48603d8510uL))
+public val SYSTEM_CPU_PROVIDER_GUID: Guid = Guid.fromU128(U128(0xc6c5265feae84650uL, 0xaae49d48603d8510uL))
 
-public val SystemHypervisorProviderGuid: GUID = GUID.from_u128(U128(0xbafa072a918a4beduL, 0xb622bc152097098fuL))
+public val SYSTEM_HYPERVISOR_PROVIDER_GUID: Guid = Guid.fromU128(U128(0xbafa072a918a4beduL, 0xb622bc152097098fuL))
 
-public val SystemInterruptProviderGuid: GUID = GUID.from_u128(U128(0xd4bbee17b5454888uL, 0x858b744169015b25uL))
+public val SYSTEM_INTERRUPT_PROVIDER_GUID: Guid = Guid.fromU128(U128(0xd4bbee17b5454888uL, 0x858b744169015b25uL))
 
-public val SystemIoFilterProviderGuid: GUID = GUID.from_u128(U128(0xfbd093639e224661uL, 0xb8bfe7a34b535b8cuL))
+public val SYSTEM_IO_FILTER_PROVIDER_GUID: Guid = Guid.fromU128(U128(0xfbd093639e224661uL, 0xb8bfe7a34b535b8cuL))
 
-public val SystemIoProviderGuid: GUID = GUID.from_u128(U128(0x3d5c43e30f1c4202uL, 0xb817174c0070dc79uL))
+public val SYSTEM_IO_PROVIDER_GUID: Guid = Guid.fromU128(U128(0x3d5c43e30f1c4202uL, 0xb817174c0070dc79uL))
 
-public val SystemLockProviderGuid: GUID = GUID.from_u128(U128(0x721ddfd3dacc4e1euL, 0xb26aa2cb31d4705auL))
+public val SYSTEM_LOCK_PROVIDER_GUID: Guid = Guid.fromU128(U128(0x721ddfd3dacc4e1euL, 0xb26aa2cb31d4705auL))
 
-public val SystemMemoryProviderGuid: GUID = GUID.from_u128(U128(0x82958ca9b6cd47f8uL, 0xa3a803ae85a4bc24uL))
+public val SYSTEM_MEMORY_PROVIDER_GUID: Guid = Guid.fromU128(U128(0x82958ca9b6cd47f8uL, 0xa3a803ae85a4bc24uL))
 
-public val SystemObjectProviderGuid: GUID = GUID.from_u128(U128(0xfebd74603d1d47ebuL, 0xaf49c9eeb1e146f2uL))
+public val SYSTEM_OBJECT_PROVIDER_GUID: Guid = Guid.fromU128(U128(0xfebd74603d1d47ebuL, 0xaf49c9eeb1e146f2uL))
 
-public val SystemPowerProviderGuid: GUID = GUID.from_u128(U128(0xc134884a32d54488uL, 0x80e514ed7abb8269uL))
+public val SYSTEM_POWER_PROVIDER_GUID: Guid = Guid.fromU128(U128(0xc134884a32d54488uL, 0x80e514ed7abb8269uL))
 
-public val SystemProcessProviderGuid: GUID = GUID.from_u128(U128(0x151f55dc467d471fuL, 0x83b55f889d46ff66uL))
+public val SYSTEM_PROCESS_PROVIDER_GUID: Guid = Guid.fromU128(U128(0x151f55dc467d471fuL, 0x83b55f889d46ff66uL))
 
-public val SystemProfileProviderGuid: GUID = GUID.from_u128(U128(0xbfeb03241cee496fuL, 0xa4092ac2b48a6322uL))
+public val SYSTEM_PROFILE_PROVIDER_GUID: Guid = Guid.fromU128(U128(0xbfeb03241cee496fuL, 0xa4092ac2b48a6322uL))
 
-public val SystemRegistryProviderGuid: GUID = GUID.from_u128(U128(0x16156bd9fab44cfauL, 0xa23289d1099058e3uL))
+public val SYSTEM_REGISTRY_PROVIDER_GUID: Guid = Guid.fromU128(U128(0x16156bd9fab44cfauL, 0xa23289d1099058e3uL))
 
-public val SystemSchedulerProviderGuid: GUID = GUID.from_u128(U128(0x599a2a764d914910uL, 0x9ac77d33f2e97a6cuL))
+public val SYSTEM_SCHEDULER_PROVIDER_GUID: Guid = Guid.fromU128(U128(0x599a2a764d914910uL, 0x9ac77d33f2e97a6cuL))
 
-public val SystemSyscallProviderGuid: GUID = GUID.from_u128(U128(0x434286f76f1b45bbuL, 0xb37e95f623046c7cuL))
+public val SYSTEM_SYSCALL_PROVIDER_GUID: Guid = Guid.fromU128(U128(0x434286f76f1b45bbuL, 0xb37e95f623046c7cuL))
 
-public val SystemTimerProviderGuid: GUID = GUID.from_u128(U128(0x4f061568e215499fuL, 0xab2eeda0ae890a5buL))
+public val SYSTEM_TIMER_PROVIDER_GUID: Guid = Guid.fromU128(U128(0x4f061568e215499fuL, 0xab2eeda0ae890a5buL))
 
-public val SystemTraceControlGuid: GUID = GUID.from_u128(U128(0x9e814aad320411d2uL, 0x9a82006008a86939uL))
+public val SYSTEM_TRACE_CONTROL_GUID: Guid = Guid.fromU128(U128(0x9e814aad320411d2uL, 0x9a82006008a86939uL))
 
-public val TDH_CONTEXT_MAXIMUM: TDH_CONTEXT_TYPE = 5
+public val TDH_CONTEXT_MAXIMUM: TdhContextType = 5
 
-public val TDH_CONTEXT_PDB_PATH: TDH_CONTEXT_TYPE = 4
+public val TDH_CONTEXT_PDB_PATH: TdhContextType = 4
 
-public val TDH_CONTEXT_POINTERSIZE: TDH_CONTEXT_TYPE = 3
+public val TDH_CONTEXT_POINTERSIZE: TdhContextType = 3
 
-public val TDH_CONTEXT_WPP_GMT: TDH_CONTEXT_TYPE = 2
+public val TDH_CONTEXT_WPP_GMT: TdhContextType = 2
 
-public val TDH_CONTEXT_WPP_TMFFILE: TDH_CONTEXT_TYPE = 0
+public val TDH_CONTEXT_WPP_TMFFILE: TdhContextType = 0
 
-public val TDH_CONTEXT_WPP_TMFSEARCHPATH: TDH_CONTEXT_TYPE = 1
+public val TDH_CONTEXT_WPP_TMFSEARCHPATH: TdhContextType = 1
 
-public val TDH_INTYPE_ANSICHAR: _TDH_IN_TYPE = 307
+public val TDH_INTYPE_ANSICHAR: TdhInType = 307
 
-public val TDH_INTYPE_ANSISTRING: _TDH_IN_TYPE = 2
+public val TDH_INTYPE_ANSISTRING: TdhInType = 2
 
-public val TDH_INTYPE_BINARY: _TDH_IN_TYPE = 14
+public val TDH_INTYPE_BINARY: TdhInType = 14
 
-public val TDH_INTYPE_BOOLEAN: _TDH_IN_TYPE = 13
+public val TDH_INTYPE_BOOLEAN: TdhInType = 13
 
-public val TDH_INTYPE_COUNTEDANSISTRING: _TDH_IN_TYPE = 301
+public val TDH_INTYPE_COUNTEDANSISTRING: TdhInType = 301
 
-public val TDH_INTYPE_COUNTEDSTRING: _TDH_IN_TYPE = 300
+public val TDH_INTYPE_COUNTEDSTRING: TdhInType = 300
 
-public val TDH_INTYPE_DOUBLE: _TDH_IN_TYPE = 12
+public val TDH_INTYPE_DOUBLE: TdhInType = 12
 
-public val TDH_INTYPE_FILETIME: _TDH_IN_TYPE = 17
+public val TDH_INTYPE_FILETIME: TdhInType = 17
 
-public val TDH_INTYPE_FLOAT: _TDH_IN_TYPE = 11
+public val TDH_INTYPE_FLOAT: TdhInType = 11
 
-public val TDH_INTYPE_GUID: _TDH_IN_TYPE = 15
+public val TDH_INTYPE_GUID: TdhInType = 15
 
-public val TDH_INTYPE_HEXDUMP: _TDH_IN_TYPE = 309
+public val TDH_INTYPE_HEXDUMP: TdhInType = 309
 
-public val TDH_INTYPE_HEXINT32: _TDH_IN_TYPE = 20
+public val TDH_INTYPE_HEXINT32: TdhInType = 20
 
-public val TDH_INTYPE_HEXINT64: _TDH_IN_TYPE = 21
+public val TDH_INTYPE_HEXINT64: TdhInType = 21
 
-public val TDH_INTYPE_INT16: _TDH_IN_TYPE = 5
+public val TDH_INTYPE_INT16: TdhInType = 5
 
-public val TDH_INTYPE_INT32: _TDH_IN_TYPE = 7
+public val TDH_INTYPE_INT32: TdhInType = 7
 
-public val TDH_INTYPE_INT64: _TDH_IN_TYPE = 9
+public val TDH_INTYPE_INT64: TdhInType = 9
 
-public val TDH_INTYPE_INT8: _TDH_IN_TYPE = 3
+public val TDH_INTYPE_INT8: TdhInType = 3
 
-public val TDH_INTYPE_MANIFEST_COUNTEDANSISTRING: _TDH_IN_TYPE = 23
+public val TDH_INTYPE_MANIFEST_COUNTEDANSISTRING: TdhInType = 23
 
-public val TDH_INTYPE_MANIFEST_COUNTEDBINARY: _TDH_IN_TYPE = 25
+public val TDH_INTYPE_MANIFEST_COUNTEDBINARY: TdhInType = 25
 
-public val TDH_INTYPE_MANIFEST_COUNTEDSTRING: _TDH_IN_TYPE = 22
+public val TDH_INTYPE_MANIFEST_COUNTEDSTRING: TdhInType = 22
 
-public val TDH_INTYPE_NONNULLTERMINATEDANSISTRING: _TDH_IN_TYPE = 305
+public val TDH_INTYPE_NONNULLTERMINATEDANSISTRING: TdhInType = 305
 
-public val TDH_INTYPE_NONNULLTERMINATEDSTRING: _TDH_IN_TYPE = 304
+public val TDH_INTYPE_NONNULLTERMINATEDSTRING: TdhInType = 304
 
-public val TDH_INTYPE_NULL: _TDH_IN_TYPE = 0
+public val TDH_INTYPE_NULL: TdhInType = 0
 
-public val TDH_INTYPE_POINTER: _TDH_IN_TYPE = 16
+public val TDH_INTYPE_POINTER: TdhInType = 16
 
-public val TDH_INTYPE_RESERVED24: _TDH_IN_TYPE = 24
+public val TDH_INTYPE_RESERVED24: TdhInType = 24
 
-public val TDH_INTYPE_REVERSEDCOUNTEDANSISTRING: _TDH_IN_TYPE = 303
+public val TDH_INTYPE_REVERSEDCOUNTEDANSISTRING: TdhInType = 303
 
-public val TDH_INTYPE_REVERSEDCOUNTEDSTRING: _TDH_IN_TYPE = 302
+public val TDH_INTYPE_REVERSEDCOUNTEDSTRING: TdhInType = 302
 
-public val TDH_INTYPE_SID: _TDH_IN_TYPE = 19
+public val TDH_INTYPE_SID: TdhInType = 19
 
-public val TDH_INTYPE_SIZET: _TDH_IN_TYPE = 308
+public val TDH_INTYPE_SIZET: TdhInType = 308
 
-public val TDH_INTYPE_SYSTEMTIME: _TDH_IN_TYPE = 18
+public val TDH_INTYPE_SYSTEMTIME: TdhInType = 18
 
-public val TDH_INTYPE_UINT16: _TDH_IN_TYPE = 6
+public val TDH_INTYPE_UINT16: TdhInType = 6
 
-public val TDH_INTYPE_UINT32: _TDH_IN_TYPE = 8
+public val TDH_INTYPE_UINT32: TdhInType = 8
 
-public val TDH_INTYPE_UINT64: _TDH_IN_TYPE = 10
+public val TDH_INTYPE_UINT64: TdhInType = 10
 
-public val TDH_INTYPE_UINT8: _TDH_IN_TYPE = 4
+public val TDH_INTYPE_UINT8: TdhInType = 4
 
-public val TDH_INTYPE_UNICODECHAR: _TDH_IN_TYPE = 306
+public val TDH_INTYPE_UNICODECHAR: TdhInType = 306
 
-public val TDH_INTYPE_UNICODESTRING: _TDH_IN_TYPE = 1
+public val TDH_INTYPE_UNICODESTRING: TdhInType = 1
 
-public val TDH_INTYPE_WBEMSID: _TDH_IN_TYPE = 310
+public val TDH_INTYPE_WBEMSID: TdhInType = 310
 
-public val TDH_OUTTYPE_BOOLEAN: _TDH_OUT_TYPE = 13
+public val TDH_OUTTYPE_BOOLEAN: TdhOutType = 13
 
-public val TDH_OUTTYPE_BYTE: _TDH_OUT_TYPE = 3
+public val TDH_OUTTYPE_BYTE: TdhOutType = 3
 
-public val TDH_OUTTYPE_CIMDATETIME: _TDH_OUT_TYPE = 26
+public val TDH_OUTTYPE_CIMDATETIME: TdhOutType = 26
 
-public val TDH_OUTTYPE_CODE_POINTER: _TDH_OUT_TYPE = 37
+public val TDH_OUTTYPE_CODE_POINTER: TdhOutType = 37
 
-public val TDH_OUTTYPE_CULTURE_INSENSITIVE_DATETIME: _TDH_OUT_TYPE = 33
+public val TDH_OUTTYPE_CULTURE_INSENSITIVE_DATETIME: TdhOutType = 33
 
-public val TDH_OUTTYPE_DATETIME: _TDH_OUT_TYPE = 2
+public val TDH_OUTTYPE_DATETIME: TdhOutType = 2
 
-public val TDH_OUTTYPE_DATETIME_UTC: _TDH_OUT_TYPE = 38
+public val TDH_OUTTYPE_DATETIME_UTC: TdhOutType = 38
 
-public val TDH_OUTTYPE_DOUBLE: _TDH_OUT_TYPE = 12
+public val TDH_OUTTYPE_DOUBLE: TdhOutType = 12
 
-public val TDH_OUTTYPE_ERRORCODE: _TDH_OUT_TYPE = 29
+public val TDH_OUTTYPE_ERRORCODE: TdhOutType = 29
 
-public val TDH_OUTTYPE_ETWTIME: _TDH_OUT_TYPE = 27
+public val TDH_OUTTYPE_ETWTIME: TdhOutType = 27
 
-public val TDH_OUTTYPE_FLOAT: _TDH_OUT_TYPE = 11
+public val TDH_OUTTYPE_FLOAT: TdhOutType = 11
 
-public val TDH_OUTTYPE_GUID: _TDH_OUT_TYPE = 14
+public val TDH_OUTTYPE_GUID: TdhOutType = 14
 
-public val TDH_OUTTYPE_HEXBINARY: _TDH_OUT_TYPE = 15
+public val TDH_OUTTYPE_HEXBINARY: TdhOutType = 15
 
-public val TDH_OUTTYPE_HEXINT16: _TDH_OUT_TYPE = 17
+public val TDH_OUTTYPE_HEXINT16: TdhOutType = 17
 
-public val TDH_OUTTYPE_HEXINT32: _TDH_OUT_TYPE = 18
+public val TDH_OUTTYPE_HEXINT32: TdhOutType = 18
 
-public val TDH_OUTTYPE_HEXINT64: _TDH_OUT_TYPE = 19
+public val TDH_OUTTYPE_HEXINT64: TdhOutType = 19
 
-public val TDH_OUTTYPE_HEXINT8: _TDH_OUT_TYPE = 16
+public val TDH_OUTTYPE_HEXINT8: TdhOutType = 16
 
-public val TDH_OUTTYPE_HRESULT: _TDH_OUT_TYPE = 32
+public val TDH_OUTTYPE_HRESULT: TdhOutType = 32
 
-public val TDH_OUTTYPE_INT: _TDH_OUT_TYPE = 7
+public val TDH_OUTTYPE_INT: TdhOutType = 7
 
-public val TDH_OUTTYPE_IPV4: _TDH_OUT_TYPE = 23
+public val TDH_OUTTYPE_IPV4: TdhOutType = 23
 
-public val TDH_OUTTYPE_IPV6: _TDH_OUT_TYPE = 24
+public val TDH_OUTTYPE_IPV6: TdhOutType = 24
 
-public val TDH_OUTTYPE_JSON: _TDH_OUT_TYPE = 34
+public val TDH_OUTTYPE_JSON: TdhOutType = 34
 
-public val TDH_OUTTYPE_LONG: _TDH_OUT_TYPE = 9
+public val TDH_OUTTYPE_LONG: TdhOutType = 9
 
-public val TDH_OUTTYPE_NOPRINT: _TDH_OUT_TYPE = 301
+public val TDH_OUTTYPE_NOPRINT: TdhOutType = 301
 
-public val TDH_OUTTYPE_NTSTATUS: _TDH_OUT_TYPE = 31
+public val TDH_OUTTYPE_NTSTATUS: TdhOutType = 31
 
-public val TDH_OUTTYPE_NULL: _TDH_OUT_TYPE = 0
+public val TDH_OUTTYPE_NULL: TdhOutType = 0
 
-public val TDH_OUTTYPE_PID: _TDH_OUT_TYPE = 20
+public val TDH_OUTTYPE_PID: TdhOutType = 20
 
-public val TDH_OUTTYPE_PKCS7_WITH_TYPE_INFO: _TDH_OUT_TYPE = 36
+public val TDH_OUTTYPE_PKCS7_WITH_TYPE_INFO: TdhOutType = 36
 
-public val TDH_OUTTYPE_PORT: _TDH_OUT_TYPE = 22
+public val TDH_OUTTYPE_PORT: TdhOutType = 22
 
-public val TDH_OUTTYPE_REDUCEDSTRING: _TDH_OUT_TYPE = 300
+public val TDH_OUTTYPE_REDUCEDSTRING: TdhOutType = 300
 
-public val TDH_OUTTYPE_SHORT: _TDH_OUT_TYPE = 5
+public val TDH_OUTTYPE_SHORT: TdhOutType = 5
 
-public val TDH_OUTTYPE_SOCKETADDRESS: _TDH_OUT_TYPE = 25
+public val TDH_OUTTYPE_SOCKETADDRESS: TdhOutType = 25
 
-public val TDH_OUTTYPE_STRING: _TDH_OUT_TYPE = 1
+public val TDH_OUTTYPE_STRING: TdhOutType = 1
 
-public val TDH_OUTTYPE_TID: _TDH_OUT_TYPE = 21
+public val TDH_OUTTYPE_TID: TdhOutType = 21
 
-public val TDH_OUTTYPE_UNSIGNEDBYTE: _TDH_OUT_TYPE = 4
+public val TDH_OUTTYPE_UNSIGNEDBYTE: TdhOutType = 4
 
-public val TDH_OUTTYPE_UNSIGNEDINT: _TDH_OUT_TYPE = 8
+public val TDH_OUTTYPE_UNSIGNEDINT: TdhOutType = 8
 
-public val TDH_OUTTYPE_UNSIGNEDLONG: _TDH_OUT_TYPE = 10
+public val TDH_OUTTYPE_UNSIGNEDLONG: TdhOutType = 10
 
-public val TDH_OUTTYPE_UNSIGNEDSHORT: _TDH_OUT_TYPE = 6
+public val TDH_OUTTYPE_UNSIGNEDSHORT: TdhOutType = 6
 
-public val TDH_OUTTYPE_UTF8: _TDH_OUT_TYPE = 35
+public val TDH_OUTTYPE_UTF8: TdhOutType = 35
 
-public val TDH_OUTTYPE_WIN32ERROR: _TDH_OUT_TYPE = 30
+public val TDH_OUTTYPE_WIN32ERROR: TdhOutType = 30
 
-public val TDH_OUTTYPE_XML: _TDH_OUT_TYPE = 28
+public val TDH_OUTTYPE_XML: TdhOutType = 28
 
-public val TEMPLATE_CONTROL_GUID: TEMPLATE_FLAGS = 4
+public val TEMPLATE_CONTROL_GUID: TemplateFlags = 4
 
-public val TEMPLATE_EVENT_DATA: TEMPLATE_FLAGS = 1
+public val TEMPLATE_EVENT_DATA: TemplateFlags = 1
 
-public val TEMPLATE_USER_DATA: TEMPLATE_FLAGS = 2
+public val TEMPLATE_USER_DATA: TemplateFlags = 2
 
 public val TRACELOG_ACCESS_KERNEL_LOGGER: UInt = 256u
 
@@ -1253,11 +1253,11 @@ public val TRACE_LEVEL_VERBOSE: UInt = 5u
 
 public val TRACE_LEVEL_WARNING: UInt = 3u
 
-public val TRACE_MESSAGE_COMPONENTID: TRACE_MESSAGE_FLAGS = 4u
+public val TRACE_MESSAGE_COMPONENTID: TraceMessageFlags = 4u
 
 public val TRACE_MESSAGE_FLAG_MASK: UInt = 65535u
 
-public val TRACE_MESSAGE_GUID: TRACE_MESSAGE_FLAGS = 2u
+public val TRACE_MESSAGE_GUID: TraceMessageFlags = 2u
 
 public val TRACE_MESSAGE_PERFORMANCE_TIMESTAMP: UInt = 16u
 
@@ -1265,77 +1265,77 @@ public val TRACE_MESSAGE_POINTER32: UInt = 64u
 
 public val TRACE_MESSAGE_POINTER64: UInt = 128u
 
-public val TRACE_MESSAGE_SEQUENCE: TRACE_MESSAGE_FLAGS = 1u
+public val TRACE_MESSAGE_SEQUENCE: TraceMessageFlags = 1u
 
-public val TRACE_MESSAGE_SYSTEMINFO: TRACE_MESSAGE_FLAGS = 32u
+public val TRACE_MESSAGE_SYSTEMINFO: TraceMessageFlags = 32u
 
-public val TRACE_MESSAGE_TIMESTAMP: TRACE_MESSAGE_FLAGS = 8u
+public val TRACE_MESSAGE_TIMESTAMP: TraceMessageFlags = 8u
 
 public val TRACE_PROVIDER_FLAG_LEGACY: UInt = 1u
 
 public val TRACE_PROVIDER_FLAG_PRE_ENABLE: UInt = 2u
 
-public val TcpIpGuid: GUID = GUID.from_u128(U128(0x9a280ac0c8e011d1uL, 0x84e200c04fb998a2uL))
+public val TCP_IP_GUID: Guid = Guid.fromU128(U128(0x9a280ac0c8e011d1uL, 0x84e200c04fb998a2uL))
 
-public val ThreadGuid: GUID = GUID.from_u128(U128(0x3d6fa8d1fe0511d0uL, 0x9dda00c04fd7ba7cuL))
+public val THREAD_GUID: Guid = Guid.fromU128(U128(0x3d6fa8d1fe0511d0uL, 0x9dda00c04fd7ba7cuL))
 
-public val TraceDisallowListQuery: TRACE_QUERY_INFO_CLASS = 14
+public val TRACE_DISALLOW_LIST_QUERY: TraceQueryInfoClass = 14
 
-public val TraceGroupQueryInfo: TRACE_QUERY_INFO_CLASS = 13
+public val TRACE_GROUP_QUERY_INFO: TraceQueryInfoClass = 13
 
-public val TraceGroupQueryList: TRACE_QUERY_INFO_CLASS = 12
+public val TRACE_GROUP_QUERY_LIST: TraceQueryInfoClass = 12
 
-public val TraceGuidQueryInfo: TRACE_QUERY_INFO_CLASS = 1
+public val TRACE_GUID_QUERY_INFO: TraceQueryInfoClass = 1
 
-public val TraceGuidQueryList: TRACE_QUERY_INFO_CLASS = 0
+public val TRACE_GUID_QUERY_LIST: TraceQueryInfoClass = 0
 
-public val TraceGuidQueryProcess: TRACE_QUERY_INFO_CLASS = 2
+public val TRACE_GUID_QUERY_PROCESS: TraceQueryInfoClass = 2
 
-public val TraceInfoReserved15: TRACE_QUERY_INFO_CLASS = 15
+public val TRACE_INFO_RESERVED15: TraceQueryInfoClass = 15
 
-public val TraceLbrConfigurationInfo: TRACE_QUERY_INFO_CLASS = 20
+public val TRACE_LBR_CONFIGURATION_INFO: TraceQueryInfoClass = 20
 
-public val TraceLbrEventListInfo: TRACE_QUERY_INFO_CLASS = 21
+public val TRACE_LBR_EVENT_LIST_INFO: TraceQueryInfoClass = 21
 
-public val TraceMaxLoggersQuery: TRACE_QUERY_INFO_CLASS = 19
+public val TRACE_MAX_LOGGERS_QUERY: TraceQueryInfoClass = 19
 
-public val TraceMaxPmcCounterQuery: TRACE_QUERY_INFO_CLASS = 22
+public val TRACE_MAX_PMC_COUNTER_QUERY: TraceQueryInfoClass = 22
 
-public val TracePeriodicCaptureStateInfo: TRACE_QUERY_INFO_CLASS = 17
+public val TRACE_PERIODIC_CAPTURE_STATE_INFO: TraceQueryInfoClass = 17
 
-public val TracePeriodicCaptureStateListInfo: TRACE_QUERY_INFO_CLASS = 16
+public val TRACE_PERIODIC_CAPTURE_STATE_LIST_INFO: TraceQueryInfoClass = 16
 
-public val TracePmcCounterListInfo: TRACE_QUERY_INFO_CLASS = 9
+public val TRACE_PMC_COUNTER_LIST_INFO: TraceQueryInfoClass = 9
 
-public val TracePmcCounterOwners: TRACE_QUERY_INFO_CLASS = 25
+public val TRACE_PMC_COUNTER_OWNERS: TraceQueryInfoClass = 25
 
-public val TracePmcEventListInfo: TRACE_QUERY_INFO_CLASS = 8
+public val TRACE_PMC_EVENT_LIST_INFO: TraceQueryInfoClass = 8
 
-public val TracePmcSessionInformation: TRACE_QUERY_INFO_CLASS = 27
+public val TRACE_PMC_SESSION_INFORMATION: TraceQueryInfoClass = 27
 
-public val TraceProfileSourceConfigInfo: TRACE_QUERY_INFO_CLASS = 6
+public val TRACE_PROFILE_SOURCE_CONFIG_INFO: TraceQueryInfoClass = 6
 
-public val TraceProfileSourceListInfo: TRACE_QUERY_INFO_CLASS = 7
+public val TRACE_PROFILE_SOURCE_LIST_INFO: TraceQueryInfoClass = 7
 
-public val TraceProviderBinaryTracking: TRACE_QUERY_INFO_CLASS = 18
+public val TRACE_PROVIDER_BINARY_TRACKING: TraceQueryInfoClass = 18
 
-public val TraceSampledProfileIntervalInfo: TRACE_QUERY_INFO_CLASS = 5
+public val TRACE_SAMPLED_PROFILE_INTERVAL_INFO: TraceQueryInfoClass = 5
 
-public val TraceSetDisallowList: TRACE_QUERY_INFO_CLASS = 10
+public val TRACE_SET_DISALLOW_LIST: TraceQueryInfoClass = 10
 
-public val TraceStackCachingInfo: TRACE_QUERY_INFO_CLASS = 24
+public val TRACE_STACK_CACHING_INFO: TraceQueryInfoClass = 24
 
-public val TraceStackTracingInfo: TRACE_QUERY_INFO_CLASS = 3
+public val TRACE_STACK_TRACING_INFO: TraceQueryInfoClass = 3
 
-public val TraceStreamCount: TRACE_QUERY_INFO_CLASS = 23
+public val TRACE_STREAM_COUNT: TraceQueryInfoClass = 23
 
-public val TraceSystemTraceEnableFlagsInfo: TRACE_QUERY_INFO_CLASS = 4
+public val TRACE_SYSTEM_TRACE_ENABLE_FLAGS_INFO: TraceQueryInfoClass = 4
 
-public val TraceUnifiedStackCachingInfo: TRACE_QUERY_INFO_CLASS = 26
+public val TRACE_UNIFIED_STACK_CACHING_INFO: TraceQueryInfoClass = 26
 
-public val TraceVersionInfo: TRACE_QUERY_INFO_CLASS = 11
+public val TRACE_VERSION_INFO: TraceQueryInfoClass = 11
 
-public val UdpIpGuid: GUID = GUID.from_u128(U128(0xbf3a50c5a9c94988uL, 0xa0052df0b7c80f80uL))
+public val UDP_IP_GUID: Guid = Guid.fromU128(U128(0xbf3a50c5a9c94988uL, 0xa0052df0b7c80f80uL))
 
 public val WMIGUID_EXECUTE: UInt = 16u
 
@@ -1367,21 +1367,21 @@ public val WMIREG_FLAG_TRACED_GUID: UInt = 524288u
 
 public val WMIREG_FLAG_TRACE_CONTROL_GUID: UInt = 4096u
 
-public val WMI_CAPTURE_STATE: WMIDPREQUESTCODE = 10
+public val WMI_CAPTURE_STATE: Wmidprequestcode = 10
 
-public val WMI_DISABLE_COLLECTION: WMIDPREQUESTCODE = 7
+public val WMI_DISABLE_COLLECTION: Wmidprequestcode = 7
 
-public val WMI_DISABLE_EVENTS: WMIDPREQUESTCODE = 5
+public val WMI_DISABLE_EVENTS: Wmidprequestcode = 5
 
-public val WMI_ENABLE_COLLECTION: WMIDPREQUESTCODE = 6
+public val WMI_ENABLE_COLLECTION: Wmidprequestcode = 6
 
-public val WMI_ENABLE_EVENTS: WMIDPREQUESTCODE = 4
+public val WMI_ENABLE_EVENTS: Wmidprequestcode = 4
 
-public val WMI_EXECUTE_METHOD: WMIDPREQUESTCODE = 9
+public val WMI_EXECUTE_METHOD: Wmidprequestcode = 9
 
-public val WMI_GET_ALL_DATA: WMIDPREQUESTCODE = 0
+public val WMI_GET_ALL_DATA: Wmidprequestcode = 0
 
-public val WMI_GET_SINGLE_INSTANCE: WMIDPREQUESTCODE = 1
+public val WMI_GET_SINGLE_INSTANCE: Wmidprequestcode = 1
 
 public val WMI_GLOBAL_LOGGER_ID: UInt = 1u
 
@@ -1393,11 +1393,11 @@ public val WMI_GUIDTYPE_TRACE: UInt = 1u
 
 public val WMI_GUIDTYPE_TRACECONTROL: UInt = 0u
 
-public val WMI_REGINFO: WMIDPREQUESTCODE = 8
+public val WMI_REGINFO: Wmidprequestcode = 8
 
-public val WMI_SET_SINGLE_INSTANCE: WMIDPREQUESTCODE = 2
+public val WMI_SET_SINGLE_INSTANCE: Wmidprequestcode = 2
 
-public val WMI_SET_SINGLE_ITEM: WMIDPREQUESTCODE = 3
+public val WMI_SET_SINGLE_ITEM: Wmidprequestcode = 3
 
 public val WNODE_FLAG_ALL_DATA: UInt = 1u
 

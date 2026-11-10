@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsAddRef_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsAddRef_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ref = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* count = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -71,7 +71,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsAddRef_napi(const Napi::
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsBoolToBoolean_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsBoolToBoolean_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint8_t value = static_cast<uint8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* booleanvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -91,7 +91,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsBoolToBoolean_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsBooleanToBool_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsBooleanToBool_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* value = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* boolvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -111,7 +111,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsBooleanToBool_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsCallFunction_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsCallFunction_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* function = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* arguments = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -135,7 +135,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsCallFunction_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsCollectGarbage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsCollectGarbage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* runtime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -153,7 +153,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsCollectGarbage_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsConstructObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsConstructObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* function = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* arguments = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -177,7 +177,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsConstructObject_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsConvertValueToBoolean_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsConvertValueToBoolean_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* value = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* booleanvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -197,7 +197,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsConvertValueToBoolean_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsConvertValueToNumber_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsConvertValueToNumber_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* value = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* numbervalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -217,7 +217,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsConvertValueToNumber_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsConvertValueToObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsConvertValueToObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* value = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* object = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -237,7 +237,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsConvertValueToObject_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsConvertValueToString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsConvertValueToString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* value = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* stringvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -257,7 +257,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsConvertValueToString_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsCreateArray_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsCreateArray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t length = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* result = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -277,7 +277,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsCreateArray_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsCreateError_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsCreateError_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -297,7 +297,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsCreateError_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsCreateExternalObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsCreateExternalObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* data = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* finalizecallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -319,7 +319,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsCreateExternalObject_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsCreateFunction_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsCreateFunction_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* nativefunction = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* callbackstate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -341,7 +341,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsCreateFunction_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsCreateObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsCreateObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* object = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -359,7 +359,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsCreateObject_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsCreateRangeError_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsCreateRangeError_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -379,7 +379,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsCreateRangeError_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsCreateReferenceError_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsCreateReferenceError_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -399,7 +399,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsCreateReferenceError_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsCreateRuntime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsCreateRuntime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t attributes = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t runtimeversion = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -423,7 +423,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsCreateRuntime_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsCreateSyntaxError_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsCreateSyntaxError_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -443,7 +443,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsCreateSyntaxError_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsCreateTypeError_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsCreateTypeError_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -463,7 +463,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsCreateTypeError_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsCreateURIError_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsCreateURIError_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* message = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* error = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -483,7 +483,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsCreateURIError_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsDefineProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsDefineProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* object = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propertyid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -507,7 +507,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsDefineProperty_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsDeleteIndexedProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsDeleteIndexedProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* object = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* arg_1_index = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -527,7 +527,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsDeleteIndexedProperty_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsDeleteProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsDeleteProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* object = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propertyid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -551,7 +551,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsDeleteProperty_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsDisableRuntimeExecution_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsDisableRuntimeExecution_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* runtime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -569,7 +569,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsDisableRuntimeExecution_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsDisposeRuntime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsDisposeRuntime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* runtime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -587,7 +587,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsDisposeRuntime_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsDoubleToNumber_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsDoubleToNumber_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     double doublevalue = km_info.Length() > 0 ? km_info[0].ToNumber().DoubleValue() : 0.0;
     void* value = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -607,7 +607,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsDoubleToNumber_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsEnableRuntimeExecution_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsEnableRuntimeExecution_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* runtime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -625,7 +625,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsEnableRuntimeExecution_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsEquals_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsEquals_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* object1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* object2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -647,7 +647,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsEquals_napi(const Napi::
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsGetAndClearException_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsGetAndClearException_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* exception = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -665,7 +665,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsGetAndClearException_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsGetCurrentContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsGetCurrentContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* currentcontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -683,7 +683,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsGetCurrentContext_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsGetExtensionAllowed_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsGetExtensionAllowed_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* object = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* value = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -703,7 +703,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsGetExtensionAllowed_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsGetExternalData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsGetExternalData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* object = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* externaldata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -723,7 +723,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsGetExternalData_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsGetFalseValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsGetFalseValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* falsevalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -741,7 +741,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsGetFalseValue_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsGetGlobalObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsGetGlobalObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* globalobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -759,7 +759,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsGetGlobalObject_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsGetIndexedProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsGetIndexedProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* object = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* arg_1_index = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -781,7 +781,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsGetIndexedProperty_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsGetNullValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsGetNullValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* nullvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -799,7 +799,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsGetNullValue_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsGetOwnPropertyDescriptor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsGetOwnPropertyDescriptor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* object = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propertyid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -821,7 +821,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsGetOwnPropertyDescriptor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsGetOwnPropertyNames_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsGetOwnPropertyNames_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* object = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propertynames = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -841,7 +841,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsGetOwnPropertyNames_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsGetProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsGetProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* object = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propertyid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -863,7 +863,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsGetProperty_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsGetPropertyIdFromName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsGetPropertyIdFromName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propertyid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -883,7 +883,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsGetPropertyIdFromName_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsGetPropertyNameFromId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsGetPropertyNameFromId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propertyid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -903,7 +903,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsGetPropertyNameFromId_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsGetPrototype_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsGetPrototype_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* object = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prototypeobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -923,7 +923,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsGetPrototype_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsGetRuntime_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsGetRuntime_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* runtime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -943,7 +943,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsGetRuntime_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsGetRuntimeMemoryLimit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsGetRuntimeMemoryLimit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* runtime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* memorylimit = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -963,7 +963,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsGetRuntimeMemoryLimit_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsGetRuntimeMemoryUsage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsGetRuntimeMemoryUsage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* runtime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* memoryusage = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -983,7 +983,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsGetRuntimeMemoryUsage_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsGetStringLength_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsGetStringLength_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* stringvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* length = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1003,7 +1003,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsGetStringLength_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsGetTrueValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsGetTrueValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* truevalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1021,7 +1021,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsGetTrueValue_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsGetUndefinedValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsGetUndefinedValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* undefinedvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1039,7 +1039,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsGetUndefinedValue_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsGetValueType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsGetValueType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* value = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* type = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1059,7 +1059,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsGetValueType_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsHasException_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsHasException_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hasexception = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1077,7 +1077,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsHasException_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsHasExternalData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsHasExternalData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* object = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* value = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1097,7 +1097,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsHasExternalData_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsHasIndexedProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsHasIndexedProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* object = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* arg_1_index = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1119,7 +1119,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsHasIndexedProperty_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsHasProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsHasProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* object = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propertyid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1141,7 +1141,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsHasProperty_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsIdle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsIdle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* nextidletick = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1159,7 +1159,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsIdle_napi(const Napi::Ca
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsIntToNumber_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsIntToNumber_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t intvalue = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* value = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1179,7 +1179,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsIntToNumber_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsIsEnumeratingHeap_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsIsEnumeratingHeap_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* isenumeratingheap = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1197,7 +1197,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsIsEnumeratingHeap_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsIsRuntimeExecutionDisabled_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsIsRuntimeExecutionDisabled_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* runtime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* isdisabled = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1217,7 +1217,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsIsRuntimeExecutionDisabl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsNumberToDouble_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsNumberToDouble_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* value = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* doublevalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1237,7 +1237,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsNumberToDouble_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsParseScript_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsParseScript_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* script = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t sourcecontext = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1261,7 +1261,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsParseScript_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsParseSerializedScript_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsParseSerializedScript_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* script = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1287,7 +1287,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsParseSerializedScript_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsPointerToString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsPointerToString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* stringvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t stringlength = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1309,7 +1309,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsPointerToString_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsPreventExtension_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsPreventExtension_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* object = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1327,7 +1327,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsPreventExtension_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsRelease_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsRelease_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ref = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* count = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1347,7 +1347,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsRelease_napi(const Napi:
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsRunScript_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsRunScript_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* script = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t sourcecontext = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1371,7 +1371,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsRunScript_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsRunSerializedScript_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsRunSerializedScript_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* script = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1397,7 +1397,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsRunSerializedScript_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsSerializeScript_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsSerializeScript_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* script = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1419,7 +1419,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsSerializeScript_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsSetCurrentContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsSetCurrentContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1437,7 +1437,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsSetCurrentContext_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsSetException_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsSetException_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* exception = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1455,7 +1455,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsSetException_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsSetExternalData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsSetExternalData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* object = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* externaldata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1475,7 +1475,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsSetExternalData_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsSetIndexedProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsSetIndexedProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* object = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* arg_1_index = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1497,7 +1497,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsSetIndexedProperty_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsSetProperty_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsSetProperty_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* object = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propertyid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1521,7 +1521,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsSetProperty_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsSetPrototype_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsSetPrototype_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* object = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prototypeobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1541,7 +1541,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsSetPrototype_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsSetRuntimeBeforeCollectCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsSetRuntimeBeforeCollectCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* runtime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* callbackstate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1563,7 +1563,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsSetRuntimeBeforeCollectC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsSetRuntimeMemoryAllocationCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsSetRuntimeMemoryAllocationCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* runtime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* callbackstate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1585,7 +1585,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsSetRuntimeMemoryAllocati
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsSetRuntimeMemoryLimit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsSetRuntimeMemoryLimit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* runtime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t memorylimit = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1605,7 +1605,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsSetRuntimeMemoryLimit_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsStopProfiling_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsStopProfiling_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t reason = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -1623,7 +1623,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsStopProfiling_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsStrictEquals_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsStrictEquals_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* object1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* object2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1645,7 +1645,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsStrictEquals_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsStringToPointer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsStringToPointer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* value = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* stringvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1667,7 +1667,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsStringToPointer_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsValueToVariant_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsValueToVariant_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* object = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* variant = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1687,7 +1687,7 @@ static Napi::Value windowssys_windows_win32_system_js_JsValueToVariant_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_js_JsVariantToValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_js_jsVariantToValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* variant = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* value = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1708,87 +1708,87 @@ static Napi::Value windowssys_windows_win32_system_js_JsVariantToValue_napi(cons
 }
 
 static void register_windows_win32_system_js_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_js_JsAddRef", Napi::Function::New(env, windowssys_windows_win32_system_js_JsAddRef_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsBoolToBoolean", Napi::Function::New(env, windowssys_windows_win32_system_js_JsBoolToBoolean_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsBooleanToBool", Napi::Function::New(env, windowssys_windows_win32_system_js_JsBooleanToBool_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsCallFunction", Napi::Function::New(env, windowssys_windows_win32_system_js_JsCallFunction_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsCollectGarbage", Napi::Function::New(env, windowssys_windows_win32_system_js_JsCollectGarbage_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsConstructObject", Napi::Function::New(env, windowssys_windows_win32_system_js_JsConstructObject_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsConvertValueToBoolean", Napi::Function::New(env, windowssys_windows_win32_system_js_JsConvertValueToBoolean_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsConvertValueToNumber", Napi::Function::New(env, windowssys_windows_win32_system_js_JsConvertValueToNumber_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsConvertValueToObject", Napi::Function::New(env, windowssys_windows_win32_system_js_JsConvertValueToObject_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsConvertValueToString", Napi::Function::New(env, windowssys_windows_win32_system_js_JsConvertValueToString_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsCreateArray", Napi::Function::New(env, windowssys_windows_win32_system_js_JsCreateArray_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsCreateError", Napi::Function::New(env, windowssys_windows_win32_system_js_JsCreateError_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsCreateExternalObject", Napi::Function::New(env, windowssys_windows_win32_system_js_JsCreateExternalObject_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsCreateFunction", Napi::Function::New(env, windowssys_windows_win32_system_js_JsCreateFunction_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsCreateObject", Napi::Function::New(env, windowssys_windows_win32_system_js_JsCreateObject_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsCreateRangeError", Napi::Function::New(env, windowssys_windows_win32_system_js_JsCreateRangeError_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsCreateReferenceError", Napi::Function::New(env, windowssys_windows_win32_system_js_JsCreateReferenceError_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsCreateRuntime", Napi::Function::New(env, windowssys_windows_win32_system_js_JsCreateRuntime_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsCreateSyntaxError", Napi::Function::New(env, windowssys_windows_win32_system_js_JsCreateSyntaxError_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsCreateTypeError", Napi::Function::New(env, windowssys_windows_win32_system_js_JsCreateTypeError_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsCreateURIError", Napi::Function::New(env, windowssys_windows_win32_system_js_JsCreateURIError_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsDefineProperty", Napi::Function::New(env, windowssys_windows_win32_system_js_JsDefineProperty_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsDeleteIndexedProperty", Napi::Function::New(env, windowssys_windows_win32_system_js_JsDeleteIndexedProperty_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsDeleteProperty", Napi::Function::New(env, windowssys_windows_win32_system_js_JsDeleteProperty_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsDisableRuntimeExecution", Napi::Function::New(env, windowssys_windows_win32_system_js_JsDisableRuntimeExecution_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsDisposeRuntime", Napi::Function::New(env, windowssys_windows_win32_system_js_JsDisposeRuntime_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsDoubleToNumber", Napi::Function::New(env, windowssys_windows_win32_system_js_JsDoubleToNumber_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsEnableRuntimeExecution", Napi::Function::New(env, windowssys_windows_win32_system_js_JsEnableRuntimeExecution_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsEquals", Napi::Function::New(env, windowssys_windows_win32_system_js_JsEquals_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsGetAndClearException", Napi::Function::New(env, windowssys_windows_win32_system_js_JsGetAndClearException_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsGetCurrentContext", Napi::Function::New(env, windowssys_windows_win32_system_js_JsGetCurrentContext_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsGetExtensionAllowed", Napi::Function::New(env, windowssys_windows_win32_system_js_JsGetExtensionAllowed_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsGetExternalData", Napi::Function::New(env, windowssys_windows_win32_system_js_JsGetExternalData_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsGetFalseValue", Napi::Function::New(env, windowssys_windows_win32_system_js_JsGetFalseValue_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsGetGlobalObject", Napi::Function::New(env, windowssys_windows_win32_system_js_JsGetGlobalObject_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsGetIndexedProperty", Napi::Function::New(env, windowssys_windows_win32_system_js_JsGetIndexedProperty_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsGetNullValue", Napi::Function::New(env, windowssys_windows_win32_system_js_JsGetNullValue_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsGetOwnPropertyDescriptor", Napi::Function::New(env, windowssys_windows_win32_system_js_JsGetOwnPropertyDescriptor_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsGetOwnPropertyNames", Napi::Function::New(env, windowssys_windows_win32_system_js_JsGetOwnPropertyNames_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsGetProperty", Napi::Function::New(env, windowssys_windows_win32_system_js_JsGetProperty_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsGetPropertyIdFromName", Napi::Function::New(env, windowssys_windows_win32_system_js_JsGetPropertyIdFromName_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsGetPropertyNameFromId", Napi::Function::New(env, windowssys_windows_win32_system_js_JsGetPropertyNameFromId_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsGetPrototype", Napi::Function::New(env, windowssys_windows_win32_system_js_JsGetPrototype_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsGetRuntime", Napi::Function::New(env, windowssys_windows_win32_system_js_JsGetRuntime_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsGetRuntimeMemoryLimit", Napi::Function::New(env, windowssys_windows_win32_system_js_JsGetRuntimeMemoryLimit_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsGetRuntimeMemoryUsage", Napi::Function::New(env, windowssys_windows_win32_system_js_JsGetRuntimeMemoryUsage_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsGetStringLength", Napi::Function::New(env, windowssys_windows_win32_system_js_JsGetStringLength_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsGetTrueValue", Napi::Function::New(env, windowssys_windows_win32_system_js_JsGetTrueValue_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsGetUndefinedValue", Napi::Function::New(env, windowssys_windows_win32_system_js_JsGetUndefinedValue_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsGetValueType", Napi::Function::New(env, windowssys_windows_win32_system_js_JsGetValueType_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsHasException", Napi::Function::New(env, windowssys_windows_win32_system_js_JsHasException_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsHasExternalData", Napi::Function::New(env, windowssys_windows_win32_system_js_JsHasExternalData_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsHasIndexedProperty", Napi::Function::New(env, windowssys_windows_win32_system_js_JsHasIndexedProperty_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsHasProperty", Napi::Function::New(env, windowssys_windows_win32_system_js_JsHasProperty_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsIdle", Napi::Function::New(env, windowssys_windows_win32_system_js_JsIdle_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsIntToNumber", Napi::Function::New(env, windowssys_windows_win32_system_js_JsIntToNumber_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsIsEnumeratingHeap", Napi::Function::New(env, windowssys_windows_win32_system_js_JsIsEnumeratingHeap_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsIsRuntimeExecutionDisabled", Napi::Function::New(env, windowssys_windows_win32_system_js_JsIsRuntimeExecutionDisabled_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsNumberToDouble", Napi::Function::New(env, windowssys_windows_win32_system_js_JsNumberToDouble_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsParseScript", Napi::Function::New(env, windowssys_windows_win32_system_js_JsParseScript_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsParseSerializedScript", Napi::Function::New(env, windowssys_windows_win32_system_js_JsParseSerializedScript_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsPointerToString", Napi::Function::New(env, windowssys_windows_win32_system_js_JsPointerToString_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsPreventExtension", Napi::Function::New(env, windowssys_windows_win32_system_js_JsPreventExtension_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsRelease", Napi::Function::New(env, windowssys_windows_win32_system_js_JsRelease_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsRunScript", Napi::Function::New(env, windowssys_windows_win32_system_js_JsRunScript_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsRunSerializedScript", Napi::Function::New(env, windowssys_windows_win32_system_js_JsRunSerializedScript_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsSerializeScript", Napi::Function::New(env, windowssys_windows_win32_system_js_JsSerializeScript_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsSetCurrentContext", Napi::Function::New(env, windowssys_windows_win32_system_js_JsSetCurrentContext_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsSetException", Napi::Function::New(env, windowssys_windows_win32_system_js_JsSetException_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsSetExternalData", Napi::Function::New(env, windowssys_windows_win32_system_js_JsSetExternalData_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsSetIndexedProperty", Napi::Function::New(env, windowssys_windows_win32_system_js_JsSetIndexedProperty_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsSetProperty", Napi::Function::New(env, windowssys_windows_win32_system_js_JsSetProperty_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsSetPrototype", Napi::Function::New(env, windowssys_windows_win32_system_js_JsSetPrototype_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsSetRuntimeBeforeCollectCallback", Napi::Function::New(env, windowssys_windows_win32_system_js_JsSetRuntimeBeforeCollectCallback_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsSetRuntimeMemoryAllocationCallback", Napi::Function::New(env, windowssys_windows_win32_system_js_JsSetRuntimeMemoryAllocationCallback_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsSetRuntimeMemoryLimit", Napi::Function::New(env, windowssys_windows_win32_system_js_JsSetRuntimeMemoryLimit_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsStopProfiling", Napi::Function::New(env, windowssys_windows_win32_system_js_JsStopProfiling_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsStrictEquals", Napi::Function::New(env, windowssys_windows_win32_system_js_JsStrictEquals_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsStringToPointer", Napi::Function::New(env, windowssys_windows_win32_system_js_JsStringToPointer_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsValueToVariant", Napi::Function::New(env, windowssys_windows_win32_system_js_JsValueToVariant_napi));
-    exports.Set("windowssys_windows_win32_system_js_JsVariantToValue", Napi::Function::New(env, windowssys_windows_win32_system_js_JsVariantToValue_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsAddRef", Napi::Function::New(env, windowssys_windows_win32_system_js_jsAddRef_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsBoolToBoolean", Napi::Function::New(env, windowssys_windows_win32_system_js_jsBoolToBoolean_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsBooleanToBool", Napi::Function::New(env, windowssys_windows_win32_system_js_jsBooleanToBool_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsCallFunction", Napi::Function::New(env, windowssys_windows_win32_system_js_jsCallFunction_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsCollectGarbage", Napi::Function::New(env, windowssys_windows_win32_system_js_jsCollectGarbage_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsConstructObject", Napi::Function::New(env, windowssys_windows_win32_system_js_jsConstructObject_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsConvertValueToBoolean", Napi::Function::New(env, windowssys_windows_win32_system_js_jsConvertValueToBoolean_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsConvertValueToNumber", Napi::Function::New(env, windowssys_windows_win32_system_js_jsConvertValueToNumber_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsConvertValueToObject", Napi::Function::New(env, windowssys_windows_win32_system_js_jsConvertValueToObject_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsConvertValueToString", Napi::Function::New(env, windowssys_windows_win32_system_js_jsConvertValueToString_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsCreateArray", Napi::Function::New(env, windowssys_windows_win32_system_js_jsCreateArray_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsCreateError", Napi::Function::New(env, windowssys_windows_win32_system_js_jsCreateError_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsCreateExternalObject", Napi::Function::New(env, windowssys_windows_win32_system_js_jsCreateExternalObject_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsCreateFunction", Napi::Function::New(env, windowssys_windows_win32_system_js_jsCreateFunction_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsCreateObject", Napi::Function::New(env, windowssys_windows_win32_system_js_jsCreateObject_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsCreateRangeError", Napi::Function::New(env, windowssys_windows_win32_system_js_jsCreateRangeError_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsCreateReferenceError", Napi::Function::New(env, windowssys_windows_win32_system_js_jsCreateReferenceError_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsCreateRuntime", Napi::Function::New(env, windowssys_windows_win32_system_js_jsCreateRuntime_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsCreateSyntaxError", Napi::Function::New(env, windowssys_windows_win32_system_js_jsCreateSyntaxError_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsCreateTypeError", Napi::Function::New(env, windowssys_windows_win32_system_js_jsCreateTypeError_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsCreateURIError", Napi::Function::New(env, windowssys_windows_win32_system_js_jsCreateURIError_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsDefineProperty", Napi::Function::New(env, windowssys_windows_win32_system_js_jsDefineProperty_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsDeleteIndexedProperty", Napi::Function::New(env, windowssys_windows_win32_system_js_jsDeleteIndexedProperty_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsDeleteProperty", Napi::Function::New(env, windowssys_windows_win32_system_js_jsDeleteProperty_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsDisableRuntimeExecution", Napi::Function::New(env, windowssys_windows_win32_system_js_jsDisableRuntimeExecution_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsDisposeRuntime", Napi::Function::New(env, windowssys_windows_win32_system_js_jsDisposeRuntime_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsDoubleToNumber", Napi::Function::New(env, windowssys_windows_win32_system_js_jsDoubleToNumber_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsEnableRuntimeExecution", Napi::Function::New(env, windowssys_windows_win32_system_js_jsEnableRuntimeExecution_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsEquals", Napi::Function::New(env, windowssys_windows_win32_system_js_jsEquals_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsGetAndClearException", Napi::Function::New(env, windowssys_windows_win32_system_js_jsGetAndClearException_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsGetCurrentContext", Napi::Function::New(env, windowssys_windows_win32_system_js_jsGetCurrentContext_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsGetExtensionAllowed", Napi::Function::New(env, windowssys_windows_win32_system_js_jsGetExtensionAllowed_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsGetExternalData", Napi::Function::New(env, windowssys_windows_win32_system_js_jsGetExternalData_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsGetFalseValue", Napi::Function::New(env, windowssys_windows_win32_system_js_jsGetFalseValue_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsGetGlobalObject", Napi::Function::New(env, windowssys_windows_win32_system_js_jsGetGlobalObject_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsGetIndexedProperty", Napi::Function::New(env, windowssys_windows_win32_system_js_jsGetIndexedProperty_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsGetNullValue", Napi::Function::New(env, windowssys_windows_win32_system_js_jsGetNullValue_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsGetOwnPropertyDescriptor", Napi::Function::New(env, windowssys_windows_win32_system_js_jsGetOwnPropertyDescriptor_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsGetOwnPropertyNames", Napi::Function::New(env, windowssys_windows_win32_system_js_jsGetOwnPropertyNames_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsGetProperty", Napi::Function::New(env, windowssys_windows_win32_system_js_jsGetProperty_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsGetPropertyIdFromName", Napi::Function::New(env, windowssys_windows_win32_system_js_jsGetPropertyIdFromName_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsGetPropertyNameFromId", Napi::Function::New(env, windowssys_windows_win32_system_js_jsGetPropertyNameFromId_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsGetPrototype", Napi::Function::New(env, windowssys_windows_win32_system_js_jsGetPrototype_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsGetRuntime", Napi::Function::New(env, windowssys_windows_win32_system_js_jsGetRuntime_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsGetRuntimeMemoryLimit", Napi::Function::New(env, windowssys_windows_win32_system_js_jsGetRuntimeMemoryLimit_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsGetRuntimeMemoryUsage", Napi::Function::New(env, windowssys_windows_win32_system_js_jsGetRuntimeMemoryUsage_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsGetStringLength", Napi::Function::New(env, windowssys_windows_win32_system_js_jsGetStringLength_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsGetTrueValue", Napi::Function::New(env, windowssys_windows_win32_system_js_jsGetTrueValue_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsGetUndefinedValue", Napi::Function::New(env, windowssys_windows_win32_system_js_jsGetUndefinedValue_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsGetValueType", Napi::Function::New(env, windowssys_windows_win32_system_js_jsGetValueType_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsHasException", Napi::Function::New(env, windowssys_windows_win32_system_js_jsHasException_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsHasExternalData", Napi::Function::New(env, windowssys_windows_win32_system_js_jsHasExternalData_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsHasIndexedProperty", Napi::Function::New(env, windowssys_windows_win32_system_js_jsHasIndexedProperty_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsHasProperty", Napi::Function::New(env, windowssys_windows_win32_system_js_jsHasProperty_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsIdle", Napi::Function::New(env, windowssys_windows_win32_system_js_jsIdle_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsIntToNumber", Napi::Function::New(env, windowssys_windows_win32_system_js_jsIntToNumber_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsIsEnumeratingHeap", Napi::Function::New(env, windowssys_windows_win32_system_js_jsIsEnumeratingHeap_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsIsRuntimeExecutionDisabled", Napi::Function::New(env, windowssys_windows_win32_system_js_jsIsRuntimeExecutionDisabled_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsNumberToDouble", Napi::Function::New(env, windowssys_windows_win32_system_js_jsNumberToDouble_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsParseScript", Napi::Function::New(env, windowssys_windows_win32_system_js_jsParseScript_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsParseSerializedScript", Napi::Function::New(env, windowssys_windows_win32_system_js_jsParseSerializedScript_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsPointerToString", Napi::Function::New(env, windowssys_windows_win32_system_js_jsPointerToString_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsPreventExtension", Napi::Function::New(env, windowssys_windows_win32_system_js_jsPreventExtension_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsRelease", Napi::Function::New(env, windowssys_windows_win32_system_js_jsRelease_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsRunScript", Napi::Function::New(env, windowssys_windows_win32_system_js_jsRunScript_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsRunSerializedScript", Napi::Function::New(env, windowssys_windows_win32_system_js_jsRunSerializedScript_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsSerializeScript", Napi::Function::New(env, windowssys_windows_win32_system_js_jsSerializeScript_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsSetCurrentContext", Napi::Function::New(env, windowssys_windows_win32_system_js_jsSetCurrentContext_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsSetException", Napi::Function::New(env, windowssys_windows_win32_system_js_jsSetException_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsSetExternalData", Napi::Function::New(env, windowssys_windows_win32_system_js_jsSetExternalData_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsSetIndexedProperty", Napi::Function::New(env, windowssys_windows_win32_system_js_jsSetIndexedProperty_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsSetProperty", Napi::Function::New(env, windowssys_windows_win32_system_js_jsSetProperty_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsSetPrototype", Napi::Function::New(env, windowssys_windows_win32_system_js_jsSetPrototype_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsSetRuntimeBeforeCollectCallback", Napi::Function::New(env, windowssys_windows_win32_system_js_jsSetRuntimeBeforeCollectCallback_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsSetRuntimeMemoryAllocationCallback", Napi::Function::New(env, windowssys_windows_win32_system_js_jsSetRuntimeMemoryAllocationCallback_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsSetRuntimeMemoryLimit", Napi::Function::New(env, windowssys_windows_win32_system_js_jsSetRuntimeMemoryLimit_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsStopProfiling", Napi::Function::New(env, windowssys_windows_win32_system_js_jsStopProfiling_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsStrictEquals", Napi::Function::New(env, windowssys_windows_win32_system_js_jsStrictEquals_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsStringToPointer", Napi::Function::New(env, windowssys_windows_win32_system_js_jsStringToPointer_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsValueToVariant", Napi::Function::New(env, windowssys_windows_win32_system_js_jsValueToVariant_napi));
+    exports.Set("windowssys_windows_win32_system_js_jsVariantToValue", Napi::Function::New(env, windowssys_windows_win32_system_js_jsVariantToValue_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_js_napi, nullptr };

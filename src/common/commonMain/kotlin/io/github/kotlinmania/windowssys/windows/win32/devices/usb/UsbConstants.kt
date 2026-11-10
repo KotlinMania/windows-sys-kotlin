@@ -1,25 +1,25 @@
 package io.github.kotlinmania.windowssys.windows.win32.devices.usb
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.w
 
-public val ALLOW_PARTIAL_READS: WINUSB_PIPE_POLICY = 5u
+public val ALLOW_PARTIAL_READS: WinusbPipePolicy = 5u
 
-public val ALL_PIPE: PIPE_TYPE = 3
+public val ALL_PIPE: PipeType = 3
 
-public val AUTO_CLEAR_STALL: WINUSB_PIPE_POLICY = 2u
+public val AUTO_CLEAR_STALL: WinusbPipePolicy = 2u
 
-public val AUTO_FLUSH: WINUSB_PIPE_POLICY = 6u
+public val AUTO_FLUSH: WinusbPipePolicy = 6u
 
-public val AUTO_SUSPEND: WINUSB_POWER_POLICY = 129u
+public val AUTO_SUSPEND: WinusbPowerPolicy = 129u
 
-public val AcquireBusInfo: USB_NOTIFICATION_TYPE = 5
+public val ACQUIRE_BUS_INFO: UsbNotificationType = 5
 
-public val AcquireControllerName: USB_NOTIFICATION_TYPE = 7
+public val ACQUIRE_CONTROLLER_NAME: UsbNotificationType = 7
 
-public val AcquireHubName: USB_NOTIFICATION_TYPE = 6
+public val ACQUIRE_HUB_NAME: UsbNotificationType = 6
 
 public val BMREQUEST_CLASS: UInt = 1u
 
@@ -41,77 +41,77 @@ public val BMREQUEST_VENDOR: UInt = 2u
 
 public val BULKIN_FLAG: UInt = 128u
 
-public val CompositeDevice: USB_WMI_DEVICE_NODE_TYPE = 2
+public val COMPOSITE_DEVICE: UsbWmiDeviceNodeType = 2
 
 public val DEVICE_SPEED: UInt = 1u
 
-public val DeviceCausedOvercurrent: USB_CONNECTION_STATUS = 4
+public val DEVICE_CAUSED_OVERCURRENT: UsbConnectionStatus = 4
 
-public val DeviceConnected: USB_CONNECTION_STATUS = 1
+public val DEVICE_CONNECTED: UsbConnectionStatus = 1
 
-public val DeviceEnumerating: USB_CONNECTION_STATUS = 9
+public val DEVICE_ENUMERATING: UsbConnectionStatus = 9
 
-public val DeviceFailedEnumeration: USB_CONNECTION_STATUS = 2
+public val DEVICE_FAILED_ENUMERATION: UsbConnectionStatus = 2
 
-public val DeviceGeneralFailure: USB_CONNECTION_STATUS = 3
+public val DEVICE_GENERAL_FAILURE: UsbConnectionStatus = 3
 
-public val DeviceHubNestedTooDeeply: USB_CONNECTION_STATUS = 7
+public val DEVICE_HUB_NESTED_TOO_DEEPLY: UsbConnectionStatus = 7
 
-public val DeviceInLegacyHub: USB_CONNECTION_STATUS = 8
+public val DEVICE_IN_LEGACY_HUB: UsbConnectionStatus = 8
 
-public val DeviceNotEnoughBandwidth: USB_CONNECTION_STATUS = 6
+public val DEVICE_NOT_ENOUGH_BANDWIDTH: UsbConnectionStatus = 6
 
-public val DeviceNotEnoughPower: USB_CONNECTION_STATUS = 5
+public val DEVICE_NOT_ENOUGH_POWER: UsbConnectionStatus = 5
 
-public val DeviceReset: USB_CONNECTION_STATUS = 10
+public val DEVICE_RESET: UsbConnectionStatus = 10
 
-public val EHCI_Generic: USB_CONTROLLER_FLAVOR = 1000
+public val EHCI_GENERIC: UsbControllerFlavor = 1000
 
-public val EHCI_Intel_Medfield: USB_CONTROLLER_FLAVOR = 5001
+public val EHCI_INTEL_MEDFIELD: UsbControllerFlavor = 5001
 
-public val EHCI_Lucent: USB_CONTROLLER_FLAVOR = 3000
+public val EHCI_LUCENT: UsbControllerFlavor = 3000
 
-public val EHCI_NEC: USB_CONTROLLER_FLAVOR = 2000
+public val EHCI_NEC: UsbControllerFlavor = 2000
 
-public val EHCI_NVIDIA_Tegra2: USB_CONTROLLER_FLAVOR = 4000
+public val EHCI_NVIDIA_TEGRA2: UsbControllerFlavor = 4000
 
-public val EHCI_NVIDIA_Tegra3: USB_CONTROLLER_FLAVOR = 4001
+public val EHCI_NVIDIA_TEGRA3: UsbControllerFlavor = 4001
 
-public val EVENT_PIPE: PIPE_TYPE = 0
+public val EVENT_PIPE: PipeType = 0
 
-public val EnumerationFailure: USB_NOTIFICATION_TYPE = 0
+public val ENUMERATION_FAILURE: UsbNotificationType = 0
 
 public val FILE_DEVICE_USB: UInt = 34u
 
 public val FILE_DEVICE_USB_SCAN: UInt = 32768u
 
-public val FullSpeed: UInt = 2u
+public val FULL_SPEED: UInt = 2u
 
-public val GUID_DEVINTERFACE_USB_BILLBOARD: GUID = GUID.from_u128(U128(0x5e9adaeff879473fuL, 0xb8074e5ea77d1b1cuL))
+public val GUID_DEVINTERFACE_USB_BILLBOARD: Guid = Guid.fromU128(U128(0x5e9adaeff879473fuL, 0xb8074e5ea77d1b1cuL))
 
-public val GUID_DEVINTERFACE_USB_DEVICE: GUID = GUID.from_u128(U128(0xa5dcbf10653011d2uL, 0x901f00c04fb951eduL))
+public val GUID_DEVINTERFACE_USB_DEVICE: Guid = Guid.fromU128(U128(0xa5dcbf10653011d2uL, 0x901f00c04fb951eduL))
 
-public val GUID_DEVINTERFACE_USB_HOST_CONTROLLER: GUID = GUID.from_u128(U128(0x3abf6f2d71c4462auL, 0x8a921e6861e6af27uL))
+public val GUID_DEVINTERFACE_USB_HOST_CONTROLLER: Guid = Guid.fromU128(U128(0x3abf6f2d71c4462auL, 0x8a921e6861e6af27uL))
 
-public val GUID_DEVINTERFACE_USB_HUB: GUID = GUID.from_u128(U128(0xf18a0e88c30c11d0uL, 0x881500a0c906bed8uL))
+public val GUID_DEVINTERFACE_USB_HUB: Guid = Guid.fromU128(U128(0xf18a0e88c30c11d0uL, 0x881500a0c906bed8uL))
 
-public val GUID_USB_MSOS20_PLATFORM_CAPABILITY_ID: GUID = GUID.from_u128(U128(0xd8dd60df45894cc7uL, 0x9cd2659d9e648a9fuL))
+public val GUID_USB_MSOS20_PLATFORM_CAPABILITY_ID: Guid = Guid.fromU128(U128(0xd8dd60df45894cc7uL, 0x9cd2659d9e648a9fuL))
 
-public val GUID_USB_PERFORMANCE_TRACING: GUID = GUID.from_u128(U128(0xd5de77a66ae9425cuL, 0xb1e2f5615fd348a9uL))
+public val GUID_USB_PERFORMANCE_TRACING: Guid = Guid.fromU128(U128(0xd5de77a66ae9425cuL, 0xb1e2f5615fd348a9uL))
 
-public val GUID_USB_TRANSFER_TRACING: GUID = GUID.from_u128(U128(0x681eb8aa403d452cuL, 0x9f8af0616fac9540uL))
+public val GUID_USB_TRANSFER_TRACING: Guid = Guid.fromU128(U128(0x681eb8aa403d452cuL, 0x9f8af0616fac9540uL))
 
-public val GUID_USB_WMI_DEVICE_PERF_INFO: GUID = GUID.from_u128(U128(0x66c1aa3c499f49a0uL, 0xa9a561e2359f6407uL))
+public val GUID_USB_WMI_DEVICE_PERF_INFO: Guid = Guid.fromU128(U128(0x66c1aa3c499f49a0uL, 0xa9a561e2359f6407uL))
 
-public val GUID_USB_WMI_NODE_INFO: GUID = GUID.from_u128(U128(0x9c179357dc7a4f41uL, 0xb66b323b9ddcb5b1uL))
+public val GUID_USB_WMI_NODE_INFO: Guid = Guid.fromU128(U128(0x9c179357dc7a4f41uL, 0xb66b323b9ddcb5b1uL))
 
-public val GUID_USB_WMI_STD_DATA: GUID = GUID.from_u128(U128(0x4e623b20cb1411d1uL, 0xb33100a0c959bbd2uL))
+public val GUID_USB_WMI_STD_DATA: Guid = Guid.fromU128(U128(0x4e623b20cb1411d1uL, 0xb33100a0c959bbd2uL))
 
-public val GUID_USB_WMI_STD_NOTIFICATION: GUID = GUID.from_u128(U128(0x4e623b20cb1411d1uL, 0xb33100a0c959bbd2uL))
+public val GUID_USB_WMI_STD_NOTIFICATION: Guid = Guid.fromU128(U128(0x4e623b20cb1411d1uL, 0xb33100a0c959bbd2uL))
 
-public val GUID_USB_WMI_SURPRISE_REMOVAL_NOTIFICATION: GUID = GUID.from_u128(U128(0x9bbbf831a2f243b4uL, 0x96d186944b5914b3uL))
+public val GUID_USB_WMI_SURPRISE_REMOVAL_NOTIFICATION: Guid = Guid.fromU128(U128(0x9bbbf831a2f243b4uL, 0x96d186944b5914b3uL))
 
-public val GUID_USB_WMI_TRACING: GUID = GUID.from_u128(U128(0x3a61881bb4e64bf9uL, 0xae0f3cd8f394e52fuL))
+public val GUID_USB_WMI_TRACING: Guid = Guid.fromU128(U128(0x3a61881bb4e64bf9uL, 0xae0f3cd8f394e52fuL))
 
 public val HCD_DIAGNOSTIC_MODE_OFF: UInt = 257u
 
@@ -133,17 +133,17 @@ public val HCD_TRACE_READ_REQUEST: UInt = 275u
 
 public val HCD_USER_REQUEST: UInt = 270u
 
-public val HighSpeed: UInt = 3u
+public val HIGH_SPEED: UInt = 3u
 
-public val HubDevice: USB_WMI_DEVICE_NODE_TYPE = 1
+public val HUB_DEVICE: UsbWmiDeviceNodeType = 1
 
-public val HubNestedTooDeeply: USB_NOTIFICATION_TYPE = 10
+public val HUB_NESTED_TOO_DEEPLY: UsbNotificationType = 10
 
-public val HubOvercurrent: USB_NOTIFICATION_TYPE = 8
+public val HUB_OVERCURRENT: UsbNotificationType = 8
 
-public val HubPowerChange: USB_NOTIFICATION_TYPE = 9
+public val HUB_POWER_CHANGE: UsbNotificationType = 9
 
-public val IGNORE_SHORT_PACKETS: WINUSB_PIPE_POLICY = 4u
+public val IGNORE_SHORT_PACKETS: WinusbPipePolicy = 4u
 
 public val IOCTL_ABORT_PIPE: UInt = 2147491844u
 
@@ -317,17 +317,17 @@ public val IOCTL_WAIT_ON_DEVICE_EVENT: UInt = 2147491848u
 
 public val IOCTL_WRITE_REGISTERS: UInt = 2147491856u
 
-public val InsufficentBandwidth: USB_NOTIFICATION_TYPE = 1
+public val INSUFFICENT_BANDWIDTH: UsbNotificationType = 1
 
-public val InsufficentPower: USB_NOTIFICATION_TYPE = 2
+public val INSUFFICENT_POWER: UsbNotificationType = 2
 
-public val KREGMANUSBFNENUMPATH: PCWSTR = w("\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control\\ManufacturingMode\\Current\\USBFN\\")
+public val KREGMANUSBFNENUMPATH: Pcwstr = w("\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control\\ManufacturingMode\\Current\\USBFN\\")
 
-public val KREGUSBFNENUMPATH: PCWSTR = w("\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control\\USBFN\\")
+public val KREGUSBFNENUMPATH: Pcwstr = w("\\Registry\\Machine\\SYSTEM\\CurrentControlSet\\Control\\USBFN\\")
 
-public val LowSpeed: UInt = 1u
+public val LOW_SPEED: UInt = 1u
 
-public val MAXIMUM_TRANSFER_SIZE: WINUSB_PIPE_POLICY = 8u
+public val MAXIMUM_TRANSFER_SIZE: WinusbPipePolicy = 8u
 
 public val MAXIMUM_USB_STRING_LENGTH: UInt = 255u
 
@@ -351,25 +351,25 @@ public val MS_GENRE_DESCRIPTOR_INDEX: UInt = 1u
 
 public val MS_OS_FLAGS_CONTAINERID: UInt = 2u
 
-public val MS_OS_STRING_SIGNATURE: PCWSTR = w("MSFT100")
+public val MS_OS_STRING_SIGNATURE: Pcwstr = w("MSFT100")
 
 public val MS_POWER_DESCRIPTOR_INDEX: UInt = 2u
 
-public val ModernDeviceInLegacyHub: USB_NOTIFICATION_TYPE = 11
+public val MODERN_DEVICE_IN_LEGACY_HUB: UsbNotificationType = 11
 
-public val NoDeviceConnected: USB_CONNECTION_STATUS = 0
+public val NO_DEVICE_CONNECTED: UsbConnectionStatus = 0
 
-public val OHCI_Generic: USB_CONTROLLER_FLAVOR = 100
+public val OHCI_GENERIC: UsbControllerFlavor = 100
 
-public val OHCI_Hydra: USB_CONTROLLER_FLAVOR = 101
+public val OHCI_HYDRA: UsbControllerFlavor = 101
 
-public val OHCI_NEC: USB_CONTROLLER_FLAVOR = 102
+public val OHCI_NEC: UsbControllerFlavor = 102
 
 public val OS_STRING_DESCRIPTOR_INDEX: UInt = 238u
 
-public val OverCurrent: USB_NOTIFICATION_TYPE = 3
+public val OVER_CURRENT: UsbNotificationType = 3
 
-public val PIPE_TRANSFER_TIMEOUT: WINUSB_PIPE_POLICY = 3u
+public val PIPE_TRANSFER_TIMEOUT: WinusbPipePolicy = 3u
 
 public val PORT_LINK_STATE_COMPLIANCE_MODE: UInt = 10u
 
@@ -397,51 +397,51 @@ public val PORT_LINK_STATE_U2: UInt = 2u
 
 public val PORT_LINK_STATE_U3: UInt = 3u
 
-public val RAW_IO: WINUSB_PIPE_POLICY = 7u
+public val RAW_IO: WinusbPipePolicy = 7u
 
-public val READ_DATA_PIPE: PIPE_TYPE = 1
+public val READ_DATA_PIPE: PipeType = 1
 
-public val RESET_PIPE_ON_RESUME: WINUSB_PIPE_POLICY = 9u
+public val RESET_PIPE_ON_RESUME: WinusbPipePolicy = 9u
 
-public val ResetOvercurrent: USB_NOTIFICATION_TYPE = 4
+public val RESET_OVERCURRENT: UsbNotificationType = 4
 
-public val SHORT_PACKET_TERMINATE: WINUSB_PIPE_POLICY = 1u
+public val SHORT_PACKET_TERMINATE: WinusbPipePolicy = 1u
 
-public val SUSPEND_DELAY: WINUSB_POWER_POLICY = 131u
+public val SUSPEND_DELAY: WinusbPowerPolicy = 131u
 
-public val UHCI_Generic: USB_CONTROLLER_FLAVOR = 200
+public val UHCI_GENERIC: UsbControllerFlavor = 200
 
-public val UHCI_Ich1: USB_CONTROLLER_FLAVOR = 205
+public val UHCI_ICH1: UsbControllerFlavor = 205
 
-public val UHCI_Ich2: USB_CONTROLLER_FLAVOR = 203
+public val UHCI_ICH2: UsbControllerFlavor = 203
 
-public val UHCI_Ich3m: USB_CONTROLLER_FLAVOR = 206
+public val UHCI_ICH3M: UsbControllerFlavor = 206
 
-public val UHCI_Ich4: USB_CONTROLLER_FLAVOR = 207
+public val UHCI_ICH4: UsbControllerFlavor = 207
 
-public val UHCI_Ich5: USB_CONTROLLER_FLAVOR = 208
+public val UHCI_ICH5: UsbControllerFlavor = 208
 
-public val UHCI_Ich6: USB_CONTROLLER_FLAVOR = 209
+public val UHCI_ICH6: UsbControllerFlavor = 209
 
-public val UHCI_Intel: USB_CONTROLLER_FLAVOR = 249
+public val UHCI_INTEL: UsbControllerFlavor = 249
 
-public val UHCI_Piix3: USB_CONTROLLER_FLAVOR = 202
+public val UHCI_PIIX3: UsbControllerFlavor = 202
 
-public val UHCI_Piix4: USB_CONTROLLER_FLAVOR = 201
+public val UHCI_PIIX4: UsbControllerFlavor = 201
 
-public val UHCI_Reserved204: USB_CONTROLLER_FLAVOR = 204
+public val UHCI_RESERVED204: UsbControllerFlavor = 204
 
-public val UHCI_VIA: USB_CONTROLLER_FLAVOR = 250
+public val UHCI_VIA: UsbControllerFlavor = 250
 
-public val UHCI_VIA_x01: USB_CONTROLLER_FLAVOR = 251
+public val UHCI_VIA_X01: UsbControllerFlavor = 251
 
-public val UHCI_VIA_x02: USB_CONTROLLER_FLAVOR = 252
+public val UHCI_VIA_X02: UsbControllerFlavor = 252
 
-public val UHCI_VIA_x03: USB_CONTROLLER_FLAVOR = 253
+public val UHCI_VIA_X03: UsbControllerFlavor = 253
 
-public val UHCI_VIA_x04: USB_CONTROLLER_FLAVOR = 254
+public val UHCI_VIA_X04: UsbControllerFlavor = 254
 
-public val UHCI_VIA_x0E_FIFO: USB_CONTROLLER_FLAVOR = 264
+public val UHCI_VIA_X0E_FIFO: UsbControllerFlavor = 264
 
 public val URB_FUNCTION_ABORT_PIPE: UInt = 2u
 
@@ -563,9 +563,9 @@ public val URB_FUNCTION_VENDOR_OTHER: UInt = 32u
 
 public val URB_OPEN_STATIC_STREAMS_VERSION_100: UInt = 256u
 
-public val UREGMANUSBFNENUMPATH: PCWSTR = w("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\ManufacturingMode\\Current\\USBFN\\")
+public val UREGMANUSBFNENUMPATH: Pcwstr = w("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\ManufacturingMode\\Current\\USBFN\\")
 
-public val UREGUSBFNENUMPATH: PCWSTR = w("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\USBFN\\")
+public val UREGUSBFNENUMPATH: Pcwstr = w("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\USBFN\\")
 
 public val USBDI_VERSION: UInt = 1536u
 
@@ -611,13 +611,13 @@ public val USBD_TRANSFER_DIRECTION_OUT: UInt = 0u
 
 public val USBFN_INTERRUPT_ENDPOINT_SIZE_NOT_UPDATEABLE_MASK: UInt = 128u
 
-public val USBSCAN_PIPE_BULK: RAW_PIPE_TYPE = 2
+public val USBSCAN_PIPE_BULK: RawPipeType = 2
 
-public val USBSCAN_PIPE_CONTROL: RAW_PIPE_TYPE = 0
+public val USBSCAN_PIPE_CONTROL: RawPipeType = 0
 
-public val USBSCAN_PIPE_INTERRUPT: RAW_PIPE_TYPE = 3
+public val USBSCAN_PIPE_INTERRUPT: RawPipeType = 3
 
-public val USBSCAN_PIPE_ISOCHRONOUS: RAW_PIPE_TYPE = 1
+public val USBSCAN_PIPE_ISOCHRONOUS: RawPipeType = 1
 
 public val USBUSER_CLEAR_ROOTPORT_FEATURE: UInt = 536870918u
 
@@ -1017,7 +1017,7 @@ public val USB_HC_FEATURE_TIME_SYNC_API: UInt = 8u
 
 public val USB_HUB_CYCLE_PORT: UInt = 273u
 
-public val USB_HcGeneric: USB_CONTROLLER_FLAVOR = 0
+public val USB_HC_GENERIC: UsbControllerFlavor = 0
 
 public val USB_IDLE_NOTIFICATION: UInt = 9u
 
@@ -1207,145 +1207,145 @@ public val USB_UNREGISTER_COMPOSITE_DEVICE: UInt = 1u
 
 public val USB_UNREGISTER_FOR_TRANSPORT_CHARACTERISTICS_CHANGE: UInt = 284u
 
-public val Usb11Device: USB_DEVICE_TYPE = 0
+public val USB11DEVICE: UsbDeviceType = 0
 
-public val Usb20Device: USB_DEVICE_TYPE = 1
+public val USB20DEVICE: UsbDeviceType = 1
 
-public val Usb20Hub: USB_HUB_TYPE = 2
+public val USB20HUB: UsbHubType = 2
 
-public val Usb30Hub: USB_HUB_TYPE = 3
+public val USB30HUB: UsbHubType = 3
 
-public val UsbController: USB_WMI_DEVICE_NODE_TYPE = 3
+public val USB_CONTROLLER: UsbWmiDeviceNodeType = 3
 
-public val UsbDevice: USB_WMI_DEVICE_NODE_TYPE = 0
+public val USB_DEVICE: UsbWmiDeviceNodeType = 0
 
-public val UsbFullSpeed: USB_DEVICE_SPEED = 1
+public val USB_FULL_SPEED: UsbDeviceSpeed = 1
 
-public val UsbHighSpeed: USB_DEVICE_SPEED = 2
+public val USB_HIGH_SPEED: UsbDeviceSpeed = 2
 
-public val UsbHub: USB_HUB_NODE = 0
+public val USB_HUB: UsbHubNode = 0
 
-public val UsbLowSpeed: USB_DEVICE_SPEED = 0
+public val USB_LOW_SPEED: UsbDeviceSpeed = 0
 
-public val UsbMIParent: USB_HUB_NODE = 1
+public val USB_MI_PARENT: UsbHubNode = 1
 
-public val UsbRootHub: USB_HUB_TYPE = 1
+public val USB_ROOT_HUB: UsbHubType = 1
 
-public val UsbSuperSpeed: USB_DEVICE_SPEED = 3
+public val USB_SUPER_SPEED: UsbDeviceSpeed = 3
 
-public val UsbUserBufferTooSmall: USB_USER_ERROR_CODE = 7
+public val USB_USER_BUFFER_TOO_SMALL: UsbUserErrorCode = 7
 
-public val UsbUserDeviceNotStarted: USB_USER_ERROR_CODE = 9
+public val USB_USER_DEVICE_NOT_STARTED: UsbUserErrorCode = 9
 
-public val UsbUserErrorNotMapped: USB_USER_ERROR_CODE = 8
+public val USB_USER_ERROR_NOT_MAPPED: UsbUserErrorCode = 8
 
-public val UsbUserFeatureDisabled: USB_USER_ERROR_CODE = 3
+public val USB_USER_FEATURE_DISABLED: UsbUserErrorCode = 3
 
-public val UsbUserInvalidHeaderParameter: USB_USER_ERROR_CODE = 4
+public val USB_USER_INVALID_HEADER_PARAMETER: UsbUserErrorCode = 4
 
-public val UsbUserInvalidParameter: USB_USER_ERROR_CODE = 5
+public val USB_USER_INVALID_PARAMETER: UsbUserErrorCode = 5
 
-public val UsbUserInvalidRequestCode: USB_USER_ERROR_CODE = 2
+public val USB_USER_INVALID_REQUEST_CODE: UsbUserErrorCode = 2
 
-public val UsbUserMiniportError: USB_USER_ERROR_CODE = 6
+public val USB_USER_MINIPORT_ERROR: UsbUserErrorCode = 6
 
-public val UsbUserNoDeviceConnected: USB_USER_ERROR_CODE = 10
+public val USB_USER_NO_DEVICE_CONNECTED: UsbUserErrorCode = 10
 
-public val UsbUserNotSupported: USB_USER_ERROR_CODE = 1
+public val USB_USER_NOT_SUPPORTED: UsbUserErrorCode = 1
 
-public val UsbUserSuccess: USB_USER_ERROR_CODE = 0
+public val USB_USER_SUCCESS: UsbUserErrorCode = 0
 
-public val UsbdEndpointOffloadHardwareAssisted: USBD_ENDPOINT_OFFLOAD_MODE = 2
+public val USBD_ENDPOINT_OFFLOAD_HARDWARE_ASSISTED: UsbdEndpointOffloadMode = 2
 
-public val UsbdEndpointOffloadModeNotSupported: USBD_ENDPOINT_OFFLOAD_MODE = 0
+public val USBD_ENDPOINT_OFFLOAD_MODE_NOT_SUPPORTED: UsbdEndpointOffloadMode = 0
 
-public val UsbdEndpointOffloadSoftwareAssisted: USBD_ENDPOINT_OFFLOAD_MODE = 1
+public val USBD_ENDPOINT_OFFLOAD_SOFTWARE_ASSISTED: UsbdEndpointOffloadMode = 1
 
-public val UsbdPipeTypeBulk: USBD_PIPE_TYPE = 2
+public val USBD_PIPE_TYPE_BULK: UsbdPipeType = 2
 
-public val UsbdPipeTypeControl: USBD_PIPE_TYPE = 0
+public val USBD_PIPE_TYPE_CONTROL: UsbdPipeType = 0
 
-public val UsbdPipeTypeInterrupt: USBD_PIPE_TYPE = 3
+public val USBD_PIPE_TYPE_INTERRUPT: UsbdPipeType = 3
 
-public val UsbdPipeTypeIsochronous: USBD_PIPE_TYPE = 1
+public val USBD_PIPE_TYPE_ISOCHRONOUS: UsbdPipeType = 1
 
-public val UsbfnBusSpeedFull: USBFN_BUS_SPEED = 1
+public val USBFN_BUS_SPEED_FULL: UsbfnBusSpeed = 1
 
-public val UsbfnBusSpeedHigh: USBFN_BUS_SPEED = 2
+public val USBFN_BUS_SPEED_HIGH: UsbfnBusSpeed = 2
 
-public val UsbfnBusSpeedLow: USBFN_BUS_SPEED = 0
+public val USBFN_BUS_SPEED_LOW: UsbfnBusSpeed = 0
 
-public val UsbfnBusSpeedMaximum: USBFN_BUS_SPEED = 4
+public val USBFN_BUS_SPEED_MAXIMUM: UsbfnBusSpeed = 4
 
-public val UsbfnBusSpeedSuper: USBFN_BUS_SPEED = 3
+public val USBFN_BUS_SPEED_SUPER: UsbfnBusSpeed = 3
 
-public val UsbfnChargingDownstreamPort: USBFN_PORT_TYPE = 2
+public val USBFN_CHARGING_DOWNSTREAM_PORT: UsbfnPortType = 2
 
-public val UsbfnDedicatedChargingPort: USBFN_PORT_TYPE = 3
+public val USBFN_DEDICATED_CHARGING_PORT: UsbfnPortType = 3
 
-public val UsbfnDeviceStateAddressed: USBFN_DEVICE_STATE = 4
+public val USBFN_DEVICE_STATE_ADDRESSED: UsbfnDeviceState = 4
 
-public val UsbfnDeviceStateAttached: USBFN_DEVICE_STATE = 1
+public val USBFN_DEVICE_STATE_ATTACHED: UsbfnDeviceState = 1
 
-public val UsbfnDeviceStateConfigured: USBFN_DEVICE_STATE = 5
+public val USBFN_DEVICE_STATE_CONFIGURED: UsbfnDeviceState = 5
 
-public val UsbfnDeviceStateDefault: USBFN_DEVICE_STATE = 2
+public val USBFN_DEVICE_STATE_DEFAULT: UsbfnDeviceState = 2
 
-public val UsbfnDeviceStateDetached: USBFN_DEVICE_STATE = 3
+public val USBFN_DEVICE_STATE_DETACHED: UsbfnDeviceState = 3
 
-public val UsbfnDeviceStateMinimum: USBFN_DEVICE_STATE = 0
+public val USBFN_DEVICE_STATE_MINIMUM: UsbfnDeviceState = 0
 
-public val UsbfnDeviceStateStateMaximum: USBFN_DEVICE_STATE = 7
+public val USBFN_DEVICE_STATE_STATE_MAXIMUM: UsbfnDeviceState = 7
 
-public val UsbfnDeviceStateSuspended: USBFN_DEVICE_STATE = 6
+public val USBFN_DEVICE_STATE_SUSPENDED: UsbfnDeviceState = 6
 
-public val UsbfnDirectionIn: USBFN_DIRECTION = 1
+public val USBFN_DIRECTION_IN: UsbfnDirection = 1
 
-public val UsbfnDirectionMaximum: USBFN_DIRECTION = 3
+public val USBFN_DIRECTION_MAXIMUM: UsbfnDirection = 3
 
-public val UsbfnDirectionMinimum: USBFN_DIRECTION = 0
+public val USBFN_DIRECTION_MINIMUM: UsbfnDirection = 0
 
-public val UsbfnDirectionOut: USBFN_DIRECTION = 2
+public val USBFN_DIRECTION_OUT: UsbfnDirection = 2
 
-public val UsbfnDirectionRx: USBFN_DIRECTION = 2
+public val USBFN_DIRECTION_RX: UsbfnDirection = 2
 
-public val UsbfnDirectionTx: USBFN_DIRECTION = 1
+public val USBFN_DIRECTION_TX: UsbfnDirection = 1
 
-public val UsbfnEventAttach: USBFN_EVENT = 1
+public val USBFN_EVENT_ATTACH: UsbfnEvent = 1
 
-public val UsbfnEventBusTearDown: USBFN_EVENT = 10
+public val USBFN_EVENT_BUS_TEAR_DOWN: UsbfnEvent = 10
 
-public val UsbfnEventConfigured: USBFN_EVENT = 7
+public val USBFN_EVENT_CONFIGURED: UsbfnEvent = 7
 
-public val UsbfnEventDetach: USBFN_EVENT = 3
+public val USBFN_EVENT_DETACH: UsbfnEvent = 3
 
-public val UsbfnEventMaximum: USBFN_EVENT = 12
+public val USBFN_EVENT_MAXIMUM: UsbfnEvent = 12
 
-public val UsbfnEventMinimum: USBFN_EVENT = 0
+public val USBFN_EVENT_MINIMUM: UsbfnEvent = 0
 
-public val UsbfnEventPortType: USBFN_EVENT = 9
+public val USBFN_EVENT_PORT_TYPE: UsbfnEvent = 9
 
-public val UsbfnEventReset: USBFN_EVENT = 2
+public val USBFN_EVENT_RESET: UsbfnEvent = 2
 
-public val UsbfnEventResume: USBFN_EVENT = 5
+public val USBFN_EVENT_RESUME: UsbfnEvent = 5
 
-public val UsbfnEventSetInterface: USBFN_EVENT = 11
+public val USBFN_EVENT_SET_INTERFACE: UsbfnEvent = 11
 
-public val UsbfnEventSetupPacket: USBFN_EVENT = 6
+public val USBFN_EVENT_SETUP_PACKET: UsbfnEvent = 6
 
-public val UsbfnEventSuspend: USBFN_EVENT = 4
+public val USBFN_EVENT_SUSPEND: UsbfnEvent = 4
 
-public val UsbfnEventUnConfigured: USBFN_EVENT = 8
+public val USBFN_EVENT_UN_CONFIGURED: UsbfnEvent = 8
 
-public val UsbfnInvalidDedicatedChargingPort: USBFN_PORT_TYPE = 4
+public val USBFN_INVALID_DEDICATED_CHARGING_PORT: UsbfnPortType = 4
 
-public val UsbfnPortTypeMaximum: USBFN_PORT_TYPE = 6
+public val USBFN_PORT_TYPE_MAXIMUM: UsbfnPortType = 6
 
-public val UsbfnProprietaryDedicatedChargingPort: USBFN_PORT_TYPE = 5
+public val USBFN_PROPRIETARY_DEDICATED_CHARGING_PORT: UsbfnPortType = 5
 
-public val UsbfnStandardDownstreamPort: USBFN_PORT_TYPE = 1
+public val USBFN_STANDARD_DOWNSTREAM_PORT: UsbfnPortType = 1
 
-public val UsbfnUnknownPort: USBFN_PORT_TYPE = 0
+public val USBFN_UNKNOWN_PORT: UsbfnPortType = 0
 
 public val WMI_USB_DEVICE_NODE_INFORMATION: UInt = 2u
 
@@ -1359,32 +1359,32 @@ public val WMI_USB_PERFORMANCE_INFORMATION: UInt = 1u
 
 public val WMI_USB_POWER_DEVICE_ENABLE: UInt = 2u
 
-public val WRITE_DATA_PIPE: PIPE_TYPE = 2
+public val WRITE_DATA_PIPE: PipeType = 2
 
-public val WdmUsbPowerDeviceD0: WDMUSB_POWER_STATE = 201
+public val WDM_USB_POWER_DEVICE_D0: WdmusbPowerState = 201
 
-public val WdmUsbPowerDeviceD1: WDMUSB_POWER_STATE = 202
+public val WDM_USB_POWER_DEVICE_D1: WdmusbPowerState = 202
 
-public val WdmUsbPowerDeviceD2: WDMUSB_POWER_STATE = 203
+public val WDM_USB_POWER_DEVICE_D2: WdmusbPowerState = 203
 
-public val WdmUsbPowerDeviceD3: WDMUSB_POWER_STATE = 204
+public val WDM_USB_POWER_DEVICE_D3: WdmusbPowerState = 204
 
-public val WdmUsbPowerDeviceUnspecified: WDMUSB_POWER_STATE = 200
+public val WDM_USB_POWER_DEVICE_UNSPECIFIED: WdmusbPowerState = 200
 
-public val WdmUsbPowerNotMapped: WDMUSB_POWER_STATE = 0
+public val WDM_USB_POWER_NOT_MAPPED: WdmusbPowerState = 0
 
-public val WdmUsbPowerSystemHibernate: WDMUSB_POWER_STATE = 105
+public val WDM_USB_POWER_SYSTEM_HIBERNATE: WdmusbPowerState = 105
 
-public val WdmUsbPowerSystemShutdown: WDMUSB_POWER_STATE = 106
+public val WDM_USB_POWER_SYSTEM_SHUTDOWN: WdmusbPowerState = 106
 
-public val WdmUsbPowerSystemSleeping1: WDMUSB_POWER_STATE = 102
+public val WDM_USB_POWER_SYSTEM_SLEEPING1: WdmusbPowerState = 102
 
-public val WdmUsbPowerSystemSleeping2: WDMUSB_POWER_STATE = 103
+public val WDM_USB_POWER_SYSTEM_SLEEPING2: WdmusbPowerState = 103
 
-public val WdmUsbPowerSystemSleeping3: WDMUSB_POWER_STATE = 104
+public val WDM_USB_POWER_SYSTEM_SLEEPING3: WdmusbPowerState = 104
 
-public val WdmUsbPowerSystemUnspecified: WDMUSB_POWER_STATE = 100
+public val WDM_USB_POWER_SYSTEM_UNSPECIFIED: WdmusbPowerState = 100
 
-public val WdmUsbPowerSystemWorking: WDMUSB_POWER_STATE = 101
+public val WDM_USB_POWER_SYSTEM_WORKING: WdmusbPowerState = 101
 
-public val WinUSB_TestGuid: GUID = GUID.from_u128(U128(0xda812bff12c346a2uL, 0x8e2bdbd3b7834c43uL))
+public val WIN_USB_TEST_GUID: Guid = Guid.fromU128(U128(0xda812bff12c346a2uL, 0x8e2bdbd3b7834c43uL))

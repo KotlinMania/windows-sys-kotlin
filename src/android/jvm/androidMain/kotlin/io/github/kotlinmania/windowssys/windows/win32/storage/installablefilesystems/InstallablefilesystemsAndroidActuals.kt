@@ -2,10 +2,11 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.installablefilesystems
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
 private object WindowsWin32StorageInstallablefilesystemsJniBridge {
     init {
@@ -13,170 +14,170 @@ private object WindowsWin32StorageInstallablefilesystemsJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_installablefilesystems_FilterAttach(lpfiltername: Long, lpvolumename: Long, lpinstancename: Long, dwcreatedinstancenamelength: Int, lpcreatedinstancename: Long): Int
+    external fun windowssys_windows_win32_storage_installablefilesystems_filterAttach(lpfiltername: Long, lpvolumename: Long, lpinstancename: Long, dwcreatedinstancenamelength: Int, lpcreatedinstancename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_installablefilesystems_FilterAttachAtAltitude(lpfiltername: Long, lpvolumename: Long, lpaltitude: Long, lpinstancename: Long, dwcreatedinstancenamelength: Int, lpcreatedinstancename: Long): Int
+    external fun windowssys_windows_win32_storage_installablefilesystems_filterAttachAtAltitude(lpfiltername: Long, lpvolumename: Long, lpaltitude: Long, lpinstancename: Long, dwcreatedinstancenamelength: Int, lpcreatedinstancename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_installablefilesystems_FilterClose(hfilter: Long): Int
+    external fun windowssys_windows_win32_storage_installablefilesystems_filterClose(hfilter: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_installablefilesystems_FilterConnectCommunicationPort(lpportname: Long, dwoptions: Int, lpcontext: Long, wsizeofcontext: Short, lpsecurityattributes: Long, hport: Long): Int
+    external fun windowssys_windows_win32_storage_installablefilesystems_filterConnectCommunicationPort(lpportname: Long, dwoptions: Int, lpcontext: Long, wsizeofcontext: Short, lpsecurityattributes: Long, hport: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_installablefilesystems_FilterCreate(lpfiltername: Long, hfilter: Long): Int
+    external fun windowssys_windows_win32_storage_installablefilesystems_filterCreate(lpfiltername: Long, hfilter: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_installablefilesystems_FilterDetach(lpfiltername: Long, lpvolumename: Long, lpinstancename: Long): Int
+    external fun windowssys_windows_win32_storage_installablefilesystems_filterDetach(lpfiltername: Long, lpvolumename: Long, lpinstancename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_installablefilesystems_FilterFindClose(hfilterfind: Long): Int
+    external fun windowssys_windows_win32_storage_installablefilesystems_filterFindClose(hfilterfind: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_installablefilesystems_FilterFindFirst(dwinformationclass: Int, lpbuffer: Long, dwbuffersize: Int, lpbytesreturned: Long, lpfilterfind: Long): Int
+    external fun windowssys_windows_win32_storage_installablefilesystems_filterFindFirst(dwinformationclass: Int, lpbuffer: Long, dwbuffersize: Int, lpbytesreturned: Long, lpfilterfind: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_installablefilesystems_FilterFindNext(hfilterfind: Long, dwinformationclass: Int, lpbuffer: Long, dwbuffersize: Int, lpbytesreturned: Long): Int
+    external fun windowssys_windows_win32_storage_installablefilesystems_filterFindNext(hfilterfind: Long, dwinformationclass: Int, lpbuffer: Long, dwbuffersize: Int, lpbytesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_installablefilesystems_FilterGetDosName(lpvolumename: Long, lpdosname: Long, dwdosnamebuffersize: Int): Int
+    external fun windowssys_windows_win32_storage_installablefilesystems_filterGetDosName(lpvolumename: Long, lpdosname: Long, dwdosnamebuffersize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_installablefilesystems_FilterGetInformation(hfilter: Long, dwinformationclass: Int, lpbuffer: Long, dwbuffersize: Int, lpbytesreturned: Long): Int
+    external fun windowssys_windows_win32_storage_installablefilesystems_filterGetInformation(hfilter: Long, dwinformationclass: Int, lpbuffer: Long, dwbuffersize: Int, lpbytesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_installablefilesystems_FilterGetMessage(hport: Long, lpmessagebuffer: Long, dwmessagebuffersize: Int, lpoverlapped: Long): Int
+    external fun windowssys_windows_win32_storage_installablefilesystems_filterGetMessage(hport: Long, lpmessagebuffer: Long, dwmessagebuffersize: Int, lpoverlapped: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_installablefilesystems_FilterInstanceClose(hinstance: Long): Int
+    external fun windowssys_windows_win32_storage_installablefilesystems_filterInstanceClose(hinstance: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_installablefilesystems_FilterInstanceCreate(lpfiltername: Long, lpvolumename: Long, lpinstancename: Long, hinstance: Long): Int
+    external fun windowssys_windows_win32_storage_installablefilesystems_filterInstanceCreate(lpfiltername: Long, lpvolumename: Long, lpinstancename: Long, hinstance: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_installablefilesystems_FilterInstanceFindClose(hfilterinstancefind: Long): Int
+    external fun windowssys_windows_win32_storage_installablefilesystems_filterInstanceFindClose(hfilterinstancefind: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_installablefilesystems_FilterInstanceFindFirst(lpfiltername: Long, dwinformationclass: Int, lpbuffer: Long, dwbuffersize: Int, lpbytesreturned: Long, lpfilterinstancefind: Long): Int
+    external fun windowssys_windows_win32_storage_installablefilesystems_filterInstanceFindFirst(lpfiltername: Long, dwinformationclass: Int, lpbuffer: Long, dwbuffersize: Int, lpbytesreturned: Long, lpfilterinstancefind: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_installablefilesystems_FilterInstanceFindNext(hfilterinstancefind: Long, dwinformationclass: Int, lpbuffer: Long, dwbuffersize: Int, lpbytesreturned: Long): Int
+    external fun windowssys_windows_win32_storage_installablefilesystems_filterInstanceFindNext(hfilterinstancefind: Long, dwinformationclass: Int, lpbuffer: Long, dwbuffersize: Int, lpbytesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_installablefilesystems_FilterInstanceGetInformation(hinstance: Long, dwinformationclass: Int, lpbuffer: Long, dwbuffersize: Int, lpbytesreturned: Long): Int
+    external fun windowssys_windows_win32_storage_installablefilesystems_filterInstanceGetInformation(hinstance: Long, dwinformationclass: Int, lpbuffer: Long, dwbuffersize: Int, lpbytesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_installablefilesystems_FilterLoad(lpfiltername: Long): Int
+    external fun windowssys_windows_win32_storage_installablefilesystems_filterLoad(lpfiltername: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_installablefilesystems_FilterReplyMessage(hport: Long, lpreplybuffer: Long, dwreplybuffersize: Int): Int
+    external fun windowssys_windows_win32_storage_installablefilesystems_filterReplyMessage(hport: Long, lpreplybuffer: Long, dwreplybuffersize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_installablefilesystems_FilterSendMessage(hport: Long, lpinbuffer: Long, dwinbuffersize: Int, lpoutbuffer: Long, dwoutbuffersize: Int, lpbytesreturned: Long): Int
+    external fun windowssys_windows_win32_storage_installablefilesystems_filterSendMessage(hport: Long, lpinbuffer: Long, dwinbuffersize: Int, lpoutbuffer: Long, dwoutbuffersize: Int, lpbytesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_installablefilesystems_FilterUnload(lpfiltername: Long): Int
+    external fun windowssys_windows_win32_storage_installablefilesystems_filterUnload(lpfiltername: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_installablefilesystems_FilterVolumeFindClose(hvolumefind: Long): Int
+    external fun windowssys_windows_win32_storage_installablefilesystems_filterVolumeFindClose(hvolumefind: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_installablefilesystems_FilterVolumeFindFirst(dwinformationclass: Int, lpbuffer: Long, dwbuffersize: Int, lpbytesreturned: Long, lpvolumefind: Long): Int
+    external fun windowssys_windows_win32_storage_installablefilesystems_filterVolumeFindFirst(dwinformationclass: Int, lpbuffer: Long, dwbuffersize: Int, lpbytesreturned: Long, lpvolumefind: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_installablefilesystems_FilterVolumeFindNext(hvolumefind: Long, dwinformationclass: Int, lpbuffer: Long, dwbuffersize: Int, lpbytesreturned: Long): Int
+    external fun windowssys_windows_win32_storage_installablefilesystems_filterVolumeFindNext(hvolumefind: Long, dwinformationclass: Int, lpbuffer: Long, dwbuffersize: Int, lpbytesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_installablefilesystems_FilterVolumeInstanceFindClose(hvolumeinstancefind: Long): Int
+    external fun windowssys_windows_win32_storage_installablefilesystems_filterVolumeInstanceFindClose(hvolumeinstancefind: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_installablefilesystems_FilterVolumeInstanceFindFirst(lpvolumename: Long, dwinformationclass: Int, lpbuffer: Long, dwbuffersize: Int, lpbytesreturned: Long, lpvolumeinstancefind: Long): Int
+    external fun windowssys_windows_win32_storage_installablefilesystems_filterVolumeInstanceFindFirst(lpvolumename: Long, dwinformationclass: Int, lpbuffer: Long, dwbuffersize: Int, lpbytesreturned: Long, lpvolumeinstancefind: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_installablefilesystems_FilterVolumeInstanceFindNext(hvolumeinstancefind: Long, dwinformationclass: Int, lpbuffer: Long, dwbuffersize: Int, lpbytesreturned: Long): Int
+    external fun windowssys_windows_win32_storage_installablefilesystems_filterVolumeInstanceFindNext(hvolumeinstancefind: Long, dwinformationclass: Int, lpbuffer: Long, dwbuffersize: Int, lpbytesreturned: Long): Int
 }
 
-public actual fun FilterAttach(lpfiltername: PCWSTR, lpvolumename: PCWSTR, lpinstancename: PCWSTR, dwcreatedinstancenamelength: UInt, lpcreatedinstancename: PWSTR): HRESULT =
-    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_FilterAttach(lpfiltername, lpvolumename, lpinstancename, dwcreatedinstancenamelength.toInt(), lpcreatedinstancename)
+public actual fun filterAttach(lpfiltername: Pcwstr, lpvolumename: Pcwstr, lpinstancename: Pcwstr, dwcreatedinstancenamelength: UInt, lpcreatedinstancename: Pwstr): Hresult =
+    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_filterAttach((lpfiltername?.value ?: 0L), (lpvolumename?.value ?: 0L), (lpinstancename?.value ?: 0L), dwcreatedinstancenamelength.toInt(), (lpcreatedinstancename?.value ?: 0L))
 
-public actual fun FilterAttachAtAltitude(lpfiltername: PCWSTR, lpvolumename: PCWSTR, lpaltitude: PCWSTR, lpinstancename: PCWSTR, dwcreatedinstancenamelength: UInt, lpcreatedinstancename: PWSTR): HRESULT =
-    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_FilterAttachAtAltitude(lpfiltername, lpvolumename, lpaltitude, lpinstancename, dwcreatedinstancenamelength.toInt(), lpcreatedinstancename)
+public actual fun filterAttachAtAltitude(lpfiltername: Pcwstr, lpvolumename: Pcwstr, lpaltitude: Pcwstr, lpinstancename: Pcwstr, dwcreatedinstancenamelength: UInt, lpcreatedinstancename: Pwstr): Hresult =
+    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_filterAttachAtAltitude((lpfiltername?.value ?: 0L), (lpvolumename?.value ?: 0L), (lpaltitude?.value ?: 0L), (lpinstancename?.value ?: 0L), dwcreatedinstancenamelength.toInt(), (lpcreatedinstancename?.value ?: 0L))
 
-public actual fun FilterClose(hfilter: HFILTER): HRESULT =
-    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_FilterClose(hfilter)
+public actual fun filterClose(hfilter: Hfilter): Hresult =
+    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_filterClose(hfilter.toLong())
 
-public actual fun FilterConnectCommunicationPort(lpportname: PCWSTR, dwoptions: UInt, lpcontext: Long, wsizeofcontext: UShort, lpsecurityattributes: Long, hport: Long): HRESULT =
-    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_FilterConnectCommunicationPort(lpportname, dwoptions.toInt(), lpcontext, wsizeofcontext.toShort(), lpsecurityattributes, hport)
+public actual fun filterConnectCommunicationPort(lpportname: Pcwstr, dwoptions: UInt, lpcontext: COpaquePointer?, wsizeofcontext: UShort, lpsecurityattributes: COpaquePointer?, hport: COpaquePointer?): Hresult =
+    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_filterConnectCommunicationPort((lpportname?.value ?: 0L), dwoptions.toInt(), (lpcontext?.value ?: 0L), wsizeofcontext.toShort(), (lpsecurityattributes?.value ?: 0L), (hport?.value ?: 0L))
 
-public actual fun FilterCreate(lpfiltername: PCWSTR, hfilter: Long): HRESULT =
-    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_FilterCreate(lpfiltername, hfilter)
+public actual fun filterCreate(lpfiltername: Pcwstr, hfilter: COpaquePointer?): Hresult =
+    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_filterCreate((lpfiltername?.value ?: 0L), (hfilter?.value ?: 0L))
 
-public actual fun FilterDetach(lpfiltername: PCWSTR, lpvolumename: PCWSTR, lpinstancename: PCWSTR): HRESULT =
-    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_FilterDetach(lpfiltername, lpvolumename, lpinstancename)
+public actual fun filterDetach(lpfiltername: Pcwstr, lpvolumename: Pcwstr, lpinstancename: Pcwstr): Hresult =
+    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_filterDetach((lpfiltername?.value ?: 0L), (lpvolumename?.value ?: 0L), (lpinstancename?.value ?: 0L))
 
-public actual fun FilterFindClose(hfilterfind: HANDLE): HRESULT =
-    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_FilterFindClose(hfilterfind)
+public actual fun filterFindClose(hfilterfind: Handle): Hresult =
+    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_filterFindClose((hfilterfind?.value ?: 0L))
 
-public actual fun FilterFindFirst(dwinformationclass: FILTER_INFORMATION_CLASS, lpbuffer: Long, dwbuffersize: UInt, lpbytesreturned: Long, lpfilterfind: Long): HRESULT =
-    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_FilterFindFirst(dwinformationclass, lpbuffer, dwbuffersize.toInt(), lpbytesreturned, lpfilterfind)
+public actual fun filterFindFirst(dwinformationclass: FilterInformationClass, lpbuffer: COpaquePointer?, dwbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpfilterfind: COpaquePointer?): Hresult =
+    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_filterFindFirst(dwinformationclass, (lpbuffer?.value ?: 0L), dwbuffersize.toInt(), (lpbytesreturned?.value ?: 0L), (lpfilterfind?.value ?: 0L))
 
-public actual fun FilterFindNext(hfilterfind: HANDLE, dwinformationclass: FILTER_INFORMATION_CLASS, lpbuffer: Long, dwbuffersize: UInt, lpbytesreturned: Long): HRESULT =
-    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_FilterFindNext(hfilterfind, dwinformationclass, lpbuffer, dwbuffersize.toInt(), lpbytesreturned)
+public actual fun filterFindNext(hfilterfind: Handle, dwinformationclass: FilterInformationClass, lpbuffer: COpaquePointer?, dwbuffersize: UInt, lpbytesreturned: COpaquePointer?): Hresult =
+    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_filterFindNext((hfilterfind?.value ?: 0L), dwinformationclass, (lpbuffer?.value ?: 0L), dwbuffersize.toInt(), (lpbytesreturned?.value ?: 0L))
 
-public actual fun FilterGetDosName(lpvolumename: PCWSTR, lpdosname: PWSTR, dwdosnamebuffersize: UInt): HRESULT =
-    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_FilterGetDosName(lpvolumename, lpdosname, dwdosnamebuffersize.toInt())
+public actual fun filterGetDosName(lpvolumename: Pcwstr, lpdosname: Pwstr, dwdosnamebuffersize: UInt): Hresult =
+    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_filterGetDosName((lpvolumename?.value ?: 0L), (lpdosname?.value ?: 0L), dwdosnamebuffersize.toInt())
 
-public actual fun FilterGetInformation(hfilter: HFILTER, dwinformationclass: FILTER_INFORMATION_CLASS, lpbuffer: Long, dwbuffersize: UInt, lpbytesreturned: Long): HRESULT =
-    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_FilterGetInformation(hfilter, dwinformationclass, lpbuffer, dwbuffersize.toInt(), lpbytesreturned)
+public actual fun filterGetInformation(hfilter: Hfilter, dwinformationclass: FilterInformationClass, lpbuffer: COpaquePointer?, dwbuffersize: UInt, lpbytesreturned: COpaquePointer?): Hresult =
+    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_filterGetInformation(hfilter.toLong(), dwinformationclass, (lpbuffer?.value ?: 0L), dwbuffersize.toInt(), (lpbytesreturned?.value ?: 0L))
 
-public actual fun FilterGetMessage(hport: HANDLE, lpmessagebuffer: Long, dwmessagebuffersize: UInt, lpoverlapped: Long): HRESULT =
-    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_FilterGetMessage(hport, lpmessagebuffer, dwmessagebuffersize.toInt(), lpoverlapped)
+public actual fun filterGetMessage(hport: Handle, lpmessagebuffer: COpaquePointer?, dwmessagebuffersize: UInt, lpoverlapped: COpaquePointer?): Hresult =
+    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_filterGetMessage((hport?.value ?: 0L), (lpmessagebuffer?.value ?: 0L), dwmessagebuffersize.toInt(), (lpoverlapped?.value ?: 0L))
 
-public actual fun FilterInstanceClose(hinstance: HFILTER_INSTANCE): HRESULT =
-    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_FilterInstanceClose(hinstance)
+public actual fun filterInstanceClose(hinstance: HfilterInstance): Hresult =
+    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_filterInstanceClose(hinstance.toLong())
 
-public actual fun FilterInstanceCreate(lpfiltername: PCWSTR, lpvolumename: PCWSTR, lpinstancename: PCWSTR, hinstance: Long): HRESULT =
-    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_FilterInstanceCreate(lpfiltername, lpvolumename, lpinstancename, hinstance)
+public actual fun filterInstanceCreate(lpfiltername: Pcwstr, lpvolumename: Pcwstr, lpinstancename: Pcwstr, hinstance: COpaquePointer?): Hresult =
+    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_filterInstanceCreate((lpfiltername?.value ?: 0L), (lpvolumename?.value ?: 0L), (lpinstancename?.value ?: 0L), (hinstance?.value ?: 0L))
 
-public actual fun FilterInstanceFindClose(hfilterinstancefind: HANDLE): HRESULT =
-    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_FilterInstanceFindClose(hfilterinstancefind)
+public actual fun filterInstanceFindClose(hfilterinstancefind: Handle): Hresult =
+    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_filterInstanceFindClose((hfilterinstancefind?.value ?: 0L))
 
-public actual fun FilterInstanceFindFirst(lpfiltername: PCWSTR, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: Long, dwbuffersize: UInt, lpbytesreturned: Long, lpfilterinstancefind: Long): HRESULT =
-    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_FilterInstanceFindFirst(lpfiltername, dwinformationclass, lpbuffer, dwbuffersize.toInt(), lpbytesreturned, lpfilterinstancefind)
+public actual fun filterInstanceFindFirst(lpfiltername: Pcwstr, dwinformationclass: InstanceInformationClass, lpbuffer: COpaquePointer?, dwbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpfilterinstancefind: COpaquePointer?): Hresult =
+    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_filterInstanceFindFirst((lpfiltername?.value ?: 0L), dwinformationclass, (lpbuffer?.value ?: 0L), dwbuffersize.toInt(), (lpbytesreturned?.value ?: 0L), (lpfilterinstancefind?.value ?: 0L))
 
-public actual fun FilterInstanceFindNext(hfilterinstancefind: HANDLE, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: Long, dwbuffersize: UInt, lpbytesreturned: Long): HRESULT =
-    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_FilterInstanceFindNext(hfilterinstancefind, dwinformationclass, lpbuffer, dwbuffersize.toInt(), lpbytesreturned)
+public actual fun filterInstanceFindNext(hfilterinstancefind: Handle, dwinformationclass: InstanceInformationClass, lpbuffer: COpaquePointer?, dwbuffersize: UInt, lpbytesreturned: COpaquePointer?): Hresult =
+    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_filterInstanceFindNext((hfilterinstancefind?.value ?: 0L), dwinformationclass, (lpbuffer?.value ?: 0L), dwbuffersize.toInt(), (lpbytesreturned?.value ?: 0L))
 
-public actual fun FilterInstanceGetInformation(hinstance: HFILTER_INSTANCE, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: Long, dwbuffersize: UInt, lpbytesreturned: Long): HRESULT =
-    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_FilterInstanceGetInformation(hinstance, dwinformationclass, lpbuffer, dwbuffersize.toInt(), lpbytesreturned)
+public actual fun filterInstanceGetInformation(hinstance: HfilterInstance, dwinformationclass: InstanceInformationClass, lpbuffer: COpaquePointer?, dwbuffersize: UInt, lpbytesreturned: COpaquePointer?): Hresult =
+    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_filterInstanceGetInformation(hinstance.toLong(), dwinformationclass, (lpbuffer?.value ?: 0L), dwbuffersize.toInt(), (lpbytesreturned?.value ?: 0L))
 
-public actual fun FilterLoad(lpfiltername: PCWSTR): HRESULT =
-    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_FilterLoad(lpfiltername)
+public actual fun filterLoad(lpfiltername: Pcwstr): Hresult =
+    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_filterLoad((lpfiltername?.value ?: 0L))
 
-public actual fun FilterReplyMessage(hport: HANDLE, lpreplybuffer: Long, dwreplybuffersize: UInt): HRESULT =
-    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_FilterReplyMessage(hport, lpreplybuffer, dwreplybuffersize.toInt())
+public actual fun filterReplyMessage(hport: Handle, lpreplybuffer: COpaquePointer?, dwreplybuffersize: UInt): Hresult =
+    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_filterReplyMessage((hport?.value ?: 0L), (lpreplybuffer?.value ?: 0L), dwreplybuffersize.toInt())
 
-public actual fun FilterSendMessage(hport: HANDLE, lpinbuffer: Long, dwinbuffersize: UInt, lpoutbuffer: Long, dwoutbuffersize: UInt, lpbytesreturned: Long): HRESULT =
-    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_FilterSendMessage(hport, lpinbuffer, dwinbuffersize.toInt(), lpoutbuffer, dwoutbuffersize.toInt(), lpbytesreturned)
+public actual fun filterSendMessage(hport: Handle, lpinbuffer: COpaquePointer?, dwinbuffersize: UInt, lpoutbuffer: COpaquePointer?, dwoutbuffersize: UInt, lpbytesreturned: COpaquePointer?): Hresult =
+    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_filterSendMessage((hport?.value ?: 0L), (lpinbuffer?.value ?: 0L), dwinbuffersize.toInt(), (lpoutbuffer?.value ?: 0L), dwoutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L))
 
-public actual fun FilterUnload(lpfiltername: PCWSTR): HRESULT =
-    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_FilterUnload(lpfiltername)
+public actual fun filterUnload(lpfiltername: Pcwstr): Hresult =
+    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_filterUnload((lpfiltername?.value ?: 0L))
 
-public actual fun FilterVolumeFindClose(hvolumefind: HANDLE): HRESULT =
-    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_FilterVolumeFindClose(hvolumefind)
+public actual fun filterVolumeFindClose(hvolumefind: Handle): Hresult =
+    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_filterVolumeFindClose((hvolumefind?.value ?: 0L))
 
-public actual fun FilterVolumeFindFirst(dwinformationclass: FILTER_VOLUME_INFORMATION_CLASS, lpbuffer: Long, dwbuffersize: UInt, lpbytesreturned: Long, lpvolumefind: Long): HRESULT =
-    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_FilterVolumeFindFirst(dwinformationclass, lpbuffer, dwbuffersize.toInt(), lpbytesreturned, lpvolumefind)
+public actual fun filterVolumeFindFirst(dwinformationclass: FilterVolumeInformationClass, lpbuffer: COpaquePointer?, dwbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpvolumefind: COpaquePointer?): Hresult =
+    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_filterVolumeFindFirst(dwinformationclass, (lpbuffer?.value ?: 0L), dwbuffersize.toInt(), (lpbytesreturned?.value ?: 0L), (lpvolumefind?.value ?: 0L))
 
-public actual fun FilterVolumeFindNext(hvolumefind: HANDLE, dwinformationclass: FILTER_VOLUME_INFORMATION_CLASS, lpbuffer: Long, dwbuffersize: UInt, lpbytesreturned: Long): HRESULT =
-    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_FilterVolumeFindNext(hvolumefind, dwinformationclass, lpbuffer, dwbuffersize.toInt(), lpbytesreturned)
+public actual fun filterVolumeFindNext(hvolumefind: Handle, dwinformationclass: FilterVolumeInformationClass, lpbuffer: COpaquePointer?, dwbuffersize: UInt, lpbytesreturned: COpaquePointer?): Hresult =
+    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_filterVolumeFindNext((hvolumefind?.value ?: 0L), dwinformationclass, (lpbuffer?.value ?: 0L), dwbuffersize.toInt(), (lpbytesreturned?.value ?: 0L))
 
-public actual fun FilterVolumeInstanceFindClose(hvolumeinstancefind: HANDLE): HRESULT =
-    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_FilterVolumeInstanceFindClose(hvolumeinstancefind)
+public actual fun filterVolumeInstanceFindClose(hvolumeinstancefind: Handle): Hresult =
+    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_filterVolumeInstanceFindClose((hvolumeinstancefind?.value ?: 0L))
 
-public actual fun FilterVolumeInstanceFindFirst(lpvolumename: PCWSTR, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: Long, dwbuffersize: UInt, lpbytesreturned: Long, lpvolumeinstancefind: Long): HRESULT =
-    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_FilterVolumeInstanceFindFirst(lpvolumename, dwinformationclass, lpbuffer, dwbuffersize.toInt(), lpbytesreturned, lpvolumeinstancefind)
+public actual fun filterVolumeInstanceFindFirst(lpvolumename: Pcwstr, dwinformationclass: InstanceInformationClass, lpbuffer: COpaquePointer?, dwbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpvolumeinstancefind: COpaquePointer?): Hresult =
+    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_filterVolumeInstanceFindFirst((lpvolumename?.value ?: 0L), dwinformationclass, (lpbuffer?.value ?: 0L), dwbuffersize.toInt(), (lpbytesreturned?.value ?: 0L), (lpvolumeinstancefind?.value ?: 0L))
 
-public actual fun FilterVolumeInstanceFindNext(hvolumeinstancefind: HANDLE, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: Long, dwbuffersize: UInt, lpbytesreturned: Long): HRESULT =
-    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_FilterVolumeInstanceFindNext(hvolumeinstancefind, dwinformationclass, lpbuffer, dwbuffersize.toInt(), lpbytesreturned)
+public actual fun filterVolumeInstanceFindNext(hvolumeinstancefind: Handle, dwinformationclass: InstanceInformationClass, lpbuffer: COpaquePointer?, dwbuffersize: UInt, lpbytesreturned: COpaquePointer?): Hresult =
+    WindowsWin32StorageInstallablefilesystemsJniBridge.windowssys_windows_win32_storage_installablefilesystems_filterVolumeInstanceFindNext((hvolumeinstancefind?.value ?: 0L), dwinformationclass, (lpbuffer?.value ?: 0L), dwbuffersize.toInt(), (lpbytesreturned?.value ?: 0L))

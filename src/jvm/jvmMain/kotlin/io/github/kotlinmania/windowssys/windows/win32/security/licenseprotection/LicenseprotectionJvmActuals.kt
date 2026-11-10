@@ -2,8 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.licenseprotection
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
 
 private object WindowsWin32SecurityLicenseprotectionJniBridge {
     init {
@@ -11,14 +12,14 @@ private object WindowsWin32SecurityLicenseprotectionJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_licenseprotection_RegisterLicenseKeyWithExpiration(licensekey: Long, validityindays: Int, status: Long): Int
+    external fun windowssys_windows_win32_security_licenseprotection_registerLicenseKeyWithExpiration(licensekey: Long, validityindays: Int, status: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_security_licenseprotection_ValidateLicenseKeyProtection(licensekey: Long, notvalidbefore: Long, notvalidafter: Long, status: Long): Int
+    external fun windowssys_windows_win32_security_licenseprotection_validateLicenseKeyProtection(licensekey: Long, notvalidbefore: Long, notvalidafter: Long, status: Long): Int
 }
 
-public actual fun RegisterLicenseKeyWithExpiration(licensekey: PCWSTR, validityindays: UInt, status: Long): HRESULT =
-    WindowsWin32SecurityLicenseprotectionJniBridge.windowssys_windows_win32_security_licenseprotection_RegisterLicenseKeyWithExpiration(licensekey, validityindays.toInt(), status)
+public actual fun registerLicenseKeyWithExpiration(licensekey: Pcwstr, validityindays: UInt, status: COpaquePointer?): Hresult =
+    WindowsWin32SecurityLicenseprotectionJniBridge.windowssys_windows_win32_security_licenseprotection_registerLicenseKeyWithExpiration((licensekey?.value ?: 0L), validityindays.toInt(), (status?.value ?: 0L))
 
-public actual fun ValidateLicenseKeyProtection(licensekey: PCWSTR, notvalidbefore: Long, notvalidafter: Long, status: Long): HRESULT =
-    WindowsWin32SecurityLicenseprotectionJniBridge.windowssys_windows_win32_security_licenseprotection_ValidateLicenseKeyProtection(licensekey, notvalidbefore, notvalidafter, status)
+public actual fun validateLicenseKeyProtection(licensekey: Pcwstr, notvalidbefore: COpaquePointer?, notvalidafter: COpaquePointer?, status: COpaquePointer?): Hresult =
+    WindowsWin32SecurityLicenseprotectionJniBridge.windowssys_windows_win32_security_licenseprotection_validateLicenseKeyProtection((licensekey?.value ?: 0L), (notvalidbefore?.value ?: 0L), (notvalidafter?.value ?: 0L), (status?.value ?: 0L))

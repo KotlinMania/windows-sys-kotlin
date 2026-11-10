@@ -1,20 +1,21 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wifi
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcwstr
 
-public data class WLAN_CONNECTION_ATTRIBUTES(
-    public var isState: WLAN_INTERFACE_STATE = 0,
-    public var wlanConnectionMode: WLAN_CONNECTION_MODE = 0,
+public data class WlanConnectionAttributes(
+    public var isState: WlanInterfaceState = 0,
+    public var wlanConnectionMode: WlanConnectionMode = 0,
     public var strProfileName: UShortArray = UShortArray(256),
-    public var wlanAssociationAttributes: WLAN_ASSOCIATION_ATTRIBUTES = WLAN_ASSOCIATION_ATTRIBUTES(),
-    public var wlanSecurityAttributes: WLAN_SECURITY_ATTRIBUTES = WLAN_SECURITY_ATTRIBUTES(),
+    public var wlanAssociationAttributes: WlanAssociationAttributes = WlanAssociationAttributes(),
+    public var wlanSecurityAttributes: WlanSecurityAttributes = WlanSecurityAttributes(),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is WLAN_CONNECTION_ATTRIBUTES) return false
+        if (other !is WlanConnectionAttributes) return false
         if (this.isState != other.isState) return false
         if (this.wlanConnectionMode != other.wlanConnectionMode) return false
         if (!this.strProfileName.contentEquals(other.strProfileName)) return false
@@ -33,19 +34,19 @@ public data class WLAN_CONNECTION_ATTRIBUTES(
     }
 }
 
-public data class WLAN_CONNECTION_NOTIFICATION_DATA(
-    public var wlanConnectionMode: WLAN_CONNECTION_MODE = 0,
+public data class WlanConnectionNotificationData(
+    public var wlanConnectionMode: WlanConnectionMode = 0,
     public var strProfileName: UShortArray = UShortArray(256),
-    public var dot11Ssid: DOT11_SSID = DOT11_SSID(),
-    public var dot11BssType: DOT11_BSS_TYPE = 0,
-    public var bSecurityEnabled: BOOL = 0,
+    public var dot11Ssid: Dot11Ssid = Dot11Ssid(),
+    public var dot11BssType: Dot11BssType = 0,
+    public var bSecurityEnabled: Bool = 0,
     public var wlanReasonCode: UInt = 0u,
-    public var dwFlags: WLAN_CONNECTION_NOTIFICATION_FLAGS = 0u,
+    public var dwFlags: WlanConnectionNotificationFlags = 0u,
     public var strProfileXml: UShortArray = UShortArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is WLAN_CONNECTION_NOTIFICATION_DATA) return false
+        if (other !is WlanConnectionNotificationData) return false
         if (this.wlanConnectionMode != other.wlanConnectionMode) return false
         if (!this.strProfileName.contentEquals(other.strProfileName)) return false
         if (this.dot11Ssid != other.dot11Ssid) return false
@@ -70,30 +71,30 @@ public data class WLAN_CONNECTION_NOTIFICATION_DATA(
     }
 }
 
-public data class WLAN_CONNECTION_PARAMETERS(
-    public var wlanConnectionMode: WLAN_CONNECTION_MODE = 0,
-    public var strProfile: PCWSTR = 0L,
-    public var pDot11Ssid: Long = 0L,
-    public var pDesiredBssidList: Long = 0L,
-    public var dot11BssType: DOT11_BSS_TYPE = 0,
+public data class WlanConnectionParameters(
+    public var wlanConnectionMode: WlanConnectionMode = 0,
+    public var strProfile: Pcwstr = null,
+    public var pDot11Ssid: Dot11Ssid? = null,
+    public var pDesiredBssidList: Dot11BssidList? = null,
+    public var dot11BssType: Dot11BssType = 0,
     public var dwFlags: UInt = 0u,
 )
 
-public data class WLAN_CONNECTION_PARAMETERS_V2(
-    public var wlanConnectionMode: WLAN_CONNECTION_MODE = 0,
-    public var strProfile: PCWSTR = 0L,
-    public var pDot11Ssid: Long = 0L,
-    public var pDot11Hessid: Long = 0L,
-    public var pDesiredBssidList: Long = 0L,
-    public var dot11BssType: DOT11_BSS_TYPE = 0,
+public data class WlanConnectionParametersV2(
+    public var wlanConnectionMode: WlanConnectionMode = 0,
+    public var strProfile: Pcwstr = null,
+    public var pDot11Ssid: Dot11Ssid? = null,
+    public var pDot11Hessid: COpaquePointer? = null,
+    public var pDesiredBssidList: Dot11BssidList? = null,
+    public var dot11BssType: Dot11BssType = 0,
     public var dwFlags: UInt = 0u,
-    public var pDot11AccessNetworkOptions: Long = 0L,
+    public var pDot11AccessNetworkOptions: Dot11Accessnetworkoptions? = null,
 )
 
-public data class WLAN_COUNTRY_OR_REGION_STRING_LIST(public var dwNumberOfItems: UInt = 0u, public var pCountryOrRegionStringList: UByteArray = UByteArray(3)) {
+public data class WlanCountryOrRegionStringList(public var dwNumberOfItems: UInt = 0u, public var pCountryOrRegionStringList: UByteArray = UByteArray(3)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is WLAN_COUNTRY_OR_REGION_STRING_LIST) return false
+        if (other !is WlanCountryOrRegionStringList) return false
         if (this.dwNumberOfItems != other.dwNumberOfItems) return false
         if (!this.pCountryOrRegionStringList.contentEquals(other.pCountryOrRegionStringList)) return false
         return true
@@ -106,108 +107,108 @@ public data class WLAN_COUNTRY_OR_REGION_STRING_LIST(public var dwNumberOfItems:
     }
 }
 
-public data class WLAN_DEVICE_SERVICE_GUID_LIST(
+public data class WlanDeviceServiceGuidList(
     public var dwNumberOfItems: UInt = 0u,
     public var dwIndex: UInt = 0u,
-    public var DeviceService: List<GUID> = List(1) { GUID() },
+    public var deviceService: List<Guid> = List(1) { Guid() },
 )
 
-public data class WLAN_DEVICE_SERVICE_NOTIFICATION_DATA(
-    public var DeviceService: GUID = GUID(),
+public data class WlanDeviceServiceNotificationData(
+    public var deviceService: Guid = Guid(),
     public var dwOpCode: UInt = 0u,
     public var dwDataSize: UInt = 0u,
-    public var DataBlob: UByteArray = UByteArray(1),
+    public var dataBlob: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is WLAN_DEVICE_SERVICE_NOTIFICATION_DATA) return false
-        if (this.DeviceService != other.DeviceService) return false
+        if (other !is WlanDeviceServiceNotificationData) return false
+        if (this.deviceService != other.deviceService) return false
         if (this.dwOpCode != other.dwOpCode) return false
         if (this.dwDataSize != other.dwDataSize) return false
-        if (!this.DataBlob.contentEquals(other.DataBlob)) return false
+        if (!this.dataBlob.contentEquals(other.dataBlob)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.DeviceService.hashCode()
+        var result = this.deviceService.hashCode()
         result = 31 * result + this.dwOpCode.hashCode()
         result = 31 * result + this.dwDataSize.hashCode()
-        result = 31 * result + this.DataBlob.contentHashCode()
+        result = 31 * result + this.dataBlob.contentHashCode()
         return result
     }
 }
 
-public data class WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS(public var hostedNetworkSSID: DOT11_SSID = DOT11_SSID(), public var dwMaxNumberOfPeers: UInt = 0u)
+public data class WlanHostedNetworkConnectionSettings(public var hostedNetworkSSID: Dot11Ssid = Dot11Ssid(), public var dwMaxNumberOfPeers: UInt = 0u)
 
-public data class WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE(
-    public var OldState: WLAN_HOSTED_NETWORK_PEER_STATE = WLAN_HOSTED_NETWORK_PEER_STATE(),
-    public var NewState: WLAN_HOSTED_NETWORK_PEER_STATE = WLAN_HOSTED_NETWORK_PEER_STATE(),
-    public var PeerStateChangeReason: WLAN_HOSTED_NETWORK_REASON = 0,
+public data class WlanHostedNetworkDataPeerStateChange(
+    public var oldState: WlanHostedNetworkPeerState = WlanHostedNetworkPeerState(),
+    public var newState: WlanHostedNetworkPeerState = WlanHostedNetworkPeerState(),
+    public var peerStateChangeReason: WlanHostedNetworkReason = 0,
 )
 
-public data class WLAN_HOSTED_NETWORK_PEER_STATE(public var PeerMacAddress: UByteArray = UByteArray(6), public var PeerAuthState: WLAN_HOSTED_NETWORK_PEER_AUTH_STATE = 0) {
+public data class WlanHostedNetworkPeerState(public var peerMacAddress: UByteArray = UByteArray(6), public var peerAuthState: WlanHostedNetworkPeerAuthState = 0) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is WLAN_HOSTED_NETWORK_PEER_STATE) return false
-        if (!this.PeerMacAddress.contentEquals(other.PeerMacAddress)) return false
-        if (this.PeerAuthState != other.PeerAuthState) return false
+        if (other !is WlanHostedNetworkPeerState) return false
+        if (!this.peerMacAddress.contentEquals(other.peerMacAddress)) return false
+        if (this.peerAuthState != other.peerAuthState) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.PeerMacAddress.contentHashCode()
-        result = 31 * result + this.PeerAuthState.hashCode()
+        var result = this.peerMacAddress.contentHashCode()
+        result = 31 * result + this.peerAuthState.hashCode()
         return result
     }
 }
 
-public data class WLAN_HOSTED_NETWORK_RADIO_STATE(public var dot11SoftwareRadioState: DOT11_RADIO_STATE = 0, public var dot11HardwareRadioState: DOT11_RADIO_STATE = 0)
+public data class WlanHostedNetworkRadioState(public var dot11SoftwareRadioState: Dot11RadioState = 0, public var dot11HardwareRadioState: Dot11RadioState = 0)
 
-public data class WLAN_HOSTED_NETWORK_SECURITY_SETTINGS(public var dot11AuthAlgo: DOT11_AUTH_ALGORITHM = 0, public var dot11CipherAlgo: DOT11_CIPHER_ALGORITHM = 0)
+public data class WlanHostedNetworkSecuritySettings(public var dot11AuthAlgo: Dot11AuthAlgorithm = 0, public var dot11CipherAlgo: Dot11CipherAlgorithm = 0)
 
-public data class WLAN_HOSTED_NETWORK_STATE_CHANGE(
-    public var OldState: WLAN_HOSTED_NETWORK_STATE = 0,
-    public var NewState: WLAN_HOSTED_NETWORK_STATE = 0,
-    public var StateChangeReason: WLAN_HOSTED_NETWORK_REASON = 0,
+public data class WlanHostedNetworkStateChange(
+    public var oldState: WlanHostedNetworkState = 0,
+    public var newState: WlanHostedNetworkState = 0,
+    public var stateChangeReason: WlanHostedNetworkReason = 0,
 )
 
-public data class WLAN_HOSTED_NETWORK_STATUS(
-    public var HostedNetworkState: WLAN_HOSTED_NETWORK_STATE = 0,
-    public var IPDeviceID: GUID = GUID(),
+public data class WlanHostedNetworkStatus(
+    public var hostedNetworkState: WlanHostedNetworkState = 0,
+    public var iPDeviceID: Guid = Guid(),
     public var wlanHostedNetworkBSSID: UByteArray = UByteArray(6),
-    public var dot11PhyType: DOT11_PHY_TYPE = 0,
+    public var dot11PhyType: Dot11PhyType = 0,
     public var ulChannelFrequency: UInt = 0u,
     public var dwNumberOfPeers: UInt = 0u,
-    public var PeerList: List<WLAN_HOSTED_NETWORK_PEER_STATE> = List(1) { WLAN_HOSTED_NETWORK_PEER_STATE() },
+    public var peerList: List<WlanHostedNetworkPeerState> = List(1) { WlanHostedNetworkPeerState() },
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is WLAN_HOSTED_NETWORK_STATUS) return false
-        if (this.HostedNetworkState != other.HostedNetworkState) return false
-        if (this.IPDeviceID != other.IPDeviceID) return false
+        if (other !is WlanHostedNetworkStatus) return false
+        if (this.hostedNetworkState != other.hostedNetworkState) return false
+        if (this.iPDeviceID != other.iPDeviceID) return false
         if (!this.wlanHostedNetworkBSSID.contentEquals(other.wlanHostedNetworkBSSID)) return false
         if (this.dot11PhyType != other.dot11PhyType) return false
         if (this.ulChannelFrequency != other.ulChannelFrequency) return false
         if (this.dwNumberOfPeers != other.dwNumberOfPeers) return false
-        if (this.PeerList != other.PeerList) return false
+        if (this.peerList != other.peerList) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.HostedNetworkState.hashCode()
-        result = 31 * result + this.IPDeviceID.hashCode()
+        var result = this.hostedNetworkState.hashCode()
+        result = 31 * result + this.iPDeviceID.hashCode()
         result = 31 * result + this.wlanHostedNetworkBSSID.contentHashCode()
         result = 31 * result + this.dot11PhyType.hashCode()
         result = 31 * result + this.ulChannelFrequency.hashCode()
         result = 31 * result + this.dwNumberOfPeers.hashCode()
-        result = 31 * result + this.PeerList.hashCode()
+        result = 31 * result + this.peerList.hashCode()
         return result
     }
 }
 
-public data class WLAN_INTERFACE_CAPABILITY(
-    public var interfaceType: WLAN_INTERFACE_TYPE = 0,
-    public var bDot11DSupported: BOOL = 0,
+public data class WlanInterfaceCapability(
+    public var interfaceType: WlanInterfaceType = 0,
+    public var bDot11DSupported: Bool = 0,
     public var dwMaxDesiredSsidListSize: UInt = 0u,
     public var dwMaxDesiredBssidListSize: UInt = 0u,
     public var dwNumberOfSupportedPhys: UInt = 0u,
@@ -215,7 +216,7 @@ public data class WLAN_INTERFACE_CAPABILITY(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is WLAN_INTERFACE_CAPABILITY) return false
+        if (other !is WlanInterfaceCapability) return false
         if (this.interfaceType != other.interfaceType) return false
         if (this.bDot11DSupported != other.bDot11DSupported) return false
         if (this.dwMaxDesiredSsidListSize != other.dwMaxDesiredSsidListSize) return false
@@ -236,35 +237,35 @@ public data class WLAN_INTERFACE_CAPABILITY(
     }
 }
 
-public data class WLAN_INTERFACE_INFO(
-    public var InterfaceGuid: GUID = GUID(),
+public data class WlanInterfaceInfo(
+    public var interfaceGuid: Guid = Guid(),
     public var strInterfaceDescription: UShortArray = UShortArray(256),
-    public var isState: WLAN_INTERFACE_STATE = 0,
+    public var isState: WlanInterfaceState = 0,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is WLAN_INTERFACE_INFO) return false
-        if (this.InterfaceGuid != other.InterfaceGuid) return false
+        if (other !is WlanInterfaceInfo) return false
+        if (this.interfaceGuid != other.interfaceGuid) return false
         if (!this.strInterfaceDescription.contentEquals(other.strInterfaceDescription)) return false
         if (this.isState != other.isState) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.InterfaceGuid.hashCode()
+        var result = this.interfaceGuid.hashCode()
         result = 31 * result + this.strInterfaceDescription.contentHashCode()
         result = 31 * result + this.isState.hashCode()
         return result
     }
 }
 
-public data class WLAN_INTERFACE_INFO_LIST(
+public data class WlanInterfaceInfoList(
     public var dwNumberOfItems: UInt = 0u,
     public var dwIndex: UInt = 0u,
-    public var InterfaceInfo: List<WLAN_INTERFACE_INFO> = List(1) { WLAN_INTERFACE_INFO() },
+    public var interfaceInfo: List<WlanInterfaceInfo> = List(1) { WlanInterfaceInfo() },
 )
 
-public data class WLAN_MAC_FRAME_STATISTICS(
+public data class WlanMacFrameStatistics(
     public var ullTransmittedFrameCount: ULong = 0uL,
     public var ullReceivedFrameCount: ULong = 0uL,
     public var ullWEPExcludedCount: ULong = 0uL,
@@ -279,20 +280,20 @@ public data class WLAN_MAC_FRAME_STATISTICS(
     public var ullDecryptFailureCount: ULong = 0uL,
 )
 
-public data class WLAN_MSM_NOTIFICATION_DATA(
-    public var wlanConnectionMode: WLAN_CONNECTION_MODE = 0,
+public data class WlanMsmNotificationData(
+    public var wlanConnectionMode: WlanConnectionMode = 0,
     public var strProfileName: UShortArray = UShortArray(256),
-    public var dot11Ssid: DOT11_SSID = DOT11_SSID(),
-    public var dot11BssType: DOT11_BSS_TYPE = 0,
+    public var dot11Ssid: Dot11Ssid = Dot11Ssid(),
+    public var dot11BssType: Dot11BssType = 0,
     public var dot11MacAddr: UByteArray = UByteArray(6),
-    public var bSecurityEnabled: BOOL = 0,
-    public var bFirstPeer: BOOL = 0,
-    public var bLastPeer: BOOL = 0,
+    public var bSecurityEnabled: Bool = 0,
+    public var bFirstPeer: Bool = 0,
+    public var bLastPeer: Bool = 0,
     public var wlanReasonCode: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is WLAN_MSM_NOTIFICATION_DATA) return false
+        if (other !is WlanMsmNotificationData) return false
         if (this.wlanConnectionMode != other.wlanConnectionMode) return false
         if (!this.strProfileName.contentEquals(other.strProfileName)) return false
         if (this.dot11Ssid != other.dot11Ssid) return false
@@ -319,7 +320,7 @@ public data class WLAN_MSM_NOTIFICATION_DATA(
     }
 }
 
-public class WLAN_PHY_FRAME_STATISTICS(
+public class WlanPhyFrameStatistics(
     public var ullTransmittedFrameCount: ULong = 0uL,
     public var ullMulticastTransmittedFrameCount: ULong = 0uL,
     public var ullFailedCount: ULong = 0uL,
@@ -340,16 +341,16 @@ public class WLAN_PHY_FRAME_STATISTICS(
     public var ullFCSErrorCount: ULong = 0uL,
 )
 
-public data class WLAN_PHY_RADIO_STATE(
+public data class WlanPhyRadioState(
     public var dwPhyIndex: UInt = 0u,
-    public var dot11SoftwareRadioState: DOT11_RADIO_STATE = 0,
-    public var dot11HardwareRadioState: DOT11_RADIO_STATE = 0,
+    public var dot11SoftwareRadioState: Dot11RadioState = 0,
+    public var dot11HardwareRadioState: Dot11RadioState = 0,
 )
 
-public data class WLAN_PROFILE_INFO(public var strProfileName: UShortArray = UShortArray(256), public var dwFlags: UInt = 0u) {
+public data class WlanProfileInfo(public var strProfileName: UShortArray = UShortArray(256), public var dwFlags: UInt = 0u) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is WLAN_PROFILE_INFO) return false
+        if (other !is WlanProfileInfo) return false
         if (!this.strProfileName.contentEquals(other.strProfileName)) return false
         if (this.dwFlags != other.dwFlags) return false
         return true
@@ -362,18 +363,18 @@ public data class WLAN_PROFILE_INFO(public var strProfileName: UShortArray = USh
     }
 }
 
-public data class WLAN_PROFILE_INFO_LIST(
+public data class WlanProfileInfoList(
     public var dwNumberOfItems: UInt = 0u,
     public var dwIndex: UInt = 0u,
-    public var ProfileInfo: List<WLAN_PROFILE_INFO> = List(1) { WLAN_PROFILE_INFO() },
+    public var profileInfo: List<WlanProfileInfo> = List(1) { WlanProfileInfo() },
 )
 
-public data class WLAN_RADIO_STATE(public var dwNumberOfPhys: UInt = 0u, public var PhyRadioState: List<WLAN_PHY_RADIO_STATE> = List(64) { WLAN_PHY_RADIO_STATE() })
+public data class WlanRadioState(public var dwNumberOfPhys: UInt = 0u, public var phyRadioState: List<WlanPhyRadioState> = List(64) { WlanPhyRadioState() })
 
-public data class WLAN_RATE_SET(public var uRateSetLength: UInt = 0u, public var usRateSet: UShortArray = UShortArray(126)) {
+public data class WlanRateSet(public var uRateSetLength: UInt = 0u, public var usRateSet: UShortArray = UShortArray(126)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is WLAN_RATE_SET) return false
+        if (other !is WlanRateSet) return false
         if (this.uRateSetLength != other.uRateSetLength) return false
         if (!this.usRateSet.contentEquals(other.usRateSet)) return false
         return true
@@ -386,43 +387,43 @@ public data class WLAN_RATE_SET(public var uRateSetLength: UInt = 0u, public var
     }
 }
 
-public data class WLAN_RAW_DATA(public var dwDataSize: UInt = 0u, public var DataBlob: UByteArray = UByteArray(1)) {
+public data class WlanRawData(public var dwDataSize: UInt = 0u, public var dataBlob: UByteArray = UByteArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is WLAN_RAW_DATA) return false
+        if (other !is WlanRawData) return false
         if (this.dwDataSize != other.dwDataSize) return false
-        if (!this.DataBlob.contentEquals(other.DataBlob)) return false
+        if (!this.dataBlob.contentEquals(other.dataBlob)) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.dwDataSize.hashCode()
-        result = 31 * result + this.DataBlob.contentHashCode()
+        result = 31 * result + this.dataBlob.contentHashCode()
         return result
     }
 }
 
-public data class WLAN_RAW_DATA_LIST(
+public data class WlanRawDataList(
     public var dwTotalSize: UInt = 0u,
     public var dwNumberOfItems: UInt = 0u,
-    public var DataList: List<WLAN_RAW_DATA_LIST_0> = List(1) { WLAN_RAW_DATA_LIST_0() },
+    public var dataList: List<WlanRawDataList0> = List(1) { WlanRawDataList0() },
 )
 
-public data class WLAN_RAW_DATA_LIST_0(public var dwDataOffset: UInt = 0u, public var dwDataSize: UInt = 0u)
+public data class WlanRawDataList0(public var dwDataOffset: UInt = 0u, public var dwDataSize: UInt = 0u)
 
-public data class WLAN_SECURITY_ATTRIBUTES(
-    public var bSecurityEnabled: BOOL = 0,
-    public var bOneXEnabled: BOOL = 0,
-    public var dot11AuthAlgorithm: DOT11_AUTH_ALGORITHM = 0,
-    public var dot11CipherAlgorithm: DOT11_CIPHER_ALGORITHM = 0,
+public data class WlanSecurityAttributes(
+    public var bSecurityEnabled: Bool = 0,
+    public var bOneXEnabled: Bool = 0,
+    public var dot11AuthAlgorithm: Dot11AuthAlgorithm = 0,
+    public var dot11CipherAlgorithm: Dot11CipherAlgorithm = 0,
 )
 
-public data class WLAN_STATISTICS(
+public data class WlanStatistics(
     public var ullFourWayHandshakeFailures: ULong = 0uL,
     public var ullTKIPCounterMeasuresInvoked: ULong = 0uL,
     public var ullReserved: ULong = 0uL,
-    public var MacUcastCounters: WLAN_MAC_FRAME_STATISTICS = WLAN_MAC_FRAME_STATISTICS(),
-    public var MacMcastCounters: WLAN_MAC_FRAME_STATISTICS = WLAN_MAC_FRAME_STATISTICS(),
+    public var macUcastCounters: WlanMacFrameStatistics = WlanMacFrameStatistics(),
+    public var macMcastCounters: WlanMacFrameStatistics = WlanMacFrameStatistics(),
     public var dwNumberOfPhys: UInt = 0u,
-    public var PhyCounters: List<WLAN_PHY_FRAME_STATISTICS> = List(1) { WLAN_PHY_FRAME_STATISTICS() },
+    public var phyCounters: List<WlanPhyFrameStatistics> = List(1) { WlanPhyFrameStatistics() },
 )

@@ -2,8 +2,9 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.filehistory
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
 
 private object WindowsWin32StorageFilehistoryJniBridge {
     init {
@@ -11,44 +12,44 @@ private object WindowsWin32StorageFilehistoryJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_filehistory_FhServiceBlockBackup(pipe: Long): Int
+    external fun windowssys_windows_win32_storage_filehistory_fhServiceBlockBackup(pipe: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_filehistory_FhServiceClosePipe(pipe: Long): Int
+    external fun windowssys_windows_win32_storage_filehistory_fhServiceClosePipe(pipe: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_filehistory_FhServiceOpenPipe(startserviceifstopped: Int, pipe: Long): Int
+    external fun windowssys_windows_win32_storage_filehistory_fhServiceOpenPipe(startserviceifstopped: Int, pipe: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_filehistory_FhServiceReloadConfiguration(pipe: Long): Int
+    external fun windowssys_windows_win32_storage_filehistory_fhServiceReloadConfiguration(pipe: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_filehistory_FhServiceStartBackup(pipe: Long, lowpriorityio: Int): Int
+    external fun windowssys_windows_win32_storage_filehistory_fhServiceStartBackup(pipe: Long, lowpriorityio: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_filehistory_FhServiceStopBackup(pipe: Long, stoptracking: Int): Int
+    external fun windowssys_windows_win32_storage_filehistory_fhServiceStopBackup(pipe: Long, stoptracking: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_filehistory_FhServiceUnblockBackup(pipe: Long): Int
+    external fun windowssys_windows_win32_storage_filehistory_fhServiceUnblockBackup(pipe: Long): Int
 }
 
-public actual fun FhServiceBlockBackup(pipe: FH_SERVICE_PIPE_HANDLE): HRESULT =
-    WindowsWin32StorageFilehistoryJniBridge.windowssys_windows_win32_storage_filehistory_FhServiceBlockBackup(pipe)
+public actual fun fhServiceBlockBackup(pipe: FhServicePipeHandle): Hresult =
+    WindowsWin32StorageFilehistoryJniBridge.windowssys_windows_win32_storage_filehistory_fhServiceBlockBackup((pipe?.value ?: 0L))
 
-public actual fun FhServiceClosePipe(pipe: FH_SERVICE_PIPE_HANDLE): HRESULT =
-    WindowsWin32StorageFilehistoryJniBridge.windowssys_windows_win32_storage_filehistory_FhServiceClosePipe(pipe)
+public actual fun fhServiceClosePipe(pipe: FhServicePipeHandle): Hresult =
+    WindowsWin32StorageFilehistoryJniBridge.windowssys_windows_win32_storage_filehistory_fhServiceClosePipe((pipe?.value ?: 0L))
 
-public actual fun FhServiceOpenPipe(startserviceifstopped: BOOL, pipe: Long): HRESULT =
-    WindowsWin32StorageFilehistoryJniBridge.windowssys_windows_win32_storage_filehistory_FhServiceOpenPipe(startserviceifstopped, pipe)
+public actual fun fhServiceOpenPipe(startserviceifstopped: Bool, pipe: COpaquePointer?): Hresult =
+    WindowsWin32StorageFilehistoryJniBridge.windowssys_windows_win32_storage_filehistory_fhServiceOpenPipe(startserviceifstopped, (pipe?.value ?: 0L))
 
-public actual fun FhServiceReloadConfiguration(pipe: FH_SERVICE_PIPE_HANDLE): HRESULT =
-    WindowsWin32StorageFilehistoryJniBridge.windowssys_windows_win32_storage_filehistory_FhServiceReloadConfiguration(pipe)
+public actual fun fhServiceReloadConfiguration(pipe: FhServicePipeHandle): Hresult =
+    WindowsWin32StorageFilehistoryJniBridge.windowssys_windows_win32_storage_filehistory_fhServiceReloadConfiguration((pipe?.value ?: 0L))
 
-public actual fun FhServiceStartBackup(pipe: FH_SERVICE_PIPE_HANDLE, lowpriorityio: BOOL): HRESULT =
-    WindowsWin32StorageFilehistoryJniBridge.windowssys_windows_win32_storage_filehistory_FhServiceStartBackup(pipe, lowpriorityio)
+public actual fun fhServiceStartBackup(pipe: FhServicePipeHandle, lowpriorityio: Bool): Hresult =
+    WindowsWin32StorageFilehistoryJniBridge.windowssys_windows_win32_storage_filehistory_fhServiceStartBackup((pipe?.value ?: 0L), lowpriorityio)
 
-public actual fun FhServiceStopBackup(pipe: FH_SERVICE_PIPE_HANDLE, stoptracking: BOOL): HRESULT =
-    WindowsWin32StorageFilehistoryJniBridge.windowssys_windows_win32_storage_filehistory_FhServiceStopBackup(pipe, stoptracking)
+public actual fun fhServiceStopBackup(pipe: FhServicePipeHandle, stoptracking: Bool): Hresult =
+    WindowsWin32StorageFilehistoryJniBridge.windowssys_windows_win32_storage_filehistory_fhServiceStopBackup((pipe?.value ?: 0L), stoptracking)
 
-public actual fun FhServiceUnblockBackup(pipe: FH_SERVICE_PIPE_HANDLE): HRESULT =
-    WindowsWin32StorageFilehistoryJniBridge.windowssys_windows_win32_storage_filehistory_FhServiceUnblockBackup(pipe)
+public actual fun fhServiceUnblockBackup(pipe: FhServicePipeHandle): Hresult =
+    WindowsWin32StorageFilehistoryJniBridge.windowssys_windows_win32_storage_filehistory_fhServiceUnblockBackup((pipe?.value ?: 0L))

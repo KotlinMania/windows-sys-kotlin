@@ -2,92 +2,93 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
 
 private val _windowsWin32UiTabletpcNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun AddStroke(hrc: HRECOCONTEXT, ppacketdesc: Long, cbpacket: UInt, ppacket: Long, pxform: Long): HRESULT =
-    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_AddStroke(hrc.toString(), ppacketdesc.toString(), cbpacket.toInt(), ppacket.toString(), pxform.toString()) as Int) else 0
+public actual fun addStroke(hrc: Hrecocontext, ppacketdesc: COpaquePointer?, cbpacket: UInt, ppacket: COpaquePointer?, pxform: COpaquePointer?): Hresult =
+    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_addStroke((hrc?.value ?: 0L).toString(), (ppacketdesc?.value ?: 0L).toString(), cbpacket.toInt(), (ppacket?.value ?: 0L).toString(), (pxform?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddWordsToWordList(hwl: HRECOWORDLIST, pwcwords: PCWSTR): HRESULT =
-    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_AddWordsToWordList(hwl.toString(), pwcwords.toString()) as Int) else 0
+public actual fun addWordsToWordList(hwl: Hrecowordlist, pwcwords: Pcwstr): Hresult =
+    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_addWordsToWordList((hwl?.value ?: 0L).toString(), (pwcwords?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AdviseInkChange(hrc: HRECOCONTEXT, bnewstroke: BOOL): HRESULT =
-    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_AdviseInkChange(hrc.toString(), bnewstroke) as Int) else 0
+public actual fun adviseInkChange(hrc: Hrecocontext, bnewstroke: Bool): Hresult =
+    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_adviseInkChange((hrc?.value ?: 0L).toString(), bnewstroke) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateContext(hrec: HRECOGNIZER, phrc: Long): HRESULT =
-    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_CreateContext(hrec.toString(), phrc.toString()) as Int) else 0
+public actual fun createContext(hrec: Hrecognizer, phrc: COpaquePointer?): Hresult =
+    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_createContext((hrec?.value ?: 0L).toString(), (phrc?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateRecognizer(pclsid: Long, phrec: Long): HRESULT =
-    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_CreateRecognizer(pclsid.toString(), phrec.toString()) as Int) else 0
+public actual fun createRecognizer(pclsid: COpaquePointer?, phrec: COpaquePointer?): Hresult =
+    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_createRecognizer((pclsid?.value ?: 0L).toString(), (phrec?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DestroyContext(hrc: HRECOCONTEXT): HRESULT =
-    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_DestroyContext(hrc.toString()) as Int) else 0
+public actual fun destroyContext(hrc: Hrecocontext): Hresult =
+    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_destroyContext((hrc?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DestroyRecognizer(hrec: HRECOGNIZER): HRESULT =
-    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_DestroyRecognizer(hrec.toString()) as Int) else 0
+public actual fun destroyRecognizer(hrec: Hrecognizer): Hresult =
+    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_destroyRecognizer((hrec?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DestroyWordList(hwl: HRECOWORDLIST): HRESULT =
-    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_DestroyWordList(hwl.toString()) as Int) else 0
+public actual fun destroyWordList(hwl: Hrecowordlist): Hresult =
+    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_destroyWordList((hwl?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EndInkInput(hrc: HRECOCONTEXT): HRESULT =
-    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_EndInkInput(hrc.toString()) as Int) else 0
+public actual fun endInkInput(hrc: Hrecocontext): Hresult =
+    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_endInkInput((hrc?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetAllRecognizers(recognizerclsids: Long, count: Long): HRESULT =
-    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_GetAllRecognizers(recognizerclsids.toString(), count.toString()) as Int) else 0
+public actual fun getAllRecognizers(recognizerclsids: COpaquePointer?, count: COpaquePointer?): Hresult =
+    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_getAllRecognizers((recognizerclsids?.value ?: 0L).toString(), (count?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetBestResultString(hrc: HRECOCONTEXT, pcsize: Long, pwcbestresult: PWSTR): HRESULT =
-    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_GetBestResultString(hrc.toString(), pcsize.toString(), pwcbestresult.toString()) as Int) else 0
+public actual fun getBestResultString(hrc: Hrecocontext, pcsize: COpaquePointer?, pwcbestresult: Pwstr): Hresult =
+    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_getBestResultString((hrc?.value ?: 0L).toString(), (pcsize?.value ?: 0L).toString(), (pwcbestresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetLatticePtr(hrc: HRECOCONTEXT, pplattice: Long): HRESULT =
-    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_GetLatticePtr(hrc.toString(), pplattice.toString()) as Int) else 0
+public actual fun getLatticePtr(hrc: Hrecocontext, pplattice: COpaquePointer?): Hresult =
+    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_getLatticePtr((hrc?.value ?: 0L).toString(), (pplattice?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetLeftSeparator(hrc: HRECOCONTEXT, pcsize: Long, pwcleftseparator: PWSTR): HRESULT =
-    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_GetLeftSeparator(hrc.toString(), pcsize.toString(), pwcleftseparator.toString()) as Int) else 0
+public actual fun getLeftSeparator(hrc: Hrecocontext, pcsize: COpaquePointer?, pwcleftseparator: Pwstr): Hresult =
+    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_getLeftSeparator((hrc?.value ?: 0L).toString(), (pcsize?.value ?: 0L).toString(), (pwcleftseparator?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetRecoAttributes(hrec: HRECOGNIZER, precoattrs: Long): HRESULT =
-    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_GetRecoAttributes(hrec.toString(), precoattrs.toString()) as Int) else 0
+public actual fun getRecoAttributes(hrec: Hrecognizer, precoattrs: COpaquePointer?): Hresult =
+    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_getRecoAttributes((hrec?.value ?: 0L).toString(), (precoattrs?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetResultPropertyList(hrec: HRECOGNIZER, ppropertycount: Long, ppropertyguid: Long): HRESULT =
-    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_GetResultPropertyList(hrec.toString(), ppropertycount.toString(), ppropertyguid.toString()) as Int) else 0
+public actual fun getResultPropertyList(hrec: Hrecognizer, ppropertycount: COpaquePointer?, ppropertyguid: COpaquePointer?): Hresult =
+    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_getResultPropertyList((hrec?.value ?: 0L).toString(), (ppropertycount?.value ?: 0L).toString(), (ppropertyguid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetRightSeparator(hrc: HRECOCONTEXT, pcsize: Long, pwcrightseparator: PWSTR): HRESULT =
-    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_GetRightSeparator(hrc.toString(), pcsize.toString(), pwcrightseparator.toString()) as Int) else 0
+public actual fun getRightSeparator(hrc: Hrecocontext, pcsize: COpaquePointer?, pwcrightseparator: Pwstr): Hresult =
+    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_getRightSeparator((hrc?.value ?: 0L).toString(), (pcsize?.value ?: 0L).toString(), (pwcrightseparator?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetUnicodeRanges(hrec: HRECOGNIZER, pcranges: Long, pcr: Long): HRESULT =
-    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_GetUnicodeRanges(hrec.toString(), pcranges.toString(), pcr.toString()) as Int) else 0
+public actual fun getUnicodeRanges(hrec: Hrecognizer, pcranges: COpaquePointer?, pcr: COpaquePointer?): Hresult =
+    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_getUnicodeRanges((hrec?.value ?: 0L).toString(), (pcranges?.value ?: 0L).toString(), (pcr?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun IsStringSupported(hrc: HRECOCONTEXT, wcstring: UInt, pwcstring: PCWSTR): HRESULT =
-    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_IsStringSupported(hrc.toString(), wcstring.toInt(), pwcstring.toString()) as Int) else 0
+public actual fun isStringSupported(hrc: Hrecocontext, wcstring: UInt, pwcstring: Pcwstr): Hresult =
+    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_isStringSupported((hrc?.value ?: 0L).toString(), wcstring.toInt(), (pwcstring?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LoadCachedAttributes(clsid: GUID, precoattributes: Long): HRESULT =
-    0
+public actual fun loadCachedAttributes(clsid: Guid, precoattributes: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun MakeWordList(hrec: HRECOGNIZER, pbuffer: PCWSTR, phwl: Long): HRESULT =
-    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_MakeWordList(hrec.toString(), pbuffer.toString(), phwl.toString()) as Int) else 0
+public actual fun makeWordList(hrec: Hrecognizer, pbuffer: Pcwstr, phwl: COpaquePointer?): Hresult =
+    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_makeWordList((hrec?.value ?: 0L).toString(), (pbuffer?.value ?: 0L).toString(), (phwl?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun Process(hrc: HRECOCONTEXT, pbpartialprocessing: Long): HRESULT =
-    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_Process(hrc.toString(), pbpartialprocessing.toString()) as Int) else 0
+public actual fun process(hrc: Hrecocontext, pbpartialprocessing: COpaquePointer?): Hresult =
+    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_process((hrc?.value ?: 0L).toString(), (pbpartialprocessing?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetEnabledUnicodeRanges(hrc: HRECOCONTEXT, cranges: UInt, pcr: Long): HRESULT =
-    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_SetEnabledUnicodeRanges(hrc.toString(), cranges.toInt(), pcr.toString()) as Int) else 0
+public actual fun setEnabledUnicodeRanges(hrc: Hrecocontext, cranges: UInt, pcr: COpaquePointer?): Hresult =
+    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_setEnabledUnicodeRanges((hrc?.value ?: 0L).toString(), cranges.toInt(), (pcr?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetFactoid(hrc: HRECOCONTEXT, cwcfactoid: UInt, pwcfactoid: PCWSTR): HRESULT =
-    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_SetFactoid(hrc.toString(), cwcfactoid.toInt(), pwcfactoid.toString()) as Int) else 0
+public actual fun setFactoid(hrc: Hrecocontext, cwcfactoid: UInt, pwcfactoid: Pcwstr): Hresult =
+    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_setFactoid((hrc?.value ?: 0L).toString(), cwcfactoid.toInt(), (pwcfactoid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetFlags(hrc: HRECOCONTEXT, dwflags: UInt): HRESULT =
-    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_SetFlags(hrc.toString(), dwflags.toInt()) as Int) else 0
+public actual fun setFlags(hrc: Hrecocontext, dwflags: UInt): Hresult =
+    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_setFlags((hrc?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetGuide(hrc: HRECOCONTEXT, pguide: Long, iindex: UInt): HRESULT =
-    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_SetGuide(hrc.toString(), pguide.toString(), iindex.toInt()) as Int) else 0
+public actual fun setGuide(hrc: Hrecocontext, pguide: COpaquePointer?, iindex: UInt): Hresult =
+    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_setGuide((hrc?.value ?: 0L).toString(), (pguide?.value ?: 0L).toString(), iindex.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetTextContext(hrc: HRECOCONTEXT, cwcbefore: UInt, pwcbefore: PCWSTR, cwcafter: UInt, pwcafter: PCWSTR): HRESULT =
-    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_SetTextContext(hrc.toString(), cwcbefore.toInt(), pwcbefore.toString(), cwcafter.toInt(), pwcafter.toString()) as Int) else 0
+public actual fun setTextContext(hrc: Hrecocontext, cwcbefore: UInt, pwcbefore: Pcwstr, cwcafter: UInt, pwcafter: Pcwstr): Hresult =
+    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_setTextContext((hrc?.value ?: 0L).toString(), cwcbefore.toInt(), (pwcbefore?.value ?: 0L).toString(), cwcafter.toInt(), (pwcafter?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetWordList(hrc: HRECOCONTEXT, hwl: HRECOWORDLIST): HRESULT =
-    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_SetWordList(hrc.toString(), hwl.toString()) as Int) else 0
+public actual fun setWordList(hrc: Hrecocontext, hwl: Hrecowordlist): Hresult =
+    if (_windowsWin32UiTabletpcNapiAddon != null) (_windowsWin32UiTabletpcNapiAddon.windowssys_windows_win32_ui_tabletpc_setWordList((hrc?.value ?: 0L).toString(), (hwl?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

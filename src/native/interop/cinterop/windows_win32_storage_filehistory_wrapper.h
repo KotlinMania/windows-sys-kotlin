@@ -9,13 +9,13 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_win32_storage_filehistory_FhServiceBlockBackup(void* arg_0_pipe);
-int32_t windowssys_windows_win32_storage_filehistory_FhServiceClosePipe(void* arg_0_pipe);
-int32_t windowssys_windows_win32_storage_filehistory_FhServiceOpenPipe(int32_t startserviceifstopped, void* arg_1_pipe);
-int32_t windowssys_windows_win32_storage_filehistory_FhServiceReloadConfiguration(void* arg_0_pipe);
-int32_t windowssys_windows_win32_storage_filehistory_FhServiceStartBackup(void* arg_0_pipe, int32_t lowpriorityio);
-int32_t windowssys_windows_win32_storage_filehistory_FhServiceStopBackup(void* arg_0_pipe, int32_t stoptracking);
-int32_t windowssys_windows_win32_storage_filehistory_FhServiceUnblockBackup(void* arg_0_pipe);
+int32_t windowssys_windows_win32_storage_filehistory_fhServiceBlockBackup(void* arg_0_pipe);
+int32_t windowssys_windows_win32_storage_filehistory_fhServiceClosePipe(void* arg_0_pipe);
+int32_t windowssys_windows_win32_storage_filehistory_fhServiceOpenPipe(int32_t startserviceifstopped, void* arg_1_pipe);
+int32_t windowssys_windows_win32_storage_filehistory_fhServiceReloadConfiguration(void* arg_0_pipe);
+int32_t windowssys_windows_win32_storage_filehistory_fhServiceStartBackup(void* arg_0_pipe, int32_t lowpriorityio);
+int32_t windowssys_windows_win32_storage_filehistory_fhServiceStopBackup(void* arg_0_pipe, int32_t stoptracking);
+int32_t windowssys_windows_win32_storage_filehistory_fhServiceUnblockBackup(void* arg_0_pipe);
 
 #ifdef __cplusplus
 }

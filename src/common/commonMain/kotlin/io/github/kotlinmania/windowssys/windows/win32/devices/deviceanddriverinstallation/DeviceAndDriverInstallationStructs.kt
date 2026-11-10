@@ -1,1626 +1,1581 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.devices.deviceanddriverinstallation
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.VER_PLATFORM
-import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.PROCESSOR_ARCHITECTURE
-import io.github.kotlinmania.windowssys.windows.win32.ui.controls.HIMAGELIST
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.debug.VerPlatform
+import io.github.kotlinmania.windowssys.windows.win32.system.systeminformation.ProcessorArchitecture
+import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Himagelist
 
-public data class BUSNUMBER_DES(
-    public var BUSD_Count: UInt = 0u,
-    public var BUSD_Type: UInt = 0u,
-    public var BUSD_Flags: UInt = 0u,
-    public var BUSD_Alloc_Base: UInt = 0u,
-    public var BUSD_Alloc_End: UInt = 0u,
+public data class BusnumberDes(
+    public var busdCount: UInt = 0u,
+    public var busdType: UInt = 0u,
+    public var busdFlags: UInt = 0u,
+    public var busdAllocBase: UInt = 0u,
+    public var busdAllocEnd: UInt = 0u,
 )
 
-public data class BUSNUMBER_RANGE(
-    public var BUSR_Min: UInt = 0u,
-    public var BUSR_Max: UInt = 0u,
-    public var BUSR_nBusNumbers: UInt = 0u,
-    public var BUSR_Flags: UInt = 0u,
+public data class BusnumberRange(
+    public var busrMin: UInt = 0u,
+    public var busrMax: UInt = 0u,
+    public var busrNBusNumbers: UInt = 0u,
+    public var busrFlags: UInt = 0u,
 )
 
-public data class BUSNUMBER_RESOURCE(public var BusNumber_Header: BUSNUMBER_DES = BUSNUMBER_DES(), public var BusNumber_Data: List<BUSNUMBER_RANGE> = List(1) { BUSNUMBER_RANGE() })
+public data class BusnumberResource(public var busNumberHeader: BusnumberDes = BusnumberDes(), public var busNumberData: List<BusnumberRange> = List(1) { BusnumberRange() })
 
-public data class CABINET_INFO_A(
-    public var CabinetPath: PCSTR = 0L,
-    public var CabinetFile: PCSTR = 0L,
-    public var DiskName: PCSTR = 0L,
-    public var SetId: UShort = 0u,
-    public var CabinetNumber: UShort = 0u,
+public data class CabinetInfoA(
+    public var cabinetPath: Pcstr = null,
+    public var cabinetFile: Pcstr = null,
+    public var diskName: Pcstr = null,
+    public var setId: UShort = 0u,
+    public var cabinetNumber: UShort = 0u,
 )
 
-public data class CABINET_INFO_W(
-    public var CabinetPath: PCWSTR = 0L,
-    public var CabinetFile: PCWSTR = 0L,
-    public var DiskName: PCWSTR = 0L,
-    public var SetId: UShort = 0u,
-    public var CabinetNumber: UShort = 0u,
+public data class CabinetInfoW(
+    public var cabinetPath: Pcwstr = null,
+    public var cabinetFile: Pcwstr = null,
+    public var diskName: Pcwstr = null,
+    public var setId: UShort = 0u,
+    public var cabinetNumber: UShort = 0u,
 )
 
-public data class CM_NOTIFY_EVENT_DATA(
-    public var FilterType: CM_NOTIFY_FILTER_TYPE = 0,
-    public var Reserved: UInt = 0u,
-    public var u: CM_NOTIFY_EVENT_DATA_0 = CM_NOTIFY_EVENT_DATA_0(),
+public data class CmNotifyEventData(
+    public var filterType: CmNotifyFilterType = 0,
+    public var reserved: UInt = 0u,
+    public var u: CmNotifyEventData0 = CmNotifyEventData0(),
 )
 
-public data class CM_NOTIFY_EVENT_DATA_0(
-    public var DeviceInterface: CM_NOTIFY_EVENT_DATA_0_0 = CM_NOTIFY_EVENT_DATA_0_0(),
-    public var DeviceHandle: CM_NOTIFY_EVENT_DATA_0_1 = CM_NOTIFY_EVENT_DATA_0_1(),
-    public var DeviceInstance: CM_NOTIFY_EVENT_DATA_0_2 = CM_NOTIFY_EVENT_DATA_0_2(),
+public data class CmNotifyEventData0(
+    public var deviceInterface: CmNotifyEventData00 = CmNotifyEventData00(),
+    public var deviceHandle: CmNotifyEventData01 = CmNotifyEventData01(),
+    public var deviceInstance: CmNotifyEventData02 = CmNotifyEventData02(),
 )
 
-public data class CM_NOTIFY_EVENT_DATA_0_1(
-    public var EventGuid: GUID = GUID(),
-    public var NameOffset: Int = 0,
-    public var DataSize: UInt = 0u,
-    public var Data: UByteArray = UByteArray(1),
+public data class CmNotifyEventData01(
+    public var eventGuid: Guid = Guid(),
+    public var nameOffset: Int = 0,
+    public var dataSize: UInt = 0u,
+    public var data: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CM_NOTIFY_EVENT_DATA_0_1) return false
-        if (this.EventGuid != other.EventGuid) return false
-        if (this.NameOffset != other.NameOffset) return false
-        if (this.DataSize != other.DataSize) return false
-        if (!this.Data.contentEquals(other.Data)) return false
+        if (other !is CmNotifyEventData01) return false
+        if (this.eventGuid != other.eventGuid) return false
+        if (this.nameOffset != other.nameOffset) return false
+        if (this.dataSize != other.dataSize) return false
+        if (!this.data.contentEquals(other.data)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.EventGuid.hashCode()
-        result = 31 * result + this.NameOffset.hashCode()
-        result = 31 * result + this.DataSize.hashCode()
-        result = 31 * result + this.Data.contentHashCode()
+        var result = this.eventGuid.hashCode()
+        result = 31 * result + this.nameOffset.hashCode()
+        result = 31 * result + this.dataSize.hashCode()
+        result = 31 * result + this.data.contentHashCode()
         return result
     }
 }
 
-public data class CM_NOTIFY_EVENT_DATA_0_2(public var InstanceId: UShortArray = UShortArray(1)) {
+public data class CmNotifyEventData02(public var instanceId: UShortArray = UShortArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CM_NOTIFY_EVENT_DATA_0_2) return false
-        if (!this.InstanceId.contentEquals(other.InstanceId)) return false
+        if (other !is CmNotifyEventData02) return false
+        if (!this.instanceId.contentEquals(other.instanceId)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        return this.InstanceId.contentHashCode()
+        return this.instanceId.contentHashCode()
     }
 }
 
-public data class CM_NOTIFY_EVENT_DATA_0_0(public var ClassGuid: GUID = GUID(), public var SymbolicLink: UShortArray = UShortArray(1)) {
+public data class CmNotifyEventData00(public var classGuid: Guid = Guid(), public var symbolicLink: UShortArray = UShortArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CM_NOTIFY_EVENT_DATA_0_0) return false
-        if (this.ClassGuid != other.ClassGuid) return false
-        if (!this.SymbolicLink.contentEquals(other.SymbolicLink)) return false
+        if (other !is CmNotifyEventData00) return false
+        if (this.classGuid != other.classGuid) return false
+        if (!this.symbolicLink.contentEquals(other.symbolicLink)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ClassGuid.hashCode()
-        result = 31 * result + this.SymbolicLink.contentHashCode()
+        var result = this.classGuid.hashCode()
+        result = 31 * result + this.symbolicLink.contentHashCode()
         return result
     }
 }
 
-public data class CM_NOTIFY_FILTER(
+public data class CmNotifyFilter(
     public var cbSize: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var FilterType: CM_NOTIFY_FILTER_TYPE = 0,
-    public var Reserved: UInt = 0u,
-    public var u: CM_NOTIFY_FILTER_0 = CM_NOTIFY_FILTER_0(),
+    public var flags: UInt = 0u,
+    public var filterType: CmNotifyFilterType = 0,
+    public var reserved: UInt = 0u,
+    public var u: CmNotifyFilter0 = CmNotifyFilter0(),
 )
 
-public data class CM_NOTIFY_FILTER_0(
-    public var DeviceInterface: CM_NOTIFY_FILTER_0_0 = CM_NOTIFY_FILTER_0_0(),
-    public var DeviceHandle: CM_NOTIFY_FILTER_0_1 = CM_NOTIFY_FILTER_0_1(),
-    public var DeviceInstance: CM_NOTIFY_FILTER_0_2 = CM_NOTIFY_FILTER_0_2(),
+public data class CmNotifyFilter0(
+    public var deviceInterface: CmNotifyFilter00 = CmNotifyFilter00(),
+    public var deviceHandle: CmNotifyFilter01 = CmNotifyFilter01(),
+    public var deviceInstance: CmNotifyFilter02 = CmNotifyFilter02(),
 )
 
-public data class CM_NOTIFY_FILTER_0_1(public var hTarget: HANDLE = 0L)
+public data class CmNotifyFilter01(public var hTarget: Handle = null)
 
-public data class CM_NOTIFY_FILTER_0_2(public var InstanceId: UShortArray = UShortArray(200)) {
+public data class CmNotifyFilter02(public var instanceId: UShortArray = UShortArray(200)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CM_NOTIFY_FILTER_0_2) return false
-        if (!this.InstanceId.contentEquals(other.InstanceId)) return false
+        if (other !is CmNotifyFilter02) return false
+        if (!this.instanceId.contentEquals(other.instanceId)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        return this.InstanceId.contentHashCode()
+        return this.instanceId.contentHashCode()
     }
 }
 
-public data class CM_NOTIFY_FILTER_0_0(public var ClassGuid: GUID = GUID())
+public data class CmNotifyFilter00(public var classGuid: Guid = Guid())
 
-public data class COINSTALLER_CONTEXT_DATA(
-    public var PostProcessing: BOOL = 0,
-    public var InstallResult: UInt = 0u,
-    public var PrivateData: Long = 0L,
+public data class CoinstallerContextData(
+    public var postProcessing: Bool = 0,
+    public var installResult: UInt = 0u,
+    public var privateData: COpaquePointer? = null,
 )
 
-public data class CONFLICT_DETAILS_A(
-    public var CD_ulSize: UInt = 0u,
-    public var CD_ulMask: CM_CDMASK = 0u,
-    public var CD_dnDevInst: UInt = 0u,
-    public var CD_rdResDes: ULong = 0uL,
-    public var CD_ulFlags: CM_CDFLAGS = 0u,
-    public var CD_szDescription: ByteArray = ByteArray(260),
+public data class ConflictDetailsA(
+    public var cdUlSize: UInt = 0u,
+    public var cdUlMask: CmCdmask = 0u,
+    public var cdDnDevInst: UInt = 0u,
+    public var cdRdResDes: Int = 0,
+    public var cdUlFlags: CmCdflags = 0u,
+    public var cdSzDescription: ByteArray = ByteArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CONFLICT_DETAILS_A) return false
-        if (this.CD_ulSize != other.CD_ulSize) return false
-        if (this.CD_ulMask != other.CD_ulMask) return false
-        if (this.CD_dnDevInst != other.CD_dnDevInst) return false
-        if (this.CD_rdResDes != other.CD_rdResDes) return false
-        if (this.CD_ulFlags != other.CD_ulFlags) return false
-        if (!this.CD_szDescription.contentEquals(other.CD_szDescription)) return false
+        if (other !is ConflictDetailsA) return false
+        if (this.cdUlSize != other.cdUlSize) return false
+        if (this.cdUlMask != other.cdUlMask) return false
+        if (this.cdDnDevInst != other.cdDnDevInst) return false
+        if (this.cdRdResDes != other.cdRdResDes) return false
+        if (this.cdUlFlags != other.cdUlFlags) return false
+        if (!this.cdSzDescription.contentEquals(other.cdSzDescription)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.CD_ulSize.hashCode()
-        result = 31 * result + this.CD_ulMask.hashCode()
-        result = 31 * result + this.CD_dnDevInst.hashCode()
-        result = 31 * result + this.CD_rdResDes.hashCode()
-        result = 31 * result + this.CD_ulFlags.hashCode()
-        result = 31 * result + this.CD_szDescription.contentHashCode()
+        var result = this.cdUlSize.hashCode()
+        result = 31 * result + this.cdUlMask.hashCode()
+        result = 31 * result + this.cdDnDevInst.hashCode()
+        result = 31 * result + this.cdRdResDes.hashCode()
+        result = 31 * result + this.cdUlFlags.hashCode()
+        result = 31 * result + this.cdSzDescription.contentHashCode()
         return result
     }
 }
 
-public data class CONFLICT_DETAILS_W(
-    public var CD_ulSize: UInt = 0u,
-    public var CD_ulMask: CM_CDMASK = 0u,
-    public var CD_dnDevInst: UInt = 0u,
-    public var CD_rdResDes: ULong = 0uL,
-    public var CD_ulFlags: CM_CDFLAGS = 0u,
-    public var CD_szDescription: UShortArray = UShortArray(260),
+public data class ConflictDetailsW(
+    public var cdUlSize: UInt = 0u,
+    public var cdUlMask: CmCdmask = 0u,
+    public var cdDnDevInst: UInt = 0u,
+    public var cdRdResDes: Int = 0,
+    public var cdUlFlags: CmCdflags = 0u,
+    public var cdSzDescription: UShortArray = UShortArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CONFLICT_DETAILS_W) return false
-        if (this.CD_ulSize != other.CD_ulSize) return false
-        if (this.CD_ulMask != other.CD_ulMask) return false
-        if (this.CD_dnDevInst != other.CD_dnDevInst) return false
-        if (this.CD_rdResDes != other.CD_rdResDes) return false
-        if (this.CD_ulFlags != other.CD_ulFlags) return false
-        if (!this.CD_szDescription.contentEquals(other.CD_szDescription)) return false
+        if (other !is ConflictDetailsW) return false
+        if (this.cdUlSize != other.cdUlSize) return false
+        if (this.cdUlMask != other.cdUlMask) return false
+        if (this.cdDnDevInst != other.cdDnDevInst) return false
+        if (this.cdRdResDes != other.cdRdResDes) return false
+        if (this.cdUlFlags != other.cdUlFlags) return false
+        if (!this.cdSzDescription.contentEquals(other.cdSzDescription)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.CD_ulSize.hashCode()
-        result = 31 * result + this.CD_ulMask.hashCode()
-        result = 31 * result + this.CD_dnDevInst.hashCode()
-        result = 31 * result + this.CD_rdResDes.hashCode()
-        result = 31 * result + this.CD_ulFlags.hashCode()
-        result = 31 * result + this.CD_szDescription.contentHashCode()
+        var result = this.cdUlSize.hashCode()
+        result = 31 * result + this.cdUlMask.hashCode()
+        result = 31 * result + this.cdDnDevInst.hashCode()
+        result = 31 * result + this.cdRdResDes.hashCode()
+        result = 31 * result + this.cdUlFlags.hashCode()
+        result = 31 * result + this.cdSzDescription.contentHashCode()
         return result
     }
 }
 
-public data class CONNECTION_DES(
-    public var COND_Type: UInt = 0u,
-    public var COND_Flags: UInt = 0u,
-    public var COND_Class: UByte = 0u,
-    public var COND_ClassType: UByte = 0u,
-    public var COND_Reserved1: UByte = 0u,
-    public var COND_Reserved2: UByte = 0u,
-    public var COND_Id: Long = 0L,
+public data class ConnectionDes(
+    public var condType: UInt = 0u,
+    public var condFlags: UInt = 0u,
+    public var condClass: UByte = 0u,
+    public var condClassType: UByte = 0u,
+    public var condReserved1: UByte = 0u,
+    public var condReserved2: UByte = 0u,
+    public var condId: Long = 0L,
 )
 
-public data class CONNECTION_RESOURCE(public var Connection_Header: CONNECTION_DES = CONNECTION_DES())
+public data class ConnectionResource(public var connectionHeader: ConnectionDes = ConnectionDes())
 
-public data class CS_DES(
-    public var CSD_SignatureLength: UInt = 0u,
-    public var CSD_LegacyDataOffset: UInt = 0u,
-    public var CSD_LegacyDataSize: UInt = 0u,
-    public var CSD_Flags: UInt = 0u,
-    public var CSD_ClassGuid: GUID = GUID(),
-    public var CSD_Signature: UByteArray = UByteArray(1),
+public data class CsDes(
+    public var csdSignatureLength: UInt = 0u,
+    public var csdLegacyDataOffset: UInt = 0u,
+    public var csdLegacyDataSize: UInt = 0u,
+    public var csdFlags: UInt = 0u,
+    public var csdClassGuid: Guid = Guid(),
+    public var csdSignature: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is CS_DES) return false
-        if (this.CSD_SignatureLength != other.CSD_SignatureLength) return false
-        if (this.CSD_LegacyDataOffset != other.CSD_LegacyDataOffset) return false
-        if (this.CSD_LegacyDataSize != other.CSD_LegacyDataSize) return false
-        if (this.CSD_Flags != other.CSD_Flags) return false
-        if (this.CSD_ClassGuid != other.CSD_ClassGuid) return false
-        if (!this.CSD_Signature.contentEquals(other.CSD_Signature)) return false
+        if (other !is CsDes) return false
+        if (this.csdSignatureLength != other.csdSignatureLength) return false
+        if (this.csdLegacyDataOffset != other.csdLegacyDataOffset) return false
+        if (this.csdLegacyDataSize != other.csdLegacyDataSize) return false
+        if (this.csdFlags != other.csdFlags) return false
+        if (this.csdClassGuid != other.csdClassGuid) return false
+        if (!this.csdSignature.contentEquals(other.csdSignature)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.CSD_SignatureLength.hashCode()
-        result = 31 * result + this.CSD_LegacyDataOffset.hashCode()
-        result = 31 * result + this.CSD_LegacyDataSize.hashCode()
-        result = 31 * result + this.CSD_Flags.hashCode()
-        result = 31 * result + this.CSD_ClassGuid.hashCode()
-        result = 31 * result + this.CSD_Signature.contentHashCode()
+        var result = this.csdSignatureLength.hashCode()
+        result = 31 * result + this.csdLegacyDataOffset.hashCode()
+        result = 31 * result + this.csdLegacyDataSize.hashCode()
+        result = 31 * result + this.csdFlags.hashCode()
+        result = 31 * result + this.csdClassGuid.hashCode()
+        result = 31 * result + this.csdSignature.contentHashCode()
         return result
     }
 }
 
-public data class CS_RESOURCE(public var CS_Header: CS_DES = CS_DES())
+public data class CsResource(public var csHeader: CsDes = CsDes())
 
-public data class DEVPRIVATE_DES(
-    public var PD_Count: UInt = 0u,
-    public var PD_Type: UInt = 0u,
-    public var PD_Data1: UInt = 0u,
-    public var PD_Data2: UInt = 0u,
-    public var PD_Data3: UInt = 0u,
-    public var PD_Flags: UInt = 0u,
+public data class DevprivateDes(
+    public var pdCount: UInt = 0u,
+    public var pdType: UInt = 0u,
+    public var pdData1: UInt = 0u,
+    public var pdData2: UInt = 0u,
+    public var pdData3: UInt = 0u,
+    public var pdFlags: UInt = 0u,
 )
 
-public data class DEVPRIVATE_RANGE(
-    public var PR_Data1: UInt = 0u,
-    public var PR_Data2: UInt = 0u,
-    public var PR_Data3: UInt = 0u,
+public data class DevprivateRange(
+    public var prData1: UInt = 0u,
+    public var prData2: UInt = 0u,
+    public var prData3: UInt = 0u,
 )
 
-public data class DEVPRIVATE_RESOURCE(public var PRV_Header: DEVPRIVATE_DES = DEVPRIVATE_DES(), public var PRV_Data: List<DEVPRIVATE_RANGE> = List(1) { DEVPRIVATE_RANGE() })
+public data class DevprivateResource(public var prvHeader: DevprivateDes = DevprivateDes(), public var prvData: List<DevprivateRange> = List(1) { DevprivateRange() })
 
-public data class DMA_DES(
-    public var DD_Count: UInt = 0u,
-    public var DD_Type: UInt = 0u,
-    public var DD_Flags: DD_FLAGS = 0u,
-    public var DD_Alloc_Chan: UInt = 0u,
+public data class DmaDes(
+    public var ddCount: UInt = 0u,
+    public var ddType: UInt = 0u,
+    public var ddFlags: DdFlags = 0u,
+    public var ddAllocChan: UInt = 0u,
 )
 
-public data class DMA_RANGE(
-    public var DR_Min: UInt = 0u,
-    public var DR_Max: UInt = 0u,
-    public var DR_Flags: DD_FLAGS = 0u,
+public data class DmaRange(
+    public var drMin: UInt = 0u,
+    public var drMax: UInt = 0u,
+    public var drFlags: DdFlags = 0u,
 )
 
-public data class DMA_RESOURCE(public var DMA_Header: DMA_DES = DMA_DES(), public var DMA_Data: List<DMA_RANGE> = List(1) { DMA_RANGE() })
+public data class DmaResource(public var dmaHeader: DmaDes = DmaDes(), public var dmaData: List<DmaRange> = List(1) { DmaRange() })
 
-public data class FILEPATHS_A(
-    public var Target: PCSTR = 0L,
-    public var Source: PCSTR = 0L,
-    public var Win32Error: UInt = 0u,
-    public var Flags: UInt = 0u,
+public data class FilepathsA(
+    public var target: Pcstr = null,
+    public var source: Pcstr = null,
+    public var win32Error: UInt = 0u,
+    public var flags: UInt = 0u,
 )
 
-public data class FILEPATHS_SIGNERINFO_A(
-    public var Target: PCSTR = 0L,
-    public var Source: PCSTR = 0L,
-    public var Win32Error: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var DigitalSigner: PCSTR = 0L,
-    public var Version: PCSTR = 0L,
-    public var CatalogFile: PCSTR = 0L,
+public data class FilepathsSignerinfoA(
+    public var target: Pcstr = null,
+    public var source: Pcstr = null,
+    public var win32Error: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var digitalSigner: Pcstr = null,
+    public var version: Pcstr = null,
+    public var catalogFile: Pcstr = null,
 )
 
-public data class FILEPATHS_SIGNERINFO_W(
-    public var Target: PCWSTR = 0L,
-    public var Source: PCWSTR = 0L,
-    public var Win32Error: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var DigitalSigner: PCWSTR = 0L,
-    public var Version: PCWSTR = 0L,
-    public var CatalogFile: PCWSTR = 0L,
+public data class FilepathsSignerinfoW(
+    public var target: Pcwstr = null,
+    public var source: Pcwstr = null,
+    public var win32Error: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var digitalSigner: Pcwstr = null,
+    public var version: Pcwstr = null,
+    public var catalogFile: Pcwstr = null,
 )
 
-public data class FILEPATHS_W(
-    public var Target: PCWSTR = 0L,
-    public var Source: PCWSTR = 0L,
-    public var Win32Error: UInt = 0u,
-    public var Flags: UInt = 0u,
+public data class FilepathsW(
+    public var target: Pcwstr = null,
+    public var source: Pcwstr = null,
+    public var win32Error: UInt = 0u,
+    public var flags: UInt = 0u,
 )
 
-public data class FILE_IN_CABINET_INFO_A(
-    public var NameInCabinet: PCSTR = 0L,
-    public var FileSize: UInt = 0u,
-    public var Win32Error: UInt = 0u,
-    public var DosDate: UShort = 0u,
-    public var DosTime: UShort = 0u,
-    public var DosAttribs: UShort = 0u,
-    public var FullTargetName: ByteArray = ByteArray(260),
+public data class FileInCabinetInfoA(
+    public var nameInCabinet: Pcstr = null,
+    public var fileSize: UInt = 0u,
+    public var win32Error: UInt = 0u,
+    public var dosDate: UShort = 0u,
+    public var dosTime: UShort = 0u,
+    public var dosAttribs: UShort = 0u,
+    public var fullTargetName: ByteArray = ByteArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is FILE_IN_CABINET_INFO_A) return false
-        if (this.NameInCabinet != other.NameInCabinet) return false
-        if (this.FileSize != other.FileSize) return false
-        if (this.Win32Error != other.Win32Error) return false
-        if (this.DosDate != other.DosDate) return false
-        if (this.DosTime != other.DosTime) return false
-        if (this.DosAttribs != other.DosAttribs) return false
-        if (!this.FullTargetName.contentEquals(other.FullTargetName)) return false
+        if (other !is FileInCabinetInfoA) return false
+        if (this.nameInCabinet != other.nameInCabinet) return false
+        if (this.fileSize != other.fileSize) return false
+        if (this.win32Error != other.win32Error) return false
+        if (this.dosDate != other.dosDate) return false
+        if (this.dosTime != other.dosTime) return false
+        if (this.dosAttribs != other.dosAttribs) return false
+        if (!this.fullTargetName.contentEquals(other.fullTargetName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.NameInCabinet.hashCode()
-        result = 31 * result + this.FileSize.hashCode()
-        result = 31 * result + this.Win32Error.hashCode()
-        result = 31 * result + this.DosDate.hashCode()
-        result = 31 * result + this.DosTime.hashCode()
-        result = 31 * result + this.DosAttribs.hashCode()
-        result = 31 * result + this.FullTargetName.contentHashCode()
+        var result = this.nameInCabinet.hashCode()
+        result = 31 * result + this.fileSize.hashCode()
+        result = 31 * result + this.win32Error.hashCode()
+        result = 31 * result + this.dosDate.hashCode()
+        result = 31 * result + this.dosTime.hashCode()
+        result = 31 * result + this.dosAttribs.hashCode()
+        result = 31 * result + this.fullTargetName.contentHashCode()
         return result
     }
 }
 
-public data class FILE_IN_CABINET_INFO_W(
-    public var NameInCabinet: PCWSTR = 0L,
-    public var FileSize: UInt = 0u,
-    public var Win32Error: UInt = 0u,
-    public var DosDate: UShort = 0u,
-    public var DosTime: UShort = 0u,
-    public var DosAttribs: UShort = 0u,
-    public var FullTargetName: UShortArray = UShortArray(260),
+public data class FileInCabinetInfoW(
+    public var nameInCabinet: Pcwstr = null,
+    public var fileSize: UInt = 0u,
+    public var win32Error: UInt = 0u,
+    public var dosDate: UShort = 0u,
+    public var dosTime: UShort = 0u,
+    public var dosAttribs: UShort = 0u,
+    public var fullTargetName: UShortArray = UShortArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is FILE_IN_CABINET_INFO_W) return false
-        if (this.NameInCabinet != other.NameInCabinet) return false
-        if (this.FileSize != other.FileSize) return false
-        if (this.Win32Error != other.Win32Error) return false
-        if (this.DosDate != other.DosDate) return false
-        if (this.DosTime != other.DosTime) return false
-        if (this.DosAttribs != other.DosAttribs) return false
-        if (!this.FullTargetName.contentEquals(other.FullTargetName)) return false
+        if (other !is FileInCabinetInfoW) return false
+        if (this.nameInCabinet != other.nameInCabinet) return false
+        if (this.fileSize != other.fileSize) return false
+        if (this.win32Error != other.win32Error) return false
+        if (this.dosDate != other.dosDate) return false
+        if (this.dosTime != other.dosTime) return false
+        if (this.dosAttribs != other.dosAttribs) return false
+        if (!this.fullTargetName.contentEquals(other.fullTargetName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.NameInCabinet.hashCode()
-        result = 31 * result + this.FileSize.hashCode()
-        result = 31 * result + this.Win32Error.hashCode()
-        result = 31 * result + this.DosDate.hashCode()
-        result = 31 * result + this.DosTime.hashCode()
-        result = 31 * result + this.DosAttribs.hashCode()
-        result = 31 * result + this.FullTargetName.contentHashCode()
+        var result = this.nameInCabinet.hashCode()
+        result = 31 * result + this.fileSize.hashCode()
+        result = 31 * result + this.win32Error.hashCode()
+        result = 31 * result + this.dosDate.hashCode()
+        result = 31 * result + this.dosTime.hashCode()
+        result = 31 * result + this.dosAttribs.hashCode()
+        result = 31 * result + this.fullTargetName.contentHashCode()
         return result
     }
 }
 
-public data class HWPROFILEINFO_A(
-    public var HWPI_ulHWProfile: UInt = 0u,
-    public var HWPI_szFriendlyName: ByteArray = ByteArray(80),
-    public var HWPI_dwFlags: UInt = 0u,
+public data class HwprofileinfoA(
+    public var hwpiUlHwprofile: UInt = 0u,
+    public var hwpiSzFriendlyName: ByteArray = ByteArray(80),
+    public var hwpiDwFlags: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is HWPROFILEINFO_A) return false
-        if (this.HWPI_ulHWProfile != other.HWPI_ulHWProfile) return false
-        if (!this.HWPI_szFriendlyName.contentEquals(other.HWPI_szFriendlyName)) return false
-        if (this.HWPI_dwFlags != other.HWPI_dwFlags) return false
+        if (other !is HwprofileinfoA) return false
+        if (this.hwpiUlHwprofile != other.hwpiUlHwprofile) return false
+        if (!this.hwpiSzFriendlyName.contentEquals(other.hwpiSzFriendlyName)) return false
+        if (this.hwpiDwFlags != other.hwpiDwFlags) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.HWPI_ulHWProfile.hashCode()
-        result = 31 * result + this.HWPI_szFriendlyName.contentHashCode()
-        result = 31 * result + this.HWPI_dwFlags.hashCode()
+        var result = this.hwpiUlHwprofile.hashCode()
+        result = 31 * result + this.hwpiSzFriendlyName.contentHashCode()
+        result = 31 * result + this.hwpiDwFlags.hashCode()
         return result
     }
 }
 
-public data class HWPROFILEINFO_W(
-    public var HWPI_ulHWProfile: UInt = 0u,
-    public var HWPI_szFriendlyName: UShortArray = UShortArray(80),
-    public var HWPI_dwFlags: UInt = 0u,
+public data class HwprofileinfoW(
+    public var hwpiUlHwprofile: UInt = 0u,
+    public var hwpiSzFriendlyName: UShortArray = UShortArray(80),
+    public var hwpiDwFlags: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is HWPROFILEINFO_W) return false
-        if (this.HWPI_ulHWProfile != other.HWPI_ulHWProfile) return false
-        if (!this.HWPI_szFriendlyName.contentEquals(other.HWPI_szFriendlyName)) return false
-        if (this.HWPI_dwFlags != other.HWPI_dwFlags) return false
+        if (other !is HwprofileinfoW) return false
+        if (this.hwpiUlHwprofile != other.hwpiUlHwprofile) return false
+        if (!this.hwpiSzFriendlyName.contentEquals(other.hwpiSzFriendlyName)) return false
+        if (this.hwpiDwFlags != other.hwpiDwFlags) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.HWPI_ulHWProfile.hashCode()
-        result = 31 * result + this.HWPI_szFriendlyName.contentHashCode()
-        result = 31 * result + this.HWPI_dwFlags.hashCode()
+        var result = this.hwpiUlHwprofile.hashCode()
+        result = 31 * result + this.hwpiSzFriendlyName.contentHashCode()
+        result = 31 * result + this.hwpiDwFlags.hashCode()
         return result
     }
 }
 
-public data class INFCONTEXT(
-    public var Inf: Long = 0L,
-    public var CurrentInf: Long = 0L,
-    public var Section: UInt = 0u,
-    public var Line: UInt = 0u,
+public data class Infcontext(
+    public var inf: COpaquePointer? = null,
+    public var currentInf: COpaquePointer? = null,
+    public var section: UInt = 0u,
+    public var line: UInt = 0u,
 )
 
-public data class IO_DES(
-    public var IOD_Count: UInt = 0u,
-    public var IOD_Type: UInt = 0u,
-    public var IOD_Alloc_Base: ULong = 0uL,
-    public var IOD_Alloc_End: ULong = 0uL,
-    public var IOD_DesFlags: IOD_DESFLAGS = 0u,
+public data class IoDes(
+    public var iodCount: UInt = 0u,
+    public var iodType: UInt = 0u,
+    public var iodAllocBase: ULong = 0uL,
+    public var iodAllocEnd: ULong = 0uL,
+    public var iodDesFlags: IodDesflags = 0u,
 )
 
-public data class IO_RANGE(
-    public var IOR_Align: ULong = 0uL,
-    public var IOR_nPorts: UInt = 0u,
-    public var IOR_Min: ULong = 0uL,
-    public var IOR_Max: ULong = 0uL,
-    public var IOR_RangeFlags: IOD_DESFLAGS = 0u,
-    public var IOR_Alias: ULong = 0uL,
+public data class IoRange(
+    public var iorAlign: ULong = 0uL,
+    public var iorNPorts: UInt = 0u,
+    public var iorMin: ULong = 0uL,
+    public var iorMax: ULong = 0uL,
+    public var iorRangeFlags: IodDesflags = 0u,
+    public var iorAlias: ULong = 0uL,
 )
 
-public data class IO_RESOURCE(public var IO_Header: IO_DES = IO_DES(), public var IO_Data: List<IO_RANGE> = List(1) { IO_RANGE() })
+public data class IoResource(public var ioHeader: IoDes = IoDes(), public var ioData: List<IoRange> = List(1) { IoRange() })
 
-public data class IRQ_DES_32(
-    public var IRQD_Count: UInt = 0u,
-    public var IRQD_Type: UInt = 0u,
-    public var IRQD_Flags: IRQD_FLAGS = 0u,
-    public var IRQD_Alloc_Num: UInt = 0u,
-    public var IRQD_Affinity: UInt = 0u,
+public data class IrqDes32(
+    public var irqdCount: UInt = 0u,
+    public var irqdType: UInt = 0u,
+    public var irqdFlags: IrqdFlags = 0u,
+    public var irqdAllocNum: UInt = 0u,
+    public var irqdAffinity: UInt = 0u,
 )
 
-public data class IRQ_DES_64(
-    public var IRQD_Count: UInt = 0u,
-    public var IRQD_Type: UInt = 0u,
-    public var IRQD_Flags: IRQD_FLAGS = 0u,
-    public var IRQD_Alloc_Num: UInt = 0u,
-    public var IRQD_Affinity: ULong = 0uL,
+public data class IrqDes64(
+    public var irqdCount: UInt = 0u,
+    public var irqdType: UInt = 0u,
+    public var irqdFlags: IrqdFlags = 0u,
+    public var irqdAllocNum: UInt = 0u,
+    public var irqdAffinity: ULong = 0uL,
 )
 
-public data class IRQ_RANGE(
-    public var IRQR_Min: UInt = 0u,
-    public var IRQR_Max: UInt = 0u,
-    public var IRQR_Flags: IRQD_FLAGS = 0u,
+public data class IrqRange(
+    public var irqrMin: UInt = 0u,
+    public var irqrMax: UInt = 0u,
+    public var irqrFlags: IrqdFlags = 0u,
 )
 
-public data class IRQ_RESOURCE_32(public var IRQ_Header: IRQ_DES_32 = IRQ_DES_32(), public var IRQ_Data: List<IRQ_RANGE> = List(1) { IRQ_RANGE() })
+public data class IrqResource32(public var irqHeader: IrqDes32 = IrqDes32(), public var irqData: List<IrqRange> = List(1) { IrqRange() })
 
-public data class IRQ_RESOURCE_64(public var IRQ_Header: IRQ_DES_64 = IRQ_DES_64(), public var IRQ_Data: List<IRQ_RANGE> = List(1) { IRQ_RANGE() })
+public data class IrqResource64(public var irqHeader: IrqDes64 = IrqDes64(), public var irqData: List<IrqRange> = List(1) { IrqRange() })
 
-public data class MEM_DES(
-    public var MD_Count: UInt = 0u,
-    public var MD_Type: UInt = 0u,
-    public var MD_Alloc_Base: ULong = 0uL,
-    public var MD_Alloc_End: ULong = 0uL,
-    public var MD_Flags: MD_FLAGS = 0u,
-    public var MD_Reserved: UInt = 0u,
+public data class MemDes(
+    public var mdCount: UInt = 0u,
+    public var mdType: UInt = 0u,
+    public var mdAllocBase: ULong = 0uL,
+    public var mdAllocEnd: ULong = 0uL,
+    public var mdFlags: MdFlags = 0u,
+    public var mdReserved: UInt = 0u,
 )
 
-public data class MEM_LARGE_DES(
-    public var MLD_Count: UInt = 0u,
-    public var MLD_Type: UInt = 0u,
-    public var MLD_Alloc_Base: ULong = 0uL,
-    public var MLD_Alloc_End: ULong = 0uL,
-    public var MLD_Flags: UInt = 0u,
-    public var MLD_Reserved: UInt = 0u,
+public data class MemLargeDes(
+    public var mldCount: UInt = 0u,
+    public var mldType: UInt = 0u,
+    public var mldAllocBase: ULong = 0uL,
+    public var mldAllocEnd: ULong = 0uL,
+    public var mldFlags: UInt = 0u,
+    public var mldReserved: UInt = 0u,
 )
 
-public data class MEM_LARGE_RANGE(
-    public var MLR_Align: ULong = 0uL,
-    public var MLR_nBytes: ULong = 0uL,
-    public var MLR_Min: ULong = 0uL,
-    public var MLR_Max: ULong = 0uL,
-    public var MLR_Flags: UInt = 0u,
-    public var MLR_Reserved: UInt = 0u,
+public data class MemLargeRange(
+    public var mlrAlign: ULong = 0uL,
+    public var mlrNBytes: ULong = 0uL,
+    public var mlrMin: ULong = 0uL,
+    public var mlrMax: ULong = 0uL,
+    public var mlrFlags: UInt = 0u,
+    public var mlrReserved: UInt = 0u,
 )
 
-public data class MEM_LARGE_RESOURCE(public var MEM_LARGE_Header: MEM_LARGE_DES = MEM_LARGE_DES(), public var MEM_LARGE_Data: List<MEM_LARGE_RANGE> = List(1) { MEM_LARGE_RANGE() })
+public data class MemLargeResource(public var memLargeHeader: MemLargeDes = MemLargeDes(), public var memLargeData: List<MemLargeRange> = List(1) { MemLargeRange() })
 
-public data class MEM_RANGE(
-    public var MR_Align: ULong = 0uL,
-    public var MR_nBytes: UInt = 0u,
-    public var MR_Min: ULong = 0uL,
-    public var MR_Max: ULong = 0uL,
-    public var MR_Flags: MD_FLAGS = 0u,
-    public var MR_Reserved: UInt = 0u,
+public data class MemRange(
+    public var mrAlign: ULong = 0uL,
+    public var mrNBytes: UInt = 0u,
+    public var mrMin: ULong = 0uL,
+    public var mrMax: ULong = 0uL,
+    public var mrFlags: MdFlags = 0u,
+    public var mrReserved: UInt = 0u,
 )
 
-public data class MEM_RESOURCE(public var MEM_Header: MEM_DES = MEM_DES(), public var MEM_Data: List<MEM_RANGE> = List(1) { MEM_RANGE() })
+public data class MemResource(public var memHeader: MemDes = MemDes(), public var memData: List<MemRange> = List(1) { MemRange() })
 
-public data class MFCARD_DES(
-    public var PMF_Count: UInt = 0u,
-    public var PMF_Type: UInt = 0u,
-    public var PMF_Flags: PMF_FLAGS = 0u,
-    public var PMF_ConfigOptions: UByte = 0u,
-    public var PMF_IoResourceIndex: UByte = 0u,
-    public var PMF_Reserved: UByteArray = UByteArray(2),
-    public var PMF_ConfigRegisterBase: UInt = 0u,
+public data class MfcardDes(
+    public var pmfCount: UInt = 0u,
+    public var pmfType: UInt = 0u,
+    public var pmfFlags: PmfFlags = 0u,
+    public var pmfConfigOptions: UByte = 0u,
+    public var pmfIoResourceIndex: UByte = 0u,
+    public var pmfReserved: UByteArray = UByteArray(2),
+    public var pmfConfigRegisterBase: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MFCARD_DES) return false
-        if (this.PMF_Count != other.PMF_Count) return false
-        if (this.PMF_Type != other.PMF_Type) return false
-        if (this.PMF_Flags != other.PMF_Flags) return false
-        if (this.PMF_ConfigOptions != other.PMF_ConfigOptions) return false
-        if (this.PMF_IoResourceIndex != other.PMF_IoResourceIndex) return false
-        if (!this.PMF_Reserved.contentEquals(other.PMF_Reserved)) return false
-        if (this.PMF_ConfigRegisterBase != other.PMF_ConfigRegisterBase) return false
+        if (other !is MfcardDes) return false
+        if (this.pmfCount != other.pmfCount) return false
+        if (this.pmfType != other.pmfType) return false
+        if (this.pmfFlags != other.pmfFlags) return false
+        if (this.pmfConfigOptions != other.pmfConfigOptions) return false
+        if (this.pmfIoResourceIndex != other.pmfIoResourceIndex) return false
+        if (!this.pmfReserved.contentEquals(other.pmfReserved)) return false
+        if (this.pmfConfigRegisterBase != other.pmfConfigRegisterBase) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.PMF_Count.hashCode()
-        result = 31 * result + this.PMF_Type.hashCode()
-        result = 31 * result + this.PMF_Flags.hashCode()
-        result = 31 * result + this.PMF_ConfigOptions.hashCode()
-        result = 31 * result + this.PMF_IoResourceIndex.hashCode()
-        result = 31 * result + this.PMF_Reserved.contentHashCode()
-        result = 31 * result + this.PMF_ConfigRegisterBase.hashCode()
+        var result = this.pmfCount.hashCode()
+        result = 31 * result + this.pmfType.hashCode()
+        result = 31 * result + this.pmfFlags.hashCode()
+        result = 31 * result + this.pmfConfigOptions.hashCode()
+        result = 31 * result + this.pmfIoResourceIndex.hashCode()
+        result = 31 * result + this.pmfReserved.contentHashCode()
+        result = 31 * result + this.pmfConfigRegisterBase.hashCode()
         return result
     }
 }
 
-public data class MFCARD_RESOURCE(public var MfCard_Header: MFCARD_DES = MFCARD_DES())
+public data class MfcardResource(public var mfCardHeader: MfcardDes = MfcardDes())
 
-public data class PCCARD_DES(
-    public var PCD_Count: UInt = 0u,
-    public var PCD_Type: UInt = 0u,
-    public var PCD_Flags: PCD_FLAGS = 0u,
-    public var PCD_ConfigIndex: UByte = 0u,
-    public var PCD_Reserved: UByteArray = UByteArray(3),
-    public var PCD_MemoryCardBase1: UInt = 0u,
-    public var PCD_MemoryCardBase2: UInt = 0u,
-    public var PCD_MemoryCardBase: UIntArray = UIntArray(2),
-    public var PCD_MemoryFlags: UShortArray = UShortArray(2),
-    public var PCD_IoFlags: UByteArray = UByteArray(2),
+public data class PccardDes(
+    public var pcdCount: UInt = 0u,
+    public var pcdType: UInt = 0u,
+    public var pcdFlags: PcdFlags = 0u,
+    public var pcdConfigIndex: UByte = 0u,
+    public var pcdReserved: UByteArray = UByteArray(3),
+    public var pcdMemoryCardBase1: UInt = 0u,
+    public var pcdMemoryCardBase2: UInt = 0u,
+    public var pcdMemoryCardBase: UIntArray = UIntArray(2),
+    public var pcdMemoryFlags: UShortArray = UShortArray(2),
+    public var pcdIoFlags: UByteArray = UByteArray(2),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is PCCARD_DES) return false
-        if (this.PCD_Count != other.PCD_Count) return false
-        if (this.PCD_Type != other.PCD_Type) return false
-        if (this.PCD_Flags != other.PCD_Flags) return false
-        if (this.PCD_ConfigIndex != other.PCD_ConfigIndex) return false
-        if (!this.PCD_Reserved.contentEquals(other.PCD_Reserved)) return false
-        if (this.PCD_MemoryCardBase1 != other.PCD_MemoryCardBase1) return false
-        if (this.PCD_MemoryCardBase2 != other.PCD_MemoryCardBase2) return false
-        if (!this.PCD_MemoryCardBase.contentEquals(other.PCD_MemoryCardBase)) return false
-        if (!this.PCD_MemoryFlags.contentEquals(other.PCD_MemoryFlags)) return false
-        if (!this.PCD_IoFlags.contentEquals(other.PCD_IoFlags)) return false
+        if (other !is PccardDes) return false
+        if (this.pcdCount != other.pcdCount) return false
+        if (this.pcdType != other.pcdType) return false
+        if (this.pcdFlags != other.pcdFlags) return false
+        if (this.pcdConfigIndex != other.pcdConfigIndex) return false
+        if (!this.pcdReserved.contentEquals(other.pcdReserved)) return false
+        if (this.pcdMemoryCardBase1 != other.pcdMemoryCardBase1) return false
+        if (this.pcdMemoryCardBase2 != other.pcdMemoryCardBase2) return false
+        if (!this.pcdMemoryCardBase.contentEquals(other.pcdMemoryCardBase)) return false
+        if (!this.pcdMemoryFlags.contentEquals(other.pcdMemoryFlags)) return false
+        if (!this.pcdIoFlags.contentEquals(other.pcdIoFlags)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.PCD_Count.hashCode()
-        result = 31 * result + this.PCD_Type.hashCode()
-        result = 31 * result + this.PCD_Flags.hashCode()
-        result = 31 * result + this.PCD_ConfigIndex.hashCode()
-        result = 31 * result + this.PCD_Reserved.contentHashCode()
-        result = 31 * result + this.PCD_MemoryCardBase1.hashCode()
-        result = 31 * result + this.PCD_MemoryCardBase2.hashCode()
-        result = 31 * result + this.PCD_MemoryCardBase.contentHashCode()
-        result = 31 * result + this.PCD_MemoryFlags.contentHashCode()
-        result = 31 * result + this.PCD_IoFlags.contentHashCode()
+        var result = this.pcdCount.hashCode()
+        result = 31 * result + this.pcdType.hashCode()
+        result = 31 * result + this.pcdFlags.hashCode()
+        result = 31 * result + this.pcdConfigIndex.hashCode()
+        result = 31 * result + this.pcdReserved.contentHashCode()
+        result = 31 * result + this.pcdMemoryCardBase1.hashCode()
+        result = 31 * result + this.pcdMemoryCardBase2.hashCode()
+        result = 31 * result + this.pcdMemoryCardBase.contentHashCode()
+        result = 31 * result + this.pcdMemoryFlags.contentHashCode()
+        result = 31 * result + this.pcdIoFlags.contentHashCode()
         return result
     }
 }
 
-public data class PCCARD_RESOURCE(public var PcCard_Header: PCCARD_DES = PCCARD_DES())
+public data class PccardResource(public var pcCardHeader: PccardDes = PccardDes())
 
-public data class SOURCE_MEDIA_A(
-    public var Reserved: PCSTR = 0L,
-    public var Tagfile: PCSTR = 0L,
-    public var Description: PCSTR = 0L,
-    public var SourcePath: PCSTR = 0L,
-    public var SourceFile: PCSTR = 0L,
-    public var Flags: UInt = 0u,
+public data class SourceMediaA(
+    public var reserved: Pcstr = null,
+    public var tagfile: Pcstr = null,
+    public var description: Pcstr = null,
+    public var sourcePath: Pcstr = null,
+    public var sourceFile: Pcstr = null,
+    public var flags: UInt = 0u,
 )
 
-public data class SOURCE_MEDIA_W(
-    public var Reserved: PCWSTR = 0L,
-    public var Tagfile: PCWSTR = 0L,
-    public var Description: PCWSTR = 0L,
-    public var SourcePath: PCWSTR = 0L,
-    public var SourceFile: PCWSTR = 0L,
-    public var Flags: UInt = 0u,
+public data class SourceMediaW(
+    public var reserved: Pcwstr = null,
+    public var tagfile: Pcwstr = null,
+    public var description: Pcwstr = null,
+    public var sourcePath: Pcwstr = null,
+    public var sourceFile: Pcwstr = null,
+    public var flags: UInt = 0u,
 )
 
-public data class SP_ALTPLATFORM_INFO_V1(
+public data class SpAltplatformInfoV1(
     public var cbSize: UInt = 0u,
-    public var Platform: VER_PLATFORM = 0u,
-    public var MajorVersion: UInt = 0u,
-    public var MinorVersion: UInt = 0u,
-    public var ProcessorArchitecture: UShort = 0u,
-    public var Reserved: UShort = 0u,
+    public var platform: VerPlatform = 0u,
+    public var majorVersion: UInt = 0u,
+    public var minorVersion: UInt = 0u,
+    public var processorArchitecture: UShort = 0u,
+    public var reserved: UShort = 0u,
 )
 
-public data class SP_ALTPLATFORM_INFO_V2(
+public data class SpAltplatformInfoV2(
     public var cbSize: UInt = 0u,
-    public var Platform: VER_PLATFORM = 0u,
-    public var MajorVersion: UInt = 0u,
-    public var MinorVersion: UInt = 0u,
-    public var ProcessorArchitecture: PROCESSOR_ARCHITECTURE = 0u,
-    public var Anonymous: SP_ALTPLATFORM_INFO_V2_0 = SP_ALTPLATFORM_INFO_V2_0(),
-    public var FirstValidatedMajorVersion: UInt = 0u,
-    public var FirstValidatedMinorVersion: UInt = 0u,
+    public var platform: VerPlatform = 0u,
+    public var majorVersion: UInt = 0u,
+    public var minorVersion: UInt = 0u,
+    public var processorArchitecture: ProcessorArchitecture = 0u,
+    public var anonymous: SpAltplatformInfoV20 = SpAltplatformInfoV20(),
+    public var firstValidatedMajorVersion: UInt = 0u,
+    public var firstValidatedMinorVersion: UInt = 0u,
 )
 
-public data class SP_ALTPLATFORM_INFO_V2_0(public var Reserved: UShort = 0u, public var Flags: UShort = 0u)
+public data class SpAltplatformInfoV20(public var reserved: UShort = 0u, public var flags: UShort = 0u)
 
-public data class SP_ALTPLATFORM_INFO_V3(
+public data class SpAltplatformInfoV3(
     public var cbSize: UInt = 0u,
-    public var Platform: UInt = 0u,
-    public var MajorVersion: UInt = 0u,
-    public var MinorVersion: UInt = 0u,
-    public var ProcessorArchitecture: UShort = 0u,
-    public var Anonymous: SP_ALTPLATFORM_INFO_V3_0 = SP_ALTPLATFORM_INFO_V3_0(),
-    public var FirstValidatedMajorVersion: UInt = 0u,
-    public var FirstValidatedMinorVersion: UInt = 0u,
-    public var ProductType: UByte = 0u,
-    public var SuiteMask: UShort = 0u,
-    public var BuildNumber: UInt = 0u,
+    public var platform: UInt = 0u,
+    public var majorVersion: UInt = 0u,
+    public var minorVersion: UInt = 0u,
+    public var processorArchitecture: UShort = 0u,
+    public var anonymous: SpAltplatformInfoV30 = SpAltplatformInfoV30(),
+    public var firstValidatedMajorVersion: UInt = 0u,
+    public var firstValidatedMinorVersion: UInt = 0u,
+    public var productType: UByte = 0u,
+    public var suiteMask: UShort = 0u,
+    public var buildNumber: UInt = 0u,
 )
 
-public data class SP_ALTPLATFORM_INFO_V3_0(public var Reserved: UShort = 0u, public var Flags: UShort = 0u)
+public data class SpAltplatformInfoV30(public var reserved: UShort = 0u, public var flags: UShort = 0u)
 
-public data class SP_BACKUP_QUEUE_PARAMS_V1_A(
+public data class SpBackupQueueParamsV1A(
     public var cbSize: UInt = 0u,
-    public var FullInfPath: ByteArray = ByteArray(260),
-    public var FilenameOffset: Int = 0,
+    public var fullInfPath: ByteArray = ByteArray(260),
+    public var filenameOffset: Int = 0,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SP_BACKUP_QUEUE_PARAMS_V1_A) return false
+        if (other !is SpBackupQueueParamsV1A) return false
         if (this.cbSize != other.cbSize) return false
-        if (!this.FullInfPath.contentEquals(other.FullInfPath)) return false
-        if (this.FilenameOffset != other.FilenameOffset) return false
+        if (!this.fullInfPath.contentEquals(other.fullInfPath)) return false
+        if (this.filenameOffset != other.filenameOffset) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.cbSize.hashCode()
-        result = 31 * result + this.FullInfPath.contentHashCode()
-        result = 31 * result + this.FilenameOffset.hashCode()
+        result = 31 * result + this.fullInfPath.contentHashCode()
+        result = 31 * result + this.filenameOffset.hashCode()
         return result
     }
 }
 
-public data class SP_BACKUP_QUEUE_PARAMS_V1_W(
+public data class SpBackupQueueParamsV1W(
     public var cbSize: UInt = 0u,
-    public var FullInfPath: UShortArray = UShortArray(260),
-    public var FilenameOffset: Int = 0,
+    public var fullInfPath: UShortArray = UShortArray(260),
+    public var filenameOffset: Int = 0,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SP_BACKUP_QUEUE_PARAMS_V1_W) return false
+        if (other !is SpBackupQueueParamsV1W) return false
         if (this.cbSize != other.cbSize) return false
-        if (!this.FullInfPath.contentEquals(other.FullInfPath)) return false
-        if (this.FilenameOffset != other.FilenameOffset) return false
+        if (!this.fullInfPath.contentEquals(other.fullInfPath)) return false
+        if (this.filenameOffset != other.filenameOffset) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.cbSize.hashCode()
-        result = 31 * result + this.FullInfPath.contentHashCode()
-        result = 31 * result + this.FilenameOffset.hashCode()
+        result = 31 * result + this.fullInfPath.contentHashCode()
+        result = 31 * result + this.filenameOffset.hashCode()
         return result
     }
 }
 
-public data class SP_BACKUP_QUEUE_PARAMS_V2_A(
+public data class SpBackupQueueParamsV2A(
     public var cbSize: UInt = 0u,
-    public var FullInfPath: ByteArray = ByteArray(260),
-    public var FilenameOffset: Int = 0,
-    public var ReinstallInstance: ByteArray = ByteArray(260),
+    public var fullInfPath: ByteArray = ByteArray(260),
+    public var filenameOffset: Int = 0,
+    public var reinstallInstance: ByteArray = ByteArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SP_BACKUP_QUEUE_PARAMS_V2_A) return false
+        if (other !is SpBackupQueueParamsV2A) return false
         if (this.cbSize != other.cbSize) return false
-        if (!this.FullInfPath.contentEquals(other.FullInfPath)) return false
-        if (this.FilenameOffset != other.FilenameOffset) return false
-        if (!this.ReinstallInstance.contentEquals(other.ReinstallInstance)) return false
+        if (!this.fullInfPath.contentEquals(other.fullInfPath)) return false
+        if (this.filenameOffset != other.filenameOffset) return false
+        if (!this.reinstallInstance.contentEquals(other.reinstallInstance)) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.cbSize.hashCode()
-        result = 31 * result + this.FullInfPath.contentHashCode()
-        result = 31 * result + this.FilenameOffset.hashCode()
-        result = 31 * result + this.ReinstallInstance.contentHashCode()
+        result = 31 * result + this.fullInfPath.contentHashCode()
+        result = 31 * result + this.filenameOffset.hashCode()
+        result = 31 * result + this.reinstallInstance.contentHashCode()
         return result
     }
 }
 
-public data class SP_BACKUP_QUEUE_PARAMS_V2_W(
+public data class SpBackupQueueParamsV2W(
     public var cbSize: UInt = 0u,
-    public var FullInfPath: UShortArray = UShortArray(260),
-    public var FilenameOffset: Int = 0,
-    public var ReinstallInstance: UShortArray = UShortArray(260),
+    public var fullInfPath: UShortArray = UShortArray(260),
+    public var filenameOffset: Int = 0,
+    public var reinstallInstance: UShortArray = UShortArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SP_BACKUP_QUEUE_PARAMS_V2_W) return false
+        if (other !is SpBackupQueueParamsV2W) return false
         if (this.cbSize != other.cbSize) return false
-        if (!this.FullInfPath.contentEquals(other.FullInfPath)) return false
-        if (this.FilenameOffset != other.FilenameOffset) return false
-        if (!this.ReinstallInstance.contentEquals(other.ReinstallInstance)) return false
+        if (!this.fullInfPath.contentEquals(other.fullInfPath)) return false
+        if (this.filenameOffset != other.filenameOffset) return false
+        if (!this.reinstallInstance.contentEquals(other.reinstallInstance)) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.cbSize.hashCode()
-        result = 31 * result + this.FullInfPath.contentHashCode()
-        result = 31 * result + this.FilenameOffset.hashCode()
-        result = 31 * result + this.ReinstallInstance.contentHashCode()
+        result = 31 * result + this.fullInfPath.contentHashCode()
+        result = 31 * result + this.filenameOffset.hashCode()
+        result = 31 * result + this.reinstallInstance.contentHashCode()
         return result
     }
 }
 
-public data class SP_CLASSIMAGELIST_DATA(
+public data class SpClassimagelistData(
     public var cbSize: UInt = 0u,
-    public var ImageList: HIMAGELIST = 0L,
-    public var Reserved: ULong = 0uL,
+    public var imageList: Himagelist = 0L,
+    public var reserved: Int = 0,
 )
 
-public data class SP_CLASSINSTALL_HEADER(public var cbSize: UInt = 0u, public var InstallFunction: DI_FUNCTION = 0u)
+public data class SpClassinstallHeader(public var cbSize: UInt = 0u, public var installFunction: DiFunction = 0u)
 
-public data class SP_DETECTDEVICE_PARAMS(
-    public var ClassInstallHeader: SP_CLASSINSTALL_HEADER = SP_CLASSINSTALL_HEADER(),
-    public var DetectProgressNotify: PDETECT_PROGRESS_NOTIFY = null,
-    public var ProgressNotifyParam: Long = 0L,
+public data class SpDetectdeviceParams(
+    public var classInstallHeader: SpClassinstallHeader = SpClassinstallHeader(),
+    public var detectProgressNotify: PdetectProgressNotify = null,
+    public var progressNotifyParam: COpaquePointer? = null,
 )
 
-public data class SP_DEVICE_INTERFACE_DATA(
+public data class SpDeviceInterfaceData(
     public var cbSize: UInt = 0u,
-    public var InterfaceClassGuid: GUID = GUID(),
-    public var Flags: UInt = 0u,
-    public var Reserved: ULong = 0uL,
+    public var interfaceClassGuid: Guid = Guid(),
+    public var flags: UInt = 0u,
+    public var reserved: Int = 0,
 )
 
-public data class SP_DEVICE_INTERFACE_DETAIL_DATA_A(public var cbSize: UInt = 0u, public var DevicePath: ByteArray = ByteArray(1)) {
+public data class SpDeviceInterfaceDetailDataA(public var cbSize: UInt = 0u, public var devicePath: ByteArray = ByteArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SP_DEVICE_INTERFACE_DETAIL_DATA_A) return false
+        if (other !is SpDeviceInterfaceDetailDataA) return false
         if (this.cbSize != other.cbSize) return false
-        if (!this.DevicePath.contentEquals(other.DevicePath)) return false
+        if (!this.devicePath.contentEquals(other.devicePath)) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.cbSize.hashCode()
-        result = 31 * result + this.DevicePath.contentHashCode()
+        result = 31 * result + this.devicePath.contentHashCode()
         return result
     }
 }
 
-public data class SP_DEVICE_INTERFACE_DETAIL_DATA_W(public var cbSize: UInt = 0u, public var DevicePath: UShortArray = UShortArray(1)) {
+public data class SpDeviceInterfaceDetailDataW(public var cbSize: UInt = 0u, public var devicePath: UShortArray = UShortArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SP_DEVICE_INTERFACE_DETAIL_DATA_W) return false
+        if (other !is SpDeviceInterfaceDetailDataW) return false
         if (this.cbSize != other.cbSize) return false
-        if (!this.DevicePath.contentEquals(other.DevicePath)) return false
+        if (!this.devicePath.contentEquals(other.devicePath)) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.cbSize.hashCode()
-        result = 31 * result + this.DevicePath.contentHashCode()
+        result = 31 * result + this.devicePath.contentHashCode()
         return result
     }
 }
 
-public data class SP_DEVINFO_DATA(
+public data class SpDevinfoData(
     public var cbSize: UInt = 0u,
-    public var ClassGuid: GUID = GUID(),
-    public var DevInst: UInt = 0u,
-    public var Reserved: ULong = 0uL,
+    public var classGuid: Guid = Guid(),
+    public var devInst: UInt = 0u,
+    public var reserved: Int = 0,
 )
 
-public data class SP_DEVINFO_LIST_DETAIL_DATA_A(
+public data class SpDevinfoListDetailDataA(
     public var cbSize: UInt = 0u,
-    public var ClassGuid: GUID = GUID(),
-    public var RemoteMachineHandle: HANDLE = 0L,
-    public var RemoteMachineName: ByteArray = ByteArray(263),
+    public var classGuid: Guid = Guid(),
+    public var remoteMachineHandle: Handle = null,
+    public var remoteMachineName: ByteArray = ByteArray(263),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SP_DEVINFO_LIST_DETAIL_DATA_A) return false
+        if (other !is SpDevinfoListDetailDataA) return false
         if (this.cbSize != other.cbSize) return false
-        if (this.ClassGuid != other.ClassGuid) return false
-        if (this.RemoteMachineHandle != other.RemoteMachineHandle) return false
-        if (!this.RemoteMachineName.contentEquals(other.RemoteMachineName)) return false
+        if (this.classGuid != other.classGuid) return false
+        if (this.remoteMachineHandle != other.remoteMachineHandle) return false
+        if (!this.remoteMachineName.contentEquals(other.remoteMachineName)) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.cbSize.hashCode()
-        result = 31 * result + this.ClassGuid.hashCode()
-        result = 31 * result + this.RemoteMachineHandle.hashCode()
-        result = 31 * result + this.RemoteMachineName.contentHashCode()
+        result = 31 * result + this.classGuid.hashCode()
+        result = 31 * result + this.remoteMachineHandle.hashCode()
+        result = 31 * result + this.remoteMachineName.contentHashCode()
         return result
     }
 }
 
-public data class SP_DEVINFO_LIST_DETAIL_DATA_W(
+public data class SpDevinfoListDetailDataW(
     public var cbSize: UInt = 0u,
-    public var ClassGuid: GUID = GUID(),
-    public var RemoteMachineHandle: HANDLE = 0L,
-    public var RemoteMachineName: UShortArray = UShortArray(263),
+    public var classGuid: Guid = Guid(),
+    public var remoteMachineHandle: Handle = null,
+    public var remoteMachineName: UShortArray = UShortArray(263),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SP_DEVINFO_LIST_DETAIL_DATA_W) return false
+        if (other !is SpDevinfoListDetailDataW) return false
         if (this.cbSize != other.cbSize) return false
-        if (this.ClassGuid != other.ClassGuid) return false
-        if (this.RemoteMachineHandle != other.RemoteMachineHandle) return false
-        if (!this.RemoteMachineName.contentEquals(other.RemoteMachineName)) return false
+        if (this.classGuid != other.classGuid) return false
+        if (this.remoteMachineHandle != other.remoteMachineHandle) return false
+        if (!this.remoteMachineName.contentEquals(other.remoteMachineName)) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.cbSize.hashCode()
-        result = 31 * result + this.ClassGuid.hashCode()
-        result = 31 * result + this.RemoteMachineHandle.hashCode()
-        result = 31 * result + this.RemoteMachineName.contentHashCode()
+        result = 31 * result + this.classGuid.hashCode()
+        result = 31 * result + this.remoteMachineHandle.hashCode()
+        result = 31 * result + this.remoteMachineName.contentHashCode()
         return result
     }
 }
 
-public data class SP_DEVINSTALL_PARAMS_A(
+public data class SpDevinstallParamsA(
     public var cbSize: UInt = 0u,
-    public var Flags: SETUP_DI_DEVICE_INSTALL_FLAGS = 0u,
-    public var FlagsEx: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = 0u,
-    public var hwndParent: HWND = 0L,
-    public var InstallMsgHandler: PSP_FILE_CALLBACK_A = null,
-    public var InstallMsgHandlerContext: Long = 0L,
-    public var FileQueue: Long = 0L,
-    public var ClassInstallReserved: ULong = 0uL,
-    public var Reserved: UInt = 0u,
-    public var DriverPath: ByteArray = ByteArray(260),
+    public var flags: SetupDiDeviceInstallFlags = 0u,
+    public var flagsEx: SetupDiDeviceInstallFlagsEx = 0u,
+    public var hwndParent: Hwnd = null,
+    public var installMsgHandler: PspFileCallbackA = null,
+    public var installMsgHandlerContext: COpaquePointer? = null,
+    public var fileQueue: COpaquePointer? = null,
+    public var classInstallReserved: Int = 0,
+    public var reserved: UInt = 0u,
+    public var driverPath: ByteArray = ByteArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SP_DEVINSTALL_PARAMS_A) return false
+        if (other !is SpDevinstallParamsA) return false
         if (this.cbSize != other.cbSize) return false
-        if (this.Flags != other.Flags) return false
-        if (this.FlagsEx != other.FlagsEx) return false
+        if (this.flags != other.flags) return false
+        if (this.flagsEx != other.flagsEx) return false
         if (this.hwndParent != other.hwndParent) return false
-        if (this.InstallMsgHandler != other.InstallMsgHandler) return false
-        if (this.InstallMsgHandlerContext != other.InstallMsgHandlerContext) return false
-        if (this.FileQueue != other.FileQueue) return false
-        if (this.ClassInstallReserved != other.ClassInstallReserved) return false
-        if (this.Reserved != other.Reserved) return false
-        if (!this.DriverPath.contentEquals(other.DriverPath)) return false
+        if (this.installMsgHandler != other.installMsgHandler) return false
+        if (this.installMsgHandlerContext != other.installMsgHandlerContext) return false
+        if (this.fileQueue != other.fileQueue) return false
+        if (this.classInstallReserved != other.classInstallReserved) return false
+        if (this.reserved != other.reserved) return false
+        if (!this.driverPath.contentEquals(other.driverPath)) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.cbSize.hashCode()
-        result = 31 * result + this.Flags.hashCode()
-        result = 31 * result + this.FlagsEx.hashCode()
+        result = 31 * result + this.flags.hashCode()
+        result = 31 * result + this.flagsEx.hashCode()
         result = 31 * result + this.hwndParent.hashCode()
-        result = 31 * result + this.InstallMsgHandler.hashCode()
-        result = 31 * result + this.InstallMsgHandlerContext.hashCode()
-        result = 31 * result + this.FileQueue.hashCode()
-        result = 31 * result + this.ClassInstallReserved.hashCode()
-        result = 31 * result + this.Reserved.hashCode()
-        result = 31 * result + this.DriverPath.contentHashCode()
+        result = 31 * result + this.installMsgHandler.hashCode()
+        result = 31 * result + this.installMsgHandlerContext.hashCode()
+        result = 31 * result + this.fileQueue.hashCode()
+        result = 31 * result + this.classInstallReserved.hashCode()
+        result = 31 * result + this.reserved.hashCode()
+        result = 31 * result + this.driverPath.contentHashCode()
         return result
     }
 }
 
-public data class SP_DEVINSTALL_PARAMS_W(
+public data class SpDevinstallParamsW(
     public var cbSize: UInt = 0u,
-    public var Flags: SETUP_DI_DEVICE_INSTALL_FLAGS = 0u,
-    public var FlagsEx: SETUP_DI_DEVICE_INSTALL_FLAGS_EX = 0u,
-    public var hwndParent: HWND = 0L,
-    public var InstallMsgHandler: PSP_FILE_CALLBACK_W = null,
-    public var InstallMsgHandlerContext: Long = 0L,
-    public var FileQueue: Long = 0L,
-    public var ClassInstallReserved: ULong = 0uL,
-    public var Reserved: UInt = 0u,
-    public var DriverPath: UShortArray = UShortArray(260),
+    public var flags: SetupDiDeviceInstallFlags = 0u,
+    public var flagsEx: SetupDiDeviceInstallFlagsEx = 0u,
+    public var hwndParent: Hwnd = null,
+    public var installMsgHandler: PspFileCallbackW = null,
+    public var installMsgHandlerContext: COpaquePointer? = null,
+    public var fileQueue: COpaquePointer? = null,
+    public var classInstallReserved: Int = 0,
+    public var reserved: UInt = 0u,
+    public var driverPath: UShortArray = UShortArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SP_DEVINSTALL_PARAMS_W) return false
+        if (other !is SpDevinstallParamsW) return false
         if (this.cbSize != other.cbSize) return false
-        if (this.Flags != other.Flags) return false
-        if (this.FlagsEx != other.FlagsEx) return false
+        if (this.flags != other.flags) return false
+        if (this.flagsEx != other.flagsEx) return false
         if (this.hwndParent != other.hwndParent) return false
-        if (this.InstallMsgHandler != other.InstallMsgHandler) return false
-        if (this.InstallMsgHandlerContext != other.InstallMsgHandlerContext) return false
-        if (this.FileQueue != other.FileQueue) return false
-        if (this.ClassInstallReserved != other.ClassInstallReserved) return false
-        if (this.Reserved != other.Reserved) return false
-        if (!this.DriverPath.contentEquals(other.DriverPath)) return false
+        if (this.installMsgHandler != other.installMsgHandler) return false
+        if (this.installMsgHandlerContext != other.installMsgHandlerContext) return false
+        if (this.fileQueue != other.fileQueue) return false
+        if (this.classInstallReserved != other.classInstallReserved) return false
+        if (this.reserved != other.reserved) return false
+        if (!this.driverPath.contentEquals(other.driverPath)) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.cbSize.hashCode()
-        result = 31 * result + this.Flags.hashCode()
-        result = 31 * result + this.FlagsEx.hashCode()
+        result = 31 * result + this.flags.hashCode()
+        result = 31 * result + this.flagsEx.hashCode()
         result = 31 * result + this.hwndParent.hashCode()
-        result = 31 * result + this.InstallMsgHandler.hashCode()
-        result = 31 * result + this.InstallMsgHandlerContext.hashCode()
-        result = 31 * result + this.FileQueue.hashCode()
-        result = 31 * result + this.ClassInstallReserved.hashCode()
-        result = 31 * result + this.Reserved.hashCode()
-        result = 31 * result + this.DriverPath.contentHashCode()
+        result = 31 * result + this.installMsgHandler.hashCode()
+        result = 31 * result + this.installMsgHandlerContext.hashCode()
+        result = 31 * result + this.fileQueue.hashCode()
+        result = 31 * result + this.classInstallReserved.hashCode()
+        result = 31 * result + this.reserved.hashCode()
+        result = 31 * result + this.driverPath.contentHashCode()
         return result
     }
 }
 
-public data class SP_DRVINFO_DATA_V1_A(
+public data class SpDrvinfoDataV1A(
     public var cbSize: UInt = 0u,
-    public var DriverType: UInt = 0u,
-    public var Reserved: ULong = 0uL,
-    public var Description: ByteArray = ByteArray(256),
-    public var MfgName: ByteArray = ByteArray(256),
-    public var ProviderName: ByteArray = ByteArray(256),
+    public var driverType: UInt = 0u,
+    public var reserved: Int = 0,
+    public var description: ByteArray = ByteArray(256),
+    public var mfgName: ByteArray = ByteArray(256),
+    public var providerName: ByteArray = ByteArray(256),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SP_DRVINFO_DATA_V1_A) return false
+        if (other !is SpDrvinfoDataV1A) return false
         if (this.cbSize != other.cbSize) return false
-        if (this.DriverType != other.DriverType) return false
-        if (this.Reserved != other.Reserved) return false
-        if (!this.Description.contentEquals(other.Description)) return false
-        if (!this.MfgName.contentEquals(other.MfgName)) return false
-        if (!this.ProviderName.contentEquals(other.ProviderName)) return false
+        if (this.driverType != other.driverType) return false
+        if (this.reserved != other.reserved) return false
+        if (!this.description.contentEquals(other.description)) return false
+        if (!this.mfgName.contentEquals(other.mfgName)) return false
+        if (!this.providerName.contentEquals(other.providerName)) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.cbSize.hashCode()
-        result = 31 * result + this.DriverType.hashCode()
-        result = 31 * result + this.Reserved.hashCode()
-        result = 31 * result + this.Description.contentHashCode()
-        result = 31 * result + this.MfgName.contentHashCode()
-        result = 31 * result + this.ProviderName.contentHashCode()
+        result = 31 * result + this.driverType.hashCode()
+        result = 31 * result + this.reserved.hashCode()
+        result = 31 * result + this.description.contentHashCode()
+        result = 31 * result + this.mfgName.contentHashCode()
+        result = 31 * result + this.providerName.contentHashCode()
         return result
     }
 }
 
-public data class SP_DRVINFO_DATA_V1_W(
+public data class SpDrvinfoDataV1W(
     public var cbSize: UInt = 0u,
-    public var DriverType: UInt = 0u,
-    public var Reserved: ULong = 0uL,
-    public var Description: UShortArray = UShortArray(256),
-    public var MfgName: UShortArray = UShortArray(256),
-    public var ProviderName: UShortArray = UShortArray(256),
+    public var driverType: UInt = 0u,
+    public var reserved: Int = 0,
+    public var description: UShortArray = UShortArray(256),
+    public var mfgName: UShortArray = UShortArray(256),
+    public var providerName: UShortArray = UShortArray(256),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SP_DRVINFO_DATA_V1_W) return false
+        if (other !is SpDrvinfoDataV1W) return false
         if (this.cbSize != other.cbSize) return false
-        if (this.DriverType != other.DriverType) return false
-        if (this.Reserved != other.Reserved) return false
-        if (!this.Description.contentEquals(other.Description)) return false
-        if (!this.MfgName.contentEquals(other.MfgName)) return false
-        if (!this.ProviderName.contentEquals(other.ProviderName)) return false
+        if (this.driverType != other.driverType) return false
+        if (this.reserved != other.reserved) return false
+        if (!this.description.contentEquals(other.description)) return false
+        if (!this.mfgName.contentEquals(other.mfgName)) return false
+        if (!this.providerName.contentEquals(other.providerName)) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.cbSize.hashCode()
-        result = 31 * result + this.DriverType.hashCode()
-        result = 31 * result + this.Reserved.hashCode()
-        result = 31 * result + this.Description.contentHashCode()
-        result = 31 * result + this.MfgName.contentHashCode()
-        result = 31 * result + this.ProviderName.contentHashCode()
+        result = 31 * result + this.driverType.hashCode()
+        result = 31 * result + this.reserved.hashCode()
+        result = 31 * result + this.description.contentHashCode()
+        result = 31 * result + this.mfgName.contentHashCode()
+        result = 31 * result + this.providerName.contentHashCode()
         return result
     }
 }
 
-public data class SP_DRVINFO_DATA_V2_A(
+public data class SpDrvinfoDataV2A(
     public var cbSize: UInt = 0u,
-    public var DriverType: UInt = 0u,
-    public var Reserved: ULong = 0uL,
-    public var Description: ByteArray = ByteArray(256),
-    public var MfgName: ByteArray = ByteArray(256),
-    public var ProviderName: ByteArray = ByteArray(256),
-    public var DriverDate: FILETIME = FILETIME(),
-    public var DriverVersion: ULong = 0uL,
+    public var driverType: UInt = 0u,
+    public var reserved: Int = 0,
+    public var description: ByteArray = ByteArray(256),
+    public var mfgName: ByteArray = ByteArray(256),
+    public var providerName: ByteArray = ByteArray(256),
+    public var driverDate: Filetime = Filetime(),
+    public var driverVersion: ULong = 0uL,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SP_DRVINFO_DATA_V2_A) return false
+        if (other !is SpDrvinfoDataV2A) return false
         if (this.cbSize != other.cbSize) return false
-        if (this.DriverType != other.DriverType) return false
-        if (this.Reserved != other.Reserved) return false
-        if (!this.Description.contentEquals(other.Description)) return false
-        if (!this.MfgName.contentEquals(other.MfgName)) return false
-        if (!this.ProviderName.contentEquals(other.ProviderName)) return false
-        if (this.DriverDate != other.DriverDate) return false
-        if (this.DriverVersion != other.DriverVersion) return false
+        if (this.driverType != other.driverType) return false
+        if (this.reserved != other.reserved) return false
+        if (!this.description.contentEquals(other.description)) return false
+        if (!this.mfgName.contentEquals(other.mfgName)) return false
+        if (!this.providerName.contentEquals(other.providerName)) return false
+        if (this.driverDate != other.driverDate) return false
+        if (this.driverVersion != other.driverVersion) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.cbSize.hashCode()
-        result = 31 * result + this.DriverType.hashCode()
-        result = 31 * result + this.Reserved.hashCode()
-        result = 31 * result + this.Description.contentHashCode()
-        result = 31 * result + this.MfgName.contentHashCode()
-        result = 31 * result + this.ProviderName.contentHashCode()
-        result = 31 * result + this.DriverDate.hashCode()
-        result = 31 * result + this.DriverVersion.hashCode()
+        result = 31 * result + this.driverType.hashCode()
+        result = 31 * result + this.reserved.hashCode()
+        result = 31 * result + this.description.contentHashCode()
+        result = 31 * result + this.mfgName.contentHashCode()
+        result = 31 * result + this.providerName.contentHashCode()
+        result = 31 * result + this.driverDate.hashCode()
+        result = 31 * result + this.driverVersion.hashCode()
         return result
     }
 }
 
-public data class SP_DRVINFO_DATA_V2_W(
+public data class SpDrvinfoDataV2W(
     public var cbSize: UInt = 0u,
-    public var DriverType: UInt = 0u,
-    public var Reserved: ULong = 0uL,
-    public var Description: UShortArray = UShortArray(256),
-    public var MfgName: UShortArray = UShortArray(256),
-    public var ProviderName: UShortArray = UShortArray(256),
-    public var DriverDate: FILETIME = FILETIME(),
-    public var DriverVersion: ULong = 0uL,
+    public var driverType: UInt = 0u,
+    public var reserved: Int = 0,
+    public var description: UShortArray = UShortArray(256),
+    public var mfgName: UShortArray = UShortArray(256),
+    public var providerName: UShortArray = UShortArray(256),
+    public var driverDate: Filetime = Filetime(),
+    public var driverVersion: ULong = 0uL,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SP_DRVINFO_DATA_V2_W) return false
+        if (other !is SpDrvinfoDataV2W) return false
         if (this.cbSize != other.cbSize) return false
-        if (this.DriverType != other.DriverType) return false
-        if (this.Reserved != other.Reserved) return false
-        if (!this.Description.contentEquals(other.Description)) return false
-        if (!this.MfgName.contentEquals(other.MfgName)) return false
-        if (!this.ProviderName.contentEquals(other.ProviderName)) return false
-        if (this.DriverDate != other.DriverDate) return false
-        if (this.DriverVersion != other.DriverVersion) return false
+        if (this.driverType != other.driverType) return false
+        if (this.reserved != other.reserved) return false
+        if (!this.description.contentEquals(other.description)) return false
+        if (!this.mfgName.contentEquals(other.mfgName)) return false
+        if (!this.providerName.contentEquals(other.providerName)) return false
+        if (this.driverDate != other.driverDate) return false
+        if (this.driverVersion != other.driverVersion) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.cbSize.hashCode()
-        result = 31 * result + this.DriverType.hashCode()
-        result = 31 * result + this.Reserved.hashCode()
-        result = 31 * result + this.Description.contentHashCode()
-        result = 31 * result + this.MfgName.contentHashCode()
-        result = 31 * result + this.ProviderName.contentHashCode()
-        result = 31 * result + this.DriverDate.hashCode()
-        result = 31 * result + this.DriverVersion.hashCode()
+        result = 31 * result + this.driverType.hashCode()
+        result = 31 * result + this.reserved.hashCode()
+        result = 31 * result + this.description.contentHashCode()
+        result = 31 * result + this.mfgName.contentHashCode()
+        result = 31 * result + this.providerName.contentHashCode()
+        result = 31 * result + this.driverDate.hashCode()
+        result = 31 * result + this.driverVersion.hashCode()
         return result
     }
 }
 
-public data class SP_DRVINFO_DETAIL_DATA_A(
+public data class SpDrvinfoDetailDataA(
     public var cbSize: UInt = 0u,
-    public var InfDate: FILETIME = FILETIME(),
-    public var CompatIDsOffset: UInt = 0u,
-    public var CompatIDsLength: UInt = 0u,
-    public var Reserved: ULong = 0uL,
-    public var SectionName: ByteArray = ByteArray(256),
-    public var InfFileName: ByteArray = ByteArray(260),
-    public var DrvDescription: ByteArray = ByteArray(256),
-    public var HardwareID: ByteArray = ByteArray(1),
+    public var infDate: Filetime = Filetime(),
+    public var compatIDsOffset: UInt = 0u,
+    public var compatIDsLength: UInt = 0u,
+    public var reserved: Int = 0,
+    public var sectionName: ByteArray = ByteArray(256),
+    public var infFileName: ByteArray = ByteArray(260),
+    public var drvDescription: ByteArray = ByteArray(256),
+    public var hardwareID: ByteArray = ByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SP_DRVINFO_DETAIL_DATA_A) return false
+        if (other !is SpDrvinfoDetailDataA) return false
         if (this.cbSize != other.cbSize) return false
-        if (this.InfDate != other.InfDate) return false
-        if (this.CompatIDsOffset != other.CompatIDsOffset) return false
-        if (this.CompatIDsLength != other.CompatIDsLength) return false
-        if (this.Reserved != other.Reserved) return false
-        if (!this.SectionName.contentEquals(other.SectionName)) return false
-        if (!this.InfFileName.contentEquals(other.InfFileName)) return false
-        if (!this.DrvDescription.contentEquals(other.DrvDescription)) return false
-        if (!this.HardwareID.contentEquals(other.HardwareID)) return false
+        if (this.infDate != other.infDate) return false
+        if (this.compatIDsOffset != other.compatIDsOffset) return false
+        if (this.compatIDsLength != other.compatIDsLength) return false
+        if (this.reserved != other.reserved) return false
+        if (!this.sectionName.contentEquals(other.sectionName)) return false
+        if (!this.infFileName.contentEquals(other.infFileName)) return false
+        if (!this.drvDescription.contentEquals(other.drvDescription)) return false
+        if (!this.hardwareID.contentEquals(other.hardwareID)) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.cbSize.hashCode()
-        result = 31 * result + this.InfDate.hashCode()
-        result = 31 * result + this.CompatIDsOffset.hashCode()
-        result = 31 * result + this.CompatIDsLength.hashCode()
-        result = 31 * result + this.Reserved.hashCode()
-        result = 31 * result + this.SectionName.contentHashCode()
-        result = 31 * result + this.InfFileName.contentHashCode()
-        result = 31 * result + this.DrvDescription.contentHashCode()
-        result = 31 * result + this.HardwareID.contentHashCode()
+        result = 31 * result + this.infDate.hashCode()
+        result = 31 * result + this.compatIDsOffset.hashCode()
+        result = 31 * result + this.compatIDsLength.hashCode()
+        result = 31 * result + this.reserved.hashCode()
+        result = 31 * result + this.sectionName.contentHashCode()
+        result = 31 * result + this.infFileName.contentHashCode()
+        result = 31 * result + this.drvDescription.contentHashCode()
+        result = 31 * result + this.hardwareID.contentHashCode()
         return result
     }
 }
 
-public data class SP_DRVINFO_DETAIL_DATA_W(
+public data class SpDrvinfoDetailDataW(
     public var cbSize: UInt = 0u,
-    public var InfDate: FILETIME = FILETIME(),
-    public var CompatIDsOffset: UInt = 0u,
-    public var CompatIDsLength: UInt = 0u,
-    public var Reserved: ULong = 0uL,
-    public var SectionName: UShortArray = UShortArray(256),
-    public var InfFileName: UShortArray = UShortArray(260),
-    public var DrvDescription: UShortArray = UShortArray(256),
-    public var HardwareID: UShortArray = UShortArray(1),
+    public var infDate: Filetime = Filetime(),
+    public var compatIDsOffset: UInt = 0u,
+    public var compatIDsLength: UInt = 0u,
+    public var reserved: Int = 0,
+    public var sectionName: UShortArray = UShortArray(256),
+    public var infFileName: UShortArray = UShortArray(260),
+    public var drvDescription: UShortArray = UShortArray(256),
+    public var hardwareID: UShortArray = UShortArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SP_DRVINFO_DETAIL_DATA_W) return false
+        if (other !is SpDrvinfoDetailDataW) return false
         if (this.cbSize != other.cbSize) return false
-        if (this.InfDate != other.InfDate) return false
-        if (this.CompatIDsOffset != other.CompatIDsOffset) return false
-        if (this.CompatIDsLength != other.CompatIDsLength) return false
-        if (this.Reserved != other.Reserved) return false
-        if (!this.SectionName.contentEquals(other.SectionName)) return false
-        if (!this.InfFileName.contentEquals(other.InfFileName)) return false
-        if (!this.DrvDescription.contentEquals(other.DrvDescription)) return false
-        if (!this.HardwareID.contentEquals(other.HardwareID)) return false
+        if (this.infDate != other.infDate) return false
+        if (this.compatIDsOffset != other.compatIDsOffset) return false
+        if (this.compatIDsLength != other.compatIDsLength) return false
+        if (this.reserved != other.reserved) return false
+        if (!this.sectionName.contentEquals(other.sectionName)) return false
+        if (!this.infFileName.contentEquals(other.infFileName)) return false
+        if (!this.drvDescription.contentEquals(other.drvDescription)) return false
+        if (!this.hardwareID.contentEquals(other.hardwareID)) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.cbSize.hashCode()
-        result = 31 * result + this.InfDate.hashCode()
-        result = 31 * result + this.CompatIDsOffset.hashCode()
-        result = 31 * result + this.CompatIDsLength.hashCode()
-        result = 31 * result + this.Reserved.hashCode()
-        result = 31 * result + this.SectionName.contentHashCode()
-        result = 31 * result + this.InfFileName.contentHashCode()
-        result = 31 * result + this.DrvDescription.contentHashCode()
-        result = 31 * result + this.HardwareID.contentHashCode()
+        result = 31 * result + this.infDate.hashCode()
+        result = 31 * result + this.compatIDsOffset.hashCode()
+        result = 31 * result + this.compatIDsLength.hashCode()
+        result = 31 * result + this.reserved.hashCode()
+        result = 31 * result + this.sectionName.contentHashCode()
+        result = 31 * result + this.infFileName.contentHashCode()
+        result = 31 * result + this.drvDescription.contentHashCode()
+        result = 31 * result + this.hardwareID.contentHashCode()
         return result
     }
 }
 
-public data class SP_DRVINSTALL_PARAMS(
+public data class SpDrvinstallParams(
     public var cbSize: UInt = 0u,
-    public var Rank: UInt = 0u,
-    public var Flags: SETUP_DI_DRIVER_INSTALL_FLAGS = 0u,
-    public var PrivateData: ULong = 0uL,
-    public var Reserved: UInt = 0u,
+    public var rank: UInt = 0u,
+    public var flags: SetupDiDriverInstallFlags = 0u,
+    public var privateData: Int = 0,
+    public var reserved: UInt = 0u,
 )
 
-public data class SP_ENABLECLASS_PARAMS(
-    public var ClassInstallHeader: SP_CLASSINSTALL_HEADER = SP_CLASSINSTALL_HEADER(),
-    public var ClassGuid: GUID = GUID(),
-    public var EnableMessage: UInt = 0u,
+public data class SpEnableclassParams(
+    public var classInstallHeader: SpClassinstallHeader = SpClassinstallHeader(),
+    public var classGuid: Guid = Guid(),
+    public var enableMessage: UInt = 0u,
 )
 
-public data class SP_FILE_COPY_PARAMS_A(
+public data class SpFileCopyParamsA(
     public var cbSize: UInt = 0u,
-    public var QueueHandle: Long = 0L,
-    public var SourceRootPath: PCSTR = 0L,
-    public var SourcePath: PCSTR = 0L,
-    public var SourceFilename: PCSTR = 0L,
-    public var SourceDescription: PCSTR = 0L,
-    public var SourceTagfile: PCSTR = 0L,
-    public var TargetDirectory: PCSTR = 0L,
-    public var TargetFilename: PCSTR = 0L,
-    public var CopyStyle: UInt = 0u,
-    public var LayoutInf: Long = 0L,
-    public var SecurityDescriptor: PCSTR = 0L,
+    public var queueHandle: COpaquePointer? = null,
+    public var sourceRootPath: Pcstr = null,
+    public var sourcePath: Pcstr = null,
+    public var sourceFilename: Pcstr = null,
+    public var sourceDescription: Pcstr = null,
+    public var sourceTagfile: Pcstr = null,
+    public var targetDirectory: Pcstr = null,
+    public var targetFilename: Pcstr = null,
+    public var copyStyle: UInt = 0u,
+    public var layoutInf: COpaquePointer? = null,
+    public var securityDescriptor: Pcstr = null,
 )
 
-public data class SP_FILE_COPY_PARAMS_W(
+public data class SpFileCopyParamsW(
     public var cbSize: UInt = 0u,
-    public var QueueHandle: Long = 0L,
-    public var SourceRootPath: PCWSTR = 0L,
-    public var SourcePath: PCWSTR = 0L,
-    public var SourceFilename: PCWSTR = 0L,
-    public var SourceDescription: PCWSTR = 0L,
-    public var SourceTagfile: PCWSTR = 0L,
-    public var TargetDirectory: PCWSTR = 0L,
-    public var TargetFilename: PCWSTR = 0L,
-    public var CopyStyle: UInt = 0u,
-    public var LayoutInf: Long = 0L,
-    public var SecurityDescriptor: PCWSTR = 0L,
+    public var queueHandle: COpaquePointer? = null,
+    public var sourceRootPath: Pcwstr = null,
+    public var sourcePath: Pcwstr = null,
+    public var sourceFilename: Pcwstr = null,
+    public var sourceDescription: Pcwstr = null,
+    public var sourceTagfile: Pcwstr = null,
+    public var targetDirectory: Pcwstr = null,
+    public var targetFilename: Pcwstr = null,
+    public var copyStyle: UInt = 0u,
+    public var layoutInf: COpaquePointer? = null,
+    public var securityDescriptor: Pcwstr = null,
 )
 
-public data class SP_INF_INFORMATION(
-    public var InfStyle: INF_STYLE = 0u,
-    public var InfCount: UInt = 0u,
-    public var VersionData: UByteArray = UByteArray(1),
+public data class SpInfInformation(
+    public var infStyle: InfStyle = 0u,
+    public var infCount: UInt = 0u,
+    public var versionData: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SP_INF_INFORMATION) return false
-        if (this.InfStyle != other.InfStyle) return false
-        if (this.InfCount != other.InfCount) return false
-        if (!this.VersionData.contentEquals(other.VersionData)) return false
+        if (other !is SpInfInformation) return false
+        if (this.infStyle != other.infStyle) return false
+        if (this.infCount != other.infCount) return false
+        if (!this.versionData.contentEquals(other.versionData)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.InfStyle.hashCode()
-        result = 31 * result + this.InfCount.hashCode()
-        result = 31 * result + this.VersionData.contentHashCode()
+        var result = this.infStyle.hashCode()
+        result = 31 * result + this.infCount.hashCode()
+        result = 31 * result + this.versionData.contentHashCode()
         return result
     }
 }
 
-public data class SP_INF_SIGNER_INFO_V1_A(
+public data class SpInfSignerInfoV1A(
     public var cbSize: UInt = 0u,
-    public var CatalogFile: ByteArray = ByteArray(260),
-    public var DigitalSigner: ByteArray = ByteArray(260),
-    public var DigitalSignerVersion: ByteArray = ByteArray(260),
+    public var catalogFile: ByteArray = ByteArray(260),
+    public var digitalSigner: ByteArray = ByteArray(260),
+    public var digitalSignerVersion: ByteArray = ByteArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SP_INF_SIGNER_INFO_V1_A) return false
+        if (other !is SpInfSignerInfoV1A) return false
         if (this.cbSize != other.cbSize) return false
-        if (!this.CatalogFile.contentEquals(other.CatalogFile)) return false
-        if (!this.DigitalSigner.contentEquals(other.DigitalSigner)) return false
-        if (!this.DigitalSignerVersion.contentEquals(other.DigitalSignerVersion)) return false
+        if (!this.catalogFile.contentEquals(other.catalogFile)) return false
+        if (!this.digitalSigner.contentEquals(other.digitalSigner)) return false
+        if (!this.digitalSignerVersion.contentEquals(other.digitalSignerVersion)) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.cbSize.hashCode()
-        result = 31 * result + this.CatalogFile.contentHashCode()
-        result = 31 * result + this.DigitalSigner.contentHashCode()
-        result = 31 * result + this.DigitalSignerVersion.contentHashCode()
+        result = 31 * result + this.catalogFile.contentHashCode()
+        result = 31 * result + this.digitalSigner.contentHashCode()
+        result = 31 * result + this.digitalSignerVersion.contentHashCode()
         return result
     }
 }
 
-public data class SP_INF_SIGNER_INFO_V1_W(
+public data class SpInfSignerInfoV1W(
     public var cbSize: UInt = 0u,
-    public var CatalogFile: UShortArray = UShortArray(260),
-    public var DigitalSigner: UShortArray = UShortArray(260),
-    public var DigitalSignerVersion: UShortArray = UShortArray(260),
+    public var catalogFile: UShortArray = UShortArray(260),
+    public var digitalSigner: UShortArray = UShortArray(260),
+    public var digitalSignerVersion: UShortArray = UShortArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SP_INF_SIGNER_INFO_V1_W) return false
+        if (other !is SpInfSignerInfoV1W) return false
         if (this.cbSize != other.cbSize) return false
-        if (!this.CatalogFile.contentEquals(other.CatalogFile)) return false
-        if (!this.DigitalSigner.contentEquals(other.DigitalSigner)) return false
-        if (!this.DigitalSignerVersion.contentEquals(other.DigitalSignerVersion)) return false
+        if (!this.catalogFile.contentEquals(other.catalogFile)) return false
+        if (!this.digitalSigner.contentEquals(other.digitalSigner)) return false
+        if (!this.digitalSignerVersion.contentEquals(other.digitalSignerVersion)) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.cbSize.hashCode()
-        result = 31 * result + this.CatalogFile.contentHashCode()
-        result = 31 * result + this.DigitalSigner.contentHashCode()
-        result = 31 * result + this.DigitalSignerVersion.contentHashCode()
+        result = 31 * result + this.catalogFile.contentHashCode()
+        result = 31 * result + this.digitalSigner.contentHashCode()
+        result = 31 * result + this.digitalSignerVersion.contentHashCode()
         return result
     }
 }
 
-public data class SP_INF_SIGNER_INFO_V2_A(
+public data class SpInfSignerInfoV2A(
     public var cbSize: UInt = 0u,
-    public var CatalogFile: ByteArray = ByteArray(260),
-    public var DigitalSigner: ByteArray = ByteArray(260),
-    public var DigitalSignerVersion: ByteArray = ByteArray(260),
-    public var SignerScore: UInt = 0u,
+    public var catalogFile: ByteArray = ByteArray(260),
+    public var digitalSigner: ByteArray = ByteArray(260),
+    public var digitalSignerVersion: ByteArray = ByteArray(260),
+    public var signerScore: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SP_INF_SIGNER_INFO_V2_A) return false
+        if (other !is SpInfSignerInfoV2A) return false
         if (this.cbSize != other.cbSize) return false
-        if (!this.CatalogFile.contentEquals(other.CatalogFile)) return false
-        if (!this.DigitalSigner.contentEquals(other.DigitalSigner)) return false
-        if (!this.DigitalSignerVersion.contentEquals(other.DigitalSignerVersion)) return false
-        if (this.SignerScore != other.SignerScore) return false
+        if (!this.catalogFile.contentEquals(other.catalogFile)) return false
+        if (!this.digitalSigner.contentEquals(other.digitalSigner)) return false
+        if (!this.digitalSignerVersion.contentEquals(other.digitalSignerVersion)) return false
+        if (this.signerScore != other.signerScore) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.cbSize.hashCode()
-        result = 31 * result + this.CatalogFile.contentHashCode()
-        result = 31 * result + this.DigitalSigner.contentHashCode()
-        result = 31 * result + this.DigitalSignerVersion.contentHashCode()
-        result = 31 * result + this.SignerScore.hashCode()
+        result = 31 * result + this.catalogFile.contentHashCode()
+        result = 31 * result + this.digitalSigner.contentHashCode()
+        result = 31 * result + this.digitalSignerVersion.contentHashCode()
+        result = 31 * result + this.signerScore.hashCode()
         return result
     }
 }
 
-public data class SP_INF_SIGNER_INFO_V2_W(
+public data class SpInfSignerInfoV2W(
     public var cbSize: UInt = 0u,
-    public var CatalogFile: UShortArray = UShortArray(260),
-    public var DigitalSigner: UShortArray = UShortArray(260),
-    public var DigitalSignerVersion: UShortArray = UShortArray(260),
-    public var SignerScore: UInt = 0u,
+    public var catalogFile: UShortArray = UShortArray(260),
+    public var digitalSigner: UShortArray = UShortArray(260),
+    public var digitalSignerVersion: UShortArray = UShortArray(260),
+    public var signerScore: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SP_INF_SIGNER_INFO_V2_W) return false
+        if (other !is SpInfSignerInfoV2W) return false
         if (this.cbSize != other.cbSize) return false
-        if (!this.CatalogFile.contentEquals(other.CatalogFile)) return false
-        if (!this.DigitalSigner.contentEquals(other.DigitalSigner)) return false
-        if (!this.DigitalSignerVersion.contentEquals(other.DigitalSignerVersion)) return false
-        if (this.SignerScore != other.SignerScore) return false
+        if (!this.catalogFile.contentEquals(other.catalogFile)) return false
+        if (!this.digitalSigner.contentEquals(other.digitalSigner)) return false
+        if (!this.digitalSignerVersion.contentEquals(other.digitalSignerVersion)) return false
+        if (this.signerScore != other.signerScore) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.cbSize.hashCode()
-        result = 31 * result + this.CatalogFile.contentHashCode()
-        result = 31 * result + this.DigitalSigner.contentHashCode()
-        result = 31 * result + this.DigitalSignerVersion.contentHashCode()
-        result = 31 * result + this.SignerScore.hashCode()
+        result = 31 * result + this.catalogFile.contentHashCode()
+        result = 31 * result + this.digitalSigner.contentHashCode()
+        result = 31 * result + this.digitalSignerVersion.contentHashCode()
+        result = 31 * result + this.signerScore.hashCode()
         return result
     }
 }
 
-public data class SP_INSTALLWIZARD_DATA(
-    public var ClassInstallHeader: SP_CLASSINSTALL_HEADER = SP_CLASSINSTALL_HEADER(),
-    public var Flags: UInt = 0u,
-    public var DynamicPages: LongArray = LongArray(20),
-    public var NumDynamicPages: UInt = 0u,
-    public var DynamicPageFlags: UInt = 0u,
-    public var PrivateFlags: UInt = 0u,
-    public var PrivateData: LPARAM = 0L,
-    public var hwndWizardDlg: HWND = 0L,
-) {
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (other !is SP_INSTALLWIZARD_DATA) return false
-        if (this.ClassInstallHeader != other.ClassInstallHeader) return false
-        if (this.Flags != other.Flags) return false
-        if (!this.DynamicPages.contentEquals(other.DynamicPages)) return false
-        if (this.NumDynamicPages != other.NumDynamicPages) return false
-        if (this.DynamicPageFlags != other.DynamicPageFlags) return false
-        if (this.PrivateFlags != other.PrivateFlags) return false
-        if (this.PrivateData != other.PrivateData) return false
-        if (this.hwndWizardDlg != other.hwndWizardDlg) return false
-        return true
-    }
+public data class SpInstallwizardData(
+    public var classInstallHeader: SpClassinstallHeader = SpClassinstallHeader(),
+    public var flags: UInt = 0u,
+    public var dynamicPages: List<COpaquePointer> = List(20) { COpaquePointer(0L) },
+    public var numDynamicPages: UInt = 0u,
+    public var dynamicPageFlags: UInt = 0u,
+    public var privateFlags: UInt = 0u,
+    public var privateData: Lparam = 0L,
+    public var hwndWizardDlg: Hwnd = null,
+)
 
-    override fun hashCode(): Int {
-        var result = this.ClassInstallHeader.hashCode()
-        result = 31 * result + this.Flags.hashCode()
-        result = 31 * result + this.DynamicPages.contentHashCode()
-        result = 31 * result + this.NumDynamicPages.hashCode()
-        result = 31 * result + this.DynamicPageFlags.hashCode()
-        result = 31 * result + this.PrivateFlags.hashCode()
-        result = 31 * result + this.PrivateData.hashCode()
-        result = 31 * result + this.hwndWizardDlg.hashCode()
-        return result
-    }
-}
+public data class SpNewdevicewizardData(
+    public var classInstallHeader: SpClassinstallHeader = SpClassinstallHeader(),
+    public var flags: UInt = 0u,
+    public var dynamicPages: List<COpaquePointer> = List(20) { COpaquePointer(0L) },
+    public var numDynamicPages: UInt = 0u,
+    public var hwndWizardDlg: Hwnd = null,
+)
 
-public data class SP_NEWDEVICEWIZARD_DATA(
-    public var ClassInstallHeader: SP_CLASSINSTALL_HEADER = SP_CLASSINSTALL_HEADER(),
-    public var Flags: UInt = 0u,
-    public var DynamicPages: LongArray = LongArray(20),
-    public var NumDynamicPages: UInt = 0u,
-    public var hwndWizardDlg: HWND = 0L,
-) {
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (other !is SP_NEWDEVICEWIZARD_DATA) return false
-        if (this.ClassInstallHeader != other.ClassInstallHeader) return false
-        if (this.Flags != other.Flags) return false
-        if (!this.DynamicPages.contentEquals(other.DynamicPages)) return false
-        if (this.NumDynamicPages != other.NumDynamicPages) return false
-        if (this.hwndWizardDlg != other.hwndWizardDlg) return false
-        return true
-    }
-
-    override fun hashCode(): Int {
-        var result = this.ClassInstallHeader.hashCode()
-        result = 31 * result + this.Flags.hashCode()
-        result = 31 * result + this.DynamicPages.contentHashCode()
-        result = 31 * result + this.NumDynamicPages.hashCode()
-        result = 31 * result + this.hwndWizardDlg.hashCode()
-        return result
-    }
-}
-
-public data class SP_ORIGINAL_FILE_INFO_A(
+public data class SpOriginalFileInfoA(
     public var cbSize: UInt = 0u,
-    public var OriginalInfName: ByteArray = ByteArray(260),
-    public var OriginalCatalogName: ByteArray = ByteArray(260),
+    public var originalInfName: ByteArray = ByteArray(260),
+    public var originalCatalogName: ByteArray = ByteArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SP_ORIGINAL_FILE_INFO_A) return false
+        if (other !is SpOriginalFileInfoA) return false
         if (this.cbSize != other.cbSize) return false
-        if (!this.OriginalInfName.contentEquals(other.OriginalInfName)) return false
-        if (!this.OriginalCatalogName.contentEquals(other.OriginalCatalogName)) return false
+        if (!this.originalInfName.contentEquals(other.originalInfName)) return false
+        if (!this.originalCatalogName.contentEquals(other.originalCatalogName)) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.cbSize.hashCode()
-        result = 31 * result + this.OriginalInfName.contentHashCode()
-        result = 31 * result + this.OriginalCatalogName.contentHashCode()
+        result = 31 * result + this.originalInfName.contentHashCode()
+        result = 31 * result + this.originalCatalogName.contentHashCode()
         return result
     }
 }
 
-public data class SP_ORIGINAL_FILE_INFO_W(
+public data class SpOriginalFileInfoW(
     public var cbSize: UInt = 0u,
-    public var OriginalInfName: UShortArray = UShortArray(260),
-    public var OriginalCatalogName: UShortArray = UShortArray(260),
+    public var originalInfName: UShortArray = UShortArray(260),
+    public var originalCatalogName: UShortArray = UShortArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SP_ORIGINAL_FILE_INFO_W) return false
+        if (other !is SpOriginalFileInfoW) return false
         if (this.cbSize != other.cbSize) return false
-        if (!this.OriginalInfName.contentEquals(other.OriginalInfName)) return false
-        if (!this.OriginalCatalogName.contentEquals(other.OriginalCatalogName)) return false
+        if (!this.originalInfName.contentEquals(other.originalInfName)) return false
+        if (!this.originalCatalogName.contentEquals(other.originalCatalogName)) return false
         return true
     }
 
     override fun hashCode(): Int {
         var result = this.cbSize.hashCode()
-        result = 31 * result + this.OriginalInfName.contentHashCode()
-        result = 31 * result + this.OriginalCatalogName.contentHashCode()
+        result = 31 * result + this.originalInfName.contentHashCode()
+        result = 31 * result + this.originalCatalogName.contentHashCode()
         return result
     }
 }
 
-public data class SP_POWERMESSAGEWAKE_PARAMS_A(public var ClassInstallHeader: SP_CLASSINSTALL_HEADER = SP_CLASSINSTALL_HEADER(), public var PowerMessageWake: ByteArray = ByteArray(512)) {
+public data class SpPowermessagewakeParamsA(public var classInstallHeader: SpClassinstallHeader = SpClassinstallHeader(), public var powerMessageWake: ByteArray = ByteArray(512)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SP_POWERMESSAGEWAKE_PARAMS_A) return false
-        if (this.ClassInstallHeader != other.ClassInstallHeader) return false
-        if (!this.PowerMessageWake.contentEquals(other.PowerMessageWake)) return false
+        if (other !is SpPowermessagewakeParamsA) return false
+        if (this.classInstallHeader != other.classInstallHeader) return false
+        if (!this.powerMessageWake.contentEquals(other.powerMessageWake)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ClassInstallHeader.hashCode()
-        result = 31 * result + this.PowerMessageWake.contentHashCode()
+        var result = this.classInstallHeader.hashCode()
+        result = 31 * result + this.powerMessageWake.contentHashCode()
         return result
     }
 }
 
-public data class SP_POWERMESSAGEWAKE_PARAMS_W(public var ClassInstallHeader: SP_CLASSINSTALL_HEADER = SP_CLASSINSTALL_HEADER(), public var PowerMessageWake: UShortArray = UShortArray(512)) {
+public data class SpPowermessagewakeParamsW(public var classInstallHeader: SpClassinstallHeader = SpClassinstallHeader(), public var powerMessageWake: UShortArray = UShortArray(512)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SP_POWERMESSAGEWAKE_PARAMS_W) return false
-        if (this.ClassInstallHeader != other.ClassInstallHeader) return false
-        if (!this.PowerMessageWake.contentEquals(other.PowerMessageWake)) return false
+        if (other !is SpPowermessagewakeParamsW) return false
+        if (this.classInstallHeader != other.classInstallHeader) return false
+        if (!this.powerMessageWake.contentEquals(other.powerMessageWake)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ClassInstallHeader.hashCode()
-        result = 31 * result + this.PowerMessageWake.contentHashCode()
+        var result = this.classInstallHeader.hashCode()
+        result = 31 * result + this.powerMessageWake.contentHashCode()
         return result
     }
 }
 
-public data class SP_PROPCHANGE_PARAMS(
-    public var ClassInstallHeader: SP_CLASSINSTALL_HEADER = SP_CLASSINSTALL_HEADER(),
-    public var StateChange: SETUP_DI_STATE_CHANGE = 0u,
-    public var Scope: SETUP_DI_PROPERTY_CHANGE_SCOPE = 0u,
-    public var HwProfile: UInt = 0u,
+public data class SpPropchangeParams(
+    public var classInstallHeader: SpClassinstallHeader = SpClassinstallHeader(),
+    public var stateChange: SetupDiStateChange = 0u,
+    public var scope: SetupDiPropertyChangeScope = 0u,
+    public var hwProfile: UInt = 0u,
 )
 
-public data class SP_PROPSHEETPAGE_REQUEST(
+public data class SpPropsheetpageRequest(
     public var cbSize: UInt = 0u,
-    public var PageRequested: UInt = 0u,
-    public var DeviceInfoSet: HDEVINFO = 0L,
-    public var DeviceInfoData: Long = 0L,
+    public var pageRequested: UInt = 0u,
+    public var deviceInfoSet: Hdevinfo = 0L,
+    public var deviceInfoData: SpDevinfoData? = null,
 )
 
-public data class SP_REGISTER_CONTROL_STATUSA(
+public data class SpRegisterControlStatusa(
     public var cbSize: UInt = 0u,
-    public var FileName: PCSTR = 0L,
-    public var Win32Error: UInt = 0u,
-    public var FailureCode: UInt = 0u,
+    public var fileName: Pcstr = null,
+    public var win32Error: UInt = 0u,
+    public var failureCode: UInt = 0u,
 )
 
-public data class SP_REGISTER_CONTROL_STATUSW(
+public data class SpRegisterControlStatusw(
     public var cbSize: UInt = 0u,
-    public var FileName: PCWSTR = 0L,
-    public var Win32Error: UInt = 0u,
-    public var FailureCode: UInt = 0u,
+    public var fileName: Pcwstr = null,
+    public var win32Error: UInt = 0u,
+    public var failureCode: UInt = 0u,
 )
 
-public data class SP_REMOVEDEVICE_PARAMS(
-    public var ClassInstallHeader: SP_CLASSINSTALL_HEADER = SP_CLASSINSTALL_HEADER(),
-    public var Scope: SETUP_DI_REMOVE_DEVICE_SCOPE = 0u,
-    public var HwProfile: UInt = 0u,
+public data class SpRemovedeviceParams(
+    public var classInstallHeader: SpClassinstallHeader = SpClassinstallHeader(),
+    public var scope: SetupDiRemoveDeviceScope = 0u,
+    public var hwProfile: UInt = 0u,
 )
 
-public data class SP_SELECTDEVICE_PARAMS_A(
-    public var ClassInstallHeader: SP_CLASSINSTALL_HEADER = SP_CLASSINSTALL_HEADER(),
-    public var Title: ByteArray = ByteArray(60),
-    public var Instructions: ByteArray = ByteArray(256),
-    public var ListLabel: ByteArray = ByteArray(30),
-    public var SubTitle: ByteArray = ByteArray(256),
-    public var Reserved: UByteArray = UByteArray(2),
+public data class SpSelectdeviceParamsA(
+    public var classInstallHeader: SpClassinstallHeader = SpClassinstallHeader(),
+    public var title: ByteArray = ByteArray(60),
+    public var instructions: ByteArray = ByteArray(256),
+    public var listLabel: ByteArray = ByteArray(30),
+    public var subTitle: ByteArray = ByteArray(256),
+    public var reserved: UByteArray = UByteArray(2),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SP_SELECTDEVICE_PARAMS_A) return false
-        if (this.ClassInstallHeader != other.ClassInstallHeader) return false
-        if (!this.Title.contentEquals(other.Title)) return false
-        if (!this.Instructions.contentEquals(other.Instructions)) return false
-        if (!this.ListLabel.contentEquals(other.ListLabel)) return false
-        if (!this.SubTitle.contentEquals(other.SubTitle)) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
+        if (other !is SpSelectdeviceParamsA) return false
+        if (this.classInstallHeader != other.classInstallHeader) return false
+        if (!this.title.contentEquals(other.title)) return false
+        if (!this.instructions.contentEquals(other.instructions)) return false
+        if (!this.listLabel.contentEquals(other.listLabel)) return false
+        if (!this.subTitle.contentEquals(other.subTitle)) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ClassInstallHeader.hashCode()
-        result = 31 * result + this.Title.contentHashCode()
-        result = 31 * result + this.Instructions.contentHashCode()
-        result = 31 * result + this.ListLabel.contentHashCode()
-        result = 31 * result + this.SubTitle.contentHashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
+        var result = this.classInstallHeader.hashCode()
+        result = 31 * result + this.title.contentHashCode()
+        result = 31 * result + this.instructions.contentHashCode()
+        result = 31 * result + this.listLabel.contentHashCode()
+        result = 31 * result + this.subTitle.contentHashCode()
+        result = 31 * result + this.reserved.contentHashCode()
         return result
     }
 }
 
-public data class SP_SELECTDEVICE_PARAMS_W(
-    public var ClassInstallHeader: SP_CLASSINSTALL_HEADER = SP_CLASSINSTALL_HEADER(),
-    public var Title: UShortArray = UShortArray(60),
-    public var Instructions: UShortArray = UShortArray(256),
-    public var ListLabel: UShortArray = UShortArray(30),
-    public var SubTitle: UShortArray = UShortArray(256),
+public data class SpSelectdeviceParamsW(
+    public var classInstallHeader: SpClassinstallHeader = SpClassinstallHeader(),
+    public var title: UShortArray = UShortArray(60),
+    public var instructions: UShortArray = UShortArray(256),
+    public var listLabel: UShortArray = UShortArray(30),
+    public var subTitle: UShortArray = UShortArray(256),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SP_SELECTDEVICE_PARAMS_W) return false
-        if (this.ClassInstallHeader != other.ClassInstallHeader) return false
-        if (!this.Title.contentEquals(other.Title)) return false
-        if (!this.Instructions.contentEquals(other.Instructions)) return false
-        if (!this.ListLabel.contentEquals(other.ListLabel)) return false
-        if (!this.SubTitle.contentEquals(other.SubTitle)) return false
+        if (other !is SpSelectdeviceParamsW) return false
+        if (this.classInstallHeader != other.classInstallHeader) return false
+        if (!this.title.contentEquals(other.title)) return false
+        if (!this.instructions.contentEquals(other.instructions)) return false
+        if (!this.listLabel.contentEquals(other.listLabel)) return false
+        if (!this.subTitle.contentEquals(other.subTitle)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ClassInstallHeader.hashCode()
-        result = 31 * result + this.Title.contentHashCode()
-        result = 31 * result + this.Instructions.contentHashCode()
-        result = 31 * result + this.ListLabel.contentHashCode()
-        result = 31 * result + this.SubTitle.contentHashCode()
+        var result = this.classInstallHeader.hashCode()
+        result = 31 * result + this.title.contentHashCode()
+        result = 31 * result + this.instructions.contentHashCode()
+        result = 31 * result + this.listLabel.contentHashCode()
+        result = 31 * result + this.subTitle.contentHashCode()
         return result
     }
 }
 
-public data class SP_TROUBLESHOOTER_PARAMS_A(
-    public var ClassInstallHeader: SP_CLASSINSTALL_HEADER = SP_CLASSINSTALL_HEADER(),
-    public var ChmFile: ByteArray = ByteArray(260),
-    public var HtmlTroubleShooter: ByteArray = ByteArray(260),
+public data class SpTroubleshooterParamsA(
+    public var classInstallHeader: SpClassinstallHeader = SpClassinstallHeader(),
+    public var chmFile: ByteArray = ByteArray(260),
+    public var htmlTroubleShooter: ByteArray = ByteArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SP_TROUBLESHOOTER_PARAMS_A) return false
-        if (this.ClassInstallHeader != other.ClassInstallHeader) return false
-        if (!this.ChmFile.contentEquals(other.ChmFile)) return false
-        if (!this.HtmlTroubleShooter.contentEquals(other.HtmlTroubleShooter)) return false
+        if (other !is SpTroubleshooterParamsA) return false
+        if (this.classInstallHeader != other.classInstallHeader) return false
+        if (!this.chmFile.contentEquals(other.chmFile)) return false
+        if (!this.htmlTroubleShooter.contentEquals(other.htmlTroubleShooter)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ClassInstallHeader.hashCode()
-        result = 31 * result + this.ChmFile.contentHashCode()
-        result = 31 * result + this.HtmlTroubleShooter.contentHashCode()
+        var result = this.classInstallHeader.hashCode()
+        result = 31 * result + this.chmFile.contentHashCode()
+        result = 31 * result + this.htmlTroubleShooter.contentHashCode()
         return result
     }
 }
 
-public data class SP_TROUBLESHOOTER_PARAMS_W(
-    public var ClassInstallHeader: SP_CLASSINSTALL_HEADER = SP_CLASSINSTALL_HEADER(),
-    public var ChmFile: UShortArray = UShortArray(260),
-    public var HtmlTroubleShooter: UShortArray = UShortArray(260),
+public data class SpTroubleshooterParamsW(
+    public var classInstallHeader: SpClassinstallHeader = SpClassinstallHeader(),
+    public var chmFile: UShortArray = UShortArray(260),
+    public var htmlTroubleShooter: UShortArray = UShortArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SP_TROUBLESHOOTER_PARAMS_W) return false
-        if (this.ClassInstallHeader != other.ClassInstallHeader) return false
-        if (!this.ChmFile.contentEquals(other.ChmFile)) return false
-        if (!this.HtmlTroubleShooter.contentEquals(other.HtmlTroubleShooter)) return false
+        if (other !is SpTroubleshooterParamsW) return false
+        if (this.classInstallHeader != other.classInstallHeader) return false
+        if (!this.chmFile.contentEquals(other.chmFile)) return false
+        if (!this.htmlTroubleShooter.contentEquals(other.htmlTroubleShooter)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ClassInstallHeader.hashCode()
-        result = 31 * result + this.ChmFile.contentHashCode()
-        result = 31 * result + this.HtmlTroubleShooter.contentHashCode()
+        var result = this.classInstallHeader.hashCode()
+        result = 31 * result + this.chmFile.contentHashCode()
+        result = 31 * result + this.htmlTroubleShooter.contentHashCode()
         return result
     }
 }
 
-public data class SP_UNREMOVEDEVICE_PARAMS(
-    public var ClassInstallHeader: SP_CLASSINSTALL_HEADER = SP_CLASSINSTALL_HEADER(),
-    public var Scope: UInt = 0u,
-    public var HwProfile: UInt = 0u,
+public data class SpUnremovedeviceParams(
+    public var classInstallHeader: SpClassinstallHeader = SpClassinstallHeader(),
+    public var scope: UInt = 0u,
+    public var hwProfile: UInt = 0u,
 )

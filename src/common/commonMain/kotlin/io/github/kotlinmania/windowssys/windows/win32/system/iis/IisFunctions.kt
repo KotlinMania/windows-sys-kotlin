@@ -1,11 +1,12 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.iis
 
-import io.github.kotlinmania.windowssys.core.BOOL
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
 
-public expect fun GetExtensionVersion(pver: Long): BOOL
+public expect fun getExtensionVersion(pver: COpaquePointer?): Bool
 
-public expect fun GetFilterVersion(pver: Long): BOOL
+public expect fun getFilterVersion(pver: COpaquePointer?): Bool
 
-public expect fun HttpExtensionProc(pecb: Long): UInt
+public expect fun httpExtensionProc(pecb: COpaquePointer?): UInt
 
-public expect fun HttpFilterProc(pfc: Long, notificationtype: UInt, pvnotification: Long): UInt
+public expect fun httpFilterProc(pfc: COpaquePointer?, notificationtype: UInt, pvnotification: COpaquePointer?): UInt

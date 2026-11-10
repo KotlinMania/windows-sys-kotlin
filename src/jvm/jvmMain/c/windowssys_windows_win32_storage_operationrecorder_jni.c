@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_operationrecorder_WindowsWin32StorageOperationrecorderJniBridge_windowssys_1windows_1win32_1storage_1operationrecorder_1OperationEnd(JNIEnv* km_env, jclass km_clazz, jlong operationendparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_operationrecorder_WindowsWin32StorageOperationrecorderJniBridge_windowssys_1windows_1win32_1storage_1operationrecorder_1operationEnd(JNIEnv* km_env, jclass km_clazz, jlong operationendparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -36,7 +36,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_operationrecorder_WindowsWin32StorageOperationrecorderJniBridge_windowssys_1windows_1win32_1storage_1operationrecorder_1OperationStart(JNIEnv* km_env, jclass km_clazz, jlong operationstartparams) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_storage_operationrecorder_WindowsWin32StorageOperationrecorderJniBridge_windowssys_1windows_1win32_1storage_1operationrecorder_1operationStart(JNIEnv* km_env, jclass km_clazz, jlong operationstartparams) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

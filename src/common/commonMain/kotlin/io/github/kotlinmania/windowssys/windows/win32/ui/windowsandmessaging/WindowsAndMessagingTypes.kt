@@ -1,113 +1,114 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LPARAM
-import io.github.kotlinmania.windowssys.windows.win32.foundation.LRESULT
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WPARAM
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lparam
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Lresult
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Wparam
 
-public typealias ACCEL_VIRT_FLAGS = UByte
+public typealias AccelVirtFlags = UByte
 
-public typealias ANIMATE_WINDOW_FLAGS = UInt
+public typealias AnimateWindowFlags = UInt
 
-public typealias CASCADE_WINDOWS_HOW = UInt
+public typealias CascadeWindowsHow = UInt
 
-public typealias CHANGE_WINDOW_MESSAGE_FILTER_FLAGS = UInt
+public typealias ChangeWindowMessageFilterFlags = UInt
 
-public typealias CURSORINFO_FLAGS = UInt
+public typealias CursorinfoFlags = UInt
 
-public typealias CWP_FLAGS = UInt
+public typealias CwpFlags = UInt
 
-public typealias DEV_BROADCAST_HDR_DEVICE_TYPE = UInt
+public typealias DevBroadcastHdrDeviceType = UInt
 
-public typealias DEV_BROADCAST_VOLUME_FLAGS = UShort
+public typealias DevBroadcastVolumeFlags = UShort
 
-public typealias DI_FLAGS = UInt
+public typealias DiFlags = UInt
 
-public fun interface DLGPROCFn {
-    public operator fun invoke(param0: HWND, param1: UInt, param2: WPARAM, param3: LPARAM): Long
+public fun interface DlgprocFn {
+    public operator fun invoke(param0: Hwnd, param1: UInt, param2: Wparam, param3: Lparam): Long
 }
 
-public typealias DLGPROC = DLGPROCFn?
+public typealias Dlgproc = DlgprocFn?
 
-public typealias EDIT_CONTROL_FEATURE = Int
+public typealias EditControlFeature = Int
 
-public typealias FLASHWINFO_FLAGS = UInt
+public typealias FlashwinfoFlags = UInt
 
-public typealias FOREGROUND_WINDOW_LOCK_CODE = UInt
+public typealias ForegroundWindowLockCode = UInt
 
-public typealias GDI_IMAGE_TYPE = UInt
+public typealias GdiImageType = UInt
 
-public typealias GET_ANCESTOR_FLAGS = UInt
+public typealias GetAncestorFlags = UInt
 
-public typealias GET_CLASS_LONG_INDEX = Int
+public typealias GetClassLongIndex = Int
 
-public typealias GET_MENU_DEFAULT_ITEM_FLAGS = UInt
+public typealias GetMenuDefaultItemFlags = UInt
 
-public typealias GET_WINDOW_CMD = UInt
+public typealias GetWindowCmd = UInt
 
-public typealias GUITHREADINFO_FLAGS = UInt
+public typealias GuithreadinfoFlags = UInt
 
-public typealias HACCEL = Long
+public typealias Haccel = COpaquePointer?
 
-public typealias HANDEDNESS = Int
+public typealias Handedness = Int
 
-public typealias HCURSOR = Long
+public typealias Hcursor = COpaquePointer?
 
-public typealias HDEVNOTIFY = Long
+public typealias Hdevnotify = COpaquePointer?
 
-public typealias HDWP = Long
+public typealias Hdwp = COpaquePointer?
 
-public typealias HHOOK = Long
+public typealias Hhook = COpaquePointer?
 
-public typealias HICON = Long
+public typealias Hicon = COpaquePointer?
 
-public typealias HMENU = Long
+public typealias Hmenu = COpaquePointer?
 
-public fun interface HOOKPROCFn {
-    public operator fun invoke(code: Int, wparam: WPARAM, lparam: LPARAM): LRESULT
+public fun interface HookprocFn {
+    public operator fun invoke(code: Int, wparam: Wparam, lparam: Lparam): Lresult
 }
 
-public typealias HOOKPROC = HOOKPROCFn?
+public typealias Hookproc = HookprocFn?
 
-public typealias IMAGE_FLAGS = UInt
+public typealias ImageFlags = UInt
 
-public typealias KBDLLHOOKSTRUCT_FLAGS = UInt
+public typealias KbdllhookstructFlags = UInt
 
-public typealias LAYERED_WINDOW_ATTRIBUTES_FLAGS = UInt
+public typealias LayeredWindowAttributesFlags = UInt
 
-public typealias MENUGETOBJECTINFO_FLAGS = UInt
+public typealias MenugetobjectinfoFlags = UInt
 
-public typealias MENUINFO_MASK = UInt
+public typealias MenuinfoMask = UInt
 
-public typealias MENUINFO_STYLE = UInt
+public typealias MenuinfoStyle = UInt
 
-public typealias MENU_ITEM_FLAGS = UInt
+public typealias MenuItemFlags = UInt
 
-public typealias MENU_ITEM_MASK = UInt
+public typealias MenuItemMask = UInt
 
-public typealias MENU_ITEM_STATE = UInt
+public typealias MenuItemState = UInt
 
-public typealias MENU_ITEM_TYPE = UInt
+public typealias MenuItemType = UInt
 
-public typealias MESSAGEBOX_RESULT = Int
+public typealias MessageboxResult = Int
 
-public typealias MESSAGEBOX_STYLE = UInt
+public typealias MessageboxStyle = UInt
 
-public typealias MINIMIZEDMETRICS_ARRANGE = Int
+public typealias MinimizedmetricsArrange = Int
 
-public fun interface MSGBOXCALLBACKFn {
-    public operator fun invoke(lphelpinfo: Long)
+public fun interface MsgboxcallbackFn {
+    public operator fun invoke(lphelpinfo: COpaquePointer?)
 }
 
-public typealias MSGBOXCALLBACK = MSGBOXCALLBACKFn?
+public typealias Msgboxcallback = MsgboxcallbackFn?
 
-public typealias MSGFLTINFO_STATUS = UInt
+public typealias MsgfltinfoStatus = UInt
 
-public typealias MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = UInt
+public typealias MsgWaitForMultipleObjectsExFlags = UInt
 
 public typealias MrmDumpType = Int
 
@@ -121,126 +122,126 @@ public typealias MrmPlatformVersion = Int
 
 public typealias MrmResourceIndexerMessageSeverity = Int
 
-public fun interface NAMEENUMPROCAFn {
-    public operator fun invoke(param0: PCSTR, param1: LPARAM): BOOL
+public fun interface NameenumprocaFn {
+    public operator fun invoke(param0: Pcstr, param1: Lparam): Bool
 }
 
-public typealias NAMEENUMPROCA = NAMEENUMPROCAFn?
+public typealias Nameenumproca = NameenumprocaFn?
 
-public fun interface NAMEENUMPROCWFn {
-    public operator fun invoke(param0: PCWSTR, param1: LPARAM): BOOL
+public fun interface NameenumprocwFn {
+    public operator fun invoke(param0: Pcwstr, param1: Lparam): Bool
 }
 
-public typealias NAMEENUMPROCW = NAMEENUMPROCWFn?
+public typealias Nameenumprocw = NameenumprocwFn?
 
-public typealias OBJECT_IDENTIFIER = Int
+public typealias ObjectIdentifier = Int
 
-public typealias PEEK_MESSAGE_REMOVE_TYPE = UInt
+public typealias PeekMessageRemoveType = UInt
 
-public typealias POINTER_INPUT_TYPE = Int
+public typealias PointerInputType = Int
 
-public fun interface PREGISTERCLASSNAMEWFn {
-    public operator fun invoke(param0: PCWSTR): Boolean
+public fun interface PregisterclassnamewFn {
+    public operator fun invoke(param0: Pcwstr): Boolean
 }
 
-public typealias PREGISTERCLASSNAMEW = PREGISTERCLASSNAMEWFn?
+public typealias Pregisterclassnamew = PregisterclassnamewFn?
 
-public fun interface PROPENUMPROCAFn {
-    public operator fun invoke(param0: HWND, param1: PCSTR, param2: HANDLE): BOOL
+public fun interface PropenumprocaFn {
+    public operator fun invoke(param0: Hwnd, param1: Pcstr, param2: Handle): Bool
 }
 
-public typealias PROPENUMPROCA = PROPENUMPROCAFn?
+public typealias Propenumproca = PropenumprocaFn?
 
-public fun interface PROPENUMPROCEXAFn {
-    public operator fun invoke(param0: HWND, param1: PCSTR, param2: HANDLE, param3: ULong): BOOL
+public fun interface PropenumprocexaFn {
+    public operator fun invoke(param0: Hwnd, param1: Pcstr, param2: Handle, param3: ULong): Bool
 }
 
-public typealias PROPENUMPROCEXA = PROPENUMPROCEXAFn?
+public typealias Propenumprocexa = PropenumprocexaFn?
 
-public fun interface PROPENUMPROCEXWFn {
-    public operator fun invoke(param0: HWND, param1: PCWSTR, param2: HANDLE, param3: ULong): BOOL
+public fun interface PropenumprocexwFn {
+    public operator fun invoke(param0: Hwnd, param1: Pcwstr, param2: Handle, param3: ULong): Bool
 }
 
-public typealias PROPENUMPROCEXW = PROPENUMPROCEXWFn?
+public typealias Propenumprocexw = PropenumprocexwFn?
 
-public fun interface PROPENUMPROCWFn {
-    public operator fun invoke(param0: HWND, param1: PCWSTR, param2: HANDLE): BOOL
+public fun interface PropenumprocwFn {
+    public operator fun invoke(param0: Hwnd, param1: Pcwstr, param2: Handle): Bool
 }
 
-public typealias PROPENUMPROCW = PROPENUMPROCWFn?
+public typealias Propenumprocw = PropenumprocwFn?
 
-public typealias QUEUE_STATUS_FLAGS = UInt
+public typealias QueueStatusFlags = UInt
 
-public typealias REGISTER_NOTIFICATION_FLAGS = UInt
+public typealias RegisterNotificationFlags = UInt
 
-public typealias SCROLLBAR_COMMAND = Int
+public typealias ScrollbarCommand = Int
 
-public typealias SCROLLBAR_CONSTANTS = Int
+public typealias ScrollbarConstants = Int
 
-public typealias SCROLLINFO_MASK = UInt
+public typealias ScrollinfoMask = UInt
 
-public typealias SCROLL_WINDOW_FLAGS = UInt
+public typealias ScrollWindowFlags = UInt
 
-public fun interface SENDASYNCPROCFn {
-    public operator fun invoke(param0: HWND, param1: UInt, param2: ULong, param3: LRESULT)
+public fun interface SendasyncprocFn {
+    public operator fun invoke(param0: Hwnd, param1: UInt, param2: ULong, param3: Lresult)
 }
 
-public typealias SENDASYNCPROC = SENDASYNCPROCFn?
+public typealias Sendasyncproc = SendasyncprocFn?
 
-public typealias SEND_MESSAGE_TIMEOUT_FLAGS = UInt
+public typealias SendMessageTimeoutFlags = UInt
 
-public typealias SET_WINDOW_POS_FLAGS = UInt
+public typealias SetWindowPosFlags = UInt
 
-public typealias SHOW_WINDOW_CMD = Int
+public typealias ShowWindowCmd = Int
 
-public typealias SHOW_WINDOW_STATUS = UInt
+public typealias ShowWindowStatus = UInt
 
-public typealias SYSTEM_CURSOR_ID = UInt
+public typealias SystemCursorId = UInt
 
-public typealias SYSTEM_METRICS_INDEX = Int
+public typealias SystemMetricsIndex = Int
 
-public typealias SYSTEM_PARAMETERS_INFO_ACTION = UInt
+public typealias SystemParametersInfoAction = UInt
 
-public typealias SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS = UInt
+public typealias SystemParametersInfoUpdateFlags = UInt
 
-public typealias TILE_WINDOWS_HOW = UInt
+public typealias TileWindowsHow = UInt
 
-public fun interface TIMERPROCFn {
-    public operator fun invoke(param0: HWND, param1: UInt, param2: ULong, param3: UInt)
+public fun interface TimerprocFn {
+    public operator fun invoke(param0: Hwnd, param1: UInt, param2: ULong, param3: UInt)
 }
 
-public typealias TIMERPROC = TIMERPROCFn?
+public typealias Timerproc = TimerprocFn?
 
-public typealias TOOLTIP_DISMISS_FLAGS = Int
+public typealias TooltipDismissFlags = Int
 
-public typealias TRACK_POPUP_MENU_FLAGS = UInt
+public typealias TrackPopupMenuFlags = UInt
 
-public typealias UPDATE_LAYERED_WINDOW_FLAGS = UInt
+public typealias UpdateLayeredWindowFlags = UInt
 
-public typealias WINDOWPLACEMENT_FLAGS = UInt
+public typealias WindowplacementFlags = UInt
 
-public typealias WINDOWS_HOOK_ID = Int
+public typealias WindowsHookId = Int
 
-public typealias WINDOW_DISPLAY_AFFINITY = UInt
+public typealias WindowDisplayAffinity = UInt
 
-public typealias WINDOW_EX_STYLE = UInt
+public typealias WindowExStyle = UInt
 
-public typealias WINDOW_LONG_PTR_INDEX = Int
+public typealias WindowLongPtrIndex = Int
 
-public typealias WINDOW_MESSAGE_FILTER_ACTION = UInt
+public typealias WindowMessageFilterAction = UInt
 
-public typealias WINDOW_STYLE = UInt
+public typealias WindowStyle = UInt
 
-public typealias WNDCLASS_STYLES = UInt
+public typealias WndclassStyles = UInt
 
-public fun interface WNDENUMPROCFn {
-    public operator fun invoke(param0: HWND, param1: LPARAM): BOOL
+public fun interface WndenumprocFn {
+    public operator fun invoke(param0: Hwnd, param1: Lparam): Bool
 }
 
-public typealias WNDENUMPROC = WNDENUMPROCFn?
+public typealias Wndenumproc = WndenumprocFn?
 
-public fun interface WNDPROCFn {
-    public operator fun invoke(param0: HWND, param1: UInt, param2: WPARAM, param3: LPARAM): LRESULT
+public fun interface WndprocFn {
+    public operator fun invoke(param0: Hwnd, param1: UInt, param2: Wparam, param3: Lparam): Lresult
 }
 
-public typealias WNDPROC = WNDPROCFn?
+public typealias Wndproc = WndprocFn?

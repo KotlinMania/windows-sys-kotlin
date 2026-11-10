@@ -1,34 +1,35 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.jobobjects
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
-public expect fun AssignProcessToJobObject(hjob: HANDLE, hprocess: HANDLE): BOOL
+public expect fun assignProcessToJobObject(hjob: Handle, hprocess: Handle): Bool
 
-public expect fun CreateJobObjectA(lpjobattributes: Long, lpname: PCSTR): HANDLE
+public expect fun createJobObjectA(lpjobattributes: COpaquePointer?, lpname: Pcstr): Handle
 
-public expect fun CreateJobObjectW(lpjobattributes: Long, lpname: PCWSTR): HANDLE
+public expect fun createJobObjectW(lpjobattributes: COpaquePointer?, lpname: Pcwstr): Handle
 
-public expect fun CreateJobSet(numjob: UInt, userjobset: Long, flags: UInt): BOOL
+public expect fun createJobSet(numjob: UInt, userjobset: COpaquePointer?, flags: UInt): Bool
 
-public expect fun FreeMemoryJobObject(buffer: Long)
+public expect fun freeMemoryJobObject(buffer: COpaquePointer?)
 
-public expect fun IsProcessInJob(processhandle: HANDLE, jobhandle: HANDLE, result: Long): BOOL
+public expect fun isProcessInJob(processhandle: Handle, jobhandle: Handle, result: COpaquePointer?): Bool
 
-public expect fun OpenJobObjectA(dwdesiredaccess: UInt, binherithandle: BOOL, lpname: PCSTR): HANDLE
+public expect fun openJobObjectA(dwdesiredaccess: UInt, binherithandle: Bool, lpname: Pcstr): Handle
 
-public expect fun OpenJobObjectW(dwdesiredaccess: UInt, binherithandle: BOOL, lpname: PCWSTR): HANDLE
+public expect fun openJobObjectW(dwdesiredaccess: UInt, binherithandle: Bool, lpname: Pcwstr): Handle
 
-public expect fun QueryInformationJobObject(hjob: HANDLE, jobobjectinformationclass: JOBOBJECTINFOCLASS, lpjobobjectinformation: Long, cbjobobjectinformationlength: UInt, lpreturnlength: Long): BOOL
+public expect fun queryInformationJobObject(hjob: Handle, jobobjectinformationclass: Jobobjectinfoclass, lpjobobjectinformation: COpaquePointer?, cbjobobjectinformationlength: UInt, lpreturnlength: COpaquePointer?): Bool
 
-public expect fun QueryIoRateControlInformationJobObject(hjob: HANDLE, volumename: PCWSTR, infoblocks: Long, infoblockcount: Long): UInt
+public expect fun queryIoRateControlInformationJobObject(hjob: Handle, volumename: Pcwstr, infoblocks: COpaquePointer?, infoblockcount: COpaquePointer?): UInt
 
-public expect fun SetInformationJobObject(hjob: HANDLE, jobobjectinformationclass: JOBOBJECTINFOCLASS, lpjobobjectinformation: Long, cbjobobjectinformationlength: UInt): BOOL
+public expect fun setInformationJobObject(hjob: Handle, jobobjectinformationclass: Jobobjectinfoclass, lpjobobjectinformation: COpaquePointer?, cbjobobjectinformationlength: UInt): Bool
 
-public expect fun SetIoRateControlInformationJobObject(hjob: HANDLE, ioratecontrolinfo: Long): UInt
+public expect fun setIoRateControlInformationJobObject(hjob: Handle, ioratecontrolinfo: COpaquePointer?): UInt
 
-public expect fun TerminateJobObject(hjob: HANDLE, uexitcode: UInt): BOOL
+public expect fun terminateJobObject(hjob: Handle, uexitcode: UInt): Bool
 
-public expect fun UserHandleGrantAccess(huserhandle: HANDLE, hjob: HANDLE, bgrant: BOOL): BOOL
+public expect fun userHandleGrantAccess(huserhandle: Handle, hjob: Handle, bgrant: Bool): Bool

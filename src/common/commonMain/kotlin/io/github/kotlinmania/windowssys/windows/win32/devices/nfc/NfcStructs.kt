@@ -1,16 +1,16 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.devices.nfc
 
-import io.github.kotlinmania.windowssys.core.GUID
+import io.github.kotlinmania.windowssys.core.Guid
 
-public data class NFCRM_RADIO_STATE(public var MediaRadioOn: Boolean = false)
+public data class NfcrmRadioState(public var mediaRadioOn: Boolean = false)
 
-public data class NFCRM_SET_RADIO_STATE(public var SystemStateUpdate: Boolean = false, public var MediaRadioOn: Boolean = false)
+public data class NfcrmSetRadioState(public var systemStateUpdate: Boolean = false, public var mediaRadioOn: Boolean = false)
 
-public data class NFC_DATA_BUFFER(public var cbBuffer: UShort = 0u, public var pbBuffer: UByteArray = UByteArray(1)) {
+public data class NfcDataBuffer(public var cbBuffer: UShort = 0u, public var pbBuffer: UByteArray = UByteArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NFC_DATA_BUFFER) return false
+        if (other !is NfcDataBuffer) return false
         if (this.cbBuffer != other.cbBuffer) return false
         if (!this.pbBuffer.contentEquals(other.pbBuffer)) return false
         return true
@@ -23,7 +23,7 @@ public data class NFC_DATA_BUFFER(public var cbBuffer: UShort = 0u, public var p
     }
 }
 
-public data class NFC_LLCP_CONFIG(
+public data class NfcLlcpConfig(
     public var uMIU: UShort = 0u,
     public var uWKS: UShort = 0u,
     public var bLTO: UByte = 0u,
@@ -31,32 +31,32 @@ public data class NFC_LLCP_CONFIG(
     public var fAutoActivate: Boolean = false,
 )
 
-public data class NFC_LLCP_SERVICE_DISCOVER_REQUEST(
-    public var hRemoteDev: Long = 0L,
-    public var NumberOfEntries: UInt = 0u,
-    public var ServiceNameEntries: List<NFC_LLCP_SERVICE_NAME_ENTRY> = List(1) { NFC_LLCP_SERVICE_NAME_ENTRY() },
+public data class NfcLlcpServiceDiscoverRequest(
+    public var hRemoteDev: Int = 0,
+    public var numberOfEntries: UInt = 0u,
+    public var serviceNameEntries: List<NfcLlcpServiceNameEntry> = List(1) { NfcLlcpServiceNameEntry() },
 )
 
-public data class NFC_LLCP_SERVICE_DISCOVER_SAP(public var NumberOfEntries: UInt = 0u, public var SAPEntries: UByteArray = UByteArray(1)) {
+public data class NfcLlcpServiceDiscoverSap(public var numberOfEntries: UInt = 0u, public var sAPEntries: UByteArray = UByteArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NFC_LLCP_SERVICE_DISCOVER_SAP) return false
-        if (this.NumberOfEntries != other.NumberOfEntries) return false
-        if (!this.SAPEntries.contentEquals(other.SAPEntries)) return false
+        if (other !is NfcLlcpServiceDiscoverSap) return false
+        if (this.numberOfEntries != other.numberOfEntries) return false
+        if (!this.sAPEntries.contentEquals(other.sAPEntries)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.NumberOfEntries.hashCode()
-        result = 31 * result + this.SAPEntries.contentHashCode()
+        var result = this.numberOfEntries.hashCode()
+        result = 31 * result + this.sAPEntries.contentHashCode()
         return result
     }
 }
 
-public data class NFC_LLCP_SERVICE_NAME_ENTRY(public var cbServiceName: UInt = 0u, public var pbServiceName: UByteArray = UByteArray(1)) {
+public data class NfcLlcpServiceNameEntry(public var cbServiceName: UInt = 0u, public var pbServiceName: UByteArray = UByteArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NFC_LLCP_SERVICE_NAME_ENTRY) return false
+        if (other !is NfcLlcpServiceNameEntry) return false
         if (this.cbServiceName != other.cbServiceName) return false
         if (!this.pbServiceName.contentEquals(other.pbServiceName)) return false
         return true
@@ -69,56 +69,56 @@ public data class NFC_LLCP_SERVICE_NAME_ENTRY(public var cbServiceName: UInt = 0
     }
 }
 
-public data class NFC_LLCP_SOCKET_ACCEPT_INFO(public var hSocket: Long = 0L, public var sSocketOption: NFC_LLCP_SOCKET_OPTION = NFC_LLCP_SOCKET_OPTION())
+public data class NfcLlcpSocketAcceptInfo(public var hSocket: Int = 0, public var sSocketOption: NfcLlcpSocketOption = NfcLlcpSocketOption())
 
-public data class NFC_LLCP_SOCKET_CL_PAYLOAD(
-    public var hSocket: Long = 0L,
+public data class NfcLlcpSocketClPayload(
+    public var hSocket: Int = 0,
     public var bSAP: UByte = 0u,
-    public var sPayload: NFC_DATA_BUFFER = NFC_DATA_BUFFER(),
+    public var sPayload: NfcDataBuffer = NfcDataBuffer(),
 )
 
-public data class NFC_LLCP_SOCKET_CONNECT_INFO(
-    public var hRemoteDev: Long = 0L,
-    public var hSocket: Long = 0L,
-    public var eConnectType: NFC_LLCP_SOCKET_CONNECT_TYPE = 0,
-    public var Anonymous: NFC_LLCP_SOCKET_CONNECT_INFO_0 = NFC_LLCP_SOCKET_CONNECT_INFO_0(),
+public data class NfcLlcpSocketConnectInfo(
+    public var hRemoteDev: Int = 0,
+    public var hSocket: Int = 0,
+    public var eConnectType: NfcLlcpSocketConnectType = 0,
+    public var anonymous: NfcLlcpSocketConnectInfo0 = NfcLlcpSocketConnectInfo0(),
 )
 
-public data class NFC_LLCP_SOCKET_CONNECT_INFO_0(public var bSAP: UByte = 0u, public var sServiceName: NFC_LLCP_SERVICE_NAME_ENTRY = NFC_LLCP_SERVICE_NAME_ENTRY())
+public data class NfcLlcpSocketConnectInfo0(public var bSAP: UByte = 0u, public var sServiceName: NfcLlcpServiceNameEntry = NfcLlcpServiceNameEntry())
 
-public data class NFC_LLCP_SOCKET_ERROR_INFO(public var hSocket: Long = 0L, public var eSocketError: NFC_LLCP_SOCKET_ERROR = 0)
+public data class NfcLlcpSocketErrorInfo(public var hSocket: Int = 0, public var eSocketError: NfcLlcpSocketError = 0)
 
-public data class NFC_LLCP_SOCKET_INFO(public var eSocketType: NFC_LLCP_SOCKET_TYPE = 0, public var sSocketOption: NFC_LLCP_SOCKET_OPTION = NFC_LLCP_SOCKET_OPTION())
+public data class NfcLlcpSocketInfo(public var eSocketType: NfcLlcpSocketType = 0, public var sSocketOption: NfcLlcpSocketOption = NfcLlcpSocketOption())
 
-public data class NFC_LLCP_SOCKET_OPTION(public var uMIUX: UShort = 0u, public var bRW: UByte = 0u)
+public data class NfcLlcpSocketOption(public var uMIUX: UShort = 0u, public var bRW: UByte = 0u)
 
-public data class NFC_LLCP_SOCKET_PAYLOAD(
-    public var hSocket: Long = 0L,
+public data class NfcLlcpSocketPayload(
+    public var hSocket: Int = 0,
     public var bSAP: UByte = 0u,
-    public var sPayload: NFC_DATA_BUFFER = NFC_DATA_BUFFER(),
+    public var sPayload: NfcDataBuffer = NfcDataBuffer(),
 )
 
-public data class NFC_LLCP_SOCKET_SERVICE_INFO(
-    public var hSocket: Long = 0L,
+public data class NfcLlcpSocketServiceInfo(
+    public var hSocket: Int = 0,
     public var bSAP: UByte = 0u,
-    public var sServiceName: NFC_LLCP_SERVICE_NAME_ENTRY = NFC_LLCP_SERVICE_NAME_ENTRY(),
+    public var sServiceName: NfcLlcpServiceNameEntry = NfcLlcpServiceNameEntry(),
 )
 
-public data class NFC_NDEF_INFO(
+public data class NfcNdefInfo(
     public var fIsNdefFormatted: Boolean = false,
     public var fIsReadOnly: Boolean = false,
     public var dwActualMessageLength: UInt = 0u,
     public var dwMaxMessageLength: UInt = 0u,
 )
 
-public data class NFC_P2P_PARAM_CONFIG(
-    public var eP2pMode: NFC_P2P_MODE = 0,
+public data class NfcP2pParamConfig(
+    public var eP2pMode: NfcP2pMode = 0,
     public var cbGeneralBytes: UByte = 0u,
     public var pbGeneralBytes: UByteArray = UByteArray(48),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NFC_P2P_PARAM_CONFIG) return false
+        if (other !is NfcP2pParamConfig) return false
         if (this.eP2pMode != other.eP2pMode) return false
         if (this.cbGeneralBytes != other.cbGeneralBytes) return false
         if (!this.pbGeneralBytes.contentEquals(other.pbGeneralBytes)) return false
@@ -133,11 +133,11 @@ public data class NFC_P2P_PARAM_CONFIG(
     }
 }
 
-public data class NFC_REMOTE_DEVICE_DISCONNET(public var hRemoteDev: Long = 0L, public var eReleaseType: NFC_RELEASE_TYPE = 0)
+public data class NfcRemoteDeviceDisconnet(public var hRemoteDev: Int = 0, public var eReleaseType: NfcReleaseType = 0)
 
-public data class NFC_REMOTE_DEV_INFO(
-    public var hRemoteDev: Long = 0L,
-    public var eType: NFC_DEVICE_TYPE = 0,
+public data class NfcRemoteDevInfo(
+    public var hRemoteDev: Int = 0,
+    public var eType: NfcDeviceType = 0,
     public var eRFTech: UByte = 0u,
     public var eProtocol: UByte = 0u,
     public var cbUid: UByte = 0u,
@@ -145,7 +145,7 @@ public data class NFC_REMOTE_DEV_INFO(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NFC_REMOTE_DEV_INFO) return false
+        if (other !is NfcRemoteDevInfo) return false
         if (this.hRemoteDev != other.hRemoteDev) return false
         if (this.eType != other.eType) return false
         if (this.eRFTech != other.eRFTech) return false
@@ -166,15 +166,15 @@ public data class NFC_REMOTE_DEV_INFO(
     }
 }
 
-public data class NFC_REMOTE_DEV_RECV_INFO(public var hRemoteDev: Long = 0L, public var sRecvBuffer: NFC_DATA_BUFFER = NFC_DATA_BUFFER())
+public data class NfcRemoteDevRecvInfo(public var hRemoteDev: Int = 0, public var sRecvBuffer: NfcDataBuffer = NfcDataBuffer())
 
-public data class NFC_REMOTE_DEV_SEND_INFO(
-    public var hRemoteDev: Long = 0L,
+public data class NfcRemoteDevSendInfo(
+    public var hRemoteDev: Int = 0,
     public var usTimeOut: UShort = 0u,
-    public var sSendBuffer: NFC_DATA_BUFFER = NFC_DATA_BUFFER(),
+    public var sSendBuffer: NfcDataBuffer = NfcDataBuffer(),
 )
 
-public data class NFC_RF_DISCOVERY_CONFIG(
+public data class NfcRfDiscoveryConfig(
     public var usTotalDuration: UShort = 0u,
     public var ulPollConfig: UInt = 0u,
     public var fDisableCardEmulation: Boolean = false,
@@ -186,11 +186,11 @@ public data class NFC_RF_DISCOVERY_CONFIG(
     public var ucSystemCode: UByteArray = UByteArray(2),
     public var ucRequestCode: UByte = 0u,
     public var ucTimeSlotNumber: UByte = 0u,
-    public var eRfDiscoveryMode: NFC_RF_DISCOVERY_MODE = 0,
+    public var eRfDiscoveryMode: NfcRfDiscoveryMode = 0,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NFC_RF_DISCOVERY_CONFIG) return false
+        if (other !is NfcRfDiscoveryConfig) return false
         if (this.usTotalDuration != other.usTotalDuration) return false
         if (this.ulPollConfig != other.ulPollConfig) return false
         if (this.fDisableCardEmulation != other.fDisableCardEmulation) return false
@@ -223,15 +223,15 @@ public data class NFC_RF_DISCOVERY_CONFIG(
     }
 }
 
-public data class NFC_SE_AID_ROUTING_INFO(
-    public var hSecureElement: Long = 0L,
+public data class NfcSeAidRoutingInfo(
+    public var hSecureElement: Int = 0,
     public var bPowerState: UByte = 0u,
     public var cbAid: UInt = 0u,
     public var pbAid: UByteArray = UByteArray(16),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NFC_SE_AID_ROUTING_INFO) return false
+        if (other !is NfcSeAidRoutingInfo) return false
         if (this.hSecureElement != other.hSecureElement) return false
         if (this.bPowerState != other.bPowerState) return false
         if (this.cbAid != other.cbAid) return false
@@ -248,17 +248,17 @@ public data class NFC_SE_AID_ROUTING_INFO(
     }
 }
 
-public data class NFC_SE_EMULATION_MODE_INFO(public var hSecureElement: Long = 0L, public var eMode: NFC_SE_EMULATION_MODE = 0)
+public data class NfcSeEmulationModeInfo(public var hSecureElement: Int = 0, public var eMode: NfcSeEmulationMode = 0)
 
-public data class NFC_SE_EVENT_INFO(
-    public var hSecureElement: Long = 0L,
-    public var eEventType: SECURE_ELEMENT_EVENT_TYPE = 0,
+public data class NfcSeEventInfo(
+    public var hSecureElement: Int = 0,
+    public var eEventType: SecureElementEventType = 0,
     public var cbEventData: UInt = 0u,
     public var pbEventData: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NFC_SE_EVENT_INFO) return false
+        if (other !is NfcSeEventInfo) return false
         if (this.hSecureElement != other.hSecureElement) return false
         if (this.eEventType != other.eEventType) return false
         if (this.cbEventData != other.cbEventData) return false
@@ -275,79 +275,79 @@ public data class NFC_SE_EVENT_INFO(
     }
 }
 
-public data class NFC_SE_INFO(public var hSecureElement: Long = 0L, public var eSecureElementType: SECURE_ELEMENT_TYPE = 0)
+public data class NfcSeInfo(public var hSecureElement: Int = 0, public var eSecureElementType: SecureElementType = 0)
 
-public data class NFC_SE_LIST(public var NumberOfEndpoints: UInt = 0u, public var EndpointList: List<NFC_SE_INFO> = List(1) { NFC_SE_INFO() })
+public data class NfcSeList(public var numberOfEndpoints: UInt = 0u, public var endpointList: List<NfcSeInfo> = List(1) { NfcSeInfo() })
 
-public data class NFC_SE_PROTO_ROUTING_INFO(
-    public var hSecureElement: Long = 0L,
+public data class NfcSeProtoRoutingInfo(
+    public var hSecureElement: Int = 0,
     public var bPowerState: UByte = 0u,
     public var eRfProtocolType: UByte = 0u,
 )
 
-public data class NFC_SE_ROUTING_TABLE(public var NumberOfEntries: UInt = 0u, public var TableEntries: List<NFC_SE_ROUTING_TABLE_ENTRY> = List(1) { NFC_SE_ROUTING_TABLE_ENTRY() })
+public data class NfcSeRoutingTable(public var numberOfEntries: UInt = 0u, public var tableEntries: List<NfcSeRoutingTableEntry> = List(1) { NfcSeRoutingTableEntry() })
 
-public data class NFC_SE_ROUTING_TABLE_ENTRY(public var eRoutingType: SECURE_ELEMENT_ROUTING_TYPE = 0, public var Anonymous: NFC_SE_ROUTING_TABLE_ENTRY_0 = NFC_SE_ROUTING_TABLE_ENTRY_0())
+public data class NfcSeRoutingTableEntry(public var eRoutingType: SecureElementRoutingType = 0, public var anonymous: NfcSeRoutingTableEntry0 = NfcSeRoutingTableEntry0())
 
-public data class NFC_SE_ROUTING_TABLE_ENTRY_0(
-    public var TechRoutingInfo: NFC_SE_TECH_ROUTING_INFO = NFC_SE_TECH_ROUTING_INFO(),
-    public var ProtoRoutingInfo: NFC_SE_PROTO_ROUTING_INFO = NFC_SE_PROTO_ROUTING_INFO(),
-    public var AidRoutingInfo: NFC_SE_AID_ROUTING_INFO = NFC_SE_AID_ROUTING_INFO(),
+public data class NfcSeRoutingTableEntry0(
+    public var techRoutingInfo: NfcSeTechRoutingInfo = NfcSeTechRoutingInfo(),
+    public var protoRoutingInfo: NfcSeProtoRoutingInfo = NfcSeProtoRoutingInfo(),
+    public var aidRoutingInfo: NfcSeAidRoutingInfo = NfcSeAidRoutingInfo(),
 )
 
-public data class NFC_SE_TECH_ROUTING_INFO(
-    public var hSecureElement: Long = 0L,
+public data class NfcSeTechRoutingInfo(
+    public var hSecureElement: Int = 0,
     public var bPowerState: UByte = 0u,
     public var eRfTechType: UByte = 0u,
 )
 
-public data class NFC_SNEP_CLIENT_GET_INFO(public var hSnepClient: Long = 0L, public var sGetPayload: NFC_DATA_BUFFER = NFC_DATA_BUFFER())
+public data class NfcSnepClientGetInfo(public var hSnepClient: Int = 0, public var sGetPayload: NfcDataBuffer = NfcDataBuffer())
 
-public data class NFC_SNEP_CLIENT_INFO(
-    public var hRemoteDev: Long = 0L,
-    public var eServerType: NFC_SNEP_SERVER_TYPE = 0,
-    public var sSocketOption: NFC_LLCP_SOCKET_OPTION = NFC_LLCP_SOCKET_OPTION(),
-    public var sService: NFC_LLCP_SERVICE_NAME_ENTRY = NFC_LLCP_SERVICE_NAME_ENTRY(),
+public data class NfcSnepClientInfo(
+    public var hRemoteDev: Int = 0,
+    public var eServerType: NfcSnepServerType = 0,
+    public var sSocketOption: NfcLlcpSocketOption = NfcLlcpSocketOption(),
+    public var sService: NfcLlcpServiceNameEntry = NfcLlcpServiceNameEntry(),
 )
 
-public data class NFC_SNEP_CLIENT_PUT_INFO(public var hSnepClient: Long = 0L, public var sPutPayload: NFC_DATA_BUFFER = NFC_DATA_BUFFER())
+public data class NfcSnepClientPutInfo(public var hSnepClient: Int = 0, public var sPutPayload: NfcDataBuffer = NfcDataBuffer())
 
-public data class NFC_SNEP_SERVER_ACCEPT_INFO(
-    public var hSnepServer: Long = 0L,
-    public var hConnection: Long = 0L,
-    public var sSocketOption: NFC_LLCP_SOCKET_OPTION = NFC_LLCP_SOCKET_OPTION(),
+public data class NfcSnepServerAcceptInfo(
+    public var hSnepServer: Int = 0,
+    public var hConnection: Int = 0,
+    public var sSocketOption: NfcLlcpSocketOption = NfcLlcpSocketOption(),
 )
 
-public data class NFC_SNEP_SERVER_INFO(
-    public var eServerType: NFC_SNEP_SERVER_TYPE = 0,
-    public var sSocketOption: NFC_LLCP_SOCKET_OPTION = NFC_LLCP_SOCKET_OPTION(),
+public data class NfcSnepServerInfo(
+    public var eServerType: NfcSnepServerType = 0,
+    public var sSocketOption: NfcLlcpSocketOption = NfcLlcpSocketOption(),
     public var usInboxSize: UShort = 0u,
     public var bSAP: UByte = 0u,
-    public var sService: NFC_LLCP_SERVICE_NAME_ENTRY = NFC_LLCP_SERVICE_NAME_ENTRY(),
+    public var sService: NfcLlcpServiceNameEntry = NfcLlcpServiceNameEntry(),
 )
 
-public data class NFC_SNEP_SERVER_REQUEST(
-    public var hSnepServer: Long = 0L,
-    public var hConnection: Long = 0L,
-    public var eRequestType: NFC_SNEP_REQUEST_TYPE = 0,
-    public var sRequestPayload: NFC_DATA_BUFFER = NFC_DATA_BUFFER(),
+public data class NfcSnepServerRequest(
+    public var hSnepServer: Int = 0,
+    public var hConnection: Int = 0,
+    public var eRequestType: NfcSnepRequestType = 0,
+    public var sRequestPayload: NfcDataBuffer = NfcDataBuffer(),
 )
 
-public data class NFC_SNEP_SERVER_RESPONSE_INFO(
-    public var hSnepServer: Long = 0L,
-    public var hConnection: Long = 0L,
+public data class NfcSnepServerResponseInfo(
+    public var hSnepServer: Int = 0,
+    public var hConnection: Int = 0,
     public var dwResponseStatus: UInt = 0u,
-    public var sResponsePayload: NFC_DATA_BUFFER = NFC_DATA_BUFFER(),
+    public var sResponsePayload: NfcDataBuffer = NfcDataBuffer(),
 )
 
-public data class SECURE_ELEMENT_AID_ROUTING_INFO(
-    public var guidSecureElementId: GUID = GUID(),
+public data class SecureElementAidRoutingInfo(
+    public var guidSecureElementId: Guid = Guid(),
     public var cbAid: UInt = 0u,
     public var pbAid: UByteArray = UByteArray(16),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SECURE_ELEMENT_AID_ROUTING_INFO) return false
+        if (other !is SecureElementAidRoutingInfo) return false
         if (this.guidSecureElementId != other.guidSecureElementId) return false
         if (this.cbAid != other.cbAid) return false
         if (!this.pbAid.contentEquals(other.pbAid)) return false
@@ -362,19 +362,19 @@ public data class SECURE_ELEMENT_AID_ROUTING_INFO(
     }
 }
 
-public data class SECURE_ELEMENT_ENDPOINT_INFO(public var guidSecureElementId: GUID = GUID(), public var eSecureElementType: SECURE_ELEMENT_TYPE = 0)
+public data class SecureElementEndpointInfo(public var guidSecureElementId: Guid = Guid(), public var eSecureElementType: SecureElementType = 0)
 
-public data class SECURE_ELEMENT_ENDPOINT_LIST(public var NumberOfEndpoints: UInt = 0u, public var EndpointList: List<SECURE_ELEMENT_ENDPOINT_INFO> = List(1) { SECURE_ELEMENT_ENDPOINT_INFO() })
+public data class SecureElementEndpointList(public var numberOfEndpoints: UInt = 0u, public var endpointList: List<SecureElementEndpointInfo> = List(1) { SecureElementEndpointInfo() })
 
-public data class SECURE_ELEMENT_EVENT_INFO(
-    public var guidSecureElementId: GUID = GUID(),
-    public var eEventType: SECURE_ELEMENT_EVENT_TYPE = 0,
+public data class SecureElementEventInfo(
+    public var guidSecureElementId: Guid = Guid(),
+    public var eEventType: SecureElementEventType = 0,
     public var cbEventData: UInt = 0u,
     public var pbEventData: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SECURE_ELEMENT_EVENT_INFO) return false
+        if (other !is SecureElementEventInfo) return false
         if (this.guidSecureElementId != other.guidSecureElementId) return false
         if (this.eEventType != other.eEventType) return false
         if (this.cbEventData != other.cbEventData) return false
@@ -391,22 +391,22 @@ public data class SECURE_ELEMENT_EVENT_INFO(
     }
 }
 
-public data class SECURE_ELEMENT_EVENT_SUBSCRIPTION_INFO(public var guidSecureElementId: GUID = GUID(), public var eEventType: SECURE_ELEMENT_EVENT_TYPE = 0)
+public data class SecureElementEventSubscriptionInfo(public var guidSecureElementId: Guid = Guid(), public var eEventType: SecureElementEventType = 0)
 
-public data class SECURE_ELEMENT_HCE_ACTIVATION_PAYLOAD(
+public data class SecureElementHceActivationPayload(
     public var bConnectionId: UShort = 0u,
     public var eRfTechType: UByte = 0u,
     public var eRfProtocolType: UByte = 0u,
 )
 
-public data class SECURE_ELEMENT_HCE_DATA_PACKET(
+public data class SecureElementHceDataPacket(
     public var bConnectionId: UShort = 0u,
     public var cbPayload: UShort = 0u,
     public var pbPayload: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SECURE_ELEMENT_HCE_DATA_PACKET) return false
+        if (other !is SecureElementHceDataPacket) return false
         if (this.bConnectionId != other.bConnectionId) return false
         if (this.cbPayload != other.cbPayload) return false
         if (!this.pbPayload.contentEquals(other.pbPayload)) return false
@@ -421,27 +421,27 @@ public data class SECURE_ELEMENT_HCE_DATA_PACKET(
     }
 }
 
-public data class SECURE_ELEMENT_NFCC_CAPABILITIES(
+public data class SecureElementNfccCapabilities(
     public var cbMaxRoutingTableSize: UShort = 0u,
-    public var IsAidRoutingSupported: Boolean = false,
-    public var IsProtocolRoutingSupported: Boolean = false,
-    public var IsTechRoutingSupported: Boolean = false,
+    public var isAidRoutingSupported: Boolean = false,
+    public var isProtocolRoutingSupported: Boolean = false,
+    public var isTechRoutingSupported: Boolean = false,
 )
 
-public data class SECURE_ELEMENT_PROTO_ROUTING_INFO(public var guidSecureElementId: GUID = GUID(), public var eRfProtocolType: UByte = 0u)
+public data class SecureElementProtoRoutingInfo(public var guidSecureElementId: Guid = Guid(), public var eRfProtocolType: UByte = 0u)
 
-public data class SECURE_ELEMENT_ROUTING_TABLE(public var NumberOfEntries: UInt = 0u, public var TableEntries: List<SECURE_ELEMENT_ROUTING_TABLE_ENTRY> = List(1) { SECURE_ELEMENT_ROUTING_TABLE_ENTRY() })
+public data class SecureElementRoutingTable(public var numberOfEntries: UInt = 0u, public var tableEntries: List<SecureElementRoutingTableEntry> = List(1) { SecureElementRoutingTableEntry() })
 
-public data class SECURE_ELEMENT_ROUTING_TABLE_ENTRY(public var eRoutingType: SECURE_ELEMENT_ROUTING_TYPE = 0, public var Anonymous: SECURE_ELEMENT_ROUTING_TABLE_ENTRY_0 = SECURE_ELEMENT_ROUTING_TABLE_ENTRY_0())
+public data class SecureElementRoutingTableEntry(public var eRoutingType: SecureElementRoutingType = 0, public var anonymous: SecureElementRoutingTableEntry0 = SecureElementRoutingTableEntry0())
 
-public data class SECURE_ELEMENT_ROUTING_TABLE_ENTRY_0(
-    public var TechRoutingInfo: SECURE_ELEMENT_TECH_ROUTING_INFO = SECURE_ELEMENT_TECH_ROUTING_INFO(),
-    public var ProtoRoutingInfo: SECURE_ELEMENT_PROTO_ROUTING_INFO = SECURE_ELEMENT_PROTO_ROUTING_INFO(),
-    public var AidRoutingInfo: SECURE_ELEMENT_AID_ROUTING_INFO = SECURE_ELEMENT_AID_ROUTING_INFO(),
+public data class SecureElementRoutingTableEntry0(
+    public var techRoutingInfo: SecureElementTechRoutingInfo = SecureElementTechRoutingInfo(),
+    public var protoRoutingInfo: SecureElementProtoRoutingInfo = SecureElementProtoRoutingInfo(),
+    public var aidRoutingInfo: SecureElementAidRoutingInfo = SecureElementAidRoutingInfo(),
 )
 
-public data class SECURE_ELEMENT_SET_CARD_EMULATION_MODE_INFO(public var guidSecureElementId: GUID = GUID(), public var eMode: SECURE_ELEMENT_CARD_EMULATION_MODE = 0)
+public data class SecureElementSetCardEmulationModeInfo(public var guidSecureElementId: Guid = Guid(), public var eMode: SecureElementCardEmulationMode = 0)
 
-public data class SECURE_ELEMENT_SET_POWER_MODE_INFO(public var guidSecureElementId: GUID = GUID(), public var powerMode: SECURE_ELEMENT_POWER_MODE = 0)
+public data class SecureElementSetPowerModeInfo(public var guidSecureElementId: Guid = Guid(), public var powerMode: SecureElementPowerMode = 0)
 
-public data class SECURE_ELEMENT_TECH_ROUTING_INFO(public var guidSecureElementId: GUID = GUID(), public var eRfTechType: UByte = 0u)
+public data class SecureElementTechRoutingInfo(public var guidSecureElementId: Guid = Guid(), public var eRfTechType: UByte = 0u)

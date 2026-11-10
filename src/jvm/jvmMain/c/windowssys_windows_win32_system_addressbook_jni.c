@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1BuildDisplayTable(JNIEnv* km_env, jclass km_clazz, jlong lpallocatebuffer, jlong lpallocatemore, jlong lpfreebuffer, jlong lpmalloc, jlong hinstance, jint cpages, jlong lppage, jint ulflags, jlong lpptable, jlong lpptbldata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1buildDisplayTable(JNIEnv* km_env, jclass km_clazz, jlong lpallocatebuffer, jlong lpallocatemore, jlong lpfreebuffer, jlong lpmalloc, jlong hinstance, jint cpages, jlong lppage, jint ulflags, jlong lpptable, jlong lpptbldata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -45,7 +45,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1ChangeIdleRoutine(JNIEnv* km_env, jclass km_clazz, jlong ftg, jlong lpfnidle, jlong lpvidleparam, jshort priidle, jint csecidle, jshort iroidle, jshort ircidle) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1changeIdleRoutine(JNIEnv* km_env, jclass km_clazz, jlong ftg, jlong lpfnidle, jlong lpvidleparam, jshort priidle, jint csecidle, jshort iroidle, jshort ircidle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -67,7 +67,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1CreateIProp(JNIEnv* km_env, jclass km_clazz, jlong lpinterface, jlong lpallocatebuffer, jlong lpallocatemore, jlong lpfreebuffer, jlong lpvreserved, jlong lpppropdata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1createIProp(JNIEnv* km_env, jclass km_clazz, jlong lpinterface, jlong lpallocatebuffer, jlong lpallocatemore, jlong lpfreebuffer, jlong lpvreserved, jlong lpppropdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -90,7 +90,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1CreateTable(JNIEnv* km_env, jclass km_clazz, jlong lpinterface, jlong lpallocatebuffer, jlong lpallocatemore, jlong lpfreebuffer, jlong lpvreserved, jint ultabletype, jint ulproptagindexcolumn, jlong lpsproptagarraycolumns, jlong lpptabledata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1createTable(JNIEnv* km_env, jclass km_clazz, jlong lpinterface, jlong lpallocatebuffer, jlong lpallocatemore, jlong lpfreebuffer, jlong lpvreserved, jint ultabletype, jint ulproptagindexcolumn, jlong lpsproptagarraycolumns, jlong lpptabledata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -116,7 +116,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1DeinitMapiUtil(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1deinitMapiUtil(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -131,7 +131,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1DeregisterIdleRoutine(JNIEnv* km_env, jclass km_clazz, jlong ftg) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1deregisterIdleRoutine(JNIEnv* km_env, jclass km_clazz, jlong ftg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -147,7 +147,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1EnableIdleRoutine(JNIEnv* km_env, jclass km_clazz, jlong ftg, jint fenable) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1enableIdleRoutine(JNIEnv* km_env, jclass km_clazz, jlong ftg, jint fenable) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -164,7 +164,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1FEqualNames(JNIEnv* km_env, jclass km_clazz, jlong lpname1, jlong lpname2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1fEqualNames(JNIEnv* km_env, jclass km_clazz, jlong lpname1, jlong lpname2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -183,7 +183,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1FPropCompareProp(JNIEnv* km_env, jclass km_clazz, jlong lpspropvalue1, jint ulrelop, jlong lpspropvalue2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1fPropCompareProp(JNIEnv* km_env, jclass km_clazz, jlong lpspropvalue1, jint ulrelop, jlong lpspropvalue2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -203,7 +203,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1FPropContainsProp(JNIEnv* km_env, jclass km_clazz, jlong lpspropvaluedst, jlong lpspropvaluesrc, jint ulfuzzylevel) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1fPropContainsProp(JNIEnv* km_env, jclass km_clazz, jlong lpspropvaluedst, jlong lpspropvaluesrc, jint ulfuzzylevel) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -223,7 +223,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1FPropExists(JNIEnv* km_env, jclass km_clazz, jlong lpmapiprop, jint ulproptag) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1fPropExists(JNIEnv* km_env, jclass km_clazz, jlong lpmapiprop, jint ulproptag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -242,7 +242,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1FreePadrlist(JNIEnv* km_env, jclass km_clazz, jlong lpadrlist) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1freePadrlist(JNIEnv* km_env, jclass km_clazz, jlong lpadrlist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -258,7 +258,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1FreeProws(JNIEnv* km_env, jclass km_clazz, jlong lprows) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1freeProws(JNIEnv* km_env, jclass km_clazz, jlong lprows) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -274,7 +274,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1FtgRegisterIdleRoutine(JNIEnv* km_env, jclass km_clazz, jlong lpfnidle, jlong lpvidleparam, jshort priidle, jint csecidle, jshort iroidle) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1ftgRegisterIdleRoutine(JNIEnv* km_env, jclass km_clazz, jlong lpfnidle, jlong lpvidleparam, jshort priidle, jint csecidle, jshort iroidle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -296,7 +296,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1HrAddColumns(JNIEnv* km_env, jclass km_clazz, jlong lptbl, jlong lpproptagcolumnsnew, jlong lpallocatebuffer, jlong lpfreebuffer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1hrAddColumns(JNIEnv* km_env, jclass km_clazz, jlong lptbl, jlong lpproptagcolumnsnew, jlong lpallocatebuffer, jlong lpfreebuffer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -317,7 +317,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1HrAddColumnsEx(JNIEnv* km_env, jclass km_clazz, jlong lptbl, jlong lpproptagcolumnsnew, jlong lpallocatebuffer, jlong lpfreebuffer, jlong lpfnfiltercolumns) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1hrAddColumnsEx(JNIEnv* km_env, jclass km_clazz, jlong lptbl, jlong lpproptagcolumnsnew, jlong lpallocatebuffer, jlong lpfreebuffer, jlong lpfnfiltercolumns) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -339,7 +339,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1HrAllocAdviseSink(JNIEnv* km_env, jclass km_clazz, jlong lpfncallback, jlong lpvcontext, jlong lppadvisesink) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1hrAllocAdviseSink(JNIEnv* km_env, jclass km_clazz, jlong lpfncallback, jlong lpvcontext, jlong lppadvisesink) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -359,7 +359,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1HrDispatchNotifications(JNIEnv* km_env, jclass km_clazz, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1hrDispatchNotifications(JNIEnv* km_env, jclass km_clazz, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -377,7 +377,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1HrGetOneProp(JNIEnv* km_env, jclass km_clazz, jlong lpmapiprop, jint ulproptag, jlong lppprop) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1hrGetOneProp(JNIEnv* km_env, jclass km_clazz, jlong lpmapiprop, jint ulproptag, jlong lppprop) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -397,7 +397,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1HrIStorageFromStream(JNIEnv* km_env, jclass km_clazz, jlong lpunkin, jlong lpinterface, jint ulflags, jlong lppstorageout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1hrIStorageFromStream(JNIEnv* km_env, jclass km_clazz, jlong lpunkin, jlong lpinterface, jint ulflags, jlong lppstorageout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -418,7 +418,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1HrQueryAllRows(JNIEnv* km_env, jclass km_clazz, jlong lptable, jlong lpproptags, jlong lprestriction, jlong lpsortorderset, jint crowsmax, jlong lpprows) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1hrQueryAllRows(JNIEnv* km_env, jclass km_clazz, jlong lptable, jlong lpproptags, jlong lprestriction, jlong lpsortorderset, jint crowsmax, jlong lpprows) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -441,7 +441,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1HrSetOneProp(JNIEnv* km_env, jclass km_clazz, jlong lpmapiprop, jlong lpprop) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1hrSetOneProp(JNIEnv* km_env, jclass km_clazz, jlong lpmapiprop, jlong lpprop) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -460,7 +460,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1HrThisThreadAdviseSink(JNIEnv* km_env, jclass km_clazz, jlong lpadvisesink, jlong lppadvisesink) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1hrThisThreadAdviseSink(JNIEnv* km_env, jclass km_clazz, jlong lpadvisesink, jlong lppadvisesink) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -479,7 +479,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1LPropCompareProp(JNIEnv* km_env, jclass km_clazz, jlong lpspropvaluea, jlong lpspropvalueb) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1lPropCompareProp(JNIEnv* km_env, jclass km_clazz, jlong lpspropvaluea, jlong lpspropvalueb) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -498,7 +498,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1LpValFindProp(JNIEnv* km_env, jclass km_clazz, jint ulproptag, jint cvalues, jlong lpproparray) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1lpValFindProp(JNIEnv* km_env, jclass km_clazz, jint ulproptag, jint cvalues, jlong lpproparray) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -518,7 +518,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1MAPIDeinitIdle(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1mAPIDeinitIdle(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -533,7 +533,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1MAPIGetDefaultMalloc(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1mAPIGetDefaultMalloc(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -550,7 +550,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1MAPIInitIdle(JNIEnv* km_env, jclass km_clazz, jlong lpvreserved) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1mAPIInitIdle(JNIEnv* km_env, jclass km_clazz, jlong lpvreserved) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -568,7 +568,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1OpenStreamOnFile(JNIEnv* km_env, jclass km_clazz, jlong lpallocatebuffer, jlong lpfreebuffer, jint ulflags, jlong lpszfilename, jlong lpszprefix, jlong lppstream) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1openStreamOnFile(JNIEnv* km_env, jclass km_clazz, jlong lpallocatebuffer, jlong lpfreebuffer, jint ulflags, jlong lpszfilename, jlong lpszprefix, jlong lppstream) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -591,7 +591,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1PpropFindProp(JNIEnv* km_env, jclass km_clazz, jlong lpproparray, jint cvalues, jint ulproptag) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1ppropFindProp(JNIEnv* km_env, jclass km_clazz, jlong lpproparray, jint cvalues, jint ulproptag) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -611,7 +611,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1PropCopyMore(JNIEnv* km_env, jclass km_clazz, jlong lpspropvaluedest, jlong lpspropvaluesrc, jlong lpfallocmore, jlong lpvobject) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1propCopyMore(JNIEnv* km_env, jclass km_clazz, jlong lpspropvaluedest, jlong lpspropvaluesrc, jlong lpfallocmore, jlong lpvobject) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -632,7 +632,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1RTFSync(JNIEnv* km_env, jclass km_clazz, jlong lpmessage, jint ulflags, jlong lpfmessageupdated) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1rTFSync(JNIEnv* km_env, jclass km_clazz, jlong lpmessage, jint ulflags, jlong lpfmessageupdated) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -652,7 +652,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1ScCopyNotifications(JNIEnv* km_env, jclass km_clazz, jint cnotification, jlong lpnotifications, jlong lpvdst, jlong lpcb) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1scCopyNotifications(JNIEnv* km_env, jclass km_clazz, jint cnotification, jlong lpnotifications, jlong lpvdst, jlong lpcb) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -673,7 +673,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1ScCopyProps(JNIEnv* km_env, jclass km_clazz, jint cvalues, jlong lpproparray, jlong lpvdst, jlong lpcb) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1scCopyProps(JNIEnv* km_env, jclass km_clazz, jint cvalues, jlong lpproparray, jlong lpvdst, jlong lpcb) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -694,7 +694,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1ScCountNotifications(JNIEnv* km_env, jclass km_clazz, jint cnotifications, jlong lpnotifications, jlong lpcb) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1scCountNotifications(JNIEnv* km_env, jclass km_clazz, jint cnotifications, jlong lpnotifications, jlong lpcb) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -714,7 +714,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1ScCountProps(JNIEnv* km_env, jclass km_clazz, jint cvalues, jlong lpproparray, jlong lpcb) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1scCountProps(JNIEnv* km_env, jclass km_clazz, jint cvalues, jlong lpproparray, jlong lpcb) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -734,7 +734,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1ScCreateConversationIndex(JNIEnv* km_env, jclass km_clazz, jint cbparent, jlong lpbparent, jlong lpcbconvindex, jlong lppbconvindex) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1scCreateConversationIndex(JNIEnv* km_env, jclass km_clazz, jint cbparent, jlong lpbparent, jlong lpcbconvindex, jlong lppbconvindex) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -755,7 +755,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1ScDupPropset(JNIEnv* km_env, jclass km_clazz, jint cvalues, jlong lpproparray, jlong lpallocatebuffer, jlong lppproparray) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1scDupPropset(JNIEnv* km_env, jclass km_clazz, jint cvalues, jlong lpproparray, jlong lpallocatebuffer, jlong lppproparray) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -776,7 +776,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1ScInitMapiUtil(JNIEnv* km_env, jclass km_clazz, jint ulflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1scInitMapiUtil(JNIEnv* km_env, jclass km_clazz, jint ulflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -794,7 +794,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1ScLocalPathFromUNC(JNIEnv* km_env, jclass km_clazz, jlong lpszunc, jlong lpszlocal, jint cchlocal) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1scLocalPathFromUNC(JNIEnv* km_env, jclass km_clazz, jlong lpszunc, jlong lpszlocal, jint cchlocal) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -814,7 +814,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1ScRelocNotifications(JNIEnv* km_env, jclass km_clazz, jint cnotification, jlong lpnotifications, jlong lpvbaseold, jlong lpvbasenew, jlong lpcb) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1scRelocNotifications(JNIEnv* km_env, jclass km_clazz, jint cnotification, jlong lpnotifications, jlong lpvbaseold, jlong lpvbasenew, jlong lpcb) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -836,7 +836,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1ScRelocProps(JNIEnv* km_env, jclass km_clazz, jint cvalues, jlong lpproparray, jlong lpvbaseold, jlong lpvbasenew, jlong lpcb) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1scRelocProps(JNIEnv* km_env, jclass km_clazz, jint cvalues, jlong lpproparray, jlong lpvbaseold, jlong lpvbasenew, jlong lpcb) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -858,7 +858,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1ScUNCFromLocalPath(JNIEnv* km_env, jclass km_clazz, jlong lpszlocal, jlong lpszunc, jint cchunc) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1scUNCFromLocalPath(JNIEnv* km_env, jclass km_clazz, jlong lpszlocal, jlong lpszunc, jint cchunc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -878,7 +878,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1SzFindCh(JNIEnv* km_env, jclass km_clazz, jlong lpsz, jshort ch) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1szFindCh(JNIEnv* km_env, jclass km_clazz, jlong lpsz, jshort ch) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -897,7 +897,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1SzFindLastCh(JNIEnv* km_env, jclass km_clazz, jlong lpsz, jshort ch) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1szFindLastCh(JNIEnv* km_env, jclass km_clazz, jlong lpsz, jshort ch) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -916,7 +916,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1SzFindSz(JNIEnv* km_env, jclass km_clazz, jlong lpsz, jlong lpszkey) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1szFindSz(JNIEnv* km_env, jclass km_clazz, jlong lpsz, jlong lpszkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -935,7 +935,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1UFromSz(JNIEnv* km_env, jclass km_clazz, jlong lpsz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1uFromSz(JNIEnv* km_env, jclass km_clazz, jlong lpsz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -953,7 +953,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1UlAddRef(JNIEnv* km_env, jclass km_clazz, jlong lpunk) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1ulAddRef(JNIEnv* km_env, jclass km_clazz, jlong lpunk) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -971,7 +971,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1UlPropSize(JNIEnv* km_env, jclass km_clazz, jlong lpspropvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1ulPropSize(JNIEnv* km_env, jclass km_clazz, jlong lpspropvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -989,7 +989,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1UlRelease(JNIEnv* km_env, jclass km_clazz, jlong lpunk) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1ulRelease(JNIEnv* km_env, jclass km_clazz, jlong lpunk) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1007,7 +1007,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1WrapCompressedRTFStream(JNIEnv* km_env, jclass km_clazz, jlong lpcompressedrtfstream, jint ulflags, jlong lpuncompressedrtfstream) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1wrapCompressedRTFStream(JNIEnv* km_env, jclass km_clazz, jlong lpcompressedrtfstream, jint ulflags, jlong lpuncompressedrtfstream) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1027,7 +1027,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1WrapStoreEntryID(JNIEnv* km_env, jclass km_clazz, jint ulflags, jlong lpszdllname, jint cborigentry, jlong lporigentry, jlong lpcbwrappedentry, jlong lppwrappedentry) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_addressbook_WindowsWin32SystemAddressbookJniBridge_windowssys_1windows_1win32_1system_1addressbook_1wrapStoreEntryID(JNIEnv* km_env, jclass km_clazz, jint ulflags, jlong lpszdllname, jint cborigentry, jlong lporigentry, jlong lpcbwrappedentry, jlong lppwrappedentry) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

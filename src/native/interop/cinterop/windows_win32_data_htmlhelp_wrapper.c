@@ -15,7 +15,7 @@
 #endif
 #endif
 
-void* windowssys_windows_win32_data_htmlhelp_HtmlHelpA(void* hwndcaller, void* pszfile, uint32_t ucommand, uint64_t dwdata) {
+void* windowssys_windows_win32_data_htmlhelp_htmlHelpA(void* hwndcaller, void* pszfile, uint32_t ucommand, uint64_t dwdata) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -40,7 +40,7 @@ void* windowssys_windows_win32_data_htmlhelp_HtmlHelpA(void* hwndcaller, void* p
 #endif
 }
 
-void* windowssys_windows_win32_data_htmlhelp_HtmlHelpW(void* hwndcaller, void* pszfile, uint32_t ucommand, uint64_t dwdata) {
+void* windowssys_windows_win32_data_htmlhelp_htmlHelpW(void* hwndcaller, void* pszfile, uint32_t ucommand, uint64_t dwdata) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;

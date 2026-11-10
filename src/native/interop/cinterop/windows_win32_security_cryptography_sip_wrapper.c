@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_security_cryptography_sip_CryptSIPAddProvider(void* psnewprov) {
+int32_t windowssys_windows_win32_security_cryptography_sip_cryptSIPAddProvider(void* psnewprov) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ int32_t windowssys_windows_win32_security_cryptography_sip_CryptSIPAddProvider(v
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_sip_CryptSIPCreateIndirectData(void* psubjectinfo, void* pcbindirectdata, void* pindirectdata) {
+int32_t windowssys_windows_win32_security_cryptography_sip_cryptSIPCreateIndirectData(void* psubjectinfo, void* pcbindirectdata, void* pindirectdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -61,7 +61,7 @@ int32_t windowssys_windows_win32_security_cryptography_sip_CryptSIPCreateIndirec
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_sip_CryptSIPGetCaps(void* psubjinfo, void* pcaps) {
+int32_t windowssys_windows_win32_security_cryptography_sip_cryptSIPGetCaps(void* psubjinfo, void* pcaps) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -84,7 +84,7 @@ int32_t windowssys_windows_win32_security_cryptography_sip_CryptSIPGetCaps(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_sip_CryptSIPGetSealedDigest(void* psubjectinfo, void* psig, uint32_t dwsig, void* pbdigest, void* pcbdigest) {
+int32_t windowssys_windows_win32_security_cryptography_sip_cryptSIPGetSealedDigest(void* psubjectinfo, void* psig, uint32_t dwsig, void* pbdigest, void* pcbdigest) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -110,7 +110,7 @@ int32_t windowssys_windows_win32_security_cryptography_sip_CryptSIPGetSealedDige
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_sip_CryptSIPGetSignedDataMsg(void* psubjectinfo, void* pdwencodingtype, uint32_t dwindex, void* pcbsigneddatamsg, void* pbsigneddatamsg) {
+int32_t windowssys_windows_win32_security_cryptography_sip_cryptSIPGetSignedDataMsg(void* psubjectinfo, void* pdwencodingtype, uint32_t dwindex, void* pcbsigneddatamsg, void* pbsigneddatamsg) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -136,7 +136,7 @@ int32_t windowssys_windows_win32_security_cryptography_sip_CryptSIPGetSignedData
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_sip_CryptSIPLoad(void* pgsubject, uint32_t dwflags, void* psipdispatch) {
+int32_t windowssys_windows_win32_security_cryptography_sip_cryptSIPLoad(void* pgsubject, uint32_t dwflags, void* psipdispatch) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -160,7 +160,7 @@ int32_t windowssys_windows_win32_security_cryptography_sip_CryptSIPLoad(void* pg
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_sip_CryptSIPPutSignedDataMsg(void* psubjectinfo, uint32_t dwencodingtype, void* pdwindex, uint32_t cbsigneddatamsg, void* pbsigneddatamsg) {
+int32_t windowssys_windows_win32_security_cryptography_sip_cryptSIPPutSignedDataMsg(void* psubjectinfo, uint32_t dwencodingtype, void* pdwindex, uint32_t cbsigneddatamsg, void* pbsigneddatamsg) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -186,7 +186,7 @@ int32_t windowssys_windows_win32_security_cryptography_sip_CryptSIPPutSignedData
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_sip_CryptSIPRemoveProvider(void* pgprov) {
+int32_t windowssys_windows_win32_security_cryptography_sip_cryptSIPRemoveProvider(void* pgprov) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -208,7 +208,7 @@ int32_t windowssys_windows_win32_security_cryptography_sip_CryptSIPRemoveProvide
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_sip_CryptSIPRemoveSignedDataMsg(void* psubjectinfo, uint32_t dwindex) {
+int32_t windowssys_windows_win32_security_cryptography_sip_cryptSIPRemoveSignedDataMsg(void* psubjectinfo, uint32_t dwindex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -231,7 +231,7 @@ int32_t windowssys_windows_win32_security_cryptography_sip_CryptSIPRemoveSignedD
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_sip_CryptSIPRetrieveSubjectGuid(void* filename, void* hfilein, void* pgsubject) {
+int32_t windowssys_windows_win32_security_cryptography_sip_cryptSIPRetrieveSubjectGuid(void* filename, void* hfilein, void* pgsubject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -255,7 +255,7 @@ int32_t windowssys_windows_win32_security_cryptography_sip_CryptSIPRetrieveSubje
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_sip_CryptSIPRetrieveSubjectGuidForCatalogFile(void* filename, void* hfilein, void* pgsubject) {
+int32_t windowssys_windows_win32_security_cryptography_sip_cryptSIPRetrieveSubjectGuidForCatalogFile(void* filename, void* hfilein, void* pgsubject) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -279,7 +279,7 @@ int32_t windowssys_windows_win32_security_cryptography_sip_CryptSIPRetrieveSubje
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_sip_CryptSIPVerifyIndirectData(void* psubjectinfo, void* pindirectdata) {
+int32_t windowssys_windows_win32_security_cryptography_sip_cryptSIPVerifyIndirectData(void* psubjectinfo, void* pindirectdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;

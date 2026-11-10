@@ -2,113 +2,116 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.grouppolicy
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
-import io.github.kotlinmania.windowssys.windows.win32.security.PSID
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
+import io.github.kotlinmania.windowssys.windows.win32.security.Psid
 
 private val _windowsWin32SystemGrouppolicyNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun BrowseForGPO(lpbrowseinfo: Long): HRESULT =
-    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_BrowseForGPO(lpbrowseinfo.toString()) as Int) else 0
+public actual fun browseForGPO(lpbrowseinfo: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_browseForGPO((lpbrowseinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CommandLineFromMsiDescriptor(descriptor: PCWSTR, commandline: PWSTR, commandlinelength: Long): UInt =
-    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_CommandLineFromMsiDescriptor(descriptor.toString(), commandline.toString(), commandlinelength.toString()) as Int).toUInt() else 0u
+public actual fun commandLineFromMsiDescriptor(descriptor: Pcwstr, commandline: Pwstr, commandlinelength: COpaquePointer?): UInt =
+    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_commandLineFromMsiDescriptor((descriptor?.value ?: 0L).toString(), (commandline?.value ?: 0L).toString(), (commandlinelength?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateGPOLink(lpgpo: PCWSTR, lpcontainer: PCWSTR, fhighpriority: BOOL): HRESULT =
-    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_CreateGPOLink(lpgpo.toString(), lpcontainer.toString(), fhighpriority) as Int) else 0
+public actual fun createGPOLink(lpgpo: Pcwstr, lpcontainer: Pcwstr, fhighpriority: Bool): Hresult =
+    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_createGPOLink((lpgpo?.value ?: 0L).toString(), (lpcontainer?.value ?: 0L).toString(), fhighpriority) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteAllGPOLinks(lpcontainer: PCWSTR): HRESULT =
-    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_DeleteAllGPOLinks(lpcontainer.toString()) as Int) else 0
+public actual fun deleteAllGPOLinks(lpcontainer: Pcwstr): Hresult =
+    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_deleteAllGPOLinks((lpcontainer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteGPOLink(lpgpo: PCWSTR, lpcontainer: PCWSTR): HRESULT =
-    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_DeleteGPOLink(lpgpo.toString(), lpcontainer.toString()) as Int) else 0
+public actual fun deleteGPOLink(lpgpo: Pcwstr, lpcontainer: Pcwstr): Hresult =
+    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_deleteGPOLink((lpgpo?.value ?: 0L).toString(), (lpcontainer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnterCriticalPolicySection(bmachine: BOOL): HANDLE =
-    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_EnterCriticalPolicySection(bmachine) as String).toLong() else 0L
+public actual fun enterCriticalPolicySection(bmachine: Bool): Handle =
+    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_enterCriticalPolicySection(bmachine) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ExportRSoPData(lpnamespace: PCWSTR, lpfilename: PCWSTR): HRESULT =
-    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_ExportRSoPData(lpnamespace.toString(), lpfilename.toString()) as Int) else 0
+public actual fun exportRSoPData(lpnamespace: Pcwstr, lpfilename: Pcwstr): Hresult =
+    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_exportRSoPData((lpnamespace?.value ?: 0L).toString(), (lpfilename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FreeGPOListA(pgpolist: Long): BOOL =
-    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_FreeGPOListA(pgpolist.toString()) as Int) else 0
+public actual fun freeGPOListA(pgpolist: COpaquePointer?): Bool =
+    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_freeGPOListA((pgpolist?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FreeGPOListW(pgpolist: Long): BOOL =
-    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_FreeGPOListW(pgpolist.toString()) as Int) else 0
+public actual fun freeGPOListW(pgpolist: COpaquePointer?): Bool =
+    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_freeGPOListW((pgpolist?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GenerateGPNotification(bmachine: BOOL, lpwszmgmtproduct: PCWSTR, dwmgmtproductoptions: UInt): UInt =
-    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_GenerateGPNotification(bmachine, lpwszmgmtproduct.toString(), dwmgmtproductoptions.toInt()) as Int).toUInt() else 0u
+public actual fun generateGPNotification(bmachine: Bool, lpwszmgmtproduct: Pcwstr, dwmgmtproductoptions: UInt): UInt =
+    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_generateGPNotification(bmachine, (lpwszmgmtproduct?.value ?: 0L).toString(), dwmgmtproductoptions.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetAppliedGPOListA(dwflags: UInt, pmachinename: PCSTR, psiduser: PSID, pguidextension: Long, ppgpolist: Long): UInt =
-    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_GetAppliedGPOListA(dwflags.toInt(), pmachinename.toString(), psiduser.toString(), pguidextension.toString(), ppgpolist.toString()) as Int).toUInt() else 0u
+public actual fun getAppliedGPOListA(dwflags: UInt, pmachinename: Pcstr, psiduser: Psid, pguidextension: COpaquePointer?, ppgpolist: COpaquePointer?): UInt =
+    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_getAppliedGPOListA(dwflags.toInt(), (pmachinename?.value ?: 0L).toString(), (psiduser?.value ?: 0L).toString(), (pguidextension?.value ?: 0L).toString(), (ppgpolist?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetAppliedGPOListW(dwflags: UInt, pmachinename: PCWSTR, psiduser: PSID, pguidextension: Long, ppgpolist: Long): UInt =
-    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_GetAppliedGPOListW(dwflags.toInt(), pmachinename.toString(), psiduser.toString(), pguidextension.toString(), ppgpolist.toString()) as Int).toUInt() else 0u
+public actual fun getAppliedGPOListW(dwflags: UInt, pmachinename: Pcwstr, psiduser: Psid, pguidextension: COpaquePointer?, ppgpolist: COpaquePointer?): UInt =
+    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_getAppliedGPOListW(dwflags.toInt(), (pmachinename?.value ?: 0L).toString(), (psiduser?.value ?: 0L).toString(), (pguidextension?.value ?: 0L).toString(), (ppgpolist?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetGPOListA(htoken: HANDLE, lpname: PCSTR, lphostname: PCSTR, lpcomputername: PCSTR, dwflags: UInt, pgpolist: Long): BOOL =
-    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_GetGPOListA(htoken.toString(), lpname.toString(), lphostname.toString(), lpcomputername.toString(), dwflags.toInt(), pgpolist.toString()) as Int) else 0
+public actual fun getGPOListA(htoken: Handle, lpname: Pcstr, lphostname: Pcstr, lpcomputername: Pcstr, dwflags: UInt, pgpolist: COpaquePointer?): Bool =
+    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_getGPOListA((htoken?.value ?: 0L).toString(), (lpname?.value ?: 0L).toString(), (lphostname?.value ?: 0L).toString(), (lpcomputername?.value ?: 0L).toString(), dwflags.toInt(), (pgpolist?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetGPOListW(htoken: HANDLE, lpname: PCWSTR, lphostname: PCWSTR, lpcomputername: PCWSTR, dwflags: UInt, pgpolist: Long): BOOL =
-    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_GetGPOListW(htoken.toString(), lpname.toString(), lphostname.toString(), lpcomputername.toString(), dwflags.toInt(), pgpolist.toString()) as Int) else 0
+public actual fun getGPOListW(htoken: Handle, lpname: Pcwstr, lphostname: Pcwstr, lpcomputername: Pcwstr, dwflags: UInt, pgpolist: COpaquePointer?): Bool =
+    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_getGPOListW((htoken?.value ?: 0L).toString(), (lpname?.value ?: 0L).toString(), (lphostname?.value ?: 0L).toString(), (lpcomputername?.value ?: 0L).toString(), dwflags.toInt(), (pgpolist?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetLocalManagedApplicationData(productcode: PCWSTR, displayname: Long, supporturl: Long) {
+public actual fun getLocalManagedApplicationData(productcode: Pcwstr, displayname: COpaquePointer?, supporturl: COpaquePointer?) {
     if (_windowsWin32SystemGrouppolicyNapiAddon != null) {
-        _windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_GetLocalManagedApplicationData(productcode.toString(), displayname.toString(), supporturl.toString())
+        _windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_getLocalManagedApplicationData((productcode?.value ?: 0L).toString(), (displayname?.value ?: 0L).toString(), (supporturl?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun GetLocalManagedApplications(buserapps: BOOL, pdwapps: Long, prglocalapps: Long): UInt =
-    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_GetLocalManagedApplications(buserapps, pdwapps.toString(), prglocalapps.toString()) as Int).toUInt() else 0u
+public actual fun getLocalManagedApplications(buserapps: Bool, pdwapps: COpaquePointer?, prglocalapps: COpaquePointer?): UInt =
+    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_getLocalManagedApplications(buserapps, (pdwapps?.value ?: 0L).toString(), (prglocalapps?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetManagedApplicationCategories(dwreserved: UInt, pappcategory: Long): UInt =
-    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_GetManagedApplicationCategories(dwreserved.toInt(), pappcategory.toString()) as Int).toUInt() else 0u
+public actual fun getManagedApplicationCategories(dwreserved: UInt, pappcategory: COpaquePointer?): UInt =
+    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_getManagedApplicationCategories(dwreserved.toInt(), (pappcategory?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetManagedApplications(pcategory: Long, dwqueryflags: UInt, dwinfolevel: UInt, pdwapps: Long, prgmanagedapps: Long): UInt =
-    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_GetManagedApplications(pcategory.toString(), dwqueryflags.toInt(), dwinfolevel.toInt(), pdwapps.toString(), prgmanagedapps.toString()) as Int).toUInt() else 0u
+public actual fun getManagedApplications(pcategory: COpaquePointer?, dwqueryflags: UInt, dwinfolevel: UInt, pdwapps: COpaquePointer?, prgmanagedapps: COpaquePointer?): UInt =
+    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_getManagedApplications((pcategory?.value ?: 0L).toString(), dwqueryflags.toInt(), dwinfolevel.toInt(), (pdwapps?.value ?: 0L).toString(), (prgmanagedapps?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ImportRSoPData(lpnamespace: PCWSTR, lpfilename: PCWSTR): HRESULT =
-    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_ImportRSoPData(lpnamespace.toString(), lpfilename.toString()) as Int) else 0
+public actual fun importRSoPData(lpnamespace: Pcwstr, lpfilename: Pcwstr): Hresult =
+    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_importRSoPData((lpnamespace?.value ?: 0L).toString(), (lpfilename?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InstallApplication(pinstallinfo: Long): UInt =
-    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_InstallApplication(pinstallinfo.toString()) as Int).toUInt() else 0u
+public actual fun installApplication(pinstallinfo: COpaquePointer?): UInt =
+    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_installApplication((pinstallinfo?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun LeaveCriticalPolicySection(hsection: HANDLE): BOOL =
-    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_LeaveCriticalPolicySection(hsection.toString()) as Int) else 0
+public actual fun leaveCriticalPolicySection(hsection: Handle): Bool =
+    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_leaveCriticalPolicySection((hsection?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ProcessGroupPolicyCompleted(extensionid: Long, pasynchandle: ULong, dwstatus: UInt): UInt =
-    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_ProcessGroupPolicyCompleted(extensionid.toString(), pasynchandle.toString(), dwstatus.toInt()) as Int).toUInt() else 0u
+public actual fun processGroupPolicyCompleted(extensionid: COpaquePointer?, pasynchandle: ULong, dwstatus: UInt): UInt =
+    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_processGroupPolicyCompleted((extensionid?.value ?: 0L).toString(), pasynchandle.toString(), dwstatus.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ProcessGroupPolicyCompletedEx(extensionid: Long, pasynchandle: ULong, dwstatus: UInt, rsopstatus: HRESULT): UInt =
-    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_ProcessGroupPolicyCompletedEx(extensionid.toString(), pasynchandle.toString(), dwstatus.toInt(), rsopstatus) as Int).toUInt() else 0u
+public actual fun processGroupPolicyCompletedEx(extensionid: COpaquePointer?, pasynchandle: ULong, dwstatus: UInt, rsopstatus: Hresult): UInt =
+    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_processGroupPolicyCompletedEx((extensionid?.value ?: 0L).toString(), pasynchandle.toString(), dwstatus.toInt(), rsopstatus) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RefreshPolicy(bmachine: BOOL): BOOL =
-    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_RefreshPolicy(bmachine) as Int) else 0
+public actual fun refreshPolicy(bmachine: Bool): Bool =
+    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_refreshPolicy(bmachine) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RefreshPolicyEx(bmachine: BOOL, dwoptions: UInt): BOOL =
-    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_RefreshPolicyEx(bmachine, dwoptions.toInt()) as Int) else 0
+public actual fun refreshPolicyEx(bmachine: Bool, dwoptions: UInt): Bool =
+    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_refreshPolicyEx(bmachine, dwoptions.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RegisterGPNotification(hevent: HANDLE, bmachine: BOOL): BOOL =
-    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_RegisterGPNotification(hevent.toString(), bmachine) as Int) else 0
+public actual fun registerGPNotification(hevent: Handle, bmachine: Bool): Bool =
+    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_registerGPNotification((hevent?.value ?: 0L).toString(), bmachine) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RsopAccessCheckByType(psecuritydescriptor: PSECURITY_DESCRIPTOR, pprincipalselfsid: PSID, prsoptoken: Long, dwdesiredaccessmask: UInt, pobjecttypelist: Long, objecttypelistlength: UInt, pgenericmapping: Long, pprivilegeset: Long, pdwprivilegesetlength: Long, pdwgrantedaccessmask: Long, pbaccessstatus: Long): HRESULT =
-    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_RsopAccessCheckByType(psecuritydescriptor.toString(), pprincipalselfsid.toString(), prsoptoken.toString(), dwdesiredaccessmask.toInt(), pobjecttypelist.toString(), objecttypelistlength.toInt(), pgenericmapping.toString(), pprivilegeset.toString(), pdwprivilegesetlength.toString(), pdwgrantedaccessmask.toString(), pbaccessstatus.toString()) as Int) else 0
+public actual fun rsopAccessCheckByType(psecuritydescriptor: PsecurityDescriptor, pprincipalselfsid: Psid, prsoptoken: COpaquePointer?, dwdesiredaccessmask: UInt, pobjecttypelist: COpaquePointer?, objecttypelistlength: UInt, pgenericmapping: COpaquePointer?, pprivilegeset: COpaquePointer?, pdwprivilegesetlength: COpaquePointer?, pdwgrantedaccessmask: COpaquePointer?, pbaccessstatus: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_rsopAccessCheckByType((psecuritydescriptor?.value ?: 0L).toString(), (pprincipalselfsid?.value ?: 0L).toString(), (prsoptoken?.value ?: 0L).toString(), dwdesiredaccessmask.toInt(), (pobjecttypelist?.value ?: 0L).toString(), objecttypelistlength.toInt(), (pgenericmapping?.value ?: 0L).toString(), (pprivilegeset?.value ?: 0L).toString(), (pdwprivilegesetlength?.value ?: 0L).toString(), (pdwgrantedaccessmask?.value ?: 0L).toString(), (pbaccessstatus?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RsopFileAccessCheck(pszfilename: PCWSTR, prsoptoken: Long, dwdesiredaccessmask: UInt, pdwgrantedaccessmask: Long, pbaccessstatus: Long): HRESULT =
-    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_RsopFileAccessCheck(pszfilename.toString(), prsoptoken.toString(), dwdesiredaccessmask.toInt(), pdwgrantedaccessmask.toString(), pbaccessstatus.toString()) as Int) else 0
+public actual fun rsopFileAccessCheck(pszfilename: Pcwstr, prsoptoken: COpaquePointer?, dwdesiredaccessmask: UInt, pdwgrantedaccessmask: COpaquePointer?, pbaccessstatus: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_rsopFileAccessCheck((pszfilename?.value ?: 0L).toString(), (prsoptoken?.value ?: 0L).toString(), dwdesiredaccessmask.toInt(), (pdwgrantedaccessmask?.value ?: 0L).toString(), (pbaccessstatus?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RsopResetPolicySettingStatus(dwflags: UInt, pservices: Long, psettinginstance: Long): HRESULT =
-    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_RsopResetPolicySettingStatus(dwflags.toInt(), pservices.toString(), psettinginstance.toString()) as Int) else 0
+public actual fun rsopResetPolicySettingStatus(dwflags: UInt, pservices: COpaquePointer?, psettinginstance: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_rsopResetPolicySettingStatus(dwflags.toInt(), (pservices?.value ?: 0L).toString(), (psettinginstance?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun RsopSetPolicySettingStatus(dwflags: UInt, pservices: Long, psettinginstance: Long, ninfo: UInt, pstatus: Long): HRESULT =
-    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_RsopSetPolicySettingStatus(dwflags.toInt(), pservices.toString(), psettinginstance.toString(), ninfo.toInt(), pstatus.toString()) as Int) else 0
+public actual fun rsopSetPolicySettingStatus(dwflags: UInt, pservices: COpaquePointer?, psettinginstance: COpaquePointer?, ninfo: UInt, pstatus: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_rsopSetPolicySettingStatus(dwflags.toInt(), (pservices?.value ?: 0L).toString(), (psettinginstance?.value ?: 0L).toString(), ninfo.toInt(), (pstatus?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UninstallApplication(productcode: PCWSTR, dwstatus: UInt): UInt =
-    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_UninstallApplication(productcode.toString(), dwstatus.toInt()) as Int).toUInt() else 0u
+public actual fun uninstallApplication(productcode: Pcwstr, dwstatus: UInt): UInt =
+    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_uninstallApplication((productcode?.value ?: 0L).toString(), dwstatus.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun UnregisterGPNotification(hevent: HANDLE): BOOL =
-    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_UnregisterGPNotification(hevent.toString()) as Int) else 0
+public actual fun unregisterGPNotification(hevent: Handle): Bool =
+    if (_windowsWin32SystemGrouppolicyNapiAddon != null) (_windowsWin32SystemGrouppolicyNapiAddon.windowssys_windows_win32_system_grouppolicy_unregisterGPNotification((hevent?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

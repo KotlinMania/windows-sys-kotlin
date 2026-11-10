@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_kernel_RtlFirstEntrySList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_kernel_rtlFirstEntrySList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* listhead = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -69,7 +69,7 @@ static Napi::Value windowssys_windows_win32_system_kernel_RtlFirstEntrySList_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_kernel_RtlInitializeSListHead_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_kernel_rtlInitializeSListHead_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* listhead = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -86,7 +86,7 @@ static Napi::Value windowssys_windows_win32_system_kernel_RtlInitializeSListHead
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_kernel_RtlInterlockedFlushSList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_kernel_rtlInterlockedFlushSList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* listhead = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -104,7 +104,7 @@ static Napi::Value windowssys_windows_win32_system_kernel_RtlInterlockedFlushSLi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_kernel_RtlInterlockedPopEntrySList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_kernel_rtlInterlockedPopEntrySList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* listhead = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -122,7 +122,7 @@ static Napi::Value windowssys_windows_win32_system_kernel_RtlInterlockedPopEntry
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_kernel_RtlInterlockedPushEntrySList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_kernel_rtlInterlockedPushEntrySList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* listhead = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* listentry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -142,7 +142,7 @@ static Napi::Value windowssys_windows_win32_system_kernel_RtlInterlockedPushEntr
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_kernel_RtlInterlockedPushListSListEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_kernel_rtlInterlockedPushListSListEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* listhead = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* list = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -166,7 +166,7 @@ static Napi::Value windowssys_windows_win32_system_kernel_RtlInterlockedPushList
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_kernel_RtlQueryDepthSList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_kernel_rtlQueryDepthSList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* listhead = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -185,13 +185,13 @@ static Napi::Value windowssys_windows_win32_system_kernel_RtlQueryDepthSList_nap
 }
 
 static void register_windows_win32_system_kernel_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_kernel_RtlFirstEntrySList", Napi::Function::New(env, windowssys_windows_win32_system_kernel_RtlFirstEntrySList_napi));
-    exports.Set("windowssys_windows_win32_system_kernel_RtlInitializeSListHead", Napi::Function::New(env, windowssys_windows_win32_system_kernel_RtlInitializeSListHead_napi));
-    exports.Set("windowssys_windows_win32_system_kernel_RtlInterlockedFlushSList", Napi::Function::New(env, windowssys_windows_win32_system_kernel_RtlInterlockedFlushSList_napi));
-    exports.Set("windowssys_windows_win32_system_kernel_RtlInterlockedPopEntrySList", Napi::Function::New(env, windowssys_windows_win32_system_kernel_RtlInterlockedPopEntrySList_napi));
-    exports.Set("windowssys_windows_win32_system_kernel_RtlInterlockedPushEntrySList", Napi::Function::New(env, windowssys_windows_win32_system_kernel_RtlInterlockedPushEntrySList_napi));
-    exports.Set("windowssys_windows_win32_system_kernel_RtlInterlockedPushListSListEx", Napi::Function::New(env, windowssys_windows_win32_system_kernel_RtlInterlockedPushListSListEx_napi));
-    exports.Set("windowssys_windows_win32_system_kernel_RtlQueryDepthSList", Napi::Function::New(env, windowssys_windows_win32_system_kernel_RtlQueryDepthSList_napi));
+    exports.Set("windowssys_windows_win32_system_kernel_rtlFirstEntrySList", Napi::Function::New(env, windowssys_windows_win32_system_kernel_rtlFirstEntrySList_napi));
+    exports.Set("windowssys_windows_win32_system_kernel_rtlInitializeSListHead", Napi::Function::New(env, windowssys_windows_win32_system_kernel_rtlInitializeSListHead_napi));
+    exports.Set("windowssys_windows_win32_system_kernel_rtlInterlockedFlushSList", Napi::Function::New(env, windowssys_windows_win32_system_kernel_rtlInterlockedFlushSList_napi));
+    exports.Set("windowssys_windows_win32_system_kernel_rtlInterlockedPopEntrySList", Napi::Function::New(env, windowssys_windows_win32_system_kernel_rtlInterlockedPopEntrySList_napi));
+    exports.Set("windowssys_windows_win32_system_kernel_rtlInterlockedPushEntrySList", Napi::Function::New(env, windowssys_windows_win32_system_kernel_rtlInterlockedPushEntrySList_napi));
+    exports.Set("windowssys_windows_win32_system_kernel_rtlInterlockedPushListSListEx", Napi::Function::New(env, windowssys_windows_win32_system_kernel_rtlInterlockedPushListSListEx_napi));
+    exports.Set("windowssys_windows_win32_system_kernel_rtlQueryDepthSList", Napi::Function::New(env, windowssys_windows_win32_system_kernel_rtlQueryDepthSList_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_kernel_napi, nullptr };

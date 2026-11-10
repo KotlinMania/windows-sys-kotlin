@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_AccSetRunningUtilityState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_accSetRunningUtilityState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndapp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwutilitystatemask = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -73,7 +73,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_AccSetRunningUtilit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_AccessibleChildren_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_accessibleChildren_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pacccontainer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t ichildstart = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -99,7 +99,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_AccessibleChildren_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_AccessibleObjectFromEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_accessibleObjectFromEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -125,7 +125,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_AccessibleObjectFro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_AccessibleObjectFromWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_accessibleObjectFromWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -149,7 +149,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_AccessibleObjectFro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_CreateStdAccessibleObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_createStdAccessibleObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t idobject = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -173,7 +173,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_CreateStdAccessible
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_CreateStdAccessibleProxyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_createStdAccessibleProxyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pclassname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -199,7 +199,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_CreateStdAccessible
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_CreateStdAccessibleProxyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_createStdAccessibleProxyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pclassname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -225,7 +225,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_CreateStdAccessible
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_DockPattern_SetDockPosition_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_dockPatternSetDockPosition_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t dockposition = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -245,7 +245,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_DockPattern_SetDock
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_ExpandCollapsePattern_Collapse_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_expandCollapsePatternCollapse_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -263,7 +263,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_ExpandCollapsePatte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_ExpandCollapsePattern_Expand_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_expandCollapsePatternExpand_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -281,7 +281,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_ExpandCollapsePatte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_GetOleaccVersionInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_getOleaccVersionInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbuild = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -300,7 +300,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_GetOleaccVersionInf
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_GetRoleTextA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_getRoleTextA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t lrole = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpszrole = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -322,7 +322,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_GetRoleTextA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_GetRoleTextW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_getRoleTextW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t lrole = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpszrole = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -344,7 +344,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_GetRoleTextW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_GetStateTextA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_getStateTextA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t lstatebit = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpszstate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -366,7 +366,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_GetStateTextA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_GetStateTextW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_getStateTextW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t lstatebit = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpszstate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -388,7 +388,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_GetStateTextW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_GridPattern_GetItem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_gridPatternGetItem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t row = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -412,7 +412,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_GridPattern_GetItem
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_InvokePattern_Invoke_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_invokePatternInvoke_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -430,7 +430,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_InvokePattern_Invok
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_IsWinEventHookInstalled_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_isWinEventHookInstalled_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t event = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -448,7 +448,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_IsWinEventHookInsta
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_LegacyIAccessiblePattern_DoDefaultAction_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_legacyIaccessiblePatternDoDefaultAction_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -466,7 +466,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_LegacyIAccessiblePa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_LegacyIAccessiblePattern_GetIAccessible_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_legacyIaccessiblePatternGetIaccessible_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* paccessible = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -486,7 +486,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_LegacyIAccessiblePa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_LegacyIAccessiblePattern_Select_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_legacyIaccessiblePatternSelect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t flagsselect = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -506,7 +506,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_LegacyIAccessiblePa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_LegacyIAccessiblePattern_SetValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_legacyIaccessiblePatternSetValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -526,7 +526,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_LegacyIAccessiblePa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_LresultFromObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_lresultFromObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t wparam = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -548,7 +548,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_LresultFromObject_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_MultipleViewPattern_GetViewName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_multipleViewPatternGetViewName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t viewid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -570,7 +570,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_MultipleViewPattern
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_MultipleViewPattern_SetCurrentView_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_multipleViewPatternSetCurrentView_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t viewid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -590,7 +590,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_MultipleViewPattern
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_NotifyWinEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_notifyWinEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t event = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -613,7 +613,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_NotifyWinEvent_napi
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_ObjectFromLresult_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_objectFromLresult_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t lresult = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -637,7 +637,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_ObjectFromLresult_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_RangeValuePattern_SetValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_rangeValuePatternSetValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     double val = km_info.Length() > 1 ? km_info[1].ToNumber().DoubleValue() : 0.0;
@@ -657,7 +657,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_RangeValuePattern_S
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_RegisterPointerInputTarget_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_registerPointerInputTarget_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t pointertype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -677,7 +677,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_RegisterPointerInpu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_RegisterPointerInputTargetEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_registerPointerInputTargetEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t pointertype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -699,7 +699,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_RegisterPointerInpu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_ScrollItemPattern_ScrollIntoView_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_scrollItemPatternScrollIntoView_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -717,7 +717,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_ScrollItemPattern_S
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_ScrollPattern_Scroll_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_scrollPatternScroll_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t horizontalamount = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -739,7 +739,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_ScrollPattern_Scrol
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_ScrollPattern_SetScrollPercent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_scrollPatternSetScrollPercent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     double horizontalpercent = km_info.Length() > 1 ? km_info[1].ToNumber().DoubleValue() : 0.0;
@@ -761,7 +761,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_ScrollPattern_SetSc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_SelectionItemPattern_AddToSelection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_selectionItemPatternAddToSelection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -779,7 +779,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_SelectionItemPatter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_SelectionItemPattern_RemoveFromSelection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_selectionItemPatternRemoveFromSelection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -797,7 +797,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_SelectionItemPatter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_SelectionItemPattern_Select_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_selectionItemPatternSelect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -815,7 +815,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_SelectionItemPatter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_SetWinEventHook_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_setWinEventHook_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t eventmin = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t eventmax = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -845,7 +845,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_SetWinEventHook_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_SynchronizedInputPattern_Cancel_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_synchronizedInputPatternCancel_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -863,7 +863,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_SynchronizedInputPa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_SynchronizedInputPattern_StartListening_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_synchronizedInputPatternStartListening_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t inputtype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -883,7 +883,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_SynchronizedInputPa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_TextPattern_GetSelection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_textPatternGetSelection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pretval = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -903,7 +903,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_TextPattern_GetSele
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_TextPattern_GetVisibleRanges_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_textPatternGetVisibleRanges_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pretval = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -923,7 +923,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_TextPattern_GetVisi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_TextPattern_RangeFromChild_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_textPatternRangeFromChild_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hnodechild = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -945,7 +945,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_TextPattern_RangeFr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_TextPattern_get_DocumentRange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_textPatternGetDocumentRange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pretval = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -965,7 +965,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_TextPattern_get_Doc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_TextPattern_get_SupportedTextSelection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_textPatternGetSupportedTextSelection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pretval = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -985,7 +985,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_TextPattern_get_Sup
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_TextRange_AddToSelection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_textRangeAddToSelection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1003,7 +1003,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_TextRange_AddToSele
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_TextRange_Clone_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_textRangeClone_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pretval = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1023,7 +1023,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_TextRange_Clone_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_TextRange_Compare_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_textRangeCompare_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* range = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1045,7 +1045,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_TextRange_Compare_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_TextRange_CompareEndpoints_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_textRangeCompareEndpoints_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t endpoint = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1071,7 +1071,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_TextRange_CompareEn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_TextRange_ExpandToEnclosingUnit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_textRangeExpandToEnclosingUnit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t unit = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1091,7 +1091,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_TextRange_ExpandToE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_TextRange_FindText_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_textRangeFindText_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* text = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1117,7 +1117,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_TextRange_FindText_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_TextRange_GetAttributeValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_textRangeGetAttributeValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t attributeid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1139,7 +1139,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_TextRange_GetAttrib
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_TextRange_GetBoundingRectangles_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_textRangeGetBoundingRectangles_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pretval = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1159,7 +1159,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_TextRange_GetBoundi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_TextRange_GetChildren_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_textRangeGetChildren_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pretval = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1179,7 +1179,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_TextRange_GetChildr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_TextRange_GetEnclosingElement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_textRangeGetEnclosingElement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pretval = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1199,7 +1199,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_TextRange_GetEnclos
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_TextRange_GetText_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_textRangeGetText_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t maxlength = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1221,7 +1221,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_TextRange_GetText_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_TextRange_Move_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_textRangeMove_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t unit = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1245,7 +1245,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_TextRange_Move_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_TextRange_MoveEndpointByRange_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_textRangeMoveEndpointByRange_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t endpoint = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1269,7 +1269,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_TextRange_MoveEndpo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_TextRange_MoveEndpointByUnit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_textRangeMoveEndpointByUnit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t endpoint = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1295,7 +1295,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_TextRange_MoveEndpo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_TextRange_RemoveFromSelection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_textRangeRemoveFromSelection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1313,7 +1313,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_TextRange_RemoveFro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_TextRange_ScrollIntoView_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_textRangeScrollIntoView_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t aligntotop = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1333,7 +1333,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_TextRange_ScrollInt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_TextRange_Select_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_textRangeSelect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1351,7 +1351,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_TextRange_Select_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_TogglePattern_Toggle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_togglePatternToggle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1369,7 +1369,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_TogglePattern_Toggl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_TransformPattern_Move_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_transformPatternMove_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     double x = km_info.Length() > 1 ? km_info[1].ToNumber().DoubleValue() : 0.0;
@@ -1391,7 +1391,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_TransformPattern_Mo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_TransformPattern_Resize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_transformPatternResize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     double width = km_info.Length() > 1 ? km_info[1].ToNumber().DoubleValue() : 0.0;
@@ -1413,7 +1413,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_TransformPattern_Re
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_TransformPattern_Rotate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_transformPatternRotate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     double degrees = km_info.Length() > 1 ? km_info[1].ToNumber().DoubleValue() : 0.0;
@@ -1433,7 +1433,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_TransformPattern_Ro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaAddEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaAddEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hnode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t eventid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1465,7 +1465,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaAddEvent_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaClientsAreListening_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaClientsAreListening_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -1481,7 +1481,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaClientsAreListen
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaDisconnectAllProviders_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaDisconnectAllProviders_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -1497,7 +1497,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaDisconnectAllPro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaDisconnectProvider_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaDisconnectProvider_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1515,7 +1515,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaDisconnectProvid
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaEventAddWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaEventAddWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hevent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1535,7 +1535,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaEventAddWindow_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaEventRemoveWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaEventRemoveWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hevent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1555,7 +1555,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaEventRemoveWindo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaFind_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaFind_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hnode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pparams = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1583,7 +1583,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaFind_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaGetErrorDescription_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaGetErrorDescription_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdescription = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1601,7 +1601,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaGetErrorDescript
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaGetPatternProvider_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaGetPatternProvider_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hnode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t patternid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1623,7 +1623,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaGetPatternProvid
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaGetPropertyValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaGetPropertyValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hnode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t propertyid = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1645,7 +1645,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaGetPropertyValue
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaGetReservedMixedAttributeValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaGetReservedMixedAttributeValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punkmixedattributevalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1663,7 +1663,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaGetReservedMixed
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaGetReservedNotSupportedValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaGetReservedNotSupportedValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punknotsupportedvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1681,7 +1681,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaGetReservedNotSu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaGetRootNode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaGetRootNode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phnode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1699,7 +1699,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaGetRootNode_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaGetRuntimeId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaGetRuntimeId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hnode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pruntimeid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1719,7 +1719,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaGetRuntimeId_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaGetUpdatedCache_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaGetUpdatedCache_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hnode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1747,7 +1747,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaGetUpdatedCache_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaHPatternObjectFromVariant_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaHPatternObjectFromVariant_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1767,7 +1767,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaHPatternObjectFr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaHTextRangeFromVariant_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaHTextRangeFromVariant_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phtextrange = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1787,7 +1787,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaHTextRangeFromVa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaHUiaNodeFromVariant_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaHUiaNodeFromVariant_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phnode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1807,7 +1807,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaHUiaNodeFromVari
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaHasServerSideProvider_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaHasServerSideProvider_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1825,7 +1825,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaHasServerSidePro
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaHostProviderFromHwnd_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaHostProviderFromHwnd_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1845,7 +1845,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaHostProviderFrom
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaIAccessibleFromProvider_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaIAccessibleFromProvider_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1869,7 +1869,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaIAccessibleFromP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaLookupId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaLookupId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t type = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1889,7 +1889,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaLookupId_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaNavigate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaNavigate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hnode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t direction = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1917,7 +1917,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaNavigate_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaNodeFromFocus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaNodeFromFocus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprequesteddata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1939,7 +1939,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaNodeFromFocus_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaNodeFromHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaNodeFromHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phnode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1959,7 +1959,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaNodeFromHandle_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaNodeFromPoint_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaNodeFromPoint_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     double x = km_info.Length() > 0 ? km_info[0].ToNumber().DoubleValue() : 0.0;
     double y = km_info.Length() > 1 ? km_info[1].ToNumber().DoubleValue() : 0.0;
@@ -1985,7 +1985,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaNodeFromPoint_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaNodeFromProvider_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaNodeFromProvider_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phnode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2005,7 +2005,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaNodeFromProvider
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaNodeRelease_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaNodeRelease_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hnode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2023,7 +2023,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaNodeRelease_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaPatternRelease_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaPatternRelease_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2041,7 +2041,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaPatternRelease_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaProviderForNonClient_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaProviderForNonClient_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t idobject = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2065,7 +2065,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaProviderForNonCl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaProviderFromIAccessible_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaProviderFromIAccessible_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* paccessible = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t idchild = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2089,7 +2089,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaProviderFromIAcc
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaRaiseActiveTextPositionChangedEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaRaiseActiveTextPositionChangedEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* provider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* textrange = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2109,7 +2109,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaRaiseActiveTextP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaRaiseAsyncContentLoadedEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaRaiseAsyncContentLoadedEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t asynccontentloadedstate = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2131,7 +2131,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaRaiseAsyncConten
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaRaiseAutomationEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaRaiseAutomationEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t id = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2151,7 +2151,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaRaiseAutomationE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaRaiseChangesEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaRaiseChangesEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t eventidcount = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2173,7 +2173,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaRaiseChangesEven
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaRaiseNotificationEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaRaiseNotificationEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* provider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t notificationkind = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2199,7 +2199,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaRaiseNotificatio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaRaiseStructureChangedEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaRaiseStructureChangedEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t structurechangetype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2223,7 +2223,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaRaiseStructureCh
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaRaiseTextEditTextChangedEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaRaiseTextEditTextChangedEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pprovider = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t texteditchangetype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2245,7 +2245,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaRaiseTextEditTex
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaRegisterProviderCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaRegisterProviderCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2262,7 +2262,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaRegisterProvider
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaRemoveEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaRemoveEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hevent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2280,7 +2280,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaRemoveEvent_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaReturnRawElementProvider_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaReturnRawElementProvider_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t wparam = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -2304,7 +2304,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaReturnRawElement
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaSetFocus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaSetFocus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hnode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2322,7 +2322,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaSetFocus_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UiaTextRangeRelease_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_uiaTextRangeRelease_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2340,7 +2340,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UiaTextRangeRelease
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UnhookWinEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_unhookWinEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwineventhook = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2358,7 +2358,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UnhookWinEvent_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UnregisterPointerInputTarget_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_unregisterPointerInputTarget_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t pointertype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2378,7 +2378,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UnregisterPointerIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_UnregisterPointerInputTargetEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_unregisterPointerInputTargetEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t pointertype = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2398,7 +2398,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_UnregisterPointerIn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_ValuePattern_SetValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_valuePatternSetValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pval = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2418,7 +2418,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_ValuePattern_SetVal
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_VirtualizedItemPattern_Realize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_virtualizedItemPatternRealize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2436,7 +2436,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_VirtualizedItemPatt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_WindowFromAccessibleObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_windowFromAccessibleObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2456,7 +2456,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_WindowFromAccessibl
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_WindowPattern_Close_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_windowPatternClose_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2474,7 +2474,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_WindowPattern_Close
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_WindowPattern_SetWindowVisualState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_windowPatternSetWindowVisualState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t state = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2494,7 +2494,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_WindowPattern_SetWi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_accessibility_WindowPattern_WaitForInputIdle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_accessibility_windowPatternWaitForInputIdle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t milliseconds = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2517,123 +2517,123 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_WindowPattern_WaitF
 }
 
 static void register_windows_win32_ui_accessibility_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_ui_accessibility_AccSetRunningUtilityState", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_AccSetRunningUtilityState_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_AccessibleChildren", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_AccessibleChildren_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_AccessibleObjectFromEvent", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_AccessibleObjectFromEvent_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_AccessibleObjectFromWindow", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_AccessibleObjectFromWindow_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_CreateStdAccessibleObject", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_CreateStdAccessibleObject_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_CreateStdAccessibleProxyA", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_CreateStdAccessibleProxyA_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_CreateStdAccessibleProxyW", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_CreateStdAccessibleProxyW_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_DockPattern_SetDockPosition", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_DockPattern_SetDockPosition_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_ExpandCollapsePattern_Collapse", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_ExpandCollapsePattern_Collapse_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_ExpandCollapsePattern_Expand", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_ExpandCollapsePattern_Expand_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_GetOleaccVersionInfo", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_GetOleaccVersionInfo_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_GetRoleTextA", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_GetRoleTextA_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_GetRoleTextW", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_GetRoleTextW_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_GetStateTextA", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_GetStateTextA_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_GetStateTextW", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_GetStateTextW_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_GridPattern_GetItem", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_GridPattern_GetItem_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_InvokePattern_Invoke", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_InvokePattern_Invoke_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_IsWinEventHookInstalled", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_IsWinEventHookInstalled_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_LegacyIAccessiblePattern_DoDefaultAction", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_LegacyIAccessiblePattern_DoDefaultAction_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_LegacyIAccessiblePattern_GetIAccessible", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_LegacyIAccessiblePattern_GetIAccessible_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_LegacyIAccessiblePattern_Select", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_LegacyIAccessiblePattern_Select_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_LegacyIAccessiblePattern_SetValue", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_LegacyIAccessiblePattern_SetValue_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_LresultFromObject", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_LresultFromObject_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_MultipleViewPattern_GetViewName", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_MultipleViewPattern_GetViewName_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_MultipleViewPattern_SetCurrentView", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_MultipleViewPattern_SetCurrentView_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_NotifyWinEvent", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_NotifyWinEvent_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_ObjectFromLresult", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_ObjectFromLresult_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_RangeValuePattern_SetValue", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_RangeValuePattern_SetValue_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_RegisterPointerInputTarget", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_RegisterPointerInputTarget_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_RegisterPointerInputTargetEx", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_RegisterPointerInputTargetEx_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_ScrollItemPattern_ScrollIntoView", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_ScrollItemPattern_ScrollIntoView_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_ScrollPattern_Scroll", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_ScrollPattern_Scroll_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_ScrollPattern_SetScrollPercent", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_ScrollPattern_SetScrollPercent_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_SelectionItemPattern_AddToSelection", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_SelectionItemPattern_AddToSelection_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_SelectionItemPattern_RemoveFromSelection", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_SelectionItemPattern_RemoveFromSelection_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_SelectionItemPattern_Select", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_SelectionItemPattern_Select_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_SetWinEventHook", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_SetWinEventHook_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_SynchronizedInputPattern_Cancel", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_SynchronizedInputPattern_Cancel_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_SynchronizedInputPattern_StartListening", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_SynchronizedInputPattern_StartListening_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_TextPattern_GetSelection", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_TextPattern_GetSelection_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_TextPattern_GetVisibleRanges", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_TextPattern_GetVisibleRanges_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_TextPattern_RangeFromChild", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_TextPattern_RangeFromChild_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_TextPattern_get_DocumentRange", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_TextPattern_get_DocumentRange_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_TextPattern_get_SupportedTextSelection", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_TextPattern_get_SupportedTextSelection_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_TextRange_AddToSelection", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_TextRange_AddToSelection_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_TextRange_Clone", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_TextRange_Clone_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_TextRange_Compare", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_TextRange_Compare_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_TextRange_CompareEndpoints", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_TextRange_CompareEndpoints_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_TextRange_ExpandToEnclosingUnit", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_TextRange_ExpandToEnclosingUnit_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_TextRange_FindText", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_TextRange_FindText_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_TextRange_GetAttributeValue", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_TextRange_GetAttributeValue_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_TextRange_GetBoundingRectangles", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_TextRange_GetBoundingRectangles_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_TextRange_GetChildren", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_TextRange_GetChildren_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_TextRange_GetEnclosingElement", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_TextRange_GetEnclosingElement_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_TextRange_GetText", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_TextRange_GetText_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_TextRange_Move", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_TextRange_Move_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_TextRange_MoveEndpointByRange", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_TextRange_MoveEndpointByRange_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_TextRange_MoveEndpointByUnit", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_TextRange_MoveEndpointByUnit_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_TextRange_RemoveFromSelection", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_TextRange_RemoveFromSelection_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_TextRange_ScrollIntoView", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_TextRange_ScrollIntoView_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_TextRange_Select", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_TextRange_Select_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_TogglePattern_Toggle", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_TogglePattern_Toggle_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_TransformPattern_Move", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_TransformPattern_Move_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_TransformPattern_Resize", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_TransformPattern_Resize_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_TransformPattern_Rotate", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_TransformPattern_Rotate_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaAddEvent", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaAddEvent_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaClientsAreListening", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaClientsAreListening_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaDisconnectAllProviders", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaDisconnectAllProviders_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaDisconnectProvider", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaDisconnectProvider_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaEventAddWindow", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaEventAddWindow_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaEventRemoveWindow", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaEventRemoveWindow_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaFind", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaFind_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaGetErrorDescription", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaGetErrorDescription_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaGetPatternProvider", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaGetPatternProvider_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaGetPropertyValue", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaGetPropertyValue_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaGetReservedMixedAttributeValue", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaGetReservedMixedAttributeValue_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaGetReservedNotSupportedValue", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaGetReservedNotSupportedValue_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaGetRootNode", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaGetRootNode_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaGetRuntimeId", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaGetRuntimeId_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaGetUpdatedCache", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaGetUpdatedCache_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaHPatternObjectFromVariant", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaHPatternObjectFromVariant_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaHTextRangeFromVariant", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaHTextRangeFromVariant_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaHUiaNodeFromVariant", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaHUiaNodeFromVariant_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaHasServerSideProvider", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaHasServerSideProvider_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaHostProviderFromHwnd", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaHostProviderFromHwnd_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaIAccessibleFromProvider", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaIAccessibleFromProvider_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaLookupId", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaLookupId_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaNavigate", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaNavigate_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaNodeFromFocus", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaNodeFromFocus_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaNodeFromHandle", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaNodeFromHandle_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaNodeFromPoint", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaNodeFromPoint_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaNodeFromProvider", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaNodeFromProvider_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaNodeRelease", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaNodeRelease_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaPatternRelease", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaPatternRelease_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaProviderForNonClient", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaProviderForNonClient_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaProviderFromIAccessible", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaProviderFromIAccessible_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaRaiseActiveTextPositionChangedEvent", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaRaiseActiveTextPositionChangedEvent_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaRaiseAsyncContentLoadedEvent", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaRaiseAsyncContentLoadedEvent_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaRaiseAutomationEvent", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaRaiseAutomationEvent_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaRaiseChangesEvent", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaRaiseChangesEvent_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaRaiseNotificationEvent", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaRaiseNotificationEvent_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaRaiseStructureChangedEvent", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaRaiseStructureChangedEvent_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaRaiseTextEditTextChangedEvent", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaRaiseTextEditTextChangedEvent_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaRegisterProviderCallback", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaRegisterProviderCallback_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaRemoveEvent", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaRemoveEvent_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaReturnRawElementProvider", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaReturnRawElementProvider_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaSetFocus", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaSetFocus_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UiaTextRangeRelease", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UiaTextRangeRelease_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UnhookWinEvent", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UnhookWinEvent_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UnregisterPointerInputTarget", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UnregisterPointerInputTarget_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_UnregisterPointerInputTargetEx", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_UnregisterPointerInputTargetEx_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_ValuePattern_SetValue", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_ValuePattern_SetValue_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_VirtualizedItemPattern_Realize", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_VirtualizedItemPattern_Realize_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_WindowFromAccessibleObject", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_WindowFromAccessibleObject_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_WindowPattern_Close", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_WindowPattern_Close_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_WindowPattern_SetWindowVisualState", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_WindowPattern_SetWindowVisualState_napi));
-    exports.Set("windowssys_windows_win32_ui_accessibility_WindowPattern_WaitForInputIdle", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_WindowPattern_WaitForInputIdle_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_accSetRunningUtilityState", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_accSetRunningUtilityState_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_accessibleChildren", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_accessibleChildren_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_accessibleObjectFromEvent", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_accessibleObjectFromEvent_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_accessibleObjectFromWindow", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_accessibleObjectFromWindow_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_createStdAccessibleObject", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_createStdAccessibleObject_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_createStdAccessibleProxyA", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_createStdAccessibleProxyA_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_createStdAccessibleProxyW", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_createStdAccessibleProxyW_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_dockPatternSetDockPosition", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_dockPatternSetDockPosition_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_expandCollapsePatternCollapse", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_expandCollapsePatternCollapse_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_expandCollapsePatternExpand", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_expandCollapsePatternExpand_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_getOleaccVersionInfo", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_getOleaccVersionInfo_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_getRoleTextA", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_getRoleTextA_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_getRoleTextW", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_getRoleTextW_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_getStateTextA", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_getStateTextA_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_getStateTextW", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_getStateTextW_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_gridPatternGetItem", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_gridPatternGetItem_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_invokePatternInvoke", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_invokePatternInvoke_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_isWinEventHookInstalled", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_isWinEventHookInstalled_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_legacyIaccessiblePatternDoDefaultAction", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_legacyIaccessiblePatternDoDefaultAction_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_legacyIaccessiblePatternGetIaccessible", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_legacyIaccessiblePatternGetIaccessible_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_legacyIaccessiblePatternSelect", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_legacyIaccessiblePatternSelect_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_legacyIaccessiblePatternSetValue", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_legacyIaccessiblePatternSetValue_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_lresultFromObject", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_lresultFromObject_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_multipleViewPatternGetViewName", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_multipleViewPatternGetViewName_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_multipleViewPatternSetCurrentView", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_multipleViewPatternSetCurrentView_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_notifyWinEvent", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_notifyWinEvent_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_objectFromLresult", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_objectFromLresult_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_rangeValuePatternSetValue", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_rangeValuePatternSetValue_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_registerPointerInputTarget", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_registerPointerInputTarget_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_registerPointerInputTargetEx", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_registerPointerInputTargetEx_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_scrollItemPatternScrollIntoView", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_scrollItemPatternScrollIntoView_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_scrollPatternScroll", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_scrollPatternScroll_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_scrollPatternSetScrollPercent", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_scrollPatternSetScrollPercent_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_selectionItemPatternAddToSelection", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_selectionItemPatternAddToSelection_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_selectionItemPatternRemoveFromSelection", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_selectionItemPatternRemoveFromSelection_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_selectionItemPatternSelect", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_selectionItemPatternSelect_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_setWinEventHook", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_setWinEventHook_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_synchronizedInputPatternCancel", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_synchronizedInputPatternCancel_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_synchronizedInputPatternStartListening", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_synchronizedInputPatternStartListening_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_textPatternGetSelection", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_textPatternGetSelection_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_textPatternGetVisibleRanges", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_textPatternGetVisibleRanges_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_textPatternRangeFromChild", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_textPatternRangeFromChild_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_textPatternGetDocumentRange", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_textPatternGetDocumentRange_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_textPatternGetSupportedTextSelection", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_textPatternGetSupportedTextSelection_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_textRangeAddToSelection", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_textRangeAddToSelection_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_textRangeClone", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_textRangeClone_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_textRangeCompare", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_textRangeCompare_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_textRangeCompareEndpoints", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_textRangeCompareEndpoints_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_textRangeExpandToEnclosingUnit", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_textRangeExpandToEnclosingUnit_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_textRangeFindText", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_textRangeFindText_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_textRangeGetAttributeValue", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_textRangeGetAttributeValue_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_textRangeGetBoundingRectangles", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_textRangeGetBoundingRectangles_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_textRangeGetChildren", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_textRangeGetChildren_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_textRangeGetEnclosingElement", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_textRangeGetEnclosingElement_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_textRangeGetText", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_textRangeGetText_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_textRangeMove", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_textRangeMove_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_textRangeMoveEndpointByRange", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_textRangeMoveEndpointByRange_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_textRangeMoveEndpointByUnit", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_textRangeMoveEndpointByUnit_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_textRangeRemoveFromSelection", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_textRangeRemoveFromSelection_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_textRangeScrollIntoView", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_textRangeScrollIntoView_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_textRangeSelect", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_textRangeSelect_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_togglePatternToggle", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_togglePatternToggle_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_transformPatternMove", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_transformPatternMove_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_transformPatternResize", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_transformPatternResize_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_transformPatternRotate", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_transformPatternRotate_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaAddEvent", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaAddEvent_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaClientsAreListening", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaClientsAreListening_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaDisconnectAllProviders", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaDisconnectAllProviders_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaDisconnectProvider", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaDisconnectProvider_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaEventAddWindow", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaEventAddWindow_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaEventRemoveWindow", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaEventRemoveWindow_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaFind", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaFind_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaGetErrorDescription", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaGetErrorDescription_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaGetPatternProvider", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaGetPatternProvider_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaGetPropertyValue", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaGetPropertyValue_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaGetReservedMixedAttributeValue", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaGetReservedMixedAttributeValue_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaGetReservedNotSupportedValue", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaGetReservedNotSupportedValue_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaGetRootNode", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaGetRootNode_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaGetRuntimeId", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaGetRuntimeId_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaGetUpdatedCache", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaGetUpdatedCache_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaHPatternObjectFromVariant", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaHPatternObjectFromVariant_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaHTextRangeFromVariant", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaHTextRangeFromVariant_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaHUiaNodeFromVariant", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaHUiaNodeFromVariant_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaHasServerSideProvider", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaHasServerSideProvider_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaHostProviderFromHwnd", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaHostProviderFromHwnd_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaIAccessibleFromProvider", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaIAccessibleFromProvider_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaLookupId", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaLookupId_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaNavigate", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaNavigate_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaNodeFromFocus", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaNodeFromFocus_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaNodeFromHandle", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaNodeFromHandle_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaNodeFromPoint", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaNodeFromPoint_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaNodeFromProvider", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaNodeFromProvider_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaNodeRelease", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaNodeRelease_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaPatternRelease", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaPatternRelease_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaProviderForNonClient", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaProviderForNonClient_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaProviderFromIAccessible", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaProviderFromIAccessible_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaRaiseActiveTextPositionChangedEvent", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaRaiseActiveTextPositionChangedEvent_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaRaiseAsyncContentLoadedEvent", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaRaiseAsyncContentLoadedEvent_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaRaiseAutomationEvent", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaRaiseAutomationEvent_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaRaiseChangesEvent", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaRaiseChangesEvent_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaRaiseNotificationEvent", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaRaiseNotificationEvent_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaRaiseStructureChangedEvent", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaRaiseStructureChangedEvent_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaRaiseTextEditTextChangedEvent", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaRaiseTextEditTextChangedEvent_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaRegisterProviderCallback", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaRegisterProviderCallback_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaRemoveEvent", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaRemoveEvent_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaReturnRawElementProvider", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaReturnRawElementProvider_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaSetFocus", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaSetFocus_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_uiaTextRangeRelease", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_uiaTextRangeRelease_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_unhookWinEvent", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_unhookWinEvent_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_unregisterPointerInputTarget", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_unregisterPointerInputTarget_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_unregisterPointerInputTargetEx", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_unregisterPointerInputTargetEx_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_valuePatternSetValue", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_valuePatternSetValue_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_virtualizedItemPatternRealize", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_virtualizedItemPatternRealize_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_windowFromAccessibleObject", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_windowFromAccessibleObject_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_windowPatternClose", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_windowPatternClose_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_windowPatternSetWindowVisualState", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_windowPatternSetWindowVisualState_napi));
+    exports.Set("windowssys_windows_win32_ui_accessibility_windowPatternWaitForInputIdle", Napi::Function::New(env, windowssys_windows_win32_ui_accessibility_windowPatternWaitForInputIdle_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_ui_accessibility_napi, nullptr };

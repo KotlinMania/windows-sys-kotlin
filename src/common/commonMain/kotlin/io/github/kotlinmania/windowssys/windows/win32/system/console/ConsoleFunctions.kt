@@ -1,201 +1,202 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.console
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
 
-public expect fun AddConsoleAliasA(source: PCSTR, target: PCSTR, exename: PCSTR): BOOL
+public expect fun addConsoleAliasA(source: Pcstr, target: Pcstr, exename: Pcstr): Bool
 
-public expect fun AddConsoleAliasW(source: PCWSTR, target: PCWSTR, exename: PCWSTR): BOOL
+public expect fun addConsoleAliasW(source: Pcwstr, target: Pcwstr, exename: Pcwstr): Bool
 
-public expect fun AllocConsole(): BOOL
+public expect fun allocConsole(): Bool
 
-public expect fun AttachConsole(dwprocessid: UInt): BOOL
+public expect fun attachConsole(dwprocessid: UInt): Bool
 
-public expect fun ClosePseudoConsole(hpc: HPCON)
+public expect fun closePseudoConsole(hpc: Hpcon)
 
-public expect fun ConsoleControl(command: CONSOLECONTROL, consoleinformation: Long, consoleinformationlength: UInt): NTSTATUS
+public expect fun consoleControl(command: Consolecontrol, consoleinformation: COpaquePointer?, consoleinformationlength: UInt): Ntstatus
 
-public expect fun CreateConsoleScreenBuffer(dwdesiredaccess: UInt, dwsharemode: UInt, lpsecurityattributes: Long, dwflags: UInt, lpscreenbufferdata: Long): HANDLE
+public expect fun createConsoleScreenBuffer(dwdesiredaccess: UInt, dwsharemode: UInt, lpsecurityattributes: COpaquePointer?, dwflags: UInt, lpscreenbufferdata: COpaquePointer?): Handle
 
-public expect fun CreatePseudoConsole(size: COORD, hinput: HANDLE, houtput: HANDLE, dwflags: UInt, phpc: Long): HRESULT
+public expect fun createPseudoConsole(size: Coord, hinput: Handle, houtput: Handle, dwflags: UInt, phpc: COpaquePointer?): Hresult
 
-public expect fun ExpungeConsoleCommandHistoryA(exename: PCSTR)
+public expect fun expungeConsoleCommandHistoryA(exename: Pcstr)
 
-public expect fun ExpungeConsoleCommandHistoryW(exename: PCWSTR)
+public expect fun expungeConsoleCommandHistoryW(exename: Pcwstr)
 
-public expect fun FillConsoleOutputAttribute(hconsoleoutput: HANDLE, wattribute: UShort, nlength: UInt, dwwritecoord: COORD, lpnumberofattrswritten: Long): BOOL
+public expect fun fillConsoleOutputAttribute(hconsoleoutput: Handle, wattribute: UShort, nlength: UInt, dwwritecoord: Coord, lpnumberofattrswritten: COpaquePointer?): Bool
 
-public expect fun FillConsoleOutputCharacterA(hconsoleoutput: HANDLE, ccharacter: Byte, nlength: UInt, dwwritecoord: COORD, lpnumberofcharswritten: Long): BOOL
+public expect fun fillConsoleOutputCharacterA(hconsoleoutput: Handle, ccharacter: Byte, nlength: UInt, dwwritecoord: Coord, lpnumberofcharswritten: COpaquePointer?): Bool
 
-public expect fun FillConsoleOutputCharacterW(hconsoleoutput: HANDLE, ccharacter: UShort, nlength: UInt, dwwritecoord: COORD, lpnumberofcharswritten: Long): BOOL
+public expect fun fillConsoleOutputCharacterW(hconsoleoutput: Handle, ccharacter: UShort, nlength: UInt, dwwritecoord: Coord, lpnumberofcharswritten: COpaquePointer?): Bool
 
-public expect fun FlushConsoleInputBuffer(hconsoleinput: HANDLE): BOOL
+public expect fun flushConsoleInputBuffer(hconsoleinput: Handle): Bool
 
-public expect fun FreeConsole(): BOOL
+public expect fun freeConsole(): Bool
 
-public expect fun GenerateConsoleCtrlEvent(dwctrlevent: UInt, dwprocessgroupid: UInt): BOOL
+public expect fun generateConsoleCtrlEvent(dwctrlevent: UInt, dwprocessgroupid: UInt): Bool
 
-public expect fun GetConsoleAliasA(source: PCSTR, targetbuffer: PSTR, targetbufferlength: UInt, exename: PCSTR): UInt
+public expect fun getConsoleAliasA(source: Pcstr, targetbuffer: Pstr, targetbufferlength: UInt, exename: Pcstr): UInt
 
-public expect fun GetConsoleAliasExesA(exenamebuffer: PSTR, exenamebufferlength: UInt): UInt
+public expect fun getConsoleAliasExesA(exenamebuffer: Pstr, exenamebufferlength: UInt): UInt
 
-public expect fun GetConsoleAliasExesLengthA(): UInt
+public expect fun getConsoleAliasExesLengthA(): UInt
 
-public expect fun GetConsoleAliasExesLengthW(): UInt
+public expect fun getConsoleAliasExesLengthW(): UInt
 
-public expect fun GetConsoleAliasExesW(exenamebuffer: PWSTR, exenamebufferlength: UInt): UInt
+public expect fun getConsoleAliasExesW(exenamebuffer: Pwstr, exenamebufferlength: UInt): UInt
 
-public expect fun GetConsoleAliasW(source: PCWSTR, targetbuffer: PWSTR, targetbufferlength: UInt, exename: PCWSTR): UInt
+public expect fun getConsoleAliasW(source: Pcwstr, targetbuffer: Pwstr, targetbufferlength: UInt, exename: Pcwstr): UInt
 
-public expect fun GetConsoleAliasesA(aliasbuffer: PSTR, aliasbufferlength: UInt, exename: PCSTR): UInt
+public expect fun getConsoleAliasesA(aliasbuffer: Pstr, aliasbufferlength: UInt, exename: Pcstr): UInt
 
-public expect fun GetConsoleAliasesLengthA(exename: PCSTR): UInt
+public expect fun getConsoleAliasesLengthA(exename: Pcstr): UInt
 
-public expect fun GetConsoleAliasesLengthW(exename: PCWSTR): UInt
+public expect fun getConsoleAliasesLengthW(exename: Pcwstr): UInt
 
-public expect fun GetConsoleAliasesW(aliasbuffer: PWSTR, aliasbufferlength: UInt, exename: PCWSTR): UInt
+public expect fun getConsoleAliasesW(aliasbuffer: Pwstr, aliasbufferlength: UInt, exename: Pcwstr): UInt
 
-public expect fun GetConsoleCP(): UInt
+public expect fun getConsoleCP(): UInt
 
-public expect fun GetConsoleCommandHistoryA(commands: PSTR, commandbufferlength: UInt, exename: PCSTR): UInt
+public expect fun getConsoleCommandHistoryA(commands: Pstr, commandbufferlength: UInt, exename: Pcstr): UInt
 
-public expect fun GetConsoleCommandHistoryLengthA(exename: PCSTR): UInt
+public expect fun getConsoleCommandHistoryLengthA(exename: Pcstr): UInt
 
-public expect fun GetConsoleCommandHistoryLengthW(exename: PCWSTR): UInt
+public expect fun getConsoleCommandHistoryLengthW(exename: Pcwstr): UInt
 
-public expect fun GetConsoleCommandHistoryW(commands: PWSTR, commandbufferlength: UInt, exename: PCWSTR): UInt
+public expect fun getConsoleCommandHistoryW(commands: Pwstr, commandbufferlength: UInt, exename: Pcwstr): UInt
 
-public expect fun GetConsoleCursorInfo(hconsoleoutput: HANDLE, lpconsolecursorinfo: Long): BOOL
+public expect fun getConsoleCursorInfo(hconsoleoutput: Handle, lpconsolecursorinfo: COpaquePointer?): Bool
 
-public expect fun GetConsoleDisplayMode(lpmodeflags: Long): BOOL
+public expect fun getConsoleDisplayMode(lpmodeflags: COpaquePointer?): Bool
 
-public expect fun GetConsoleFontSize(hconsoleoutput: HANDLE, nfont: UInt): COORD
+public expect fun getConsoleFontSize(hconsoleoutput: Handle, nfont: UInt): Coord
 
-public expect fun GetConsoleHistoryInfo(lpconsolehistoryinfo: Long): BOOL
+public expect fun getConsoleHistoryInfo(lpconsolehistoryinfo: COpaquePointer?): Bool
 
-public expect fun GetConsoleMode(hconsolehandle: HANDLE, lpmode: Long): BOOL
+public expect fun getConsoleMode(hconsolehandle: Handle, lpmode: COpaquePointer?): Bool
 
-public expect fun GetConsoleOriginalTitleA(lpconsoletitle: PSTR, nsize: UInt): UInt
+public expect fun getConsoleOriginalTitleA(lpconsoletitle: Pstr, nsize: UInt): UInt
 
-public expect fun GetConsoleOriginalTitleW(lpconsoletitle: PWSTR, nsize: UInt): UInt
+public expect fun getConsoleOriginalTitleW(lpconsoletitle: Pwstr, nsize: UInt): UInt
 
-public expect fun GetConsoleOutputCP(): UInt
+public expect fun getConsoleOutputCP(): UInt
 
-public expect fun GetConsoleProcessList(lpdwprocesslist: Long, dwprocesscount: UInt): UInt
+public expect fun getConsoleProcessList(lpdwprocesslist: COpaquePointer?, dwprocesscount: UInt): UInt
 
-public expect fun GetConsoleScreenBufferInfo(hconsoleoutput: HANDLE, lpconsolescreenbufferinfo: Long): BOOL
+public expect fun getConsoleScreenBufferInfo(hconsoleoutput: Handle, lpconsolescreenbufferinfo: COpaquePointer?): Bool
 
-public expect fun GetConsoleScreenBufferInfoEx(hconsoleoutput: HANDLE, lpconsolescreenbufferinfoex: Long): BOOL
+public expect fun getConsoleScreenBufferInfoEx(hconsoleoutput: Handle, lpconsolescreenbufferinfoex: COpaquePointer?): Bool
 
-public expect fun GetConsoleSelectionInfo(lpconsoleselectioninfo: Long): BOOL
+public expect fun getConsoleSelectionInfo(lpconsoleselectioninfo: COpaquePointer?): Bool
 
-public expect fun GetConsoleTitleA(lpconsoletitle: PSTR, nsize: UInt): UInt
+public expect fun getConsoleTitleA(lpconsoletitle: Pstr, nsize: UInt): UInt
 
-public expect fun GetConsoleTitleW(lpconsoletitle: PWSTR, nsize: UInt): UInt
+public expect fun getConsoleTitleW(lpconsoletitle: Pwstr, nsize: UInt): UInt
 
-public expect fun GetConsoleWindow(): HWND
+public expect fun getConsoleWindow(): Hwnd
 
-public expect fun GetCurrentConsoleFont(hconsoleoutput: HANDLE, bmaximumwindow: BOOL, lpconsolecurrentfont: Long): BOOL
+public expect fun getCurrentConsoleFont(hconsoleoutput: Handle, bmaximumwindow: Bool, lpconsolecurrentfont: COpaquePointer?): Bool
 
-public expect fun GetCurrentConsoleFontEx(hconsoleoutput: HANDLE, bmaximumwindow: BOOL, lpconsolecurrentfontex: Long): BOOL
+public expect fun getCurrentConsoleFontEx(hconsoleoutput: Handle, bmaximumwindow: Bool, lpconsolecurrentfontex: COpaquePointer?): Bool
 
-public expect fun GetLargestConsoleWindowSize(hconsoleoutput: HANDLE): COORD
+public expect fun getLargestConsoleWindowSize(hconsoleoutput: Handle): Coord
 
-public expect fun GetNumberOfConsoleInputEvents(hconsoleinput: HANDLE, lpnumberofevents: Long): BOOL
+public expect fun getNumberOfConsoleInputEvents(hconsoleinput: Handle, lpnumberofevents: COpaquePointer?): Bool
 
-public expect fun GetNumberOfConsoleMouseButtons(lpnumberofmousebuttons: Long): BOOL
+public expect fun getNumberOfConsoleMouseButtons(lpnumberofmousebuttons: COpaquePointer?): Bool
 
-public expect fun GetStdHandle(nstdhandle: STD_HANDLE): HANDLE
+public expect fun getStdHandle(nstdhandle: StdHandle): Handle
 
-public expect fun PeekConsoleInputA(hconsoleinput: HANDLE, lpbuffer: Long, nlength: UInt, lpnumberofeventsread: Long): BOOL
+public expect fun peekConsoleInputA(hconsoleinput: Handle, lpbuffer: COpaquePointer?, nlength: UInt, lpnumberofeventsread: COpaquePointer?): Bool
 
-public expect fun PeekConsoleInputW(hconsoleinput: HANDLE, lpbuffer: Long, nlength: UInt, lpnumberofeventsread: Long): BOOL
+public expect fun peekConsoleInputW(hconsoleinput: Handle, lpbuffer: COpaquePointer?, nlength: UInt, lpnumberofeventsread: COpaquePointer?): Bool
 
-public expect fun ReadConsoleA(hconsoleinput: HANDLE, lpbuffer: Long, nnumberofcharstoread: UInt, lpnumberofcharsread: Long, pinputcontrol: Long): BOOL
+public expect fun readConsoleA(hconsoleinput: Handle, lpbuffer: COpaquePointer?, nnumberofcharstoread: UInt, lpnumberofcharsread: COpaquePointer?, pinputcontrol: COpaquePointer?): Bool
 
-public expect fun ReadConsoleInputA(hconsoleinput: HANDLE, lpbuffer: Long, nlength: UInt, lpnumberofeventsread: Long): BOOL
+public expect fun readConsoleInputA(hconsoleinput: Handle, lpbuffer: COpaquePointer?, nlength: UInt, lpnumberofeventsread: COpaquePointer?): Bool
 
-public expect fun ReadConsoleInputW(hconsoleinput: HANDLE, lpbuffer: Long, nlength: UInt, lpnumberofeventsread: Long): BOOL
+public expect fun readConsoleInputW(hconsoleinput: Handle, lpbuffer: COpaquePointer?, nlength: UInt, lpnumberofeventsread: COpaquePointer?): Bool
 
-public expect fun ReadConsoleOutputA(hconsoleoutput: HANDLE, lpbuffer: Long, dwbuffersize: COORD, dwbuffercoord: COORD, lpreadregion: Long): BOOL
+public expect fun readConsoleOutputA(hconsoleoutput: Handle, lpbuffer: COpaquePointer?, dwbuffersize: Coord, dwbuffercoord: Coord, lpreadregion: COpaquePointer?): Bool
 
-public expect fun ReadConsoleOutputAttribute(hconsoleoutput: HANDLE, lpattribute: Long, nlength: UInt, dwreadcoord: COORD, lpnumberofattrsread: Long): BOOL
+public expect fun readConsoleOutputAttribute(hconsoleoutput: Handle, lpattribute: COpaquePointer?, nlength: UInt, dwreadcoord: Coord, lpnumberofattrsread: COpaquePointer?): Bool
 
-public expect fun ReadConsoleOutputCharacterA(hconsoleoutput: HANDLE, lpcharacter: PSTR, nlength: UInt, dwreadcoord: COORD, lpnumberofcharsread: Long): BOOL
+public expect fun readConsoleOutputCharacterA(hconsoleoutput: Handle, lpcharacter: Pstr, nlength: UInt, dwreadcoord: Coord, lpnumberofcharsread: COpaquePointer?): Bool
 
-public expect fun ReadConsoleOutputCharacterW(hconsoleoutput: HANDLE, lpcharacter: PWSTR, nlength: UInt, dwreadcoord: COORD, lpnumberofcharsread: Long): BOOL
+public expect fun readConsoleOutputCharacterW(hconsoleoutput: Handle, lpcharacter: Pwstr, nlength: UInt, dwreadcoord: Coord, lpnumberofcharsread: COpaquePointer?): Bool
 
-public expect fun ReadConsoleOutputW(hconsoleoutput: HANDLE, lpbuffer: Long, dwbuffersize: COORD, dwbuffercoord: COORD, lpreadregion: Long): BOOL
+public expect fun readConsoleOutputW(hconsoleoutput: Handle, lpbuffer: COpaquePointer?, dwbuffersize: Coord, dwbuffercoord: Coord, lpreadregion: COpaquePointer?): Bool
 
-public expect fun ReadConsoleW(hconsoleinput: HANDLE, lpbuffer: Long, nnumberofcharstoread: UInt, lpnumberofcharsread: Long, pinputcontrol: Long): BOOL
+public expect fun readConsoleW(hconsoleinput: Handle, lpbuffer: COpaquePointer?, nnumberofcharstoread: UInt, lpnumberofcharsread: COpaquePointer?, pinputcontrol: COpaquePointer?): Bool
 
-public expect fun ResizePseudoConsole(hpc: HPCON, size: COORD): HRESULT
+public expect fun resizePseudoConsole(hpc: Hpcon, size: Coord): Hresult
 
-public expect fun ScrollConsoleScreenBufferA(hconsoleoutput: HANDLE, lpscrollrectangle: Long, lpcliprectangle: Long, dwdestinationorigin: COORD, lpfill: Long): BOOL
+public expect fun scrollConsoleScreenBufferA(hconsoleoutput: Handle, lpscrollrectangle: COpaquePointer?, lpcliprectangle: COpaquePointer?, dwdestinationorigin: Coord, lpfill: COpaquePointer?): Bool
 
-public expect fun ScrollConsoleScreenBufferW(hconsoleoutput: HANDLE, lpscrollrectangle: Long, lpcliprectangle: Long, dwdestinationorigin: COORD, lpfill: Long): BOOL
+public expect fun scrollConsoleScreenBufferW(hconsoleoutput: Handle, lpscrollrectangle: COpaquePointer?, lpcliprectangle: COpaquePointer?, dwdestinationorigin: Coord, lpfill: COpaquePointer?): Bool
 
-public expect fun SetConsoleActiveScreenBuffer(hconsoleoutput: HANDLE): BOOL
+public expect fun setConsoleActiveScreenBuffer(hconsoleoutput: Handle): Bool
 
-public expect fun SetConsoleCP(wcodepageid: UInt): BOOL
+public expect fun setConsoleCP(wcodepageid: UInt): Bool
 
-public expect fun SetConsoleCtrlHandler(handlerroutine: PHANDLER_ROUTINE, add: BOOL): BOOL
+public expect fun setConsoleCtrlHandler(handlerroutine: PhandlerRoutine, add: Bool): Bool
 
-public expect fun SetConsoleCursorInfo(hconsoleoutput: HANDLE, lpconsolecursorinfo: Long): BOOL
+public expect fun setConsoleCursorInfo(hconsoleoutput: Handle, lpconsolecursorinfo: COpaquePointer?): Bool
 
-public expect fun SetConsoleCursorPosition(hconsoleoutput: HANDLE, dwcursorposition: COORD): BOOL
+public expect fun setConsoleCursorPosition(hconsoleoutput: Handle, dwcursorposition: Coord): Bool
 
-public expect fun SetConsoleDisplayMode(hconsoleoutput: HANDLE, dwflags: UInt, lpnewscreenbufferdimensions: Long): BOOL
+public expect fun setConsoleDisplayMode(hconsoleoutput: Handle, dwflags: UInt, lpnewscreenbufferdimensions: COpaquePointer?): Bool
 
-public expect fun SetConsoleHistoryInfo(lpconsolehistoryinfo: Long): BOOL
+public expect fun setConsoleHistoryInfo(lpconsolehistoryinfo: COpaquePointer?): Bool
 
-public expect fun SetConsoleMode(hconsolehandle: HANDLE, dwmode: CONSOLE_MODE): BOOL
+public expect fun setConsoleMode(hconsolehandle: Handle, dwmode: ConsoleMode): Bool
 
-public expect fun SetConsoleNumberOfCommandsA(number: UInt, exename: PCSTR): BOOL
+public expect fun setConsoleNumberOfCommandsA(number: UInt, exename: Pcstr): Bool
 
-public expect fun SetConsoleNumberOfCommandsW(number: UInt, exename: PCWSTR): BOOL
+public expect fun setConsoleNumberOfCommandsW(number: UInt, exename: Pcwstr): Bool
 
-public expect fun SetConsoleOutputCP(wcodepageid: UInt): BOOL
+public expect fun setConsoleOutputCP(wcodepageid: UInt): Bool
 
-public expect fun SetConsoleScreenBufferInfoEx(hconsoleoutput: HANDLE, lpconsolescreenbufferinfoex: Long): BOOL
+public expect fun setConsoleScreenBufferInfoEx(hconsoleoutput: Handle, lpconsolescreenbufferinfoex: COpaquePointer?): Bool
 
-public expect fun SetConsoleScreenBufferSize(hconsoleoutput: HANDLE, dwsize: COORD): BOOL
+public expect fun setConsoleScreenBufferSize(hconsoleoutput: Handle, dwsize: Coord): Bool
 
-public expect fun SetConsoleTextAttribute(hconsoleoutput: HANDLE, wattributes: CONSOLE_CHARACTER_ATTRIBUTES): BOOL
+public expect fun setConsoleTextAttribute(hconsoleoutput: Handle, wattributes: ConsoleCharacterAttributes): Bool
 
-public expect fun SetConsoleTitleA(lpconsoletitle: PCSTR): BOOL
+public expect fun setConsoleTitleA(lpconsoletitle: Pcstr): Bool
 
-public expect fun SetConsoleTitleW(lpconsoletitle: PCWSTR): BOOL
+public expect fun setConsoleTitleW(lpconsoletitle: Pcwstr): Bool
 
-public expect fun SetConsoleWindowInfo(hconsoleoutput: HANDLE, babsolute: BOOL, lpconsolewindow: Long): BOOL
+public expect fun setConsoleWindowInfo(hconsoleoutput: Handle, babsolute: Bool, lpconsolewindow: COpaquePointer?): Bool
 
-public expect fun SetCurrentConsoleFontEx(hconsoleoutput: HANDLE, bmaximumwindow: BOOL, lpconsolecurrentfontex: Long): BOOL
+public expect fun setCurrentConsoleFontEx(hconsoleoutput: Handle, bmaximumwindow: Bool, lpconsolecurrentfontex: COpaquePointer?): Bool
 
-public expect fun SetStdHandle(nstdhandle: STD_HANDLE, hhandle: HANDLE): BOOL
+public expect fun setStdHandle(nstdhandle: StdHandle, hhandle: Handle): Bool
 
-public expect fun SetStdHandleEx(nstdhandle: STD_HANDLE, hhandle: HANDLE, phprevvalue: Long): BOOL
+public expect fun setStdHandleEx(nstdhandle: StdHandle, hhandle: Handle, phprevvalue: COpaquePointer?): Bool
 
-public expect fun WriteConsoleA(hconsoleoutput: HANDLE, lpbuffer: PCSTR, nnumberofcharstowrite: UInt, lpnumberofcharswritten: Long, lpreserved: Long): BOOL
+public expect fun writeConsoleA(hconsoleoutput: Handle, lpbuffer: Pcstr, nnumberofcharstowrite: UInt, lpnumberofcharswritten: COpaquePointer?, lpreserved: COpaquePointer?): Bool
 
-public expect fun WriteConsoleInputA(hconsoleinput: HANDLE, lpbuffer: Long, nlength: UInt, lpnumberofeventswritten: Long): BOOL
+public expect fun writeConsoleInputA(hconsoleinput: Handle, lpbuffer: COpaquePointer?, nlength: UInt, lpnumberofeventswritten: COpaquePointer?): Bool
 
-public expect fun WriteConsoleInputW(hconsoleinput: HANDLE, lpbuffer: Long, nlength: UInt, lpnumberofeventswritten: Long): BOOL
+public expect fun writeConsoleInputW(hconsoleinput: Handle, lpbuffer: COpaquePointer?, nlength: UInt, lpnumberofeventswritten: COpaquePointer?): Bool
 
-public expect fun WriteConsoleOutputA(hconsoleoutput: HANDLE, lpbuffer: Long, dwbuffersize: COORD, dwbuffercoord: COORD, lpwriteregion: Long): BOOL
+public expect fun writeConsoleOutputA(hconsoleoutput: Handle, lpbuffer: COpaquePointer?, dwbuffersize: Coord, dwbuffercoord: Coord, lpwriteregion: COpaquePointer?): Bool
 
-public expect fun WriteConsoleOutputAttribute(hconsoleoutput: HANDLE, lpattribute: Long, nlength: UInt, dwwritecoord: COORD, lpnumberofattrswritten: Long): BOOL
+public expect fun writeConsoleOutputAttribute(hconsoleoutput: Handle, lpattribute: COpaquePointer?, nlength: UInt, dwwritecoord: Coord, lpnumberofattrswritten: COpaquePointer?): Bool
 
-public expect fun WriteConsoleOutputCharacterA(hconsoleoutput: HANDLE, lpcharacter: PCSTR, nlength: UInt, dwwritecoord: COORD, lpnumberofcharswritten: Long): BOOL
+public expect fun writeConsoleOutputCharacterA(hconsoleoutput: Handle, lpcharacter: Pcstr, nlength: UInt, dwwritecoord: Coord, lpnumberofcharswritten: COpaquePointer?): Bool
 
-public expect fun WriteConsoleOutputCharacterW(hconsoleoutput: HANDLE, lpcharacter: PCWSTR, nlength: UInt, dwwritecoord: COORD, lpnumberofcharswritten: Long): BOOL
+public expect fun writeConsoleOutputCharacterW(hconsoleoutput: Handle, lpcharacter: Pcwstr, nlength: UInt, dwwritecoord: Coord, lpnumberofcharswritten: COpaquePointer?): Bool
 
-public expect fun WriteConsoleOutputW(hconsoleoutput: HANDLE, lpbuffer: Long, dwbuffersize: COORD, dwbuffercoord: COORD, lpwriteregion: Long): BOOL
+public expect fun writeConsoleOutputW(hconsoleoutput: Handle, lpbuffer: COpaquePointer?, dwbuffersize: Coord, dwbuffercoord: Coord, lpwriteregion: COpaquePointer?): Bool
 
-public expect fun WriteConsoleW(hconsoleoutput: HANDLE, lpbuffer: PCWSTR, nnumberofcharstowrite: UInt, lpnumberofcharswritten: Long, lpreserved: Long): BOOL
+public expect fun writeConsoleW(hconsoleoutput: Handle, lpbuffer: Pcwstr, nnumberofcharstowrite: UInt, lpnumberofcharswritten: COpaquePointer?, lpreserved: COpaquePointer?): Bool

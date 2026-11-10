@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1AddERExcludedApplicationA(JNIEnv* km_env, jclass km_clazz, jlong szapplication) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1addERExcludedApplicationA(JNIEnv* km_env, jclass km_clazz, jlong szapplication) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -36,7 +36,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1AddERExcludedApplicationW(JNIEnv* km_env, jclass km_clazz, jlong wszapplication) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1addERExcludedApplicationW(JNIEnv* km_env, jclass km_clazz, jlong wszapplication) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -54,7 +54,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1ReportFault(JNIEnv* km_env, jclass km_clazz, jlong pep, jint dwopt) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1reportFault(JNIEnv* km_env, jclass km_clazz, jlong pep, jint dwopt) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -73,7 +73,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1WerAddExcludedApplication(JNIEnv* km_env, jclass km_clazz, jlong pwzexename, jint ballusers) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1werAddExcludedApplication(JNIEnv* km_env, jclass km_clazz, jlong pwzexename, jint ballusers) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -92,7 +92,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1WerFreeString(JNIEnv* km_env, jclass km_clazz, jlong pwszstr) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1werFreeString(JNIEnv* km_env, jclass km_clazz, jlong pwszstr) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -108,7 +108,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1WerGetFlags(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong pdwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1werGetFlags(JNIEnv* km_env, jclass km_clazz, jlong hprocess, jlong pdwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -127,7 +127,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1WerRegisterAdditionalProcess(JNIEnv* km_env, jclass km_clazz, jint processid, jint captureextrainfoforthreadid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1werRegisterAdditionalProcess(JNIEnv* km_env, jclass km_clazz, jint processid, jint captureextrainfoforthreadid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -146,7 +146,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1WerRegisterAppLocalDump(JNIEnv* km_env, jclass km_clazz, jlong localappdatarelativepath) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1werRegisterAppLocalDump(JNIEnv* km_env, jclass km_clazz, jlong localappdatarelativepath) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -164,7 +164,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1WerRegisterCustomMetadata(JNIEnv* km_env, jclass km_clazz, jlong key, jlong value) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1werRegisterCustomMetadata(JNIEnv* km_env, jclass km_clazz, jlong key, jlong value) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -183,7 +183,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1WerRegisterExcludedMemoryBlock(JNIEnv* km_env, jclass km_clazz, jlong address, jint size) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1werRegisterExcludedMemoryBlock(JNIEnv* km_env, jclass km_clazz, jlong address, jint size) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -202,7 +202,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1WerRegisterFile(JNIEnv* km_env, jclass km_clazz, jlong pwzfile, jint regfiletype, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1werRegisterFile(JNIEnv* km_env, jclass km_clazz, jlong pwzfile, jint regfiletype, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -222,7 +222,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1WerRegisterMemoryBlock(JNIEnv* km_env, jclass km_clazz, jlong pvaddress, jint dwsize) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1werRegisterMemoryBlock(JNIEnv* km_env, jclass km_clazz, jlong pvaddress, jint dwsize) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -241,7 +241,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1WerRegisterRuntimeExceptionModule(JNIEnv* km_env, jclass km_clazz, jlong pwszoutofprocesscallbackdll, jlong pcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1werRegisterRuntimeExceptionModule(JNIEnv* km_env, jclass km_clazz, jlong pwszoutofprocesscallbackdll, jlong pcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -260,7 +260,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1WerRemoveExcludedApplication(JNIEnv* km_env, jclass km_clazz, jlong pwzexename, jint ballusers) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1werRemoveExcludedApplication(JNIEnv* km_env, jclass km_clazz, jlong pwzexename, jint ballusers) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -279,7 +279,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1WerReportAddDump(JNIEnv* km_env, jclass km_clazz, jlong hreporthandle, jlong hprocess, jlong hthread, jint dumptype, jlong pexceptionparam, jlong pdumpcustomoptions, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1werReportAddDump(JNIEnv* km_env, jclass km_clazz, jlong hreporthandle, jlong hprocess, jlong hthread, jint dumptype, jlong pexceptionparam, jlong pdumpcustomoptions, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -303,7 +303,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1WerReportAddFile(JNIEnv* km_env, jclass km_clazz, jlong hreporthandle, jlong pwzpath, jint repfiletype, jint dwfileflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1werReportAddFile(JNIEnv* km_env, jclass km_clazz, jlong hreporthandle, jlong pwzpath, jint repfiletype, jint dwfileflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -324,7 +324,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1WerReportCloseHandle(JNIEnv* km_env, jclass km_clazz, jlong hreporthandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1werReportCloseHandle(JNIEnv* km_env, jclass km_clazz, jlong hreporthandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -342,7 +342,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1WerReportCreate(JNIEnv* km_env, jclass km_clazz, jlong pwzeventtype, jint reptype, jlong preportinformation, jlong phreporthandle) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1werReportCreate(JNIEnv* km_env, jclass km_clazz, jlong pwzeventtype, jint reptype, jlong preportinformation, jlong phreporthandle) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -363,7 +363,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1WerReportHang(JNIEnv* km_env, jclass km_clazz, jlong hwndhungapp, jlong pwzhungapplicationname) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1werReportHang(JNIEnv* km_env, jclass km_clazz, jlong hwndhungapp, jlong pwzhungapplicationname) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -382,7 +382,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1WerReportSetParameter(JNIEnv* km_env, jclass km_clazz, jlong hreporthandle, jint dwparamid, jlong pwzname, jlong pwzvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1werReportSetParameter(JNIEnv* km_env, jclass km_clazz, jlong hreporthandle, jint dwparamid, jlong pwzname, jlong pwzvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -403,7 +403,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1WerReportSetUIOption(JNIEnv* km_env, jclass km_clazz, jlong hreporthandle, jint repuitypeid, jlong pwzvalue) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1werReportSetUIOption(JNIEnv* km_env, jclass km_clazz, jlong hreporthandle, jint repuitypeid, jlong pwzvalue) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -423,7 +423,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1WerReportSubmit(JNIEnv* km_env, jclass km_clazz, jlong hreporthandle, jint consent, jint dwflags, jlong psubmitresult) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1werReportSubmit(JNIEnv* km_env, jclass km_clazz, jlong hreporthandle, jint consent, jint dwflags, jlong psubmitresult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -444,7 +444,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1WerSetFlags(JNIEnv* km_env, jclass km_clazz, jint dwflags) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1werSetFlags(JNIEnv* km_env, jclass km_clazz, jint dwflags) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -462,7 +462,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1WerStoreClose(JNIEnv* km_env, jclass km_clazz, jlong hreportstore) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1werStoreClose(JNIEnv* km_env, jclass km_clazz, jlong hreportstore) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -478,7 +478,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1WerStoreGetFirstReportKey(JNIEnv* km_env, jclass km_clazz, jlong hreportstore, jlong ppszreportkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1werStoreGetFirstReportKey(JNIEnv* km_env, jclass km_clazz, jlong hreportstore, jlong ppszreportkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -497,7 +497,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1WerStoreGetNextReportKey(JNIEnv* km_env, jclass km_clazz, jlong hreportstore, jlong ppszreportkey) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1werStoreGetNextReportKey(JNIEnv* km_env, jclass km_clazz, jlong hreportstore, jlong ppszreportkey) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -516,7 +516,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1WerStoreGetReportCount(JNIEnv* km_env, jclass km_clazz, jlong hreportstore, jlong pdwreportcount) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1werStoreGetReportCount(JNIEnv* km_env, jclass km_clazz, jlong hreportstore, jlong pdwreportcount) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -535,7 +535,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1WerStoreGetSizeOnDisk(JNIEnv* km_env, jclass km_clazz, jlong hreportstore, jlong pqwsizeinbytes) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1werStoreGetSizeOnDisk(JNIEnv* km_env, jclass km_clazz, jlong hreportstore, jlong pqwsizeinbytes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -554,7 +554,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1WerStoreOpen(JNIEnv* km_env, jclass km_clazz, jint repstoretype, jlong phreportstore) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1werStoreOpen(JNIEnv* km_env, jclass km_clazz, jint repstoretype, jlong phreportstore) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -573,7 +573,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1WerStorePurge(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1werStorePurge(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -590,7 +590,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1WerStoreQueryReportMetadataV1(JNIEnv* km_env, jclass km_clazz, jlong hreportstore, jlong pszreportkey, jlong preportmetadata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1werStoreQueryReportMetadataV1(JNIEnv* km_env, jclass km_clazz, jlong hreportstore, jlong pszreportkey, jlong preportmetadata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -610,7 +610,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1WerStoreQueryReportMetadataV2(JNIEnv* km_env, jclass km_clazz, jlong hreportstore, jlong pszreportkey, jlong preportmetadata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1werStoreQueryReportMetadataV2(JNIEnv* km_env, jclass km_clazz, jlong hreportstore, jlong pszreportkey, jlong preportmetadata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -630,7 +630,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1WerStoreQueryReportMetadataV3(JNIEnv* km_env, jclass km_clazz, jlong hreportstore, jlong pszreportkey, jlong preportmetadata) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1werStoreQueryReportMetadataV3(JNIEnv* km_env, jclass km_clazz, jlong hreportstore, jlong pszreportkey, jlong preportmetadata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -650,7 +650,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1WerStoreUploadReport(JNIEnv* km_env, jclass km_clazz, jlong hreportstore, jlong pszreportkey, jint dwflags, jlong psubmitresult) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1werStoreUploadReport(JNIEnv* km_env, jclass km_clazz, jlong hreportstore, jlong pszreportkey, jint dwflags, jlong psubmitresult) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -671,7 +671,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1WerUnregisterAdditionalProcess(JNIEnv* km_env, jclass km_clazz, jint processid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1werUnregisterAdditionalProcess(JNIEnv* km_env, jclass km_clazz, jint processid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -689,7 +689,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1WerUnregisterAppLocalDump(JNIEnv* km_env, jclass km_clazz) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1werUnregisterAppLocalDump(JNIEnv* km_env, jclass km_clazz) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -706,7 +706,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1WerUnregisterCustomMetadata(JNIEnv* km_env, jclass km_clazz, jlong key) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1werUnregisterCustomMetadata(JNIEnv* km_env, jclass km_clazz, jlong key) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -724,7 +724,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1WerUnregisterExcludedMemoryBlock(JNIEnv* km_env, jclass km_clazz, jlong address) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1werUnregisterExcludedMemoryBlock(JNIEnv* km_env, jclass km_clazz, jlong address) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -742,7 +742,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1WerUnregisterFile(JNIEnv* km_env, jclass km_clazz, jlong pwzfilepath) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1werUnregisterFile(JNIEnv* km_env, jclass km_clazz, jlong pwzfilepath) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -760,7 +760,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1WerUnregisterMemoryBlock(JNIEnv* km_env, jclass km_clazz, jlong pvaddress) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1werUnregisterMemoryBlock(JNIEnv* km_env, jclass km_clazz, jlong pvaddress) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -778,7 +778,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1WerUnregisterRuntimeExceptionModule(JNIEnv* km_env, jclass km_clazz, jlong pwszoutofprocesscallbackdll, jlong pcontext) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_errorreporting_WindowsWin32SystemErrorreportingJniBridge_windowssys_1windows_1win32_1system_1errorreporting_1werUnregisterRuntimeExceptionModule(JNIEnv* km_env, jclass km_clazz, jlong pwszoutofprocesscallbackdll, jlong pcontext) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

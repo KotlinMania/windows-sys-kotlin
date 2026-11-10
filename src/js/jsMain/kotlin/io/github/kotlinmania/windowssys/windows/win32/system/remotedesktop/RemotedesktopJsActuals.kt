@@ -2,217 +2,222 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.remotedesktop
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.security.OBJECT_SECURITY_INFORMATION
-import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
-import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.MESSAGEBOX_STYLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.security.ObjectSecurityInformation
+import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
+import io.github.kotlinmania.windowssys.windows.win32.ui.windowsandmessaging.MessageboxStyle
 
 private val _windowsWin32SystemRemotedesktopNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun ProcessIdToSessionId(dwprocessid: UInt, psessionid: Long): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_ProcessIdToSessionId(dwprocessid.toInt(), psessionid.toString()) as Int) else 0
+public actual fun processIdToSessionId(dwprocessid: UInt, psessionid: COpaquePointer?): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_processIdToSessionId(dwprocessid.toInt(), (psessionid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSCloseServer(hserver: HANDLE) {
+public actual fun wTSCloseServer(hserver: Handle) {
     if (_windowsWin32SystemRemotedesktopNapiAddon != null) {
-        _windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSCloseServer(hserver.toString())
+        _windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSCloseServer((hserver?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun WTSConnectSessionA(logonid: UInt, targetlogonid: UInt, ppassword: PCSTR, bwait: BOOL): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSConnectSessionA(logonid.toInt(), targetlogonid.toInt(), ppassword.toString(), bwait) as Int) else 0
+public actual fun wTSConnectSessionA(logonid: UInt, targetlogonid: UInt, ppassword: Pcstr, bwait: Bool): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSConnectSessionA(logonid.toInt(), targetlogonid.toInt(), (ppassword?.value ?: 0L).toString(), bwait) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSConnectSessionW(logonid: UInt, targetlogonid: UInt, ppassword: PCWSTR, bwait: BOOL): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSConnectSessionW(logonid.toInt(), targetlogonid.toInt(), ppassword.toString(), bwait) as Int) else 0
+public actual fun wTSConnectSessionW(logonid: UInt, targetlogonid: UInt, ppassword: Pcwstr, bwait: Bool): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSConnectSessionW(logonid.toInt(), targetlogonid.toInt(), (ppassword?.value ?: 0L).toString(), bwait) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSCreateListenerA(hserver: HANDLE, preserved: Long, reserved: UInt, plistenername: PCSTR, pbuffer: Long, flag: UInt): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSCreateListenerA(hserver.toString(), preserved.toString(), reserved.toInt(), plistenername.toString(), pbuffer.toString(), flag.toInt()) as Int) else 0
+public actual fun wTSCreateListenerA(hserver: Handle, preserved: COpaquePointer?, reserved: UInt, plistenername: Pcstr, pbuffer: COpaquePointer?, flag: UInt): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSCreateListenerA((hserver?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString(), reserved.toInt(), (plistenername?.value ?: 0L).toString(), (pbuffer?.value ?: 0L).toString(), flag.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSCreateListenerW(hserver: HANDLE, preserved: Long, reserved: UInt, plistenername: PCWSTR, pbuffer: Long, flag: UInt): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSCreateListenerW(hserver.toString(), preserved.toString(), reserved.toInt(), plistenername.toString(), pbuffer.toString(), flag.toInt()) as Int) else 0
+public actual fun wTSCreateListenerW(hserver: Handle, preserved: COpaquePointer?, reserved: UInt, plistenername: Pcwstr, pbuffer: COpaquePointer?, flag: UInt): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSCreateListenerW((hserver?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString(), reserved.toInt(), (plistenername?.value ?: 0L).toString(), (pbuffer?.value ?: 0L).toString(), flag.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSDisconnectSession(hserver: HANDLE, sessionid: UInt, bwait: BOOL): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSDisconnectSession(hserver.toString(), sessionid.toInt(), bwait) as Int) else 0
+public actual fun wTSDisconnectSession(hserver: Handle, sessionid: UInt, bwait: Bool): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSDisconnectSession((hserver?.value ?: 0L).toString(), sessionid.toInt(), bwait) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSEnableChildSessions(benable: BOOL): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSEnableChildSessions(benable) as Int) else 0
+public actual fun wTSEnableChildSessions(benable: Bool): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSEnableChildSessions(benable) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSEnumerateListenersA(hserver: HANDLE, preserved: Long, reserved: UInt, plisteners: Long, pcount: Long): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSEnumerateListenersA(hserver.toString(), preserved.toString(), reserved.toInt(), plisteners.toString(), pcount.toString()) as Int) else 0
+public actual fun wTSEnumerateListenersA(hserver: Handle, preserved: COpaquePointer?, reserved: UInt, plisteners: COpaquePointer?, pcount: COpaquePointer?): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSEnumerateListenersA((hserver?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString(), reserved.toInt(), (plisteners?.value ?: 0L).toString(), (pcount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSEnumerateListenersW(hserver: HANDLE, preserved: Long, reserved: UInt, plisteners: Long, pcount: Long): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSEnumerateListenersW(hserver.toString(), preserved.toString(), reserved.toInt(), plisteners.toString(), pcount.toString()) as Int) else 0
+public actual fun wTSEnumerateListenersW(hserver: Handle, preserved: COpaquePointer?, reserved: UInt, plisteners: COpaquePointer?, pcount: COpaquePointer?): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSEnumerateListenersW((hserver?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString(), reserved.toInt(), (plisteners?.value ?: 0L).toString(), (pcount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSEnumerateProcessesA(hserver: HANDLE, reserved: UInt, version: UInt, ppprocessinfo: Long, pcount: Long): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSEnumerateProcessesA(hserver.toString(), reserved.toInt(), version.toInt(), ppprocessinfo.toString(), pcount.toString()) as Int) else 0
+public actual fun wTSEnumerateProcessesA(hserver: Handle, reserved: UInt, version: UInt, ppprocessinfo: COpaquePointer?, pcount: COpaquePointer?): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSEnumerateProcessesA((hserver?.value ?: 0L).toString(), reserved.toInt(), version.toInt(), (ppprocessinfo?.value ?: 0L).toString(), (pcount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSEnumerateProcessesExA(hserver: HANDLE, plevel: Long, sessionid: UInt, ppprocessinfo: Long, pcount: Long): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSEnumerateProcessesExA(hserver.toString(), plevel.toString(), sessionid.toInt(), ppprocessinfo.toString(), pcount.toString()) as Int) else 0
+public actual fun wTSEnumerateProcessesExA(hserver: Handle, plevel: COpaquePointer?, sessionid: UInt, ppprocessinfo: COpaquePointer?, pcount: COpaquePointer?): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSEnumerateProcessesExA((hserver?.value ?: 0L).toString(), (plevel?.value ?: 0L).toString(), sessionid.toInt(), (ppprocessinfo?.value ?: 0L).toString(), (pcount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSEnumerateProcessesExW(hserver: HANDLE, plevel: Long, sessionid: UInt, ppprocessinfo: Long, pcount: Long): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSEnumerateProcessesExW(hserver.toString(), plevel.toString(), sessionid.toInt(), ppprocessinfo.toString(), pcount.toString()) as Int) else 0
+public actual fun wTSEnumerateProcessesExW(hserver: Handle, plevel: COpaquePointer?, sessionid: UInt, ppprocessinfo: COpaquePointer?, pcount: COpaquePointer?): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSEnumerateProcessesExW((hserver?.value ?: 0L).toString(), (plevel?.value ?: 0L).toString(), sessionid.toInt(), (ppprocessinfo?.value ?: 0L).toString(), (pcount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSEnumerateProcessesW(hserver: HANDLE, reserved: UInt, version: UInt, ppprocessinfo: Long, pcount: Long): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSEnumerateProcessesW(hserver.toString(), reserved.toInt(), version.toInt(), ppprocessinfo.toString(), pcount.toString()) as Int) else 0
+public actual fun wTSEnumerateProcessesW(hserver: Handle, reserved: UInt, version: UInt, ppprocessinfo: COpaquePointer?, pcount: COpaquePointer?): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSEnumerateProcessesW((hserver?.value ?: 0L).toString(), reserved.toInt(), version.toInt(), (ppprocessinfo?.value ?: 0L).toString(), (pcount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSEnumerateServersA(pdomainname: PCSTR, reserved: UInt, version: UInt, ppserverinfo: Long, pcount: Long): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSEnumerateServersA(pdomainname.toString(), reserved.toInt(), version.toInt(), ppserverinfo.toString(), pcount.toString()) as Int) else 0
+public actual fun wTSEnumerateServersA(pdomainname: Pcstr, reserved: UInt, version: UInt, ppserverinfo: COpaquePointer?, pcount: COpaquePointer?): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSEnumerateServersA((pdomainname?.value ?: 0L).toString(), reserved.toInt(), version.toInt(), (ppserverinfo?.value ?: 0L).toString(), (pcount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSEnumerateServersW(pdomainname: PCWSTR, reserved: UInt, version: UInt, ppserverinfo: Long, pcount: Long): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSEnumerateServersW(pdomainname.toString(), reserved.toInt(), version.toInt(), ppserverinfo.toString(), pcount.toString()) as Int) else 0
+public actual fun wTSEnumerateServersW(pdomainname: Pcwstr, reserved: UInt, version: UInt, ppserverinfo: COpaquePointer?, pcount: COpaquePointer?): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSEnumerateServersW((pdomainname?.value ?: 0L).toString(), reserved.toInt(), version.toInt(), (ppserverinfo?.value ?: 0L).toString(), (pcount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSEnumerateSessionsA(hserver: HANDLE, reserved: UInt, version: UInt, ppsessioninfo: Long, pcount: Long): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSEnumerateSessionsA(hserver.toString(), reserved.toInt(), version.toInt(), ppsessioninfo.toString(), pcount.toString()) as Int) else 0
+public actual fun wTSEnumerateSessionsA(hserver: Handle, reserved: UInt, version: UInt, ppsessioninfo: COpaquePointer?, pcount: COpaquePointer?): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSEnumerateSessionsA((hserver?.value ?: 0L).toString(), reserved.toInt(), version.toInt(), (ppsessioninfo?.value ?: 0L).toString(), (pcount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSEnumerateSessionsExA(hserver: HANDLE, plevel: Long, filter: UInt, ppsessioninfo: Long, pcount: Long): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSEnumerateSessionsExA(hserver.toString(), plevel.toString(), filter.toInt(), ppsessioninfo.toString(), pcount.toString()) as Int) else 0
+public actual fun wTSEnumerateSessionsExA(hserver: Handle, plevel: COpaquePointer?, filter: UInt, ppsessioninfo: COpaquePointer?, pcount: COpaquePointer?): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSEnumerateSessionsExA((hserver?.value ?: 0L).toString(), (plevel?.value ?: 0L).toString(), filter.toInt(), (ppsessioninfo?.value ?: 0L).toString(), (pcount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSEnumerateSessionsExW(hserver: HANDLE, plevel: Long, filter: UInt, ppsessioninfo: Long, pcount: Long): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSEnumerateSessionsExW(hserver.toString(), plevel.toString(), filter.toInt(), ppsessioninfo.toString(), pcount.toString()) as Int) else 0
+public actual fun wTSEnumerateSessionsExW(hserver: Handle, plevel: COpaquePointer?, filter: UInt, ppsessioninfo: COpaquePointer?, pcount: COpaquePointer?): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSEnumerateSessionsExW((hserver?.value ?: 0L).toString(), (plevel?.value ?: 0L).toString(), filter.toInt(), (ppsessioninfo?.value ?: 0L).toString(), (pcount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSEnumerateSessionsW(hserver: HANDLE, reserved: UInt, version: UInt, ppsessioninfo: Long, pcount: Long): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSEnumerateSessionsW(hserver.toString(), reserved.toInt(), version.toInt(), ppsessioninfo.toString(), pcount.toString()) as Int) else 0
+public actual fun wTSEnumerateSessionsW(hserver: Handle, reserved: UInt, version: UInt, ppsessioninfo: COpaquePointer?, pcount: COpaquePointer?): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSEnumerateSessionsW((hserver?.value ?: 0L).toString(), reserved.toInt(), version.toInt(), (ppsessioninfo?.value ?: 0L).toString(), (pcount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSFreeMemory(pmemory: Long) {
+public actual fun wTSFreeMemory(pmemory: COpaquePointer?) {
     if (_windowsWin32SystemRemotedesktopNapiAddon != null) {
-        _windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSFreeMemory(pmemory.toString())
+        _windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSFreeMemory((pmemory?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun WTSFreeMemoryExA(wtstypeclass: WTS_TYPE_CLASS, pmemory: Long, numberofentries: UInt): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSFreeMemoryExA(wtstypeclass, pmemory.toString(), numberofentries.toInt()) as Int) else 0
+public actual fun wTSFreeMemoryExA(wtstypeclass: WtsTypeClass, pmemory: COpaquePointer?, numberofentries: UInt): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSFreeMemoryExA(wtstypeclass, (pmemory?.value ?: 0L).toString(), numberofentries.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSFreeMemoryExW(wtstypeclass: WTS_TYPE_CLASS, pmemory: Long, numberofentries: UInt): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSFreeMemoryExW(wtstypeclass, pmemory.toString(), numberofentries.toInt()) as Int) else 0
+public actual fun wTSFreeMemoryExW(wtstypeclass: WtsTypeClass, pmemory: COpaquePointer?, numberofentries: UInt): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSFreeMemoryExW(wtstypeclass, (pmemory?.value ?: 0L).toString(), numberofentries.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSGetActiveConsoleSessionId(): UInt =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSGetActiveConsoleSessionId() as Int).toUInt() else 0u
+public actual fun wTSGetActiveConsoleSessionId(): UInt =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSGetActiveConsoleSessionId() as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSGetChildSessionId(psessionid: Long): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSGetChildSessionId(psessionid.toString()) as Int) else 0
+public actual fun wTSGetChildSessionId(psessionid: COpaquePointer?): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSGetChildSessionId((psessionid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSGetListenerSecurityA(hserver: HANDLE, preserved: Long, reserved: UInt, plistenername: PCSTR, securityinformation: OBJECT_SECURITY_INFORMATION, psecuritydescriptor: PSECURITY_DESCRIPTOR, nlength: UInt, lpnlengthneeded: Long): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSGetListenerSecurityA(hserver.toString(), preserved.toString(), reserved.toInt(), plistenername.toString(), securityinformation.toInt(), psecuritydescriptor.toString(), nlength.toInt(), lpnlengthneeded.toString()) as Int) else 0
+public actual fun wTSGetListenerSecurityA(hserver: Handle, preserved: COpaquePointer?, reserved: UInt, plistenername: Pcstr, securityinformation: ObjectSecurityInformation, psecuritydescriptor: PsecurityDescriptor, nlength: UInt, lpnlengthneeded: COpaquePointer?): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSGetListenerSecurityA((hserver?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString(), reserved.toInt(), (plistenername?.value ?: 0L).toString(), securityinformation.toInt(), (psecuritydescriptor?.value ?: 0L).toString(), nlength.toInt(), (lpnlengthneeded?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSGetListenerSecurityW(hserver: HANDLE, preserved: Long, reserved: UInt, plistenername: PCWSTR, securityinformation: OBJECT_SECURITY_INFORMATION, psecuritydescriptor: PSECURITY_DESCRIPTOR, nlength: UInt, lpnlengthneeded: Long): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSGetListenerSecurityW(hserver.toString(), preserved.toString(), reserved.toInt(), plistenername.toString(), securityinformation.toInt(), psecuritydescriptor.toString(), nlength.toInt(), lpnlengthneeded.toString()) as Int) else 0
+public actual fun wTSGetListenerSecurityW(hserver: Handle, preserved: COpaquePointer?, reserved: UInt, plistenername: Pcwstr, securityinformation: ObjectSecurityInformation, psecuritydescriptor: PsecurityDescriptor, nlength: UInt, lpnlengthneeded: COpaquePointer?): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSGetListenerSecurityW((hserver?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString(), reserved.toInt(), (plistenername?.value ?: 0L).toString(), securityinformation.toInt(), (psecuritydescriptor?.value ?: 0L).toString(), nlength.toInt(), (lpnlengthneeded?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSIsChildSessionsEnabled(pbenabled: Long): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSIsChildSessionsEnabled(pbenabled.toString()) as Int) else 0
+public actual fun wTSIsChildSessionsEnabled(pbenabled: COpaquePointer?): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSIsChildSessionsEnabled((pbenabled?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSLogoffSession(hserver: HANDLE, sessionid: UInt, bwait: BOOL): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSLogoffSession(hserver.toString(), sessionid.toInt(), bwait) as Int) else 0
+public actual fun wTSLogoffSession(hserver: Handle, sessionid: UInt, bwait: Bool): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSLogoffSession((hserver?.value ?: 0L).toString(), sessionid.toInt(), bwait) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSOpenServerA(pservername: PCSTR): HANDLE =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSOpenServerA(pservername.toString()) as String).toLong() else 0L
+public actual fun wTSOpenServerA(pservername: Pcstr): Handle =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSOpenServerA((pservername?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSOpenServerExA(pservername: PCSTR): HANDLE =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSOpenServerExA(pservername.toString()) as String).toLong() else 0L
+public actual fun wTSOpenServerExA(pservername: Pcstr): Handle =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSOpenServerExA((pservername?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSOpenServerExW(pservername: PCWSTR): HANDLE =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSOpenServerExW(pservername.toString()) as String).toLong() else 0L
+public actual fun wTSOpenServerExW(pservername: Pcwstr): Handle =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSOpenServerExW((pservername?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSOpenServerW(pservername: PCWSTR): HANDLE =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSOpenServerW(pservername.toString()) as String).toLong() else 0L
+public actual fun wTSOpenServerW(pservername: Pcwstr): Handle =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSOpenServerW((pservername?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSQueryListenerConfigA(hserver: HANDLE, preserved: Long, reserved: UInt, plistenername: PCSTR, pbuffer: Long): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSQueryListenerConfigA(hserver.toString(), preserved.toString(), reserved.toInt(), plistenername.toString(), pbuffer.toString()) as Int) else 0
+public actual fun wTSQueryListenerConfigA(hserver: Handle, preserved: COpaquePointer?, reserved: UInt, plistenername: Pcstr, pbuffer: COpaquePointer?): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSQueryListenerConfigA((hserver?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString(), reserved.toInt(), (plistenername?.value ?: 0L).toString(), (pbuffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSQueryListenerConfigW(hserver: HANDLE, preserved: Long, reserved: UInt, plistenername: PCWSTR, pbuffer: Long): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSQueryListenerConfigW(hserver.toString(), preserved.toString(), reserved.toInt(), plistenername.toString(), pbuffer.toString()) as Int) else 0
+public actual fun wTSQueryListenerConfigW(hserver: Handle, preserved: COpaquePointer?, reserved: UInt, plistenername: Pcwstr, pbuffer: COpaquePointer?): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSQueryListenerConfigW((hserver?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString(), reserved.toInt(), (plistenername?.value ?: 0L).toString(), (pbuffer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSQuerySessionInformationA(hserver: HANDLE, sessionid: UInt, wtsinfoclass: WTS_INFO_CLASS, ppbuffer: Long, pbytesreturned: Long): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSQuerySessionInformationA(hserver.toString(), sessionid.toInt(), wtsinfoclass, ppbuffer.toString(), pbytesreturned.toString()) as Int) else 0
+public actual fun wTSQuerySessionInformationA(hserver: Handle, sessionid: UInt, wtsinfoclass: WtsInfoClass, ppbuffer: COpaquePointer?, pbytesreturned: COpaquePointer?): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSQuerySessionInformationA((hserver?.value ?: 0L).toString(), sessionid.toInt(), wtsinfoclass, (ppbuffer?.value ?: 0L).toString(), (pbytesreturned?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSQuerySessionInformationW(hserver: HANDLE, sessionid: UInt, wtsinfoclass: WTS_INFO_CLASS, ppbuffer: Long, pbytesreturned: Long): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSQuerySessionInformationW(hserver.toString(), sessionid.toInt(), wtsinfoclass, ppbuffer.toString(), pbytesreturned.toString()) as Int) else 0
+public actual fun wTSQuerySessionInformationW(hserver: Handle, sessionid: UInt, wtsinfoclass: WtsInfoClass, ppbuffer: COpaquePointer?, pbytesreturned: COpaquePointer?): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSQuerySessionInformationW((hserver?.value ?: 0L).toString(), sessionid.toInt(), wtsinfoclass, (ppbuffer?.value ?: 0L).toString(), (pbytesreturned?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSQueryUserConfigA(pservername: PCSTR, pusername: PCSTR, wtsconfigclass: WTS_CONFIG_CLASS, ppbuffer: Long, pbytesreturned: Long): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSQueryUserConfigA(pservername.toString(), pusername.toString(), wtsconfigclass, ppbuffer.toString(), pbytesreturned.toString()) as Int) else 0
+public actual fun wTSQueryUserConfigA(pservername: Pcstr, pusername: Pcstr, wtsconfigclass: WtsConfigClass, ppbuffer: COpaquePointer?, pbytesreturned: COpaquePointer?): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSQueryUserConfigA((pservername?.value ?: 0L).toString(), (pusername?.value ?: 0L).toString(), wtsconfigclass, (ppbuffer?.value ?: 0L).toString(), (pbytesreturned?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSQueryUserConfigW(pservername: PCWSTR, pusername: PCWSTR, wtsconfigclass: WTS_CONFIG_CLASS, ppbuffer: Long, pbytesreturned: Long): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSQueryUserConfigW(pservername.toString(), pusername.toString(), wtsconfigclass, ppbuffer.toString(), pbytesreturned.toString()) as Int) else 0
+public actual fun wTSQueryUserConfigW(pservername: Pcwstr, pusername: Pcwstr, wtsconfigclass: WtsConfigClass, ppbuffer: COpaquePointer?, pbytesreturned: COpaquePointer?): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSQueryUserConfigW((pservername?.value ?: 0L).toString(), (pusername?.value ?: 0L).toString(), wtsconfigclass, (ppbuffer?.value ?: 0L).toString(), (pbytesreturned?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSQueryUserToken(sessionid: UInt, phtoken: Long): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSQueryUserToken(sessionid.toInt(), phtoken.toString()) as Int) else 0
+public actual fun wTSQueryUserToken(sessionid: UInt, phtoken: COpaquePointer?): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSQueryUserToken(sessionid.toInt(), (phtoken?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSRegisterSessionNotification(hwnd: HWND, dwflags: UInt): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSRegisterSessionNotification(hwnd.toString(), dwflags.toInt()) as Int) else 0
+public actual fun wTSRegisterSessionNotification(hwnd: Hwnd, dwflags: UInt): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSRegisterSessionNotification((hwnd?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSRegisterSessionNotificationEx(hserver: HANDLE, hwnd: HWND, dwflags: UInt): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSRegisterSessionNotificationEx(hserver.toString(), hwnd.toString(), dwflags.toInt()) as Int) else 0
+public actual fun wTSRegisterSessionNotificationEx(hserver: Handle, hwnd: Hwnd, dwflags: UInt): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSRegisterSessionNotificationEx((hserver?.value ?: 0L).toString(), (hwnd?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSSendMessageA(hserver: HANDLE, sessionid: UInt, ptitle: PCSTR, titlelength: UInt, pmessage: PCSTR, messagelength: UInt, style: MESSAGEBOX_STYLE, timeout: UInt, presponse: Long, bwait: BOOL): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSSendMessageA(hserver.toString(), sessionid.toInt(), ptitle.toString(), titlelength.toInt(), pmessage.toString(), messagelength.toInt(), style.toInt(), timeout.toInt(), presponse.toString(), bwait) as Int) else 0
+public actual fun wTSSendMessageA(hserver: Handle, sessionid: UInt, ptitle: Pcstr, titlelength: UInt, pmessage: Pcstr, messagelength: UInt, style: MessageboxStyle, timeout: UInt, presponse: COpaquePointer?, bwait: Bool): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSSendMessageA((hserver?.value ?: 0L).toString(), sessionid.toInt(), (ptitle?.value ?: 0L).toString(), titlelength.toInt(), (pmessage?.value ?: 0L).toString(), messagelength.toInt(), style.toInt(), timeout.toInt(), (presponse?.value ?: 0L).toString(), bwait) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSSendMessageW(hserver: HANDLE, sessionid: UInt, ptitle: PCWSTR, titlelength: UInt, pmessage: PCWSTR, messagelength: UInt, style: MESSAGEBOX_STYLE, timeout: UInt, presponse: Long, bwait: BOOL): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSSendMessageW(hserver.toString(), sessionid.toInt(), ptitle.toString(), titlelength.toInt(), pmessage.toString(), messagelength.toInt(), style.toInt(), timeout.toInt(), presponse.toString(), bwait) as Int) else 0
+public actual fun wTSSendMessageW(hserver: Handle, sessionid: UInt, ptitle: Pcwstr, titlelength: UInt, pmessage: Pcwstr, messagelength: UInt, style: MessageboxStyle, timeout: UInt, presponse: COpaquePointer?, bwait: Bool): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSSendMessageW((hserver?.value ?: 0L).toString(), sessionid.toInt(), (ptitle?.value ?: 0L).toString(), titlelength.toInt(), (pmessage?.value ?: 0L).toString(), messagelength.toInt(), style.toInt(), timeout.toInt(), (presponse?.value ?: 0L).toString(), bwait) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSSetListenerSecurityA(hserver: HANDLE, preserved: Long, reserved: UInt, plistenername: PCSTR, securityinformation: OBJECT_SECURITY_INFORMATION, psecuritydescriptor: PSECURITY_DESCRIPTOR): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSSetListenerSecurityA(hserver.toString(), preserved.toString(), reserved.toInt(), plistenername.toString(), securityinformation.toInt(), psecuritydescriptor.toString()) as Int) else 0
+public actual fun wTSSetListenerSecurityA(hserver: Handle, preserved: COpaquePointer?, reserved: UInt, plistenername: Pcstr, securityinformation: ObjectSecurityInformation, psecuritydescriptor: PsecurityDescriptor): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSSetListenerSecurityA((hserver?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString(), reserved.toInt(), (plistenername?.value ?: 0L).toString(), securityinformation.toInt(), (psecuritydescriptor?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSSetListenerSecurityW(hserver: HANDLE, preserved: Long, reserved: UInt, plistenername: PCWSTR, securityinformation: OBJECT_SECURITY_INFORMATION, psecuritydescriptor: PSECURITY_DESCRIPTOR): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSSetListenerSecurityW(hserver.toString(), preserved.toString(), reserved.toInt(), plistenername.toString(), securityinformation.toInt(), psecuritydescriptor.toString()) as Int) else 0
+public actual fun wTSSetListenerSecurityW(hserver: Handle, preserved: COpaquePointer?, reserved: UInt, plistenername: Pcwstr, securityinformation: ObjectSecurityInformation, psecuritydescriptor: PsecurityDescriptor): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSSetListenerSecurityW((hserver?.value ?: 0L).toString(), (preserved?.value ?: 0L).toString(), reserved.toInt(), (plistenername?.value ?: 0L).toString(), securityinformation.toInt(), (psecuritydescriptor?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSSetRenderHint(prenderhintid: Long, hwndowner: HWND, renderhinttype: UInt, cbhintdatalength: UInt, phintdata: Long): HRESULT =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSSetRenderHint(prenderhintid.toString(), hwndowner.toString(), renderhinttype.toInt(), cbhintdatalength.toInt(), phintdata.toString()) as Int) else 0
+public actual fun wTSSetRenderHint(prenderhintid: COpaquePointer?, hwndowner: Hwnd, renderhinttype: UInt, cbhintdatalength: UInt, phintdata: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSSetRenderHint((prenderhintid?.value ?: 0L).toString(), (hwndowner?.value ?: 0L).toString(), renderhinttype.toInt(), cbhintdatalength.toInt(), (phintdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSSetUserConfigA(pservername: PCSTR, pusername: PCSTR, wtsconfigclass: WTS_CONFIG_CLASS, pbuffer: PCSTR, datalength: UInt): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSSetUserConfigA(pservername.toString(), pusername.toString(), wtsconfigclass, pbuffer.toString(), datalength.toInt()) as Int) else 0
+public actual fun wTSSetUserConfigA(pservername: Pcstr, pusername: Pcstr, wtsconfigclass: WtsConfigClass, pbuffer: Pcstr, datalength: UInt): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSSetUserConfigA((pservername?.value ?: 0L).toString(), (pusername?.value ?: 0L).toString(), wtsconfigclass, (pbuffer?.value ?: 0L).toString(), datalength.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSSetUserConfigW(pservername: PCWSTR, pusername: PCWSTR, wtsconfigclass: WTS_CONFIG_CLASS, pbuffer: PCWSTR, datalength: UInt): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSSetUserConfigW(pservername.toString(), pusername.toString(), wtsconfigclass, pbuffer.toString(), datalength.toInt()) as Int) else 0
+public actual fun wTSSetUserConfigW(pservername: Pcwstr, pusername: Pcwstr, wtsconfigclass: WtsConfigClass, pbuffer: Pcwstr, datalength: UInt): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSSetUserConfigW((pservername?.value ?: 0L).toString(), (pusername?.value ?: 0L).toString(), wtsconfigclass, (pbuffer?.value ?: 0L).toString(), datalength.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSShutdownSystem(hserver: HANDLE, shutdownflag: UInt): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSShutdownSystem(hserver.toString(), shutdownflag.toInt()) as Int) else 0
+public actual fun wTSShutdownSystem(hserver: Handle, shutdownflag: UInt): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSShutdownSystem((hserver?.value ?: 0L).toString(), shutdownflag.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSStartRemoteControlSessionA(ptargetservername: PCSTR, targetlogonid: UInt, hotkeyvk: UByte, hotkeymodifiers: UShort): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSStartRemoteControlSessionA(ptargetservername.toString(), targetlogonid.toInt(), hotkeyvk.toInt(), hotkeymodifiers.toInt()) as Int) else 0
+public actual fun wTSStartRemoteControlSessionA(ptargetservername: Pcstr, targetlogonid: UInt, hotkeyvk: UByte, hotkeymodifiers: UShort): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSStartRemoteControlSessionA((ptargetservername?.value ?: 0L).toString(), targetlogonid.toInt(), hotkeyvk.toInt(), hotkeymodifiers.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSStartRemoteControlSessionW(ptargetservername: PCWSTR, targetlogonid: UInt, hotkeyvk: UByte, hotkeymodifiers: UShort): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSStartRemoteControlSessionW(ptargetservername.toString(), targetlogonid.toInt(), hotkeyvk.toInt(), hotkeymodifiers.toInt()) as Int) else 0
+public actual fun wTSStartRemoteControlSessionW(ptargetservername: Pcwstr, targetlogonid: UInt, hotkeyvk: UByte, hotkeymodifiers: UShort): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSStartRemoteControlSessionW((ptargetservername?.value ?: 0L).toString(), targetlogonid.toInt(), hotkeyvk.toInt(), hotkeymodifiers.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSStopRemoteControlSession(logonid: UInt): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSStopRemoteControlSession(logonid.toInt()) as Int) else 0
+public actual fun wTSStopRemoteControlSession(logonid: UInt): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSStopRemoteControlSession(logonid.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSTerminateProcess(hserver: HANDLE, processid: UInt, exitcode: UInt): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSTerminateProcess(hserver.toString(), processid.toInt(), exitcode.toInt()) as Int) else 0
+public actual fun wTSTerminateProcess(hserver: Handle, processid: UInt, exitcode: UInt): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSTerminateProcess((hserver?.value ?: 0L).toString(), processid.toInt(), exitcode.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSUnRegisterSessionNotification(hwnd: HWND): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSUnRegisterSessionNotification(hwnd.toString()) as Int) else 0
+public actual fun wTSUnRegisterSessionNotification(hwnd: Hwnd): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSUnRegisterSessionNotification((hwnd?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSUnRegisterSessionNotificationEx(hserver: HANDLE, hwnd: HWND): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSUnRegisterSessionNotificationEx(hserver.toString(), hwnd.toString()) as Int) else 0
+public actual fun wTSUnRegisterSessionNotificationEx(hserver: Handle, hwnd: Hwnd): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSUnRegisterSessionNotificationEx((hserver?.value ?: 0L).toString(), (hwnd?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSVirtualChannelClose(hchannelhandle: HANDLE): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSVirtualChannelClose(hchannelhandle.toString()) as Int) else 0
+public actual fun wTSVirtualChannelClose(hchannelhandle: Handle): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelClose((hchannelhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSVirtualChannelOpen(hserver: HANDLE, sessionid: UInt, pvirtualname: PCSTR): HANDLE =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSVirtualChannelOpen(hserver.toString(), sessionid.toInt(), pvirtualname.toString()) as String).toLong() else 0L
+public actual fun wTSVirtualChannelOpen(hserver: Handle, sessionid: UInt, pvirtualname: Pcstr): Handle =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelOpen((hserver?.value ?: 0L).toString(), sessionid.toInt(), (pvirtualname?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSVirtualChannelOpenEx(sessionid: UInt, pvirtualname: PCSTR, flags: UInt): HANDLE =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSVirtualChannelOpenEx(sessionid.toInt(), pvirtualname.toString(), flags.toInt()) as String).toLong() else 0L
+public actual fun wTSVirtualChannelOpenEx(sessionid: UInt, pvirtualname: Pcstr, flags: UInt): Handle =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelOpenEx(sessionid.toInt(), (pvirtualname?.value ?: 0L).toString(), flags.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSVirtualChannelPurgeInput(hchannelhandle: HANDLE): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSVirtualChannelPurgeInput(hchannelhandle.toString()) as Int) else 0
+public actual fun wTSVirtualChannelPurgeInput(hchannelhandle: Handle): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelPurgeInput((hchannelhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSVirtualChannelPurgeOutput(hchannelhandle: HANDLE): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSVirtualChannelPurgeOutput(hchannelhandle.toString()) as Int) else 0
+public actual fun wTSVirtualChannelPurgeOutput(hchannelhandle: Handle): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelPurgeOutput((hchannelhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSVirtualChannelQuery(hchannelhandle: HANDLE, param1: WTS_VIRTUAL_CLASS, ppbuffer: Long, pbytesreturned: Long): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSVirtualChannelQuery(hchannelhandle.toString(), param1, ppbuffer.toString(), pbytesreturned.toString()) as Int) else 0
+public actual fun wTSVirtualChannelQuery(hchannelhandle: Handle, param1: WtsVirtualClass, ppbuffer: COpaquePointer?, pbytesreturned: COpaquePointer?): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelQuery((hchannelhandle?.value ?: 0L).toString(), param1, (ppbuffer?.value ?: 0L).toString(), (pbytesreturned?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSVirtualChannelRead(hchannelhandle: HANDLE, timeout: UInt, buffer: PSTR, buffersize: UInt, pbytesread: Long): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSVirtualChannelRead(hchannelhandle.toString(), timeout.toInt(), buffer.toString(), buffersize.toInt(), pbytesread.toString()) as Int) else 0
+public actual fun wTSVirtualChannelRead(hchannelhandle: Handle, timeout: UInt, buffer: Pstr, buffersize: UInt, pbytesread: COpaquePointer?): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelRead((hchannelhandle?.value ?: 0L).toString(), timeout.toInt(), (buffer?.value ?: 0L).toString(), buffersize.toInt(), (pbytesread?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSVirtualChannelWrite(hchannelhandle: HANDLE, buffer: PCSTR, length: UInt, pbyteswritten: Long): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSVirtualChannelWrite(hchannelhandle.toString(), buffer.toString(), length.toInt(), pbyteswritten.toString()) as Int) else 0
+public actual fun wTSVirtualChannelWrite(hchannelhandle: Handle, buffer: Pcstr, length: UInt, pbyteswritten: COpaquePointer?): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSVirtualChannelWrite((hchannelhandle?.value ?: 0L).toString(), (buffer?.value ?: 0L).toString(), length.toInt(), (pbyteswritten?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun WTSWaitSystemEvent(hserver: HANDLE, eventmask: UInt, peventflags: Long): BOOL =
-    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_WTSWaitSystemEvent(hserver.toString(), eventmask.toInt(), peventflags.toString()) as Int) else 0
+public actual fun wTSWaitSystemEvent(hserver: Handle, eventmask: UInt, peventflags: COpaquePointer?): Bool =
+    if (_windowsWin32SystemRemotedesktopNapiAddon != null) (_windowsWin32SystemRemotedesktopNapiAddon.windowssys_windows_win32_system_remotedesktop_wTSWaitSystemEvent((hserver?.value ?: 0L).toString(), eventmask.toInt(), (peventflags?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

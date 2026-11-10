@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_system_stationsanddesktops_BroadcastSystemMessageA(uint32_t flags, void* lpinfo, uint32_t msg, uint64_t wparam, int64_t lparam) {
+int32_t windowssys_windows_win32_system_stationsanddesktops_broadcastSystemMessageA(uint32_t flags, void* lpinfo, uint32_t msg, uint64_t wparam, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, uint64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -41,7 +41,7 @@ int32_t windowssys_windows_win32_system_stationsanddesktops_BroadcastSystemMessa
 #endif
 }
 
-int32_t windowssys_windows_win32_system_stationsanddesktops_BroadcastSystemMessageExA(uint32_t flags, void* lpinfo, uint32_t msg, uint64_t wparam, int64_t lparam, void* pbsminfo) {
+int32_t windowssys_windows_win32_system_stationsanddesktops_broadcastSystemMessageExA(uint32_t flags, void* lpinfo, uint32_t msg, uint64_t wparam, int64_t lparam, void* pbsminfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, uint64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -68,7 +68,7 @@ int32_t windowssys_windows_win32_system_stationsanddesktops_BroadcastSystemMessa
 #endif
 }
 
-int32_t windowssys_windows_win32_system_stationsanddesktops_BroadcastSystemMessageExW(uint32_t flags, void* lpinfo, uint32_t msg, uint64_t wparam, int64_t lparam, void* pbsminfo) {
+int32_t windowssys_windows_win32_system_stationsanddesktops_broadcastSystemMessageExW(uint32_t flags, void* lpinfo, uint32_t msg, uint64_t wparam, int64_t lparam, void* pbsminfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, uint64_t, int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -95,7 +95,7 @@ int32_t windowssys_windows_win32_system_stationsanddesktops_BroadcastSystemMessa
 #endif
 }
 
-int32_t windowssys_windows_win32_system_stationsanddesktops_BroadcastSystemMessageW(uint32_t flags, void* lpinfo, uint32_t msg, uint64_t wparam, int64_t lparam) {
+int32_t windowssys_windows_win32_system_stationsanddesktops_broadcastSystemMessageW(uint32_t flags, void* lpinfo, uint32_t msg, uint64_t wparam, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, uint32_t, uint64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -121,7 +121,7 @@ int32_t windowssys_windows_win32_system_stationsanddesktops_BroadcastSystemMessa
 #endif
 }
 
-int32_t windowssys_windows_win32_system_stationsanddesktops_CloseDesktop(void* hdesktop) {
+int32_t windowssys_windows_win32_system_stationsanddesktops_closeDesktop(void* hdesktop) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -143,7 +143,7 @@ int32_t windowssys_windows_win32_system_stationsanddesktops_CloseDesktop(void* h
 #endif
 }
 
-int32_t windowssys_windows_win32_system_stationsanddesktops_CloseWindowStation(void* hwinsta) {
+int32_t windowssys_windows_win32_system_stationsanddesktops_closeWindowStation(void* hwinsta) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -165,7 +165,7 @@ int32_t windowssys_windows_win32_system_stationsanddesktops_CloseWindowStation(v
 #endif
 }
 
-void* windowssys_windows_win32_system_stationsanddesktops_CreateDesktopA(void* lpszdesktop, void* lpszdevice, void* pdevmode, uint32_t dwflags, uint32_t dwdesiredaccess, void* lpsa) {
+void* windowssys_windows_win32_system_stationsanddesktops_createDesktopA(void* lpszdesktop, void* lpszdevice, void* pdevmode, uint32_t dwflags, uint32_t dwdesiredaccess, void* lpsa) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -192,7 +192,7 @@ void* windowssys_windows_win32_system_stationsanddesktops_CreateDesktopA(void* l
 #endif
 }
 
-void* windowssys_windows_win32_system_stationsanddesktops_CreateDesktopExA(void* lpszdesktop, void* lpszdevice, void* pdevmode, uint32_t dwflags, uint32_t dwdesiredaccess, void* lpsa, uint32_t ulheapsize, void* pvoid) {
+void* windowssys_windows_win32_system_stationsanddesktops_createDesktopExA(void* lpszdesktop, void* lpszdevice, void* pdevmode, uint32_t dwflags, uint32_t dwdesiredaccess, void* lpsa, uint32_t ulheapsize, void* pvoid) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -221,7 +221,7 @@ void* windowssys_windows_win32_system_stationsanddesktops_CreateDesktopExA(void*
 #endif
 }
 
-void* windowssys_windows_win32_system_stationsanddesktops_CreateDesktopExW(void* lpszdesktop, void* lpszdevice, void* pdevmode, uint32_t dwflags, uint32_t dwdesiredaccess, void* lpsa, uint32_t ulheapsize, void* pvoid) {
+void* windowssys_windows_win32_system_stationsanddesktops_createDesktopExW(void* lpszdesktop, void* lpszdevice, void* pdevmode, uint32_t dwflags, uint32_t dwdesiredaccess, void* lpsa, uint32_t ulheapsize, void* pvoid) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -250,7 +250,7 @@ void* windowssys_windows_win32_system_stationsanddesktops_CreateDesktopExW(void*
 #endif
 }
 
-void* windowssys_windows_win32_system_stationsanddesktops_CreateDesktopW(void* lpszdesktop, void* lpszdevice, void* pdevmode, uint32_t dwflags, uint32_t dwdesiredaccess, void* lpsa) {
+void* windowssys_windows_win32_system_stationsanddesktops_createDesktopW(void* lpszdesktop, void* lpszdevice, void* pdevmode, uint32_t dwflags, uint32_t dwdesiredaccess, void* lpsa) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -277,7 +277,7 @@ void* windowssys_windows_win32_system_stationsanddesktops_CreateDesktopW(void* l
 #endif
 }
 
-void* windowssys_windows_win32_system_stationsanddesktops_CreateWindowStationA(void* lpwinsta, uint32_t dwflags, uint32_t dwdesiredaccess, void* lpsa) {
+void* windowssys_windows_win32_system_stationsanddesktops_createWindowStationA(void* lpwinsta, uint32_t dwflags, uint32_t dwdesiredaccess, void* lpsa) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -302,7 +302,7 @@ void* windowssys_windows_win32_system_stationsanddesktops_CreateWindowStationA(v
 #endif
 }
 
-void* windowssys_windows_win32_system_stationsanddesktops_CreateWindowStationW(void* lpwinsta, uint32_t dwflags, uint32_t dwdesiredaccess, void* lpsa) {
+void* windowssys_windows_win32_system_stationsanddesktops_createWindowStationW(void* lpwinsta, uint32_t dwflags, uint32_t dwdesiredaccess, void* lpsa) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -327,7 +327,7 @@ void* windowssys_windows_win32_system_stationsanddesktops_CreateWindowStationW(v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_stationsanddesktops_EnumDesktopsA(void* hwinsta, void* lpenumfunc, int64_t lparam) {
+int32_t windowssys_windows_win32_system_stationsanddesktops_enumDesktopsA(void* hwinsta, void* lpenumfunc, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -351,7 +351,7 @@ int32_t windowssys_windows_win32_system_stationsanddesktops_EnumDesktopsA(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_stationsanddesktops_EnumDesktopsW(void* hwinsta, void* lpenumfunc, int64_t lparam) {
+int32_t windowssys_windows_win32_system_stationsanddesktops_enumDesktopsW(void* hwinsta, void* lpenumfunc, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -375,7 +375,7 @@ int32_t windowssys_windows_win32_system_stationsanddesktops_EnumDesktopsW(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_stationsanddesktops_EnumWindowStationsA(void* lpenumfunc, int64_t lparam) {
+int32_t windowssys_windows_win32_system_stationsanddesktops_enumWindowStationsA(void* lpenumfunc, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -398,7 +398,7 @@ int32_t windowssys_windows_win32_system_stationsanddesktops_EnumWindowStationsA(
 #endif
 }
 
-int32_t windowssys_windows_win32_system_stationsanddesktops_EnumWindowStationsW(void* lpenumfunc, int64_t lparam) {
+int32_t windowssys_windows_win32_system_stationsanddesktops_enumWindowStationsW(void* lpenumfunc, int64_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -421,7 +421,7 @@ int32_t windowssys_windows_win32_system_stationsanddesktops_EnumWindowStationsW(
 #endif
 }
 
-void* windowssys_windows_win32_system_stationsanddesktops_GetProcessWindowStation(void) {
+void* windowssys_windows_win32_system_stationsanddesktops_getProcessWindowStation(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -442,7 +442,7 @@ void* windowssys_windows_win32_system_stationsanddesktops_GetProcessWindowStatio
 #endif
 }
 
-void* windowssys_windows_win32_system_stationsanddesktops_GetThreadDesktop(uint32_t dwthreadid) {
+void* windowssys_windows_win32_system_stationsanddesktops_getThreadDesktop(uint32_t dwthreadid) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -464,7 +464,7 @@ void* windowssys_windows_win32_system_stationsanddesktops_GetThreadDesktop(uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_system_stationsanddesktops_GetUserObjectInformationA(void* hobj, int32_t nindex, void* pvinfo, uint32_t nlength, void* lpnlengthneeded) {
+int32_t windowssys_windows_win32_system_stationsanddesktops_getUserObjectInformationA(void* hobj, int32_t nindex, void* pvinfo, uint32_t nlength, void* lpnlengthneeded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -490,7 +490,7 @@ int32_t windowssys_windows_win32_system_stationsanddesktops_GetUserObjectInforma
 #endif
 }
 
-int32_t windowssys_windows_win32_system_stationsanddesktops_GetUserObjectInformationW(void* hobj, int32_t nindex, void* pvinfo, uint32_t nlength, void* lpnlengthneeded) {
+int32_t windowssys_windows_win32_system_stationsanddesktops_getUserObjectInformationW(void* hobj, int32_t nindex, void* pvinfo, uint32_t nlength, void* lpnlengthneeded) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -516,7 +516,7 @@ int32_t windowssys_windows_win32_system_stationsanddesktops_GetUserObjectInforma
 #endif
 }
 
-void* windowssys_windows_win32_system_stationsanddesktops_OpenDesktopA(void* lpszdesktop, uint32_t dwflags, int32_t finherit, uint32_t dwdesiredaccess) {
+void* windowssys_windows_win32_system_stationsanddesktops_openDesktopA(void* lpszdesktop, uint32_t dwflags, int32_t finherit, uint32_t dwdesiredaccess) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -541,7 +541,7 @@ void* windowssys_windows_win32_system_stationsanddesktops_OpenDesktopA(void* lps
 #endif
 }
 
-void* windowssys_windows_win32_system_stationsanddesktops_OpenDesktopW(void* lpszdesktop, uint32_t dwflags, int32_t finherit, uint32_t dwdesiredaccess) {
+void* windowssys_windows_win32_system_stationsanddesktops_openDesktopW(void* lpszdesktop, uint32_t dwflags, int32_t finherit, uint32_t dwdesiredaccess) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -566,7 +566,7 @@ void* windowssys_windows_win32_system_stationsanddesktops_OpenDesktopW(void* lps
 #endif
 }
 
-void* windowssys_windows_win32_system_stationsanddesktops_OpenInputDesktop(uint32_t dwflags, int32_t finherit, uint32_t dwdesiredaccess) {
+void* windowssys_windows_win32_system_stationsanddesktops_openInputDesktop(uint32_t dwflags, int32_t finherit, uint32_t dwdesiredaccess) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -590,7 +590,7 @@ void* windowssys_windows_win32_system_stationsanddesktops_OpenInputDesktop(uint3
 #endif
 }
 
-void* windowssys_windows_win32_system_stationsanddesktops_OpenWindowStationA(void* lpszwinsta, int32_t finherit, uint32_t dwdesiredaccess) {
+void* windowssys_windows_win32_system_stationsanddesktops_openWindowStationA(void* lpszwinsta, int32_t finherit, uint32_t dwdesiredaccess) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -614,7 +614,7 @@ void* windowssys_windows_win32_system_stationsanddesktops_OpenWindowStationA(voi
 #endif
 }
 
-void* windowssys_windows_win32_system_stationsanddesktops_OpenWindowStationW(void* lpszwinsta, int32_t finherit, uint32_t dwdesiredaccess) {
+void* windowssys_windows_win32_system_stationsanddesktops_openWindowStationW(void* lpszwinsta, int32_t finherit, uint32_t dwdesiredaccess) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -638,7 +638,7 @@ void* windowssys_windows_win32_system_stationsanddesktops_OpenWindowStationW(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_stationsanddesktops_SetProcessWindowStation(void* hwinsta) {
+int32_t windowssys_windows_win32_system_stationsanddesktops_setProcessWindowStation(void* hwinsta) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -660,7 +660,7 @@ int32_t windowssys_windows_win32_system_stationsanddesktops_SetProcessWindowStat
 #endif
 }
 
-int32_t windowssys_windows_win32_system_stationsanddesktops_SetThreadDesktop(void* hdesktop) {
+int32_t windowssys_windows_win32_system_stationsanddesktops_setThreadDesktop(void* hdesktop) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -682,7 +682,7 @@ int32_t windowssys_windows_win32_system_stationsanddesktops_SetThreadDesktop(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_stationsanddesktops_SetUserObjectInformationA(void* hobj, int32_t nindex, void* pvinfo, uint32_t nlength) {
+int32_t windowssys_windows_win32_system_stationsanddesktops_setUserObjectInformationA(void* hobj, int32_t nindex, void* pvinfo, uint32_t nlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -707,7 +707,7 @@ int32_t windowssys_windows_win32_system_stationsanddesktops_SetUserObjectInforma
 #endif
 }
 
-int32_t windowssys_windows_win32_system_stationsanddesktops_SetUserObjectInformationW(void* hobj, int32_t nindex, void* pvinfo, uint32_t nlength) {
+int32_t windowssys_windows_win32_system_stationsanddesktops_setUserObjectInformationW(void* hobj, int32_t nindex, void* pvinfo, uint32_t nlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -732,7 +732,7 @@ int32_t windowssys_windows_win32_system_stationsanddesktops_SetUserObjectInforma
 #endif
 }
 
-int32_t windowssys_windows_win32_system_stationsanddesktops_SwitchDesktop(void* hdesktop) {
+int32_t windowssys_windows_win32_system_stationsanddesktops_switchDesktop(void* hdesktop) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;

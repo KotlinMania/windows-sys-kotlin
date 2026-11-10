@@ -2,16 +2,17 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networking.clustering
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.FILETIME
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.security.OBJECT_SECURITY_INFORMATION
-import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
-import io.github.kotlinmania.windowssys.windows.win32.system.registry.HKEY
-import io.github.kotlinmania.windowssys.windows.win32.system.services.SC_HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Filetime
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.security.ObjectSecurityInformation
+import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
+import io.github.kotlinmania.windowssys.windows.win32.system.registry.Hkey
+import io.github.kotlinmania.windowssys.windows.win32.system.services.ScHandle
 
 private object WindowsWin32NetworkingClusteringJniBridge {
     init {
@@ -19,2425 +20,2425 @@ private object WindowsWin32NetworkingClusteringJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_AddClusterGroupDependency(hdependentgroup: Long, hprovidergroup: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_addClusterGroupDependency(hdependentgroup: Long, hprovidergroup: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_AddClusterGroupDependencyEx(hdependentgroup: Long, hprovidergroup: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_addClusterGroupDependencyEx(hdependentgroup: Long, hprovidergroup: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_AddClusterGroupSetDependency(hdependentgroupset: Long, hprovidergroupset: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_addClusterGroupSetDependency(hdependentgroupset: Long, hprovidergroupset: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_AddClusterGroupSetDependencyEx(hdependentgroupset: Long, hprovidergroupset: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_addClusterGroupSetDependencyEx(hdependentgroupset: Long, hprovidergroupset: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_AddClusterGroupToGroupSetDependency(hdependentgroup: Long, hprovidergroupset: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_addClusterGroupToGroupSetDependency(hdependentgroup: Long, hprovidergroupset: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_AddClusterGroupToGroupSetDependencyEx(hdependentgroup: Long, hprovidergroupset: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_addClusterGroupToGroupSetDependencyEx(hdependentgroup: Long, hprovidergroupset: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_AddClusterNode(hcluster: Long, lpsznodename: Long, pfnprogresscallback: Long, pvcallbackarg: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_addClusterNode(hcluster: Long, lpsznodename: Long, pfnprogresscallback: Long, pvcallbackarg: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_AddClusterNodeEx(hcluster: Long, lpsznodename: Long, dwflags: Int, pfnprogresscallback: Long, pvcallbackarg: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_addClusterNodeEx(hcluster: Long, lpsznodename: Long, dwflags: Int, pfnprogresscallback: Long, pvcallbackarg: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_AddClusterResourceDependency(hresource: Long, hdependson: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_addClusterResourceDependency(hresource: Long, hdependson: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_AddClusterResourceDependencyEx(hresource: Long, hdependson: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_addClusterResourceDependencyEx(hresource: Long, hdependson: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_AddClusterResourceNode(hresource: Long, hnode: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_addClusterResourceNode(hresource: Long, hnode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_AddClusterResourceNodeEx(hresource: Long, hnode: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_addClusterResourceNodeEx(hresource: Long, hnode: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_AddClusterStorageNode(hcluster: Long, lpsznodename: Long, pfnprogresscallback: Long, pvcallbackarg: Long, lpszclusterstoragenodedescription: Long, lpszclusterstoragenodelocation: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_addClusterStorageNode(hcluster: Long, lpsznodename: Long, pfnprogresscallback: Long, pvcallbackarg: Long, lpszclusterstoragenodedescription: Long, lpszclusterstoragenodelocation: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_AddCrossClusterGroupSetDependency(hdependentgroupset: Long, lpremoteclustername: Long, lpremotegroupsetname: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_addCrossClusterGroupSetDependency(hdependentgroupset: Long, lpremoteclustername: Long, lpremotegroupsetname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_AddResourceToClusterSharedVolumes(hresource: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_addResourceToClusterSharedVolumes(hresource: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_BackupClusterDatabase(hcluster: Long, lpszpathname: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_backupClusterDatabase(hcluster: Long, lpszpathname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_CanResourceBeDependent(hresource: Long, hresourcedependent: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_canResourceBeDependent(hresource: Long, hresourcedependent: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_CancelClusterGroupOperation(hgroup: Long, dwcancelflags_reserved: Int): Int
+    external fun windowssys_windows_win32_networking_clustering_cancelClusterGroupOperation(hgroup: Long, dwcancelflagsReserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ChangeClusterResourceGroup(hresource: Long, hgroup: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_changeClusterResourceGroup(hresource: Long, hgroup: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ChangeClusterResourceGroupEx(hresource: Long, hgroup: Long, flags: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_changeClusterResourceGroupEx(hresource: Long, hgroup: Long, flags: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ChangeClusterResourceGroupEx2(hresource: Long, hgroup: Long, flags: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_changeClusterResourceGroupEx2(hresource: Long, hgroup: Long, flags: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_CloseCluster(hcluster: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_closeCluster(hcluster: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_CloseClusterCryptProvider(hcluscryptprovider: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_closeClusterCryptProvider(hcluscryptprovider: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_CloseClusterGroup(hgroup: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_closeClusterGroup(hgroup: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_CloseClusterGroupSet(hgroupset: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_closeClusterGroupSet(hgroupset: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_CloseClusterNetInterface(hnetinterface: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_closeClusterNetInterface(hnetinterface: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_CloseClusterNetwork(hnetwork: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_closeClusterNetwork(hnetwork: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_CloseClusterNode(hnode: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_closeClusterNode(hnode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_CloseClusterNotifyPort(hchange: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_closeClusterNotifyPort(hchange: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_CloseClusterResource(hresource: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_closeClusterResource(hresource: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusAddClusterHealthFault(hcluster: Long, failure: Long, param2: Int): Int
+    external fun windowssys_windows_win32_networking_clustering_clusAddClusterHealthFault(hcluster: Long, failure: Long, param2: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusGetClusterHealthFaults(hcluster: Long, objects: Long, flags: Int): Int
+    external fun windowssys_windows_win32_networking_clustering_clusGetClusterHealthFaults(hcluster: Long, objects: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusRemoveClusterHealthFault(hcluster: Long, id: Long, flags: Int): Int
+    external fun windowssys_windows_win32_networking_clustering_clusRemoveClusterHealthFault(hcluster: Long, id: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusWorkerCheckTerminate(lpworker: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusWorkerCheckTerminate(lpworker: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusWorkerCreate(lpworker: Long, lpstartaddress: Long, lpparameter: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusWorkerCreate(lpworker: Long, lpstartaddress: Long, lpparameter: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusWorkerTerminate(lpworker: Long)
+    external fun windowssys_windows_win32_networking_clustering_clusWorkerTerminate(lpworker: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusWorkerTerminateEx(clusworker: Long, timeoutinmilliseconds: Int, waitonly: Int): Int
+    external fun windowssys_windows_win32_networking_clustering_clusWorkerTerminateEx(clusworker: Long, timeoutinmilliseconds: Int, waitonly: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusWorkersTerminate(clusworkers: Long, clusworkerscount: Long, timeoutinmilliseconds: Int, waitonly: Int): Int
+    external fun windowssys_windows_win32_networking_clustering_clusWorkersTerminate(clusworkers: Long, clusworkerscount: Long, timeoutinmilliseconds: Int, waitonly: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusapiSetReasonHandler(lphandler: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_clusapiSetReasonHandler(lphandler: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterAddGroupToAffinityRule(hcluster: Long, rulename: Long, hgroup: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterAddGroupToAffinityRule(hcluster: Long, rulename: Long, hgroup: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterAddGroupToGroupSet(hgroupset: Long, hgroup: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterAddGroupToGroupSet(hgroupset: Long, hgroup: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterAddGroupToGroupSetWithDomains(hgroupset: Long, hgroup: Long, faultdomain: Int, updatedomain: Int): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterAddGroupToGroupSetWithDomains(hgroupset: Long, hgroup: Long, faultdomain: Int, updatedomain: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterAddGroupToGroupSetWithDomainsEx(hgroupset: Long, hgroup: Long, faultdomain: Int, updatedomain: Int, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterAddGroupToGroupSetWithDomainsEx(hgroupset: Long, hgroup: Long, faultdomain: Int, updatedomain: Int, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterAffinityRuleControl(hcluster: Long, affinityrulename: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, cbinbuffersize: Int, lpoutbuffer: Long, cboutbuffersize: Int, lpbytesreturned: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterAffinityRuleControl(hcluster: Long, affinityrulename: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, cbinbuffersize: Int, lpoutbuffer: Long, cboutbuffersize: Int, lpbytesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterClearBackupStateForSharedVolume(lpszvolumepathname: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterClearBackupStateForSharedVolume(lpszvolumepathname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterCloseEnum(henum: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterCloseEnum(henum: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterCloseEnumEx(hclusterenum: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterCloseEnumEx(hclusterenum: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterControl(hcluster: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, ninbuffersize: Int, lpoutbuffer: Long, noutbuffersize: Int, lpbytesreturned: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterControl(hcluster: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, ninbuffersize: Int, lpoutbuffer: Long, noutbuffersize: Int, lpbytesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterControlEx(hcluster: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, ninbuffersize: Int, lpoutbuffer: Long, noutbuffersize: Int, lpbytesreturned: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterControlEx(hcluster: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, ninbuffersize: Int, lpoutbuffer: Long, noutbuffersize: Int, lpbytesreturned: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterCreateAffinityRule(hcluster: Long, rulename: Long, ruletype: Int): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterCreateAffinityRule(hcluster: Long, rulename: Long, ruletype: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterDecrypt(hcluscryptprovider: Long, pcryptinput: Long, cbcryptinput: Int, ppcryptoutput: Long, pcbcryptoutput: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterDecrypt(hcluscryptprovider: Long, pcryptinput: Long, cbcryptinput: Int, ppcryptoutput: Long, pcbcryptoutput: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterEncrypt(hcluscryptprovider: Long, pdata: Long, cbdata: Int, ppdata: Long, pcbdata: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterEncrypt(hcluscryptprovider: Long, pdata: Long, cbdata: Int, ppdata: Long, pcbdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterEnum(henum: Long, dwindex: Int, lpdwtype: Long, lpszname: Long, lpcchname: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterEnum(henum: Long, dwindex: Int, lpdwtype: Long, lpszname: Long, lpcchname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterEnumEx(hclusterenum: Long, dwindex: Int, pitem: Long, cbitem: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterEnumEx(hclusterenum: Long, dwindex: Int, pitem: Long, cbitem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterGetEnumCount(henum: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterGetEnumCount(henum: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterGetEnumCountEx(hclusterenum: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterGetEnumCountEx(hclusterenum: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterGetVolumeNameForVolumeMountPoint(lpszvolumemountpoint: Long, lpszvolumename: Long, cchbufferlength: Int): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterGetVolumeNameForVolumeMountPoint(lpszvolumemountpoint: Long, lpszvolumename: Long, cchbufferlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterGetVolumePathName(lpszfilename: Long, lpszvolumepathname: Long, cchbufferlength: Int): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterGetVolumePathName(lpszfilename: Long, lpszvolumepathname: Long, cchbufferlength: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterGroupCloseEnum(hgroupenum: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterGroupCloseEnum(hgroupenum: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterGroupCloseEnumEx(hgroupenumex: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterGroupCloseEnumEx(hgroupenumex: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterGroupControl(hgroup: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, ninbuffersize: Int, lpoutbuffer: Long, noutbuffersize: Int, lpbytesreturned: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterGroupControl(hgroup: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, ninbuffersize: Int, lpoutbuffer: Long, noutbuffersize: Int, lpbytesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterGroupControlEx(hgroup: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, ninbuffersize: Int, lpoutbuffer: Long, noutbuffersize: Int, lpbytesreturned: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterGroupControlEx(hgroup: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, ninbuffersize: Int, lpoutbuffer: Long, noutbuffersize: Int, lpbytesreturned: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterGroupEnum(hgroupenum: Long, dwindex: Int, lpdwtype: Long, lpszresourcename: Long, lpcchname: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterGroupEnum(hgroupenum: Long, dwindex: Int, lpdwtype: Long, lpszresourcename: Long, lpcchname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterGroupEnumEx(hgroupenumex: Long, dwindex: Int, pitem: Long, cbitem: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterGroupEnumEx(hgroupenumex: Long, dwindex: Int, pitem: Long, cbitem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterGroupGetEnumCount(hgroupenum: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterGroupGetEnumCount(hgroupenum: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterGroupGetEnumCountEx(hgroupenumex: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterGroupGetEnumCountEx(hgroupenumex: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterGroupOpenEnum(hgroup: Long, dwtype: Int): Long
+    external fun windowssys_windows_win32_networking_clustering_clusterGroupOpenEnum(hgroup: Long, dwtype: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterGroupOpenEnumEx(hcluster: Long, lpszproperties: Long, cbproperties: Int, lpszroproperties: Long, cbroproperties: Int, dwflags: Int): Long
+    external fun windowssys_windows_win32_networking_clustering_clusterGroupOpenEnumEx(hcluster: Long, lpszproperties: Long, cbproperties: Int, lpszroproperties: Long, cbroproperties: Int, dwflags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterGroupSetCloseEnum(hgroupsetenum: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterGroupSetCloseEnum(hgroupsetenum: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterGroupSetControl(hgroupset: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, cbinbuffersize: Int, lpoutbuffer: Long, cboutbuffersize: Int, lpbytesreturned: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterGroupSetControl(hgroupset: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, cbinbuffersize: Int, lpoutbuffer: Long, cboutbuffersize: Int, lpbytesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterGroupSetControlEx(hgroupset: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, cbinbuffersize: Int, lpoutbuffer: Long, cboutbuffersize: Int, lpbytesreturned: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterGroupSetControlEx(hgroupset: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, cbinbuffersize: Int, lpoutbuffer: Long, cboutbuffersize: Int, lpbytesreturned: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterGroupSetEnum(hgroupsetenum: Long, dwindex: Int, lpszname: Long, lpcchname: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterGroupSetEnum(hgroupsetenum: Long, dwindex: Int, lpszname: Long, lpcchname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterGroupSetGetEnumCount(hgroupsetenum: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterGroupSetGetEnumCount(hgroupsetenum: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterGroupSetOpenEnum(hcluster: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_clusterGroupSetOpenEnum(hcluster: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterIsPathOnSharedVolume(lpszpathname: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterIsPathOnSharedVolume(lpszpathname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterNetInterfaceCloseEnum(hnetinterfaceenum: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterNetInterfaceCloseEnum(hnetinterfaceenum: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterNetInterfaceControl(hnetinterface: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, ninbuffersize: Int, lpoutbuffer: Long, noutbuffersize: Int, lpbytesreturned: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterNetInterfaceControl(hnetinterface: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, ninbuffersize: Int, lpoutbuffer: Long, noutbuffersize: Int, lpbytesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterNetInterfaceControlEx(hnetinterface: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, ninbuffersize: Int, lpoutbuffer: Long, noutbuffersize: Int, lpbytesreturned: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterNetInterfaceControlEx(hnetinterface: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, ninbuffersize: Int, lpoutbuffer: Long, noutbuffersize: Int, lpbytesreturned: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterNetInterfaceEnum(hnetinterfaceenum: Long, dwindex: Int, lpszname: Long, lpcchname: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterNetInterfaceEnum(hnetinterfaceenum: Long, dwindex: Int, lpszname: Long, lpcchname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterNetInterfaceOpenEnum(hcluster: Long, lpsznodename: Long, lpsznetworkname: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_clusterNetInterfaceOpenEnum(hcluster: Long, lpsznodename: Long, lpsznetworkname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterNetworkCloseEnum(hnetworkenum: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterNetworkCloseEnum(hnetworkenum: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterNetworkControl(hnetwork: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, ninbuffersize: Int, lpoutbuffer: Long, noutbuffersize: Int, lpbytesreturned: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterNetworkControl(hnetwork: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, ninbuffersize: Int, lpoutbuffer: Long, noutbuffersize: Int, lpbytesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterNetworkControlEx(hnetwork: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, ninbuffersize: Int, lpoutbuffer: Long, noutbuffersize: Int, lpbytesreturned: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterNetworkControlEx(hnetwork: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, ninbuffersize: Int, lpoutbuffer: Long, noutbuffersize: Int, lpbytesreturned: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterNetworkEnum(hnetworkenum: Long, dwindex: Int, lpdwtype: Long, lpszname: Long, lpcchname: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterNetworkEnum(hnetworkenum: Long, dwindex: Int, lpdwtype: Long, lpszname: Long, lpcchname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterNetworkGetEnumCount(hnetworkenum: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterNetworkGetEnumCount(hnetworkenum: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterNetworkOpenEnum(hnetwork: Long, dwtype: Int): Long
+    external fun windowssys_windows_win32_networking_clustering_clusterNetworkOpenEnum(hnetwork: Long, dwtype: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterNodeCloseEnum(hnodeenum: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterNodeCloseEnum(hnodeenum: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterNodeCloseEnumEx(hnodeenum: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterNodeCloseEnumEx(hnodeenum: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterNodeControl(hnode: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, ninbuffersize: Int, lpoutbuffer: Long, noutbuffersize: Int, lpbytesreturned: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterNodeControl(hnode: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, ninbuffersize: Int, lpoutbuffer: Long, noutbuffersize: Int, lpbytesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterNodeControlEx(hnode: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, ninbuffersize: Int, lpoutbuffer: Long, noutbuffersize: Int, lpbytesreturned: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterNodeControlEx(hnode: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, ninbuffersize: Int, lpoutbuffer: Long, noutbuffersize: Int, lpbytesreturned: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterNodeEnum(hnodeenum: Long, dwindex: Int, lpdwtype: Long, lpszname: Long, lpcchname: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterNodeEnum(hnodeenum: Long, dwindex: Int, lpdwtype: Long, lpszname: Long, lpcchname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterNodeEnumEx(hnodeenum: Long, dwindex: Int, pitem: Long, cbitem: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterNodeEnumEx(hnodeenum: Long, dwindex: Int, pitem: Long, cbitem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterNodeGetEnumCount(hnodeenum: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterNodeGetEnumCount(hnodeenum: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterNodeGetEnumCountEx(hnodeenum: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterNodeGetEnumCountEx(hnodeenum: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterNodeOpenEnum(hnode: Long, dwtype: Int): Long
+    external fun windowssys_windows_win32_networking_clustering_clusterNodeOpenEnum(hnode: Long, dwtype: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterNodeOpenEnumEx(hnode: Long, dwtype: Int, poptions: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_clusterNodeOpenEnumEx(hnode: Long, dwtype: Int, poptions: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterNodeReplacement(hcluster: Long, lpsznodenamecurrent: Long, lpsznodenamenew: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterNodeReplacement(hcluster: Long, lpsznodenamecurrent: Long, lpsznodenamenew: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterOpenEnum(hcluster: Long, dwtype: Int): Long
+    external fun windowssys_windows_win32_networking_clustering_clusterOpenEnum(hcluster: Long, dwtype: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterOpenEnumEx(hcluster: Long, dwtype: Int, poptions: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_clusterOpenEnumEx(hcluster: Long, dwtype: Int, poptions: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterPrepareSharedVolumeForBackup(lpszfilename: Long, lpszvolumepathname: Long, lpcchvolumepathname: Long, lpszvolumename: Long, lpcchvolumename: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterPrepareSharedVolumeForBackup(lpszfilename: Long, lpszvolumepathname: Long, lpcchvolumepathname: Long, lpszvolumename: Long, lpcchvolumename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterRegBatchAddCommand(hregbatch: Long, dwcommand: Int, wzname: Long, dwoptions: Int, lpdata: Long, cbdata: Int): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterRegBatchAddCommand(hregbatch: Long, dwcommand: Int, wzname: Long, dwoptions: Int, lpdata: Long, cbdata: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterRegBatchCloseNotification(hbatchnotification: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterRegBatchCloseNotification(hbatchnotification: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterRegBatchReadCommand(hbatchnotification: Long, pbatchcommand: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterRegBatchReadCommand(hbatchnotification: Long, pbatchcommand: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterRegCloseBatch(hregbatch: Long, bcommit: Int, failedcommandnumber: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterRegCloseBatch(hregbatch: Long, bcommit: Int, failedcommandnumber: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterRegCloseBatchEx(hregbatch: Long, flags: Int, failedcommandnumber: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterRegCloseBatchEx(hregbatch: Long, flags: Int, failedcommandnumber: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterRegCloseBatchNotifyPort(hbatchnotifyport: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterRegCloseBatchNotifyPort(hbatchnotifyport: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterRegCloseKey(hkey: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterRegCloseKey(hkey: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterRegCloseReadBatch(hregreadbatch: Long, phregreadbatchreply: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterRegCloseReadBatch(hregreadbatch: Long, phregreadbatchreply: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterRegCloseReadBatchEx(hregreadbatch: Long, flags: Int, phregreadbatchreply: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterRegCloseReadBatchEx(hregreadbatch: Long, flags: Int, phregreadbatchreply: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterRegCloseReadBatchReply(hregreadbatchreply: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterRegCloseReadBatchReply(hregreadbatchreply: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterRegCreateBatch(hkey: Long, phregbatch: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterRegCreateBatch(hkey: Long, phregbatch: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterRegCreateBatchNotifyPort(hkey: Long, phbatchnotifyport: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterRegCreateBatchNotifyPort(hkey: Long, phbatchnotifyport: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterRegCreateKey(hkey: Long, lpszsubkey: Long, dwoptions: Int, samdesired: Int, lpsecurityattributes: Long, phkresult: Long, lpdwdisposition: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterRegCreateKey(hkey: Long, lpszsubkey: Long, dwoptions: Int, samdesired: Int, lpsecurityattributes: Long, phkresult: Long, lpdwdisposition: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterRegCreateKeyEx(hkey: Long, lpsubkey: Long, dwoptions: Int, samdesired: Int, lpsecurityattributes: Long, phkresult: Long, lpdwdisposition: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterRegCreateKeyEx(hkey: Long, lpsubkey: Long, dwoptions: Int, samdesired: Int, lpsecurityattributes: Long, phkresult: Long, lpdwdisposition: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterRegCreateReadBatch(hkey: Long, phregreadbatch: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterRegCreateReadBatch(hkey: Long, phregreadbatch: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterRegDeleteKey(hkey: Long, lpszsubkey: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterRegDeleteKey(hkey: Long, lpszsubkey: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterRegDeleteKeyEx(hkey: Long, lpsubkey: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterRegDeleteKeyEx(hkey: Long, lpsubkey: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterRegDeleteValue(hkey: Long, lpszvaluename: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterRegDeleteValue(hkey: Long, lpszvaluename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterRegDeleteValueEx(hkey: Long, lpszvaluename: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterRegDeleteValueEx(hkey: Long, lpszvaluename: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterRegEnumKey(hkey: Long, dwindex: Int, lpszname: Long, lpcchname: Long, lpftlastwritetime: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterRegEnumKey(hkey: Long, dwindex: Int, lpszname: Long, lpcchname: Long, lpftlastwritetime: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterRegEnumValue(hkey: Long, dwindex: Int, lpszvaluename: Long, lpcchvaluename: Long, lpdwtype: Long, lpdata: Long, lpcbdata: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterRegEnumValue(hkey: Long, dwindex: Int, lpszvaluename: Long, lpcchvaluename: Long, lpdwtype: Long, lpdata: Long, lpcbdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterRegGetBatchNotification(hbatchnotify: Long, phbatchnotification: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterRegGetBatchNotification(hbatchnotify: Long, phbatchnotification: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterRegGetKeySecurity(hkey: Long, requestedinformation: Int, psecuritydescriptor: Long, lpcbsecuritydescriptor: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterRegGetKeySecurity(hkey: Long, requestedinformation: Int, psecuritydescriptor: Long, lpcbsecuritydescriptor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterRegOpenKey(hkey: Long, lpszsubkey: Long, samdesired: Int, phkresult: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterRegOpenKey(hkey: Long, lpszsubkey: Long, samdesired: Int, phkresult: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterRegQueryInfoKey(hkey: Long, lpcsubkeys: Long, lpcchmaxsubkeylen: Long, lpcvalues: Long, lpcchmaxvaluenamelen: Long, lpcbmaxvaluelen: Long, lpcbsecuritydescriptor: Long, lpftlastwritetime: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterRegQueryInfoKey(hkey: Long, lpcsubkeys: Long, lpcchmaxsubkeylen: Long, lpcvalues: Long, lpcchmaxvaluenamelen: Long, lpcbmaxvaluelen: Long, lpcbsecuritydescriptor: Long, lpftlastwritetime: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterRegQueryValue(hkey: Long, lpszvaluename: Long, lpdwvaluetype: Long, lpdata: Long, lpcbdata: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterRegQueryValue(hkey: Long, lpszvaluename: Long, lpdwvaluetype: Long, lpdata: Long, lpcbdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterRegReadBatchAddCommand(hregreadbatch: Long, wzsubkeyname: Long, wzvaluename: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterRegReadBatchAddCommand(hregreadbatch: Long, wzsubkeyname: Long, wzvaluename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterRegReadBatchReplyNextCommand(hregreadbatchreply: Long, pbatchcommand: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterRegReadBatchReplyNextCommand(hregreadbatchreply: Long, pbatchcommand: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterRegSetKeySecurity(hkey: Long, securityinformation: Int, psecuritydescriptor: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterRegSetKeySecurity(hkey: Long, securityinformation: Int, psecuritydescriptor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterRegSetKeySecurityEx(hkey: Long, securityinformation: Int, psecuritydescriptor: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterRegSetKeySecurityEx(hkey: Long, securityinformation: Int, psecuritydescriptor: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterRegSetValue(hkey: Long, lpszvaluename: Long, dwtype: Int, lpdata: Long, cbdata: Int): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterRegSetValue(hkey: Long, lpszvaluename: Long, dwtype: Int, lpdata: Long, cbdata: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterRegSetValueEx(hkey: Long, lpszvaluename: Long, dwtype: Int, lpdata: Long, cbdata: Int, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterRegSetValueEx(hkey: Long, lpszvaluename: Long, dwtype: Int, lpdata: Long, cbdata: Int, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterRegSyncDatabase(hcluster: Long, flags: Int): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterRegSyncDatabase(hcluster: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterRemoveAffinityRule(hcluster: Long, rulename: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterRemoveAffinityRule(hcluster: Long, rulename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterRemoveGroupFromAffinityRule(hcluster: Long, rulename: Long, hgroup: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterRemoveGroupFromAffinityRule(hcluster: Long, rulename: Long, hgroup: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterRemoveGroupFromGroupSet(hgroup: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterRemoveGroupFromGroupSet(hgroup: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterRemoveGroupFromGroupSetEx(hgroup: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterRemoveGroupFromGroupSetEx(hgroup: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterResourceCloseEnum(hresenum: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterResourceCloseEnum(hresenum: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterResourceCloseEnumEx(hresourceenumex: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterResourceCloseEnumEx(hresourceenumex: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterResourceControl(hresource: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, cbinbuffersize: Int, lpoutbuffer: Long, cboutbuffersize: Int, lpbytesreturned: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterResourceControl(hresource: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, cbinbuffersize: Int, lpoutbuffer: Long, cboutbuffersize: Int, lpbytesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterResourceControlAsUser(hresource: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, cbinbuffersize: Int, lpoutbuffer: Long, cboutbuffersize: Int, lpbytesreturned: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterResourceControlAsUser(hresource: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, cbinbuffersize: Int, lpoutbuffer: Long, cboutbuffersize: Int, lpbytesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterResourceControlAsUserEx(hresource: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, cbinbuffersize: Int, lpoutbuffer: Long, cboutbuffersize: Int, lpbytesreturned: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterResourceControlAsUserEx(hresource: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, cbinbuffersize: Int, lpoutbuffer: Long, cboutbuffersize: Int, lpbytesreturned: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterResourceControlEx(hresource: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, cbinbuffersize: Int, lpoutbuffer: Long, cboutbuffersize: Int, lpbytesreturned: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterResourceControlEx(hresource: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, cbinbuffersize: Int, lpoutbuffer: Long, cboutbuffersize: Int, lpbytesreturned: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterResourceEnum(hresenum: Long, dwindex: Int, lpdwtype: Long, lpszname: Long, lpcchname: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterResourceEnum(hresenum: Long, dwindex: Int, lpdwtype: Long, lpszname: Long, lpcchname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterResourceEnumEx(hresourceenumex: Long, dwindex: Int, pitem: Long, cbitem: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterResourceEnumEx(hresourceenumex: Long, dwindex: Int, pitem: Long, cbitem: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterResourceGetEnumCount(hresenum: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterResourceGetEnumCount(hresenum: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterResourceGetEnumCountEx(hresourceenumex: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterResourceGetEnumCountEx(hresourceenumex: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterResourceOpenEnum(hresource: Long, dwtype: Int): Long
+    external fun windowssys_windows_win32_networking_clustering_clusterResourceOpenEnum(hresource: Long, dwtype: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterResourceOpenEnumEx(hcluster: Long, lpszproperties: Long, cbproperties: Int, lpszroproperties: Long, cbroproperties: Int, dwflags: Int): Long
+    external fun windowssys_windows_win32_networking_clustering_clusterResourceOpenEnumEx(hcluster: Long, lpszproperties: Long, cbproperties: Int, lpszroproperties: Long, cbroproperties: Int, dwflags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterResourceTypeCloseEnum(hrestypeenum: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterResourceTypeCloseEnum(hrestypeenum: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterResourceTypeControl(hcluster: Long, lpszresourcetypename: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, ninbuffersize: Int, lpoutbuffer: Long, noutbuffersize: Int, lpbytesreturned: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterResourceTypeControl(hcluster: Long, lpszresourcetypename: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, ninbuffersize: Int, lpoutbuffer: Long, noutbuffersize: Int, lpbytesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterResourceTypeControlAsUser(hcluster: Long, lpszresourcetypename: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, ninbuffersize: Int, lpoutbuffer: Long, noutbuffersize: Int, lpbytesreturned: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterResourceTypeControlAsUser(hcluster: Long, lpszresourcetypename: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, ninbuffersize: Int, lpoutbuffer: Long, noutbuffersize: Int, lpbytesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterResourceTypeControlAsUserEx(hcluster: Long, lpszresourcetypename: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, ninbuffersize: Int, lpoutbuffer: Long, noutbuffersize: Int, lpbytesreturned: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterResourceTypeControlAsUserEx(hcluster: Long, lpszresourcetypename: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, ninbuffersize: Int, lpoutbuffer: Long, noutbuffersize: Int, lpbytesreturned: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterResourceTypeControlEx(hcluster: Long, lpszresourcetypename: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, ninbuffersize: Int, lpoutbuffer: Long, noutbuffersize: Int, lpbytesreturned: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterResourceTypeControlEx(hcluster: Long, lpszresourcetypename: Long, hhostnode: Long, dwcontrolcode: Int, lpinbuffer: Long, ninbuffersize: Int, lpoutbuffer: Long, noutbuffersize: Int, lpbytesreturned: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterResourceTypeEnum(hrestypeenum: Long, dwindex: Int, lpdwtype: Long, lpszname: Long, lpcchname: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterResourceTypeEnum(hrestypeenum: Long, dwindex: Int, lpdwtype: Long, lpszname: Long, lpcchname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterResourceTypeGetEnumCount(hrestypeenum: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterResourceTypeGetEnumCount(hrestypeenum: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterResourceTypeOpenEnum(hcluster: Long, lpszresourcetypename: Long, dwtype: Int): Long
+    external fun windowssys_windows_win32_networking_clustering_clusterResourceTypeOpenEnum(hcluster: Long, lpszresourcetypename: Long, dwtype: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterSetAccountAccess(hcluster: Long, szaccountsid: Long, dwaccess: Int, dwcontroltype: Int): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterSetAccountAccess(hcluster: Long, szaccountsid: Long, dwaccess: Int, dwcontroltype: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ClusterUpgradeFunctionalLevel(hcluster: Long, perform: Int, pfnprogresscallback: Long, pvcallbackarg: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_clusterUpgradeFunctionalLevel(hcluster: Long, perform: Int, pfnprogresscallback: Long, pvcallbackarg: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_CreateCluster(pconfig: Long, pfnprogresscallback: Long, pvcallbackarg: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_createCluster(pconfig: Long, pfnprogresscallback: Long, pvcallbackarg: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_CreateClusterAvailabilitySet(hcluster: Long, lpavailabilitysetname: Long, pavailabilitysetconfig: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_createClusterAvailabilitySet(hcluster: Long, lpavailabilitysetname: Long, pavailabilitysetconfig: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_CreateClusterGroup(hcluster: Long, lpszgroupname: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_createClusterGroup(hcluster: Long, lpszgroupname: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_CreateClusterGroupEx(hcluster: Long, lpszgroupname: Long, pgroupinfo: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_createClusterGroupEx(hcluster: Long, lpszgroupname: Long, pgroupinfo: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_CreateClusterGroupSet(hcluster: Long, groupsetname: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_createClusterGroupSet(hcluster: Long, groupsetname: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_CreateClusterNameAccount(hcluster: Long, pconfig: Long, pfnprogresscallback: Long, pvcallbackarg: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_createClusterNameAccount(hcluster: Long, pconfig: Long, pfnprogresscallback: Long, pvcallbackarg: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_CreateClusterNotifyPort(hchange: Long, hcluster: Long, dwfilter: Int, dwnotifykey: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_createClusterNotifyPort(hchange: Long, hcluster: Long, dwfilter: Int, dwnotifykey: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_CreateClusterNotifyPortV2(hchange: Long, hcluster: Long, filters: Long, dwfiltercount: Int, dwnotifykey: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_createClusterNotifyPortV2(hchange: Long, hcluster: Long, filters: Long, dwfiltercount: Int, dwnotifykey: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_CreateClusterResource(hgroup: Long, lpszresourcename: Long, lpszresourcetype: Long, dwflags: Int): Long
+    external fun windowssys_windows_win32_networking_clustering_createClusterResource(hgroup: Long, lpszresourcename: Long, lpszresourcetype: Long, dwflags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_CreateClusterResourceEx(hgroup: Long, lpszresourcename: Long, lpszresourcetype: Long, dwflags: Int, lpszreason: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_createClusterResourceEx(hgroup: Long, lpszresourcename: Long, lpszresourcetype: Long, dwflags: Int, lpszreason: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_CreateClusterResourceType(hcluster: Long, lpszresourcetypename: Long, lpszdisplayname: Long, lpszresourcetypedll: Long, dwlooksalivepollinterval: Int, dwisalivepollinterval: Int): Int
+    external fun windowssys_windows_win32_networking_clustering_createClusterResourceType(hcluster: Long, lpszresourcetypename: Long, lpszdisplayname: Long, lpszresourcetypedll: Long, dwlooksalivepollinterval: Int, dwisalivepollinterval: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_CreateClusterResourceTypeEx(hcluster: Long, lpszresourcetypename: Long, lpszdisplayname: Long, lpszresourcetypedll: Long, dwlooksalivepollinterval: Int, dwisalivepollinterval: Int, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_createClusterResourceTypeEx(hcluster: Long, lpszresourcetypename: Long, lpszdisplayname: Long, lpszresourcetypedll: Long, dwlooksalivepollinterval: Int, dwisalivepollinterval: Int, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_DeleteClusterGroup(hgroup: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_deleteClusterGroup(hgroup: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_DeleteClusterGroupEx(hgroup: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_deleteClusterGroupEx(hgroup: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_DeleteClusterGroupSet(hgroupset: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_deleteClusterGroupSet(hgroupset: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_DeleteClusterGroupSetEx(hgroupset: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_deleteClusterGroupSetEx(hgroupset: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_DeleteClusterResource(hresource: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_deleteClusterResource(hresource: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_DeleteClusterResourceEx(hresource: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_deleteClusterResourceEx(hresource: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_DeleteClusterResourceType(hcluster: Long, lpszresourcetypename: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_deleteClusterResourceType(hcluster: Long, lpszresourcetypename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_DeleteClusterResourceTypeEx(hcluster: Long, lpsztypename: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_deleteClusterResourceTypeEx(hcluster: Long, lpsztypename: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_DestroyCluster(hcluster: Long, pfnprogresscallback: Long, pvcallbackarg: Long, fdeletevirtualcomputerobjects: Int): Int
+    external fun windowssys_windows_win32_networking_clustering_destroyCluster(hcluster: Long, pfnprogresscallback: Long, pvcallbackarg: Long, fdeletevirtualcomputerobjects: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_DestroyClusterGroup(hgroup: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_destroyClusterGroup(hgroup: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_DestroyClusterGroupEx(hgroup: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_destroyClusterGroupEx(hgroup: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_DetermineCNOResTypeFromCluster(hcluster: Long, pcnorestype: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_determineCNOResTypeFromCluster(hcluster: Long, pcnorestype: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_DetermineCNOResTypeFromNodelist(cnodes: Int, ppsznodenames: Long, pcnorestype: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_determineCNOResTypeFromNodelist(cnodes: Int, ppsznodenames: Long, pcnorestype: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_DetermineClusterCloudTypeFromCluster(hcluster: Long, pcloudtype: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_determineClusterCloudTypeFromCluster(hcluster: Long, pcloudtype: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_DetermineClusterCloudTypeFromNodelist(cnodes: Int, ppsznodenames: Long, pcloudtype: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_determineClusterCloudTypeFromNodelist(cnodes: Int, ppsznodenames: Long, pcloudtype: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_EvictClusterNode(hnode: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_evictClusterNode(hnode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_EvictClusterNodeEx(hnode: Long, dwtimeout: Int, phrcleanupstatus: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_evictClusterNodeEx(hnode: Long, dwtimeout: Int, phrcleanupstatus: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_EvictClusterNodeEx2(hnode: Long, dwtimeout: Int, phrcleanupstatus: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_evictClusterNodeEx2(hnode: Long, dwtimeout: Int, phrcleanupstatus: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_FailClusterResource(hresource: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_failClusterResource(hresource: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_FailClusterResourceEx(hresource: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_failClusterResourceEx(hresource: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_FreeClusterCrypt(pcryptinfo: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_freeClusterCrypt(pcryptinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_FreeClusterHealthFault(clusterhealthfault: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_freeClusterHealthFault(clusterhealthfault: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_FreeClusterHealthFaultArray(clusterhealthfaultarray: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_freeClusterHealthFaultArray(clusterhealthfaultarray: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_GetClusterFromGroup(hgroup: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_getClusterFromGroup(hgroup: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_GetClusterFromNetInterface(hnetinterface: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_getClusterFromNetInterface(hnetinterface: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_GetClusterFromNetwork(hnetwork: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_getClusterFromNetwork(hnetwork: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_GetClusterFromNode(hnode: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_getClusterFromNode(hnode: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_GetClusterFromResource(hresource: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_getClusterFromResource(hresource: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_GetClusterGroupKey(hgroup: Long, samdesired: Int): Long
+    external fun windowssys_windows_win32_networking_clustering_getClusterGroupKey(hgroup: Long, samdesired: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_GetClusterGroupState(hgroup: Long, lpsznodename: Long, lpcchnodename: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_getClusterGroupState(hgroup: Long, lpsznodename: Long, lpcchnodename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_GetClusterInformation(hcluster: Long, lpszclustername: Long, lpcchclustername: Long, lpclusterinfo: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_getClusterInformation(hcluster: Long, lpszclustername: Long, lpcchclustername: Long, lpclusterinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_GetClusterKey(hcluster: Long, samdesired: Int): Long
+    external fun windowssys_windows_win32_networking_clustering_getClusterKey(hcluster: Long, samdesired: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_GetClusterNetInterface(hcluster: Long, lpsznodename: Long, lpsznetworkname: Long, lpszinterfacename: Long, lpcchinterfacename: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_getClusterNetInterface(hcluster: Long, lpsznodename: Long, lpsznetworkname: Long, lpszinterfacename: Long, lpcchinterfacename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_GetClusterNetInterfaceKey(hnetinterface: Long, samdesired: Int): Long
+    external fun windowssys_windows_win32_networking_clustering_getClusterNetInterfaceKey(hnetinterface: Long, samdesired: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_GetClusterNetInterfaceState(hnetinterface: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_getClusterNetInterfaceState(hnetinterface: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_GetClusterNetworkId(hnetwork: Long, lpsznetworkid: Long, lpcchname: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_getClusterNetworkId(hnetwork: Long, lpsznetworkid: Long, lpcchname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_GetClusterNetworkKey(hnetwork: Long, samdesired: Int): Long
+    external fun windowssys_windows_win32_networking_clustering_getClusterNetworkKey(hnetwork: Long, samdesired: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_GetClusterNetworkState(hnetwork: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_getClusterNetworkState(hnetwork: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_GetClusterNodeId(hnode: Long, lpsznodeid: Long, lpcchname: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_getClusterNodeId(hnode: Long, lpsznodeid: Long, lpcchname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_GetClusterNodeKey(hnode: Long, samdesired: Int): Long
+    external fun windowssys_windows_win32_networking_clustering_getClusterNodeKey(hnode: Long, samdesired: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_GetClusterNodeState(hnode: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_getClusterNodeState(hnode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_GetClusterNotify(hchange: Long, lpdwnotifykey: Long, lpdwfiltertype: Long, lpszname: Long, lpcchname: Long, dwmilliseconds: Int): Int
+    external fun windowssys_windows_win32_networking_clustering_getClusterNotify(hchange: Long, lpdwnotifykey: Long, lpdwfiltertype: Long, lpszname: Long, lpcchname: Long, dwmilliseconds: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_GetClusterNotifyV2(hchange: Long, lpdwnotifykey: Long, pfilterandtype: Long, buffer: Long, lpbbuffersize: Long, lpszobjectid: Long, lpcchobjectid: Long, lpszparentid: Long, lpcchparentid: Long, lpszname: Long, lpcchname: Long, lpsztype: Long, lpcchtype: Long, dwmilliseconds: Int): Int
+    external fun windowssys_windows_win32_networking_clustering_getClusterNotifyV2(hchange: Long, lpdwnotifykey: Long, pfilterandtype: Long, buffer: Long, lpbbuffersize: Long, lpszobjectid: Long, lpcchobjectid: Long, lpszparentid: Long, lpcchparentid: Long, lpszname: Long, lpcchname: Long, lpsztype: Long, lpcchtype: Long, dwmilliseconds: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_GetClusterQuorumResource(hcluster: Long, lpszresourcename: Long, lpcchresourcename: Long, lpszdevicename: Long, lpcchdevicename: Long, lpdwmaxquorumlogsize: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_getClusterQuorumResource(hcluster: Long, lpszresourcename: Long, lpcchresourcename: Long, lpszdevicename: Long, lpcchdevicename: Long, lpdwmaxquorumlogsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_GetClusterResourceDependencyExpression(hresource: Long, lpszdependencyexpression: Long, lpcchdependencyexpression: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_getClusterResourceDependencyExpression(hresource: Long, lpszdependencyexpression: Long, lpcchdependencyexpression: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_GetClusterResourceKey(hresource: Long, samdesired: Int): Long
+    external fun windowssys_windows_win32_networking_clustering_getClusterResourceKey(hresource: Long, samdesired: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_GetClusterResourceNetworkName(hresource: Long, lpbuffer: Long, nsize: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_getClusterResourceNetworkName(hresource: Long, lpbuffer: Long, nsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_GetClusterResourceState(hresource: Long, lpsznodename: Long, lpcchnodename: Long, lpszgroupname: Long, lpcchgroupname: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_getClusterResourceState(hresource: Long, lpsznodename: Long, lpcchnodename: Long, lpszgroupname: Long, lpcchgroupname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_GetClusterResourceTypeKey(hcluster: Long, lpsztypename: Long, samdesired: Int): Long
+    external fun windowssys_windows_win32_networking_clustering_getClusterResourceTypeKey(hcluster: Long, lpsztypename: Long, samdesired: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_GetNodeCloudTypeDW(ppsznodename: Long, nodecloudtype: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_getNodeCloudTypeDW(ppsznodename: Long, nodecloudtype: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_GetNodeClusterState(lpsznodename: Long, pdwclusterstate: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_getNodeClusterState(lpsznodename: Long, pdwclusterstate: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_GetNotifyEventHandle(hchange: Long, lphtargetevent: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_getNotifyEventHandle(hchange: Long, lphtargetevent: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_InitializeClusterHealthFault(clusterhealthfault: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_initializeClusterHealthFault(clusterhealthfault: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_InitializeClusterHealthFaultArray(clusterhealthfaultarray: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_initializeClusterHealthFaultArray(clusterhealthfaultarray: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_IsFileOnClusterSharedVolume(lpszpathname: Long, pbfileisonsharedvolume: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_isFileOnClusterSharedVolume(lpszpathname: Long, pbfileisonsharedvolume: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_MoveClusterGroup(hgroup: Long, hdestinationnode: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_moveClusterGroup(hgroup: Long, hdestinationnode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_MoveClusterGroupEx(hgroup: Long, hdestinationnode: Long, dwmoveflags: Int, lpinbuffer: Long, cbinbuffersize: Int): Int
+    external fun windowssys_windows_win32_networking_clustering_moveClusterGroupEx(hgroup: Long, hdestinationnode: Long, dwmoveflags: Int, lpinbuffer: Long, cbinbuffersize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_MoveClusterGroupEx2(hgroup: Long, hdestinationnode: Long, dwmoveflags: Int, lpinbuffer: Long, cbinbuffersize: Int, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_moveClusterGroupEx2(hgroup: Long, hdestinationnode: Long, dwmoveflags: Int, lpinbuffer: Long, cbinbuffersize: Int, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_OfflineClusterGroup(hgroup: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_offlineClusterGroup(hgroup: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_OfflineClusterGroupEx(hgroup: Long, dwofflineflags: Int, lpinbuffer: Long, cbinbuffersize: Int): Int
+    external fun windowssys_windows_win32_networking_clustering_offlineClusterGroupEx(hgroup: Long, dwofflineflags: Int, lpinbuffer: Long, cbinbuffersize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_OfflineClusterGroupEx2(hgroup: Long, dwofflineflags: Int, lpinbuffer: Long, cbinbuffersize: Int, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_offlineClusterGroupEx2(hgroup: Long, dwofflineflags: Int, lpinbuffer: Long, cbinbuffersize: Int, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_OfflineClusterResource(hresource: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_offlineClusterResource(hresource: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_OfflineClusterResourceEx(hresource: Long, dwofflineflags: Int, lpinbuffer: Long, cbinbuffersize: Int): Int
+    external fun windowssys_windows_win32_networking_clustering_offlineClusterResourceEx(hresource: Long, dwofflineflags: Int, lpinbuffer: Long, cbinbuffersize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_OfflineClusterResourceEx2(hresource: Long, dwofflineflags: Int, lpinbuffer: Long, cbinbuffersize: Int, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_offlineClusterResourceEx2(hresource: Long, dwofflineflags: Int, lpinbuffer: Long, cbinbuffersize: Int, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_OnlineClusterGroup(hgroup: Long, hdestinationnode: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_onlineClusterGroup(hgroup: Long, hdestinationnode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_OnlineClusterGroupEx(hgroup: Long, hdestinationnode: Long, dwonlineflags: Int, lpinbuffer: Long, cbinbuffersize: Int): Int
+    external fun windowssys_windows_win32_networking_clustering_onlineClusterGroupEx(hgroup: Long, hdestinationnode: Long, dwonlineflags: Int, lpinbuffer: Long, cbinbuffersize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_OnlineClusterGroupEx2(hgroup: Long, hdestinationnode: Long, dwonlineflags: Int, lpinbuffer: Long, cbinbuffersize: Int, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_onlineClusterGroupEx2(hgroup: Long, hdestinationnode: Long, dwonlineflags: Int, lpinbuffer: Long, cbinbuffersize: Int, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_OnlineClusterResource(hresource: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_onlineClusterResource(hresource: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_OnlineClusterResourceEx(hresource: Long, dwonlineflags: Int, lpinbuffer: Long, cbinbuffersize: Int): Int
+    external fun windowssys_windows_win32_networking_clustering_onlineClusterResourceEx(hresource: Long, dwonlineflags: Int, lpinbuffer: Long, cbinbuffersize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_OnlineClusterResourceEx2(hresource: Long, dwonlineflags: Int, lpinbuffer: Long, cbinbuffersize: Int, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_onlineClusterResourceEx2(hresource: Long, dwonlineflags: Int, lpinbuffer: Long, cbinbuffersize: Int, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_OpenCluster(lpszclustername: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_openCluster(lpszclustername: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_OpenClusterCryptProvider(lpszresource: Long, lpszprovider: Long, dwtype: Int, dwflags: Int): Long
+    external fun windowssys_windows_win32_networking_clustering_openClusterCryptProvider(lpszresource: Long, lpszprovider: Long, dwtype: Int, dwflags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_OpenClusterCryptProviderEx(lpszresource: Long, lpszkeyname: Long, lpszprovider: Long, dwtype: Int, dwflags: Int): Long
+    external fun windowssys_windows_win32_networking_clustering_openClusterCryptProviderEx(lpszresource: Long, lpszkeyname: Long, lpszprovider: Long, dwtype: Int, dwflags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_OpenClusterEx(lpszclustername: Long, desiredaccess: Int, grantedaccess: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_openClusterEx(lpszclustername: Long, desiredaccess: Int, grantedaccess: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_OpenClusterGroup(hcluster: Long, lpszgroupname: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_openClusterGroup(hcluster: Long, lpszgroupname: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_OpenClusterGroupEx(hcluster: Long, lpszgroupname: Long, dwdesiredaccess: Int, lpdwgrantedaccess: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_openClusterGroupEx(hcluster: Long, lpszgroupname: Long, dwdesiredaccess: Int, lpdwgrantedaccess: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_OpenClusterGroupSet(hcluster: Long, lpszgroupsetname: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_openClusterGroupSet(hcluster: Long, lpszgroupsetname: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_OpenClusterNetInterface(hcluster: Long, lpszinterfacename: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_openClusterNetInterface(hcluster: Long, lpszinterfacename: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_OpenClusterNetInterfaceEx(hcluster: Long, lpszinterfacename: Long, dwdesiredaccess: Int, lpdwgrantedaccess: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_openClusterNetInterfaceEx(hcluster: Long, lpszinterfacename: Long, dwdesiredaccess: Int, lpdwgrantedaccess: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_OpenClusterNetwork(hcluster: Long, lpsznetworkname: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_openClusterNetwork(hcluster: Long, lpsznetworkname: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_OpenClusterNetworkEx(hcluster: Long, lpsznetworkname: Long, dwdesiredaccess: Int, lpdwgrantedaccess: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_openClusterNetworkEx(hcluster: Long, lpsznetworkname: Long, dwdesiredaccess: Int, lpdwgrantedaccess: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_OpenClusterNode(hcluster: Long, lpsznodename: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_openClusterNode(hcluster: Long, lpsznodename: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_OpenClusterNodeById(hcluster: Long, nodeid: Int): Long
+    external fun windowssys_windows_win32_networking_clustering_openClusterNodeById(hcluster: Long, nodeid: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_OpenClusterNodeEx(hcluster: Long, lpsznodename: Long, dwdesiredaccess: Int, lpdwgrantedaccess: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_openClusterNodeEx(hcluster: Long, lpsznodename: Long, dwdesiredaccess: Int, lpdwgrantedaccess: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_OpenClusterResource(hcluster: Long, lpszresourcename: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_openClusterResource(hcluster: Long, lpszresourcename: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_OpenClusterResourceEx(hcluster: Long, lpszresourcename: Long, dwdesiredaccess: Int, lpdwgrantedaccess: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_openClusterResourceEx(hcluster: Long, lpszresourcename: Long, dwdesiredaccess: Int, lpdwgrantedaccess: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_PauseClusterNode(hnode: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_pauseClusterNode(hnode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_PauseClusterNodeEx(hnode: Long, bdrainnode: Int, dwpauseflags: Int, hnodedraintarget: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_pauseClusterNodeEx(hnode: Long, bdrainnode: Int, dwpauseflags: Int, hnodedraintarget: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_PauseClusterNodeEx2(hnode: Long, bdrainnode: Int, dwpauseflags: Int, hnodedraintarget: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_pauseClusterNodeEx2(hnode: Long, bdrainnode: Int, dwpauseflags: Int, hnodedraintarget: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_QueryAppInstanceVersion(appinstanceid: Long, instanceversionhigh: Long, instanceversionlow: Long, versionstatus: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_queryAppInstanceVersion(appinstanceid: Long, instanceversionhigh: Long, instanceversionlow: Long, versionstatus: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_RegisterAppInstance(processhandle: Long, appinstanceid: Long, childreninheritappinstance: Int): Int
+    external fun windowssys_windows_win32_networking_clustering_registerAppInstance(processhandle: Long, appinstanceid: Long, childreninheritappinstance: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_RegisterAppInstanceVersion(appinstanceid: Long, instanceversionhigh: Long, instanceversionlow: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_registerAppInstanceVersion(appinstanceid: Long, instanceversionhigh: Long, instanceversionlow: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_RegisterClusterNotify(hchange: Long, dwfiltertype: Int, hobject: Long, dwnotifykey: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_registerClusterNotify(hchange: Long, dwfiltertype: Int, hobject: Long, dwnotifykey: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_RegisterClusterResourceTypeNotifyV2(hchange: Long, hcluster: Long, flags: Long, restypename: Long, dwnotifykey: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_registerClusterResourceTypeNotifyV2(hchange: Long, hcluster: Long, flags: Long, restypename: Long, dwnotifykey: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_RemoveClusterGroupDependency(hgroup: Long, hdependson: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_removeClusterGroupDependency(hgroup: Long, hdependson: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_RemoveClusterGroupDependencyEx(hgroup: Long, hdependson: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_removeClusterGroupDependencyEx(hgroup: Long, hdependson: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_RemoveClusterGroupSetDependency(hgroupset: Long, hdependson: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_removeClusterGroupSetDependency(hgroupset: Long, hdependson: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_RemoveClusterGroupSetDependencyEx(hgroupset: Long, hdependson: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_removeClusterGroupSetDependencyEx(hgroupset: Long, hdependson: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_RemoveClusterGroupToGroupSetDependency(hgroup: Long, hdependson: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_removeClusterGroupToGroupSetDependency(hgroup: Long, hdependson: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_RemoveClusterGroupToGroupSetDependencyEx(hgroup: Long, hdependson: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_removeClusterGroupToGroupSetDependencyEx(hgroup: Long, hdependson: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_RemoveClusterNameAccount(hcluster: Long, bdeletecomputerobjects: Int): Int
+    external fun windowssys_windows_win32_networking_clustering_removeClusterNameAccount(hcluster: Long, bdeletecomputerobjects: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_RemoveClusterResourceDependency(hresource: Long, hdependson: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_removeClusterResourceDependency(hresource: Long, hdependson: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_RemoveClusterResourceDependencyEx(hresource: Long, hdependson: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_removeClusterResourceDependencyEx(hresource: Long, hdependson: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_RemoveClusterResourceNode(hresource: Long, hnode: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_removeClusterResourceNode(hresource: Long, hnode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_RemoveClusterResourceNodeEx(hresource: Long, hnode: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_removeClusterResourceNodeEx(hresource: Long, hnode: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_RemoveClusterStorageNode(hcluster: Long, lpszclusterstorageenclosurename: Long, dwtimeout: Int, dwflags: Int): Int
+    external fun windowssys_windows_win32_networking_clustering_removeClusterStorageNode(hcluster: Long, lpszclusterstorageenclosurename: Long, dwtimeout: Int, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_RemoveCrossClusterGroupSetDependency(hdependentgroupset: Long, lpremoteclustername: Long, lpremotegroupsetname: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_removeCrossClusterGroupSetDependency(hdependentgroupset: Long, lpremoteclustername: Long, lpremotegroupsetname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_RemoveResourceFromClusterSharedVolumes(hresource: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_removeResourceFromClusterSharedVolumes(hresource: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilAddUnknownProperties(hkeyclusterkey: Long, ppropertytable: Long, poutpropertylist: Long, pcboutpropertylistsize: Int, pcbbytesreturned: Long, pcbrequired: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilAddUnknownProperties(hkeyclusterkey: Long, ppropertytable: Long, poutpropertylist: Long, pcboutpropertylistsize: Int, pcbbytesreturned: Long, pcbrequired: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilCreateDirectoryTree(pszpath: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilCreateDirectoryTree(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilDupGroup(group: Long, copy: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilDupGroup(group: Long, copy: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilDupParameterBlock(poutparams: Long, pinparams: Long, ppropertytable: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilDupParameterBlock(poutparams: Long, pinparams: Long, ppropertytable: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilDupResource(group: Long, copy: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilDupResource(group: Long, copy: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilDupString(pszinstring: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_resUtilDupString(pszinstring: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilEnumGroups(hcluster: Long, hself: Long, prescallback: Long, pparameter: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilEnumGroups(hcluster: Long, hself: Long, prescallback: Long, pparameter: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilEnumGroupsEx(hcluster: Long, hself: Long, grouptype: Int, prescallback: Long, pparameter: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilEnumGroupsEx(hcluster: Long, hself: Long, grouptype: Int, prescallback: Long, pparameter: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilEnumPrivateProperties(hkeyclusterkey: Long, pszoutproperties: Long, cboutpropertiessize: Int, pcbbytesreturned: Long, pcbrequired: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilEnumPrivateProperties(hkeyclusterkey: Long, pszoutproperties: Long, cboutpropertiessize: Int, pcbbytesreturned: Long, pcbrequired: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilEnumProperties(ppropertytable: Long, pszoutproperties: Long, cboutpropertiessize: Int, pcbbytesreturned: Long, pcbrequired: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilEnumProperties(ppropertytable: Long, pszoutproperties: Long, cboutpropertiessize: Int, pcbbytesreturned: Long, pcbrequired: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilEnumResources(hself: Long, lpszrestypename: Long, prescallback: Long, pparameter: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilEnumResources(hself: Long, lpszrestypename: Long, prescallback: Long, pparameter: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilEnumResourcesEx(hcluster: Long, hself: Long, lpszrestypename: Long, prescallback: Long, pparameter: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilEnumResourcesEx(hcluster: Long, hself: Long, lpszrestypename: Long, prescallback: Long, pparameter: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilEnumResourcesEx2(hcluster: Long, hself: Long, lpszrestypename: Long, prescallback: Long, pparameter: Long, dwdesiredaccess: Int): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilEnumResourcesEx2(hcluster: Long, hself: Long, lpszrestypename: Long, prescallback: Long, pparameter: Long, dwdesiredaccess: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilExpandEnvironmentStrings(pszsrc: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_resUtilExpandEnvironmentStrings(pszsrc: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilFindBinaryProperty(ppropertylist: Long, cbpropertylistsize: Int, pszpropertyname: Long, pbpropertyvalue: Long, pcbpropertyvaluesize: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilFindBinaryProperty(ppropertylist: Long, cbpropertylistsize: Int, pszpropertyname: Long, pbpropertyvalue: Long, pcbpropertyvaluesize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilFindDependentDiskResourceDriveLetter(hcluster: Long, hresource: Long, pszdriveletter: Long, pcchdriveletter: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilFindDependentDiskResourceDriveLetter(hcluster: Long, hresource: Long, pszdriveletter: Long, pcchdriveletter: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilFindDwordProperty(ppropertylist: Long, cbpropertylistsize: Int, pszpropertyname: Long, pdwpropertyvalue: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilFindDwordProperty(ppropertylist: Long, cbpropertylistsize: Int, pszpropertyname: Long, pdwpropertyvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilFindExpandSzProperty(ppropertylist: Long, cbpropertylistsize: Int, pszpropertyname: Long, pszpropertyvalue: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilFindExpandSzProperty(ppropertylist: Long, cbpropertylistsize: Int, pszpropertyname: Long, pszpropertyvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilFindExpandedSzProperty(ppropertylist: Long, cbpropertylistsize: Int, pszpropertyname: Long, pszpropertyvalue: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilFindExpandedSzProperty(ppropertylist: Long, cbpropertylistsize: Int, pszpropertyname: Long, pszpropertyvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilFindFileTimeProperty(ppropertylist: Long, cbpropertylistsize: Int, pszpropertyname: Long, pftpropertyvalue: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilFindFileTimeProperty(ppropertylist: Long, cbpropertylistsize: Int, pszpropertyname: Long, pftpropertyvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilFindLongProperty(ppropertylist: Long, cbpropertylistsize: Int, pszpropertyname: Long, plpropertyvalue: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilFindLongProperty(ppropertylist: Long, cbpropertylistsize: Int, pszpropertyname: Long, plpropertyvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilFindMultiSzProperty(ppropertylist: Long, cbpropertylistsize: Int, pszpropertyname: Long, pszpropertyvalue: Long, pcbpropertyvaluesize: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilFindMultiSzProperty(ppropertylist: Long, cbpropertylistsize: Int, pszpropertyname: Long, pszpropertyvalue: Long, pcbpropertyvaluesize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilFindSzProperty(ppropertylist: Long, cbpropertylistsize: Int, pszpropertyname: Long, pszpropertyvalue: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilFindSzProperty(ppropertylist: Long, cbpropertylistsize: Int, pszpropertyname: Long, pszpropertyvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilFindULargeIntegerProperty(ppropertylist: Long, cbpropertylistsize: Int, pszpropertyname: Long, plpropertyvalue: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilFindULargeIntegerProperty(ppropertylist: Long, cbpropertylistsize: Int, pszpropertyname: Long, plpropertyvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilFreeEnvironment(lpenvironment: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilFreeEnvironment(lpenvironment: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilFreeParameterBlock(poutparams: Long, pinparams: Long, ppropertytable: Long)
+    external fun windowssys_windows_win32_networking_clustering_resUtilFreeParameterBlock(poutparams: Long, pinparams: Long, ppropertytable: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilGetAllProperties(hkeyclusterkey: Long, ppropertytable: Long, poutpropertylist: Long, cboutpropertylistsize: Int, pcbbytesreturned: Long, pcbrequired: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilGetAllProperties(hkeyclusterkey: Long, ppropertytable: Long, poutpropertylist: Long, cboutpropertylistsize: Int, pcbbytesreturned: Long, pcbrequired: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilGetBinaryProperty(ppboutvalue: Long, pcboutvaluesize: Long, pvaluestruct: Long, pboldvalue: Long, cboldvaluesize: Int, pppropertylist: Long, pcbpropertylistsize: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilGetBinaryProperty(ppboutvalue: Long, pcboutvaluesize: Long, pvaluestruct: Long, pboldvalue: Long, cboldvaluesize: Int, pppropertylist: Long, pcbpropertylistsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilGetBinaryValue(hkeyclusterkey: Long, pszvaluename: Long, ppboutvalue: Long, pcboutvaluesize: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilGetBinaryValue(hkeyclusterkey: Long, pszvaluename: Long, ppboutvalue: Long, pcboutvaluesize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilGetClusterGroupType(hgroup: Long, grouptype: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilGetClusterGroupType(hgroup: Long, grouptype: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilGetClusterId(hcluster: Long, guid: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilGetClusterId(hcluster: Long, guid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilGetClusterRoleState(hcluster: Long, eclusterrole: Int): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilGetClusterRoleState(hcluster: Long, eclusterrole: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilGetCoreClusterResources(hcluster: Long, phclusternameresource: Long, phclusteripaddressresource: Long, phclusterquorumresource: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilGetCoreClusterResources(hcluster: Long, phclusternameresource: Long, phclusteripaddressresource: Long, phclusterquorumresource: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilGetCoreClusterResourcesEx(hclusterin: Long, phclusternameresourceout: Long, phclusterquorumresourceout: Long, dwdesiredaccess: Int): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilGetCoreClusterResourcesEx(hclusterin: Long, phclusternameresourceout: Long, phclusterquorumresourceout: Long, dwdesiredaccess: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilGetCoreGroup(hcluster: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_resUtilGetCoreGroup(hcluster: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilGetDwordProperty(pdwoutvalue: Long, pvaluestruct: Long, dwoldvalue: Int, dwminimum: Int, dwmaximum: Int, pppropertylist: Long, pcbpropertylistsize: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilGetDwordProperty(pdwoutvalue: Long, pvaluestruct: Long, dwoldvalue: Int, dwminimum: Int, dwmaximum: Int, pppropertylist: Long, pcbpropertylistsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilGetDwordValue(hkeyclusterkey: Long, pszvaluename: Long, pdwoutvalue: Long, dwdefaultvalue: Int): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilGetDwordValue(hkeyclusterkey: Long, pszvaluename: Long, pdwoutvalue: Long, dwdefaultvalue: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilGetEnvironmentWithNetName(hresource: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_resUtilGetEnvironmentWithNetName(hresource: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilGetLongProperty(ploutvalue: Long, pvaluestruct: Long, loldvalue: Int, lminimum: Int, lmaximum: Int, pppropertylist: Long, pcbpropertylistsize: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilGetLongProperty(ploutvalue: Long, pvaluestruct: Long, loldvalue: Int, lminimum: Int, lmaximum: Int, pppropertylist: Long, pcbpropertylistsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilGetMultiSzProperty(ppszoutvalue: Long, pcboutvaluesize: Long, pvaluestruct: Long, pszoldvalue: Long, cboldvaluesize: Int, pppropertylist: Long, pcbpropertylistsize: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilGetMultiSzProperty(ppszoutvalue: Long, pcboutvaluesize: Long, pvaluestruct: Long, pszoldvalue: Long, cboldvaluesize: Int, pppropertylist: Long, pcbpropertylistsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilGetPrivateProperties(hkeyclusterkey: Long, poutpropertylist: Long, cboutpropertylistsize: Int, pcbbytesreturned: Long, pcbrequired: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilGetPrivateProperties(hkeyclusterkey: Long, poutpropertylist: Long, cboutpropertylistsize: Int, pcbbytesreturned: Long, pcbrequired: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilGetProperties(hkeyclusterkey: Long, ppropertytable: Long, poutpropertylist: Long, cboutpropertylistsize: Int, pcbbytesreturned: Long, pcbrequired: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilGetProperties(hkeyclusterkey: Long, ppropertytable: Long, poutpropertylist: Long, cboutpropertylistsize: Int, pcbbytesreturned: Long, pcbrequired: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilGetPropertiesToParameterBlock(hkeyclusterkey: Long, ppropertytable: Long, poutparams: Long, bcheckforrequiredproperties: Int, psznameofpropinerror: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilGetPropertiesToParameterBlock(hkeyclusterkey: Long, ppropertytable: Long, poutparams: Long, bcheckforrequiredproperties: Int, psznameofpropinerror: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilGetProperty(hkeyclusterkey: Long, ppropertytableitem: Long, poutpropertyitem: Long, pcboutpropertyitemsize: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilGetProperty(hkeyclusterkey: Long, ppropertytableitem: Long, poutpropertyitem: Long, pcboutpropertyitemsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilGetPropertyFormats(ppropertytable: Long, poutpropertyformatlist: Long, cbpropertyformatlistsize: Int, pcbbytesreturned: Long, pcbrequired: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilGetPropertyFormats(ppropertytable: Long, poutpropertyformatlist: Long, cbpropertyformatlistsize: Int, pcbbytesreturned: Long, pcbrequired: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilGetPropertySize(hkeyclusterkey: Long, ppropertytableitem: Long, pcboutpropertylistsize: Long, pnpropertycount: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilGetPropertySize(hkeyclusterkey: Long, ppropertytableitem: Long, pcboutpropertylistsize: Long, pnpropertycount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilGetQwordValue(hkeyclusterkey: Long, pszvaluename: Long, pqwoutvalue: Long, qwdefaultvalue: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilGetQwordValue(hkeyclusterkey: Long, pszvaluename: Long, pqwoutvalue: Long, qwdefaultvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilGetResourceDependency(hself: Long, lpszresourcetype: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_resUtilGetResourceDependency(hself: Long, lpszresourcetype: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilGetResourceDependencyByClass(hcluster: Long, hself: Long, prci: Long, brecurse: Int): Long
+    external fun windowssys_windows_win32_networking_clustering_resUtilGetResourceDependencyByClass(hcluster: Long, hself: Long, prci: Long, brecurse: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilGetResourceDependencyByClassEx(hcluster: Long, hself: Long, prci: Long, brecurse: Int, dwdesiredaccess: Int): Long
+    external fun windowssys_windows_win32_networking_clustering_resUtilGetResourceDependencyByClassEx(hcluster: Long, hself: Long, prci: Long, brecurse: Int, dwdesiredaccess: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilGetResourceDependencyByName(hcluster: Long, hself: Long, lpszresourcetype: Long, brecurse: Int): Long
+    external fun windowssys_windows_win32_networking_clustering_resUtilGetResourceDependencyByName(hcluster: Long, hself: Long, lpszresourcetype: Long, brecurse: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilGetResourceDependencyByNameEx(hcluster: Long, hself: Long, lpszresourcetype: Long, brecurse: Int, dwdesiredaccess: Int): Long
+    external fun windowssys_windows_win32_networking_clustering_resUtilGetResourceDependencyByNameEx(hcluster: Long, hself: Long, lpszresourcetype: Long, brecurse: Int, dwdesiredaccess: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilGetResourceDependencyEx(hself: Long, lpszresourcetype: Long, dwdesiredaccess: Int): Long
+    external fun windowssys_windows_win32_networking_clustering_resUtilGetResourceDependencyEx(hself: Long, lpszresourcetype: Long, dwdesiredaccess: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilGetResourceDependentIPAddressProps(hresource: Long, pszaddress: Long, pcchaddress: Long, pszsubnetmask: Long, pcchsubnetmask: Long, psznetwork: Long, pcchnetwork: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilGetResourceDependentIPAddressProps(hresource: Long, pszaddress: Long, pcchaddress: Long, pszsubnetmask: Long, pcchsubnetmask: Long, psznetwork: Long, pcchnetwork: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilGetResourceName(hresource: Long, pszresourcename: Long, pcchresourcenameinout: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilGetResourceName(hresource: Long, pszresourcename: Long, pcchresourcenameinout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilGetResourceNameDependency(lpszresourcename: Long, lpszresourcetype: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_resUtilGetResourceNameDependency(lpszresourcename: Long, lpszresourcetype: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilGetResourceNameDependencyEx(lpszresourcename: Long, lpszresourcetype: Long, dwdesiredaccess: Int): Long
+    external fun windowssys_windows_win32_networking_clustering_resUtilGetResourceNameDependencyEx(lpszresourcename: Long, lpszresourcetype: Long, dwdesiredaccess: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilGetSzProperty(ppszoutvalue: Long, pvaluestruct: Long, pszoldvalue: Long, pppropertylist: Long, pcbpropertylistsize: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilGetSzProperty(ppszoutvalue: Long, pvaluestruct: Long, pszoldvalue: Long, pppropertylist: Long, pcbpropertylistsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilGetSzValue(hkeyclusterkey: Long, pszvaluename: Long): Long
+    external fun windowssys_windows_win32_networking_clustering_resUtilGetSzValue(hkeyclusterkey: Long, pszvaluename: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilGroupsEqual(hself: Long, hgroup: Long, pequal: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilGroupsEqual(hself: Long, hgroup: Long, pequal: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilIsPathValid(pszpath: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilIsPathValid(pszpath: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilIsResourceClassEqual(prci: Long, hresource: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilIsResourceClassEqual(prci: Long, hresource: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilLeftPaxosIsLessThanRight(left: Long, right: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilLeftPaxosIsLessThanRight(left: Long, right: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilNodeEnum(hcluster: Long, pnodecallback: Long, pparameter: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilNodeEnum(hcluster: Long, pnodecallback: Long, pparameter: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilPaxosComparer(left: Long, right: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilPaxosComparer(left: Long, right: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilPropertyListFromParameterBlock(ppropertytable: Long, poutpropertylist: Long, pcboutpropertylistsize: Long, pinparams: Long, pcbbytesreturned: Long, pcbrequired: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilPropertyListFromParameterBlock(ppropertytable: Long, poutpropertylist: Long, pcboutpropertylistsize: Long, pinparams: Long, pcbbytesreturned: Long, pcbrequired: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilRemoveResourceServiceEnvironment(pszservicename: Long, pfnlogevent: Long, hresourcehandle: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilRemoveResourceServiceEnvironment(pszservicename: Long, pfnlogevent: Long, hresourcehandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilResourceDepEnum(hself: Long, enumtype: Int, prescallback: Long, pparameter: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilResourceDepEnum(hself: Long, enumtype: Int, prescallback: Long, pparameter: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilResourceTypesEqual(lpszresourcetypename: Long, hresource: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilResourceTypesEqual(lpszresourcetypename: Long, hresource: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilResourcesEqual(hself: Long, hresource: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilResourcesEqual(hself: Long, hresource: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilSetBinaryValue(hkeyclusterkey: Long, pszvaluename: Long, pbnewvalue: Long, cbnewvaluesize: Int, ppboutvalue: Long, pcboutvaluesize: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilSetBinaryValue(hkeyclusterkey: Long, pszvaluename: Long, pbnewvalue: Long, cbnewvaluesize: Int, ppboutvalue: Long, pcboutvaluesize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilSetDwordValue(hkeyclusterkey: Long, pszvaluename: Long, dwnewvalue: Int, pdwoutvalue: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilSetDwordValue(hkeyclusterkey: Long, pszvaluename: Long, dwnewvalue: Int, pdwoutvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilSetExpandSzValue(hkeyclusterkey: Long, pszvaluename: Long, psznewvalue: Long, ppszoutstring: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilSetExpandSzValue(hkeyclusterkey: Long, pszvaluename: Long, psznewvalue: Long, ppszoutstring: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilSetMultiSzValue(hkeyclusterkey: Long, pszvaluename: Long, psznewvalue: Long, cbnewvaluesize: Int, ppszoutvalue: Long, pcboutvaluesize: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilSetMultiSzValue(hkeyclusterkey: Long, pszvaluename: Long, psznewvalue: Long, cbnewvaluesize: Int, ppszoutvalue: Long, pcboutvaluesize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilSetPrivatePropertyList(hkeyclusterkey: Long, pinpropertylist: Long, cbinpropertylistsize: Int): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilSetPrivatePropertyList(hkeyclusterkey: Long, pinpropertylist: Long, cbinpropertylistsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilSetPropertyParameterBlock(hkeyclusterkey: Long, ppropertytable: Long, reserved: Long, pinparams: Long, pinpropertylist: Long, cbinpropertylistsize: Int, poutparams: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilSetPropertyParameterBlock(hkeyclusterkey: Long, ppropertytable: Long, reserved: Long, pinparams: Long, pinpropertylist: Long, cbinpropertylistsize: Int, poutparams: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilSetPropertyParameterBlockEx(hkeyclusterkey: Long, ppropertytable: Long, reserved: Long, pinparams: Long, pinpropertylist: Long, cbinpropertylistsize: Int, bforcewrite: Int, poutparams: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilSetPropertyParameterBlockEx(hkeyclusterkey: Long, ppropertytable: Long, reserved: Long, pinparams: Long, pinpropertylist: Long, cbinpropertylistsize: Int, bforcewrite: Int, poutparams: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilSetPropertyTable(hkeyclusterkey: Long, ppropertytable: Long, reserved: Long, ballowunknownproperties: Int, pinpropertylist: Long, cbinpropertylistsize: Int, poutparams: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilSetPropertyTable(hkeyclusterkey: Long, ppropertytable: Long, reserved: Long, ballowunknownproperties: Int, pinpropertylist: Long, cbinpropertylistsize: Int, poutparams: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilSetPropertyTableEx(hkeyclusterkey: Long, ppropertytable: Long, reserved: Long, ballowunknownproperties: Int, pinpropertylist: Long, cbinpropertylistsize: Int, bforcewrite: Int, poutparams: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilSetPropertyTableEx(hkeyclusterkey: Long, ppropertytable: Long, reserved: Long, ballowunknownproperties: Int, pinpropertylist: Long, cbinpropertylistsize: Int, bforcewrite: Int, poutparams: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilSetQwordValue(hkeyclusterkey: Long, pszvaluename: Long, qwnewvalue: Long, pqwoutvalue: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilSetQwordValue(hkeyclusterkey: Long, pszvaluename: Long, qwnewvalue: Long, pqwoutvalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilSetResourceServiceEnvironment(pszservicename: Long, hresource: Long, pfnlogevent: Long, hresourcehandle: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilSetResourceServiceEnvironment(pszservicename: Long, hresource: Long, pfnlogevent: Long, hresourcehandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilSetResourceServiceStartParameters(pszservicename: Long, schscmhandle: Long, phservice: Long, pfnlogevent: Long, hresourcehandle: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilSetResourceServiceStartParameters(pszservicename: Long, schscmhandle: Long, phservice: Long, pfnlogevent: Long, hresourcehandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilSetResourceServiceStartParametersEx(pszservicename: Long, schscmhandle: Long, phservice: Long, dwdesiredaccess: Int, pfnlogevent: Long, hresourcehandle: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilSetResourceServiceStartParametersEx(pszservicename: Long, schscmhandle: Long, phservice: Long, dwdesiredaccess: Int, pfnlogevent: Long, hresourcehandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilSetSzValue(hkeyclusterkey: Long, pszvaluename: Long, psznewvalue: Long, ppszoutstring: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilSetSzValue(hkeyclusterkey: Long, pszvaluename: Long, psznewvalue: Long, ppszoutstring: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilSetUnknownProperties(hkeyclusterkey: Long, ppropertytable: Long, pinpropertylist: Long, cbinpropertylistsize: Int): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilSetUnknownProperties(hkeyclusterkey: Long, ppropertytable: Long, pinpropertylist: Long, cbinpropertylistsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilSetValueEx(hkeyclusterkey: Long, valuename: Long, valuetype: Int, valuedata: Long, valuesize: Int, flags: Int): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilSetValueEx(hkeyclusterkey: Long, valuename: Long, valuetype: Int, valuedata: Long, valuesize: Int, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilStartResourceService(pszservicename: Long, phservicehandle: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilStartResourceService(pszservicename: Long, phservicehandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilStopResourceService(pszservicename: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilStopResourceService(pszservicename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilStopService(hservicehandle: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilStopService(hservicehandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilTerminateServiceProcessFromResDll(dwservicepid: Int, boffline: Int, pdwresourcestate: Long, pfnlogevent: Long, hresourcehandle: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilTerminateServiceProcessFromResDll(dwservicepid: Int, boffline: Int, pdwresourcestate: Long, pfnlogevent: Long, hresourcehandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilVerifyPrivatePropertyList(pinpropertylist: Long, cbinpropertylistsize: Int): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilVerifyPrivatePropertyList(pinpropertylist: Long, cbinpropertylistsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilVerifyPropertyTable(ppropertytable: Long, reserved: Long, ballowunknownproperties: Int, pinpropertylist: Long, cbinpropertylistsize: Int, poutparams: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilVerifyPropertyTable(ppropertytable: Long, reserved: Long, ballowunknownproperties: Int, pinpropertylist: Long, cbinpropertylistsize: Int, poutparams: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilVerifyResourceService(pszservicename: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilVerifyResourceService(pszservicename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilVerifyService(hservicehandle: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilVerifyService(hservicehandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilVerifyShutdownSafe(flags: Int, reason: Int, presult: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilVerifyShutdownSafe(flags: Int, reason: Int, presult: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResUtilsDeleteKeyTree(key: Long, keyname: Long, treatnokeyaserror: Int): Int
+    external fun windowssys_windows_win32_networking_clustering_resUtilsDeleteKeyTree(key: Long, keyname: Long, treatnokeyaserror: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResetAllAppInstanceVersions(): Int
+    external fun windowssys_windows_win32_networking_clustering_resetAllAppInstanceVersions(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_RestartClusterResource(hresource: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_networking_clustering_restartClusterResource(hresource: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_RestartClusterResourceEx(hresource: Long, dwflags: Int, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_restartClusterResourceEx(hresource: Long, dwflags: Int, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_RestoreClusterDatabase(lpszpathname: Long, bforce: Int, lpszquorumdriveletter: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_restoreClusterDatabase(lpszpathname: Long, bforce: Int, lpszquorumdriveletter: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResumeClusterNode(hnode: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resumeClusterNode(hnode: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResumeClusterNodeEx(hnode: Long, eresumefailbacktype: Int, dwresumeflagsreserved: Int): Int
+    external fun windowssys_windows_win32_networking_clustering_resumeClusterNodeEx(hnode: Long, eresumefailbacktype: Int, dwresumeflagsreserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_ResumeClusterNodeEx2(hnode: Long, eresumefailbacktype: Int, dwresumeflagsreserved: Int, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_resumeClusterNodeEx2(hnode: Long, eresumefailbacktype: Int, dwresumeflagsreserved: Int, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_SetAppInstanceCsvFlags(processhandle: Long, mask: Int, flags: Int): Int
+    external fun windowssys_windows_win32_networking_clustering_setAppInstanceCsvFlags(processhandle: Long, mask: Int, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_SetClusterGroupName(hgroup: Long, lpszgroupname: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_setClusterGroupName(hgroup: Long, lpszgroupname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_SetClusterGroupNameEx(hgroup: Long, lpszgroupname: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_setClusterGroupNameEx(hgroup: Long, lpszgroupname: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_SetClusterGroupNodeList(hgroup: Long, nodecount: Int, nodelist: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_setClusterGroupNodeList(hgroup: Long, nodecount: Int, nodelist: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_SetClusterGroupNodeListEx(hgroup: Long, nodecount: Int, nodelist: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_setClusterGroupNodeListEx(hgroup: Long, nodecount: Int, nodelist: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_SetClusterGroupSetDependencyExpression(hgroupset: Long, lpszdependencyexprssion: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_setClusterGroupSetDependencyExpression(hgroupset: Long, lpszdependencyexprssion: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_SetClusterGroupSetDependencyExpressionEx(hgroupset: Long, lpszdependencyexpression: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_setClusterGroupSetDependencyExpressionEx(hgroupset: Long, lpszdependencyexpression: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_SetClusterName(hcluster: Long, lpsznewclustername: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_setClusterName(hcluster: Long, lpsznewclustername: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_SetClusterNameEx(hcluster: Long, lpsznewclustername: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_setClusterNameEx(hcluster: Long, lpsznewclustername: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_SetClusterNetworkName(hnetwork: Long, lpszname: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_setClusterNetworkName(hnetwork: Long, lpszname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_SetClusterNetworkNameEx(hnetwork: Long, lpszname: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_setClusterNetworkNameEx(hnetwork: Long, lpszname: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_SetClusterNetworkPriorityOrder(hcluster: Long, networkcount: Int, networklist: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_setClusterNetworkPriorityOrder(hcluster: Long, networkcount: Int, networklist: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_SetClusterQuorumResource(hresource: Long, lpszdevicename: Long, dwmaxquologsize: Int): Int
+    external fun windowssys_windows_win32_networking_clustering_setClusterQuorumResource(hresource: Long, lpszdevicename: Long, dwmaxquologsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_SetClusterQuorumResourceEx(hresource: Long, lpszdevicename: Long, dwmaxquorumlogsize: Int, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_setClusterQuorumResourceEx(hresource: Long, lpszdevicename: Long, dwmaxquorumlogsize: Int, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_SetClusterResourceDependencyExpression(hresource: Long, lpszdependencyexpression: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_setClusterResourceDependencyExpression(hresource: Long, lpszdependencyexpression: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_SetClusterResourceName(hresource: Long, lpszresourcename: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_setClusterResourceName(hresource: Long, lpszresourcename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_SetClusterResourceNameEx(hresource: Long, lpszresourcename: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_setClusterResourceNameEx(hresource: Long, lpszresourcename: Long, lpszreason: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_SetClusterServiceAccountPassword(lpszclustername: Long, lpsznewpassword: Long, dwflags: Int, lpreturnstatusbuffer: Long, lpcbreturnstatusbuffersize: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_setClusterServiceAccountPassword(lpszclustername: Long, lpsznewpassword: Long, dwflags: Int, lpreturnstatusbuffer: Long, lpcbreturnstatusbuffersize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_SetGroupDependencyExpression(hgroup: Long, lpszdependencyexpression: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_setGroupDependencyExpression(hgroup: Long, lpszdependencyexpression: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_networking_clustering_SetGroupDependencyExpressionEx(hgroup: Long, lpszdependencyexpression: Long, lpszreason: Long): Int
+    external fun windowssys_windows_win32_networking_clustering_setGroupDependencyExpressionEx(hgroup: Long, lpszdependencyexpression: Long, lpszreason: Long): Int
 }
 
-public actual fun AddClusterGroupDependency(hdependentgroup: HGROUP, hprovidergroup: HGROUP): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_AddClusterGroupDependency(hdependentgroup, hprovidergroup).toUInt()
+public actual fun addClusterGroupDependency(hdependentgroup: Hgroup, hprovidergroup: Hgroup): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_addClusterGroupDependency(hdependentgroup, hprovidergroup).toUInt()
 
-public actual fun AddClusterGroupDependencyEx(hdependentgroup: HGROUP, hprovidergroup: HGROUP, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_AddClusterGroupDependencyEx(hdependentgroup, hprovidergroup, lpszreason).toUInt()
+public actual fun addClusterGroupDependencyEx(hdependentgroup: Hgroup, hprovidergroup: Hgroup, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_addClusterGroupDependencyEx(hdependentgroup, hprovidergroup, (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun AddClusterGroupSetDependency(hdependentgroupset: HGROUPSET, hprovidergroupset: HGROUPSET): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_AddClusterGroupSetDependency(hdependentgroupset, hprovidergroupset).toUInt()
+public actual fun addClusterGroupSetDependency(hdependentgroupset: Hgroupset, hprovidergroupset: Hgroupset): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_addClusterGroupSetDependency(hdependentgroupset, hprovidergroupset).toUInt()
 
-public actual fun AddClusterGroupSetDependencyEx(hdependentgroupset: HGROUPSET, hprovidergroupset: HGROUPSET, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_AddClusterGroupSetDependencyEx(hdependentgroupset, hprovidergroupset, lpszreason).toUInt()
+public actual fun addClusterGroupSetDependencyEx(hdependentgroupset: Hgroupset, hprovidergroupset: Hgroupset, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_addClusterGroupSetDependencyEx(hdependentgroupset, hprovidergroupset, (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun AddClusterGroupToGroupSetDependency(hdependentgroup: HGROUP, hprovidergroupset: HGROUPSET): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_AddClusterGroupToGroupSetDependency(hdependentgroup, hprovidergroupset).toUInt()
+public actual fun addClusterGroupToGroupSetDependency(hdependentgroup: Hgroup, hprovidergroupset: Hgroupset): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_addClusterGroupToGroupSetDependency(hdependentgroup, hprovidergroupset).toUInt()
 
-public actual fun AddClusterGroupToGroupSetDependencyEx(hdependentgroup: HGROUP, hprovidergroupset: HGROUPSET, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_AddClusterGroupToGroupSetDependencyEx(hdependentgroup, hprovidergroupset, lpszreason).toUInt()
+public actual fun addClusterGroupToGroupSetDependencyEx(hdependentgroup: Hgroup, hprovidergroupset: Hgroupset, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_addClusterGroupToGroupSetDependencyEx(hdependentgroup, hprovidergroupset, (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun AddClusterNode(hcluster: HCLUSTER, lpsznodename: PCWSTR, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Long): HNODE =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_AddClusterNode(hcluster, lpsznodename, pfnprogresscallback.toLong(), pvcallbackarg)
+public actual fun addClusterNode(hcluster: Hcluster, lpsznodename: Pcwstr, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: COpaquePointer?): Hnode =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_addClusterNode(hcluster, (lpsznodename?.value ?: 0L), 0L, (pvcallbackarg?.value ?: 0L))
 
-public actual fun AddClusterNodeEx(hcluster: HCLUSTER, lpsznodename: PCWSTR, dwflags: UInt, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Long): HNODE =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_AddClusterNodeEx(hcluster, lpsznodename, dwflags.toInt(), pfnprogresscallback.toLong(), pvcallbackarg)
+public actual fun addClusterNodeEx(hcluster: Hcluster, lpsznodename: Pcwstr, dwflags: UInt, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: COpaquePointer?): Hnode =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_addClusterNodeEx(hcluster, (lpsznodename?.value ?: 0L), dwflags.toInt(), 0L, (pvcallbackarg?.value ?: 0L))
 
-public actual fun AddClusterResourceDependency(hresource: HRESOURCE, hdependson: HRESOURCE): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_AddClusterResourceDependency(hresource, hdependson).toUInt()
+public actual fun addClusterResourceDependency(hresource: Hresource, hdependson: Hresource): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_addClusterResourceDependency(hresource, hdependson).toUInt()
 
-public actual fun AddClusterResourceDependencyEx(hresource: HRESOURCE, hdependson: HRESOURCE, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_AddClusterResourceDependencyEx(hresource, hdependson, lpszreason).toUInt()
+public actual fun addClusterResourceDependencyEx(hresource: Hresource, hdependson: Hresource, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_addClusterResourceDependencyEx(hresource, hdependson, (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun AddClusterResourceNode(hresource: HRESOURCE, hnode: HNODE): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_AddClusterResourceNode(hresource, hnode).toUInt()
+public actual fun addClusterResourceNode(hresource: Hresource, hnode: Hnode): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_addClusterResourceNode(hresource, hnode).toUInt()
 
-public actual fun AddClusterResourceNodeEx(hresource: HRESOURCE, hnode: HNODE, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_AddClusterResourceNodeEx(hresource, hnode, lpszreason).toUInt()
+public actual fun addClusterResourceNodeEx(hresource: Hresource, hnode: Hnode, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_addClusterResourceNodeEx(hresource, hnode, (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun AddClusterStorageNode(hcluster: HCLUSTER, lpsznodename: PCWSTR, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Long, lpszclusterstoragenodedescription: PCWSTR, lpszclusterstoragenodelocation: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_AddClusterStorageNode(hcluster, lpsznodename, pfnprogresscallback.toLong(), pvcallbackarg, lpszclusterstoragenodedescription, lpszclusterstoragenodelocation).toUInt()
+public actual fun addClusterStorageNode(hcluster: Hcluster, lpsznodename: Pcwstr, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: COpaquePointer?, lpszclusterstoragenodedescription: Pcwstr, lpszclusterstoragenodelocation: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_addClusterStorageNode(hcluster, (lpsznodename?.value ?: 0L), 0L, (pvcallbackarg?.value ?: 0L), (lpszclusterstoragenodedescription?.value ?: 0L), (lpszclusterstoragenodelocation?.value ?: 0L)).toUInt()
 
-public actual fun AddCrossClusterGroupSetDependency(hdependentgroupset: HGROUPSET, lpremoteclustername: PCWSTR, lpremotegroupsetname: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_AddCrossClusterGroupSetDependency(hdependentgroupset, lpremoteclustername, lpremotegroupsetname).toUInt()
+public actual fun addCrossClusterGroupSetDependency(hdependentgroupset: Hgroupset, lpremoteclustername: Pcwstr, lpremotegroupsetname: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_addCrossClusterGroupSetDependency(hdependentgroupset, (lpremoteclustername?.value ?: 0L), (lpremotegroupsetname?.value ?: 0L)).toUInt()
 
-public actual fun AddResourceToClusterSharedVolumes(hresource: HRESOURCE): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_AddResourceToClusterSharedVolumes(hresource).toUInt()
+public actual fun addResourceToClusterSharedVolumes(hresource: Hresource): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_addResourceToClusterSharedVolumes(hresource).toUInt()
 
-public actual fun BackupClusterDatabase(hcluster: HCLUSTER, lpszpathname: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_BackupClusterDatabase(hcluster, lpszpathname).toUInt()
+public actual fun backupClusterDatabase(hcluster: Hcluster, lpszpathname: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_backupClusterDatabase(hcluster, (lpszpathname?.value ?: 0L)).toUInt()
 
-public actual fun CanResourceBeDependent(hresource: HRESOURCE, hresourcedependent: HRESOURCE): BOOL =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_CanResourceBeDependent(hresource, hresourcedependent)
+public actual fun canResourceBeDependent(hresource: Hresource, hresourcedependent: Hresource): Bool =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_canResourceBeDependent(hresource, hresourcedependent)
 
-public actual fun CancelClusterGroupOperation(hgroup: HGROUP, dwcancelflags_reserved: UInt): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_CancelClusterGroupOperation(hgroup, dwcancelflags_reserved.toInt()).toUInt()
+public actual fun cancelClusterGroupOperation(hgroup: Hgroup, dwcancelflagsReserved: UInt): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_cancelClusterGroupOperation(hgroup, dwcancelflagsReserved.toInt()).toUInt()
 
-public actual fun ChangeClusterResourceGroup(hresource: HRESOURCE, hgroup: HGROUP): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ChangeClusterResourceGroup(hresource, hgroup).toUInt()
+public actual fun changeClusterResourceGroup(hresource: Hresource, hgroup: Hgroup): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_changeClusterResourceGroup(hresource, hgroup).toUInt()
 
-public actual fun ChangeClusterResourceGroupEx(hresource: HRESOURCE, hgroup: HGROUP, flags: ULong): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ChangeClusterResourceGroupEx(hresource, hgroup, flags.toLong()).toUInt()
+public actual fun changeClusterResourceGroupEx(hresource: Hresource, hgroup: Hgroup, flags: ULong): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_changeClusterResourceGroupEx(hresource, hgroup, flags.toLong()).toUInt()
 
-public actual fun ChangeClusterResourceGroupEx2(hresource: HRESOURCE, hgroup: HGROUP, flags: ULong, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ChangeClusterResourceGroupEx2(hresource, hgroup, flags.toLong(), lpszreason).toUInt()
+public actual fun changeClusterResourceGroupEx2(hresource: Hresource, hgroup: Hgroup, flags: ULong, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_changeClusterResourceGroupEx2(hresource, hgroup, flags.toLong(), (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun CloseCluster(hcluster: HCLUSTER): BOOL =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_CloseCluster(hcluster)
+public actual fun closeCluster(hcluster: Hcluster): Bool =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_closeCluster(hcluster)
 
-public actual fun CloseClusterCryptProvider(hcluscryptprovider: HCLUSCRYPTPROVIDER): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_CloseClusterCryptProvider(hcluscryptprovider).toUInt()
+public actual fun closeClusterCryptProvider(hcluscryptprovider: Hcluscryptprovider): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_closeClusterCryptProvider(hcluscryptprovider).toUInt()
 
-public actual fun CloseClusterGroup(hgroup: HGROUP): BOOL =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_CloseClusterGroup(hgroup)
+public actual fun closeClusterGroup(hgroup: Hgroup): Bool =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_closeClusterGroup(hgroup)
 
-public actual fun CloseClusterGroupSet(hgroupset: HGROUPSET): BOOL =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_CloseClusterGroupSet(hgroupset)
+public actual fun closeClusterGroupSet(hgroupset: Hgroupset): Bool =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_closeClusterGroupSet(hgroupset)
 
-public actual fun CloseClusterNetInterface(hnetinterface: HNETINTERFACE): BOOL =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_CloseClusterNetInterface(hnetinterface)
+public actual fun closeClusterNetInterface(hnetinterface: Hnetinterface): Bool =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_closeClusterNetInterface(hnetinterface)
 
-public actual fun CloseClusterNetwork(hnetwork: HNETWORK): BOOL =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_CloseClusterNetwork(hnetwork)
+public actual fun closeClusterNetwork(hnetwork: Hnetwork): Bool =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_closeClusterNetwork(hnetwork)
 
-public actual fun CloseClusterNode(hnode: HNODE): BOOL =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_CloseClusterNode(hnode)
+public actual fun closeClusterNode(hnode: Hnode): Bool =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_closeClusterNode(hnode)
 
-public actual fun CloseClusterNotifyPort(hchange: HCHANGE): BOOL =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_CloseClusterNotifyPort(hchange)
+public actual fun closeClusterNotifyPort(hchange: Hchange): Bool =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_closeClusterNotifyPort(hchange)
 
-public actual fun CloseClusterResource(hresource: HRESOURCE): BOOL =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_CloseClusterResource(hresource)
+public actual fun closeClusterResource(hresource: Hresource): Bool =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_closeClusterResource(hresource)
 
-public actual fun ClusAddClusterHealthFault(hcluster: HCLUSTER, failure: Long, param2: UInt): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusAddClusterHealthFault(hcluster, failure, param2.toInt()).toUInt()
+public actual fun clusAddClusterHealthFault(hcluster: Hcluster, failure: COpaquePointer?, param2: UInt): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusAddClusterHealthFault(hcluster, (failure?.value ?: 0L), param2.toInt()).toUInt()
 
-public actual fun ClusGetClusterHealthFaults(hcluster: HCLUSTER, objects: Long, flags: UInt): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusGetClusterHealthFaults(hcluster, objects, flags.toInt()).toUInt()
+public actual fun clusGetClusterHealthFaults(hcluster: Hcluster, objects: COpaquePointer?, flags: UInt): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusGetClusterHealthFaults(hcluster, (objects?.value ?: 0L), flags.toInt()).toUInt()
 
-public actual fun ClusRemoveClusterHealthFault(hcluster: HCLUSTER, id: PCWSTR, flags: UInt): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusRemoveClusterHealthFault(hcluster, id, flags.toInt()).toUInt()
+public actual fun clusRemoveClusterHealthFault(hcluster: Hcluster, id: Pcwstr, flags: UInt): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusRemoveClusterHealthFault(hcluster, (id?.value ?: 0L), flags.toInt()).toUInt()
 
-public actual fun ClusWorkerCheckTerminate(lpworker: Long): BOOL =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusWorkerCheckTerminate(lpworker)
+public actual fun clusWorkerCheckTerminate(lpworker: COpaquePointer?): Bool =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusWorkerCheckTerminate((lpworker?.value ?: 0L))
 
-public actual fun ClusWorkerCreate(lpworker: Long, lpstartaddress: PWORKER_START_ROUTINE, lpparameter: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusWorkerCreate(lpworker, lpstartaddress.toLong(), lpparameter).toUInt()
+public actual fun clusWorkerCreate(lpworker: COpaquePointer?, lpstartaddress: PworkerStartRoutine, lpparameter: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusWorkerCreate((lpworker?.value ?: 0L), 0L, (lpparameter?.value ?: 0L)).toUInt()
 
-public actual fun ClusWorkerTerminate(lpworker: Long) {
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusWorkerTerminate(lpworker)
+public actual fun clusWorkerTerminate(lpworker: COpaquePointer?) {
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusWorkerTerminate((lpworker?.value ?: 0L))
 }
 
-public actual fun ClusWorkerTerminateEx(clusworker: Long, timeoutinmilliseconds: UInt, waitonly: BOOL): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusWorkerTerminateEx(clusworker, timeoutinmilliseconds.toInt(), waitonly).toUInt()
+public actual fun clusWorkerTerminateEx(clusworker: COpaquePointer?, timeoutinmilliseconds: UInt, waitonly: Bool): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusWorkerTerminateEx((clusworker?.value ?: 0L), timeoutinmilliseconds.toInt(), waitonly).toUInt()
 
-public actual fun ClusWorkersTerminate(clusworkers: Long, clusworkerscount: ULong, timeoutinmilliseconds: UInt, waitonly: BOOL): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusWorkersTerminate(clusworkers, clusworkerscount.toLong(), timeoutinmilliseconds.toInt(), waitonly).toUInt()
+public actual fun clusWorkersTerminate(clusworkers: COpaquePointer?, clusworkerscount: ULong, timeoutinmilliseconds: UInt, waitonly: Bool): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusWorkersTerminate((clusworkers?.value ?: 0L), clusworkerscount.toLong(), timeoutinmilliseconds.toInt(), waitonly).toUInt()
 
-public actual fun ClusapiSetReasonHandler(lphandler: Long): Long =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusapiSetReasonHandler(lphandler)
+public actual fun clusapiSetReasonHandler(lphandler: COpaquePointer?): COpaquePointer? =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusapiSetReasonHandler((lphandler?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ClusterAddGroupToAffinityRule(hcluster: HCLUSTER, rulename: PCWSTR, hgroup: HGROUP): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterAddGroupToAffinityRule(hcluster, rulename, hgroup).toUInt()
+public actual fun clusterAddGroupToAffinityRule(hcluster: Hcluster, rulename: Pcwstr, hgroup: Hgroup): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterAddGroupToAffinityRule(hcluster, (rulename?.value ?: 0L), hgroup).toUInt()
 
-public actual fun ClusterAddGroupToGroupSet(hgroupset: HGROUPSET, hgroup: HGROUP): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterAddGroupToGroupSet(hgroupset, hgroup).toUInt()
+public actual fun clusterAddGroupToGroupSet(hgroupset: Hgroupset, hgroup: Hgroup): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterAddGroupToGroupSet(hgroupset, hgroup).toUInt()
 
-public actual fun ClusterAddGroupToGroupSetWithDomains(hgroupset: HGROUPSET, hgroup: HGROUP, faultdomain: UInt, updatedomain: UInt): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterAddGroupToGroupSetWithDomains(hgroupset, hgroup, faultdomain.toInt(), updatedomain.toInt()).toUInt()
+public actual fun clusterAddGroupToGroupSetWithDomains(hgroupset: Hgroupset, hgroup: Hgroup, faultdomain: UInt, updatedomain: UInt): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterAddGroupToGroupSetWithDomains(hgroupset, hgroup, faultdomain.toInt(), updatedomain.toInt()).toUInt()
 
-public actual fun ClusterAddGroupToGroupSetWithDomainsEx(hgroupset: HGROUPSET, hgroup: HGROUP, faultdomain: UInt, updatedomain: UInt, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterAddGroupToGroupSetWithDomainsEx(hgroupset, hgroup, faultdomain.toInt(), updatedomain.toInt(), lpszreason).toUInt()
+public actual fun clusterAddGroupToGroupSetWithDomainsEx(hgroupset: Hgroupset, hgroup: Hgroup, faultdomain: UInt, updatedomain: UInt, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterAddGroupToGroupSetWithDomainsEx(hgroupset, hgroup, faultdomain.toInt(), updatedomain.toInt(), (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun ClusterAffinityRuleControl(hcluster: HCLUSTER, affinityrulename: PCWSTR, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, cbinbuffersize: UInt, lpoutbuffer: Long, cboutbuffersize: UInt, lpbytesreturned: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterAffinityRuleControl(hcluster, affinityrulename, hhostnode, dwcontrolcode.toInt(), lpinbuffer, cbinbuffersize.toInt(), lpoutbuffer, cboutbuffersize.toInt(), lpbytesreturned).toUInt()
+public actual fun clusterAffinityRuleControl(hcluster: Hcluster, affinityrulename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpoutbuffer: COpaquePointer?, cboutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterAffinityRuleControl(hcluster, (affinityrulename?.value ?: 0L), hhostnode, dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L), cbinbuffersize.toInt(), (lpoutbuffer?.value ?: 0L), cboutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L)).toUInt()
 
-public actual fun ClusterClearBackupStateForSharedVolume(lpszvolumepathname: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterClearBackupStateForSharedVolume(lpszvolumepathname).toUInt()
+public actual fun clusterClearBackupStateForSharedVolume(lpszvolumepathname: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterClearBackupStateForSharedVolume((lpszvolumepathname?.value ?: 0L)).toUInt()
 
-public actual fun ClusterCloseEnum(henum: HCLUSENUM): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterCloseEnum(henum).toUInt()
+public actual fun clusterCloseEnum(henum: Hclusenum): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterCloseEnum(henum).toUInt()
 
-public actual fun ClusterCloseEnumEx(hclusterenum: HCLUSENUMEX): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterCloseEnumEx(hclusterenum).toUInt()
+public actual fun clusterCloseEnumEx(hclusterenum: Hclusenumex): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterCloseEnumEx(hclusterenum).toUInt()
 
-public actual fun ClusterControl(hcluster: HCLUSTER, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterControl(hcluster, hhostnode, dwcontrolcode.toInt(), lpinbuffer, ninbuffersize.toInt(), lpoutbuffer, noutbuffersize.toInt(), lpbytesreturned).toUInt()
+public actual fun clusterControl(hcluster: Hcluster, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterControl(hcluster, hhostnode, dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L), ninbuffersize.toInt(), (lpoutbuffer?.value ?: 0L), noutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L)).toUInt()
 
-public actual fun ClusterControlEx(hcluster: HCLUSTER, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterControlEx(hcluster, hhostnode, dwcontrolcode.toInt(), lpinbuffer, ninbuffersize.toInt(), lpoutbuffer, noutbuffersize.toInt(), lpbytesreturned, lpszreason).toUInt()
+public actual fun clusterControlEx(hcluster: Hcluster, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterControlEx(hcluster, hhostnode, dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L), ninbuffersize.toInt(), (lpoutbuffer?.value ?: 0L), noutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L), (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun ClusterCreateAffinityRule(hcluster: HCLUSTER, rulename: PCWSTR, ruletype: CLUS_AFFINITY_RULE_TYPE): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterCreateAffinityRule(hcluster, rulename, ruletype).toUInt()
+public actual fun clusterCreateAffinityRule(hcluster: Hcluster, rulename: Pcwstr, ruletype: ClusAffinityRuleType): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterCreateAffinityRule(hcluster, (rulename?.value ?: 0L), ruletype).toUInt()
 
-public actual fun ClusterDecrypt(hcluscryptprovider: HCLUSCRYPTPROVIDER, pcryptinput: Long, cbcryptinput: UInt, ppcryptoutput: Long, pcbcryptoutput: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterDecrypt(hcluscryptprovider, pcryptinput, cbcryptinput.toInt(), ppcryptoutput, pcbcryptoutput).toUInt()
+public actual fun clusterDecrypt(hcluscryptprovider: Hcluscryptprovider, pcryptinput: COpaquePointer?, cbcryptinput: UInt, ppcryptoutput: COpaquePointer?, pcbcryptoutput: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterDecrypt(hcluscryptprovider, (pcryptinput?.value ?: 0L), cbcryptinput.toInt(), (ppcryptoutput?.value ?: 0L), (pcbcryptoutput?.value ?: 0L)).toUInt()
 
-public actual fun ClusterEncrypt(hcluscryptprovider: HCLUSCRYPTPROVIDER, pdata: Long, cbdata: UInt, ppdata: Long, pcbdata: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterEncrypt(hcluscryptprovider, pdata, cbdata.toInt(), ppdata, pcbdata).toUInt()
+public actual fun clusterEncrypt(hcluscryptprovider: Hcluscryptprovider, pdata: COpaquePointer?, cbdata: UInt, ppdata: COpaquePointer?, pcbdata: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterEncrypt(hcluscryptprovider, (pdata?.value ?: 0L), cbdata.toInt(), (ppdata?.value ?: 0L), (pcbdata?.value ?: 0L)).toUInt()
 
-public actual fun ClusterEnum(henum: HCLUSENUM, dwindex: UInt, lpdwtype: Long, lpszname: PWSTR, lpcchname: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterEnum(henum, dwindex.toInt(), lpdwtype, lpszname, lpcchname).toUInt()
+public actual fun clusterEnum(henum: Hclusenum, dwindex: UInt, lpdwtype: COpaquePointer?, lpszname: Pwstr, lpcchname: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterEnum(henum, dwindex.toInt(), (lpdwtype?.value ?: 0L), (lpszname?.value ?: 0L), (lpcchname?.value ?: 0L)).toUInt()
 
-public actual fun ClusterEnumEx(hclusterenum: HCLUSENUMEX, dwindex: UInt, pitem: Long, cbitem: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterEnumEx(hclusterenum, dwindex.toInt(), pitem, cbitem).toUInt()
+public actual fun clusterEnumEx(hclusterenum: Hclusenumex, dwindex: UInt, pitem: COpaquePointer?, cbitem: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterEnumEx(hclusterenum, dwindex.toInt(), (pitem?.value ?: 0L), (cbitem?.value ?: 0L)).toUInt()
 
-public actual fun ClusterGetEnumCount(henum: HCLUSENUM): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterGetEnumCount(henum).toUInt()
+public actual fun clusterGetEnumCount(henum: Hclusenum): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterGetEnumCount(henum).toUInt()
 
-public actual fun ClusterGetEnumCountEx(hclusterenum: HCLUSENUMEX): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterGetEnumCountEx(hclusterenum).toUInt()
+public actual fun clusterGetEnumCountEx(hclusterenum: Hclusenumex): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterGetEnumCountEx(hclusterenum).toUInt()
 
-public actual fun ClusterGetVolumeNameForVolumeMountPoint(lpszvolumemountpoint: PCWSTR, lpszvolumename: PWSTR, cchbufferlength: UInt): BOOL =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterGetVolumeNameForVolumeMountPoint(lpszvolumemountpoint, lpszvolumename, cchbufferlength.toInt())
+public actual fun clusterGetVolumeNameForVolumeMountPoint(lpszvolumemountpoint: Pcwstr, lpszvolumename: Pwstr, cchbufferlength: UInt): Bool =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterGetVolumeNameForVolumeMountPoint((lpszvolumemountpoint?.value ?: 0L), (lpszvolumename?.value ?: 0L), cchbufferlength.toInt())
 
-public actual fun ClusterGetVolumePathName(lpszfilename: PCWSTR, lpszvolumepathname: PWSTR, cchbufferlength: UInt): BOOL =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterGetVolumePathName(lpszfilename, lpszvolumepathname, cchbufferlength.toInt())
+public actual fun clusterGetVolumePathName(lpszfilename: Pcwstr, lpszvolumepathname: Pwstr, cchbufferlength: UInt): Bool =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterGetVolumePathName((lpszfilename?.value ?: 0L), (lpszvolumepathname?.value ?: 0L), cchbufferlength.toInt())
 
-public actual fun ClusterGroupCloseEnum(hgroupenum: HGROUPENUM): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterGroupCloseEnum(hgroupenum).toUInt()
+public actual fun clusterGroupCloseEnum(hgroupenum: Hgroupenum): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterGroupCloseEnum(hgroupenum).toUInt()
 
-public actual fun ClusterGroupCloseEnumEx(hgroupenumex: HGROUPENUMEX): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterGroupCloseEnumEx(hgroupenumex).toUInt()
+public actual fun clusterGroupCloseEnumEx(hgroupenumex: Hgroupenumex): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterGroupCloseEnumEx(hgroupenumex).toUInt()
 
-public actual fun ClusterGroupControl(hgroup: HGROUP, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterGroupControl(hgroup, hhostnode, dwcontrolcode.toInt(), lpinbuffer, ninbuffersize.toInt(), lpoutbuffer, noutbuffersize.toInt(), lpbytesreturned).toUInt()
+public actual fun clusterGroupControl(hgroup: Hgroup, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterGroupControl(hgroup, hhostnode, dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L), ninbuffersize.toInt(), (lpoutbuffer?.value ?: 0L), noutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L)).toUInt()
 
-public actual fun ClusterGroupControlEx(hgroup: HGROUP, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterGroupControlEx(hgroup, hhostnode, dwcontrolcode.toInt(), lpinbuffer, ninbuffersize.toInt(), lpoutbuffer, noutbuffersize.toInt(), lpbytesreturned, lpszreason).toUInt()
+public actual fun clusterGroupControlEx(hgroup: Hgroup, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterGroupControlEx(hgroup, hhostnode, dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L), ninbuffersize.toInt(), (lpoutbuffer?.value ?: 0L), noutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L), (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun ClusterGroupEnum(hgroupenum: HGROUPENUM, dwindex: UInt, lpdwtype: Long, lpszresourcename: PWSTR, lpcchname: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterGroupEnum(hgroupenum, dwindex.toInt(), lpdwtype, lpszresourcename, lpcchname).toUInt()
+public actual fun clusterGroupEnum(hgroupenum: Hgroupenum, dwindex: UInt, lpdwtype: COpaquePointer?, lpszresourcename: Pwstr, lpcchname: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterGroupEnum(hgroupenum, dwindex.toInt(), (lpdwtype?.value ?: 0L), (lpszresourcename?.value ?: 0L), (lpcchname?.value ?: 0L)).toUInt()
 
-public actual fun ClusterGroupEnumEx(hgroupenumex: HGROUPENUMEX, dwindex: UInt, pitem: Long, cbitem: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterGroupEnumEx(hgroupenumex, dwindex.toInt(), pitem, cbitem).toUInt()
+public actual fun clusterGroupEnumEx(hgroupenumex: Hgroupenumex, dwindex: UInt, pitem: COpaquePointer?, cbitem: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterGroupEnumEx(hgroupenumex, dwindex.toInt(), (pitem?.value ?: 0L), (cbitem?.value ?: 0L)).toUInt()
 
-public actual fun ClusterGroupGetEnumCount(hgroupenum: HGROUPENUM): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterGroupGetEnumCount(hgroupenum).toUInt()
+public actual fun clusterGroupGetEnumCount(hgroupenum: Hgroupenum): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterGroupGetEnumCount(hgroupenum).toUInt()
 
-public actual fun ClusterGroupGetEnumCountEx(hgroupenumex: HGROUPENUMEX): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterGroupGetEnumCountEx(hgroupenumex).toUInt()
+public actual fun clusterGroupGetEnumCountEx(hgroupenumex: Hgroupenumex): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterGroupGetEnumCountEx(hgroupenumex).toUInt()
 
-public actual fun ClusterGroupOpenEnum(hgroup: HGROUP, dwtype: UInt): HGROUPENUM =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterGroupOpenEnum(hgroup, dwtype.toInt())
+public actual fun clusterGroupOpenEnum(hgroup: Hgroup, dwtype: UInt): Hgroupenum =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterGroupOpenEnum(hgroup, dwtype.toInt())
 
-public actual fun ClusterGroupOpenEnumEx(hcluster: HCLUSTER, lpszproperties: PCWSTR, cbproperties: UInt, lpszroproperties: PCWSTR, cbroproperties: UInt, dwflags: UInt): HGROUPENUMEX =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterGroupOpenEnumEx(hcluster, lpszproperties, cbproperties.toInt(), lpszroproperties, cbroproperties.toInt(), dwflags.toInt())
+public actual fun clusterGroupOpenEnumEx(hcluster: Hcluster, lpszproperties: Pcwstr, cbproperties: UInt, lpszroproperties: Pcwstr, cbroproperties: UInt, dwflags: UInt): Hgroupenumex =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterGroupOpenEnumEx(hcluster, (lpszproperties?.value ?: 0L), cbproperties.toInt(), (lpszroproperties?.value ?: 0L), cbroproperties.toInt(), dwflags.toInt())
 
-public actual fun ClusterGroupSetCloseEnum(hgroupsetenum: HGROUPSETENUM): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterGroupSetCloseEnum(hgroupsetenum).toUInt()
+public actual fun clusterGroupSetCloseEnum(hgroupsetenum: Hgroupsetenum): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterGroupSetCloseEnum(hgroupsetenum.toLong()).toUInt()
 
-public actual fun ClusterGroupSetControl(hgroupset: HGROUPSET, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, cbinbuffersize: UInt, lpoutbuffer: Long, cboutbuffersize: UInt, lpbytesreturned: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterGroupSetControl(hgroupset, hhostnode, dwcontrolcode.toInt(), lpinbuffer, cbinbuffersize.toInt(), lpoutbuffer, cboutbuffersize.toInt(), lpbytesreturned).toUInt()
+public actual fun clusterGroupSetControl(hgroupset: Hgroupset, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpoutbuffer: COpaquePointer?, cboutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterGroupSetControl(hgroupset, hhostnode, dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L), cbinbuffersize.toInt(), (lpoutbuffer?.value ?: 0L), cboutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L)).toUInt()
 
-public actual fun ClusterGroupSetControlEx(hgroupset: HGROUPSET, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, cbinbuffersize: UInt, lpoutbuffer: Long, cboutbuffersize: UInt, lpbytesreturned: Long, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterGroupSetControlEx(hgroupset, hhostnode, dwcontrolcode.toInt(), lpinbuffer, cbinbuffersize.toInt(), lpoutbuffer, cboutbuffersize.toInt(), lpbytesreturned, lpszreason).toUInt()
+public actual fun clusterGroupSetControlEx(hgroupset: Hgroupset, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpoutbuffer: COpaquePointer?, cboutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterGroupSetControlEx(hgroupset, hhostnode, dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L), cbinbuffersize.toInt(), (lpoutbuffer?.value ?: 0L), cboutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L), (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun ClusterGroupSetEnum(hgroupsetenum: HGROUPSETENUM, dwindex: UInt, lpszname: PWSTR, lpcchname: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterGroupSetEnum(hgroupsetenum, dwindex.toInt(), lpszname, lpcchname).toUInt()
+public actual fun clusterGroupSetEnum(hgroupsetenum: Hgroupsetenum, dwindex: UInt, lpszname: Pwstr, lpcchname: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterGroupSetEnum(hgroupsetenum.toLong(), dwindex.toInt(), (lpszname?.value ?: 0L), (lpcchname?.value ?: 0L)).toUInt()
 
-public actual fun ClusterGroupSetGetEnumCount(hgroupsetenum: HGROUPSETENUM): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterGroupSetGetEnumCount(hgroupsetenum).toUInt()
+public actual fun clusterGroupSetGetEnumCount(hgroupsetenum: Hgroupsetenum): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterGroupSetGetEnumCount(hgroupsetenum.toLong()).toUInt()
 
-public actual fun ClusterGroupSetOpenEnum(hcluster: HCLUSTER): HGROUPSETENUM =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterGroupSetOpenEnum(hcluster)
+public actual fun clusterGroupSetOpenEnum(hcluster: Hcluster): Hgroupsetenum =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterGroupSetOpenEnum(hcluster)
 
-public actual fun ClusterIsPathOnSharedVolume(lpszpathname: PCWSTR): BOOL =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterIsPathOnSharedVolume(lpszpathname)
+public actual fun clusterIsPathOnSharedVolume(lpszpathname: Pcwstr): Bool =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterIsPathOnSharedVolume((lpszpathname?.value ?: 0L))
 
-public actual fun ClusterNetInterfaceCloseEnum(hnetinterfaceenum: HNETINTERFACEENUM): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterNetInterfaceCloseEnum(hnetinterfaceenum).toUInt()
+public actual fun clusterNetInterfaceCloseEnum(hnetinterfaceenum: Hnetinterfaceenum): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterNetInterfaceCloseEnum(hnetinterfaceenum.toLong()).toUInt()
 
-public actual fun ClusterNetInterfaceControl(hnetinterface: HNETINTERFACE, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterNetInterfaceControl(hnetinterface, hhostnode, dwcontrolcode.toInt(), lpinbuffer, ninbuffersize.toInt(), lpoutbuffer, noutbuffersize.toInt(), lpbytesreturned).toUInt()
+public actual fun clusterNetInterfaceControl(hnetinterface: Hnetinterface, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterNetInterfaceControl(hnetinterface, hhostnode, dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L), ninbuffersize.toInt(), (lpoutbuffer?.value ?: 0L), noutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L)).toUInt()
 
-public actual fun ClusterNetInterfaceControlEx(hnetinterface: HNETINTERFACE, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterNetInterfaceControlEx(hnetinterface, hhostnode, dwcontrolcode.toInt(), lpinbuffer, ninbuffersize.toInt(), lpoutbuffer, noutbuffersize.toInt(), lpbytesreturned, lpszreason).toUInt()
+public actual fun clusterNetInterfaceControlEx(hnetinterface: Hnetinterface, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterNetInterfaceControlEx(hnetinterface, hhostnode, dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L), ninbuffersize.toInt(), (lpoutbuffer?.value ?: 0L), noutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L), (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun ClusterNetInterfaceEnum(hnetinterfaceenum: HNETINTERFACEENUM, dwindex: UInt, lpszname: PWSTR, lpcchname: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterNetInterfaceEnum(hnetinterfaceenum, dwindex.toInt(), lpszname, lpcchname).toUInt()
+public actual fun clusterNetInterfaceEnum(hnetinterfaceenum: Hnetinterfaceenum, dwindex: UInt, lpszname: Pwstr, lpcchname: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterNetInterfaceEnum(hnetinterfaceenum.toLong(), dwindex.toInt(), (lpszname?.value ?: 0L), (lpcchname?.value ?: 0L)).toUInt()
 
-public actual fun ClusterNetInterfaceOpenEnum(hcluster: HCLUSTER, lpsznodename: PCWSTR, lpsznetworkname: PCWSTR): HNETINTERFACEENUM =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterNetInterfaceOpenEnum(hcluster, lpsznodename, lpsznetworkname)
+public actual fun clusterNetInterfaceOpenEnum(hcluster: Hcluster, lpsznodename: Pcwstr, lpsznetworkname: Pcwstr): Hnetinterfaceenum =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterNetInterfaceOpenEnum(hcluster, (lpsznodename?.value ?: 0L), (lpsznetworkname?.value ?: 0L))
 
-public actual fun ClusterNetworkCloseEnum(hnetworkenum: HNETWORKENUM): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterNetworkCloseEnum(hnetworkenum).toUInt()
+public actual fun clusterNetworkCloseEnum(hnetworkenum: Hnetworkenum): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterNetworkCloseEnum(hnetworkenum).toUInt()
 
-public actual fun ClusterNetworkControl(hnetwork: HNETWORK, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterNetworkControl(hnetwork, hhostnode, dwcontrolcode.toInt(), lpinbuffer, ninbuffersize.toInt(), lpoutbuffer, noutbuffersize.toInt(), lpbytesreturned).toUInt()
+public actual fun clusterNetworkControl(hnetwork: Hnetwork, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterNetworkControl(hnetwork, hhostnode, dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L), ninbuffersize.toInt(), (lpoutbuffer?.value ?: 0L), noutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L)).toUInt()
 
-public actual fun ClusterNetworkControlEx(hnetwork: HNETWORK, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterNetworkControlEx(hnetwork, hhostnode, dwcontrolcode.toInt(), lpinbuffer, ninbuffersize.toInt(), lpoutbuffer, noutbuffersize.toInt(), lpbytesreturned, lpszreason).toUInt()
+public actual fun clusterNetworkControlEx(hnetwork: Hnetwork, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterNetworkControlEx(hnetwork, hhostnode, dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L), ninbuffersize.toInt(), (lpoutbuffer?.value ?: 0L), noutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L), (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun ClusterNetworkEnum(hnetworkenum: HNETWORKENUM, dwindex: UInt, lpdwtype: Long, lpszname: PWSTR, lpcchname: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterNetworkEnum(hnetworkenum, dwindex.toInt(), lpdwtype, lpszname, lpcchname).toUInt()
+public actual fun clusterNetworkEnum(hnetworkenum: Hnetworkenum, dwindex: UInt, lpdwtype: COpaquePointer?, lpszname: Pwstr, lpcchname: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterNetworkEnum(hnetworkenum, dwindex.toInt(), (lpdwtype?.value ?: 0L), (lpszname?.value ?: 0L), (lpcchname?.value ?: 0L)).toUInt()
 
-public actual fun ClusterNetworkGetEnumCount(hnetworkenum: HNETWORKENUM): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterNetworkGetEnumCount(hnetworkenum).toUInt()
+public actual fun clusterNetworkGetEnumCount(hnetworkenum: Hnetworkenum): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterNetworkGetEnumCount(hnetworkenum).toUInt()
 
-public actual fun ClusterNetworkOpenEnum(hnetwork: HNETWORK, dwtype: UInt): HNETWORKENUM =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterNetworkOpenEnum(hnetwork, dwtype.toInt())
+public actual fun clusterNetworkOpenEnum(hnetwork: Hnetwork, dwtype: UInt): Hnetworkenum =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterNetworkOpenEnum(hnetwork, dwtype.toInt())
 
-public actual fun ClusterNodeCloseEnum(hnodeenum: HNODEENUM): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterNodeCloseEnum(hnodeenum).toUInt()
+public actual fun clusterNodeCloseEnum(hnodeenum: Hnodeenum): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterNodeCloseEnum(hnodeenum).toUInt()
 
-public actual fun ClusterNodeCloseEnumEx(hnodeenum: HNODEENUMEX): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterNodeCloseEnumEx(hnodeenum).toUInt()
+public actual fun clusterNodeCloseEnumEx(hnodeenum: Hnodeenumex): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterNodeCloseEnumEx(hnodeenum).toUInt()
 
-public actual fun ClusterNodeControl(hnode: HNODE, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterNodeControl(hnode, hhostnode, dwcontrolcode.toInt(), lpinbuffer, ninbuffersize.toInt(), lpoutbuffer, noutbuffersize.toInt(), lpbytesreturned).toUInt()
+public actual fun clusterNodeControl(hnode: Hnode, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterNodeControl(hnode, hhostnode, dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L), ninbuffersize.toInt(), (lpoutbuffer?.value ?: 0L), noutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L)).toUInt()
 
-public actual fun ClusterNodeControlEx(hnode: HNODE, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterNodeControlEx(hnode, hhostnode, dwcontrolcode.toInt(), lpinbuffer, ninbuffersize.toInt(), lpoutbuffer, noutbuffersize.toInt(), lpbytesreturned, lpszreason).toUInt()
+public actual fun clusterNodeControlEx(hnode: Hnode, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterNodeControlEx(hnode, hhostnode, dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L), ninbuffersize.toInt(), (lpoutbuffer?.value ?: 0L), noutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L), (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun ClusterNodeEnum(hnodeenum: HNODEENUM, dwindex: UInt, lpdwtype: Long, lpszname: PWSTR, lpcchname: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterNodeEnum(hnodeenum, dwindex.toInt(), lpdwtype, lpszname, lpcchname).toUInt()
+public actual fun clusterNodeEnum(hnodeenum: Hnodeenum, dwindex: UInt, lpdwtype: COpaquePointer?, lpszname: Pwstr, lpcchname: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterNodeEnum(hnodeenum, dwindex.toInt(), (lpdwtype?.value ?: 0L), (lpszname?.value ?: 0L), (lpcchname?.value ?: 0L)).toUInt()
 
-public actual fun ClusterNodeEnumEx(hnodeenum: HNODEENUMEX, dwindex: UInt, pitem: Long, cbitem: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterNodeEnumEx(hnodeenum, dwindex.toInt(), pitem, cbitem).toUInt()
+public actual fun clusterNodeEnumEx(hnodeenum: Hnodeenumex, dwindex: UInt, pitem: COpaquePointer?, cbitem: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterNodeEnumEx(hnodeenum, dwindex.toInt(), (pitem?.value ?: 0L), (cbitem?.value ?: 0L)).toUInt()
 
-public actual fun ClusterNodeGetEnumCount(hnodeenum: HNODEENUM): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterNodeGetEnumCount(hnodeenum).toUInt()
+public actual fun clusterNodeGetEnumCount(hnodeenum: Hnodeenum): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterNodeGetEnumCount(hnodeenum).toUInt()
 
-public actual fun ClusterNodeGetEnumCountEx(hnodeenum: HNODEENUMEX): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterNodeGetEnumCountEx(hnodeenum).toUInt()
+public actual fun clusterNodeGetEnumCountEx(hnodeenum: Hnodeenumex): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterNodeGetEnumCountEx(hnodeenum).toUInt()
 
-public actual fun ClusterNodeOpenEnum(hnode: HNODE, dwtype: UInt): HNODEENUM =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterNodeOpenEnum(hnode, dwtype.toInt())
+public actual fun clusterNodeOpenEnum(hnode: Hnode, dwtype: UInt): Hnodeenum =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterNodeOpenEnum(hnode, dwtype.toInt())
 
-public actual fun ClusterNodeOpenEnumEx(hnode: HNODE, dwtype: UInt, poptions: Long): HNODEENUMEX =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterNodeOpenEnumEx(hnode, dwtype.toInt(), poptions)
+public actual fun clusterNodeOpenEnumEx(hnode: Hnode, dwtype: UInt, poptions: COpaquePointer?): Hnodeenumex =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterNodeOpenEnumEx(hnode, dwtype.toInt(), (poptions?.value ?: 0L))
 
-public actual fun ClusterNodeReplacement(hcluster: HCLUSTER, lpsznodenamecurrent: PCWSTR, lpsznodenamenew: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterNodeReplacement(hcluster, lpsznodenamecurrent, lpsznodenamenew).toUInt()
+public actual fun clusterNodeReplacement(hcluster: Hcluster, lpsznodenamecurrent: Pcwstr, lpsznodenamenew: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterNodeReplacement(hcluster, (lpsznodenamecurrent?.value ?: 0L), (lpsznodenamenew?.value ?: 0L)).toUInt()
 
-public actual fun ClusterOpenEnum(hcluster: HCLUSTER, dwtype: UInt): HCLUSENUM =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterOpenEnum(hcluster, dwtype.toInt())
+public actual fun clusterOpenEnum(hcluster: Hcluster, dwtype: UInt): Hclusenum =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterOpenEnum(hcluster, dwtype.toInt())
 
-public actual fun ClusterOpenEnumEx(hcluster: HCLUSTER, dwtype: UInt, poptions: Long): HCLUSENUMEX =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterOpenEnumEx(hcluster, dwtype.toInt(), poptions)
+public actual fun clusterOpenEnumEx(hcluster: Hcluster, dwtype: UInt, poptions: COpaquePointer?): Hclusenumex =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterOpenEnumEx(hcluster, dwtype.toInt(), (poptions?.value ?: 0L))
 
-public actual fun ClusterPrepareSharedVolumeForBackup(lpszfilename: PCWSTR, lpszvolumepathname: PWSTR, lpcchvolumepathname: Long, lpszvolumename: PWSTR, lpcchvolumename: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterPrepareSharedVolumeForBackup(lpszfilename, lpszvolumepathname, lpcchvolumepathname, lpszvolumename, lpcchvolumename).toUInt()
+public actual fun clusterPrepareSharedVolumeForBackup(lpszfilename: Pcwstr, lpszvolumepathname: Pwstr, lpcchvolumepathname: COpaquePointer?, lpszvolumename: Pwstr, lpcchvolumename: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterPrepareSharedVolumeForBackup((lpszfilename?.value ?: 0L), (lpszvolumepathname?.value ?: 0L), (lpcchvolumepathname?.value ?: 0L), (lpszvolumename?.value ?: 0L), (lpcchvolumename?.value ?: 0L)).toUInt()
 
-public actual fun ClusterRegBatchAddCommand(hregbatch: HREGBATCH, dwcommand: CLUSTER_REG_COMMAND, wzname: PCWSTR, dwoptions: UInt, lpdata: Long, cbdata: UInt): Int =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterRegBatchAddCommand(hregbatch, dwcommand, wzname, dwoptions.toInt(), lpdata, cbdata.toInt())
+public actual fun clusterRegBatchAddCommand(hregbatch: Hregbatch, dwcommand: ClusterRegCommand, wzname: Pcwstr, dwoptions: UInt, lpdata: COpaquePointer?, cbdata: UInt): Int =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterRegBatchAddCommand(hregbatch, dwcommand, (wzname?.value ?: 0L), dwoptions.toInt(), (lpdata?.value ?: 0L), cbdata.toInt())
 
-public actual fun ClusterRegBatchCloseNotification(hbatchnotification: HREGBATCHNOTIFICATION): Int =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterRegBatchCloseNotification(hbatchnotification)
+public actual fun clusterRegBatchCloseNotification(hbatchnotification: Hregbatchnotification): Int =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterRegBatchCloseNotification(hbatchnotification)
 
-public actual fun ClusterRegBatchReadCommand(hbatchnotification: HREGBATCHNOTIFICATION, pbatchcommand: Long): Int =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterRegBatchReadCommand(hbatchnotification, pbatchcommand)
+public actual fun clusterRegBatchReadCommand(hbatchnotification: Hregbatchnotification, pbatchcommand: COpaquePointer?): Int =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterRegBatchReadCommand(hbatchnotification, (pbatchcommand?.value ?: 0L))
 
-public actual fun ClusterRegCloseBatch(hregbatch: HREGBATCH, bcommit: BOOL, failedcommandnumber: Long): Int =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterRegCloseBatch(hregbatch, bcommit, failedcommandnumber)
+public actual fun clusterRegCloseBatch(hregbatch: Hregbatch, bcommit: Bool, failedcommandnumber: COpaquePointer?): Int =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterRegCloseBatch(hregbatch, bcommit, (failedcommandnumber?.value ?: 0L))
 
-public actual fun ClusterRegCloseBatchEx(hregbatch: HREGBATCH, flags: UInt, failedcommandnumber: Long): Int =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterRegCloseBatchEx(hregbatch, flags.toInt(), failedcommandnumber)
+public actual fun clusterRegCloseBatchEx(hregbatch: Hregbatch, flags: UInt, failedcommandnumber: COpaquePointer?): Int =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterRegCloseBatchEx(hregbatch, flags.toInt(), (failedcommandnumber?.value ?: 0L))
 
-public actual fun ClusterRegCloseBatchNotifyPort(hbatchnotifyport: HREGBATCHPORT): Int =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterRegCloseBatchNotifyPort(hbatchnotifyport)
+public actual fun clusterRegCloseBatchNotifyPort(hbatchnotifyport: Hregbatchport): Int =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterRegCloseBatchNotifyPort(hbatchnotifyport)
 
-public actual fun ClusterRegCloseKey(hkey: HKEY): Int =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterRegCloseKey(hkey)
+public actual fun clusterRegCloseKey(hkey: Hkey): Int =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterRegCloseKey((hkey?.value ?: 0L))
 
-public actual fun ClusterRegCloseReadBatch(hregreadbatch: HREGREADBATCH, phregreadbatchreply: Long): Int =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterRegCloseReadBatch(hregreadbatch, phregreadbatchreply)
+public actual fun clusterRegCloseReadBatch(hregreadbatch: Hregreadbatch, phregreadbatchreply: COpaquePointer?): Int =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterRegCloseReadBatch(hregreadbatch, (phregreadbatchreply?.value ?: 0L))
 
-public actual fun ClusterRegCloseReadBatchEx(hregreadbatch: HREGREADBATCH, flags: UInt, phregreadbatchreply: Long): Int =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterRegCloseReadBatchEx(hregreadbatch, flags.toInt(), phregreadbatchreply)
+public actual fun clusterRegCloseReadBatchEx(hregreadbatch: Hregreadbatch, flags: UInt, phregreadbatchreply: COpaquePointer?): Int =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterRegCloseReadBatchEx(hregreadbatch, flags.toInt(), (phregreadbatchreply?.value ?: 0L))
 
-public actual fun ClusterRegCloseReadBatchReply(hregreadbatchreply: HREGREADBATCHREPLY): Int =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterRegCloseReadBatchReply(hregreadbatchreply)
+public actual fun clusterRegCloseReadBatchReply(hregreadbatchreply: Hregreadbatchreply): Int =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterRegCloseReadBatchReply(hregreadbatchreply)
 
-public actual fun ClusterRegCreateBatch(hkey: HKEY, phregbatch: Long): Int =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterRegCreateBatch(hkey, phregbatch)
+public actual fun clusterRegCreateBatch(hkey: Hkey, phregbatch: COpaquePointer?): Int =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterRegCreateBatch((hkey?.value ?: 0L), (phregbatch?.value ?: 0L))
 
-public actual fun ClusterRegCreateBatchNotifyPort(hkey: HKEY, phbatchnotifyport: Long): Int =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterRegCreateBatchNotifyPort(hkey, phbatchnotifyport)
+public actual fun clusterRegCreateBatchNotifyPort(hkey: Hkey, phbatchnotifyport: COpaquePointer?): Int =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterRegCreateBatchNotifyPort((hkey?.value ?: 0L), (phbatchnotifyport?.value ?: 0L))
 
-public actual fun ClusterRegCreateKey(hkey: HKEY, lpszsubkey: PCWSTR, dwoptions: UInt, samdesired: UInt, lpsecurityattributes: Long, phkresult: Long, lpdwdisposition: Long): Int =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterRegCreateKey(hkey, lpszsubkey, dwoptions.toInt(), samdesired.toInt(), lpsecurityattributes, phkresult, lpdwdisposition)
+public actual fun clusterRegCreateKey(hkey: Hkey, lpszsubkey: Pcwstr, dwoptions: UInt, samdesired: UInt, lpsecurityattributes: COpaquePointer?, phkresult: COpaquePointer?, lpdwdisposition: COpaquePointer?): Int =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterRegCreateKey((hkey?.value ?: 0L), (lpszsubkey?.value ?: 0L), dwoptions.toInt(), samdesired.toInt(), (lpsecurityattributes?.value ?: 0L), (phkresult?.value ?: 0L), (lpdwdisposition?.value ?: 0L))
 
-public actual fun ClusterRegCreateKeyEx(hkey: HKEY, lpsubkey: PCWSTR, dwoptions: UInt, samdesired: UInt, lpsecurityattributes: Long, phkresult: Long, lpdwdisposition: Long, lpszreason: PCWSTR): Int =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterRegCreateKeyEx(hkey, lpsubkey, dwoptions.toInt(), samdesired.toInt(), lpsecurityattributes, phkresult, lpdwdisposition, lpszreason)
+public actual fun clusterRegCreateKeyEx(hkey: Hkey, lpsubkey: Pcwstr, dwoptions: UInt, samdesired: UInt, lpsecurityattributes: COpaquePointer?, phkresult: COpaquePointer?, lpdwdisposition: COpaquePointer?, lpszreason: Pcwstr): Int =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterRegCreateKeyEx((hkey?.value ?: 0L), (lpsubkey?.value ?: 0L), dwoptions.toInt(), samdesired.toInt(), (lpsecurityattributes?.value ?: 0L), (phkresult?.value ?: 0L), (lpdwdisposition?.value ?: 0L), (lpszreason?.value ?: 0L))
 
-public actual fun ClusterRegCreateReadBatch(hkey: HKEY, phregreadbatch: Long): Int =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterRegCreateReadBatch(hkey, phregreadbatch)
+public actual fun clusterRegCreateReadBatch(hkey: Hkey, phregreadbatch: COpaquePointer?): Int =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterRegCreateReadBatch((hkey?.value ?: 0L), (phregreadbatch?.value ?: 0L))
 
-public actual fun ClusterRegDeleteKey(hkey: HKEY, lpszsubkey: PCWSTR): Int =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterRegDeleteKey(hkey, lpszsubkey)
+public actual fun clusterRegDeleteKey(hkey: Hkey, lpszsubkey: Pcwstr): Int =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterRegDeleteKey((hkey?.value ?: 0L), (lpszsubkey?.value ?: 0L))
 
-public actual fun ClusterRegDeleteKeyEx(hkey: HKEY, lpsubkey: PCWSTR, lpszreason: PCWSTR): Int =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterRegDeleteKeyEx(hkey, lpsubkey, lpszreason)
+public actual fun clusterRegDeleteKeyEx(hkey: Hkey, lpsubkey: Pcwstr, lpszreason: Pcwstr): Int =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterRegDeleteKeyEx((hkey?.value ?: 0L), (lpsubkey?.value ?: 0L), (lpszreason?.value ?: 0L))
 
-public actual fun ClusterRegDeleteValue(hkey: HKEY, lpszvaluename: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterRegDeleteValue(hkey, lpszvaluename).toUInt()
+public actual fun clusterRegDeleteValue(hkey: Hkey, lpszvaluename: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterRegDeleteValue((hkey?.value ?: 0L), (lpszvaluename?.value ?: 0L)).toUInt()
 
-public actual fun ClusterRegDeleteValueEx(hkey: HKEY, lpszvaluename: PCWSTR, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterRegDeleteValueEx(hkey, lpszvaluename, lpszreason).toUInt()
+public actual fun clusterRegDeleteValueEx(hkey: Hkey, lpszvaluename: Pcwstr, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterRegDeleteValueEx((hkey?.value ?: 0L), (lpszvaluename?.value ?: 0L), (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun ClusterRegEnumKey(hkey: HKEY, dwindex: UInt, lpszname: PWSTR, lpcchname: Long, lpftlastwritetime: Long): Int =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterRegEnumKey(hkey, dwindex.toInt(), lpszname, lpcchname, lpftlastwritetime)
+public actual fun clusterRegEnumKey(hkey: Hkey, dwindex: UInt, lpszname: Pwstr, lpcchname: COpaquePointer?, lpftlastwritetime: COpaquePointer?): Int =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterRegEnumKey((hkey?.value ?: 0L), dwindex.toInt(), (lpszname?.value ?: 0L), (lpcchname?.value ?: 0L), (lpftlastwritetime?.value ?: 0L))
 
-public actual fun ClusterRegEnumValue(hkey: HKEY, dwindex: UInt, lpszvaluename: PWSTR, lpcchvaluename: Long, lpdwtype: Long, lpdata: Long, lpcbdata: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterRegEnumValue(hkey, dwindex.toInt(), lpszvaluename, lpcchvaluename, lpdwtype, lpdata, lpcbdata).toUInt()
+public actual fun clusterRegEnumValue(hkey: Hkey, dwindex: UInt, lpszvaluename: Pwstr, lpcchvaluename: COpaquePointer?, lpdwtype: COpaquePointer?, lpdata: COpaquePointer?, lpcbdata: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterRegEnumValue((hkey?.value ?: 0L), dwindex.toInt(), (lpszvaluename?.value ?: 0L), (lpcchvaluename?.value ?: 0L), (lpdwtype?.value ?: 0L), (lpdata?.value ?: 0L), (lpcbdata?.value ?: 0L)).toUInt()
 
-public actual fun ClusterRegGetBatchNotification(hbatchnotify: HREGBATCHPORT, phbatchnotification: Long): Int =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterRegGetBatchNotification(hbatchnotify, phbatchnotification)
+public actual fun clusterRegGetBatchNotification(hbatchnotify: Hregbatchport, phbatchnotification: COpaquePointer?): Int =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterRegGetBatchNotification(hbatchnotify, (phbatchnotification?.value ?: 0L))
 
-public actual fun ClusterRegGetKeySecurity(hkey: HKEY, requestedinformation: UInt, psecuritydescriptor: PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor: Long): Int =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterRegGetKeySecurity(hkey, requestedinformation.toInt(), psecuritydescriptor, lpcbsecuritydescriptor)
+public actual fun clusterRegGetKeySecurity(hkey: Hkey, requestedinformation: UInt, psecuritydescriptor: PsecurityDescriptor, lpcbsecuritydescriptor: COpaquePointer?): Int =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterRegGetKeySecurity((hkey?.value ?: 0L), requestedinformation.toInt(), (psecuritydescriptor?.value ?: 0L), (lpcbsecuritydescriptor?.value ?: 0L))
 
-public actual fun ClusterRegOpenKey(hkey: HKEY, lpszsubkey: PCWSTR, samdesired: UInt, phkresult: Long): Int =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterRegOpenKey(hkey, lpszsubkey, samdesired.toInt(), phkresult)
+public actual fun clusterRegOpenKey(hkey: Hkey, lpszsubkey: Pcwstr, samdesired: UInt, phkresult: COpaquePointer?): Int =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterRegOpenKey((hkey?.value ?: 0L), (lpszsubkey?.value ?: 0L), samdesired.toInt(), (phkresult?.value ?: 0L))
 
-public actual fun ClusterRegQueryInfoKey(hkey: HKEY, lpcsubkeys: Long, lpcchmaxsubkeylen: Long, lpcvalues: Long, lpcchmaxvaluenamelen: Long, lpcbmaxvaluelen: Long, lpcbsecuritydescriptor: Long, lpftlastwritetime: Long): Int =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterRegQueryInfoKey(hkey, lpcsubkeys, lpcchmaxsubkeylen, lpcvalues, lpcchmaxvaluenamelen, lpcbmaxvaluelen, lpcbsecuritydescriptor, lpftlastwritetime)
+public actual fun clusterRegQueryInfoKey(hkey: Hkey, lpcsubkeys: COpaquePointer?, lpcchmaxsubkeylen: COpaquePointer?, lpcvalues: COpaquePointer?, lpcchmaxvaluenamelen: COpaquePointer?, lpcbmaxvaluelen: COpaquePointer?, lpcbsecuritydescriptor: COpaquePointer?, lpftlastwritetime: COpaquePointer?): Int =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterRegQueryInfoKey((hkey?.value ?: 0L), (lpcsubkeys?.value ?: 0L), (lpcchmaxsubkeylen?.value ?: 0L), (lpcvalues?.value ?: 0L), (lpcchmaxvaluenamelen?.value ?: 0L), (lpcbmaxvaluelen?.value ?: 0L), (lpcbsecuritydescriptor?.value ?: 0L), (lpftlastwritetime?.value ?: 0L))
 
-public actual fun ClusterRegQueryValue(hkey: HKEY, lpszvaluename: PCWSTR, lpdwvaluetype: Long, lpdata: Long, lpcbdata: Long): Int =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterRegQueryValue(hkey, lpszvaluename, lpdwvaluetype, lpdata, lpcbdata)
+public actual fun clusterRegQueryValue(hkey: Hkey, lpszvaluename: Pcwstr, lpdwvaluetype: COpaquePointer?, lpdata: COpaquePointer?, lpcbdata: COpaquePointer?): Int =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterRegQueryValue((hkey?.value ?: 0L), (lpszvaluename?.value ?: 0L), (lpdwvaluetype?.value ?: 0L), (lpdata?.value ?: 0L), (lpcbdata?.value ?: 0L))
 
-public actual fun ClusterRegReadBatchAddCommand(hregreadbatch: HREGREADBATCH, wzsubkeyname: PCWSTR, wzvaluename: PCWSTR): Int =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterRegReadBatchAddCommand(hregreadbatch, wzsubkeyname, wzvaluename)
+public actual fun clusterRegReadBatchAddCommand(hregreadbatch: Hregreadbatch, wzsubkeyname: Pcwstr, wzvaluename: Pcwstr): Int =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterRegReadBatchAddCommand(hregreadbatch, (wzsubkeyname?.value ?: 0L), (wzvaluename?.value ?: 0L))
 
-public actual fun ClusterRegReadBatchReplyNextCommand(hregreadbatchreply: HREGREADBATCHREPLY, pbatchcommand: Long): Int =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterRegReadBatchReplyNextCommand(hregreadbatchreply, pbatchcommand)
+public actual fun clusterRegReadBatchReplyNextCommand(hregreadbatchreply: Hregreadbatchreply, pbatchcommand: COpaquePointer?): Int =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterRegReadBatchReplyNextCommand(hregreadbatchreply, (pbatchcommand?.value ?: 0L))
 
-public actual fun ClusterRegSetKeySecurity(hkey: HKEY, securityinformation: UInt, psecuritydescriptor: PSECURITY_DESCRIPTOR): Int =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterRegSetKeySecurity(hkey, securityinformation.toInt(), psecuritydescriptor)
+public actual fun clusterRegSetKeySecurity(hkey: Hkey, securityinformation: UInt, psecuritydescriptor: PsecurityDescriptor): Int =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterRegSetKeySecurity((hkey?.value ?: 0L), securityinformation.toInt(), (psecuritydescriptor?.value ?: 0L))
 
-public actual fun ClusterRegSetKeySecurityEx(hkey: HKEY, securityinformation: OBJECT_SECURITY_INFORMATION, psecuritydescriptor: PSECURITY_DESCRIPTOR, lpszreason: PCWSTR): Int =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterRegSetKeySecurityEx(hkey, securityinformation.toInt(), psecuritydescriptor, lpszreason)
+public actual fun clusterRegSetKeySecurityEx(hkey: Hkey, securityinformation: ObjectSecurityInformation, psecuritydescriptor: PsecurityDescriptor, lpszreason: Pcwstr): Int =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterRegSetKeySecurityEx((hkey?.value ?: 0L), securityinformation.toInt(), (psecuritydescriptor?.value ?: 0L), (lpszreason?.value ?: 0L))
 
-public actual fun ClusterRegSetValue(hkey: HKEY, lpszvaluename: PCWSTR, dwtype: UInt, lpdata: Long, cbdata: UInt): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterRegSetValue(hkey, lpszvaluename, dwtype.toInt(), lpdata, cbdata.toInt()).toUInt()
+public actual fun clusterRegSetValue(hkey: Hkey, lpszvaluename: Pcwstr, dwtype: UInt, lpdata: COpaquePointer?, cbdata: UInt): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterRegSetValue((hkey?.value ?: 0L), (lpszvaluename?.value ?: 0L), dwtype.toInt(), (lpdata?.value ?: 0L), cbdata.toInt()).toUInt()
 
-public actual fun ClusterRegSetValueEx(hkey: HKEY, lpszvaluename: PCWSTR, dwtype: UInt, lpdata: Long, cbdata: UInt, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterRegSetValueEx(hkey, lpszvaluename, dwtype.toInt(), lpdata, cbdata.toInt(), lpszreason).toUInt()
+public actual fun clusterRegSetValueEx(hkey: Hkey, lpszvaluename: Pcwstr, dwtype: UInt, lpdata: COpaquePointer?, cbdata: UInt, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterRegSetValueEx((hkey?.value ?: 0L), (lpszvaluename?.value ?: 0L), dwtype.toInt(), (lpdata?.value ?: 0L), cbdata.toInt(), (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun ClusterRegSyncDatabase(hcluster: HCLUSTER, flags: UInt): Int =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterRegSyncDatabase(hcluster, flags.toInt())
+public actual fun clusterRegSyncDatabase(hcluster: Hcluster, flags: UInt): Int =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterRegSyncDatabase(hcluster, flags.toInt())
 
-public actual fun ClusterRemoveAffinityRule(hcluster: HCLUSTER, rulename: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterRemoveAffinityRule(hcluster, rulename).toUInt()
+public actual fun clusterRemoveAffinityRule(hcluster: Hcluster, rulename: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterRemoveAffinityRule(hcluster, (rulename?.value ?: 0L)).toUInt()
 
-public actual fun ClusterRemoveGroupFromAffinityRule(hcluster: HCLUSTER, rulename: PCWSTR, hgroup: HGROUP): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterRemoveGroupFromAffinityRule(hcluster, rulename, hgroup).toUInt()
+public actual fun clusterRemoveGroupFromAffinityRule(hcluster: Hcluster, rulename: Pcwstr, hgroup: Hgroup): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterRemoveGroupFromAffinityRule(hcluster, (rulename?.value ?: 0L), hgroup).toUInt()
 
-public actual fun ClusterRemoveGroupFromGroupSet(hgroup: HGROUP): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterRemoveGroupFromGroupSet(hgroup).toUInt()
+public actual fun clusterRemoveGroupFromGroupSet(hgroup: Hgroup): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterRemoveGroupFromGroupSet(hgroup).toUInt()
 
-public actual fun ClusterRemoveGroupFromGroupSetEx(hgroup: HGROUP, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterRemoveGroupFromGroupSetEx(hgroup, lpszreason).toUInt()
+public actual fun clusterRemoveGroupFromGroupSetEx(hgroup: Hgroup, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterRemoveGroupFromGroupSetEx(hgroup, (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun ClusterResourceCloseEnum(hresenum: HRESENUM): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterResourceCloseEnum(hresenum).toUInt()
+public actual fun clusterResourceCloseEnum(hresenum: Hresenum): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterResourceCloseEnum(hresenum).toUInt()
 
-public actual fun ClusterResourceCloseEnumEx(hresourceenumex: HRESENUMEX): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterResourceCloseEnumEx(hresourceenumex).toUInt()
+public actual fun clusterResourceCloseEnumEx(hresourceenumex: Hresenumex): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterResourceCloseEnumEx(hresourceenumex).toUInt()
 
-public actual fun ClusterResourceControl(hresource: HRESOURCE, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, cbinbuffersize: UInt, lpoutbuffer: Long, cboutbuffersize: UInt, lpbytesreturned: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterResourceControl(hresource, hhostnode, dwcontrolcode.toInt(), lpinbuffer, cbinbuffersize.toInt(), lpoutbuffer, cboutbuffersize.toInt(), lpbytesreturned).toUInt()
+public actual fun clusterResourceControl(hresource: Hresource, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpoutbuffer: COpaquePointer?, cboutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterResourceControl(hresource, hhostnode, dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L), cbinbuffersize.toInt(), (lpoutbuffer?.value ?: 0L), cboutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L)).toUInt()
 
-public actual fun ClusterResourceControlAsUser(hresource: HRESOURCE, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, cbinbuffersize: UInt, lpoutbuffer: Long, cboutbuffersize: UInt, lpbytesreturned: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterResourceControlAsUser(hresource, hhostnode, dwcontrolcode.toInt(), lpinbuffer, cbinbuffersize.toInt(), lpoutbuffer, cboutbuffersize.toInt(), lpbytesreturned).toUInt()
+public actual fun clusterResourceControlAsUser(hresource: Hresource, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpoutbuffer: COpaquePointer?, cboutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterResourceControlAsUser(hresource, hhostnode, dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L), cbinbuffersize.toInt(), (lpoutbuffer?.value ?: 0L), cboutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L)).toUInt()
 
-public actual fun ClusterResourceControlAsUserEx(hresource: HRESOURCE, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, cbinbuffersize: UInt, lpoutbuffer: Long, cboutbuffersize: UInt, lpbytesreturned: Long, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterResourceControlAsUserEx(hresource, hhostnode, dwcontrolcode.toInt(), lpinbuffer, cbinbuffersize.toInt(), lpoutbuffer, cboutbuffersize.toInt(), lpbytesreturned, lpszreason).toUInt()
+public actual fun clusterResourceControlAsUserEx(hresource: Hresource, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpoutbuffer: COpaquePointer?, cboutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterResourceControlAsUserEx(hresource, hhostnode, dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L), cbinbuffersize.toInt(), (lpoutbuffer?.value ?: 0L), cboutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L), (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun ClusterResourceControlEx(hresource: HRESOURCE, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, cbinbuffersize: UInt, lpoutbuffer: Long, cboutbuffersize: UInt, lpbytesreturned: Long, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterResourceControlEx(hresource, hhostnode, dwcontrolcode.toInt(), lpinbuffer, cbinbuffersize.toInt(), lpoutbuffer, cboutbuffersize.toInt(), lpbytesreturned, lpszreason).toUInt()
+public actual fun clusterResourceControlEx(hresource: Hresource, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpoutbuffer: COpaquePointer?, cboutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterResourceControlEx(hresource, hhostnode, dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L), cbinbuffersize.toInt(), (lpoutbuffer?.value ?: 0L), cboutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L), (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun ClusterResourceEnum(hresenum: HRESENUM, dwindex: UInt, lpdwtype: Long, lpszname: PWSTR, lpcchname: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterResourceEnum(hresenum, dwindex.toInt(), lpdwtype, lpszname, lpcchname).toUInt()
+public actual fun clusterResourceEnum(hresenum: Hresenum, dwindex: UInt, lpdwtype: COpaquePointer?, lpszname: Pwstr, lpcchname: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterResourceEnum(hresenum, dwindex.toInt(), (lpdwtype?.value ?: 0L), (lpszname?.value ?: 0L), (lpcchname?.value ?: 0L)).toUInt()
 
-public actual fun ClusterResourceEnumEx(hresourceenumex: HRESENUMEX, dwindex: UInt, pitem: Long, cbitem: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterResourceEnumEx(hresourceenumex, dwindex.toInt(), pitem, cbitem).toUInt()
+public actual fun clusterResourceEnumEx(hresourceenumex: Hresenumex, dwindex: UInt, pitem: COpaquePointer?, cbitem: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterResourceEnumEx(hresourceenumex, dwindex.toInt(), (pitem?.value ?: 0L), (cbitem?.value ?: 0L)).toUInt()
 
-public actual fun ClusterResourceGetEnumCount(hresenum: HRESENUM): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterResourceGetEnumCount(hresenum).toUInt()
+public actual fun clusterResourceGetEnumCount(hresenum: Hresenum): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterResourceGetEnumCount(hresenum).toUInt()
 
-public actual fun ClusterResourceGetEnumCountEx(hresourceenumex: HRESENUMEX): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterResourceGetEnumCountEx(hresourceenumex).toUInt()
+public actual fun clusterResourceGetEnumCountEx(hresourceenumex: Hresenumex): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterResourceGetEnumCountEx(hresourceenumex).toUInt()
 
-public actual fun ClusterResourceOpenEnum(hresource: HRESOURCE, dwtype: UInt): HRESENUM =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterResourceOpenEnum(hresource, dwtype.toInt())
+public actual fun clusterResourceOpenEnum(hresource: Hresource, dwtype: UInt): Hresenum =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterResourceOpenEnum(hresource, dwtype.toInt())
 
-public actual fun ClusterResourceOpenEnumEx(hcluster: HCLUSTER, lpszproperties: PCWSTR, cbproperties: UInt, lpszroproperties: PCWSTR, cbroproperties: UInt, dwflags: UInt): HRESENUMEX =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterResourceOpenEnumEx(hcluster, lpszproperties, cbproperties.toInt(), lpszroproperties, cbroproperties.toInt(), dwflags.toInt())
+public actual fun clusterResourceOpenEnumEx(hcluster: Hcluster, lpszproperties: Pcwstr, cbproperties: UInt, lpszroproperties: Pcwstr, cbroproperties: UInt, dwflags: UInt): Hresenumex =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterResourceOpenEnumEx(hcluster, (lpszproperties?.value ?: 0L), cbproperties.toInt(), (lpszroproperties?.value ?: 0L), cbroproperties.toInt(), dwflags.toInt())
 
-public actual fun ClusterResourceTypeCloseEnum(hrestypeenum: HRESTYPEENUM): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterResourceTypeCloseEnum(hrestypeenum).toUInt()
+public actual fun clusterResourceTypeCloseEnum(hrestypeenum: Hrestypeenum): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterResourceTypeCloseEnum(hrestypeenum).toUInt()
 
-public actual fun ClusterResourceTypeControl(hcluster: HCLUSTER, lpszresourcetypename: PCWSTR, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterResourceTypeControl(hcluster, lpszresourcetypename, hhostnode, dwcontrolcode.toInt(), lpinbuffer, ninbuffersize.toInt(), lpoutbuffer, noutbuffersize.toInt(), lpbytesreturned).toUInt()
+public actual fun clusterResourceTypeControl(hcluster: Hcluster, lpszresourcetypename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterResourceTypeControl(hcluster, (lpszresourcetypename?.value ?: 0L), hhostnode, dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L), ninbuffersize.toInt(), (lpoutbuffer?.value ?: 0L), noutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L)).toUInt()
 
-public actual fun ClusterResourceTypeControlAsUser(hcluster: HCLUSTER, lpszresourcetypename: PCWSTR, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterResourceTypeControlAsUser(hcluster, lpszresourcetypename, hhostnode, dwcontrolcode.toInt(), lpinbuffer, ninbuffersize.toInt(), lpoutbuffer, noutbuffersize.toInt(), lpbytesreturned).toUInt()
+public actual fun clusterResourceTypeControlAsUser(hcluster: Hcluster, lpszresourcetypename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterResourceTypeControlAsUser(hcluster, (lpszresourcetypename?.value ?: 0L), hhostnode, dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L), ninbuffersize.toInt(), (lpoutbuffer?.value ?: 0L), noutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L)).toUInt()
 
-public actual fun ClusterResourceTypeControlAsUserEx(hcluster: HCLUSTER, lpszresourcetypename: PCWSTR, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterResourceTypeControlAsUserEx(hcluster, lpszresourcetypename, hhostnode, dwcontrolcode.toInt(), lpinbuffer, ninbuffersize.toInt(), lpoutbuffer, noutbuffersize.toInt(), lpbytesreturned, lpszreason).toUInt()
+public actual fun clusterResourceTypeControlAsUserEx(hcluster: Hcluster, lpszresourcetypename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterResourceTypeControlAsUserEx(hcluster, (lpszresourcetypename?.value ?: 0L), hhostnode, dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L), ninbuffersize.toInt(), (lpoutbuffer?.value ?: 0L), noutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L), (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun ClusterResourceTypeControlEx(hcluster: HCLUSTER, lpszresourcetypename: PCWSTR, hhostnode: HNODE, dwcontrolcode: UInt, lpinbuffer: Long, ninbuffersize: UInt, lpoutbuffer: Long, noutbuffersize: UInt, lpbytesreturned: Long, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterResourceTypeControlEx(hcluster, lpszresourcetypename, hhostnode, dwcontrolcode.toInt(), lpinbuffer, ninbuffersize.toInt(), lpoutbuffer, noutbuffersize.toInt(), lpbytesreturned, lpszreason).toUInt()
+public actual fun clusterResourceTypeControlEx(hcluster: Hcluster, lpszresourcetypename: Pcwstr, hhostnode: Hnode, dwcontrolcode: UInt, lpinbuffer: COpaquePointer?, ninbuffersize: UInt, lpoutbuffer: COpaquePointer?, noutbuffersize: UInt, lpbytesreturned: COpaquePointer?, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterResourceTypeControlEx(hcluster, (lpszresourcetypename?.value ?: 0L), hhostnode, dwcontrolcode.toInt(), (lpinbuffer?.value ?: 0L), ninbuffersize.toInt(), (lpoutbuffer?.value ?: 0L), noutbuffersize.toInt(), (lpbytesreturned?.value ?: 0L), (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun ClusterResourceTypeEnum(hrestypeenum: HRESTYPEENUM, dwindex: UInt, lpdwtype: Long, lpszname: PWSTR, lpcchname: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterResourceTypeEnum(hrestypeenum, dwindex.toInt(), lpdwtype, lpszname, lpcchname).toUInt()
+public actual fun clusterResourceTypeEnum(hrestypeenum: Hrestypeenum, dwindex: UInt, lpdwtype: COpaquePointer?, lpszname: Pwstr, lpcchname: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterResourceTypeEnum(hrestypeenum, dwindex.toInt(), (lpdwtype?.value ?: 0L), (lpszname?.value ?: 0L), (lpcchname?.value ?: 0L)).toUInt()
 
-public actual fun ClusterResourceTypeGetEnumCount(hrestypeenum: HRESTYPEENUM): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterResourceTypeGetEnumCount(hrestypeenum).toUInt()
+public actual fun clusterResourceTypeGetEnumCount(hrestypeenum: Hrestypeenum): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterResourceTypeGetEnumCount(hrestypeenum).toUInt()
 
-public actual fun ClusterResourceTypeOpenEnum(hcluster: HCLUSTER, lpszresourcetypename: PCWSTR, dwtype: UInt): HRESTYPEENUM =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterResourceTypeOpenEnum(hcluster, lpszresourcetypename, dwtype.toInt())
+public actual fun clusterResourceTypeOpenEnum(hcluster: Hcluster, lpszresourcetypename: Pcwstr, dwtype: UInt): Hrestypeenum =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterResourceTypeOpenEnum(hcluster, (lpszresourcetypename?.value ?: 0L), dwtype.toInt())
 
-public actual fun ClusterSetAccountAccess(hcluster: HCLUSTER, szaccountsid: PCWSTR, dwaccess: UInt, dwcontroltype: UInt): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterSetAccountAccess(hcluster, szaccountsid, dwaccess.toInt(), dwcontroltype.toInt()).toUInt()
+public actual fun clusterSetAccountAccess(hcluster: Hcluster, szaccountsid: Pcwstr, dwaccess: UInt, dwcontroltype: UInt): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterSetAccountAccess(hcluster, (szaccountsid?.value ?: 0L), dwaccess.toInt(), dwcontroltype.toInt()).toUInt()
 
-public actual fun ClusterSharedVolumeSetSnapshotState(guidsnapshotset: GUID, lpszvolumename: PCWSTR, state: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE): UInt =
+public actual fun clusterSharedVolumeSetSnapshotState(guidsnapshotset: Guid, lpszvolumename: Pcwstr, state: ClusterSharedVolumeSnapshotState): UInt =
     0u
 
-public actual fun ClusterUpgradeFunctionalLevel(hcluster: HCLUSTER, perform: BOOL, pfnprogresscallback: PCLUSTER_UPGRADE_PROGRESS_CALLBACK, pvcallbackarg: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ClusterUpgradeFunctionalLevel(hcluster, perform, pfnprogresscallback.toLong(), pvcallbackarg).toUInt()
+public actual fun clusterUpgradeFunctionalLevel(hcluster: Hcluster, perform: Bool, pfnprogresscallback: PclusterUpgradeProgressCallback, pvcallbackarg: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_clusterUpgradeFunctionalLevel(hcluster, perform, 0L, (pvcallbackarg?.value ?: 0L)).toUInt()
 
-public actual fun CreateCluster(pconfig: Long, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Long): HCLUSTER =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_CreateCluster(pconfig, pfnprogresscallback.toLong(), pvcallbackarg)
+public actual fun createCluster(pconfig: COpaquePointer?, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: COpaquePointer?): Hcluster =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_createCluster((pconfig?.value ?: 0L), 0L, (pvcallbackarg?.value ?: 0L))
 
-public actual fun CreateClusterAvailabilitySet(hcluster: HCLUSTER, lpavailabilitysetname: PCWSTR, pavailabilitysetconfig: Long): HGROUPSET =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_CreateClusterAvailabilitySet(hcluster, lpavailabilitysetname, pavailabilitysetconfig)
+public actual fun createClusterAvailabilitySet(hcluster: Hcluster, lpavailabilitysetname: Pcwstr, pavailabilitysetconfig: COpaquePointer?): Hgroupset =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_createClusterAvailabilitySet(hcluster, (lpavailabilitysetname?.value ?: 0L), (pavailabilitysetconfig?.value ?: 0L))
 
-public actual fun CreateClusterGroup(hcluster: HCLUSTER, lpszgroupname: PCWSTR): HGROUP =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_CreateClusterGroup(hcluster, lpszgroupname)
+public actual fun createClusterGroup(hcluster: Hcluster, lpszgroupname: Pcwstr): Hgroup =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_createClusterGroup(hcluster, (lpszgroupname?.value ?: 0L))
 
-public actual fun CreateClusterGroupEx(hcluster: HCLUSTER, lpszgroupname: PCWSTR, pgroupinfo: Long): HGROUP =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_CreateClusterGroupEx(hcluster, lpszgroupname, pgroupinfo)
+public actual fun createClusterGroupEx(hcluster: Hcluster, lpszgroupname: Pcwstr, pgroupinfo: COpaquePointer?): Hgroup =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_createClusterGroupEx(hcluster, (lpszgroupname?.value ?: 0L), (pgroupinfo?.value ?: 0L))
 
-public actual fun CreateClusterGroupSet(hcluster: HCLUSTER, groupsetname: PCWSTR): HGROUPSET =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_CreateClusterGroupSet(hcluster, groupsetname)
+public actual fun createClusterGroupSet(hcluster: Hcluster, groupsetname: Pcwstr): Hgroupset =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_createClusterGroupSet(hcluster, (groupsetname?.value ?: 0L))
 
-public actual fun CreateClusterNameAccount(hcluster: HCLUSTER, pconfig: Long, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_CreateClusterNameAccount(hcluster, pconfig, pfnprogresscallback.toLong(), pvcallbackarg).toUInt()
+public actual fun createClusterNameAccount(hcluster: Hcluster, pconfig: COpaquePointer?, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_createClusterNameAccount(hcluster, (pconfig?.value ?: 0L), 0L, (pvcallbackarg?.value ?: 0L)).toUInt()
 
-public actual fun CreateClusterNotifyPort(hchange: HCHANGE, hcluster: HCLUSTER, dwfilter: UInt, dwnotifykey: ULong): HCHANGE =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_CreateClusterNotifyPort(hchange, hcluster, dwfilter.toInt(), dwnotifykey.toLong())
+public actual fun createClusterNotifyPort(hchange: Hchange, hcluster: Hcluster, dwfilter: UInt, dwnotifykey: ULong): Hchange =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_createClusterNotifyPort(hchange, hcluster, dwfilter.toInt(), dwnotifykey.toLong())
 
-public actual fun CreateClusterNotifyPortV2(hchange: HCHANGE, hcluster: HCLUSTER, filters: Long, dwfiltercount: UInt, dwnotifykey: ULong): HCHANGE =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_CreateClusterNotifyPortV2(hchange, hcluster, filters, dwfiltercount.toInt(), dwnotifykey.toLong())
+public actual fun createClusterNotifyPortV2(hchange: Hchange, hcluster: Hcluster, filters: COpaquePointer?, dwfiltercount: UInt, dwnotifykey: ULong): Hchange =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_createClusterNotifyPortV2(hchange, hcluster, (filters?.value ?: 0L), dwfiltercount.toInt(), dwnotifykey.toLong())
 
-public actual fun CreateClusterResource(hgroup: HGROUP, lpszresourcename: PCWSTR, lpszresourcetype: PCWSTR, dwflags: UInt): HRESOURCE =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_CreateClusterResource(hgroup, lpszresourcename, lpszresourcetype, dwflags.toInt())
+public actual fun createClusterResource(hgroup: Hgroup, lpszresourcename: Pcwstr, lpszresourcetype: Pcwstr, dwflags: UInt): Hresource =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_createClusterResource(hgroup, (lpszresourcename?.value ?: 0L), (lpszresourcetype?.value ?: 0L), dwflags.toInt())
 
-public actual fun CreateClusterResourceEx(hgroup: HGROUP, lpszresourcename: PCWSTR, lpszresourcetype: PCWSTR, dwflags: UInt, lpszreason: PCWSTR): HRESOURCE =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_CreateClusterResourceEx(hgroup, lpszresourcename, lpszresourcetype, dwflags.toInt(), lpszreason)
+public actual fun createClusterResourceEx(hgroup: Hgroup, lpszresourcename: Pcwstr, lpszresourcetype: Pcwstr, dwflags: UInt, lpszreason: Pcwstr): Hresource =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_createClusterResourceEx(hgroup, (lpszresourcename?.value ?: 0L), (lpszresourcetype?.value ?: 0L), dwflags.toInt(), (lpszreason?.value ?: 0L))
 
-public actual fun CreateClusterResourceType(hcluster: HCLUSTER, lpszresourcetypename: PCWSTR, lpszdisplayname: PCWSTR, lpszresourcetypedll: PCWSTR, dwlooksalivepollinterval: UInt, dwisalivepollinterval: UInt): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_CreateClusterResourceType(hcluster, lpszresourcetypename, lpszdisplayname, lpszresourcetypedll, dwlooksalivepollinterval.toInt(), dwisalivepollinterval.toInt()).toUInt()
+public actual fun createClusterResourceType(hcluster: Hcluster, lpszresourcetypename: Pcwstr, lpszdisplayname: Pcwstr, lpszresourcetypedll: Pcwstr, dwlooksalivepollinterval: UInt, dwisalivepollinterval: UInt): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_createClusterResourceType(hcluster, (lpszresourcetypename?.value ?: 0L), (lpszdisplayname?.value ?: 0L), (lpszresourcetypedll?.value ?: 0L), dwlooksalivepollinterval.toInt(), dwisalivepollinterval.toInt()).toUInt()
 
-public actual fun CreateClusterResourceTypeEx(hcluster: HCLUSTER, lpszresourcetypename: PCWSTR, lpszdisplayname: PCWSTR, lpszresourcetypedll: PCWSTR, dwlooksalivepollinterval: UInt, dwisalivepollinterval: UInt, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_CreateClusterResourceTypeEx(hcluster, lpszresourcetypename, lpszdisplayname, lpszresourcetypedll, dwlooksalivepollinterval.toInt(), dwisalivepollinterval.toInt(), lpszreason).toUInt()
+public actual fun createClusterResourceTypeEx(hcluster: Hcluster, lpszresourcetypename: Pcwstr, lpszdisplayname: Pcwstr, lpszresourcetypedll: Pcwstr, dwlooksalivepollinterval: UInt, dwisalivepollinterval: UInt, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_createClusterResourceTypeEx(hcluster, (lpszresourcetypename?.value ?: 0L), (lpszdisplayname?.value ?: 0L), (lpszresourcetypedll?.value ?: 0L), dwlooksalivepollinterval.toInt(), dwisalivepollinterval.toInt(), (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun DeleteClusterGroup(hgroup: HGROUP): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_DeleteClusterGroup(hgroup).toUInt()
+public actual fun deleteClusterGroup(hgroup: Hgroup): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_deleteClusterGroup(hgroup).toUInt()
 
-public actual fun DeleteClusterGroupEx(hgroup: HGROUP, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_DeleteClusterGroupEx(hgroup, lpszreason).toUInt()
+public actual fun deleteClusterGroupEx(hgroup: Hgroup, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_deleteClusterGroupEx(hgroup, (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun DeleteClusterGroupSet(hgroupset: HGROUPSET): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_DeleteClusterGroupSet(hgroupset).toUInt()
+public actual fun deleteClusterGroupSet(hgroupset: Hgroupset): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_deleteClusterGroupSet(hgroupset).toUInt()
 
-public actual fun DeleteClusterGroupSetEx(hgroupset: HGROUPSET, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_DeleteClusterGroupSetEx(hgroupset, lpszreason).toUInt()
+public actual fun deleteClusterGroupSetEx(hgroupset: Hgroupset, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_deleteClusterGroupSetEx(hgroupset, (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun DeleteClusterResource(hresource: HRESOURCE): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_DeleteClusterResource(hresource).toUInt()
+public actual fun deleteClusterResource(hresource: Hresource): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_deleteClusterResource(hresource).toUInt()
 
-public actual fun DeleteClusterResourceEx(hresource: HRESOURCE, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_DeleteClusterResourceEx(hresource, lpszreason).toUInt()
+public actual fun deleteClusterResourceEx(hresource: Hresource, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_deleteClusterResourceEx(hresource, (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun DeleteClusterResourceType(hcluster: HCLUSTER, lpszresourcetypename: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_DeleteClusterResourceType(hcluster, lpszresourcetypename).toUInt()
+public actual fun deleteClusterResourceType(hcluster: Hcluster, lpszresourcetypename: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_deleteClusterResourceType(hcluster, (lpszresourcetypename?.value ?: 0L)).toUInt()
 
-public actual fun DeleteClusterResourceTypeEx(hcluster: HCLUSTER, lpsztypename: PCWSTR, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_DeleteClusterResourceTypeEx(hcluster, lpsztypename, lpszreason).toUInt()
+public actual fun deleteClusterResourceTypeEx(hcluster: Hcluster, lpsztypename: Pcwstr, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_deleteClusterResourceTypeEx(hcluster, (lpsztypename?.value ?: 0L), (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun DestroyCluster(hcluster: HCLUSTER, pfnprogresscallback: PCLUSTER_SETUP_PROGRESS_CALLBACK, pvcallbackarg: Long, fdeletevirtualcomputerobjects: BOOL): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_DestroyCluster(hcluster, pfnprogresscallback.toLong(), pvcallbackarg, fdeletevirtualcomputerobjects).toUInt()
+public actual fun destroyCluster(hcluster: Hcluster, pfnprogresscallback: PclusterSetupProgressCallback, pvcallbackarg: COpaquePointer?, fdeletevirtualcomputerobjects: Bool): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_destroyCluster(hcluster, 0L, (pvcallbackarg?.value ?: 0L), fdeletevirtualcomputerobjects).toUInt()
 
-public actual fun DestroyClusterGroup(hgroup: HGROUP): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_DestroyClusterGroup(hgroup).toUInt()
+public actual fun destroyClusterGroup(hgroup: Hgroup): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_destroyClusterGroup(hgroup).toUInt()
 
-public actual fun DestroyClusterGroupEx(hgroup: HGROUP, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_DestroyClusterGroupEx(hgroup, lpszreason).toUInt()
+public actual fun destroyClusterGroupEx(hgroup: Hgroup, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_destroyClusterGroupEx(hgroup, (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun DetermineCNOResTypeFromCluster(hcluster: HCLUSTER, pcnorestype: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_DetermineCNOResTypeFromCluster(hcluster, pcnorestype).toUInt()
+public actual fun determineCNOResTypeFromCluster(hcluster: Hcluster, pcnorestype: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_determineCNOResTypeFromCluster(hcluster, (pcnorestype?.value ?: 0L)).toUInt()
 
-public actual fun DetermineCNOResTypeFromNodelist(cnodes: UInt, ppsznodenames: Long, pcnorestype: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_DetermineCNOResTypeFromNodelist(cnodes.toInt(), ppsznodenames, pcnorestype).toUInt()
+public actual fun determineCNOResTypeFromNodelist(cnodes: UInt, ppsznodenames: COpaquePointer?, pcnorestype: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_determineCNOResTypeFromNodelist(cnodes.toInt(), (ppsznodenames?.value ?: 0L), (pcnorestype?.value ?: 0L)).toUInt()
 
-public actual fun DetermineClusterCloudTypeFromCluster(hcluster: HCLUSTER, pcloudtype: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_DetermineClusterCloudTypeFromCluster(hcluster, pcloudtype).toUInt()
+public actual fun determineClusterCloudTypeFromCluster(hcluster: Hcluster, pcloudtype: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_determineClusterCloudTypeFromCluster(hcluster, (pcloudtype?.value ?: 0L)).toUInt()
 
-public actual fun DetermineClusterCloudTypeFromNodelist(cnodes: UInt, ppsznodenames: Long, pcloudtype: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_DetermineClusterCloudTypeFromNodelist(cnodes.toInt(), ppsznodenames, pcloudtype).toUInt()
+public actual fun determineClusterCloudTypeFromNodelist(cnodes: UInt, ppsznodenames: COpaquePointer?, pcloudtype: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_determineClusterCloudTypeFromNodelist(cnodes.toInt(), (ppsznodenames?.value ?: 0L), (pcloudtype?.value ?: 0L)).toUInt()
 
-public actual fun EvictClusterNode(hnode: HNODE): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_EvictClusterNode(hnode).toUInt()
+public actual fun evictClusterNode(hnode: Hnode): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_evictClusterNode(hnode).toUInt()
 
-public actual fun EvictClusterNodeEx(hnode: HNODE, dwtimeout: UInt, phrcleanupstatus: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_EvictClusterNodeEx(hnode, dwtimeout.toInt(), phrcleanupstatus).toUInt()
+public actual fun evictClusterNodeEx(hnode: Hnode, dwtimeout: UInt, phrcleanupstatus: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_evictClusterNodeEx(hnode, dwtimeout.toInt(), (phrcleanupstatus?.value ?: 0L)).toUInt()
 
-public actual fun EvictClusterNodeEx2(hnode: HNODE, dwtimeout: UInt, phrcleanupstatus: Long, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_EvictClusterNodeEx2(hnode, dwtimeout.toInt(), phrcleanupstatus, lpszreason).toUInt()
+public actual fun evictClusterNodeEx2(hnode: Hnode, dwtimeout: UInt, phrcleanupstatus: COpaquePointer?, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_evictClusterNodeEx2(hnode, dwtimeout.toInt(), (phrcleanupstatus?.value ?: 0L), (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun FailClusterResource(hresource: HRESOURCE): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_FailClusterResource(hresource).toUInt()
+public actual fun failClusterResource(hresource: Hresource): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_failClusterResource(hresource).toUInt()
 
-public actual fun FailClusterResourceEx(hresource: HRESOURCE, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_FailClusterResourceEx(hresource, lpszreason).toUInt()
+public actual fun failClusterResourceEx(hresource: Hresource, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_failClusterResourceEx(hresource, (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun FreeClusterCrypt(pcryptinfo: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_FreeClusterCrypt(pcryptinfo).toUInt()
+public actual fun freeClusterCrypt(pcryptinfo: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_freeClusterCrypt((pcryptinfo?.value ?: 0L)).toUInt()
 
-public actual fun FreeClusterHealthFault(clusterhealthfault: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_FreeClusterHealthFault(clusterhealthfault).toUInt()
+public actual fun freeClusterHealthFault(clusterhealthfault: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_freeClusterHealthFault((clusterhealthfault?.value ?: 0L)).toUInt()
 
-public actual fun FreeClusterHealthFaultArray(clusterhealthfaultarray: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_FreeClusterHealthFaultArray(clusterhealthfaultarray).toUInt()
+public actual fun freeClusterHealthFaultArray(clusterhealthfaultarray: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_freeClusterHealthFaultArray((clusterhealthfaultarray?.value ?: 0L)).toUInt()
 
-public actual fun GetClusterFromGroup(hgroup: HGROUP): HCLUSTER =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_GetClusterFromGroup(hgroup)
+public actual fun getClusterFromGroup(hgroup: Hgroup): Hcluster =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_getClusterFromGroup(hgroup)
 
-public actual fun GetClusterFromNetInterface(hnetinterface: HNETINTERFACE): HCLUSTER =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_GetClusterFromNetInterface(hnetinterface)
+public actual fun getClusterFromNetInterface(hnetinterface: Hnetinterface): Hcluster =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_getClusterFromNetInterface(hnetinterface)
 
-public actual fun GetClusterFromNetwork(hnetwork: HNETWORK): HCLUSTER =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_GetClusterFromNetwork(hnetwork)
+public actual fun getClusterFromNetwork(hnetwork: Hnetwork): Hcluster =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_getClusterFromNetwork(hnetwork)
 
-public actual fun GetClusterFromNode(hnode: HNODE): HCLUSTER =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_GetClusterFromNode(hnode)
+public actual fun getClusterFromNode(hnode: Hnode): Hcluster =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_getClusterFromNode(hnode)
 
-public actual fun GetClusterFromResource(hresource: HRESOURCE): HCLUSTER =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_GetClusterFromResource(hresource)
+public actual fun getClusterFromResource(hresource: Hresource): Hcluster =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_getClusterFromResource(hresource)
 
-public actual fun GetClusterGroupKey(hgroup: HGROUP, samdesired: UInt): HKEY =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_GetClusterGroupKey(hgroup, samdesired.toInt())
+public actual fun getClusterGroupKey(hgroup: Hgroup, samdesired: UInt): Hkey =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_getClusterGroupKey(hgroup, samdesired.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GetClusterGroupState(hgroup: HGROUP, lpsznodename: PWSTR, lpcchnodename: Long): CLUSTER_GROUP_STATE =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_GetClusterGroupState(hgroup, lpsznodename, lpcchnodename)
+public actual fun getClusterGroupState(hgroup: Hgroup, lpsznodename: Pwstr, lpcchnodename: COpaquePointer?): ClusterGroupState =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_getClusterGroupState(hgroup, (lpsznodename?.value ?: 0L), (lpcchnodename?.value ?: 0L))
 
-public actual fun GetClusterInformation(hcluster: HCLUSTER, lpszclustername: PWSTR, lpcchclustername: Long, lpclusterinfo: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_GetClusterInformation(hcluster, lpszclustername, lpcchclustername, lpclusterinfo).toUInt()
+public actual fun getClusterInformation(hcluster: Hcluster, lpszclustername: Pwstr, lpcchclustername: COpaquePointer?, lpclusterinfo: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_getClusterInformation(hcluster, (lpszclustername?.value ?: 0L), (lpcchclustername?.value ?: 0L), (lpclusterinfo?.value ?: 0L)).toUInt()
 
-public actual fun GetClusterKey(hcluster: HCLUSTER, samdesired: UInt): HKEY =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_GetClusterKey(hcluster, samdesired.toInt())
+public actual fun getClusterKey(hcluster: Hcluster, samdesired: UInt): Hkey =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_getClusterKey(hcluster, samdesired.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GetClusterNetInterface(hcluster: HCLUSTER, lpsznodename: PCWSTR, lpsznetworkname: PCWSTR, lpszinterfacename: PWSTR, lpcchinterfacename: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_GetClusterNetInterface(hcluster, lpsznodename, lpsznetworkname, lpszinterfacename, lpcchinterfacename).toUInt()
+public actual fun getClusterNetInterface(hcluster: Hcluster, lpsznodename: Pcwstr, lpsznetworkname: Pcwstr, lpszinterfacename: Pwstr, lpcchinterfacename: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_getClusterNetInterface(hcluster, (lpsznodename?.value ?: 0L), (lpsznetworkname?.value ?: 0L), (lpszinterfacename?.value ?: 0L), (lpcchinterfacename?.value ?: 0L)).toUInt()
 
-public actual fun GetClusterNetInterfaceKey(hnetinterface: HNETINTERFACE, samdesired: UInt): HKEY =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_GetClusterNetInterfaceKey(hnetinterface, samdesired.toInt())
+public actual fun getClusterNetInterfaceKey(hnetinterface: Hnetinterface, samdesired: UInt): Hkey =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_getClusterNetInterfaceKey(hnetinterface, samdesired.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GetClusterNetInterfaceState(hnetinterface: HNETINTERFACE): CLUSTER_NETINTERFACE_STATE =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_GetClusterNetInterfaceState(hnetinterface)
+public actual fun getClusterNetInterfaceState(hnetinterface: Hnetinterface): ClusterNetinterfaceState =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_getClusterNetInterfaceState(hnetinterface)
 
-public actual fun GetClusterNetworkId(hnetwork: HNETWORK, lpsznetworkid: PWSTR, lpcchname: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_GetClusterNetworkId(hnetwork, lpsznetworkid, lpcchname).toUInt()
+public actual fun getClusterNetworkId(hnetwork: Hnetwork, lpsznetworkid: Pwstr, lpcchname: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_getClusterNetworkId(hnetwork, (lpsznetworkid?.value ?: 0L), (lpcchname?.value ?: 0L)).toUInt()
 
-public actual fun GetClusterNetworkKey(hnetwork: HNETWORK, samdesired: UInt): HKEY =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_GetClusterNetworkKey(hnetwork, samdesired.toInt())
+public actual fun getClusterNetworkKey(hnetwork: Hnetwork, samdesired: UInt): Hkey =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_getClusterNetworkKey(hnetwork, samdesired.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GetClusterNetworkState(hnetwork: HNETWORK): CLUSTER_NETWORK_STATE =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_GetClusterNetworkState(hnetwork)
+public actual fun getClusterNetworkState(hnetwork: Hnetwork): ClusterNetworkState =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_getClusterNetworkState(hnetwork)
 
-public actual fun GetClusterNodeId(hnode: HNODE, lpsznodeid: PWSTR, lpcchname: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_GetClusterNodeId(hnode, lpsznodeid, lpcchname).toUInt()
+public actual fun getClusterNodeId(hnode: Hnode, lpsznodeid: Pwstr, lpcchname: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_getClusterNodeId(hnode, (lpsznodeid?.value ?: 0L), (lpcchname?.value ?: 0L)).toUInt()
 
-public actual fun GetClusterNodeKey(hnode: HNODE, samdesired: UInt): HKEY =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_GetClusterNodeKey(hnode, samdesired.toInt())
+public actual fun getClusterNodeKey(hnode: Hnode, samdesired: UInt): Hkey =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_getClusterNodeKey(hnode, samdesired.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GetClusterNodeState(hnode: HNODE): CLUSTER_NODE_STATE =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_GetClusterNodeState(hnode)
+public actual fun getClusterNodeState(hnode: Hnode): ClusterNodeState =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_getClusterNodeState(hnode)
 
-public actual fun GetClusterNotify(hchange: HCHANGE, lpdwnotifykey: Long, lpdwfiltertype: Long, lpszname: PWSTR, lpcchname: Long, dwmilliseconds: UInt): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_GetClusterNotify(hchange, lpdwnotifykey, lpdwfiltertype, lpszname, lpcchname, dwmilliseconds.toInt()).toUInt()
+public actual fun getClusterNotify(hchange: Hchange, lpdwnotifykey: COpaquePointer?, lpdwfiltertype: COpaquePointer?, lpszname: Pwstr, lpcchname: COpaquePointer?, dwmilliseconds: UInt): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_getClusterNotify(hchange, (lpdwnotifykey?.value ?: 0L), (lpdwfiltertype?.value ?: 0L), (lpszname?.value ?: 0L), (lpcchname?.value ?: 0L), dwmilliseconds.toInt()).toUInt()
 
-public actual fun GetClusterNotifyV2(hchange: HCHANGE, lpdwnotifykey: Long, pfilterandtype: Long, buffer: Long, lpbbuffersize: Long, lpszobjectid: PWSTR, lpcchobjectid: Long, lpszparentid: PWSTR, lpcchparentid: Long, lpszname: PWSTR, lpcchname: Long, lpsztype: PWSTR, lpcchtype: Long, dwmilliseconds: UInt): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_GetClusterNotifyV2(hchange, lpdwnotifykey, pfilterandtype, buffer, lpbbuffersize, lpszobjectid, lpcchobjectid, lpszparentid, lpcchparentid, lpszname, lpcchname, lpsztype, lpcchtype, dwmilliseconds.toInt()).toUInt()
+public actual fun getClusterNotifyV2(hchange: Hchange, lpdwnotifykey: COpaquePointer?, pfilterandtype: COpaquePointer?, buffer: COpaquePointer?, lpbbuffersize: COpaquePointer?, lpszobjectid: Pwstr, lpcchobjectid: COpaquePointer?, lpszparentid: Pwstr, lpcchparentid: COpaquePointer?, lpszname: Pwstr, lpcchname: COpaquePointer?, lpsztype: Pwstr, lpcchtype: COpaquePointer?, dwmilliseconds: UInt): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_getClusterNotifyV2(hchange, (lpdwnotifykey?.value ?: 0L), (pfilterandtype?.value ?: 0L), (buffer?.value ?: 0L), (lpbbuffersize?.value ?: 0L), (lpszobjectid?.value ?: 0L), (lpcchobjectid?.value ?: 0L), (lpszparentid?.value ?: 0L), (lpcchparentid?.value ?: 0L), (lpszname?.value ?: 0L), (lpcchname?.value ?: 0L), (lpsztype?.value ?: 0L), (lpcchtype?.value ?: 0L), dwmilliseconds.toInt()).toUInt()
 
-public actual fun GetClusterQuorumResource(hcluster: HCLUSTER, lpszresourcename: PWSTR, lpcchresourcename: Long, lpszdevicename: PWSTR, lpcchdevicename: Long, lpdwmaxquorumlogsize: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_GetClusterQuorumResource(hcluster, lpszresourcename, lpcchresourcename, lpszdevicename, lpcchdevicename, lpdwmaxquorumlogsize).toUInt()
+public actual fun getClusterQuorumResource(hcluster: Hcluster, lpszresourcename: Pwstr, lpcchresourcename: COpaquePointer?, lpszdevicename: Pwstr, lpcchdevicename: COpaquePointer?, lpdwmaxquorumlogsize: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_getClusterQuorumResource(hcluster, (lpszresourcename?.value ?: 0L), (lpcchresourcename?.value ?: 0L), (lpszdevicename?.value ?: 0L), (lpcchdevicename?.value ?: 0L), (lpdwmaxquorumlogsize?.value ?: 0L)).toUInt()
 
-public actual fun GetClusterResourceDependencyExpression(hresource: HRESOURCE, lpszdependencyexpression: PWSTR, lpcchdependencyexpression: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_GetClusterResourceDependencyExpression(hresource, lpszdependencyexpression, lpcchdependencyexpression).toUInt()
+public actual fun getClusterResourceDependencyExpression(hresource: Hresource, lpszdependencyexpression: Pwstr, lpcchdependencyexpression: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_getClusterResourceDependencyExpression(hresource, (lpszdependencyexpression?.value ?: 0L), (lpcchdependencyexpression?.value ?: 0L)).toUInt()
 
-public actual fun GetClusterResourceKey(hresource: HRESOURCE, samdesired: UInt): HKEY =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_GetClusterResourceKey(hresource, samdesired.toInt())
+public actual fun getClusterResourceKey(hresource: Hresource, samdesired: UInt): Hkey =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_getClusterResourceKey(hresource, samdesired.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GetClusterResourceNetworkName(hresource: HRESOURCE, lpbuffer: PWSTR, nsize: Long): BOOL =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_GetClusterResourceNetworkName(hresource, lpbuffer, nsize)
+public actual fun getClusterResourceNetworkName(hresource: Hresource, lpbuffer: Pwstr, nsize: COpaquePointer?): Bool =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_getClusterResourceNetworkName(hresource, (lpbuffer?.value ?: 0L), (nsize?.value ?: 0L))
 
-public actual fun GetClusterResourceState(hresource: HRESOURCE, lpsznodename: PWSTR, lpcchnodename: Long, lpszgroupname: PWSTR, lpcchgroupname: Long): CLUSTER_RESOURCE_STATE =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_GetClusterResourceState(hresource, lpsznodename, lpcchnodename, lpszgroupname, lpcchgroupname)
+public actual fun getClusterResourceState(hresource: Hresource, lpsznodename: Pwstr, lpcchnodename: COpaquePointer?, lpszgroupname: Pwstr, lpcchgroupname: COpaquePointer?): ClusterResourceState =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_getClusterResourceState(hresource, (lpsznodename?.value ?: 0L), (lpcchnodename?.value ?: 0L), (lpszgroupname?.value ?: 0L), (lpcchgroupname?.value ?: 0L))
 
-public actual fun GetClusterResourceTypeKey(hcluster: HCLUSTER, lpsztypename: PCWSTR, samdesired: UInt): HKEY =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_GetClusterResourceTypeKey(hcluster, lpsztypename, samdesired.toInt())
+public actual fun getClusterResourceTypeKey(hcluster: Hcluster, lpsztypename: Pcwstr, samdesired: UInt): Hkey =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_getClusterResourceTypeKey(hcluster, (lpsztypename?.value ?: 0L), samdesired.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun GetNodeCloudTypeDW(ppsznodename: PCWSTR, nodecloudtype: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_GetNodeCloudTypeDW(ppsznodename, nodecloudtype).toUInt()
+public actual fun getNodeCloudTypeDW(ppsznodename: Pcwstr, nodecloudtype: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_getNodeCloudTypeDW((ppsznodename?.value ?: 0L), (nodecloudtype?.value ?: 0L)).toUInt()
 
-public actual fun GetNodeClusterState(lpsznodename: PCWSTR, pdwclusterstate: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_GetNodeClusterState(lpsznodename, pdwclusterstate).toUInt()
+public actual fun getNodeClusterState(lpsznodename: Pcwstr, pdwclusterstate: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_getNodeClusterState((lpsznodename?.value ?: 0L), (pdwclusterstate?.value ?: 0L)).toUInt()
 
-public actual fun GetNotifyEventHandle(hchange: HCHANGE, lphtargetevent: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_GetNotifyEventHandle(hchange, lphtargetevent).toUInt()
+public actual fun getNotifyEventHandle(hchange: Hchange, lphtargetevent: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_getNotifyEventHandle(hchange, (lphtargetevent?.value ?: 0L)).toUInt()
 
-public actual fun InitializeClusterHealthFault(clusterhealthfault: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_InitializeClusterHealthFault(clusterhealthfault).toUInt()
+public actual fun initializeClusterHealthFault(clusterhealthfault: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_initializeClusterHealthFault((clusterhealthfault?.value ?: 0L)).toUInt()
 
-public actual fun InitializeClusterHealthFaultArray(clusterhealthfaultarray: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_InitializeClusterHealthFaultArray(clusterhealthfaultarray).toUInt()
+public actual fun initializeClusterHealthFaultArray(clusterhealthfaultarray: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_initializeClusterHealthFaultArray((clusterhealthfaultarray?.value ?: 0L)).toUInt()
 
-public actual fun IsFileOnClusterSharedVolume(lpszpathname: PCWSTR, pbfileisonsharedvolume: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_IsFileOnClusterSharedVolume(lpszpathname, pbfileisonsharedvolume).toUInt()
+public actual fun isFileOnClusterSharedVolume(lpszpathname: Pcwstr, pbfileisonsharedvolume: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_isFileOnClusterSharedVolume((lpszpathname?.value ?: 0L), (pbfileisonsharedvolume?.value ?: 0L)).toUInt()
 
-public actual fun MoveClusterGroup(hgroup: HGROUP, hdestinationnode: HNODE): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_MoveClusterGroup(hgroup, hdestinationnode).toUInt()
+public actual fun moveClusterGroup(hgroup: Hgroup, hdestinationnode: Hnode): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_moveClusterGroup(hgroup, hdestinationnode).toUInt()
 
-public actual fun MoveClusterGroupEx(hgroup: HGROUP, hdestinationnode: HNODE, dwmoveflags: UInt, lpinbuffer: Long, cbinbuffersize: UInt): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_MoveClusterGroupEx(hgroup, hdestinationnode, dwmoveflags.toInt(), lpinbuffer, cbinbuffersize.toInt()).toUInt()
+public actual fun moveClusterGroupEx(hgroup: Hgroup, hdestinationnode: Hnode, dwmoveflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_moveClusterGroupEx(hgroup, hdestinationnode, dwmoveflags.toInt(), (lpinbuffer?.value ?: 0L), cbinbuffersize.toInt()).toUInt()
 
-public actual fun MoveClusterGroupEx2(hgroup: HGROUP, hdestinationnode: HNODE, dwmoveflags: UInt, lpinbuffer: Long, cbinbuffersize: UInt, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_MoveClusterGroupEx2(hgroup, hdestinationnode, dwmoveflags.toInt(), lpinbuffer, cbinbuffersize.toInt(), lpszreason).toUInt()
+public actual fun moveClusterGroupEx2(hgroup: Hgroup, hdestinationnode: Hnode, dwmoveflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_moveClusterGroupEx2(hgroup, hdestinationnode, dwmoveflags.toInt(), (lpinbuffer?.value ?: 0L), cbinbuffersize.toInt(), (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun OfflineClusterGroup(hgroup: HGROUP): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_OfflineClusterGroup(hgroup).toUInt()
+public actual fun offlineClusterGroup(hgroup: Hgroup): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_offlineClusterGroup(hgroup).toUInt()
 
-public actual fun OfflineClusterGroupEx(hgroup: HGROUP, dwofflineflags: UInt, lpinbuffer: Long, cbinbuffersize: UInt): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_OfflineClusterGroupEx(hgroup, dwofflineflags.toInt(), lpinbuffer, cbinbuffersize.toInt()).toUInt()
+public actual fun offlineClusterGroupEx(hgroup: Hgroup, dwofflineflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_offlineClusterGroupEx(hgroup, dwofflineflags.toInt(), (lpinbuffer?.value ?: 0L), cbinbuffersize.toInt()).toUInt()
 
-public actual fun OfflineClusterGroupEx2(hgroup: HGROUP, dwofflineflags: UInt, lpinbuffer: Long, cbinbuffersize: UInt, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_OfflineClusterGroupEx2(hgroup, dwofflineflags.toInt(), lpinbuffer, cbinbuffersize.toInt(), lpszreason).toUInt()
+public actual fun offlineClusterGroupEx2(hgroup: Hgroup, dwofflineflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_offlineClusterGroupEx2(hgroup, dwofflineflags.toInt(), (lpinbuffer?.value ?: 0L), cbinbuffersize.toInt(), (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun OfflineClusterResource(hresource: HRESOURCE): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_OfflineClusterResource(hresource).toUInt()
+public actual fun offlineClusterResource(hresource: Hresource): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_offlineClusterResource(hresource).toUInt()
 
-public actual fun OfflineClusterResourceEx(hresource: HRESOURCE, dwofflineflags: UInt, lpinbuffer: Long, cbinbuffersize: UInt): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_OfflineClusterResourceEx(hresource, dwofflineflags.toInt(), lpinbuffer, cbinbuffersize.toInt()).toUInt()
+public actual fun offlineClusterResourceEx(hresource: Hresource, dwofflineflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_offlineClusterResourceEx(hresource, dwofflineflags.toInt(), (lpinbuffer?.value ?: 0L), cbinbuffersize.toInt()).toUInt()
 
-public actual fun OfflineClusterResourceEx2(hresource: HRESOURCE, dwofflineflags: UInt, lpinbuffer: Long, cbinbuffersize: UInt, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_OfflineClusterResourceEx2(hresource, dwofflineflags.toInt(), lpinbuffer, cbinbuffersize.toInt(), lpszreason).toUInt()
+public actual fun offlineClusterResourceEx2(hresource: Hresource, dwofflineflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_offlineClusterResourceEx2(hresource, dwofflineflags.toInt(), (lpinbuffer?.value ?: 0L), cbinbuffersize.toInt(), (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun OnlineClusterGroup(hgroup: HGROUP, hdestinationnode: HNODE): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_OnlineClusterGroup(hgroup, hdestinationnode).toUInt()
+public actual fun onlineClusterGroup(hgroup: Hgroup, hdestinationnode: Hnode): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_onlineClusterGroup(hgroup, hdestinationnode).toUInt()
 
-public actual fun OnlineClusterGroupEx(hgroup: HGROUP, hdestinationnode: HNODE, dwonlineflags: UInt, lpinbuffer: Long, cbinbuffersize: UInt): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_OnlineClusterGroupEx(hgroup, hdestinationnode, dwonlineflags.toInt(), lpinbuffer, cbinbuffersize.toInt()).toUInt()
+public actual fun onlineClusterGroupEx(hgroup: Hgroup, hdestinationnode: Hnode, dwonlineflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_onlineClusterGroupEx(hgroup, hdestinationnode, dwonlineflags.toInt(), (lpinbuffer?.value ?: 0L), cbinbuffersize.toInt()).toUInt()
 
-public actual fun OnlineClusterGroupEx2(hgroup: HGROUP, hdestinationnode: HNODE, dwonlineflags: UInt, lpinbuffer: Long, cbinbuffersize: UInt, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_OnlineClusterGroupEx2(hgroup, hdestinationnode, dwonlineflags.toInt(), lpinbuffer, cbinbuffersize.toInt(), lpszreason).toUInt()
+public actual fun onlineClusterGroupEx2(hgroup: Hgroup, hdestinationnode: Hnode, dwonlineflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_onlineClusterGroupEx2(hgroup, hdestinationnode, dwonlineflags.toInt(), (lpinbuffer?.value ?: 0L), cbinbuffersize.toInt(), (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun OnlineClusterResource(hresource: HRESOURCE): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_OnlineClusterResource(hresource).toUInt()
+public actual fun onlineClusterResource(hresource: Hresource): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_onlineClusterResource(hresource).toUInt()
 
-public actual fun OnlineClusterResourceEx(hresource: HRESOURCE, dwonlineflags: UInt, lpinbuffer: Long, cbinbuffersize: UInt): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_OnlineClusterResourceEx(hresource, dwonlineflags.toInt(), lpinbuffer, cbinbuffersize.toInt()).toUInt()
+public actual fun onlineClusterResourceEx(hresource: Hresource, dwonlineflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_onlineClusterResourceEx(hresource, dwonlineflags.toInt(), (lpinbuffer?.value ?: 0L), cbinbuffersize.toInt()).toUInt()
 
-public actual fun OnlineClusterResourceEx2(hresource: HRESOURCE, dwonlineflags: UInt, lpinbuffer: Long, cbinbuffersize: UInt, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_OnlineClusterResourceEx2(hresource, dwonlineflags.toInt(), lpinbuffer, cbinbuffersize.toInt(), lpszreason).toUInt()
+public actual fun onlineClusterResourceEx2(hresource: Hresource, dwonlineflags: UInt, lpinbuffer: COpaquePointer?, cbinbuffersize: UInt, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_onlineClusterResourceEx2(hresource, dwonlineflags.toInt(), (lpinbuffer?.value ?: 0L), cbinbuffersize.toInt(), (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun OpenCluster(lpszclustername: PCWSTR): HCLUSTER =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_OpenCluster(lpszclustername)
+public actual fun openCluster(lpszclustername: Pcwstr): Hcluster =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_openCluster((lpszclustername?.value ?: 0L))
 
-public actual fun OpenClusterCryptProvider(lpszresource: PCWSTR, lpszprovider: Long, dwtype: UInt, dwflags: UInt): HCLUSCRYPTPROVIDER =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_OpenClusterCryptProvider(lpszresource, lpszprovider, dwtype.toInt(), dwflags.toInt())
+public actual fun openClusterCryptProvider(lpszresource: Pcwstr, lpszprovider: COpaquePointer?, dwtype: UInt, dwflags: UInt): Hcluscryptprovider =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_openClusterCryptProvider((lpszresource?.value ?: 0L), (lpszprovider?.value ?: 0L), dwtype.toInt(), dwflags.toInt())
 
-public actual fun OpenClusterCryptProviderEx(lpszresource: PCWSTR, lpszkeyname: PCWSTR, lpszprovider: Long, dwtype: UInt, dwflags: UInt): HCLUSCRYPTPROVIDER =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_OpenClusterCryptProviderEx(lpszresource, lpszkeyname, lpszprovider, dwtype.toInt(), dwflags.toInt())
+public actual fun openClusterCryptProviderEx(lpszresource: Pcwstr, lpszkeyname: Pcwstr, lpszprovider: COpaquePointer?, dwtype: UInt, dwflags: UInt): Hcluscryptprovider =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_openClusterCryptProviderEx((lpszresource?.value ?: 0L), (lpszkeyname?.value ?: 0L), (lpszprovider?.value ?: 0L), dwtype.toInt(), dwflags.toInt())
 
-public actual fun OpenClusterEx(lpszclustername: PCWSTR, desiredaccess: UInt, grantedaccess: Long): HCLUSTER =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_OpenClusterEx(lpszclustername, desiredaccess.toInt(), grantedaccess)
+public actual fun openClusterEx(lpszclustername: Pcwstr, desiredaccess: UInt, grantedaccess: COpaquePointer?): Hcluster =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_openClusterEx((lpszclustername?.value ?: 0L), desiredaccess.toInt(), (grantedaccess?.value ?: 0L))
 
-public actual fun OpenClusterGroup(hcluster: HCLUSTER, lpszgroupname: PCWSTR): HGROUP =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_OpenClusterGroup(hcluster, lpszgroupname)
+public actual fun openClusterGroup(hcluster: Hcluster, lpszgroupname: Pcwstr): Hgroup =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_openClusterGroup(hcluster, (lpszgroupname?.value ?: 0L))
 
-public actual fun OpenClusterGroupEx(hcluster: HCLUSTER, lpszgroupname: PCWSTR, dwdesiredaccess: UInt, lpdwgrantedaccess: Long): HGROUP =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_OpenClusterGroupEx(hcluster, lpszgroupname, dwdesiredaccess.toInt(), lpdwgrantedaccess)
+public actual fun openClusterGroupEx(hcluster: Hcluster, lpszgroupname: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: COpaquePointer?): Hgroup =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_openClusterGroupEx(hcluster, (lpszgroupname?.value ?: 0L), dwdesiredaccess.toInt(), (lpdwgrantedaccess?.value ?: 0L))
 
-public actual fun OpenClusterGroupSet(hcluster: HCLUSTER, lpszgroupsetname: PCWSTR): HGROUPSET =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_OpenClusterGroupSet(hcluster, lpszgroupsetname)
+public actual fun openClusterGroupSet(hcluster: Hcluster, lpszgroupsetname: Pcwstr): Hgroupset =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_openClusterGroupSet(hcluster, (lpszgroupsetname?.value ?: 0L))
 
-public actual fun OpenClusterNetInterface(hcluster: HCLUSTER, lpszinterfacename: PCWSTR): HNETINTERFACE =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_OpenClusterNetInterface(hcluster, lpszinterfacename)
+public actual fun openClusterNetInterface(hcluster: Hcluster, lpszinterfacename: Pcwstr): Hnetinterface =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_openClusterNetInterface(hcluster, (lpszinterfacename?.value ?: 0L))
 
-public actual fun OpenClusterNetInterfaceEx(hcluster: HCLUSTER, lpszinterfacename: PCWSTR, dwdesiredaccess: UInt, lpdwgrantedaccess: Long): HNETINTERFACE =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_OpenClusterNetInterfaceEx(hcluster, lpszinterfacename, dwdesiredaccess.toInt(), lpdwgrantedaccess)
+public actual fun openClusterNetInterfaceEx(hcluster: Hcluster, lpszinterfacename: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: COpaquePointer?): Hnetinterface =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_openClusterNetInterfaceEx(hcluster, (lpszinterfacename?.value ?: 0L), dwdesiredaccess.toInt(), (lpdwgrantedaccess?.value ?: 0L))
 
-public actual fun OpenClusterNetwork(hcluster: HCLUSTER, lpsznetworkname: PCWSTR): HNETWORK =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_OpenClusterNetwork(hcluster, lpsznetworkname)
+public actual fun openClusterNetwork(hcluster: Hcluster, lpsznetworkname: Pcwstr): Hnetwork =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_openClusterNetwork(hcluster, (lpsznetworkname?.value ?: 0L))
 
-public actual fun OpenClusterNetworkEx(hcluster: HCLUSTER, lpsznetworkname: PCWSTR, dwdesiredaccess: UInt, lpdwgrantedaccess: Long): HNETWORK =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_OpenClusterNetworkEx(hcluster, lpsznetworkname, dwdesiredaccess.toInt(), lpdwgrantedaccess)
+public actual fun openClusterNetworkEx(hcluster: Hcluster, lpsznetworkname: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: COpaquePointer?): Hnetwork =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_openClusterNetworkEx(hcluster, (lpsznetworkname?.value ?: 0L), dwdesiredaccess.toInt(), (lpdwgrantedaccess?.value ?: 0L))
 
-public actual fun OpenClusterNode(hcluster: HCLUSTER, lpsznodename: PCWSTR): HNODE =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_OpenClusterNode(hcluster, lpsznodename)
+public actual fun openClusterNode(hcluster: Hcluster, lpsznodename: Pcwstr): Hnode =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_openClusterNode(hcluster, (lpsznodename?.value ?: 0L))
 
-public actual fun OpenClusterNodeById(hcluster: HCLUSTER, nodeid: UInt): HNODE =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_OpenClusterNodeById(hcluster, nodeid.toInt())
+public actual fun openClusterNodeById(hcluster: Hcluster, nodeid: UInt): Hnode =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_openClusterNodeById(hcluster, nodeid.toInt())
 
-public actual fun OpenClusterNodeEx(hcluster: HCLUSTER, lpsznodename: PCWSTR, dwdesiredaccess: UInt, lpdwgrantedaccess: Long): HNODE =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_OpenClusterNodeEx(hcluster, lpsznodename, dwdesiredaccess.toInt(), lpdwgrantedaccess)
+public actual fun openClusterNodeEx(hcluster: Hcluster, lpsznodename: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: COpaquePointer?): Hnode =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_openClusterNodeEx(hcluster, (lpsznodename?.value ?: 0L), dwdesiredaccess.toInt(), (lpdwgrantedaccess?.value ?: 0L))
 
-public actual fun OpenClusterResource(hcluster: HCLUSTER, lpszresourcename: PCWSTR): HRESOURCE =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_OpenClusterResource(hcluster, lpszresourcename)
+public actual fun openClusterResource(hcluster: Hcluster, lpszresourcename: Pcwstr): Hresource =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_openClusterResource(hcluster, (lpszresourcename?.value ?: 0L))
 
-public actual fun OpenClusterResourceEx(hcluster: HCLUSTER, lpszresourcename: PCWSTR, dwdesiredaccess: UInt, lpdwgrantedaccess: Long): HRESOURCE =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_OpenClusterResourceEx(hcluster, lpszresourcename, dwdesiredaccess.toInt(), lpdwgrantedaccess)
+public actual fun openClusterResourceEx(hcluster: Hcluster, lpszresourcename: Pcwstr, dwdesiredaccess: UInt, lpdwgrantedaccess: COpaquePointer?): Hresource =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_openClusterResourceEx(hcluster, (lpszresourcename?.value ?: 0L), dwdesiredaccess.toInt(), (lpdwgrantedaccess?.value ?: 0L))
 
-public actual fun PauseClusterNode(hnode: HNODE): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_PauseClusterNode(hnode).toUInt()
+public actual fun pauseClusterNode(hnode: Hnode): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_pauseClusterNode(hnode).toUInt()
 
-public actual fun PauseClusterNodeEx(hnode: HNODE, bdrainnode: BOOL, dwpauseflags: UInt, hnodedraintarget: HNODE): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_PauseClusterNodeEx(hnode, bdrainnode, dwpauseflags.toInt(), hnodedraintarget).toUInt()
+public actual fun pauseClusterNodeEx(hnode: Hnode, bdrainnode: Bool, dwpauseflags: UInt, hnodedraintarget: Hnode): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_pauseClusterNodeEx(hnode, bdrainnode, dwpauseflags.toInt(), hnodedraintarget).toUInt()
 
-public actual fun PauseClusterNodeEx2(hnode: HNODE, bdrainnode: BOOL, dwpauseflags: UInt, hnodedraintarget: HNODE, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_PauseClusterNodeEx2(hnode, bdrainnode, dwpauseflags.toInt(), hnodedraintarget, lpszreason).toUInt()
+public actual fun pauseClusterNodeEx2(hnode: Hnode, bdrainnode: Bool, dwpauseflags: UInt, hnodedraintarget: Hnode, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_pauseClusterNodeEx2(hnode, bdrainnode, dwpauseflags.toInt(), hnodedraintarget, (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun QueryAppInstanceVersion(appinstanceid: Long, instanceversionhigh: Long, instanceversionlow: Long, versionstatus: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_QueryAppInstanceVersion(appinstanceid, instanceversionhigh, instanceversionlow, versionstatus).toUInt()
+public actual fun queryAppInstanceVersion(appinstanceid: COpaquePointer?, instanceversionhigh: COpaquePointer?, instanceversionlow: COpaquePointer?, versionstatus: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_queryAppInstanceVersion((appinstanceid?.value ?: 0L), (instanceversionhigh?.value ?: 0L), (instanceversionlow?.value ?: 0L), (versionstatus?.value ?: 0L)).toUInt()
 
-public actual fun RegisterAppInstance(processhandle: HANDLE, appinstanceid: Long, childreninheritappinstance: BOOL): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_RegisterAppInstance(processhandle, appinstanceid, childreninheritappinstance).toUInt()
+public actual fun registerAppInstance(processhandle: Handle, appinstanceid: COpaquePointer?, childreninheritappinstance: Bool): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_registerAppInstance((processhandle?.value ?: 0L), (appinstanceid?.value ?: 0L), childreninheritappinstance).toUInt()
 
-public actual fun RegisterAppInstanceVersion(appinstanceid: Long, instanceversionhigh: ULong, instanceversionlow: ULong): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_RegisterAppInstanceVersion(appinstanceid, instanceversionhigh.toLong(), instanceversionlow.toLong()).toUInt()
+public actual fun registerAppInstanceVersion(appinstanceid: COpaquePointer?, instanceversionhigh: ULong, instanceversionlow: ULong): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_registerAppInstanceVersion((appinstanceid?.value ?: 0L), instanceversionhigh.toLong(), instanceversionlow.toLong()).toUInt()
 
-public actual fun RegisterClusterNotify(hchange: HCHANGE, dwfiltertype: UInt, hobject: HANDLE, dwnotifykey: ULong): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_RegisterClusterNotify(hchange, dwfiltertype.toInt(), hobject, dwnotifykey.toLong()).toUInt()
+public actual fun registerClusterNotify(hchange: Hchange, dwfiltertype: UInt, hobject: Handle, dwnotifykey: ULong): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_registerClusterNotify(hchange, dwfiltertype.toInt(), (hobject?.value ?: 0L), dwnotifykey.toLong()).toUInt()
 
-public actual fun RegisterClusterNotifyV2(hchange: HCHANGE, filter: NOTIFY_FILTER_AND_TYPE, hobject: HANDLE, dwnotifykey: ULong): UInt =
+public actual fun registerClusterNotifyV2(hchange: Hchange, filter: NotifyFilterAndType, hobject: Handle, dwnotifykey: ULong): UInt =
     0u
 
-public actual fun RegisterClusterResourceTypeNotifyV2(hchange: HCHANGE, hcluster: HCLUSTER, flags: Long, restypename: PCWSTR, dwnotifykey: ULong): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_RegisterClusterResourceTypeNotifyV2(hchange, hcluster, flags, restypename, dwnotifykey.toLong()).toUInt()
+public actual fun registerClusterResourceTypeNotifyV2(hchange: Hchange, hcluster: Hcluster, flags: Long, restypename: Pcwstr, dwnotifykey: ULong): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_registerClusterResourceTypeNotifyV2(hchange, hcluster, flags, (restypename?.value ?: 0L), dwnotifykey.toLong()).toUInt()
 
-public actual fun RemoveClusterGroupDependency(hgroup: HGROUP, hdependson: HGROUP): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_RemoveClusterGroupDependency(hgroup, hdependson).toUInt()
+public actual fun removeClusterGroupDependency(hgroup: Hgroup, hdependson: Hgroup): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_removeClusterGroupDependency(hgroup, hdependson).toUInt()
 
-public actual fun RemoveClusterGroupDependencyEx(hgroup: HGROUP, hdependson: HGROUP, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_RemoveClusterGroupDependencyEx(hgroup, hdependson, lpszreason).toUInt()
+public actual fun removeClusterGroupDependencyEx(hgroup: Hgroup, hdependson: Hgroup, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_removeClusterGroupDependencyEx(hgroup, hdependson, (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun RemoveClusterGroupSetDependency(hgroupset: HGROUPSET, hdependson: HGROUPSET): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_RemoveClusterGroupSetDependency(hgroupset, hdependson).toUInt()
+public actual fun removeClusterGroupSetDependency(hgroupset: Hgroupset, hdependson: Hgroupset): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_removeClusterGroupSetDependency(hgroupset, hdependson).toUInt()
 
-public actual fun RemoveClusterGroupSetDependencyEx(hgroupset: HGROUPSET, hdependson: HGROUPSET, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_RemoveClusterGroupSetDependencyEx(hgroupset, hdependson, lpszreason).toUInt()
+public actual fun removeClusterGroupSetDependencyEx(hgroupset: Hgroupset, hdependson: Hgroupset, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_removeClusterGroupSetDependencyEx(hgroupset, hdependson, (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun RemoveClusterGroupToGroupSetDependency(hgroup: HGROUP, hdependson: HGROUPSET): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_RemoveClusterGroupToGroupSetDependency(hgroup, hdependson).toUInt()
+public actual fun removeClusterGroupToGroupSetDependency(hgroup: Hgroup, hdependson: Hgroupset): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_removeClusterGroupToGroupSetDependency(hgroup, hdependson).toUInt()
 
-public actual fun RemoveClusterGroupToGroupSetDependencyEx(hgroup: HGROUP, hdependson: HGROUPSET, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_RemoveClusterGroupToGroupSetDependencyEx(hgroup, hdependson, lpszreason).toUInt()
+public actual fun removeClusterGroupToGroupSetDependencyEx(hgroup: Hgroup, hdependson: Hgroupset, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_removeClusterGroupToGroupSetDependencyEx(hgroup, hdependson, (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun RemoveClusterNameAccount(hcluster: HCLUSTER, bdeletecomputerobjects: BOOL): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_RemoveClusterNameAccount(hcluster, bdeletecomputerobjects).toUInt()
+public actual fun removeClusterNameAccount(hcluster: Hcluster, bdeletecomputerobjects: Bool): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_removeClusterNameAccount(hcluster, bdeletecomputerobjects).toUInt()
 
-public actual fun RemoveClusterResourceDependency(hresource: HRESOURCE, hdependson: HRESOURCE): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_RemoveClusterResourceDependency(hresource, hdependson).toUInt()
+public actual fun removeClusterResourceDependency(hresource: Hresource, hdependson: Hresource): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_removeClusterResourceDependency(hresource, hdependson).toUInt()
 
-public actual fun RemoveClusterResourceDependencyEx(hresource: HRESOURCE, hdependson: HRESOURCE, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_RemoveClusterResourceDependencyEx(hresource, hdependson, lpszreason).toUInt()
+public actual fun removeClusterResourceDependencyEx(hresource: Hresource, hdependson: Hresource, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_removeClusterResourceDependencyEx(hresource, hdependson, (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun RemoveClusterResourceNode(hresource: HRESOURCE, hnode: HNODE): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_RemoveClusterResourceNode(hresource, hnode).toUInt()
+public actual fun removeClusterResourceNode(hresource: Hresource, hnode: Hnode): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_removeClusterResourceNode(hresource, hnode).toUInt()
 
-public actual fun RemoveClusterResourceNodeEx(hresource: HRESOURCE, hnode: HNODE, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_RemoveClusterResourceNodeEx(hresource, hnode, lpszreason).toUInt()
+public actual fun removeClusterResourceNodeEx(hresource: Hresource, hnode: Hnode, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_removeClusterResourceNodeEx(hresource, hnode, (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun RemoveClusterStorageNode(hcluster: HCLUSTER, lpszclusterstorageenclosurename: PCWSTR, dwtimeout: UInt, dwflags: UInt): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_RemoveClusterStorageNode(hcluster, lpszclusterstorageenclosurename, dwtimeout.toInt(), dwflags.toInt()).toUInt()
+public actual fun removeClusterStorageNode(hcluster: Hcluster, lpszclusterstorageenclosurename: Pcwstr, dwtimeout: UInt, dwflags: UInt): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_removeClusterStorageNode(hcluster, (lpszclusterstorageenclosurename?.value ?: 0L), dwtimeout.toInt(), dwflags.toInt()).toUInt()
 
-public actual fun RemoveCrossClusterGroupSetDependency(hdependentgroupset: HGROUPSET, lpremoteclustername: PCWSTR, lpremotegroupsetname: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_RemoveCrossClusterGroupSetDependency(hdependentgroupset, lpremoteclustername, lpremotegroupsetname).toUInt()
+public actual fun removeCrossClusterGroupSetDependency(hdependentgroupset: Hgroupset, lpremoteclustername: Pcwstr, lpremotegroupsetname: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_removeCrossClusterGroupSetDependency(hdependentgroupset, (lpremoteclustername?.value ?: 0L), (lpremotegroupsetname?.value ?: 0L)).toUInt()
 
-public actual fun RemoveResourceFromClusterSharedVolumes(hresource: HRESOURCE): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_RemoveResourceFromClusterSharedVolumes(hresource).toUInt()
+public actual fun removeResourceFromClusterSharedVolumes(hresource: Hresource): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_removeResourceFromClusterSharedVolumes(hresource).toUInt()
 
-public actual fun ResUtilAddUnknownProperties(hkeyclusterkey: HKEY, ppropertytable: Long, poutpropertylist: Long, pcboutpropertylistsize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilAddUnknownProperties(hkeyclusterkey, ppropertytable, poutpropertylist, pcboutpropertylistsize.toInt(), pcbbytesreturned, pcbrequired).toUInt()
+public actual fun resUtilAddUnknownProperties(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, poutpropertylist: COpaquePointer?, pcboutpropertylistsize: UInt, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilAddUnknownProperties((hkeyclusterkey?.value ?: 0L), (ppropertytable?.value ?: 0L), (poutpropertylist?.value ?: 0L), pcboutpropertylistsize.toInt(), (pcbbytesreturned?.value ?: 0L), (pcbrequired?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilCreateDirectoryTree(pszpath: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilCreateDirectoryTree(pszpath).toUInt()
+public actual fun resUtilCreateDirectoryTree(pszpath: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilCreateDirectoryTree((pszpath?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilDupGroup(group: HGROUP, copy: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilDupGroup(group, copy).toUInt()
+public actual fun resUtilDupGroup(group: Hgroup, copy: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilDupGroup(group, (copy?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilDupParameterBlock(poutparams: Long, pinparams: Long, ppropertytable: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilDupParameterBlock(poutparams, pinparams, ppropertytable).toUInt()
+public actual fun resUtilDupParameterBlock(poutparams: COpaquePointer?, pinparams: COpaquePointer?, ppropertytable: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilDupParameterBlock((poutparams?.value ?: 0L), (pinparams?.value ?: 0L), (ppropertytable?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilDupResource(group: HRESOURCE, copy: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilDupResource(group, copy).toUInt()
+public actual fun resUtilDupResource(group: Hresource, copy: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilDupResource(group, (copy?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilDupString(pszinstring: PCWSTR): PWSTR =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilDupString(pszinstring)
+public actual fun resUtilDupString(pszinstring: Pcwstr): Pwstr =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilDupString((pszinstring?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ResUtilEnumGroups(hcluster: HCLUSTER, hself: HGROUP, prescallback: LPGROUP_CALLBACK_EX, pparameter: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilEnumGroups(hcluster, hself, prescallback.toLong(), pparameter).toUInt()
+public actual fun resUtilEnumGroups(hcluster: Hcluster, hself: Hgroup, prescallback: LpgroupCallbackEx, pparameter: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilEnumGroups(hcluster, hself, 0L, (pparameter?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilEnumGroupsEx(hcluster: HCLUSTER, hself: HGROUP, grouptype: CLUSGROUP_TYPE, prescallback: LPGROUP_CALLBACK_EX, pparameter: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilEnumGroupsEx(hcluster, hself, grouptype, prescallback.toLong(), pparameter).toUInt()
+public actual fun resUtilEnumGroupsEx(hcluster: Hcluster, hself: Hgroup, grouptype: ClusgroupType, prescallback: LpgroupCallbackEx, pparameter: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilEnumGroupsEx(hcluster, hself, grouptype, 0L, (pparameter?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilEnumPrivateProperties(hkeyclusterkey: HKEY, pszoutproperties: PWSTR, cboutpropertiessize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilEnumPrivateProperties(hkeyclusterkey, pszoutproperties, cboutpropertiessize.toInt(), pcbbytesreturned, pcbrequired).toUInt()
+public actual fun resUtilEnumPrivateProperties(hkeyclusterkey: Hkey, pszoutproperties: Pwstr, cboutpropertiessize: UInt, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilEnumPrivateProperties((hkeyclusterkey?.value ?: 0L), (pszoutproperties?.value ?: 0L), cboutpropertiessize.toInt(), (pcbbytesreturned?.value ?: 0L), (pcbrequired?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilEnumProperties(ppropertytable: Long, pszoutproperties: PWSTR, cboutpropertiessize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilEnumProperties(ppropertytable, pszoutproperties, cboutpropertiessize.toInt(), pcbbytesreturned, pcbrequired).toUInt()
+public actual fun resUtilEnumProperties(ppropertytable: COpaquePointer?, pszoutproperties: Pwstr, cboutpropertiessize: UInt, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilEnumProperties((ppropertytable?.value ?: 0L), (pszoutproperties?.value ?: 0L), cboutpropertiessize.toInt(), (pcbbytesreturned?.value ?: 0L), (pcbrequired?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilEnumResources(hself: HRESOURCE, lpszrestypename: PCWSTR, prescallback: LPRESOURCE_CALLBACK, pparameter: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilEnumResources(hself, lpszrestypename, prescallback.toLong(), pparameter).toUInt()
+public actual fun resUtilEnumResources(hself: Hresource, lpszrestypename: Pcwstr, prescallback: LpresourceCallback, pparameter: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilEnumResources(hself, (lpszrestypename?.value ?: 0L), 0L, (pparameter?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilEnumResourcesEx(hcluster: HCLUSTER, hself: HRESOURCE, lpszrestypename: PCWSTR, prescallback: LPRESOURCE_CALLBACK_EX, pparameter: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilEnumResourcesEx(hcluster, hself, lpszrestypename, prescallback.toLong(), pparameter).toUInt()
+public actual fun resUtilEnumResourcesEx(hcluster: Hcluster, hself: Hresource, lpszrestypename: Pcwstr, prescallback: LpresourceCallbackEx, pparameter: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilEnumResourcesEx(hcluster, hself, (lpszrestypename?.value ?: 0L), 0L, (pparameter?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilEnumResourcesEx2(hcluster: HCLUSTER, hself: HRESOURCE, lpszrestypename: PCWSTR, prescallback: LPRESOURCE_CALLBACK_EX, pparameter: Long, dwdesiredaccess: UInt): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilEnumResourcesEx2(hcluster, hself, lpszrestypename, prescallback.toLong(), pparameter, dwdesiredaccess.toInt()).toUInt()
+public actual fun resUtilEnumResourcesEx2(hcluster: Hcluster, hself: Hresource, lpszrestypename: Pcwstr, prescallback: LpresourceCallbackEx, pparameter: COpaquePointer?, dwdesiredaccess: UInt): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilEnumResourcesEx2(hcluster, hself, (lpszrestypename?.value ?: 0L), 0L, (pparameter?.value ?: 0L), dwdesiredaccess.toInt()).toUInt()
 
-public actual fun ResUtilExpandEnvironmentStrings(pszsrc: PCWSTR): PWSTR =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilExpandEnvironmentStrings(pszsrc)
+public actual fun resUtilExpandEnvironmentStrings(pszsrc: Pcwstr): Pwstr =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilExpandEnvironmentStrings((pszsrc?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ResUtilFindBinaryProperty(ppropertylist: Long, cbpropertylistsize: UInt, pszpropertyname: PCWSTR, pbpropertyvalue: Long, pcbpropertyvaluesize: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilFindBinaryProperty(ppropertylist, cbpropertylistsize.toInt(), pszpropertyname, pbpropertyvalue, pcbpropertyvaluesize).toUInt()
+public actual fun resUtilFindBinaryProperty(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pbpropertyvalue: COpaquePointer?, pcbpropertyvaluesize: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilFindBinaryProperty((ppropertylist?.value ?: 0L), cbpropertylistsize.toInt(), (pszpropertyname?.value ?: 0L), (pbpropertyvalue?.value ?: 0L), (pcbpropertyvaluesize?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilFindDependentDiskResourceDriveLetter(hcluster: HCLUSTER, hresource: HRESOURCE, pszdriveletter: PWSTR, pcchdriveletter: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilFindDependentDiskResourceDriveLetter(hcluster, hresource, pszdriveletter, pcchdriveletter).toUInt()
+public actual fun resUtilFindDependentDiskResourceDriveLetter(hcluster: Hcluster, hresource: Hresource, pszdriveletter: Pwstr, pcchdriveletter: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilFindDependentDiskResourceDriveLetter(hcluster, hresource, (pszdriveletter?.value ?: 0L), (pcchdriveletter?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilFindDwordProperty(ppropertylist: Long, cbpropertylistsize: UInt, pszpropertyname: PCWSTR, pdwpropertyvalue: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilFindDwordProperty(ppropertylist, cbpropertylistsize.toInt(), pszpropertyname, pdwpropertyvalue).toUInt()
+public actual fun resUtilFindDwordProperty(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pdwpropertyvalue: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilFindDwordProperty((ppropertylist?.value ?: 0L), cbpropertylistsize.toInt(), (pszpropertyname?.value ?: 0L), (pdwpropertyvalue?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilFindExpandSzProperty(ppropertylist: Long, cbpropertylistsize: UInt, pszpropertyname: PCWSTR, pszpropertyvalue: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilFindExpandSzProperty(ppropertylist, cbpropertylistsize.toInt(), pszpropertyname, pszpropertyvalue).toUInt()
+public actual fun resUtilFindExpandSzProperty(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pszpropertyvalue: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilFindExpandSzProperty((ppropertylist?.value ?: 0L), cbpropertylistsize.toInt(), (pszpropertyname?.value ?: 0L), (pszpropertyvalue?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilFindExpandedSzProperty(ppropertylist: Long, cbpropertylistsize: UInt, pszpropertyname: PCWSTR, pszpropertyvalue: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilFindExpandedSzProperty(ppropertylist, cbpropertylistsize.toInt(), pszpropertyname, pszpropertyvalue).toUInt()
+public actual fun resUtilFindExpandedSzProperty(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pszpropertyvalue: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilFindExpandedSzProperty((ppropertylist?.value ?: 0L), cbpropertylistsize.toInt(), (pszpropertyname?.value ?: 0L), (pszpropertyvalue?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilFindFileTimeProperty(ppropertylist: Long, cbpropertylistsize: UInt, pszpropertyname: PCWSTR, pftpropertyvalue: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilFindFileTimeProperty(ppropertylist, cbpropertylistsize.toInt(), pszpropertyname, pftpropertyvalue).toUInt()
+public actual fun resUtilFindFileTimeProperty(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pftpropertyvalue: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilFindFileTimeProperty((ppropertylist?.value ?: 0L), cbpropertylistsize.toInt(), (pszpropertyname?.value ?: 0L), (pftpropertyvalue?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilFindLongProperty(ppropertylist: Long, cbpropertylistsize: UInt, pszpropertyname: PCWSTR, plpropertyvalue: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilFindLongProperty(ppropertylist, cbpropertylistsize.toInt(), pszpropertyname, plpropertyvalue).toUInt()
+public actual fun resUtilFindLongProperty(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, plpropertyvalue: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilFindLongProperty((ppropertylist?.value ?: 0L), cbpropertylistsize.toInt(), (pszpropertyname?.value ?: 0L), (plpropertyvalue?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilFindMultiSzProperty(ppropertylist: Long, cbpropertylistsize: UInt, pszpropertyname: PCWSTR, pszpropertyvalue: Long, pcbpropertyvaluesize: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilFindMultiSzProperty(ppropertylist, cbpropertylistsize.toInt(), pszpropertyname, pszpropertyvalue, pcbpropertyvaluesize).toUInt()
+public actual fun resUtilFindMultiSzProperty(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pszpropertyvalue: COpaquePointer?, pcbpropertyvaluesize: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilFindMultiSzProperty((ppropertylist?.value ?: 0L), cbpropertylistsize.toInt(), (pszpropertyname?.value ?: 0L), (pszpropertyvalue?.value ?: 0L), (pcbpropertyvaluesize?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilFindSzProperty(ppropertylist: Long, cbpropertylistsize: UInt, pszpropertyname: PCWSTR, pszpropertyvalue: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilFindSzProperty(ppropertylist, cbpropertylistsize.toInt(), pszpropertyname, pszpropertyvalue).toUInt()
+public actual fun resUtilFindSzProperty(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, pszpropertyvalue: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilFindSzProperty((ppropertylist?.value ?: 0L), cbpropertylistsize.toInt(), (pszpropertyname?.value ?: 0L), (pszpropertyvalue?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilFindULargeIntegerProperty(ppropertylist: Long, cbpropertylistsize: UInt, pszpropertyname: PCWSTR, plpropertyvalue: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilFindULargeIntegerProperty(ppropertylist, cbpropertylistsize.toInt(), pszpropertyname, plpropertyvalue).toUInt()
+public actual fun resUtilFindULargeIntegerProperty(ppropertylist: COpaquePointer?, cbpropertylistsize: UInt, pszpropertyname: Pcwstr, plpropertyvalue: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilFindULargeIntegerProperty((ppropertylist?.value ?: 0L), cbpropertylistsize.toInt(), (pszpropertyname?.value ?: 0L), (plpropertyvalue?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilFreeEnvironment(lpenvironment: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilFreeEnvironment(lpenvironment).toUInt()
+public actual fun resUtilFreeEnvironment(lpenvironment: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilFreeEnvironment((lpenvironment?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilFreeParameterBlock(poutparams: Long, pinparams: Long, ppropertytable: Long) {
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilFreeParameterBlock(poutparams, pinparams, ppropertytable)
+public actual fun resUtilFreeParameterBlock(poutparams: COpaquePointer?, pinparams: COpaquePointer?, ppropertytable: COpaquePointer?) {
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilFreeParameterBlock((poutparams?.value ?: 0L), (pinparams?.value ?: 0L), (ppropertytable?.value ?: 0L))
 }
 
-public actual fun ResUtilGetAllProperties(hkeyclusterkey: HKEY, ppropertytable: Long, poutpropertylist: Long, cboutpropertylistsize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilGetAllProperties(hkeyclusterkey, ppropertytable, poutpropertylist, cboutpropertylistsize.toInt(), pcbbytesreturned, pcbrequired).toUInt()
+public actual fun resUtilGetAllProperties(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, poutpropertylist: COpaquePointer?, cboutpropertylistsize: UInt, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilGetAllProperties((hkeyclusterkey?.value ?: 0L), (ppropertytable?.value ?: 0L), (poutpropertylist?.value ?: 0L), cboutpropertylistsize.toInt(), (pcbbytesreturned?.value ?: 0L), (pcbrequired?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilGetBinaryProperty(ppboutvalue: Long, pcboutvaluesize: Long, pvaluestruct: Long, pboldvalue: Long, cboldvaluesize: UInt, pppropertylist: Long, pcbpropertylistsize: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilGetBinaryProperty(ppboutvalue, pcboutvaluesize, pvaluestruct, pboldvalue, cboldvaluesize.toInt(), pppropertylist, pcbpropertylistsize).toUInt()
+public actual fun resUtilGetBinaryProperty(ppboutvalue: COpaquePointer?, pcboutvaluesize: COpaquePointer?, pvaluestruct: COpaquePointer?, pboldvalue: COpaquePointer?, cboldvaluesize: UInt, pppropertylist: COpaquePointer?, pcbpropertylistsize: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilGetBinaryProperty((ppboutvalue?.value ?: 0L), (pcboutvaluesize?.value ?: 0L), (pvaluestruct?.value ?: 0L), (pboldvalue?.value ?: 0L), cboldvaluesize.toInt(), (pppropertylist?.value ?: 0L), (pcbpropertylistsize?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilGetBinaryValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, ppboutvalue: Long, pcboutvaluesize: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilGetBinaryValue(hkeyclusterkey, pszvaluename, ppboutvalue, pcboutvaluesize).toUInt()
+public actual fun resUtilGetBinaryValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, ppboutvalue: COpaquePointer?, pcboutvaluesize: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilGetBinaryValue((hkeyclusterkey?.value ?: 0L), (pszvaluename?.value ?: 0L), (ppboutvalue?.value ?: 0L), (pcboutvaluesize?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilGetClusterGroupType(hgroup: HGROUP, grouptype: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilGetClusterGroupType(hgroup, grouptype).toUInt()
+public actual fun resUtilGetClusterGroupType(hgroup: Hgroup, grouptype: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilGetClusterGroupType(hgroup, (grouptype?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilGetClusterId(hcluster: HCLUSTER, guid: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilGetClusterId(hcluster, guid).toUInt()
+public actual fun resUtilGetClusterId(hcluster: Hcluster, guid: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilGetClusterId(hcluster, (guid?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilGetClusterRoleState(hcluster: HCLUSTER, eclusterrole: CLUSTER_ROLE): CLUSTER_ROLE_STATE =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilGetClusterRoleState(hcluster, eclusterrole)
+public actual fun resUtilGetClusterRoleState(hcluster: Hcluster, eclusterrole: ClusterRole): ClusterRoleState =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilGetClusterRoleState(hcluster, eclusterrole)
 
-public actual fun ResUtilGetCoreClusterResources(hcluster: HCLUSTER, phclusternameresource: Long, phclusteripaddressresource: Long, phclusterquorumresource: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilGetCoreClusterResources(hcluster, phclusternameresource, phclusteripaddressresource, phclusterquorumresource).toUInt()
+public actual fun resUtilGetCoreClusterResources(hcluster: Hcluster, phclusternameresource: COpaquePointer?, phclusteripaddressresource: COpaquePointer?, phclusterquorumresource: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilGetCoreClusterResources(hcluster, (phclusternameresource?.value ?: 0L), (phclusteripaddressresource?.value ?: 0L), (phclusterquorumresource?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilGetCoreClusterResourcesEx(hclusterin: HCLUSTER, phclusternameresourceout: Long, phclusterquorumresourceout: Long, dwdesiredaccess: UInt): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilGetCoreClusterResourcesEx(hclusterin, phclusternameresourceout, phclusterquorumresourceout, dwdesiredaccess.toInt()).toUInt()
+public actual fun resUtilGetCoreClusterResourcesEx(hclusterin: Hcluster, phclusternameresourceout: COpaquePointer?, phclusterquorumresourceout: COpaquePointer?, dwdesiredaccess: UInt): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilGetCoreClusterResourcesEx(hclusterin, (phclusternameresourceout?.value ?: 0L), (phclusterquorumresourceout?.value ?: 0L), dwdesiredaccess.toInt()).toUInt()
 
-public actual fun ResUtilGetCoreGroup(hcluster: HCLUSTER): HGROUP =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilGetCoreGroup(hcluster)
+public actual fun resUtilGetCoreGroup(hcluster: Hcluster): Hgroup =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilGetCoreGroup(hcluster)
 
-public actual fun ResUtilGetDwordProperty(pdwoutvalue: Long, pvaluestruct: Long, dwoldvalue: UInt, dwminimum: UInt, dwmaximum: UInt, pppropertylist: Long, pcbpropertylistsize: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilGetDwordProperty(pdwoutvalue, pvaluestruct, dwoldvalue.toInt(), dwminimum.toInt(), dwmaximum.toInt(), pppropertylist, pcbpropertylistsize).toUInt()
+public actual fun resUtilGetDwordProperty(pdwoutvalue: COpaquePointer?, pvaluestruct: COpaquePointer?, dwoldvalue: UInt, dwminimum: UInt, dwmaximum: UInt, pppropertylist: COpaquePointer?, pcbpropertylistsize: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilGetDwordProperty((pdwoutvalue?.value ?: 0L), (pvaluestruct?.value ?: 0L), dwoldvalue.toInt(), dwminimum.toInt(), dwmaximum.toInt(), (pppropertylist?.value ?: 0L), (pcbpropertylistsize?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilGetDwordValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, pdwoutvalue: Long, dwdefaultvalue: UInt): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilGetDwordValue(hkeyclusterkey, pszvaluename, pdwoutvalue, dwdefaultvalue.toInt()).toUInt()
+public actual fun resUtilGetDwordValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, pdwoutvalue: COpaquePointer?, dwdefaultvalue: UInt): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilGetDwordValue((hkeyclusterkey?.value ?: 0L), (pszvaluename?.value ?: 0L), (pdwoutvalue?.value ?: 0L), dwdefaultvalue.toInt()).toUInt()
 
-public actual fun ResUtilGetEnvironmentWithNetName(hresource: HRESOURCE): Long =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilGetEnvironmentWithNetName(hresource)
+public actual fun resUtilGetEnvironmentWithNetName(hresource: Hresource): COpaquePointer? =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilGetEnvironmentWithNetName(hresource).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ResUtilGetFileTimeProperty(pftoutvalue: Long, pvaluestruct: Long, ftoldvalue: FILETIME, ftminimum: FILETIME, ftmaximum: FILETIME, pppropertylist: Long, pcbpropertylistsize: Long): UInt =
+public actual fun resUtilGetFileTimeProperty(pftoutvalue: COpaquePointer?, pvaluestruct: COpaquePointer?, ftoldvalue: Filetime, ftminimum: Filetime, ftmaximum: Filetime, pppropertylist: COpaquePointer?, pcbpropertylistsize: COpaquePointer?): UInt =
     0u
 
-public actual fun ResUtilGetLongProperty(ploutvalue: Long, pvaluestruct: Long, loldvalue: Int, lminimum: Int, lmaximum: Int, pppropertylist: Long, pcbpropertylistsize: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilGetLongProperty(ploutvalue, pvaluestruct, loldvalue, lminimum, lmaximum, pppropertylist, pcbpropertylistsize).toUInt()
+public actual fun resUtilGetLongProperty(ploutvalue: COpaquePointer?, pvaluestruct: COpaquePointer?, loldvalue: Int, lminimum: Int, lmaximum: Int, pppropertylist: COpaquePointer?, pcbpropertylistsize: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilGetLongProperty((ploutvalue?.value ?: 0L), (pvaluestruct?.value ?: 0L), loldvalue, lminimum, lmaximum, (pppropertylist?.value ?: 0L), (pcbpropertylistsize?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilGetMultiSzProperty(ppszoutvalue: Long, pcboutvaluesize: Long, pvaluestruct: Long, pszoldvalue: PCWSTR, cboldvaluesize: UInt, pppropertylist: Long, pcbpropertylistsize: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilGetMultiSzProperty(ppszoutvalue, pcboutvaluesize, pvaluestruct, pszoldvalue, cboldvaluesize.toInt(), pppropertylist, pcbpropertylistsize).toUInt()
+public actual fun resUtilGetMultiSzProperty(ppszoutvalue: COpaquePointer?, pcboutvaluesize: COpaquePointer?, pvaluestruct: COpaquePointer?, pszoldvalue: Pcwstr, cboldvaluesize: UInt, pppropertylist: COpaquePointer?, pcbpropertylistsize: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilGetMultiSzProperty((ppszoutvalue?.value ?: 0L), (pcboutvaluesize?.value ?: 0L), (pvaluestruct?.value ?: 0L), (pszoldvalue?.value ?: 0L), cboldvaluesize.toInt(), (pppropertylist?.value ?: 0L), (pcbpropertylistsize?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilGetPrivateProperties(hkeyclusterkey: HKEY, poutpropertylist: Long, cboutpropertylistsize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilGetPrivateProperties(hkeyclusterkey, poutpropertylist, cboutpropertylistsize.toInt(), pcbbytesreturned, pcbrequired).toUInt()
+public actual fun resUtilGetPrivateProperties(hkeyclusterkey: Hkey, poutpropertylist: COpaquePointer?, cboutpropertylistsize: UInt, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilGetPrivateProperties((hkeyclusterkey?.value ?: 0L), (poutpropertylist?.value ?: 0L), cboutpropertylistsize.toInt(), (pcbbytesreturned?.value ?: 0L), (pcbrequired?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilGetProperties(hkeyclusterkey: HKEY, ppropertytable: Long, poutpropertylist: Long, cboutpropertylistsize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilGetProperties(hkeyclusterkey, ppropertytable, poutpropertylist, cboutpropertylistsize.toInt(), pcbbytesreturned, pcbrequired).toUInt()
+public actual fun resUtilGetProperties(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, poutpropertylist: COpaquePointer?, cboutpropertylistsize: UInt, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilGetProperties((hkeyclusterkey?.value ?: 0L), (ppropertytable?.value ?: 0L), (poutpropertylist?.value ?: 0L), cboutpropertylistsize.toInt(), (pcbbytesreturned?.value ?: 0L), (pcbrequired?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilGetPropertiesToParameterBlock(hkeyclusterkey: HKEY, ppropertytable: Long, poutparams: Long, bcheckforrequiredproperties: BOOL, psznameofpropinerror: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilGetPropertiesToParameterBlock(hkeyclusterkey, ppropertytable, poutparams, bcheckforrequiredproperties, psznameofpropinerror).toUInt()
+public actual fun resUtilGetPropertiesToParameterBlock(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, poutparams: COpaquePointer?, bcheckforrequiredproperties: Bool, psznameofpropinerror: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilGetPropertiesToParameterBlock((hkeyclusterkey?.value ?: 0L), (ppropertytable?.value ?: 0L), (poutparams?.value ?: 0L), bcheckforrequiredproperties, (psznameofpropinerror?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilGetProperty(hkeyclusterkey: HKEY, ppropertytableitem: Long, poutpropertyitem: Long, pcboutpropertyitemsize: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilGetProperty(hkeyclusterkey, ppropertytableitem, poutpropertyitem, pcboutpropertyitemsize).toUInt()
+public actual fun resUtilGetProperty(hkeyclusterkey: Hkey, ppropertytableitem: COpaquePointer?, poutpropertyitem: COpaquePointer?, pcboutpropertyitemsize: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilGetProperty((hkeyclusterkey?.value ?: 0L), (ppropertytableitem?.value ?: 0L), (poutpropertyitem?.value ?: 0L), (pcboutpropertyitemsize?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilGetPropertyFormats(ppropertytable: Long, poutpropertyformatlist: Long, cbpropertyformatlistsize: UInt, pcbbytesreturned: Long, pcbrequired: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilGetPropertyFormats(ppropertytable, poutpropertyformatlist, cbpropertyformatlistsize.toInt(), pcbbytesreturned, pcbrequired).toUInt()
+public actual fun resUtilGetPropertyFormats(ppropertytable: COpaquePointer?, poutpropertyformatlist: COpaquePointer?, cbpropertyformatlistsize: UInt, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilGetPropertyFormats((ppropertytable?.value ?: 0L), (poutpropertyformatlist?.value ?: 0L), cbpropertyformatlistsize.toInt(), (pcbbytesreturned?.value ?: 0L), (pcbrequired?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilGetPropertySize(hkeyclusterkey: HKEY, ppropertytableitem: Long, pcboutpropertylistsize: Long, pnpropertycount: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilGetPropertySize(hkeyclusterkey, ppropertytableitem, pcboutpropertylistsize, pnpropertycount).toUInt()
+public actual fun resUtilGetPropertySize(hkeyclusterkey: Hkey, ppropertytableitem: COpaquePointer?, pcboutpropertylistsize: COpaquePointer?, pnpropertycount: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilGetPropertySize((hkeyclusterkey?.value ?: 0L), (ppropertytableitem?.value ?: 0L), (pcboutpropertylistsize?.value ?: 0L), (pnpropertycount?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilGetQwordValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, pqwoutvalue: Long, qwdefaultvalue: ULong): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilGetQwordValue(hkeyclusterkey, pszvaluename, pqwoutvalue, qwdefaultvalue.toLong()).toUInt()
+public actual fun resUtilGetQwordValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, pqwoutvalue: COpaquePointer?, qwdefaultvalue: ULong): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilGetQwordValue((hkeyclusterkey?.value ?: 0L), (pszvaluename?.value ?: 0L), (pqwoutvalue?.value ?: 0L), qwdefaultvalue.toLong()).toUInt()
 
-public actual fun ResUtilGetResourceDependency(hself: HANDLE, lpszresourcetype: PCWSTR): HRESOURCE =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilGetResourceDependency(hself, lpszresourcetype)
+public actual fun resUtilGetResourceDependency(hself: Handle, lpszresourcetype: Pcwstr): Hresource =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilGetResourceDependency((hself?.value ?: 0L), (lpszresourcetype?.value ?: 0L))
 
-public actual fun ResUtilGetResourceDependencyByClass(hcluster: HCLUSTER, hself: HANDLE, prci: Long, brecurse: BOOL): HRESOURCE =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilGetResourceDependencyByClass(hcluster, hself, prci, brecurse)
+public actual fun resUtilGetResourceDependencyByClass(hcluster: Hcluster, hself: Handle, prci: COpaquePointer?, brecurse: Bool): Hresource =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilGetResourceDependencyByClass(hcluster, (hself?.value ?: 0L), (prci?.value ?: 0L), brecurse)
 
-public actual fun ResUtilGetResourceDependencyByClassEx(hcluster: HCLUSTER, hself: HANDLE, prci: Long, brecurse: BOOL, dwdesiredaccess: UInt): HRESOURCE =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilGetResourceDependencyByClassEx(hcluster, hself, prci, brecurse, dwdesiredaccess.toInt())
+public actual fun resUtilGetResourceDependencyByClassEx(hcluster: Hcluster, hself: Handle, prci: COpaquePointer?, brecurse: Bool, dwdesiredaccess: UInt): Hresource =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilGetResourceDependencyByClassEx(hcluster, (hself?.value ?: 0L), (prci?.value ?: 0L), brecurse, dwdesiredaccess.toInt())
 
-public actual fun ResUtilGetResourceDependencyByName(hcluster: HCLUSTER, hself: HANDLE, lpszresourcetype: PCWSTR, brecurse: BOOL): HRESOURCE =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilGetResourceDependencyByName(hcluster, hself, lpszresourcetype, brecurse)
+public actual fun resUtilGetResourceDependencyByName(hcluster: Hcluster, hself: Handle, lpszresourcetype: Pcwstr, brecurse: Bool): Hresource =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilGetResourceDependencyByName(hcluster, (hself?.value ?: 0L), (lpszresourcetype?.value ?: 0L), brecurse)
 
-public actual fun ResUtilGetResourceDependencyByNameEx(hcluster: HCLUSTER, hself: HANDLE, lpszresourcetype: PCWSTR, brecurse: BOOL, dwdesiredaccess: UInt): HRESOURCE =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilGetResourceDependencyByNameEx(hcluster, hself, lpszresourcetype, brecurse, dwdesiredaccess.toInt())
+public actual fun resUtilGetResourceDependencyByNameEx(hcluster: Hcluster, hself: Handle, lpszresourcetype: Pcwstr, brecurse: Bool, dwdesiredaccess: UInt): Hresource =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilGetResourceDependencyByNameEx(hcluster, (hself?.value ?: 0L), (lpszresourcetype?.value ?: 0L), brecurse, dwdesiredaccess.toInt())
 
-public actual fun ResUtilGetResourceDependencyEx(hself: HANDLE, lpszresourcetype: PCWSTR, dwdesiredaccess: UInt): HRESOURCE =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilGetResourceDependencyEx(hself, lpszresourcetype, dwdesiredaccess.toInt())
+public actual fun resUtilGetResourceDependencyEx(hself: Handle, lpszresourcetype: Pcwstr, dwdesiredaccess: UInt): Hresource =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilGetResourceDependencyEx((hself?.value ?: 0L), (lpszresourcetype?.value ?: 0L), dwdesiredaccess.toInt())
 
-public actual fun ResUtilGetResourceDependentIPAddressProps(hresource: HRESOURCE, pszaddress: PWSTR, pcchaddress: Long, pszsubnetmask: PWSTR, pcchsubnetmask: Long, psznetwork: PWSTR, pcchnetwork: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilGetResourceDependentIPAddressProps(hresource, pszaddress, pcchaddress, pszsubnetmask, pcchsubnetmask, psznetwork, pcchnetwork).toUInt()
+public actual fun resUtilGetResourceDependentIPAddressProps(hresource: Hresource, pszaddress: Pwstr, pcchaddress: COpaquePointer?, pszsubnetmask: Pwstr, pcchsubnetmask: COpaquePointer?, psznetwork: Pwstr, pcchnetwork: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilGetResourceDependentIPAddressProps(hresource, (pszaddress?.value ?: 0L), (pcchaddress?.value ?: 0L), (pszsubnetmask?.value ?: 0L), (pcchsubnetmask?.value ?: 0L), (psznetwork?.value ?: 0L), (pcchnetwork?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilGetResourceName(hresource: HRESOURCE, pszresourcename: PWSTR, pcchresourcenameinout: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilGetResourceName(hresource, pszresourcename, pcchresourcenameinout).toUInt()
+public actual fun resUtilGetResourceName(hresource: Hresource, pszresourcename: Pwstr, pcchresourcenameinout: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilGetResourceName(hresource, (pszresourcename?.value ?: 0L), (pcchresourcenameinout?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilGetResourceNameDependency(lpszresourcename: PCWSTR, lpszresourcetype: PCWSTR): HRESOURCE =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilGetResourceNameDependency(lpszresourcename, lpszresourcetype)
+public actual fun resUtilGetResourceNameDependency(lpszresourcename: Pcwstr, lpszresourcetype: Pcwstr): Hresource =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilGetResourceNameDependency((lpszresourcename?.value ?: 0L), (lpszresourcetype?.value ?: 0L))
 
-public actual fun ResUtilGetResourceNameDependencyEx(lpszresourcename: PCWSTR, lpszresourcetype: PCWSTR, dwdesiredaccess: UInt): HRESOURCE =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilGetResourceNameDependencyEx(lpszresourcename, lpszresourcetype, dwdesiredaccess.toInt())
+public actual fun resUtilGetResourceNameDependencyEx(lpszresourcename: Pcwstr, lpszresourcetype: Pcwstr, dwdesiredaccess: UInt): Hresource =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilGetResourceNameDependencyEx((lpszresourcename?.value ?: 0L), (lpszresourcetype?.value ?: 0L), dwdesiredaccess.toInt())
 
-public actual fun ResUtilGetSzProperty(ppszoutvalue: Long, pvaluestruct: Long, pszoldvalue: PCWSTR, pppropertylist: Long, pcbpropertylistsize: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilGetSzProperty(ppszoutvalue, pvaluestruct, pszoldvalue, pppropertylist, pcbpropertylistsize).toUInt()
+public actual fun resUtilGetSzProperty(ppszoutvalue: COpaquePointer?, pvaluestruct: COpaquePointer?, pszoldvalue: Pcwstr, pppropertylist: COpaquePointer?, pcbpropertylistsize: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilGetSzProperty((ppszoutvalue?.value ?: 0L), (pvaluestruct?.value ?: 0L), (pszoldvalue?.value ?: 0L), (pppropertylist?.value ?: 0L), (pcbpropertylistsize?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilGetSzValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR): PWSTR =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilGetSzValue(hkeyclusterkey, pszvaluename)
+public actual fun resUtilGetSzValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr): Pwstr =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilGetSzValue((hkeyclusterkey?.value ?: 0L), (pszvaluename?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun ResUtilGroupsEqual(hself: HGROUP, hgroup: HGROUP, pequal: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilGroupsEqual(hself, hgroup, pequal).toUInt()
+public actual fun resUtilGroupsEqual(hself: Hgroup, hgroup: Hgroup, pequal: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilGroupsEqual(hself, hgroup, (pequal?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilIsPathValid(pszpath: PCWSTR): BOOL =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilIsPathValid(pszpath)
+public actual fun resUtilIsPathValid(pszpath: Pcwstr): Bool =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilIsPathValid((pszpath?.value ?: 0L))
 
-public actual fun ResUtilIsResourceClassEqual(prci: Long, hresource: HRESOURCE): BOOL =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilIsResourceClassEqual(prci, hresource)
+public actual fun resUtilIsResourceClassEqual(prci: COpaquePointer?, hresource: Hresource): Bool =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilIsResourceClassEqual((prci?.value ?: 0L), hresource)
 
-public actual fun ResUtilLeftPaxosIsLessThanRight(left: Long, right: Long): BOOL =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilLeftPaxosIsLessThanRight(left, right)
+public actual fun resUtilLeftPaxosIsLessThanRight(left: COpaquePointer?, right: COpaquePointer?): Bool =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilLeftPaxosIsLessThanRight((left?.value ?: 0L), (right?.value ?: 0L))
 
-public actual fun ResUtilNodeEnum(hcluster: HCLUSTER, pnodecallback: LPNODE_CALLBACK, pparameter: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilNodeEnum(hcluster, pnodecallback.toLong(), pparameter).toUInt()
+public actual fun resUtilNodeEnum(hcluster: Hcluster, pnodecallback: LpnodeCallback, pparameter: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilNodeEnum(hcluster, 0L, (pparameter?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilPaxosComparer(left: Long, right: Long): BOOL =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilPaxosComparer(left, right)
+public actual fun resUtilPaxosComparer(left: COpaquePointer?, right: COpaquePointer?): Bool =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilPaxosComparer((left?.value ?: 0L), (right?.value ?: 0L))
 
-public actual fun ResUtilPropertyListFromParameterBlock(ppropertytable: Long, poutpropertylist: Long, pcboutpropertylistsize: Long, pinparams: Long, pcbbytesreturned: Long, pcbrequired: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilPropertyListFromParameterBlock(ppropertytable, poutpropertylist, pcboutpropertylistsize, pinparams, pcbbytesreturned, pcbrequired).toUInt()
+public actual fun resUtilPropertyListFromParameterBlock(ppropertytable: COpaquePointer?, poutpropertylist: COpaquePointer?, pcboutpropertylistsize: COpaquePointer?, pinparams: COpaquePointer?, pcbbytesreturned: COpaquePointer?, pcbrequired: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilPropertyListFromParameterBlock((ppropertytable?.value ?: 0L), (poutpropertylist?.value ?: 0L), (pcboutpropertylistsize?.value ?: 0L), (pinparams?.value ?: 0L), (pcbbytesreturned?.value ?: 0L), (pcbrequired?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilRemoveResourceServiceEnvironment(pszservicename: PCWSTR, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilRemoveResourceServiceEnvironment(pszservicename, pfnlogevent.toLong(), hresourcehandle).toUInt()
+public actual fun resUtilRemoveResourceServiceEnvironment(pszservicename: Pcwstr, pfnlogevent: PlogEventRoutine, hresourcehandle: Long): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilRemoveResourceServiceEnvironment((pszservicename?.value ?: 0L), 0L, hresourcehandle).toUInt()
 
-public actual fun ResUtilResourceDepEnum(hself: HRESOURCE, enumtype: UInt, prescallback: LPRESOURCE_CALLBACK_EX, pparameter: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilResourceDepEnum(hself, enumtype.toInt(), prescallback.toLong(), pparameter).toUInt()
+public actual fun resUtilResourceDepEnum(hself: Hresource, enumtype: UInt, prescallback: LpresourceCallbackEx, pparameter: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilResourceDepEnum(hself, enumtype.toInt(), 0L, (pparameter?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilResourceTypesEqual(lpszresourcetypename: PCWSTR, hresource: HRESOURCE): BOOL =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilResourceTypesEqual(lpszresourcetypename, hresource)
+public actual fun resUtilResourceTypesEqual(lpszresourcetypename: Pcwstr, hresource: Hresource): Bool =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilResourceTypesEqual((lpszresourcetypename?.value ?: 0L), hresource)
 
-public actual fun ResUtilResourcesEqual(hself: HRESOURCE, hresource: HRESOURCE): BOOL =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilResourcesEqual(hself, hresource)
+public actual fun resUtilResourcesEqual(hself: Hresource, hresource: Hresource): Bool =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilResourcesEqual(hself, hresource)
 
-public actual fun ResUtilSetBinaryValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, pbnewvalue: Long, cbnewvaluesize: UInt, ppboutvalue: Long, pcboutvaluesize: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilSetBinaryValue(hkeyclusterkey, pszvaluename, pbnewvalue, cbnewvaluesize.toInt(), ppboutvalue, pcboutvaluesize).toUInt()
+public actual fun resUtilSetBinaryValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, pbnewvalue: COpaquePointer?, cbnewvaluesize: UInt, ppboutvalue: COpaquePointer?, pcboutvaluesize: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilSetBinaryValue((hkeyclusterkey?.value ?: 0L), (pszvaluename?.value ?: 0L), (pbnewvalue?.value ?: 0L), cbnewvaluesize.toInt(), (ppboutvalue?.value ?: 0L), (pcboutvaluesize?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilSetDwordValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, dwnewvalue: UInt, pdwoutvalue: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilSetDwordValue(hkeyclusterkey, pszvaluename, dwnewvalue.toInt(), pdwoutvalue).toUInt()
+public actual fun resUtilSetDwordValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, dwnewvalue: UInt, pdwoutvalue: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilSetDwordValue((hkeyclusterkey?.value ?: 0L), (pszvaluename?.value ?: 0L), dwnewvalue.toInt(), (pdwoutvalue?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilSetExpandSzValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, psznewvalue: PCWSTR, ppszoutstring: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilSetExpandSzValue(hkeyclusterkey, pszvaluename, psznewvalue, ppszoutstring).toUInt()
+public actual fun resUtilSetExpandSzValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, psznewvalue: Pcwstr, ppszoutstring: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilSetExpandSzValue((hkeyclusterkey?.value ?: 0L), (pszvaluename?.value ?: 0L), (psznewvalue?.value ?: 0L), (ppszoutstring?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilSetMultiSzValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, psznewvalue: PCWSTR, cbnewvaluesize: UInt, ppszoutvalue: Long, pcboutvaluesize: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilSetMultiSzValue(hkeyclusterkey, pszvaluename, psznewvalue, cbnewvaluesize.toInt(), ppszoutvalue, pcboutvaluesize).toUInt()
+public actual fun resUtilSetMultiSzValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, psznewvalue: Pcwstr, cbnewvaluesize: UInt, ppszoutvalue: COpaquePointer?, pcboutvaluesize: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilSetMultiSzValue((hkeyclusterkey?.value ?: 0L), (pszvaluename?.value ?: 0L), (psznewvalue?.value ?: 0L), cbnewvaluesize.toInt(), (ppszoutvalue?.value ?: 0L), (pcboutvaluesize?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilSetPrivatePropertyList(hkeyclusterkey: HKEY, pinpropertylist: Long, cbinpropertylistsize: UInt): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilSetPrivatePropertyList(hkeyclusterkey, pinpropertylist, cbinpropertylistsize.toInt()).toUInt()
+public actual fun resUtilSetPrivatePropertyList(hkeyclusterkey: Hkey, pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilSetPrivatePropertyList((hkeyclusterkey?.value ?: 0L), (pinpropertylist?.value ?: 0L), cbinpropertylistsize.toInt()).toUInt()
 
-public actual fun ResUtilSetPropertyParameterBlock(hkeyclusterkey: HKEY, ppropertytable: Long, reserved: Long, pinparams: Long, pinpropertylist: Long, cbinpropertylistsize: UInt, poutparams: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilSetPropertyParameterBlock(hkeyclusterkey, ppropertytable, reserved, pinparams, pinpropertylist, cbinpropertylistsize.toInt(), poutparams).toUInt()
+public actual fun resUtilSetPropertyParameterBlock(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, reserved: COpaquePointer?, pinparams: COpaquePointer?, pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt, poutparams: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilSetPropertyParameterBlock((hkeyclusterkey?.value ?: 0L), (ppropertytable?.value ?: 0L), (reserved?.value ?: 0L), (pinparams?.value ?: 0L), (pinpropertylist?.value ?: 0L), cbinpropertylistsize.toInt(), (poutparams?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilSetPropertyParameterBlockEx(hkeyclusterkey: HKEY, ppropertytable: Long, reserved: Long, pinparams: Long, pinpropertylist: Long, cbinpropertylistsize: UInt, bforcewrite: BOOL, poutparams: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilSetPropertyParameterBlockEx(hkeyclusterkey, ppropertytable, reserved, pinparams, pinpropertylist, cbinpropertylistsize.toInt(), bforcewrite, poutparams).toUInt()
+public actual fun resUtilSetPropertyParameterBlockEx(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, reserved: COpaquePointer?, pinparams: COpaquePointer?, pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt, bforcewrite: Bool, poutparams: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilSetPropertyParameterBlockEx((hkeyclusterkey?.value ?: 0L), (ppropertytable?.value ?: 0L), (reserved?.value ?: 0L), (pinparams?.value ?: 0L), (pinpropertylist?.value ?: 0L), cbinpropertylistsize.toInt(), bforcewrite, (poutparams?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilSetPropertyTable(hkeyclusterkey: HKEY, ppropertytable: Long, reserved: Long, ballowunknownproperties: BOOL, pinpropertylist: Long, cbinpropertylistsize: UInt, poutparams: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilSetPropertyTable(hkeyclusterkey, ppropertytable, reserved, ballowunknownproperties, pinpropertylist, cbinpropertylistsize.toInt(), poutparams).toUInt()
+public actual fun resUtilSetPropertyTable(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, reserved: COpaquePointer?, ballowunknownproperties: Bool, pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt, poutparams: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilSetPropertyTable((hkeyclusterkey?.value ?: 0L), (ppropertytable?.value ?: 0L), (reserved?.value ?: 0L), ballowunknownproperties, (pinpropertylist?.value ?: 0L), cbinpropertylistsize.toInt(), (poutparams?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilSetPropertyTableEx(hkeyclusterkey: HKEY, ppropertytable: Long, reserved: Long, ballowunknownproperties: BOOL, pinpropertylist: Long, cbinpropertylistsize: UInt, bforcewrite: BOOL, poutparams: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilSetPropertyTableEx(hkeyclusterkey, ppropertytable, reserved, ballowunknownproperties, pinpropertylist, cbinpropertylistsize.toInt(), bforcewrite, poutparams).toUInt()
+public actual fun resUtilSetPropertyTableEx(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, reserved: COpaquePointer?, ballowunknownproperties: Bool, pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt, bforcewrite: Bool, poutparams: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilSetPropertyTableEx((hkeyclusterkey?.value ?: 0L), (ppropertytable?.value ?: 0L), (reserved?.value ?: 0L), ballowunknownproperties, (pinpropertylist?.value ?: 0L), cbinpropertylistsize.toInt(), bforcewrite, (poutparams?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilSetQwordValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, qwnewvalue: ULong, pqwoutvalue: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilSetQwordValue(hkeyclusterkey, pszvaluename, qwnewvalue.toLong(), pqwoutvalue).toUInt()
+public actual fun resUtilSetQwordValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, qwnewvalue: ULong, pqwoutvalue: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilSetQwordValue((hkeyclusterkey?.value ?: 0L), (pszvaluename?.value ?: 0L), qwnewvalue.toLong(), (pqwoutvalue?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilSetResourceServiceEnvironment(pszservicename: PCWSTR, hresource: HRESOURCE, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilSetResourceServiceEnvironment(pszservicename, hresource, pfnlogevent.toLong(), hresourcehandle).toUInt()
+public actual fun resUtilSetResourceServiceEnvironment(pszservicename: Pcwstr, hresource: Hresource, pfnlogevent: PlogEventRoutine, hresourcehandle: Long): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilSetResourceServiceEnvironment((pszservicename?.value ?: 0L), hresource, 0L, hresourcehandle).toUInt()
 
-public actual fun ResUtilSetResourceServiceStartParameters(pszservicename: PCWSTR, schscmhandle: SC_HANDLE, phservice: Long, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilSetResourceServiceStartParameters(pszservicename, schscmhandle, phservice, pfnlogevent.toLong(), hresourcehandle).toUInt()
+public actual fun resUtilSetResourceServiceStartParameters(pszservicename: Pcwstr, schscmhandle: ScHandle, phservice: COpaquePointer?, pfnlogevent: PlogEventRoutine, hresourcehandle: Long): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilSetResourceServiceStartParameters((pszservicename?.value ?: 0L), (schscmhandle?.value ?: 0L), (phservice?.value ?: 0L), 0L, hresourcehandle).toUInt()
 
-public actual fun ResUtilSetResourceServiceStartParametersEx(pszservicename: PCWSTR, schscmhandle: SC_HANDLE, phservice: Long, dwdesiredaccess: UInt, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilSetResourceServiceStartParametersEx(pszservicename, schscmhandle, phservice, dwdesiredaccess.toInt(), pfnlogevent.toLong(), hresourcehandle).toUInt()
+public actual fun resUtilSetResourceServiceStartParametersEx(pszservicename: Pcwstr, schscmhandle: ScHandle, phservice: COpaquePointer?, dwdesiredaccess: UInt, pfnlogevent: PlogEventRoutine, hresourcehandle: Long): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilSetResourceServiceStartParametersEx((pszservicename?.value ?: 0L), (schscmhandle?.value ?: 0L), (phservice?.value ?: 0L), dwdesiredaccess.toInt(), 0L, hresourcehandle).toUInt()
 
-public actual fun ResUtilSetSzValue(hkeyclusterkey: HKEY, pszvaluename: PCWSTR, psznewvalue: PCWSTR, ppszoutstring: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilSetSzValue(hkeyclusterkey, pszvaluename, psznewvalue, ppszoutstring).toUInt()
+public actual fun resUtilSetSzValue(hkeyclusterkey: Hkey, pszvaluename: Pcwstr, psznewvalue: Pcwstr, ppszoutstring: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilSetSzValue((hkeyclusterkey?.value ?: 0L), (pszvaluename?.value ?: 0L), (psznewvalue?.value ?: 0L), (ppszoutstring?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilSetUnknownProperties(hkeyclusterkey: HKEY, ppropertytable: Long, pinpropertylist: Long, cbinpropertylistsize: UInt): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilSetUnknownProperties(hkeyclusterkey, ppropertytable, pinpropertylist, cbinpropertylistsize.toInt()).toUInt()
+public actual fun resUtilSetUnknownProperties(hkeyclusterkey: Hkey, ppropertytable: COpaquePointer?, pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilSetUnknownProperties((hkeyclusterkey?.value ?: 0L), (ppropertytable?.value ?: 0L), (pinpropertylist?.value ?: 0L), cbinpropertylistsize.toInt()).toUInt()
 
-public actual fun ResUtilSetValueEx(hkeyclusterkey: HKEY, valuename: PCWSTR, valuetype: UInt, valuedata: Long, valuesize: UInt, flags: UInt): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilSetValueEx(hkeyclusterkey, valuename, valuetype.toInt(), valuedata, valuesize.toInt(), flags.toInt()).toUInt()
+public actual fun resUtilSetValueEx(hkeyclusterkey: Hkey, valuename: Pcwstr, valuetype: UInt, valuedata: COpaquePointer?, valuesize: UInt, flags: UInt): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilSetValueEx((hkeyclusterkey?.value ?: 0L), (valuename?.value ?: 0L), valuetype.toInt(), (valuedata?.value ?: 0L), valuesize.toInt(), flags.toInt()).toUInt()
 
-public actual fun ResUtilStartResourceService(pszservicename: PCWSTR, phservicehandle: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilStartResourceService(pszservicename, phservicehandle).toUInt()
+public actual fun resUtilStartResourceService(pszservicename: Pcwstr, phservicehandle: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilStartResourceService((pszservicename?.value ?: 0L), (phservicehandle?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilStopResourceService(pszservicename: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilStopResourceService(pszservicename).toUInt()
+public actual fun resUtilStopResourceService(pszservicename: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilStopResourceService((pszservicename?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilStopService(hservicehandle: SC_HANDLE): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilStopService(hservicehandle).toUInt()
+public actual fun resUtilStopService(hservicehandle: ScHandle): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilStopService((hservicehandle?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilTerminateServiceProcessFromResDll(dwservicepid: UInt, boffline: BOOL, pdwresourcestate: Long, pfnlogevent: PLOG_EVENT_ROUTINE, hresourcehandle: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilTerminateServiceProcessFromResDll(dwservicepid.toInt(), boffline, pdwresourcestate, pfnlogevent.toLong(), hresourcehandle).toUInt()
+public actual fun resUtilTerminateServiceProcessFromResDll(dwservicepid: UInt, boffline: Bool, pdwresourcestate: COpaquePointer?, pfnlogevent: PlogEventRoutine, hresourcehandle: Long): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilTerminateServiceProcessFromResDll(dwservicepid.toInt(), boffline, (pdwresourcestate?.value ?: 0L), 0L, hresourcehandle).toUInt()
 
-public actual fun ResUtilVerifyPrivatePropertyList(pinpropertylist: Long, cbinpropertylistsize: UInt): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilVerifyPrivatePropertyList(pinpropertylist, cbinpropertylistsize.toInt()).toUInt()
+public actual fun resUtilVerifyPrivatePropertyList(pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilVerifyPrivatePropertyList((pinpropertylist?.value ?: 0L), cbinpropertylistsize.toInt()).toUInt()
 
-public actual fun ResUtilVerifyPropertyTable(ppropertytable: Long, reserved: Long, ballowunknownproperties: BOOL, pinpropertylist: Long, cbinpropertylistsize: UInt, poutparams: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilVerifyPropertyTable(ppropertytable, reserved, ballowunknownproperties, pinpropertylist, cbinpropertylistsize.toInt(), poutparams).toUInt()
+public actual fun resUtilVerifyPropertyTable(ppropertytable: COpaquePointer?, reserved: COpaquePointer?, ballowunknownproperties: Bool, pinpropertylist: COpaquePointer?, cbinpropertylistsize: UInt, poutparams: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilVerifyPropertyTable((ppropertytable?.value ?: 0L), (reserved?.value ?: 0L), ballowunknownproperties, (pinpropertylist?.value ?: 0L), cbinpropertylistsize.toInt(), (poutparams?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilVerifyResourceService(pszservicename: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilVerifyResourceService(pszservicename).toUInt()
+public actual fun resUtilVerifyResourceService(pszservicename: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilVerifyResourceService((pszservicename?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilVerifyService(hservicehandle: SC_HANDLE): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilVerifyService(hservicehandle).toUInt()
+public actual fun resUtilVerifyService(hservicehandle: ScHandle): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilVerifyService((hservicehandle?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilVerifyShutdownSafe(flags: UInt, reason: UInt, presult: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilVerifyShutdownSafe(flags.toInt(), reason.toInt(), presult).toUInt()
+public actual fun resUtilVerifyShutdownSafe(flags: UInt, reason: UInt, presult: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilVerifyShutdownSafe(flags.toInt(), reason.toInt(), (presult?.value ?: 0L)).toUInt()
 
-public actual fun ResUtilsDeleteKeyTree(key: HKEY, keyname: PCWSTR, treatnokeyaserror: BOOL): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResUtilsDeleteKeyTree(key, keyname, treatnokeyaserror).toUInt()
+public actual fun resUtilsDeleteKeyTree(key: Hkey, keyname: Pcwstr, treatnokeyaserror: Bool): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resUtilsDeleteKeyTree((key?.value ?: 0L), (keyname?.value ?: 0L), treatnokeyaserror).toUInt()
 
-public actual fun ResetAllAppInstanceVersions(): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResetAllAppInstanceVersions().toUInt()
+public actual fun resetAllAppInstanceVersions(): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resetAllAppInstanceVersions().toUInt()
 
-public actual fun RestartClusterResource(hresource: HRESOURCE, dwflags: UInt): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_RestartClusterResource(hresource, dwflags.toInt()).toUInt()
+public actual fun restartClusterResource(hresource: Hresource, dwflags: UInt): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_restartClusterResource(hresource, dwflags.toInt()).toUInt()
 
-public actual fun RestartClusterResourceEx(hresource: HRESOURCE, dwflags: UInt, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_RestartClusterResourceEx(hresource, dwflags.toInt(), lpszreason).toUInt()
+public actual fun restartClusterResourceEx(hresource: Hresource, dwflags: UInt, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_restartClusterResourceEx(hresource, dwflags.toInt(), (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun RestoreClusterDatabase(lpszpathname: PCWSTR, bforce: BOOL, lpszquorumdriveletter: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_RestoreClusterDatabase(lpszpathname, bforce, lpszquorumdriveletter).toUInt()
+public actual fun restoreClusterDatabase(lpszpathname: Pcwstr, bforce: Bool, lpszquorumdriveletter: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_restoreClusterDatabase((lpszpathname?.value ?: 0L), bforce, (lpszquorumdriveletter?.value ?: 0L)).toUInt()
 
-public actual fun ResumeClusterNode(hnode: HNODE): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResumeClusterNode(hnode).toUInt()
+public actual fun resumeClusterNode(hnode: Hnode): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resumeClusterNode(hnode).toUInt()
 
-public actual fun ResumeClusterNodeEx(hnode: HNODE, eresumefailbacktype: CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwresumeflagsreserved: UInt): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResumeClusterNodeEx(hnode, eresumefailbacktype, dwresumeflagsreserved.toInt()).toUInt()
+public actual fun resumeClusterNodeEx(hnode: Hnode, eresumefailbacktype: ClusterNodeResumeFailbackType, dwresumeflagsreserved: UInt): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resumeClusterNodeEx(hnode, eresumefailbacktype, dwresumeflagsreserved.toInt()).toUInt()
 
-public actual fun ResumeClusterNodeEx2(hnode: HNODE, eresumefailbacktype: CLUSTER_NODE_RESUME_FAILBACK_TYPE, dwresumeflagsreserved: UInt, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_ResumeClusterNodeEx2(hnode, eresumefailbacktype, dwresumeflagsreserved.toInt(), lpszreason).toUInt()
+public actual fun resumeClusterNodeEx2(hnode: Hnode, eresumefailbacktype: ClusterNodeResumeFailbackType, dwresumeflagsreserved: UInt, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_resumeClusterNodeEx2(hnode, eresumefailbacktype, dwresumeflagsreserved.toInt(), (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun SetAppInstanceCsvFlags(processhandle: HANDLE, mask: UInt, flags: UInt): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_SetAppInstanceCsvFlags(processhandle, mask.toInt(), flags.toInt()).toUInt()
+public actual fun setAppInstanceCsvFlags(processhandle: Handle, mask: UInt, flags: UInt): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_setAppInstanceCsvFlags((processhandle?.value ?: 0L), mask.toInt(), flags.toInt()).toUInt()
 
-public actual fun SetClusterGroupName(hgroup: HGROUP, lpszgroupname: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_SetClusterGroupName(hgroup, lpszgroupname).toUInt()
+public actual fun setClusterGroupName(hgroup: Hgroup, lpszgroupname: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_setClusterGroupName(hgroup, (lpszgroupname?.value ?: 0L)).toUInt()
 
-public actual fun SetClusterGroupNameEx(hgroup: HGROUP, lpszgroupname: PCWSTR, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_SetClusterGroupNameEx(hgroup, lpszgroupname, lpszreason).toUInt()
+public actual fun setClusterGroupNameEx(hgroup: Hgroup, lpszgroupname: Pcwstr, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_setClusterGroupNameEx(hgroup, (lpszgroupname?.value ?: 0L), (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun SetClusterGroupNodeList(hgroup: HGROUP, nodecount: UInt, nodelist: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_SetClusterGroupNodeList(hgroup, nodecount.toInt(), nodelist).toUInt()
+public actual fun setClusterGroupNodeList(hgroup: Hgroup, nodecount: UInt, nodelist: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_setClusterGroupNodeList(hgroup, nodecount.toInt(), (nodelist?.value ?: 0L)).toUInt()
 
-public actual fun SetClusterGroupNodeListEx(hgroup: HGROUP, nodecount: UInt, nodelist: Long, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_SetClusterGroupNodeListEx(hgroup, nodecount.toInt(), nodelist, lpszreason).toUInt()
+public actual fun setClusterGroupNodeListEx(hgroup: Hgroup, nodecount: UInt, nodelist: COpaquePointer?, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_setClusterGroupNodeListEx(hgroup, nodecount.toInt(), (nodelist?.value ?: 0L), (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun SetClusterGroupSetDependencyExpression(hgroupset: HGROUPSET, lpszdependencyexprssion: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_SetClusterGroupSetDependencyExpression(hgroupset, lpszdependencyexprssion).toUInt()
+public actual fun setClusterGroupSetDependencyExpression(hgroupset: Hgroupset, lpszdependencyexprssion: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_setClusterGroupSetDependencyExpression(hgroupset, (lpszdependencyexprssion?.value ?: 0L)).toUInt()
 
-public actual fun SetClusterGroupSetDependencyExpressionEx(hgroupset: HGROUPSET, lpszdependencyexpression: PCWSTR, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_SetClusterGroupSetDependencyExpressionEx(hgroupset, lpszdependencyexpression, lpszreason).toUInt()
+public actual fun setClusterGroupSetDependencyExpressionEx(hgroupset: Hgroupset, lpszdependencyexpression: Pcwstr, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_setClusterGroupSetDependencyExpressionEx(hgroupset, (lpszdependencyexpression?.value ?: 0L), (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun SetClusterName(hcluster: HCLUSTER, lpsznewclustername: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_SetClusterName(hcluster, lpsznewclustername).toUInt()
+public actual fun setClusterName(hcluster: Hcluster, lpsznewclustername: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_setClusterName(hcluster, (lpsznewclustername?.value ?: 0L)).toUInt()
 
-public actual fun SetClusterNameEx(hcluster: HCLUSTER, lpsznewclustername: PCWSTR, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_SetClusterNameEx(hcluster, lpsznewclustername, lpszreason).toUInt()
+public actual fun setClusterNameEx(hcluster: Hcluster, lpsznewclustername: Pcwstr, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_setClusterNameEx(hcluster, (lpsznewclustername?.value ?: 0L), (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun SetClusterNetworkName(hnetwork: HNETWORK, lpszname: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_SetClusterNetworkName(hnetwork, lpszname).toUInt()
+public actual fun setClusterNetworkName(hnetwork: Hnetwork, lpszname: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_setClusterNetworkName(hnetwork, (lpszname?.value ?: 0L)).toUInt()
 
-public actual fun SetClusterNetworkNameEx(hnetwork: HNETWORK, lpszname: PCWSTR, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_SetClusterNetworkNameEx(hnetwork, lpszname, lpszreason).toUInt()
+public actual fun setClusterNetworkNameEx(hnetwork: Hnetwork, lpszname: Pcwstr, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_setClusterNetworkNameEx(hnetwork, (lpszname?.value ?: 0L), (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun SetClusterNetworkPriorityOrder(hcluster: HCLUSTER, networkcount: UInt, networklist: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_SetClusterNetworkPriorityOrder(hcluster, networkcount.toInt(), networklist).toUInt()
+public actual fun setClusterNetworkPriorityOrder(hcluster: Hcluster, networkcount: UInt, networklist: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_setClusterNetworkPriorityOrder(hcluster, networkcount.toInt(), (networklist?.value ?: 0L)).toUInt()
 
-public actual fun SetClusterQuorumResource(hresource: HRESOURCE, lpszdevicename: PCWSTR, dwmaxquologsize: UInt): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_SetClusterQuorumResource(hresource, lpszdevicename, dwmaxquologsize.toInt()).toUInt()
+public actual fun setClusterQuorumResource(hresource: Hresource, lpszdevicename: Pcwstr, dwmaxquologsize: UInt): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_setClusterQuorumResource(hresource, (lpszdevicename?.value ?: 0L), dwmaxquologsize.toInt()).toUInt()
 
-public actual fun SetClusterQuorumResourceEx(hresource: HRESOURCE, lpszdevicename: PCWSTR, dwmaxquorumlogsize: UInt, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_SetClusterQuorumResourceEx(hresource, lpszdevicename, dwmaxquorumlogsize.toInt(), lpszreason).toUInt()
+public actual fun setClusterQuorumResourceEx(hresource: Hresource, lpszdevicename: Pcwstr, dwmaxquorumlogsize: UInt, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_setClusterQuorumResourceEx(hresource, (lpszdevicename?.value ?: 0L), dwmaxquorumlogsize.toInt(), (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun SetClusterResourceDependencyExpression(hresource: HRESOURCE, lpszdependencyexpression: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_SetClusterResourceDependencyExpression(hresource, lpszdependencyexpression).toUInt()
+public actual fun setClusterResourceDependencyExpression(hresource: Hresource, lpszdependencyexpression: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_setClusterResourceDependencyExpression(hresource, (lpszdependencyexpression?.value ?: 0L)).toUInt()
 
-public actual fun SetClusterResourceName(hresource: HRESOURCE, lpszresourcename: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_SetClusterResourceName(hresource, lpszresourcename).toUInt()
+public actual fun setClusterResourceName(hresource: Hresource, lpszresourcename: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_setClusterResourceName(hresource, (lpszresourcename?.value ?: 0L)).toUInt()
 
-public actual fun SetClusterResourceNameEx(hresource: HRESOURCE, lpszresourcename: PCWSTR, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_SetClusterResourceNameEx(hresource, lpszresourcename, lpszreason).toUInt()
+public actual fun setClusterResourceNameEx(hresource: Hresource, lpszresourcename: Pcwstr, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_setClusterResourceNameEx(hresource, (lpszresourcename?.value ?: 0L), (lpszreason?.value ?: 0L)).toUInt()
 
-public actual fun SetClusterServiceAccountPassword(lpszclustername: PCWSTR, lpsznewpassword: PCWSTR, dwflags: UInt, lpreturnstatusbuffer: Long, lpcbreturnstatusbuffersize: Long): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_SetClusterServiceAccountPassword(lpszclustername, lpsznewpassword, dwflags.toInt(), lpreturnstatusbuffer, lpcbreturnstatusbuffersize).toUInt()
+public actual fun setClusterServiceAccountPassword(lpszclustername: Pcwstr, lpsznewpassword: Pcwstr, dwflags: UInt, lpreturnstatusbuffer: COpaquePointer?, lpcbreturnstatusbuffersize: COpaquePointer?): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_setClusterServiceAccountPassword((lpszclustername?.value ?: 0L), (lpsznewpassword?.value ?: 0L), dwflags.toInt(), (lpreturnstatusbuffer?.value ?: 0L), (lpcbreturnstatusbuffersize?.value ?: 0L)).toUInt()
 
-public actual fun SetGroupDependencyExpression(hgroup: HGROUP, lpszdependencyexpression: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_SetGroupDependencyExpression(hgroup, lpszdependencyexpression).toUInt()
+public actual fun setGroupDependencyExpression(hgroup: Hgroup, lpszdependencyexpression: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_setGroupDependencyExpression(hgroup, (lpszdependencyexpression?.value ?: 0L)).toUInt()
 
-public actual fun SetGroupDependencyExpressionEx(hgroup: HGROUP, lpszdependencyexpression: PCWSTR, lpszreason: PCWSTR): UInt =
-    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_SetGroupDependencyExpressionEx(hgroup, lpszdependencyexpression, lpszreason).toUInt()
+public actual fun setGroupDependencyExpressionEx(hgroup: Hgroup, lpszdependencyexpression: Pcwstr, lpszreason: Pcwstr): UInt =
+    WindowsWin32NetworkingClusteringJniBridge.windowssys_windows_win32_networking_clustering_setGroupDependencyExpressionEx(hgroup, (lpszdependencyexpression?.value ?: 0L), (lpszreason?.value ?: 0L)).toUInt()

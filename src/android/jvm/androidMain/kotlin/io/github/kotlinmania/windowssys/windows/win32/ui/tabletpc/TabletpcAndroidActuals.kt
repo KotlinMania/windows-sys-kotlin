@@ -2,11 +2,12 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.ui.tabletpc
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
 
 private object WindowsWin32UiTabletpcJniBridge {
     init {
@@ -14,161 +15,161 @@ private object WindowsWin32UiTabletpcJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_tabletpc_AddStroke(hrc: Long, ppacketdesc: Long, cbpacket: Int, ppacket: Long, pxform: Long): Int
+    external fun windowssys_windows_win32_ui_tabletpc_addStroke(hrc: Long, ppacketdesc: Long, cbpacket: Int, ppacket: Long, pxform: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_tabletpc_AddWordsToWordList(hwl: Long, pwcwords: Long): Int
+    external fun windowssys_windows_win32_ui_tabletpc_addWordsToWordList(hwl: Long, pwcwords: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_tabletpc_AdviseInkChange(hrc: Long, bnewstroke: Int): Int
+    external fun windowssys_windows_win32_ui_tabletpc_adviseInkChange(hrc: Long, bnewstroke: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_tabletpc_CreateContext(hrec: Long, phrc: Long): Int
+    external fun windowssys_windows_win32_ui_tabletpc_createContext(hrec: Long, phrc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_tabletpc_CreateRecognizer(pclsid: Long, phrec: Long): Int
+    external fun windowssys_windows_win32_ui_tabletpc_createRecognizer(pclsid: Long, phrec: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_tabletpc_DestroyContext(hrc: Long): Int
+    external fun windowssys_windows_win32_ui_tabletpc_destroyContext(hrc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_tabletpc_DestroyRecognizer(hrec: Long): Int
+    external fun windowssys_windows_win32_ui_tabletpc_destroyRecognizer(hrec: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_tabletpc_DestroyWordList(hwl: Long): Int
+    external fun windowssys_windows_win32_ui_tabletpc_destroyWordList(hwl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_tabletpc_EndInkInput(hrc: Long): Int
+    external fun windowssys_windows_win32_ui_tabletpc_endInkInput(hrc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_tabletpc_GetAllRecognizers(recognizerclsids: Long, count: Long): Int
+    external fun windowssys_windows_win32_ui_tabletpc_getAllRecognizers(recognizerclsids: Long, count: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_tabletpc_GetBestResultString(hrc: Long, pcsize: Long, pwcbestresult: Long): Int
+    external fun windowssys_windows_win32_ui_tabletpc_getBestResultString(hrc: Long, pcsize: Long, pwcbestresult: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_tabletpc_GetLatticePtr(hrc: Long, pplattice: Long): Int
+    external fun windowssys_windows_win32_ui_tabletpc_getLatticePtr(hrc: Long, pplattice: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_tabletpc_GetLeftSeparator(hrc: Long, pcsize: Long, pwcleftseparator: Long): Int
+    external fun windowssys_windows_win32_ui_tabletpc_getLeftSeparator(hrc: Long, pcsize: Long, pwcleftseparator: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_tabletpc_GetRecoAttributes(hrec: Long, precoattrs: Long): Int
+    external fun windowssys_windows_win32_ui_tabletpc_getRecoAttributes(hrec: Long, precoattrs: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_tabletpc_GetResultPropertyList(hrec: Long, ppropertycount: Long, ppropertyguid: Long): Int
+    external fun windowssys_windows_win32_ui_tabletpc_getResultPropertyList(hrec: Long, ppropertycount: Long, ppropertyguid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_tabletpc_GetRightSeparator(hrc: Long, pcsize: Long, pwcrightseparator: Long): Int
+    external fun windowssys_windows_win32_ui_tabletpc_getRightSeparator(hrc: Long, pcsize: Long, pwcrightseparator: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_tabletpc_GetUnicodeRanges(hrec: Long, pcranges: Long, pcr: Long): Int
+    external fun windowssys_windows_win32_ui_tabletpc_getUnicodeRanges(hrec: Long, pcranges: Long, pcr: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_tabletpc_IsStringSupported(hrc: Long, wcstring: Int, pwcstring: Long): Int
+    external fun windowssys_windows_win32_ui_tabletpc_isStringSupported(hrc: Long, wcstring: Int, pwcstring: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_tabletpc_MakeWordList(hrec: Long, pbuffer: Long, phwl: Long): Int
+    external fun windowssys_windows_win32_ui_tabletpc_makeWordList(hrec: Long, pbuffer: Long, phwl: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_tabletpc_Process(hrc: Long, pbpartialprocessing: Long): Int
+    external fun windowssys_windows_win32_ui_tabletpc_process(hrc: Long, pbpartialprocessing: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_tabletpc_SetEnabledUnicodeRanges(hrc: Long, cranges: Int, pcr: Long): Int
+    external fun windowssys_windows_win32_ui_tabletpc_setEnabledUnicodeRanges(hrc: Long, cranges: Int, pcr: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_tabletpc_SetFactoid(hrc: Long, cwcfactoid: Int, pwcfactoid: Long): Int
+    external fun windowssys_windows_win32_ui_tabletpc_setFactoid(hrc: Long, cwcfactoid: Int, pwcfactoid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_tabletpc_SetFlags(hrc: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_ui_tabletpc_setFlags(hrc: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_tabletpc_SetGuide(hrc: Long, pguide: Long, iindex: Int): Int
+    external fun windowssys_windows_win32_ui_tabletpc_setGuide(hrc: Long, pguide: Long, iindex: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_tabletpc_SetTextContext(hrc: Long, cwcbefore: Int, pwcbefore: Long, cwcafter: Int, pwcafter: Long): Int
+    external fun windowssys_windows_win32_ui_tabletpc_setTextContext(hrc: Long, cwcbefore: Int, pwcbefore: Long, cwcafter: Int, pwcafter: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_ui_tabletpc_SetWordList(hrc: Long, hwl: Long): Int
+    external fun windowssys_windows_win32_ui_tabletpc_setWordList(hrc: Long, hwl: Long): Int
 }
 
-public actual fun AddStroke(hrc: HRECOCONTEXT, ppacketdesc: Long, cbpacket: UInt, ppacket: Long, pxform: Long): HRESULT =
-    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_AddStroke(hrc, ppacketdesc, cbpacket.toInt(), ppacket, pxform)
+public actual fun addStroke(hrc: Hrecocontext, ppacketdesc: COpaquePointer?, cbpacket: UInt, ppacket: COpaquePointer?, pxform: COpaquePointer?): Hresult =
+    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_addStroke((hrc?.value ?: 0L), (ppacketdesc?.value ?: 0L), cbpacket.toInt(), (ppacket?.value ?: 0L), (pxform?.value ?: 0L))
 
-public actual fun AddWordsToWordList(hwl: HRECOWORDLIST, pwcwords: PCWSTR): HRESULT =
-    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_AddWordsToWordList(hwl, pwcwords)
+public actual fun addWordsToWordList(hwl: Hrecowordlist, pwcwords: Pcwstr): Hresult =
+    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_addWordsToWordList((hwl?.value ?: 0L), (pwcwords?.value ?: 0L))
 
-public actual fun AdviseInkChange(hrc: HRECOCONTEXT, bnewstroke: BOOL): HRESULT =
-    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_AdviseInkChange(hrc, bnewstroke)
+public actual fun adviseInkChange(hrc: Hrecocontext, bnewstroke: Bool): Hresult =
+    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_adviseInkChange((hrc?.value ?: 0L), bnewstroke)
 
-public actual fun CreateContext(hrec: HRECOGNIZER, phrc: Long): HRESULT =
-    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_CreateContext(hrec, phrc)
+public actual fun createContext(hrec: Hrecognizer, phrc: COpaquePointer?): Hresult =
+    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_createContext((hrec?.value ?: 0L), (phrc?.value ?: 0L))
 
-public actual fun CreateRecognizer(pclsid: Long, phrec: Long): HRESULT =
-    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_CreateRecognizer(pclsid, phrec)
+public actual fun createRecognizer(pclsid: COpaquePointer?, phrec: COpaquePointer?): Hresult =
+    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_createRecognizer((pclsid?.value ?: 0L), (phrec?.value ?: 0L))
 
-public actual fun DestroyContext(hrc: HRECOCONTEXT): HRESULT =
-    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_DestroyContext(hrc)
+public actual fun destroyContext(hrc: Hrecocontext): Hresult =
+    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_destroyContext((hrc?.value ?: 0L))
 
-public actual fun DestroyRecognizer(hrec: HRECOGNIZER): HRESULT =
-    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_DestroyRecognizer(hrec)
+public actual fun destroyRecognizer(hrec: Hrecognizer): Hresult =
+    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_destroyRecognizer((hrec?.value ?: 0L))
 
-public actual fun DestroyWordList(hwl: HRECOWORDLIST): HRESULT =
-    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_DestroyWordList(hwl)
+public actual fun destroyWordList(hwl: Hrecowordlist): Hresult =
+    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_destroyWordList((hwl?.value ?: 0L))
 
-public actual fun EndInkInput(hrc: HRECOCONTEXT): HRESULT =
-    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_EndInkInput(hrc)
+public actual fun endInkInput(hrc: Hrecocontext): Hresult =
+    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_endInkInput((hrc?.value ?: 0L))
 
-public actual fun GetAllRecognizers(recognizerclsids: Long, count: Long): HRESULT =
-    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_GetAllRecognizers(recognizerclsids, count)
+public actual fun getAllRecognizers(recognizerclsids: COpaquePointer?, count: COpaquePointer?): Hresult =
+    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_getAllRecognizers((recognizerclsids?.value ?: 0L), (count?.value ?: 0L))
 
-public actual fun GetBestResultString(hrc: HRECOCONTEXT, pcsize: Long, pwcbestresult: PWSTR): HRESULT =
-    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_GetBestResultString(hrc, pcsize, pwcbestresult)
+public actual fun getBestResultString(hrc: Hrecocontext, pcsize: COpaquePointer?, pwcbestresult: Pwstr): Hresult =
+    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_getBestResultString((hrc?.value ?: 0L), (pcsize?.value ?: 0L), (pwcbestresult?.value ?: 0L))
 
-public actual fun GetLatticePtr(hrc: HRECOCONTEXT, pplattice: Long): HRESULT =
-    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_GetLatticePtr(hrc, pplattice)
+public actual fun getLatticePtr(hrc: Hrecocontext, pplattice: COpaquePointer?): Hresult =
+    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_getLatticePtr((hrc?.value ?: 0L), (pplattice?.value ?: 0L))
 
-public actual fun GetLeftSeparator(hrc: HRECOCONTEXT, pcsize: Long, pwcleftseparator: PWSTR): HRESULT =
-    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_GetLeftSeparator(hrc, pcsize, pwcleftseparator)
+public actual fun getLeftSeparator(hrc: Hrecocontext, pcsize: COpaquePointer?, pwcleftseparator: Pwstr): Hresult =
+    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_getLeftSeparator((hrc?.value ?: 0L), (pcsize?.value ?: 0L), (pwcleftseparator?.value ?: 0L))
 
-public actual fun GetRecoAttributes(hrec: HRECOGNIZER, precoattrs: Long): HRESULT =
-    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_GetRecoAttributes(hrec, precoattrs)
+public actual fun getRecoAttributes(hrec: Hrecognizer, precoattrs: COpaquePointer?): Hresult =
+    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_getRecoAttributes((hrec?.value ?: 0L), (precoattrs?.value ?: 0L))
 
-public actual fun GetResultPropertyList(hrec: HRECOGNIZER, ppropertycount: Long, ppropertyguid: Long): HRESULT =
-    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_GetResultPropertyList(hrec, ppropertycount, ppropertyguid)
+public actual fun getResultPropertyList(hrec: Hrecognizer, ppropertycount: COpaquePointer?, ppropertyguid: COpaquePointer?): Hresult =
+    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_getResultPropertyList((hrec?.value ?: 0L), (ppropertycount?.value ?: 0L), (ppropertyguid?.value ?: 0L))
 
-public actual fun GetRightSeparator(hrc: HRECOCONTEXT, pcsize: Long, pwcrightseparator: PWSTR): HRESULT =
-    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_GetRightSeparator(hrc, pcsize, pwcrightseparator)
+public actual fun getRightSeparator(hrc: Hrecocontext, pcsize: COpaquePointer?, pwcrightseparator: Pwstr): Hresult =
+    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_getRightSeparator((hrc?.value ?: 0L), (pcsize?.value ?: 0L), (pwcrightseparator?.value ?: 0L))
 
-public actual fun GetUnicodeRanges(hrec: HRECOGNIZER, pcranges: Long, pcr: Long): HRESULT =
-    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_GetUnicodeRanges(hrec, pcranges, pcr)
+public actual fun getUnicodeRanges(hrec: Hrecognizer, pcranges: COpaquePointer?, pcr: COpaquePointer?): Hresult =
+    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_getUnicodeRanges((hrec?.value ?: 0L), (pcranges?.value ?: 0L), (pcr?.value ?: 0L))
 
-public actual fun IsStringSupported(hrc: HRECOCONTEXT, wcstring: UInt, pwcstring: PCWSTR): HRESULT =
-    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_IsStringSupported(hrc, wcstring.toInt(), pwcstring)
+public actual fun isStringSupported(hrc: Hrecocontext, wcstring: UInt, pwcstring: Pcwstr): Hresult =
+    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_isStringSupported((hrc?.value ?: 0L), wcstring.toInt(), (pwcstring?.value ?: 0L))
 
-public actual fun LoadCachedAttributes(clsid: GUID, precoattributes: Long): HRESULT =
+public actual fun loadCachedAttributes(clsid: Guid, precoattributes: COpaquePointer?): Hresult =
     0
 
-public actual fun MakeWordList(hrec: HRECOGNIZER, pbuffer: PCWSTR, phwl: Long): HRESULT =
-    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_MakeWordList(hrec, pbuffer, phwl)
+public actual fun makeWordList(hrec: Hrecognizer, pbuffer: Pcwstr, phwl: COpaquePointer?): Hresult =
+    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_makeWordList((hrec?.value ?: 0L), (pbuffer?.value ?: 0L), (phwl?.value ?: 0L))
 
-public actual fun Process(hrc: HRECOCONTEXT, pbpartialprocessing: Long): HRESULT =
-    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_Process(hrc, pbpartialprocessing)
+public actual fun process(hrc: Hrecocontext, pbpartialprocessing: COpaquePointer?): Hresult =
+    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_process((hrc?.value ?: 0L), (pbpartialprocessing?.value ?: 0L))
 
-public actual fun SetEnabledUnicodeRanges(hrc: HRECOCONTEXT, cranges: UInt, pcr: Long): HRESULT =
-    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_SetEnabledUnicodeRanges(hrc, cranges.toInt(), pcr)
+public actual fun setEnabledUnicodeRanges(hrc: Hrecocontext, cranges: UInt, pcr: COpaquePointer?): Hresult =
+    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_setEnabledUnicodeRanges((hrc?.value ?: 0L), cranges.toInt(), (pcr?.value ?: 0L))
 
-public actual fun SetFactoid(hrc: HRECOCONTEXT, cwcfactoid: UInt, pwcfactoid: PCWSTR): HRESULT =
-    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_SetFactoid(hrc, cwcfactoid.toInt(), pwcfactoid)
+public actual fun setFactoid(hrc: Hrecocontext, cwcfactoid: UInt, pwcfactoid: Pcwstr): Hresult =
+    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_setFactoid((hrc?.value ?: 0L), cwcfactoid.toInt(), (pwcfactoid?.value ?: 0L))
 
-public actual fun SetFlags(hrc: HRECOCONTEXT, dwflags: UInt): HRESULT =
-    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_SetFlags(hrc, dwflags.toInt())
+public actual fun setFlags(hrc: Hrecocontext, dwflags: UInt): Hresult =
+    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_setFlags((hrc?.value ?: 0L), dwflags.toInt())
 
-public actual fun SetGuide(hrc: HRECOCONTEXT, pguide: Long, iindex: UInt): HRESULT =
-    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_SetGuide(hrc, pguide, iindex.toInt())
+public actual fun setGuide(hrc: Hrecocontext, pguide: COpaquePointer?, iindex: UInt): Hresult =
+    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_setGuide((hrc?.value ?: 0L), (pguide?.value ?: 0L), iindex.toInt())
 
-public actual fun SetTextContext(hrc: HRECOCONTEXT, cwcbefore: UInt, pwcbefore: PCWSTR, cwcafter: UInt, pwcafter: PCWSTR): HRESULT =
-    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_SetTextContext(hrc, cwcbefore.toInt(), pwcbefore, cwcafter.toInt(), pwcafter)
+public actual fun setTextContext(hrc: Hrecocontext, cwcbefore: UInt, pwcbefore: Pcwstr, cwcafter: UInt, pwcafter: Pcwstr): Hresult =
+    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_setTextContext((hrc?.value ?: 0L), cwcbefore.toInt(), (pwcbefore?.value ?: 0L), cwcafter.toInt(), (pwcafter?.value ?: 0L))
 
-public actual fun SetWordList(hrc: HRECOCONTEXT, hwl: HRECOWORDLIST): HRESULT =
-    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_SetWordList(hrc, hwl)
+public actual fun setWordList(hrc: Hrecocontext, hwl: Hrecowordlist): Hresult =
+    WindowsWin32UiTabletpcJniBridge.windowssys_windows_win32_ui_tabletpc_setWordList((hrc?.value ?: 0L), (hwl?.value ?: 0L))

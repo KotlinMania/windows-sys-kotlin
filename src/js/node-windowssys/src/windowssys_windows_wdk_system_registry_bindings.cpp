@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_NtCommitRegistryTransaction_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_ntCommitRegistryTransaction_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* transactionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -71,7 +71,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_NtCommitRegistryTransa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_NtCreateKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_ntCreateKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -101,7 +101,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_NtCreateKey_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_NtCreateKeyTransacted_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_ntCreateKeyTransacted_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -133,7 +133,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_NtCreateKeyTransacted_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_NtCreateRegistryTransaction_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_ntCreateRegistryTransaction_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* transactionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -157,7 +157,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_NtCreateRegistryTransa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_NtDeleteKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_ntDeleteKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -175,7 +175,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_NtDeleteKey_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_NtDeleteValueKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_ntDeleteValueKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* valuename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -195,7 +195,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_NtDeleteValueKey_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_NtEnumerateKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_ntEnumerateKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t arg_1_index = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -223,7 +223,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_NtEnumerateKey_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_NtEnumerateValueKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_ntEnumerateValueKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t arg_1_index = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -251,7 +251,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_NtEnumerateValueKey_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_NtFlushKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_ntFlushKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -269,7 +269,47 @@ static Napi::Value windowssys_windows_wdk_system_registry_NtFlushKey_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_NtOpenKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_ntNotifyChangeMultipleKeys_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* masterkeyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    uint32_t count = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    void* subordinateobjects = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* event = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    void* apcroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+    void* apccontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
+    void* iostatusblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 6 ? km_napi_arg_u64(km_info[6]) : 0));
+    uint32_t completionfilter = static_cast<uint32_t>(km_info.Length() > 7 ? km_info[7].ToNumber().Int32Value() : 0);
+    bool watchtree = km_info.Length() > 8 ? km_info[8].ToBoolean().Value() : false;
+    void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 9 ? km_napi_arg_u64(km_info[9]) : 0));
+    uint32_t buffersize = static_cast<uint32_t>(km_info.Length() > 10 ? km_info[10].ToNumber().Int32Value() : 0);
+    bool asynchronous = km_info.Length() > 11 ? km_info[11].ToBoolean().Value() : false;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*, void*, uint32_t, bool, void*, uint32_t, bool);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtNotifyChangeMultipleKeys")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(masterkeyhandle, count, subordinateobjects, event, apcroutine, apccontext, iostatusblock, completionfilter, watchtree, buffer, buffersize, asynchronous) : -1;
+#else
+    (void)masterkeyhandle;
+    (void)count;
+    (void)subordinateobjects;
+    (void)event;
+    (void)apcroutine;
+    (void)apccontext;
+    (void)iostatusblock;
+    (void)completionfilter;
+    (void)watchtree;
+    (void)buffer;
+    (void)buffersize;
+    (void)asynchronous;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_wdk_system_registry_ntOpenKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -291,7 +331,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_NtOpenKey_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_NtOpenKeyEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_ntOpenKeyEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -315,7 +355,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_NtOpenKeyEx_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_NtOpenKeyTransacted_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_ntOpenKeyTransacted_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -339,7 +379,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_NtOpenKeyTransacted_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_NtOpenKeyTransactedEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_ntOpenKeyTransactedEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -365,7 +405,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_NtOpenKeyTransactedEx_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_NtOpenRegistryTransaction_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_ntOpenRegistryTransaction_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* transactionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -387,7 +427,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_NtOpenRegistryTransact
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_NtQueryKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_ntQueryKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t keyinformationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -413,7 +453,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_NtQueryKey_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_NtQueryMultipleValueKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_ntQueryMultipleValueKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* valueentries = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -441,7 +481,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_NtQueryMultipleValueKe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_NtQueryValueKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_ntQueryValueKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* valuename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -469,7 +509,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_NtQueryValueKey_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_NtRenameKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_ntRenameKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* newname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -489,7 +529,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_NtRenameKey_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_NtRestoreKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_ntRestoreKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -511,7 +551,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_NtRestoreKey_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_NtRollbackRegistryTransaction_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_ntRollbackRegistryTransaction_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* transactionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -531,7 +571,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_NtRollbackRegistryTran
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_NtSaveKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_ntSaveKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -551,7 +591,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_NtSaveKey_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_NtSaveKeyEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_ntSaveKeyEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -573,7 +613,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_NtSaveKeyEx_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_NtSetInformationKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_ntSetInformationKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t keysetinformationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -597,7 +637,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_NtSetInformationKey_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_NtSetValueKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_ntSetValueKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* valuename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -625,7 +665,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_NtSetValueKey_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_ZwCommitRegistryTransaction_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_zwCommitRegistryTransaction_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* transactionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -645,7 +685,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_ZwCommitRegistryTransa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_ZwCreateKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_zwCreateKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -675,7 +715,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_ZwCreateKey_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_ZwCreateKeyTransacted_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_zwCreateKeyTransacted_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -707,7 +747,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_ZwCreateKeyTransacted_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_ZwCreateRegistryTransaction_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_zwCreateRegistryTransaction_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* transactionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -731,7 +771,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_ZwCreateRegistryTransa
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_ZwDeleteKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_zwDeleteKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -749,7 +789,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_ZwDeleteKey_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_ZwDeleteValueKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_zwDeleteValueKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* valuename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -769,7 +809,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_ZwDeleteValueKey_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_ZwEnumerateKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_zwEnumerateKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t arg_1_index = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -797,7 +837,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_ZwEnumerateKey_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_ZwEnumerateValueKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_zwEnumerateValueKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t arg_1_index = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -825,7 +865,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_ZwEnumerateValueKey_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_ZwFlushKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_zwFlushKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -843,7 +883,47 @@ static Napi::Value windowssys_windows_wdk_system_registry_ZwFlushKey_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_ZwOpenKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_zwNotifyChangeMultipleKeys_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* masterkeyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    uint32_t count = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    void* subordinateobjects = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* event = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    void* apcroutine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+    void* apccontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 5 ? km_napi_arg_u64(km_info[5]) : 0));
+    void* iostatusblock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 6 ? km_napi_arg_u64(km_info[6]) : 0));
+    uint32_t completionfilter = static_cast<uint32_t>(km_info.Length() > 7 ? km_info[7].ToNumber().Int32Value() : 0);
+    bool watchtree = km_info.Length() > 8 ? km_info[8].ToBoolean().Value() : false;
+    void* buffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 9 ? km_napi_arg_u64(km_info[9]) : 0));
+    uint32_t buffersize = static_cast<uint32_t>(km_info.Length() > 10 ? km_info[10].ToNumber().Int32Value() : 0);
+    bool asynchronous = km_info.Length() > 11 ? km_info[11].ToBoolean().Value() : false;
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*, void*, uint32_t, bool, void*, uint32_t, bool);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwNotifyChangeMultipleKeys")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(masterkeyhandle, count, subordinateobjects, event, apcroutine, apccontext, iostatusblock, completionfilter, watchtree, buffer, buffersize, asynchronous) : -1;
+#else
+    (void)masterkeyhandle;
+    (void)count;
+    (void)subordinateobjects;
+    (void)event;
+    (void)apcroutine;
+    (void)apccontext;
+    (void)iostatusblock;
+    (void)completionfilter;
+    (void)watchtree;
+    (void)buffer;
+    (void)buffersize;
+    (void)asynchronous;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_wdk_system_registry_zwOpenKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -865,7 +945,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_ZwOpenKey_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_ZwOpenKeyEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_zwOpenKeyEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -889,7 +969,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_ZwOpenKeyEx_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_ZwOpenKeyTransacted_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_zwOpenKeyTransacted_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -913,7 +993,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_ZwOpenKeyTransacted_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_ZwOpenKeyTransactedEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_zwOpenKeyTransactedEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -939,7 +1019,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_ZwOpenKeyTransactedEx_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_ZwOpenRegistryTransaction_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_zwOpenRegistryTransaction_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* transactionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -961,7 +1041,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_ZwOpenRegistryTransact
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_ZwQueryKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_zwQueryKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t keyinformationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -987,7 +1067,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_ZwQueryKey_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_ZwQueryMultipleValueKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_zwQueryMultipleValueKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* valueentries = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1015,7 +1095,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_ZwQueryMultipleValueKe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_ZwQueryValueKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_zwQueryValueKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* valuename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1043,7 +1123,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_ZwQueryValueKey_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_ZwRenameKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_zwRenameKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* newname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1063,7 +1143,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_ZwRenameKey_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_ZwRestoreKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_zwRestoreKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1085,7 +1165,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_ZwRestoreKey_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_ZwRollbackRegistryTransaction_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_zwRollbackRegistryTransaction_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* transactionhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1105,7 +1185,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_ZwRollbackRegistryTran
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_ZwSaveKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_zwSaveKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1125,7 +1205,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_ZwSaveKey_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_ZwSaveKeyEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_zwSaveKeyEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* filehandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1147,7 +1227,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_ZwSaveKeyEx_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_ZwSetInformationKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_zwSetInformationKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t keysetinformationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1171,7 +1251,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_ZwSetInformationKey_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_wdk_system_registry_ZwSetValueKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_wdk_system_registry_zwSetValueKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* keyhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* valuename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1200,54 +1280,56 @@ static Napi::Value windowssys_windows_wdk_system_registry_ZwSetValueKey_napi(con
 }
 
 static void register_windows_wdk_system_registry_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_wdk_system_registry_NtCommitRegistryTransaction", Napi::Function::New(env, windowssys_windows_wdk_system_registry_NtCommitRegistryTransaction_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_NtCreateKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_NtCreateKey_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_NtCreateKeyTransacted", Napi::Function::New(env, windowssys_windows_wdk_system_registry_NtCreateKeyTransacted_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_NtCreateRegistryTransaction", Napi::Function::New(env, windowssys_windows_wdk_system_registry_NtCreateRegistryTransaction_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_NtDeleteKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_NtDeleteKey_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_NtDeleteValueKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_NtDeleteValueKey_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_NtEnumerateKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_NtEnumerateKey_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_NtEnumerateValueKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_NtEnumerateValueKey_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_NtFlushKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_NtFlushKey_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_NtOpenKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_NtOpenKey_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_NtOpenKeyEx", Napi::Function::New(env, windowssys_windows_wdk_system_registry_NtOpenKeyEx_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_NtOpenKeyTransacted", Napi::Function::New(env, windowssys_windows_wdk_system_registry_NtOpenKeyTransacted_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_NtOpenKeyTransactedEx", Napi::Function::New(env, windowssys_windows_wdk_system_registry_NtOpenKeyTransactedEx_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_NtOpenRegistryTransaction", Napi::Function::New(env, windowssys_windows_wdk_system_registry_NtOpenRegistryTransaction_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_NtQueryKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_NtQueryKey_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_NtQueryMultipleValueKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_NtQueryMultipleValueKey_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_NtQueryValueKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_NtQueryValueKey_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_NtRenameKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_NtRenameKey_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_NtRestoreKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_NtRestoreKey_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_NtRollbackRegistryTransaction", Napi::Function::New(env, windowssys_windows_wdk_system_registry_NtRollbackRegistryTransaction_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_NtSaveKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_NtSaveKey_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_NtSaveKeyEx", Napi::Function::New(env, windowssys_windows_wdk_system_registry_NtSaveKeyEx_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_NtSetInformationKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_NtSetInformationKey_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_NtSetValueKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_NtSetValueKey_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_ZwCommitRegistryTransaction", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ZwCommitRegistryTransaction_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_ZwCreateKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ZwCreateKey_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_ZwCreateKeyTransacted", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ZwCreateKeyTransacted_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_ZwCreateRegistryTransaction", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ZwCreateRegistryTransaction_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_ZwDeleteKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ZwDeleteKey_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_ZwDeleteValueKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ZwDeleteValueKey_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_ZwEnumerateKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ZwEnumerateKey_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_ZwEnumerateValueKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ZwEnumerateValueKey_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_ZwFlushKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ZwFlushKey_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_ZwOpenKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ZwOpenKey_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_ZwOpenKeyEx", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ZwOpenKeyEx_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_ZwOpenKeyTransacted", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ZwOpenKeyTransacted_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_ZwOpenKeyTransactedEx", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ZwOpenKeyTransactedEx_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_ZwOpenRegistryTransaction", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ZwOpenRegistryTransaction_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_ZwQueryKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ZwQueryKey_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_ZwQueryMultipleValueKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ZwQueryMultipleValueKey_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_ZwQueryValueKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ZwQueryValueKey_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_ZwRenameKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ZwRenameKey_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_ZwRestoreKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ZwRestoreKey_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_ZwRollbackRegistryTransaction", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ZwRollbackRegistryTransaction_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_ZwSaveKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ZwSaveKey_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_ZwSaveKeyEx", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ZwSaveKeyEx_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_ZwSetInformationKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ZwSetInformationKey_napi));
-    exports.Set("windowssys_windows_wdk_system_registry_ZwSetValueKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ZwSetValueKey_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_ntCommitRegistryTransaction", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ntCommitRegistryTransaction_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_ntCreateKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ntCreateKey_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_ntCreateKeyTransacted", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ntCreateKeyTransacted_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_ntCreateRegistryTransaction", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ntCreateRegistryTransaction_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_ntDeleteKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ntDeleteKey_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_ntDeleteValueKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ntDeleteValueKey_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_ntEnumerateKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ntEnumerateKey_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_ntEnumerateValueKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ntEnumerateValueKey_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_ntFlushKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ntFlushKey_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_ntNotifyChangeMultipleKeys", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ntNotifyChangeMultipleKeys_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_ntOpenKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ntOpenKey_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_ntOpenKeyEx", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ntOpenKeyEx_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_ntOpenKeyTransacted", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ntOpenKeyTransacted_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_ntOpenKeyTransactedEx", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ntOpenKeyTransactedEx_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_ntOpenRegistryTransaction", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ntOpenRegistryTransaction_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_ntQueryKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ntQueryKey_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_ntQueryMultipleValueKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ntQueryMultipleValueKey_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_ntQueryValueKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ntQueryValueKey_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_ntRenameKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ntRenameKey_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_ntRestoreKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ntRestoreKey_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_ntRollbackRegistryTransaction", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ntRollbackRegistryTransaction_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_ntSaveKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ntSaveKey_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_ntSaveKeyEx", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ntSaveKeyEx_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_ntSetInformationKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ntSetInformationKey_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_ntSetValueKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_ntSetValueKey_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_zwCommitRegistryTransaction", Napi::Function::New(env, windowssys_windows_wdk_system_registry_zwCommitRegistryTransaction_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_zwCreateKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_zwCreateKey_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_zwCreateKeyTransacted", Napi::Function::New(env, windowssys_windows_wdk_system_registry_zwCreateKeyTransacted_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_zwCreateRegistryTransaction", Napi::Function::New(env, windowssys_windows_wdk_system_registry_zwCreateRegistryTransaction_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_zwDeleteKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_zwDeleteKey_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_zwDeleteValueKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_zwDeleteValueKey_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_zwEnumerateKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_zwEnumerateKey_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_zwEnumerateValueKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_zwEnumerateValueKey_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_zwFlushKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_zwFlushKey_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_zwNotifyChangeMultipleKeys", Napi::Function::New(env, windowssys_windows_wdk_system_registry_zwNotifyChangeMultipleKeys_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_zwOpenKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_zwOpenKey_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_zwOpenKeyEx", Napi::Function::New(env, windowssys_windows_wdk_system_registry_zwOpenKeyEx_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_zwOpenKeyTransacted", Napi::Function::New(env, windowssys_windows_wdk_system_registry_zwOpenKeyTransacted_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_zwOpenKeyTransactedEx", Napi::Function::New(env, windowssys_windows_wdk_system_registry_zwOpenKeyTransactedEx_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_zwOpenRegistryTransaction", Napi::Function::New(env, windowssys_windows_wdk_system_registry_zwOpenRegistryTransaction_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_zwQueryKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_zwQueryKey_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_zwQueryMultipleValueKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_zwQueryMultipleValueKey_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_zwQueryValueKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_zwQueryValueKey_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_zwRenameKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_zwRenameKey_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_zwRestoreKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_zwRestoreKey_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_zwRollbackRegistryTransaction", Napi::Function::New(env, windowssys_windows_wdk_system_registry_zwRollbackRegistryTransaction_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_zwSaveKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_zwSaveKey_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_zwSaveKeyEx", Napi::Function::New(env, windowssys_windows_wdk_system_registry_zwSaveKeyEx_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_zwSetInformationKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_zwSetInformationKey_napi));
+    exports.Set("windowssys_windows_wdk_system_registry_zwSetValueKey", Napi::Function::New(env, windowssys_windows_wdk_system_registry_zwSetValueKey_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_wdk_system_registry_napi, nullptr };

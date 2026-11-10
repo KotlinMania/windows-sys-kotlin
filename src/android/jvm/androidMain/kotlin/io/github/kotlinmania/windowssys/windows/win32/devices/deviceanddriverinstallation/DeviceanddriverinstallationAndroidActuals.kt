@@ -2,19 +2,20 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.deviceanddriverinstallation
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.data.htmlhelp.PRIORITY
-import io.github.kotlinmania.windowssys.windows.win32.devices.properties.DEVPROPTYPE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.RECT
-import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.HDC
-import io.github.kotlinmania.windowssys.windows.win32.system.registry.HKEY
-import io.github.kotlinmania.windowssys.windows.win32.ui.controls.HPROPSHEETPAGE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.data.htmlhelp.Priority
+import io.github.kotlinmania.windowssys.windows.win32.devices.properties.Devproptype
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Rect
+import io.github.kotlinmania.windowssys.windows.win32.graphics.gdi.Hdc
+import io.github.kotlinmania.windowssys.windows.win32.system.registry.Hkey
+import io.github.kotlinmania.windowssys.windows.win32.ui.controls.Hpropsheetpage
 
 private object WindowsWin32DevicesDeviceanddriverinstallationJniBridge {
     init {
@@ -22,3450 +23,3458 @@ private object WindowsWin32DevicesDeviceanddriverinstallationJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CMP_WaitNoPendingInstallEvents(dwtimeout: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmpWaitNoPendingInstallEvents(dwtimeout: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Add_Empty_Log_Conf(plclogconf: Long, dndevinst: Int, priority: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddEmptyLogConf(plclogconf: Long, dndevinst: Int, priority: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Add_Empty_Log_Conf_Ex(plclogconf: Long, dndevinst: Int, priority: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddEmptyLogConfEx(plclogconf: Long, dndevinst: Int, priority: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Add_IDA(dndevinst: Int, pszid: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddIda(dndevinst: Int, pszid: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Add_IDW(dndevinst: Int, pszid: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddIdw(dndevinst: Int, pszid: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Add_ID_ExA(dndevinst: Int, pszid: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddIdExA(dndevinst: Int, pszid: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Add_ID_ExW(dndevinst: Int, pszid: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddIdExW(dndevinst: Int, pszid: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Add_Range(ullstartvalue: Long, ullendvalue: Long, rlh: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddRange(ullstartvalue: Long, ullendvalue: Long, rlh: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Add_Res_Des(prdresdes: Long, lclogconf: Long, resourceid: Int, resourcedata: Long, resourcelen: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddResDes(prdresdes: Long, lclogconf: Long, resourceid: Int, resourcedata: Long, resourcelen: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Add_Res_Des_Ex(prdresdes: Long, lclogconf: Long, resourceid: Int, resourcedata: Long, resourcelen: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddResDesEx(prdresdes: Long, lclogconf: Long, resourceid: Int, resourcedata: Long, resourcelen: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Connect_MachineA(uncservername: Long, phmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmConnectMachineA(uncservername: Long, phmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Connect_MachineW(uncservername: Long, phmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmConnectMachineW(uncservername: Long, phmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Create_DevNodeA(pdndevinst: Long, pdeviceid: Long, dnparent: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmCreateDevNodeA(pdndevinst: Long, pdeviceid: Long, dnparent: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Create_DevNodeW(pdndevinst: Long, pdeviceid: Long, dnparent: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmCreateDevNodeW(pdndevinst: Long, pdeviceid: Long, dnparent: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Create_DevNode_ExA(pdndevinst: Long, pdeviceid: Long, dnparent: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmCreateDevNodeExA(pdndevinst: Long, pdeviceid: Long, dnparent: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Create_DevNode_ExW(pdndevinst: Long, pdeviceid: Long, dnparent: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmCreateDevNodeExW(pdndevinst: Long, pdeviceid: Long, dnparent: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Create_Range_List(prlh: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmCreateRangeList(prlh: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Delete_Class_Key(classguid: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteClassKey(classguid: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Delete_Class_Key_Ex(classguid: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteClassKeyEx(classguid: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Delete_DevNode_Key(dndevnode: Int, ulhardwareprofile: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteDevNodeKey(dndevnode: Int, ulhardwareprofile: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Delete_DevNode_Key_Ex(dndevnode: Int, ulhardwareprofile: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteDevNodeKeyEx(dndevnode: Int, ulhardwareprofile: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Delete_Device_Interface_KeyA(pszdeviceinterface: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteDeviceInterfaceKeyA(pszdeviceinterface: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Delete_Device_Interface_KeyW(pszdeviceinterface: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteDeviceInterfaceKeyW(pszdeviceinterface: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Delete_Device_Interface_Key_ExA(pszdeviceinterface: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteDeviceInterfaceKeyExA(pszdeviceinterface: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Delete_Device_Interface_Key_ExW(pszdeviceinterface: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteDeviceInterfaceKeyExW(pszdeviceinterface: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Delete_Range(ullstartvalue: Long, ullendvalue: Long, rlh: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteRange(ullstartvalue: Long, ullendvalue: Long, rlh: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Detect_Resource_Conflict(dndevinst: Int, resourceid: Int, resourcedata: Long, resourcelen: Int, pbconflictdetected: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmDetectResourceConflict(dndevinst: Int, resourceid: Int, resourcedata: Long, resourcelen: Int, pbconflictdetected: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Detect_Resource_Conflict_Ex(dndevinst: Int, resourceid: Int, resourcedata: Long, resourcelen: Int, pbconflictdetected: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmDetectResourceConflictEx(dndevinst: Int, resourceid: Int, resourcedata: Long, resourcelen: Int, pbconflictdetected: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Disable_DevNode(dndevinst: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmDisableDevNode(dndevinst: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Disable_DevNode_Ex(dndevinst: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmDisableDevNodeEx(dndevinst: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Disconnect_Machine(hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmDisconnectMachine(hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Dup_Range_List(rlhold: Long, rlhnew: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmDupRangeList(rlhold: Long, rlhnew: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Enable_DevNode(dndevinst: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnableDevNode(dndevinst: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Enable_DevNode_Ex(dndevinst: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnableDevNodeEx(dndevinst: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Enumerate_Classes(ulclassindex: Int, classguid: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnumerateClasses(ulclassindex: Int, classguid: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Enumerate_Classes_Ex(ulclassindex: Int, classguid: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnumerateClassesEx(ulclassindex: Int, classguid: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Enumerate_EnumeratorsA(ulenumindex: Int, buffer: Long, pullength: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnumerateEnumeratorsA(ulenumindex: Int, buffer: Long, pullength: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Enumerate_EnumeratorsW(ulenumindex: Int, buffer: Long, pullength: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnumerateEnumeratorsW(ulenumindex: Int, buffer: Long, pullength: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Enumerate_Enumerators_ExA(ulenumindex: Int, buffer: Long, pullength: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnumerateEnumeratorsExA(ulenumindex: Int, buffer: Long, pullength: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Enumerate_Enumerators_ExW(ulenumindex: Int, buffer: Long, pullength: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnumerateEnumeratorsExW(ulenumindex: Int, buffer: Long, pullength: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Find_Range(pullstart: Long, ullstart: Long, ullength: Int, ullalignment: Long, ullend: Long, rlh: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmFindRange(pullstart: Long, ullstart: Long, ullength: Int, ullalignment: Long, ullend: Long, rlh: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_First_Range(rlh: Long, pullstart: Long, pullend: Long, preelement: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmFirstRange(rlh: Long, pullstart: Long, pullend: Long, preelement: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Free_Log_Conf(lclogconftobefreed: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeLogConf(lclogconftobefreed: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Free_Log_Conf_Ex(lclogconftobefreed: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeLogConfEx(lclogconftobefreed: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Free_Log_Conf_Handle(lclogconf: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeLogConfHandle(lclogconf: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Free_Range_List(rlh: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeRangeList(rlh: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Free_Res_Des(prdresdes: Long, rdresdes: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeResDes(prdresdes: Long, rdresdes: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Free_Res_Des_Ex(prdresdes: Long, rdresdes: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeResDesEx(prdresdes: Long, rdresdes: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Free_Res_Des_Handle(rdresdes: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeResDesHandle(rdresdes: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Free_Resource_Conflict_Handle(clconflictlist: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeResourceConflictHandle(clconflictlist: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Child(pdndevinst: Long, dndevinst: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetChild(pdndevinst: Long, dndevinst: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Child_Ex(pdndevinst: Long, dndevinst: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetChildEx(pdndevinst: Long, dndevinst: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_Key_NameA(classguid: Long, pszkeyname: Long, pullength: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassKeyNameA(classguid: Long, pszkeyname: Long, pullength: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_Key_NameW(classguid: Long, pszkeyname: Long, pullength: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassKeyNameW(classguid: Long, pszkeyname: Long, pullength: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_Key_Name_ExA(classguid: Long, pszkeyname: Long, pullength: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassKeyNameExA(classguid: Long, pszkeyname: Long, pullength: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_Key_Name_ExW(classguid: Long, pszkeyname: Long, pullength: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassKeyNameExW(classguid: Long, pszkeyname: Long, pullength: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_NameA(classguid: Long, buffer: Long, pullength: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassNameA(classguid: Long, buffer: Long, pullength: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_NameW(classguid: Long, buffer: Long, pullength: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassNameW(classguid: Long, buffer: Long, pullength: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_Name_ExA(classguid: Long, buffer: Long, pullength: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassNameExA(classguid: Long, buffer: Long, pullength: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_Name_ExW(classguid: Long, buffer: Long, pullength: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassNameExW(classguid: Long, buffer: Long, pullength: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_PropertyW(classguid: Long, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassPropertyW(classguid: Long, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_Property_ExW(classguid: Long, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassPropertyExW(classguid: Long, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_Property_Keys(classguid: Long, propertykeyarray: Long, propertykeycount: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassPropertyKeys(classguid: Long, propertykeyarray: Long, propertykeycount: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_Property_Keys_Ex(classguid: Long, propertykeyarray: Long, propertykeycount: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassPropertyKeysEx(classguid: Long, propertykeyarray: Long, propertykeycount: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_Registry_PropertyA(classguid: Long, ulproperty: Int, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassRegistryPropertyA(classguid: Long, ulproperty: Int, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_Registry_PropertyW(classguid: Long, ulproperty: Int, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassRegistryPropertyW(classguid: Long, ulproperty: Int, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Depth(puldepth: Long, dndevinst: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDepth(puldepth: Long, dndevinst: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Depth_Ex(puldepth: Long, dndevinst: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDepthEx(puldepth: Long, dndevinst: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_Custom_PropertyA(dndevinst: Int, pszcustompropertyname: Long, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeCustomPropertyA(dndevinst: Int, pszcustompropertyname: Long, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_Custom_PropertyW(dndevinst: Int, pszcustompropertyname: Long, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeCustomPropertyW(dndevinst: Int, pszcustompropertyname: Long, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_Custom_Property_ExA(dndevinst: Int, pszcustompropertyname: Long, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeCustomPropertyExA(dndevinst: Int, pszcustompropertyname: Long, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_Custom_Property_ExW(dndevinst: Int, pszcustompropertyname: Long, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeCustomPropertyExW(dndevinst: Int, pszcustompropertyname: Long, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_PropertyW(dndevinst: Int, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodePropertyW(dndevinst: Int, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_Property_ExW(dndevinst: Int, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodePropertyExW(dndevinst: Int, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_Property_Keys(dndevinst: Int, propertykeyarray: Long, propertykeycount: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodePropertyKeys(dndevinst: Int, propertykeyarray: Long, propertykeycount: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_Property_Keys_Ex(dndevinst: Int, propertykeyarray: Long, propertykeycount: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodePropertyKeysEx(dndevinst: Int, propertykeyarray: Long, propertykeycount: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_Registry_PropertyA(dndevinst: Int, ulproperty: Int, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeRegistryPropertyA(dndevinst: Int, ulproperty: Int, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_Registry_PropertyW(dndevinst: Int, ulproperty: Int, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeRegistryPropertyW(dndevinst: Int, ulproperty: Int, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_Registry_Property_ExA(dndevinst: Int, ulproperty: Int, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeRegistryPropertyExA(dndevinst: Int, ulproperty: Int, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_Registry_Property_ExW(dndevinst: Int, ulproperty: Int, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeRegistryPropertyExW(dndevinst: Int, ulproperty: Int, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_Status(pulstatus: Long, pulproblemnumber: Long, dndevinst: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeStatus(pulstatus: Long, pulproblemnumber: Long, dndevinst: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_Status_Ex(pulstatus: Long, pulproblemnumber: Long, dndevinst: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeStatusEx(pulstatus: Long, pulproblemnumber: Long, dndevinst: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_IDA(dndevinst: Int, buffer: Long, bufferlen: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIda(dndevinst: Int, buffer: Long, bufferlen: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_IDW(dndevinst: Int, buffer: Long, bufferlen: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdw(dndevinst: Int, buffer: Long, bufferlen: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_ID_ExA(dndevinst: Int, buffer: Long, bufferlen: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdExA(dndevinst: Int, buffer: Long, bufferlen: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_ID_ExW(dndevinst: Int, buffer: Long, bufferlen: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdExW(dndevinst: Int, buffer: Long, bufferlen: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_ID_ListA(pszfilter: Long, buffer: Long, bufferlen: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListA(pszfilter: Long, buffer: Long, bufferlen: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_ID_ListW(pszfilter: Long, buffer: Long, bufferlen: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListW(pszfilter: Long, buffer: Long, bufferlen: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_ID_List_ExA(pszfilter: Long, buffer: Long, bufferlen: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListExA(pszfilter: Long, buffer: Long, bufferlen: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_ID_List_ExW(pszfilter: Long, buffer: Long, bufferlen: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListExW(pszfilter: Long, buffer: Long, bufferlen: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_ID_List_SizeA(pullen: Long, pszfilter: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListSizeA(pullen: Long, pszfilter: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_ID_List_SizeW(pullen: Long, pszfilter: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListSizeW(pullen: Long, pszfilter: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_ID_List_Size_ExA(pullen: Long, pszfilter: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListSizeExA(pullen: Long, pszfilter: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_ID_List_Size_ExW(pullen: Long, pszfilter: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListSizeExW(pullen: Long, pszfilter: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_ID_Size(pullen: Long, dndevinst: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdSize(pullen: Long, dndevinst: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_ID_Size_Ex(pullen: Long, dndevinst: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdSizeEx(pullen: Long, dndevinst: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_AliasA(pszdeviceinterface: Long, aliasinterfaceguid: Long, pszaliasdeviceinterface: Long, pullength: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceAliasA(pszdeviceinterface: Long, aliasinterfaceguid: Long, pszaliasdeviceinterface: Long, pullength: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_AliasW(pszdeviceinterface: Long, aliasinterfaceguid: Long, pszaliasdeviceinterface: Long, pullength: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceAliasW(pszdeviceinterface: Long, aliasinterfaceguid: Long, pszaliasdeviceinterface: Long, pullength: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_Alias_ExA(pszdeviceinterface: Long, aliasinterfaceguid: Long, pszaliasdeviceinterface: Long, pullength: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceAliasExA(pszdeviceinterface: Long, aliasinterfaceguid: Long, pszaliasdeviceinterface: Long, pullength: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_Alias_ExW(pszdeviceinterface: Long, aliasinterfaceguid: Long, pszaliasdeviceinterface: Long, pullength: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceAliasExW(pszdeviceinterface: Long, aliasinterfaceguid: Long, pszaliasdeviceinterface: Long, pullength: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_ListA(interfaceclassguid: Long, pdeviceid: Long, buffer: Long, bufferlen: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListA(interfaceclassguid: Long, pdeviceid: Long, buffer: Long, bufferlen: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_ListW(interfaceclassguid: Long, pdeviceid: Long, buffer: Long, bufferlen: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListW(interfaceclassguid: Long, pdeviceid: Long, buffer: Long, bufferlen: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_List_ExA(interfaceclassguid: Long, pdeviceid: Long, buffer: Long, bufferlen: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListExA(interfaceclassguid: Long, pdeviceid: Long, buffer: Long, bufferlen: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_List_ExW(interfaceclassguid: Long, pdeviceid: Long, buffer: Long, bufferlen: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListExW(interfaceclassguid: Long, pdeviceid: Long, buffer: Long, bufferlen: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_List_SizeA(pullen: Long, interfaceclassguid: Long, pdeviceid: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListSizeA(pullen: Long, interfaceclassguid: Long, pdeviceid: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_List_SizeW(pullen: Long, interfaceclassguid: Long, pdeviceid: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListSizeW(pullen: Long, interfaceclassguid: Long, pdeviceid: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_List_Size_ExA(pullen: Long, interfaceclassguid: Long, pdeviceid: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListSizeExA(pullen: Long, interfaceclassguid: Long, pdeviceid: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_List_Size_ExW(pullen: Long, interfaceclassguid: Long, pdeviceid: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListSizeExW(pullen: Long, interfaceclassguid: Long, pdeviceid: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_PropertyW(pszdeviceinterface: Long, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfacePropertyW(pszdeviceinterface: Long, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_Property_ExW(pszdeviceinterface: Long, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfacePropertyExW(pszdeviceinterface: Long, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_Property_KeysW(pszdeviceinterface: Long, propertykeyarray: Long, propertykeycount: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfacePropertyKeysW(pszdeviceinterface: Long, propertykeyarray: Long, propertykeycount: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_Property_Keys_ExW(pszdeviceinterface: Long, propertykeyarray: Long, propertykeycount: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfacePropertyKeysExW(pszdeviceinterface: Long, propertykeyarray: Long, propertykeycount: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_First_Log_Conf(plclogconf: Long, dndevinst: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetFirstLogConf(plclogconf: Long, dndevinst: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_First_Log_Conf_Ex(plclogconf: Long, dndevinst: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetFirstLogConfEx(plclogconf: Long, dndevinst: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Global_State(pulstate: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetGlobalState(pulstate: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Global_State_Ex(pulstate: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetGlobalStateEx(pulstate: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_HW_Prof_FlagsA(pdeviceid: Long, ulhardwareprofile: Int, pulvalue: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHwProfFlagsA(pdeviceid: Long, ulhardwareprofile: Int, pulvalue: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_HW_Prof_FlagsW(pdeviceid: Long, ulhardwareprofile: Int, pulvalue: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHwProfFlagsW(pdeviceid: Long, ulhardwareprofile: Int, pulvalue: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_HW_Prof_Flags_ExA(pdeviceid: Long, ulhardwareprofile: Int, pulvalue: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHwProfFlagsExA(pdeviceid: Long, ulhardwareprofile: Int, pulvalue: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_HW_Prof_Flags_ExW(pdeviceid: Long, ulhardwareprofile: Int, pulvalue: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHwProfFlagsExW(pdeviceid: Long, ulhardwareprofile: Int, pulvalue: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Hardware_Profile_InfoA(ulindex: Int, phwprofileinfo: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHardwareProfileInfoA(ulindex: Int, phwprofileinfo: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Hardware_Profile_InfoW(ulindex: Int, phwprofileinfo: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHardwareProfileInfoW(ulindex: Int, phwprofileinfo: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Hardware_Profile_Info_ExA(ulindex: Int, phwprofileinfo: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHardwareProfileInfoExA(ulindex: Int, phwprofileinfo: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Hardware_Profile_Info_ExW(ulindex: Int, phwprofileinfo: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHardwareProfileInfoExW(ulindex: Int, phwprofileinfo: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Log_Conf_Priority(lclogconf: Long, ppriority: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetLogConfPriority(lclogconf: Long, ppriority: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Log_Conf_Priority_Ex(lclogconf: Long, ppriority: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetLogConfPriorityEx(lclogconf: Long, ppriority: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Next_Log_Conf(plclogconf: Long, lclogconf: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetNextLogConf(plclogconf: Long, lclogconf: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Next_Log_Conf_Ex(plclogconf: Long, lclogconf: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetNextLogConfEx(plclogconf: Long, lclogconf: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Next_Res_Des(prdresdes: Long, rdresdes: Long, forresource: Int, presourceid: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetNextResDes(prdresdes: Long, rdresdes: Long, forresource: Int, presourceid: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Next_Res_Des_Ex(prdresdes: Long, rdresdes: Long, forresource: Int, presourceid: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetNextResDesEx(prdresdes: Long, rdresdes: Long, forresource: Int, presourceid: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Parent(pdndevinst: Long, dndevinst: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetParent(pdndevinst: Long, dndevinst: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Parent_Ex(pdndevinst: Long, dndevinst: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetParentEx(pdndevinst: Long, dndevinst: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Res_Des_Data(rdresdes: Long, buffer: Long, bufferlen: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResDesData(rdresdes: Long, buffer: Long, bufferlen: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Res_Des_Data_Ex(rdresdes: Long, buffer: Long, bufferlen: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResDesDataEx(rdresdes: Long, buffer: Long, bufferlen: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Res_Des_Data_Size(pulsize: Long, rdresdes: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResDesDataSize(pulsize: Long, rdresdes: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Res_Des_Data_Size_Ex(pulsize: Long, rdresdes: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResDesDataSizeEx(pulsize: Long, rdresdes: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Resource_Conflict_Count(clconflictlist: Long, pulcount: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResourceConflictCount(clconflictlist: Long, pulcount: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Resource_Conflict_DetailsA(clconflictlist: Long, ulindex: Int, pconflictdetails: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResourceConflictDetailsA(clconflictlist: Long, ulindex: Int, pconflictdetails: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Resource_Conflict_DetailsW(clconflictlist: Long, ulindex: Int, pconflictdetails: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResourceConflictDetailsW(clconflictlist: Long, ulindex: Int, pconflictdetails: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Sibling(pdndevinst: Long, dndevinst: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetSibling(pdndevinst: Long, dndevinst: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Sibling_Ex(pdndevinst: Long, dndevinst: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetSiblingEx(pdndevinst: Long, dndevinst: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Version(): Short
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetVersion(): Short
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Version_Ex(hmachine: Long): Short
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetVersionEx(hmachine: Long): Short
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Intersect_Range_List(rlhold1: Long, rlhold2: Long, rlhnew: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmIntersectRangeList(rlhold1: Long, rlhold2: Long, rlhnew: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Invert_Range_List(rlhold: Long, rlhnew: Long, ullmaxvalue: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmInvertRangeList(rlhold: Long, rlhnew: Long, ullmaxvalue: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Is_Dock_Station_Present(pbpresent: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmIsDockStationPresent(pbpresent: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Is_Dock_Station_Present_Ex(pbpresent: Long, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmIsDockStationPresentEx(pbpresent: Long, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Is_Version_Available(wversion: Short): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmIsVersionAvailable(wversion: Short): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Is_Version_Available_Ex(wversion: Short, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmIsVersionAvailableEx(wversion: Short, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Locate_DevNodeA(pdndevinst: Long, pdeviceid: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmLocateDevNodeA(pdndevinst: Long, pdeviceid: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Locate_DevNodeW(pdndevinst: Long, pdeviceid: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmLocateDevNodeW(pdndevinst: Long, pdeviceid: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Locate_DevNode_ExA(pdndevinst: Long, pdeviceid: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmLocateDevNodeExA(pdndevinst: Long, pdeviceid: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Locate_DevNode_ExW(pdndevinst: Long, pdeviceid: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmLocateDevNodeExW(pdndevinst: Long, pdeviceid: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_MapCrToWin32Err(cmreturncode: Int, defaulterr: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmMapCrToWin32Err(cmreturncode: Int, defaulterr: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Merge_Range_List(rlhold1: Long, rlhold2: Long, rlhnew: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmMergeRangeList(rlhold1: Long, rlhold2: Long, rlhnew: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Modify_Res_Des(prdresdes: Long, rdresdes: Long, resourceid: Int, resourcedata: Long, resourcelen: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmModifyResDes(prdresdes: Long, rdresdes: Long, resourceid: Int, resourcedata: Long, resourcelen: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Modify_Res_Des_Ex(prdresdes: Long, rdresdes: Long, resourceid: Int, resourcedata: Long, resourcelen: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmModifyResDesEx(prdresdes: Long, rdresdes: Long, resourceid: Int, resourcedata: Long, resourcelen: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Move_DevNode(dnfromdevinst: Int, dntodevinst: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmMoveDevNode(dnfromdevinst: Int, dntodevinst: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Move_DevNode_Ex(dnfromdevinst: Int, dntodevinst: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmMoveDevNodeEx(dnfromdevinst: Int, dntodevinst: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Next_Range(preelement: Long, pullstart: Long, pullend: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmNextRange(preelement: Long, pullstart: Long, pullend: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_Class_KeyA(classguid: Long, pszclassname: Long, samdesired: Int, disposition: Int, phkclass: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenClassKeyA(classguid: Long, pszclassname: Long, samdesired: Int, disposition: Int, phkclass: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_Class_KeyW(classguid: Long, pszclassname: Long, samdesired: Int, disposition: Int, phkclass: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenClassKeyW(classguid: Long, pszclassname: Long, samdesired: Int, disposition: Int, phkclass: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_Class_Key_ExA(classguid: Long, pszclassname: Long, samdesired: Int, disposition: Int, phkclass: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenClassKeyExA(classguid: Long, pszclassname: Long, samdesired: Int, disposition: Int, phkclass: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_Class_Key_ExW(classguid: Long, pszclassname: Long, samdesired: Int, disposition: Int, phkclass: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenClassKeyExW(classguid: Long, pszclassname: Long, samdesired: Int, disposition: Int, phkclass: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_DevNode_Key(dndevnode: Int, samdesired: Int, ulhardwareprofile: Int, disposition: Int, phkdevice: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenDevNodeKey(dndevnode: Int, samdesired: Int, ulhardwareprofile: Int, disposition: Int, phkdevice: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_DevNode_Key_Ex(dndevnode: Int, samdesired: Int, ulhardwareprofile: Int, disposition: Int, phkdevice: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenDevNodeKeyEx(dndevnode: Int, samdesired: Int, ulhardwareprofile: Int, disposition: Int, phkdevice: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_Device_Interface_KeyA(pszdeviceinterface: Long, samdesired: Int, disposition: Int, phkdeviceinterface: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenDeviceInterfaceKeyA(pszdeviceinterface: Long, samdesired: Int, disposition: Int, phkdeviceinterface: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_Device_Interface_KeyW(pszdeviceinterface: Long, samdesired: Int, disposition: Int, phkdeviceinterface: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenDeviceInterfaceKeyW(pszdeviceinterface: Long, samdesired: Int, disposition: Int, phkdeviceinterface: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_Device_Interface_Key_ExA(pszdeviceinterface: Long, samdesired: Int, disposition: Int, phkdeviceinterface: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenDeviceInterfaceKeyExA(pszdeviceinterface: Long, samdesired: Int, disposition: Int, phkdeviceinterface: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_Device_Interface_Key_ExW(pszdeviceinterface: Long, samdesired: Int, disposition: Int, phkdeviceinterface: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenDeviceInterfaceKeyExW(pszdeviceinterface: Long, samdesired: Int, disposition: Int, phkdeviceinterface: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_And_Remove_SubTreeA(dnancestor: Int, pvetotype: Long, pszvetoname: Long, ulnamelength: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryAndRemoveSubTreeA(dnancestor: Int, pvetotype: Long, pszvetoname: Long, ulnamelength: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_And_Remove_SubTreeW(dnancestor: Int, pvetotype: Long, pszvetoname: Long, ulnamelength: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryAndRemoveSubTreeW(dnancestor: Int, pvetotype: Long, pszvetoname: Long, ulnamelength: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_And_Remove_SubTree_ExA(dnancestor: Int, pvetotype: Long, pszvetoname: Long, ulnamelength: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryAndRemoveSubTreeExA(dnancestor: Int, pvetotype: Long, pszvetoname: Long, ulnamelength: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_And_Remove_SubTree_ExW(dnancestor: Int, pvetotype: Long, pszvetoname: Long, ulnamelength: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryAndRemoveSubTreeExW(dnancestor: Int, pvetotype: Long, pszvetoname: Long, ulnamelength: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_Arbitrator_Free_Data(pdata: Long, datalen: Int, dndevinst: Int, resourceid: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryArbitratorFreeData(pdata: Long, datalen: Int, dndevinst: Int, resourceid: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_Arbitrator_Free_Data_Ex(pdata: Long, datalen: Int, dndevinst: Int, resourceid: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryArbitratorFreeDataEx(pdata: Long, datalen: Int, dndevinst: Int, resourceid: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_Arbitrator_Free_Size(pulsize: Long, dndevinst: Int, resourceid: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryArbitratorFreeSize(pulsize: Long, dndevinst: Int, resourceid: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_Arbitrator_Free_Size_Ex(pulsize: Long, dndevinst: Int, resourceid: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryArbitratorFreeSizeEx(pulsize: Long, dndevinst: Int, resourceid: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_Remove_SubTree(dnancestor: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryRemoveSubTree(dnancestor: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_Remove_SubTree_Ex(dnancestor: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryRemoveSubTreeEx(dnancestor: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_Resource_Conflict_List(pclconflictlist: Long, dndevinst: Int, resourceid: Int, resourcedata: Long, resourcelen: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryResourceConflictList(pclconflictlist: Long, dndevinst: Int, resourceid: Int, resourcedata: Long, resourcelen: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Reenumerate_DevNode(dndevinst: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmReenumerateDevNode(dndevinst: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Reenumerate_DevNode_Ex(dndevinst: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmReenumerateDevNodeEx(dndevinst: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Register_Device_Driver(dndevinst: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterDeviceDriver(dndevinst: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Register_Device_Driver_Ex(dndevinst: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterDeviceDriverEx(dndevinst: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Register_Device_InterfaceA(dndevinst: Int, interfaceclassguid: Long, pszreference: Long, pszdeviceinterface: Long, pullength: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterDeviceInterfaceA(dndevinst: Int, interfaceclassguid: Long, pszreference: Long, pszdeviceinterface: Long, pullength: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Register_Device_InterfaceW(dndevinst: Int, interfaceclassguid: Long, pszreference: Long, pszdeviceinterface: Long, pullength: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterDeviceInterfaceW(dndevinst: Int, interfaceclassguid: Long, pszreference: Long, pszdeviceinterface: Long, pullength: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Register_Device_Interface_ExA(dndevinst: Int, interfaceclassguid: Long, pszreference: Long, pszdeviceinterface: Long, pullength: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterDeviceInterfaceExA(dndevinst: Int, interfaceclassguid: Long, pszreference: Long, pszdeviceinterface: Long, pullength: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Register_Device_Interface_ExW(dndevinst: Int, interfaceclassguid: Long, pszreference: Long, pszdeviceinterface: Long, pullength: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterDeviceInterfaceExW(dndevinst: Int, interfaceclassguid: Long, pszreference: Long, pszdeviceinterface: Long, pullength: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Register_Notification(pfilter: Long, pcontext: Long, pcallback: Long, pnotifycontext: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterNotification(pfilter: Long, pcontext: Long, pcallback: Long, pnotifycontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Remove_SubTree(dnancestor: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmRemoveSubTree(dnancestor: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Remove_SubTree_Ex(dnancestor: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmRemoveSubTreeEx(dnancestor: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Request_Device_EjectA(dndevinst: Int, pvetotype: Long, pszvetoname: Long, ulnamelength: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmRequestDeviceEjectA(dndevinst: Int, pvetotype: Long, pszvetoname: Long, ulnamelength: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Request_Device_EjectW(dndevinst: Int, pvetotype: Long, pszvetoname: Long, ulnamelength: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmRequestDeviceEjectW(dndevinst: Int, pvetotype: Long, pszvetoname: Long, ulnamelength: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Request_Device_Eject_ExA(dndevinst: Int, pvetotype: Long, pszvetoname: Long, ulnamelength: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmRequestDeviceEjectExA(dndevinst: Int, pvetotype: Long, pszvetoname: Long, ulnamelength: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Request_Device_Eject_ExW(dndevinst: Int, pvetotype: Long, pszvetoname: Long, ulnamelength: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmRequestDeviceEjectExW(dndevinst: Int, pvetotype: Long, pszvetoname: Long, ulnamelength: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Request_Eject_PC(): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmRequestEjectPc(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Request_Eject_PC_Ex(hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmRequestEjectPcEx(hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Run_Detection(ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmRunDetection(ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Run_Detection_Ex(ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmRunDetectionEx(ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_Class_PropertyW(classguid: Long, propertykey: Long, propertytype: Int, propertybuffer: Long, propertybuffersize: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetClassPropertyW(classguid: Long, propertykey: Long, propertytype: Int, propertybuffer: Long, propertybuffersize: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_Class_Property_ExW(classguid: Long, propertykey: Long, propertytype: Int, propertybuffer: Long, propertybuffersize: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetClassPropertyExW(classguid: Long, propertykey: Long, propertytype: Int, propertybuffer: Long, propertybuffersize: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_Class_Registry_PropertyA(classguid: Long, ulproperty: Int, buffer: Long, ullength: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetClassRegistryPropertyA(classguid: Long, ulproperty: Int, buffer: Long, ullength: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_Class_Registry_PropertyW(classguid: Long, ulproperty: Int, buffer: Long, ullength: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetClassRegistryPropertyW(classguid: Long, ulproperty: Int, buffer: Long, ullength: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_DevNode_Problem(dndevinst: Int, ulproblem: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodeProblem(dndevinst: Int, ulproblem: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_DevNode_Problem_Ex(dndevinst: Int, ulproblem: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodeProblemEx(dndevinst: Int, ulproblem: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_DevNode_PropertyW(dndevinst: Int, propertykey: Long, propertytype: Int, propertybuffer: Long, propertybuffersize: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodePropertyW(dndevinst: Int, propertykey: Long, propertytype: Int, propertybuffer: Long, propertybuffersize: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_DevNode_Property_ExW(dndevinst: Int, propertykey: Long, propertytype: Int, propertybuffer: Long, propertybuffersize: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodePropertyExW(dndevinst: Int, propertykey: Long, propertytype: Int, propertybuffer: Long, propertybuffersize: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_DevNode_Registry_PropertyA(dndevinst: Int, ulproperty: Int, buffer: Long, ullength: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodeRegistryPropertyA(dndevinst: Int, ulproperty: Int, buffer: Long, ullength: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_DevNode_Registry_PropertyW(dndevinst: Int, ulproperty: Int, buffer: Long, ullength: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodeRegistryPropertyW(dndevinst: Int, ulproperty: Int, buffer: Long, ullength: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_DevNode_Registry_Property_ExA(dndevinst: Int, ulproperty: Int, buffer: Long, ullength: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodeRegistryPropertyExA(dndevinst: Int, ulproperty: Int, buffer: Long, ullength: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_DevNode_Registry_Property_ExW(dndevinst: Int, ulproperty: Int, buffer: Long, ullength: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodeRegistryPropertyExW(dndevinst: Int, ulproperty: Int, buffer: Long, ullength: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_Device_Interface_PropertyW(pszdeviceinterface: Long, propertykey: Long, propertytype: Int, propertybuffer: Long, propertybuffersize: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDeviceInterfacePropertyW(pszdeviceinterface: Long, propertykey: Long, propertytype: Int, propertybuffer: Long, propertybuffersize: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_Device_Interface_Property_ExW(pszdeviceinterface: Long, propertykey: Long, propertytype: Int, propertybuffer: Long, propertybuffersize: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDeviceInterfacePropertyExW(pszdeviceinterface: Long, propertykey: Long, propertytype: Int, propertybuffer: Long, propertybuffersize: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_HW_Prof(ulhardwareprofile: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetHwProf(ulhardwareprofile: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_HW_Prof_Ex(ulhardwareprofile: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetHwProfEx(ulhardwareprofile: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_HW_Prof_FlagsA(pdeviceid: Long, ulconfig: Int, ulvalue: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetHwProfFlagsA(pdeviceid: Long, ulconfig: Int, ulvalue: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_HW_Prof_FlagsW(pdeviceid: Long, ulconfig: Int, ulvalue: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetHwProfFlagsW(pdeviceid: Long, ulconfig: Int, ulvalue: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_HW_Prof_Flags_ExA(pdeviceid: Long, ulconfig: Int, ulvalue: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetHwProfFlagsExA(pdeviceid: Long, ulconfig: Int, ulvalue: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_HW_Prof_Flags_ExW(pdeviceid: Long, ulconfig: Int, ulvalue: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetHwProfFlagsExW(pdeviceid: Long, ulconfig: Int, ulvalue: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Setup_DevNode(dndevinst: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetupDevNode(dndevinst: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Setup_DevNode_Ex(dndevinst: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetupDevNodeEx(dndevinst: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Test_Range_Available(ullstartvalue: Long, ullendvalue: Long, rlh: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmTestRangeAvailable(ullstartvalue: Long, ullendvalue: Long, rlh: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Uninstall_DevNode(dndevinst: Int, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmUninstallDevNode(dndevinst: Int, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Uninstall_DevNode_Ex(dndevinst: Int, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmUninstallDevNodeEx(dndevinst: Int, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Unregister_Device_InterfaceA(pszdeviceinterface: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmUnregisterDeviceInterfaceA(pszdeviceinterface: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Unregister_Device_InterfaceW(pszdeviceinterface: Long, ulflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmUnregisterDeviceInterfaceW(pszdeviceinterface: Long, ulflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Unregister_Device_Interface_ExA(pszdeviceinterface: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmUnregisterDeviceInterfaceExA(pszdeviceinterface: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Unregister_Device_Interface_ExW(pszdeviceinterface: Long, ulflags: Int, hmachine: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmUnregisterDeviceInterfaceExW(pszdeviceinterface: Long, ulflags: Int, hmachine: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Unregister_Notification(notifycontext: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_cmUnregisterNotification(notifycontext: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_DiInstallDevice(hwndparent: Long, deviceinfoset: Long, deviceinfodata: Long, driverinfodata: Long, flags: Int, needreboot: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_diInstallDevice(hwndparent: Long, deviceinfoset: Long, deviceinfodata: Long, driverinfodata: Long, flags: Int, needreboot: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_DiInstallDriverA(hwndparent: Long, infpath: Long, flags: Int, needreboot: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_diInstallDriverA(hwndparent: Long, infpath: Long, flags: Int, needreboot: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_DiInstallDriverW(hwndparent: Long, infpath: Long, flags: Int, needreboot: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_diInstallDriverW(hwndparent: Long, infpath: Long, flags: Int, needreboot: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_DiRollbackDriver(deviceinfoset: Long, deviceinfodata: Long, hwndparent: Long, flags: Int, needreboot: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_diRollbackDriver(deviceinfoset: Long, deviceinfodata: Long, hwndparent: Long, flags: Int, needreboot: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_DiShowUpdateDevice(hwndparent: Long, deviceinfoset: Long, deviceinfodata: Long, flags: Int, needreboot: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_diShowUpdateDevice(hwndparent: Long, deviceinfoset: Long, deviceinfodata: Long, flags: Int, needreboot: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_DiShowUpdateDriver(hwndparent: Long, filepath: Long, flags: Int, needreboot: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_diShowUpdateDriver(hwndparent: Long, filepath: Long, flags: Int, needreboot: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_DiUninstallDevice(hwndparent: Long, deviceinfoset: Long, deviceinfodata: Long, flags: Int, needreboot: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_diUninstallDevice(hwndparent: Long, deviceinfoset: Long, deviceinfodata: Long, flags: Int, needreboot: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_DiUninstallDriverA(hwndparent: Long, infpath: Long, flags: Int, needreboot: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_diUninstallDriverA(hwndparent: Long, infpath: Long, flags: Int, needreboot: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_DiUninstallDriverW(hwndparent: Long, infpath: Long, flags: Int, needreboot: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_diUninstallDriverW(hwndparent: Long, infpath: Long, flags: Int, needreboot: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_InstallHinfSectionA(window: Long, modulehandle: Long, commandline: Long, showcommand: Int)
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_installHinfSectionA(window: Long, modulehandle: Long, commandline: Long, showcommand: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_InstallHinfSectionW(window: Long, modulehandle: Long, commandline: Long, showcommand: Int)
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_installHinfSectionW(window: Long, modulehandle: Long, commandline: Long, showcommand: Int)
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAddInstallSectionToDiskSpaceListA(diskspace: Long, infhandle: Long, layoutinfhandle: Long, sectionname: Long, reserved1: Long, reserved2: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddInstallSectionToDiskSpaceListA(diskspace: Long, infhandle: Long, layoutinfhandle: Long, sectionname: Long, reserved1: Long, reserved2: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAddInstallSectionToDiskSpaceListW(diskspace: Long, infhandle: Long, layoutinfhandle: Long, sectionname: Long, reserved1: Long, reserved2: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddInstallSectionToDiskSpaceListW(diskspace: Long, infhandle: Long, layoutinfhandle: Long, sectionname: Long, reserved1: Long, reserved2: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAddSectionToDiskSpaceListA(diskspace: Long, infhandle: Long, listinfhandle: Long, sectionname: Long, operation: Int, reserved1: Long, reserved2: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddSectionToDiskSpaceListA(diskspace: Long, infhandle: Long, listinfhandle: Long, sectionname: Long, operation: Int, reserved1: Long, reserved2: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAddSectionToDiskSpaceListW(diskspace: Long, infhandle: Long, listinfhandle: Long, sectionname: Long, operation: Int, reserved1: Long, reserved2: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddSectionToDiskSpaceListW(diskspace: Long, infhandle: Long, listinfhandle: Long, sectionname: Long, operation: Int, reserved1: Long, reserved2: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAddToDiskSpaceListA(diskspace: Long, targetfilespec: Long, filesize: Long, operation: Int, reserved1: Long, reserved2: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddToDiskSpaceListA(diskspace: Long, targetfilespec: Long, filesize: Long, operation: Int, reserved1: Long, reserved2: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAddToDiskSpaceListW(diskspace: Long, targetfilespec: Long, filesize: Long, operation: Int, reserved1: Long, reserved2: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddToDiskSpaceListW(diskspace: Long, targetfilespec: Long, filesize: Long, operation: Int, reserved1: Long, reserved2: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAddToSourceListA(flags: Int, source: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddToSourceListA(flags: Int, source: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAddToSourceListW(flags: Int, source: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddToSourceListW(flags: Int, source: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAdjustDiskSpaceListA(diskspace: Long, driveroot: Long, amount: Long, reserved1: Long, reserved2: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupAdjustDiskSpaceListA(diskspace: Long, driveroot: Long, amount: Long, reserved1: Long, reserved2: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAdjustDiskSpaceListW(diskspace: Long, driveroot: Long, amount: Long, reserved1: Long, reserved2: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupAdjustDiskSpaceListW(diskspace: Long, driveroot: Long, amount: Long, reserved1: Long, reserved2: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupBackupErrorA(hwndparent: Long, dialogtitle: Long, sourcefile: Long, targetfile: Long, win32errorcode: Int, style: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupBackupErrorA(hwndparent: Long, dialogtitle: Long, sourcefile: Long, targetfile: Long, win32errorcode: Int, style: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupBackupErrorW(hwndparent: Long, dialogtitle: Long, sourcefile: Long, targetfile: Long, win32errorcode: Int, style: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupBackupErrorW(hwndparent: Long, dialogtitle: Long, sourcefile: Long, targetfile: Long, win32errorcode: Int, style: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCancelTemporarySourceList(): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupCancelTemporarySourceList(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCloseFileQueue(queuehandle: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupCloseFileQueue(queuehandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCloseInfFile(infhandle: Long)
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupCloseInfFile(infhandle: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCloseLog()
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupCloseLog()
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCommitFileQueueA(owner: Long, queuehandle: Long, msghandler: Long, context: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupCommitFileQueueA(owner: Long, queuehandle: Long, msghandler: Long, context: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCommitFileQueueW(owner: Long, queuehandle: Long, msghandler: Long, context: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupCommitFileQueueW(owner: Long, queuehandle: Long, msghandler: Long, context: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupConfigureWmiFromInfSectionA(infhandle: Long, sectionname: Long, flags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupConfigureWmiFromInfSectionA(infhandle: Long, sectionname: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupConfigureWmiFromInfSectionW(infhandle: Long, sectionname: Long, flags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupConfigureWmiFromInfSectionW(infhandle: Long, sectionname: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCopyErrorA(hwndparent: Long, dialogtitle: Long, diskname: Long, pathtosource: Long, sourcefile: Long, targetpathfile: Long, win32errorcode: Int, style: Int, pathbuffer: Long, pathbuffersize: Int, pathrequiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupCopyErrorA(hwndparent: Long, dialogtitle: Long, diskname: Long, pathtosource: Long, sourcefile: Long, targetpathfile: Long, win32errorcode: Int, style: Int, pathbuffer: Long, pathbuffersize: Int, pathrequiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCopyErrorW(hwndparent: Long, dialogtitle: Long, diskname: Long, pathtosource: Long, sourcefile: Long, targetpathfile: Long, win32errorcode: Int, style: Int, pathbuffer: Long, pathbuffersize: Int, pathrequiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupCopyErrorW(hwndparent: Long, dialogtitle: Long, diskname: Long, pathtosource: Long, sourcefile: Long, targetpathfile: Long, win32errorcode: Int, style: Int, pathbuffer: Long, pathbuffersize: Int, pathrequiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCopyOEMInfA(sourceinffilename: Long, oemsourcemedialocation: Long, oemsourcemediatype: Int, copystyle: Int, destinationinffilename: Long, destinationinffilenamesize: Int, requiredsize: Long, destinationinffilenamecomponent: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupCopyOEMInfA(sourceinffilename: Long, oemsourcemedialocation: Long, oemsourcemediatype: Int, copystyle: Int, destinationinffilename: Long, destinationinffilenamesize: Int, requiredsize: Long, destinationinffilenamecomponent: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCopyOEMInfW(sourceinffilename: Long, oemsourcemedialocation: Long, oemsourcemediatype: Int, copystyle: Int, destinationinffilename: Long, destinationinffilenamesize: Int, requiredsize: Long, destinationinffilenamecomponent: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupCopyOEMInfW(sourceinffilename: Long, oemsourcemedialocation: Long, oemsourcemediatype: Int, copystyle: Int, destinationinffilename: Long, destinationinffilenamesize: Int, requiredsize: Long, destinationinffilenamecomponent: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCreateDiskSpaceListA(reserved1: Long, reserved2: Int, flags: Int): Long
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupCreateDiskSpaceListA(reserved1: Long, reserved2: Int, flags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCreateDiskSpaceListW(reserved1: Long, reserved2: Int, flags: Int): Long
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupCreateDiskSpaceListW(reserved1: Long, reserved2: Int, flags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDecompressOrCopyFileA(sourcefilename: Long, targetfilename: Long, compressiontype: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDecompressOrCopyFileA(sourcefilename: Long, targetfilename: Long, compressiontype: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDecompressOrCopyFileW(sourcefilename: Long, targetfilename: Long, compressiontype: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDecompressOrCopyFileW(sourcefilename: Long, targetfilename: Long, compressiontype: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDefaultQueueCallbackA(context: Long, notification: Int, param1: Long, param2: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDefaultQueueCallbackA(context: Long, notification: Int, param1: Long, param2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDefaultQueueCallbackW(context: Long, notification: Int, param1: Long, param2: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDefaultQueueCallbackW(context: Long, notification: Int, param1: Long, param2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDeleteErrorA(hwndparent: Long, dialogtitle: Long, file: Long, win32errorcode: Int, style: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDeleteErrorA(hwndparent: Long, dialogtitle: Long, file: Long, win32errorcode: Int, style: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDeleteErrorW(hwndparent: Long, dialogtitle: Long, file: Long, win32errorcode: Int, style: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDeleteErrorW(hwndparent: Long, dialogtitle: Long, file: Long, win32errorcode: Int, style: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDestroyDiskSpaceList(diskspace: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDestroyDiskSpaceList(diskspace: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiAskForOEMDisk(deviceinfoset: Long, deviceinfodata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiAskForOEMDisk(deviceinfoset: Long, deviceinfodata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiBuildClassInfoList(flags: Int, classguidlist: Long, classguidlistsize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiBuildClassInfoList(flags: Int, classguidlist: Long, classguidlistsize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiBuildClassInfoListExA(flags: Int, classguidlist: Long, classguidlistsize: Int, requiredsize: Long, machinename: Long, reserved: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiBuildClassInfoListExA(flags: Int, classguidlist: Long, classguidlistsize: Int, requiredsize: Long, machinename: Long, reserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiBuildClassInfoListExW(flags: Int, classguidlist: Long, classguidlistsize: Int, requiredsize: Long, machinename: Long, reserved: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiBuildClassInfoListExW(flags: Int, classguidlist: Long, classguidlistsize: Int, requiredsize: Long, machinename: Long, reserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiBuildDriverInfoList(deviceinfoset: Long, deviceinfodata: Long, drivertype: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiBuildDriverInfoList(deviceinfoset: Long, deviceinfodata: Long, drivertype: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCallClassInstaller(installfunction: Int, deviceinfoset: Long, deviceinfodata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCallClassInstaller(installfunction: Int, deviceinfoset: Long, deviceinfodata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCancelDriverInfoSearch(deviceinfoset: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCancelDriverInfoSearch(deviceinfoset: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiChangeState(deviceinfoset: Long, deviceinfodata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiChangeState(deviceinfoset: Long, deviceinfodata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiClassGuidsFromNameA(classname: Long, classguidlist: Long, classguidlistsize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassGuidsFromNameA(classname: Long, classguidlist: Long, classguidlistsize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiClassGuidsFromNameExA(classname: Long, classguidlist: Long, classguidlistsize: Int, requiredsize: Long, machinename: Long, reserved: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassGuidsFromNameExA(classname: Long, classguidlist: Long, classguidlistsize: Int, requiredsize: Long, machinename: Long, reserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiClassGuidsFromNameExW(classname: Long, classguidlist: Long, classguidlistsize: Int, requiredsize: Long, machinename: Long, reserved: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassGuidsFromNameExW(classname: Long, classguidlist: Long, classguidlistsize: Int, requiredsize: Long, machinename: Long, reserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiClassGuidsFromNameW(classname: Long, classguidlist: Long, classguidlistsize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassGuidsFromNameW(classname: Long, classguidlist: Long, classguidlistsize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiClassNameFromGuidA(classguid: Long, classname: Long, classnamesize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassNameFromGuidA(classguid: Long, classname: Long, classnamesize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiClassNameFromGuidExA(classguid: Long, classname: Long, classnamesize: Int, requiredsize: Long, machinename: Long, reserved: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassNameFromGuidExA(classguid: Long, classname: Long, classnamesize: Int, requiredsize: Long, machinename: Long, reserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiClassNameFromGuidExW(classguid: Long, classname: Long, classnamesize: Int, requiredsize: Long, machinename: Long, reserved: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassNameFromGuidExW(classguid: Long, classname: Long, classnamesize: Int, requiredsize: Long, machinename: Long, reserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiClassNameFromGuidW(classguid: Long, classname: Long, classnamesize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassNameFromGuidW(classguid: Long, classname: Long, classnamesize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCreateDevRegKeyA(deviceinfoset: Long, deviceinfodata: Long, scope: Int, hwprofile: Int, keytype: Int, infhandle: Long, infsectionname: Long): Long
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDevRegKeyA(deviceinfoset: Long, deviceinfodata: Long, scope: Int, hwprofile: Int, keytype: Int, infhandle: Long, infsectionname: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCreateDevRegKeyW(deviceinfoset: Long, deviceinfodata: Long, scope: Int, hwprofile: Int, keytype: Int, infhandle: Long, infsectionname: Long): Long
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDevRegKeyW(deviceinfoset: Long, deviceinfodata: Long, scope: Int, hwprofile: Int, keytype: Int, infhandle: Long, infsectionname: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCreateDeviceInfoA(deviceinfoset: Long, devicename: Long, classguid: Long, devicedescription: Long, hwndparent: Long, creationflags: Int, deviceinfodata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInfoA(deviceinfoset: Long, devicename: Long, classguid: Long, devicedescription: Long, hwndparent: Long, creationflags: Int, deviceinfodata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCreateDeviceInfoList(classguid: Long, hwndparent: Long): Long
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInfoList(classguid: Long, hwndparent: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCreateDeviceInfoListExA(classguid: Long, hwndparent: Long, machinename: Long, reserved: Long): Long
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInfoListExA(classguid: Long, hwndparent: Long, machinename: Long, reserved: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCreateDeviceInfoListExW(classguid: Long, hwndparent: Long, machinename: Long, reserved: Long): Long
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInfoListExW(classguid: Long, hwndparent: Long, machinename: Long, reserved: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCreateDeviceInfoW(deviceinfoset: Long, devicename: Long, classguid: Long, devicedescription: Long, hwndparent: Long, creationflags: Int, deviceinfodata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInfoW(deviceinfoset: Long, devicename: Long, classguid: Long, devicedescription: Long, hwndparent: Long, creationflags: Int, deviceinfodata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCreateDeviceInterfaceA(deviceinfoset: Long, deviceinfodata: Long, interfaceclassguid: Long, referencestring: Long, creationflags: Int, deviceinterfacedata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInterfaceA(deviceinfoset: Long, deviceinfodata: Long, interfaceclassguid: Long, referencestring: Long, creationflags: Int, deviceinterfacedata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCreateDeviceInterfaceRegKeyA(deviceinfoset: Long, deviceinterfacedata: Long, reserved: Int, samdesired: Int, infhandle: Long, infsectionname: Long): Long
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInterfaceRegKeyA(deviceinfoset: Long, deviceinterfacedata: Long, reserved: Int, samdesired: Int, infhandle: Long, infsectionname: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCreateDeviceInterfaceRegKeyW(deviceinfoset: Long, deviceinterfacedata: Long, reserved: Int, samdesired: Int, infhandle: Long, infsectionname: Long): Long
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInterfaceRegKeyW(deviceinfoset: Long, deviceinterfacedata: Long, reserved: Int, samdesired: Int, infhandle: Long, infsectionname: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCreateDeviceInterfaceW(deviceinfoset: Long, deviceinfodata: Long, interfaceclassguid: Long, referencestring: Long, creationflags: Int, deviceinterfacedata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInterfaceW(deviceinfoset: Long, deviceinfodata: Long, interfaceclassguid: Long, referencestring: Long, creationflags: Int, deviceinterfacedata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiDeleteDevRegKey(deviceinfoset: Long, deviceinfodata: Long, scope: Int, hwprofile: Int, keytype: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDeleteDevRegKey(deviceinfoset: Long, deviceinfodata: Long, scope: Int, hwprofile: Int, keytype: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiDeleteDeviceInfo(deviceinfoset: Long, deviceinfodata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDeleteDeviceInfo(deviceinfoset: Long, deviceinfodata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiDeleteDeviceInterfaceData(deviceinfoset: Long, deviceinterfacedata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDeleteDeviceInterfaceData(deviceinfoset: Long, deviceinterfacedata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiDeleteDeviceInterfaceRegKey(deviceinfoset: Long, deviceinterfacedata: Long, reserved: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDeleteDeviceInterfaceRegKey(deviceinfoset: Long, deviceinterfacedata: Long, reserved: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiDestroyClassImageList(classimagelistdata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDestroyClassImageList(classimagelistdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiDestroyDeviceInfoList(deviceinfoset: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDestroyDeviceInfoList(deviceinfoset: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiDestroyDriverInfoList(deviceinfoset: Long, deviceinfodata: Long, drivertype: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDestroyDriverInfoList(deviceinfoset: Long, deviceinfodata: Long, drivertype: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiEnumDeviceInfo(deviceinfoset: Long, memberindex: Int, deviceinfodata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiEnumDeviceInfo(deviceinfoset: Long, memberindex: Int, deviceinfodata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiEnumDeviceInterfaces(deviceinfoset: Long, deviceinfodata: Long, interfaceclassguid: Long, memberindex: Int, deviceinterfacedata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiEnumDeviceInterfaces(deviceinfoset: Long, deviceinfodata: Long, interfaceclassguid: Long, memberindex: Int, deviceinterfacedata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiEnumDriverInfoA(deviceinfoset: Long, deviceinfodata: Long, drivertype: Int, memberindex: Int, driverinfodata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiEnumDriverInfoA(deviceinfoset: Long, deviceinfodata: Long, drivertype: Int, memberindex: Int, driverinfodata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiEnumDriverInfoW(deviceinfoset: Long, deviceinfodata: Long, drivertype: Int, memberindex: Int, driverinfodata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiEnumDriverInfoW(deviceinfoset: Long, deviceinfodata: Long, drivertype: Int, memberindex: Int, driverinfodata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetActualModelsSectionA(context: Long, alternateplatforminfo: Long, infsectionwithext: Long, infsectionwithextsize: Int, requiredsize: Long, reserved: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetActualModelsSectionA(context: Long, alternateplatforminfo: Long, infsectionwithext: Long, infsectionwithextsize: Int, requiredsize: Long, reserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetActualModelsSectionW(context: Long, alternateplatforminfo: Long, infsectionwithext: Long, infsectionwithextsize: Int, requiredsize: Long, reserved: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetActualModelsSectionW(context: Long, alternateplatforminfo: Long, infsectionwithext: Long, infsectionwithextsize: Int, requiredsize: Long, reserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetActualSectionToInstallA(infhandle: Long, infsectionname: Long, infsectionwithext: Long, infsectionwithextsize: Int, requiredsize: Long, extension: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetActualSectionToInstallA(infhandle: Long, infsectionname: Long, infsectionwithext: Long, infsectionwithextsize: Int, requiredsize: Long, extension: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetActualSectionToInstallExA(infhandle: Long, infsectionname: Long, alternateplatforminfo: Long, infsectionwithext: Long, infsectionwithextsize: Int, requiredsize: Long, extension: Long, reserved: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetActualSectionToInstallExA(infhandle: Long, infsectionname: Long, alternateplatforminfo: Long, infsectionwithext: Long, infsectionwithextsize: Int, requiredsize: Long, extension: Long, reserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetActualSectionToInstallExW(infhandle: Long, infsectionname: Long, alternateplatforminfo: Long, infsectionwithext: Long, infsectionwithextsize: Int, requiredsize: Long, extension: Long, reserved: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetActualSectionToInstallExW(infhandle: Long, infsectionname: Long, alternateplatforminfo: Long, infsectionwithext: Long, infsectionwithextsize: Int, requiredsize: Long, extension: Long, reserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetActualSectionToInstallW(infhandle: Long, infsectionname: Long, infsectionwithext: Long, infsectionwithextsize: Int, requiredsize: Long, extension: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetActualSectionToInstallW(infhandle: Long, infsectionname: Long, infsectionwithext: Long, infsectionwithextsize: Int, requiredsize: Long, extension: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassBitmapIndex(classguid: Long, miniiconindex: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassBitmapIndex(classguid: Long, miniiconindex: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassDescriptionA(classguid: Long, classdescription: Long, classdescriptionsize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDescriptionA(classguid: Long, classdescription: Long, classdescriptionsize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassDescriptionExA(classguid: Long, classdescription: Long, classdescriptionsize: Int, requiredsize: Long, machinename: Long, reserved: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDescriptionExA(classguid: Long, classdescription: Long, classdescriptionsize: Int, requiredsize: Long, machinename: Long, reserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassDescriptionExW(classguid: Long, classdescription: Long, classdescriptionsize: Int, requiredsize: Long, machinename: Long, reserved: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDescriptionExW(classguid: Long, classdescription: Long, classdescriptionsize: Int, requiredsize: Long, machinename: Long, reserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassDescriptionW(classguid: Long, classdescription: Long, classdescriptionsize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDescriptionW(classguid: Long, classdescription: Long, classdescriptionsize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassDevPropertySheetsA(deviceinfoset: Long, deviceinfodata: Long, propertysheetheader: Long, propertysheetheaderpagelistsize: Int, requiredsize: Long, propertysheettype: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDevPropertySheetsA(deviceinfoset: Long, deviceinfodata: Long, propertysheetheader: Long, propertysheetheaderpagelistsize: Int, requiredsize: Long, propertysheettype: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassDevPropertySheetsW(deviceinfoset: Long, deviceinfodata: Long, propertysheetheader: Long, propertysheetheaderpagelistsize: Int, requiredsize: Long, propertysheettype: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDevPropertySheetsW(deviceinfoset: Long, deviceinfodata: Long, propertysheetheader: Long, propertysheetheaderpagelistsize: Int, requiredsize: Long, propertysheettype: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassDevsA(classguid: Long, enumerator: Long, hwndparent: Long, flags: Int): Long
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDevsA(classguid: Long, enumerator: Long, hwndparent: Long, flags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassDevsExA(classguid: Long, enumerator: Long, hwndparent: Long, flags: Int, deviceinfoset: Long, machinename: Long, reserved: Long): Long
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDevsExA(classguid: Long, enumerator: Long, hwndparent: Long, flags: Int, deviceinfoset: Long, machinename: Long, reserved: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassDevsExW(classguid: Long, enumerator: Long, hwndparent: Long, flags: Int, deviceinfoset: Long, machinename: Long, reserved: Long): Long
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDevsExW(classguid: Long, enumerator: Long, hwndparent: Long, flags: Int, deviceinfoset: Long, machinename: Long, reserved: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassDevsW(classguid: Long, enumerator: Long, hwndparent: Long, flags: Int): Long
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDevsW(classguid: Long, enumerator: Long, hwndparent: Long, flags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassImageIndex(classimagelistdata: Long, classguid: Long, imageindex: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassImageIndex(classimagelistdata: Long, classguid: Long, imageindex: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassImageList(classimagelistdata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassImageList(classimagelistdata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassImageListExA(classimagelistdata: Long, machinename: Long, reserved: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassImageListExA(classimagelistdata: Long, machinename: Long, reserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassImageListExW(classimagelistdata: Long, machinename: Long, reserved: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassImageListExW(classimagelistdata: Long, machinename: Long, reserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassInstallParamsA(deviceinfoset: Long, deviceinfodata: Long, classinstallparams: Long, classinstallparamssize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassInstallParamsA(deviceinfoset: Long, deviceinfodata: Long, classinstallparams: Long, classinstallparamssize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassInstallParamsW(deviceinfoset: Long, deviceinfodata: Long, classinstallparams: Long, classinstallparamssize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassInstallParamsW(deviceinfoset: Long, deviceinfodata: Long, classinstallparams: Long, classinstallparamssize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassPropertyExW(classguid: Long, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: Int, requiredsize: Long, flags: Int, machinename: Long, reserved: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassPropertyExW(classguid: Long, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: Int, requiredsize: Long, flags: Int, machinename: Long, reserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassPropertyKeys(classguid: Long, propertykeyarray: Long, propertykeycount: Int, requiredpropertykeycount: Long, flags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassPropertyKeys(classguid: Long, propertykeyarray: Long, propertykeycount: Int, requiredpropertykeycount: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassPropertyKeysExW(classguid: Long, propertykeyarray: Long, propertykeycount: Int, requiredpropertykeycount: Long, flags: Int, machinename: Long, reserved: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassPropertyKeysExW(classguid: Long, propertykeyarray: Long, propertykeycount: Int, requiredpropertykeycount: Long, flags: Int, machinename: Long, reserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassPropertyW(classguid: Long, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: Int, requiredsize: Long, flags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassPropertyW(classguid: Long, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: Int, requiredsize: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassRegistryPropertyA(classguid: Long, property: Int, propertyregdatatype: Long, propertybuffer: Long, propertybuffersize: Int, requiredsize: Long, machinename: Long, reserved: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassRegistryPropertyA(classguid: Long, property: Int, propertyregdatatype: Long, propertybuffer: Long, propertybuffersize: Int, requiredsize: Long, machinename: Long, reserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassRegistryPropertyW(classguid: Long, property: Int, propertyregdatatype: Long, propertybuffer: Long, propertybuffersize: Int, requiredsize: Long, machinename: Long, reserved: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassRegistryPropertyW(classguid: Long, property: Int, propertyregdatatype: Long, propertybuffer: Long, propertybuffersize: Int, requiredsize: Long, machinename: Long, reserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetCustomDevicePropertyA(deviceinfoset: Long, deviceinfodata: Long, custompropertyname: Long, flags: Int, propertyregdatatype: Long, propertybuffer: Long, propertybuffersize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetCustomDevicePropertyA(deviceinfoset: Long, deviceinfodata: Long, custompropertyname: Long, flags: Int, propertyregdatatype: Long, propertybuffer: Long, propertybuffersize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetCustomDevicePropertyW(deviceinfoset: Long, deviceinfodata: Long, custompropertyname: Long, flags: Int, propertyregdatatype: Long, propertybuffer: Long, propertybuffersize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetCustomDevicePropertyW(deviceinfoset: Long, deviceinfodata: Long, custompropertyname: Long, flags: Int, propertyregdatatype: Long, propertybuffer: Long, propertybuffersize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceInfoListClass(deviceinfoset: Long, classguid: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInfoListClass(deviceinfoset: Long, classguid: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceInfoListDetailA(deviceinfoset: Long, deviceinfosetdetaildata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInfoListDetailA(deviceinfoset: Long, deviceinfosetdetaildata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceInfoListDetailW(deviceinfoset: Long, deviceinfosetdetaildata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInfoListDetailW(deviceinfoset: Long, deviceinfosetdetaildata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceInstallParamsA(deviceinfoset: Long, deviceinfodata: Long, deviceinstallparams: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInstallParamsA(deviceinfoset: Long, deviceinfodata: Long, deviceinstallparams: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceInstallParamsW(deviceinfoset: Long, deviceinfodata: Long, deviceinstallparams: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInstallParamsW(deviceinfoset: Long, deviceinfodata: Long, deviceinstallparams: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceInstanceIdA(deviceinfoset: Long, deviceinfodata: Long, deviceinstanceid: Long, deviceinstanceidsize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInstanceIdA(deviceinfoset: Long, deviceinfodata: Long, deviceinstanceid: Long, deviceinstanceidsize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceInstanceIdW(deviceinfoset: Long, deviceinfodata: Long, deviceinstanceid: Long, deviceinstanceidsize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInstanceIdW(deviceinfoset: Long, deviceinfodata: Long, deviceinstanceid: Long, deviceinstanceidsize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceInterfaceAlias(deviceinfoset: Long, deviceinterfacedata: Long, aliasinterfaceclassguid: Long, aliasdeviceinterfacedata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInterfaceAlias(deviceinfoset: Long, deviceinterfacedata: Long, aliasinterfaceclassguid: Long, aliasdeviceinterfacedata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceInterfaceDetailA(deviceinfoset: Long, deviceinterfacedata: Long, deviceinterfacedetaildata: Long, deviceinterfacedetaildatasize: Int, requiredsize: Long, deviceinfodata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInterfaceDetailA(deviceinfoset: Long, deviceinterfacedata: Long, deviceinterfacedetaildata: Long, deviceinterfacedetaildatasize: Int, requiredsize: Long, deviceinfodata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceInterfaceDetailW(deviceinfoset: Long, deviceinterfacedata: Long, deviceinterfacedetaildata: Long, deviceinterfacedetaildatasize: Int, requiredsize: Long, deviceinfodata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInterfaceDetailW(deviceinfoset: Long, deviceinterfacedata: Long, deviceinterfacedetaildata: Long, deviceinterfacedetaildatasize: Int, requiredsize: Long, deviceinfodata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceInterfacePropertyKeys(deviceinfoset: Long, deviceinterfacedata: Long, propertykeyarray: Long, propertykeycount: Int, requiredpropertykeycount: Long, flags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInterfacePropertyKeys(deviceinfoset: Long, deviceinterfacedata: Long, propertykeyarray: Long, propertykeycount: Int, requiredpropertykeycount: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceInterfacePropertyW(deviceinfoset: Long, deviceinterfacedata: Long, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: Int, requiredsize: Long, flags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInterfacePropertyW(deviceinfoset: Long, deviceinterfacedata: Long, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: Int, requiredsize: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDevicePropertyKeys(deviceinfoset: Long, deviceinfodata: Long, propertykeyarray: Long, propertykeycount: Int, requiredpropertykeycount: Long, flags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDevicePropertyKeys(deviceinfoset: Long, deviceinfodata: Long, propertykeyarray: Long, propertykeycount: Int, requiredpropertykeycount: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDevicePropertyW(deviceinfoset: Long, deviceinfodata: Long, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: Int, requiredsize: Long, flags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDevicePropertyW(deviceinfoset: Long, deviceinfodata: Long, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: Int, requiredsize: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceRegistryPropertyA(deviceinfoset: Long, deviceinfodata: Long, property: Int, propertyregdatatype: Long, propertybuffer: Long, propertybuffersize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceRegistryPropertyA(deviceinfoset: Long, deviceinfodata: Long, property: Int, propertyregdatatype: Long, propertybuffer: Long, propertybuffersize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceRegistryPropertyW(deviceinfoset: Long, deviceinfodata: Long, property: Int, propertyregdatatype: Long, propertybuffer: Long, propertybuffersize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceRegistryPropertyW(deviceinfoset: Long, deviceinfodata: Long, property: Int, propertyregdatatype: Long, propertybuffer: Long, propertybuffersize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDriverInfoDetailA(deviceinfoset: Long, deviceinfodata: Long, driverinfodata: Long, driverinfodetaildata: Long, driverinfodetaildatasize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDriverInfoDetailA(deviceinfoset: Long, deviceinfodata: Long, driverinfodata: Long, driverinfodetaildata: Long, driverinfodetaildatasize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDriverInfoDetailW(deviceinfoset: Long, deviceinfodata: Long, driverinfodata: Long, driverinfodetaildata: Long, driverinfodetaildatasize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDriverInfoDetailW(deviceinfoset: Long, deviceinfodata: Long, driverinfodata: Long, driverinfodetaildata: Long, driverinfodetaildatasize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDriverInstallParamsA(deviceinfoset: Long, deviceinfodata: Long, driverinfodata: Long, driverinstallparams: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDriverInstallParamsA(deviceinfoset: Long, deviceinfodata: Long, driverinfodata: Long, driverinstallparams: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDriverInstallParamsW(deviceinfoset: Long, deviceinfodata: Long, driverinfodata: Long, driverinstallparams: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDriverInstallParamsW(deviceinfoset: Long, deviceinfodata: Long, driverinfodata: Long, driverinstallparams: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetHwProfileFriendlyNameA(hwprofile: Int, friendlyname: Long, friendlynamesize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileFriendlyNameA(hwprofile: Int, friendlyname: Long, friendlynamesize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetHwProfileFriendlyNameExA(hwprofile: Int, friendlyname: Long, friendlynamesize: Int, requiredsize: Long, machinename: Long, reserved: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileFriendlyNameExA(hwprofile: Int, friendlyname: Long, friendlynamesize: Int, requiredsize: Long, machinename: Long, reserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetHwProfileFriendlyNameExW(hwprofile: Int, friendlyname: Long, friendlynamesize: Int, requiredsize: Long, machinename: Long, reserved: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileFriendlyNameExW(hwprofile: Int, friendlyname: Long, friendlynamesize: Int, requiredsize: Long, machinename: Long, reserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetHwProfileFriendlyNameW(hwprofile: Int, friendlyname: Long, friendlynamesize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileFriendlyNameW(hwprofile: Int, friendlyname: Long, friendlynamesize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetHwProfileList(hwprofilelist: Long, hwprofilelistsize: Int, requiredsize: Long, currentlyactiveindex: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileList(hwprofilelist: Long, hwprofilelistsize: Int, requiredsize: Long, currentlyactiveindex: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetHwProfileListExA(hwprofilelist: Long, hwprofilelistsize: Int, requiredsize: Long, currentlyactiveindex: Long, machinename: Long, reserved: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileListExA(hwprofilelist: Long, hwprofilelistsize: Int, requiredsize: Long, currentlyactiveindex: Long, machinename: Long, reserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetHwProfileListExW(hwprofilelist: Long, hwprofilelistsize: Int, requiredsize: Long, currentlyactiveindex: Long, machinename: Long, reserved: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileListExW(hwprofilelist: Long, hwprofilelistsize: Int, requiredsize: Long, currentlyactiveindex: Long, machinename: Long, reserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetINFClassA(infname: Long, classguid: Long, classname: Long, classnamesize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetINFClassA(infname: Long, classguid: Long, classname: Long, classnamesize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetINFClassW(infname: Long, classguid: Long, classname: Long, classnamesize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetINFClassW(infname: Long, classguid: Long, classname: Long, classnamesize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetSelectedDevice(deviceinfoset: Long, deviceinfodata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetSelectedDevice(deviceinfoset: Long, deviceinfodata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetSelectedDriverA(deviceinfoset: Long, deviceinfodata: Long, driverinfodata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetSelectedDriverA(deviceinfoset: Long, deviceinfodata: Long, driverinfodata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetSelectedDriverW(deviceinfoset: Long, deviceinfodata: Long, driverinfodata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetSelectedDriverW(deviceinfoset: Long, deviceinfodata: Long, driverinfodata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetWizardPage(deviceinfoset: Long, deviceinfodata: Long, installwizarddata: Long, pagetype: Int, flags: Int): Long
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetWizardPage(deviceinfoset: Long, deviceinfodata: Long, installwizarddata: Long, pagetype: Int, flags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiInstallClassA(hwndparent: Long, inffilename: Long, flags: Int, filequeue: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallClassA(hwndparent: Long, inffilename: Long, flags: Int, filequeue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiInstallClassExA(hwndparent: Long, inffilename: Long, flags: Int, filequeue: Long, interfaceclassguid: Long, reserved1: Long, reserved2: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallClassExA(hwndparent: Long, inffilename: Long, flags: Int, filequeue: Long, interfaceclassguid: Long, reserved1: Long, reserved2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiInstallClassExW(hwndparent: Long, inffilename: Long, flags: Int, filequeue: Long, interfaceclassguid: Long, reserved1: Long, reserved2: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallClassExW(hwndparent: Long, inffilename: Long, flags: Int, filequeue: Long, interfaceclassguid: Long, reserved1: Long, reserved2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiInstallClassW(hwndparent: Long, inffilename: Long, flags: Int, filequeue: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallClassW(hwndparent: Long, inffilename: Long, flags: Int, filequeue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiInstallDevice(deviceinfoset: Long, deviceinfodata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallDevice(deviceinfoset: Long, deviceinfodata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiInstallDeviceInterfaces(deviceinfoset: Long, deviceinfodata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallDeviceInterfaces(deviceinfoset: Long, deviceinfodata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiInstallDriverFiles(deviceinfoset: Long, deviceinfodata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallDriverFiles(deviceinfoset: Long, deviceinfodata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiLoadClassIcon(classguid: Long, largeicon: Long, miniiconindex: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiLoadClassIcon(classguid: Long, largeicon: Long, miniiconindex: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiLoadDeviceIcon(deviceinfoset: Long, deviceinfodata: Long, cxicon: Int, cyicon: Int, flags: Int, hicon: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiLoadDeviceIcon(deviceinfoset: Long, deviceinfodata: Long, cxicon: Int, cyicon: Int, flags: Int, hicon: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiOpenClassRegKey(classguid: Long, samdesired: Int): Long
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenClassRegKey(classguid: Long, samdesired: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiOpenClassRegKeyExA(classguid: Long, samdesired: Int, flags: Int, machinename: Long, reserved: Long): Long
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenClassRegKeyExA(classguid: Long, samdesired: Int, flags: Int, machinename: Long, reserved: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiOpenClassRegKeyExW(classguid: Long, samdesired: Int, flags: Int, machinename: Long, reserved: Long): Long
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenClassRegKeyExW(classguid: Long, samdesired: Int, flags: Int, machinename: Long, reserved: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiOpenDevRegKey(deviceinfoset: Long, deviceinfodata: Long, scope: Int, hwprofile: Int, keytype: Int, samdesired: Int): Long
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenDevRegKey(deviceinfoset: Long, deviceinfodata: Long, scope: Int, hwprofile: Int, keytype: Int, samdesired: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiOpenDeviceInfoA(deviceinfoset: Long, deviceinstanceid: Long, hwndparent: Long, openflags: Int, deviceinfodata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenDeviceInfoA(deviceinfoset: Long, deviceinstanceid: Long, hwndparent: Long, openflags: Int, deviceinfodata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiOpenDeviceInfoW(deviceinfoset: Long, deviceinstanceid: Long, hwndparent: Long, openflags: Int, deviceinfodata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenDeviceInfoW(deviceinfoset: Long, deviceinstanceid: Long, hwndparent: Long, openflags: Int, deviceinfodata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiOpenDeviceInterfaceA(deviceinfoset: Long, devicepath: Long, openflags: Int, deviceinterfacedata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenDeviceInterfaceA(deviceinfoset: Long, devicepath: Long, openflags: Int, deviceinterfacedata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiOpenDeviceInterfaceRegKey(deviceinfoset: Long, deviceinterfacedata: Long, reserved: Int, samdesired: Int): Long
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenDeviceInterfaceRegKey(deviceinfoset: Long, deviceinterfacedata: Long, reserved: Int, samdesired: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiOpenDeviceInterfaceW(deviceinfoset: Long, devicepath: Long, openflags: Int, deviceinterfacedata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenDeviceInterfaceW(deviceinfoset: Long, devicepath: Long, openflags: Int, deviceinterfacedata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiRegisterCoDeviceInstallers(deviceinfoset: Long, deviceinfodata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiRegisterCoDeviceInstallers(deviceinfoset: Long, deviceinfodata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiRegisterDeviceInfo(deviceinfoset: Long, deviceinfodata: Long, flags: Int, compareproc: Long, comparecontext: Long, dupdeviceinfodata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiRegisterDeviceInfo(deviceinfoset: Long, deviceinfodata: Long, flags: Int, compareproc: Long, comparecontext: Long, dupdeviceinfodata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiRemoveDevice(deviceinfoset: Long, deviceinfodata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiRemoveDevice(deviceinfoset: Long, deviceinfodata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiRemoveDeviceInterface(deviceinfoset: Long, deviceinterfacedata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiRemoveDeviceInterface(deviceinfoset: Long, deviceinterfacedata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiRestartDevices(deviceinfoset: Long, deviceinfodata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiRestartDevices(deviceinfoset: Long, deviceinfodata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSelectBestCompatDrv(deviceinfoset: Long, deviceinfodata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSelectBestCompatDrv(deviceinfoset: Long, deviceinfodata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSelectDevice(deviceinfoset: Long, deviceinfodata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSelectDevice(deviceinfoset: Long, deviceinfodata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSelectOEMDrv(hwndparent: Long, deviceinfoset: Long, deviceinfodata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSelectOEMDrv(hwndparent: Long, deviceinfoset: Long, deviceinfodata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetClassInstallParamsA(deviceinfoset: Long, deviceinfodata: Long, classinstallparams: Long, classinstallparamssize: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetClassInstallParamsA(deviceinfoset: Long, deviceinfodata: Long, classinstallparams: Long, classinstallparamssize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetClassInstallParamsW(deviceinfoset: Long, deviceinfodata: Long, classinstallparams: Long, classinstallparamssize: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetClassInstallParamsW(deviceinfoset: Long, deviceinfodata: Long, classinstallparams: Long, classinstallparamssize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetClassPropertyExW(classguid: Long, propertykey: Long, propertytype: Int, propertybuffer: Long, propertybuffersize: Int, flags: Int, machinename: Long, reserved: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetClassPropertyExW(classguid: Long, propertykey: Long, propertytype: Int, propertybuffer: Long, propertybuffersize: Int, flags: Int, machinename: Long, reserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetClassPropertyW(classguid: Long, propertykey: Long, propertytype: Int, propertybuffer: Long, propertybuffersize: Int, flags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetClassPropertyW(classguid: Long, propertykey: Long, propertytype: Int, propertybuffer: Long, propertybuffersize: Int, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetClassRegistryPropertyA(classguid: Long, property: Int, propertybuffer: Long, propertybuffersize: Int, machinename: Long, reserved: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetClassRegistryPropertyA(classguid: Long, property: Int, propertybuffer: Long, propertybuffersize: Int, machinename: Long, reserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetClassRegistryPropertyW(classguid: Long, property: Int, propertybuffer: Long, propertybuffersize: Int, machinename: Long, reserved: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetClassRegistryPropertyW(classguid: Long, property: Int, propertybuffer: Long, propertybuffersize: Int, machinename: Long, reserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetDeviceInstallParamsA(deviceinfoset: Long, deviceinfodata: Long, deviceinstallparams: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDeviceInstallParamsA(deviceinfoset: Long, deviceinfodata: Long, deviceinstallparams: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetDeviceInstallParamsW(deviceinfoset: Long, deviceinfodata: Long, deviceinstallparams: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDeviceInstallParamsW(deviceinfoset: Long, deviceinfodata: Long, deviceinstallparams: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetDeviceInterfaceDefault(deviceinfoset: Long, deviceinterfacedata: Long, flags: Int, reserved: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDeviceInterfaceDefault(deviceinfoset: Long, deviceinterfacedata: Long, flags: Int, reserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetDeviceInterfacePropertyW(deviceinfoset: Long, deviceinterfacedata: Long, propertykey: Long, propertytype: Int, propertybuffer: Long, propertybuffersize: Int, flags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDeviceInterfacePropertyW(deviceinfoset: Long, deviceinterfacedata: Long, propertykey: Long, propertytype: Int, propertybuffer: Long, propertybuffersize: Int, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetDevicePropertyW(deviceinfoset: Long, deviceinfodata: Long, propertykey: Long, propertytype: Int, propertybuffer: Long, propertybuffersize: Int, flags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDevicePropertyW(deviceinfoset: Long, deviceinfodata: Long, propertykey: Long, propertytype: Int, propertybuffer: Long, propertybuffersize: Int, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetDeviceRegistryPropertyA(deviceinfoset: Long, deviceinfodata: Long, property: Int, propertybuffer: Long, propertybuffersize: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDeviceRegistryPropertyA(deviceinfoset: Long, deviceinfodata: Long, property: Int, propertybuffer: Long, propertybuffersize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetDeviceRegistryPropertyW(deviceinfoset: Long, deviceinfodata: Long, property: Int, propertybuffer: Long, propertybuffersize: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDeviceRegistryPropertyW(deviceinfoset: Long, deviceinfodata: Long, property: Int, propertybuffer: Long, propertybuffersize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetDriverInstallParamsA(deviceinfoset: Long, deviceinfodata: Long, driverinfodata: Long, driverinstallparams: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDriverInstallParamsA(deviceinfoset: Long, deviceinfodata: Long, driverinfodata: Long, driverinstallparams: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetDriverInstallParamsW(deviceinfoset: Long, deviceinfodata: Long, driverinfodata: Long, driverinstallparams: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDriverInstallParamsW(deviceinfoset: Long, deviceinfodata: Long, driverinfodata: Long, driverinstallparams: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetSelectedDevice(deviceinfoset: Long, deviceinfodata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetSelectedDevice(deviceinfoset: Long, deviceinfodata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetSelectedDriverA(deviceinfoset: Long, deviceinfodata: Long, driverinfodata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetSelectedDriverA(deviceinfoset: Long, deviceinfodata: Long, driverinfodata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetSelectedDriverW(deviceinfoset: Long, deviceinfodata: Long, driverinfodata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetSelectedDriverW(deviceinfoset: Long, deviceinfodata: Long, driverinfodata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiUnremoveDevice(deviceinfoset: Long, deviceinfodata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiUnremoveDevice(deviceinfoset: Long, deviceinfodata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDuplicateDiskSpaceListA(diskspace: Long, reserved1: Long, reserved2: Int, flags: Int): Long
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDuplicateDiskSpaceListA(diskspace: Long, reserved1: Long, reserved2: Int, flags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDuplicateDiskSpaceListW(diskspace: Long, reserved1: Long, reserved2: Int, flags: Int): Long
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupDuplicateDiskSpaceListW(diskspace: Long, reserved1: Long, reserved2: Int, flags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupEnumInfSectionsA(infhandle: Long, index: Int, buffer: Long, size: Int, sizeneeded: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupEnumInfSectionsA(infhandle: Long, index: Int, buffer: Long, size: Int, sizeneeded: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupEnumInfSectionsW(infhandle: Long, index: Int, buffer: Long, size: Int, sizeneeded: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupEnumInfSectionsW(infhandle: Long, index: Int, buffer: Long, size: Int, sizeneeded: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupFindFirstLineA(infhandle: Long, section: Long, key: Long, context: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupFindFirstLineA(infhandle: Long, section: Long, key: Long, context: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupFindFirstLineW(infhandle: Long, section: Long, key: Long, context: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupFindFirstLineW(infhandle: Long, section: Long, key: Long, context: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupFindNextLine(contextin: Long, contextout: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupFindNextLine(contextin: Long, contextout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupFindNextMatchLineA(contextin: Long, key: Long, contextout: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupFindNextMatchLineA(contextin: Long, key: Long, contextout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupFindNextMatchLineW(contextin: Long, key: Long, contextout: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupFindNextMatchLineW(contextin: Long, key: Long, contextout: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupFreeSourceListA(list: Long, count: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupFreeSourceListA(list: Long, count: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupFreeSourceListW(list: Long, count: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupFreeSourceListW(list: Long, count: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetBackupInformationA(queuehandle: Long, backupparams: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetBackupInformationA(queuehandle: Long, backupparams: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetBackupInformationW(queuehandle: Long, backupparams: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetBackupInformationW(queuehandle: Long, backupparams: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetBinaryField(context: Long, fieldindex: Int, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetBinaryField(context: Long, fieldindex: Int, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetFieldCount(context: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFieldCount(context: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetFileCompressionInfoA(sourcefilename: Long, actualsourcefilename: Long, sourcefilesize: Long, targetfilesize: Long, compressiontype: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFileCompressionInfoA(sourcefilename: Long, actualsourcefilename: Long, sourcefilesize: Long, targetfilesize: Long, compressiontype: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetFileCompressionInfoExA(sourcefilename: Long, actualsourcefilenamebuffer: Long, actualsourcefilenamebufferlen: Int, requiredbufferlen: Long, sourcefilesize: Long, targetfilesize: Long, compressiontype: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFileCompressionInfoExA(sourcefilename: Long, actualsourcefilenamebuffer: Long, actualsourcefilenamebufferlen: Int, requiredbufferlen: Long, sourcefilesize: Long, targetfilesize: Long, compressiontype: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetFileCompressionInfoExW(sourcefilename: Long, actualsourcefilenamebuffer: Long, actualsourcefilenamebufferlen: Int, requiredbufferlen: Long, sourcefilesize: Long, targetfilesize: Long, compressiontype: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFileCompressionInfoExW(sourcefilename: Long, actualsourcefilenamebuffer: Long, actualsourcefilenamebufferlen: Int, requiredbufferlen: Long, sourcefilesize: Long, targetfilesize: Long, compressiontype: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetFileCompressionInfoW(sourcefilename: Long, actualsourcefilename: Long, sourcefilesize: Long, targetfilesize: Long, compressiontype: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFileCompressionInfoW(sourcefilename: Long, actualsourcefilename: Long, sourcefilesize: Long, targetfilesize: Long, compressiontype: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetFileQueueCount(filequeue: Long, subqueuefileop: Int, numoperations: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFileQueueCount(filequeue: Long, subqueuefileop: Int, numoperations: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetFileQueueFlags(filequeue: Long, flags: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFileQueueFlags(filequeue: Long, flags: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetInfDriverStoreLocationA(filename: Long, alternateplatforminfo: Long, localename: Long, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfDriverStoreLocationA(filename: Long, alternateplatforminfo: Long, localename: Long, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetInfDriverStoreLocationW(filename: Long, alternateplatforminfo: Long, localename: Long, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfDriverStoreLocationW(filename: Long, alternateplatforminfo: Long, localename: Long, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetInfFileListA(directorypath: Long, infstyle: Int, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfFileListA(directorypath: Long, infstyle: Int, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetInfFileListW(directorypath: Long, infstyle: Int, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfFileListW(directorypath: Long, infstyle: Int, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetInfInformationA(infspec: Long, searchcontrol: Int, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfInformationA(infspec: Long, searchcontrol: Int, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetInfInformationW(infspec: Long, searchcontrol: Int, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfInformationW(infspec: Long, searchcontrol: Int, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetInfPublishedNameA(driverstorelocation: Long, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfPublishedNameA(driverstorelocation: Long, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetInfPublishedNameW(driverstorelocation: Long, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfPublishedNameW(driverstorelocation: Long, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetIntField(context: Long, fieldindex: Int, integervalue: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetIntField(context: Long, fieldindex: Int, integervalue: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetLineByIndexA(infhandle: Long, section: Long, index: Int, context: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetLineByIndexA(infhandle: Long, section: Long, index: Int, context: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetLineByIndexW(infhandle: Long, section: Long, index: Int, context: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetLineByIndexW(infhandle: Long, section: Long, index: Int, context: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetLineCountA(infhandle: Long, section: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetLineCountA(infhandle: Long, section: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetLineCountW(infhandle: Long, section: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetLineCountW(infhandle: Long, section: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetLineTextA(context: Long, infhandle: Long, section: Long, key: Long, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetLineTextA(context: Long, infhandle: Long, section: Long, key: Long, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetLineTextW(context: Long, infhandle: Long, section: Long, key: Long, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetLineTextW(context: Long, infhandle: Long, section: Long, key: Long, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetMultiSzFieldA(context: Long, fieldindex: Int, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetMultiSzFieldA(context: Long, fieldindex: Int, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetMultiSzFieldW(context: Long, fieldindex: Int, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetMultiSzFieldW(context: Long, fieldindex: Int, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetNonInteractiveMode(): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetNonInteractiveMode(): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetSourceFileLocationA(infhandle: Long, infcontext: Long, filename: Long, sourceid: Long, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetSourceFileLocationA(infhandle: Long, infcontext: Long, filename: Long, sourceid: Long, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetSourceFileLocationW(infhandle: Long, infcontext: Long, filename: Long, sourceid: Long, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetSourceFileLocationW(infhandle: Long, infcontext: Long, filename: Long, sourceid: Long, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetSourceFileSizeA(infhandle: Long, infcontext: Long, filename: Long, section: Long, filesize: Long, roundingfactor: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetSourceFileSizeA(infhandle: Long, infcontext: Long, filename: Long, section: Long, filesize: Long, roundingfactor: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetSourceFileSizeW(infhandle: Long, infcontext: Long, filename: Long, section: Long, filesize: Long, roundingfactor: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetSourceFileSizeW(infhandle: Long, infcontext: Long, filename: Long, section: Long, filesize: Long, roundingfactor: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetSourceInfoA(infhandle: Long, sourceid: Int, infodesired: Int, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetSourceInfoA(infhandle: Long, sourceid: Int, infodesired: Int, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetSourceInfoW(infhandle: Long, sourceid: Int, infodesired: Int, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetSourceInfoW(infhandle: Long, sourceid: Int, infodesired: Int, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetStringFieldA(context: Long, fieldindex: Int, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetStringFieldA(context: Long, fieldindex: Int, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetStringFieldW(context: Long, fieldindex: Int, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetStringFieldW(context: Long, fieldindex: Int, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetTargetPathA(infhandle: Long, infcontext: Long, section: Long, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetTargetPathA(infhandle: Long, infcontext: Long, section: Long, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetTargetPathW(infhandle: Long, infcontext: Long, section: Long, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetTargetPathW(infhandle: Long, infcontext: Long, section: Long, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetThreadLogToken(): Long
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetThreadLogToken(): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInitDefaultQueueCallback(ownerwindow: Long): Long
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupInitDefaultQueueCallback(ownerwindow: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInitDefaultQueueCallbackEx(ownerwindow: Long, alternateprogresswindow: Long, progressmessage: Int, reserved1: Int, reserved2: Long): Long
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupInitDefaultQueueCallbackEx(ownerwindow: Long, alternateprogresswindow: Long, progressmessage: Int, reserved1: Int, reserved2: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInitializeFileLogA(logfilename: Long, flags: Int): Long
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupInitializeFileLogA(logfilename: Long, flags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInitializeFileLogW(logfilename: Long, flags: Int): Long
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupInitializeFileLogW(logfilename: Long, flags: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstallFileA(infhandle: Long, infcontext: Long, sourcefile: Long, sourcepathroot: Long, destinationname: Long, copystyle: Int, copymsghandler: Long, context: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFileA(infhandle: Long, infcontext: Long, sourcefile: Long, sourcepathroot: Long, destinationname: Long, copystyle: Int, copymsghandler: Long, context: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstallFileExA(infhandle: Long, infcontext: Long, sourcefile: Long, sourcepathroot: Long, destinationname: Long, copystyle: Int, copymsghandler: Long, context: Long, filewasinuse: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFileExA(infhandle: Long, infcontext: Long, sourcefile: Long, sourcepathroot: Long, destinationname: Long, copystyle: Int, copymsghandler: Long, context: Long, filewasinuse: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstallFileExW(infhandle: Long, infcontext: Long, sourcefile: Long, sourcepathroot: Long, destinationname: Long, copystyle: Int, copymsghandler: Long, context: Long, filewasinuse: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFileExW(infhandle: Long, infcontext: Long, sourcefile: Long, sourcepathroot: Long, destinationname: Long, copystyle: Int, copymsghandler: Long, context: Long, filewasinuse: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstallFileW(infhandle: Long, infcontext: Long, sourcefile: Long, sourcepathroot: Long, destinationname: Long, copystyle: Int, copymsghandler: Long, context: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFileW(infhandle: Long, infcontext: Long, sourcefile: Long, sourcepathroot: Long, destinationname: Long, copystyle: Int, copymsghandler: Long, context: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstallFilesFromInfSectionA(infhandle: Long, layoutinfhandle: Long, filequeue: Long, sectionname: Long, sourcerootpath: Long, copyflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFilesFromInfSectionA(infhandle: Long, layoutinfhandle: Long, filequeue: Long, sectionname: Long, sourcerootpath: Long, copyflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstallFilesFromInfSectionW(infhandle: Long, layoutinfhandle: Long, filequeue: Long, sectionname: Long, sourcerootpath: Long, copyflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFilesFromInfSectionW(infhandle: Long, layoutinfhandle: Long, filequeue: Long, sectionname: Long, sourcerootpath: Long, copyflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstallFromInfSectionA(owner: Long, infhandle: Long, sectionname: Long, flags: Int, relativekeyroot: Long, sourcerootpath: Long, copyflags: Int, msghandler: Long, context: Long, deviceinfoset: Long, deviceinfodata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFromInfSectionA(owner: Long, infhandle: Long, sectionname: Long, flags: Int, relativekeyroot: Long, sourcerootpath: Long, copyflags: Int, msghandler: Long, context: Long, deviceinfoset: Long, deviceinfodata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstallFromInfSectionW(owner: Long, infhandle: Long, sectionname: Long, flags: Int, relativekeyroot: Long, sourcerootpath: Long, copyflags: Int, msghandler: Long, context: Long, deviceinfoset: Long, deviceinfodata: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFromInfSectionW(owner: Long, infhandle: Long, sectionname: Long, flags: Int, relativekeyroot: Long, sourcerootpath: Long, copyflags: Int, msghandler: Long, context: Long, deviceinfoset: Long, deviceinfodata: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstallServicesFromInfSectionA(infhandle: Long, sectionname: Long, flags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallServicesFromInfSectionA(infhandle: Long, sectionname: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstallServicesFromInfSectionExA(infhandle: Long, sectionname: Long, flags: Int, deviceinfoset: Long, deviceinfodata: Long, reserved1: Long, reserved2: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallServicesFromInfSectionExA(infhandle: Long, sectionname: Long, flags: Int, deviceinfoset: Long, deviceinfodata: Long, reserved1: Long, reserved2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstallServicesFromInfSectionExW(infhandle: Long, sectionname: Long, flags: Int, deviceinfoset: Long, deviceinfodata: Long, reserved1: Long, reserved2: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallServicesFromInfSectionExW(infhandle: Long, sectionname: Long, flags: Int, deviceinfoset: Long, deviceinfodata: Long, reserved1: Long, reserved2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstallServicesFromInfSectionW(infhandle: Long, sectionname: Long, flags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallServicesFromInfSectionW(infhandle: Long, sectionname: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupIterateCabinetA(cabinetfile: Long, reserved: Int, msghandler: Long, context: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupIterateCabinetA(cabinetfile: Long, reserved: Int, msghandler: Long, context: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupIterateCabinetW(cabinetfile: Long, reserved: Int, msghandler: Long, context: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupIterateCabinetW(cabinetfile: Long, reserved: Int, msghandler: Long, context: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupLogErrorA(messagestring: Long, severity: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupLogErrorA(messagestring: Long, severity: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupLogErrorW(messagestring: Long, severity: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupLogErrorW(messagestring: Long, severity: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupLogFileA(fileloghandle: Long, logsectionname: Long, sourcefilename: Long, targetfilename: Long, checksum: Int, disktagfile: Long, diskdescription: Long, otherinfo: Long, flags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupLogFileA(fileloghandle: Long, logsectionname: Long, sourcefilename: Long, targetfilename: Long, checksum: Int, disktagfile: Long, diskdescription: Long, otherinfo: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupLogFileW(fileloghandle: Long, logsectionname: Long, sourcefilename: Long, targetfilename: Long, checksum: Int, disktagfile: Long, diskdescription: Long, otherinfo: Long, flags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupLogFileW(fileloghandle: Long, logsectionname: Long, sourcefilename: Long, targetfilename: Long, checksum: Int, disktagfile: Long, diskdescription: Long, otherinfo: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupOpenAppendInfFileA(filename: Long, infhandle: Long, errorline: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenAppendInfFileA(filename: Long, infhandle: Long, errorline: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupOpenAppendInfFileW(filename: Long, infhandle: Long, errorline: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenAppendInfFileW(filename: Long, infhandle: Long, errorline: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupOpenFileQueue(): Long
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenFileQueue(): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupOpenInfFileA(filename: Long, infclass: Long, infstyle: Int, errorline: Long): Long
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenInfFileA(filename: Long, infclass: Long, infstyle: Int, errorline: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupOpenInfFileW(filename: Long, infclass: Long, infstyle: Int, errorline: Long): Long
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenInfFileW(filename: Long, infclass: Long, infstyle: Int, errorline: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupOpenLog(erase: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenLog(erase: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupOpenMasterInf(): Long
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenMasterInf(): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupPrepareQueueForRestoreA(queuehandle: Long, backuppath: Long, restoreflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupPrepareQueueForRestoreA(queuehandle: Long, backuppath: Long, restoreflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupPrepareQueueForRestoreW(queuehandle: Long, backuppath: Long, restoreflags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupPrepareQueueForRestoreW(queuehandle: Long, backuppath: Long, restoreflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupPromptForDiskA(hwndparent: Long, dialogtitle: Long, diskname: Long, pathtosource: Long, filesought: Long, tagfile: Long, diskpromptstyle: Int, pathbuffer: Long, pathbuffersize: Int, pathrequiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupPromptForDiskA(hwndparent: Long, dialogtitle: Long, diskname: Long, pathtosource: Long, filesought: Long, tagfile: Long, diskpromptstyle: Int, pathbuffer: Long, pathbuffersize: Int, pathrequiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupPromptForDiskW(hwndparent: Long, dialogtitle: Long, diskname: Long, pathtosource: Long, filesought: Long, tagfile: Long, diskpromptstyle: Int, pathbuffer: Long, pathbuffersize: Int, pathrequiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupPromptForDiskW(hwndparent: Long, dialogtitle: Long, diskname: Long, pathtosource: Long, filesought: Long, tagfile: Long, diskpromptstyle: Int, pathbuffer: Long, pathbuffersize: Int, pathrequiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupPromptReboot(filequeue: Long, owner: Long, scanonly: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupPromptReboot(filequeue: Long, owner: Long, scanonly: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryDrivesInDiskSpaceListA(diskspace: Long, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryDrivesInDiskSpaceListA(diskspace: Long, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryDrivesInDiskSpaceListW(diskspace: Long, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryDrivesInDiskSpaceListW(diskspace: Long, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryFileLogA(fileloghandle: Long, logsectionname: Long, targetfilename: Long, desiredinfo: Int, dataout: Long, returnbuffersize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryFileLogA(fileloghandle: Long, logsectionname: Long, targetfilename: Long, desiredinfo: Int, dataout: Long, returnbuffersize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryFileLogW(fileloghandle: Long, logsectionname: Long, targetfilename: Long, desiredinfo: Int, dataout: Long, returnbuffersize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryFileLogW(fileloghandle: Long, logsectionname: Long, targetfilename: Long, desiredinfo: Int, dataout: Long, returnbuffersize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryInfFileInformationA(infinformation: Long, infindex: Int, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryInfFileInformationA(infinformation: Long, infindex: Int, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryInfFileInformationW(infinformation: Long, infindex: Int, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryInfFileInformationW(infinformation: Long, infindex: Int, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryInfOriginalFileInformationA(infinformation: Long, infindex: Int, alternateplatforminfo: Long, originalfileinfo: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryInfOriginalFileInformationA(infinformation: Long, infindex: Int, alternateplatforminfo: Long, originalfileinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryInfOriginalFileInformationW(infinformation: Long, infindex: Int, alternateplatforminfo: Long, originalfileinfo: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryInfOriginalFileInformationW(infinformation: Long, infindex: Int, alternateplatforminfo: Long, originalfileinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryInfVersionInformationA(infinformation: Long, infindex: Int, key: Long, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryInfVersionInformationA(infinformation: Long, infindex: Int, key: Long, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryInfVersionInformationW(infinformation: Long, infindex: Int, key: Long, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryInfVersionInformationW(infinformation: Long, infindex: Int, key: Long, returnbuffer: Long, returnbuffersize: Int, requiredsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQuerySourceListA(flags: Int, list: Long, count: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupQuerySourceListA(flags: Int, list: Long, count: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQuerySourceListW(flags: Int, list: Long, count: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupQuerySourceListW(flags: Int, list: Long, count: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQuerySpaceRequiredOnDriveA(diskspace: Long, drivespec: Long, spacerequired: Long, reserved1: Long, reserved2: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupQuerySpaceRequiredOnDriveA(diskspace: Long, drivespec: Long, spacerequired: Long, reserved1: Long, reserved2: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQuerySpaceRequiredOnDriveW(diskspace: Long, drivespec: Long, spacerequired: Long, reserved1: Long, reserved2: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupQuerySpaceRequiredOnDriveW(diskspace: Long, drivespec: Long, spacerequired: Long, reserved1: Long, reserved2: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueCopyA(queuehandle: Long, sourcerootpath: Long, sourcepath: Long, sourcefilename: Long, sourcedescription: Long, sourcetagfile: Long, targetdirectory: Long, targetfilename: Long, copystyle: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueCopyA(queuehandle: Long, sourcerootpath: Long, sourcepath: Long, sourcefilename: Long, sourcedescription: Long, sourcetagfile: Long, targetdirectory: Long, targetfilename: Long, copystyle: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueCopyIndirectA(copyparams: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueCopyIndirectA(copyparams: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueCopyIndirectW(copyparams: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueCopyIndirectW(copyparams: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueCopySectionA(queuehandle: Long, sourcerootpath: Long, infhandle: Long, listinfhandle: Long, section: Long, copystyle: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueCopySectionA(queuehandle: Long, sourcerootpath: Long, infhandle: Long, listinfhandle: Long, section: Long, copystyle: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueCopySectionW(queuehandle: Long, sourcerootpath: Long, infhandle: Long, listinfhandle: Long, section: Long, copystyle: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueCopySectionW(queuehandle: Long, sourcerootpath: Long, infhandle: Long, listinfhandle: Long, section: Long, copystyle: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueCopyW(queuehandle: Long, sourcerootpath: Long, sourcepath: Long, sourcefilename: Long, sourcedescription: Long, sourcetagfile: Long, targetdirectory: Long, targetfilename: Long, copystyle: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueCopyW(queuehandle: Long, sourcerootpath: Long, sourcepath: Long, sourcefilename: Long, sourcedescription: Long, sourcetagfile: Long, targetdirectory: Long, targetfilename: Long, copystyle: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueDefaultCopyA(queuehandle: Long, infhandle: Long, sourcerootpath: Long, sourcefilename: Long, targetfilename: Long, copystyle: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueDefaultCopyA(queuehandle: Long, infhandle: Long, sourcerootpath: Long, sourcefilename: Long, targetfilename: Long, copystyle: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueDefaultCopyW(queuehandle: Long, infhandle: Long, sourcerootpath: Long, sourcefilename: Long, targetfilename: Long, copystyle: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueDefaultCopyW(queuehandle: Long, infhandle: Long, sourcerootpath: Long, sourcefilename: Long, targetfilename: Long, copystyle: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueDeleteA(queuehandle: Long, pathpart1: Long, pathpart2: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueDeleteA(queuehandle: Long, pathpart1: Long, pathpart2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueDeleteSectionA(queuehandle: Long, infhandle: Long, listinfhandle: Long, section: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueDeleteSectionA(queuehandle: Long, infhandle: Long, listinfhandle: Long, section: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueDeleteSectionW(queuehandle: Long, infhandle: Long, listinfhandle: Long, section: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueDeleteSectionW(queuehandle: Long, infhandle: Long, listinfhandle: Long, section: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueDeleteW(queuehandle: Long, pathpart1: Long, pathpart2: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueDeleteW(queuehandle: Long, pathpart1: Long, pathpart2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueRenameA(queuehandle: Long, sourcepath: Long, sourcefilename: Long, targetpath: Long, targetfilename: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueRenameA(queuehandle: Long, sourcepath: Long, sourcefilename: Long, targetpath: Long, targetfilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueRenameSectionA(queuehandle: Long, infhandle: Long, listinfhandle: Long, section: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueRenameSectionA(queuehandle: Long, infhandle: Long, listinfhandle: Long, section: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueRenameSectionW(queuehandle: Long, infhandle: Long, listinfhandle: Long, section: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueRenameSectionW(queuehandle: Long, infhandle: Long, listinfhandle: Long, section: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueRenameW(queuehandle: Long, sourcepath: Long, sourcefilename: Long, targetpath: Long, targetfilename: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueRenameW(queuehandle: Long, sourcepath: Long, sourcefilename: Long, targetpath: Long, targetfilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemoveFileLogEntryA(fileloghandle: Long, logsectionname: Long, targetfilename: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveFileLogEntryA(fileloghandle: Long, logsectionname: Long, targetfilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemoveFileLogEntryW(fileloghandle: Long, logsectionname: Long, targetfilename: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveFileLogEntryW(fileloghandle: Long, logsectionname: Long, targetfilename: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemoveFromDiskSpaceListA(diskspace: Long, targetfilespec: Long, operation: Int, reserved1: Long, reserved2: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveFromDiskSpaceListA(diskspace: Long, targetfilespec: Long, operation: Int, reserved1: Long, reserved2: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemoveFromDiskSpaceListW(diskspace: Long, targetfilespec: Long, operation: Int, reserved1: Long, reserved2: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveFromDiskSpaceListW(diskspace: Long, targetfilespec: Long, operation: Int, reserved1: Long, reserved2: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemoveFromSourceListA(flags: Int, source: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveFromSourceListA(flags: Int, source: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemoveFromSourceListW(flags: Int, source: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveFromSourceListW(flags: Int, source: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemoveInstallSectionFromDiskSpaceListA(diskspace: Long, infhandle: Long, layoutinfhandle: Long, sectionname: Long, reserved1: Long, reserved2: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveInstallSectionFromDiskSpaceListA(diskspace: Long, infhandle: Long, layoutinfhandle: Long, sectionname: Long, reserved1: Long, reserved2: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemoveInstallSectionFromDiskSpaceListW(diskspace: Long, infhandle: Long, layoutinfhandle: Long, sectionname: Long, reserved1: Long, reserved2: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveInstallSectionFromDiskSpaceListW(diskspace: Long, infhandle: Long, layoutinfhandle: Long, sectionname: Long, reserved1: Long, reserved2: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemoveSectionFromDiskSpaceListA(diskspace: Long, infhandle: Long, listinfhandle: Long, sectionname: Long, operation: Int, reserved1: Long, reserved2: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveSectionFromDiskSpaceListA(diskspace: Long, infhandle: Long, listinfhandle: Long, sectionname: Long, operation: Int, reserved1: Long, reserved2: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemoveSectionFromDiskSpaceListW(diskspace: Long, infhandle: Long, listinfhandle: Long, sectionname: Long, operation: Int, reserved1: Long, reserved2: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveSectionFromDiskSpaceListW(diskspace: Long, infhandle: Long, listinfhandle: Long, sectionname: Long, operation: Int, reserved1: Long, reserved2: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRenameErrorA(hwndparent: Long, dialogtitle: Long, sourcefile: Long, targetfile: Long, win32errorcode: Int, style: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupRenameErrorA(hwndparent: Long, dialogtitle: Long, sourcefile: Long, targetfile: Long, win32errorcode: Int, style: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRenameErrorW(hwndparent: Long, dialogtitle: Long, sourcefile: Long, targetfile: Long, win32errorcode: Int, style: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupRenameErrorW(hwndparent: Long, dialogtitle: Long, sourcefile: Long, targetfile: Long, win32errorcode: Int, style: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupScanFileQueueA(filequeue: Long, flags: Int, window: Long, callbackroutine: Long, callbackcontext: Long, result: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupScanFileQueueA(filequeue: Long, flags: Int, window: Long, callbackroutine: Long, callbackcontext: Long, result: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupScanFileQueueW(filequeue: Long, flags: Int, window: Long, callbackroutine: Long, callbackcontext: Long, result: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupScanFileQueueW(filequeue: Long, flags: Int, window: Long, callbackroutine: Long, callbackcontext: Long, result: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetDirectoryIdA(infhandle: Long, id: Int, directory: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetDirectoryIdA(infhandle: Long, id: Int, directory: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetDirectoryIdExA(infhandle: Long, id: Int, directory: Long, flags: Int, reserved1: Int, reserved2: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetDirectoryIdExA(infhandle: Long, id: Int, directory: Long, flags: Int, reserved1: Int, reserved2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetDirectoryIdExW(infhandle: Long, id: Int, directory: Long, flags: Int, reserved1: Int, reserved2: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetDirectoryIdExW(infhandle: Long, id: Int, directory: Long, flags: Int, reserved1: Int, reserved2: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetDirectoryIdW(infhandle: Long, id: Int, directory: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetDirectoryIdW(infhandle: Long, id: Int, directory: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetFileQueueAlternatePlatformA(queuehandle: Long, alternateplatforminfo: Long, alternatedefaultcatalogfile: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetFileQueueAlternatePlatformA(queuehandle: Long, alternateplatforminfo: Long, alternatedefaultcatalogfile: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetFileQueueAlternatePlatformW(queuehandle: Long, alternateplatforminfo: Long, alternatedefaultcatalogfile: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetFileQueueAlternatePlatformW(queuehandle: Long, alternateplatforminfo: Long, alternatedefaultcatalogfile: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetFileQueueFlags(filequeue: Long, flagmask: Int, flags: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetFileQueueFlags(filequeue: Long, flagmask: Int, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetNonInteractiveMode(noninteractiveflag: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetNonInteractiveMode(noninteractiveflag: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetPlatformPathOverrideA(override: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetPlatformPathOverrideA(override: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetPlatformPathOverrideW(override: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetPlatformPathOverrideW(override: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetSourceListA(flags: Int, sourcelist: Long, sourcecount: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetSourceListA(flags: Int, sourcelist: Long, sourcecount: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetSourceListW(flags: Int, sourcelist: Long, sourcecount: Int): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetSourceListW(flags: Int, sourcelist: Long, sourcecount: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetThreadLogToken(logtoken: Long)
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetThreadLogToken(logtoken: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupTermDefaultQueueCallback(context: Long)
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupTermDefaultQueueCallback(context: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupTerminateFileLog(fileloghandle: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupTerminateFileLog(fileloghandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupUninstallNewlyCopiedInfs(filequeue: Long, flags: Int, reserved: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupUninstallNewlyCopiedInfs(filequeue: Long, flags: Int, reserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupUninstallOEMInfA(inffilename: Long, flags: Int, reserved: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupUninstallOEMInfA(inffilename: Long, flags: Int, reserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupUninstallOEMInfW(inffilename: Long, flags: Int, reserved: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupUninstallOEMInfW(inffilename: Long, flags: Int, reserved: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupVerifyInfFileA(infname: Long, altplatforminfo: Long, infsignerinfo: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupVerifyInfFileA(infname: Long, altplatforminfo: Long, infsignerinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupVerifyInfFileW(infname: Long, altplatforminfo: Long, infsignerinfo: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupVerifyInfFileW(infname: Long, altplatforminfo: Long, infsignerinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_SetupWriteTextLogInfLine(logtoken: Long, flags: Int, infhandle: Long, context: Long)
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupWriteTextLog(logtoken: Long, category: Int, flags: Int, messagestr: Long, km_vac: Int, km_va0: Long, km_va1: Long, km_va2: Long, km_va3: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_UpdateDriverForPlugAndPlayDevicesA(hwndparent: Long, hardwareid: Long, fullinfpath: Long, installflags: Int, brebootrequired: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupWriteTextLogError(logtoken: Long, category: Int, logflags: Int, error: Int, messagestr: Long, km_vac: Int, km_va0: Long, km_va1: Long, km_va2: Long, km_va3: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_UpdateDriverForPlugAndPlayDevicesW(hwndparent: Long, hardwareid: Long, fullinfpath: Long, installflags: Int, brebootrequired: Long): Int
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_setupWriteTextLogInfLine(logtoken: Long, flags: Int, infhandle: Long, context: Long)
+
+    @JvmStatic
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_updateDriverForPlugAndPlayDevicesA(hwndparent: Long, hardwareid: Long, fullinfpath: Long, installflags: Int, brebootrequired: Long): Int
+
+    @JvmStatic
+    external fun windowssys_windows_win32_devices_deviceanddriverinstallation_updateDriverForPlugAndPlayDevicesW(hwndparent: Long, hardwareid: Long, fullinfpath: Long, installflags: Int, brebootrequired: Long): Int
 }
 
-public actual fun CMP_WaitNoPendingInstallEvents(dwtimeout: UInt): UInt =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CMP_WaitNoPendingInstallEvents(dwtimeout.toInt()).toUInt()
+public actual fun cmpWaitNoPendingInstallEvents(dwtimeout: UInt): UInt =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmpWaitNoPendingInstallEvents(dwtimeout.toInt()).toUInt()
 
-public actual fun CM_Add_Empty_Log_Conf(plclogconf: Long, dndevinst: UInt, priority: PRIORITY, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Add_Empty_Log_Conf(plclogconf, dndevinst.toInt(), priority, ulflags.toInt()).toUInt()
+public actual fun cmAddEmptyLogConf(plclogconf: COpaquePointer?, dndevinst: UInt, priority: Priority, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddEmptyLogConf((plclogconf?.value ?: 0L), dndevinst.toInt(), priority, ulflags.toInt()).toUInt()
 
-public actual fun CM_Add_Empty_Log_Conf_Ex(plclogconf: Long, dndevinst: UInt, priority: PRIORITY, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Add_Empty_Log_Conf_Ex(plclogconf, dndevinst.toInt(), priority, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmAddEmptyLogConfEx(plclogconf: COpaquePointer?, dndevinst: UInt, priority: Priority, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddEmptyLogConfEx((plclogconf?.value ?: 0L), dndevinst.toInt(), priority, ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Add_IDA(dndevinst: UInt, pszid: PCSTR, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Add_IDA(dndevinst.toInt(), pszid, ulflags.toInt()).toUInt()
+public actual fun cmAddIda(dndevinst: UInt, pszid: Pcstr, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddIda(dndevinst.toInt(), (pszid?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Add_IDW(dndevinst: UInt, pszid: PCWSTR, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Add_IDW(dndevinst.toInt(), pszid, ulflags.toInt()).toUInt()
+public actual fun cmAddIdw(dndevinst: UInt, pszid: Pcwstr, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddIdw(dndevinst.toInt(), (pszid?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Add_ID_ExA(dndevinst: UInt, pszid: PCSTR, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Add_ID_ExA(dndevinst.toInt(), pszid, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmAddIdExA(dndevinst: UInt, pszid: Pcstr, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddIdExA(dndevinst.toInt(), (pszid?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Add_ID_ExW(dndevinst: UInt, pszid: PCWSTR, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Add_ID_ExW(dndevinst.toInt(), pszid, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmAddIdExW(dndevinst: UInt, pszid: Pcwstr, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddIdExW(dndevinst.toInt(), (pszid?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Add_Range(ullstartvalue: ULong, ullendvalue: ULong, rlh: ULong, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Add_Range(ullstartvalue.toLong(), ullendvalue.toLong(), rlh.toLong(), ulflags.toInt()).toUInt()
+public actual fun cmAddRange(ullstartvalue: ULong, ullendvalue: ULong, rlh: ULong, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddRange(ullstartvalue.toLong(), ullendvalue.toLong(), rlh.toLong(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Add_Res_Des(prdresdes: Long, lclogconf: ULong, resourceid: UInt, resourcedata: Long, resourcelen: UInt, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Add_Res_Des(prdresdes, lclogconf.toLong(), resourceid.toInt(), resourcedata, resourcelen.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmAddResDes(prdresdes: COpaquePointer?, lclogconf: ULong, resourceid: UInt, resourcedata: COpaquePointer?, resourcelen: UInt, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddResDes((prdresdes?.value ?: 0L), lclogconf.toLong(), resourceid.toInt(), (resourcedata?.value ?: 0L), resourcelen.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Add_Res_Des_Ex(prdresdes: Long, lclogconf: ULong, resourceid: UInt, resourcedata: Long, resourcelen: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Add_Res_Des_Ex(prdresdes, lclogconf.toLong(), resourceid.toInt(), resourcedata, resourcelen.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmAddResDesEx(prdresdes: COpaquePointer?, lclogconf: ULong, resourceid: UInt, resourcedata: COpaquePointer?, resourcelen: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmAddResDesEx((prdresdes?.value ?: 0L), lclogconf.toLong(), resourceid.toInt(), (resourcedata?.value ?: 0L), resourcelen.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Connect_MachineA(uncservername: PCSTR, phmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Connect_MachineA(uncservername, phmachine).toUInt()
+public actual fun cmConnectMachineA(uncservername: Pcstr, phmachine: COpaquePointer?): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmConnectMachineA((uncservername?.value ?: 0L), (phmachine?.value ?: 0L)).toUInt()
 
-public actual fun CM_Connect_MachineW(uncservername: PCWSTR, phmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Connect_MachineW(uncservername, phmachine).toUInt()
+public actual fun cmConnectMachineW(uncservername: Pcwstr, phmachine: COpaquePointer?): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmConnectMachineW((uncservername?.value ?: 0L), (phmachine?.value ?: 0L)).toUInt()
 
-public actual fun CM_Create_DevNodeA(pdndevinst: Long, pdeviceid: PCSTR, dnparent: UInt, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Create_DevNodeA(pdndevinst, pdeviceid, dnparent.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmCreateDevNodeA(pdndevinst: COpaquePointer?, pdeviceid: Pcstr, dnparent: UInt, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmCreateDevNodeA((pdndevinst?.value ?: 0L), (pdeviceid?.value ?: 0L), dnparent.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Create_DevNodeW(pdndevinst: Long, pdeviceid: PCWSTR, dnparent: UInt, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Create_DevNodeW(pdndevinst, pdeviceid, dnparent.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmCreateDevNodeW(pdndevinst: COpaquePointer?, pdeviceid: Pcwstr, dnparent: UInt, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmCreateDevNodeW((pdndevinst?.value ?: 0L), (pdeviceid?.value ?: 0L), dnparent.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Create_DevNode_ExA(pdndevinst: Long, pdeviceid: PCSTR, dnparent: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Create_DevNode_ExA(pdndevinst, pdeviceid, dnparent.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmCreateDevNodeExA(pdndevinst: COpaquePointer?, pdeviceid: Pcstr, dnparent: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmCreateDevNodeExA((pdndevinst?.value ?: 0L), (pdeviceid?.value ?: 0L), dnparent.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Create_DevNode_ExW(pdndevinst: Long, pdeviceid: PCWSTR, dnparent: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Create_DevNode_ExW(pdndevinst, pdeviceid, dnparent.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmCreateDevNodeExW(pdndevinst: COpaquePointer?, pdeviceid: Pcwstr, dnparent: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmCreateDevNodeExW((pdndevinst?.value ?: 0L), (pdeviceid?.value ?: 0L), dnparent.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Create_Range_List(prlh: Long, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Create_Range_List(prlh, ulflags.toInt()).toUInt()
+public actual fun cmCreateRangeList(prlh: COpaquePointer?, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmCreateRangeList((prlh?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Delete_Class_Key(classguid: Long, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Delete_Class_Key(classguid, ulflags.toInt()).toUInt()
+public actual fun cmDeleteClassKey(classguid: COpaquePointer?, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteClassKey((classguid?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Delete_Class_Key_Ex(classguid: Long, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Delete_Class_Key_Ex(classguid, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmDeleteClassKeyEx(classguid: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteClassKeyEx((classguid?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Delete_DevNode_Key(dndevnode: UInt, ulhardwareprofile: UInt, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Delete_DevNode_Key(dndevnode.toInt(), ulhardwareprofile.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmDeleteDevNodeKey(dndevnode: UInt, ulhardwareprofile: UInt, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteDevNodeKey(dndevnode.toInt(), ulhardwareprofile.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Delete_DevNode_Key_Ex(dndevnode: UInt, ulhardwareprofile: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Delete_DevNode_Key_Ex(dndevnode.toInt(), ulhardwareprofile.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmDeleteDevNodeKeyEx(dndevnode: UInt, ulhardwareprofile: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteDevNodeKeyEx(dndevnode.toInt(), ulhardwareprofile.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Delete_Device_Interface_KeyA(pszdeviceinterface: PCSTR, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Delete_Device_Interface_KeyA(pszdeviceinterface, ulflags.toInt()).toUInt()
+public actual fun cmDeleteDeviceInterfaceKeyA(pszdeviceinterface: Pcstr, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteDeviceInterfaceKeyA((pszdeviceinterface?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Delete_Device_Interface_KeyW(pszdeviceinterface: PCWSTR, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Delete_Device_Interface_KeyW(pszdeviceinterface, ulflags.toInt()).toUInt()
+public actual fun cmDeleteDeviceInterfaceKeyW(pszdeviceinterface: Pcwstr, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteDeviceInterfaceKeyW((pszdeviceinterface?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Delete_Device_Interface_Key_ExA(pszdeviceinterface: PCSTR, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Delete_Device_Interface_Key_ExA(pszdeviceinterface, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmDeleteDeviceInterfaceKeyExA(pszdeviceinterface: Pcstr, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteDeviceInterfaceKeyExA((pszdeviceinterface?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Delete_Device_Interface_Key_ExW(pszdeviceinterface: PCWSTR, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Delete_Device_Interface_Key_ExW(pszdeviceinterface, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmDeleteDeviceInterfaceKeyExW(pszdeviceinterface: Pcwstr, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteDeviceInterfaceKeyExW((pszdeviceinterface?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Delete_Range(ullstartvalue: ULong, ullendvalue: ULong, rlh: ULong, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Delete_Range(ullstartvalue.toLong(), ullendvalue.toLong(), rlh.toLong(), ulflags.toInt()).toUInt()
+public actual fun cmDeleteRange(ullstartvalue: ULong, ullendvalue: ULong, rlh: ULong, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmDeleteRange(ullstartvalue.toLong(), ullendvalue.toLong(), rlh.toLong(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Detect_Resource_Conflict(dndevinst: UInt, resourceid: UInt, resourcedata: Long, resourcelen: UInt, pbconflictdetected: Long, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Detect_Resource_Conflict(dndevinst.toInt(), resourceid.toInt(), resourcedata, resourcelen.toInt(), pbconflictdetected, ulflags.toInt()).toUInt()
+public actual fun cmDetectResourceConflict(dndevinst: UInt, resourceid: UInt, resourcedata: COpaquePointer?, resourcelen: UInt, pbconflictdetected: COpaquePointer?, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmDetectResourceConflict(dndevinst.toInt(), resourceid.toInt(), (resourcedata?.value ?: 0L), resourcelen.toInt(), (pbconflictdetected?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Detect_Resource_Conflict_Ex(dndevinst: UInt, resourceid: UInt, resourcedata: Long, resourcelen: UInt, pbconflictdetected: Long, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Detect_Resource_Conflict_Ex(dndevinst.toInt(), resourceid.toInt(), resourcedata, resourcelen.toInt(), pbconflictdetected, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmDetectResourceConflictEx(dndevinst: UInt, resourceid: UInt, resourcedata: COpaquePointer?, resourcelen: UInt, pbconflictdetected: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmDetectResourceConflictEx(dndevinst.toInt(), resourceid.toInt(), (resourcedata?.value ?: 0L), resourcelen.toInt(), (pbconflictdetected?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Disable_DevNode(dndevinst: UInt, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Disable_DevNode(dndevinst.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmDisableDevNode(dndevinst: UInt, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmDisableDevNode(dndevinst.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Disable_DevNode_Ex(dndevinst: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Disable_DevNode_Ex(dndevinst.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmDisableDevNodeEx(dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmDisableDevNodeEx(dndevinst.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Disconnect_Machine(hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Disconnect_Machine(hmachine).toUInt()
+public actual fun cmDisconnectMachine(hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmDisconnectMachine(hmachine).toUInt()
 
-public actual fun CM_Dup_Range_List(rlhold: ULong, rlhnew: ULong, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Dup_Range_List(rlhold.toLong(), rlhnew.toLong(), ulflags.toInt()).toUInt()
+public actual fun cmDupRangeList(rlhold: ULong, rlhnew: ULong, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmDupRangeList(rlhold.toLong(), rlhnew.toLong(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Enable_DevNode(dndevinst: UInt, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Enable_DevNode(dndevinst.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmEnableDevNode(dndevinst: UInt, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnableDevNode(dndevinst.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Enable_DevNode_Ex(dndevinst: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Enable_DevNode_Ex(dndevinst.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmEnableDevNodeEx(dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnableDevNodeEx(dndevinst.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Enumerate_Classes(ulclassindex: UInt, classguid: Long, ulflags: CM_ENUMERATE_FLAGS): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Enumerate_Classes(ulclassindex.toInt(), classguid, ulflags.toInt()).toUInt()
+public actual fun cmEnumerateClasses(ulclassindex: UInt, classguid: COpaquePointer?, ulflags: CmEnumerateFlags): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnumerateClasses(ulclassindex.toInt(), (classguid?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Enumerate_Classes_Ex(ulclassindex: UInt, classguid: Long, ulflags: CM_ENUMERATE_FLAGS, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Enumerate_Classes_Ex(ulclassindex.toInt(), classguid, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmEnumerateClassesEx(ulclassindex: UInt, classguid: COpaquePointer?, ulflags: CmEnumerateFlags, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnumerateClassesEx(ulclassindex.toInt(), (classguid?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Enumerate_EnumeratorsA(ulenumindex: UInt, buffer: PSTR, pullength: Long, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Enumerate_EnumeratorsA(ulenumindex.toInt(), buffer, pullength, ulflags.toInt()).toUInt()
+public actual fun cmEnumerateEnumeratorsA(ulenumindex: UInt, buffer: Pstr, pullength: COpaquePointer?, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnumerateEnumeratorsA(ulenumindex.toInt(), (buffer?.value ?: 0L), (pullength?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Enumerate_EnumeratorsW(ulenumindex: UInt, buffer: PWSTR, pullength: Long, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Enumerate_EnumeratorsW(ulenumindex.toInt(), buffer, pullength, ulflags.toInt()).toUInt()
+public actual fun cmEnumerateEnumeratorsW(ulenumindex: UInt, buffer: Pwstr, pullength: COpaquePointer?, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnumerateEnumeratorsW(ulenumindex.toInt(), (buffer?.value ?: 0L), (pullength?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Enumerate_Enumerators_ExA(ulenumindex: UInt, buffer: PSTR, pullength: Long, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Enumerate_Enumerators_ExA(ulenumindex.toInt(), buffer, pullength, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmEnumerateEnumeratorsExA(ulenumindex: UInt, buffer: Pstr, pullength: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnumerateEnumeratorsExA(ulenumindex.toInt(), (buffer?.value ?: 0L), (pullength?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Enumerate_Enumerators_ExW(ulenumindex: UInt, buffer: PWSTR, pullength: Long, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Enumerate_Enumerators_ExW(ulenumindex.toInt(), buffer, pullength, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmEnumerateEnumeratorsExW(ulenumindex: UInt, buffer: Pwstr, pullength: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmEnumerateEnumeratorsExW(ulenumindex.toInt(), (buffer?.value ?: 0L), (pullength?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Find_Range(pullstart: Long, ullstart: ULong, ullength: UInt, ullalignment: ULong, ullend: ULong, rlh: ULong, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Find_Range(pullstart, ullstart.toLong(), ullength.toInt(), ullalignment.toLong(), ullend.toLong(), rlh.toLong(), ulflags.toInt()).toUInt()
+public actual fun cmFindRange(pullstart: COpaquePointer?, ullstart: ULong, ullength: UInt, ullalignment: ULong, ullend: ULong, rlh: ULong, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmFindRange((pullstart?.value ?: 0L), ullstart.toLong(), ullength.toInt(), ullalignment.toLong(), ullend.toLong(), rlh.toLong(), ulflags.toInt()).toUInt()
 
-public actual fun CM_First_Range(rlh: ULong, pullstart: Long, pullend: Long, preelement: Long, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_First_Range(rlh.toLong(), pullstart, pullend, preelement, ulflags.toInt()).toUInt()
+public actual fun cmFirstRange(rlh: ULong, pullstart: COpaquePointer?, pullend: COpaquePointer?, preelement: COpaquePointer?, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmFirstRange(rlh.toLong(), (pullstart?.value ?: 0L), (pullend?.value ?: 0L), (preelement?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Free_Log_Conf(lclogconftobefreed: ULong, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Free_Log_Conf(lclogconftobefreed.toLong(), ulflags.toInt()).toUInt()
+public actual fun cmFreeLogConf(lclogconftobefreed: ULong, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeLogConf(lclogconftobefreed.toLong(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Free_Log_Conf_Ex(lclogconftobefreed: ULong, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Free_Log_Conf_Ex(lclogconftobefreed.toLong(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmFreeLogConfEx(lclogconftobefreed: ULong, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeLogConfEx(lclogconftobefreed.toLong(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Free_Log_Conf_Handle(lclogconf: ULong): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Free_Log_Conf_Handle(lclogconf.toLong()).toUInt()
+public actual fun cmFreeLogConfHandle(lclogconf: ULong): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeLogConfHandle(lclogconf.toLong()).toUInt()
 
-public actual fun CM_Free_Range_List(rlh: ULong, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Free_Range_List(rlh.toLong(), ulflags.toInt()).toUInt()
+public actual fun cmFreeRangeList(rlh: ULong, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeRangeList(rlh.toLong(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Free_Res_Des(prdresdes: Long, rdresdes: ULong, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Free_Res_Des(prdresdes, rdresdes.toLong(), ulflags.toInt()).toUInt()
+public actual fun cmFreeResDes(prdresdes: COpaquePointer?, rdresdes: ULong, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeResDes((prdresdes?.value ?: 0L), rdresdes.toLong(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Free_Res_Des_Ex(prdresdes: Long, rdresdes: ULong, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Free_Res_Des_Ex(prdresdes, rdresdes.toLong(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmFreeResDesEx(prdresdes: COpaquePointer?, rdresdes: ULong, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeResDesEx((prdresdes?.value ?: 0L), rdresdes.toLong(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Free_Res_Des_Handle(rdresdes: ULong): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Free_Res_Des_Handle(rdresdes.toLong()).toUInt()
+public actual fun cmFreeResDesHandle(rdresdes: ULong): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeResDesHandle(rdresdes.toLong()).toUInt()
 
-public actual fun CM_Free_Resource_Conflict_Handle(clconflictlist: ULong): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Free_Resource_Conflict_Handle(clconflictlist.toLong()).toUInt()
+public actual fun cmFreeResourceConflictHandle(clconflictlist: ULong): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmFreeResourceConflictHandle(clconflictlist.toLong()).toUInt()
 
-public actual fun CM_Get_Child(pdndevinst: Long, dndevinst: UInt, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Child(pdndevinst, dndevinst.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmGetChild(pdndevinst: COpaquePointer?, dndevinst: UInt, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetChild((pdndevinst?.value ?: 0L), dndevinst.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_Child_Ex(pdndevinst: Long, dndevinst: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Child_Ex(pdndevinst, dndevinst.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetChildEx(pdndevinst: COpaquePointer?, dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetChildEx((pdndevinst?.value ?: 0L), dndevinst.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_Class_Key_NameA(classguid: Long, pszkeyname: PSTR, pullength: Long, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_Key_NameA(classguid, pszkeyname, pullength, ulflags.toInt()).toUInt()
+public actual fun cmGetClassKeyNameA(classguid: COpaquePointer?, pszkeyname: Pstr, pullength: COpaquePointer?, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassKeyNameA((classguid?.value ?: 0L), (pszkeyname?.value ?: 0L), (pullength?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_Class_Key_NameW(classguid: Long, pszkeyname: PWSTR, pullength: Long, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_Key_NameW(classguid, pszkeyname, pullength, ulflags.toInt()).toUInt()
+public actual fun cmGetClassKeyNameW(classguid: COpaquePointer?, pszkeyname: Pwstr, pullength: COpaquePointer?, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassKeyNameW((classguid?.value ?: 0L), (pszkeyname?.value ?: 0L), (pullength?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_Class_Key_Name_ExA(classguid: Long, pszkeyname: PSTR, pullength: Long, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_Key_Name_ExA(classguid, pszkeyname, pullength, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetClassKeyNameExA(classguid: COpaquePointer?, pszkeyname: Pstr, pullength: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassKeyNameExA((classguid?.value ?: 0L), (pszkeyname?.value ?: 0L), (pullength?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_Class_Key_Name_ExW(classguid: Long, pszkeyname: PWSTR, pullength: Long, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_Key_Name_ExW(classguid, pszkeyname, pullength, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetClassKeyNameExW(classguid: COpaquePointer?, pszkeyname: Pwstr, pullength: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassKeyNameExW((classguid?.value ?: 0L), (pszkeyname?.value ?: 0L), (pullength?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_Class_NameA(classguid: Long, buffer: PSTR, pullength: Long, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_NameA(classguid, buffer, pullength, ulflags.toInt()).toUInt()
+public actual fun cmGetClassNameA(classguid: COpaquePointer?, buffer: Pstr, pullength: COpaquePointer?, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassNameA((classguid?.value ?: 0L), (buffer?.value ?: 0L), (pullength?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_Class_NameW(classguid: Long, buffer: PWSTR, pullength: Long, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_NameW(classguid, buffer, pullength, ulflags.toInt()).toUInt()
+public actual fun cmGetClassNameW(classguid: COpaquePointer?, buffer: Pwstr, pullength: COpaquePointer?, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassNameW((classguid?.value ?: 0L), (buffer?.value ?: 0L), (pullength?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_Class_Name_ExA(classguid: Long, buffer: PSTR, pullength: Long, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_Name_ExA(classguid, buffer, pullength, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetClassNameExA(classguid: COpaquePointer?, buffer: Pstr, pullength: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassNameExA((classguid?.value ?: 0L), (buffer?.value ?: 0L), (pullength?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_Class_Name_ExW(classguid: Long, buffer: PWSTR, pullength: Long, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_Name_ExW(classguid, buffer, pullength, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetClassNameExW(classguid: COpaquePointer?, buffer: Pwstr, pullength: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassNameExW((classguid?.value ?: 0L), (buffer?.value ?: 0L), (pullength?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_Class_PropertyW(classguid: Long, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: Long, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_PropertyW(classguid, propertykey, propertytype, propertybuffer, propertybuffersize, ulflags.toInt()).toUInt()
+public actual fun cmGetClassPropertyW(classguid: COpaquePointer?, propertykey: COpaquePointer?, propertytype: COpaquePointer?, propertybuffer: COpaquePointer?, propertybuffersize: COpaquePointer?, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassPropertyW((classguid?.value ?: 0L), (propertykey?.value ?: 0L), (propertytype?.value ?: 0L), (propertybuffer?.value ?: 0L), (propertybuffersize?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_Class_Property_ExW(classguid: Long, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: Long, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_Property_ExW(classguid, propertykey, propertytype, propertybuffer, propertybuffersize, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetClassPropertyExW(classguid: COpaquePointer?, propertykey: COpaquePointer?, propertytype: COpaquePointer?, propertybuffer: COpaquePointer?, propertybuffersize: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassPropertyExW((classguid?.value ?: 0L), (propertykey?.value ?: 0L), (propertytype?.value ?: 0L), (propertybuffer?.value ?: 0L), (propertybuffersize?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_Class_Property_Keys(classguid: Long, propertykeyarray: Long, propertykeycount: Long, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_Property_Keys(classguid, propertykeyarray, propertykeycount, ulflags.toInt()).toUInt()
+public actual fun cmGetClassPropertyKeys(classguid: COpaquePointer?, propertykeyarray: COpaquePointer?, propertykeycount: COpaquePointer?, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassPropertyKeys((classguid?.value ?: 0L), (propertykeyarray?.value ?: 0L), (propertykeycount?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_Class_Property_Keys_Ex(classguid: Long, propertykeyarray: Long, propertykeycount: Long, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_Property_Keys_Ex(classguid, propertykeyarray, propertykeycount, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetClassPropertyKeysEx(classguid: COpaquePointer?, propertykeyarray: COpaquePointer?, propertykeycount: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassPropertyKeysEx((classguid?.value ?: 0L), (propertykeyarray?.value ?: 0L), (propertykeycount?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_Class_Registry_PropertyA(classguid: Long, ulproperty: UInt, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_Registry_PropertyA(classguid, ulproperty.toInt(), pulregdatatype, buffer, pullength, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetClassRegistryPropertyA(classguid: COpaquePointer?, ulproperty: UInt, pulregdatatype: COpaquePointer?, buffer: COpaquePointer?, pullength: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassRegistryPropertyA((classguid?.value ?: 0L), ulproperty.toInt(), (pulregdatatype?.value ?: 0L), (buffer?.value ?: 0L), (pullength?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_Class_Registry_PropertyW(classguid: Long, ulproperty: UInt, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Class_Registry_PropertyW(classguid, ulproperty.toInt(), pulregdatatype, buffer, pullength, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetClassRegistryPropertyW(classguid: COpaquePointer?, ulproperty: UInt, pulregdatatype: COpaquePointer?, buffer: COpaquePointer?, pullength: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetClassRegistryPropertyW((classguid?.value ?: 0L), ulproperty.toInt(), (pulregdatatype?.value ?: 0L), (buffer?.value ?: 0L), (pullength?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_Depth(puldepth: Long, dndevinst: UInt, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Depth(puldepth, dndevinst.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmGetDepth(puldepth: COpaquePointer?, dndevinst: UInt, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDepth((puldepth?.value ?: 0L), dndevinst.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_Depth_Ex(puldepth: Long, dndevinst: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Depth_Ex(puldepth, dndevinst.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetDepthEx(puldepth: COpaquePointer?, dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDepthEx((puldepth?.value ?: 0L), dndevinst.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_DevNode_Custom_PropertyA(dndevinst: UInt, pszcustompropertyname: PCSTR, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_Custom_PropertyA(dndevinst.toInt(), pszcustompropertyname, pulregdatatype, buffer, pullength, ulflags.toInt()).toUInt()
+public actual fun cmGetDevNodeCustomPropertyA(dndevinst: UInt, pszcustompropertyname: Pcstr, pulregdatatype: COpaquePointer?, buffer: COpaquePointer?, pullength: COpaquePointer?, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeCustomPropertyA(dndevinst.toInt(), (pszcustompropertyname?.value ?: 0L), (pulregdatatype?.value ?: 0L), (buffer?.value ?: 0L), (pullength?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_DevNode_Custom_PropertyW(dndevinst: UInt, pszcustompropertyname: PCWSTR, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_Custom_PropertyW(dndevinst.toInt(), pszcustompropertyname, pulregdatatype, buffer, pullength, ulflags.toInt()).toUInt()
+public actual fun cmGetDevNodeCustomPropertyW(dndevinst: UInt, pszcustompropertyname: Pcwstr, pulregdatatype: COpaquePointer?, buffer: COpaquePointer?, pullength: COpaquePointer?, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeCustomPropertyW(dndevinst.toInt(), (pszcustompropertyname?.value ?: 0L), (pulregdatatype?.value ?: 0L), (buffer?.value ?: 0L), (pullength?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_DevNode_Custom_Property_ExA(dndevinst: UInt, pszcustompropertyname: PCSTR, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_Custom_Property_ExA(dndevinst.toInt(), pszcustompropertyname, pulregdatatype, buffer, pullength, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetDevNodeCustomPropertyExA(dndevinst: UInt, pszcustompropertyname: Pcstr, pulregdatatype: COpaquePointer?, buffer: COpaquePointer?, pullength: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeCustomPropertyExA(dndevinst.toInt(), (pszcustompropertyname?.value ?: 0L), (pulregdatatype?.value ?: 0L), (buffer?.value ?: 0L), (pullength?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_DevNode_Custom_Property_ExW(dndevinst: UInt, pszcustompropertyname: PCWSTR, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_Custom_Property_ExW(dndevinst.toInt(), pszcustompropertyname, pulregdatatype, buffer, pullength, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetDevNodeCustomPropertyExW(dndevinst: UInt, pszcustompropertyname: Pcwstr, pulregdatatype: COpaquePointer?, buffer: COpaquePointer?, pullength: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeCustomPropertyExW(dndevinst.toInt(), (pszcustompropertyname?.value ?: 0L), (pulregdatatype?.value ?: 0L), (buffer?.value ?: 0L), (pullength?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_DevNode_PropertyW(dndevinst: UInt, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: Long, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_PropertyW(dndevinst.toInt(), propertykey, propertytype, propertybuffer, propertybuffersize, ulflags.toInt()).toUInt()
+public actual fun cmGetDevNodePropertyW(dndevinst: UInt, propertykey: COpaquePointer?, propertytype: COpaquePointer?, propertybuffer: COpaquePointer?, propertybuffersize: COpaquePointer?, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodePropertyW(dndevinst.toInt(), (propertykey?.value ?: 0L), (propertytype?.value ?: 0L), (propertybuffer?.value ?: 0L), (propertybuffersize?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_DevNode_Property_ExW(dndevinst: UInt, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: Long, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_Property_ExW(dndevinst.toInt(), propertykey, propertytype, propertybuffer, propertybuffersize, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetDevNodePropertyExW(dndevinst: UInt, propertykey: COpaquePointer?, propertytype: COpaquePointer?, propertybuffer: COpaquePointer?, propertybuffersize: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodePropertyExW(dndevinst.toInt(), (propertykey?.value ?: 0L), (propertytype?.value ?: 0L), (propertybuffer?.value ?: 0L), (propertybuffersize?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_DevNode_Property_Keys(dndevinst: UInt, propertykeyarray: Long, propertykeycount: Long, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_Property_Keys(dndevinst.toInt(), propertykeyarray, propertykeycount, ulflags.toInt()).toUInt()
+public actual fun cmGetDevNodePropertyKeys(dndevinst: UInt, propertykeyarray: COpaquePointer?, propertykeycount: COpaquePointer?, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodePropertyKeys(dndevinst.toInt(), (propertykeyarray?.value ?: 0L), (propertykeycount?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_DevNode_Property_Keys_Ex(dndevinst: UInt, propertykeyarray: Long, propertykeycount: Long, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_Property_Keys_Ex(dndevinst.toInt(), propertykeyarray, propertykeycount, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetDevNodePropertyKeysEx(dndevinst: UInt, propertykeyarray: COpaquePointer?, propertykeycount: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodePropertyKeysEx(dndevinst.toInt(), (propertykeyarray?.value ?: 0L), (propertykeycount?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_DevNode_Registry_PropertyA(dndevinst: UInt, ulproperty: UInt, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_Registry_PropertyA(dndevinst.toInt(), ulproperty.toInt(), pulregdatatype, buffer, pullength, ulflags.toInt()).toUInt()
+public actual fun cmGetDevNodeRegistryPropertyA(dndevinst: UInt, ulproperty: UInt, pulregdatatype: COpaquePointer?, buffer: COpaquePointer?, pullength: COpaquePointer?, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeRegistryPropertyA(dndevinst.toInt(), ulproperty.toInt(), (pulregdatatype?.value ?: 0L), (buffer?.value ?: 0L), (pullength?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_DevNode_Registry_PropertyW(dndevinst: UInt, ulproperty: UInt, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_Registry_PropertyW(dndevinst.toInt(), ulproperty.toInt(), pulregdatatype, buffer, pullength, ulflags.toInt()).toUInt()
+public actual fun cmGetDevNodeRegistryPropertyW(dndevinst: UInt, ulproperty: UInt, pulregdatatype: COpaquePointer?, buffer: COpaquePointer?, pullength: COpaquePointer?, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeRegistryPropertyW(dndevinst.toInt(), ulproperty.toInt(), (pulregdatatype?.value ?: 0L), (buffer?.value ?: 0L), (pullength?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_DevNode_Registry_Property_ExA(dndevinst: UInt, ulproperty: UInt, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_Registry_Property_ExA(dndevinst.toInt(), ulproperty.toInt(), pulregdatatype, buffer, pullength, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetDevNodeRegistryPropertyExA(dndevinst: UInt, ulproperty: UInt, pulregdatatype: COpaquePointer?, buffer: COpaquePointer?, pullength: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeRegistryPropertyExA(dndevinst.toInt(), ulproperty.toInt(), (pulregdatatype?.value ?: 0L), (buffer?.value ?: 0L), (pullength?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_DevNode_Registry_Property_ExW(dndevinst: UInt, ulproperty: UInt, pulregdatatype: Long, buffer: Long, pullength: Long, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_Registry_Property_ExW(dndevinst.toInt(), ulproperty.toInt(), pulregdatatype, buffer, pullength, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetDevNodeRegistryPropertyExW(dndevinst: UInt, ulproperty: UInt, pulregdatatype: COpaquePointer?, buffer: COpaquePointer?, pullength: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeRegistryPropertyExW(dndevinst.toInt(), ulproperty.toInt(), (pulregdatatype?.value ?: 0L), (buffer?.value ?: 0L), (pullength?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_DevNode_Status(pulstatus: Long, pulproblemnumber: Long, dndevinst: UInt, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_Status(pulstatus, pulproblemnumber, dndevinst.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmGetDevNodeStatus(pulstatus: COpaquePointer?, pulproblemnumber: COpaquePointer?, dndevinst: UInt, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeStatus((pulstatus?.value ?: 0L), (pulproblemnumber?.value ?: 0L), dndevinst.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_DevNode_Status_Ex(pulstatus: Long, pulproblemnumber: Long, dndevinst: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_DevNode_Status_Ex(pulstatus, pulproblemnumber, dndevinst.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetDevNodeStatusEx(pulstatus: COpaquePointer?, pulproblemnumber: COpaquePointer?, dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDevNodeStatusEx((pulstatus?.value ?: 0L), (pulproblemnumber?.value ?: 0L), dndevinst.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_Device_IDA(dndevinst: UInt, buffer: PSTR, bufferlen: UInt, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_IDA(dndevinst.toInt(), buffer, bufferlen.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmGetDeviceIda(dndevinst: UInt, buffer: Pstr, bufferlen: UInt, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIda(dndevinst.toInt(), (buffer?.value ?: 0L), bufferlen.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_Device_IDW(dndevinst: UInt, buffer: PWSTR, bufferlen: UInt, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_IDW(dndevinst.toInt(), buffer, bufferlen.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmGetDeviceIdw(dndevinst: UInt, buffer: Pwstr, bufferlen: UInt, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdw(dndevinst.toInt(), (buffer?.value ?: 0L), bufferlen.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_Device_ID_ExA(dndevinst: UInt, buffer: PSTR, bufferlen: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_ID_ExA(dndevinst.toInt(), buffer, bufferlen.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetDeviceIdExA(dndevinst: UInt, buffer: Pstr, bufferlen: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdExA(dndevinst.toInt(), (buffer?.value ?: 0L), bufferlen.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_Device_ID_ExW(dndevinst: UInt, buffer: PWSTR, bufferlen: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_ID_ExW(dndevinst.toInt(), buffer, bufferlen.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetDeviceIdExW(dndevinst: UInt, buffer: Pwstr, bufferlen: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdExW(dndevinst.toInt(), (buffer?.value ?: 0L), bufferlen.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_Device_ID_ListA(pszfilter: PCSTR, buffer: PSTR, bufferlen: UInt, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_ID_ListA(pszfilter, buffer, bufferlen.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmGetDeviceIdListA(pszfilter: Pcstr, buffer: Pstr, bufferlen: UInt, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListA((pszfilter?.value ?: 0L), (buffer?.value ?: 0L), bufferlen.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_Device_ID_ListW(pszfilter: PCWSTR, buffer: PWSTR, bufferlen: UInt, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_ID_ListW(pszfilter, buffer, bufferlen.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmGetDeviceIdListW(pszfilter: Pcwstr, buffer: Pwstr, bufferlen: UInt, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListW((pszfilter?.value ?: 0L), (buffer?.value ?: 0L), bufferlen.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_Device_ID_List_ExA(pszfilter: PCSTR, buffer: PSTR, bufferlen: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_ID_List_ExA(pszfilter, buffer, bufferlen.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetDeviceIdListExA(pszfilter: Pcstr, buffer: Pstr, bufferlen: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListExA((pszfilter?.value ?: 0L), (buffer?.value ?: 0L), bufferlen.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_Device_ID_List_ExW(pszfilter: PCWSTR, buffer: PWSTR, bufferlen: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_ID_List_ExW(pszfilter, buffer, bufferlen.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetDeviceIdListExW(pszfilter: Pcwstr, buffer: Pwstr, bufferlen: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListExW((pszfilter?.value ?: 0L), (buffer?.value ?: 0L), bufferlen.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_Device_ID_List_SizeA(pullen: Long, pszfilter: PCSTR, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_ID_List_SizeA(pullen, pszfilter, ulflags.toInt()).toUInt()
+public actual fun cmGetDeviceIdListSizeA(pullen: COpaquePointer?, pszfilter: Pcstr, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListSizeA((pullen?.value ?: 0L), (pszfilter?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_Device_ID_List_SizeW(pullen: Long, pszfilter: PCWSTR, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_ID_List_SizeW(pullen, pszfilter, ulflags.toInt()).toUInt()
+public actual fun cmGetDeviceIdListSizeW(pullen: COpaquePointer?, pszfilter: Pcwstr, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListSizeW((pullen?.value ?: 0L), (pszfilter?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_Device_ID_List_Size_ExA(pullen: Long, pszfilter: PCSTR, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_ID_List_Size_ExA(pullen, pszfilter, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetDeviceIdListSizeExA(pullen: COpaquePointer?, pszfilter: Pcstr, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListSizeExA((pullen?.value ?: 0L), (pszfilter?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_Device_ID_List_Size_ExW(pullen: Long, pszfilter: PCWSTR, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_ID_List_Size_ExW(pullen, pszfilter, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetDeviceIdListSizeExW(pullen: COpaquePointer?, pszfilter: Pcwstr, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdListSizeExW((pullen?.value ?: 0L), (pszfilter?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_Device_ID_Size(pullen: Long, dndevinst: UInt, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_ID_Size(pullen, dndevinst.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmGetDeviceIdSize(pullen: COpaquePointer?, dndevinst: UInt, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdSize((pullen?.value ?: 0L), dndevinst.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_Device_ID_Size_Ex(pullen: Long, dndevinst: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_ID_Size_Ex(pullen, dndevinst.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetDeviceIdSizeEx(pullen: COpaquePointer?, dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceIdSizeEx((pullen?.value ?: 0L), dndevinst.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_Device_Interface_AliasA(pszdeviceinterface: PCSTR, aliasinterfaceguid: Long, pszaliasdeviceinterface: PSTR, pullength: Long, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_AliasA(pszdeviceinterface, aliasinterfaceguid, pszaliasdeviceinterface, pullength, ulflags.toInt()).toUInt()
+public actual fun cmGetDeviceInterfaceAliasA(pszdeviceinterface: Pcstr, aliasinterfaceguid: COpaquePointer?, pszaliasdeviceinterface: Pstr, pullength: COpaquePointer?, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceAliasA((pszdeviceinterface?.value ?: 0L), (aliasinterfaceguid?.value ?: 0L), (pszaliasdeviceinterface?.value ?: 0L), (pullength?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_Device_Interface_AliasW(pszdeviceinterface: PCWSTR, aliasinterfaceguid: Long, pszaliasdeviceinterface: PWSTR, pullength: Long, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_AliasW(pszdeviceinterface, aliasinterfaceguid, pszaliasdeviceinterface, pullength, ulflags.toInt()).toUInt()
+public actual fun cmGetDeviceInterfaceAliasW(pszdeviceinterface: Pcwstr, aliasinterfaceguid: COpaquePointer?, pszaliasdeviceinterface: Pwstr, pullength: COpaquePointer?, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceAliasW((pszdeviceinterface?.value ?: 0L), (aliasinterfaceguid?.value ?: 0L), (pszaliasdeviceinterface?.value ?: 0L), (pullength?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_Device_Interface_Alias_ExA(pszdeviceinterface: PCSTR, aliasinterfaceguid: Long, pszaliasdeviceinterface: PSTR, pullength: Long, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_Alias_ExA(pszdeviceinterface, aliasinterfaceguid, pszaliasdeviceinterface, pullength, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetDeviceInterfaceAliasExA(pszdeviceinterface: Pcstr, aliasinterfaceguid: COpaquePointer?, pszaliasdeviceinterface: Pstr, pullength: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceAliasExA((pszdeviceinterface?.value ?: 0L), (aliasinterfaceguid?.value ?: 0L), (pszaliasdeviceinterface?.value ?: 0L), (pullength?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_Device_Interface_Alias_ExW(pszdeviceinterface: PCWSTR, aliasinterfaceguid: Long, pszaliasdeviceinterface: PWSTR, pullength: Long, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_Alias_ExW(pszdeviceinterface, aliasinterfaceguid, pszaliasdeviceinterface, pullength, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetDeviceInterfaceAliasExW(pszdeviceinterface: Pcwstr, aliasinterfaceguid: COpaquePointer?, pszaliasdeviceinterface: Pwstr, pullength: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceAliasExW((pszdeviceinterface?.value ?: 0L), (aliasinterfaceguid?.value ?: 0L), (pszaliasdeviceinterface?.value ?: 0L), (pullength?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_Device_Interface_ListA(interfaceclassguid: Long, pdeviceid: PCSTR, buffer: PSTR, bufferlen: UInt, ulflags: CM_GET_DEVICE_INTERFACE_LIST_FLAGS): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_ListA(interfaceclassguid, pdeviceid, buffer, bufferlen.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmGetDeviceInterfaceListA(interfaceclassguid: COpaquePointer?, pdeviceid: Pcstr, buffer: Pstr, bufferlen: UInt, ulflags: CmGetDeviceInterfaceListFlags): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListA((interfaceclassguid?.value ?: 0L), (pdeviceid?.value ?: 0L), (buffer?.value ?: 0L), bufferlen.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_Device_Interface_ListW(interfaceclassguid: Long, pdeviceid: PCWSTR, buffer: PWSTR, bufferlen: UInt, ulflags: CM_GET_DEVICE_INTERFACE_LIST_FLAGS): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_ListW(interfaceclassguid, pdeviceid, buffer, bufferlen.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmGetDeviceInterfaceListW(interfaceclassguid: COpaquePointer?, pdeviceid: Pcwstr, buffer: Pwstr, bufferlen: UInt, ulflags: CmGetDeviceInterfaceListFlags): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListW((interfaceclassguid?.value ?: 0L), (pdeviceid?.value ?: 0L), (buffer?.value ?: 0L), bufferlen.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_Device_Interface_List_ExA(interfaceclassguid: Long, pdeviceid: PCSTR, buffer: PSTR, bufferlen: UInt, ulflags: CM_GET_DEVICE_INTERFACE_LIST_FLAGS, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_List_ExA(interfaceclassguid, pdeviceid, buffer, bufferlen.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetDeviceInterfaceListExA(interfaceclassguid: COpaquePointer?, pdeviceid: Pcstr, buffer: Pstr, bufferlen: UInt, ulflags: CmGetDeviceInterfaceListFlags, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListExA((interfaceclassguid?.value ?: 0L), (pdeviceid?.value ?: 0L), (buffer?.value ?: 0L), bufferlen.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_Device_Interface_List_ExW(interfaceclassguid: Long, pdeviceid: PCWSTR, buffer: PWSTR, bufferlen: UInt, ulflags: CM_GET_DEVICE_INTERFACE_LIST_FLAGS, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_List_ExW(interfaceclassguid, pdeviceid, buffer, bufferlen.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetDeviceInterfaceListExW(interfaceclassguid: COpaquePointer?, pdeviceid: Pcwstr, buffer: Pwstr, bufferlen: UInt, ulflags: CmGetDeviceInterfaceListFlags, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListExW((interfaceclassguid?.value ?: 0L), (pdeviceid?.value ?: 0L), (buffer?.value ?: 0L), bufferlen.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_Device_Interface_List_SizeA(pullen: Long, interfaceclassguid: Long, pdeviceid: PCSTR, ulflags: CM_GET_DEVICE_INTERFACE_LIST_FLAGS): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_List_SizeA(pullen, interfaceclassguid, pdeviceid, ulflags.toInt()).toUInt()
+public actual fun cmGetDeviceInterfaceListSizeA(pullen: COpaquePointer?, interfaceclassguid: COpaquePointer?, pdeviceid: Pcstr, ulflags: CmGetDeviceInterfaceListFlags): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListSizeA((pullen?.value ?: 0L), (interfaceclassguid?.value ?: 0L), (pdeviceid?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_Device_Interface_List_SizeW(pullen: Long, interfaceclassguid: Long, pdeviceid: PCWSTR, ulflags: CM_GET_DEVICE_INTERFACE_LIST_FLAGS): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_List_SizeW(pullen, interfaceclassguid, pdeviceid, ulflags.toInt()).toUInt()
+public actual fun cmGetDeviceInterfaceListSizeW(pullen: COpaquePointer?, interfaceclassguid: COpaquePointer?, pdeviceid: Pcwstr, ulflags: CmGetDeviceInterfaceListFlags): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListSizeW((pullen?.value ?: 0L), (interfaceclassguid?.value ?: 0L), (pdeviceid?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_Device_Interface_List_Size_ExA(pullen: Long, interfaceclassguid: Long, pdeviceid: PCSTR, ulflags: CM_GET_DEVICE_INTERFACE_LIST_FLAGS, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_List_Size_ExA(pullen, interfaceclassguid, pdeviceid, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetDeviceInterfaceListSizeExA(pullen: COpaquePointer?, interfaceclassguid: COpaquePointer?, pdeviceid: Pcstr, ulflags: CmGetDeviceInterfaceListFlags, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListSizeExA((pullen?.value ?: 0L), (interfaceclassguid?.value ?: 0L), (pdeviceid?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_Device_Interface_List_Size_ExW(pullen: Long, interfaceclassguid: Long, pdeviceid: PCWSTR, ulflags: CM_GET_DEVICE_INTERFACE_LIST_FLAGS, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_List_Size_ExW(pullen, interfaceclassguid, pdeviceid, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetDeviceInterfaceListSizeExW(pullen: COpaquePointer?, interfaceclassguid: COpaquePointer?, pdeviceid: Pcwstr, ulflags: CmGetDeviceInterfaceListFlags, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfaceListSizeExW((pullen?.value ?: 0L), (interfaceclassguid?.value ?: 0L), (pdeviceid?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_Device_Interface_PropertyW(pszdeviceinterface: PCWSTR, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: Long, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_PropertyW(pszdeviceinterface, propertykey, propertytype, propertybuffer, propertybuffersize, ulflags.toInt()).toUInt()
+public actual fun cmGetDeviceInterfacePropertyW(pszdeviceinterface: Pcwstr, propertykey: COpaquePointer?, propertytype: COpaquePointer?, propertybuffer: COpaquePointer?, propertybuffersize: COpaquePointer?, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfacePropertyW((pszdeviceinterface?.value ?: 0L), (propertykey?.value ?: 0L), (propertytype?.value ?: 0L), (propertybuffer?.value ?: 0L), (propertybuffersize?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_Device_Interface_Property_ExW(pszdeviceinterface: PCWSTR, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: Long, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_Property_ExW(pszdeviceinterface, propertykey, propertytype, propertybuffer, propertybuffersize, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetDeviceInterfacePropertyExW(pszdeviceinterface: Pcwstr, propertykey: COpaquePointer?, propertytype: COpaquePointer?, propertybuffer: COpaquePointer?, propertybuffersize: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfacePropertyExW((pszdeviceinterface?.value ?: 0L), (propertykey?.value ?: 0L), (propertytype?.value ?: 0L), (propertybuffer?.value ?: 0L), (propertybuffersize?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_Device_Interface_Property_KeysW(pszdeviceinterface: PCWSTR, propertykeyarray: Long, propertykeycount: Long, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_Property_KeysW(pszdeviceinterface, propertykeyarray, propertykeycount, ulflags.toInt()).toUInt()
+public actual fun cmGetDeviceInterfacePropertyKeysW(pszdeviceinterface: Pcwstr, propertykeyarray: COpaquePointer?, propertykeycount: COpaquePointer?, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfacePropertyKeysW((pszdeviceinterface?.value ?: 0L), (propertykeyarray?.value ?: 0L), (propertykeycount?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_Device_Interface_Property_Keys_ExW(pszdeviceinterface: PCWSTR, propertykeyarray: Long, propertykeycount: Long, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Device_Interface_Property_Keys_ExW(pszdeviceinterface, propertykeyarray, propertykeycount, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetDeviceInterfacePropertyKeysExW(pszdeviceinterface: Pcwstr, propertykeyarray: COpaquePointer?, propertykeycount: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetDeviceInterfacePropertyKeysExW((pszdeviceinterface?.value ?: 0L), (propertykeyarray?.value ?: 0L), (propertykeycount?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_First_Log_Conf(plclogconf: Long, dndevinst: UInt, ulflags: CM_LOG_CONF): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_First_Log_Conf(plclogconf, dndevinst.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmGetFirstLogConf(plclogconf: COpaquePointer?, dndevinst: UInt, ulflags: CmLogConf): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetFirstLogConf((plclogconf?.value ?: 0L), dndevinst.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_First_Log_Conf_Ex(plclogconf: Long, dndevinst: UInt, ulflags: CM_LOG_CONF, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_First_Log_Conf_Ex(plclogconf, dndevinst.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetFirstLogConfEx(plclogconf: COpaquePointer?, dndevinst: UInt, ulflags: CmLogConf, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetFirstLogConfEx((plclogconf?.value ?: 0L), dndevinst.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_Global_State(pulstate: Long, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Global_State(pulstate, ulflags.toInt()).toUInt()
+public actual fun cmGetGlobalState(pulstate: COpaquePointer?, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetGlobalState((pulstate?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_Global_State_Ex(pulstate: Long, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Global_State_Ex(pulstate, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetGlobalStateEx(pulstate: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetGlobalStateEx((pulstate?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_HW_Prof_FlagsA(pdeviceid: PCSTR, ulhardwareprofile: UInt, pulvalue: Long, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_HW_Prof_FlagsA(pdeviceid, ulhardwareprofile.toInt(), pulvalue, ulflags.toInt()).toUInt()
+public actual fun cmGetHwProfFlagsA(pdeviceid: Pcstr, ulhardwareprofile: UInt, pulvalue: COpaquePointer?, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHwProfFlagsA((pdeviceid?.value ?: 0L), ulhardwareprofile.toInt(), (pulvalue?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_HW_Prof_FlagsW(pdeviceid: PCWSTR, ulhardwareprofile: UInt, pulvalue: Long, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_HW_Prof_FlagsW(pdeviceid, ulhardwareprofile.toInt(), pulvalue, ulflags.toInt()).toUInt()
+public actual fun cmGetHwProfFlagsW(pdeviceid: Pcwstr, ulhardwareprofile: UInt, pulvalue: COpaquePointer?, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHwProfFlagsW((pdeviceid?.value ?: 0L), ulhardwareprofile.toInt(), (pulvalue?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_HW_Prof_Flags_ExA(pdeviceid: PCSTR, ulhardwareprofile: UInt, pulvalue: Long, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_HW_Prof_Flags_ExA(pdeviceid, ulhardwareprofile.toInt(), pulvalue, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetHwProfFlagsExA(pdeviceid: Pcstr, ulhardwareprofile: UInt, pulvalue: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHwProfFlagsExA((pdeviceid?.value ?: 0L), ulhardwareprofile.toInt(), (pulvalue?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_HW_Prof_Flags_ExW(pdeviceid: PCWSTR, ulhardwareprofile: UInt, pulvalue: Long, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_HW_Prof_Flags_ExW(pdeviceid, ulhardwareprofile.toInt(), pulvalue, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetHwProfFlagsExW(pdeviceid: Pcwstr, ulhardwareprofile: UInt, pulvalue: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHwProfFlagsExW((pdeviceid?.value ?: 0L), ulhardwareprofile.toInt(), (pulvalue?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_Hardware_Profile_InfoA(ulindex: UInt, phwprofileinfo: Long, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Hardware_Profile_InfoA(ulindex.toInt(), phwprofileinfo, ulflags.toInt()).toUInt()
+public actual fun cmGetHardwareProfileInfoA(ulindex: UInt, phwprofileinfo: COpaquePointer?, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHardwareProfileInfoA(ulindex.toInt(), (phwprofileinfo?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_Hardware_Profile_InfoW(ulindex: UInt, phwprofileinfo: Long, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Hardware_Profile_InfoW(ulindex.toInt(), phwprofileinfo, ulflags.toInt()).toUInt()
+public actual fun cmGetHardwareProfileInfoW(ulindex: UInt, phwprofileinfo: COpaquePointer?, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHardwareProfileInfoW(ulindex.toInt(), (phwprofileinfo?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_Hardware_Profile_Info_ExA(ulindex: UInt, phwprofileinfo: Long, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Hardware_Profile_Info_ExA(ulindex.toInt(), phwprofileinfo, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetHardwareProfileInfoExA(ulindex: UInt, phwprofileinfo: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHardwareProfileInfoExA(ulindex.toInt(), (phwprofileinfo?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_Hardware_Profile_Info_ExW(ulindex: UInt, phwprofileinfo: Long, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Hardware_Profile_Info_ExW(ulindex.toInt(), phwprofileinfo, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetHardwareProfileInfoExW(ulindex: UInt, phwprofileinfo: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetHardwareProfileInfoExW(ulindex.toInt(), (phwprofileinfo?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_Log_Conf_Priority(lclogconf: ULong, ppriority: Long, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Log_Conf_Priority(lclogconf.toLong(), ppriority, ulflags.toInt()).toUInt()
+public actual fun cmGetLogConfPriority(lclogconf: ULong, ppriority: COpaquePointer?, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetLogConfPriority(lclogconf.toLong(), (ppriority?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_Log_Conf_Priority_Ex(lclogconf: ULong, ppriority: Long, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Log_Conf_Priority_Ex(lclogconf.toLong(), ppriority, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetLogConfPriorityEx(lclogconf: ULong, ppriority: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetLogConfPriorityEx(lclogconf.toLong(), (ppriority?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_Next_Log_Conf(plclogconf: Long, lclogconf: ULong, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Next_Log_Conf(plclogconf, lclogconf.toLong(), ulflags.toInt()).toUInt()
+public actual fun cmGetNextLogConf(plclogconf: COpaquePointer?, lclogconf: ULong, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetNextLogConf((plclogconf?.value ?: 0L), lclogconf.toLong(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_Next_Log_Conf_Ex(plclogconf: Long, lclogconf: ULong, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Next_Log_Conf_Ex(plclogconf, lclogconf.toLong(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetNextLogConfEx(plclogconf: COpaquePointer?, lclogconf: ULong, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetNextLogConfEx((plclogconf?.value ?: 0L), lclogconf.toLong(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_Next_Res_Des(prdresdes: Long, rdresdes: ULong, forresource: CM_RESTYPE, presourceid: Long, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Next_Res_Des(prdresdes, rdresdes.toLong(), forresource.toInt(), presourceid, ulflags.toInt()).toUInt()
+public actual fun cmGetNextResDes(prdresdes: COpaquePointer?, rdresdes: ULong, forresource: CmRestype, presourceid: COpaquePointer?, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetNextResDes((prdresdes?.value ?: 0L), rdresdes.toLong(), forresource.toInt(), (presourceid?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_Next_Res_Des_Ex(prdresdes: Long, rdresdes: ULong, forresource: CM_RESTYPE, presourceid: Long, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Next_Res_Des_Ex(prdresdes, rdresdes.toLong(), forresource.toInt(), presourceid, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetNextResDesEx(prdresdes: COpaquePointer?, rdresdes: ULong, forresource: CmRestype, presourceid: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetNextResDesEx((prdresdes?.value ?: 0L), rdresdes.toLong(), forresource.toInt(), (presourceid?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_Parent(pdndevinst: Long, dndevinst: UInt, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Parent(pdndevinst, dndevinst.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmGetParent(pdndevinst: COpaquePointer?, dndevinst: UInt, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetParent((pdndevinst?.value ?: 0L), dndevinst.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_Parent_Ex(pdndevinst: Long, dndevinst: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Parent_Ex(pdndevinst, dndevinst.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetParentEx(pdndevinst: COpaquePointer?, dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetParentEx((pdndevinst?.value ?: 0L), dndevinst.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_Res_Des_Data(rdresdes: ULong, buffer: Long, bufferlen: UInt, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Res_Des_Data(rdresdes.toLong(), buffer, bufferlen.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmGetResDesData(rdresdes: ULong, buffer: COpaquePointer?, bufferlen: UInt, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResDesData(rdresdes.toLong(), (buffer?.value ?: 0L), bufferlen.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_Res_Des_Data_Ex(rdresdes: ULong, buffer: Long, bufferlen: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Res_Des_Data_Ex(rdresdes.toLong(), buffer, bufferlen.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetResDesDataEx(rdresdes: ULong, buffer: COpaquePointer?, bufferlen: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResDesDataEx(rdresdes.toLong(), (buffer?.value ?: 0L), bufferlen.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_Res_Des_Data_Size(pulsize: Long, rdresdes: ULong, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Res_Des_Data_Size(pulsize, rdresdes.toLong(), ulflags.toInt()).toUInt()
+public actual fun cmGetResDesDataSize(pulsize: COpaquePointer?, rdresdes: ULong, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResDesDataSize((pulsize?.value ?: 0L), rdresdes.toLong(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_Res_Des_Data_Size_Ex(pulsize: Long, rdresdes: ULong, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Res_Des_Data_Size_Ex(pulsize, rdresdes.toLong(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetResDesDataSizeEx(pulsize: COpaquePointer?, rdresdes: ULong, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResDesDataSizeEx((pulsize?.value ?: 0L), rdresdes.toLong(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_Resource_Conflict_Count(clconflictlist: ULong, pulcount: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Resource_Conflict_Count(clconflictlist.toLong(), pulcount).toUInt()
+public actual fun cmGetResourceConflictCount(clconflictlist: ULong, pulcount: COpaquePointer?): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResourceConflictCount(clconflictlist.toLong(), (pulcount?.value ?: 0L)).toUInt()
 
-public actual fun CM_Get_Resource_Conflict_DetailsA(clconflictlist: ULong, ulindex: UInt, pconflictdetails: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Resource_Conflict_DetailsA(clconflictlist.toLong(), ulindex.toInt(), pconflictdetails).toUInt()
+public actual fun cmGetResourceConflictDetailsA(clconflictlist: ULong, ulindex: UInt, pconflictdetails: COpaquePointer?): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResourceConflictDetailsA(clconflictlist.toLong(), ulindex.toInt(), (pconflictdetails?.value ?: 0L)).toUInt()
 
-public actual fun CM_Get_Resource_Conflict_DetailsW(clconflictlist: ULong, ulindex: UInt, pconflictdetails: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Resource_Conflict_DetailsW(clconflictlist.toLong(), ulindex.toInt(), pconflictdetails).toUInt()
+public actual fun cmGetResourceConflictDetailsW(clconflictlist: ULong, ulindex: UInt, pconflictdetails: COpaquePointer?): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetResourceConflictDetailsW(clconflictlist.toLong(), ulindex.toInt(), (pconflictdetails?.value ?: 0L)).toUInt()
 
-public actual fun CM_Get_Sibling(pdndevinst: Long, dndevinst: UInt, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Sibling(pdndevinst, dndevinst.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmGetSibling(pdndevinst: COpaquePointer?, dndevinst: UInt, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetSibling((pdndevinst?.value ?: 0L), dndevinst.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Get_Sibling_Ex(pdndevinst: Long, dndevinst: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Sibling_Ex(pdndevinst, dndevinst.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmGetSiblingEx(pdndevinst: COpaquePointer?, dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetSiblingEx((pdndevinst?.value ?: 0L), dndevinst.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Get_Version(): UShort =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Version().toUShort()
+public actual fun cmGetVersion(): UShort =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetVersion().toUShort()
 
-public actual fun CM_Get_Version_Ex(hmachine: Long): UShort =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Get_Version_Ex(hmachine).toUShort()
+public actual fun cmGetVersionEx(hmachine: Long): UShort =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmGetVersionEx(hmachine).toUShort()
 
-public actual fun CM_Intersect_Range_List(rlhold1: ULong, rlhold2: ULong, rlhnew: ULong, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Intersect_Range_List(rlhold1.toLong(), rlhold2.toLong(), rlhnew.toLong(), ulflags.toInt()).toUInt()
+public actual fun cmIntersectRangeList(rlhold1: ULong, rlhold2: ULong, rlhnew: ULong, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmIntersectRangeList(rlhold1.toLong(), rlhold2.toLong(), rlhnew.toLong(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Invert_Range_List(rlhold: ULong, rlhnew: ULong, ullmaxvalue: ULong, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Invert_Range_List(rlhold.toLong(), rlhnew.toLong(), ullmaxvalue.toLong(), ulflags.toInt()).toUInt()
+public actual fun cmInvertRangeList(rlhold: ULong, rlhnew: ULong, ullmaxvalue: ULong, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmInvertRangeList(rlhold.toLong(), rlhnew.toLong(), ullmaxvalue.toLong(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Is_Dock_Station_Present(pbpresent: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Is_Dock_Station_Present(pbpresent).toUInt()
+public actual fun cmIsDockStationPresent(pbpresent: COpaquePointer?): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmIsDockStationPresent((pbpresent?.value ?: 0L)).toUInt()
 
-public actual fun CM_Is_Dock_Station_Present_Ex(pbpresent: Long, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Is_Dock_Station_Present_Ex(pbpresent, hmachine).toUInt()
+public actual fun cmIsDockStationPresentEx(pbpresent: COpaquePointer?, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmIsDockStationPresentEx((pbpresent?.value ?: 0L), hmachine).toUInt()
 
-public actual fun CM_Is_Version_Available(wversion: UShort): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Is_Version_Available(wversion.toShort())
+public actual fun cmIsVersionAvailable(wversion: UShort): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmIsVersionAvailable(wversion.toShort())
 
-public actual fun CM_Is_Version_Available_Ex(wversion: UShort, hmachine: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Is_Version_Available_Ex(wversion.toShort(), hmachine)
+public actual fun cmIsVersionAvailableEx(wversion: UShort, hmachine: Long): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmIsVersionAvailableEx(wversion.toShort(), hmachine)
 
-public actual fun CM_Locate_DevNodeA(pdndevinst: Long, pdeviceid: PCSTR, ulflags: CM_LOCATE_DEVNODE_FLAGS): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Locate_DevNodeA(pdndevinst, pdeviceid, ulflags.toInt()).toUInt()
+public actual fun cmLocateDevNodeA(pdndevinst: COpaquePointer?, pdeviceid: Pcstr, ulflags: CmLocateDevnodeFlags): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmLocateDevNodeA((pdndevinst?.value ?: 0L), (pdeviceid?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Locate_DevNodeW(pdndevinst: Long, pdeviceid: PCWSTR, ulflags: CM_LOCATE_DEVNODE_FLAGS): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Locate_DevNodeW(pdndevinst, pdeviceid, ulflags.toInt()).toUInt()
+public actual fun cmLocateDevNodeW(pdndevinst: COpaquePointer?, pdeviceid: Pcwstr, ulflags: CmLocateDevnodeFlags): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmLocateDevNodeW((pdndevinst?.value ?: 0L), (pdeviceid?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Locate_DevNode_ExA(pdndevinst: Long, pdeviceid: PCSTR, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Locate_DevNode_ExA(pdndevinst, pdeviceid, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmLocateDevNodeExA(pdndevinst: COpaquePointer?, pdeviceid: Pcstr, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmLocateDevNodeExA((pdndevinst?.value ?: 0L), (pdeviceid?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Locate_DevNode_ExW(pdndevinst: Long, pdeviceid: PCWSTR, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Locate_DevNode_ExW(pdndevinst, pdeviceid, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmLocateDevNodeExW(pdndevinst: COpaquePointer?, pdeviceid: Pcwstr, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmLocateDevNodeExW((pdndevinst?.value ?: 0L), (pdeviceid?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_MapCrToWin32Err(cmreturncode: CONFIGRET, defaulterr: UInt): UInt =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_MapCrToWin32Err(cmreturncode.toInt(), defaulterr.toInt()).toUInt()
+public actual fun cmMapCrToWin32Err(cmreturncode: Configret, defaulterr: UInt): UInt =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmMapCrToWin32Err(cmreturncode.toInt(), defaulterr.toInt()).toUInt()
 
-public actual fun CM_Merge_Range_List(rlhold1: ULong, rlhold2: ULong, rlhnew: ULong, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Merge_Range_List(rlhold1.toLong(), rlhold2.toLong(), rlhnew.toLong(), ulflags.toInt()).toUInt()
+public actual fun cmMergeRangeList(rlhold1: ULong, rlhold2: ULong, rlhnew: ULong, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmMergeRangeList(rlhold1.toLong(), rlhold2.toLong(), rlhnew.toLong(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Modify_Res_Des(prdresdes: Long, rdresdes: ULong, resourceid: UInt, resourcedata: Long, resourcelen: UInt, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Modify_Res_Des(prdresdes, rdresdes.toLong(), resourceid.toInt(), resourcedata, resourcelen.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmModifyResDes(prdresdes: COpaquePointer?, rdresdes: ULong, resourceid: UInt, resourcedata: COpaquePointer?, resourcelen: UInt, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmModifyResDes((prdresdes?.value ?: 0L), rdresdes.toLong(), resourceid.toInt(), (resourcedata?.value ?: 0L), resourcelen.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Modify_Res_Des_Ex(prdresdes: Long, rdresdes: ULong, resourceid: UInt, resourcedata: Long, resourcelen: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Modify_Res_Des_Ex(prdresdes, rdresdes.toLong(), resourceid.toInt(), resourcedata, resourcelen.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmModifyResDesEx(prdresdes: COpaquePointer?, rdresdes: ULong, resourceid: UInt, resourcedata: COpaquePointer?, resourcelen: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmModifyResDesEx((prdresdes?.value ?: 0L), rdresdes.toLong(), resourceid.toInt(), (resourcedata?.value ?: 0L), resourcelen.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Move_DevNode(dnfromdevinst: UInt, dntodevinst: UInt, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Move_DevNode(dnfromdevinst.toInt(), dntodevinst.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmMoveDevNode(dnfromdevinst: UInt, dntodevinst: UInt, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmMoveDevNode(dnfromdevinst.toInt(), dntodevinst.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Move_DevNode_Ex(dnfromdevinst: UInt, dntodevinst: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Move_DevNode_Ex(dnfromdevinst.toInt(), dntodevinst.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmMoveDevNodeEx(dnfromdevinst: UInt, dntodevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmMoveDevNodeEx(dnfromdevinst.toInt(), dntodevinst.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Next_Range(preelement: Long, pullstart: Long, pullend: Long, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Next_Range(preelement, pullstart, pullend, ulflags.toInt()).toUInt()
+public actual fun cmNextRange(preelement: COpaquePointer?, pullstart: COpaquePointer?, pullend: COpaquePointer?, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmNextRange((preelement?.value ?: 0L), (pullstart?.value ?: 0L), (pullend?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Open_Class_KeyA(classguid: Long, pszclassname: PCSTR, samdesired: UInt, disposition: UInt, phkclass: Long, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_Class_KeyA(classguid, pszclassname, samdesired.toInt(), disposition.toInt(), phkclass, ulflags.toInt()).toUInt()
+public actual fun cmOpenClassKeyA(classguid: COpaquePointer?, pszclassname: Pcstr, samdesired: UInt, disposition: UInt, phkclass: COpaquePointer?, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenClassKeyA((classguid?.value ?: 0L), (pszclassname?.value ?: 0L), samdesired.toInt(), disposition.toInt(), (phkclass?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Open_Class_KeyW(classguid: Long, pszclassname: PCWSTR, samdesired: UInt, disposition: UInt, phkclass: Long, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_Class_KeyW(classguid, pszclassname, samdesired.toInt(), disposition.toInt(), phkclass, ulflags.toInt()).toUInt()
+public actual fun cmOpenClassKeyW(classguid: COpaquePointer?, pszclassname: Pcwstr, samdesired: UInt, disposition: UInt, phkclass: COpaquePointer?, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenClassKeyW((classguid?.value ?: 0L), (pszclassname?.value ?: 0L), samdesired.toInt(), disposition.toInt(), (phkclass?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Open_Class_Key_ExA(classguid: Long, pszclassname: PCSTR, samdesired: UInt, disposition: UInt, phkclass: Long, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_Class_Key_ExA(classguid, pszclassname, samdesired.toInt(), disposition.toInt(), phkclass, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmOpenClassKeyExA(classguid: COpaquePointer?, pszclassname: Pcstr, samdesired: UInt, disposition: UInt, phkclass: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenClassKeyExA((classguid?.value ?: 0L), (pszclassname?.value ?: 0L), samdesired.toInt(), disposition.toInt(), (phkclass?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Open_Class_Key_ExW(classguid: Long, pszclassname: PCWSTR, samdesired: UInt, disposition: UInt, phkclass: Long, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_Class_Key_ExW(classguid, pszclassname, samdesired.toInt(), disposition.toInt(), phkclass, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmOpenClassKeyExW(classguid: COpaquePointer?, pszclassname: Pcwstr, samdesired: UInt, disposition: UInt, phkclass: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenClassKeyExW((classguid?.value ?: 0L), (pszclassname?.value ?: 0L), samdesired.toInt(), disposition.toInt(), (phkclass?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Open_DevNode_Key(dndevnode: UInt, samdesired: UInt, ulhardwareprofile: UInt, disposition: UInt, phkdevice: Long, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_DevNode_Key(dndevnode.toInt(), samdesired.toInt(), ulhardwareprofile.toInt(), disposition.toInt(), phkdevice, ulflags.toInt()).toUInt()
+public actual fun cmOpenDevNodeKey(dndevnode: UInt, samdesired: UInt, ulhardwareprofile: UInt, disposition: UInt, phkdevice: COpaquePointer?, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenDevNodeKey(dndevnode.toInt(), samdesired.toInt(), ulhardwareprofile.toInt(), disposition.toInt(), (phkdevice?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Open_DevNode_Key_Ex(dndevnode: UInt, samdesired: UInt, ulhardwareprofile: UInt, disposition: UInt, phkdevice: Long, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_DevNode_Key_Ex(dndevnode.toInt(), samdesired.toInt(), ulhardwareprofile.toInt(), disposition.toInt(), phkdevice, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmOpenDevNodeKeyEx(dndevnode: UInt, samdesired: UInt, ulhardwareprofile: UInt, disposition: UInt, phkdevice: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenDevNodeKeyEx(dndevnode.toInt(), samdesired.toInt(), ulhardwareprofile.toInt(), disposition.toInt(), (phkdevice?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Open_Device_Interface_KeyA(pszdeviceinterface: PCSTR, samdesired: UInt, disposition: UInt, phkdeviceinterface: Long, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_Device_Interface_KeyA(pszdeviceinterface, samdesired.toInt(), disposition.toInt(), phkdeviceinterface, ulflags.toInt()).toUInt()
+public actual fun cmOpenDeviceInterfaceKeyA(pszdeviceinterface: Pcstr, samdesired: UInt, disposition: UInt, phkdeviceinterface: COpaquePointer?, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenDeviceInterfaceKeyA((pszdeviceinterface?.value ?: 0L), samdesired.toInt(), disposition.toInt(), (phkdeviceinterface?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Open_Device_Interface_KeyW(pszdeviceinterface: PCWSTR, samdesired: UInt, disposition: UInt, phkdeviceinterface: Long, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_Device_Interface_KeyW(pszdeviceinterface, samdesired.toInt(), disposition.toInt(), phkdeviceinterface, ulflags.toInt()).toUInt()
+public actual fun cmOpenDeviceInterfaceKeyW(pszdeviceinterface: Pcwstr, samdesired: UInt, disposition: UInt, phkdeviceinterface: COpaquePointer?, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenDeviceInterfaceKeyW((pszdeviceinterface?.value ?: 0L), samdesired.toInt(), disposition.toInt(), (phkdeviceinterface?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Open_Device_Interface_Key_ExA(pszdeviceinterface: PCSTR, samdesired: UInt, disposition: UInt, phkdeviceinterface: Long, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_Device_Interface_Key_ExA(pszdeviceinterface, samdesired.toInt(), disposition.toInt(), phkdeviceinterface, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmOpenDeviceInterfaceKeyExA(pszdeviceinterface: Pcstr, samdesired: UInt, disposition: UInt, phkdeviceinterface: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenDeviceInterfaceKeyExA((pszdeviceinterface?.value ?: 0L), samdesired.toInt(), disposition.toInt(), (phkdeviceinterface?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Open_Device_Interface_Key_ExW(pszdeviceinterface: PCWSTR, samdesired: UInt, disposition: UInt, phkdeviceinterface: Long, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Open_Device_Interface_Key_ExW(pszdeviceinterface, samdesired.toInt(), disposition.toInt(), phkdeviceinterface, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmOpenDeviceInterfaceKeyExW(pszdeviceinterface: Pcwstr, samdesired: UInt, disposition: UInt, phkdeviceinterface: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmOpenDeviceInterfaceKeyExW((pszdeviceinterface?.value ?: 0L), samdesired.toInt(), disposition.toInt(), (phkdeviceinterface?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Query_And_Remove_SubTreeA(dnancestor: UInt, pvetotype: Long, pszvetoname: PSTR, ulnamelength: UInt, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_And_Remove_SubTreeA(dnancestor.toInt(), pvetotype, pszvetoname, ulnamelength.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmQueryAndRemoveSubTreeA(dnancestor: UInt, pvetotype: COpaquePointer?, pszvetoname: Pstr, ulnamelength: UInt, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryAndRemoveSubTreeA(dnancestor.toInt(), (pvetotype?.value ?: 0L), (pszvetoname?.value ?: 0L), ulnamelength.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Query_And_Remove_SubTreeW(dnancestor: UInt, pvetotype: Long, pszvetoname: PWSTR, ulnamelength: UInt, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_And_Remove_SubTreeW(dnancestor.toInt(), pvetotype, pszvetoname, ulnamelength.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmQueryAndRemoveSubTreeW(dnancestor: UInt, pvetotype: COpaquePointer?, pszvetoname: Pwstr, ulnamelength: UInt, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryAndRemoveSubTreeW(dnancestor.toInt(), (pvetotype?.value ?: 0L), (pszvetoname?.value ?: 0L), ulnamelength.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Query_And_Remove_SubTree_ExA(dnancestor: UInt, pvetotype: Long, pszvetoname: PSTR, ulnamelength: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_And_Remove_SubTree_ExA(dnancestor.toInt(), pvetotype, pszvetoname, ulnamelength.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmQueryAndRemoveSubTreeExA(dnancestor: UInt, pvetotype: COpaquePointer?, pszvetoname: Pstr, ulnamelength: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryAndRemoveSubTreeExA(dnancestor.toInt(), (pvetotype?.value ?: 0L), (pszvetoname?.value ?: 0L), ulnamelength.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Query_And_Remove_SubTree_ExW(dnancestor: UInt, pvetotype: Long, pszvetoname: PWSTR, ulnamelength: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_And_Remove_SubTree_ExW(dnancestor.toInt(), pvetotype, pszvetoname, ulnamelength.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmQueryAndRemoveSubTreeExW(dnancestor: UInt, pvetotype: COpaquePointer?, pszvetoname: Pwstr, ulnamelength: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryAndRemoveSubTreeExW(dnancestor.toInt(), (pvetotype?.value ?: 0L), (pszvetoname?.value ?: 0L), ulnamelength.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Query_Arbitrator_Free_Data(pdata: Long, datalen: UInt, dndevinst: UInt, resourceid: UInt, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_Arbitrator_Free_Data(pdata, datalen.toInt(), dndevinst.toInt(), resourceid.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmQueryArbitratorFreeData(pdata: COpaquePointer?, datalen: UInt, dndevinst: UInt, resourceid: UInt, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryArbitratorFreeData((pdata?.value ?: 0L), datalen.toInt(), dndevinst.toInt(), resourceid.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Query_Arbitrator_Free_Data_Ex(pdata: Long, datalen: UInt, dndevinst: UInt, resourceid: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_Arbitrator_Free_Data_Ex(pdata, datalen.toInt(), dndevinst.toInt(), resourceid.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmQueryArbitratorFreeDataEx(pdata: COpaquePointer?, datalen: UInt, dndevinst: UInt, resourceid: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryArbitratorFreeDataEx((pdata?.value ?: 0L), datalen.toInt(), dndevinst.toInt(), resourceid.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Query_Arbitrator_Free_Size(pulsize: Long, dndevinst: UInt, resourceid: UInt, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_Arbitrator_Free_Size(pulsize, dndevinst.toInt(), resourceid.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmQueryArbitratorFreeSize(pulsize: COpaquePointer?, dndevinst: UInt, resourceid: UInt, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryArbitratorFreeSize((pulsize?.value ?: 0L), dndevinst.toInt(), resourceid.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Query_Arbitrator_Free_Size_Ex(pulsize: Long, dndevinst: UInt, resourceid: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_Arbitrator_Free_Size_Ex(pulsize, dndevinst.toInt(), resourceid.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmQueryArbitratorFreeSizeEx(pulsize: COpaquePointer?, dndevinst: UInt, resourceid: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryArbitratorFreeSizeEx((pulsize?.value ?: 0L), dndevinst.toInt(), resourceid.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Query_Remove_SubTree(dnancestor: UInt, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_Remove_SubTree(dnancestor.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmQueryRemoveSubTree(dnancestor: UInt, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryRemoveSubTree(dnancestor.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Query_Remove_SubTree_Ex(dnancestor: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_Remove_SubTree_Ex(dnancestor.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmQueryRemoveSubTreeEx(dnancestor: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryRemoveSubTreeEx(dnancestor.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Query_Resource_Conflict_List(pclconflictlist: Long, dndevinst: UInt, resourceid: CM_RESTYPE, resourcedata: Long, resourcelen: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Query_Resource_Conflict_List(pclconflictlist, dndevinst.toInt(), resourceid.toInt(), resourcedata, resourcelen.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmQueryResourceConflictList(pclconflictlist: COpaquePointer?, dndevinst: UInt, resourceid: CmRestype, resourcedata: COpaquePointer?, resourcelen: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmQueryResourceConflictList((pclconflictlist?.value ?: 0L), dndevinst.toInt(), resourceid.toInt(), (resourcedata?.value ?: 0L), resourcelen.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Reenumerate_DevNode(dndevinst: UInt, ulflags: CM_REENUMERATE_FLAGS): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Reenumerate_DevNode(dndevinst.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmReenumerateDevNode(dndevinst: UInt, ulflags: CmReenumerateFlags): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmReenumerateDevNode(dndevinst.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Reenumerate_DevNode_Ex(dndevinst: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Reenumerate_DevNode_Ex(dndevinst.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmReenumerateDevNodeEx(dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmReenumerateDevNodeEx(dndevinst.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Register_Device_Driver(dndevinst: UInt, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Register_Device_Driver(dndevinst.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmRegisterDeviceDriver(dndevinst: UInt, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterDeviceDriver(dndevinst.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Register_Device_Driver_Ex(dndevinst: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Register_Device_Driver_Ex(dndevinst.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmRegisterDeviceDriverEx(dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterDeviceDriverEx(dndevinst.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Register_Device_InterfaceA(dndevinst: UInt, interfaceclassguid: Long, pszreference: PCSTR, pszdeviceinterface: PSTR, pullength: Long, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Register_Device_InterfaceA(dndevinst.toInt(), interfaceclassguid, pszreference, pszdeviceinterface, pullength, ulflags.toInt()).toUInt()
+public actual fun cmRegisterDeviceInterfaceA(dndevinst: UInt, interfaceclassguid: COpaquePointer?, pszreference: Pcstr, pszdeviceinterface: Pstr, pullength: COpaquePointer?, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterDeviceInterfaceA(dndevinst.toInt(), (interfaceclassguid?.value ?: 0L), (pszreference?.value ?: 0L), (pszdeviceinterface?.value ?: 0L), (pullength?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Register_Device_InterfaceW(dndevinst: UInt, interfaceclassguid: Long, pszreference: PCWSTR, pszdeviceinterface: PWSTR, pullength: Long, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Register_Device_InterfaceW(dndevinst.toInt(), interfaceclassguid, pszreference, pszdeviceinterface, pullength, ulflags.toInt()).toUInt()
+public actual fun cmRegisterDeviceInterfaceW(dndevinst: UInt, interfaceclassguid: COpaquePointer?, pszreference: Pcwstr, pszdeviceinterface: Pwstr, pullength: COpaquePointer?, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterDeviceInterfaceW(dndevinst.toInt(), (interfaceclassguid?.value ?: 0L), (pszreference?.value ?: 0L), (pszdeviceinterface?.value ?: 0L), (pullength?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Register_Device_Interface_ExA(dndevinst: UInt, interfaceclassguid: Long, pszreference: PCSTR, pszdeviceinterface: PSTR, pullength: Long, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Register_Device_Interface_ExA(dndevinst.toInt(), interfaceclassguid, pszreference, pszdeviceinterface, pullength, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmRegisterDeviceInterfaceExA(dndevinst: UInt, interfaceclassguid: COpaquePointer?, pszreference: Pcstr, pszdeviceinterface: Pstr, pullength: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterDeviceInterfaceExA(dndevinst.toInt(), (interfaceclassguid?.value ?: 0L), (pszreference?.value ?: 0L), (pszdeviceinterface?.value ?: 0L), (pullength?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Register_Device_Interface_ExW(dndevinst: UInt, interfaceclassguid: Long, pszreference: PCWSTR, pszdeviceinterface: PWSTR, pullength: Long, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Register_Device_Interface_ExW(dndevinst.toInt(), interfaceclassguid, pszreference, pszdeviceinterface, pullength, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmRegisterDeviceInterfaceExW(dndevinst: UInt, interfaceclassguid: COpaquePointer?, pszreference: Pcwstr, pszdeviceinterface: Pwstr, pullength: COpaquePointer?, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterDeviceInterfaceExW(dndevinst.toInt(), (interfaceclassguid?.value ?: 0L), (pszreference?.value ?: 0L), (pszdeviceinterface?.value ?: 0L), (pullength?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Register_Notification(pfilter: Long, pcontext: Long, pcallback: PCM_NOTIFY_CALLBACK, pnotifycontext: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Register_Notification(pfilter, pcontext, pcallback.toLong(), pnotifycontext).toUInt()
+public actual fun cmRegisterNotification(pfilter: COpaquePointer?, pcontext: COpaquePointer?, pcallback: PcmNotifyCallback, pnotifycontext: COpaquePointer?): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmRegisterNotification((pfilter?.value ?: 0L), (pcontext?.value ?: 0L), 0L, (pnotifycontext?.value ?: 0L)).toUInt()
 
-public actual fun CM_Remove_SubTree(dnancestor: UInt, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Remove_SubTree(dnancestor.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmRemoveSubTree(dnancestor: UInt, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmRemoveSubTree(dnancestor.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Remove_SubTree_Ex(dnancestor: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Remove_SubTree_Ex(dnancestor.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmRemoveSubTreeEx(dnancestor: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmRemoveSubTreeEx(dnancestor.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Request_Device_EjectA(dndevinst: UInt, pvetotype: Long, pszvetoname: PSTR, ulnamelength: UInt, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Request_Device_EjectA(dndevinst.toInt(), pvetotype, pszvetoname, ulnamelength.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmRequestDeviceEjectA(dndevinst: UInt, pvetotype: COpaquePointer?, pszvetoname: Pstr, ulnamelength: UInt, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmRequestDeviceEjectA(dndevinst.toInt(), (pvetotype?.value ?: 0L), (pszvetoname?.value ?: 0L), ulnamelength.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Request_Device_EjectW(dndevinst: UInt, pvetotype: Long, pszvetoname: PWSTR, ulnamelength: UInt, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Request_Device_EjectW(dndevinst.toInt(), pvetotype, pszvetoname, ulnamelength.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmRequestDeviceEjectW(dndevinst: UInt, pvetotype: COpaquePointer?, pszvetoname: Pwstr, ulnamelength: UInt, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmRequestDeviceEjectW(dndevinst.toInt(), (pvetotype?.value ?: 0L), (pszvetoname?.value ?: 0L), ulnamelength.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Request_Device_Eject_ExA(dndevinst: UInt, pvetotype: Long, pszvetoname: PSTR, ulnamelength: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Request_Device_Eject_ExA(dndevinst.toInt(), pvetotype, pszvetoname, ulnamelength.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmRequestDeviceEjectExA(dndevinst: UInt, pvetotype: COpaquePointer?, pszvetoname: Pstr, ulnamelength: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmRequestDeviceEjectExA(dndevinst.toInt(), (pvetotype?.value ?: 0L), (pszvetoname?.value ?: 0L), ulnamelength.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Request_Device_Eject_ExW(dndevinst: UInt, pvetotype: Long, pszvetoname: PWSTR, ulnamelength: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Request_Device_Eject_ExW(dndevinst.toInt(), pvetotype, pszvetoname, ulnamelength.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmRequestDeviceEjectExW(dndevinst: UInt, pvetotype: COpaquePointer?, pszvetoname: Pwstr, ulnamelength: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmRequestDeviceEjectExW(dndevinst.toInt(), (pvetotype?.value ?: 0L), (pszvetoname?.value ?: 0L), ulnamelength.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Request_Eject_PC(): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Request_Eject_PC().toUInt()
+public actual fun cmRequestEjectPc(): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmRequestEjectPc().toUInt()
 
-public actual fun CM_Request_Eject_PC_Ex(hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Request_Eject_PC_Ex(hmachine).toUInt()
+public actual fun cmRequestEjectPcEx(hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmRequestEjectPcEx(hmachine).toUInt()
 
-public actual fun CM_Run_Detection(ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Run_Detection(ulflags.toInt()).toUInt()
+public actual fun cmRunDetection(ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmRunDetection(ulflags.toInt()).toUInt()
 
-public actual fun CM_Run_Detection_Ex(ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Run_Detection_Ex(ulflags.toInt(), hmachine).toUInt()
+public actual fun cmRunDetectionEx(ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmRunDetectionEx(ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Set_Class_PropertyW(classguid: Long, propertykey: Long, propertytype: DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_Class_PropertyW(classguid, propertykey, propertytype.toInt(), propertybuffer, propertybuffersize.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmSetClassPropertyW(classguid: COpaquePointer?, propertykey: COpaquePointer?, propertytype: Devproptype, propertybuffer: COpaquePointer?, propertybuffersize: UInt, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetClassPropertyW((classguid?.value ?: 0L), (propertykey?.value ?: 0L), propertytype.toInt(), (propertybuffer?.value ?: 0L), propertybuffersize.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Set_Class_Property_ExW(classguid: Long, propertykey: Long, propertytype: DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_Class_Property_ExW(classguid, propertykey, propertytype.toInt(), propertybuffer, propertybuffersize.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmSetClassPropertyExW(classguid: COpaquePointer?, propertykey: COpaquePointer?, propertytype: Devproptype, propertybuffer: COpaquePointer?, propertybuffersize: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetClassPropertyExW((classguid?.value ?: 0L), (propertykey?.value ?: 0L), propertytype.toInt(), (propertybuffer?.value ?: 0L), propertybuffersize.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Set_Class_Registry_PropertyA(classguid: Long, ulproperty: UInt, buffer: Long, ullength: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_Class_Registry_PropertyA(classguid, ulproperty.toInt(), buffer, ullength.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmSetClassRegistryPropertyA(classguid: COpaquePointer?, ulproperty: UInt, buffer: COpaquePointer?, ullength: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetClassRegistryPropertyA((classguid?.value ?: 0L), ulproperty.toInt(), (buffer?.value ?: 0L), ullength.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Set_Class_Registry_PropertyW(classguid: Long, ulproperty: UInt, buffer: Long, ullength: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_Class_Registry_PropertyW(classguid, ulproperty.toInt(), buffer, ullength.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmSetClassRegistryPropertyW(classguid: COpaquePointer?, ulproperty: UInt, buffer: COpaquePointer?, ullength: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetClassRegistryPropertyW((classguid?.value ?: 0L), ulproperty.toInt(), (buffer?.value ?: 0L), ullength.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Set_DevNode_Problem(dndevinst: UInt, ulproblem: UInt, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_DevNode_Problem(dndevinst.toInt(), ulproblem.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmSetDevNodeProblem(dndevinst: UInt, ulproblem: UInt, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodeProblem(dndevinst.toInt(), ulproblem.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Set_DevNode_Problem_Ex(dndevinst: UInt, ulproblem: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_DevNode_Problem_Ex(dndevinst.toInt(), ulproblem.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmSetDevNodeProblemEx(dndevinst: UInt, ulproblem: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodeProblemEx(dndevinst.toInt(), ulproblem.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Set_DevNode_PropertyW(dndevinst: UInt, propertykey: Long, propertytype: DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_DevNode_PropertyW(dndevinst.toInt(), propertykey, propertytype.toInt(), propertybuffer, propertybuffersize.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmSetDevNodePropertyW(dndevinst: UInt, propertykey: COpaquePointer?, propertytype: Devproptype, propertybuffer: COpaquePointer?, propertybuffersize: UInt, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodePropertyW(dndevinst.toInt(), (propertykey?.value ?: 0L), propertytype.toInt(), (propertybuffer?.value ?: 0L), propertybuffersize.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Set_DevNode_Property_ExW(dndevinst: UInt, propertykey: Long, propertytype: DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_DevNode_Property_ExW(dndevinst.toInt(), propertykey, propertytype.toInt(), propertybuffer, propertybuffersize.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmSetDevNodePropertyExW(dndevinst: UInt, propertykey: COpaquePointer?, propertytype: Devproptype, propertybuffer: COpaquePointer?, propertybuffersize: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodePropertyExW(dndevinst.toInt(), (propertykey?.value ?: 0L), propertytype.toInt(), (propertybuffer?.value ?: 0L), propertybuffersize.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Set_DevNode_Registry_PropertyA(dndevinst: UInt, ulproperty: UInt, buffer: Long, ullength: UInt, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_DevNode_Registry_PropertyA(dndevinst.toInt(), ulproperty.toInt(), buffer, ullength.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmSetDevNodeRegistryPropertyA(dndevinst: UInt, ulproperty: UInt, buffer: COpaquePointer?, ullength: UInt, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodeRegistryPropertyA(dndevinst.toInt(), ulproperty.toInt(), (buffer?.value ?: 0L), ullength.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Set_DevNode_Registry_PropertyW(dndevinst: UInt, ulproperty: UInt, buffer: Long, ullength: UInt, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_DevNode_Registry_PropertyW(dndevinst.toInt(), ulproperty.toInt(), buffer, ullength.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmSetDevNodeRegistryPropertyW(dndevinst: UInt, ulproperty: UInt, buffer: COpaquePointer?, ullength: UInt, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodeRegistryPropertyW(dndevinst.toInt(), ulproperty.toInt(), (buffer?.value ?: 0L), ullength.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Set_DevNode_Registry_Property_ExA(dndevinst: UInt, ulproperty: UInt, buffer: Long, ullength: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_DevNode_Registry_Property_ExA(dndevinst.toInt(), ulproperty.toInt(), buffer, ullength.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmSetDevNodeRegistryPropertyExA(dndevinst: UInt, ulproperty: UInt, buffer: COpaquePointer?, ullength: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodeRegistryPropertyExA(dndevinst.toInt(), ulproperty.toInt(), (buffer?.value ?: 0L), ullength.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Set_DevNode_Registry_Property_ExW(dndevinst: UInt, ulproperty: UInt, buffer: Long, ullength: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_DevNode_Registry_Property_ExW(dndevinst.toInt(), ulproperty.toInt(), buffer, ullength.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmSetDevNodeRegistryPropertyExW(dndevinst: UInt, ulproperty: UInt, buffer: COpaquePointer?, ullength: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDevNodeRegistryPropertyExW(dndevinst.toInt(), ulproperty.toInt(), (buffer?.value ?: 0L), ullength.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Set_Device_Interface_PropertyW(pszdeviceinterface: PCWSTR, propertykey: Long, propertytype: DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_Device_Interface_PropertyW(pszdeviceinterface, propertykey, propertytype.toInt(), propertybuffer, propertybuffersize.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmSetDeviceInterfacePropertyW(pszdeviceinterface: Pcwstr, propertykey: COpaquePointer?, propertytype: Devproptype, propertybuffer: COpaquePointer?, propertybuffersize: UInt, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDeviceInterfacePropertyW((pszdeviceinterface?.value ?: 0L), (propertykey?.value ?: 0L), propertytype.toInt(), (propertybuffer?.value ?: 0L), propertybuffersize.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Set_Device_Interface_Property_ExW(pszdeviceinterface: PCWSTR, propertykey: Long, propertytype: DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_Device_Interface_Property_ExW(pszdeviceinterface, propertykey, propertytype.toInt(), propertybuffer, propertybuffersize.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmSetDeviceInterfacePropertyExW(pszdeviceinterface: Pcwstr, propertykey: COpaquePointer?, propertytype: Devproptype, propertybuffer: COpaquePointer?, propertybuffersize: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetDeviceInterfacePropertyExW((pszdeviceinterface?.value ?: 0L), (propertykey?.value ?: 0L), propertytype.toInt(), (propertybuffer?.value ?: 0L), propertybuffersize.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Set_HW_Prof(ulhardwareprofile: UInt, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_HW_Prof(ulhardwareprofile.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmSetHwProf(ulhardwareprofile: UInt, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetHwProf(ulhardwareprofile.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Set_HW_Prof_Ex(ulhardwareprofile: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_HW_Prof_Ex(ulhardwareprofile.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmSetHwProfEx(ulhardwareprofile: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetHwProfEx(ulhardwareprofile.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Set_HW_Prof_FlagsA(pdeviceid: PCSTR, ulconfig: UInt, ulvalue: UInt, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_HW_Prof_FlagsA(pdeviceid, ulconfig.toInt(), ulvalue.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmSetHwProfFlagsA(pdeviceid: Pcstr, ulconfig: UInt, ulvalue: UInt, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetHwProfFlagsA((pdeviceid?.value ?: 0L), ulconfig.toInt(), ulvalue.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Set_HW_Prof_FlagsW(pdeviceid: PCWSTR, ulconfig: UInt, ulvalue: UInt, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_HW_Prof_FlagsW(pdeviceid, ulconfig.toInt(), ulvalue.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmSetHwProfFlagsW(pdeviceid: Pcwstr, ulconfig: UInt, ulvalue: UInt, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetHwProfFlagsW((pdeviceid?.value ?: 0L), ulconfig.toInt(), ulvalue.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Set_HW_Prof_Flags_ExA(pdeviceid: PCSTR, ulconfig: UInt, ulvalue: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_HW_Prof_Flags_ExA(pdeviceid, ulconfig.toInt(), ulvalue.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmSetHwProfFlagsExA(pdeviceid: Pcstr, ulconfig: UInt, ulvalue: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetHwProfFlagsExA((pdeviceid?.value ?: 0L), ulconfig.toInt(), ulvalue.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Set_HW_Prof_Flags_ExW(pdeviceid: PCWSTR, ulconfig: UInt, ulvalue: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Set_HW_Prof_Flags_ExW(pdeviceid, ulconfig.toInt(), ulvalue.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmSetHwProfFlagsExW(pdeviceid: Pcwstr, ulconfig: UInt, ulvalue: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetHwProfFlagsExW((pdeviceid?.value ?: 0L), ulconfig.toInt(), ulvalue.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Setup_DevNode(dndevinst: UInt, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Setup_DevNode(dndevinst.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmSetupDevNode(dndevinst: UInt, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetupDevNode(dndevinst.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Setup_DevNode_Ex(dndevinst: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Setup_DevNode_Ex(dndevinst.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmSetupDevNodeEx(dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmSetupDevNodeEx(dndevinst.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Test_Range_Available(ullstartvalue: ULong, ullendvalue: ULong, rlh: ULong, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Test_Range_Available(ullstartvalue.toLong(), ullendvalue.toLong(), rlh.toLong(), ulflags.toInt()).toUInt()
+public actual fun cmTestRangeAvailable(ullstartvalue: ULong, ullendvalue: ULong, rlh: ULong, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmTestRangeAvailable(ullstartvalue.toLong(), ullendvalue.toLong(), rlh.toLong(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Uninstall_DevNode(dndevinst: UInt, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Uninstall_DevNode(dndevinst.toInt(), ulflags.toInt()).toUInt()
+public actual fun cmUninstallDevNode(dndevinst: UInt, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmUninstallDevNode(dndevinst.toInt(), ulflags.toInt()).toUInt()
 
-public actual fun CM_Uninstall_DevNode_Ex(dndevinst: UInt, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Uninstall_DevNode_Ex(dndevinst.toInt(), ulflags.toInt(), hmachine).toUInt()
+public actual fun cmUninstallDevNodeEx(dndevinst: UInt, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmUninstallDevNodeEx(dndevinst.toInt(), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Unregister_Device_InterfaceA(pszdeviceinterface: PCSTR, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Unregister_Device_InterfaceA(pszdeviceinterface, ulflags.toInt()).toUInt()
+public actual fun cmUnregisterDeviceInterfaceA(pszdeviceinterface: Pcstr, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmUnregisterDeviceInterfaceA((pszdeviceinterface?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Unregister_Device_InterfaceW(pszdeviceinterface: PCWSTR, ulflags: UInt): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Unregister_Device_InterfaceW(pszdeviceinterface, ulflags.toInt()).toUInt()
+public actual fun cmUnregisterDeviceInterfaceW(pszdeviceinterface: Pcwstr, ulflags: UInt): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmUnregisterDeviceInterfaceW((pszdeviceinterface?.value ?: 0L), ulflags.toInt()).toUInt()
 
-public actual fun CM_Unregister_Device_Interface_ExA(pszdeviceinterface: PCSTR, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Unregister_Device_Interface_ExA(pszdeviceinterface, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmUnregisterDeviceInterfaceExA(pszdeviceinterface: Pcstr, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmUnregisterDeviceInterfaceExA((pszdeviceinterface?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Unregister_Device_Interface_ExW(pszdeviceinterface: PCWSTR, ulflags: UInt, hmachine: Long): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Unregister_Device_Interface_ExW(pszdeviceinterface, ulflags.toInt(), hmachine).toUInt()
+public actual fun cmUnregisterDeviceInterfaceExW(pszdeviceinterface: Pcwstr, ulflags: UInt, hmachine: Long): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmUnregisterDeviceInterfaceExW((pszdeviceinterface?.value ?: 0L), ulflags.toInt(), hmachine).toUInt()
 
-public actual fun CM_Unregister_Notification(notifycontext: HCMNOTIFICATION): CONFIGRET =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_CM_Unregister_Notification(notifycontext).toUInt()
+public actual fun cmUnregisterNotification(notifycontext: Hcmnotification): Configret =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_cmUnregisterNotification((notifycontext?.value ?: 0L)).toUInt()
 
-public actual fun DiInstallDevice(hwndparent: HWND, deviceinfoset: HDEVINFO, deviceinfodata: Long, driverinfodata: Long, flags: DIINSTALLDEVICE_FLAGS, needreboot: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_DiInstallDevice(hwndparent, deviceinfoset, deviceinfodata, driverinfodata, flags.toInt(), needreboot)
+public actual fun diInstallDevice(hwndparent: Hwnd, deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, driverinfodata: COpaquePointer?, flags: DiinstalldeviceFlags, needreboot: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_diInstallDevice((hwndparent?.value ?: 0L), deviceinfoset, (deviceinfodata?.value ?: 0L), (driverinfodata?.value ?: 0L), flags.toInt(), (needreboot?.value ?: 0L))
 
-public actual fun DiInstallDriverA(hwndparent: HWND, infpath: PCSTR, flags: DIINSTALLDRIVER_FLAGS, needreboot: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_DiInstallDriverA(hwndparent, infpath, flags.toInt(), needreboot)
+public actual fun diInstallDriverA(hwndparent: Hwnd, infpath: Pcstr, flags: DiinstalldriverFlags, needreboot: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_diInstallDriverA((hwndparent?.value ?: 0L), (infpath?.value ?: 0L), flags.toInt(), (needreboot?.value ?: 0L))
 
-public actual fun DiInstallDriverW(hwndparent: HWND, infpath: PCWSTR, flags: DIINSTALLDRIVER_FLAGS, needreboot: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_DiInstallDriverW(hwndparent, infpath, flags.toInt(), needreboot)
+public actual fun diInstallDriverW(hwndparent: Hwnd, infpath: Pcwstr, flags: DiinstalldriverFlags, needreboot: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_diInstallDriverW((hwndparent?.value ?: 0L), (infpath?.value ?: 0L), flags.toInt(), (needreboot?.value ?: 0L))
 
-public actual fun DiRollbackDriver(deviceinfoset: HDEVINFO, deviceinfodata: Long, hwndparent: HWND, flags: DIROLLBACKDRIVER_FLAGS, needreboot: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_DiRollbackDriver(deviceinfoset, deviceinfodata, hwndparent, flags.toInt(), needreboot)
+public actual fun diRollbackDriver(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, hwndparent: Hwnd, flags: DirollbackdriverFlags, needreboot: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_diRollbackDriver(deviceinfoset, (deviceinfodata?.value ?: 0L), (hwndparent?.value ?: 0L), flags.toInt(), (needreboot?.value ?: 0L))
 
-public actual fun DiShowUpdateDevice(hwndparent: HWND, deviceinfoset: HDEVINFO, deviceinfodata: Long, flags: UInt, needreboot: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_DiShowUpdateDevice(hwndparent, deviceinfoset, deviceinfodata, flags.toInt(), needreboot)
+public actual fun diShowUpdateDevice(hwndparent: Hwnd, deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, flags: UInt, needreboot: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_diShowUpdateDevice((hwndparent?.value ?: 0L), deviceinfoset, (deviceinfodata?.value ?: 0L), flags.toInt(), (needreboot?.value ?: 0L))
 
-public actual fun DiShowUpdateDriver(hwndparent: HWND, filepath: PCWSTR, flags: UInt, needreboot: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_DiShowUpdateDriver(hwndparent, filepath, flags.toInt(), needreboot)
+public actual fun diShowUpdateDriver(hwndparent: Hwnd, filepath: Pcwstr, flags: UInt, needreboot: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_diShowUpdateDriver((hwndparent?.value ?: 0L), (filepath?.value ?: 0L), flags.toInt(), (needreboot?.value ?: 0L))
 
-public actual fun DiUninstallDevice(hwndparent: HWND, deviceinfoset: HDEVINFO, deviceinfodata: Long, flags: UInt, needreboot: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_DiUninstallDevice(hwndparent, deviceinfoset, deviceinfodata, flags.toInt(), needreboot)
+public actual fun diUninstallDevice(hwndparent: Hwnd, deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, flags: UInt, needreboot: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_diUninstallDevice((hwndparent?.value ?: 0L), deviceinfoset, (deviceinfodata?.value ?: 0L), flags.toInt(), (needreboot?.value ?: 0L))
 
-public actual fun DiUninstallDriverA(hwndparent: HWND, infpath: PCSTR, flags: DIUNINSTALLDRIVER_FLAGS, needreboot: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_DiUninstallDriverA(hwndparent, infpath, flags.toInt(), needreboot)
+public actual fun diUninstallDriverA(hwndparent: Hwnd, infpath: Pcstr, flags: DiuninstalldriverFlags, needreboot: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_diUninstallDriverA((hwndparent?.value ?: 0L), (infpath?.value ?: 0L), flags.toInt(), (needreboot?.value ?: 0L))
 
-public actual fun DiUninstallDriverW(hwndparent: HWND, infpath: PCWSTR, flags: DIUNINSTALLDRIVER_FLAGS, needreboot: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_DiUninstallDriverW(hwndparent, infpath, flags.toInt(), needreboot)
+public actual fun diUninstallDriverW(hwndparent: Hwnd, infpath: Pcwstr, flags: DiuninstalldriverFlags, needreboot: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_diUninstallDriverW((hwndparent?.value ?: 0L), (infpath?.value ?: 0L), flags.toInt(), (needreboot?.value ?: 0L))
 
-public actual fun InstallHinfSectionA(window: HWND, modulehandle: HINSTANCE, commandline: PCSTR, showcommand: Int) {
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_InstallHinfSectionA(window, modulehandle, commandline, showcommand)
+public actual fun installHinfSectionA(window: Hwnd, modulehandle: Hinstance, commandline: Pcstr, showcommand: Int) {
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_installHinfSectionA((window?.value ?: 0L), (modulehandle?.value ?: 0L), (commandline?.value ?: 0L), showcommand)
 }
 
-public actual fun InstallHinfSectionW(window: HWND, modulehandle: HINSTANCE, commandline: PCWSTR, showcommand: Int) {
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_InstallHinfSectionW(window, modulehandle, commandline, showcommand)
+public actual fun installHinfSectionW(window: Hwnd, modulehandle: Hinstance, commandline: Pcwstr, showcommand: Int) {
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_installHinfSectionW((window?.value ?: 0L), (modulehandle?.value ?: 0L), (commandline?.value ?: 0L), showcommand)
 }
 
-public actual fun SetupAddInstallSectionToDiskSpaceListA(diskspace: Long, infhandle: Long, layoutinfhandle: Long, sectionname: PCSTR, reserved1: Long, reserved2: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAddInstallSectionToDiskSpaceListA(diskspace, infhandle, layoutinfhandle, sectionname, reserved1, reserved2.toInt())
+public actual fun setupAddInstallSectionToDiskSpaceListA(diskspace: COpaquePointer?, infhandle: COpaquePointer?, layoutinfhandle: COpaquePointer?, sectionname: Pcstr, reserved1: COpaquePointer?, reserved2: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddInstallSectionToDiskSpaceListA((diskspace?.value ?: 0L), (infhandle?.value ?: 0L), (layoutinfhandle?.value ?: 0L), (sectionname?.value ?: 0L), (reserved1?.value ?: 0L), reserved2.toInt())
 
-public actual fun SetupAddInstallSectionToDiskSpaceListW(diskspace: Long, infhandle: Long, layoutinfhandle: Long, sectionname: PCWSTR, reserved1: Long, reserved2: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAddInstallSectionToDiskSpaceListW(diskspace, infhandle, layoutinfhandle, sectionname, reserved1, reserved2.toInt())
+public actual fun setupAddInstallSectionToDiskSpaceListW(diskspace: COpaquePointer?, infhandle: COpaquePointer?, layoutinfhandle: COpaquePointer?, sectionname: Pcwstr, reserved1: COpaquePointer?, reserved2: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddInstallSectionToDiskSpaceListW((diskspace?.value ?: 0L), (infhandle?.value ?: 0L), (layoutinfhandle?.value ?: 0L), (sectionname?.value ?: 0L), (reserved1?.value ?: 0L), reserved2.toInt())
 
-public actual fun SetupAddSectionToDiskSpaceListA(diskspace: Long, infhandle: Long, listinfhandle: Long, sectionname: PCSTR, operation: SETUP_FILE_OPERATION, reserved1: Long, reserved2: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAddSectionToDiskSpaceListA(diskspace, infhandle, listinfhandle, sectionname, operation.toInt(), reserved1, reserved2.toInt())
+public actual fun setupAddSectionToDiskSpaceListA(diskspace: COpaquePointer?, infhandle: COpaquePointer?, listinfhandle: COpaquePointer?, sectionname: Pcstr, operation: SetupFileOperation, reserved1: COpaquePointer?, reserved2: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddSectionToDiskSpaceListA((diskspace?.value ?: 0L), (infhandle?.value ?: 0L), (listinfhandle?.value ?: 0L), (sectionname?.value ?: 0L), operation.toInt(), (reserved1?.value ?: 0L), reserved2.toInt())
 
-public actual fun SetupAddSectionToDiskSpaceListW(diskspace: Long, infhandle: Long, listinfhandle: Long, sectionname: PCWSTR, operation: SETUP_FILE_OPERATION, reserved1: Long, reserved2: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAddSectionToDiskSpaceListW(diskspace, infhandle, listinfhandle, sectionname, operation.toInt(), reserved1, reserved2.toInt())
+public actual fun setupAddSectionToDiskSpaceListW(diskspace: COpaquePointer?, infhandle: COpaquePointer?, listinfhandle: COpaquePointer?, sectionname: Pcwstr, operation: SetupFileOperation, reserved1: COpaquePointer?, reserved2: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddSectionToDiskSpaceListW((diskspace?.value ?: 0L), (infhandle?.value ?: 0L), (listinfhandle?.value ?: 0L), (sectionname?.value ?: 0L), operation.toInt(), (reserved1?.value ?: 0L), reserved2.toInt())
 
-public actual fun SetupAddToDiskSpaceListA(diskspace: Long, targetfilespec: PCSTR, filesize: Long, operation: SETUP_FILE_OPERATION, reserved1: Long, reserved2: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAddToDiskSpaceListA(diskspace, targetfilespec, filesize, operation.toInt(), reserved1, reserved2.toInt())
+public actual fun setupAddToDiskSpaceListA(diskspace: COpaquePointer?, targetfilespec: Pcstr, filesize: Long, operation: SetupFileOperation, reserved1: COpaquePointer?, reserved2: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddToDiskSpaceListA((diskspace?.value ?: 0L), (targetfilespec?.value ?: 0L), filesize, operation.toInt(), (reserved1?.value ?: 0L), reserved2.toInt())
 
-public actual fun SetupAddToDiskSpaceListW(diskspace: Long, targetfilespec: PCWSTR, filesize: Long, operation: SETUP_FILE_OPERATION, reserved1: Long, reserved2: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAddToDiskSpaceListW(diskspace, targetfilespec, filesize, operation.toInt(), reserved1, reserved2.toInt())
+public actual fun setupAddToDiskSpaceListW(diskspace: COpaquePointer?, targetfilespec: Pcwstr, filesize: Long, operation: SetupFileOperation, reserved1: COpaquePointer?, reserved2: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddToDiskSpaceListW((diskspace?.value ?: 0L), (targetfilespec?.value ?: 0L), filesize, operation.toInt(), (reserved1?.value ?: 0L), reserved2.toInt())
 
-public actual fun SetupAddToSourceListA(flags: UInt, source: PCSTR): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAddToSourceListA(flags.toInt(), source)
+public actual fun setupAddToSourceListA(flags: UInt, source: Pcstr): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddToSourceListA(flags.toInt(), (source?.value ?: 0L))
 
-public actual fun SetupAddToSourceListW(flags: UInt, source: PCWSTR): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAddToSourceListW(flags.toInt(), source)
+public actual fun setupAddToSourceListW(flags: UInt, source: Pcwstr): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupAddToSourceListW(flags.toInt(), (source?.value ?: 0L))
 
-public actual fun SetupAdjustDiskSpaceListA(diskspace: Long, driveroot: PCSTR, amount: Long, reserved1: Long, reserved2: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAdjustDiskSpaceListA(diskspace, driveroot, amount, reserved1, reserved2.toInt())
+public actual fun setupAdjustDiskSpaceListA(diskspace: COpaquePointer?, driveroot: Pcstr, amount: Long, reserved1: COpaquePointer?, reserved2: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupAdjustDiskSpaceListA((diskspace?.value ?: 0L), (driveroot?.value ?: 0L), amount, (reserved1?.value ?: 0L), reserved2.toInt())
 
-public actual fun SetupAdjustDiskSpaceListW(diskspace: Long, driveroot: PCWSTR, amount: Long, reserved1: Long, reserved2: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupAdjustDiskSpaceListW(diskspace, driveroot, amount, reserved1, reserved2.toInt())
+public actual fun setupAdjustDiskSpaceListW(diskspace: COpaquePointer?, driveroot: Pcwstr, amount: Long, reserved1: COpaquePointer?, reserved2: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupAdjustDiskSpaceListW((diskspace?.value ?: 0L), (driveroot?.value ?: 0L), amount, (reserved1?.value ?: 0L), reserved2.toInt())
 
-public actual fun SetupBackupErrorA(hwndparent: HWND, dialogtitle: PCSTR, sourcefile: PCSTR, targetfile: PCSTR, win32errorcode: UInt, style: UInt): UInt =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupBackupErrorA(hwndparent, dialogtitle, sourcefile, targetfile, win32errorcode.toInt(), style.toInt()).toUInt()
+public actual fun setupBackupErrorA(hwndparent: Hwnd, dialogtitle: Pcstr, sourcefile: Pcstr, targetfile: Pcstr, win32errorcode: UInt, style: UInt): UInt =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupBackupErrorA((hwndparent?.value ?: 0L), (dialogtitle?.value ?: 0L), (sourcefile?.value ?: 0L), (targetfile?.value ?: 0L), win32errorcode.toInt(), style.toInt()).toUInt()
 
-public actual fun SetupBackupErrorW(hwndparent: HWND, dialogtitle: PCWSTR, sourcefile: PCWSTR, targetfile: PCWSTR, win32errorcode: UInt, style: UInt): UInt =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupBackupErrorW(hwndparent, dialogtitle, sourcefile, targetfile, win32errorcode.toInt(), style.toInt()).toUInt()
+public actual fun setupBackupErrorW(hwndparent: Hwnd, dialogtitle: Pcwstr, sourcefile: Pcwstr, targetfile: Pcwstr, win32errorcode: UInt, style: UInt): UInt =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupBackupErrorW((hwndparent?.value ?: 0L), (dialogtitle?.value ?: 0L), (sourcefile?.value ?: 0L), (targetfile?.value ?: 0L), win32errorcode.toInt(), style.toInt()).toUInt()
 
-public actual fun SetupCancelTemporarySourceList(): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCancelTemporarySourceList()
+public actual fun setupCancelTemporarySourceList(): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupCancelTemporarySourceList()
 
-public actual fun SetupCloseFileQueue(queuehandle: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCloseFileQueue(queuehandle)
+public actual fun setupCloseFileQueue(queuehandle: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupCloseFileQueue((queuehandle?.value ?: 0L))
 
-public actual fun SetupCloseInfFile(infhandle: Long) {
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCloseInfFile(infhandle)
+public actual fun setupCloseInfFile(infhandle: COpaquePointer?) {
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupCloseInfFile((infhandle?.value ?: 0L))
 }
 
-public actual fun SetupCloseLog() {
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCloseLog()
+public actual fun setupCloseLog() {
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupCloseLog()
 }
 
-public actual fun SetupCommitFileQueueA(owner: HWND, queuehandle: Long, msghandler: PSP_FILE_CALLBACK_A, context: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCommitFileQueueA(owner, queuehandle, msghandler.toLong(), context)
+public actual fun setupCommitFileQueueA(owner: Hwnd, queuehandle: COpaquePointer?, msghandler: PspFileCallbackA, context: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupCommitFileQueueA((owner?.value ?: 0L), (queuehandle?.value ?: 0L), 0L, (context?.value ?: 0L))
 
-public actual fun SetupCommitFileQueueW(owner: HWND, queuehandle: Long, msghandler: PSP_FILE_CALLBACK_W, context: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCommitFileQueueW(owner, queuehandle, msghandler.toLong(), context)
+public actual fun setupCommitFileQueueW(owner: Hwnd, queuehandle: COpaquePointer?, msghandler: PspFileCallbackW, context: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupCommitFileQueueW((owner?.value ?: 0L), (queuehandle?.value ?: 0L), 0L, (context?.value ?: 0L))
 
-public actual fun SetupConfigureWmiFromInfSectionA(infhandle: Long, sectionname: PCSTR, flags: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupConfigureWmiFromInfSectionA(infhandle, sectionname, flags.toInt())
+public actual fun setupConfigureWmiFromInfSectionA(infhandle: COpaquePointer?, sectionname: Pcstr, flags: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupConfigureWmiFromInfSectionA((infhandle?.value ?: 0L), (sectionname?.value ?: 0L), flags.toInt())
 
-public actual fun SetupConfigureWmiFromInfSectionW(infhandle: Long, sectionname: PCWSTR, flags: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupConfigureWmiFromInfSectionW(infhandle, sectionname, flags.toInt())
+public actual fun setupConfigureWmiFromInfSectionW(infhandle: COpaquePointer?, sectionname: Pcwstr, flags: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupConfigureWmiFromInfSectionW((infhandle?.value ?: 0L), (sectionname?.value ?: 0L), flags.toInt())
 
-public actual fun SetupCopyErrorA(hwndparent: HWND, dialogtitle: PCSTR, diskname: PCSTR, pathtosource: PCSTR, sourcefile: PCSTR, targetpathfile: PCSTR, win32errorcode: UInt, style: UInt, pathbuffer: PSTR, pathbuffersize: UInt, pathrequiredsize: Long): UInt =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCopyErrorA(hwndparent, dialogtitle, diskname, pathtosource, sourcefile, targetpathfile, win32errorcode.toInt(), style.toInt(), pathbuffer, pathbuffersize.toInt(), pathrequiredsize).toUInt()
+public actual fun setupCopyErrorA(hwndparent: Hwnd, dialogtitle: Pcstr, diskname: Pcstr, pathtosource: Pcstr, sourcefile: Pcstr, targetpathfile: Pcstr, win32errorcode: UInt, style: UInt, pathbuffer: Pstr, pathbuffersize: UInt, pathrequiredsize: COpaquePointer?): UInt =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupCopyErrorA((hwndparent?.value ?: 0L), (dialogtitle?.value ?: 0L), (diskname?.value ?: 0L), (pathtosource?.value ?: 0L), (sourcefile?.value ?: 0L), (targetpathfile?.value ?: 0L), win32errorcode.toInt(), style.toInt(), (pathbuffer?.value ?: 0L), pathbuffersize.toInt(), (pathrequiredsize?.value ?: 0L)).toUInt()
 
-public actual fun SetupCopyErrorW(hwndparent: HWND, dialogtitle: PCWSTR, diskname: PCWSTR, pathtosource: PCWSTR, sourcefile: PCWSTR, targetpathfile: PCWSTR, win32errorcode: UInt, style: UInt, pathbuffer: PWSTR, pathbuffersize: UInt, pathrequiredsize: Long): UInt =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCopyErrorW(hwndparent, dialogtitle, diskname, pathtosource, sourcefile, targetpathfile, win32errorcode.toInt(), style.toInt(), pathbuffer, pathbuffersize.toInt(), pathrequiredsize).toUInt()
+public actual fun setupCopyErrorW(hwndparent: Hwnd, dialogtitle: Pcwstr, diskname: Pcwstr, pathtosource: Pcwstr, sourcefile: Pcwstr, targetpathfile: Pcwstr, win32errorcode: UInt, style: UInt, pathbuffer: Pwstr, pathbuffersize: UInt, pathrequiredsize: COpaquePointer?): UInt =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupCopyErrorW((hwndparent?.value ?: 0L), (dialogtitle?.value ?: 0L), (diskname?.value ?: 0L), (pathtosource?.value ?: 0L), (sourcefile?.value ?: 0L), (targetpathfile?.value ?: 0L), win32errorcode.toInt(), style.toInt(), (pathbuffer?.value ?: 0L), pathbuffersize.toInt(), (pathrequiredsize?.value ?: 0L)).toUInt()
 
-public actual fun SetupCopyOEMInfA(sourceinffilename: PCSTR, oemsourcemedialocation: PCSTR, oemsourcemediatype: OEM_SOURCE_MEDIA_TYPE, copystyle: SP_COPY_STYLE, destinationinffilename: PSTR, destinationinffilenamesize: UInt, requiredsize: Long, destinationinffilenamecomponent: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCopyOEMInfA(sourceinffilename, oemsourcemedialocation, oemsourcemediatype.toInt(), copystyle.toInt(), destinationinffilename, destinationinffilenamesize.toInt(), requiredsize, destinationinffilenamecomponent)
+public actual fun setupCopyOEMInfA(sourceinffilename: Pcstr, oemsourcemedialocation: Pcstr, oemsourcemediatype: OemSourceMediaType, copystyle: SpCopyStyle, destinationinffilename: Pstr, destinationinffilenamesize: UInt, requiredsize: COpaquePointer?, destinationinffilenamecomponent: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupCopyOEMInfA((sourceinffilename?.value ?: 0L), (oemsourcemedialocation?.value ?: 0L), oemsourcemediatype.toInt(), copystyle.toInt(), (destinationinffilename?.value ?: 0L), destinationinffilenamesize.toInt(), (requiredsize?.value ?: 0L), (destinationinffilenamecomponent?.value ?: 0L))
 
-public actual fun SetupCopyOEMInfW(sourceinffilename: PCWSTR, oemsourcemedialocation: PCWSTR, oemsourcemediatype: OEM_SOURCE_MEDIA_TYPE, copystyle: SP_COPY_STYLE, destinationinffilename: PWSTR, destinationinffilenamesize: UInt, requiredsize: Long, destinationinffilenamecomponent: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCopyOEMInfW(sourceinffilename, oemsourcemedialocation, oemsourcemediatype.toInt(), copystyle.toInt(), destinationinffilename, destinationinffilenamesize.toInt(), requiredsize, destinationinffilenamecomponent)
+public actual fun setupCopyOEMInfW(sourceinffilename: Pcwstr, oemsourcemedialocation: Pcwstr, oemsourcemediatype: OemSourceMediaType, copystyle: SpCopyStyle, destinationinffilename: Pwstr, destinationinffilenamesize: UInt, requiredsize: COpaquePointer?, destinationinffilenamecomponent: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupCopyOEMInfW((sourceinffilename?.value ?: 0L), (oemsourcemedialocation?.value ?: 0L), oemsourcemediatype.toInt(), copystyle.toInt(), (destinationinffilename?.value ?: 0L), destinationinffilenamesize.toInt(), (requiredsize?.value ?: 0L), (destinationinffilenamecomponent?.value ?: 0L))
 
-public actual fun SetupCreateDiskSpaceListA(reserved1: Long, reserved2: UInt, flags: UInt): Long =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCreateDiskSpaceListA(reserved1, reserved2.toInt(), flags.toInt())
+public actual fun setupCreateDiskSpaceListA(reserved1: COpaquePointer?, reserved2: UInt, flags: UInt): COpaquePointer? =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupCreateDiskSpaceListA((reserved1?.value ?: 0L), reserved2.toInt(), flags.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SetupCreateDiskSpaceListW(reserved1: Long, reserved2: UInt, flags: UInt): Long =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupCreateDiskSpaceListW(reserved1, reserved2.toInt(), flags.toInt())
+public actual fun setupCreateDiskSpaceListW(reserved1: COpaquePointer?, reserved2: UInt, flags: UInt): COpaquePointer? =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupCreateDiskSpaceListW((reserved1?.value ?: 0L), reserved2.toInt(), flags.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SetupDecompressOrCopyFileA(sourcefilename: PCSTR, targetfilename: PCSTR, compressiontype: Long): UInt =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDecompressOrCopyFileA(sourcefilename, targetfilename, compressiontype).toUInt()
+public actual fun setupDecompressOrCopyFileA(sourcefilename: Pcstr, targetfilename: Pcstr, compressiontype: COpaquePointer?): UInt =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDecompressOrCopyFileA((sourcefilename?.value ?: 0L), (targetfilename?.value ?: 0L), (compressiontype?.value ?: 0L)).toUInt()
 
-public actual fun SetupDecompressOrCopyFileW(sourcefilename: PCWSTR, targetfilename: PCWSTR, compressiontype: Long): UInt =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDecompressOrCopyFileW(sourcefilename, targetfilename, compressiontype).toUInt()
+public actual fun setupDecompressOrCopyFileW(sourcefilename: Pcwstr, targetfilename: Pcwstr, compressiontype: COpaquePointer?): UInt =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDecompressOrCopyFileW((sourcefilename?.value ?: 0L), (targetfilename?.value ?: 0L), (compressiontype?.value ?: 0L)).toUInt()
 
-public actual fun SetupDefaultQueueCallbackA(context: Long, notification: UInt, param1: ULong, param2: ULong): UInt =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDefaultQueueCallbackA(context, notification.toInt(), param1.toLong(), param2.toLong()).toUInt()
+public actual fun setupDefaultQueueCallbackA(context: COpaquePointer?, notification: UInt, param1: ULong, param2: ULong): UInt =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDefaultQueueCallbackA((context?.value ?: 0L), notification.toInt(), param1.toLong(), param2.toLong()).toUInt()
 
-public actual fun SetupDefaultQueueCallbackW(context: Long, notification: UInt, param1: ULong, param2: ULong): UInt =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDefaultQueueCallbackW(context, notification.toInt(), param1.toLong(), param2.toLong()).toUInt()
+public actual fun setupDefaultQueueCallbackW(context: COpaquePointer?, notification: UInt, param1: ULong, param2: ULong): UInt =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDefaultQueueCallbackW((context?.value ?: 0L), notification.toInt(), param1.toLong(), param2.toLong()).toUInt()
 
-public actual fun SetupDeleteErrorA(hwndparent: HWND, dialogtitle: PCSTR, file: PCSTR, win32errorcode: UInt, style: UInt): UInt =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDeleteErrorA(hwndparent, dialogtitle, file, win32errorcode.toInt(), style.toInt()).toUInt()
+public actual fun setupDeleteErrorA(hwndparent: Hwnd, dialogtitle: Pcstr, file: Pcstr, win32errorcode: UInt, style: UInt): UInt =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDeleteErrorA((hwndparent?.value ?: 0L), (dialogtitle?.value ?: 0L), (file?.value ?: 0L), win32errorcode.toInt(), style.toInt()).toUInt()
 
-public actual fun SetupDeleteErrorW(hwndparent: HWND, dialogtitle: PCWSTR, file: PCWSTR, win32errorcode: UInt, style: UInt): UInt =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDeleteErrorW(hwndparent, dialogtitle, file, win32errorcode.toInt(), style.toInt()).toUInt()
+public actual fun setupDeleteErrorW(hwndparent: Hwnd, dialogtitle: Pcwstr, file: Pcwstr, win32errorcode: UInt, style: UInt): UInt =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDeleteErrorW((hwndparent?.value ?: 0L), (dialogtitle?.value ?: 0L), (file?.value ?: 0L), win32errorcode.toInt(), style.toInt()).toUInt()
 
-public actual fun SetupDestroyDiskSpaceList(diskspace: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDestroyDiskSpaceList(diskspace)
+public actual fun setupDestroyDiskSpaceList(diskspace: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDestroyDiskSpaceList((diskspace?.value ?: 0L))
 
-public actual fun SetupDiAskForOEMDisk(deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiAskForOEMDisk(deviceinfoset, deviceinfodata)
+public actual fun setupDiAskForOEMDisk(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiAskForOEMDisk(deviceinfoset, (deviceinfodata?.value ?: 0L))
 
-public actual fun SetupDiBuildClassInfoList(flags: UInt, classguidlist: Long, classguidlistsize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiBuildClassInfoList(flags.toInt(), classguidlist, classguidlistsize.toInt(), requiredsize)
+public actual fun setupDiBuildClassInfoList(flags: UInt, classguidlist: COpaquePointer?, classguidlistsize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiBuildClassInfoList(flags.toInt(), (classguidlist?.value ?: 0L), classguidlistsize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupDiBuildClassInfoListExA(flags: UInt, classguidlist: Long, classguidlistsize: UInt, requiredsize: Long, machinename: PCSTR, reserved: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiBuildClassInfoListExA(flags.toInt(), classguidlist, classguidlistsize.toInt(), requiredsize, machinename, reserved)
+public actual fun setupDiBuildClassInfoListExA(flags: UInt, classguidlist: COpaquePointer?, classguidlistsize: UInt, requiredsize: COpaquePointer?, machinename: Pcstr, reserved: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiBuildClassInfoListExA(flags.toInt(), (classguidlist?.value ?: 0L), classguidlistsize.toInt(), (requiredsize?.value ?: 0L), (machinename?.value ?: 0L), (reserved?.value ?: 0L))
 
-public actual fun SetupDiBuildClassInfoListExW(flags: UInt, classguidlist: Long, classguidlistsize: UInt, requiredsize: Long, machinename: PCWSTR, reserved: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiBuildClassInfoListExW(flags.toInt(), classguidlist, classguidlistsize.toInt(), requiredsize, machinename, reserved)
+public actual fun setupDiBuildClassInfoListExW(flags: UInt, classguidlist: COpaquePointer?, classguidlistsize: UInt, requiredsize: COpaquePointer?, machinename: Pcwstr, reserved: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiBuildClassInfoListExW(flags.toInt(), (classguidlist?.value ?: 0L), classguidlistsize.toInt(), (requiredsize?.value ?: 0L), (machinename?.value ?: 0L), (reserved?.value ?: 0L))
 
-public actual fun SetupDiBuildDriverInfoList(deviceinfoset: HDEVINFO, deviceinfodata: Long, drivertype: SETUP_DI_DRIVER_TYPE): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiBuildDriverInfoList(deviceinfoset, deviceinfodata, drivertype.toInt())
+public actual fun setupDiBuildDriverInfoList(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, drivertype: SetupDiDriverType): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiBuildDriverInfoList(deviceinfoset, (deviceinfodata?.value ?: 0L), drivertype.toInt())
 
-public actual fun SetupDiCallClassInstaller(installfunction: DI_FUNCTION, deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCallClassInstaller(installfunction.toInt(), deviceinfoset, deviceinfodata)
+public actual fun setupDiCallClassInstaller(installfunction: DiFunction, deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCallClassInstaller(installfunction.toInt(), deviceinfoset, (deviceinfodata?.value ?: 0L))
 
-public actual fun SetupDiCancelDriverInfoSearch(deviceinfoset: HDEVINFO): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCancelDriverInfoSearch(deviceinfoset)
+public actual fun setupDiCancelDriverInfoSearch(deviceinfoset: Hdevinfo): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCancelDriverInfoSearch(deviceinfoset)
 
-public actual fun SetupDiChangeState(deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiChangeState(deviceinfoset, deviceinfodata)
+public actual fun setupDiChangeState(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiChangeState(deviceinfoset, (deviceinfodata?.value ?: 0L))
 
-public actual fun SetupDiClassGuidsFromNameA(classname: PCSTR, classguidlist: Long, classguidlistsize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiClassGuidsFromNameA(classname, classguidlist, classguidlistsize.toInt(), requiredsize)
+public actual fun setupDiClassGuidsFromNameA(classname: Pcstr, classguidlist: COpaquePointer?, classguidlistsize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassGuidsFromNameA((classname?.value ?: 0L), (classguidlist?.value ?: 0L), classguidlistsize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupDiClassGuidsFromNameExA(classname: PCSTR, classguidlist: Long, classguidlistsize: UInt, requiredsize: Long, machinename: PCSTR, reserved: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiClassGuidsFromNameExA(classname, classguidlist, classguidlistsize.toInt(), requiredsize, machinename, reserved)
+public actual fun setupDiClassGuidsFromNameExA(classname: Pcstr, classguidlist: COpaquePointer?, classguidlistsize: UInt, requiredsize: COpaquePointer?, machinename: Pcstr, reserved: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassGuidsFromNameExA((classname?.value ?: 0L), (classguidlist?.value ?: 0L), classguidlistsize.toInt(), (requiredsize?.value ?: 0L), (machinename?.value ?: 0L), (reserved?.value ?: 0L))
 
-public actual fun SetupDiClassGuidsFromNameExW(classname: PCWSTR, classguidlist: Long, classguidlistsize: UInt, requiredsize: Long, machinename: PCWSTR, reserved: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiClassGuidsFromNameExW(classname, classguidlist, classguidlistsize.toInt(), requiredsize, machinename, reserved)
+public actual fun setupDiClassGuidsFromNameExW(classname: Pcwstr, classguidlist: COpaquePointer?, classguidlistsize: UInt, requiredsize: COpaquePointer?, machinename: Pcwstr, reserved: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassGuidsFromNameExW((classname?.value ?: 0L), (classguidlist?.value ?: 0L), classguidlistsize.toInt(), (requiredsize?.value ?: 0L), (machinename?.value ?: 0L), (reserved?.value ?: 0L))
 
-public actual fun SetupDiClassGuidsFromNameW(classname: PCWSTR, classguidlist: Long, classguidlistsize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiClassGuidsFromNameW(classname, classguidlist, classguidlistsize.toInt(), requiredsize)
+public actual fun setupDiClassGuidsFromNameW(classname: Pcwstr, classguidlist: COpaquePointer?, classguidlistsize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassGuidsFromNameW((classname?.value ?: 0L), (classguidlist?.value ?: 0L), classguidlistsize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupDiClassNameFromGuidA(classguid: Long, classname: PSTR, classnamesize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiClassNameFromGuidA(classguid, classname, classnamesize.toInt(), requiredsize)
+public actual fun setupDiClassNameFromGuidA(classguid: COpaquePointer?, classname: Pstr, classnamesize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassNameFromGuidA((classguid?.value ?: 0L), (classname?.value ?: 0L), classnamesize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupDiClassNameFromGuidExA(classguid: Long, classname: PSTR, classnamesize: UInt, requiredsize: Long, machinename: PCSTR, reserved: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiClassNameFromGuidExA(classguid, classname, classnamesize.toInt(), requiredsize, machinename, reserved)
+public actual fun setupDiClassNameFromGuidExA(classguid: COpaquePointer?, classname: Pstr, classnamesize: UInt, requiredsize: COpaquePointer?, machinename: Pcstr, reserved: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassNameFromGuidExA((classguid?.value ?: 0L), (classname?.value ?: 0L), classnamesize.toInt(), (requiredsize?.value ?: 0L), (machinename?.value ?: 0L), (reserved?.value ?: 0L))
 
-public actual fun SetupDiClassNameFromGuidExW(classguid: Long, classname: PWSTR, classnamesize: UInt, requiredsize: Long, machinename: PCWSTR, reserved: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiClassNameFromGuidExW(classguid, classname, classnamesize.toInt(), requiredsize, machinename, reserved)
+public actual fun setupDiClassNameFromGuidExW(classguid: COpaquePointer?, classname: Pwstr, classnamesize: UInt, requiredsize: COpaquePointer?, machinename: Pcwstr, reserved: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassNameFromGuidExW((classguid?.value ?: 0L), (classname?.value ?: 0L), classnamesize.toInt(), (requiredsize?.value ?: 0L), (machinename?.value ?: 0L), (reserved?.value ?: 0L))
 
-public actual fun SetupDiClassNameFromGuidW(classguid: Long, classname: PWSTR, classnamesize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiClassNameFromGuidW(classguid, classname, classnamesize.toInt(), requiredsize)
+public actual fun setupDiClassNameFromGuidW(classguid: COpaquePointer?, classname: Pwstr, classnamesize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiClassNameFromGuidW((classguid?.value ?: 0L), (classname?.value ?: 0L), classnamesize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupDiCreateDevRegKeyA(deviceinfoset: HDEVINFO, deviceinfodata: Long, scope: UInt, hwprofile: UInt, keytype: UInt, infhandle: Long, infsectionname: PCSTR): HKEY =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCreateDevRegKeyA(deviceinfoset, deviceinfodata, scope.toInt(), hwprofile.toInt(), keytype.toInt(), infhandle, infsectionname)
+public actual fun setupDiCreateDevRegKeyA(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, scope: UInt, hwprofile: UInt, keytype: UInt, infhandle: COpaquePointer?, infsectionname: Pcstr): Hkey =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDevRegKeyA(deviceinfoset, (deviceinfodata?.value ?: 0L), scope.toInt(), hwprofile.toInt(), keytype.toInt(), (infhandle?.value ?: 0L), (infsectionname?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SetupDiCreateDevRegKeyW(deviceinfoset: HDEVINFO, deviceinfodata: Long, scope: UInt, hwprofile: UInt, keytype: UInt, infhandle: Long, infsectionname: PCWSTR): HKEY =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCreateDevRegKeyW(deviceinfoset, deviceinfodata, scope.toInt(), hwprofile.toInt(), keytype.toInt(), infhandle, infsectionname)
+public actual fun setupDiCreateDevRegKeyW(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, scope: UInt, hwprofile: UInt, keytype: UInt, infhandle: COpaquePointer?, infsectionname: Pcwstr): Hkey =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDevRegKeyW(deviceinfoset, (deviceinfodata?.value ?: 0L), scope.toInt(), hwprofile.toInt(), keytype.toInt(), (infhandle?.value ?: 0L), (infsectionname?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SetupDiCreateDeviceInfoA(deviceinfoset: HDEVINFO, devicename: PCSTR, classguid: Long, devicedescription: PCSTR, hwndparent: HWND, creationflags: SETUP_DI_DEVICE_CREATION_FLAGS, deviceinfodata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCreateDeviceInfoA(deviceinfoset, devicename, classguid, devicedescription, hwndparent, creationflags.toInt(), deviceinfodata)
+public actual fun setupDiCreateDeviceInfoA(deviceinfoset: Hdevinfo, devicename: Pcstr, classguid: COpaquePointer?, devicedescription: Pcstr, hwndparent: Hwnd, creationflags: SetupDiDeviceCreationFlags, deviceinfodata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInfoA(deviceinfoset, (devicename?.value ?: 0L), (classguid?.value ?: 0L), (devicedescription?.value ?: 0L), (hwndparent?.value ?: 0L), creationflags.toInt(), (deviceinfodata?.value ?: 0L))
 
-public actual fun SetupDiCreateDeviceInfoList(classguid: Long, hwndparent: HWND): HDEVINFO =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCreateDeviceInfoList(classguid, hwndparent)
+public actual fun setupDiCreateDeviceInfoList(classguid: COpaquePointer?, hwndparent: Hwnd): Hdevinfo =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInfoList((classguid?.value ?: 0L), (hwndparent?.value ?: 0L))
 
-public actual fun SetupDiCreateDeviceInfoListExA(classguid: Long, hwndparent: HWND, machinename: PCSTR, reserved: Long): HDEVINFO =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCreateDeviceInfoListExA(classguid, hwndparent, machinename, reserved)
+public actual fun setupDiCreateDeviceInfoListExA(classguid: COpaquePointer?, hwndparent: Hwnd, machinename: Pcstr, reserved: COpaquePointer?): Hdevinfo =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInfoListExA((classguid?.value ?: 0L), (hwndparent?.value ?: 0L), (machinename?.value ?: 0L), (reserved?.value ?: 0L))
 
-public actual fun SetupDiCreateDeviceInfoListExW(classguid: Long, hwndparent: HWND, machinename: PCWSTR, reserved: Long): HDEVINFO =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCreateDeviceInfoListExW(classguid, hwndparent, machinename, reserved)
+public actual fun setupDiCreateDeviceInfoListExW(classguid: COpaquePointer?, hwndparent: Hwnd, machinename: Pcwstr, reserved: COpaquePointer?): Hdevinfo =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInfoListExW((classguid?.value ?: 0L), (hwndparent?.value ?: 0L), (machinename?.value ?: 0L), (reserved?.value ?: 0L))
 
-public actual fun SetupDiCreateDeviceInfoW(deviceinfoset: HDEVINFO, devicename: PCWSTR, classguid: Long, devicedescription: PCWSTR, hwndparent: HWND, creationflags: SETUP_DI_DEVICE_CREATION_FLAGS, deviceinfodata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCreateDeviceInfoW(deviceinfoset, devicename, classguid, devicedescription, hwndparent, creationflags.toInt(), deviceinfodata)
+public actual fun setupDiCreateDeviceInfoW(deviceinfoset: Hdevinfo, devicename: Pcwstr, classguid: COpaquePointer?, devicedescription: Pcwstr, hwndparent: Hwnd, creationflags: SetupDiDeviceCreationFlags, deviceinfodata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInfoW(deviceinfoset, (devicename?.value ?: 0L), (classguid?.value ?: 0L), (devicedescription?.value ?: 0L), (hwndparent?.value ?: 0L), creationflags.toInt(), (deviceinfodata?.value ?: 0L))
 
-public actual fun SetupDiCreateDeviceInterfaceA(deviceinfoset: HDEVINFO, deviceinfodata: Long, interfaceclassguid: Long, referencestring: PCSTR, creationflags: UInt, deviceinterfacedata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCreateDeviceInterfaceA(deviceinfoset, deviceinfodata, interfaceclassguid, referencestring, creationflags.toInt(), deviceinterfacedata)
+public actual fun setupDiCreateDeviceInterfaceA(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, interfaceclassguid: COpaquePointer?, referencestring: Pcstr, creationflags: UInt, deviceinterfacedata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInterfaceA(deviceinfoset, (deviceinfodata?.value ?: 0L), (interfaceclassguid?.value ?: 0L), (referencestring?.value ?: 0L), creationflags.toInt(), (deviceinterfacedata?.value ?: 0L))
 
-public actual fun SetupDiCreateDeviceInterfaceRegKeyA(deviceinfoset: HDEVINFO, deviceinterfacedata: Long, reserved: UInt, samdesired: UInt, infhandle: Long, infsectionname: PCSTR): HKEY =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCreateDeviceInterfaceRegKeyA(deviceinfoset, deviceinterfacedata, reserved.toInt(), samdesired.toInt(), infhandle, infsectionname)
+public actual fun setupDiCreateDeviceInterfaceRegKeyA(deviceinfoset: Hdevinfo, deviceinterfacedata: COpaquePointer?, reserved: UInt, samdesired: UInt, infhandle: COpaquePointer?, infsectionname: Pcstr): Hkey =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInterfaceRegKeyA(deviceinfoset, (deviceinterfacedata?.value ?: 0L), reserved.toInt(), samdesired.toInt(), (infhandle?.value ?: 0L), (infsectionname?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SetupDiCreateDeviceInterfaceRegKeyW(deviceinfoset: HDEVINFO, deviceinterfacedata: Long, reserved: UInt, samdesired: UInt, infhandle: Long, infsectionname: PCWSTR): HKEY =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCreateDeviceInterfaceRegKeyW(deviceinfoset, deviceinterfacedata, reserved.toInt(), samdesired.toInt(), infhandle, infsectionname)
+public actual fun setupDiCreateDeviceInterfaceRegKeyW(deviceinfoset: Hdevinfo, deviceinterfacedata: COpaquePointer?, reserved: UInt, samdesired: UInt, infhandle: COpaquePointer?, infsectionname: Pcwstr): Hkey =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInterfaceRegKeyW(deviceinfoset, (deviceinterfacedata?.value ?: 0L), reserved.toInt(), samdesired.toInt(), (infhandle?.value ?: 0L), (infsectionname?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SetupDiCreateDeviceInterfaceW(deviceinfoset: HDEVINFO, deviceinfodata: Long, interfaceclassguid: Long, referencestring: PCWSTR, creationflags: UInt, deviceinterfacedata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiCreateDeviceInterfaceW(deviceinfoset, deviceinfodata, interfaceclassguid, referencestring, creationflags.toInt(), deviceinterfacedata)
+public actual fun setupDiCreateDeviceInterfaceW(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, interfaceclassguid: COpaquePointer?, referencestring: Pcwstr, creationflags: UInt, deviceinterfacedata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiCreateDeviceInterfaceW(deviceinfoset, (deviceinfodata?.value ?: 0L), (interfaceclassguid?.value ?: 0L), (referencestring?.value ?: 0L), creationflags.toInt(), (deviceinterfacedata?.value ?: 0L))
 
-public actual fun SetupDiDeleteDevRegKey(deviceinfoset: HDEVINFO, deviceinfodata: Long, scope: UInt, hwprofile: UInt, keytype: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiDeleteDevRegKey(deviceinfoset, deviceinfodata, scope.toInt(), hwprofile.toInt(), keytype.toInt())
+public actual fun setupDiDeleteDevRegKey(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, scope: UInt, hwprofile: UInt, keytype: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDeleteDevRegKey(deviceinfoset, (deviceinfodata?.value ?: 0L), scope.toInt(), hwprofile.toInt(), keytype.toInt())
 
-public actual fun SetupDiDeleteDeviceInfo(deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiDeleteDeviceInfo(deviceinfoset, deviceinfodata)
+public actual fun setupDiDeleteDeviceInfo(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDeleteDeviceInfo(deviceinfoset, (deviceinfodata?.value ?: 0L))
 
-public actual fun SetupDiDeleteDeviceInterfaceData(deviceinfoset: HDEVINFO, deviceinterfacedata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiDeleteDeviceInterfaceData(deviceinfoset, deviceinterfacedata)
+public actual fun setupDiDeleteDeviceInterfaceData(deviceinfoset: Hdevinfo, deviceinterfacedata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDeleteDeviceInterfaceData(deviceinfoset, (deviceinterfacedata?.value ?: 0L))
 
-public actual fun SetupDiDeleteDeviceInterfaceRegKey(deviceinfoset: HDEVINFO, deviceinterfacedata: Long, reserved: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiDeleteDeviceInterfaceRegKey(deviceinfoset, deviceinterfacedata, reserved.toInt())
+public actual fun setupDiDeleteDeviceInterfaceRegKey(deviceinfoset: Hdevinfo, deviceinterfacedata: COpaquePointer?, reserved: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDeleteDeviceInterfaceRegKey(deviceinfoset, (deviceinterfacedata?.value ?: 0L), reserved.toInt())
 
-public actual fun SetupDiDestroyClassImageList(classimagelistdata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiDestroyClassImageList(classimagelistdata)
+public actual fun setupDiDestroyClassImageList(classimagelistdata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDestroyClassImageList((classimagelistdata?.value ?: 0L))
 
-public actual fun SetupDiDestroyDeviceInfoList(deviceinfoset: HDEVINFO): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiDestroyDeviceInfoList(deviceinfoset)
+public actual fun setupDiDestroyDeviceInfoList(deviceinfoset: Hdevinfo): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDestroyDeviceInfoList(deviceinfoset)
 
-public actual fun SetupDiDestroyDriverInfoList(deviceinfoset: HDEVINFO, deviceinfodata: Long, drivertype: SETUP_DI_DRIVER_TYPE): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiDestroyDriverInfoList(deviceinfoset, deviceinfodata, drivertype.toInt())
+public actual fun setupDiDestroyDriverInfoList(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, drivertype: SetupDiDriverType): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiDestroyDriverInfoList(deviceinfoset, (deviceinfodata?.value ?: 0L), drivertype.toInt())
 
-public actual fun SetupDiDrawMiniIcon(hdc: HDC, rc: RECT, miniiconindex: Int, flags: UInt): Int =
+public actual fun setupDiDrawMiniIcon(hdc: Hdc, rc: Rect, miniiconindex: Int, flags: UInt): Int =
     0
 
-public actual fun SetupDiEnumDeviceInfo(deviceinfoset: HDEVINFO, memberindex: UInt, deviceinfodata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiEnumDeviceInfo(deviceinfoset, memberindex.toInt(), deviceinfodata)
+public actual fun setupDiEnumDeviceInfo(deviceinfoset: Hdevinfo, memberindex: UInt, deviceinfodata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiEnumDeviceInfo(deviceinfoset, memberindex.toInt(), (deviceinfodata?.value ?: 0L))
 
-public actual fun SetupDiEnumDeviceInterfaces(deviceinfoset: HDEVINFO, deviceinfodata: Long, interfaceclassguid: Long, memberindex: UInt, deviceinterfacedata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiEnumDeviceInterfaces(deviceinfoset, deviceinfodata, interfaceclassguid, memberindex.toInt(), deviceinterfacedata)
+public actual fun setupDiEnumDeviceInterfaces(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, interfaceclassguid: COpaquePointer?, memberindex: UInt, deviceinterfacedata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiEnumDeviceInterfaces(deviceinfoset, (deviceinfodata?.value ?: 0L), (interfaceclassguid?.value ?: 0L), memberindex.toInt(), (deviceinterfacedata?.value ?: 0L))
 
-public actual fun SetupDiEnumDriverInfoA(deviceinfoset: HDEVINFO, deviceinfodata: Long, drivertype: SETUP_DI_DRIVER_TYPE, memberindex: UInt, driverinfodata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiEnumDriverInfoA(deviceinfoset, deviceinfodata, drivertype.toInt(), memberindex.toInt(), driverinfodata)
+public actual fun setupDiEnumDriverInfoA(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, drivertype: SetupDiDriverType, memberindex: UInt, driverinfodata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiEnumDriverInfoA(deviceinfoset, (deviceinfodata?.value ?: 0L), drivertype.toInt(), memberindex.toInt(), (driverinfodata?.value ?: 0L))
 
-public actual fun SetupDiEnumDriverInfoW(deviceinfoset: HDEVINFO, deviceinfodata: Long, drivertype: SETUP_DI_DRIVER_TYPE, memberindex: UInt, driverinfodata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiEnumDriverInfoW(deviceinfoset, deviceinfodata, drivertype.toInt(), memberindex.toInt(), driverinfodata)
+public actual fun setupDiEnumDriverInfoW(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, drivertype: SetupDiDriverType, memberindex: UInt, driverinfodata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiEnumDriverInfoW(deviceinfoset, (deviceinfodata?.value ?: 0L), drivertype.toInt(), memberindex.toInt(), (driverinfodata?.value ?: 0L))
 
-public actual fun SetupDiGetActualModelsSectionA(context: Long, alternateplatforminfo: Long, infsectionwithext: PSTR, infsectionwithextsize: UInt, requiredsize: Long, reserved: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetActualModelsSectionA(context, alternateplatforminfo, infsectionwithext, infsectionwithextsize.toInt(), requiredsize, reserved)
+public actual fun setupDiGetActualModelsSectionA(context: COpaquePointer?, alternateplatforminfo: COpaquePointer?, infsectionwithext: Pstr, infsectionwithextsize: UInt, requiredsize: COpaquePointer?, reserved: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetActualModelsSectionA((context?.value ?: 0L), (alternateplatforminfo?.value ?: 0L), (infsectionwithext?.value ?: 0L), infsectionwithextsize.toInt(), (requiredsize?.value ?: 0L), (reserved?.value ?: 0L))
 
-public actual fun SetupDiGetActualModelsSectionW(context: Long, alternateplatforminfo: Long, infsectionwithext: PWSTR, infsectionwithextsize: UInt, requiredsize: Long, reserved: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetActualModelsSectionW(context, alternateplatforminfo, infsectionwithext, infsectionwithextsize.toInt(), requiredsize, reserved)
+public actual fun setupDiGetActualModelsSectionW(context: COpaquePointer?, alternateplatforminfo: COpaquePointer?, infsectionwithext: Pwstr, infsectionwithextsize: UInt, requiredsize: COpaquePointer?, reserved: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetActualModelsSectionW((context?.value ?: 0L), (alternateplatforminfo?.value ?: 0L), (infsectionwithext?.value ?: 0L), infsectionwithextsize.toInt(), (requiredsize?.value ?: 0L), (reserved?.value ?: 0L))
 
-public actual fun SetupDiGetActualSectionToInstallA(infhandle: Long, infsectionname: PCSTR, infsectionwithext: PSTR, infsectionwithextsize: UInt, requiredsize: Long, extension: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetActualSectionToInstallA(infhandle, infsectionname, infsectionwithext, infsectionwithextsize.toInt(), requiredsize, extension)
+public actual fun setupDiGetActualSectionToInstallA(infhandle: COpaquePointer?, infsectionname: Pcstr, infsectionwithext: Pstr, infsectionwithextsize: UInt, requiredsize: COpaquePointer?, extension: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetActualSectionToInstallA((infhandle?.value ?: 0L), (infsectionname?.value ?: 0L), (infsectionwithext?.value ?: 0L), infsectionwithextsize.toInt(), (requiredsize?.value ?: 0L), (extension?.value ?: 0L))
 
-public actual fun SetupDiGetActualSectionToInstallExA(infhandle: Long, infsectionname: PCSTR, alternateplatforminfo: Long, infsectionwithext: PSTR, infsectionwithextsize: UInt, requiredsize: Long, extension: Long, reserved: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetActualSectionToInstallExA(infhandle, infsectionname, alternateplatforminfo, infsectionwithext, infsectionwithextsize.toInt(), requiredsize, extension, reserved)
+public actual fun setupDiGetActualSectionToInstallExA(infhandle: COpaquePointer?, infsectionname: Pcstr, alternateplatforminfo: COpaquePointer?, infsectionwithext: Pstr, infsectionwithextsize: UInt, requiredsize: COpaquePointer?, extension: COpaquePointer?, reserved: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetActualSectionToInstallExA((infhandle?.value ?: 0L), (infsectionname?.value ?: 0L), (alternateplatforminfo?.value ?: 0L), (infsectionwithext?.value ?: 0L), infsectionwithextsize.toInt(), (requiredsize?.value ?: 0L), (extension?.value ?: 0L), (reserved?.value ?: 0L))
 
-public actual fun SetupDiGetActualSectionToInstallExW(infhandle: Long, infsectionname: PCWSTR, alternateplatforminfo: Long, infsectionwithext: PWSTR, infsectionwithextsize: UInt, requiredsize: Long, extension: Long, reserved: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetActualSectionToInstallExW(infhandle, infsectionname, alternateplatforminfo, infsectionwithext, infsectionwithextsize.toInt(), requiredsize, extension, reserved)
+public actual fun setupDiGetActualSectionToInstallExW(infhandle: COpaquePointer?, infsectionname: Pcwstr, alternateplatforminfo: COpaquePointer?, infsectionwithext: Pwstr, infsectionwithextsize: UInt, requiredsize: COpaquePointer?, extension: COpaquePointer?, reserved: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetActualSectionToInstallExW((infhandle?.value ?: 0L), (infsectionname?.value ?: 0L), (alternateplatforminfo?.value ?: 0L), (infsectionwithext?.value ?: 0L), infsectionwithextsize.toInt(), (requiredsize?.value ?: 0L), (extension?.value ?: 0L), (reserved?.value ?: 0L))
 
-public actual fun SetupDiGetActualSectionToInstallW(infhandle: Long, infsectionname: PCWSTR, infsectionwithext: PWSTR, infsectionwithextsize: UInt, requiredsize: Long, extension: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetActualSectionToInstallW(infhandle, infsectionname, infsectionwithext, infsectionwithextsize.toInt(), requiredsize, extension)
+public actual fun setupDiGetActualSectionToInstallW(infhandle: COpaquePointer?, infsectionname: Pcwstr, infsectionwithext: Pwstr, infsectionwithextsize: UInt, requiredsize: COpaquePointer?, extension: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetActualSectionToInstallW((infhandle?.value ?: 0L), (infsectionname?.value ?: 0L), (infsectionwithext?.value ?: 0L), infsectionwithextsize.toInt(), (requiredsize?.value ?: 0L), (extension?.value ?: 0L))
 
-public actual fun SetupDiGetClassBitmapIndex(classguid: Long, miniiconindex: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassBitmapIndex(classguid, miniiconindex)
+public actual fun setupDiGetClassBitmapIndex(classguid: COpaquePointer?, miniiconindex: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassBitmapIndex((classguid?.value ?: 0L), (miniiconindex?.value ?: 0L))
 
-public actual fun SetupDiGetClassDescriptionA(classguid: Long, classdescription: PSTR, classdescriptionsize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassDescriptionA(classguid, classdescription, classdescriptionsize.toInt(), requiredsize)
+public actual fun setupDiGetClassDescriptionA(classguid: COpaquePointer?, classdescription: Pstr, classdescriptionsize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDescriptionA((classguid?.value ?: 0L), (classdescription?.value ?: 0L), classdescriptionsize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupDiGetClassDescriptionExA(classguid: Long, classdescription: PSTR, classdescriptionsize: UInt, requiredsize: Long, machinename: PCSTR, reserved: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassDescriptionExA(classguid, classdescription, classdescriptionsize.toInt(), requiredsize, machinename, reserved)
+public actual fun setupDiGetClassDescriptionExA(classguid: COpaquePointer?, classdescription: Pstr, classdescriptionsize: UInt, requiredsize: COpaquePointer?, machinename: Pcstr, reserved: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDescriptionExA((classguid?.value ?: 0L), (classdescription?.value ?: 0L), classdescriptionsize.toInt(), (requiredsize?.value ?: 0L), (machinename?.value ?: 0L), (reserved?.value ?: 0L))
 
-public actual fun SetupDiGetClassDescriptionExW(classguid: Long, classdescription: PWSTR, classdescriptionsize: UInt, requiredsize: Long, machinename: PCWSTR, reserved: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassDescriptionExW(classguid, classdescription, classdescriptionsize.toInt(), requiredsize, machinename, reserved)
+public actual fun setupDiGetClassDescriptionExW(classguid: COpaquePointer?, classdescription: Pwstr, classdescriptionsize: UInt, requiredsize: COpaquePointer?, machinename: Pcwstr, reserved: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDescriptionExW((classguid?.value ?: 0L), (classdescription?.value ?: 0L), classdescriptionsize.toInt(), (requiredsize?.value ?: 0L), (machinename?.value ?: 0L), (reserved?.value ?: 0L))
 
-public actual fun SetupDiGetClassDescriptionW(classguid: Long, classdescription: PWSTR, classdescriptionsize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassDescriptionW(classguid, classdescription, classdescriptionsize.toInt(), requiredsize)
+public actual fun setupDiGetClassDescriptionW(classguid: COpaquePointer?, classdescription: Pwstr, classdescriptionsize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDescriptionW((classguid?.value ?: 0L), (classdescription?.value ?: 0L), classdescriptionsize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupDiGetClassDevPropertySheetsA(deviceinfoset: HDEVINFO, deviceinfodata: Long, propertysheetheader: Long, propertysheetheaderpagelistsize: UInt, requiredsize: Long, propertysheettype: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassDevPropertySheetsA(deviceinfoset, deviceinfodata, propertysheetheader, propertysheetheaderpagelistsize.toInt(), requiredsize, propertysheettype.toInt())
+public actual fun setupDiGetClassDevPropertySheetsA(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, propertysheetheader: COpaquePointer?, propertysheetheaderpagelistsize: UInt, requiredsize: COpaquePointer?, propertysheettype: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDevPropertySheetsA(deviceinfoset, (deviceinfodata?.value ?: 0L), (propertysheetheader?.value ?: 0L), propertysheetheaderpagelistsize.toInt(), (requiredsize?.value ?: 0L), propertysheettype.toInt())
 
-public actual fun SetupDiGetClassDevPropertySheetsW(deviceinfoset: HDEVINFO, deviceinfodata: Long, propertysheetheader: Long, propertysheetheaderpagelistsize: UInt, requiredsize: Long, propertysheettype: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassDevPropertySheetsW(deviceinfoset, deviceinfodata, propertysheetheader, propertysheetheaderpagelistsize.toInt(), requiredsize, propertysheettype.toInt())
+public actual fun setupDiGetClassDevPropertySheetsW(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, propertysheetheader: COpaquePointer?, propertysheetheaderpagelistsize: UInt, requiredsize: COpaquePointer?, propertysheettype: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDevPropertySheetsW(deviceinfoset, (deviceinfodata?.value ?: 0L), (propertysheetheader?.value ?: 0L), propertysheetheaderpagelistsize.toInt(), (requiredsize?.value ?: 0L), propertysheettype.toInt())
 
-public actual fun SetupDiGetClassDevsA(classguid: Long, enumerator: PCSTR, hwndparent: HWND, flags: SETUP_DI_GET_CLASS_DEVS_FLAGS): HDEVINFO =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassDevsA(classguid, enumerator, hwndparent, flags.toInt())
+public actual fun setupDiGetClassDevsA(classguid: COpaquePointer?, enumerator: Pcstr, hwndparent: Hwnd, flags: SetupDiGetClassDevsFlags): Hdevinfo =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDevsA((classguid?.value ?: 0L), (enumerator?.value ?: 0L), (hwndparent?.value ?: 0L), flags.toInt())
 
-public actual fun SetupDiGetClassDevsExA(classguid: Long, enumerator: PCSTR, hwndparent: HWND, flags: SETUP_DI_GET_CLASS_DEVS_FLAGS, deviceinfoset: HDEVINFO, machinename: PCSTR, reserved: Long): HDEVINFO =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassDevsExA(classguid, enumerator, hwndparent, flags.toInt(), deviceinfoset, machinename, reserved)
+public actual fun setupDiGetClassDevsExA(classguid: COpaquePointer?, enumerator: Pcstr, hwndparent: Hwnd, flags: SetupDiGetClassDevsFlags, deviceinfoset: Hdevinfo, machinename: Pcstr, reserved: COpaquePointer?): Hdevinfo =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDevsExA((classguid?.value ?: 0L), (enumerator?.value ?: 0L), (hwndparent?.value ?: 0L), flags.toInt(), deviceinfoset, (machinename?.value ?: 0L), (reserved?.value ?: 0L))
 
-public actual fun SetupDiGetClassDevsExW(classguid: Long, enumerator: PCWSTR, hwndparent: HWND, flags: SETUP_DI_GET_CLASS_DEVS_FLAGS, deviceinfoset: HDEVINFO, machinename: PCWSTR, reserved: Long): HDEVINFO =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassDevsExW(classguid, enumerator, hwndparent, flags.toInt(), deviceinfoset, machinename, reserved)
+public actual fun setupDiGetClassDevsExW(classguid: COpaquePointer?, enumerator: Pcwstr, hwndparent: Hwnd, flags: SetupDiGetClassDevsFlags, deviceinfoset: Hdevinfo, machinename: Pcwstr, reserved: COpaquePointer?): Hdevinfo =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDevsExW((classguid?.value ?: 0L), (enumerator?.value ?: 0L), (hwndparent?.value ?: 0L), flags.toInt(), deviceinfoset, (machinename?.value ?: 0L), (reserved?.value ?: 0L))
 
-public actual fun SetupDiGetClassDevsW(classguid: Long, enumerator: PCWSTR, hwndparent: HWND, flags: SETUP_DI_GET_CLASS_DEVS_FLAGS): HDEVINFO =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassDevsW(classguid, enumerator, hwndparent, flags.toInt())
+public actual fun setupDiGetClassDevsW(classguid: COpaquePointer?, enumerator: Pcwstr, hwndparent: Hwnd, flags: SetupDiGetClassDevsFlags): Hdevinfo =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassDevsW((classguid?.value ?: 0L), (enumerator?.value ?: 0L), (hwndparent?.value ?: 0L), flags.toInt())
 
-public actual fun SetupDiGetClassImageIndex(classimagelistdata: Long, classguid: Long, imageindex: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassImageIndex(classimagelistdata, classguid, imageindex)
+public actual fun setupDiGetClassImageIndex(classimagelistdata: COpaquePointer?, classguid: COpaquePointer?, imageindex: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassImageIndex((classimagelistdata?.value ?: 0L), (classguid?.value ?: 0L), (imageindex?.value ?: 0L))
 
-public actual fun SetupDiGetClassImageList(classimagelistdata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassImageList(classimagelistdata)
+public actual fun setupDiGetClassImageList(classimagelistdata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassImageList((classimagelistdata?.value ?: 0L))
 
-public actual fun SetupDiGetClassImageListExA(classimagelistdata: Long, machinename: PCSTR, reserved: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassImageListExA(classimagelistdata, machinename, reserved)
+public actual fun setupDiGetClassImageListExA(classimagelistdata: COpaquePointer?, machinename: Pcstr, reserved: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassImageListExA((classimagelistdata?.value ?: 0L), (machinename?.value ?: 0L), (reserved?.value ?: 0L))
 
-public actual fun SetupDiGetClassImageListExW(classimagelistdata: Long, machinename: PCWSTR, reserved: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassImageListExW(classimagelistdata, machinename, reserved)
+public actual fun setupDiGetClassImageListExW(classimagelistdata: COpaquePointer?, machinename: Pcwstr, reserved: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassImageListExW((classimagelistdata?.value ?: 0L), (machinename?.value ?: 0L), (reserved?.value ?: 0L))
 
-public actual fun SetupDiGetClassInstallParamsA(deviceinfoset: HDEVINFO, deviceinfodata: Long, classinstallparams: Long, classinstallparamssize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassInstallParamsA(deviceinfoset, deviceinfodata, classinstallparams, classinstallparamssize.toInt(), requiredsize)
+public actual fun setupDiGetClassInstallParamsA(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, classinstallparams: COpaquePointer?, classinstallparamssize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassInstallParamsA(deviceinfoset, (deviceinfodata?.value ?: 0L), (classinstallparams?.value ?: 0L), classinstallparamssize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupDiGetClassInstallParamsW(deviceinfoset: HDEVINFO, deviceinfodata: Long, classinstallparams: Long, classinstallparamssize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassInstallParamsW(deviceinfoset, deviceinfodata, classinstallparams, classinstallparamssize.toInt(), requiredsize)
+public actual fun setupDiGetClassInstallParamsW(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, classinstallparams: COpaquePointer?, classinstallparamssize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassInstallParamsW(deviceinfoset, (deviceinfodata?.value ?: 0L), (classinstallparams?.value ?: 0L), classinstallparamssize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupDiGetClassPropertyExW(classguid: Long, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: UInt, requiredsize: Long, flags: UInt, machinename: PCWSTR, reserved: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassPropertyExW(classguid, propertykey, propertytype, propertybuffer, propertybuffersize.toInt(), requiredsize, flags.toInt(), machinename, reserved)
+public actual fun setupDiGetClassPropertyExW(classguid: COpaquePointer?, propertykey: COpaquePointer?, propertytype: COpaquePointer?, propertybuffer: COpaquePointer?, propertybuffersize: UInt, requiredsize: COpaquePointer?, flags: UInt, machinename: Pcwstr, reserved: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassPropertyExW((classguid?.value ?: 0L), (propertykey?.value ?: 0L), (propertytype?.value ?: 0L), (propertybuffer?.value ?: 0L), propertybuffersize.toInt(), (requiredsize?.value ?: 0L), flags.toInt(), (machinename?.value ?: 0L), (reserved?.value ?: 0L))
 
-public actual fun SetupDiGetClassPropertyKeys(classguid: Long, propertykeyarray: Long, propertykeycount: UInt, requiredpropertykeycount: Long, flags: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassPropertyKeys(classguid, propertykeyarray, propertykeycount.toInt(), requiredpropertykeycount, flags.toInt())
+public actual fun setupDiGetClassPropertyKeys(classguid: COpaquePointer?, propertykeyarray: COpaquePointer?, propertykeycount: UInt, requiredpropertykeycount: COpaquePointer?, flags: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassPropertyKeys((classguid?.value ?: 0L), (propertykeyarray?.value ?: 0L), propertykeycount.toInt(), (requiredpropertykeycount?.value ?: 0L), flags.toInt())
 
-public actual fun SetupDiGetClassPropertyKeysExW(classguid: Long, propertykeyarray: Long, propertykeycount: UInt, requiredpropertykeycount: Long, flags: UInt, machinename: PCWSTR, reserved: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassPropertyKeysExW(classguid, propertykeyarray, propertykeycount.toInt(), requiredpropertykeycount, flags.toInt(), machinename, reserved)
+public actual fun setupDiGetClassPropertyKeysExW(classguid: COpaquePointer?, propertykeyarray: COpaquePointer?, propertykeycount: UInt, requiredpropertykeycount: COpaquePointer?, flags: UInt, machinename: Pcwstr, reserved: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassPropertyKeysExW((classguid?.value ?: 0L), (propertykeyarray?.value ?: 0L), propertykeycount.toInt(), (requiredpropertykeycount?.value ?: 0L), flags.toInt(), (machinename?.value ?: 0L), (reserved?.value ?: 0L))
 
-public actual fun SetupDiGetClassPropertyW(classguid: Long, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: UInt, requiredsize: Long, flags: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassPropertyW(classguid, propertykey, propertytype, propertybuffer, propertybuffersize.toInt(), requiredsize, flags.toInt())
+public actual fun setupDiGetClassPropertyW(classguid: COpaquePointer?, propertykey: COpaquePointer?, propertytype: COpaquePointer?, propertybuffer: COpaquePointer?, propertybuffersize: UInt, requiredsize: COpaquePointer?, flags: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassPropertyW((classguid?.value ?: 0L), (propertykey?.value ?: 0L), (propertytype?.value ?: 0L), (propertybuffer?.value ?: 0L), propertybuffersize.toInt(), (requiredsize?.value ?: 0L), flags.toInt())
 
-public actual fun SetupDiGetClassRegistryPropertyA(classguid: Long, property: UInt, propertyregdatatype: Long, propertybuffer: Long, propertybuffersize: UInt, requiredsize: Long, machinename: PCSTR, reserved: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassRegistryPropertyA(classguid, property.toInt(), propertyregdatatype, propertybuffer, propertybuffersize.toInt(), requiredsize, machinename, reserved)
+public actual fun setupDiGetClassRegistryPropertyA(classguid: COpaquePointer?, property: UInt, propertyregdatatype: COpaquePointer?, propertybuffer: COpaquePointer?, propertybuffersize: UInt, requiredsize: COpaquePointer?, machinename: Pcstr, reserved: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassRegistryPropertyA((classguid?.value ?: 0L), property.toInt(), (propertyregdatatype?.value ?: 0L), (propertybuffer?.value ?: 0L), propertybuffersize.toInt(), (requiredsize?.value ?: 0L), (machinename?.value ?: 0L), (reserved?.value ?: 0L))
 
-public actual fun SetupDiGetClassRegistryPropertyW(classguid: Long, property: UInt, propertyregdatatype: Long, propertybuffer: Long, propertybuffersize: UInt, requiredsize: Long, machinename: PCWSTR, reserved: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetClassRegistryPropertyW(classguid, property.toInt(), propertyregdatatype, propertybuffer, propertybuffersize.toInt(), requiredsize, machinename, reserved)
+public actual fun setupDiGetClassRegistryPropertyW(classguid: COpaquePointer?, property: UInt, propertyregdatatype: COpaquePointer?, propertybuffer: COpaquePointer?, propertybuffersize: UInt, requiredsize: COpaquePointer?, machinename: Pcwstr, reserved: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetClassRegistryPropertyW((classguid?.value ?: 0L), property.toInt(), (propertyregdatatype?.value ?: 0L), (propertybuffer?.value ?: 0L), propertybuffersize.toInt(), (requiredsize?.value ?: 0L), (machinename?.value ?: 0L), (reserved?.value ?: 0L))
 
-public actual fun SetupDiGetCustomDevicePropertyA(deviceinfoset: HDEVINFO, deviceinfodata: Long, custompropertyname: PCSTR, flags: UInt, propertyregdatatype: Long, propertybuffer: Long, propertybuffersize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetCustomDevicePropertyA(deviceinfoset, deviceinfodata, custompropertyname, flags.toInt(), propertyregdatatype, propertybuffer, propertybuffersize.toInt(), requiredsize)
+public actual fun setupDiGetCustomDevicePropertyA(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, custompropertyname: Pcstr, flags: UInt, propertyregdatatype: COpaquePointer?, propertybuffer: COpaquePointer?, propertybuffersize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetCustomDevicePropertyA(deviceinfoset, (deviceinfodata?.value ?: 0L), (custompropertyname?.value ?: 0L), flags.toInt(), (propertyregdatatype?.value ?: 0L), (propertybuffer?.value ?: 0L), propertybuffersize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupDiGetCustomDevicePropertyW(deviceinfoset: HDEVINFO, deviceinfodata: Long, custompropertyname: PCWSTR, flags: UInt, propertyregdatatype: Long, propertybuffer: Long, propertybuffersize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetCustomDevicePropertyW(deviceinfoset, deviceinfodata, custompropertyname, flags.toInt(), propertyregdatatype, propertybuffer, propertybuffersize.toInt(), requiredsize)
+public actual fun setupDiGetCustomDevicePropertyW(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, custompropertyname: Pcwstr, flags: UInt, propertyregdatatype: COpaquePointer?, propertybuffer: COpaquePointer?, propertybuffersize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetCustomDevicePropertyW(deviceinfoset, (deviceinfodata?.value ?: 0L), (custompropertyname?.value ?: 0L), flags.toInt(), (propertyregdatatype?.value ?: 0L), (propertybuffer?.value ?: 0L), propertybuffersize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupDiGetDeviceInfoListClass(deviceinfoset: HDEVINFO, classguid: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceInfoListClass(deviceinfoset, classguid)
+public actual fun setupDiGetDeviceInfoListClass(deviceinfoset: Hdevinfo, classguid: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInfoListClass(deviceinfoset, (classguid?.value ?: 0L))
 
-public actual fun SetupDiGetDeviceInfoListDetailA(deviceinfoset: HDEVINFO, deviceinfosetdetaildata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceInfoListDetailA(deviceinfoset, deviceinfosetdetaildata)
+public actual fun setupDiGetDeviceInfoListDetailA(deviceinfoset: Hdevinfo, deviceinfosetdetaildata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInfoListDetailA(deviceinfoset, (deviceinfosetdetaildata?.value ?: 0L))
 
-public actual fun SetupDiGetDeviceInfoListDetailW(deviceinfoset: HDEVINFO, deviceinfosetdetaildata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceInfoListDetailW(deviceinfoset, deviceinfosetdetaildata)
+public actual fun setupDiGetDeviceInfoListDetailW(deviceinfoset: Hdevinfo, deviceinfosetdetaildata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInfoListDetailW(deviceinfoset, (deviceinfosetdetaildata?.value ?: 0L))
 
-public actual fun SetupDiGetDeviceInstallParamsA(deviceinfoset: HDEVINFO, deviceinfodata: Long, deviceinstallparams: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceInstallParamsA(deviceinfoset, deviceinfodata, deviceinstallparams)
+public actual fun setupDiGetDeviceInstallParamsA(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, deviceinstallparams: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInstallParamsA(deviceinfoset, (deviceinfodata?.value ?: 0L), (deviceinstallparams?.value ?: 0L))
 
-public actual fun SetupDiGetDeviceInstallParamsW(deviceinfoset: HDEVINFO, deviceinfodata: Long, deviceinstallparams: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceInstallParamsW(deviceinfoset, deviceinfodata, deviceinstallparams)
+public actual fun setupDiGetDeviceInstallParamsW(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, deviceinstallparams: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInstallParamsW(deviceinfoset, (deviceinfodata?.value ?: 0L), (deviceinstallparams?.value ?: 0L))
 
-public actual fun SetupDiGetDeviceInstanceIdA(deviceinfoset: HDEVINFO, deviceinfodata: Long, deviceinstanceid: PSTR, deviceinstanceidsize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceInstanceIdA(deviceinfoset, deviceinfodata, deviceinstanceid, deviceinstanceidsize.toInt(), requiredsize)
+public actual fun setupDiGetDeviceInstanceIdA(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, deviceinstanceid: Pstr, deviceinstanceidsize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInstanceIdA(deviceinfoset, (deviceinfodata?.value ?: 0L), (deviceinstanceid?.value ?: 0L), deviceinstanceidsize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupDiGetDeviceInstanceIdW(deviceinfoset: HDEVINFO, deviceinfodata: Long, deviceinstanceid: PWSTR, deviceinstanceidsize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceInstanceIdW(deviceinfoset, deviceinfodata, deviceinstanceid, deviceinstanceidsize.toInt(), requiredsize)
+public actual fun setupDiGetDeviceInstanceIdW(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, deviceinstanceid: Pwstr, deviceinstanceidsize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInstanceIdW(deviceinfoset, (deviceinfodata?.value ?: 0L), (deviceinstanceid?.value ?: 0L), deviceinstanceidsize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupDiGetDeviceInterfaceAlias(deviceinfoset: HDEVINFO, deviceinterfacedata: Long, aliasinterfaceclassguid: Long, aliasdeviceinterfacedata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceInterfaceAlias(deviceinfoset, deviceinterfacedata, aliasinterfaceclassguid, aliasdeviceinterfacedata)
+public actual fun setupDiGetDeviceInterfaceAlias(deviceinfoset: Hdevinfo, deviceinterfacedata: COpaquePointer?, aliasinterfaceclassguid: COpaquePointer?, aliasdeviceinterfacedata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInterfaceAlias(deviceinfoset, (deviceinterfacedata?.value ?: 0L), (aliasinterfaceclassguid?.value ?: 0L), (aliasdeviceinterfacedata?.value ?: 0L))
 
-public actual fun SetupDiGetDeviceInterfaceDetailA(deviceinfoset: HDEVINFO, deviceinterfacedata: Long, deviceinterfacedetaildata: Long, deviceinterfacedetaildatasize: UInt, requiredsize: Long, deviceinfodata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceInterfaceDetailA(deviceinfoset, deviceinterfacedata, deviceinterfacedetaildata, deviceinterfacedetaildatasize.toInt(), requiredsize, deviceinfodata)
+public actual fun setupDiGetDeviceInterfaceDetailA(deviceinfoset: Hdevinfo, deviceinterfacedata: COpaquePointer?, deviceinterfacedetaildata: COpaquePointer?, deviceinterfacedetaildatasize: UInt, requiredsize: COpaquePointer?, deviceinfodata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInterfaceDetailA(deviceinfoset, (deviceinterfacedata?.value ?: 0L), (deviceinterfacedetaildata?.value ?: 0L), deviceinterfacedetaildatasize.toInt(), (requiredsize?.value ?: 0L), (deviceinfodata?.value ?: 0L))
 
-public actual fun SetupDiGetDeviceInterfaceDetailW(deviceinfoset: HDEVINFO, deviceinterfacedata: Long, deviceinterfacedetaildata: Long, deviceinterfacedetaildatasize: UInt, requiredsize: Long, deviceinfodata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceInterfaceDetailW(deviceinfoset, deviceinterfacedata, deviceinterfacedetaildata, deviceinterfacedetaildatasize.toInt(), requiredsize, deviceinfodata)
+public actual fun setupDiGetDeviceInterfaceDetailW(deviceinfoset: Hdevinfo, deviceinterfacedata: COpaquePointer?, deviceinterfacedetaildata: COpaquePointer?, deviceinterfacedetaildatasize: UInt, requiredsize: COpaquePointer?, deviceinfodata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInterfaceDetailW(deviceinfoset, (deviceinterfacedata?.value ?: 0L), (deviceinterfacedetaildata?.value ?: 0L), deviceinterfacedetaildatasize.toInt(), (requiredsize?.value ?: 0L), (deviceinfodata?.value ?: 0L))
 
-public actual fun SetupDiGetDeviceInterfacePropertyKeys(deviceinfoset: HDEVINFO, deviceinterfacedata: Long, propertykeyarray: Long, propertykeycount: UInt, requiredpropertykeycount: Long, flags: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceInterfacePropertyKeys(deviceinfoset, deviceinterfacedata, propertykeyarray, propertykeycount.toInt(), requiredpropertykeycount, flags.toInt())
+public actual fun setupDiGetDeviceInterfacePropertyKeys(deviceinfoset: Hdevinfo, deviceinterfacedata: COpaquePointer?, propertykeyarray: COpaquePointer?, propertykeycount: UInt, requiredpropertykeycount: COpaquePointer?, flags: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInterfacePropertyKeys(deviceinfoset, (deviceinterfacedata?.value ?: 0L), (propertykeyarray?.value ?: 0L), propertykeycount.toInt(), (requiredpropertykeycount?.value ?: 0L), flags.toInt())
 
-public actual fun SetupDiGetDeviceInterfacePropertyW(deviceinfoset: HDEVINFO, deviceinterfacedata: Long, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: UInt, requiredsize: Long, flags: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceInterfacePropertyW(deviceinfoset, deviceinterfacedata, propertykey, propertytype, propertybuffer, propertybuffersize.toInt(), requiredsize, flags.toInt())
+public actual fun setupDiGetDeviceInterfacePropertyW(deviceinfoset: Hdevinfo, deviceinterfacedata: COpaquePointer?, propertykey: COpaquePointer?, propertytype: COpaquePointer?, propertybuffer: COpaquePointer?, propertybuffersize: UInt, requiredsize: COpaquePointer?, flags: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceInterfacePropertyW(deviceinfoset, (deviceinterfacedata?.value ?: 0L), (propertykey?.value ?: 0L), (propertytype?.value ?: 0L), (propertybuffer?.value ?: 0L), propertybuffersize.toInt(), (requiredsize?.value ?: 0L), flags.toInt())
 
-public actual fun SetupDiGetDevicePropertyKeys(deviceinfoset: HDEVINFO, deviceinfodata: Long, propertykeyarray: Long, propertykeycount: UInt, requiredpropertykeycount: Long, flags: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDevicePropertyKeys(deviceinfoset, deviceinfodata, propertykeyarray, propertykeycount.toInt(), requiredpropertykeycount, flags.toInt())
+public actual fun setupDiGetDevicePropertyKeys(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, propertykeyarray: COpaquePointer?, propertykeycount: UInt, requiredpropertykeycount: COpaquePointer?, flags: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDevicePropertyKeys(deviceinfoset, (deviceinfodata?.value ?: 0L), (propertykeyarray?.value ?: 0L), propertykeycount.toInt(), (requiredpropertykeycount?.value ?: 0L), flags.toInt())
 
-public actual fun SetupDiGetDevicePropertyW(deviceinfoset: HDEVINFO, deviceinfodata: Long, propertykey: Long, propertytype: Long, propertybuffer: Long, propertybuffersize: UInt, requiredsize: Long, flags: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDevicePropertyW(deviceinfoset, deviceinfodata, propertykey, propertytype, propertybuffer, propertybuffersize.toInt(), requiredsize, flags.toInt())
+public actual fun setupDiGetDevicePropertyW(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, propertykey: COpaquePointer?, propertytype: COpaquePointer?, propertybuffer: COpaquePointer?, propertybuffersize: UInt, requiredsize: COpaquePointer?, flags: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDevicePropertyW(deviceinfoset, (deviceinfodata?.value ?: 0L), (propertykey?.value ?: 0L), (propertytype?.value ?: 0L), (propertybuffer?.value ?: 0L), propertybuffersize.toInt(), (requiredsize?.value ?: 0L), flags.toInt())
 
-public actual fun SetupDiGetDeviceRegistryPropertyA(deviceinfoset: HDEVINFO, deviceinfodata: Long, property: SETUP_DI_REGISTRY_PROPERTY, propertyregdatatype: Long, propertybuffer: Long, propertybuffersize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceRegistryPropertyA(deviceinfoset, deviceinfodata, property.toInt(), propertyregdatatype, propertybuffer, propertybuffersize.toInt(), requiredsize)
+public actual fun setupDiGetDeviceRegistryPropertyA(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, property: SetupDiRegistryProperty, propertyregdatatype: COpaquePointer?, propertybuffer: COpaquePointer?, propertybuffersize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceRegistryPropertyA(deviceinfoset, (deviceinfodata?.value ?: 0L), property.toInt(), (propertyregdatatype?.value ?: 0L), (propertybuffer?.value ?: 0L), propertybuffersize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupDiGetDeviceRegistryPropertyW(deviceinfoset: HDEVINFO, deviceinfodata: Long, property: SETUP_DI_REGISTRY_PROPERTY, propertyregdatatype: Long, propertybuffer: Long, propertybuffersize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDeviceRegistryPropertyW(deviceinfoset, deviceinfodata, property.toInt(), propertyregdatatype, propertybuffer, propertybuffersize.toInt(), requiredsize)
+public actual fun setupDiGetDeviceRegistryPropertyW(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, property: SetupDiRegistryProperty, propertyregdatatype: COpaquePointer?, propertybuffer: COpaquePointer?, propertybuffersize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDeviceRegistryPropertyW(deviceinfoset, (deviceinfodata?.value ?: 0L), property.toInt(), (propertyregdatatype?.value ?: 0L), (propertybuffer?.value ?: 0L), propertybuffersize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupDiGetDriverInfoDetailA(deviceinfoset: HDEVINFO, deviceinfodata: Long, driverinfodata: Long, driverinfodetaildata: Long, driverinfodetaildatasize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDriverInfoDetailA(deviceinfoset, deviceinfodata, driverinfodata, driverinfodetaildata, driverinfodetaildatasize.toInt(), requiredsize)
+public actual fun setupDiGetDriverInfoDetailA(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, driverinfodata: COpaquePointer?, driverinfodetaildata: COpaquePointer?, driverinfodetaildatasize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDriverInfoDetailA(deviceinfoset, (deviceinfodata?.value ?: 0L), (driverinfodata?.value ?: 0L), (driverinfodetaildata?.value ?: 0L), driverinfodetaildatasize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupDiGetDriverInfoDetailW(deviceinfoset: HDEVINFO, deviceinfodata: Long, driverinfodata: Long, driverinfodetaildata: Long, driverinfodetaildatasize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDriverInfoDetailW(deviceinfoset, deviceinfodata, driverinfodata, driverinfodetaildata, driverinfodetaildatasize.toInt(), requiredsize)
+public actual fun setupDiGetDriverInfoDetailW(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, driverinfodata: COpaquePointer?, driverinfodetaildata: COpaquePointer?, driverinfodetaildatasize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDriverInfoDetailW(deviceinfoset, (deviceinfodata?.value ?: 0L), (driverinfodata?.value ?: 0L), (driverinfodetaildata?.value ?: 0L), driverinfodetaildatasize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupDiGetDriverInstallParamsA(deviceinfoset: HDEVINFO, deviceinfodata: Long, driverinfodata: Long, driverinstallparams: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDriverInstallParamsA(deviceinfoset, deviceinfodata, driverinfodata, driverinstallparams)
+public actual fun setupDiGetDriverInstallParamsA(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, driverinfodata: COpaquePointer?, driverinstallparams: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDriverInstallParamsA(deviceinfoset, (deviceinfodata?.value ?: 0L), (driverinfodata?.value ?: 0L), (driverinstallparams?.value ?: 0L))
 
-public actual fun SetupDiGetDriverInstallParamsW(deviceinfoset: HDEVINFO, deviceinfodata: Long, driverinfodata: Long, driverinstallparams: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetDriverInstallParamsW(deviceinfoset, deviceinfodata, driverinfodata, driverinstallparams)
+public actual fun setupDiGetDriverInstallParamsW(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, driverinfodata: COpaquePointer?, driverinstallparams: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetDriverInstallParamsW(deviceinfoset, (deviceinfodata?.value ?: 0L), (driverinfodata?.value ?: 0L), (driverinstallparams?.value ?: 0L))
 
-public actual fun SetupDiGetHwProfileFriendlyNameA(hwprofile: UInt, friendlyname: PSTR, friendlynamesize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetHwProfileFriendlyNameA(hwprofile.toInt(), friendlyname, friendlynamesize.toInt(), requiredsize)
+public actual fun setupDiGetHwProfileFriendlyNameA(hwprofile: UInt, friendlyname: Pstr, friendlynamesize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileFriendlyNameA(hwprofile.toInt(), (friendlyname?.value ?: 0L), friendlynamesize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupDiGetHwProfileFriendlyNameExA(hwprofile: UInt, friendlyname: PSTR, friendlynamesize: UInt, requiredsize: Long, machinename: PCSTR, reserved: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetHwProfileFriendlyNameExA(hwprofile.toInt(), friendlyname, friendlynamesize.toInt(), requiredsize, machinename, reserved)
+public actual fun setupDiGetHwProfileFriendlyNameExA(hwprofile: UInt, friendlyname: Pstr, friendlynamesize: UInt, requiredsize: COpaquePointer?, machinename: Pcstr, reserved: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileFriendlyNameExA(hwprofile.toInt(), (friendlyname?.value ?: 0L), friendlynamesize.toInt(), (requiredsize?.value ?: 0L), (machinename?.value ?: 0L), (reserved?.value ?: 0L))
 
-public actual fun SetupDiGetHwProfileFriendlyNameExW(hwprofile: UInt, friendlyname: PWSTR, friendlynamesize: UInt, requiredsize: Long, machinename: PCWSTR, reserved: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetHwProfileFriendlyNameExW(hwprofile.toInt(), friendlyname, friendlynamesize.toInt(), requiredsize, machinename, reserved)
+public actual fun setupDiGetHwProfileFriendlyNameExW(hwprofile: UInt, friendlyname: Pwstr, friendlynamesize: UInt, requiredsize: COpaquePointer?, machinename: Pcwstr, reserved: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileFriendlyNameExW(hwprofile.toInt(), (friendlyname?.value ?: 0L), friendlynamesize.toInt(), (requiredsize?.value ?: 0L), (machinename?.value ?: 0L), (reserved?.value ?: 0L))
 
-public actual fun SetupDiGetHwProfileFriendlyNameW(hwprofile: UInt, friendlyname: PWSTR, friendlynamesize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetHwProfileFriendlyNameW(hwprofile.toInt(), friendlyname, friendlynamesize.toInt(), requiredsize)
+public actual fun setupDiGetHwProfileFriendlyNameW(hwprofile: UInt, friendlyname: Pwstr, friendlynamesize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileFriendlyNameW(hwprofile.toInt(), (friendlyname?.value ?: 0L), friendlynamesize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupDiGetHwProfileList(hwprofilelist: Long, hwprofilelistsize: UInt, requiredsize: Long, currentlyactiveindex: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetHwProfileList(hwprofilelist, hwprofilelistsize.toInt(), requiredsize, currentlyactiveindex)
+public actual fun setupDiGetHwProfileList(hwprofilelist: COpaquePointer?, hwprofilelistsize: UInt, requiredsize: COpaquePointer?, currentlyactiveindex: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileList((hwprofilelist?.value ?: 0L), hwprofilelistsize.toInt(), (requiredsize?.value ?: 0L), (currentlyactiveindex?.value ?: 0L))
 
-public actual fun SetupDiGetHwProfileListExA(hwprofilelist: Long, hwprofilelistsize: UInt, requiredsize: Long, currentlyactiveindex: Long, machinename: PCSTR, reserved: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetHwProfileListExA(hwprofilelist, hwprofilelistsize.toInt(), requiredsize, currentlyactiveindex, machinename, reserved)
+public actual fun setupDiGetHwProfileListExA(hwprofilelist: COpaquePointer?, hwprofilelistsize: UInt, requiredsize: COpaquePointer?, currentlyactiveindex: COpaquePointer?, machinename: Pcstr, reserved: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileListExA((hwprofilelist?.value ?: 0L), hwprofilelistsize.toInt(), (requiredsize?.value ?: 0L), (currentlyactiveindex?.value ?: 0L), (machinename?.value ?: 0L), (reserved?.value ?: 0L))
 
-public actual fun SetupDiGetHwProfileListExW(hwprofilelist: Long, hwprofilelistsize: UInt, requiredsize: Long, currentlyactiveindex: Long, machinename: PCWSTR, reserved: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetHwProfileListExW(hwprofilelist, hwprofilelistsize.toInt(), requiredsize, currentlyactiveindex, machinename, reserved)
+public actual fun setupDiGetHwProfileListExW(hwprofilelist: COpaquePointer?, hwprofilelistsize: UInt, requiredsize: COpaquePointer?, currentlyactiveindex: COpaquePointer?, machinename: Pcwstr, reserved: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetHwProfileListExW((hwprofilelist?.value ?: 0L), hwprofilelistsize.toInt(), (requiredsize?.value ?: 0L), (currentlyactiveindex?.value ?: 0L), (machinename?.value ?: 0L), (reserved?.value ?: 0L))
 
-public actual fun SetupDiGetINFClassA(infname: PCSTR, classguid: Long, classname: PSTR, classnamesize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetINFClassA(infname, classguid, classname, classnamesize.toInt(), requiredsize)
+public actual fun setupDiGetINFClassA(infname: Pcstr, classguid: COpaquePointer?, classname: Pstr, classnamesize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetINFClassA((infname?.value ?: 0L), (classguid?.value ?: 0L), (classname?.value ?: 0L), classnamesize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupDiGetINFClassW(infname: PCWSTR, classguid: Long, classname: PWSTR, classnamesize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetINFClassW(infname, classguid, classname, classnamesize.toInt(), requiredsize)
+public actual fun setupDiGetINFClassW(infname: Pcwstr, classguid: COpaquePointer?, classname: Pwstr, classnamesize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetINFClassW((infname?.value ?: 0L), (classguid?.value ?: 0L), (classname?.value ?: 0L), classnamesize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupDiGetSelectedDevice(deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetSelectedDevice(deviceinfoset, deviceinfodata)
+public actual fun setupDiGetSelectedDevice(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetSelectedDevice(deviceinfoset, (deviceinfodata?.value ?: 0L))
 
-public actual fun SetupDiGetSelectedDriverA(deviceinfoset: HDEVINFO, deviceinfodata: Long, driverinfodata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetSelectedDriverA(deviceinfoset, deviceinfodata, driverinfodata)
+public actual fun setupDiGetSelectedDriverA(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, driverinfodata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetSelectedDriverA(deviceinfoset, (deviceinfodata?.value ?: 0L), (driverinfodata?.value ?: 0L))
 
-public actual fun SetupDiGetSelectedDriverW(deviceinfoset: HDEVINFO, deviceinfodata: Long, driverinfodata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetSelectedDriverW(deviceinfoset, deviceinfodata, driverinfodata)
+public actual fun setupDiGetSelectedDriverW(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, driverinfodata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetSelectedDriverW(deviceinfoset, (deviceinfodata?.value ?: 0L), (driverinfodata?.value ?: 0L))
 
-public actual fun SetupDiGetWizardPage(deviceinfoset: HDEVINFO, deviceinfodata: Long, installwizarddata: Long, pagetype: UInt, flags: UInt): HPROPSHEETPAGE =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiGetWizardPage(deviceinfoset, deviceinfodata, installwizarddata, pagetype.toInt(), flags.toInt())
+public actual fun setupDiGetWizardPage(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, installwizarddata: COpaquePointer?, pagetype: UInt, flags: UInt): Hpropsheetpage =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiGetWizardPage(deviceinfoset, (deviceinfodata?.value ?: 0L), (installwizarddata?.value ?: 0L), pagetype.toInt(), flags.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SetupDiInstallClassA(hwndparent: HWND, inffilename: PCSTR, flags: UInt, filequeue: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiInstallClassA(hwndparent, inffilename, flags.toInt(), filequeue)
+public actual fun setupDiInstallClassA(hwndparent: Hwnd, inffilename: Pcstr, flags: UInt, filequeue: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallClassA((hwndparent?.value ?: 0L), (inffilename?.value ?: 0L), flags.toInt(), (filequeue?.value ?: 0L))
 
-public actual fun SetupDiInstallClassExA(hwndparent: HWND, inffilename: PCSTR, flags: UInt, filequeue: Long, interfaceclassguid: Long, reserved1: Long, reserved2: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiInstallClassExA(hwndparent, inffilename, flags.toInt(), filequeue, interfaceclassguid, reserved1, reserved2)
+public actual fun setupDiInstallClassExA(hwndparent: Hwnd, inffilename: Pcstr, flags: UInt, filequeue: COpaquePointer?, interfaceclassguid: COpaquePointer?, reserved1: COpaquePointer?, reserved2: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallClassExA((hwndparent?.value ?: 0L), (inffilename?.value ?: 0L), flags.toInt(), (filequeue?.value ?: 0L), (interfaceclassguid?.value ?: 0L), (reserved1?.value ?: 0L), (reserved2?.value ?: 0L))
 
-public actual fun SetupDiInstallClassExW(hwndparent: HWND, inffilename: PCWSTR, flags: UInt, filequeue: Long, interfaceclassguid: Long, reserved1: Long, reserved2: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiInstallClassExW(hwndparent, inffilename, flags.toInt(), filequeue, interfaceclassguid, reserved1, reserved2)
+public actual fun setupDiInstallClassExW(hwndparent: Hwnd, inffilename: Pcwstr, flags: UInt, filequeue: COpaquePointer?, interfaceclassguid: COpaquePointer?, reserved1: COpaquePointer?, reserved2: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallClassExW((hwndparent?.value ?: 0L), (inffilename?.value ?: 0L), flags.toInt(), (filequeue?.value ?: 0L), (interfaceclassguid?.value ?: 0L), (reserved1?.value ?: 0L), (reserved2?.value ?: 0L))
 
-public actual fun SetupDiInstallClassW(hwndparent: HWND, inffilename: PCWSTR, flags: UInt, filequeue: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiInstallClassW(hwndparent, inffilename, flags.toInt(), filequeue)
+public actual fun setupDiInstallClassW(hwndparent: Hwnd, inffilename: Pcwstr, flags: UInt, filequeue: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallClassW((hwndparent?.value ?: 0L), (inffilename?.value ?: 0L), flags.toInt(), (filequeue?.value ?: 0L))
 
-public actual fun SetupDiInstallDevice(deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiInstallDevice(deviceinfoset, deviceinfodata)
+public actual fun setupDiInstallDevice(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallDevice(deviceinfoset, (deviceinfodata?.value ?: 0L))
 
-public actual fun SetupDiInstallDeviceInterfaces(deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiInstallDeviceInterfaces(deviceinfoset, deviceinfodata)
+public actual fun setupDiInstallDeviceInterfaces(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallDeviceInterfaces(deviceinfoset, (deviceinfodata?.value ?: 0L))
 
-public actual fun SetupDiInstallDriverFiles(deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiInstallDriverFiles(deviceinfoset, deviceinfodata)
+public actual fun setupDiInstallDriverFiles(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiInstallDriverFiles(deviceinfoset, (deviceinfodata?.value ?: 0L))
 
-public actual fun SetupDiLoadClassIcon(classguid: Long, largeicon: Long, miniiconindex: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiLoadClassIcon(classguid, largeicon, miniiconindex)
+public actual fun setupDiLoadClassIcon(classguid: COpaquePointer?, largeicon: COpaquePointer?, miniiconindex: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiLoadClassIcon((classguid?.value ?: 0L), (largeicon?.value ?: 0L), (miniiconindex?.value ?: 0L))
 
-public actual fun SetupDiLoadDeviceIcon(deviceinfoset: HDEVINFO, deviceinfodata: Long, cxicon: UInt, cyicon: UInt, flags: UInt, hicon: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiLoadDeviceIcon(deviceinfoset, deviceinfodata, cxicon.toInt(), cyicon.toInt(), flags.toInt(), hicon)
+public actual fun setupDiLoadDeviceIcon(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, cxicon: UInt, cyicon: UInt, flags: UInt, hicon: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiLoadDeviceIcon(deviceinfoset, (deviceinfodata?.value ?: 0L), cxicon.toInt(), cyicon.toInt(), flags.toInt(), (hicon?.value ?: 0L))
 
-public actual fun SetupDiOpenClassRegKey(classguid: Long, samdesired: UInt): HKEY =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiOpenClassRegKey(classguid, samdesired.toInt())
+public actual fun setupDiOpenClassRegKey(classguid: COpaquePointer?, samdesired: UInt): Hkey =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenClassRegKey((classguid?.value ?: 0L), samdesired.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SetupDiOpenClassRegKeyExA(classguid: Long, samdesired: UInt, flags: UInt, machinename: PCSTR, reserved: Long): HKEY =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiOpenClassRegKeyExA(classguid, samdesired.toInt(), flags.toInt(), machinename, reserved)
+public actual fun setupDiOpenClassRegKeyExA(classguid: COpaquePointer?, samdesired: UInt, flags: UInt, machinename: Pcstr, reserved: COpaquePointer?): Hkey =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenClassRegKeyExA((classguid?.value ?: 0L), samdesired.toInt(), flags.toInt(), (machinename?.value ?: 0L), (reserved?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SetupDiOpenClassRegKeyExW(classguid: Long, samdesired: UInt, flags: UInt, machinename: PCWSTR, reserved: Long): HKEY =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiOpenClassRegKeyExW(classguid, samdesired.toInt(), flags.toInt(), machinename, reserved)
+public actual fun setupDiOpenClassRegKeyExW(classguid: COpaquePointer?, samdesired: UInt, flags: UInt, machinename: Pcwstr, reserved: COpaquePointer?): Hkey =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenClassRegKeyExW((classguid?.value ?: 0L), samdesired.toInt(), flags.toInt(), (machinename?.value ?: 0L), (reserved?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SetupDiOpenDevRegKey(deviceinfoset: HDEVINFO, deviceinfodata: Long, scope: UInt, hwprofile: UInt, keytype: UInt, samdesired: UInt): HKEY =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiOpenDevRegKey(deviceinfoset, deviceinfodata, scope.toInt(), hwprofile.toInt(), keytype.toInt(), samdesired.toInt())
+public actual fun setupDiOpenDevRegKey(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, scope: UInt, hwprofile: UInt, keytype: UInt, samdesired: UInt): Hkey =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenDevRegKey(deviceinfoset, (deviceinfodata?.value ?: 0L), scope.toInt(), hwprofile.toInt(), keytype.toInt(), samdesired.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SetupDiOpenDeviceInfoA(deviceinfoset: HDEVINFO, deviceinstanceid: PCSTR, hwndparent: HWND, openflags: UInt, deviceinfodata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiOpenDeviceInfoA(deviceinfoset, deviceinstanceid, hwndparent, openflags.toInt(), deviceinfodata)
+public actual fun setupDiOpenDeviceInfoA(deviceinfoset: Hdevinfo, deviceinstanceid: Pcstr, hwndparent: Hwnd, openflags: UInt, deviceinfodata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenDeviceInfoA(deviceinfoset, (deviceinstanceid?.value ?: 0L), (hwndparent?.value ?: 0L), openflags.toInt(), (deviceinfodata?.value ?: 0L))
 
-public actual fun SetupDiOpenDeviceInfoW(deviceinfoset: HDEVINFO, deviceinstanceid: PCWSTR, hwndparent: HWND, openflags: UInt, deviceinfodata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiOpenDeviceInfoW(deviceinfoset, deviceinstanceid, hwndparent, openflags.toInt(), deviceinfodata)
+public actual fun setupDiOpenDeviceInfoW(deviceinfoset: Hdevinfo, deviceinstanceid: Pcwstr, hwndparent: Hwnd, openflags: UInt, deviceinfodata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenDeviceInfoW(deviceinfoset, (deviceinstanceid?.value ?: 0L), (hwndparent?.value ?: 0L), openflags.toInt(), (deviceinfodata?.value ?: 0L))
 
-public actual fun SetupDiOpenDeviceInterfaceA(deviceinfoset: HDEVINFO, devicepath: PCSTR, openflags: UInt, deviceinterfacedata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiOpenDeviceInterfaceA(deviceinfoset, devicepath, openflags.toInt(), deviceinterfacedata)
+public actual fun setupDiOpenDeviceInterfaceA(deviceinfoset: Hdevinfo, devicepath: Pcstr, openflags: UInt, deviceinterfacedata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenDeviceInterfaceA(deviceinfoset, (devicepath?.value ?: 0L), openflags.toInt(), (deviceinterfacedata?.value ?: 0L))
 
-public actual fun SetupDiOpenDeviceInterfaceRegKey(deviceinfoset: HDEVINFO, deviceinterfacedata: Long, reserved: UInt, samdesired: UInt): HKEY =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiOpenDeviceInterfaceRegKey(deviceinfoset, deviceinterfacedata, reserved.toInt(), samdesired.toInt())
+public actual fun setupDiOpenDeviceInterfaceRegKey(deviceinfoset: Hdevinfo, deviceinterfacedata: COpaquePointer?, reserved: UInt, samdesired: UInt): Hkey =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenDeviceInterfaceRegKey(deviceinfoset, (deviceinterfacedata?.value ?: 0L), reserved.toInt(), samdesired.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SetupDiOpenDeviceInterfaceW(deviceinfoset: HDEVINFO, devicepath: PCWSTR, openflags: UInt, deviceinterfacedata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiOpenDeviceInterfaceW(deviceinfoset, devicepath, openflags.toInt(), deviceinterfacedata)
+public actual fun setupDiOpenDeviceInterfaceW(deviceinfoset: Hdevinfo, devicepath: Pcwstr, openflags: UInt, deviceinterfacedata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiOpenDeviceInterfaceW(deviceinfoset, (devicepath?.value ?: 0L), openflags.toInt(), (deviceinterfacedata?.value ?: 0L))
 
-public actual fun SetupDiRegisterCoDeviceInstallers(deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiRegisterCoDeviceInstallers(deviceinfoset, deviceinfodata)
+public actual fun setupDiRegisterCoDeviceInstallers(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiRegisterCoDeviceInstallers(deviceinfoset, (deviceinfodata?.value ?: 0L))
 
-public actual fun SetupDiRegisterDeviceInfo(deviceinfoset: HDEVINFO, deviceinfodata: Long, flags: UInt, compareproc: PSP_DETSIG_CMPPROC, comparecontext: Long, dupdeviceinfodata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiRegisterDeviceInfo(deviceinfoset, deviceinfodata, flags.toInt(), compareproc.toLong(), comparecontext, dupdeviceinfodata)
+public actual fun setupDiRegisterDeviceInfo(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, flags: UInt, compareproc: PspDetsigCmpproc, comparecontext: COpaquePointer?, dupdeviceinfodata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiRegisterDeviceInfo(deviceinfoset, (deviceinfodata?.value ?: 0L), flags.toInt(), 0L, (comparecontext?.value ?: 0L), (dupdeviceinfodata?.value ?: 0L))
 
-public actual fun SetupDiRemoveDevice(deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiRemoveDevice(deviceinfoset, deviceinfodata)
+public actual fun setupDiRemoveDevice(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiRemoveDevice(deviceinfoset, (deviceinfodata?.value ?: 0L))
 
-public actual fun SetupDiRemoveDeviceInterface(deviceinfoset: HDEVINFO, deviceinterfacedata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiRemoveDeviceInterface(deviceinfoset, deviceinterfacedata)
+public actual fun setupDiRemoveDeviceInterface(deviceinfoset: Hdevinfo, deviceinterfacedata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiRemoveDeviceInterface(deviceinfoset, (deviceinterfacedata?.value ?: 0L))
 
-public actual fun SetupDiRestartDevices(deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiRestartDevices(deviceinfoset, deviceinfodata)
+public actual fun setupDiRestartDevices(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiRestartDevices(deviceinfoset, (deviceinfodata?.value ?: 0L))
 
-public actual fun SetupDiSelectBestCompatDrv(deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSelectBestCompatDrv(deviceinfoset, deviceinfodata)
+public actual fun setupDiSelectBestCompatDrv(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSelectBestCompatDrv(deviceinfoset, (deviceinfodata?.value ?: 0L))
 
-public actual fun SetupDiSelectDevice(deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSelectDevice(deviceinfoset, deviceinfodata)
+public actual fun setupDiSelectDevice(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSelectDevice(deviceinfoset, (deviceinfodata?.value ?: 0L))
 
-public actual fun SetupDiSelectOEMDrv(hwndparent: HWND, deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSelectOEMDrv(hwndparent, deviceinfoset, deviceinfodata)
+public actual fun setupDiSelectOEMDrv(hwndparent: Hwnd, deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSelectOEMDrv((hwndparent?.value ?: 0L), deviceinfoset, (deviceinfodata?.value ?: 0L))
 
-public actual fun SetupDiSetClassInstallParamsA(deviceinfoset: HDEVINFO, deviceinfodata: Long, classinstallparams: Long, classinstallparamssize: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetClassInstallParamsA(deviceinfoset, deviceinfodata, classinstallparams, classinstallparamssize.toInt())
+public actual fun setupDiSetClassInstallParamsA(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, classinstallparams: COpaquePointer?, classinstallparamssize: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetClassInstallParamsA(deviceinfoset, (deviceinfodata?.value ?: 0L), (classinstallparams?.value ?: 0L), classinstallparamssize.toInt())
 
-public actual fun SetupDiSetClassInstallParamsW(deviceinfoset: HDEVINFO, deviceinfodata: Long, classinstallparams: Long, classinstallparamssize: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetClassInstallParamsW(deviceinfoset, deviceinfodata, classinstallparams, classinstallparamssize.toInt())
+public actual fun setupDiSetClassInstallParamsW(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, classinstallparams: COpaquePointer?, classinstallparamssize: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetClassInstallParamsW(deviceinfoset, (deviceinfodata?.value ?: 0L), (classinstallparams?.value ?: 0L), classinstallparamssize.toInt())
 
-public actual fun SetupDiSetClassPropertyExW(classguid: Long, propertykey: Long, propertytype: DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, flags: UInt, machinename: PCWSTR, reserved: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetClassPropertyExW(classguid, propertykey, propertytype.toInt(), propertybuffer, propertybuffersize.toInt(), flags.toInt(), machinename, reserved)
+public actual fun setupDiSetClassPropertyExW(classguid: COpaquePointer?, propertykey: COpaquePointer?, propertytype: Devproptype, propertybuffer: COpaquePointer?, propertybuffersize: UInt, flags: UInt, machinename: Pcwstr, reserved: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetClassPropertyExW((classguid?.value ?: 0L), (propertykey?.value ?: 0L), propertytype.toInt(), (propertybuffer?.value ?: 0L), propertybuffersize.toInt(), flags.toInt(), (machinename?.value ?: 0L), (reserved?.value ?: 0L))
 
-public actual fun SetupDiSetClassPropertyW(classguid: Long, propertykey: Long, propertytype: DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, flags: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetClassPropertyW(classguid, propertykey, propertytype.toInt(), propertybuffer, propertybuffersize.toInt(), flags.toInt())
+public actual fun setupDiSetClassPropertyW(classguid: COpaquePointer?, propertykey: COpaquePointer?, propertytype: Devproptype, propertybuffer: COpaquePointer?, propertybuffersize: UInt, flags: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetClassPropertyW((classguid?.value ?: 0L), (propertykey?.value ?: 0L), propertytype.toInt(), (propertybuffer?.value ?: 0L), propertybuffersize.toInt(), flags.toInt())
 
-public actual fun SetupDiSetClassRegistryPropertyA(classguid: Long, property: UInt, propertybuffer: Long, propertybuffersize: UInt, machinename: PCSTR, reserved: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetClassRegistryPropertyA(classguid, property.toInt(), propertybuffer, propertybuffersize.toInt(), machinename, reserved)
+public actual fun setupDiSetClassRegistryPropertyA(classguid: COpaquePointer?, property: UInt, propertybuffer: COpaquePointer?, propertybuffersize: UInt, machinename: Pcstr, reserved: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetClassRegistryPropertyA((classguid?.value ?: 0L), property.toInt(), (propertybuffer?.value ?: 0L), propertybuffersize.toInt(), (machinename?.value ?: 0L), (reserved?.value ?: 0L))
 
-public actual fun SetupDiSetClassRegistryPropertyW(classguid: Long, property: UInt, propertybuffer: Long, propertybuffersize: UInt, machinename: PCWSTR, reserved: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetClassRegistryPropertyW(classguid, property.toInt(), propertybuffer, propertybuffersize.toInt(), machinename, reserved)
+public actual fun setupDiSetClassRegistryPropertyW(classguid: COpaquePointer?, property: UInt, propertybuffer: COpaquePointer?, propertybuffersize: UInt, machinename: Pcwstr, reserved: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetClassRegistryPropertyW((classguid?.value ?: 0L), property.toInt(), (propertybuffer?.value ?: 0L), propertybuffersize.toInt(), (machinename?.value ?: 0L), (reserved?.value ?: 0L))
 
-public actual fun SetupDiSetDeviceInstallParamsA(deviceinfoset: HDEVINFO, deviceinfodata: Long, deviceinstallparams: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetDeviceInstallParamsA(deviceinfoset, deviceinfodata, deviceinstallparams)
+public actual fun setupDiSetDeviceInstallParamsA(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, deviceinstallparams: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDeviceInstallParamsA(deviceinfoset, (deviceinfodata?.value ?: 0L), (deviceinstallparams?.value ?: 0L))
 
-public actual fun SetupDiSetDeviceInstallParamsW(deviceinfoset: HDEVINFO, deviceinfodata: Long, deviceinstallparams: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetDeviceInstallParamsW(deviceinfoset, deviceinfodata, deviceinstallparams)
+public actual fun setupDiSetDeviceInstallParamsW(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, deviceinstallparams: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDeviceInstallParamsW(deviceinfoset, (deviceinfodata?.value ?: 0L), (deviceinstallparams?.value ?: 0L))
 
-public actual fun SetupDiSetDeviceInterfaceDefault(deviceinfoset: HDEVINFO, deviceinterfacedata: Long, flags: UInt, reserved: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetDeviceInterfaceDefault(deviceinfoset, deviceinterfacedata, flags.toInt(), reserved)
+public actual fun setupDiSetDeviceInterfaceDefault(deviceinfoset: Hdevinfo, deviceinterfacedata: COpaquePointer?, flags: UInt, reserved: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDeviceInterfaceDefault(deviceinfoset, (deviceinterfacedata?.value ?: 0L), flags.toInt(), (reserved?.value ?: 0L))
 
-public actual fun SetupDiSetDeviceInterfacePropertyW(deviceinfoset: HDEVINFO, deviceinterfacedata: Long, propertykey: Long, propertytype: DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, flags: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetDeviceInterfacePropertyW(deviceinfoset, deviceinterfacedata, propertykey, propertytype.toInt(), propertybuffer, propertybuffersize.toInt(), flags.toInt())
+public actual fun setupDiSetDeviceInterfacePropertyW(deviceinfoset: Hdevinfo, deviceinterfacedata: COpaquePointer?, propertykey: COpaquePointer?, propertytype: Devproptype, propertybuffer: COpaquePointer?, propertybuffersize: UInt, flags: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDeviceInterfacePropertyW(deviceinfoset, (deviceinterfacedata?.value ?: 0L), (propertykey?.value ?: 0L), propertytype.toInt(), (propertybuffer?.value ?: 0L), propertybuffersize.toInt(), flags.toInt())
 
-public actual fun SetupDiSetDevicePropertyW(deviceinfoset: HDEVINFO, deviceinfodata: Long, propertykey: Long, propertytype: DEVPROPTYPE, propertybuffer: Long, propertybuffersize: UInt, flags: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetDevicePropertyW(deviceinfoset, deviceinfodata, propertykey, propertytype.toInt(), propertybuffer, propertybuffersize.toInt(), flags.toInt())
+public actual fun setupDiSetDevicePropertyW(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, propertykey: COpaquePointer?, propertytype: Devproptype, propertybuffer: COpaquePointer?, propertybuffersize: UInt, flags: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDevicePropertyW(deviceinfoset, (deviceinfodata?.value ?: 0L), (propertykey?.value ?: 0L), propertytype.toInt(), (propertybuffer?.value ?: 0L), propertybuffersize.toInt(), flags.toInt())
 
-public actual fun SetupDiSetDeviceRegistryPropertyA(deviceinfoset: HDEVINFO, deviceinfodata: Long, property: SETUP_DI_REGISTRY_PROPERTY, propertybuffer: Long, propertybuffersize: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetDeviceRegistryPropertyA(deviceinfoset, deviceinfodata, property.toInt(), propertybuffer, propertybuffersize.toInt())
+public actual fun setupDiSetDeviceRegistryPropertyA(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, property: SetupDiRegistryProperty, propertybuffer: COpaquePointer?, propertybuffersize: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDeviceRegistryPropertyA(deviceinfoset, (deviceinfodata?.value ?: 0L), property.toInt(), (propertybuffer?.value ?: 0L), propertybuffersize.toInt())
 
-public actual fun SetupDiSetDeviceRegistryPropertyW(deviceinfoset: HDEVINFO, deviceinfodata: Long, property: SETUP_DI_REGISTRY_PROPERTY, propertybuffer: Long, propertybuffersize: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetDeviceRegistryPropertyW(deviceinfoset, deviceinfodata, property.toInt(), propertybuffer, propertybuffersize.toInt())
+public actual fun setupDiSetDeviceRegistryPropertyW(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, property: SetupDiRegistryProperty, propertybuffer: COpaquePointer?, propertybuffersize: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDeviceRegistryPropertyW(deviceinfoset, (deviceinfodata?.value ?: 0L), property.toInt(), (propertybuffer?.value ?: 0L), propertybuffersize.toInt())
 
-public actual fun SetupDiSetDriverInstallParamsA(deviceinfoset: HDEVINFO, deviceinfodata: Long, driverinfodata: Long, driverinstallparams: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetDriverInstallParamsA(deviceinfoset, deviceinfodata, driverinfodata, driverinstallparams)
+public actual fun setupDiSetDriverInstallParamsA(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, driverinfodata: COpaquePointer?, driverinstallparams: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDriverInstallParamsA(deviceinfoset, (deviceinfodata?.value ?: 0L), (driverinfodata?.value ?: 0L), (driverinstallparams?.value ?: 0L))
 
-public actual fun SetupDiSetDriverInstallParamsW(deviceinfoset: HDEVINFO, deviceinfodata: Long, driverinfodata: Long, driverinstallparams: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetDriverInstallParamsW(deviceinfoset, deviceinfodata, driverinfodata, driverinstallparams)
+public actual fun setupDiSetDriverInstallParamsW(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, driverinfodata: COpaquePointer?, driverinstallparams: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetDriverInstallParamsW(deviceinfoset, (deviceinfodata?.value ?: 0L), (driverinfodata?.value ?: 0L), (driverinstallparams?.value ?: 0L))
 
-public actual fun SetupDiSetSelectedDevice(deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetSelectedDevice(deviceinfoset, deviceinfodata)
+public actual fun setupDiSetSelectedDevice(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetSelectedDevice(deviceinfoset, (deviceinfodata?.value ?: 0L))
 
-public actual fun SetupDiSetSelectedDriverA(deviceinfoset: HDEVINFO, deviceinfodata: Long, driverinfodata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetSelectedDriverA(deviceinfoset, deviceinfodata, driverinfodata)
+public actual fun setupDiSetSelectedDriverA(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, driverinfodata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetSelectedDriverA(deviceinfoset, (deviceinfodata?.value ?: 0L), (driverinfodata?.value ?: 0L))
 
-public actual fun SetupDiSetSelectedDriverW(deviceinfoset: HDEVINFO, deviceinfodata: Long, driverinfodata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiSetSelectedDriverW(deviceinfoset, deviceinfodata, driverinfodata)
+public actual fun setupDiSetSelectedDriverW(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, driverinfodata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiSetSelectedDriverW(deviceinfoset, (deviceinfodata?.value ?: 0L), (driverinfodata?.value ?: 0L))
 
-public actual fun SetupDiUnremoveDevice(deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDiUnremoveDevice(deviceinfoset, deviceinfodata)
+public actual fun setupDiUnremoveDevice(deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDiUnremoveDevice(deviceinfoset, (deviceinfodata?.value ?: 0L))
 
-public actual fun SetupDuplicateDiskSpaceListA(diskspace: Long, reserved1: Long, reserved2: UInt, flags: UInt): Long =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDuplicateDiskSpaceListA(diskspace, reserved1, reserved2.toInt(), flags.toInt())
+public actual fun setupDuplicateDiskSpaceListA(diskspace: COpaquePointer?, reserved1: COpaquePointer?, reserved2: UInt, flags: UInt): COpaquePointer? =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDuplicateDiskSpaceListA((diskspace?.value ?: 0L), (reserved1?.value ?: 0L), reserved2.toInt(), flags.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SetupDuplicateDiskSpaceListW(diskspace: Long, reserved1: Long, reserved2: UInt, flags: UInt): Long =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupDuplicateDiskSpaceListW(diskspace, reserved1, reserved2.toInt(), flags.toInt())
+public actual fun setupDuplicateDiskSpaceListW(diskspace: COpaquePointer?, reserved1: COpaquePointer?, reserved2: UInt, flags: UInt): COpaquePointer? =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupDuplicateDiskSpaceListW((diskspace?.value ?: 0L), (reserved1?.value ?: 0L), reserved2.toInt(), flags.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SetupEnumInfSectionsA(infhandle: Long, index: UInt, buffer: PSTR, size: UInt, sizeneeded: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupEnumInfSectionsA(infhandle, index.toInt(), buffer, size.toInt(), sizeneeded)
+public actual fun setupEnumInfSectionsA(infhandle: COpaquePointer?, index: UInt, buffer: Pstr, size: UInt, sizeneeded: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupEnumInfSectionsA((infhandle?.value ?: 0L), index.toInt(), (buffer?.value ?: 0L), size.toInt(), (sizeneeded?.value ?: 0L))
 
-public actual fun SetupEnumInfSectionsW(infhandle: Long, index: UInt, buffer: PWSTR, size: UInt, sizeneeded: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupEnumInfSectionsW(infhandle, index.toInt(), buffer, size.toInt(), sizeneeded)
+public actual fun setupEnumInfSectionsW(infhandle: COpaquePointer?, index: UInt, buffer: Pwstr, size: UInt, sizeneeded: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupEnumInfSectionsW((infhandle?.value ?: 0L), index.toInt(), (buffer?.value ?: 0L), size.toInt(), (sizeneeded?.value ?: 0L))
 
-public actual fun SetupFindFirstLineA(infhandle: Long, section: PCSTR, key: PCSTR, context: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupFindFirstLineA(infhandle, section, key, context)
+public actual fun setupFindFirstLineA(infhandle: COpaquePointer?, section: Pcstr, key: Pcstr, context: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupFindFirstLineA((infhandle?.value ?: 0L), (section?.value ?: 0L), (key?.value ?: 0L), (context?.value ?: 0L))
 
-public actual fun SetupFindFirstLineW(infhandle: Long, section: PCWSTR, key: PCWSTR, context: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupFindFirstLineW(infhandle, section, key, context)
+public actual fun setupFindFirstLineW(infhandle: COpaquePointer?, section: Pcwstr, key: Pcwstr, context: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupFindFirstLineW((infhandle?.value ?: 0L), (section?.value ?: 0L), (key?.value ?: 0L), (context?.value ?: 0L))
 
-public actual fun SetupFindNextLine(contextin: Long, contextout: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupFindNextLine(contextin, contextout)
+public actual fun setupFindNextLine(contextin: COpaquePointer?, contextout: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupFindNextLine((contextin?.value ?: 0L), (contextout?.value ?: 0L))
 
-public actual fun SetupFindNextMatchLineA(contextin: Long, key: PCSTR, contextout: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupFindNextMatchLineA(contextin, key, contextout)
+public actual fun setupFindNextMatchLineA(contextin: COpaquePointer?, key: Pcstr, contextout: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupFindNextMatchLineA((contextin?.value ?: 0L), (key?.value ?: 0L), (contextout?.value ?: 0L))
 
-public actual fun SetupFindNextMatchLineW(contextin: Long, key: PCWSTR, contextout: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupFindNextMatchLineW(contextin, key, contextout)
+public actual fun setupFindNextMatchLineW(contextin: COpaquePointer?, key: Pcwstr, contextout: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupFindNextMatchLineW((contextin?.value ?: 0L), (key?.value ?: 0L), (contextout?.value ?: 0L))
 
-public actual fun SetupFreeSourceListA(list: Long, count: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupFreeSourceListA(list, count.toInt())
+public actual fun setupFreeSourceListA(list: COpaquePointer?, count: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupFreeSourceListA((list?.value ?: 0L), count.toInt())
 
-public actual fun SetupFreeSourceListW(list: Long, count: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupFreeSourceListW(list, count.toInt())
+public actual fun setupFreeSourceListW(list: COpaquePointer?, count: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupFreeSourceListW((list?.value ?: 0L), count.toInt())
 
-public actual fun SetupGetBackupInformationA(queuehandle: Long, backupparams: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetBackupInformationA(queuehandle, backupparams)
+public actual fun setupGetBackupInformationA(queuehandle: COpaquePointer?, backupparams: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetBackupInformationA((queuehandle?.value ?: 0L), (backupparams?.value ?: 0L))
 
-public actual fun SetupGetBackupInformationW(queuehandle: Long, backupparams: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetBackupInformationW(queuehandle, backupparams)
+public actual fun setupGetBackupInformationW(queuehandle: COpaquePointer?, backupparams: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetBackupInformationW((queuehandle?.value ?: 0L), (backupparams?.value ?: 0L))
 
-public actual fun SetupGetBinaryField(context: Long, fieldindex: UInt, returnbuffer: Long, returnbuffersize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetBinaryField(context, fieldindex.toInt(), returnbuffer, returnbuffersize.toInt(), requiredsize)
+public actual fun setupGetBinaryField(context: COpaquePointer?, fieldindex: UInt, returnbuffer: COpaquePointer?, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetBinaryField((context?.value ?: 0L), fieldindex.toInt(), (returnbuffer?.value ?: 0L), returnbuffersize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupGetFieldCount(context: Long): UInt =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetFieldCount(context).toUInt()
+public actual fun setupGetFieldCount(context: COpaquePointer?): UInt =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFieldCount((context?.value ?: 0L)).toUInt()
 
-public actual fun SetupGetFileCompressionInfoA(sourcefilename: PCSTR, actualsourcefilename: Long, sourcefilesize: Long, targetfilesize: Long, compressiontype: Long): UInt =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetFileCompressionInfoA(sourcefilename, actualsourcefilename, sourcefilesize, targetfilesize, compressiontype).toUInt()
+public actual fun setupGetFileCompressionInfoA(sourcefilename: Pcstr, actualsourcefilename: COpaquePointer?, sourcefilesize: COpaquePointer?, targetfilesize: COpaquePointer?, compressiontype: COpaquePointer?): UInt =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFileCompressionInfoA((sourcefilename?.value ?: 0L), (actualsourcefilename?.value ?: 0L), (sourcefilesize?.value ?: 0L), (targetfilesize?.value ?: 0L), (compressiontype?.value ?: 0L)).toUInt()
 
-public actual fun SetupGetFileCompressionInfoExA(sourcefilename: PCSTR, actualsourcefilenamebuffer: PCSTR, actualsourcefilenamebufferlen: UInt, requiredbufferlen: Long, sourcefilesize: Long, targetfilesize: Long, compressiontype: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetFileCompressionInfoExA(sourcefilename, actualsourcefilenamebuffer, actualsourcefilenamebufferlen.toInt(), requiredbufferlen, sourcefilesize, targetfilesize, compressiontype)
+public actual fun setupGetFileCompressionInfoExA(sourcefilename: Pcstr, actualsourcefilenamebuffer: Pcstr, actualsourcefilenamebufferlen: UInt, requiredbufferlen: COpaquePointer?, sourcefilesize: COpaquePointer?, targetfilesize: COpaquePointer?, compressiontype: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFileCompressionInfoExA((sourcefilename?.value ?: 0L), (actualsourcefilenamebuffer?.value ?: 0L), actualsourcefilenamebufferlen.toInt(), (requiredbufferlen?.value ?: 0L), (sourcefilesize?.value ?: 0L), (targetfilesize?.value ?: 0L), (compressiontype?.value ?: 0L))
 
-public actual fun SetupGetFileCompressionInfoExW(sourcefilename: PCWSTR, actualsourcefilenamebuffer: PCWSTR, actualsourcefilenamebufferlen: UInt, requiredbufferlen: Long, sourcefilesize: Long, targetfilesize: Long, compressiontype: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetFileCompressionInfoExW(sourcefilename, actualsourcefilenamebuffer, actualsourcefilenamebufferlen.toInt(), requiredbufferlen, sourcefilesize, targetfilesize, compressiontype)
+public actual fun setupGetFileCompressionInfoExW(sourcefilename: Pcwstr, actualsourcefilenamebuffer: Pcwstr, actualsourcefilenamebufferlen: UInt, requiredbufferlen: COpaquePointer?, sourcefilesize: COpaquePointer?, targetfilesize: COpaquePointer?, compressiontype: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFileCompressionInfoExW((sourcefilename?.value ?: 0L), (actualsourcefilenamebuffer?.value ?: 0L), actualsourcefilenamebufferlen.toInt(), (requiredbufferlen?.value ?: 0L), (sourcefilesize?.value ?: 0L), (targetfilesize?.value ?: 0L), (compressiontype?.value ?: 0L))
 
-public actual fun SetupGetFileCompressionInfoW(sourcefilename: PCWSTR, actualsourcefilename: Long, sourcefilesize: Long, targetfilesize: Long, compressiontype: Long): UInt =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetFileCompressionInfoW(sourcefilename, actualsourcefilename, sourcefilesize, targetfilesize, compressiontype).toUInt()
+public actual fun setupGetFileCompressionInfoW(sourcefilename: Pcwstr, actualsourcefilename: COpaquePointer?, sourcefilesize: COpaquePointer?, targetfilesize: COpaquePointer?, compressiontype: COpaquePointer?): UInt =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFileCompressionInfoW((sourcefilename?.value ?: 0L), (actualsourcefilename?.value ?: 0L), (sourcefilesize?.value ?: 0L), (targetfilesize?.value ?: 0L), (compressiontype?.value ?: 0L)).toUInt()
 
-public actual fun SetupGetFileQueueCount(filequeue: Long, subqueuefileop: UInt, numoperations: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetFileQueueCount(filequeue, subqueuefileop.toInt(), numoperations)
+public actual fun setupGetFileQueueCount(filequeue: COpaquePointer?, subqueuefileop: UInt, numoperations: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFileQueueCount((filequeue?.value ?: 0L), subqueuefileop.toInt(), (numoperations?.value ?: 0L))
 
-public actual fun SetupGetFileQueueFlags(filequeue: Long, flags: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetFileQueueFlags(filequeue, flags)
+public actual fun setupGetFileQueueFlags(filequeue: COpaquePointer?, flags: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetFileQueueFlags((filequeue?.value ?: 0L), (flags?.value ?: 0L))
 
-public actual fun SetupGetInfDriverStoreLocationA(filename: PCSTR, alternateplatforminfo: Long, localename: PCSTR, returnbuffer: PSTR, returnbuffersize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetInfDriverStoreLocationA(filename, alternateplatforminfo, localename, returnbuffer, returnbuffersize.toInt(), requiredsize)
+public actual fun setupGetInfDriverStoreLocationA(filename: Pcstr, alternateplatforminfo: COpaquePointer?, localename: Pcstr, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfDriverStoreLocationA((filename?.value ?: 0L), (alternateplatforminfo?.value ?: 0L), (localename?.value ?: 0L), (returnbuffer?.value ?: 0L), returnbuffersize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupGetInfDriverStoreLocationW(filename: PCWSTR, alternateplatforminfo: Long, localename: PCWSTR, returnbuffer: PWSTR, returnbuffersize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetInfDriverStoreLocationW(filename, alternateplatforminfo, localename, returnbuffer, returnbuffersize.toInt(), requiredsize)
+public actual fun setupGetInfDriverStoreLocationW(filename: Pcwstr, alternateplatforminfo: COpaquePointer?, localename: Pcwstr, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfDriverStoreLocationW((filename?.value ?: 0L), (alternateplatforminfo?.value ?: 0L), (localename?.value ?: 0L), (returnbuffer?.value ?: 0L), returnbuffersize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupGetInfFileListA(directorypath: PCSTR, infstyle: INF_STYLE, returnbuffer: PSTR, returnbuffersize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetInfFileListA(directorypath, infstyle.toInt(), returnbuffer, returnbuffersize.toInt(), requiredsize)
+public actual fun setupGetInfFileListA(directorypath: Pcstr, infstyle: InfStyle, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfFileListA((directorypath?.value ?: 0L), infstyle.toInt(), (returnbuffer?.value ?: 0L), returnbuffersize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupGetInfFileListW(directorypath: PCWSTR, infstyle: INF_STYLE, returnbuffer: PWSTR, returnbuffersize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetInfFileListW(directorypath, infstyle.toInt(), returnbuffer, returnbuffersize.toInt(), requiredsize)
+public actual fun setupGetInfFileListW(directorypath: Pcwstr, infstyle: InfStyle, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfFileListW((directorypath?.value ?: 0L), infstyle.toInt(), (returnbuffer?.value ?: 0L), returnbuffersize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupGetInfInformationA(infspec: Long, searchcontrol: UInt, returnbuffer: Long, returnbuffersize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetInfInformationA(infspec, searchcontrol.toInt(), returnbuffer, returnbuffersize.toInt(), requiredsize)
+public actual fun setupGetInfInformationA(infspec: COpaquePointer?, searchcontrol: UInt, returnbuffer: COpaquePointer?, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfInformationA((infspec?.value ?: 0L), searchcontrol.toInt(), (returnbuffer?.value ?: 0L), returnbuffersize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupGetInfInformationW(infspec: Long, searchcontrol: UInt, returnbuffer: Long, returnbuffersize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetInfInformationW(infspec, searchcontrol.toInt(), returnbuffer, returnbuffersize.toInt(), requiredsize)
+public actual fun setupGetInfInformationW(infspec: COpaquePointer?, searchcontrol: UInt, returnbuffer: COpaquePointer?, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfInformationW((infspec?.value ?: 0L), searchcontrol.toInt(), (returnbuffer?.value ?: 0L), returnbuffersize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupGetInfPublishedNameA(driverstorelocation: PCSTR, returnbuffer: PSTR, returnbuffersize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetInfPublishedNameA(driverstorelocation, returnbuffer, returnbuffersize.toInt(), requiredsize)
+public actual fun setupGetInfPublishedNameA(driverstorelocation: Pcstr, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfPublishedNameA((driverstorelocation?.value ?: 0L), (returnbuffer?.value ?: 0L), returnbuffersize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupGetInfPublishedNameW(driverstorelocation: PCWSTR, returnbuffer: PWSTR, returnbuffersize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetInfPublishedNameW(driverstorelocation, returnbuffer, returnbuffersize.toInt(), requiredsize)
+public actual fun setupGetInfPublishedNameW(driverstorelocation: Pcwstr, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetInfPublishedNameW((driverstorelocation?.value ?: 0L), (returnbuffer?.value ?: 0L), returnbuffersize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupGetIntField(context: Long, fieldindex: UInt, integervalue: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetIntField(context, fieldindex.toInt(), integervalue)
+public actual fun setupGetIntField(context: COpaquePointer?, fieldindex: UInt, integervalue: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetIntField((context?.value ?: 0L), fieldindex.toInt(), (integervalue?.value ?: 0L))
 
-public actual fun SetupGetLineByIndexA(infhandle: Long, section: PCSTR, index: UInt, context: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetLineByIndexA(infhandle, section, index.toInt(), context)
+public actual fun setupGetLineByIndexA(infhandle: COpaquePointer?, section: Pcstr, index: UInt, context: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetLineByIndexA((infhandle?.value ?: 0L), (section?.value ?: 0L), index.toInt(), (context?.value ?: 0L))
 
-public actual fun SetupGetLineByIndexW(infhandle: Long, section: PCWSTR, index: UInt, context: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetLineByIndexW(infhandle, section, index.toInt(), context)
+public actual fun setupGetLineByIndexW(infhandle: COpaquePointer?, section: Pcwstr, index: UInt, context: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetLineByIndexW((infhandle?.value ?: 0L), (section?.value ?: 0L), index.toInt(), (context?.value ?: 0L))
 
-public actual fun SetupGetLineCountA(infhandle: Long, section: PCSTR): Int =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetLineCountA(infhandle, section)
+public actual fun setupGetLineCountA(infhandle: COpaquePointer?, section: Pcstr): Int =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetLineCountA((infhandle?.value ?: 0L), (section?.value ?: 0L))
 
-public actual fun SetupGetLineCountW(infhandle: Long, section: PCWSTR): Int =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetLineCountW(infhandle, section)
+public actual fun setupGetLineCountW(infhandle: COpaquePointer?, section: Pcwstr): Int =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetLineCountW((infhandle?.value ?: 0L), (section?.value ?: 0L))
 
-public actual fun SetupGetLineTextA(context: Long, infhandle: Long, section: PCSTR, key: PCSTR, returnbuffer: PSTR, returnbuffersize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetLineTextA(context, infhandle, section, key, returnbuffer, returnbuffersize.toInt(), requiredsize)
+public actual fun setupGetLineTextA(context: COpaquePointer?, infhandle: COpaquePointer?, section: Pcstr, key: Pcstr, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetLineTextA((context?.value ?: 0L), (infhandle?.value ?: 0L), (section?.value ?: 0L), (key?.value ?: 0L), (returnbuffer?.value ?: 0L), returnbuffersize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupGetLineTextW(context: Long, infhandle: Long, section: PCWSTR, key: PCWSTR, returnbuffer: PWSTR, returnbuffersize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetLineTextW(context, infhandle, section, key, returnbuffer, returnbuffersize.toInt(), requiredsize)
+public actual fun setupGetLineTextW(context: COpaquePointer?, infhandle: COpaquePointer?, section: Pcwstr, key: Pcwstr, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetLineTextW((context?.value ?: 0L), (infhandle?.value ?: 0L), (section?.value ?: 0L), (key?.value ?: 0L), (returnbuffer?.value ?: 0L), returnbuffersize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupGetMultiSzFieldA(context: Long, fieldindex: UInt, returnbuffer: PSTR, returnbuffersize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetMultiSzFieldA(context, fieldindex.toInt(), returnbuffer, returnbuffersize.toInt(), requiredsize)
+public actual fun setupGetMultiSzFieldA(context: COpaquePointer?, fieldindex: UInt, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetMultiSzFieldA((context?.value ?: 0L), fieldindex.toInt(), (returnbuffer?.value ?: 0L), returnbuffersize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupGetMultiSzFieldW(context: Long, fieldindex: UInt, returnbuffer: PWSTR, returnbuffersize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetMultiSzFieldW(context, fieldindex.toInt(), returnbuffer, returnbuffersize.toInt(), requiredsize)
+public actual fun setupGetMultiSzFieldW(context: COpaquePointer?, fieldindex: UInt, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetMultiSzFieldW((context?.value ?: 0L), fieldindex.toInt(), (returnbuffer?.value ?: 0L), returnbuffersize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupGetNonInteractiveMode(): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetNonInteractiveMode()
+public actual fun setupGetNonInteractiveMode(): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetNonInteractiveMode()
 
-public actual fun SetupGetSourceFileLocationA(infhandle: Long, infcontext: Long, filename: PCSTR, sourceid: Long, returnbuffer: PSTR, returnbuffersize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetSourceFileLocationA(infhandle, infcontext, filename, sourceid, returnbuffer, returnbuffersize.toInt(), requiredsize)
+public actual fun setupGetSourceFileLocationA(infhandle: COpaquePointer?, infcontext: COpaquePointer?, filename: Pcstr, sourceid: COpaquePointer?, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetSourceFileLocationA((infhandle?.value ?: 0L), (infcontext?.value ?: 0L), (filename?.value ?: 0L), (sourceid?.value ?: 0L), (returnbuffer?.value ?: 0L), returnbuffersize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupGetSourceFileLocationW(infhandle: Long, infcontext: Long, filename: PCWSTR, sourceid: Long, returnbuffer: PWSTR, returnbuffersize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetSourceFileLocationW(infhandle, infcontext, filename, sourceid, returnbuffer, returnbuffersize.toInt(), requiredsize)
+public actual fun setupGetSourceFileLocationW(infhandle: COpaquePointer?, infcontext: COpaquePointer?, filename: Pcwstr, sourceid: COpaquePointer?, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetSourceFileLocationW((infhandle?.value ?: 0L), (infcontext?.value ?: 0L), (filename?.value ?: 0L), (sourceid?.value ?: 0L), (returnbuffer?.value ?: 0L), returnbuffersize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupGetSourceFileSizeA(infhandle: Long, infcontext: Long, filename: PCSTR, section: PCSTR, filesize: Long, roundingfactor: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetSourceFileSizeA(infhandle, infcontext, filename, section, filesize, roundingfactor.toInt())
+public actual fun setupGetSourceFileSizeA(infhandle: COpaquePointer?, infcontext: COpaquePointer?, filename: Pcstr, section: Pcstr, filesize: COpaquePointer?, roundingfactor: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetSourceFileSizeA((infhandle?.value ?: 0L), (infcontext?.value ?: 0L), (filename?.value ?: 0L), (section?.value ?: 0L), (filesize?.value ?: 0L), roundingfactor.toInt())
 
-public actual fun SetupGetSourceFileSizeW(infhandle: Long, infcontext: Long, filename: PCWSTR, section: PCWSTR, filesize: Long, roundingfactor: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetSourceFileSizeW(infhandle, infcontext, filename, section, filesize, roundingfactor.toInt())
+public actual fun setupGetSourceFileSizeW(infhandle: COpaquePointer?, infcontext: COpaquePointer?, filename: Pcwstr, section: Pcwstr, filesize: COpaquePointer?, roundingfactor: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetSourceFileSizeW((infhandle?.value ?: 0L), (infcontext?.value ?: 0L), (filename?.value ?: 0L), (section?.value ?: 0L), (filesize?.value ?: 0L), roundingfactor.toInt())
 
-public actual fun SetupGetSourceInfoA(infhandle: Long, sourceid: UInt, infodesired: UInt, returnbuffer: PSTR, returnbuffersize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetSourceInfoA(infhandle, sourceid.toInt(), infodesired.toInt(), returnbuffer, returnbuffersize.toInt(), requiredsize)
+public actual fun setupGetSourceInfoA(infhandle: COpaquePointer?, sourceid: UInt, infodesired: UInt, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetSourceInfoA((infhandle?.value ?: 0L), sourceid.toInt(), infodesired.toInt(), (returnbuffer?.value ?: 0L), returnbuffersize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupGetSourceInfoW(infhandle: Long, sourceid: UInt, infodesired: UInt, returnbuffer: PWSTR, returnbuffersize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetSourceInfoW(infhandle, sourceid.toInt(), infodesired.toInt(), returnbuffer, returnbuffersize.toInt(), requiredsize)
+public actual fun setupGetSourceInfoW(infhandle: COpaquePointer?, sourceid: UInt, infodesired: UInt, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetSourceInfoW((infhandle?.value ?: 0L), sourceid.toInt(), infodesired.toInt(), (returnbuffer?.value ?: 0L), returnbuffersize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupGetStringFieldA(context: Long, fieldindex: UInt, returnbuffer: PSTR, returnbuffersize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetStringFieldA(context, fieldindex.toInt(), returnbuffer, returnbuffersize.toInt(), requiredsize)
+public actual fun setupGetStringFieldA(context: COpaquePointer?, fieldindex: UInt, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetStringFieldA((context?.value ?: 0L), fieldindex.toInt(), (returnbuffer?.value ?: 0L), returnbuffersize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupGetStringFieldW(context: Long, fieldindex: UInt, returnbuffer: PWSTR, returnbuffersize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetStringFieldW(context, fieldindex.toInt(), returnbuffer, returnbuffersize.toInt(), requiredsize)
+public actual fun setupGetStringFieldW(context: COpaquePointer?, fieldindex: UInt, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetStringFieldW((context?.value ?: 0L), fieldindex.toInt(), (returnbuffer?.value ?: 0L), returnbuffersize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupGetTargetPathA(infhandle: Long, infcontext: Long, section: PCSTR, returnbuffer: PSTR, returnbuffersize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetTargetPathA(infhandle, infcontext, section, returnbuffer, returnbuffersize.toInt(), requiredsize)
+public actual fun setupGetTargetPathA(infhandle: COpaquePointer?, infcontext: COpaquePointer?, section: Pcstr, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetTargetPathA((infhandle?.value ?: 0L), (infcontext?.value ?: 0L), (section?.value ?: 0L), (returnbuffer?.value ?: 0L), returnbuffersize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupGetTargetPathW(infhandle: Long, infcontext: Long, section: PCWSTR, returnbuffer: PWSTR, returnbuffersize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetTargetPathW(infhandle, infcontext, section, returnbuffer, returnbuffersize.toInt(), requiredsize)
+public actual fun setupGetTargetPathW(infhandle: COpaquePointer?, infcontext: COpaquePointer?, section: Pcwstr, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetTargetPathW((infhandle?.value ?: 0L), (infcontext?.value ?: 0L), (section?.value ?: 0L), (returnbuffer?.value ?: 0L), returnbuffersize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupGetThreadLogToken(): ULong =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupGetThreadLogToken().toULong()
+public actual fun setupGetThreadLogToken(): ULong =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupGetThreadLogToken().toULong()
 
-public actual fun SetupInitDefaultQueueCallback(ownerwindow: HWND): Long =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInitDefaultQueueCallback(ownerwindow)
+public actual fun setupInitDefaultQueueCallback(ownerwindow: Hwnd): COpaquePointer? =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupInitDefaultQueueCallback((ownerwindow?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SetupInitDefaultQueueCallbackEx(ownerwindow: HWND, alternateprogresswindow: HWND, progressmessage: UInt, reserved1: UInt, reserved2: Long): Long =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInitDefaultQueueCallbackEx(ownerwindow, alternateprogresswindow, progressmessage.toInt(), reserved1.toInt(), reserved2)
+public actual fun setupInitDefaultQueueCallbackEx(ownerwindow: Hwnd, alternateprogresswindow: Hwnd, progressmessage: UInt, reserved1: UInt, reserved2: COpaquePointer?): COpaquePointer? =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupInitDefaultQueueCallbackEx((ownerwindow?.value ?: 0L), (alternateprogresswindow?.value ?: 0L), progressmessage.toInt(), reserved1.toInt(), (reserved2?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SetupInitializeFileLogA(logfilename: PCSTR, flags: UInt): Long =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInitializeFileLogA(logfilename, flags.toInt())
+public actual fun setupInitializeFileLogA(logfilename: Pcstr, flags: UInt): COpaquePointer? =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupInitializeFileLogA((logfilename?.value ?: 0L), flags.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SetupInitializeFileLogW(logfilename: PCWSTR, flags: UInt): Long =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInitializeFileLogW(logfilename, flags.toInt())
+public actual fun setupInitializeFileLogW(logfilename: Pcwstr, flags: UInt): COpaquePointer? =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupInitializeFileLogW((logfilename?.value ?: 0L), flags.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SetupInstallFileA(infhandle: Long, infcontext: Long, sourcefile: PCSTR, sourcepathroot: PCSTR, destinationname: PCSTR, copystyle: SP_COPY_STYLE, copymsghandler: PSP_FILE_CALLBACK_A, context: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstallFileA(infhandle, infcontext, sourcefile, sourcepathroot, destinationname, copystyle.toInt(), copymsghandler.toLong(), context)
+public actual fun setupInstallFileA(infhandle: COpaquePointer?, infcontext: COpaquePointer?, sourcefile: Pcstr, sourcepathroot: Pcstr, destinationname: Pcstr, copystyle: SpCopyStyle, copymsghandler: PspFileCallbackA, context: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFileA((infhandle?.value ?: 0L), (infcontext?.value ?: 0L), (sourcefile?.value ?: 0L), (sourcepathroot?.value ?: 0L), (destinationname?.value ?: 0L), copystyle.toInt(), 0L, (context?.value ?: 0L))
 
-public actual fun SetupInstallFileExA(infhandle: Long, infcontext: Long, sourcefile: PCSTR, sourcepathroot: PCSTR, destinationname: PCSTR, copystyle: SP_COPY_STYLE, copymsghandler: PSP_FILE_CALLBACK_A, context: Long, filewasinuse: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstallFileExA(infhandle, infcontext, sourcefile, sourcepathroot, destinationname, copystyle.toInt(), copymsghandler.toLong(), context, filewasinuse)
+public actual fun setupInstallFileExA(infhandle: COpaquePointer?, infcontext: COpaquePointer?, sourcefile: Pcstr, sourcepathroot: Pcstr, destinationname: Pcstr, copystyle: SpCopyStyle, copymsghandler: PspFileCallbackA, context: COpaquePointer?, filewasinuse: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFileExA((infhandle?.value ?: 0L), (infcontext?.value ?: 0L), (sourcefile?.value ?: 0L), (sourcepathroot?.value ?: 0L), (destinationname?.value ?: 0L), copystyle.toInt(), 0L, (context?.value ?: 0L), (filewasinuse?.value ?: 0L))
 
-public actual fun SetupInstallFileExW(infhandle: Long, infcontext: Long, sourcefile: PCWSTR, sourcepathroot: PCWSTR, destinationname: PCWSTR, copystyle: SP_COPY_STYLE, copymsghandler: PSP_FILE_CALLBACK_W, context: Long, filewasinuse: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstallFileExW(infhandle, infcontext, sourcefile, sourcepathroot, destinationname, copystyle.toInt(), copymsghandler.toLong(), context, filewasinuse)
+public actual fun setupInstallFileExW(infhandle: COpaquePointer?, infcontext: COpaquePointer?, sourcefile: Pcwstr, sourcepathroot: Pcwstr, destinationname: Pcwstr, copystyle: SpCopyStyle, copymsghandler: PspFileCallbackW, context: COpaquePointer?, filewasinuse: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFileExW((infhandle?.value ?: 0L), (infcontext?.value ?: 0L), (sourcefile?.value ?: 0L), (sourcepathroot?.value ?: 0L), (destinationname?.value ?: 0L), copystyle.toInt(), 0L, (context?.value ?: 0L), (filewasinuse?.value ?: 0L))
 
-public actual fun SetupInstallFileW(infhandle: Long, infcontext: Long, sourcefile: PCWSTR, sourcepathroot: PCWSTR, destinationname: PCWSTR, copystyle: SP_COPY_STYLE, copymsghandler: PSP_FILE_CALLBACK_W, context: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstallFileW(infhandle, infcontext, sourcefile, sourcepathroot, destinationname, copystyle.toInt(), copymsghandler.toLong(), context)
+public actual fun setupInstallFileW(infhandle: COpaquePointer?, infcontext: COpaquePointer?, sourcefile: Pcwstr, sourcepathroot: Pcwstr, destinationname: Pcwstr, copystyle: SpCopyStyle, copymsghandler: PspFileCallbackW, context: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFileW((infhandle?.value ?: 0L), (infcontext?.value ?: 0L), (sourcefile?.value ?: 0L), (sourcepathroot?.value ?: 0L), (destinationname?.value ?: 0L), copystyle.toInt(), 0L, (context?.value ?: 0L))
 
-public actual fun SetupInstallFilesFromInfSectionA(infhandle: Long, layoutinfhandle: Long, filequeue: Long, sectionname: PCSTR, sourcerootpath: PCSTR, copyflags: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstallFilesFromInfSectionA(infhandle, layoutinfhandle, filequeue, sectionname, sourcerootpath, copyflags.toInt())
+public actual fun setupInstallFilesFromInfSectionA(infhandle: COpaquePointer?, layoutinfhandle: COpaquePointer?, filequeue: COpaquePointer?, sectionname: Pcstr, sourcerootpath: Pcstr, copyflags: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFilesFromInfSectionA((infhandle?.value ?: 0L), (layoutinfhandle?.value ?: 0L), (filequeue?.value ?: 0L), (sectionname?.value ?: 0L), (sourcerootpath?.value ?: 0L), copyflags.toInt())
 
-public actual fun SetupInstallFilesFromInfSectionW(infhandle: Long, layoutinfhandle: Long, filequeue: Long, sectionname: PCWSTR, sourcerootpath: PCWSTR, copyflags: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstallFilesFromInfSectionW(infhandle, layoutinfhandle, filequeue, sectionname, sourcerootpath, copyflags.toInt())
+public actual fun setupInstallFilesFromInfSectionW(infhandle: COpaquePointer?, layoutinfhandle: COpaquePointer?, filequeue: COpaquePointer?, sectionname: Pcwstr, sourcerootpath: Pcwstr, copyflags: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFilesFromInfSectionW((infhandle?.value ?: 0L), (layoutinfhandle?.value ?: 0L), (filequeue?.value ?: 0L), (sectionname?.value ?: 0L), (sourcerootpath?.value ?: 0L), copyflags.toInt())
 
-public actual fun SetupInstallFromInfSectionA(owner: HWND, infhandle: Long, sectionname: PCSTR, flags: UInt, relativekeyroot: HKEY, sourcerootpath: PCSTR, copyflags: UInt, msghandler: PSP_FILE_CALLBACK_A, context: Long, deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstallFromInfSectionA(owner, infhandle, sectionname, flags.toInt(), relativekeyroot, sourcerootpath, copyflags.toInt(), msghandler.toLong(), context, deviceinfoset, deviceinfodata)
+public actual fun setupInstallFromInfSectionA(owner: Hwnd, infhandle: COpaquePointer?, sectionname: Pcstr, flags: UInt, relativekeyroot: Hkey, sourcerootpath: Pcstr, copyflags: UInt, msghandler: PspFileCallbackA, context: COpaquePointer?, deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFromInfSectionA((owner?.value ?: 0L), (infhandle?.value ?: 0L), (sectionname?.value ?: 0L), flags.toInt(), (relativekeyroot?.value ?: 0L), (sourcerootpath?.value ?: 0L), copyflags.toInt(), 0L, (context?.value ?: 0L), deviceinfoset, (deviceinfodata?.value ?: 0L))
 
-public actual fun SetupInstallFromInfSectionW(owner: HWND, infhandle: Long, sectionname: PCWSTR, flags: UInt, relativekeyroot: HKEY, sourcerootpath: PCWSTR, copyflags: UInt, msghandler: PSP_FILE_CALLBACK_W, context: Long, deviceinfoset: HDEVINFO, deviceinfodata: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstallFromInfSectionW(owner, infhandle, sectionname, flags.toInt(), relativekeyroot, sourcerootpath, copyflags.toInt(), msghandler.toLong(), context, deviceinfoset, deviceinfodata)
+public actual fun setupInstallFromInfSectionW(owner: Hwnd, infhandle: COpaquePointer?, sectionname: Pcwstr, flags: UInt, relativekeyroot: Hkey, sourcerootpath: Pcwstr, copyflags: UInt, msghandler: PspFileCallbackW, context: COpaquePointer?, deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallFromInfSectionW((owner?.value ?: 0L), (infhandle?.value ?: 0L), (sectionname?.value ?: 0L), flags.toInt(), (relativekeyroot?.value ?: 0L), (sourcerootpath?.value ?: 0L), copyflags.toInt(), 0L, (context?.value ?: 0L), deviceinfoset, (deviceinfodata?.value ?: 0L))
 
-public actual fun SetupInstallServicesFromInfSectionA(infhandle: Long, sectionname: PCSTR, flags: SPSVCINST_FLAGS): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstallServicesFromInfSectionA(infhandle, sectionname, flags.toInt())
+public actual fun setupInstallServicesFromInfSectionA(infhandle: COpaquePointer?, sectionname: Pcstr, flags: SpsvcinstFlags): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallServicesFromInfSectionA((infhandle?.value ?: 0L), (sectionname?.value ?: 0L), flags.toInt())
 
-public actual fun SetupInstallServicesFromInfSectionExA(infhandle: Long, sectionname: PCSTR, flags: SPSVCINST_FLAGS, deviceinfoset: HDEVINFO, deviceinfodata: Long, reserved1: Long, reserved2: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstallServicesFromInfSectionExA(infhandle, sectionname, flags.toInt(), deviceinfoset, deviceinfodata, reserved1, reserved2)
+public actual fun setupInstallServicesFromInfSectionExA(infhandle: COpaquePointer?, sectionname: Pcstr, flags: SpsvcinstFlags, deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, reserved1: COpaquePointer?, reserved2: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallServicesFromInfSectionExA((infhandle?.value ?: 0L), (sectionname?.value ?: 0L), flags.toInt(), deviceinfoset, (deviceinfodata?.value ?: 0L), (reserved1?.value ?: 0L), (reserved2?.value ?: 0L))
 
-public actual fun SetupInstallServicesFromInfSectionExW(infhandle: Long, sectionname: PCWSTR, flags: SPSVCINST_FLAGS, deviceinfoset: HDEVINFO, deviceinfodata: Long, reserved1: Long, reserved2: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstallServicesFromInfSectionExW(infhandle, sectionname, flags.toInt(), deviceinfoset, deviceinfodata, reserved1, reserved2)
+public actual fun setupInstallServicesFromInfSectionExW(infhandle: COpaquePointer?, sectionname: Pcwstr, flags: SpsvcinstFlags, deviceinfoset: Hdevinfo, deviceinfodata: COpaquePointer?, reserved1: COpaquePointer?, reserved2: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallServicesFromInfSectionExW((infhandle?.value ?: 0L), (sectionname?.value ?: 0L), flags.toInt(), deviceinfoset, (deviceinfodata?.value ?: 0L), (reserved1?.value ?: 0L), (reserved2?.value ?: 0L))
 
-public actual fun SetupInstallServicesFromInfSectionW(infhandle: Long, sectionname: PCWSTR, flags: SPSVCINST_FLAGS): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupInstallServicesFromInfSectionW(infhandle, sectionname, flags.toInt())
+public actual fun setupInstallServicesFromInfSectionW(infhandle: COpaquePointer?, sectionname: Pcwstr, flags: SpsvcinstFlags): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupInstallServicesFromInfSectionW((infhandle?.value ?: 0L), (sectionname?.value ?: 0L), flags.toInt())
 
-public actual fun SetupIterateCabinetA(cabinetfile: PCSTR, reserved: UInt, msghandler: PSP_FILE_CALLBACK_A, context: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupIterateCabinetA(cabinetfile, reserved.toInt(), msghandler.toLong(), context)
+public actual fun setupIterateCabinetA(cabinetfile: Pcstr, reserved: UInt, msghandler: PspFileCallbackA, context: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupIterateCabinetA((cabinetfile?.value ?: 0L), reserved.toInt(), 0L, (context?.value ?: 0L))
 
-public actual fun SetupIterateCabinetW(cabinetfile: PCWSTR, reserved: UInt, msghandler: PSP_FILE_CALLBACK_W, context: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupIterateCabinetW(cabinetfile, reserved.toInt(), msghandler.toLong(), context)
+public actual fun setupIterateCabinetW(cabinetfile: Pcwstr, reserved: UInt, msghandler: PspFileCallbackW, context: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupIterateCabinetW((cabinetfile?.value ?: 0L), reserved.toInt(), 0L, (context?.value ?: 0L))
 
-public actual fun SetupLogErrorA(messagestring: PCSTR, severity: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupLogErrorA(messagestring, severity.toInt())
+public actual fun setupLogErrorA(messagestring: Pcstr, severity: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupLogErrorA((messagestring?.value ?: 0L), severity.toInt())
 
-public actual fun SetupLogErrorW(messagestring: PCWSTR, severity: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupLogErrorW(messagestring, severity.toInt())
+public actual fun setupLogErrorW(messagestring: Pcwstr, severity: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupLogErrorW((messagestring?.value ?: 0L), severity.toInt())
 
-public actual fun SetupLogFileA(fileloghandle: Long, logsectionname: PCSTR, sourcefilename: PCSTR, targetfilename: PCSTR, checksum: UInt, disktagfile: PCSTR, diskdescription: PCSTR, otherinfo: PCSTR, flags: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupLogFileA(fileloghandle, logsectionname, sourcefilename, targetfilename, checksum.toInt(), disktagfile, diskdescription, otherinfo, flags.toInt())
+public actual fun setupLogFileA(fileloghandle: COpaquePointer?, logsectionname: Pcstr, sourcefilename: Pcstr, targetfilename: Pcstr, checksum: UInt, disktagfile: Pcstr, diskdescription: Pcstr, otherinfo: Pcstr, flags: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupLogFileA((fileloghandle?.value ?: 0L), (logsectionname?.value ?: 0L), (sourcefilename?.value ?: 0L), (targetfilename?.value ?: 0L), checksum.toInt(), (disktagfile?.value ?: 0L), (diskdescription?.value ?: 0L), (otherinfo?.value ?: 0L), flags.toInt())
 
-public actual fun SetupLogFileW(fileloghandle: Long, logsectionname: PCWSTR, sourcefilename: PCWSTR, targetfilename: PCWSTR, checksum: UInt, disktagfile: PCWSTR, diskdescription: PCWSTR, otherinfo: PCWSTR, flags: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupLogFileW(fileloghandle, logsectionname, sourcefilename, targetfilename, checksum.toInt(), disktagfile, diskdescription, otherinfo, flags.toInt())
+public actual fun setupLogFileW(fileloghandle: COpaquePointer?, logsectionname: Pcwstr, sourcefilename: Pcwstr, targetfilename: Pcwstr, checksum: UInt, disktagfile: Pcwstr, diskdescription: Pcwstr, otherinfo: Pcwstr, flags: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupLogFileW((fileloghandle?.value ?: 0L), (logsectionname?.value ?: 0L), (sourcefilename?.value ?: 0L), (targetfilename?.value ?: 0L), checksum.toInt(), (disktagfile?.value ?: 0L), (diskdescription?.value ?: 0L), (otherinfo?.value ?: 0L), flags.toInt())
 
-public actual fun SetupOpenAppendInfFileA(filename: PCSTR, infhandle: Long, errorline: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupOpenAppendInfFileA(filename, infhandle, errorline)
+public actual fun setupOpenAppendInfFileA(filename: Pcstr, infhandle: COpaquePointer?, errorline: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenAppendInfFileA((filename?.value ?: 0L), (infhandle?.value ?: 0L), (errorline?.value ?: 0L))
 
-public actual fun SetupOpenAppendInfFileW(filename: PCWSTR, infhandle: Long, errorline: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupOpenAppendInfFileW(filename, infhandle, errorline)
+public actual fun setupOpenAppendInfFileW(filename: Pcwstr, infhandle: COpaquePointer?, errorline: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenAppendInfFileW((filename?.value ?: 0L), (infhandle?.value ?: 0L), (errorline?.value ?: 0L))
 
-public actual fun SetupOpenFileQueue(): Long =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupOpenFileQueue()
+public actual fun setupOpenFileQueue(): COpaquePointer? =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenFileQueue().let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SetupOpenInfFileA(filename: PCSTR, infclass: PCSTR, infstyle: INF_STYLE, errorline: Long): Long =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupOpenInfFileA(filename, infclass, infstyle.toInt(), errorline)
+public actual fun setupOpenInfFileA(filename: Pcstr, infclass: Pcstr, infstyle: InfStyle, errorline: COpaquePointer?): COpaquePointer? =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenInfFileA((filename?.value ?: 0L), (infclass?.value ?: 0L), infstyle.toInt(), (errorline?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SetupOpenInfFileW(filename: PCWSTR, infclass: PCWSTR, infstyle: INF_STYLE, errorline: Long): Long =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupOpenInfFileW(filename, infclass, infstyle.toInt(), errorline)
+public actual fun setupOpenInfFileW(filename: Pcwstr, infclass: Pcwstr, infstyle: InfStyle, errorline: COpaquePointer?): COpaquePointer? =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenInfFileW((filename?.value ?: 0L), (infclass?.value ?: 0L), infstyle.toInt(), (errorline?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SetupOpenLog(erase: BOOL): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupOpenLog(erase)
+public actual fun setupOpenLog(erase: Bool): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenLog(erase)
 
-public actual fun SetupOpenMasterInf(): Long =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupOpenMasterInf()
+public actual fun setupOpenMasterInf(): COpaquePointer? =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupOpenMasterInf().let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SetupPrepareQueueForRestoreA(queuehandle: Long, backuppath: PCSTR, restoreflags: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupPrepareQueueForRestoreA(queuehandle, backuppath, restoreflags.toInt())
+public actual fun setupPrepareQueueForRestoreA(queuehandle: COpaquePointer?, backuppath: Pcstr, restoreflags: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupPrepareQueueForRestoreA((queuehandle?.value ?: 0L), (backuppath?.value ?: 0L), restoreflags.toInt())
 
-public actual fun SetupPrepareQueueForRestoreW(queuehandle: Long, backuppath: PCWSTR, restoreflags: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupPrepareQueueForRestoreW(queuehandle, backuppath, restoreflags.toInt())
+public actual fun setupPrepareQueueForRestoreW(queuehandle: COpaquePointer?, backuppath: Pcwstr, restoreflags: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupPrepareQueueForRestoreW((queuehandle?.value ?: 0L), (backuppath?.value ?: 0L), restoreflags.toInt())
 
-public actual fun SetupPromptForDiskA(hwndparent: HWND, dialogtitle: PCSTR, diskname: PCSTR, pathtosource: PCSTR, filesought: PCSTR, tagfile: PCSTR, diskpromptstyle: UInt, pathbuffer: PSTR, pathbuffersize: UInt, pathrequiredsize: Long): UInt =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupPromptForDiskA(hwndparent, dialogtitle, diskname, pathtosource, filesought, tagfile, diskpromptstyle.toInt(), pathbuffer, pathbuffersize.toInt(), pathrequiredsize).toUInt()
+public actual fun setupPromptForDiskA(hwndparent: Hwnd, dialogtitle: Pcstr, diskname: Pcstr, pathtosource: Pcstr, filesought: Pcstr, tagfile: Pcstr, diskpromptstyle: UInt, pathbuffer: Pstr, pathbuffersize: UInt, pathrequiredsize: COpaquePointer?): UInt =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupPromptForDiskA((hwndparent?.value ?: 0L), (dialogtitle?.value ?: 0L), (diskname?.value ?: 0L), (pathtosource?.value ?: 0L), (filesought?.value ?: 0L), (tagfile?.value ?: 0L), diskpromptstyle.toInt(), (pathbuffer?.value ?: 0L), pathbuffersize.toInt(), (pathrequiredsize?.value ?: 0L)).toUInt()
 
-public actual fun SetupPromptForDiskW(hwndparent: HWND, dialogtitle: PCWSTR, diskname: PCWSTR, pathtosource: PCWSTR, filesought: PCWSTR, tagfile: PCWSTR, diskpromptstyle: UInt, pathbuffer: PWSTR, pathbuffersize: UInt, pathrequiredsize: Long): UInt =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupPromptForDiskW(hwndparent, dialogtitle, diskname, pathtosource, filesought, tagfile, diskpromptstyle.toInt(), pathbuffer, pathbuffersize.toInt(), pathrequiredsize).toUInt()
+public actual fun setupPromptForDiskW(hwndparent: Hwnd, dialogtitle: Pcwstr, diskname: Pcwstr, pathtosource: Pcwstr, filesought: Pcwstr, tagfile: Pcwstr, diskpromptstyle: UInt, pathbuffer: Pwstr, pathbuffersize: UInt, pathrequiredsize: COpaquePointer?): UInt =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupPromptForDiskW((hwndparent?.value ?: 0L), (dialogtitle?.value ?: 0L), (diskname?.value ?: 0L), (pathtosource?.value ?: 0L), (filesought?.value ?: 0L), (tagfile?.value ?: 0L), diskpromptstyle.toInt(), (pathbuffer?.value ?: 0L), pathbuffersize.toInt(), (pathrequiredsize?.value ?: 0L)).toUInt()
 
-public actual fun SetupPromptReboot(filequeue: Long, owner: HWND, scanonly: BOOL): Int =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupPromptReboot(filequeue, owner, scanonly)
+public actual fun setupPromptReboot(filequeue: COpaquePointer?, owner: Hwnd, scanonly: Bool): Int =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupPromptReboot((filequeue?.value ?: 0L), (owner?.value ?: 0L), scanonly)
 
-public actual fun SetupQueryDrivesInDiskSpaceListA(diskspace: Long, returnbuffer: PSTR, returnbuffersize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryDrivesInDiskSpaceListA(diskspace, returnbuffer, returnbuffersize.toInt(), requiredsize)
+public actual fun setupQueryDrivesInDiskSpaceListA(diskspace: COpaquePointer?, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryDrivesInDiskSpaceListA((diskspace?.value ?: 0L), (returnbuffer?.value ?: 0L), returnbuffersize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupQueryDrivesInDiskSpaceListW(diskspace: Long, returnbuffer: PWSTR, returnbuffersize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryDrivesInDiskSpaceListW(diskspace, returnbuffer, returnbuffersize.toInt(), requiredsize)
+public actual fun setupQueryDrivesInDiskSpaceListW(diskspace: COpaquePointer?, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryDrivesInDiskSpaceListW((diskspace?.value ?: 0L), (returnbuffer?.value ?: 0L), returnbuffersize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupQueryFileLogA(fileloghandle: Long, logsectionname: PCSTR, targetfilename: PCSTR, desiredinfo: SetupFileLogInfo, dataout: PSTR, returnbuffersize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryFileLogA(fileloghandle, logsectionname, targetfilename, desiredinfo, dataout, returnbuffersize.toInt(), requiredsize)
+public actual fun setupQueryFileLogA(fileloghandle: COpaquePointer?, logsectionname: Pcstr, targetfilename: Pcstr, desiredinfo: SetupFileLogInfo, dataout: Pstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryFileLogA((fileloghandle?.value ?: 0L), (logsectionname?.value ?: 0L), (targetfilename?.value ?: 0L), desiredinfo, (dataout?.value ?: 0L), returnbuffersize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupQueryFileLogW(fileloghandle: Long, logsectionname: PCWSTR, targetfilename: PCWSTR, desiredinfo: SetupFileLogInfo, dataout: PWSTR, returnbuffersize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryFileLogW(fileloghandle, logsectionname, targetfilename, desiredinfo, dataout, returnbuffersize.toInt(), requiredsize)
+public actual fun setupQueryFileLogW(fileloghandle: COpaquePointer?, logsectionname: Pcwstr, targetfilename: Pcwstr, desiredinfo: SetupFileLogInfo, dataout: Pwstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryFileLogW((fileloghandle?.value ?: 0L), (logsectionname?.value ?: 0L), (targetfilename?.value ?: 0L), desiredinfo, (dataout?.value ?: 0L), returnbuffersize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupQueryInfFileInformationA(infinformation: Long, infindex: UInt, returnbuffer: PSTR, returnbuffersize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryInfFileInformationA(infinformation, infindex.toInt(), returnbuffer, returnbuffersize.toInt(), requiredsize)
+public actual fun setupQueryInfFileInformationA(infinformation: COpaquePointer?, infindex: UInt, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryInfFileInformationA((infinformation?.value ?: 0L), infindex.toInt(), (returnbuffer?.value ?: 0L), returnbuffersize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupQueryInfFileInformationW(infinformation: Long, infindex: UInt, returnbuffer: PWSTR, returnbuffersize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryInfFileInformationW(infinformation, infindex.toInt(), returnbuffer, returnbuffersize.toInt(), requiredsize)
+public actual fun setupQueryInfFileInformationW(infinformation: COpaquePointer?, infindex: UInt, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryInfFileInformationW((infinformation?.value ?: 0L), infindex.toInt(), (returnbuffer?.value ?: 0L), returnbuffersize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupQueryInfOriginalFileInformationA(infinformation: Long, infindex: UInt, alternateplatforminfo: Long, originalfileinfo: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryInfOriginalFileInformationA(infinformation, infindex.toInt(), alternateplatforminfo, originalfileinfo)
+public actual fun setupQueryInfOriginalFileInformationA(infinformation: COpaquePointer?, infindex: UInt, alternateplatforminfo: COpaquePointer?, originalfileinfo: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryInfOriginalFileInformationA((infinformation?.value ?: 0L), infindex.toInt(), (alternateplatforminfo?.value ?: 0L), (originalfileinfo?.value ?: 0L))
 
-public actual fun SetupQueryInfOriginalFileInformationW(infinformation: Long, infindex: UInt, alternateplatforminfo: Long, originalfileinfo: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryInfOriginalFileInformationW(infinformation, infindex.toInt(), alternateplatforminfo, originalfileinfo)
+public actual fun setupQueryInfOriginalFileInformationW(infinformation: COpaquePointer?, infindex: UInt, alternateplatforminfo: COpaquePointer?, originalfileinfo: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryInfOriginalFileInformationW((infinformation?.value ?: 0L), infindex.toInt(), (alternateplatforminfo?.value ?: 0L), (originalfileinfo?.value ?: 0L))
 
-public actual fun SetupQueryInfVersionInformationA(infinformation: Long, infindex: UInt, key: PCSTR, returnbuffer: PSTR, returnbuffersize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryInfVersionInformationA(infinformation, infindex.toInt(), key, returnbuffer, returnbuffersize.toInt(), requiredsize)
+public actual fun setupQueryInfVersionInformationA(infinformation: COpaquePointer?, infindex: UInt, key: Pcstr, returnbuffer: Pstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryInfVersionInformationA((infinformation?.value ?: 0L), infindex.toInt(), (key?.value ?: 0L), (returnbuffer?.value ?: 0L), returnbuffersize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupQueryInfVersionInformationW(infinformation: Long, infindex: UInt, key: PCWSTR, returnbuffer: PWSTR, returnbuffersize: UInt, requiredsize: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueryInfVersionInformationW(infinformation, infindex.toInt(), key, returnbuffer, returnbuffersize.toInt(), requiredsize)
+public actual fun setupQueryInfVersionInformationW(infinformation: COpaquePointer?, infindex: UInt, key: Pcwstr, returnbuffer: Pwstr, returnbuffersize: UInt, requiredsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueryInfVersionInformationW((infinformation?.value ?: 0L), infindex.toInt(), (key?.value ?: 0L), (returnbuffer?.value ?: 0L), returnbuffersize.toInt(), (requiredsize?.value ?: 0L))
 
-public actual fun SetupQuerySourceListA(flags: UInt, list: Long, count: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQuerySourceListA(flags.toInt(), list, count)
+public actual fun setupQuerySourceListA(flags: UInt, list: COpaquePointer?, count: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupQuerySourceListA(flags.toInt(), (list?.value ?: 0L), (count?.value ?: 0L))
 
-public actual fun SetupQuerySourceListW(flags: UInt, list: Long, count: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQuerySourceListW(flags.toInt(), list, count)
+public actual fun setupQuerySourceListW(flags: UInt, list: COpaquePointer?, count: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupQuerySourceListW(flags.toInt(), (list?.value ?: 0L), (count?.value ?: 0L))
 
-public actual fun SetupQuerySpaceRequiredOnDriveA(diskspace: Long, drivespec: PCSTR, spacerequired: Long, reserved1: Long, reserved2: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQuerySpaceRequiredOnDriveA(diskspace, drivespec, spacerequired, reserved1, reserved2.toInt())
+public actual fun setupQuerySpaceRequiredOnDriveA(diskspace: COpaquePointer?, drivespec: Pcstr, spacerequired: COpaquePointer?, reserved1: COpaquePointer?, reserved2: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupQuerySpaceRequiredOnDriveA((diskspace?.value ?: 0L), (drivespec?.value ?: 0L), (spacerequired?.value ?: 0L), (reserved1?.value ?: 0L), reserved2.toInt())
 
-public actual fun SetupQuerySpaceRequiredOnDriveW(diskspace: Long, drivespec: PCWSTR, spacerequired: Long, reserved1: Long, reserved2: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQuerySpaceRequiredOnDriveW(diskspace, drivespec, spacerequired, reserved1, reserved2.toInt())
+public actual fun setupQuerySpaceRequiredOnDriveW(diskspace: COpaquePointer?, drivespec: Pcwstr, spacerequired: COpaquePointer?, reserved1: COpaquePointer?, reserved2: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupQuerySpaceRequiredOnDriveW((diskspace?.value ?: 0L), (drivespec?.value ?: 0L), (spacerequired?.value ?: 0L), (reserved1?.value ?: 0L), reserved2.toInt())
 
-public actual fun SetupQueueCopyA(queuehandle: Long, sourcerootpath: PCSTR, sourcepath: PCSTR, sourcefilename: PCSTR, sourcedescription: PCSTR, sourcetagfile: PCSTR, targetdirectory: PCSTR, targetfilename: PCSTR, copystyle: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueCopyA(queuehandle, sourcerootpath, sourcepath, sourcefilename, sourcedescription, sourcetagfile, targetdirectory, targetfilename, copystyle.toInt())
+public actual fun setupQueueCopyA(queuehandle: COpaquePointer?, sourcerootpath: Pcstr, sourcepath: Pcstr, sourcefilename: Pcstr, sourcedescription: Pcstr, sourcetagfile: Pcstr, targetdirectory: Pcstr, targetfilename: Pcstr, copystyle: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueCopyA((queuehandle?.value ?: 0L), (sourcerootpath?.value ?: 0L), (sourcepath?.value ?: 0L), (sourcefilename?.value ?: 0L), (sourcedescription?.value ?: 0L), (sourcetagfile?.value ?: 0L), (targetdirectory?.value ?: 0L), (targetfilename?.value ?: 0L), copystyle.toInt())
 
-public actual fun SetupQueueCopyIndirectA(copyparams: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueCopyIndirectA(copyparams)
+public actual fun setupQueueCopyIndirectA(copyparams: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueCopyIndirectA((copyparams?.value ?: 0L))
 
-public actual fun SetupQueueCopyIndirectW(copyparams: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueCopyIndirectW(copyparams)
+public actual fun setupQueueCopyIndirectW(copyparams: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueCopyIndirectW((copyparams?.value ?: 0L))
 
-public actual fun SetupQueueCopySectionA(queuehandle: Long, sourcerootpath: PCSTR, infhandle: Long, listinfhandle: Long, section: PCSTR, copystyle: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueCopySectionA(queuehandle, sourcerootpath, infhandle, listinfhandle, section, copystyle.toInt())
+public actual fun setupQueueCopySectionA(queuehandle: COpaquePointer?, sourcerootpath: Pcstr, infhandle: COpaquePointer?, listinfhandle: COpaquePointer?, section: Pcstr, copystyle: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueCopySectionA((queuehandle?.value ?: 0L), (sourcerootpath?.value ?: 0L), (infhandle?.value ?: 0L), (listinfhandle?.value ?: 0L), (section?.value ?: 0L), copystyle.toInt())
 
-public actual fun SetupQueueCopySectionW(queuehandle: Long, sourcerootpath: PCWSTR, infhandle: Long, listinfhandle: Long, section: PCWSTR, copystyle: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueCopySectionW(queuehandle, sourcerootpath, infhandle, listinfhandle, section, copystyle.toInt())
+public actual fun setupQueueCopySectionW(queuehandle: COpaquePointer?, sourcerootpath: Pcwstr, infhandle: COpaquePointer?, listinfhandle: COpaquePointer?, section: Pcwstr, copystyle: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueCopySectionW((queuehandle?.value ?: 0L), (sourcerootpath?.value ?: 0L), (infhandle?.value ?: 0L), (listinfhandle?.value ?: 0L), (section?.value ?: 0L), copystyle.toInt())
 
-public actual fun SetupQueueCopyW(queuehandle: Long, sourcerootpath: PCWSTR, sourcepath: PCWSTR, sourcefilename: PCWSTR, sourcedescription: PCWSTR, sourcetagfile: PCWSTR, targetdirectory: PCWSTR, targetfilename: PCWSTR, copystyle: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueCopyW(queuehandle, sourcerootpath, sourcepath, sourcefilename, sourcedescription, sourcetagfile, targetdirectory, targetfilename, copystyle.toInt())
+public actual fun setupQueueCopyW(queuehandle: COpaquePointer?, sourcerootpath: Pcwstr, sourcepath: Pcwstr, sourcefilename: Pcwstr, sourcedescription: Pcwstr, sourcetagfile: Pcwstr, targetdirectory: Pcwstr, targetfilename: Pcwstr, copystyle: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueCopyW((queuehandle?.value ?: 0L), (sourcerootpath?.value ?: 0L), (sourcepath?.value ?: 0L), (sourcefilename?.value ?: 0L), (sourcedescription?.value ?: 0L), (sourcetagfile?.value ?: 0L), (targetdirectory?.value ?: 0L), (targetfilename?.value ?: 0L), copystyle.toInt())
 
-public actual fun SetupQueueDefaultCopyA(queuehandle: Long, infhandle: Long, sourcerootpath: PCSTR, sourcefilename: PCSTR, targetfilename: PCSTR, copystyle: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueDefaultCopyA(queuehandle, infhandle, sourcerootpath, sourcefilename, targetfilename, copystyle.toInt())
+public actual fun setupQueueDefaultCopyA(queuehandle: COpaquePointer?, infhandle: COpaquePointer?, sourcerootpath: Pcstr, sourcefilename: Pcstr, targetfilename: Pcstr, copystyle: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueDefaultCopyA((queuehandle?.value ?: 0L), (infhandle?.value ?: 0L), (sourcerootpath?.value ?: 0L), (sourcefilename?.value ?: 0L), (targetfilename?.value ?: 0L), copystyle.toInt())
 
-public actual fun SetupQueueDefaultCopyW(queuehandle: Long, infhandle: Long, sourcerootpath: PCWSTR, sourcefilename: PCWSTR, targetfilename: PCWSTR, copystyle: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueDefaultCopyW(queuehandle, infhandle, sourcerootpath, sourcefilename, targetfilename, copystyle.toInt())
+public actual fun setupQueueDefaultCopyW(queuehandle: COpaquePointer?, infhandle: COpaquePointer?, sourcerootpath: Pcwstr, sourcefilename: Pcwstr, targetfilename: Pcwstr, copystyle: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueDefaultCopyW((queuehandle?.value ?: 0L), (infhandle?.value ?: 0L), (sourcerootpath?.value ?: 0L), (sourcefilename?.value ?: 0L), (targetfilename?.value ?: 0L), copystyle.toInt())
 
-public actual fun SetupQueueDeleteA(queuehandle: Long, pathpart1: PCSTR, pathpart2: PCSTR): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueDeleteA(queuehandle, pathpart1, pathpart2)
+public actual fun setupQueueDeleteA(queuehandle: COpaquePointer?, pathpart1: Pcstr, pathpart2: Pcstr): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueDeleteA((queuehandle?.value ?: 0L), (pathpart1?.value ?: 0L), (pathpart2?.value ?: 0L))
 
-public actual fun SetupQueueDeleteSectionA(queuehandle: Long, infhandle: Long, listinfhandle: Long, section: PCSTR): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueDeleteSectionA(queuehandle, infhandle, listinfhandle, section)
+public actual fun setupQueueDeleteSectionA(queuehandle: COpaquePointer?, infhandle: COpaquePointer?, listinfhandle: COpaquePointer?, section: Pcstr): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueDeleteSectionA((queuehandle?.value ?: 0L), (infhandle?.value ?: 0L), (listinfhandle?.value ?: 0L), (section?.value ?: 0L))
 
-public actual fun SetupQueueDeleteSectionW(queuehandle: Long, infhandle: Long, listinfhandle: Long, section: PCWSTR): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueDeleteSectionW(queuehandle, infhandle, listinfhandle, section)
+public actual fun setupQueueDeleteSectionW(queuehandle: COpaquePointer?, infhandle: COpaquePointer?, listinfhandle: COpaquePointer?, section: Pcwstr): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueDeleteSectionW((queuehandle?.value ?: 0L), (infhandle?.value ?: 0L), (listinfhandle?.value ?: 0L), (section?.value ?: 0L))
 
-public actual fun SetupQueueDeleteW(queuehandle: Long, pathpart1: PCWSTR, pathpart2: PCWSTR): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueDeleteW(queuehandle, pathpart1, pathpart2)
+public actual fun setupQueueDeleteW(queuehandle: COpaquePointer?, pathpart1: Pcwstr, pathpart2: Pcwstr): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueDeleteW((queuehandle?.value ?: 0L), (pathpart1?.value ?: 0L), (pathpart2?.value ?: 0L))
 
-public actual fun SetupQueueRenameA(queuehandle: Long, sourcepath: PCSTR, sourcefilename: PCSTR, targetpath: PCSTR, targetfilename: PCSTR): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueRenameA(queuehandle, sourcepath, sourcefilename, targetpath, targetfilename)
+public actual fun setupQueueRenameA(queuehandle: COpaquePointer?, sourcepath: Pcstr, sourcefilename: Pcstr, targetpath: Pcstr, targetfilename: Pcstr): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueRenameA((queuehandle?.value ?: 0L), (sourcepath?.value ?: 0L), (sourcefilename?.value ?: 0L), (targetpath?.value ?: 0L), (targetfilename?.value ?: 0L))
 
-public actual fun SetupQueueRenameSectionA(queuehandle: Long, infhandle: Long, listinfhandle: Long, section: PCSTR): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueRenameSectionA(queuehandle, infhandle, listinfhandle, section)
+public actual fun setupQueueRenameSectionA(queuehandle: COpaquePointer?, infhandle: COpaquePointer?, listinfhandle: COpaquePointer?, section: Pcstr): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueRenameSectionA((queuehandle?.value ?: 0L), (infhandle?.value ?: 0L), (listinfhandle?.value ?: 0L), (section?.value ?: 0L))
 
-public actual fun SetupQueueRenameSectionW(queuehandle: Long, infhandle: Long, listinfhandle: Long, section: PCWSTR): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueRenameSectionW(queuehandle, infhandle, listinfhandle, section)
+public actual fun setupQueueRenameSectionW(queuehandle: COpaquePointer?, infhandle: COpaquePointer?, listinfhandle: COpaquePointer?, section: Pcwstr): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueRenameSectionW((queuehandle?.value ?: 0L), (infhandle?.value ?: 0L), (listinfhandle?.value ?: 0L), (section?.value ?: 0L))
 
-public actual fun SetupQueueRenameW(queuehandle: Long, sourcepath: PCWSTR, sourcefilename: PCWSTR, targetpath: PCWSTR, targetfilename: PCWSTR): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupQueueRenameW(queuehandle, sourcepath, sourcefilename, targetpath, targetfilename)
+public actual fun setupQueueRenameW(queuehandle: COpaquePointer?, sourcepath: Pcwstr, sourcefilename: Pcwstr, targetpath: Pcwstr, targetfilename: Pcwstr): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupQueueRenameW((queuehandle?.value ?: 0L), (sourcepath?.value ?: 0L), (sourcefilename?.value ?: 0L), (targetpath?.value ?: 0L), (targetfilename?.value ?: 0L))
 
-public actual fun SetupRemoveFileLogEntryA(fileloghandle: Long, logsectionname: PCSTR, targetfilename: PCSTR): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemoveFileLogEntryA(fileloghandle, logsectionname, targetfilename)
+public actual fun setupRemoveFileLogEntryA(fileloghandle: COpaquePointer?, logsectionname: Pcstr, targetfilename: Pcstr): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveFileLogEntryA((fileloghandle?.value ?: 0L), (logsectionname?.value ?: 0L), (targetfilename?.value ?: 0L))
 
-public actual fun SetupRemoveFileLogEntryW(fileloghandle: Long, logsectionname: PCWSTR, targetfilename: PCWSTR): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemoveFileLogEntryW(fileloghandle, logsectionname, targetfilename)
+public actual fun setupRemoveFileLogEntryW(fileloghandle: COpaquePointer?, logsectionname: Pcwstr, targetfilename: Pcwstr): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveFileLogEntryW((fileloghandle?.value ?: 0L), (logsectionname?.value ?: 0L), (targetfilename?.value ?: 0L))
 
-public actual fun SetupRemoveFromDiskSpaceListA(diskspace: Long, targetfilespec: PCSTR, operation: SETUP_FILE_OPERATION, reserved1: Long, reserved2: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemoveFromDiskSpaceListA(diskspace, targetfilespec, operation.toInt(), reserved1, reserved2.toInt())
+public actual fun setupRemoveFromDiskSpaceListA(diskspace: COpaquePointer?, targetfilespec: Pcstr, operation: SetupFileOperation, reserved1: COpaquePointer?, reserved2: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveFromDiskSpaceListA((diskspace?.value ?: 0L), (targetfilespec?.value ?: 0L), operation.toInt(), (reserved1?.value ?: 0L), reserved2.toInt())
 
-public actual fun SetupRemoveFromDiskSpaceListW(diskspace: Long, targetfilespec: PCWSTR, operation: SETUP_FILE_OPERATION, reserved1: Long, reserved2: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemoveFromDiskSpaceListW(diskspace, targetfilespec, operation.toInt(), reserved1, reserved2.toInt())
+public actual fun setupRemoveFromDiskSpaceListW(diskspace: COpaquePointer?, targetfilespec: Pcwstr, operation: SetupFileOperation, reserved1: COpaquePointer?, reserved2: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveFromDiskSpaceListW((diskspace?.value ?: 0L), (targetfilespec?.value ?: 0L), operation.toInt(), (reserved1?.value ?: 0L), reserved2.toInt())
 
-public actual fun SetupRemoveFromSourceListA(flags: UInt, source: PCSTR): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemoveFromSourceListA(flags.toInt(), source)
+public actual fun setupRemoveFromSourceListA(flags: UInt, source: Pcstr): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveFromSourceListA(flags.toInt(), (source?.value ?: 0L))
 
-public actual fun SetupRemoveFromSourceListW(flags: UInt, source: PCWSTR): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemoveFromSourceListW(flags.toInt(), source)
+public actual fun setupRemoveFromSourceListW(flags: UInt, source: Pcwstr): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveFromSourceListW(flags.toInt(), (source?.value ?: 0L))
 
-public actual fun SetupRemoveInstallSectionFromDiskSpaceListA(diskspace: Long, infhandle: Long, layoutinfhandle: Long, sectionname: PCSTR, reserved1: Long, reserved2: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemoveInstallSectionFromDiskSpaceListA(diskspace, infhandle, layoutinfhandle, sectionname, reserved1, reserved2.toInt())
+public actual fun setupRemoveInstallSectionFromDiskSpaceListA(diskspace: COpaquePointer?, infhandle: COpaquePointer?, layoutinfhandle: COpaquePointer?, sectionname: Pcstr, reserved1: COpaquePointer?, reserved2: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveInstallSectionFromDiskSpaceListA((diskspace?.value ?: 0L), (infhandle?.value ?: 0L), (layoutinfhandle?.value ?: 0L), (sectionname?.value ?: 0L), (reserved1?.value ?: 0L), reserved2.toInt())
 
-public actual fun SetupRemoveInstallSectionFromDiskSpaceListW(diskspace: Long, infhandle: Long, layoutinfhandle: Long, sectionname: PCWSTR, reserved1: Long, reserved2: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemoveInstallSectionFromDiskSpaceListW(diskspace, infhandle, layoutinfhandle, sectionname, reserved1, reserved2.toInt())
+public actual fun setupRemoveInstallSectionFromDiskSpaceListW(diskspace: COpaquePointer?, infhandle: COpaquePointer?, layoutinfhandle: COpaquePointer?, sectionname: Pcwstr, reserved1: COpaquePointer?, reserved2: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveInstallSectionFromDiskSpaceListW((diskspace?.value ?: 0L), (infhandle?.value ?: 0L), (layoutinfhandle?.value ?: 0L), (sectionname?.value ?: 0L), (reserved1?.value ?: 0L), reserved2.toInt())
 
-public actual fun SetupRemoveSectionFromDiskSpaceListA(diskspace: Long, infhandle: Long, listinfhandle: Long, sectionname: PCSTR, operation: SETUP_FILE_OPERATION, reserved1: Long, reserved2: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemoveSectionFromDiskSpaceListA(diskspace, infhandle, listinfhandle, sectionname, operation.toInt(), reserved1, reserved2.toInt())
+public actual fun setupRemoveSectionFromDiskSpaceListA(diskspace: COpaquePointer?, infhandle: COpaquePointer?, listinfhandle: COpaquePointer?, sectionname: Pcstr, operation: SetupFileOperation, reserved1: COpaquePointer?, reserved2: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveSectionFromDiskSpaceListA((diskspace?.value ?: 0L), (infhandle?.value ?: 0L), (listinfhandle?.value ?: 0L), (sectionname?.value ?: 0L), operation.toInt(), (reserved1?.value ?: 0L), reserved2.toInt())
 
-public actual fun SetupRemoveSectionFromDiskSpaceListW(diskspace: Long, infhandle: Long, listinfhandle: Long, sectionname: PCWSTR, operation: SETUP_FILE_OPERATION, reserved1: Long, reserved2: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRemoveSectionFromDiskSpaceListW(diskspace, infhandle, listinfhandle, sectionname, operation.toInt(), reserved1, reserved2.toInt())
+public actual fun setupRemoveSectionFromDiskSpaceListW(diskspace: COpaquePointer?, infhandle: COpaquePointer?, listinfhandle: COpaquePointer?, sectionname: Pcwstr, operation: SetupFileOperation, reserved1: COpaquePointer?, reserved2: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupRemoveSectionFromDiskSpaceListW((diskspace?.value ?: 0L), (infhandle?.value ?: 0L), (listinfhandle?.value ?: 0L), (sectionname?.value ?: 0L), operation.toInt(), (reserved1?.value ?: 0L), reserved2.toInt())
 
-public actual fun SetupRenameErrorA(hwndparent: HWND, dialogtitle: PCSTR, sourcefile: PCSTR, targetfile: PCSTR, win32errorcode: UInt, style: UInt): UInt =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRenameErrorA(hwndparent, dialogtitle, sourcefile, targetfile, win32errorcode.toInt(), style.toInt()).toUInt()
+public actual fun setupRenameErrorA(hwndparent: Hwnd, dialogtitle: Pcstr, sourcefile: Pcstr, targetfile: Pcstr, win32errorcode: UInt, style: UInt): UInt =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupRenameErrorA((hwndparent?.value ?: 0L), (dialogtitle?.value ?: 0L), (sourcefile?.value ?: 0L), (targetfile?.value ?: 0L), win32errorcode.toInt(), style.toInt()).toUInt()
 
-public actual fun SetupRenameErrorW(hwndparent: HWND, dialogtitle: PCWSTR, sourcefile: PCWSTR, targetfile: PCWSTR, win32errorcode: UInt, style: UInt): UInt =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupRenameErrorW(hwndparent, dialogtitle, sourcefile, targetfile, win32errorcode.toInt(), style.toInt()).toUInt()
+public actual fun setupRenameErrorW(hwndparent: Hwnd, dialogtitle: Pcwstr, sourcefile: Pcwstr, targetfile: Pcwstr, win32errorcode: UInt, style: UInt): UInt =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupRenameErrorW((hwndparent?.value ?: 0L), (dialogtitle?.value ?: 0L), (sourcefile?.value ?: 0L), (targetfile?.value ?: 0L), win32errorcode.toInt(), style.toInt()).toUInt()
 
-public actual fun SetupScanFileQueueA(filequeue: Long, flags: SETUPSCANFILEQUEUE_FLAGS, window: HWND, callbackroutine: PSP_FILE_CALLBACK_A, callbackcontext: Long, result: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupScanFileQueueA(filequeue, flags.toInt(), window, callbackroutine.toLong(), callbackcontext, result)
+public actual fun setupScanFileQueueA(filequeue: COpaquePointer?, flags: SetupscanfilequeueFlags, window: Hwnd, callbackroutine: PspFileCallbackA, callbackcontext: COpaquePointer?, result: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupScanFileQueueA((filequeue?.value ?: 0L), flags.toInt(), (window?.value ?: 0L), 0L, (callbackcontext?.value ?: 0L), (result?.value ?: 0L))
 
-public actual fun SetupScanFileQueueW(filequeue: Long, flags: SETUPSCANFILEQUEUE_FLAGS, window: HWND, callbackroutine: PSP_FILE_CALLBACK_W, callbackcontext: Long, result: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupScanFileQueueW(filequeue, flags.toInt(), window, callbackroutine.toLong(), callbackcontext, result)
+public actual fun setupScanFileQueueW(filequeue: COpaquePointer?, flags: SetupscanfilequeueFlags, window: Hwnd, callbackroutine: PspFileCallbackW, callbackcontext: COpaquePointer?, result: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupScanFileQueueW((filequeue?.value ?: 0L), flags.toInt(), (window?.value ?: 0L), 0L, (callbackcontext?.value ?: 0L), (result?.value ?: 0L))
 
-public actual fun SetupSetDirectoryIdA(infhandle: Long, id: UInt, directory: PCSTR): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetDirectoryIdA(infhandle, id.toInt(), directory)
+public actual fun setupSetDirectoryIdA(infhandle: COpaquePointer?, id: UInt, directory: Pcstr): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetDirectoryIdA((infhandle?.value ?: 0L), id.toInt(), (directory?.value ?: 0L))
 
-public actual fun SetupSetDirectoryIdExA(infhandle: Long, id: UInt, directory: PCSTR, flags: UInt, reserved1: UInt, reserved2: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetDirectoryIdExA(infhandle, id.toInt(), directory, flags.toInt(), reserved1.toInt(), reserved2)
+public actual fun setupSetDirectoryIdExA(infhandle: COpaquePointer?, id: UInt, directory: Pcstr, flags: UInt, reserved1: UInt, reserved2: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetDirectoryIdExA((infhandle?.value ?: 0L), id.toInt(), (directory?.value ?: 0L), flags.toInt(), reserved1.toInt(), (reserved2?.value ?: 0L))
 
-public actual fun SetupSetDirectoryIdExW(infhandle: Long, id: UInt, directory: PCWSTR, flags: UInt, reserved1: UInt, reserved2: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetDirectoryIdExW(infhandle, id.toInt(), directory, flags.toInt(), reserved1.toInt(), reserved2)
+public actual fun setupSetDirectoryIdExW(infhandle: COpaquePointer?, id: UInt, directory: Pcwstr, flags: UInt, reserved1: UInt, reserved2: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetDirectoryIdExW((infhandle?.value ?: 0L), id.toInt(), (directory?.value ?: 0L), flags.toInt(), reserved1.toInt(), (reserved2?.value ?: 0L))
 
-public actual fun SetupSetDirectoryIdW(infhandle: Long, id: UInt, directory: PCWSTR): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetDirectoryIdW(infhandle, id.toInt(), directory)
+public actual fun setupSetDirectoryIdW(infhandle: COpaquePointer?, id: UInt, directory: Pcwstr): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetDirectoryIdW((infhandle?.value ?: 0L), id.toInt(), (directory?.value ?: 0L))
 
-public actual fun SetupSetFileQueueAlternatePlatformA(queuehandle: Long, alternateplatforminfo: Long, alternatedefaultcatalogfile: PCSTR): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetFileQueueAlternatePlatformA(queuehandle, alternateplatforminfo, alternatedefaultcatalogfile)
+public actual fun setupSetFileQueueAlternatePlatformA(queuehandle: COpaquePointer?, alternateplatforminfo: COpaquePointer?, alternatedefaultcatalogfile: Pcstr): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetFileQueueAlternatePlatformA((queuehandle?.value ?: 0L), (alternateplatforminfo?.value ?: 0L), (alternatedefaultcatalogfile?.value ?: 0L))
 
-public actual fun SetupSetFileQueueAlternatePlatformW(queuehandle: Long, alternateplatforminfo: Long, alternatedefaultcatalogfile: PCWSTR): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetFileQueueAlternatePlatformW(queuehandle, alternateplatforminfo, alternatedefaultcatalogfile)
+public actual fun setupSetFileQueueAlternatePlatformW(queuehandle: COpaquePointer?, alternateplatforminfo: COpaquePointer?, alternatedefaultcatalogfile: Pcwstr): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetFileQueueAlternatePlatformW((queuehandle?.value ?: 0L), (alternateplatforminfo?.value ?: 0L), (alternatedefaultcatalogfile?.value ?: 0L))
 
-public actual fun SetupSetFileQueueFlags(filequeue: Long, flagmask: UInt, flags: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetFileQueueFlags(filequeue, flagmask.toInt(), flags.toInt())
+public actual fun setupSetFileQueueFlags(filequeue: COpaquePointer?, flagmask: UInt, flags: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetFileQueueFlags((filequeue?.value ?: 0L), flagmask.toInt(), flags.toInt())
 
-public actual fun SetupSetNonInteractiveMode(noninteractiveflag: BOOL): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetNonInteractiveMode(noninteractiveflag)
+public actual fun setupSetNonInteractiveMode(noninteractiveflag: Bool): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetNonInteractiveMode(noninteractiveflag)
 
-public actual fun SetupSetPlatformPathOverrideA(override: PCSTR): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetPlatformPathOverrideA(override)
+public actual fun setupSetPlatformPathOverrideA(override: Pcstr): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetPlatformPathOverrideA((override?.value ?: 0L))
 
-public actual fun SetupSetPlatformPathOverrideW(override: PCWSTR): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetPlatformPathOverrideW(override)
+public actual fun setupSetPlatformPathOverrideW(override: Pcwstr): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetPlatformPathOverrideW((override?.value ?: 0L))
 
-public actual fun SetupSetSourceListA(flags: UInt, sourcelist: Long, sourcecount: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetSourceListA(flags.toInt(), sourcelist, sourcecount.toInt())
+public actual fun setupSetSourceListA(flags: UInt, sourcelist: COpaquePointer?, sourcecount: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetSourceListA(flags.toInt(), (sourcelist?.value ?: 0L), sourcecount.toInt())
 
-public actual fun SetupSetSourceListW(flags: UInt, sourcelist: Long, sourcecount: UInt): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetSourceListW(flags.toInt(), sourcelist, sourcecount.toInt())
+public actual fun setupSetSourceListW(flags: UInt, sourcelist: COpaquePointer?, sourcecount: UInt): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetSourceListW(flags.toInt(), (sourcelist?.value ?: 0L), sourcecount.toInt())
 
-public actual fun SetupSetThreadLogToken(logtoken: ULong) {
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupSetThreadLogToken(logtoken.toLong())
+public actual fun setupSetThreadLogToken(logtoken: ULong) {
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupSetThreadLogToken(logtoken.toLong())
 }
 
-public actual fun SetupTermDefaultQueueCallback(context: Long) {
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupTermDefaultQueueCallback(context)
+public actual fun setupTermDefaultQueueCallback(context: COpaquePointer?) {
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupTermDefaultQueueCallback((context?.value ?: 0L))
 }
 
-public actual fun SetupTerminateFileLog(fileloghandle: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupTerminateFileLog(fileloghandle)
+public actual fun setupTerminateFileLog(fileloghandle: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupTerminateFileLog((fileloghandle?.value ?: 0L))
 
-public actual fun SetupUninstallNewlyCopiedInfs(filequeue: Long, flags: UInt, reserved: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupUninstallNewlyCopiedInfs(filequeue, flags.toInt(), reserved)
+public actual fun setupUninstallNewlyCopiedInfs(filequeue: COpaquePointer?, flags: UInt, reserved: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupUninstallNewlyCopiedInfs((filequeue?.value ?: 0L), flags.toInt(), (reserved?.value ?: 0L))
 
-public actual fun SetupUninstallOEMInfA(inffilename: PCSTR, flags: UInt, reserved: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupUninstallOEMInfA(inffilename, flags.toInt(), reserved)
+public actual fun setupUninstallOEMInfA(inffilename: Pcstr, flags: UInt, reserved: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupUninstallOEMInfA((inffilename?.value ?: 0L), flags.toInt(), (reserved?.value ?: 0L))
 
-public actual fun SetupUninstallOEMInfW(inffilename: PCWSTR, flags: UInt, reserved: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupUninstallOEMInfW(inffilename, flags.toInt(), reserved)
+public actual fun setupUninstallOEMInfW(inffilename: Pcwstr, flags: UInt, reserved: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupUninstallOEMInfW((inffilename?.value ?: 0L), flags.toInt(), (reserved?.value ?: 0L))
 
-public actual fun SetupVerifyInfFileA(infname: PCSTR, altplatforminfo: Long, infsignerinfo: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupVerifyInfFileA(infname, altplatforminfo, infsignerinfo)
+public actual fun setupVerifyInfFileA(infname: Pcstr, altplatforminfo: COpaquePointer?, infsignerinfo: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupVerifyInfFileA((infname?.value ?: 0L), (altplatforminfo?.value ?: 0L), (infsignerinfo?.value ?: 0L))
 
-public actual fun SetupVerifyInfFileW(infname: PCWSTR, altplatforminfo: Long, infsignerinfo: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupVerifyInfFileW(infname, altplatforminfo, infsignerinfo)
+public actual fun setupVerifyInfFileW(infname: Pcwstr, altplatforminfo: COpaquePointer?, infsignerinfo: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupVerifyInfFileW((infname?.value ?: 0L), (altplatforminfo?.value ?: 0L), (infsignerinfo?.value ?: 0L))
 
-public actual fun SetupWriteTextLog(logtoken: ULong, category: UInt, flags: UInt, messagestr: PCSTR) {
+public actual fun setupWriteTextLog(logtoken: ULong, category: UInt, flags: UInt, messagestr: Pcstr, vararg variadicArgs: Long) {
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupWriteTextLog(logtoken.toLong(), category.toInt(), flags.toInt(), (messagestr?.value ?: 0L), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 }
 
-public actual fun SetupWriteTextLogError(logtoken: ULong, category: UInt, logflags: UInt, error: UInt, messagestr: PCSTR) {
+public actual fun setupWriteTextLogError(logtoken: ULong, category: UInt, logflags: UInt, error: UInt, messagestr: Pcstr, vararg variadicArgs: Long) {
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupWriteTextLogError(logtoken.toLong(), category.toInt(), logflags.toInt(), error.toInt(), (messagestr?.value ?: 0L), variadicArgs.size.coerceAtMost(4), if (variadicArgs.size > 0) variadicArgs[0] else 0L, if (variadicArgs.size > 1) variadicArgs[1] else 0L, if (variadicArgs.size > 2) variadicArgs[2] else 0L, if (variadicArgs.size > 3) variadicArgs[3] else 0L)
 }
 
-public actual fun SetupWriteTextLogInfLine(logtoken: ULong, flags: UInt, infhandle: Long, context: Long) {
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_SetupWriteTextLogInfLine(logtoken.toLong(), flags.toInt(), infhandle, context)
+public actual fun setupWriteTextLogInfLine(logtoken: ULong, flags: UInt, infhandle: COpaquePointer?, context: COpaquePointer?) {
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_setupWriteTextLogInfLine(logtoken.toLong(), flags.toInt(), (infhandle?.value ?: 0L), (context?.value ?: 0L))
 }
 
-public actual fun UpdateDriverForPlugAndPlayDevicesA(hwndparent: HWND, hardwareid: PCSTR, fullinfpath: PCSTR, installflags: UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS, brebootrequired: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_UpdateDriverForPlugAndPlayDevicesA(hwndparent, hardwareid, fullinfpath, installflags.toInt(), brebootrequired)
+public actual fun updateDriverForPlugAndPlayDevicesA(hwndparent: Hwnd, hardwareid: Pcstr, fullinfpath: Pcstr, installflags: UpdatedriverforplugandplaydevicesFlags, brebootrequired: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_updateDriverForPlugAndPlayDevicesA((hwndparent?.value ?: 0L), (hardwareid?.value ?: 0L), (fullinfpath?.value ?: 0L), installflags.toInt(), (brebootrequired?.value ?: 0L))
 
-public actual fun UpdateDriverForPlugAndPlayDevicesW(hwndparent: HWND, hardwareid: PCWSTR, fullinfpath: PCWSTR, installflags: UPDATEDRIVERFORPLUGANDPLAYDEVICES_FLAGS, brebootrequired: Long): BOOL =
-    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_UpdateDriverForPlugAndPlayDevicesW(hwndparent, hardwareid, fullinfpath, installflags.toInt(), brebootrequired)
+public actual fun updateDriverForPlugAndPlayDevicesW(hwndparent: Hwnd, hardwareid: Pcwstr, fullinfpath: Pcwstr, installflags: UpdatedriverforplugandplaydevicesFlags, brebootrequired: COpaquePointer?): Bool =
+    WindowsWin32DevicesDeviceanddriverinstallationJniBridge.windowssys_windows_win32_devices_deviceanddriverinstallation_updateDriverForPlugAndPlayDevicesW((hwndparent?.value ?: 0L), (hardwareid?.value ?: 0L), (fullinfpath?.value ?: 0L), installflags.toInt(), (brebootrequired?.value ?: 0L))

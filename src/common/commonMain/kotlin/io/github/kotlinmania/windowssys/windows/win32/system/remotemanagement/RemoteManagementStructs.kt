@@ -1,150 +1,151 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
-public data class WSMAN_AUTHENTICATION_CREDENTIALS(public var authenticationMechanism: UInt = 0u, public var Anonymous: WSMAN_AUTHENTICATION_CREDENTIALS_0 = WSMAN_AUTHENTICATION_CREDENTIALS_0())
+public data class WsmanAuthenticationCredentials(public var authenticationMechanism: UInt = 0u, public var anonymous: WsmanAuthenticationCredentials0 = WsmanAuthenticationCredentials0())
 
-public data class WSMAN_AUTHENTICATION_CREDENTIALS_0(public var userAccount: WSMAN_USERNAME_PASSWORD_CREDS = WSMAN_USERNAME_PASSWORD_CREDS(), public var certificateThumbprint: PCWSTR = 0L)
+public data class WsmanAuthenticationCredentials0(public var userAccount: WsmanUsernamePasswordCreds = WsmanUsernamePasswordCreds(), public var certificateThumbprint: Pcwstr = null)
 
-public data class WSMAN_AUTHZ_QUOTA(
+public data class WsmanAuthzQuota(
     public var maxAllowedConcurrentShells: UInt = 0u,
     public var maxAllowedConcurrentOperations: UInt = 0u,
     public var timeslotSize: UInt = 0u,
     public var maxAllowedOperationsPerTimeslot: UInt = 0u,
 )
 
-public data class WSMAN_CERTIFICATE_DETAILS(
-    public var subject: PCWSTR = 0L,
-    public var issuerName: PCWSTR = 0L,
-    public var issuerThumbprint: PCWSTR = 0L,
-    public var subjectName: PCWSTR = 0L,
+public data class WsmanCertificateDetails(
+    public var subject: Pcwstr = null,
+    public var issuerName: Pcwstr = null,
+    public var issuerThumbprint: Pcwstr = null,
+    public var subjectName: Pcwstr = null,
 )
 
-public data class WSMAN_COMMAND_ARG_SET(public var argsCount: UInt = 0u, public var args: Long = 0L)
+public data class WsmanCommandArgSet(public var argsCount: UInt = 0u, public var args: Pcwstr? = null)
 
-public data class WSMAN_CONNECT_DATA(public var data: WSMAN_DATA = WSMAN_DATA())
+public data class WsmanConnectData(public var data: WsmanData = WsmanData())
 
-public data class WSMAN_CREATE_SHELL_DATA(public var data: WSMAN_DATA = WSMAN_DATA())
+public data class WsmanCreateShellData(public var data: WsmanData = WsmanData())
 
-public data class WSMAN_DATA(public var type: WSManDataType = 0, public var Anonymous: WSMAN_DATA_0 = WSMAN_DATA_0())
+public data class WsmanData(public var type: WSManDataType = 0, public var anonymous: WsmanData0 = WsmanData0())
 
-public data class WSMAN_DATA_0(
-    public var text: WSMAN_DATA_TEXT = WSMAN_DATA_TEXT(),
-    public var binaryData: WSMAN_DATA_BINARY = WSMAN_DATA_BINARY(),
+public data class WsmanData0(
+    public var text: WsmanDataText = WsmanDataText(),
+    public var binaryData: WsmanDataBinary = WsmanDataBinary(),
     public var number: UInt = 0u,
 )
 
-public data class WSMAN_DATA_BINARY(public var dataLength: UInt = 0u, public var data: Long = 0L)
+public data class WsmanDataBinary(public var dataLength: UInt = 0u, public var data: COpaquePointer? = null)
 
-public data class WSMAN_DATA_TEXT(public var bufferLength: UInt = 0u, public var buffer: PCWSTR = 0L)
+public data class WsmanDataText(public var bufferLength: UInt = 0u, public var buffer: Pcwstr = null)
 
-public data class WSMAN_ENVIRONMENT_VARIABLE(public var name: PCWSTR = 0L, public var value: PCWSTR = 0L)
+public data class WsmanEnvironmentVariable(public var name: Pcwstr = null, public var value: Pcwstr = null)
 
-public data class WSMAN_ENVIRONMENT_VARIABLE_SET(public var varsCount: UInt = 0u, public var vars: Long = 0L)
+public data class WsmanEnvironmentVariableSet(public var varsCount: UInt = 0u, public var vars: WsmanEnvironmentVariable? = null)
 
-public data class WSMAN_ERROR(
+public data class WsmanError(
     public var code: UInt = 0u,
-    public var errorDetail: PCWSTR = 0L,
-    public var language: PCWSTR = 0L,
-    public var machineName: PCWSTR = 0L,
-    public var pluginName: PCWSTR = 0L,
+    public var errorDetail: Pcwstr = null,
+    public var language: Pcwstr = null,
+    public var machineName: Pcwstr = null,
+    public var pluginName: Pcwstr = null,
 )
 
-public data class WSMAN_FILTER(public var filter: PCWSTR = 0L, public var dialect: PCWSTR = 0L)
+public data class WsmanFilter(public var filter: Pcwstr = null, public var dialect: Pcwstr = null)
 
-public data class WSMAN_FRAGMENT(public var path: PCWSTR = 0L, public var dialect: PCWSTR = 0L)
+public data class WsmanFragment(public var path: Pcwstr = null, public var dialect: Pcwstr = null)
 
-public data class WSMAN_KEY(public var key: PCWSTR = 0L, public var value: PCWSTR = 0L)
+public data class WsmanKey(public var key: Pcwstr = null, public var value: Pcwstr = null)
 
-public data class WSMAN_OPERATION_INFO(
-    public var fragment: WSMAN_FRAGMENT = WSMAN_FRAGMENT(),
-    public var filter: WSMAN_FILTER = WSMAN_FILTER(),
-    public var selectorSet: WSMAN_SELECTOR_SET = WSMAN_SELECTOR_SET(),
-    public var optionSet: WSMAN_OPTION_SET = WSMAN_OPTION_SET(),
-    public var reserved: Long = 0L,
+public data class WsmanOperationInfo(
+    public var fragment: WsmanFragment = WsmanFragment(),
+    public var filter: WsmanFilter = WsmanFilter(),
+    public var selectorSet: WsmanSelectorSet = WsmanSelectorSet(),
+    public var optionSet: WsmanOptionSet = WsmanOptionSet(),
+    public var reserved: COpaquePointer? = null,
     public var version: UInt = 0u,
 )
 
-public data class WSMAN_OPERATION_INFOEX(
-    public var fragment: WSMAN_FRAGMENT = WSMAN_FRAGMENT(),
-    public var filter: WSMAN_FILTER = WSMAN_FILTER(),
-    public var selectorSet: WSMAN_SELECTOR_SET = WSMAN_SELECTOR_SET(),
-    public var optionSet: WSMAN_OPTION_SETEX = WSMAN_OPTION_SETEX(),
+public data class WsmanOperationInfoex(
+    public var fragment: WsmanFragment = WsmanFragment(),
+    public var filter: WsmanFilter = WsmanFilter(),
+    public var selectorSet: WsmanSelectorSet = WsmanSelectorSet(),
+    public var optionSet: WsmanOptionSetex = WsmanOptionSetex(),
     public var version: UInt = 0u,
-    public var uiLocale: PCWSTR = 0L,
-    public var dataLocale: PCWSTR = 0L,
+    public var uiLocale: Pcwstr = null,
+    public var dataLocale: Pcwstr = null,
 )
 
-public data class WSMAN_OPTION(
-    public var name: PCWSTR = 0L,
-    public var value: PCWSTR = 0L,
-    public var mustComply: BOOL = 0,
+public data class WsmanOption(
+    public var name: Pcwstr = null,
+    public var value: Pcwstr = null,
+    public var mustComply: Bool = 0,
 )
 
-public data class WSMAN_OPTION_SET(
+public data class WsmanOptionSet(
     public var optionsCount: UInt = 0u,
-    public var options: Long = 0L,
-    public var optionsMustUnderstand: BOOL = 0,
+    public var options: WsmanOption? = null,
+    public var optionsMustUnderstand: Bool = 0,
 )
 
-public data class WSMAN_OPTION_SETEX(
+public data class WsmanOptionSetex(
     public var optionsCount: UInt = 0u,
-    public var options: Long = 0L,
-    public var optionsMustUnderstand: BOOL = 0,
-    public var optionTypes: Long = 0L,
+    public var options: WsmanOption? = null,
+    public var optionsMustUnderstand: Bool = 0,
+    public var optionTypes: Pcwstr? = null,
 )
 
-public data class WSMAN_PLUGIN_REQUEST(
-    public var senderDetails: Long = 0L,
-    public var locale: PCWSTR = 0L,
-    public var resourceUri: PCWSTR = 0L,
-    public var operationInfo: Long = 0L,
-    public var shutdownNotification: BOOL = 0,
-    public var shutdownNotificationHandle: HANDLE = 0L,
-    public var dataLocale: PCWSTR = 0L,
+public data class WsmanPluginRequest(
+    public var senderDetails: WsmanSenderDetails? = null,
+    public var locale: Pcwstr = null,
+    public var resourceUri: Pcwstr = null,
+    public var operationInfo: WsmanOperationInfo? = null,
+    public var shutdownNotification: Bool = 0,
+    public var shutdownNotificationHandle: Handle = null,
+    public var dataLocale: Pcwstr = null,
 )
 
-public data class WSMAN_PROXY_INFO(public var accessType: UInt = 0u, public var authenticationCredentials: WSMAN_AUTHENTICATION_CREDENTIALS = WSMAN_AUTHENTICATION_CREDENTIALS())
+public data class WsmanProxyInfo(public var accessType: UInt = 0u, public var authenticationCredentials: WsmanAuthenticationCredentials = WsmanAuthenticationCredentials())
 
-public data class WSMAN_RECEIVE_DATA_RESULT(
-    public var streamId: PCWSTR = 0L,
-    public var streamData: WSMAN_DATA = WSMAN_DATA(),
-    public var commandState: PCWSTR = 0L,
+public data class WsmanReceiveDataResult(
+    public var streamId: Pcwstr = null,
+    public var streamData: WsmanData = WsmanData(),
+    public var commandState: Pcwstr = null,
     public var exitCode: UInt = 0u,
 )
 
-public data class WSMAN_RESPONSE_DATA(
-    public var receiveData: WSMAN_RECEIVE_DATA_RESULT = WSMAN_RECEIVE_DATA_RESULT(),
-    public var connectData: WSMAN_CONNECT_DATA = WSMAN_CONNECT_DATA(),
-    public var createData: WSMAN_CREATE_SHELL_DATA = WSMAN_CREATE_SHELL_DATA(),
+public data class WsmanResponseData(
+    public var receiveData: WsmanReceiveDataResult = WsmanReceiveDataResult(),
+    public var connectData: WsmanConnectData = WsmanConnectData(),
+    public var createData: WsmanCreateShellData = WsmanCreateShellData(),
 )
 
-public data class WSMAN_SELECTOR_SET(public var numberKeys: UInt = 0u, public var keys: Long = 0L)
+public data class WsmanSelectorSet(public var numberKeys: UInt = 0u, public var keys: WsmanKey? = null)
 
-public data class WSMAN_SENDER_DETAILS(
-    public var senderName: PCWSTR = 0L,
-    public var authenticationMechanism: PCWSTR = 0L,
-    public var certificateDetails: Long = 0L,
-    public var clientToken: HANDLE = 0L,
-    public var httpURL: PCWSTR = 0L,
+public data class WsmanSenderDetails(
+    public var senderName: Pcwstr = null,
+    public var authenticationMechanism: Pcwstr = null,
+    public var certificateDetails: WsmanCertificateDetails? = null,
+    public var clientToken: Handle = null,
+    public var httpURL: Pcwstr = null,
 )
 
-public data class WSMAN_SHELL_ASYNC(public var operationContext: Long = 0L, public var completionFunction: WSMAN_SHELL_COMPLETION_FUNCTION = null)
+public data class WsmanShellAsync(public var operationContext: COpaquePointer? = null, public var completionFunction: WsmanShellCompletionFunction = null)
 
-public data class WSMAN_SHELL_DISCONNECT_INFO(public var idleTimeoutMs: UInt = 0u)
+public data class WsmanShellDisconnectInfo(public var idleTimeoutMs: UInt = 0u)
 
-public data class WSMAN_SHELL_STARTUP_INFO_V10(
-    public var inputStreamSet: Long = 0L,
-    public var outputStreamSet: Long = 0L,
+public data class WsmanShellStartupInfoV10(
+    public var inputStreamSet: WsmanStreamIdSet? = null,
+    public var outputStreamSet: WsmanStreamIdSet? = null,
     public var idleTimeoutMs: UInt = 0u,
-    public var workingDirectory: PCWSTR = 0L,
-    public var variableSet: Long = 0L,
+    public var workingDirectory: Pcwstr = null,
+    public var variableSet: WsmanEnvironmentVariableSet? = null,
 )
 
-public data class WSMAN_SHELL_STARTUP_INFO_V11(public var Base: WSMAN_SHELL_STARTUP_INFO_V10 = WSMAN_SHELL_STARTUP_INFO_V10(), public var name: PCWSTR = 0L)
+public data class WsmanShellStartupInfoV11(public var base: WsmanShellStartupInfoV10 = WsmanShellStartupInfoV10(), public var name: Pcwstr = null)
 
-public data class WSMAN_STREAM_ID_SET(public var streamIDsCount: UInt = 0u, public var streamIDs: Long = 0L)
+public data class WsmanStreamIdSet(public var streamIDsCount: UInt = 0u, public var streamIDs: Pcwstr? = null)
 
-public data class WSMAN_USERNAME_PASSWORD_CREDS(public var username: PCWSTR = 0L, public var password: PCWSTR = 0L)
+public data class WsmanUsernamePasswordCreds(public var username: Pcwstr = null, public var password: Pcwstr = null)

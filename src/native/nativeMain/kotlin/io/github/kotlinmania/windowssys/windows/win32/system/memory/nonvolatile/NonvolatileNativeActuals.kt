@@ -2,26 +2,27 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.memory.nonvolatile
 
+import io.github.kotlinmania.windowssys.COpaquePointer
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun RtlDrainNonVolatileFlush(nvtoken: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.nonvolatile.cinterop.windowssys_windows_win32_system_memory_nonvolatile_RtlDrainNonVolatileFlush(nvtoken.toCPointer<ByteVar>())
+public actual fun rtlDrainNonVolatileFlush(nvtoken: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.nonvolatile.cinterop.windowssys_windows_win32_system_memory_nonvolatile_rtlDrainNonVolatileFlush(nvtoken?.value?.toCPointer<ByteVar>())
 
-public actual fun RtlFillNonVolatileMemory(nvtoken: Long, nvdestination: Long, size: ULong, value: UByte, flags: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.nonvolatile.cinterop.windowssys_windows_win32_system_memory_nonvolatile_RtlFillNonVolatileMemory(nvtoken.toCPointer<ByteVar>(), nvdestination.toCPointer<ByteVar>(), size, value, flags)
+public actual fun rtlFillNonVolatileMemory(nvtoken: COpaquePointer?, nvdestination: COpaquePointer?, size: ULong, value: UByte, flags: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.nonvolatile.cinterop.windowssys_windows_win32_system_memory_nonvolatile_rtlFillNonVolatileMemory(nvtoken?.value?.toCPointer<ByteVar>(), nvdestination?.value?.toCPointer<ByteVar>(), size, value, flags)
 
-public actual fun RtlFlushNonVolatileMemory(nvtoken: Long, nvbuffer: Long, size: ULong, flags: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.nonvolatile.cinterop.windowssys_windows_win32_system_memory_nonvolatile_RtlFlushNonVolatileMemory(nvtoken.toCPointer<ByteVar>(), nvbuffer.toCPointer<ByteVar>(), size, flags)
+public actual fun rtlFlushNonVolatileMemory(nvtoken: COpaquePointer?, nvbuffer: COpaquePointer?, size: ULong, flags: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.nonvolatile.cinterop.windowssys_windows_win32_system_memory_nonvolatile_rtlFlushNonVolatileMemory(nvtoken?.value?.toCPointer<ByteVar>(), nvbuffer?.value?.toCPointer<ByteVar>(), size, flags)
 
-public actual fun RtlFlushNonVolatileMemoryRanges(nvtoken: Long, nvranges: Long, numranges: ULong, flags: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.nonvolatile.cinterop.windowssys_windows_win32_system_memory_nonvolatile_RtlFlushNonVolatileMemoryRanges(nvtoken.toCPointer<ByteVar>(), nvranges.toCPointer<ByteVar>(), numranges, flags)
+public actual fun rtlFlushNonVolatileMemoryRanges(nvtoken: COpaquePointer?, nvranges: COpaquePointer?, numranges: ULong, flags: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.nonvolatile.cinterop.windowssys_windows_win32_system_memory_nonvolatile_rtlFlushNonVolatileMemoryRanges(nvtoken?.value?.toCPointer<ByteVar>(), nvranges?.value?.toCPointer<ByteVar>(), numranges, flags)
 
-public actual fun RtlFreeNonVolatileToken(nvtoken: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.nonvolatile.cinterop.windowssys_windows_win32_system_memory_nonvolatile_RtlFreeNonVolatileToken(nvtoken.toCPointer<ByteVar>())
+public actual fun rtlFreeNonVolatileToken(nvtoken: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.nonvolatile.cinterop.windowssys_windows_win32_system_memory_nonvolatile_rtlFreeNonVolatileToken(nvtoken?.value?.toCPointer<ByteVar>())
 
-public actual fun RtlGetNonVolatileToken(nvbuffer: Long, size: ULong, nvtoken: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.nonvolatile.cinterop.windowssys_windows_win32_system_memory_nonvolatile_RtlGetNonVolatileToken(nvbuffer.toCPointer<ByteVar>(), size, nvtoken.toCPointer<ByteVar>())
+public actual fun rtlGetNonVolatileToken(nvbuffer: COpaquePointer?, size: ULong, nvtoken: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.nonvolatile.cinterop.windowssys_windows_win32_system_memory_nonvolatile_rtlGetNonVolatileToken(nvbuffer?.value?.toCPointer<ByteVar>(), size, nvtoken?.value?.toCPointer<ByteVar>())
 
-public actual fun RtlWriteNonVolatileMemory(nvtoken: Long, nvdestination: Long, source: Long, size: ULong, flags: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.memory.nonvolatile.cinterop.windowssys_windows_win32_system_memory_nonvolatile_RtlWriteNonVolatileMemory(nvtoken.toCPointer<ByteVar>(), nvdestination.toCPointer<ByteVar>(), source.toCPointer<ByteVar>(), size, flags)
+public actual fun rtlWriteNonVolatileMemory(nvtoken: COpaquePointer?, nvdestination: COpaquePointer?, source: COpaquePointer?, size: ULong, flags: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.memory.nonvolatile.cinterop.windowssys_windows_win32_system_memory_nonvolatile_rtlWriteNonVolatileMemory(nvtoken?.value?.toCPointer<ByteVar>(), nvdestination?.value?.toCPointer<ByteVar>(), source?.value?.toCPointer<ByteVar>(), size, flags)

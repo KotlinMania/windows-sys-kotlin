@@ -2,10 +2,11 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.remotemanagement
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
 private object WindowsWin32SystemRemotemanagementJniBridge {
     init {
@@ -13,214 +14,214 @@ private object WindowsWin32SystemRemotemanagementJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_remotemanagement_WSManCloseCommand(commandhandle: Long, flags: Int, async: Long)
+    external fun windowssys_windows_win32_system_remotemanagement_wSManCloseCommand(commandhandle: Long, flags: Int, async: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_remotemanagement_WSManCloseOperation(operationhandle: Long, flags: Int): Int
+    external fun windowssys_windows_win32_system_remotemanagement_wSManCloseOperation(operationhandle: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_remotemanagement_WSManCloseSession(session: Long, flags: Int): Int
+    external fun windowssys_windows_win32_system_remotemanagement_wSManCloseSession(session: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_remotemanagement_WSManCloseShell(shellhandle: Long, flags: Int, async: Long)
+    external fun windowssys_windows_win32_system_remotemanagement_wSManCloseShell(shellhandle: Long, flags: Int, async: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_remotemanagement_WSManConnectShell(session: Long, flags: Int, resourceuri: Long, shellid: Long, options: Long, connectxml: Long, async: Long, shell: Long)
+    external fun windowssys_windows_win32_system_remotemanagement_wSManConnectShell(session: Long, flags: Int, resourceuri: Long, shellid: Long, options: Long, connectxml: Long, async: Long, shell: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_remotemanagement_WSManConnectShellCommand(shell: Long, flags: Int, commandid: Long, options: Long, connectxml: Long, async: Long, command: Long)
+    external fun windowssys_windows_win32_system_remotemanagement_wSManConnectShellCommand(shell: Long, flags: Int, commandid: Long, options: Long, connectxml: Long, async: Long, command: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_remotemanagement_WSManCreateSession(apihandle: Long, connection: Long, flags: Int, serverauthenticationcredentials: Long, proxyinfo: Long, session: Long): Int
+    external fun windowssys_windows_win32_system_remotemanagement_wSManCreateSession(apihandle: Long, connection: Long, flags: Int, serverauthenticationcredentials: Long, proxyinfo: Long, session: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_remotemanagement_WSManCreateShell(session: Long, flags: Int, resourceuri: Long, startupinfo: Long, options: Long, createxml: Long, async: Long, shell: Long)
+    external fun windowssys_windows_win32_system_remotemanagement_wSManCreateShell(session: Long, flags: Int, resourceuri: Long, startupinfo: Long, options: Long, createxml: Long, async: Long, shell: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_remotemanagement_WSManCreateShellEx(session: Long, flags: Int, resourceuri: Long, shellid: Long, startupinfo: Long, options: Long, createxml: Long, async: Long, shell: Long)
+    external fun windowssys_windows_win32_system_remotemanagement_wSManCreateShellEx(session: Long, flags: Int, resourceuri: Long, shellid: Long, startupinfo: Long, options: Long, createxml: Long, async: Long, shell: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_remotemanagement_WSManDeinitialize(apihandle: Long, flags: Int): Int
+    external fun windowssys_windows_win32_system_remotemanagement_wSManDeinitialize(apihandle: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_remotemanagement_WSManDisconnectShell(shell: Long, flags: Int, disconnectinfo: Long, async: Long)
+    external fun windowssys_windows_win32_system_remotemanagement_wSManDisconnectShell(shell: Long, flags: Int, disconnectinfo: Long, async: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_remotemanagement_WSManGetErrorMessage(apihandle: Long, flags: Int, languagecode: Long, errorcode: Int, messagelength: Int, message: Long, messagelengthused: Long): Int
+    external fun windowssys_windows_win32_system_remotemanagement_wSManGetErrorMessage(apihandle: Long, flags: Int, languagecode: Long, errorcode: Int, messagelength: Int, message: Long, messagelengthused: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_remotemanagement_WSManGetSessionOptionAsDword(session: Long, option: Int, value: Long): Int
+    external fun windowssys_windows_win32_system_remotemanagement_wSManGetSessionOptionAsDword(session: Long, option: Int, value: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_remotemanagement_WSManGetSessionOptionAsString(session: Long, option: Int, stringlength: Int, string: Long, stringlengthused: Long): Int
+    external fun windowssys_windows_win32_system_remotemanagement_wSManGetSessionOptionAsString(session: Long, option: Int, stringlength: Int, string: Long, stringlengthused: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_remotemanagement_WSManInitialize(flags: Int, apihandle: Long): Int
+    external fun windowssys_windows_win32_system_remotemanagement_wSManInitialize(flags: Int, apihandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_remotemanagement_WSManPluginAuthzOperationComplete(senderdetails: Long, flags: Int, userauthorizationcontext: Long, errorcode: Int, extendederrorinformation: Long): Int
+    external fun windowssys_windows_win32_system_remotemanagement_wSManPluginAuthzOperationComplete(senderdetails: Long, flags: Int, userauthorizationcontext: Long, errorcode: Int, extendederrorinformation: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_remotemanagement_WSManPluginAuthzQueryQuotaComplete(senderdetails: Long, flags: Int, quota: Long, errorcode: Int, extendederrorinformation: Long): Int
+    external fun windowssys_windows_win32_system_remotemanagement_wSManPluginAuthzQueryQuotaComplete(senderdetails: Long, flags: Int, quota: Long, errorcode: Int, extendederrorinformation: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_remotemanagement_WSManPluginAuthzUserComplete(senderdetails: Long, flags: Int, userauthorizationcontext: Long, impersonationtoken: Long, userisadministrator: Int, errorcode: Int, extendederrorinformation: Long): Int
+    external fun windowssys_windows_win32_system_remotemanagement_wSManPluginAuthzUserComplete(senderdetails: Long, flags: Int, userauthorizationcontext: Long, impersonationtoken: Long, userisadministrator: Int, errorcode: Int, extendederrorinformation: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_remotemanagement_WSManPluginFreeRequestDetails(requestdetails: Long): Int
+    external fun windowssys_windows_win32_system_remotemanagement_wSManPluginFreeRequestDetails(requestdetails: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_remotemanagement_WSManPluginGetConfiguration(plugincontext: Long, flags: Int, data: Long): Int
+    external fun windowssys_windows_win32_system_remotemanagement_wSManPluginGetConfiguration(plugincontext: Long, flags: Int, data: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_remotemanagement_WSManPluginGetOperationParameters(requestdetails: Long, flags: Int, data: Long): Int
+    external fun windowssys_windows_win32_system_remotemanagement_wSManPluginGetOperationParameters(requestdetails: Long, flags: Int, data: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_remotemanagement_WSManPluginOperationComplete(requestdetails: Long, flags: Int, errorcode: Int, extendedinformation: Long): Int
+    external fun windowssys_windows_win32_system_remotemanagement_wSManPluginOperationComplete(requestdetails: Long, flags: Int, errorcode: Int, extendedinformation: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_remotemanagement_WSManPluginReceiveResult(requestdetails: Long, flags: Int, stream: Long, streamresult: Long, commandstate: Long, exitcode: Int): Int
+    external fun windowssys_windows_win32_system_remotemanagement_wSManPluginReceiveResult(requestdetails: Long, flags: Int, stream: Long, streamresult: Long, commandstate: Long, exitcode: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_remotemanagement_WSManPluginReportCompletion(plugincontext: Long, flags: Int): Int
+    external fun windowssys_windows_win32_system_remotemanagement_wSManPluginReportCompletion(plugincontext: Long, flags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_remotemanagement_WSManPluginReportContext(requestdetails: Long, flags: Int, context: Long): Int
+    external fun windowssys_windows_win32_system_remotemanagement_wSManPluginReportContext(requestdetails: Long, flags: Int, context: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_remotemanagement_WSManReceiveShellOutput(shell: Long, command: Long, flags: Int, desiredstreamset: Long, async: Long, receiveoperation: Long)
+    external fun windowssys_windows_win32_system_remotemanagement_wSManReceiveShellOutput(shell: Long, command: Long, flags: Int, desiredstreamset: Long, async: Long, receiveoperation: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_remotemanagement_WSManReconnectShell(shell: Long, flags: Int, async: Long)
+    external fun windowssys_windows_win32_system_remotemanagement_wSManReconnectShell(shell: Long, flags: Int, async: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_remotemanagement_WSManReconnectShellCommand(commandhandle: Long, flags: Int, async: Long)
+    external fun windowssys_windows_win32_system_remotemanagement_wSManReconnectShellCommand(commandhandle: Long, flags: Int, async: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_remotemanagement_WSManRunShellCommand(shell: Long, flags: Int, commandline: Long, args: Long, options: Long, async: Long, command: Long)
+    external fun windowssys_windows_win32_system_remotemanagement_wSManRunShellCommand(shell: Long, flags: Int, commandline: Long, args: Long, options: Long, async: Long, command: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_remotemanagement_WSManRunShellCommandEx(shell: Long, flags: Int, commandid: Long, commandline: Long, args: Long, options: Long, async: Long, command: Long)
+    external fun windowssys_windows_win32_system_remotemanagement_wSManRunShellCommandEx(shell: Long, flags: Int, commandid: Long, commandline: Long, args: Long, options: Long, async: Long, command: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_remotemanagement_WSManSendShellInput(shell: Long, command: Long, flags: Int, streamid: Long, streamdata: Long, endofstream: Int, async: Long, sendoperation: Long)
+    external fun windowssys_windows_win32_system_remotemanagement_wSManSendShellInput(shell: Long, command: Long, flags: Int, streamid: Long, streamdata: Long, endofstream: Int, async: Long, sendoperation: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_remotemanagement_WSManSetSessionOption(session: Long, option: Int, data: Long): Int
+    external fun windowssys_windows_win32_system_remotemanagement_wSManSetSessionOption(session: Long, option: Int, data: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_remotemanagement_WSManSignalShell(shell: Long, command: Long, flags: Int, code: Long, async: Long, signaloperation: Long)
+    external fun windowssys_windows_win32_system_remotemanagement_wSManSignalShell(shell: Long, command: Long, flags: Int, code: Long, async: Long, signaloperation: Long)
 }
 
-public actual fun WSManCloseCommand(commandhandle: WSMAN_COMMAND_HANDLE, flags: UInt, async: Long) {
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_WSManCloseCommand(commandhandle, flags.toInt(), async)
+public actual fun wSManCloseCommand(commandhandle: WsmanCommandHandle, flags: UInt, async: COpaquePointer?) {
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManCloseCommand(commandhandle, flags.toInt(), (async?.value ?: 0L))
 }
 
-public actual fun WSManCloseOperation(operationhandle: WSMAN_OPERATION_HANDLE, flags: UInt): UInt =
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_WSManCloseOperation(operationhandle, flags.toInt()).toUInt()
+public actual fun wSManCloseOperation(operationhandle: WsmanOperationHandle, flags: UInt): UInt =
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManCloseOperation(operationhandle, flags.toInt()).toUInt()
 
-public actual fun WSManCloseSession(session: WSMAN_SESSION_HANDLE, flags: UInt): UInt =
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_WSManCloseSession(session, flags.toInt()).toUInt()
+public actual fun wSManCloseSession(session: WsmanSessionHandle, flags: UInt): UInt =
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManCloseSession(session.toLong(), flags.toInt()).toUInt()
 
-public actual fun WSManCloseShell(shellhandle: WSMAN_SHELL_HANDLE, flags: UInt, async: Long) {
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_WSManCloseShell(shellhandle, flags.toInt(), async)
+public actual fun wSManCloseShell(shellhandle: WsmanShellHandle, flags: UInt, async: COpaquePointer?) {
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManCloseShell(shellhandle, flags.toInt(), (async?.value ?: 0L))
 }
 
-public actual fun WSManConnectShell(session: WSMAN_SESSION_HANDLE, flags: UInt, resourceuri: PCWSTR, shellid: PCWSTR, options: Long, connectxml: Long, async: Long, shell: Long) {
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_WSManConnectShell(session, flags.toInt(), resourceuri, shellid, options, connectxml, async, shell)
+public actual fun wSManConnectShell(session: WsmanSessionHandle, flags: UInt, resourceuri: Pcwstr, shellid: Pcwstr, options: COpaquePointer?, connectxml: COpaquePointer?, async: COpaquePointer?, shell: COpaquePointer?) {
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManConnectShell(session.toLong(), flags.toInt(), (resourceuri?.value ?: 0L), (shellid?.value ?: 0L), (options?.value ?: 0L), (connectxml?.value ?: 0L), (async?.value ?: 0L), (shell?.value ?: 0L))
 }
 
-public actual fun WSManConnectShellCommand(shell: WSMAN_SHELL_HANDLE, flags: UInt, commandid: PCWSTR, options: Long, connectxml: Long, async: Long, command: Long) {
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_WSManConnectShellCommand(shell, flags.toInt(), commandid, options, connectxml, async, command)
+public actual fun wSManConnectShellCommand(shell: WsmanShellHandle, flags: UInt, commandid: Pcwstr, options: COpaquePointer?, connectxml: COpaquePointer?, async: COpaquePointer?, command: COpaquePointer?) {
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManConnectShellCommand(shell, flags.toInt(), (commandid?.value ?: 0L), (options?.value ?: 0L), (connectxml?.value ?: 0L), (async?.value ?: 0L), (command?.value ?: 0L))
 }
 
-public actual fun WSManCreateSession(apihandle: WSMAN_API_HANDLE, connection: PCWSTR, flags: UInt, serverauthenticationcredentials: Long, proxyinfo: Long, session: Long): UInt =
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_WSManCreateSession(apihandle, connection, flags.toInt(), serverauthenticationcredentials, proxyinfo, session).toUInt()
+public actual fun wSManCreateSession(apihandle: WsmanApiHandle, connection: Pcwstr, flags: UInt, serverauthenticationcredentials: COpaquePointer?, proxyinfo: COpaquePointer?, session: COpaquePointer?): UInt =
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManCreateSession(apihandle.toLong(), (connection?.value ?: 0L), flags.toInt(), (serverauthenticationcredentials?.value ?: 0L), (proxyinfo?.value ?: 0L), (session?.value ?: 0L)).toUInt()
 
-public actual fun WSManCreateShell(session: WSMAN_SESSION_HANDLE, flags: UInt, resourceuri: PCWSTR, startupinfo: Long, options: Long, createxml: Long, async: Long, shell: Long) {
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_WSManCreateShell(session, flags.toInt(), resourceuri, startupinfo, options, createxml, async, shell)
+public actual fun wSManCreateShell(session: WsmanSessionHandle, flags: UInt, resourceuri: Pcwstr, startupinfo: COpaquePointer?, options: COpaquePointer?, createxml: COpaquePointer?, async: COpaquePointer?, shell: COpaquePointer?) {
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManCreateShell(session.toLong(), flags.toInt(), (resourceuri?.value ?: 0L), (startupinfo?.value ?: 0L), (options?.value ?: 0L), (createxml?.value ?: 0L), (async?.value ?: 0L), (shell?.value ?: 0L))
 }
 
-public actual fun WSManCreateShellEx(session: WSMAN_SESSION_HANDLE, flags: UInt, resourceuri: PCWSTR, shellid: PCWSTR, startupinfo: Long, options: Long, createxml: Long, async: Long, shell: Long) {
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_WSManCreateShellEx(session, flags.toInt(), resourceuri, shellid, startupinfo, options, createxml, async, shell)
+public actual fun wSManCreateShellEx(session: WsmanSessionHandle, flags: UInt, resourceuri: Pcwstr, shellid: Pcwstr, startupinfo: COpaquePointer?, options: COpaquePointer?, createxml: COpaquePointer?, async: COpaquePointer?, shell: COpaquePointer?) {
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManCreateShellEx(session.toLong(), flags.toInt(), (resourceuri?.value ?: 0L), (shellid?.value ?: 0L), (startupinfo?.value ?: 0L), (options?.value ?: 0L), (createxml?.value ?: 0L), (async?.value ?: 0L), (shell?.value ?: 0L))
 }
 
-public actual fun WSManDeinitialize(apihandle: WSMAN_API_HANDLE, flags: UInt): UInt =
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_WSManDeinitialize(apihandle, flags.toInt()).toUInt()
+public actual fun wSManDeinitialize(apihandle: WsmanApiHandle, flags: UInt): UInt =
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManDeinitialize(apihandle.toLong(), flags.toInt()).toUInt()
 
-public actual fun WSManDisconnectShell(shell: WSMAN_SHELL_HANDLE, flags: UInt, disconnectinfo: Long, async: Long) {
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_WSManDisconnectShell(shell, flags.toInt(), disconnectinfo, async)
+public actual fun wSManDisconnectShell(shell: WsmanShellHandle, flags: UInt, disconnectinfo: COpaquePointer?, async: COpaquePointer?) {
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManDisconnectShell(shell, flags.toInt(), (disconnectinfo?.value ?: 0L), (async?.value ?: 0L))
 }
 
-public actual fun WSManGetErrorMessage(apihandle: WSMAN_API_HANDLE, flags: UInt, languagecode: PCWSTR, errorcode: UInt, messagelength: UInt, message: PWSTR, messagelengthused: Long): UInt =
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_WSManGetErrorMessage(apihandle, flags.toInt(), languagecode, errorcode.toInt(), messagelength.toInt(), message, messagelengthused).toUInt()
+public actual fun wSManGetErrorMessage(apihandle: WsmanApiHandle, flags: UInt, languagecode: Pcwstr, errorcode: UInt, messagelength: UInt, message: Pwstr, messagelengthused: COpaquePointer?): UInt =
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManGetErrorMessage(apihandle.toLong(), flags.toInt(), (languagecode?.value ?: 0L), errorcode.toInt(), messagelength.toInt(), (message?.value ?: 0L), (messagelengthused?.value ?: 0L)).toUInt()
 
-public actual fun WSManGetSessionOptionAsDword(session: WSMAN_SESSION_HANDLE, option: WSManSessionOption, value: Long): UInt =
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_WSManGetSessionOptionAsDword(session, option, value).toUInt()
+public actual fun wSManGetSessionOptionAsDword(session: WsmanSessionHandle, option: WSManSessionOption, value: COpaquePointer?): UInt =
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManGetSessionOptionAsDword(session.toLong(), option, (value?.value ?: 0L)).toUInt()
 
-public actual fun WSManGetSessionOptionAsString(session: WSMAN_SESSION_HANDLE, option: WSManSessionOption, stringlength: UInt, string: PWSTR, stringlengthused: Long): UInt =
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_WSManGetSessionOptionAsString(session, option, stringlength.toInt(), string, stringlengthused).toUInt()
+public actual fun wSManGetSessionOptionAsString(session: WsmanSessionHandle, option: WSManSessionOption, stringlength: UInt, string: Pwstr, stringlengthused: COpaquePointer?): UInt =
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManGetSessionOptionAsString(session.toLong(), option, stringlength.toInt(), (string?.value ?: 0L), (stringlengthused?.value ?: 0L)).toUInt()
 
-public actual fun WSManInitialize(flags: UInt, apihandle: Long): UInt =
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_WSManInitialize(flags.toInt(), apihandle).toUInt()
+public actual fun wSManInitialize(flags: UInt, apihandle: COpaquePointer?): UInt =
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManInitialize(flags.toInt(), (apihandle?.value ?: 0L)).toUInt()
 
-public actual fun WSManPluginAuthzOperationComplete(senderdetails: Long, flags: UInt, userauthorizationcontext: Long, errorcode: UInt, extendederrorinformation: PCWSTR): UInt =
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_WSManPluginAuthzOperationComplete(senderdetails, flags.toInt(), userauthorizationcontext, errorcode.toInt(), extendederrorinformation).toUInt()
+public actual fun wSManPluginAuthzOperationComplete(senderdetails: COpaquePointer?, flags: UInt, userauthorizationcontext: COpaquePointer?, errorcode: UInt, extendederrorinformation: Pcwstr): UInt =
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManPluginAuthzOperationComplete((senderdetails?.value ?: 0L), flags.toInt(), (userauthorizationcontext?.value ?: 0L), errorcode.toInt(), (extendederrorinformation?.value ?: 0L)).toUInt()
 
-public actual fun WSManPluginAuthzQueryQuotaComplete(senderdetails: Long, flags: UInt, quota: Long, errorcode: UInt, extendederrorinformation: PCWSTR): UInt =
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_WSManPluginAuthzQueryQuotaComplete(senderdetails, flags.toInt(), quota, errorcode.toInt(), extendederrorinformation).toUInt()
+public actual fun wSManPluginAuthzQueryQuotaComplete(senderdetails: COpaquePointer?, flags: UInt, quota: COpaquePointer?, errorcode: UInt, extendederrorinformation: Pcwstr): UInt =
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManPluginAuthzQueryQuotaComplete((senderdetails?.value ?: 0L), flags.toInt(), (quota?.value ?: 0L), errorcode.toInt(), (extendederrorinformation?.value ?: 0L)).toUInt()
 
-public actual fun WSManPluginAuthzUserComplete(senderdetails: Long, flags: UInt, userauthorizationcontext: Long, impersonationtoken: HANDLE, userisadministrator: BOOL, errorcode: UInt, extendederrorinformation: PCWSTR): UInt =
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_WSManPluginAuthzUserComplete(senderdetails, flags.toInt(), userauthorizationcontext, impersonationtoken, userisadministrator, errorcode.toInt(), extendederrorinformation).toUInt()
+public actual fun wSManPluginAuthzUserComplete(senderdetails: COpaquePointer?, flags: UInt, userauthorizationcontext: COpaquePointer?, impersonationtoken: Handle, userisadministrator: Bool, errorcode: UInt, extendederrorinformation: Pcwstr): UInt =
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManPluginAuthzUserComplete((senderdetails?.value ?: 0L), flags.toInt(), (userauthorizationcontext?.value ?: 0L), (impersonationtoken?.value ?: 0L), userisadministrator, errorcode.toInt(), (extendederrorinformation?.value ?: 0L)).toUInt()
 
-public actual fun WSManPluginFreeRequestDetails(requestdetails: Long): UInt =
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_WSManPluginFreeRequestDetails(requestdetails).toUInt()
+public actual fun wSManPluginFreeRequestDetails(requestdetails: COpaquePointer?): UInt =
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManPluginFreeRequestDetails((requestdetails?.value ?: 0L)).toUInt()
 
-public actual fun WSManPluginGetConfiguration(plugincontext: Long, flags: UInt, data: Long): UInt =
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_WSManPluginGetConfiguration(plugincontext, flags.toInt(), data).toUInt()
+public actual fun wSManPluginGetConfiguration(plugincontext: COpaquePointer?, flags: UInt, data: COpaquePointer?): UInt =
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManPluginGetConfiguration((plugincontext?.value ?: 0L), flags.toInt(), (data?.value ?: 0L)).toUInt()
 
-public actual fun WSManPluginGetOperationParameters(requestdetails: Long, flags: UInt, data: Long): UInt =
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_WSManPluginGetOperationParameters(requestdetails, flags.toInt(), data).toUInt()
+public actual fun wSManPluginGetOperationParameters(requestdetails: COpaquePointer?, flags: UInt, data: COpaquePointer?): UInt =
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManPluginGetOperationParameters((requestdetails?.value ?: 0L), flags.toInt(), (data?.value ?: 0L)).toUInt()
 
-public actual fun WSManPluginOperationComplete(requestdetails: Long, flags: UInt, errorcode: UInt, extendedinformation: PCWSTR): UInt =
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_WSManPluginOperationComplete(requestdetails, flags.toInt(), errorcode.toInt(), extendedinformation).toUInt()
+public actual fun wSManPluginOperationComplete(requestdetails: COpaquePointer?, flags: UInt, errorcode: UInt, extendedinformation: Pcwstr): UInt =
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManPluginOperationComplete((requestdetails?.value ?: 0L), flags.toInt(), errorcode.toInt(), (extendedinformation?.value ?: 0L)).toUInt()
 
-public actual fun WSManPluginReceiveResult(requestdetails: Long, flags: UInt, stream: PCWSTR, streamresult: Long, commandstate: PCWSTR, exitcode: UInt): UInt =
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_WSManPluginReceiveResult(requestdetails, flags.toInt(), stream, streamresult, commandstate, exitcode.toInt()).toUInt()
+public actual fun wSManPluginReceiveResult(requestdetails: COpaquePointer?, flags: UInt, stream: Pcwstr, streamresult: COpaquePointer?, commandstate: Pcwstr, exitcode: UInt): UInt =
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManPluginReceiveResult((requestdetails?.value ?: 0L), flags.toInt(), (stream?.value ?: 0L), (streamresult?.value ?: 0L), (commandstate?.value ?: 0L), exitcode.toInt()).toUInt()
 
-public actual fun WSManPluginReportCompletion(plugincontext: Long, flags: UInt): UInt =
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_WSManPluginReportCompletion(plugincontext, flags.toInt()).toUInt()
+public actual fun wSManPluginReportCompletion(plugincontext: COpaquePointer?, flags: UInt): UInt =
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManPluginReportCompletion((plugincontext?.value ?: 0L), flags.toInt()).toUInt()
 
-public actual fun WSManPluginReportContext(requestdetails: Long, flags: UInt, context: Long): UInt =
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_WSManPluginReportContext(requestdetails, flags.toInt(), context).toUInt()
+public actual fun wSManPluginReportContext(requestdetails: COpaquePointer?, flags: UInt, context: COpaquePointer?): UInt =
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManPluginReportContext((requestdetails?.value ?: 0L), flags.toInt(), (context?.value ?: 0L)).toUInt()
 
-public actual fun WSManReceiveShellOutput(shell: WSMAN_SHELL_HANDLE, command: WSMAN_COMMAND_HANDLE, flags: UInt, desiredstreamset: Long, async: Long, receiveoperation: Long) {
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_WSManReceiveShellOutput(shell, command, flags.toInt(), desiredstreamset, async, receiveoperation)
+public actual fun wSManReceiveShellOutput(shell: WsmanShellHandle, command: WsmanCommandHandle, flags: UInt, desiredstreamset: COpaquePointer?, async: COpaquePointer?, receiveoperation: COpaquePointer?) {
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManReceiveShellOutput(shell, command, flags.toInt(), (desiredstreamset?.value ?: 0L), (async?.value ?: 0L), (receiveoperation?.value ?: 0L))
 }
 
-public actual fun WSManReconnectShell(shell: WSMAN_SHELL_HANDLE, flags: UInt, async: Long) {
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_WSManReconnectShell(shell, flags.toInt(), async)
+public actual fun wSManReconnectShell(shell: WsmanShellHandle, flags: UInt, async: COpaquePointer?) {
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManReconnectShell(shell, flags.toInt(), (async?.value ?: 0L))
 }
 
-public actual fun WSManReconnectShellCommand(commandhandle: WSMAN_COMMAND_HANDLE, flags: UInt, async: Long) {
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_WSManReconnectShellCommand(commandhandle, flags.toInt(), async)
+public actual fun wSManReconnectShellCommand(commandhandle: WsmanCommandHandle, flags: UInt, async: COpaquePointer?) {
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManReconnectShellCommand(commandhandle, flags.toInt(), (async?.value ?: 0L))
 }
 
-public actual fun WSManRunShellCommand(shell: WSMAN_SHELL_HANDLE, flags: UInt, commandline: PCWSTR, args: Long, options: Long, async: Long, command: Long) {
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_WSManRunShellCommand(shell, flags.toInt(), commandline, args, options, async, command)
+public actual fun wSManRunShellCommand(shell: WsmanShellHandle, flags: UInt, commandline: Pcwstr, args: COpaquePointer?, options: COpaquePointer?, async: COpaquePointer?, command: COpaquePointer?) {
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManRunShellCommand(shell, flags.toInt(), (commandline?.value ?: 0L), (args?.value ?: 0L), (options?.value ?: 0L), (async?.value ?: 0L), (command?.value ?: 0L))
 }
 
-public actual fun WSManRunShellCommandEx(shell: WSMAN_SHELL_HANDLE, flags: UInt, commandid: PCWSTR, commandline: PCWSTR, args: Long, options: Long, async: Long, command: Long) {
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_WSManRunShellCommandEx(shell, flags.toInt(), commandid, commandline, args, options, async, command)
+public actual fun wSManRunShellCommandEx(shell: WsmanShellHandle, flags: UInt, commandid: Pcwstr, commandline: Pcwstr, args: COpaquePointer?, options: COpaquePointer?, async: COpaquePointer?, command: COpaquePointer?) {
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManRunShellCommandEx(shell, flags.toInt(), (commandid?.value ?: 0L), (commandline?.value ?: 0L), (args?.value ?: 0L), (options?.value ?: 0L), (async?.value ?: 0L), (command?.value ?: 0L))
 }
 
-public actual fun WSManSendShellInput(shell: WSMAN_SHELL_HANDLE, command: WSMAN_COMMAND_HANDLE, flags: UInt, streamid: PCWSTR, streamdata: Long, endofstream: BOOL, async: Long, sendoperation: Long) {
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_WSManSendShellInput(shell, command, flags.toInt(), streamid, streamdata, endofstream, async, sendoperation)
+public actual fun wSManSendShellInput(shell: WsmanShellHandle, command: WsmanCommandHandle, flags: UInt, streamid: Pcwstr, streamdata: COpaquePointer?, endofstream: Bool, async: COpaquePointer?, sendoperation: COpaquePointer?) {
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManSendShellInput(shell, command, flags.toInt(), (streamid?.value ?: 0L), (streamdata?.value ?: 0L), endofstream, (async?.value ?: 0L), (sendoperation?.value ?: 0L))
 }
 
-public actual fun WSManSetSessionOption(session: WSMAN_SESSION_HANDLE, option: WSManSessionOption, data: Long): UInt =
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_WSManSetSessionOption(session, option, data).toUInt()
+public actual fun wSManSetSessionOption(session: WsmanSessionHandle, option: WSManSessionOption, data: COpaquePointer?): UInt =
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManSetSessionOption(session.toLong(), option, (data?.value ?: 0L)).toUInt()
 
-public actual fun WSManSignalShell(shell: WSMAN_SHELL_HANDLE, command: WSMAN_COMMAND_HANDLE, flags: UInt, code: PCWSTR, async: Long, signaloperation: Long) {
-    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_WSManSignalShell(shell, command, flags.toInt(), code, async, signaloperation)
+public actual fun wSManSignalShell(shell: WsmanShellHandle, command: WsmanCommandHandle, flags: UInt, code: Pcwstr, async: COpaquePointer?, signaloperation: COpaquePointer?) {
+    WindowsWin32SystemRemotemanagementJniBridge.windowssys_windows_win32_system_remotemanagement_wSManSignalShell(shell, command, flags.toInt(), (code?.value ?: 0L), (async?.value ?: 0L), (signaloperation?.value ?: 0L))
 }

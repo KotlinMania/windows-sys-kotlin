@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_media_multimedia_AVIBuildFilterA(void* lpszfilter, int32_t cbfilter, int32_t fsaving) {
+int32_t windowssys_windows_win32_media_multimedia_aVIBuildFilterA(void* lpszfilter, int32_t cbfilter, int32_t fsaving) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -39,7 +39,7 @@ int32_t windowssys_windows_win32_media_multimedia_AVIBuildFilterA(void* lpszfilt
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_AVIBuildFilterW(void* lpszfilter, int32_t cbfilter, int32_t fsaving) {
+int32_t windowssys_windows_win32_media_multimedia_aVIBuildFilterW(void* lpszfilter, int32_t cbfilter, int32_t fsaving) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -63,7 +63,7 @@ int32_t windowssys_windows_win32_media_multimedia_AVIBuildFilterW(void* lpszfilt
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_AVIClearClipboard(void) {
+int32_t windowssys_windows_win32_media_multimedia_aVIClearClipboard(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -84,7 +84,7 @@ int32_t windowssys_windows_win32_media_multimedia_AVIClearClipboard(void) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_media_multimedia_AVIFileAddRef(void* pfile) {
+uint32_t windowssys_windows_win32_media_multimedia_aVIFileAddRef(void* pfile) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -106,7 +106,7 @@ uint32_t windowssys_windows_win32_media_multimedia_AVIFileAddRef(void* pfile) {
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_AVIFileCreateStreamA(void* pfile, void* ppavi, void* psi) {
+int32_t windowssys_windows_win32_media_multimedia_aVIFileCreateStreamA(void* pfile, void* ppavi, void* psi) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -130,7 +130,7 @@ int32_t windowssys_windows_win32_media_multimedia_AVIFileCreateStreamA(void* pfi
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_AVIFileCreateStreamW(void* pfile, void* ppavi, void* psi) {
+int32_t windowssys_windows_win32_media_multimedia_aVIFileCreateStreamW(void* pfile, void* ppavi, void* psi) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -154,7 +154,7 @@ int32_t windowssys_windows_win32_media_multimedia_AVIFileCreateStreamW(void* pfi
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_AVIFileEndRecord(void* pfile) {
+int32_t windowssys_windows_win32_media_multimedia_aVIFileEndRecord(void* pfile) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -176,7 +176,7 @@ int32_t windowssys_windows_win32_media_multimedia_AVIFileEndRecord(void* pfile) 
 #endif
 }
 
-void windowssys_windows_win32_media_multimedia_AVIFileExit(void) {
+void windowssys_windows_win32_media_multimedia_aVIFileExit(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -196,7 +196,7 @@ void windowssys_windows_win32_media_multimedia_AVIFileExit(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_AVIFileGetStream(void* pfile, void* ppavi, uint32_t fcctype, int32_t lparam) {
+int32_t windowssys_windows_win32_media_multimedia_aVIFileGetStream(void* pfile, void* ppavi, uint32_t fcctype, int32_t lparam) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -221,7 +221,7 @@ int32_t windowssys_windows_win32_media_multimedia_AVIFileGetStream(void* pfile, 
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_AVIFileInfoA(void* pfile, void* pfi, int32_t lsize) {
+int32_t windowssys_windows_win32_media_multimedia_aVIFileInfoA(void* pfile, void* pfi, int32_t lsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -245,7 +245,7 @@ int32_t windowssys_windows_win32_media_multimedia_AVIFileInfoA(void* pfile, void
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_AVIFileInfoW(void* pfile, void* pfi, int32_t lsize) {
+int32_t windowssys_windows_win32_media_multimedia_aVIFileInfoW(void* pfile, void* pfi, int32_t lsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -269,7 +269,7 @@ int32_t windowssys_windows_win32_media_multimedia_AVIFileInfoW(void* pfile, void
 #endif
 }
 
-void windowssys_windows_win32_media_multimedia_AVIFileInit(void) {
+void windowssys_windows_win32_media_multimedia_aVIFileInit(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -289,7 +289,7 @@ void windowssys_windows_win32_media_multimedia_AVIFileInit(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_AVIFileOpenA(void* ppfile, void* szfile, uint32_t umode, void* lphandler) {
+int32_t windowssys_windows_win32_media_multimedia_aVIFileOpenA(void* ppfile, void* szfile, uint32_t umode, void* lphandler) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -314,7 +314,7 @@ int32_t windowssys_windows_win32_media_multimedia_AVIFileOpenA(void* ppfile, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_AVIFileOpenW(void* ppfile, void* szfile, uint32_t umode, void* lphandler) {
+int32_t windowssys_windows_win32_media_multimedia_aVIFileOpenW(void* ppfile, void* szfile, uint32_t umode, void* lphandler) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -339,7 +339,7 @@ int32_t windowssys_windows_win32_media_multimedia_AVIFileOpenW(void* ppfile, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_AVIFileReadData(void* pfile, uint32_t ckid, void* lpdata, void* lpcbdata) {
+int32_t windowssys_windows_win32_media_multimedia_aVIFileReadData(void* pfile, uint32_t ckid, void* lpdata, void* lpcbdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -364,7 +364,7 @@ int32_t windowssys_windows_win32_media_multimedia_AVIFileReadData(void* pfile, u
 #endif
 }
 
-uint32_t windowssys_windows_win32_media_multimedia_AVIFileRelease(void* pfile) {
+uint32_t windowssys_windows_win32_media_multimedia_aVIFileRelease(void* pfile) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -386,7 +386,7 @@ uint32_t windowssys_windows_win32_media_multimedia_AVIFileRelease(void* pfile) {
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_AVIFileWriteData(void* pfile, uint32_t ckid, void* lpdata, int32_t cbdata) {
+int32_t windowssys_windows_win32_media_multimedia_aVIFileWriteData(void* pfile, uint32_t ckid, void* lpdata, int32_t cbdata) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -411,7 +411,7 @@ int32_t windowssys_windows_win32_media_multimedia_AVIFileWriteData(void* pfile, 
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_AVIGetFromClipboard(void* lppf) {
+int32_t windowssys_windows_win32_media_multimedia_aVIGetFromClipboard(void* lppf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -433,7 +433,7 @@ int32_t windowssys_windows_win32_media_multimedia_AVIGetFromClipboard(void* lppf
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_AVIMakeCompressedStream(void* ppscompressed, void* ppssource, void* lpoptions, void* pclsidhandler) {
+int32_t windowssys_windows_win32_media_multimedia_aVIMakeCompressedStream(void* ppscompressed, void* ppssource, void* lpoptions, void* pclsidhandler) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -458,7 +458,7 @@ int32_t windowssys_windows_win32_media_multimedia_AVIMakeCompressedStream(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_AVIMakeFileFromStreams(void* ppfile, int32_t nstreams, void* papstreams) {
+int32_t windowssys_windows_win32_media_multimedia_aVIMakeFileFromStreams(void* ppfile, int32_t nstreams, void* papstreams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -482,7 +482,7 @@ int32_t windowssys_windows_win32_media_multimedia_AVIMakeFileFromStreams(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_AVIMakeStreamFromClipboard(uint32_t cfformat, void* hglobal, void* ppstream) {
+int32_t windowssys_windows_win32_media_multimedia_aVIMakeStreamFromClipboard(uint32_t cfformat, void* hglobal, void* ppstream) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -506,7 +506,7 @@ int32_t windowssys_windows_win32_media_multimedia_AVIMakeStreamFromClipboard(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_AVIPutFileOnClipboard(void* pf) {
+int32_t windowssys_windows_win32_media_multimedia_aVIPutFileOnClipboard(void* pf) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -528,7 +528,45 @@ int32_t windowssys_windows_win32_media_multimedia_AVIPutFileOnClipboard(void* pf
 #endif
 }
 
-int64_t windowssys_windows_win32_media_multimedia_AVISaveOptions(void* hwnd, uint32_t uiflags, int32_t nstreams, void* ppavi, void* plpoptions) {
+int32_t windowssys_windows_win32_media_multimedia_aVISaveA(void* szfile, void* pclsidhandler, void* lpfncallback, int32_t nstreams, void* pfile, void* lpoptions, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(void*, void*, void*, int32_t, void*, void*, ...);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "AVISaveA");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        switch (km_vac) {
+            case 0: return km_fn_ptr(szfile, pclsidhandler, lpfncallback, nstreams, pfile, lpoptions);
+            case 1: return km_fn_ptr(szfile, pclsidhandler, lpfncallback, nstreams, pfile, lpoptions, (intptr_t)km_va0);
+            case 2: return km_fn_ptr(szfile, pclsidhandler, lpfncallback, nstreams, pfile, lpoptions, (intptr_t)km_va0, (intptr_t)km_va1);
+            case 3: return km_fn_ptr(szfile, pclsidhandler, lpfncallback, nstreams, pfile, lpoptions, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2);
+            default: return km_fn_ptr(szfile, pclsidhandler, lpfncallback, nstreams, pfile, lpoptions, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3);
+        }
+    }
+    errno = ENOSYS;
+    return -1;
+#else
+    (void)szfile;
+    (void)pclsidhandler;
+    (void)lpfncallback;
+    (void)nstreams;
+    (void)pfile;
+    (void)lpoptions;
+    (void)km_vac;
+    (void)km_va0;
+    (void)km_va1;
+    (void)km_va2;
+    (void)km_va3;
+    errno = ENOSYS;
+    return -1;
+#endif
+}
+
+int64_t windowssys_windows_win32_media_multimedia_aVISaveOptions(void* hwnd, uint32_t uiflags, int32_t nstreams, void* ppavi, void* plpoptions) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, uint32_t, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -554,7 +592,7 @@ int64_t windowssys_windows_win32_media_multimedia_AVISaveOptions(void* hwnd, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_AVISaveOptionsFree(int32_t nstreams, void* plpoptions) {
+int32_t windowssys_windows_win32_media_multimedia_aVISaveOptionsFree(int32_t nstreams, void* plpoptions) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -577,7 +615,7 @@ int32_t windowssys_windows_win32_media_multimedia_AVISaveOptionsFree(int32_t nst
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_AVISaveVA(void* szfile, void* pclsidhandler, void* lpfncallback, int32_t nstreams, void* ppavi, void* plpoptions) {
+int32_t windowssys_windows_win32_media_multimedia_aVISaveVA(void* szfile, void* pclsidhandler, void* lpfncallback, int32_t nstreams, void* ppavi, void* plpoptions) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -604,7 +642,7 @@ int32_t windowssys_windows_win32_media_multimedia_AVISaveVA(void* szfile, void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_AVISaveVW(void* szfile, void* pclsidhandler, void* lpfncallback, int32_t nstreams, void* ppavi, void* plpoptions) {
+int32_t windowssys_windows_win32_media_multimedia_aVISaveVW(void* szfile, void* pclsidhandler, void* lpfncallback, int32_t nstreams, void* ppavi, void* plpoptions) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -631,7 +669,45 @@ int32_t windowssys_windows_win32_media_multimedia_AVISaveVW(void* szfile, void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_media_multimedia_AVIStreamAddRef(void* pavi) {
+int32_t windowssys_windows_win32_media_multimedia_aVISaveW(void* szfile, void* pclsidhandler, void* lpfncallback, int32_t nstreams, void* pfile, void* lpoptions, int32_t km_vac, int64_t km_va0, int64_t km_va1, int64_t km_va2, int64_t km_va3) {
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(void*, void*, void*, int32_t, void*, void*, ...);
+    static km_fn_t km_fn_ptr = NULL;
+    if (km_fn_ptr == NULL) {
+        HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
+        if (km_h_mod != NULL) {
+            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "AVISaveW");
+        }
+    }
+    if (km_fn_ptr != NULL) {
+        switch (km_vac) {
+            case 0: return km_fn_ptr(szfile, pclsidhandler, lpfncallback, nstreams, pfile, lpoptions);
+            case 1: return km_fn_ptr(szfile, pclsidhandler, lpfncallback, nstreams, pfile, lpoptions, (intptr_t)km_va0);
+            case 2: return km_fn_ptr(szfile, pclsidhandler, lpfncallback, nstreams, pfile, lpoptions, (intptr_t)km_va0, (intptr_t)km_va1);
+            case 3: return km_fn_ptr(szfile, pclsidhandler, lpfncallback, nstreams, pfile, lpoptions, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2);
+            default: return km_fn_ptr(szfile, pclsidhandler, lpfncallback, nstreams, pfile, lpoptions, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3);
+        }
+    }
+    errno = ENOSYS;
+    return -1;
+#else
+    (void)szfile;
+    (void)pclsidhandler;
+    (void)lpfncallback;
+    (void)nstreams;
+    (void)pfile;
+    (void)lpoptions;
+    (void)km_vac;
+    (void)km_va0;
+    (void)km_va1;
+    (void)km_va2;
+    (void)km_va3;
+    errno = ENOSYS;
+    return -1;
+#endif
+}
+
+uint32_t windowssys_windows_win32_media_multimedia_aVIStreamAddRef(void* pavi) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -653,7 +729,7 @@ uint32_t windowssys_windows_win32_media_multimedia_AVIStreamAddRef(void* pavi) {
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_AVIStreamBeginStreaming(void* pavi, int32_t lstart, int32_t lend, int32_t lrate) {
+int32_t windowssys_windows_win32_media_multimedia_aVIStreamBeginStreaming(void* pavi, int32_t lstart, int32_t lend, int32_t lrate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -678,7 +754,7 @@ int32_t windowssys_windows_win32_media_multimedia_AVIStreamBeginStreaming(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_AVIStreamCreate(void* ppavi, int32_t lparam1, int32_t lparam2, void* pclsidhandler) {
+int32_t windowssys_windows_win32_media_multimedia_aVIStreamCreate(void* ppavi, int32_t lparam1, int32_t lparam2, void* pclsidhandler) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -703,7 +779,7 @@ int32_t windowssys_windows_win32_media_multimedia_AVIStreamCreate(void* ppavi, i
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_AVIStreamEndStreaming(void* pavi) {
+int32_t windowssys_windows_win32_media_multimedia_aVIStreamEndStreaming(void* pavi) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -725,7 +801,7 @@ int32_t windowssys_windows_win32_media_multimedia_AVIStreamEndStreaming(void* pa
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_AVIStreamFindSample(void* pavi, int32_t lpos, int32_t lflags) {
+int32_t windowssys_windows_win32_media_multimedia_aVIStreamFindSample(void* pavi, int32_t lpos, int32_t lflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -749,7 +825,7 @@ int32_t windowssys_windows_win32_media_multimedia_AVIStreamFindSample(void* pavi
 #endif
 }
 
-void* windowssys_windows_win32_media_multimedia_AVIStreamGetFrame(void* pg, int32_t lpos) {
+void* windowssys_windows_win32_media_multimedia_aVIStreamGetFrame(void* pg, int32_t lpos) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -772,7 +848,7 @@ void* windowssys_windows_win32_media_multimedia_AVIStreamGetFrame(void* pg, int3
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_AVIStreamGetFrameClose(void* pg) {
+int32_t windowssys_windows_win32_media_multimedia_aVIStreamGetFrameClose(void* pg) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -794,7 +870,7 @@ int32_t windowssys_windows_win32_media_multimedia_AVIStreamGetFrameClose(void* p
 #endif
 }
 
-void* windowssys_windows_win32_media_multimedia_AVIStreamGetFrameOpen(void* pavi, void* lpbiwanted) {
+void* windowssys_windows_win32_media_multimedia_aVIStreamGetFrameOpen(void* pavi, void* lpbiwanted) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -817,7 +893,7 @@ void* windowssys_windows_win32_media_multimedia_AVIStreamGetFrameOpen(void* pavi
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_AVIStreamInfoA(void* pavi, void* psi, int32_t lsize) {
+int32_t windowssys_windows_win32_media_multimedia_aVIStreamInfoA(void* pavi, void* psi, int32_t lsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -841,7 +917,7 @@ int32_t windowssys_windows_win32_media_multimedia_AVIStreamInfoA(void* pavi, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_AVIStreamInfoW(void* pavi, void* psi, int32_t lsize) {
+int32_t windowssys_windows_win32_media_multimedia_aVIStreamInfoW(void* pavi, void* psi, int32_t lsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -865,7 +941,7 @@ int32_t windowssys_windows_win32_media_multimedia_AVIStreamInfoW(void* pavi, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_AVIStreamLength(void* pavi) {
+int32_t windowssys_windows_win32_media_multimedia_aVIStreamLength(void* pavi) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -887,7 +963,7 @@ int32_t windowssys_windows_win32_media_multimedia_AVIStreamLength(void* pavi) {
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_AVIStreamOpenFromFileA(void* ppavi, void* szfile, uint32_t fcctype, int32_t lparam, uint32_t mode, void* pclsidhandler) {
+int32_t windowssys_windows_win32_media_multimedia_aVIStreamOpenFromFileA(void* ppavi, void* szfile, uint32_t fcctype, int32_t lparam, uint32_t mode, void* pclsidhandler) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -914,7 +990,7 @@ int32_t windowssys_windows_win32_media_multimedia_AVIStreamOpenFromFileA(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_AVIStreamOpenFromFileW(void* ppavi, void* szfile, uint32_t fcctype, int32_t lparam, uint32_t mode, void* pclsidhandler) {
+int32_t windowssys_windows_win32_media_multimedia_aVIStreamOpenFromFileW(void* ppavi, void* szfile, uint32_t fcctype, int32_t lparam, uint32_t mode, void* pclsidhandler) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -941,7 +1017,7 @@ int32_t windowssys_windows_win32_media_multimedia_AVIStreamOpenFromFileW(void* p
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_AVIStreamRead(void* pavi, int32_t lstart, int32_t lsamples, void* lpbuffer, int32_t cbbuffer, void* plbytes, void* plsamples) {
+int32_t windowssys_windows_win32_media_multimedia_aVIStreamRead(void* pavi, int32_t lstart, int32_t lsamples, void* lpbuffer, int32_t cbbuffer, void* plbytes, void* plsamples) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -969,7 +1045,7 @@ int32_t windowssys_windows_win32_media_multimedia_AVIStreamRead(void* pavi, int3
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_AVIStreamReadData(void* pavi, uint32_t fcc, void* lp, void* lpcb) {
+int32_t windowssys_windows_win32_media_multimedia_aVIStreamReadData(void* pavi, uint32_t fcc, void* lp, void* lpcb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -994,7 +1070,7 @@ int32_t windowssys_windows_win32_media_multimedia_AVIStreamReadData(void* pavi, 
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_AVIStreamReadFormat(void* pavi, int32_t lpos, void* lpformat, void* lpcbformat) {
+int32_t windowssys_windows_win32_media_multimedia_aVIStreamReadFormat(void* pavi, int32_t lpos, void* lpformat, void* lpcbformat) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1019,7 +1095,7 @@ int32_t windowssys_windows_win32_media_multimedia_AVIStreamReadFormat(void* pavi
 #endif
 }
 
-uint32_t windowssys_windows_win32_media_multimedia_AVIStreamRelease(void* pavi) {
+uint32_t windowssys_windows_win32_media_multimedia_aVIStreamRelease(void* pavi) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1041,7 +1117,7 @@ uint32_t windowssys_windows_win32_media_multimedia_AVIStreamRelease(void* pavi) 
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_AVIStreamSampleToTime(void* pavi, int32_t lsample) {
+int32_t windowssys_windows_win32_media_multimedia_aVIStreamSampleToTime(void* pavi, int32_t lsample) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1064,7 +1140,7 @@ int32_t windowssys_windows_win32_media_multimedia_AVIStreamSampleToTime(void* pa
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_AVIStreamSetFormat(void* pavi, int32_t lpos, void* lpformat, int32_t cbformat) {
+int32_t windowssys_windows_win32_media_multimedia_aVIStreamSetFormat(void* pavi, int32_t lpos, void* lpformat, int32_t cbformat) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1089,7 +1165,7 @@ int32_t windowssys_windows_win32_media_multimedia_AVIStreamSetFormat(void* pavi,
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_AVIStreamStart(void* pavi) {
+int32_t windowssys_windows_win32_media_multimedia_aVIStreamStart(void* pavi) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1111,7 +1187,7 @@ int32_t windowssys_windows_win32_media_multimedia_AVIStreamStart(void* pavi) {
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_AVIStreamTimeToSample(void* pavi, int32_t ltime) {
+int32_t windowssys_windows_win32_media_multimedia_aVIStreamTimeToSample(void* pavi, int32_t ltime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1134,7 +1210,7 @@ int32_t windowssys_windows_win32_media_multimedia_AVIStreamTimeToSample(void* pa
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_AVIStreamWrite(void* pavi, int32_t lstart, int32_t lsamples, void* lpbuffer, int32_t cbbuffer, uint32_t dwflags, void* plsampwritten, void* plbyteswritten) {
+int32_t windowssys_windows_win32_media_multimedia_aVIStreamWrite(void* pavi, int32_t lstart, int32_t lsamples, void* lpbuffer, int32_t cbbuffer, uint32_t dwflags, void* plsampwritten, void* plbyteswritten) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, int32_t, void*, int32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1163,7 +1239,7 @@ int32_t windowssys_windows_win32_media_multimedia_AVIStreamWrite(void* pavi, int
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_AVIStreamWriteData(void* pavi, uint32_t fcc, void* lp, int32_t cb) {
+int32_t windowssys_windows_win32_media_multimedia_aVIStreamWriteData(void* pavi, uint32_t fcc, void* lp, int32_t cb) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1188,7 +1264,7 @@ int32_t windowssys_windows_win32_media_multimedia_AVIStreamWriteData(void* pavi,
 #endif
 }
 
-int64_t windowssys_windows_win32_media_multimedia_CloseDriver(void* hdriver, int64_t lparam1, int64_t lparam2) {
+int64_t windowssys_windows_win32_media_multimedia_closeDriver(void* hdriver, int64_t lparam1, int64_t lparam2) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1212,7 +1288,7 @@ int64_t windowssys_windows_win32_media_multimedia_CloseDriver(void* hdriver, int
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_CreateEditableStream(void* ppseditable, void* pssource) {
+int32_t windowssys_windows_win32_media_multimedia_createEditableStream(void* ppseditable, void* pssource) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1235,7 +1311,7 @@ int32_t windowssys_windows_win32_media_multimedia_CreateEditableStream(void* pps
 #endif
 }
 
-int64_t windowssys_windows_win32_media_multimedia_DefDriverProc(uint64_t dwdriveridentifier, void* hdrvr, uint32_t umsg, int64_t lparam1, int64_t lparam2) {
+int64_t windowssys_windows_win32_media_multimedia_defDriverProc(uint64_t dwdriveridentifier, void* hdrvr, uint32_t umsg, int64_t lparam1, int64_t lparam2) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(uint64_t, void*, uint32_t, int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1261,7 +1337,7 @@ int64_t windowssys_windows_win32_media_multimedia_DefDriverProc(uint64_t dwdrive
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_DrawDibBegin(int64_t hdd, void* hdc, int32_t dxdst, int32_t dydst, void* lpbi, int32_t dxsrc, int32_t dysrc, uint32_t wflags) {
+int32_t windowssys_windows_win32_media_multimedia_drawDibBegin(int64_t hdd, void* hdc, int32_t dxdst, int32_t dydst, void* lpbi, int32_t dxsrc, int32_t dysrc, uint32_t wflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t, int32_t, void*, int32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1290,7 +1366,7 @@ int32_t windowssys_windows_win32_media_multimedia_DrawDibBegin(int64_t hdd, void
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_DrawDibChangePalette(int64_t hdd, int32_t istart, int32_t ilen, void* lppe) {
+int32_t windowssys_windows_win32_media_multimedia_drawDibChangePalette(int64_t hdd, int32_t istart, int32_t ilen, void* lppe) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, int32_t, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1315,7 +1391,7 @@ int32_t windowssys_windows_win32_media_multimedia_DrawDibChangePalette(int64_t h
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_DrawDibClose(int64_t hdd) {
+int32_t windowssys_windows_win32_media_multimedia_drawDibClose(int64_t hdd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1337,7 +1413,7 @@ int32_t windowssys_windows_win32_media_multimedia_DrawDibClose(int64_t hdd) {
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_DrawDibDraw(int64_t hdd, void* hdc, int32_t xdst, int32_t ydst, int32_t dxdst, int32_t dydst, void* lpbi, void* lpbits, int32_t xsrc, int32_t ysrc, int32_t dxsrc, int32_t dysrc, uint32_t wflags) {
+int32_t windowssys_windows_win32_media_multimedia_drawDibDraw(int64_t hdd, void* hdc, int32_t xdst, int32_t ydst, int32_t dxdst, int32_t dydst, void* lpbi, void* lpbits, int32_t xsrc, int32_t ysrc, int32_t dxsrc, int32_t dysrc, uint32_t wflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t, int32_t, int32_t, int32_t, void*, void*, int32_t, int32_t, int32_t, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1371,7 +1447,7 @@ int32_t windowssys_windows_win32_media_multimedia_DrawDibDraw(int64_t hdd, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_DrawDibEnd(int64_t hdd) {
+int32_t windowssys_windows_win32_media_multimedia_drawDibEnd(int64_t hdd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1393,7 +1469,7 @@ int32_t windowssys_windows_win32_media_multimedia_DrawDibEnd(int64_t hdd) {
 #endif
 }
 
-void* windowssys_windows_win32_media_multimedia_DrawDibGetBuffer(int64_t hdd, void* lpbi, uint32_t dwsize, uint32_t dwflags) {
+void* windowssys_windows_win32_media_multimedia_drawDibGetBuffer(int64_t hdd, void* lpbi, uint32_t dwsize, uint32_t dwflags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t, void*, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1418,7 +1494,7 @@ void* windowssys_windows_win32_media_multimedia_DrawDibGetBuffer(int64_t hdd, vo
 #endif
 }
 
-void* windowssys_windows_win32_media_multimedia_DrawDibGetPalette(int64_t hdd) {
+void* windowssys_windows_win32_media_multimedia_drawDibGetPalette(int64_t hdd) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1440,7 +1516,7 @@ void* windowssys_windows_win32_media_multimedia_DrawDibGetPalette(int64_t hdd) {
 #endif
 }
 
-int64_t windowssys_windows_win32_media_multimedia_DrawDibOpen(void) {
+int64_t windowssys_windows_win32_media_multimedia_drawDibOpen(void) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -1461,7 +1537,7 @@ int64_t windowssys_windows_win32_media_multimedia_DrawDibOpen(void) {
 #endif
 }
 
-int64_t windowssys_windows_win32_media_multimedia_DrawDibProfileDisplay(void* lpbi) {
+int64_t windowssys_windows_win32_media_multimedia_drawDibProfileDisplay(void* lpbi) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1483,7 +1559,7 @@ int64_t windowssys_windows_win32_media_multimedia_DrawDibProfileDisplay(void* lp
 #endif
 }
 
-uint32_t windowssys_windows_win32_media_multimedia_DrawDibRealize(int64_t hdd, void* hdc, int32_t fbackground) {
+uint32_t windowssys_windows_win32_media_multimedia_drawDibRealize(int64_t hdd, void* hdc, int32_t fbackground) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(int64_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1507,7 +1583,7 @@ uint32_t windowssys_windows_win32_media_multimedia_DrawDibRealize(int64_t hdd, v
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_DrawDibSetPalette(int64_t hdd, void* hpal) {
+int32_t windowssys_windows_win32_media_multimedia_drawDibSetPalette(int64_t hdd, void* hpal) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1530,7 +1606,7 @@ int32_t windowssys_windows_win32_media_multimedia_DrawDibSetPalette(int64_t hdd,
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_DrawDibStart(int64_t hdd, uint32_t rate) {
+int32_t windowssys_windows_win32_media_multimedia_drawDibStart(int64_t hdd, uint32_t rate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1553,7 +1629,7 @@ int32_t windowssys_windows_win32_media_multimedia_DrawDibStart(int64_t hdd, uint
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_DrawDibStop(int64_t hdd) {
+int32_t windowssys_windows_win32_media_multimedia_drawDibStop(int64_t hdd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1575,7 +1651,7 @@ int32_t windowssys_windows_win32_media_multimedia_DrawDibStop(int64_t hdd) {
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_DrawDibTime(int64_t hdd, void* lpddtime) {
+int32_t windowssys_windows_win32_media_multimedia_drawDibTime(int64_t hdd, void* lpddtime) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int64_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1598,7 +1674,7 @@ int32_t windowssys_windows_win32_media_multimedia_DrawDibTime(int64_t hdd, void*
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_DriverCallback(uint64_t dwcallback, uint32_t dwflags, void* hdevice, uint32_t dwmsg, uint64_t dwuser, uint64_t dwparam1, uint64_t dwparam2) {
+int32_t windowssys_windows_win32_media_multimedia_driverCallback(uint64_t dwcallback, uint32_t dwflags, void* hdevice, uint32_t dwmsg, uint64_t dwuser, uint64_t dwparam1, uint64_t dwparam2) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint64_t, uint32_t, void*, uint32_t, uint64_t, uint64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1626,7 +1702,7 @@ int32_t windowssys_windows_win32_media_multimedia_DriverCallback(uint64_t dwcall
 #endif
 }
 
-void* windowssys_windows_win32_media_multimedia_DrvGetModuleHandle(void* hdriver) {
+void* windowssys_windows_win32_media_multimedia_drvGetModuleHandle(void* hdriver) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1648,7 +1724,7 @@ void* windowssys_windows_win32_media_multimedia_DrvGetModuleHandle(void* hdriver
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_EditStreamClone(void* pavi, void* ppresult) {
+int32_t windowssys_windows_win32_media_multimedia_editStreamClone(void* pavi, void* ppresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1671,7 +1747,7 @@ int32_t windowssys_windows_win32_media_multimedia_EditStreamClone(void* pavi, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_EditStreamCopy(void* pavi, void* plstart, void* pllength, void* ppresult) {
+int32_t windowssys_windows_win32_media_multimedia_editStreamCopy(void* pavi, void* plstart, void* pllength, void* ppresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1696,7 +1772,7 @@ int32_t windowssys_windows_win32_media_multimedia_EditStreamCopy(void* pavi, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_EditStreamCut(void* pavi, void* plstart, void* pllength, void* ppresult) {
+int32_t windowssys_windows_win32_media_multimedia_editStreamCut(void* pavi, void* plstart, void* pllength, void* ppresult) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1721,7 +1797,7 @@ int32_t windowssys_windows_win32_media_multimedia_EditStreamCut(void* pavi, void
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_EditStreamPaste(void* pavi, void* plpos, void* pllength, void* pstream, int32_t lstart, int32_t lend) {
+int32_t windowssys_windows_win32_media_multimedia_editStreamPaste(void* pavi, void* plpos, void* pllength, void* pstream, int32_t lstart, int32_t lend) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1748,7 +1824,7 @@ int32_t windowssys_windows_win32_media_multimedia_EditStreamPaste(void* pavi, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_EditStreamSetInfoA(void* pavi, void* lpinfo, int32_t cbinfo) {
+int32_t windowssys_windows_win32_media_multimedia_editStreamSetInfoA(void* pavi, void* lpinfo, int32_t cbinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1772,7 +1848,7 @@ int32_t windowssys_windows_win32_media_multimedia_EditStreamSetInfoA(void* pavi,
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_EditStreamSetInfoW(void* pavi, void* lpinfo, int32_t cbinfo) {
+int32_t windowssys_windows_win32_media_multimedia_editStreamSetInfoW(void* pavi, void* lpinfo, int32_t cbinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1796,7 +1872,7 @@ int32_t windowssys_windows_win32_media_multimedia_EditStreamSetInfoW(void* pavi,
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_EditStreamSetNameA(void* pavi, void* lpszname) {
+int32_t windowssys_windows_win32_media_multimedia_editStreamSetNameA(void* pavi, void* lpszname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1819,7 +1895,7 @@ int32_t windowssys_windows_win32_media_multimedia_EditStreamSetNameA(void* pavi,
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_EditStreamSetNameW(void* pavi, void* lpszname) {
+int32_t windowssys_windows_win32_media_multimedia_editStreamSetNameW(void* pavi, void* lpszname) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1842,7 +1918,7 @@ int32_t windowssys_windows_win32_media_multimedia_EditStreamSetNameW(void* pavi,
 #endif
 }
 
-void* windowssys_windows_win32_media_multimedia_GetDriverModuleHandle(void* hdriver) {
+void* windowssys_windows_win32_media_multimedia_getDriverModuleHandle(void* hdriver) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1864,7 +1940,7 @@ void* windowssys_windows_win32_media_multimedia_GetDriverModuleHandle(void* hdri
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_GetOpenFileNamePreviewA(void* lpofn) {
+int32_t windowssys_windows_win32_media_multimedia_getOpenFileNamePreviewA(void* lpofn) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1886,7 +1962,7 @@ int32_t windowssys_windows_win32_media_multimedia_GetOpenFileNamePreviewA(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_GetOpenFileNamePreviewW(void* lpofn) {
+int32_t windowssys_windows_win32_media_multimedia_getOpenFileNamePreviewW(void* lpofn) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1908,7 +1984,7 @@ int32_t windowssys_windows_win32_media_multimedia_GetOpenFileNamePreviewW(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_GetSaveFileNamePreviewA(void* lpofn) {
+int32_t windowssys_windows_win32_media_multimedia_getSaveFileNamePreviewA(void* lpofn) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1930,7 +2006,7 @@ int32_t windowssys_windows_win32_media_multimedia_GetSaveFileNamePreviewA(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_GetSaveFileNamePreviewW(void* lpofn) {
+int32_t windowssys_windows_win32_media_multimedia_getSaveFileNamePreviewW(void* lpofn) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1952,7 +2028,7 @@ int32_t windowssys_windows_win32_media_multimedia_GetSaveFileNamePreviewW(void* 
 #endif
 }
 
-int64_t windowssys_windows_win32_media_multimedia_ICClose(void* hic) {
+int64_t windowssys_windows_win32_media_multimedia_iCClose(void* hic) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1974,7 +2050,7 @@ int64_t windowssys_windows_win32_media_multimedia_ICClose(void* hic) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_media_multimedia_ICCompress(void* hic, uint32_t dwflags, void* lpbioutput, void* lpdata, void* lpbiinput, void* lpbits, void* lpckid, void* lpdwflags, int32_t lframenum, uint32_t dwframesize, uint32_t dwquality, void* lpbiprev, void* lpprev) {
+uint32_t windowssys_windows_win32_media_multimedia_iCCompress(void* hic, uint32_t dwflags, void* lpbioutput, void* lpdata, void* lpbiinput, void* lpbits, void* lpckid, void* lpdwflags, int32_t lframenum, uint32_t dwframesize, uint32_t dwquality, void* lpbiprev, void* lpprev) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*, void*, void*, int32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2008,7 +2084,7 @@ uint32_t windowssys_windows_win32_media_multimedia_ICCompress(void* hic, uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_ICCompressorChoose(void* hwnd, uint32_t uiflags, void* pvin, void* lpdata, void* pc, void* lpsztitle) {
+int32_t windowssys_windows_win32_media_multimedia_iCCompressorChoose(void* hwnd, uint32_t uiflags, void* pvin, void* lpdata, void* pc, void* lpsztitle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2035,7 +2111,7 @@ int32_t windowssys_windows_win32_media_multimedia_ICCompressorChoose(void* hwnd,
 #endif
 }
 
-void windowssys_windows_win32_media_multimedia_ICCompressorFree(void* pc) {
+void windowssys_windows_win32_media_multimedia_iCCompressorFree(void* pc) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2056,7 +2132,7 @@ void windowssys_windows_win32_media_multimedia_ICCompressorFree(void* pc) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_media_multimedia_ICDecompress(void* hic, uint32_t dwflags, void* lpbiformat, void* lpdata, void* lpbi, void* lpbits) {
+uint32_t windowssys_windows_win32_media_multimedia_iCDecompress(void* hic, uint32_t dwflags, void* lpbiformat, void* lpdata, void* lpbi, void* lpbits) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2083,7 +2159,7 @@ uint32_t windowssys_windows_win32_media_multimedia_ICDecompress(void* hic, uint3
 #endif
 }
 
-uint32_t windowssys_windows_win32_media_multimedia_ICDraw(void* hic, uint32_t dwflags, void* lpformat, void* lpdata, uint32_t cbdata, int32_t ltime) {
+uint32_t windowssys_windows_win32_media_multimedia_iCDraw(void* hic, uint32_t dwflags, void* lpformat, void* lpdata, uint32_t cbdata, int32_t ltime) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, uint32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2110,7 +2186,7 @@ uint32_t windowssys_windows_win32_media_multimedia_ICDraw(void* hic, uint32_t dw
 #endif
 }
 
-uint32_t windowssys_windows_win32_media_multimedia_ICDrawBegin(void* hic, uint32_t dwflags, void* hpal, void* hwnd, void* hdc, int32_t xdst, int32_t ydst, int32_t dxdst, int32_t dydst, void* lpbi, int32_t xsrc, int32_t ysrc, int32_t dxsrc, int32_t dysrc, uint32_t dwrate, uint32_t dwscale) {
+uint32_t windowssys_windows_win32_media_multimedia_iCDrawBegin(void* hic, uint32_t dwflags, void* hpal, void* hwnd, void* hdc, int32_t xdst, int32_t ydst, int32_t dxdst, int32_t dydst, void* lpbi, int32_t xsrc, int32_t ysrc, int32_t dxsrc, int32_t dysrc, uint32_t dwrate, uint32_t dwscale) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, int32_t, int32_t, int32_t, int32_t, void*, int32_t, int32_t, int32_t, int32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2147,7 +2223,7 @@ uint32_t windowssys_windows_win32_media_multimedia_ICDrawBegin(void* hic, uint32
 #endif
 }
 
-void* windowssys_windows_win32_media_multimedia_ICGetDisplayFormat(void* hic, void* lpbiin, void* lpbiout, int32_t bitdepth, int32_t dx, int32_t dy) {
+void* windowssys_windows_win32_media_multimedia_iCGetDisplayFormat(void* hic, void* lpbiin, void* lpbiout, int32_t bitdepth, int32_t dx, int32_t dy) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, int32_t, int32_t, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2174,7 +2250,7 @@ void* windowssys_windows_win32_media_multimedia_ICGetDisplayFormat(void* hic, vo
 #endif
 }
 
-int64_t windowssys_windows_win32_media_multimedia_ICGetInfo(void* hic, void* picinfo, uint32_t cb) {
+int64_t windowssys_windows_win32_media_multimedia_iCGetInfo(void* hic, void* picinfo, uint32_t cb) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2198,7 +2274,7 @@ int64_t windowssys_windows_win32_media_multimedia_ICGetInfo(void* hic, void* pic
 #endif
 }
 
-void* windowssys_windows_win32_media_multimedia_ICImageCompress(void* hic, uint32_t uiflags, void* lpbiin, void* lpbits, void* lpbiout, int32_t lquality, void* plsize) {
+void* windowssys_windows_win32_media_multimedia_iCImageCompress(void* hic, uint32_t uiflags, void* lpbiin, void* lpbits, void* lpbiout, int32_t lquality, void* plsize) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2226,7 +2302,7 @@ void* windowssys_windows_win32_media_multimedia_ICImageCompress(void* hic, uint3
 #endif
 }
 
-void* windowssys_windows_win32_media_multimedia_ICImageDecompress(void* hic, uint32_t uiflags, void* lpbiin, void* lpbits, void* lpbiout) {
+void* windowssys_windows_win32_media_multimedia_iCImageDecompress(void* hic, uint32_t uiflags, void* lpbiin, void* lpbits, void* lpbiout) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2252,7 +2328,7 @@ void* windowssys_windows_win32_media_multimedia_ICImageDecompress(void* hic, uin
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_ICInfo(uint32_t fcctype, uint32_t fcchandler, void* lpicinfo) {
+int32_t windowssys_windows_win32_media_multimedia_iCInfo(uint32_t fcctype, uint32_t fcchandler, void* lpicinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2276,7 +2352,7 @@ int32_t windowssys_windows_win32_media_multimedia_ICInfo(uint32_t fcctype, uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_ICInstall(uint32_t fcctype, uint32_t fcchandler, int64_t lparam, void* szdesc, uint32_t wflags) {
+int32_t windowssys_windows_win32_media_multimedia_iCInstall(uint32_t fcctype, uint32_t fcchandler, int64_t lparam, void* szdesc, uint32_t wflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, int64_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2302,7 +2378,7 @@ int32_t windowssys_windows_win32_media_multimedia_ICInstall(uint32_t fcctype, ui
 #endif
 }
 
-void* windowssys_windows_win32_media_multimedia_ICLocate(uint32_t fcctype, uint32_t fcchandler, void* lpbiin, void* lpbiout, uint16_t wflags) {
+void* windowssys_windows_win32_media_multimedia_iCLocate(uint32_t fcctype, uint32_t fcchandler, void* lpbiin, void* lpbiout, uint16_t wflags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2328,7 +2404,7 @@ void* windowssys_windows_win32_media_multimedia_ICLocate(uint32_t fcctype, uint3
 #endif
 }
 
-void* windowssys_windows_win32_media_multimedia_ICOpen(uint32_t fcctype, uint32_t fcchandler, uint32_t wmode) {
+void* windowssys_windows_win32_media_multimedia_iCOpen(uint32_t fcctype, uint32_t fcchandler, uint32_t wmode) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2352,7 +2428,7 @@ void* windowssys_windows_win32_media_multimedia_ICOpen(uint32_t fcctype, uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_ICRemove(uint32_t fcctype, uint32_t fcchandler, uint32_t wflags) {
+int32_t windowssys_windows_win32_media_multimedia_iCRemove(uint32_t fcctype, uint32_t fcchandler, uint32_t wflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2376,7 +2452,7 @@ int32_t windowssys_windows_win32_media_multimedia_ICRemove(uint32_t fcctype, uin
 #endif
 }
 
-int64_t windowssys_windows_win32_media_multimedia_ICSendMessage(void* hic, uint32_t msg, uint64_t dw1, uint64_t dw2) {
+int64_t windowssys_windows_win32_media_multimedia_iCSendMessage(void* hic, uint32_t msg, uint64_t dw1, uint64_t dw2) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, uint32_t, uint64_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2401,7 +2477,7 @@ int64_t windowssys_windows_win32_media_multimedia_ICSendMessage(void* hic, uint3
 #endif
 }
 
-void* windowssys_windows_win32_media_multimedia_ICSeqCompressFrame(void* pc, uint32_t uiflags, void* lpbits, void* pfkey, void* plsize) {
+void* windowssys_windows_win32_media_multimedia_iCSeqCompressFrame(void* pc, uint32_t uiflags, void* lpbits, void* pfkey, void* plsize) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2427,7 +2503,7 @@ void* windowssys_windows_win32_media_multimedia_ICSeqCompressFrame(void* pc, uin
 #endif
 }
 
-void windowssys_windows_win32_media_multimedia_ICSeqCompressFrameEnd(void* pc) {
+void windowssys_windows_win32_media_multimedia_iCSeqCompressFrameEnd(void* pc) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2448,7 +2524,7 @@ void windowssys_windows_win32_media_multimedia_ICSeqCompressFrameEnd(void* pc) {
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_ICSeqCompressFrameStart(void* pc, void* lpbiin) {
+int32_t windowssys_windows_win32_media_multimedia_iCSeqCompressFrameStart(void* pc, void* lpbiin) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2471,7 +2547,7 @@ int32_t windowssys_windows_win32_media_multimedia_ICSeqCompressFrameStart(void* 
 #endif
 }
 
-void* windowssys_windows_win32_media_multimedia_MCIWndCreateA(void* hwndparent, void* hinstance, uint32_t dwstyle, void* szfile) {
+void* windowssys_windows_win32_media_multimedia_mCIWndCreateA(void* hwndparent, void* hinstance, uint32_t dwstyle, void* szfile) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2496,7 +2572,7 @@ void* windowssys_windows_win32_media_multimedia_MCIWndCreateA(void* hwndparent, 
 #endif
 }
 
-void* windowssys_windows_win32_media_multimedia_MCIWndCreateW(void* hwndparent, void* hinstance, uint32_t dwstyle, void* szfile) {
+void* windowssys_windows_win32_media_multimedia_mCIWndCreateW(void* hwndparent, void* hinstance, uint32_t dwstyle, void* szfile) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -2521,7 +2597,7 @@ void* windowssys_windows_win32_media_multimedia_MCIWndCreateW(void* hwndparent, 
 #endif
 }
 
-int32_t windowssys_windows_win32_media_multimedia_MCIWndRegisterClass(void) {
+int32_t windowssys_windows_win32_media_multimedia_mCIWndRegisterClass(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -2542,7 +2618,7 @@ int32_t windowssys_windows_win32_media_multimedia_MCIWndRegisterClass(void) {
 #endif
 }
 
-void* windowssys_windows_win32_media_multimedia_OpenDriver(void* szdrivername, void* szsectionname, int64_t lparam2) {
+void* windowssys_windows_win32_media_multimedia_openDriver(void* szdrivername, void* szsectionname, int64_t lparam2) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2566,7 +2642,7 @@ void* windowssys_windows_win32_media_multimedia_OpenDriver(void* szdrivername, v
 #endif
 }
 
-int64_t windowssys_windows_win32_media_multimedia_SendDriverMessage(void* hdriver, uint32_t message, int64_t lparam1, int64_t lparam2) {
+int64_t windowssys_windows_win32_media_multimedia_sendDriverMessage(void* hdriver, uint32_t message, int64_t lparam1, int64_t lparam2) {
 #ifdef _WIN32
     typedef int64_t (__stdcall *km_fn_t)(void*, uint32_t, int64_t, int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -2591,7 +2667,7 @@ int64_t windowssys_windows_win32_media_multimedia_SendDriverMessage(void* hdrive
 #endif
 }
 
-uint32_t windowssys_windows_win32_media_multimedia_VideoForWindowsVersion(void) {
+uint32_t windowssys_windows_win32_media_multimedia_videoForWindowsVersion(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;

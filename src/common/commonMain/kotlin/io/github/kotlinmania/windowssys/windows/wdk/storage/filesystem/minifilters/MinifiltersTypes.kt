@@ -1,219 +1,220 @@
 package io.github.kotlinmania.windowssys.windows.wdk.storage.filesystem.minifilters
 
-import io.github.kotlinmania.windowssys.windows.wdk.foundation.POOL_TYPE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.NTSTATUS
-import io.github.kotlinmania.windowssys.windows.win32.storage.installablefilesystems.FLT_FILESYSTEM_TYPE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.windows.wdk.foundation.PoolType
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Ntstatus
+import io.github.kotlinmania.windowssys.windows.win32.storage.installablefilesystems.FltFilesystemType
 
-public typealias FLT_CALLBACK_DATA_QUEUE_FLAGS = Int
+public typealias FltCallbackDataQueueFlags = Int
 
-public typealias FLT_POSTOP_CALLBACK_STATUS = Int
+public typealias FltPostopCallbackStatus = Int
 
-public typealias FLT_PREOP_CALLBACK_STATUS = Int
+public typealias FltPreopCallbackStatus = Int
 
-public typealias FLT_SET_CONTEXT_OPERATION = Int
+public typealias FltSetContextOperation = Int
 
-public fun interface PFLTOPLOCK_PREPOST_CALLBACKDATA_ROUTINEFn {
-    public operator fun invoke(callbackdata: Long, context: Long)
+public fun interface PfltoplockPrepostCallbackdataRoutineFn {
+    public operator fun invoke(callbackdata: COpaquePointer?, context: COpaquePointer?)
 }
 
-public typealias PFLTOPLOCK_PREPOST_CALLBACKDATA_ROUTINE = PFLTOPLOCK_PREPOST_CALLBACKDATA_ROUTINEFn?
+public typealias PfltoplockPrepostCallbackdataRoutine = PfltoplockPrepostCallbackdataRoutineFn?
 
-public fun interface PFLTOPLOCK_WAIT_COMPLETE_ROUTINEFn {
-    public operator fun invoke(callbackdata: Long, context: Long)
+public fun interface PfltoplockWaitCompleteRoutineFn {
+    public operator fun invoke(callbackdata: COpaquePointer?, context: COpaquePointer?)
 }
 
-public typealias PFLTOPLOCK_WAIT_COMPLETE_ROUTINE = PFLTOPLOCK_WAIT_COMPLETE_ROUTINEFn?
+public typealias PfltoplockWaitCompleteRoutine = PfltoplockWaitCompleteRoutineFn?
 
-public fun interface PFLT_CALLBACK_DATA_QUEUE_ACQUIREFn {
-    public operator fun invoke(cbdq: Long, irql: Long)
+public fun interface PfltCallbackDataQueueAcquireFn {
+    public operator fun invoke(cbdq: COpaquePointer?, irql: COpaquePointer?)
 }
 
-public typealias PFLT_CALLBACK_DATA_QUEUE_ACQUIRE = PFLT_CALLBACK_DATA_QUEUE_ACQUIREFn?
+public typealias PfltCallbackDataQueueAcquire = PfltCallbackDataQueueAcquireFn?
 
-public fun interface PFLT_CALLBACK_DATA_QUEUE_COMPLETE_CANCELED_IOFn {
-    public operator fun invoke(cbdq: Long, cbd: Long)
+public fun interface PfltCallbackDataQueueCompleteCanceledIoFn {
+    public operator fun invoke(cbdq: COpaquePointer?, cbd: COpaquePointer?)
 }
 
-public typealias PFLT_CALLBACK_DATA_QUEUE_COMPLETE_CANCELED_IO = PFLT_CALLBACK_DATA_QUEUE_COMPLETE_CANCELED_IOFn?
+public typealias PfltCallbackDataQueueCompleteCanceledIo = PfltCallbackDataQueueCompleteCanceledIoFn?
 
-public fun interface PFLT_CALLBACK_DATA_QUEUE_INSERT_IOFn {
-    public operator fun invoke(cbdq: Long, cbd: Long, insertcontext: Long): NTSTATUS
+public fun interface PfltCallbackDataQueueInsertIoFn {
+    public operator fun invoke(cbdq: COpaquePointer?, cbd: COpaquePointer?, insertcontext: COpaquePointer?): Ntstatus
 }
 
-public typealias PFLT_CALLBACK_DATA_QUEUE_INSERT_IO = PFLT_CALLBACK_DATA_QUEUE_INSERT_IOFn?
+public typealias PfltCallbackDataQueueInsertIo = PfltCallbackDataQueueInsertIoFn?
 
-public fun interface PFLT_CALLBACK_DATA_QUEUE_PEEK_NEXT_IOFn {
-    public operator fun invoke(cbdq: Long, cbd: Long, peekcontext: Long): Long
+public fun interface PfltCallbackDataQueuePeekNextIoFn {
+    public operator fun invoke(cbdq: COpaquePointer?, cbd: COpaquePointer?, peekcontext: COpaquePointer?): COpaquePointer?
 }
 
-public typealias PFLT_CALLBACK_DATA_QUEUE_PEEK_NEXT_IO = PFLT_CALLBACK_DATA_QUEUE_PEEK_NEXT_IOFn?
+public typealias PfltCallbackDataQueuePeekNextIo = PfltCallbackDataQueuePeekNextIoFn?
 
-public fun interface PFLT_CALLBACK_DATA_QUEUE_RELEASEFn {
-    public operator fun invoke(cbdq: Long, irql: UByte)
+public fun interface PfltCallbackDataQueueReleaseFn {
+    public operator fun invoke(cbdq: COpaquePointer?, irql: UByte)
 }
 
-public typealias PFLT_CALLBACK_DATA_QUEUE_RELEASE = PFLT_CALLBACK_DATA_QUEUE_RELEASEFn?
+public typealias PfltCallbackDataQueueRelease = PfltCallbackDataQueueReleaseFn?
 
-public fun interface PFLT_CALLBACK_DATA_QUEUE_REMOVE_IOFn {
-    public operator fun invoke(cbdq: Long, cbd: Long)
+public fun interface PfltCallbackDataQueueRemoveIoFn {
+    public operator fun invoke(cbdq: COpaquePointer?, cbd: COpaquePointer?)
 }
 
-public typealias PFLT_CALLBACK_DATA_QUEUE_REMOVE_IO = PFLT_CALLBACK_DATA_QUEUE_REMOVE_IOFn?
+public typealias PfltCallbackDataQueueRemoveIo = PfltCallbackDataQueueRemoveIoFn?
 
-public fun interface PFLT_COMPLETED_ASYNC_IO_CALLBACKFn {
-    public operator fun invoke(callbackdata: Long, context: PFLT_CONTEXT)
+public fun interface PfltCompletedAsyncIoCallbackFn {
+    public operator fun invoke(callbackdata: COpaquePointer?, context: PfltContext)
 }
 
-public typealias PFLT_COMPLETED_ASYNC_IO_CALLBACK = PFLT_COMPLETED_ASYNC_IO_CALLBACKFn?
+public typealias PfltCompletedAsyncIoCallback = PfltCompletedAsyncIoCallbackFn?
 
-public fun interface PFLT_COMPLETE_CANCELED_CALLBACKFn {
-    public operator fun invoke(callbackdata: Long)
+public fun interface PfltCompleteCanceledCallbackFn {
+    public operator fun invoke(callbackdata: COpaquePointer?)
 }
 
-public typealias PFLT_COMPLETE_CANCELED_CALLBACK = PFLT_COMPLETE_CANCELED_CALLBACKFn?
+public typealias PfltCompleteCanceledCallback = PfltCompleteCanceledCallbackFn?
 
-public fun interface PFLT_COMPLETE_LOCK_CALLBACK_DATA_ROUTINEFn {
-    public operator fun invoke(context: Long, callbackdata: Long): NTSTATUS
+public fun interface PfltCompleteLockCallbackDataRoutineFn {
+    public operator fun invoke(context: COpaquePointer?, callbackdata: COpaquePointer?): Ntstatus
 }
 
-public typealias PFLT_COMPLETE_LOCK_CALLBACK_DATA_ROUTINE = PFLT_COMPLETE_LOCK_CALLBACK_DATA_ROUTINEFn?
+public typealias PfltCompleteLockCallbackDataRoutine = PfltCompleteLockCallbackDataRoutineFn?
 
-public fun interface PFLT_CONNECT_NOTIFYFn {
-    public operator fun invoke(clientport: PFLT_PORT, serverportcookie: Long, connectioncontext: Long, sizeofcontext: UInt, connectionportcookie: Long): NTSTATUS
+public fun interface PfltConnectNotifyFn {
+    public operator fun invoke(clientport: PfltPort, serverportcookie: COpaquePointer?, connectioncontext: COpaquePointer?, sizeofcontext: UInt, connectionportcookie: COpaquePointer?): Ntstatus
 }
 
-public typealias PFLT_CONNECT_NOTIFY = PFLT_CONNECT_NOTIFYFn?
+public typealias PfltConnectNotify = PfltConnectNotifyFn?
 
-public typealias PFLT_CONTEXT = Long
+public typealias PfltContext = COpaquePointer?
 
-public fun interface PFLT_CONTEXT_ALLOCATE_CALLBACKFn {
-    public operator fun invoke(pooltype: POOL_TYPE, size: ULong, contexttype: UShort): Long
+public fun interface PfltContextAllocateCallbackFn {
+    public operator fun invoke(pooltype: PoolType, size: ULong, contexttype: UShort): COpaquePointer?
 }
 
-public typealias PFLT_CONTEXT_ALLOCATE_CALLBACK = PFLT_CONTEXT_ALLOCATE_CALLBACKFn?
+public typealias PfltContextAllocateCallback = PfltContextAllocateCallbackFn?
 
-public fun interface PFLT_CONTEXT_CLEANUP_CALLBACKFn {
-    public operator fun invoke(context: PFLT_CONTEXT, contexttype: UShort)
+public fun interface PfltContextCleanupCallbackFn {
+    public operator fun invoke(context: PfltContext, contexttype: UShort)
 }
 
-public typealias PFLT_CONTEXT_CLEANUP_CALLBACK = PFLT_CONTEXT_CLEANUP_CALLBACKFn?
+public typealias PfltContextCleanupCallback = PfltContextCleanupCallbackFn?
 
-public fun interface PFLT_CONTEXT_FREE_CALLBACKFn {
-    public operator fun invoke(pool: Long, contexttype: UShort)
+public fun interface PfltContextFreeCallbackFn {
+    public operator fun invoke(pool: COpaquePointer?, contexttype: UShort)
 }
 
-public typealias PFLT_CONTEXT_FREE_CALLBACK = PFLT_CONTEXT_FREE_CALLBACKFn?
+public typealias PfltContextFreeCallback = PfltContextFreeCallbackFn?
 
-public typealias PFLT_DEFERRED_IO_WORKITEM = Long
+public typealias PfltDeferredIoWorkitem = Long
 
-public fun interface PFLT_DEFERRED_IO_WORKITEM_ROUTINEFn {
-    public operator fun invoke(fltworkitem: PFLT_DEFERRED_IO_WORKITEM, callbackdata: Long, context: Long)
+public fun interface PfltDeferredIoWorkitemRoutineFn {
+    public operator fun invoke(fltworkitem: PfltDeferredIoWorkitem, callbackdata: COpaquePointer?, context: COpaquePointer?)
 }
 
-public typealias PFLT_DEFERRED_IO_WORKITEM_ROUTINE = PFLT_DEFERRED_IO_WORKITEM_ROUTINEFn?
+public typealias PfltDeferredIoWorkitemRoutine = PfltDeferredIoWorkitemRoutineFn?
 
-public fun interface PFLT_DISCONNECT_NOTIFYFn {
-    public operator fun invoke(connectioncookie: Long)
+public fun interface PfltDisconnectNotifyFn {
+    public operator fun invoke(connectioncookie: COpaquePointer?)
 }
 
-public typealias PFLT_DISCONNECT_NOTIFY = PFLT_DISCONNECT_NOTIFYFn?
+public typealias PfltDisconnectNotify = PfltDisconnectNotifyFn?
 
-public typealias PFLT_FILTER = Long
+public typealias PfltFilter = Long
 
-public fun interface PFLT_FILTER_UNLOAD_CALLBACKFn {
-    public operator fun invoke(flags: UInt): NTSTATUS
+public fun interface PfltFilterUnloadCallbackFn {
+    public operator fun invoke(flags: UInt): Ntstatus
 }
 
-public typealias PFLT_FILTER_UNLOAD_CALLBACK = PFLT_FILTER_UNLOAD_CALLBACKFn?
+public typealias PfltFilterUnloadCallback = PfltFilterUnloadCallbackFn?
 
-public fun interface PFLT_GENERATE_FILE_NAMEFn {
-    public operator fun invoke(instance: PFLT_INSTANCE, fileobject: Long, callbackdata: Long, nameoptions: UInt, cachefilenameinformation: Long, filename: Long): NTSTATUS
+public fun interface PfltGenerateFileNameFn {
+    public operator fun invoke(instance: PfltInstance, fileobject: COpaquePointer?, callbackdata: COpaquePointer?, nameoptions: UInt, cachefilenameinformation: COpaquePointer?, filename: COpaquePointer?): Ntstatus
 }
 
-public typealias PFLT_GENERATE_FILE_NAME = PFLT_GENERATE_FILE_NAMEFn?
+public typealias PfltGenerateFileName = PfltGenerateFileNameFn?
 
-public typealias PFLT_GENERIC_WORKITEM = Long
+public typealias PfltGenericWorkitem = Long
 
-public fun interface PFLT_GENERIC_WORKITEM_ROUTINEFn {
-    public operator fun invoke(fltworkitem: PFLT_GENERIC_WORKITEM, fltobject: Long, context: Long)
+public fun interface PfltGenericWorkitemRoutineFn {
+    public operator fun invoke(fltworkitem: PfltGenericWorkitem, fltobject: COpaquePointer?, context: COpaquePointer?)
 }
 
-public typealias PFLT_GENERIC_WORKITEM_ROUTINE = PFLT_GENERIC_WORKITEM_ROUTINEFn?
+public typealias PfltGenericWorkitemRoutine = PfltGenericWorkitemRoutineFn?
 
-public fun interface PFLT_GET_OPERATION_STATUS_CALLBACKFn {
-    public operator fun invoke(fltobjects: Long, iopbsnapshot: Long, operationstatus: NTSTATUS, requestercontext: Long)
+public fun interface PfltGetOperationStatusCallbackFn {
+    public operator fun invoke(fltobjects: COpaquePointer?, iopbsnapshot: COpaquePointer?, operationstatus: Ntstatus, requestercontext: COpaquePointer?)
 }
 
-public typealias PFLT_GET_OPERATION_STATUS_CALLBACK = PFLT_GET_OPERATION_STATUS_CALLBACKFn?
+public typealias PfltGetOperationStatusCallback = PfltGetOperationStatusCallbackFn?
 
-public typealias PFLT_INSTANCE = Long
+public typealias PfltInstance = Long
 
-public fun interface PFLT_INSTANCE_QUERY_TEARDOWN_CALLBACKFn {
-    public operator fun invoke(fltobjects: Long, flags: UInt): NTSTATUS
+public fun interface PfltInstanceQueryTeardownCallbackFn {
+    public operator fun invoke(fltobjects: COpaquePointer?, flags: UInt): Ntstatus
 }
 
-public typealias PFLT_INSTANCE_QUERY_TEARDOWN_CALLBACK = PFLT_INSTANCE_QUERY_TEARDOWN_CALLBACKFn?
+public typealias PfltInstanceQueryTeardownCallback = PfltInstanceQueryTeardownCallbackFn?
 
-public fun interface PFLT_INSTANCE_SETUP_CALLBACKFn {
-    public operator fun invoke(fltobjects: Long, flags: UInt, volumedevicetype: UInt, volumefilesystemtype: FLT_FILESYSTEM_TYPE): NTSTATUS
+public fun interface PfltInstanceSetupCallbackFn {
+    public operator fun invoke(fltobjects: COpaquePointer?, flags: UInt, volumedevicetype: UInt, volumefilesystemtype: FltFilesystemType): Ntstatus
 }
 
-public typealias PFLT_INSTANCE_SETUP_CALLBACK = PFLT_INSTANCE_SETUP_CALLBACKFn?
+public typealias PfltInstanceSetupCallback = PfltInstanceSetupCallbackFn?
 
-public fun interface PFLT_INSTANCE_TEARDOWN_CALLBACKFn {
-    public operator fun invoke(fltobjects: Long, reason: UInt)
+public fun interface PfltInstanceTeardownCallbackFn {
+    public operator fun invoke(fltobjects: COpaquePointer?, reason: UInt)
 }
 
-public typealias PFLT_INSTANCE_TEARDOWN_CALLBACK = PFLT_INSTANCE_TEARDOWN_CALLBACKFn?
+public typealias PfltInstanceTeardownCallback = PfltInstanceTeardownCallbackFn?
 
-public fun interface PFLT_MESSAGE_NOTIFYFn {
-    public operator fun invoke(portcookie: Long, inputbuffer: Long, inputbufferlength: UInt, outputbuffer: Long, outputbufferlength: UInt, returnoutputbufferlength: Long): NTSTATUS
+public fun interface PfltMessageNotifyFn {
+    public operator fun invoke(portcookie: COpaquePointer?, inputbuffer: COpaquePointer?, inputbufferlength: UInt, outputbuffer: COpaquePointer?, outputbufferlength: UInt, returnoutputbufferlength: COpaquePointer?): Ntstatus
 }
 
-public typealias PFLT_MESSAGE_NOTIFY = PFLT_MESSAGE_NOTIFYFn?
+public typealias PfltMessageNotify = PfltMessageNotifyFn?
 
-public fun interface PFLT_NORMALIZE_CONTEXT_CLEANUPFn {
-    public operator fun invoke(normalizationcontext: Long)
+public fun interface PfltNormalizeContextCleanupFn {
+    public operator fun invoke(normalizationcontext: COpaquePointer?)
 }
 
-public typealias PFLT_NORMALIZE_CONTEXT_CLEANUP = PFLT_NORMALIZE_CONTEXT_CLEANUPFn?
+public typealias PfltNormalizeContextCleanup = PfltNormalizeContextCleanupFn?
 
-public fun interface PFLT_NORMALIZE_NAME_COMPONENTFn {
-    public operator fun invoke(instance: PFLT_INSTANCE, parentdirectory: Long, volumenamelength: UShort, component: Long, expandcomponentname: Long, expandcomponentnamelength: UInt, flags: UInt, normalizationcontext: Long): NTSTATUS
+public fun interface PfltNormalizeNameComponentFn {
+    public operator fun invoke(instance: PfltInstance, parentdirectory: COpaquePointer?, volumenamelength: UShort, component: COpaquePointer?, expandcomponentname: COpaquePointer?, expandcomponentnamelength: UInt, flags: UInt, normalizationcontext: COpaquePointer?): Ntstatus
 }
 
-public typealias PFLT_NORMALIZE_NAME_COMPONENT = PFLT_NORMALIZE_NAME_COMPONENTFn?
+public typealias PfltNormalizeNameComponent = PfltNormalizeNameComponentFn?
 
-public fun interface PFLT_NORMALIZE_NAME_COMPONENT_EXFn {
-    public operator fun invoke(instance: PFLT_INSTANCE, fileobject: Long, parentdirectory: Long, volumenamelength: UShort, component: Long, expandcomponentname: Long, expandcomponentnamelength: UInt, flags: UInt, normalizationcontext: Long): NTSTATUS
+public fun interface PfltNormalizeNameComponentExFn {
+    public operator fun invoke(instance: PfltInstance, fileobject: COpaquePointer?, parentdirectory: COpaquePointer?, volumenamelength: UShort, component: COpaquePointer?, expandcomponentname: COpaquePointer?, expandcomponentnamelength: UInt, flags: UInt, normalizationcontext: COpaquePointer?): Ntstatus
 }
 
-public typealias PFLT_NORMALIZE_NAME_COMPONENT_EX = PFLT_NORMALIZE_NAME_COMPONENT_EXFn?
+public typealias PfltNormalizeNameComponentEx = PfltNormalizeNameComponentExFn?
 
-public typealias PFLT_PORT = Long
+public typealias PfltPort = Long
 
-public fun interface PFLT_POST_OPERATION_CALLBACKFn {
-    public operator fun invoke(data: Long, fltobjects: Long, completioncontext: Long, flags: UInt): FLT_POSTOP_CALLBACK_STATUS
+public fun interface PfltPostOperationCallbackFn {
+    public operator fun invoke(data: COpaquePointer?, fltobjects: COpaquePointer?, completioncontext: COpaquePointer?, flags: UInt): FltPostopCallbackStatus
 }
 
-public typealias PFLT_POST_OPERATION_CALLBACK = PFLT_POST_OPERATION_CALLBACKFn?
+public typealias PfltPostOperationCallback = PfltPostOperationCallbackFn?
 
-public fun interface PFLT_PRE_OPERATION_CALLBACKFn {
-    public operator fun invoke(data: Long, fltobjects: Long, completioncontext: Long): FLT_PREOP_CALLBACK_STATUS
+public fun interface PfltPreOperationCallbackFn {
+    public operator fun invoke(data: COpaquePointer?, fltobjects: COpaquePointer?, completioncontext: COpaquePointer?): FltPreopCallbackStatus
 }
 
-public typealias PFLT_PRE_OPERATION_CALLBACK = PFLT_PRE_OPERATION_CALLBACKFn?
+public typealias PfltPreOperationCallback = PfltPreOperationCallbackFn?
 
-public fun interface PFLT_SECTION_CONFLICT_NOTIFICATION_CALLBACKFn {
-    public operator fun invoke(instance: PFLT_INSTANCE, sectioncontext: PFLT_CONTEXT, data: Long): NTSTATUS
+public fun interface PfltSectionConflictNotificationCallbackFn {
+    public operator fun invoke(instance: PfltInstance, sectioncontext: PfltContext, data: COpaquePointer?): Ntstatus
 }
 
-public typealias PFLT_SECTION_CONFLICT_NOTIFICATION_CALLBACK = PFLT_SECTION_CONFLICT_NOTIFICATION_CALLBACKFn?
+public typealias PfltSectionConflictNotificationCallback = PfltSectionConflictNotificationCallbackFn?
 
-public fun interface PFLT_TRANSACTION_NOTIFICATION_CALLBACKFn {
-    public operator fun invoke(fltobjects: Long, transactioncontext: PFLT_CONTEXT, notificationmask: UInt): NTSTATUS
+public fun interface PfltTransactionNotificationCallbackFn {
+    public operator fun invoke(fltobjects: COpaquePointer?, transactioncontext: PfltContext, notificationmask: UInt): Ntstatus
 }
 
-public typealias PFLT_TRANSACTION_NOTIFICATION_CALLBACK = PFLT_TRANSACTION_NOTIFICATION_CALLBACKFn?
+public typealias PfltTransactionNotificationCallback = PfltTransactionNotificationCallbackFn?
 
-public typealias PFLT_VOLUME = Long
+public typealias PfltVolume = Long

@@ -1,81 +1,81 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.networkaccessprotection
 
-public val ComponentTypeEnforcementClientRp: UInt = 2u
+public val COMPONENT_TYPE_ENFORCEMENT_CLIENT_RP: UInt = 2u
 
-public val ComponentTypeEnforcementClientSoH: UInt = 1u
+public val COMPONENT_TYPE_ENFORCEMENT_CLIENT_SO_H: UInt = 1u
 
-public val extendedIsolationStateInfected: ExtendedIsolationState = 2
+public val EXTENDED_ISOLATION_STATE_INFECTED: ExtendedIsolationState = 2
 
-public val extendedIsolationStateNoData: ExtendedIsolationState = 0
+public val EXTENDED_ISOLATION_STATE_NO_DATA: ExtendedIsolationState = 0
 
-public val extendedIsolationStateTransition: ExtendedIsolationState = 1
+public val EXTENDED_ISOLATION_STATE_TRANSITION: ExtendedIsolationState = 1
 
-public val extendedIsolationStateUnknown: ExtendedIsolationState = 3
+public val EXTENDED_ISOLATION_STATE_UNKNOWN: ExtendedIsolationState = 3
 
-public val failureCategoryClientCommunication: FailureCategory = 3
+public val FAILURE_CATEGORY_CLIENT_COMMUNICATION: FailureCategory = 3
 
-public val failureCategoryClientComponent: FailureCategory = 2
+public val FAILURE_CATEGORY_CLIENT_COMPONENT: FailureCategory = 2
 
-public val failureCategoryCount: UInt = 5u
+public val FAILURE_CATEGORY_COUNT: UInt = 5u
 
-public val failureCategoryNone: FailureCategory = 0
+public val FAILURE_CATEGORY_NONE: FailureCategory = 0
 
-public val failureCategoryOther: FailureCategory = 1
+public val FAILURE_CATEGORY_OTHER: FailureCategory = 1
 
-public val failureCategoryServerCommunication: FailureCategory = 5
+public val FAILURE_CATEGORY_SERVER_COMMUNICATION: FailureCategory = 5
 
-public val failureCategoryServerComponent: FailureCategory = 4
+public val FAILURE_CATEGORY_SERVER_COMPONENT: FailureCategory = 4
 
-public val fixupStateCouldNotUpdate: FixupState = 2
+public val FIXUP_STATE_COULD_NOT_UPDATE: FixupState = 2
 
-public val fixupStateInProgress: FixupState = 1
+public val FIXUP_STATE_IN_PROGRESS: FixupState = 1
 
-public val fixupStateSuccess: FixupState = 0
+public val FIXUP_STATE_SUCCESS: FixupState = 0
 
-public val freshSoHRequest: UInt = 1u
+public val FRESH_SO_H_REQUEST: UInt = 1u
 
-public val isolationStateInProbation: IsolationState = 2
+public val ISOLATION_STATE_IN_PROBATION: IsolationState = 2
 
-public val isolationStateNotRestricted: IsolationState = 1
+public val ISOLATION_STATE_NOT_RESTRICTED: IsolationState = 1
 
-public val isolationStateRestrictedAccess: IsolationState = 3
+public val ISOLATION_STATE_RESTRICTED_ACCESS: IsolationState = 3
 
-public val maxConnectionCountPerEnforcer: UInt = 20u
+public val MAX_CONNECTION_COUNT_PER_ENFORCER: UInt = 20u
 
-public val maxEnforcerCount: UInt = 20u
+public val MAX_ENFORCER_COUNT: UInt = 20u
 
-public val maxNetworkSoHSize: UInt = 4000u
+public val MAX_NETWORK_SO_H_SIZE: UInt = 4000u
 
-public val maxPrivateDataSize: UInt = 200u
+public val MAX_PRIVATE_DATA_SIZE: UInt = 200u
 
-public val maxSoHAttributeCount: UInt = 100u
+public val MAX_SO_H_ATTRIBUTE_COUNT: UInt = 100u
 
-public val maxSoHAttributeSize: UInt = 4000u
+public val MAX_SO_H_ATTRIBUTE_SIZE: UInt = 4000u
 
-public val maxStringLength: UInt = 1024u
+public val MAX_STRING_LENGTH: UInt = 1024u
 
-public val maxSystemHealthEntityCount: UInt = 20u
+public val MAX_SYSTEM_HEALTH_ENTITY_COUNT: UInt = 20u
 
-public val minNetworkSoHSize: UInt = 12u
+public val MIN_NETWORK_SO_H_SIZE: UInt = 12u
 
-public val napNotifyTypeQuarState: NapNotifyType = 2
+public val NAP_NOTIFY_TYPE_QUAR_STATE: NapNotifyType = 2
 
-public val napNotifyTypeServiceState: NapNotifyType = 1
+public val NAP_NOTIFY_TYPE_SERVICE_STATE: NapNotifyType = 1
 
-public val napNotifyTypeUnknown: NapNotifyType = 0
+public val NAP_NOTIFY_TYPE_UNKNOWN: NapNotifyType = 0
 
-public val percentageNotSupported: UInt = 101u
+public val PERCENTAGE_NOT_SUPPORTED: UInt = 101u
 
-public val remoteConfigTypeConfigBlob: RemoteConfigurationType = 2
+public val REMOTE_CONFIG_TYPE_CONFIG_BLOB: RemoteConfigurationType = 2
 
-public val remoteConfigTypeMachine: RemoteConfigurationType = 1
+public val REMOTE_CONFIG_TYPE_MACHINE: RemoteConfigurationType = 1
 
-public val shaFixup: UInt = 1u
+public val SHA_FIXUP: UInt = 1u
 
-public val tracingLevelAdvanced: NapTracingLevel = 2
+public val TRACING_LEVEL_ADVANCED: NapTracingLevel = 2
 
-public val tracingLevelBasic: NapTracingLevel = 1
+public val TRACING_LEVEL_BASIC: NapTracingLevel = 1
 
-public val tracingLevelDebug: NapTracingLevel = 3
+public val TRACING_LEVEL_DEBUG: NapTracingLevel = 3
 
-public val tracingLevelUndefined: NapTracingLevel = 0
+public val TRACING_LEVEL_UNDEFINED: NapTracingLevel = 0

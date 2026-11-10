@@ -2,7 +2,8 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.offlinefiles
 
-import io.github.kotlinmania.windowssys.core.BOOL
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
 
 private object WindowsWin32StorageOfflinefilesJniBridge {
     init {
@@ -10,26 +11,26 @@ private object WindowsWin32StorageOfflinefilesJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_offlinefiles_OfflineFilesEnable(benable: Int, pbrebootrequired: Long): Int
+    external fun windowssys_windows_win32_storage_offlinefiles_offlineFilesEnable(benable: Int, pbrebootrequired: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_offlinefiles_OfflineFilesQueryStatus(pbactive: Long, pbenabled: Long): Int
+    external fun windowssys_windows_win32_storage_offlinefiles_offlineFilesQueryStatus(pbactive: Long, pbenabled: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_offlinefiles_OfflineFilesQueryStatusEx(pbactive: Long, pbenabled: Long, pbavailable: Long): Int
+    external fun windowssys_windows_win32_storage_offlinefiles_offlineFilesQueryStatusEx(pbactive: Long, pbenabled: Long, pbavailable: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_storage_offlinefiles_OfflineFilesStart(): Int
+    external fun windowssys_windows_win32_storage_offlinefiles_offlineFilesStart(): Int
 }
 
-public actual fun OfflineFilesEnable(benable: BOOL, pbrebootrequired: Long): UInt =
-    WindowsWin32StorageOfflinefilesJniBridge.windowssys_windows_win32_storage_offlinefiles_OfflineFilesEnable(benable, pbrebootrequired).toUInt()
+public actual fun offlineFilesEnable(benable: Bool, pbrebootrequired: COpaquePointer?): UInt =
+    WindowsWin32StorageOfflinefilesJniBridge.windowssys_windows_win32_storage_offlinefiles_offlineFilesEnable(benable, (pbrebootrequired?.value ?: 0L)).toUInt()
 
-public actual fun OfflineFilesQueryStatus(pbactive: Long, pbenabled: Long): UInt =
-    WindowsWin32StorageOfflinefilesJniBridge.windowssys_windows_win32_storage_offlinefiles_OfflineFilesQueryStatus(pbactive, pbenabled).toUInt()
+public actual fun offlineFilesQueryStatus(pbactive: COpaquePointer?, pbenabled: COpaquePointer?): UInt =
+    WindowsWin32StorageOfflinefilesJniBridge.windowssys_windows_win32_storage_offlinefiles_offlineFilesQueryStatus((pbactive?.value ?: 0L), (pbenabled?.value ?: 0L)).toUInt()
 
-public actual fun OfflineFilesQueryStatusEx(pbactive: Long, pbenabled: Long, pbavailable: Long): UInt =
-    WindowsWin32StorageOfflinefilesJniBridge.windowssys_windows_win32_storage_offlinefiles_OfflineFilesQueryStatusEx(pbactive, pbenabled, pbavailable).toUInt()
+public actual fun offlineFilesQueryStatusEx(pbactive: COpaquePointer?, pbenabled: COpaquePointer?, pbavailable: COpaquePointer?): UInt =
+    WindowsWin32StorageOfflinefilesJniBridge.windowssys_windows_win32_storage_offlinefiles_offlineFilesQueryStatusEx((pbactive?.value ?: 0L), (pbenabled?.value ?: 0L), (pbavailable?.value ?: 0L)).toUInt()
 
-public actual fun OfflineFilesStart(): UInt =
-    WindowsWin32StorageOfflinefilesJniBridge.windowssys_windows_win32_storage_offlinefiles_OfflineFilesStart().toUInt()
+public actual fun offlineFilesStart(): UInt =
+    WindowsWin32StorageOfflinefilesJniBridge.windowssys_windows_win32_storage_offlinefiles_offlineFilesStart().toUInt()

@@ -1,22 +1,23 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.componentservices
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.windows.win32.system.com.APTTYPE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.windows.win32.system.com.Apttype
 
-public expect fun CoCreateActivity(piunknown: Long, riid: Long, ppobj: Long): HRESULT
+public expect fun coCreateActivity(piunknown: COpaquePointer?, riid: COpaquePointer?, ppobj: COpaquePointer?): Hresult
 
-public expect fun CoEnterServiceDomain(pconfigobject: Long): HRESULT
+public expect fun coEnterServiceDomain(pconfigobject: COpaquePointer?): Hresult
 
-public expect fun CoGetDefaultContext(apttype: APTTYPE, riid: Long, ppv: Long): HRESULT
+public expect fun coGetDefaultContext(apttype: Apttype, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult
 
-public expect fun CoLeaveServiceDomain(punkstatus: Long)
+public expect fun coLeaveServiceDomain(punkstatus: COpaquePointer?)
 
-public expect fun GetDispenserManager(param0: Long): HRESULT
+public expect fun getDispenserManager(param0: COpaquePointer?): Hresult
 
-public expect fun GetManagedExtensions(dwexts: Long): HRESULT
+public expect fun getManagedExtensions(dwexts: COpaquePointer?): Hresult
 
-public expect fun MTSCreateActivity(riid: Long, ppobj: Long): HRESULT
+public expect fun mTSCreateActivity(riid: COpaquePointer?, ppobj: COpaquePointer?): Hresult
 
-public expect fun RecycleSurrogate(lreasoncode: Int): HRESULT
+public expect fun recycleSurrogate(lreasoncode: Int): Hresult
 
-public expect fun SafeRef(rid: Long, punk: Long): Long
+public expect fun safeRef(rid: COpaquePointer?, punk: COpaquePointer?): COpaquePointer?

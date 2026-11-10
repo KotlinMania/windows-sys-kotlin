@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_diagnostics_ceip_CeipIsOptedIn_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_diagnostics_ceip_ceipIsOptedIn_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -68,7 +68,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_ceip_CeipIsOptedI
 }
 
 static void register_windows_win32_system_diagnostics_ceip_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_diagnostics_ceip_CeipIsOptedIn", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_ceip_CeipIsOptedIn_napi));
+    exports.Set("windowssys_windows_win32_system_diagnostics_ceip_ceipIsOptedIn", Napi::Function::New(env, windowssys_windows_win32_system_diagnostics_ceip_ceipIsOptedIn_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_diagnostics_ceip_napi, nullptr };

@@ -2,181 +2,182 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networking.winhttp
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun WinHttpAddRequestHeaders(hrequest: Long, lpszheaders: PCWSTR, dwheaderslength: UInt, dwmodifiers: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpAddRequestHeaders(hrequest.toCPointer<ByteVar>(), lpszheaders.toCPointer<ByteVar>(), dwheaderslength, dwmodifiers)
+public actual fun winHttpAddRequestHeaders(hrequest: COpaquePointer?, lpszheaders: Pcwstr, dwheaderslength: UInt, dwmodifiers: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpAddRequestHeaders(hrequest?.value?.toCPointer<ByteVar>(), lpszheaders?.value?.toCPointer<ByteVar>(), dwheaderslength, dwmodifiers)
 
-public actual fun WinHttpAddRequestHeadersEx(hrequest: Long, dwmodifiers: UInt, ullflags: ULong, ullextra: ULong, cheaders: UInt, pheaders: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpAddRequestHeadersEx(hrequest.toCPointer<ByteVar>(), dwmodifiers, ullflags, ullextra, cheaders, pheaders.toCPointer<ByteVar>())
+public actual fun winHttpAddRequestHeadersEx(hrequest: COpaquePointer?, dwmodifiers: UInt, ullflags: ULong, ullextra: ULong, cheaders: UInt, pheaders: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpAddRequestHeadersEx(hrequest?.value?.toCPointer<ByteVar>(), dwmodifiers, ullflags, ullextra, cheaders, pheaders?.value?.toCPointer<ByteVar>())
 
-public actual fun WinHttpCheckPlatform(): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpCheckPlatform()
+public actual fun winHttpCheckPlatform(): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpCheckPlatform()
 
-public actual fun WinHttpCloseHandle(hinternet: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpCloseHandle(hinternet.toCPointer<ByteVar>())
+public actual fun winHttpCloseHandle(hinternet: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpCloseHandle(hinternet?.value?.toCPointer<ByteVar>())
 
-public actual fun WinHttpConnect(hsession: Long, pswzservername: PCWSTR, nserverport: UShort, dwreserved: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpConnect(hsession.toCPointer<ByteVar>(), pswzservername.toCPointer<ByteVar>(), nserverport, dwreserved)?.toLong() ?: 0L
+public actual fun winHttpConnect(hsession: COpaquePointer?, pswzservername: Pcwstr, nserverport: UShort, dwreserved: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpConnect(hsession?.value?.toCPointer<ByteVar>(), pswzservername?.value?.toCPointer<ByteVar>(), nserverport, dwreserved)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun WinHttpCrackUrl(pwszurl: PCWSTR, dwurllength: UInt, dwflags: UInt, lpurlcomponents: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpCrackUrl(pwszurl.toCPointer<ByteVar>(), dwurllength, dwflags, lpurlcomponents.toCPointer<ByteVar>())
+public actual fun winHttpCrackUrl(pwszurl: Pcwstr, dwurllength: UInt, dwflags: UInt, lpurlcomponents: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpCrackUrl(pwszurl?.value?.toCPointer<ByteVar>(), dwurllength, dwflags, lpurlcomponents?.value?.toCPointer<ByteVar>())
 
-public actual fun WinHttpCreateProxyResolver(hsession: Long, phresolver: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpCreateProxyResolver(hsession.toCPointer<ByteVar>(), phresolver.toCPointer<ByteVar>())
+public actual fun winHttpCreateProxyResolver(hsession: COpaquePointer?, phresolver: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpCreateProxyResolver(hsession?.value?.toCPointer<ByteVar>(), phresolver?.value?.toCPointer<ByteVar>())
 
-public actual fun WinHttpCreateUrl(lpurlcomponents: Long, dwflags: WIN_HTTP_CREATE_URL_FLAGS, pwszurl: PWSTR, pdwurllength: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpCreateUrl(lpurlcomponents.toCPointer<ByteVar>(), dwflags, pwszurl.toCPointer<ByteVar>(), pdwurllength.toCPointer<ByteVar>())
+public actual fun winHttpCreateUrl(lpurlcomponents: COpaquePointer?, dwflags: WinHttpCreateUrlFlags, pwszurl: Pwstr, pdwurllength: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpCreateUrl(lpurlcomponents?.value?.toCPointer<ByteVar>(), dwflags, pwszurl?.value?.toCPointer<ByteVar>(), pdwurllength?.value?.toCPointer<ByteVar>())
 
-public actual fun WinHttpDetectAutoProxyConfigUrl(dwautodetectflags: UInt, ppwstrautoconfigurl: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpDetectAutoProxyConfigUrl(dwautodetectflags, ppwstrautoconfigurl.toCPointer<ByteVar>())
+public actual fun winHttpDetectAutoProxyConfigUrl(dwautodetectflags: UInt, ppwstrautoconfigurl: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpDetectAutoProxyConfigUrl(dwautodetectflags, ppwstrautoconfigurl?.value?.toCPointer<ByteVar>())
 
-public actual fun WinHttpFreeProxyResult(pproxyresult: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpFreeProxyResult(pproxyresult.toCPointer<ByteVar>())
+public actual fun winHttpFreeProxyResult(pproxyresult: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpFreeProxyResult(pproxyresult?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WinHttpFreeProxyResultEx(pproxyresultex: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpFreeProxyResultEx(pproxyresultex.toCPointer<ByteVar>())
+public actual fun winHttpFreeProxyResultEx(pproxyresultex: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpFreeProxyResultEx(pproxyresultex?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WinHttpFreeProxySettings(pwinhttpproxysettings: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpFreeProxySettings(pwinhttpproxysettings.toCPointer<ByteVar>())
+public actual fun winHttpFreeProxySettings(pwinhttpproxysettings: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpFreeProxySettings(pwinhttpproxysettings?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WinHttpFreeProxySettingsEx(proxysettingstype: WINHTTP_PROXY_SETTINGS_TYPE, pproxysettingsex: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpFreeProxySettingsEx(proxysettingstype, pproxysettingsex.toCPointer<ByteVar>())
+public actual fun winHttpFreeProxySettingsEx(proxysettingstype: WinhttpProxySettingsType, pproxysettingsex: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpFreeProxySettingsEx(proxysettingstype, pproxysettingsex?.value?.toCPointer<ByteVar>())
 
-public actual fun WinHttpFreeQueryConnectionGroupResult(presult: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpFreeQueryConnectionGroupResult(presult.toCPointer<ByteVar>())
+public actual fun winHttpFreeQueryConnectionGroupResult(presult: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpFreeQueryConnectionGroupResult(presult?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WinHttpGetDefaultProxyConfiguration(pproxyinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpGetDefaultProxyConfiguration(pproxyinfo.toCPointer<ByteVar>())
+public actual fun winHttpGetDefaultProxyConfiguration(pproxyinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpGetDefaultProxyConfiguration(pproxyinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun WinHttpGetIEProxyConfigForCurrentUser(pproxyconfig: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpGetIEProxyConfigForCurrentUser(pproxyconfig.toCPointer<ByteVar>())
+public actual fun winHttpGetIEProxyConfigForCurrentUser(pproxyconfig: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpGetIEProxyConfigForCurrentUser(pproxyconfig?.value?.toCPointer<ByteVar>())
 
-public actual fun WinHttpGetProxyForUrl(hsession: Long, lpcwszurl: PCWSTR, pautoproxyoptions: Long, pproxyinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpGetProxyForUrl(hsession.toCPointer<ByteVar>(), lpcwszurl.toCPointer<ByteVar>(), pautoproxyoptions.toCPointer<ByteVar>(), pproxyinfo.toCPointer<ByteVar>())
+public actual fun winHttpGetProxyForUrl(hsession: COpaquePointer?, lpcwszurl: Pcwstr, pautoproxyoptions: COpaquePointer?, pproxyinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpGetProxyForUrl(hsession?.value?.toCPointer<ByteVar>(), lpcwszurl?.value?.toCPointer<ByteVar>(), pautoproxyoptions?.value?.toCPointer<ByteVar>(), pproxyinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun WinHttpGetProxyForUrlEx(hresolver: Long, pcwszurl: PCWSTR, pautoproxyoptions: Long, pcontext: ULong): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpGetProxyForUrlEx(hresolver.toCPointer<ByteVar>(), pcwszurl.toCPointer<ByteVar>(), pautoproxyoptions.toCPointer<ByteVar>(), pcontext)
+public actual fun winHttpGetProxyForUrlEx(hresolver: COpaquePointer?, pcwszurl: Pcwstr, pautoproxyoptions: COpaquePointer?, pcontext: ULong): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpGetProxyForUrlEx(hresolver?.value?.toCPointer<ByteVar>(), pcwszurl?.value?.toCPointer<ByteVar>(), pautoproxyoptions?.value?.toCPointer<ByteVar>(), pcontext)
 
-public actual fun WinHttpGetProxyForUrlEx2(hresolver: Long, pcwszurl: PCWSTR, pautoproxyoptions: Long, cbinterfaceselectioncontext: UInt, pinterfaceselectioncontext: Long, pcontext: ULong): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpGetProxyForUrlEx2(hresolver.toCPointer<ByteVar>(), pcwszurl.toCPointer<ByteVar>(), pautoproxyoptions.toCPointer<ByteVar>(), cbinterfaceselectioncontext, pinterfaceselectioncontext.toCPointer<ByteVar>(), pcontext)
+public actual fun winHttpGetProxyForUrlEx2(hresolver: COpaquePointer?, pcwszurl: Pcwstr, pautoproxyoptions: COpaquePointer?, cbinterfaceselectioncontext: UInt, pinterfaceselectioncontext: COpaquePointer?, pcontext: ULong): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpGetProxyForUrlEx2(hresolver?.value?.toCPointer<ByteVar>(), pcwszurl?.value?.toCPointer<ByteVar>(), pautoproxyoptions?.value?.toCPointer<ByteVar>(), cbinterfaceselectioncontext, pinterfaceselectioncontext?.value?.toCPointer<ByteVar>(), pcontext)
 
-public actual fun WinHttpGetProxyResult(hresolver: Long, pproxyresult: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpGetProxyResult(hresolver.toCPointer<ByteVar>(), pproxyresult.toCPointer<ByteVar>())
+public actual fun winHttpGetProxyResult(hresolver: COpaquePointer?, pproxyresult: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpGetProxyResult(hresolver?.value?.toCPointer<ByteVar>(), pproxyresult?.value?.toCPointer<ByteVar>())
 
-public actual fun WinHttpGetProxyResultEx(hresolver: Long, pproxyresultex: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpGetProxyResultEx(hresolver.toCPointer<ByteVar>(), pproxyresultex.toCPointer<ByteVar>())
+public actual fun winHttpGetProxyResultEx(hresolver: COpaquePointer?, pproxyresultex: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpGetProxyResultEx(hresolver?.value?.toCPointer<ByteVar>(), pproxyresultex?.value?.toCPointer<ByteVar>())
 
-public actual fun WinHttpGetProxySettingsEx(hresolver: Long, proxysettingstype: WINHTTP_PROXY_SETTINGS_TYPE, pproxysettingsparam: Long, pcontext: ULong): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpGetProxySettingsEx(hresolver.toCPointer<ByteVar>(), proxysettingstype, pproxysettingsparam.toCPointer<ByteVar>(), pcontext)
+public actual fun winHttpGetProxySettingsEx(hresolver: COpaquePointer?, proxysettingstype: WinhttpProxySettingsType, pproxysettingsparam: COpaquePointer?, pcontext: ULong): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpGetProxySettingsEx(hresolver?.value?.toCPointer<ByteVar>(), proxysettingstype, pproxysettingsparam?.value?.toCPointer<ByteVar>(), pcontext)
 
-public actual fun WinHttpGetProxySettingsResultEx(hresolver: Long, pproxysettingsex: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpGetProxySettingsResultEx(hresolver.toCPointer<ByteVar>(), pproxysettingsex.toCPointer<ByteVar>())
+public actual fun winHttpGetProxySettingsResultEx(hresolver: COpaquePointer?, pproxysettingsex: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpGetProxySettingsResultEx(hresolver?.value?.toCPointer<ByteVar>(), pproxysettingsex?.value?.toCPointer<ByteVar>())
 
-public actual fun WinHttpGetProxySettingsVersion(hsession: Long, pdwproxysettingsversion: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpGetProxySettingsVersion(hsession.toCPointer<ByteVar>(), pdwproxysettingsversion.toCPointer<ByteVar>())
+public actual fun winHttpGetProxySettingsVersion(hsession: COpaquePointer?, pdwproxysettingsversion: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpGetProxySettingsVersion(hsession?.value?.toCPointer<ByteVar>(), pdwproxysettingsversion?.value?.toCPointer<ByteVar>())
 
-public actual fun WinHttpOpen(pszagentw: PCWSTR, dwaccesstype: WINHTTP_ACCESS_TYPE, pszproxyw: PCWSTR, pszproxybypassw: PCWSTR, dwflags: UInt): Long =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpOpen(pszagentw.toCPointer<ByteVar>(), dwaccesstype, pszproxyw.toCPointer<ByteVar>(), pszproxybypassw.toCPointer<ByteVar>(), dwflags)?.toLong() ?: 0L
+public actual fun winHttpOpen(pszagentw: Pcwstr, dwaccesstype: WinhttpAccessType, pszproxyw: Pcwstr, pszproxybypassw: Pcwstr, dwflags: UInt): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpOpen(pszagentw?.value?.toCPointer<ByteVar>(), dwaccesstype, pszproxyw?.value?.toCPointer<ByteVar>(), pszproxybypassw?.value?.toCPointer<ByteVar>(), dwflags)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun WinHttpOpenRequest(hconnect: Long, pwszverb: PCWSTR, pwszobjectname: PCWSTR, pwszversion: PCWSTR, pwszreferrer: PCWSTR, ppwszaccepttypes: Long, dwflags: WINHTTP_OPEN_REQUEST_FLAGS): Long =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpOpenRequest(hconnect.toCPointer<ByteVar>(), pwszverb.toCPointer<ByteVar>(), pwszobjectname.toCPointer<ByteVar>(), pwszversion.toCPointer<ByteVar>(), pwszreferrer.toCPointer<ByteVar>(), ppwszaccepttypes.toCPointer<ByteVar>(), dwflags)?.toLong() ?: 0L
+public actual fun winHttpOpenRequest(hconnect: COpaquePointer?, pwszverb: Pcwstr, pwszobjectname: Pcwstr, pwszversion: Pcwstr, pwszreferrer: Pcwstr, ppwszaccepttypes: COpaquePointer?, dwflags: WinhttpOpenRequestFlags): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpOpenRequest(hconnect?.value?.toCPointer<ByteVar>(), pwszverb?.value?.toCPointer<ByteVar>(), pwszobjectname?.value?.toCPointer<ByteVar>(), pwszversion?.value?.toCPointer<ByteVar>(), pwszreferrer?.value?.toCPointer<ByteVar>(), ppwszaccepttypes?.value?.toCPointer<ByteVar>(), dwflags)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun WinHttpQueryAuthSchemes(hrequest: Long, lpdwsupportedschemes: Long, lpdwfirstscheme: Long, pdwauthtarget: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpQueryAuthSchemes(hrequest.toCPointer<ByteVar>(), lpdwsupportedschemes.toCPointer<ByteVar>(), lpdwfirstscheme.toCPointer<ByteVar>(), pdwauthtarget.toCPointer<ByteVar>())
+public actual fun winHttpQueryAuthSchemes(hrequest: COpaquePointer?, lpdwsupportedschemes: COpaquePointer?, lpdwfirstscheme: COpaquePointer?, pdwauthtarget: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpQueryAuthSchemes(hrequest?.value?.toCPointer<ByteVar>(), lpdwsupportedschemes?.value?.toCPointer<ByteVar>(), lpdwfirstscheme?.value?.toCPointer<ByteVar>(), pdwauthtarget?.value?.toCPointer<ByteVar>())
 
-public actual fun WinHttpQueryConnectionGroup(hinternet: Long, pguidconnection: Long, ullflags: ULong, ppresult: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpQueryConnectionGroup(hinternet.toCPointer<ByteVar>(), pguidconnection.toCPointer<ByteVar>(), ullflags, ppresult.toCPointer<ByteVar>())
+public actual fun winHttpQueryConnectionGroup(hinternet: COpaquePointer?, pguidconnection: COpaquePointer?, ullflags: ULong, ppresult: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpQueryConnectionGroup(hinternet?.value?.toCPointer<ByteVar>(), pguidconnection?.value?.toCPointer<ByteVar>(), ullflags, ppresult?.value?.toCPointer<ByteVar>())
 
-public actual fun WinHttpQueryDataAvailable(hrequest: Long, lpdwnumberofbytesavailable: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpQueryDataAvailable(hrequest.toCPointer<ByteVar>(), lpdwnumberofbytesavailable.toCPointer<ByteVar>())
+public actual fun winHttpQueryDataAvailable(hrequest: COpaquePointer?, lpdwnumberofbytesavailable: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpQueryDataAvailable(hrequest?.value?.toCPointer<ByteVar>(), lpdwnumberofbytesavailable?.value?.toCPointer<ByteVar>())
 
-public actual fun WinHttpQueryHeaders(hrequest: Long, dwinfolevel: UInt, pwszname: PCWSTR, lpbuffer: Long, lpdwbufferlength: Long, lpdwindex: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpQueryHeaders(hrequest.toCPointer<ByteVar>(), dwinfolevel, pwszname.toCPointer<ByteVar>(), lpbuffer.toCPointer<ByteVar>(), lpdwbufferlength.toCPointer<ByteVar>(), lpdwindex.toCPointer<ByteVar>())
+public actual fun winHttpQueryHeaders(hrequest: COpaquePointer?, dwinfolevel: UInt, pwszname: Pcwstr, lpbuffer: COpaquePointer?, lpdwbufferlength: COpaquePointer?, lpdwindex: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpQueryHeaders(hrequest?.value?.toCPointer<ByteVar>(), dwinfolevel, pwszname?.value?.toCPointer<ByteVar>(), lpbuffer?.value?.toCPointer<ByteVar>(), lpdwbufferlength?.value?.toCPointer<ByteVar>(), lpdwindex?.value?.toCPointer<ByteVar>())
 
-public actual fun WinHttpQueryHeadersEx(hrequest: Long, dwinfolevel: UInt, ullflags: ULong, uicodepage: UInt, pdwindex: Long, pheadername: Long, pbuffer: Long, pdwbufferlength: Long, ppheaders: Long, pdwheaderscount: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpQueryHeadersEx(hrequest.toCPointer<ByteVar>(), dwinfolevel, ullflags, uicodepage, pdwindex.toCPointer<ByteVar>(), pheadername.toCPointer<ByteVar>(), pbuffer.toCPointer<ByteVar>(), pdwbufferlength.toCPointer<ByteVar>(), ppheaders.toCPointer<ByteVar>(), pdwheaderscount.toCPointer<ByteVar>())
+public actual fun winHttpQueryHeadersEx(hrequest: COpaquePointer?, dwinfolevel: UInt, ullflags: ULong, uicodepage: UInt, pdwindex: COpaquePointer?, pheadername: COpaquePointer?, pbuffer: COpaquePointer?, pdwbufferlength: COpaquePointer?, ppheaders: COpaquePointer?, pdwheaderscount: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpQueryHeadersEx(hrequest?.value?.toCPointer<ByteVar>(), dwinfolevel, ullflags, uicodepage, pdwindex?.value?.toCPointer<ByteVar>(), pheadername?.value?.toCPointer<ByteVar>(), pbuffer?.value?.toCPointer<ByteVar>(), pdwbufferlength?.value?.toCPointer<ByteVar>(), ppheaders?.value?.toCPointer<ByteVar>(), pdwheaderscount?.value?.toCPointer<ByteVar>())
 
-public actual fun WinHttpQueryOption(hinternet: Long, dwoption: UInt, lpbuffer: Long, lpdwbufferlength: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpQueryOption(hinternet.toCPointer<ByteVar>(), dwoption, lpbuffer.toCPointer<ByteVar>(), lpdwbufferlength.toCPointer<ByteVar>())
+public actual fun winHttpQueryOption(hinternet: COpaquePointer?, dwoption: UInt, lpbuffer: COpaquePointer?, lpdwbufferlength: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpQueryOption(hinternet?.value?.toCPointer<ByteVar>(), dwoption, lpbuffer?.value?.toCPointer<ByteVar>(), lpdwbufferlength?.value?.toCPointer<ByteVar>())
 
-public actual fun WinHttpReadData(hrequest: Long, lpbuffer: Long, dwnumberofbytestoread: UInt, lpdwnumberofbytesread: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpReadData(hrequest.toCPointer<ByteVar>(), lpbuffer.toCPointer<ByteVar>(), dwnumberofbytestoread, lpdwnumberofbytesread.toCPointer<ByteVar>())
+public actual fun winHttpReadData(hrequest: COpaquePointer?, lpbuffer: COpaquePointer?, dwnumberofbytestoread: UInt, lpdwnumberofbytesread: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpReadData(hrequest?.value?.toCPointer<ByteVar>(), lpbuffer?.value?.toCPointer<ByteVar>(), dwnumberofbytestoread, lpdwnumberofbytesread?.value?.toCPointer<ByteVar>())
 
-public actual fun WinHttpReadDataEx(hrequest: Long, lpbuffer: Long, dwnumberofbytestoread: UInt, lpdwnumberofbytesread: Long, ullflags: ULong, cbproperty: UInt, pvproperty: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpReadDataEx(hrequest.toCPointer<ByteVar>(), lpbuffer.toCPointer<ByteVar>(), dwnumberofbytestoread, lpdwnumberofbytesread.toCPointer<ByteVar>(), ullflags, cbproperty, pvproperty.toCPointer<ByteVar>())
+public actual fun winHttpReadDataEx(hrequest: COpaquePointer?, lpbuffer: COpaquePointer?, dwnumberofbytestoread: UInt, lpdwnumberofbytesread: COpaquePointer?, ullflags: ULong, cbproperty: UInt, pvproperty: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpReadDataEx(hrequest?.value?.toCPointer<ByteVar>(), lpbuffer?.value?.toCPointer<ByteVar>(), dwnumberofbytestoread, lpdwnumberofbytesread?.value?.toCPointer<ByteVar>(), ullflags, cbproperty, pvproperty?.value?.toCPointer<ByteVar>())
 
-public actual fun WinHttpReadProxySettings(hsession: Long, pcwszconnectionname: PCWSTR, ffallbacktodefaultsettings: BOOL, fsetautodiscoverfordefaultsettings: BOOL, pdwsettingsversion: Long, pfdefaultsettingsarereturned: Long, pwinhttpproxysettings: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpReadProxySettings(hsession.toCPointer<ByteVar>(), pcwszconnectionname.toCPointer<ByteVar>(), ffallbacktodefaultsettings, fsetautodiscoverfordefaultsettings, pdwsettingsversion.toCPointer<ByteVar>(), pfdefaultsettingsarereturned.toCPointer<ByteVar>(), pwinhttpproxysettings.toCPointer<ByteVar>())
+public actual fun winHttpReadProxySettings(hsession: COpaquePointer?, pcwszconnectionname: Pcwstr, ffallbacktodefaultsettings: Bool, fsetautodiscoverfordefaultsettings: Bool, pdwsettingsversion: COpaquePointer?, pfdefaultsettingsarereturned: COpaquePointer?, pwinhttpproxysettings: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpReadProxySettings(hsession?.value?.toCPointer<ByteVar>(), pcwszconnectionname?.value?.toCPointer<ByteVar>(), ffallbacktodefaultsettings, fsetautodiscoverfordefaultsettings, pdwsettingsversion?.value?.toCPointer<ByteVar>(), pfdefaultsettingsarereturned?.value?.toCPointer<ByteVar>(), pwinhttpproxysettings?.value?.toCPointer<ByteVar>())
 
-public actual fun WinHttpReceiveResponse(hrequest: Long, lpreserved: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpReceiveResponse(hrequest.toCPointer<ByteVar>(), lpreserved.toCPointer<ByteVar>())
+public actual fun winHttpReceiveResponse(hrequest: COpaquePointer?, lpreserved: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpReceiveResponse(hrequest?.value?.toCPointer<ByteVar>(), lpreserved?.value?.toCPointer<ByteVar>())
 
-public actual fun WinHttpRegisterProxyChangeNotification(ullflags: ULong, pfncallback: WINHTTP_PROXY_CHANGE_CALLBACK, pvcontext: Long, hregistration: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpRegisterProxyChangeNotification(ullflags, pfncallback.toLong().toCPointer<ByteVar>(), pvcontext.toCPointer<ByteVar>(), hregistration.toCPointer<ByteVar>())
+public actual fun winHttpRegisterProxyChangeNotification(ullflags: ULong, pfncallback: WinhttpProxyChangeCallback, pvcontext: COpaquePointer?, hregistration: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpRegisterProxyChangeNotification(ullflags, 0L.toCPointer<ByteVar>(), pvcontext?.value?.toCPointer<ByteVar>(), hregistration?.value?.toCPointer<ByteVar>())
 
-public actual fun WinHttpResetAutoProxy(hsession: Long, dwflags: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpResetAutoProxy(hsession.toCPointer<ByteVar>(), dwflags)
+public actual fun winHttpResetAutoProxy(hsession: COpaquePointer?, dwflags: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpResetAutoProxy(hsession?.value?.toCPointer<ByteVar>(), dwflags)
 
-public actual fun WinHttpSendRequest(hrequest: Long, lpszheaders: PCWSTR, dwheaderslength: UInt, lpoptional: Long, dwoptionallength: UInt, dwtotallength: UInt, dwcontext: ULong): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpSendRequest(hrequest.toCPointer<ByteVar>(), lpszheaders.toCPointer<ByteVar>(), dwheaderslength, lpoptional.toCPointer<ByteVar>(), dwoptionallength, dwtotallength, dwcontext)
+public actual fun winHttpSendRequest(hrequest: COpaquePointer?, lpszheaders: Pcwstr, dwheaderslength: UInt, lpoptional: COpaquePointer?, dwoptionallength: UInt, dwtotallength: UInt, dwcontext: ULong): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpSendRequest(hrequest?.value?.toCPointer<ByteVar>(), lpszheaders?.value?.toCPointer<ByteVar>(), dwheaderslength, lpoptional?.value?.toCPointer<ByteVar>(), dwoptionallength, dwtotallength, dwcontext)
 
-public actual fun WinHttpSetCredentials(hrequest: Long, authtargets: UInt, authscheme: UInt, pwszusername: PCWSTR, pwszpassword: PCWSTR, pauthparams: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpSetCredentials(hrequest.toCPointer<ByteVar>(), authtargets, authscheme, pwszusername.toCPointer<ByteVar>(), pwszpassword.toCPointer<ByteVar>(), pauthparams.toCPointer<ByteVar>())
+public actual fun winHttpSetCredentials(hrequest: COpaquePointer?, authtargets: UInt, authscheme: UInt, pwszusername: Pcwstr, pwszpassword: Pcwstr, pauthparams: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpSetCredentials(hrequest?.value?.toCPointer<ByteVar>(), authtargets, authscheme, pwszusername?.value?.toCPointer<ByteVar>(), pwszpassword?.value?.toCPointer<ByteVar>(), pauthparams?.value?.toCPointer<ByteVar>())
 
-public actual fun WinHttpSetDefaultProxyConfiguration(pproxyinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpSetDefaultProxyConfiguration(pproxyinfo.toCPointer<ByteVar>())
+public actual fun winHttpSetDefaultProxyConfiguration(pproxyinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpSetDefaultProxyConfiguration(pproxyinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun WinHttpSetOption(hinternet: Long, dwoption: UInt, lpbuffer: Long, dwbufferlength: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpSetOption(hinternet.toCPointer<ByteVar>(), dwoption, lpbuffer.toCPointer<ByteVar>(), dwbufferlength)
+public actual fun winHttpSetOption(hinternet: COpaquePointer?, dwoption: UInt, lpbuffer: COpaquePointer?, dwbufferlength: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpSetOption(hinternet?.value?.toCPointer<ByteVar>(), dwoption, lpbuffer?.value?.toCPointer<ByteVar>(), dwbufferlength)
 
-public actual fun WinHttpSetProxySettingsPerUser(fproxysettingsperuser: BOOL): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpSetProxySettingsPerUser(fproxysettingsperuser)
+public actual fun winHttpSetProxySettingsPerUser(fproxysettingsperuser: Bool): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpSetProxySettingsPerUser(fproxysettingsperuser)
 
-public actual fun WinHttpSetStatusCallback(hinternet: Long, lpfninternetcallback: WINHTTP_STATUS_CALLBACK, dwnotificationflags: UInt, dwreserved: ULong): WINHTTP_STATUS_CALLBACK =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpSetStatusCallback(hinternet.toCPointer<ByteVar>(), lpfninternetcallback.toLong().toCPointer<ByteVar>(), dwnotificationflags, dwreserved)?.toLong() ?: 0L
+public actual fun winHttpSetStatusCallback(hinternet: COpaquePointer?, lpfninternetcallback: WinhttpStatusCallback, dwnotificationflags: UInt, dwreserved: ULong): WinhttpStatusCallback =
+    null
 
-public actual fun WinHttpSetTimeouts(hinternet: Long, nresolvetimeout: Int, nconnecttimeout: Int, nsendtimeout: Int, nreceivetimeout: Int): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpSetTimeouts(hinternet.toCPointer<ByteVar>(), nresolvetimeout, nconnecttimeout, nsendtimeout, nreceivetimeout)
+public actual fun winHttpSetTimeouts(hinternet: COpaquePointer?, nresolvetimeout: Int, nconnecttimeout: Int, nsendtimeout: Int, nreceivetimeout: Int): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpSetTimeouts(hinternet?.value?.toCPointer<ByteVar>(), nresolvetimeout, nconnecttimeout, nsendtimeout, nreceivetimeout)
 
-public actual fun WinHttpTimeFromSystemTime(pst: Long, pwsztime: PWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpTimeFromSystemTime(pst.toCPointer<ByteVar>(), pwsztime.toCPointer<ByteVar>())
+public actual fun winHttpTimeFromSystemTime(pst: COpaquePointer?, pwsztime: Pwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpTimeFromSystemTime(pst?.value?.toCPointer<ByteVar>(), pwsztime?.value?.toCPointer<ByteVar>())
 
-public actual fun WinHttpTimeToSystemTime(pwsztime: PCWSTR, pst: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpTimeToSystemTime(pwsztime.toCPointer<ByteVar>(), pst.toCPointer<ByteVar>())
+public actual fun winHttpTimeToSystemTime(pwsztime: Pcwstr, pst: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpTimeToSystemTime(pwsztime?.value?.toCPointer<ByteVar>(), pst?.value?.toCPointer<ByteVar>())
 
-public actual fun WinHttpUnregisterProxyChangeNotification(hregistration: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpUnregisterProxyChangeNotification(hregistration.toCPointer<ByteVar>())
+public actual fun winHttpUnregisterProxyChangeNotification(hregistration: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpUnregisterProxyChangeNotification(hregistration?.value?.toCPointer<ByteVar>())
 
-public actual fun WinHttpWebSocketClose(hwebsocket: Long, usstatus: UShort, pvreason: Long, dwreasonlength: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpWebSocketClose(hwebsocket.toCPointer<ByteVar>(), usstatus, pvreason.toCPointer<ByteVar>(), dwreasonlength)
+public actual fun winHttpWebSocketClose(hwebsocket: COpaquePointer?, usstatus: UShort, pvreason: COpaquePointer?, dwreasonlength: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpWebSocketClose(hwebsocket?.value?.toCPointer<ByteVar>(), usstatus, pvreason?.value?.toCPointer<ByteVar>(), dwreasonlength)
 
-public actual fun WinHttpWebSocketCompleteUpgrade(hrequest: Long, pcontext: ULong): Long =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpWebSocketCompleteUpgrade(hrequest.toCPointer<ByteVar>(), pcontext)?.toLong() ?: 0L
+public actual fun winHttpWebSocketCompleteUpgrade(hrequest: COpaquePointer?, pcontext: ULong): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpWebSocketCompleteUpgrade(hrequest?.value?.toCPointer<ByteVar>(), pcontext)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun WinHttpWebSocketQueryCloseStatus(hwebsocket: Long, pusstatus: Long, pvreason: Long, dwreasonlength: UInt, pdwreasonlengthconsumed: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpWebSocketQueryCloseStatus(hwebsocket.toCPointer<ByteVar>(), pusstatus.toCPointer<ByteVar>(), pvreason.toCPointer<ByteVar>(), dwreasonlength, pdwreasonlengthconsumed.toCPointer<ByteVar>())
+public actual fun winHttpWebSocketQueryCloseStatus(hwebsocket: COpaquePointer?, pusstatus: COpaquePointer?, pvreason: COpaquePointer?, dwreasonlength: UInt, pdwreasonlengthconsumed: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpWebSocketQueryCloseStatus(hwebsocket?.value?.toCPointer<ByteVar>(), pusstatus?.value?.toCPointer<ByteVar>(), pvreason?.value?.toCPointer<ByteVar>(), dwreasonlength, pdwreasonlengthconsumed?.value?.toCPointer<ByteVar>())
 
-public actual fun WinHttpWebSocketReceive(hwebsocket: Long, pvbuffer: Long, dwbufferlength: UInt, pdwbytesread: Long, pebuffertype: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpWebSocketReceive(hwebsocket.toCPointer<ByteVar>(), pvbuffer.toCPointer<ByteVar>(), dwbufferlength, pdwbytesread.toCPointer<ByteVar>(), pebuffertype.toCPointer<ByteVar>())
+public actual fun winHttpWebSocketReceive(hwebsocket: COpaquePointer?, pvbuffer: COpaquePointer?, dwbufferlength: UInt, pdwbytesread: COpaquePointer?, pebuffertype: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpWebSocketReceive(hwebsocket?.value?.toCPointer<ByteVar>(), pvbuffer?.value?.toCPointer<ByteVar>(), dwbufferlength, pdwbytesread?.value?.toCPointer<ByteVar>(), pebuffertype?.value?.toCPointer<ByteVar>())
 
-public actual fun WinHttpWebSocketSend(hwebsocket: Long, ebuffertype: WINHTTP_WEB_SOCKET_BUFFER_TYPE, pvbuffer: Long, dwbufferlength: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpWebSocketSend(hwebsocket.toCPointer<ByteVar>(), ebuffertype, pvbuffer.toCPointer<ByteVar>(), dwbufferlength)
+public actual fun winHttpWebSocketSend(hwebsocket: COpaquePointer?, ebuffertype: WinhttpWebSocketBufferType, pvbuffer: COpaquePointer?, dwbufferlength: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpWebSocketSend(hwebsocket?.value?.toCPointer<ByteVar>(), ebuffertype, pvbuffer?.value?.toCPointer<ByteVar>(), dwbufferlength)
 
-public actual fun WinHttpWebSocketShutdown(hwebsocket: Long, usstatus: UShort, pvreason: Long, dwreasonlength: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpWebSocketShutdown(hwebsocket.toCPointer<ByteVar>(), usstatus, pvreason.toCPointer<ByteVar>(), dwreasonlength)
+public actual fun winHttpWebSocketShutdown(hwebsocket: COpaquePointer?, usstatus: UShort, pvreason: COpaquePointer?, dwreasonlength: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpWebSocketShutdown(hwebsocket?.value?.toCPointer<ByteVar>(), usstatus, pvreason?.value?.toCPointer<ByteVar>(), dwreasonlength)
 
-public actual fun WinHttpWriteData(hrequest: Long, lpbuffer: Long, dwnumberofbytestowrite: UInt, lpdwnumberofbyteswritten: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpWriteData(hrequest.toCPointer<ByteVar>(), lpbuffer.toCPointer<ByteVar>(), dwnumberofbytestowrite, lpdwnumberofbyteswritten.toCPointer<ByteVar>())
+public actual fun winHttpWriteData(hrequest: COpaquePointer?, lpbuffer: COpaquePointer?, dwnumberofbytestowrite: UInt, lpdwnumberofbyteswritten: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpWriteData(hrequest?.value?.toCPointer<ByteVar>(), lpbuffer?.value?.toCPointer<ByteVar>(), dwnumberofbytestowrite, lpdwnumberofbyteswritten?.value?.toCPointer<ByteVar>())
 
-public actual fun WinHttpWriteProxySettings(hsession: Long, fforceupdate: BOOL, pwinhttpproxysettings: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_WinHttpWriteProxySettings(hsession.toCPointer<ByteVar>(), fforceupdate, pwinhttpproxysettings.toCPointer<ByteVar>())
+public actual fun winHttpWriteProxySettings(hsession: COpaquePointer?, fforceupdate: Bool, pwinhttpproxysettings: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.winhttp.cinterop.windowssys_windows_win32_networking_winhttp_winHttpWriteProxySettings(hsession?.value?.toCPointer<ByteVar>(), fforceupdate, pwinhttpproxysettings?.value?.toCPointer<ByteVar>())

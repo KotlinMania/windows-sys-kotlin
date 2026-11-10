@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_mailslots_WindowsWin32SystemMailslotsJniBridge_windowssys_1windows_1win32_1system_1mailslots_1CreateMailslotA(JNIEnv* km_env, jclass km_clazz, jlong lpname, jint nmaxmessagesize, jint lreadtimeout, jlong lpsecurityattributes) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_mailslots_WindowsWin32SystemMailslotsJniBridge_windowssys_1windows_1win32_1system_1mailslots_1createMailslotA(JNIEnv* km_env, jclass km_clazz, jlong lpname, jint nmaxmessagesize, jint lreadtimeout, jlong lpsecurityattributes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -39,7 +39,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_mailslots_WindowsWin32SystemMailslotsJniBridge_windowssys_1windows_1win32_1system_1mailslots_1CreateMailslotW(JNIEnv* km_env, jclass km_clazz, jlong lpname, jint nmaxmessagesize, jint lreadtimeout, jlong lpsecurityattributes) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_mailslots_WindowsWin32SystemMailslotsJniBridge_windowssys_1windows_1win32_1system_1mailslots_1createMailslotW(JNIEnv* km_env, jclass km_clazz, jlong lpname, jint nmaxmessagesize, jint lreadtimeout, jlong lpsecurityattributes) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -60,7 +60,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_mailslots_WindowsWin32SystemMailslotsJniBridge_windowssys_1windows_1win32_1system_1mailslots_1GetMailslotInfo(JNIEnv* km_env, jclass km_clazz, jlong hmailslot, jlong lpmaxmessagesize, jlong lpnextsize, jlong lpmessagecount, jlong lpreadtimeout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_mailslots_WindowsWin32SystemMailslotsJniBridge_windowssys_1windows_1win32_1system_1mailslots_1getMailslotInfo(JNIEnv* km_env, jclass km_clazz, jlong hmailslot, jlong lpmaxmessagesize, jlong lpnextsize, jlong lpmessagecount, jlong lpreadtimeout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -82,7 +82,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_mailslots_WindowsWin32SystemMailslotsJniBridge_windowssys_1windows_1win32_1system_1mailslots_1SetMailslotInfo(JNIEnv* km_env, jclass km_clazz, jlong hmailslot, jint lreadtimeout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_mailslots_WindowsWin32SystemMailslotsJniBridge_windowssys_1windows_1win32_1system_1mailslots_1setMailslotInfo(JNIEnv* km_env, jclass km_clazz, jlong hmailslot, jint lreadtimeout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

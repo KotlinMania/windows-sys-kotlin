@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_ui_input_pointer_EnableMouseInPointer(int32_t fenable) {
+int32_t windowssys_windows_win32_ui_input_pointer_enableMouseInPointer(int32_t fenable) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ int32_t windowssys_windows_win32_ui_input_pointer_EnableMouseInPointer(int32_t f
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_pointer_GetPointerCursorId(uint32_t pointerid, void* cursorid) {
+int32_t windowssys_windows_win32_ui_input_pointer_getPointerCursorId(uint32_t pointerid, void* cursorid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -60,7 +60,7 @@ int32_t windowssys_windows_win32_ui_input_pointer_GetPointerCursorId(uint32_t po
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_pointer_GetPointerDevice(void* device, void* pointerdevice) {
+int32_t windowssys_windows_win32_ui_input_pointer_getPointerDevice(void* device, void* pointerdevice) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -83,7 +83,7 @@ int32_t windowssys_windows_win32_ui_input_pointer_GetPointerDevice(void* device,
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_pointer_GetPointerDeviceCursors(void* device, void* cursorcount, void* devicecursors) {
+int32_t windowssys_windows_win32_ui_input_pointer_getPointerDeviceCursors(void* device, void* cursorcount, void* devicecursors) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -107,7 +107,7 @@ int32_t windowssys_windows_win32_ui_input_pointer_GetPointerDeviceCursors(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_pointer_GetPointerDeviceProperties(void* device, void* propertycount, void* pointerproperties) {
+int32_t windowssys_windows_win32_ui_input_pointer_getPointerDeviceProperties(void* device, void* propertycount, void* pointerproperties) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -131,7 +131,7 @@ int32_t windowssys_windows_win32_ui_input_pointer_GetPointerDeviceProperties(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_pointer_GetPointerDeviceRects(void* device, void* pointerdevicerect, void* displayrect) {
+int32_t windowssys_windows_win32_ui_input_pointer_getPointerDeviceRects(void* device, void* pointerdevicerect, void* displayrect) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -155,7 +155,7 @@ int32_t windowssys_windows_win32_ui_input_pointer_GetPointerDeviceRects(void* de
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_pointer_GetPointerDevices(void* devicecount, void* pointerdevices) {
+int32_t windowssys_windows_win32_ui_input_pointer_getPointerDevices(void* devicecount, void* pointerdevices) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -178,7 +178,7 @@ int32_t windowssys_windows_win32_ui_input_pointer_GetPointerDevices(void* device
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_pointer_GetPointerFrameInfo(uint32_t pointerid, void* pointercount, void* pointerinfo) {
+int32_t windowssys_windows_win32_ui_input_pointer_getPointerFrameInfo(uint32_t pointerid, void* pointercount, void* pointerinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -202,7 +202,7 @@ int32_t windowssys_windows_win32_ui_input_pointer_GetPointerFrameInfo(uint32_t p
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_pointer_GetPointerFrameInfoHistory(uint32_t pointerid, void* entriescount, void* pointercount, void* pointerinfo) {
+int32_t windowssys_windows_win32_ui_input_pointer_getPointerFrameInfoHistory(uint32_t pointerid, void* entriescount, void* pointercount, void* pointerinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -227,7 +227,7 @@ int32_t windowssys_windows_win32_ui_input_pointer_GetPointerFrameInfoHistory(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_pointer_GetPointerFramePenInfo(uint32_t pointerid, void* pointercount, void* peninfo) {
+int32_t windowssys_windows_win32_ui_input_pointer_getPointerFramePenInfo(uint32_t pointerid, void* pointercount, void* peninfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -251,7 +251,7 @@ int32_t windowssys_windows_win32_ui_input_pointer_GetPointerFramePenInfo(uint32_
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_pointer_GetPointerFramePenInfoHistory(uint32_t pointerid, void* entriescount, void* pointercount, void* peninfo) {
+int32_t windowssys_windows_win32_ui_input_pointer_getPointerFramePenInfoHistory(uint32_t pointerid, void* entriescount, void* pointercount, void* peninfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -276,7 +276,7 @@ int32_t windowssys_windows_win32_ui_input_pointer_GetPointerFramePenInfoHistory(
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_pointer_GetPointerFrameTouchInfo(uint32_t pointerid, void* pointercount, void* touchinfo) {
+int32_t windowssys_windows_win32_ui_input_pointer_getPointerFrameTouchInfo(uint32_t pointerid, void* pointercount, void* touchinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -300,7 +300,7 @@ int32_t windowssys_windows_win32_ui_input_pointer_GetPointerFrameTouchInfo(uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_pointer_GetPointerFrameTouchInfoHistory(uint32_t pointerid, void* entriescount, void* pointercount, void* touchinfo) {
+int32_t windowssys_windows_win32_ui_input_pointer_getPointerFrameTouchInfoHistory(uint32_t pointerid, void* entriescount, void* pointercount, void* touchinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -325,7 +325,7 @@ int32_t windowssys_windows_win32_ui_input_pointer_GetPointerFrameTouchInfoHistor
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_pointer_GetPointerInfo(uint32_t pointerid, void* pointerinfo) {
+int32_t windowssys_windows_win32_ui_input_pointer_getPointerInfo(uint32_t pointerid, void* pointerinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -348,7 +348,7 @@ int32_t windowssys_windows_win32_ui_input_pointer_GetPointerInfo(uint32_t pointe
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_pointer_GetPointerInfoHistory(uint32_t pointerid, void* entriescount, void* pointerinfo) {
+int32_t windowssys_windows_win32_ui_input_pointer_getPointerInfoHistory(uint32_t pointerid, void* entriescount, void* pointerinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -372,7 +372,7 @@ int32_t windowssys_windows_win32_ui_input_pointer_GetPointerInfoHistory(uint32_t
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_pointer_GetPointerInputTransform(uint32_t pointerid, uint32_t historycount, void* inputtransform) {
+int32_t windowssys_windows_win32_ui_input_pointer_getPointerInputTransform(uint32_t pointerid, uint32_t historycount, void* inputtransform) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -396,7 +396,7 @@ int32_t windowssys_windows_win32_ui_input_pointer_GetPointerInputTransform(uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_pointer_GetPointerPenInfo(uint32_t pointerid, void* peninfo) {
+int32_t windowssys_windows_win32_ui_input_pointer_getPointerPenInfo(uint32_t pointerid, void* peninfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -419,7 +419,7 @@ int32_t windowssys_windows_win32_ui_input_pointer_GetPointerPenInfo(uint32_t poi
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_pointer_GetPointerPenInfoHistory(uint32_t pointerid, void* entriescount, void* peninfo) {
+int32_t windowssys_windows_win32_ui_input_pointer_getPointerPenInfoHistory(uint32_t pointerid, void* entriescount, void* peninfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -443,7 +443,7 @@ int32_t windowssys_windows_win32_ui_input_pointer_GetPointerPenInfoHistory(uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_pointer_GetPointerTouchInfo(uint32_t pointerid, void* touchinfo) {
+int32_t windowssys_windows_win32_ui_input_pointer_getPointerTouchInfo(uint32_t pointerid, void* touchinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -466,7 +466,7 @@ int32_t windowssys_windows_win32_ui_input_pointer_GetPointerTouchInfo(uint32_t p
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_pointer_GetPointerTouchInfoHistory(uint32_t pointerid, void* entriescount, void* touchinfo) {
+int32_t windowssys_windows_win32_ui_input_pointer_getPointerTouchInfoHistory(uint32_t pointerid, void* entriescount, void* touchinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -490,7 +490,7 @@ int32_t windowssys_windows_win32_ui_input_pointer_GetPointerTouchInfoHistory(uin
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_pointer_GetPointerType(uint32_t pointerid, void* pointertype) {
+int32_t windowssys_windows_win32_ui_input_pointer_getPointerType(uint32_t pointerid, void* pointertype) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -513,7 +513,7 @@ int32_t windowssys_windows_win32_ui_input_pointer_GetPointerType(uint32_t pointe
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_pointer_GetRawPointerDeviceData(uint32_t pointerid, uint32_t historycount, uint32_t propertiescount, void* pproperties, void* pvalues) {
+int32_t windowssys_windows_win32_ui_input_pointer_getRawPointerDeviceData(uint32_t pointerid, uint32_t historycount, uint32_t propertiescount, void* pproperties, void* pvalues) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -539,7 +539,7 @@ int32_t windowssys_windows_win32_ui_input_pointer_GetRawPointerDeviceData(uint32
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_pointer_GetUnpredictedMessagePos(void) {
+uint32_t windowssys_windows_win32_ui_input_pointer_getUnpredictedMessagePos(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -560,7 +560,7 @@ uint32_t windowssys_windows_win32_ui_input_pointer_GetUnpredictedMessagePos(void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_pointer_InitializeTouchInjection(uint32_t maxcount, uint32_t dwmode) {
+int32_t windowssys_windows_win32_ui_input_pointer_initializeTouchInjection(uint32_t maxcount, uint32_t dwmode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -583,7 +583,7 @@ int32_t windowssys_windows_win32_ui_input_pointer_InitializeTouchInjection(uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_pointer_InjectSyntheticPointerInput(void* device, void* pointerinfo, uint32_t count) {
+int32_t windowssys_windows_win32_ui_input_pointer_injectSyntheticPointerInput(void* device, void* pointerinfo, uint32_t count) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -607,7 +607,7 @@ int32_t windowssys_windows_win32_ui_input_pointer_InjectSyntheticPointerInput(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_pointer_InjectTouchInput(uint32_t count, void* contacts) {
+int32_t windowssys_windows_win32_ui_input_pointer_injectTouchInput(uint32_t count, void* contacts) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -630,7 +630,7 @@ int32_t windowssys_windows_win32_ui_input_pointer_InjectTouchInput(uint32_t coun
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_pointer_IsMouseInPointerEnabled(void) {
+int32_t windowssys_windows_win32_ui_input_pointer_isMouseInPointerEnabled(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -651,7 +651,7 @@ int32_t windowssys_windows_win32_ui_input_pointer_IsMouseInPointerEnabled(void) 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_pointer_SkipPointerFrameMessages(uint32_t pointerid) {
+int32_t windowssys_windows_win32_ui_input_pointer_skipPointerFrameMessages(uint32_t pointerid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;

@@ -1,243 +1,245 @@
-@file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.system.jobobjects
 
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.system.threading.IO_COUNTERS
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.security.TokenGroups
+import io.github.kotlinmania.windowssys.windows.win32.security.TokenPrivileges
+import io.github.kotlinmania.windowssys.windows.win32.system.threading.IoCounters
 
-public data class JOBOBJECT_ASSOCIATE_COMPLETION_PORT(public var CompletionKey: Long = 0L, public var CompletionPort: HANDLE = 0L)
+public data class JobobjectAssociateCompletionPort(public var completionKey: COpaquePointer? = null, public var completionPort: Handle = null)
 
-public data class JOBOBJECT_BASIC_ACCOUNTING_INFORMATION(
-    public var TotalUserTime: Long = 0L,
-    public var TotalKernelTime: Long = 0L,
-    public var ThisPeriodTotalUserTime: Long = 0L,
-    public var ThisPeriodTotalKernelTime: Long = 0L,
-    public var TotalPageFaultCount: UInt = 0u,
-    public var TotalProcesses: UInt = 0u,
-    public var ActiveProcesses: UInt = 0u,
-    public var TotalTerminatedProcesses: UInt = 0u,
+public data class JobobjectBasicAccountingInformation(
+    public var totalUserTime: Long = 0L,
+    public var totalKernelTime: Long = 0L,
+    public var thisPeriodTotalUserTime: Long = 0L,
+    public var thisPeriodTotalKernelTime: Long = 0L,
+    public var totalPageFaultCount: UInt = 0u,
+    public var totalProcesses: UInt = 0u,
+    public var activeProcesses: UInt = 0u,
+    public var totalTerminatedProcesses: UInt = 0u,
 )
 
-public data class JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION(public var BasicInfo: JOBOBJECT_BASIC_ACCOUNTING_INFORMATION = JOBOBJECT_BASIC_ACCOUNTING_INFORMATION(), public var IoInfo: IO_COUNTERS = IO_COUNTERS())
+public data class JobobjectBasicAndIoAccountingInformation(public var basicInfo: JobobjectBasicAccountingInformation = JobobjectBasicAccountingInformation(), public var ioInfo: IoCounters = IoCounters())
 
-public data class JOBOBJECT_BASIC_LIMIT_INFORMATION(
-    public var PerProcessUserTimeLimit: Long = 0L,
-    public var PerJobUserTimeLimit: Long = 0L,
-    public var LimitFlags: JOB_OBJECT_LIMIT = 0u,
-    public var MinimumWorkingSetSize: ULong = 0uL,
-    public var MaximumWorkingSetSize: ULong = 0uL,
-    public var ActiveProcessLimit: UInt = 0u,
-    public var Affinity: ULong = 0uL,
-    public var PriorityClass: UInt = 0u,
-    public var SchedulingClass: UInt = 0u,
+public data class JobobjectBasicLimitInformation(
+    public var perProcessUserTimeLimit: Long = 0L,
+    public var perJobUserTimeLimit: Long = 0L,
+    public var limitFlags: JobObjectLimit = 0u,
+    public var minimumWorkingSetSize: Int = 0,
+    public var maximumWorkingSetSize: Int = 0,
+    public var activeProcessLimit: UInt = 0u,
+    public var affinity: Int = 0,
+    public var priorityClass: UInt = 0u,
+    public var schedulingClass: UInt = 0u,
 )
 
-public data class JOBOBJECT_BASIC_PROCESS_ID_LIST(
-    public var NumberOfAssignedProcesses: UInt = 0u,
-    public var NumberOfProcessIdsInList: UInt = 0u,
-    public var ProcessIdList: ULongArray = ULongArray(1),
+public data class JobobjectBasicProcessIdList(
+    public var numberOfAssignedProcesses: UInt = 0u,
+    public var numberOfProcessIdsInList: UInt = 0u,
+    public var processIdList: IntArray = IntArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is JOBOBJECT_BASIC_PROCESS_ID_LIST) return false
-        if (this.NumberOfAssignedProcesses != other.NumberOfAssignedProcesses) return false
-        if (this.NumberOfProcessIdsInList != other.NumberOfProcessIdsInList) return false
-        if (!this.ProcessIdList.contentEquals(other.ProcessIdList)) return false
+        if (other !is JobobjectBasicProcessIdList) return false
+        if (this.numberOfAssignedProcesses != other.numberOfAssignedProcesses) return false
+        if (this.numberOfProcessIdsInList != other.numberOfProcessIdsInList) return false
+        if (!this.processIdList.contentEquals(other.processIdList)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.NumberOfAssignedProcesses.hashCode()
-        result = 31 * result + this.NumberOfProcessIdsInList.hashCode()
-        result = 31 * result + this.ProcessIdList.contentHashCode()
+        var result = this.numberOfAssignedProcesses.hashCode()
+        result = 31 * result + this.numberOfProcessIdsInList.hashCode()
+        result = 31 * result + this.processIdList.contentHashCode()
         return result
     }
 }
 
-public data class JOBOBJECT_BASIC_UI_RESTRICTIONS(public var UIRestrictionsClass: JOB_OBJECT_UILIMIT = 0u)
+public data class JobobjectBasicUiRestrictions(public var uIRestrictionsClass: JobObjectUilimit = 0u)
 
-public data class JOBOBJECT_CPU_RATE_CONTROL_INFORMATION(public var ControlFlags: JOB_OBJECT_CPU_RATE_CONTROL = 0u, public var Anonymous: JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0 = JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0())
+public data class JobobjectCpuRateControlInformation(public var controlFlags: JobObjectCpuRateControl = 0u, public var anonymous: JobobjectCpuRateControlInformation0 = JobobjectCpuRateControlInformation0())
 
-public data class JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0(
-    public var CpuRate: UInt = 0u,
-    public var Weight: UInt = 0u,
-    public var Anonymous: JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0 = JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0(),
+public data class JobobjectCpuRateControlInformation0(
+    public var cpuRate: UInt = 0u,
+    public var weight: UInt = 0u,
+    public var anonymous: JobobjectCpuRateControlInformation00 = JobobjectCpuRateControlInformation00(),
 )
 
-public data class JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0(public var MinRate: UShort = 0u, public var MaxRate: UShort = 0u)
+public data class JobobjectCpuRateControlInformation00(public var minRate: UShort = 0u, public var maxRate: UShort = 0u)
 
-public data class JOBOBJECT_END_OF_JOB_TIME_INFORMATION(public var EndOfJobTimeAction: JOB_OBJECT_TERMINATE_AT_END_ACTION = 0u)
+public data class JobobjectEndOfJobTimeInformation(public var endOfJobTimeAction: JobObjectTerminateAtEndAction = 0u)
 
-public data class JOBOBJECT_EXTENDED_LIMIT_INFORMATION(
-    public var BasicLimitInformation: JOBOBJECT_BASIC_LIMIT_INFORMATION = JOBOBJECT_BASIC_LIMIT_INFORMATION(),
-    public var IoInfo: IO_COUNTERS = IO_COUNTERS(),
-    public var ProcessMemoryLimit: ULong = 0uL,
-    public var JobMemoryLimit: ULong = 0uL,
-    public var PeakProcessMemoryUsed: ULong = 0uL,
-    public var PeakJobMemoryUsed: ULong = 0uL,
+public data class JobobjectExtendedLimitInformation(
+    public var basicLimitInformation: JobobjectBasicLimitInformation = JobobjectBasicLimitInformation(),
+    public var ioInfo: IoCounters = IoCounters(),
+    public var processMemoryLimit: Int = 0,
+    public var jobMemoryLimit: Int = 0,
+    public var peakProcessMemoryUsed: Int = 0,
+    public var peakJobMemoryUsed: Int = 0,
 )
 
-public data class JOBOBJECT_IO_ATTRIBUTION_INFORMATION(
-    public var ControlFlags: UInt = 0u,
-    public var ReadStats: JOBOBJECT_IO_ATTRIBUTION_STATS = JOBOBJECT_IO_ATTRIBUTION_STATS(),
-    public var WriteStats: JOBOBJECT_IO_ATTRIBUTION_STATS = JOBOBJECT_IO_ATTRIBUTION_STATS(),
+public data class JobobjectIoAttributionInformation(
+    public var controlFlags: UInt = 0u,
+    public var readStats: JobobjectIoAttributionStats = JobobjectIoAttributionStats(),
+    public var writeStats: JobobjectIoAttributionStats = JobobjectIoAttributionStats(),
 )
 
-public data class JOBOBJECT_IO_ATTRIBUTION_STATS(
-    public var IoCount: ULong = 0uL,
-    public var TotalNonOverlappedQueueTime: ULong = 0uL,
-    public var TotalNonOverlappedServiceTime: ULong = 0uL,
-    public var TotalSize: ULong = 0uL,
+public data class JobobjectIoAttributionStats(
+    public var ioCount: Int = 0,
+    public var totalNonOverlappedQueueTime: ULong = 0uL,
+    public var totalNonOverlappedServiceTime: ULong = 0uL,
+    public var totalSize: ULong = 0uL,
 )
 
-public data class JOBOBJECT_IO_RATE_CONTROL_INFORMATION(
-    public var MaxIops: Long = 0L,
-    public var MaxBandwidth: Long = 0L,
-    public var ReservationIops: Long = 0L,
-    public var VolumeName: PCWSTR = 0L,
-    public var BaseIoSize: UInt = 0u,
-    public var ControlFlags: UInt = 0u,
+public data class JobobjectIoRateControlInformation(
+    public var maxIops: Long = 0L,
+    public var maxBandwidth: Long = 0L,
+    public var reservationIops: Long = 0L,
+    public var volumeName: Pcwstr = null,
+    public var baseIoSize: UInt = 0u,
+    public var controlFlags: UInt = 0u,
 )
 
-public data class JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1(
-    public var MaxIops: Long = 0L,
-    public var MaxBandwidth: Long = 0L,
-    public var ReservationIops: Long = 0L,
-    public var VolumeName: PWSTR = 0L,
-    public var BaseIoSize: UInt = 0u,
-    public var ControlFlags: JOB_OBJECT_IO_RATE_CONTROL_FLAGS = 0,
-    public var VolumeNameLength: UShort = 0u,
+public data class JobobjectIoRateControlInformationNativeV1(
+    public var maxIops: Long = 0L,
+    public var maxBandwidth: Long = 0L,
+    public var reservationIops: Long = 0L,
+    public var volumeName: Pwstr = null,
+    public var baseIoSize: UInt = 0u,
+    public var controlFlags: JobObjectIoRateControlFlags = 0,
+    public var volumeNameLength: UShort = 0u,
 )
 
-public data class JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2(
-    public var MaxIops: Long = 0L,
-    public var MaxBandwidth: Long = 0L,
-    public var ReservationIops: Long = 0L,
-    public var VolumeName: PWSTR = 0L,
-    public var BaseIoSize: UInt = 0u,
-    public var ControlFlags: JOB_OBJECT_IO_RATE_CONTROL_FLAGS = 0,
-    public var VolumeNameLength: UShort = 0u,
-    public var CriticalReservationIops: Long = 0L,
-    public var ReservationBandwidth: Long = 0L,
-    public var CriticalReservationBandwidth: Long = 0L,
-    public var MaxTimePercent: Long = 0L,
-    public var ReservationTimePercent: Long = 0L,
-    public var CriticalReservationTimePercent: Long = 0L,
+public data class JobobjectIoRateControlInformationNativeV2(
+    public var maxIops: Long = 0L,
+    public var maxBandwidth: Long = 0L,
+    public var reservationIops: Long = 0L,
+    public var volumeName: Pwstr = null,
+    public var baseIoSize: UInt = 0u,
+    public var controlFlags: JobObjectIoRateControlFlags = 0,
+    public var volumeNameLength: UShort = 0u,
+    public var criticalReservationIops: Long = 0L,
+    public var reservationBandwidth: Long = 0L,
+    public var criticalReservationBandwidth: Long = 0L,
+    public var maxTimePercent: Long = 0L,
+    public var reservationTimePercent: Long = 0L,
+    public var criticalReservationTimePercent: Long = 0L,
 )
 
-public class JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3(
-    public var MaxIops: Long = 0L,
-    public var MaxBandwidth: Long = 0L,
-    public var ReservationIops: Long = 0L,
-    public var VolumeName: PWSTR = 0L,
-    public var BaseIoSize: UInt = 0u,
-    public var ControlFlags: JOB_OBJECT_IO_RATE_CONTROL_FLAGS = 0,
-    public var VolumeNameLength: UShort = 0u,
-    public var CriticalReservationIops: Long = 0L,
-    public var ReservationBandwidth: Long = 0L,
-    public var CriticalReservationBandwidth: Long = 0L,
-    public var MaxTimePercent: Long = 0L,
-    public var ReservationTimePercent: Long = 0L,
-    public var CriticalReservationTimePercent: Long = 0L,
-    public var SoftMaxIops: Long = 0L,
-    public var SoftMaxBandwidth: Long = 0L,
-    public var SoftMaxTimePercent: Long = 0L,
-    public var LimitExcessNotifyIops: Long = 0L,
-    public var LimitExcessNotifyBandwidth: Long = 0L,
-    public var LimitExcessNotifyTimePercent: Long = 0L,
+public class JobobjectIoRateControlInformationNativeV3(
+    public var maxIops: Long = 0L,
+    public var maxBandwidth: Long = 0L,
+    public var reservationIops: Long = 0L,
+    public var volumeName: Pwstr = null,
+    public var baseIoSize: UInt = 0u,
+    public var controlFlags: JobObjectIoRateControlFlags = 0,
+    public var volumeNameLength: UShort = 0u,
+    public var criticalReservationIops: Long = 0L,
+    public var reservationBandwidth: Long = 0L,
+    public var criticalReservationBandwidth: Long = 0L,
+    public var maxTimePercent: Long = 0L,
+    public var reservationTimePercent: Long = 0L,
+    public var criticalReservationTimePercent: Long = 0L,
+    public var softMaxIops: Long = 0L,
+    public var softMaxBandwidth: Long = 0L,
+    public var softMaxTimePercent: Long = 0L,
+    public var limitExcessNotifyIops: Long = 0L,
+    public var limitExcessNotifyBandwidth: Long = 0L,
+    public var limitExcessNotifyTimePercent: Long = 0L,
 )
 
-public data class JOBOBJECT_JOBSET_INFORMATION(public var MemberLevel: UInt = 0u)
+public data class JobobjectJobsetInformation(public var memberLevel: UInt = 0u)
 
-public data class JOBOBJECT_LIMIT_VIOLATION_INFORMATION(
-    public var LimitFlags: JOB_OBJECT_LIMIT = 0u,
-    public var ViolationLimitFlags: JOB_OBJECT_LIMIT = 0u,
-    public var IoReadBytes: ULong = 0uL,
-    public var IoReadBytesLimit: ULong = 0uL,
-    public var IoWriteBytes: ULong = 0uL,
-    public var IoWriteBytesLimit: ULong = 0uL,
-    public var PerJobUserTime: Long = 0L,
-    public var PerJobUserTimeLimit: Long = 0L,
-    public var JobMemory: ULong = 0uL,
-    public var JobMemoryLimit: ULong = 0uL,
-    public var RateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE = 0,
-    public var RateControlToleranceLimit: JOBOBJECT_RATE_CONTROL_TOLERANCE = 0,
+public data class JobobjectLimitViolationInformation(
+    public var limitFlags: JobObjectLimit = 0u,
+    public var violationLimitFlags: JobObjectLimit = 0u,
+    public var ioReadBytes: ULong = 0uL,
+    public var ioReadBytesLimit: ULong = 0uL,
+    public var ioWriteBytes: ULong = 0uL,
+    public var ioWriteBytesLimit: ULong = 0uL,
+    public var perJobUserTime: Long = 0L,
+    public var perJobUserTimeLimit: Long = 0L,
+    public var jobMemory: ULong = 0uL,
+    public var jobMemoryLimit: ULong = 0uL,
+    public var rateControlTolerance: JobobjectRateControlTolerance = 0,
+    public var rateControlToleranceLimit: JobobjectRateControlTolerance = 0,
 )
 
-public class JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2(
-    public var LimitFlags: JOB_OBJECT_LIMIT = 0u,
-    public var ViolationLimitFlags: JOB_OBJECT_LIMIT = 0u,
-    public var IoReadBytes: ULong = 0uL,
-    public var IoReadBytesLimit: ULong = 0uL,
-    public var IoWriteBytes: ULong = 0uL,
-    public var IoWriteBytesLimit: ULong = 0uL,
-    public var PerJobUserTime: Long = 0L,
-    public var PerJobUserTimeLimit: Long = 0L,
-    public var JobMemory: ULong = 0uL,
-    public var Anonymous1: JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_0 = JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_0(),
-    public var Anonymous2: JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_1 = JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_1(),
-    public var Anonymous3: JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_2 = JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_2(),
-    public var JobLowMemoryLimit: ULong = 0uL,
-    public var IoRateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE = 0,
-    public var IoRateControlToleranceLimit: JOBOBJECT_RATE_CONTROL_TOLERANCE = 0,
-    public var NetRateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE = 0,
-    public var NetRateControlToleranceLimit: JOBOBJECT_RATE_CONTROL_TOLERANCE = 0,
+public class JobobjectLimitViolationInformation2(
+    public var limitFlags: JobObjectLimit = 0u,
+    public var violationLimitFlags: JobObjectLimit = 0u,
+    public var ioReadBytes: ULong = 0uL,
+    public var ioReadBytesLimit: ULong = 0uL,
+    public var ioWriteBytes: ULong = 0uL,
+    public var ioWriteBytesLimit: ULong = 0uL,
+    public var perJobUserTime: Long = 0L,
+    public var perJobUserTimeLimit: Long = 0L,
+    public var jobMemory: ULong = 0uL,
+    public var anonymous1: JobobjectLimitViolationInformation20 = JobobjectLimitViolationInformation20(),
+    public var anonymous2: JobobjectLimitViolationInformation21 = JobobjectLimitViolationInformation21(),
+    public var anonymous3: JobobjectLimitViolationInformation22 = JobobjectLimitViolationInformation22(),
+    public var jobLowMemoryLimit: ULong = 0uL,
+    public var ioRateControlTolerance: JobobjectRateControlTolerance = 0,
+    public var ioRateControlToleranceLimit: JobobjectRateControlTolerance = 0,
+    public var netRateControlTolerance: JobobjectRateControlTolerance = 0,
+    public var netRateControlToleranceLimit: JobobjectRateControlTolerance = 0,
 )
 
-public data class JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_0(public var JobHighMemoryLimit: ULong = 0uL, public var JobMemoryLimit: ULong = 0uL)
+public data class JobobjectLimitViolationInformation20(public var jobHighMemoryLimit: ULong = 0uL, public var jobMemoryLimit: ULong = 0uL)
 
-public data class JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_1(public var RateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE = 0, public var CpuRateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE = 0)
+public data class JobobjectLimitViolationInformation21(public var rateControlTolerance: JobobjectRateControlTolerance = 0, public var cpuRateControlTolerance: JobobjectRateControlTolerance = 0)
 
-public data class JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_2(public var RateControlToleranceLimit: JOBOBJECT_RATE_CONTROL_TOLERANCE = 0, public var CpuRateControlToleranceLimit: JOBOBJECT_RATE_CONTROL_TOLERANCE = 0)
+public data class JobobjectLimitViolationInformation22(public var rateControlToleranceLimit: JobobjectRateControlTolerance = 0, public var cpuRateControlToleranceLimit: JobobjectRateControlTolerance = 0)
 
-public data class JOBOBJECT_NET_RATE_CONTROL_INFORMATION(
-    public var MaxBandwidth: ULong = 0uL,
-    public var ControlFlags: JOB_OBJECT_NET_RATE_CONTROL_FLAGS = 0,
-    public var DscpTag: UByte = 0u,
+public data class JobobjectNetRateControlInformation(
+    public var maxBandwidth: ULong = 0uL,
+    public var controlFlags: JobObjectNetRateControlFlags = 0,
+    public var dscpTag: UByte = 0u,
 )
 
-public data class JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION(
-    public var IoReadBytesLimit: ULong = 0uL,
-    public var IoWriteBytesLimit: ULong = 0uL,
-    public var PerJobUserTimeLimit: Long = 0L,
-    public var JobMemoryLimit: ULong = 0uL,
-    public var RateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE = 0,
-    public var RateControlToleranceInterval: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL = 0,
-    public var LimitFlags: JOB_OBJECT_LIMIT = 0u,
+public data class JobobjectNotificationLimitInformation(
+    public var ioReadBytesLimit: ULong = 0uL,
+    public var ioWriteBytesLimit: ULong = 0uL,
+    public var perJobUserTimeLimit: Long = 0L,
+    public var jobMemoryLimit: ULong = 0uL,
+    public var rateControlTolerance: JobobjectRateControlTolerance = 0,
+    public var rateControlToleranceInterval: JobobjectRateControlToleranceInterval = 0,
+    public var limitFlags: JobObjectLimit = 0u,
 )
 
-public data class JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2(
-    public var IoReadBytesLimit: ULong = 0uL,
-    public var IoWriteBytesLimit: ULong = 0uL,
-    public var PerJobUserTimeLimit: Long = 0L,
-    public var Anonymous1: JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_0 = JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_0(),
-    public var Anonymous2: JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_1 = JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_1(),
-    public var Anonymous3: JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_2 = JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_2(),
-    public var LimitFlags: JOB_OBJECT_LIMIT = 0u,
-    public var IoRateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE = 0,
-    public var JobLowMemoryLimit: ULong = 0uL,
-    public var IoRateControlToleranceInterval: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL = 0,
-    public var NetRateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE = 0,
-    public var NetRateControlToleranceInterval: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL = 0,
+public data class JobobjectNotificationLimitInformation2(
+    public var ioReadBytesLimit: ULong = 0uL,
+    public var ioWriteBytesLimit: ULong = 0uL,
+    public var perJobUserTimeLimit: Long = 0L,
+    public var anonymous1: JobobjectNotificationLimitInformation20 = JobobjectNotificationLimitInformation20(),
+    public var anonymous2: JobobjectNotificationLimitInformation21 = JobobjectNotificationLimitInformation21(),
+    public var anonymous3: JobobjectNotificationLimitInformation22 = JobobjectNotificationLimitInformation22(),
+    public var limitFlags: JobObjectLimit = 0u,
+    public var ioRateControlTolerance: JobobjectRateControlTolerance = 0,
+    public var jobLowMemoryLimit: ULong = 0uL,
+    public var ioRateControlToleranceInterval: JobobjectRateControlToleranceInterval = 0,
+    public var netRateControlTolerance: JobobjectRateControlTolerance = 0,
+    public var netRateControlToleranceInterval: JobobjectRateControlToleranceInterval = 0,
 )
 
-public data class JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_0(public var JobHighMemoryLimit: ULong = 0uL, public var JobMemoryLimit: ULong = 0uL)
+public data class JobobjectNotificationLimitInformation20(public var jobHighMemoryLimit: ULong = 0uL, public var jobMemoryLimit: ULong = 0uL)
 
-public data class JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_1(public var RateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE = 0, public var CpuRateControlTolerance: JOBOBJECT_RATE_CONTROL_TOLERANCE = 0)
+public data class JobobjectNotificationLimitInformation21(public var rateControlTolerance: JobobjectRateControlTolerance = 0, public var cpuRateControlTolerance: JobobjectRateControlTolerance = 0)
 
-public data class JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_2(public var RateControlToleranceInterval: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL = 0, public var CpuRateControlToleranceInterval: JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL = 0)
+public data class JobobjectNotificationLimitInformation22(public var rateControlToleranceInterval: JobobjectRateControlToleranceInterval = 0, public var cpuRateControlToleranceInterval: JobobjectRateControlToleranceInterval = 0)
 
-public data class JOBOBJECT_SECURITY_LIMIT_INFORMATION(
-    public var SecurityLimitFlags: JOB_OBJECT_SECURITY = 0u,
-    public var JobToken: HANDLE = 0L,
-    public var SidsToDisable: Long = 0L,
-    public var PrivilegesToDelete: Long = 0L,
-    public var RestrictedSids: Long = 0L,
+public data class JobobjectSecurityLimitInformation(
+    public var securityLimitFlags: JobObjectSecurity = 0u,
+    public var jobToken: Handle = null,
+    public var sidsToDisable: TokenGroups? = null,
+    public var privilegesToDelete: TokenPrivileges? = null,
+    public var restrictedSids: TokenGroups? = null,
 )
 
-public data class JOB_SET_ARRAY(
-    public var JobHandle: HANDLE = 0L,
-    public var MemberLevel: UInt = 0u,
-    public var Flags: UInt = 0u,
+public data class JobSetArray(
+    public var jobHandle: Handle = null,
+    public var memberLevel: UInt = 0u,
+    public var flags: UInt = 0u,
 )

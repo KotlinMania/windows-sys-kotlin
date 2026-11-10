@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_htmlhelp_WindowsWin32DataHtmlhelpJniBridge_windowssys_1windows_1win32_1data_1htmlhelp_1HtmlHelpA(JNIEnv* km_env, jclass km_clazz, jlong hwndcaller, jlong pszfile, jint ucommand, jlong dwdata) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_htmlhelp_WindowsWin32DataHtmlhelpJniBridge_windowssys_1windows_1win32_1data_1htmlhelp_1htmlHelpA(JNIEnv* km_env, jclass km_clazz, jlong hwndcaller, jlong pszfile, jint ucommand, jlong dwdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -39,7 +39,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_htmlhelp_WindowsWin32DataHtmlhelpJniBridge_windowssys_1windows_1win32_1data_1htmlhelp_1HtmlHelpW(JNIEnv* km_env, jclass km_clazz, jlong hwndcaller, jlong pszfile, jint ucommand, jlong dwdata) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data_htmlhelp_WindowsWin32DataHtmlhelpJniBridge_windowssys_1windows_1win32_1data_1htmlhelp_1htmlHelpW(JNIEnv* km_env, jclass km_clazz, jlong hwndcaller, jlong pszfile, jint ucommand, jlong dwdata) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

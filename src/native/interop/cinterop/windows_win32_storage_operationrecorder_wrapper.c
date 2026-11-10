@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_storage_operationrecorder_OperationEnd(void* operationendparams) {
+int32_t windowssys_windows_win32_storage_operationrecorder_operationEnd(void* operationendparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -37,7 +37,7 @@ int32_t windowssys_windows_win32_storage_operationrecorder_OperationEnd(void* op
 #endif
 }
 
-int32_t windowssys_windows_win32_storage_operationrecorder_OperationStart(void* operationstartparams) {
+int32_t windowssys_windows_win32_storage_operationrecorder_operationStart(void* operationstartparams) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;

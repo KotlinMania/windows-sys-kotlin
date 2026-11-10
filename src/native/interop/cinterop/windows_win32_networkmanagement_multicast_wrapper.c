@@ -15,7 +15,7 @@
 #endif
 #endif
 
-void windowssys_windows_win32_networkmanagement_multicast_McastApiCleanup(void) {
+void windowssys_windows_win32_networkmanagement_multicast_mcastApiCleanup(void) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -35,7 +35,7 @@ void windowssys_windows_win32_networkmanagement_multicast_McastApiCleanup(void) 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_multicast_McastApiStartup(void* version) {
+uint32_t windowssys_windows_win32_networkmanagement_multicast_mcastApiStartup(void* version) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -57,7 +57,7 @@ uint32_t windowssys_windows_win32_networkmanagement_multicast_McastApiStartup(vo
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_multicast_McastEnumerateScopes(uint16_t addrfamily, int32_t requery, void* pscopelist, void* pscopelen, void* pscopecount) {
+uint32_t windowssys_windows_win32_networkmanagement_multicast_mcastEnumerateScopes(uint16_t addrfamily, int32_t requery, void* pscopelist, void* pscopelen, void* pscopecount) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint16_t, int32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -83,7 +83,7 @@ uint32_t windowssys_windows_win32_networkmanagement_multicast_McastEnumerateScop
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_multicast_McastGenUID(void* prequestid) {
+uint32_t windowssys_windows_win32_networkmanagement_multicast_mcastGenUID(void* prequestid) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -105,7 +105,7 @@ uint32_t windowssys_windows_win32_networkmanagement_multicast_McastGenUID(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_multicast_McastReleaseAddress(uint16_t addrfamily, void* prequestid, void* preleaserequest) {
+uint32_t windowssys_windows_win32_networkmanagement_multicast_mcastReleaseAddress(uint16_t addrfamily, void* prequestid, void* preleaserequest) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint16_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -129,7 +129,7 @@ uint32_t windowssys_windows_win32_networkmanagement_multicast_McastReleaseAddres
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_multicast_McastRenewAddress(uint16_t addrfamily, void* prequestid, void* prenewrequest, void* prenewresponse) {
+uint32_t windowssys_windows_win32_networkmanagement_multicast_mcastRenewAddress(uint16_t addrfamily, void* prequestid, void* prenewrequest, void* prenewresponse) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint16_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -154,7 +154,7 @@ uint32_t windowssys_windows_win32_networkmanagement_multicast_McastRenewAddress(
 #endif
 }
 
-uint32_t windowssys_windows_win32_networkmanagement_multicast_McastRequestAddress(uint16_t addrfamily, void* prequestid, void* pscopectx, void* paddrrequest, void* paddrresponse) {
+uint32_t windowssys_windows_win32_networkmanagement_multicast_mcastRequestAddress(uint16_t addrfamily, void* prequestid, void* pscopectx, void* paddrrequest, void* paddrresponse) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint16_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

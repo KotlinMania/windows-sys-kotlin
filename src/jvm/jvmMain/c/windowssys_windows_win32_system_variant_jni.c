@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1ClearVariantArray(JNIEnv* km_env, jclass km_clazz, jlong pvars, jint cvars) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1clearVariantArray(JNIEnv* km_env, jclass km_clazz, jlong pvars, jint cvars) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -35,7 +35,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1DosDateTimeToVariantTime(JNIEnv* km_env, jclass km_clazz, jshort wdosdate, jshort wdostime, jlong pvtime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1dosDateTimeToVariantTime(JNIEnv* km_env, jclass km_clazz, jshort wdosdate, jshort wdostime, jlong pvtime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -55,7 +55,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1InitVariantFromBooleanArray(JNIEnv* km_env, jclass km_clazz, jlong prgf, jint celems, jlong pvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1initVariantFromBooleanArray(JNIEnv* km_env, jclass km_clazz, jlong prgf, jint celems, jlong pvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -75,7 +75,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1InitVariantFromBuffer(JNIEnv* km_env, jclass km_clazz, jlong pv, jint cb, jlong pvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1initVariantFromBuffer(JNIEnv* km_env, jclass km_clazz, jlong pv, jint cb, jlong pvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -95,7 +95,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1InitVariantFromDoubleArray(JNIEnv* km_env, jclass km_clazz, jlong prgn, jint celems, jlong pvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1initVariantFromDoubleArray(JNIEnv* km_env, jclass km_clazz, jlong prgn, jint celems, jlong pvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -115,7 +115,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1InitVariantFromFileTime(JNIEnv* km_env, jclass km_clazz, jlong pft, jlong pvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1initVariantFromFileTime(JNIEnv* km_env, jclass km_clazz, jlong pft, jlong pvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -134,7 +134,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1InitVariantFromFileTimeArray(JNIEnv* km_env, jclass km_clazz, jlong prgft, jint celems, jlong pvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1initVariantFromFileTimeArray(JNIEnv* km_env, jclass km_clazz, jlong prgft, jint celems, jlong pvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -154,7 +154,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1InitVariantFromGUIDAsString(JNIEnv* km_env, jclass km_clazz, jlong guid, jlong pvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1initVariantFromGUIDAsString(JNIEnv* km_env, jclass km_clazz, jlong guid, jlong pvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -173,7 +173,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1InitVariantFromInt16Array(JNIEnv* km_env, jclass km_clazz, jlong prgn, jint celems, jlong pvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1initVariantFromInt16Array(JNIEnv* km_env, jclass km_clazz, jlong prgn, jint celems, jlong pvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -193,7 +193,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1InitVariantFromInt32Array(JNIEnv* km_env, jclass km_clazz, jlong prgn, jint celems, jlong pvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1initVariantFromInt32Array(JNIEnv* km_env, jclass km_clazz, jlong prgn, jint celems, jlong pvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -213,7 +213,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1InitVariantFromInt64Array(JNIEnv* km_env, jclass km_clazz, jlong prgn, jint celems, jlong pvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1initVariantFromInt64Array(JNIEnv* km_env, jclass km_clazz, jlong prgn, jint celems, jlong pvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -233,7 +233,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1InitVariantFromResource(JNIEnv* km_env, jclass km_clazz, jlong hinst, jint id, jlong pvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1initVariantFromResource(JNIEnv* km_env, jclass km_clazz, jlong hinst, jint id, jlong pvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -253,7 +253,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1InitVariantFromStringArray(JNIEnv* km_env, jclass km_clazz, jlong prgsz, jint celems, jlong pvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1initVariantFromStringArray(JNIEnv* km_env, jclass km_clazz, jlong prgsz, jint celems, jlong pvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -273,7 +273,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1InitVariantFromUInt16Array(JNIEnv* km_env, jclass km_clazz, jlong prgn, jint celems, jlong pvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1initVariantFromUInt16Array(JNIEnv* km_env, jclass km_clazz, jlong prgn, jint celems, jlong pvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -293,7 +293,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1InitVariantFromUInt32Array(JNIEnv* km_env, jclass km_clazz, jlong prgn, jint celems, jlong pvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1initVariantFromUInt32Array(JNIEnv* km_env, jclass km_clazz, jlong prgn, jint celems, jlong pvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -313,7 +313,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1InitVariantFromUInt64Array(JNIEnv* km_env, jclass km_clazz, jlong prgn, jint celems, jlong pvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1initVariantFromUInt64Array(JNIEnv* km_env, jclass km_clazz, jlong prgn, jint celems, jlong pvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -333,7 +333,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1InitVariantFromVariantArrayElem(JNIEnv* km_env, jclass km_clazz, jlong varin, jint ielem, jlong pvar) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1initVariantFromVariantArrayElem(JNIEnv* km_env, jclass km_clazz, jlong varin, jint ielem, jlong pvar) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -353,7 +353,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1SystemTimeToVariantTime(JNIEnv* km_env, jclass km_clazz, jlong lpsystemtime, jlong pvtime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1systemTimeToVariantTime(JNIEnv* km_env, jclass km_clazz, jlong lpsystemtime, jlong pvtime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -372,7 +372,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VARIANT_1UserFree(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantUserFree(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -389,7 +389,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VARIANT_1UserFree64(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantUserFree64(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -406,7 +406,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VARIANT_1UserMarshal(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1, jlong param2) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantUserMarshal(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1, jlong param2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -426,7 +426,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VARIANT_1UserMarshal64(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1, jlong param2) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantUserMarshal64(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1, jlong param2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -446,7 +446,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VARIANT_1UserSize(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1, jlong param2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantUserSize(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1, jlong param2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -466,7 +466,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VARIANT_1UserSize64(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1, jlong param2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantUserSize64(JNIEnv* km_env, jclass km_clazz, jlong param0, jint param1, jlong param2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -486,7 +486,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VARIANT_1UserUnmarshal(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1, jlong param2) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantUserUnmarshal(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1, jlong param2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -506,7 +506,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VARIANT_1UserUnmarshal64(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1, jlong param2) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantUserUnmarshal64(JNIEnv* km_env, jclass km_clazz, jlong param0, jlong param1, jlong param2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -526,7 +526,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantChangeType(JNIEnv* km_env, jclass km_clazz, jlong pvargdest, jlong pvarsrc, jshort wflags, jshort vt) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantChangeType(JNIEnv* km_env, jclass km_clazz, jlong pvargdest, jlong pvarsrc, jshort wflags, jshort vt) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -547,7 +547,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantChangeTypeEx(JNIEnv* km_env, jclass km_clazz, jlong pvargdest, jlong pvarsrc, jint lcid, jshort wflags, jshort vt) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantChangeTypeEx(JNIEnv* km_env, jclass km_clazz, jlong pvargdest, jlong pvarsrc, jint lcid, jshort wflags, jshort vt) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -569,7 +569,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantClear(JNIEnv* km_env, jclass km_clazz, jlong pvarg) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantClear(JNIEnv* km_env, jclass km_clazz, jlong pvarg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -587,7 +587,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantCompare(JNIEnv* km_env, jclass km_clazz, jlong var1, jlong var2) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantCompare(JNIEnv* km_env, jclass km_clazz, jlong var1, jlong var2) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -606,7 +606,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantCopy(JNIEnv* km_env, jclass km_clazz, jlong pvargdest, jlong pvargsrc) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantCopy(JNIEnv* km_env, jclass km_clazz, jlong pvargdest, jlong pvargsrc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -625,7 +625,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantCopyInd(JNIEnv* km_env, jclass km_clazz, jlong pvardest, jlong pvargsrc) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantCopyInd(JNIEnv* km_env, jclass km_clazz, jlong pvardest, jlong pvargsrc) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -644,7 +644,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantGetBooleanElem(JNIEnv* km_env, jclass km_clazz, jlong var, jint ielem, jlong pfval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantGetBooleanElem(JNIEnv* km_env, jclass km_clazz, jlong var, jint ielem, jlong pfval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -664,7 +664,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantGetDoubleElem(JNIEnv* km_env, jclass km_clazz, jlong var, jint ielem, jlong pnval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantGetDoubleElem(JNIEnv* km_env, jclass km_clazz, jlong var, jint ielem, jlong pnval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -684,7 +684,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantGetElementCount(JNIEnv* km_env, jclass km_clazz, jlong varin) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantGetElementCount(JNIEnv* km_env, jclass km_clazz, jlong varin) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -702,7 +702,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantGetInt16Elem(JNIEnv* km_env, jclass km_clazz, jlong var, jint ielem, jlong pnval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantGetInt16Elem(JNIEnv* km_env, jclass km_clazz, jlong var, jint ielem, jlong pnval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -722,7 +722,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantGetInt32Elem(JNIEnv* km_env, jclass km_clazz, jlong var, jint ielem, jlong pnval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantGetInt32Elem(JNIEnv* km_env, jclass km_clazz, jlong var, jint ielem, jlong pnval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -742,7 +742,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantGetInt64Elem(JNIEnv* km_env, jclass km_clazz, jlong var, jint ielem, jlong pnval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantGetInt64Elem(JNIEnv* km_env, jclass km_clazz, jlong var, jint ielem, jlong pnval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -762,7 +762,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantGetStringElem(JNIEnv* km_env, jclass km_clazz, jlong var, jint ielem, jlong ppszval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantGetStringElem(JNIEnv* km_env, jclass km_clazz, jlong var, jint ielem, jlong ppszval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -782,7 +782,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantGetUInt16Elem(JNIEnv* km_env, jclass km_clazz, jlong var, jint ielem, jlong pnval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantGetUInt16Elem(JNIEnv* km_env, jclass km_clazz, jlong var, jint ielem, jlong pnval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -802,7 +802,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantGetUInt32Elem(JNIEnv* km_env, jclass km_clazz, jlong var, jint ielem, jlong pnval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantGetUInt32Elem(JNIEnv* km_env, jclass km_clazz, jlong var, jint ielem, jlong pnval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -822,7 +822,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantGetUInt64Elem(JNIEnv* km_env, jclass km_clazz, jlong var, jint ielem, jlong pnval) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantGetUInt64Elem(JNIEnv* km_env, jclass km_clazz, jlong var, jint ielem, jlong pnval) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -842,7 +842,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantInit(JNIEnv* km_env, jclass km_clazz, jlong pvarg) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantInit(JNIEnv* km_env, jclass km_clazz, jlong pvarg) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -858,7 +858,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantTimeToDosDateTime(JNIEnv* km_env, jclass km_clazz, jdouble vtime, jlong pwdosdate, jlong pwdostime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantTimeToDosDateTime(JNIEnv* km_env, jclass km_clazz, jdouble vtime, jlong pwdosdate, jlong pwdostime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -878,7 +878,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantTimeToSystemTime(JNIEnv* km_env, jclass km_clazz, jdouble vtime, jlong lpsystemtime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantTimeToSystemTime(JNIEnv* km_env, jclass km_clazz, jdouble vtime, jlong lpsystemtime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -897,7 +897,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToBoolean(JNIEnv* km_env, jclass km_clazz, jlong varin, jlong pfret) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToBoolean(JNIEnv* km_env, jclass km_clazz, jlong varin, jlong pfret) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -916,7 +916,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToBooleanArray(JNIEnv* km_env, jclass km_clazz, jlong var, jlong prgf, jint crgn, jlong pcelem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToBooleanArray(JNIEnv* km_env, jclass km_clazz, jlong var, jlong prgf, jint crgn, jlong pcelem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -937,7 +937,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToBooleanArrayAlloc(JNIEnv* km_env, jclass km_clazz, jlong var, jlong pprgf, jlong pcelem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToBooleanArrayAlloc(JNIEnv* km_env, jclass km_clazz, jlong var, jlong pprgf, jlong pcelem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -957,7 +957,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToBooleanWithDefault(JNIEnv* km_env, jclass km_clazz, jlong varin, jint fdefault) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToBooleanWithDefault(JNIEnv* km_env, jclass km_clazz, jlong varin, jint fdefault) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -976,7 +976,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToBuffer(JNIEnv* km_env, jclass km_clazz, jlong varin, jlong pv, jint cb) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToBuffer(JNIEnv* km_env, jclass km_clazz, jlong varin, jlong pv, jint cb) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -996,7 +996,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToDosDateTime(JNIEnv* km_env, jclass km_clazz, jlong varin, jlong pwdate, jlong pwtime) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToDosDateTime(JNIEnv* km_env, jclass km_clazz, jlong varin, jlong pwdate, jlong pwtime) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1016,7 +1016,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToDouble(JNIEnv* km_env, jclass km_clazz, jlong varin, jlong pdblret) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToDouble(JNIEnv* km_env, jclass km_clazz, jlong varin, jlong pdblret) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1035,7 +1035,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToDoubleArray(JNIEnv* km_env, jclass km_clazz, jlong var, jlong prgn, jint crgn, jlong pcelem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToDoubleArray(JNIEnv* km_env, jclass km_clazz, jlong var, jlong prgn, jint crgn, jlong pcelem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1056,7 +1056,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToDoubleArrayAlloc(JNIEnv* km_env, jclass km_clazz, jlong var, jlong pprgn, jlong pcelem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToDoubleArrayAlloc(JNIEnv* km_env, jclass km_clazz, jlong var, jlong pprgn, jlong pcelem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1076,7 +1076,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jdouble JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToDoubleWithDefault(JNIEnv* km_env, jclass km_clazz, jlong varin, jdouble dbldefault) {
+JNIEXPORT jdouble JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToDoubleWithDefault(JNIEnv* km_env, jclass km_clazz, jlong varin, jdouble dbldefault) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1095,7 +1095,7 @@ JNIEXPORT jdouble JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sy
     return (jdouble)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToFileTime(JNIEnv* km_env, jclass km_clazz, jlong varin, jint stfout, jlong pftout) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToFileTime(JNIEnv* km_env, jclass km_clazz, jlong varin, jint stfout, jlong pftout) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1115,7 +1115,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToGUID(JNIEnv* km_env, jclass km_clazz, jlong varin, jlong pguid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToGUID(JNIEnv* km_env, jclass km_clazz, jlong varin, jlong pguid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1134,7 +1134,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToInt16(JNIEnv* km_env, jclass km_clazz, jlong varin, jlong piret) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToInt16(JNIEnv* km_env, jclass km_clazz, jlong varin, jlong piret) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1153,7 +1153,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToInt16Array(JNIEnv* km_env, jclass km_clazz, jlong var, jlong prgn, jint crgn, jlong pcelem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToInt16Array(JNIEnv* km_env, jclass km_clazz, jlong var, jlong prgn, jint crgn, jlong pcelem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1174,7 +1174,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToInt16ArrayAlloc(JNIEnv* km_env, jclass km_clazz, jlong var, jlong pprgn, jlong pcelem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToInt16ArrayAlloc(JNIEnv* km_env, jclass km_clazz, jlong var, jlong pprgn, jlong pcelem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1194,7 +1194,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToInt16WithDefault(JNIEnv* km_env, jclass km_clazz, jlong varin, jshort idefault) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToInt16WithDefault(JNIEnv* km_env, jclass km_clazz, jlong varin, jshort idefault) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1213,7 +1213,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToInt32(JNIEnv* km_env, jclass km_clazz, jlong varin, jlong plret) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToInt32(JNIEnv* km_env, jclass km_clazz, jlong varin, jlong plret) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1232,7 +1232,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToInt32Array(JNIEnv* km_env, jclass km_clazz, jlong var, jlong prgn, jint crgn, jlong pcelem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToInt32Array(JNIEnv* km_env, jclass km_clazz, jlong var, jlong prgn, jint crgn, jlong pcelem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1253,7 +1253,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToInt32ArrayAlloc(JNIEnv* km_env, jclass km_clazz, jlong var, jlong pprgn, jlong pcelem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToInt32ArrayAlloc(JNIEnv* km_env, jclass km_clazz, jlong var, jlong pprgn, jlong pcelem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1273,7 +1273,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToInt32WithDefault(JNIEnv* km_env, jclass km_clazz, jlong varin, jint ldefault) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToInt32WithDefault(JNIEnv* km_env, jclass km_clazz, jlong varin, jint ldefault) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1292,7 +1292,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToInt64(JNIEnv* km_env, jclass km_clazz, jlong varin, jlong pllret) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToInt64(JNIEnv* km_env, jclass km_clazz, jlong varin, jlong pllret) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1311,7 +1311,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToInt64Array(JNIEnv* km_env, jclass km_clazz, jlong var, jlong prgn, jint crgn, jlong pcelem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToInt64Array(JNIEnv* km_env, jclass km_clazz, jlong var, jlong prgn, jint crgn, jlong pcelem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1332,7 +1332,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToInt64ArrayAlloc(JNIEnv* km_env, jclass km_clazz, jlong var, jlong pprgn, jlong pcelem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToInt64ArrayAlloc(JNIEnv* km_env, jclass km_clazz, jlong var, jlong pprgn, jlong pcelem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1352,7 +1352,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToInt64WithDefault(JNIEnv* km_env, jclass km_clazz, jlong varin, jlong lldefault) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToInt64WithDefault(JNIEnv* km_env, jclass km_clazz, jlong varin, jlong lldefault) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1371,7 +1371,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToString(JNIEnv* km_env, jclass km_clazz, jlong varin, jlong pszbuf, jint cchbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToString(JNIEnv* km_env, jclass km_clazz, jlong varin, jlong pszbuf, jint cchbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1391,7 +1391,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToStringAlloc(JNIEnv* km_env, jclass km_clazz, jlong varin, jlong ppszbuf) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToStringAlloc(JNIEnv* km_env, jclass km_clazz, jlong varin, jlong ppszbuf) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1410,7 +1410,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToStringArray(JNIEnv* km_env, jclass km_clazz, jlong var, jlong prgsz, jint crgsz, jlong pcelem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToStringArray(JNIEnv* km_env, jclass km_clazz, jlong var, jlong prgsz, jint crgsz, jlong pcelem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1431,7 +1431,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToStringArrayAlloc(JNIEnv* km_env, jclass km_clazz, jlong var, jlong pprgsz, jlong pcelem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToStringArrayAlloc(JNIEnv* km_env, jclass km_clazz, jlong var, jlong pprgsz, jlong pcelem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1451,7 +1451,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToStringWithDefault(JNIEnv* km_env, jclass km_clazz, jlong varin, jlong pszdefault) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToStringWithDefault(JNIEnv* km_env, jclass km_clazz, jlong varin, jlong pszdefault) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1470,7 +1470,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToUInt16(JNIEnv* km_env, jclass km_clazz, jlong varin, jlong puiret) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToUInt16(JNIEnv* km_env, jclass km_clazz, jlong varin, jlong puiret) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1489,7 +1489,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToUInt16Array(JNIEnv* km_env, jclass km_clazz, jlong var, jlong prgn, jint crgn, jlong pcelem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToUInt16Array(JNIEnv* km_env, jclass km_clazz, jlong var, jlong prgn, jint crgn, jlong pcelem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1510,7 +1510,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToUInt16ArrayAlloc(JNIEnv* km_env, jclass km_clazz, jlong var, jlong pprgn, jlong pcelem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToUInt16ArrayAlloc(JNIEnv* km_env, jclass km_clazz, jlong var, jlong pprgn, jlong pcelem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1530,7 +1530,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToUInt16WithDefault(JNIEnv* km_env, jclass km_clazz, jlong varin, jshort uidefault) {
+JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToUInt16WithDefault(JNIEnv* km_env, jclass km_clazz, jlong varin, jshort uidefault) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1549,7 +1549,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     return (jshort)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToUInt32(JNIEnv* km_env, jclass km_clazz, jlong varin, jlong pulret) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToUInt32(JNIEnv* km_env, jclass km_clazz, jlong varin, jlong pulret) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1568,7 +1568,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToUInt32Array(JNIEnv* km_env, jclass km_clazz, jlong var, jlong prgn, jint crgn, jlong pcelem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToUInt32Array(JNIEnv* km_env, jclass km_clazz, jlong var, jlong prgn, jint crgn, jlong pcelem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1589,7 +1589,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToUInt32ArrayAlloc(JNIEnv* km_env, jclass km_clazz, jlong var, jlong pprgn, jlong pcelem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToUInt32ArrayAlloc(JNIEnv* km_env, jclass km_clazz, jlong var, jlong pprgn, jlong pcelem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1609,7 +1609,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToUInt32WithDefault(JNIEnv* km_env, jclass km_clazz, jlong varin, jint uldefault) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToUInt32WithDefault(JNIEnv* km_env, jclass km_clazz, jlong varin, jint uldefault) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1628,7 +1628,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToUInt64(JNIEnv* km_env, jclass km_clazz, jlong varin, jlong pullret) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToUInt64(JNIEnv* km_env, jclass km_clazz, jlong varin, jlong pullret) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1647,7 +1647,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToUInt64Array(JNIEnv* km_env, jclass km_clazz, jlong var, jlong prgn, jint crgn, jlong pcelem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToUInt64Array(JNIEnv* km_env, jclass km_clazz, jlong var, jlong prgn, jint crgn, jlong pcelem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1668,7 +1668,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToUInt64ArrayAlloc(JNIEnv* km_env, jclass km_clazz, jlong var, jlong pprgn, jlong pcelem) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToUInt64ArrayAlloc(JNIEnv* km_env, jclass km_clazz, jlong var, jlong pprgn, jlong pcelem) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -1688,7 +1688,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1VariantToUInt64WithDefault(JNIEnv* km_env, jclass km_clazz, jlong varin, jlong ulldefault) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_variant_WindowsWin32SystemVariantJniBridge_windowssys_1windows_1win32_1system_1variant_1variantToUInt64WithDefault(JNIEnv* km_env, jclass km_clazz, jlong varin, jlong ulldefault) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

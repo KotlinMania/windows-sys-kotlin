@@ -2,19 +2,20 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.storage.offlinefiles
 
-import io.github.kotlinmania.windowssys.core.BOOL
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
 
 private val _windowsWin32StorageOfflinefilesNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun OfflineFilesEnable(benable: BOOL, pbrebootrequired: Long): UInt =
-    if (_windowsWin32StorageOfflinefilesNapiAddon != null) (_windowsWin32StorageOfflinefilesNapiAddon.windowssys_windows_win32_storage_offlinefiles_OfflineFilesEnable(benable, pbrebootrequired.toString()) as Int).toUInt() else 0u
+public actual fun offlineFilesEnable(benable: Bool, pbrebootrequired: COpaquePointer?): UInt =
+    if (_windowsWin32StorageOfflinefilesNapiAddon != null) (_windowsWin32StorageOfflinefilesNapiAddon.windowssys_windows_win32_storage_offlinefiles_offlineFilesEnable(benable, (pbrebootrequired?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OfflineFilesQueryStatus(pbactive: Long, pbenabled: Long): UInt =
-    if (_windowsWin32StorageOfflinefilesNapiAddon != null) (_windowsWin32StorageOfflinefilesNapiAddon.windowssys_windows_win32_storage_offlinefiles_OfflineFilesQueryStatus(pbactive.toString(), pbenabled.toString()) as Int).toUInt() else 0u
+public actual fun offlineFilesQueryStatus(pbactive: COpaquePointer?, pbenabled: COpaquePointer?): UInt =
+    if (_windowsWin32StorageOfflinefilesNapiAddon != null) (_windowsWin32StorageOfflinefilesNapiAddon.windowssys_windows_win32_storage_offlinefiles_offlineFilesQueryStatus((pbactive?.value ?: 0L).toString(), (pbenabled?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OfflineFilesQueryStatusEx(pbactive: Long, pbenabled: Long, pbavailable: Long): UInt =
-    if (_windowsWin32StorageOfflinefilesNapiAddon != null) (_windowsWin32StorageOfflinefilesNapiAddon.windowssys_windows_win32_storage_offlinefiles_OfflineFilesQueryStatusEx(pbactive.toString(), pbenabled.toString(), pbavailable.toString()) as Int).toUInt() else 0u
+public actual fun offlineFilesQueryStatusEx(pbactive: COpaquePointer?, pbenabled: COpaquePointer?, pbavailable: COpaquePointer?): UInt =
+    if (_windowsWin32StorageOfflinefilesNapiAddon != null) (_windowsWin32StorageOfflinefilesNapiAddon.windowssys_windows_win32_storage_offlinefiles_offlineFilesQueryStatusEx((pbactive?.value ?: 0L).toString(), (pbenabled?.value ?: 0L).toString(), (pbavailable?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OfflineFilesStart(): UInt =
-    if (_windowsWin32StorageOfflinefilesNapiAddon != null) (_windowsWin32StorageOfflinefilesNapiAddon.windowssys_windows_win32_storage_offlinefiles_OfflineFilesStart() as Int).toUInt() else 0u
+public actual fun offlineFilesStart(): UInt =
+    if (_windowsWin32StorageOfflinefilesNapiAddon != null) (_windowsWin32StorageOfflinefilesNapiAddon.windowssys_windows_win32_storage_offlinefiles_offlineFilesStart() as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")

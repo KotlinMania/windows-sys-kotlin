@@ -1,67 +1,67 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.input
 
-public val IMDT_KEYBOARD: INPUT_MESSAGE_DEVICE_TYPE = 1
+public val IMDT_KEYBOARD: InputMessageDeviceType = 1
 
-public val IMDT_MOUSE: INPUT_MESSAGE_DEVICE_TYPE = 2
+public val IMDT_MOUSE: InputMessageDeviceType = 2
 
-public val IMDT_PEN: INPUT_MESSAGE_DEVICE_TYPE = 8
+public val IMDT_PEN: InputMessageDeviceType = 8
 
-public val IMDT_TOUCH: INPUT_MESSAGE_DEVICE_TYPE = 4
+public val IMDT_TOUCH: InputMessageDeviceType = 4
 
-public val IMDT_TOUCHPAD: INPUT_MESSAGE_DEVICE_TYPE = 16
+public val IMDT_TOUCHPAD: InputMessageDeviceType = 16
 
-public val IMDT_UNAVAILABLE: INPUT_MESSAGE_DEVICE_TYPE = 0
+public val IMDT_UNAVAILABLE: InputMessageDeviceType = 0
 
-public val IMO_HARDWARE: INPUT_MESSAGE_ORIGIN_ID = 1
+public val IMO_HARDWARE: InputMessageOriginId = 1
 
-public val IMO_INJECTED: INPUT_MESSAGE_ORIGIN_ID = 2
+public val IMO_INJECTED: InputMessageOriginId = 2
 
-public val IMO_SYSTEM: INPUT_MESSAGE_ORIGIN_ID = 4
+public val IMO_SYSTEM: InputMessageOriginId = 4
 
-public val IMO_UNAVAILABLE: INPUT_MESSAGE_ORIGIN_ID = 0
+public val IMO_UNAVAILABLE: InputMessageOriginId = 0
 
-public val MOUSE_ATTRIBUTES_CHANGED: MOUSE_STATE = 4u
+public val MOUSE_ATTRIBUTES_CHANGED: MouseState = 4u.toUShort()
 
-public val MOUSE_MOVE_ABSOLUTE: MOUSE_STATE = 1u
+public val MOUSE_MOVE_ABSOLUTE: MouseState = 1u.toUShort()
 
-public val MOUSE_MOVE_NOCOALESCE: MOUSE_STATE = 8u
+public val MOUSE_MOVE_NOCOALESCE: MouseState = 8u.toUShort()
 
-public val MOUSE_MOVE_RELATIVE: MOUSE_STATE = 0u
+public val MOUSE_MOVE_RELATIVE: MouseState = 0u.toUShort()
 
-public val MOUSE_VIRTUAL_DESKTOP: MOUSE_STATE = 2u
+public val MOUSE_VIRTUAL_DESKTOP: MouseState = 2u.toUShort()
 
-public val RIDEV_APPKEYS: RAWINPUTDEVICE_FLAGS = 1024u
+public val RIDEV_APPKEYS: RawinputdeviceFlags = 1024u
 
-public val RIDEV_CAPTUREMOUSE: RAWINPUTDEVICE_FLAGS = 512u
+public val RIDEV_CAPTUREMOUSE: RawinputdeviceFlags = 512u
 
-public val RIDEV_DEVNOTIFY: RAWINPUTDEVICE_FLAGS = 8192u
+public val RIDEV_DEVNOTIFY: RawinputdeviceFlags = 8192u
 
-public val RIDEV_EXCLUDE: RAWINPUTDEVICE_FLAGS = 16u
+public val RIDEV_EXCLUDE: RawinputdeviceFlags = 16u
 
-public val RIDEV_EXINPUTSINK: RAWINPUTDEVICE_FLAGS = 4096u
+public val RIDEV_EXINPUTSINK: RawinputdeviceFlags = 4096u
 
-public val RIDEV_INPUTSINK: RAWINPUTDEVICE_FLAGS = 256u
+public val RIDEV_INPUTSINK: RawinputdeviceFlags = 256u
 
-public val RIDEV_NOHOTKEYS: RAWINPUTDEVICE_FLAGS = 512u
+public val RIDEV_NOHOTKEYS: RawinputdeviceFlags = 512u
 
-public val RIDEV_NOLEGACY: RAWINPUTDEVICE_FLAGS = 48u
+public val RIDEV_NOLEGACY: RawinputdeviceFlags = 48u
 
-public val RIDEV_PAGEONLY: RAWINPUTDEVICE_FLAGS = 32u
+public val RIDEV_PAGEONLY: RawinputdeviceFlags = 32u
 
-public val RIDEV_REMOVE: RAWINPUTDEVICE_FLAGS = 1u
+public val RIDEV_REMOVE: RawinputdeviceFlags = 1u
 
-public val RIDI_DEVICEINFO: RAW_INPUT_DEVICE_INFO_COMMAND = 536870923u
+public val RIDI_DEVICEINFO: RawInputDeviceInfoCommand = 536870923u
 
-public val RIDI_DEVICENAME: RAW_INPUT_DEVICE_INFO_COMMAND = 536870919u
+public val RIDI_DEVICENAME: RawInputDeviceInfoCommand = 536870919u
 
-public val RIDI_PREPARSEDDATA: RAW_INPUT_DEVICE_INFO_COMMAND = 536870917u
+public val RIDI_PREPARSEDDATA: RawInputDeviceInfoCommand = 536870917u
 
-public val RID_HEADER: RAW_INPUT_DATA_COMMAND_FLAGS = 268435461u
+public val RID_HEADER: RawInputDataCommandFlags = 268435461u
 
-public val RID_INPUT: RAW_INPUT_DATA_COMMAND_FLAGS = 268435459u
+public val RID_INPUT: RawInputDataCommandFlags = 268435459u
 
-public val RIM_TYPEHID: RID_DEVICE_INFO_TYPE = 2u
+public val RIM_TYPEHID: RidDeviceInfoType = 2u
 
-public val RIM_TYPEKEYBOARD: RID_DEVICE_INFO_TYPE = 1u
+public val RIM_TYPEKEYBOARD: RidDeviceInfoType = 1u
 
-public val RIM_TYPEMOUSE: RID_DEVICE_INFO_TYPE = 0u
+public val RIM_TYPEMOUSE: RidDeviceInfoType = 0u

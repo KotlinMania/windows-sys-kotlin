@@ -15,7 +15,7 @@
 #endif
 #endif
 
-void* windowssys_windows_win32_ui_input_keyboardandmouse_ActivateKeyboardLayout(void* hkl, uint32_t flags) {
+void* windowssys_windows_win32_ui_input_keyboardandmouse_activateKeyboardLayout(void* hkl, uint32_t flags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -38,7 +38,7 @@ void* windowssys_windows_win32_ui_input_keyboardandmouse_ActivateKeyboardLayout(
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_keyboardandmouse_BlockInput(int32_t fblockit) {
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_blockInput(int32_t fblockit) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -60,7 +60,7 @@ int32_t windowssys_windows_win32_ui_input_keyboardandmouse_BlockInput(int32_t fb
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_keyboardandmouse_EnableWindow(void* hwnd, int32_t benable) {
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_enableWindow(void* hwnd, int32_t benable) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -83,7 +83,7 @@ int32_t windowssys_windows_win32_ui_input_keyboardandmouse_EnableWindow(void* hw
 #endif
 }
 
-void* windowssys_windows_win32_ui_input_keyboardandmouse_GetActiveWindow(void) {
+void* windowssys_windows_win32_ui_input_keyboardandmouse_getActiveWindow(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -104,7 +104,7 @@ void* windowssys_windows_win32_ui_input_keyboardandmouse_GetActiveWindow(void) {
 #endif
 }
 
-int16_t windowssys_windows_win32_ui_input_keyboardandmouse_GetAsyncKeyState(int32_t vkey) {
+int16_t windowssys_windows_win32_ui_input_keyboardandmouse_getAsyncKeyState(int32_t vkey) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -126,7 +126,7 @@ int16_t windowssys_windows_win32_ui_input_keyboardandmouse_GetAsyncKeyState(int3
 #endif
 }
 
-void* windowssys_windows_win32_ui_input_keyboardandmouse_GetCapture(void) {
+void* windowssys_windows_win32_ui_input_keyboardandmouse_getCapture(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -147,7 +147,7 @@ void* windowssys_windows_win32_ui_input_keyboardandmouse_GetCapture(void) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_keyboardandmouse_GetDoubleClickTime(void) {
+uint32_t windowssys_windows_win32_ui_input_keyboardandmouse_getDoubleClickTime(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -168,7 +168,7 @@ uint32_t windowssys_windows_win32_ui_input_keyboardandmouse_GetDoubleClickTime(v
 #endif
 }
 
-void* windowssys_windows_win32_ui_input_keyboardandmouse_GetFocus(void) {
+void* windowssys_windows_win32_ui_input_keyboardandmouse_getFocus(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -189,7 +189,7 @@ void* windowssys_windows_win32_ui_input_keyboardandmouse_GetFocus(void) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_keyboardandmouse_GetKBCodePage(void) {
+uint32_t windowssys_windows_win32_ui_input_keyboardandmouse_getKBCodePage(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -210,7 +210,7 @@ uint32_t windowssys_windows_win32_ui_input_keyboardandmouse_GetKBCodePage(void) 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyNameTextA(int32_t lparam, void* lpstring, int32_t cchsize) {
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_getKeyNameTextA(int32_t lparam, void* lpstring, int32_t cchsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -234,7 +234,7 @@ int32_t windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyNameTextA(int32
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyNameTextW(int32_t lparam, void* lpstring, int32_t cchsize) {
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_getKeyNameTextW(int32_t lparam, void* lpstring, int32_t cchsize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -258,7 +258,7 @@ int32_t windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyNameTextW(int32
 #endif
 }
 
-int16_t windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyState(int32_t nvirtkey) {
+int16_t windowssys_windows_win32_ui_input_keyboardandmouse_getKeyState(int32_t nvirtkey) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -280,7 +280,7 @@ int16_t windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyState(int32_t n
 #endif
 }
 
-void* windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardLayout(uint32_t idthread) {
+void* windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardLayout(uint32_t idthread) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -302,7 +302,7 @@ void* windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardLayout(uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardLayoutList(int32_t nbuff, void* lplist) {
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardLayoutList(int32_t nbuff, void* lplist) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -325,7 +325,7 @@ int32_t windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardLayoutList
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardLayoutNameA(void* pwszklid) {
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardLayoutNameA(void* pwszklid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -347,7 +347,7 @@ int32_t windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardLayoutName
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardLayoutNameW(void* pwszklid) {
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardLayoutNameW(void* pwszklid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -369,7 +369,7 @@ int32_t windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardLayoutName
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardState(void* lpkeystate) {
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardState(void* lpkeystate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -391,7 +391,7 @@ int32_t windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardState(void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardType(int32_t ntypeflag) {
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboardType(int32_t ntypeflag) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -413,7 +413,7 @@ int32_t windowssys_windows_win32_ui_input_keyboardandmouse_GetKeyboardType(int32
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_keyboardandmouse_GetLastInputInfo(void* plii) {
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_getLastInputInfo(void* plii) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -435,7 +435,7 @@ int32_t windowssys_windows_win32_ui_input_keyboardandmouse_GetLastInputInfo(void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_keyboardandmouse_GetMouseMovePointsEx(uint32_t cbsize, void* lppt, void* lpptbuf, int32_t nbufpoints, uint32_t resolution) {
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_getMouseMovePointsEx(uint32_t cbsize, void* lppt, void* lpptbuf, int32_t nbufpoints, uint32_t resolution) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -461,7 +461,7 @@ int32_t windowssys_windows_win32_ui_input_keyboardandmouse_GetMouseMovePointsEx(
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_keyboardandmouse_IsWindowEnabled(void* hwnd) {
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_isWindowEnabled(void* hwnd) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -483,7 +483,7 @@ int32_t windowssys_windows_win32_ui_input_keyboardandmouse_IsWindowEnabled(void*
 #endif
 }
 
-void* windowssys_windows_win32_ui_input_keyboardandmouse_LoadKeyboardLayoutA(void* pwszklid, uint32_t flags) {
+void* windowssys_windows_win32_ui_input_keyboardandmouse_loadKeyboardLayoutA(void* pwszklid, uint32_t flags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -506,7 +506,7 @@ void* windowssys_windows_win32_ui_input_keyboardandmouse_LoadKeyboardLayoutA(voi
 #endif
 }
 
-void* windowssys_windows_win32_ui_input_keyboardandmouse_LoadKeyboardLayoutW(void* pwszklid, uint32_t flags) {
+void* windowssys_windows_win32_ui_input_keyboardandmouse_loadKeyboardLayoutW(void* pwszklid, uint32_t flags) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -529,7 +529,7 @@ void* windowssys_windows_win32_ui_input_keyboardandmouse_LoadKeyboardLayoutW(voi
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtualKeyA(uint32_t ucode, uint32_t umaptype) {
+uint32_t windowssys_windows_win32_ui_input_keyboardandmouse_mapVirtualKeyA(uint32_t ucode, uint32_t umaptype) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -552,7 +552,7 @@ uint32_t windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtualKeyA(uint3
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtualKeyExA(uint32_t ucode, uint32_t umaptype, void* dwhkl) {
+uint32_t windowssys_windows_win32_ui_input_keyboardandmouse_mapVirtualKeyExA(uint32_t ucode, uint32_t umaptype, void* dwhkl) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -576,7 +576,7 @@ uint32_t windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtualKeyExA(uin
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtualKeyExW(uint32_t ucode, uint32_t umaptype, void* dwhkl) {
+uint32_t windowssys_windows_win32_ui_input_keyboardandmouse_mapVirtualKeyExW(uint32_t ucode, uint32_t umaptype, void* dwhkl) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -600,7 +600,7 @@ uint32_t windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtualKeyExW(uin
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtualKeyW(uint32_t ucode, uint32_t umaptype) {
+uint32_t windowssys_windows_win32_ui_input_keyboardandmouse_mapVirtualKeyW(uint32_t ucode, uint32_t umaptype) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -623,7 +623,7 @@ uint32_t windowssys_windows_win32_ui_input_keyboardandmouse_MapVirtualKeyW(uint3
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_keyboardandmouse_OemKeyScan(uint16_t woemchar) {
+uint32_t windowssys_windows_win32_ui_input_keyboardandmouse_oemKeyScan(uint16_t woemchar) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -645,7 +645,7 @@ uint32_t windowssys_windows_win32_ui_input_keyboardandmouse_OemKeyScan(uint16_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_keyboardandmouse_RegisterHotKey(void* hwnd, int32_t id, uint32_t fsmodifiers, uint32_t vk) {
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_registerHotKey(void* hwnd, int32_t id, uint32_t fsmodifiers, uint32_t vk) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -670,7 +670,7 @@ int32_t windowssys_windows_win32_ui_input_keyboardandmouse_RegisterHotKey(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_keyboardandmouse_ReleaseCapture(void) {
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_releaseCapture(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -691,7 +691,7 @@ int32_t windowssys_windows_win32_ui_input_keyboardandmouse_ReleaseCapture(void) 
 #endif
 }
 
-uint32_t windowssys_windows_win32_ui_input_keyboardandmouse_SendInput(uint32_t cinputs, void* pinputs, int32_t cbsize) {
+uint32_t windowssys_windows_win32_ui_input_keyboardandmouse_sendInput(uint32_t cinputs, void* pinputs, int32_t cbsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(uint32_t, void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -715,7 +715,7 @@ uint32_t windowssys_windows_win32_ui_input_keyboardandmouse_SendInput(uint32_t c
 #endif
 }
 
-void* windowssys_windows_win32_ui_input_keyboardandmouse_SetActiveWindow(void* hwnd) {
+void* windowssys_windows_win32_ui_input_keyboardandmouse_setActiveWindow(void* hwnd) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -737,7 +737,7 @@ void* windowssys_windows_win32_ui_input_keyboardandmouse_SetActiveWindow(void* h
 #endif
 }
 
-void* windowssys_windows_win32_ui_input_keyboardandmouse_SetCapture(void* hwnd) {
+void* windowssys_windows_win32_ui_input_keyboardandmouse_setCapture(void* hwnd) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -759,7 +759,7 @@ void* windowssys_windows_win32_ui_input_keyboardandmouse_SetCapture(void* hwnd) 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_keyboardandmouse_SetDoubleClickTime(uint32_t param0) {
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_setDoubleClickTime(uint32_t param0) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -781,7 +781,7 @@ int32_t windowssys_windows_win32_ui_input_keyboardandmouse_SetDoubleClickTime(ui
 #endif
 }
 
-void* windowssys_windows_win32_ui_input_keyboardandmouse_SetFocus(void* hwnd) {
+void* windowssys_windows_win32_ui_input_keyboardandmouse_setFocus(void* hwnd) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -803,7 +803,7 @@ void* windowssys_windows_win32_ui_input_keyboardandmouse_SetFocus(void* hwnd) {
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_keyboardandmouse_SetKeyboardState(void* lpkeystate) {
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_setKeyboardState(void* lpkeystate) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -825,7 +825,7 @@ int32_t windowssys_windows_win32_ui_input_keyboardandmouse_SetKeyboardState(void
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_keyboardandmouse_SwapMouseButton(int32_t fswap) {
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_swapMouseButton(int32_t fswap) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -847,7 +847,7 @@ int32_t windowssys_windows_win32_ui_input_keyboardandmouse_SwapMouseButton(int32
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_keyboardandmouse_ToAscii(uint32_t uvirtkey, uint32_t uscancode, void* lpkeystate, void* lpchar, uint32_t uflags) {
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_toAscii(uint32_t uvirtkey, uint32_t uscancode, void* lpkeystate, void* lpchar, uint32_t uflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -873,7 +873,7 @@ int32_t windowssys_windows_win32_ui_input_keyboardandmouse_ToAscii(uint32_t uvir
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_keyboardandmouse_ToAsciiEx(uint32_t uvirtkey, uint32_t uscancode, void* lpkeystate, void* lpchar, uint32_t uflags, void* dwhkl) {
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_toAsciiEx(uint32_t uvirtkey, uint32_t uscancode, void* lpkeystate, void* lpchar, uint32_t uflags, void* dwhkl) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -900,7 +900,7 @@ int32_t windowssys_windows_win32_ui_input_keyboardandmouse_ToAsciiEx(uint32_t uv
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_keyboardandmouse_ToUnicode(uint32_t wvirtkey, uint32_t wscancode, void* lpkeystate, void* pwszbuff, int32_t cchbuff, uint32_t wflags) {
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_toUnicode(uint32_t wvirtkey, uint32_t wscancode, void* lpkeystate, void* pwszbuff, int32_t cchbuff, uint32_t wflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, int32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -927,7 +927,7 @@ int32_t windowssys_windows_win32_ui_input_keyboardandmouse_ToUnicode(uint32_t wv
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_keyboardandmouse_ToUnicodeEx(uint32_t wvirtkey, uint32_t wscancode, void* lpkeystate, void* pwszbuff, int32_t cchbuff, uint32_t wflags, void* dwhkl) {
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_toUnicodeEx(uint32_t wvirtkey, uint32_t wscancode, void* lpkeystate, void* pwszbuff, int32_t cchbuff, uint32_t wflags, void* dwhkl) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, void*, int32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -955,7 +955,7 @@ int32_t windowssys_windows_win32_ui_input_keyboardandmouse_ToUnicodeEx(uint32_t 
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_keyboardandmouse_TrackMouseEvent(void* lpeventtrack) {
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_trackMouseEvent(void* lpeventtrack) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -977,7 +977,7 @@ int32_t windowssys_windows_win32_ui_input_keyboardandmouse_TrackMouseEvent(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_keyboardandmouse_UnloadKeyboardLayout(void* hkl) {
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_unloadKeyboardLayout(void* hkl) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -999,7 +999,7 @@ int32_t windowssys_windows_win32_ui_input_keyboardandmouse_UnloadKeyboardLayout(
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_keyboardandmouse_UnregisterHotKey(void* hwnd, int32_t id) {
+int32_t windowssys_windows_win32_ui_input_keyboardandmouse_unregisterHotKey(void* hwnd, int32_t id) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1022,7 +1022,7 @@ int32_t windowssys_windows_win32_ui_input_keyboardandmouse_UnregisterHotKey(void
 #endif
 }
 
-int16_t windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanA(int8_t ch) {
+int16_t windowssys_windows_win32_ui_input_keyboardandmouse_vkKeyScanA(int8_t ch) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(int8_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1044,7 +1044,7 @@ int16_t windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanA(int8_t ch)
 #endif
 }
 
-int16_t windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanExA(int8_t ch, void* dwhkl) {
+int16_t windowssys_windows_win32_ui_input_keyboardandmouse_vkKeyScanExA(int8_t ch, void* dwhkl) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(int8_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1067,7 +1067,7 @@ int16_t windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanExA(int8_t c
 #endif
 }
 
-int16_t windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanExW(uint16_t ch, void* dwhkl) {
+int16_t windowssys_windows_win32_ui_input_keyboardandmouse_vkKeyScanExW(uint16_t ch, void* dwhkl) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(uint16_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1090,7 +1090,7 @@ int16_t windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanExW(uint16_t
 #endif
 }
 
-int16_t windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanW(uint16_t ch) {
+int16_t windowssys_windows_win32_ui_input_keyboardandmouse_vkKeyScanW(uint16_t ch) {
 #ifdef _WIN32
     typedef int16_t (__stdcall *km_fn_t)(uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1112,29 +1112,7 @@ int16_t windowssys_windows_win32_ui_input_keyboardandmouse_VkKeyScanW(uint16_t c
 #endif
 }
 
-int32_t windowssys_windows_win32_ui_input_keyboardandmouse__TrackMouseEvent(void* lpeventtrack) {
-#ifdef _WIN32
-    typedef int32_t (__stdcall *km_fn_t)(void*);
-    static km_fn_t km_fn_ptr = NULL;
-    if (km_fn_ptr == NULL) {
-        HMODULE km_h_mod = LoadLibraryA("comctl32.dll");
-        if (km_h_mod != NULL) {
-            km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "_TrackMouseEvent");
-        }
-    }
-    if (km_fn_ptr != NULL) {
-        return km_fn_ptr(lpeventtrack);
-    }
-    errno = ENOSYS;
-    return -1;
-#else
-    (void)lpeventtrack;
-    errno = ENOSYS;
-    return -1;
-#endif
-}
-
-void windowssys_windows_win32_ui_input_keyboardandmouse_keybd_event(uint8_t bvk, uint8_t bscan, uint32_t dwflags, uint64_t dwextrainfo) {
+void windowssys_windows_win32_ui_input_keyboardandmouse_keybdEvent(uint8_t bvk, uint8_t bscan, uint32_t dwflags, uint64_t dwextrainfo) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint8_t, uint8_t, uint32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1158,7 +1136,7 @@ void windowssys_windows_win32_ui_input_keyboardandmouse_keybd_event(uint8_t bvk,
 #endif
 }
 
-void windowssys_windows_win32_ui_input_keyboardandmouse_mouse_event(uint32_t dwflags, int32_t dx, int32_t dy, int32_t dwdata, uint64_t dwextrainfo) {
+void windowssys_windows_win32_ui_input_keyboardandmouse_mouseEvent(uint32_t dwflags, int32_t dx, int32_t dy, int32_t dwdata, uint64_t dwextrainfo) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(uint32_t, int32_t, int32_t, int32_t, uint64_t);
     static km_fn_t km_fn_ptr = NULL;

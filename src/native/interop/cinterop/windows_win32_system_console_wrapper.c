@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_system_console_AddConsoleAliasA(void* source, void* target, void* exename) {
+int32_t windowssys_windows_win32_system_console_addConsoleAliasA(void* source, void* target, void* exename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -39,7 +39,7 @@ int32_t windowssys_windows_win32_system_console_AddConsoleAliasA(void* source, v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_AddConsoleAliasW(void* source, void* target, void* exename) {
+int32_t windowssys_windows_win32_system_console_addConsoleAliasW(void* source, void* target, void* exename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -63,7 +63,7 @@ int32_t windowssys_windows_win32_system_console_AddConsoleAliasW(void* source, v
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_AllocConsole(void) {
+int32_t windowssys_windows_win32_system_console_allocConsole(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -84,7 +84,7 @@ int32_t windowssys_windows_win32_system_console_AllocConsole(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_AttachConsole(uint32_t dwprocessid) {
+int32_t windowssys_windows_win32_system_console_attachConsole(uint32_t dwprocessid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -106,7 +106,7 @@ int32_t windowssys_windows_win32_system_console_AttachConsole(uint32_t dwprocess
 #endif
 }
 
-void windowssys_windows_win32_system_console_ClosePseudoConsole(int64_t hpc) {
+void windowssys_windows_win32_system_console_closePseudoConsole(int64_t hpc) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(int64_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -127,7 +127,7 @@ void windowssys_windows_win32_system_console_ClosePseudoConsole(int64_t hpc) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_ConsoleControl(int32_t command, void* consoleinformation, uint32_t consoleinformationlength) {
+int32_t windowssys_windows_win32_system_console_consoleControl(int32_t command, void* consoleinformation, uint32_t consoleinformationlength) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t, void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -151,7 +151,7 @@ int32_t windowssys_windows_win32_system_console_ConsoleControl(int32_t command, 
 #endif
 }
 
-void* windowssys_windows_win32_system_console_CreateConsoleScreenBuffer(uint32_t dwdesiredaccess, uint32_t dwsharemode, void* lpsecurityattributes, uint32_t dwflags, void* lpscreenbufferdata) {
+void* windowssys_windows_win32_system_console_createConsoleScreenBuffer(uint32_t dwdesiredaccess, uint32_t dwsharemode, void* lpsecurityattributes, uint32_t dwflags, void* lpscreenbufferdata) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t, uint32_t, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -177,7 +177,7 @@ void* windowssys_windows_win32_system_console_CreateConsoleScreenBuffer(uint32_t
 #endif
 }
 
-void windowssys_windows_win32_system_console_ExpungeConsoleCommandHistoryA(void* exename) {
+void windowssys_windows_win32_system_console_expungeConsoleCommandHistoryA(void* exename) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -198,7 +198,7 @@ void windowssys_windows_win32_system_console_ExpungeConsoleCommandHistoryA(void*
 #endif
 }
 
-void windowssys_windows_win32_system_console_ExpungeConsoleCommandHistoryW(void* exename) {
+void windowssys_windows_win32_system_console_expungeConsoleCommandHistoryW(void* exename) {
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -219,7 +219,7 @@ void windowssys_windows_win32_system_console_ExpungeConsoleCommandHistoryW(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_FlushConsoleInputBuffer(void* hconsoleinput) {
+int32_t windowssys_windows_win32_system_console_flushConsoleInputBuffer(void* hconsoleinput) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -241,7 +241,7 @@ int32_t windowssys_windows_win32_system_console_FlushConsoleInputBuffer(void* hc
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_FreeConsole(void) {
+int32_t windowssys_windows_win32_system_console_freeConsole(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -262,7 +262,7 @@ int32_t windowssys_windows_win32_system_console_FreeConsole(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_GenerateConsoleCtrlEvent(uint32_t dwctrlevent, uint32_t dwprocessgroupid) {
+int32_t windowssys_windows_win32_system_console_generateConsoleCtrlEvent(uint32_t dwctrlevent, uint32_t dwprocessgroupid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -285,7 +285,7 @@ int32_t windowssys_windows_win32_system_console_GenerateConsoleCtrlEvent(uint32_
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_console_GetConsoleAliasA(void* source, void* targetbuffer, uint32_t targetbufferlength, void* exename) {
+uint32_t windowssys_windows_win32_system_console_getConsoleAliasA(void* source, void* targetbuffer, uint32_t targetbufferlength, void* exename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -310,7 +310,7 @@ uint32_t windowssys_windows_win32_system_console_GetConsoleAliasA(void* source, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_console_GetConsoleAliasExesA(void* exenamebuffer, uint32_t exenamebufferlength) {
+uint32_t windowssys_windows_win32_system_console_getConsoleAliasExesA(void* exenamebuffer, uint32_t exenamebufferlength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -333,7 +333,7 @@ uint32_t windowssys_windows_win32_system_console_GetConsoleAliasExesA(void* exen
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_console_GetConsoleAliasExesLengthA(void) {
+uint32_t windowssys_windows_win32_system_console_getConsoleAliasExesLengthA(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -354,7 +354,7 @@ uint32_t windowssys_windows_win32_system_console_GetConsoleAliasExesLengthA(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_console_GetConsoleAliasExesLengthW(void) {
+uint32_t windowssys_windows_win32_system_console_getConsoleAliasExesLengthW(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -375,7 +375,7 @@ uint32_t windowssys_windows_win32_system_console_GetConsoleAliasExesLengthW(void
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_console_GetConsoleAliasExesW(void* exenamebuffer, uint32_t exenamebufferlength) {
+uint32_t windowssys_windows_win32_system_console_getConsoleAliasExesW(void* exenamebuffer, uint32_t exenamebufferlength) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -398,7 +398,7 @@ uint32_t windowssys_windows_win32_system_console_GetConsoleAliasExesW(void* exen
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_console_GetConsoleAliasW(void* source, void* targetbuffer, uint32_t targetbufferlength, void* exename) {
+uint32_t windowssys_windows_win32_system_console_getConsoleAliasW(void* source, void* targetbuffer, uint32_t targetbufferlength, void* exename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -423,7 +423,7 @@ uint32_t windowssys_windows_win32_system_console_GetConsoleAliasW(void* source, 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_console_GetConsoleAliasesA(void* aliasbuffer, uint32_t aliasbufferlength, void* exename) {
+uint32_t windowssys_windows_win32_system_console_getConsoleAliasesA(void* aliasbuffer, uint32_t aliasbufferlength, void* exename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -447,7 +447,7 @@ uint32_t windowssys_windows_win32_system_console_GetConsoleAliasesA(void* aliasb
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_console_GetConsoleAliasesLengthA(void* exename) {
+uint32_t windowssys_windows_win32_system_console_getConsoleAliasesLengthA(void* exename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -469,7 +469,7 @@ uint32_t windowssys_windows_win32_system_console_GetConsoleAliasesLengthA(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_console_GetConsoleAliasesLengthW(void* exename) {
+uint32_t windowssys_windows_win32_system_console_getConsoleAliasesLengthW(void* exename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -491,7 +491,7 @@ uint32_t windowssys_windows_win32_system_console_GetConsoleAliasesLengthW(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_console_GetConsoleAliasesW(void* aliasbuffer, uint32_t aliasbufferlength, void* exename) {
+uint32_t windowssys_windows_win32_system_console_getConsoleAliasesW(void* aliasbuffer, uint32_t aliasbufferlength, void* exename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -515,7 +515,7 @@ uint32_t windowssys_windows_win32_system_console_GetConsoleAliasesW(void* aliasb
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_console_GetConsoleCP(void) {
+uint32_t windowssys_windows_win32_system_console_getConsoleCP(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -536,7 +536,7 @@ uint32_t windowssys_windows_win32_system_console_GetConsoleCP(void) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_console_GetConsoleCommandHistoryA(void* commands, uint32_t commandbufferlength, void* exename) {
+uint32_t windowssys_windows_win32_system_console_getConsoleCommandHistoryA(void* commands, uint32_t commandbufferlength, void* exename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -560,7 +560,7 @@ uint32_t windowssys_windows_win32_system_console_GetConsoleCommandHistoryA(void*
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_console_GetConsoleCommandHistoryLengthA(void* exename) {
+uint32_t windowssys_windows_win32_system_console_getConsoleCommandHistoryLengthA(void* exename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -582,7 +582,7 @@ uint32_t windowssys_windows_win32_system_console_GetConsoleCommandHistoryLengthA
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_console_GetConsoleCommandHistoryLengthW(void* exename) {
+uint32_t windowssys_windows_win32_system_console_getConsoleCommandHistoryLengthW(void* exename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -604,7 +604,7 @@ uint32_t windowssys_windows_win32_system_console_GetConsoleCommandHistoryLengthW
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_console_GetConsoleCommandHistoryW(void* commands, uint32_t commandbufferlength, void* exename) {
+uint32_t windowssys_windows_win32_system_console_getConsoleCommandHistoryW(void* commands, uint32_t commandbufferlength, void* exename) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -628,7 +628,7 @@ uint32_t windowssys_windows_win32_system_console_GetConsoleCommandHistoryW(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_GetConsoleCursorInfo(void* hconsoleoutput, void* lpconsolecursorinfo) {
+int32_t windowssys_windows_win32_system_console_getConsoleCursorInfo(void* hconsoleoutput, void* lpconsolecursorinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -651,7 +651,7 @@ int32_t windowssys_windows_win32_system_console_GetConsoleCursorInfo(void* hcons
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_GetConsoleDisplayMode(void* lpmodeflags) {
+int32_t windowssys_windows_win32_system_console_getConsoleDisplayMode(void* lpmodeflags) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -673,7 +673,7 @@ int32_t windowssys_windows_win32_system_console_GetConsoleDisplayMode(void* lpmo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_GetConsoleHistoryInfo(void* lpconsolehistoryinfo) {
+int32_t windowssys_windows_win32_system_console_getConsoleHistoryInfo(void* lpconsolehistoryinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -695,7 +695,7 @@ int32_t windowssys_windows_win32_system_console_GetConsoleHistoryInfo(void* lpco
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_GetConsoleMode(void* hconsolehandle, void* lpmode) {
+int32_t windowssys_windows_win32_system_console_getConsoleMode(void* hconsolehandle, void* lpmode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -718,7 +718,7 @@ int32_t windowssys_windows_win32_system_console_GetConsoleMode(void* hconsolehan
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_console_GetConsoleOriginalTitleA(void* lpconsoletitle, uint32_t nsize) {
+uint32_t windowssys_windows_win32_system_console_getConsoleOriginalTitleA(void* lpconsoletitle, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -741,7 +741,7 @@ uint32_t windowssys_windows_win32_system_console_GetConsoleOriginalTitleA(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_console_GetConsoleOriginalTitleW(void* lpconsoletitle, uint32_t nsize) {
+uint32_t windowssys_windows_win32_system_console_getConsoleOriginalTitleW(void* lpconsoletitle, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -764,7 +764,7 @@ uint32_t windowssys_windows_win32_system_console_GetConsoleOriginalTitleW(void* 
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_console_GetConsoleOutputCP(void) {
+uint32_t windowssys_windows_win32_system_console_getConsoleOutputCP(void) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -785,7 +785,7 @@ uint32_t windowssys_windows_win32_system_console_GetConsoleOutputCP(void) {
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_console_GetConsoleProcessList(void* lpdwprocesslist, uint32_t dwprocesscount) {
+uint32_t windowssys_windows_win32_system_console_getConsoleProcessList(void* lpdwprocesslist, uint32_t dwprocesscount) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -808,7 +808,7 @@ uint32_t windowssys_windows_win32_system_console_GetConsoleProcessList(void* lpd
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_GetConsoleScreenBufferInfo(void* hconsoleoutput, void* lpconsolescreenbufferinfo) {
+int32_t windowssys_windows_win32_system_console_getConsoleScreenBufferInfo(void* hconsoleoutput, void* lpconsolescreenbufferinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -831,7 +831,7 @@ int32_t windowssys_windows_win32_system_console_GetConsoleScreenBufferInfo(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_GetConsoleScreenBufferInfoEx(void* hconsoleoutput, void* lpconsolescreenbufferinfoex) {
+int32_t windowssys_windows_win32_system_console_getConsoleScreenBufferInfoEx(void* hconsoleoutput, void* lpconsolescreenbufferinfoex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -854,7 +854,7 @@ int32_t windowssys_windows_win32_system_console_GetConsoleScreenBufferInfoEx(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_GetConsoleSelectionInfo(void* lpconsoleselectioninfo) {
+int32_t windowssys_windows_win32_system_console_getConsoleSelectionInfo(void* lpconsoleselectioninfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -876,7 +876,7 @@ int32_t windowssys_windows_win32_system_console_GetConsoleSelectionInfo(void* lp
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_console_GetConsoleTitleA(void* lpconsoletitle, uint32_t nsize) {
+uint32_t windowssys_windows_win32_system_console_getConsoleTitleA(void* lpconsoletitle, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -899,7 +899,7 @@ uint32_t windowssys_windows_win32_system_console_GetConsoleTitleA(void* lpconsol
 #endif
 }
 
-uint32_t windowssys_windows_win32_system_console_GetConsoleTitleW(void* lpconsoletitle, uint32_t nsize) {
+uint32_t windowssys_windows_win32_system_console_getConsoleTitleW(void* lpconsoletitle, uint32_t nsize) {
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -922,7 +922,7 @@ uint32_t windowssys_windows_win32_system_console_GetConsoleTitleW(void* lpconsol
 #endif
 }
 
-void* windowssys_windows_win32_system_console_GetConsoleWindow(void) {
+void* windowssys_windows_win32_system_console_getConsoleWindow(void) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -943,7 +943,7 @@ void* windowssys_windows_win32_system_console_GetConsoleWindow(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_GetCurrentConsoleFont(void* hconsoleoutput, int32_t bmaximumwindow, void* lpconsolecurrentfont) {
+int32_t windowssys_windows_win32_system_console_getCurrentConsoleFont(void* hconsoleoutput, int32_t bmaximumwindow, void* lpconsolecurrentfont) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -967,7 +967,7 @@ int32_t windowssys_windows_win32_system_console_GetCurrentConsoleFont(void* hcon
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_GetCurrentConsoleFontEx(void* hconsoleoutput, int32_t bmaximumwindow, void* lpconsolecurrentfontex) {
+int32_t windowssys_windows_win32_system_console_getCurrentConsoleFontEx(void* hconsoleoutput, int32_t bmaximumwindow, void* lpconsolecurrentfontex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -991,7 +991,7 @@ int32_t windowssys_windows_win32_system_console_GetCurrentConsoleFontEx(void* hc
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_GetNumberOfConsoleInputEvents(void* hconsoleinput, void* lpnumberofevents) {
+int32_t windowssys_windows_win32_system_console_getNumberOfConsoleInputEvents(void* hconsoleinput, void* lpnumberofevents) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1014,7 +1014,7 @@ int32_t windowssys_windows_win32_system_console_GetNumberOfConsoleInputEvents(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_GetNumberOfConsoleMouseButtons(void* lpnumberofmousebuttons) {
+int32_t windowssys_windows_win32_system_console_getNumberOfConsoleMouseButtons(void* lpnumberofmousebuttons) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1036,7 +1036,7 @@ int32_t windowssys_windows_win32_system_console_GetNumberOfConsoleMouseButtons(v
 #endif
 }
 
-void* windowssys_windows_win32_system_console_GetStdHandle(uint32_t nstdhandle) {
+void* windowssys_windows_win32_system_console_getStdHandle(uint32_t nstdhandle) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1058,7 +1058,7 @@ void* windowssys_windows_win32_system_console_GetStdHandle(uint32_t nstdhandle) 
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_PeekConsoleInputA(void* hconsoleinput, void* lpbuffer, uint32_t nlength, void* lpnumberofeventsread) {
+int32_t windowssys_windows_win32_system_console_peekConsoleInputA(void* hconsoleinput, void* lpbuffer, uint32_t nlength, void* lpnumberofeventsread) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1083,7 +1083,7 @@ int32_t windowssys_windows_win32_system_console_PeekConsoleInputA(void* hconsole
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_PeekConsoleInputW(void* hconsoleinput, void* lpbuffer, uint32_t nlength, void* lpnumberofeventsread) {
+int32_t windowssys_windows_win32_system_console_peekConsoleInputW(void* hconsoleinput, void* lpbuffer, uint32_t nlength, void* lpnumberofeventsread) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1108,7 +1108,7 @@ int32_t windowssys_windows_win32_system_console_PeekConsoleInputW(void* hconsole
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_ReadConsoleA(void* hconsoleinput, void* lpbuffer, uint32_t nnumberofcharstoread, void* lpnumberofcharsread, void* pinputcontrol) {
+int32_t windowssys_windows_win32_system_console_readConsoleA(void* hconsoleinput, void* lpbuffer, uint32_t nnumberofcharstoread, void* lpnumberofcharsread, void* pinputcontrol) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1134,7 +1134,7 @@ int32_t windowssys_windows_win32_system_console_ReadConsoleA(void* hconsoleinput
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_ReadConsoleInputA(void* hconsoleinput, void* lpbuffer, uint32_t nlength, void* lpnumberofeventsread) {
+int32_t windowssys_windows_win32_system_console_readConsoleInputA(void* hconsoleinput, void* lpbuffer, uint32_t nlength, void* lpnumberofeventsread) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1159,7 +1159,7 @@ int32_t windowssys_windows_win32_system_console_ReadConsoleInputA(void* hconsole
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_ReadConsoleInputW(void* hconsoleinput, void* lpbuffer, uint32_t nlength, void* lpnumberofeventsread) {
+int32_t windowssys_windows_win32_system_console_readConsoleInputW(void* hconsoleinput, void* lpbuffer, uint32_t nlength, void* lpnumberofeventsread) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1184,7 +1184,7 @@ int32_t windowssys_windows_win32_system_console_ReadConsoleInputW(void* hconsole
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_ReadConsoleW(void* hconsoleinput, void* lpbuffer, uint32_t nnumberofcharstoread, void* lpnumberofcharsread, void* pinputcontrol) {
+int32_t windowssys_windows_win32_system_console_readConsoleW(void* hconsoleinput, void* lpbuffer, uint32_t nnumberofcharstoread, void* lpnumberofcharsread, void* pinputcontrol) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1210,7 +1210,7 @@ int32_t windowssys_windows_win32_system_console_ReadConsoleW(void* hconsoleinput
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_SetConsoleActiveScreenBuffer(void* hconsoleoutput) {
+int32_t windowssys_windows_win32_system_console_setConsoleActiveScreenBuffer(void* hconsoleoutput) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1232,7 +1232,7 @@ int32_t windowssys_windows_win32_system_console_SetConsoleActiveScreenBuffer(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_SetConsoleCP(uint32_t wcodepageid) {
+int32_t windowssys_windows_win32_system_console_setConsoleCP(uint32_t wcodepageid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1254,7 +1254,7 @@ int32_t windowssys_windows_win32_system_console_SetConsoleCP(uint32_t wcodepagei
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_SetConsoleCtrlHandler(void* handlerroutine, int32_t add) {
+int32_t windowssys_windows_win32_system_console_setConsoleCtrlHandler(void* handlerroutine, int32_t add) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1277,7 +1277,7 @@ int32_t windowssys_windows_win32_system_console_SetConsoleCtrlHandler(void* hand
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_SetConsoleCursorInfo(void* hconsoleoutput, void* lpconsolecursorinfo) {
+int32_t windowssys_windows_win32_system_console_setConsoleCursorInfo(void* hconsoleoutput, void* lpconsolecursorinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1300,7 +1300,7 @@ int32_t windowssys_windows_win32_system_console_SetConsoleCursorInfo(void* hcons
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_SetConsoleDisplayMode(void* hconsoleoutput, uint32_t dwflags, void* lpnewscreenbufferdimensions) {
+int32_t windowssys_windows_win32_system_console_setConsoleDisplayMode(void* hconsoleoutput, uint32_t dwflags, void* lpnewscreenbufferdimensions) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1324,7 +1324,7 @@ int32_t windowssys_windows_win32_system_console_SetConsoleDisplayMode(void* hcon
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_SetConsoleHistoryInfo(void* lpconsolehistoryinfo) {
+int32_t windowssys_windows_win32_system_console_setConsoleHistoryInfo(void* lpconsolehistoryinfo) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1346,7 +1346,7 @@ int32_t windowssys_windows_win32_system_console_SetConsoleHistoryInfo(void* lpco
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_SetConsoleMode(void* hconsolehandle, uint32_t dwmode) {
+int32_t windowssys_windows_win32_system_console_setConsoleMode(void* hconsolehandle, uint32_t dwmode) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1369,7 +1369,7 @@ int32_t windowssys_windows_win32_system_console_SetConsoleMode(void* hconsolehan
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_SetConsoleNumberOfCommandsA(uint32_t number, void* exename) {
+int32_t windowssys_windows_win32_system_console_setConsoleNumberOfCommandsA(uint32_t number, void* exename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1392,7 +1392,7 @@ int32_t windowssys_windows_win32_system_console_SetConsoleNumberOfCommandsA(uint
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_SetConsoleNumberOfCommandsW(uint32_t number, void* exename) {
+int32_t windowssys_windows_win32_system_console_setConsoleNumberOfCommandsW(uint32_t number, void* exename) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1415,7 +1415,7 @@ int32_t windowssys_windows_win32_system_console_SetConsoleNumberOfCommandsW(uint
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_SetConsoleOutputCP(uint32_t wcodepageid) {
+int32_t windowssys_windows_win32_system_console_setConsoleOutputCP(uint32_t wcodepageid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1437,7 +1437,7 @@ int32_t windowssys_windows_win32_system_console_SetConsoleOutputCP(uint32_t wcod
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_SetConsoleScreenBufferInfoEx(void* hconsoleoutput, void* lpconsolescreenbufferinfoex) {
+int32_t windowssys_windows_win32_system_console_setConsoleScreenBufferInfoEx(void* hconsoleoutput, void* lpconsolescreenbufferinfoex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1460,7 +1460,7 @@ int32_t windowssys_windows_win32_system_console_SetConsoleScreenBufferInfoEx(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_SetConsoleTextAttribute(void* hconsoleoutput, uint16_t wattributes) {
+int32_t windowssys_windows_win32_system_console_setConsoleTextAttribute(void* hconsoleoutput, uint16_t wattributes) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint16_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -1483,7 +1483,7 @@ int32_t windowssys_windows_win32_system_console_SetConsoleTextAttribute(void* hc
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_SetConsoleTitleA(void* lpconsoletitle) {
+int32_t windowssys_windows_win32_system_console_setConsoleTitleA(void* lpconsoletitle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1505,7 +1505,7 @@ int32_t windowssys_windows_win32_system_console_SetConsoleTitleA(void* lpconsole
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_SetConsoleTitleW(void* lpconsoletitle) {
+int32_t windowssys_windows_win32_system_console_setConsoleTitleW(void* lpconsoletitle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1527,7 +1527,7 @@ int32_t windowssys_windows_win32_system_console_SetConsoleTitleW(void* lpconsole
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_SetConsoleWindowInfo(void* hconsoleoutput, int32_t babsolute, void* lpconsolewindow) {
+int32_t windowssys_windows_win32_system_console_setConsoleWindowInfo(void* hconsoleoutput, int32_t babsolute, void* lpconsolewindow) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1551,7 +1551,7 @@ int32_t windowssys_windows_win32_system_console_SetConsoleWindowInfo(void* hcons
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_SetCurrentConsoleFontEx(void* hconsoleoutput, int32_t bmaximumwindow, void* lpconsolecurrentfontex) {
+int32_t windowssys_windows_win32_system_console_setCurrentConsoleFontEx(void* hconsoleoutput, int32_t bmaximumwindow, void* lpconsolecurrentfontex) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, int32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1575,7 +1575,7 @@ int32_t windowssys_windows_win32_system_console_SetCurrentConsoleFontEx(void* hc
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_SetStdHandle(uint32_t nstdhandle, void* hhandle) {
+int32_t windowssys_windows_win32_system_console_setStdHandle(uint32_t nstdhandle, void* hhandle) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1598,7 +1598,7 @@ int32_t windowssys_windows_win32_system_console_SetStdHandle(uint32_t nstdhandle
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_SetStdHandleEx(uint32_t nstdhandle, void* hhandle, void* phprevvalue) {
+int32_t windowssys_windows_win32_system_console_setStdHandleEx(uint32_t nstdhandle, void* hhandle, void* phprevvalue) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1622,7 +1622,7 @@ int32_t windowssys_windows_win32_system_console_SetStdHandleEx(uint32_t nstdhand
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_WriteConsoleA(void* hconsoleoutput, void* lpbuffer, uint32_t nnumberofcharstowrite, void* lpnumberofcharswritten, void* lpreserved) {
+int32_t windowssys_windows_win32_system_console_writeConsoleA(void* hconsoleoutput, void* lpbuffer, uint32_t nnumberofcharstowrite, void* lpnumberofcharswritten, void* lpreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1648,7 +1648,7 @@ int32_t windowssys_windows_win32_system_console_WriteConsoleA(void* hconsoleoutp
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_WriteConsoleInputA(void* hconsoleinput, void* lpbuffer, uint32_t nlength, void* lpnumberofeventswritten) {
+int32_t windowssys_windows_win32_system_console_writeConsoleInputA(void* hconsoleinput, void* lpbuffer, uint32_t nlength, void* lpnumberofeventswritten) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1673,7 +1673,7 @@ int32_t windowssys_windows_win32_system_console_WriteConsoleInputA(void* hconsol
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_WriteConsoleInputW(void* hconsoleinput, void* lpbuffer, uint32_t nlength, void* lpnumberofeventswritten) {
+int32_t windowssys_windows_win32_system_console_writeConsoleInputW(void* hconsoleinput, void* lpbuffer, uint32_t nlength, void* lpnumberofeventswritten) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -1698,7 +1698,7 @@ int32_t windowssys_windows_win32_system_console_WriteConsoleInputW(void* hconsol
 #endif
 }
 
-int32_t windowssys_windows_win32_system_console_WriteConsoleW(void* hconsoleoutput, void* lpbuffer, uint32_t nnumberofcharstowrite, void* lpnumberofcharswritten, void* lpreserved) {
+int32_t windowssys_windows_win32_system_console_writeConsoleW(void* hconsoleoutput, void* lpbuffer, uint32_t nnumberofcharstowrite, void* lpnumberofcharswritten, void* lpreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

@@ -1,363 +1,364 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.ndis
 
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
-public data class BSSID_INFO(public var BSSID: UByteArray = UByteArray(6), public var PMKID: UByteArray = UByteArray(16)) {
+public data class BssidInfo(public var bssid: UByteArray = UByteArray(6), public var pmkid: UByteArray = UByteArray(16)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is BSSID_INFO) return false
-        if (!this.BSSID.contentEquals(other.BSSID)) return false
-        if (!this.PMKID.contentEquals(other.PMKID)) return false
+        if (other !is BssidInfo) return false
+        if (!this.bssid.contentEquals(other.bssid)) return false
+        if (!this.pmkid.contentEquals(other.pmkid)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.BSSID.contentHashCode()
-        result = 31 * result + this.PMKID.contentHashCode()
+        var result = this.bssid.contentHashCode()
+        result = 31 * result + this.pmkid.contentHashCode()
         return result
     }
 }
 
-public data class GEN_GET_NETCARD_TIME(public var ReadTime: ULong = 0uL)
+public data class GenGetNetcardTime(public var readTime: ULong = 0uL)
 
-public data class GEN_GET_TIME_CAPS(public var Flags: UInt = 0u, public var ClockPrecision: UInt = 0u)
+public data class GenGetTimeCaps(public var flags: UInt = 0u, public var clockPrecision: UInt = 0u)
 
-public data class IF_COUNTED_STRING_LH(public var Length: UShort = 0u, public var String: UShortArray = UShortArray(257)) {
+public data class IfCountedStringLh(public var length: UShort = 0u, public var string: UShortArray = UShortArray(257)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IF_COUNTED_STRING_LH) return false
-        if (this.Length != other.Length) return false
-        if (!this.String.contentEquals(other.String)) return false
+        if (other !is IfCountedStringLh) return false
+        if (this.length != other.length) return false
+        if (!this.string.contentEquals(other.string)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Length.hashCode()
-        result = 31 * result + this.String.contentHashCode()
+        var result = this.length.hashCode()
+        result = 31 * result + this.string.contentHashCode()
         return result
     }
 }
 
-public data class IF_PHYSICAL_ADDRESS_LH(public var Length: UShort = 0u, public var Address: UByteArray = UByteArray(32)) {
+public data class IfPhysicalAddressLh(public var length: UShort = 0u, public var address: UByteArray = UByteArray(32)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IF_PHYSICAL_ADDRESS_LH) return false
-        if (this.Length != other.Length) return false
-        if (!this.Address.contentEquals(other.Address)) return false
+        if (other !is IfPhysicalAddressLh) return false
+        if (this.length != other.length) return false
+        if (!this.address.contentEquals(other.address)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Length.hashCode()
-        result = 31 * result + this.Address.contentHashCode()
+        var result = this.length.hashCode()
+        result = 31 * result + this.address.contentHashCode()
         return result
     }
 }
 
-public data class NDIS_802_11_AI_REQFI(
-    public var Capabilities: UShort = 0u,
-    public var ListenInterval: UShort = 0u,
-    public var CurrentAPAddress: UByteArray = UByteArray(6),
+public data class Ndis80211AiReqfi(
+    public var capabilities: UShort = 0u,
+    public var listenInterval: UShort = 0u,
+    public var currentAPAddress: UByteArray = UByteArray(6),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NDIS_802_11_AI_REQFI) return false
-        if (this.Capabilities != other.Capabilities) return false
-        if (this.ListenInterval != other.ListenInterval) return false
-        if (!this.CurrentAPAddress.contentEquals(other.CurrentAPAddress)) return false
+        if (other !is Ndis80211AiReqfi) return false
+        if (this.capabilities != other.capabilities) return false
+        if (this.listenInterval != other.listenInterval) return false
+        if (!this.currentAPAddress.contentEquals(other.currentAPAddress)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Capabilities.hashCode()
-        result = 31 * result + this.ListenInterval.hashCode()
-        result = 31 * result + this.CurrentAPAddress.contentHashCode()
+        var result = this.capabilities.hashCode()
+        result = 31 * result + this.listenInterval.hashCode()
+        result = 31 * result + this.currentAPAddress.contentHashCode()
         return result
     }
 }
 
-public data class NDIS_802_11_AI_RESFI(
-    public var Capabilities: UShort = 0u,
-    public var StatusCode: UShort = 0u,
-    public var AssociationId: UShort = 0u,
+public data class Ndis80211AiResfi(
+    public var capabilities: UShort = 0u,
+    public var statusCode: UShort = 0u,
+    public var associationId: UShort = 0u,
 )
 
-public data class NDIS_802_11_ASSOCIATION_INFORMATION(
-    public var Length: UInt = 0u,
-    public var AvailableRequestFixedIEs: UShort = 0u,
-    public var RequestFixedIEs: NDIS_802_11_AI_REQFI = NDIS_802_11_AI_REQFI(),
-    public var RequestIELength: UInt = 0u,
-    public var OffsetRequestIEs: UInt = 0u,
-    public var AvailableResponseFixedIEs: UShort = 0u,
-    public var ResponseFixedIEs: NDIS_802_11_AI_RESFI = NDIS_802_11_AI_RESFI(),
-    public var ResponseIELength: UInt = 0u,
-    public var OffsetResponseIEs: UInt = 0u,
+public data class Ndis80211AssociationInformation(
+    public var length: UInt = 0u,
+    public var availableRequestFixedIEs: UShort = 0u,
+    public var requestFixedIEs: Ndis80211AiReqfi = Ndis80211AiReqfi(),
+    public var requestIELength: UInt = 0u,
+    public var offsetRequestIEs: UInt = 0u,
+    public var availableResponseFixedIEs: UShort = 0u,
+    public var responseFixedIEs: Ndis80211AiResfi = Ndis80211AiResfi(),
+    public var responseIELength: UInt = 0u,
+    public var offsetResponseIEs: UInt = 0u,
 )
 
-public data class NDIS_802_11_AUTHENTICATION_ENCRYPTION(public var AuthModeSupported: NDIS_802_11_AUTHENTICATION_MODE = 0, public var EncryptStatusSupported: NDIS_802_11_WEP_STATUS = 0)
+public data class Ndis80211AuthenticationEncryption(public var authModeSupported: Ndis80211AuthenticationMode = 0, public var encryptStatusSupported: Ndis80211WepStatus = 0)
 
-public data class NDIS_802_11_AUTHENTICATION_EVENT(public var Status: NDIS_802_11_STATUS_INDICATION = NDIS_802_11_STATUS_INDICATION(), public var Request: List<NDIS_802_11_AUTHENTICATION_REQUEST> = List(1) { NDIS_802_11_AUTHENTICATION_REQUEST() })
+public data class Ndis80211AuthenticationEvent(public var status: Ndis80211StatusIndication = Ndis80211StatusIndication(), public var request: List<Ndis80211AuthenticationRequest> = List(1) { Ndis80211AuthenticationRequest() })
 
-public data class NDIS_802_11_AUTHENTICATION_REQUEST(
-    public var Length: UInt = 0u,
-    public var Bssid: UByteArray = UByteArray(6),
-    public var Flags: UInt = 0u,
+public data class Ndis80211AuthenticationRequest(
+    public var length: UInt = 0u,
+    public var bssid: UByteArray = UByteArray(6),
+    public var flags: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NDIS_802_11_AUTHENTICATION_REQUEST) return false
-        if (this.Length != other.Length) return false
-        if (!this.Bssid.contentEquals(other.Bssid)) return false
-        if (this.Flags != other.Flags) return false
+        if (other !is Ndis80211AuthenticationRequest) return false
+        if (this.length != other.length) return false
+        if (!this.bssid.contentEquals(other.bssid)) return false
+        if (this.flags != other.flags) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Length.hashCode()
-        result = 31 * result + this.Bssid.contentHashCode()
-        result = 31 * result + this.Flags.hashCode()
+        var result = this.length.hashCode()
+        result = 31 * result + this.bssid.contentHashCode()
+        result = 31 * result + this.flags.hashCode()
         return result
     }
 }
 
-public data class NDIS_802_11_BSSID_LIST(public var NumberOfItems: UInt = 0u, public var Bssid: List<NDIS_WLAN_BSSID> = List(1) { NDIS_WLAN_BSSID() })
+public data class Ndis80211BssidList(public var numberOfItems: UInt = 0u, public var bssid: List<NdisWlanBssid> = List(1) { NdisWlanBssid() })
 
-public data class NDIS_802_11_BSSID_LIST_EX(public var NumberOfItems: UInt = 0u, public var Bssid: List<NDIS_WLAN_BSSID_EX> = List(1) { NDIS_WLAN_BSSID_EX() })
+public data class Ndis80211BssidListEx(public var numberOfItems: UInt = 0u, public var bssid: List<NdisWlanBssidEx> = List(1) { NdisWlanBssidEx() })
 
-public data class NDIS_802_11_CAPABILITY(
-    public var Length: UInt = 0u,
-    public var Version: UInt = 0u,
-    public var NoOfPMKIDs: UInt = 0u,
-    public var NoOfAuthEncryptPairsSupported: UInt = 0u,
-    public var AuthenticationEncryptionSupported: List<NDIS_802_11_AUTHENTICATION_ENCRYPTION> = List(1) { NDIS_802_11_AUTHENTICATION_ENCRYPTION() },
+public data class Ndis80211Capability(
+    public var length: UInt = 0u,
+    public var version: UInt = 0u,
+    public var noOfPMKIDs: UInt = 0u,
+    public var noOfAuthEncryptPairsSupported: UInt = 0u,
+    public var authenticationEncryptionSupported: List<Ndis80211AuthenticationEncryption> = List(1) { Ndis80211AuthenticationEncryption() },
 )
 
-public data class NDIS_802_11_CONFIGURATION(
-    public var Length: UInt = 0u,
-    public var BeaconPeriod: UInt = 0u,
-    public var ATIMWindow: UInt = 0u,
-    public var DSConfig: UInt = 0u,
-    public var FHConfig: NDIS_802_11_CONFIGURATION_FH = NDIS_802_11_CONFIGURATION_FH(),
+public data class Ndis80211Configuration(
+    public var length: UInt = 0u,
+    public var beaconPeriod: UInt = 0u,
+    public var aTIMWindow: UInt = 0u,
+    public var dSConfig: UInt = 0u,
+    public var fHConfig: Ndis80211ConfigurationFh = Ndis80211ConfigurationFh(),
 )
 
-public data class NDIS_802_11_CONFIGURATION_FH(
-    public var Length: UInt = 0u,
-    public var HopPattern: UInt = 0u,
-    public var HopSet: UInt = 0u,
-    public var DwellTime: UInt = 0u,
+public data class Ndis80211ConfigurationFh(
+    public var length: UInt = 0u,
+    public var hopPattern: UInt = 0u,
+    public var hopSet: UInt = 0u,
+    public var dwellTime: UInt = 0u,
 )
 
-public data class NDIS_802_11_FIXED_IEs(
-    public var Timestamp: UByteArray = UByteArray(8),
-    public var BeaconInterval: UShort = 0u,
-    public var Capabilities: UShort = 0u,
+public data class Ndis80211FixedIes(
+    public var timestamp: UByteArray = UByteArray(8),
+    public var beaconInterval: UShort = 0u,
+    public var capabilities: UShort = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NDIS_802_11_FIXED_IEs) return false
-        if (!this.Timestamp.contentEquals(other.Timestamp)) return false
-        if (this.BeaconInterval != other.BeaconInterval) return false
-        if (this.Capabilities != other.Capabilities) return false
+        if (other !is Ndis80211FixedIes) return false
+        if (!this.timestamp.contentEquals(other.timestamp)) return false
+        if (this.beaconInterval != other.beaconInterval) return false
+        if (this.capabilities != other.capabilities) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Timestamp.contentHashCode()
-        result = 31 * result + this.BeaconInterval.hashCode()
-        result = 31 * result + this.Capabilities.hashCode()
+        var result = this.timestamp.contentHashCode()
+        result = 31 * result + this.beaconInterval.hashCode()
+        result = 31 * result + this.capabilities.hashCode()
         return result
     }
 }
 
-public data class NDIS_802_11_KEY(
-    public var Length: UInt = 0u,
-    public var KeyIndex: UInt = 0u,
-    public var KeyLength: UInt = 0u,
-    public var BSSID: UByteArray = UByteArray(6),
-    public var KeyRSC: ULong = 0uL,
-    public var KeyMaterial: UByteArray = UByteArray(1),
+public data class Ndis80211Key(
+    public var length: UInt = 0u,
+    public var keyIndex: UInt = 0u,
+    public var keyLength: UInt = 0u,
+    public var bssid: UByteArray = UByteArray(6),
+    public var keyRSC: ULong = 0uL,
+    public var keyMaterial: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NDIS_802_11_KEY) return false
-        if (this.Length != other.Length) return false
-        if (this.KeyIndex != other.KeyIndex) return false
-        if (this.KeyLength != other.KeyLength) return false
-        if (!this.BSSID.contentEquals(other.BSSID)) return false
-        if (this.KeyRSC != other.KeyRSC) return false
-        if (!this.KeyMaterial.contentEquals(other.KeyMaterial)) return false
+        if (other !is Ndis80211Key) return false
+        if (this.length != other.length) return false
+        if (this.keyIndex != other.keyIndex) return false
+        if (this.keyLength != other.keyLength) return false
+        if (!this.bssid.contentEquals(other.bssid)) return false
+        if (this.keyRSC != other.keyRSC) return false
+        if (!this.keyMaterial.contentEquals(other.keyMaterial)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Length.hashCode()
-        result = 31 * result + this.KeyIndex.hashCode()
-        result = 31 * result + this.KeyLength.hashCode()
-        result = 31 * result + this.BSSID.contentHashCode()
-        result = 31 * result + this.KeyRSC.hashCode()
-        result = 31 * result + this.KeyMaterial.contentHashCode()
+        var result = this.length.hashCode()
+        result = 31 * result + this.keyIndex.hashCode()
+        result = 31 * result + this.keyLength.hashCode()
+        result = 31 * result + this.bssid.contentHashCode()
+        result = 31 * result + this.keyRSC.hashCode()
+        result = 31 * result + this.keyMaterial.contentHashCode()
         return result
     }
 }
 
-public data class NDIS_802_11_NETWORK_TYPE_LIST(public var NumberOfItems: UInt = 0u, public var NetworkType: IntArray = IntArray(1)) {
+public data class Ndis80211NetworkTypeList(public var numberOfItems: UInt = 0u, public var networkType: IntArray = IntArray(1)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NDIS_802_11_NETWORK_TYPE_LIST) return false
-        if (this.NumberOfItems != other.NumberOfItems) return false
-        if (!this.NetworkType.contentEquals(other.NetworkType)) return false
+        if (other !is Ndis80211NetworkTypeList) return false
+        if (this.numberOfItems != other.numberOfItems) return false
+        if (!this.networkType.contentEquals(other.networkType)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.NumberOfItems.hashCode()
-        result = 31 * result + this.NetworkType.contentHashCode()
+        var result = this.numberOfItems.hashCode()
+        result = 31 * result + this.networkType.contentHashCode()
         return result
     }
 }
 
-public data class NDIS_802_11_NON_BCAST_SSID_LIST(public var NumberOfItems: UInt = 0u, public var Non_Bcast_Ssid: List<NDIS_802_11_SSID> = List(1) { NDIS_802_11_SSID() })
+public data class Ndis80211NonBcastSsidList(public var numberOfItems: UInt = 0u, public var nonBcastSsid: List<Ndis80211Ssid> = List(1) { Ndis80211Ssid() })
 
-public data class NDIS_802_11_PMKID(
-    public var Length: UInt = 0u,
-    public var BSSIDInfoCount: UInt = 0u,
-    public var BSSIDInfo: List<BSSID_INFO> = List(1) { BSSID_INFO() },
+public data class Ndis80211Pmkid(
+    public var length: UInt = 0u,
+    public var bSSIDInfoCount: UInt = 0u,
+    public var bSSIDInfo: List<BssidInfo> = List(1) { BssidInfo() },
 )
 
-public data class NDIS_802_11_PMKID_CANDIDATE_LIST(
-    public var Version: UInt = 0u,
-    public var NumCandidates: UInt = 0u,
-    public var CandidateList: List<PMKID_CANDIDATE> = List(1) { PMKID_CANDIDATE() },
+public data class Ndis80211PmkidCandidateList(
+    public var version: UInt = 0u,
+    public var numCandidates: UInt = 0u,
+    public var candidateList: List<PmkidCandidate> = List(1) { PmkidCandidate() },
 )
 
-public data class NDIS_802_11_REMOVE_KEY(
-    public var Length: UInt = 0u,
-    public var KeyIndex: UInt = 0u,
-    public var BSSID: UByteArray = UByteArray(6),
+public data class Ndis80211RemoveKey(
+    public var length: UInt = 0u,
+    public var keyIndex: UInt = 0u,
+    public var bssid: UByteArray = UByteArray(6),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NDIS_802_11_REMOVE_KEY) return false
-        if (this.Length != other.Length) return false
-        if (this.KeyIndex != other.KeyIndex) return false
-        if (!this.BSSID.contentEquals(other.BSSID)) return false
+        if (other !is Ndis80211RemoveKey) return false
+        if (this.length != other.length) return false
+        if (this.keyIndex != other.keyIndex) return false
+        if (!this.bssid.contentEquals(other.bssid)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Length.hashCode()
-        result = 31 * result + this.KeyIndex.hashCode()
-        result = 31 * result + this.BSSID.contentHashCode()
+        var result = this.length.hashCode()
+        result = 31 * result + this.keyIndex.hashCode()
+        result = 31 * result + this.bssid.contentHashCode()
         return result
     }
 }
 
-public data class NDIS_802_11_SSID(public var SsidLength: UInt = 0u, public var Ssid: UByteArray = UByteArray(32)) {
+public data class Ndis80211Ssid(public var ssidLength: UInt = 0u, public var ssid: UByteArray = UByteArray(32)) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NDIS_802_11_SSID) return false
-        if (this.SsidLength != other.SsidLength) return false
-        if (!this.Ssid.contentEquals(other.Ssid)) return false
+        if (other !is Ndis80211Ssid) return false
+        if (this.ssidLength != other.ssidLength) return false
+        if (!this.ssid.contentEquals(other.ssid)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.SsidLength.hashCode()
-        result = 31 * result + this.Ssid.contentHashCode()
+        var result = this.ssidLength.hashCode()
+        result = 31 * result + this.ssid.contentHashCode()
         return result
     }
 }
 
-public class NDIS_802_11_STATISTICS(
-    public var Length: UInt = 0u,
-    public var TransmittedFragmentCount: Long = 0L,
-    public var MulticastTransmittedFrameCount: Long = 0L,
-    public var FailedCount: Long = 0L,
-    public var RetryCount: Long = 0L,
-    public var MultipleRetryCount: Long = 0L,
-    public var RTSSuccessCount: Long = 0L,
-    public var RTSFailureCount: Long = 0L,
-    public var ACKFailureCount: Long = 0L,
-    public var FrameDuplicateCount: Long = 0L,
-    public var ReceivedFragmentCount: Long = 0L,
-    public var MulticastReceivedFrameCount: Long = 0L,
-    public var FCSErrorCount: Long = 0L,
-    public var TKIPLocalMICFailures: Long = 0L,
-    public var TKIPICVErrorCount: Long = 0L,
-    public var TKIPCounterMeasuresInvoked: Long = 0L,
-    public var TKIPReplays: Long = 0L,
-    public var CCMPFormatErrors: Long = 0L,
-    public var CCMPReplays: Long = 0L,
-    public var CCMPDecryptErrors: Long = 0L,
-    public var FourWayHandshakeFailures: Long = 0L,
-    public var WEPUndecryptableCount: Long = 0L,
-    public var WEPICVErrorCount: Long = 0L,
-    public var DecryptSuccessCount: Long = 0L,
-    public var DecryptFailureCount: Long = 0L,
+public class Ndis80211Statistics(
+    public var length: UInt = 0u,
+    public var transmittedFragmentCount: Long = 0L,
+    public var multicastTransmittedFrameCount: Long = 0L,
+    public var failedCount: Long = 0L,
+    public var retryCount: Long = 0L,
+    public var multipleRetryCount: Long = 0L,
+    public var rTSSuccessCount: Long = 0L,
+    public var rTSFailureCount: Long = 0L,
+    public var aCKFailureCount: Long = 0L,
+    public var frameDuplicateCount: Long = 0L,
+    public var receivedFragmentCount: Long = 0L,
+    public var multicastReceivedFrameCount: Long = 0L,
+    public var fCSErrorCount: Long = 0L,
+    public var tKIPLocalMICFailures: Long = 0L,
+    public var tKIPICVErrorCount: Long = 0L,
+    public var tKIPCounterMeasuresInvoked: Long = 0L,
+    public var tKIPReplays: Long = 0L,
+    public var cCMPFormatErrors: Long = 0L,
+    public var cCMPReplays: Long = 0L,
+    public var cCMPDecryptErrors: Long = 0L,
+    public var fourWayHandshakeFailures: Long = 0L,
+    public var wEPUndecryptableCount: Long = 0L,
+    public var wEPICVErrorCount: Long = 0L,
+    public var decryptSuccessCount: Long = 0L,
+    public var decryptFailureCount: Long = 0L,
 )
 
-public data class NDIS_802_11_STATUS_INDICATION(public var StatusType: NDIS_802_11_STATUS_TYPE = 0)
+public data class Ndis80211StatusIndication(public var statusType: Ndis80211StatusType = 0)
 
-public data class NDIS_802_11_TEST(
-    public var Length: UInt = 0u,
-    public var Type: UInt = 0u,
-    public var Anonymous: NDIS_802_11_TEST_0 = NDIS_802_11_TEST_0(),
+public data class Ndis80211Test(
+    public var length: UInt = 0u,
+    public var type: UInt = 0u,
+    public var anonymous: Ndis80211Test0 = Ndis80211Test0(),
 )
 
-public data class NDIS_802_11_TEST_0(public var AuthenticationEvent: NDIS_802_11_AUTHENTICATION_EVENT = NDIS_802_11_AUTHENTICATION_EVENT(), public var RssiTrigger: Int = 0)
+public data class Ndis80211Test0(public var authenticationEvent: Ndis80211AuthenticationEvent = Ndis80211AuthenticationEvent(), public var rssiTrigger: Int = 0)
 
-public data class NDIS_802_11_VARIABLE_IEs(
-    public var ElementID: UByte = 0u,
-    public var Length: UByte = 0u,
+public data class Ndis80211VariableIes(
+    public var elementID: UByte = 0u,
+    public var length: UByte = 0u,
     public var data: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NDIS_802_11_VARIABLE_IEs) return false
-        if (this.ElementID != other.ElementID) return false
-        if (this.Length != other.Length) return false
+        if (other !is Ndis80211VariableIes) return false
+        if (this.elementID != other.elementID) return false
+        if (this.length != other.length) return false
         if (!this.data.contentEquals(other.data)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.ElementID.hashCode()
-        result = 31 * result + this.Length.hashCode()
+        var result = this.elementID.hashCode()
+        result = 31 * result + this.length.hashCode()
         result = 31 * result + this.data.contentHashCode()
         return result
     }
 }
 
-public data class NDIS_802_11_WEP(
-    public var Length: UInt = 0u,
-    public var KeyIndex: UInt = 0u,
-    public var KeyLength: UInt = 0u,
-    public var KeyMaterial: UByteArray = UByteArray(1),
+public data class Ndis80211Wep(
+    public var length: UInt = 0u,
+    public var keyIndex: UInt = 0u,
+    public var keyLength: UInt = 0u,
+    public var keyMaterial: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NDIS_802_11_WEP) return false
-        if (this.Length != other.Length) return false
-        if (this.KeyIndex != other.KeyIndex) return false
-        if (this.KeyLength != other.KeyLength) return false
-        if (!this.KeyMaterial.contentEquals(other.KeyMaterial)) return false
+        if (other !is Ndis80211Wep) return false
+        if (this.length != other.length) return false
+        if (this.keyIndex != other.keyIndex) return false
+        if (this.keyLength != other.keyLength) return false
+        if (!this.keyMaterial.contentEquals(other.keyMaterial)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Length.hashCode()
-        result = 31 * result + this.KeyIndex.hashCode()
-        result = 31 * result + this.KeyLength.hashCode()
-        result = 31 * result + this.KeyMaterial.contentHashCode()
+        var result = this.length.hashCode()
+        result = 31 * result + this.keyIndex.hashCode()
+        result = 31 * result + this.keyLength.hashCode()
+        result = 31 * result + this.keyMaterial.contentHashCode()
         return result
     }
 }
 
-public class NDIS_CO_DEVICE_PROFILE(
-    public var DeviceDescription: NDIS_VAR_DATA_DESC = NDIS_VAR_DATA_DESC(),
-    public var DevSpecificInfo: NDIS_VAR_DATA_DESC = NDIS_VAR_DATA_DESC(),
+public class NdisCoDeviceProfile(
+    public var deviceDescription: NdisVarDataDesc = NdisVarDataDesc(),
+    public var devSpecificInfo: NdisVarDataDesc = NdisVarDataDesc(),
     public var ulTAPISupplementaryPassThru: UInt = 0u,
     public var ulAddressModes: UInt = 0u,
     public var ulNumAddresses: UInt = 0u,
@@ -386,35 +387,35 @@ public class NDIS_CO_DEVICE_PROFILE(
     public var ulUUICallInfoSize: UInt = 0u,
 )
 
-public data class NDIS_CO_LINK_SPEED(public var Outbound: UInt = 0u, public var Inbound: UInt = 0u)
+public data class NdisCoLinkSpeed(public var outbound: UInt = 0u, public var inbound: UInt = 0u)
 
-public data class NDIS_GUID(
-    public var Guid: GUID = GUID(),
-    public var Anonymous: NDIS_GUID_0 = NDIS_GUID_0(),
-    public var Size: UInt = 0u,
-    public var Flags: UInt = 0u,
+public data class NdisGuid(
+    public var guid: Guid = Guid(),
+    public var anonymous: NdisGuid0 = NdisGuid0(),
+    public var size: UInt = 0u,
+    public var flags: UInt = 0u,
 )
 
-public data class NDIS_GUID_0(public var Oid: UInt = 0u, public var Status: Int = 0)
+public data class NdisGuid0(public var oid: UInt = 0u, public var status: Int = 0)
 
-public data class NDIS_HARDWARE_CROSSTIMESTAMP(
-    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
-    public var Flags: UInt = 0u,
-    public var SystemTimestamp1: ULong = 0uL,
-    public var HardwareClockTimestamp: ULong = 0uL,
-    public var SystemTimestamp2: ULong = 0uL,
+public data class NdisHardwareCrosstimestamp(
+    public var header: NdisObjectHeader = NdisObjectHeader(),
+    public var flags: UInt = 0u,
+    public var systemTimestamp1: ULong = 0uL,
+    public var hardwareClockTimestamp: ULong = 0uL,
+    public var systemTimestamp2: ULong = 0uL,
 )
 
-public class NDIS_INTERFACE_INFORMATION(
-    public var ifOperStatus: NET_IF_OPER_STATUS = 0,
+public class NdisInterfaceInformation(
+    public var ifOperStatus: NetIfOperStatus = 0,
     public var ifOperStatusFlags: UInt = 0u,
-    public var MediaConnectState: NET_IF_MEDIA_CONNECT_STATE = 0,
-    public var MediaDuplexState: NET_IF_MEDIA_DUPLEX_STATE = 0,
+    public var mediaConnectState: NetIfMediaConnectState = 0,
+    public var mediaDuplexState: NetIfMediaDuplexState = 0,
     public var ifMtu: UInt = 0u,
     public var ifPromiscuousMode: Boolean = false,
     public var ifDeviceWakeUpEnable: Boolean = false,
-    public var XmitLinkSpeed: ULong = 0uL,
-    public var RcvLinkSpeed: ULong = 0uL,
+    public var xmitLinkSpeed: ULong = 0uL,
+    public var rcvLinkSpeed: ULong = 0uL,
     public var ifLastChange: ULong = 0uL,
     public var ifCounterDiscontinuityTime: ULong = 0uL,
     public var ifInUnknownProtos: ULong = 0uL,
@@ -436,227 +437,227 @@ public class NDIS_INTERFACE_INFORMATION(
     public var ifHCOutUcastOctets: ULong = 0uL,
     public var ifHCOutMulticastOctets: ULong = 0uL,
     public var ifHCOutBroadcastOctets: ULong = 0uL,
-    public var CompartmentId: NET_IF_COMPARTMENT_ID = 0u,
-    public var SupportedStatistics: UInt = 0u,
+    public var compartmentId: NetIfCompartmentId = 0u,
+    public var supportedStatistics: UInt = 0u,
 )
 
-public data class NDIS_INTERRUPT_MODERATION_PARAMETERS(
-    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
-    public var Flags: UInt = 0u,
-    public var InterruptModeration: NDIS_INTERRUPT_MODERATION = 0,
+public data class NdisInterruptModerationParameters(
+    public var header: NdisObjectHeader = NdisObjectHeader(),
+    public var flags: UInt = 0u,
+    public var interruptModeration: NdisInterruptModeration = 0,
 )
 
-public data class NDIS_IPSEC_OFFLOAD_V1(
-    public var Supported: NDIS_IPSEC_OFFLOAD_V1_0 = NDIS_IPSEC_OFFLOAD_V1_0(),
-    public var IPv4AH: NDIS_IPSEC_OFFLOAD_V1_1 = NDIS_IPSEC_OFFLOAD_V1_1(),
-    public var IPv4ESP: NDIS_IPSEC_OFFLOAD_V1_2 = NDIS_IPSEC_OFFLOAD_V1_2(),
+public data class NdisIpsecOffloadV1(
+    public var supported: NdisIpsecOffloadV10 = NdisIpsecOffloadV10(),
+    public var iPv4AH: NdisIpsecOffloadV11 = NdisIpsecOffloadV11(),
+    public var iPv4ESP: NdisIpsecOffloadV12 = NdisIpsecOffloadV12(),
 )
 
-public data class NDIS_IPSEC_OFFLOAD_V1_1(public var _bitfield: UInt = 0u)
+public data class NdisIpsecOffloadV11(public var bitfield: UInt = 0u)
 
-public data class NDIS_IPSEC_OFFLOAD_V1_2(public var _bitfield: UInt = 0u)
+public data class NdisIpsecOffloadV12(public var bitfield: UInt = 0u)
 
-public data class NDIS_IPSEC_OFFLOAD_V1_0(
-    public var Encapsulation: UInt = 0u,
-    public var AhEspCombined: UInt = 0u,
-    public var TransportTunnelCombined: UInt = 0u,
-    public var IPv4Options: UInt = 0u,
-    public var Flags: UInt = 0u,
+public data class NdisIpsecOffloadV10(
+    public var encapsulation: UInt = 0u,
+    public var ahEspCombined: UInt = 0u,
+    public var transportTunnelCombined: UInt = 0u,
+    public var iPv4Options: UInt = 0u,
+    public var flags: UInt = 0u,
 )
 
-public data class NDIS_IP_OPER_STATE(
-    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
-    public var Flags: UInt = 0u,
-    public var IpOperationalStatus: NDIS_IP_OPER_STATUS = NDIS_IP_OPER_STATUS(),
+public data class NdisIpOperState(
+    public var header: NdisObjectHeader = NdisObjectHeader(),
+    public var flags: UInt = 0u,
+    public var ipOperationalStatus: NdisIpOperStatus = NdisIpOperStatus(),
 )
 
-public data class NDIS_IP_OPER_STATUS(
-    public var AddressFamily: UInt = 0u,
-    public var OperationalStatus: NET_IF_OPER_STATUS = 0,
-    public var OperationalStatusFlags: UInt = 0u,
+public data class NdisIpOperStatus(
+    public var addressFamily: UInt = 0u,
+    public var operationalStatus: NetIfOperStatus = 0,
+    public var operationalStatusFlags: UInt = 0u,
 )
 
-public data class NDIS_IP_OPER_STATUS_INFO(
-    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
-    public var Flags: UInt = 0u,
-    public var NumberofAddressFamiliesReturned: UInt = 0u,
-    public var IpOperationalStatus: List<NDIS_IP_OPER_STATUS> = List(32) { NDIS_IP_OPER_STATUS() },
+public data class NdisIpOperStatusInfo(
+    public var header: NdisObjectHeader = NdisObjectHeader(),
+    public var flags: UInt = 0u,
+    public var numberofAddressFamiliesReturned: UInt = 0u,
+    public var ipOperationalStatus: List<NdisIpOperStatus> = List(32) { NdisIpOperStatus() },
 )
 
-public data class NDIS_IRDA_PACKET_INFO(public var ExtraBOFs: UInt = 0u, public var MinTurnAroundTime: UInt = 0u)
+public data class NdisIrdaPacketInfo(public var extraBOFs: UInt = 0u, public var minTurnAroundTime: UInt = 0u)
 
-public data class NDIS_LINK_PARAMETERS(
-    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
-    public var MediaDuplexState: NET_IF_MEDIA_DUPLEX_STATE = 0,
-    public var XmitLinkSpeed: ULong = 0uL,
-    public var RcvLinkSpeed: ULong = 0uL,
-    public var PauseFunctions: NDIS_SUPPORTED_PAUSE_FUNCTIONS = 0,
-    public var AutoNegotiationFlags: UInt = 0u,
+public data class NdisLinkParameters(
+    public var header: NdisObjectHeader = NdisObjectHeader(),
+    public var mediaDuplexState: NetIfMediaDuplexState = 0,
+    public var xmitLinkSpeed: ULong = 0uL,
+    public var rcvLinkSpeed: ULong = 0uL,
+    public var pauseFunctions: NdisSupportedPauseFunctions = 0,
+    public var autoNegotiationFlags: UInt = 0u,
 )
 
-public data class NDIS_LINK_SPEED(public var XmitLinkSpeed: ULong = 0uL, public var RcvLinkSpeed: ULong = 0uL)
+public data class NdisLinkSpeed(public var xmitLinkSpeed: ULong = 0uL, public var rcvLinkSpeed: ULong = 0uL)
 
-public data class NDIS_LINK_STATE(
-    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
-    public var MediaConnectState: NET_IF_MEDIA_CONNECT_STATE = 0,
-    public var MediaDuplexState: NET_IF_MEDIA_DUPLEX_STATE = 0,
-    public var XmitLinkSpeed: ULong = 0uL,
-    public var RcvLinkSpeed: ULong = 0uL,
-    public var PauseFunctions: NDIS_SUPPORTED_PAUSE_FUNCTIONS = 0,
-    public var AutoNegotiationFlags: UInt = 0u,
+public data class NdisLinkState(
+    public var header: NdisObjectHeader = NdisObjectHeader(),
+    public var mediaConnectState: NetIfMediaConnectState = 0,
+    public var mediaDuplexState: NetIfMediaDuplexState = 0,
+    public var xmitLinkSpeed: ULong = 0uL,
+    public var rcvLinkSpeed: ULong = 0uL,
+    public var pauseFunctions: NdisSupportedPauseFunctions = 0,
+    public var autoNegotiationFlags: UInt = 0u,
 )
 
-public data class NDIS_OBJECT_HEADER(
-    public var Type: UByte = 0u,
-    public var Revision: UByte = 0u,
-    public var Size: UShort = 0u,
+public data class NdisObjectHeader(
+    public var type: UByte = 0u,
+    public var revision: UByte = 0u,
+    public var size: UShort = 0u,
 )
 
-public data class NDIS_OFFLOAD(
-    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
-    public var Checksum: NDIS_TCP_IP_CHECKSUM_OFFLOAD = NDIS_TCP_IP_CHECKSUM_OFFLOAD(),
-    public var LsoV1: NDIS_TCP_LARGE_SEND_OFFLOAD_V1 = NDIS_TCP_LARGE_SEND_OFFLOAD_V1(),
-    public var IPsecV1: NDIS_IPSEC_OFFLOAD_V1 = NDIS_IPSEC_OFFLOAD_V1(),
-    public var LsoV2: NDIS_TCP_LARGE_SEND_OFFLOAD_V2 = NDIS_TCP_LARGE_SEND_OFFLOAD_V2(),
-    public var Flags: UInt = 0u,
+public data class NdisOffload(
+    public var header: NdisObjectHeader = NdisObjectHeader(),
+    public var checksum: NdisTcpIpChecksumOffload = NdisTcpIpChecksumOffload(),
+    public var lsoV1: NdisTcpLargeSendOffloadV1 = NdisTcpLargeSendOffloadV1(),
+    public var iPsecV1: NdisIpsecOffloadV1 = NdisIpsecOffloadV1(),
+    public var lsoV2: NdisTcpLargeSendOffloadV2 = NdisTcpLargeSendOffloadV2(),
+    public var flags: UInt = 0u,
 )
 
-public data class NDIS_OFFLOAD_PARAMETERS(
-    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
-    public var IPv4Checksum: UByte = 0u,
-    public var TCPIPv4Checksum: UByte = 0u,
-    public var UDPIPv4Checksum: UByte = 0u,
-    public var TCPIPv6Checksum: UByte = 0u,
-    public var UDPIPv6Checksum: UByte = 0u,
-    public var LsoV1: UByte = 0u,
-    public var IPsecV1: UByte = 0u,
-    public var LsoV2IPv4: UByte = 0u,
-    public var LsoV2IPv6: UByte = 0u,
-    public var TcpConnectionIPv4: UByte = 0u,
-    public var TcpConnectionIPv6: UByte = 0u,
-    public var Flags: UInt = 0u,
+public data class NdisOffloadParameters(
+    public var header: NdisObjectHeader = NdisObjectHeader(),
+    public var iPv4Checksum: UByte = 0u,
+    public var tCPIPv4Checksum: UByte = 0u,
+    public var uDPIPv4Checksum: UByte = 0u,
+    public var tCPIPv6Checksum: UByte = 0u,
+    public var uDPIPv6Checksum: UByte = 0u,
+    public var lsoV1: UByte = 0u,
+    public var iPsecV1: UByte = 0u,
+    public var lsoV2IPv4: UByte = 0u,
+    public var lsoV2IPv6: UByte = 0u,
+    public var tcpConnectionIPv4: UByte = 0u,
+    public var tcpConnectionIPv6: UByte = 0u,
+    public var flags: UInt = 0u,
 )
 
-public data class NDIS_OPER_STATE(
-    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
-    public var OperationalStatus: NET_IF_OPER_STATUS = 0,
-    public var OperationalStatusFlags: UInt = 0u,
+public data class NdisOperState(
+    public var header: NdisObjectHeader = NdisObjectHeader(),
+    public var operationalStatus: NetIfOperStatus = 0,
+    public var operationalStatusFlags: UInt = 0u,
 )
 
-public data class NDIS_PCI_DEVICE_CUSTOM_PROPERTIES(
-    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
-    public var DeviceType: UInt = 0u,
-    public var CurrentSpeedAndMode: UInt = 0u,
-    public var CurrentPayloadSize: UInt = 0u,
-    public var MaxPayloadSize: UInt = 0u,
-    public var MaxReadRequestSize: UInt = 0u,
-    public var CurrentLinkSpeed: UInt = 0u,
-    public var CurrentLinkWidth: UInt = 0u,
-    public var MaxLinkSpeed: UInt = 0u,
-    public var MaxLinkWidth: UInt = 0u,
-    public var PciExpressVersion: UInt = 0u,
-    public var InterruptType: UInt = 0u,
-    public var MaxInterruptMessages: UInt = 0u,
+public data class NdisPciDeviceCustomProperties(
+    public var header: NdisObjectHeader = NdisObjectHeader(),
+    public var deviceType: UInt = 0u,
+    public var currentSpeedAndMode: UInt = 0u,
+    public var currentPayloadSize: UInt = 0u,
+    public var maxPayloadSize: UInt = 0u,
+    public var maxReadRequestSize: UInt = 0u,
+    public var currentLinkSpeed: UInt = 0u,
+    public var currentLinkWidth: UInt = 0u,
+    public var maxLinkSpeed: UInt = 0u,
+    public var maxLinkWidth: UInt = 0u,
+    public var pciExpressVersion: UInt = 0u,
+    public var interruptType: UInt = 0u,
+    public var maxInterruptMessages: UInt = 0u,
 )
 
-public data class NDIS_PM_PACKET_PATTERN(
-    public var Priority: UInt = 0u,
-    public var Reserved: UInt = 0u,
-    public var MaskSize: UInt = 0u,
-    public var PatternOffset: UInt = 0u,
-    public var PatternSize: UInt = 0u,
-    public var PatternFlags: UInt = 0u,
+public data class NdisPmPacketPattern(
+    public var priority: UInt = 0u,
+    public var reserved: UInt = 0u,
+    public var maskSize: UInt = 0u,
+    public var patternOffset: UInt = 0u,
+    public var patternSize: UInt = 0u,
+    public var patternFlags: UInt = 0u,
 )
 
-public data class NDIS_PM_WAKE_UP_CAPABILITIES(
-    public var MinMagicPacketWakeUp: NDIS_DEVICE_POWER_STATE = 0,
-    public var MinPatternWakeUp: NDIS_DEVICE_POWER_STATE = 0,
-    public var MinLinkChangeWakeUp: NDIS_DEVICE_POWER_STATE = 0,
+public data class NdisPmWakeUpCapabilities(
+    public var minMagicPacketWakeUp: NdisDevicePowerState = 0,
+    public var minPatternWakeUp: NdisDevicePowerState = 0,
+    public var minLinkChangeWakeUp: NdisDevicePowerState = 0,
 )
 
-public data class NDIS_PNP_CAPABILITIES(public var Flags: UInt = 0u, public var WakeUpCapabilities: NDIS_PM_WAKE_UP_CAPABILITIES = NDIS_PM_WAKE_UP_CAPABILITIES())
+public data class NdisPnpCapabilities(public var flags: UInt = 0u, public var wakeUpCapabilities: NdisPmWakeUpCapabilities = NdisPmWakeUpCapabilities())
 
-public data class NDIS_PORT(
-    public var Next: Long = 0L,
-    public var NdisReserved: Long = 0L,
-    public var MiniportReserved: Long = 0L,
-    public var ProtocolReserved: Long = 0L,
-    public var PortCharacteristics: NDIS_PORT_CHARACTERISTICS = NDIS_PORT_CHARACTERISTICS(),
+public data class NdisPort(
+    public var next: NdisPort? = null,
+    public var ndisReserved: COpaquePointer? = null,
+    public var miniportReserved: COpaquePointer? = null,
+    public var protocolReserved: COpaquePointer? = null,
+    public var portCharacteristics: NdisPortCharacteristics = NdisPortCharacteristics(),
 )
 
-public data class NDIS_PORT_ARRAY(
-    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
-    public var NumberOfPorts: UInt = 0u,
-    public var OffsetFirstPort: UInt = 0u,
-    public var ElementSize: UInt = 0u,
-    public var Ports: List<NDIS_PORT_CHARACTERISTICS> = List(1) { NDIS_PORT_CHARACTERISTICS() },
+public data class NdisPortArray(
+    public var header: NdisObjectHeader = NdisObjectHeader(),
+    public var numberOfPorts: UInt = 0u,
+    public var offsetFirstPort: UInt = 0u,
+    public var elementSize: UInt = 0u,
+    public var ports: List<NdisPortCharacteristics> = List(1) { NdisPortCharacteristics() },
 )
 
-public data class NDIS_PORT_AUTHENTICATION_PARAMETERS(
-    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
-    public var SendControlState: NDIS_PORT_CONTROL_STATE = 0,
-    public var RcvControlState: NDIS_PORT_CONTROL_STATE = 0,
-    public var SendAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE = 0,
-    public var RcvAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE = 0,
+public data class NdisPortAuthenticationParameters(
+    public var header: NdisObjectHeader = NdisObjectHeader(),
+    public var sendControlState: NdisPortControlState = 0,
+    public var rcvControlState: NdisPortControlState = 0,
+    public var sendAuthorizationState: NdisPortAuthorizationState = 0,
+    public var rcvAuthorizationState: NdisPortAuthorizationState = 0,
 )
 
-public data class NDIS_PORT_CHARACTERISTICS(
-    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
-    public var PortNumber: UInt = 0u,
-    public var Flags: UInt = 0u,
-    public var Type: NDIS_PORT_TYPE = 0,
-    public var MediaConnectState: NET_IF_MEDIA_CONNECT_STATE = 0,
-    public var XmitLinkSpeed: ULong = 0uL,
-    public var RcvLinkSpeed: ULong = 0uL,
-    public var Direction: NET_IF_DIRECTION_TYPE = 0,
-    public var SendControlState: NDIS_PORT_CONTROL_STATE = 0,
-    public var RcvControlState: NDIS_PORT_CONTROL_STATE = 0,
-    public var SendAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE = 0,
-    public var RcvAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE = 0,
+public data class NdisPortCharacteristics(
+    public var header: NdisObjectHeader = NdisObjectHeader(),
+    public var portNumber: UInt = 0u,
+    public var flags: UInt = 0u,
+    public var type: NdisPortType = 0,
+    public var mediaConnectState: NetIfMediaConnectState = 0,
+    public var xmitLinkSpeed: ULong = 0uL,
+    public var rcvLinkSpeed: ULong = 0uL,
+    public var direction: NetIfDirectionType = 0,
+    public var sendControlState: NdisPortControlState = 0,
+    public var rcvControlState: NdisPortControlState = 0,
+    public var sendAuthorizationState: NdisPortAuthorizationState = 0,
+    public var rcvAuthorizationState: NdisPortAuthorizationState = 0,
 )
 
-public data class NDIS_PORT_STATE(
-    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
-    public var MediaConnectState: NET_IF_MEDIA_CONNECT_STATE = 0,
-    public var XmitLinkSpeed: ULong = 0uL,
-    public var RcvLinkSpeed: ULong = 0uL,
-    public var Direction: NET_IF_DIRECTION_TYPE = 0,
-    public var SendControlState: NDIS_PORT_CONTROL_STATE = 0,
-    public var RcvControlState: NDIS_PORT_CONTROL_STATE = 0,
-    public var SendAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE = 0,
-    public var RcvAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE = 0,
-    public var Flags: UInt = 0u,
+public data class NdisPortState(
+    public var header: NdisObjectHeader = NdisObjectHeader(),
+    public var mediaConnectState: NetIfMediaConnectState = 0,
+    public var xmitLinkSpeed: ULong = 0uL,
+    public var rcvLinkSpeed: ULong = 0uL,
+    public var direction: NetIfDirectionType = 0,
+    public var sendControlState: NdisPortControlState = 0,
+    public var rcvControlState: NdisPortControlState = 0,
+    public var sendAuthorizationState: NdisPortAuthorizationState = 0,
+    public var rcvAuthorizationState: NdisPortAuthorizationState = 0,
+    public var flags: UInt = 0u,
 )
 
-public data class NDIS_RECEIVE_HASH_PARAMETERS(
-    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
-    public var Flags: UInt = 0u,
-    public var HashInformation: UInt = 0u,
-    public var HashSecretKeySize: UShort = 0u,
-    public var HashSecretKeyOffset: UInt = 0u,
+public data class NdisReceiveHashParameters(
+    public var header: NdisObjectHeader = NdisObjectHeader(),
+    public var flags: UInt = 0u,
+    public var hashInformation: UInt = 0u,
+    public var hashSecretKeySize: UShort = 0u,
+    public var hashSecretKeyOffset: UInt = 0u,
 )
 
-public data class NDIS_RECEIVE_SCALE_CAPABILITIES(
-    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
-    public var CapabilitiesFlags: UInt = 0u,
-    public var NumberOfInterruptMessages: UInt = 0u,
-    public var NumberOfReceiveQueues: UInt = 0u,
+public data class NdisReceiveScaleCapabilities(
+    public var header: NdisObjectHeader = NdisObjectHeader(),
+    public var capabilitiesFlags: UInt = 0u,
+    public var numberOfInterruptMessages: UInt = 0u,
+    public var numberOfReceiveQueues: UInt = 0u,
 )
 
-public data class NDIS_RECEIVE_SCALE_PARAMETERS(
-    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
-    public var Flags: UShort = 0u,
-    public var BaseCpuNumber: UShort = 0u,
-    public var HashInformation: UInt = 0u,
-    public var IndirectionTableSize: UShort = 0u,
-    public var IndirectionTableOffset: UInt = 0u,
-    public var HashSecretKeySize: UShort = 0u,
-    public var HashSecretKeyOffset: UInt = 0u,
+public data class NdisReceiveScaleParameters(
+    public var header: NdisObjectHeader = NdisObjectHeader(),
+    public var flags: UShort = 0u,
+    public var baseCpuNumber: UShort = 0u,
+    public var hashInformation: UInt = 0u,
+    public var indirectionTableSize: UShort = 0u,
+    public var indirectionTableOffset: UInt = 0u,
+    public var hashSecretKeySize: UShort = 0u,
+    public var hashSecretKeyOffset: UInt = 0u,
 )
 
-public class NDIS_STATISTICS_INFO(
-    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
-    public var SupportedStatistics: UInt = 0u,
+public class NdisStatisticsInfo(
+    public var header: NdisObjectHeader = NdisObjectHeader(),
+    public var supportedStatistics: UInt = 0u,
     public var ifInDiscards: ULong = 0uL,
     public var ifInErrors: ULong = 0uL,
     public var ifHCInOctets: ULong = 0uL,
@@ -677,760 +678,760 @@ public class NDIS_STATISTICS_INFO(
     public var ifHCOutBroadcastOctets: ULong = 0uL,
 )
 
-public data class NDIS_STATISTICS_VALUE(
-    public var Oid: UInt = 0u,
-    public var DataLength: UInt = 0u,
-    public var Data: UByteArray = UByteArray(1),
+public data class NdisStatisticsValue(
+    public var oid: UInt = 0u,
+    public var dataLength: UInt = 0u,
+    public var data: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NDIS_STATISTICS_VALUE) return false
-        if (this.Oid != other.Oid) return false
-        if (this.DataLength != other.DataLength) return false
-        if (!this.Data.contentEquals(other.Data)) return false
+        if (other !is NdisStatisticsValue) return false
+        if (this.oid != other.oid) return false
+        if (this.dataLength != other.dataLength) return false
+        if (!this.data.contentEquals(other.data)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Oid.hashCode()
-        result = 31 * result + this.DataLength.hashCode()
-        result = 31 * result + this.Data.contentHashCode()
+        var result = this.oid.hashCode()
+        result = 31 * result + this.dataLength.hashCode()
+        result = 31 * result + this.data.contentHashCode()
         return result
     }
 }
 
-public data class NDIS_STATISTICS_VALUE_EX(
-    public var Oid: UInt = 0u,
-    public var DataLength: UInt = 0u,
-    public var Length: UInt = 0u,
-    public var Data: UByteArray = UByteArray(1),
+public data class NdisStatisticsValueEx(
+    public var oid: UInt = 0u,
+    public var dataLength: UInt = 0u,
+    public var length: UInt = 0u,
+    public var data: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NDIS_STATISTICS_VALUE_EX) return false
-        if (this.Oid != other.Oid) return false
-        if (this.DataLength != other.DataLength) return false
-        if (this.Length != other.Length) return false
-        if (!this.Data.contentEquals(other.Data)) return false
+        if (other !is NdisStatisticsValueEx) return false
+        if (this.oid != other.oid) return false
+        if (this.dataLength != other.dataLength) return false
+        if (this.length != other.length) return false
+        if (!this.data.contentEquals(other.data)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Oid.hashCode()
-        result = 31 * result + this.DataLength.hashCode()
-        result = 31 * result + this.Length.hashCode()
-        result = 31 * result + this.Data.contentHashCode()
+        var result = this.oid.hashCode()
+        result = 31 * result + this.dataLength.hashCode()
+        result = 31 * result + this.length.hashCode()
+        result = 31 * result + this.data.contentHashCode()
         return result
     }
 }
 
-public data class NDIS_TCP_CONNECTION_OFFLOAD(
-    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
-    public var Encapsulation: UInt = 0u,
-    public var _bitfield: UInt = 0u,
-    public var TcpConnectionOffloadCapacity: UInt = 0u,
-    public var Flags: UInt = 0u,
+public data class NdisTcpConnectionOffload(
+    public var header: NdisObjectHeader = NdisObjectHeader(),
+    public var encapsulation: UInt = 0u,
+    public var bitfield: UInt = 0u,
+    public var tcpConnectionOffloadCapacity: UInt = 0u,
+    public var flags: UInt = 0u,
 )
 
-public data class NDIS_TCP_IP_CHECKSUM_OFFLOAD(
-    public var IPv4Transmit: NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 = NDIS_TCP_IP_CHECKSUM_OFFLOAD_0(),
-    public var IPv4Receive: NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 = NDIS_TCP_IP_CHECKSUM_OFFLOAD_1(),
-    public var IPv6Transmit: NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 = NDIS_TCP_IP_CHECKSUM_OFFLOAD_2(),
-    public var IPv6Receive: NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 = NDIS_TCP_IP_CHECKSUM_OFFLOAD_3(),
+public data class NdisTcpIpChecksumOffload(
+    public var iPv4Transmit: NdisTcpIpChecksumOffload0 = NdisTcpIpChecksumOffload0(),
+    public var iPv4Receive: NdisTcpIpChecksumOffload1 = NdisTcpIpChecksumOffload1(),
+    public var iPv6Transmit: NdisTcpIpChecksumOffload2 = NdisTcpIpChecksumOffload2(),
+    public var iPv6Receive: NdisTcpIpChecksumOffload3 = NdisTcpIpChecksumOffload3(),
 )
 
-public data class NDIS_TCP_IP_CHECKSUM_OFFLOAD_1(public var Encapsulation: UInt = 0u, public var _bitfield: UInt = 0u)
+public data class NdisTcpIpChecksumOffload1(public var encapsulation: UInt = 0u, public var bitfield: UInt = 0u)
 
-public data class NDIS_TCP_IP_CHECKSUM_OFFLOAD_0(public var Encapsulation: UInt = 0u, public var _bitfield: UInt = 0u)
+public data class NdisTcpIpChecksumOffload0(public var encapsulation: UInt = 0u, public var bitfield: UInt = 0u)
 
-public data class NDIS_TCP_IP_CHECKSUM_OFFLOAD_3(public var Encapsulation: UInt = 0u, public var _bitfield: UInt = 0u)
+public data class NdisTcpIpChecksumOffload3(public var encapsulation: UInt = 0u, public var bitfield: UInt = 0u)
 
-public data class NDIS_TCP_IP_CHECKSUM_OFFLOAD_2(public var Encapsulation: UInt = 0u, public var _bitfield: UInt = 0u)
+public data class NdisTcpIpChecksumOffload2(public var encapsulation: UInt = 0u, public var bitfield: UInt = 0u)
 
-public data class NDIS_TCP_LARGE_SEND_OFFLOAD_V1(public var IPv4: NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 = NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0())
+public data class NdisTcpLargeSendOffloadV1(public var iPv4: NdisTcpLargeSendOffloadV10 = NdisTcpLargeSendOffloadV10())
 
-public data class NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0(
-    public var Encapsulation: UInt = 0u,
-    public var MaxOffLoadSize: UInt = 0u,
-    public var MinSegmentCount: UInt = 0u,
-    public var _bitfield: UInt = 0u,
+public data class NdisTcpLargeSendOffloadV10(
+    public var encapsulation: UInt = 0u,
+    public var maxOffLoadSize: UInt = 0u,
+    public var minSegmentCount: UInt = 0u,
+    public var bitfield: UInt = 0u,
 )
 
-public data class NDIS_TCP_LARGE_SEND_OFFLOAD_V2(public var IPv4: NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 = NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0(), public var IPv6: NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 = NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1())
+public data class NdisTcpLargeSendOffloadV2(public var iPv4: NdisTcpLargeSendOffloadV20 = NdisTcpLargeSendOffloadV20(), public var iPv6: NdisTcpLargeSendOffloadV21 = NdisTcpLargeSendOffloadV21())
 
-public data class NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0(
-    public var Encapsulation: UInt = 0u,
-    public var MaxOffLoadSize: UInt = 0u,
-    public var MinSegmentCount: UInt = 0u,
+public data class NdisTcpLargeSendOffloadV20(
+    public var encapsulation: UInt = 0u,
+    public var maxOffLoadSize: UInt = 0u,
+    public var minSegmentCount: UInt = 0u,
 )
 
-public data class NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1(
-    public var Encapsulation: UInt = 0u,
-    public var MaxOffLoadSize: UInt = 0u,
-    public var MinSegmentCount: UInt = 0u,
-    public var _bitfield: UInt = 0u,
+public data class NdisTcpLargeSendOffloadV21(
+    public var encapsulation: UInt = 0u,
+    public var maxOffLoadSize: UInt = 0u,
+    public var minSegmentCount: UInt = 0u,
+    public var bitfield: UInt = 0u,
 )
 
-public data class NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES(
-    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
-    public var Flags: UInt = 0u,
-    public var TimeoutArrayLength: UInt = 0u,
-    public var TimeoutArray: UIntArray = UIntArray(1),
+public data class NdisTimeoutDpcRequestCapabilities(
+    public var header: NdisObjectHeader = NdisObjectHeader(),
+    public var flags: UInt = 0u,
+    public var timeoutArrayLength: UInt = 0u,
+    public var timeoutArray: UIntArray = UIntArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES) return false
-        if (this.Header != other.Header) return false
-        if (this.Flags != other.Flags) return false
-        if (this.TimeoutArrayLength != other.TimeoutArrayLength) return false
-        if (!this.TimeoutArray.contentEquals(other.TimeoutArray)) return false
+        if (other !is NdisTimeoutDpcRequestCapabilities) return false
+        if (this.header != other.header) return false
+        if (this.flags != other.flags) return false
+        if (this.timeoutArrayLength != other.timeoutArrayLength) return false
+        if (!this.timeoutArray.contentEquals(other.timeoutArray)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Header.hashCode()
-        result = 31 * result + this.Flags.hashCode()
-        result = 31 * result + this.TimeoutArrayLength.hashCode()
-        result = 31 * result + this.TimeoutArray.contentHashCode()
+        var result = this.header.hashCode()
+        result = 31 * result + this.flags.hashCode()
+        result = 31 * result + this.timeoutArrayLength.hashCode()
+        result = 31 * result + this.timeoutArray.contentHashCode()
         return result
     }
 }
 
-public data class NDIS_TIMESTAMP_CAPABILITIES(
-    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
-    public var HardwareClockFrequencyHz: ULong = 0uL,
-    public var CrossTimestamp: Boolean = false,
-    public var Reserved1: ULong = 0uL,
-    public var Reserved2: ULong = 0uL,
-    public var TimestampFlags: NDIS_TIMESTAMP_CAPABILITY_FLAGS = NDIS_TIMESTAMP_CAPABILITY_FLAGS(),
+public data class NdisTimestampCapabilities(
+    public var header: NdisObjectHeader = NdisObjectHeader(),
+    public var hardwareClockFrequencyHz: ULong = 0uL,
+    public var crossTimestamp: Boolean = false,
+    public var reserved1: ULong = 0uL,
+    public var reserved2: ULong = 0uL,
+    public var timestampFlags: NdisTimestampCapabilityFlags = NdisTimestampCapabilityFlags(),
 )
 
-public data class NDIS_TIMESTAMP_CAPABILITY_FLAGS(
-    public var PtpV2OverUdpIPv4EventMsgReceiveHw: Boolean = false,
-    public var PtpV2OverUdpIPv4AllMsgReceiveHw: Boolean = false,
-    public var PtpV2OverUdpIPv4EventMsgTransmitHw: Boolean = false,
-    public var PtpV2OverUdpIPv4AllMsgTransmitHw: Boolean = false,
-    public var PtpV2OverUdpIPv6EventMsgReceiveHw: Boolean = false,
-    public var PtpV2OverUdpIPv6AllMsgReceiveHw: Boolean = false,
-    public var PtpV2OverUdpIPv6EventMsgTransmitHw: Boolean = false,
-    public var PtpV2OverUdpIPv6AllMsgTransmitHw: Boolean = false,
-    public var AllReceiveHw: Boolean = false,
-    public var AllTransmitHw: Boolean = false,
-    public var TaggedTransmitHw: Boolean = false,
-    public var AllReceiveSw: Boolean = false,
-    public var AllTransmitSw: Boolean = false,
-    public var TaggedTransmitSw: Boolean = false,
+public data class NdisTimestampCapabilityFlags(
+    public var ptpV2OverUdpIPv4EventMsgReceiveHw: Boolean = false,
+    public var ptpV2OverUdpIPv4AllMsgReceiveHw: Boolean = false,
+    public var ptpV2OverUdpIPv4EventMsgTransmitHw: Boolean = false,
+    public var ptpV2OverUdpIPv4AllMsgTransmitHw: Boolean = false,
+    public var ptpV2OverUdpIPv6EventMsgReceiveHw: Boolean = false,
+    public var ptpV2OverUdpIPv6AllMsgReceiveHw: Boolean = false,
+    public var ptpV2OverUdpIPv6EventMsgTransmitHw: Boolean = false,
+    public var ptpV2OverUdpIPv6AllMsgTransmitHw: Boolean = false,
+    public var allReceiveHw: Boolean = false,
+    public var allTransmitHw: Boolean = false,
+    public var taggedTransmitHw: Boolean = false,
+    public var allReceiveSw: Boolean = false,
+    public var allTransmitSw: Boolean = false,
+    public var taggedTransmitSw: Boolean = false,
 )
 
-public data class NDIS_VAR_DATA_DESC(
-    public var Length: UShort = 0u,
-    public var MaximumLength: UShort = 0u,
-    public var Offset: ULong = 0uL,
+public data class NdisVarDataDesc(
+    public var length: UShort = 0u,
+    public var maximumLength: UShort = 0u,
+    public var offset: Int = 0,
 )
 
-public data class NDIS_WAN_PROTOCOL_CAPS(public var Flags: UInt = 0u, public var Reserved: UInt = 0u)
+public data class NdisWanProtocolCaps(public var flags: UInt = 0u, public var reserved: UInt = 0u)
 
-public data class NDIS_WLAN_BSSID(
-    public var Length: UInt = 0u,
-    public var MacAddress: UByteArray = UByteArray(6),
-    public var Reserved: UByteArray = UByteArray(2),
-    public var Ssid: NDIS_802_11_SSID = NDIS_802_11_SSID(),
-    public var Privacy: UInt = 0u,
-    public var Rssi: Int = 0,
-    public var NetworkTypeInUse: NDIS_802_11_NETWORK_TYPE = 0,
-    public var Configuration: NDIS_802_11_CONFIGURATION = NDIS_802_11_CONFIGURATION(),
-    public var InfrastructureMode: NDIS_802_11_NETWORK_INFRASTRUCTURE = 0,
-    public var SupportedRates: UByteArray = UByteArray(8),
+public data class NdisWlanBssid(
+    public var length: UInt = 0u,
+    public var macAddress: UByteArray = UByteArray(6),
+    public var reserved: UByteArray = UByteArray(2),
+    public var ssid: Ndis80211Ssid = Ndis80211Ssid(),
+    public var privacy: UInt = 0u,
+    public var rssi: Int = 0,
+    public var networkTypeInUse: Ndis80211NetworkType = 0,
+    public var configuration: Ndis80211Configuration = Ndis80211Configuration(),
+    public var infrastructureMode: Ndis80211NetworkInfrastructure = 0,
+    public var supportedRates: UByteArray = UByteArray(8),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NDIS_WLAN_BSSID) return false
-        if (this.Length != other.Length) return false
-        if (!this.MacAddress.contentEquals(other.MacAddress)) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
-        if (this.Ssid != other.Ssid) return false
-        if (this.Privacy != other.Privacy) return false
-        if (this.Rssi != other.Rssi) return false
-        if (this.NetworkTypeInUse != other.NetworkTypeInUse) return false
-        if (this.Configuration != other.Configuration) return false
-        if (this.InfrastructureMode != other.InfrastructureMode) return false
-        if (!this.SupportedRates.contentEquals(other.SupportedRates)) return false
+        if (other !is NdisWlanBssid) return false
+        if (this.length != other.length) return false
+        if (!this.macAddress.contentEquals(other.macAddress)) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
+        if (this.ssid != other.ssid) return false
+        if (this.privacy != other.privacy) return false
+        if (this.rssi != other.rssi) return false
+        if (this.networkTypeInUse != other.networkTypeInUse) return false
+        if (this.configuration != other.configuration) return false
+        if (this.infrastructureMode != other.infrastructureMode) return false
+        if (!this.supportedRates.contentEquals(other.supportedRates)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Length.hashCode()
-        result = 31 * result + this.MacAddress.contentHashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
-        result = 31 * result + this.Ssid.hashCode()
-        result = 31 * result + this.Privacy.hashCode()
-        result = 31 * result + this.Rssi.hashCode()
-        result = 31 * result + this.NetworkTypeInUse.hashCode()
-        result = 31 * result + this.Configuration.hashCode()
-        result = 31 * result + this.InfrastructureMode.hashCode()
-        result = 31 * result + this.SupportedRates.contentHashCode()
+        var result = this.length.hashCode()
+        result = 31 * result + this.macAddress.contentHashCode()
+        result = 31 * result + this.reserved.contentHashCode()
+        result = 31 * result + this.ssid.hashCode()
+        result = 31 * result + this.privacy.hashCode()
+        result = 31 * result + this.rssi.hashCode()
+        result = 31 * result + this.networkTypeInUse.hashCode()
+        result = 31 * result + this.configuration.hashCode()
+        result = 31 * result + this.infrastructureMode.hashCode()
+        result = 31 * result + this.supportedRates.contentHashCode()
         return result
     }
 }
 
-public data class NDIS_WLAN_BSSID_EX(
-    public var Length: UInt = 0u,
-    public var MacAddress: UByteArray = UByteArray(6),
-    public var Reserved: UByteArray = UByteArray(2),
-    public var Ssid: NDIS_802_11_SSID = NDIS_802_11_SSID(),
-    public var Privacy: UInt = 0u,
-    public var Rssi: Int = 0,
-    public var NetworkTypeInUse: NDIS_802_11_NETWORK_TYPE = 0,
-    public var Configuration: NDIS_802_11_CONFIGURATION = NDIS_802_11_CONFIGURATION(),
-    public var InfrastructureMode: NDIS_802_11_NETWORK_INFRASTRUCTURE = 0,
-    public var SupportedRates: UByteArray = UByteArray(16),
-    public var IELength: UInt = 0u,
-    public var IEs: UByteArray = UByteArray(1),
+public data class NdisWlanBssidEx(
+    public var length: UInt = 0u,
+    public var macAddress: UByteArray = UByteArray(6),
+    public var reserved: UByteArray = UByteArray(2),
+    public var ssid: Ndis80211Ssid = Ndis80211Ssid(),
+    public var privacy: UInt = 0u,
+    public var rssi: Int = 0,
+    public var networkTypeInUse: Ndis80211NetworkType = 0,
+    public var configuration: Ndis80211Configuration = Ndis80211Configuration(),
+    public var infrastructureMode: Ndis80211NetworkInfrastructure = 0,
+    public var supportedRates: UByteArray = UByteArray(16),
+    public var iELength: UInt = 0u,
+    public var iEs: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NDIS_WLAN_BSSID_EX) return false
-        if (this.Length != other.Length) return false
-        if (!this.MacAddress.contentEquals(other.MacAddress)) return false
-        if (!this.Reserved.contentEquals(other.Reserved)) return false
-        if (this.Ssid != other.Ssid) return false
-        if (this.Privacy != other.Privacy) return false
-        if (this.Rssi != other.Rssi) return false
-        if (this.NetworkTypeInUse != other.NetworkTypeInUse) return false
-        if (this.Configuration != other.Configuration) return false
-        if (this.InfrastructureMode != other.InfrastructureMode) return false
-        if (!this.SupportedRates.contentEquals(other.SupportedRates)) return false
-        if (this.IELength != other.IELength) return false
-        if (!this.IEs.contentEquals(other.IEs)) return false
+        if (other !is NdisWlanBssidEx) return false
+        if (this.length != other.length) return false
+        if (!this.macAddress.contentEquals(other.macAddress)) return false
+        if (!this.reserved.contentEquals(other.reserved)) return false
+        if (this.ssid != other.ssid) return false
+        if (this.privacy != other.privacy) return false
+        if (this.rssi != other.rssi) return false
+        if (this.networkTypeInUse != other.networkTypeInUse) return false
+        if (this.configuration != other.configuration) return false
+        if (this.infrastructureMode != other.infrastructureMode) return false
+        if (!this.supportedRates.contentEquals(other.supportedRates)) return false
+        if (this.iELength != other.iELength) return false
+        if (!this.iEs.contentEquals(other.iEs)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Length.hashCode()
-        result = 31 * result + this.MacAddress.contentHashCode()
-        result = 31 * result + this.Reserved.contentHashCode()
-        result = 31 * result + this.Ssid.hashCode()
-        result = 31 * result + this.Privacy.hashCode()
-        result = 31 * result + this.Rssi.hashCode()
-        result = 31 * result + this.NetworkTypeInUse.hashCode()
-        result = 31 * result + this.Configuration.hashCode()
-        result = 31 * result + this.InfrastructureMode.hashCode()
-        result = 31 * result + this.SupportedRates.contentHashCode()
-        result = 31 * result + this.IELength.hashCode()
-        result = 31 * result + this.IEs.contentHashCode()
+        var result = this.length.hashCode()
+        result = 31 * result + this.macAddress.contentHashCode()
+        result = 31 * result + this.reserved.contentHashCode()
+        result = 31 * result + this.ssid.hashCode()
+        result = 31 * result + this.privacy.hashCode()
+        result = 31 * result + this.rssi.hashCode()
+        result = 31 * result + this.networkTypeInUse.hashCode()
+        result = 31 * result + this.configuration.hashCode()
+        result = 31 * result + this.infrastructureMode.hashCode()
+        result = 31 * result + this.supportedRates.contentHashCode()
+        result = 31 * result + this.iELength.hashCode()
+        result = 31 * result + this.iEs.contentHashCode()
         return result
     }
 }
 
-public data class NDIS_WMI_ENUM_ADAPTER(
-    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
-    public var IfIndex: UInt = 0u,
-    public var NetLuid: NET_LUID_LH = NET_LUID_LH(),
-    public var DeviceNameLength: UShort = 0u,
-    public var DeviceName: ByteArray = ByteArray(1),
+public data class NdisWmiEnumAdapter(
+    public var header: NdisObjectHeader = NdisObjectHeader(),
+    public var ifIndex: UInt = 0u,
+    public var netLuid: NetLuidLh = NetLuidLh(),
+    public var deviceNameLength: UShort = 0u,
+    public var deviceName: ByteArray = ByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NDIS_WMI_ENUM_ADAPTER) return false
-        if (this.Header != other.Header) return false
-        if (this.IfIndex != other.IfIndex) return false
-        if (this.NetLuid != other.NetLuid) return false
-        if (this.DeviceNameLength != other.DeviceNameLength) return false
-        if (!this.DeviceName.contentEquals(other.DeviceName)) return false
+        if (other !is NdisWmiEnumAdapter) return false
+        if (this.header != other.header) return false
+        if (this.ifIndex != other.ifIndex) return false
+        if (this.netLuid != other.netLuid) return false
+        if (this.deviceNameLength != other.deviceNameLength) return false
+        if (!this.deviceName.contentEquals(other.deviceName)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Header.hashCode()
-        result = 31 * result + this.IfIndex.hashCode()
-        result = 31 * result + this.NetLuid.hashCode()
-        result = 31 * result + this.DeviceNameLength.hashCode()
-        result = 31 * result + this.DeviceName.contentHashCode()
+        var result = this.header.hashCode()
+        result = 31 * result + this.ifIndex.hashCode()
+        result = 31 * result + this.netLuid.hashCode()
+        result = 31 * result + this.deviceNameLength.hashCode()
+        result = 31 * result + this.deviceName.contentHashCode()
         return result
     }
 }
 
-public data class NDIS_WMI_EVENT_HEADER(
-    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
-    public var IfIndex: UInt = 0u,
-    public var NetLuid: NET_LUID_LH = NET_LUID_LH(),
-    public var RequestId: ULong = 0uL,
-    public var PortNumber: UInt = 0u,
-    public var DeviceNameLength: UInt = 0u,
-    public var DeviceNameOffset: UInt = 0u,
-    public var Padding: UByteArray = UByteArray(4),
+public data class NdisWmiEventHeader(
+    public var header: NdisObjectHeader = NdisObjectHeader(),
+    public var ifIndex: UInt = 0u,
+    public var netLuid: NetLuidLh = NetLuidLh(),
+    public var requestId: ULong = 0uL,
+    public var portNumber: UInt = 0u,
+    public var deviceNameLength: UInt = 0u,
+    public var deviceNameOffset: UInt = 0u,
+    public var padding: UByteArray = UByteArray(4),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NDIS_WMI_EVENT_HEADER) return false
-        if (this.Header != other.Header) return false
-        if (this.IfIndex != other.IfIndex) return false
-        if (this.NetLuid != other.NetLuid) return false
-        if (this.RequestId != other.RequestId) return false
-        if (this.PortNumber != other.PortNumber) return false
-        if (this.DeviceNameLength != other.DeviceNameLength) return false
-        if (this.DeviceNameOffset != other.DeviceNameOffset) return false
-        if (!this.Padding.contentEquals(other.Padding)) return false
+        if (other !is NdisWmiEventHeader) return false
+        if (this.header != other.header) return false
+        if (this.ifIndex != other.ifIndex) return false
+        if (this.netLuid != other.netLuid) return false
+        if (this.requestId != other.requestId) return false
+        if (this.portNumber != other.portNumber) return false
+        if (this.deviceNameLength != other.deviceNameLength) return false
+        if (this.deviceNameOffset != other.deviceNameOffset) return false
+        if (!this.padding.contentEquals(other.padding)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Header.hashCode()
-        result = 31 * result + this.IfIndex.hashCode()
-        result = 31 * result + this.NetLuid.hashCode()
-        result = 31 * result + this.RequestId.hashCode()
-        result = 31 * result + this.PortNumber.hashCode()
-        result = 31 * result + this.DeviceNameLength.hashCode()
-        result = 31 * result + this.DeviceNameOffset.hashCode()
-        result = 31 * result + this.Padding.contentHashCode()
+        var result = this.header.hashCode()
+        result = 31 * result + this.ifIndex.hashCode()
+        result = 31 * result + this.netLuid.hashCode()
+        result = 31 * result + this.requestId.hashCode()
+        result = 31 * result + this.portNumber.hashCode()
+        result = 31 * result + this.deviceNameLength.hashCode()
+        result = 31 * result + this.deviceNameOffset.hashCode()
+        result = 31 * result + this.padding.contentHashCode()
         return result
     }
 }
 
-public data class NDIS_WMI_IPSEC_OFFLOAD_V1(
-    public var Supported: NDIS_WMI_IPSEC_OFFLOAD_V1_0 = NDIS_WMI_IPSEC_OFFLOAD_V1_0(),
-    public var IPv4AH: NDIS_WMI_IPSEC_OFFLOAD_V1_1 = NDIS_WMI_IPSEC_OFFLOAD_V1_1(),
-    public var IPv4ESP: NDIS_WMI_IPSEC_OFFLOAD_V1_2 = NDIS_WMI_IPSEC_OFFLOAD_V1_2(),
+public data class NdisWmiIpsecOffloadV1(
+    public var supported: NdisWmiIpsecOffloadV10 = NdisWmiIpsecOffloadV10(),
+    public var iPv4AH: NdisWmiIpsecOffloadV11 = NdisWmiIpsecOffloadV11(),
+    public var iPv4ESP: NdisWmiIpsecOffloadV12 = NdisWmiIpsecOffloadV12(),
 )
 
-public data class NDIS_WMI_IPSEC_OFFLOAD_V1_1(
-    public var Md5: UInt = 0u,
-    public var Sha_1: UInt = 0u,
-    public var Transport: UInt = 0u,
-    public var Tunnel: UInt = 0u,
-    public var Send: UInt = 0u,
-    public var Receive: UInt = 0u,
+public data class NdisWmiIpsecOffloadV11(
+    public var md5: UInt = 0u,
+    public var sha1: UInt = 0u,
+    public var transport: UInt = 0u,
+    public var tunnel: UInt = 0u,
+    public var send: UInt = 0u,
+    public var receive: UInt = 0u,
 )
 
-public data class NDIS_WMI_IPSEC_OFFLOAD_V1_2(
-    public var Des: UInt = 0u,
-    public var Reserved: UInt = 0u,
-    public var TripleDes: UInt = 0u,
-    public var NullEsp: UInt = 0u,
-    public var Transport: UInt = 0u,
-    public var Tunnel: UInt = 0u,
-    public var Send: UInt = 0u,
-    public var Receive: UInt = 0u,
+public data class NdisWmiIpsecOffloadV12(
+    public var des: UInt = 0u,
+    public var reserved: UInt = 0u,
+    public var tripleDes: UInt = 0u,
+    public var nullEsp: UInt = 0u,
+    public var transport: UInt = 0u,
+    public var tunnel: UInt = 0u,
+    public var send: UInt = 0u,
+    public var receive: UInt = 0u,
 )
 
-public data class NDIS_WMI_IPSEC_OFFLOAD_V1_0(
-    public var Encapsulation: UInt = 0u,
-    public var AhEspCombined: UInt = 0u,
-    public var TransportTunnelCombined: UInt = 0u,
-    public var IPv4Options: UInt = 0u,
-    public var Flags: UInt = 0u,
+public data class NdisWmiIpsecOffloadV10(
+    public var encapsulation: UInt = 0u,
+    public var ahEspCombined: UInt = 0u,
+    public var transportTunnelCombined: UInt = 0u,
+    public var iPv4Options: UInt = 0u,
+    public var flags: UInt = 0u,
 )
 
-public data class NDIS_WMI_METHOD_HEADER(
-    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
-    public var PortNumber: UInt = 0u,
-    public var NetLuid: NET_LUID_LH = NET_LUID_LH(),
-    public var RequestId: ULong = 0uL,
-    public var Timeout: UInt = 0u,
-    public var Padding: UByteArray = UByteArray(4),
+public data class NdisWmiMethodHeader(
+    public var header: NdisObjectHeader = NdisObjectHeader(),
+    public var portNumber: UInt = 0u,
+    public var netLuid: NetLuidLh = NetLuidLh(),
+    public var requestId: ULong = 0uL,
+    public var timeout: UInt = 0u,
+    public var padding: UByteArray = UByteArray(4),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NDIS_WMI_METHOD_HEADER) return false
-        if (this.Header != other.Header) return false
-        if (this.PortNumber != other.PortNumber) return false
-        if (this.NetLuid != other.NetLuid) return false
-        if (this.RequestId != other.RequestId) return false
-        if (this.Timeout != other.Timeout) return false
-        if (!this.Padding.contentEquals(other.Padding)) return false
+        if (other !is NdisWmiMethodHeader) return false
+        if (this.header != other.header) return false
+        if (this.portNumber != other.portNumber) return false
+        if (this.netLuid != other.netLuid) return false
+        if (this.requestId != other.requestId) return false
+        if (this.timeout != other.timeout) return false
+        if (!this.padding.contentEquals(other.padding)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Header.hashCode()
-        result = 31 * result + this.PortNumber.hashCode()
-        result = 31 * result + this.NetLuid.hashCode()
-        result = 31 * result + this.RequestId.hashCode()
-        result = 31 * result + this.Timeout.hashCode()
-        result = 31 * result + this.Padding.contentHashCode()
+        var result = this.header.hashCode()
+        result = 31 * result + this.portNumber.hashCode()
+        result = 31 * result + this.netLuid.hashCode()
+        result = 31 * result + this.requestId.hashCode()
+        result = 31 * result + this.timeout.hashCode()
+        result = 31 * result + this.padding.contentHashCode()
         return result
     }
 }
 
-public data class NDIS_WMI_OFFLOAD(
-    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
-    public var Checksum: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD = NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD(),
-    public var LsoV1: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 = NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1(),
-    public var IPsecV1: NDIS_WMI_IPSEC_OFFLOAD_V1 = NDIS_WMI_IPSEC_OFFLOAD_V1(),
-    public var LsoV2: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 = NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2(),
-    public var Flags: UInt = 0u,
+public data class NdisWmiOffload(
+    public var header: NdisObjectHeader = NdisObjectHeader(),
+    public var checksum: NdisWmiTcpIpChecksumOffload = NdisWmiTcpIpChecksumOffload(),
+    public var lsoV1: NdisWmiTcpLargeSendOffloadV1 = NdisWmiTcpLargeSendOffloadV1(),
+    public var iPsecV1: NdisWmiIpsecOffloadV1 = NdisWmiIpsecOffloadV1(),
+    public var lsoV2: NdisWmiTcpLargeSendOffloadV2 = NdisWmiTcpLargeSendOffloadV2(),
+    public var flags: UInt = 0u,
 )
 
-public data class NDIS_WMI_OUTPUT_INFO(
-    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
-    public var Flags: UInt = 0u,
-    public var SupportedRevision: UByte = 0u,
-    public var DataOffset: UInt = 0u,
+public data class NdisWmiOutputInfo(
+    public var header: NdisObjectHeader = NdisObjectHeader(),
+    public var flags: UInt = 0u,
+    public var supportedRevision: UByte = 0u,
+    public var dataOffset: UInt = 0u,
 )
 
-public data class NDIS_WMI_SET_HEADER(
-    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
-    public var PortNumber: UInt = 0u,
-    public var NetLuid: NET_LUID_LH = NET_LUID_LH(),
-    public var RequestId: ULong = 0uL,
-    public var Timeout: UInt = 0u,
-    public var Padding: UByteArray = UByteArray(4),
+public data class NdisWmiSetHeader(
+    public var header: NdisObjectHeader = NdisObjectHeader(),
+    public var portNumber: UInt = 0u,
+    public var netLuid: NetLuidLh = NetLuidLh(),
+    public var requestId: ULong = 0uL,
+    public var timeout: UInt = 0u,
+    public var padding: UByteArray = UByteArray(4),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NDIS_WMI_SET_HEADER) return false
-        if (this.Header != other.Header) return false
-        if (this.PortNumber != other.PortNumber) return false
-        if (this.NetLuid != other.NetLuid) return false
-        if (this.RequestId != other.RequestId) return false
-        if (this.Timeout != other.Timeout) return false
-        if (!this.Padding.contentEquals(other.Padding)) return false
+        if (other !is NdisWmiSetHeader) return false
+        if (this.header != other.header) return false
+        if (this.portNumber != other.portNumber) return false
+        if (this.netLuid != other.netLuid) return false
+        if (this.requestId != other.requestId) return false
+        if (this.timeout != other.timeout) return false
+        if (!this.padding.contentEquals(other.padding)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.Header.hashCode()
-        result = 31 * result + this.PortNumber.hashCode()
-        result = 31 * result + this.NetLuid.hashCode()
-        result = 31 * result + this.RequestId.hashCode()
-        result = 31 * result + this.Timeout.hashCode()
-        result = 31 * result + this.Padding.contentHashCode()
+        var result = this.header.hashCode()
+        result = 31 * result + this.portNumber.hashCode()
+        result = 31 * result + this.netLuid.hashCode()
+        result = 31 * result + this.requestId.hashCode()
+        result = 31 * result + this.timeout.hashCode()
+        result = 31 * result + this.padding.contentHashCode()
         return result
     }
 }
 
-public data class NDIS_WMI_TCP_CONNECTION_OFFLOAD(
-    public var Header: NDIS_OBJECT_HEADER = NDIS_OBJECT_HEADER(),
-    public var Encapsulation: UInt = 0u,
-    public var SupportIPv4: UInt = 0u,
-    public var SupportIPv6: UInt = 0u,
-    public var SupportIPv6ExtensionHeaders: UInt = 0u,
-    public var SupportSack: UInt = 0u,
-    public var TcpConnectionOffloadCapacity: UInt = 0u,
-    public var Flags: UInt = 0u,
+public data class NdisWmiTcpConnectionOffload(
+    public var header: NdisObjectHeader = NdisObjectHeader(),
+    public var encapsulation: UInt = 0u,
+    public var supportIPv4: UInt = 0u,
+    public var supportIPv6: UInt = 0u,
+    public var supportIPv6ExtensionHeaders: UInt = 0u,
+    public var supportSack: UInt = 0u,
+    public var tcpConnectionOffloadCapacity: UInt = 0u,
+    public var flags: UInt = 0u,
 )
 
-public data class NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD(
-    public var IPv4Transmit: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 = NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0(),
-    public var IPv4Receive: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 = NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1(),
-    public var IPv6Transmit: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 = NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2(),
-    public var IPv6Receive: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 = NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3(),
+public data class NdisWmiTcpIpChecksumOffload(
+    public var iPv4Transmit: NdisWmiTcpIpChecksumOffload0 = NdisWmiTcpIpChecksumOffload0(),
+    public var iPv4Receive: NdisWmiTcpIpChecksumOffload1 = NdisWmiTcpIpChecksumOffload1(),
+    public var iPv6Transmit: NdisWmiTcpIpChecksumOffload2 = NdisWmiTcpIpChecksumOffload2(),
+    public var iPv6Receive: NdisWmiTcpIpChecksumOffload3 = NdisWmiTcpIpChecksumOffload3(),
 )
 
-public data class NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1(
-    public var Encapsulation: UInt = 0u,
-    public var IpOptionsSupported: UInt = 0u,
-    public var TcpOptionsSupported: UInt = 0u,
-    public var TcpChecksum: UInt = 0u,
-    public var UdpChecksum: UInt = 0u,
-    public var IpChecksum: UInt = 0u,
+public data class NdisWmiTcpIpChecksumOffload1(
+    public var encapsulation: UInt = 0u,
+    public var ipOptionsSupported: UInt = 0u,
+    public var tcpOptionsSupported: UInt = 0u,
+    public var tcpChecksum: UInt = 0u,
+    public var udpChecksum: UInt = 0u,
+    public var ipChecksum: UInt = 0u,
 )
 
-public data class NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0(
-    public var Encapsulation: UInt = 0u,
-    public var IpOptionsSupported: UInt = 0u,
-    public var TcpOptionsSupported: UInt = 0u,
-    public var TcpChecksum: UInt = 0u,
-    public var UdpChecksum: UInt = 0u,
-    public var IpChecksum: UInt = 0u,
+public data class NdisWmiTcpIpChecksumOffload0(
+    public var encapsulation: UInt = 0u,
+    public var ipOptionsSupported: UInt = 0u,
+    public var tcpOptionsSupported: UInt = 0u,
+    public var tcpChecksum: UInt = 0u,
+    public var udpChecksum: UInt = 0u,
+    public var ipChecksum: UInt = 0u,
 )
 
-public data class NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3(
-    public var Encapsulation: UInt = 0u,
-    public var IpExtensionHeadersSupported: UInt = 0u,
-    public var TcpOptionsSupported: UInt = 0u,
-    public var TcpChecksum: UInt = 0u,
-    public var UdpChecksum: UInt = 0u,
+public data class NdisWmiTcpIpChecksumOffload3(
+    public var encapsulation: UInt = 0u,
+    public var ipExtensionHeadersSupported: UInt = 0u,
+    public var tcpOptionsSupported: UInt = 0u,
+    public var tcpChecksum: UInt = 0u,
+    public var udpChecksum: UInt = 0u,
 )
 
-public data class NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2(
-    public var Encapsulation: UInt = 0u,
-    public var IpExtensionHeadersSupported: UInt = 0u,
-    public var TcpOptionsSupported: UInt = 0u,
-    public var TcpChecksum: UInt = 0u,
-    public var UdpChecksum: UInt = 0u,
+public data class NdisWmiTcpIpChecksumOffload2(
+    public var encapsulation: UInt = 0u,
+    public var ipExtensionHeadersSupported: UInt = 0u,
+    public var tcpOptionsSupported: UInt = 0u,
+    public var tcpChecksum: UInt = 0u,
+    public var udpChecksum: UInt = 0u,
 )
 
-public data class NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1(public var IPv4: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 = NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0())
+public data class NdisWmiTcpLargeSendOffloadV1(public var iPv4: NdisWmiTcpLargeSendOffloadV10 = NdisWmiTcpLargeSendOffloadV10())
 
-public data class NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0(
-    public var Encapsulation: UInt = 0u,
-    public var MaxOffLoadSize: UInt = 0u,
-    public var MinSegmentCount: UInt = 0u,
-    public var TcpOptions: UInt = 0u,
-    public var IpOptions: UInt = 0u,
+public data class NdisWmiTcpLargeSendOffloadV10(
+    public var encapsulation: UInt = 0u,
+    public var maxOffLoadSize: UInt = 0u,
+    public var minSegmentCount: UInt = 0u,
+    public var tcpOptions: UInt = 0u,
+    public var ipOptions: UInt = 0u,
 )
 
-public data class NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2(public var IPv4: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 = NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0(), public var IPv6: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 = NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1())
+public data class NdisWmiTcpLargeSendOffloadV2(public var iPv4: NdisWmiTcpLargeSendOffloadV20 = NdisWmiTcpLargeSendOffloadV20(), public var iPv6: NdisWmiTcpLargeSendOffloadV21 = NdisWmiTcpLargeSendOffloadV21())
 
-public data class NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0(
-    public var Encapsulation: UInt = 0u,
-    public var MaxOffLoadSize: UInt = 0u,
-    public var MinSegmentCount: UInt = 0u,
+public data class NdisWmiTcpLargeSendOffloadV20(
+    public var encapsulation: UInt = 0u,
+    public var maxOffLoadSize: UInt = 0u,
+    public var minSegmentCount: UInt = 0u,
 )
 
-public data class NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1(
-    public var Encapsulation: UInt = 0u,
-    public var MaxOffLoadSize: UInt = 0u,
-    public var MinSegmentCount: UInt = 0u,
-    public var IpExtensionHeadersSupported: UInt = 0u,
-    public var TcpOptionsSupported: UInt = 0u,
+public data class NdisWmiTcpLargeSendOffloadV21(
+    public var encapsulation: UInt = 0u,
+    public var maxOffLoadSize: UInt = 0u,
+    public var minSegmentCount: UInt = 0u,
+    public var ipExtensionHeadersSupported: UInt = 0u,
+    public var tcpOptionsSupported: UInt = 0u,
 )
 
-public class NDK_ADAPTER_INFO(
-    public var Version: NDK_VERSION = NDK_VERSION(),
-    public var VendorId: UInt = 0u,
-    public var DeviceId: UInt = 0u,
-    public var MaxRegistrationSize: ULong = 0uL,
-    public var MaxWindowSize: ULong = 0uL,
-    public var FRMRPageCount: UInt = 0u,
-    public var MaxInitiatorRequestSge: UInt = 0u,
-    public var MaxReceiveRequestSge: UInt = 0u,
-    public var MaxReadRequestSge: UInt = 0u,
-    public var MaxTransferLength: UInt = 0u,
-    public var MaxInlineDataSize: UInt = 0u,
-    public var MaxInboundReadLimit: UInt = 0u,
-    public var MaxOutboundReadLimit: UInt = 0u,
-    public var MaxReceiveQueueDepth: UInt = 0u,
-    public var MaxInitiatorQueueDepth: UInt = 0u,
-    public var MaxSrqDepth: UInt = 0u,
-    public var MaxCqDepth: UInt = 0u,
-    public var LargeRequestThreshold: UInt = 0u,
-    public var MaxCallerData: UInt = 0u,
-    public var MaxCalleeData: UInt = 0u,
-    public var AdapterFlags: UInt = 0u,
-    public var RdmaTechnology: NDK_RDMA_TECHNOLOGY = 0,
+public class NdkAdapterInfo(
+    public var version: NdkVersion = NdkVersion(),
+    public var vendorId: UInt = 0u,
+    public var deviceId: UInt = 0u,
+    public var maxRegistrationSize: Int = 0,
+    public var maxWindowSize: Int = 0,
+    public var fRMRPageCount: UInt = 0u,
+    public var maxInitiatorRequestSge: UInt = 0u,
+    public var maxReceiveRequestSge: UInt = 0u,
+    public var maxReadRequestSge: UInt = 0u,
+    public var maxTransferLength: UInt = 0u,
+    public var maxInlineDataSize: UInt = 0u,
+    public var maxInboundReadLimit: UInt = 0u,
+    public var maxOutboundReadLimit: UInt = 0u,
+    public var maxReceiveQueueDepth: UInt = 0u,
+    public var maxInitiatorQueueDepth: UInt = 0u,
+    public var maxSrqDepth: UInt = 0u,
+    public var maxCqDepth: UInt = 0u,
+    public var largeRequestThreshold: UInt = 0u,
+    public var maxCallerData: UInt = 0u,
+    public var maxCalleeData: UInt = 0u,
+    public var adapterFlags: UInt = 0u,
+    public var rdmaTechnology: NdkRdmaTechnology = 0,
 )
 
-public data class NDK_VERSION(public var Major: UShort = 0u, public var Minor: UShort = 0u)
+public data class NdkVersion(public var major: UShort = 0u, public var minor: UShort = 0u)
 
-public data class NETWORK_ADDRESS(
-    public var AddressLength: UShort = 0u,
-    public var AddressType: UShort = 0u,
-    public var Address: UByteArray = UByteArray(1),
+public data class NetworkAddress(
+    public var addressLength: UShort = 0u,
+    public var addressType: UShort = 0u,
+    public var address: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NETWORK_ADDRESS) return false
-        if (this.AddressLength != other.AddressLength) return false
-        if (this.AddressType != other.AddressType) return false
-        if (!this.Address.contentEquals(other.Address)) return false
+        if (other !is NetworkAddress) return false
+        if (this.addressLength != other.addressLength) return false
+        if (this.addressType != other.addressType) return false
+        if (!this.address.contentEquals(other.address)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.AddressLength.hashCode()
-        result = 31 * result + this.AddressType.hashCode()
-        result = 31 * result + this.Address.contentHashCode()
+        var result = this.addressLength.hashCode()
+        result = 31 * result + this.addressType.hashCode()
+        result = 31 * result + this.address.contentHashCode()
         return result
     }
 }
 
-public data class NETWORK_ADDRESS_IP(
-    public var sin_port: UShort = 0u,
-    public var IN_ADDR: UInt = 0u,
-    public var sin_zero: UByteArray = UByteArray(8),
+public data class NetworkAddressIp(
+    public var sinPort: UShort = 0u,
+    public var inAddr: UInt = 0u,
+    public var sinZero: UByteArray = UByteArray(8),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NETWORK_ADDRESS_IP) return false
-        if (this.sin_port != other.sin_port) return false
-        if (this.IN_ADDR != other.IN_ADDR) return false
-        if (!this.sin_zero.contentEquals(other.sin_zero)) return false
+        if (other !is NetworkAddressIp) return false
+        if (this.sinPort != other.sinPort) return false
+        if (this.inAddr != other.inAddr) return false
+        if (!this.sinZero.contentEquals(other.sinZero)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.sin_port.hashCode()
-        result = 31 * result + this.IN_ADDR.hashCode()
-        result = 31 * result + this.sin_zero.contentHashCode()
+        var result = this.sinPort.hashCode()
+        result = 31 * result + this.inAddr.hashCode()
+        result = 31 * result + this.sinZero.contentHashCode()
         return result
     }
 }
 
-public data class NETWORK_ADDRESS_IP6(
-    public var sin6_port: UShort = 0u,
-    public var sin6_flowinfo: UInt = 0u,
-    public var sin6_addr: UShortArray = UShortArray(8),
-    public var sin6_scope_id: UInt = 0u,
+public data class NetworkAddressIp6(
+    public var sin6Port: UShort = 0u,
+    public var sin6Flowinfo: UInt = 0u,
+    public var sin6Addr: UShortArray = UShortArray(8),
+    public var sin6ScopeId: UInt = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NETWORK_ADDRESS_IP6) return false
-        if (this.sin6_port != other.sin6_port) return false
-        if (this.sin6_flowinfo != other.sin6_flowinfo) return false
-        if (!this.sin6_addr.contentEquals(other.sin6_addr)) return false
-        if (this.sin6_scope_id != other.sin6_scope_id) return false
+        if (other !is NetworkAddressIp6) return false
+        if (this.sin6Port != other.sin6Port) return false
+        if (this.sin6Flowinfo != other.sin6Flowinfo) return false
+        if (!this.sin6Addr.contentEquals(other.sin6Addr)) return false
+        if (this.sin6ScopeId != other.sin6ScopeId) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.sin6_port.hashCode()
-        result = 31 * result + this.sin6_flowinfo.hashCode()
-        result = 31 * result + this.sin6_addr.contentHashCode()
-        result = 31 * result + this.sin6_scope_id.hashCode()
+        var result = this.sin6Port.hashCode()
+        result = 31 * result + this.sin6Flowinfo.hashCode()
+        result = 31 * result + this.sin6Addr.contentHashCode()
+        result = 31 * result + this.sin6ScopeId.hashCode()
         return result
     }
 }
 
-public data class NETWORK_ADDRESS_IPX(
-    public var NetworkAddress: UInt = 0u,
-    public var NodeAddress: UByteArray = UByteArray(6),
-    public var Socket: UShort = 0u,
+public data class NetworkAddressIpx(
+    public var networkAddress: UInt = 0u,
+    public var nodeAddress: UByteArray = UByteArray(6),
+    public var socket: UShort = 0u,
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is NETWORK_ADDRESS_IPX) return false
-        if (this.NetworkAddress != other.NetworkAddress) return false
-        if (!this.NodeAddress.contentEquals(other.NodeAddress)) return false
-        if (this.Socket != other.Socket) return false
+        if (other !is NetworkAddressIpx) return false
+        if (this.networkAddress != other.networkAddress) return false
+        if (!this.nodeAddress.contentEquals(other.nodeAddress)) return false
+        if (this.socket != other.socket) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.NetworkAddress.hashCode()
-        result = 31 * result + this.NodeAddress.contentHashCode()
-        result = 31 * result + this.Socket.hashCode()
+        var result = this.networkAddress.hashCode()
+        result = 31 * result + this.nodeAddress.contentHashCode()
+        result = 31 * result + this.socket.hashCode()
         return result
     }
 }
 
-public data class NETWORK_ADDRESS_LIST(
-    public var AddressCount: Int = 0,
-    public var AddressType: UShort = 0u,
-    public var Address: List<NETWORK_ADDRESS> = List(1) { NETWORK_ADDRESS() },
+public data class NetworkAddressList(
+    public var addressCount: Int = 0,
+    public var addressType: UShort = 0u,
+    public var address: List<NetworkAddress> = List(1) { NetworkAddress() },
 )
 
-public data class NET_IF_ALIAS_LH(public var ifAliasLength: UShort = 0u, public var ifAliasOffset: UShort = 0u)
+public data class NetIfAliasLh(public var ifAliasLength: UShort = 0u, public var ifAliasOffset: UShort = 0u)
 
-public data class NET_IF_RCV_ADDRESS_LH(
-    public var ifRcvAddressType: NET_IF_RCV_ADDRESS_TYPE = 0,
+public data class NetIfRcvAddressLh(
+    public var ifRcvAddressType: NetIfRcvAddressType = 0,
     public var ifRcvAddressLength: UShort = 0u,
     public var ifRcvAddressOffset: UShort = 0u,
 )
 
-public data class NET_LUID_LH(public var Value: ULong = 0uL, public var Info: NET_LUID_LH_0 = NET_LUID_LH_0())
+public data class NetLuidLh(public var value: ULong = 0uL, public var info: NetLuidLh0 = NetLuidLh0())
 
-public data class NET_LUID_LH_0(public var _bitfield: ULong = 0uL)
+public data class NetLuidLh0(public var bitfield: ULong = 0uL)
 
-public data class NET_PHYSICAL_LOCATION_LH(
-    public var BusNumber: UInt = 0u,
-    public var SlotNumber: UInt = 0u,
-    public var FunctionNumber: UInt = 0u,
+public data class NetPhysicalLocationLh(
+    public var busNumber: UInt = 0u,
+    public var slotNumber: UInt = 0u,
+    public var functionNumber: UInt = 0u,
 )
 
-public data class OFFLOAD_ALGO_INFO(
+public data class OffloadAlgoInfo(
     public var algoIdentifier: UInt = 0u,
     public var algoKeylen: UInt = 0u,
     public var algoRounds: UInt = 0u,
 )
 
-public data class OFFLOAD_IPSEC_ADD_SA(
-    public var SrcAddr: UInt = 0u,
-    public var SrcMask: UInt = 0u,
-    public var DestAddr: UInt = 0u,
-    public var DestMask: UInt = 0u,
-    public var Protocol: UInt = 0u,
-    public var SrcPort: UShort = 0u,
-    public var DestPort: UShort = 0u,
-    public var SrcTunnelAddr: UInt = 0u,
-    public var DestTunnelAddr: UInt = 0u,
-    public var Flags: UShort = 0u,
-    public var NumSAs: Short = 0,
-    public var SecAssoc: List<OFFLOAD_SECURITY_ASSOCIATION> = List(3) { OFFLOAD_SECURITY_ASSOCIATION() },
-    public var OffloadHandle: HANDLE = 0L,
-    public var KeyLen: UInt = 0u,
-    public var KeyMat: UByteArray = UByteArray(1),
+public data class OffloadIpsecAddSa(
+    public var srcAddr: UInt = 0u,
+    public var srcMask: UInt = 0u,
+    public var destAddr: UInt = 0u,
+    public var destMask: UInt = 0u,
+    public var protocol: UInt = 0u,
+    public var srcPort: UShort = 0u,
+    public var destPort: UShort = 0u,
+    public var srcTunnelAddr: UInt = 0u,
+    public var destTunnelAddr: UInt = 0u,
+    public var flags: UShort = 0u,
+    public var numSAs: Short = 0,
+    public var secAssoc: List<OffloadSecurityAssociation> = List(3) { OffloadSecurityAssociation() },
+    public var offloadHandle: Handle = null,
+    public var keyLen: UInt = 0u,
+    public var keyMat: UByteArray = UByteArray(1),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is OFFLOAD_IPSEC_ADD_SA) return false
-        if (this.SrcAddr != other.SrcAddr) return false
-        if (this.SrcMask != other.SrcMask) return false
-        if (this.DestAddr != other.DestAddr) return false
-        if (this.DestMask != other.DestMask) return false
-        if (this.Protocol != other.Protocol) return false
-        if (this.SrcPort != other.SrcPort) return false
-        if (this.DestPort != other.DestPort) return false
-        if (this.SrcTunnelAddr != other.SrcTunnelAddr) return false
-        if (this.DestTunnelAddr != other.DestTunnelAddr) return false
-        if (this.Flags != other.Flags) return false
-        if (this.NumSAs != other.NumSAs) return false
-        if (this.SecAssoc != other.SecAssoc) return false
-        if (this.OffloadHandle != other.OffloadHandle) return false
-        if (this.KeyLen != other.KeyLen) return false
-        if (!this.KeyMat.contentEquals(other.KeyMat)) return false
+        if (other !is OffloadIpsecAddSa) return false
+        if (this.srcAddr != other.srcAddr) return false
+        if (this.srcMask != other.srcMask) return false
+        if (this.destAddr != other.destAddr) return false
+        if (this.destMask != other.destMask) return false
+        if (this.protocol != other.protocol) return false
+        if (this.srcPort != other.srcPort) return false
+        if (this.destPort != other.destPort) return false
+        if (this.srcTunnelAddr != other.srcTunnelAddr) return false
+        if (this.destTunnelAddr != other.destTunnelAddr) return false
+        if (this.flags != other.flags) return false
+        if (this.numSAs != other.numSAs) return false
+        if (this.secAssoc != other.secAssoc) return false
+        if (this.offloadHandle != other.offloadHandle) return false
+        if (this.keyLen != other.keyLen) return false
+        if (!this.keyMat.contentEquals(other.keyMat)) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.SrcAddr.hashCode()
-        result = 31 * result + this.SrcMask.hashCode()
-        result = 31 * result + this.DestAddr.hashCode()
-        result = 31 * result + this.DestMask.hashCode()
-        result = 31 * result + this.Protocol.hashCode()
-        result = 31 * result + this.SrcPort.hashCode()
-        result = 31 * result + this.DestPort.hashCode()
-        result = 31 * result + this.SrcTunnelAddr.hashCode()
-        result = 31 * result + this.DestTunnelAddr.hashCode()
-        result = 31 * result + this.Flags.hashCode()
-        result = 31 * result + this.NumSAs.hashCode()
-        result = 31 * result + this.SecAssoc.hashCode()
-        result = 31 * result + this.OffloadHandle.hashCode()
-        result = 31 * result + this.KeyLen.hashCode()
-        result = 31 * result + this.KeyMat.contentHashCode()
+        var result = this.srcAddr.hashCode()
+        result = 31 * result + this.srcMask.hashCode()
+        result = 31 * result + this.destAddr.hashCode()
+        result = 31 * result + this.destMask.hashCode()
+        result = 31 * result + this.protocol.hashCode()
+        result = 31 * result + this.srcPort.hashCode()
+        result = 31 * result + this.destPort.hashCode()
+        result = 31 * result + this.srcTunnelAddr.hashCode()
+        result = 31 * result + this.destTunnelAddr.hashCode()
+        result = 31 * result + this.flags.hashCode()
+        result = 31 * result + this.numSAs.hashCode()
+        result = 31 * result + this.secAssoc.hashCode()
+        result = 31 * result + this.offloadHandle.hashCode()
+        result = 31 * result + this.keyLen.hashCode()
+        result = 31 * result + this.keyMat.contentHashCode()
         return result
     }
 }
 
-public class OFFLOAD_IPSEC_ADD_UDPESP_SA(
-    public var SrcAddr: UInt = 0u,
-    public var SrcMask: UInt = 0u,
-    public var DstAddr: UInt = 0u,
-    public var DstMask: UInt = 0u,
-    public var Protocol: UInt = 0u,
-    public var SrcPort: UShort = 0u,
-    public var DstPort: UShort = 0u,
-    public var SrcTunnelAddr: UInt = 0u,
-    public var DstTunnelAddr: UInt = 0u,
-    public var Flags: UShort = 0u,
-    public var NumSAs: Short = 0,
-    public var SecAssoc: List<OFFLOAD_SECURITY_ASSOCIATION> = List(3) { OFFLOAD_SECURITY_ASSOCIATION() },
-    public var OffloadHandle: HANDLE = 0L,
-    public var EncapTypeEntry: OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY = OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY(),
-    public var EncapTypeEntryOffldHandle: HANDLE = 0L,
-    public var KeyLen: UInt = 0u,
-    public var KeyMat: UByteArray = UByteArray(1),
+public class OffloadIpsecAddUdpespSa(
+    public var srcAddr: UInt = 0u,
+    public var srcMask: UInt = 0u,
+    public var dstAddr: UInt = 0u,
+    public var dstMask: UInt = 0u,
+    public var protocol: UInt = 0u,
+    public var srcPort: UShort = 0u,
+    public var dstPort: UShort = 0u,
+    public var srcTunnelAddr: UInt = 0u,
+    public var dstTunnelAddr: UInt = 0u,
+    public var flags: UShort = 0u,
+    public var numSAs: Short = 0,
+    public var secAssoc: List<OffloadSecurityAssociation> = List(3) { OffloadSecurityAssociation() },
+    public var offloadHandle: Handle = null,
+    public var encapTypeEntry: OffloadIpsecUdpespEncaptypeEntry = OffloadIpsecUdpespEncaptypeEntry(),
+    public var encapTypeEntryOffldHandle: Handle = null,
+    public var keyLen: UInt = 0u,
+    public var keyMat: UByteArray = UByteArray(1),
 )
 
-public data class OFFLOAD_IPSEC_DELETE_SA(public var OffloadHandle: HANDLE = 0L)
+public data class OffloadIpsecDeleteSa(public var offloadHandle: Handle = null)
 
-public data class OFFLOAD_IPSEC_DELETE_UDPESP_SA(public var OffloadHandle: HANDLE = 0L, public var EncapTypeEntryOffldHandle: HANDLE = 0L)
+public data class OffloadIpsecDeleteUdpespSa(public var offloadHandle: Handle = null, public var encapTypeEntryOffldHandle: Handle = null)
 
-public data class OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY(public var UdpEncapType: UDP_ENCAP_TYPE = 0, public var DstEncapPort: UShort = 0u)
+public data class OffloadIpsecUdpespEncaptypeEntry(public var udpEncapType: UdpEncapType = 0, public var dstEncapPort: UShort = 0u)
 
-public data class OFFLOAD_SECURITY_ASSOCIATION(
-    public var Operation: OFFLOAD_OPERATION_E = 0,
-    public var SPI: UInt = 0u,
-    public var IntegrityAlgo: OFFLOAD_ALGO_INFO = OFFLOAD_ALGO_INFO(),
-    public var ConfAlgo: OFFLOAD_ALGO_INFO = OFFLOAD_ALGO_INFO(),
-    public var Reserved: OFFLOAD_ALGO_INFO = OFFLOAD_ALGO_INFO(),
+public data class OffloadSecurityAssociation(
+    public var operation: OffloadOperationE = 0,
+    public var spi: UInt = 0u,
+    public var integrityAlgo: OffloadAlgoInfo = OffloadAlgoInfo(),
+    public var confAlgo: OffloadAlgoInfo = OffloadAlgoInfo(),
+    public var reserved: OffloadAlgoInfo = OffloadAlgoInfo(),
 )
 
-public data class PMKID_CANDIDATE(public var BSSID: UByteArray = UByteArray(6), public var Flags: UInt = 0u) {
+public data class PmkidCandidate(public var bssid: UByteArray = UByteArray(6), public var flags: UInt = 0u) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is PMKID_CANDIDATE) return false
-        if (!this.BSSID.contentEquals(other.BSSID)) return false
-        if (this.Flags != other.Flags) return false
+        if (other !is PmkidCandidate) return false
+        if (!this.bssid.contentEquals(other.bssid)) return false
+        if (this.flags != other.flags) return false
         return true
     }
 
     override fun hashCode(): Int {
-        var result = this.BSSID.contentHashCode()
-        result = 31 * result + this.Flags.hashCode()
+        var result = this.bssid.contentHashCode()
+        result = 31 * result + this.flags.hashCode()
         return result
     }
 }
 
-public data class TRANSPORT_HEADER_OFFSET(public var ProtocolType: UShort = 0u, public var HeaderOffset: UShort = 0u)
+public data class TransportHeaderOffset(public var protocolType: UShort = 0u, public var headerOffset: UShort = 0u)

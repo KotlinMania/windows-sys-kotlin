@@ -1,93 +1,94 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.authorization
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.security.PSID
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.security.Psid
 
-public typealias ACCESS_MODE = Int
+public typealias AccessMode = Int
 
-public typealias ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = UInt
+public typealias ActrlAccessEntryAccessFlags = UInt
 
-public typealias AUDIT_PARAM_TYPE = Int
+public typealias AuditParamType = Int
 
-public typealias AUTHZ_ACCESS_CHECK_FLAGS = UInt
+public typealias AuthzAccessCheckFlags = UInt
 
-public typealias AUTHZ_ACCESS_CHECK_RESULTS_HANDLE = Long
+public typealias AuthzAccessCheckResultsHandle = COpaquePointer?
 
-public typealias AUTHZ_AUDIT_EVENT_HANDLE = Long
+public typealias AuthzAuditEventHandle = COpaquePointer?
 
-public typealias AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = Int
+public typealias AuthzAuditEventInformationClass = Int
 
-public typealias AUTHZ_AUDIT_EVENT_TYPE_HANDLE = Long
+public typealias AuthzAuditEventTypeHandle = COpaquePointer?
 
-public typealias AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE = Long
+public typealias AuthzCapChangeSubscriptionHandle = COpaquePointer?
 
-public typealias AUTHZ_CLIENT_CONTEXT_HANDLE = Long
+public typealias AuthzClientContextHandle = COpaquePointer?
 
-public typealias AUTHZ_CONTEXT_INFORMATION_CLASS = Int
+public typealias AuthzContextInformationClass = Int
 
-public typealias AUTHZ_GENERATE_RESULTS = UInt
+public typealias AuthzGenerateResults = UInt
 
-public typealias AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS = UInt
+public typealias AuthzInitializeObjectAccessAuditEventFlags = UInt
 
-public typealias AUTHZ_RESOURCE_MANAGER_FLAGS = UInt
+public typealias AuthzResourceManagerFlags = UInt
 
-public typealias AUTHZ_RESOURCE_MANAGER_HANDLE = Long
+public typealias AuthzResourceManagerHandle = COpaquePointer?
 
-public typealias AUTHZ_SECURITY_ATTRIBUTE_FLAGS = UInt
+public typealias AuthzSecurityAttributeFlags = UInt
 
-public typealias AUTHZ_SECURITY_ATTRIBUTE_OPERATION = Int
+public typealias AuthzSecurityAttributeOperation = Int
 
-public typealias AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE = Long
+public typealias AuthzSecurityEventProviderHandle = COpaquePointer?
 
-public typealias AUTHZ_SID_OPERATION = Int
+public typealias AuthzSidOperation = Int
 
-public typealias AZ_PROP_CONSTANTS = Int
+public typealias AzPropConstants = Int
 
-public fun interface FN_PROGRESSFn {
-    public operator fun invoke(pobjectname: PCWSTR, status: UInt, pinvokesetting: Long, args: Long, securityset: BOOL)
+public fun interface FnProgressFn {
+    public operator fun invoke(pobjectname: Pcwstr, status: UInt, pinvokesetting: COpaquePointer?, args: COpaquePointer?, securityset: Bool)
 }
 
-public typealias FN_PROGRESS = FN_PROGRESSFn?
+public typealias FnProgress = FnProgressFn?
 
-public typealias MULTIPLE_TRUSTEE_OPERATION = Int
+public typealias MultipleTrusteeOperation = Int
 
-public fun interface PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPSFn {
-    public operator fun invoke(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, args: Long, psidattrarray: Long, psidcount: Long, prestrictedsidattrarray: Long, prestrictedsidcount: Long): BOOL
+public fun interface PfnAuthzComputeDynamicGroupsFn {
+    public operator fun invoke(hauthzclientcontext: AuthzClientContextHandle, args: COpaquePointer?, psidattrarray: COpaquePointer?, psidcount: COpaquePointer?, prestrictedsidattrarray: COpaquePointer?, prestrictedsidcount: COpaquePointer?): Bool
 }
 
-public typealias PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS = PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPSFn?
+public typealias PfnAuthzComputeDynamicGroups = PfnAuthzComputeDynamicGroupsFn?
 
-public fun interface PFN_AUTHZ_DYNAMIC_ACCESS_CHECKFn {
-    public operator fun invoke(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, pace: Long, pargs: Long, pbaceapplicable: Long): BOOL
+public fun interface PfnAuthzDynamicAccessCheckFn {
+    public operator fun invoke(hauthzclientcontext: AuthzClientContextHandle, pace: COpaquePointer?, pargs: COpaquePointer?, pbaceapplicable: COpaquePointer?): Bool
 }
 
-public typealias PFN_AUTHZ_DYNAMIC_ACCESS_CHECK = PFN_AUTHZ_DYNAMIC_ACCESS_CHECKFn?
+public typealias PfnAuthzDynamicAccessCheck = PfnAuthzDynamicAccessCheckFn?
 
-public fun interface PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICYFn {
-    public operator fun invoke(pcentralaccesspolicy: Long)
+public fun interface PfnAuthzFreeCentralAccessPolicyFn {
+    public operator fun invoke(pcentralaccesspolicy: COpaquePointer?)
 }
 
-public typealias PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY = PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICYFn?
+public typealias PfnAuthzFreeCentralAccessPolicy = PfnAuthzFreeCentralAccessPolicyFn?
 
-public fun interface PFN_AUTHZ_FREE_DYNAMIC_GROUPSFn {
-    public operator fun invoke(psidattrarray: Long)
+public fun interface PfnAuthzFreeDynamicGroupsFn {
+    public operator fun invoke(psidattrarray: COpaquePointer?)
 }
 
-public typealias PFN_AUTHZ_FREE_DYNAMIC_GROUPS = PFN_AUTHZ_FREE_DYNAMIC_GROUPSFn?
+public typealias PfnAuthzFreeDynamicGroups = PfnAuthzFreeDynamicGroupsFn?
 
-public fun interface PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICYFn {
-    public operator fun invoke(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, capid: PSID, pargs: Long, pcentralaccesspolicyapplicable: Long, ppcentralaccesspolicy: Long): BOOL
+public fun interface PfnAuthzGetCentralAccessPolicyFn {
+    public operator fun invoke(hauthzclientcontext: AuthzClientContextHandle, capid: Psid, pargs: COpaquePointer?, pcentralaccesspolicyapplicable: COpaquePointer?, ppcentralaccesspolicy: COpaquePointer?): Bool
 }
 
-public typealias PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY = PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICYFn?
+public typealias PfnAuthzGetCentralAccessPolicy = PfnAuthzGetCentralAccessPolicyFn?
 
-public typealias PROG_INVOKE_SETTING = Int
+public typealias ProgInvokeSetting = Int
 
-public typealias SE_OBJECT_TYPE = Int
+public typealias SeObjectType = Int
 
-public typealias TREE_SEC_INFO = UInt
+public typealias TreeSecInfo = UInt
 
-public typealias TRUSTEE_FORM = Int
+public typealias TrusteeForm = Int
 
-public typealias TRUSTEE_TYPE = Int
+public typealias TrusteeType = Int

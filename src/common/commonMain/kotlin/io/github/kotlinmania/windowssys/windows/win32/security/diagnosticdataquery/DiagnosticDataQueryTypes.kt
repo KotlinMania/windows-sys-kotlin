@@ -1,15 +1,17 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery
 
+import io.github.kotlinmania.windowssys.COpaquePointer
+
 public typealias DdqAccessLevel = Int
 
-public typealias HDIAGNOSTIC_DATA_QUERY_SESSION = Long
+public typealias HdiagnosticDataQuerySession = COpaquePointer?
 
-public typealias HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION = Long
+public typealias HdiagnosticEventCategoryDescription = COpaquePointer?
 
-public typealias HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION = Long
+public typealias HdiagnosticEventProducerDescription = COpaquePointer?
 
-public typealias HDIAGNOSTIC_EVENT_TAG_DESCRIPTION = Long
+public typealias HdiagnosticEventTagDescription = COpaquePointer?
 
-public typealias HDIAGNOSTIC_RECORD = Long
+public typealias HdiagnosticRecord = COpaquePointer?
 
-public typealias HDIAGNOSTIC_REPORT = Long
+public typealias HdiagnosticReport = COpaquePointer?

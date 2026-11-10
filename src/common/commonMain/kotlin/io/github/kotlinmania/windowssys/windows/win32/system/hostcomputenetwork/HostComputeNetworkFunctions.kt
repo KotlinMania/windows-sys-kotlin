@@ -1,91 +1,92 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.hostcomputenetwork
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 
-public expect fun HcnCloseEndpoint(endpoint: Long): HRESULT
+public expect fun hcnCloseEndpoint(endpoint: COpaquePointer?): Hresult
 
-public expect fun HcnCloseGuestNetworkService(guestnetworkservice: Long): HRESULT
+public expect fun hcnCloseGuestNetworkService(guestnetworkservice: COpaquePointer?): Hresult
 
-public expect fun HcnCloseLoadBalancer(loadbalancer: Long): HRESULT
+public expect fun hcnCloseLoadBalancer(loadbalancer: COpaquePointer?): Hresult
 
-public expect fun HcnCloseNamespace(namespace: Long): HRESULT
+public expect fun hcnCloseNamespace(namespace: COpaquePointer?): Hresult
 
-public expect fun HcnCloseNetwork(network: Long): HRESULT
+public expect fun hcnCloseNetwork(network: COpaquePointer?): Hresult
 
-public expect fun HcnCreateEndpoint(network: Long, id: Long, settings: PCWSTR, endpoint: Long, errorrecord: Long): HRESULT
+public expect fun hcnCreateEndpoint(network: COpaquePointer?, id: COpaquePointer?, settings: Pcwstr, endpoint: COpaquePointer?, errorrecord: COpaquePointer?): Hresult
 
-public expect fun HcnCreateGuestNetworkService(id: Long, settings: PCWSTR, guestnetworkservice: Long, errorrecord: Long): HRESULT
+public expect fun hcnCreateGuestNetworkService(id: COpaquePointer?, settings: Pcwstr, guestnetworkservice: COpaquePointer?, errorrecord: COpaquePointer?): Hresult
 
-public expect fun HcnCreateLoadBalancer(id: Long, settings: PCWSTR, loadbalancer: Long, errorrecord: Long): HRESULT
+public expect fun hcnCreateLoadBalancer(id: COpaquePointer?, settings: Pcwstr, loadbalancer: COpaquePointer?, errorrecord: COpaquePointer?): Hresult
 
-public expect fun HcnCreateNamespace(id: Long, settings: PCWSTR, namespace: Long, errorrecord: Long): HRESULT
+public expect fun hcnCreateNamespace(id: COpaquePointer?, settings: Pcwstr, namespace: COpaquePointer?, errorrecord: COpaquePointer?): Hresult
 
-public expect fun HcnCreateNetwork(id: Long, settings: PCWSTR, network: Long, errorrecord: Long): HRESULT
+public expect fun hcnCreateNetwork(id: COpaquePointer?, settings: Pcwstr, network: COpaquePointer?, errorrecord: COpaquePointer?): Hresult
 
-public expect fun HcnDeleteEndpoint(id: Long, errorrecord: Long): HRESULT
+public expect fun hcnDeleteEndpoint(id: COpaquePointer?, errorrecord: COpaquePointer?): Hresult
 
-public expect fun HcnDeleteGuestNetworkService(id: Long, errorrecord: Long): HRESULT
+public expect fun hcnDeleteGuestNetworkService(id: COpaquePointer?, errorrecord: COpaquePointer?): Hresult
 
-public expect fun HcnDeleteLoadBalancer(id: Long, errorrecord: Long): HRESULT
+public expect fun hcnDeleteLoadBalancer(id: COpaquePointer?, errorrecord: COpaquePointer?): Hresult
 
-public expect fun HcnDeleteNamespace(id: Long, errorrecord: Long): HRESULT
+public expect fun hcnDeleteNamespace(id: COpaquePointer?, errorrecord: COpaquePointer?): Hresult
 
-public expect fun HcnDeleteNetwork(id: Long, errorrecord: Long): HRESULT
+public expect fun hcnDeleteNetwork(id: COpaquePointer?, errorrecord: COpaquePointer?): Hresult
 
-public expect fun HcnEnumerateEndpoints(query: PCWSTR, endpoints: Long, errorrecord: Long): HRESULT
+public expect fun hcnEnumerateEndpoints(query: Pcwstr, endpoints: COpaquePointer?, errorrecord: COpaquePointer?): Hresult
 
-public expect fun HcnEnumerateGuestNetworkPortReservations(returncount: Long, portentries: Long): HRESULT
+public expect fun hcnEnumerateGuestNetworkPortReservations(returncount: COpaquePointer?, portentries: COpaquePointer?): Hresult
 
-public expect fun HcnEnumerateLoadBalancers(query: PCWSTR, loadbalancer: Long, errorrecord: Long): HRESULT
+public expect fun hcnEnumerateLoadBalancers(query: Pcwstr, loadbalancer: COpaquePointer?, errorrecord: COpaquePointer?): Hresult
 
-public expect fun HcnEnumerateNamespaces(query: PCWSTR, namespaces: Long, errorrecord: Long): HRESULT
+public expect fun hcnEnumerateNamespaces(query: Pcwstr, namespaces: COpaquePointer?, errorrecord: COpaquePointer?): Hresult
 
-public expect fun HcnEnumerateNetworks(query: PCWSTR, networks: Long, errorrecord: Long): HRESULT
+public expect fun hcnEnumerateNetworks(query: Pcwstr, networks: COpaquePointer?, errorrecord: COpaquePointer?): Hresult
 
-public expect fun HcnFreeGuestNetworkPortReservations(portentries: Long)
+public expect fun hcnFreeGuestNetworkPortReservations(portentries: COpaquePointer?)
 
-public expect fun HcnModifyEndpoint(endpoint: Long, settings: PCWSTR, errorrecord: Long): HRESULT
+public expect fun hcnModifyEndpoint(endpoint: COpaquePointer?, settings: Pcwstr, errorrecord: COpaquePointer?): Hresult
 
-public expect fun HcnModifyGuestNetworkService(guestnetworkservice: Long, settings: PCWSTR, errorrecord: Long): HRESULT
+public expect fun hcnModifyGuestNetworkService(guestnetworkservice: COpaquePointer?, settings: Pcwstr, errorrecord: COpaquePointer?): Hresult
 
-public expect fun HcnModifyLoadBalancer(loadbalancer: Long, settings: PCWSTR, errorrecord: Long): HRESULT
+public expect fun hcnModifyLoadBalancer(loadbalancer: COpaquePointer?, settings: Pcwstr, errorrecord: COpaquePointer?): Hresult
 
-public expect fun HcnModifyNamespace(namespace: Long, settings: PCWSTR, errorrecord: Long): HRESULT
+public expect fun hcnModifyNamespace(namespace: COpaquePointer?, settings: Pcwstr, errorrecord: COpaquePointer?): Hresult
 
-public expect fun HcnModifyNetwork(network: Long, settings: PCWSTR, errorrecord: Long): HRESULT
+public expect fun hcnModifyNetwork(network: COpaquePointer?, settings: Pcwstr, errorrecord: COpaquePointer?): Hresult
 
-public expect fun HcnOpenEndpoint(id: Long, endpoint: Long, errorrecord: Long): HRESULT
+public expect fun hcnOpenEndpoint(id: COpaquePointer?, endpoint: COpaquePointer?, errorrecord: COpaquePointer?): Hresult
 
-public expect fun HcnOpenLoadBalancer(id: Long, loadbalancer: Long, errorrecord: Long): HRESULT
+public expect fun hcnOpenLoadBalancer(id: COpaquePointer?, loadbalancer: COpaquePointer?, errorrecord: COpaquePointer?): Hresult
 
-public expect fun HcnOpenNamespace(id: Long, namespace: Long, errorrecord: Long): HRESULT
+public expect fun hcnOpenNamespace(id: COpaquePointer?, namespace: COpaquePointer?, errorrecord: COpaquePointer?): Hresult
 
-public expect fun HcnOpenNetwork(id: Long, network: Long, errorrecord: Long): HRESULT
+public expect fun hcnOpenNetwork(id: COpaquePointer?, network: COpaquePointer?, errorrecord: COpaquePointer?): Hresult
 
-public expect fun HcnQueryEndpointAddresses(endpoint: Long, query: PCWSTR, addresses: Long, errorrecord: Long): HRESULT
+public expect fun hcnQueryEndpointAddresses(endpoint: COpaquePointer?, query: Pcwstr, addresses: COpaquePointer?, errorrecord: COpaquePointer?): Hresult
 
-public expect fun HcnQueryEndpointProperties(endpoint: Long, query: PCWSTR, properties: Long, errorrecord: Long): HRESULT
+public expect fun hcnQueryEndpointProperties(endpoint: COpaquePointer?, query: Pcwstr, properties: COpaquePointer?, errorrecord: COpaquePointer?): Hresult
 
-public expect fun HcnQueryEndpointStats(endpoint: Long, query: PCWSTR, stats: Long, errorrecord: Long): HRESULT
+public expect fun hcnQueryEndpointStats(endpoint: COpaquePointer?, query: Pcwstr, stats: COpaquePointer?, errorrecord: COpaquePointer?): Hresult
 
-public expect fun HcnQueryLoadBalancerProperties(loadbalancer: Long, query: PCWSTR, properties: Long, errorrecord: Long): HRESULT
+public expect fun hcnQueryLoadBalancerProperties(loadbalancer: COpaquePointer?, query: Pcwstr, properties: COpaquePointer?, errorrecord: COpaquePointer?): Hresult
 
-public expect fun HcnQueryNamespaceProperties(namespace: Long, query: PCWSTR, properties: Long, errorrecord: Long): HRESULT
+public expect fun hcnQueryNamespaceProperties(namespace: COpaquePointer?, query: Pcwstr, properties: COpaquePointer?, errorrecord: COpaquePointer?): Hresult
 
-public expect fun HcnQueryNetworkProperties(network: Long, query: PCWSTR, properties: Long, errorrecord: Long): HRESULT
+public expect fun hcnQueryNetworkProperties(network: COpaquePointer?, query: Pcwstr, properties: COpaquePointer?, errorrecord: COpaquePointer?): Hresult
 
-public expect fun HcnRegisterGuestNetworkServiceCallback(guestnetworkservice: Long, callback: HCN_NOTIFICATION_CALLBACK, context: Long, callbackhandle: Long): HRESULT
+public expect fun hcnRegisterGuestNetworkServiceCallback(guestnetworkservice: COpaquePointer?, callback: HcnNotificationCallback, context: COpaquePointer?, callbackhandle: COpaquePointer?): Hresult
 
-public expect fun HcnRegisterServiceCallback(callback: HCN_NOTIFICATION_CALLBACK, context: Long, callbackhandle: Long): HRESULT
+public expect fun hcnRegisterServiceCallback(callback: HcnNotificationCallback, context: COpaquePointer?, callbackhandle: COpaquePointer?): Hresult
 
-public expect fun HcnReleaseGuestNetworkServicePortReservationHandle(portreservationhandle: HANDLE): HRESULT
+public expect fun hcnReleaseGuestNetworkServicePortReservationHandle(portreservationhandle: Handle): Hresult
 
-public expect fun HcnReserveGuestNetworkServicePort(guestnetworkservice: Long, protocol: HCN_PORT_PROTOCOL, access: HCN_PORT_ACCESS, port: UShort, portreservationhandle: Long): HRESULT
+public expect fun hcnReserveGuestNetworkServicePort(guestnetworkservice: COpaquePointer?, protocol: HcnPortProtocol, access: HcnPortAccess, port: UShort, portreservationhandle: COpaquePointer?): Hresult
 
-public expect fun HcnReserveGuestNetworkServicePortRange(guestnetworkservice: Long, portcount: UShort, portrangereservation: Long, portreservationhandle: Long): HRESULT
+public expect fun hcnReserveGuestNetworkServicePortRange(guestnetworkservice: COpaquePointer?, portcount: UShort, portrangereservation: COpaquePointer?, portreservationhandle: COpaquePointer?): Hresult
 
-public expect fun HcnUnregisterGuestNetworkServiceCallback(callbackhandle: Long): HRESULT
+public expect fun hcnUnregisterGuestNetworkServiceCallback(callbackhandle: COpaquePointer?): Hresult
 
-public expect fun HcnUnregisterServiceCallback(callbackhandle: Long): HRESULT
+public expect fun hcnUnregisterServiceCallback(callbackhandle: COpaquePointer?): Hresult

@@ -2,14 +2,15 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.services
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.security.OBJECT_SECURITY_INFORMATION
-import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.security.ObjectSecurityInformation
+import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
 
 private object WindowsWin32SystemServicesJniBridge {
     init {
@@ -17,351 +18,351 @@ private object WindowsWin32SystemServicesJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_ChangeServiceConfig2A(hservice: Long, dwinfolevel: Int, lpinfo: Long): Int
+    external fun windowssys_windows_win32_system_services_changeServiceConfig2A(hservice: Long, dwinfolevel: Int, lpinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_ChangeServiceConfig2W(hservice: Long, dwinfolevel: Int, lpinfo: Long): Int
+    external fun windowssys_windows_win32_system_services_changeServiceConfig2W(hservice: Long, dwinfolevel: Int, lpinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_ChangeServiceConfigA(hservice: Long, dwservicetype: Int, dwstarttype: Int, dwerrorcontrol: Int, lpbinarypathname: Long, lploadordergroup: Long, lpdwtagid: Long, lpdependencies: Long, lpservicestartname: Long, lppassword: Long, lpdisplayname: Long): Int
+    external fun windowssys_windows_win32_system_services_changeServiceConfigA(hservice: Long, dwservicetype: Int, dwstarttype: Int, dwerrorcontrol: Int, lpbinarypathname: Long, lploadordergroup: Long, lpdwtagid: Long, lpdependencies: Long, lpservicestartname: Long, lppassword: Long, lpdisplayname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_ChangeServiceConfigW(hservice: Long, dwservicetype: Int, dwstarttype: Int, dwerrorcontrol: Int, lpbinarypathname: Long, lploadordergroup: Long, lpdwtagid: Long, lpdependencies: Long, lpservicestartname: Long, lppassword: Long, lpdisplayname: Long): Int
+    external fun windowssys_windows_win32_system_services_changeServiceConfigW(hservice: Long, dwservicetype: Int, dwstarttype: Int, dwerrorcontrol: Int, lpbinarypathname: Long, lploadordergroup: Long, lpdwtagid: Long, lpdependencies: Long, lpservicestartname: Long, lppassword: Long, lpdisplayname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_CloseServiceHandle(hscobject: Long): Int
+    external fun windowssys_windows_win32_system_services_closeServiceHandle(hscobject: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_ControlService(hservice: Long, dwcontrol: Int, lpservicestatus: Long): Int
+    external fun windowssys_windows_win32_system_services_controlService(hservice: Long, dwcontrol: Int, lpservicestatus: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_ControlServiceExA(hservice: Long, dwcontrol: Int, dwinfolevel: Int, pcontrolparams: Long): Int
+    external fun windowssys_windows_win32_system_services_controlServiceExA(hservice: Long, dwcontrol: Int, dwinfolevel: Int, pcontrolparams: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_ControlServiceExW(hservice: Long, dwcontrol: Int, dwinfolevel: Int, pcontrolparams: Long): Int
+    external fun windowssys_windows_win32_system_services_controlServiceExW(hservice: Long, dwcontrol: Int, dwinfolevel: Int, pcontrolparams: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_CreateServiceA(hscmanager: Long, lpservicename: Long, lpdisplayname: Long, dwdesiredaccess: Int, dwservicetype: Int, dwstarttype: Int, dwerrorcontrol: Int, lpbinarypathname: Long, lploadordergroup: Long, lpdwtagid: Long, lpdependencies: Long, lpservicestartname: Long, lppassword: Long): Long
+    external fun windowssys_windows_win32_system_services_createServiceA(hscmanager: Long, lpservicename: Long, lpdisplayname: Long, dwdesiredaccess: Int, dwservicetype: Int, dwstarttype: Int, dwerrorcontrol: Int, lpbinarypathname: Long, lploadordergroup: Long, lpdwtagid: Long, lpdependencies: Long, lpservicestartname: Long, lppassword: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_CreateServiceW(hscmanager: Long, lpservicename: Long, lpdisplayname: Long, dwdesiredaccess: Int, dwservicetype: Int, dwstarttype: Int, dwerrorcontrol: Int, lpbinarypathname: Long, lploadordergroup: Long, lpdwtagid: Long, lpdependencies: Long, lpservicestartname: Long, lppassword: Long): Long
+    external fun windowssys_windows_win32_system_services_createServiceW(hscmanager: Long, lpservicename: Long, lpdisplayname: Long, dwdesiredaccess: Int, dwservicetype: Int, dwstarttype: Int, dwerrorcontrol: Int, lpbinarypathname: Long, lploadordergroup: Long, lpdwtagid: Long, lpdependencies: Long, lpservicestartname: Long, lppassword: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_DeleteService(hservice: Long): Int
+    external fun windowssys_windows_win32_system_services_deleteService(hservice: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_EnumDependentServicesA(hservice: Long, dwservicestate: Int, lpservices: Long, cbbufsize: Int, pcbbytesneeded: Long, lpservicesreturned: Long): Int
+    external fun windowssys_windows_win32_system_services_enumDependentServicesA(hservice: Long, dwservicestate: Int, lpservices: Long, cbbufsize: Int, pcbbytesneeded: Long, lpservicesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_EnumDependentServicesW(hservice: Long, dwservicestate: Int, lpservices: Long, cbbufsize: Int, pcbbytesneeded: Long, lpservicesreturned: Long): Int
+    external fun windowssys_windows_win32_system_services_enumDependentServicesW(hservice: Long, dwservicestate: Int, lpservices: Long, cbbufsize: Int, pcbbytesneeded: Long, lpservicesreturned: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_EnumServicesStatusA(hscmanager: Long, dwservicetype: Int, dwservicestate: Int, lpservices: Long, cbbufsize: Int, pcbbytesneeded: Long, lpservicesreturned: Long, lpresumehandle: Long): Int
+    external fun windowssys_windows_win32_system_services_enumServicesStatusA(hscmanager: Long, dwservicetype: Int, dwservicestate: Int, lpservices: Long, cbbufsize: Int, pcbbytesneeded: Long, lpservicesreturned: Long, lpresumehandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_EnumServicesStatusExA(hscmanager: Long, infolevel: Int, dwservicetype: Int, dwservicestate: Int, lpservices: Long, cbbufsize: Int, pcbbytesneeded: Long, lpservicesreturned: Long, lpresumehandle: Long, pszgroupname: Long): Int
+    external fun windowssys_windows_win32_system_services_enumServicesStatusExA(hscmanager: Long, infolevel: Int, dwservicetype: Int, dwservicestate: Int, lpservices: Long, cbbufsize: Int, pcbbytesneeded: Long, lpservicesreturned: Long, lpresumehandle: Long, pszgroupname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_EnumServicesStatusExW(hscmanager: Long, infolevel: Int, dwservicetype: Int, dwservicestate: Int, lpservices: Long, cbbufsize: Int, pcbbytesneeded: Long, lpservicesreturned: Long, lpresumehandle: Long, pszgroupname: Long): Int
+    external fun windowssys_windows_win32_system_services_enumServicesStatusExW(hscmanager: Long, infolevel: Int, dwservicetype: Int, dwservicestate: Int, lpservices: Long, cbbufsize: Int, pcbbytesneeded: Long, lpservicesreturned: Long, lpresumehandle: Long, pszgroupname: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_EnumServicesStatusW(hscmanager: Long, dwservicetype: Int, dwservicestate: Int, lpservices: Long, cbbufsize: Int, pcbbytesneeded: Long, lpservicesreturned: Long, lpresumehandle: Long): Int
+    external fun windowssys_windows_win32_system_services_enumServicesStatusW(hscmanager: Long, dwservicetype: Int, dwservicestate: Int, lpservices: Long, cbbufsize: Int, pcbbytesneeded: Long, lpservicesreturned: Long, lpresumehandle: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_GetServiceDirectory(hservicestatus: Long, edirectorytype: Int, lppathbuffer: Long, cchpathbufferlength: Int, lpcchrequiredbufferlength: Long): Int
+    external fun windowssys_windows_win32_system_services_getServiceDirectory(hservicestatus: Long, edirectorytype: Int, lppathbuffer: Long, cchpathbufferlength: Int, lpcchrequiredbufferlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_GetServiceDisplayNameA(hscmanager: Long, lpservicename: Long, lpdisplayname: Long, lpcchbuffer: Long): Int
+    external fun windowssys_windows_win32_system_services_getServiceDisplayNameA(hscmanager: Long, lpservicename: Long, lpdisplayname: Long, lpcchbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_GetServiceDisplayNameW(hscmanager: Long, lpservicename: Long, lpdisplayname: Long, lpcchbuffer: Long): Int
+    external fun windowssys_windows_win32_system_services_getServiceDisplayNameW(hscmanager: Long, lpservicename: Long, lpdisplayname: Long, lpcchbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_GetServiceKeyNameA(hscmanager: Long, lpdisplayname: Long, lpservicename: Long, lpcchbuffer: Long): Int
+    external fun windowssys_windows_win32_system_services_getServiceKeyNameA(hscmanager: Long, lpdisplayname: Long, lpservicename: Long, lpcchbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_GetServiceKeyNameW(hscmanager: Long, lpdisplayname: Long, lpservicename: Long, lpcchbuffer: Long): Int
+    external fun windowssys_windows_win32_system_services_getServiceKeyNameW(hscmanager: Long, lpdisplayname: Long, lpservicename: Long, lpcchbuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_GetServiceRegistryStateKey(servicestatushandle: Long, statetype: Int, accessmask: Int, servicestatekey: Long): Int
+    external fun windowssys_windows_win32_system_services_getServiceRegistryStateKey(servicestatushandle: Long, statetype: Int, accessmask: Int, servicestatekey: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_GetSharedServiceDirectory(servicehandle: Long, directorytype: Int, pathbuffer: Long, pathbufferlength: Int, requiredbufferlength: Long): Int
+    external fun windowssys_windows_win32_system_services_getSharedServiceDirectory(servicehandle: Long, directorytype: Int, pathbuffer: Long, pathbufferlength: Int, requiredbufferlength: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_GetSharedServiceRegistryStateKey(servicehandle: Long, statetype: Int, accessmask: Int, servicestatekey: Long): Int
+    external fun windowssys_windows_win32_system_services_getSharedServiceRegistryStateKey(servicehandle: Long, statetype: Int, accessmask: Int, servicestatekey: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_LockServiceDatabase(hscmanager: Long): Long
+    external fun windowssys_windows_win32_system_services_lockServiceDatabase(hscmanager: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_NotifyBootConfigStatus(bootacceptable: Int): Int
+    external fun windowssys_windows_win32_system_services_notifyBootConfigStatus(bootacceptable: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_NotifyServiceStatusChangeA(hservice: Long, dwnotifymask: Int, pnotifybuffer: Long): Int
+    external fun windowssys_windows_win32_system_services_notifyServiceStatusChangeA(hservice: Long, dwnotifymask: Int, pnotifybuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_NotifyServiceStatusChangeW(hservice: Long, dwnotifymask: Int, pnotifybuffer: Long): Int
+    external fun windowssys_windows_win32_system_services_notifyServiceStatusChangeW(hservice: Long, dwnotifymask: Int, pnotifybuffer: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_OpenSCManagerA(lpmachinename: Long, lpdatabasename: Long, dwdesiredaccess: Int): Long
+    external fun windowssys_windows_win32_system_services_openSCManagerA(lpmachinename: Long, lpdatabasename: Long, dwdesiredaccess: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_OpenSCManagerW(lpmachinename: Long, lpdatabasename: Long, dwdesiredaccess: Int): Long
+    external fun windowssys_windows_win32_system_services_openSCManagerW(lpmachinename: Long, lpdatabasename: Long, dwdesiredaccess: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_OpenServiceA(hscmanager: Long, lpservicename: Long, dwdesiredaccess: Int): Long
+    external fun windowssys_windows_win32_system_services_openServiceA(hscmanager: Long, lpservicename: Long, dwdesiredaccess: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_OpenServiceW(hscmanager: Long, lpservicename: Long, dwdesiredaccess: Int): Long
+    external fun windowssys_windows_win32_system_services_openServiceW(hscmanager: Long, lpservicename: Long, dwdesiredaccess: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_QueryServiceConfig2A(hservice: Long, dwinfolevel: Int, lpbuffer: Long, cbbufsize: Int, pcbbytesneeded: Long): Int
+    external fun windowssys_windows_win32_system_services_queryServiceConfig2A(hservice: Long, dwinfolevel: Int, lpbuffer: Long, cbbufsize: Int, pcbbytesneeded: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_QueryServiceConfig2W(hservice: Long, dwinfolevel: Int, lpbuffer: Long, cbbufsize: Int, pcbbytesneeded: Long): Int
+    external fun windowssys_windows_win32_system_services_queryServiceConfig2W(hservice: Long, dwinfolevel: Int, lpbuffer: Long, cbbufsize: Int, pcbbytesneeded: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_QueryServiceConfigA(hservice: Long, lpserviceconfig: Long, cbbufsize: Int, pcbbytesneeded: Long): Int
+    external fun windowssys_windows_win32_system_services_queryServiceConfigA(hservice: Long, lpserviceconfig: Long, cbbufsize: Int, pcbbytesneeded: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_QueryServiceConfigW(hservice: Long, lpserviceconfig: Long, cbbufsize: Int, pcbbytesneeded: Long): Int
+    external fun windowssys_windows_win32_system_services_queryServiceConfigW(hservice: Long, lpserviceconfig: Long, cbbufsize: Int, pcbbytesneeded: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_QueryServiceDynamicInformation(hservicestatus: Long, dwinfolevel: Int, ppdynamicinfo: Long): Int
+    external fun windowssys_windows_win32_system_services_queryServiceDynamicInformation(hservicestatus: Long, dwinfolevel: Int, ppdynamicinfo: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_QueryServiceLockStatusA(hscmanager: Long, lplockstatus: Long, cbbufsize: Int, pcbbytesneeded: Long): Int
+    external fun windowssys_windows_win32_system_services_queryServiceLockStatusA(hscmanager: Long, lplockstatus: Long, cbbufsize: Int, pcbbytesneeded: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_QueryServiceLockStatusW(hscmanager: Long, lplockstatus: Long, cbbufsize: Int, pcbbytesneeded: Long): Int
+    external fun windowssys_windows_win32_system_services_queryServiceLockStatusW(hscmanager: Long, lplockstatus: Long, cbbufsize: Int, pcbbytesneeded: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_QueryServiceObjectSecurity(hservice: Long, dwsecurityinformation: Int, lpsecuritydescriptor: Long, cbbufsize: Int, pcbbytesneeded: Long): Int
+    external fun windowssys_windows_win32_system_services_queryServiceObjectSecurity(hservice: Long, dwsecurityinformation: Int, lpsecuritydescriptor: Long, cbbufsize: Int, pcbbytesneeded: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_QueryServiceStatus(hservice: Long, lpservicestatus: Long): Int
+    external fun windowssys_windows_win32_system_services_queryServiceStatus(hservice: Long, lpservicestatus: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_QueryServiceStatusEx(hservice: Long, infolevel: Int, lpbuffer: Long, cbbufsize: Int, pcbbytesneeded: Long): Int
+    external fun windowssys_windows_win32_system_services_queryServiceStatusEx(hservice: Long, infolevel: Int, lpbuffer: Long, cbbufsize: Int, pcbbytesneeded: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_RegisterServiceCtrlHandlerA(lpservicename: Long, lphandlerproc: Long): Long
+    external fun windowssys_windows_win32_system_services_registerServiceCtrlHandlerA(lpservicename: Long, lphandlerproc: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_RegisterServiceCtrlHandlerExA(lpservicename: Long, lphandlerproc: Long, lpcontext: Long): Long
+    external fun windowssys_windows_win32_system_services_registerServiceCtrlHandlerExA(lpservicename: Long, lphandlerproc: Long, lpcontext: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_RegisterServiceCtrlHandlerExW(lpservicename: Long, lphandlerproc: Long, lpcontext: Long): Long
+    external fun windowssys_windows_win32_system_services_registerServiceCtrlHandlerExW(lpservicename: Long, lphandlerproc: Long, lpcontext: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_RegisterServiceCtrlHandlerW(lpservicename: Long, lphandlerproc: Long): Long
+    external fun windowssys_windows_win32_system_services_registerServiceCtrlHandlerW(lpservicename: Long, lphandlerproc: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_SetServiceBits(hservicestatus: Long, dwservicebits: Int, bsetbitson: Int, bupdateimmediately: Int): Int
+    external fun windowssys_windows_win32_system_services_setServiceBits(hservicestatus: Long, dwservicebits: Int, bsetbitson: Int, bupdateimmediately: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_SetServiceObjectSecurity(hservice: Long, dwsecurityinformation: Int, lpsecuritydescriptor: Long): Int
+    external fun windowssys_windows_win32_system_services_setServiceObjectSecurity(hservice: Long, dwsecurityinformation: Int, lpsecuritydescriptor: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_SetServiceStatus(hservicestatus: Long, lpservicestatus: Long): Int
+    external fun windowssys_windows_win32_system_services_setServiceStatus(hservicestatus: Long, lpservicestatus: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_StartServiceA(hservice: Long, dwnumserviceargs: Int, lpserviceargvectors: Long): Int
+    external fun windowssys_windows_win32_system_services_startServiceA(hservice: Long, dwnumserviceargs: Int, lpserviceargvectors: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_StartServiceCtrlDispatcherA(lpservicestarttable: Long): Int
+    external fun windowssys_windows_win32_system_services_startServiceCtrlDispatcherA(lpservicestarttable: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_StartServiceCtrlDispatcherW(lpservicestarttable: Long): Int
+    external fun windowssys_windows_win32_system_services_startServiceCtrlDispatcherW(lpservicestarttable: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_StartServiceW(hservice: Long, dwnumserviceargs: Int, lpserviceargvectors: Long): Int
+    external fun windowssys_windows_win32_system_services_startServiceW(hservice: Long, dwnumserviceargs: Int, lpserviceargvectors: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_SubscribeServiceChangeNotifications(hservice: Long, eeventtype: Int, pcallback: Long, pcallbackcontext: Long, psubscription: Long): Int
+    external fun windowssys_windows_win32_system_services_subscribeServiceChangeNotifications(hservice: Long, eeventtype: Int, pcallback: Long, pcallbackcontext: Long, psubscription: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_UnlockServiceDatabase(sclock: Long): Int
+    external fun windowssys_windows_win32_system_services_unlockServiceDatabase(sclock: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_UnsubscribeServiceChangeNotifications(psubscription: Long)
+    external fun windowssys_windows_win32_system_services_unsubscribeServiceChangeNotifications(psubscription: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_system_services_WaitServiceState(hservice: Long, dwnotify: Int, dwtimeout: Int, hcancelevent: Long): Int
+    external fun windowssys_windows_win32_system_services_waitServiceState(hservice: Long, dwnotify: Int, dwtimeout: Int, hcancelevent: Long): Int
 }
 
-public actual fun ChangeServiceConfig2A(hservice: SC_HANDLE, dwinfolevel: SERVICE_CONFIG, lpinfo: Long): BOOL =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_ChangeServiceConfig2A(hservice, dwinfolevel.toInt(), lpinfo)
+public actual fun changeServiceConfig2A(hservice: ScHandle, dwinfolevel: ServiceConfig, lpinfo: COpaquePointer?): Bool =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_changeServiceConfig2A((hservice?.value ?: 0L), dwinfolevel.toInt(), (lpinfo?.value ?: 0L))
 
-public actual fun ChangeServiceConfig2W(hservice: SC_HANDLE, dwinfolevel: SERVICE_CONFIG, lpinfo: Long): BOOL =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_ChangeServiceConfig2W(hservice, dwinfolevel.toInt(), lpinfo)
+public actual fun changeServiceConfig2W(hservice: ScHandle, dwinfolevel: ServiceConfig, lpinfo: COpaquePointer?): Bool =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_changeServiceConfig2W((hservice?.value ?: 0L), dwinfolevel.toInt(), (lpinfo?.value ?: 0L))
 
-public actual fun ChangeServiceConfigA(hservice: SC_HANDLE, dwservicetype: ENUM_SERVICE_TYPE, dwstarttype: SERVICE_START_TYPE, dwerrorcontrol: SERVICE_ERROR, lpbinarypathname: PCSTR, lploadordergroup: PCSTR, lpdwtagid: Long, lpdependencies: PCSTR, lpservicestartname: PCSTR, lppassword: PCSTR, lpdisplayname: PCSTR): BOOL =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_ChangeServiceConfigA(hservice, dwservicetype.toInt(), dwstarttype.toInt(), dwerrorcontrol.toInt(), lpbinarypathname, lploadordergroup, lpdwtagid, lpdependencies, lpservicestartname, lppassword, lpdisplayname)
+public actual fun changeServiceConfigA(hservice: ScHandle, dwservicetype: EnumServiceType, dwstarttype: ServiceStartType, dwerrorcontrol: ServiceError, lpbinarypathname: Pcstr, lploadordergroup: Pcstr, lpdwtagid: COpaquePointer?, lpdependencies: Pcstr, lpservicestartname: Pcstr, lppassword: Pcstr, lpdisplayname: Pcstr): Bool =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_changeServiceConfigA((hservice?.value ?: 0L), dwservicetype.toInt(), dwstarttype.toInt(), dwerrorcontrol.toInt(), (lpbinarypathname?.value ?: 0L), (lploadordergroup?.value ?: 0L), (lpdwtagid?.value ?: 0L), (lpdependencies?.value ?: 0L), (lpservicestartname?.value ?: 0L), (lppassword?.value ?: 0L), (lpdisplayname?.value ?: 0L))
 
-public actual fun ChangeServiceConfigW(hservice: SC_HANDLE, dwservicetype: ENUM_SERVICE_TYPE, dwstarttype: SERVICE_START_TYPE, dwerrorcontrol: SERVICE_ERROR, lpbinarypathname: PCWSTR, lploadordergroup: PCWSTR, lpdwtagid: Long, lpdependencies: PCWSTR, lpservicestartname: PCWSTR, lppassword: PCWSTR, lpdisplayname: PCWSTR): BOOL =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_ChangeServiceConfigW(hservice, dwservicetype.toInt(), dwstarttype.toInt(), dwerrorcontrol.toInt(), lpbinarypathname, lploadordergroup, lpdwtagid, lpdependencies, lpservicestartname, lppassword, lpdisplayname)
+public actual fun changeServiceConfigW(hservice: ScHandle, dwservicetype: EnumServiceType, dwstarttype: ServiceStartType, dwerrorcontrol: ServiceError, lpbinarypathname: Pcwstr, lploadordergroup: Pcwstr, lpdwtagid: COpaquePointer?, lpdependencies: Pcwstr, lpservicestartname: Pcwstr, lppassword: Pcwstr, lpdisplayname: Pcwstr): Bool =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_changeServiceConfigW((hservice?.value ?: 0L), dwservicetype.toInt(), dwstarttype.toInt(), dwerrorcontrol.toInt(), (lpbinarypathname?.value ?: 0L), (lploadordergroup?.value ?: 0L), (lpdwtagid?.value ?: 0L), (lpdependencies?.value ?: 0L), (lpservicestartname?.value ?: 0L), (lppassword?.value ?: 0L), (lpdisplayname?.value ?: 0L))
 
-public actual fun CloseServiceHandle(hscobject: SC_HANDLE): BOOL =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_CloseServiceHandle(hscobject)
+public actual fun closeServiceHandle(hscobject: ScHandle): Bool =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_closeServiceHandle((hscobject?.value ?: 0L))
 
-public actual fun ControlService(hservice: SC_HANDLE, dwcontrol: UInt, lpservicestatus: Long): BOOL =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_ControlService(hservice, dwcontrol.toInt(), lpservicestatus)
+public actual fun controlService(hservice: ScHandle, dwcontrol: UInt, lpservicestatus: COpaquePointer?): Bool =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_controlService((hservice?.value ?: 0L), dwcontrol.toInt(), (lpservicestatus?.value ?: 0L))
 
-public actual fun ControlServiceExA(hservice: SC_HANDLE, dwcontrol: UInt, dwinfolevel: UInt, pcontrolparams: Long): BOOL =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_ControlServiceExA(hservice, dwcontrol.toInt(), dwinfolevel.toInt(), pcontrolparams)
+public actual fun controlServiceExA(hservice: ScHandle, dwcontrol: UInt, dwinfolevel: UInt, pcontrolparams: COpaquePointer?): Bool =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_controlServiceExA((hservice?.value ?: 0L), dwcontrol.toInt(), dwinfolevel.toInt(), (pcontrolparams?.value ?: 0L))
 
-public actual fun ControlServiceExW(hservice: SC_HANDLE, dwcontrol: UInt, dwinfolevel: UInt, pcontrolparams: Long): BOOL =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_ControlServiceExW(hservice, dwcontrol.toInt(), dwinfolevel.toInt(), pcontrolparams)
+public actual fun controlServiceExW(hservice: ScHandle, dwcontrol: UInt, dwinfolevel: UInt, pcontrolparams: COpaquePointer?): Bool =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_controlServiceExW((hservice?.value ?: 0L), dwcontrol.toInt(), dwinfolevel.toInt(), (pcontrolparams?.value ?: 0L))
 
-public actual fun CreateServiceA(hscmanager: SC_HANDLE, lpservicename: PCSTR, lpdisplayname: PCSTR, dwdesiredaccess: UInt, dwservicetype: ENUM_SERVICE_TYPE, dwstarttype: SERVICE_START_TYPE, dwerrorcontrol: SERVICE_ERROR, lpbinarypathname: PCSTR, lploadordergroup: PCSTR, lpdwtagid: Long, lpdependencies: PCSTR, lpservicestartname: PCSTR, lppassword: PCSTR): SC_HANDLE =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_CreateServiceA(hscmanager, lpservicename, lpdisplayname, dwdesiredaccess.toInt(), dwservicetype.toInt(), dwstarttype.toInt(), dwerrorcontrol.toInt(), lpbinarypathname, lploadordergroup, lpdwtagid, lpdependencies, lpservicestartname, lppassword)
+public actual fun createServiceA(hscmanager: ScHandle, lpservicename: Pcstr, lpdisplayname: Pcstr, dwdesiredaccess: UInt, dwservicetype: EnumServiceType, dwstarttype: ServiceStartType, dwerrorcontrol: ServiceError, lpbinarypathname: Pcstr, lploadordergroup: Pcstr, lpdwtagid: COpaquePointer?, lpdependencies: Pcstr, lpservicestartname: Pcstr, lppassword: Pcstr): ScHandle =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_createServiceA((hscmanager?.value ?: 0L), (lpservicename?.value ?: 0L), (lpdisplayname?.value ?: 0L), dwdesiredaccess.toInt(), dwservicetype.toInt(), dwstarttype.toInt(), dwerrorcontrol.toInt(), (lpbinarypathname?.value ?: 0L), (lploadordergroup?.value ?: 0L), (lpdwtagid?.value ?: 0L), (lpdependencies?.value ?: 0L), (lpservicestartname?.value ?: 0L), (lppassword?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun CreateServiceW(hscmanager: SC_HANDLE, lpservicename: PCWSTR, lpdisplayname: PCWSTR, dwdesiredaccess: UInt, dwservicetype: ENUM_SERVICE_TYPE, dwstarttype: SERVICE_START_TYPE, dwerrorcontrol: SERVICE_ERROR, lpbinarypathname: PCWSTR, lploadordergroup: PCWSTR, lpdwtagid: Long, lpdependencies: PCWSTR, lpservicestartname: PCWSTR, lppassword: PCWSTR): SC_HANDLE =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_CreateServiceW(hscmanager, lpservicename, lpdisplayname, dwdesiredaccess.toInt(), dwservicetype.toInt(), dwstarttype.toInt(), dwerrorcontrol.toInt(), lpbinarypathname, lploadordergroup, lpdwtagid, lpdependencies, lpservicestartname, lppassword)
+public actual fun createServiceW(hscmanager: ScHandle, lpservicename: Pcwstr, lpdisplayname: Pcwstr, dwdesiredaccess: UInt, dwservicetype: EnumServiceType, dwstarttype: ServiceStartType, dwerrorcontrol: ServiceError, lpbinarypathname: Pcwstr, lploadordergroup: Pcwstr, lpdwtagid: COpaquePointer?, lpdependencies: Pcwstr, lpservicestartname: Pcwstr, lppassword: Pcwstr): ScHandle =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_createServiceW((hscmanager?.value ?: 0L), (lpservicename?.value ?: 0L), (lpdisplayname?.value ?: 0L), dwdesiredaccess.toInt(), dwservicetype.toInt(), dwstarttype.toInt(), dwerrorcontrol.toInt(), (lpbinarypathname?.value ?: 0L), (lploadordergroup?.value ?: 0L), (lpdwtagid?.value ?: 0L), (lpdependencies?.value ?: 0L), (lpservicestartname?.value ?: 0L), (lppassword?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun DeleteService(hservice: SC_HANDLE): BOOL =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_DeleteService(hservice)
+public actual fun deleteService(hservice: ScHandle): Bool =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_deleteService((hservice?.value ?: 0L))
 
-public actual fun EnumDependentServicesA(hservice: SC_HANDLE, dwservicestate: ENUM_SERVICE_STATE, lpservices: Long, cbbufsize: UInt, pcbbytesneeded: Long, lpservicesreturned: Long): BOOL =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_EnumDependentServicesA(hservice, dwservicestate.toInt(), lpservices, cbbufsize.toInt(), pcbbytesneeded, lpservicesreturned)
+public actual fun enumDependentServicesA(hservice: ScHandle, dwservicestate: EnumServiceState, lpservices: COpaquePointer?, cbbufsize: UInt, pcbbytesneeded: COpaquePointer?, lpservicesreturned: COpaquePointer?): Bool =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_enumDependentServicesA((hservice?.value ?: 0L), dwservicestate.toInt(), (lpservices?.value ?: 0L), cbbufsize.toInt(), (pcbbytesneeded?.value ?: 0L), (lpservicesreturned?.value ?: 0L))
 
-public actual fun EnumDependentServicesW(hservice: SC_HANDLE, dwservicestate: ENUM_SERVICE_STATE, lpservices: Long, cbbufsize: UInt, pcbbytesneeded: Long, lpservicesreturned: Long): BOOL =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_EnumDependentServicesW(hservice, dwservicestate.toInt(), lpservices, cbbufsize.toInt(), pcbbytesneeded, lpservicesreturned)
+public actual fun enumDependentServicesW(hservice: ScHandle, dwservicestate: EnumServiceState, lpservices: COpaquePointer?, cbbufsize: UInt, pcbbytesneeded: COpaquePointer?, lpservicesreturned: COpaquePointer?): Bool =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_enumDependentServicesW((hservice?.value ?: 0L), dwservicestate.toInt(), (lpservices?.value ?: 0L), cbbufsize.toInt(), (pcbbytesneeded?.value ?: 0L), (lpservicesreturned?.value ?: 0L))
 
-public actual fun EnumServicesStatusA(hscmanager: SC_HANDLE, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: Long, cbbufsize: UInt, pcbbytesneeded: Long, lpservicesreturned: Long, lpresumehandle: Long): BOOL =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_EnumServicesStatusA(hscmanager, dwservicetype.toInt(), dwservicestate.toInt(), lpservices, cbbufsize.toInt(), pcbbytesneeded, lpservicesreturned, lpresumehandle)
+public actual fun enumServicesStatusA(hscmanager: ScHandle, dwservicetype: EnumServiceType, dwservicestate: EnumServiceState, lpservices: COpaquePointer?, cbbufsize: UInt, pcbbytesneeded: COpaquePointer?, lpservicesreturned: COpaquePointer?, lpresumehandle: COpaquePointer?): Bool =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_enumServicesStatusA((hscmanager?.value ?: 0L), dwservicetype.toInt(), dwservicestate.toInt(), (lpservices?.value ?: 0L), cbbufsize.toInt(), (pcbbytesneeded?.value ?: 0L), (lpservicesreturned?.value ?: 0L), (lpresumehandle?.value ?: 0L))
 
-public actual fun EnumServicesStatusExA(hscmanager: SC_HANDLE, infolevel: SC_ENUM_TYPE, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: Long, cbbufsize: UInt, pcbbytesneeded: Long, lpservicesreturned: Long, lpresumehandle: Long, pszgroupname: PCSTR): BOOL =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_EnumServicesStatusExA(hscmanager, infolevel, dwservicetype.toInt(), dwservicestate.toInt(), lpservices, cbbufsize.toInt(), pcbbytesneeded, lpservicesreturned, lpresumehandle, pszgroupname)
+public actual fun enumServicesStatusExA(hscmanager: ScHandle, infolevel: ScEnumType, dwservicetype: EnumServiceType, dwservicestate: EnumServiceState, lpservices: COpaquePointer?, cbbufsize: UInt, pcbbytesneeded: COpaquePointer?, lpservicesreturned: COpaquePointer?, lpresumehandle: COpaquePointer?, pszgroupname: Pcstr): Bool =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_enumServicesStatusExA((hscmanager?.value ?: 0L), infolevel, dwservicetype.toInt(), dwservicestate.toInt(), (lpservices?.value ?: 0L), cbbufsize.toInt(), (pcbbytesneeded?.value ?: 0L), (lpservicesreturned?.value ?: 0L), (lpresumehandle?.value ?: 0L), (pszgroupname?.value ?: 0L))
 
-public actual fun EnumServicesStatusExW(hscmanager: SC_HANDLE, infolevel: SC_ENUM_TYPE, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: Long, cbbufsize: UInt, pcbbytesneeded: Long, lpservicesreturned: Long, lpresumehandle: Long, pszgroupname: PCWSTR): BOOL =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_EnumServicesStatusExW(hscmanager, infolevel, dwservicetype.toInt(), dwservicestate.toInt(), lpservices, cbbufsize.toInt(), pcbbytesneeded, lpservicesreturned, lpresumehandle, pszgroupname)
+public actual fun enumServicesStatusExW(hscmanager: ScHandle, infolevel: ScEnumType, dwservicetype: EnumServiceType, dwservicestate: EnumServiceState, lpservices: COpaquePointer?, cbbufsize: UInt, pcbbytesneeded: COpaquePointer?, lpservicesreturned: COpaquePointer?, lpresumehandle: COpaquePointer?, pszgroupname: Pcwstr): Bool =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_enumServicesStatusExW((hscmanager?.value ?: 0L), infolevel, dwservicetype.toInt(), dwservicestate.toInt(), (lpservices?.value ?: 0L), cbbufsize.toInt(), (pcbbytesneeded?.value ?: 0L), (lpservicesreturned?.value ?: 0L), (lpresumehandle?.value ?: 0L), (pszgroupname?.value ?: 0L))
 
-public actual fun EnumServicesStatusW(hscmanager: SC_HANDLE, dwservicetype: ENUM_SERVICE_TYPE, dwservicestate: ENUM_SERVICE_STATE, lpservices: Long, cbbufsize: UInt, pcbbytesneeded: Long, lpservicesreturned: Long, lpresumehandle: Long): BOOL =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_EnumServicesStatusW(hscmanager, dwservicetype.toInt(), dwservicestate.toInt(), lpservices, cbbufsize.toInt(), pcbbytesneeded, lpservicesreturned, lpresumehandle)
+public actual fun enumServicesStatusW(hscmanager: ScHandle, dwservicetype: EnumServiceType, dwservicestate: EnumServiceState, lpservices: COpaquePointer?, cbbufsize: UInt, pcbbytesneeded: COpaquePointer?, lpservicesreturned: COpaquePointer?, lpresumehandle: COpaquePointer?): Bool =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_enumServicesStatusW((hscmanager?.value ?: 0L), dwservicetype.toInt(), dwservicestate.toInt(), (lpservices?.value ?: 0L), cbbufsize.toInt(), (pcbbytesneeded?.value ?: 0L), (lpservicesreturned?.value ?: 0L), (lpresumehandle?.value ?: 0L))
 
-public actual fun GetServiceDirectory(hservicestatus: SERVICE_STATUS_HANDLE, edirectorytype: SERVICE_DIRECTORY_TYPE, lppathbuffer: PWSTR, cchpathbufferlength: UInt, lpcchrequiredbufferlength: Long): UInt =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_GetServiceDirectory(hservicestatus, edirectorytype, lppathbuffer, cchpathbufferlength.toInt(), lpcchrequiredbufferlength).toUInt()
+public actual fun getServiceDirectory(hservicestatus: ServiceStatusHandle, edirectorytype: ServiceDirectoryType, lppathbuffer: Pwstr, cchpathbufferlength: UInt, lpcchrequiredbufferlength: COpaquePointer?): UInt =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_getServiceDirectory((hservicestatus?.value ?: 0L), edirectorytype, (lppathbuffer?.value ?: 0L), cchpathbufferlength.toInt(), (lpcchrequiredbufferlength?.value ?: 0L)).toUInt()
 
-public actual fun GetServiceDisplayNameA(hscmanager: SC_HANDLE, lpservicename: PCSTR, lpdisplayname: PSTR, lpcchbuffer: Long): BOOL =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_GetServiceDisplayNameA(hscmanager, lpservicename, lpdisplayname, lpcchbuffer)
+public actual fun getServiceDisplayNameA(hscmanager: ScHandle, lpservicename: Pcstr, lpdisplayname: Pstr, lpcchbuffer: COpaquePointer?): Bool =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_getServiceDisplayNameA((hscmanager?.value ?: 0L), (lpservicename?.value ?: 0L), (lpdisplayname?.value ?: 0L), (lpcchbuffer?.value ?: 0L))
 
-public actual fun GetServiceDisplayNameW(hscmanager: SC_HANDLE, lpservicename: PCWSTR, lpdisplayname: PWSTR, lpcchbuffer: Long): BOOL =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_GetServiceDisplayNameW(hscmanager, lpservicename, lpdisplayname, lpcchbuffer)
+public actual fun getServiceDisplayNameW(hscmanager: ScHandle, lpservicename: Pcwstr, lpdisplayname: Pwstr, lpcchbuffer: COpaquePointer?): Bool =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_getServiceDisplayNameW((hscmanager?.value ?: 0L), (lpservicename?.value ?: 0L), (lpdisplayname?.value ?: 0L), (lpcchbuffer?.value ?: 0L))
 
-public actual fun GetServiceKeyNameA(hscmanager: SC_HANDLE, lpdisplayname: PCSTR, lpservicename: PSTR, lpcchbuffer: Long): BOOL =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_GetServiceKeyNameA(hscmanager, lpdisplayname, lpservicename, lpcchbuffer)
+public actual fun getServiceKeyNameA(hscmanager: ScHandle, lpdisplayname: Pcstr, lpservicename: Pstr, lpcchbuffer: COpaquePointer?): Bool =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_getServiceKeyNameA((hscmanager?.value ?: 0L), (lpdisplayname?.value ?: 0L), (lpservicename?.value ?: 0L), (lpcchbuffer?.value ?: 0L))
 
-public actual fun GetServiceKeyNameW(hscmanager: SC_HANDLE, lpdisplayname: PCWSTR, lpservicename: PWSTR, lpcchbuffer: Long): BOOL =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_GetServiceKeyNameW(hscmanager, lpdisplayname, lpservicename, lpcchbuffer)
+public actual fun getServiceKeyNameW(hscmanager: ScHandle, lpdisplayname: Pcwstr, lpservicename: Pwstr, lpcchbuffer: COpaquePointer?): Bool =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_getServiceKeyNameW((hscmanager?.value ?: 0L), (lpdisplayname?.value ?: 0L), (lpservicename?.value ?: 0L), (lpcchbuffer?.value ?: 0L))
 
-public actual fun GetServiceRegistryStateKey(servicestatushandle: SERVICE_STATUS_HANDLE, statetype: SERVICE_REGISTRY_STATE_TYPE, accessmask: UInt, servicestatekey: Long): UInt =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_GetServiceRegistryStateKey(servicestatushandle, statetype, accessmask.toInt(), servicestatekey).toUInt()
+public actual fun getServiceRegistryStateKey(servicestatushandle: ServiceStatusHandle, statetype: ServiceRegistryStateType, accessmask: UInt, servicestatekey: COpaquePointer?): UInt =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_getServiceRegistryStateKey((servicestatushandle?.value ?: 0L), statetype, accessmask.toInt(), (servicestatekey?.value ?: 0L)).toUInt()
 
-public actual fun GetSharedServiceDirectory(servicehandle: SC_HANDLE, directorytype: SERVICE_SHARED_DIRECTORY_TYPE, pathbuffer: PWSTR, pathbufferlength: UInt, requiredbufferlength: Long): UInt =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_GetSharedServiceDirectory(servicehandle, directorytype, pathbuffer, pathbufferlength.toInt(), requiredbufferlength).toUInt()
+public actual fun getSharedServiceDirectory(servicehandle: ScHandle, directorytype: ServiceSharedDirectoryType, pathbuffer: Pwstr, pathbufferlength: UInt, requiredbufferlength: COpaquePointer?): UInt =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_getSharedServiceDirectory((servicehandle?.value ?: 0L), directorytype, (pathbuffer?.value ?: 0L), pathbufferlength.toInt(), (requiredbufferlength?.value ?: 0L)).toUInt()
 
-public actual fun GetSharedServiceRegistryStateKey(servicehandle: SC_HANDLE, statetype: SERVICE_SHARED_REGISTRY_STATE_TYPE, accessmask: UInt, servicestatekey: Long): UInt =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_GetSharedServiceRegistryStateKey(servicehandle, statetype, accessmask.toInt(), servicestatekey).toUInt()
+public actual fun getSharedServiceRegistryStateKey(servicehandle: ScHandle, statetype: ServiceSharedRegistryStateType, accessmask: UInt, servicestatekey: COpaquePointer?): UInt =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_getSharedServiceRegistryStateKey((servicehandle?.value ?: 0L), statetype, accessmask.toInt(), (servicestatekey?.value ?: 0L)).toUInt()
 
-public actual fun LockServiceDatabase(hscmanager: SC_HANDLE): Long =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_LockServiceDatabase(hscmanager)
+public actual fun lockServiceDatabase(hscmanager: ScHandle): COpaquePointer? =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_lockServiceDatabase((hscmanager?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun NotifyBootConfigStatus(bootacceptable: BOOL): BOOL =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_NotifyBootConfigStatus(bootacceptable)
+public actual fun notifyBootConfigStatus(bootacceptable: Bool): Bool =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_notifyBootConfigStatus(bootacceptable)
 
-public actual fun NotifyServiceStatusChangeA(hservice: SC_HANDLE, dwnotifymask: SERVICE_NOTIFY, pnotifybuffer: Long): UInt =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_NotifyServiceStatusChangeA(hservice, dwnotifymask.toInt(), pnotifybuffer).toUInt()
+public actual fun notifyServiceStatusChangeA(hservice: ScHandle, dwnotifymask: ServiceNotify, pnotifybuffer: COpaquePointer?): UInt =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_notifyServiceStatusChangeA((hservice?.value ?: 0L), dwnotifymask.toInt(), (pnotifybuffer?.value ?: 0L)).toUInt()
 
-public actual fun NotifyServiceStatusChangeW(hservice: SC_HANDLE, dwnotifymask: SERVICE_NOTIFY, pnotifybuffer: Long): UInt =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_NotifyServiceStatusChangeW(hservice, dwnotifymask.toInt(), pnotifybuffer).toUInt()
+public actual fun notifyServiceStatusChangeW(hservice: ScHandle, dwnotifymask: ServiceNotify, pnotifybuffer: COpaquePointer?): UInt =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_notifyServiceStatusChangeW((hservice?.value ?: 0L), dwnotifymask.toInt(), (pnotifybuffer?.value ?: 0L)).toUInt()
 
-public actual fun OpenSCManagerA(lpmachinename: PCSTR, lpdatabasename: PCSTR, dwdesiredaccess: UInt): SC_HANDLE =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_OpenSCManagerA(lpmachinename, lpdatabasename, dwdesiredaccess.toInt())
+public actual fun openSCManagerA(lpmachinename: Pcstr, lpdatabasename: Pcstr, dwdesiredaccess: UInt): ScHandle =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_openSCManagerA((lpmachinename?.value ?: 0L), (lpdatabasename?.value ?: 0L), dwdesiredaccess.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun OpenSCManagerW(lpmachinename: PCWSTR, lpdatabasename: PCWSTR, dwdesiredaccess: UInt): SC_HANDLE =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_OpenSCManagerW(lpmachinename, lpdatabasename, dwdesiredaccess.toInt())
+public actual fun openSCManagerW(lpmachinename: Pcwstr, lpdatabasename: Pcwstr, dwdesiredaccess: UInt): ScHandle =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_openSCManagerW((lpmachinename?.value ?: 0L), (lpdatabasename?.value ?: 0L), dwdesiredaccess.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun OpenServiceA(hscmanager: SC_HANDLE, lpservicename: PCSTR, dwdesiredaccess: UInt): SC_HANDLE =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_OpenServiceA(hscmanager, lpservicename, dwdesiredaccess.toInt())
+public actual fun openServiceA(hscmanager: ScHandle, lpservicename: Pcstr, dwdesiredaccess: UInt): ScHandle =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_openServiceA((hscmanager?.value ?: 0L), (lpservicename?.value ?: 0L), dwdesiredaccess.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun OpenServiceW(hscmanager: SC_HANDLE, lpservicename: PCWSTR, dwdesiredaccess: UInt): SC_HANDLE =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_OpenServiceW(hscmanager, lpservicename, dwdesiredaccess.toInt())
+public actual fun openServiceW(hscmanager: ScHandle, lpservicename: Pcwstr, dwdesiredaccess: UInt): ScHandle =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_openServiceW((hscmanager?.value ?: 0L), (lpservicename?.value ?: 0L), dwdesiredaccess.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun QueryServiceConfig2A(hservice: SC_HANDLE, dwinfolevel: SERVICE_CONFIG, lpbuffer: Long, cbbufsize: UInt, pcbbytesneeded: Long): BOOL =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_QueryServiceConfig2A(hservice, dwinfolevel.toInt(), lpbuffer, cbbufsize.toInt(), pcbbytesneeded)
+public actual fun queryServiceConfig2A(hservice: ScHandle, dwinfolevel: ServiceConfig, lpbuffer: COpaquePointer?, cbbufsize: UInt, pcbbytesneeded: COpaquePointer?): Bool =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_queryServiceConfig2A((hservice?.value ?: 0L), dwinfolevel.toInt(), (lpbuffer?.value ?: 0L), cbbufsize.toInt(), (pcbbytesneeded?.value ?: 0L))
 
-public actual fun QueryServiceConfig2W(hservice: SC_HANDLE, dwinfolevel: SERVICE_CONFIG, lpbuffer: Long, cbbufsize: UInt, pcbbytesneeded: Long): BOOL =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_QueryServiceConfig2W(hservice, dwinfolevel.toInt(), lpbuffer, cbbufsize.toInt(), pcbbytesneeded)
+public actual fun queryServiceConfig2W(hservice: ScHandle, dwinfolevel: ServiceConfig, lpbuffer: COpaquePointer?, cbbufsize: UInt, pcbbytesneeded: COpaquePointer?): Bool =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_queryServiceConfig2W((hservice?.value ?: 0L), dwinfolevel.toInt(), (lpbuffer?.value ?: 0L), cbbufsize.toInt(), (pcbbytesneeded?.value ?: 0L))
 
-public actual fun QueryServiceConfigA(hservice: SC_HANDLE, lpserviceconfig: Long, cbbufsize: UInt, pcbbytesneeded: Long): BOOL =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_QueryServiceConfigA(hservice, lpserviceconfig, cbbufsize.toInt(), pcbbytesneeded)
+public actual fun queryServiceConfigA(hservice: ScHandle, lpserviceconfig: COpaquePointer?, cbbufsize: UInt, pcbbytesneeded: COpaquePointer?): Bool =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_queryServiceConfigA((hservice?.value ?: 0L), (lpserviceconfig?.value ?: 0L), cbbufsize.toInt(), (pcbbytesneeded?.value ?: 0L))
 
-public actual fun QueryServiceConfigW(hservice: SC_HANDLE, lpserviceconfig: Long, cbbufsize: UInt, pcbbytesneeded: Long): BOOL =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_QueryServiceConfigW(hservice, lpserviceconfig, cbbufsize.toInt(), pcbbytesneeded)
+public actual fun queryServiceConfigW(hservice: ScHandle, lpserviceconfig: COpaquePointer?, cbbufsize: UInt, pcbbytesneeded: COpaquePointer?): Bool =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_queryServiceConfigW((hservice?.value ?: 0L), (lpserviceconfig?.value ?: 0L), cbbufsize.toInt(), (pcbbytesneeded?.value ?: 0L))
 
-public actual fun QueryServiceDynamicInformation(hservicestatus: SERVICE_STATUS_HANDLE, dwinfolevel: UInt, ppdynamicinfo: Long): BOOL =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_QueryServiceDynamicInformation(hservicestatus, dwinfolevel.toInt(), ppdynamicinfo)
+public actual fun queryServiceDynamicInformation(hservicestatus: ServiceStatusHandle, dwinfolevel: UInt, ppdynamicinfo: COpaquePointer?): Bool =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_queryServiceDynamicInformation((hservicestatus?.value ?: 0L), dwinfolevel.toInt(), (ppdynamicinfo?.value ?: 0L))
 
-public actual fun QueryServiceLockStatusA(hscmanager: SC_HANDLE, lplockstatus: Long, cbbufsize: UInt, pcbbytesneeded: Long): BOOL =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_QueryServiceLockStatusA(hscmanager, lplockstatus, cbbufsize.toInt(), pcbbytesneeded)
+public actual fun queryServiceLockStatusA(hscmanager: ScHandle, lplockstatus: COpaquePointer?, cbbufsize: UInt, pcbbytesneeded: COpaquePointer?): Bool =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_queryServiceLockStatusA((hscmanager?.value ?: 0L), (lplockstatus?.value ?: 0L), cbbufsize.toInt(), (pcbbytesneeded?.value ?: 0L))
 
-public actual fun QueryServiceLockStatusW(hscmanager: SC_HANDLE, lplockstatus: Long, cbbufsize: UInt, pcbbytesneeded: Long): BOOL =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_QueryServiceLockStatusW(hscmanager, lplockstatus, cbbufsize.toInt(), pcbbytesneeded)
+public actual fun queryServiceLockStatusW(hscmanager: ScHandle, lplockstatus: COpaquePointer?, cbbufsize: UInt, pcbbytesneeded: COpaquePointer?): Bool =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_queryServiceLockStatusW((hscmanager?.value ?: 0L), (lplockstatus?.value ?: 0L), cbbufsize.toInt(), (pcbbytesneeded?.value ?: 0L))
 
-public actual fun QueryServiceObjectSecurity(hservice: SC_HANDLE, dwsecurityinformation: UInt, lpsecuritydescriptor: PSECURITY_DESCRIPTOR, cbbufsize: UInt, pcbbytesneeded: Long): BOOL =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_QueryServiceObjectSecurity(hservice, dwsecurityinformation.toInt(), lpsecuritydescriptor, cbbufsize.toInt(), pcbbytesneeded)
+public actual fun queryServiceObjectSecurity(hservice: ScHandle, dwsecurityinformation: UInt, lpsecuritydescriptor: PsecurityDescriptor, cbbufsize: UInt, pcbbytesneeded: COpaquePointer?): Bool =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_queryServiceObjectSecurity((hservice?.value ?: 0L), dwsecurityinformation.toInt(), (lpsecuritydescriptor?.value ?: 0L), cbbufsize.toInt(), (pcbbytesneeded?.value ?: 0L))
 
-public actual fun QueryServiceStatus(hservice: SC_HANDLE, lpservicestatus: Long): BOOL =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_QueryServiceStatus(hservice, lpservicestatus)
+public actual fun queryServiceStatus(hservice: ScHandle, lpservicestatus: COpaquePointer?): Bool =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_queryServiceStatus((hservice?.value ?: 0L), (lpservicestatus?.value ?: 0L))
 
-public actual fun QueryServiceStatusEx(hservice: SC_HANDLE, infolevel: SC_STATUS_TYPE, lpbuffer: Long, cbbufsize: UInt, pcbbytesneeded: Long): BOOL =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_QueryServiceStatusEx(hservice, infolevel, lpbuffer, cbbufsize.toInt(), pcbbytesneeded)
+public actual fun queryServiceStatusEx(hservice: ScHandle, infolevel: ScStatusType, lpbuffer: COpaquePointer?, cbbufsize: UInt, pcbbytesneeded: COpaquePointer?): Bool =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_queryServiceStatusEx((hservice?.value ?: 0L), infolevel, (lpbuffer?.value ?: 0L), cbbufsize.toInt(), (pcbbytesneeded?.value ?: 0L))
 
-public actual fun RegisterServiceCtrlHandlerA(lpservicename: PCSTR, lphandlerproc: LPHANDLER_FUNCTION): SERVICE_STATUS_HANDLE =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_RegisterServiceCtrlHandlerA(lpservicename, lphandlerproc.toLong())
+public actual fun registerServiceCtrlHandlerA(lpservicename: Pcstr, lphandlerproc: LphandlerFunction): ServiceStatusHandle =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_registerServiceCtrlHandlerA((lpservicename?.value ?: 0L), 0L).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun RegisterServiceCtrlHandlerExA(lpservicename: PCSTR, lphandlerproc: LPHANDLER_FUNCTION_EX, lpcontext: Long): SERVICE_STATUS_HANDLE =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_RegisterServiceCtrlHandlerExA(lpservicename, lphandlerproc.toLong(), lpcontext)
+public actual fun registerServiceCtrlHandlerExA(lpservicename: Pcstr, lphandlerproc: LphandlerFunctionEx, lpcontext: COpaquePointer?): ServiceStatusHandle =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_registerServiceCtrlHandlerExA((lpservicename?.value ?: 0L), 0L, (lpcontext?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun RegisterServiceCtrlHandlerExW(lpservicename: PCWSTR, lphandlerproc: LPHANDLER_FUNCTION_EX, lpcontext: Long): SERVICE_STATUS_HANDLE =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_RegisterServiceCtrlHandlerExW(lpservicename, lphandlerproc.toLong(), lpcontext)
+public actual fun registerServiceCtrlHandlerExW(lpservicename: Pcwstr, lphandlerproc: LphandlerFunctionEx, lpcontext: COpaquePointer?): ServiceStatusHandle =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_registerServiceCtrlHandlerExW((lpservicename?.value ?: 0L), 0L, (lpcontext?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun RegisterServiceCtrlHandlerW(lpservicename: PCWSTR, lphandlerproc: LPHANDLER_FUNCTION): SERVICE_STATUS_HANDLE =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_RegisterServiceCtrlHandlerW(lpservicename, lphandlerproc.toLong())
+public actual fun registerServiceCtrlHandlerW(lpservicename: Pcwstr, lphandlerproc: LphandlerFunction): ServiceStatusHandle =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_registerServiceCtrlHandlerW((lpservicename?.value ?: 0L), 0L).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun SetServiceBits(hservicestatus: SERVICE_STATUS_HANDLE, dwservicebits: UInt, bsetbitson: BOOL, bupdateimmediately: BOOL): BOOL =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_SetServiceBits(hservicestatus, dwservicebits.toInt(), bsetbitson, bupdateimmediately)
+public actual fun setServiceBits(hservicestatus: ServiceStatusHandle, dwservicebits: UInt, bsetbitson: Bool, bupdateimmediately: Bool): Bool =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_setServiceBits((hservicestatus?.value ?: 0L), dwservicebits.toInt(), bsetbitson, bupdateimmediately)
 
-public actual fun SetServiceObjectSecurity(hservice: SC_HANDLE, dwsecurityinformation: OBJECT_SECURITY_INFORMATION, lpsecuritydescriptor: PSECURITY_DESCRIPTOR): BOOL =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_SetServiceObjectSecurity(hservice, dwsecurityinformation.toInt(), lpsecuritydescriptor)
+public actual fun setServiceObjectSecurity(hservice: ScHandle, dwsecurityinformation: ObjectSecurityInformation, lpsecuritydescriptor: PsecurityDescriptor): Bool =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_setServiceObjectSecurity((hservice?.value ?: 0L), dwsecurityinformation.toInt(), (lpsecuritydescriptor?.value ?: 0L))
 
-public actual fun SetServiceStatus(hservicestatus: SERVICE_STATUS_HANDLE, lpservicestatus: Long): BOOL =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_SetServiceStatus(hservicestatus, lpservicestatus)
+public actual fun setServiceStatus(hservicestatus: ServiceStatusHandle, lpservicestatus: COpaquePointer?): Bool =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_setServiceStatus((hservicestatus?.value ?: 0L), (lpservicestatus?.value ?: 0L))
 
-public actual fun StartServiceA(hservice: SC_HANDLE, dwnumserviceargs: UInt, lpserviceargvectors: Long): BOOL =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_StartServiceA(hservice, dwnumserviceargs.toInt(), lpserviceargvectors)
+public actual fun startServiceA(hservice: ScHandle, dwnumserviceargs: UInt, lpserviceargvectors: COpaquePointer?): Bool =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_startServiceA((hservice?.value ?: 0L), dwnumserviceargs.toInt(), (lpserviceargvectors?.value ?: 0L))
 
-public actual fun StartServiceCtrlDispatcherA(lpservicestarttable: Long): BOOL =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_StartServiceCtrlDispatcherA(lpservicestarttable)
+public actual fun startServiceCtrlDispatcherA(lpservicestarttable: COpaquePointer?): Bool =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_startServiceCtrlDispatcherA((lpservicestarttable?.value ?: 0L))
 
-public actual fun StartServiceCtrlDispatcherW(lpservicestarttable: Long): BOOL =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_StartServiceCtrlDispatcherW(lpservicestarttable)
+public actual fun startServiceCtrlDispatcherW(lpservicestarttable: COpaquePointer?): Bool =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_startServiceCtrlDispatcherW((lpservicestarttable?.value ?: 0L))
 
-public actual fun StartServiceW(hservice: SC_HANDLE, dwnumserviceargs: UInt, lpserviceargvectors: Long): BOOL =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_StartServiceW(hservice, dwnumserviceargs.toInt(), lpserviceargvectors)
+public actual fun startServiceW(hservice: ScHandle, dwnumserviceargs: UInt, lpserviceargvectors: COpaquePointer?): Bool =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_startServiceW((hservice?.value ?: 0L), dwnumserviceargs.toInt(), (lpserviceargvectors?.value ?: 0L))
 
-public actual fun SubscribeServiceChangeNotifications(hservice: SC_HANDLE, eeventtype: SC_EVENT_TYPE, pcallback: PSC_NOTIFICATION_CALLBACK, pcallbackcontext: Long, psubscription: Long): UInt =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_SubscribeServiceChangeNotifications(hservice, eeventtype, pcallback.toLong(), pcallbackcontext, psubscription).toUInt()
+public actual fun subscribeServiceChangeNotifications(hservice: ScHandle, eeventtype: ScEventType, pcallback: PscNotificationCallback, pcallbackcontext: COpaquePointer?, psubscription: COpaquePointer?): UInt =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_subscribeServiceChangeNotifications((hservice?.value ?: 0L), eeventtype, 0L, (pcallbackcontext?.value ?: 0L), (psubscription?.value ?: 0L)).toUInt()
 
-public actual fun UnlockServiceDatabase(sclock: Long): BOOL =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_UnlockServiceDatabase(sclock)
+public actual fun unlockServiceDatabase(sclock: COpaquePointer?): Bool =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_unlockServiceDatabase((sclock?.value ?: 0L))
 
-public actual fun UnsubscribeServiceChangeNotifications(psubscription: PSC_NOTIFICATION_REGISTRATION) {
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_UnsubscribeServiceChangeNotifications(psubscription)
+public actual fun unsubscribeServiceChangeNotifications(psubscription: PscNotificationRegistration) {
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_unsubscribeServiceChangeNotifications(psubscription.toLong())
 }
 
-public actual fun WaitServiceState(hservice: SC_HANDLE, dwnotify: UInt, dwtimeout: UInt, hcancelevent: HANDLE): UInt =
-    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_WaitServiceState(hservice, dwnotify.toInt(), dwtimeout.toInt(), hcancelevent).toUInt()
+public actual fun waitServiceState(hservice: ScHandle, dwnotify: UInt, dwtimeout: UInt, hcancelevent: Handle): UInt =
+    WindowsWin32SystemServicesJniBridge.windowssys_windows_win32_system_services_waitServiceState((hservice?.value ?: 0L), dwnotify.toInt(), dwtimeout.toInt(), (hcancelevent?.value ?: 0L)).toUInt()

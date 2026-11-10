@@ -2,124 +2,125 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.environment
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun CallEnclave(lproutine: Long, lpparameter: Long, fwaitforthread: BOOL, lpreturnvalue: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_CallEnclave(lproutine, lpparameter.toCPointer<ByteVar>(), fwaitforthread, lpreturnvalue.toCPointer<ByteVar>())
+public actual fun callEnclave(lproutine: Long, lpparameter: COpaquePointer?, fwaitforthread: Bool, lpreturnvalue: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_callEnclave(lproutine, lpparameter?.value?.toCPointer<ByteVar>(), fwaitforthread, lpreturnvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateEnclave(hprocess: HANDLE, lpaddress: Long, dwsize: ULong, dwinitialcommitment: ULong, flenclavetype: UInt, lpenclaveinformation: Long, dwinfolength: UInt, lpenclaveerror: Long): Long =
-    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_CreateEnclave(hprocess.toCPointer<ByteVar>(), lpaddress.toCPointer<ByteVar>(), dwsize, dwinitialcommitment, flenclavetype, lpenclaveinformation.toCPointer<ByteVar>(), dwinfolength, lpenclaveerror.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createEnclave(hprocess: Handle, lpaddress: COpaquePointer?, dwsize: ULong, dwinitialcommitment: ULong, flenclavetype: UInt, lpenclaveinformation: COpaquePointer?, dwinfolength: UInt, lpenclaveerror: COpaquePointer?): COpaquePointer? =
+    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_createEnclave(hprocess?.value?.toCPointer<ByteVar>(), lpaddress?.value?.toCPointer<ByteVar>(), dwsize, dwinitialcommitment, flenclavetype, lpenclaveinformation?.value?.toCPointer<ByteVar>(), dwinfolength, lpenclaveerror?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateEnvironmentBlock(lpenvironment: Long, htoken: HANDLE, binherit: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_CreateEnvironmentBlock(lpenvironment.toCPointer<ByteVar>(), htoken.toCPointer<ByteVar>(), binherit)
+public actual fun createEnvironmentBlock(lpenvironment: COpaquePointer?, htoken: Handle, binherit: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_createEnvironmentBlock(lpenvironment?.value?.toCPointer<ByteVar>(), htoken?.value?.toCPointer<ByteVar>(), binherit)
 
-public actual fun DeleteEnclave(lpaddress: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_DeleteEnclave(lpaddress.toCPointer<ByteVar>())
+public actual fun deleteEnclave(lpaddress: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_deleteEnclave(lpaddress?.value?.toCPointer<ByteVar>())
 
-public actual fun DestroyEnvironmentBlock(lpenvironment: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_DestroyEnvironmentBlock(lpenvironment.toCPointer<ByteVar>())
+public actual fun destroyEnvironmentBlock(lpenvironment: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_destroyEnvironmentBlock(lpenvironment?.value?.toCPointer<ByteVar>())
 
-public actual fun EnclaveGetAttestationReport(enclavedata: Long, report: Long, buffersize: UInt, outputsize: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_EnclaveGetAttestationReport(enclavedata.toCPointer<ByteVar>(), report.toCPointer<ByteVar>(), buffersize, outputsize.toCPointer<ByteVar>())
+public actual fun enclaveGetAttestationReport(enclavedata: COpaquePointer?, report: COpaquePointer?, buffersize: UInt, outputsize: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_enclaveGetAttestationReport(enclavedata?.value?.toCPointer<ByteVar>(), report?.value?.toCPointer<ByteVar>(), buffersize, outputsize?.value?.toCPointer<ByteVar>())
 
-public actual fun EnclaveGetEnclaveInformation(informationsize: UInt, enclaveinformation: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_EnclaveGetEnclaveInformation(informationsize, enclaveinformation.toCPointer<ByteVar>())
+public actual fun enclaveGetEnclaveInformation(informationsize: UInt, enclaveinformation: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_enclaveGetEnclaveInformation(informationsize, enclaveinformation?.value?.toCPointer<ByteVar>())
 
-public actual fun EnclaveSealData(datatoencrypt: Long, datatoencryptsize: UInt, identitypolicy: ENCLAVE_SEALING_IDENTITY_POLICY, runtimepolicy: UInt, protectedblob: Long, buffersize: UInt, protectedblobsize: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_EnclaveSealData(datatoencrypt.toCPointer<ByteVar>(), datatoencryptsize, identitypolicy, runtimepolicy, protectedblob.toCPointer<ByteVar>(), buffersize, protectedblobsize.toCPointer<ByteVar>())
+public actual fun enclaveSealData(datatoencrypt: COpaquePointer?, datatoencryptsize: UInt, identitypolicy: EnclaveSealingIdentityPolicy, runtimepolicy: UInt, protectedblob: COpaquePointer?, buffersize: UInt, protectedblobsize: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_enclaveSealData(datatoencrypt?.value?.toCPointer<ByteVar>(), datatoencryptsize, identitypolicy, runtimepolicy, protectedblob?.value?.toCPointer<ByteVar>(), buffersize, protectedblobsize?.value?.toCPointer<ByteVar>())
 
-public actual fun EnclaveUnsealData(protectedblob: Long, protectedblobsize: UInt, decrypteddata: Long, buffersize: UInt, decrypteddatasize: Long, sealingidentity: Long, unsealingflags: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_EnclaveUnsealData(protectedblob.toCPointer<ByteVar>(), protectedblobsize, decrypteddata.toCPointer<ByteVar>(), buffersize, decrypteddatasize.toCPointer<ByteVar>(), sealingidentity.toCPointer<ByteVar>(), unsealingflags.toCPointer<ByteVar>())
+public actual fun enclaveUnsealData(protectedblob: COpaquePointer?, protectedblobsize: UInt, decrypteddata: COpaquePointer?, buffersize: UInt, decrypteddatasize: COpaquePointer?, sealingidentity: COpaquePointer?, unsealingflags: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_enclaveUnsealData(protectedblob?.value?.toCPointer<ByteVar>(), protectedblobsize, decrypteddata?.value?.toCPointer<ByteVar>(), buffersize, decrypteddatasize?.value?.toCPointer<ByteVar>(), sealingidentity?.value?.toCPointer<ByteVar>(), unsealingflags?.value?.toCPointer<ByteVar>())
 
-public actual fun EnclaveVerifyAttestationReport(enclavetype: UInt, report: Long, reportsize: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_EnclaveVerifyAttestationReport(enclavetype, report.toCPointer<ByteVar>(), reportsize)
+public actual fun enclaveVerifyAttestationReport(enclavetype: UInt, report: COpaquePointer?, reportsize: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_enclaveVerifyAttestationReport(enclavetype, report?.value?.toCPointer<ByteVar>(), reportsize)
 
-public actual fun ExpandEnvironmentStringsA(lpsrc: PCSTR, lpdst: PSTR, nsize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_ExpandEnvironmentStringsA(lpsrc.toCPointer<ByteVar>(), lpdst.toCPointer<ByteVar>(), nsize)
+public actual fun expandEnvironmentStringsA(lpsrc: Pcstr, lpdst: Pstr, nsize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_expandEnvironmentStringsA(lpsrc?.value?.toCPointer<ByteVar>(), lpdst?.value?.toCPointer<ByteVar>(), nsize)
 
-public actual fun ExpandEnvironmentStringsForUserA(htoken: HANDLE, lpsrc: PCSTR, lpdest: PSTR, dwsize: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_ExpandEnvironmentStringsForUserA(htoken.toCPointer<ByteVar>(), lpsrc.toCPointer<ByteVar>(), lpdest.toCPointer<ByteVar>(), dwsize)
+public actual fun expandEnvironmentStringsForUserA(htoken: Handle, lpsrc: Pcstr, lpdest: Pstr, dwsize: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_expandEnvironmentStringsForUserA(htoken?.value?.toCPointer<ByteVar>(), lpsrc?.value?.toCPointer<ByteVar>(), lpdest?.value?.toCPointer<ByteVar>(), dwsize)
 
-public actual fun ExpandEnvironmentStringsForUserW(htoken: HANDLE, lpsrc: PCWSTR, lpdest: PWSTR, dwsize: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_ExpandEnvironmentStringsForUserW(htoken.toCPointer<ByteVar>(), lpsrc.toCPointer<ByteVar>(), lpdest.toCPointer<ByteVar>(), dwsize)
+public actual fun expandEnvironmentStringsForUserW(htoken: Handle, lpsrc: Pcwstr, lpdest: Pwstr, dwsize: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_expandEnvironmentStringsForUserW(htoken?.value?.toCPointer<ByteVar>(), lpsrc?.value?.toCPointer<ByteVar>(), lpdest?.value?.toCPointer<ByteVar>(), dwsize)
 
-public actual fun ExpandEnvironmentStringsW(lpsrc: PCWSTR, lpdst: PWSTR, nsize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_ExpandEnvironmentStringsW(lpsrc.toCPointer<ByteVar>(), lpdst.toCPointer<ByteVar>(), nsize)
+public actual fun expandEnvironmentStringsW(lpsrc: Pcwstr, lpdst: Pwstr, nsize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_expandEnvironmentStringsW(lpsrc?.value?.toCPointer<ByteVar>(), lpdst?.value?.toCPointer<ByteVar>(), nsize)
 
-public actual fun FreeEnvironmentStringsA(penv: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_FreeEnvironmentStringsA(penv.toCPointer<ByteVar>())
+public actual fun freeEnvironmentStringsA(penv: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_freeEnvironmentStringsA(penv?.value?.toCPointer<ByteVar>())
 
-public actual fun FreeEnvironmentStringsW(penv: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_FreeEnvironmentStringsW(penv.toCPointer<ByteVar>())
+public actual fun freeEnvironmentStringsW(penv: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_freeEnvironmentStringsW(penv?.value?.toCPointer<ByteVar>())
 
-public actual fun GetCommandLineA(): PCSTR =
-    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_GetCommandLineA()?.toLong() ?: 0L
+public actual fun getCommandLineA(): Pcstr =
+    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_getCommandLineA()?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GetCommandLineW(): PCWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_GetCommandLineW()?.toLong() ?: 0L
+public actual fun getCommandLineW(): Pcwstr =
+    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_getCommandLineW()?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GetCurrentDirectoryA(nbufferlength: UInt, lpbuffer: PSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_GetCurrentDirectoryA(nbufferlength, lpbuffer.toCPointer<ByteVar>())
+public actual fun getCurrentDirectoryA(nbufferlength: UInt, lpbuffer: Pstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_getCurrentDirectoryA(nbufferlength, lpbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun GetCurrentDirectoryW(nbufferlength: UInt, lpbuffer: PWSTR): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_GetCurrentDirectoryW(nbufferlength, lpbuffer.toCPointer<ByteVar>())
+public actual fun getCurrentDirectoryW(nbufferlength: UInt, lpbuffer: Pwstr): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_getCurrentDirectoryW(nbufferlength, lpbuffer?.value?.toCPointer<ByteVar>())
 
-public actual fun GetEnvironmentStrings(): PSTR =
-    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_GetEnvironmentStrings()?.toLong() ?: 0L
+public actual fun getEnvironmentStrings(): Pstr =
+    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_getEnvironmentStrings()?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GetEnvironmentStringsW(): PWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_GetEnvironmentStringsW()?.toLong() ?: 0L
+public actual fun getEnvironmentStringsW(): Pwstr =
+    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_getEnvironmentStringsW()?.let { COpaquePointer(it.toLong()) }
 
-public actual fun GetEnvironmentVariableA(lpname: PCSTR, lpbuffer: PSTR, nsize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_GetEnvironmentVariableA(lpname.toCPointer<ByteVar>(), lpbuffer.toCPointer<ByteVar>(), nsize)
+public actual fun getEnvironmentVariableA(lpname: Pcstr, lpbuffer: Pstr, nsize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_getEnvironmentVariableA(lpname?.value?.toCPointer<ByteVar>(), lpbuffer?.value?.toCPointer<ByteVar>(), nsize)
 
-public actual fun GetEnvironmentVariableW(lpname: PCWSTR, lpbuffer: PWSTR, nsize: UInt): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_GetEnvironmentVariableW(lpname.toCPointer<ByteVar>(), lpbuffer.toCPointer<ByteVar>(), nsize)
+public actual fun getEnvironmentVariableW(lpname: Pcwstr, lpbuffer: Pwstr, nsize: UInt): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_getEnvironmentVariableW(lpname?.value?.toCPointer<ByteVar>(), lpbuffer?.value?.toCPointer<ByteVar>(), nsize)
 
-public actual fun InitializeEnclave(hprocess: HANDLE, lpaddress: Long, lpenclaveinformation: Long, dwinfolength: UInt, lpenclaveerror: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_InitializeEnclave(hprocess.toCPointer<ByteVar>(), lpaddress.toCPointer<ByteVar>(), lpenclaveinformation.toCPointer<ByteVar>(), dwinfolength, lpenclaveerror.toCPointer<ByteVar>())
+public actual fun initializeEnclave(hprocess: Handle, lpaddress: COpaquePointer?, lpenclaveinformation: COpaquePointer?, dwinfolength: UInt, lpenclaveerror: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_initializeEnclave(hprocess?.value?.toCPointer<ByteVar>(), lpaddress?.value?.toCPointer<ByteVar>(), lpenclaveinformation?.value?.toCPointer<ByteVar>(), dwinfolength, lpenclaveerror?.value?.toCPointer<ByteVar>())
 
-public actual fun IsEnclaveTypeSupported(flenclavetype: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_IsEnclaveTypeSupported(flenclavetype)
+public actual fun isEnclaveTypeSupported(flenclavetype: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_isEnclaveTypeSupported(flenclavetype)
 
-public actual fun LoadEnclaveData(hprocess: HANDLE, lpaddress: Long, lpbuffer: Long, nsize: ULong, flprotect: UInt, lppageinformation: Long, dwinfolength: UInt, lpnumberofbyteswritten: Long, lpenclaveerror: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_LoadEnclaveData(hprocess.toCPointer<ByteVar>(), lpaddress.toCPointer<ByteVar>(), lpbuffer.toCPointer<ByteVar>(), nsize, flprotect, lppageinformation.toCPointer<ByteVar>(), dwinfolength, lpnumberofbyteswritten.toCPointer<ByteVar>(), lpenclaveerror.toCPointer<ByteVar>())
+public actual fun loadEnclaveData(hprocess: Handle, lpaddress: COpaquePointer?, lpbuffer: COpaquePointer?, nsize: ULong, flprotect: UInt, lppageinformation: COpaquePointer?, dwinfolength: UInt, lpnumberofbyteswritten: COpaquePointer?, lpenclaveerror: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_loadEnclaveData(hprocess?.value?.toCPointer<ByteVar>(), lpaddress?.value?.toCPointer<ByteVar>(), lpbuffer?.value?.toCPointer<ByteVar>(), nsize, flprotect, lppageinformation?.value?.toCPointer<ByteVar>(), dwinfolength, lpnumberofbyteswritten?.value?.toCPointer<ByteVar>(), lpenclaveerror?.value?.toCPointer<ByteVar>())
 
-public actual fun LoadEnclaveImageA(lpenclaveaddress: Long, lpimagename: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_LoadEnclaveImageA(lpenclaveaddress.toCPointer<ByteVar>(), lpimagename.toCPointer<ByteVar>())
+public actual fun loadEnclaveImageA(lpenclaveaddress: COpaquePointer?, lpimagename: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_loadEnclaveImageA(lpenclaveaddress?.value?.toCPointer<ByteVar>(), lpimagename?.value?.toCPointer<ByteVar>())
 
-public actual fun LoadEnclaveImageW(lpenclaveaddress: Long, lpimagename: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_LoadEnclaveImageW(lpenclaveaddress.toCPointer<ByteVar>(), lpimagename.toCPointer<ByteVar>())
+public actual fun loadEnclaveImageW(lpenclaveaddress: COpaquePointer?, lpimagename: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_loadEnclaveImageW(lpenclaveaddress?.value?.toCPointer<ByteVar>(), lpimagename?.value?.toCPointer<ByteVar>())
 
-public actual fun NeedCurrentDirectoryForExePathA(exename: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_NeedCurrentDirectoryForExePathA(exename.toCPointer<ByteVar>())
+public actual fun needCurrentDirectoryForExePathA(exename: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_needCurrentDirectoryForExePathA(exename?.value?.toCPointer<ByteVar>())
 
-public actual fun NeedCurrentDirectoryForExePathW(exename: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_NeedCurrentDirectoryForExePathW(exename.toCPointer<ByteVar>())
+public actual fun needCurrentDirectoryForExePathW(exename: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_needCurrentDirectoryForExePathW(exename?.value?.toCPointer<ByteVar>())
 
-public actual fun SetCurrentDirectoryA(lppathname: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_SetCurrentDirectoryA(lppathname.toCPointer<ByteVar>())
+public actual fun setCurrentDirectoryA(lppathname: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_setCurrentDirectoryA(lppathname?.value?.toCPointer<ByteVar>())
 
-public actual fun SetCurrentDirectoryW(lppathname: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_SetCurrentDirectoryW(lppathname.toCPointer<ByteVar>())
+public actual fun setCurrentDirectoryW(lppathname: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_setCurrentDirectoryW(lppathname?.value?.toCPointer<ByteVar>())
 
-public actual fun SetEnvironmentStringsW(newenvironment: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_SetEnvironmentStringsW(newenvironment.toCPointer<ByteVar>())
+public actual fun setEnvironmentStringsW(newenvironment: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_setEnvironmentStringsW(newenvironment?.value?.toCPointer<ByteVar>())
 
-public actual fun SetEnvironmentVariableA(lpname: PCSTR, lpvalue: PCSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_SetEnvironmentVariableA(lpname.toCPointer<ByteVar>(), lpvalue.toCPointer<ByteVar>())
+public actual fun setEnvironmentVariableA(lpname: Pcstr, lpvalue: Pcstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_setEnvironmentVariableA(lpname?.value?.toCPointer<ByteVar>(), lpvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun SetEnvironmentVariableW(lpname: PCWSTR, lpvalue: PCWSTR): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_SetEnvironmentVariableW(lpname.toCPointer<ByteVar>(), lpvalue.toCPointer<ByteVar>())
+public actual fun setEnvironmentVariableW(lpname: Pcwstr, lpvalue: Pcwstr): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_setEnvironmentVariableW(lpname?.value?.toCPointer<ByteVar>(), lpvalue?.value?.toCPointer<ByteVar>())
 
-public actual fun TerminateEnclave(lpaddress: Long, fwait: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_TerminateEnclave(lpaddress.toCPointer<ByteVar>(), fwait)
+public actual fun terminateEnclave(lpaddress: COpaquePointer?, fwait: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.environment.cinterop.windowssys_windows_win32_system_environment_terminateEnclave(lpaddress?.value?.toCPointer<ByteVar>(), fwait)

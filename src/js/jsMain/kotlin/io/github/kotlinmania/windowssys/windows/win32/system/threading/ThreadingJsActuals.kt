@@ -2,1176 +2,1279 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.threading
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HMODULE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
-import io.github.kotlinmania.windowssys.windows.win32.foundation.PAPCFUNC
-import io.github.kotlinmania.windowssys.windows.win32.foundation.WAIT_EVENT
-import io.github.kotlinmania.windowssys.windows.win32.security.PSID
-import io.github.kotlinmania.windowssys.windows.win32.security.TOKEN_ACCESS_MASK
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hmodule
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Papcfunc
+import io.github.kotlinmania.windowssys.windows.win32.foundation.WaitEvent
+import io.github.kotlinmania.windowssys.windows.win32.security.Psid
+import io.github.kotlinmania.windowssys.windows.win32.security.TokenAccessMask
 
 private val _windowsWin32SystemThreadingNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun AcquireSRWLockExclusive(srwlock: Long) {
+public actual fun acquireSRWLockExclusive(srwlock: COpaquePointer?) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_AcquireSRWLockExclusive(srwlock.toString())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_acquireSRWLockExclusive((srwlock?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun AcquireSRWLockShared(srwlock: Long) {
+public actual fun acquireSRWLockShared(srwlock: COpaquePointer?) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_AcquireSRWLockShared(srwlock.toString())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_acquireSRWLockShared((srwlock?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun AddIntegrityLabelToBoundaryDescriptor(boundarydescriptor: Long, integritylabel: PSID): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_AddIntegrityLabelToBoundaryDescriptor(boundarydescriptor.toString(), integritylabel.toString()) as Int) else 0
+public actual fun addIntegrityLabelToBoundaryDescriptor(boundarydescriptor: COpaquePointer?, integritylabel: Psid): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_addIntegrityLabelToBoundaryDescriptor((boundarydescriptor?.value ?: 0L).toString(), (integritylabel?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AddSIDToBoundaryDescriptor(boundarydescriptor: Long, requiredsid: PSID): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_AddSIDToBoundaryDescriptor(boundarydescriptor.toString(), requiredsid.toString()) as Int) else 0
+public actual fun addSIDToBoundaryDescriptor(boundarydescriptor: COpaquePointer?, requiredsid: Psid): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_addSIDToBoundaryDescriptor((boundarydescriptor?.value ?: 0L).toString(), (requiredsid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AttachThreadInput(idattach: UInt, idattachto: UInt, fattach: BOOL): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_AttachThreadInput(idattach.toInt(), idattachto.toInt(), fattach) as Int) else 0
+public actual fun attachThreadInput(idattach: UInt, idattachto: UInt, fattach: Bool): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_attachThreadInput(idattach.toInt(), idattachto.toInt(), fattach) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AvQuerySystemResponsiveness(avrthandle: HANDLE, systemresponsivenessvalue: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_AvQuerySystemResponsiveness(avrthandle.toString(), systemresponsivenessvalue.toString()) as Int) else 0
+public actual fun avQuerySystemResponsiveness(avrthandle: Handle, systemresponsivenessvalue: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_avQuerySystemResponsiveness((avrthandle?.value ?: 0L).toString(), (systemresponsivenessvalue?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AvRevertMmThreadCharacteristics(avrthandle: HANDLE): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_AvRevertMmThreadCharacteristics(avrthandle.toString()) as Int) else 0
+public actual fun avRevertMmThreadCharacteristics(avrthandle: Handle): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_avRevertMmThreadCharacteristics((avrthandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AvRtCreateThreadOrderingGroup(context: Long, period: Long, threadorderingguid: Long, timeout: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_AvRtCreateThreadOrderingGroup(context.toString(), period.toString(), threadorderingguid.toString(), timeout.toString()) as Int) else 0
+public actual fun avRtCreateThreadOrderingGroup(context: COpaquePointer?, period: COpaquePointer?, threadorderingguid: COpaquePointer?, timeout: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_avRtCreateThreadOrderingGroup((context?.value ?: 0L).toString(), (period?.value ?: 0L).toString(), (threadorderingguid?.value ?: 0L).toString(), (timeout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AvRtCreateThreadOrderingGroupExA(context: Long, period: Long, threadorderingguid: Long, timeout: Long, taskname: PCSTR): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_AvRtCreateThreadOrderingGroupExA(context.toString(), period.toString(), threadorderingguid.toString(), timeout.toString(), taskname.toString()) as Int) else 0
+public actual fun avRtCreateThreadOrderingGroupExA(context: COpaquePointer?, period: COpaquePointer?, threadorderingguid: COpaquePointer?, timeout: COpaquePointer?, taskname: Pcstr): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_avRtCreateThreadOrderingGroupExA((context?.value ?: 0L).toString(), (period?.value ?: 0L).toString(), (threadorderingguid?.value ?: 0L).toString(), (timeout?.value ?: 0L).toString(), (taskname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AvRtCreateThreadOrderingGroupExW(context: Long, period: Long, threadorderingguid: Long, timeout: Long, taskname: PCWSTR): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_AvRtCreateThreadOrderingGroupExW(context.toString(), period.toString(), threadorderingguid.toString(), timeout.toString(), taskname.toString()) as Int) else 0
+public actual fun avRtCreateThreadOrderingGroupExW(context: COpaquePointer?, period: COpaquePointer?, threadorderingguid: COpaquePointer?, timeout: COpaquePointer?, taskname: Pcwstr): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_avRtCreateThreadOrderingGroupExW((context?.value ?: 0L).toString(), (period?.value ?: 0L).toString(), (threadorderingguid?.value ?: 0L).toString(), (timeout?.value ?: 0L).toString(), (taskname?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AvRtDeleteThreadOrderingGroup(context: HANDLE): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_AvRtDeleteThreadOrderingGroup(context.toString()) as Int) else 0
+public actual fun avRtDeleteThreadOrderingGroup(context: Handle): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_avRtDeleteThreadOrderingGroup((context?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AvRtJoinThreadOrderingGroup(context: Long, threadorderingguid: Long, before: BOOL): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_AvRtJoinThreadOrderingGroup(context.toString(), threadorderingguid.toString(), before) as Int) else 0
+public actual fun avRtJoinThreadOrderingGroup(context: COpaquePointer?, threadorderingguid: COpaquePointer?, before: Bool): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_avRtJoinThreadOrderingGroup((context?.value ?: 0L).toString(), (threadorderingguid?.value ?: 0L).toString(), before) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AvRtLeaveThreadOrderingGroup(context: HANDLE): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_AvRtLeaveThreadOrderingGroup(context.toString()) as Int) else 0
+public actual fun avRtLeaveThreadOrderingGroup(context: Handle): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_avRtLeaveThreadOrderingGroup((context?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AvRtWaitOnThreadOrderingGroup(context: HANDLE): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_AvRtWaitOnThreadOrderingGroup(context.toString()) as Int) else 0
+public actual fun avRtWaitOnThreadOrderingGroup(context: Handle): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_avRtWaitOnThreadOrderingGroup((context?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AvSetMmMaxThreadCharacteristicsA(firsttask: PCSTR, secondtask: PCSTR, taskindex: Long): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_AvSetMmMaxThreadCharacteristicsA(firsttask.toString(), secondtask.toString(), taskindex.toString()) as String).toLong() else 0L
+public actual fun avSetMmMaxThreadCharacteristicsA(firsttask: Pcstr, secondtask: Pcstr, taskindex: COpaquePointer?): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_avSetMmMaxThreadCharacteristicsA((firsttask?.value ?: 0L).toString(), (secondtask?.value ?: 0L).toString(), (taskindex?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AvSetMmMaxThreadCharacteristicsW(firsttask: PCWSTR, secondtask: PCWSTR, taskindex: Long): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_AvSetMmMaxThreadCharacteristicsW(firsttask.toString(), secondtask.toString(), taskindex.toString()) as String).toLong() else 0L
+public actual fun avSetMmMaxThreadCharacteristicsW(firsttask: Pcwstr, secondtask: Pcwstr, taskindex: COpaquePointer?): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_avSetMmMaxThreadCharacteristicsW((firsttask?.value ?: 0L).toString(), (secondtask?.value ?: 0L).toString(), (taskindex?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AvSetMmThreadCharacteristicsA(taskname: PCSTR, taskindex: Long): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_AvSetMmThreadCharacteristicsA(taskname.toString(), taskindex.toString()) as String).toLong() else 0L
+public actual fun avSetMmThreadCharacteristicsA(taskname: Pcstr, taskindex: COpaquePointer?): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_avSetMmThreadCharacteristicsA((taskname?.value ?: 0L).toString(), (taskindex?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AvSetMmThreadCharacteristicsW(taskname: PCWSTR, taskindex: Long): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_AvSetMmThreadCharacteristicsW(taskname.toString(), taskindex.toString()) as String).toLong() else 0L
+public actual fun avSetMmThreadCharacteristicsW(taskname: Pcwstr, taskindex: COpaquePointer?): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_avSetMmThreadCharacteristicsW((taskname?.value ?: 0L).toString(), (taskindex?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun AvSetMmThreadPriority(avrthandle: HANDLE, priority: AVRT_PRIORITY): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_AvSetMmThreadPriority(avrthandle.toString(), priority) as Int) else 0
+public actual fun avSetMmThreadPriority(avrthandle: Handle, priority: AvrtPriority): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_avSetMmThreadPriority((avrthandle?.value ?: 0L).toString(), priority) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CallbackMayRunLong(pci: PTP_CALLBACK_INSTANCE): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CallbackMayRunLong(pci.toString()) as Int) else 0
+public actual fun callbackMayRunLong(pci: PtpCallbackInstance): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_callbackMayRunLong(pci.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CancelThreadpoolIo(pio: PTP_IO) {
+public actual fun cancelThreadpoolIo(pio: PtpIo) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CancelThreadpoolIo(pio.toString())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_cancelThreadpoolIo(pio.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CancelTimerQueueTimer(timerqueue: HANDLE, timer: HANDLE): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CancelTimerQueueTimer(timerqueue.toString(), timer.toString()) as Int) else 0
+public actual fun cancelTimerQueueTimer(timerqueue: Handle, timer: Handle): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_cancelTimerQueueTimer((timerqueue?.value ?: 0L).toString(), (timer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CancelWaitableTimer(htimer: HANDLE): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CancelWaitableTimer(htimer.toString()) as Int) else 0
+public actual fun cancelWaitableTimer(htimer: Handle): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_cancelWaitableTimer((htimer?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ChangeTimerQueueTimer(timerqueue: HANDLE, timer: HANDLE, duetime: UInt, period: UInt): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_ChangeTimerQueueTimer(timerqueue.toString(), timer.toString(), duetime.toInt(), period.toInt()) as Int) else 0
+public actual fun changeTimerQueueTimer(timerqueue: Handle, timer: Handle, duetime: UInt, period: UInt): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_changeTimerQueueTimer((timerqueue?.value ?: 0L).toString(), (timer?.value ?: 0L).toString(), duetime.toInt(), period.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ClosePrivateNamespace(handle: HANDLE, flags: UInt): Boolean =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_ClosePrivateNamespace(handle.toString(), flags.toInt()) as Boolean) else false
+public actual fun closePrivateNamespace(handle: Handle, flags: UInt): Boolean =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_closePrivateNamespace((handle?.value ?: 0L).toString(), flags.toInt()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CloseThreadpool(ptpp: PTP_POOL) {
+public actual fun closeThreadpool(ptpp: PtpPool) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CloseThreadpool(ptpp.toString())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_closeThreadpool(ptpp.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CloseThreadpoolCleanupGroup(ptpcg: PTP_CLEANUP_GROUP) {
+public actual fun closeThreadpoolCleanupGroup(ptpcg: PtpCleanupGroup) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CloseThreadpoolCleanupGroup(ptpcg.toString())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_closeThreadpoolCleanupGroup(ptpcg.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CloseThreadpoolCleanupGroupMembers(ptpcg: PTP_CLEANUP_GROUP, fcancelpendingcallbacks: BOOL, pvcleanupcontext: Long) {
+public actual fun closeThreadpoolCleanupGroupMembers(ptpcg: PtpCleanupGroup, fcancelpendingcallbacks: Bool, pvcleanupcontext: COpaquePointer?) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CloseThreadpoolCleanupGroupMembers(ptpcg.toString(), fcancelpendingcallbacks, pvcleanupcontext.toString())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_closeThreadpoolCleanupGroupMembers(ptpcg.toString(), fcancelpendingcallbacks, (pvcleanupcontext?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CloseThreadpoolIo(pio: PTP_IO) {
+public actual fun closeThreadpoolIo(pio: PtpIo) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CloseThreadpoolIo(pio.toString())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_closeThreadpoolIo(pio.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CloseThreadpoolTimer(pti: PTP_TIMER) {
+public actual fun closeThreadpoolTimer(pti: PtpTimer) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CloseThreadpoolTimer(pti.toString())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_closeThreadpoolTimer(pti.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CloseThreadpoolWait(pwa: PTP_WAIT) {
+public actual fun closeThreadpoolWait(pwa: PtpWait) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CloseThreadpoolWait(pwa.toString())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_closeThreadpoolWait(pwa.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun CloseThreadpoolWork(pwk: PTP_WORK) {
+public actual fun closeThreadpoolWork(pwk: PtpWork) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CloseThreadpoolWork(pwk.toString())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_closeThreadpoolWork(pwk.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ConvertFiberToThread(): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_ConvertFiberToThread() as Int) else 0
+public actual fun convertFiberToThread(): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_convertFiberToThread() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ConvertThreadToFiber(lpparameter: Long): Long =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_ConvertThreadToFiber(lpparameter.toString()) as String).toLong() else 0L
+public actual fun convertThreadToFiber(lpparameter: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_convertThreadToFiber((lpparameter?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ConvertThreadToFiberEx(lpparameter: Long, dwflags: UInt): Long =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_ConvertThreadToFiberEx(lpparameter.toString(), dwflags.toInt()) as String).toLong() else 0L
+public actual fun convertThreadToFiberEx(lpparameter: COpaquePointer?, dwflags: UInt): COpaquePointer? =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_convertThreadToFiberEx((lpparameter?.value ?: 0L).toString(), dwflags.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateBoundaryDescriptorA(name: PCSTR, flags: UInt): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreateBoundaryDescriptorA(name.toString(), flags.toInt()) as String).toLong() else 0L
+public actual fun createBoundaryDescriptorA(name: Pcstr, flags: UInt): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createBoundaryDescriptorA((name?.value ?: 0L).toString(), flags.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateBoundaryDescriptorW(name: PCWSTR, flags: UInt): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreateBoundaryDescriptorW(name.toString(), flags.toInt()) as String).toLong() else 0L
+public actual fun createBoundaryDescriptorW(name: Pcwstr, flags: UInt): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createBoundaryDescriptorW((name?.value ?: 0L).toString(), flags.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateEventA(lpeventattributes: Long, bmanualreset: BOOL, binitialstate: BOOL, lpname: PCSTR): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreateEventA(lpeventattributes.toString(), bmanualreset, binitialstate, lpname.toString()) as String).toLong() else 0L
+public actual fun createEventA(lpeventattributes: COpaquePointer?, bmanualreset: Bool, binitialstate: Bool, lpname: Pcstr): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createEventA((lpeventattributes?.value ?: 0L).toString(), bmanualreset, binitialstate, (lpname?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateEventExA(lpeventattributes: Long, lpname: PCSTR, dwflags: CREATE_EVENT, dwdesiredaccess: UInt): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreateEventExA(lpeventattributes.toString(), lpname.toString(), dwflags.toInt(), dwdesiredaccess.toInt()) as String).toLong() else 0L
+public actual fun createEventExA(lpeventattributes: COpaquePointer?, lpname: Pcstr, dwflags: CreateEvent, dwdesiredaccess: UInt): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createEventExA((lpeventattributes?.value ?: 0L).toString(), (lpname?.value ?: 0L).toString(), dwflags.toInt(), dwdesiredaccess.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateEventExW(lpeventattributes: Long, lpname: PCWSTR, dwflags: CREATE_EVENT, dwdesiredaccess: UInt): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreateEventExW(lpeventattributes.toString(), lpname.toString(), dwflags.toInt(), dwdesiredaccess.toInt()) as String).toLong() else 0L
+public actual fun createEventExW(lpeventattributes: COpaquePointer?, lpname: Pcwstr, dwflags: CreateEvent, dwdesiredaccess: UInt): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createEventExW((lpeventattributes?.value ?: 0L).toString(), (lpname?.value ?: 0L).toString(), dwflags.toInt(), dwdesiredaccess.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateEventW(lpeventattributes: Long, bmanualreset: BOOL, binitialstate: BOOL, lpname: PCWSTR): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreateEventW(lpeventattributes.toString(), bmanualreset, binitialstate, lpname.toString()) as String).toLong() else 0L
+public actual fun createEventW(lpeventattributes: COpaquePointer?, bmanualreset: Bool, binitialstate: Bool, lpname: Pcwstr): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createEventW((lpeventattributes?.value ?: 0L).toString(), bmanualreset, binitialstate, (lpname?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateFiber(dwstacksize: ULong, lpstartaddress: LPFIBER_START_ROUTINE, lpparameter: Long): Long =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreateFiber(dwstacksize.toString(), lpstartaddress.toLong().toString(), lpparameter.toString()) as String).toLong() else 0L
+public actual fun createFiber(dwstacksize: ULong, lpstartaddress: LpfiberStartRoutine, lpparameter: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createFiber(dwstacksize.toString(), 0L.toString(), (lpparameter?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateFiberEx(dwstackcommitsize: ULong, dwstackreservesize: ULong, dwflags: UInt, lpstartaddress: LPFIBER_START_ROUTINE, lpparameter: Long): Long =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreateFiberEx(dwstackcommitsize.toString(), dwstackreservesize.toString(), dwflags.toInt(), lpstartaddress.toLong().toString(), lpparameter.toString()) as String).toLong() else 0L
+public actual fun createFiberEx(dwstackcommitsize: ULong, dwstackreservesize: ULong, dwflags: UInt, lpstartaddress: LpfiberStartRoutine, lpparameter: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createFiberEx(dwstackcommitsize.toString(), dwstackreservesize.toString(), dwflags.toInt(), 0L.toString(), (lpparameter?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateMutexA(lpmutexattributes: Long, binitialowner: BOOL, lpname: PCSTR): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreateMutexA(lpmutexattributes.toString(), binitialowner, lpname.toString()) as String).toLong() else 0L
+public actual fun createMutexA(lpmutexattributes: COpaquePointer?, binitialowner: Bool, lpname: Pcstr): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createMutexA((lpmutexattributes?.value ?: 0L).toString(), binitialowner, (lpname?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateMutexExA(lpmutexattributes: Long, lpname: PCSTR, dwflags: UInt, dwdesiredaccess: UInt): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreateMutexExA(lpmutexattributes.toString(), lpname.toString(), dwflags.toInt(), dwdesiredaccess.toInt()) as String).toLong() else 0L
+public actual fun createMutexExA(lpmutexattributes: COpaquePointer?, lpname: Pcstr, dwflags: UInt, dwdesiredaccess: UInt): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createMutexExA((lpmutexattributes?.value ?: 0L).toString(), (lpname?.value ?: 0L).toString(), dwflags.toInt(), dwdesiredaccess.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateMutexExW(lpmutexattributes: Long, lpname: PCWSTR, dwflags: UInt, dwdesiredaccess: UInt): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreateMutexExW(lpmutexattributes.toString(), lpname.toString(), dwflags.toInt(), dwdesiredaccess.toInt()) as String).toLong() else 0L
+public actual fun createMutexExW(lpmutexattributes: COpaquePointer?, lpname: Pcwstr, dwflags: UInt, dwdesiredaccess: UInt): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createMutexExW((lpmutexattributes?.value ?: 0L).toString(), (lpname?.value ?: 0L).toString(), dwflags.toInt(), dwdesiredaccess.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateMutexW(lpmutexattributes: Long, binitialowner: BOOL, lpname: PCWSTR): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreateMutexW(lpmutexattributes.toString(), binitialowner, lpname.toString()) as String).toLong() else 0L
+public actual fun createMutexW(lpmutexattributes: COpaquePointer?, binitialowner: Bool, lpname: Pcwstr): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createMutexW((lpmutexattributes?.value ?: 0L).toString(), binitialowner, (lpname?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreatePrivateNamespaceA(lpprivatenamespaceattributes: Long, lpboundarydescriptor: Long, lpaliasprefix: PCSTR): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreatePrivateNamespaceA(lpprivatenamespaceattributes.toString(), lpboundarydescriptor.toString(), lpaliasprefix.toString()) as String).toLong() else 0L
+public actual fun createPrivateNamespaceA(lpprivatenamespaceattributes: COpaquePointer?, lpboundarydescriptor: COpaquePointer?, lpaliasprefix: Pcstr): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createPrivateNamespaceA((lpprivatenamespaceattributes?.value ?: 0L).toString(), (lpboundarydescriptor?.value ?: 0L).toString(), (lpaliasprefix?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreatePrivateNamespaceW(lpprivatenamespaceattributes: Long, lpboundarydescriptor: Long, lpaliasprefix: PCWSTR): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreatePrivateNamespaceW(lpprivatenamespaceattributes.toString(), lpboundarydescriptor.toString(), lpaliasprefix.toString()) as String).toLong() else 0L
+public actual fun createPrivateNamespaceW(lpprivatenamespaceattributes: COpaquePointer?, lpboundarydescriptor: COpaquePointer?, lpaliasprefix: Pcwstr): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createPrivateNamespaceW((lpprivatenamespaceattributes?.value ?: 0L).toString(), (lpboundarydescriptor?.value ?: 0L).toString(), (lpaliasprefix?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateProcessA(lpapplicationname: PCSTR, lpcommandline: PSTR, lpprocessattributes: Long, lpthreadattributes: Long, binherithandles: BOOL, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: Long, lpcurrentdirectory: PCSTR, lpstartupinfo: Long, lpprocessinformation: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreateProcessA(lpapplicationname.toString(), lpcommandline.toString(), lpprocessattributes.toString(), lpthreadattributes.toString(), binherithandles, dwcreationflags.toInt(), lpenvironment.toString(), lpcurrentdirectory.toString(), lpstartupinfo.toString(), lpprocessinformation.toString()) as Int) else 0
+public actual fun createProcessA(lpapplicationname: Pcstr, lpcommandline: Pstr, lpprocessattributes: COpaquePointer?, lpthreadattributes: COpaquePointer?, binherithandles: Bool, dwcreationflags: ProcessCreationFlags, lpenvironment: COpaquePointer?, lpcurrentdirectory: Pcstr, lpstartupinfo: COpaquePointer?, lpprocessinformation: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createProcessA((lpapplicationname?.value ?: 0L).toString(), (lpcommandline?.value ?: 0L).toString(), (lpprocessattributes?.value ?: 0L).toString(), (lpthreadattributes?.value ?: 0L).toString(), binherithandles, dwcreationflags.toInt(), (lpenvironment?.value ?: 0L).toString(), (lpcurrentdirectory?.value ?: 0L).toString(), (lpstartupinfo?.value ?: 0L).toString(), (lpprocessinformation?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateProcessAsUserA(htoken: HANDLE, lpapplicationname: PCSTR, lpcommandline: PSTR, lpprocessattributes: Long, lpthreadattributes: Long, binherithandles: BOOL, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: Long, lpcurrentdirectory: PCSTR, lpstartupinfo: Long, lpprocessinformation: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreateProcessAsUserA(htoken.toString(), lpapplicationname.toString(), lpcommandline.toString(), lpprocessattributes.toString(), lpthreadattributes.toString(), binherithandles, dwcreationflags.toInt(), lpenvironment.toString(), lpcurrentdirectory.toString(), lpstartupinfo.toString(), lpprocessinformation.toString()) as Int) else 0
+public actual fun createProcessAsUserA(htoken: Handle, lpapplicationname: Pcstr, lpcommandline: Pstr, lpprocessattributes: COpaquePointer?, lpthreadattributes: COpaquePointer?, binherithandles: Bool, dwcreationflags: ProcessCreationFlags, lpenvironment: COpaquePointer?, lpcurrentdirectory: Pcstr, lpstartupinfo: COpaquePointer?, lpprocessinformation: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createProcessAsUserA((htoken?.value ?: 0L).toString(), (lpapplicationname?.value ?: 0L).toString(), (lpcommandline?.value ?: 0L).toString(), (lpprocessattributes?.value ?: 0L).toString(), (lpthreadattributes?.value ?: 0L).toString(), binherithandles, dwcreationflags.toInt(), (lpenvironment?.value ?: 0L).toString(), (lpcurrentdirectory?.value ?: 0L).toString(), (lpstartupinfo?.value ?: 0L).toString(), (lpprocessinformation?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateProcessAsUserW(htoken: HANDLE, lpapplicationname: PCWSTR, lpcommandline: PWSTR, lpprocessattributes: Long, lpthreadattributes: Long, binherithandles: BOOL, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: Long, lpcurrentdirectory: PCWSTR, lpstartupinfo: Long, lpprocessinformation: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreateProcessAsUserW(htoken.toString(), lpapplicationname.toString(), lpcommandline.toString(), lpprocessattributes.toString(), lpthreadattributes.toString(), binherithandles, dwcreationflags.toInt(), lpenvironment.toString(), lpcurrentdirectory.toString(), lpstartupinfo.toString(), lpprocessinformation.toString()) as Int) else 0
+public actual fun createProcessAsUserW(htoken: Handle, lpapplicationname: Pcwstr, lpcommandline: Pwstr, lpprocessattributes: COpaquePointer?, lpthreadattributes: COpaquePointer?, binherithandles: Bool, dwcreationflags: ProcessCreationFlags, lpenvironment: COpaquePointer?, lpcurrentdirectory: Pcwstr, lpstartupinfo: COpaquePointer?, lpprocessinformation: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createProcessAsUserW((htoken?.value ?: 0L).toString(), (lpapplicationname?.value ?: 0L).toString(), (lpcommandline?.value ?: 0L).toString(), (lpprocessattributes?.value ?: 0L).toString(), (lpthreadattributes?.value ?: 0L).toString(), binherithandles, dwcreationflags.toInt(), (lpenvironment?.value ?: 0L).toString(), (lpcurrentdirectory?.value ?: 0L).toString(), (lpstartupinfo?.value ?: 0L).toString(), (lpprocessinformation?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateProcessW(lpapplicationname: PCWSTR, lpcommandline: PWSTR, lpprocessattributes: Long, lpthreadattributes: Long, binherithandles: BOOL, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: Long, lpcurrentdirectory: PCWSTR, lpstartupinfo: Long, lpprocessinformation: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreateProcessW(lpapplicationname.toString(), lpcommandline.toString(), lpprocessattributes.toString(), lpthreadattributes.toString(), binherithandles, dwcreationflags.toInt(), lpenvironment.toString(), lpcurrentdirectory.toString(), lpstartupinfo.toString(), lpprocessinformation.toString()) as Int) else 0
+public actual fun createProcessW(lpapplicationname: Pcwstr, lpcommandline: Pwstr, lpprocessattributes: COpaquePointer?, lpthreadattributes: COpaquePointer?, binherithandles: Bool, dwcreationflags: ProcessCreationFlags, lpenvironment: COpaquePointer?, lpcurrentdirectory: Pcwstr, lpstartupinfo: COpaquePointer?, lpprocessinformation: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createProcessW((lpapplicationname?.value ?: 0L).toString(), (lpcommandline?.value ?: 0L).toString(), (lpprocessattributes?.value ?: 0L).toString(), (lpthreadattributes?.value ?: 0L).toString(), binherithandles, dwcreationflags.toInt(), (lpenvironment?.value ?: 0L).toString(), (lpcurrentdirectory?.value ?: 0L).toString(), (lpstartupinfo?.value ?: 0L).toString(), (lpprocessinformation?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateProcessWithLogonW(lpusername: PCWSTR, lpdomain: PCWSTR, lppassword: PCWSTR, dwlogonflags: CREATE_PROCESS_LOGON_FLAGS, lpapplicationname: PCWSTR, lpcommandline: PWSTR, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: Long, lpcurrentdirectory: PCWSTR, lpstartupinfo: Long, lpprocessinformation: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreateProcessWithLogonW(lpusername.toString(), lpdomain.toString(), lppassword.toString(), dwlogonflags.toInt(), lpapplicationname.toString(), lpcommandline.toString(), dwcreationflags.toInt(), lpenvironment.toString(), lpcurrentdirectory.toString(), lpstartupinfo.toString(), lpprocessinformation.toString()) as Int) else 0
+public actual fun createProcessWithLogonW(lpusername: Pcwstr, lpdomain: Pcwstr, lppassword: Pcwstr, dwlogonflags: CreateProcessLogonFlags, lpapplicationname: Pcwstr, lpcommandline: Pwstr, dwcreationflags: ProcessCreationFlags, lpenvironment: COpaquePointer?, lpcurrentdirectory: Pcwstr, lpstartupinfo: COpaquePointer?, lpprocessinformation: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createProcessWithLogonW((lpusername?.value ?: 0L).toString(), (lpdomain?.value ?: 0L).toString(), (lppassword?.value ?: 0L).toString(), dwlogonflags.toInt(), (lpapplicationname?.value ?: 0L).toString(), (lpcommandline?.value ?: 0L).toString(), dwcreationflags.toInt(), (lpenvironment?.value ?: 0L).toString(), (lpcurrentdirectory?.value ?: 0L).toString(), (lpstartupinfo?.value ?: 0L).toString(), (lpprocessinformation?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateProcessWithTokenW(htoken: HANDLE, dwlogonflags: CREATE_PROCESS_LOGON_FLAGS, lpapplicationname: PCWSTR, lpcommandline: PWSTR, dwcreationflags: PROCESS_CREATION_FLAGS, lpenvironment: Long, lpcurrentdirectory: PCWSTR, lpstartupinfo: Long, lpprocessinformation: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreateProcessWithTokenW(htoken.toString(), dwlogonflags.toInt(), lpapplicationname.toString(), lpcommandline.toString(), dwcreationflags.toInt(), lpenvironment.toString(), lpcurrentdirectory.toString(), lpstartupinfo.toString(), lpprocessinformation.toString()) as Int) else 0
+public actual fun createProcessWithTokenW(htoken: Handle, dwlogonflags: CreateProcessLogonFlags, lpapplicationname: Pcwstr, lpcommandline: Pwstr, dwcreationflags: ProcessCreationFlags, lpenvironment: COpaquePointer?, lpcurrentdirectory: Pcwstr, lpstartupinfo: COpaquePointer?, lpprocessinformation: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createProcessWithTokenW((htoken?.value ?: 0L).toString(), dwlogonflags.toInt(), (lpapplicationname?.value ?: 0L).toString(), (lpcommandline?.value ?: 0L).toString(), dwcreationflags.toInt(), (lpenvironment?.value ?: 0L).toString(), (lpcurrentdirectory?.value ?: 0L).toString(), (lpstartupinfo?.value ?: 0L).toString(), (lpprocessinformation?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateRemoteThread(hprocess: HANDLE, lpthreadattributes: Long, dwstacksize: ULong, lpstartaddress: LPTHREAD_START_ROUTINE, lpparameter: Long, dwcreationflags: UInt, lpthreadid: Long): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreateRemoteThread(hprocess.toString(), lpthreadattributes.toString(), dwstacksize.toString(), lpstartaddress.toLong().toString(), lpparameter.toString(), dwcreationflags.toInt(), lpthreadid.toString()) as String).toLong() else 0L
+public actual fun createRemoteThread(hprocess: Handle, lpthreadattributes: COpaquePointer?, dwstacksize: ULong, lpstartaddress: LpthreadStartRoutine, lpparameter: COpaquePointer?, dwcreationflags: UInt, lpthreadid: COpaquePointer?): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createRemoteThread((hprocess?.value ?: 0L).toString(), (lpthreadattributes?.value ?: 0L).toString(), dwstacksize.toString(), 0L.toString(), (lpparameter?.value ?: 0L).toString(), dwcreationflags.toInt(), (lpthreadid?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateRemoteThreadEx(hprocess: HANDLE, lpthreadattributes: Long, dwstacksize: ULong, lpstartaddress: LPTHREAD_START_ROUTINE, lpparameter: Long, dwcreationflags: UInt, lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST, lpthreadid: Long): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreateRemoteThreadEx(hprocess.toString(), lpthreadattributes.toString(), dwstacksize.toString(), lpstartaddress.toLong().toString(), lpparameter.toString(), dwcreationflags.toInt(), lpattributelist.toString(), lpthreadid.toString()) as String).toLong() else 0L
+public actual fun createRemoteThreadEx(hprocess: Handle, lpthreadattributes: COpaquePointer?, dwstacksize: ULong, lpstartaddress: LpthreadStartRoutine, lpparameter: COpaquePointer?, dwcreationflags: UInt, lpattributelist: LpprocThreadAttributeList, lpthreadid: COpaquePointer?): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createRemoteThreadEx((hprocess?.value ?: 0L).toString(), (lpthreadattributes?.value ?: 0L).toString(), dwstacksize.toString(), 0L.toString(), (lpparameter?.value ?: 0L).toString(), dwcreationflags.toInt(), (lpattributelist?.value ?: 0L).toString(), (lpthreadid?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateSemaphoreA(lpsemaphoreattributes: Long, linitialcount: Int, lmaximumcount: Int, lpname: PCSTR): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreateSemaphoreA(lpsemaphoreattributes.toString(), linitialcount, lmaximumcount, lpname.toString()) as String).toLong() else 0L
+public actual fun createSemaphoreA(lpsemaphoreattributes: COpaquePointer?, linitialcount: Int, lmaximumcount: Int, lpname: Pcstr): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createSemaphoreA((lpsemaphoreattributes?.value ?: 0L).toString(), linitialcount, lmaximumcount, (lpname?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateSemaphoreExA(lpsemaphoreattributes: Long, linitialcount: Int, lmaximumcount: Int, lpname: PCSTR, dwflags: UInt, dwdesiredaccess: UInt): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreateSemaphoreExA(lpsemaphoreattributes.toString(), linitialcount, lmaximumcount, lpname.toString(), dwflags.toInt(), dwdesiredaccess.toInt()) as String).toLong() else 0L
+public actual fun createSemaphoreExA(lpsemaphoreattributes: COpaquePointer?, linitialcount: Int, lmaximumcount: Int, lpname: Pcstr, dwflags: UInt, dwdesiredaccess: UInt): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createSemaphoreExA((lpsemaphoreattributes?.value ?: 0L).toString(), linitialcount, lmaximumcount, (lpname?.value ?: 0L).toString(), dwflags.toInt(), dwdesiredaccess.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateSemaphoreExW(lpsemaphoreattributes: Long, linitialcount: Int, lmaximumcount: Int, lpname: PCWSTR, dwflags: UInt, dwdesiredaccess: UInt): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreateSemaphoreExW(lpsemaphoreattributes.toString(), linitialcount, lmaximumcount, lpname.toString(), dwflags.toInt(), dwdesiredaccess.toInt()) as String).toLong() else 0L
+public actual fun createSemaphoreExW(lpsemaphoreattributes: COpaquePointer?, linitialcount: Int, lmaximumcount: Int, lpname: Pcwstr, dwflags: UInt, dwdesiredaccess: UInt): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createSemaphoreExW((lpsemaphoreattributes?.value ?: 0L).toString(), linitialcount, lmaximumcount, (lpname?.value ?: 0L).toString(), dwflags.toInt(), dwdesiredaccess.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateSemaphoreW(lpsemaphoreattributes: Long, linitialcount: Int, lmaximumcount: Int, lpname: PCWSTR): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreateSemaphoreW(lpsemaphoreattributes.toString(), linitialcount, lmaximumcount, lpname.toString()) as String).toLong() else 0L
+public actual fun createSemaphoreW(lpsemaphoreattributes: COpaquePointer?, linitialcount: Int, lmaximumcount: Int, lpname: Pcwstr): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createSemaphoreW((lpsemaphoreattributes?.value ?: 0L).toString(), linitialcount, lmaximumcount, (lpname?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateThread(lpthreadattributes: Long, dwstacksize: ULong, lpstartaddress: LPTHREAD_START_ROUTINE, lpparameter: Long, dwcreationflags: THREAD_CREATION_FLAGS, lpthreadid: Long): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreateThread(lpthreadattributes.toString(), dwstacksize.toString(), lpstartaddress.toLong().toString(), lpparameter.toString(), dwcreationflags.toInt(), lpthreadid.toString()) as String).toLong() else 0L
+public actual fun createThread(lpthreadattributes: COpaquePointer?, dwstacksize: ULong, lpstartaddress: LpthreadStartRoutine, lpparameter: COpaquePointer?, dwcreationflags: ThreadCreationFlags, lpthreadid: COpaquePointer?): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createThread((lpthreadattributes?.value ?: 0L).toString(), dwstacksize.toString(), 0L.toString(), (lpparameter?.value ?: 0L).toString(), dwcreationflags.toInt(), (lpthreadid?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateThreadpool(reserved: Long): PTP_POOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreateThreadpool(reserved.toString()) as String).toLong() else 0L
+public actual fun createThreadpool(reserved: COpaquePointer?): PtpPool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createThreadpool((reserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateThreadpoolCleanupGroup(): PTP_CLEANUP_GROUP =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreateThreadpoolCleanupGroup() as String).toLong() else 0L
+public actual fun createThreadpoolCleanupGroup(): PtpCleanupGroup =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createThreadpoolCleanupGroup() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateThreadpoolIo(fl: HANDLE, pfnio: PTP_WIN32_IO_CALLBACK, pv: Long, pcbe: Long): PTP_IO =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreateThreadpoolIo(fl.toString(), pfnio.toLong().toString(), pv.toString(), pcbe.toString()) as String).toLong() else 0L
+public actual fun createThreadpoolIo(fl: Handle, pfnio: PtpWin32IoCallback, pv: COpaquePointer?, pcbe: COpaquePointer?): PtpIo =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createThreadpoolIo((fl?.value ?: 0L).toString(), 0L.toString(), (pv?.value ?: 0L).toString(), (pcbe?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateThreadpoolTimer(pfnti: PTP_TIMER_CALLBACK, pv: Long, pcbe: Long): PTP_TIMER =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreateThreadpoolTimer(pfnti.toLong().toString(), pv.toString(), pcbe.toString()) as String).toLong() else 0L
+public actual fun createThreadpoolTimer(pfnti: PtpTimerCallback, pv: COpaquePointer?, pcbe: COpaquePointer?): PtpTimer =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createThreadpoolTimer(0L.toString(), (pv?.value ?: 0L).toString(), (pcbe?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateThreadpoolWait(pfnwa: PTP_WAIT_CALLBACK, pv: Long, pcbe: Long): PTP_WAIT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreateThreadpoolWait(pfnwa.toLong().toString(), pv.toString(), pcbe.toString()) as String).toLong() else 0L
+public actual fun createThreadpoolWait(pfnwa: PtpWaitCallback, pv: COpaquePointer?, pcbe: COpaquePointer?): PtpWait =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createThreadpoolWait(0L.toString(), (pv?.value ?: 0L).toString(), (pcbe?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateThreadpoolWork(pfnwk: PTP_WORK_CALLBACK, pv: Long, pcbe: Long): PTP_WORK =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreateThreadpoolWork(pfnwk.toLong().toString(), pv.toString(), pcbe.toString()) as String).toLong() else 0L
+public actual fun createThreadpoolWork(pfnwk: PtpWorkCallback, pv: COpaquePointer?, pcbe: COpaquePointer?): PtpWork =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createThreadpoolWork(0L.toString(), (pv?.value ?: 0L).toString(), (pcbe?.value ?: 0L).toString()) as String).toLong() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateTimerQueue(): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreateTimerQueue() as String).toLong() else 0L
+public actual fun createTimerQueue(): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createTimerQueue() as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateTimerQueueTimer(phnewtimer: Long, timerqueue: HANDLE, callback: WAITORTIMERCALLBACK, parameter: Long, duetime: UInt, period: UInt, flags: WORKER_THREAD_FLAGS): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreateTimerQueueTimer(phnewtimer.toString(), timerqueue.toString(), callback.toLong().toString(), parameter.toString(), duetime.toInt(), period.toInt(), flags.toInt()) as Int) else 0
+public actual fun createTimerQueueTimer(phnewtimer: COpaquePointer?, timerqueue: Handle, callback: Waitortimercallback, parameter: COpaquePointer?, duetime: UInt, period: UInt, flags: WorkerThreadFlags): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createTimerQueueTimer((phnewtimer?.value ?: 0L).toString(), (timerqueue?.value ?: 0L).toString(), 0L.toString(), (parameter?.value ?: 0L).toString(), duetime.toInt(), period.toInt(), flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateUmsCompletionList(umscompletionlist: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreateUmsCompletionList(umscompletionlist.toString()) as Int) else 0
+public actual fun createUmsCompletionList(umscompletionlist: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createUmsCompletionList((umscompletionlist?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateUmsThreadContext(lpumsthread: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreateUmsThreadContext(lpumsthread.toString()) as Int) else 0
+public actual fun createUmsThreadContext(lpumsthread: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createUmsThreadContext((lpumsthread?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateWaitableTimerA(lptimerattributes: Long, bmanualreset: BOOL, lptimername: PCSTR): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreateWaitableTimerA(lptimerattributes.toString(), bmanualreset, lptimername.toString()) as String).toLong() else 0L
+public actual fun createWaitableTimerA(lptimerattributes: COpaquePointer?, bmanualreset: Bool, lptimername: Pcstr): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createWaitableTimerA((lptimerattributes?.value ?: 0L).toString(), bmanualreset, (lptimername?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateWaitableTimerExA(lptimerattributes: Long, lptimername: PCSTR, dwflags: UInt, dwdesiredaccess: UInt): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreateWaitableTimerExA(lptimerattributes.toString(), lptimername.toString(), dwflags.toInt(), dwdesiredaccess.toInt()) as String).toLong() else 0L
+public actual fun createWaitableTimerExA(lptimerattributes: COpaquePointer?, lptimername: Pcstr, dwflags: UInt, dwdesiredaccess: UInt): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createWaitableTimerExA((lptimerattributes?.value ?: 0L).toString(), (lptimername?.value ?: 0L).toString(), dwflags.toInt(), dwdesiredaccess.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateWaitableTimerExW(lptimerattributes: Long, lptimername: PCWSTR, dwflags: UInt, dwdesiredaccess: UInt): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreateWaitableTimerExW(lptimerattributes.toString(), lptimername.toString(), dwflags.toInt(), dwdesiredaccess.toInt()) as String).toLong() else 0L
+public actual fun createWaitableTimerExW(lptimerattributes: COpaquePointer?, lptimername: Pcwstr, dwflags: UInt, dwdesiredaccess: UInt): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createWaitableTimerExW((lptimerattributes?.value ?: 0L).toString(), (lptimername?.value ?: 0L).toString(), dwflags.toInt(), dwdesiredaccess.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun CreateWaitableTimerW(lptimerattributes: Long, bmanualreset: BOOL, lptimername: PCWSTR): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_CreateWaitableTimerW(lptimerattributes.toString(), bmanualreset, lptimername.toString()) as String).toLong() else 0L
+public actual fun createWaitableTimerW(lptimerattributes: COpaquePointer?, bmanualreset: Bool, lptimername: Pcwstr): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_createWaitableTimerW((lptimerattributes?.value ?: 0L).toString(), bmanualreset, (lptimername?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteBoundaryDescriptor(boundarydescriptor: HANDLE) {
+public actual fun deleteBoundaryDescriptor(boundarydescriptor: Handle) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_DeleteBoundaryDescriptor(boundarydescriptor.toString())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_deleteBoundaryDescriptor((boundarydescriptor?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun DeleteCriticalSection(lpcriticalsection: Long) {
+public actual fun deleteCriticalSection(lpcriticalsection: COpaquePointer?) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_DeleteCriticalSection(lpcriticalsection.toString())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_deleteCriticalSection((lpcriticalsection?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun DeleteFiber(lpfiber: Long) {
+public actual fun deleteFiber(lpfiber: COpaquePointer?) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_DeleteFiber(lpfiber.toString())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_deleteFiber((lpfiber?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun DeleteProcThreadAttributeList(lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST) {
+public actual fun deleteProcThreadAttributeList(lpattributelist: LpprocThreadAttributeList) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_DeleteProcThreadAttributeList(lpattributelist.toString())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_deleteProcThreadAttributeList((lpattributelist?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun DeleteSynchronizationBarrier(lpbarrier: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_DeleteSynchronizationBarrier(lpbarrier.toString()) as Int) else 0
+public actual fun deleteSynchronizationBarrier(lpbarrier: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_deleteSynchronizationBarrier((lpbarrier?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteTimerQueue(timerqueue: HANDLE): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_DeleteTimerQueue(timerqueue.toString()) as Int) else 0
+public actual fun deleteTimerQueue(timerqueue: Handle): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_deleteTimerQueue((timerqueue?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteTimerQueueEx(timerqueue: HANDLE, completionevent: HANDLE): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_DeleteTimerQueueEx(timerqueue.toString(), completionevent.toString()) as Int) else 0
+public actual fun deleteTimerQueueEx(timerqueue: Handle, completionevent: Handle): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_deleteTimerQueueEx((timerqueue?.value ?: 0L).toString(), (completionevent?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteTimerQueueTimer(timerqueue: HANDLE, timer: HANDLE, completionevent: HANDLE): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_DeleteTimerQueueTimer(timerqueue.toString(), timer.toString(), completionevent.toString()) as Int) else 0
+public actual fun deleteTimerQueueTimer(timerqueue: Handle, timer: Handle, completionevent: Handle): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_deleteTimerQueueTimer((timerqueue?.value ?: 0L).toString(), (timer?.value ?: 0L).toString(), (completionevent?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteUmsCompletionList(umscompletionlist: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_DeleteUmsCompletionList(umscompletionlist.toString()) as Int) else 0
+public actual fun deleteUmsCompletionList(umscompletionlist: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_deleteUmsCompletionList((umscompletionlist?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DeleteUmsThreadContext(umsthread: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_DeleteUmsThreadContext(umsthread.toString()) as Int) else 0
+public actual fun deleteUmsThreadContext(umsthread: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_deleteUmsThreadContext((umsthread?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DequeueUmsCompletionListItems(umscompletionlist: Long, waittimeout: UInt, umsthreadlist: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_DequeueUmsCompletionListItems(umscompletionlist.toString(), waittimeout.toInt(), umsthreadlist.toString()) as Int) else 0
+public actual fun dequeueUmsCompletionListItems(umscompletionlist: COpaquePointer?, waittimeout: UInt, umsthreadlist: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_dequeueUmsCompletionListItems((umscompletionlist?.value ?: 0L).toString(), waittimeout.toInt(), (umsthreadlist?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DisassociateCurrentThreadFromCallback(pci: PTP_CALLBACK_INSTANCE) {
+public actual fun disassociateCurrentThreadFromCallback(pci: PtpCallbackInstance) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_DisassociateCurrentThreadFromCallback(pci.toString())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_disassociateCurrentThreadFromCallback(pci.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun EnterCriticalSection(lpcriticalsection: Long) {
+public actual fun enterCriticalSection(lpcriticalsection: COpaquePointer?) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_EnterCriticalSection(lpcriticalsection.toString())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_enterCriticalSection((lpcriticalsection?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun EnterSynchronizationBarrier(lpbarrier: Long, dwflags: UInt): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_EnterSynchronizationBarrier(lpbarrier.toString(), dwflags.toInt()) as Int) else 0
+public actual fun enterSynchronizationBarrier(lpbarrier: COpaquePointer?, dwflags: UInt): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_enterSynchronizationBarrier((lpbarrier?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun EnterUmsSchedulingMode(schedulerstartupinfo: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_EnterUmsSchedulingMode(schedulerstartupinfo.toString()) as Int) else 0
+public actual fun enterUmsSchedulingMode(schedulerstartupinfo: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_enterUmsSchedulingMode((schedulerstartupinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ExecuteUmsThread(umsthread: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_ExecuteUmsThread(umsthread.toString()) as Int) else 0
+public actual fun executeUmsThread(umsthread: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_executeUmsThread((umsthread?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun ExitProcess(uexitcode: UInt): Nothing {
+public actual fun exitProcess(uexitcode: UInt): Nothing {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_ExitProcess(uexitcode.toInt())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_exitProcess(uexitcode.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
-    error("Unreachable noreturn C function ExitProcess")
+    error("Unreachable noreturn C function exitProcess")
 }
 
-public actual fun ExitThread(dwexitcode: UInt): Nothing {
+public actual fun exitThread(dwexitcode: UInt): Nothing {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_ExitThread(dwexitcode.toInt())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_exitThread(dwexitcode.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
-    error("Unreachable noreturn C function ExitThread")
+    error("Unreachable noreturn C function exitThread")
 }
 
-public actual fun FlsAlloc(lpcallback: PFLS_CALLBACK_FUNCTION): UInt =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_FlsAlloc(lpcallback.toLong().toString()) as Int).toUInt() else 0u
+public actual fun flsAlloc(lpcallback: PflsCallbackFunction): UInt =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_flsAlloc(0L.toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FlsFree(dwflsindex: UInt): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_FlsFree(dwflsindex.toInt()) as Int) else 0
+public actual fun flsFree(dwflsindex: UInt): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_flsFree(dwflsindex.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FlsGetValue(dwflsindex: UInt): Long =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_FlsGetValue(dwflsindex.toInt()) as String).toLong() else 0L
+public actual fun flsGetValue(dwflsindex: UInt): COpaquePointer? =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_flsGetValue(dwflsindex.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FlsSetValue(dwflsindex: UInt, lpflsdata: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_FlsSetValue(dwflsindex.toInt(), lpflsdata.toString()) as Int) else 0
+public actual fun flsSetValue(dwflsindex: UInt, lpflsdata: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_flsSetValue(dwflsindex.toInt(), (lpflsdata?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun FlushProcessWriteBuffers() {
+public actual fun flushProcessWriteBuffers() {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_FlushProcessWriteBuffers()
-    }
-}
-
-public actual fun FreeLibraryWhenCallbackReturns(pci: PTP_CALLBACK_INSTANCE, mod: HMODULE) {
-    if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_FreeLibraryWhenCallbackReturns(pci.toString(), mod.toString())
-    }
-}
-
-public actual fun GetActiveProcessorCount(groupnumber: UShort): UInt =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetActiveProcessorCount(groupnumber.toInt()) as Int).toUInt() else 0u
-
-public actual fun GetActiveProcessorGroupCount(): UShort =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetActiveProcessorGroupCount() as Int).toUShort() else 0u
-
-public actual fun GetCurrentProcess(): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetCurrentProcess() as String).toLong() else 0L
-
-public actual fun GetCurrentProcessId(): UInt =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetCurrentProcessId() as Int).toUInt() else 0u
-
-public actual fun GetCurrentProcessorNumber(): UInt =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetCurrentProcessorNumber() as Int).toUInt() else 0u
-
-public actual fun GetCurrentProcessorNumberEx(procnumber: Long) {
-    if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetCurrentProcessorNumberEx(procnumber.toString())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_flushProcessWriteBuffers()
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun GetCurrentThread(): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetCurrentThread() as String).toLong() else 0L
-
-public actual fun GetCurrentThreadId(): UInt =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetCurrentThreadId() as Int).toUInt() else 0u
-
-public actual fun GetCurrentThreadStackLimits(lowlimit: Long, highlimit: Long) {
+public actual fun freeLibraryWhenCallbackReturns(pci: PtpCallbackInstance, mod: Hmodule) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetCurrentThreadStackLimits(lowlimit.toString(), highlimit.toString())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_freeLibraryWhenCallbackReturns(pci.toString(), (mod?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun GetCurrentUmsThread(): Long =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetCurrentUmsThread() as String).toLong() else 0L
+public actual fun getActiveProcessorCount(groupnumber: UShort): UInt =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getActiveProcessorCount(groupnumber.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetExitCodeProcess(hprocess: HANDLE, lpexitcode: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetExitCodeProcess(hprocess.toString(), lpexitcode.toString()) as Int) else 0
+public actual fun getActiveProcessorGroupCount(): UShort =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getActiveProcessorGroupCount() as Int).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetExitCodeThread(hthread: HANDLE, lpexitcode: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetExitCodeThread(hthread.toString(), lpexitcode.toString()) as Int) else 0
+public actual fun getCurrentProcess(): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getCurrentProcess() as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetGuiResources(hprocess: HANDLE, uiflags: GET_GUI_RESOURCES_FLAGS): UInt =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetGuiResources(hprocess.toString(), uiflags.toInt()) as Int).toUInt() else 0u
+public actual fun getCurrentProcessId(): UInt =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getCurrentProcessId() as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetMachineTypeAttributes(machine: UShort, machinetypeattributes: Long): HRESULT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetMachineTypeAttributes(machine.toInt(), machinetypeattributes.toString()) as Int) else 0
+public actual fun getCurrentProcessorNumber(): UInt =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getCurrentProcessorNumber() as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetMaximumProcessorCount(groupnumber: UShort): UInt =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetMaximumProcessorCount(groupnumber.toInt()) as Int).toUInt() else 0u
-
-public actual fun GetMaximumProcessorGroupCount(): UShort =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetMaximumProcessorGroupCount() as Int).toUShort() else 0u
-
-public actual fun GetNextUmsListItem(umscontext: Long): Long =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetNextUmsListItem(umscontext.toString()) as String).toLong() else 0L
-
-public actual fun GetNumaAvailableMemoryNode(node: UByte, availablebytes: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetNumaAvailableMemoryNode(node.toInt(), availablebytes.toString()) as Int) else 0
-
-public actual fun GetNumaAvailableMemoryNodeEx(node: UShort, availablebytes: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetNumaAvailableMemoryNodeEx(node.toInt(), availablebytes.toString()) as Int) else 0
-
-public actual fun GetNumaHighestNodeNumber(highestnodenumber: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetNumaHighestNodeNumber(highestnodenumber.toString()) as Int) else 0
-
-public actual fun GetNumaNodeNumberFromHandle(hfile: HANDLE, nodenumber: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetNumaNodeNumberFromHandle(hfile.toString(), nodenumber.toString()) as Int) else 0
-
-public actual fun GetNumaNodeProcessorMask(node: UByte, processormask: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetNumaNodeProcessorMask(node.toInt(), processormask.toString()) as Int) else 0
-
-public actual fun GetNumaNodeProcessorMask2(nodenumber: UShort, processormasks: Long, processormaskcount: UShort, requiredmaskcount: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetNumaNodeProcessorMask2(nodenumber.toInt(), processormasks.toString(), processormaskcount.toInt(), requiredmaskcount.toString()) as Int) else 0
-
-public actual fun GetNumaNodeProcessorMaskEx(node: UShort, processormask: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetNumaNodeProcessorMaskEx(node.toInt(), processormask.toString()) as Int) else 0
-
-public actual fun GetNumaProcessorNode(processor: UByte, nodenumber: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetNumaProcessorNode(processor.toInt(), nodenumber.toString()) as Int) else 0
-
-public actual fun GetNumaProcessorNodeEx(processor: Long, nodenumber: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetNumaProcessorNodeEx(processor.toString(), nodenumber.toString()) as Int) else 0
-
-public actual fun GetNumaProximityNode(proximityid: UInt, nodenumber: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetNumaProximityNode(proximityid.toInt(), nodenumber.toString()) as Int) else 0
-
-public actual fun GetNumaProximityNodeEx(proximityid: UInt, nodenumber: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetNumaProximityNodeEx(proximityid.toInt(), nodenumber.toString()) as Int) else 0
-
-public actual fun GetPriorityClass(hprocess: HANDLE): UInt =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetPriorityClass(hprocess.toString()) as Int).toUInt() else 0u
-
-public actual fun GetProcessAffinityMask(hprocess: HANDLE, lpprocessaffinitymask: Long, lpsystemaffinitymask: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetProcessAffinityMask(hprocess.toString(), lpprocessaffinitymask.toString(), lpsystemaffinitymask.toString()) as Int) else 0
-
-public actual fun GetProcessDEPPolicy(hprocess: HANDLE, lpflags: Long, lppermanent: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetProcessDEPPolicy(hprocess.toString(), lpflags.toString(), lppermanent.toString()) as Int) else 0
-
-public actual fun GetProcessDefaultCpuSetMasks(process: HANDLE, cpusetmasks: Long, cpusetmaskcount: UShort, requiredmaskcount: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetProcessDefaultCpuSetMasks(process.toString(), cpusetmasks.toString(), cpusetmaskcount.toInt(), requiredmaskcount.toString()) as Int) else 0
-
-public actual fun GetProcessDefaultCpuSets(process: HANDLE, cpusetids: Long, cpusetidcount: UInt, requiredidcount: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetProcessDefaultCpuSets(process.toString(), cpusetids.toString(), cpusetidcount.toInt(), requiredidcount.toString()) as Int) else 0
-
-public actual fun GetProcessGroupAffinity(hprocess: HANDLE, groupcount: Long, grouparray: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetProcessGroupAffinity(hprocess.toString(), groupcount.toString(), grouparray.toString()) as Int) else 0
-
-public actual fun GetProcessHandleCount(hprocess: HANDLE, pdwhandlecount: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetProcessHandleCount(hprocess.toString(), pdwhandlecount.toString()) as Int) else 0
-
-public actual fun GetProcessHandleFromHwnd(hwnd: HWND): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetProcessHandleFromHwnd(hwnd.toString()) as String).toLong() else 0L
-
-public actual fun GetProcessId(process: HANDLE): UInt =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetProcessId(process.toString()) as Int).toUInt() else 0u
-
-public actual fun GetProcessIdOfThread(thread: HANDLE): UInt =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetProcessIdOfThread(thread.toString()) as Int).toUInt() else 0u
-
-public actual fun GetProcessInformation(hprocess: HANDLE, processinformationclass: PROCESS_INFORMATION_CLASS, processinformation: Long, processinformationsize: UInt): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetProcessInformation(hprocess.toString(), processinformationclass, processinformation.toString(), processinformationsize.toInt()) as Int) else 0
-
-public actual fun GetProcessIoCounters(hprocess: HANDLE, lpiocounters: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetProcessIoCounters(hprocess.toString(), lpiocounters.toString()) as Int) else 0
-
-public actual fun GetProcessMitigationPolicy(hprocess: HANDLE, mitigationpolicy: PROCESS_MITIGATION_POLICY, lpbuffer: Long, dwlength: ULong): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetProcessMitigationPolicy(hprocess.toString(), mitigationpolicy, lpbuffer.toString(), dwlength.toString()) as Int) else 0
-
-public actual fun GetProcessPriorityBoost(hprocess: HANDLE, pdisablepriorityboost: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetProcessPriorityBoost(hprocess.toString(), pdisablepriorityboost.toString()) as Int) else 0
-
-public actual fun GetProcessShutdownParameters(lpdwlevel: Long, lpdwflags: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetProcessShutdownParameters(lpdwlevel.toString(), lpdwflags.toString()) as Int) else 0
-
-public actual fun GetProcessTimes(hprocess: HANDLE, lpcreationtime: Long, lpexittime: Long, lpkerneltime: Long, lpusertime: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetProcessTimes(hprocess.toString(), lpcreationtime.toString(), lpexittime.toString(), lpkerneltime.toString(), lpusertime.toString()) as Int) else 0
-
-public actual fun GetProcessVersion(processid: UInt): UInt =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetProcessVersion(processid.toInt()) as Int).toUInt() else 0u
-
-public actual fun GetProcessWorkingSetSize(hprocess: HANDLE, lpminimumworkingsetsize: Long, lpmaximumworkingsetsize: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetProcessWorkingSetSize(hprocess.toString(), lpminimumworkingsetsize.toString(), lpmaximumworkingsetsize.toString()) as Int) else 0
-
-public actual fun GetStartupInfoA(lpstartupinfo: Long) {
+public actual fun getCurrentProcessorNumberEx(procnumber: COpaquePointer?) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetStartupInfoA(lpstartupinfo.toString())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getCurrentProcessorNumberEx((procnumber?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun GetStartupInfoW(lpstartupinfo: Long) {
+public actual fun getCurrentThread(): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getCurrentThread() as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getCurrentThreadId(): UInt =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getCurrentThreadId() as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getCurrentThreadStackLimits(lowlimit: COpaquePointer?, highlimit: COpaquePointer?) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetStartupInfoW(lpstartupinfo.toString())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getCurrentThreadStackLimits((lowlimit?.value ?: 0L).toString(), (highlimit?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun GetSystemTimes(lpidletime: Long, lpkerneltime: Long, lpusertime: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetSystemTimes(lpidletime.toString(), lpkerneltime.toString(), lpusertime.toString()) as Int) else 0
+public actual fun getCurrentUmsThread(): COpaquePointer? =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getCurrentUmsThread() as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetThreadDescription(hthread: HANDLE, ppszthreaddescription: Long): HRESULT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetThreadDescription(hthread.toString(), ppszthreaddescription.toString()) as Int) else 0
+public actual fun getExitCodeProcess(hprocess: Handle, lpexitcode: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getExitCodeProcess((hprocess?.value ?: 0L).toString(), (lpexitcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetThreadGroupAffinity(hthread: HANDLE, groupaffinity: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetThreadGroupAffinity(hthread.toString(), groupaffinity.toString()) as Int) else 0
+public actual fun getExitCodeThread(hthread: Handle, lpexitcode: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getExitCodeThread((hthread?.value ?: 0L).toString(), (lpexitcode?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetThreadIOPendingFlag(hthread: HANDLE, lpioispending: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetThreadIOPendingFlag(hthread.toString(), lpioispending.toString()) as Int) else 0
+public actual fun getGuiResources(hprocess: Handle, uiflags: GetGuiResourcesFlags): UInt =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getGuiResources((hprocess?.value ?: 0L).toString(), uiflags.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetThreadId(thread: HANDLE): UInt =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetThreadId(thread.toString()) as Int).toUInt() else 0u
+public actual fun getMachineTypeAttributes(machine: UShort, machinetypeattributes: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getMachineTypeAttributes(machine.toInt(), (machinetypeattributes?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetThreadIdealProcessorEx(hthread: HANDLE, lpidealprocessor: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetThreadIdealProcessorEx(hthread.toString(), lpidealprocessor.toString()) as Int) else 0
+public actual fun getMaximumProcessorCount(groupnumber: UShort): UInt =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getMaximumProcessorCount(groupnumber.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetThreadInformation(hthread: HANDLE, threadinformationclass: THREAD_INFORMATION_CLASS, threadinformation: Long, threadinformationsize: UInt): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetThreadInformation(hthread.toString(), threadinformationclass, threadinformation.toString(), threadinformationsize.toInt()) as Int) else 0
+public actual fun getMaximumProcessorGroupCount(): UShort =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getMaximumProcessorGroupCount() as Int).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetThreadPriority(hthread: HANDLE): Int =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetThreadPriority(hthread.toString()) as Int) else 0
+public actual fun getNextUmsListItem(umscontext: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getNextUmsListItem((umscontext?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetThreadPriorityBoost(hthread: HANDLE, pdisablepriorityboost: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetThreadPriorityBoost(hthread.toString(), pdisablepriorityboost.toString()) as Int) else 0
+public actual fun getNumaAvailableMemoryNode(node: UByte, availablebytes: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getNumaAvailableMemoryNode(node.toInt(), (availablebytes?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetThreadSelectedCpuSetMasks(thread: HANDLE, cpusetmasks: Long, cpusetmaskcount: UShort, requiredmaskcount: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetThreadSelectedCpuSetMasks(thread.toString(), cpusetmasks.toString(), cpusetmaskcount.toInt(), requiredmaskcount.toString()) as Int) else 0
+public actual fun getNumaAvailableMemoryNodeEx(node: UShort, availablebytes: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getNumaAvailableMemoryNodeEx(node.toInt(), (availablebytes?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetThreadSelectedCpuSets(thread: HANDLE, cpusetids: Long, cpusetidcount: UInt, requiredidcount: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetThreadSelectedCpuSets(thread.toString(), cpusetids.toString(), cpusetidcount.toInt(), requiredidcount.toString()) as Int) else 0
+public actual fun getNumaHighestNodeNumber(highestnodenumber: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getNumaHighestNodeNumber((highestnodenumber?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetThreadTimes(hthread: HANDLE, lpcreationtime: Long, lpexittime: Long, lpkerneltime: Long, lpusertime: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetThreadTimes(hthread.toString(), lpcreationtime.toString(), lpexittime.toString(), lpkerneltime.toString(), lpusertime.toString()) as Int) else 0
+public actual fun getNumaNodeNumberFromHandle(hfile: Handle, nodenumber: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getNumaNodeNumberFromHandle((hfile?.value ?: 0L).toString(), (nodenumber?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetUmsCompletionListEvent(umscompletionlist: Long, umscompletionevent: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetUmsCompletionListEvent(umscompletionlist.toString(), umscompletionevent.toString()) as Int) else 0
+public actual fun getNumaNodeProcessorMask(node: UByte, processormask: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getNumaNodeProcessorMask(node.toInt(), (processormask?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun GetUmsSystemThreadInformation(threadhandle: HANDLE, systemthreadinfo: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_GetUmsSystemThreadInformation(threadhandle.toString(), systemthreadinfo.toString()) as Int) else 0
+public actual fun getNumaNodeProcessorMask2(nodenumber: UShort, processormasks: COpaquePointer?, processormaskcount: UShort, requiredmaskcount: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getNumaNodeProcessorMask2(nodenumber.toInt(), (processormasks?.value ?: 0L).toString(), processormaskcount.toInt(), (requiredmaskcount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InitOnceBeginInitialize(lpinitonce: Long, dwflags: UInt, fpending: Long, lpcontext: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_InitOnceBeginInitialize(lpinitonce.toString(), dwflags.toInt(), fpending.toString(), lpcontext.toString()) as Int) else 0
+public actual fun getNumaNodeProcessorMaskEx(node: UShort, processormask: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getNumaNodeProcessorMaskEx(node.toInt(), (processormask?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InitOnceComplete(lpinitonce: Long, dwflags: UInt, lpcontext: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_InitOnceComplete(lpinitonce.toString(), dwflags.toInt(), lpcontext.toString()) as Int) else 0
+public actual fun getNumaProcessorNode(processor: UByte, nodenumber: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getNumaProcessorNode(processor.toInt(), (nodenumber?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InitOnceExecuteOnce(initonce: Long, initfn: PINIT_ONCE_FN, parameter: Long, context: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_InitOnceExecuteOnce(initonce.toString(), initfn.toLong().toString(), parameter.toString(), context.toString()) as Int) else 0
+public actual fun getNumaProcessorNodeEx(processor: COpaquePointer?, nodenumber: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getNumaProcessorNodeEx((processor?.value ?: 0L).toString(), (nodenumber?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InitOnceInitialize(initonce: Long) {
+public actual fun getNumaProximityNode(proximityid: UInt, nodenumber: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getNumaProximityNode(proximityid.toInt(), (nodenumber?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getNumaProximityNodeEx(proximityid: UInt, nodenumber: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getNumaProximityNodeEx(proximityid.toInt(), (nodenumber?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getPriorityClass(hprocess: Handle): UInt =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getPriorityClass((hprocess?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getProcessAffinityMask(hprocess: Handle, lpprocessaffinitymask: COpaquePointer?, lpsystemaffinitymask: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getProcessAffinityMask((hprocess?.value ?: 0L).toString(), (lpprocessaffinitymask?.value ?: 0L).toString(), (lpsystemaffinitymask?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getProcessDEPPolicy(hprocess: Handle, lpflags: COpaquePointer?, lppermanent: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getProcessDEPPolicy((hprocess?.value ?: 0L).toString(), (lpflags?.value ?: 0L).toString(), (lppermanent?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getProcessDefaultCpuSetMasks(process: Handle, cpusetmasks: COpaquePointer?, cpusetmaskcount: UShort, requiredmaskcount: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getProcessDefaultCpuSetMasks((process?.value ?: 0L).toString(), (cpusetmasks?.value ?: 0L).toString(), cpusetmaskcount.toInt(), (requiredmaskcount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getProcessDefaultCpuSets(process: Handle, cpusetids: COpaquePointer?, cpusetidcount: UInt, requiredidcount: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getProcessDefaultCpuSets((process?.value ?: 0L).toString(), (cpusetids?.value ?: 0L).toString(), cpusetidcount.toInt(), (requiredidcount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getProcessGroupAffinity(hprocess: Handle, groupcount: COpaquePointer?, grouparray: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getProcessGroupAffinity((hprocess?.value ?: 0L).toString(), (groupcount?.value ?: 0L).toString(), (grouparray?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getProcessHandleCount(hprocess: Handle, pdwhandlecount: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getProcessHandleCount((hprocess?.value ?: 0L).toString(), (pdwhandlecount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getProcessHandleFromHwnd(hwnd: Hwnd): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getProcessHandleFromHwnd((hwnd?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getProcessId(process: Handle): UInt =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getProcessId((process?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getProcessIdOfThread(thread: Handle): UInt =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getProcessIdOfThread((thread?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getProcessInformation(hprocess: Handle, processinformationclass: ProcessInformationClass, processinformation: COpaquePointer?, processinformationsize: UInt): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getProcessInformation((hprocess?.value ?: 0L).toString(), processinformationclass, (processinformation?.value ?: 0L).toString(), processinformationsize.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getProcessIoCounters(hprocess: Handle, lpiocounters: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getProcessIoCounters((hprocess?.value ?: 0L).toString(), (lpiocounters?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getProcessMitigationPolicy(hprocess: Handle, mitigationpolicy: ProcessMitigationPolicy, lpbuffer: COpaquePointer?, dwlength: ULong): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getProcessMitigationPolicy((hprocess?.value ?: 0L).toString(), mitigationpolicy, (lpbuffer?.value ?: 0L).toString(), dwlength.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getProcessPriorityBoost(hprocess: Handle, pdisablepriorityboost: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getProcessPriorityBoost((hprocess?.value ?: 0L).toString(), (pdisablepriorityboost?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getProcessShutdownParameters(lpdwlevel: COpaquePointer?, lpdwflags: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getProcessShutdownParameters((lpdwlevel?.value ?: 0L).toString(), (lpdwflags?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getProcessTimes(hprocess: Handle, lpcreationtime: COpaquePointer?, lpexittime: COpaquePointer?, lpkerneltime: COpaquePointer?, lpusertime: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getProcessTimes((hprocess?.value ?: 0L).toString(), (lpcreationtime?.value ?: 0L).toString(), (lpexittime?.value ?: 0L).toString(), (lpkerneltime?.value ?: 0L).toString(), (lpusertime?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getProcessVersion(processid: UInt): UInt =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getProcessVersion(processid.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getProcessWorkingSetSize(hprocess: Handle, lpminimumworkingsetsize: COpaquePointer?, lpmaximumworkingsetsize: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getProcessWorkingSetSize((hprocess?.value ?: 0L).toString(), (lpminimumworkingsetsize?.value ?: 0L).toString(), (lpmaximumworkingsetsize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getStartupInfoA(lpstartupinfo: COpaquePointer?) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_InitOnceInitialize(initonce.toString())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getStartupInfoA((lpstartupinfo?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun InitializeConditionVariable(conditionvariable: Long) {
+public actual fun getStartupInfoW(lpstartupinfo: COpaquePointer?) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_InitializeConditionVariable(conditionvariable.toString())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getStartupInfoW((lpstartupinfo?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun InitializeCriticalSection(lpcriticalsection: Long) {
+public actual fun getSystemTimes(lpidletime: COpaquePointer?, lpkerneltime: COpaquePointer?, lpusertime: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getSystemTimes((lpidletime?.value ?: 0L).toString(), (lpkerneltime?.value ?: 0L).toString(), (lpusertime?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getThreadDescription(hthread: Handle, ppszthreaddescription: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getThreadDescription((hthread?.value ?: 0L).toString(), (ppszthreaddescription?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getThreadGroupAffinity(hthread: Handle, groupaffinity: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getThreadGroupAffinity((hthread?.value ?: 0L).toString(), (groupaffinity?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getThreadIOPendingFlag(hthread: Handle, lpioispending: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getThreadIOPendingFlag((hthread?.value ?: 0L).toString(), (lpioispending?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getThreadId(thread: Handle): UInt =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getThreadId((thread?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getThreadIdealProcessorEx(hthread: Handle, lpidealprocessor: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getThreadIdealProcessorEx((hthread?.value ?: 0L).toString(), (lpidealprocessor?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getThreadInformation(hthread: Handle, threadinformationclass: ThreadInformationClass, threadinformation: COpaquePointer?, threadinformationsize: UInt): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getThreadInformation((hthread?.value ?: 0L).toString(), threadinformationclass, (threadinformation?.value ?: 0L).toString(), threadinformationsize.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getThreadPriority(hthread: Handle): Int =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getThreadPriority((hthread?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getThreadPriorityBoost(hthread: Handle, pdisablepriorityboost: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getThreadPriorityBoost((hthread?.value ?: 0L).toString(), (pdisablepriorityboost?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getThreadSelectedCpuSetMasks(thread: Handle, cpusetmasks: COpaquePointer?, cpusetmaskcount: UShort, requiredmaskcount: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getThreadSelectedCpuSetMasks((thread?.value ?: 0L).toString(), (cpusetmasks?.value ?: 0L).toString(), cpusetmaskcount.toInt(), (requiredmaskcount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getThreadSelectedCpuSets(thread: Handle, cpusetids: COpaquePointer?, cpusetidcount: UInt, requiredidcount: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getThreadSelectedCpuSets((thread?.value ?: 0L).toString(), (cpusetids?.value ?: 0L).toString(), cpusetidcount.toInt(), (requiredidcount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getThreadTimes(hthread: Handle, lpcreationtime: COpaquePointer?, lpexittime: COpaquePointer?, lpkerneltime: COpaquePointer?, lpusertime: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getThreadTimes((hthread?.value ?: 0L).toString(), (lpcreationtime?.value ?: 0L).toString(), (lpexittime?.value ?: 0L).toString(), (lpkerneltime?.value ?: 0L).toString(), (lpusertime?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getUmsCompletionListEvent(umscompletionlist: COpaquePointer?, umscompletionevent: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getUmsCompletionListEvent((umscompletionlist?.value ?: 0L).toString(), (umscompletionevent?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun getUmsSystemThreadInformation(threadhandle: Handle, systemthreadinfo: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_getUmsSystemThreadInformation((threadhandle?.value ?: 0L).toString(), (systemthreadinfo?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun initOnceBeginInitialize(lpinitonce: COpaquePointer?, dwflags: UInt, fpending: COpaquePointer?, lpcontext: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_initOnceBeginInitialize((lpinitonce?.value ?: 0L).toString(), dwflags.toInt(), (fpending?.value ?: 0L).toString(), (lpcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun initOnceComplete(lpinitonce: COpaquePointer?, dwflags: UInt, lpcontext: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_initOnceComplete((lpinitonce?.value ?: 0L).toString(), dwflags.toInt(), (lpcontext?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun initOnceExecuteOnce(initonce: COpaquePointer?, initfn: PinitOnceFn, parameter: COpaquePointer?, context: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_initOnceExecuteOnce((initonce?.value ?: 0L).toString(), 0L.toString(), (parameter?.value ?: 0L).toString(), (context?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun initOnceInitialize(initonce: COpaquePointer?) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_InitializeCriticalSection(lpcriticalsection.toString())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_initOnceInitialize((initonce?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun InitializeCriticalSectionAndSpinCount(lpcriticalsection: Long, dwspincount: UInt): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_InitializeCriticalSectionAndSpinCount(lpcriticalsection.toString(), dwspincount.toInt()) as Int) else 0
-
-public actual fun InitializeCriticalSectionEx(lpcriticalsection: Long, dwspincount: UInt, flags: UInt): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_InitializeCriticalSectionEx(lpcriticalsection.toString(), dwspincount.toInt(), flags.toInt()) as Int) else 0
-
-public actual fun InitializeProcThreadAttributeList(lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST, dwattributecount: UInt, dwflags: UInt, lpsize: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_InitializeProcThreadAttributeList(lpattributelist.toString(), dwattributecount.toInt(), dwflags.toInt(), lpsize.toString()) as Int) else 0
-
-public actual fun InitializeSListHead(listhead: Long) {
+public actual fun initializeConditionVariable(conditionvariable: COpaquePointer?) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_InitializeSListHead(listhead.toString())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_initializeConditionVariable((conditionvariable?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun InitializeSRWLock(srwlock: Long) {
+public actual fun initializeCriticalSection(lpcriticalsection: COpaquePointer?) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_InitializeSRWLock(srwlock.toString())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_initializeCriticalSection((lpcriticalsection?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun InitializeSynchronizationBarrier(lpbarrier: Long, ltotalthreads: Int, lspincount: Int): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_InitializeSynchronizationBarrier(lpbarrier.toString(), ltotalthreads, lspincount) as Int) else 0
+public actual fun initializeCriticalSectionAndSpinCount(lpcriticalsection: COpaquePointer?, dwspincount: UInt): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_initializeCriticalSectionAndSpinCount((lpcriticalsection?.value ?: 0L).toString(), dwspincount.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InterlockedFlushSList(listhead: Long): Long =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_InterlockedFlushSList(listhead.toString()) as String).toLong() else 0L
+public actual fun initializeCriticalSectionEx(lpcriticalsection: COpaquePointer?, dwspincount: UInt, flags: UInt): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_initializeCriticalSectionEx((lpcriticalsection?.value ?: 0L).toString(), dwspincount.toInt(), flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InterlockedPopEntrySList(listhead: Long): Long =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_InterlockedPopEntrySList(listhead.toString()) as String).toLong() else 0L
+public actual fun initializeProcThreadAttributeList(lpattributelist: LpprocThreadAttributeList, dwattributecount: UInt, dwflags: UInt, lpsize: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_initializeProcThreadAttributeList((lpattributelist?.value ?: 0L).toString(), dwattributecount.toInt(), dwflags.toInt(), (lpsize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun InterlockedPushEntrySList(listhead: Long, listentry: Long): Long =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_InterlockedPushEntrySList(listhead.toString(), listentry.toString()) as String).toLong() else 0L
-
-public actual fun InterlockedPushListSListEx(listhead: Long, list: Long, listend: Long, count: UInt): Long =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_InterlockedPushListSListEx(listhead.toString(), list.toString(), listend.toString(), count.toInt()) as String).toLong() else 0L
-
-public actual fun IsImmersiveProcess(hprocess: HANDLE): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_IsImmersiveProcess(hprocess.toString()) as Int) else 0
-
-public actual fun IsProcessCritical(hprocess: HANDLE, critical: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_IsProcessCritical(hprocess.toString(), critical.toString()) as Int) else 0
-
-public actual fun IsProcessorFeaturePresent(processorfeature: PROCESSOR_FEATURE_ID): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_IsProcessorFeaturePresent(processorfeature.toInt()) as Int) else 0
-
-public actual fun IsThreadAFiber(): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_IsThreadAFiber() as Int) else 0
-
-public actual fun IsThreadpoolTimerSet(pti: PTP_TIMER): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_IsThreadpoolTimerSet(pti.toString()) as Int) else 0
-
-public actual fun IsWow64Process(hprocess: HANDLE, wow64process: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_IsWow64Process(hprocess.toString(), wow64process.toString()) as Int) else 0
-
-public actual fun IsWow64Process2(hprocess: HANDLE, pprocessmachine: Long, pnativemachine: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_IsWow64Process2(hprocess.toString(), pprocessmachine.toString(), pnativemachine.toString()) as Int) else 0
-
-public actual fun LeaveCriticalSection(lpcriticalsection: Long) {
+public actual fun initializeSListHead(listhead: COpaquePointer?) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_LeaveCriticalSection(lpcriticalsection.toString())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_initializeSListHead((listhead?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun LeaveCriticalSectionWhenCallbackReturns(pci: PTP_CALLBACK_INSTANCE, pcs: Long) {
+public actual fun initializeSRWLock(srwlock: COpaquePointer?) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_LeaveCriticalSectionWhenCallbackReturns(pci.toString(), pcs.toString())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_initializeSRWLock((srwlock?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun OpenEventA(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: BOOL, lpname: PCSTR): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_OpenEventA(dwdesiredaccess.toInt(), binherithandle, lpname.toString()) as String).toLong() else 0L
+public actual fun initializeSynchronizationBarrier(lpbarrier: COpaquePointer?, ltotalthreads: Int, lspincount: Int): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_initializeSynchronizationBarrier((lpbarrier?.value ?: 0L).toString(), ltotalthreads, lspincount) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenEventW(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: BOOL, lpname: PCWSTR): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_OpenEventW(dwdesiredaccess.toInt(), binherithandle, lpname.toString()) as String).toLong() else 0L
+public actual fun interlockedFlushSList(listhead: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_interlockedFlushSList((listhead?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenMutexW(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: BOOL, lpname: PCWSTR): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_OpenMutexW(dwdesiredaccess.toInt(), binherithandle, lpname.toString()) as String).toLong() else 0L
+public actual fun interlockedPopEntrySList(listhead: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_interlockedPopEntrySList((listhead?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenPrivateNamespaceA(lpboundarydescriptor: Long, lpaliasprefix: PCSTR): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_OpenPrivateNamespaceA(lpboundarydescriptor.toString(), lpaliasprefix.toString()) as String).toLong() else 0L
+public actual fun interlockedPushEntrySList(listhead: COpaquePointer?, listentry: COpaquePointer?): COpaquePointer? =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_interlockedPushEntrySList((listhead?.value ?: 0L).toString(), (listentry?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenPrivateNamespaceW(lpboundarydescriptor: Long, lpaliasprefix: PCWSTR): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_OpenPrivateNamespaceW(lpboundarydescriptor.toString(), lpaliasprefix.toString()) as String).toLong() else 0L
+public actual fun interlockedPushListSListEx(listhead: COpaquePointer?, list: COpaquePointer?, listend: COpaquePointer?, count: UInt): COpaquePointer? =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_interlockedPushListSListEx((listhead?.value ?: 0L).toString(), (list?.value ?: 0L).toString(), (listend?.value ?: 0L).toString(), count.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenProcess(dwdesiredaccess: PROCESS_ACCESS_RIGHTS, binherithandle: BOOL, dwprocessid: UInt): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_OpenProcess(dwdesiredaccess.toInt(), binherithandle, dwprocessid.toInt()) as String).toLong() else 0L
+public actual fun isImmersiveProcess(hprocess: Handle): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_isImmersiveProcess((hprocess?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenProcessToken(processhandle: HANDLE, desiredaccess: TOKEN_ACCESS_MASK, tokenhandle: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_OpenProcessToken(processhandle.toString(), desiredaccess.toInt(), tokenhandle.toString()) as Int) else 0
+public actual fun isProcessCritical(hprocess: Handle, critical: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_isProcessCritical((hprocess?.value ?: 0L).toString(), (critical?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenSemaphoreW(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: BOOL, lpname: PCWSTR): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_OpenSemaphoreW(dwdesiredaccess.toInt(), binherithandle, lpname.toString()) as String).toLong() else 0L
+public actual fun isProcessorFeaturePresent(processorfeature: ProcessorFeatureId): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_isProcessorFeaturePresent(processorfeature.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenThread(dwdesiredaccess: THREAD_ACCESS_RIGHTS, binherithandle: BOOL, dwthreadid: UInt): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_OpenThread(dwdesiredaccess.toInt(), binherithandle, dwthreadid.toInt()) as String).toLong() else 0L
+public actual fun isThreadAFiber(): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_isThreadAFiber() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenThreadToken(threadhandle: HANDLE, desiredaccess: TOKEN_ACCESS_MASK, openasself: BOOL, tokenhandle: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_OpenThreadToken(threadhandle.toString(), desiredaccess.toInt(), openasself, tokenhandle.toString()) as Int) else 0
+public actual fun isThreadpoolTimerSet(pti: PtpTimer): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_isThreadpoolTimerSet(pti.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenWaitableTimerA(dwdesiredaccess: UInt, binherithandle: BOOL, lptimername: PCSTR): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_OpenWaitableTimerA(dwdesiredaccess.toInt(), binherithandle, lptimername.toString()) as String).toLong() else 0L
+public actual fun isWow64Process(hprocess: Handle, wow64process: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_isWow64Process((hprocess?.value ?: 0L).toString(), (wow64process?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun OpenWaitableTimerW(dwdesiredaccess: SYNCHRONIZATION_ACCESS_RIGHTS, binherithandle: BOOL, lptimername: PCWSTR): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_OpenWaitableTimerW(dwdesiredaccess.toInt(), binherithandle, lptimername.toString()) as String).toLong() else 0L
+public actual fun isWow64Process2(hprocess: Handle, pprocessmachine: COpaquePointer?, pnativemachine: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_isWow64Process2((hprocess?.value ?: 0L).toString(), (pprocessmachine?.value ?: 0L).toString(), (pnativemachine?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun PulseEvent(hevent: HANDLE): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_PulseEvent(hevent.toString()) as Int) else 0
-
-public actual fun QueryDepthSList(listhead: Long): UShort =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_QueryDepthSList(listhead.toString()) as Int).toUShort() else 0u
-
-public actual fun QueryFullProcessImageNameA(hprocess: HANDLE, dwflags: PROCESS_NAME_FORMAT, lpexename: PSTR, lpdwsize: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_QueryFullProcessImageNameA(hprocess.toString(), dwflags.toInt(), lpexename.toString(), lpdwsize.toString()) as Int) else 0
-
-public actual fun QueryFullProcessImageNameW(hprocess: HANDLE, dwflags: PROCESS_NAME_FORMAT, lpexename: PWSTR, lpdwsize: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_QueryFullProcessImageNameW(hprocess.toString(), dwflags.toInt(), lpexename.toString(), lpdwsize.toString()) as Int) else 0
-
-public actual fun QueryProcessAffinityUpdateMode(hprocess: HANDLE, lpdwflags: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_QueryProcessAffinityUpdateMode(hprocess.toString(), lpdwflags.toString()) as Int) else 0
-
-public actual fun QueryProtectedPolicy(policyguid: Long, policyvalue: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_QueryProtectedPolicy(policyguid.toString(), policyvalue.toString()) as Int) else 0
-
-public actual fun QueryThreadpoolStackInformation(ptpp: PTP_POOL, ptpsi: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_QueryThreadpoolStackInformation(ptpp.toString(), ptpsi.toString()) as Int) else 0
-
-public actual fun QueryUmsThreadInformation(umsthread: Long, umsthreadinfoclass: UMS_THREAD_INFO_CLASS, umsthreadinformation: Long, umsthreadinformationlength: UInt, returnlength: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_QueryUmsThreadInformation(umsthread.toString(), umsthreadinfoclass, umsthreadinformation.toString(), umsthreadinformationlength.toInt(), returnlength.toString()) as Int) else 0
-
-public actual fun QueueUserAPC(pfnapc: PAPCFUNC, hthread: HANDLE, dwdata: ULong): UInt =
-    0u
-
-public actual fun QueueUserAPC2(apcroutine: PAPCFUNC, thread: HANDLE, data: ULong, flags: QUEUE_USER_APC_FLAGS): BOOL =
-    0
-
-public actual fun QueueUserWorkItem(function: LPTHREAD_START_ROUTINE, context: Long, flags: WORKER_THREAD_FLAGS): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_QueueUserWorkItem(function.toLong().toString(), context.toString(), flags.toInt()) as Int) else 0
-
-public actual fun RegisterWaitForSingleObject(phnewwaitobject: Long, hobject: HANDLE, callback: WAITORTIMERCALLBACK, context: Long, dwmilliseconds: UInt, dwflags: WORKER_THREAD_FLAGS): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_RegisterWaitForSingleObject(phnewwaitobject.toString(), hobject.toString(), callback.toLong().toString(), context.toString(), dwmilliseconds.toInt(), dwflags.toInt()) as Int) else 0
-
-public actual fun ReleaseMutex(hmutex: HANDLE): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_ReleaseMutex(hmutex.toString()) as Int) else 0
-
-public actual fun ReleaseMutexWhenCallbackReturns(pci: PTP_CALLBACK_INSTANCE, mut: HANDLE) {
+public actual fun leaveCriticalSection(lpcriticalsection: COpaquePointer?) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_ReleaseMutexWhenCallbackReturns(pci.toString(), mut.toString())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_leaveCriticalSection((lpcriticalsection?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ReleaseSRWLockExclusive(srwlock: Long) {
+public actual fun leaveCriticalSectionWhenCallbackReturns(pci: PtpCallbackInstance, pcs: COpaquePointer?) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_ReleaseSRWLockExclusive(srwlock.toString())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_leaveCriticalSectionWhenCallbackReturns(pci.toString(), (pcs?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ReleaseSRWLockShared(srwlock: Long) {
+public actual fun openEventA(dwdesiredaccess: SynchronizationAccessRights, binherithandle: Bool, lpname: Pcstr): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_openEventA(dwdesiredaccess.toInt(), binherithandle, (lpname?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun openEventW(dwdesiredaccess: SynchronizationAccessRights, binherithandle: Bool, lpname: Pcwstr): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_openEventW(dwdesiredaccess.toInt(), binherithandle, (lpname?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun openMutexW(dwdesiredaccess: SynchronizationAccessRights, binherithandle: Bool, lpname: Pcwstr): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_openMutexW(dwdesiredaccess.toInt(), binherithandle, (lpname?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun openPrivateNamespaceA(lpboundarydescriptor: COpaquePointer?, lpaliasprefix: Pcstr): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_openPrivateNamespaceA((lpboundarydescriptor?.value ?: 0L).toString(), (lpaliasprefix?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun openPrivateNamespaceW(lpboundarydescriptor: COpaquePointer?, lpaliasprefix: Pcwstr): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_openPrivateNamespaceW((lpboundarydescriptor?.value ?: 0L).toString(), (lpaliasprefix?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun openProcess(dwdesiredaccess: ProcessAccessRights, binherithandle: Bool, dwprocessid: UInt): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_openProcess(dwdesiredaccess.toInt(), binherithandle, dwprocessid.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun openProcessToken(processhandle: Handle, desiredaccess: TokenAccessMask, tokenhandle: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_openProcessToken((processhandle?.value ?: 0L).toString(), desiredaccess.toInt(), (tokenhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun openSemaphoreW(dwdesiredaccess: SynchronizationAccessRights, binherithandle: Bool, lpname: Pcwstr): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_openSemaphoreW(dwdesiredaccess.toInt(), binherithandle, (lpname?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun openThread(dwdesiredaccess: ThreadAccessRights, binherithandle: Bool, dwthreadid: UInt): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_openThread(dwdesiredaccess.toInt(), binherithandle, dwthreadid.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun openThreadToken(threadhandle: Handle, desiredaccess: TokenAccessMask, openasself: Bool, tokenhandle: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_openThreadToken((threadhandle?.value ?: 0L).toString(), desiredaccess.toInt(), openasself, (tokenhandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun openWaitableTimerA(dwdesiredaccess: UInt, binherithandle: Bool, lptimername: Pcstr): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_openWaitableTimerA(dwdesiredaccess.toInt(), binherithandle, (lptimername?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun openWaitableTimerW(dwdesiredaccess: SynchronizationAccessRights, binherithandle: Bool, lptimername: Pcwstr): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_openWaitableTimerW(dwdesiredaccess.toInt(), binherithandle, (lptimername?.value ?: 0L).toString()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun pulseEvent(hevent: Handle): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_pulseEvent((hevent?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun queryDepthSList(listhead: COpaquePointer?): UShort =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_queryDepthSList((listhead?.value ?: 0L).toString()) as Int).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun queryFullProcessImageNameA(hprocess: Handle, dwflags: ProcessNameFormat, lpexename: Pstr, lpdwsize: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_queryFullProcessImageNameA((hprocess?.value ?: 0L).toString(), dwflags.toInt(), (lpexename?.value ?: 0L).toString(), (lpdwsize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun queryFullProcessImageNameW(hprocess: Handle, dwflags: ProcessNameFormat, lpexename: Pwstr, lpdwsize: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_queryFullProcessImageNameW((hprocess?.value ?: 0L).toString(), dwflags.toInt(), (lpexename?.value ?: 0L).toString(), (lpdwsize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun queryProcessAffinityUpdateMode(hprocess: Handle, lpdwflags: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_queryProcessAffinityUpdateMode((hprocess?.value ?: 0L).toString(), (lpdwflags?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun queryProtectedPolicy(policyguid: COpaquePointer?, policyvalue: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_queryProtectedPolicy((policyguid?.value ?: 0L).toString(), (policyvalue?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun queryThreadpoolStackInformation(ptpp: PtpPool, ptpsi: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_queryThreadpoolStackInformation(ptpp.toString(), (ptpsi?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun queryUmsThreadInformation(umsthread: COpaquePointer?, umsthreadinfoclass: UmsThreadInfoClass, umsthreadinformation: COpaquePointer?, umsthreadinformationlength: UInt, returnlength: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_queryUmsThreadInformation((umsthread?.value ?: 0L).toString(), umsthreadinfoclass, (umsthreadinformation?.value ?: 0L).toString(), umsthreadinformationlength.toInt(), (returnlength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun queueUserAPC(pfnapc: Papcfunc, hthread: Handle, dwdata: ULong): UInt =
+    throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun queueUserAPC2(apcroutine: Papcfunc, thread: Handle, data: ULong, flags: QueueUserApcFlags): Bool =
+    throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun queueUserWorkItem(function: LpthreadStartRoutine, context: COpaquePointer?, flags: WorkerThreadFlags): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_queueUserWorkItem(0L.toString(), (context?.value ?: 0L).toString(), flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun registerWaitForSingleObject(phnewwaitobject: COpaquePointer?, hobject: Handle, callback: Waitortimercallback, context: COpaquePointer?, dwmilliseconds: UInt, dwflags: WorkerThreadFlags): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_registerWaitForSingleObject((phnewwaitobject?.value ?: 0L).toString(), (hobject?.value ?: 0L).toString(), 0L.toString(), (context?.value ?: 0L).toString(), dwmilliseconds.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun releaseMutex(hmutex: Handle): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_releaseMutex((hmutex?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun releaseMutexWhenCallbackReturns(pci: PtpCallbackInstance, mut: Handle) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_ReleaseSRWLockShared(srwlock.toString())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_releaseMutexWhenCallbackReturns(pci.toString(), (mut?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ReleaseSemaphore(hsemaphore: HANDLE, lreleasecount: Int, lppreviouscount: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_ReleaseSemaphore(hsemaphore.toString(), lreleasecount, lppreviouscount.toString()) as Int) else 0
-
-public actual fun ReleaseSemaphoreWhenCallbackReturns(pci: PTP_CALLBACK_INSTANCE, sem: HANDLE, crel: UInt) {
+public actual fun releaseSRWLockExclusive(srwlock: COpaquePointer?) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_ReleaseSemaphoreWhenCallbackReturns(pci.toString(), sem.toString(), crel.toInt())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_releaseSRWLockExclusive((srwlock?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun ResetEvent(hevent: HANDLE): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_ResetEvent(hevent.toString()) as Int) else 0
-
-public actual fun ResumeThread(hthread: HANDLE): UInt =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_ResumeThread(hthread.toString()) as Int).toUInt() else 0u
-
-public actual fun RtwqAddPeriodicCallback(callback: RTWQPERIODICCALLBACK, context: Long, key: Long): HRESULT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_RtwqAddPeriodicCallback(callback.toLong().toString(), context.toString(), key.toString()) as Int) else 0
-
-public actual fun RtwqAllocateSerialWorkQueue(workqueueidin: UInt, workqueueidout: Long): HRESULT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_RtwqAllocateSerialWorkQueue(workqueueidin.toInt(), workqueueidout.toString()) as Int) else 0
-
-public actual fun RtwqAllocateWorkQueue(workqueuetype: RTWQ_WORKQUEUE_TYPE, workqueueid: Long): HRESULT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_RtwqAllocateWorkQueue(workqueuetype, workqueueid.toString()) as Int) else 0
-
-public actual fun RtwqBeginRegisterWorkQueueWithMMCSS(workqueueid: UInt, usageclass: PCWSTR, dwtaskid: UInt, lpriority: Int, donecallback: Long, donestate: Long): HRESULT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_RtwqBeginRegisterWorkQueueWithMMCSS(workqueueid.toInt(), usageclass.toString(), dwtaskid.toInt(), lpriority, donecallback.toString(), donestate.toString()) as Int) else 0
-
-public actual fun RtwqBeginUnregisterWorkQueueWithMMCSS(workqueueid: UInt, donecallback: Long, donestate: Long): HRESULT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_RtwqBeginUnregisterWorkQueueWithMMCSS(workqueueid.toInt(), donecallback.toString(), donestate.toString()) as Int) else 0
-
-public actual fun RtwqCancelDeadline(prequest: HANDLE): HRESULT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_RtwqCancelDeadline(prequest.toString()) as Int) else 0
-
-public actual fun RtwqCancelWorkItem(key: ULong): HRESULT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_RtwqCancelWorkItem(key.toString()) as Int) else 0
-
-public actual fun RtwqCreateAsyncResult(appobject: Long, callback: Long, appstate: Long, asyncresult: Long): HRESULT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_RtwqCreateAsyncResult(appobject.toString(), callback.toString(), appstate.toString(), asyncresult.toString()) as Int) else 0
-
-public actual fun RtwqEndRegisterWorkQueueWithMMCSS(result: Long, taskid: Long): HRESULT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_RtwqEndRegisterWorkQueueWithMMCSS(result.toString(), taskid.toString()) as Int) else 0
-
-public actual fun RtwqGetWorkQueueMMCSSClass(workqueueid: UInt, usageclass: PWSTR, usageclasslength: Long): HRESULT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_RtwqGetWorkQueueMMCSSClass(workqueueid.toInt(), usageclass.toString(), usageclasslength.toString()) as Int) else 0
-
-public actual fun RtwqGetWorkQueueMMCSSPriority(workqueueid: UInt, priority: Long): HRESULT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_RtwqGetWorkQueueMMCSSPriority(workqueueid.toInt(), priority.toString()) as Int) else 0
-
-public actual fun RtwqGetWorkQueueMMCSSTaskId(workqueueid: UInt, taskid: Long): HRESULT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_RtwqGetWorkQueueMMCSSTaskId(workqueueid.toInt(), taskid.toString()) as Int) else 0
-
-public actual fun RtwqInvokeCallback(result: Long): HRESULT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_RtwqInvokeCallback(result.toString()) as Int) else 0
-
-public actual fun RtwqJoinWorkQueue(workqueueid: UInt, hfile: HANDLE, out: Long): HRESULT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_RtwqJoinWorkQueue(workqueueid.toInt(), hfile.toString(), out.toString()) as Int) else 0
-
-public actual fun RtwqLockPlatform(): HRESULT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_RtwqLockPlatform() as Int) else 0
-
-public actual fun RtwqLockSharedWorkQueue(usageclass: PCWSTR, basepriority: Int, taskid: Long, id: Long): HRESULT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_RtwqLockSharedWorkQueue(usageclass.toString(), basepriority, taskid.toString(), id.toString()) as Int) else 0
-
-public actual fun RtwqLockWorkQueue(workqueueid: UInt): HRESULT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_RtwqLockWorkQueue(workqueueid.toInt()) as Int) else 0
-
-public actual fun RtwqPutWaitingWorkItem(hevent: HANDLE, lpriority: Int, result: Long, key: Long): HRESULT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_RtwqPutWaitingWorkItem(hevent.toString(), lpriority, result.toString(), key.toString()) as Int) else 0
-
-public actual fun RtwqPutWorkItem(dwqueue: UInt, lpriority: Int, result: Long): HRESULT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_RtwqPutWorkItem(dwqueue.toInt(), lpriority, result.toString()) as Int) else 0
-
-public actual fun RtwqRegisterPlatformEvents(platformevents: Long): HRESULT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_RtwqRegisterPlatformEvents(platformevents.toString()) as Int) else 0
-
-public actual fun RtwqRegisterPlatformWithMMCSS(usageclass: PCWSTR, taskid: Long, lpriority: Int): HRESULT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_RtwqRegisterPlatformWithMMCSS(usageclass.toString(), taskid.toString(), lpriority) as Int) else 0
-
-public actual fun RtwqRemovePeriodicCallback(dwkey: UInt): HRESULT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_RtwqRemovePeriodicCallback(dwkey.toInt()) as Int) else 0
-
-public actual fun RtwqScheduleWorkItem(result: Long, timeout: Long, key: Long): HRESULT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_RtwqScheduleWorkItem(result.toString(), timeout.toString(), key.toString()) as Int) else 0
-
-public actual fun RtwqSetDeadline(workqueueid: UInt, deadlineinhns: Long, prequest: Long): HRESULT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_RtwqSetDeadline(workqueueid.toInt(), deadlineinhns.toString(), prequest.toString()) as Int) else 0
-
-public actual fun RtwqSetDeadline2(workqueueid: UInt, deadlineinhns: Long, predeadlineinhns: Long, prequest: Long): HRESULT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_RtwqSetDeadline2(workqueueid.toInt(), deadlineinhns.toString(), predeadlineinhns.toString(), prequest.toString()) as Int) else 0
-
-public actual fun RtwqSetLongRunning(workqueueid: UInt, enable: BOOL): HRESULT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_RtwqSetLongRunning(workqueueid.toInt(), enable) as Int) else 0
-
-public actual fun RtwqShutdown(): HRESULT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_RtwqShutdown() as Int) else 0
-
-public actual fun RtwqStartup(): HRESULT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_RtwqStartup() as Int) else 0
-
-public actual fun RtwqUnjoinWorkQueue(workqueueid: UInt, hfile: HANDLE): HRESULT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_RtwqUnjoinWorkQueue(workqueueid.toInt(), hfile.toString()) as Int) else 0
-
-public actual fun RtwqUnlockPlatform(): HRESULT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_RtwqUnlockPlatform() as Int) else 0
-
-public actual fun RtwqUnlockWorkQueue(workqueueid: UInt): HRESULT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_RtwqUnlockWorkQueue(workqueueid.toInt()) as Int) else 0
-
-public actual fun RtwqUnregisterPlatformEvents(platformevents: Long): HRESULT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_RtwqUnregisterPlatformEvents(platformevents.toString()) as Int) else 0
-
-public actual fun RtwqUnregisterPlatformFromMMCSS(): HRESULT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_RtwqUnregisterPlatformFromMMCSS() as Int) else 0
-
-public actual fun SetCriticalSectionSpinCount(lpcriticalsection: Long, dwspincount: UInt): UInt =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetCriticalSectionSpinCount(lpcriticalsection.toString(), dwspincount.toInt()) as Int).toUInt() else 0u
-
-public actual fun SetEvent(hevent: HANDLE): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetEvent(hevent.toString()) as Int) else 0
-
-public actual fun SetEventWhenCallbackReturns(pci: PTP_CALLBACK_INSTANCE, evt: HANDLE) {
+public actual fun releaseSRWLockShared(srwlock: COpaquePointer?) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetEventWhenCallbackReturns(pci.toString(), evt.toString())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_releaseSRWLockShared((srwlock?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SetPriorityClass(hprocess: HANDLE, dwpriorityclass: PROCESS_CREATION_FLAGS): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetPriorityClass(hprocess.toString(), dwpriorityclass.toInt()) as Int) else 0
+public actual fun releaseSemaphore(hsemaphore: Handle, lreleasecount: Int, lppreviouscount: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_releaseSemaphore((hsemaphore?.value ?: 0L).toString(), lreleasecount, (lppreviouscount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetProcessAffinityMask(hprocess: HANDLE, dwprocessaffinitymask: ULong): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetProcessAffinityMask(hprocess.toString(), dwprocessaffinitymask.toString()) as Int) else 0
-
-public actual fun SetProcessAffinityUpdateMode(hprocess: HANDLE, dwflags: PROCESS_AFFINITY_AUTO_UPDATE_FLAGS): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetProcessAffinityUpdateMode(hprocess.toString(), dwflags.toInt()) as Int) else 0
-
-public actual fun SetProcessDEPPolicy(dwflags: PROCESS_DEP_FLAGS): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetProcessDEPPolicy(dwflags.toInt()) as Int) else 0
-
-public actual fun SetProcessDefaultCpuSetMasks(process: HANDLE, cpusetmasks: Long, cpusetmaskcount: UShort): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetProcessDefaultCpuSetMasks(process.toString(), cpusetmasks.toString(), cpusetmaskcount.toInt()) as Int) else 0
-
-public actual fun SetProcessDefaultCpuSets(process: HANDLE, cpusetids: Long, cpusetidcount: UInt): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetProcessDefaultCpuSets(process.toString(), cpusetids.toString(), cpusetidcount.toInt()) as Int) else 0
-
-public actual fun SetProcessDynamicEHContinuationTargets(process: HANDLE, numberoftargets: UShort, targets: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetProcessDynamicEHContinuationTargets(process.toString(), numberoftargets.toInt(), targets.toString()) as Int) else 0
-
-public actual fun SetProcessDynamicEnforcedCetCompatibleRanges(process: HANDLE, numberofranges: UShort, ranges: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetProcessDynamicEnforcedCetCompatibleRanges(process.toString(), numberofranges.toInt(), ranges.toString()) as Int) else 0
-
-public actual fun SetProcessInformation(hprocess: HANDLE, processinformationclass: PROCESS_INFORMATION_CLASS, processinformation: Long, processinformationsize: UInt): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetProcessInformation(hprocess.toString(), processinformationclass, processinformation.toString(), processinformationsize.toInt()) as Int) else 0
-
-public actual fun SetProcessMitigationPolicy(mitigationpolicy: PROCESS_MITIGATION_POLICY, lpbuffer: Long, dwlength: ULong): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetProcessMitigationPolicy(mitigationpolicy, lpbuffer.toString(), dwlength.toString()) as Int) else 0
-
-public actual fun SetProcessPriorityBoost(hprocess: HANDLE, bdisablepriorityboost: BOOL): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetProcessPriorityBoost(hprocess.toString(), bdisablepriorityboost) as Int) else 0
-
-public actual fun SetProcessRestrictionExemption(fenableexemption: BOOL): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetProcessRestrictionExemption(fenableexemption) as Int) else 0
-
-public actual fun SetProcessShutdownParameters(dwlevel: UInt, dwflags: UInt): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetProcessShutdownParameters(dwlevel.toInt(), dwflags.toInt()) as Int) else 0
-
-public actual fun SetProcessWorkingSetSize(hprocess: HANDLE, dwminimumworkingsetsize: ULong, dwmaximumworkingsetsize: ULong): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetProcessWorkingSetSize(hprocess.toString(), dwminimumworkingsetsize.toString(), dwmaximumworkingsetsize.toString()) as Int) else 0
-
-public actual fun SetProtectedPolicy(policyguid: Long, policyvalue: ULong, oldpolicyvalue: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetProtectedPolicy(policyguid.toString(), policyvalue.toString(), oldpolicyvalue.toString()) as Int) else 0
-
-public actual fun SetThreadAffinityMask(hthread: HANDLE, dwthreadaffinitymask: ULong): ULong =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetThreadAffinityMask(hthread.toString(), dwthreadaffinitymask.toString()) as String).toULong() else 0uL
-
-public actual fun SetThreadDescription(hthread: HANDLE, lpthreaddescription: PCWSTR): HRESULT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetThreadDescription(hthread.toString(), lpthreaddescription.toString()) as Int) else 0
-
-public actual fun SetThreadGroupAffinity(hthread: HANDLE, groupaffinity: Long, previousgroupaffinity: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetThreadGroupAffinity(hthread.toString(), groupaffinity.toString(), previousgroupaffinity.toString()) as Int) else 0
-
-public actual fun SetThreadIdealProcessor(hthread: HANDLE, dwidealprocessor: UInt): UInt =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetThreadIdealProcessor(hthread.toString(), dwidealprocessor.toInt()) as Int).toUInt() else 0u
-
-public actual fun SetThreadIdealProcessorEx(hthread: HANDLE, lpidealprocessor: Long, lppreviousidealprocessor: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetThreadIdealProcessorEx(hthread.toString(), lpidealprocessor.toString(), lppreviousidealprocessor.toString()) as Int) else 0
-
-public actual fun SetThreadInformation(hthread: HANDLE, threadinformationclass: THREAD_INFORMATION_CLASS, threadinformation: Long, threadinformationsize: UInt): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetThreadInformation(hthread.toString(), threadinformationclass, threadinformation.toString(), threadinformationsize.toInt()) as Int) else 0
-
-public actual fun SetThreadPriority(hthread: HANDLE, npriority: THREAD_PRIORITY): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetThreadPriority(hthread.toString(), npriority) as Int) else 0
-
-public actual fun SetThreadPriorityBoost(hthread: HANDLE, bdisablepriorityboost: BOOL): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetThreadPriorityBoost(hthread.toString(), bdisablepriorityboost) as Int) else 0
-
-public actual fun SetThreadSelectedCpuSetMasks(thread: HANDLE, cpusetmasks: Long, cpusetmaskcount: UShort): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetThreadSelectedCpuSetMasks(thread.toString(), cpusetmasks.toString(), cpusetmaskcount.toInt()) as Int) else 0
-
-public actual fun SetThreadSelectedCpuSets(thread: HANDLE, cpusetids: Long, cpusetidcount: UInt): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetThreadSelectedCpuSets(thread.toString(), cpusetids.toString(), cpusetidcount.toInt()) as Int) else 0
-
-public actual fun SetThreadStackGuarantee(stacksizeinbytes: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetThreadStackGuarantee(stacksizeinbytes.toString()) as Int) else 0
-
-public actual fun SetThreadToken(thread: Long, token: HANDLE): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetThreadToken(thread.toString(), token.toString()) as Int) else 0
-
-public actual fun SetThreadpoolStackInformation(ptpp: PTP_POOL, ptpsi: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetThreadpoolStackInformation(ptpp.toString(), ptpsi.toString()) as Int) else 0
-
-public actual fun SetThreadpoolThreadMaximum(ptpp: PTP_POOL, cthrdmost: UInt) {
+public actual fun releaseSemaphoreWhenCallbackReturns(pci: PtpCallbackInstance, sem: Handle, crel: UInt) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetThreadpoolThreadMaximum(ptpp.toString(), cthrdmost.toInt())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_releaseSemaphoreWhenCallbackReturns(pci.toString(), (sem?.value ?: 0L).toString(), crel.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SetThreadpoolThreadMinimum(ptpp: PTP_POOL, cthrdmic: UInt): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetThreadpoolThreadMinimum(ptpp.toString(), cthrdmic.toInt()) as Int) else 0
+public actual fun resetEvent(hevent: Handle): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_resetEvent((hevent?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetThreadpoolTimer(pti: PTP_TIMER, pftduetime: Long, msperiod: UInt, mswindowlength: UInt) {
+public actual fun resumeThread(hthread: Handle): UInt =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_resumeThread((hthread?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtwqAddPeriodicCallback(callback: Rtwqperiodiccallback, context: COpaquePointer?, key: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_rtwqAddPeriodicCallback(0L.toString(), (context?.value ?: 0L).toString(), (key?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtwqAllocateSerialWorkQueue(workqueueidin: UInt, workqueueidout: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_rtwqAllocateSerialWorkQueue(workqueueidin.toInt(), (workqueueidout?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtwqAllocateWorkQueue(workqueuetype: RtwqWorkqueueType, workqueueid: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_rtwqAllocateWorkQueue(workqueuetype, (workqueueid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtwqBeginRegisterWorkQueueWithMMCSS(workqueueid: UInt, usageclass: Pcwstr, dwtaskid: UInt, lpriority: Int, donecallback: COpaquePointer?, donestate: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_rtwqBeginRegisterWorkQueueWithMMCSS(workqueueid.toInt(), (usageclass?.value ?: 0L).toString(), dwtaskid.toInt(), lpriority, (donecallback?.value ?: 0L).toString(), (donestate?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtwqBeginUnregisterWorkQueueWithMMCSS(workqueueid: UInt, donecallback: COpaquePointer?, donestate: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_rtwqBeginUnregisterWorkQueueWithMMCSS(workqueueid.toInt(), (donecallback?.value ?: 0L).toString(), (donestate?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtwqCancelDeadline(prequest: Handle): Hresult =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_rtwqCancelDeadline((prequest?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtwqCancelWorkItem(key: ULong): Hresult =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_rtwqCancelWorkItem(key.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtwqCreateAsyncResult(appobject: COpaquePointer?, callback: COpaquePointer?, appstate: COpaquePointer?, asyncresult: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_rtwqCreateAsyncResult((appobject?.value ?: 0L).toString(), (callback?.value ?: 0L).toString(), (appstate?.value ?: 0L).toString(), (asyncresult?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtwqEndRegisterWorkQueueWithMMCSS(result: COpaquePointer?, taskid: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_rtwqEndRegisterWorkQueueWithMMCSS((result?.value ?: 0L).toString(), (taskid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtwqGetWorkQueueMMCSSClass(workqueueid: UInt, usageclass: Pwstr, usageclasslength: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_rtwqGetWorkQueueMMCSSClass(workqueueid.toInt(), (usageclass?.value ?: 0L).toString(), (usageclasslength?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtwqGetWorkQueueMMCSSPriority(workqueueid: UInt, priority: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_rtwqGetWorkQueueMMCSSPriority(workqueueid.toInt(), (priority?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtwqGetWorkQueueMMCSSTaskId(workqueueid: UInt, taskid: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_rtwqGetWorkQueueMMCSSTaskId(workqueueid.toInt(), (taskid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtwqInvokeCallback(result: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_rtwqInvokeCallback((result?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtwqJoinWorkQueue(workqueueid: UInt, hfile: Handle, out: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_rtwqJoinWorkQueue(workqueueid.toInt(), (hfile?.value ?: 0L).toString(), (out?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtwqLockPlatform(): Hresult =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_rtwqLockPlatform() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtwqLockSharedWorkQueue(usageclass: Pcwstr, basepriority: Int, taskid: COpaquePointer?, id: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_rtwqLockSharedWorkQueue((usageclass?.value ?: 0L).toString(), basepriority, (taskid?.value ?: 0L).toString(), (id?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtwqLockWorkQueue(workqueueid: UInt): Hresult =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_rtwqLockWorkQueue(workqueueid.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtwqPutWaitingWorkItem(hevent: Handle, lpriority: Int, result: COpaquePointer?, key: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_rtwqPutWaitingWorkItem((hevent?.value ?: 0L).toString(), lpriority, (result?.value ?: 0L).toString(), (key?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtwqPutWorkItem(dwqueue: UInt, lpriority: Int, result: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_rtwqPutWorkItem(dwqueue.toInt(), lpriority, (result?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtwqRegisterPlatformEvents(platformevents: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_rtwqRegisterPlatformEvents((platformevents?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtwqRegisterPlatformWithMMCSS(usageclass: Pcwstr, taskid: COpaquePointer?, lpriority: Int): Hresult =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_rtwqRegisterPlatformWithMMCSS((usageclass?.value ?: 0L).toString(), (taskid?.value ?: 0L).toString(), lpriority) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtwqRemovePeriodicCallback(dwkey: UInt): Hresult =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_rtwqRemovePeriodicCallback(dwkey.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtwqScheduleWorkItem(result: COpaquePointer?, timeout: Long, key: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_rtwqScheduleWorkItem((result?.value ?: 0L).toString(), timeout.toString(), (key?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtwqSetDeadline(workqueueid: UInt, deadlineinhns: Long, prequest: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_rtwqSetDeadline(workqueueid.toInt(), deadlineinhns.toString(), (prequest?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtwqSetDeadline2(workqueueid: UInt, deadlineinhns: Long, predeadlineinhns: Long, prequest: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_rtwqSetDeadline2(workqueueid.toInt(), deadlineinhns.toString(), predeadlineinhns.toString(), (prequest?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtwqSetLongRunning(workqueueid: UInt, enable: Bool): Hresult =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_rtwqSetLongRunning(workqueueid.toInt(), enable) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtwqShutdown(): Hresult =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_rtwqShutdown() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtwqStartup(): Hresult =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_rtwqStartup() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtwqUnjoinWorkQueue(workqueueid: UInt, hfile: Handle): Hresult =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_rtwqUnjoinWorkQueue(workqueueid.toInt(), (hfile?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtwqUnlockPlatform(): Hresult =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_rtwqUnlockPlatform() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtwqUnlockWorkQueue(workqueueid: UInt): Hresult =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_rtwqUnlockWorkQueue(workqueueid.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtwqUnregisterPlatformEvents(platformevents: COpaquePointer?): Hresult =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_rtwqUnregisterPlatformEvents((platformevents?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun rtwqUnregisterPlatformFromMMCSS(): Hresult =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_rtwqUnregisterPlatformFromMMCSS() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun setCriticalSectionSpinCount(lpcriticalsection: COpaquePointer?, dwspincount: UInt): UInt =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setCriticalSectionSpinCount((lpcriticalsection?.value ?: 0L).toString(), dwspincount.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun setEvent(hevent: Handle): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setEvent((hevent?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun setEventWhenCallbackReturns(pci: PtpCallbackInstance, evt: Handle) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetThreadpoolTimer(pti.toString(), pftduetime.toString(), msperiod.toInt(), mswindowlength.toInt())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setEventWhenCallbackReturns(pci.toString(), (evt?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SetThreadpoolTimerEx(pti: PTP_TIMER, pftduetime: Long, msperiod: UInt, mswindowlength: UInt): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetThreadpoolTimerEx(pti.toString(), pftduetime.toString(), msperiod.toInt(), mswindowlength.toInt()) as Int) else 0
+public actual fun setPriorityClass(hprocess: Handle, dwpriorityclass: ProcessCreationFlags): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setPriorityClass((hprocess?.value ?: 0L).toString(), dwpriorityclass.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetThreadpoolWait(pwa: PTP_WAIT, h: HANDLE, pfttimeout: Long) {
+public actual fun setProcessAffinityMask(hprocess: Handle, dwprocessaffinitymask: ULong): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setProcessAffinityMask((hprocess?.value ?: 0L).toString(), dwprocessaffinitymask.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun setProcessAffinityUpdateMode(hprocess: Handle, dwflags: ProcessAffinityAutoUpdateFlags): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setProcessAffinityUpdateMode((hprocess?.value ?: 0L).toString(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun setProcessDEPPolicy(dwflags: ProcessDepFlags): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setProcessDEPPolicy(dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun setProcessDefaultCpuSetMasks(process: Handle, cpusetmasks: COpaquePointer?, cpusetmaskcount: UShort): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setProcessDefaultCpuSetMasks((process?.value ?: 0L).toString(), (cpusetmasks?.value ?: 0L).toString(), cpusetmaskcount.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun setProcessDefaultCpuSets(process: Handle, cpusetids: COpaquePointer?, cpusetidcount: UInt): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setProcessDefaultCpuSets((process?.value ?: 0L).toString(), (cpusetids?.value ?: 0L).toString(), cpusetidcount.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun setProcessDynamicEHContinuationTargets(process: Handle, numberoftargets: UShort, targets: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setProcessDynamicEHContinuationTargets((process?.value ?: 0L).toString(), numberoftargets.toInt(), (targets?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun setProcessDynamicEnforcedCetCompatibleRanges(process: Handle, numberofranges: UShort, ranges: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setProcessDynamicEnforcedCetCompatibleRanges((process?.value ?: 0L).toString(), numberofranges.toInt(), (ranges?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun setProcessInformation(hprocess: Handle, processinformationclass: ProcessInformationClass, processinformation: COpaquePointer?, processinformationsize: UInt): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setProcessInformation((hprocess?.value ?: 0L).toString(), processinformationclass, (processinformation?.value ?: 0L).toString(), processinformationsize.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun setProcessMitigationPolicy(mitigationpolicy: ProcessMitigationPolicy, lpbuffer: COpaquePointer?, dwlength: ULong): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setProcessMitigationPolicy(mitigationpolicy, (lpbuffer?.value ?: 0L).toString(), dwlength.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun setProcessPriorityBoost(hprocess: Handle, bdisablepriorityboost: Bool): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setProcessPriorityBoost((hprocess?.value ?: 0L).toString(), bdisablepriorityboost) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun setProcessRestrictionExemption(fenableexemption: Bool): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setProcessRestrictionExemption(fenableexemption) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun setProcessShutdownParameters(dwlevel: UInt, dwflags: UInt): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setProcessShutdownParameters(dwlevel.toInt(), dwflags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun setProcessWorkingSetSize(hprocess: Handle, dwminimumworkingsetsize: ULong, dwmaximumworkingsetsize: ULong): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setProcessWorkingSetSize((hprocess?.value ?: 0L).toString(), dwminimumworkingsetsize.toString(), dwmaximumworkingsetsize.toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun setProtectedPolicy(policyguid: COpaquePointer?, policyvalue: ULong, oldpolicyvalue: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setProtectedPolicy((policyguid?.value ?: 0L).toString(), policyvalue.toString(), (oldpolicyvalue?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun setThreadAffinityMask(hthread: Handle, dwthreadaffinitymask: ULong): ULong =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setThreadAffinityMask((hthread?.value ?: 0L).toString(), dwthreadaffinitymask.toString()) as String).toULong() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun setThreadDescription(hthread: Handle, lpthreaddescription: Pcwstr): Hresult =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setThreadDescription((hthread?.value ?: 0L).toString(), (lpthreaddescription?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun setThreadGroupAffinity(hthread: Handle, groupaffinity: COpaquePointer?, previousgroupaffinity: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setThreadGroupAffinity((hthread?.value ?: 0L).toString(), (groupaffinity?.value ?: 0L).toString(), (previousgroupaffinity?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun setThreadIdealProcessor(hthread: Handle, dwidealprocessor: UInt): UInt =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setThreadIdealProcessor((hthread?.value ?: 0L).toString(), dwidealprocessor.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun setThreadIdealProcessorEx(hthread: Handle, lpidealprocessor: COpaquePointer?, lppreviousidealprocessor: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setThreadIdealProcessorEx((hthread?.value ?: 0L).toString(), (lpidealprocessor?.value ?: 0L).toString(), (lppreviousidealprocessor?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun setThreadInformation(hthread: Handle, threadinformationclass: ThreadInformationClass, threadinformation: COpaquePointer?, threadinformationsize: UInt): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setThreadInformation((hthread?.value ?: 0L).toString(), threadinformationclass, (threadinformation?.value ?: 0L).toString(), threadinformationsize.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun setThreadPriority(hthread: Handle, npriority: ThreadPriority): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setThreadPriority((hthread?.value ?: 0L).toString(), npriority) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun setThreadPriorityBoost(hthread: Handle, bdisablepriorityboost: Bool): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setThreadPriorityBoost((hthread?.value ?: 0L).toString(), bdisablepriorityboost) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun setThreadSelectedCpuSetMasks(thread: Handle, cpusetmasks: COpaquePointer?, cpusetmaskcount: UShort): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setThreadSelectedCpuSetMasks((thread?.value ?: 0L).toString(), (cpusetmasks?.value ?: 0L).toString(), cpusetmaskcount.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun setThreadSelectedCpuSets(thread: Handle, cpusetids: COpaquePointer?, cpusetidcount: UInt): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setThreadSelectedCpuSets((thread?.value ?: 0L).toString(), (cpusetids?.value ?: 0L).toString(), cpusetidcount.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun setThreadStackGuarantee(stacksizeinbytes: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setThreadStackGuarantee((stacksizeinbytes?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun setThreadToken(thread: COpaquePointer?, token: Handle): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setThreadToken((thread?.value ?: 0L).toString(), (token?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun setThreadpoolStackInformation(ptpp: PtpPool, ptpsi: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setThreadpoolStackInformation(ptpp.toString(), (ptpsi?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun setThreadpoolThreadMaximum(ptpp: PtpPool, cthrdmost: UInt) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetThreadpoolWait(pwa.toString(), h.toString(), pfttimeout.toString())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setThreadpoolThreadMaximum(ptpp.toString(), cthrdmost.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SetThreadpoolWaitEx(pwa: PTP_WAIT, h: HANDLE, pfttimeout: Long, reserved: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetThreadpoolWaitEx(pwa.toString(), h.toString(), pfttimeout.toString(), reserved.toString()) as Int) else 0
+public actual fun setThreadpoolThreadMinimum(ptpp: PtpPool, cthrdmic: UInt): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setThreadpoolThreadMinimum(ptpp.toString(), cthrdmic.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SetTimerQueueTimer(timerqueue: HANDLE, callback: WAITORTIMERCALLBACK, parameter: Long, duetime: UInt, period: UInt, preferio: BOOL): HANDLE =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetTimerQueueTimer(timerqueue.toString(), callback.toLong().toString(), parameter.toString(), duetime.toInt(), period.toInt(), preferio) as String).toLong() else 0L
-
-public actual fun SetUmsThreadInformation(umsthread: Long, umsthreadinfoclass: UMS_THREAD_INFO_CLASS, umsthreadinformation: Long, umsthreadinformationlength: UInt): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetUmsThreadInformation(umsthread.toString(), umsthreadinfoclass, umsthreadinformation.toString(), umsthreadinformationlength.toInt()) as Int) else 0
-
-public actual fun SetWaitableTimer(htimer: HANDLE, lpduetime: Long, lperiod: Int, pfncompletionroutine: PTIMERAPCROUTINE, lpargtocompletionroutine: Long, fresume: BOOL): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetWaitableTimer(htimer.toString(), lpduetime.toString(), lperiod, pfncompletionroutine.toLong().toString(), lpargtocompletionroutine.toString(), fresume) as Int) else 0
-
-public actual fun SetWaitableTimerEx(htimer: HANDLE, lpduetime: Long, lperiod: Int, pfncompletionroutine: PTIMERAPCROUTINE, lpargtocompletionroutine: Long, wakecontext: Long, tolerabledelay: UInt): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SetWaitableTimerEx(htimer.toString(), lpduetime.toString(), lperiod, pfncompletionroutine.toLong().toString(), lpargtocompletionroutine.toString(), wakecontext.toString(), tolerabledelay.toInt()) as Int) else 0
-
-public actual fun SignalObjectAndWait(hobjecttosignal: HANDLE, hobjecttowaiton: HANDLE, dwmilliseconds: UInt, balertable: BOOL): WAIT_EVENT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SignalObjectAndWait(hobjecttosignal.toString(), hobjecttowaiton.toString(), dwmilliseconds.toInt(), balertable) as Int).toUInt() else 0u
-
-public actual fun Sleep(dwmilliseconds: UInt) {
+public actual fun setThreadpoolTimer(pti: PtpTimer, pftduetime: COpaquePointer?, msperiod: UInt, mswindowlength: UInt) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_Sleep(dwmilliseconds.toInt())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setThreadpoolTimer(pti.toString(), (pftduetime?.value ?: 0L).toString(), msperiod.toInt(), mswindowlength.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SleepConditionVariableCS(conditionvariable: Long, criticalsection: Long, dwmilliseconds: UInt): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SleepConditionVariableCS(conditionvariable.toString(), criticalsection.toString(), dwmilliseconds.toInt()) as Int) else 0
+public actual fun setThreadpoolTimerEx(pti: PtpTimer, pftduetime: COpaquePointer?, msperiod: UInt, mswindowlength: UInt): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setThreadpoolTimerEx(pti.toString(), (pftduetime?.value ?: 0L).toString(), msperiod.toInt(), mswindowlength.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SleepConditionVariableSRW(conditionvariable: Long, srwlock: Long, dwmilliseconds: UInt, flags: UInt): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SleepConditionVariableSRW(conditionvariable.toString(), srwlock.toString(), dwmilliseconds.toInt(), flags.toInt()) as Int) else 0
-
-public actual fun SleepEx(dwmilliseconds: UInt, balertable: BOOL): UInt =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SleepEx(dwmilliseconds.toInt(), balertable) as Int).toUInt() else 0u
-
-public actual fun StartThreadpoolIo(pio: PTP_IO) {
+public actual fun setThreadpoolWait(pwa: PtpWait, h: Handle, pfttimeout: COpaquePointer?) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_StartThreadpoolIo(pio.toString())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setThreadpoolWait(pwa.toString(), (h?.value ?: 0L).toString(), (pfttimeout?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SubmitThreadpoolWork(pwk: PTP_WORK) {
+public actual fun setThreadpoolWaitEx(pwa: PtpWait, h: Handle, pfttimeout: COpaquePointer?, reserved: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setThreadpoolWaitEx(pwa.toString(), (h?.value ?: 0L).toString(), (pfttimeout?.value ?: 0L).toString(), (reserved?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun setTimerQueueTimer(timerqueue: Handle, callback: Waitortimercallback, parameter: COpaquePointer?, duetime: UInt, period: UInt, preferio: Bool): Handle =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setTimerQueueTimer((timerqueue?.value ?: 0L).toString(), 0L.toString(), (parameter?.value ?: 0L).toString(), duetime.toInt(), period.toInt(), preferio) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun setUmsThreadInformation(umsthread: COpaquePointer?, umsthreadinfoclass: UmsThreadInfoClass, umsthreadinformation: COpaquePointer?, umsthreadinformationlength: UInt): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setUmsThreadInformation((umsthread?.value ?: 0L).toString(), umsthreadinfoclass, (umsthreadinformation?.value ?: 0L).toString(), umsthreadinformationlength.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun setWaitableTimer(htimer: Handle, lpduetime: COpaquePointer?, lperiod: Int, pfncompletionroutine: Ptimerapcroutine, lpargtocompletionroutine: COpaquePointer?, fresume: Bool): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setWaitableTimer((htimer?.value ?: 0L).toString(), (lpduetime?.value ?: 0L).toString(), lperiod, 0L.toString(), (lpargtocompletionroutine?.value ?: 0L).toString(), fresume) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun setWaitableTimerEx(htimer: Handle, lpduetime: COpaquePointer?, lperiod: Int, pfncompletionroutine: Ptimerapcroutine, lpargtocompletionroutine: COpaquePointer?, wakecontext: COpaquePointer?, tolerabledelay: UInt): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_setWaitableTimerEx((htimer?.value ?: 0L).toString(), (lpduetime?.value ?: 0L).toString(), lperiod, 0L.toString(), (lpargtocompletionroutine?.value ?: 0L).toString(), (wakecontext?.value ?: 0L).toString(), tolerabledelay.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun signalObjectAndWait(hobjecttosignal: Handle, hobjecttowaiton: Handle, dwmilliseconds: UInt, balertable: Bool): WaitEvent =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_signalObjectAndWait((hobjecttosignal?.value ?: 0L).toString(), (hobjecttowaiton?.value ?: 0L).toString(), dwmilliseconds.toInt(), balertable) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun sleep(dwmilliseconds: UInt) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SubmitThreadpoolWork(pwk.toString())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_sleep(dwmilliseconds.toInt())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SuspendThread(hthread: HANDLE): UInt =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SuspendThread(hthread.toString()) as Int).toUInt() else 0u
+public actual fun sleepConditionVariableCS(conditionvariable: COpaquePointer?, criticalsection: COpaquePointer?, dwmilliseconds: UInt): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_sleepConditionVariableCS((conditionvariable?.value ?: 0L).toString(), (criticalsection?.value ?: 0L).toString(), dwmilliseconds.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun SwitchToFiber(lpfiber: Long) {
+public actual fun sleepConditionVariableSRW(conditionvariable: COpaquePointer?, srwlock: COpaquePointer?, dwmilliseconds: UInt, flags: UInt): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_sleepConditionVariableSRW((conditionvariable?.value ?: 0L).toString(), (srwlock?.value ?: 0L).toString(), dwmilliseconds.toInt(), flags.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun sleepEx(dwmilliseconds: UInt, balertable: Bool): UInt =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_sleepEx(dwmilliseconds.toInt(), balertable) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun startThreadpoolIo(pio: PtpIo) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SwitchToFiber(lpfiber.toString())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_startThreadpoolIo(pio.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun SwitchToThread(): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_SwitchToThread() as Int) else 0
-
-public actual fun TerminateProcess(hprocess: HANDLE, uexitcode: UInt): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_TerminateProcess(hprocess.toString(), uexitcode.toInt()) as Int) else 0
-
-public actual fun TerminateThread(hthread: HANDLE, dwexitcode: UInt): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_TerminateThread(hthread.toString(), dwexitcode.toInt()) as Int) else 0
-
-public actual fun TlsAlloc(): UInt =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_TlsAlloc() as Int).toUInt() else 0u
-
-public actual fun TlsFree(dwtlsindex: UInt): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_TlsFree(dwtlsindex.toInt()) as Int) else 0
-
-public actual fun TlsGetValue(dwtlsindex: UInt): Long =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_TlsGetValue(dwtlsindex.toInt()) as String).toLong() else 0L
-
-public actual fun TlsSetValue(dwtlsindex: UInt, lptlsvalue: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_TlsSetValue(dwtlsindex.toInt(), lptlsvalue.toString()) as Int) else 0
-
-public actual fun TryAcquireSRWLockExclusive(srwlock: Long): Boolean =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_TryAcquireSRWLockExclusive(srwlock.toString()) as Boolean) else false
-
-public actual fun TryAcquireSRWLockShared(srwlock: Long): Boolean =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_TryAcquireSRWLockShared(srwlock.toString()) as Boolean) else false
-
-public actual fun TryEnterCriticalSection(lpcriticalsection: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_TryEnterCriticalSection(lpcriticalsection.toString()) as Int) else 0
-
-public actual fun TrySubmitThreadpoolCallback(pfns: PTP_SIMPLE_CALLBACK, pv: Long, pcbe: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_TrySubmitThreadpoolCallback(pfns.toLong().toString(), pv.toString(), pcbe.toString()) as Int) else 0
-
-public actual fun UmsThreadYield(schedulerparam: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_UmsThreadYield(schedulerparam.toString()) as Int) else 0
-
-public actual fun UnregisterWait(waithandle: HANDLE): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_UnregisterWait(waithandle.toString()) as Int) else 0
-
-public actual fun UnregisterWaitEx(waithandle: HANDLE, completionevent: HANDLE): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_UnregisterWaitEx(waithandle.toString(), completionevent.toString()) as Int) else 0
-
-public actual fun UpdateProcThreadAttribute(lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST, dwflags: UInt, attribute: ULong, lpvalue: Long, cbsize: ULong, lppreviousvalue: Long, lpreturnsize: Long): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_UpdateProcThreadAttribute(lpattributelist.toString(), dwflags.toInt(), attribute.toString(), lpvalue.toString(), cbsize.toString(), lppreviousvalue.toString(), lpreturnsize.toString()) as Int) else 0
-
-public actual fun WaitForInputIdle(hprocess: HANDLE, dwmilliseconds: UInt): UInt =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_WaitForInputIdle(hprocess.toString(), dwmilliseconds.toInt()) as Int).toUInt() else 0u
-
-public actual fun WaitForMultipleObjects(ncount: UInt, lphandles: Long, bwaitall: BOOL, dwmilliseconds: UInt): WAIT_EVENT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_WaitForMultipleObjects(ncount.toInt(), lphandles.toString(), bwaitall, dwmilliseconds.toInt()) as Int).toUInt() else 0u
-
-public actual fun WaitForMultipleObjectsEx(ncount: UInt, lphandles: Long, bwaitall: BOOL, dwmilliseconds: UInt, balertable: BOOL): WAIT_EVENT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_WaitForMultipleObjectsEx(ncount.toInt(), lphandles.toString(), bwaitall, dwmilliseconds.toInt(), balertable) as Int).toUInt() else 0u
-
-public actual fun WaitForSingleObject(hhandle: HANDLE, dwmilliseconds: UInt): WAIT_EVENT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_WaitForSingleObject(hhandle.toString(), dwmilliseconds.toInt()) as Int).toUInt() else 0u
-
-public actual fun WaitForSingleObjectEx(hhandle: HANDLE, dwmilliseconds: UInt, balertable: BOOL): WAIT_EVENT =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_WaitForSingleObjectEx(hhandle.toString(), dwmilliseconds.toInt(), balertable) as Int).toUInt() else 0u
-
-public actual fun WaitForThreadpoolIoCallbacks(pio: PTP_IO, fcancelpendingcallbacks: BOOL) {
+public actual fun submitThreadpoolWork(pwk: PtpWork) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_WaitForThreadpoolIoCallbacks(pio.toString(), fcancelpendingcallbacks)
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_submitThreadpoolWork(pwk.toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun WaitForThreadpoolTimerCallbacks(pti: PTP_TIMER, fcancelpendingcallbacks: BOOL) {
+public actual fun suspendThread(hthread: Handle): UInt =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_suspendThread((hthread?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun switchToFiber(lpfiber: COpaquePointer?) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_WaitForThreadpoolTimerCallbacks(pti.toString(), fcancelpendingcallbacks)
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_switchToFiber((lpfiber?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun WaitForThreadpoolWaitCallbacks(pwa: PTP_WAIT, fcancelpendingcallbacks: BOOL) {
+public actual fun switchToThread(): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_switchToThread() as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun terminateProcess(hprocess: Handle, uexitcode: UInt): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_terminateProcess((hprocess?.value ?: 0L).toString(), uexitcode.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun terminateThread(hthread: Handle, dwexitcode: UInt): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_terminateThread((hthread?.value ?: 0L).toString(), dwexitcode.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun tlsAlloc(): UInt =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_tlsAlloc() as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun tlsFree(dwtlsindex: UInt): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_tlsFree(dwtlsindex.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun tlsGetValue(dwtlsindex: UInt): COpaquePointer? =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_tlsGetValue(dwtlsindex.toInt()) as String).toLong().let { if (it == 0L) null else COpaquePointer(it) } else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun tlsSetValue(dwtlsindex: UInt, lptlsvalue: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_tlsSetValue(dwtlsindex.toInt(), (lptlsvalue?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun tryAcquireSRWLockExclusive(srwlock: COpaquePointer?): Boolean =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_tryAcquireSRWLockExclusive((srwlock?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun tryAcquireSRWLockShared(srwlock: COpaquePointer?): Boolean =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_tryAcquireSRWLockShared((srwlock?.value ?: 0L).toString()) as Boolean) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun tryEnterCriticalSection(lpcriticalsection: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_tryEnterCriticalSection((lpcriticalsection?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun trySubmitThreadpoolCallback(pfns: PtpSimpleCallback, pv: COpaquePointer?, pcbe: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_trySubmitThreadpoolCallback(0L.toString(), (pv?.value ?: 0L).toString(), (pcbe?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun umsThreadYield(schedulerparam: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_umsThreadYield((schedulerparam?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun unregisterWait(waithandle: Handle): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_unregisterWait((waithandle?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun unregisterWaitEx(waithandle: Handle, completionevent: Handle): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_unregisterWaitEx((waithandle?.value ?: 0L).toString(), (completionevent?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun updateProcThreadAttribute(lpattributelist: LpprocThreadAttributeList, dwflags: UInt, attribute: ULong, lpvalue: COpaquePointer?, cbsize: ULong, lppreviousvalue: COpaquePointer?, lpreturnsize: COpaquePointer?): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_updateProcThreadAttribute((lpattributelist?.value ?: 0L).toString(), dwflags.toInt(), attribute.toString(), (lpvalue?.value ?: 0L).toString(), cbsize.toString(), (lppreviousvalue?.value ?: 0L).toString(), (lpreturnsize?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun waitForInputIdle(hprocess: Handle, dwmilliseconds: UInt): UInt =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_waitForInputIdle((hprocess?.value ?: 0L).toString(), dwmilliseconds.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun waitForMultipleObjects(ncount: UInt, lphandles: COpaquePointer?, bwaitall: Bool, dwmilliseconds: UInt): WaitEvent =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_waitForMultipleObjects(ncount.toInt(), (lphandles?.value ?: 0L).toString(), bwaitall, dwmilliseconds.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun waitForMultipleObjectsEx(ncount: UInt, lphandles: COpaquePointer?, bwaitall: Bool, dwmilliseconds: UInt, balertable: Bool): WaitEvent =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_waitForMultipleObjectsEx(ncount.toInt(), (lphandles?.value ?: 0L).toString(), bwaitall, dwmilliseconds.toInt(), balertable) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun waitForSingleObject(hhandle: Handle, dwmilliseconds: UInt): WaitEvent =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_waitForSingleObject((hhandle?.value ?: 0L).toString(), dwmilliseconds.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun waitForSingleObjectEx(hhandle: Handle, dwmilliseconds: UInt, balertable: Bool): WaitEvent =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_waitForSingleObjectEx((hhandle?.value ?: 0L).toString(), dwmilliseconds.toInt(), balertable) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun waitForThreadpoolIoCallbacks(pio: PtpIo, fcancelpendingcallbacks: Bool) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_WaitForThreadpoolWaitCallbacks(pwa.toString(), fcancelpendingcallbacks)
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_waitForThreadpoolIoCallbacks(pio.toString(), fcancelpendingcallbacks)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun WaitForThreadpoolWorkCallbacks(pwk: PTP_WORK, fcancelpendingcallbacks: BOOL) {
+public actual fun waitForThreadpoolTimerCallbacks(pti: PtpTimer, fcancelpendingcallbacks: Bool) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_WaitForThreadpoolWorkCallbacks(pwk.toString(), fcancelpendingcallbacks)
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_waitForThreadpoolTimerCallbacks(pti.toString(), fcancelpendingcallbacks)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun WaitOnAddress(address: Long, compareaddress: Long, addresssize: ULong, dwmilliseconds: UInt): BOOL =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_WaitOnAddress(address.toString(), compareaddress.toString(), addresssize.toString(), dwmilliseconds.toInt()) as Int) else 0
-
-public actual fun WakeAllConditionVariable(conditionvariable: Long) {
+public actual fun waitForThreadpoolWaitCallbacks(pwa: PtpWait, fcancelpendingcallbacks: Bool) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_WakeAllConditionVariable(conditionvariable.toString())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_waitForThreadpoolWaitCallbacks(pwa.toString(), fcancelpendingcallbacks)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun WakeByAddressAll(address: Long) {
+public actual fun waitForThreadpoolWorkCallbacks(pwk: PtpWork, fcancelpendingcallbacks: Bool) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_WakeByAddressAll(address.toString())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_waitForThreadpoolWorkCallbacks(pwk.toString(), fcancelpendingcallbacks)
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun WakeByAddressSingle(address: Long) {
+public actual fun waitOnAddress(address: COpaquePointer?, compareaddress: COpaquePointer?, addresssize: ULong, dwmilliseconds: UInt): Bool =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_waitOnAddress((address?.value ?: 0L).toString(), (compareaddress?.value ?: 0L).toString(), addresssize.toString(), dwmilliseconds.toInt()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun wakeAllConditionVariable(conditionvariable: COpaquePointer?) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_WakeByAddressSingle(address.toString())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_wakeAllConditionVariable((conditionvariable?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun WakeConditionVariable(conditionvariable: Long) {
+public actual fun wakeByAddressAll(address: COpaquePointer?) {
     if (_windowsWin32SystemThreadingNapiAddon != null) {
-        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_WakeConditionVariable(conditionvariable.toString())
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_wakeByAddressAll((address?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
     }
 }
 
-public actual fun WinExec(lpcmdline: PCSTR, ucmdshow: UInt): UInt =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_WinExec(lpcmdline.toString(), ucmdshow.toInt()) as Int).toUInt() else 0u
+public actual fun wakeByAddressSingle(address: COpaquePointer?) {
+    if (_windowsWin32SystemThreadingNapiAddon != null) {
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_wakeByAddressSingle((address?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
+}
 
-public actual fun Wow64SetThreadDefaultGuestMachine(machine: UShort): UShort =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_Wow64SetThreadDefaultGuestMachine(machine.toInt()) as Int).toUShort() else 0u
+public actual fun wakeConditionVariable(conditionvariable: COpaquePointer?) {
+    if (_windowsWin32SystemThreadingNapiAddon != null) {
+        _windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_wakeConditionVariable((conditionvariable?.value ?: 0L).toString())
+    } else {
+        throw UnsupportedOperationException("Native FFI addon is not available")
+    }
+}
 
-public actual fun Wow64SuspendThread(hthread: HANDLE): UInt =
-    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_Wow64SuspendThread(hthread.toString()) as Int).toUInt() else 0u
+public actual fun winExec(lpcmdline: Pcstr, ucmdshow: UInt): UInt =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_winExec((lpcmdline?.value ?: 0L).toString(), ucmdshow.toInt()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun wow64SetThreadDefaultGuestMachine(machine: UShort): UShort =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_wow64SetThreadDefaultGuestMachine(machine.toInt()) as Int).toUShort() else throw UnsupportedOperationException("Native FFI addon is not available")
+
+public actual fun wow64SuspendThread(hthread: Handle): UInt =
+    if (_windowsWin32SystemThreadingNapiAddon != null) (_windowsWin32SystemThreadingNapiAddon.windowssys_windows_win32_system_threading_wow64SuspendThread((hthread?.value ?: 0L).toString()) as Int).toUInt() else throw UnsupportedOperationException("Native FFI addon is not available")

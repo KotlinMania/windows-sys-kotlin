@@ -1,7 +1,7 @@
 // port-lint: source core/literals.rs
 package io.github.kotlinmania.windowssys.core
 
-public fun decode_utf8_char(bytes: List<UByte>, pos: Int): Pair<UInt, Int>? {
+public fun decodeUtf8Char(bytes: List<UByte>, pos: Int): Pair<UInt, Int>? {
     var pos = pos
     if (bytes.size == pos) {
         return null
@@ -65,16 +65,16 @@ public fun decode_utf8_char(bytes: List<UByte>, pos: Int): Pair<UInt, Int>? {
     return null
 }
 
-public fun utf16_len(bytes: List<UByte>): Int {
+public fun utf16Len(bytes: List<UByte>): Int {
     var pos = 0
     var len = 0
     while (true) {
-        val matchVal = decode_utf8_char(bytes, pos)
+        val matchVal = decodeUtf8Char(bytes, pos)
         if (matchVal == null) break
-        val code_point = matchVal.first
-        val new_pos = matchVal.second
-        pos = new_pos
-        len += if (code_point <= 0xffffu) {
+        val codePoint = matchVal.first
+        val newPos = matchVal.second
+        pos = newPos
+        len += if (codePoint <= 0xffffu) {
             1
         } else {
             2
@@ -83,14 +83,20 @@ public fun utf16_len(bytes: List<UByte>): Int {
     return len
 }
 
+private const val S_TEMPLATE: String = ".core.concat(\$s, '\\0').asPtr()"
+
+private const val W_TEMPLATE: String = "{const Input:&[u8]= \$s.asBytes(); const OutputLen: usize= core.utf16Len(Input)+ 1; const Output:&[u16; OutputLen]= {val var buffer=[0; OutputLen]; val var inputPos= 0; val var outputPos= 0; whileLoop val Some((var codePoint, newPos))= core.decodeUtf8Char(Input, inputPos) {inputPos= newPos; ifBranch codePoint<= 0xffff {buffer[outputPos]= codePoint asTarget u16; outputPos+= 1; } elseBranch {codePoint-= 0x10000; buffer[outputPos]= 0xd800+(codePoint>> 10) asTarget u16; outputPos+= 1; buffer[outputPos]= 0xdc00+(codePoint& 0x3ff) asTarget u16; outputPos+= 1; }}& {buffer}}; Output.asPtr()}"
+
 /**
  * A literal UTF-8 string with a trailing null terminator.
  */
 
-public fun s(s: String): Long = if (s.isEmpty()) 0L else ((s.hashCode().toLong() and 0x7fff_ffffL) or 1L)
+public fun s(s: String = ""): String =
+    S_TEMPLATE.replace("\$s", s)
 
 /**
  * A literal UTF-16 wide string with a trailing null terminator.
  */
 
-public fun w(s: String): Long = if (s.isEmpty()) 0L else ((s.hashCode().toLong() and 0x7fff_ffffL) or 1L)
+public fun w(s: String = ""): String =
+    W_TEMPLATE.replace("\$s", s)

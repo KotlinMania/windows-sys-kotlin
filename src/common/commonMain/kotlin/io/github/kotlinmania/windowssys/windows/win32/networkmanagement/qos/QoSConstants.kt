@@ -1,8 +1,8 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.qos
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.w
 
 public val ABLE_TO_RECV_RSVP: UInt = 50002u
@@ -31,7 +31,7 @@ public val CREDENTIAL_SUB_TYPE_X509_V3_CERT: UInt = 4u
 
 public val CURRENT_TCI_VERSION: UInt = 2u
 
-public val DD_TCP_DEVICE_NAME: PCWSTR = w("\\Device\\Tcp")
+public val DD_TCP_DEVICE_NAME: Pcwstr = w("\\Device\\Tcp")
 
 public val DUP_RESULTS: UInt = 4u
 
@@ -73,9 +73,9 @@ public val ERROR_INVALID_TRAFFIC_CLASS: UInt = 7507u
 
 public val ERROR_NO_MORE_INFO: UInt = 1u
 
-public val ERROR_SPECF_InPlace: UInt = 1u
+public val ERROR_SPECF_IN_PLACE: UInt = 1u
 
-public val ERROR_SPECF_NotGuilty: UInt = 2u
+public val ERROR_SPECF_NOT_GUILTY: UInt = 2u
 
 public val ERROR_TC_NOT_SUPPORTED: UInt = 7514u
 
@@ -87,13 +87,13 @@ public val ERROR_TOO_MANY_CLIENTS: UInt = 7521u
 
 public val ERR_FORWARD_OK: UInt = 32768u
 
-public val ERR_Usage_globl: UInt = 0u
+public val ERR_USAGE_GLOBL: UInt = 0u
 
-public val ERR_Usage_local: UInt = 16u
+public val ERR_USAGE_LOCAL: UInt = 16u
 
-public val ERR_Usage_serv: UInt = 17u
+public val ERR_USAGE_SERV: UInt = 17u
 
-public val ERR_global_mask: UInt = 4095u
+public val ERR_GLOBAL_MASK: UInt = 4095u
 
 public val EXPIRED_CREDENTIAL: UInt = 4u
 
@@ -163,47 +163,47 @@ public val GUARANTEED_SERV: UInt = 2u
 
 public val GUAR_ADSPARM_C: Int = 131
 
-public val GUAR_ADSPARM_Csum: Int = 135
+public val GUAR_ADSPARM_CSUM: Int = 135
 
-public val GUAR_ADSPARM_Ctot: Int = 133
+public val GUAR_ADSPARM_CTOT: Int = 133
 
 public val GUAR_ADSPARM_D: Int = 132
 
-public val GUAR_ADSPARM_Dsum: Int = 136
+public val GUAR_ADSPARM_DSUM: Int = 136
 
-public val GUAR_ADSPARM_Dtot: Int = 134
+public val GUAR_ADSPARM_DTOT: Int = 134
 
-public val GUID_QOS_BESTEFFORT_BANDWIDTH: GUID = GUID.from_u128(U128(0xed88529040ec11d1uL, 0x2c9100aa00574915uL))
+public val GUID_QOS_BESTEFFORT_BANDWIDTH: Guid = Guid.fromU128(U128(0xed88529040ec11d1uL, 0x2c9100aa00574915uL))
 
-public val GUID_QOS_ENABLE_AVG_STATS: GUID = GUID.from_u128(U128(0xbafb6d1127c44801uL, 0xa46fef8080c188c8uL))
+public val GUID_QOS_ENABLE_AVG_STATS: Guid = Guid.fromU128(U128(0xbafb6d1127c44801uL, 0xa46fef8080c188c8uL))
 
-public val GUID_QOS_ENABLE_WINDOW_ADJUSTMENT: GUID = GUID.from_u128(U128(0xaa966725d3e94c55uL, 0xb3352a00279a1e64uL))
+public val GUID_QOS_ENABLE_WINDOW_ADJUSTMENT: Guid = Guid.fromU128(U128(0xaa966725d3e94c55uL, 0xb3352a00279a1e64uL))
 
-public val GUID_QOS_FLOW_8021P_CONFORMING: GUID = GUID.from_u128(U128(0x8c1e013fcd211d2uL, 0xbe1e00a0c99ee63buL))
+public val GUID_QOS_FLOW_8021P_CONFORMING: Guid = Guid.fromU128(U128(0x8c1e013fcd211d2uL, 0xbe1e00a0c99ee63buL))
 
-public val GUID_QOS_FLOW_8021P_NONCONFORMING: GUID = GUID.from_u128(U128(0x9023f91fcd211d2uL, 0xbe1e00a0c99ee63buL))
+public val GUID_QOS_FLOW_8021P_NONCONFORMING: Guid = Guid.fromU128(U128(0x9023f91fcd211d2uL, 0xbe1e00a0c99ee63buL))
 
-public val GUID_QOS_FLOW_COUNT: GUID = GUID.from_u128(U128(0x1147f88040ed11d1uL, 0x2c9100aa00574915uL))
+public val GUID_QOS_FLOW_COUNT: Guid = Guid.fromU128(U128(0x1147f88040ed11d1uL, 0x2c9100aa00574915uL))
 
-public val GUID_QOS_FLOW_IP_CONFORMING: GUID = GUID.from_u128(U128(0x7f99a8bfcd211d2uL, 0xbe1e00a0c99ee63buL))
+public val GUID_QOS_FLOW_IP_CONFORMING: Guid = Guid.fromU128(U128(0x7f99a8bfcd211d2uL, 0xbe1e00a0c99ee63buL))
 
-public val GUID_QOS_FLOW_IP_NONCONFORMING: GUID = GUID.from_u128(U128(0x87a5987fcd211d2uL, 0xbe1e00a0c99ee63buL))
+public val GUID_QOS_FLOW_IP_NONCONFORMING: Guid = Guid.fromU128(U128(0x87a5987fcd211d2uL, 0xbe1e00a0c99ee63buL))
 
-public val GUID_QOS_FLOW_MODE: GUID = GUID.from_u128(U128(0x5c82290a515a11d2uL, 0x8e5800c04fc9bfcbuL))
+public val GUID_QOS_FLOW_MODE: Guid = Guid.fromU128(U128(0x5c82290a515a11d2uL, 0x8e5800c04fc9bfcbuL))
 
-public val GUID_QOS_ISSLOW_FLOW: GUID = GUID.from_u128(U128(0xabf273a4ee0711d2uL, 0xbe1b00a0c99ee63buL))
+public val GUID_QOS_ISSLOW_FLOW: Guid = Guid.fromU128(U128(0xabf273a4ee0711d2uL, 0xbe1b00a0c99ee63buL))
 
-public val GUID_QOS_LATENCY: GUID = GUID.from_u128(U128(0xfc408ef040ec11d1uL, 0x2c9100aa00574915uL))
+public val GUID_QOS_LATENCY: Guid = Guid.fromU128(U128(0xfc408ef040ec11d1uL, 0x2c9100aa00574915uL))
 
-public val GUID_QOS_MAX_OUTSTANDING_SENDS: GUID = GUID.from_u128(U128(0x161ffa86612011d1uL, 0x2c9100aa00574915uL))
+public val GUID_QOS_MAX_OUTSTANDING_SENDS: Guid = Guid.fromU128(U128(0x161ffa86612011d1uL, 0x2c9100aa00574915uL))
 
-public val GUID_QOS_NON_BESTEFFORT_LIMIT: GUID = GUID.from_u128(U128(0x185c44e040ed11d1uL, 0x2c9100aa00574915uL))
+public val GUID_QOS_NON_BESTEFFORT_LIMIT: Guid = Guid.fromU128(U128(0x185c44e040ed11d1uL, 0x2c9100aa00574915uL))
 
-public val GUID_QOS_REMAINING_BANDWIDTH: GUID = GUID.from_u128(U128(0xc4c5172040ec11d1uL, 0x2c9100aa00574915uL))
+public val GUID_QOS_REMAINING_BANDWIDTH: Guid = Guid.fromU128(U128(0xc4c5172040ec11d1uL, 0x2c9100aa00574915uL))
 
-public val GUID_QOS_STATISTICS_BUFFER: GUID = GUID.from_u128(U128(0xbb2c0980e90011d1uL, 0xb07e0080c71382bfuL))
+public val GUID_QOS_STATISTICS_BUFFER: Guid = Guid.fromU128(U128(0xbb2c0980e90011d1uL, 0xb07e0080c71382bfuL))
 
-public val GUID_QOS_TIMER_RESOLUTION: GUID = GUID.from_u128(U128(0xba10cc88f13e11d2uL, 0xbe1b00a0c99ee63buL))
+public val GUID_QOS_TIMER_RESOLUTION: Guid = Guid.fromU128(U128(0xba10cc88f13e11d2uL, 0xbe1b00a0c99ee63buL))
 
 public val HIGHLY_DELAY_SENSITIVE: UInt = 4294967294u
 
@@ -237,17 +237,17 @@ public val ISSH_BREAK_BIT: UInt = 128u
 
 public val IS_GUAR_RSPEC: Int = 130
 
-public val IS_WKP_COMPOSED_MTU: int_serv_wkp = 10
+public val IS_WKP_COMPOSED_MTU: IntServWkp = 10
 
-public val IS_WKP_HOP_CNT: int_serv_wkp = 4
+public val IS_WKP_HOP_CNT: IntServWkp = 4
 
-public val IS_WKP_MIN_LATENCY: int_serv_wkp = 8
+public val IS_WKP_MIN_LATENCY: IntServWkp = 8
 
-public val IS_WKP_PATH_BW: int_serv_wkp = 6
+public val IS_WKP_PATH_BW: IntServWkp = 6
 
-public val IS_WKP_Q_TSPEC: int_serv_wkp = 128
+public val IS_WKP_Q_TSPEC: IntServWkp = 128
 
-public val IS_WKP_TB_TSPEC: int_serv_wkp = 127
+public val IS_WKP_TB_TSPEC: IntServWkp = 127
 
 public val LINE_RATE: UInt = 50003u
 
@@ -317,17 +317,17 @@ public val OSDEVICE_TYPE_UNKNOWN: UInt = 0u
 
 public val OSDEVICE_TYPE_VMBUS: UInt = 262144u
 
-public val Opt_Distinct: UInt = 8u
+public val OPT_DISTINCT: UInt = 8u
 
-public val Opt_Explicit: UInt = 2u
+public val OPT_EXPLICIT: UInt = 2u
 
-public val Opt_Share_mask: UInt = 24u
+public val OPT_SHARE_MASK: UInt = 24u
 
-public val Opt_Shared: UInt = 16u
+public val OPT_SHARED: UInt = 16u
 
-public val Opt_SndSel_mask: UInt = 7u
+public val OPT_SND_SEL_MASK: UInt = 7u
 
-public val Opt_Wildcard: UInt = 1u
+public val OPT_WILDCARD: UInt = 1u
 
 public val PCM_VERSION_1: UInt = 1u
 
@@ -475,55 +475,55 @@ public val POSITIVE_INFINITY_RATE: UInt = 4294967294u
 
 public val PREDICTIVE_SERV: UInt = 3u
 
-public val QOSFlowRateCongestion: QOS_FLOWRATE_REASON = 2
+public val QOS_FLOW_RATE_CONGESTION: QosFlowrateReason = 2
 
-public val QOSFlowRateContentChange: QOS_FLOWRATE_REASON = 1
+public val QOS_FLOW_RATE_CONTENT_CHANGE: QosFlowrateReason = 1
 
-public val QOSFlowRateHigherContentEncoding: QOS_FLOWRATE_REASON = 3
+public val QOS_FLOW_RATE_HIGHER_CONTENT_ENCODING: QosFlowrateReason = 3
 
-public val QOSFlowRateNotApplicable: QOS_FLOWRATE_REASON = 0
+public val QOS_FLOW_RATE_NOT_APPLICABLE: QosFlowrateReason = 0
 
-public val QOSFlowRateUserCaused: QOS_FLOWRATE_REASON = 4
+public val QOS_FLOW_RATE_USER_CAUSED: QosFlowrateReason = 4
 
-public val QOSNotifyAvailable: QOS_NOTIFY_FLOW = 2
+public val QOS_NOTIFY_AVAILABLE: QosNotifyFlow = 2
 
-public val QOSNotifyCongested: QOS_NOTIFY_FLOW = 0
+public val QOS_NOTIFY_CONGESTED: QosNotifyFlow = 0
 
-public val QOSNotifyUncongested: QOS_NOTIFY_FLOW = 1
+public val QOS_NOTIFY_UNCONGESTED: QosNotifyFlow = 1
 
-public val QOSQueryFlowFundamentals: QOS_QUERY_FLOW = 0
+public val QOS_QUERY_FLOW_FUNDAMENTALS: QosQueryFlow = 0
 
-public val QOSQueryOutgoingRate: QOS_QUERY_FLOW = 2
+public val QOS_QUERY_OUTGOING_RATE: QosQueryFlow = 2
 
-public val QOSQueryPacketPriority: QOS_QUERY_FLOW = 1
+public val QOS_QUERY_PACKET_PRIORITY: QosQueryFlow = 1
 
 public val QOSSPBASE: UInt = 50000u
 
 public val QOSSP_ERR_BASE: UInt = 56000u
 
-public val QOSSetOutgoingDSCPValue: QOS_SET_FLOW = 2
+public val QOS_SET_OUTGOING_DSCP_VALUE: QosSetFlow = 2
 
-public val QOSSetOutgoingRate: QOS_SET_FLOW = 1
+public val QOS_SET_OUTGOING_RATE: QosSetFlow = 1
 
-public val QOSSetTrafficType: QOS_SET_FLOW = 0
+public val QOS_SET_TRAFFIC_TYPE: QosSetFlow = 0
 
-public val QOSShapeAndMark: QOS_SHAPING = 1
+public val QOS_SHAPE_AND_MARK: QosShaping = 1
 
-public val QOSShapeOnly: QOS_SHAPING = 0
+public val QOS_SHAPE_ONLY: QosShaping = 0
 
-public val QOSTrafficTypeAudioVideo: QOS_TRAFFIC_TYPE = 3
+public val QOS_TRAFFIC_TYPE_AUDIO_VIDEO: QosTrafficType = 3
 
-public val QOSTrafficTypeBackground: QOS_TRAFFIC_TYPE = 1
+public val QOS_TRAFFIC_TYPE_BACKGROUND: QosTrafficType = 1
 
-public val QOSTrafficTypeBestEffort: QOS_TRAFFIC_TYPE = 0
+public val QOS_TRAFFIC_TYPE_BEST_EFFORT: QosTrafficType = 0
 
-public val QOSTrafficTypeControl: QOS_TRAFFIC_TYPE = 5
+public val QOS_TRAFFIC_TYPE_CONTROL: QosTrafficType = 5
 
-public val QOSTrafficTypeExcellentEffort: QOS_TRAFFIC_TYPE = 2
+public val QOS_TRAFFIC_TYPE_EXCELLENT_EFFORT: QosTrafficType = 2
 
-public val QOSTrafficTypeVoice: QOS_TRAFFIC_TYPE = 4
+public val QOS_TRAFFIC_TYPE_VOICE: QosTrafficType = 4
 
-public val QOSUseNonConformantMarkings: QOS_SHAPING = 2
+public val QOS_USE_NON_CONFORMANT_MARKINGS: QosShaping = 2
 
 public val QOS_GENERAL_ID_BASE: UInt = 2000u
 
@@ -551,69 +551,69 @@ public val RESOURCES_MODIFIED: UInt = 2u
 
 public val RSVP_DEFAULT_STYLE: UInt = 0u
 
-public val RSVP_Err_ADMISSION: UInt = 1u
+public val RSVP_ERR_ADMISSION: UInt = 1u
 
-public val RSVP_Err_AMBIG_FILTER: UInt = 9u
+public val RSVP_ERR_AMBIG_FILTER: UInt = 9u
 
-public val RSVP_Err_API_ERROR: UInt = 20u
+public val RSVP_ERR_API_ERROR: UInt = 20u
 
-public val RSVP_Err_BAD_DSTPORT: UInt = 7u
+public val RSVP_ERR_BAD_DSTPORT: UInt = 7u
 
-public val RSVP_Err_BAD_SNDPORT: UInt = 8u
+public val RSVP_ERR_BAD_SNDPORT: UInt = 8u
 
-public val RSVP_Err_BAD_STYLE: UInt = 5u
+public val RSVP_ERR_BAD_STYLE: UInt = 5u
 
-public val RSVP_Err_NONE: UInt = 0u
+public val RSVP_ERR_NONE: UInt = 0u
 
-public val RSVP_Err_NO_PATH: UInt = 3u
+public val RSVP_ERR_NO_PATH: UInt = 3u
 
-public val RSVP_Err_NO_SENDER: UInt = 4u
+public val RSVP_ERR_NO_SENDER: UInt = 4u
 
-public val RSVP_Err_POLICY: UInt = 2u
+public val RSVP_ERR_POLICY: UInt = 2u
 
-public val RSVP_Err_PREEMPTED: UInt = 12u
+public val RSVP_ERR_PREEMPTED: UInt = 12u
 
-public val RSVP_Err_RSVP_SYS_ERROR: UInt = 23u
+public val RSVP_ERR_RSVP_SYS_ERROR: UInt = 23u
 
-public val RSVP_Err_TC_ERROR: UInt = 21u
+public val RSVP_ERR_TC_ERROR: UInt = 21u
 
-public val RSVP_Err_TC_SYS_ERROR: UInt = 22u
+public val RSVP_ERR_TC_SYS_ERROR: UInt = 22u
 
-public val RSVP_Err_UNKNOWN_CTYPE: UInt = 14u
+public val RSVP_ERR_UNKNOWN_CTYPE: UInt = 14u
 
-public val RSVP_Err_UNKNOWN_STYLE: UInt = 6u
+public val RSVP_ERR_UNKNOWN_STYLE: UInt = 6u
 
-public val RSVP_Err_UNKN_OBJ_CLASS: UInt = 13u
+public val RSVP_ERR_UNKN_OBJ_CLASS: UInt = 13u
 
-public val RSVP_Erv_API: UInt = 2u
+public val RSVP_ERV_API: UInt = 2u
 
-public val RSVP_Erv_Bandwidth: UInt = 2u
+public val RSVP_ERV_BANDWIDTH: UInt = 2u
 
-public val RSVP_Erv_Bucket_szie: UInt = 32770u
+public val RSVP_ERV_BUCKET_SZIE: UInt = 32770u
 
-public val RSVP_Erv_Conflict_Serv: UInt = 1u
+public val RSVP_ERV_CONFLICT_SERV: UInt = 1u
 
-public val RSVP_Erv_Crazy_Flowspec: UInt = 3u
+public val RSVP_ERV_CRAZY_FLOWSPEC: UInt = 3u
 
-public val RSVP_Erv_Crazy_Tspec: UInt = 4u
+public val RSVP_ERV_CRAZY_TSPEC: UInt = 4u
 
-public val RSVP_Erv_DelayBnd: UInt = 1u
+public val RSVP_ERV_DELAY_BND: UInt = 1u
 
-public val RSVP_Erv_Flow_Rate: UInt = 32769u
+public val RSVP_ERV_FLOW_RATE: UInt = 32769u
 
-public val RSVP_Erv_MEMORY: UInt = 1u
+public val RSVP_ERV_MEMORY: UInt = 1u
 
-public val RSVP_Erv_MTU: UInt = 3u
+public val RSVP_ERV_MTU: UInt = 3u
 
-public val RSVP_Erv_Min_Policied_size: UInt = 32772u
+public val RSVP_ERV_MIN_POLICIED_SIZE: UInt = 32772u
 
-public val RSVP_Erv_No_Serv: UInt = 2u
+public val RSVP_ERV_NO_SERV: UInt = 2u
 
-public val RSVP_Erv_Nonev: UInt = 0u
+public val RSVP_ERV_NONEV: UInt = 0u
 
-public val RSVP_Erv_Other: UInt = 0u
+public val RSVP_ERV_OTHER: UInt = 0u
 
-public val RSVP_Erv_Peak_Rate: UInt = 32771u
+public val RSVP_ERV_PEAK_RATE: UInt = 32771u
 
 public val RSVP_FIXED_FILTER_STYLE: UInt = 2u
 
@@ -667,7 +667,7 @@ public val SERVICE_NO_TRAFFIC_CONTROL: UInt = 2164260864u
 
 public val SERVICE_QUALITATIVE: UInt = 2149580800u
 
-public val SESSFLG_E_Police: UInt = 1u
+public val SESSFLG_E_POLICE: UInt = 1u
 
 public val SIPAERROR_FIRMWAREFAILURE: UInt = 196609u
 
@@ -1057,76 +1057,76 @@ public val WBCL_HASH_LEN_SHA1: UInt = 20u
 
 public val WBCL_MAX_HSP_UPGRADE_HASH_LEN: UInt = 64u
 
-public val class_ADSPEC: UInt = 13u
+public val CLASS_ADSPEC: UInt = 13u
 
-public val class_CONFIRM: UInt = 15u
+public val CLASS_CONFIRM: UInt = 15u
 
-public val class_ERROR_SPEC: UInt = 6u
+public val CLASS_ERROR_SPEC: UInt = 6u
 
-public val class_FILTER_SPEC: UInt = 10u
+public val CLASS_FILTER_SPEC: UInt = 10u
 
-public val class_FLOWSPEC: UInt = 9u
+public val CLASS_FLOWSPEC: UInt = 9u
 
-public val class_INTEGRITY: UInt = 4u
+public val CLASS_INTEGRITY: UInt = 4u
 
-public val class_IS_FLOWSPEC: UInt = 9u
+public val CLASS_IS_FLOWSPEC: UInt = 9u
 
-public val class_MAX: UInt = 15u
+public val CLASS_MAX: UInt = 15u
 
-public val class_NULL: UInt = 0u
+public val CLASS_NULL: UInt = 0u
 
-public val class_POLICY_DATA: UInt = 14u
+public val CLASS_POLICY_DATA: UInt = 14u
 
-public val class_RSVP_HOP: UInt = 3u
+public val CLASS_RSVP_HOP: UInt = 3u
 
-public val class_SCOPE: UInt = 7u
+public val CLASS_SCOPE: UInt = 7u
 
-public val class_SENDER_TEMPLATE: UInt = 11u
+public val CLASS_SENDER_TEMPLATE: UInt = 11u
 
-public val class_SENDER_TSPEC: UInt = 12u
+public val CLASS_SENDER_TSPEC: UInt = 12u
 
-public val class_SESSION: UInt = 1u
+public val CLASS_SESSION: UInt = 1u
 
-public val class_SESSION_GROUP: UInt = 2u
+public val CLASS_SESSION_GROUP: UInt = 2u
 
-public val class_STYLE: UInt = 8u
+public val CLASS_STYLE: UInt = 8u
 
-public val class_TIME_VALUES: UInt = 5u
+public val CLASS_TIME_VALUES: UInt = 5u
 
-public val ctype_ADSPEC_INTSERV: UInt = 2u
+public val CTYPE_ADSPEC_INTSERV: UInt = 2u
 
-public val ctype_ERROR_SPEC_ipv4: UInt = 1u
+public val CTYPE_ERROR_SPEC_IPV4: UInt = 1u
 
-public val ctype_FILTER_SPEC_ipv4: UInt = 1u
+public val CTYPE_FILTER_SPEC_IPV4: UInt = 1u
 
-public val ctype_FILTER_SPEC_ipv4GPI: UInt = 4u
+public val CTYPE_FILTER_SPEC_IPV4GPI: UInt = 4u
 
-public val ctype_FLOWSPEC_Intserv0: UInt = 2u
+public val CTYPE_FLOWSPEC_INTSERV0: UInt = 2u
 
-public val ctype_POLICY_DATA: UInt = 1u
+public val CTYPE_POLICY_DATA: UInt = 1u
 
-public val ctype_RSVP_HOP_ipv4: UInt = 1u
+public val CTYPE_RSVP_HOP_IPV4: UInt = 1u
 
-public val ctype_SCOPE_list_ipv4: UInt = 1u
+public val CTYPE_SCOPE_LIST_IPV4: UInt = 1u
 
-public val ctype_SENDER_TEMPLATE_ipv4: UInt = 1u
+public val CTYPE_SENDER_TEMPLATE_IPV4: UInt = 1u
 
-public val ctype_SENDER_TEMPLATE_ipv4GPI: UInt = 4u
+public val CTYPE_SENDER_TEMPLATE_IPV4GPI: UInt = 4u
 
-public val ctype_SENDER_TSPEC: UInt = 2u
+public val CTYPE_SENDER_TSPEC: UInt = 2u
 
-public val ctype_SESSION_ipv4: UInt = 1u
+public val CTYPE_SESSION_IPV4: UInt = 1u
 
-public val ctype_SESSION_ipv4GPI: UInt = 3u
+public val CTYPE_SESSION_IPV4GPI: UInt = 3u
 
-public val ctype_STYLE: UInt = 1u
+public val CTYPE_STYLE: UInt = 1u
 
-public val ioctl_code: UInt = 1u
+public val IOCTL_CODE: UInt = 1u
 
-public val mCOMPANY: UInt = 402653184u
+public val M_COMPANY: UInt = 402653184u
 
-public val mIOC_IN: UInt = 2147483648u
+public val M_IOC_IN: UInt = 2147483648u
 
-public val mIOC_OUT: UInt = 1073741824u
+public val M_IOC_OUT: UInt = 1073741824u
 
-public val mIOC_VENDOR: UInt = 67108864u
+public val M_IOC_VENDOR: UInt = 67108864u

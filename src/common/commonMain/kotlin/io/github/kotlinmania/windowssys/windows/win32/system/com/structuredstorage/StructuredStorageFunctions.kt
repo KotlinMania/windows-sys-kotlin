@@ -1,261 +1,262 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.com.structuredstorage
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HGLOBAL
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HINSTANCE
-import io.github.kotlinmania.windowssys.windows.win32.security.PSECURITY_DESCRIPTOR
-import io.github.kotlinmania.windowssys.windows.win32.system.com.CLSCTX
-import io.github.kotlinmania.windowssys.windows.win32.system.com.STGM
-import io.github.kotlinmania.windowssys.windows.win32.system.variant.PSTIME_FLAGS
-import io.github.kotlinmania.windowssys.windows.win32.system.variant.VARENUM
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hglobal
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hinstance
+import io.github.kotlinmania.windowssys.windows.win32.security.PsecurityDescriptor
+import io.github.kotlinmania.windowssys.windows.win32.system.com.Clsctx
+import io.github.kotlinmania.windowssys.windows.win32.system.com.Stgm
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.PstimeFlags
+import io.github.kotlinmania.windowssys.windows.win32.system.variant.Varenum
 
-public expect fun ClearPropVariantArray(rgpropvar: Long, cvars: UInt)
+public expect fun clearPropVariantArray(rgpropvar: COpaquePointer?, cvars: UInt)
 
-public expect fun CoGetInstanceFromFile(pserverinfo: Long, pclsid: Long, punkouter: Long, dwclsctx: CLSCTX, grfmode: UInt, pwszname: PCWSTR, dwcount: UInt, presults: Long): HRESULT
+public expect fun coGetInstanceFromFile(pserverinfo: COpaquePointer?, pclsid: COpaquePointer?, punkouter: COpaquePointer?, dwclsctx: Clsctx, grfmode: UInt, pwszname: Pcwstr, dwcount: UInt, presults: COpaquePointer?): Hresult
 
-public expect fun CoGetInstanceFromIStorage(pserverinfo: Long, pclsid: Long, punkouter: Long, dwclsctx: CLSCTX, pstg: Long, dwcount: UInt, presults: Long): HRESULT
+public expect fun coGetInstanceFromIStorage(pserverinfo: COpaquePointer?, pclsid: COpaquePointer?, punkouter: COpaquePointer?, dwclsctx: Clsctx, pstg: COpaquePointer?, dwcount: UInt, presults: COpaquePointer?): Hresult
 
-public expect fun CoGetInterfaceAndReleaseStream(pstm: Long, iid: Long, ppv: Long): HRESULT
+public expect fun coGetInterfaceAndReleaseStream(pstm: COpaquePointer?, iid: COpaquePointer?, ppv: COpaquePointer?): Hresult
 
-public expect fun CreateILockBytesOnHGlobal(hglobal: HGLOBAL, fdeleteonrelease: BOOL, pplkbyt: Long): HRESULT
+public expect fun createILockBytesOnHGlobal(hglobal: Hglobal, fdeleteonrelease: Bool, pplkbyt: COpaquePointer?): Hresult
 
-public expect fun CreateStreamOnHGlobal(hglobal: HGLOBAL, fdeleteonrelease: BOOL, ppstm: Long): HRESULT
+public expect fun createStreamOnHGlobal(hglobal: Hglobal, fdeleteonrelease: Bool, ppstm: COpaquePointer?): Hresult
 
-public expect fun FmtIdToPropStgName(pfmtid: Long, oszname: PWSTR): HRESULT
+public expect fun fmtIdToPropStgName(pfmtid: COpaquePointer?, oszname: Pwstr): Hresult
 
-public expect fun FreePropVariantArray(cvariants: UInt, rgvars: Long): HRESULT
+public expect fun freePropVariantArray(cvariants: UInt, rgvars: COpaquePointer?): Hresult
 
-public expect fun GetConvertStg(pstg: Long): HRESULT
+public expect fun getConvertStg(pstg: COpaquePointer?): Hresult
 
-public expect fun GetHGlobalFromILockBytes(plkbyt: Long, phglobal: Long): HRESULT
+public expect fun getHGlobalFromILockBytes(plkbyt: COpaquePointer?, phglobal: COpaquePointer?): Hresult
 
-public expect fun GetHGlobalFromStream(pstm: Long, phglobal: Long): HRESULT
+public expect fun getHGlobalFromStream(pstm: COpaquePointer?, phglobal: COpaquePointer?): Hresult
 
-public expect fun InitPropVariantFromBooleanVector(prgf: Long, celems: UInt, ppropvar: Long): HRESULT
+public expect fun initPropVariantFromBooleanVector(prgf: COpaquePointer?, celems: UInt, ppropvar: COpaquePointer?): Hresult
 
-public expect fun InitPropVariantFromBuffer(pv: Long, cb: UInt, ppropvar: Long): HRESULT
+public expect fun initPropVariantFromBuffer(pv: COpaquePointer?, cb: UInt, ppropvar: COpaquePointer?): Hresult
 
-public expect fun InitPropVariantFromCLSID(clsid: Long, ppropvar: Long): HRESULT
+public expect fun initPropVariantFromCLSID(clsid: COpaquePointer?, ppropvar: COpaquePointer?): Hresult
 
-public expect fun InitPropVariantFromDoubleVector(prgn: Long, celems: UInt, ppropvar: Long): HRESULT
+public expect fun initPropVariantFromDoubleVector(prgn: COpaquePointer?, celems: UInt, ppropvar: COpaquePointer?): Hresult
 
-public expect fun InitPropVariantFromFileTime(pftin: Long, ppropvar: Long): HRESULT
+public expect fun initPropVariantFromFileTime(pftin: COpaquePointer?, ppropvar: COpaquePointer?): Hresult
 
-public expect fun InitPropVariantFromFileTimeVector(prgft: Long, celems: UInt, ppropvar: Long): HRESULT
+public expect fun initPropVariantFromFileTimeVector(prgft: COpaquePointer?, celems: UInt, ppropvar: COpaquePointer?): Hresult
 
-public expect fun InitPropVariantFromGUIDAsString(guid: Long, ppropvar: Long): HRESULT
+public expect fun initPropVariantFromGUIDAsString(guid: COpaquePointer?, ppropvar: COpaquePointer?): Hresult
 
-public expect fun InitPropVariantFromInt16Vector(prgn: Long, celems: UInt, ppropvar: Long): HRESULT
+public expect fun initPropVariantFromInt16Vector(prgn: COpaquePointer?, celems: UInt, ppropvar: COpaquePointer?): Hresult
 
-public expect fun InitPropVariantFromInt32Vector(prgn: Long, celems: UInt, ppropvar: Long): HRESULT
+public expect fun initPropVariantFromInt32Vector(prgn: COpaquePointer?, celems: UInt, ppropvar: COpaquePointer?): Hresult
 
-public expect fun InitPropVariantFromInt64Vector(prgn: Long, celems: UInt, ppropvar: Long): HRESULT
+public expect fun initPropVariantFromInt64Vector(prgn: COpaquePointer?, celems: UInt, ppropvar: COpaquePointer?): Hresult
 
-public expect fun InitPropVariantFromPropVariantVectorElem(propvarin: Long, ielem: UInt, ppropvar: Long): HRESULT
+public expect fun initPropVariantFromPropVariantVectorElem(propvarin: COpaquePointer?, ielem: UInt, ppropvar: COpaquePointer?): Hresult
 
-public expect fun InitPropVariantFromResource(hinst: HINSTANCE, id: UInt, ppropvar: Long): HRESULT
+public expect fun initPropVariantFromResource(hinst: Hinstance, id: UInt, ppropvar: COpaquePointer?): Hresult
 
-public expect fun InitPropVariantFromStringAsVector(psz: PCWSTR, ppropvar: Long): HRESULT
+public expect fun initPropVariantFromStringAsVector(psz: Pcwstr, ppropvar: COpaquePointer?): Hresult
 
-public expect fun InitPropVariantFromStringVector(prgsz: Long, celems: UInt, ppropvar: Long): HRESULT
+public expect fun initPropVariantFromStringVector(prgsz: COpaquePointer?, celems: UInt, ppropvar: COpaquePointer?): Hresult
 
-public expect fun InitPropVariantFromUInt16Vector(prgn: Long, celems: UInt, ppropvar: Long): HRESULT
+public expect fun initPropVariantFromUInt16Vector(prgn: COpaquePointer?, celems: UInt, ppropvar: COpaquePointer?): Hresult
 
-public expect fun InitPropVariantFromUInt32Vector(prgn: Long, celems: UInt, ppropvar: Long): HRESULT
+public expect fun initPropVariantFromUInt32Vector(prgn: COpaquePointer?, celems: UInt, ppropvar: COpaquePointer?): Hresult
 
-public expect fun InitPropVariantFromUInt64Vector(prgn: Long, celems: UInt, ppropvar: Long): HRESULT
+public expect fun initPropVariantFromUInt64Vector(prgn: COpaquePointer?, celems: UInt, ppropvar: COpaquePointer?): Hresult
 
-public expect fun InitPropVariantVectorFromPropVariant(propvarsingle: Long, ppropvarvector: Long): HRESULT
+public expect fun initPropVariantVectorFromPropVariant(propvarsingle: COpaquePointer?, ppropvarvector: COpaquePointer?): Hresult
 
-public expect fun OleConvertIStorageToOLESTREAM(pstg: Long, lpolestream: Long): HRESULT
+public expect fun oleConvertIStorageToOLESTREAM(pstg: COpaquePointer?, lpolestream: COpaquePointer?): Hresult
 
-public expect fun OleConvertIStorageToOLESTREAMEx(pstg: Long, cfformat: UShort, lwidth: Int, lheight: Int, dwsize: UInt, pmedium: Long, polestm: Long): HRESULT
+public expect fun oleConvertIStorageToOLESTREAMEx(pstg: COpaquePointer?, cfformat: UShort, lwidth: Int, lheight: Int, dwsize: UInt, pmedium: COpaquePointer?, polestm: COpaquePointer?): Hresult
 
-public expect fun OleConvertOLESTREAMToIStorage(lpolestream: Long, pstg: Long, ptd: Long): HRESULT
+public expect fun oleConvertOLESTREAMToIStorage(lpolestream: COpaquePointer?, pstg: COpaquePointer?, ptd: COpaquePointer?): Hresult
 
-public expect fun OleConvertOLESTREAMToIStorageEx(polestm: Long, pstg: Long, pcfformat: Long, plwwidth: Long, plheight: Long, pdwsize: Long, pmedium: Long): HRESULT
+public expect fun oleConvertOLESTREAMToIStorageEx(polestm: COpaquePointer?, pstg: COpaquePointer?, pcfformat: COpaquePointer?, plwwidth: COpaquePointer?, plheight: COpaquePointer?, pdwsize: COpaquePointer?, pmedium: COpaquePointer?): Hresult
 
-public expect fun PropStgNameToFmtId(oszname: PCWSTR, pfmtid: Long): HRESULT
+public expect fun propStgNameToFmtId(oszname: Pcwstr, pfmtid: COpaquePointer?): Hresult
 
-public expect fun PropVariantChangeType(ppropvardest: Long, propvarsrc: Long, flags: PROPVAR_CHANGE_FLAGS, vt: VARENUM): HRESULT
+public expect fun propVariantChangeType(ppropvardest: COpaquePointer?, propvarsrc: COpaquePointer?, flags: PropvarChangeFlags, vt: Varenum): Hresult
 
-public expect fun PropVariantClear(pvar: Long): HRESULT
+public expect fun propVariantClear(pvar: COpaquePointer?): Hresult
 
-public expect fun PropVariantCompareEx(propvar1: Long, propvar2: Long, unit: PROPVAR_COMPARE_UNIT, flags: PROPVAR_COMPARE_FLAGS): Int
+public expect fun propVariantCompareEx(propvar1: COpaquePointer?, propvar2: COpaquePointer?, unit: PropvarCompareUnit, flags: PropvarCompareFlags): Int
 
-public expect fun PropVariantCopy(pvardest: Long, pvarsrc: Long): HRESULT
+public expect fun propVariantCopy(pvardest: COpaquePointer?, pvarsrc: COpaquePointer?): Hresult
 
-public expect fun PropVariantGetBooleanElem(propvar: Long, ielem: UInt, pfval: Long): HRESULT
+public expect fun propVariantGetBooleanElem(propvar: COpaquePointer?, ielem: UInt, pfval: COpaquePointer?): Hresult
 
-public expect fun PropVariantGetDoubleElem(propvar: Long, ielem: UInt, pnval: Long): HRESULT
+public expect fun propVariantGetDoubleElem(propvar: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult
 
-public expect fun PropVariantGetElementCount(propvar: Long): UInt
+public expect fun propVariantGetElementCount(propvar: COpaquePointer?): UInt
 
-public expect fun PropVariantGetFileTimeElem(propvar: Long, ielem: UInt, pftval: Long): HRESULT
+public expect fun propVariantGetFileTimeElem(propvar: COpaquePointer?, ielem: UInt, pftval: COpaquePointer?): Hresult
 
-public expect fun PropVariantGetInt16Elem(propvar: Long, ielem: UInt, pnval: Long): HRESULT
+public expect fun propVariantGetInt16Elem(propvar: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult
 
-public expect fun PropVariantGetInt32Elem(propvar: Long, ielem: UInt, pnval: Long): HRESULT
+public expect fun propVariantGetInt32Elem(propvar: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult
 
-public expect fun PropVariantGetInt64Elem(propvar: Long, ielem: UInt, pnval: Long): HRESULT
+public expect fun propVariantGetInt64Elem(propvar: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult
 
-public expect fun PropVariantGetStringElem(propvar: Long, ielem: UInt, ppszval: Long): HRESULT
+public expect fun propVariantGetStringElem(propvar: COpaquePointer?, ielem: UInt, ppszval: COpaquePointer?): Hresult
 
-public expect fun PropVariantGetUInt16Elem(propvar: Long, ielem: UInt, pnval: Long): HRESULT
+public expect fun propVariantGetUInt16Elem(propvar: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult
 
-public expect fun PropVariantGetUInt32Elem(propvar: Long, ielem: UInt, pnval: Long): HRESULT
+public expect fun propVariantGetUInt32Elem(propvar: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult
 
-public expect fun PropVariantGetUInt64Elem(propvar: Long, ielem: UInt, pnval: Long): HRESULT
+public expect fun propVariantGetUInt64Elem(propvar: COpaquePointer?, ielem: UInt, pnval: COpaquePointer?): Hresult
 
-public expect fun PropVariantToBSTR(propvar: Long, pbstrout: Long): HRESULT
+public expect fun propVariantToBSTR(propvar: COpaquePointer?, pbstrout: COpaquePointer?): Hresult
 
-public expect fun PropVariantToBoolean(propvarin: Long, pfret: Long): HRESULT
+public expect fun propVariantToBoolean(propvarin: COpaquePointer?, pfret: COpaquePointer?): Hresult
 
-public expect fun PropVariantToBooleanVector(propvar: Long, prgf: Long, crgf: UInt, pcelem: Long): HRESULT
+public expect fun propVariantToBooleanVector(propvar: COpaquePointer?, prgf: COpaquePointer?, crgf: UInt, pcelem: COpaquePointer?): Hresult
 
-public expect fun PropVariantToBooleanVectorAlloc(propvar: Long, pprgf: Long, pcelem: Long): HRESULT
+public expect fun propVariantToBooleanVectorAlloc(propvar: COpaquePointer?, pprgf: COpaquePointer?, pcelem: COpaquePointer?): Hresult
 
-public expect fun PropVariantToBooleanWithDefault(propvarin: Long, fdefault: BOOL): BOOL
+public expect fun propVariantToBooleanWithDefault(propvarin: COpaquePointer?, fdefault: Bool): Bool
 
-public expect fun PropVariantToBuffer(propvar: Long, pv: Long, cb: UInt): HRESULT
+public expect fun propVariantToBuffer(propvar: COpaquePointer?, pv: COpaquePointer?, cb: UInt): Hresult
 
-public expect fun PropVariantToDouble(propvarin: Long, pdblret: Long): HRESULT
+public expect fun propVariantToDouble(propvarin: COpaquePointer?, pdblret: COpaquePointer?): Hresult
 
-public expect fun PropVariantToDoubleVector(propvar: Long, prgn: Long, crgn: UInt, pcelem: Long): HRESULT
+public expect fun propVariantToDoubleVector(propvar: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult
 
-public expect fun PropVariantToDoubleVectorAlloc(propvar: Long, pprgn: Long, pcelem: Long): HRESULT
+public expect fun propVariantToDoubleVectorAlloc(propvar: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult
 
-public expect fun PropVariantToDoubleWithDefault(propvarin: Long, dbldefault: Double): Double
+public expect fun propVariantToDoubleWithDefault(propvarin: COpaquePointer?, dbldefault: Double): Double
 
-public expect fun PropVariantToFileTime(propvar: Long, pstfout: PSTIME_FLAGS, pftout: Long): HRESULT
+public expect fun propVariantToFileTime(propvar: COpaquePointer?, pstfout: PstimeFlags, pftout: COpaquePointer?): Hresult
 
-public expect fun PropVariantToFileTimeVector(propvar: Long, prgft: Long, crgft: UInt, pcelem: Long): HRESULT
+public expect fun propVariantToFileTimeVector(propvar: COpaquePointer?, prgft: COpaquePointer?, crgft: UInt, pcelem: COpaquePointer?): Hresult
 
-public expect fun PropVariantToFileTimeVectorAlloc(propvar: Long, pprgft: Long, pcelem: Long): HRESULT
+public expect fun propVariantToFileTimeVectorAlloc(propvar: COpaquePointer?, pprgft: COpaquePointer?, pcelem: COpaquePointer?): Hresult
 
-public expect fun PropVariantToGUID(propvar: Long, pguid: Long): HRESULT
+public expect fun propVariantToGUID(propvar: COpaquePointer?, pguid: COpaquePointer?): Hresult
 
-public expect fun PropVariantToInt16(propvarin: Long, piret: Long): HRESULT
+public expect fun propVariantToInt16(propvarin: COpaquePointer?, piret: COpaquePointer?): Hresult
 
-public expect fun PropVariantToInt16Vector(propvar: Long, prgn: Long, crgn: UInt, pcelem: Long): HRESULT
+public expect fun propVariantToInt16Vector(propvar: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult
 
-public expect fun PropVariantToInt16VectorAlloc(propvar: Long, pprgn: Long, pcelem: Long): HRESULT
+public expect fun propVariantToInt16VectorAlloc(propvar: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult
 
-public expect fun PropVariantToInt16WithDefault(propvarin: Long, idefault: Short): Short
+public expect fun propVariantToInt16WithDefault(propvarin: COpaquePointer?, idefault: Short): Short
 
-public expect fun PropVariantToInt32(propvarin: Long, plret: Long): HRESULT
+public expect fun propVariantToInt32(propvarin: COpaquePointer?, plret: COpaquePointer?): Hresult
 
-public expect fun PropVariantToInt32Vector(propvar: Long, prgn: Long, crgn: UInt, pcelem: Long): HRESULT
+public expect fun propVariantToInt32Vector(propvar: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult
 
-public expect fun PropVariantToInt32VectorAlloc(propvar: Long, pprgn: Long, pcelem: Long): HRESULT
+public expect fun propVariantToInt32VectorAlloc(propvar: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult
 
-public expect fun PropVariantToInt32WithDefault(propvarin: Long, ldefault: Int): Int
+public expect fun propVariantToInt32WithDefault(propvarin: COpaquePointer?, ldefault: Int): Int
 
-public expect fun PropVariantToInt64(propvarin: Long, pllret: Long): HRESULT
+public expect fun propVariantToInt64(propvarin: COpaquePointer?, pllret: COpaquePointer?): Hresult
 
-public expect fun PropVariantToInt64Vector(propvar: Long, prgn: Long, crgn: UInt, pcelem: Long): HRESULT
+public expect fun propVariantToInt64Vector(propvar: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult
 
-public expect fun PropVariantToInt64VectorAlloc(propvar: Long, pprgn: Long, pcelem: Long): HRESULT
+public expect fun propVariantToInt64VectorAlloc(propvar: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult
 
-public expect fun PropVariantToInt64WithDefault(propvarin: Long, lldefault: Long): Long
+public expect fun propVariantToInt64WithDefault(propvarin: COpaquePointer?, lldefault: Long): Long
 
-public expect fun PropVariantToString(propvar: Long, psz: PWSTR, cch: UInt): HRESULT
+public expect fun propVariantToString(propvar: COpaquePointer?, psz: Pwstr, cch: UInt): Hresult
 
-public expect fun PropVariantToStringAlloc(propvar: Long, ppszout: Long): HRESULT
+public expect fun propVariantToStringAlloc(propvar: COpaquePointer?, ppszout: COpaquePointer?): Hresult
 
-public expect fun PropVariantToStringVector(propvar: Long, prgsz: Long, crgsz: UInt, pcelem: Long): HRESULT
+public expect fun propVariantToStringVector(propvar: COpaquePointer?, prgsz: COpaquePointer?, crgsz: UInt, pcelem: COpaquePointer?): Hresult
 
-public expect fun PropVariantToStringVectorAlloc(propvar: Long, pprgsz: Long, pcelem: Long): HRESULT
+public expect fun propVariantToStringVectorAlloc(propvar: COpaquePointer?, pprgsz: COpaquePointer?, pcelem: COpaquePointer?): Hresult
 
-public expect fun PropVariantToStringWithDefault(propvarin: Long, pszdefault: PCWSTR): PCWSTR
+public expect fun propVariantToStringWithDefault(propvarin: COpaquePointer?, pszdefault: Pcwstr): Pcwstr
 
-public expect fun PropVariantToUInt16(propvarin: Long, puiret: Long): HRESULT
+public expect fun propVariantToUInt16(propvarin: COpaquePointer?, puiret: COpaquePointer?): Hresult
 
-public expect fun PropVariantToUInt16Vector(propvar: Long, prgn: Long, crgn: UInt, pcelem: Long): HRESULT
+public expect fun propVariantToUInt16Vector(propvar: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult
 
-public expect fun PropVariantToUInt16VectorAlloc(propvar: Long, pprgn: Long, pcelem: Long): HRESULT
+public expect fun propVariantToUInt16VectorAlloc(propvar: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult
 
-public expect fun PropVariantToUInt16WithDefault(propvarin: Long, uidefault: UShort): UShort
+public expect fun propVariantToUInt16WithDefault(propvarin: COpaquePointer?, uidefault: UShort): UShort
 
-public expect fun PropVariantToUInt32(propvarin: Long, pulret: Long): HRESULT
+public expect fun propVariantToUInt32(propvarin: COpaquePointer?, pulret: COpaquePointer?): Hresult
 
-public expect fun PropVariantToUInt32Vector(propvar: Long, prgn: Long, crgn: UInt, pcelem: Long): HRESULT
+public expect fun propVariantToUInt32Vector(propvar: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult
 
-public expect fun PropVariantToUInt32VectorAlloc(propvar: Long, pprgn: Long, pcelem: Long): HRESULT
+public expect fun propVariantToUInt32VectorAlloc(propvar: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult
 
-public expect fun PropVariantToUInt32WithDefault(propvarin: Long, uldefault: UInt): UInt
+public expect fun propVariantToUInt32WithDefault(propvarin: COpaquePointer?, uldefault: UInt): UInt
 
-public expect fun PropVariantToUInt64(propvarin: Long, pullret: Long): HRESULT
+public expect fun propVariantToUInt64(propvarin: COpaquePointer?, pullret: COpaquePointer?): Hresult
 
-public expect fun PropVariantToUInt64Vector(propvar: Long, prgn: Long, crgn: UInt, pcelem: Long): HRESULT
+public expect fun propVariantToUInt64Vector(propvar: COpaquePointer?, prgn: COpaquePointer?, crgn: UInt, pcelem: COpaquePointer?): Hresult
 
-public expect fun PropVariantToUInt64VectorAlloc(propvar: Long, pprgn: Long, pcelem: Long): HRESULT
+public expect fun propVariantToUInt64VectorAlloc(propvar: COpaquePointer?, pprgn: COpaquePointer?, pcelem: COpaquePointer?): Hresult
 
-public expect fun PropVariantToUInt64WithDefault(propvarin: Long, ulldefault: ULong): ULong
+public expect fun propVariantToUInt64WithDefault(propvarin: COpaquePointer?, ulldefault: ULong): ULong
 
-public expect fun PropVariantToVariant(ppropvar: Long, pvar: Long): HRESULT
+public expect fun propVariantToVariant(ppropvar: COpaquePointer?, pvar: COpaquePointer?): Hresult
 
-public expect fun PropVariantToWinRTPropertyValue(propvar: Long, riid: Long, ppv: Long): HRESULT
+public expect fun propVariantToWinRTPropertyValue(propvar: COpaquePointer?, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult
 
-public expect fun ReadClassStg(pstg: Long, pclsid: Long): HRESULT
+public expect fun readClassStg(pstg: COpaquePointer?, pclsid: COpaquePointer?): Hresult
 
-public expect fun ReadClassStm(pstm: Long, pclsid: Long): HRESULT
+public expect fun readClassStm(pstm: COpaquePointer?, pclsid: COpaquePointer?): Hresult
 
-public expect fun ReadFmtUserTypeStg(pstg: Long, pcf: Long, lplpszusertype: Long): HRESULT
+public expect fun readFmtUserTypeStg(pstg: COpaquePointer?, pcf: COpaquePointer?, lplpszusertype: COpaquePointer?): Hresult
 
-public expect fun SetConvertStg(pstg: Long, fconvert: BOOL): HRESULT
+public expect fun setConvertStg(pstg: COpaquePointer?, fconvert: Bool): Hresult
 
-public expect fun StgConvertPropertyToVariant(pprop: Long, codepage: UShort, pvar: Long, pma: Long): Boolean
+public expect fun stgConvertPropertyToVariant(pprop: COpaquePointer?, codepage: UShort, pvar: COpaquePointer?, pma: COpaquePointer?): Boolean
 
-public expect fun StgConvertVariantToProperty(pvar: Long, codepage: UShort, pprop: Long, pcb: Long, pid: UInt, freserved: Boolean, pcindirect: Long): Long
+public expect fun stgConvertVariantToProperty(pvar: COpaquePointer?, codepage: UShort, pprop: COpaquePointer?, pcb: COpaquePointer?, pid: UInt, freserved: Boolean, pcindirect: COpaquePointer?): COpaquePointer?
 
-public expect fun StgCreateDocfile(pwcsname: PCWSTR, grfmode: STGM, reserved: UInt, ppstgopen: Long): HRESULT
+public expect fun stgCreateDocfile(pwcsname: Pcwstr, grfmode: Stgm, reserved: UInt, ppstgopen: COpaquePointer?): Hresult
 
-public expect fun StgCreateDocfileOnILockBytes(plkbyt: Long, grfmode: STGM, reserved: UInt, ppstgopen: Long): HRESULT
+public expect fun stgCreateDocfileOnILockBytes(plkbyt: COpaquePointer?, grfmode: Stgm, reserved: UInt, ppstgopen: COpaquePointer?): Hresult
 
-public expect fun StgCreatePropSetStg(pstorage: Long, dwreserved: UInt, pppropsetstg: Long): HRESULT
+public expect fun stgCreatePropSetStg(pstorage: COpaquePointer?, dwreserved: UInt, pppropsetstg: COpaquePointer?): Hresult
 
-public expect fun StgCreatePropStg(punk: Long, fmtid: Long, pclsid: Long, grfflags: UInt, dwreserved: UInt, pppropstg: Long): HRESULT
+public expect fun stgCreatePropStg(punk: COpaquePointer?, fmtid: COpaquePointer?, pclsid: COpaquePointer?, grfflags: UInt, dwreserved: UInt, pppropstg: COpaquePointer?): Hresult
 
-public expect fun StgCreateStorageEx(pwcsname: PCWSTR, grfmode: STGM, stgfmt: STGFMT, grfattrs: UInt, pstgoptions: Long, psecuritydescriptor: PSECURITY_DESCRIPTOR, riid: Long, ppobjectopen: Long): HRESULT
+public expect fun stgCreateStorageEx(pwcsname: Pcwstr, grfmode: Stgm, stgfmt: Stgfmt, grfattrs: UInt, pstgoptions: COpaquePointer?, psecuritydescriptor: PsecurityDescriptor, riid: COpaquePointer?, ppobjectopen: COpaquePointer?): Hresult
 
-public expect fun StgDeserializePropVariant(pprop: Long, cbmax: UInt, ppropvar: Long): HRESULT
+public expect fun stgDeserializePropVariant(pprop: COpaquePointer?, cbmax: UInt, ppropvar: COpaquePointer?): Hresult
 
-public expect fun StgGetIFillLockBytesOnFile(pwcsname: PCWSTR, ppflb: Long): HRESULT
+public expect fun stgGetIFillLockBytesOnFile(pwcsname: Pcwstr, ppflb: COpaquePointer?): Hresult
 
-public expect fun StgGetIFillLockBytesOnILockBytes(pilb: Long, ppflb: Long): HRESULT
+public expect fun stgGetIFillLockBytesOnILockBytes(pilb: COpaquePointer?, ppflb: COpaquePointer?): Hresult
 
-public expect fun StgIsStorageFile(pwcsname: PCWSTR): HRESULT
+public expect fun stgIsStorageFile(pwcsname: Pcwstr): Hresult
 
-public expect fun StgIsStorageILockBytes(plkbyt: Long): HRESULT
+public expect fun stgIsStorageILockBytes(plkbyt: COpaquePointer?): Hresult
 
-public expect fun StgOpenAsyncDocfileOnIFillLockBytes(pflb: Long, grfmode: UInt, asyncflags: UInt, ppstgopen: Long): HRESULT
+public expect fun stgOpenAsyncDocfileOnIFillLockBytes(pflb: COpaquePointer?, grfmode: UInt, asyncflags: UInt, ppstgopen: COpaquePointer?): Hresult
 
-public expect fun StgOpenLayoutDocfile(pwcsdfname: PCWSTR, grfmode: UInt, reserved: UInt, ppstgopen: Long): HRESULT
+public expect fun stgOpenLayoutDocfile(pwcsdfname: Pcwstr, grfmode: UInt, reserved: UInt, ppstgopen: COpaquePointer?): Hresult
 
-public expect fun StgOpenPropStg(punk: Long, fmtid: Long, grfflags: UInt, dwreserved: UInt, pppropstg: Long): HRESULT
+public expect fun stgOpenPropStg(punk: COpaquePointer?, fmtid: COpaquePointer?, grfflags: UInt, dwreserved: UInt, pppropstg: COpaquePointer?): Hresult
 
-public expect fun StgOpenStorage(pwcsname: PCWSTR, pstgpriority: Long, grfmode: STGM, snbexclude: Long, reserved: UInt, ppstgopen: Long): HRESULT
+public expect fun stgOpenStorage(pwcsname: Pcwstr, pstgpriority: COpaquePointer?, grfmode: Stgm, snbexclude: COpaquePointer?, reserved: UInt, ppstgopen: COpaquePointer?): Hresult
 
-public expect fun StgOpenStorageEx(pwcsname: PCWSTR, grfmode: STGM, stgfmt: STGFMT, grfattrs: UInt, pstgoptions: Long, psecuritydescriptor: PSECURITY_DESCRIPTOR, riid: Long, ppobjectopen: Long): HRESULT
+public expect fun stgOpenStorageEx(pwcsname: Pcwstr, grfmode: Stgm, stgfmt: Stgfmt, grfattrs: UInt, pstgoptions: COpaquePointer?, psecuritydescriptor: PsecurityDescriptor, riid: COpaquePointer?, ppobjectopen: COpaquePointer?): Hresult
 
-public expect fun StgOpenStorageOnILockBytes(plkbyt: Long, pstgpriority: Long, grfmode: STGM, snbexclude: Long, reserved: UInt, ppstgopen: Long): HRESULT
+public expect fun stgOpenStorageOnILockBytes(plkbyt: COpaquePointer?, pstgpriority: COpaquePointer?, grfmode: Stgm, snbexclude: COpaquePointer?, reserved: UInt, ppstgopen: COpaquePointer?): Hresult
 
-public expect fun StgPropertyLengthAsVariant(pprop: Long, cbprop: UInt, codepage: UShort, breserved: UByte): UInt
+public expect fun stgPropertyLengthAsVariant(pprop: COpaquePointer?, cbprop: UInt, codepage: UShort, breserved: UByte): UInt
 
-public expect fun StgSerializePropVariant(ppropvar: Long, ppprop: Long, pcb: Long): HRESULT
+public expect fun stgSerializePropVariant(ppropvar: COpaquePointer?, ppprop: COpaquePointer?, pcb: COpaquePointer?): Hresult
 
-public expect fun StgSetTimes(lpszname: PCWSTR, pctime: Long, patime: Long, pmtime: Long): HRESULT
+public expect fun stgSetTimes(lpszname: Pcwstr, pctime: COpaquePointer?, patime: COpaquePointer?, pmtime: COpaquePointer?): Hresult
 
-public expect fun VariantToPropVariant(pvar: Long, ppropvar: Long): HRESULT
+public expect fun variantToPropVariant(pvar: COpaquePointer?, ppropvar: COpaquePointer?): Hresult
 
-public expect fun WinRTPropertyValueToPropVariant(punkpropertyvalue: Long, ppropvar: Long): HRESULT
+public expect fun winRTPropertyValueToPropVariant(punkpropertyvalue: COpaquePointer?, ppropvar: COpaquePointer?): Hresult
 
-public expect fun WriteClassStg(pstg: Long, rclsid: Long): HRESULT
+public expect fun writeClassStg(pstg: COpaquePointer?, rclsid: COpaquePointer?): Hresult
 
-public expect fun WriteClassStm(pstm: Long, rclsid: Long): HRESULT
+public expect fun writeClassStm(pstm: COpaquePointer?, rclsid: COpaquePointer?): Hresult
 
-public expect fun WriteFmtUserTypeStg(pstg: Long, cf: UShort, lpszusertype: PCWSTR): HRESULT
+public expect fun writeFmtUserTypeStg(pstg: COpaquePointer?, cf: UShort, lpszusertype: Pcwstr): Hresult

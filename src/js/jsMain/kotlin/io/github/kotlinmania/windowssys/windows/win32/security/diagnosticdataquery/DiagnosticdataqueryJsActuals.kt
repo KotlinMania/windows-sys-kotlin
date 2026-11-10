@@ -2,113 +2,114 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.security.diagnosticdataquery
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
 
 private val _windowsWin32SecurityDiagnosticdataqueryNapiAddon: dynamic =
-    js("(function() { if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var req = (new Function('t', 'return typeof require === t ? require : null'))('function'); if (!req) return null; var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; for (var d = 0; d < 8; d++) { var c1 = path.resolve(dir, 'build/node-ffi/windows_sys_native.node'); if (fs.existsSync(c1)) return req(c1); var c2 = path.resolve(dir, 'src/js/node-windows_sys/build/Release/windows_sys_native.node'); if (fs.existsSync(c2)) return req(c2); var c3 = path.resolve(dir, 'src/js/node-windows_sys/build/Debug/windows_sys_native.node'); if (fs.existsSync(c3)) return req(c3); var c4 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Release/windows_sys_native.node'); if (fs.existsSync(c4)) return req(c4); var c5 = path.resolve(dir, 'src/js/node-windows_sys/dist/build/Debug/windows_sys_native.node'); if (fs.existsSync(c5)) return req(c5); var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } return null; })()")
+    js("(function() { if (typeof globalThis !== 'undefined' && typeof globalThis.__km_napi_windowssys !== 'undefined') return globalThis.__km_napi_windowssys; if (typeof process === 'undefined' || !process.versions || !process.versions.node) return null; var mod = process.getBuiltinModule ? process.getBuiltinModule('module') : (process.mainModule && process.mainModule.constructor); var req = (mod && mod.createRequire) ? mod.createRequire((process.cwd ? process.cwd() : '.') + '/package.json') : (process.mainModule ? process.mainModule.require : null); if (!req) return null; try { var pkg = req('@kotlinmania/windowssys-native-bindings'); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = pkg; return pkg; } catch (_) {} var fs = req('fs'); var path = req('path'); var dir = process.cwd ? process.cwd() : '.'; var rels = ['windowssys_native.node', 'build/node-ffi/windowssys_native.node', 'build/node-ffi/release/windowssys_native.node', 'build/node-ffi/debug/windowssys_native.node', 'src/js/node-windowssys/build/Release/windowssys_native.node', 'src/js/node-windowssys/build/Debug/windowssys_native.node', 'src/js/node-windowssys/dist/build/Release/windowssys_native.node', 'src/js/node-windowssys/dist/build/Debug/windowssys_native.node']; for (var d = 0; d < 8; d++) { for (var i = 0; i < rels.length; i++) { var c = path.resolve(dir, rels[i]); if (fs.existsSync(c)) { var loaded = req(c); if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = loaded; return loaded; } } var parent = path.dirname(dir); if (parent === dir) break; dir = parent; } if (typeof globalThis !== 'undefined') globalThis.__km_napi_windowssys = null; return null; })()")
 
-public actual fun DdqCancelDiagnosticRecordOperation(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION): HRESULT =
-    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_DdqCancelDiagnosticRecordOperation(hsession.toString()) as Int) else 0
+public actual fun ddqCancelDiagnosticRecordOperation(hsession: HdiagnosticDataQuerySession): Hresult =
+    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_ddqCancelDiagnosticRecordOperation((hsession?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DdqCloseSession(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION): HRESULT =
-    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_DdqCloseSession(hsession.toString()) as Int) else 0
+public actual fun ddqCloseSession(hsession: HdiagnosticDataQuerySession): Hresult =
+    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_ddqCloseSession((hsession?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DdqCreateSession(accesslevel: DdqAccessLevel, hsession: Long): HRESULT =
-    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_DdqCreateSession(accesslevel, hsession.toString()) as Int) else 0
+public actual fun ddqCreateSession(accesslevel: DdqAccessLevel, hsession: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_ddqCreateSession(accesslevel, (hsession?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DdqExtractDiagnosticReport(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, reportstoretype: UInt, reportkey: PCWSTR, destinationpath: PCWSTR): HRESULT =
-    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_DdqExtractDiagnosticReport(hsession.toString(), reportstoretype.toInt(), reportkey.toString(), destinationpath.toString()) as Int) else 0
+public actual fun ddqExtractDiagnosticReport(hsession: HdiagnosticDataQuerySession, reportstoretype: UInt, reportkey: Pcwstr, destinationpath: Pcwstr): Hresult =
+    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_ddqExtractDiagnosticReport((hsession?.value ?: 0L).toString(), reportstoretype.toInt(), (reportkey?.value ?: 0L).toString(), (destinationpath?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DdqFreeDiagnosticRecordLocaleTags(htagdescription: HDIAGNOSTIC_EVENT_TAG_DESCRIPTION): HRESULT =
-    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_DdqFreeDiagnosticRecordLocaleTags(htagdescription.toString()) as Int) else 0
+public actual fun ddqFreeDiagnosticRecordLocaleTags(htagdescription: HdiagnosticEventTagDescription): Hresult =
+    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticRecordLocaleTags((htagdescription?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DdqFreeDiagnosticRecordPage(hrecord: HDIAGNOSTIC_RECORD): HRESULT =
-    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_DdqFreeDiagnosticRecordPage(hrecord.toString()) as Int) else 0
+public actual fun ddqFreeDiagnosticRecordPage(hrecord: HdiagnosticRecord): Hresult =
+    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticRecordPage((hrecord?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DdqFreeDiagnosticRecordProducerCategories(hcategorydescription: HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION): HRESULT =
-    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_DdqFreeDiagnosticRecordProducerCategories(hcategorydescription.toString()) as Int) else 0
+public actual fun ddqFreeDiagnosticRecordProducerCategories(hcategorydescription: HdiagnosticEventCategoryDescription): Hresult =
+    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticRecordProducerCategories((hcategorydescription?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DdqFreeDiagnosticRecordProducers(hproducerdescription: HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION): HRESULT =
-    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_DdqFreeDiagnosticRecordProducers(hproducerdescription.toString()) as Int) else 0
+public actual fun ddqFreeDiagnosticRecordProducers(hproducerdescription: HdiagnosticEventProducerDescription): Hresult =
+    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticRecordProducers((hproducerdescription?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DdqFreeDiagnosticReport(hreport: HDIAGNOSTIC_REPORT): HRESULT =
-    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_DdqFreeDiagnosticReport(hreport.toString()) as Int) else 0
+public actual fun ddqFreeDiagnosticReport(hreport: HdiagnosticReport): Hresult =
+    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_ddqFreeDiagnosticReport((hreport?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DdqGetDiagnosticDataAccessLevelAllowed(accesslevel: Long): HRESULT =
-    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticDataAccessLevelAllowed(accesslevel.toString()) as Int) else 0
+public actual fun ddqGetDiagnosticDataAccessLevelAllowed(accesslevel: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticDataAccessLevelAllowed((accesslevel?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DdqGetDiagnosticRecordAtIndex(hrecord: HDIAGNOSTIC_RECORD, index: UInt, record: Long): HRESULT =
-    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordAtIndex(hrecord.toString(), index.toInt(), record.toString()) as Int) else 0
+public actual fun ddqGetDiagnosticRecordAtIndex(hrecord: HdiagnosticRecord, index: UInt, record: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordAtIndex((hrecord?.value ?: 0L).toString(), index.toInt(), (record?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DdqGetDiagnosticRecordBinaryDistribution(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, producernames: Long, producernamecount: UInt, topnbinaries: UInt, binarystats: Long, statcount: Long): HRESULT =
-    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordBinaryDistribution(hsession.toString(), producernames.toString(), producernamecount.toInt(), topnbinaries.toInt(), binarystats.toString(), statcount.toString()) as Int) else 0
+public actual fun ddqGetDiagnosticRecordBinaryDistribution(hsession: HdiagnosticDataQuerySession, producernames: COpaquePointer?, producernamecount: UInt, topnbinaries: UInt, binarystats: COpaquePointer?, statcount: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordBinaryDistribution((hsession?.value ?: 0L).toString(), (producernames?.value ?: 0L).toString(), producernamecount.toInt(), topnbinaries.toInt(), (binarystats?.value ?: 0L).toString(), (statcount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DdqGetDiagnosticRecordCategoryAtIndex(hcategorydescription: HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION, index: UInt, categorydescription: Long): HRESULT =
-    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordCategoryAtIndex(hcategorydescription.toString(), index.toInt(), categorydescription.toString()) as Int) else 0
+public actual fun ddqGetDiagnosticRecordCategoryAtIndex(hcategorydescription: HdiagnosticEventCategoryDescription, index: UInt, categorydescription: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordCategoryAtIndex((hcategorydescription?.value ?: 0L).toString(), index.toInt(), (categorydescription?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DdqGetDiagnosticRecordCategoryCount(hcategorydescription: HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION, categorydescriptioncount: Long): HRESULT =
-    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordCategoryCount(hcategorydescription.toString(), categorydescriptioncount.toString()) as Int) else 0
+public actual fun ddqGetDiagnosticRecordCategoryCount(hcategorydescription: HdiagnosticEventCategoryDescription, categorydescriptioncount: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordCategoryCount((hcategorydescription?.value ?: 0L).toString(), (categorydescriptioncount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DdqGetDiagnosticRecordCount(hrecord: HDIAGNOSTIC_RECORD, recordcount: Long): HRESULT =
-    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordCount(hrecord.toString(), recordcount.toString()) as Int) else 0
+public actual fun ddqGetDiagnosticRecordCount(hrecord: HdiagnosticRecord, recordcount: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordCount((hrecord?.value ?: 0L).toString(), (recordcount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DdqGetDiagnosticRecordLocaleTagAtIndex(htagdescription: HDIAGNOSTIC_EVENT_TAG_DESCRIPTION, index: UInt, tagdescription: Long): HRESULT =
-    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordLocaleTagAtIndex(htagdescription.toString(), index.toInt(), tagdescription.toString()) as Int) else 0
+public actual fun ddqGetDiagnosticRecordLocaleTagAtIndex(htagdescription: HdiagnosticEventTagDescription, index: UInt, tagdescription: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordLocaleTagAtIndex((htagdescription?.value ?: 0L).toString(), index.toInt(), (tagdescription?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DdqGetDiagnosticRecordLocaleTagCount(htagdescription: HDIAGNOSTIC_EVENT_TAG_DESCRIPTION, tagdescriptioncount: Long): HRESULT =
-    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordLocaleTagCount(htagdescription.toString(), tagdescriptioncount.toString()) as Int) else 0
+public actual fun ddqGetDiagnosticRecordLocaleTagCount(htagdescription: HdiagnosticEventTagDescription, tagdescriptioncount: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordLocaleTagCount((htagdescription?.value ?: 0L).toString(), (tagdescriptioncount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DdqGetDiagnosticRecordLocaleTags(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, locale: PCWSTR, htagdescription: Long): HRESULT =
-    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordLocaleTags(hsession.toString(), locale.toString(), htagdescription.toString()) as Int) else 0
+public actual fun ddqGetDiagnosticRecordLocaleTags(hsession: HdiagnosticDataQuerySession, locale: Pcwstr, htagdescription: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordLocaleTags((hsession?.value ?: 0L).toString(), (locale?.value ?: 0L).toString(), (htagdescription?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DdqGetDiagnosticRecordPage(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, searchcriteria: Long, offset: UInt, pagerecordcount: UInt, baserowid: Long, hrecord: Long): HRESULT =
-    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordPage(hsession.toString(), searchcriteria.toString(), offset.toInt(), pagerecordcount.toInt(), baserowid.toString(), hrecord.toString()) as Int) else 0
+public actual fun ddqGetDiagnosticRecordPage(hsession: HdiagnosticDataQuerySession, searchcriteria: COpaquePointer?, offset: UInt, pagerecordcount: UInt, baserowid: Long, hrecord: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordPage((hsession?.value ?: 0L).toString(), (searchcriteria?.value ?: 0L).toString(), offset.toInt(), pagerecordcount.toInt(), baserowid.toString(), (hrecord?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DdqGetDiagnosticRecordPayload(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, rowid: Long, payload: Long): HRESULT =
-    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordPayload(hsession.toString(), rowid.toString(), payload.toString()) as Int) else 0
+public actual fun ddqGetDiagnosticRecordPayload(hsession: HdiagnosticDataQuerySession, rowid: Long, payload: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordPayload((hsession?.value ?: 0L).toString(), rowid.toString(), (payload?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DdqGetDiagnosticRecordProducerAtIndex(hproducerdescription: HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION, index: UInt, producerdescription: Long): HRESULT =
-    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordProducerAtIndex(hproducerdescription.toString(), index.toInt(), producerdescription.toString()) as Int) else 0
+public actual fun ddqGetDiagnosticRecordProducerAtIndex(hproducerdescription: HdiagnosticEventProducerDescription, index: UInt, producerdescription: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordProducerAtIndex((hproducerdescription?.value ?: 0L).toString(), index.toInt(), (producerdescription?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DdqGetDiagnosticRecordProducerCategories(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, producername: PCWSTR, hcategorydescription: Long): HRESULT =
-    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordProducerCategories(hsession.toString(), producername.toString(), hcategorydescription.toString()) as Int) else 0
+public actual fun ddqGetDiagnosticRecordProducerCategories(hsession: HdiagnosticDataQuerySession, producername: Pcwstr, hcategorydescription: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordProducerCategories((hsession?.value ?: 0L).toString(), (producername?.value ?: 0L).toString(), (hcategorydescription?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DdqGetDiagnosticRecordProducerCount(hproducerdescription: HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION, producerdescriptioncount: Long): HRESULT =
-    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordProducerCount(hproducerdescription.toString(), producerdescriptioncount.toString()) as Int) else 0
+public actual fun ddqGetDiagnosticRecordProducerCount(hproducerdescription: HdiagnosticEventProducerDescription, producerdescriptioncount: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordProducerCount((hproducerdescription?.value ?: 0L).toString(), (producerdescriptioncount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DdqGetDiagnosticRecordProducers(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, hproducerdescription: Long): HRESULT =
-    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordProducers(hsession.toString(), hproducerdescription.toString()) as Int) else 0
+public actual fun ddqGetDiagnosticRecordProducers(hsession: HdiagnosticDataQuerySession, hproducerdescription: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordProducers((hsession?.value ?: 0L).toString(), (hproducerdescription?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DdqGetDiagnosticRecordStats(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, searchcriteria: Long, recordcount: Long, minrowid: Long, maxrowid: Long): HRESULT =
-    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordStats(hsession.toString(), searchcriteria.toString(), recordcount.toString(), minrowid.toString(), maxrowid.toString()) as Int) else 0
+public actual fun ddqGetDiagnosticRecordStats(hsession: HdiagnosticDataQuerySession, searchcriteria: COpaquePointer?, recordcount: COpaquePointer?, minrowid: COpaquePointer?, maxrowid: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordStats((hsession?.value ?: 0L).toString(), (searchcriteria?.value ?: 0L).toString(), (recordcount?.value ?: 0L).toString(), (minrowid?.value ?: 0L).toString(), (maxrowid?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DdqGetDiagnosticRecordSummary(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, producernames: Long, producernamecount: UInt, generalstats: Long): HRESULT =
-    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordSummary(hsession.toString(), producernames.toString(), producernamecount.toInt(), generalstats.toString()) as Int) else 0
+public actual fun ddqGetDiagnosticRecordSummary(hsession: HdiagnosticDataQuerySession, producernames: COpaquePointer?, producernamecount: UInt, generalstats: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordSummary((hsession?.value ?: 0L).toString(), (producernames?.value ?: 0L).toString(), producernamecount.toInt(), (generalstats?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DdqGetDiagnosticRecordTagDistribution(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, producernames: Long, producernamecount: UInt, tagstats: Long, statcount: Long): HRESULT =
-    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticRecordTagDistribution(hsession.toString(), producernames.toString(), producernamecount.toInt(), tagstats.toString(), statcount.toString()) as Int) else 0
+public actual fun ddqGetDiagnosticRecordTagDistribution(hsession: HdiagnosticDataQuerySession, producernames: COpaquePointer?, producernamecount: UInt, tagstats: COpaquePointer?, statcount: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticRecordTagDistribution((hsession?.value ?: 0L).toString(), (producernames?.value ?: 0L).toString(), producernamecount.toInt(), (tagstats?.value ?: 0L).toString(), (statcount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DdqGetDiagnosticReport(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, reportstoretype: UInt, hreport: Long): HRESULT =
-    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticReport(hsession.toString(), reportstoretype.toInt(), hreport.toString()) as Int) else 0
+public actual fun ddqGetDiagnosticReport(hsession: HdiagnosticDataQuerySession, reportstoretype: UInt, hreport: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticReport((hsession?.value ?: 0L).toString(), reportstoretype.toInt(), (hreport?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DdqGetDiagnosticReportAtIndex(hreport: HDIAGNOSTIC_REPORT, index: UInt, report: Long): HRESULT =
-    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticReportAtIndex(hreport.toString(), index.toInt(), report.toString()) as Int) else 0
+public actual fun ddqGetDiagnosticReportAtIndex(hreport: HdiagnosticReport, index: UInt, report: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticReportAtIndex((hreport?.value ?: 0L).toString(), index.toInt(), (report?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DdqGetDiagnosticReportCount(hreport: HDIAGNOSTIC_REPORT, reportcount: Long): HRESULT =
-    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticReportCount(hreport.toString(), reportcount.toString()) as Int) else 0
+public actual fun ddqGetDiagnosticReportCount(hreport: HdiagnosticReport, reportcount: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticReportCount((hreport?.value ?: 0L).toString(), (reportcount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DdqGetDiagnosticReportStoreReportCount(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, reportstoretype: UInt, reportcount: Long): HRESULT =
-    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_DdqGetDiagnosticReportStoreReportCount(hsession.toString(), reportstoretype.toInt(), reportcount.toString()) as Int) else 0
+public actual fun ddqGetDiagnosticReportStoreReportCount(hsession: HdiagnosticDataQuerySession, reportstoretype: UInt, reportcount: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_ddqGetDiagnosticReportStoreReportCount((hsession?.value ?: 0L).toString(), reportstoretype.toInt(), (reportcount?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DdqGetSessionAccessLevel(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, accesslevel: Long): HRESULT =
-    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_DdqGetSessionAccessLevel(hsession.toString(), accesslevel.toString()) as Int) else 0
+public actual fun ddqGetSessionAccessLevel(hsession: HdiagnosticDataQuerySession, accesslevel: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_ddqGetSessionAccessLevel((hsession?.value ?: 0L).toString(), (accesslevel?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DdqGetTranscriptConfiguration(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, currentconfig: Long): HRESULT =
-    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_DdqGetTranscriptConfiguration(hsession.toString(), currentconfig.toString()) as Int) else 0
+public actual fun ddqGetTranscriptConfiguration(hsession: HdiagnosticDataQuerySession, currentconfig: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_ddqGetTranscriptConfiguration((hsession?.value ?: 0L).toString(), (currentconfig?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DdqIsDiagnosticRecordSampledIn(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, providergroup: Long, providerid: Long, providername: PCWSTR, eventid: Long, eventname: PCWSTR, eventversion: Long, eventkeywords: Long, issampledin: Long): HRESULT =
-    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_DdqIsDiagnosticRecordSampledIn(hsession.toString(), providergroup.toString(), providerid.toString(), providername.toString(), eventid.toString(), eventname.toString(), eventversion.toString(), eventkeywords.toString(), issampledin.toString()) as Int) else 0
+public actual fun ddqIsDiagnosticRecordSampledIn(hsession: HdiagnosticDataQuerySession, providergroup: COpaquePointer?, providerid: COpaquePointer?, providername: Pcwstr, eventid: COpaquePointer?, eventname: Pcwstr, eventversion: COpaquePointer?, eventkeywords: COpaquePointer?, issampledin: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_ddqIsDiagnosticRecordSampledIn((hsession?.value ?: 0L).toString(), (providergroup?.value ?: 0L).toString(), (providerid?.value ?: 0L).toString(), (providername?.value ?: 0L).toString(), (eventid?.value ?: 0L).toString(), (eventname?.value ?: 0L).toString(), (eventversion?.value ?: 0L).toString(), (eventkeywords?.value ?: 0L).toString(), (issampledin?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")
 
-public actual fun DdqSetTranscriptConfiguration(hsession: HDIAGNOSTIC_DATA_QUERY_SESSION, desiredconfig: Long): HRESULT =
-    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_DdqSetTranscriptConfiguration(hsession.toString(), desiredconfig.toString()) as Int) else 0
+public actual fun ddqSetTranscriptConfiguration(hsession: HdiagnosticDataQuerySession, desiredconfig: COpaquePointer?): Hresult =
+    if (_windowsWin32SecurityDiagnosticdataqueryNapiAddon != null) (_windowsWin32SecurityDiagnosticdataqueryNapiAddon.windowssys_windows_win32_security_diagnosticdataquery_ddqSetTranscriptConfiguration((hsession?.value ?: 0L).toString(), (desiredconfig?.value ?: 0L).toString()) as Int) else throw UnsupportedOperationException("Native FFI addon is not available")

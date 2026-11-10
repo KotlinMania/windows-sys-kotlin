@@ -1,185 +1,187 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.ioctl
 
-public typealias BIN_TYPES = Int
+import io.github.kotlinmania.windowssys.COpaquePointer
 
-public typealias CHANGER_DEVICE_PROBLEM_TYPE = Int
+public typealias BinTypes = Int
 
-public typealias CHANGER_ELEMENT_STATUS_FLAGS = UInt
+public typealias ChangerDeviceProblemType = Int
 
-public typealias CHANGER_FEATURES = UInt
+public typealias ChangerElementStatusFlags = UInt
 
-public typealias CSVFS_DISK_CONNECTIVITY = Int
+public typealias ChangerFeatures = UInt
 
-public typealias CSV_CONTROL_OP = Int
+public typealias CsvfsDiskConnectivity = Int
 
-public typealias DETECTION_TYPE = Int
+public typealias CsvControlOp = Int
 
-public typealias DEVICEDUMP_COLLECTION_TYPEIDE_NOTIFICATION_TYPE = Int
+public typealias DetectionType = Int
 
-public typealias DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE = Int
+public typealias DevicedumpCollectionTypeideNotificationType = Int
 
-public typealias DEVICE_INTERNAL_STATUS_DATA_SET = Int
+public typealias DeviceInternalStatusDataRequestType = Int
 
-public typealias DISK_CACHE_RETENTION_PRIORITY = Int
+public typealias DeviceInternalStatusDataSet = Int
 
-public typealias DUPLICATE_EXTENTS_STATE = Int
+public typealias DiskCacheRetentionPriority = Int
 
-public typealias ELEMENT_TYPE = Int
+public typealias DuplicateExtentsState = Int
 
-public typealias FILESYSTEM_STATISTICS_TYPE = UShort
+public typealias ElementType = Int
 
-public typealias FILE_STORAGE_TIER_CLASS = Int
+public typealias FilesystemStatisticsType = UShort
 
-public typealias FILE_STORAGE_TIER_FLAGS = UInt
+public typealias FileStorageTierClass = Int
 
-public typealias FILE_STORAGE_TIER_MEDIA_TYPE = Int
+public typealias FileStorageTierFlags = UInt
 
-public typealias FS_BPIO_INFLAGS = Int
+public typealias FileStorageTierMediaType = Int
 
-public typealias FS_BPIO_OPERATIONS = Int
+public typealias FsBpioInflags = Int
 
-public typealias FS_BPIO_OUTFLAGS = Int
+public typealias FsBpioOperations = Int
 
-public typealias GET_CHANGER_PARAMETERS_FEATURES1 = UInt
+public typealias FsBpioOutflags = Int
 
-public typealias GPT_ATTRIBUTES = ULong
+public typealias GetChangerParametersFeatures1 = UInt
 
-public typealias LMR_QUERY_INFO_CLASS = Int
+public typealias GptAttributes = ULong
 
-public typealias MEDIA_TYPE = Int
+public typealias LmrQueryInfoClass = Int
 
-public typealias PARTITION_STYLE = Int
+public typealias MediaType = Int
 
-public fun interface PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACKFn {
-    public operator fun invoke(sourcecontext: Long, targetcontext: Long, relativeoffset: Long)
+public typealias PartitionStyle = Int
+
+public fun interface PioIrpExtProcessTrackedOffsetCallbackFn {
+    public operator fun invoke(sourcecontext: COpaquePointer?, targetcontext: COpaquePointer?, relativeoffset: Long)
 }
 
-public typealias PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK = PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACKFn?
+public typealias PioIrpExtProcessTrackedOffsetCallback = PioIrpExtProcessTrackedOffsetCallbackFn?
 
-public typealias QUERY_FILE_LAYOUT_FILTER_TYPE = Int
+public typealias QueryFileLayoutFilterType = Int
 
-public typealias REFS_SMR_VOLUME_GC_ACTION = Int
+public typealias RefsSmrVolumeGcAction = Int
 
-public typealias REFS_SMR_VOLUME_GC_METHOD = Int
+public typealias RefsSmrVolumeGcMethod = Int
 
-public typealias REFS_SMR_VOLUME_GC_STATE = Int
+public typealias RefsSmrVolumeGcState = Int
 
-public typealias SCM_BUS_FIRMWARE_ACTIVATION_STATE = Int
+public typealias ScmBusFirmwareActivationState = Int
 
-public typealias SCM_BUS_PROPERTY_ID = Int
+public typealias ScmBusPropertyId = Int
 
-public typealias SCM_BUS_QUERY_TYPE = Int
+public typealias ScmBusQueryType = Int
 
-public typealias SCM_BUS_SET_TYPE = Int
+public typealias ScmBusSetType = Int
 
-public typealias SCM_PD_FIRMWARE_ACTIVATION_STATE = Int
+public typealias ScmPdFirmwareActivationState = Int
 
-public typealias SCM_PD_HEALTH_STATUS = Int
+public typealias ScmPdHealthStatus = Int
 
-public typealias SCM_PD_LAST_FW_ACTIVATION_STATUS = Int
+public typealias ScmPdLastFwActivationStatus = Int
 
-public typealias SCM_PD_MEDIA_REINITIALIZATION_STATUS = Int
+public typealias ScmPdMediaReinitializationStatus = Int
 
-public typealias SCM_PD_OPERATIONAL_STATUS = Int
+public typealias ScmPdOperationalStatus = Int
 
-public typealias SCM_PD_OPERATIONAL_STATUS_REASON = Int
+public typealias ScmPdOperationalStatusReason = Int
 
-public typealias SCM_PD_PROPERTY_ID = Int
+public typealias ScmPdPropertyId = Int
 
-public typealias SCM_PD_QUERY_TYPE = Int
+public typealias ScmPdQueryType = Int
 
-public typealias SCM_PD_SET_TYPE = Int
+public typealias ScmPdSetType = Int
 
-public typealias SCM_REGION_FLAG = Int
+public typealias ScmRegionFlag = Int
 
-public typealias SHRINK_VOLUME_REQUEST_TYPES = Int
+public typealias ShrinkVolumeRequestTypes = Int
 
-public typealias STORAGE_ASSOCIATION_TYPE = Int
+public typealias StorageAssociationType = Int
 
-public typealias STORAGE_ATTRIBUTE_MGMT_ACTION = Int
+public typealias StorageAttributeMgmtAction = Int
 
-public typealias STORAGE_COMPONENT_HEALTH_STATUS = Int
+public typealias StorageComponentHealthStatus = Int
 
-public typealias STORAGE_COUNTER_TYPE = Int
+public typealias StorageCounterType = Int
 
-public typealias STORAGE_CRYPTO_ALGORITHM_ID = Int
+public typealias StorageCryptoAlgorithmId = Int
 
-public typealias STORAGE_CRYPTO_KEY_SIZE = Int
+public typealias StorageCryptoKeySize = Int
 
-public typealias STORAGE_DEVICE_FORM_FACTOR = Int
+public typealias StorageDeviceFormFactor = Int
 
-public typealias STORAGE_DEVICE_POWER_CAP_UNITS = Int
+public typealias StorageDevicePowerCapUnits = Int
 
-public typealias STORAGE_DIAGNOSTIC_LEVEL = Int
+public typealias StorageDiagnosticLevel = Int
 
-public typealias STORAGE_DIAGNOSTIC_TARGET_TYPE = Int
+public typealias StorageDiagnosticTargetType = Int
 
-public typealias STORAGE_DISK_HEALTH_STATUS = Int
+public typealias StorageDiskHealthStatus = Int
 
-public typealias STORAGE_DISK_OPERATIONAL_STATUS = Int
+public typealias StorageDiskOperationalStatus = Int
 
-public typealias STORAGE_ENCRYPTION_TYPE = Int
+public typealias StorageEncryptionType = Int
 
-public typealias STORAGE_IDENTIFIER_CODE_SET = Int
+public typealias StorageIdentifierCodeSet = Int
 
-public typealias STORAGE_IDENTIFIER_TYPE = Int
+public typealias StorageIdentifierType = Int
 
-public typealias STORAGE_ID_NAA_FORMAT = Int
+public typealias StorageIdNaaFormat = Int
 
-public typealias STORAGE_MEDIA_TYPE = Int
+public typealias StorageMediaType = Int
 
-public typealias STORAGE_OPERATIONAL_STATUS_REASON = Int
+public typealias StorageOperationalStatusReason = Int
 
-public typealias STORAGE_PORT_CODE_SET = Int
+public typealias StoragePortCodeSet = Int
 
-public typealias STORAGE_POWERUP_REASON_TYPE = Int
+public typealias StoragePowerupReasonType = Int
 
-public typealias STORAGE_PROPERTY_ID = Int
+public typealias StoragePropertyId = Int
 
-public typealias STORAGE_PROTOCOL_ATA_DATA_TYPE = Int
+public typealias StorageProtocolAtaDataType = Int
 
-public typealias STORAGE_PROTOCOL_NVME_DATA_TYPE = Int
+public typealias StorageProtocolNvmeDataType = Int
 
-public typealias STORAGE_PROTOCOL_TYPE = Int
+public typealias StorageProtocolType = Int
 
-public typealias STORAGE_PROTOCOL_UFS_DATA_TYPE = Int
+public typealias StorageProtocolUfsDataType = Int
 
-public typealias STORAGE_QUERY_TYPE = Int
+public typealias StorageQueryType = Int
 
-public typealias STORAGE_RESERVE_ID = Int
+public typealias StorageReserveId = Int
 
-public typealias STORAGE_RPMB_COMMAND_TYPE = Int
+public typealias StorageRpmbCommandType = Int
 
-public typealias STORAGE_RPMB_FRAME_TYPE = Int
+public typealias StorageRpmbFrameType = Int
 
-public typealias STORAGE_SANITIZE_METHOD = Int
+public typealias StorageSanitizeMethod = Int
 
-public typealias STORAGE_SET_TYPE = Int
+public typealias StorageSetType = Int
 
-public typealias STORAGE_TIER_CLASS = Int
+public typealias StorageTierClass = Int
 
-public typealias STORAGE_TIER_MEDIA_TYPE = Int
+public typealias StorageTierMediaType = Int
 
-public typealias STORAGE_ZONED_DEVICE_TYPES = Int
+public typealias StorageZonedDeviceTypes = Int
 
-public typealias STORAGE_ZONES_ATTRIBUTES = Int
+public typealias StorageZonesAttributes = Int
 
-public typealias STORAGE_ZONE_CONDITION = Int
+public typealias StorageZoneCondition = Int
 
-public typealias STORAGE_ZONE_TYPES = Int
+public typealias StorageZoneTypes = Int
 
-public typealias TXFS_RMF_LAGS = UInt
+public typealias TxfsRmfLags = UInt
 
-public typealias USN_DELETE_FLAGS = UInt
+public typealias UsnDeleteFlags = UInt
 
-public typealias USN_SOURCE_INFO_ID = UInt
+public typealias UsnSourceInfoId = UInt
 
-public typealias VIRTUAL_STORAGE_BEHAVIOR_CODE = Int
+public typealias VirtualStorageBehaviorCode = Int
 
-public typealias WRITE_CACHE_CHANGE = Int
+public typealias WriteCacheChange = Int
 
-public typealias WRITE_CACHE_ENABLE = Int
+public typealias WriteCacheEnable = Int
 
-public typealias WRITE_CACHE_TYPE = Int
+public typealias WriteCacheType = Int
 
-public typealias WRITE_THROUGH = Int
+public typealias WriteThrough = Int

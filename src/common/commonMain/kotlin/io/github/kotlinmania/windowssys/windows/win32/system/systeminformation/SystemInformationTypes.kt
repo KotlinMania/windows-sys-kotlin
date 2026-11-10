@@ -1,50 +1,50 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.systeminformation
 
-import io.github.kotlinmania.windowssys.core.PSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
+import io.github.kotlinmania.windowssys.core.Pstr
+import io.github.kotlinmania.windowssys.core.Pwstr
 
-public typealias COMPUTER_NAME_FORMAT = Int
+public typealias ComputerNameFormat = Int
 
-public typealias CPU_SET_INFORMATION_TYPE = Int
+public typealias CpuSetInformationType = Int
 
-public typealias DEP_SYSTEM_POLICY_TYPE = Int
+public typealias DepSystemPolicyType = Int
 
-public typealias DEVELOPER_DRIVE_ENABLEMENT_STATE = Int
+public typealias DeveloperDriveEnablementState = Int
 
-public typealias DEVICEFAMILYDEVICEFORM = UInt
+public typealias Devicefamilydeviceform = UInt
 
-public typealias DEVICEFAMILYINFOENUM = UInt
+public typealias Devicefamilyinfoenum = UInt
 
-public typealias FIRMWARE_TABLE_PROVIDER = UInt
+public typealias FirmwareTableProvider = UInt
 
-public typealias FIRMWARE_TYPE = Int
+public typealias FirmwareType = Int
 
-public typealias IMAGE_FILE_MACHINE = UShort
+public typealias ImageFileMachine = UShort
 
-public typealias LOGICAL_PROCESSOR_RELATIONSHIP = Int
+public typealias LogicalProcessorRelationship = Int
 
-public typealias OS_DEPLOYEMENT_STATE_VALUES = Int
+public typealias OsDeployementStateValues = Int
 
-public typealias OS_PRODUCT_TYPE = UInt
+public typealias OsProductType = UInt
 
-public fun interface PGET_SYSTEM_WOW64_DIRECTORY_AFn {
-    public operator fun invoke(lpbuffer: PSTR, usize: UInt): UInt
+public fun interface PgetSystemWow64DirectoryAFn {
+    public operator fun invoke(lpbuffer: Pstr, usize: UInt): UInt
 }
 
-public typealias PGET_SYSTEM_WOW64_DIRECTORY_A = PGET_SYSTEM_WOW64_DIRECTORY_AFn?
+public typealias PgetSystemWow64DirectoryA = PgetSystemWow64DirectoryAFn?
 
-public fun interface PGET_SYSTEM_WOW64_DIRECTORY_WFn {
-    public operator fun invoke(lpbuffer: PWSTR, usize: UInt): UInt
+public fun interface PgetSystemWow64DirectoryWFn {
+    public operator fun invoke(lpbuffer: Pwstr, usize: UInt): UInt
 }
 
-public typealias PGET_SYSTEM_WOW64_DIRECTORY_W = PGET_SYSTEM_WOW64_DIRECTORY_WFn?
+public typealias PgetSystemWow64DirectoryW = PgetSystemWow64DirectoryWFn?
 
-public typealias PROCESSOR_ARCHITECTURE = UShort
+public typealias ProcessorArchitecture = UShort
 
-public typealias PROCESSOR_CACHE_TYPE = Int
+public typealias ProcessorCacheType = Int
 
-public typealias RTL_SYSTEM_GLOBAL_DATA_ID = Int
+public typealias RtlSystemGlobalDataId = Int
 
-public typealias USER_CET_ENVIRONMENT = UInt
+public typealias UserCetEnvironment = UInt
 
-public typealias VER_FLAGS = UInt
+public typealias VerFlags = UInt

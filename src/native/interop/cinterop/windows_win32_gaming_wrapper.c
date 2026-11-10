@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_gaming_CheckGamingPrivilegeSilently(uint32_t privilegeid, void* scope, void* policy, void* hasprivilege) {
+int32_t windowssys_windows_win32_gaming_checkGamingPrivilegeSilently(uint32_t privilegeid, void* scope, void* policy, void* hasprivilege) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -40,7 +40,7 @@ int32_t windowssys_windows_win32_gaming_CheckGamingPrivilegeSilently(uint32_t pr
 #endif
 }
 
-int32_t windowssys_windows_win32_gaming_CheckGamingPrivilegeSilentlyForUser(void* user, uint32_t privilegeid, void* scope, void* policy, void* hasprivilege) {
+int32_t windowssys_windows_win32_gaming_checkGamingPrivilegeSilentlyForUser(void* user, uint32_t privilegeid, void* scope, void* policy, void* hasprivilege) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -66,7 +66,7 @@ int32_t windowssys_windows_win32_gaming_CheckGamingPrivilegeSilentlyForUser(void
 #endif
 }
 
-int32_t windowssys_windows_win32_gaming_CheckGamingPrivilegeWithUI(uint32_t privilegeid, void* scope, void* policy, void* friendlymessage, void* completionroutine, void* context) {
+int32_t windowssys_windows_win32_gaming_checkGamingPrivilegeWithUI(uint32_t privilegeid, void* scope, void* policy, void* friendlymessage, void* completionroutine, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -93,7 +93,7 @@ int32_t windowssys_windows_win32_gaming_CheckGamingPrivilegeWithUI(uint32_t priv
 #endif
 }
 
-int32_t windowssys_windows_win32_gaming_CheckGamingPrivilegeWithUIForUser(void* user, uint32_t privilegeid, void* scope, void* policy, void* friendlymessage, void* completionroutine, void* context) {
+int32_t windowssys_windows_win32_gaming_checkGamingPrivilegeWithUIForUser(void* user, uint32_t privilegeid, void* scope, void* policy, void* friendlymessage, void* completionroutine, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -121,7 +121,7 @@ int32_t windowssys_windows_win32_gaming_CheckGamingPrivilegeWithUIForUser(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_gaming_GetExpandedResourceExclusiveCpuCount(void* exclusivecpucount) {
+int32_t windowssys_windows_win32_gaming_getExpandedResourceExclusiveCpuCount(void* exclusivecpucount) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -143,7 +143,7 @@ int32_t windowssys_windows_win32_gaming_GetExpandedResourceExclusiveCpuCount(voi
 #endif
 }
 
-int32_t windowssys_windows_win32_gaming_GetGamingDeviceModelInformation(void* information) {
+int32_t windowssys_windows_win32_gaming_getGamingDeviceModelInformation(void* information) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -165,7 +165,7 @@ int32_t windowssys_windows_win32_gaming_GetGamingDeviceModelInformation(void* in
 #endif
 }
 
-int32_t windowssys_windows_win32_gaming_HasExpandedResources(void* hasexpandedresources) {
+int32_t windowssys_windows_win32_gaming_hasExpandedResources(void* hasexpandedresources) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -187,7 +187,7 @@ int32_t windowssys_windows_win32_gaming_HasExpandedResources(void* hasexpandedre
 #endif
 }
 
-int32_t windowssys_windows_win32_gaming_ProcessPendingGameUI(int32_t waitforcompletion) {
+int32_t windowssys_windows_win32_gaming_processPendingGameUI(int32_t waitforcompletion) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(int32_t);
     static km_fn_t km_fn_ptr = NULL;
@@ -209,7 +209,7 @@ int32_t windowssys_windows_win32_gaming_ProcessPendingGameUI(int32_t waitforcomp
 #endif
 }
 
-int32_t windowssys_windows_win32_gaming_ReleaseExclusiveCpuSets(void) {
+int32_t windowssys_windows_win32_gaming_releaseExclusiveCpuSets(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;
@@ -230,7 +230,7 @@ int32_t windowssys_windows_win32_gaming_ReleaseExclusiveCpuSets(void) {
 #endif
 }
 
-int32_t windowssys_windows_win32_gaming_ShowChangeFriendRelationshipUI(void* targetuserxuid, void* completionroutine, void* context) {
+int32_t windowssys_windows_win32_gaming_showChangeFriendRelationshipUI(void* targetuserxuid, void* completionroutine, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -254,7 +254,7 @@ int32_t windowssys_windows_win32_gaming_ShowChangeFriendRelationshipUI(void* tar
 #endif
 }
 
-int32_t windowssys_windows_win32_gaming_ShowChangeFriendRelationshipUIForUser(void* user, void* targetuserxuid, void* completionroutine, void* context) {
+int32_t windowssys_windows_win32_gaming_showChangeFriendRelationshipUIForUser(void* user, void* targetuserxuid, void* completionroutine, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -279,7 +279,7 @@ int32_t windowssys_windows_win32_gaming_ShowChangeFriendRelationshipUIForUser(vo
 #endif
 }
 
-int32_t windowssys_windows_win32_gaming_ShowCustomizeUserProfileUI(void* completionroutine, void* context) {
+int32_t windowssys_windows_win32_gaming_showCustomizeUserProfileUI(void* completionroutine, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -302,7 +302,7 @@ int32_t windowssys_windows_win32_gaming_ShowCustomizeUserProfileUI(void* complet
 #endif
 }
 
-int32_t windowssys_windows_win32_gaming_ShowCustomizeUserProfileUIForUser(void* user, void* completionroutine, void* context) {
+int32_t windowssys_windows_win32_gaming_showCustomizeUserProfileUIForUser(void* user, void* completionroutine, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -326,7 +326,7 @@ int32_t windowssys_windows_win32_gaming_ShowCustomizeUserProfileUIForUser(void* 
 #endif
 }
 
-int32_t windowssys_windows_win32_gaming_ShowFindFriendsUI(void* completionroutine, void* context) {
+int32_t windowssys_windows_win32_gaming_showFindFriendsUI(void* completionroutine, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -349,7 +349,7 @@ int32_t windowssys_windows_win32_gaming_ShowFindFriendsUI(void* completionroutin
 #endif
 }
 
-int32_t windowssys_windows_win32_gaming_ShowFindFriendsUIForUser(void* user, void* completionroutine, void* context) {
+int32_t windowssys_windows_win32_gaming_showFindFriendsUIForUser(void* user, void* completionroutine, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -373,7 +373,7 @@ int32_t windowssys_windows_win32_gaming_ShowFindFriendsUIForUser(void* user, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_gaming_ShowGameInfoUI(uint32_t titleid, void* completionroutine, void* context) {
+int32_t windowssys_windows_win32_gaming_showGameInfoUI(uint32_t titleid, void* completionroutine, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -397,7 +397,7 @@ int32_t windowssys_windows_win32_gaming_ShowGameInfoUI(uint32_t titleid, void* c
 #endif
 }
 
-int32_t windowssys_windows_win32_gaming_ShowGameInfoUIForUser(void* user, uint32_t titleid, void* completionroutine, void* context) {
+int32_t windowssys_windows_win32_gaming_showGameInfoUIForUser(void* user, uint32_t titleid, void* completionroutine, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -422,7 +422,7 @@ int32_t windowssys_windows_win32_gaming_ShowGameInfoUIForUser(void* user, uint32
 #endif
 }
 
-int32_t windowssys_windows_win32_gaming_ShowGameInviteUI(void* serviceconfigurationid, void* sessiontemplatename, void* sessionid, void* invitationdisplaytext, void* completionroutine, void* context) {
+int32_t windowssys_windows_win32_gaming_showGameInviteUI(void* serviceconfigurationid, void* sessiontemplatename, void* sessionid, void* invitationdisplaytext, void* completionroutine, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -449,7 +449,7 @@ int32_t windowssys_windows_win32_gaming_ShowGameInviteUI(void* serviceconfigurat
 #endif
 }
 
-int32_t windowssys_windows_win32_gaming_ShowGameInviteUIForUser(void* user, void* serviceconfigurationid, void* sessiontemplatename, void* sessionid, void* invitationdisplaytext, void* completionroutine, void* context) {
+int32_t windowssys_windows_win32_gaming_showGameInviteUIForUser(void* user, void* serviceconfigurationid, void* sessiontemplatename, void* sessionid, void* invitationdisplaytext, void* completionroutine, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -477,7 +477,7 @@ int32_t windowssys_windows_win32_gaming_ShowGameInviteUIForUser(void* user, void
 #endif
 }
 
-int32_t windowssys_windows_win32_gaming_ShowGameInviteUIWithContext(void* serviceconfigurationid, void* sessiontemplatename, void* sessionid, void* invitationdisplaytext, void* customactivationcontext, void* completionroutine, void* context) {
+int32_t windowssys_windows_win32_gaming_showGameInviteUIWithContext(void* serviceconfigurationid, void* sessiontemplatename, void* sessionid, void* invitationdisplaytext, void* customactivationcontext, void* completionroutine, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -505,7 +505,7 @@ int32_t windowssys_windows_win32_gaming_ShowGameInviteUIWithContext(void* servic
 #endif
 }
 
-int32_t windowssys_windows_win32_gaming_ShowGameInviteUIWithContextForUser(void* user, void* serviceconfigurationid, void* sessiontemplatename, void* sessionid, void* invitationdisplaytext, void* customactivationcontext, void* completionroutine, void* context) {
+int32_t windowssys_windows_win32_gaming_showGameInviteUIWithContextForUser(void* user, void* serviceconfigurationid, void* sessiontemplatename, void* sessionid, void* invitationdisplaytext, void* customactivationcontext, void* completionroutine, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -534,7 +534,7 @@ int32_t windowssys_windows_win32_gaming_ShowGameInviteUIWithContextForUser(void*
 #endif
 }
 
-int32_t windowssys_windows_win32_gaming_ShowPlayerPickerUI(void* promptdisplaytext, void* xuids, uint64_t xuidscount, void* preselectedxuids, uint64_t preselectedxuidscount, uint64_t minselectioncount, uint64_t maxselectioncount, void* completionroutine, void* context) {
+int32_t windowssys_windows_win32_gaming_showPlayerPickerUI(void* promptdisplaytext, void* xuids, uint64_t xuidscount, void* preselectedxuids, uint64_t preselectedxuidscount, uint64_t minselectioncount, uint64_t maxselectioncount, void* completionroutine, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint64_t, void*, uint64_t, uint64_t, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -564,7 +564,7 @@ int32_t windowssys_windows_win32_gaming_ShowPlayerPickerUI(void* promptdisplayte
 #endif
 }
 
-int32_t windowssys_windows_win32_gaming_ShowPlayerPickerUIForUser(void* user, void* promptdisplaytext, void* xuids, uint64_t xuidscount, void* preselectedxuids, uint64_t preselectedxuidscount, uint64_t minselectioncount, uint64_t maxselectioncount, void* completionroutine, void* context) {
+int32_t windowssys_windows_win32_gaming_showPlayerPickerUIForUser(void* user, void* promptdisplaytext, void* xuids, uint64_t xuidscount, void* preselectedxuids, uint64_t preselectedxuidscount, uint64_t minselectioncount, uint64_t maxselectioncount, void* completionroutine, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, uint64_t, void*, uint64_t, uint64_t, uint64_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -595,7 +595,7 @@ int32_t windowssys_windows_win32_gaming_ShowPlayerPickerUIForUser(void* user, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_gaming_ShowProfileCardUI(void* targetuserxuid, void* completionroutine, void* context) {
+int32_t windowssys_windows_win32_gaming_showProfileCardUI(void* targetuserxuid, void* completionroutine, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -619,7 +619,7 @@ int32_t windowssys_windows_win32_gaming_ShowProfileCardUI(void* targetuserxuid, 
 #endif
 }
 
-int32_t windowssys_windows_win32_gaming_ShowProfileCardUIForUser(void* user, void* targetuserxuid, void* completionroutine, void* context) {
+int32_t windowssys_windows_win32_gaming_showProfileCardUIForUser(void* user, void* targetuserxuid, void* completionroutine, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -644,7 +644,7 @@ int32_t windowssys_windows_win32_gaming_ShowProfileCardUIForUser(void* user, voi
 #endif
 }
 
-int32_t windowssys_windows_win32_gaming_ShowTitleAchievementsUI(uint32_t titleid, void* completionroutine, void* context) {
+int32_t windowssys_windows_win32_gaming_showTitleAchievementsUI(uint32_t titleid, void* completionroutine, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -668,7 +668,7 @@ int32_t windowssys_windows_win32_gaming_ShowTitleAchievementsUI(uint32_t titleid
 #endif
 }
 
-int32_t windowssys_windows_win32_gaming_ShowTitleAchievementsUIForUser(void* user, uint32_t titleid, void* completionroutine, void* context) {
+int32_t windowssys_windows_win32_gaming_showTitleAchievementsUIForUser(void* user, uint32_t titleid, void* completionroutine, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, uint32_t, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -693,7 +693,7 @@ int32_t windowssys_windows_win32_gaming_ShowTitleAchievementsUIForUser(void* use
 #endif
 }
 
-int32_t windowssys_windows_win32_gaming_ShowUserSettingsUI(void* completionroutine, void* context) {
+int32_t windowssys_windows_win32_gaming_showUserSettingsUI(void* completionroutine, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -716,7 +716,7 @@ int32_t windowssys_windows_win32_gaming_ShowUserSettingsUI(void* completionrouti
 #endif
 }
 
-int32_t windowssys_windows_win32_gaming_ShowUserSettingsUIForUser(void* user, void* completionroutine, void* context) {
+int32_t windowssys_windows_win32_gaming_showUserSettingsUIForUser(void* user, void* completionroutine, void* context) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -740,7 +740,7 @@ int32_t windowssys_windows_win32_gaming_ShowUserSettingsUIForUser(void* user, vo
 #endif
 }
 
-int32_t windowssys_windows_win32_gaming_TryCancelPendingGameUI(void) {
+int32_t windowssys_windows_win32_gaming_tryCancelPendingGameUI(void) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = NULL;

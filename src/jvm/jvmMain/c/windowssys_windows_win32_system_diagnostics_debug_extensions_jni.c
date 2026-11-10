@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_debug_extensions_WindowsWin32SystemDiagnosticsDebugExtensionsJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1debug_1extensions_1CreateDataModelManager(JNIEnv* km_env, jclass km_clazz, jlong debughost, jlong manager) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_debug_extensions_WindowsWin32SystemDiagnosticsDebugExtensionsJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1debug_1extensions_1createDataModelManager(JNIEnv* km_env, jclass km_clazz, jlong debughost, jlong manager) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -37,7 +37,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_debug_extensions_WindowsWin32SystemDiagnosticsDebugExtensionsJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1debug_1extensions_1DebugConnect(JNIEnv* km_env, jclass km_clazz, jlong remoteoptions, jlong interfaceid, jlong arg_2_interface) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_debug_extensions_WindowsWin32SystemDiagnosticsDebugExtensionsJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1debug_1extensions_1debugConnect(JNIEnv* km_env, jclass km_clazz, jlong remoteoptions, jlong interfaceid, jlong arg_2_interface) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -57,7 +57,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_debug_extensions_WindowsWin32SystemDiagnosticsDebugExtensionsJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1debug_1extensions_1DebugConnectWide(JNIEnv* km_env, jclass km_clazz, jlong remoteoptions, jlong interfaceid, jlong arg_2_interface) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_debug_extensions_WindowsWin32SystemDiagnosticsDebugExtensionsJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1debug_1extensions_1debugConnectWide(JNIEnv* km_env, jclass km_clazz, jlong remoteoptions, jlong interfaceid, jlong arg_2_interface) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -77,7 +77,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_debug_extensions_WindowsWin32SystemDiagnosticsDebugExtensionsJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1debug_1extensions_1DebugCreate(JNIEnv* km_env, jclass km_clazz, jlong interfaceid, jlong arg_1_interface) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_debug_extensions_WindowsWin32SystemDiagnosticsDebugExtensionsJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1debug_1extensions_1debugCreate(JNIEnv* km_env, jclass km_clazz, jlong interfaceid, jlong arg_1_interface) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -96,7 +96,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_debug_extensions_WindowsWin32SystemDiagnosticsDebugExtensionsJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1debug_1extensions_1DebugCreateEx(JNIEnv* km_env, jclass km_clazz, jlong interfaceid, jint dbgengoptions, jlong arg_2_interface) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_diagnostics_debug_extensions_WindowsWin32SystemDiagnosticsDebugExtensionsJniBridge_windowssys_1windows_1win32_1system_1diagnostics_1debug_1extensions_1debugCreateEx(JNIEnv* km_env, jclass km_clazz, jlong interfaceid, jint dbgengoptions, jlong arg_2_interface) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

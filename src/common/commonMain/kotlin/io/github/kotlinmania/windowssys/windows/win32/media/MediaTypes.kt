@@ -1,19 +1,20 @@
 package io.github.kotlinmania.windowssys.windows.win32.media
 
-import io.github.kotlinmania.windowssys.windows.win32.media.multimedia.HDRVR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.windows.win32.media.multimedia.Hdrvr
 
-public typealias HTASK = Long
+public typealias Htask = COpaquePointer?
 
-public fun interface LPDRVCALLBACKFn {
-    public operator fun invoke(hdrvr: HDRVR, umsg: UInt, dwuser: ULong, dw1: ULong, dw2: ULong)
+public fun interface LpdrvcallbackFn {
+    public operator fun invoke(hdrvr: Hdrvr, umsg: UInt, dwuser: ULong, dw1: ULong, dw2: ULong)
 }
 
-public typealias LPDRVCALLBACK = LPDRVCALLBACKFn?
+public typealias Lpdrvcallback = LpdrvcallbackFn?
 
-public fun interface LPTIMECALLBACKFn {
+public fun interface LptimecallbackFn {
     public operator fun invoke(utimerid: UInt, umsg: UInt, dwuser: ULong, dw1: ULong, dw2: ULong)
 }
 
-public typealias LPTIMECALLBACK = LPTIMECALLBACKFn?
+public typealias Lptimecallback = LptimecallbackFn?
 
-public typealias TIMECODE_SAMPLE_FLAGS = UInt
+public typealias TimecodeSampleFlags = UInt

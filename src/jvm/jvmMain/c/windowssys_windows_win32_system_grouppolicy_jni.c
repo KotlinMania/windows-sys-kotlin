@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1BrowseForGPO(JNIEnv* km_env, jclass km_clazz, jlong lpbrowseinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1browseForGPO(JNIEnv* km_env, jclass km_clazz, jlong lpbrowseinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -36,7 +36,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1CommandLineFromMsiDescriptor(JNIEnv* km_env, jclass km_clazz, jlong descriptor, jlong commandline, jlong commandlinelength) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1commandLineFromMsiDescriptor(JNIEnv* km_env, jclass km_clazz, jlong descriptor, jlong commandline, jlong commandlinelength) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -56,7 +56,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1CreateGPOLink(JNIEnv* km_env, jclass km_clazz, jlong lpgpo, jlong lpcontainer, jint fhighpriority) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1createGPOLink(JNIEnv* km_env, jclass km_clazz, jlong lpgpo, jlong lpcontainer, jint fhighpriority) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -76,7 +76,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1DeleteAllGPOLinks(JNIEnv* km_env, jclass km_clazz, jlong lpcontainer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1deleteAllGPOLinks(JNIEnv* km_env, jclass km_clazz, jlong lpcontainer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -94,7 +94,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1DeleteGPOLink(JNIEnv* km_env, jclass km_clazz, jlong lpgpo, jlong lpcontainer) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1deleteGPOLink(JNIEnv* km_env, jclass km_clazz, jlong lpgpo, jlong lpcontainer) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -113,7 +113,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1EnterCriticalPolicySection(JNIEnv* km_env, jclass km_clazz, jint bmachine) {
+JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1enterCriticalPolicySection(JNIEnv* km_env, jclass km_clazz, jint bmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -131,7 +131,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
     return (jlong)(uintptr_t)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1ExportRSoPData(JNIEnv* km_env, jclass km_clazz, jlong lpnamespace, jlong lpfilename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1exportRSoPData(JNIEnv* km_env, jclass km_clazz, jlong lpnamespace, jlong lpfilename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -150,7 +150,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1FreeGPOListA(JNIEnv* km_env, jclass km_clazz, jlong pgpolist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1freeGPOListA(JNIEnv* km_env, jclass km_clazz, jlong pgpolist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -168,7 +168,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1FreeGPOListW(JNIEnv* km_env, jclass km_clazz, jlong pgpolist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1freeGPOListW(JNIEnv* km_env, jclass km_clazz, jlong pgpolist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -186,7 +186,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1GenerateGPNotification(JNIEnv* km_env, jclass km_clazz, jint bmachine, jlong lpwszmgmtproduct, jint dwmgmtproductoptions) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1generateGPNotification(JNIEnv* km_env, jclass km_clazz, jint bmachine, jlong lpwszmgmtproduct, jint dwmgmtproductoptions) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -206,7 +206,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1GetAppliedGPOListA(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong pmachinename, jlong psiduser, jlong pguidextension, jlong ppgpolist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1getAppliedGPOListA(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong pmachinename, jlong psiduser, jlong pguidextension, jlong ppgpolist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -228,7 +228,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1GetAppliedGPOListW(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong pmachinename, jlong psiduser, jlong pguidextension, jlong ppgpolist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1getAppliedGPOListW(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong pmachinename, jlong psiduser, jlong pguidextension, jlong ppgpolist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -250,7 +250,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1GetGPOListA(JNIEnv* km_env, jclass km_clazz, jlong htoken, jlong lpname, jlong lphostname, jlong lpcomputername, jint dwflags, jlong pgpolist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1getGPOListA(JNIEnv* km_env, jclass km_clazz, jlong htoken, jlong lpname, jlong lphostname, jlong lpcomputername, jint dwflags, jlong pgpolist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -273,7 +273,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1GetGPOListW(JNIEnv* km_env, jclass km_clazz, jlong htoken, jlong lpname, jlong lphostname, jlong lpcomputername, jint dwflags, jlong pgpolist) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1getGPOListW(JNIEnv* km_env, jclass km_clazz, jlong htoken, jlong lpname, jlong lphostname, jlong lpcomputername, jint dwflags, jlong pgpolist) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -296,7 +296,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1GetLocalManagedApplicationData(JNIEnv* km_env, jclass km_clazz, jlong productcode, jlong displayname, jlong supporturl) {
+JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1getLocalManagedApplicationData(JNIEnv* km_env, jclass km_clazz, jlong productcode, jlong displayname, jlong supporturl) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -314,7 +314,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
 #endif
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1GetLocalManagedApplications(JNIEnv* km_env, jclass km_clazz, jint buserapps, jlong pdwapps, jlong prglocalapps) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1getLocalManagedApplications(JNIEnv* km_env, jclass km_clazz, jint buserapps, jlong pdwapps, jlong prglocalapps) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -334,7 +334,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1GetManagedApplicationCategories(JNIEnv* km_env, jclass km_clazz, jint dwreserved, jlong pappcategory) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1getManagedApplicationCategories(JNIEnv* km_env, jclass km_clazz, jint dwreserved, jlong pappcategory) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -353,7 +353,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1GetManagedApplications(JNIEnv* km_env, jclass km_clazz, jlong pcategory, jint dwqueryflags, jint dwinfolevel, jlong pdwapps, jlong prgmanagedapps) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1getManagedApplications(JNIEnv* km_env, jclass km_clazz, jlong pcategory, jint dwqueryflags, jint dwinfolevel, jlong pdwapps, jlong prgmanagedapps) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -375,7 +375,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1ImportRSoPData(JNIEnv* km_env, jclass km_clazz, jlong lpnamespace, jlong lpfilename) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1importRSoPData(JNIEnv* km_env, jclass km_clazz, jlong lpnamespace, jlong lpfilename) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -394,7 +394,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1InstallApplication(JNIEnv* km_env, jclass km_clazz, jlong pinstallinfo) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1installApplication(JNIEnv* km_env, jclass km_clazz, jlong pinstallinfo) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -412,7 +412,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1LeaveCriticalPolicySection(JNIEnv* km_env, jclass km_clazz, jlong hsection) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1leaveCriticalPolicySection(JNIEnv* km_env, jclass km_clazz, jlong hsection) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -430,7 +430,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1ProcessGroupPolicyCompleted(JNIEnv* km_env, jclass km_clazz, jlong extensionid, jlong pasynchandle, jint dwstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1processGroupPolicyCompleted(JNIEnv* km_env, jclass km_clazz, jlong extensionid, jlong pasynchandle, jint dwstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -450,7 +450,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1ProcessGroupPolicyCompletedEx(JNIEnv* km_env, jclass km_clazz, jlong extensionid, jlong pasynchandle, jint dwstatus, jint rsopstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1processGroupPolicyCompletedEx(JNIEnv* km_env, jclass km_clazz, jlong extensionid, jlong pasynchandle, jint dwstatus, jint rsopstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -471,7 +471,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1RefreshPolicy(JNIEnv* km_env, jclass km_clazz, jint bmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1refreshPolicy(JNIEnv* km_env, jclass km_clazz, jint bmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -489,7 +489,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1RefreshPolicyEx(JNIEnv* km_env, jclass km_clazz, jint bmachine, jint dwoptions) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1refreshPolicyEx(JNIEnv* km_env, jclass km_clazz, jint bmachine, jint dwoptions) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -508,7 +508,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1RegisterGPNotification(JNIEnv* km_env, jclass km_clazz, jlong hevent, jint bmachine) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1registerGPNotification(JNIEnv* km_env, jclass km_clazz, jlong hevent, jint bmachine) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -527,7 +527,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1RsopAccessCheckByType(JNIEnv* km_env, jclass km_clazz, jlong psecuritydescriptor, jlong pprincipalselfsid, jlong prsoptoken, jint dwdesiredaccessmask, jlong pobjecttypelist, jint objecttypelistlength, jlong pgenericmapping, jlong pprivilegeset, jlong pdwprivilegesetlength, jlong pdwgrantedaccessmask, jlong pbaccessstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1rsopAccessCheckByType(JNIEnv* km_env, jclass km_clazz, jlong psecuritydescriptor, jlong pprincipalselfsid, jlong prsoptoken, jint dwdesiredaccessmask, jlong pobjecttypelist, jint objecttypelistlength, jlong pgenericmapping, jlong pprivilegeset, jlong pdwprivilegesetlength, jlong pdwgrantedaccessmask, jlong pbaccessstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -555,7 +555,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1RsopFileAccessCheck(JNIEnv* km_env, jclass km_clazz, jlong pszfilename, jlong prsoptoken, jint dwdesiredaccessmask, jlong pdwgrantedaccessmask, jlong pbaccessstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1rsopFileAccessCheck(JNIEnv* km_env, jclass km_clazz, jlong pszfilename, jlong prsoptoken, jint dwdesiredaccessmask, jlong pdwgrantedaccessmask, jlong pbaccessstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -577,7 +577,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1RsopResetPolicySettingStatus(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong pservices, jlong psettinginstance) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1rsopResetPolicySettingStatus(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong pservices, jlong psettinginstance) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -597,7 +597,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1RsopSetPolicySettingStatus(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong pservices, jlong psettinginstance, jint ninfo, jlong pstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1rsopSetPolicySettingStatus(JNIEnv* km_env, jclass km_clazz, jint dwflags, jlong pservices, jlong psettinginstance, jint ninfo, jlong pstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -619,7 +619,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1UninstallApplication(JNIEnv* km_env, jclass km_clazz, jlong productcode, jint dwstatus) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1uninstallApplication(JNIEnv* km_env, jclass km_clazz, jlong productcode, jint dwstatus) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -638,7 +638,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1UnregisterGPNotification(JNIEnv* km_env, jclass km_clazz, jlong hevent) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_grouppolicy_WindowsWin32SystemGrouppolicyJniBridge_windowssys_1windows_1win32_1system_1grouppolicy_1unregisterGPNotification(JNIEnv* km_env, jclass km_clazz, jlong hevent) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

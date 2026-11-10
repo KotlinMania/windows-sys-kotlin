@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_AcquireSRWLockExclusive_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_acquireSRWLockExclusive_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* srwlock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -68,7 +68,7 @@ static Napi::Value windowssys_windows_win32_system_threading_AcquireSRWLockExclu
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_AcquireSRWLockShared_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_acquireSRWLockShared_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* srwlock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -85,7 +85,7 @@ static Napi::Value windowssys_windows_win32_system_threading_AcquireSRWLockShare
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_AddIntegrityLabelToBoundaryDescriptor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_addIntegrityLabelToBoundaryDescriptor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* boundarydescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* integritylabel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -105,7 +105,7 @@ static Napi::Value windowssys_windows_win32_system_threading_AddIntegrityLabelTo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_AddSIDToBoundaryDescriptor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_addSIDToBoundaryDescriptor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* boundarydescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* requiredsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -125,7 +125,7 @@ static Napi::Value windowssys_windows_win32_system_threading_AddSIDToBoundaryDes
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_AttachThreadInput_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_attachThreadInput_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t idattach = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t idattachto = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -147,7 +147,7 @@ static Napi::Value windowssys_windows_win32_system_threading_AttachThreadInput_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_AvQuerySystemResponsiveness_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_avQuerySystemResponsiveness_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* avrthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* systemresponsivenessvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -167,7 +167,7 @@ static Napi::Value windowssys_windows_win32_system_threading_AvQuerySystemRespon
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_AvRevertMmThreadCharacteristics_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_avRevertMmThreadCharacteristics_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* avrthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -185,7 +185,7 @@ static Napi::Value windowssys_windows_win32_system_threading_AvRevertMmThreadCha
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_AvRtCreateThreadOrderingGroup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_avRtCreateThreadOrderingGroup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* period = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -209,7 +209,7 @@ static Napi::Value windowssys_windows_win32_system_threading_AvRtCreateThreadOrd
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_AvRtCreateThreadOrderingGroupExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_avRtCreateThreadOrderingGroupExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* period = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -235,7 +235,7 @@ static Napi::Value windowssys_windows_win32_system_threading_AvRtCreateThreadOrd
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_AvRtCreateThreadOrderingGroupExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_avRtCreateThreadOrderingGroupExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* period = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -261,7 +261,7 @@ static Napi::Value windowssys_windows_win32_system_threading_AvRtCreateThreadOrd
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_AvRtDeleteThreadOrderingGroup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_avRtDeleteThreadOrderingGroup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -279,7 +279,7 @@ static Napi::Value windowssys_windows_win32_system_threading_AvRtDeleteThreadOrd
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_AvRtJoinThreadOrderingGroup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_avRtJoinThreadOrderingGroup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* threadorderingguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -301,7 +301,7 @@ static Napi::Value windowssys_windows_win32_system_threading_AvRtJoinThreadOrder
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_AvRtLeaveThreadOrderingGroup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_avRtLeaveThreadOrderingGroup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -319,7 +319,7 @@ static Napi::Value windowssys_windows_win32_system_threading_AvRtLeaveThreadOrde
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_AvRtWaitOnThreadOrderingGroup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_avRtWaitOnThreadOrderingGroup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -337,7 +337,7 @@ static Napi::Value windowssys_windows_win32_system_threading_AvRtWaitOnThreadOrd
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_AvSetMmMaxThreadCharacteristicsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_avSetMmMaxThreadCharacteristicsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* firsttask = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* secondtask = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -359,7 +359,7 @@ static Napi::Value windowssys_windows_win32_system_threading_AvSetMmMaxThreadCha
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_AvSetMmMaxThreadCharacteristicsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_avSetMmMaxThreadCharacteristicsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* firsttask = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* secondtask = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -381,7 +381,7 @@ static Napi::Value windowssys_windows_win32_system_threading_AvSetMmMaxThreadCha
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_AvSetMmThreadCharacteristicsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_avSetMmThreadCharacteristicsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* taskname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* taskindex = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -401,7 +401,7 @@ static Napi::Value windowssys_windows_win32_system_threading_AvSetMmThreadCharac
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_AvSetMmThreadCharacteristicsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_avSetMmThreadCharacteristicsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* taskname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* taskindex = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -421,7 +421,7 @@ static Napi::Value windowssys_windows_win32_system_threading_AvSetMmThreadCharac
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_AvSetMmThreadPriority_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_avSetMmThreadPriority_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* avrthandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t priority = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -441,7 +441,7 @@ static Napi::Value windowssys_windows_win32_system_threading_AvSetMmThreadPriori
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CallbackMayRunLong_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_callbackMayRunLong_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t pci = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -459,7 +459,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CallbackMayRunLong_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CancelThreadpoolIo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_cancelThreadpoolIo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t pio = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -476,7 +476,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CancelThreadpoolIo_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CancelTimerQueueTimer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_cancelTimerQueueTimer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* timerqueue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* timer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -496,7 +496,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CancelTimerQueueTim
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CancelWaitableTimer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_cancelWaitableTimer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* htimer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -514,7 +514,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CancelWaitableTimer
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_ChangeTimerQueueTimer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_changeTimerQueueTimer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* timerqueue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* timer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -538,7 +538,7 @@ static Napi::Value windowssys_windows_win32_system_threading_ChangeTimerQueueTim
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_ClosePrivateNamespace_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_closePrivateNamespace_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* handle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -558,7 +558,7 @@ static Napi::Value windowssys_windows_win32_system_threading_ClosePrivateNamespa
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CloseThreadpool_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_closeThreadpool_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t ptpp = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -575,7 +575,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CloseThreadpool_nap
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CloseThreadpoolCleanupGroup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_closeThreadpoolCleanupGroup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t ptpcg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -592,7 +592,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CloseThreadpoolClea
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CloseThreadpoolCleanupGroupMembers_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_closeThreadpoolCleanupGroupMembers_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t ptpcg = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t fcancelpendingcallbacks = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -613,7 +613,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CloseThreadpoolClea
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CloseThreadpoolIo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_closeThreadpoolIo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t pio = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -630,7 +630,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CloseThreadpoolIo_n
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CloseThreadpoolTimer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_closeThreadpoolTimer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t pti = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -647,7 +647,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CloseThreadpoolTime
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CloseThreadpoolWait_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_closeThreadpoolWait_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t pwa = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -664,7 +664,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CloseThreadpoolWait
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CloseThreadpoolWork_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_closeThreadpoolWork_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t pwk = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -681,7 +681,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CloseThreadpoolWork
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_ConvertFiberToThread_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_convertFiberToThread_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -697,7 +697,7 @@ static Napi::Value windowssys_windows_win32_system_threading_ConvertFiberToThrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_ConvertThreadToFiber_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_convertThreadToFiber_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpparameter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -715,7 +715,7 @@ static Napi::Value windowssys_windows_win32_system_threading_ConvertThreadToFibe
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_ConvertThreadToFiberEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_convertThreadToFiberEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpparameter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -735,7 +735,7 @@ static Napi::Value windowssys_windows_win32_system_threading_ConvertThreadToFibe
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreateBoundaryDescriptorA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createBoundaryDescriptorA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -755,7 +755,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CreateBoundaryDescr
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreateBoundaryDescriptorW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createBoundaryDescriptorW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* name = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -775,7 +775,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CreateBoundaryDescr
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreateEventA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createEventA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpeventattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t bmanualreset = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -799,7 +799,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CreateEventA_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreateEventExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createEventExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpeventattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -823,7 +823,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CreateEventExA_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreateEventExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createEventExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpeventattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -847,7 +847,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CreateEventExW_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreateEventW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createEventW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpeventattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t bmanualreset = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -871,7 +871,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CreateEventW_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreateFiber_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createFiber_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t dwstacksize = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     void* lpstartaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -893,7 +893,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CreateFiber_napi(co
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreateFiberEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createFiberEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t dwstackcommitsize = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     uint64_t dwstackreservesize = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -919,7 +919,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CreateFiberEx_napi(
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreateMutexA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createMutexA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmutexattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t binitialowner = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -941,7 +941,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CreateMutexA_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreateMutexExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createMutexExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmutexattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -965,7 +965,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CreateMutexExA_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreateMutexExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createMutexExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmutexattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -989,7 +989,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CreateMutexExW_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreateMutexW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createMutexW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpmutexattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t binitialowner = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1011,7 +1011,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CreateMutexW_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreatePrivateNamespaceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createPrivateNamespaceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpprivatenamespaceattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpboundarydescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1033,7 +1033,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CreatePrivateNamesp
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreatePrivateNamespaceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createPrivateNamespaceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpprivatenamespaceattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpboundarydescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1055,7 +1055,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CreatePrivateNamesp
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreateProcessA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createProcessA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpapplicationname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcommandline = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1091,7 +1091,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CreateProcessA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreateProcessAsUserA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createProcessAsUserA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* htoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpapplicationname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1129,7 +1129,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CreateProcessAsUser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreateProcessAsUserW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createProcessAsUserW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* htoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpapplicationname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1167,7 +1167,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CreateProcessAsUser
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreateProcessW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createProcessW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpapplicationname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcommandline = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1203,7 +1203,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CreateProcessW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreateProcessWithLogonW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createProcessWithLogonW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdomain = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1241,7 +1241,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CreateProcessWithLo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreateProcessWithTokenW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createProcessWithTokenW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* htoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwlogonflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1275,7 +1275,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CreateProcessWithTo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreateRemoteThread_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createRemoteThread_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpthreadattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1305,7 +1305,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CreateRemoteThread_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreateRemoteThreadEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createRemoteThreadEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpthreadattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1337,7 +1337,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CreateRemoteThreadE
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreateSemaphoreA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createSemaphoreA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsemaphoreattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t linitialcount = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1361,7 +1361,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CreateSemaphoreA_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreateSemaphoreExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createSemaphoreExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsemaphoreattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t linitialcount = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1389,7 +1389,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CreateSemaphoreExA_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreateSemaphoreExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createSemaphoreExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsemaphoreattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t linitialcount = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1417,7 +1417,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CreateSemaphoreExW_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreateSemaphoreW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createSemaphoreW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsemaphoreattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t linitialcount = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1441,7 +1441,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CreateSemaphoreW_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreateThread_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createThread_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpthreadattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t dwstacksize = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -1469,41 +1469,41 @@ static Napi::Value windowssys_windows_win32_system_threading_CreateThread_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreateThreadpool_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createThreadpool_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* reserved = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void*);
+    typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateThreadpool")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reserved) : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reserved) : -1;
 #else
     (void)reserved;
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreateThreadpoolCleanupGroup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createThreadpoolCleanupGroup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
-    typedef int64_t (__stdcall *km_fn_t)(void);
+    typedef int32_t (__stdcall *km_fn_t)(void);
     static km_fn_t km_fn_ptr = nullptr;
     if (km_fn_ptr == nullptr) {
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateThreadpoolCleanupGroup")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
 #else
-    int64_t km_res = -1;
+    int32_t km_res = -1;
 #endif
-    return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreateThreadpoolIo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createThreadpoolIo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* fl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfnio = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1527,7 +1527,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CreateThreadpoolIo_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreateThreadpoolTimer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createThreadpoolTimer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfnti = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1549,7 +1549,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CreateThreadpoolTim
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreateThreadpoolWait_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createThreadpoolWait_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfnwa = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1571,7 +1571,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CreateThreadpoolWai
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreateThreadpoolWork_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createThreadpoolWork_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfnwk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1593,7 +1593,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CreateThreadpoolWor
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreateTimerQueue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createTimerQueue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -1609,7 +1609,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CreateTimerQueue_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreateTimerQueueTimer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createTimerQueueTimer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phnewtimer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* timerqueue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1639,7 +1639,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CreateTimerQueueTim
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreateUmsCompletionList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createUmsCompletionList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* umscompletionlist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1657,7 +1657,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CreateUmsCompletion
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreateUmsThreadContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createUmsThreadContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpumsthread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1675,7 +1675,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CreateUmsThreadCont
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreateWaitableTimerA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createWaitableTimerA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lptimerattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t bmanualreset = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1697,7 +1697,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CreateWaitableTimer
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreateWaitableTimerExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createWaitableTimerExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lptimerattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lptimername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1721,7 +1721,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CreateWaitableTimer
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreateWaitableTimerExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createWaitableTimerExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lptimerattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lptimername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1745,7 +1745,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CreateWaitableTimer
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_CreateWaitableTimerW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_createWaitableTimerW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lptimerattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t bmanualreset = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1767,7 +1767,7 @@ static Napi::Value windowssys_windows_win32_system_threading_CreateWaitableTimer
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_DeleteBoundaryDescriptor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_deleteBoundaryDescriptor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* boundarydescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1784,7 +1784,7 @@ static Napi::Value windowssys_windows_win32_system_threading_DeleteBoundaryDescr
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_DeleteCriticalSection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_deleteCriticalSection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpcriticalsection = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1801,7 +1801,7 @@ static Napi::Value windowssys_windows_win32_system_threading_DeleteCriticalSecti
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_DeleteFiber_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_deleteFiber_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfiber = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1818,7 +1818,7 @@ static Napi::Value windowssys_windows_win32_system_threading_DeleteFiber_napi(co
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_DeleteProcThreadAttributeList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_deleteProcThreadAttributeList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpattributelist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1835,7 +1835,7 @@ static Napi::Value windowssys_windows_win32_system_threading_DeleteProcThreadAtt
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_DeleteSynchronizationBarrier_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_deleteSynchronizationBarrier_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpbarrier = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1853,7 +1853,7 @@ static Napi::Value windowssys_windows_win32_system_threading_DeleteSynchronizati
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_DeleteTimerQueue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_deleteTimerQueue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* timerqueue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1871,7 +1871,7 @@ static Napi::Value windowssys_windows_win32_system_threading_DeleteTimerQueue_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_DeleteTimerQueueEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_deleteTimerQueueEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* timerqueue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* completionevent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1891,7 +1891,7 @@ static Napi::Value windowssys_windows_win32_system_threading_DeleteTimerQueueEx_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_DeleteTimerQueueTimer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_deleteTimerQueueTimer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* timerqueue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* timer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1913,7 +1913,7 @@ static Napi::Value windowssys_windows_win32_system_threading_DeleteTimerQueueTim
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_DeleteUmsCompletionList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_deleteUmsCompletionList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* umscompletionlist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1931,7 +1931,7 @@ static Napi::Value windowssys_windows_win32_system_threading_DeleteUmsCompletion
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_DeleteUmsThreadContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_deleteUmsThreadContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* umsthread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1949,7 +1949,7 @@ static Napi::Value windowssys_windows_win32_system_threading_DeleteUmsThreadCont
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_DequeueUmsCompletionListItems_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_dequeueUmsCompletionListItems_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* umscompletionlist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t waittimeout = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1971,7 +1971,7 @@ static Napi::Value windowssys_windows_win32_system_threading_DequeueUmsCompletio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_DisassociateCurrentThreadFromCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_disassociateCurrentThreadFromCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t pci = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -1988,7 +1988,7 @@ static Napi::Value windowssys_windows_win32_system_threading_DisassociateCurrent
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_EnterCriticalSection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_enterCriticalSection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpcriticalsection = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2005,7 +2005,7 @@ static Napi::Value windowssys_windows_win32_system_threading_EnterCriticalSectio
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_EnterSynchronizationBarrier_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_enterSynchronizationBarrier_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpbarrier = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2025,7 +2025,7 @@ static Napi::Value windowssys_windows_win32_system_threading_EnterSynchronizatio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_EnterUmsSchedulingMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_enterUmsSchedulingMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* schedulerstartupinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2043,7 +2043,7 @@ static Napi::Value windowssys_windows_win32_system_threading_EnterUmsSchedulingM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_ExecuteUmsThread_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_executeUmsThread_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* umsthread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2061,7 +2061,7 @@ static Napi::Value windowssys_windows_win32_system_threading_ExecuteUmsThread_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_ExitProcess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_exitProcess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t uexitcode = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -2078,7 +2078,7 @@ static Napi::Value windowssys_windows_win32_system_threading_ExitProcess_napi(co
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_ExitThread_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_exitThread_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwexitcode = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -2095,7 +2095,7 @@ static Napi::Value windowssys_windows_win32_system_threading_ExitThread_napi(con
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_FlsAlloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_flsAlloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpcallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2113,7 +2113,7 @@ static Napi::Value windowssys_windows_win32_system_threading_FlsAlloc_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_FlsFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_flsFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflsindex = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -2131,7 +2131,7 @@ static Napi::Value windowssys_windows_win32_system_threading_FlsFree_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_FlsGetValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_flsGetValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflsindex = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -2149,7 +2149,7 @@ static Napi::Value windowssys_windows_win32_system_threading_FlsGetValue_napi(co
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_FlsSetValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_flsSetValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflsindex = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpflsdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2169,7 +2169,7 @@ static Napi::Value windowssys_windows_win32_system_threading_FlsSetValue_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_FlushProcessWriteBuffers_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_flushProcessWriteBuffers_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
@@ -2184,7 +2184,7 @@ static Napi::Value windowssys_windows_win32_system_threading_FlushProcessWriteBu
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_FreeLibraryWhenCallbackReturns_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_freeLibraryWhenCallbackReturns_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t pci = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* mod = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2203,7 +2203,7 @@ static Napi::Value windowssys_windows_win32_system_threading_FreeLibraryWhenCall
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetActiveProcessorCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getActiveProcessorCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t groupnumber = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -2221,7 +2221,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetActiveProcessorC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetActiveProcessorGroupCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getActiveProcessorGroupCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void);
@@ -2237,7 +2237,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetActiveProcessorG
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetCurrentProcess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getCurrentProcess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -2253,7 +2253,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetCurrentProcess_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetCurrentProcessId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getCurrentProcessId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -2269,7 +2269,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetCurrentProcessId
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetCurrentProcessorNumber_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getCurrentProcessorNumber_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -2285,7 +2285,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetCurrentProcessor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetCurrentProcessorNumberEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getCurrentProcessorNumberEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* procnumber = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2302,7 +2302,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetCurrentProcessor
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetCurrentThread_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getCurrentThread_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -2318,7 +2318,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetCurrentThread_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetCurrentThreadId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getCurrentThreadId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -2334,7 +2334,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetCurrentThreadId_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetCurrentThreadStackLimits_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getCurrentThreadStackLimits_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lowlimit = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* highlimit = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2353,7 +2353,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetCurrentThreadSta
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetCurrentUmsThread_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getCurrentUmsThread_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void);
@@ -2369,7 +2369,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetCurrentUmsThread
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetExitCodeProcess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getExitCodeProcess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpexitcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2389,7 +2389,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetExitCodeProcess_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetExitCodeThread_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getExitCodeThread_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hthread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpexitcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2409,7 +2409,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetExitCodeThread_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetGuiResources_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getGuiResources_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uiflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2429,7 +2429,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetGuiResources_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetMachineTypeAttributes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getMachineTypeAttributes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t machine = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* machinetypeattributes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2449,7 +2449,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetMachineTypeAttri
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetMaximumProcessorCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getMaximumProcessorCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t groupnumber = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -2467,7 +2467,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetMaximumProcessor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetMaximumProcessorGroupCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getMaximumProcessorGroupCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint16_t (__stdcall *km_fn_t)(void);
@@ -2483,7 +2483,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetMaximumProcessor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetNextUmsListItem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getNextUmsListItem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* umscontext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2501,7 +2501,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetNextUmsListItem_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetNumaAvailableMemoryNode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getNumaAvailableMemoryNode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint8_t node = static_cast<uint8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* availablebytes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2521,7 +2521,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetNumaAvailableMem
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetNumaAvailableMemoryNodeEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getNumaAvailableMemoryNodeEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t node = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* availablebytes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2541,7 +2541,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetNumaAvailableMem
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetNumaHighestNodeNumber_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getNumaHighestNodeNumber_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* highestnodenumber = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2559,7 +2559,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetNumaHighestNodeN
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetNumaNodeNumberFromHandle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getNumaNodeNumberFromHandle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* nodenumber = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2579,7 +2579,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetNumaNodeNumberFr
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetNumaNodeProcessorMask_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getNumaNodeProcessorMask_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint8_t node = static_cast<uint8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* processormask = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2599,7 +2599,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetNumaNodeProcesso
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetNumaNodeProcessorMask2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getNumaNodeProcessorMask2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t nodenumber = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* processormasks = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2623,7 +2623,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetNumaNodeProcesso
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetNumaNodeProcessorMaskEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getNumaNodeProcessorMaskEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t node = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* processormask = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2643,7 +2643,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetNumaNodeProcesso
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetNumaProcessorNode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getNumaProcessorNode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint8_t processor = static_cast<uint8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* nodenumber = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2663,7 +2663,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetNumaProcessorNod
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetNumaProcessorNodeEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getNumaProcessorNodeEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* processor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* nodenumber = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2683,7 +2683,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetNumaProcessorNod
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetNumaProximityNode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getNumaProximityNode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t proximityid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* nodenumber = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2703,7 +2703,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetNumaProximityNod
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetNumaProximityNodeEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getNumaProximityNodeEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t proximityid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* nodenumber = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2723,7 +2723,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetNumaProximityNod
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetPriorityClass_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getPriorityClass_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2741,7 +2741,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetPriorityClass_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetProcessAffinityMask_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getProcessAffinityMask_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpprocessaffinitymask = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2763,7 +2763,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetProcessAffinityM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetProcessDEPPolicy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getProcessDEPPolicy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpflags = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2785,7 +2785,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetProcessDEPPolicy
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetProcessDefaultCpuSetMasks_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getProcessDefaultCpuSetMasks_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* process = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* cpusetmasks = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2809,7 +2809,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetProcessDefaultCp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetProcessDefaultCpuSets_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getProcessDefaultCpuSets_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* process = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* cpusetids = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2833,7 +2833,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetProcessDefaultCp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetProcessGroupAffinity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getProcessGroupAffinity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* groupcount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2855,7 +2855,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetProcessGroupAffi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetProcessHandleCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getProcessHandleCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwhandlecount = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2875,7 +2875,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetProcessHandleCou
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetProcessHandleFromHwnd_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getProcessHandleFromHwnd_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2893,7 +2893,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetProcessHandleFro
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetProcessId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getProcessId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* process = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2911,7 +2911,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetProcessId_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetProcessIdOfThread_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getProcessIdOfThread_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* thread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2929,7 +2929,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetProcessIdOfThrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetProcessInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getProcessInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t processinformationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2953,7 +2953,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetProcessInformati
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetProcessIoCounters_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getProcessIoCounters_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpiocounters = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2973,7 +2973,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetProcessIoCounter
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetProcessMitigationPolicy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getProcessMitigationPolicy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t mitigationpolicy = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2997,7 +2997,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetProcessMitigatio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetProcessPriorityBoost_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getProcessPriorityBoost_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdisablepriorityboost = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3017,7 +3017,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetProcessPriorityB
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetProcessShutdownParameters_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getProcessShutdownParameters_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpdwlevel = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdwflags = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3037,7 +3037,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetProcessShutdownP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetProcessTimes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getProcessTimes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcreationtime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3063,7 +3063,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetProcessTimes_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetProcessVersion_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getProcessVersion_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t processid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -3081,7 +3081,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetProcessVersion_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetProcessWorkingSetSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getProcessWorkingSetSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpminimumworkingsetsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3103,7 +3103,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetProcessWorkingSe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetStartupInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getStartupInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpstartupinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3120,7 +3120,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetStartupInfoA_nap
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetStartupInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getStartupInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpstartupinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3137,7 +3137,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetStartupInfoW_nap
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetSystemTimes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getSystemTimes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpidletime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpkerneltime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3159,7 +3159,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetSystemTimes_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetThreadDescription_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getThreadDescription_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hthread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppszthreaddescription = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3179,7 +3179,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetThreadDescriptio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetThreadGroupAffinity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getThreadGroupAffinity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hthread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* groupaffinity = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3199,7 +3199,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetThreadGroupAffin
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetThreadIOPendingFlag_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getThreadIOPendingFlag_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hthread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpioispending = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3219,7 +3219,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetThreadIOPendingF
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetThreadId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getThreadId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* thread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3237,7 +3237,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetThreadId_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetThreadIdealProcessorEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getThreadIdealProcessorEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hthread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpidealprocessor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3257,7 +3257,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetThreadIdealProce
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetThreadInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getThreadInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hthread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t threadinformationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3281,7 +3281,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetThreadInformatio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetThreadPriority_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getThreadPriority_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hthread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3299,7 +3299,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetThreadPriority_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetThreadPriorityBoost_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getThreadPriorityBoost_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hthread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdisablepriorityboost = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3319,7 +3319,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetThreadPriorityBo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetThreadSelectedCpuSetMasks_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getThreadSelectedCpuSetMasks_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* thread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* cpusetmasks = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3343,7 +3343,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetThreadSelectedCp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetThreadSelectedCpuSets_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getThreadSelectedCpuSets_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* thread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* cpusetids = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3367,7 +3367,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetThreadSelectedCp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetThreadTimes_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getThreadTimes_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hthread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcreationtime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3393,7 +3393,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetThreadTimes_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetUmsCompletionListEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getUmsCompletionListEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* umscompletionlist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* umscompletionevent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3413,7 +3413,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetUmsCompletionLis
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_GetUmsSystemThreadInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_getUmsSystemThreadInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* threadhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* systemthreadinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3433,7 +3433,7 @@ static Napi::Value windowssys_windows_win32_system_threading_GetUmsSystemThreadI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_InitOnceBeginInitialize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_initOnceBeginInitialize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpinitonce = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3457,7 +3457,7 @@ static Napi::Value windowssys_windows_win32_system_threading_InitOnceBeginInitia
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_InitOnceComplete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_initOnceComplete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpinitonce = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3479,7 +3479,7 @@ static Napi::Value windowssys_windows_win32_system_threading_InitOnceComplete_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_InitOnceExecuteOnce_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_initOnceExecuteOnce_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* initonce = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* initfn = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3503,7 +3503,7 @@ static Napi::Value windowssys_windows_win32_system_threading_InitOnceExecuteOnce
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_InitOnceInitialize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_initOnceInitialize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* initonce = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3520,7 +3520,7 @@ static Napi::Value windowssys_windows_win32_system_threading_InitOnceInitialize_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_InitializeConditionVariable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_initializeConditionVariable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* conditionvariable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3537,7 +3537,7 @@ static Napi::Value windowssys_windows_win32_system_threading_InitializeCondition
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_InitializeCriticalSection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_initializeCriticalSection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpcriticalsection = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3554,7 +3554,7 @@ static Napi::Value windowssys_windows_win32_system_threading_InitializeCriticalS
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_InitializeCriticalSectionAndSpinCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_initializeCriticalSectionAndSpinCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpcriticalsection = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwspincount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3574,7 +3574,7 @@ static Napi::Value windowssys_windows_win32_system_threading_InitializeCriticalS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_InitializeCriticalSectionEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_initializeCriticalSectionEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpcriticalsection = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwspincount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3596,7 +3596,7 @@ static Napi::Value windowssys_windows_win32_system_threading_InitializeCriticalS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_InitializeProcThreadAttributeList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_initializeProcThreadAttributeList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpattributelist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwattributecount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3620,7 +3620,7 @@ static Napi::Value windowssys_windows_win32_system_threading_InitializeProcThrea
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_InitializeSListHead_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_initializeSListHead_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* listhead = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3637,7 +3637,7 @@ static Napi::Value windowssys_windows_win32_system_threading_InitializeSListHead
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_InitializeSRWLock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_initializeSRWLock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* srwlock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3654,7 +3654,7 @@ static Napi::Value windowssys_windows_win32_system_threading_InitializeSRWLock_n
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_InitializeSynchronizationBarrier_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_initializeSynchronizationBarrier_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpbarrier = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t ltotalthreads = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3676,7 +3676,7 @@ static Napi::Value windowssys_windows_win32_system_threading_InitializeSynchroni
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_InterlockedFlushSList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_interlockedFlushSList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* listhead = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3694,7 +3694,7 @@ static Napi::Value windowssys_windows_win32_system_threading_InterlockedFlushSLi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_InterlockedPopEntrySList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_interlockedPopEntrySList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* listhead = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3712,7 +3712,7 @@ static Napi::Value windowssys_windows_win32_system_threading_InterlockedPopEntry
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_InterlockedPushEntrySList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_interlockedPushEntrySList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* listhead = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* listentry = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3732,7 +3732,7 @@ static Napi::Value windowssys_windows_win32_system_threading_InterlockedPushEntr
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_InterlockedPushListSListEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_interlockedPushListSListEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* listhead = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* list = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3756,7 +3756,7 @@ static Napi::Value windowssys_windows_win32_system_threading_InterlockedPushList
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_IsImmersiveProcess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_isImmersiveProcess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3774,7 +3774,7 @@ static Napi::Value windowssys_windows_win32_system_threading_IsImmersiveProcess_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_IsProcessCritical_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_isProcessCritical_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* critical = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3794,7 +3794,7 @@ static Napi::Value windowssys_windows_win32_system_threading_IsProcessCritical_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_IsProcessorFeaturePresent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_isProcessorFeaturePresent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t processorfeature = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -3812,7 +3812,7 @@ static Napi::Value windowssys_windows_win32_system_threading_IsProcessorFeatureP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_IsThreadAFiber_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_isThreadAFiber_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -3828,7 +3828,7 @@ static Napi::Value windowssys_windows_win32_system_threading_IsThreadAFiber_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_IsThreadpoolTimerSet_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_isThreadpoolTimerSet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t pti = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -3846,7 +3846,7 @@ static Napi::Value windowssys_windows_win32_system_threading_IsThreadpoolTimerSe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_IsWow64Process_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_isWow64Process_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* wow64process = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3866,7 +3866,7 @@ static Napi::Value windowssys_windows_win32_system_threading_IsWow64Process_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_IsWow64Process2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_isWow64Process2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprocessmachine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3888,7 +3888,7 @@ static Napi::Value windowssys_windows_win32_system_threading_IsWow64Process2_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_LeaveCriticalSection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_leaveCriticalSection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpcriticalsection = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3905,7 +3905,7 @@ static Napi::Value windowssys_windows_win32_system_threading_LeaveCriticalSectio
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_LeaveCriticalSectionWhenCallbackReturns_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_leaveCriticalSectionWhenCallbackReturns_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t pci = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pcs = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3924,7 +3924,7 @@ static Napi::Value windowssys_windows_win32_system_threading_LeaveCriticalSectio
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_OpenEventA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_openEventA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdesiredaccess = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t binherithandle = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3946,7 +3946,7 @@ static Napi::Value windowssys_windows_win32_system_threading_OpenEventA_napi(con
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_OpenEventW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_openEventW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdesiredaccess = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t binherithandle = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3968,7 +3968,7 @@ static Napi::Value windowssys_windows_win32_system_threading_OpenEventW_napi(con
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_OpenMutexW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_openMutexW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdesiredaccess = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t binherithandle = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3990,7 +3990,7 @@ static Napi::Value windowssys_windows_win32_system_threading_OpenMutexW_napi(con
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_OpenPrivateNamespaceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_openPrivateNamespaceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpboundarydescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpaliasprefix = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4010,7 +4010,7 @@ static Napi::Value windowssys_windows_win32_system_threading_OpenPrivateNamespac
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_OpenPrivateNamespaceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_openPrivateNamespaceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpboundarydescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpaliasprefix = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4030,7 +4030,7 @@ static Napi::Value windowssys_windows_win32_system_threading_OpenPrivateNamespac
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_OpenProcess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_openProcess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdesiredaccess = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t binherithandle = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4052,7 +4052,7 @@ static Napi::Value windowssys_windows_win32_system_threading_OpenProcess_napi(co
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_OpenProcessToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_openProcessToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* processhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4074,7 +4074,7 @@ static Napi::Value windowssys_windows_win32_system_threading_OpenProcessToken_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_OpenSemaphoreW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_openSemaphoreW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdesiredaccess = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t binherithandle = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4096,7 +4096,7 @@ static Napi::Value windowssys_windows_win32_system_threading_OpenSemaphoreW_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_OpenThread_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_openThread_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdesiredaccess = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t binherithandle = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4118,7 +4118,7 @@ static Napi::Value windowssys_windows_win32_system_threading_OpenThread_napi(con
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_OpenThreadToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_openThreadToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* threadhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t desiredaccess = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4142,7 +4142,7 @@ static Napi::Value windowssys_windows_win32_system_threading_OpenThreadToken_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_OpenWaitableTimerA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_openWaitableTimerA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdesiredaccess = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t binherithandle = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4164,7 +4164,7 @@ static Napi::Value windowssys_windows_win32_system_threading_OpenWaitableTimerA_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_OpenWaitableTimerW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_openWaitableTimerW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwdesiredaccess = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t binherithandle = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4186,7 +4186,7 @@ static Napi::Value windowssys_windows_win32_system_threading_OpenWaitableTimerW_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_PulseEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_pulseEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hevent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4204,7 +4204,7 @@ static Napi::Value windowssys_windows_win32_system_threading_PulseEvent_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_QueryDepthSList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_queryDepthSList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* listhead = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4222,7 +4222,7 @@ static Napi::Value windowssys_windows_win32_system_threading_QueryDepthSList_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_QueryFullProcessImageNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_queryFullProcessImageNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4246,7 +4246,7 @@ static Napi::Value windowssys_windows_win32_system_threading_QueryFullProcessIma
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_QueryFullProcessImageNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_queryFullProcessImageNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4270,7 +4270,7 @@ static Napi::Value windowssys_windows_win32_system_threading_QueryFullProcessIma
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_QueryProcessAffinityUpdateMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_queryProcessAffinityUpdateMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdwflags = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4290,7 +4290,7 @@ static Napi::Value windowssys_windows_win32_system_threading_QueryProcessAffinit
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_QueryProtectedPolicy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_queryProtectedPolicy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* policyguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* policyvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4310,7 +4310,7 @@ static Napi::Value windowssys_windows_win32_system_threading_QueryProtectedPolic
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_QueryThreadpoolStackInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_queryThreadpoolStackInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t ptpp = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* ptpsi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4330,7 +4330,7 @@ static Napi::Value windowssys_windows_win32_system_threading_QueryThreadpoolStac
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_QueryUmsThreadInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_queryUmsThreadInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* umsthread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t umsthreadinfoclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4356,7 +4356,7 @@ static Napi::Value windowssys_windows_win32_system_threading_QueryUmsThreadInfor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_QueueUserWorkItem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_queueUserWorkItem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* function = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4378,7 +4378,7 @@ static Napi::Value windowssys_windows_win32_system_threading_QueueUserWorkItem_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_RegisterWaitForSingleObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_registerWaitForSingleObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phnewwaitobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4406,7 +4406,7 @@ static Napi::Value windowssys_windows_win32_system_threading_RegisterWaitForSing
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_ReleaseMutex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_releaseMutex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmutex = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4424,7 +4424,7 @@ static Napi::Value windowssys_windows_win32_system_threading_ReleaseMutex_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_ReleaseMutexWhenCallbackReturns_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_releaseMutexWhenCallbackReturns_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t pci = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* mut = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4443,7 +4443,7 @@ static Napi::Value windowssys_windows_win32_system_threading_ReleaseMutexWhenCal
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_ReleaseSRWLockExclusive_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_releaseSRWLockExclusive_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* srwlock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4460,7 +4460,7 @@ static Napi::Value windowssys_windows_win32_system_threading_ReleaseSRWLockExclu
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_ReleaseSRWLockShared_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_releaseSRWLockShared_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* srwlock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4477,7 +4477,7 @@ static Napi::Value windowssys_windows_win32_system_threading_ReleaseSRWLockShare
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_ReleaseSemaphore_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_releaseSemaphore_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsemaphore = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t lreleasecount = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4499,7 +4499,7 @@ static Napi::Value windowssys_windows_win32_system_threading_ReleaseSemaphore_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_ReleaseSemaphoreWhenCallbackReturns_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_releaseSemaphoreWhenCallbackReturns_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t pci = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* sem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4520,7 +4520,7 @@ static Napi::Value windowssys_windows_win32_system_threading_ReleaseSemaphoreWhe
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_ResetEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_resetEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hevent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4538,7 +4538,7 @@ static Napi::Value windowssys_windows_win32_system_threading_ResetEvent_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_ResumeThread_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_resumeThread_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hthread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4556,7 +4556,7 @@ static Napi::Value windowssys_windows_win32_system_threading_ResumeThread_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_RtwqAddPeriodicCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_rtwqAddPeriodicCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* callback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4578,7 +4578,7 @@ static Napi::Value windowssys_windows_win32_system_threading_RtwqAddPeriodicCall
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_RtwqAllocateSerialWorkQueue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_rtwqAllocateSerialWorkQueue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t workqueueidin = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* workqueueidout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4598,7 +4598,7 @@ static Napi::Value windowssys_windows_win32_system_threading_RtwqAllocateSerialW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_RtwqAllocateWorkQueue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_rtwqAllocateWorkQueue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t workqueuetype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* workqueueid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4618,7 +4618,7 @@ static Napi::Value windowssys_windows_win32_system_threading_RtwqAllocateWorkQue
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_RtwqBeginRegisterWorkQueueWithMMCSS_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_rtwqBeginRegisterWorkQueueWithMMCSS_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t workqueueid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* usageclass = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4646,7 +4646,7 @@ static Napi::Value windowssys_windows_win32_system_threading_RtwqBeginRegisterWo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_RtwqBeginUnregisterWorkQueueWithMMCSS_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_rtwqBeginUnregisterWorkQueueWithMMCSS_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t workqueueid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* donecallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4668,7 +4668,7 @@ static Napi::Value windowssys_windows_win32_system_threading_RtwqBeginUnregister
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_RtwqCancelDeadline_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_rtwqCancelDeadline_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* prequest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4686,7 +4686,7 @@ static Napi::Value windowssys_windows_win32_system_threading_RtwqCancelDeadline_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_RtwqCancelWorkItem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_rtwqCancelWorkItem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t key = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -4704,7 +4704,7 @@ static Napi::Value windowssys_windows_win32_system_threading_RtwqCancelWorkItem_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_RtwqCreateAsyncResult_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_rtwqCreateAsyncResult_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* appobject = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* callback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4728,7 +4728,7 @@ static Napi::Value windowssys_windows_win32_system_threading_RtwqCreateAsyncResu
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_RtwqEndRegisterWorkQueueWithMMCSS_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_rtwqEndRegisterWorkQueueWithMMCSS_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* result = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* taskid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4748,7 +4748,7 @@ static Napi::Value windowssys_windows_win32_system_threading_RtwqEndRegisterWork
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_RtwqGetWorkQueueMMCSSClass_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_rtwqGetWorkQueueMMCSSClass_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t workqueueid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* usageclass = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4770,7 +4770,7 @@ static Napi::Value windowssys_windows_win32_system_threading_RtwqGetWorkQueueMMC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_RtwqGetWorkQueueMMCSSPriority_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_rtwqGetWorkQueueMMCSSPriority_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t workqueueid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* priority = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4790,7 +4790,7 @@ static Napi::Value windowssys_windows_win32_system_threading_RtwqGetWorkQueueMMC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_RtwqGetWorkQueueMMCSSTaskId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_rtwqGetWorkQueueMMCSSTaskId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t workqueueid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* taskid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4810,7 +4810,7 @@ static Napi::Value windowssys_windows_win32_system_threading_RtwqGetWorkQueueMMC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_RtwqInvokeCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_rtwqInvokeCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* result = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4828,7 +4828,7 @@ static Napi::Value windowssys_windows_win32_system_threading_RtwqInvokeCallback_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_RtwqJoinWorkQueue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_rtwqJoinWorkQueue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t workqueueid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4850,7 +4850,7 @@ static Napi::Value windowssys_windows_win32_system_threading_RtwqJoinWorkQueue_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_RtwqLockPlatform_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_rtwqLockPlatform_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -4866,7 +4866,7 @@ static Napi::Value windowssys_windows_win32_system_threading_RtwqLockPlatform_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_RtwqLockSharedWorkQueue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_rtwqLockSharedWorkQueue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* usageclass = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t basepriority = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4890,7 +4890,7 @@ static Napi::Value windowssys_windows_win32_system_threading_RtwqLockSharedWorkQ
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_RtwqLockWorkQueue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_rtwqLockWorkQueue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t workqueueid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -4908,7 +4908,7 @@ static Napi::Value windowssys_windows_win32_system_threading_RtwqLockWorkQueue_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_RtwqPutWaitingWorkItem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_rtwqPutWaitingWorkItem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hevent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t lpriority = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4932,7 +4932,7 @@ static Napi::Value windowssys_windows_win32_system_threading_RtwqPutWaitingWorkI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_RtwqPutWorkItem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_rtwqPutWorkItem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwqueue = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t lpriority = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -4954,7 +4954,7 @@ static Napi::Value windowssys_windows_win32_system_threading_RtwqPutWorkItem_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_RtwqRegisterPlatformEvents_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_rtwqRegisterPlatformEvents_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* platformevents = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4972,7 +4972,7 @@ static Napi::Value windowssys_windows_win32_system_threading_RtwqRegisterPlatfor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_RtwqRegisterPlatformWithMMCSS_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_rtwqRegisterPlatformWithMMCSS_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* usageclass = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* taskid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4994,7 +4994,7 @@ static Napi::Value windowssys_windows_win32_system_threading_RtwqRegisterPlatfor
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_RtwqRemovePeriodicCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_rtwqRemovePeriodicCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwkey = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -5012,7 +5012,7 @@ static Napi::Value windowssys_windows_win32_system_threading_RtwqRemovePeriodicC
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_RtwqScheduleWorkItem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_rtwqScheduleWorkItem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* result = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int64_t timeout = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -5034,7 +5034,7 @@ static Napi::Value windowssys_windows_win32_system_threading_RtwqScheduleWorkIte
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_RtwqSetDeadline_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_rtwqSetDeadline_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t workqueueid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int64_t deadlineinhns = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -5056,7 +5056,7 @@ static Napi::Value windowssys_windows_win32_system_threading_RtwqSetDeadline_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_RtwqSetDeadline2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_rtwqSetDeadline2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t workqueueid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int64_t deadlineinhns = km_info.Length() > 1 ? km_napi_arg_i64(km_info[1]) : 0;
@@ -5080,7 +5080,7 @@ static Napi::Value windowssys_windows_win32_system_threading_RtwqSetDeadline2_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_RtwqSetLongRunning_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_rtwqSetLongRunning_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t workqueueid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t enable = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5100,7 +5100,7 @@ static Napi::Value windowssys_windows_win32_system_threading_RtwqSetLongRunning_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_RtwqShutdown_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_rtwqShutdown_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -5116,7 +5116,7 @@ static Napi::Value windowssys_windows_win32_system_threading_RtwqShutdown_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_RtwqStartup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_rtwqStartup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -5132,7 +5132,7 @@ static Napi::Value windowssys_windows_win32_system_threading_RtwqStartup_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_RtwqUnjoinWorkQueue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_rtwqUnjoinWorkQueue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t workqueueid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5152,7 +5152,7 @@ static Napi::Value windowssys_windows_win32_system_threading_RtwqUnjoinWorkQueue
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_RtwqUnlockPlatform_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_rtwqUnlockPlatform_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -5168,7 +5168,7 @@ static Napi::Value windowssys_windows_win32_system_threading_RtwqUnlockPlatform_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_RtwqUnlockWorkQueue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_rtwqUnlockWorkQueue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t workqueueid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -5186,7 +5186,7 @@ static Napi::Value windowssys_windows_win32_system_threading_RtwqUnlockWorkQueue
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_RtwqUnregisterPlatformEvents_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_rtwqUnregisterPlatformEvents_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* platformevents = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5204,7 +5204,7 @@ static Napi::Value windowssys_windows_win32_system_threading_RtwqUnregisterPlatf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_RtwqUnregisterPlatformFromMMCSS_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_rtwqUnregisterPlatformFromMMCSS_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -5220,7 +5220,7 @@ static Napi::Value windowssys_windows_win32_system_threading_RtwqUnregisterPlatf
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetCriticalSectionSpinCount_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setCriticalSectionSpinCount_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpcriticalsection = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwspincount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5240,7 +5240,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetCriticalSectionS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hevent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5258,7 +5258,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetEvent_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetEventWhenCallbackReturns_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setEventWhenCallbackReturns_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t pci = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* evt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5277,7 +5277,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetEventWhenCallbac
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetPriorityClass_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setPriorityClass_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwpriorityclass = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5297,7 +5297,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetPriorityClass_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetProcessAffinityMask_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setProcessAffinityMask_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t dwprocessaffinitymask = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -5317,7 +5317,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetProcessAffinityM
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetProcessAffinityUpdateMode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setProcessAffinityUpdateMode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5337,7 +5337,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetProcessAffinityU
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetProcessDEPPolicy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setProcessDEPPolicy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -5355,7 +5355,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetProcessDEPPolicy
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetProcessDefaultCpuSetMasks_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setProcessDefaultCpuSetMasks_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* process = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* cpusetmasks = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5377,7 +5377,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetProcessDefaultCp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetProcessDefaultCpuSets_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setProcessDefaultCpuSets_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* process = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* cpusetids = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5399,7 +5399,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetProcessDefaultCp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetProcessDynamicEHContinuationTargets_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setProcessDynamicEHContinuationTargets_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* process = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t numberoftargets = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5421,7 +5421,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetProcessDynamicEH
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetProcessDynamicEnforcedCetCompatibleRanges_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setProcessDynamicEnforcedCetCompatibleRanges_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* process = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t numberofranges = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5443,7 +5443,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetProcessDynamicEn
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetProcessInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setProcessInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t processinformationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5467,7 +5467,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetProcessInformati
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetProcessMitigationPolicy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setProcessMitigationPolicy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t mitigationpolicy = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpbuffer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5489,7 +5489,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetProcessMitigatio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetProcessPriorityBoost_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setProcessPriorityBoost_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t bdisablepriorityboost = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5509,7 +5509,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetProcessPriorityB
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetProcessRestrictionExemption_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setProcessRestrictionExemption_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t fenableexemption = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -5527,7 +5527,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetProcessRestricti
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetProcessShutdownParameters_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setProcessShutdownParameters_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwlevel = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5547,7 +5547,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetProcessShutdownP
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetProcessWorkingSetSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setProcessWorkingSetSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t dwminimumworkingsetsize = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -5569,7 +5569,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetProcessWorkingSe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetProtectedPolicy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setProtectedPolicy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* policyguid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t policyvalue = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -5591,7 +5591,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetProtectedPolicy_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetThreadAffinityMask_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setThreadAffinityMask_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hthread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t dwthreadaffinitymask = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -5611,7 +5611,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetThreadAffinityMa
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetThreadDescription_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setThreadDescription_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hthread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpthreaddescription = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5631,7 +5631,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetThreadDescriptio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetThreadGroupAffinity_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setThreadGroupAffinity_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hthread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* groupaffinity = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5653,7 +5653,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetThreadGroupAffin
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetThreadIdealProcessor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setThreadIdealProcessor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hthread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwidealprocessor = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5673,7 +5673,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetThreadIdealProce
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetThreadIdealProcessorEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setThreadIdealProcessorEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hthread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpidealprocessor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5695,7 +5695,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetThreadIdealProce
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetThreadInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setThreadInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hthread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t threadinformationclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5719,7 +5719,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetThreadInformatio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetThreadPriority_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setThreadPriority_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hthread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t npriority = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5739,7 +5739,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetThreadPriority_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetThreadPriorityBoost_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setThreadPriorityBoost_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hthread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t bdisablepriorityboost = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5759,7 +5759,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetThreadPriorityBo
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetThreadSelectedCpuSetMasks_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setThreadSelectedCpuSetMasks_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* thread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* cpusetmasks = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5781,7 +5781,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetThreadSelectedCp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetThreadSelectedCpuSets_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setThreadSelectedCpuSets_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* thread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* cpusetids = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5803,7 +5803,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetThreadSelectedCp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetThreadStackGuarantee_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setThreadStackGuarantee_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* stacksizeinbytes = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5821,7 +5821,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetThreadStackGuara
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetThreadToken_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setThreadToken_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* thread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* token = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5841,7 +5841,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetThreadToken_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetThreadpoolStackInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setThreadpoolStackInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t ptpp = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* ptpsi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5861,7 +5861,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetThreadpoolStackI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetThreadpoolThreadMaximum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setThreadpoolThreadMaximum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t ptpp = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t cthrdmost = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5880,7 +5880,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetThreadpoolThread
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetThreadpoolThreadMinimum_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setThreadpoolThreadMinimum_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t ptpp = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t cthrdmic = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5900,7 +5900,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetThreadpoolThread
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetThreadpoolTimer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setThreadpoolTimer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t pti = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pftduetime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5923,7 +5923,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetThreadpoolTimer_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetThreadpoolTimerEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setThreadpoolTimerEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t pti = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pftduetime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5947,7 +5947,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetThreadpoolTimerE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetThreadpoolWait_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setThreadpoolWait_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t pwa = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* h = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5968,7 +5968,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetThreadpoolWait_n
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetThreadpoolWaitEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setThreadpoolWaitEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t pwa = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* h = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5992,7 +5992,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetThreadpoolWaitEx
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetTimerQueueTimer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setTimerQueueTimer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* timerqueue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* callback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6020,7 +6020,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetTimerQueueTimer_
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetUmsThreadInformation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setUmsThreadInformation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* umsthread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t umsthreadinfoclass = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6044,7 +6044,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetUmsThreadInforma
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetWaitableTimer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setWaitableTimer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* htimer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpduetime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6072,7 +6072,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetWaitableTimer_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SetWaitableTimerEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_setWaitableTimerEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* htimer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpduetime = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6102,7 +6102,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SetWaitableTimerEx_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SignalObjectAndWait_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_signalObjectAndWait_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hobjecttosignal = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hobjecttowaiton = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6126,7 +6126,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SignalObjectAndWait
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_Sleep_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_sleep_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwmilliseconds = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -6143,7 +6143,7 @@ static Napi::Value windowssys_windows_win32_system_threading_Sleep_napi(const Na
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SleepConditionVariableCS_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_sleepConditionVariableCS_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* conditionvariable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* criticalsection = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6165,7 +6165,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SleepConditionVaria
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SleepConditionVariableSRW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_sleepConditionVariableSRW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* conditionvariable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* srwlock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6189,7 +6189,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SleepConditionVaria
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SleepEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_sleepEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwmilliseconds = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t balertable = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6209,7 +6209,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SleepEx_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_StartThreadpoolIo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_startThreadpoolIo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t pio = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -6226,7 +6226,7 @@ static Napi::Value windowssys_windows_win32_system_threading_StartThreadpoolIo_n
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SubmitThreadpoolWork_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_submitThreadpoolWork_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t pwk = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -6243,7 +6243,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SubmitThreadpoolWor
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SuspendThread_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_suspendThread_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hthread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6261,7 +6261,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SuspendThread_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SwitchToFiber_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_switchToFiber_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfiber = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6278,7 +6278,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SwitchToFiber_napi(
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_SwitchToThread_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_switchToThread_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -6294,7 +6294,7 @@ static Napi::Value windowssys_windows_win32_system_threading_SwitchToThread_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_TerminateProcess_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_terminateProcess_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uexitcode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6314,7 +6314,7 @@ static Napi::Value windowssys_windows_win32_system_threading_TerminateProcess_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_TerminateThread_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_terminateThread_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hthread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwexitcode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6334,7 +6334,7 @@ static Napi::Value windowssys_windows_win32_system_threading_TerminateThread_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_TlsAlloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_tlsAlloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -6350,7 +6350,7 @@ static Napi::Value windowssys_windows_win32_system_threading_TlsAlloc_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_TlsFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_tlsFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwtlsindex = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -6368,7 +6368,7 @@ static Napi::Value windowssys_windows_win32_system_threading_TlsFree_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_TlsGetValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_tlsGetValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwtlsindex = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -6386,7 +6386,7 @@ static Napi::Value windowssys_windows_win32_system_threading_TlsGetValue_napi(co
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_TlsSetValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_tlsSetValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwtlsindex = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lptlsvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6406,7 +6406,7 @@ static Napi::Value windowssys_windows_win32_system_threading_TlsSetValue_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_TryAcquireSRWLockExclusive_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_tryAcquireSRWLockExclusive_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* srwlock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6424,7 +6424,7 @@ static Napi::Value windowssys_windows_win32_system_threading_TryAcquireSRWLockEx
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_TryAcquireSRWLockShared_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_tryAcquireSRWLockShared_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* srwlock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6442,7 +6442,7 @@ static Napi::Value windowssys_windows_win32_system_threading_TryAcquireSRWLockSh
     return Napi::Boolean::New(km_env, km_res);
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_TryEnterCriticalSection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_tryEnterCriticalSection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpcriticalsection = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6460,7 +6460,7 @@ static Napi::Value windowssys_windows_win32_system_threading_TryEnterCriticalSec
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_TrySubmitThreadpoolCallback_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_trySubmitThreadpoolCallback_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfns = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6482,7 +6482,7 @@ static Napi::Value windowssys_windows_win32_system_threading_TrySubmitThreadpool
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_UmsThreadYield_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_umsThreadYield_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* schedulerparam = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6500,7 +6500,7 @@ static Napi::Value windowssys_windows_win32_system_threading_UmsThreadYield_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_UnregisterWait_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_unregisterWait_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* waithandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6518,7 +6518,7 @@ static Napi::Value windowssys_windows_win32_system_threading_UnregisterWait_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_UnregisterWaitEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_unregisterWaitEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* waithandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* completionevent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6538,7 +6538,7 @@ static Napi::Value windowssys_windows_win32_system_threading_UnregisterWaitEx_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_UpdateProcThreadAttribute_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_updateProcThreadAttribute_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpattributelist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6568,7 +6568,7 @@ static Napi::Value windowssys_windows_win32_system_threading_UpdateProcThreadAtt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_WaitForInputIdle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_waitForInputIdle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hprocess = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwmilliseconds = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6588,7 +6588,7 @@ static Napi::Value windowssys_windows_win32_system_threading_WaitForInputIdle_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_WaitForMultipleObjects_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_waitForMultipleObjects_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ncount = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lphandles = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6612,7 +6612,7 @@ static Napi::Value windowssys_windows_win32_system_threading_WaitForMultipleObje
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_WaitForMultipleObjectsEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_waitForMultipleObjectsEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ncount = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lphandles = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6638,7 +6638,7 @@ static Napi::Value windowssys_windows_win32_system_threading_WaitForMultipleObje
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_WaitForSingleObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_waitForSingleObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwmilliseconds = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6658,7 +6658,7 @@ static Napi::Value windowssys_windows_win32_system_threading_WaitForSingleObject
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_WaitForSingleObjectEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_waitForSingleObjectEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hhandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwmilliseconds = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6680,7 +6680,7 @@ static Napi::Value windowssys_windows_win32_system_threading_WaitForSingleObject
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_WaitForThreadpoolIoCallbacks_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_waitForThreadpoolIoCallbacks_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t pio = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t fcancelpendingcallbacks = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6699,7 +6699,7 @@ static Napi::Value windowssys_windows_win32_system_threading_WaitForThreadpoolIo
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_WaitForThreadpoolTimerCallbacks_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_waitForThreadpoolTimerCallbacks_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t pti = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t fcancelpendingcallbacks = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6718,7 +6718,7 @@ static Napi::Value windowssys_windows_win32_system_threading_WaitForThreadpoolTi
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_WaitForThreadpoolWaitCallbacks_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_waitForThreadpoolWaitCallbacks_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t pwa = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t fcancelpendingcallbacks = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6737,7 +6737,7 @@ static Napi::Value windowssys_windows_win32_system_threading_WaitForThreadpoolWa
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_WaitForThreadpoolWorkCallbacks_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_waitForThreadpoolWorkCallbacks_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t pwk = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     int32_t fcancelpendingcallbacks = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6756,7 +6756,7 @@ static Napi::Value windowssys_windows_win32_system_threading_WaitForThreadpoolWo
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_WaitOnAddress_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_waitOnAddress_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* address = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* compareaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6780,7 +6780,7 @@ static Napi::Value windowssys_windows_win32_system_threading_WaitOnAddress_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_WakeAllConditionVariable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_wakeAllConditionVariable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* conditionvariable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6797,7 +6797,7 @@ static Napi::Value windowssys_windows_win32_system_threading_WakeAllConditionVar
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_WakeByAddressAll_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_wakeByAddressAll_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* address = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6814,7 +6814,7 @@ static Napi::Value windowssys_windows_win32_system_threading_WakeByAddressAll_na
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_WakeByAddressSingle_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_wakeByAddressSingle_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* address = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6831,7 +6831,7 @@ static Napi::Value windowssys_windows_win32_system_threading_WakeByAddressSingle
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_WakeConditionVariable_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_wakeConditionVariable_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* conditionvariable = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6848,7 +6848,7 @@ static Napi::Value windowssys_windows_win32_system_threading_WakeConditionVariab
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_WinExec_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_winExec_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpcmdline = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ucmdshow = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6868,7 +6868,7 @@ static Napi::Value windowssys_windows_win32_system_threading_WinExec_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_Wow64SetThreadDefaultGuestMachine_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_wow64SetThreadDefaultGuestMachine_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t machine = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -6886,7 +6886,7 @@ static Napi::Value windowssys_windows_win32_system_threading_Wow64SetThreadDefau
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_threading_Wow64SuspendThread_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_threading_wow64SuspendThread_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hthread = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6905,338 +6905,338 @@ static Napi::Value windowssys_windows_win32_system_threading_Wow64SuspendThread_
 }
 
 static void register_windows_win32_system_threading_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_threading_AcquireSRWLockExclusive", Napi::Function::New(env, windowssys_windows_win32_system_threading_AcquireSRWLockExclusive_napi));
-    exports.Set("windowssys_windows_win32_system_threading_AcquireSRWLockShared", Napi::Function::New(env, windowssys_windows_win32_system_threading_AcquireSRWLockShared_napi));
-    exports.Set("windowssys_windows_win32_system_threading_AddIntegrityLabelToBoundaryDescriptor", Napi::Function::New(env, windowssys_windows_win32_system_threading_AddIntegrityLabelToBoundaryDescriptor_napi));
-    exports.Set("windowssys_windows_win32_system_threading_AddSIDToBoundaryDescriptor", Napi::Function::New(env, windowssys_windows_win32_system_threading_AddSIDToBoundaryDescriptor_napi));
-    exports.Set("windowssys_windows_win32_system_threading_AttachThreadInput", Napi::Function::New(env, windowssys_windows_win32_system_threading_AttachThreadInput_napi));
-    exports.Set("windowssys_windows_win32_system_threading_AvQuerySystemResponsiveness", Napi::Function::New(env, windowssys_windows_win32_system_threading_AvQuerySystemResponsiveness_napi));
-    exports.Set("windowssys_windows_win32_system_threading_AvRevertMmThreadCharacteristics", Napi::Function::New(env, windowssys_windows_win32_system_threading_AvRevertMmThreadCharacteristics_napi));
-    exports.Set("windowssys_windows_win32_system_threading_AvRtCreateThreadOrderingGroup", Napi::Function::New(env, windowssys_windows_win32_system_threading_AvRtCreateThreadOrderingGroup_napi));
-    exports.Set("windowssys_windows_win32_system_threading_AvRtCreateThreadOrderingGroupExA", Napi::Function::New(env, windowssys_windows_win32_system_threading_AvRtCreateThreadOrderingGroupExA_napi));
-    exports.Set("windowssys_windows_win32_system_threading_AvRtCreateThreadOrderingGroupExW", Napi::Function::New(env, windowssys_windows_win32_system_threading_AvRtCreateThreadOrderingGroupExW_napi));
-    exports.Set("windowssys_windows_win32_system_threading_AvRtDeleteThreadOrderingGroup", Napi::Function::New(env, windowssys_windows_win32_system_threading_AvRtDeleteThreadOrderingGroup_napi));
-    exports.Set("windowssys_windows_win32_system_threading_AvRtJoinThreadOrderingGroup", Napi::Function::New(env, windowssys_windows_win32_system_threading_AvRtJoinThreadOrderingGroup_napi));
-    exports.Set("windowssys_windows_win32_system_threading_AvRtLeaveThreadOrderingGroup", Napi::Function::New(env, windowssys_windows_win32_system_threading_AvRtLeaveThreadOrderingGroup_napi));
-    exports.Set("windowssys_windows_win32_system_threading_AvRtWaitOnThreadOrderingGroup", Napi::Function::New(env, windowssys_windows_win32_system_threading_AvRtWaitOnThreadOrderingGroup_napi));
-    exports.Set("windowssys_windows_win32_system_threading_AvSetMmMaxThreadCharacteristicsA", Napi::Function::New(env, windowssys_windows_win32_system_threading_AvSetMmMaxThreadCharacteristicsA_napi));
-    exports.Set("windowssys_windows_win32_system_threading_AvSetMmMaxThreadCharacteristicsW", Napi::Function::New(env, windowssys_windows_win32_system_threading_AvSetMmMaxThreadCharacteristicsW_napi));
-    exports.Set("windowssys_windows_win32_system_threading_AvSetMmThreadCharacteristicsA", Napi::Function::New(env, windowssys_windows_win32_system_threading_AvSetMmThreadCharacteristicsA_napi));
-    exports.Set("windowssys_windows_win32_system_threading_AvSetMmThreadCharacteristicsW", Napi::Function::New(env, windowssys_windows_win32_system_threading_AvSetMmThreadCharacteristicsW_napi));
-    exports.Set("windowssys_windows_win32_system_threading_AvSetMmThreadPriority", Napi::Function::New(env, windowssys_windows_win32_system_threading_AvSetMmThreadPriority_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CallbackMayRunLong", Napi::Function::New(env, windowssys_windows_win32_system_threading_CallbackMayRunLong_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CancelThreadpoolIo", Napi::Function::New(env, windowssys_windows_win32_system_threading_CancelThreadpoolIo_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CancelTimerQueueTimer", Napi::Function::New(env, windowssys_windows_win32_system_threading_CancelTimerQueueTimer_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CancelWaitableTimer", Napi::Function::New(env, windowssys_windows_win32_system_threading_CancelWaitableTimer_napi));
-    exports.Set("windowssys_windows_win32_system_threading_ChangeTimerQueueTimer", Napi::Function::New(env, windowssys_windows_win32_system_threading_ChangeTimerQueueTimer_napi));
-    exports.Set("windowssys_windows_win32_system_threading_ClosePrivateNamespace", Napi::Function::New(env, windowssys_windows_win32_system_threading_ClosePrivateNamespace_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CloseThreadpool", Napi::Function::New(env, windowssys_windows_win32_system_threading_CloseThreadpool_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CloseThreadpoolCleanupGroup", Napi::Function::New(env, windowssys_windows_win32_system_threading_CloseThreadpoolCleanupGroup_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CloseThreadpoolCleanupGroupMembers", Napi::Function::New(env, windowssys_windows_win32_system_threading_CloseThreadpoolCleanupGroupMembers_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CloseThreadpoolIo", Napi::Function::New(env, windowssys_windows_win32_system_threading_CloseThreadpoolIo_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CloseThreadpoolTimer", Napi::Function::New(env, windowssys_windows_win32_system_threading_CloseThreadpoolTimer_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CloseThreadpoolWait", Napi::Function::New(env, windowssys_windows_win32_system_threading_CloseThreadpoolWait_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CloseThreadpoolWork", Napi::Function::New(env, windowssys_windows_win32_system_threading_CloseThreadpoolWork_napi));
-    exports.Set("windowssys_windows_win32_system_threading_ConvertFiberToThread", Napi::Function::New(env, windowssys_windows_win32_system_threading_ConvertFiberToThread_napi));
-    exports.Set("windowssys_windows_win32_system_threading_ConvertThreadToFiber", Napi::Function::New(env, windowssys_windows_win32_system_threading_ConvertThreadToFiber_napi));
-    exports.Set("windowssys_windows_win32_system_threading_ConvertThreadToFiberEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_ConvertThreadToFiberEx_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreateBoundaryDescriptorA", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreateBoundaryDescriptorA_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreateBoundaryDescriptorW", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreateBoundaryDescriptorW_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreateEventA", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreateEventA_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreateEventExA", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreateEventExA_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreateEventExW", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreateEventExW_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreateEventW", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreateEventW_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreateFiber", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreateFiber_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreateFiberEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreateFiberEx_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreateMutexA", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreateMutexA_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreateMutexExA", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreateMutexExA_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreateMutexExW", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreateMutexExW_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreateMutexW", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreateMutexW_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreatePrivateNamespaceA", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreatePrivateNamespaceA_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreatePrivateNamespaceW", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreatePrivateNamespaceW_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreateProcessA", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreateProcessA_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreateProcessAsUserA", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreateProcessAsUserA_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreateProcessAsUserW", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreateProcessAsUserW_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreateProcessW", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreateProcessW_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreateProcessWithLogonW", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreateProcessWithLogonW_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreateProcessWithTokenW", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreateProcessWithTokenW_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreateRemoteThread", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreateRemoteThread_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreateRemoteThreadEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreateRemoteThreadEx_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreateSemaphoreA", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreateSemaphoreA_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreateSemaphoreExA", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreateSemaphoreExA_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreateSemaphoreExW", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreateSemaphoreExW_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreateSemaphoreW", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreateSemaphoreW_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreateThread", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreateThread_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreateThreadpool", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreateThreadpool_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreateThreadpoolCleanupGroup", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreateThreadpoolCleanupGroup_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreateThreadpoolIo", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreateThreadpoolIo_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreateThreadpoolTimer", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreateThreadpoolTimer_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreateThreadpoolWait", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreateThreadpoolWait_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreateThreadpoolWork", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreateThreadpoolWork_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreateTimerQueue", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreateTimerQueue_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreateTimerQueueTimer", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreateTimerQueueTimer_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreateUmsCompletionList", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreateUmsCompletionList_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreateUmsThreadContext", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreateUmsThreadContext_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreateWaitableTimerA", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreateWaitableTimerA_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreateWaitableTimerExA", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreateWaitableTimerExA_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreateWaitableTimerExW", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreateWaitableTimerExW_napi));
-    exports.Set("windowssys_windows_win32_system_threading_CreateWaitableTimerW", Napi::Function::New(env, windowssys_windows_win32_system_threading_CreateWaitableTimerW_napi));
-    exports.Set("windowssys_windows_win32_system_threading_DeleteBoundaryDescriptor", Napi::Function::New(env, windowssys_windows_win32_system_threading_DeleteBoundaryDescriptor_napi));
-    exports.Set("windowssys_windows_win32_system_threading_DeleteCriticalSection", Napi::Function::New(env, windowssys_windows_win32_system_threading_DeleteCriticalSection_napi));
-    exports.Set("windowssys_windows_win32_system_threading_DeleteFiber", Napi::Function::New(env, windowssys_windows_win32_system_threading_DeleteFiber_napi));
-    exports.Set("windowssys_windows_win32_system_threading_DeleteProcThreadAttributeList", Napi::Function::New(env, windowssys_windows_win32_system_threading_DeleteProcThreadAttributeList_napi));
-    exports.Set("windowssys_windows_win32_system_threading_DeleteSynchronizationBarrier", Napi::Function::New(env, windowssys_windows_win32_system_threading_DeleteSynchronizationBarrier_napi));
-    exports.Set("windowssys_windows_win32_system_threading_DeleteTimerQueue", Napi::Function::New(env, windowssys_windows_win32_system_threading_DeleteTimerQueue_napi));
-    exports.Set("windowssys_windows_win32_system_threading_DeleteTimerQueueEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_DeleteTimerQueueEx_napi));
-    exports.Set("windowssys_windows_win32_system_threading_DeleteTimerQueueTimer", Napi::Function::New(env, windowssys_windows_win32_system_threading_DeleteTimerQueueTimer_napi));
-    exports.Set("windowssys_windows_win32_system_threading_DeleteUmsCompletionList", Napi::Function::New(env, windowssys_windows_win32_system_threading_DeleteUmsCompletionList_napi));
-    exports.Set("windowssys_windows_win32_system_threading_DeleteUmsThreadContext", Napi::Function::New(env, windowssys_windows_win32_system_threading_DeleteUmsThreadContext_napi));
-    exports.Set("windowssys_windows_win32_system_threading_DequeueUmsCompletionListItems", Napi::Function::New(env, windowssys_windows_win32_system_threading_DequeueUmsCompletionListItems_napi));
-    exports.Set("windowssys_windows_win32_system_threading_DisassociateCurrentThreadFromCallback", Napi::Function::New(env, windowssys_windows_win32_system_threading_DisassociateCurrentThreadFromCallback_napi));
-    exports.Set("windowssys_windows_win32_system_threading_EnterCriticalSection", Napi::Function::New(env, windowssys_windows_win32_system_threading_EnterCriticalSection_napi));
-    exports.Set("windowssys_windows_win32_system_threading_EnterSynchronizationBarrier", Napi::Function::New(env, windowssys_windows_win32_system_threading_EnterSynchronizationBarrier_napi));
-    exports.Set("windowssys_windows_win32_system_threading_EnterUmsSchedulingMode", Napi::Function::New(env, windowssys_windows_win32_system_threading_EnterUmsSchedulingMode_napi));
-    exports.Set("windowssys_windows_win32_system_threading_ExecuteUmsThread", Napi::Function::New(env, windowssys_windows_win32_system_threading_ExecuteUmsThread_napi));
-    exports.Set("windowssys_windows_win32_system_threading_ExitProcess", Napi::Function::New(env, windowssys_windows_win32_system_threading_ExitProcess_napi));
-    exports.Set("windowssys_windows_win32_system_threading_ExitThread", Napi::Function::New(env, windowssys_windows_win32_system_threading_ExitThread_napi));
-    exports.Set("windowssys_windows_win32_system_threading_FlsAlloc", Napi::Function::New(env, windowssys_windows_win32_system_threading_FlsAlloc_napi));
-    exports.Set("windowssys_windows_win32_system_threading_FlsFree", Napi::Function::New(env, windowssys_windows_win32_system_threading_FlsFree_napi));
-    exports.Set("windowssys_windows_win32_system_threading_FlsGetValue", Napi::Function::New(env, windowssys_windows_win32_system_threading_FlsGetValue_napi));
-    exports.Set("windowssys_windows_win32_system_threading_FlsSetValue", Napi::Function::New(env, windowssys_windows_win32_system_threading_FlsSetValue_napi));
-    exports.Set("windowssys_windows_win32_system_threading_FlushProcessWriteBuffers", Napi::Function::New(env, windowssys_windows_win32_system_threading_FlushProcessWriteBuffers_napi));
-    exports.Set("windowssys_windows_win32_system_threading_FreeLibraryWhenCallbackReturns", Napi::Function::New(env, windowssys_windows_win32_system_threading_FreeLibraryWhenCallbackReturns_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetActiveProcessorCount", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetActiveProcessorCount_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetActiveProcessorGroupCount", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetActiveProcessorGroupCount_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetCurrentProcess", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetCurrentProcess_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetCurrentProcessId", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetCurrentProcessId_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetCurrentProcessorNumber", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetCurrentProcessorNumber_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetCurrentProcessorNumberEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetCurrentProcessorNumberEx_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetCurrentThread", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetCurrentThread_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetCurrentThreadId", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetCurrentThreadId_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetCurrentThreadStackLimits", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetCurrentThreadStackLimits_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetCurrentUmsThread", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetCurrentUmsThread_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetExitCodeProcess", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetExitCodeProcess_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetExitCodeThread", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetExitCodeThread_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetGuiResources", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetGuiResources_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetMachineTypeAttributes", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetMachineTypeAttributes_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetMaximumProcessorCount", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetMaximumProcessorCount_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetMaximumProcessorGroupCount", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetMaximumProcessorGroupCount_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetNextUmsListItem", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetNextUmsListItem_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetNumaAvailableMemoryNode", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetNumaAvailableMemoryNode_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetNumaAvailableMemoryNodeEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetNumaAvailableMemoryNodeEx_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetNumaHighestNodeNumber", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetNumaHighestNodeNumber_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetNumaNodeNumberFromHandle", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetNumaNodeNumberFromHandle_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetNumaNodeProcessorMask", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetNumaNodeProcessorMask_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetNumaNodeProcessorMask2", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetNumaNodeProcessorMask2_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetNumaNodeProcessorMaskEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetNumaNodeProcessorMaskEx_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetNumaProcessorNode", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetNumaProcessorNode_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetNumaProcessorNodeEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetNumaProcessorNodeEx_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetNumaProximityNode", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetNumaProximityNode_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetNumaProximityNodeEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetNumaProximityNodeEx_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetPriorityClass", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetPriorityClass_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetProcessAffinityMask", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetProcessAffinityMask_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetProcessDEPPolicy", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetProcessDEPPolicy_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetProcessDefaultCpuSetMasks", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetProcessDefaultCpuSetMasks_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetProcessDefaultCpuSets", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetProcessDefaultCpuSets_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetProcessGroupAffinity", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetProcessGroupAffinity_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetProcessHandleCount", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetProcessHandleCount_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetProcessHandleFromHwnd", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetProcessHandleFromHwnd_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetProcessId", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetProcessId_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetProcessIdOfThread", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetProcessIdOfThread_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetProcessInformation", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetProcessInformation_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetProcessIoCounters", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetProcessIoCounters_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetProcessMitigationPolicy", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetProcessMitigationPolicy_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetProcessPriorityBoost", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetProcessPriorityBoost_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetProcessShutdownParameters", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetProcessShutdownParameters_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetProcessTimes", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetProcessTimes_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetProcessVersion", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetProcessVersion_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetProcessWorkingSetSize", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetProcessWorkingSetSize_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetStartupInfoA", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetStartupInfoA_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetStartupInfoW", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetStartupInfoW_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetSystemTimes", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetSystemTimes_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetThreadDescription", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetThreadDescription_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetThreadGroupAffinity", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetThreadGroupAffinity_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetThreadIOPendingFlag", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetThreadIOPendingFlag_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetThreadId", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetThreadId_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetThreadIdealProcessorEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetThreadIdealProcessorEx_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetThreadInformation", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetThreadInformation_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetThreadPriority", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetThreadPriority_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetThreadPriorityBoost", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetThreadPriorityBoost_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetThreadSelectedCpuSetMasks", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetThreadSelectedCpuSetMasks_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetThreadSelectedCpuSets", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetThreadSelectedCpuSets_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetThreadTimes", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetThreadTimes_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetUmsCompletionListEvent", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetUmsCompletionListEvent_napi));
-    exports.Set("windowssys_windows_win32_system_threading_GetUmsSystemThreadInformation", Napi::Function::New(env, windowssys_windows_win32_system_threading_GetUmsSystemThreadInformation_napi));
-    exports.Set("windowssys_windows_win32_system_threading_InitOnceBeginInitialize", Napi::Function::New(env, windowssys_windows_win32_system_threading_InitOnceBeginInitialize_napi));
-    exports.Set("windowssys_windows_win32_system_threading_InitOnceComplete", Napi::Function::New(env, windowssys_windows_win32_system_threading_InitOnceComplete_napi));
-    exports.Set("windowssys_windows_win32_system_threading_InitOnceExecuteOnce", Napi::Function::New(env, windowssys_windows_win32_system_threading_InitOnceExecuteOnce_napi));
-    exports.Set("windowssys_windows_win32_system_threading_InitOnceInitialize", Napi::Function::New(env, windowssys_windows_win32_system_threading_InitOnceInitialize_napi));
-    exports.Set("windowssys_windows_win32_system_threading_InitializeConditionVariable", Napi::Function::New(env, windowssys_windows_win32_system_threading_InitializeConditionVariable_napi));
-    exports.Set("windowssys_windows_win32_system_threading_InitializeCriticalSection", Napi::Function::New(env, windowssys_windows_win32_system_threading_InitializeCriticalSection_napi));
-    exports.Set("windowssys_windows_win32_system_threading_InitializeCriticalSectionAndSpinCount", Napi::Function::New(env, windowssys_windows_win32_system_threading_InitializeCriticalSectionAndSpinCount_napi));
-    exports.Set("windowssys_windows_win32_system_threading_InitializeCriticalSectionEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_InitializeCriticalSectionEx_napi));
-    exports.Set("windowssys_windows_win32_system_threading_InitializeProcThreadAttributeList", Napi::Function::New(env, windowssys_windows_win32_system_threading_InitializeProcThreadAttributeList_napi));
-    exports.Set("windowssys_windows_win32_system_threading_InitializeSListHead", Napi::Function::New(env, windowssys_windows_win32_system_threading_InitializeSListHead_napi));
-    exports.Set("windowssys_windows_win32_system_threading_InitializeSRWLock", Napi::Function::New(env, windowssys_windows_win32_system_threading_InitializeSRWLock_napi));
-    exports.Set("windowssys_windows_win32_system_threading_InitializeSynchronizationBarrier", Napi::Function::New(env, windowssys_windows_win32_system_threading_InitializeSynchronizationBarrier_napi));
-    exports.Set("windowssys_windows_win32_system_threading_InterlockedFlushSList", Napi::Function::New(env, windowssys_windows_win32_system_threading_InterlockedFlushSList_napi));
-    exports.Set("windowssys_windows_win32_system_threading_InterlockedPopEntrySList", Napi::Function::New(env, windowssys_windows_win32_system_threading_InterlockedPopEntrySList_napi));
-    exports.Set("windowssys_windows_win32_system_threading_InterlockedPushEntrySList", Napi::Function::New(env, windowssys_windows_win32_system_threading_InterlockedPushEntrySList_napi));
-    exports.Set("windowssys_windows_win32_system_threading_InterlockedPushListSListEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_InterlockedPushListSListEx_napi));
-    exports.Set("windowssys_windows_win32_system_threading_IsImmersiveProcess", Napi::Function::New(env, windowssys_windows_win32_system_threading_IsImmersiveProcess_napi));
-    exports.Set("windowssys_windows_win32_system_threading_IsProcessCritical", Napi::Function::New(env, windowssys_windows_win32_system_threading_IsProcessCritical_napi));
-    exports.Set("windowssys_windows_win32_system_threading_IsProcessorFeaturePresent", Napi::Function::New(env, windowssys_windows_win32_system_threading_IsProcessorFeaturePresent_napi));
-    exports.Set("windowssys_windows_win32_system_threading_IsThreadAFiber", Napi::Function::New(env, windowssys_windows_win32_system_threading_IsThreadAFiber_napi));
-    exports.Set("windowssys_windows_win32_system_threading_IsThreadpoolTimerSet", Napi::Function::New(env, windowssys_windows_win32_system_threading_IsThreadpoolTimerSet_napi));
-    exports.Set("windowssys_windows_win32_system_threading_IsWow64Process", Napi::Function::New(env, windowssys_windows_win32_system_threading_IsWow64Process_napi));
-    exports.Set("windowssys_windows_win32_system_threading_IsWow64Process2", Napi::Function::New(env, windowssys_windows_win32_system_threading_IsWow64Process2_napi));
-    exports.Set("windowssys_windows_win32_system_threading_LeaveCriticalSection", Napi::Function::New(env, windowssys_windows_win32_system_threading_LeaveCriticalSection_napi));
-    exports.Set("windowssys_windows_win32_system_threading_LeaveCriticalSectionWhenCallbackReturns", Napi::Function::New(env, windowssys_windows_win32_system_threading_LeaveCriticalSectionWhenCallbackReturns_napi));
-    exports.Set("windowssys_windows_win32_system_threading_OpenEventA", Napi::Function::New(env, windowssys_windows_win32_system_threading_OpenEventA_napi));
-    exports.Set("windowssys_windows_win32_system_threading_OpenEventW", Napi::Function::New(env, windowssys_windows_win32_system_threading_OpenEventW_napi));
-    exports.Set("windowssys_windows_win32_system_threading_OpenMutexW", Napi::Function::New(env, windowssys_windows_win32_system_threading_OpenMutexW_napi));
-    exports.Set("windowssys_windows_win32_system_threading_OpenPrivateNamespaceA", Napi::Function::New(env, windowssys_windows_win32_system_threading_OpenPrivateNamespaceA_napi));
-    exports.Set("windowssys_windows_win32_system_threading_OpenPrivateNamespaceW", Napi::Function::New(env, windowssys_windows_win32_system_threading_OpenPrivateNamespaceW_napi));
-    exports.Set("windowssys_windows_win32_system_threading_OpenProcess", Napi::Function::New(env, windowssys_windows_win32_system_threading_OpenProcess_napi));
-    exports.Set("windowssys_windows_win32_system_threading_OpenProcessToken", Napi::Function::New(env, windowssys_windows_win32_system_threading_OpenProcessToken_napi));
-    exports.Set("windowssys_windows_win32_system_threading_OpenSemaphoreW", Napi::Function::New(env, windowssys_windows_win32_system_threading_OpenSemaphoreW_napi));
-    exports.Set("windowssys_windows_win32_system_threading_OpenThread", Napi::Function::New(env, windowssys_windows_win32_system_threading_OpenThread_napi));
-    exports.Set("windowssys_windows_win32_system_threading_OpenThreadToken", Napi::Function::New(env, windowssys_windows_win32_system_threading_OpenThreadToken_napi));
-    exports.Set("windowssys_windows_win32_system_threading_OpenWaitableTimerA", Napi::Function::New(env, windowssys_windows_win32_system_threading_OpenWaitableTimerA_napi));
-    exports.Set("windowssys_windows_win32_system_threading_OpenWaitableTimerW", Napi::Function::New(env, windowssys_windows_win32_system_threading_OpenWaitableTimerW_napi));
-    exports.Set("windowssys_windows_win32_system_threading_PulseEvent", Napi::Function::New(env, windowssys_windows_win32_system_threading_PulseEvent_napi));
-    exports.Set("windowssys_windows_win32_system_threading_QueryDepthSList", Napi::Function::New(env, windowssys_windows_win32_system_threading_QueryDepthSList_napi));
-    exports.Set("windowssys_windows_win32_system_threading_QueryFullProcessImageNameA", Napi::Function::New(env, windowssys_windows_win32_system_threading_QueryFullProcessImageNameA_napi));
-    exports.Set("windowssys_windows_win32_system_threading_QueryFullProcessImageNameW", Napi::Function::New(env, windowssys_windows_win32_system_threading_QueryFullProcessImageNameW_napi));
-    exports.Set("windowssys_windows_win32_system_threading_QueryProcessAffinityUpdateMode", Napi::Function::New(env, windowssys_windows_win32_system_threading_QueryProcessAffinityUpdateMode_napi));
-    exports.Set("windowssys_windows_win32_system_threading_QueryProtectedPolicy", Napi::Function::New(env, windowssys_windows_win32_system_threading_QueryProtectedPolicy_napi));
-    exports.Set("windowssys_windows_win32_system_threading_QueryThreadpoolStackInformation", Napi::Function::New(env, windowssys_windows_win32_system_threading_QueryThreadpoolStackInformation_napi));
-    exports.Set("windowssys_windows_win32_system_threading_QueryUmsThreadInformation", Napi::Function::New(env, windowssys_windows_win32_system_threading_QueryUmsThreadInformation_napi));
-    exports.Set("windowssys_windows_win32_system_threading_QueueUserWorkItem", Napi::Function::New(env, windowssys_windows_win32_system_threading_QueueUserWorkItem_napi));
-    exports.Set("windowssys_windows_win32_system_threading_RegisterWaitForSingleObject", Napi::Function::New(env, windowssys_windows_win32_system_threading_RegisterWaitForSingleObject_napi));
-    exports.Set("windowssys_windows_win32_system_threading_ReleaseMutex", Napi::Function::New(env, windowssys_windows_win32_system_threading_ReleaseMutex_napi));
-    exports.Set("windowssys_windows_win32_system_threading_ReleaseMutexWhenCallbackReturns", Napi::Function::New(env, windowssys_windows_win32_system_threading_ReleaseMutexWhenCallbackReturns_napi));
-    exports.Set("windowssys_windows_win32_system_threading_ReleaseSRWLockExclusive", Napi::Function::New(env, windowssys_windows_win32_system_threading_ReleaseSRWLockExclusive_napi));
-    exports.Set("windowssys_windows_win32_system_threading_ReleaseSRWLockShared", Napi::Function::New(env, windowssys_windows_win32_system_threading_ReleaseSRWLockShared_napi));
-    exports.Set("windowssys_windows_win32_system_threading_ReleaseSemaphore", Napi::Function::New(env, windowssys_windows_win32_system_threading_ReleaseSemaphore_napi));
-    exports.Set("windowssys_windows_win32_system_threading_ReleaseSemaphoreWhenCallbackReturns", Napi::Function::New(env, windowssys_windows_win32_system_threading_ReleaseSemaphoreWhenCallbackReturns_napi));
-    exports.Set("windowssys_windows_win32_system_threading_ResetEvent", Napi::Function::New(env, windowssys_windows_win32_system_threading_ResetEvent_napi));
-    exports.Set("windowssys_windows_win32_system_threading_ResumeThread", Napi::Function::New(env, windowssys_windows_win32_system_threading_ResumeThread_napi));
-    exports.Set("windowssys_windows_win32_system_threading_RtwqAddPeriodicCallback", Napi::Function::New(env, windowssys_windows_win32_system_threading_RtwqAddPeriodicCallback_napi));
-    exports.Set("windowssys_windows_win32_system_threading_RtwqAllocateSerialWorkQueue", Napi::Function::New(env, windowssys_windows_win32_system_threading_RtwqAllocateSerialWorkQueue_napi));
-    exports.Set("windowssys_windows_win32_system_threading_RtwqAllocateWorkQueue", Napi::Function::New(env, windowssys_windows_win32_system_threading_RtwqAllocateWorkQueue_napi));
-    exports.Set("windowssys_windows_win32_system_threading_RtwqBeginRegisterWorkQueueWithMMCSS", Napi::Function::New(env, windowssys_windows_win32_system_threading_RtwqBeginRegisterWorkQueueWithMMCSS_napi));
-    exports.Set("windowssys_windows_win32_system_threading_RtwqBeginUnregisterWorkQueueWithMMCSS", Napi::Function::New(env, windowssys_windows_win32_system_threading_RtwqBeginUnregisterWorkQueueWithMMCSS_napi));
-    exports.Set("windowssys_windows_win32_system_threading_RtwqCancelDeadline", Napi::Function::New(env, windowssys_windows_win32_system_threading_RtwqCancelDeadline_napi));
-    exports.Set("windowssys_windows_win32_system_threading_RtwqCancelWorkItem", Napi::Function::New(env, windowssys_windows_win32_system_threading_RtwqCancelWorkItem_napi));
-    exports.Set("windowssys_windows_win32_system_threading_RtwqCreateAsyncResult", Napi::Function::New(env, windowssys_windows_win32_system_threading_RtwqCreateAsyncResult_napi));
-    exports.Set("windowssys_windows_win32_system_threading_RtwqEndRegisterWorkQueueWithMMCSS", Napi::Function::New(env, windowssys_windows_win32_system_threading_RtwqEndRegisterWorkQueueWithMMCSS_napi));
-    exports.Set("windowssys_windows_win32_system_threading_RtwqGetWorkQueueMMCSSClass", Napi::Function::New(env, windowssys_windows_win32_system_threading_RtwqGetWorkQueueMMCSSClass_napi));
-    exports.Set("windowssys_windows_win32_system_threading_RtwqGetWorkQueueMMCSSPriority", Napi::Function::New(env, windowssys_windows_win32_system_threading_RtwqGetWorkQueueMMCSSPriority_napi));
-    exports.Set("windowssys_windows_win32_system_threading_RtwqGetWorkQueueMMCSSTaskId", Napi::Function::New(env, windowssys_windows_win32_system_threading_RtwqGetWorkQueueMMCSSTaskId_napi));
-    exports.Set("windowssys_windows_win32_system_threading_RtwqInvokeCallback", Napi::Function::New(env, windowssys_windows_win32_system_threading_RtwqInvokeCallback_napi));
-    exports.Set("windowssys_windows_win32_system_threading_RtwqJoinWorkQueue", Napi::Function::New(env, windowssys_windows_win32_system_threading_RtwqJoinWorkQueue_napi));
-    exports.Set("windowssys_windows_win32_system_threading_RtwqLockPlatform", Napi::Function::New(env, windowssys_windows_win32_system_threading_RtwqLockPlatform_napi));
-    exports.Set("windowssys_windows_win32_system_threading_RtwqLockSharedWorkQueue", Napi::Function::New(env, windowssys_windows_win32_system_threading_RtwqLockSharedWorkQueue_napi));
-    exports.Set("windowssys_windows_win32_system_threading_RtwqLockWorkQueue", Napi::Function::New(env, windowssys_windows_win32_system_threading_RtwqLockWorkQueue_napi));
-    exports.Set("windowssys_windows_win32_system_threading_RtwqPutWaitingWorkItem", Napi::Function::New(env, windowssys_windows_win32_system_threading_RtwqPutWaitingWorkItem_napi));
-    exports.Set("windowssys_windows_win32_system_threading_RtwqPutWorkItem", Napi::Function::New(env, windowssys_windows_win32_system_threading_RtwqPutWorkItem_napi));
-    exports.Set("windowssys_windows_win32_system_threading_RtwqRegisterPlatformEvents", Napi::Function::New(env, windowssys_windows_win32_system_threading_RtwqRegisterPlatformEvents_napi));
-    exports.Set("windowssys_windows_win32_system_threading_RtwqRegisterPlatformWithMMCSS", Napi::Function::New(env, windowssys_windows_win32_system_threading_RtwqRegisterPlatformWithMMCSS_napi));
-    exports.Set("windowssys_windows_win32_system_threading_RtwqRemovePeriodicCallback", Napi::Function::New(env, windowssys_windows_win32_system_threading_RtwqRemovePeriodicCallback_napi));
-    exports.Set("windowssys_windows_win32_system_threading_RtwqScheduleWorkItem", Napi::Function::New(env, windowssys_windows_win32_system_threading_RtwqScheduleWorkItem_napi));
-    exports.Set("windowssys_windows_win32_system_threading_RtwqSetDeadline", Napi::Function::New(env, windowssys_windows_win32_system_threading_RtwqSetDeadline_napi));
-    exports.Set("windowssys_windows_win32_system_threading_RtwqSetDeadline2", Napi::Function::New(env, windowssys_windows_win32_system_threading_RtwqSetDeadline2_napi));
-    exports.Set("windowssys_windows_win32_system_threading_RtwqSetLongRunning", Napi::Function::New(env, windowssys_windows_win32_system_threading_RtwqSetLongRunning_napi));
-    exports.Set("windowssys_windows_win32_system_threading_RtwqShutdown", Napi::Function::New(env, windowssys_windows_win32_system_threading_RtwqShutdown_napi));
-    exports.Set("windowssys_windows_win32_system_threading_RtwqStartup", Napi::Function::New(env, windowssys_windows_win32_system_threading_RtwqStartup_napi));
-    exports.Set("windowssys_windows_win32_system_threading_RtwqUnjoinWorkQueue", Napi::Function::New(env, windowssys_windows_win32_system_threading_RtwqUnjoinWorkQueue_napi));
-    exports.Set("windowssys_windows_win32_system_threading_RtwqUnlockPlatform", Napi::Function::New(env, windowssys_windows_win32_system_threading_RtwqUnlockPlatform_napi));
-    exports.Set("windowssys_windows_win32_system_threading_RtwqUnlockWorkQueue", Napi::Function::New(env, windowssys_windows_win32_system_threading_RtwqUnlockWorkQueue_napi));
-    exports.Set("windowssys_windows_win32_system_threading_RtwqUnregisterPlatformEvents", Napi::Function::New(env, windowssys_windows_win32_system_threading_RtwqUnregisterPlatformEvents_napi));
-    exports.Set("windowssys_windows_win32_system_threading_RtwqUnregisterPlatformFromMMCSS", Napi::Function::New(env, windowssys_windows_win32_system_threading_RtwqUnregisterPlatformFromMMCSS_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetCriticalSectionSpinCount", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetCriticalSectionSpinCount_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetEvent", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetEvent_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetEventWhenCallbackReturns", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetEventWhenCallbackReturns_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetPriorityClass", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetPriorityClass_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetProcessAffinityMask", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetProcessAffinityMask_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetProcessAffinityUpdateMode", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetProcessAffinityUpdateMode_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetProcessDEPPolicy", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetProcessDEPPolicy_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetProcessDefaultCpuSetMasks", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetProcessDefaultCpuSetMasks_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetProcessDefaultCpuSets", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetProcessDefaultCpuSets_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetProcessDynamicEHContinuationTargets", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetProcessDynamicEHContinuationTargets_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetProcessDynamicEnforcedCetCompatibleRanges", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetProcessDynamicEnforcedCetCompatibleRanges_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetProcessInformation", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetProcessInformation_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetProcessMitigationPolicy", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetProcessMitigationPolicy_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetProcessPriorityBoost", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetProcessPriorityBoost_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetProcessRestrictionExemption", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetProcessRestrictionExemption_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetProcessShutdownParameters", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetProcessShutdownParameters_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetProcessWorkingSetSize", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetProcessWorkingSetSize_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetProtectedPolicy", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetProtectedPolicy_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetThreadAffinityMask", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetThreadAffinityMask_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetThreadDescription", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetThreadDescription_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetThreadGroupAffinity", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetThreadGroupAffinity_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetThreadIdealProcessor", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetThreadIdealProcessor_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetThreadIdealProcessorEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetThreadIdealProcessorEx_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetThreadInformation", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetThreadInformation_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetThreadPriority", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetThreadPriority_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetThreadPriorityBoost", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetThreadPriorityBoost_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetThreadSelectedCpuSetMasks", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetThreadSelectedCpuSetMasks_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetThreadSelectedCpuSets", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetThreadSelectedCpuSets_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetThreadStackGuarantee", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetThreadStackGuarantee_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetThreadToken", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetThreadToken_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetThreadpoolStackInformation", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetThreadpoolStackInformation_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetThreadpoolThreadMaximum", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetThreadpoolThreadMaximum_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetThreadpoolThreadMinimum", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetThreadpoolThreadMinimum_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetThreadpoolTimer", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetThreadpoolTimer_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetThreadpoolTimerEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetThreadpoolTimerEx_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetThreadpoolWait", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetThreadpoolWait_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetThreadpoolWaitEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetThreadpoolWaitEx_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetTimerQueueTimer", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetTimerQueueTimer_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetUmsThreadInformation", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetUmsThreadInformation_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetWaitableTimer", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetWaitableTimer_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SetWaitableTimerEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_SetWaitableTimerEx_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SignalObjectAndWait", Napi::Function::New(env, windowssys_windows_win32_system_threading_SignalObjectAndWait_napi));
-    exports.Set("windowssys_windows_win32_system_threading_Sleep", Napi::Function::New(env, windowssys_windows_win32_system_threading_Sleep_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SleepConditionVariableCS", Napi::Function::New(env, windowssys_windows_win32_system_threading_SleepConditionVariableCS_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SleepConditionVariableSRW", Napi::Function::New(env, windowssys_windows_win32_system_threading_SleepConditionVariableSRW_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SleepEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_SleepEx_napi));
-    exports.Set("windowssys_windows_win32_system_threading_StartThreadpoolIo", Napi::Function::New(env, windowssys_windows_win32_system_threading_StartThreadpoolIo_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SubmitThreadpoolWork", Napi::Function::New(env, windowssys_windows_win32_system_threading_SubmitThreadpoolWork_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SuspendThread", Napi::Function::New(env, windowssys_windows_win32_system_threading_SuspendThread_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SwitchToFiber", Napi::Function::New(env, windowssys_windows_win32_system_threading_SwitchToFiber_napi));
-    exports.Set("windowssys_windows_win32_system_threading_SwitchToThread", Napi::Function::New(env, windowssys_windows_win32_system_threading_SwitchToThread_napi));
-    exports.Set("windowssys_windows_win32_system_threading_TerminateProcess", Napi::Function::New(env, windowssys_windows_win32_system_threading_TerminateProcess_napi));
-    exports.Set("windowssys_windows_win32_system_threading_TerminateThread", Napi::Function::New(env, windowssys_windows_win32_system_threading_TerminateThread_napi));
-    exports.Set("windowssys_windows_win32_system_threading_TlsAlloc", Napi::Function::New(env, windowssys_windows_win32_system_threading_TlsAlloc_napi));
-    exports.Set("windowssys_windows_win32_system_threading_TlsFree", Napi::Function::New(env, windowssys_windows_win32_system_threading_TlsFree_napi));
-    exports.Set("windowssys_windows_win32_system_threading_TlsGetValue", Napi::Function::New(env, windowssys_windows_win32_system_threading_TlsGetValue_napi));
-    exports.Set("windowssys_windows_win32_system_threading_TlsSetValue", Napi::Function::New(env, windowssys_windows_win32_system_threading_TlsSetValue_napi));
-    exports.Set("windowssys_windows_win32_system_threading_TryAcquireSRWLockExclusive", Napi::Function::New(env, windowssys_windows_win32_system_threading_TryAcquireSRWLockExclusive_napi));
-    exports.Set("windowssys_windows_win32_system_threading_TryAcquireSRWLockShared", Napi::Function::New(env, windowssys_windows_win32_system_threading_TryAcquireSRWLockShared_napi));
-    exports.Set("windowssys_windows_win32_system_threading_TryEnterCriticalSection", Napi::Function::New(env, windowssys_windows_win32_system_threading_TryEnterCriticalSection_napi));
-    exports.Set("windowssys_windows_win32_system_threading_TrySubmitThreadpoolCallback", Napi::Function::New(env, windowssys_windows_win32_system_threading_TrySubmitThreadpoolCallback_napi));
-    exports.Set("windowssys_windows_win32_system_threading_UmsThreadYield", Napi::Function::New(env, windowssys_windows_win32_system_threading_UmsThreadYield_napi));
-    exports.Set("windowssys_windows_win32_system_threading_UnregisterWait", Napi::Function::New(env, windowssys_windows_win32_system_threading_UnregisterWait_napi));
-    exports.Set("windowssys_windows_win32_system_threading_UnregisterWaitEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_UnregisterWaitEx_napi));
-    exports.Set("windowssys_windows_win32_system_threading_UpdateProcThreadAttribute", Napi::Function::New(env, windowssys_windows_win32_system_threading_UpdateProcThreadAttribute_napi));
-    exports.Set("windowssys_windows_win32_system_threading_WaitForInputIdle", Napi::Function::New(env, windowssys_windows_win32_system_threading_WaitForInputIdle_napi));
-    exports.Set("windowssys_windows_win32_system_threading_WaitForMultipleObjects", Napi::Function::New(env, windowssys_windows_win32_system_threading_WaitForMultipleObjects_napi));
-    exports.Set("windowssys_windows_win32_system_threading_WaitForMultipleObjectsEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_WaitForMultipleObjectsEx_napi));
-    exports.Set("windowssys_windows_win32_system_threading_WaitForSingleObject", Napi::Function::New(env, windowssys_windows_win32_system_threading_WaitForSingleObject_napi));
-    exports.Set("windowssys_windows_win32_system_threading_WaitForSingleObjectEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_WaitForSingleObjectEx_napi));
-    exports.Set("windowssys_windows_win32_system_threading_WaitForThreadpoolIoCallbacks", Napi::Function::New(env, windowssys_windows_win32_system_threading_WaitForThreadpoolIoCallbacks_napi));
-    exports.Set("windowssys_windows_win32_system_threading_WaitForThreadpoolTimerCallbacks", Napi::Function::New(env, windowssys_windows_win32_system_threading_WaitForThreadpoolTimerCallbacks_napi));
-    exports.Set("windowssys_windows_win32_system_threading_WaitForThreadpoolWaitCallbacks", Napi::Function::New(env, windowssys_windows_win32_system_threading_WaitForThreadpoolWaitCallbacks_napi));
-    exports.Set("windowssys_windows_win32_system_threading_WaitForThreadpoolWorkCallbacks", Napi::Function::New(env, windowssys_windows_win32_system_threading_WaitForThreadpoolWorkCallbacks_napi));
-    exports.Set("windowssys_windows_win32_system_threading_WaitOnAddress", Napi::Function::New(env, windowssys_windows_win32_system_threading_WaitOnAddress_napi));
-    exports.Set("windowssys_windows_win32_system_threading_WakeAllConditionVariable", Napi::Function::New(env, windowssys_windows_win32_system_threading_WakeAllConditionVariable_napi));
-    exports.Set("windowssys_windows_win32_system_threading_WakeByAddressAll", Napi::Function::New(env, windowssys_windows_win32_system_threading_WakeByAddressAll_napi));
-    exports.Set("windowssys_windows_win32_system_threading_WakeByAddressSingle", Napi::Function::New(env, windowssys_windows_win32_system_threading_WakeByAddressSingle_napi));
-    exports.Set("windowssys_windows_win32_system_threading_WakeConditionVariable", Napi::Function::New(env, windowssys_windows_win32_system_threading_WakeConditionVariable_napi));
-    exports.Set("windowssys_windows_win32_system_threading_WinExec", Napi::Function::New(env, windowssys_windows_win32_system_threading_WinExec_napi));
-    exports.Set("windowssys_windows_win32_system_threading_Wow64SetThreadDefaultGuestMachine", Napi::Function::New(env, windowssys_windows_win32_system_threading_Wow64SetThreadDefaultGuestMachine_napi));
-    exports.Set("windowssys_windows_win32_system_threading_Wow64SuspendThread", Napi::Function::New(env, windowssys_windows_win32_system_threading_Wow64SuspendThread_napi));
+    exports.Set("windowssys_windows_win32_system_threading_acquireSRWLockExclusive", Napi::Function::New(env, windowssys_windows_win32_system_threading_acquireSRWLockExclusive_napi));
+    exports.Set("windowssys_windows_win32_system_threading_acquireSRWLockShared", Napi::Function::New(env, windowssys_windows_win32_system_threading_acquireSRWLockShared_napi));
+    exports.Set("windowssys_windows_win32_system_threading_addIntegrityLabelToBoundaryDescriptor", Napi::Function::New(env, windowssys_windows_win32_system_threading_addIntegrityLabelToBoundaryDescriptor_napi));
+    exports.Set("windowssys_windows_win32_system_threading_addSIDToBoundaryDescriptor", Napi::Function::New(env, windowssys_windows_win32_system_threading_addSIDToBoundaryDescriptor_napi));
+    exports.Set("windowssys_windows_win32_system_threading_attachThreadInput", Napi::Function::New(env, windowssys_windows_win32_system_threading_attachThreadInput_napi));
+    exports.Set("windowssys_windows_win32_system_threading_avQuerySystemResponsiveness", Napi::Function::New(env, windowssys_windows_win32_system_threading_avQuerySystemResponsiveness_napi));
+    exports.Set("windowssys_windows_win32_system_threading_avRevertMmThreadCharacteristics", Napi::Function::New(env, windowssys_windows_win32_system_threading_avRevertMmThreadCharacteristics_napi));
+    exports.Set("windowssys_windows_win32_system_threading_avRtCreateThreadOrderingGroup", Napi::Function::New(env, windowssys_windows_win32_system_threading_avRtCreateThreadOrderingGroup_napi));
+    exports.Set("windowssys_windows_win32_system_threading_avRtCreateThreadOrderingGroupExA", Napi::Function::New(env, windowssys_windows_win32_system_threading_avRtCreateThreadOrderingGroupExA_napi));
+    exports.Set("windowssys_windows_win32_system_threading_avRtCreateThreadOrderingGroupExW", Napi::Function::New(env, windowssys_windows_win32_system_threading_avRtCreateThreadOrderingGroupExW_napi));
+    exports.Set("windowssys_windows_win32_system_threading_avRtDeleteThreadOrderingGroup", Napi::Function::New(env, windowssys_windows_win32_system_threading_avRtDeleteThreadOrderingGroup_napi));
+    exports.Set("windowssys_windows_win32_system_threading_avRtJoinThreadOrderingGroup", Napi::Function::New(env, windowssys_windows_win32_system_threading_avRtJoinThreadOrderingGroup_napi));
+    exports.Set("windowssys_windows_win32_system_threading_avRtLeaveThreadOrderingGroup", Napi::Function::New(env, windowssys_windows_win32_system_threading_avRtLeaveThreadOrderingGroup_napi));
+    exports.Set("windowssys_windows_win32_system_threading_avRtWaitOnThreadOrderingGroup", Napi::Function::New(env, windowssys_windows_win32_system_threading_avRtWaitOnThreadOrderingGroup_napi));
+    exports.Set("windowssys_windows_win32_system_threading_avSetMmMaxThreadCharacteristicsA", Napi::Function::New(env, windowssys_windows_win32_system_threading_avSetMmMaxThreadCharacteristicsA_napi));
+    exports.Set("windowssys_windows_win32_system_threading_avSetMmMaxThreadCharacteristicsW", Napi::Function::New(env, windowssys_windows_win32_system_threading_avSetMmMaxThreadCharacteristicsW_napi));
+    exports.Set("windowssys_windows_win32_system_threading_avSetMmThreadCharacteristicsA", Napi::Function::New(env, windowssys_windows_win32_system_threading_avSetMmThreadCharacteristicsA_napi));
+    exports.Set("windowssys_windows_win32_system_threading_avSetMmThreadCharacteristicsW", Napi::Function::New(env, windowssys_windows_win32_system_threading_avSetMmThreadCharacteristicsW_napi));
+    exports.Set("windowssys_windows_win32_system_threading_avSetMmThreadPriority", Napi::Function::New(env, windowssys_windows_win32_system_threading_avSetMmThreadPriority_napi));
+    exports.Set("windowssys_windows_win32_system_threading_callbackMayRunLong", Napi::Function::New(env, windowssys_windows_win32_system_threading_callbackMayRunLong_napi));
+    exports.Set("windowssys_windows_win32_system_threading_cancelThreadpoolIo", Napi::Function::New(env, windowssys_windows_win32_system_threading_cancelThreadpoolIo_napi));
+    exports.Set("windowssys_windows_win32_system_threading_cancelTimerQueueTimer", Napi::Function::New(env, windowssys_windows_win32_system_threading_cancelTimerQueueTimer_napi));
+    exports.Set("windowssys_windows_win32_system_threading_cancelWaitableTimer", Napi::Function::New(env, windowssys_windows_win32_system_threading_cancelWaitableTimer_napi));
+    exports.Set("windowssys_windows_win32_system_threading_changeTimerQueueTimer", Napi::Function::New(env, windowssys_windows_win32_system_threading_changeTimerQueueTimer_napi));
+    exports.Set("windowssys_windows_win32_system_threading_closePrivateNamespace", Napi::Function::New(env, windowssys_windows_win32_system_threading_closePrivateNamespace_napi));
+    exports.Set("windowssys_windows_win32_system_threading_closeThreadpool", Napi::Function::New(env, windowssys_windows_win32_system_threading_closeThreadpool_napi));
+    exports.Set("windowssys_windows_win32_system_threading_closeThreadpoolCleanupGroup", Napi::Function::New(env, windowssys_windows_win32_system_threading_closeThreadpoolCleanupGroup_napi));
+    exports.Set("windowssys_windows_win32_system_threading_closeThreadpoolCleanupGroupMembers", Napi::Function::New(env, windowssys_windows_win32_system_threading_closeThreadpoolCleanupGroupMembers_napi));
+    exports.Set("windowssys_windows_win32_system_threading_closeThreadpoolIo", Napi::Function::New(env, windowssys_windows_win32_system_threading_closeThreadpoolIo_napi));
+    exports.Set("windowssys_windows_win32_system_threading_closeThreadpoolTimer", Napi::Function::New(env, windowssys_windows_win32_system_threading_closeThreadpoolTimer_napi));
+    exports.Set("windowssys_windows_win32_system_threading_closeThreadpoolWait", Napi::Function::New(env, windowssys_windows_win32_system_threading_closeThreadpoolWait_napi));
+    exports.Set("windowssys_windows_win32_system_threading_closeThreadpoolWork", Napi::Function::New(env, windowssys_windows_win32_system_threading_closeThreadpoolWork_napi));
+    exports.Set("windowssys_windows_win32_system_threading_convertFiberToThread", Napi::Function::New(env, windowssys_windows_win32_system_threading_convertFiberToThread_napi));
+    exports.Set("windowssys_windows_win32_system_threading_convertThreadToFiber", Napi::Function::New(env, windowssys_windows_win32_system_threading_convertThreadToFiber_napi));
+    exports.Set("windowssys_windows_win32_system_threading_convertThreadToFiberEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_convertThreadToFiberEx_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createBoundaryDescriptorA", Napi::Function::New(env, windowssys_windows_win32_system_threading_createBoundaryDescriptorA_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createBoundaryDescriptorW", Napi::Function::New(env, windowssys_windows_win32_system_threading_createBoundaryDescriptorW_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createEventA", Napi::Function::New(env, windowssys_windows_win32_system_threading_createEventA_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createEventExA", Napi::Function::New(env, windowssys_windows_win32_system_threading_createEventExA_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createEventExW", Napi::Function::New(env, windowssys_windows_win32_system_threading_createEventExW_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createEventW", Napi::Function::New(env, windowssys_windows_win32_system_threading_createEventW_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createFiber", Napi::Function::New(env, windowssys_windows_win32_system_threading_createFiber_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createFiberEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_createFiberEx_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createMutexA", Napi::Function::New(env, windowssys_windows_win32_system_threading_createMutexA_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createMutexExA", Napi::Function::New(env, windowssys_windows_win32_system_threading_createMutexExA_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createMutexExW", Napi::Function::New(env, windowssys_windows_win32_system_threading_createMutexExW_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createMutexW", Napi::Function::New(env, windowssys_windows_win32_system_threading_createMutexW_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createPrivateNamespaceA", Napi::Function::New(env, windowssys_windows_win32_system_threading_createPrivateNamespaceA_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createPrivateNamespaceW", Napi::Function::New(env, windowssys_windows_win32_system_threading_createPrivateNamespaceW_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createProcessA", Napi::Function::New(env, windowssys_windows_win32_system_threading_createProcessA_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createProcessAsUserA", Napi::Function::New(env, windowssys_windows_win32_system_threading_createProcessAsUserA_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createProcessAsUserW", Napi::Function::New(env, windowssys_windows_win32_system_threading_createProcessAsUserW_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createProcessW", Napi::Function::New(env, windowssys_windows_win32_system_threading_createProcessW_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createProcessWithLogonW", Napi::Function::New(env, windowssys_windows_win32_system_threading_createProcessWithLogonW_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createProcessWithTokenW", Napi::Function::New(env, windowssys_windows_win32_system_threading_createProcessWithTokenW_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createRemoteThread", Napi::Function::New(env, windowssys_windows_win32_system_threading_createRemoteThread_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createRemoteThreadEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_createRemoteThreadEx_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createSemaphoreA", Napi::Function::New(env, windowssys_windows_win32_system_threading_createSemaphoreA_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createSemaphoreExA", Napi::Function::New(env, windowssys_windows_win32_system_threading_createSemaphoreExA_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createSemaphoreExW", Napi::Function::New(env, windowssys_windows_win32_system_threading_createSemaphoreExW_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createSemaphoreW", Napi::Function::New(env, windowssys_windows_win32_system_threading_createSemaphoreW_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createThread", Napi::Function::New(env, windowssys_windows_win32_system_threading_createThread_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createThreadpool", Napi::Function::New(env, windowssys_windows_win32_system_threading_createThreadpool_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createThreadpoolCleanupGroup", Napi::Function::New(env, windowssys_windows_win32_system_threading_createThreadpoolCleanupGroup_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createThreadpoolIo", Napi::Function::New(env, windowssys_windows_win32_system_threading_createThreadpoolIo_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createThreadpoolTimer", Napi::Function::New(env, windowssys_windows_win32_system_threading_createThreadpoolTimer_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createThreadpoolWait", Napi::Function::New(env, windowssys_windows_win32_system_threading_createThreadpoolWait_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createThreadpoolWork", Napi::Function::New(env, windowssys_windows_win32_system_threading_createThreadpoolWork_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createTimerQueue", Napi::Function::New(env, windowssys_windows_win32_system_threading_createTimerQueue_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createTimerQueueTimer", Napi::Function::New(env, windowssys_windows_win32_system_threading_createTimerQueueTimer_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createUmsCompletionList", Napi::Function::New(env, windowssys_windows_win32_system_threading_createUmsCompletionList_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createUmsThreadContext", Napi::Function::New(env, windowssys_windows_win32_system_threading_createUmsThreadContext_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createWaitableTimerA", Napi::Function::New(env, windowssys_windows_win32_system_threading_createWaitableTimerA_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createWaitableTimerExA", Napi::Function::New(env, windowssys_windows_win32_system_threading_createWaitableTimerExA_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createWaitableTimerExW", Napi::Function::New(env, windowssys_windows_win32_system_threading_createWaitableTimerExW_napi));
+    exports.Set("windowssys_windows_win32_system_threading_createWaitableTimerW", Napi::Function::New(env, windowssys_windows_win32_system_threading_createWaitableTimerW_napi));
+    exports.Set("windowssys_windows_win32_system_threading_deleteBoundaryDescriptor", Napi::Function::New(env, windowssys_windows_win32_system_threading_deleteBoundaryDescriptor_napi));
+    exports.Set("windowssys_windows_win32_system_threading_deleteCriticalSection", Napi::Function::New(env, windowssys_windows_win32_system_threading_deleteCriticalSection_napi));
+    exports.Set("windowssys_windows_win32_system_threading_deleteFiber", Napi::Function::New(env, windowssys_windows_win32_system_threading_deleteFiber_napi));
+    exports.Set("windowssys_windows_win32_system_threading_deleteProcThreadAttributeList", Napi::Function::New(env, windowssys_windows_win32_system_threading_deleteProcThreadAttributeList_napi));
+    exports.Set("windowssys_windows_win32_system_threading_deleteSynchronizationBarrier", Napi::Function::New(env, windowssys_windows_win32_system_threading_deleteSynchronizationBarrier_napi));
+    exports.Set("windowssys_windows_win32_system_threading_deleteTimerQueue", Napi::Function::New(env, windowssys_windows_win32_system_threading_deleteTimerQueue_napi));
+    exports.Set("windowssys_windows_win32_system_threading_deleteTimerQueueEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_deleteTimerQueueEx_napi));
+    exports.Set("windowssys_windows_win32_system_threading_deleteTimerQueueTimer", Napi::Function::New(env, windowssys_windows_win32_system_threading_deleteTimerQueueTimer_napi));
+    exports.Set("windowssys_windows_win32_system_threading_deleteUmsCompletionList", Napi::Function::New(env, windowssys_windows_win32_system_threading_deleteUmsCompletionList_napi));
+    exports.Set("windowssys_windows_win32_system_threading_deleteUmsThreadContext", Napi::Function::New(env, windowssys_windows_win32_system_threading_deleteUmsThreadContext_napi));
+    exports.Set("windowssys_windows_win32_system_threading_dequeueUmsCompletionListItems", Napi::Function::New(env, windowssys_windows_win32_system_threading_dequeueUmsCompletionListItems_napi));
+    exports.Set("windowssys_windows_win32_system_threading_disassociateCurrentThreadFromCallback", Napi::Function::New(env, windowssys_windows_win32_system_threading_disassociateCurrentThreadFromCallback_napi));
+    exports.Set("windowssys_windows_win32_system_threading_enterCriticalSection", Napi::Function::New(env, windowssys_windows_win32_system_threading_enterCriticalSection_napi));
+    exports.Set("windowssys_windows_win32_system_threading_enterSynchronizationBarrier", Napi::Function::New(env, windowssys_windows_win32_system_threading_enterSynchronizationBarrier_napi));
+    exports.Set("windowssys_windows_win32_system_threading_enterUmsSchedulingMode", Napi::Function::New(env, windowssys_windows_win32_system_threading_enterUmsSchedulingMode_napi));
+    exports.Set("windowssys_windows_win32_system_threading_executeUmsThread", Napi::Function::New(env, windowssys_windows_win32_system_threading_executeUmsThread_napi));
+    exports.Set("windowssys_windows_win32_system_threading_exitProcess", Napi::Function::New(env, windowssys_windows_win32_system_threading_exitProcess_napi));
+    exports.Set("windowssys_windows_win32_system_threading_exitThread", Napi::Function::New(env, windowssys_windows_win32_system_threading_exitThread_napi));
+    exports.Set("windowssys_windows_win32_system_threading_flsAlloc", Napi::Function::New(env, windowssys_windows_win32_system_threading_flsAlloc_napi));
+    exports.Set("windowssys_windows_win32_system_threading_flsFree", Napi::Function::New(env, windowssys_windows_win32_system_threading_flsFree_napi));
+    exports.Set("windowssys_windows_win32_system_threading_flsGetValue", Napi::Function::New(env, windowssys_windows_win32_system_threading_flsGetValue_napi));
+    exports.Set("windowssys_windows_win32_system_threading_flsSetValue", Napi::Function::New(env, windowssys_windows_win32_system_threading_flsSetValue_napi));
+    exports.Set("windowssys_windows_win32_system_threading_flushProcessWriteBuffers", Napi::Function::New(env, windowssys_windows_win32_system_threading_flushProcessWriteBuffers_napi));
+    exports.Set("windowssys_windows_win32_system_threading_freeLibraryWhenCallbackReturns", Napi::Function::New(env, windowssys_windows_win32_system_threading_freeLibraryWhenCallbackReturns_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getActiveProcessorCount", Napi::Function::New(env, windowssys_windows_win32_system_threading_getActiveProcessorCount_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getActiveProcessorGroupCount", Napi::Function::New(env, windowssys_windows_win32_system_threading_getActiveProcessorGroupCount_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getCurrentProcess", Napi::Function::New(env, windowssys_windows_win32_system_threading_getCurrentProcess_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getCurrentProcessId", Napi::Function::New(env, windowssys_windows_win32_system_threading_getCurrentProcessId_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getCurrentProcessorNumber", Napi::Function::New(env, windowssys_windows_win32_system_threading_getCurrentProcessorNumber_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getCurrentProcessorNumberEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_getCurrentProcessorNumberEx_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getCurrentThread", Napi::Function::New(env, windowssys_windows_win32_system_threading_getCurrentThread_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getCurrentThreadId", Napi::Function::New(env, windowssys_windows_win32_system_threading_getCurrentThreadId_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getCurrentThreadStackLimits", Napi::Function::New(env, windowssys_windows_win32_system_threading_getCurrentThreadStackLimits_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getCurrentUmsThread", Napi::Function::New(env, windowssys_windows_win32_system_threading_getCurrentUmsThread_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getExitCodeProcess", Napi::Function::New(env, windowssys_windows_win32_system_threading_getExitCodeProcess_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getExitCodeThread", Napi::Function::New(env, windowssys_windows_win32_system_threading_getExitCodeThread_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getGuiResources", Napi::Function::New(env, windowssys_windows_win32_system_threading_getGuiResources_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getMachineTypeAttributes", Napi::Function::New(env, windowssys_windows_win32_system_threading_getMachineTypeAttributes_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getMaximumProcessorCount", Napi::Function::New(env, windowssys_windows_win32_system_threading_getMaximumProcessorCount_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getMaximumProcessorGroupCount", Napi::Function::New(env, windowssys_windows_win32_system_threading_getMaximumProcessorGroupCount_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getNextUmsListItem", Napi::Function::New(env, windowssys_windows_win32_system_threading_getNextUmsListItem_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getNumaAvailableMemoryNode", Napi::Function::New(env, windowssys_windows_win32_system_threading_getNumaAvailableMemoryNode_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getNumaAvailableMemoryNodeEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_getNumaAvailableMemoryNodeEx_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getNumaHighestNodeNumber", Napi::Function::New(env, windowssys_windows_win32_system_threading_getNumaHighestNodeNumber_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getNumaNodeNumberFromHandle", Napi::Function::New(env, windowssys_windows_win32_system_threading_getNumaNodeNumberFromHandle_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getNumaNodeProcessorMask", Napi::Function::New(env, windowssys_windows_win32_system_threading_getNumaNodeProcessorMask_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getNumaNodeProcessorMask2", Napi::Function::New(env, windowssys_windows_win32_system_threading_getNumaNodeProcessorMask2_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getNumaNodeProcessorMaskEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_getNumaNodeProcessorMaskEx_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getNumaProcessorNode", Napi::Function::New(env, windowssys_windows_win32_system_threading_getNumaProcessorNode_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getNumaProcessorNodeEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_getNumaProcessorNodeEx_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getNumaProximityNode", Napi::Function::New(env, windowssys_windows_win32_system_threading_getNumaProximityNode_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getNumaProximityNodeEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_getNumaProximityNodeEx_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getPriorityClass", Napi::Function::New(env, windowssys_windows_win32_system_threading_getPriorityClass_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getProcessAffinityMask", Napi::Function::New(env, windowssys_windows_win32_system_threading_getProcessAffinityMask_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getProcessDEPPolicy", Napi::Function::New(env, windowssys_windows_win32_system_threading_getProcessDEPPolicy_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getProcessDefaultCpuSetMasks", Napi::Function::New(env, windowssys_windows_win32_system_threading_getProcessDefaultCpuSetMasks_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getProcessDefaultCpuSets", Napi::Function::New(env, windowssys_windows_win32_system_threading_getProcessDefaultCpuSets_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getProcessGroupAffinity", Napi::Function::New(env, windowssys_windows_win32_system_threading_getProcessGroupAffinity_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getProcessHandleCount", Napi::Function::New(env, windowssys_windows_win32_system_threading_getProcessHandleCount_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getProcessHandleFromHwnd", Napi::Function::New(env, windowssys_windows_win32_system_threading_getProcessHandleFromHwnd_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getProcessId", Napi::Function::New(env, windowssys_windows_win32_system_threading_getProcessId_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getProcessIdOfThread", Napi::Function::New(env, windowssys_windows_win32_system_threading_getProcessIdOfThread_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getProcessInformation", Napi::Function::New(env, windowssys_windows_win32_system_threading_getProcessInformation_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getProcessIoCounters", Napi::Function::New(env, windowssys_windows_win32_system_threading_getProcessIoCounters_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getProcessMitigationPolicy", Napi::Function::New(env, windowssys_windows_win32_system_threading_getProcessMitigationPolicy_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getProcessPriorityBoost", Napi::Function::New(env, windowssys_windows_win32_system_threading_getProcessPriorityBoost_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getProcessShutdownParameters", Napi::Function::New(env, windowssys_windows_win32_system_threading_getProcessShutdownParameters_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getProcessTimes", Napi::Function::New(env, windowssys_windows_win32_system_threading_getProcessTimes_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getProcessVersion", Napi::Function::New(env, windowssys_windows_win32_system_threading_getProcessVersion_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getProcessWorkingSetSize", Napi::Function::New(env, windowssys_windows_win32_system_threading_getProcessWorkingSetSize_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getStartupInfoA", Napi::Function::New(env, windowssys_windows_win32_system_threading_getStartupInfoA_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getStartupInfoW", Napi::Function::New(env, windowssys_windows_win32_system_threading_getStartupInfoW_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getSystemTimes", Napi::Function::New(env, windowssys_windows_win32_system_threading_getSystemTimes_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getThreadDescription", Napi::Function::New(env, windowssys_windows_win32_system_threading_getThreadDescription_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getThreadGroupAffinity", Napi::Function::New(env, windowssys_windows_win32_system_threading_getThreadGroupAffinity_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getThreadIOPendingFlag", Napi::Function::New(env, windowssys_windows_win32_system_threading_getThreadIOPendingFlag_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getThreadId", Napi::Function::New(env, windowssys_windows_win32_system_threading_getThreadId_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getThreadIdealProcessorEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_getThreadIdealProcessorEx_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getThreadInformation", Napi::Function::New(env, windowssys_windows_win32_system_threading_getThreadInformation_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getThreadPriority", Napi::Function::New(env, windowssys_windows_win32_system_threading_getThreadPriority_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getThreadPriorityBoost", Napi::Function::New(env, windowssys_windows_win32_system_threading_getThreadPriorityBoost_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getThreadSelectedCpuSetMasks", Napi::Function::New(env, windowssys_windows_win32_system_threading_getThreadSelectedCpuSetMasks_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getThreadSelectedCpuSets", Napi::Function::New(env, windowssys_windows_win32_system_threading_getThreadSelectedCpuSets_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getThreadTimes", Napi::Function::New(env, windowssys_windows_win32_system_threading_getThreadTimes_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getUmsCompletionListEvent", Napi::Function::New(env, windowssys_windows_win32_system_threading_getUmsCompletionListEvent_napi));
+    exports.Set("windowssys_windows_win32_system_threading_getUmsSystemThreadInformation", Napi::Function::New(env, windowssys_windows_win32_system_threading_getUmsSystemThreadInformation_napi));
+    exports.Set("windowssys_windows_win32_system_threading_initOnceBeginInitialize", Napi::Function::New(env, windowssys_windows_win32_system_threading_initOnceBeginInitialize_napi));
+    exports.Set("windowssys_windows_win32_system_threading_initOnceComplete", Napi::Function::New(env, windowssys_windows_win32_system_threading_initOnceComplete_napi));
+    exports.Set("windowssys_windows_win32_system_threading_initOnceExecuteOnce", Napi::Function::New(env, windowssys_windows_win32_system_threading_initOnceExecuteOnce_napi));
+    exports.Set("windowssys_windows_win32_system_threading_initOnceInitialize", Napi::Function::New(env, windowssys_windows_win32_system_threading_initOnceInitialize_napi));
+    exports.Set("windowssys_windows_win32_system_threading_initializeConditionVariable", Napi::Function::New(env, windowssys_windows_win32_system_threading_initializeConditionVariable_napi));
+    exports.Set("windowssys_windows_win32_system_threading_initializeCriticalSection", Napi::Function::New(env, windowssys_windows_win32_system_threading_initializeCriticalSection_napi));
+    exports.Set("windowssys_windows_win32_system_threading_initializeCriticalSectionAndSpinCount", Napi::Function::New(env, windowssys_windows_win32_system_threading_initializeCriticalSectionAndSpinCount_napi));
+    exports.Set("windowssys_windows_win32_system_threading_initializeCriticalSectionEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_initializeCriticalSectionEx_napi));
+    exports.Set("windowssys_windows_win32_system_threading_initializeProcThreadAttributeList", Napi::Function::New(env, windowssys_windows_win32_system_threading_initializeProcThreadAttributeList_napi));
+    exports.Set("windowssys_windows_win32_system_threading_initializeSListHead", Napi::Function::New(env, windowssys_windows_win32_system_threading_initializeSListHead_napi));
+    exports.Set("windowssys_windows_win32_system_threading_initializeSRWLock", Napi::Function::New(env, windowssys_windows_win32_system_threading_initializeSRWLock_napi));
+    exports.Set("windowssys_windows_win32_system_threading_initializeSynchronizationBarrier", Napi::Function::New(env, windowssys_windows_win32_system_threading_initializeSynchronizationBarrier_napi));
+    exports.Set("windowssys_windows_win32_system_threading_interlockedFlushSList", Napi::Function::New(env, windowssys_windows_win32_system_threading_interlockedFlushSList_napi));
+    exports.Set("windowssys_windows_win32_system_threading_interlockedPopEntrySList", Napi::Function::New(env, windowssys_windows_win32_system_threading_interlockedPopEntrySList_napi));
+    exports.Set("windowssys_windows_win32_system_threading_interlockedPushEntrySList", Napi::Function::New(env, windowssys_windows_win32_system_threading_interlockedPushEntrySList_napi));
+    exports.Set("windowssys_windows_win32_system_threading_interlockedPushListSListEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_interlockedPushListSListEx_napi));
+    exports.Set("windowssys_windows_win32_system_threading_isImmersiveProcess", Napi::Function::New(env, windowssys_windows_win32_system_threading_isImmersiveProcess_napi));
+    exports.Set("windowssys_windows_win32_system_threading_isProcessCritical", Napi::Function::New(env, windowssys_windows_win32_system_threading_isProcessCritical_napi));
+    exports.Set("windowssys_windows_win32_system_threading_isProcessorFeaturePresent", Napi::Function::New(env, windowssys_windows_win32_system_threading_isProcessorFeaturePresent_napi));
+    exports.Set("windowssys_windows_win32_system_threading_isThreadAFiber", Napi::Function::New(env, windowssys_windows_win32_system_threading_isThreadAFiber_napi));
+    exports.Set("windowssys_windows_win32_system_threading_isThreadpoolTimerSet", Napi::Function::New(env, windowssys_windows_win32_system_threading_isThreadpoolTimerSet_napi));
+    exports.Set("windowssys_windows_win32_system_threading_isWow64Process", Napi::Function::New(env, windowssys_windows_win32_system_threading_isWow64Process_napi));
+    exports.Set("windowssys_windows_win32_system_threading_isWow64Process2", Napi::Function::New(env, windowssys_windows_win32_system_threading_isWow64Process2_napi));
+    exports.Set("windowssys_windows_win32_system_threading_leaveCriticalSection", Napi::Function::New(env, windowssys_windows_win32_system_threading_leaveCriticalSection_napi));
+    exports.Set("windowssys_windows_win32_system_threading_leaveCriticalSectionWhenCallbackReturns", Napi::Function::New(env, windowssys_windows_win32_system_threading_leaveCriticalSectionWhenCallbackReturns_napi));
+    exports.Set("windowssys_windows_win32_system_threading_openEventA", Napi::Function::New(env, windowssys_windows_win32_system_threading_openEventA_napi));
+    exports.Set("windowssys_windows_win32_system_threading_openEventW", Napi::Function::New(env, windowssys_windows_win32_system_threading_openEventW_napi));
+    exports.Set("windowssys_windows_win32_system_threading_openMutexW", Napi::Function::New(env, windowssys_windows_win32_system_threading_openMutexW_napi));
+    exports.Set("windowssys_windows_win32_system_threading_openPrivateNamespaceA", Napi::Function::New(env, windowssys_windows_win32_system_threading_openPrivateNamespaceA_napi));
+    exports.Set("windowssys_windows_win32_system_threading_openPrivateNamespaceW", Napi::Function::New(env, windowssys_windows_win32_system_threading_openPrivateNamespaceW_napi));
+    exports.Set("windowssys_windows_win32_system_threading_openProcess", Napi::Function::New(env, windowssys_windows_win32_system_threading_openProcess_napi));
+    exports.Set("windowssys_windows_win32_system_threading_openProcessToken", Napi::Function::New(env, windowssys_windows_win32_system_threading_openProcessToken_napi));
+    exports.Set("windowssys_windows_win32_system_threading_openSemaphoreW", Napi::Function::New(env, windowssys_windows_win32_system_threading_openSemaphoreW_napi));
+    exports.Set("windowssys_windows_win32_system_threading_openThread", Napi::Function::New(env, windowssys_windows_win32_system_threading_openThread_napi));
+    exports.Set("windowssys_windows_win32_system_threading_openThreadToken", Napi::Function::New(env, windowssys_windows_win32_system_threading_openThreadToken_napi));
+    exports.Set("windowssys_windows_win32_system_threading_openWaitableTimerA", Napi::Function::New(env, windowssys_windows_win32_system_threading_openWaitableTimerA_napi));
+    exports.Set("windowssys_windows_win32_system_threading_openWaitableTimerW", Napi::Function::New(env, windowssys_windows_win32_system_threading_openWaitableTimerW_napi));
+    exports.Set("windowssys_windows_win32_system_threading_pulseEvent", Napi::Function::New(env, windowssys_windows_win32_system_threading_pulseEvent_napi));
+    exports.Set("windowssys_windows_win32_system_threading_queryDepthSList", Napi::Function::New(env, windowssys_windows_win32_system_threading_queryDepthSList_napi));
+    exports.Set("windowssys_windows_win32_system_threading_queryFullProcessImageNameA", Napi::Function::New(env, windowssys_windows_win32_system_threading_queryFullProcessImageNameA_napi));
+    exports.Set("windowssys_windows_win32_system_threading_queryFullProcessImageNameW", Napi::Function::New(env, windowssys_windows_win32_system_threading_queryFullProcessImageNameW_napi));
+    exports.Set("windowssys_windows_win32_system_threading_queryProcessAffinityUpdateMode", Napi::Function::New(env, windowssys_windows_win32_system_threading_queryProcessAffinityUpdateMode_napi));
+    exports.Set("windowssys_windows_win32_system_threading_queryProtectedPolicy", Napi::Function::New(env, windowssys_windows_win32_system_threading_queryProtectedPolicy_napi));
+    exports.Set("windowssys_windows_win32_system_threading_queryThreadpoolStackInformation", Napi::Function::New(env, windowssys_windows_win32_system_threading_queryThreadpoolStackInformation_napi));
+    exports.Set("windowssys_windows_win32_system_threading_queryUmsThreadInformation", Napi::Function::New(env, windowssys_windows_win32_system_threading_queryUmsThreadInformation_napi));
+    exports.Set("windowssys_windows_win32_system_threading_queueUserWorkItem", Napi::Function::New(env, windowssys_windows_win32_system_threading_queueUserWorkItem_napi));
+    exports.Set("windowssys_windows_win32_system_threading_registerWaitForSingleObject", Napi::Function::New(env, windowssys_windows_win32_system_threading_registerWaitForSingleObject_napi));
+    exports.Set("windowssys_windows_win32_system_threading_releaseMutex", Napi::Function::New(env, windowssys_windows_win32_system_threading_releaseMutex_napi));
+    exports.Set("windowssys_windows_win32_system_threading_releaseMutexWhenCallbackReturns", Napi::Function::New(env, windowssys_windows_win32_system_threading_releaseMutexWhenCallbackReturns_napi));
+    exports.Set("windowssys_windows_win32_system_threading_releaseSRWLockExclusive", Napi::Function::New(env, windowssys_windows_win32_system_threading_releaseSRWLockExclusive_napi));
+    exports.Set("windowssys_windows_win32_system_threading_releaseSRWLockShared", Napi::Function::New(env, windowssys_windows_win32_system_threading_releaseSRWLockShared_napi));
+    exports.Set("windowssys_windows_win32_system_threading_releaseSemaphore", Napi::Function::New(env, windowssys_windows_win32_system_threading_releaseSemaphore_napi));
+    exports.Set("windowssys_windows_win32_system_threading_releaseSemaphoreWhenCallbackReturns", Napi::Function::New(env, windowssys_windows_win32_system_threading_releaseSemaphoreWhenCallbackReturns_napi));
+    exports.Set("windowssys_windows_win32_system_threading_resetEvent", Napi::Function::New(env, windowssys_windows_win32_system_threading_resetEvent_napi));
+    exports.Set("windowssys_windows_win32_system_threading_resumeThread", Napi::Function::New(env, windowssys_windows_win32_system_threading_resumeThread_napi));
+    exports.Set("windowssys_windows_win32_system_threading_rtwqAddPeriodicCallback", Napi::Function::New(env, windowssys_windows_win32_system_threading_rtwqAddPeriodicCallback_napi));
+    exports.Set("windowssys_windows_win32_system_threading_rtwqAllocateSerialWorkQueue", Napi::Function::New(env, windowssys_windows_win32_system_threading_rtwqAllocateSerialWorkQueue_napi));
+    exports.Set("windowssys_windows_win32_system_threading_rtwqAllocateWorkQueue", Napi::Function::New(env, windowssys_windows_win32_system_threading_rtwqAllocateWorkQueue_napi));
+    exports.Set("windowssys_windows_win32_system_threading_rtwqBeginRegisterWorkQueueWithMMCSS", Napi::Function::New(env, windowssys_windows_win32_system_threading_rtwqBeginRegisterWorkQueueWithMMCSS_napi));
+    exports.Set("windowssys_windows_win32_system_threading_rtwqBeginUnregisterWorkQueueWithMMCSS", Napi::Function::New(env, windowssys_windows_win32_system_threading_rtwqBeginUnregisterWorkQueueWithMMCSS_napi));
+    exports.Set("windowssys_windows_win32_system_threading_rtwqCancelDeadline", Napi::Function::New(env, windowssys_windows_win32_system_threading_rtwqCancelDeadline_napi));
+    exports.Set("windowssys_windows_win32_system_threading_rtwqCancelWorkItem", Napi::Function::New(env, windowssys_windows_win32_system_threading_rtwqCancelWorkItem_napi));
+    exports.Set("windowssys_windows_win32_system_threading_rtwqCreateAsyncResult", Napi::Function::New(env, windowssys_windows_win32_system_threading_rtwqCreateAsyncResult_napi));
+    exports.Set("windowssys_windows_win32_system_threading_rtwqEndRegisterWorkQueueWithMMCSS", Napi::Function::New(env, windowssys_windows_win32_system_threading_rtwqEndRegisterWorkQueueWithMMCSS_napi));
+    exports.Set("windowssys_windows_win32_system_threading_rtwqGetWorkQueueMMCSSClass", Napi::Function::New(env, windowssys_windows_win32_system_threading_rtwqGetWorkQueueMMCSSClass_napi));
+    exports.Set("windowssys_windows_win32_system_threading_rtwqGetWorkQueueMMCSSPriority", Napi::Function::New(env, windowssys_windows_win32_system_threading_rtwqGetWorkQueueMMCSSPriority_napi));
+    exports.Set("windowssys_windows_win32_system_threading_rtwqGetWorkQueueMMCSSTaskId", Napi::Function::New(env, windowssys_windows_win32_system_threading_rtwqGetWorkQueueMMCSSTaskId_napi));
+    exports.Set("windowssys_windows_win32_system_threading_rtwqInvokeCallback", Napi::Function::New(env, windowssys_windows_win32_system_threading_rtwqInvokeCallback_napi));
+    exports.Set("windowssys_windows_win32_system_threading_rtwqJoinWorkQueue", Napi::Function::New(env, windowssys_windows_win32_system_threading_rtwqJoinWorkQueue_napi));
+    exports.Set("windowssys_windows_win32_system_threading_rtwqLockPlatform", Napi::Function::New(env, windowssys_windows_win32_system_threading_rtwqLockPlatform_napi));
+    exports.Set("windowssys_windows_win32_system_threading_rtwqLockSharedWorkQueue", Napi::Function::New(env, windowssys_windows_win32_system_threading_rtwqLockSharedWorkQueue_napi));
+    exports.Set("windowssys_windows_win32_system_threading_rtwqLockWorkQueue", Napi::Function::New(env, windowssys_windows_win32_system_threading_rtwqLockWorkQueue_napi));
+    exports.Set("windowssys_windows_win32_system_threading_rtwqPutWaitingWorkItem", Napi::Function::New(env, windowssys_windows_win32_system_threading_rtwqPutWaitingWorkItem_napi));
+    exports.Set("windowssys_windows_win32_system_threading_rtwqPutWorkItem", Napi::Function::New(env, windowssys_windows_win32_system_threading_rtwqPutWorkItem_napi));
+    exports.Set("windowssys_windows_win32_system_threading_rtwqRegisterPlatformEvents", Napi::Function::New(env, windowssys_windows_win32_system_threading_rtwqRegisterPlatformEvents_napi));
+    exports.Set("windowssys_windows_win32_system_threading_rtwqRegisterPlatformWithMMCSS", Napi::Function::New(env, windowssys_windows_win32_system_threading_rtwqRegisterPlatformWithMMCSS_napi));
+    exports.Set("windowssys_windows_win32_system_threading_rtwqRemovePeriodicCallback", Napi::Function::New(env, windowssys_windows_win32_system_threading_rtwqRemovePeriodicCallback_napi));
+    exports.Set("windowssys_windows_win32_system_threading_rtwqScheduleWorkItem", Napi::Function::New(env, windowssys_windows_win32_system_threading_rtwqScheduleWorkItem_napi));
+    exports.Set("windowssys_windows_win32_system_threading_rtwqSetDeadline", Napi::Function::New(env, windowssys_windows_win32_system_threading_rtwqSetDeadline_napi));
+    exports.Set("windowssys_windows_win32_system_threading_rtwqSetDeadline2", Napi::Function::New(env, windowssys_windows_win32_system_threading_rtwqSetDeadline2_napi));
+    exports.Set("windowssys_windows_win32_system_threading_rtwqSetLongRunning", Napi::Function::New(env, windowssys_windows_win32_system_threading_rtwqSetLongRunning_napi));
+    exports.Set("windowssys_windows_win32_system_threading_rtwqShutdown", Napi::Function::New(env, windowssys_windows_win32_system_threading_rtwqShutdown_napi));
+    exports.Set("windowssys_windows_win32_system_threading_rtwqStartup", Napi::Function::New(env, windowssys_windows_win32_system_threading_rtwqStartup_napi));
+    exports.Set("windowssys_windows_win32_system_threading_rtwqUnjoinWorkQueue", Napi::Function::New(env, windowssys_windows_win32_system_threading_rtwqUnjoinWorkQueue_napi));
+    exports.Set("windowssys_windows_win32_system_threading_rtwqUnlockPlatform", Napi::Function::New(env, windowssys_windows_win32_system_threading_rtwqUnlockPlatform_napi));
+    exports.Set("windowssys_windows_win32_system_threading_rtwqUnlockWorkQueue", Napi::Function::New(env, windowssys_windows_win32_system_threading_rtwqUnlockWorkQueue_napi));
+    exports.Set("windowssys_windows_win32_system_threading_rtwqUnregisterPlatformEvents", Napi::Function::New(env, windowssys_windows_win32_system_threading_rtwqUnregisterPlatformEvents_napi));
+    exports.Set("windowssys_windows_win32_system_threading_rtwqUnregisterPlatformFromMMCSS", Napi::Function::New(env, windowssys_windows_win32_system_threading_rtwqUnregisterPlatformFromMMCSS_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setCriticalSectionSpinCount", Napi::Function::New(env, windowssys_windows_win32_system_threading_setCriticalSectionSpinCount_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setEvent", Napi::Function::New(env, windowssys_windows_win32_system_threading_setEvent_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setEventWhenCallbackReturns", Napi::Function::New(env, windowssys_windows_win32_system_threading_setEventWhenCallbackReturns_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setPriorityClass", Napi::Function::New(env, windowssys_windows_win32_system_threading_setPriorityClass_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setProcessAffinityMask", Napi::Function::New(env, windowssys_windows_win32_system_threading_setProcessAffinityMask_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setProcessAffinityUpdateMode", Napi::Function::New(env, windowssys_windows_win32_system_threading_setProcessAffinityUpdateMode_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setProcessDEPPolicy", Napi::Function::New(env, windowssys_windows_win32_system_threading_setProcessDEPPolicy_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setProcessDefaultCpuSetMasks", Napi::Function::New(env, windowssys_windows_win32_system_threading_setProcessDefaultCpuSetMasks_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setProcessDefaultCpuSets", Napi::Function::New(env, windowssys_windows_win32_system_threading_setProcessDefaultCpuSets_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setProcessDynamicEHContinuationTargets", Napi::Function::New(env, windowssys_windows_win32_system_threading_setProcessDynamicEHContinuationTargets_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setProcessDynamicEnforcedCetCompatibleRanges", Napi::Function::New(env, windowssys_windows_win32_system_threading_setProcessDynamicEnforcedCetCompatibleRanges_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setProcessInformation", Napi::Function::New(env, windowssys_windows_win32_system_threading_setProcessInformation_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setProcessMitigationPolicy", Napi::Function::New(env, windowssys_windows_win32_system_threading_setProcessMitigationPolicy_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setProcessPriorityBoost", Napi::Function::New(env, windowssys_windows_win32_system_threading_setProcessPriorityBoost_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setProcessRestrictionExemption", Napi::Function::New(env, windowssys_windows_win32_system_threading_setProcessRestrictionExemption_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setProcessShutdownParameters", Napi::Function::New(env, windowssys_windows_win32_system_threading_setProcessShutdownParameters_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setProcessWorkingSetSize", Napi::Function::New(env, windowssys_windows_win32_system_threading_setProcessWorkingSetSize_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setProtectedPolicy", Napi::Function::New(env, windowssys_windows_win32_system_threading_setProtectedPolicy_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setThreadAffinityMask", Napi::Function::New(env, windowssys_windows_win32_system_threading_setThreadAffinityMask_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setThreadDescription", Napi::Function::New(env, windowssys_windows_win32_system_threading_setThreadDescription_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setThreadGroupAffinity", Napi::Function::New(env, windowssys_windows_win32_system_threading_setThreadGroupAffinity_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setThreadIdealProcessor", Napi::Function::New(env, windowssys_windows_win32_system_threading_setThreadIdealProcessor_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setThreadIdealProcessorEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_setThreadIdealProcessorEx_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setThreadInformation", Napi::Function::New(env, windowssys_windows_win32_system_threading_setThreadInformation_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setThreadPriority", Napi::Function::New(env, windowssys_windows_win32_system_threading_setThreadPriority_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setThreadPriorityBoost", Napi::Function::New(env, windowssys_windows_win32_system_threading_setThreadPriorityBoost_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setThreadSelectedCpuSetMasks", Napi::Function::New(env, windowssys_windows_win32_system_threading_setThreadSelectedCpuSetMasks_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setThreadSelectedCpuSets", Napi::Function::New(env, windowssys_windows_win32_system_threading_setThreadSelectedCpuSets_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setThreadStackGuarantee", Napi::Function::New(env, windowssys_windows_win32_system_threading_setThreadStackGuarantee_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setThreadToken", Napi::Function::New(env, windowssys_windows_win32_system_threading_setThreadToken_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setThreadpoolStackInformation", Napi::Function::New(env, windowssys_windows_win32_system_threading_setThreadpoolStackInformation_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setThreadpoolThreadMaximum", Napi::Function::New(env, windowssys_windows_win32_system_threading_setThreadpoolThreadMaximum_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setThreadpoolThreadMinimum", Napi::Function::New(env, windowssys_windows_win32_system_threading_setThreadpoolThreadMinimum_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setThreadpoolTimer", Napi::Function::New(env, windowssys_windows_win32_system_threading_setThreadpoolTimer_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setThreadpoolTimerEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_setThreadpoolTimerEx_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setThreadpoolWait", Napi::Function::New(env, windowssys_windows_win32_system_threading_setThreadpoolWait_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setThreadpoolWaitEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_setThreadpoolWaitEx_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setTimerQueueTimer", Napi::Function::New(env, windowssys_windows_win32_system_threading_setTimerQueueTimer_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setUmsThreadInformation", Napi::Function::New(env, windowssys_windows_win32_system_threading_setUmsThreadInformation_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setWaitableTimer", Napi::Function::New(env, windowssys_windows_win32_system_threading_setWaitableTimer_napi));
+    exports.Set("windowssys_windows_win32_system_threading_setWaitableTimerEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_setWaitableTimerEx_napi));
+    exports.Set("windowssys_windows_win32_system_threading_signalObjectAndWait", Napi::Function::New(env, windowssys_windows_win32_system_threading_signalObjectAndWait_napi));
+    exports.Set("windowssys_windows_win32_system_threading_sleep", Napi::Function::New(env, windowssys_windows_win32_system_threading_sleep_napi));
+    exports.Set("windowssys_windows_win32_system_threading_sleepConditionVariableCS", Napi::Function::New(env, windowssys_windows_win32_system_threading_sleepConditionVariableCS_napi));
+    exports.Set("windowssys_windows_win32_system_threading_sleepConditionVariableSRW", Napi::Function::New(env, windowssys_windows_win32_system_threading_sleepConditionVariableSRW_napi));
+    exports.Set("windowssys_windows_win32_system_threading_sleepEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_sleepEx_napi));
+    exports.Set("windowssys_windows_win32_system_threading_startThreadpoolIo", Napi::Function::New(env, windowssys_windows_win32_system_threading_startThreadpoolIo_napi));
+    exports.Set("windowssys_windows_win32_system_threading_submitThreadpoolWork", Napi::Function::New(env, windowssys_windows_win32_system_threading_submitThreadpoolWork_napi));
+    exports.Set("windowssys_windows_win32_system_threading_suspendThread", Napi::Function::New(env, windowssys_windows_win32_system_threading_suspendThread_napi));
+    exports.Set("windowssys_windows_win32_system_threading_switchToFiber", Napi::Function::New(env, windowssys_windows_win32_system_threading_switchToFiber_napi));
+    exports.Set("windowssys_windows_win32_system_threading_switchToThread", Napi::Function::New(env, windowssys_windows_win32_system_threading_switchToThread_napi));
+    exports.Set("windowssys_windows_win32_system_threading_terminateProcess", Napi::Function::New(env, windowssys_windows_win32_system_threading_terminateProcess_napi));
+    exports.Set("windowssys_windows_win32_system_threading_terminateThread", Napi::Function::New(env, windowssys_windows_win32_system_threading_terminateThread_napi));
+    exports.Set("windowssys_windows_win32_system_threading_tlsAlloc", Napi::Function::New(env, windowssys_windows_win32_system_threading_tlsAlloc_napi));
+    exports.Set("windowssys_windows_win32_system_threading_tlsFree", Napi::Function::New(env, windowssys_windows_win32_system_threading_tlsFree_napi));
+    exports.Set("windowssys_windows_win32_system_threading_tlsGetValue", Napi::Function::New(env, windowssys_windows_win32_system_threading_tlsGetValue_napi));
+    exports.Set("windowssys_windows_win32_system_threading_tlsSetValue", Napi::Function::New(env, windowssys_windows_win32_system_threading_tlsSetValue_napi));
+    exports.Set("windowssys_windows_win32_system_threading_tryAcquireSRWLockExclusive", Napi::Function::New(env, windowssys_windows_win32_system_threading_tryAcquireSRWLockExclusive_napi));
+    exports.Set("windowssys_windows_win32_system_threading_tryAcquireSRWLockShared", Napi::Function::New(env, windowssys_windows_win32_system_threading_tryAcquireSRWLockShared_napi));
+    exports.Set("windowssys_windows_win32_system_threading_tryEnterCriticalSection", Napi::Function::New(env, windowssys_windows_win32_system_threading_tryEnterCriticalSection_napi));
+    exports.Set("windowssys_windows_win32_system_threading_trySubmitThreadpoolCallback", Napi::Function::New(env, windowssys_windows_win32_system_threading_trySubmitThreadpoolCallback_napi));
+    exports.Set("windowssys_windows_win32_system_threading_umsThreadYield", Napi::Function::New(env, windowssys_windows_win32_system_threading_umsThreadYield_napi));
+    exports.Set("windowssys_windows_win32_system_threading_unregisterWait", Napi::Function::New(env, windowssys_windows_win32_system_threading_unregisterWait_napi));
+    exports.Set("windowssys_windows_win32_system_threading_unregisterWaitEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_unregisterWaitEx_napi));
+    exports.Set("windowssys_windows_win32_system_threading_updateProcThreadAttribute", Napi::Function::New(env, windowssys_windows_win32_system_threading_updateProcThreadAttribute_napi));
+    exports.Set("windowssys_windows_win32_system_threading_waitForInputIdle", Napi::Function::New(env, windowssys_windows_win32_system_threading_waitForInputIdle_napi));
+    exports.Set("windowssys_windows_win32_system_threading_waitForMultipleObjects", Napi::Function::New(env, windowssys_windows_win32_system_threading_waitForMultipleObjects_napi));
+    exports.Set("windowssys_windows_win32_system_threading_waitForMultipleObjectsEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_waitForMultipleObjectsEx_napi));
+    exports.Set("windowssys_windows_win32_system_threading_waitForSingleObject", Napi::Function::New(env, windowssys_windows_win32_system_threading_waitForSingleObject_napi));
+    exports.Set("windowssys_windows_win32_system_threading_waitForSingleObjectEx", Napi::Function::New(env, windowssys_windows_win32_system_threading_waitForSingleObjectEx_napi));
+    exports.Set("windowssys_windows_win32_system_threading_waitForThreadpoolIoCallbacks", Napi::Function::New(env, windowssys_windows_win32_system_threading_waitForThreadpoolIoCallbacks_napi));
+    exports.Set("windowssys_windows_win32_system_threading_waitForThreadpoolTimerCallbacks", Napi::Function::New(env, windowssys_windows_win32_system_threading_waitForThreadpoolTimerCallbacks_napi));
+    exports.Set("windowssys_windows_win32_system_threading_waitForThreadpoolWaitCallbacks", Napi::Function::New(env, windowssys_windows_win32_system_threading_waitForThreadpoolWaitCallbacks_napi));
+    exports.Set("windowssys_windows_win32_system_threading_waitForThreadpoolWorkCallbacks", Napi::Function::New(env, windowssys_windows_win32_system_threading_waitForThreadpoolWorkCallbacks_napi));
+    exports.Set("windowssys_windows_win32_system_threading_waitOnAddress", Napi::Function::New(env, windowssys_windows_win32_system_threading_waitOnAddress_napi));
+    exports.Set("windowssys_windows_win32_system_threading_wakeAllConditionVariable", Napi::Function::New(env, windowssys_windows_win32_system_threading_wakeAllConditionVariable_napi));
+    exports.Set("windowssys_windows_win32_system_threading_wakeByAddressAll", Napi::Function::New(env, windowssys_windows_win32_system_threading_wakeByAddressAll_napi));
+    exports.Set("windowssys_windows_win32_system_threading_wakeByAddressSingle", Napi::Function::New(env, windowssys_windows_win32_system_threading_wakeByAddressSingle_napi));
+    exports.Set("windowssys_windows_win32_system_threading_wakeConditionVariable", Napi::Function::New(env, windowssys_windows_win32_system_threading_wakeConditionVariable_napi));
+    exports.Set("windowssys_windows_win32_system_threading_winExec", Napi::Function::New(env, windowssys_windows_win32_system_threading_winExec_napi));
+    exports.Set("windowssys_windows_win32_system_threading_wow64SetThreadDefaultGuestMachine", Napi::Function::New(env, windowssys_windows_win32_system_threading_wow64SetThreadDefaultGuestMachine_napi));
+    exports.Set("windowssys_windows_win32_system_threading_wow64SuspendThread", Napi::Function::New(env, windowssys_windows_win32_system_threading_wow64SuspendThread_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_threading_napi, nullptr };

@@ -1,6 +1,6 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.componentservices
 
-public typealias AutoSvcs_Error_Constants = UInt
+public typealias AutoSvcsErrorConstants = UInt
 
 public typealias COMAdminAccessChecksLevelOptions = Int
 
@@ -42,35 +42,35 @@ public typealias COMAdminTransactionOptions = Int
 
 public typealias COMAdminTxIsolationLevelOptions = Int
 
-public typealias COMPLUS_APPTYPE = Int
+public typealias ComplusApptype = Int
 
-public typealias CRMFLAGS = Int
+public typealias Crmflags = Int
 
-public typealias CRMREGFLAGS = Int
+public typealias Crmregflags = Int
 
-public typealias CSC_Binding = Int
+public typealias CscBinding = Int
 
-public typealias CSC_COMTIIntrinsicsConfig = Int
+public typealias CscComtiintrinsicsConfig = Int
 
-public typealias CSC_IISIntrinsicsConfig = Int
+public typealias CscIisintrinsicsConfig = Int
 
-public typealias CSC_InheritanceConfig = Int
+public typealias CscInheritanceConfig = Int
 
-public typealias CSC_PartitionConfig = Int
+public typealias CscPartitionConfig = Int
 
-public typealias CSC_SxsConfig = Int
+public typealias CscSxsConfig = Int
 
-public typealias CSC_SynchronizationConfig = Int
+public typealias CscSynchronizationConfig = Int
 
-public typealias CSC_ThreadPool = Int
+public typealias CscThreadPool = Int
 
-public typealias CSC_TrackerConfig = Int
+public typealias CscTrackerConfig = Int
 
-public typealias CSC_TransactionConfig = Int
+public typealias CscTransactionConfig = Int
 
 public typealias CrmTransactionState = Int
 
-public typealias DUMPTYPE = Int
+public typealias Dumptype = Int
 
 public typealias GetAppTrackerDataFlags = Int
 
@@ -78,6 +78,6 @@ public typealias LockModes = Int
 
 public typealias ReleaseModes = Int
 
-public typealias TRACKING_COLL_TYPE = Int
+public typealias TrackingCollType = Int
 
 public typealias TransactionVote = Int

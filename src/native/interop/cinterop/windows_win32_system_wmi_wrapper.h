@@ -9,7 +9,7 @@
 extern "C" {
 #endif
 
-int32_t windowssys_windows_win32_system_wmi_MI_Application_InitializeV1(uint32_t flags, void* applicationid, void* extendederror, void* application);
+int32_t windowssys_windows_win32_system_wmi_miApplicationInitializeV1(uint32_t flags, void* applicationid, void* extendederror, void* application);
 
 #ifdef __cplusplus
 }

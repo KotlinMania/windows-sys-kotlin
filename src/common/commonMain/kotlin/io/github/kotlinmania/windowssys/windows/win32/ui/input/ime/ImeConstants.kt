@@ -1,9 +1,9 @@
 package io.github.kotlinmania.windowssys.windows.win32.ui.input.ime
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.w
 
 public val ATTR_CONVERTED: UInt = 2u
@@ -18,21 +18,21 @@ public val ATTR_TARGET_CONVERTED: UInt = 1u
 
 public val ATTR_TARGET_NOTCONVERTED: UInt = 3u
 
-public val CATID_MSIME_IImePadApplet: GUID = GUID.from_u128(U128(0x7566cad14ec94478uL, 0x9fe98ed766619edfuL))
+public val CATID_MSIME_I_IME_PAD_APPLET: Guid = Guid.fromU128(U128(0x7566cad14ec94478uL, 0x9fe98ed766619edfuL))
 
-public val CATID_MSIME_IImePadApplet1000: GUID = GUID.from_u128(U128(0xe081e1d6238943cbuL, 0xb66f609f823d9f9cuL))
+public val CATID_MSIME_I_IME_PAD_APPLET1000: Guid = Guid.fromU128(U128(0xe081e1d6238943cbuL, 0xb66f609f823d9f9cuL))
 
-public val CATID_MSIME_IImePadApplet1200: GUID = GUID.from_u128(U128(0xa47fb5fc7d154223uL, 0xa789b781bf9ae667uL))
+public val CATID_MSIME_I_IME_PAD_APPLET1200: Guid = Guid.fromU128(U128(0xa47fb5fc7d154223uL, 0xa789b781bf9ae667uL))
 
-public val CATID_MSIME_IImePadApplet900: GUID = GUID.from_u128(U128(0xfaae51bf5e5b4a1duL, 0x8de117c1d9e1728duL))
+public val CATID_MSIME_I_IME_PAD_APPLET900: Guid = Guid.fromU128(U128(0xfaae51bf5e5b4a1duL, 0x8de117c1d9e1728duL))
 
-public val CATID_MSIME_IImePadApplet_VER7: GUID = GUID.from_u128(U128(0x4a0f8e31c3ee11d1uL, 0xafef00805f0c8b6duL))
+public val CATID_MSIME_I_IME_PAD_APPLET_VER7: Guid = Guid.fromU128(U128(0x4a0f8e31c3ee11d1uL, 0xafef00805f0c8b6duL))
 
-public val CATID_MSIME_IImePadApplet_VER80: GUID = GUID.from_u128(U128(0x56f7a792fef111d3uL, 0x846300c04f7a06e5uL))
+public val CATID_MSIME_I_IME_PAD_APPLET_VER80: Guid = Guid.fromU128(U128(0x56f7a792fef111d3uL, 0x846300c04f7a06e5uL))
 
-public val CATID_MSIME_IImePadApplet_VER81: GUID = GUID.from_u128(U128(0x656520b0bb8811d4uL, 0x84c000c04f7a06e5uL))
+public val CATID_MSIME_I_IME_PAD_APPLET_VER81: Guid = Guid.fromU128(U128(0x656520b0bb8811d4uL, 0x84c000c04f7a06e5uL))
 
-public val CActiveIMM: GUID = GUID.from_u128(U128(0x4955dd33b15911d0uL, 0x8fcf00aa006bcc59uL))
+public val C_ACTIVE_IMM: Guid = Guid.fromU128(U128(0x4955dd33b15911d0uL, 0x8fcf00aa006bcc59uL))
 
 public val CFS_CANDIDATEPOS: UInt = 64u
 
@@ -52,19 +52,19 @@ public val CHARINFO_CHARID_MASK: UInt = 65535u
 
 public val CHARINFO_FEID_MASK: UInt = 15728640u
 
-public val CLSID_ImePlugInDictDictionaryList_CHS: GUID = GUID.from_u128(U128(0x7bf0129b5bef4de4uL, 0x9b0b5edb66ac2fa6uL))
+public val CLSID_IME_PLUG_IN_DICT_DICTIONARY_LIST_CHS: Guid = Guid.fromU128(U128(0x7bf0129b5bef4de4uL, 0x9b0b5edb66ac2fa6uL))
 
-public val CLSID_ImePlugInDictDictionaryList_JPN: GUID = GUID.from_u128(U128(0x4fe2776bb0f94396uL, 0xb5fce9d4cf1ec195uL))
+public val CLSID_IME_PLUG_IN_DICT_DICTIONARY_LIST_JPN: Guid = Guid.fromU128(U128(0x4fe2776bb0f94396uL, 0xb5fce9d4cf1ec195uL))
 
-public val CLSID_VERSION_DEPENDENT_MSIME_JAPANESE: GUID = GUID.from_u128(U128(0x6a91029eaa49471buL, 0xaee77d332785660duL))
+public val CLSID_VERSION_DEPENDENT_MSIME_JAPANESE: Guid = Guid.fromU128(U128(0x6a91029eaa49471buL, 0xaee77d332785660duL))
 
-public val CPS_CANCEL: NOTIFY_IME_INDEX = 4u
+public val CPS_CANCEL: NotifyImeIndex = 4u
 
-public val CPS_COMPLETE: NOTIFY_IME_INDEX = 1u
+public val CPS_COMPLETE: NotifyImeIndex = 1u
 
-public val CPS_CONVERT: NOTIFY_IME_INDEX = 2u
+public val CPS_CONVERT: NotifyImeIndex = 2u
 
-public val CPS_REVERT: NOTIFY_IME_INDEX = 3u
+public val CPS_REVERT: NotifyImeIndex = 3u
 
 public val CS_INSERTCHAR: UInt = 8192u
 
@@ -188,45 +188,45 @@ public val FID_MSIME_VERSION: UInt = 0u
 
 public val FID_RECONVERT_VERSION: UInt = 268435456u
 
-public val GCL_CONVERSION: GET_CONVERSION_LIST_FLAG = 1u
+public val GCL_CONVERSION: GetConversionListFlag = 1u
 
-public val GCL_REVERSECONVERSION: GET_CONVERSION_LIST_FLAG = 2u
+public val GCL_REVERSECONVERSION: GetConversionListFlag = 2u
 
-public val GCL_REVERSE_LENGTH: GET_CONVERSION_LIST_FLAG = 3u
+public val GCL_REVERSE_LENGTH: GetConversionListFlag = 3u
 
 public val GCSEX_CANCELRECONVERT: UInt = 268435456u
 
-public val GCS_COMPATTR: IME_COMPOSITION_STRING = 16u
+public val GCS_COMPATTR: ImeCompositionString = 16u
 
-public val GCS_COMPCLAUSE: IME_COMPOSITION_STRING = 32u
+public val GCS_COMPCLAUSE: ImeCompositionString = 32u
 
-public val GCS_COMPREADATTR: IME_COMPOSITION_STRING = 2u
+public val GCS_COMPREADATTR: ImeCompositionString = 2u
 
-public val GCS_COMPREADCLAUSE: IME_COMPOSITION_STRING = 4u
+public val GCS_COMPREADCLAUSE: ImeCompositionString = 4u
 
-public val GCS_COMPREADSTR: IME_COMPOSITION_STRING = 1u
+public val GCS_COMPREADSTR: ImeCompositionString = 1u
 
-public val GCS_COMPSTR: IME_COMPOSITION_STRING = 8u
+public val GCS_COMPSTR: ImeCompositionString = 8u
 
-public val GCS_CURSORPOS: IME_COMPOSITION_STRING = 128u
+public val GCS_CURSORPOS: ImeCompositionString = 128u
 
-public val GCS_DELTASTART: IME_COMPOSITION_STRING = 256u
+public val GCS_DELTASTART: ImeCompositionString = 256u
 
-public val GCS_RESULTCLAUSE: IME_COMPOSITION_STRING = 4096u
+public val GCS_RESULTCLAUSE: ImeCompositionString = 4096u
 
-public val GCS_RESULTREADCLAUSE: IME_COMPOSITION_STRING = 1024u
+public val GCS_RESULTREADCLAUSE: ImeCompositionString = 1024u
 
-public val GCS_RESULTREADSTR: IME_COMPOSITION_STRING = 512u
+public val GCS_RESULTREADSTR: ImeCompositionString = 512u
 
-public val GCS_RESULTSTR: IME_COMPOSITION_STRING = 2048u
+public val GCS_RESULTSTR: ImeCompositionString = 2048u
 
-public val GGL_INDEX: GET_GUIDE_LINE_TYPE = 2u
+public val GGL_INDEX: GetGuideLineType = 2u
 
-public val GGL_LEVEL: GET_GUIDE_LINE_TYPE = 1u
+public val GGL_LEVEL: GetGuideLineType = 1u
 
-public val GGL_PRIVATE: GET_GUIDE_LINE_TYPE = 4u
+public val GGL_PRIVATE: GetGuideLineType = 4u
 
-public val GGL_STRING: GET_GUIDE_LINE_TYPE = 3u
+public val GGL_STRING: GetGuideLineType = 3u
 
 public val GL_ID_CANNOTSAVE: UInt = 17u
 
@@ -276,77 +276,77 @@ public val IACE_DEFAULT: UInt = 16u
 
 public val IACE_IGNORENOCONTEXT: UInt = 32u
 
-public val IFEC_S_ALREADY_DEFAULT: HRESULT = 0x47400u.toInt()
+public val IFEC_S_ALREADY_DEFAULT: Hresult = 0x47400u.toInt()
 
-public val IFED_ACTIVE_DICT: IMEFMT = 13
+public val IFED_ACTIVE_DICT: Imefmt = 13
 
-public val IFED_ATOK10: IMEFMT = 15
+public val IFED_ATOK10: Imefmt = 15
 
-public val IFED_ATOK9: IMEFMT = 14
+public val IFED_ATOK9: Imefmt = 14
 
-public val IFED_E_INVALID_FORMAT: HRESULT = 0x80047301u.toInt()
+public val IFED_E_INVALID_FORMAT: Hresult = 0x80047301u.toInt()
 
-public val IFED_E_NOT_FOUND: HRESULT = 0x80047300u.toInt()
+public val IFED_E_NOT_FOUND: Hresult = 0x80047300u.toInt()
 
-public val IFED_E_NOT_SUPPORTED: HRESULT = 0x80047307u.toInt()
+public val IFED_E_NOT_SUPPORTED: Hresult = 0x80047307u.toInt()
 
-public val IFED_E_NOT_USER_DIC: HRESULT = 0x80047306u.toInt()
+public val IFED_E_NOT_USER_DIC: Hresult = 0x80047306u.toInt()
 
-public val IFED_E_NO_ENTRY: HRESULT = 0x80047304u.toInt()
+public val IFED_E_NO_ENTRY: Hresult = 0x80047304u.toInt()
 
-public val IFED_E_OPEN_FAILED: HRESULT = 0x80047302u.toInt()
+public val IFED_E_OPEN_FAILED: Hresult = 0x80047302u.toInt()
 
-public val IFED_E_REGISTER_DISCONNECTED: HRESULT = 0x8004730Bu.toInt()
+public val IFED_E_REGISTER_DISCONNECTED: Hresult = 0x8004730Bu.toInt()
 
-public val IFED_E_REGISTER_FAILED: HRESULT = 0x80047305u.toInt()
+public val IFED_E_REGISTER_FAILED: Hresult = 0x80047305u.toInt()
 
-public val IFED_E_REGISTER_ILLEGAL_POS: HRESULT = 0x80047309u.toInt()
+public val IFED_E_REGISTER_ILLEGAL_POS: Hresult = 0x80047309u.toInt()
 
-public val IFED_E_REGISTER_IMPROPER_WORD: HRESULT = 0x8004730Au.toInt()
+public val IFED_E_REGISTER_IMPROPER_WORD: Hresult = 0x8004730Au.toInt()
 
-public val IFED_E_USER_COMMENT: HRESULT = 0x80047308u.toInt()
+public val IFED_E_USER_COMMENT: Hresult = 0x80047308u.toInt()
 
-public val IFED_E_WRITE_FAILED: HRESULT = 0x80047303u.toInt()
+public val IFED_E_WRITE_FAILED: Hresult = 0x80047303u.toInt()
 
-public val IFED_MSIME2_BIN_SYSTEM: IMEFMT = 1
+public val IFED_MSIME2_BIN_SYSTEM: Imefmt = 1
 
-public val IFED_MSIME2_BIN_USER: IMEFMT = 2
+public val IFED_MSIME2_BIN_USER: Imefmt = 2
 
-public val IFED_MSIME2_TEXT_USER: IMEFMT = 3
+public val IFED_MSIME2_TEXT_USER: Imefmt = 3
 
-public val IFED_MSIME95_BIN_SYSTEM: IMEFMT = 4
+public val IFED_MSIME95_BIN_SYSTEM: Imefmt = 4
 
-public val IFED_MSIME95_BIN_USER: IMEFMT = 5
+public val IFED_MSIME95_BIN_USER: Imefmt = 5
 
-public val IFED_MSIME95_TEXT_USER: IMEFMT = 6
+public val IFED_MSIME95_TEXT_USER: Imefmt = 6
 
-public val IFED_MSIME97_BIN_SYSTEM: IMEFMT = 7
+public val IFED_MSIME97_BIN_SYSTEM: Imefmt = 7
 
-public val IFED_MSIME97_BIN_USER: IMEFMT = 8
+public val IFED_MSIME97_BIN_USER: Imefmt = 8
 
-public val IFED_MSIME97_TEXT_USER: IMEFMT = 9
+public val IFED_MSIME97_TEXT_USER: Imefmt = 9
 
-public val IFED_MSIME98_BIN_SYSTEM: IMEFMT = 10
+public val IFED_MSIME98_BIN_SYSTEM: Imefmt = 10
 
-public val IFED_MSIME98_BIN_USER: IMEFMT = 11
+public val IFED_MSIME98_BIN_USER: Imefmt = 11
 
-public val IFED_MSIME98_SYSTEM_CE: IMEFMT = 20
+public val IFED_MSIME98_SYSTEM_CE: Imefmt = 20
 
-public val IFED_MSIME98_TEXT_USER: IMEFMT = 12
+public val IFED_MSIME98_TEXT_USER: Imefmt = 12
 
-public val IFED_MSIME_BIN_SYSTEM: IMEFMT = 21
+public val IFED_MSIME_BIN_SYSTEM: Imefmt = 21
 
-public val IFED_MSIME_BIN_USER: IMEFMT = 22
+public val IFED_MSIME_BIN_USER: Imefmt = 22
 
-public val IFED_MSIME_TEXT_USER: IMEFMT = 23
+public val IFED_MSIME_TEXT_USER: Imefmt = 23
 
-public val IFED_NEC_AI_: IMEFMT = 16
+public val IFED_NEC_AI: Imefmt = 16
 
-public val IFED_PIME2_BIN_STANDARD_SYSTEM: IMEFMT = 26
+public val IFED_PIME2_BIN_STANDARD_SYSTEM: Imefmt = 26
 
-public val IFED_PIME2_BIN_SYSTEM: IMEFMT = 25
+public val IFED_PIME2_BIN_SYSTEM: Imefmt = 25
 
-public val IFED_PIME2_BIN_USER: IMEFMT = 24
+public val IFED_PIME2_BIN_USER: Imefmt = 24
 
 public val IFED_POS_ADJECTIVE: UInt = 4u
 
@@ -396,67 +396,67 @@ public val IFED_REG_ALL: UInt = 7u
 
 public val IFED_REG_AUTO: UInt = 2u
 
-public val IFED_REG_DEL: IMEREG = 2
+public val IFED_REG_DEL: Imereg = 2
 
 public val IFED_REG_GRAMMAR: UInt = 4u
 
-public val IFED_REG_HEAD: IMEREG = 0
+public val IFED_REG_HEAD: Imereg = 0
 
 public val IFED_REG_NONE: UInt = 0u
 
-public val IFED_REG_TAIL: IMEREG = 1
+public val IFED_REG_TAIL: Imereg = 1
 
 public val IFED_REG_USER: UInt = 1u
 
-public val IFED_REL_ALL: IMEREL = 24
+public val IFED_REL_ALL: Imerel = 24
 
-public val IFED_REL_DE: IMEREL = 5
+public val IFED_REL_DE: Imerel = 5
 
-public val IFED_REL_FUKU_YOUGEN: IMEREL = 12
+public val IFED_REL_FUKU_YOUGEN: Imerel = 12
 
-public val IFED_REL_GA: IMEREL = 2
+public val IFED_REL_GA: Imerel = 2
 
-public val IFED_REL_HE: IMEREL = 9
+public val IFED_REL_HE: Imerel = 9
 
-public val IFED_REL_IDEOM: IMEREL = 11
+public val IFED_REL_IDEOM: Imerel = 11
 
-public val IFED_REL_KARA: IMEREL = 7
+public val IFED_REL_KARA: Imerel = 7
 
-public val IFED_REL_KEIDOU1_YOUGEN: IMEREL = 14
+public val IFED_REL_KEIDOU1_YOUGEN: Imerel = 14
 
-public val IFED_REL_KEIDOU2_YOUGEN: IMEREL = 15
+public val IFED_REL_KEIDOU2_YOUGEN: Imerel = 15
 
-public val IFED_REL_KEIYOU_TARU_YOUGEN: IMEREL = 21
+public val IFED_REL_KEIYOU_TARU_YOUGEN: Imerel = 21
 
-public val IFED_REL_KEIYOU_TO_YOUGEN: IMEREL = 20
+public val IFED_REL_KEIYOU_TO_YOUGEN: Imerel = 20
 
-public val IFED_REL_KEIYOU_YOUGEN: IMEREL = 13
+public val IFED_REL_KEIYOU_YOUGEN: Imerel = 13
 
-public val IFED_REL_MADE: IMEREL = 8
+public val IFED_REL_MADE: Imerel = 8
 
-public val IFED_REL_NI: IMEREL = 4
+public val IFED_REL_NI: Imerel = 4
 
-public val IFED_REL_NO: IMEREL = 1
+public val IFED_REL_NO: Imerel = 1
 
-public val IFED_REL_NONE: IMEREL = 0
+public val IFED_REL_NONE: Imerel = 0
 
-public val IFED_REL_RENSOU: IMEREL = 19
+public val IFED_REL_RENSOU: Imerel = 19
 
-public val IFED_REL_RENTAI_MEI: IMEREL = 18
+public val IFED_REL_RENTAI_MEI: Imerel = 18
 
-public val IFED_REL_TAIGEN: IMEREL = 16
+public val IFED_REL_TAIGEN: Imerel = 16
 
-public val IFED_REL_TO: IMEREL = 10
+public val IFED_REL_TO: Imerel = 10
 
-public val IFED_REL_UNKNOWN1: IMEREL = 22
+public val IFED_REL_UNKNOWN1: Imerel = 22
 
-public val IFED_REL_UNKNOWN2: IMEREL = 23
+public val IFED_REL_UNKNOWN2: Imerel = 23
 
-public val IFED_REL_WO: IMEREL = 3
+public val IFED_REL_WO: Imerel = 3
 
-public val IFED_REL_YORI: IMEREL = 6
+public val IFED_REL_YORI: Imerel = 6
 
-public val IFED_REL_YOUGEN: IMEREL = 17
+public val IFED_REL_YOUGEN: Imerel = 17
 
 public val IFED_SELECT_ALL: UInt = 15u
 
@@ -470,13 +470,13 @@ public val IFED_SELECT_POS: UInt = 4u
 
 public val IFED_SELECT_READING: UInt = 1u
 
-public val IFED_S_COMMENT_CHANGED: HRESULT = 0x47203u.toInt()
+public val IFED_S_COMMENT_CHANGED: Hresult = 0x47203u.toInt()
 
-public val IFED_S_EMPTY_DICTIONARY: HRESULT = 0x47201u.toInt()
+public val IFED_S_EMPTY_DICTIONARY: Hresult = 0x47201u.toInt()
 
-public val IFED_S_MORE_ENTRIES: HRESULT = 0x47200u.toInt()
+public val IFED_S_MORE_ENTRIES: Hresult = 0x47200u.toInt()
 
-public val IFED_S_WORD_EXISTS: HRESULT = 0x47202u.toInt()
+public val IFED_S_WORD_EXISTS: Hresult = 0x47202u.toInt()
 
 public val IFED_TYPE_ALL: UInt = 31u
 
@@ -492,23 +492,23 @@ public val IFED_TYPE_REVERSE: UInt = 8u
 
 public val IFED_TYPE_SPEECH: UInt = 4u
 
-public val IFED_UCT_MAX: IMEUCT = 4
+public val IFED_UCT_MAX: Imeuct = 4
 
-public val IFED_UCT_NONE: IMEUCT = 0
+public val IFED_UCT_NONE: Imeuct = 0
 
-public val IFED_UCT_STRING_SJIS: IMEUCT = 1
+public val IFED_UCT_STRING_SJIS: Imeuct = 1
 
-public val IFED_UCT_STRING_UNICODE: IMEUCT = 2
+public val IFED_UCT_STRING_UNICODE: Imeuct = 2
 
-public val IFED_UCT_USER_DEFINED: IMEUCT = 3
+public val IFED_UCT_USER_DEFINED: Imeuct = 3
 
-public val IFED_UNKNOWN: IMEFMT = 0
+public val IFED_UNKNOWN: Imefmt = 0
 
-public val IFED_VJE_20: IMEFMT = 19
+public val IFED_VJE_20: Imefmt = 19
 
-public val IFED_WX_II: IMEFMT = 17
+public val IFED_WX_II: Imefmt = 17
 
-public val IFED_WX_III: IMEFMT = 18
+public val IFED_WX_III: Imefmt = 18
 
 public val IGIMIF_RIGHTMENU: UInt = 1u
 
@@ -658,45 +658,45 @@ public val IMEPADCTRL_PHONETICCANDIDATE: UInt = 20u
 
 public val IMEPADCTRL_PHRASEDELETE: UInt = 12u
 
-public val IMEPADREQ_CHANGESTRING: IME_PAD_REQUEST_FLAGS = 4113u
+public val IMEPADREQ_CHANGESTRING: ImePadRequestFlags = 4113u
 
 public val IMEPADREQ_CHANGESTRINGCANDIDATEINFO: UInt = 4111u
 
 public val IMEPADREQ_CHANGESTRINGINFO: UInt = 4115u
 
-public val IMEPADREQ_DELETESTRING: IME_PAD_REQUEST_FLAGS = 4112u
+public val IMEPADREQ_DELETESTRING: ImePadRequestFlags = 4112u
 
 public val IMEPADREQ_FIRST: UInt = 4096u
 
-public val IMEPADREQ_FORCEIMEPADWINDOWSHOW: IME_PAD_REQUEST_FLAGS = 4117u
+public val IMEPADREQ_FORCEIMEPADWINDOWSHOW: ImePadRequestFlags = 4117u
 
 public val IMEPADREQ_GETAPPLETDATA: UInt = 4106u
 
-public val IMEPADREQ_GETAPPLETUISTYLE: IME_PAD_REQUEST_FLAGS = 4121u
+public val IMEPADREQ_GETAPPLETUISTYLE: ImePadRequestFlags = 4121u
 
-public val IMEPADREQ_GETAPPLHWND: IME_PAD_REQUEST_FLAGS = 4116u
+public val IMEPADREQ_GETAPPLHWND: ImePadRequestFlags = 4116u
 
-public val IMEPADREQ_GETCOMPOSITIONSTRING: IME_PAD_REQUEST_FLAGS = 4102u
+public val IMEPADREQ_GETCOMPOSITIONSTRING: ImePadRequestFlags = 4102u
 
 public val IMEPADREQ_GETCOMPOSITIONSTRINGID: UInt = 4109u
 
-public val IMEPADREQ_GETCOMPOSITIONSTRINGINFO: IME_PAD_REQUEST_FLAGS = 4108u
+public val IMEPADREQ_GETCOMPOSITIONSTRINGINFO: ImePadRequestFlags = 4108u
 
-public val IMEPADREQ_GETCONVERSIONSTATUS: IME_PAD_REQUEST_FLAGS = 4126u
+public val IMEPADREQ_GETCONVERSIONSTATUS: ImePadRequestFlags = 4126u
 
-public val IMEPADREQ_GETCURRENTIMEINFO: IME_PAD_REQUEST_FLAGS = 4128u
+public val IMEPADREQ_GETCURRENTIMEINFO: ImePadRequestFlags = 4128u
 
 public val IMEPADREQ_GETCURRENTUILANGID: UInt = 4120u
 
-public val IMEPADREQ_GETDEFAULTUILANGID: IME_PAD_REQUEST_FLAGS = 4119u
+public val IMEPADREQ_GETDEFAULTUILANGID: ImePadRequestFlags = 4119u
 
 public val IMEPADREQ_GETSELECTEDSTRING: UInt = 4103u
 
-public val IMEPADREQ_GETVERSION: IME_PAD_REQUEST_FLAGS = 4127u
+public val IMEPADREQ_GETVERSION: ImePadRequestFlags = 4127u
 
 public val IMEPADREQ_INSERTITEMCANDIDATE: UInt = 4099u
 
-public val IMEPADREQ_INSERTSTRING: IME_PAD_REQUEST_FLAGS = 4097u
+public val IMEPADREQ_INSERTSTRING: ImePadRequestFlags = 4097u
 
 public val IMEPADREQ_INSERTSTRINGCANDIDATE: UInt = 4098u
 
@@ -704,23 +704,23 @@ public val IMEPADREQ_INSERTSTRINGCANDIDATEINFO: UInt = 4110u
 
 public val IMEPADREQ_INSERTSTRINGINFO: UInt = 4114u
 
-public val IMEPADREQ_ISAPPLETACTIVE: IME_PAD_REQUEST_FLAGS = 4123u
+public val IMEPADREQ_ISAPPLETACTIVE: ImePadRequestFlags = 4123u
 
-public val IMEPADREQ_ISIMEPADWINDOWVISIBLE: IME_PAD_REQUEST_FLAGS = 4124u
+public val IMEPADREQ_ISIMEPADWINDOWVISIBLE: ImePadRequestFlags = 4124u
 
-public val IMEPADREQ_POSTMODALNOTIFY: IME_PAD_REQUEST_FLAGS = 4118u
+public val IMEPADREQ_POSTMODALNOTIFY: ImePadRequestFlags = 4118u
 
-public val IMEPADREQ_SENDCONTROL: IME_PAD_REQUEST_FLAGS = 4100u
+public val IMEPADREQ_SENDCONTROL: ImePadRequestFlags = 4100u
 
 public val IMEPADREQ_SENDKEYCONTROL: UInt = 4101u
 
 public val IMEPADREQ_SETAPPLETDATA: UInt = 4105u
 
-public val IMEPADREQ_SETAPPLETMINMAXSIZE: IME_PAD_REQUEST_FLAGS = 4125u
+public val IMEPADREQ_SETAPPLETMINMAXSIZE: ImePadRequestFlags = 4125u
 
-public val IMEPADREQ_SETAPPLETSIZE: IME_PAD_REQUEST_FLAGS = 4104u
+public val IMEPADREQ_SETAPPLETSIZE: ImePadRequestFlags = 4104u
 
-public val IMEPADREQ_SETAPPLETUISTYLE: IME_PAD_REQUEST_FLAGS = 4122u
+public val IMEPADREQ_SETAPPLETUISTYLE: ImePadRequestFlags = 4122u
 
 public val IMEPADREQ_SETTITLEFONT: UInt = 4107u
 
@@ -768,49 +768,49 @@ public val IME_CAND_STROKE: UInt = 5u
 
 public val IME_CAND_UNKNOWN: UInt = 0u
 
-public val IME_CHOTKEY_IME_NONIME_TOGGLE: IME_HOTKEY_IDENTIFIER = 16u
+public val IME_CHOTKEY_IME_NONIME_TOGGLE: ImeHotkeyIdentifier = 16u
 
-public val IME_CHOTKEY_SHAPE_TOGGLE: IME_HOTKEY_IDENTIFIER = 17u
+public val IME_CHOTKEY_SHAPE_TOGGLE: ImeHotkeyIdentifier = 17u
 
-public val IME_CHOTKEY_SYMBOL_TOGGLE: IME_HOTKEY_IDENTIFIER = 18u
+public val IME_CHOTKEY_SYMBOL_TOGGLE: ImeHotkeyIdentifier = 18u
 
-public val IME_CMODE_ALPHANUMERIC: IME_CONVERSION_MODE = 0u
+public val IME_CMODE_ALPHANUMERIC: ImeConversionMode = 0u
 
-public val IME_CMODE_CHARCODE: IME_CONVERSION_MODE = 32u
+public val IME_CMODE_CHARCODE: ImeConversionMode = 32u
 
-public val IME_CMODE_CHINESE: IME_CONVERSION_MODE = 1u
+public val IME_CMODE_CHINESE: ImeConversionMode = 1u
 
-public val IME_CMODE_EUDC: IME_CONVERSION_MODE = 512u
+public val IME_CMODE_EUDC: ImeConversionMode = 512u
 
-public val IME_CMODE_FIXED: IME_CONVERSION_MODE = 2048u
+public val IME_CMODE_FIXED: ImeConversionMode = 2048u
 
-public val IME_CMODE_FULLSHAPE: IME_CONVERSION_MODE = 8u
+public val IME_CMODE_FULLSHAPE: ImeConversionMode = 8u
 
-public val IME_CMODE_HANGEUL: IME_CONVERSION_MODE = 1u
+public val IME_CMODE_HANGEUL: ImeConversionMode = 1u
 
-public val IME_CMODE_HANGUL: IME_CONVERSION_MODE = 1u
+public val IME_CMODE_HANGUL: ImeConversionMode = 1u
 
-public val IME_CMODE_HANJACONVERT: IME_CONVERSION_MODE = 64u
+public val IME_CMODE_HANJACONVERT: ImeConversionMode = 64u
 
-public val IME_CMODE_JAPANESE: IME_CONVERSION_MODE = 1u
+public val IME_CMODE_JAPANESE: ImeConversionMode = 1u
 
-public val IME_CMODE_KATAKANA: IME_CONVERSION_MODE = 2u
+public val IME_CMODE_KATAKANA: ImeConversionMode = 2u
 
-public val IME_CMODE_LANGUAGE: IME_CONVERSION_MODE = 3u
+public val IME_CMODE_LANGUAGE: ImeConversionMode = 3u
 
-public val IME_CMODE_NATIVE: IME_CONVERSION_MODE = 1u
+public val IME_CMODE_NATIVE: ImeConversionMode = 1u
 
-public val IME_CMODE_NATIVESYMBOL: IME_CONVERSION_MODE = 128u
+public val IME_CMODE_NATIVESYMBOL: ImeConversionMode = 128u
 
-public val IME_CMODE_NOCONVERSION: IME_CONVERSION_MODE = 256u
+public val IME_CMODE_NOCONVERSION: ImeConversionMode = 256u
 
-public val IME_CMODE_RESERVED: IME_CONVERSION_MODE = 4026531840u
+public val IME_CMODE_RESERVED: ImeConversionMode = 4026531840u
 
-public val IME_CMODE_ROMAN: IME_CONVERSION_MODE = 16u
+public val IME_CMODE_ROMAN: ImeConversionMode = 16u
 
-public val IME_CMODE_SOFTKBD: IME_CONVERSION_MODE = 128u
+public val IME_CMODE_SOFTKBD: ImeConversionMode = 128u
 
-public val IME_CMODE_SYMBOL: IME_CONVERSION_MODE = 1024u
+public val IME_CMODE_SYMBOL: ImeConversionMode = 1024u
 
 public val IME_CONFIG_GENERAL: UInt = 1u
 
@@ -818,37 +818,37 @@ public val IME_CONFIG_REGISTERWORD: UInt = 2u
 
 public val IME_CONFIG_SELECTDICTIONARY: UInt = 3u
 
-public val IME_ESC_AUTOMATA: IME_ESCAPE = 4105u
+public val IME_ESC_AUTOMATA: ImeEscape = 4105u
 
-public val IME_ESC_GETHELPFILENAME: IME_ESCAPE = 4107u
+public val IME_ESC_GETHELPFILENAME: ImeEscape = 4107u
 
-public val IME_ESC_GET_EUDC_DICTIONARY: IME_ESCAPE = 4099u
+public val IME_ESC_GET_EUDC_DICTIONARY: ImeEscape = 4099u
 
-public val IME_ESC_HANJA_MODE: IME_ESCAPE = 4104u
+public val IME_ESC_HANJA_MODE: ImeEscape = 4104u
 
-public val IME_ESC_IME_NAME: IME_ESCAPE = 4102u
+public val IME_ESC_IME_NAME: ImeEscape = 4102u
 
-public val IME_ESC_MAX_KEY: IME_ESCAPE = 4101u
+public val IME_ESC_MAX_KEY: ImeEscape = 4101u
 
-public val IME_ESC_PRIVATE_FIRST: IME_ESCAPE = 2048u
+public val IME_ESC_PRIVATE_FIRST: ImeEscape = 2048u
 
-public val IME_ESC_PRIVATE_HOTKEY: IME_ESCAPE = 4106u
+public val IME_ESC_PRIVATE_HOTKEY: ImeEscape = 4106u
 
-public val IME_ESC_PRIVATE_LAST: IME_ESCAPE = 4095u
+public val IME_ESC_PRIVATE_LAST: ImeEscape = 4095u
 
-public val IME_ESC_QUERY_SUPPORT: IME_ESCAPE = 3u
+public val IME_ESC_QUERY_SUPPORT: ImeEscape = 3u
 
-public val IME_ESC_RESERVED_FIRST: IME_ESCAPE = 4u
+public val IME_ESC_RESERVED_FIRST: ImeEscape = 4u
 
-public val IME_ESC_RESERVED_LAST: IME_ESCAPE = 2047u
+public val IME_ESC_RESERVED_LAST: ImeEscape = 2047u
 
-public val IME_ESC_SEQUENCE_TO_INTERNAL: IME_ESCAPE = 4097u
+public val IME_ESC_SEQUENCE_TO_INTERNAL: ImeEscape = 4097u
 
-public val IME_ESC_SET_EUDC_DICTIONARY: IME_ESCAPE = 4100u
+public val IME_ESC_SET_EUDC_DICTIONARY: ImeEscape = 4100u
 
 public val IME_ESC_STRING_BUFFER_SIZE: UInt = 80u
 
-public val IME_ESC_SYNC_HOTKEY: IME_ESCAPE = 4103u
+public val IME_ESC_SYNC_HOTKEY: ImeEscape = 4103u
 
 public val IME_HOTKEY_DSWITCH_FIRST: UInt = 256u
 
@@ -858,21 +858,21 @@ public val IME_HOTKEY_PRIVATE_FIRST: UInt = 512u
 
 public val IME_HOTKEY_PRIVATE_LAST: UInt = 543u
 
-public val IME_ITHOTKEY_PREVIOUS_COMPOSITION: IME_HOTKEY_IDENTIFIER = 513u
+public val IME_ITHOTKEY_PREVIOUS_COMPOSITION: ImeHotkeyIdentifier = 513u
 
-public val IME_ITHOTKEY_RECONVERTSTRING: IME_HOTKEY_IDENTIFIER = 515u
+public val IME_ITHOTKEY_RECONVERTSTRING: ImeHotkeyIdentifier = 515u
 
-public val IME_ITHOTKEY_RESEND_RESULTSTR: IME_HOTKEY_IDENTIFIER = 512u
+public val IME_ITHOTKEY_RESEND_RESULTSTR: ImeHotkeyIdentifier = 512u
 
-public val IME_ITHOTKEY_UISTYLE_TOGGLE: IME_HOTKEY_IDENTIFIER = 514u
+public val IME_ITHOTKEY_UISTYLE_TOGGLE: ImeHotkeyIdentifier = 514u
 
-public val IME_JHOTKEY_CLOSE_OPEN: IME_HOTKEY_IDENTIFIER = 48u
+public val IME_JHOTKEY_CLOSE_OPEN: ImeHotkeyIdentifier = 48u
 
-public val IME_KHOTKEY_ENGLISH: IME_HOTKEY_IDENTIFIER = 82u
+public val IME_KHOTKEY_ENGLISH: ImeHotkeyIdentifier = 82u
 
-public val IME_KHOTKEY_HANJACONVERT: IME_HOTKEY_IDENTIFIER = 81u
+public val IME_KHOTKEY_HANJACONVERT: ImeHotkeyIdentifier = 81u
 
-public val IME_KHOTKEY_SHAPE_TOGGLE: IME_HOTKEY_IDENTIFIER = 80u
+public val IME_KHOTKEY_SHAPE_TOGGLE: ImeHotkeyIdentifier = 80u
 
 public val IME_PROP_ACCEPT_WIDE_VKEY: UInt = 32u
 
@@ -902,27 +902,27 @@ public val IME_REGWORD_STYLE_USER_FIRST: UInt = 2147483648u
 
 public val IME_REGWORD_STYLE_USER_LAST: UInt = 4294967295u
 
-public val IME_SMODE_AUTOMATIC: IME_SENTENCE_MODE = 4u
+public val IME_SMODE_AUTOMATIC: ImeSentenceMode = 4u
 
-public val IME_SMODE_CONVERSATION: IME_SENTENCE_MODE = 16u
+public val IME_SMODE_CONVERSATION: ImeSentenceMode = 16u
 
-public val IME_SMODE_NONE: IME_SENTENCE_MODE = 0u
+public val IME_SMODE_NONE: ImeSentenceMode = 0u
 
-public val IME_SMODE_PHRASEPREDICT: IME_SENTENCE_MODE = 8u
+public val IME_SMODE_PHRASEPREDICT: ImeSentenceMode = 8u
 
-public val IME_SMODE_PLAURALCLAUSE: IME_SENTENCE_MODE = 1u
+public val IME_SMODE_PLAURALCLAUSE: ImeSentenceMode = 1u
 
-public val IME_SMODE_RESERVED: IME_SENTENCE_MODE = 61440u
+public val IME_SMODE_RESERVED: ImeSentenceMode = 61440u
 
-public val IME_SMODE_SINGLECONVERT: IME_SENTENCE_MODE = 2u
+public val IME_SMODE_SINGLECONVERT: ImeSentenceMode = 2u
 
 public val IME_SYSINFO_WINLOGON: UInt = 1u
 
-public val IME_THOTKEY_IME_NONIME_TOGGLE: IME_HOTKEY_IDENTIFIER = 112u
+public val IME_THOTKEY_IME_NONIME_TOGGLE: ImeHotkeyIdentifier = 112u
 
-public val IME_THOTKEY_SHAPE_TOGGLE: IME_HOTKEY_IDENTIFIER = 113u
+public val IME_THOTKEY_SHAPE_TOGGLE: ImeHotkeyIdentifier = 113u
 
-public val IME_THOTKEY_SYMBOL_TOGGLE: IME_HOTKEY_IDENTIFIER = 114u
+public val IME_THOTKEY_SYMBOL_TOGGLE: ImeHotkeyIdentifier = 114u
 
 public val IME_UI_CLASS_NAME_SIZE: UInt = 16u
 
@@ -1424,25 +1424,25 @@ public val MOD_ON_KEYUP: UInt = 2048u
 
 public val MOD_RIGHT: UInt = 16384u
 
-public val NI_CHANGECANDIDATELIST: NOTIFY_IME_ACTION = 19u
+public val NI_CHANGECANDIDATELIST: NotifyImeAction = 19u
 
-public val NI_CLOSECANDIDATE: NOTIFY_IME_ACTION = 17u
+public val NI_CLOSECANDIDATE: NotifyImeAction = 17u
 
-public val NI_COMPOSITIONSTR: NOTIFY_IME_ACTION = 21u
+public val NI_COMPOSITIONSTR: NotifyImeAction = 21u
 
 public val NI_CONTEXTUPDATED: UInt = 3u
 
 public val NI_FINALIZECONVERSIONRESULT: UInt = 20u
 
-public val NI_IMEMENUSELECTED: NOTIFY_IME_ACTION = 24u
+public val NI_IMEMENUSELECTED: NotifyImeAction = 24u
 
-public val NI_OPENCANDIDATE: NOTIFY_IME_ACTION = 16u
+public val NI_OPENCANDIDATE: NotifyImeAction = 16u
 
-public val NI_SELECTCANDIDATESTR: NOTIFY_IME_ACTION = 18u
+public val NI_SELECTCANDIDATESTR: NotifyImeAction = 18u
 
-public val NI_SETCANDIDATE_PAGESIZE: NOTIFY_IME_ACTION = 23u
+public val NI_SETCANDIDATE_PAGESIZE: NotifyImeAction = 23u
 
-public val NI_SETCANDIDATE_PAGESTART: NOTIFY_IME_ACTION = 22u
+public val NI_SETCANDIDATE_PAGESTART: NotifyImeAction = 22u
 
 public val POS_UNDEFINED: UInt = 0u
 
@@ -1450,31 +1450,31 @@ public val RECONVOPT_NONE: UInt = 0u
 
 public val RECONVOPT_USECANCELNOTIFY: UInt = 1u
 
-public val RWM_CHGKEYMAP: PCWSTR = w("MSIMEChangeKeyMap")
+public val RWM_CHGKEYMAP: Pcwstr = w("MSIMEChangeKeyMap")
 
-public val RWM_DOCUMENTFEED: PCWSTR = w("MSIMEDocumentFeed")
+public val RWM_DOCUMENTFEED: Pcwstr = w("MSIMEDocumentFeed")
 
-public val RWM_KEYMAP: PCWSTR = w("MSIMEKeyMap")
+public val RWM_KEYMAP: Pcwstr = w("MSIMEKeyMap")
 
-public val RWM_MODEBIAS: PCWSTR = w("MSIMEModeBias")
+public val RWM_MODEBIAS: Pcwstr = w("MSIMEModeBias")
 
-public val RWM_MOUSE: PCWSTR = w("MSIMEMouseOperation")
+public val RWM_MOUSE: Pcwstr = w("MSIMEMouseOperation")
 
-public val RWM_NTFYKEYMAP: PCWSTR = w("MSIMENotifyKeyMap")
+public val RWM_NTFYKEYMAP: Pcwstr = w("MSIMENotifyKeyMap")
 
-public val RWM_QUERYPOSITION: PCWSTR = w("MSIMEQueryPosition")
+public val RWM_QUERYPOSITION: Pcwstr = w("MSIMEQueryPosition")
 
-public val RWM_RECONVERT: PCWSTR = w("MSIMEReconvert")
+public val RWM_RECONVERT: Pcwstr = w("MSIMEReconvert")
 
-public val RWM_RECONVERTOPTIONS: PCWSTR = w("MSIMEReconvertOptions")
+public val RWM_RECONVERTOPTIONS: Pcwstr = w("MSIMEReconvertOptions")
 
-public val RWM_RECONVERTREQUEST: PCWSTR = w("MSIMEReconvertRequest")
+public val RWM_RECONVERTREQUEST: Pcwstr = w("MSIMEReconvertRequest")
 
-public val RWM_SERVICE: PCWSTR = w("MSIMEService")
+public val RWM_SERVICE: Pcwstr = w("MSIMEService")
 
-public val RWM_SHOWIMEPAD: PCWSTR = w("MSIMEShowImePad")
+public val RWM_SHOWIMEPAD: Pcwstr = w("MSIMEShowImePad")
 
-public val RWM_UIREADY: PCWSTR = w("MSIMEUIReady")
+public val RWM_UIREADY: Pcwstr = w("MSIMEUIReady")
 
 public val SCS_CAP_COMPSTR: UInt = 1u
 
@@ -1482,15 +1482,15 @@ public val SCS_CAP_MAKEREAD: UInt = 2u
 
 public val SCS_CAP_SETRECONVERTSTRING: UInt = 4u
 
-public val SCS_CHANGEATTR: SET_COMPOSITION_STRING_TYPE = 18u
+public val SCS_CHANGEATTR: SetCompositionStringType = 18u
 
-public val SCS_CHANGECLAUSE: SET_COMPOSITION_STRING_TYPE = 36u
+public val SCS_CHANGECLAUSE: SetCompositionStringType = 36u
 
-public val SCS_QUERYRECONVERTSTRING: SET_COMPOSITION_STRING_TYPE = 131072u
+public val SCS_QUERYRECONVERTSTRING: SetCompositionStringType = 131072u
 
-public val SCS_SETRECONVERTSTRING: SET_COMPOSITION_STRING_TYPE = 65536u
+public val SCS_SETRECONVERTSTRING: SetCompositionStringType = 65536u
 
-public val SCS_SETSTR: SET_COMPOSITION_STRING_TYPE = 9u
+public val SCS_SETSTR: SetCompositionStringType = 9u
 
 public val SELECT_CAP_CONVERSION: UInt = 1u
 
@@ -1534,14 +1534,14 @@ public val VERSION_QUERYPOSITION: UInt = 1u
 
 public val VERSION_RECONVERSION: UInt = 1u
 
-public val cbCommentMax: UInt = 256u
+public val CB_COMMENT_MAX: UInt = 256u
 
-public val szImeChina: PCWSTR = w("MSIME.China")
+public val SZ_IME_CHINA: Pcwstr = w("MSIME.China")
 
-public val szImeJapan: PCWSTR = w("MSIME.Japan")
+public val SZ_IME_JAPAN: Pcwstr = w("MSIME.Japan")
 
-public val szImeKorea: PCWSTR = w("MSIME.Korea")
+public val SZ_IME_KOREA: Pcwstr = w("MSIME.Korea")
 
-public val szImeTaiwan: PCWSTR = w("MSIME.Taiwan")
+public val SZ_IME_TAIWAN: Pcwstr = w("MSIME.Taiwan")
 
-public val wchPrivate1: UInt = 57344u
+public val WCH_PRIVATE1: UInt = 57344u

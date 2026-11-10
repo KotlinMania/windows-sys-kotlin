@@ -18,7 +18,7 @@
 #endif
 #endif
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_useraccesslogging_WindowsWin32SystemUseraccessloggingJniBridge_windowssys_1windows_1win32_1system_1useraccesslogging_1UalInstrument(JNIEnv* km_env, jclass km_clazz, jlong data) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_useraccesslogging_WindowsWin32SystemUseraccessloggingJniBridge_windowssys_1windows_1win32_1system_1useraccesslogging_1ualInstrument(JNIEnv* km_env, jclass km_clazz, jlong data) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -36,7 +36,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_useraccesslogging_WindowsWin32SystemUseraccessloggingJniBridge_windowssys_1windows_1win32_1system_1useraccesslogging_1UalRegisterProduct(JNIEnv* km_env, jclass km_clazz, jlong wszproductname, jlong wszrolename, jlong wszguid) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_useraccesslogging_WindowsWin32SystemUseraccessloggingJniBridge_windowssys_1windows_1win32_1system_1useraccesslogging_1ualRegisterProduct(JNIEnv* km_env, jclass km_clazz, jlong wszproductname, jlong wszrolename, jlong wszguid) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -56,7 +56,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_useraccesslogging_WindowsWin32SystemUseraccessloggingJniBridge_windowssys_1windows_1win32_1system_1useraccesslogging_1UalStart(JNIEnv* km_env, jclass km_clazz, jlong data) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_useraccesslogging_WindowsWin32SystemUseraccessloggingJniBridge_windowssys_1windows_1win32_1system_1useraccesslogging_1ualStart(JNIEnv* km_env, jclass km_clazz, jlong data) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32
@@ -74,7 +74,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     return (jint)km_res;
 }
 
-JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_useraccesslogging_WindowsWin32SystemUseraccessloggingJniBridge_windowssys_1windows_1win32_1system_1useraccesslogging_1UalStop(JNIEnv* km_env, jclass km_clazz, jlong data) {
+JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_system_useraccesslogging_WindowsWin32SystemUseraccessloggingJniBridge_windowssys_1windows_1win32_1system_1useraccesslogging_1ualStop(JNIEnv* km_env, jclass km_clazz, jlong data) {
     (void)km_env;
     (void)km_clazz;
 #ifdef _WIN32

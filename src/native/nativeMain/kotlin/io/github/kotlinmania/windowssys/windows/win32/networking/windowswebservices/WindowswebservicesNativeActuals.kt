@@ -2,643 +2,644 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun WebAuthNAuthenticatorGetAssertion(hwnd: HWND, pwszrpid: PCWSTR, pwebauthnclientdata: Long, pwebauthngetassertionoptions: Long, ppwebauthnassertion: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WebAuthNAuthenticatorGetAssertion(hwnd.toCPointer<ByteVar>(), pwszrpid.toCPointer<ByteVar>(), pwebauthnclientdata.toCPointer<ByteVar>(), pwebauthngetassertionoptions.toCPointer<ByteVar>(), ppwebauthnassertion.toCPointer<ByteVar>())
+public actual fun webAuthNAuthenticatorGetAssertion(hwnd: Hwnd, pwszrpid: Pcwstr, pwebauthnclientdata: COpaquePointer?, pwebauthngetassertionoptions: COpaquePointer?, ppwebauthnassertion: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_webAuthNAuthenticatorGetAssertion(hwnd?.value?.toCPointer<ByteVar>(), pwszrpid?.value?.toCPointer<ByteVar>(), pwebauthnclientdata?.value?.toCPointer<ByteVar>(), pwebauthngetassertionoptions?.value?.toCPointer<ByteVar>(), ppwebauthnassertion?.value?.toCPointer<ByteVar>())
 
-public actual fun WebAuthNAuthenticatorMakeCredential(hwnd: HWND, prpinformation: Long, puserinformation: Long, ppubkeycredparams: Long, pwebauthnclientdata: Long, pwebauthnmakecredentialoptions: Long, ppwebauthncredentialattestation: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WebAuthNAuthenticatorMakeCredential(hwnd.toCPointer<ByteVar>(), prpinformation.toCPointer<ByteVar>(), puserinformation.toCPointer<ByteVar>(), ppubkeycredparams.toCPointer<ByteVar>(), pwebauthnclientdata.toCPointer<ByteVar>(), pwebauthnmakecredentialoptions.toCPointer<ByteVar>(), ppwebauthncredentialattestation.toCPointer<ByteVar>())
+public actual fun webAuthNAuthenticatorMakeCredential(hwnd: Hwnd, prpinformation: COpaquePointer?, puserinformation: COpaquePointer?, ppubkeycredparams: COpaquePointer?, pwebauthnclientdata: COpaquePointer?, pwebauthnmakecredentialoptions: COpaquePointer?, ppwebauthncredentialattestation: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_webAuthNAuthenticatorMakeCredential(hwnd?.value?.toCPointer<ByteVar>(), prpinformation?.value?.toCPointer<ByteVar>(), puserinformation?.value?.toCPointer<ByteVar>(), ppubkeycredparams?.value?.toCPointer<ByteVar>(), pwebauthnclientdata?.value?.toCPointer<ByteVar>(), pwebauthnmakecredentialoptions?.value?.toCPointer<ByteVar>(), ppwebauthncredentialattestation?.value?.toCPointer<ByteVar>())
 
-public actual fun WebAuthNCancelCurrentOperation(pcancellationid: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WebAuthNCancelCurrentOperation(pcancellationid.toCPointer<ByteVar>())
+public actual fun webAuthNCancelCurrentOperation(pcancellationid: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_webAuthNCancelCurrentOperation(pcancellationid?.value?.toCPointer<ByteVar>())
 
-public actual fun WebAuthNDeletePlatformCredential(cbcredentialid: UInt, pbcredentialid: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WebAuthNDeletePlatformCredential(cbcredentialid, pbcredentialid.toCPointer<ByteVar>())
+public actual fun webAuthNDeletePlatformCredential(cbcredentialid: UInt, pbcredentialid: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_webAuthNDeletePlatformCredential(cbcredentialid, pbcredentialid?.value?.toCPointer<ByteVar>())
 
-public actual fun WebAuthNFreeAssertion(pwebauthnassertion: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WebAuthNFreeAssertion(pwebauthnassertion.toCPointer<ByteVar>())
+public actual fun webAuthNFreeAssertion(pwebauthnassertion: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_webAuthNFreeAssertion(pwebauthnassertion?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WebAuthNFreeCredentialAttestation(pwebauthncredentialattestation: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WebAuthNFreeCredentialAttestation(pwebauthncredentialattestation.toCPointer<ByteVar>())
+public actual fun webAuthNFreeCredentialAttestation(pwebauthncredentialattestation: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_webAuthNFreeCredentialAttestation(pwebauthncredentialattestation?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WebAuthNFreePlatformCredentialList(pcredentialdetailslist: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WebAuthNFreePlatformCredentialList(pcredentialdetailslist.toCPointer<ByteVar>())
+public actual fun webAuthNFreePlatformCredentialList(pcredentialdetailslist: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_webAuthNFreePlatformCredentialList(pcredentialdetailslist?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WebAuthNGetApiVersionNumber(): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WebAuthNGetApiVersionNumber()
+public actual fun webAuthNGetApiVersionNumber(): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_webAuthNGetApiVersionNumber()
 
-public actual fun WebAuthNGetCancellationId(pcancellationid: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WebAuthNGetCancellationId(pcancellationid.toCPointer<ByteVar>())
+public actual fun webAuthNGetCancellationId(pcancellationid: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_webAuthNGetCancellationId(pcancellationid?.value?.toCPointer<ByteVar>())
 
-public actual fun WebAuthNGetErrorName(hr: HRESULT): PCWSTR =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WebAuthNGetErrorName(hr)?.toLong() ?: 0L
+public actual fun webAuthNGetErrorName(hr: Hresult): Pcwstr =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_webAuthNGetErrorName(hr)?.let { COpaquePointer(it.toLong()) }
 
-public actual fun WebAuthNGetPlatformCredentialList(pgetcredentialsoptions: Long, ppcredentialdetailslist: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WebAuthNGetPlatformCredentialList(pgetcredentialsoptions.toCPointer<ByteVar>(), ppcredentialdetailslist.toCPointer<ByteVar>())
+public actual fun webAuthNGetPlatformCredentialList(pgetcredentialsoptions: COpaquePointer?, ppcredentialdetailslist: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_webAuthNGetPlatformCredentialList(pgetcredentialsoptions?.value?.toCPointer<ByteVar>(), ppcredentialdetailslist?.value?.toCPointer<ByteVar>())
 
-public actual fun WebAuthNGetW3CExceptionDOMError(hr: HRESULT): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WebAuthNGetW3CExceptionDOMError(hr)
+public actual fun webAuthNGetW3CExceptionDOMError(hr: Hresult): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_webAuthNGetW3CExceptionDOMError(hr)
 
-public actual fun WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable(pbisuserverifyingplatformauthenticatoravailable: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WebAuthNIsUserVerifyingPlatformAuthenticatorAvailable(pbisuserverifyingplatformauthenticatoravailable.toCPointer<ByteVar>())
+public actual fun webAuthNIsUserVerifyingPlatformAuthenticatorAvailable(pbisuserverifyingplatformauthenticatoravailable: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_webAuthNIsUserVerifyingPlatformAuthenticatorAvailable(pbisuserverifyingplatformauthenticatoravailable?.value?.toCPointer<ByteVar>())
 
-public actual fun WsAbandonCall(serviceproxy: Long, callid: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsAbandonCall(serviceproxy.toCPointer<ByteVar>(), callid, error.toCPointer<ByteVar>())
+public actual fun wsAbandonCall(serviceproxy: COpaquePointer?, callid: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsAbandonCall(serviceproxy?.value?.toCPointer<ByteVar>(), callid, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsAbandonMessage(channel: Long, message: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsAbandonMessage(channel.toCPointer<ByteVar>(), message.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsAbandonMessage(channel: COpaquePointer?, message: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsAbandonMessage(channel?.value?.toCPointer<ByteVar>(), message?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsAbortChannel(channel: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsAbortChannel(channel.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsAbortChannel(channel: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsAbortChannel(channel?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsAbortListener(listener: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsAbortListener(listener.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsAbortListener(listener: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsAbortListener(listener?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsAbortServiceHost(servicehost: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsAbortServiceHost(servicehost.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsAbortServiceHost(servicehost: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsAbortServiceHost(servicehost?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsAbortServiceProxy(serviceproxy: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsAbortServiceProxy(serviceproxy.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsAbortServiceProxy(serviceproxy: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsAbortServiceProxy(serviceproxy?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsAcceptChannel(listener: Long, channel: Long, asynccontext: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsAcceptChannel(listener.toCPointer<ByteVar>(), channel.toCPointer<ByteVar>(), asynccontext.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsAcceptChannel(listener: COpaquePointer?, channel: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsAcceptChannel(listener?.value?.toCPointer<ByteVar>(), channel?.value?.toCPointer<ByteVar>(), asynccontext?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsAddCustomHeader(message: Long, headerdescription: Long, writeoption: WS_WRITE_OPTION, value: Long, valuesize: UInt, headerattributes: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsAddCustomHeader(message.toCPointer<ByteVar>(), headerdescription.toCPointer<ByteVar>(), writeoption, value.toCPointer<ByteVar>(), valuesize, headerattributes, error.toCPointer<ByteVar>())
+public actual fun wsAddCustomHeader(message: COpaquePointer?, headerdescription: COpaquePointer?, writeoption: WsWriteOption, value: COpaquePointer?, valuesize: UInt, headerattributes: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsAddCustomHeader(message?.value?.toCPointer<ByteVar>(), headerdescription?.value?.toCPointer<ByteVar>(), writeoption, value?.value?.toCPointer<ByteVar>(), valuesize, headerattributes, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsAddErrorString(error: Long, string: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsAddErrorString(error.toCPointer<ByteVar>(), string.toCPointer<ByteVar>())
+public actual fun wsAddErrorString(error: COpaquePointer?, string: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsAddErrorString(error?.value?.toCPointer<ByteVar>(), string?.value?.toCPointer<ByteVar>())
 
-public actual fun WsAddMappedHeader(message: Long, headername: Long, valuetype: WS_TYPE, writeoption: WS_WRITE_OPTION, value: Long, valuesize: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsAddMappedHeader(message.toCPointer<ByteVar>(), headername.toCPointer<ByteVar>(), valuetype, writeoption, value.toCPointer<ByteVar>(), valuesize, error.toCPointer<ByteVar>())
+public actual fun wsAddMappedHeader(message: COpaquePointer?, headername: COpaquePointer?, valuetype: WsType, writeoption: WsWriteOption, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsAddMappedHeader(message?.value?.toCPointer<ByteVar>(), headername?.value?.toCPointer<ByteVar>(), valuetype, writeoption, value?.value?.toCPointer<ByteVar>(), valuesize, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsAddressMessage(message: Long, address: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsAddressMessage(message.toCPointer<ByteVar>(), address.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsAddressMessage(message: COpaquePointer?, address: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsAddressMessage(message?.value?.toCPointer<ByteVar>(), address?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsAlloc(heap: Long, size: ULong, ptr: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsAlloc(heap.toCPointer<ByteVar>(), size, ptr.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsAlloc(heap: COpaquePointer?, size: ULong, ptr: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsAlloc(heap?.value?.toCPointer<ByteVar>(), size, ptr?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsAsyncExecute(asyncstate: Long, operation: WS_ASYNC_FUNCTION, callbackmodel: WS_CALLBACK_MODEL, callbackstate: Long, asynccontext: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsAsyncExecute(asyncstate.toCPointer<ByteVar>(), operation.toLong().toCPointer<ByteVar>(), callbackmodel, callbackstate.toCPointer<ByteVar>(), asynccontext.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsAsyncExecute(asyncstate: COpaquePointer?, operation: WsAsyncFunction, callbackmodel: WsCallbackModel, callbackstate: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsAsyncExecute(asyncstate?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), callbackmodel, callbackstate?.value?.toCPointer<ByteVar>(), asynccontext?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsCall(serviceproxy: Long, operation: Long, arguments: Long, heap: Long, callproperties: Long, callpropertycount: UInt, asynccontext: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsCall(serviceproxy.toCPointer<ByteVar>(), operation.toCPointer<ByteVar>(), arguments.toCPointer<ByteVar>(), heap.toCPointer<ByteVar>(), callproperties.toCPointer<ByteVar>(), callpropertycount, asynccontext.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsCall(serviceproxy: COpaquePointer?, operation: COpaquePointer?, arguments: COpaquePointer?, heap: COpaquePointer?, callproperties: COpaquePointer?, callpropertycount: UInt, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsCall(serviceproxy?.value?.toCPointer<ByteVar>(), operation?.value?.toCPointer<ByteVar>(), arguments?.value?.toCPointer<ByteVar>(), heap?.value?.toCPointer<ByteVar>(), callproperties?.value?.toCPointer<ByteVar>(), callpropertycount, asynccontext?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsCheckMustUnderstandHeaders(message: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsCheckMustUnderstandHeaders(message.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsCheckMustUnderstandHeaders(message: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsCheckMustUnderstandHeaders(message?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsCloseChannel(channel: Long, asynccontext: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsCloseChannel(channel.toCPointer<ByteVar>(), asynccontext.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsCloseChannel(channel: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsCloseChannel(channel?.value?.toCPointer<ByteVar>(), asynccontext?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsCloseListener(listener: Long, asynccontext: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsCloseListener(listener.toCPointer<ByteVar>(), asynccontext.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsCloseListener(listener: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsCloseListener(listener?.value?.toCPointer<ByteVar>(), asynccontext?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsCloseServiceHost(servicehost: Long, asynccontext: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsCloseServiceHost(servicehost.toCPointer<ByteVar>(), asynccontext.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsCloseServiceHost(servicehost: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsCloseServiceHost(servicehost?.value?.toCPointer<ByteVar>(), asynccontext?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsCloseServiceProxy(serviceproxy: Long, asynccontext: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsCloseServiceProxy(serviceproxy.toCPointer<ByteVar>(), asynccontext.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsCloseServiceProxy(serviceproxy: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsCloseServiceProxy(serviceproxy?.value?.toCPointer<ByteVar>(), asynccontext?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsCombineUrl(baseurl: Long, referenceurl: Long, flags: UInt, heap: Long, resulturl: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsCombineUrl(baseurl.toCPointer<ByteVar>(), referenceurl.toCPointer<ByteVar>(), flags, heap.toCPointer<ByteVar>(), resulturl.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsCombineUrl(baseurl: COpaquePointer?, referenceurl: COpaquePointer?, flags: UInt, heap: COpaquePointer?, resulturl: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsCombineUrl(baseurl?.value?.toCPointer<ByteVar>(), referenceurl?.value?.toCPointer<ByteVar>(), flags, heap?.value?.toCPointer<ByteVar>(), resulturl?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsCopyError(source: Long, destination: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsCopyError(source.toCPointer<ByteVar>(), destination.toCPointer<ByteVar>())
+public actual fun wsCopyError(source: COpaquePointer?, destination: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsCopyError(source?.value?.toCPointer<ByteVar>(), destination?.value?.toCPointer<ByteVar>())
 
-public actual fun WsCopyNode(writer: Long, reader: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsCopyNode(writer.toCPointer<ByteVar>(), reader.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsCopyNode(writer: COpaquePointer?, reader: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsCopyNode(writer?.value?.toCPointer<ByteVar>(), reader?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsCreateChannel(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, properties: Long, propertycount: UInt, securitydescription: Long, channel: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsCreateChannel(channeltype, channelbinding, properties.toCPointer<ByteVar>(), propertycount, securitydescription.toCPointer<ByteVar>(), channel.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsCreateChannel(channeltype: WsChannelType, channelbinding: WsChannelBinding, properties: COpaquePointer?, propertycount: UInt, securitydescription: COpaquePointer?, channel: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsCreateChannel(channeltype, channelbinding, properties?.value?.toCPointer<ByteVar>(), propertycount, securitydescription?.value?.toCPointer<ByteVar>(), channel?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsCreateChannelForListener(listener: Long, properties: Long, propertycount: UInt, channel: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsCreateChannelForListener(listener.toCPointer<ByteVar>(), properties.toCPointer<ByteVar>(), propertycount, channel.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsCreateChannelForListener(listener: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, channel: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsCreateChannelForListener(listener?.value?.toCPointer<ByteVar>(), properties?.value?.toCPointer<ByteVar>(), propertycount, channel?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsCreateError(properties: Long, propertycount: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsCreateError(properties.toCPointer<ByteVar>(), propertycount, error.toCPointer<ByteVar>())
+public actual fun wsCreateError(properties: COpaquePointer?, propertycount: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsCreateError(properties?.value?.toCPointer<ByteVar>(), propertycount, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsCreateFaultFromError(error: Long, faulterrorcode: HRESULT, faultdisclosure: WS_FAULT_DISCLOSURE, heap: Long, fault: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsCreateFaultFromError(error.toCPointer<ByteVar>(), faulterrorcode, faultdisclosure, heap.toCPointer<ByteVar>(), fault.toCPointer<ByteVar>())
+public actual fun wsCreateFaultFromError(error: COpaquePointer?, faulterrorcode: Hresult, faultdisclosure: WsFaultDisclosure, heap: COpaquePointer?, fault: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsCreateFaultFromError(error?.value?.toCPointer<ByteVar>(), faulterrorcode, faultdisclosure, heap?.value?.toCPointer<ByteVar>(), fault?.value?.toCPointer<ByteVar>())
 
-public actual fun WsCreateHeap(maxsize: ULong, trimsize: ULong, properties: Long, propertycount: UInt, heap: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsCreateHeap(maxsize, trimsize, properties.toCPointer<ByteVar>(), propertycount, heap.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsCreateHeap(maxsize: ULong, trimsize: ULong, properties: COpaquePointer?, propertycount: UInt, heap: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsCreateHeap(maxsize, trimsize, properties?.value?.toCPointer<ByteVar>(), propertycount, heap?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsCreateListener(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, properties: Long, propertycount: UInt, securitydescription: Long, listener: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsCreateListener(channeltype, channelbinding, properties.toCPointer<ByteVar>(), propertycount, securitydescription.toCPointer<ByteVar>(), listener.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsCreateListener(channeltype: WsChannelType, channelbinding: WsChannelBinding, properties: COpaquePointer?, propertycount: UInt, securitydescription: COpaquePointer?, listener: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsCreateListener(channeltype, channelbinding, properties?.value?.toCPointer<ByteVar>(), propertycount, securitydescription?.value?.toCPointer<ByteVar>(), listener?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsCreateMessage(envelopeversion: WS_ENVELOPE_VERSION, addressingversion: WS_ADDRESSING_VERSION, properties: Long, propertycount: UInt, message: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsCreateMessage(envelopeversion, addressingversion, properties.toCPointer<ByteVar>(), propertycount, message.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsCreateMessage(envelopeversion: WsEnvelopeVersion, addressingversion: WsAddressingVersion, properties: COpaquePointer?, propertycount: UInt, message: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsCreateMessage(envelopeversion, addressingversion, properties?.value?.toCPointer<ByteVar>(), propertycount, message?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsCreateMessageForChannel(channel: Long, properties: Long, propertycount: UInt, message: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsCreateMessageForChannel(channel.toCPointer<ByteVar>(), properties.toCPointer<ByteVar>(), propertycount, message.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsCreateMessageForChannel(channel: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, message: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsCreateMessageForChannel(channel?.value?.toCPointer<ByteVar>(), properties?.value?.toCPointer<ByteVar>(), propertycount, message?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsCreateMetadata(properties: Long, propertycount: UInt, metadata: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsCreateMetadata(properties.toCPointer<ByteVar>(), propertycount, metadata.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsCreateMetadata(properties: COpaquePointer?, propertycount: UInt, metadata: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsCreateMetadata(properties?.value?.toCPointer<ByteVar>(), propertycount, metadata?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsCreateReader(properties: Long, propertycount: UInt, reader: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsCreateReader(properties.toCPointer<ByteVar>(), propertycount, reader.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsCreateReader(properties: COpaquePointer?, propertycount: UInt, reader: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsCreateReader(properties?.value?.toCPointer<ByteVar>(), propertycount, reader?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsCreateServiceEndpointFromTemplate(channeltype: WS_CHANNEL_TYPE, properties: Long, propertycount: UInt, addressurl: Long, contract: Long, authorizationcallback: WS_SERVICE_SECURITY_CALLBACK, heap: Long, templatetype: WS_BINDING_TEMPLATE_TYPE, templatevalue: Long, templatesize: UInt, templatedescription: Long, templatedescriptionsize: UInt, serviceendpoint: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsCreateServiceEndpointFromTemplate(channeltype, properties.toCPointer<ByteVar>(), propertycount, addressurl.toCPointer<ByteVar>(), contract.toCPointer<ByteVar>(), authorizationcallback.toLong().toCPointer<ByteVar>(), heap.toCPointer<ByteVar>(), templatetype, templatevalue.toCPointer<ByteVar>(), templatesize, templatedescription.toCPointer<ByteVar>(), templatedescriptionsize, serviceendpoint.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsCreateServiceEndpointFromTemplate(channeltype: WsChannelType, properties: COpaquePointer?, propertycount: UInt, addressurl: COpaquePointer?, contract: COpaquePointer?, authorizationcallback: WsServiceSecurityCallback, heap: COpaquePointer?, templatetype: WsBindingTemplateType, templatevalue: COpaquePointer?, templatesize: UInt, templatedescription: COpaquePointer?, templatedescriptionsize: UInt, serviceendpoint: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsCreateServiceEndpointFromTemplate(channeltype, properties?.value?.toCPointer<ByteVar>(), propertycount, addressurl?.value?.toCPointer<ByteVar>(), contract?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), heap?.value?.toCPointer<ByteVar>(), templatetype, templatevalue?.value?.toCPointer<ByteVar>(), templatesize, templatedescription?.value?.toCPointer<ByteVar>(), templatedescriptionsize, serviceendpoint?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsCreateServiceHost(endpoints: Long, endpointcount: UShort, serviceproperties: Long, servicepropertycount: UInt, servicehost: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsCreateServiceHost(endpoints.toCPointer<ByteVar>(), endpointcount, serviceproperties.toCPointer<ByteVar>(), servicepropertycount, servicehost.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsCreateServiceHost(endpoints: COpaquePointer?, endpointcount: UShort, serviceproperties: COpaquePointer?, servicepropertycount: UInt, servicehost: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsCreateServiceHost(endpoints?.value?.toCPointer<ByteVar>(), endpointcount, serviceproperties?.value?.toCPointer<ByteVar>(), servicepropertycount, servicehost?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsCreateServiceProxy(channeltype: WS_CHANNEL_TYPE, channelbinding: WS_CHANNEL_BINDING, securitydescription: Long, properties: Long, propertycount: UInt, channelproperties: Long, channelpropertycount: UInt, serviceproxy: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsCreateServiceProxy(channeltype, channelbinding, securitydescription.toCPointer<ByteVar>(), properties.toCPointer<ByteVar>(), propertycount, channelproperties.toCPointer<ByteVar>(), channelpropertycount, serviceproxy.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsCreateServiceProxy(channeltype: WsChannelType, channelbinding: WsChannelBinding, securitydescription: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, channelproperties: COpaquePointer?, channelpropertycount: UInt, serviceproxy: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsCreateServiceProxy(channeltype, channelbinding, securitydescription?.value?.toCPointer<ByteVar>(), properties?.value?.toCPointer<ByteVar>(), propertycount, channelproperties?.value?.toCPointer<ByteVar>(), channelpropertycount, serviceproxy?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsCreateServiceProxyFromTemplate(channeltype: WS_CHANNEL_TYPE, properties: Long, propertycount: UInt, templatetype: WS_BINDING_TEMPLATE_TYPE, templatevalue: Long, templatesize: UInt, templatedescription: Long, templatedescriptionsize: UInt, serviceproxy: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsCreateServiceProxyFromTemplate(channeltype, properties.toCPointer<ByteVar>(), propertycount, templatetype, templatevalue.toCPointer<ByteVar>(), templatesize, templatedescription.toCPointer<ByteVar>(), templatedescriptionsize, serviceproxy.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsCreateServiceProxyFromTemplate(channeltype: WsChannelType, properties: COpaquePointer?, propertycount: UInt, templatetype: WsBindingTemplateType, templatevalue: COpaquePointer?, templatesize: UInt, templatedescription: COpaquePointer?, templatedescriptionsize: UInt, serviceproxy: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsCreateServiceProxyFromTemplate(channeltype, properties?.value?.toCPointer<ByteVar>(), propertycount, templatetype, templatevalue?.value?.toCPointer<ByteVar>(), templatesize, templatedescription?.value?.toCPointer<ByteVar>(), templatedescriptionsize, serviceproxy?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsCreateWriter(properties: Long, propertycount: UInt, writer: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsCreateWriter(properties.toCPointer<ByteVar>(), propertycount, writer.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsCreateWriter(properties: COpaquePointer?, propertycount: UInt, writer: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsCreateWriter(properties?.value?.toCPointer<ByteVar>(), propertycount, writer?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsCreateXmlBuffer(heap: Long, properties: Long, propertycount: UInt, buffer: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsCreateXmlBuffer(heap.toCPointer<ByteVar>(), properties.toCPointer<ByteVar>(), propertycount, buffer.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsCreateXmlBuffer(heap: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, buffer: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsCreateXmlBuffer(heap?.value?.toCPointer<ByteVar>(), properties?.value?.toCPointer<ByteVar>(), propertycount, buffer?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsCreateXmlSecurityToken(tokenxml: Long, tokenkey: Long, properties: Long, propertycount: UInt, token: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsCreateXmlSecurityToken(tokenxml.toCPointer<ByteVar>(), tokenkey.toCPointer<ByteVar>(), properties.toCPointer<ByteVar>(), propertycount, token.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsCreateXmlSecurityToken(tokenxml: COpaquePointer?, tokenkey: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, token: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsCreateXmlSecurityToken(tokenxml?.value?.toCPointer<ByteVar>(), tokenkey?.value?.toCPointer<ByteVar>(), properties?.value?.toCPointer<ByteVar>(), propertycount, token?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsDateTimeToFileTime(datetime: Long, filetime: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsDateTimeToFileTime(datetime.toCPointer<ByteVar>(), filetime.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsDateTimeToFileTime(datetime: COpaquePointer?, filetime: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsDateTimeToFileTime(datetime?.value?.toCPointer<ByteVar>(), filetime?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsDecodeUrl(url: Long, flags: UInt, heap: Long, outurl: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsDecodeUrl(url.toCPointer<ByteVar>(), flags, heap.toCPointer<ByteVar>(), outurl.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsDecodeUrl(url: COpaquePointer?, flags: UInt, heap: COpaquePointer?, outurl: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsDecodeUrl(url?.value?.toCPointer<ByteVar>(), flags, heap?.value?.toCPointer<ByteVar>(), outurl?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsEncodeUrl(url: Long, flags: UInt, heap: Long, outurl: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsEncodeUrl(url.toCPointer<ByteVar>(), flags, heap.toCPointer<ByteVar>(), outurl.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsEncodeUrl(url: COpaquePointer?, flags: UInt, heap: COpaquePointer?, outurl: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsEncodeUrl(url?.value?.toCPointer<ByteVar>(), flags, heap?.value?.toCPointer<ByteVar>(), outurl?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsEndReaderCanonicalization(reader: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsEndReaderCanonicalization(reader.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsEndReaderCanonicalization(reader: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsEndReaderCanonicalization(reader?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsEndWriterCanonicalization(writer: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsEndWriterCanonicalization(writer.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsEndWriterCanonicalization(writer: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsEndWriterCanonicalization(writer?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsFileTimeToDateTime(filetime: Long, datetime: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsFileTimeToDateTime(filetime.toCPointer<ByteVar>(), datetime.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsFileTimeToDateTime(filetime: COpaquePointer?, datetime: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsFileTimeToDateTime(filetime?.value?.toCPointer<ByteVar>(), datetime?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsFillBody(message: Long, minsize: UInt, asynccontext: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsFillBody(message.toCPointer<ByteVar>(), minsize, asynccontext.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsFillBody(message: COpaquePointer?, minsize: UInt, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsFillBody(message?.value?.toCPointer<ByteVar>(), minsize, asynccontext?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsFillReader(reader: Long, minsize: UInt, asynccontext: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsFillReader(reader.toCPointer<ByteVar>(), minsize, asynccontext.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsFillReader(reader: COpaquePointer?, minsize: UInt, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsFillReader(reader?.value?.toCPointer<ByteVar>(), minsize, asynccontext?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsFindAttribute(reader: Long, localname: Long, ns: Long, required: BOOL, attributeindex: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsFindAttribute(reader.toCPointer<ByteVar>(), localname.toCPointer<ByteVar>(), ns.toCPointer<ByteVar>(), required, attributeindex.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsFindAttribute(reader: COpaquePointer?, localname: COpaquePointer?, ns: COpaquePointer?, required: Bool, attributeindex: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsFindAttribute(reader?.value?.toCPointer<ByteVar>(), localname?.value?.toCPointer<ByteVar>(), ns?.value?.toCPointer<ByteVar>(), required, attributeindex?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsFlushBody(message: Long, minsize: UInt, asynccontext: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsFlushBody(message.toCPointer<ByteVar>(), minsize, asynccontext.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsFlushBody(message: COpaquePointer?, minsize: UInt, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsFlushBody(message?.value?.toCPointer<ByteVar>(), minsize, asynccontext?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsFlushWriter(writer: Long, minsize: UInt, asynccontext: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsFlushWriter(writer.toCPointer<ByteVar>(), minsize, asynccontext.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsFlushWriter(writer: COpaquePointer?, minsize: UInt, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsFlushWriter(writer?.value?.toCPointer<ByteVar>(), minsize, asynccontext?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsFreeChannel(channel: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsFreeChannel(channel.toCPointer<ByteVar>())
+public actual fun wsFreeChannel(channel: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsFreeChannel(channel?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WsFreeError(error: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsFreeError(error.toCPointer<ByteVar>())
+public actual fun wsFreeError(error: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsFreeError(error?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WsFreeHeap(heap: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsFreeHeap(heap.toCPointer<ByteVar>())
+public actual fun wsFreeHeap(heap: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsFreeHeap(heap?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WsFreeListener(listener: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsFreeListener(listener.toCPointer<ByteVar>())
+public actual fun wsFreeListener(listener: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsFreeListener(listener?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WsFreeMessage(message: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsFreeMessage(message.toCPointer<ByteVar>())
+public actual fun wsFreeMessage(message: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsFreeMessage(message?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WsFreeMetadata(metadata: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsFreeMetadata(metadata.toCPointer<ByteVar>())
+public actual fun wsFreeMetadata(metadata: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsFreeMetadata(metadata?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WsFreeReader(reader: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsFreeReader(reader.toCPointer<ByteVar>())
+public actual fun wsFreeReader(reader: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsFreeReader(reader?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WsFreeSecurityToken(token: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsFreeSecurityToken(token.toCPointer<ByteVar>())
+public actual fun wsFreeSecurityToken(token: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsFreeSecurityToken(token?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WsFreeServiceHost(servicehost: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsFreeServiceHost(servicehost.toCPointer<ByteVar>())
+public actual fun wsFreeServiceHost(servicehost: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsFreeServiceHost(servicehost?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WsFreeServiceProxy(serviceproxy: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsFreeServiceProxy(serviceproxy.toCPointer<ByteVar>())
+public actual fun wsFreeServiceProxy(serviceproxy: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsFreeServiceProxy(serviceproxy?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WsFreeWriter(writer: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsFreeWriter(writer.toCPointer<ByteVar>())
+public actual fun wsFreeWriter(writer: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsFreeWriter(writer?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun WsGetChannelProperty(channel: Long, id: WS_CHANNEL_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsGetChannelProperty(channel.toCPointer<ByteVar>(), id, value.toCPointer<ByteVar>(), valuesize, error.toCPointer<ByteVar>())
+public actual fun wsGetChannelProperty(channel: COpaquePointer?, id: WsChannelPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsGetChannelProperty(channel?.value?.toCPointer<ByteVar>(), id, value?.value?.toCPointer<ByteVar>(), valuesize, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsGetCustomHeader(message: Long, customheaderdescription: Long, repeatingoption: WS_REPEATING_HEADER_OPTION, headerindex: UInt, readoption: WS_READ_OPTION, heap: Long, value: Long, valuesize: UInt, headerattributes: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsGetCustomHeader(message.toCPointer<ByteVar>(), customheaderdescription.toCPointer<ByteVar>(), repeatingoption, headerindex, readoption, heap.toCPointer<ByteVar>(), value.toCPointer<ByteVar>(), valuesize, headerattributes.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsGetCustomHeader(message: COpaquePointer?, customheaderdescription: COpaquePointer?, repeatingoption: WsRepeatingHeaderOption, headerindex: UInt, readoption: WsReadOption, heap: COpaquePointer?, value: COpaquePointer?, valuesize: UInt, headerattributes: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsGetCustomHeader(message?.value?.toCPointer<ByteVar>(), customheaderdescription?.value?.toCPointer<ByteVar>(), repeatingoption, headerindex, readoption, heap?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>(), valuesize, headerattributes?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsGetDictionary(encoding: WS_ENCODING, dictionary: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsGetDictionary(encoding, dictionary.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsGetDictionary(encoding: WsEncoding, dictionary: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsGetDictionary(encoding, dictionary?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsGetErrorProperty(error: Long, id: WS_ERROR_PROPERTY_ID, buffer: Long, buffersize: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsGetErrorProperty(error.toCPointer<ByteVar>(), id, buffer.toCPointer<ByteVar>(), buffersize)
+public actual fun wsGetErrorProperty(error: COpaquePointer?, id: WsErrorPropertyId, buffer: COpaquePointer?, buffersize: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsGetErrorProperty(error?.value?.toCPointer<ByteVar>(), id, buffer?.value?.toCPointer<ByteVar>(), buffersize)
 
-public actual fun WsGetErrorString(error: Long, index: UInt, string: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsGetErrorString(error.toCPointer<ByteVar>(), index, string.toCPointer<ByteVar>())
+public actual fun wsGetErrorString(error: COpaquePointer?, index: UInt, string: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsGetErrorString(error?.value?.toCPointer<ByteVar>(), index, string?.value?.toCPointer<ByteVar>())
 
-public actual fun WsGetFaultErrorDetail(error: Long, faultdetaildescription: Long, readoption: WS_READ_OPTION, heap: Long, value: Long, valuesize: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsGetFaultErrorDetail(error.toCPointer<ByteVar>(), faultdetaildescription.toCPointer<ByteVar>(), readoption, heap.toCPointer<ByteVar>(), value.toCPointer<ByteVar>(), valuesize)
+public actual fun wsGetFaultErrorDetail(error: COpaquePointer?, faultdetaildescription: COpaquePointer?, readoption: WsReadOption, heap: COpaquePointer?, value: COpaquePointer?, valuesize: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsGetFaultErrorDetail(error?.value?.toCPointer<ByteVar>(), faultdetaildescription?.value?.toCPointer<ByteVar>(), readoption, heap?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>(), valuesize)
 
-public actual fun WsGetFaultErrorProperty(error: Long, id: WS_FAULT_ERROR_PROPERTY_ID, buffer: Long, buffersize: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsGetFaultErrorProperty(error.toCPointer<ByteVar>(), id, buffer.toCPointer<ByteVar>(), buffersize)
+public actual fun wsGetFaultErrorProperty(error: COpaquePointer?, id: WsFaultErrorPropertyId, buffer: COpaquePointer?, buffersize: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsGetFaultErrorProperty(error?.value?.toCPointer<ByteVar>(), id, buffer?.value?.toCPointer<ByteVar>(), buffersize)
 
-public actual fun WsGetHeader(message: Long, headertype: WS_HEADER_TYPE, valuetype: WS_TYPE, readoption: WS_READ_OPTION, heap: Long, value: Long, valuesize: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsGetHeader(message.toCPointer<ByteVar>(), headertype, valuetype, readoption, heap.toCPointer<ByteVar>(), value.toCPointer<ByteVar>(), valuesize, error.toCPointer<ByteVar>())
+public actual fun wsGetHeader(message: COpaquePointer?, headertype: WsHeaderType, valuetype: WsType, readoption: WsReadOption, heap: COpaquePointer?, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsGetHeader(message?.value?.toCPointer<ByteVar>(), headertype, valuetype, readoption, heap?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>(), valuesize, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsGetHeaderAttributes(message: Long, reader: Long, headerattributes: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsGetHeaderAttributes(message.toCPointer<ByteVar>(), reader.toCPointer<ByteVar>(), headerattributes.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsGetHeaderAttributes(message: COpaquePointer?, reader: COpaquePointer?, headerattributes: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsGetHeaderAttributes(message?.value?.toCPointer<ByteVar>(), reader?.value?.toCPointer<ByteVar>(), headerattributes?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsGetHeapProperty(heap: Long, id: WS_HEAP_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsGetHeapProperty(heap.toCPointer<ByteVar>(), id, value.toCPointer<ByteVar>(), valuesize, error.toCPointer<ByteVar>())
+public actual fun wsGetHeapProperty(heap: COpaquePointer?, id: WsHeapPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsGetHeapProperty(heap?.value?.toCPointer<ByteVar>(), id, value?.value?.toCPointer<ByteVar>(), valuesize, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsGetListenerProperty(listener: Long, id: WS_LISTENER_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsGetListenerProperty(listener.toCPointer<ByteVar>(), id, value.toCPointer<ByteVar>(), valuesize, error.toCPointer<ByteVar>())
+public actual fun wsGetListenerProperty(listener: COpaquePointer?, id: WsListenerPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsGetListenerProperty(listener?.value?.toCPointer<ByteVar>(), id, value?.value?.toCPointer<ByteVar>(), valuesize, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsGetMappedHeader(message: Long, headername: Long, repeatingoption: WS_REPEATING_HEADER_OPTION, headerindex: UInt, valuetype: WS_TYPE, readoption: WS_READ_OPTION, heap: Long, value: Long, valuesize: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsGetMappedHeader(message.toCPointer<ByteVar>(), headername.toCPointer<ByteVar>(), repeatingoption, headerindex, valuetype, readoption, heap.toCPointer<ByteVar>(), value.toCPointer<ByteVar>(), valuesize, error.toCPointer<ByteVar>())
+public actual fun wsGetMappedHeader(message: COpaquePointer?, headername: COpaquePointer?, repeatingoption: WsRepeatingHeaderOption, headerindex: UInt, valuetype: WsType, readoption: WsReadOption, heap: COpaquePointer?, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsGetMappedHeader(message?.value?.toCPointer<ByteVar>(), headername?.value?.toCPointer<ByteVar>(), repeatingoption, headerindex, valuetype, readoption, heap?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>(), valuesize, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsGetMessageProperty(message: Long, id: WS_MESSAGE_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsGetMessageProperty(message.toCPointer<ByteVar>(), id, value.toCPointer<ByteVar>(), valuesize, error.toCPointer<ByteVar>())
+public actual fun wsGetMessageProperty(message: COpaquePointer?, id: WsMessagePropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsGetMessageProperty(message?.value?.toCPointer<ByteVar>(), id, value?.value?.toCPointer<ByteVar>(), valuesize, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsGetMetadataEndpoints(metadata: Long, endpoints: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsGetMetadataEndpoints(metadata.toCPointer<ByteVar>(), endpoints.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsGetMetadataEndpoints(metadata: COpaquePointer?, endpoints: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsGetMetadataEndpoints(metadata?.value?.toCPointer<ByteVar>(), endpoints?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsGetMetadataProperty(metadata: Long, id: WS_METADATA_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsGetMetadataProperty(metadata.toCPointer<ByteVar>(), id, value.toCPointer<ByteVar>(), valuesize, error.toCPointer<ByteVar>())
+public actual fun wsGetMetadataProperty(metadata: COpaquePointer?, id: WsMetadataPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsGetMetadataProperty(metadata?.value?.toCPointer<ByteVar>(), id, value?.value?.toCPointer<ByteVar>(), valuesize, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsGetMissingMetadataDocumentAddress(metadata: Long, address: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsGetMissingMetadataDocumentAddress(metadata.toCPointer<ByteVar>(), address.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsGetMissingMetadataDocumentAddress(metadata: COpaquePointer?, address: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsGetMissingMetadataDocumentAddress(metadata?.value?.toCPointer<ByteVar>(), address?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsGetNamespaceFromPrefix(reader: Long, prefix: Long, required: BOOL, ns: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsGetNamespaceFromPrefix(reader.toCPointer<ByteVar>(), prefix.toCPointer<ByteVar>(), required, ns.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsGetNamespaceFromPrefix(reader: COpaquePointer?, prefix: COpaquePointer?, required: Bool, ns: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsGetNamespaceFromPrefix(reader?.value?.toCPointer<ByteVar>(), prefix?.value?.toCPointer<ByteVar>(), required, ns?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsGetOperationContextProperty(context: Long, id: WS_OPERATION_CONTEXT_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsGetOperationContextProperty(context.toCPointer<ByteVar>(), id, value.toCPointer<ByteVar>(), valuesize, error.toCPointer<ByteVar>())
+public actual fun wsGetOperationContextProperty(context: COpaquePointer?, id: WsOperationContextPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsGetOperationContextProperty(context?.value?.toCPointer<ByteVar>(), id, value?.value?.toCPointer<ByteVar>(), valuesize, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsGetPolicyAlternativeCount(policy: Long, count: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsGetPolicyAlternativeCount(policy.toCPointer<ByteVar>(), count.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsGetPolicyAlternativeCount(policy: COpaquePointer?, count: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsGetPolicyAlternativeCount(policy?.value?.toCPointer<ByteVar>(), count?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsGetPolicyProperty(policy: Long, id: WS_POLICY_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsGetPolicyProperty(policy.toCPointer<ByteVar>(), id, value.toCPointer<ByteVar>(), valuesize, error.toCPointer<ByteVar>())
+public actual fun wsGetPolicyProperty(policy: COpaquePointer?, id: WsPolicyPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsGetPolicyProperty(policy?.value?.toCPointer<ByteVar>(), id, value?.value?.toCPointer<ByteVar>(), valuesize, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsGetPrefixFromNamespace(writer: Long, ns: Long, required: BOOL, prefix: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsGetPrefixFromNamespace(writer.toCPointer<ByteVar>(), ns.toCPointer<ByteVar>(), required, prefix.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsGetPrefixFromNamespace(writer: COpaquePointer?, ns: COpaquePointer?, required: Bool, prefix: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsGetPrefixFromNamespace(writer?.value?.toCPointer<ByteVar>(), ns?.value?.toCPointer<ByteVar>(), required, prefix?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsGetReaderNode(xmlreader: Long, node: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsGetReaderNode(xmlreader.toCPointer<ByteVar>(), node.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsGetReaderNode(xmlreader: COpaquePointer?, node: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsGetReaderNode(xmlreader?.value?.toCPointer<ByteVar>(), node?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsGetReaderPosition(reader: Long, nodeposition: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsGetReaderPosition(reader.toCPointer<ByteVar>(), nodeposition.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsGetReaderPosition(reader: COpaquePointer?, nodeposition: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsGetReaderPosition(reader?.value?.toCPointer<ByteVar>(), nodeposition?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsGetReaderProperty(reader: Long, id: WS_XML_READER_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsGetReaderProperty(reader.toCPointer<ByteVar>(), id, value.toCPointer<ByteVar>(), valuesize, error.toCPointer<ByteVar>())
+public actual fun wsGetReaderProperty(reader: COpaquePointer?, id: WsXmlReaderPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsGetReaderProperty(reader?.value?.toCPointer<ByteVar>(), id, value?.value?.toCPointer<ByteVar>(), valuesize, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsGetSecurityContextProperty(securitycontext: Long, id: WS_SECURITY_CONTEXT_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsGetSecurityContextProperty(securitycontext.toCPointer<ByteVar>(), id, value.toCPointer<ByteVar>(), valuesize, error.toCPointer<ByteVar>())
+public actual fun wsGetSecurityContextProperty(securitycontext: COpaquePointer?, id: WsSecurityContextPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsGetSecurityContextProperty(securitycontext?.value?.toCPointer<ByteVar>(), id, value?.value?.toCPointer<ByteVar>(), valuesize, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsGetSecurityTokenProperty(securitytoken: Long, id: WS_SECURITY_TOKEN_PROPERTY_ID, value: Long, valuesize: UInt, heap: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsGetSecurityTokenProperty(securitytoken.toCPointer<ByteVar>(), id, value.toCPointer<ByteVar>(), valuesize, heap.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsGetSecurityTokenProperty(securitytoken: COpaquePointer?, id: WsSecurityTokenPropertyId, value: COpaquePointer?, valuesize: UInt, heap: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsGetSecurityTokenProperty(securitytoken?.value?.toCPointer<ByteVar>(), id, value?.value?.toCPointer<ByteVar>(), valuesize, heap?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsGetServiceHostProperty(servicehost: Long, id: WS_SERVICE_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsGetServiceHostProperty(servicehost.toCPointer<ByteVar>(), id, value.toCPointer<ByteVar>(), valuesize, error.toCPointer<ByteVar>())
+public actual fun wsGetServiceHostProperty(servicehost: COpaquePointer?, id: WsServicePropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsGetServiceHostProperty(servicehost?.value?.toCPointer<ByteVar>(), id, value?.value?.toCPointer<ByteVar>(), valuesize, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsGetServiceProxyProperty(serviceproxy: Long, id: WS_PROXY_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsGetServiceProxyProperty(serviceproxy.toCPointer<ByteVar>(), id, value.toCPointer<ByteVar>(), valuesize, error.toCPointer<ByteVar>())
+public actual fun wsGetServiceProxyProperty(serviceproxy: COpaquePointer?, id: WsProxyPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsGetServiceProxyProperty(serviceproxy?.value?.toCPointer<ByteVar>(), id, value?.value?.toCPointer<ByteVar>(), valuesize, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsGetWriterPosition(writer: Long, nodeposition: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsGetWriterPosition(writer.toCPointer<ByteVar>(), nodeposition.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsGetWriterPosition(writer: COpaquePointer?, nodeposition: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsGetWriterPosition(writer?.value?.toCPointer<ByteVar>(), nodeposition?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsGetWriterProperty(writer: Long, id: WS_XML_WRITER_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsGetWriterProperty(writer.toCPointer<ByteVar>(), id, value.toCPointer<ByteVar>(), valuesize, error.toCPointer<ByteVar>())
+public actual fun wsGetWriterProperty(writer: COpaquePointer?, id: WsXmlWriterPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsGetWriterProperty(writer?.value?.toCPointer<ByteVar>(), id, value?.value?.toCPointer<ByteVar>(), valuesize, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsGetXmlAttribute(reader: Long, localname: Long, heap: Long, valuechars: Long, valuecharcount: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsGetXmlAttribute(reader.toCPointer<ByteVar>(), localname.toCPointer<ByteVar>(), heap.toCPointer<ByteVar>(), valuechars.toCPointer<ByteVar>(), valuecharcount.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsGetXmlAttribute(reader: COpaquePointer?, localname: COpaquePointer?, heap: COpaquePointer?, valuechars: COpaquePointer?, valuecharcount: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsGetXmlAttribute(reader?.value?.toCPointer<ByteVar>(), localname?.value?.toCPointer<ByteVar>(), heap?.value?.toCPointer<ByteVar>(), valuechars?.value?.toCPointer<ByteVar>(), valuecharcount?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsInitializeMessage(message: Long, initialization: WS_MESSAGE_INITIALIZATION, sourcemessage: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsInitializeMessage(message.toCPointer<ByteVar>(), initialization, sourcemessage.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsInitializeMessage(message: COpaquePointer?, initialization: WsMessageInitialization, sourcemessage: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsInitializeMessage(message?.value?.toCPointer<ByteVar>(), initialization, sourcemessage?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsMarkHeaderAsUnderstood(message: Long, headerposition: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsMarkHeaderAsUnderstood(message.toCPointer<ByteVar>(), headerposition.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsMarkHeaderAsUnderstood(message: COpaquePointer?, headerposition: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsMarkHeaderAsUnderstood(message?.value?.toCPointer<ByteVar>(), headerposition?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsMatchPolicyAlternative(policy: Long, alternativeindex: UInt, policyconstraints: Long, matchrequired: BOOL, heap: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsMatchPolicyAlternative(policy.toCPointer<ByteVar>(), alternativeindex, policyconstraints.toCPointer<ByteVar>(), matchrequired, heap.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsMatchPolicyAlternative(policy: COpaquePointer?, alternativeindex: UInt, policyconstraints: COpaquePointer?, matchrequired: Bool, heap: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsMatchPolicyAlternative(policy?.value?.toCPointer<ByteVar>(), alternativeindex, policyconstraints?.value?.toCPointer<ByteVar>(), matchrequired, heap?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsMoveReader(reader: Long, moveto: WS_MOVE_TO, found: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsMoveReader(reader.toCPointer<ByteVar>(), moveto, found.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsMoveReader(reader: COpaquePointer?, moveto: WsMoveTo, found: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsMoveReader(reader?.value?.toCPointer<ByteVar>(), moveto, found?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsMoveWriter(writer: Long, moveto: WS_MOVE_TO, found: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsMoveWriter(writer.toCPointer<ByteVar>(), moveto, found.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsMoveWriter(writer: COpaquePointer?, moveto: WsMoveTo, found: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsMoveWriter(writer?.value?.toCPointer<ByteVar>(), moveto, found?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsOpenChannel(channel: Long, endpointaddress: Long, asynccontext: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsOpenChannel(channel.toCPointer<ByteVar>(), endpointaddress.toCPointer<ByteVar>(), asynccontext.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsOpenChannel(channel: COpaquePointer?, endpointaddress: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsOpenChannel(channel?.value?.toCPointer<ByteVar>(), endpointaddress?.value?.toCPointer<ByteVar>(), asynccontext?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsOpenListener(listener: Long, url: Long, asynccontext: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsOpenListener(listener.toCPointer<ByteVar>(), url.toCPointer<ByteVar>(), asynccontext.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsOpenListener(listener: COpaquePointer?, url: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsOpenListener(listener?.value?.toCPointer<ByteVar>(), url?.value?.toCPointer<ByteVar>(), asynccontext?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsOpenServiceHost(servicehost: Long, asynccontext: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsOpenServiceHost(servicehost.toCPointer<ByteVar>(), asynccontext.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsOpenServiceHost(servicehost: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsOpenServiceHost(servicehost?.value?.toCPointer<ByteVar>(), asynccontext?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsOpenServiceProxy(serviceproxy: Long, address: Long, asynccontext: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsOpenServiceProxy(serviceproxy.toCPointer<ByteVar>(), address.toCPointer<ByteVar>(), asynccontext.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsOpenServiceProxy(serviceproxy: COpaquePointer?, address: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsOpenServiceProxy(serviceproxy?.value?.toCPointer<ByteVar>(), address?.value?.toCPointer<ByteVar>(), asynccontext?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsPullBytes(writer: Long, callback: WS_PULL_BYTES_CALLBACK, callbackstate: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsPullBytes(writer.toCPointer<ByteVar>(), callback.toLong().toCPointer<ByteVar>(), callbackstate.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsPullBytes(writer: COpaquePointer?, callback: WsPullBytesCallback, callbackstate: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsPullBytes(writer?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), callbackstate?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsPushBytes(writer: Long, callback: WS_PUSH_BYTES_CALLBACK, callbackstate: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsPushBytes(writer.toCPointer<ByteVar>(), callback.toLong().toCPointer<ByteVar>(), callbackstate.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsPushBytes(writer: COpaquePointer?, callback: WsPushBytesCallback, callbackstate: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsPushBytes(writer?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), callbackstate?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsReadArray(reader: Long, localname: Long, ns: Long, valuetype: WS_VALUE_TYPE, array: Long, arraysize: UInt, itemoffset: UInt, itemcount: UInt, actualitemcount: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsReadArray(reader.toCPointer<ByteVar>(), localname.toCPointer<ByteVar>(), ns.toCPointer<ByteVar>(), valuetype, array.toCPointer<ByteVar>(), arraysize, itemoffset, itemcount, actualitemcount.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsReadArray(reader: COpaquePointer?, localname: COpaquePointer?, ns: COpaquePointer?, valuetype: WsValueType, array: COpaquePointer?, arraysize: UInt, itemoffset: UInt, itemcount: UInt, actualitemcount: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsReadArray(reader?.value?.toCPointer<ByteVar>(), localname?.value?.toCPointer<ByteVar>(), ns?.value?.toCPointer<ByteVar>(), valuetype, array?.value?.toCPointer<ByteVar>(), arraysize, itemoffset, itemcount, actualitemcount?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsReadAttribute(reader: Long, attributedescription: Long, readoption: WS_READ_OPTION, heap: Long, value: Long, valuesize: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsReadAttribute(reader.toCPointer<ByteVar>(), attributedescription.toCPointer<ByteVar>(), readoption, heap.toCPointer<ByteVar>(), value.toCPointer<ByteVar>(), valuesize, error.toCPointer<ByteVar>())
+public actual fun wsReadAttribute(reader: COpaquePointer?, attributedescription: COpaquePointer?, readoption: WsReadOption, heap: COpaquePointer?, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsReadAttribute(reader?.value?.toCPointer<ByteVar>(), attributedescription?.value?.toCPointer<ByteVar>(), readoption, heap?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>(), valuesize, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsReadBody(message: Long, bodydescription: Long, readoption: WS_READ_OPTION, heap: Long, value: Long, valuesize: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsReadBody(message.toCPointer<ByteVar>(), bodydescription.toCPointer<ByteVar>(), readoption, heap.toCPointer<ByteVar>(), value.toCPointer<ByteVar>(), valuesize, error.toCPointer<ByteVar>())
+public actual fun wsReadBody(message: COpaquePointer?, bodydescription: COpaquePointer?, readoption: WsReadOption, heap: COpaquePointer?, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsReadBody(message?.value?.toCPointer<ByteVar>(), bodydescription?.value?.toCPointer<ByteVar>(), readoption, heap?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>(), valuesize, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsReadBytes(reader: Long, bytes: Long, maxbytecount: UInt, actualbytecount: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsReadBytes(reader.toCPointer<ByteVar>(), bytes.toCPointer<ByteVar>(), maxbytecount, actualbytecount.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsReadBytes(reader: COpaquePointer?, bytes: COpaquePointer?, maxbytecount: UInt, actualbytecount: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsReadBytes(reader?.value?.toCPointer<ByteVar>(), bytes?.value?.toCPointer<ByteVar>(), maxbytecount, actualbytecount?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsReadChars(reader: Long, chars: PWSTR, maxcharcount: UInt, actualcharcount: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsReadChars(reader.toCPointer<ByteVar>(), chars.toCPointer<ByteVar>(), maxcharcount, actualcharcount.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsReadChars(reader: COpaquePointer?, chars: Pwstr, maxcharcount: UInt, actualcharcount: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsReadChars(reader?.value?.toCPointer<ByteVar>(), chars?.value?.toCPointer<ByteVar>(), maxcharcount, actualcharcount?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsReadCharsUtf8(reader: Long, bytes: Long, maxbytecount: UInt, actualbytecount: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsReadCharsUtf8(reader.toCPointer<ByteVar>(), bytes.toCPointer<ByteVar>(), maxbytecount, actualbytecount.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsReadCharsUtf8(reader: COpaquePointer?, bytes: COpaquePointer?, maxbytecount: UInt, actualbytecount: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsReadCharsUtf8(reader?.value?.toCPointer<ByteVar>(), bytes?.value?.toCPointer<ByteVar>(), maxbytecount, actualbytecount?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsReadElement(reader: Long, elementdescription: Long, readoption: WS_READ_OPTION, heap: Long, value: Long, valuesize: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsReadElement(reader.toCPointer<ByteVar>(), elementdescription.toCPointer<ByteVar>(), readoption, heap.toCPointer<ByteVar>(), value.toCPointer<ByteVar>(), valuesize, error.toCPointer<ByteVar>())
+public actual fun wsReadElement(reader: COpaquePointer?, elementdescription: COpaquePointer?, readoption: WsReadOption, heap: COpaquePointer?, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsReadElement(reader?.value?.toCPointer<ByteVar>(), elementdescription?.value?.toCPointer<ByteVar>(), readoption, heap?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>(), valuesize, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsReadEndAttribute(reader: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsReadEndAttribute(reader.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsReadEndAttribute(reader: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsReadEndAttribute(reader?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsReadEndElement(reader: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsReadEndElement(reader.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsReadEndElement(reader: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsReadEndElement(reader?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsReadEndpointAddressExtension(reader: Long, endpointaddress: Long, extensiontype: WS_ENDPOINT_ADDRESS_EXTENSION_TYPE, readoption: WS_READ_OPTION, heap: Long, value: Long, valuesize: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsReadEndpointAddressExtension(reader.toCPointer<ByteVar>(), endpointaddress.toCPointer<ByteVar>(), extensiontype, readoption, heap.toCPointer<ByteVar>(), value.toCPointer<ByteVar>(), valuesize, error.toCPointer<ByteVar>())
+public actual fun wsReadEndpointAddressExtension(reader: COpaquePointer?, endpointaddress: COpaquePointer?, extensiontype: WsEndpointAddressExtensionType, readoption: WsReadOption, heap: COpaquePointer?, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsReadEndpointAddressExtension(reader?.value?.toCPointer<ByteVar>(), endpointaddress?.value?.toCPointer<ByteVar>(), extensiontype, readoption, heap?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>(), valuesize, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsReadEnvelopeEnd(message: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsReadEnvelopeEnd(message.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsReadEnvelopeEnd(message: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsReadEnvelopeEnd(message?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsReadEnvelopeStart(message: Long, reader: Long, donecallback: WS_MESSAGE_DONE_CALLBACK, donecallbackstate: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsReadEnvelopeStart(message.toCPointer<ByteVar>(), reader.toCPointer<ByteVar>(), donecallback.toLong().toCPointer<ByteVar>(), donecallbackstate.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsReadEnvelopeStart(message: COpaquePointer?, reader: COpaquePointer?, donecallback: WsMessageDoneCallback, donecallbackstate: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsReadEnvelopeStart(message?.value?.toCPointer<ByteVar>(), reader?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), donecallbackstate?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsReadMessageEnd(channel: Long, message: Long, asynccontext: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsReadMessageEnd(channel.toCPointer<ByteVar>(), message.toCPointer<ByteVar>(), asynccontext.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsReadMessageEnd(channel: COpaquePointer?, message: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsReadMessageEnd(channel?.value?.toCPointer<ByteVar>(), message?.value?.toCPointer<ByteVar>(), asynccontext?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsReadMessageStart(channel: Long, message: Long, asynccontext: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsReadMessageStart(channel.toCPointer<ByteVar>(), message.toCPointer<ByteVar>(), asynccontext.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsReadMessageStart(channel: COpaquePointer?, message: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsReadMessageStart(channel?.value?.toCPointer<ByteVar>(), message?.value?.toCPointer<ByteVar>(), asynccontext?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsReadMetadata(metadata: Long, reader: Long, url: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsReadMetadata(metadata.toCPointer<ByteVar>(), reader.toCPointer<ByteVar>(), url.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsReadMetadata(metadata: COpaquePointer?, reader: COpaquePointer?, url: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsReadMetadata(metadata?.value?.toCPointer<ByteVar>(), reader?.value?.toCPointer<ByteVar>(), url?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsReadNode(reader: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsReadNode(reader.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsReadNode(reader: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsReadNode(reader?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsReadQualifiedName(reader: Long, heap: Long, prefix: Long, localname: Long, ns: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsReadQualifiedName(reader.toCPointer<ByteVar>(), heap.toCPointer<ByteVar>(), prefix.toCPointer<ByteVar>(), localname.toCPointer<ByteVar>(), ns.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsReadQualifiedName(reader: COpaquePointer?, heap: COpaquePointer?, prefix: COpaquePointer?, localname: COpaquePointer?, ns: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsReadQualifiedName(reader?.value?.toCPointer<ByteVar>(), heap?.value?.toCPointer<ByteVar>(), prefix?.value?.toCPointer<ByteVar>(), localname?.value?.toCPointer<ByteVar>(), ns?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsReadStartAttribute(reader: Long, attributeindex: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsReadStartAttribute(reader.toCPointer<ByteVar>(), attributeindex, error.toCPointer<ByteVar>())
+public actual fun wsReadStartAttribute(reader: COpaquePointer?, attributeindex: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsReadStartAttribute(reader?.value?.toCPointer<ByteVar>(), attributeindex, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsReadStartElement(reader: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsReadStartElement(reader.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsReadStartElement(reader: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsReadStartElement(reader?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsReadToStartElement(reader: Long, localname: Long, ns: Long, found: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsReadToStartElement(reader.toCPointer<ByteVar>(), localname.toCPointer<ByteVar>(), ns.toCPointer<ByteVar>(), found.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsReadToStartElement(reader: COpaquePointer?, localname: COpaquePointer?, ns: COpaquePointer?, found: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsReadToStartElement(reader?.value?.toCPointer<ByteVar>(), localname?.value?.toCPointer<ByteVar>(), ns?.value?.toCPointer<ByteVar>(), found?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsReadType(reader: Long, typemapping: WS_TYPE_MAPPING, type: WS_TYPE, typedescription: Long, readoption: WS_READ_OPTION, heap: Long, value: Long, valuesize: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsReadType(reader.toCPointer<ByteVar>(), typemapping, type, typedescription.toCPointer<ByteVar>(), readoption, heap.toCPointer<ByteVar>(), value.toCPointer<ByteVar>(), valuesize, error.toCPointer<ByteVar>())
+public actual fun wsReadType(reader: COpaquePointer?, typemapping: WsTypeMapping, type: WsType, typedescription: COpaquePointer?, readoption: WsReadOption, heap: COpaquePointer?, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsReadType(reader?.value?.toCPointer<ByteVar>(), typemapping, type, typedescription?.value?.toCPointer<ByteVar>(), readoption, heap?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>(), valuesize, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsReadValue(reader: Long, valuetype: WS_VALUE_TYPE, value: Long, valuesize: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsReadValue(reader.toCPointer<ByteVar>(), valuetype, value.toCPointer<ByteVar>(), valuesize, error.toCPointer<ByteVar>())
+public actual fun wsReadValue(reader: COpaquePointer?, valuetype: WsValueType, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsReadValue(reader?.value?.toCPointer<ByteVar>(), valuetype, value?.value?.toCPointer<ByteVar>(), valuesize, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsReadXmlBuffer(reader: Long, heap: Long, xmlbuffer: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsReadXmlBuffer(reader.toCPointer<ByteVar>(), heap.toCPointer<ByteVar>(), xmlbuffer.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsReadXmlBuffer(reader: COpaquePointer?, heap: COpaquePointer?, xmlbuffer: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsReadXmlBuffer(reader?.value?.toCPointer<ByteVar>(), heap?.value?.toCPointer<ByteVar>(), xmlbuffer?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsReadXmlBufferFromBytes(reader: Long, encoding: Long, properties: Long, propertycount: UInt, bytes: Long, bytecount: UInt, heap: Long, xmlbuffer: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsReadXmlBufferFromBytes(reader.toCPointer<ByteVar>(), encoding.toCPointer<ByteVar>(), properties.toCPointer<ByteVar>(), propertycount, bytes.toCPointer<ByteVar>(), bytecount, heap.toCPointer<ByteVar>(), xmlbuffer.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsReadXmlBufferFromBytes(reader: COpaquePointer?, encoding: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, bytes: COpaquePointer?, bytecount: UInt, heap: COpaquePointer?, xmlbuffer: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsReadXmlBufferFromBytes(reader?.value?.toCPointer<ByteVar>(), encoding?.value?.toCPointer<ByteVar>(), properties?.value?.toCPointer<ByteVar>(), propertycount, bytes?.value?.toCPointer<ByteVar>(), bytecount, heap?.value?.toCPointer<ByteVar>(), xmlbuffer?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsReceiveMessage(channel: Long, message: Long, messagedescriptions: Long, messagedescriptioncount: UInt, receiveoption: WS_RECEIVE_OPTION, readbodyoption: WS_READ_OPTION, heap: Long, value: Long, valuesize: UInt, index: Long, asynccontext: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsReceiveMessage(channel.toCPointer<ByteVar>(), message.toCPointer<ByteVar>(), messagedescriptions.toCPointer<ByteVar>(), messagedescriptioncount, receiveoption, readbodyoption, heap.toCPointer<ByteVar>(), value.toCPointer<ByteVar>(), valuesize, index.toCPointer<ByteVar>(), asynccontext.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsReceiveMessage(channel: COpaquePointer?, message: COpaquePointer?, messagedescriptions: COpaquePointer?, messagedescriptioncount: UInt, receiveoption: WsReceiveOption, readbodyoption: WsReadOption, heap: COpaquePointer?, value: COpaquePointer?, valuesize: UInt, index: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsReceiveMessage(channel?.value?.toCPointer<ByteVar>(), message?.value?.toCPointer<ByteVar>(), messagedescriptions?.value?.toCPointer<ByteVar>(), messagedescriptioncount, receiveoption, readbodyoption, heap?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>(), valuesize, index?.value?.toCPointer<ByteVar>(), asynccontext?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsRegisterOperationForCancel(context: Long, cancelcallback: WS_OPERATION_CANCEL_CALLBACK, freestatecallback: WS_OPERATION_FREE_STATE_CALLBACK, userstate: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsRegisterOperationForCancel(context.toCPointer<ByteVar>(), cancelcallback.toLong().toCPointer<ByteVar>(), freestatecallback.toLong().toCPointer<ByteVar>(), userstate.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsRegisterOperationForCancel(context: COpaquePointer?, cancelcallback: WsOperationCancelCallback, freestatecallback: WsOperationFreeStateCallback, userstate: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsRegisterOperationForCancel(context?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), userstate?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsRemoveCustomHeader(message: Long, headername: Long, headerns: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsRemoveCustomHeader(message.toCPointer<ByteVar>(), headername.toCPointer<ByteVar>(), headerns.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsRemoveCustomHeader(message: COpaquePointer?, headername: COpaquePointer?, headerns: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsRemoveCustomHeader(message?.value?.toCPointer<ByteVar>(), headername?.value?.toCPointer<ByteVar>(), headerns?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsRemoveHeader(message: Long, headertype: WS_HEADER_TYPE, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsRemoveHeader(message.toCPointer<ByteVar>(), headertype, error.toCPointer<ByteVar>())
+public actual fun wsRemoveHeader(message: COpaquePointer?, headertype: WsHeaderType, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsRemoveHeader(message?.value?.toCPointer<ByteVar>(), headertype, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsRemoveMappedHeader(message: Long, headername: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsRemoveMappedHeader(message.toCPointer<ByteVar>(), headername.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsRemoveMappedHeader(message: COpaquePointer?, headername: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsRemoveMappedHeader(message?.value?.toCPointer<ByteVar>(), headername?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsRemoveNode(nodeposition: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsRemoveNode(nodeposition.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsRemoveNode(nodeposition: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsRemoveNode(nodeposition?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsRequestReply(channel: Long, requestmessage: Long, requestmessagedescription: Long, writeoption: WS_WRITE_OPTION, requestbodyvalue: Long, requestbodyvaluesize: UInt, replymessage: Long, replymessagedescription: Long, readoption: WS_READ_OPTION, heap: Long, value: Long, valuesize: UInt, asynccontext: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsRequestReply(channel.toCPointer<ByteVar>(), requestmessage.toCPointer<ByteVar>(), requestmessagedescription.toCPointer<ByteVar>(), writeoption, requestbodyvalue.toCPointer<ByteVar>(), requestbodyvaluesize, replymessage.toCPointer<ByteVar>(), replymessagedescription.toCPointer<ByteVar>(), readoption, heap.toCPointer<ByteVar>(), value.toCPointer<ByteVar>(), valuesize, asynccontext.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsRequestReply(channel: COpaquePointer?, requestmessage: COpaquePointer?, requestmessagedescription: COpaquePointer?, writeoption: WsWriteOption, requestbodyvalue: COpaquePointer?, requestbodyvaluesize: UInt, replymessage: COpaquePointer?, replymessagedescription: COpaquePointer?, readoption: WsReadOption, heap: COpaquePointer?, value: COpaquePointer?, valuesize: UInt, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsRequestReply(channel?.value?.toCPointer<ByteVar>(), requestmessage?.value?.toCPointer<ByteVar>(), requestmessagedescription?.value?.toCPointer<ByteVar>(), writeoption, requestbodyvalue?.value?.toCPointer<ByteVar>(), requestbodyvaluesize, replymessage?.value?.toCPointer<ByteVar>(), replymessagedescription?.value?.toCPointer<ByteVar>(), readoption, heap?.value?.toCPointer<ByteVar>(), value?.value?.toCPointer<ByteVar>(), valuesize, asynccontext?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsRequestSecurityToken(channel: Long, properties: Long, propertycount: UInt, token: Long, asynccontext: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsRequestSecurityToken(channel.toCPointer<ByteVar>(), properties.toCPointer<ByteVar>(), propertycount, token.toCPointer<ByteVar>(), asynccontext.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsRequestSecurityToken(channel: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, token: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsRequestSecurityToken(channel?.value?.toCPointer<ByteVar>(), properties?.value?.toCPointer<ByteVar>(), propertycount, token?.value?.toCPointer<ByteVar>(), asynccontext?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsResetChannel(channel: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsResetChannel(channel.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsResetChannel(channel: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsResetChannel(channel?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsResetError(error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsResetError(error.toCPointer<ByteVar>())
+public actual fun wsResetError(error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsResetError(error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsResetHeap(heap: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsResetHeap(heap.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsResetHeap(heap: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsResetHeap(heap?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsResetListener(listener: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsResetListener(listener.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsResetListener(listener: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsResetListener(listener?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsResetMessage(message: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsResetMessage(message.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsResetMessage(message: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsResetMessage(message?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsResetMetadata(metadata: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsResetMetadata(metadata.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsResetMetadata(metadata: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsResetMetadata(metadata?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsResetServiceHost(servicehost: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsResetServiceHost(servicehost.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsResetServiceHost(servicehost: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsResetServiceHost(servicehost?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsResetServiceProxy(serviceproxy: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsResetServiceProxy(serviceproxy.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsResetServiceProxy(serviceproxy: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsResetServiceProxy(serviceproxy?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsRevokeSecurityContext(securitycontext: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsRevokeSecurityContext(securitycontext.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsRevokeSecurityContext(securitycontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsRevokeSecurityContext(securitycontext?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsSendFaultMessageForError(channel: Long, replymessage: Long, faulterror: Long, faulterrorcode: HRESULT, faultdisclosure: WS_FAULT_DISCLOSURE, requestmessage: Long, asynccontext: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsSendFaultMessageForError(channel.toCPointer<ByteVar>(), replymessage.toCPointer<ByteVar>(), faulterror.toCPointer<ByteVar>(), faulterrorcode, faultdisclosure, requestmessage.toCPointer<ByteVar>(), asynccontext.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsSendFaultMessageForError(channel: COpaquePointer?, replymessage: COpaquePointer?, faulterror: COpaquePointer?, faulterrorcode: Hresult, faultdisclosure: WsFaultDisclosure, requestmessage: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsSendFaultMessageForError(channel?.value?.toCPointer<ByteVar>(), replymessage?.value?.toCPointer<ByteVar>(), faulterror?.value?.toCPointer<ByteVar>(), faulterrorcode, faultdisclosure, requestmessage?.value?.toCPointer<ByteVar>(), asynccontext?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsSendMessage(channel: Long, message: Long, messagedescription: Long, writeoption: WS_WRITE_OPTION, bodyvalue: Long, bodyvaluesize: UInt, asynccontext: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsSendMessage(channel.toCPointer<ByteVar>(), message.toCPointer<ByteVar>(), messagedescription.toCPointer<ByteVar>(), writeoption, bodyvalue.toCPointer<ByteVar>(), bodyvaluesize, asynccontext.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsSendMessage(channel: COpaquePointer?, message: COpaquePointer?, messagedescription: COpaquePointer?, writeoption: WsWriteOption, bodyvalue: COpaquePointer?, bodyvaluesize: UInt, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsSendMessage(channel?.value?.toCPointer<ByteVar>(), message?.value?.toCPointer<ByteVar>(), messagedescription?.value?.toCPointer<ByteVar>(), writeoption, bodyvalue?.value?.toCPointer<ByteVar>(), bodyvaluesize, asynccontext?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsSendReplyMessage(channel: Long, replymessage: Long, replymessagedescription: Long, writeoption: WS_WRITE_OPTION, replybodyvalue: Long, replybodyvaluesize: UInt, requestmessage: Long, asynccontext: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsSendReplyMessage(channel.toCPointer<ByteVar>(), replymessage.toCPointer<ByteVar>(), replymessagedescription.toCPointer<ByteVar>(), writeoption, replybodyvalue.toCPointer<ByteVar>(), replybodyvaluesize, requestmessage.toCPointer<ByteVar>(), asynccontext.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsSendReplyMessage(channel: COpaquePointer?, replymessage: COpaquePointer?, replymessagedescription: COpaquePointer?, writeoption: WsWriteOption, replybodyvalue: COpaquePointer?, replybodyvaluesize: UInt, requestmessage: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsSendReplyMessage(channel?.value?.toCPointer<ByteVar>(), replymessage?.value?.toCPointer<ByteVar>(), replymessagedescription?.value?.toCPointer<ByteVar>(), writeoption, replybodyvalue?.value?.toCPointer<ByteVar>(), replybodyvaluesize, requestmessage?.value?.toCPointer<ByteVar>(), asynccontext?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsSetChannelProperty(channel: Long, id: WS_CHANNEL_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsSetChannelProperty(channel.toCPointer<ByteVar>(), id, value.toCPointer<ByteVar>(), valuesize, error.toCPointer<ByteVar>())
+public actual fun wsSetChannelProperty(channel: COpaquePointer?, id: WsChannelPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsSetChannelProperty(channel?.value?.toCPointer<ByteVar>(), id, value?.value?.toCPointer<ByteVar>(), valuesize, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsSetErrorProperty(error: Long, id: WS_ERROR_PROPERTY_ID, value: Long, valuesize: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsSetErrorProperty(error.toCPointer<ByteVar>(), id, value.toCPointer<ByteVar>(), valuesize)
+public actual fun wsSetErrorProperty(error: COpaquePointer?, id: WsErrorPropertyId, value: COpaquePointer?, valuesize: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsSetErrorProperty(error?.value?.toCPointer<ByteVar>(), id, value?.value?.toCPointer<ByteVar>(), valuesize)
 
-public actual fun WsSetFaultErrorDetail(error: Long, faultdetaildescription: Long, writeoption: WS_WRITE_OPTION, value: Long, valuesize: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsSetFaultErrorDetail(error.toCPointer<ByteVar>(), faultdetaildescription.toCPointer<ByteVar>(), writeoption, value.toCPointer<ByteVar>(), valuesize)
+public actual fun wsSetFaultErrorDetail(error: COpaquePointer?, faultdetaildescription: COpaquePointer?, writeoption: WsWriteOption, value: COpaquePointer?, valuesize: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsSetFaultErrorDetail(error?.value?.toCPointer<ByteVar>(), faultdetaildescription?.value?.toCPointer<ByteVar>(), writeoption, value?.value?.toCPointer<ByteVar>(), valuesize)
 
-public actual fun WsSetFaultErrorProperty(error: Long, id: WS_FAULT_ERROR_PROPERTY_ID, value: Long, valuesize: UInt): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsSetFaultErrorProperty(error.toCPointer<ByteVar>(), id, value.toCPointer<ByteVar>(), valuesize)
+public actual fun wsSetFaultErrorProperty(error: COpaquePointer?, id: WsFaultErrorPropertyId, value: COpaquePointer?, valuesize: UInt): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsSetFaultErrorProperty(error?.value?.toCPointer<ByteVar>(), id, value?.value?.toCPointer<ByteVar>(), valuesize)
 
-public actual fun WsSetHeader(message: Long, headertype: WS_HEADER_TYPE, valuetype: WS_TYPE, writeoption: WS_WRITE_OPTION, value: Long, valuesize: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsSetHeader(message.toCPointer<ByteVar>(), headertype, valuetype, writeoption, value.toCPointer<ByteVar>(), valuesize, error.toCPointer<ByteVar>())
+public actual fun wsSetHeader(message: COpaquePointer?, headertype: WsHeaderType, valuetype: WsType, writeoption: WsWriteOption, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsSetHeader(message?.value?.toCPointer<ByteVar>(), headertype, valuetype, writeoption, value?.value?.toCPointer<ByteVar>(), valuesize, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsSetInput(reader: Long, encoding: Long, input: Long, properties: Long, propertycount: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsSetInput(reader.toCPointer<ByteVar>(), encoding.toCPointer<ByteVar>(), input.toCPointer<ByteVar>(), properties.toCPointer<ByteVar>(), propertycount, error.toCPointer<ByteVar>())
+public actual fun wsSetInput(reader: COpaquePointer?, encoding: COpaquePointer?, input: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsSetInput(reader?.value?.toCPointer<ByteVar>(), encoding?.value?.toCPointer<ByteVar>(), input?.value?.toCPointer<ByteVar>(), properties?.value?.toCPointer<ByteVar>(), propertycount, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsSetInputToBuffer(reader: Long, buffer: Long, properties: Long, propertycount: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsSetInputToBuffer(reader.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), properties.toCPointer<ByteVar>(), propertycount, error.toCPointer<ByteVar>())
+public actual fun wsSetInputToBuffer(reader: COpaquePointer?, buffer: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsSetInputToBuffer(reader?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), properties?.value?.toCPointer<ByteVar>(), propertycount, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsSetListenerProperty(listener: Long, id: WS_LISTENER_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsSetListenerProperty(listener.toCPointer<ByteVar>(), id, value.toCPointer<ByteVar>(), valuesize, error.toCPointer<ByteVar>())
+public actual fun wsSetListenerProperty(listener: COpaquePointer?, id: WsListenerPropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsSetListenerProperty(listener?.value?.toCPointer<ByteVar>(), id, value?.value?.toCPointer<ByteVar>(), valuesize, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsSetMessageProperty(message: Long, id: WS_MESSAGE_PROPERTY_ID, value: Long, valuesize: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsSetMessageProperty(message.toCPointer<ByteVar>(), id, value.toCPointer<ByteVar>(), valuesize, error.toCPointer<ByteVar>())
+public actual fun wsSetMessageProperty(message: COpaquePointer?, id: WsMessagePropertyId, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsSetMessageProperty(message?.value?.toCPointer<ByteVar>(), id, value?.value?.toCPointer<ByteVar>(), valuesize, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsSetOutput(writer: Long, encoding: Long, output: Long, properties: Long, propertycount: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsSetOutput(writer.toCPointer<ByteVar>(), encoding.toCPointer<ByteVar>(), output.toCPointer<ByteVar>(), properties.toCPointer<ByteVar>(), propertycount, error.toCPointer<ByteVar>())
+public actual fun wsSetOutput(writer: COpaquePointer?, encoding: COpaquePointer?, output: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsSetOutput(writer?.value?.toCPointer<ByteVar>(), encoding?.value?.toCPointer<ByteVar>(), output?.value?.toCPointer<ByteVar>(), properties?.value?.toCPointer<ByteVar>(), propertycount, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsSetOutputToBuffer(writer: Long, buffer: Long, properties: Long, propertycount: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsSetOutputToBuffer(writer.toCPointer<ByteVar>(), buffer.toCPointer<ByteVar>(), properties.toCPointer<ByteVar>(), propertycount, error.toCPointer<ByteVar>())
+public actual fun wsSetOutputToBuffer(writer: COpaquePointer?, buffer: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsSetOutputToBuffer(writer?.value?.toCPointer<ByteVar>(), buffer?.value?.toCPointer<ByteVar>(), properties?.value?.toCPointer<ByteVar>(), propertycount, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsSetReaderPosition(reader: Long, nodeposition: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsSetReaderPosition(reader.toCPointer<ByteVar>(), nodeposition.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsSetReaderPosition(reader: COpaquePointer?, nodeposition: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsSetReaderPosition(reader?.value?.toCPointer<ByteVar>(), nodeposition?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsSetWriterPosition(writer: Long, nodeposition: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsSetWriterPosition(writer.toCPointer<ByteVar>(), nodeposition.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsSetWriterPosition(writer: COpaquePointer?, nodeposition: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsSetWriterPosition(writer?.value?.toCPointer<ByteVar>(), nodeposition?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsShutdownSessionChannel(channel: Long, asynccontext: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsShutdownSessionChannel(channel.toCPointer<ByteVar>(), asynccontext.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsShutdownSessionChannel(channel: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsShutdownSessionChannel(channel?.value?.toCPointer<ByteVar>(), asynccontext?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsSkipNode(reader: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsSkipNode(reader.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsSkipNode(reader: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsSkipNode(reader?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsStartReaderCanonicalization(reader: Long, writecallback: WS_WRITE_CALLBACK, writecallbackstate: Long, properties: Long, propertycount: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsStartReaderCanonicalization(reader.toCPointer<ByteVar>(), writecallback.toLong().toCPointer<ByteVar>(), writecallbackstate.toCPointer<ByteVar>(), properties.toCPointer<ByteVar>(), propertycount, error.toCPointer<ByteVar>())
+public actual fun wsStartReaderCanonicalization(reader: COpaquePointer?, writecallback: WsWriteCallback, writecallbackstate: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsStartReaderCanonicalization(reader?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), writecallbackstate?.value?.toCPointer<ByteVar>(), properties?.value?.toCPointer<ByteVar>(), propertycount, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsStartWriterCanonicalization(writer: Long, writecallback: WS_WRITE_CALLBACK, writecallbackstate: Long, properties: Long, propertycount: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsStartWriterCanonicalization(writer.toCPointer<ByteVar>(), writecallback.toLong().toCPointer<ByteVar>(), writecallbackstate.toCPointer<ByteVar>(), properties.toCPointer<ByteVar>(), propertycount, error.toCPointer<ByteVar>())
+public actual fun wsStartWriterCanonicalization(writer: COpaquePointer?, writecallback: WsWriteCallback, writecallbackstate: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsStartWriterCanonicalization(writer?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), writecallbackstate?.value?.toCPointer<ByteVar>(), properties?.value?.toCPointer<ByteVar>(), propertycount, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsTrimXmlWhitespace(chars: PCWSTR, charcount: UInt, trimmedchars: Long, trimmedcount: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsTrimXmlWhitespace(chars.toCPointer<ByteVar>(), charcount, trimmedchars.toCPointer<ByteVar>(), trimmedcount.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsTrimXmlWhitespace(chars: Pcwstr, charcount: UInt, trimmedchars: COpaquePointer?, trimmedcount: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsTrimXmlWhitespace(chars?.value?.toCPointer<ByteVar>(), charcount, trimmedchars?.value?.toCPointer<ByteVar>(), trimmedcount?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsVerifyXmlNCName(ncnamechars: PCWSTR, ncnamecharcount: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsVerifyXmlNCName(ncnamechars.toCPointer<ByteVar>(), ncnamecharcount, error.toCPointer<ByteVar>())
+public actual fun wsVerifyXmlNCName(ncnamechars: Pcwstr, ncnamecharcount: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsVerifyXmlNCName(ncnamechars?.value?.toCPointer<ByteVar>(), ncnamecharcount, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsWriteArray(writer: Long, localname: Long, ns: Long, valuetype: WS_VALUE_TYPE, array: Long, arraysize: UInt, itemoffset: UInt, itemcount: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsWriteArray(writer.toCPointer<ByteVar>(), localname.toCPointer<ByteVar>(), ns.toCPointer<ByteVar>(), valuetype, array.toCPointer<ByteVar>(), arraysize, itemoffset, itemcount, error.toCPointer<ByteVar>())
+public actual fun wsWriteArray(writer: COpaquePointer?, localname: COpaquePointer?, ns: COpaquePointer?, valuetype: WsValueType, array: COpaquePointer?, arraysize: UInt, itemoffset: UInt, itemcount: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsWriteArray(writer?.value?.toCPointer<ByteVar>(), localname?.value?.toCPointer<ByteVar>(), ns?.value?.toCPointer<ByteVar>(), valuetype, array?.value?.toCPointer<ByteVar>(), arraysize, itemoffset, itemcount, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsWriteAttribute(writer: Long, attributedescription: Long, writeoption: WS_WRITE_OPTION, value: Long, valuesize: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsWriteAttribute(writer.toCPointer<ByteVar>(), attributedescription.toCPointer<ByteVar>(), writeoption, value.toCPointer<ByteVar>(), valuesize, error.toCPointer<ByteVar>())
+public actual fun wsWriteAttribute(writer: COpaquePointer?, attributedescription: COpaquePointer?, writeoption: WsWriteOption, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsWriteAttribute(writer?.value?.toCPointer<ByteVar>(), attributedescription?.value?.toCPointer<ByteVar>(), writeoption, value?.value?.toCPointer<ByteVar>(), valuesize, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsWriteBody(message: Long, bodydescription: Long, writeoption: WS_WRITE_OPTION, value: Long, valuesize: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsWriteBody(message.toCPointer<ByteVar>(), bodydescription.toCPointer<ByteVar>(), writeoption, value.toCPointer<ByteVar>(), valuesize, error.toCPointer<ByteVar>())
+public actual fun wsWriteBody(message: COpaquePointer?, bodydescription: COpaquePointer?, writeoption: WsWriteOption, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsWriteBody(message?.value?.toCPointer<ByteVar>(), bodydescription?.value?.toCPointer<ByteVar>(), writeoption, value?.value?.toCPointer<ByteVar>(), valuesize, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsWriteBytes(writer: Long, bytes: Long, bytecount: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsWriteBytes(writer.toCPointer<ByteVar>(), bytes.toCPointer<ByteVar>(), bytecount, error.toCPointer<ByteVar>())
+public actual fun wsWriteBytes(writer: COpaquePointer?, bytes: COpaquePointer?, bytecount: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsWriteBytes(writer?.value?.toCPointer<ByteVar>(), bytes?.value?.toCPointer<ByteVar>(), bytecount, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsWriteChars(writer: Long, chars: PCWSTR, charcount: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsWriteChars(writer.toCPointer<ByteVar>(), chars.toCPointer<ByteVar>(), charcount, error.toCPointer<ByteVar>())
+public actual fun wsWriteChars(writer: COpaquePointer?, chars: Pcwstr, charcount: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsWriteChars(writer?.value?.toCPointer<ByteVar>(), chars?.value?.toCPointer<ByteVar>(), charcount, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsWriteCharsUtf8(writer: Long, bytes: Long, bytecount: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsWriteCharsUtf8(writer.toCPointer<ByteVar>(), bytes.toCPointer<ByteVar>(), bytecount, error.toCPointer<ByteVar>())
+public actual fun wsWriteCharsUtf8(writer: COpaquePointer?, bytes: COpaquePointer?, bytecount: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsWriteCharsUtf8(writer?.value?.toCPointer<ByteVar>(), bytes?.value?.toCPointer<ByteVar>(), bytecount, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsWriteElement(writer: Long, elementdescription: Long, writeoption: WS_WRITE_OPTION, value: Long, valuesize: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsWriteElement(writer.toCPointer<ByteVar>(), elementdescription.toCPointer<ByteVar>(), writeoption, value.toCPointer<ByteVar>(), valuesize, error.toCPointer<ByteVar>())
+public actual fun wsWriteElement(writer: COpaquePointer?, elementdescription: COpaquePointer?, writeoption: WsWriteOption, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsWriteElement(writer?.value?.toCPointer<ByteVar>(), elementdescription?.value?.toCPointer<ByteVar>(), writeoption, value?.value?.toCPointer<ByteVar>(), valuesize, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsWriteEndAttribute(writer: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsWriteEndAttribute(writer.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsWriteEndAttribute(writer: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsWriteEndAttribute(writer?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsWriteEndCData(writer: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsWriteEndCData(writer.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsWriteEndCData(writer: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsWriteEndCData(writer?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsWriteEndElement(writer: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsWriteEndElement(writer.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsWriteEndElement(writer: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsWriteEndElement(writer?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsWriteEndStartElement(writer: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsWriteEndStartElement(writer.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsWriteEndStartElement(writer: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsWriteEndStartElement(writer?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsWriteEnvelopeEnd(message: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsWriteEnvelopeEnd(message.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsWriteEnvelopeEnd(message: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsWriteEnvelopeEnd(message?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsWriteEnvelopeStart(message: Long, writer: Long, donecallback: WS_MESSAGE_DONE_CALLBACK, donecallbackstate: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsWriteEnvelopeStart(message.toCPointer<ByteVar>(), writer.toCPointer<ByteVar>(), donecallback.toLong().toCPointer<ByteVar>(), donecallbackstate.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsWriteEnvelopeStart(message: COpaquePointer?, writer: COpaquePointer?, donecallback: WsMessageDoneCallback, donecallbackstate: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsWriteEnvelopeStart(message?.value?.toCPointer<ByteVar>(), writer?.value?.toCPointer<ByteVar>(), 0L.toCPointer<ByteVar>(), donecallbackstate?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsWriteMessageEnd(channel: Long, message: Long, asynccontext: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsWriteMessageEnd(channel.toCPointer<ByteVar>(), message.toCPointer<ByteVar>(), asynccontext.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsWriteMessageEnd(channel: COpaquePointer?, message: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsWriteMessageEnd(channel?.value?.toCPointer<ByteVar>(), message?.value?.toCPointer<ByteVar>(), asynccontext?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsWriteMessageStart(channel: Long, message: Long, asynccontext: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsWriteMessageStart(channel.toCPointer<ByteVar>(), message.toCPointer<ByteVar>(), asynccontext.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsWriteMessageStart(channel: COpaquePointer?, message: COpaquePointer?, asynccontext: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsWriteMessageStart(channel?.value?.toCPointer<ByteVar>(), message?.value?.toCPointer<ByteVar>(), asynccontext?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsWriteNode(writer: Long, node: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsWriteNode(writer.toCPointer<ByteVar>(), node.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsWriteNode(writer: COpaquePointer?, node: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsWriteNode(writer?.value?.toCPointer<ByteVar>(), node?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsWriteQualifiedName(writer: Long, prefix: Long, localname: Long, ns: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsWriteQualifiedName(writer.toCPointer<ByteVar>(), prefix.toCPointer<ByteVar>(), localname.toCPointer<ByteVar>(), ns.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsWriteQualifiedName(writer: COpaquePointer?, prefix: COpaquePointer?, localname: COpaquePointer?, ns: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsWriteQualifiedName(writer?.value?.toCPointer<ByteVar>(), prefix?.value?.toCPointer<ByteVar>(), localname?.value?.toCPointer<ByteVar>(), ns?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsWriteStartAttribute(writer: Long, prefix: Long, localname: Long, ns: Long, singlequote: BOOL, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsWriteStartAttribute(writer.toCPointer<ByteVar>(), prefix.toCPointer<ByteVar>(), localname.toCPointer<ByteVar>(), ns.toCPointer<ByteVar>(), singlequote, error.toCPointer<ByteVar>())
+public actual fun wsWriteStartAttribute(writer: COpaquePointer?, prefix: COpaquePointer?, localname: COpaquePointer?, ns: COpaquePointer?, singlequote: Bool, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsWriteStartAttribute(writer?.value?.toCPointer<ByteVar>(), prefix?.value?.toCPointer<ByteVar>(), localname?.value?.toCPointer<ByteVar>(), ns?.value?.toCPointer<ByteVar>(), singlequote, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsWriteStartCData(writer: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsWriteStartCData(writer.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsWriteStartCData(writer: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsWriteStartCData(writer?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsWriteStartElement(writer: Long, prefix: Long, localname: Long, ns: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsWriteStartElement(writer.toCPointer<ByteVar>(), prefix.toCPointer<ByteVar>(), localname.toCPointer<ByteVar>(), ns.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsWriteStartElement(writer: COpaquePointer?, prefix: COpaquePointer?, localname: COpaquePointer?, ns: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsWriteStartElement(writer?.value?.toCPointer<ByteVar>(), prefix?.value?.toCPointer<ByteVar>(), localname?.value?.toCPointer<ByteVar>(), ns?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsWriteText(writer: Long, text: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsWriteText(writer.toCPointer<ByteVar>(), text.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsWriteText(writer: COpaquePointer?, text: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsWriteText(writer?.value?.toCPointer<ByteVar>(), text?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsWriteType(writer: Long, typemapping: WS_TYPE_MAPPING, type: WS_TYPE, typedescription: Long, writeoption: WS_WRITE_OPTION, value: Long, valuesize: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsWriteType(writer.toCPointer<ByteVar>(), typemapping, type, typedescription.toCPointer<ByteVar>(), writeoption, value.toCPointer<ByteVar>(), valuesize, error.toCPointer<ByteVar>())
+public actual fun wsWriteType(writer: COpaquePointer?, typemapping: WsTypeMapping, type: WsType, typedescription: COpaquePointer?, writeoption: WsWriteOption, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsWriteType(writer?.value?.toCPointer<ByteVar>(), typemapping, type, typedescription?.value?.toCPointer<ByteVar>(), writeoption, value?.value?.toCPointer<ByteVar>(), valuesize, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsWriteValue(writer: Long, valuetype: WS_VALUE_TYPE, value: Long, valuesize: UInt, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsWriteValue(writer.toCPointer<ByteVar>(), valuetype, value.toCPointer<ByteVar>(), valuesize, error.toCPointer<ByteVar>())
+public actual fun wsWriteValue(writer: COpaquePointer?, valuetype: WsValueType, value: COpaquePointer?, valuesize: UInt, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsWriteValue(writer?.value?.toCPointer<ByteVar>(), valuetype, value?.value?.toCPointer<ByteVar>(), valuesize, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsWriteXmlBuffer(writer: Long, xmlbuffer: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsWriteXmlBuffer(writer.toCPointer<ByteVar>(), xmlbuffer.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsWriteXmlBuffer(writer: COpaquePointer?, xmlbuffer: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsWriteXmlBuffer(writer?.value?.toCPointer<ByteVar>(), xmlbuffer?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsWriteXmlBufferToBytes(writer: Long, xmlbuffer: Long, encoding: Long, properties: Long, propertycount: UInt, heap: Long, bytes: Long, bytecount: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsWriteXmlBufferToBytes(writer.toCPointer<ByteVar>(), xmlbuffer.toCPointer<ByteVar>(), encoding.toCPointer<ByteVar>(), properties.toCPointer<ByteVar>(), propertycount, heap.toCPointer<ByteVar>(), bytes.toCPointer<ByteVar>(), bytecount.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsWriteXmlBufferToBytes(writer: COpaquePointer?, xmlbuffer: COpaquePointer?, encoding: COpaquePointer?, properties: COpaquePointer?, propertycount: UInt, heap: COpaquePointer?, bytes: COpaquePointer?, bytecount: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsWriteXmlBufferToBytes(writer?.value?.toCPointer<ByteVar>(), xmlbuffer?.value?.toCPointer<ByteVar>(), encoding?.value?.toCPointer<ByteVar>(), properties?.value?.toCPointer<ByteVar>(), propertycount, heap?.value?.toCPointer<ByteVar>(), bytes?.value?.toCPointer<ByteVar>(), bytecount?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsWriteXmlnsAttribute(writer: Long, prefix: Long, ns: Long, singlequote: BOOL, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsWriteXmlnsAttribute(writer.toCPointer<ByteVar>(), prefix.toCPointer<ByteVar>(), ns.toCPointer<ByteVar>(), singlequote, error.toCPointer<ByteVar>())
+public actual fun wsWriteXmlnsAttribute(writer: COpaquePointer?, prefix: COpaquePointer?, ns: COpaquePointer?, singlequote: Bool, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsWriteXmlnsAttribute(writer?.value?.toCPointer<ByteVar>(), prefix?.value?.toCPointer<ByteVar>(), ns?.value?.toCPointer<ByteVar>(), singlequote, error?.value?.toCPointer<ByteVar>())
 
-public actual fun WsXmlStringEquals(string1: Long, string2: Long, error: Long): HRESULT =
-    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_WsXmlStringEquals(string1.toCPointer<ByteVar>(), string2.toCPointer<ByteVar>(), error.toCPointer<ByteVar>())
+public actual fun wsXmlStringEquals(string1: COpaquePointer?, string2: COpaquePointer?, error: COpaquePointer?): Hresult =
+    io.github.kotlinmania.windowssys.windows.win32.networking.windowswebservices.cinterop.windowssys_windows_win32_networking_windowswebservices_wsXmlStringEquals(string1?.value?.toCPointer<ByteVar>(), string2?.value?.toCPointer<ByteVar>(), error?.value?.toCPointer<ByteVar>())

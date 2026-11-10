@@ -2,11 +2,12 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.communication
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 
 private object WindowsWin32DevicesCommunicationJniBridge {
     init {
@@ -14,182 +15,182 @@ private object WindowsWin32DevicesCommunicationJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_communication_BuildCommDCBA(lpdef: Long, lpdcb: Long): Int
+    external fun windowssys_windows_win32_devices_communication_buildCommDCBA(lpdef: Long, lpdcb: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_communication_BuildCommDCBAndTimeoutsA(lpdef: Long, lpdcb: Long, lpcommtimeouts: Long): Int
+    external fun windowssys_windows_win32_devices_communication_buildCommDCBAndTimeoutsA(lpdef: Long, lpdcb: Long, lpcommtimeouts: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_communication_BuildCommDCBAndTimeoutsW(lpdef: Long, lpdcb: Long, lpcommtimeouts: Long): Int
+    external fun windowssys_windows_win32_devices_communication_buildCommDCBAndTimeoutsW(lpdef: Long, lpdcb: Long, lpcommtimeouts: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_communication_BuildCommDCBW(lpdef: Long, lpdcb: Long): Int
+    external fun windowssys_windows_win32_devices_communication_buildCommDCBW(lpdef: Long, lpdcb: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_communication_ClearCommBreak(hfile: Long): Int
+    external fun windowssys_windows_win32_devices_communication_clearCommBreak(hfile: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_communication_ClearCommError(hfile: Long, lperrors: Long, lpstat: Long): Int
+    external fun windowssys_windows_win32_devices_communication_clearCommError(hfile: Long, lperrors: Long, lpstat: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_communication_CommConfigDialogA(lpszname: Long, hwnd: Long, lpcc: Long): Int
+    external fun windowssys_windows_win32_devices_communication_commConfigDialogA(lpszname: Long, hwnd: Long, lpcc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_communication_CommConfigDialogW(lpszname: Long, hwnd: Long, lpcc: Long): Int
+    external fun windowssys_windows_win32_devices_communication_commConfigDialogW(lpszname: Long, hwnd: Long, lpcc: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_communication_EscapeCommFunction(hfile: Long, dwfunc: Int): Int
+    external fun windowssys_windows_win32_devices_communication_escapeCommFunction(hfile: Long, dwfunc: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_communication_GetCommConfig(hcommdev: Long, lpcc: Long, lpdwsize: Long): Int
+    external fun windowssys_windows_win32_devices_communication_getCommConfig(hcommdev: Long, lpcc: Long, lpdwsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_communication_GetCommMask(hfile: Long, lpevtmask: Long): Int
+    external fun windowssys_windows_win32_devices_communication_getCommMask(hfile: Long, lpevtmask: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_communication_GetCommModemStatus(hfile: Long, lpmodemstat: Long): Int
+    external fun windowssys_windows_win32_devices_communication_getCommModemStatus(hfile: Long, lpmodemstat: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_communication_GetCommPorts(lpportnumbers: Long, uportnumberscount: Int, puportnumbersfound: Long): Int
+    external fun windowssys_windows_win32_devices_communication_getCommPorts(lpportnumbers: Long, uportnumberscount: Int, puportnumbersfound: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_communication_GetCommProperties(hfile: Long, lpcommprop: Long): Int
+    external fun windowssys_windows_win32_devices_communication_getCommProperties(hfile: Long, lpcommprop: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_communication_GetCommState(hfile: Long, lpdcb: Long): Int
+    external fun windowssys_windows_win32_devices_communication_getCommState(hfile: Long, lpdcb: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_communication_GetCommTimeouts(hfile: Long, lpcommtimeouts: Long): Int
+    external fun windowssys_windows_win32_devices_communication_getCommTimeouts(hfile: Long, lpcommtimeouts: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_communication_GetDefaultCommConfigA(lpszname: Long, lpcc: Long, lpdwsize: Long): Int
+    external fun windowssys_windows_win32_devices_communication_getDefaultCommConfigA(lpszname: Long, lpcc: Long, lpdwsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_communication_GetDefaultCommConfigW(lpszname: Long, lpcc: Long, lpdwsize: Long): Int
+    external fun windowssys_windows_win32_devices_communication_getDefaultCommConfigW(lpszname: Long, lpcc: Long, lpdwsize: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_communication_OpenCommPort(uportnumber: Int, dwdesiredaccess: Int, dwflagsandattributes: Int): Long
+    external fun windowssys_windows_win32_devices_communication_openCommPort(uportnumber: Int, dwdesiredaccess: Int, dwflagsandattributes: Int): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_communication_PurgeComm(hfile: Long, dwflags: Int): Int
+    external fun windowssys_windows_win32_devices_communication_purgeComm(hfile: Long, dwflags: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_communication_SetCommBreak(hfile: Long): Int
+    external fun windowssys_windows_win32_devices_communication_setCommBreak(hfile: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_communication_SetCommConfig(hcommdev: Long, lpcc: Long, dwsize: Int): Int
+    external fun windowssys_windows_win32_devices_communication_setCommConfig(hcommdev: Long, lpcc: Long, dwsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_communication_SetCommMask(hfile: Long, dwevtmask: Int): Int
+    external fun windowssys_windows_win32_devices_communication_setCommMask(hfile: Long, dwevtmask: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_communication_SetCommState(hfile: Long, lpdcb: Long): Int
+    external fun windowssys_windows_win32_devices_communication_setCommState(hfile: Long, lpdcb: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_communication_SetCommTimeouts(hfile: Long, lpcommtimeouts: Long): Int
+    external fun windowssys_windows_win32_devices_communication_setCommTimeouts(hfile: Long, lpcommtimeouts: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_communication_SetDefaultCommConfigA(lpszname: Long, lpcc: Long, dwsize: Int): Int
+    external fun windowssys_windows_win32_devices_communication_setDefaultCommConfigA(lpszname: Long, lpcc: Long, dwsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_communication_SetDefaultCommConfigW(lpszname: Long, lpcc: Long, dwsize: Int): Int
+    external fun windowssys_windows_win32_devices_communication_setDefaultCommConfigW(lpszname: Long, lpcc: Long, dwsize: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_communication_SetupComm(hfile: Long, dwinqueue: Int, dwoutqueue: Int): Int
+    external fun windowssys_windows_win32_devices_communication_setupComm(hfile: Long, dwinqueue: Int, dwoutqueue: Int): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_communication_TransmitCommChar(hfile: Long, cchar: Byte): Int
+    external fun windowssys_windows_win32_devices_communication_transmitCommChar(hfile: Long, cchar: Byte): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_communication_WaitCommEvent(hfile: Long, lpevtmask: Long, lpoverlapped: Long): Int
+    external fun windowssys_windows_win32_devices_communication_waitCommEvent(hfile: Long, lpevtmask: Long, lpoverlapped: Long): Int
 }
 
-public actual fun BuildCommDCBA(lpdef: PCSTR, lpdcb: Long): BOOL =
-    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_BuildCommDCBA(lpdef, lpdcb)
+public actual fun buildCommDCBA(lpdef: Pcstr, lpdcb: COpaquePointer?): Bool =
+    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_buildCommDCBA((lpdef?.value ?: 0L), (lpdcb?.value ?: 0L))
 
-public actual fun BuildCommDCBAndTimeoutsA(lpdef: PCSTR, lpdcb: Long, lpcommtimeouts: Long): BOOL =
-    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_BuildCommDCBAndTimeoutsA(lpdef, lpdcb, lpcommtimeouts)
+public actual fun buildCommDCBAndTimeoutsA(lpdef: Pcstr, lpdcb: COpaquePointer?, lpcommtimeouts: COpaquePointer?): Bool =
+    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_buildCommDCBAndTimeoutsA((lpdef?.value ?: 0L), (lpdcb?.value ?: 0L), (lpcommtimeouts?.value ?: 0L))
 
-public actual fun BuildCommDCBAndTimeoutsW(lpdef: PCWSTR, lpdcb: Long, lpcommtimeouts: Long): BOOL =
-    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_BuildCommDCBAndTimeoutsW(lpdef, lpdcb, lpcommtimeouts)
+public actual fun buildCommDCBAndTimeoutsW(lpdef: Pcwstr, lpdcb: COpaquePointer?, lpcommtimeouts: COpaquePointer?): Bool =
+    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_buildCommDCBAndTimeoutsW((lpdef?.value ?: 0L), (lpdcb?.value ?: 0L), (lpcommtimeouts?.value ?: 0L))
 
-public actual fun BuildCommDCBW(lpdef: PCWSTR, lpdcb: Long): BOOL =
-    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_BuildCommDCBW(lpdef, lpdcb)
+public actual fun buildCommDCBW(lpdef: Pcwstr, lpdcb: COpaquePointer?): Bool =
+    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_buildCommDCBW((lpdef?.value ?: 0L), (lpdcb?.value ?: 0L))
 
-public actual fun ClearCommBreak(hfile: HANDLE): BOOL =
-    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_ClearCommBreak(hfile)
+public actual fun clearCommBreak(hfile: Handle): Bool =
+    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_clearCommBreak((hfile?.value ?: 0L))
 
-public actual fun ClearCommError(hfile: HANDLE, lperrors: Long, lpstat: Long): BOOL =
-    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_ClearCommError(hfile, lperrors, lpstat)
+public actual fun clearCommError(hfile: Handle, lperrors: COpaquePointer?, lpstat: COpaquePointer?): Bool =
+    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_clearCommError((hfile?.value ?: 0L), (lperrors?.value ?: 0L), (lpstat?.value ?: 0L))
 
-public actual fun CommConfigDialogA(lpszname: PCSTR, hwnd: HWND, lpcc: Long): BOOL =
-    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_CommConfigDialogA(lpszname, hwnd, lpcc)
+public actual fun commConfigDialogA(lpszname: Pcstr, hwnd: Hwnd, lpcc: COpaquePointer?): Bool =
+    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_commConfigDialogA((lpszname?.value ?: 0L), (hwnd?.value ?: 0L), (lpcc?.value ?: 0L))
 
-public actual fun CommConfigDialogW(lpszname: PCWSTR, hwnd: HWND, lpcc: Long): BOOL =
-    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_CommConfigDialogW(lpszname, hwnd, lpcc)
+public actual fun commConfigDialogW(lpszname: Pcwstr, hwnd: Hwnd, lpcc: COpaquePointer?): Bool =
+    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_commConfigDialogW((lpszname?.value ?: 0L), (hwnd?.value ?: 0L), (lpcc?.value ?: 0L))
 
-public actual fun EscapeCommFunction(hfile: HANDLE, dwfunc: ESCAPE_COMM_FUNCTION): BOOL =
-    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_EscapeCommFunction(hfile, dwfunc.toInt())
+public actual fun escapeCommFunction(hfile: Handle, dwfunc: EscapeCommFunction): Bool =
+    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_escapeCommFunction((hfile?.value ?: 0L), dwfunc.toInt())
 
-public actual fun GetCommConfig(hcommdev: HANDLE, lpcc: Long, lpdwsize: Long): BOOL =
-    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_GetCommConfig(hcommdev, lpcc, lpdwsize)
+public actual fun getCommConfig(hcommdev: Handle, lpcc: COpaquePointer?, lpdwsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_getCommConfig((hcommdev?.value ?: 0L), (lpcc?.value ?: 0L), (lpdwsize?.value ?: 0L))
 
-public actual fun GetCommMask(hfile: HANDLE, lpevtmask: Long): BOOL =
-    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_GetCommMask(hfile, lpevtmask)
+public actual fun getCommMask(hfile: Handle, lpevtmask: COpaquePointer?): Bool =
+    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_getCommMask((hfile?.value ?: 0L), (lpevtmask?.value ?: 0L))
 
-public actual fun GetCommModemStatus(hfile: HANDLE, lpmodemstat: Long): BOOL =
-    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_GetCommModemStatus(hfile, lpmodemstat)
+public actual fun getCommModemStatus(hfile: Handle, lpmodemstat: COpaquePointer?): Bool =
+    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_getCommModemStatus((hfile?.value ?: 0L), (lpmodemstat?.value ?: 0L))
 
-public actual fun GetCommPorts(lpportnumbers: Long, uportnumberscount: UInt, puportnumbersfound: Long): UInt =
-    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_GetCommPorts(lpportnumbers, uportnumberscount.toInt(), puportnumbersfound).toUInt()
+public actual fun getCommPorts(lpportnumbers: COpaquePointer?, uportnumberscount: UInt, puportnumbersfound: COpaquePointer?): UInt =
+    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_getCommPorts((lpportnumbers?.value ?: 0L), uportnumberscount.toInt(), (puportnumbersfound?.value ?: 0L)).toUInt()
 
-public actual fun GetCommProperties(hfile: HANDLE, lpcommprop: Long): BOOL =
-    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_GetCommProperties(hfile, lpcommprop)
+public actual fun getCommProperties(hfile: Handle, lpcommprop: COpaquePointer?): Bool =
+    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_getCommProperties((hfile?.value ?: 0L), (lpcommprop?.value ?: 0L))
 
-public actual fun GetCommState(hfile: HANDLE, lpdcb: Long): BOOL =
-    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_GetCommState(hfile, lpdcb)
+public actual fun getCommState(hfile: Handle, lpdcb: COpaquePointer?): Bool =
+    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_getCommState((hfile?.value ?: 0L), (lpdcb?.value ?: 0L))
 
-public actual fun GetCommTimeouts(hfile: HANDLE, lpcommtimeouts: Long): BOOL =
-    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_GetCommTimeouts(hfile, lpcommtimeouts)
+public actual fun getCommTimeouts(hfile: Handle, lpcommtimeouts: COpaquePointer?): Bool =
+    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_getCommTimeouts((hfile?.value ?: 0L), (lpcommtimeouts?.value ?: 0L))
 
-public actual fun GetDefaultCommConfigA(lpszname: PCSTR, lpcc: Long, lpdwsize: Long): BOOL =
-    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_GetDefaultCommConfigA(lpszname, lpcc, lpdwsize)
+public actual fun getDefaultCommConfigA(lpszname: Pcstr, lpcc: COpaquePointer?, lpdwsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_getDefaultCommConfigA((lpszname?.value ?: 0L), (lpcc?.value ?: 0L), (lpdwsize?.value ?: 0L))
 
-public actual fun GetDefaultCommConfigW(lpszname: PCWSTR, lpcc: Long, lpdwsize: Long): BOOL =
-    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_GetDefaultCommConfigW(lpszname, lpcc, lpdwsize)
+public actual fun getDefaultCommConfigW(lpszname: Pcwstr, lpcc: COpaquePointer?, lpdwsize: COpaquePointer?): Bool =
+    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_getDefaultCommConfigW((lpszname?.value ?: 0L), (lpcc?.value ?: 0L), (lpdwsize?.value ?: 0L))
 
-public actual fun OpenCommPort(uportnumber: UInt, dwdesiredaccess: UInt, dwflagsandattributes: UInt): HANDLE =
-    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_OpenCommPort(uportnumber.toInt(), dwdesiredaccess.toInt(), dwflagsandattributes.toInt())
+public actual fun openCommPort(uportnumber: UInt, dwdesiredaccess: UInt, dwflagsandattributes: UInt): Handle =
+    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_openCommPort(uportnumber.toInt(), dwdesiredaccess.toInt(), dwflagsandattributes.toInt()).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun PurgeComm(hfile: HANDLE, dwflags: PURGE_COMM_FLAGS): BOOL =
-    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_PurgeComm(hfile, dwflags.toInt())
+public actual fun purgeComm(hfile: Handle, dwflags: PurgeCommFlags): Bool =
+    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_purgeComm((hfile?.value ?: 0L), dwflags.toInt())
 
-public actual fun SetCommBreak(hfile: HANDLE): BOOL =
-    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_SetCommBreak(hfile)
+public actual fun setCommBreak(hfile: Handle): Bool =
+    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_setCommBreak((hfile?.value ?: 0L))
 
-public actual fun SetCommConfig(hcommdev: HANDLE, lpcc: Long, dwsize: UInt): BOOL =
-    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_SetCommConfig(hcommdev, lpcc, dwsize.toInt())
+public actual fun setCommConfig(hcommdev: Handle, lpcc: COpaquePointer?, dwsize: UInt): Bool =
+    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_setCommConfig((hcommdev?.value ?: 0L), (lpcc?.value ?: 0L), dwsize.toInt())
 
-public actual fun SetCommMask(hfile: HANDLE, dwevtmask: COMM_EVENT_MASK): BOOL =
-    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_SetCommMask(hfile, dwevtmask.toInt())
+public actual fun setCommMask(hfile: Handle, dwevtmask: CommEventMask): Bool =
+    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_setCommMask((hfile?.value ?: 0L), dwevtmask.toInt())
 
-public actual fun SetCommState(hfile: HANDLE, lpdcb: Long): BOOL =
-    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_SetCommState(hfile, lpdcb)
+public actual fun setCommState(hfile: Handle, lpdcb: COpaquePointer?): Bool =
+    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_setCommState((hfile?.value ?: 0L), (lpdcb?.value ?: 0L))
 
-public actual fun SetCommTimeouts(hfile: HANDLE, lpcommtimeouts: Long): BOOL =
-    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_SetCommTimeouts(hfile, lpcommtimeouts)
+public actual fun setCommTimeouts(hfile: Handle, lpcommtimeouts: COpaquePointer?): Bool =
+    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_setCommTimeouts((hfile?.value ?: 0L), (lpcommtimeouts?.value ?: 0L))
 
-public actual fun SetDefaultCommConfigA(lpszname: PCSTR, lpcc: Long, dwsize: UInt): BOOL =
-    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_SetDefaultCommConfigA(lpszname, lpcc, dwsize.toInt())
+public actual fun setDefaultCommConfigA(lpszname: Pcstr, lpcc: COpaquePointer?, dwsize: UInt): Bool =
+    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_setDefaultCommConfigA((lpszname?.value ?: 0L), (lpcc?.value ?: 0L), dwsize.toInt())
 
-public actual fun SetDefaultCommConfigW(lpszname: PCWSTR, lpcc: Long, dwsize: UInt): BOOL =
-    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_SetDefaultCommConfigW(lpszname, lpcc, dwsize.toInt())
+public actual fun setDefaultCommConfigW(lpszname: Pcwstr, lpcc: COpaquePointer?, dwsize: UInt): Bool =
+    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_setDefaultCommConfigW((lpszname?.value ?: 0L), (lpcc?.value ?: 0L), dwsize.toInt())
 
-public actual fun SetupComm(hfile: HANDLE, dwinqueue: UInt, dwoutqueue: UInt): BOOL =
-    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_SetupComm(hfile, dwinqueue.toInt(), dwoutqueue.toInt())
+public actual fun setupComm(hfile: Handle, dwinqueue: UInt, dwoutqueue: UInt): Bool =
+    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_setupComm((hfile?.value ?: 0L), dwinqueue.toInt(), dwoutqueue.toInt())
 
-public actual fun TransmitCommChar(hfile: HANDLE, cchar: Byte): BOOL =
-    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_TransmitCommChar(hfile, cchar)
+public actual fun transmitCommChar(hfile: Handle, cchar: Byte): Bool =
+    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_transmitCommChar((hfile?.value ?: 0L), cchar)
 
-public actual fun WaitCommEvent(hfile: HANDLE, lpevtmask: Long, lpoverlapped: Long): BOOL =
-    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_WaitCommEvent(hfile, lpevtmask, lpoverlapped)
+public actual fun waitCommEvent(hfile: Handle, lpevtmask: COpaquePointer?, lpoverlapped: COpaquePointer?): Bool =
+    WindowsWin32DevicesCommunicationJniBridge.windowssys_windows_win32_devices_communication_waitCommEvent((hfile?.value ?: 0L), (lpevtmask?.value ?: 0L), (lpoverlapped?.value ?: 0L))

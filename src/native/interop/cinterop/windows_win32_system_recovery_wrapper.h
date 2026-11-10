@@ -9,13 +9,14 @@
 extern "C" {
 #endif
 
-void windowssys_windows_win32_system_recovery_ApplicationRecoveryFinished(int32_t bsuccess);
-int32_t windowssys_windows_win32_system_recovery_ApplicationRecoveryInProgress(void* pbcancelled);
-int32_t windowssys_windows_win32_system_recovery_GetApplicationRecoveryCallback(void* hprocess, void* precoverycallback, void* ppvparameter, void* pdwpinginterval, void* pdwflags);
-int32_t windowssys_windows_win32_system_recovery_GetApplicationRestartSettings(void* hprocess, void* pwzcommandline, void* pcchsize, void* pdwflags);
-int32_t windowssys_windows_win32_system_recovery_RegisterApplicationRestart(void* pwzcommandline, uint32_t dwflags);
-int32_t windowssys_windows_win32_system_recovery_UnregisterApplicationRecoveryCallback(void);
-int32_t windowssys_windows_win32_system_recovery_UnregisterApplicationRestart(void);
+void windowssys_windows_win32_system_recovery_applicationRecoveryFinished(int32_t bsuccess);
+int32_t windowssys_windows_win32_system_recovery_applicationRecoveryInProgress(void* pbcancelled);
+int32_t windowssys_windows_win32_system_recovery_getApplicationRecoveryCallback(void* hprocess, void* precoverycallback, void* ppvparameter, void* pdwpinginterval, void* pdwflags);
+int32_t windowssys_windows_win32_system_recovery_getApplicationRestartSettings(void* hprocess, void* pwzcommandline, void* pcchsize, void* pdwflags);
+int32_t windowssys_windows_win32_system_recovery_registerApplicationRecoveryCallback(void* precoveycallback, void* pvparameter, uint32_t dwpinginterval, uint32_t dwflags);
+int32_t windowssys_windows_win32_system_recovery_registerApplicationRestart(void* pwzcommandline, uint32_t dwflags);
+int32_t windowssys_windows_win32_system_recovery_unregisterApplicationRecoveryCallback(void);
+int32_t windowssys_windows_win32_system_recovery_unregisterApplicationRestart(void);
 
 #ifdef __cplusplus
 }

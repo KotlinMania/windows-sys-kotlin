@@ -2,53 +2,54 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.jobobjects
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 import kotlinx.cinterop.toLong
 
-public actual fun AssignProcessToJobObject(hjob: HANDLE, hprocess: HANDLE): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.jobobjects.cinterop.windowssys_windows_win32_system_jobobjects_AssignProcessToJobObject(hjob.toCPointer<ByteVar>(), hprocess.toCPointer<ByteVar>())
+public actual fun assignProcessToJobObject(hjob: Handle, hprocess: Handle): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.jobobjects.cinterop.windowssys_windows_win32_system_jobobjects_assignProcessToJobObject(hjob?.value?.toCPointer<ByteVar>(), hprocess?.value?.toCPointer<ByteVar>())
 
-public actual fun CreateJobObjectA(lpjobattributes: Long, lpname: PCSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.jobobjects.cinterop.windowssys_windows_win32_system_jobobjects_CreateJobObjectA(lpjobattributes.toCPointer<ByteVar>(), lpname.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createJobObjectA(lpjobattributes: COpaquePointer?, lpname: Pcstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.jobobjects.cinterop.windowssys_windows_win32_system_jobobjects_createJobObjectA(lpjobattributes?.value?.toCPointer<ByteVar>(), lpname?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateJobObjectW(lpjobattributes: Long, lpname: PCWSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.jobobjects.cinterop.windowssys_windows_win32_system_jobobjects_CreateJobObjectW(lpjobattributes.toCPointer<ByteVar>(), lpname.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun createJobObjectW(lpjobattributes: COpaquePointer?, lpname: Pcwstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.jobobjects.cinterop.windowssys_windows_win32_system_jobobjects_createJobObjectW(lpjobattributes?.value?.toCPointer<ByteVar>(), lpname?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun CreateJobSet(numjob: UInt, userjobset: Long, flags: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.jobobjects.cinterop.windowssys_windows_win32_system_jobobjects_CreateJobSet(numjob, userjobset.toCPointer<ByteVar>(), flags)
+public actual fun createJobSet(numjob: UInt, userjobset: COpaquePointer?, flags: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.jobobjects.cinterop.windowssys_windows_win32_system_jobobjects_createJobSet(numjob, userjobset?.value?.toCPointer<ByteVar>(), flags)
 
-public actual fun FreeMemoryJobObject(buffer: Long) {
-    io.github.kotlinmania.windowssys.windows.win32.system.jobobjects.cinterop.windowssys_windows_win32_system_jobobjects_FreeMemoryJobObject(buffer.toCPointer<ByteVar>())
+public actual fun freeMemoryJobObject(buffer: COpaquePointer?) {
+    io.github.kotlinmania.windowssys.windows.win32.system.jobobjects.cinterop.windowssys_windows_win32_system_jobobjects_freeMemoryJobObject(buffer?.value?.toCPointer<ByteVar>())
 }
 
-public actual fun IsProcessInJob(processhandle: HANDLE, jobhandle: HANDLE, result: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.jobobjects.cinterop.windowssys_windows_win32_system_jobobjects_IsProcessInJob(processhandle.toCPointer<ByteVar>(), jobhandle.toCPointer<ByteVar>(), result.toCPointer<ByteVar>())
+public actual fun isProcessInJob(processhandle: Handle, jobhandle: Handle, result: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.jobobjects.cinterop.windowssys_windows_win32_system_jobobjects_isProcessInJob(processhandle?.value?.toCPointer<ByteVar>(), jobhandle?.value?.toCPointer<ByteVar>(), result?.value?.toCPointer<ByteVar>())
 
-public actual fun OpenJobObjectA(dwdesiredaccess: UInt, binherithandle: BOOL, lpname: PCSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.jobobjects.cinterop.windowssys_windows_win32_system_jobobjects_OpenJobObjectA(dwdesiredaccess, binherithandle, lpname.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun openJobObjectA(dwdesiredaccess: UInt, binherithandle: Bool, lpname: Pcstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.jobobjects.cinterop.windowssys_windows_win32_system_jobobjects_openJobObjectA(dwdesiredaccess, binherithandle, lpname?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun OpenJobObjectW(dwdesiredaccess: UInt, binherithandle: BOOL, lpname: PCWSTR): HANDLE =
-    io.github.kotlinmania.windowssys.windows.win32.system.jobobjects.cinterop.windowssys_windows_win32_system_jobobjects_OpenJobObjectW(dwdesiredaccess, binherithandle, lpname.toCPointer<ByteVar>())?.toLong() ?: 0L
+public actual fun openJobObjectW(dwdesiredaccess: UInt, binherithandle: Bool, lpname: Pcwstr): Handle =
+    io.github.kotlinmania.windowssys.windows.win32.system.jobobjects.cinterop.windowssys_windows_win32_system_jobobjects_openJobObjectW(dwdesiredaccess, binherithandle, lpname?.value?.toCPointer<ByteVar>())?.let { COpaquePointer(it.toLong()) }
 
-public actual fun QueryInformationJobObject(hjob: HANDLE, jobobjectinformationclass: JOBOBJECTINFOCLASS, lpjobobjectinformation: Long, cbjobobjectinformationlength: UInt, lpreturnlength: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.jobobjects.cinterop.windowssys_windows_win32_system_jobobjects_QueryInformationJobObject(hjob.toCPointer<ByteVar>(), jobobjectinformationclass, lpjobobjectinformation.toCPointer<ByteVar>(), cbjobobjectinformationlength, lpreturnlength.toCPointer<ByteVar>())
+public actual fun queryInformationJobObject(hjob: Handle, jobobjectinformationclass: Jobobjectinfoclass, lpjobobjectinformation: COpaquePointer?, cbjobobjectinformationlength: UInt, lpreturnlength: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.jobobjects.cinterop.windowssys_windows_win32_system_jobobjects_queryInformationJobObject(hjob?.value?.toCPointer<ByteVar>(), jobobjectinformationclass, lpjobobjectinformation?.value?.toCPointer<ByteVar>(), cbjobobjectinformationlength, lpreturnlength?.value?.toCPointer<ByteVar>())
 
-public actual fun QueryIoRateControlInformationJobObject(hjob: HANDLE, volumename: PCWSTR, infoblocks: Long, infoblockcount: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.jobobjects.cinterop.windowssys_windows_win32_system_jobobjects_QueryIoRateControlInformationJobObject(hjob.toCPointer<ByteVar>(), volumename.toCPointer<ByteVar>(), infoblocks.toCPointer<ByteVar>(), infoblockcount.toCPointer<ByteVar>())
+public actual fun queryIoRateControlInformationJobObject(hjob: Handle, volumename: Pcwstr, infoblocks: COpaquePointer?, infoblockcount: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.jobobjects.cinterop.windowssys_windows_win32_system_jobobjects_queryIoRateControlInformationJobObject(hjob?.value?.toCPointer<ByteVar>(), volumename?.value?.toCPointer<ByteVar>(), infoblocks?.value?.toCPointer<ByteVar>(), infoblockcount?.value?.toCPointer<ByteVar>())
 
-public actual fun SetInformationJobObject(hjob: HANDLE, jobobjectinformationclass: JOBOBJECTINFOCLASS, lpjobobjectinformation: Long, cbjobobjectinformationlength: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.jobobjects.cinterop.windowssys_windows_win32_system_jobobjects_SetInformationJobObject(hjob.toCPointer<ByteVar>(), jobobjectinformationclass, lpjobobjectinformation.toCPointer<ByteVar>(), cbjobobjectinformationlength)
+public actual fun setInformationJobObject(hjob: Handle, jobobjectinformationclass: Jobobjectinfoclass, lpjobobjectinformation: COpaquePointer?, cbjobobjectinformationlength: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.jobobjects.cinterop.windowssys_windows_win32_system_jobobjects_setInformationJobObject(hjob?.value?.toCPointer<ByteVar>(), jobobjectinformationclass, lpjobobjectinformation?.value?.toCPointer<ByteVar>(), cbjobobjectinformationlength)
 
-public actual fun SetIoRateControlInformationJobObject(hjob: HANDLE, ioratecontrolinfo: Long): UInt =
-    io.github.kotlinmania.windowssys.windows.win32.system.jobobjects.cinterop.windowssys_windows_win32_system_jobobjects_SetIoRateControlInformationJobObject(hjob.toCPointer<ByteVar>(), ioratecontrolinfo.toCPointer<ByteVar>())
+public actual fun setIoRateControlInformationJobObject(hjob: Handle, ioratecontrolinfo: COpaquePointer?): UInt =
+    io.github.kotlinmania.windowssys.windows.win32.system.jobobjects.cinterop.windowssys_windows_win32_system_jobobjects_setIoRateControlInformationJobObject(hjob?.value?.toCPointer<ByteVar>(), ioratecontrolinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun TerminateJobObject(hjob: HANDLE, uexitcode: UInt): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.jobobjects.cinterop.windowssys_windows_win32_system_jobobjects_TerminateJobObject(hjob.toCPointer<ByteVar>(), uexitcode)
+public actual fun terminateJobObject(hjob: Handle, uexitcode: UInt): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.jobobjects.cinterop.windowssys_windows_win32_system_jobobjects_terminateJobObject(hjob?.value?.toCPointer<ByteVar>(), uexitcode)
 
-public actual fun UserHandleGrantAccess(huserhandle: HANDLE, hjob: HANDLE, bgrant: BOOL): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.jobobjects.cinterop.windowssys_windows_win32_system_jobobjects_UserHandleGrantAccess(huserhandle.toCPointer<ByteVar>(), hjob.toCPointer<ByteVar>(), bgrant)
+public actual fun userHandleGrantAccess(huserhandle: Handle, hjob: Handle, bgrant: Bool): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.jobobjects.cinterop.windowssys_windows_win32_system_jobobjects_userHandleGrantAccess(huserhandle?.value?.toCPointer<ByteVar>(), hjob?.value?.toCPointer<ByteVar>(), bgrant)

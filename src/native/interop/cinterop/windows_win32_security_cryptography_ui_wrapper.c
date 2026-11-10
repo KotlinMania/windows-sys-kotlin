@@ -15,7 +15,7 @@
 #endif
 #endif
 
-int32_t windowssys_windows_win32_security_cryptography_ui_CertSelectionGetSerializedBlob(void* pcsi, void* ppoutbuffer, void* puloutbuffersize) {
+int32_t windowssys_windows_win32_security_cryptography_ui_certSelectionGetSerializedBlob(void* pcsi, void* ppoutbuffer, void* puloutbuffersize) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -39,7 +39,7 @@ int32_t windowssys_windows_win32_security_cryptography_ui_CertSelectionGetSerial
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_ui_CryptUIDlgCertMgr(void* pcryptuicertmgr) {
+int32_t windowssys_windows_win32_security_cryptography_ui_cryptUIDlgCertMgr(void* pcryptuicertmgr) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -61,7 +61,7 @@ int32_t windowssys_windows_win32_security_cryptography_ui_CryptUIDlgCertMgr(void
 #endif
 }
 
-void* windowssys_windows_win32_security_cryptography_ui_CryptUIDlgSelectCertificateFromStore(void* hcertstore, void* hwnd, void* pwsztitle, void* pwszdisplaystring, uint32_t dwdontusecolumn, uint32_t dwflags, void* pvreserved) {
+void* windowssys_windows_win32_security_cryptography_ui_cryptUIDlgSelectCertificateFromStore(void* hcertstore, void* hwnd, void* pwsztitle, void* pwszdisplaystring, uint32_t dwdontusecolumn, uint32_t dwflags, void* pvreserved) {
 #ifdef _WIN32
     typedef void* (__stdcall *km_fn_t)(void*, void*, void*, void*, uint32_t, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -89,7 +89,7 @@ void* windowssys_windows_win32_security_cryptography_ui_CryptUIDlgSelectCertific
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_ui_CryptUIDlgViewCertificateA(void* pcertviewinfo, void* pfpropertieschanged) {
+int32_t windowssys_windows_win32_security_cryptography_ui_cryptUIDlgViewCertificateA(void* pcertviewinfo, void* pfpropertieschanged) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -112,7 +112,7 @@ int32_t windowssys_windows_win32_security_cryptography_ui_CryptUIDlgViewCertific
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_ui_CryptUIDlgViewCertificateW(void* pcertviewinfo, void* pfpropertieschanged) {
+int32_t windowssys_windows_win32_security_cryptography_ui_cryptUIDlgViewCertificateW(void* pcertviewinfo, void* pfpropertieschanged) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -135,7 +135,7 @@ int32_t windowssys_windows_win32_security_cryptography_ui_CryptUIDlgViewCertific
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_ui_CryptUIDlgViewContext(uint32_t dwcontexttype, void* pvcontext, void* hwnd, void* pwsztitle, uint32_t dwflags, void* pvreserved) {
+int32_t windowssys_windows_win32_security_cryptography_ui_cryptUIDlgViewContext(uint32_t dwcontexttype, void* pvcontext, void* hwnd, void* pwsztitle, uint32_t dwflags, void* pvreserved) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, uint32_t, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -162,7 +162,7 @@ int32_t windowssys_windows_win32_security_cryptography_ui_CryptUIDlgViewContext(
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_ui_CryptUIWizDigitalSign(uint32_t dwflags, void* hwndparent, void* pwszwizardtitle, void* pdigitalsigninfo, void* ppsigncontext) {
+int32_t windowssys_windows_win32_security_cryptography_ui_cryptUIWizDigitalSign(uint32_t dwflags, void* hwndparent, void* pwszwizardtitle, void* pdigitalsigninfo, void* ppsigncontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -188,7 +188,7 @@ int32_t windowssys_windows_win32_security_cryptography_ui_CryptUIWizDigitalSign(
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_ui_CryptUIWizExport(uint32_t dwflags, void* hwndparent, void* pwszwizardtitle, void* pexportinfo, void* pvoid) {
+int32_t windowssys_windows_win32_security_cryptography_ui_cryptUIWizExport(uint32_t dwflags, void* hwndparent, void* pwszwizardtitle, void* pexportinfo, void* pvoid) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -214,7 +214,7 @@ int32_t windowssys_windows_win32_security_cryptography_ui_CryptUIWizExport(uint3
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_ui_CryptUIWizFreeDigitalSignContext(void* psigncontext) {
+int32_t windowssys_windows_win32_security_cryptography_ui_cryptUIWizFreeDigitalSignContext(void* psigncontext) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void*);
     static km_fn_t km_fn_ptr = NULL;
@@ -236,7 +236,7 @@ int32_t windowssys_windows_win32_security_cryptography_ui_CryptUIWizFreeDigitalS
 #endif
 }
 
-int32_t windowssys_windows_win32_security_cryptography_ui_CryptUIWizImport(uint32_t dwflags, void* hwndparent, void* pwszwizardtitle, void* pimportsrc, void* hdestcertstore) {
+int32_t windowssys_windows_win32_security_cryptography_ui_cryptUIWizImport(uint32_t dwflags, void* hwndparent, void* pwszwizardtitle, void* pimportsrc, void* hdestcertstore) {
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(uint32_t, void*, void*, void*, void*);
     static km_fn_t km_fn_ptr = NULL;

@@ -1,217 +1,218 @@
 package io.github.kotlinmania.windowssys.windows.win32.networkmanagement.wnet
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.core.PWSTR
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HWND
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.core.Pwstr
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hwnd
 
-public typealias CONNECTDLGSTRUCT_FLAGS = UInt
+public typealias ConnectdlgstructFlags = UInt
 
-public typealias DISCDLGSTRUCT_FLAGS = UInt
+public typealias DiscdlgstructFlags = UInt
 
-public typealias NETINFOSTRUCT_CHARACTERISTICS = UInt
+public typealias NetinfostructCharacteristics = UInt
 
-public typealias NETWORK_NAME_FORMAT_FLAGS = UInt
+public typealias NetworkNameFormatFlags = UInt
 
-public typealias NET_CONNECT_FLAGS = UInt
+public typealias NetConnectFlags = UInt
 
-public typealias NET_RESOURCE_SCOPE = UInt
+public typealias NetResourceScope = UInt
 
-public typealias NET_RESOURCE_TYPE = UInt
+public typealias NetResourceType = UInt
 
-public typealias NPDIRECTORY_NOTIFY_OPERATION = UInt
+public typealias NpdirectoryNotifyOperation = UInt
 
-public typealias NP_PROPERTY_DIALOG_SELECTION = UInt
+public typealias NpPropertyDialogSelection = UInt
 
-public fun interface PF_AddConnectNotifyFn {
-    public operator fun invoke(lpnotifyinfo: Long, lpaddinfo: Long): UInt
+public fun interface PfAddConnectNotifyFn {
+    public operator fun invoke(lpnotifyinfo: COpaquePointer?, lpaddinfo: COpaquePointer?): UInt
 }
 
-public typealias PF_AddConnectNotify = PF_AddConnectNotifyFn?
+public typealias PfAddConnectNotify = PfAddConnectNotifyFn?
 
-public fun interface PF_CancelConnectNotifyFn {
-    public operator fun invoke(lpnotifyinfo: Long, lpcancelinfo: Long): UInt
+public fun interface PfCancelConnectNotifyFn {
+    public operator fun invoke(lpnotifyinfo: COpaquePointer?, lpcancelinfo: COpaquePointer?): UInt
 }
 
-public typealias PF_CancelConnectNotify = PF_CancelConnectNotifyFn?
+public typealias PfCancelConnectNotify = PfCancelConnectNotifyFn?
 
-public fun interface PF_NPAddConnectionFn {
-    public operator fun invoke(lpnetresource: Long, lppassword: PCWSTR, lpusername: PCWSTR): UInt
+public fun interface PfNpaddConnectionFn {
+    public operator fun invoke(lpnetresource: COpaquePointer?, lppassword: Pcwstr, lpusername: Pcwstr): UInt
 }
 
-public typealias PF_NPAddConnection = PF_NPAddConnectionFn?
+public typealias PfNpaddConnection = PfNpaddConnectionFn?
 
-public fun interface PF_NPAddConnection3Fn {
-    public operator fun invoke(hwndowner: HWND, lpnetresource: Long, lppassword: PCWSTR, lpusername: PCWSTR, dwflags: UInt): UInt
+public fun interface PfNpaddConnection3Fn {
+    public operator fun invoke(hwndowner: Hwnd, lpnetresource: COpaquePointer?, lppassword: Pcwstr, lpusername: Pcwstr, dwflags: UInt): UInt
 }
 
-public typealias PF_NPAddConnection3 = PF_NPAddConnection3Fn?
+public typealias PfNpaddConnection3 = PfNpaddConnection3Fn?
 
-public fun interface PF_NPAddConnection4Fn {
-    public operator fun invoke(hwndowner: HWND, lpnetresource: Long, lpauthbuffer: Long, cbauthbuffer: UInt, dwflags: UInt, lpuseoptions: Long, cbuseoptions: UInt): UInt
+public fun interface PfNpaddConnection4Fn {
+    public operator fun invoke(hwndowner: Hwnd, lpnetresource: COpaquePointer?, lpauthbuffer: COpaquePointer?, cbauthbuffer: UInt, dwflags: UInt, lpuseoptions: COpaquePointer?, cbuseoptions: UInt): UInt
 }
 
-public typealias PF_NPAddConnection4 = PF_NPAddConnection4Fn?
+public typealias PfNpaddConnection4 = PfNpaddConnection4Fn?
 
-public fun interface PF_NPCancelConnectionFn {
-    public operator fun invoke(lpname: PCWSTR, fforce: BOOL): UInt
+public fun interface PfNpcancelConnectionFn {
+    public operator fun invoke(lpname: Pcwstr, fforce: Bool): UInt
 }
 
-public typealias PF_NPCancelConnection = PF_NPCancelConnectionFn?
+public typealias PfNpcancelConnection = PfNpcancelConnectionFn?
 
-public fun interface PF_NPCancelConnection2Fn {
-    public operator fun invoke(lpname: PCWSTR, fforce: BOOL, dwflags: UInt): UInt
+public fun interface PfNpcancelConnection2Fn {
+    public operator fun invoke(lpname: Pcwstr, fforce: Bool, dwflags: UInt): UInt
 }
 
-public typealias PF_NPCancelConnection2 = PF_NPCancelConnection2Fn?
+public typealias PfNpcancelConnection2 = PfNpcancelConnection2Fn?
 
-public fun interface PF_NPCloseEnumFn {
-    public operator fun invoke(henum: HANDLE): UInt
+public fun interface PfNpcloseEnumFn {
+    public operator fun invoke(henum: Handle): UInt
 }
 
-public typealias PF_NPCloseEnum = PF_NPCloseEnumFn?
+public typealias PfNpcloseEnum = PfNpcloseEnumFn?
 
-public fun interface PF_NPDeviceModeFn {
-    public operator fun invoke(hparent: HWND): UInt
+public fun interface PfNpdeviceModeFn {
+    public operator fun invoke(hparent: Hwnd): UInt
 }
 
-public typealias PF_NPDeviceMode = PF_NPDeviceModeFn?
+public typealias PfNpdeviceMode = PfNpdeviceModeFn?
 
-public fun interface PF_NPDirectoryNotifyFn {
-    public operator fun invoke(hwnd: HWND, lpdir: PCWSTR, dwoper: UInt): UInt
+public fun interface PfNpdirectoryNotifyFn {
+    public operator fun invoke(hwnd: Hwnd, lpdir: Pcwstr, dwoper: UInt): UInt
 }
 
-public typealias PF_NPDirectoryNotify = PF_NPDirectoryNotifyFn?
+public typealias PfNpdirectoryNotify = PfNpdirectoryNotifyFn?
 
-public fun interface PF_NPEnumResourceFn {
-    public operator fun invoke(henum: HANDLE, lpccount: Long, lpbuffer: Long, lpbuffersize: Long): UInt
+public fun interface PfNpenumResourceFn {
+    public operator fun invoke(henum: Handle, lpccount: COpaquePointer?, lpbuffer: COpaquePointer?, lpbuffersize: COpaquePointer?): UInt
 }
 
-public typealias PF_NPEnumResource = PF_NPEnumResourceFn?
+public typealias PfNpenumResource = PfNpenumResourceFn?
 
-public fun interface PF_NPFMXEditPermFn {
-    public operator fun invoke(lpdrivename: PCWSTR, hwndfmx: HWND, ndialogtype: UInt): UInt
+public fun interface PfNpfmxeditPermFn {
+    public operator fun invoke(lpdrivename: Pcwstr, hwndfmx: Hwnd, ndialogtype: UInt): UInt
 }
 
-public typealias PF_NPFMXEditPerm = PF_NPFMXEditPermFn?
+public typealias PfNpfmxeditPerm = PfNpfmxeditPermFn?
 
-public fun interface PF_NPFMXGetPermCapsFn {
-    public operator fun invoke(lpdrivename: PCWSTR): UInt
+public fun interface PfNpfmxgetPermCapsFn {
+    public operator fun invoke(lpdrivename: Pcwstr): UInt
 }
 
-public typealias PF_NPFMXGetPermCaps = PF_NPFMXGetPermCapsFn?
+public typealias PfNpfmxgetPermCaps = PfNpfmxgetPermCapsFn?
 
-public fun interface PF_NPFMXGetPermHelpFn {
-    public operator fun invoke(lpdrivename: PCWSTR, ndialogtype: UInt, fdirectory: BOOL, lpfilenamebuffer: Long, lpbuffersize: Long, lpnhelpcontext: Long): UInt
+public fun interface PfNpfmxgetPermHelpFn {
+    public operator fun invoke(lpdrivename: Pcwstr, ndialogtype: UInt, fdirectory: Bool, lpfilenamebuffer: COpaquePointer?, lpbuffersize: COpaquePointer?, lpnhelpcontext: COpaquePointer?): UInt
 }
 
-public typealias PF_NPFMXGetPermHelp = PF_NPFMXGetPermHelpFn?
+public typealias PfNpfmxgetPermHelp = PfNpfmxgetPermHelpFn?
 
-public fun interface PF_NPFormatNetworkNameFn {
-    public operator fun invoke(lpremotename: PCWSTR, lpformattedname: PWSTR, lpnlength: Long, dwflags: UInt, dwavecharperline: UInt): UInt
+public fun interface PfNpformatNetworkNameFn {
+    public operator fun invoke(lpremotename: Pcwstr, lpformattedname: Pwstr, lpnlength: COpaquePointer?, dwflags: UInt, dwavecharperline: UInt): UInt
 }
 
-public typealias PF_NPFormatNetworkName = PF_NPFormatNetworkNameFn?
+public typealias PfNpformatNetworkName = PfNpformatNetworkNameFn?
 
-public fun interface PF_NPGetCapsFn {
+public fun interface PfNpgetCapsFn {
     public operator fun invoke(ndex: UInt): UInt
 }
 
-public typealias PF_NPGetCaps = PF_NPGetCapsFn?
+public typealias PfNpgetCaps = PfNpgetCapsFn?
 
-public fun interface PF_NPGetConnectionFn {
-    public operator fun invoke(lplocalname: PCWSTR, lpremotename: PWSTR, lpnbufferlen: Long): UInt
+public fun interface PfNpgetConnectionFn {
+    public operator fun invoke(lplocalname: Pcwstr, lpremotename: Pwstr, lpnbufferlen: COpaquePointer?): UInt
 }
 
-public typealias PF_NPGetConnection = PF_NPGetConnectionFn?
+public typealias PfNpgetConnection = PfNpgetConnectionFn?
 
-public fun interface PF_NPGetConnection3Fn {
-    public operator fun invoke(lplocalname: PCWSTR, dwlevel: UInt, lpbuffer: Long, lpbuffersize: Long): UInt
+public fun interface PfNpgetConnection3Fn {
+    public operator fun invoke(lplocalname: Pcwstr, dwlevel: UInt, lpbuffer: COpaquePointer?, lpbuffersize: COpaquePointer?): UInt
 }
 
-public typealias PF_NPGetConnection3 = PF_NPGetConnection3Fn?
+public typealias PfNpgetConnection3 = PfNpgetConnection3Fn?
 
-public fun interface PF_NPGetConnectionPerformanceFn {
-    public operator fun invoke(lpremotename: PCWSTR, lpnetconnectinfo: Long): UInt
+public fun interface PfNpgetConnectionPerformanceFn {
+    public operator fun invoke(lpremotename: Pcwstr, lpnetconnectinfo: COpaquePointer?): UInt
 }
 
-public typealias PF_NPGetConnectionPerformance = PF_NPGetConnectionPerformanceFn?
+public typealias PfNpgetConnectionPerformance = PfNpgetConnectionPerformanceFn?
 
-public fun interface PF_NPGetDirectoryTypeFn {
-    public operator fun invoke(lpname: PCWSTR, lptype: Long, bflushcache: BOOL): UInt
+public fun interface PfNpgetDirectoryTypeFn {
+    public operator fun invoke(lpname: Pcwstr, lptype: COpaquePointer?, bflushcache: Bool): UInt
 }
 
-public typealias PF_NPGetDirectoryType = PF_NPGetDirectoryTypeFn?
+public typealias PfNpgetDirectoryType = PfNpgetDirectoryTypeFn?
 
-public fun interface PF_NPGetPersistentUseOptionsForConnectionFn {
-    public operator fun invoke(lpremotepath: PCWSTR, lpreaduseoptions: Long, cbreaduseoptions: UInt, lpwriteuseoptions: Long, lpsizewriteuseoptions: Long): UInt
+public fun interface PfNpgetPersistentUseOptionsForConnectionFn {
+    public operator fun invoke(lpremotepath: Pcwstr, lpreaduseoptions: COpaquePointer?, cbreaduseoptions: UInt, lpwriteuseoptions: COpaquePointer?, lpsizewriteuseoptions: COpaquePointer?): UInt
 }
 
-public typealias PF_NPGetPersistentUseOptionsForConnection = PF_NPGetPersistentUseOptionsForConnectionFn?
+public typealias PfNpgetPersistentUseOptionsForConnection = PfNpgetPersistentUseOptionsForConnectionFn?
 
-public fun interface PF_NPGetPropertyTextFn {
-    public operator fun invoke(ibutton: UInt, npropsel: UInt, lpname: PCWSTR, lpbuttonname: PWSTR, nbuttonnamelen: UInt, ntype: UInt): UInt
+public fun interface PfNpgetPropertyTextFn {
+    public operator fun invoke(ibutton: UInt, npropsel: UInt, lpname: Pcwstr, lpbuttonname: Pwstr, nbuttonnamelen: UInt, ntype: UInt): UInt
 }
 
-public typealias PF_NPGetPropertyText = PF_NPGetPropertyTextFn?
+public typealias PfNpgetPropertyText = PfNpgetPropertyTextFn?
 
-public fun interface PF_NPGetResourceInformationFn {
-    public operator fun invoke(lpnetresource: Long, lpbuffer: Long, lpbuffersize: Long, lplpsystem: Long): UInt
+public fun interface PfNpgetResourceInformationFn {
+    public operator fun invoke(lpnetresource: COpaquePointer?, lpbuffer: COpaquePointer?, lpbuffersize: COpaquePointer?, lplpsystem: COpaquePointer?): UInt
 }
 
-public typealias PF_NPGetResourceInformation = PF_NPGetResourceInformationFn?
+public typealias PfNpgetResourceInformation = PfNpgetResourceInformationFn?
 
-public fun interface PF_NPGetResourceParentFn {
-    public operator fun invoke(lpnetresource: Long, lpbuffer: Long, lpbuffersize: Long): UInt
+public fun interface PfNpgetResourceParentFn {
+    public operator fun invoke(lpnetresource: COpaquePointer?, lpbuffer: COpaquePointer?, lpbuffersize: COpaquePointer?): UInt
 }
 
-public typealias PF_NPGetResourceParent = PF_NPGetResourceParentFn?
+public typealias PfNpgetResourceParent = PfNpgetResourceParentFn?
 
-public fun interface PF_NPGetUniversalNameFn {
-    public operator fun invoke(lplocalpath: PCWSTR, dwinfolevel: UInt, lpbuffer: Long, lpnbuffersize: Long): UInt
+public fun interface PfNpgetUniversalNameFn {
+    public operator fun invoke(lplocalpath: Pcwstr, dwinfolevel: UInt, lpbuffer: COpaquePointer?, lpnbuffersize: COpaquePointer?): UInt
 }
 
-public typealias PF_NPGetUniversalName = PF_NPGetUniversalNameFn?
+public typealias PfNpgetUniversalName = PfNpgetUniversalNameFn?
 
-public fun interface PF_NPGetUserFn {
-    public operator fun invoke(lpname: PCWSTR, lpusername: PWSTR, lpnbufferlen: Long): UInt
+public fun interface PfNpgetUserFn {
+    public operator fun invoke(lpname: Pcwstr, lpusername: Pwstr, lpnbufferlen: COpaquePointer?): UInt
 }
 
-public typealias PF_NPGetUser = PF_NPGetUserFn?
+public typealias PfNpgetUser = PfNpgetUserFn?
 
-public fun interface PF_NPLogonNotifyFn {
-    public operator fun invoke(lplogonid: Long, lpauthentinfotype: PCWSTR, lpauthentinfo: Long, lppreviousauthentinfotype: PCWSTR, lppreviousauthentinfo: Long, lpstationname: PCWSTR, stationhandle: Long, lplogonscript: Long): UInt
+public fun interface PfNplogonNotifyFn {
+    public operator fun invoke(lplogonid: COpaquePointer?, lpauthentinfotype: Pcwstr, lpauthentinfo: COpaquePointer?, lppreviousauthentinfotype: Pcwstr, lppreviousauthentinfo: COpaquePointer?, lpstationname: Pcwstr, stationhandle: COpaquePointer?, lplogonscript: COpaquePointer?): UInt
 }
 
-public typealias PF_NPLogonNotify = PF_NPLogonNotifyFn?
+public typealias PfNplogonNotify = PfNplogonNotifyFn?
 
-public fun interface PF_NPOpenEnumFn {
-    public operator fun invoke(dwscope: UInt, dwtype: UInt, dwusage: UInt, lpnetresource: Long, lphenum: Long): UInt
+public fun interface PfNpopenEnumFn {
+    public operator fun invoke(dwscope: UInt, dwtype: UInt, dwusage: UInt, lpnetresource: COpaquePointer?, lphenum: COpaquePointer?): UInt
 }
 
-public typealias PF_NPOpenEnum = PF_NPOpenEnumFn?
+public typealias PfNpopenEnum = PfNpopenEnumFn?
 
-public fun interface PF_NPPasswordChangeNotifyFn {
-    public operator fun invoke(lpauthentinfotype: PCWSTR, lpauthentinfo: Long, lppreviousauthentinfotype: PCWSTR, lppreviousauthentinfo: Long, lpstationname: PCWSTR, stationhandle: Long, dwchangeinfo: UInt): UInt
+public fun interface PfNppasswordChangeNotifyFn {
+    public operator fun invoke(lpauthentinfotype: Pcwstr, lpauthentinfo: COpaquePointer?, lppreviousauthentinfotype: Pcwstr, lppreviousauthentinfo: COpaquePointer?, lpstationname: Pcwstr, stationhandle: COpaquePointer?, dwchangeinfo: UInt): UInt
 }
 
-public typealias PF_NPPasswordChangeNotify = PF_NPPasswordChangeNotifyFn?
+public typealias PfNppasswordChangeNotify = PfNppasswordChangeNotifyFn?
 
-public fun interface PF_NPPropertyDialogFn {
-    public operator fun invoke(hwndparent: HWND, ibuttondlg: UInt, npropsel: UInt, lpfilename: PCWSTR, ntype: UInt): UInt
+public fun interface PfNppropertyDialogFn {
+    public operator fun invoke(hwndparent: Hwnd, ibuttondlg: UInt, npropsel: UInt, lpfilename: Pcwstr, ntype: UInt): UInt
 }
 
-public typealias PF_NPPropertyDialog = PF_NPPropertyDialogFn?
+public typealias PfNppropertyDialog = PfNppropertyDialogFn?
 
-public fun interface PF_NPSearchDialogFn {
-    public operator fun invoke(hwndparent: HWND, lpnetresource: Long, lpbuffer: Long, cbbuffer: UInt, lpnflags: Long): UInt
+public fun interface PfNpsearchDialogFn {
+    public operator fun invoke(hwndparent: Hwnd, lpnetresource: COpaquePointer?, lpbuffer: COpaquePointer?, cbbuffer: UInt, lpnflags: COpaquePointer?): UInt
 }
 
-public typealias PF_NPSearchDialog = PF_NPSearchDialogFn?
+public typealias PfNpsearchDialog = PfNpsearchDialogFn?
 
-public typealias UNC_INFO_LEVEL = UInt
+public typealias UncInfoLevel = UInt
 
-public typealias WNET_OPEN_ENUM_USAGE = UInt
+public typealias WnetOpenEnumUsage = UInt
 
-public typealias WNPERM_DLG = UInt
+public typealias WnpermDlg = UInt

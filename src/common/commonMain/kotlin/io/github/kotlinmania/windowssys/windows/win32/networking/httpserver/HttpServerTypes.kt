@@ -1,69 +1,69 @@
 package io.github.kotlinmania.windowssys.windows.win32.networking.httpserver
 
-public typealias HTTP_503_RESPONSE_VERBOSITY = Int
+public typealias Http503ResponseVerbosity = Int
 
-public typealias HTTP_AUTHENTICATION_HARDENING_LEVELS = Int
+public typealias HttpAuthenticationHardeningLevels = Int
 
-public typealias HTTP_AUTH_STATUS = Int
+public typealias HttpAuthStatus = Int
 
-public typealias HTTP_CACHE_POLICY_TYPE = Int
+public typealias HttpCachePolicyType = Int
 
-public typealias HTTP_CREATE_REQUEST_QUEUE_PROPERTY_ID = Int
+public typealias HttpCreateRequestQueuePropertyId = Int
 
-public typealias HTTP_DATA_CHUNK_TYPE = Int
+public typealias HttpDataChunkType = Int
 
-public typealias HTTP_DELEGATE_REQUEST_PROPERTY_ID = Int
+public typealias HttpDelegateRequestPropertyId = Int
 
-public typealias HTTP_ENABLED_STATE = Int
+public typealias HttpEnabledState = Int
 
-public typealias HTTP_FEATURE_ID = Int
+public typealias HttpFeatureId = Int
 
-public typealias HTTP_HEADER_ID = Int
+public typealias HttpHeaderId = Int
 
-public typealias HTTP_INITIALIZE = UInt
+public typealias HttpInitialize = UInt
 
-public typealias HTTP_LOGGING_ROLLOVER_TYPE = Int
+public typealias HttpLoggingRolloverType = Int
 
-public typealias HTTP_LOGGING_TYPE = Int
+public typealias HttpLoggingType = Int
 
-public typealias HTTP_LOG_DATA_TYPE = Int
+public typealias HttpLogDataType = Int
 
-public typealias HTTP_PERFORMANCE_PARAM_TYPE = Int
+public typealias HttpPerformanceParamType = Int
 
-public typealias HTTP_PROTECTION_LEVEL_TYPE = Int
+public typealias HttpProtectionLevelType = Int
 
-public typealias HTTP_QOS_SETTING_TYPE = Int
+public typealias HttpQosSettingType = Int
 
-public typealias HTTP_RECEIVE_HTTP_REQUEST_FLAGS = UInt
+public typealias HttpReceiveHttpRequestFlags = UInt
 
-public typealias HTTP_REQUEST_AUTH_TYPE = Int
+public typealias HttpRequestAuthType = Int
 
-public typealias HTTP_REQUEST_INFO_TYPE = Int
+public typealias HttpRequestInfoType = Int
 
-public typealias HTTP_REQUEST_PROPERTY = Int
+public typealias HttpRequestProperty = Int
 
-public typealias HTTP_REQUEST_SIZING_TYPE = Int
+public typealias HttpRequestSizingType = Int
 
-public typealias HTTP_REQUEST_TIMING_TYPE = Int
+public typealias HttpRequestTimingType = Int
 
-public typealias HTTP_RESPONSE_INFO_TYPE = Int
+public typealias HttpResponseInfoType = Int
 
-public typealias HTTP_SCHEME = Int
+public typealias HttpScheme = Int
 
-public typealias HTTP_SERVER_PROPERTY = Int
+public typealias HttpServerProperty = Int
 
-public typealias HTTP_SERVICE_BINDING_TYPE = Int
+public typealias HttpServiceBindingType = Int
 
-public typealias HTTP_SERVICE_CONFIG_CACHE_KEY = Int
+public typealias HttpServiceConfigCacheKey = Int
 
-public typealias HTTP_SERVICE_CONFIG_ID = Int
+public typealias HttpServiceConfigId = Int
 
-public typealias HTTP_SERVICE_CONFIG_QUERY_TYPE = Int
+public typealias HttpServiceConfigQueryType = Int
 
-public typealias HTTP_SERVICE_CONFIG_SETTING_KEY = Int
+public typealias HttpServiceConfigSettingKey = Int
 
-public typealias HTTP_SERVICE_CONFIG_TIMEOUT_KEY = Int
+public typealias HttpServiceConfigTimeoutKey = Int
 
-public typealias HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE = Int
+public typealias HttpSslServiceConfigExParamType = Int
 
-public typealias HTTP_VERB = Int
+public typealias HttpVerb = Int

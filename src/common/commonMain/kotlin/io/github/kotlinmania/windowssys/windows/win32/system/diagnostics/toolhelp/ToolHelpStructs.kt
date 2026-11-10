@@ -1,48 +1,49 @@
 @file:OptIn(ExperimentalUnsignedTypes::class)
 package io.github.kotlinmania.windowssys.windows.win32.system.diagnostics.toolhelp
 
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HANDLE
-import io.github.kotlinmania.windowssys.windows.win32.foundation.HMODULE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Handle
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Hmodule
 
-public data class HEAPENTRY32(
-    public var dwSize: ULong = 0uL,
-    public var hHandle: HANDLE = 0L,
-    public var dwAddress: ULong = 0uL,
-    public var dwBlockSize: ULong = 0uL,
-    public var dwFlags: HEAPENTRY32_FLAGS = 0u,
+public data class Heapentry32(
+    public var dwSize: Int = 0,
+    public var hHandle: Handle = null,
+    public var dwAddress: Int = 0,
+    public var dwBlockSize: Int = 0,
+    public var dwFlags: Heapentry32Flags = 0u,
     public var dwLockCount: UInt = 0u,
     public var dwResvd: UInt = 0u,
     public var th32ProcessID: UInt = 0u,
-    public var th32HeapID: ULong = 0uL,
+    public var th32HeapID: Int = 0,
 )
 
-public data class HEAPLIST32(
-    public var dwSize: ULong = 0uL,
+public data class Heaplist32(
+    public var dwSize: Int = 0,
     public var th32ProcessID: UInt = 0u,
-    public var th32HeapID: ULong = 0uL,
+    public var th32HeapID: Int = 0,
     public var dwFlags: UInt = 0u,
 )
 
-public data class MODULEENTRY32(
+public data class Moduleentry32(
     public var dwSize: UInt = 0u,
     public var th32ModuleID: UInt = 0u,
     public var th32ProcessID: UInt = 0u,
-    public var GlblcntUsage: UInt = 0u,
-    public var ProccntUsage: UInt = 0u,
-    public var modBaseAddr: Long = 0L,
+    public var glblcntUsage: UInt = 0u,
+    public var proccntUsage: UInt = 0u,
+    public var modBaseAddr: COpaquePointer? = null,
     public var modBaseSize: UInt = 0u,
-    public var hModule: HMODULE = 0L,
+    public var hModule: Hmodule = null,
     public var szModule: ByteArray = ByteArray(256),
     public var szExePath: ByteArray = ByteArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MODULEENTRY32) return false
+        if (other !is Moduleentry32) return false
         if (this.dwSize != other.dwSize) return false
         if (this.th32ModuleID != other.th32ModuleID) return false
         if (this.th32ProcessID != other.th32ProcessID) return false
-        if (this.GlblcntUsage != other.GlblcntUsage) return false
-        if (this.ProccntUsage != other.ProccntUsage) return false
+        if (this.glblcntUsage != other.glblcntUsage) return false
+        if (this.proccntUsage != other.proccntUsage) return false
         if (this.modBaseAddr != other.modBaseAddr) return false
         if (this.modBaseSize != other.modBaseSize) return false
         if (this.hModule != other.hModule) return false
@@ -55,8 +56,8 @@ public data class MODULEENTRY32(
         var result = this.dwSize.hashCode()
         result = 31 * result + this.th32ModuleID.hashCode()
         result = 31 * result + this.th32ProcessID.hashCode()
-        result = 31 * result + this.GlblcntUsage.hashCode()
-        result = 31 * result + this.ProccntUsage.hashCode()
+        result = 31 * result + this.glblcntUsage.hashCode()
+        result = 31 * result + this.proccntUsage.hashCode()
         result = 31 * result + this.modBaseAddr.hashCode()
         result = 31 * result + this.modBaseSize.hashCode()
         result = 31 * result + this.hModule.hashCode()
@@ -66,26 +67,26 @@ public data class MODULEENTRY32(
     }
 }
 
-public data class MODULEENTRY32W(
+public data class Moduleentry32w(
     public var dwSize: UInt = 0u,
     public var th32ModuleID: UInt = 0u,
     public var th32ProcessID: UInt = 0u,
-    public var GlblcntUsage: UInt = 0u,
-    public var ProccntUsage: UInt = 0u,
-    public var modBaseAddr: Long = 0L,
+    public var glblcntUsage: UInt = 0u,
+    public var proccntUsage: UInt = 0u,
+    public var modBaseAddr: COpaquePointer? = null,
     public var modBaseSize: UInt = 0u,
-    public var hModule: HMODULE = 0L,
+    public var hModule: Hmodule = null,
     public var szModule: UShortArray = UShortArray(256),
     public var szExePath: UShortArray = UShortArray(260),
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is MODULEENTRY32W) return false
+        if (other !is Moduleentry32w) return false
         if (this.dwSize != other.dwSize) return false
         if (this.th32ModuleID != other.th32ModuleID) return false
         if (this.th32ProcessID != other.th32ProcessID) return false
-        if (this.GlblcntUsage != other.GlblcntUsage) return false
-        if (this.ProccntUsage != other.ProccntUsage) return false
+        if (this.glblcntUsage != other.glblcntUsage) return false
+        if (this.proccntUsage != other.proccntUsage) return false
         if (this.modBaseAddr != other.modBaseAddr) return false
         if (this.modBaseSize != other.modBaseSize) return false
         if (this.hModule != other.hModule) return false
@@ -98,8 +99,8 @@ public data class MODULEENTRY32W(
         var result = this.dwSize.hashCode()
         result = 31 * result + this.th32ModuleID.hashCode()
         result = 31 * result + this.th32ProcessID.hashCode()
-        result = 31 * result + this.GlblcntUsage.hashCode()
-        result = 31 * result + this.ProccntUsage.hashCode()
+        result = 31 * result + this.glblcntUsage.hashCode()
+        result = 31 * result + this.proccntUsage.hashCode()
         result = 31 * result + this.modBaseAddr.hashCode()
         result = 31 * result + this.modBaseSize.hashCode()
         result = 31 * result + this.hModule.hashCode()
@@ -109,11 +110,11 @@ public data class MODULEENTRY32W(
     }
 }
 
-public data class PROCESSENTRY32(
+public data class Processentry32(
     public var dwSize: UInt = 0u,
     public var cntUsage: UInt = 0u,
     public var th32ProcessID: UInt = 0u,
-    public var th32DefaultHeapID: ULong = 0uL,
+    public var th32DefaultHeapID: Int = 0,
     public var th32ModuleID: UInt = 0u,
     public var cntThreads: UInt = 0u,
     public var th32ParentProcessID: UInt = 0u,
@@ -123,7 +124,7 @@ public data class PROCESSENTRY32(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is PROCESSENTRY32) return false
+        if (other !is Processentry32) return false
         if (this.dwSize != other.dwSize) return false
         if (this.cntUsage != other.cntUsage) return false
         if (this.th32ProcessID != other.th32ProcessID) return false
@@ -152,11 +153,11 @@ public data class PROCESSENTRY32(
     }
 }
 
-public data class PROCESSENTRY32W(
+public data class Processentry32w(
     public var dwSize: UInt = 0u,
     public var cntUsage: UInt = 0u,
     public var th32ProcessID: UInt = 0u,
-    public var th32DefaultHeapID: ULong = 0uL,
+    public var th32DefaultHeapID: Int = 0,
     public var th32ModuleID: UInt = 0u,
     public var cntThreads: UInt = 0u,
     public var th32ParentProcessID: UInt = 0u,
@@ -166,7 +167,7 @@ public data class PROCESSENTRY32W(
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is PROCESSENTRY32W) return false
+        if (other !is Processentry32w) return false
         if (this.dwSize != other.dwSize) return false
         if (this.cntUsage != other.cntUsage) return false
         if (this.th32ProcessID != other.th32ProcessID) return false
@@ -195,7 +196,7 @@ public data class PROCESSENTRY32W(
     }
 }
 
-public data class THREADENTRY32(
+public data class Threadentry32(
     public var dwSize: UInt = 0u,
     public var cntUsage: UInt = 0u,
     public var th32ThreadID: UInt = 0u,

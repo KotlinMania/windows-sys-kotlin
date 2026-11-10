@@ -2,32 +2,34 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.componentservices
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.windows.win32.system.com.APTTYPE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.windows.win32.system.com.Apttype
 
-public actual fun CoCreateActivity(piunknown: Long, riid: Long, ppobj: Long): HRESULT =
-    0
+public actual fun coCreateActivity(piunknown: COpaquePointer?, riid: COpaquePointer?, ppobj: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CoEnterServiceDomain(pconfigobject: Long): HRESULT =
-    0
+public actual fun coEnterServiceDomain(pconfigobject: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CoGetDefaultContext(apttype: APTTYPE, riid: Long, ppv: Long): HRESULT =
-    0
+public actual fun coGetDefaultContext(apttype: Apttype, riid: COpaquePointer?, ppv: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun CoLeaveServiceDomain(punkstatus: Long) {
+public actual fun coLeaveServiceDomain(punkstatus: COpaquePointer?) {
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 }
 
-public actual fun GetDispenserManager(param0: Long): HRESULT =
-    0
+public actual fun getDispenserManager(param0: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun GetManagedExtensions(dwexts: Long): HRESULT =
-    0
+public actual fun getManagedExtensions(dwexts: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun MTSCreateActivity(riid: Long, ppobj: Long): HRESULT =
-    0
+public actual fun mTSCreateActivity(riid: COpaquePointer?, ppobj: COpaquePointer?): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun RecycleSurrogate(lreasoncode: Int): HRESULT =
-    0
+public actual fun recycleSurrogate(lreasoncode: Int): Hresult =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")
 
-public actual fun SafeRef(rid: Long, punk: Long): Long =
-    0L
+public actual fun safeRef(rid: COpaquePointer?, punk: COpaquePointer?): COpaquePointer? =
+    throw UnsupportedOperationException("Native FFI is not available on WasmWasi")

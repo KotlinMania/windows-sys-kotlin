@@ -6,11 +6,11 @@ public val DFS_FORCE_REMOVE: UInt = 2147483648u
 
 public val DFS_MOVE_FLAG_REPLACE_IF_EXISTS: UInt = 1u
 
-public val DFS_NAMESPACE_VERSION_ORIGIN_COMBINED: DFS_NAMESPACE_VERSION_ORIGIN = 0
+public val DFS_NAMESPACE_VERSION_ORIGIN_COMBINED: DfsNamespaceVersionOrigin = 0
 
-public val DFS_NAMESPACE_VERSION_ORIGIN_DOMAIN: DFS_NAMESPACE_VERSION_ORIGIN = 2
+public val DFS_NAMESPACE_VERSION_ORIGIN_DOMAIN: DfsNamespaceVersionOrigin = 2
 
-public val DFS_NAMESPACE_VERSION_ORIGIN_SERVER: DFS_NAMESPACE_VERSION_ORIGIN = 1
+public val DFS_NAMESPACE_VERSION_ORIGIN_SERVER: DfsNamespaceVersionOrigin = 1
 
 public val DFS_PROPERTY_FLAG_ABDE: UInt = 32u
 
@@ -62,17 +62,17 @@ public val DFS_VOLUME_STATE_RESYNCHRONIZE: UInt = 16u
 
 public val DFS_VOLUME_STATE_STANDBY: UInt = 32u
 
-public val DfsGlobalHighPriorityClass: DFS_TARGET_PRIORITY_CLASS = 1
+public val DFS_GLOBAL_HIGH_PRIORITY_CLASS: DfsTargetPriorityClass = 1
 
-public val DfsGlobalLowPriorityClass: DFS_TARGET_PRIORITY_CLASS = 4
+public val DFS_GLOBAL_LOW_PRIORITY_CLASS: DfsTargetPriorityClass = 4
 
-public val DfsInvalidPriorityClass: DFS_TARGET_PRIORITY_CLASS = -1
+public val DFS_INVALID_PRIORITY_CLASS: DfsTargetPriorityClass = -1
 
-public val DfsSiteCostHighPriorityClass: DFS_TARGET_PRIORITY_CLASS = 2
+public val DFS_SITE_COST_HIGH_PRIORITY_CLASS: DfsTargetPriorityClass = 2
 
-public val DfsSiteCostLowPriorityClass: DFS_TARGET_PRIORITY_CLASS = 3
+public val DFS_SITE_COST_LOW_PRIORITY_CLASS: DfsTargetPriorityClass = 3
 
-public val DfsSiteCostNormalPriorityClass: DFS_TARGET_PRIORITY_CLASS = 0
+public val DFS_SITE_COST_NORMAL_PRIORITY_CLASS: DfsTargetPriorityClass = 0
 
 public val FSCTL_DFS_BASE: UInt = 6u
 

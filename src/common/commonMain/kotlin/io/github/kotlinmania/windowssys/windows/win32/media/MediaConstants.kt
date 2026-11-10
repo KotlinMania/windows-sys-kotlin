@@ -1,10 +1,10 @@
 package io.github.kotlinmania.windowssys.windows.win32.media
 
-public val ED_DEVCAP_ATN_READ: TIMECODE_SAMPLE_FLAGS = 5047u
+public val ED_DEVCAP_ATN_READ: TimecodeSampleFlags = 5047u
 
-public val ED_DEVCAP_RTC_READ: TIMECODE_SAMPLE_FLAGS = 5050u
+public val ED_DEVCAP_RTC_READ: TimecodeSampleFlags = 5050u
 
-public val ED_DEVCAP_TIMECODE_READ: TIMECODE_SAMPLE_FLAGS = 4121u
+public val ED_DEVCAP_TIMECODE_READ: TimecodeSampleFlags = 4121u
 
 public val JOYERR_BASE: UInt = 160u
 

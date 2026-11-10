@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_system_grouppolicy_BrowseForGPO_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_grouppolicy_browseForGPO_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpbrowseinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -69,7 +69,7 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_BrowseForGPO_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_grouppolicy_CommandLineFromMsiDescriptor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_grouppolicy_commandLineFromMsiDescriptor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* descriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* commandline = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -91,7 +91,7 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_CommandLineFromMs
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_grouppolicy_CreateGPOLink_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_grouppolicy_createGPOLink_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpgpo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcontainer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -113,7 +113,7 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_CreateGPOLink_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_grouppolicy_DeleteAllGPOLinks_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_grouppolicy_deleteAllGPOLinks_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpcontainer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -131,7 +131,7 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_DeleteAllGPOLinks
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_grouppolicy_DeleteGPOLink_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_grouppolicy_deleteGPOLink_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpgpo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcontainer = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -151,7 +151,7 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_DeleteGPOLink_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_grouppolicy_EnterCriticalPolicySection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_grouppolicy_enterCriticalPolicySection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t bmachine = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -169,7 +169,7 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_EnterCriticalPoli
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_system_grouppolicy_ExportRSoPData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_grouppolicy_exportRSoPData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpnamespace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -189,7 +189,7 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_ExportRSoPData_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_grouppolicy_FreeGPOListA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_grouppolicy_freeGPOListA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pgpolist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -207,7 +207,7 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_FreeGPOListA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_grouppolicy_FreeGPOListW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_grouppolicy_freeGPOListW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pgpolist = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -225,7 +225,7 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_FreeGPOListW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_grouppolicy_GenerateGPNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_grouppolicy_generateGPNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t bmachine = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpwszmgmtproduct = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -247,7 +247,7 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_GenerateGPNotific
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_grouppolicy_GetAppliedGPOListA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_grouppolicy_getAppliedGPOListA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -273,7 +273,7 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_GetAppliedGPOList
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_grouppolicy_GetAppliedGPOListW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_grouppolicy_getAppliedGPOListW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pmachinename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -299,7 +299,7 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_GetAppliedGPOList
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_grouppolicy_GetGPOListA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_grouppolicy_getGPOListA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* htoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -327,7 +327,7 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_GetGPOListA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_grouppolicy_GetGPOListW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_grouppolicy_getGPOListW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* htoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -355,7 +355,7 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_GetGPOListW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_grouppolicy_GetLocalManagedApplicationData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_grouppolicy_getLocalManagedApplicationData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* productcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* displayname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -376,7 +376,7 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_GetLocalManagedAp
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_system_grouppolicy_GetLocalManagedApplications_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_grouppolicy_getLocalManagedApplications_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t buserapps = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pdwapps = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -398,7 +398,7 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_GetLocalManagedAp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_grouppolicy_GetManagedApplicationCategories_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_grouppolicy_getManagedApplicationCategories_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwreserved = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pappcategory = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -418,7 +418,7 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_GetManagedApplica
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_grouppolicy_GetManagedApplications_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_grouppolicy_getManagedApplications_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcategory = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwqueryflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -444,7 +444,7 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_GetManagedApplica
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_grouppolicy_ImportRSoPData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_grouppolicy_importRSoPData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpnamespace = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -464,7 +464,7 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_ImportRSoPData_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_grouppolicy_InstallApplication_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_grouppolicy_installApplication_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pinstallinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -482,7 +482,7 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_InstallApplicatio
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_grouppolicy_LeaveCriticalPolicySection_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_grouppolicy_leaveCriticalPolicySection_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hsection = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -500,7 +500,7 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_LeaveCriticalPoli
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_grouppolicy_ProcessGroupPolicyCompleted_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_grouppolicy_processGroupPolicyCompleted_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* extensionid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t pasynchandle = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -522,7 +522,7 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_ProcessGroupPolic
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_grouppolicy_ProcessGroupPolicyCompletedEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_grouppolicy_processGroupPolicyCompletedEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* extensionid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t pasynchandle = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -546,7 +546,7 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_ProcessGroupPolic
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_grouppolicy_RefreshPolicy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_grouppolicy_refreshPolicy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t bmachine = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -564,7 +564,7 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_RefreshPolicy_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_grouppolicy_RefreshPolicyEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_grouppolicy_refreshPolicyEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t bmachine = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwoptions = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -584,7 +584,7 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_RefreshPolicyEx_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_grouppolicy_RegisterGPNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_grouppolicy_registerGPNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hevent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t bmachine = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -604,7 +604,7 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_RegisterGPNotific
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_grouppolicy_RsopAccessCheckByType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_grouppolicy_rsopAccessCheckByType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psecuritydescriptor = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pprincipalselfsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -642,7 +642,7 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_RsopAccessCheckBy
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_grouppolicy_RsopFileAccessCheck_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_grouppolicy_rsopFileAccessCheck_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* prsoptoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -668,7 +668,7 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_RsopFileAccessChe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_grouppolicy_RsopResetPolicySettingStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_grouppolicy_rsopResetPolicySettingStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pservices = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -690,7 +690,7 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_RsopResetPolicySe
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_grouppolicy_RsopSetPolicySettingStatus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_grouppolicy_rsopSetPolicySettingStatus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pservices = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -716,7 +716,7 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_RsopSetPolicySett
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_grouppolicy_UninstallApplication_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_grouppolicy_uninstallApplication_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* productcode = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwstatus = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -736,7 +736,7 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_UninstallApplicat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_system_grouppolicy_UnregisterGPNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_system_grouppolicy_unregisterGPNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hevent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -755,38 +755,38 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_UnregisterGPNotif
 }
 
 static void register_windows_win32_system_grouppolicy_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_system_grouppolicy_BrowseForGPO", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_BrowseForGPO_napi));
-    exports.Set("windowssys_windows_win32_system_grouppolicy_CommandLineFromMsiDescriptor", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_CommandLineFromMsiDescriptor_napi));
-    exports.Set("windowssys_windows_win32_system_grouppolicy_CreateGPOLink", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_CreateGPOLink_napi));
-    exports.Set("windowssys_windows_win32_system_grouppolicy_DeleteAllGPOLinks", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_DeleteAllGPOLinks_napi));
-    exports.Set("windowssys_windows_win32_system_grouppolicy_DeleteGPOLink", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_DeleteGPOLink_napi));
-    exports.Set("windowssys_windows_win32_system_grouppolicy_EnterCriticalPolicySection", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_EnterCriticalPolicySection_napi));
-    exports.Set("windowssys_windows_win32_system_grouppolicy_ExportRSoPData", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_ExportRSoPData_napi));
-    exports.Set("windowssys_windows_win32_system_grouppolicy_FreeGPOListA", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_FreeGPOListA_napi));
-    exports.Set("windowssys_windows_win32_system_grouppolicy_FreeGPOListW", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_FreeGPOListW_napi));
-    exports.Set("windowssys_windows_win32_system_grouppolicy_GenerateGPNotification", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_GenerateGPNotification_napi));
-    exports.Set("windowssys_windows_win32_system_grouppolicy_GetAppliedGPOListA", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_GetAppliedGPOListA_napi));
-    exports.Set("windowssys_windows_win32_system_grouppolicy_GetAppliedGPOListW", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_GetAppliedGPOListW_napi));
-    exports.Set("windowssys_windows_win32_system_grouppolicy_GetGPOListA", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_GetGPOListA_napi));
-    exports.Set("windowssys_windows_win32_system_grouppolicy_GetGPOListW", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_GetGPOListW_napi));
-    exports.Set("windowssys_windows_win32_system_grouppolicy_GetLocalManagedApplicationData", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_GetLocalManagedApplicationData_napi));
-    exports.Set("windowssys_windows_win32_system_grouppolicy_GetLocalManagedApplications", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_GetLocalManagedApplications_napi));
-    exports.Set("windowssys_windows_win32_system_grouppolicy_GetManagedApplicationCategories", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_GetManagedApplicationCategories_napi));
-    exports.Set("windowssys_windows_win32_system_grouppolicy_GetManagedApplications", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_GetManagedApplications_napi));
-    exports.Set("windowssys_windows_win32_system_grouppolicy_ImportRSoPData", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_ImportRSoPData_napi));
-    exports.Set("windowssys_windows_win32_system_grouppolicy_InstallApplication", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_InstallApplication_napi));
-    exports.Set("windowssys_windows_win32_system_grouppolicy_LeaveCriticalPolicySection", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_LeaveCriticalPolicySection_napi));
-    exports.Set("windowssys_windows_win32_system_grouppolicy_ProcessGroupPolicyCompleted", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_ProcessGroupPolicyCompleted_napi));
-    exports.Set("windowssys_windows_win32_system_grouppolicy_ProcessGroupPolicyCompletedEx", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_ProcessGroupPolicyCompletedEx_napi));
-    exports.Set("windowssys_windows_win32_system_grouppolicy_RefreshPolicy", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_RefreshPolicy_napi));
-    exports.Set("windowssys_windows_win32_system_grouppolicy_RefreshPolicyEx", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_RefreshPolicyEx_napi));
-    exports.Set("windowssys_windows_win32_system_grouppolicy_RegisterGPNotification", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_RegisterGPNotification_napi));
-    exports.Set("windowssys_windows_win32_system_grouppolicy_RsopAccessCheckByType", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_RsopAccessCheckByType_napi));
-    exports.Set("windowssys_windows_win32_system_grouppolicy_RsopFileAccessCheck", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_RsopFileAccessCheck_napi));
-    exports.Set("windowssys_windows_win32_system_grouppolicy_RsopResetPolicySettingStatus", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_RsopResetPolicySettingStatus_napi));
-    exports.Set("windowssys_windows_win32_system_grouppolicy_RsopSetPolicySettingStatus", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_RsopSetPolicySettingStatus_napi));
-    exports.Set("windowssys_windows_win32_system_grouppolicy_UninstallApplication", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_UninstallApplication_napi));
-    exports.Set("windowssys_windows_win32_system_grouppolicy_UnregisterGPNotification", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_UnregisterGPNotification_napi));
+    exports.Set("windowssys_windows_win32_system_grouppolicy_browseForGPO", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_browseForGPO_napi));
+    exports.Set("windowssys_windows_win32_system_grouppolicy_commandLineFromMsiDescriptor", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_commandLineFromMsiDescriptor_napi));
+    exports.Set("windowssys_windows_win32_system_grouppolicy_createGPOLink", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_createGPOLink_napi));
+    exports.Set("windowssys_windows_win32_system_grouppolicy_deleteAllGPOLinks", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_deleteAllGPOLinks_napi));
+    exports.Set("windowssys_windows_win32_system_grouppolicy_deleteGPOLink", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_deleteGPOLink_napi));
+    exports.Set("windowssys_windows_win32_system_grouppolicy_enterCriticalPolicySection", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_enterCriticalPolicySection_napi));
+    exports.Set("windowssys_windows_win32_system_grouppolicy_exportRSoPData", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_exportRSoPData_napi));
+    exports.Set("windowssys_windows_win32_system_grouppolicy_freeGPOListA", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_freeGPOListA_napi));
+    exports.Set("windowssys_windows_win32_system_grouppolicy_freeGPOListW", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_freeGPOListW_napi));
+    exports.Set("windowssys_windows_win32_system_grouppolicy_generateGPNotification", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_generateGPNotification_napi));
+    exports.Set("windowssys_windows_win32_system_grouppolicy_getAppliedGPOListA", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_getAppliedGPOListA_napi));
+    exports.Set("windowssys_windows_win32_system_grouppolicy_getAppliedGPOListW", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_getAppliedGPOListW_napi));
+    exports.Set("windowssys_windows_win32_system_grouppolicy_getGPOListA", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_getGPOListA_napi));
+    exports.Set("windowssys_windows_win32_system_grouppolicy_getGPOListW", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_getGPOListW_napi));
+    exports.Set("windowssys_windows_win32_system_grouppolicy_getLocalManagedApplicationData", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_getLocalManagedApplicationData_napi));
+    exports.Set("windowssys_windows_win32_system_grouppolicy_getLocalManagedApplications", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_getLocalManagedApplications_napi));
+    exports.Set("windowssys_windows_win32_system_grouppolicy_getManagedApplicationCategories", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_getManagedApplicationCategories_napi));
+    exports.Set("windowssys_windows_win32_system_grouppolicy_getManagedApplications", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_getManagedApplications_napi));
+    exports.Set("windowssys_windows_win32_system_grouppolicy_importRSoPData", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_importRSoPData_napi));
+    exports.Set("windowssys_windows_win32_system_grouppolicy_installApplication", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_installApplication_napi));
+    exports.Set("windowssys_windows_win32_system_grouppolicy_leaveCriticalPolicySection", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_leaveCriticalPolicySection_napi));
+    exports.Set("windowssys_windows_win32_system_grouppolicy_processGroupPolicyCompleted", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_processGroupPolicyCompleted_napi));
+    exports.Set("windowssys_windows_win32_system_grouppolicy_processGroupPolicyCompletedEx", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_processGroupPolicyCompletedEx_napi));
+    exports.Set("windowssys_windows_win32_system_grouppolicy_refreshPolicy", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_refreshPolicy_napi));
+    exports.Set("windowssys_windows_win32_system_grouppolicy_refreshPolicyEx", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_refreshPolicyEx_napi));
+    exports.Set("windowssys_windows_win32_system_grouppolicy_registerGPNotification", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_registerGPNotification_napi));
+    exports.Set("windowssys_windows_win32_system_grouppolicy_rsopAccessCheckByType", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_rsopAccessCheckByType_napi));
+    exports.Set("windowssys_windows_win32_system_grouppolicy_rsopFileAccessCheck", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_rsopFileAccessCheck_napi));
+    exports.Set("windowssys_windows_win32_system_grouppolicy_rsopResetPolicySettingStatus", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_rsopResetPolicySettingStatus_napi));
+    exports.Set("windowssys_windows_win32_system_grouppolicy_rsopSetPolicySettingStatus", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_rsopSetPolicySettingStatus_napi));
+    exports.Set("windowssys_windows_win32_system_grouppolicy_uninstallApplication", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_uninstallApplication_napi));
+    exports.Set("windowssys_windows_win32_system_grouppolicy_unregisterGPNotification", Napi::Function::New(env, windowssys_windows_win32_system_grouppolicy_unregisterGPNotification_napi));
 }
 
 static KmNapiRegistrarNode registrar_node = { &register_windows_win32_system_grouppolicy_napi, nullptr };

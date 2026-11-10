@@ -51,7 +51,7 @@ static uint64_t km_napi_arg_u64(const Napi::Value& v) {
     return 0;
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_AssocCreateForClasses_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_assocCreateForClasses_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rgclasses = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cclasses = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -75,7 +75,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_AssocCreateForClasses_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_AssocGetDetailsOfPropKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_assocGetDetailsOfPropKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pidl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -101,7 +101,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_AssocGetDetailsOfPropKey_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_AssocGetPerceivedType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_assocGetPerceivedType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ptype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -125,7 +125,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_AssocGetPerceivedType_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_AssocIsDangerous_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_assocIsDangerous_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszassoc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -143,7 +143,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_AssocIsDangerous_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_AssocQueryKeyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_assocQueryKeyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t key = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -169,7 +169,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_AssocQueryKeyA_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_AssocQueryKeyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_assocQueryKeyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t key = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -195,7 +195,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_AssocQueryKeyW_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_AssocQueryStringA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_assocQueryStringA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t str = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -223,7 +223,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_AssocQueryStringA_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_AssocQueryStringByKeyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_assocQueryStringByKeyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t str = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -251,7 +251,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_AssocQueryStringByKeyA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_AssocQueryStringByKeyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_assocQueryStringByKeyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t str = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -279,7 +279,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_AssocQueryStringByKeyW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_AssocQueryStringW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_assocQueryStringW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t flags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t str = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -307,7 +307,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_AssocQueryStringW_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_CDefFolderMenu_Create2_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_cdefFolderMenuCreate2_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pidlfolder = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -341,7 +341,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_CDefFolderMenu_Create2_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_CIDLData_CreateFromIDArray_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_cidldataCreateFromIdarray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pidlfolder = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cidl = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -365,7 +365,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_CIDLData_CreateFromIDArray_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ChrCmpIA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_chrCmpIA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t w1 = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint16_t w2 = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -385,7 +385,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_ChrCmpIA_napi(const Napi::C
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ChrCmpIW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_chrCmpIW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t w1 = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint16_t w2 = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -405,7 +405,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_ChrCmpIW_napi(const Napi::C
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ColorAdjustLuma_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_colorAdjustLuma_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t clrrgb = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t n = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -427,7 +427,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_ColorAdjustLuma_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ColorHLSToRGB_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_colorHLSToRGB_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t whue = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint16_t wluminance = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -449,7 +449,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_ColorHLSToRGB_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ColorRGBToHLS_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_colorRGBToHLS_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t clrrgb = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pwhue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -472,7 +472,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_ColorRGBToHLS_napi(const Na
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_CommandLineToArgvW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_commandLineToArgvW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpcmdline = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pnumargs = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -492,7 +492,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_CommandLineToArgvW_napi(con
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ConnectToConnectionPoint_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_connectToConnectionPoint_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* riidevent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -520,7 +520,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_ConnectToConnectionPoint_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_CreateProfile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_createProfile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszusersid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszusername = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -544,7 +544,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_CreateProfile_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_DAD_AutoScroll_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_dadAutoScroll_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pad = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -566,7 +566,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_DAD_AutoScroll_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_DAD_DragLeave_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_dadDragLeave_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -582,7 +582,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_DAD_DragLeave_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_DAD_SetDragImage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_dadSetDragImage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t him = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pptoffset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -602,7 +602,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_DAD_SetDragImage_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_DAD_ShowDragImage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_dadShowDragImage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t fshow = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -620,7 +620,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_DAD_ShowDragImage_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_DefSubclassProc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_defSubclassProc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t umsg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -644,7 +644,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_DefSubclassProc_napi(const 
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_DeleteProfileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_deleteProfileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsidstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpprofilepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -666,7 +666,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_DeleteProfileA_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_DeleteProfileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_deleteProfileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsidstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpprofilepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -688,7 +688,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_DeleteProfileW_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_DoEnvironmentSubstA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_doEnvironmentSubstA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cchsrc = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -708,7 +708,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_DoEnvironmentSubstA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_DoEnvironmentSubstW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_doEnvironmentSubstW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cchsrc = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -728,7 +728,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_DoEnvironmentSubstW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_DragAcceptFiles_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_dragAcceptFiles_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t faccept = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -747,7 +747,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_DragAcceptFiles_napi(const 
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_DragFinish_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_dragFinish_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdrop = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -764,7 +764,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_DragFinish_napi(const Napi:
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_DragQueryFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_dragQueryFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdrop = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ifile = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -788,7 +788,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_DragQueryFileA_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_DragQueryFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_dragQueryFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdrop = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ifile = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -812,7 +812,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_DragQueryFileW_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_DragQueryPoint_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_dragQueryPoint_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdrop = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -832,7 +832,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_DragQueryPoint_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_DriveType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_driveType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t idrive = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -850,7 +850,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_DriveType_napi(const Napi::
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_DuplicateIcon_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_duplicateIcon_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hicon = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -870,7 +870,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_DuplicateIcon_napi(const Na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ExtractAssociatedIconA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_extractAssociatedIconA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psziconpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -892,7 +892,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_ExtractAssociatedIconA_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ExtractAssociatedIconExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_extractAssociatedIconExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psziconpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -916,7 +916,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_ExtractAssociatedIconExA_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ExtractAssociatedIconExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_extractAssociatedIconExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psziconpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -940,7 +940,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_ExtractAssociatedIconExW_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ExtractAssociatedIconW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_extractAssociatedIconW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psziconpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -962,7 +962,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_ExtractAssociatedIconW_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ExtractIconA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_extractIconA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszexefilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -984,7 +984,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_ExtractIconA_napi(const Nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ExtractIconExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_extractIconExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t niconindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1010,7 +1010,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_ExtractIconExA_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ExtractIconExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_extractIconExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpszfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t niconindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1036,7 +1036,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_ExtractIconExW_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ExtractIconW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_extractIconW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszexefilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1058,7 +1058,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_ExtractIconW_napi(const Nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_FindExecutableA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_findExecutableA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdirectory = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1080,7 +1080,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_FindExecutableA_napi(const 
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_FindExecutableW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_findExecutableW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpdirectory = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1102,7 +1102,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_FindExecutableW_napi(const 
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_GetAcceptLanguagesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_getAcceptLanguagesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszlanguages = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcchlanguages = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1122,7 +1122,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_GetAcceptLanguagesA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_GetAcceptLanguagesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_getAcceptLanguagesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszlanguages = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcchlanguages = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1142,7 +1142,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_GetAcceptLanguagesW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_GetAllUsersProfileDirectoryA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_getAllUsersProfileDirectoryA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpprofiledir = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcchsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1162,7 +1162,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_GetAllUsersProfileDirectory
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_GetAllUsersProfileDirectoryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_getAllUsersProfileDirectoryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpprofiledir = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcchsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1182,7 +1182,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_GetAllUsersProfileDirectory
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_GetCurrentProcessExplicitAppUserModelID_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_getCurrentProcessExplicitAppUserModelID_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* appid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1200,7 +1200,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_GetCurrentProcessExplicitAp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_GetDefaultUserProfileDirectoryA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_getDefaultUserProfileDirectoryA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpprofiledir = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcchsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1220,7 +1220,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_GetDefaultUserProfileDirect
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_GetDefaultUserProfileDirectoryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_getDefaultUserProfileDirectoryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpprofiledir = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcchsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1240,7 +1240,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_GetDefaultUserProfileDirect
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_GetDpiForShellUIComponent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_getDpiForShellUIComponent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t param0 = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -1258,7 +1258,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_GetDpiForShellUIComponent_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_GetFileNameFromBrowse_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_getFileNameFromBrowse_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszfilepath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1288,7 +1288,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_GetFileNameFromBrowse_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_GetMenuContextHelpId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_getMenuContextHelpId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1306,7 +1306,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_GetMenuContextHelpId_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_GetMenuPosFromID_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_getMenuPosFromID_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmenu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t id = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1326,7 +1326,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_GetMenuPosFromID_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_GetProfileType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_getProfileType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* dwflags = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1344,7 +1344,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_GetProfileType_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_GetProfilesDirectoryA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_getProfilesDirectoryA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpprofiledir = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcchsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1364,7 +1364,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_GetProfilesDirectoryA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_GetProfilesDirectoryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_getProfilesDirectoryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpprofiledir = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpcchsize = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1384,7 +1384,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_GetProfilesDirectoryW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_GetScaleFactorForDevice_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_getScaleFactorForDevice_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t devicetype = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -1402,7 +1402,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_GetScaleFactorForDevice_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_GetScaleFactorForMonitor_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_getScaleFactorForMonitor_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmon = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pscale = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1422,7 +1422,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_GetScaleFactorForMonitor_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_GetUserProfileDirectoryA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_getUserProfileDirectoryA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* htoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpprofiledir = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1444,7 +1444,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_GetUserProfileDirectoryA_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_GetUserProfileDirectoryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_getUserProfileDirectoryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* htoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpprofiledir = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1466,7 +1466,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_GetUserProfileDirectoryW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_GetWindowContextHelpId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_getWindowContextHelpId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -1484,7 +1484,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_GetWindowContextHelpId_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_GetWindowSubclass_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_getWindowSubclass_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfnsubclass = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1508,7 +1508,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_GetWindowSubclass_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_HMONITOR_UserFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_hmonitorUserFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1527,7 +1527,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_HMONITOR_UserFree_napi(cons
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_HMONITOR_UserFree64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_hmonitorUserFree64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1546,7 +1546,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_HMONITOR_UserFree64_napi(co
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_HMONITOR_UserMarshal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_hmonitorUserMarshal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1568,7 +1568,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_HMONITOR_UserMarshal_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_HMONITOR_UserMarshal64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_hmonitorUserMarshal64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1590,7 +1590,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_HMONITOR_UserMarshal64_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_HMONITOR_UserSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_hmonitorUserSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1612,7 +1612,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_HMONITOR_UserSize_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_HMONITOR_UserSize64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_hmonitorUserSize64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1634,7 +1634,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_HMONITOR_UserSize64_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_HMONITOR_UserUnmarshal_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_hmonitorUserUnmarshal_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1656,7 +1656,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_HMONITOR_UserUnmarshal_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_HMONITOR_UserUnmarshal64_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_hmonitorUserUnmarshal64_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* param1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1678,7 +1678,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_HMONITOR_UserUnmarshal64_na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_HashData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_hashData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbdata = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -1702,7 +1702,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_HashData_napi(const Napi::C
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_HlinkClone_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_hlinkClone_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pihl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1728,7 +1728,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_HlinkClone_napi(const Napi:
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_HlinkCreateBrowseContext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_hlinkCreateBrowseContext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* piunkouter = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1750,7 +1750,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_HlinkCreateBrowseContext_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_HlinkCreateExtensionServices_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_hlinkCreateExtensionServices_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzadditionalheaders = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1780,7 +1780,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_HlinkCreateExtensionService
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_HlinkCreateFromData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_hlinkCreateFromData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pidataobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pihlsite = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1808,7 +1808,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_HlinkCreateFromData_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_HlinkCreateFromMoniker_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_hlinkCreateFromMoniker_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pimktrgt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzlocation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1840,7 +1840,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_HlinkCreateFromMoniker_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_HlinkCreateFromString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_hlinkCreateFromString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwztarget = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzlocation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1872,7 +1872,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_HlinkCreateFromString_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_HlinkCreateShortcut_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_hlinkCreateShortcut_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t grfhlshortcutf = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pihl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1900,7 +1900,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_HlinkCreateShortcut_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_HlinkCreateShortcutFromMoniker_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_hlinkCreateShortcutFromMoniker_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t grfhlshortcutf = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pimktarget = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1930,7 +1930,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_HlinkCreateShortcutFromMoni
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_HlinkCreateShortcutFromString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_hlinkCreateShortcutFromString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t grfhlshortcutf = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pwztarget = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1960,7 +1960,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_HlinkCreateShortcutFromStri
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_HlinkGetSpecialReference_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_hlinkGetSpecialReference_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ureference = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* ppwzreference = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -1980,7 +1980,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_HlinkGetSpecialReference_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_HlinkGetValueFromParams_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_hlinkGetValueFromParams_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzparams = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2002,7 +2002,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_HlinkGetValueFromParams_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_HlinkIsShortcut_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_hlinkIsShortcut_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2020,7 +2020,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_HlinkIsShortcut_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_HlinkNavigate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_hlinkNavigate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pihl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pihlframe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2048,7 +2048,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_HlinkNavigate_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_HlinkNavigateToStringReference_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_hlinkNavigateToStringReference_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwztarget = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzlocation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2082,7 +2082,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_HlinkNavigateToStringRefere
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_HlinkOnNavigate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_hlinkOnNavigate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pihlframe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pihlbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2112,7 +2112,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_HlinkOnNavigate_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_HlinkOnRenameDocument_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_hlinkOnRenameDocument_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwreserved = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pihlbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2136,7 +2136,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_HlinkOnRenameDocument_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_HlinkParseDisplayName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_hlinkParseDisplayName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pibc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzdisplayname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2162,7 +2162,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_HlinkParseDisplayName_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_HlinkPreprocessMoniker_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_hlinkPreprocessMoniker_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pibc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pimkin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2184,7 +2184,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_HlinkPreprocessMoniker_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_HlinkQueryCreateFromData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_hlinkQueryCreateFromData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pidataobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2202,7 +2202,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_HlinkQueryCreateFromData_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_HlinkResolveMonikerForData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_hlinkResolveMonikerForData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pimkreference = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t reserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2232,7 +2232,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_HlinkResolveMonikerForData_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_HlinkResolveShortcut_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_hlinkResolveShortcut_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzshortcutfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pihlsite = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2260,7 +2260,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_HlinkResolveShortcut_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_HlinkResolveShortcutToMoniker_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_hlinkResolveShortcutToMoniker_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzshortcutfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppimktarget = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2282,7 +2282,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_HlinkResolveShortcutToMonik
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_HlinkResolveShortcutToString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_hlinkResolveShortcutToString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzshortcutfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppwztarget = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2304,7 +2304,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_HlinkResolveShortcutToStrin
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_HlinkResolveStringForData_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_hlinkResolveStringForData_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzreference = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t reserved = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2334,7 +2334,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_HlinkResolveStringForData_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_HlinkSetSpecialReference_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_hlinkSetSpecialReference_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ureference = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pwzreference = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2354,7 +2354,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_HlinkSetSpecialReference_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_HlinkTranslateURL_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_hlinkTranslateURL_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t grfflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -2376,7 +2376,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_HlinkTranslateURL_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_HlinkUpdateStackItem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_hlinkUpdateStackItem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pihlframe = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pihlbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2404,7 +2404,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_HlinkUpdateStackItem_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ILAppendID_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_iLAppendID_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pidl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pmkid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2426,7 +2426,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_ILAppendID_napi(const Napi:
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ILClone_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_iLClone_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pidl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2444,7 +2444,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_ILClone_napi(const Napi::Ca
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ILCloneFirst_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_iLCloneFirst_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pidl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2462,7 +2462,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_ILCloneFirst_napi(const Nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ILCombine_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_iLCombine_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pidl1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pidl2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2482,7 +2482,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_ILCombine_napi(const Napi::
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ILCreateFromPathA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_iLCreateFromPathA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2500,7 +2500,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_ILCreateFromPathA_napi(cons
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ILCreateFromPathW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_iLCreateFromPathW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2518,7 +2518,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_ILCreateFromPathW_napi(cons
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ILFindChild_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_iLFindChild_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pidlparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pidlchild = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2538,7 +2538,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_ILFindChild_napi(const Napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ILFindLastID_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_iLFindLastID_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pidl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2556,7 +2556,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_ILFindLastID_napi(const Nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ILFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_iLFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pidl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2573,7 +2573,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_ILFree_napi(const Napi::Cal
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ILGetNext_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_iLGetNext_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pidl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2591,7 +2591,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_ILGetNext_napi(const Napi::
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ILGetSize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_iLGetSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pidl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2609,7 +2609,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_ILGetSize_napi(const Napi::
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ILIsEqual_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_iLIsEqual_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pidl1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pidl2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2629,7 +2629,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_ILIsEqual_napi(const Napi::
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ILIsParent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_iLIsParent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pidl1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pidl2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2651,7 +2651,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_ILIsParent_napi(const Napi:
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ILLoadFromStreamEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_iLLoadFromStreamEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pidl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2671,7 +2671,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_ILLoadFromStreamEx_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ILRemoveLastID_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_iLRemoveLastID_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pidl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2689,7 +2689,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_ILRemoveLastID_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ILSaveToStream_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_iLSaveToStream_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pidl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2709,7 +2709,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_ILSaveToStream_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_IStream_Copy_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_istreamCopy_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstmfrom = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pstmto = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2731,7 +2731,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_IStream_Copy_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_IStream_Read_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_istreamRead_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2753,7 +2753,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_IStream_Read_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_IStream_ReadPidl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_istreamReadPidl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppidlout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2773,7 +2773,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_IStream_ReadPidl_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_IStream_ReadStr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_istreamReadStr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2793,7 +2793,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_IStream_ReadStr_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_IStream_Reset_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_istreamReset_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2811,7 +2811,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_IStream_Reset_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_IStream_Size_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_istreamSize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pui = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2831,7 +2831,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_IStream_Size_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_IStream_Write_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_istreamWrite_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2853,7 +2853,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_IStream_Write_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_IStream_WritePidl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_istreamWritePidl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pidlwrite = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2873,7 +2873,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_IStream_WritePidl_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_IStream_WriteStr_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_istreamWriteStr_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2893,7 +2893,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_IStream_WriteStr_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_IUnknown_AtomicRelease_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_iunknownAtomicRelease_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppunk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -2910,7 +2910,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_IUnknown_AtomicRelease_napi
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_IUnknown_GetSite_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_iunknownGetSite_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2932,7 +2932,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_IUnknown_GetSite_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_IUnknown_GetWindow_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_iunknownGetWindow_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2952,7 +2952,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_IUnknown_GetWindow_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_IUnknown_QueryService_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_iunknownQueryService_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* guidservice = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2976,7 +2976,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_IUnknown_QueryService_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_IUnknown_Set_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_iunknownSet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppunk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* punk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -2995,7 +2995,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_IUnknown_Set_napi(const Nap
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_IUnknown_SetSite_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_iunknownSetSite_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* punksite = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3015,7 +3015,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_IUnknown_SetSite_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ImportPrivacySettings_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_importPrivacySettings_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszfilename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfparseprivacypreferences = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3037,7 +3037,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_ImportPrivacySettings_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_InitNetworkAddressControl_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_initNetworkAddressControl_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -3053,7 +3053,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_InitNetworkAddressControl_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_InitPropVariantFromStrRet_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_initPropVariantFromStrRet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstrret = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pidl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3075,7 +3075,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_InitPropVariantFromStrRet_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_InitVariantFromStrRet_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_initVariantFromStrRet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstrret = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pidl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3097,7 +3097,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_InitVariantFromStrRet_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_IntlStrEqWorkerA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_intlStrEqWorkerA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t fcasesens = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpstring1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3121,7 +3121,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_IntlStrEqWorkerA_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_IntlStrEqWorkerW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_intlStrEqWorkerW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t fcasesens = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpstring1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3145,7 +3145,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_IntlStrEqWorkerW_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_IsCharSpaceA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_isCharSpaceA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int8_t wch = static_cast<int8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -3163,7 +3163,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_IsCharSpaceA_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_IsCharSpaceW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_isCharSpaceW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t wch = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -3181,7 +3181,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_IsCharSpaceW_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_IsInternetESCEnabled_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_isInternetESCEnabled_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -3197,7 +3197,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_IsInternetESCEnabled_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_IsLFNDriveA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_isLFNDriveA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3215,7 +3215,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_IsLFNDriveA_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_IsLFNDriveW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_isLFNDriveW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3233,7 +3233,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_IsLFNDriveW_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_IsNetDrive_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_isNetDrive_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t idrive = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -3251,7 +3251,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_IsNetDrive_napi(const Napi:
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_IsOS_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_isOS_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwos = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -3269,7 +3269,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_IsOS_napi(const Napi::Callb
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_IsUserAnAdmin_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_isUserAnAdmin_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -3285,7 +3285,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_IsUserAnAdmin_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_LoadUserProfileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_loadUserProfileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* htoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpprofileinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3305,7 +3305,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_LoadUserProfileA_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_LoadUserProfileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_loadUserProfileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* htoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpprofileinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3325,7 +3325,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_LoadUserProfileW_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_OleSaveToStreamEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_oleSaveToStreamEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* piunk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pistm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3347,7 +3347,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_OleSaveToStreamEx_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_OpenRegStream_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_openRegStream_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3371,7 +3371,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_OpenRegStream_napi(const Na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ParseURLA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_parseURLA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3391,7 +3391,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_ParseURLA_napi(const Napi::
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ParseURLW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_parseURLW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3411,7 +3411,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_ParseURLW_napi(const Napi::
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathAddBackslashA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathAddBackslashA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3429,7 +3429,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathAddBackslashA_napi(cons
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathAddBackslashW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathAddBackslashW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3447,7 +3447,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathAddBackslashW_napi(cons
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathAddExtensionA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathAddExtensionA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3467,7 +3467,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathAddExtensionA_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathAddExtensionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathAddExtensionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3487,7 +3487,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathAddExtensionW_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathAllocCanonicalize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathAllocCanonicalize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpathin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3509,7 +3509,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathAllocCanonicalize_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathAllocCombine_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathAllocCombine_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpathin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszmore = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3533,7 +3533,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathAllocCombine_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathAppendA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathAppendA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszmore = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3553,7 +3553,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathAppendA_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathAppendW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathAppendW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszmore = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3573,7 +3573,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathAppendW_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathBuildRootA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathBuildRootA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszroot = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t idrive = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3593,7 +3593,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathBuildRootA_napi(const N
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathBuildRootW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathBuildRootW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszroot = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t idrive = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -3613,7 +3613,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathBuildRootW_napi(const N
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathCanonicalizeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathCanonicalizeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszbuf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3633,7 +3633,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathCanonicalizeA_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathCanonicalizeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathCanonicalizeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszbuf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -3653,7 +3653,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathCanonicalizeW_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathCchAddBackslash_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathCchAddBackslash_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t cchpath = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3673,7 +3673,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathCchAddBackslash_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathCchAddBackslashEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathCchAddBackslashEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t cchpath = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3697,7 +3697,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathCchAddBackslashEx_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathCchAddExtension_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathCchAddExtension_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t cchpath = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3719,7 +3719,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathCchAddExtension_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathCchAppend_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathCchAppend_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t cchpath = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3741,7 +3741,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathCchAppend_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathCchAppendEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathCchAppendEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t cchpath = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3765,7 +3765,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathCchAppendEx_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathCchCanonicalize_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathCchCanonicalize_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpathout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t cchpathout = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3787,7 +3787,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathCchCanonicalize_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathCchCanonicalizeEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathCchCanonicalizeEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpathout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t cchpathout = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3811,7 +3811,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathCchCanonicalizeEx_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathCchCombine_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathCchCombine_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpathout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t cchpathout = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3835,7 +3835,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathCchCombine_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathCchCombineEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathCchCombineEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpathout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t cchpathout = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3861,7 +3861,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathCchCombineEx_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathCchFindExtension_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathCchFindExtension_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t cchpath = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3883,7 +3883,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathCchFindExtension_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathCchIsRoot_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathCchIsRoot_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -3901,7 +3901,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathCchIsRoot_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathCchRemoveBackslash_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathCchRemoveBackslash_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t cchpath = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3921,7 +3921,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathCchRemoveBackslash_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathCchRemoveBackslashEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathCchRemoveBackslashEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t cchpath = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3945,7 +3945,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathCchRemoveBackslashEx_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathCchRemoveExtension_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathCchRemoveExtension_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t cchpath = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3965,7 +3965,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathCchRemoveExtension_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathCchRemoveFileSpec_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathCchRemoveFileSpec_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t cchpath = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -3985,7 +3985,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathCchRemoveFileSpec_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathCchRenameExtension_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathCchRenameExtension_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t cchpath = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4007,7 +4007,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathCchRenameExtension_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathCchSkipRoot_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathCchSkipRoot_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppszrootend = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4027,7 +4027,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathCchSkipRoot_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathCchStripPrefix_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathCchStripPrefix_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t cchpath = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4047,7 +4047,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathCchStripPrefix_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathCchStripToRoot_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathCchStripToRoot_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint64_t cchpath = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -4067,7 +4067,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathCchStripToRoot_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathCleanupSpec_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathCleanupSpec_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdir = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszspec = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4087,7 +4087,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathCleanupSpec_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathCombineA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathCombineA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszdir = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4109,7 +4109,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathCombineA_napi(const Nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathCombineW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathCombineW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszdir = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4131,7 +4131,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathCombineW_napi(const Nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathCommonPrefixA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathCommonPrefixA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszfile1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszfile2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4153,7 +4153,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathCommonPrefixA_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathCommonPrefixW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathCommonPrefixW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszfile1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszfile2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4175,7 +4175,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathCommonPrefixW_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathCompactPathA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathCompactPathA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4197,7 +4197,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathCompactPathA_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathCompactPathExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathCompactPathExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4221,7 +4221,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathCompactPathExA_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathCompactPathExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathCompactPathExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4245,7 +4245,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathCompactPathExW_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathCompactPathW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathCompactPathW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4267,7 +4267,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathCompactPathW_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathCreateFromUrlA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathCreateFromUrlA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4291,7 +4291,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathCreateFromUrlA_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathCreateFromUrlAlloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathCreateFromUrlAlloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppszout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4313,7 +4313,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathCreateFromUrlAlloc_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathCreateFromUrlW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathCreateFromUrlW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4337,7 +4337,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathCreateFromUrlW_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathFileExistsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathFileExistsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4355,7 +4355,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathFileExistsA_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathFileExistsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathFileExistsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4373,7 +4373,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathFileExistsW_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathFindExtensionA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathFindExtensionA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4391,7 +4391,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathFindExtensionA_napi(con
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathFindExtensionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathFindExtensionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4409,7 +4409,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathFindExtensionW_napi(con
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathFindFileNameA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathFindFileNameA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4427,7 +4427,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathFindFileNameA_napi(cons
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathFindFileNameW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathFindFileNameW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4445,7 +4445,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathFindFileNameW_napi(cons
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathFindNextComponentA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathFindNextComponentA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4463,7 +4463,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathFindNextComponentA_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathFindNextComponentW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathFindNextComponentW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4481,7 +4481,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathFindNextComponentW_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathFindOnPathA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathFindOnPathA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppszotherdirs = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4501,7 +4501,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathFindOnPathA_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathFindOnPathW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathFindOnPathW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppszotherdirs = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4521,7 +4521,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathFindOnPathW_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathFindSuffixArrayA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathFindSuffixArrayA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* apszsuffix = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4543,7 +4543,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathFindSuffixArrayA_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathFindSuffixArrayW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathFindSuffixArrayW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* apszsuffix = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4565,7 +4565,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathFindSuffixArrayW_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathGetArgsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathGetArgsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4583,7 +4583,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathGetArgsA_napi(const Nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathGetArgsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathGetArgsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4601,7 +4601,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathGetArgsW_napi(const Nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathGetCharTypeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathGetCharTypeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint8_t ch = static_cast<uint8_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -4619,7 +4619,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathGetCharTypeA_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathGetCharTypeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathGetCharTypeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint16_t ch = static_cast<uint16_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -4637,7 +4637,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathGetCharTypeW_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathGetDriveNumberA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathGetDriveNumberA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4655,7 +4655,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathGetDriveNumberA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathGetDriveNumberW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathGetDriveNumberW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4673,7 +4673,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathGetDriveNumberW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathGetShortPath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathGetShortPath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszlongpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4690,7 +4690,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathGetShortPath_napi(const
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathIsContentTypeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathIsContentTypeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszcontenttype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4710,7 +4710,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathIsContentTypeA_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathIsContentTypeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathIsContentTypeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszcontenttype = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4730,7 +4730,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathIsContentTypeW_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathIsDirectoryA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathIsDirectoryA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4748,7 +4748,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathIsDirectoryA_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathIsDirectoryEmptyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathIsDirectoryEmptyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4766,7 +4766,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathIsDirectoryEmptyA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathIsDirectoryEmptyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathIsDirectoryEmptyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4784,7 +4784,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathIsDirectoryEmptyW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathIsDirectoryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathIsDirectoryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4802,7 +4802,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathIsDirectoryW_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathIsExe_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathIsExe_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4820,7 +4820,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathIsExe_napi(const Napi::
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathIsFileSpecA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathIsFileSpecA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4838,7 +4838,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathIsFileSpecA_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathIsFileSpecW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathIsFileSpecW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4856,7 +4856,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathIsFileSpecW_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathIsLFNFileSpecA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathIsLFNFileSpecA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4874,7 +4874,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathIsLFNFileSpecA_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathIsLFNFileSpecW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathIsLFNFileSpecW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4892,7 +4892,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathIsLFNFileSpecW_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathIsNetworkPathA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathIsNetworkPathA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4910,7 +4910,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathIsNetworkPathA_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathIsNetworkPathW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathIsNetworkPathW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4928,7 +4928,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathIsNetworkPathW_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathIsPrefixA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathIsPrefixA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszprefix = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4948,7 +4948,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathIsPrefixA_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathIsPrefixW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathIsPrefixW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszprefix = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -4968,7 +4968,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathIsPrefixW_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathIsRelativeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathIsRelativeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -4986,7 +4986,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathIsRelativeA_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathIsRelativeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathIsRelativeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5004,7 +5004,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathIsRelativeW_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathIsRootA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathIsRootA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5022,7 +5022,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathIsRootA_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathIsRootW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathIsRootW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5040,7 +5040,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathIsRootW_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathIsSameRootA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathIsSameRootA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszpath2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5060,7 +5060,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathIsSameRootA_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathIsSameRootW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathIsSameRootW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszpath2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5080,7 +5080,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathIsSameRootW_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathIsSlowA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathIsSlowA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwattr = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5100,7 +5100,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathIsSlowA_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathIsSlowW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathIsSlowW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwattr = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5120,7 +5120,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathIsSlowW_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathIsSystemFolderA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathIsSystemFolderA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwattrb = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5140,7 +5140,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathIsSystemFolderA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathIsSystemFolderW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathIsSystemFolderW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwattrb = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5160,7 +5160,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathIsSystemFolderW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathIsUNCA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathIsUNCA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5178,7 +5178,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathIsUNCA_napi(const Napi:
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathIsUNCEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathIsUNCEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppszserver = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5198,7 +5198,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathIsUNCEx_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathIsUNCServerA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathIsUNCServerA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5216,7 +5216,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathIsUNCServerA_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathIsUNCServerShareA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathIsUNCServerShareA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5234,7 +5234,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathIsUNCServerShareA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathIsUNCServerShareW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathIsUNCServerShareW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5252,7 +5252,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathIsUNCServerShareW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathIsUNCServerW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathIsUNCServerW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5270,7 +5270,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathIsUNCServerW_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathIsUNCW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathIsUNCW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5288,7 +5288,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathIsUNCW_napi(const Napi:
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathIsURLA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathIsURLA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5306,7 +5306,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathIsURLA_napi(const Napi:
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathIsURLW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathIsURLW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5324,7 +5324,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathIsURLW_napi(const Napi:
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathMakePrettyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathMakePrettyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5342,7 +5342,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathMakePrettyA_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathMakePrettyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathMakePrettyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5360,7 +5360,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathMakePrettyW_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathMakeSystemFolderA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathMakeSystemFolderA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5378,7 +5378,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathMakeSystemFolderA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathMakeSystemFolderW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathMakeSystemFolderW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5396,7 +5396,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathMakeSystemFolderW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathMakeUniqueName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathMakeUniqueName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszuniquename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cchmax = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5422,7 +5422,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathMakeUniqueName_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathMatchSpecA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathMatchSpecA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszspec = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5442,7 +5442,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathMatchSpecA_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathMatchSpecExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathMatchSpecExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszspec = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5464,7 +5464,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathMatchSpecExA_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathMatchSpecExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathMatchSpecExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszspec = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5486,7 +5486,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathMatchSpecExW_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathMatchSpecW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathMatchSpecW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszspec = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5506,7 +5506,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathMatchSpecW_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathParseIconLocationA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathParseIconLocationA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psziconfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5524,7 +5524,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathParseIconLocationA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathParseIconLocationW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathParseIconLocationW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psziconfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5542,7 +5542,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathParseIconLocationW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathQualify_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathQualify_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5559,7 +5559,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathQualify_napi(const Napi
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathQuoteSpacesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathQuoteSpacesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5577,7 +5577,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathQuoteSpacesA_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathQuoteSpacesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathQuoteSpacesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5595,7 +5595,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathQuoteSpacesW_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathRelativePathToA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathRelativePathToA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszfrom = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5621,7 +5621,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathRelativePathToA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathRelativePathToW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathRelativePathToW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszfrom = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5647,7 +5647,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathRelativePathToW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathRemoveArgsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathRemoveArgsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5664,7 +5664,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathRemoveArgsA_napi(const 
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathRemoveArgsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathRemoveArgsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5681,7 +5681,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathRemoveArgsW_napi(const 
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathRemoveBackslashA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathRemoveBackslashA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5699,7 +5699,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathRemoveBackslashA_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathRemoveBackslashW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathRemoveBackslashW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5717,7 +5717,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathRemoveBackslashW_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathRemoveBlanksA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathRemoveBlanksA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5734,7 +5734,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathRemoveBlanksA_napi(cons
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathRemoveBlanksW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathRemoveBlanksW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5751,7 +5751,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathRemoveBlanksW_napi(cons
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathRemoveExtensionA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathRemoveExtensionA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5768,7 +5768,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathRemoveExtensionA_napi(c
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathRemoveExtensionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathRemoveExtensionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5785,7 +5785,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathRemoveExtensionW_napi(c
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathRemoveFileSpecA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathRemoveFileSpecA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5803,7 +5803,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathRemoveFileSpecA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathRemoveFileSpecW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathRemoveFileSpecW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5821,7 +5821,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathRemoveFileSpecW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathRenameExtensionA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathRenameExtensionA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5841,7 +5841,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathRenameExtensionA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathRenameExtensionW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathRenameExtensionW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5861,7 +5861,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathRenameExtensionW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathResolve_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathResolve_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* dirs = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5883,7 +5883,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathResolve_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathSearchAndQualifyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathSearchAndQualifyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszbuf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5905,7 +5905,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathSearchAndQualifyA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathSearchAndQualifyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathSearchAndQualifyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszbuf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -5927,7 +5927,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathSearchAndQualifyW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathSetDlgItemPathA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathSetDlgItemPathA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t id = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5948,7 +5948,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathSetDlgItemPathA_napi(co
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathSetDlgItemPathW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathSetDlgItemPathW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdlg = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t id = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -5969,7 +5969,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathSetDlgItemPathW_napi(co
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathSkipRootA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathSkipRootA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -5987,7 +5987,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathSkipRootA_napi(const Na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathSkipRootW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathSkipRootW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6005,7 +6005,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathSkipRootW_napi(const Na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathStripPathA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathStripPathA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6022,7 +6022,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathStripPathA_napi(const N
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathStripPathW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathStripPathW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6039,7 +6039,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathStripPathW_napi(const N
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathStripToRootA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathStripToRootA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6057,7 +6057,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathStripToRootA_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathStripToRootW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathStripToRootW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6075,7 +6075,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathStripToRootW_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathUnExpandEnvStringsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathUnExpandEnvStringsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszbuf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6097,7 +6097,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathUnExpandEnvStringsA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathUnExpandEnvStringsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathUnExpandEnvStringsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszbuf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6119,7 +6119,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathUnExpandEnvStringsW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathUndecorateA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathUndecorateA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6136,7 +6136,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathUndecorateA_napi(const 
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathUndecorateW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathUndecorateW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6153,7 +6153,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathUndecorateW_napi(const 
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathUnmakeSystemFolderA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathUnmakeSystemFolderA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6171,7 +6171,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathUnmakeSystemFolderA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathUnmakeSystemFolderW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathUnmakeSystemFolderW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6189,7 +6189,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathUnmakeSystemFolderW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathUnquoteSpacesA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathUnquoteSpacesA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6207,7 +6207,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathUnquoteSpacesA_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathUnquoteSpacesW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathUnquoteSpacesW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6225,7 +6225,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathUnquoteSpacesW_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PathYetAnotherMakeUniqueName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pathYetAnotherMakeUniqueName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszuniquename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6249,7 +6249,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PathYetAnotherMakeUniqueNam
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PickIconDlg_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_pickIconDlg_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psziconpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6273,7 +6273,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PickIconDlg_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_PropVariantToStrRet_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_propVariantToStrRet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* propvar = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pstrret = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6293,7 +6293,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_PropVariantToStrRet_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_QISearch_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_qISearch_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* that = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pqit = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6317,7 +6317,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_QISearch_napi(const Napi::C
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ReadCabinetState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_readCabinetState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcs = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t clength = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6337,7 +6337,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_ReadCabinetState_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_RealDriveType_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_realDriveType_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t idrive = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     int32_t foktohitnet = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6357,7 +6357,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_RealDriveType_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_RegisterAppConstrainedChangeNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_registerAppConstrainedChangeNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* routine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6379,7 +6379,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_RegisterAppConstrainedChang
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_RegisterAppStateChangeNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_registerAppStateChangeNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* routine = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* context = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6401,7 +6401,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_RegisterAppStateChangeNotif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_RegisterScaleChangeEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_registerScaleChangeEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hevent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwcookie = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6421,7 +6421,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_RegisterScaleChangeEvent_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_RegisterScaleChangeNotifications_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_registerScaleChangeNotifications_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t displaydevice = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* hwndnotify = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6445,7 +6445,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_RegisterScaleChangeNotifica
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_RemoveWindowSubclass_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_removeWindowSubclass_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfnsubclass = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6467,7 +6467,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_RemoveWindowSubclass_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_RestartDialog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_restartDialog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszprompt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6489,7 +6489,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_RestartDialog_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_RestartDialogEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_restartDialogEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszprompt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6513,7 +6513,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_RestartDialogEx_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_RevokeScaleChangeNotifications_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_revokeScaleChangeNotifications_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t displaydevice = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t dwcookie = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6533,7 +6533,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_RevokeScaleChangeNotificati
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHAddToRecentDocs_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHAddToRecentDocs_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t uflags = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6552,7 +6552,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHAddToRecentDocs_napi(cons
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHAlloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHAlloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t cb = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -6570,7 +6570,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHAlloc_napi(const Napi::Ca
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHAllocShared_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHAllocShared_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwsize = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6592,7 +6592,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHAllocShared_napi(const Na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHAnsiToAnsi_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHAnsiToAnsi_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszdst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6614,7 +6614,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHAnsiToAnsi_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHAnsiToUnicode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHAnsiToUnicode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwszdst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6636,7 +6636,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHAnsiToUnicode_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHAppBarMessage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHAppBarMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwmessage = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6656,7 +6656,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHAppBarMessage_napi(const 
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHAssocEnumHandlers_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHAssocEnumHandlers_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszextra = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t affilter = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6678,7 +6678,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHAssocEnumHandlers_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHAssocEnumHandlersForProtocolByApplication_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHAssocEnumHandlersForProtocolByApplication_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* protocol = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6700,7 +6700,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHAssocEnumHandlersForProto
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHAutoComplete_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHAutoComplete_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndedit = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6720,7 +6720,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHAutoComplete_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHBindToFolderIDListParent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHBindToFolderIDListParent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psfroot = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pidl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6746,7 +6746,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHBindToFolderIDListParent_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHBindToFolderIDListParentEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHBindToFolderIDListParentEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psfroot = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pidl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6774,7 +6774,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHBindToFolderIDListParentE
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHBindToObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHBindToObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pidl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6800,7 +6800,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHBindToObject_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHBindToParent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHBindToParent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pidl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6824,7 +6824,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHBindToParent_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHBrowseForFolderA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHBrowseForFolderA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpbi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6842,7 +6842,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHBrowseForFolderA_napi(con
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHBrowseForFolderW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHBrowseForFolderW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpbi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6860,7 +6860,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHBrowseForFolderW_napi(con
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHCLSIDFromString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHCLSIDFromString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -6880,7 +6880,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHCLSIDFromString_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHChangeNotification_Lock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_shchangeNotificationLock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hchange = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwprocid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6904,7 +6904,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHChangeNotification_Lock_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHChangeNotification_Unlock_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_shchangeNotificationUnlock_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hlock = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -6922,7 +6922,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHChangeNotification_Unlock
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHChangeNotify_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHChangeNotify_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t weventid = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t uflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6945,7 +6945,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHChangeNotify_napi(const N
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHChangeNotifyDeregister_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHChangeNotifyDeregister_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t ulid = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -6963,7 +6963,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHChangeNotifyDeregister_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHChangeNotifyRegister_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHChangeNotifyRegister_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t fsources = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -6991,7 +6991,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHChangeNotifyRegister_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHChangeNotifyRegisterThread_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHChangeNotifyRegisterThread_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t status = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -7008,7 +7008,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHChangeNotifyRegisterThrea
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHCloneSpecialIDList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHCloneSpecialIDList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t csidl = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7030,7 +7030,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHCloneSpecialIDList_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHCoCreateInstance_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHCoCreateInstance_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7056,7 +7056,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHCoCreateInstance_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHCopyKeyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHCopyKeyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkeysrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszsrcsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7080,7 +7080,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHCopyKeyA_napi(const Napi:
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHCopyKeyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHCopyKeyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkeysrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszsrcsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7104,7 +7104,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHCopyKeyW_napi(const Napi:
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHCreateAssociationRegistration_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHCreateAssociationRegistration_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7124,7 +7124,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHCreateAssociationRegistra
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHCreateDataObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHCreateDataObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pidlfolder = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cidl = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7152,7 +7152,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHCreateDataObject_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHCreateDefaultContextMenu_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHCreateDefaultContextMenu_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdcm = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7174,7 +7174,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHCreateDefaultContextMenu_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHCreateDefaultExtractIcon_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHCreateDefaultExtractIcon_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7194,7 +7194,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHCreateDefaultExtractIcon_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHCreateDefaultPropertiesOp_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHCreateDefaultPropertiesOp_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppfileop = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7214,7 +7214,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHCreateDefaultPropertiesOp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHCreateDirectory_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHCreateDirectory_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7234,7 +7234,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHCreateDirectory_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHCreateDirectoryExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHCreateDirectoryExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7256,7 +7256,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHCreateDirectoryExA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHCreateDirectoryExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHCreateDirectoryExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7278,7 +7278,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHCreateDirectoryExW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHCreateFileExtractIconW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHCreateFileExtractIconW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwfileattributes = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7302,7 +7302,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHCreateFileExtractIconW_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHCreateItemFromIDList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHCreateItemFromIDList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pidl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7324,7 +7324,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHCreateItemFromIDList_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHCreateItemFromParsingName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHCreateItemFromParsingName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7348,7 +7348,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHCreateItemFromParsingName
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHCreateItemFromRelativeName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHCreateItemFromRelativeName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psiparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7374,7 +7374,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHCreateItemFromRelativeNam
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHCreateItemInKnownFolder_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHCreateItemInKnownFolder_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* kfid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwkfflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7400,7 +7400,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHCreateItemInKnownFolder_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHCreateItemWithParent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHCreateItemWithParent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pidlparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psfparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7426,7 +7426,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHCreateItemWithParent_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHCreateMemStream_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHCreateMemStream_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pinit = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbinit = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7446,7 +7446,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHCreateMemStream_napi(cons
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHCreateProcessAsUserW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHCreateProcessAsUserW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pscpi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -7464,7 +7464,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHCreateProcessAsUserW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHCreatePropSheetExtArray_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHCreatePropSheetExtArray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7486,7 +7486,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHCreatePropSheetExtArray_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHCreateQueryCancelAutoPlayMoniker_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHCreateQueryCancelAutoPlayMoniker_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppmoniker = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -7504,7 +7504,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHCreateQueryCancelAutoPlay
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHCreateShellFolderView_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHCreateShellFolderView_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcsfv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppsv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7524,7 +7524,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHCreateShellFolderView_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHCreateShellFolderViewEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHCreateShellFolderViewEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcsfv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppsv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7544,7 +7544,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHCreateShellFolderViewEx_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHCreateShellItem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHCreateShellItem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pidlparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psfparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7568,7 +7568,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHCreateShellItem_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHCreateShellItemArray_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHCreateShellItemArray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pidlparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7594,7 +7594,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHCreateShellItemArray_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHCreateShellItemArrayFromDataObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHCreateShellItemArrayFromDataObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7616,7 +7616,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHCreateShellItemArrayFromD
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHCreateShellItemArrayFromIDLists_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHCreateShellItemArrayFromIDLists_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t cidl = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* rgpidl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7638,7 +7638,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHCreateShellItemArrayFromI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHCreateShellItemArrayFromShellItem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHCreateShellItemArrayFromShellItem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7660,7 +7660,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHCreateShellItemArrayFromS
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHCreateShellPalette_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHCreateShellPalette_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -7678,7 +7678,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHCreateShellPalette_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHCreateStdEnumFmtEtc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHCreateStdEnumFmtEtc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t cfmt = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* afmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7700,7 +7700,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHCreateStdEnumFmtEtc_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHCreateStreamOnFileA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHCreateStreamOnFileA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t grfmode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7722,7 +7722,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHCreateStreamOnFileA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHCreateStreamOnFileEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHCreateStreamOnFileEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t grfmode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7750,7 +7750,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHCreateStreamOnFileEx_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHCreateStreamOnFileW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHCreateStreamOnFileW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t grfmode = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7772,7 +7772,31 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHCreateStreamOnFileW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHCreateThreadRef_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHCreateThread_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pfnthreadproc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* pdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    uint32_t flags = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    void* pfncallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("shlwapi.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SHCreateThread")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pfnthreadproc, pdata, flags, pfncallback) : -1;
+#else
+    (void)pfnthreadproc;
+    (void)pdata;
+    (void)flags;
+    (void)pfncallback;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_ui_shell_sHCreateThreadRef_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcref = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppunk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7792,7 +7816,33 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHCreateThreadRef_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHDefExtractIconA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHCreateThreadWithHandle_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pfnthreadproc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* pdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    uint32_t flags = static_cast<uint32_t>(km_info.Length() > 2 ? km_info[2].ToNumber().Int32Value() : 0);
+    void* pfncallback = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    void* phandle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 4 ? km_napi_arg_u64(km_info[4]) : 0));
+#ifdef _WIN32
+    typedef int32_t (__stdcall *km_fn_t)(void*, void*, uint32_t, void*, void*);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("shlwapi.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SHCreateThreadWithHandle")));
+    }
+    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pfnthreadproc, pdata, flags, pfncallback, phandle) : -1;
+#else
+    (void)pfnthreadproc;
+    (void)pdata;
+    (void)flags;
+    (void)pfncallback;
+    (void)phandle;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_ui_shell_sHDefExtractIconA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psziconfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t iindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7820,7 +7870,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHDefExtractIconA_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHDefExtractIconW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHDefExtractIconW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psziconfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t iindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -7848,7 +7898,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHDefExtractIconW_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHDeleteEmptyKeyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHDeleteEmptyKeyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7868,7 +7918,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHDeleteEmptyKeyA_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHDeleteEmptyKeyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHDeleteEmptyKeyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7888,7 +7938,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHDeleteEmptyKeyW_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHDeleteKeyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHDeleteKeyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7908,7 +7958,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHDeleteKeyA_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHDeleteKeyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHDeleteKeyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7928,7 +7978,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHDeleteKeyW_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHDeleteValueA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHDeleteValueA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7950,7 +8000,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHDeleteValueA_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHDeleteValueW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHDeleteValueW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -7972,7 +8022,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHDeleteValueW_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHDestroyPropSheetExtArray_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHDestroyPropSheetExtArray_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hpsxa = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -7989,7 +8039,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHDestroyPropSheetExtArray_
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHDoDragDrop_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHDoDragDrop_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8015,7 +8065,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHDoDragDrop_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHEmptyRecycleBinA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHEmptyRecycleBinA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszrootpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8037,7 +8087,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHEmptyRecycleBinA_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHEmptyRecycleBinW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHEmptyRecycleBinW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszrootpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8059,7 +8109,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHEmptyRecycleBinW_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHEnumKeyExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHEnumKeyExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8083,7 +8133,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHEnumKeyExA_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHEnumKeyExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHEnumKeyExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8107,7 +8157,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHEnumKeyExW_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHEnumValueA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHEnumValueA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8137,7 +8187,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHEnumValueA_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHEnumValueW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHEnumValueW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8167,7 +8217,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHEnumValueW_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHEnumerateUnreadMailAccountsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHEnumerateUnreadMailAccountsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkeyuser = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8191,7 +8241,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHEnumerateUnreadMailAccoun
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHEvaluateSystemCommandTemplate_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHEvaluateSystemCommandTemplate_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszcmdtemplate = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppszapplication = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8215,7 +8265,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHEvaluateSystemCommandTemp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHFileOperationA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHFileOperationA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfileop = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8233,7 +8283,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHFileOperationA_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHFileOperationW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHFileOperationW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpfileop = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8251,7 +8301,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHFileOperationW_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHFindFiles_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHFindFiles_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pidlfolder = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pidlsavefile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8271,7 +8321,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHFindFiles_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHFind_InitMenuPopup_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_shfindInitMenuPopup_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmenu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8295,7 +8345,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHFind_InitMenuPopup_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHFlushSFCache_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHFlushSFCache_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef void (__stdcall *km_fn_t)(void);
@@ -8310,7 +8360,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHFlushSFCache_napi(const N
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHFormatDateTimeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHFormatDateTimeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pft = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwflags = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8334,7 +8384,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHFormatDateTimeA_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHFormatDateTimeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHFormatDateTimeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pft = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwflags = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8358,7 +8408,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHFormatDateTimeW_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHFormatDrive_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHFormatDrive_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t drive = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8382,7 +8432,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHFormatDrive_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHFree_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHFree_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pv = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8399,7 +8449,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHFree_napi(const Napi::Cal
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHFreeNameMappings_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHFreeNameMappings_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hnamemappings = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8416,7 +8466,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHFreeNameMappings_napi(con
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHFreeShared_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHFreeShared_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwprocessid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8436,7 +8486,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHFreeShared_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetAttributesFromDataObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetAttributesFromDataObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwattributemask = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8460,7 +8510,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetAttributesFromDataObje
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetDataFromIDListA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetDataFromIDListA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pidl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8486,7 +8536,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetDataFromIDListA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetDataFromIDListW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetDataFromIDListW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pidl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8512,7 +8562,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetDataFromIDListW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetDesktopFolder_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetDesktopFolder_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppshf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8530,7 +8580,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetDesktopFolder_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetDiskFreeSpaceExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetDiskFreeSpaceExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdirectoryname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pulfreebytesavailabletocaller = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8554,7 +8604,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetDiskFreeSpaceExA_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetDiskFreeSpaceExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetDiskFreeSpaceExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdirectoryname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pulfreebytesavailabletocaller = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8578,7 +8628,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetDiskFreeSpaceExW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetDriveMedia_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetDriveMedia_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdrive = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwmediacontent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8598,7 +8648,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetDriveMedia_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetFileInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetFileInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwfileattributes = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8624,7 +8674,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetFileInfoA_napi(const N
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetFileInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetFileInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwfileattributes = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8650,7 +8700,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetFileInfoW_napi(const N
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetFolderLocation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetFolderLocation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t csidl = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8676,7 +8726,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetFolderLocation_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetFolderPathA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetFolderPathA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t csidl = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8702,7 +8752,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetFolderPathA_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetFolderPathAndSubDirA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetFolderPathAndSubDirA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t csidl = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8730,7 +8780,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetFolderPathAndSubDirA_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetFolderPathAndSubDirW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetFolderPathAndSubDirW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t csidl = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8758,7 +8808,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetFolderPathAndSubDirW_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetFolderPathW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetFolderPathW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t csidl = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8784,7 +8834,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetFolderPathW_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetIDListFromObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetIDListFromObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppidl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8804,7 +8854,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetIDListFromObject_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetIconOverlayIndexA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetIconOverlayIndexA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psziconpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t iiconindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8824,7 +8874,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetIconOverlayIndexA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetIconOverlayIndexW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetIconOverlayIndexW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psziconpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t iiconindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8844,7 +8894,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetIconOverlayIndexW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetImageList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetImageList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t iimagelist = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8866,7 +8916,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetImageList_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetInstanceExplorer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetInstanceExplorer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppunk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -8884,7 +8934,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetInstanceExplorer_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetInverseCMAP_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetInverseCMAP_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbmap = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cbmap = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8904,7 +8954,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetInverseCMAP_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetItemFromDataObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetItemFromDataObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdtobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t dwflags = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8928,7 +8978,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetItemFromDataObject_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetItemFromObject_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetItemFromObject_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* riid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -8950,7 +9000,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetItemFromObject_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetKnownFolderIDList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetKnownFolderIDList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rfid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -8974,7 +9024,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetKnownFolderIDList_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetKnownFolderItem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetKnownFolderItem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rfid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t flags = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9000,7 +9050,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetKnownFolderItem_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetKnownFolderPath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetKnownFolderPath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rfid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9024,7 +9074,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetKnownFolderPath_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetLocalizedName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetLocalizedName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszresmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9048,7 +9098,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetLocalizedName_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetMalloc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetMalloc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppmalloc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -9066,7 +9116,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetMalloc_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetNameFromIDList_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetNameFromIDList_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pidl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t sigdnname = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9088,7 +9138,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetNameFromIDList_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetNewLinkInfoA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetNewLinkInfoA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszlinkto = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszdir = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9114,7 +9164,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetNewLinkInfoA_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetNewLinkInfoW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetNewLinkInfoW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszlinkto = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszdir = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9140,7 +9190,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetNewLinkInfoW_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetPathFromIDListA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetPathFromIDListA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pidl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9160,7 +9210,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetPathFromIDListA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetPathFromIDListEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetPathFromIDListEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pidl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9184,7 +9234,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetPathFromIDListEx_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetPathFromIDListW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetPathFromIDListW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pidl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9204,7 +9254,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetPathFromIDListW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetRealIDL_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetRealIDL_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pidlsimple = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9226,7 +9276,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetRealIDL_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetSetFolderCustomSettings_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetSetFolderCustomSettings_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pfcs = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9248,7 +9298,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetSetFolderCustomSetting
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetSetSettings_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetSetSettings_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* lpss = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwmask = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9269,7 +9319,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetSetSettings_napi(const
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetSettings_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetSettings_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psfs = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwmask = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9288,7 +9338,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetSettings_napi(const Na
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetSpecialFolderLocation_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetSpecialFolderLocation_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t csidl = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9310,7 +9360,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetSpecialFolderLocation_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetSpecialFolderPathA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetSpecialFolderPathA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9334,7 +9384,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetSpecialFolderPathA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetSpecialFolderPathW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetSpecialFolderPathW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9358,7 +9408,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetSpecialFolderPathW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetStockIconInfo_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetStockIconInfo_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t siid = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint32_t uflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9380,7 +9430,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetStockIconInfo_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetTemporaryPropertyForItem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetTemporaryPropertyForItem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9402,7 +9452,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetTemporaryPropertyForIt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetThreadRef_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetThreadRef_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* ppunk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -9420,7 +9470,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetThreadRef_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetUnreadMailCountW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetUnreadMailCountW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkeyuser = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszmailaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9448,7 +9498,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetUnreadMailCountW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetValueA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetValueA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9476,7 +9526,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetValueA_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetValueW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetValueW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9504,7 +9554,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetValueW_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGetViewStatePropertyBag_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGetViewStatePropertyBag_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pidl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszbagname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9530,7 +9580,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGetViewStatePropertyBag_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGlobalCounterDecrement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGlobalCounterDecrement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t id = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -9548,7 +9598,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGlobalCounterDecrement_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGlobalCounterGetValue_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGlobalCounterGetValue_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t id = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -9566,7 +9616,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGlobalCounterGetValue_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHGlobalCounterIncrement_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHGlobalCounterIncrement_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t id = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -9584,7 +9634,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHGlobalCounterIncrement_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHHandleUpdateImage_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHHandleUpdateImage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pidlextra = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -9602,7 +9652,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHHandleUpdateImage_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHILCreateFromPath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHILCreateFromPath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppidl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9624,7 +9674,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHILCreateFromPath_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHInvokePrinterCommandA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHInvokePrinterCommandA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uaction = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9650,7 +9700,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHInvokePrinterCommandA_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHInvokePrinterCommandW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHInvokePrinterCommandW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t uaction = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9676,7 +9726,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHInvokePrinterCommandW_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHIsFileAvailableOffline_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHIsFileAvailableOffline_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pdwstatus = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9696,7 +9746,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHIsFileAvailableOffline_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHIsLowMemoryMachine_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHIsLowMemoryMachine_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwtype = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -9714,7 +9764,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHIsLowMemoryMachine_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHLimitInputEdit_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHLimitInputEdit_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndedit = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9734,7 +9784,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHLimitInputEdit_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHLoadInProc_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHLoadInProc_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -9752,7 +9802,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHLoadInProc_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHLoadIndirectString_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHLoadIndirectString_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszsource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszoutbuf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9776,7 +9826,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHLoadIndirectString_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHLoadNonloadedIconOverlayIdentifiers_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHLoadNonloadedIconOverlayIdentifiers_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -9792,7 +9842,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHLoadNonloadedIconOverlayI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHLockShared_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHLockShared_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwprocessid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9812,7 +9862,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHLockShared_napi(const Nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHMapPIDLToSystemImageListIndex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHMapPIDLToSystemImageListIndex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pshf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pidl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9834,7 +9884,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHMapPIDLToSystemImageListI
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHMessageBoxCheckA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHMessageBoxCheckA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psztext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9862,7 +9912,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHMessageBoxCheckA_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHMessageBoxCheckW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHMessageBoxCheckW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psztext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9890,7 +9940,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHMessageBoxCheckW_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHMultiFileProperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHMultiFileProperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pdtobj = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9910,7 +9960,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHMultiFileProperties_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHObjectProperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHObjectProperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t shopobjecttype = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9934,7 +9984,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHObjectProperties_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHOpenFolderAndSelectItems_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHOpenFolderAndSelectItems_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pidlfolder = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cidl = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -9958,7 +10008,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHOpenFolderAndSelectItems_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHOpenPropSheetW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHOpenPropSheetW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszcaption = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ahkeys = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -9988,7 +10038,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHOpenPropSheetW_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHOpenRegStream2A_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHOpenRegStream2A_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10012,7 +10062,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHOpenRegStream2A_napi(cons
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHOpenRegStream2W_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHOpenRegStream2W_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10036,7 +10086,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHOpenRegStream2W_napi(cons
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHOpenRegStreamA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHOpenRegStreamA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10060,7 +10110,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHOpenRegStreamA_napi(const
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHOpenRegStreamW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHOpenRegStreamW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10084,7 +10134,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHOpenRegStreamW_napi(const
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHOpenWithDialog_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHOpenWithDialog_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* poainfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10104,7 +10154,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHOpenWithDialog_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHParseDisplayName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHParseDisplayName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszname = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10130,7 +10180,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHParseDisplayName_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHPathPrepareForWriteA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHPathPrepareForWriteA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* punkenablemodless = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10154,7 +10204,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHPathPrepareForWriteA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHPathPrepareForWriteW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHPathPrepareForWriteW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* punkenablemodless = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10178,7 +10228,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHPathPrepareForWriteW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHQueryInfoKeyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHQueryInfoKeyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcsubkeys = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10204,7 +10254,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHQueryInfoKeyA_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHQueryInfoKeyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHQueryInfoKeyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcsubkeys = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10230,7 +10280,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHQueryInfoKeyW_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHQueryRecycleBinA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHQueryRecycleBinA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszrootpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pshqueryrbinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10250,7 +10300,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHQueryRecycleBinA_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHQueryRecycleBinW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHQueryRecycleBinW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszrootpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pshqueryrbinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10270,7 +10320,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHQueryRecycleBinW_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHQueryUserNotificationState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHQueryUserNotificationState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pquns = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -10288,7 +10338,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHQueryUserNotificationStat
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHQueryValueExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHQueryValueExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10316,7 +10366,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHQueryValueExA_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHQueryValueExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHQueryValueExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10344,7 +10394,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHQueryValueExW_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHRegCloseUSKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHRegCloseUSKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t huskey = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -10362,7 +10412,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHRegCloseUSKey_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHRegCreateUSKeyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHRegCreateUSKeyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t samdesired = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10388,7 +10438,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHRegCreateUSKeyA_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHRegCreateUSKeyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHRegCreateUSKeyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t samdesired = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10414,7 +10464,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHRegCreateUSKeyW_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHRegDeleteEmptyUSKeyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHRegDeleteEmptyUSKeyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t huskey = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pszsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10436,7 +10486,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHRegDeleteEmptyUSKeyA_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHRegDeleteEmptyUSKeyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHRegDeleteEmptyUSKeyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t huskey = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pwzsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10458,7 +10508,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHRegDeleteEmptyUSKeyW_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHRegDeleteUSValueA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHRegDeleteUSValueA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t huskey = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pszvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10480,7 +10530,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHRegDeleteUSValueA_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHRegDeleteUSValueW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHRegDeleteUSValueW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t huskey = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pwzvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10502,7 +10552,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHRegDeleteUSValueW_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHRegDuplicateHKey_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHRegDuplicateHKey_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -10520,7 +10570,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHRegDuplicateHKey_napi(con
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHRegEnumUSKeyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHRegEnumUSKeyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t huskey = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10546,7 +10596,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHRegEnumUSKeyA_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHRegEnumUSKeyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHRegEnumUSKeyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t huskey = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10572,7 +10622,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHRegEnumUSKeyW_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHRegEnumUSValueA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHRegEnumUSValueA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t huskey = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10604,7 +10654,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHRegEnumUSValueA_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHRegEnumUSValueW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHRegEnumUSValueW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t huskey = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     uint32_t dwindex = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10636,7 +10686,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHRegEnumUSValueW_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHRegGetBoolUSValueA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHRegGetBoolUSValueA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10660,7 +10710,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHRegGetBoolUSValueA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHRegGetBoolUSValueW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHRegGetBoolUSValueW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10684,7 +10734,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHRegGetBoolUSValueW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHRegGetIntW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHRegGetIntW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10706,7 +10756,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHRegGetIntW_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHRegGetPathA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHRegGetPathA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcszsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10732,7 +10782,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHRegGetPathA_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHRegGetPathW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHRegGetPathW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcszsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10758,7 +10808,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHRegGetPathW_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHRegGetUSValueA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHRegGetUSValueA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10790,7 +10840,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHRegGetUSValueA_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHRegGetUSValueW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHRegGetUSValueW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10822,7 +10872,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHRegGetUSValueW_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHRegGetValueA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHRegGetValueA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10852,7 +10902,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHRegGetValueA_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHRegGetValueFromHKCUHKLM_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHRegGetValueFromHKCUHKLM_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwszvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10880,7 +10930,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHRegGetValueFromHKCUHKLM_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHRegGetValueW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHRegGetValueW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10910,7 +10960,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHRegGetValueW_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHRegOpenUSKeyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHRegOpenUSKeyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t samdesired = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10936,7 +10986,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHRegOpenUSKeyA_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHRegOpenUSKeyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHRegOpenUSKeyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t samdesired = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -10962,7 +11012,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHRegOpenUSKeyW_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHRegQueryInfoUSKeyA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHRegQueryInfoUSKeyA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t huskey = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pcsubkeys = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -10990,7 +11040,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHRegQueryInfoUSKeyA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHRegQueryInfoUSKeyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHRegQueryInfoUSKeyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t huskey = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pcsubkeys = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11018,7 +11068,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHRegQueryInfoUSKeyW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHRegQueryUSValueA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHRegQueryUSValueA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t huskey = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pszvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11050,7 +11100,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHRegQueryUSValueA_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHRegQueryUSValueW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHRegQueryUSValueW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t huskey = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pszvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11082,7 +11132,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHRegQueryUSValueW_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHRegSetPathA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHRegSetPathA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcszsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11108,7 +11158,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHRegSetPathA_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHRegSetPathW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHRegSetPathW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pcszsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11134,7 +11184,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHRegSetPathW_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHRegSetUSValueA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHRegSetUSValueA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11162,7 +11212,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHRegSetUSValueA_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHRegSetUSValueW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHRegSetUSValueW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11190,7 +11240,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHRegSetUSValueW_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHRegWriteUSValueA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHRegWriteUSValueA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t huskey = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pszvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11218,7 +11268,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHRegWriteUSValueA_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHRegWriteUSValueW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHRegWriteUSValueW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t huskey = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pwzvalue = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11246,7 +11296,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHRegWriteUSValueW_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHReleaseThreadRef_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHReleaseThreadRef_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef int32_t (__stdcall *km_fn_t)(void);
@@ -11262,7 +11312,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHReleaseThreadRef_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHRemoveLocalizedName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHRemoveLocalizedName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -11280,7 +11330,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHRemoveLocalizedName_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHResolveLibrary_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHResolveLibrary_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psilibrary = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -11298,7 +11348,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHResolveLibrary_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHRestricted_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHRestricted_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t rest = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
 #ifdef _WIN32
@@ -11316,7 +11366,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHRestricted_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHSendMessageBroadcastA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHSendMessageBroadcastA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t umsg = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint64_t wparam = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -11338,7 +11388,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHSendMessageBroadcastA_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHSendMessageBroadcastW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHSendMessageBroadcastW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t umsg = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     uint64_t wparam = km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0;
@@ -11360,7 +11410,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHSendMessageBroadcastW_nap
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHSetDefaultProperties_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHSetDefaultProperties_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11384,7 +11434,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHSetDefaultProperties_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHSetFolderPathA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHSetFolderPathA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t csidl = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* htoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11408,7 +11458,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHSetFolderPathA_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHSetFolderPathW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHSetFolderPathW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t csidl = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* htoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11432,7 +11482,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHSetFolderPathW_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHSetInstanceExplorer_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHSetInstanceExplorer_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -11449,7 +11499,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHSetInstanceExplorer_napi(
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHSetKnownFolderPath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHSetKnownFolderPath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* rfid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwflags = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -11473,7 +11523,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHSetKnownFolderPath_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHSetLocalizedName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHSetLocalizedName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszresmodule = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11495,7 +11545,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHSetLocalizedName_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHSetTemporaryPropertyForItem_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHSetTemporaryPropertyForItem_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psi = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* propkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11517,7 +11567,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHSetTemporaryPropertyForIt
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHSetThreadRef_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHSetThreadRef_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* punk = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -11535,7 +11585,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHSetThreadRef_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHSetUnreadMailCountW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHSetUnreadMailCountW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszmailaddress = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t dwcount = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -11557,7 +11607,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHSetUnreadMailCountW_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHSetValueA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHSetValueA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11585,7 +11635,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHSetValueA_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHSetValueW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHSetValueW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszsubkey = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11613,7 +11663,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHSetValueW_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHShellFolderView_Message_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_shshellFolderViewMessage_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndmain = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t umsg = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -11635,7 +11685,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHShellFolderView_Message_n
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHShowManageLibraryUI_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHShowManageLibraryUI_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psilibrary = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11661,7 +11711,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHShowManageLibraryUI_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHSimpleIDListFromPath_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHSimpleIDListFromPath_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -11679,7 +11729,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHSimpleIDListFromPath_napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHSkipJunction_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHSkipJunction_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pbc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pclsid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11699,7 +11749,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHSkipJunction_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHStartNetConnectionDialogW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHStartNetConnectionDialogW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszremotename = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11721,7 +11771,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHStartNetConnectionDialogW
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHStrDupA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHStrDupA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppwsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11741,7 +11791,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHStrDupA_napi(const Napi::
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHStrDupW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHStrDupW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* ppwsz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11761,7 +11811,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHStrDupW_napi(const Napi::
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHStripMneumonicA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHStripMneumonicA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszmenu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -11779,7 +11829,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHStripMneumonicA_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHStripMneumonicW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHStripMneumonicW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszmenu = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -11797,7 +11847,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHStripMneumonicW_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHTestTokenMembership_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHTestTokenMembership_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* htoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t ulrid = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -11817,7 +11867,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHTestTokenMembership_napi(
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHUnicodeToAnsi_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHUnicodeToAnsi_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwszsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszdst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11839,7 +11889,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHUnicodeToAnsi_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHUnicodeToUnicode_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHUnicodeToUnicode_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwzsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pwzdst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11861,7 +11911,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHUnicodeToUnicode_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHUnlockShared_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHUnlockShared_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pvdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -11879,7 +11929,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHUnlockShared_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHUpdateImageA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHUpdateImageA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszhashitem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t iindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -11902,7 +11952,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHUpdateImageA_napi(const N
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHUpdateImageW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHUpdateImageW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszhashitem = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t iindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -11925,7 +11975,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHUpdateImageW_napi(const N
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SHValidateUNC_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_sHValidateUNC_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndowner = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszfile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -11947,7 +11997,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SHValidateUNC_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SetCurrentProcessExplicitAppUserModelID_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_setCurrentProcessExplicitAppUserModelID_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* appid = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -11965,7 +12015,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SetCurrentProcessExplicitAp
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SetMenuContextHelpId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_setMenuContextHelpId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -11985,7 +12035,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SetMenuContextHelpId_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SetWindowContextHelpId_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_setWindowContextHelpId_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* param0 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t param1 = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -12005,7 +12055,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SetWindowContextHelpId_napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SetWindowSubclass_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_setWindowSubclass_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pfnsubclass = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12029,7 +12079,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SetWindowSubclass_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ShellAboutA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_shellAboutA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szapp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12053,7 +12103,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_ShellAboutA_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ShellAboutW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_shellAboutW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* szapp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12077,7 +12127,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_ShellAboutW_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ShellExecuteA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_shellExecuteA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpoperation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12105,7 +12155,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_ShellExecuteA_napi(const Na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ShellExecuteExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_shellExecuteExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pexecinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -12123,7 +12173,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_ShellExecuteExA_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ShellExecuteExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_shellExecuteExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pexecinfo = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -12141,7 +12191,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_ShellExecuteExW_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_ShellExecuteW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_shellExecuteW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpoperation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12169,7 +12219,89 @@ static Napi::Value windowssys_windows_win32_ui_shell_ShellExecuteW_napi(const Na
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_Shell_GetCachedImageIndex_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_shellMessageBoxA_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* happinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lpctext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* lpctitle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    uint32_t fustyle = static_cast<uint32_t>(km_info.Length() > 4 ? km_info[4].ToNumber().Int32Value() : 0);
+    int32_t km_vac = km_info.Length() > 5 ? km_info[5].ToNumber().Int32Value() : 0;
+    int64_t km_va0 = km_info.Length() > 6 ? km_napi_arg_i64(km_info[6]) : 0;
+    int64_t km_va1 = km_info.Length() > 7 ? km_napi_arg_i64(km_info[7]) : 0;
+    int64_t km_va2 = km_info.Length() > 8 ? km_napi_arg_i64(km_info[8]) : 0;
+    int64_t km_va3 = km_info.Length() > 9 ? km_napi_arg_i64(km_info[9]) : 0;
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(void*, void*, void*, void*, uint32_t, ...);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("shlwapi.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ShellMessageBoxA")));
+    }
+    int32_t km_res = -1;
+    if (km_fn_ptr != nullptr) {
+        switch (km_vac) {
+            case 0: km_res = km_fn_ptr(happinst, hwnd, lpctext, lpctitle, fustyle); break;
+            case 1: km_res = km_fn_ptr(happinst, hwnd, lpctext, lpctitle, fustyle, static_cast<intptr_t>(km_va0)); break;
+            case 2: km_res = km_fn_ptr(happinst, hwnd, lpctext, lpctitle, fustyle, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1)); break;
+            case 3: km_res = km_fn_ptr(happinst, hwnd, lpctext, lpctitle, fustyle, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
+            default: km_res = km_fn_ptr(happinst, hwnd, lpctext, lpctitle, fustyle, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
+        }
+    }
+#else
+    (void)happinst;
+    (void)hwnd;
+    (void)lpctext;
+    (void)lpctitle;
+    (void)fustyle;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_ui_shell_shellMessageBoxW_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* happinst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
+    void* lpctext = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    void* lpctitle = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 3 ? km_napi_arg_u64(km_info[3]) : 0));
+    uint32_t fustyle = static_cast<uint32_t>(km_info.Length() > 4 ? km_info[4].ToNumber().Int32Value() : 0);
+    int32_t km_vac = km_info.Length() > 5 ? km_info[5].ToNumber().Int32Value() : 0;
+    int64_t km_va0 = km_info.Length() > 6 ? km_napi_arg_i64(km_info[6]) : 0;
+    int64_t km_va1 = km_info.Length() > 7 ? km_napi_arg_i64(km_info[7]) : 0;
+    int64_t km_va2 = km_info.Length() > 8 ? km_napi_arg_i64(km_info[8]) : 0;
+    int64_t km_va3 = km_info.Length() > 9 ? km_napi_arg_i64(km_info[9]) : 0;
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(void*, void*, void*, void*, uint32_t, ...);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("shlwapi.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ShellMessageBoxW")));
+    }
+    int32_t km_res = -1;
+    if (km_fn_ptr != nullptr) {
+        switch (km_vac) {
+            case 0: km_res = km_fn_ptr(happinst, hwnd, lpctext, lpctitle, fustyle); break;
+            case 1: km_res = km_fn_ptr(happinst, hwnd, lpctext, lpctitle, fustyle, static_cast<intptr_t>(km_va0)); break;
+            case 2: km_res = km_fn_ptr(happinst, hwnd, lpctext, lpctitle, fustyle, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1)); break;
+            case 3: km_res = km_fn_ptr(happinst, hwnd, lpctext, lpctitle, fustyle, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
+            default: km_res = km_fn_ptr(happinst, hwnd, lpctext, lpctitle, fustyle, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
+        }
+    }
+#else
+    (void)happinst;
+    (void)hwnd;
+    (void)lpctext;
+    (void)lpctitle;
+    (void)fustyle;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_ui_shell_shellGetCachedImageIndex_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pwsziconpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t iiconindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -12191,7 +12323,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_Shell_GetCachedImageIndex_n
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_Shell_GetCachedImageIndexA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_shellGetCachedImageIndexA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psziconpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t iiconindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -12213,7 +12345,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_Shell_GetCachedImageIndexA_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_Shell_GetCachedImageIndexW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_shellGetCachedImageIndexW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psziconpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t iiconindex = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -12235,7 +12367,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_Shell_GetCachedImageIndexW_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_Shell_GetImageLists_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_shellGetImageLists_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* phiml = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* phimlsmall = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12255,7 +12387,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_Shell_GetImageLists_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_Shell_MergeMenus_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_shellMergeMenus_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hmdst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hmsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12283,7 +12415,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_Shell_MergeMenus_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_Shell_NotifyIconA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_shellNotifyIconA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwmessage = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12303,7 +12435,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_Shell_NotifyIconA_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_Shell_NotifyIconGetRect_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_shellNotifyIconGetRect_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* identifier = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* iconlocation = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12323,7 +12455,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_Shell_NotifyIconGetRect_nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_Shell_NotifyIconW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_shellNotifyIconW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dwmessage = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* lpdata = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12343,7 +12475,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_Shell_NotifyIconW_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SignalFileOpen_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_signalFileOpen_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pidl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -12361,7 +12493,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SignalFileOpen_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_SoftwareUpdateMessageBox_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_softwareUpdateMessageBox_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwnd = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszdistunit = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12385,7 +12517,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_SoftwareUpdateMessageBox_na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StgMakeUniqueName_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_stgMakeUniqueName_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstgparent = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszfilespec = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12411,7 +12543,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StgMakeUniqueName_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrCSpnA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strCSpnA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszstr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12431,7 +12563,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrCSpnA_napi(const Napi::C
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrCSpnIA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strCSpnIA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszstr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12451,7 +12583,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrCSpnIA_napi(const Napi::
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrCSpnIW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strCSpnIW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszstr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12471,7 +12603,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrCSpnIW_napi(const Napi::
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrCSpnW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strCSpnW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszstr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12491,7 +12623,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrCSpnW_napi(const Napi::C
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrCatBuffA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strCatBuffA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12513,7 +12645,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrCatBuffA_napi(const Napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrCatBuffW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strCatBuffW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12535,7 +12667,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrCatBuffW_napi(const Napi
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrCatChainW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strCatChainW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cchdst = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -12559,7 +12691,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrCatChainW_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrCatW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strCatW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psz1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psz2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12579,7 +12711,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrCatW_napi(const Napi::Ca
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrChrA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strChrA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszstart = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t wmatch = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -12599,7 +12731,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrChrA_napi(const Napi::Ca
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrChrIA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strChrIA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszstart = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t wmatch = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -12619,7 +12751,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrChrIA_napi(const Napi::C
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrChrIW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strChrIW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszstart = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t wmatch = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -12639,7 +12771,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrChrIW_napi(const Napi::C
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrChrNIW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strChrNIW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszstart = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t wmatch = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -12661,7 +12793,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrChrNIW_napi(const Napi::
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrChrNW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strChrNW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszstart = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t wmatch = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -12683,7 +12815,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrChrNW_napi(const Napi::C
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrChrW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strChrW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszstart = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint16_t wmatch = static_cast<uint16_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -12703,7 +12835,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrChrW_napi(const Napi::Ca
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrCmpCA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strCmpCA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszstr1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszstr2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12723,7 +12855,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrCmpCA_napi(const Napi::C
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrCmpCW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strCmpCW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszstr1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszstr2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12743,7 +12875,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrCmpCW_napi(const Napi::C
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrCmpICA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strCmpICA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszstr1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszstr2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12763,7 +12895,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrCmpICA_napi(const Napi::
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrCmpICW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strCmpICW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszstr1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszstr2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12783,7 +12915,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrCmpICW_napi(const Napi::
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrCmpIW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strCmpIW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psz1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psz2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12803,7 +12935,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrCmpIW_napi(const Napi::C
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrCmpLogicalW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strCmpLogicalW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psz1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psz2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12823,7 +12955,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrCmpLogicalW_napi(const N
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrCmpNA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strCmpNA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psz1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psz2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12845,7 +12977,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrCmpNA_napi(const Napi::C
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrCmpNCA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strCmpNCA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszstr1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszstr2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12867,7 +12999,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrCmpNCA_napi(const Napi::
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrCmpNCW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strCmpNCW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszstr1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszstr2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12889,7 +13021,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrCmpNCW_napi(const Napi::
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrCmpNIA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strCmpNIA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psz1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psz2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12911,7 +13043,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrCmpNIA_napi(const Napi::
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrCmpNICA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strCmpNICA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszstr1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszstr2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12933,7 +13065,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrCmpNICA_napi(const Napi:
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrCmpNICW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strCmpNICW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszstr1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszstr2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12955,7 +13087,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrCmpNICW_napi(const Napi:
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrCmpNIW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strCmpNIW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psz1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psz2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12977,7 +13109,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrCmpNIW_napi(const Napi::
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrCmpNW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strCmpNW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psz1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psz2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -12999,7 +13131,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrCmpNW_napi(const Napi::C
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrCmpW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strCmpW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psz1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psz2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13019,7 +13151,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrCmpW_napi(const Napi::Ca
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrCpyNW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strCpyNW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszdst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13041,7 +13173,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrCpyNW_napi(const Napi::C
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrCpyW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strCpyW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psz1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psz2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13061,7 +13193,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrCpyW_napi(const Napi::Ca
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrDupA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strDupA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszsrch = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -13079,7 +13211,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrDupA_napi(const Napi::Ca
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrDupW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strDupW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszsrch = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -13097,7 +13229,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrDupW_napi(const Napi::Ca
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrFormatByteSize64A_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strFormatByteSize64A_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t qdw = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pszbuf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13119,7 +13251,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrFormatByteSize64A_napi(c
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrFormatByteSizeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strFormatByteSizeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint32_t dw = static_cast<uint32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pszbuf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13141,7 +13273,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrFormatByteSizeA_napi(con
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrFormatByteSizeEx_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strFormatByteSizeEx_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t ull = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
     int32_t flags = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -13165,7 +13297,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrFormatByteSizeEx_napi(co
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrFormatByteSizeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strFormatByteSizeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t qdw = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pszbuf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13187,7 +13319,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrFormatByteSizeW_napi(con
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrFormatKBSizeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strFormatKBSizeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t qdw = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pszbuf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13209,7 +13341,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrFormatKBSizeA_napi(const
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrFormatKBSizeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strFormatKBSizeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t qdw = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
     void* pszbuf = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13231,7 +13363,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrFormatKBSizeW_napi(const
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrFromTimeIntervalA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strFromTimeIntervalA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cchmax = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -13255,7 +13387,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrFromTimeIntervalA_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrFromTimeIntervalW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strFromTimeIntervalW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     uint32_t cchmax = static_cast<uint32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -13279,7 +13411,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrFromTimeIntervalW_napi(c
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrIsIntlEqualA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strIsIntlEqualA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t fcasesens = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pszstring1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13303,7 +13435,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrIsIntlEqualA_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrIsIntlEqualW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strIsIntlEqualW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int32_t fcasesens = static_cast<int32_t>(km_info.Length() > 0 ? km_info[0].ToNumber().Int32Value() : 0);
     void* pszstring1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13327,7 +13459,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrIsIntlEqualW_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrNCatA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strNCatA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psz1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psz2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13349,7 +13481,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrNCatA_napi(const Napi::C
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrNCatW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strNCatW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psz1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psz2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13371,7 +13503,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrNCatW_napi(const Napi::C
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrPBrkA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strPBrkA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13391,7 +13523,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrPBrkA_napi(const Napi::C
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrPBrkW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strPBrkW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13411,7 +13543,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrPBrkW_napi(const Napi::C
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrRChrA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strRChrA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszstart = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszend = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13433,7 +13565,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrRChrA_napi(const Napi::C
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrRChrIA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strRChrIA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszstart = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszend = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13455,7 +13587,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrRChrIA_napi(const Napi::
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrRChrIW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strRChrIW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszstart = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszend = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13477,7 +13609,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrRChrIW_napi(const Napi::
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrRChrW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strRChrW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszstart = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszend = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13499,7 +13631,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrRChrW_napi(const Napi::C
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrRStrIA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strRStrIA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszsource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszlast = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13521,7 +13653,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrRStrIA_napi(const Napi::
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrRStrIW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strRStrIW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszsource = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszlast = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13543,7 +13675,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrRStrIW_napi(const Napi::
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrRetToBSTR_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strRetToBSTR_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pidl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13565,7 +13697,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrRetToBSTR_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrRetToBufA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strRetToBufA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pidl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13589,7 +13721,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrRetToBufA_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrRetToBufW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strRetToBufW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pidl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13613,7 +13745,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrRetToBufW_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrRetToStrA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strRetToStrA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pidl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13635,7 +13767,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrRetToStrA_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrRetToStrW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strRetToStrW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pstr = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pidl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13657,7 +13789,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrRetToStrW_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrSpnA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strSpnA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13677,7 +13809,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrSpnA_napi(const Napi::Ca
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrSpnW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strSpnW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszset = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13697,7 +13829,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrSpnW_napi(const Napi::Ca
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrStrA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strStrA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszfirst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszsrch = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13717,7 +13849,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrStrA_napi(const Napi::Ca
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrStrIA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strStrIA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszfirst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszsrch = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13737,7 +13869,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrStrIA_napi(const Napi::C
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrStrIW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strStrIW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszfirst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszsrch = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13757,7 +13889,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrStrIW_napi(const Napi::C
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrStrNIW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strStrNIW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszfirst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszsrch = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13779,7 +13911,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrStrNIW_napi(const Napi::
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrStrNW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strStrNW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszfirst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszsrch = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13801,7 +13933,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrStrNW_napi(const Napi::C
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrStrW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strStrW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszfirst = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszsrch = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13821,7 +13953,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrStrW_napi(const Napi::Ca
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrToInt64ExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strToInt64ExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t dwflags = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -13843,7 +13975,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrToInt64ExA_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrToInt64ExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strToInt64ExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t dwflags = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -13865,7 +13997,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrToInt64ExW_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrToIntA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strToIntA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -13883,7 +14015,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrToIntA_napi(const Napi::
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrToIntExA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strToIntExA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t dwflags = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -13905,7 +14037,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrToIntExA_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrToIntExW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strToIntExW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszstring = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t dwflags = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -13927,7 +14059,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrToIntExW_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrToIntW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strToIntW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszsrc = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -13945,7 +14077,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrToIntW_napi(const Napi::
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrTrimA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strTrimA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psztrimchars = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13965,7 +14097,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrTrimA_napi(const Napi::C
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_StrTrimW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_strTrimW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psz = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psztrimchars = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -13985,7 +14117,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_StrTrimW_napi(const Napi::C
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_UnloadUserProfile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_unloadUserProfile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* htoken = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* hprofile = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14005,7 +14137,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_UnloadUserProfile_napi(cons
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_UnregisterAppConstrainedChangeNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_unregisterAppConstrainedChangeNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t registration = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -14022,7 +14154,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_UnregisterAppConstrainedCha
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_UnregisterAppStateChangeNotification_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_unregisterAppStateChangeNotification_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     int64_t registration = km_info.Length() > 0 ? km_napi_arg_i64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -14039,7 +14171,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_UnregisterAppStateChangeNot
     return km_env.Undefined();
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_UnregisterScaleChangeEvent_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_unregisterScaleChangeEvent_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     uint64_t dwcookie = km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0;
 #ifdef _WIN32
@@ -14057,7 +14189,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_UnregisterScaleChangeEvent_
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_UrlApplySchemeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_urlApplySchemeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14081,7 +14213,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_UrlApplySchemeA_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_UrlApplySchemeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_urlApplySchemeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14105,7 +14237,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_UrlApplySchemeW_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_UrlCanonicalizeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_urlCanonicalizeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszcanonicalized = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14129,7 +14261,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_UrlCanonicalizeA_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_UrlCanonicalizeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_urlCanonicalizeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszcanonicalized = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14153,7 +14285,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_UrlCanonicalizeW_napi(const
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_UrlCombineA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_urlCombineA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszbase = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszrelative = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14179,7 +14311,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_UrlCombineA_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_UrlCombineW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_urlCombineW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszbase = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszrelative = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14205,7 +14337,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_UrlCombineW_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_UrlCompareA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_urlCompareA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psz1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psz2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14227,7 +14359,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_UrlCompareA_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_UrlCompareW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_urlCompareW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* psz1 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psz2 = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14249,7 +14381,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_UrlCompareW_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_UrlCreateFromPathA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_urlCreateFromPathA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14273,7 +14405,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_UrlCreateFromPathA_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_UrlCreateFromPathW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_urlCreateFromPathW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14297,7 +14429,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_UrlCreateFromPathW_napi(con
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_UrlEscapeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_urlEscapeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszescaped = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14321,7 +14453,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_UrlEscapeA_napi(const Napi:
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_UrlEscapeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_urlEscapeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszescaped = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14345,7 +14477,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_UrlEscapeW_napi(const Napi:
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_UrlFixupW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_urlFixupW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* psztranslatedurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14367,7 +14499,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_UrlFixupW_napi(const Napi::
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_UrlGetLocationA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_urlGetLocationA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -14385,7 +14517,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_UrlGetLocationA_napi(const 
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_UrlGetLocationW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_urlGetLocationW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -14403,7 +14535,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_UrlGetLocationW_napi(const 
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_UrlGetPartA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_urlGetPartA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14429,7 +14561,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_UrlGetPartA_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_UrlGetPartW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_urlGetPartW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszout = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14455,7 +14587,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_UrlGetPartW_napi(const Napi
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_UrlHashA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_urlHashA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbhash = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14477,7 +14609,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_UrlHashA_napi(const Napi::C
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_UrlHashW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_urlHashW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pbhash = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14499,7 +14631,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_UrlHashW_napi(const Napi::C
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_UrlIsA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_urlIsA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t urlis = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -14519,7 +14651,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_UrlIsA_napi(const Napi::Cal
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_UrlIsNoHistoryA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_urlIsNoHistoryA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -14537,7 +14669,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_UrlIsNoHistoryA_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_UrlIsNoHistoryW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_urlIsNoHistoryW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -14555,7 +14687,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_UrlIsNoHistoryW_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_UrlIsOpaqueA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_urlIsOpaqueA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -14573,7 +14705,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_UrlIsOpaqueA_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_UrlIsOpaqueW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_urlIsOpaqueW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -14591,7 +14723,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_UrlIsOpaqueW_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_UrlIsW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_urlIsW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     int32_t urlis = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
@@ -14611,7 +14743,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_UrlIsW_napi(const Napi::Cal
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_UrlUnescapeA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_urlUnescapeA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszunescaped = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14635,7 +14767,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_UrlUnescapeA_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_UrlUnescapeW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_urlUnescapeW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszurl = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pszunescaped = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14659,7 +14791,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_UrlUnescapeW_napi(const Nap
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_VariantToStrRet_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_variantToStrRet_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* varin = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* pstrret = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14679,7 +14811,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_VariantToStrRet_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_WhichPlatform_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_whichPlatform_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
 #ifdef _WIN32
     typedef uint32_t (__stdcall *km_fn_t)(void);
@@ -14695,7 +14827,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_WhichPlatform_napi(const Na
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_Win32DeleteFile_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_win32DeleteFile_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pszpath = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -14713,7 +14845,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_Win32DeleteFile_napi(const 
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_WinHelpA_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_winHelpA_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndmain = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszhelp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14737,7 +14869,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_WinHelpA_napi(const Napi::C
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_WinHelpW_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_winHelpW_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* hwndmain = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
     void* lpszhelp = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 1 ? km_napi_arg_u64(km_info[1]) : 0));
@@ -14761,7 +14893,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_WinHelpW_napi(const Napi::C
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
 }
 
-static Napi::Value windowssys_windows_win32_ui_shell_WriteCabinetState_napi(const Napi::CallbackInfo& km_info) {
+static Napi::Value windowssys_windows_win32_ui_shell_writeCabinetState_napi(const Napi::CallbackInfo& km_info) {
     Napi::Env km_env = km_info.Env();
     void* pcs = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
 #ifdef _WIN32
@@ -14774,6 +14906,80 @@ static Napi::Value windowssys_windows_win32_ui_shell_WriteCabinetState_napi(cons
     int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcs) : -1;
 #else
     (void)pcs;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_ui_shell_wnsprintfA_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pszdest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    int32_t cchdest = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    void* pszfmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    int32_t km_vac = km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0;
+    int64_t km_va0 = km_info.Length() > 4 ? km_napi_arg_i64(km_info[4]) : 0;
+    int64_t km_va1 = km_info.Length() > 5 ? km_napi_arg_i64(km_info[5]) : 0;
+    int64_t km_va2 = km_info.Length() > 6 ? km_napi_arg_i64(km_info[6]) : 0;
+    int64_t km_va3 = km_info.Length() > 7 ? km_napi_arg_i64(km_info[7]) : 0;
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(void*, int32_t, void*, ...);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("shlwapi.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "wnsprintfA")));
+    }
+    int32_t km_res = -1;
+    if (km_fn_ptr != nullptr) {
+        switch (km_vac) {
+            case 0: km_res = km_fn_ptr(pszdest, cchdest, pszfmt); break;
+            case 1: km_res = km_fn_ptr(pszdest, cchdest, pszfmt, static_cast<intptr_t>(km_va0)); break;
+            case 2: km_res = km_fn_ptr(pszdest, cchdest, pszfmt, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1)); break;
+            case 3: km_res = km_fn_ptr(pszdest, cchdest, pszfmt, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
+            default: km_res = km_fn_ptr(pszdest, cchdest, pszfmt, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
+        }
+    }
+#else
+    (void)pszdest;
+    (void)cchdest;
+    (void)pszfmt;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    int32_t km_res = -1;
+#endif
+    return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
+}
+
+static Napi::Value windowssys_windows_win32_ui_shell_wnsprintfW_napi(const Napi::CallbackInfo& km_info) {
+    Napi::Env km_env = km_info.Env();
+    void* pszdest = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 0 ? km_napi_arg_u64(km_info[0]) : 0));
+    int32_t cchdest = static_cast<int32_t>(km_info.Length() > 1 ? km_info[1].ToNumber().Int32Value() : 0);
+    void* pszfmt = reinterpret_cast<void*>(static_cast<uintptr_t>(km_info.Length() > 2 ? km_napi_arg_u64(km_info[2]) : 0));
+    int32_t km_vac = km_info.Length() > 3 ? km_info[3].ToNumber().Int32Value() : 0;
+    int64_t km_va0 = km_info.Length() > 4 ? km_napi_arg_i64(km_info[4]) : 0;
+    int64_t km_va1 = km_info.Length() > 5 ? km_napi_arg_i64(km_info[5]) : 0;
+    int64_t km_va2 = km_info.Length() > 6 ? km_napi_arg_i64(km_info[6]) : 0;
+    int64_t km_va3 = km_info.Length() > 7 ? km_napi_arg_i64(km_info[7]) : 0;
+#ifdef _WIN32
+    typedef int32_t (*km_fn_t)(void*, int32_t, void*, ...);
+    static km_fn_t km_fn_ptr = nullptr;
+    if (km_fn_ptr == nullptr) {
+        HMODULE km_h_mod = LoadLibraryA("shlwapi.dll");
+        if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "wnsprintfW")));
+    }
+    int32_t km_res = -1;
+    if (km_fn_ptr != nullptr) {
+        switch (km_vac) {
+            case 0: km_res = km_fn_ptr(pszdest, cchdest, pszfmt); break;
+            case 1: km_res = km_fn_ptr(pszdest, cchdest, pszfmt, static_cast<intptr_t>(km_va0)); break;
+            case 2: km_res = km_fn_ptr(pszdest, cchdest, pszfmt, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1)); break;
+            case 3: km_res = km_fn_ptr(pszdest, cchdest, pszfmt, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
+            default: km_res = km_fn_ptr(pszdest, cchdest, pszfmt, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
+        }
+    }
+#else
+    (void)pszdest;
+    (void)cchdest;
+    (void)pszfmt;
+    (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -14828,684 +15034,690 @@ static Napi::Value windowssys_windows_win32_ui_shell_wvnsprintfW_napi(const Napi
 }
 
 static void register_windows_win32_ui_shell_napi(Napi::Env env, Napi::Object exports) {
-    exports.Set("windowssys_windows_win32_ui_shell_AssocCreateForClasses", Napi::Function::New(env, windowssys_windows_win32_ui_shell_AssocCreateForClasses_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_AssocGetDetailsOfPropKey", Napi::Function::New(env, windowssys_windows_win32_ui_shell_AssocGetDetailsOfPropKey_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_AssocGetPerceivedType", Napi::Function::New(env, windowssys_windows_win32_ui_shell_AssocGetPerceivedType_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_AssocIsDangerous", Napi::Function::New(env, windowssys_windows_win32_ui_shell_AssocIsDangerous_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_AssocQueryKeyA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_AssocQueryKeyA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_AssocQueryKeyW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_AssocQueryKeyW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_AssocQueryStringA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_AssocQueryStringA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_AssocQueryStringByKeyA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_AssocQueryStringByKeyA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_AssocQueryStringByKeyW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_AssocQueryStringByKeyW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_AssocQueryStringW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_AssocQueryStringW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_CDefFolderMenu_Create2", Napi::Function::New(env, windowssys_windows_win32_ui_shell_CDefFolderMenu_Create2_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_CIDLData_CreateFromIDArray", Napi::Function::New(env, windowssys_windows_win32_ui_shell_CIDLData_CreateFromIDArray_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ChrCmpIA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ChrCmpIA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ChrCmpIW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ChrCmpIW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ColorAdjustLuma", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ColorAdjustLuma_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ColorHLSToRGB", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ColorHLSToRGB_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ColorRGBToHLS", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ColorRGBToHLS_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_CommandLineToArgvW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_CommandLineToArgvW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ConnectToConnectionPoint", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ConnectToConnectionPoint_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_CreateProfile", Napi::Function::New(env, windowssys_windows_win32_ui_shell_CreateProfile_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_DAD_AutoScroll", Napi::Function::New(env, windowssys_windows_win32_ui_shell_DAD_AutoScroll_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_DAD_DragLeave", Napi::Function::New(env, windowssys_windows_win32_ui_shell_DAD_DragLeave_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_DAD_SetDragImage", Napi::Function::New(env, windowssys_windows_win32_ui_shell_DAD_SetDragImage_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_DAD_ShowDragImage", Napi::Function::New(env, windowssys_windows_win32_ui_shell_DAD_ShowDragImage_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_DefSubclassProc", Napi::Function::New(env, windowssys_windows_win32_ui_shell_DefSubclassProc_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_DeleteProfileA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_DeleteProfileA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_DeleteProfileW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_DeleteProfileW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_DoEnvironmentSubstA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_DoEnvironmentSubstA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_DoEnvironmentSubstW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_DoEnvironmentSubstW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_DragAcceptFiles", Napi::Function::New(env, windowssys_windows_win32_ui_shell_DragAcceptFiles_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_DragFinish", Napi::Function::New(env, windowssys_windows_win32_ui_shell_DragFinish_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_DragQueryFileA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_DragQueryFileA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_DragQueryFileW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_DragQueryFileW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_DragQueryPoint", Napi::Function::New(env, windowssys_windows_win32_ui_shell_DragQueryPoint_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_DriveType", Napi::Function::New(env, windowssys_windows_win32_ui_shell_DriveType_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_DuplicateIcon", Napi::Function::New(env, windowssys_windows_win32_ui_shell_DuplicateIcon_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ExtractAssociatedIconA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ExtractAssociatedIconA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ExtractAssociatedIconExA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ExtractAssociatedIconExA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ExtractAssociatedIconExW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ExtractAssociatedIconExW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ExtractAssociatedIconW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ExtractAssociatedIconW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ExtractIconA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ExtractIconA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ExtractIconExA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ExtractIconExA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ExtractIconExW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ExtractIconExW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ExtractIconW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ExtractIconW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_FindExecutableA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_FindExecutableA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_FindExecutableW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_FindExecutableW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_GetAcceptLanguagesA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_GetAcceptLanguagesA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_GetAcceptLanguagesW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_GetAcceptLanguagesW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_GetAllUsersProfileDirectoryA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_GetAllUsersProfileDirectoryA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_GetAllUsersProfileDirectoryW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_GetAllUsersProfileDirectoryW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_GetCurrentProcessExplicitAppUserModelID", Napi::Function::New(env, windowssys_windows_win32_ui_shell_GetCurrentProcessExplicitAppUserModelID_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_GetDefaultUserProfileDirectoryA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_GetDefaultUserProfileDirectoryA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_GetDefaultUserProfileDirectoryW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_GetDefaultUserProfileDirectoryW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_GetDpiForShellUIComponent", Napi::Function::New(env, windowssys_windows_win32_ui_shell_GetDpiForShellUIComponent_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_GetFileNameFromBrowse", Napi::Function::New(env, windowssys_windows_win32_ui_shell_GetFileNameFromBrowse_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_GetMenuContextHelpId", Napi::Function::New(env, windowssys_windows_win32_ui_shell_GetMenuContextHelpId_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_GetMenuPosFromID", Napi::Function::New(env, windowssys_windows_win32_ui_shell_GetMenuPosFromID_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_GetProfileType", Napi::Function::New(env, windowssys_windows_win32_ui_shell_GetProfileType_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_GetProfilesDirectoryA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_GetProfilesDirectoryA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_GetProfilesDirectoryW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_GetProfilesDirectoryW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_GetScaleFactorForDevice", Napi::Function::New(env, windowssys_windows_win32_ui_shell_GetScaleFactorForDevice_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_GetScaleFactorForMonitor", Napi::Function::New(env, windowssys_windows_win32_ui_shell_GetScaleFactorForMonitor_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_GetUserProfileDirectoryA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_GetUserProfileDirectoryA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_GetUserProfileDirectoryW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_GetUserProfileDirectoryW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_GetWindowContextHelpId", Napi::Function::New(env, windowssys_windows_win32_ui_shell_GetWindowContextHelpId_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_GetWindowSubclass", Napi::Function::New(env, windowssys_windows_win32_ui_shell_GetWindowSubclass_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_HMONITOR_UserFree", Napi::Function::New(env, windowssys_windows_win32_ui_shell_HMONITOR_UserFree_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_HMONITOR_UserFree64", Napi::Function::New(env, windowssys_windows_win32_ui_shell_HMONITOR_UserFree64_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_HMONITOR_UserMarshal", Napi::Function::New(env, windowssys_windows_win32_ui_shell_HMONITOR_UserMarshal_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_HMONITOR_UserMarshal64", Napi::Function::New(env, windowssys_windows_win32_ui_shell_HMONITOR_UserMarshal64_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_HMONITOR_UserSize", Napi::Function::New(env, windowssys_windows_win32_ui_shell_HMONITOR_UserSize_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_HMONITOR_UserSize64", Napi::Function::New(env, windowssys_windows_win32_ui_shell_HMONITOR_UserSize64_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_HMONITOR_UserUnmarshal", Napi::Function::New(env, windowssys_windows_win32_ui_shell_HMONITOR_UserUnmarshal_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_HMONITOR_UserUnmarshal64", Napi::Function::New(env, windowssys_windows_win32_ui_shell_HMONITOR_UserUnmarshal64_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_HashData", Napi::Function::New(env, windowssys_windows_win32_ui_shell_HashData_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_HlinkClone", Napi::Function::New(env, windowssys_windows_win32_ui_shell_HlinkClone_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_HlinkCreateBrowseContext", Napi::Function::New(env, windowssys_windows_win32_ui_shell_HlinkCreateBrowseContext_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_HlinkCreateExtensionServices", Napi::Function::New(env, windowssys_windows_win32_ui_shell_HlinkCreateExtensionServices_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_HlinkCreateFromData", Napi::Function::New(env, windowssys_windows_win32_ui_shell_HlinkCreateFromData_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_HlinkCreateFromMoniker", Napi::Function::New(env, windowssys_windows_win32_ui_shell_HlinkCreateFromMoniker_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_HlinkCreateFromString", Napi::Function::New(env, windowssys_windows_win32_ui_shell_HlinkCreateFromString_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_HlinkCreateShortcut", Napi::Function::New(env, windowssys_windows_win32_ui_shell_HlinkCreateShortcut_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_HlinkCreateShortcutFromMoniker", Napi::Function::New(env, windowssys_windows_win32_ui_shell_HlinkCreateShortcutFromMoniker_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_HlinkCreateShortcutFromString", Napi::Function::New(env, windowssys_windows_win32_ui_shell_HlinkCreateShortcutFromString_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_HlinkGetSpecialReference", Napi::Function::New(env, windowssys_windows_win32_ui_shell_HlinkGetSpecialReference_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_HlinkGetValueFromParams", Napi::Function::New(env, windowssys_windows_win32_ui_shell_HlinkGetValueFromParams_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_HlinkIsShortcut", Napi::Function::New(env, windowssys_windows_win32_ui_shell_HlinkIsShortcut_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_HlinkNavigate", Napi::Function::New(env, windowssys_windows_win32_ui_shell_HlinkNavigate_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_HlinkNavigateToStringReference", Napi::Function::New(env, windowssys_windows_win32_ui_shell_HlinkNavigateToStringReference_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_HlinkOnNavigate", Napi::Function::New(env, windowssys_windows_win32_ui_shell_HlinkOnNavigate_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_HlinkOnRenameDocument", Napi::Function::New(env, windowssys_windows_win32_ui_shell_HlinkOnRenameDocument_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_HlinkParseDisplayName", Napi::Function::New(env, windowssys_windows_win32_ui_shell_HlinkParseDisplayName_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_HlinkPreprocessMoniker", Napi::Function::New(env, windowssys_windows_win32_ui_shell_HlinkPreprocessMoniker_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_HlinkQueryCreateFromData", Napi::Function::New(env, windowssys_windows_win32_ui_shell_HlinkQueryCreateFromData_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_HlinkResolveMonikerForData", Napi::Function::New(env, windowssys_windows_win32_ui_shell_HlinkResolveMonikerForData_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_HlinkResolveShortcut", Napi::Function::New(env, windowssys_windows_win32_ui_shell_HlinkResolveShortcut_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_HlinkResolveShortcutToMoniker", Napi::Function::New(env, windowssys_windows_win32_ui_shell_HlinkResolveShortcutToMoniker_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_HlinkResolveShortcutToString", Napi::Function::New(env, windowssys_windows_win32_ui_shell_HlinkResolveShortcutToString_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_HlinkResolveStringForData", Napi::Function::New(env, windowssys_windows_win32_ui_shell_HlinkResolveStringForData_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_HlinkSetSpecialReference", Napi::Function::New(env, windowssys_windows_win32_ui_shell_HlinkSetSpecialReference_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_HlinkTranslateURL", Napi::Function::New(env, windowssys_windows_win32_ui_shell_HlinkTranslateURL_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_HlinkUpdateStackItem", Napi::Function::New(env, windowssys_windows_win32_ui_shell_HlinkUpdateStackItem_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ILAppendID", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ILAppendID_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ILClone", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ILClone_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ILCloneFirst", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ILCloneFirst_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ILCombine", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ILCombine_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ILCreateFromPathA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ILCreateFromPathA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ILCreateFromPathW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ILCreateFromPathW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ILFindChild", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ILFindChild_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ILFindLastID", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ILFindLastID_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ILFree", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ILFree_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ILGetNext", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ILGetNext_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ILGetSize", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ILGetSize_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ILIsEqual", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ILIsEqual_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ILIsParent", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ILIsParent_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ILLoadFromStreamEx", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ILLoadFromStreamEx_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ILRemoveLastID", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ILRemoveLastID_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ILSaveToStream", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ILSaveToStream_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_IStream_Copy", Napi::Function::New(env, windowssys_windows_win32_ui_shell_IStream_Copy_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_IStream_Read", Napi::Function::New(env, windowssys_windows_win32_ui_shell_IStream_Read_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_IStream_ReadPidl", Napi::Function::New(env, windowssys_windows_win32_ui_shell_IStream_ReadPidl_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_IStream_ReadStr", Napi::Function::New(env, windowssys_windows_win32_ui_shell_IStream_ReadStr_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_IStream_Reset", Napi::Function::New(env, windowssys_windows_win32_ui_shell_IStream_Reset_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_IStream_Size", Napi::Function::New(env, windowssys_windows_win32_ui_shell_IStream_Size_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_IStream_Write", Napi::Function::New(env, windowssys_windows_win32_ui_shell_IStream_Write_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_IStream_WritePidl", Napi::Function::New(env, windowssys_windows_win32_ui_shell_IStream_WritePidl_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_IStream_WriteStr", Napi::Function::New(env, windowssys_windows_win32_ui_shell_IStream_WriteStr_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_IUnknown_AtomicRelease", Napi::Function::New(env, windowssys_windows_win32_ui_shell_IUnknown_AtomicRelease_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_IUnknown_GetSite", Napi::Function::New(env, windowssys_windows_win32_ui_shell_IUnknown_GetSite_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_IUnknown_GetWindow", Napi::Function::New(env, windowssys_windows_win32_ui_shell_IUnknown_GetWindow_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_IUnknown_QueryService", Napi::Function::New(env, windowssys_windows_win32_ui_shell_IUnknown_QueryService_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_IUnknown_Set", Napi::Function::New(env, windowssys_windows_win32_ui_shell_IUnknown_Set_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_IUnknown_SetSite", Napi::Function::New(env, windowssys_windows_win32_ui_shell_IUnknown_SetSite_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ImportPrivacySettings", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ImportPrivacySettings_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_InitNetworkAddressControl", Napi::Function::New(env, windowssys_windows_win32_ui_shell_InitNetworkAddressControl_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_InitPropVariantFromStrRet", Napi::Function::New(env, windowssys_windows_win32_ui_shell_InitPropVariantFromStrRet_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_InitVariantFromStrRet", Napi::Function::New(env, windowssys_windows_win32_ui_shell_InitVariantFromStrRet_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_IntlStrEqWorkerA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_IntlStrEqWorkerA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_IntlStrEqWorkerW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_IntlStrEqWorkerW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_IsCharSpaceA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_IsCharSpaceA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_IsCharSpaceW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_IsCharSpaceW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_IsInternetESCEnabled", Napi::Function::New(env, windowssys_windows_win32_ui_shell_IsInternetESCEnabled_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_IsLFNDriveA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_IsLFNDriveA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_IsLFNDriveW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_IsLFNDriveW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_IsNetDrive", Napi::Function::New(env, windowssys_windows_win32_ui_shell_IsNetDrive_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_IsOS", Napi::Function::New(env, windowssys_windows_win32_ui_shell_IsOS_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_IsUserAnAdmin", Napi::Function::New(env, windowssys_windows_win32_ui_shell_IsUserAnAdmin_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_LoadUserProfileA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_LoadUserProfileA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_LoadUserProfileW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_LoadUserProfileW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_OleSaveToStreamEx", Napi::Function::New(env, windowssys_windows_win32_ui_shell_OleSaveToStreamEx_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_OpenRegStream", Napi::Function::New(env, windowssys_windows_win32_ui_shell_OpenRegStream_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ParseURLA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ParseURLA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ParseURLW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ParseURLW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathAddBackslashA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathAddBackslashA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathAddBackslashW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathAddBackslashW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathAddExtensionA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathAddExtensionA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathAddExtensionW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathAddExtensionW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathAllocCanonicalize", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathAllocCanonicalize_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathAllocCombine", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathAllocCombine_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathAppendA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathAppendA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathAppendW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathAppendW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathBuildRootA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathBuildRootA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathBuildRootW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathBuildRootW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathCanonicalizeA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathCanonicalizeA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathCanonicalizeW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathCanonicalizeW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathCchAddBackslash", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathCchAddBackslash_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathCchAddBackslashEx", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathCchAddBackslashEx_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathCchAddExtension", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathCchAddExtension_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathCchAppend", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathCchAppend_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathCchAppendEx", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathCchAppendEx_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathCchCanonicalize", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathCchCanonicalize_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathCchCanonicalizeEx", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathCchCanonicalizeEx_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathCchCombine", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathCchCombine_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathCchCombineEx", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathCchCombineEx_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathCchFindExtension", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathCchFindExtension_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathCchIsRoot", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathCchIsRoot_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathCchRemoveBackslash", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathCchRemoveBackslash_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathCchRemoveBackslashEx", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathCchRemoveBackslashEx_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathCchRemoveExtension", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathCchRemoveExtension_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathCchRemoveFileSpec", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathCchRemoveFileSpec_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathCchRenameExtension", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathCchRenameExtension_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathCchSkipRoot", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathCchSkipRoot_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathCchStripPrefix", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathCchStripPrefix_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathCchStripToRoot", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathCchStripToRoot_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathCleanupSpec", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathCleanupSpec_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathCombineA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathCombineA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathCombineW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathCombineW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathCommonPrefixA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathCommonPrefixA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathCommonPrefixW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathCommonPrefixW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathCompactPathA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathCompactPathA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathCompactPathExA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathCompactPathExA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathCompactPathExW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathCompactPathExW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathCompactPathW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathCompactPathW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathCreateFromUrlA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathCreateFromUrlA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathCreateFromUrlAlloc", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathCreateFromUrlAlloc_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathCreateFromUrlW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathCreateFromUrlW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathFileExistsA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathFileExistsA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathFileExistsW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathFileExistsW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathFindExtensionA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathFindExtensionA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathFindExtensionW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathFindExtensionW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathFindFileNameA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathFindFileNameA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathFindFileNameW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathFindFileNameW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathFindNextComponentA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathFindNextComponentA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathFindNextComponentW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathFindNextComponentW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathFindOnPathA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathFindOnPathA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathFindOnPathW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathFindOnPathW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathFindSuffixArrayA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathFindSuffixArrayA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathFindSuffixArrayW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathFindSuffixArrayW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathGetArgsA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathGetArgsA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathGetArgsW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathGetArgsW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathGetCharTypeA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathGetCharTypeA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathGetCharTypeW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathGetCharTypeW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathGetDriveNumberA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathGetDriveNumberA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathGetDriveNumberW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathGetDriveNumberW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathGetShortPath", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathGetShortPath_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathIsContentTypeA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathIsContentTypeA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathIsContentTypeW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathIsContentTypeW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathIsDirectoryA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathIsDirectoryA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathIsDirectoryEmptyA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathIsDirectoryEmptyA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathIsDirectoryEmptyW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathIsDirectoryEmptyW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathIsDirectoryW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathIsDirectoryW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathIsExe", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathIsExe_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathIsFileSpecA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathIsFileSpecA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathIsFileSpecW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathIsFileSpecW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathIsLFNFileSpecA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathIsLFNFileSpecA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathIsLFNFileSpecW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathIsLFNFileSpecW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathIsNetworkPathA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathIsNetworkPathA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathIsNetworkPathW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathIsNetworkPathW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathIsPrefixA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathIsPrefixA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathIsPrefixW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathIsPrefixW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathIsRelativeA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathIsRelativeA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathIsRelativeW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathIsRelativeW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathIsRootA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathIsRootA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathIsRootW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathIsRootW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathIsSameRootA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathIsSameRootA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathIsSameRootW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathIsSameRootW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathIsSlowA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathIsSlowA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathIsSlowW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathIsSlowW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathIsSystemFolderA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathIsSystemFolderA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathIsSystemFolderW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathIsSystemFolderW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathIsUNCA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathIsUNCA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathIsUNCEx", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathIsUNCEx_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathIsUNCServerA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathIsUNCServerA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathIsUNCServerShareA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathIsUNCServerShareA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathIsUNCServerShareW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathIsUNCServerShareW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathIsUNCServerW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathIsUNCServerW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathIsUNCW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathIsUNCW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathIsURLA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathIsURLA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathIsURLW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathIsURLW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathMakePrettyA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathMakePrettyA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathMakePrettyW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathMakePrettyW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathMakeSystemFolderA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathMakeSystemFolderA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathMakeSystemFolderW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathMakeSystemFolderW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathMakeUniqueName", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathMakeUniqueName_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathMatchSpecA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathMatchSpecA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathMatchSpecExA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathMatchSpecExA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathMatchSpecExW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathMatchSpecExW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathMatchSpecW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathMatchSpecW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathParseIconLocationA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathParseIconLocationA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathParseIconLocationW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathParseIconLocationW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathQualify", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathQualify_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathQuoteSpacesA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathQuoteSpacesA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathQuoteSpacesW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathQuoteSpacesW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathRelativePathToA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathRelativePathToA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathRelativePathToW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathRelativePathToW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathRemoveArgsA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathRemoveArgsA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathRemoveArgsW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathRemoveArgsW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathRemoveBackslashA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathRemoveBackslashA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathRemoveBackslashW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathRemoveBackslashW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathRemoveBlanksA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathRemoveBlanksA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathRemoveBlanksW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathRemoveBlanksW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathRemoveExtensionA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathRemoveExtensionA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathRemoveExtensionW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathRemoveExtensionW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathRemoveFileSpecA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathRemoveFileSpecA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathRemoveFileSpecW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathRemoveFileSpecW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathRenameExtensionA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathRenameExtensionA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathRenameExtensionW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathRenameExtensionW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathResolve", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathResolve_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathSearchAndQualifyA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathSearchAndQualifyA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathSearchAndQualifyW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathSearchAndQualifyW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathSetDlgItemPathA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathSetDlgItemPathA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathSetDlgItemPathW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathSetDlgItemPathW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathSkipRootA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathSkipRootA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathSkipRootW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathSkipRootW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathStripPathA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathStripPathA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathStripPathW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathStripPathW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathStripToRootA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathStripToRootA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathStripToRootW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathStripToRootW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathUnExpandEnvStringsA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathUnExpandEnvStringsA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathUnExpandEnvStringsW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathUnExpandEnvStringsW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathUndecorateA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathUndecorateA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathUndecorateW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathUndecorateW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathUnmakeSystemFolderA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathUnmakeSystemFolderA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathUnmakeSystemFolderW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathUnmakeSystemFolderW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathUnquoteSpacesA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathUnquoteSpacesA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathUnquoteSpacesW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathUnquoteSpacesW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PathYetAnotherMakeUniqueName", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PathYetAnotherMakeUniqueName_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PickIconDlg", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PickIconDlg_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_PropVariantToStrRet", Napi::Function::New(env, windowssys_windows_win32_ui_shell_PropVariantToStrRet_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_QISearch", Napi::Function::New(env, windowssys_windows_win32_ui_shell_QISearch_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ReadCabinetState", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ReadCabinetState_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_RealDriveType", Napi::Function::New(env, windowssys_windows_win32_ui_shell_RealDriveType_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_RegisterAppConstrainedChangeNotification", Napi::Function::New(env, windowssys_windows_win32_ui_shell_RegisterAppConstrainedChangeNotification_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_RegisterAppStateChangeNotification", Napi::Function::New(env, windowssys_windows_win32_ui_shell_RegisterAppStateChangeNotification_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_RegisterScaleChangeEvent", Napi::Function::New(env, windowssys_windows_win32_ui_shell_RegisterScaleChangeEvent_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_RegisterScaleChangeNotifications", Napi::Function::New(env, windowssys_windows_win32_ui_shell_RegisterScaleChangeNotifications_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_RemoveWindowSubclass", Napi::Function::New(env, windowssys_windows_win32_ui_shell_RemoveWindowSubclass_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_RestartDialog", Napi::Function::New(env, windowssys_windows_win32_ui_shell_RestartDialog_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_RestartDialogEx", Napi::Function::New(env, windowssys_windows_win32_ui_shell_RestartDialogEx_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_RevokeScaleChangeNotifications", Napi::Function::New(env, windowssys_windows_win32_ui_shell_RevokeScaleChangeNotifications_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHAddToRecentDocs", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHAddToRecentDocs_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHAlloc", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHAlloc_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHAllocShared", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHAllocShared_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHAnsiToAnsi", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHAnsiToAnsi_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHAnsiToUnicode", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHAnsiToUnicode_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHAppBarMessage", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHAppBarMessage_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHAssocEnumHandlers", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHAssocEnumHandlers_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHAssocEnumHandlersForProtocolByApplication", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHAssocEnumHandlersForProtocolByApplication_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHAutoComplete", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHAutoComplete_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHBindToFolderIDListParent", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHBindToFolderIDListParent_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHBindToFolderIDListParentEx", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHBindToFolderIDListParentEx_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHBindToObject", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHBindToObject_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHBindToParent", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHBindToParent_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHBrowseForFolderA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHBrowseForFolderA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHBrowseForFolderW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHBrowseForFolderW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHCLSIDFromString", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHCLSIDFromString_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHChangeNotification_Lock", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHChangeNotification_Lock_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHChangeNotification_Unlock", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHChangeNotification_Unlock_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHChangeNotify", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHChangeNotify_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHChangeNotifyDeregister", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHChangeNotifyDeregister_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHChangeNotifyRegister", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHChangeNotifyRegister_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHChangeNotifyRegisterThread", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHChangeNotifyRegisterThread_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHCloneSpecialIDList", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHCloneSpecialIDList_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHCoCreateInstance", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHCoCreateInstance_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHCopyKeyA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHCopyKeyA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHCopyKeyW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHCopyKeyW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHCreateAssociationRegistration", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHCreateAssociationRegistration_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHCreateDataObject", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHCreateDataObject_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHCreateDefaultContextMenu", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHCreateDefaultContextMenu_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHCreateDefaultExtractIcon", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHCreateDefaultExtractIcon_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHCreateDefaultPropertiesOp", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHCreateDefaultPropertiesOp_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHCreateDirectory", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHCreateDirectory_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHCreateDirectoryExA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHCreateDirectoryExA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHCreateDirectoryExW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHCreateDirectoryExW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHCreateFileExtractIconW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHCreateFileExtractIconW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHCreateItemFromIDList", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHCreateItemFromIDList_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHCreateItemFromParsingName", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHCreateItemFromParsingName_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHCreateItemFromRelativeName", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHCreateItemFromRelativeName_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHCreateItemInKnownFolder", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHCreateItemInKnownFolder_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHCreateItemWithParent", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHCreateItemWithParent_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHCreateMemStream", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHCreateMemStream_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHCreateProcessAsUserW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHCreateProcessAsUserW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHCreatePropSheetExtArray", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHCreatePropSheetExtArray_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHCreateQueryCancelAutoPlayMoniker", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHCreateQueryCancelAutoPlayMoniker_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHCreateShellFolderView", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHCreateShellFolderView_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHCreateShellFolderViewEx", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHCreateShellFolderViewEx_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHCreateShellItem", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHCreateShellItem_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHCreateShellItemArray", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHCreateShellItemArray_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHCreateShellItemArrayFromDataObject", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHCreateShellItemArrayFromDataObject_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHCreateShellItemArrayFromIDLists", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHCreateShellItemArrayFromIDLists_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHCreateShellItemArrayFromShellItem", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHCreateShellItemArrayFromShellItem_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHCreateShellPalette", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHCreateShellPalette_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHCreateStdEnumFmtEtc", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHCreateStdEnumFmtEtc_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHCreateStreamOnFileA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHCreateStreamOnFileA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHCreateStreamOnFileEx", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHCreateStreamOnFileEx_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHCreateStreamOnFileW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHCreateStreamOnFileW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHCreateThreadRef", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHCreateThreadRef_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHDefExtractIconA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHDefExtractIconA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHDefExtractIconW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHDefExtractIconW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHDeleteEmptyKeyA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHDeleteEmptyKeyA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHDeleteEmptyKeyW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHDeleteEmptyKeyW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHDeleteKeyA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHDeleteKeyA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHDeleteKeyW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHDeleteKeyW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHDeleteValueA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHDeleteValueA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHDeleteValueW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHDeleteValueW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHDestroyPropSheetExtArray", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHDestroyPropSheetExtArray_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHDoDragDrop", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHDoDragDrop_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHEmptyRecycleBinA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHEmptyRecycleBinA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHEmptyRecycleBinW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHEmptyRecycleBinW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHEnumKeyExA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHEnumKeyExA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHEnumKeyExW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHEnumKeyExW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHEnumValueA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHEnumValueA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHEnumValueW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHEnumValueW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHEnumerateUnreadMailAccountsW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHEnumerateUnreadMailAccountsW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHEvaluateSystemCommandTemplate", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHEvaluateSystemCommandTemplate_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHFileOperationA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHFileOperationA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHFileOperationW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHFileOperationW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHFindFiles", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHFindFiles_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHFind_InitMenuPopup", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHFind_InitMenuPopup_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHFlushSFCache", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHFlushSFCache_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHFormatDateTimeA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHFormatDateTimeA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHFormatDateTimeW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHFormatDateTimeW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHFormatDrive", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHFormatDrive_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHFree", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHFree_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHFreeNameMappings", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHFreeNameMappings_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHFreeShared", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHFreeShared_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetAttributesFromDataObject", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetAttributesFromDataObject_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetDataFromIDListA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetDataFromIDListA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetDataFromIDListW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetDataFromIDListW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetDesktopFolder", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetDesktopFolder_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetDiskFreeSpaceExA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetDiskFreeSpaceExA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetDiskFreeSpaceExW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetDiskFreeSpaceExW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetDriveMedia", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetDriveMedia_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetFileInfoA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetFileInfoA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetFileInfoW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetFileInfoW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetFolderLocation", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetFolderLocation_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetFolderPathA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetFolderPathA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetFolderPathAndSubDirA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetFolderPathAndSubDirA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetFolderPathAndSubDirW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetFolderPathAndSubDirW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetFolderPathW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetFolderPathW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetIDListFromObject", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetIDListFromObject_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetIconOverlayIndexA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetIconOverlayIndexA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetIconOverlayIndexW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetIconOverlayIndexW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetImageList", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetImageList_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetInstanceExplorer", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetInstanceExplorer_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetInverseCMAP", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetInverseCMAP_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetItemFromDataObject", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetItemFromDataObject_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetItemFromObject", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetItemFromObject_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetKnownFolderIDList", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetKnownFolderIDList_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetKnownFolderItem", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetKnownFolderItem_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetKnownFolderPath", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetKnownFolderPath_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetLocalizedName", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetLocalizedName_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetMalloc", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetMalloc_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetNameFromIDList", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetNameFromIDList_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetNewLinkInfoA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetNewLinkInfoA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetNewLinkInfoW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetNewLinkInfoW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetPathFromIDListA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetPathFromIDListA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetPathFromIDListEx", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetPathFromIDListEx_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetPathFromIDListW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetPathFromIDListW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetRealIDL", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetRealIDL_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetSetFolderCustomSettings", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetSetFolderCustomSettings_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetSetSettings", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetSetSettings_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetSettings", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetSettings_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetSpecialFolderLocation", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetSpecialFolderLocation_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetSpecialFolderPathA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetSpecialFolderPathA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetSpecialFolderPathW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetSpecialFolderPathW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetStockIconInfo", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetStockIconInfo_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetTemporaryPropertyForItem", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetTemporaryPropertyForItem_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetThreadRef", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetThreadRef_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetUnreadMailCountW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetUnreadMailCountW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetValueA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetValueA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetValueW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetValueW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGetViewStatePropertyBag", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGetViewStatePropertyBag_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGlobalCounterDecrement", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGlobalCounterDecrement_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGlobalCounterGetValue", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGlobalCounterGetValue_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHGlobalCounterIncrement", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHGlobalCounterIncrement_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHHandleUpdateImage", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHHandleUpdateImage_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHILCreateFromPath", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHILCreateFromPath_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHInvokePrinterCommandA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHInvokePrinterCommandA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHInvokePrinterCommandW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHInvokePrinterCommandW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHIsFileAvailableOffline", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHIsFileAvailableOffline_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHIsLowMemoryMachine", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHIsLowMemoryMachine_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHLimitInputEdit", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHLimitInputEdit_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHLoadInProc", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHLoadInProc_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHLoadIndirectString", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHLoadIndirectString_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHLoadNonloadedIconOverlayIdentifiers", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHLoadNonloadedIconOverlayIdentifiers_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHLockShared", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHLockShared_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHMapPIDLToSystemImageListIndex", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHMapPIDLToSystemImageListIndex_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHMessageBoxCheckA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHMessageBoxCheckA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHMessageBoxCheckW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHMessageBoxCheckW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHMultiFileProperties", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHMultiFileProperties_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHObjectProperties", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHObjectProperties_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHOpenFolderAndSelectItems", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHOpenFolderAndSelectItems_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHOpenPropSheetW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHOpenPropSheetW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHOpenRegStream2A", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHOpenRegStream2A_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHOpenRegStream2W", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHOpenRegStream2W_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHOpenRegStreamA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHOpenRegStreamA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHOpenRegStreamW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHOpenRegStreamW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHOpenWithDialog", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHOpenWithDialog_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHParseDisplayName", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHParseDisplayName_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHPathPrepareForWriteA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHPathPrepareForWriteA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHPathPrepareForWriteW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHPathPrepareForWriteW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHQueryInfoKeyA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHQueryInfoKeyA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHQueryInfoKeyW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHQueryInfoKeyW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHQueryRecycleBinA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHQueryRecycleBinA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHQueryRecycleBinW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHQueryRecycleBinW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHQueryUserNotificationState", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHQueryUserNotificationState_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHQueryValueExA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHQueryValueExA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHQueryValueExW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHQueryValueExW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHRegCloseUSKey", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHRegCloseUSKey_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHRegCreateUSKeyA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHRegCreateUSKeyA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHRegCreateUSKeyW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHRegCreateUSKeyW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHRegDeleteEmptyUSKeyA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHRegDeleteEmptyUSKeyA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHRegDeleteEmptyUSKeyW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHRegDeleteEmptyUSKeyW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHRegDeleteUSValueA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHRegDeleteUSValueA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHRegDeleteUSValueW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHRegDeleteUSValueW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHRegDuplicateHKey", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHRegDuplicateHKey_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHRegEnumUSKeyA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHRegEnumUSKeyA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHRegEnumUSKeyW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHRegEnumUSKeyW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHRegEnumUSValueA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHRegEnumUSValueA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHRegEnumUSValueW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHRegEnumUSValueW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHRegGetBoolUSValueA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHRegGetBoolUSValueA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHRegGetBoolUSValueW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHRegGetBoolUSValueW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHRegGetIntW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHRegGetIntW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHRegGetPathA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHRegGetPathA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHRegGetPathW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHRegGetPathW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHRegGetUSValueA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHRegGetUSValueA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHRegGetUSValueW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHRegGetUSValueW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHRegGetValueA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHRegGetValueA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHRegGetValueFromHKCUHKLM", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHRegGetValueFromHKCUHKLM_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHRegGetValueW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHRegGetValueW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHRegOpenUSKeyA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHRegOpenUSKeyA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHRegOpenUSKeyW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHRegOpenUSKeyW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHRegQueryInfoUSKeyA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHRegQueryInfoUSKeyA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHRegQueryInfoUSKeyW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHRegQueryInfoUSKeyW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHRegQueryUSValueA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHRegQueryUSValueA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHRegQueryUSValueW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHRegQueryUSValueW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHRegSetPathA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHRegSetPathA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHRegSetPathW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHRegSetPathW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHRegSetUSValueA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHRegSetUSValueA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHRegSetUSValueW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHRegSetUSValueW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHRegWriteUSValueA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHRegWriteUSValueA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHRegWriteUSValueW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHRegWriteUSValueW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHReleaseThreadRef", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHReleaseThreadRef_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHRemoveLocalizedName", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHRemoveLocalizedName_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHResolveLibrary", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHResolveLibrary_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHRestricted", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHRestricted_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHSendMessageBroadcastA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHSendMessageBroadcastA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHSendMessageBroadcastW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHSendMessageBroadcastW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHSetDefaultProperties", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHSetDefaultProperties_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHSetFolderPathA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHSetFolderPathA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHSetFolderPathW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHSetFolderPathW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHSetInstanceExplorer", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHSetInstanceExplorer_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHSetKnownFolderPath", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHSetKnownFolderPath_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHSetLocalizedName", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHSetLocalizedName_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHSetTemporaryPropertyForItem", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHSetTemporaryPropertyForItem_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHSetThreadRef", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHSetThreadRef_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHSetUnreadMailCountW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHSetUnreadMailCountW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHSetValueA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHSetValueA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHSetValueW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHSetValueW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHShellFolderView_Message", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHShellFolderView_Message_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHShowManageLibraryUI", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHShowManageLibraryUI_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHSimpleIDListFromPath", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHSimpleIDListFromPath_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHSkipJunction", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHSkipJunction_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHStartNetConnectionDialogW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHStartNetConnectionDialogW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHStrDupA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHStrDupA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHStrDupW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHStrDupW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHStripMneumonicA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHStripMneumonicA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHStripMneumonicW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHStripMneumonicW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHTestTokenMembership", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHTestTokenMembership_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHUnicodeToAnsi", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHUnicodeToAnsi_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHUnicodeToUnicode", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHUnicodeToUnicode_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHUnlockShared", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHUnlockShared_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHUpdateImageA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHUpdateImageA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHUpdateImageW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHUpdateImageW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SHValidateUNC", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SHValidateUNC_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SetCurrentProcessExplicitAppUserModelID", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SetCurrentProcessExplicitAppUserModelID_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SetMenuContextHelpId", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SetMenuContextHelpId_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SetWindowContextHelpId", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SetWindowContextHelpId_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SetWindowSubclass", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SetWindowSubclass_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ShellAboutA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ShellAboutA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ShellAboutW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ShellAboutW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ShellExecuteA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ShellExecuteA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ShellExecuteExA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ShellExecuteExA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ShellExecuteExW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ShellExecuteExW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_ShellExecuteW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_ShellExecuteW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_Shell_GetCachedImageIndex", Napi::Function::New(env, windowssys_windows_win32_ui_shell_Shell_GetCachedImageIndex_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_Shell_GetCachedImageIndexA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_Shell_GetCachedImageIndexA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_Shell_GetCachedImageIndexW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_Shell_GetCachedImageIndexW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_Shell_GetImageLists", Napi::Function::New(env, windowssys_windows_win32_ui_shell_Shell_GetImageLists_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_Shell_MergeMenus", Napi::Function::New(env, windowssys_windows_win32_ui_shell_Shell_MergeMenus_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_Shell_NotifyIconA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_Shell_NotifyIconA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_Shell_NotifyIconGetRect", Napi::Function::New(env, windowssys_windows_win32_ui_shell_Shell_NotifyIconGetRect_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_Shell_NotifyIconW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_Shell_NotifyIconW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SignalFileOpen", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SignalFileOpen_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_SoftwareUpdateMessageBox", Napi::Function::New(env, windowssys_windows_win32_ui_shell_SoftwareUpdateMessageBox_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StgMakeUniqueName", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StgMakeUniqueName_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrCSpnA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrCSpnA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrCSpnIA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrCSpnIA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrCSpnIW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrCSpnIW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrCSpnW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrCSpnW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrCatBuffA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrCatBuffA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrCatBuffW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrCatBuffW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrCatChainW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrCatChainW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrCatW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrCatW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrChrA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrChrA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrChrIA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrChrIA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrChrIW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrChrIW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrChrNIW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrChrNIW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrChrNW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrChrNW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrChrW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrChrW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrCmpCA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrCmpCA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrCmpCW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrCmpCW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrCmpICA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrCmpICA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrCmpICW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrCmpICW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrCmpIW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrCmpIW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrCmpLogicalW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrCmpLogicalW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrCmpNA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrCmpNA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrCmpNCA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrCmpNCA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrCmpNCW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrCmpNCW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrCmpNIA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrCmpNIA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrCmpNICA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrCmpNICA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrCmpNICW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrCmpNICW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrCmpNIW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrCmpNIW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrCmpNW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrCmpNW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrCmpW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrCmpW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrCpyNW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrCpyNW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrCpyW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrCpyW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrDupA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrDupA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrDupW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrDupW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrFormatByteSize64A", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrFormatByteSize64A_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrFormatByteSizeA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrFormatByteSizeA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrFormatByteSizeEx", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrFormatByteSizeEx_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrFormatByteSizeW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrFormatByteSizeW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrFormatKBSizeA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrFormatKBSizeA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrFormatKBSizeW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrFormatKBSizeW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrFromTimeIntervalA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrFromTimeIntervalA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrFromTimeIntervalW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrFromTimeIntervalW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrIsIntlEqualA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrIsIntlEqualA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrIsIntlEqualW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrIsIntlEqualW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrNCatA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrNCatA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrNCatW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrNCatW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrPBrkA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrPBrkA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrPBrkW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrPBrkW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrRChrA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrRChrA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrRChrIA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrRChrIA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrRChrIW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrRChrIW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrRChrW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrRChrW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrRStrIA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrRStrIA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrRStrIW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrRStrIW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrRetToBSTR", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrRetToBSTR_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrRetToBufA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrRetToBufA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrRetToBufW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrRetToBufW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrRetToStrA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrRetToStrA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrRetToStrW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrRetToStrW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrSpnA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrSpnA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrSpnW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrSpnW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrStrA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrStrA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrStrIA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrStrIA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrStrIW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrStrIW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrStrNIW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrStrNIW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrStrNW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrStrNW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrStrW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrStrW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrToInt64ExA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrToInt64ExA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrToInt64ExW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrToInt64ExW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrToIntA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrToIntA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrToIntExA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrToIntExA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrToIntExW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrToIntExW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrToIntW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrToIntW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrTrimA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrTrimA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_StrTrimW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_StrTrimW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_UnloadUserProfile", Napi::Function::New(env, windowssys_windows_win32_ui_shell_UnloadUserProfile_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_UnregisterAppConstrainedChangeNotification", Napi::Function::New(env, windowssys_windows_win32_ui_shell_UnregisterAppConstrainedChangeNotification_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_UnregisterAppStateChangeNotification", Napi::Function::New(env, windowssys_windows_win32_ui_shell_UnregisterAppStateChangeNotification_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_UnregisterScaleChangeEvent", Napi::Function::New(env, windowssys_windows_win32_ui_shell_UnregisterScaleChangeEvent_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_UrlApplySchemeA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_UrlApplySchemeA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_UrlApplySchemeW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_UrlApplySchemeW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_UrlCanonicalizeA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_UrlCanonicalizeA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_UrlCanonicalizeW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_UrlCanonicalizeW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_UrlCombineA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_UrlCombineA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_UrlCombineW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_UrlCombineW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_UrlCompareA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_UrlCompareA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_UrlCompareW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_UrlCompareW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_UrlCreateFromPathA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_UrlCreateFromPathA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_UrlCreateFromPathW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_UrlCreateFromPathW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_UrlEscapeA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_UrlEscapeA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_UrlEscapeW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_UrlEscapeW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_UrlFixupW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_UrlFixupW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_UrlGetLocationA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_UrlGetLocationA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_UrlGetLocationW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_UrlGetLocationW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_UrlGetPartA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_UrlGetPartA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_UrlGetPartW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_UrlGetPartW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_UrlHashA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_UrlHashA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_UrlHashW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_UrlHashW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_UrlIsA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_UrlIsA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_UrlIsNoHistoryA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_UrlIsNoHistoryA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_UrlIsNoHistoryW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_UrlIsNoHistoryW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_UrlIsOpaqueA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_UrlIsOpaqueA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_UrlIsOpaqueW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_UrlIsOpaqueW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_UrlIsW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_UrlIsW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_UrlUnescapeA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_UrlUnescapeA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_UrlUnescapeW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_UrlUnescapeW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_VariantToStrRet", Napi::Function::New(env, windowssys_windows_win32_ui_shell_VariantToStrRet_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_WhichPlatform", Napi::Function::New(env, windowssys_windows_win32_ui_shell_WhichPlatform_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_Win32DeleteFile", Napi::Function::New(env, windowssys_windows_win32_ui_shell_Win32DeleteFile_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_WinHelpA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_WinHelpA_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_WinHelpW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_WinHelpW_napi));
-    exports.Set("windowssys_windows_win32_ui_shell_WriteCabinetState", Napi::Function::New(env, windowssys_windows_win32_ui_shell_WriteCabinetState_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_assocCreateForClasses", Napi::Function::New(env, windowssys_windows_win32_ui_shell_assocCreateForClasses_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_assocGetDetailsOfPropKey", Napi::Function::New(env, windowssys_windows_win32_ui_shell_assocGetDetailsOfPropKey_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_assocGetPerceivedType", Napi::Function::New(env, windowssys_windows_win32_ui_shell_assocGetPerceivedType_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_assocIsDangerous", Napi::Function::New(env, windowssys_windows_win32_ui_shell_assocIsDangerous_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_assocQueryKeyA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_assocQueryKeyA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_assocQueryKeyW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_assocQueryKeyW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_assocQueryStringA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_assocQueryStringA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_assocQueryStringByKeyA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_assocQueryStringByKeyA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_assocQueryStringByKeyW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_assocQueryStringByKeyW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_assocQueryStringW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_assocQueryStringW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_cdefFolderMenuCreate2", Napi::Function::New(env, windowssys_windows_win32_ui_shell_cdefFolderMenuCreate2_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_cidldataCreateFromIdarray", Napi::Function::New(env, windowssys_windows_win32_ui_shell_cidldataCreateFromIdarray_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_chrCmpIA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_chrCmpIA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_chrCmpIW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_chrCmpIW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_colorAdjustLuma", Napi::Function::New(env, windowssys_windows_win32_ui_shell_colorAdjustLuma_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_colorHLSToRGB", Napi::Function::New(env, windowssys_windows_win32_ui_shell_colorHLSToRGB_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_colorRGBToHLS", Napi::Function::New(env, windowssys_windows_win32_ui_shell_colorRGBToHLS_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_commandLineToArgvW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_commandLineToArgvW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_connectToConnectionPoint", Napi::Function::New(env, windowssys_windows_win32_ui_shell_connectToConnectionPoint_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_createProfile", Napi::Function::New(env, windowssys_windows_win32_ui_shell_createProfile_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_dadAutoScroll", Napi::Function::New(env, windowssys_windows_win32_ui_shell_dadAutoScroll_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_dadDragLeave", Napi::Function::New(env, windowssys_windows_win32_ui_shell_dadDragLeave_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_dadSetDragImage", Napi::Function::New(env, windowssys_windows_win32_ui_shell_dadSetDragImage_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_dadShowDragImage", Napi::Function::New(env, windowssys_windows_win32_ui_shell_dadShowDragImage_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_defSubclassProc", Napi::Function::New(env, windowssys_windows_win32_ui_shell_defSubclassProc_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_deleteProfileA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_deleteProfileA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_deleteProfileW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_deleteProfileW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_doEnvironmentSubstA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_doEnvironmentSubstA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_doEnvironmentSubstW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_doEnvironmentSubstW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_dragAcceptFiles", Napi::Function::New(env, windowssys_windows_win32_ui_shell_dragAcceptFiles_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_dragFinish", Napi::Function::New(env, windowssys_windows_win32_ui_shell_dragFinish_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_dragQueryFileA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_dragQueryFileA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_dragQueryFileW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_dragQueryFileW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_dragQueryPoint", Napi::Function::New(env, windowssys_windows_win32_ui_shell_dragQueryPoint_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_driveType", Napi::Function::New(env, windowssys_windows_win32_ui_shell_driveType_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_duplicateIcon", Napi::Function::New(env, windowssys_windows_win32_ui_shell_duplicateIcon_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_extractAssociatedIconA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_extractAssociatedIconA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_extractAssociatedIconExA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_extractAssociatedIconExA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_extractAssociatedIconExW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_extractAssociatedIconExW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_extractAssociatedIconW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_extractAssociatedIconW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_extractIconA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_extractIconA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_extractIconExA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_extractIconExA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_extractIconExW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_extractIconExW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_extractIconW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_extractIconW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_findExecutableA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_findExecutableA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_findExecutableW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_findExecutableW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_getAcceptLanguagesA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_getAcceptLanguagesA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_getAcceptLanguagesW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_getAcceptLanguagesW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_getAllUsersProfileDirectoryA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_getAllUsersProfileDirectoryA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_getAllUsersProfileDirectoryW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_getAllUsersProfileDirectoryW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_getCurrentProcessExplicitAppUserModelID", Napi::Function::New(env, windowssys_windows_win32_ui_shell_getCurrentProcessExplicitAppUserModelID_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_getDefaultUserProfileDirectoryA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_getDefaultUserProfileDirectoryA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_getDefaultUserProfileDirectoryW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_getDefaultUserProfileDirectoryW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_getDpiForShellUIComponent", Napi::Function::New(env, windowssys_windows_win32_ui_shell_getDpiForShellUIComponent_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_getFileNameFromBrowse", Napi::Function::New(env, windowssys_windows_win32_ui_shell_getFileNameFromBrowse_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_getMenuContextHelpId", Napi::Function::New(env, windowssys_windows_win32_ui_shell_getMenuContextHelpId_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_getMenuPosFromID", Napi::Function::New(env, windowssys_windows_win32_ui_shell_getMenuPosFromID_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_getProfileType", Napi::Function::New(env, windowssys_windows_win32_ui_shell_getProfileType_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_getProfilesDirectoryA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_getProfilesDirectoryA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_getProfilesDirectoryW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_getProfilesDirectoryW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_getScaleFactorForDevice", Napi::Function::New(env, windowssys_windows_win32_ui_shell_getScaleFactorForDevice_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_getScaleFactorForMonitor", Napi::Function::New(env, windowssys_windows_win32_ui_shell_getScaleFactorForMonitor_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_getUserProfileDirectoryA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_getUserProfileDirectoryA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_getUserProfileDirectoryW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_getUserProfileDirectoryW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_getWindowContextHelpId", Napi::Function::New(env, windowssys_windows_win32_ui_shell_getWindowContextHelpId_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_getWindowSubclass", Napi::Function::New(env, windowssys_windows_win32_ui_shell_getWindowSubclass_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_hmonitorUserFree", Napi::Function::New(env, windowssys_windows_win32_ui_shell_hmonitorUserFree_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_hmonitorUserFree64", Napi::Function::New(env, windowssys_windows_win32_ui_shell_hmonitorUserFree64_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_hmonitorUserMarshal", Napi::Function::New(env, windowssys_windows_win32_ui_shell_hmonitorUserMarshal_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_hmonitorUserMarshal64", Napi::Function::New(env, windowssys_windows_win32_ui_shell_hmonitorUserMarshal64_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_hmonitorUserSize", Napi::Function::New(env, windowssys_windows_win32_ui_shell_hmonitorUserSize_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_hmonitorUserSize64", Napi::Function::New(env, windowssys_windows_win32_ui_shell_hmonitorUserSize64_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_hmonitorUserUnmarshal", Napi::Function::New(env, windowssys_windows_win32_ui_shell_hmonitorUserUnmarshal_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_hmonitorUserUnmarshal64", Napi::Function::New(env, windowssys_windows_win32_ui_shell_hmonitorUserUnmarshal64_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_hashData", Napi::Function::New(env, windowssys_windows_win32_ui_shell_hashData_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_hlinkClone", Napi::Function::New(env, windowssys_windows_win32_ui_shell_hlinkClone_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_hlinkCreateBrowseContext", Napi::Function::New(env, windowssys_windows_win32_ui_shell_hlinkCreateBrowseContext_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_hlinkCreateExtensionServices", Napi::Function::New(env, windowssys_windows_win32_ui_shell_hlinkCreateExtensionServices_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_hlinkCreateFromData", Napi::Function::New(env, windowssys_windows_win32_ui_shell_hlinkCreateFromData_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_hlinkCreateFromMoniker", Napi::Function::New(env, windowssys_windows_win32_ui_shell_hlinkCreateFromMoniker_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_hlinkCreateFromString", Napi::Function::New(env, windowssys_windows_win32_ui_shell_hlinkCreateFromString_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_hlinkCreateShortcut", Napi::Function::New(env, windowssys_windows_win32_ui_shell_hlinkCreateShortcut_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_hlinkCreateShortcutFromMoniker", Napi::Function::New(env, windowssys_windows_win32_ui_shell_hlinkCreateShortcutFromMoniker_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_hlinkCreateShortcutFromString", Napi::Function::New(env, windowssys_windows_win32_ui_shell_hlinkCreateShortcutFromString_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_hlinkGetSpecialReference", Napi::Function::New(env, windowssys_windows_win32_ui_shell_hlinkGetSpecialReference_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_hlinkGetValueFromParams", Napi::Function::New(env, windowssys_windows_win32_ui_shell_hlinkGetValueFromParams_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_hlinkIsShortcut", Napi::Function::New(env, windowssys_windows_win32_ui_shell_hlinkIsShortcut_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_hlinkNavigate", Napi::Function::New(env, windowssys_windows_win32_ui_shell_hlinkNavigate_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_hlinkNavigateToStringReference", Napi::Function::New(env, windowssys_windows_win32_ui_shell_hlinkNavigateToStringReference_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_hlinkOnNavigate", Napi::Function::New(env, windowssys_windows_win32_ui_shell_hlinkOnNavigate_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_hlinkOnRenameDocument", Napi::Function::New(env, windowssys_windows_win32_ui_shell_hlinkOnRenameDocument_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_hlinkParseDisplayName", Napi::Function::New(env, windowssys_windows_win32_ui_shell_hlinkParseDisplayName_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_hlinkPreprocessMoniker", Napi::Function::New(env, windowssys_windows_win32_ui_shell_hlinkPreprocessMoniker_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_hlinkQueryCreateFromData", Napi::Function::New(env, windowssys_windows_win32_ui_shell_hlinkQueryCreateFromData_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_hlinkResolveMonikerForData", Napi::Function::New(env, windowssys_windows_win32_ui_shell_hlinkResolveMonikerForData_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_hlinkResolveShortcut", Napi::Function::New(env, windowssys_windows_win32_ui_shell_hlinkResolveShortcut_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_hlinkResolveShortcutToMoniker", Napi::Function::New(env, windowssys_windows_win32_ui_shell_hlinkResolveShortcutToMoniker_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_hlinkResolveShortcutToString", Napi::Function::New(env, windowssys_windows_win32_ui_shell_hlinkResolveShortcutToString_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_hlinkResolveStringForData", Napi::Function::New(env, windowssys_windows_win32_ui_shell_hlinkResolveStringForData_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_hlinkSetSpecialReference", Napi::Function::New(env, windowssys_windows_win32_ui_shell_hlinkSetSpecialReference_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_hlinkTranslateURL", Napi::Function::New(env, windowssys_windows_win32_ui_shell_hlinkTranslateURL_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_hlinkUpdateStackItem", Napi::Function::New(env, windowssys_windows_win32_ui_shell_hlinkUpdateStackItem_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_iLAppendID", Napi::Function::New(env, windowssys_windows_win32_ui_shell_iLAppendID_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_iLClone", Napi::Function::New(env, windowssys_windows_win32_ui_shell_iLClone_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_iLCloneFirst", Napi::Function::New(env, windowssys_windows_win32_ui_shell_iLCloneFirst_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_iLCombine", Napi::Function::New(env, windowssys_windows_win32_ui_shell_iLCombine_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_iLCreateFromPathA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_iLCreateFromPathA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_iLCreateFromPathW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_iLCreateFromPathW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_iLFindChild", Napi::Function::New(env, windowssys_windows_win32_ui_shell_iLFindChild_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_iLFindLastID", Napi::Function::New(env, windowssys_windows_win32_ui_shell_iLFindLastID_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_iLFree", Napi::Function::New(env, windowssys_windows_win32_ui_shell_iLFree_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_iLGetNext", Napi::Function::New(env, windowssys_windows_win32_ui_shell_iLGetNext_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_iLGetSize", Napi::Function::New(env, windowssys_windows_win32_ui_shell_iLGetSize_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_iLIsEqual", Napi::Function::New(env, windowssys_windows_win32_ui_shell_iLIsEqual_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_iLIsParent", Napi::Function::New(env, windowssys_windows_win32_ui_shell_iLIsParent_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_iLLoadFromStreamEx", Napi::Function::New(env, windowssys_windows_win32_ui_shell_iLLoadFromStreamEx_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_iLRemoveLastID", Napi::Function::New(env, windowssys_windows_win32_ui_shell_iLRemoveLastID_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_iLSaveToStream", Napi::Function::New(env, windowssys_windows_win32_ui_shell_iLSaveToStream_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_istreamCopy", Napi::Function::New(env, windowssys_windows_win32_ui_shell_istreamCopy_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_istreamRead", Napi::Function::New(env, windowssys_windows_win32_ui_shell_istreamRead_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_istreamReadPidl", Napi::Function::New(env, windowssys_windows_win32_ui_shell_istreamReadPidl_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_istreamReadStr", Napi::Function::New(env, windowssys_windows_win32_ui_shell_istreamReadStr_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_istreamReset", Napi::Function::New(env, windowssys_windows_win32_ui_shell_istreamReset_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_istreamSize", Napi::Function::New(env, windowssys_windows_win32_ui_shell_istreamSize_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_istreamWrite", Napi::Function::New(env, windowssys_windows_win32_ui_shell_istreamWrite_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_istreamWritePidl", Napi::Function::New(env, windowssys_windows_win32_ui_shell_istreamWritePidl_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_istreamWriteStr", Napi::Function::New(env, windowssys_windows_win32_ui_shell_istreamWriteStr_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_iunknownAtomicRelease", Napi::Function::New(env, windowssys_windows_win32_ui_shell_iunknownAtomicRelease_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_iunknownGetSite", Napi::Function::New(env, windowssys_windows_win32_ui_shell_iunknownGetSite_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_iunknownGetWindow", Napi::Function::New(env, windowssys_windows_win32_ui_shell_iunknownGetWindow_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_iunknownQueryService", Napi::Function::New(env, windowssys_windows_win32_ui_shell_iunknownQueryService_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_iunknownSet", Napi::Function::New(env, windowssys_windows_win32_ui_shell_iunknownSet_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_iunknownSetSite", Napi::Function::New(env, windowssys_windows_win32_ui_shell_iunknownSetSite_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_importPrivacySettings", Napi::Function::New(env, windowssys_windows_win32_ui_shell_importPrivacySettings_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_initNetworkAddressControl", Napi::Function::New(env, windowssys_windows_win32_ui_shell_initNetworkAddressControl_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_initPropVariantFromStrRet", Napi::Function::New(env, windowssys_windows_win32_ui_shell_initPropVariantFromStrRet_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_initVariantFromStrRet", Napi::Function::New(env, windowssys_windows_win32_ui_shell_initVariantFromStrRet_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_intlStrEqWorkerA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_intlStrEqWorkerA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_intlStrEqWorkerW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_intlStrEqWorkerW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_isCharSpaceA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_isCharSpaceA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_isCharSpaceW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_isCharSpaceW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_isInternetESCEnabled", Napi::Function::New(env, windowssys_windows_win32_ui_shell_isInternetESCEnabled_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_isLFNDriveA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_isLFNDriveA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_isLFNDriveW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_isLFNDriveW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_isNetDrive", Napi::Function::New(env, windowssys_windows_win32_ui_shell_isNetDrive_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_isOS", Napi::Function::New(env, windowssys_windows_win32_ui_shell_isOS_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_isUserAnAdmin", Napi::Function::New(env, windowssys_windows_win32_ui_shell_isUserAnAdmin_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_loadUserProfileA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_loadUserProfileA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_loadUserProfileW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_loadUserProfileW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_oleSaveToStreamEx", Napi::Function::New(env, windowssys_windows_win32_ui_shell_oleSaveToStreamEx_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_openRegStream", Napi::Function::New(env, windowssys_windows_win32_ui_shell_openRegStream_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_parseURLA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_parseURLA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_parseURLW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_parseURLW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathAddBackslashA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathAddBackslashA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathAddBackslashW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathAddBackslashW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathAddExtensionA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathAddExtensionA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathAddExtensionW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathAddExtensionW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathAllocCanonicalize", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathAllocCanonicalize_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathAllocCombine", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathAllocCombine_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathAppendA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathAppendA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathAppendW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathAppendW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathBuildRootA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathBuildRootA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathBuildRootW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathBuildRootW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathCanonicalizeA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathCanonicalizeA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathCanonicalizeW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathCanonicalizeW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathCchAddBackslash", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathCchAddBackslash_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathCchAddBackslashEx", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathCchAddBackslashEx_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathCchAddExtension", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathCchAddExtension_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathCchAppend", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathCchAppend_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathCchAppendEx", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathCchAppendEx_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathCchCanonicalize", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathCchCanonicalize_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathCchCanonicalizeEx", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathCchCanonicalizeEx_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathCchCombine", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathCchCombine_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathCchCombineEx", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathCchCombineEx_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathCchFindExtension", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathCchFindExtension_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathCchIsRoot", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathCchIsRoot_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathCchRemoveBackslash", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathCchRemoveBackslash_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathCchRemoveBackslashEx", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathCchRemoveBackslashEx_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathCchRemoveExtension", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathCchRemoveExtension_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathCchRemoveFileSpec", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathCchRemoveFileSpec_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathCchRenameExtension", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathCchRenameExtension_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathCchSkipRoot", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathCchSkipRoot_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathCchStripPrefix", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathCchStripPrefix_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathCchStripToRoot", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathCchStripToRoot_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathCleanupSpec", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathCleanupSpec_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathCombineA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathCombineA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathCombineW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathCombineW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathCommonPrefixA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathCommonPrefixA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathCommonPrefixW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathCommonPrefixW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathCompactPathA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathCompactPathA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathCompactPathExA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathCompactPathExA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathCompactPathExW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathCompactPathExW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathCompactPathW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathCompactPathW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathCreateFromUrlA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathCreateFromUrlA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathCreateFromUrlAlloc", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathCreateFromUrlAlloc_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathCreateFromUrlW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathCreateFromUrlW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathFileExistsA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathFileExistsA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathFileExistsW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathFileExistsW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathFindExtensionA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathFindExtensionA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathFindExtensionW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathFindExtensionW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathFindFileNameA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathFindFileNameA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathFindFileNameW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathFindFileNameW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathFindNextComponentA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathFindNextComponentA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathFindNextComponentW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathFindNextComponentW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathFindOnPathA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathFindOnPathA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathFindOnPathW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathFindOnPathW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathFindSuffixArrayA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathFindSuffixArrayA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathFindSuffixArrayW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathFindSuffixArrayW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathGetArgsA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathGetArgsA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathGetArgsW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathGetArgsW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathGetCharTypeA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathGetCharTypeA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathGetCharTypeW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathGetCharTypeW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathGetDriveNumberA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathGetDriveNumberA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathGetDriveNumberW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathGetDriveNumberW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathGetShortPath", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathGetShortPath_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathIsContentTypeA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathIsContentTypeA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathIsContentTypeW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathIsContentTypeW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathIsDirectoryA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathIsDirectoryA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathIsDirectoryEmptyA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathIsDirectoryEmptyA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathIsDirectoryEmptyW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathIsDirectoryEmptyW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathIsDirectoryW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathIsDirectoryW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathIsExe", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathIsExe_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathIsFileSpecA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathIsFileSpecA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathIsFileSpecW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathIsFileSpecW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathIsLFNFileSpecA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathIsLFNFileSpecA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathIsLFNFileSpecW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathIsLFNFileSpecW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathIsNetworkPathA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathIsNetworkPathA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathIsNetworkPathW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathIsNetworkPathW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathIsPrefixA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathIsPrefixA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathIsPrefixW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathIsPrefixW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathIsRelativeA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathIsRelativeA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathIsRelativeW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathIsRelativeW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathIsRootA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathIsRootA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathIsRootW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathIsRootW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathIsSameRootA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathIsSameRootA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathIsSameRootW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathIsSameRootW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathIsSlowA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathIsSlowA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathIsSlowW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathIsSlowW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathIsSystemFolderA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathIsSystemFolderA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathIsSystemFolderW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathIsSystemFolderW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathIsUNCA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathIsUNCA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathIsUNCEx", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathIsUNCEx_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathIsUNCServerA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathIsUNCServerA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathIsUNCServerShareA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathIsUNCServerShareA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathIsUNCServerShareW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathIsUNCServerShareW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathIsUNCServerW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathIsUNCServerW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathIsUNCW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathIsUNCW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathIsURLA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathIsURLA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathIsURLW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathIsURLW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathMakePrettyA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathMakePrettyA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathMakePrettyW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathMakePrettyW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathMakeSystemFolderA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathMakeSystemFolderA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathMakeSystemFolderW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathMakeSystemFolderW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathMakeUniqueName", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathMakeUniqueName_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathMatchSpecA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathMatchSpecA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathMatchSpecExA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathMatchSpecExA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathMatchSpecExW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathMatchSpecExW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathMatchSpecW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathMatchSpecW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathParseIconLocationA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathParseIconLocationA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathParseIconLocationW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathParseIconLocationW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathQualify", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathQualify_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathQuoteSpacesA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathQuoteSpacesA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathQuoteSpacesW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathQuoteSpacesW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathRelativePathToA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathRelativePathToA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathRelativePathToW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathRelativePathToW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathRemoveArgsA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathRemoveArgsA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathRemoveArgsW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathRemoveArgsW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathRemoveBackslashA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathRemoveBackslashA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathRemoveBackslashW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathRemoveBackslashW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathRemoveBlanksA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathRemoveBlanksA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathRemoveBlanksW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathRemoveBlanksW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathRemoveExtensionA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathRemoveExtensionA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathRemoveExtensionW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathRemoveExtensionW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathRemoveFileSpecA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathRemoveFileSpecA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathRemoveFileSpecW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathRemoveFileSpecW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathRenameExtensionA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathRenameExtensionA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathRenameExtensionW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathRenameExtensionW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathResolve", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathResolve_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathSearchAndQualifyA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathSearchAndQualifyA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathSearchAndQualifyW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathSearchAndQualifyW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathSetDlgItemPathA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathSetDlgItemPathA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathSetDlgItemPathW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathSetDlgItemPathW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathSkipRootA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathSkipRootA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathSkipRootW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathSkipRootW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathStripPathA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathStripPathA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathStripPathW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathStripPathW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathStripToRootA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathStripToRootA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathStripToRootW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathStripToRootW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathUnExpandEnvStringsA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathUnExpandEnvStringsA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathUnExpandEnvStringsW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathUnExpandEnvStringsW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathUndecorateA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathUndecorateA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathUndecorateW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathUndecorateW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathUnmakeSystemFolderA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathUnmakeSystemFolderA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathUnmakeSystemFolderW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathUnmakeSystemFolderW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathUnquoteSpacesA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathUnquoteSpacesA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathUnquoteSpacesW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathUnquoteSpacesW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pathYetAnotherMakeUniqueName", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pathYetAnotherMakeUniqueName_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_pickIconDlg", Napi::Function::New(env, windowssys_windows_win32_ui_shell_pickIconDlg_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_propVariantToStrRet", Napi::Function::New(env, windowssys_windows_win32_ui_shell_propVariantToStrRet_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_qISearch", Napi::Function::New(env, windowssys_windows_win32_ui_shell_qISearch_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_readCabinetState", Napi::Function::New(env, windowssys_windows_win32_ui_shell_readCabinetState_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_realDriveType", Napi::Function::New(env, windowssys_windows_win32_ui_shell_realDriveType_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_registerAppConstrainedChangeNotification", Napi::Function::New(env, windowssys_windows_win32_ui_shell_registerAppConstrainedChangeNotification_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_registerAppStateChangeNotification", Napi::Function::New(env, windowssys_windows_win32_ui_shell_registerAppStateChangeNotification_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_registerScaleChangeEvent", Napi::Function::New(env, windowssys_windows_win32_ui_shell_registerScaleChangeEvent_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_registerScaleChangeNotifications", Napi::Function::New(env, windowssys_windows_win32_ui_shell_registerScaleChangeNotifications_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_removeWindowSubclass", Napi::Function::New(env, windowssys_windows_win32_ui_shell_removeWindowSubclass_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_restartDialog", Napi::Function::New(env, windowssys_windows_win32_ui_shell_restartDialog_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_restartDialogEx", Napi::Function::New(env, windowssys_windows_win32_ui_shell_restartDialogEx_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_revokeScaleChangeNotifications", Napi::Function::New(env, windowssys_windows_win32_ui_shell_revokeScaleChangeNotifications_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHAddToRecentDocs", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHAddToRecentDocs_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHAlloc", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHAlloc_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHAllocShared", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHAllocShared_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHAnsiToAnsi", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHAnsiToAnsi_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHAnsiToUnicode", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHAnsiToUnicode_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHAppBarMessage", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHAppBarMessage_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHAssocEnumHandlers", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHAssocEnumHandlers_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHAssocEnumHandlersForProtocolByApplication", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHAssocEnumHandlersForProtocolByApplication_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHAutoComplete", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHAutoComplete_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHBindToFolderIDListParent", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHBindToFolderIDListParent_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHBindToFolderIDListParentEx", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHBindToFolderIDListParentEx_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHBindToObject", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHBindToObject_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHBindToParent", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHBindToParent_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHBrowseForFolderA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHBrowseForFolderA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHBrowseForFolderW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHBrowseForFolderW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHCLSIDFromString", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHCLSIDFromString_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_shchangeNotificationLock", Napi::Function::New(env, windowssys_windows_win32_ui_shell_shchangeNotificationLock_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_shchangeNotificationUnlock", Napi::Function::New(env, windowssys_windows_win32_ui_shell_shchangeNotificationUnlock_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHChangeNotify", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHChangeNotify_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHChangeNotifyDeregister", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHChangeNotifyDeregister_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHChangeNotifyRegister", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHChangeNotifyRegister_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHChangeNotifyRegisterThread", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHChangeNotifyRegisterThread_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHCloneSpecialIDList", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHCloneSpecialIDList_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHCoCreateInstance", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHCoCreateInstance_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHCopyKeyA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHCopyKeyA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHCopyKeyW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHCopyKeyW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHCreateAssociationRegistration", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHCreateAssociationRegistration_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHCreateDataObject", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHCreateDataObject_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHCreateDefaultContextMenu", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHCreateDefaultContextMenu_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHCreateDefaultExtractIcon", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHCreateDefaultExtractIcon_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHCreateDefaultPropertiesOp", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHCreateDefaultPropertiesOp_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHCreateDirectory", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHCreateDirectory_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHCreateDirectoryExA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHCreateDirectoryExA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHCreateDirectoryExW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHCreateDirectoryExW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHCreateFileExtractIconW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHCreateFileExtractIconW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHCreateItemFromIDList", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHCreateItemFromIDList_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHCreateItemFromParsingName", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHCreateItemFromParsingName_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHCreateItemFromRelativeName", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHCreateItemFromRelativeName_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHCreateItemInKnownFolder", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHCreateItemInKnownFolder_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHCreateItemWithParent", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHCreateItemWithParent_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHCreateMemStream", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHCreateMemStream_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHCreateProcessAsUserW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHCreateProcessAsUserW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHCreatePropSheetExtArray", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHCreatePropSheetExtArray_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHCreateQueryCancelAutoPlayMoniker", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHCreateQueryCancelAutoPlayMoniker_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHCreateShellFolderView", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHCreateShellFolderView_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHCreateShellFolderViewEx", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHCreateShellFolderViewEx_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHCreateShellItem", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHCreateShellItem_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHCreateShellItemArray", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHCreateShellItemArray_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHCreateShellItemArrayFromDataObject", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHCreateShellItemArrayFromDataObject_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHCreateShellItemArrayFromIDLists", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHCreateShellItemArrayFromIDLists_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHCreateShellItemArrayFromShellItem", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHCreateShellItemArrayFromShellItem_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHCreateShellPalette", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHCreateShellPalette_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHCreateStdEnumFmtEtc", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHCreateStdEnumFmtEtc_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHCreateStreamOnFileA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHCreateStreamOnFileA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHCreateStreamOnFileEx", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHCreateStreamOnFileEx_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHCreateStreamOnFileW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHCreateStreamOnFileW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHCreateThread", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHCreateThread_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHCreateThreadRef", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHCreateThreadRef_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHCreateThreadWithHandle", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHCreateThreadWithHandle_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHDefExtractIconA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHDefExtractIconA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHDefExtractIconW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHDefExtractIconW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHDeleteEmptyKeyA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHDeleteEmptyKeyA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHDeleteEmptyKeyW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHDeleteEmptyKeyW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHDeleteKeyA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHDeleteKeyA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHDeleteKeyW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHDeleteKeyW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHDeleteValueA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHDeleteValueA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHDeleteValueW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHDeleteValueW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHDestroyPropSheetExtArray", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHDestroyPropSheetExtArray_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHDoDragDrop", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHDoDragDrop_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHEmptyRecycleBinA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHEmptyRecycleBinA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHEmptyRecycleBinW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHEmptyRecycleBinW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHEnumKeyExA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHEnumKeyExA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHEnumKeyExW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHEnumKeyExW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHEnumValueA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHEnumValueA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHEnumValueW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHEnumValueW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHEnumerateUnreadMailAccountsW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHEnumerateUnreadMailAccountsW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHEvaluateSystemCommandTemplate", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHEvaluateSystemCommandTemplate_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHFileOperationA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHFileOperationA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHFileOperationW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHFileOperationW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHFindFiles", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHFindFiles_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_shfindInitMenuPopup", Napi::Function::New(env, windowssys_windows_win32_ui_shell_shfindInitMenuPopup_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHFlushSFCache", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHFlushSFCache_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHFormatDateTimeA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHFormatDateTimeA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHFormatDateTimeW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHFormatDateTimeW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHFormatDrive", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHFormatDrive_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHFree", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHFree_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHFreeNameMappings", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHFreeNameMappings_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHFreeShared", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHFreeShared_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetAttributesFromDataObject", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetAttributesFromDataObject_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetDataFromIDListA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetDataFromIDListA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetDataFromIDListW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetDataFromIDListW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetDesktopFolder", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetDesktopFolder_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetDiskFreeSpaceExA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetDiskFreeSpaceExA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetDiskFreeSpaceExW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetDiskFreeSpaceExW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetDriveMedia", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetDriveMedia_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetFileInfoA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetFileInfoA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetFileInfoW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetFileInfoW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetFolderLocation", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetFolderLocation_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetFolderPathA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetFolderPathA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetFolderPathAndSubDirA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetFolderPathAndSubDirA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetFolderPathAndSubDirW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetFolderPathAndSubDirW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetFolderPathW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetFolderPathW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetIDListFromObject", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetIDListFromObject_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetIconOverlayIndexA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetIconOverlayIndexA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetIconOverlayIndexW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetIconOverlayIndexW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetImageList", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetImageList_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetInstanceExplorer", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetInstanceExplorer_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetInverseCMAP", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetInverseCMAP_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetItemFromDataObject", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetItemFromDataObject_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetItemFromObject", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetItemFromObject_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetKnownFolderIDList", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetKnownFolderIDList_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetKnownFolderItem", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetKnownFolderItem_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetKnownFolderPath", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetKnownFolderPath_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetLocalizedName", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetLocalizedName_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetMalloc", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetMalloc_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetNameFromIDList", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetNameFromIDList_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetNewLinkInfoA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetNewLinkInfoA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetNewLinkInfoW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetNewLinkInfoW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetPathFromIDListA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetPathFromIDListA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetPathFromIDListEx", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetPathFromIDListEx_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetPathFromIDListW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetPathFromIDListW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetRealIDL", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetRealIDL_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetSetFolderCustomSettings", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetSetFolderCustomSettings_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetSetSettings", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetSetSettings_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetSettings", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetSettings_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetSpecialFolderLocation", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetSpecialFolderLocation_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetSpecialFolderPathA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetSpecialFolderPathA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetSpecialFolderPathW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetSpecialFolderPathW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetStockIconInfo", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetStockIconInfo_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetTemporaryPropertyForItem", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetTemporaryPropertyForItem_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetThreadRef", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetThreadRef_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetUnreadMailCountW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetUnreadMailCountW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetValueA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetValueA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetValueW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetValueW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGetViewStatePropertyBag", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGetViewStatePropertyBag_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGlobalCounterDecrement", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGlobalCounterDecrement_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGlobalCounterGetValue", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGlobalCounterGetValue_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHGlobalCounterIncrement", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHGlobalCounterIncrement_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHHandleUpdateImage", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHHandleUpdateImage_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHILCreateFromPath", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHILCreateFromPath_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHInvokePrinterCommandA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHInvokePrinterCommandA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHInvokePrinterCommandW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHInvokePrinterCommandW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHIsFileAvailableOffline", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHIsFileAvailableOffline_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHIsLowMemoryMachine", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHIsLowMemoryMachine_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHLimitInputEdit", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHLimitInputEdit_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHLoadInProc", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHLoadInProc_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHLoadIndirectString", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHLoadIndirectString_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHLoadNonloadedIconOverlayIdentifiers", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHLoadNonloadedIconOverlayIdentifiers_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHLockShared", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHLockShared_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHMapPIDLToSystemImageListIndex", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHMapPIDLToSystemImageListIndex_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHMessageBoxCheckA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHMessageBoxCheckA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHMessageBoxCheckW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHMessageBoxCheckW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHMultiFileProperties", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHMultiFileProperties_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHObjectProperties", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHObjectProperties_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHOpenFolderAndSelectItems", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHOpenFolderAndSelectItems_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHOpenPropSheetW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHOpenPropSheetW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHOpenRegStream2A", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHOpenRegStream2A_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHOpenRegStream2W", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHOpenRegStream2W_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHOpenRegStreamA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHOpenRegStreamA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHOpenRegStreamW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHOpenRegStreamW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHOpenWithDialog", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHOpenWithDialog_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHParseDisplayName", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHParseDisplayName_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHPathPrepareForWriteA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHPathPrepareForWriteA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHPathPrepareForWriteW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHPathPrepareForWriteW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHQueryInfoKeyA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHQueryInfoKeyA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHQueryInfoKeyW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHQueryInfoKeyW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHQueryRecycleBinA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHQueryRecycleBinA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHQueryRecycleBinW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHQueryRecycleBinW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHQueryUserNotificationState", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHQueryUserNotificationState_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHQueryValueExA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHQueryValueExA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHQueryValueExW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHQueryValueExW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHRegCloseUSKey", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHRegCloseUSKey_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHRegCreateUSKeyA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHRegCreateUSKeyA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHRegCreateUSKeyW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHRegCreateUSKeyW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHRegDeleteEmptyUSKeyA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHRegDeleteEmptyUSKeyA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHRegDeleteEmptyUSKeyW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHRegDeleteEmptyUSKeyW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHRegDeleteUSValueA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHRegDeleteUSValueA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHRegDeleteUSValueW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHRegDeleteUSValueW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHRegDuplicateHKey", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHRegDuplicateHKey_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHRegEnumUSKeyA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHRegEnumUSKeyA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHRegEnumUSKeyW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHRegEnumUSKeyW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHRegEnumUSValueA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHRegEnumUSValueA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHRegEnumUSValueW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHRegEnumUSValueW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHRegGetBoolUSValueA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHRegGetBoolUSValueA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHRegGetBoolUSValueW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHRegGetBoolUSValueW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHRegGetIntW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHRegGetIntW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHRegGetPathA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHRegGetPathA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHRegGetPathW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHRegGetPathW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHRegGetUSValueA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHRegGetUSValueA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHRegGetUSValueW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHRegGetUSValueW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHRegGetValueA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHRegGetValueA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHRegGetValueFromHKCUHKLM", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHRegGetValueFromHKCUHKLM_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHRegGetValueW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHRegGetValueW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHRegOpenUSKeyA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHRegOpenUSKeyA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHRegOpenUSKeyW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHRegOpenUSKeyW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHRegQueryInfoUSKeyA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHRegQueryInfoUSKeyA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHRegQueryInfoUSKeyW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHRegQueryInfoUSKeyW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHRegQueryUSValueA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHRegQueryUSValueA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHRegQueryUSValueW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHRegQueryUSValueW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHRegSetPathA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHRegSetPathA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHRegSetPathW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHRegSetPathW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHRegSetUSValueA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHRegSetUSValueA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHRegSetUSValueW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHRegSetUSValueW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHRegWriteUSValueA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHRegWriteUSValueA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHRegWriteUSValueW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHRegWriteUSValueW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHReleaseThreadRef", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHReleaseThreadRef_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHRemoveLocalizedName", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHRemoveLocalizedName_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHResolveLibrary", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHResolveLibrary_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHRestricted", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHRestricted_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHSendMessageBroadcastA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHSendMessageBroadcastA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHSendMessageBroadcastW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHSendMessageBroadcastW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHSetDefaultProperties", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHSetDefaultProperties_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHSetFolderPathA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHSetFolderPathA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHSetFolderPathW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHSetFolderPathW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHSetInstanceExplorer", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHSetInstanceExplorer_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHSetKnownFolderPath", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHSetKnownFolderPath_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHSetLocalizedName", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHSetLocalizedName_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHSetTemporaryPropertyForItem", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHSetTemporaryPropertyForItem_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHSetThreadRef", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHSetThreadRef_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHSetUnreadMailCountW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHSetUnreadMailCountW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHSetValueA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHSetValueA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHSetValueW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHSetValueW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_shshellFolderViewMessage", Napi::Function::New(env, windowssys_windows_win32_ui_shell_shshellFolderViewMessage_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHShowManageLibraryUI", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHShowManageLibraryUI_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHSimpleIDListFromPath", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHSimpleIDListFromPath_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHSkipJunction", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHSkipJunction_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHStartNetConnectionDialogW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHStartNetConnectionDialogW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHStrDupA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHStrDupA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHStrDupW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHStrDupW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHStripMneumonicA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHStripMneumonicA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHStripMneumonicW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHStripMneumonicW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHTestTokenMembership", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHTestTokenMembership_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHUnicodeToAnsi", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHUnicodeToAnsi_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHUnicodeToUnicode", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHUnicodeToUnicode_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHUnlockShared", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHUnlockShared_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHUpdateImageA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHUpdateImageA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHUpdateImageW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHUpdateImageW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_sHValidateUNC", Napi::Function::New(env, windowssys_windows_win32_ui_shell_sHValidateUNC_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_setCurrentProcessExplicitAppUserModelID", Napi::Function::New(env, windowssys_windows_win32_ui_shell_setCurrentProcessExplicitAppUserModelID_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_setMenuContextHelpId", Napi::Function::New(env, windowssys_windows_win32_ui_shell_setMenuContextHelpId_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_setWindowContextHelpId", Napi::Function::New(env, windowssys_windows_win32_ui_shell_setWindowContextHelpId_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_setWindowSubclass", Napi::Function::New(env, windowssys_windows_win32_ui_shell_setWindowSubclass_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_shellAboutA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_shellAboutA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_shellAboutW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_shellAboutW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_shellExecuteA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_shellExecuteA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_shellExecuteExA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_shellExecuteExA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_shellExecuteExW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_shellExecuteExW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_shellExecuteW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_shellExecuteW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_shellMessageBoxA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_shellMessageBoxA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_shellMessageBoxW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_shellMessageBoxW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_shellGetCachedImageIndex", Napi::Function::New(env, windowssys_windows_win32_ui_shell_shellGetCachedImageIndex_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_shellGetCachedImageIndexA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_shellGetCachedImageIndexA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_shellGetCachedImageIndexW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_shellGetCachedImageIndexW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_shellGetImageLists", Napi::Function::New(env, windowssys_windows_win32_ui_shell_shellGetImageLists_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_shellMergeMenus", Napi::Function::New(env, windowssys_windows_win32_ui_shell_shellMergeMenus_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_shellNotifyIconA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_shellNotifyIconA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_shellNotifyIconGetRect", Napi::Function::New(env, windowssys_windows_win32_ui_shell_shellNotifyIconGetRect_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_shellNotifyIconW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_shellNotifyIconW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_signalFileOpen", Napi::Function::New(env, windowssys_windows_win32_ui_shell_signalFileOpen_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_softwareUpdateMessageBox", Napi::Function::New(env, windowssys_windows_win32_ui_shell_softwareUpdateMessageBox_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_stgMakeUniqueName", Napi::Function::New(env, windowssys_windows_win32_ui_shell_stgMakeUniqueName_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strCSpnA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strCSpnA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strCSpnIA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strCSpnIA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strCSpnIW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strCSpnIW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strCSpnW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strCSpnW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strCatBuffA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strCatBuffA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strCatBuffW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strCatBuffW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strCatChainW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strCatChainW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strCatW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strCatW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strChrA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strChrA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strChrIA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strChrIA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strChrIW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strChrIW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strChrNIW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strChrNIW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strChrNW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strChrNW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strChrW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strChrW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strCmpCA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strCmpCA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strCmpCW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strCmpCW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strCmpICA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strCmpICA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strCmpICW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strCmpICW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strCmpIW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strCmpIW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strCmpLogicalW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strCmpLogicalW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strCmpNA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strCmpNA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strCmpNCA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strCmpNCA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strCmpNCW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strCmpNCW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strCmpNIA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strCmpNIA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strCmpNICA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strCmpNICA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strCmpNICW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strCmpNICW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strCmpNIW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strCmpNIW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strCmpNW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strCmpNW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strCmpW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strCmpW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strCpyNW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strCpyNW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strCpyW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strCpyW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strDupA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strDupA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strDupW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strDupW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strFormatByteSize64A", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strFormatByteSize64A_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strFormatByteSizeA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strFormatByteSizeA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strFormatByteSizeEx", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strFormatByteSizeEx_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strFormatByteSizeW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strFormatByteSizeW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strFormatKBSizeA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strFormatKBSizeA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strFormatKBSizeW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strFormatKBSizeW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strFromTimeIntervalA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strFromTimeIntervalA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strFromTimeIntervalW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strFromTimeIntervalW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strIsIntlEqualA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strIsIntlEqualA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strIsIntlEqualW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strIsIntlEqualW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strNCatA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strNCatA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strNCatW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strNCatW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strPBrkA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strPBrkA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strPBrkW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strPBrkW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strRChrA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strRChrA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strRChrIA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strRChrIA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strRChrIW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strRChrIW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strRChrW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strRChrW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strRStrIA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strRStrIA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strRStrIW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strRStrIW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strRetToBSTR", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strRetToBSTR_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strRetToBufA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strRetToBufA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strRetToBufW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strRetToBufW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strRetToStrA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strRetToStrA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strRetToStrW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strRetToStrW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strSpnA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strSpnA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strSpnW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strSpnW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strStrA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strStrA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strStrIA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strStrIA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strStrIW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strStrIW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strStrNIW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strStrNIW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strStrNW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strStrNW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strStrW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strStrW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strToInt64ExA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strToInt64ExA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strToInt64ExW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strToInt64ExW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strToIntA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strToIntA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strToIntExA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strToIntExA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strToIntExW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strToIntExW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strToIntW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strToIntW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strTrimA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strTrimA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_strTrimW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_strTrimW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_unloadUserProfile", Napi::Function::New(env, windowssys_windows_win32_ui_shell_unloadUserProfile_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_unregisterAppConstrainedChangeNotification", Napi::Function::New(env, windowssys_windows_win32_ui_shell_unregisterAppConstrainedChangeNotification_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_unregisterAppStateChangeNotification", Napi::Function::New(env, windowssys_windows_win32_ui_shell_unregisterAppStateChangeNotification_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_unregisterScaleChangeEvent", Napi::Function::New(env, windowssys_windows_win32_ui_shell_unregisterScaleChangeEvent_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_urlApplySchemeA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_urlApplySchemeA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_urlApplySchemeW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_urlApplySchemeW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_urlCanonicalizeA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_urlCanonicalizeA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_urlCanonicalizeW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_urlCanonicalizeW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_urlCombineA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_urlCombineA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_urlCombineW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_urlCombineW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_urlCompareA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_urlCompareA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_urlCompareW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_urlCompareW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_urlCreateFromPathA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_urlCreateFromPathA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_urlCreateFromPathW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_urlCreateFromPathW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_urlEscapeA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_urlEscapeA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_urlEscapeW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_urlEscapeW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_urlFixupW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_urlFixupW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_urlGetLocationA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_urlGetLocationA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_urlGetLocationW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_urlGetLocationW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_urlGetPartA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_urlGetPartA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_urlGetPartW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_urlGetPartW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_urlHashA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_urlHashA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_urlHashW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_urlHashW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_urlIsA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_urlIsA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_urlIsNoHistoryA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_urlIsNoHistoryA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_urlIsNoHistoryW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_urlIsNoHistoryW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_urlIsOpaqueA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_urlIsOpaqueA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_urlIsOpaqueW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_urlIsOpaqueW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_urlIsW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_urlIsW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_urlUnescapeA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_urlUnescapeA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_urlUnescapeW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_urlUnescapeW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_variantToStrRet", Napi::Function::New(env, windowssys_windows_win32_ui_shell_variantToStrRet_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_whichPlatform", Napi::Function::New(env, windowssys_windows_win32_ui_shell_whichPlatform_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_win32DeleteFile", Napi::Function::New(env, windowssys_windows_win32_ui_shell_win32DeleteFile_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_winHelpA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_winHelpA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_winHelpW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_winHelpW_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_writeCabinetState", Napi::Function::New(env, windowssys_windows_win32_ui_shell_writeCabinetState_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_wnsprintfA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_wnsprintfA_napi));
+    exports.Set("windowssys_windows_win32_ui_shell_wnsprintfW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_wnsprintfW_napi));
     exports.Set("windowssys_windows_win32_ui_shell_wvnsprintfA", Napi::Function::New(env, windowssys_windows_win32_ui_shell_wvnsprintfA_napi));
     exports.Set("windowssys_windows_win32_ui_shell_wvnsprintfW", Napi::Function::New(env, windowssys_windows_win32_ui_shell_wvnsprintfW_napi));
 }

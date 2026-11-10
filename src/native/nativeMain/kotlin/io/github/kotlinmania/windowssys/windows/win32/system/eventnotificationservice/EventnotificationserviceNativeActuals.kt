@@ -2,17 +2,18 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.system.eventnotificationservice
 
-import io.github.kotlinmania.windowssys.core.BOOL
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Bool
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import kotlinx.cinterop.ByteVar
 import kotlinx.cinterop.toCPointer
 
-public actual fun IsDestinationReachableA(lpszdestination: PCSTR, lpqocinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventnotificationservice.cinterop.windowssys_windows_win32_system_eventnotificationservice_IsDestinationReachableA(lpszdestination.toCPointer<ByteVar>(), lpqocinfo.toCPointer<ByteVar>())
+public actual fun isDestinationReachableA(lpszdestination: Pcstr, lpqocinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventnotificationservice.cinterop.windowssys_windows_win32_system_eventnotificationservice_isDestinationReachableA(lpszdestination?.value?.toCPointer<ByteVar>(), lpqocinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun IsDestinationReachableW(lpszdestination: PCWSTR, lpqocinfo: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventnotificationservice.cinterop.windowssys_windows_win32_system_eventnotificationservice_IsDestinationReachableW(lpszdestination.toCPointer<ByteVar>(), lpqocinfo.toCPointer<ByteVar>())
+public actual fun isDestinationReachableW(lpszdestination: Pcwstr, lpqocinfo: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventnotificationservice.cinterop.windowssys_windows_win32_system_eventnotificationservice_isDestinationReachableW(lpszdestination?.value?.toCPointer<ByteVar>(), lpqocinfo?.value?.toCPointer<ByteVar>())
 
-public actual fun IsNetworkAlive(lpdwflags: Long): BOOL =
-    io.github.kotlinmania.windowssys.windows.win32.system.eventnotificationservice.cinterop.windowssys_windows_win32_system_eventnotificationservice_IsNetworkAlive(lpdwflags.toCPointer<ByteVar>())
+public actual fun isNetworkAlive(lpdwflags: COpaquePointer?): Bool =
+    io.github.kotlinmania.windowssys.windows.win32.system.eventnotificationservice.cinterop.windowssys_windows_win32_system_eventnotificationservice_isNetworkAlive(lpdwflags?.value?.toCPointer<ByteVar>())

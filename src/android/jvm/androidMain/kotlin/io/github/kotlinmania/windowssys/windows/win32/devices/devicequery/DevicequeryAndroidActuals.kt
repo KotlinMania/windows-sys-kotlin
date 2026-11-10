@@ -2,9 +2,10 @@
 
 package io.github.kotlinmania.windowssys.windows.win32.devices.devicequery
 
-import io.github.kotlinmania.windowssys.core.HRESULT
-import io.github.kotlinmania.windowssys.core.PCWSTR
-import io.github.kotlinmania.windowssys.windows.win32.devices.properties.DEVPROPSTORE
+import io.github.kotlinmania.windowssys.COpaquePointer
+import io.github.kotlinmania.windowssys.core.Hresult
+import io.github.kotlinmania.windowssys.core.Pcwstr
+import io.github.kotlinmania.windowssys.windows.win32.devices.properties.Devpropstore
 
 private object WindowsWin32DevicesDevicequeryJniBridge {
     init {
@@ -12,89 +13,89 @@ private object WindowsWin32DevicesDevicequeryJniBridge {
     }
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_devicequery_DevCloseObjectQuery(hdevquery: Long)
+    external fun windowssys_windows_win32_devices_devicequery_devCloseObjectQuery(hdevquery: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_devicequery_DevCreateObjectQuery(objecttype: Int, queryflags: Int, crequestedproperties: Int, prequestedproperties: Long, cfilterexpressioncount: Int, pfilter: Long, pcallback: Long, pcontext: Long, phdevquery: Long): Int
+    external fun windowssys_windows_win32_devices_devicequery_devCreateObjectQuery(objecttype: Int, queryflags: Int, crequestedproperties: Int, prequestedproperties: Long, cfilterexpressioncount: Int, pfilter: Long, pcallback: Long, pcontext: Long, phdevquery: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_devicequery_DevCreateObjectQueryEx(objecttype: Int, queryflags: Int, crequestedproperties: Int, prequestedproperties: Long, cfilterexpressioncount: Int, pfilter: Long, cextendedparametercount: Int, pextendedparameters: Long, pcallback: Long, pcontext: Long, phdevquery: Long): Int
+    external fun windowssys_windows_win32_devices_devicequery_devCreateObjectQueryEx(objecttype: Int, queryflags: Int, crequestedproperties: Int, prequestedproperties: Long, cfilterexpressioncount: Int, pfilter: Long, cextendedparametercount: Int, pextendedparameters: Long, pcallback: Long, pcontext: Long, phdevquery: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_devicequery_DevCreateObjectQueryFromId(objecttype: Int, pszobjectid: Long, queryflags: Int, crequestedproperties: Int, prequestedproperties: Long, cfilterexpressioncount: Int, pfilter: Long, pcallback: Long, pcontext: Long, phdevquery: Long): Int
+    external fun windowssys_windows_win32_devices_devicequery_devCreateObjectQueryFromId(objecttype: Int, pszobjectid: Long, queryflags: Int, crequestedproperties: Int, prequestedproperties: Long, cfilterexpressioncount: Int, pfilter: Long, pcallback: Long, pcontext: Long, phdevquery: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_devicequery_DevCreateObjectQueryFromIdEx(objecttype: Int, pszobjectid: Long, queryflags: Int, crequestedproperties: Int, prequestedproperties: Long, cfilterexpressioncount: Int, pfilter: Long, cextendedparametercount: Int, pextendedparameters: Long, pcallback: Long, pcontext: Long, phdevquery: Long): Int
+    external fun windowssys_windows_win32_devices_devicequery_devCreateObjectQueryFromIdEx(objecttype: Int, pszobjectid: Long, queryflags: Int, crequestedproperties: Int, prequestedproperties: Long, cfilterexpressioncount: Int, pfilter: Long, cextendedparametercount: Int, pextendedparameters: Long, pcallback: Long, pcontext: Long, phdevquery: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_devicequery_DevCreateObjectQueryFromIds(objecttype: Int, pszzobjectids: Long, queryflags: Int, crequestedproperties: Int, prequestedproperties: Long, cfilterexpressioncount: Int, pfilter: Long, pcallback: Long, pcontext: Long, phdevquery: Long): Int
+    external fun windowssys_windows_win32_devices_devicequery_devCreateObjectQueryFromIds(objecttype: Int, pszzobjectids: Long, queryflags: Int, crequestedproperties: Int, prequestedproperties: Long, cfilterexpressioncount: Int, pfilter: Long, pcallback: Long, pcontext: Long, phdevquery: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_devicequery_DevCreateObjectQueryFromIdsEx(objecttype: Int, pszzobjectids: Long, queryflags: Int, crequestedproperties: Int, prequestedproperties: Long, cfilterexpressioncount: Int, pfilter: Long, cextendedparametercount: Int, pextendedparameters: Long, pcallback: Long, pcontext: Long, phdevquery: Long): Int
+    external fun windowssys_windows_win32_devices_devicequery_devCreateObjectQueryFromIdsEx(objecttype: Int, pszzobjectids: Long, queryflags: Int, crequestedproperties: Int, prequestedproperties: Long, cfilterexpressioncount: Int, pfilter: Long, cextendedparametercount: Int, pextendedparameters: Long, pcallback: Long, pcontext: Long, phdevquery: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_devicequery_DevFindProperty(pkey: Long, store: Int, pszlocalename: Long, cproperties: Int, pproperties: Long): Long
+    external fun windowssys_windows_win32_devices_devicequery_devFindProperty(pkey: Long, store: Int, pszlocalename: Long, cproperties: Int, pproperties: Long): Long
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_devicequery_DevFreeObjectProperties(cpropertycount: Int, pproperties: Long)
+    external fun windowssys_windows_win32_devices_devicequery_devFreeObjectProperties(cpropertycount: Int, pproperties: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_devicequery_DevFreeObjects(cobjectcount: Int, pobjects: Long)
+    external fun windowssys_windows_win32_devices_devicequery_devFreeObjects(cobjectcount: Int, pobjects: Long)
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_devicequery_DevGetObjectProperties(objecttype: Int, pszobjectid: Long, queryflags: Int, crequestedproperties: Int, prequestedproperties: Long, pcpropertycount: Long, ppproperties: Long): Int
+    external fun windowssys_windows_win32_devices_devicequery_devGetObjectProperties(objecttype: Int, pszobjectid: Long, queryflags: Int, crequestedproperties: Int, prequestedproperties: Long, pcpropertycount: Long, ppproperties: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_devicequery_DevGetObjectPropertiesEx(objecttype: Int, pszobjectid: Long, queryflags: Int, crequestedproperties: Int, prequestedproperties: Long, cextendedparametercount: Int, pextendedparameters: Long, pcpropertycount: Long, ppproperties: Long): Int
+    external fun windowssys_windows_win32_devices_devicequery_devGetObjectPropertiesEx(objecttype: Int, pszobjectid: Long, queryflags: Int, crequestedproperties: Int, prequestedproperties: Long, cextendedparametercount: Int, pextendedparameters: Long, pcpropertycount: Long, ppproperties: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_devicequery_DevGetObjects(objecttype: Int, queryflags: Int, crequestedproperties: Int, prequestedproperties: Long, cfilterexpressioncount: Int, pfilter: Long, pcobjectcount: Long, ppobjects: Long): Int
+    external fun windowssys_windows_win32_devices_devicequery_devGetObjects(objecttype: Int, queryflags: Int, crequestedproperties: Int, prequestedproperties: Long, cfilterexpressioncount: Int, pfilter: Long, pcobjectcount: Long, ppobjects: Long): Int
 
     @JvmStatic
-    external fun windowssys_windows_win32_devices_devicequery_DevGetObjectsEx(objecttype: Int, queryflags: Int, crequestedproperties: Int, prequestedproperties: Long, cfilterexpressioncount: Int, pfilter: Long, cextendedparametercount: Int, pextendedparameters: Long, pcobjectcount: Long, ppobjects: Long): Int
+    external fun windowssys_windows_win32_devices_devicequery_devGetObjectsEx(objecttype: Int, queryflags: Int, crequestedproperties: Int, prequestedproperties: Long, cfilterexpressioncount: Int, pfilter: Long, cextendedparametercount: Int, pextendedparameters: Long, pcobjectcount: Long, ppobjects: Long): Int
 }
 
-public actual fun DevCloseObjectQuery(hdevquery: HDEVQUERY) {
-    WindowsWin32DevicesDevicequeryJniBridge.windowssys_windows_win32_devices_devicequery_DevCloseObjectQuery(hdevquery)
+public actual fun devCloseObjectQuery(hdevquery: Hdevquery) {
+    WindowsWin32DevicesDevicequeryJniBridge.windowssys_windows_win32_devices_devicequery_devCloseObjectQuery((hdevquery?.value ?: 0L))
 }
 
-public actual fun DevCreateObjectQuery(objecttype: DEV_OBJECT_TYPE, queryflags: UInt, crequestedproperties: UInt, prequestedproperties: Long, cfilterexpressioncount: UInt, pfilter: Long, pcallback: PDEV_QUERY_RESULT_CALLBACK, pcontext: Long, phdevquery: Long): HRESULT =
-    WindowsWin32DevicesDevicequeryJniBridge.windowssys_windows_win32_devices_devicequery_DevCreateObjectQuery(objecttype, queryflags.toInt(), crequestedproperties.toInt(), prequestedproperties, cfilterexpressioncount.toInt(), pfilter, pcallback.toLong(), pcontext, phdevquery)
+public actual fun devCreateObjectQuery(objecttype: DevObjectType, queryflags: UInt, crequestedproperties: UInt, prequestedproperties: COpaquePointer?, cfilterexpressioncount: UInt, pfilter: COpaquePointer?, pcallback: PdevQueryResultCallback, pcontext: COpaquePointer?, phdevquery: COpaquePointer?): Hresult =
+    WindowsWin32DevicesDevicequeryJniBridge.windowssys_windows_win32_devices_devicequery_devCreateObjectQuery(objecttype, queryflags.toInt(), crequestedproperties.toInt(), (prequestedproperties?.value ?: 0L), cfilterexpressioncount.toInt(), (pfilter?.value ?: 0L), 0L, (pcontext?.value ?: 0L), (phdevquery?.value ?: 0L))
 
-public actual fun DevCreateObjectQueryEx(objecttype: DEV_OBJECT_TYPE, queryflags: UInt, crequestedproperties: UInt, prequestedproperties: Long, cfilterexpressioncount: UInt, pfilter: Long, cextendedparametercount: UInt, pextendedparameters: Long, pcallback: PDEV_QUERY_RESULT_CALLBACK, pcontext: Long, phdevquery: Long): HRESULT =
-    WindowsWin32DevicesDevicequeryJniBridge.windowssys_windows_win32_devices_devicequery_DevCreateObjectQueryEx(objecttype, queryflags.toInt(), crequestedproperties.toInt(), prequestedproperties, cfilterexpressioncount.toInt(), pfilter, cextendedparametercount.toInt(), pextendedparameters, pcallback.toLong(), pcontext, phdevquery)
+public actual fun devCreateObjectQueryEx(objecttype: DevObjectType, queryflags: UInt, crequestedproperties: UInt, prequestedproperties: COpaquePointer?, cfilterexpressioncount: UInt, pfilter: COpaquePointer?, cextendedparametercount: UInt, pextendedparameters: COpaquePointer?, pcallback: PdevQueryResultCallback, pcontext: COpaquePointer?, phdevquery: COpaquePointer?): Hresult =
+    WindowsWin32DevicesDevicequeryJniBridge.windowssys_windows_win32_devices_devicequery_devCreateObjectQueryEx(objecttype, queryflags.toInt(), crequestedproperties.toInt(), (prequestedproperties?.value ?: 0L), cfilterexpressioncount.toInt(), (pfilter?.value ?: 0L), cextendedparametercount.toInt(), (pextendedparameters?.value ?: 0L), 0L, (pcontext?.value ?: 0L), (phdevquery?.value ?: 0L))
 
-public actual fun DevCreateObjectQueryFromId(objecttype: DEV_OBJECT_TYPE, pszobjectid: PCWSTR, queryflags: UInt, crequestedproperties: UInt, prequestedproperties: Long, cfilterexpressioncount: UInt, pfilter: Long, pcallback: PDEV_QUERY_RESULT_CALLBACK, pcontext: Long, phdevquery: Long): HRESULT =
-    WindowsWin32DevicesDevicequeryJniBridge.windowssys_windows_win32_devices_devicequery_DevCreateObjectQueryFromId(objecttype, pszobjectid, queryflags.toInt(), crequestedproperties.toInt(), prequestedproperties, cfilterexpressioncount.toInt(), pfilter, pcallback.toLong(), pcontext, phdevquery)
+public actual fun devCreateObjectQueryFromId(objecttype: DevObjectType, pszobjectid: Pcwstr, queryflags: UInt, crequestedproperties: UInt, prequestedproperties: COpaquePointer?, cfilterexpressioncount: UInt, pfilter: COpaquePointer?, pcallback: PdevQueryResultCallback, pcontext: COpaquePointer?, phdevquery: COpaquePointer?): Hresult =
+    WindowsWin32DevicesDevicequeryJniBridge.windowssys_windows_win32_devices_devicequery_devCreateObjectQueryFromId(objecttype, (pszobjectid?.value ?: 0L), queryflags.toInt(), crequestedproperties.toInt(), (prequestedproperties?.value ?: 0L), cfilterexpressioncount.toInt(), (pfilter?.value ?: 0L), 0L, (pcontext?.value ?: 0L), (phdevquery?.value ?: 0L))
 
-public actual fun DevCreateObjectQueryFromIdEx(objecttype: DEV_OBJECT_TYPE, pszobjectid: PCWSTR, queryflags: UInt, crequestedproperties: UInt, prequestedproperties: Long, cfilterexpressioncount: UInt, pfilter: Long, cextendedparametercount: UInt, pextendedparameters: Long, pcallback: PDEV_QUERY_RESULT_CALLBACK, pcontext: Long, phdevquery: Long): HRESULT =
-    WindowsWin32DevicesDevicequeryJniBridge.windowssys_windows_win32_devices_devicequery_DevCreateObjectQueryFromIdEx(objecttype, pszobjectid, queryflags.toInt(), crequestedproperties.toInt(), prequestedproperties, cfilterexpressioncount.toInt(), pfilter, cextendedparametercount.toInt(), pextendedparameters, pcallback.toLong(), pcontext, phdevquery)
+public actual fun devCreateObjectQueryFromIdEx(objecttype: DevObjectType, pszobjectid: Pcwstr, queryflags: UInt, crequestedproperties: UInt, prequestedproperties: COpaquePointer?, cfilterexpressioncount: UInt, pfilter: COpaquePointer?, cextendedparametercount: UInt, pextendedparameters: COpaquePointer?, pcallback: PdevQueryResultCallback, pcontext: COpaquePointer?, phdevquery: COpaquePointer?): Hresult =
+    WindowsWin32DevicesDevicequeryJniBridge.windowssys_windows_win32_devices_devicequery_devCreateObjectQueryFromIdEx(objecttype, (pszobjectid?.value ?: 0L), queryflags.toInt(), crequestedproperties.toInt(), (prequestedproperties?.value ?: 0L), cfilterexpressioncount.toInt(), (pfilter?.value ?: 0L), cextendedparametercount.toInt(), (pextendedparameters?.value ?: 0L), 0L, (pcontext?.value ?: 0L), (phdevquery?.value ?: 0L))
 
-public actual fun DevCreateObjectQueryFromIds(objecttype: DEV_OBJECT_TYPE, pszzobjectids: PCWSTR, queryflags: UInt, crequestedproperties: UInt, prequestedproperties: Long, cfilterexpressioncount: UInt, pfilter: Long, pcallback: PDEV_QUERY_RESULT_CALLBACK, pcontext: Long, phdevquery: Long): HRESULT =
-    WindowsWin32DevicesDevicequeryJniBridge.windowssys_windows_win32_devices_devicequery_DevCreateObjectQueryFromIds(objecttype, pszzobjectids, queryflags.toInt(), crequestedproperties.toInt(), prequestedproperties, cfilterexpressioncount.toInt(), pfilter, pcallback.toLong(), pcontext, phdevquery)
+public actual fun devCreateObjectQueryFromIds(objecttype: DevObjectType, pszzobjectids: Pcwstr, queryflags: UInt, crequestedproperties: UInt, prequestedproperties: COpaquePointer?, cfilterexpressioncount: UInt, pfilter: COpaquePointer?, pcallback: PdevQueryResultCallback, pcontext: COpaquePointer?, phdevquery: COpaquePointer?): Hresult =
+    WindowsWin32DevicesDevicequeryJniBridge.windowssys_windows_win32_devices_devicequery_devCreateObjectQueryFromIds(objecttype, (pszzobjectids?.value ?: 0L), queryflags.toInt(), crequestedproperties.toInt(), (prequestedproperties?.value ?: 0L), cfilterexpressioncount.toInt(), (pfilter?.value ?: 0L), 0L, (pcontext?.value ?: 0L), (phdevquery?.value ?: 0L))
 
-public actual fun DevCreateObjectQueryFromIdsEx(objecttype: DEV_OBJECT_TYPE, pszzobjectids: PCWSTR, queryflags: UInt, crequestedproperties: UInt, prequestedproperties: Long, cfilterexpressioncount: UInt, pfilter: Long, cextendedparametercount: UInt, pextendedparameters: Long, pcallback: PDEV_QUERY_RESULT_CALLBACK, pcontext: Long, phdevquery: Long): HRESULT =
-    WindowsWin32DevicesDevicequeryJniBridge.windowssys_windows_win32_devices_devicequery_DevCreateObjectQueryFromIdsEx(objecttype, pszzobjectids, queryflags.toInt(), crequestedproperties.toInt(), prequestedproperties, cfilterexpressioncount.toInt(), pfilter, cextendedparametercount.toInt(), pextendedparameters, pcallback.toLong(), pcontext, phdevquery)
+public actual fun devCreateObjectQueryFromIdsEx(objecttype: DevObjectType, pszzobjectids: Pcwstr, queryflags: UInt, crequestedproperties: UInt, prequestedproperties: COpaquePointer?, cfilterexpressioncount: UInt, pfilter: COpaquePointer?, cextendedparametercount: UInt, pextendedparameters: COpaquePointer?, pcallback: PdevQueryResultCallback, pcontext: COpaquePointer?, phdevquery: COpaquePointer?): Hresult =
+    WindowsWin32DevicesDevicequeryJniBridge.windowssys_windows_win32_devices_devicequery_devCreateObjectQueryFromIdsEx(objecttype, (pszzobjectids?.value ?: 0L), queryflags.toInt(), crequestedproperties.toInt(), (prequestedproperties?.value ?: 0L), cfilterexpressioncount.toInt(), (pfilter?.value ?: 0L), cextendedparametercount.toInt(), (pextendedparameters?.value ?: 0L), 0L, (pcontext?.value ?: 0L), (phdevquery?.value ?: 0L))
 
-public actual fun DevFindProperty(pkey: Long, store: DEVPROPSTORE, pszlocalename: PCWSTR, cproperties: UInt, pproperties: Long): Long =
-    WindowsWin32DevicesDevicequeryJniBridge.windowssys_windows_win32_devices_devicequery_DevFindProperty(pkey, store, pszlocalename, cproperties.toInt(), pproperties)
+public actual fun devFindProperty(pkey: COpaquePointer?, store: Devpropstore, pszlocalename: Pcwstr, cproperties: UInt, pproperties: COpaquePointer?): COpaquePointer? =
+    WindowsWin32DevicesDevicequeryJniBridge.windowssys_windows_win32_devices_devicequery_devFindProperty((pkey?.value ?: 0L), store, (pszlocalename?.value ?: 0L), cproperties.toInt(), (pproperties?.value ?: 0L)).let { if (it == 0L) null else COpaquePointer(it) }
 
-public actual fun DevFreeObjectProperties(cpropertycount: UInt, pproperties: Long) {
-    WindowsWin32DevicesDevicequeryJniBridge.windowssys_windows_win32_devices_devicequery_DevFreeObjectProperties(cpropertycount.toInt(), pproperties)
+public actual fun devFreeObjectProperties(cpropertycount: UInt, pproperties: COpaquePointer?) {
+    WindowsWin32DevicesDevicequeryJniBridge.windowssys_windows_win32_devices_devicequery_devFreeObjectProperties(cpropertycount.toInt(), (pproperties?.value ?: 0L))
 }
 
-public actual fun DevFreeObjects(cobjectcount: UInt, pobjects: Long) {
-    WindowsWin32DevicesDevicequeryJniBridge.windowssys_windows_win32_devices_devicequery_DevFreeObjects(cobjectcount.toInt(), pobjects)
+public actual fun devFreeObjects(cobjectcount: UInt, pobjects: COpaquePointer?) {
+    WindowsWin32DevicesDevicequeryJniBridge.windowssys_windows_win32_devices_devicequery_devFreeObjects(cobjectcount.toInt(), (pobjects?.value ?: 0L))
 }
 
-public actual fun DevGetObjectProperties(objecttype: DEV_OBJECT_TYPE, pszobjectid: PCWSTR, queryflags: UInt, crequestedproperties: UInt, prequestedproperties: Long, pcpropertycount: Long, ppproperties: Long): HRESULT =
-    WindowsWin32DevicesDevicequeryJniBridge.windowssys_windows_win32_devices_devicequery_DevGetObjectProperties(objecttype, pszobjectid, queryflags.toInt(), crequestedproperties.toInt(), prequestedproperties, pcpropertycount, ppproperties)
+public actual fun devGetObjectProperties(objecttype: DevObjectType, pszobjectid: Pcwstr, queryflags: UInt, crequestedproperties: UInt, prequestedproperties: COpaquePointer?, pcpropertycount: COpaquePointer?, ppproperties: COpaquePointer?): Hresult =
+    WindowsWin32DevicesDevicequeryJniBridge.windowssys_windows_win32_devices_devicequery_devGetObjectProperties(objecttype, (pszobjectid?.value ?: 0L), queryflags.toInt(), crequestedproperties.toInt(), (prequestedproperties?.value ?: 0L), (pcpropertycount?.value ?: 0L), (ppproperties?.value ?: 0L))
 
-public actual fun DevGetObjectPropertiesEx(objecttype: DEV_OBJECT_TYPE, pszobjectid: PCWSTR, queryflags: UInt, crequestedproperties: UInt, prequestedproperties: Long, cextendedparametercount: UInt, pextendedparameters: Long, pcpropertycount: Long, ppproperties: Long): HRESULT =
-    WindowsWin32DevicesDevicequeryJniBridge.windowssys_windows_win32_devices_devicequery_DevGetObjectPropertiesEx(objecttype, pszobjectid, queryflags.toInt(), crequestedproperties.toInt(), prequestedproperties, cextendedparametercount.toInt(), pextendedparameters, pcpropertycount, ppproperties)
+public actual fun devGetObjectPropertiesEx(objecttype: DevObjectType, pszobjectid: Pcwstr, queryflags: UInt, crequestedproperties: UInt, prequestedproperties: COpaquePointer?, cextendedparametercount: UInt, pextendedparameters: COpaquePointer?, pcpropertycount: COpaquePointer?, ppproperties: COpaquePointer?): Hresult =
+    WindowsWin32DevicesDevicequeryJniBridge.windowssys_windows_win32_devices_devicequery_devGetObjectPropertiesEx(objecttype, (pszobjectid?.value ?: 0L), queryflags.toInt(), crequestedproperties.toInt(), (prequestedproperties?.value ?: 0L), cextendedparametercount.toInt(), (pextendedparameters?.value ?: 0L), (pcpropertycount?.value ?: 0L), (ppproperties?.value ?: 0L))
 
-public actual fun DevGetObjects(objecttype: DEV_OBJECT_TYPE, queryflags: UInt, crequestedproperties: UInt, prequestedproperties: Long, cfilterexpressioncount: UInt, pfilter: Long, pcobjectcount: Long, ppobjects: Long): HRESULT =
-    WindowsWin32DevicesDevicequeryJniBridge.windowssys_windows_win32_devices_devicequery_DevGetObjects(objecttype, queryflags.toInt(), crequestedproperties.toInt(), prequestedproperties, cfilterexpressioncount.toInt(), pfilter, pcobjectcount, ppobjects)
+public actual fun devGetObjects(objecttype: DevObjectType, queryflags: UInt, crequestedproperties: UInt, prequestedproperties: COpaquePointer?, cfilterexpressioncount: UInt, pfilter: COpaquePointer?, pcobjectcount: COpaquePointer?, ppobjects: COpaquePointer?): Hresult =
+    WindowsWin32DevicesDevicequeryJniBridge.windowssys_windows_win32_devices_devicequery_devGetObjects(objecttype, queryflags.toInt(), crequestedproperties.toInt(), (prequestedproperties?.value ?: 0L), cfilterexpressioncount.toInt(), (pfilter?.value ?: 0L), (pcobjectcount?.value ?: 0L), (ppobjects?.value ?: 0L))
 
-public actual fun DevGetObjectsEx(objecttype: DEV_OBJECT_TYPE, queryflags: UInt, crequestedproperties: UInt, prequestedproperties: Long, cfilterexpressioncount: UInt, pfilter: Long, cextendedparametercount: UInt, pextendedparameters: Long, pcobjectcount: Long, ppobjects: Long): HRESULT =
-    WindowsWin32DevicesDevicequeryJniBridge.windowssys_windows_win32_devices_devicequery_DevGetObjectsEx(objecttype, queryflags.toInt(), crequestedproperties.toInt(), prequestedproperties, cfilterexpressioncount.toInt(), pfilter, cextendedparametercount.toInt(), pextendedparameters, pcobjectcount, ppobjects)
+public actual fun devGetObjectsEx(objecttype: DevObjectType, queryflags: UInt, crequestedproperties: UInt, prequestedproperties: COpaquePointer?, cfilterexpressioncount: UInt, pfilter: COpaquePointer?, cextendedparametercount: UInt, pextendedparameters: COpaquePointer?, pcobjectcount: COpaquePointer?, ppobjects: COpaquePointer?): Hresult =
+    WindowsWin32DevicesDevicequeryJniBridge.windowssys_windows_win32_devices_devicequery_devGetObjectsEx(objecttype, queryflags.toInt(), crequestedproperties.toInt(), (prequestedproperties?.value ?: 0L), cfilterexpressioncount.toInt(), (pfilter?.value ?: 0L), cextendedparametercount.toInt(), (pextendedparameters?.value ?: 0L), (pcobjectcount?.value ?: 0L), (ppobjects?.value ?: 0L))

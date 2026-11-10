@@ -1,22 +1,22 @@
 package io.github.kotlinmania.windowssys.windows.win32.system.ioctl
 
 import io.github.kotlinmania.windowssys.U128
-import io.github.kotlinmania.windowssys.core.GUID
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Guid
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.w
-import io.github.kotlinmania.windowssys.windows.win32.foundation.DEVPROPKEY
+import io.github.kotlinmania.windowssys.windows.win32.foundation.Devpropkey
 
-public val ABL_5_WO: STORAGE_MEDIA_TYPE = 64
+public val ABL_5_WO: StorageMediaType = 64
 
-public val ADR_1: STORAGE_MEDIA_TYPE = 90
+public val ADR_1: StorageMediaType = 90
 
-public val ADR_2: STORAGE_MEDIA_TYPE = 91
+public val ADR_2: StorageMediaType = 91
 
-public val AIT1_8mm: STORAGE_MEDIA_TYPE = 38
+public val AIT1_8MM: StorageMediaType = 38
 
-public val AIT_8mm: STORAGE_MEDIA_TYPE = 89
+public val AIT_8MM: StorageMediaType = 89
 
-public val AME_8mm: STORAGE_MEDIA_TYPE = 37
+public val AME_8MM: StorageMediaType = 37
 
 public val ASSERT_ALTERNATE: UInt = 9u
 
@@ -24,15 +24,15 @@ public val ASSERT_PRIMARY: UInt = 8u
 
 public val ATAPI_ID_CMD: UInt = 161u
 
-public val AVATAR_F2: STORAGE_MEDIA_TYPE = 78
+public val AVATAR_F2: StorageMediaType = 78
 
-public val AllElements: ELEMENT_TYPE = 0
+public val ALL_ELEMENTS: ElementType = 0
 
-public val AtaDataTypeIdentify: STORAGE_PROTOCOL_ATA_DATA_TYPE = 1
+public val ATA_DATA_TYPE_IDENTIFY: StorageProtocolAtaDataType = 1
 
-public val AtaDataTypeLogPage: STORAGE_PROTOCOL_ATA_DATA_TYPE = 2
+public val ATA_DATA_TYPE_LOG_PAGE: StorageProtocolAtaDataType = 2
 
-public val AtaDataTypeUnknown: STORAGE_PROTOCOL_ATA_DATA_TYPE = 0
+public val ATA_DATA_TYPE_UNKNOWN: StorageProtocolAtaDataType = 0
 
 public val CAP_ATAPI_ID_CMD: UInt = 2u
 
@@ -42,81 +42,81 @@ public val CAP_SMART_CMD: UInt = 4u
 
 public val CDB_SIZE: UInt = 16u
 
-public val CD_R: STORAGE_MEDIA_TYPE = 52
+public val CD_R: StorageMediaType = 52
 
-public val CD_ROM: STORAGE_MEDIA_TYPE = 51
+public val CD_ROM: StorageMediaType = 51
 
-public val CD_RW: STORAGE_MEDIA_TYPE = 53
+public val CD_RW: StorageMediaType = 53
 
-public val CHANGER_BAR_CODE_SCANNER_INSTALLED: CHANGER_FEATURES = 1u
+public val CHANGER_BAR_CODE_SCANNER_INSTALLED: ChangerFeatures = 1u
 
-public val CHANGER_CARTRIDGE_MAGAZINE: CHANGER_FEATURES = 256u
+public val CHANGER_CARTRIDGE_MAGAZINE: ChangerFeatures = 256u
 
-public val CHANGER_CLEANER_ACCESS_NOT_VALID: CHANGER_FEATURES = 262144u
+public val CHANGER_CLEANER_ACCESS_NOT_VALID: ChangerFeatures = 262144u
 
-public val CHANGER_CLEANER_AUTODISMOUNT: GET_CHANGER_PARAMETERS_FEATURES1 = 2147483652u
+public val CHANGER_CLEANER_AUTODISMOUNT: GetChangerParametersFeatures1 = 2147483652u
 
-public val CHANGER_CLEANER_OPS_NOT_SUPPORTED: GET_CHANGER_PARAMETERS_FEATURES1 = 2147483712u
+public val CHANGER_CLEANER_OPS_NOT_SUPPORTED: GetChangerParametersFeatures1 = 2147483712u
 
-public val CHANGER_CLEANER_SLOT: CHANGER_FEATURES = 64u
+public val CHANGER_CLEANER_SLOT: ChangerFeatures = 64u
 
-public val CHANGER_CLOSE_IEPORT: CHANGER_FEATURES = 4u
+public val CHANGER_CLOSE_IEPORT: ChangerFeatures = 4u
 
-public val CHANGER_DEVICE_REINITIALIZE_CAPABLE: CHANGER_FEATURES = 134217728u
+public val CHANGER_DEVICE_REINITIALIZE_CAPABLE: ChangerFeatures = 134217728u
 
-public val CHANGER_DRIVE_CLEANING_REQUIRED: CHANGER_FEATURES = 65536u
+public val CHANGER_DRIVE_CLEANING_REQUIRED: ChangerFeatures = 65536u
 
-public val CHANGER_DRIVE_EMPTY_ON_DOOR_ACCESS: CHANGER_FEATURES = 536870912u
+public val CHANGER_DRIVE_EMPTY_ON_DOOR_ACCESS: ChangerFeatures = 536870912u
 
-public val CHANGER_EXCHANGE_MEDIA: CHANGER_FEATURES = 32u
+public val CHANGER_EXCHANGE_MEDIA: ChangerFeatures = 32u
 
-public val CHANGER_IEPORT_USER_CONTROL_CLOSE: GET_CHANGER_PARAMETERS_FEATURES1 = 2147483904u
+public val CHANGER_IEPORT_USER_CONTROL_CLOSE: GetChangerParametersFeatures1 = 2147483904u
 
-public val CHANGER_IEPORT_USER_CONTROL_OPEN: GET_CHANGER_PARAMETERS_FEATURES1 = 2147483776u
+public val CHANGER_IEPORT_USER_CONTROL_OPEN: GetChangerParametersFeatures1 = 2147483776u
 
-public val CHANGER_INIT_ELEM_STAT_WITH_RANGE: CHANGER_FEATURES = 2u
+public val CHANGER_INIT_ELEM_STAT_WITH_RANGE: ChangerFeatures = 2u
 
-public val CHANGER_KEYPAD_ENABLE_DISABLE: CHANGER_FEATURES = 268435456u
+public val CHANGER_KEYPAD_ENABLE_DISABLE: ChangerFeatures = 268435456u
 
-public val CHANGER_LOCK_UNLOCK: CHANGER_FEATURES = 128u
+public val CHANGER_LOCK_UNLOCK: ChangerFeatures = 128u
 
-public val CHANGER_MEDIUM_FLIP: CHANGER_FEATURES = 512u
+public val CHANGER_MEDIUM_FLIP: ChangerFeatures = 512u
 
-public val CHANGER_MOVE_EXTENDS_IEPORT: GET_CHANGER_PARAMETERS_FEATURES1 = 2147484160u
+public val CHANGER_MOVE_EXTENDS_IEPORT: GetChangerParametersFeatures1 = 2147484160u
 
-public val CHANGER_MOVE_RETRACTS_IEPORT: GET_CHANGER_PARAMETERS_FEATURES1 = 2147484672u
+public val CHANGER_MOVE_RETRACTS_IEPORT: GetChangerParametersFeatures1 = 2147484672u
 
-public val CHANGER_OPEN_IEPORT: CHANGER_FEATURES = 8u
+public val CHANGER_OPEN_IEPORT: ChangerFeatures = 8u
 
-public val CHANGER_POSITION_TO_ELEMENT: CHANGER_FEATURES = 1024u
+public val CHANGER_POSITION_TO_ELEMENT: ChangerFeatures = 1024u
 
-public val CHANGER_PREDISMOUNT_ALIGN_TO_DRIVE: GET_CHANGER_PARAMETERS_FEATURES1 = 2147483650u
+public val CHANGER_PREDISMOUNT_ALIGN_TO_DRIVE: GetChangerParametersFeatures1 = 2147483650u
 
-public val CHANGER_PREDISMOUNT_ALIGN_TO_SLOT: GET_CHANGER_PARAMETERS_FEATURES1 = 2147483649u
+public val CHANGER_PREDISMOUNT_ALIGN_TO_SLOT: GetChangerParametersFeatures1 = 2147483649u
 
-public val CHANGER_PREDISMOUNT_EJECT_REQUIRED: CHANGER_FEATURES = 131072u
+public val CHANGER_PREDISMOUNT_EJECT_REQUIRED: ChangerFeatures = 131072u
 
-public val CHANGER_PREMOUNT_EJECT_REQUIRED: CHANGER_FEATURES = 524288u
+public val CHANGER_PREMOUNT_EJECT_REQUIRED: ChangerFeatures = 524288u
 
-public val CHANGER_REPORT_IEPORT_STATE: CHANGER_FEATURES = 2048u
+public val CHANGER_REPORT_IEPORT_STATE: ChangerFeatures = 2048u
 
 public val CHANGER_RESERVED_BIT: UInt = 2147483648u
 
-public val CHANGER_RTN_MEDIA_TO_ORIGINAL_ADDR: GET_CHANGER_PARAMETERS_FEATURES1 = 2147483680u
+public val CHANGER_RTN_MEDIA_TO_ORIGINAL_ADDR: GetChangerParametersFeatures1 = 2147483680u
 
-public val CHANGER_SERIAL_NUMBER_VALID: CHANGER_FEATURES = 67108864u
+public val CHANGER_SERIAL_NUMBER_VALID: ChangerFeatures = 67108864u
 
-public val CHANGER_SLOTS_USE_TRAYS: GET_CHANGER_PARAMETERS_FEATURES1 = 2147483664u
+public val CHANGER_SLOTS_USE_TRAYS: GetChangerParametersFeatures1 = 2147483664u
 
-public val CHANGER_STATUS_NON_VOLATILE: CHANGER_FEATURES = 16u
+public val CHANGER_STATUS_NON_VOLATILE: ChangerFeatures = 16u
 
-public val CHANGER_STORAGE_DRIVE: CHANGER_FEATURES = 4096u
+public val CHANGER_STORAGE_DRIVE: ChangerFeatures = 4096u
 
-public val CHANGER_STORAGE_IEPORT: CHANGER_FEATURES = 8192u
+public val CHANGER_STORAGE_IEPORT: ChangerFeatures = 8192u
 
-public val CHANGER_STORAGE_SLOT: CHANGER_FEATURES = 16384u
+public val CHANGER_STORAGE_SLOT: ChangerFeatures = 16384u
 
-public val CHANGER_STORAGE_TRANSPORT: CHANGER_FEATURES = 32768u
+public val CHANGER_STORAGE_TRANSPORT: ChangerFeatures = 32768u
 
 public val CHANGER_TO_DRIVE: UInt = 8u
 
@@ -126,17 +126,17 @@ public val CHANGER_TO_SLOT: UInt = 2u
 
 public val CHANGER_TO_TRANSPORT: UInt = 1u
 
-public val CHANGER_TRUE_EXCHANGE_CAPABLE: GET_CHANGER_PARAMETERS_FEATURES1 = 2147483656u
+public val CHANGER_TRUE_EXCHANGE_CAPABLE: GetChangerParametersFeatures1 = 2147483656u
 
-public val CHANGER_VOLUME_ASSERT: CHANGER_FEATURES = 4194304u
+public val CHANGER_VOLUME_ASSERT: ChangerFeatures = 4194304u
 
-public val CHANGER_VOLUME_IDENTIFICATION: CHANGER_FEATURES = 1048576u
+public val CHANGER_VOLUME_IDENTIFICATION: ChangerFeatures = 1048576u
 
-public val CHANGER_VOLUME_REPLACE: CHANGER_FEATURES = 8388608u
+public val CHANGER_VOLUME_REPLACE: ChangerFeatures = 8388608u
 
-public val CHANGER_VOLUME_SEARCH: CHANGER_FEATURES = 2097152u
+public val CHANGER_VOLUME_SEARCH: ChangerFeatures = 2097152u
 
-public val CHANGER_VOLUME_UNDEFINE: CHANGER_FEATURES = 16777216u
+public val CHANGER_VOLUME_UNDEFINE: ChangerFeatures = 16777216u
 
 public val CHECKSUM_TYPE_CRC32: UInt = 1u
 
@@ -150,7 +150,7 @@ public val CHECKSUM_TYPE_NONE: UInt = 0u
 
 public val CHECKSUM_TYPE_SHA256: UInt = 4u
 
-public val CLEANER_CARTRIDGE: STORAGE_MEDIA_TYPE = 50
+public val CLEANER_CARTRIDGE: StorageMediaType = 50
 
 public val CONTAINER_ROOT_INFO_FLAG_BIND_DO_NOT_MAP_NAME: UInt = 256u
 
@@ -194,71 +194,71 @@ public val CSV_QUERY_MDS_PATH_FLAG_STORAGE_ON_THIS_NODE_IS_CONNECTED: UInt = 1u
 
 public val CSV_QUERY_MDS_PATH_V2_VERSION_1: UInt = 1u
 
-public val CYGNET_12_WO: STORAGE_MEDIA_TYPE = 69
+public val CYGNET_12_WO: StorageMediaType = 69
 
-public val ChangerDoor: ELEMENT_TYPE = 5
+public val CHANGER_DOOR: ElementType = 5
 
-public val ChangerDrive: ELEMENT_TYPE = 4
+public val CHANGER_DRIVE: ElementType = 4
 
-public val ChangerIEPort: ELEMENT_TYPE = 3
+public val CHANGER_IE_PORT: ElementType = 3
 
-public val ChangerKeypad: ELEMENT_TYPE = 6
+public val CHANGER_KEYPAD: ElementType = 6
 
-public val ChangerMaxElement: ELEMENT_TYPE = 7
+public val CHANGER_MAX_ELEMENT: ElementType = 7
 
-public val ChangerSlot: ELEMENT_TYPE = 2
+public val CHANGER_SLOT: ElementType = 2
 
-public val ChangerTransport: ELEMENT_TYPE = 1
+public val CHANGER_TRANSPORT: ElementType = 1
 
-public val CsvControlDisableCaching: CSV_CONTROL_OP = 19
+public val CSV_CONTROL_DISABLE_CACHING: CsvControlOp = 19
 
-public val CsvControlEnableCaching: CSV_CONTROL_OP = 20
+public val CSV_CONTROL_ENABLE_CACHING: CsvControlOp = 20
 
-public val CsvControlEnableUSNRangeModificationTracking: CSV_CONTROL_OP = 13
+public val CSV_CONTROL_ENABLE_USN_RANGE_MODIFICATION_TRACKING: CsvControlOp = 13
 
-public val CsvControlGetCsvFsMdsPathV2: CSV_CONTROL_OP = 18
+public val CSV_CONTROL_GET_CSV_FS_MDS_PATH_V2: CsvControlOp = 18
 
-public val CsvControlMarkHandleLocalVolumeMount: CSV_CONTROL_OP = 14
+public val CSV_CONTROL_MARK_HANDLE_LOCAL_VOLUME_MOUNT: CsvControlOp = 14
 
-public val CsvControlQueryFileRevision: CSV_CONTROL_OP = 6
+public val CSV_CONTROL_QUERY_FILE_REVISION: CsvControlOp = 6
 
-public val CsvControlQueryFileRevisionFileId128: CSV_CONTROL_OP = 9
+public val CSV_CONTROL_QUERY_FILE_REVISION_FILE_ID128: CsvControlOp = 9
 
-public val CsvControlQueryMdsPath: CSV_CONTROL_OP = 8
+public val CSV_CONTROL_QUERY_MDS_PATH: CsvControlOp = 8
 
-public val CsvControlQueryMdsPathNoPause: CSV_CONTROL_OP = 23
+public val CSV_CONTROL_QUERY_MDS_PATH_NO_PAUSE: CsvControlOp = 23
 
-public val CsvControlQueryRedirectState: CSV_CONTROL_OP = 4
+public val CSV_CONTROL_QUERY_REDIRECT_STATE: CsvControlOp = 4
 
-public val CsvControlQueryVolumeId: CSV_CONTROL_OP = 25
+public val CSV_CONTROL_QUERY_VOLUME_ID: CsvControlOp = 25
 
-public val CsvControlQueryVolumeRedirectState: CSV_CONTROL_OP = 10
+public val CSV_CONTROL_QUERY_VOLUME_REDIRECT_STATE: CsvControlOp = 10
 
-public val CsvControlSetVolumeId: CSV_CONTROL_OP = 24
+public val CSV_CONTROL_SET_VOLUME_ID: CsvControlOp = 24
 
-public val CsvControlStartForceDFO: CSV_CONTROL_OP = 21
+public val CSV_CONTROL_START_FORCE_DFO: CsvControlOp = 21
 
-public val CsvControlStartRedirectFile: CSV_CONTROL_OP = 2
+public val CSV_CONTROL_START_REDIRECT_FILE: CsvControlOp = 2
 
-public val CsvControlStopForceDFO: CSV_CONTROL_OP = 22
+public val CSV_CONTROL_STOP_FORCE_DFO: CsvControlOp = 22
 
-public val CsvControlStopRedirectFile: CSV_CONTROL_OP = 3
+public val CSV_CONTROL_STOP_REDIRECT_FILE: CsvControlOp = 3
 
-public val CsvControlUnmarkHandleLocalVolumeMount: CSV_CONTROL_OP = 15
+public val CSV_CONTROL_UNMARK_HANDLE_LOCAL_VOLUME_MOUNT: CsvControlOp = 15
 
-public val CsvFsDiskConnectivityAllNodes: CSVFS_DISK_CONNECTIVITY = 3
+public val CSV_FS_DISK_CONNECTIVITY_ALL_NODES: CsvfsDiskConnectivity = 3
 
-public val CsvFsDiskConnectivityMdsNodeOnly: CSVFS_DISK_CONNECTIVITY = 1
+public val CSV_FS_DISK_CONNECTIVITY_MDS_NODE_ONLY: CsvfsDiskConnectivity = 1
 
-public val CsvFsDiskConnectivityNone: CSVFS_DISK_CONNECTIVITY = 0
+public val CSV_FS_DISK_CONNECTIVITY_NONE: CsvfsDiskConnectivity = 0
 
-public val CsvFsDiskConnectivitySubsetOfNodes: CSVFS_DISK_CONNECTIVITY = 2
+public val CSV_FS_DISK_CONNECTIVITY_SUBSET_OF_NODES: CsvfsDiskConnectivity = 2
 
 public val DAX_ALLOC_ALIGNMENT_FLAG_FALLBACK_SPECIFIED: UInt = 2u
 
 public val DAX_ALLOC_ALIGNMENT_FLAG_MANDATORY: UInt = 1u
 
-public val DDS_4mm: STORAGE_MEDIA_TYPE = 32
+public val DDS_4MM: StorageMediaType = 32
 
 public val DDUMP_FLAG_DATA_READ_FROM_DEVICE: UInt = 1u
 
@@ -306,21 +306,21 @@ public val DEVICE_DSM_RANGE_ERROR_OUTPUT_V1: UInt = 1u
 
 public val DEVICE_STORAGE_NO_ERRORS: UInt = 1u
 
-public val DEVPKEY_Storage_Disk_Number: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x4d1ebee808034774uL, 0x9842b77db50265e9uL)), pid = 5u)
+public val DEVPKEY_STORAGE_DISK_NUMBER: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x4d1ebee808034774uL, 0x9842b77db50265e9uL)), pid = 5u)
 
-public val DEVPKEY_Storage_Gpt_Name: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x4d1ebee808034774uL, 0x9842b77db50265e9uL)), pid = 9u)
+public val DEVPKEY_STORAGE_GPT_NAME: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x4d1ebee808034774uL, 0x9842b77db50265e9uL)), pid = 9u)
 
-public val DEVPKEY_Storage_Gpt_Type: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x4d1ebee808034774uL, 0x9842b77db50265e9uL)), pid = 8u)
+public val DEVPKEY_STORAGE_GPT_TYPE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x4d1ebee808034774uL, 0x9842b77db50265e9uL)), pid = 8u)
 
-public val DEVPKEY_Storage_Mbr_Type: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x4d1ebee808034774uL, 0x9842b77db50265e9uL)), pid = 7u)
+public val DEVPKEY_STORAGE_MBR_TYPE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x4d1ebee808034774uL, 0x9842b77db50265e9uL)), pid = 7u)
 
-public val DEVPKEY_Storage_Partition_Number: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x4d1ebee808034774uL, 0x9842b77db50265e9uL)), pid = 6u)
+public val DEVPKEY_STORAGE_PARTITION_NUMBER: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x4d1ebee808034774uL, 0x9842b77db50265e9uL)), pid = 6u)
 
-public val DEVPKEY_Storage_Portable: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x4d1ebee808034774uL, 0x9842b77db50265e9uL)), pid = 2u)
+public val DEVPKEY_STORAGE_PORTABLE: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x4d1ebee808034774uL, 0x9842b77db50265e9uL)), pid = 2u)
 
-public val DEVPKEY_Storage_Removable_Media: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x4d1ebee808034774uL, 0x9842b77db50265e9uL)), pid = 3u)
+public val DEVPKEY_STORAGE_REMOVABLE_MEDIA: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x4d1ebee808034774uL, 0x9842b77db50265e9uL)), pid = 3u)
 
-public val DEVPKEY_Storage_System_Critical: DEVPROPKEY = DEVPROPKEY(fmtid = GUID.from_u128(U128(0x4d1ebee808034774uL, 0x9842b77db50265e9uL)), pid = 4u)
+public val DEVPKEY_STORAGE_SYSTEM_CRITICAL: Devpropkey = Devpropkey(fmtid = Guid.fromU128(U128(0x4d1ebee808034774uL, 0x9842b77db50265e9uL)), pid = 4u)
 
 public val DISABLE_SMART: UInt = 217u
 
@@ -336,187 +336,187 @@ public val DISK_LOGGING_START: UInt = 0u
 
 public val DISK_LOGGING_STOP: UInt = 1u
 
-public val DLT: STORAGE_MEDIA_TYPE = 39
+public val DLT: StorageMediaType = 39
 
-public val DMI: STORAGE_MEDIA_TYPE = 48
+public val DMI: StorageMediaType = 48
 
-public val DST_L: STORAGE_MEDIA_TYPE = 82
+public val DST_L: StorageMediaType = 82
 
-public val DST_M: STORAGE_MEDIA_TYPE = 81
+public val DST_M: StorageMediaType = 81
 
-public val DST_S: STORAGE_MEDIA_TYPE = 80
+public val DST_S: StorageMediaType = 80
 
 public val DUPLICATE_EXTENTS_DATA_EX_ASYNC: UInt = 2u
 
 public val DUPLICATE_EXTENTS_DATA_EX_SOURCE_ATOMIC: UInt = 1u
 
-public val DVD_R: STORAGE_MEDIA_TYPE = 55
+public val DVD_R: StorageMediaType = 55
 
-public val DVD_RAM: STORAGE_MEDIA_TYPE = 88
+public val DVD_RAM: StorageMediaType = 88
 
-public val DVD_ROM: STORAGE_MEDIA_TYPE = 54
+public val DVD_ROM: StorageMediaType = 54
 
-public val DVD_RW: STORAGE_MEDIA_TYPE = 56
+public val DVD_RW: StorageMediaType = 56
 
-public val DV_6mm: STORAGE_MEDIA_TYPE = 47
+public val DV_6MM: StorageMediaType = 47
 
-public val DetectExInt13: DETECTION_TYPE = 2
+public val DETECT_EX_INT13: DetectionType = 2
 
-public val DetectInt13: DETECTION_TYPE = 1
+public val DETECT_INT13: DetectionType = 1
 
-public val DetectNone: DETECTION_TYPE = 0
+public val DETECT_NONE: DetectionType = 0
 
-public val DeviceCurrentInternalStatusData: DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE = 2
+public val DEVICE_CURRENT_INTERNAL_STATUS_DATA: DeviceInternalStatusDataRequestType = 2
 
-public val DeviceCurrentInternalStatusDataHeader: DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE = 1
+public val DEVICE_CURRENT_INTERNAL_STATUS_DATA_HEADER: DeviceInternalStatusDataRequestType = 1
 
-public val DeviceDsmActionFlag_NonDestructive: UInt = 2147483648u
+public val DEVICE_DSM_ACTION_FLAG_NON_DESTRUCTIVE: UInt = 2147483648u
 
-public val DeviceInternalStatusDataRequestTypeUndefined: DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE = 0
+public val DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE_UNDEFINED: DeviceInternalStatusDataRequestType = 0
 
-public val DeviceProblemCHMError: CHANGER_DEVICE_PROBLEM_TYPE = 2
+public val DEVICE_PROBLEM_CHM_ERROR: ChangerDeviceProblemType = 2
 
-public val DeviceProblemCHMMoveError: CHANGER_DEVICE_PROBLEM_TYPE = 6
+public val DEVICE_PROBLEM_CHM_MOVE_ERROR: ChangerDeviceProblemType = 6
 
-public val DeviceProblemCHMZeroError: CHANGER_DEVICE_PROBLEM_TYPE = 7
+public val DEVICE_PROBLEM_CHM_ZERO_ERROR: ChangerDeviceProblemType = 7
 
-public val DeviceProblemCalibrationError: CHANGER_DEVICE_PROBLEM_TYPE = 4
+public val DEVICE_PROBLEM_CALIBRATION_ERROR: ChangerDeviceProblemType = 4
 
-public val DeviceProblemCartridgeEjectError: CHANGER_DEVICE_PROBLEM_TYPE = 11
+public val DEVICE_PROBLEM_CARTRIDGE_EJECT_ERROR: ChangerDeviceProblemType = 11
 
-public val DeviceProblemCartridgeInsertError: CHANGER_DEVICE_PROBLEM_TYPE = 8
+public val DEVICE_PROBLEM_CARTRIDGE_INSERT_ERROR: ChangerDeviceProblemType = 8
 
-public val DeviceProblemDoorOpen: CHANGER_DEVICE_PROBLEM_TYPE = 3
+public val DEVICE_PROBLEM_DOOR_OPEN: ChangerDeviceProblemType = 3
 
-public val DeviceProblemDriveError: CHANGER_DEVICE_PROBLEM_TYPE = 13
+public val DEVICE_PROBLEM_DRIVE_ERROR: ChangerDeviceProblemType = 13
 
-public val DeviceProblemGripperError: CHANGER_DEVICE_PROBLEM_TYPE = 12
+public val DEVICE_PROBLEM_GRIPPER_ERROR: ChangerDeviceProblemType = 12
 
-public val DeviceProblemHardware: CHANGER_DEVICE_PROBLEM_TYPE = 1
+public val DEVICE_PROBLEM_HARDWARE: ChangerDeviceProblemType = 1
 
-public val DeviceProblemNone: CHANGER_DEVICE_PROBLEM_TYPE = 0
+public val DEVICE_PROBLEM_NONE: ChangerDeviceProblemType = 0
 
-public val DeviceProblemPositionError: CHANGER_DEVICE_PROBLEM_TYPE = 9
+public val DEVICE_PROBLEM_POSITION_ERROR: ChangerDeviceProblemType = 9
 
-public val DeviceProblemSensorError: CHANGER_DEVICE_PROBLEM_TYPE = 10
+public val DEVICE_PROBLEM_SENSOR_ERROR: ChangerDeviceProblemType = 10
 
-public val DeviceProblemTargetFailure: CHANGER_DEVICE_PROBLEM_TYPE = 5
+public val DEVICE_PROBLEM_TARGET_FAILURE: ChangerDeviceProblemType = 5
 
-public val DeviceSavedInternalStatusData: DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE = 4
+public val DEVICE_SAVED_INTERNAL_STATUS_DATA: DeviceInternalStatusDataRequestType = 4
 
-public val DeviceSavedInternalStatusDataHeader: DEVICE_INTERNAL_STATUS_DATA_REQUEST_TYPE = 3
+public val DEVICE_SAVED_INTERNAL_STATUS_DATA_HEADER: DeviceInternalStatusDataRequestType = 3
 
-public val DeviceStatusDataSet1: DEVICE_INTERNAL_STATUS_DATA_SET = 1
+public val DEVICE_STATUS_DATA_SET1: DeviceInternalStatusDataSet = 1
 
-public val DeviceStatusDataSet2: DEVICE_INTERNAL_STATUS_DATA_SET = 2
+public val DEVICE_STATUS_DATA_SET2: DeviceInternalStatusDataSet = 2
 
-public val DeviceStatusDataSet3: DEVICE_INTERNAL_STATUS_DATA_SET = 3
+public val DEVICE_STATUS_DATA_SET3: DeviceInternalStatusDataSet = 3
 
-public val DeviceStatusDataSet4: DEVICE_INTERNAL_STATUS_DATA_SET = 4
+public val DEVICE_STATUS_DATA_SET4: DeviceInternalStatusDataSet = 4
 
-public val DeviceStatusDataSetMax: DEVICE_INTERNAL_STATUS_DATA_SET = 5
+public val DEVICE_STATUS_DATA_SET_MAX: DeviceInternalStatusDataSet = 5
 
-public val DeviceStatusDataSetUndefined: DEVICE_INTERNAL_STATUS_DATA_SET = 0
+public val DEVICE_STATUS_DATA_SET_UNDEFINED: DeviceInternalStatusDataSet = 0
 
-public val DiskHealthHealthy: STORAGE_DISK_HEALTH_STATUS = 3
+public val DISK_HEALTH_HEALTHY: StorageDiskHealthStatus = 3
 
-public val DiskHealthMax: STORAGE_DISK_HEALTH_STATUS = 4
+public val DISK_HEALTH_MAX: StorageDiskHealthStatus = 4
 
-public val DiskHealthUnhealthy: STORAGE_DISK_HEALTH_STATUS = 1
+public val DISK_HEALTH_UNHEALTHY: StorageDiskHealthStatus = 1
 
-public val DiskHealthUnknown: STORAGE_DISK_HEALTH_STATUS = 0
+public val DISK_HEALTH_UNKNOWN: StorageDiskHealthStatus = 0
 
-public val DiskHealthWarning: STORAGE_DISK_HEALTH_STATUS = 2
+public val DISK_HEALTH_WARNING: StorageDiskHealthStatus = 2
 
-public val DiskOpReasonBackgroundOperation: STORAGE_OPERATIONAL_STATUS_REASON = 12
+public val DISK_OP_REASON_BACKGROUND_OPERATION: StorageOperationalStatusReason = 12
 
-public val DiskOpReasonComponent: STORAGE_OPERATIONAL_STATUS_REASON = 10
+public val DISK_OP_REASON_COMPONENT: StorageOperationalStatusReason = 10
 
-public val DiskOpReasonConfiguration: STORAGE_OPERATIONAL_STATUS_REASON = 7
+public val DISK_OP_REASON_CONFIGURATION: StorageOperationalStatusReason = 7
 
-public val DiskOpReasonDataPersistenceLossImminent: STORAGE_OPERATIONAL_STATUS_REASON = 18
+public val DISK_OP_REASON_DATA_PERSISTENCE_LOSS_IMMINENT: StorageOperationalStatusReason = 18
 
-public val DiskOpReasonDeviceController: STORAGE_OPERATIONAL_STATUS_REASON = 8
+public val DISK_OP_REASON_DEVICE_CONTROLLER: StorageOperationalStatusReason = 8
 
-public val DiskOpReasonDisabledByPlatform: STORAGE_OPERATIONAL_STATUS_REASON = 16
+public val DISK_OP_REASON_DISABLED_BY_PLATFORM: StorageOperationalStatusReason = 16
 
-public val DiskOpReasonEnergySource: STORAGE_OPERATIONAL_STATUS_REASON = 6
+public val DISK_OP_REASON_ENERGY_SOURCE: StorageOperationalStatusReason = 6
 
-public val DiskOpReasonHealthCheck: STORAGE_OPERATIONAL_STATUS_REASON = 14
+public val DISK_OP_REASON_HEALTH_CHECK: StorageOperationalStatusReason = 14
 
-public val DiskOpReasonInvalidFirmware: STORAGE_OPERATIONAL_STATUS_REASON = 13
+public val DISK_OP_REASON_INVALID_FIRMWARE: StorageOperationalStatusReason = 13
 
-public val DiskOpReasonIo: STORAGE_OPERATIONAL_STATUS_REASON = 3
+public val DISK_OP_REASON_IO: StorageOperationalStatusReason = 3
 
-public val DiskOpReasonLostData: STORAGE_OPERATIONAL_STATUS_REASON = 5
+public val DISK_OP_REASON_LOST_DATA: StorageOperationalStatusReason = 5
 
-public val DiskOpReasonLostDataPersistence: STORAGE_OPERATIONAL_STATUS_REASON = 15
+public val DISK_OP_REASON_LOST_DATA_PERSISTENCE: StorageOperationalStatusReason = 15
 
-public val DiskOpReasonLostWritePersistence: STORAGE_OPERATIONAL_STATUS_REASON = 17
+public val DISK_OP_REASON_LOST_WRITE_PERSISTENCE: StorageOperationalStatusReason = 17
 
-public val DiskOpReasonMax: STORAGE_OPERATIONAL_STATUS_REASON = 20
+public val DISK_OP_REASON_MAX: StorageOperationalStatusReason = 20
 
-public val DiskOpReasonMedia: STORAGE_OPERATIONAL_STATUS_REASON = 2
+public val DISK_OP_REASON_MEDIA: StorageOperationalStatusReason = 2
 
-public val DiskOpReasonMediaController: STORAGE_OPERATIONAL_STATUS_REASON = 9
+public val DISK_OP_REASON_MEDIA_CONTROLLER: StorageOperationalStatusReason = 9
 
-public val DiskOpReasonNVDIMM_N: STORAGE_OPERATIONAL_STATUS_REASON = 11
+public val DISK_OP_REASON_NVDIMM_N: StorageOperationalStatusReason = 11
 
-public val DiskOpReasonScsiSenseCode: STORAGE_OPERATIONAL_STATUS_REASON = 1
+public val DISK_OP_REASON_SCSI_SENSE_CODE: StorageOperationalStatusReason = 1
 
-public val DiskOpReasonThresholdExceeded: STORAGE_OPERATIONAL_STATUS_REASON = 4
+public val DISK_OP_REASON_THRESHOLD_EXCEEDED: StorageOperationalStatusReason = 4
 
-public val DiskOpReasonUnknown: STORAGE_OPERATIONAL_STATUS_REASON = 0
+public val DISK_OP_REASON_UNKNOWN: StorageOperationalStatusReason = 0
 
-public val DiskOpReasonWritePersistenceLossImminent: STORAGE_OPERATIONAL_STATUS_REASON = 19
+public val DISK_OP_REASON_WRITE_PERSISTENCE_LOSS_IMMINENT: StorageOperationalStatusReason = 19
 
-public val DiskOpStatusHardwareError: STORAGE_DISK_OPERATIONAL_STATUS = 5
+public val DISK_OP_STATUS_HARDWARE_ERROR: StorageDiskOperationalStatus = 5
 
-public val DiskOpStatusInService: STORAGE_DISK_OPERATIONAL_STATUS = 4
+public val DISK_OP_STATUS_IN_SERVICE: StorageDiskOperationalStatus = 4
 
-public val DiskOpStatusMissing: STORAGE_DISK_OPERATIONAL_STATUS = 8
+public val DISK_OP_STATUS_MISSING: StorageDiskOperationalStatus = 8
 
-public val DiskOpStatusNone: STORAGE_DISK_OPERATIONAL_STATUS = 0
+public val DISK_OP_STATUS_NONE: StorageDiskOperationalStatus = 0
 
-public val DiskOpStatusNotUsable: STORAGE_DISK_OPERATIONAL_STATUS = 6
+public val DISK_OP_STATUS_NOT_USABLE: StorageDiskOperationalStatus = 6
 
-public val DiskOpStatusOk: STORAGE_DISK_OPERATIONAL_STATUS = 2
+public val DISK_OP_STATUS_OK: StorageDiskOperationalStatus = 2
 
-public val DiskOpStatusPredictingFailure: STORAGE_DISK_OPERATIONAL_STATUS = 3
+public val DISK_OP_STATUS_PREDICTING_FAILURE: StorageDiskOperationalStatus = 3
 
-public val DiskOpStatusTransientError: STORAGE_DISK_OPERATIONAL_STATUS = 7
+public val DISK_OP_STATUS_TRANSIENT_ERROR: StorageDiskOperationalStatus = 7
 
-public val DiskOpStatusUnknown: STORAGE_DISK_OPERATIONAL_STATUS = 1
+public val DISK_OP_STATUS_UNKNOWN: StorageDiskOperationalStatus = 1
 
 public val EFS_TRACKED_OFFSET_HEADER_FLAG: UInt = 1u
 
-public val ELEMENT_STATUS_ACCESS: CHANGER_ELEMENT_STATUS_FLAGS = 8u
+public val ELEMENT_STATUS_ACCESS: ChangerElementStatusFlags = 8u
 
-public val ELEMENT_STATUS_AVOLTAG: CHANGER_ELEMENT_STATUS_FLAGS = 536870912u
+public val ELEMENT_STATUS_AVOLTAG: ChangerElementStatusFlags = 536870912u
 
-public val ELEMENT_STATUS_EXCEPT: CHANGER_ELEMENT_STATUS_FLAGS = 4u
+public val ELEMENT_STATUS_EXCEPT: ChangerElementStatusFlags = 4u
 
-public val ELEMENT_STATUS_EXENAB: CHANGER_ELEMENT_STATUS_FLAGS = 16u
+public val ELEMENT_STATUS_EXENAB: ChangerElementStatusFlags = 16u
 
-public val ELEMENT_STATUS_FULL: CHANGER_ELEMENT_STATUS_FLAGS = 1u
+public val ELEMENT_STATUS_FULL: ChangerElementStatusFlags = 1u
 
-public val ELEMENT_STATUS_ID_VALID: CHANGER_ELEMENT_STATUS_FLAGS = 8192u
+public val ELEMENT_STATUS_ID_VALID: ChangerElementStatusFlags = 8192u
 
-public val ELEMENT_STATUS_IMPEXP: CHANGER_ELEMENT_STATUS_FLAGS = 2u
+public val ELEMENT_STATUS_IMPEXP: ChangerElementStatusFlags = 2u
 
-public val ELEMENT_STATUS_INENAB: CHANGER_ELEMENT_STATUS_FLAGS = 32u
+public val ELEMENT_STATUS_INENAB: ChangerElementStatusFlags = 32u
 
-public val ELEMENT_STATUS_INVERT: CHANGER_ELEMENT_STATUS_FLAGS = 4194304u
+public val ELEMENT_STATUS_INVERT: ChangerElementStatusFlags = 4194304u
 
-public val ELEMENT_STATUS_LUN_VALID: CHANGER_ELEMENT_STATUS_FLAGS = 4096u
+public val ELEMENT_STATUS_LUN_VALID: ChangerElementStatusFlags = 4096u
 
-public val ELEMENT_STATUS_NOT_BUS: CHANGER_ELEMENT_STATUS_FLAGS = 32768u
+public val ELEMENT_STATUS_NOT_BUS: ChangerElementStatusFlags = 32768u
 
-public val ELEMENT_STATUS_PRODUCT_DATA: CHANGER_ELEMENT_STATUS_FLAGS = 64u
+public val ELEMENT_STATUS_PRODUCT_DATA: ChangerElementStatusFlags = 64u
 
-public val ELEMENT_STATUS_PVOLTAG: CHANGER_ELEMENT_STATUS_FLAGS = 268435456u
+public val ELEMENT_STATUS_PVOLTAG: ChangerElementStatusFlags = 268435456u
 
-public val ELEMENT_STATUS_SVALID: CHANGER_ELEMENT_STATUS_FLAGS = 8388608u
+public val ELEMENT_STATUS_SVALID: ChangerElementStatusFlags = 8388608u
 
 public val ENABLE_DISABLE_AUTOSAVE: UInt = 210u
 
@@ -548,59 +548,59 @@ public val EXECUTE_OFFLINE_DIAGS: UInt = 212u
 
 public val EXTEND_IEPORT: UInt = 2u
 
-public val EqualPriority: DISK_CACHE_RETENTION_PRIORITY = 0
+public val EQUAL_PRIORITY: DiskCacheRetentionPriority = 0
 
-public val F3_120M_512: MEDIA_TYPE = 13
+public val F3_120M_512: MediaType = 13
 
-public val F3_128Mb_512: MEDIA_TYPE = 20
+public val F3_128MB_512: MediaType = 20
 
-public val F3_1Pt23_1024: MEDIA_TYPE = 18
+public val F3_1PT23_1024: MediaType = 18
 
-public val F3_1Pt2_512: MEDIA_TYPE = 17
+public val F3_1PT2_512: MediaType = 17
 
-public val F3_1Pt44_512: MEDIA_TYPE = 2
+public val F3_1PT44_512: MediaType = 2
 
-public val F3_200Mb_512: MEDIA_TYPE = 23
+public val F3_200MB_512: MediaType = 23
 
-public val F3_20Pt8_512: MEDIA_TYPE = 4
+public val F3_20PT8_512: MediaType = 4
 
-public val F3_230Mb_512: MEDIA_TYPE = 21
+public val F3_230MB_512: MediaType = 21
 
-public val F3_240M_512: MEDIA_TYPE = 24
+public val F3_240M_512: MediaType = 24
 
-public val F3_2Pt88_512: MEDIA_TYPE = 3
+public val F3_2PT88_512: MediaType = 3
 
-public val F3_32M_512: MEDIA_TYPE = 25
+public val F3_32M_512: MediaType = 25
 
-public val F3_640_512: MEDIA_TYPE = 14
+public val F3_640_512: MediaType = 14
 
-public val F3_720_512: MEDIA_TYPE = 5
+public val F3_720_512: MediaType = 5
 
-public val F5_160_512: MEDIA_TYPE = 10
+public val F5_160_512: MediaType = 10
 
-public val F5_180_512: MEDIA_TYPE = 9
+public val F5_180_512: MediaType = 9
 
-public val F5_1Pt23_1024: MEDIA_TYPE = 19
+public val F5_1PT23_1024: MediaType = 19
 
-public val F5_1Pt2_512: MEDIA_TYPE = 1
+public val F5_1PT2_512: MediaType = 1
 
-public val F5_320_1024: MEDIA_TYPE = 8
+public val F5_320_1024: MediaType = 8
 
-public val F5_320_512: MEDIA_TYPE = 7
+public val F5_320_512: MediaType = 7
 
-public val F5_360_512: MEDIA_TYPE = 6
+public val F5_360_512: MediaType = 6
 
-public val F5_640_512: MEDIA_TYPE = 15
+public val F5_640_512: MediaType = 15
 
-public val F5_720_512: MEDIA_TYPE = 16
+public val F5_720_512: MediaType = 16
 
-public val F8_256_128: MEDIA_TYPE = 22
+public val F8_256_128: MediaType = 22
 
-public val FILESYSTEM_STATISTICS_TYPE_EXFAT: FILESYSTEM_STATISTICS_TYPE = 3u
+public val FILESYSTEM_STATISTICS_TYPE_EXFAT: FilesystemStatisticsType = 3u.toUShort()
 
-public val FILESYSTEM_STATISTICS_TYPE_FAT: FILESYSTEM_STATISTICS_TYPE = 2u
+public val FILESYSTEM_STATISTICS_TYPE_FAT: FilesystemStatisticsType = 2u.toUShort()
 
-public val FILESYSTEM_STATISTICS_TYPE_NTFS: FILESYSTEM_STATISTICS_TYPE = 1u
+public val FILESYSTEM_STATISTICS_TYPE_NTFS: FilesystemStatisticsType = 1u.toUShort()
 
 public val FILESYSTEM_STATISTICS_TYPE_REFS: UInt = 4u
 
@@ -904,7 +904,7 @@ public val FILE_SPECIAL_ACCESS: UInt = 0u
 
 public val FILE_STORAGE_TIER_DESCRIPTION_LENGTH: UInt = 512u
 
-public val FILE_STORAGE_TIER_FLAG_NO_SEEK_PENALTY: FILE_STORAGE_TIER_FLAGS = 131072u
+public val FILE_STORAGE_TIER_FLAG_NO_SEEK_PENALTY: FileStorageTierFlags = 131072u
 
 public val FILE_STORAGE_TIER_FLAG_PARITY: UInt = 8388608u
 
@@ -920,11 +920,11 @@ public val FILE_TYPE_NOTIFICATION_FLAG_USAGE_BEGIN: UInt = 1u
 
 public val FILE_TYPE_NOTIFICATION_FLAG_USAGE_END: UInt = 2u
 
-public val FILE_TYPE_NOTIFICATION_GUID_CRASHDUMP_FILE: GUID = GUID.from_u128(U128(0x9d453eb7d2a64dbduL, 0xa2e3fbd0ed9109a9uL))
+public val FILE_TYPE_NOTIFICATION_GUID_CRASHDUMP_FILE: Guid = Guid.fromU128(U128(0x9d453eb7d2a64dbduL, 0xa2e3fbd0ed9109a9uL))
 
-public val FILE_TYPE_NOTIFICATION_GUID_HIBERNATION_FILE: GUID = GUID.from_u128(U128(0xb7624d64b9a34cf8uL, 0x80115b86c940e7b7uL))
+public val FILE_TYPE_NOTIFICATION_GUID_HIBERNATION_FILE: Guid = Guid.fromU128(U128(0xb7624d64b9a34cf8uL, 0x80115b86c940e7b7uL))
 
-public val FILE_TYPE_NOTIFICATION_GUID_PAGE_FILE: GUID = GUID.from_u128(U128(0xd0a64a138fc4db8uL, 0x9fe73f4352cd7c5cuL))
+public val FILE_TYPE_NOTIFICATION_GUID_PAGE_FILE: Guid = Guid.fromU128(U128(0xd0a64a138fc4db8uL, 0x9fe73f4352cd7c5cuL))
 
 public val FILE_WRITE_ACCESS: UInt = 2u
 
@@ -932,19 +932,19 @@ public val FILE_ZERO_DATA_INFORMATION_FLAG_PRESERVE_CACHED_DATA: UInt = 1u
 
 public val FLAG_USN_TRACK_MODIFIED_RANGES_ENABLE: UInt = 1u
 
-public val FSBPIO_INFL_None: FS_BPIO_INFLAGS = 0
+public val FSBPIO_INFL_NONE: FsBpioInflags = 0
 
-public val FSBPIO_INFL_SKIP_STORAGE_STACK_QUERY: FS_BPIO_INFLAGS = 1
+public val FSBPIO_INFL_SKIP_STORAGE_STACK_QUERY: FsBpioInflags = 1
 
-public val FSBPIO_OUTFL_COMPATIBLE_STORAGE_DRIVER: FS_BPIO_OUTFLAGS = 8
+public val FSBPIO_OUTFL_COMPATIBLE_STORAGE_DRIVER: FsBpioOutflags = 8
 
-public val FSBPIO_OUTFL_FILTER_ATTACH_BLOCKED: FS_BPIO_OUTFLAGS = 4
+public val FSBPIO_OUTFL_FILTER_ATTACH_BLOCKED: FsBpioOutflags = 4
 
-public val FSBPIO_OUTFL_None: FS_BPIO_OUTFLAGS = 0
+public val FSBPIO_OUTFL_NONE: FsBpioOutflags = 0
 
-public val FSBPIO_OUTFL_STREAM_BYPASS_PAUSED: FS_BPIO_OUTFLAGS = 2
+public val FSBPIO_OUTFL_STREAM_BYPASS_PAUSED: FsBpioOutflags = 2
 
-public val FSBPIO_OUTFL_VOLUME_STACK_BYPASS_PAUSED: FS_BPIO_OUTFLAGS = 1
+public val FSBPIO_OUTFL_VOLUME_STACK_BYPASS_PAUSED: FsBpioOutflags = 1
 
 public val FSCTL_ADD_OVERLAY: UInt = 623408u
 
@@ -1394,75 +1394,75 @@ public val FSCTL_WRITE_USN_CLOSE_RECORD: UInt = 590063u
 
 public val FSCTL_WRITE_USN_REASON: UInt = 590544u
 
-public val FS_BPIO_OP_DISABLE: FS_BPIO_OPERATIONS = 2
+public val FS_BPIO_OP_DISABLE: FsBpioOperations = 2
 
-public val FS_BPIO_OP_ENABLE: FS_BPIO_OPERATIONS = 1
+public val FS_BPIO_OP_ENABLE: FsBpioOperations = 1
 
-public val FS_BPIO_OP_GET_INFO: FS_BPIO_OPERATIONS = 8
+public val FS_BPIO_OP_GET_INFO: FsBpioOperations = 8
 
-public val FS_BPIO_OP_MAX_OPERATION: FS_BPIO_OPERATIONS = 9
+public val FS_BPIO_OP_MAX_OPERATION: FsBpioOperations = 9
 
-public val FS_BPIO_OP_QUERY: FS_BPIO_OPERATIONS = 3
+public val FS_BPIO_OP_QUERY: FsBpioOperations = 3
 
-public val FS_BPIO_OP_STREAM_PAUSE: FS_BPIO_OPERATIONS = 6
+public val FS_BPIO_OP_STREAM_PAUSE: FsBpioOperations = 6
 
-public val FS_BPIO_OP_STREAM_RESUME: FS_BPIO_OPERATIONS = 7
+public val FS_BPIO_OP_STREAM_RESUME: FsBpioOperations = 7
 
-public val FS_BPIO_OP_VOLUME_STACK_PAUSE: FS_BPIO_OPERATIONS = 4
+public val FS_BPIO_OP_VOLUME_STACK_PAUSE: FsBpioOperations = 4
 
-public val FS_BPIO_OP_VOLUME_STACK_RESUME: FS_BPIO_OPERATIONS = 5
+public val FS_BPIO_OP_VOLUME_STACK_RESUME: FsBpioOperations = 5
 
 public val FW_ISSUEID_NO_ISSUE: UInt = 0u
 
 public val FW_ISSUEID_UNKNOWN: UInt = 4294967295u
 
-public val FileSnapStateInactive: DUPLICATE_EXTENTS_STATE = 0
+public val FILE_SNAP_STATE_INACTIVE: DuplicateExtentsState = 0
 
-public val FileSnapStateSource: DUPLICATE_EXTENTS_STATE = 1
+public val FILE_SNAP_STATE_SOURCE: DuplicateExtentsState = 1
 
-public val FileSnapStateTarget: DUPLICATE_EXTENTS_STATE = 2
+public val FILE_SNAP_STATE_TARGET: DuplicateExtentsState = 2
 
-public val FileStorageTierClassCapacity: FILE_STORAGE_TIER_CLASS = 1
+public val FILE_STORAGE_TIER_CLASS_CAPACITY: FileStorageTierClass = 1
 
-public val FileStorageTierClassMax: FILE_STORAGE_TIER_CLASS = 3
+public val FILE_STORAGE_TIER_CLASS_MAX: FileStorageTierClass = 3
 
-public val FileStorageTierClassPerformance: FILE_STORAGE_TIER_CLASS = 2
+public val FILE_STORAGE_TIER_CLASS_PERFORMANCE: FileStorageTierClass = 2
 
-public val FileStorageTierClassUnspecified: FILE_STORAGE_TIER_CLASS = 0
+public val FILE_STORAGE_TIER_CLASS_UNSPECIFIED: FileStorageTierClass = 0
 
-public val FileStorageTierMediaTypeDisk: FILE_STORAGE_TIER_MEDIA_TYPE = 1
+public val FILE_STORAGE_TIER_MEDIA_TYPE_DISK: FileStorageTierMediaType = 1
 
-public val FileStorageTierMediaTypeMax: FILE_STORAGE_TIER_MEDIA_TYPE = 5
+public val FILE_STORAGE_TIER_MEDIA_TYPE_MAX: FileStorageTierMediaType = 5
 
-public val FileStorageTierMediaTypeScm: FILE_STORAGE_TIER_MEDIA_TYPE = 4
+public val FILE_STORAGE_TIER_MEDIA_TYPE_SCM: FileStorageTierMediaType = 4
 
-public val FileStorageTierMediaTypeSsd: FILE_STORAGE_TIER_MEDIA_TYPE = 2
+public val FILE_STORAGE_TIER_MEDIA_TYPE_SSD: FileStorageTierMediaType = 2
 
-public val FileStorageTierMediaTypeUnspecified: FILE_STORAGE_TIER_MEDIA_TYPE = 0
+public val FILE_STORAGE_TIER_MEDIA_TYPE_UNSPECIFIED: FileStorageTierMediaType = 0
 
-public val FixedMedia: MEDIA_TYPE = 12
+public val FIXED_MEDIA: MediaType = 12
 
-public val FormFactor1_8: STORAGE_DEVICE_FORM_FACTOR = 3
+public val FORM_FACTOR1_8: StorageDeviceFormFactor = 3
 
-public val FormFactor1_8Less: STORAGE_DEVICE_FORM_FACTOR = 4
+public val FORM_FACTOR1_8LESS: StorageDeviceFormFactor = 4
 
-public val FormFactor2_5: STORAGE_DEVICE_FORM_FACTOR = 2
+public val FORM_FACTOR2_5: StorageDeviceFormFactor = 2
 
-public val FormFactor3_5: STORAGE_DEVICE_FORM_FACTOR = 1
+public val FORM_FACTOR3_5: StorageDeviceFormFactor = 1
 
-public val FormFactorDimm: STORAGE_DEVICE_FORM_FACTOR = 10
+public val FORM_FACTOR_DIMM: StorageDeviceFormFactor = 10
 
-public val FormFactorEmbedded: STORAGE_DEVICE_FORM_FACTOR = 5
+public val FORM_FACTOR_EMBEDDED: StorageDeviceFormFactor = 5
 
-public val FormFactorM_2: STORAGE_DEVICE_FORM_FACTOR = 8
+public val FORM_FACTOR_M_2: StorageDeviceFormFactor = 8
 
-public val FormFactorMemoryCard: STORAGE_DEVICE_FORM_FACTOR = 6
+public val FORM_FACTOR_MEMORY_CARD: StorageDeviceFormFactor = 6
 
-public val FormFactorPCIeBoard: STORAGE_DEVICE_FORM_FACTOR = 9
+public val FORM_FACTOR_PC_IE_BOARD: StorageDeviceFormFactor = 9
 
-public val FormFactorUnknown: STORAGE_DEVICE_FORM_FACTOR = 0
+public val FORM_FACTOR_UNKNOWN: StorageDeviceFormFactor = 0
 
-public val FormFactormSata: STORAGE_DEVICE_FORM_FACTOR = 7
+public val FORM_FACTORM_SATA: StorageDeviceFormFactor = 7
 
 public val GET_VOLUME_BITMAP_FLAG_MASK_METADATA: UInt = 1u
 
@@ -1470,93 +1470,93 @@ public val GPT_ATTRIBUTE_LEGACY_BIOS_BOOTABLE: ULong = 4uL
 
 public val GPT_ATTRIBUTE_NO_BLOCK_IO_PROTOCOL: ULong = 2uL
 
-public val GPT_ATTRIBUTE_PLATFORM_REQUIRED: GPT_ATTRIBUTES = 1uL
+public val GPT_ATTRIBUTE_PLATFORM_REQUIRED: GptAttributes = 1uL
 
 public val GPT_BASIC_DATA_ATTRIBUTE_DAX: ULong = 288230376151711744uL
 
-public val GPT_BASIC_DATA_ATTRIBUTE_HIDDEN: GPT_ATTRIBUTES = 4611686018427387904uL
+public val GPT_BASIC_DATA_ATTRIBUTE_HIDDEN: GptAttributes = 4611686018427387904uL
 
-public val GPT_BASIC_DATA_ATTRIBUTE_NO_DRIVE_LETTER: GPT_ATTRIBUTES = 9223372036854775808uL
+public val GPT_BASIC_DATA_ATTRIBUTE_NO_DRIVE_LETTER: GptAttributes = 9223372036854775808uL
 
 public val GPT_BASIC_DATA_ATTRIBUTE_OFFLINE: ULong = 576460752303423488uL
 
-public val GPT_BASIC_DATA_ATTRIBUTE_READ_ONLY: GPT_ATTRIBUTES = 1152921504606846976uL
+public val GPT_BASIC_DATA_ATTRIBUTE_READ_ONLY: GptAttributes = 1152921504606846976uL
 
 public val GPT_BASIC_DATA_ATTRIBUTE_SERVICE: ULong = 144115188075855872uL
 
-public val GPT_BASIC_DATA_ATTRIBUTE_SHADOW_COPY: GPT_ATTRIBUTES = 2305843009213693952uL
+public val GPT_BASIC_DATA_ATTRIBUTE_SHADOW_COPY: GptAttributes = 2305843009213693952uL
 
 public val GPT_SPACES_ATTRIBUTE_NO_METADATA: ULong = 9223372036854775808uL
 
-public val GUID_DEVICEDUMP_DRIVER_STORAGE_PORT: GUID = GUID.from_u128(U128(0xda82441d71424bc1uL, 0xb8440807c5a4b67fuL))
+public val GUID_DEVICEDUMP_DRIVER_STORAGE_PORT: Guid = Guid.fromU128(U128(0xda82441d71424bc1uL, 0xb8440807c5a4b67fuL))
 
-public val GUID_DEVICEDUMP_STORAGE_DEVICE: GUID = GUID.from_u128(U128(0xd8e2592f1aab4d56uL, 0xa7461f7585df40f4uL))
+public val GUID_DEVICEDUMP_STORAGE_DEVICE: Guid = Guid.fromU128(U128(0xd8e2592f1aab4d56uL, 0xa7461f7585df40f4uL))
 
-public val GUID_DEVINTERFACE_CDCHANGER: GUID = GUID.from_u128(U128(0x53f56312b6bf11d0uL, 0x94f200a0c91efb8buL))
+public val GUID_DEVINTERFACE_CDCHANGER: Guid = Guid.fromU128(U128(0x53f56312b6bf11d0uL, 0x94f200a0c91efb8buL))
 
-public val GUID_DEVINTERFACE_CDROM: GUID = GUID.from_u128(U128(0x53f56308b6bf11d0uL, 0x94f200a0c91efb8buL))
+public val GUID_DEVINTERFACE_CDROM: Guid = Guid.fromU128(U128(0x53f56308b6bf11d0uL, 0x94f200a0c91efb8buL))
 
-public val GUID_DEVINTERFACE_COMPORT: GUID = GUID.from_u128(U128(0x86e0d1e0808911d0uL, 0x9ce408003e301f73uL))
+public val GUID_DEVINTERFACE_COMPORT: Guid = Guid.fromU128(U128(0x86e0d1e0808911d0uL, 0x9ce408003e301f73uL))
 
-public val GUID_DEVINTERFACE_DISK: GUID = GUID.from_u128(U128(0x53f56307b6bf11d0uL, 0x94f200a0c91efb8buL))
+public val GUID_DEVINTERFACE_DISK: Guid = Guid.fromU128(U128(0x53f56307b6bf11d0uL, 0x94f200a0c91efb8buL))
 
-public val GUID_DEVINTERFACE_FLOPPY: GUID = GUID.from_u128(U128(0x53f56311b6bf11d0uL, 0x94f200a0c91efb8buL))
+public val GUID_DEVINTERFACE_FLOPPY: Guid = Guid.fromU128(U128(0x53f56311b6bf11d0uL, 0x94f200a0c91efb8buL))
 
-public val GUID_DEVINTERFACE_HIDDEN_VOLUME: GUID = GUID.from_u128(U128(0x7f108a2898334b3buL, 0xb7802c6b5fa5c062uL))
+public val GUID_DEVINTERFACE_HIDDEN_VOLUME: Guid = Guid.fromU128(U128(0x7f108a2898334b3buL, 0xb7802c6b5fa5c062uL))
 
-public val GUID_DEVINTERFACE_MEDIUMCHANGER: GUID = GUID.from_u128(U128(0x53f56310b6bf11d0uL, 0x94f200a0c91efb8buL))
+public val GUID_DEVINTERFACE_MEDIUMCHANGER: Guid = Guid.fromU128(U128(0x53f56310b6bf11d0uL, 0x94f200a0c91efb8buL))
 
-public val GUID_DEVINTERFACE_PARTITION: GUID = GUID.from_u128(U128(0x53f5630ab6bf11d0uL, 0x94f200a0c91efb8buL))
+public val GUID_DEVINTERFACE_PARTITION: Guid = Guid.fromU128(U128(0x53f5630ab6bf11d0uL, 0x94f200a0c91efb8buL))
 
-public val GUID_DEVINTERFACE_SCM_PHYSICAL_DEVICE: GUID = GUID.from_u128(U128(0x4283609d4dc243beuL, 0xbbb44f15dfce2c61uL))
+public val GUID_DEVINTERFACE_SCM_PHYSICAL_DEVICE: Guid = Guid.fromU128(U128(0x4283609d4dc243beuL, 0xbbb44f15dfce2c61uL))
 
-public val GUID_DEVINTERFACE_SERENUM_BUS_ENUMERATOR: GUID = GUID.from_u128(U128(0x4d36e978e32511ceuL, 0xbfc108002be10318uL))
+public val GUID_DEVINTERFACE_SERENUM_BUS_ENUMERATOR: Guid = Guid.fromU128(U128(0x4d36e978e32511ceuL, 0xbfc108002be10318uL))
 
-public val GUID_DEVINTERFACE_SERVICE_VOLUME: GUID = GUID.from_u128(U128(0x6ead3d8225ec46bcuL, 0xb7fdc1f0df8f5037uL))
+public val GUID_DEVINTERFACE_SERVICE_VOLUME: Guid = Guid.fromU128(U128(0x6ead3d8225ec46bcuL, 0xb7fdc1f0df8f5037uL))
 
-public val GUID_DEVINTERFACE_SES: GUID = GUID.from_u128(U128(0x1790c9ec47d54df3uL, 0xb5af9adf3cf23e48uL))
+public val GUID_DEVINTERFACE_SES: Guid = Guid.fromU128(U128(0x1790c9ec47d54df3uL, 0xb5af9adf3cf23e48uL))
 
-public val GUID_DEVINTERFACE_STORAGEPORT: GUID = GUID.from_u128(U128(0x2accfe60c13011d2uL, 0xb08200a0c91efb8buL))
+public val GUID_DEVINTERFACE_STORAGEPORT: Guid = Guid.fromU128(U128(0x2accfe60c13011d2uL, 0xb08200a0c91efb8buL))
 
-public val GUID_DEVINTERFACE_TAPE: GUID = GUID.from_u128(U128(0x53f5630bb6bf11d0uL, 0x94f200a0c91efb8buL))
+public val GUID_DEVINTERFACE_TAPE: Guid = Guid.fromU128(U128(0x53f5630bb6bf11d0uL, 0x94f200a0c91efb8buL))
 
-public val GUID_DEVINTERFACE_UNIFIED_ACCESS_RPMB: GUID = GUID.from_u128(U128(0x27447c21bcc34d07uL, 0xa05ba3395bb4eee7uL))
+public val GUID_DEVINTERFACE_UNIFIED_ACCESS_RPMB: Guid = Guid.fromU128(U128(0x27447c21bcc34d07uL, 0xa05ba3395bb4eee7uL))
 
-public val GUID_DEVINTERFACE_VMLUN: GUID = GUID.from_u128(U128(0x6f4166199f2942a5uL, 0xb20b37e219ca02b0uL))
+public val GUID_DEVINTERFACE_VMLUN: Guid = Guid.fromU128(U128(0x6f4166199f2942a5uL, 0xb20b37e219ca02b0uL))
 
-public val GUID_DEVINTERFACE_VOLUME: GUID = GUID.from_u128(U128(0x53f5630db6bf11d0uL, 0x94f200a0c91efb8buL))
+public val GUID_DEVINTERFACE_VOLUME: Guid = Guid.fromU128(U128(0x53f5630db6bf11d0uL, 0x94f200a0c91efb8buL))
 
-public val GUID_DEVINTERFACE_WRITEONCEDISK: GUID = GUID.from_u128(U128(0x53f5630cb6bf11d0uL, 0x94f200a0c91efb8buL))
+public val GUID_DEVINTERFACE_WRITEONCEDISK: Guid = Guid.fromU128(U128(0x53f5630cb6bf11d0uL, 0x94f200a0c91efb8buL))
 
-public val GUID_DEVINTERFACE_ZNSDISK: GUID = GUID.from_u128(U128(0xb87941c5ffdb43c7uL, 0xb6b120b632f0b109uL))
+public val GUID_DEVINTERFACE_ZNSDISK: Guid = Guid.fromU128(U128(0xb87941c5ffdb43c7uL, 0xb6b120b632f0b109uL))
 
-public val GUID_SCM_PD_HEALTH_NOTIFICATION: GUID = GUID.from_u128(U128(0x9da2d38672f54ee3uL, 0x8155eca0678e3b06uL))
+public val GUID_SCM_PD_HEALTH_NOTIFICATION: Guid = Guid.fromU128(U128(0x9da2d38672f54ee3uL, 0x8155eca0678e3b06uL))
 
-public val GUID_SCM_PD_PASSTHROUGH_INVDIMM: GUID = GUID.from_u128(U128(0x4309ac300d1111e4uL, 0x91910800200c9a66uL))
+public val GUID_SCM_PD_PASSTHROUGH_INVDIMM: Guid = Guid.fromU128(U128(0x4309ac300d1111e4uL, 0x91910800200c9a66uL))
 
 public val HIST_NO_OF_BUCKETS: UInt = 24u
 
-public val HITACHI_12_WO: STORAGE_MEDIA_TYPE = 68
+public val HITACHI_12_WO: StorageMediaType = 68
 
-public val HealthStatusDisabled: STORAGE_COMPONENT_HEALTH_STATUS = 4
+public val HEALTH_STATUS_DISABLED: StorageComponentHealthStatus = 4
 
-public val HealthStatusFailed: STORAGE_COMPONENT_HEALTH_STATUS = 5
+public val HEALTH_STATUS_FAILED: StorageComponentHealthStatus = 5
 
-public val HealthStatusNormal: STORAGE_COMPONENT_HEALTH_STATUS = 1
+public val HEALTH_STATUS_NORMAL: StorageComponentHealthStatus = 1
 
-public val HealthStatusThrottled: STORAGE_COMPONENT_HEALTH_STATUS = 2
+public val HEALTH_STATUS_THROTTLED: StorageComponentHealthStatus = 2
 
-public val HealthStatusUnknown: STORAGE_COMPONENT_HEALTH_STATUS = 0
+public val HEALTH_STATUS_UNKNOWN: StorageComponentHealthStatus = 0
 
-public val HealthStatusWarning: STORAGE_COMPONENT_HEALTH_STATUS = 3
+public val HEALTH_STATUS_WARNING: StorageComponentHealthStatus = 3
 
-public val IBM_3480: STORAGE_MEDIA_TYPE = 41
+public val IBM_3480: StorageMediaType = 41
 
-public val IBM_3490E: STORAGE_MEDIA_TYPE = 42
+public val IBM_3490E: StorageMediaType = 42
 
-public val IBM_Magstar_3590: STORAGE_MEDIA_TYPE = 43
+public val IBM_MAGSTAR_3590: StorageMediaType = 43
 
-public val IBM_Magstar_MP: STORAGE_MEDIA_TYPE = 44
+public val IBM_MAGSTAR_MP: StorageMediaType = 44
 
 public val IDENTIFY_BUFFER_SIZE: UInt = 512u
 
@@ -1854,17 +1854,17 @@ public val IOCTL_STORAGE_START_DATA_INTEGRITY_CHECK: UInt = 3004548u
 
 public val IOCTL_STORAGE_STOP_DATA_INTEGRITY_CHECK: UInt = 3004552u
 
-public val IOMEGA_JAZ: STORAGE_MEDIA_TYPE = 74
+public val IOMEGA_JAZ: StorageMediaType = 74
 
-public val IOMEGA_ZIP: STORAGE_MEDIA_TYPE = 73
+public val IOMEGA_ZIP: StorageMediaType = 73
 
-public val KODAK_14_WO: STORAGE_MEDIA_TYPE = 70
+public val KODAK_14_WO: StorageMediaType = 70
 
-public val KeepPrefetchedData: DISK_CACHE_RETENTION_PRIORITY = 1
+public val KEEP_PREFETCHED_DATA: DiskCacheRetentionPriority = 1
 
-public val KeepReadData: DISK_CACHE_RETENTION_PRIORITY = 2
+public val KEEP_READ_DATA: DiskCacheRetentionPriority = 2
 
-public val LMRQuerySessionInfo: LMR_QUERY_INFO_CLASS = 1
+public val LMR_QUERY_SESSION_INFO: LmrQueryInfoClass = 1
 
 public val LOCK_ELEMENT: UInt = 0u
 
@@ -1890,9 +1890,9 @@ public val LOOKUP_STREAM_FROM_CLUSTER_ENTRY_FLAG_PAGE_FILE: UInt = 1u
 
 public val LOOKUP_STREAM_FROM_CLUSTER_ENTRY_FLAG_TXF_SYSTEM_FILE: UInt = 8u
 
-public val LTO_Accelis: STORAGE_MEDIA_TYPE = 87
+public val LTO_ACCELIS: StorageMediaType = 87
 
-public val LTO_Ultrium: STORAGE_MEDIA_TYPE = 86
+public val LTO_ULTRIUM: StorageMediaType = 86
 
 public val MARK_HANDLE_CLOUD_SYNC: UInt = 2048u
 
@@ -1958,33 +1958,33 @@ public val METHOD_NEITHER: UInt = 3u
 
 public val METHOD_OUT_DIRECT: UInt = 2u
 
-public val MO_3_RW: STORAGE_MEDIA_TYPE = 57
+public val MO_3_RW: StorageMediaType = 57
 
-public val MO_5_LIMDOW: STORAGE_MEDIA_TYPE = 60
+public val MO_5_LIMDOW: StorageMediaType = 60
 
-public val MO_5_RW: STORAGE_MEDIA_TYPE = 59
+public val MO_5_RW: StorageMediaType = 59
 
-public val MO_5_WO: STORAGE_MEDIA_TYPE = 58
+public val MO_5_WO: StorageMediaType = 58
 
-public val MO_NFR_525: STORAGE_MEDIA_TYPE = 71
+public val MO_NFR_525: StorageMediaType = 71
 
-public val MP2_8mm: STORAGE_MEDIA_TYPE = 79
+public val MP2_8MM: StorageMediaType = 79
 
-public val MP_8mm: STORAGE_MEDIA_TYPE = 36
+public val MP_8MM: StorageMediaType = 36
 
-public val MiniQic: STORAGE_MEDIA_TYPE = 33
+public val MINI_QIC: StorageMediaType = 33
 
-public val NCTP: STORAGE_MEDIA_TYPE = 40
+public val NCTP: StorageMediaType = 40
 
-public val NIKON_12_RW: STORAGE_MEDIA_TYPE = 72
+public val NIKON_12_RW: StorageMediaType = 72
 
-public val NVMeDataTypeFeature: STORAGE_PROTOCOL_NVME_DATA_TYPE = 3
+public val NV_ME_DATA_TYPE_FEATURE: StorageProtocolNvmeDataType = 3
 
-public val NVMeDataTypeIdentify: STORAGE_PROTOCOL_NVME_DATA_TYPE = 1
+public val NV_ME_DATA_TYPE_IDENTIFY: StorageProtocolNvmeDataType = 1
 
-public val NVMeDataTypeLogPage: STORAGE_PROTOCOL_NVME_DATA_TYPE = 2
+public val NV_ME_DATA_TYPE_LOG_PAGE: StorageProtocolNvmeDataType = 2
 
-public val NVMeDataTypeUnknown: STORAGE_PROTOCOL_NVME_DATA_TYPE = 0
+public val NV_ME_DATA_TYPE_UNKNOWN: StorageProtocolNvmeDataType = 0
 
 public val OBSOLETE_DISK_GET_WRITE_CACHE_STATE: UInt = 475356u
 
@@ -2046,11 +2046,11 @@ public val PARTITION_SPACES: UInt = 231u
 
 public val PARTITION_SPACES_DATA: UInt = 215u
 
-public val PARTITION_STYLE_GPT: PARTITION_STYLE = 1
+public val PARTITION_STYLE_GPT: PartitionStyle = 1
 
-public val PARTITION_STYLE_MBR: PARTITION_STYLE = 0
+public val PARTITION_STYLE_MBR: PartitionStyle = 0
 
-public val PARTITION_STYLE_RAW: PARTITION_STYLE = 2
+public val PARTITION_STYLE_RAW: PartitionStyle = 2
 
 public val PARTITION_SYSTEM: UInt = 239u
 
@@ -2066,11 +2066,11 @@ public val PARTITION_XINT13: UInt = 14u
 
 public val PARTITION_XINT13_EXTENDED: UInt = 15u
 
-public val PC_5_RW: STORAGE_MEDIA_TYPE = 62
+public val PC_5_RW: StorageMediaType = 62
 
-public val PC_5_WO: STORAGE_MEDIA_TYPE = 61
+public val PC_5_WO: StorageMediaType = 61
 
-public val PD_5_RW: STORAGE_MEDIA_TYPE = 63
+public val PD_5_RW: StorageMediaType = 63
 
 public val PERSISTENT_VOLUME_STATE_BACKED_BY_WIM: UInt = 64u
 
@@ -2102,57 +2102,57 @@ public val PERSISTENT_VOLUME_STATE_TXF_DISABLED: UInt = 256u
 
 public val PERSISTENT_VOLUME_STATE_VOLUME_SCRUB_DISABLED: UInt = 2u
 
-public val PHILIPS_12_WO: STORAGE_MEDIA_TYPE = 67
+public val PHILIPS_12_WO: StorageMediaType = 67
 
-public val PINNACLE_APEX_5_RW: STORAGE_MEDIA_TYPE = 65
+public val PINNACLE_APEX_5_RW: StorageMediaType = 65
 
 public val PRODUCT_ID_LENGTH: UInt = 16u
 
 public val PROJFS_PROTOCOL_VERSION: UInt = 3u
 
-public val PropertyExistsQuery: STORAGE_QUERY_TYPE = 1
+public val PROPERTY_EXISTS_QUERY: StorageQueryType = 1
 
-public val PropertyExistsSet: STORAGE_SET_TYPE = 1
+public val PROPERTY_EXISTS_SET: StorageSetType = 1
 
-public val PropertyMaskQuery: STORAGE_QUERY_TYPE = 2
+public val PROPERTY_MASK_QUERY: StorageQueryType = 2
 
-public val PropertyQueryMaxDefined: STORAGE_QUERY_TYPE = 3
+public val PROPERTY_QUERY_MAX_DEFINED: StorageQueryType = 3
 
-public val PropertySetMaxDefined: STORAGE_SET_TYPE = 2
+public val PROPERTY_SET_MAX_DEFINED: StorageSetType = 2
 
-public val PropertyStandardQuery: STORAGE_QUERY_TYPE = 0
+public val PROPERTY_STANDARD_QUERY: StorageQueryType = 0
 
-public val PropertyStandardSet: STORAGE_SET_TYPE = 0
+public val PROPERTY_STANDARD_SET: StorageSetType = 0
 
-public val ProtocolTypeAta: STORAGE_PROTOCOL_TYPE = 2
+public val PROTOCOL_TYPE_ATA: StorageProtocolType = 2
 
-public val ProtocolTypeMaxReserved: STORAGE_PROTOCOL_TYPE = 127
+public val PROTOCOL_TYPE_MAX_RESERVED: StorageProtocolType = 127
 
-public val ProtocolTypeNvme: STORAGE_PROTOCOL_TYPE = 3
+public val PROTOCOL_TYPE_NVME: StorageProtocolType = 3
 
-public val ProtocolTypeProprietary: STORAGE_PROTOCOL_TYPE = 126
+public val PROTOCOL_TYPE_PROPRIETARY: StorageProtocolType = 126
 
-public val ProtocolTypeScsi: STORAGE_PROTOCOL_TYPE = 1
+public val PROTOCOL_TYPE_SCSI: StorageProtocolType = 1
 
-public val ProtocolTypeSd: STORAGE_PROTOCOL_TYPE = 4
+public val PROTOCOL_TYPE_SD: StorageProtocolType = 4
 
-public val ProtocolTypeUfs: STORAGE_PROTOCOL_TYPE = 5
+public val PROTOCOL_TYPE_UFS: StorageProtocolType = 5
 
-public val ProtocolTypeUnknown: STORAGE_PROTOCOL_TYPE = 0
+public val PROTOCOL_TYPE_UNKNOWN: StorageProtocolType = 0
 
-public val QIC: STORAGE_MEDIA_TYPE = 35
+public val QIC: StorageMediaType = 35
 
 public val QUERY_DEPENDENT_VOLUME_REQUEST_FLAG_GUEST_VOLUMES: UInt = 2u
 
 public val QUERY_DEPENDENT_VOLUME_REQUEST_FLAG_HOST_VOLUMES: UInt = 1u
 
-public val QUERY_FILE_LAYOUT_FILTER_TYPE_CLUSTERS: QUERY_FILE_LAYOUT_FILTER_TYPE = 1
+public val QUERY_FILE_LAYOUT_FILTER_TYPE_CLUSTERS: QueryFileLayoutFilterType = 1
 
-public val QUERY_FILE_LAYOUT_FILTER_TYPE_FILEID: QUERY_FILE_LAYOUT_FILTER_TYPE = 2
+public val QUERY_FILE_LAYOUT_FILTER_TYPE_FILEID: QueryFileLayoutFilterType = 2
 
-public val QUERY_FILE_LAYOUT_FILTER_TYPE_NONE: QUERY_FILE_LAYOUT_FILTER_TYPE = 0
+public val QUERY_FILE_LAYOUT_FILTER_TYPE_NONE: QueryFileLayoutFilterType = 0
 
-public val QUERY_FILE_LAYOUT_FILTER_TYPE_STORAGE_RESERVE_ID: QUERY_FILE_LAYOUT_FILTER_TYPE = 3
+public val QUERY_FILE_LAYOUT_FILTER_TYPE_STORAGE_RESERVE_ID: QueryFileLayoutFilterType = 3
 
 public val QUERY_FILE_LAYOUT_INCLUDE_EXTENTS: UInt = 8u
 
@@ -2184,7 +2184,7 @@ public val QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION_FOR_REPARSE_ATTRIBUTE: U
 
 public val QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION_FOR_TXF_ATTRIBUTE: UInt = 512u
 
-public val QUERY_FILE_LAYOUT_NUM_FILTER_TYPES: QUERY_FILE_LAYOUT_FILTER_TYPE = 4
+public val QUERY_FILE_LAYOUT_NUM_FILTER_TYPES: QueryFileLayoutFilterType = 4
 
 public val QUERY_FILE_LAYOUT_REPARSE_DATA_INVALID: UInt = 1u
 
@@ -2248,13 +2248,13 @@ public val RETURN_SMART_STATUS: UInt = 218u
 
 public val REVISION_LENGTH: UInt = 4u
 
-public val RemovableMedia: MEDIA_TYPE = 11
+public val REMOVABLE_MEDIA: MediaType = 11
 
-public val RequestLocation: BIN_TYPES = 1
+public val REQUEST_LOCATION: BinTypes = 1
 
-public val RequestSize: BIN_TYPES = 0
+public val REQUEST_SIZE: BinTypes = 0
 
-public val SAIT: STORAGE_MEDIA_TYPE = 93
+public val SAIT: StorageMediaType = 93
 
 public val SAVE_ATTRIBUTE_VALUES: UInt = 211u
 
@@ -2380,11 +2380,11 @@ public val SMART_SHORT_SELFTEST_OFFLINE: UInt = 1u
 
 public val SMART_WRITE_LOG: UInt = 214u
 
-public val SONY_12_WO: STORAGE_MEDIA_TYPE = 66
+public val SONY_12_WO: StorageMediaType = 66
 
-public val SONY_D2: STORAGE_MEDIA_TYPE = 49
+public val SONY_D2: StorageMediaType = 49
 
-public val SONY_DTF: STORAGE_MEDIA_TYPE = 46
+public val SONY_DTF: StorageMediaType = 46
 
 public val SPACES_TRACKED_OFFSET_HEADER_FLAG: UInt = 2u
 
@@ -2392,11 +2392,11 @@ public val SRB_TYPE_SCSI_REQUEST_BLOCK: UInt = 0u
 
 public val SRB_TYPE_STORAGE_REQUEST_BLOCK: UInt = 1u
 
-public val STK_9840: STORAGE_MEDIA_TYPE = 85
+public val STK_9840: StorageMediaType = 85
 
-public val STK_9940: STORAGE_MEDIA_TYPE = 92
+public val STK_9940: StorageMediaType = 92
 
-public val STK_DATA_D3: STORAGE_MEDIA_TYPE = 45
+public val STK_DATA_D3: StorageMediaType = 45
 
 public val STORAGE_ADAPTER_SERIAL_NUMBER_V1_MAX_LENGTH: UInt = 128u
 
@@ -2420,7 +2420,7 @@ public val STORAGE_COMPONENT_ROLE_DATA: UInt = 4u
 
 public val STORAGE_COMPONENT_ROLE_TIERING: UInt = 2u
 
-public val STORAGE_CRASH_TELEMETRY_REGKEY: PCWSTR = w("\\Registry\\Machine\\System\\CurrentControlSet\\Control\\CrashControl\\StorageTelemetry")
+public val STORAGE_CRASH_TELEMETRY_REGKEY: Pcwstr = w("\\Registry\\Machine\\System\\CurrentControlSet\\Control\\CrashControl\\StorageTelemetry")
 
 public val STORAGE_CRYPTO_CAPABILITY_VERSION_1: UInt = 1u
 
@@ -2438,7 +2438,7 @@ public val STORAGE_DEVICE_NUMA_NODE_UNKNOWN: UInt = 4294967295u
 
 public val STORAGE_DEVICE_POWER_CAP_VERSION_V1: UInt = 1u
 
-public val STORAGE_DEVICE_TELEMETRY_REGKEY: PCWSTR = w("\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Storage\\StorageTelemetry")
+public val STORAGE_DEVICE_TELEMETRY_REGKEY: Pcwstr = w("\\Registry\\Machine\\System\\CurrentControlSet\\Control\\Storage\\StorageTelemetry")
 
 public val STORAGE_DIAGNOSTIC_FLAG_ADAPTER_REQUEST: UInt = 1u
 
@@ -2568,440 +2568,440 @@ public val STREAM_LAYOUT_ENTRY_RESIDENT: UInt = 4u
 
 public val STREAM_SET_ENCRYPTION: UInt = 3u
 
-public val SYQUEST_EZ135: STORAGE_MEDIA_TYPE = 75
+public val SYQUEST_EZ135: StorageMediaType = 75
 
-public val SYQUEST_EZFLYER: STORAGE_MEDIA_TYPE = 76
+public val SYQUEST_EZFLYER: StorageMediaType = 76
 
-public val SYQUEST_SYJET: STORAGE_MEDIA_TYPE = 77
+public val SYQUEST_SYJET: StorageMediaType = 77
 
-public val ScmBusFirmwareActivationState_Armed: SCM_BUS_FIRMWARE_ACTIVATION_STATE = 1
+public val SCM_BUS_FIRMWARE_ACTIVATION_STATE_ARMED: ScmBusFirmwareActivationState = 1
 
-public val ScmBusFirmwareActivationState_Busy: SCM_BUS_FIRMWARE_ACTIVATION_STATE = 2
+public val SCM_BUS_FIRMWARE_ACTIVATION_STATE_BUSY: ScmBusFirmwareActivationState = 2
 
-public val ScmBusFirmwareActivationState_Idle: SCM_BUS_FIRMWARE_ACTIVATION_STATE = 0
+public val SCM_BUS_FIRMWARE_ACTIVATION_STATE_IDLE: ScmBusFirmwareActivationState = 0
 
-public val ScmBusProperty_DedicatedMemoryInfo: SCM_BUS_PROPERTY_ID = 1
+public val SCM_BUS_PROPERTY_DEDICATED_MEMORY_INFO: ScmBusPropertyId = 1
 
-public val ScmBusProperty_DedicatedMemoryState: SCM_BUS_PROPERTY_ID = 2
+public val SCM_BUS_PROPERTY_DEDICATED_MEMORY_STATE: ScmBusPropertyId = 2
 
-public val ScmBusProperty_Max: SCM_BUS_PROPERTY_ID = 3
+public val SCM_BUS_PROPERTY_MAX: ScmBusPropertyId = 3
 
-public val ScmBusProperty_RuntimeFwActivationInfo: SCM_BUS_PROPERTY_ID = 0
+public val SCM_BUS_PROPERTY_RUNTIME_FW_ACTIVATION_INFO: ScmBusPropertyId = 0
 
-public val ScmBusQuery_Descriptor: SCM_BUS_QUERY_TYPE = 0
+public val SCM_BUS_QUERY_DESCRIPTOR: ScmBusQueryType = 0
 
-public val ScmBusQuery_IsSupported: SCM_BUS_QUERY_TYPE = 1
+public val SCM_BUS_QUERY_IS_SUPPORTED: ScmBusQueryType = 1
 
-public val ScmBusQuery_Max: SCM_BUS_QUERY_TYPE = 2
+public val SCM_BUS_QUERY_MAX: ScmBusQueryType = 2
 
-public val ScmBusSet_Descriptor: SCM_BUS_SET_TYPE = 0
+public val SCM_BUS_SET_DESCRIPTOR: ScmBusSetType = 0
 
-public val ScmBusSet_IsSupported: SCM_BUS_SET_TYPE = 1
+public val SCM_BUS_SET_IS_SUPPORTED: ScmBusSetType = 1
 
-public val ScmBusSet_Max: SCM_BUS_SET_TYPE = 2
+public val SCM_BUS_SET_MAX: ScmBusSetType = 2
 
-public val ScmPdFirmwareActivationState_Armed: SCM_PD_FIRMWARE_ACTIVATION_STATE = 1
+public val SCM_PD_FIRMWARE_ACTIVATION_STATE_ARMED: ScmPdFirmwareActivationState = 1
 
-public val ScmPdFirmwareActivationState_Busy: SCM_PD_FIRMWARE_ACTIVATION_STATE = 2
+public val SCM_PD_FIRMWARE_ACTIVATION_STATE_BUSY: ScmPdFirmwareActivationState = 2
 
-public val ScmPdFirmwareActivationState_Idle: SCM_PD_FIRMWARE_ACTIVATION_STATE = 0
+public val SCM_PD_FIRMWARE_ACTIVATION_STATE_IDLE: ScmPdFirmwareActivationState = 0
 
-public val ScmPdLastFwActivaitonStatus_ActivationInProgress: SCM_PD_LAST_FW_ACTIVATION_STATUS = 4
+public val SCM_PD_LAST_FW_ACTIVAITON_STATUS_ACTIVATION_IN_PROGRESS: ScmPdLastFwActivationStatus = 4
 
-public val ScmPdLastFwActivaitonStatus_FwUnsupported: SCM_PD_LAST_FW_ACTIVATION_STATUS = 6
+public val SCM_PD_LAST_FW_ACTIVAITON_STATUS_FW_UNSUPPORTED: ScmPdLastFwActivationStatus = 6
 
-public val ScmPdLastFwActivaitonStatus_Retry: SCM_PD_LAST_FW_ACTIVATION_STATUS = 5
+public val SCM_PD_LAST_FW_ACTIVAITON_STATUS_RETRY: ScmPdLastFwActivationStatus = 5
 
-public val ScmPdLastFwActivaitonStatus_UnknownError: SCM_PD_LAST_FW_ACTIVATION_STATUS = 7
+public val SCM_PD_LAST_FW_ACTIVAITON_STATUS_UNKNOWN_ERROR: ScmPdLastFwActivationStatus = 7
 
-public val ScmPdLastFwActivationStatus_ColdRebootRequired: SCM_PD_LAST_FW_ACTIVATION_STATUS = 3
+public val SCM_PD_LAST_FW_ACTIVATION_STATUS_COLD_REBOOT_REQUIRED: ScmPdLastFwActivationStatus = 3
 
-public val ScmPdLastFwActivationStatus_FwNotFound: SCM_PD_LAST_FW_ACTIVATION_STATUS = 2
+public val SCM_PD_LAST_FW_ACTIVATION_STATUS_FW_NOT_FOUND: ScmPdLastFwActivationStatus = 2
 
-public val ScmPdLastFwActivationStatus_None: SCM_PD_LAST_FW_ACTIVATION_STATUS = 0
+public val SCM_PD_LAST_FW_ACTIVATION_STATUS_NONE: ScmPdLastFwActivationStatus = 0
 
-public val ScmPdLastFwActivationStatus_Success: SCM_PD_LAST_FW_ACTIVATION_STATUS = 1
+public val SCM_PD_LAST_FW_ACTIVATION_STATUS_SUCCESS: ScmPdLastFwActivationStatus = 1
 
-public val ScmPhysicalDeviceHealth_Healthy: SCM_PD_HEALTH_STATUS = 3
+public val SCM_PHYSICAL_DEVICE_HEALTH_HEALTHY: ScmPdHealthStatus = 3
 
-public val ScmPhysicalDeviceHealth_Max: SCM_PD_HEALTH_STATUS = 4
+public val SCM_PHYSICAL_DEVICE_HEALTH_MAX: ScmPdHealthStatus = 4
 
-public val ScmPhysicalDeviceHealth_Unhealthy: SCM_PD_HEALTH_STATUS = 1
+public val SCM_PHYSICAL_DEVICE_HEALTH_UNHEALTHY: ScmPdHealthStatus = 1
 
-public val ScmPhysicalDeviceHealth_Unknown: SCM_PD_HEALTH_STATUS = 0
+public val SCM_PHYSICAL_DEVICE_HEALTH_UNKNOWN: ScmPdHealthStatus = 0
 
-public val ScmPhysicalDeviceHealth_Warning: SCM_PD_HEALTH_STATUS = 2
+public val SCM_PHYSICAL_DEVICE_HEALTH_WARNING: ScmPdHealthStatus = 2
 
-public val ScmPhysicalDeviceOpReason_BackgroundOperation: SCM_PD_OPERATIONAL_STATUS_REASON = 9
+public val SCM_PHYSICAL_DEVICE_OP_REASON_BACKGROUND_OPERATION: ScmPdOperationalStatusReason = 9
 
-public val ScmPhysicalDeviceOpReason_Component: SCM_PD_OPERATIONAL_STATUS_REASON = 8
+public val SCM_PHYSICAL_DEVICE_OP_REASON_COMPONENT: ScmPdOperationalStatusReason = 8
 
-public val ScmPhysicalDeviceOpReason_Configuration: SCM_PD_OPERATIONAL_STATUS_REASON = 5
+public val SCM_PHYSICAL_DEVICE_OP_REASON_CONFIGURATION: ScmPdOperationalStatusReason = 5
 
-public val ScmPhysicalDeviceOpReason_DataPersistenceLossImminent: SCM_PD_OPERATIONAL_STATUS_REASON = 17
+public val SCM_PHYSICAL_DEVICE_OP_REASON_DATA_PERSISTENCE_LOSS_IMMINENT: ScmPdOperationalStatusReason = 17
 
-public val ScmPhysicalDeviceOpReason_DeviceController: SCM_PD_OPERATIONAL_STATUS_REASON = 6
+public val SCM_PHYSICAL_DEVICE_OP_REASON_DEVICE_CONTROLLER: ScmPdOperationalStatusReason = 6
 
-public val ScmPhysicalDeviceOpReason_DisabledByPlatform: SCM_PD_OPERATIONAL_STATUS_REASON = 13
+public val SCM_PHYSICAL_DEVICE_OP_REASON_DISABLED_BY_PLATFORM: ScmPdOperationalStatusReason = 13
 
-public val ScmPhysicalDeviceOpReason_EnergySource: SCM_PD_OPERATIONAL_STATUS_REASON = 4
+public val SCM_PHYSICAL_DEVICE_OP_REASON_ENERGY_SOURCE: ScmPdOperationalStatusReason = 4
 
-public val ScmPhysicalDeviceOpReason_ExcessiveTemperature: SCM_PD_OPERATIONAL_STATUS_REASON = 21
+public val SCM_PHYSICAL_DEVICE_OP_REASON_EXCESSIVE_TEMPERATURE: ScmPdOperationalStatusReason = 21
 
-public val ScmPhysicalDeviceOpReason_FatalError: SCM_PD_OPERATIONAL_STATUS_REASON = 16
+public val SCM_PHYSICAL_DEVICE_OP_REASON_FATAL_ERROR: ScmPdOperationalStatusReason = 16
 
-public val ScmPhysicalDeviceOpReason_HealthCheck: SCM_PD_OPERATIONAL_STATUS_REASON = 11
+public val SCM_PHYSICAL_DEVICE_OP_REASON_HEALTH_CHECK: ScmPdOperationalStatusReason = 11
 
-public val ScmPhysicalDeviceOpReason_InternalFailure: SCM_PD_OPERATIONAL_STATUS_REASON = 22
+public val SCM_PHYSICAL_DEVICE_OP_REASON_INTERNAL_FAILURE: ScmPdOperationalStatusReason = 22
 
-public val ScmPhysicalDeviceOpReason_InvalidFirmware: SCM_PD_OPERATIONAL_STATUS_REASON = 10
+public val SCM_PHYSICAL_DEVICE_OP_REASON_INVALID_FIRMWARE: ScmPdOperationalStatusReason = 10
 
-public val ScmPhysicalDeviceOpReason_LostData: SCM_PD_OPERATIONAL_STATUS_REASON = 3
+public val SCM_PHYSICAL_DEVICE_OP_REASON_LOST_DATA: ScmPdOperationalStatusReason = 3
 
-public val ScmPhysicalDeviceOpReason_LostDataPersistence: SCM_PD_OPERATIONAL_STATUS_REASON = 12
+public val SCM_PHYSICAL_DEVICE_OP_REASON_LOST_DATA_PERSISTENCE: ScmPdOperationalStatusReason = 12
 
-public val ScmPhysicalDeviceOpReason_LostWritePersistence: SCM_PD_OPERATIONAL_STATUS_REASON = 15
+public val SCM_PHYSICAL_DEVICE_OP_REASON_LOST_WRITE_PERSISTENCE: ScmPdOperationalStatusReason = 15
 
-public val ScmPhysicalDeviceOpReason_Max: SCM_PD_OPERATIONAL_STATUS_REASON = 23
+public val SCM_PHYSICAL_DEVICE_OP_REASON_MAX: ScmPdOperationalStatusReason = 23
 
-public val ScmPhysicalDeviceOpReason_Media: SCM_PD_OPERATIONAL_STATUS_REASON = 1
+public val SCM_PHYSICAL_DEVICE_OP_REASON_MEDIA: ScmPdOperationalStatusReason = 1
 
-public val ScmPhysicalDeviceOpReason_MediaController: SCM_PD_OPERATIONAL_STATUS_REASON = 7
+public val SCM_PHYSICAL_DEVICE_OP_REASON_MEDIA_CONTROLLER: ScmPdOperationalStatusReason = 7
 
-public val ScmPhysicalDeviceOpReason_MediaRemainingSpareBlock: SCM_PD_OPERATIONAL_STATUS_REASON = 19
+public val SCM_PHYSICAL_DEVICE_OP_REASON_MEDIA_REMAINING_SPARE_BLOCK: ScmPdOperationalStatusReason = 19
 
-public val ScmPhysicalDeviceOpReason_PerformanceDegradation: SCM_PD_OPERATIONAL_STATUS_REASON = 20
+public val SCM_PHYSICAL_DEVICE_OP_REASON_PERFORMANCE_DEGRADATION: ScmPdOperationalStatusReason = 20
 
-public val ScmPhysicalDeviceOpReason_PermanentError: SCM_PD_OPERATIONAL_STATUS_REASON = 14
+public val SCM_PHYSICAL_DEVICE_OP_REASON_PERMANENT_ERROR: ScmPdOperationalStatusReason = 14
 
-public val ScmPhysicalDeviceOpReason_ThresholdExceeded: SCM_PD_OPERATIONAL_STATUS_REASON = 2
+public val SCM_PHYSICAL_DEVICE_OP_REASON_THRESHOLD_EXCEEDED: ScmPdOperationalStatusReason = 2
 
-public val ScmPhysicalDeviceOpReason_Unknown: SCM_PD_OPERATIONAL_STATUS_REASON = 0
+public val SCM_PHYSICAL_DEVICE_OP_REASON_UNKNOWN: ScmPdOperationalStatusReason = 0
 
-public val ScmPhysicalDeviceOpReason_WritePersistenceLossImminent: SCM_PD_OPERATIONAL_STATUS_REASON = 18
+public val SCM_PHYSICAL_DEVICE_OP_REASON_WRITE_PERSISTENCE_LOSS_IMMINENT: ScmPdOperationalStatusReason = 18
 
-public val ScmPhysicalDeviceOpStatus_HardwareError: SCM_PD_OPERATIONAL_STATUS = 4
+public val SCM_PHYSICAL_DEVICE_OP_STATUS_HARDWARE_ERROR: ScmPdOperationalStatus = 4
 
-public val ScmPhysicalDeviceOpStatus_InService: SCM_PD_OPERATIONAL_STATUS = 3
+public val SCM_PHYSICAL_DEVICE_OP_STATUS_IN_SERVICE: ScmPdOperationalStatus = 3
 
-public val ScmPhysicalDeviceOpStatus_Max: SCM_PD_OPERATIONAL_STATUS = 8
+public val SCM_PHYSICAL_DEVICE_OP_STATUS_MAX: ScmPdOperationalStatus = 8
 
-public val ScmPhysicalDeviceOpStatus_Missing: SCM_PD_OPERATIONAL_STATUS = 7
+public val SCM_PHYSICAL_DEVICE_OP_STATUS_MISSING: ScmPdOperationalStatus = 7
 
-public val ScmPhysicalDeviceOpStatus_NotUsable: SCM_PD_OPERATIONAL_STATUS = 5
+public val SCM_PHYSICAL_DEVICE_OP_STATUS_NOT_USABLE: ScmPdOperationalStatus = 5
 
-public val ScmPhysicalDeviceOpStatus_Ok: SCM_PD_OPERATIONAL_STATUS = 1
+public val SCM_PHYSICAL_DEVICE_OP_STATUS_OK: ScmPdOperationalStatus = 1
 
-public val ScmPhysicalDeviceOpStatus_PredictingFailure: SCM_PD_OPERATIONAL_STATUS = 2
+public val SCM_PHYSICAL_DEVICE_OP_STATUS_PREDICTING_FAILURE: ScmPdOperationalStatus = 2
 
-public val ScmPhysicalDeviceOpStatus_TransientError: SCM_PD_OPERATIONAL_STATUS = 6
+public val SCM_PHYSICAL_DEVICE_OP_STATUS_TRANSIENT_ERROR: ScmPdOperationalStatus = 6
 
-public val ScmPhysicalDeviceOpStatus_Unknown: SCM_PD_OPERATIONAL_STATUS = 0
+public val SCM_PHYSICAL_DEVICE_OP_STATUS_UNKNOWN: ScmPdOperationalStatus = 0
 
-public val ScmPhysicalDeviceProperty_DeviceHandle: SCM_PD_PROPERTY_ID = 5
+public val SCM_PHYSICAL_DEVICE_PROPERTY_DEVICE_HANDLE: ScmPdPropertyId = 5
 
-public val ScmPhysicalDeviceProperty_DeviceInfo: SCM_PD_PROPERTY_ID = 0
+public val SCM_PHYSICAL_DEVICE_PROPERTY_DEVICE_INFO: ScmPdPropertyId = 0
 
-public val ScmPhysicalDeviceProperty_DeviceSpecificInfo: SCM_PD_PROPERTY_ID = 4
+public val SCM_PHYSICAL_DEVICE_PROPERTY_DEVICE_SPECIFIC_INFO: ScmPdPropertyId = 4
 
-public val ScmPhysicalDeviceProperty_FirmwareInfo: SCM_PD_PROPERTY_ID = 2
+public val SCM_PHYSICAL_DEVICE_PROPERTY_FIRMWARE_INFO: ScmPdPropertyId = 2
 
-public val ScmPhysicalDeviceProperty_FruIdString: SCM_PD_PROPERTY_ID = 6
+public val SCM_PHYSICAL_DEVICE_PROPERTY_FRU_ID_STRING: ScmPdPropertyId = 6
 
-public val ScmPhysicalDeviceProperty_LocationString: SCM_PD_PROPERTY_ID = 3
+public val SCM_PHYSICAL_DEVICE_PROPERTY_LOCATION_STRING: ScmPdPropertyId = 3
 
-public val ScmPhysicalDeviceProperty_ManagementStatus: SCM_PD_PROPERTY_ID = 1
+public val SCM_PHYSICAL_DEVICE_PROPERTY_MANAGEMENT_STATUS: ScmPdPropertyId = 1
 
-public val ScmPhysicalDeviceProperty_Max: SCM_PD_PROPERTY_ID = 9
+public val SCM_PHYSICAL_DEVICE_PROPERTY_MAX: ScmPdPropertyId = 9
 
-public val ScmPhysicalDeviceProperty_RuntimeFwActivationArmState: SCM_PD_PROPERTY_ID = 8
+public val SCM_PHYSICAL_DEVICE_PROPERTY_RUNTIME_FW_ACTIVATION_ARM_STATE: ScmPdPropertyId = 8
 
-public val ScmPhysicalDeviceProperty_RuntimeFwActivationInfo: SCM_PD_PROPERTY_ID = 7
+public val SCM_PHYSICAL_DEVICE_PROPERTY_RUNTIME_FW_ACTIVATION_INFO: ScmPdPropertyId = 7
 
-public val ScmPhysicalDeviceQuery_Descriptor: SCM_PD_QUERY_TYPE = 0
+public val SCM_PHYSICAL_DEVICE_QUERY_DESCRIPTOR: ScmPdQueryType = 0
 
-public val ScmPhysicalDeviceQuery_IsSupported: SCM_PD_QUERY_TYPE = 1
+public val SCM_PHYSICAL_DEVICE_QUERY_IS_SUPPORTED: ScmPdQueryType = 1
 
-public val ScmPhysicalDeviceQuery_Max: SCM_PD_QUERY_TYPE = 2
+public val SCM_PHYSICAL_DEVICE_QUERY_MAX: ScmPdQueryType = 2
 
-public val ScmPhysicalDeviceReinit_ColdBootNeeded: SCM_PD_MEDIA_REINITIALIZATION_STATUS = 2
+public val SCM_PHYSICAL_DEVICE_REINIT_COLD_BOOT_NEEDED: ScmPdMediaReinitializationStatus = 2
 
-public val ScmPhysicalDeviceReinit_Max: SCM_PD_MEDIA_REINITIALIZATION_STATUS = 3
+public val SCM_PHYSICAL_DEVICE_REINIT_MAX: ScmPdMediaReinitializationStatus = 3
 
-public val ScmPhysicalDeviceReinit_RebootNeeded: SCM_PD_MEDIA_REINITIALIZATION_STATUS = 1
+public val SCM_PHYSICAL_DEVICE_REINIT_REBOOT_NEEDED: ScmPdMediaReinitializationStatus = 1
 
-public val ScmPhysicalDeviceReinit_Success: SCM_PD_MEDIA_REINITIALIZATION_STATUS = 0
+public val SCM_PHYSICAL_DEVICE_REINIT_SUCCESS: ScmPdMediaReinitializationStatus = 0
 
-public val ScmPhysicalDeviceSet_Descriptor: SCM_PD_SET_TYPE = 0
+public val SCM_PHYSICAL_DEVICE_SET_DESCRIPTOR: ScmPdSetType = 0
 
-public val ScmPhysicalDeviceSet_IsSupported: SCM_PD_SET_TYPE = 1
+public val SCM_PHYSICAL_DEVICE_SET_IS_SUPPORTED: ScmPdSetType = 1
 
-public val ScmPhysicalDeviceSet_Max: SCM_PD_SET_TYPE = 2
+public val SCM_PHYSICAL_DEVICE_SET_MAX: ScmPdSetType = 2
 
-public val ScmRegionFlagLabel: SCM_REGION_FLAG = 1
+public val SCM_REGION_FLAG_LABEL: ScmRegionFlag = 1
 
-public val ScmRegionFlagNone: SCM_REGION_FLAG = 0
+public val SCM_REGION_FLAG_NONE: ScmRegionFlag = 0
 
-public val ShrinkAbort: SHRINK_VOLUME_REQUEST_TYPES = 3
+public val SHRINK_ABORT: ShrinkVolumeRequestTypes = 3
 
-public val ShrinkCommit: SHRINK_VOLUME_REQUEST_TYPES = 2
+public val SHRINK_COMMIT: ShrinkVolumeRequestTypes = 2
 
-public val ShrinkPrepare: SHRINK_VOLUME_REQUEST_TYPES = 1
+public val SHRINK_PREPARE: ShrinkVolumeRequestTypes = 1
 
-public val SmrGcActionPause: REFS_SMR_VOLUME_GC_ACTION = 3
+public val SMR_GC_ACTION_PAUSE: RefsSmrVolumeGcAction = 3
 
-public val SmrGcActionStart: REFS_SMR_VOLUME_GC_ACTION = 1
+public val SMR_GC_ACTION_START: RefsSmrVolumeGcAction = 1
 
-public val SmrGcActionStartFullSpeed: REFS_SMR_VOLUME_GC_ACTION = 2
+public val SMR_GC_ACTION_START_FULL_SPEED: RefsSmrVolumeGcAction = 2
 
-public val SmrGcActionStop: REFS_SMR_VOLUME_GC_ACTION = 4
+public val SMR_GC_ACTION_STOP: RefsSmrVolumeGcAction = 4
 
-public val SmrGcMethodCompaction: REFS_SMR_VOLUME_GC_METHOD = 1
+public val SMR_GC_METHOD_COMPACTION: RefsSmrVolumeGcMethod = 1
 
-public val SmrGcMethodCompression: REFS_SMR_VOLUME_GC_METHOD = 2
+public val SMR_GC_METHOD_COMPRESSION: RefsSmrVolumeGcMethod = 2
 
-public val SmrGcMethodRotation: REFS_SMR_VOLUME_GC_METHOD = 3
+public val SMR_GC_METHOD_ROTATION: RefsSmrVolumeGcMethod = 3
 
-public val SmrGcStateActive: REFS_SMR_VOLUME_GC_STATE = 2
+public val SMR_GC_STATE_ACTIVE: RefsSmrVolumeGcState = 2
 
-public val SmrGcStateActiveFullSpeed: REFS_SMR_VOLUME_GC_STATE = 3
+public val SMR_GC_STATE_ACTIVE_FULL_SPEED: RefsSmrVolumeGcState = 3
 
-public val SmrGcStateInactive: REFS_SMR_VOLUME_GC_STATE = 0
+public val SMR_GC_STATE_INACTIVE: RefsSmrVolumeGcState = 0
 
-public val SmrGcStatePaused: REFS_SMR_VOLUME_GC_STATE = 1
+public val SMR_GC_STATE_PAUSED: RefsSmrVolumeGcState = 1
 
-public val StorAttributeMgmt_ClearAttribute: STORAGE_ATTRIBUTE_MGMT_ACTION = 0
+public val STOR_ATTRIBUTE_MGMT_CLEAR_ATTRIBUTE: StorageAttributeMgmtAction = 0
 
-public val StorAttributeMgmt_ResetAttribute: STORAGE_ATTRIBUTE_MGMT_ACTION = 2
+public val STOR_ATTRIBUTE_MGMT_RESET_ATTRIBUTE: StorageAttributeMgmtAction = 2
 
-public val StorAttributeMgmt_SetAttribute: STORAGE_ATTRIBUTE_MGMT_ACTION = 1
+public val STOR_ATTRIBUTE_MGMT_SET_ATTRIBUTE: StorageAttributeMgmtAction = 1
 
-public val StorRpmbAuthenticatedDeviceConfigRead: STORAGE_RPMB_COMMAND_TYPE = 7
+public val STOR_RPMB_AUTHENTICATED_DEVICE_CONFIG_READ: StorageRpmbCommandType = 7
 
-public val StorRpmbAuthenticatedDeviceConfigWrite: STORAGE_RPMB_COMMAND_TYPE = 6
+public val STOR_RPMB_AUTHENTICATED_DEVICE_CONFIG_WRITE: StorageRpmbCommandType = 6
 
-public val StorRpmbAuthenticatedRead: STORAGE_RPMB_COMMAND_TYPE = 4
+public val STOR_RPMB_AUTHENTICATED_READ: StorageRpmbCommandType = 4
 
-public val StorRpmbAuthenticatedWrite: STORAGE_RPMB_COMMAND_TYPE = 3
+public val STOR_RPMB_AUTHENTICATED_WRITE: StorageRpmbCommandType = 3
 
-public val StorRpmbProgramAuthKey: STORAGE_RPMB_COMMAND_TYPE = 1
+public val STOR_RPMB_PROGRAM_AUTH_KEY: StorageRpmbCommandType = 1
 
-public val StorRpmbQueryWriteCounter: STORAGE_RPMB_COMMAND_TYPE = 2
+public val STOR_RPMB_QUERY_WRITE_COUNTER: StorageRpmbCommandType = 2
 
-public val StorRpmbReadResultRequest: STORAGE_RPMB_COMMAND_TYPE = 5
+public val STOR_RPMB_READ_RESULT_REQUEST: StorageRpmbCommandType = 5
 
-public val StorageAccessAlignmentProperty: STORAGE_PROPERTY_ID = 6
+public val STORAGE_ACCESS_ALIGNMENT_PROPERTY: StoragePropertyId = 6
 
-public val StorageAdapterCryptoProperty: STORAGE_PROPERTY_ID = 17
+public val STORAGE_ADAPTER_CRYPTO_PROPERTY: StoragePropertyId = 17
 
-public val StorageAdapterPhysicalTopologyProperty: STORAGE_PROPERTY_ID = 53
+public val STORAGE_ADAPTER_PHYSICAL_TOPOLOGY_PROPERTY: StoragePropertyId = 53
 
-public val StorageAdapterProperty: STORAGE_PROPERTY_ID = 1
+public val STORAGE_ADAPTER_PROPERTY: StoragePropertyId = 1
 
-public val StorageAdapterProtocolSpecificProperty: STORAGE_PROPERTY_ID = 49
+public val STORAGE_ADAPTER_PROTOCOL_SPECIFIC_PROPERTY: StoragePropertyId = 49
 
-public val StorageAdapterRpmbProperty: STORAGE_PROPERTY_ID = 16
+public val STORAGE_ADAPTER_RPMB_PROPERTY: StoragePropertyId = 16
 
-public val StorageAdapterSerialNumberProperty: STORAGE_PROPERTY_ID = 57
+public val STORAGE_ADAPTER_SERIAL_NUMBER_PROPERTY: StoragePropertyId = 57
 
-public val StorageAdapterTemperatureProperty: STORAGE_PROPERTY_ID = 51
+public val STORAGE_ADAPTER_TEMPERATURE_PROPERTY: StoragePropertyId = 51
 
-public val StorageCounterTypeFlushLatency100NSMax: STORAGE_COUNTER_TYPE = 20
+public val STORAGE_COUNTER_TYPE_FLUSH_LATENCY100NS_MAX: StorageCounterType = 20
 
-public val StorageCounterTypeLoadUnloadCycleCount: STORAGE_COUNTER_TYPE = 12
+public val STORAGE_COUNTER_TYPE_LOAD_UNLOAD_CYCLE_COUNT: StorageCounterType = 12
 
-public val StorageCounterTypeLoadUnloadCycleCountMax: STORAGE_COUNTER_TYPE = 13
+public val STORAGE_COUNTER_TYPE_LOAD_UNLOAD_CYCLE_COUNT_MAX: StorageCounterType = 13
 
-public val StorageCounterTypeManufactureDate: STORAGE_COUNTER_TYPE = 9
+public val STORAGE_COUNTER_TYPE_MANUFACTURE_DATE: StorageCounterType = 9
 
-public val StorageCounterTypeMax: STORAGE_COUNTER_TYPE = 21
+public val STORAGE_COUNTER_TYPE_MAX: StorageCounterType = 21
 
-public val StorageCounterTypePowerOnHours: STORAGE_COUNTER_TYPE = 17
+public val STORAGE_COUNTER_TYPE_POWER_ON_HOURS: StorageCounterType = 17
 
-public val StorageCounterTypeReadErrorsCorrected: STORAGE_COUNTER_TYPE = 4
+public val STORAGE_COUNTER_TYPE_READ_ERRORS_CORRECTED: StorageCounterType = 4
 
-public val StorageCounterTypeReadErrorsTotal: STORAGE_COUNTER_TYPE = 3
+public val STORAGE_COUNTER_TYPE_READ_ERRORS_TOTAL: StorageCounterType = 3
 
-public val StorageCounterTypeReadErrorsUncorrected: STORAGE_COUNTER_TYPE = 5
+public val STORAGE_COUNTER_TYPE_READ_ERRORS_UNCORRECTED: StorageCounterType = 5
 
-public val StorageCounterTypeReadLatency100NSMax: STORAGE_COUNTER_TYPE = 18
+public val STORAGE_COUNTER_TYPE_READ_LATENCY100NS_MAX: StorageCounterType = 18
 
-public val StorageCounterTypeStartStopCycleCount: STORAGE_COUNTER_TYPE = 10
+public val STORAGE_COUNTER_TYPE_START_STOP_CYCLE_COUNT: StorageCounterType = 10
 
-public val StorageCounterTypeStartStopCycleCountMax: STORAGE_COUNTER_TYPE = 11
+public val STORAGE_COUNTER_TYPE_START_STOP_CYCLE_COUNT_MAX: StorageCounterType = 11
 
-public val StorageCounterTypeTemperatureCelsius: STORAGE_COUNTER_TYPE = 1
+public val STORAGE_COUNTER_TYPE_TEMPERATURE_CELSIUS: StorageCounterType = 1
 
-public val StorageCounterTypeTemperatureCelsiusMax: STORAGE_COUNTER_TYPE = 2
+public val STORAGE_COUNTER_TYPE_TEMPERATURE_CELSIUS_MAX: StorageCounterType = 2
 
-public val StorageCounterTypeUnknown: STORAGE_COUNTER_TYPE = 0
+public val STORAGE_COUNTER_TYPE_UNKNOWN: StorageCounterType = 0
 
-public val StorageCounterTypeWearPercentage: STORAGE_COUNTER_TYPE = 14
+public val STORAGE_COUNTER_TYPE_WEAR_PERCENTAGE: StorageCounterType = 14
 
-public val StorageCounterTypeWearPercentageMax: STORAGE_COUNTER_TYPE = 16
+public val STORAGE_COUNTER_TYPE_WEAR_PERCENTAGE_MAX: StorageCounterType = 16
 
-public val StorageCounterTypeWearPercentageWarning: STORAGE_COUNTER_TYPE = 15
+public val STORAGE_COUNTER_TYPE_WEAR_PERCENTAGE_WARNING: StorageCounterType = 15
 
-public val StorageCounterTypeWriteErrorsCorrected: STORAGE_COUNTER_TYPE = 7
+public val STORAGE_COUNTER_TYPE_WRITE_ERRORS_CORRECTED: StorageCounterType = 7
 
-public val StorageCounterTypeWriteErrorsTotal: STORAGE_COUNTER_TYPE = 6
+public val STORAGE_COUNTER_TYPE_WRITE_ERRORS_TOTAL: StorageCounterType = 6
 
-public val StorageCounterTypeWriteErrorsUncorrected: STORAGE_COUNTER_TYPE = 8
+public val STORAGE_COUNTER_TYPE_WRITE_ERRORS_UNCORRECTED: StorageCounterType = 8
 
-public val StorageCounterTypeWriteLatency100NSMax: STORAGE_COUNTER_TYPE = 19
+public val STORAGE_COUNTER_TYPE_WRITE_LATENCY100NS_MAX: StorageCounterType = 19
 
-public val StorageCryptoAlgorithmAESECB: STORAGE_CRYPTO_ALGORITHM_ID = 3
+public val STORAGE_CRYPTO_ALGORITHM_AESECB: StorageCryptoAlgorithmId = 3
 
-public val StorageCryptoAlgorithmBitlockerAESCBC: STORAGE_CRYPTO_ALGORITHM_ID = 2
+public val STORAGE_CRYPTO_ALGORITHM_BITLOCKER_AESCBC: StorageCryptoAlgorithmId = 2
 
-public val StorageCryptoAlgorithmESSIVAESCBC: STORAGE_CRYPTO_ALGORITHM_ID = 4
+public val STORAGE_CRYPTO_ALGORITHM_ESSIVAESCBC: StorageCryptoAlgorithmId = 4
 
-public val StorageCryptoAlgorithmMax: STORAGE_CRYPTO_ALGORITHM_ID = 5
+public val STORAGE_CRYPTO_ALGORITHM_MAX: StorageCryptoAlgorithmId = 5
 
-public val StorageCryptoAlgorithmUnknown: STORAGE_CRYPTO_ALGORITHM_ID = 0
+public val STORAGE_CRYPTO_ALGORITHM_UNKNOWN: StorageCryptoAlgorithmId = 0
 
-public val StorageCryptoAlgorithmXTSAES: STORAGE_CRYPTO_ALGORITHM_ID = 1
+public val STORAGE_CRYPTO_ALGORITHM_XTSAES: StorageCryptoAlgorithmId = 1
 
-public val StorageCryptoKeySize128Bits: STORAGE_CRYPTO_KEY_SIZE = 1
+public val STORAGE_CRYPTO_KEY_SIZE128BITS: StorageCryptoKeySize = 1
 
-public val StorageCryptoKeySize192Bits: STORAGE_CRYPTO_KEY_SIZE = 2
+public val STORAGE_CRYPTO_KEY_SIZE192BITS: StorageCryptoKeySize = 2
 
-public val StorageCryptoKeySize256Bits: STORAGE_CRYPTO_KEY_SIZE = 3
+public val STORAGE_CRYPTO_KEY_SIZE256BITS: StorageCryptoKeySize = 3
 
-public val StorageCryptoKeySize512Bits: STORAGE_CRYPTO_KEY_SIZE = 4
+public val STORAGE_CRYPTO_KEY_SIZE512BITS: StorageCryptoKeySize = 4
 
-public val StorageCryptoKeySizeUnknown: STORAGE_CRYPTO_KEY_SIZE = 0
+public val STORAGE_CRYPTO_KEY_SIZE_UNKNOWN: StorageCryptoKeySize = 0
 
-public val StorageDeviceAttributesProperty: STORAGE_PROPERTY_ID = 55
+public val STORAGE_DEVICE_ATTRIBUTES_PROPERTY: StoragePropertyId = 55
 
-public val StorageDeviceCopyOffloadProperty: STORAGE_PROPERTY_ID = 13
+public val STORAGE_DEVICE_COPY_OFFLOAD_PROPERTY: StoragePropertyId = 13
 
-public val StorageDeviceDeviceTelemetryProperty: STORAGE_PROPERTY_ID = 10
+public val STORAGE_DEVICE_DEVICE_TELEMETRY_PROPERTY: StoragePropertyId = 10
 
-public val StorageDeviceEnduranceProperty: STORAGE_PROPERTY_ID = 62
+public val STORAGE_DEVICE_ENDURANCE_PROPERTY: StoragePropertyId = 62
 
-public val StorageDeviceIdProperty: STORAGE_PROPERTY_ID = 2
+public val STORAGE_DEVICE_ID_PROPERTY: StoragePropertyId = 2
 
-public val StorageDeviceIoCapabilityProperty: STORAGE_PROPERTY_ID = 48
+public val STORAGE_DEVICE_IO_CAPABILITY_PROPERTY: StoragePropertyId = 48
 
-public val StorageDeviceLBProvisioningProperty: STORAGE_PROPERTY_ID = 11
+public val STORAGE_DEVICE_LB_PROVISIONING_PROPERTY: StoragePropertyId = 11
 
-public val StorageDeviceLedStateProperty: STORAGE_PROPERTY_ID = 63
+public val STORAGE_DEVICE_LED_STATE_PROPERTY: StoragePropertyId = 63
 
-public val StorageDeviceLocationProperty: STORAGE_PROPERTY_ID = 58
+public val STORAGE_DEVICE_LOCATION_PROPERTY: StoragePropertyId = 58
 
-public val StorageDeviceManagementStatus: STORAGE_PROPERTY_ID = 56
+public val STORAGE_DEVICE_MANAGEMENT_STATUS: StoragePropertyId = 56
 
-public val StorageDeviceMediumProductType: STORAGE_PROPERTY_ID = 15
+public val STORAGE_DEVICE_MEDIUM_PRODUCT_TYPE: StoragePropertyId = 15
 
-public val StorageDeviceNumaProperty: STORAGE_PROPERTY_ID = 59
+public val STORAGE_DEVICE_NUMA_PROPERTY: StoragePropertyId = 59
 
-public val StorageDevicePhysicalTopologyProperty: STORAGE_PROPERTY_ID = 54
+public val STORAGE_DEVICE_PHYSICAL_TOPOLOGY_PROPERTY: StoragePropertyId = 54
 
-public val StorageDevicePowerCapUnitsMilliwatts: STORAGE_DEVICE_POWER_CAP_UNITS = 1
+public val STORAGE_DEVICE_POWER_CAP_UNITS_MILLIWATTS: StorageDevicePowerCapUnits = 1
 
-public val StorageDevicePowerCapUnitsPercent: STORAGE_DEVICE_POWER_CAP_UNITS = 0
+public val STORAGE_DEVICE_POWER_CAP_UNITS_PERCENT: StorageDevicePowerCapUnits = 0
 
-public val StorageDevicePowerProperty: STORAGE_PROPERTY_ID = 12
+public val STORAGE_DEVICE_POWER_PROPERTY: StoragePropertyId = 12
 
-public val StorageDeviceProperty: STORAGE_PROPERTY_ID = 0
+public val STORAGE_DEVICE_PROPERTY: StoragePropertyId = 0
 
-public val StorageDeviceProtocolSpecificProperty: STORAGE_PROPERTY_ID = 50
+public val STORAGE_DEVICE_PROTOCOL_SPECIFIC_PROPERTY: StoragePropertyId = 50
 
-public val StorageDeviceResiliencyProperty: STORAGE_PROPERTY_ID = 14
+public val STORAGE_DEVICE_RESILIENCY_PROPERTY: StoragePropertyId = 14
 
-public val StorageDeviceSeekPenaltyProperty: STORAGE_PROPERTY_ID = 7
+public val STORAGE_DEVICE_SEEK_PENALTY_PROPERTY: StoragePropertyId = 7
 
-public val StorageDeviceSelfEncryptionProperty: STORAGE_PROPERTY_ID = 64
+public val STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY: StoragePropertyId = 64
 
-public val StorageDeviceTemperatureProperty: STORAGE_PROPERTY_ID = 52
+public val STORAGE_DEVICE_TEMPERATURE_PROPERTY: StoragePropertyId = 52
 
-public val StorageDeviceTrimProperty: STORAGE_PROPERTY_ID = 8
+public val STORAGE_DEVICE_TRIM_PROPERTY: StoragePropertyId = 8
 
-public val StorageDeviceUniqueIdProperty: STORAGE_PROPERTY_ID = 3
+public val STORAGE_DEVICE_UNIQUE_ID_PROPERTY: StoragePropertyId = 3
 
-public val StorageDeviceUnsafeShutdownCount: STORAGE_PROPERTY_ID = 61
+public val STORAGE_DEVICE_UNSAFE_SHUTDOWN_COUNT: StoragePropertyId = 61
 
-public val StorageDeviceWriteAggregationProperty: STORAGE_PROPERTY_ID = 9
+public val STORAGE_DEVICE_WRITE_AGGREGATION_PROPERTY: StoragePropertyId = 9
 
-public val StorageDeviceWriteCacheProperty: STORAGE_PROPERTY_ID = 4
+public val STORAGE_DEVICE_WRITE_CACHE_PROPERTY: StoragePropertyId = 4
 
-public val StorageDeviceZonedDeviceProperty: STORAGE_PROPERTY_ID = 60
+public val STORAGE_DEVICE_ZONED_DEVICE_PROPERTY: StoragePropertyId = 60
 
-public val StorageDiagnosticLevelDefault: STORAGE_DIAGNOSTIC_LEVEL = 0
+public val STORAGE_DIAGNOSTIC_LEVEL_DEFAULT: StorageDiagnosticLevel = 0
 
-public val StorageDiagnosticLevelMax: STORAGE_DIAGNOSTIC_LEVEL = 1
+public val STORAGE_DIAGNOSTIC_LEVEL_MAX: StorageDiagnosticLevel = 1
 
-public val StorageDiagnosticTargetTypeHbaFirmware: STORAGE_DIAGNOSTIC_TARGET_TYPE = 3
+public val STORAGE_DIAGNOSTIC_TARGET_TYPE_HBA_FIRMWARE: StorageDiagnosticTargetType = 3
 
-public val StorageDiagnosticTargetTypeMax: STORAGE_DIAGNOSTIC_TARGET_TYPE = 4
+public val STORAGE_DIAGNOSTIC_TARGET_TYPE_MAX: StorageDiagnosticTargetType = 4
 
-public val StorageDiagnosticTargetTypeMiniport: STORAGE_DIAGNOSTIC_TARGET_TYPE = 2
+public val STORAGE_DIAGNOSTIC_TARGET_TYPE_MINIPORT: StorageDiagnosticTargetType = 2
 
-public val StorageDiagnosticTargetTypePort: STORAGE_DIAGNOSTIC_TARGET_TYPE = 1
+public val STORAGE_DIAGNOSTIC_TARGET_TYPE_PORT: StorageDiagnosticTargetType = 1
 
-public val StorageDiagnosticTargetTypeUndefined: STORAGE_DIAGNOSTIC_TARGET_TYPE = 0
+public val STORAGE_DIAGNOSTIC_TARGET_TYPE_UNDEFINED: StorageDiagnosticTargetType = 0
 
-public val StorageEncryptionTypeEDrive: STORAGE_ENCRYPTION_TYPE = 1
+public val STORAGE_ENCRYPTION_TYPE_E_DRIVE: StorageEncryptionType = 1
 
-public val StorageEncryptionTypeTcgOpal: STORAGE_ENCRYPTION_TYPE = 2
+public val STORAGE_ENCRYPTION_TYPE_TCG_OPAL: StorageEncryptionType = 2
 
-public val StorageEncryptionTypeUnknown: STORAGE_ENCRYPTION_TYPE = 0
+public val STORAGE_ENCRYPTION_TYPE_UNKNOWN: StorageEncryptionType = 0
 
-public val StorageFruIdProperty: STORAGE_PROPERTY_ID = 65
+public val STORAGE_FRU_ID_PROPERTY: StoragePropertyId = 65
 
-public val StorageIdAssocDevice: STORAGE_ASSOCIATION_TYPE = 0
+public val STORAGE_ID_ASSOC_DEVICE: StorageAssociationType = 0
 
-public val StorageIdAssocPort: STORAGE_ASSOCIATION_TYPE = 1
+public val STORAGE_ID_ASSOC_PORT: StorageAssociationType = 1
 
-public val StorageIdAssocTarget: STORAGE_ASSOCIATION_TYPE = 2
+public val STORAGE_ID_ASSOC_TARGET: StorageAssociationType = 2
 
-public val StorageIdCodeSetAscii: STORAGE_IDENTIFIER_CODE_SET = 2
+public val STORAGE_ID_CODE_SET_ASCII: StorageIdentifierCodeSet = 2
 
-public val StorageIdCodeSetBinary: STORAGE_IDENTIFIER_CODE_SET = 1
+public val STORAGE_ID_CODE_SET_BINARY: StorageIdentifierCodeSet = 1
 
-public val StorageIdCodeSetReserved: STORAGE_IDENTIFIER_CODE_SET = 0
+public val STORAGE_ID_CODE_SET_RESERVED: StorageIdentifierCodeSet = 0
 
-public val StorageIdCodeSetUtf8: STORAGE_IDENTIFIER_CODE_SET = 3
+public val STORAGE_ID_CODE_SET_UTF8: StorageIdentifierCodeSet = 3
 
-public val StorageIdNAAFormatIEEEERegisteredExtended: STORAGE_ID_NAA_FORMAT = 5
+public val STORAGE_ID_NAA_FORMAT_IEEEE_REGISTERED_EXTENDED: StorageIdNaaFormat = 5
 
-public val StorageIdNAAFormatIEEEExtended: STORAGE_ID_NAA_FORMAT = 2
+public val STORAGE_ID_NAA_FORMAT_IEEE_EXTENDED: StorageIdNaaFormat = 2
 
-public val StorageIdNAAFormatIEEERegistered: STORAGE_ID_NAA_FORMAT = 3
+public val STORAGE_ID_NAA_FORMAT_IEEE_REGISTERED: StorageIdNaaFormat = 3
 
-public val StorageIdTypeEUI64: STORAGE_IDENTIFIER_TYPE = 2
+public val STORAGE_ID_TYPE_EUI64: StorageIdentifierType = 2
 
-public val StorageIdTypeFCPHName: STORAGE_IDENTIFIER_TYPE = 3
+public val STORAGE_ID_TYPE_FCPH_NAME: StorageIdentifierType = 3
 
-public val StorageIdTypeLogicalUnitGroup: STORAGE_IDENTIFIER_TYPE = 6
+public val STORAGE_ID_TYPE_LOGICAL_UNIT_GROUP: StorageIdentifierType = 6
 
-public val StorageIdTypeMD5LogicalUnitIdentifier: STORAGE_IDENTIFIER_TYPE = 7
+public val STORAGE_ID_TYPE_MD5LOGICAL_UNIT_IDENTIFIER: StorageIdentifierType = 7
 
-public val StorageIdTypePortRelative: STORAGE_IDENTIFIER_TYPE = 4
+public val STORAGE_ID_TYPE_PORT_RELATIVE: StorageIdentifierType = 4
 
-public val StorageIdTypeScsiNameString: STORAGE_IDENTIFIER_TYPE = 8
+public val STORAGE_ID_TYPE_SCSI_NAME_STRING: StorageIdentifierType = 8
 
-public val StorageIdTypeTargetPortGroup: STORAGE_IDENTIFIER_TYPE = 5
+public val STORAGE_ID_TYPE_TARGET_PORT_GROUP: StorageIdentifierType = 5
 
-public val StorageIdTypeVendorId: STORAGE_IDENTIFIER_TYPE = 1
+public val STORAGE_ID_TYPE_VENDOR_ID: StorageIdentifierType = 1
 
-public val StorageIdTypeVendorSpecific: STORAGE_IDENTIFIER_TYPE = 0
+public val STORAGE_ID_TYPE_VENDOR_SPECIFIC: StorageIdentifierType = 0
 
-public val StorageMiniportProperty: STORAGE_PROPERTY_ID = 5
+public val STORAGE_MINIPORT_PROPERTY: StoragePropertyId = 5
 
-public val StoragePortCodeSetATAport: STORAGE_PORT_CODE_SET = 4
+public val STORAGE_PORT_CODE_SET_AT_APORT: StoragePortCodeSet = 4
 
-public val StoragePortCodeSetReserved: STORAGE_PORT_CODE_SET = 0
+public val STORAGE_PORT_CODE_SET_RESERVED: StoragePortCodeSet = 0
 
-public val StoragePortCodeSetSBP2port: STORAGE_PORT_CODE_SET = 6
+public val STORAGE_PORT_CODE_SET_SBP2PORT: StoragePortCodeSet = 6
 
-public val StoragePortCodeSetSCSIport: STORAGE_PORT_CODE_SET = 2
+public val STORAGE_PORT_CODE_SET_SCS_IPORT: StoragePortCodeSet = 2
 
-public val StoragePortCodeSetSDport: STORAGE_PORT_CODE_SET = 7
+public val STORAGE_PORT_CODE_SET_S_DPORT: StoragePortCodeSet = 7
 
-public val StoragePortCodeSetSpaceport: STORAGE_PORT_CODE_SET = 3
+public val STORAGE_PORT_CODE_SET_SPACEPORT: StoragePortCodeSet = 3
 
-public val StoragePortCodeSetStorport: STORAGE_PORT_CODE_SET = 1
+public val STORAGE_PORT_CODE_SET_STORPORT: StoragePortCodeSet = 1
 
-public val StoragePortCodeSetUSBport: STORAGE_PORT_CODE_SET = 5
+public val STORAGE_PORT_CODE_SET_US_BPORT: StoragePortCodeSet = 5

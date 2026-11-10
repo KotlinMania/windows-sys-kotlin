@@ -1,49 +1,49 @@
 package io.github.kotlinmania.windowssys.windows.win32.security.cryptography.certificates
 
-import io.github.kotlinmania.windowssys.core.PCSTR
-import io.github.kotlinmania.windowssys.core.PCWSTR
+import io.github.kotlinmania.windowssys.core.Pcstr
+import io.github.kotlinmania.windowssys.core.Pcwstr
 import io.github.kotlinmania.windowssys.core.s
 import io.github.kotlinmania.windowssys.core.w
 
-public val XCN_OID_SUPPORTED_APPLICATION_CONTEXT: CERTENROLL_OBJECTID = 148
+public val XCN_OID_SUPPORTED_APPLICATION_CONTEXT: CertenrollObjectid = 148
 
-public val XCN_OID_SUR_NAME: CERTENROLL_OBJECTID = 122
+public val XCN_OID_SUR_NAME: CertenrollObjectid = 122
 
-public val XCN_OID_TELEPHONE_NUMBER: CERTENROLL_OBJECTID = 138
+public val XCN_OID_TELEPHONE_NUMBER: CertenrollObjectid = 138
 
-public val XCN_OID_TELETEXT_TERMINAL_IDENTIFIER: CERTENROLL_OBJECTID = 140
+public val XCN_OID_TELETEXT_TERMINAL_IDENTIFIER: CertenrollObjectid = 140
 
-public val XCN_OID_TELEX_NUMBER: CERTENROLL_OBJECTID = 139
+public val XCN_OID_TELEX_NUMBER: CertenrollObjectid = 139
 
-public val XCN_OID_TIMESTAMP_TOKEN: CERTENROLL_OBJECTID = 427
+public val XCN_OID_TIMESTAMP_TOKEN: CertenrollObjectid = 427
 
-public val XCN_OID_TITLE: CERTENROLL_OBJECTID = 130
+public val XCN_OID_TITLE: CertenrollObjectid = 130
 
-public val XCN_OID_USER_CERTIFICATE: CERTENROLL_OBJECTID = 154
+public val XCN_OID_USER_CERTIFICATE: CertenrollObjectid = 154
 
-public val XCN_OID_USER_PASSWORD: CERTENROLL_OBJECTID = 153
+public val XCN_OID_USER_PASSWORD: CertenrollObjectid = 153
 
-public val XCN_OID_VERISIGN_BITSTRING_6_13: CERTENROLL_OBJECTID = 287
+public val XCN_OID_VERISIGN_BITSTRING_6_13: CertenrollObjectid = 287
 
-public val XCN_OID_VERISIGN_ISS_STRONG_CRYPTO: CERTENROLL_OBJECTID = 288
+public val XCN_OID_VERISIGN_ISS_STRONG_CRYPTO: CertenrollObjectid = 288
 
-public val XCN_OID_VERISIGN_ONSITE_JURISDICTION_HASH: CERTENROLL_OBJECTID = 286
+public val XCN_OID_VERISIGN_ONSITE_JURISDICTION_HASH: CertenrollObjectid = 286
 
-public val XCN_OID_VERISIGN_PRIVATE_6_9: CERTENROLL_OBJECTID = 285
+public val XCN_OID_VERISIGN_PRIVATE_6_9: CertenrollObjectid = 285
 
-public val XCN_OID_WHQL_CRYPTO: CERTENROLL_OBJECTID = 261
+public val XCN_OID_WHQL_CRYPTO: CertenrollObjectid = 261
 
-public val XCN_OID_X21_ADDRESS: CERTENROLL_OBJECTID = 142
+public val XCN_OID_X21_ADDRESS: CertenrollObjectid = 142
 
-public val XCN_OID_X957: CERTENROLL_OBJECTID = 55
+public val XCN_OID_X957: CertenrollObjectid = 55
 
-public val XCN_OID_X957_DSA: CERTENROLL_OBJECTID = 56
+public val XCN_OID_X957_DSA: CertenrollObjectid = 56
 
-public val XCN_OID_X957_SHA1DSA: CERTENROLL_OBJECTID = 57
+public val XCN_OID_X957_SHA1DSA: CertenrollObjectid = 57
 
-public val XCN_OID_YESNO_TRUST_ATTR: CERTENROLL_OBJECTID = 278
+public val XCN_OID_YESNO_TRUST_ATTR: CertenrollObjectid = 278
 
-public val XCN_PROPERTYID_NONE: CERTENROLL_PROPERTYID = 0
+public val XCN_PROPERTYID_NONE: CertenrollPropertyid = 0
 
 public val XCN_PROV_DH_SCHANNEL: X509ProviderType = 18
 
@@ -95,43 +95,43 @@ public val XECI_XENROLL: UInt = 1u
 
 public val XECP_STRING_PROPERTY: UInt = 1u
 
-public val XECR_CMC: CERT_CREATE_REQUEST_FLAGS = 3
+public val XECR_CMC: CertCreateRequestFlags = 3
 
-public val XECR_PKCS10_V1_5: CERT_CREATE_REQUEST_FLAGS = 4
+public val XECR_PKCS10_V1_5: CertCreateRequestFlags = 4
 
-public val XECR_PKCS10_V2_0: CERT_CREATE_REQUEST_FLAGS = 1
+public val XECR_PKCS10_V2_0: CertCreateRequestFlags = 1
 
-public val XECR_PKCS7: CERT_CREATE_REQUEST_FLAGS = 2
+public val XECR_PKCS7: CertCreateRequestFlags = 2
 
-public val XECT_EXTENSION_V1: ADDED_CERT_TYPE = 1
+public val XECT_EXTENSION_V1: AddedCertType = 1
 
-public val XECT_EXTENSION_V2: ADDED_CERT_TYPE = 2
+public val XECT_EXTENSION_V2: AddedCertType = 2
 
 public val XEKL_KEYSIZE_DEFAULT: UInt = 4u
 
-public val XEKL_KEYSIZE_INC: XEKL_KEYSIZE = 3
+public val XEKL_KEYSIZE_INC: XeklKeysize = 3
 
-public val XEKL_KEYSIZE_MAX: XEKL_KEYSIZE = 2
+public val XEKL_KEYSIZE_MAX: XeklKeysize = 2
 
-public val XEKL_KEYSIZE_MIN: XEKL_KEYSIZE = 1
+public val XEKL_KEYSIZE_MIN: XeklKeysize = 1
 
-public val XEKL_KEYSPEC_KEYX: XEKL_KEYSPEC = 1
+public val XEKL_KEYSPEC_KEYX: XeklKeyspec = 1
 
-public val XEKL_KEYSPEC_SIG: XEKL_KEYSPEC = 2
+public val XEKL_KEYSPEC_SIG: XeklKeyspec = 2
 
-public val XEPR_CADNS: PENDING_REQUEST_DESIRED_PROPERTY = 1
+public val XEPR_CADNS: PendingRequestDesiredProperty = 1
 
-public val XEPR_CAFRIENDLYNAME: PENDING_REQUEST_DESIRED_PROPERTY = 3
+public val XEPR_CAFRIENDLYNAME: PendingRequestDesiredProperty = 3
 
-public val XEPR_CANAME: PENDING_REQUEST_DESIRED_PROPERTY = 2
+public val XEPR_CANAME: PendingRequestDesiredProperty = 2
 
 public val XEPR_DATE: UInt = 5u
 
 public val XEPR_ENUM_FIRST: Int = -1
 
-public val XEPR_HASH: PENDING_REQUEST_DESIRED_PROPERTY = 8
+public val XEPR_HASH: PendingRequestDesiredProperty = 8
 
-public val XEPR_REQUESTID: PENDING_REQUEST_DESIRED_PROPERTY = 4
+public val XEPR_REQUESTID: PendingRequestDesiredProperty = 4
 
 public val XEPR_TEMPLATENAME: UInt = 6u
 
@@ -141,1168 +141,1168 @@ public val XEPR_V2TEMPLATEOID: UInt = 16u
 
 public val XEPR_VERSION: UInt = 7u
 
-public val dwCAXCHGOVERLAPPERIODCOUNTDEFAULT: UInt = 1u
+public val DW_CAXCHGOVERLAPPERIODCOUNTDEFAULT: UInt = 1u
 
-public val dwCAXCHGVALIDITYPERIODCOUNTDEFAULT: UInt = 1u
+public val DW_CAXCHGVALIDITYPERIODCOUNTDEFAULT: UInt = 1u
 
-public val dwCRLDELTAOVERLAPPERIODCOUNTDEFAULT: UInt = 0u
+public val DW_CRLDELTAOVERLAPPERIODCOUNTDEFAULT: UInt = 0u
 
-public val dwCRLDELTAPERIODCOUNTDEFAULT: UInt = 1u
+public val DW_CRLDELTAPERIODCOUNTDEFAULT: UInt = 1u
 
-public val dwCRLOVERLAPPERIODCOUNTDEFAULT: UInt = 0u
+public val DW_CRLOVERLAPPERIODCOUNTDEFAULT: UInt = 0u
 
-public val dwCRLPERIODCOUNTDEFAULT: UInt = 1u
+public val DW_CRLPERIODCOUNTDEFAULT: UInt = 1u
 
-public val dwVALIDITYPERIODCOUNTDEFAULT_ENTERPRISE: UInt = 2u
+public val DW_VALIDITYPERIODCOUNTDEFAULT_ENTERPRISE: UInt = 2u
 
-public val dwVALIDITYPERIODCOUNTDEFAULT_ROOT: UInt = 5u
+public val DW_VALIDITYPERIODCOUNTDEFAULT_ROOT: UInt = 5u
 
-public val dwVALIDITYPERIODCOUNTDEFAULT_STANDALONE: UInt = 1u
+public val DW_VALIDITYPERIODCOUNTDEFAULT_STANDALONE: UInt = 1u
 
-public val szBACKUPANNOTATION: PCSTR = s("Cert Server Backup Interface")
+public val SZ_BACKUPANNOTATION: Pcstr = s("Cert Server Backup Interface")
 
-public val szDBBASENAMEPARM: PCSTR = s("edb")
+public val SZ_DBBASENAMEPARM: Pcstr = s("edb")
 
-public val szNAMESEPARATORDEFAULT: PCSTR = s("\n")
+public val SZ_NAMESEPARATORDEFAULT: Pcstr = s("\n")
 
-public val szPROPASNTAG: PCSTR = s("{asn}")
+public val SZ_PROPASNTAG: Pcstr = s("{asn}")
 
-public val szRESTOREANNOTATION: PCSTR = s("Cert Server Restore Interface")
+public val SZ_RESTOREANNOTATION: Pcstr = s("Cert Server Restore Interface")
 
-public val wszAT_EKCERTINF: PCWSTR = w("@EKCert")
+public val WSZ_AT_EKCERTINF: Pcwstr = w("@EKCert")
 
-public val wszAT_TESTROOT: PCWSTR = w("@TestRoot")
+public val WSZ_AT_TESTROOT: Pcwstr = w("@TestRoot")
 
-public val wszCAPOLICYFILE: PCWSTR = w("CAPolicy.inf")
+public val WSZ_CAPOLICYFILE: Pcwstr = w("CAPolicy.inf")
 
-public val wszCERTEXITMODULE_POSTFIX: PCWSTR = w(".Exit")
+public val WSZ_CERTEXITMODULE_POSTFIX: Pcwstr = w(".Exit")
 
-public val wszCERTIFICATETRANSPARENCYFLAGS: PCWSTR = w("CertificateTransparencyFlags")
+public val WSZ_CERTIFICATETRANSPARENCYFLAGS: Pcwstr = w("CertificateTransparencyFlags")
 
-public val wszCERTMANAGE_SUFFIX: PCWSTR = w("Manage")
+public val WSZ_CERTMANAGE_SUFFIX: Pcwstr = w("Manage")
 
-public val wszCERTPOLICYMODULE_POSTFIX: PCWSTR = w(".Policy")
+public val WSZ_CERTPOLICYMODULE_POSTFIX: Pcwstr = w(".Policy")
 
-public val wszCERT_TYPE: PCWSTR = w("RequestType")
+public val WSZ_CERT_TYPE: Pcwstr = w("RequestType")
 
-public val wszCERT_TYPE_CLIENT: PCWSTR = w("Client")
+public val WSZ_CERT_TYPE_CLIENT: Pcwstr = w("Client")
 
-public val wszCERT_TYPE_CODESIGN: PCWSTR = w("CodeSign")
+public val WSZ_CERT_TYPE_CODESIGN: Pcwstr = w("CodeSign")
 
-public val wszCERT_TYPE_CUSTOMER: PCWSTR = w("SetCustomer")
+public val WSZ_CERT_TYPE_CUSTOMER: Pcwstr = w("SetCustomer")
 
-public val wszCERT_TYPE_MERCHANT: PCWSTR = w("SetMerchant")
+public val WSZ_CERT_TYPE_MERCHANT: Pcwstr = w("SetMerchant")
 
-public val wszCERT_TYPE_PAYMENT: PCWSTR = w("SetPayment")
+public val WSZ_CERT_TYPE_PAYMENT: Pcwstr = w("SetPayment")
 
-public val wszCERT_TYPE_SERVER: PCWSTR = w("Server")
+public val WSZ_CERT_TYPE_SERVER: Pcwstr = w("Server")
 
-public val wszCERT_VERSION: PCWSTR = w("Version")
+public val WSZ_CERT_VERSION: Pcwstr = w("Version")
 
-public val wszCERT_VERSION_1: PCWSTR = w("1")
+public val WSZ_CERT_VERSION_1: Pcwstr = w("1")
 
-public val wszCERT_VERSION_2: PCWSTR = w("2")
+public val WSZ_CERT_VERSION_2: Pcwstr = w("2")
 
-public val wszCERT_VERSION_3: PCWSTR = w("3")
+public val WSZ_CERT_VERSION_3: Pcwstr = w("3")
 
-public val wszCLASS_CERTADMIN: PCWSTR = w("CertificateAuthority.Admin")
+public val WSZ_CLASS_CERTADMIN: Pcwstr = w("CertificateAuthority.Admin")
 
-public val wszCLASS_CERTCONFIG: PCWSTR = w("CertificateAuthority.Config")
+public val WSZ_CLASS_CERTCONFIG: Pcwstr = w("CertificateAuthority.Config")
 
-public val wszCLASS_CERTDBMEM: PCWSTR = w("CertificateAuthority.DBMem")
+public val WSZ_CLASS_CERTDBMEM: Pcwstr = w("CertificateAuthority.DBMem")
 
-public val wszCLASS_CERTENCODE: PCWSTR = w("CertificateAuthority.Encode")
+public val WSZ_CLASS_CERTENCODE: Pcwstr = w("CertificateAuthority.Encode")
 
-public val wszCLASS_CERTGETCONFIG: PCWSTR = w("CertificateAuthority.GetConfig")
+public val WSZ_CLASS_CERTGETCONFIG: Pcwstr = w("CertificateAuthority.GetConfig")
 
-public val wszCLASS_CERTREQUEST: PCWSTR = w("CertificateAuthority.Request")
+public val WSZ_CLASS_CERTREQUEST: Pcwstr = w("CertificateAuthority.Request")
 
-public val wszCLASS_CERTSERVEREXIT: PCWSTR = w("CertificateAuthority.ServerExit")
+public val WSZ_CLASS_CERTSERVEREXIT: Pcwstr = w("CertificateAuthority.ServerExit")
 
-public val wszCLASS_CERTSERVERPOLICY: PCWSTR = w("CertificateAuthority.ServerPolicy")
+public val WSZ_CLASS_CERTSERVERPOLICY: Pcwstr = w("CertificateAuthority.ServerPolicy")
 
-public val wszCLASS_CERTVIEW: PCWSTR = w("CertificateAuthority.View")
+public val WSZ_CLASS_CERTVIEW: Pcwstr = w("CertificateAuthority.View")
 
-public val wszCMM_PROP_COPYRIGHT: PCWSTR = w("Copyright")
+public val WSZ_CMM_PROP_COPYRIGHT: Pcwstr = w("Copyright")
 
-public val wszCMM_PROP_DESCRIPTION: PCWSTR = w("Description")
+public val WSZ_CMM_PROP_DESCRIPTION: Pcwstr = w("Description")
 
-public val wszCMM_PROP_DISPLAY_HWND: PCWSTR = w("HWND")
+public val WSZ_CMM_PROP_DISPLAY_HWND: Pcwstr = w("HWND")
 
-public val wszCMM_PROP_FILEVER: PCWSTR = w("File Version")
+public val WSZ_CMM_PROP_FILEVER: Pcwstr = w("File Version")
 
-public val wszCMM_PROP_ISMULTITHREADED: PCWSTR = w("IsMultiThreaded")
+public val WSZ_CMM_PROP_ISMULTITHREADED: Pcwstr = w("IsMultiThreaded")
 
-public val wszCMM_PROP_NAME: PCWSTR = w("Name")
+public val WSZ_CMM_PROP_NAME: Pcwstr = w("Name")
 
-public val wszCMM_PROP_PRODUCTVER: PCWSTR = w("Product Version")
+public val WSZ_CMM_PROP_PRODUCTVER: Pcwstr = w("Product Version")
 
-public val wszCNGENCRYPTIONALGORITHM: PCWSTR = w("CNGEncryptionAlgorithm")
+public val WSZ_CNGENCRYPTIONALGORITHM: Pcwstr = w("CNGEncryptionAlgorithm")
 
-public val wszCNGHASHALGORITHM: PCWSTR = w("CNGHashAlgorithm")
+public val WSZ_CNGHASHALGORITHM: Pcwstr = w("CNGHashAlgorithm")
 
-public val wszCNGPUBLICKEYALGORITHM: PCWSTR = w("CNGPublicKeyAlgorithm")
+public val WSZ_CNGPUBLICKEYALGORITHM: Pcwstr = w("CNGPublicKeyAlgorithm")
 
-public val wszCONFIG_AUTHORITY: PCWSTR = w("Authority")
+public val WSZ_CONFIG_AUTHORITY: Pcwstr = w("Authority")
 
-public val wszCONFIG_COMMENT: PCWSTR = w("Comment")
+public val WSZ_CONFIG_COMMENT: Pcwstr = w("Comment")
 
-public val wszCONFIG_COMMONNAME: PCWSTR = w("CommonName")
+public val WSZ_CONFIG_COMMONNAME: Pcwstr = w("CommonName")
 
-public val wszCONFIG_CONFIG: PCWSTR = w("Config")
+public val WSZ_CONFIG_CONFIG: Pcwstr = w("Config")
 
-public val wszCONFIG_COUNTRY: PCWSTR = w("Country")
+public val WSZ_CONFIG_COUNTRY: Pcwstr = w("Country")
 
-public val wszCONFIG_DESCRIPTION: PCWSTR = w("Description")
+public val WSZ_CONFIG_DESCRIPTION: Pcwstr = w("Description")
 
-public val wszCONFIG_EXCHANGECERTIFICATE: PCWSTR = w("ExchangeCertificate")
+public val WSZ_CONFIG_EXCHANGECERTIFICATE: Pcwstr = w("ExchangeCertificate")
 
-public val wszCONFIG_FLAGS: PCWSTR = w("Flags")
+public val WSZ_CONFIG_FLAGS: Pcwstr = w("Flags")
 
-public val wszCONFIG_LOCALITY: PCWSTR = w("Locality")
+public val WSZ_CONFIG_LOCALITY: Pcwstr = w("Locality")
 
-public val wszCONFIG_ORGANIZATION: PCWSTR = w("Organization")
+public val WSZ_CONFIG_ORGANIZATION: Pcwstr = w("Organization")
 
-public val wszCONFIG_ORGUNIT: PCWSTR = w("OrgUnit")
+public val WSZ_CONFIG_ORGUNIT: Pcwstr = w("OrgUnit")
 
-public val wszCONFIG_SANITIZEDNAME: PCWSTR = w("SanitizedName")
+public val WSZ_CONFIG_SANITIZEDNAME: Pcwstr = w("SanitizedName")
 
-public val wszCONFIG_SANITIZEDSHORTNAME: PCWSTR = w("SanitizedShortName")
+public val WSZ_CONFIG_SANITIZEDSHORTNAME: Pcwstr = w("SanitizedShortName")
 
-public val wszCONFIG_SERVER: PCWSTR = w("Server")
+public val WSZ_CONFIG_SERVER: Pcwstr = w("Server")
 
-public val wszCONFIG_SHORTNAME: PCWSTR = w("ShortName")
+public val WSZ_CONFIG_SHORTNAME: Pcwstr = w("ShortName")
 
-public val wszCONFIG_SIGNATURECERTIFICATE: PCWSTR = w("SignatureCertificate")
+public val WSZ_CONFIG_SIGNATURECERTIFICATE: Pcwstr = w("SignatureCertificate")
 
-public val wszCONFIG_STATE: PCWSTR = w("State")
+public val WSZ_CONFIG_STATE: Pcwstr = w("State")
 
-public val wszCONFIG_WEBENROLLMENTSERVERS: PCWSTR = w("WebEnrollmentServers")
+public val WSZ_CONFIG_WEBENROLLMENTSERVERS: Pcwstr = w("WebEnrollmentServers")
 
-public val wszCRLPUBLISHRETRYCOUNT: PCWSTR = w("CRLPublishRetryCount")
+public val WSZ_CRLPUBLISHRETRYCOUNT: Pcwstr = w("CRLPublishRetryCount")
 
-public val wszCRTFILENAMEEXT: PCWSTR = w(".crt")
+public val WSZ_CRTFILENAMEEXT: Pcwstr = w(".crt")
 
-public val wszDATFILENAMEEXT: PCWSTR = w(".dat")
+public val WSZ_DATFILENAMEEXT: Pcwstr = w(".dat")
 
-public val wszDBBACKUPCERTBACKDAT: PCWSTR = w("certbkxp.dat")
+public val WSZ_DBBACKUPCERTBACKDAT: Pcwstr = w("certbkxp.dat")
 
-public val wszDBBACKUPSUBDIR: PCWSTR = w("DataBase")
+public val WSZ_DBBACKUPSUBDIR: Pcwstr = w("DataBase")
 
-public val wszDBFILENAMEEXT: PCWSTR = w(".edb")
+public val WSZ_DBFILENAMEEXT: Pcwstr = w(".edb")
 
-public val wszENCRYPTIONALGORITHM: PCWSTR = w("EncryptionAlgorithm")
+public val WSZ_ENCRYPTIONALGORITHM: Pcwstr = w("EncryptionAlgorithm")
 
-public val wszENROLLMENTAGENTRIGHTS: PCWSTR = w("EnrollmentAgentRights")
+public val WSZ_ENROLLMENTAGENTRIGHTS: Pcwstr = w("EnrollmentAgentRights")
 
-public val wszHASHALGORITHM: PCWSTR = w("HashAlgorithm")
+public val WSZ_HASHALGORITHM: Pcwstr = w("HashAlgorithm")
 
-public val wszINFKEY_ALTERNATESIGNATUREALGORITHM: PCWSTR = w("AlternateSignatureAlgorithm")
+public val WSZ_INFKEY_ALTERNATESIGNATUREALGORITHM: Pcwstr = w("AlternateSignatureAlgorithm")
 
-public val wszINFKEY_ATTESTPRIVATEKEY: PCWSTR = w("AttestPrivateKey")
+public val WSZ_INFKEY_ATTESTPRIVATEKEY: Pcwstr = w("AttestPrivateKey")
 
-public val wszINFKEY_CACAPABILITIES: PCWSTR = w("CACapabilities")
+public val WSZ_INFKEY_CACAPABILITIES: Pcwstr = w("CACapabilities")
 
-public val wszINFKEY_CACERTS: PCWSTR = w("CACerts")
+public val WSZ_INFKEY_CACERTS: Pcwstr = w("CACerts")
 
-public val wszINFKEY_CATHUMBPRINT: PCWSTR = w("CAThumbprint")
+public val WSZ_INFKEY_CATHUMBPRINT: Pcwstr = w("CAThumbprint")
 
-public val wszINFKEY_CCDPSYNCDELTATIME: PCWSTR = w("SyncDeltaTime")
+public val WSZ_INFKEY_CCDPSYNCDELTATIME: Pcwstr = w("SyncDeltaTime")
 
-public val wszINFKEY_CHALLENGEPASSWORD: PCWSTR = w("ChallengePassword")
+public val WSZ_INFKEY_CHALLENGEPASSWORD: Pcwstr = w("ChallengePassword")
 
-public val wszINFKEY_CONTINUE: PCWSTR = w("_continue_")
+public val WSZ_INFKEY_CONTINUE: Pcwstr = w("_continue_")
 
-public val wszINFKEY_CRITICAL: PCWSTR = w("Critical")
+public val WSZ_INFKEY_CRITICAL: Pcwstr = w("Critical")
 
-public val wszINFKEY_CRLDELTAPERIODCOUNT: PCWSTR = w("CRLDeltaPeriodUnits")
+public val WSZ_INFKEY_CRLDELTAPERIODCOUNT: Pcwstr = w("CRLDeltaPeriodUnits")
 
-public val wszINFKEY_CRLDELTAPERIODSTRING: PCWSTR = w("CRLDeltaPeriod")
+public val WSZ_INFKEY_CRLDELTAPERIODSTRING: Pcwstr = w("CRLDeltaPeriod")
 
-public val wszINFKEY_CRLPERIODCOUNT: PCWSTR = w("CRLPeriodUnits")
+public val WSZ_INFKEY_CRLPERIODCOUNT: Pcwstr = w("CRLPeriodUnits")
 
-public val wszINFKEY_CRLPERIODSTRING: PCWSTR = w("CRLPeriod")
+public val WSZ_INFKEY_CRLPERIODSTRING: Pcwstr = w("CRLPeriod")
 
-public val wszINFKEY_DIRECTORYNAME: PCWSTR = w("DirectoryName")
+public val WSZ_INFKEY_DIRECTORYNAME: Pcwstr = w("DirectoryName")
 
-public val wszINFKEY_DNS: PCWSTR = w("DNS")
+public val WSZ_INFKEY_DNS: Pcwstr = w("DNS")
 
-public val wszINFKEY_ECCKEYPARAMETERS: PCWSTR = w("EccKeyParameters")
+public val WSZ_INFKEY_ECCKEYPARAMETERS: Pcwstr = w("EccKeyParameters")
 
-public val wszINFKEY_ECCKEYPARAMETERSTYPE: PCWSTR = w("EccKeyParametersType")
+public val WSZ_INFKEY_ECCKEYPARAMETERSTYPE: Pcwstr = w("EccKeyParametersType")
 
-public val wszINFKEY_ECCKEYPARAMETERS_A: PCWSTR = w("EccKeyParameters_A")
+public val WSZ_INFKEY_ECCKEYPARAMETERS_A: Pcwstr = w("EccKeyParameters_A")
 
-public val wszINFKEY_ECCKEYPARAMETERS_B: PCWSTR = w("EccKeyParameters_B")
+public val WSZ_INFKEY_ECCKEYPARAMETERS_B: Pcwstr = w("EccKeyParameters_B")
 
-public val wszINFKEY_ECCKEYPARAMETERS_BASE: PCWSTR = w("EccKeyParameters_Base")
+public val WSZ_INFKEY_ECCKEYPARAMETERS_BASE: Pcwstr = w("EccKeyParameters_Base")
 
-public val wszINFKEY_ECCKEYPARAMETERS_COFACTOR: PCWSTR = w("EccKeyParameters_Cofactor")
+public val WSZ_INFKEY_ECCKEYPARAMETERS_COFACTOR: Pcwstr = w("EccKeyParameters_Cofactor")
 
-public val wszINFKEY_ECCKEYPARAMETERS_ORDER: PCWSTR = w("EccKeyParameters_Order")
+public val WSZ_INFKEY_ECCKEYPARAMETERS_ORDER: Pcwstr = w("EccKeyParameters_Order")
 
-public val wszINFKEY_ECCKEYPARAMETERS_P: PCWSTR = w("EccKeyParameters_P")
+public val WSZ_INFKEY_ECCKEYPARAMETERS_P: Pcwstr = w("EccKeyParameters_P")
 
-public val wszINFKEY_ECCKEYPARAMETERS_SEED: PCWSTR = w("EccKeyParameters_Seed")
+public val WSZ_INFKEY_ECCKEYPARAMETERS_SEED: Pcwstr = w("EccKeyParameters_Seed")
 
-public val wszINFKEY_EMAIL: PCWSTR = w("EMail")
+public val WSZ_INFKEY_EMAIL: Pcwstr = w("EMail")
 
-public val wszINFKEY_EMPTY: PCWSTR = w("Empty")
+public val WSZ_INFKEY_EMPTY: Pcwstr = w("Empty")
 
-public val wszINFKEY_ENABLEKEYCOUNTING: PCWSTR = w("EnableKeyCounting")
+public val WSZ_INFKEY_ENABLEKEYCOUNTING: Pcwstr = w("EnableKeyCounting")
 
-public val wszINFKEY_ENCRYPTIONALGORITHM: PCWSTR = w("EncryptionAlgorithm")
+public val WSZ_INFKEY_ENCRYPTIONALGORITHM: Pcwstr = w("EncryptionAlgorithm")
 
-public val wszINFKEY_ENCRYPTIONLENGTH: PCWSTR = w("EncryptionLength")
+public val WSZ_INFKEY_ENCRYPTIONLENGTH: Pcwstr = w("EncryptionLength")
 
-public val wszINFKEY_EXCLUDE: PCWSTR = w("Exclude")
+public val WSZ_INFKEY_EXCLUDE: Pcwstr = w("Exclude")
 
-public val wszINFKEY_EXPORTABLE: PCWSTR = w("Exportable")
+public val WSZ_INFKEY_EXPORTABLE: Pcwstr = w("Exportable")
 
-public val wszINFKEY_EXPORTABLEENCRYPTED: PCWSTR = w("ExportableEncrypted")
+public val WSZ_INFKEY_EXPORTABLEENCRYPTED: Pcwstr = w("ExportableEncrypted")
 
-public val wszINFKEY_FLAGS: PCWSTR = w("Flags")
+public val WSZ_INFKEY_FLAGS: Pcwstr = w("Flags")
 
-public val wszINFKEY_FORCEUTF8: PCWSTR = w("ForceUTF8")
+public val WSZ_INFKEY_FORCEUTF8: Pcwstr = w("ForceUTF8")
 
-public val wszINFKEY_FRIENDLYNAME: PCWSTR = w("FriendlyName")
+public val WSZ_INFKEY_FRIENDLYNAME: Pcwstr = w("FriendlyName")
 
-public val wszINFKEY_HASHALGORITHM: PCWSTR = w("HashAlgorithm")
+public val WSZ_INFKEY_HASHALGORITHM: Pcwstr = w("HashAlgorithm")
 
-public val wszINFKEY_INCLUDE: PCWSTR = w("Include")
+public val WSZ_INFKEY_INCLUDE: Pcwstr = w("Include")
 
-public val wszINFKEY_INHIBITPOLICYMAPPING: PCWSTR = w("InhibitPolicyMapping")
+public val WSZ_INFKEY_INHIBITPOLICYMAPPING: Pcwstr = w("InhibitPolicyMapping")
 
-public val wszINFKEY_IPADDRESS: PCWSTR = w("IPAddress")
+public val WSZ_INFKEY_IPADDRESS: Pcwstr = w("IPAddress")
 
-public val wszINFKEY_KEYALGORITHM: PCWSTR = w("KeyAlgorithm")
+public val WSZ_INFKEY_KEYALGORITHM: Pcwstr = w("KeyAlgorithm")
 
-public val wszINFKEY_KEYALGORITHMPARMETERS: PCWSTR = w("KeyAlgorithmParameters")
+public val WSZ_INFKEY_KEYALGORITHMPARMETERS: Pcwstr = w("KeyAlgorithmParameters")
 
-public val wszINFKEY_KEYCONTAINER: PCWSTR = w("KeyContainer")
+public val WSZ_INFKEY_KEYCONTAINER: Pcwstr = w("KeyContainer")
 
-public val wszINFKEY_KEYLENGTH: PCWSTR = w("KeyLength")
+public val WSZ_INFKEY_KEYLENGTH: Pcwstr = w("KeyLength")
 
-public val wszINFKEY_KEYPROTECTION: PCWSTR = w("KeyProtection")
+public val WSZ_INFKEY_KEYPROTECTION: Pcwstr = w("KeyProtection")
 
-public val wszINFKEY_KEYUSAGEEXTENSION: PCWSTR = w("KeyUsage")
+public val WSZ_INFKEY_KEYUSAGEEXTENSION: Pcwstr = w("KeyUsage")
 
-public val wszINFKEY_KEYUSAGEPROPERTY: PCWSTR = w("KeyUsageProperty")
+public val WSZ_INFKEY_KEYUSAGEPROPERTY: Pcwstr = w("KeyUsageProperty")
 
-public val wszINFKEY_LEGACYKEYSPEC: PCWSTR = w("KeySpec")
+public val WSZ_INFKEY_LEGACYKEYSPEC: Pcwstr = w("KeySpec")
 
-public val wszINFKEY_LOADDEFAULTTEMPLATES: PCWSTR = w("LoadDefaultTemplates")
+public val WSZ_INFKEY_LOADDEFAULTTEMPLATES: Pcwstr = w("LoadDefaultTemplates")
 
-public val wszINFKEY_MACHINEKEYSET: PCWSTR = w("MachineKeySet")
+public val WSZ_INFKEY_MACHINEKEYSET: Pcwstr = w("MachineKeySet")
 
-public val wszINFKEY_NOTAFTER: PCWSTR = w("NotAfter")
+public val WSZ_INFKEY_NOTAFTER: Pcwstr = w("NotAfter")
 
-public val wszINFKEY_NOTBEFORE: PCWSTR = w("NotBefore")
+public val WSZ_INFKEY_NOTBEFORE: Pcwstr = w("NotBefore")
 
-public val wszINFKEY_NOTICE: PCWSTR = w("Notice")
+public val WSZ_INFKEY_NOTICE: Pcwstr = w("Notice")
 
-public val wszINFKEY_OID: PCWSTR = w("OID")
+public val WSZ_INFKEY_OID: Pcwstr = w("OID")
 
-public val wszINFKEY_OTHERNAME: PCWSTR = w("OtherName")
+public val WSZ_INFKEY_OTHERNAME: Pcwstr = w("OtherName")
 
-public val wszINFKEY_PATHLENGTH: PCWSTR = w("PathLength")
+public val WSZ_INFKEY_PATHLENGTH: Pcwstr = w("PathLength")
 
-public val wszINFKEY_POLICIES: PCWSTR = w("Policies")
+public val WSZ_INFKEY_POLICIES: Pcwstr = w("Policies")
 
-public val wszINFKEY_PRIVATEKEYARCHIVE: PCWSTR = w("PrivateKeyArchive")
+public val WSZ_INFKEY_PRIVATEKEYARCHIVE: Pcwstr = w("PrivateKeyArchive")
 
-public val wszINFKEY_PROVIDERNAME: PCWSTR = w("ProviderName")
+public val WSZ_INFKEY_PROVIDERNAME: Pcwstr = w("ProviderName")
 
-public val wszINFKEY_PROVIDERTYPE: PCWSTR = w("ProviderType")
+public val WSZ_INFKEY_PROVIDERTYPE: Pcwstr = w("ProviderType")
 
-public val wszINFKEY_PUBLICKEY: PCWSTR = w("PublicKey")
+public val WSZ_INFKEY_PUBLICKEY: Pcwstr = w("PublicKey")
 
-public val wszINFKEY_PUBLICKEYPARAMETERS: PCWSTR = w("PublicKeyParameters")
+public val WSZ_INFKEY_PUBLICKEYPARAMETERS: Pcwstr = w("PublicKeyParameters")
 
-public val wszINFKEY_READERNAME: PCWSTR = w("ReaderName")
+public val WSZ_INFKEY_READERNAME: Pcwstr = w("ReaderName")
 
-public val wszINFKEY_REGISTEREDID: PCWSTR = w("RegisteredId")
+public val WSZ_INFKEY_REGISTEREDID: Pcwstr = w("RegisteredId")
 
-public val wszINFKEY_RENEWALCERT: PCWSTR = w("RenewalCert")
+public val WSZ_INFKEY_RENEWALCERT: Pcwstr = w("RenewalCert")
 
-public val wszINFKEY_RENEWALKEYLENGTH: PCWSTR = w("RenewalKeyLength")
+public val WSZ_INFKEY_RENEWALKEYLENGTH: Pcwstr = w("RenewalKeyLength")
 
-public val wszINFKEY_RENEWALVALIDITYPERIODCOUNT: PCWSTR = w("RenewalValidityPeriodUnits")
+public val WSZ_INFKEY_RENEWALVALIDITYPERIODCOUNT: Pcwstr = w("RenewalValidityPeriodUnits")
 
-public val wszINFKEY_RENEWALVALIDITYPERIODSTRING: PCWSTR = w("RenewalValidityPeriod")
+public val WSZ_INFKEY_RENEWALVALIDITYPERIODSTRING: Pcwstr = w("RenewalValidityPeriod")
 
-public val wszINFKEY_REQUESTTYPE: PCWSTR = w("RequestType")
+public val WSZ_INFKEY_REQUESTTYPE: Pcwstr = w("RequestType")
 
-public val wszINFKEY_REQUIREEXPLICITPOLICY: PCWSTR = w("RequireExplicitPolicy")
+public val WSZ_INFKEY_REQUIREEXPLICITPOLICY: Pcwstr = w("RequireExplicitPolicy")
 
-public val wszINFKEY_SECURITYDESCRIPTOR: PCWSTR = w("SecurityDescriptor")
+public val WSZ_INFKEY_SECURITYDESCRIPTOR: Pcwstr = w("SecurityDescriptor")
 
-public val wszINFKEY_SERIALNUMBER: PCWSTR = w("SerialNumber")
+public val WSZ_INFKEY_SERIALNUMBER: Pcwstr = w("SerialNumber")
 
-public val wszINFKEY_SHOWALLCSPS: PCWSTR = w("ShowAllCSPs")
+public val WSZ_INFKEY_SHOWALLCSPS: Pcwstr = w("ShowAllCSPs")
 
-public val wszINFKEY_SILENT: PCWSTR = w("Silent")
+public val WSZ_INFKEY_SILENT: Pcwstr = w("Silent")
 
-public val wszINFKEY_SMIME: PCWSTR = w("SMIME")
+public val WSZ_INFKEY_SMIME: Pcwstr = w("SMIME")
 
-public val wszINFKEY_SUBJECT: PCWSTR = w("Subject")
+public val WSZ_INFKEY_SUBJECT: Pcwstr = w("Subject")
 
-public val wszINFKEY_SUBJECTNAMEFLAGS: PCWSTR = w("SubjectNameFlags")
+public val WSZ_INFKEY_SUBJECTNAMEFLAGS: Pcwstr = w("SubjectNameFlags")
 
-public val wszINFKEY_SUBTREE: PCWSTR = w("SubTree")
+public val WSZ_INFKEY_SUBTREE: Pcwstr = w("SubTree")
 
-public val wszINFKEY_SUPPRESSDEFAULTS: PCWSTR = w("SuppressDefaults")
+public val WSZ_INFKEY_SUPPRESSDEFAULTS: Pcwstr = w("SuppressDefaults")
 
-public val wszINFKEY_UICONTEXTMESSAGE: PCWSTR = w("UIContextMessage")
+public val WSZ_INFKEY_UICONTEXTMESSAGE: Pcwstr = w("UIContextMessage")
 
-public val wszINFKEY_UPN: PCWSTR = w("UPN")
+public val WSZ_INFKEY_UPN: Pcwstr = w("UPN")
 
-public val wszINFKEY_URL: PCWSTR = w("URL")
+public val WSZ_INFKEY_URL: Pcwstr = w("URL")
 
-public val wszINFKEY_USEEXISTINGKEY: PCWSTR = w("UseExistingKeySet")
+public val WSZ_INFKEY_USEEXISTINGKEY: Pcwstr = w("UseExistingKeySet")
 
-public val wszINFKEY_USERPROTECTED: PCWSTR = w("UserProtected")
+public val WSZ_INFKEY_USERPROTECTED: Pcwstr = w("UserProtected")
 
-public val wszINFKEY_UTF8: PCWSTR = w("UTF8")
+public val WSZ_INFKEY_UTF8: Pcwstr = w("UTF8")
 
-public val wszINFKEY_X500NAMEFLAGS: PCWSTR = w("X500NameFlags")
+public val WSZ_INFKEY_X500NAMEFLAGS: Pcwstr = w("X500NameFlags")
 
-public val wszINFSECTION_AIA: PCWSTR = w("AuthorityInformationAccess")
+public val WSZ_INFSECTION_AIA: Pcwstr = w("AuthorityInformationAccess")
 
-public val wszINFSECTION_APPLICATIONPOLICYCONSTRAINTS: PCWSTR = w("ApplicationPolicyConstraintsExtension")
+public val WSZ_INFSECTION_APPLICATIONPOLICYCONSTRAINTS: Pcwstr = w("ApplicationPolicyConstraintsExtension")
 
-public val wszINFSECTION_APPLICATIONPOLICYMAPPINGS: PCWSTR = w("ApplicationPolicyMappingsExtension")
+public val WSZ_INFSECTION_APPLICATIONPOLICYMAPPINGS: Pcwstr = w("ApplicationPolicyMappingsExtension")
 
-public val wszINFSECTION_APPLICATIONPOLICYSTATEMENT: PCWSTR = w("ApplicationPolicyStatementExtension")
+public val WSZ_INFSECTION_APPLICATIONPOLICYSTATEMENT: Pcwstr = w("ApplicationPolicyStatementExtension")
 
-public val wszINFSECTION_BASICCONSTRAINTS: PCWSTR = w("BasicConstraintsExtension")
+public val WSZ_INFSECTION_BASICCONSTRAINTS: Pcwstr = w("BasicConstraintsExtension")
 
-public val wszINFSECTION_CAPOLICY: PCWSTR = w("CAPolicy")
+public val WSZ_INFSECTION_CAPOLICY: Pcwstr = w("CAPolicy")
 
-public val wszINFSECTION_CCDP: PCWSTR = w("CrossCertificateDistributionPointsExtension")
+public val WSZ_INFSECTION_CCDP: Pcwstr = w("CrossCertificateDistributionPointsExtension")
 
-public val wszINFSECTION_CDP: PCWSTR = w("CRLDistributionPoint")
+public val WSZ_INFSECTION_CDP: Pcwstr = w("CRLDistributionPoint")
 
-public val wszINFSECTION_CERTSERVER: PCWSTR = w("certsrv_server")
+public val WSZ_INFSECTION_CERTSERVER: Pcwstr = w("certsrv_server")
 
-public val wszINFSECTION_EKU: PCWSTR = w("EnhancedKeyUsageExtension")
+public val WSZ_INFSECTION_EKU: Pcwstr = w("EnhancedKeyUsageExtension")
 
-public val wszINFSECTION_EXTENSIONS: PCWSTR = w("Extensions")
+public val WSZ_INFSECTION_EXTENSIONS: Pcwstr = w("Extensions")
 
-public val wszINFSECTION_NAMECONSTRAINTS: PCWSTR = w("NameConstraintsExtension")
+public val WSZ_INFSECTION_NAMECONSTRAINTS: Pcwstr = w("NameConstraintsExtension")
 
-public val wszINFSECTION_NEWREQUEST: PCWSTR = w("NewRequest")
+public val WSZ_INFSECTION_NEWREQUEST: Pcwstr = w("NewRequest")
 
-public val wszINFSECTION_POLICYCONSTRAINTS: PCWSTR = w("PolicyConstraintsExtension")
+public val WSZ_INFSECTION_POLICYCONSTRAINTS: Pcwstr = w("PolicyConstraintsExtension")
 
-public val wszINFSECTION_POLICYMAPPINGS: PCWSTR = w("PolicyMappingsExtension")
+public val WSZ_INFSECTION_POLICYMAPPINGS: Pcwstr = w("PolicyMappingsExtension")
 
-public val wszINFSECTION_POLICYSTATEMENT: PCWSTR = w("PolicyStatementExtension")
+public val WSZ_INFSECTION_POLICYSTATEMENT: Pcwstr = w("PolicyStatementExtension")
 
-public val wszINFSECTION_PROPERTIES: PCWSTR = w("Properties")
+public val WSZ_INFSECTION_PROPERTIES: Pcwstr = w("Properties")
 
-public val wszINFSECTION_REQUESTATTRIBUTES: PCWSTR = w("RequestAttributes")
+public val WSZ_INFSECTION_REQUESTATTRIBUTES: Pcwstr = w("RequestAttributes")
 
-public val wszINFVALUE_ENDORSEMENTKEY: PCWSTR = w("EndorsementKey")
+public val WSZ_INFVALUE_ENDORSEMENTKEY: Pcwstr = w("EndorsementKey")
 
-public val wszINFVALUE_REQUESTTYPE_CERT: PCWSTR = w("Cert")
+public val WSZ_INFVALUE_REQUESTTYPE_CERT: Pcwstr = w("Cert")
 
-public val wszINFVALUE_REQUESTTYPE_CMC: PCWSTR = w("CMC")
+public val WSZ_INFVALUE_REQUESTTYPE_CMC: Pcwstr = w("CMC")
 
-public val wszINFVALUE_REQUESTTYPE_PKCS10: PCWSTR = w("PKCS10")
+public val WSZ_INFVALUE_REQUESTTYPE_PKCS10: Pcwstr = w("PKCS10")
 
-public val wszINFVALUE_REQUESTTYPE_PKCS7: PCWSTR = w("PKCS7")
+public val WSZ_INFVALUE_REQUESTTYPE_PKCS7: Pcwstr = w("PKCS7")
 
-public val wszINFVALUE_REQUESTTYPE_SCEP: PCWSTR = w("SCEP")
+public val WSZ_INFVALUE_REQUESTTYPE_SCEP: Pcwstr = w("SCEP")
 
-public val wszLDAPSESSIONOPTIONVALUE: PCWSTR = w("LDAPSessionOptionValue")
+public val WSZ_LDAPSESSIONOPTIONVALUE: Pcwstr = w("LDAPSessionOptionValue")
 
-public val wszLOCALIZEDTIMEPERIODUNITS: PCWSTR = w("LocalizedTimePeriodUnits")
+public val WSZ_LOCALIZEDTIMEPERIODUNITS: Pcwstr = w("LocalizedTimePeriodUnits")
 
-public val wszLOGFILENAMEEXT: PCWSTR = w(".log")
+public val WSZ_LOGFILENAMEEXT: Pcwstr = w(".log")
 
-public val wszLOGPATH: PCWSTR = w("CertLog")
+public val WSZ_LOGPATH: Pcwstr = w("CertLog")
 
-public val wszMACHINEKEYSET: PCWSTR = w("MachineKeyset")
+public val WSZ_MACHINEKEYSET: Pcwstr = w("MachineKeyset")
 
-public val wszMICROSOFTCERTMODULE_PREFIX: PCWSTR = w("CertificateAuthority_MicrosoftDefault")
+public val WSZ_MICROSOFTCERTMODULE_PREFIX: Pcwstr = w("CertificateAuthority_MicrosoftDefault")
 
-public val wszNETSCAPEREVOCATIONTYPE: PCWSTR = w("Netscape")
+public val WSZ_NETSCAPEREVOCATIONTYPE: Pcwstr = w("Netscape")
 
-public val wszOCSPCAPROP_CACERTIFICATE: PCWSTR = w("CACertificate")
+public val WSZ_OCSPCAPROP_CACERTIFICATE: Pcwstr = w("CACertificate")
 
-public val wszOCSPCAPROP_CACONFIG: PCWSTR = w("CAConfig")
+public val WSZ_OCSPCAPROP_CACONFIG: Pcwstr = w("CAConfig")
 
-public val wszOCSPCAPROP_CSPNAME: PCWSTR = w("CSPName")
+public val WSZ_OCSPCAPROP_CSPNAME: Pcwstr = w("CSPName")
 
-public val wszOCSPCAPROP_ERRORCODE: PCWSTR = w("ErrorCode")
+public val WSZ_OCSPCAPROP_ERRORCODE: Pcwstr = w("ErrorCode")
 
-public val wszOCSPCAPROP_HASHALGORITHMID: PCWSTR = w("HashAlgorithmId")
+public val WSZ_OCSPCAPROP_HASHALGORITHMID: Pcwstr = w("HashAlgorithmId")
 
-public val wszOCSPCAPROP_KEYSPEC: PCWSTR = w("KeySpec")
+public val WSZ_OCSPCAPROP_KEYSPEC: Pcwstr = w("KeySpec")
 
-public val wszOCSPCAPROP_LOCALREVOCATIONINFORMATION: PCWSTR = w("LocalRevocationInformation")
+public val WSZ_OCSPCAPROP_LOCALREVOCATIONINFORMATION: Pcwstr = w("LocalRevocationInformation")
 
-public val wszOCSPCAPROP_PROVIDERCLSID: PCWSTR = w("ProviderCLSID")
+public val WSZ_OCSPCAPROP_PROVIDERCLSID: Pcwstr = w("ProviderCLSID")
 
-public val wszOCSPCAPROP_PROVIDERPROPERTIES: PCWSTR = w("Provider")
+public val WSZ_OCSPCAPROP_PROVIDERPROPERTIES: Pcwstr = w("Provider")
 
-public val wszOCSPCAPROP_REMINDERDURATION: PCWSTR = w("ReminderDuration")
+public val WSZ_OCSPCAPROP_REMINDERDURATION: Pcwstr = w("ReminderDuration")
 
-public val wszOCSPCAPROP_SIGNINGCERTIFICATE: PCWSTR = w("SigningCertificate")
+public val WSZ_OCSPCAPROP_SIGNINGCERTIFICATE: Pcwstr = w("SigningCertificate")
 
-public val wszOCSPCAPROP_SIGNINGCERTIFICATETEMPLATE: PCWSTR = w("SigningCertificateTemplate")
+public val WSZ_OCSPCAPROP_SIGNINGCERTIFICATETEMPLATE: Pcwstr = w("SigningCertificateTemplate")
 
-public val wszOCSPCAPROP_SIGNINGFLAGS: PCWSTR = w("SigningFlags")
+public val WSZ_OCSPCAPROP_SIGNINGFLAGS: Pcwstr = w("SigningFlags")
 
-public val wszOCSPCOMMONPROP_MAXINCOMINGMESSAGESIZE: PCWSTR = w("MaxIncomingMessageSize")
+public val WSZ_OCSPCOMMONPROP_MAXINCOMINGMESSAGESIZE: Pcwstr = w("MaxIncomingMessageSize")
 
-public val wszOCSPCOMMONPROP_MAXNUMOFREQUESTENTRIES: PCWSTR = w("MaxNumOfRequestEntries")
+public val WSZ_OCSPCOMMONPROP_MAXNUMOFREQUESTENTRIES: Pcwstr = w("MaxNumOfRequestEntries")
 
-public val wszOCSPCOMMONPROP_REQFLAGS: PCWSTR = w("RequestFlags")
+public val WSZ_OCSPCOMMONPROP_REQFLAGS: Pcwstr = w("RequestFlags")
 
-public val wszOCSPISAPIPROP_DEBUG: PCWSTR = w("ISAPIDebug")
+public val WSZ_OCSPISAPIPROP_DEBUG: Pcwstr = w("ISAPIDebug")
 
-public val wszOCSPISAPIPROP_MAXAGE: PCWSTR = w("MaxAge")
+public val WSZ_OCSPISAPIPROP_MAXAGE: Pcwstr = w("MaxAge")
 
-public val wszOCSPISAPIPROP_MAXNUMOFCACHEENTRIES: PCWSTR = w("MaxNumOfCacheEntries")
+public val WSZ_OCSPISAPIPROP_MAXNUMOFCACHEENTRIES: Pcwstr = w("MaxNumOfCacheEntries")
 
-public val wszOCSPISAPIPROP_NUMOFBACKENDCONNECTIONS: PCWSTR = w("NumOfBackendConnections")
+public val WSZ_OCSPISAPIPROP_NUMOFBACKENDCONNECTIONS: Pcwstr = w("NumOfBackendConnections")
 
-public val wszOCSPISAPIPROP_NUMOFTHREADS: PCWSTR = w("NumOfThreads")
+public val WSZ_OCSPISAPIPROP_NUMOFTHREADS: Pcwstr = w("NumOfThreads")
 
-public val wszOCSPISAPIPROP_REFRESHRATE: PCWSTR = w("RefreshRate")
+public val WSZ_OCSPISAPIPROP_REFRESHRATE: Pcwstr = w("RefreshRate")
 
-public val wszOCSPISAPIPROP_VIRTUALROOTNAME: PCWSTR = w("VirtualRootName")
+public val WSZ_OCSPISAPIPROP_VIRTUALROOTNAME: Pcwstr = w("VirtualRootName")
 
-public val wszOCSPPROP_ARRAYCONTROLLER: PCWSTR = w("ArrayController")
+public val WSZ_OCSPPROP_ARRAYCONTROLLER: Pcwstr = w("ArrayController")
 
-public val wszOCSPPROP_ARRAYMEMBERS: PCWSTR = w("ArrayMembers")
+public val WSZ_OCSPPROP_ARRAYMEMBERS: Pcwstr = w("ArrayMembers")
 
-public val wszOCSPPROP_AUDITFILTER: PCWSTR = w("AuditFilter")
+public val WSZ_OCSPPROP_AUDITFILTER: Pcwstr = w("AuditFilter")
 
-public val wszOCSPPROP_DEBUG: PCWSTR = w("Debug")
+public val WSZ_OCSPPROP_DEBUG: Pcwstr = w("Debug")
 
-public val wszOCSPPROP_ENROLLPOLLINTERVAL: PCWSTR = w("EnrollPollInterval")
+public val WSZ_OCSPPROP_ENROLLPOLLINTERVAL: Pcwstr = w("EnrollPollInterval")
 
-public val wszOCSPPROP_LOGLEVEL: PCWSTR = w("LogLevel")
+public val WSZ_OCSPPROP_LOGLEVEL: Pcwstr = w("LogLevel")
 
-public val wszOCSPREVPROP_BASECRL: PCWSTR = w("BaseCrl")
+public val WSZ_OCSPREVPROP_BASECRL: Pcwstr = w("BaseCrl")
 
-public val wszOCSPREVPROP_BASECRLURLS: PCWSTR = w("BaseCrlUrls")
+public val WSZ_OCSPREVPROP_BASECRLURLS: Pcwstr = w("BaseCrlUrls")
 
-public val wszOCSPREVPROP_CRLURLTIMEOUT: PCWSTR = w("CrlUrlTimeOut")
+public val WSZ_OCSPREVPROP_CRLURLTIMEOUT: Pcwstr = w("CrlUrlTimeOut")
 
-public val wszOCSPREVPROP_DELTACRL: PCWSTR = w("DeltaCrl")
+public val WSZ_OCSPREVPROP_DELTACRL: Pcwstr = w("DeltaCrl")
 
-public val wszOCSPREVPROP_DELTACRLURLS: PCWSTR = w("DeltaCrlUrls")
+public val WSZ_OCSPREVPROP_DELTACRLURLS: Pcwstr = w("DeltaCrlUrls")
 
-public val wszOCSPREVPROP_ERRORCODE: PCWSTR = w("RevocationErrorCode")
+public val WSZ_OCSPREVPROP_ERRORCODE: Pcwstr = w("RevocationErrorCode")
 
-public val wszOCSPREVPROP_REFRESHTIMEOUT: PCWSTR = w("RefreshTimeOut")
+public val WSZ_OCSPREVPROP_REFRESHTIMEOUT: Pcwstr = w("RefreshTimeOut")
 
-public val wszOCSPREVPROP_SERIALNUMBERSDIRS: PCWSTR = w("IssuedSerialNumbersDirectories")
+public val WSZ_OCSPREVPROP_SERIALNUMBERSDIRS: Pcwstr = w("IssuedSerialNumbersDirectories")
 
-public val wszPERIODDAYS: PCWSTR = w("Days")
+public val WSZ_PERIODDAYS: Pcwstr = w("Days")
 
-public val wszPERIODHOURS: PCWSTR = w("Hours")
+public val WSZ_PERIODHOURS: Pcwstr = w("Hours")
 
-public val wszPERIODMINUTES: PCWSTR = w("Minutes")
+public val WSZ_PERIODMINUTES: Pcwstr = w("Minutes")
 
-public val wszPERIODMONTHS: PCWSTR = w("Months")
+public val WSZ_PERIODMONTHS: Pcwstr = w("Months")
 
-public val wszPERIODSECONDS: PCWSTR = w("Seconds")
+public val WSZ_PERIODSECONDS: Pcwstr = w("Seconds")
 
-public val wszPERIODWEEKS: PCWSTR = w("Weeks")
+public val WSZ_PERIODWEEKS: Pcwstr = w("Weeks")
 
-public val wszPERIODYEARS: PCWSTR = w("Years")
+public val WSZ_PERIODYEARS: Pcwstr = w("Years")
 
-public val wszPFXFILENAMEEXT: PCWSTR = w(".p12")
+public val WSZ_PFXFILENAMEEXT: Pcwstr = w(".p12")
 
-public val wszPROPATTESTATIONCHALLENGE: PCWSTR = w("AttestationChallenge")
+public val WSZ_PROPATTESTATIONCHALLENGE: Pcwstr = w("AttestationChallenge")
 
-public val wszPROPATTRIBNAME: PCWSTR = w("AttributeName")
+public val WSZ_PROPATTRIBNAME: Pcwstr = w("AttributeName")
 
-public val wszPROPATTRIBREQUESTID: PCWSTR = w("AttributeRequestId")
+public val WSZ_PROPATTRIBREQUESTID: Pcwstr = w("AttributeRequestId")
 
-public val wszPROPATTRIBVALUE: PCWSTR = w("AttributeValue")
+public val WSZ_PROPATTRIBVALUE: Pcwstr = w("AttributeValue")
 
-public val wszPROPCALLERNAME: PCWSTR = w("CallerName")
+public val WSZ_PROPCALLERNAME: Pcwstr = w("CallerName")
 
-public val wszPROPCATYPE: PCWSTR = w("CAType")
+public val WSZ_PROPCATYPE: Pcwstr = w("CAType")
 
-public val wszPROPCERTCLIENTMACHINE: PCWSTR = w("ccm")
+public val WSZ_PROPCERTCLIENTMACHINE: Pcwstr = w("ccm")
 
-public val wszPROPCERTCOUNT: PCWSTR = w("CertCount")
+public val WSZ_PROPCERTCOUNT: Pcwstr = w("CertCount")
 
-public val wszPROPCERTIFICATEENROLLMENTFLAGS: PCWSTR = w("EnrollmentFlags")
+public val WSZ_PROPCERTIFICATEENROLLMENTFLAGS: Pcwstr = w("EnrollmentFlags")
 
-public val wszPROPCERTIFICATEGENERALFLAGS: PCWSTR = w("GeneralFlags")
+public val WSZ_PROPCERTIFICATEGENERALFLAGS: Pcwstr = w("GeneralFlags")
 
-public val wszPROPCERTIFICATEHASH: PCWSTR = w("CertificateHash")
+public val WSZ_PROPCERTIFICATEHASH: Pcwstr = w("CertificateHash")
 
-public val wszPROPCERTIFICATENOTAFTERDATE: PCWSTR = w("NotAfter")
+public val WSZ_PROPCERTIFICATENOTAFTERDATE: Pcwstr = w("NotAfter")
 
-public val wszPROPCERTIFICATENOTBEFOREDATE: PCWSTR = w("NotBefore")
+public val WSZ_PROPCERTIFICATENOTBEFOREDATE: Pcwstr = w("NotBefore")
 
-public val wszPROPCERTIFICATEPRIVATEKEYFLAGS: PCWSTR = w("PrivatekeyFlags")
+public val WSZ_PROPCERTIFICATEPRIVATEKEYFLAGS: Pcwstr = w("PrivatekeyFlags")
 
-public val wszPROPCERTIFICATEPUBLICKEYALGORITHM: PCWSTR = w("PublicKeyAlgorithm")
+public val WSZ_PROPCERTIFICATEPUBLICKEYALGORITHM: Pcwstr = w("PublicKeyAlgorithm")
 
-public val wszPROPCERTIFICATEPUBLICKEYLENGTH: PCWSTR = w("PublicKeyLength")
+public val WSZ_PROPCERTIFICATEPUBLICKEYLENGTH: Pcwstr = w("PublicKeyLength")
 
-public val wszPROPCERTIFICATERAWPUBLICKEY: PCWSTR = w("RawPublicKey")
+public val WSZ_PROPCERTIFICATERAWPUBLICKEY: Pcwstr = w("RawPublicKey")
 
-public val wszPROPCERTIFICATERAWPUBLICKEYALGORITHMPARAMETERS: PCWSTR = w("RawPublicKeyAlgorithmParameters")
+public val WSZ_PROPCERTIFICATERAWPUBLICKEYALGORITHMPARAMETERS: Pcwstr = w("RawPublicKeyAlgorithmParameters")
 
-public val wszPROPCERTIFICATERAWSMIMECAPABILITIES: PCWSTR = w("RawSMIMECapabilities")
+public val WSZ_PROPCERTIFICATERAWSMIMECAPABILITIES: Pcwstr = w("RawSMIMECapabilities")
 
-public val wszPROPCERTIFICATEREQUESTID: PCWSTR = w("RequestID")
+public val WSZ_PROPCERTIFICATEREQUESTID: Pcwstr = w("RequestID")
 
-public val wszPROPCERTIFICATESERIALNUMBER: PCWSTR = w("SerialNumber")
+public val WSZ_PROPCERTIFICATESERIALNUMBER: Pcwstr = w("SerialNumber")
 
-public val wszPROPCERTIFICATESUBJECTKEYIDENTIFIER: PCWSTR = w("SubjectKeyIdentifier")
+public val WSZ_PROPCERTIFICATESUBJECTKEYIDENTIFIER: Pcwstr = w("SubjectKeyIdentifier")
 
-public val wszPROPCERTIFICATETEMPLATE: PCWSTR = w("CertificateTemplate")
+public val WSZ_PROPCERTIFICATETEMPLATE: Pcwstr = w("CertificateTemplate")
 
-public val wszPROPCERTIFICATETYPE: PCWSTR = w("CertificateType")
+public val WSZ_PROPCERTIFICATETYPE: Pcwstr = w("CertificateType")
 
-public val wszPROPCERTIFICATEUPN: PCWSTR = w("UPN")
+public val WSZ_PROPCERTIFICATEUPN: Pcwstr = w("UPN")
 
-public val wszPROPCERTSTATE: PCWSTR = w("CertState")
+public val WSZ_PROPCERTSTATE: Pcwstr = w("CertState")
 
-public val wszPROPCERTSUFFIX: PCWSTR = w("CertSuffix")
+public val WSZ_PROPCERTSUFFIX: Pcwstr = w("CertSuffix")
 
-public val wszPROPCERTTEMPLATE: PCWSTR = w("CertificateTemplate")
+public val WSZ_PROPCERTTEMPLATE: Pcwstr = w("CertificateTemplate")
 
-public val wszPROPCERTTYPE: PCWSTR = w("CertType")
+public val WSZ_PROPCERTTYPE: Pcwstr = w("CertType")
 
-public val wszPROPCERTUSAGE: PCWSTR = w("CertificateUsage")
+public val WSZ_PROPCERTUSAGE: Pcwstr = w("CertificateUsage")
 
-public val wszPROPCHALLENGE: PCWSTR = w("Challenge")
+public val WSZ_PROPCHALLENGE: Pcwstr = w("Challenge")
 
-public val wszPROPCLIENTBROWSERMACHINE: PCWSTR = w("cbm")
+public val WSZ_PROPCLIENTBROWSERMACHINE: Pcwstr = w("cbm")
 
-public val wszPROPCLIENTDCDNS: PCWSTR = w("cdc")
+public val WSZ_PROPCLIENTDCDNS: Pcwstr = w("cdc")
 
-public val wszPROPCOMMONNAME: PCWSTR = w("CommonName")
+public val WSZ_PROPCOMMONNAME: Pcwstr = w("CommonName")
 
-public val wszPROPCONFIGDN: PCWSTR = w("ConfigDN")
+public val WSZ_PROPCONFIGDN: Pcwstr = w("ConfigDN")
 
-public val wszPROPCOUNTRY: PCWSTR = w("Country")
+public val WSZ_PROPCOUNTRY: Pcwstr = w("Country")
 
-public val wszPROPCRITICALTAG: PCWSTR = w("{critical}")
+public val WSZ_PROPCRITICALTAG: Pcwstr = w("{critical}")
 
-public val wszPROPCRLCOUNT: PCWSTR = w("CRLCount")
+public val WSZ_PROPCRLCOUNT: Pcwstr = w("CRLCount")
 
-public val wszPROPCRLEFFECTIVE: PCWSTR = w("CRLEffective")
+public val WSZ_PROPCRLEFFECTIVE: Pcwstr = w("CRLEffective")
 
-public val wszPROPCRLINDEX: PCWSTR = w("CRLIndex")
+public val WSZ_PROPCRLINDEX: Pcwstr = w("CRLIndex")
 
-public val wszPROPCRLLASTPUBLISHED: PCWSTR = w("CRLLastPublished")
+public val WSZ_PROPCRLLASTPUBLISHED: Pcwstr = w("CRLLastPublished")
 
-public val wszPROPCRLMINBASE: PCWSTR = w("CRLMinBase")
+public val WSZ_PROPCRLMINBASE: Pcwstr = w("CRLMinBase")
 
-public val wszPROPCRLNAMEID: PCWSTR = w("CRLNameId")
+public val WSZ_PROPCRLNAMEID: Pcwstr = w("CRLNameId")
 
-public val wszPROPCRLNEXTPUBLISH: PCWSTR = w("CRLNextPublish")
+public val WSZ_PROPCRLNEXTPUBLISH: Pcwstr = w("CRLNextPublish")
 
-public val wszPROPCRLNEXTUPDATE: PCWSTR = w("CRLNextUpdate")
+public val WSZ_PROPCRLNEXTUPDATE: Pcwstr = w("CRLNextUpdate")
 
-public val wszPROPCRLNUMBER: PCWSTR = w("CRLNumber")
+public val WSZ_PROPCRLNUMBER: Pcwstr = w("CRLNumber")
 
-public val wszPROPCRLPROPAGATIONCOMPLETE: PCWSTR = w("CRLPropagationComplete")
+public val WSZ_PROPCRLPROPAGATIONCOMPLETE: Pcwstr = w("CRLPropagationComplete")
 
-public val wszPROPCRLPUBLISHATTEMPTS: PCWSTR = w("CRLPublishAttempts")
+public val WSZ_PROPCRLPUBLISHATTEMPTS: Pcwstr = w("CRLPublishAttempts")
 
-public val wszPROPCRLPUBLISHERROR: PCWSTR = w("CRLPublishError")
+public val WSZ_PROPCRLPUBLISHERROR: Pcwstr = w("CRLPublishError")
 
-public val wszPROPCRLPUBLISHFLAGS: PCWSTR = w("CRLPublishFlags")
+public val WSZ_PROPCRLPUBLISHFLAGS: Pcwstr = w("CRLPublishFlags")
 
-public val wszPROPCRLPUBLISHSTATUSCODE: PCWSTR = w("CRLPublishStatusCode")
+public val WSZ_PROPCRLPUBLISHSTATUSCODE: Pcwstr = w("CRLPublishStatusCode")
 
-public val wszPROPCRLRAWCRL: PCWSTR = w("CRLRawCRL")
+public val WSZ_PROPCRLRAWCRL: Pcwstr = w("CRLRawCRL")
 
-public val wszPROPCRLROWID: PCWSTR = w("CRLRowId")
+public val WSZ_PROPCRLROWID: Pcwstr = w("CRLRowId")
 
-public val wszPROPCRLSTATE: PCWSTR = w("CRLState")
+public val WSZ_PROPCRLSTATE: Pcwstr = w("CRLState")
 
-public val wszPROPCRLSUFFIX: PCWSTR = w("CRLSuffix")
+public val WSZ_PROPCRLSUFFIX: Pcwstr = w("CRLSuffix")
 
-public val wszPROPCRLTHISPUBLISH: PCWSTR = w("CRLThisPublish")
+public val WSZ_PROPCRLTHISPUBLISH: Pcwstr = w("CRLThisPublish")
 
-public val wszPROPCRLTHISUPDATE: PCWSTR = w("CRLThisUpdate")
+public val WSZ_PROPCRLTHISUPDATE: Pcwstr = w("CRLThisUpdate")
 
-public val wszPROPCROSSFOREST: PCWSTR = w("CrossForest")
+public val WSZ_PROPCROSSFOREST: Pcwstr = w("CrossForest")
 
-public val wszPROPDCNAME: PCWSTR = w("DCName")
+public val WSZ_PROPDCNAME: Pcwstr = w("DCName")
 
-public val wszPROPDECIMALTAG: PCWSTR = w("{decimal}")
+public val WSZ_PROPDECIMALTAG: Pcwstr = w("{decimal}")
 
-public val wszPROPDELTACRLSDISABLED: PCWSTR = w("fDeltaCRLsDisabled")
+public val WSZ_PROPDELTACRLSDISABLED: Pcwstr = w("fDeltaCRLsDisabled")
 
-public val wszPROPDEVICESERIALNUMBER: PCWSTR = w("DeviceSerialNumber")
+public val WSZ_PROPDEVICESERIALNUMBER: Pcwstr = w("DeviceSerialNumber")
 
-public val wszPROPDISPOSITION: PCWSTR = w("Disposition")
+public val WSZ_PROPDISPOSITION: Pcwstr = w("Disposition")
 
-public val wszPROPDISPOSITIONDENY: PCWSTR = w("Deny")
+public val WSZ_PROPDISPOSITIONDENY: Pcwstr = w("Deny")
 
-public val wszPROPDISPOSITIONPENDING: PCWSTR = w("Pending")
+public val WSZ_PROPDISPOSITIONPENDING: Pcwstr = w("Pending")
 
-public val wszPROPDISTINGUISHEDNAME: PCWSTR = w("DistinguishedName")
+public val WSZ_PROPDISTINGUISHEDNAME: Pcwstr = w("DistinguishedName")
 
-public val wszPROPDN: PCWSTR = w("dn")
+public val WSZ_PROPDN: Pcwstr = w("dn")
 
-public val wszPROPDNS: PCWSTR = w("dns")
+public val WSZ_PROPDNS: Pcwstr = w("dns")
 
-public val wszPROPDOMAINCOMPONENT: PCWSTR = w("DomainComponent")
+public val WSZ_PROPDOMAINCOMPONENT: Pcwstr = w("DomainComponent")
 
-public val wszPROPDOMAINDN: PCWSTR = w("DomainDN")
+public val WSZ_PROPDOMAINDN: Pcwstr = w("DomainDN")
 
-public val wszPROPEMAIL: PCWSTR = w("EMail")
+public val WSZ_PROPEMAIL: Pcwstr = w("EMail")
 
-public val wszPROPENDORSEMENTCERTIFICATEHASH: PCWSTR = w("EndorsementCertificateHash")
+public val WSZ_PROPENDORSEMENTCERTIFICATEHASH: Pcwstr = w("EndorsementCertificateHash")
 
-public val wszPROPENDORSEMENTKEYHASH: PCWSTR = w("EndorsementKeyHash")
+public val WSZ_PROPENDORSEMENTKEYHASH: Pcwstr = w("EndorsementKeyHash")
 
-public val wszPROPEVENTLOGERROR: PCWSTR = w("EventLogError")
+public val WSZ_PROPEVENTLOGERROR: Pcwstr = w("EventLogError")
 
-public val wszPROPEVENTLOGEXHAUSTIVE: PCWSTR = w("EventLogExhaustive")
+public val WSZ_PROPEVENTLOGEXHAUSTIVE: Pcwstr = w("EventLogExhaustive")
 
-public val wszPROPEVENTLOGTERSE: PCWSTR = w("EventLogTerse")
+public val WSZ_PROPEVENTLOGTERSE: Pcwstr = w("EventLogTerse")
 
-public val wszPROPEVENTLOGVERBOSE: PCWSTR = w("EventLogVerbose")
+public val WSZ_PROPEVENTLOGVERBOSE: Pcwstr = w("EventLogVerbose")
 
-public val wszPROPEVENTLOGWARNING: PCWSTR = w("EventLogWarning")
+public val WSZ_PROPEVENTLOGWARNING: Pcwstr = w("EventLogWarning")
 
-public val wszPROPEXITCERTFILE: PCWSTR = w("CertFile")
+public val WSZ_PROPEXITCERTFILE: Pcwstr = w("CertFile")
 
-public val wszPROPEXPECTEDCHALLENGE: PCWSTR = w("ExpectedChallenge")
+public val WSZ_PROPEXPECTEDCHALLENGE: Pcwstr = w("ExpectedChallenge")
 
-public val wszPROPEXPIRATIONDATE: PCWSTR = w("ExpirationDate")
+public val WSZ_PROPEXPIRATIONDATE: Pcwstr = w("ExpirationDate")
 
-public val wszPROPEXTFLAGS: PCWSTR = w("ExtensionFlags")
+public val WSZ_PROPEXTFLAGS: Pcwstr = w("ExtensionFlags")
 
-public val wszPROPEXTNAME: PCWSTR = w("ExtensionName")
+public val WSZ_PROPEXTNAME: Pcwstr = w("ExtensionName")
 
-public val wszPROPEXTRAWVALUE: PCWSTR = w("ExtensionRawValue")
+public val WSZ_PROPEXTRAWVALUE: Pcwstr = w("ExtensionRawValue")
 
-public val wszPROPEXTREQUESTID: PCWSTR = w("ExtensionRequestId")
+public val WSZ_PROPEXTREQUESTID: Pcwstr = w("ExtensionRequestId")
 
-public val wszPROPFILETAG: PCWSTR = w("{file}")
+public val WSZ_PROPFILETAG: Pcwstr = w("{file}")
 
-public val wszPROPGIVENNAME: PCWSTR = w("GivenName")
+public val WSZ_PROPGIVENNAME: Pcwstr = w("GivenName")
 
-public val wszPROPGUID: PCWSTR = w("guid")
+public val WSZ_PROPGUID: Pcwstr = w("guid")
 
-public val wszPROPHEXTAG: PCWSTR = w("{hex}")
+public val WSZ_PROPHEXTAG: Pcwstr = w("{hex}")
 
-public val wszPROPINITIALS: PCWSTR = w("Initials")
+public val WSZ_PROPINITIALS: Pcwstr = w("Initials")
 
-public val wszPROPIPADDRESS: PCWSTR = w("ipaddress")
+public val WSZ_PROPIPADDRESS: Pcwstr = w("ipaddress")
 
-public val wszPROPKEYARCHIVED: PCWSTR = w("KeyArchived")
+public val WSZ_PROPKEYARCHIVED: Pcwstr = w("KeyArchived")
 
-public val wszPROPLOCALITY: PCWSTR = w("Locality")
+public val WSZ_PROPLOCALITY: Pcwstr = w("Locality")
 
-public val wszPROPLOGLEVEL: PCWSTR = w("LogLevel")
+public val WSZ_PROPLOGLEVEL: Pcwstr = w("LogLevel")
 
-public val wszPROPMACHINEDNSNAME: PCWSTR = w("MachineDNSName")
+public val WSZ_PROPMACHINEDNSNAME: Pcwstr = w("MachineDNSName")
 
-public val wszPROPMODULEREGLOC: PCWSTR = w("ModuleRegistryLocation")
+public val WSZ_PROPMODULEREGLOC: Pcwstr = w("ModuleRegistryLocation")
 
-public val wszPROPNAMETYPE: PCWSTR = w("NameType")
+public val WSZ_PROPNAMETYPE: Pcwstr = w("NameType")
 
-public val wszPROPOCTETTAG: PCWSTR = w("{octet}")
+public val WSZ_PROPOCTETTAG: Pcwstr = w("{octet}")
 
-public val wszPROPOFFICER: PCWSTR = w("Officer")
+public val WSZ_PROPOFFICER: Pcwstr = w("Officer")
 
-public val wszPROPOID: PCWSTR = w("oid")
+public val WSZ_PROPOID: Pcwstr = w("oid")
 
-public val wszPROPORGANIZATION: PCWSTR = w("Organization")
+public val WSZ_PROPORGANIZATION: Pcwstr = w("Organization")
 
-public val wszPROPORGUNIT: PCWSTR = w("OrgUnit")
+public val WSZ_PROPORGUNIT: Pcwstr = w("OrgUnit")
 
-public val wszPROPPUBLISHEXPIREDCERTINCRL: PCWSTR = w("PublishExpiredCertInCRL")
+public val WSZ_PROPPUBLISHEXPIREDCERTINCRL: Pcwstr = w("PublishExpiredCertInCRL")
 
-public val wszPROPRAWCACERTIFICATE: PCWSTR = w("RawCACertificate")
+public val WSZ_PROPRAWCACERTIFICATE: Pcwstr = w("RawCACertificate")
 
-public val wszPROPRAWCERTIFICATE: PCWSTR = w("RawCertificate")
+public val WSZ_PROPRAWCERTIFICATE: Pcwstr = w("RawCertificate")
 
-public val wszPROPRAWCRL: PCWSTR = w("RawCRL")
+public val WSZ_PROPRAWCRL: Pcwstr = w("RawCRL")
 
-public val wszPROPRAWDELTACRL: PCWSTR = w("RawDeltaCRL")
+public val WSZ_PROPRAWDELTACRL: Pcwstr = w("RawDeltaCRL")
 
-public val wszPROPRAWNAME: PCWSTR = w("RawName")
+public val WSZ_PROPRAWNAME: Pcwstr = w("RawName")
 
-public val wszPROPRAWPRECERTIFICATE: PCWSTR = w("RawPrecertificate")
+public val WSZ_PROPRAWPRECERTIFICATE: Pcwstr = w("RawPrecertificate")
 
-public val wszPROPREQUESTARCHIVEDKEY: PCWSTR = w("ArchivedKey")
+public val WSZ_PROPREQUESTARCHIVEDKEY: Pcwstr = w("ArchivedKey")
 
-public val wszPROPREQUESTATTRIBUTES: PCWSTR = w("RequestAttributes")
+public val WSZ_PROPREQUESTATTRIBUTES: Pcwstr = w("RequestAttributes")
 
-public val wszPROPREQUESTCSPPROVIDER: PCWSTR = w("RequestCSPProvider")
+public val WSZ_PROPREQUESTCSPPROVIDER: Pcwstr = w("RequestCSPProvider")
 
-public val wszPROPREQUESTDISPOSITION: PCWSTR = w("Disposition")
+public val WSZ_PROPREQUESTDISPOSITION: Pcwstr = w("Disposition")
 
-public val wszPROPREQUESTDISPOSITIONMESSAGE: PCWSTR = w("DispositionMessage")
+public val WSZ_PROPREQUESTDISPOSITIONMESSAGE: Pcwstr = w("DispositionMessage")
 
-public val wszPROPREQUESTDOT: PCWSTR = w("Request.")
+public val WSZ_PROPREQUESTDOT: Pcwstr = w("Request.")
 
-public val wszPROPREQUESTERCAACCESS: PCWSTR = w("RequesterCAAccess")
+public val WSZ_PROPREQUESTERCAACCESS: Pcwstr = w("RequesterCAAccess")
 
-public val wszPROPREQUESTERDN: PCWSTR = w("RequesterDN")
+public val WSZ_PROPREQUESTERDN: Pcwstr = w("RequesterDN")
 
-public val wszPROPREQUESTERNAME: PCWSTR = w("RequesterName")
+public val WSZ_PROPREQUESTERNAME: Pcwstr = w("RequesterName")
 
-public val wszPROPREQUESTERNAMEFROMOLDCERTIFICATE: PCWSTR = w("RequesterNameFromOldCertificate")
+public val WSZ_PROPREQUESTERNAMEFROMOLDCERTIFICATE: Pcwstr = w("RequesterNameFromOldCertificate")
 
-public val wszPROPREQUESTERSAMNAME: PCWSTR = w("RequesterSAMName")
+public val WSZ_PROPREQUESTERSAMNAME: Pcwstr = w("RequesterSAMName")
 
-public val wszPROPREQUESTERUPN: PCWSTR = w("RequesterUPN")
+public val WSZ_PROPREQUESTERUPN: Pcwstr = w("RequesterUPN")
 
-public val wszPROPREQUESTFLAGS: PCWSTR = w("RequestFlags")
+public val WSZ_PROPREQUESTFLAGS: Pcwstr = w("RequestFlags")
 
-public val wszPROPREQUESTKEYRECOVERYHASHES: PCWSTR = w("KeyRecoveryHashes")
+public val WSZ_PROPREQUESTKEYRECOVERYHASHES: Pcwstr = w("KeyRecoveryHashes")
 
-public val wszPROPREQUESTMACHINEDNS: PCWSTR = w("rmd")
+public val WSZ_PROPREQUESTMACHINEDNS: Pcwstr = w("rmd")
 
-public val wszPROPREQUESTOSVERSION: PCWSTR = w("RequestOSVersion")
+public val WSZ_PROPREQUESTOSVERSION: Pcwstr = w("RequestOSVersion")
 
-public val wszPROPREQUESTRAWARCHIVEDKEY: PCWSTR = w("RawArchivedKey")
+public val WSZ_PROPREQUESTRAWARCHIVEDKEY: Pcwstr = w("RawArchivedKey")
 
-public val wszPROPREQUESTRAWOLDCERTIFICATE: PCWSTR = w("RawOldCertificate")
+public val WSZ_PROPREQUESTRAWOLDCERTIFICATE: Pcwstr = w("RawOldCertificate")
 
-public val wszPROPREQUESTRAWREQUEST: PCWSTR = w("RawRequest")
+public val WSZ_PROPREQUESTRAWREQUEST: Pcwstr = w("RawRequest")
 
-public val wszPROPREQUESTREQUESTID: PCWSTR = w("RequestID")
+public val WSZ_PROPREQUESTREQUESTID: Pcwstr = w("RequestID")
 
-public val wszPROPREQUESTRESOLVEDWHEN: PCWSTR = w("ResolvedWhen")
+public val WSZ_PROPREQUESTRESOLVEDWHEN: Pcwstr = w("ResolvedWhen")
 
-public val wszPROPREQUESTREVOKEDEFFECTIVEWHEN: PCWSTR = w("RevokedEffectiveWhen")
+public val WSZ_PROPREQUESTREVOKEDEFFECTIVEWHEN: Pcwstr = w("RevokedEffectiveWhen")
 
-public val wszPROPREQUESTREVOKEDREASON: PCWSTR = w("RevokedReason")
+public val WSZ_PROPREQUESTREVOKEDREASON: Pcwstr = w("RevokedReason")
 
-public val wszPROPREQUESTREVOKEDWHEN: PCWSTR = w("RevokedWhen")
+public val WSZ_PROPREQUESTREVOKEDWHEN: Pcwstr = w("RevokedWhen")
 
-public val wszPROPREQUESTSTATUSCODE: PCWSTR = w("StatusCode")
+public val WSZ_PROPREQUESTSTATUSCODE: Pcwstr = w("StatusCode")
 
-public val wszPROPREQUESTSUBMITTEDWHEN: PCWSTR = w("SubmittedWhen")
+public val WSZ_PROPREQUESTSUBMITTEDWHEN: Pcwstr = w("SubmittedWhen")
 
-public val wszPROPREQUESTTYPE: PCWSTR = w("RequestType")
+public val WSZ_PROPREQUESTTYPE: Pcwstr = w("RequestType")
 
-public val wszPROPSANITIZEDCANAME: PCWSTR = w("SanitizedCAName")
+public val WSZ_PROPSANITIZEDCANAME: Pcwstr = w("SanitizedCAName")
 
-public val wszPROPSANITIZEDSHORTNAME: PCWSTR = w("SanitizedShortName")
+public val WSZ_PROPSANITIZEDSHORTNAME: Pcwstr = w("SanitizedShortName")
 
-public val wszPROPSEAUDITFILTER: PCWSTR = w("SEAuditFilter")
+public val WSZ_PROPSEAUDITFILTER: Pcwstr = w("SEAuditFilter")
 
-public val wszPROPSEAUDITID: PCWSTR = w("SEAuditId")
+public val WSZ_PROPSEAUDITID: Pcwstr = w("SEAuditId")
 
-public val wszPROPSERVERUPGRADED: PCWSTR = w("fServerUpgraded")
+public val WSZ_PROPSERVERUPGRADED: Pcwstr = w("fServerUpgraded")
 
-public val wszPROPSESSIONCOUNT: PCWSTR = w("SessionCount")
+public val WSZ_PROPSESSIONCOUNT: Pcwstr = w("SessionCount")
 
-public val wszPROPSIGNERAPPLICATIONPOLICIES: PCWSTR = w("SignerApplicationPolicies")
+public val WSZ_PROPSIGNERAPPLICATIONPOLICIES: Pcwstr = w("SignerApplicationPolicies")
 
-public val wszPROPSIGNERPOLICIES: PCWSTR = w("SignerPolicies")
+public val WSZ_PROPSIGNERPOLICIES: Pcwstr = w("SignerPolicies")
 
-public val wszPROPSTATE: PCWSTR = w("State")
+public val WSZ_PROPSTATE: Pcwstr = w("State")
 
-public val wszPROPSTREETADDRESS: PCWSTR = w("StreetAddress")
+public val WSZ_PROPSTREETADDRESS: Pcwstr = w("StreetAddress")
 
-public val wszPROPSUBJECTALTNAME2: PCWSTR = w("san")
+public val WSZ_PROPSUBJECTALTNAME2: Pcwstr = w("san")
 
-public val wszPROPSUBJECTDOT: PCWSTR = w("Subject.")
+public val WSZ_PROPSUBJECTDOT: Pcwstr = w("Subject.")
 
-public val wszPROPSURNAME: PCWSTR = w("SurName")
+public val WSZ_PROPSURNAME: Pcwstr = w("SurName")
 
-public val wszPROPTEMPLATECHANGESEQUENCENUMBER: PCWSTR = w("TemplateChangeSequenceNumber")
+public val WSZ_PROPTEMPLATECHANGESEQUENCENUMBER: Pcwstr = w("TemplateChangeSequenceNumber")
 
-public val wszPROPTEXTTAG: PCWSTR = w("{text}")
+public val WSZ_PROPTEXTTAG: Pcwstr = w("{text}")
 
-public val wszPROPTITLE: PCWSTR = w("Title")
+public val WSZ_PROPTITLE: Pcwstr = w("Title")
 
-public val wszPROPUNSTRUCTUREDADDRESS: PCWSTR = w("UnstructuredAddress")
+public val WSZ_PROPUNSTRUCTUREDADDRESS: Pcwstr = w("UnstructuredAddress")
 
-public val wszPROPUNSTRUCTUREDNAME: PCWSTR = w("UnstructuredName")
+public val WSZ_PROPUNSTRUCTUREDNAME: Pcwstr = w("UnstructuredName")
 
-public val wszPROPUPN: PCWSTR = w("upn")
+public val WSZ_PROPUPN: Pcwstr = w("upn")
 
-public val wszPROPURL: PCWSTR = w("url")
+public val WSZ_PROPURL: Pcwstr = w("url")
 
-public val wszPROPUSEDS: PCWSTR = w("fUseDS")
+public val WSZ_PROPUSEDS: Pcwstr = w("fUseDS")
 
-public val wszPROPUSERDN: PCWSTR = w("UserDN")
+public val WSZ_PROPUSERDN: Pcwstr = w("UserDN")
 
-public val wszPROPUTF8TAG: PCWSTR = w("{utf8}")
+public val WSZ_PROPUTF8TAG: Pcwstr = w("{utf8}")
 
-public val wszPROPVALIDITYPERIODCOUNT: PCWSTR = w("ValidityPeriodUnits")
+public val WSZ_PROPVALIDITYPERIODCOUNT: Pcwstr = w("ValidityPeriodUnits")
 
-public val wszPROPVALIDITYPERIODSTRING: PCWSTR = w("ValidityPeriod")
+public val WSZ_PROPVALIDITYPERIODSTRING: Pcwstr = w("ValidityPeriod")
 
-public val wszPROPVOLATILEMODE: PCWSTR = w("VolatileMode")
+public val WSZ_PROPVOLATILEMODE: Pcwstr = w("VolatileMode")
 
-public val wszREGACTIVE: PCWSTR = w("Active")
+public val WSZ_REGACTIVE: Pcwstr = w("Active")
 
-public val wszREGAELOGLEVEL_OLD: PCWSTR = w("AEEventLogLevel")
+public val WSZ_REGAELOGLEVEL_OLD: Pcwstr = w("AEEventLogLevel")
 
-public val wszREGAIKCLOUDCAURL: PCWSTR = w("AIKCloudCAURL")
+public val WSZ_REGAIKCLOUDCAURL: Pcwstr = w("AIKCloudCAURL")
 
-public val wszREGAIKKEYALGORITHM: PCWSTR = w("AIKKeyAlgorithm")
+public val WSZ_REGAIKKEYALGORITHM: Pcwstr = w("AIKKeyAlgorithm")
 
-public val wszREGAIKKEYLENGTH: PCWSTR = w("AIKKeyLength")
+public val WSZ_REGAIKKEYLENGTH: Pcwstr = w("AIKKeyLength")
 
-public val wszREGALLPROVIDERS: PCWSTR = w("All")
+public val WSZ_REGALLPROVIDERS: Pcwstr = w("All")
 
-public val wszREGALTERNATEPUBLISHDOMAINS: PCWSTR = w("AlternatePublishDomains")
+public val WSZ_REGALTERNATEPUBLISHDOMAINS: Pcwstr = w("AlternatePublishDomains")
 
-public val wszREGALTERNATESIGNATUREALGORITHM: PCWSTR = w("AlternateSignatureAlgorithm")
+public val WSZ_REGALTERNATESIGNATUREALGORITHM: Pcwstr = w("AlternateSignatureAlgorithm")
 
-public val wszREGAUDITFILTER: PCWSTR = w("AuditFilter")
+public val WSZ_REGAUDITFILTER: Pcwstr = w("AuditFilter")
 
-public val wszREGB2ICERTMANAGEMODULE: PCWSTR = w("ICertManageModule")
+public val WSZ_REGB2ICERTMANAGEMODULE: Pcwstr = w("ICertManageModule")
 
-public val wszREGBACKUPLOGDIRECTORY: PCWSTR = w("BackupLogDirectory")
+public val WSZ_REGBACKUPLOGDIRECTORY: Pcwstr = w("BackupLogDirectory")
 
-public val wszREGCACERTFILENAME: PCWSTR = w("CACertFileName")
+public val WSZ_REGCACERTFILENAME: Pcwstr = w("CACertFileName")
 
-public val wszREGCACERTHASH: PCWSTR = w("CACertHash")
+public val WSZ_REGCACERTHASH: Pcwstr = w("CACertHash")
 
-public val wszREGCACERTPUBLICATIONURLS: PCWSTR = w("CACertPublicationURLs")
+public val WSZ_REGCACERTPUBLICATIONURLS: Pcwstr = w("CACertPublicationURLs")
 
-public val wszREGCADESCRIPTION: PCWSTR = w("CADescription")
+public val WSZ_REGCADESCRIPTION: Pcwstr = w("CADescription")
 
-public val wszREGCAPATHLENGTH: PCWSTR = w("CAPathLength")
+public val WSZ_REGCAPATHLENGTH: Pcwstr = w("CAPathLength")
 
-public val wszREGCASECURITY: PCWSTR = w("Security")
+public val WSZ_REGCASECURITY: Pcwstr = w("Security")
 
-public val wszREGCASERIALNUMBER: PCWSTR = w("CACertSerialNumber")
+public val WSZ_REGCASERIALNUMBER: Pcwstr = w("CACertSerialNumber")
 
-public val wszREGCASERVERNAME: PCWSTR = w("CAServerName")
+public val WSZ_REGCASERVERNAME: Pcwstr = w("CAServerName")
 
-public val wszREGCATYPE: PCWSTR = w("CAType")
+public val WSZ_REGCATYPE: Pcwstr = w("CAType")
 
-public val wszREGCAUSEDS: PCWSTR = w("UseDS")
+public val WSZ_REGCAUSEDS: Pcwstr = w("UseDS")
 
-public val wszREGCAXCHGCERTHASH: PCWSTR = w("CAXchgCertHash")
+public val WSZ_REGCAXCHGCERTHASH: Pcwstr = w("CAXchgCertHash")
 
-public val wszREGCAXCHGOVERLAPPERIODCOUNT: PCWSTR = w("CAXchgOverlapPeriodUnits")
+public val WSZ_REGCAXCHGOVERLAPPERIODCOUNT: Pcwstr = w("CAXchgOverlapPeriodUnits")
 
-public val wszREGCAXCHGOVERLAPPERIODSTRING: PCWSTR = w("CAXchgOverlapPeriod")
+public val WSZ_REGCAXCHGOVERLAPPERIODSTRING: Pcwstr = w("CAXchgOverlapPeriod")
 
-public val wszREGCAXCHGVALIDITYPERIODCOUNT: PCWSTR = w("CAXchgValidityPeriodUnits")
+public val WSZ_REGCAXCHGVALIDITYPERIODCOUNT: Pcwstr = w("CAXchgValidityPeriodUnits")
 
-public val wszREGCAXCHGVALIDITYPERIODSTRING: PCWSTR = w("CAXchgValidityPeriod")
+public val WSZ_REGCAXCHGVALIDITYPERIODSTRING: Pcwstr = w("CAXchgValidityPeriod")
 
-public val wszREGCERTENROLLCOMPATIBLE: PCWSTR = w("CertEnrollCompatible")
+public val WSZ_REGCERTENROLLCOMPATIBLE: Pcwstr = w("CertEnrollCompatible")
 
-public val wszREGCERTIFICATETRANSPARENCYINFOOID: PCWSTR = w("CTInformationExtensionOid")
+public val WSZ_REGCERTIFICATETRANSPARENCYINFOOID: Pcwstr = w("CTInformationExtensionOid")
 
-public val wszREGCERTPUBLISHFLAGS: PCWSTR = w("PublishCertFlags")
+public val WSZ_REGCERTPUBLISHFLAGS: Pcwstr = w("PublishCertFlags")
 
-public val wszREGCERTSRVDEBUG: PCWSTR = w("Debug")
+public val WSZ_REGCERTSRVDEBUG: Pcwstr = w("Debug")
 
-public val wszREGCHECKPOINTFILE: PCWSTR = w("CheckPointFile")
+public val WSZ_REGCHECKPOINTFILE: Pcwstr = w("CheckPointFile")
 
-public val wszREGCLOCKSKEWMINUTES: PCWSTR = w("ClockSkewMinutes")
+public val WSZ_REGCLOCKSKEWMINUTES: Pcwstr = w("ClockSkewMinutes")
 
-public val wszREGCOMMONNAME: PCWSTR = w("CommonName")
+public val WSZ_REGCOMMONNAME: Pcwstr = w("CommonName")
 
-public val wszREGCRLATTEMPTREPUBLISH: PCWSTR = w("CRLAttemptRepublish")
+public val WSZ_REGCRLATTEMPTREPUBLISH: Pcwstr = w("CRLAttemptRepublish")
 
-public val wszREGCRLDELTANEXTPUBLISH: PCWSTR = w("CRLDeltaNextPublish")
+public val WSZ_REGCRLDELTANEXTPUBLISH: Pcwstr = w("CRLDeltaNextPublish")
 
-public val wszREGCRLDELTAOVERLAPPERIODCOUNT: PCWSTR = w("CRLDeltaOverlapUnits")
+public val WSZ_REGCRLDELTAOVERLAPPERIODCOUNT: Pcwstr = w("CRLDeltaOverlapUnits")
 
-public val wszREGCRLDELTAOVERLAPPERIODSTRING: PCWSTR = w("CRLDeltaOverlapPeriod")
+public val WSZ_REGCRLDELTAOVERLAPPERIODSTRING: Pcwstr = w("CRLDeltaOverlapPeriod")
 
-public val wszREGCRLDELTAPERIODCOUNT: PCWSTR = w("CRLDeltaPeriodUnits")
+public val WSZ_REGCRLDELTAPERIODCOUNT: Pcwstr = w("CRLDeltaPeriodUnits")
 
-public val wszREGCRLDELTAPERIODSTRING: PCWSTR = w("CRLDeltaPeriod")
+public val WSZ_REGCRLDELTAPERIODSTRING: Pcwstr = w("CRLDeltaPeriod")
 
-public val wszREGCRLEDITFLAGS: PCWSTR = w("CRLEditFlags")
+public val WSZ_REGCRLEDITFLAGS: Pcwstr = w("CRLEditFlags")
 
-public val wszREGCRLFLAGS: PCWSTR = w("CRLFlags")
+public val WSZ_REGCRLFLAGS: Pcwstr = w("CRLFlags")
 
-public val wszREGCRLNEXTPUBLISH: PCWSTR = w("CRLNextPublish")
+public val WSZ_REGCRLNEXTPUBLISH: Pcwstr = w("CRLNextPublish")
 
-public val wszREGCRLOVERLAPPERIODCOUNT: PCWSTR = w("CRLOverlapUnits")
+public val WSZ_REGCRLOVERLAPPERIODCOUNT: Pcwstr = w("CRLOverlapUnits")
 
-public val wszREGCRLOVERLAPPERIODSTRING: PCWSTR = w("CRLOverlapPeriod")
+public val WSZ_REGCRLOVERLAPPERIODSTRING: Pcwstr = w("CRLOverlapPeriod")
 
-public val wszREGCRLPATH_OLD: PCWSTR = w("CRLPath")
+public val WSZ_REGCRLPATH_OLD: Pcwstr = w("CRLPath")
 
-public val wszREGCRLPERIODCOUNT: PCWSTR = w("CRLPeriodUnits")
+public val WSZ_REGCRLPERIODCOUNT: Pcwstr = w("CRLPeriodUnits")
 
-public val wszREGCRLPERIODSTRING: PCWSTR = w("CRLPeriod")
+public val WSZ_REGCRLPERIODSTRING: Pcwstr = w("CRLPeriod")
 
-public val wszREGCRLPUBLICATIONURLS: PCWSTR = w("CRLPublicationURLs")
+public val WSZ_REGCRLPUBLICATIONURLS: Pcwstr = w("CRLPublicationURLs")
 
-public val wszREGDATABASERECOVERED: PCWSTR = w("DatabaseRecovered")
+public val WSZ_REGDATABASERECOVERED: Pcwstr = w("DatabaseRecovered")
 
-public val wszREGDBDIRECTORY: PCWSTR = w("DBDirectory")
+public val WSZ_REGDBDIRECTORY: Pcwstr = w("DBDirectory")
 
-public val wszREGDBFLAGS: PCWSTR = w("DBFlags")
+public val WSZ_REGDBFLAGS: Pcwstr = w("DBFlags")
 
-public val wszREGDBLASTFULLBACKUP: PCWSTR = w("DBLastFullBackup")
+public val WSZ_REGDBLASTFULLBACKUP: Pcwstr = w("DBLastFullBackup")
 
-public val wszREGDBLASTINCREMENTALBACKUP: PCWSTR = w("DBLastIncrementalBackup")
+public val WSZ_REGDBLASTINCREMENTALBACKUP: Pcwstr = w("DBLastIncrementalBackup")
 
-public val wszREGDBLASTRECOVERY: PCWSTR = w("DBLastRecovery")
+public val WSZ_REGDBLASTRECOVERY: Pcwstr = w("DBLastRecovery")
 
-public val wszREGDBLOGDIRECTORY: PCWSTR = w("DBLogDirectory")
+public val WSZ_REGDBLOGDIRECTORY: Pcwstr = w("DBLogDirectory")
 
-public val wszREGDBMAXREADSESSIONCOUNT: PCWSTR = w("DBMaxReadSessionCount")
+public val WSZ_REGDBMAXREADSESSIONCOUNT: Pcwstr = w("DBMaxReadSessionCount")
 
-public val wszREGDBSESSIONCOUNT: PCWSTR = w("DBSessionCount")
+public val WSZ_REGDBSESSIONCOUNT: Pcwstr = w("DBSessionCount")
 
-public val wszREGDBSYSDIRECTORY: PCWSTR = w("DBSystemDirectory")
+public val WSZ_REGDBSYSDIRECTORY: Pcwstr = w("DBSystemDirectory")
 
-public val wszREGDBTEMPDIRECTORY: PCWSTR = w("DBTempDirectory")
+public val WSZ_REGDBTEMPDIRECTORY: Pcwstr = w("DBTempDirectory")
 
-public val wszREGDEFAULTSMIME: PCWSTR = w("DefaultSMIME")
+public val WSZ_REGDEFAULTSMIME: Pcwstr = w("DefaultSMIME")
 
-public val wszREGDIRECTORY: PCWSTR = w("ConfigurationDirectory")
+public val WSZ_REGDIRECTORY: Pcwstr = w("ConfigurationDirectory")
 
-public val wszREGDISABLEEXTENSIONLIST: PCWSTR = w("DisableExtensionList")
+public val WSZ_REGDISABLEEXTENSIONLIST: Pcwstr = w("DisableExtensionList")
 
-public val wszREGDSCONFIGDN: PCWSTR = w("DSConfigDN")
+public val WSZ_REGDSCONFIGDN: Pcwstr = w("DSConfigDN")
 
-public val wszREGDSDOMAINDN: PCWSTR = w("DSDomainDN")
+public val WSZ_REGDSDOMAINDN: Pcwstr = w("DSDomainDN")
 
-public val wszREGEDITFLAGS: PCWSTR = w("EditFlags")
+public val WSZ_REGEDITFLAGS: Pcwstr = w("EditFlags")
 
-public val wszREGEKPUBLISTDIRECTORIES: PCWSTR = w("EndorsementKeyListDirectories")
+public val WSZ_REGEKPUBLISTDIRECTORIES: Pcwstr = w("EndorsementKeyListDirectories")
 
-public val wszREGEKUOIDSFORPUBLISHEXPIREDCERTINCRL: PCWSTR = w("EKUOIDsForPublishExpiredCertInCRL")
+public val WSZ_REGEKUOIDSFORPUBLISHEXPIREDCERTINCRL: Pcwstr = w("EKUOIDsForPublishExpiredCertInCRL")
 
-public val wszREGEKUOIDSFORVOLATILEREQUESTS: PCWSTR = w("EKUOIDsforVolatileRequests")
+public val WSZ_REGEKUOIDSFORVOLATILEREQUESTS: Pcwstr = w("EKUOIDsforVolatileRequests")
 
-public val wszREGENABLED: PCWSTR = w("Enabled")
+public val WSZ_REGENABLED: Pcwstr = w("Enabled")
 
-public val wszREGENABLEDEKUFORDEFINEDCACERT: PCWSTR = w("EnabledEKUForDefinedCACert")
+public val WSZ_REGENABLEDEKUFORDEFINEDCACERT: Pcwstr = w("EnabledEKUForDefinedCACert")
 
-public val wszREGENABLEENROLLEEREQUESTEXTENSIONLIST: PCWSTR = w("EnableEnrolleeRequestExtensionList")
+public val WSZ_REGENABLEENROLLEEREQUESTEXTENSIONLIST: Pcwstr = w("EnableEnrolleeRequestExtensionList")
 
-public val wszREGENABLEREQUESTEXTENSIONLIST: PCWSTR = w("EnableRequestExtensionList")
+public val WSZ_REGENABLEREQUESTEXTENSIONLIST: Pcwstr = w("EnableRequestExtensionList")
 
-public val wszREGENFORCEX500NAMELENGTHS: PCWSTR = w("EnforceX500NameLengths")
+public val WSZ_REGENFORCEX500NAMELENGTHS: Pcwstr = w("EnforceX500NameLengths")
 
-public val wszREGENROLLFLAGS: PCWSTR = w("EnrollFlags")
+public val WSZ_REGENROLLFLAGS: Pcwstr = w("EnrollFlags")
 
-public val wszREGEXITBODYARG: PCWSTR = w("BodyArg")
+public val WSZ_REGEXITBODYARG: Pcwstr = w("BodyArg")
 
-public val wszREGEXITBODYFORMAT: PCWSTR = w("BodyFormat")
+public val WSZ_REGEXITBODYFORMAT: Pcwstr = w("BodyFormat")
 
-public val wszREGEXITCRLISSUEDKEY: PCWSTR = w("CRLIssued")
+public val WSZ_REGEXITCRLISSUEDKEY: Pcwstr = w("CRLIssued")
 
-public val wszREGEXITDENIEDKEY: PCWSTR = w("Denied")
+public val WSZ_REGEXITDENIEDKEY: Pcwstr = w("Denied")
 
-public val wszREGEXITIMPORTEDKEY: PCWSTR = w("Imported")
+public val WSZ_REGEXITIMPORTEDKEY: Pcwstr = w("Imported")
 
-public val wszREGEXITISSUEDKEY: PCWSTR = w("Issued")
+public val WSZ_REGEXITISSUEDKEY: Pcwstr = w("Issued")
 
-public val wszREGEXITPENDINGKEY: PCWSTR = w("Pending")
+public val WSZ_REGEXITPENDINGKEY: Pcwstr = w("Pending")
 
-public val wszREGEXITPROPNOTFOUND: PCWSTR = w("???")
+public val WSZ_REGEXITPROPNOTFOUND: Pcwstr = w("???")
 
-public val wszREGEXITREVOKEDKEY: PCWSTR = w("Revoked")
+public val WSZ_REGEXITREVOKEDKEY: Pcwstr = w("Revoked")
 
-public val wszREGEXITSHUTDOWNKEY: PCWSTR = w("Shutdown")
+public val WSZ_REGEXITSHUTDOWNKEY: Pcwstr = w("Shutdown")
 
-public val wszREGEXITSMTPAUTHENTICATE: PCWSTR = w("SMTPAuthenticate")
+public val WSZ_REGEXITSMTPAUTHENTICATE: Pcwstr = w("SMTPAuthenticate")
 
-public val wszREGEXITSMTPCC: PCWSTR = w("Cc")
+public val WSZ_REGEXITSMTPCC: Pcwstr = w("Cc")
 
-public val wszREGEXITSMTPEVENTFILTER: PCWSTR = w("EventFilter")
+public val WSZ_REGEXITSMTPEVENTFILTER: Pcwstr = w("EventFilter")
 
-public val wszREGEXITSMTPFROM: PCWSTR = w("From")
+public val WSZ_REGEXITSMTPFROM: Pcwstr = w("From")
 
-public val wszREGEXITSMTPKEY: PCWSTR = w("SMTP")
+public val WSZ_REGEXITSMTPKEY: Pcwstr = w("SMTP")
 
-public val wszREGEXITSMTPSERVER: PCWSTR = w("SMTPServer")
+public val WSZ_REGEXITSMTPSERVER: Pcwstr = w("SMTPServer")
 
-public val wszREGEXITSMTPTEMPLATES: PCWSTR = w("Templates")
+public val WSZ_REGEXITSMTPTEMPLATES: Pcwstr = w("Templates")
 
-public val wszREGEXITSMTPTO: PCWSTR = w("To")
+public val WSZ_REGEXITSMTPTO: Pcwstr = w("To")
 
-public val wszREGEXITSTARTUPKEY: PCWSTR = w("Startup")
+public val WSZ_REGEXITSTARTUPKEY: Pcwstr = w("Startup")
 
-public val wszREGEXITTITLEARG: PCWSTR = w("TitleArg")
+public val WSZ_REGEXITTITLEARG: Pcwstr = w("TitleArg")
 
-public val wszREGEXITTITLEFORMAT: PCWSTR = w("TitleFormat")
+public val WSZ_REGEXITTITLEFORMAT: Pcwstr = w("TitleFormat")
 
-public val wszREGFILEISSUERCERTURL_OLD: PCWSTR = w("FileIssuerCertURL")
+public val WSZ_REGFILEISSUERCERTURL_OLD: Pcwstr = w("FileIssuerCertURL")
 
-public val wszREGFILEREVOCATIONCRLURL_OLD: PCWSTR = w("FileRevocationCRLURL")
+public val WSZ_REGFILEREVOCATIONCRLURL_OLD: Pcwstr = w("FileRevocationCRLURL")
 
-public val wszREGFORCETELETEX: PCWSTR = w("ForceTeletex")
+public val WSZ_REGFORCETELETEX: Pcwstr = w("ForceTeletex")
 
-public val wszREGFTPISSUERCERTURL_OLD: PCWSTR = w("FTPIssuerCertURL")
+public val WSZ_REGFTPISSUERCERTURL_OLD: Pcwstr = w("FTPIssuerCertURL")
 
-public val wszREGFTPREVOCATIONCRLURL_OLD: PCWSTR = w("FTPRevocationCRLURL")
+public val WSZ_REGFTPREVOCATIONCRLURL_OLD: Pcwstr = w("FTPRevocationCRLURL")
 
-public val wszREGHIGHLOGNUMBER: PCWSTR = w("HighLogNumber")
+public val WSZ_REGHIGHLOGNUMBER: Pcwstr = w("HighLogNumber")
 
-public val wszREGHIGHSERIAL: PCWSTR = w("HighSerial")
+public val WSZ_REGHIGHSERIAL: Pcwstr = w("HighSerial")
 
-public val wszREGINTERFACEFLAGS: PCWSTR = w("InterfaceFlags")
+public val WSZ_REGINTERFACEFLAGS: Pcwstr = w("InterfaceFlags")
 
-public val wszREGISSUERCERTURLFLAGS: PCWSTR = w("IssuerCertURLFlags")
+public val WSZ_REGISSUERCERTURLFLAGS: Pcwstr = w("IssuerCertURLFlags")
 
-public val wszREGISSUERCERTURL_OLD: PCWSTR = w("IssuerCertURL")
+public val WSZ_REGISSUERCERTURL_OLD: Pcwstr = w("IssuerCertURL")
 
-public val wszREGKEYBASE: PCWSTR = w("SYSTEM\\CurrentControlSet\\Services\\CertSvc")
+public val WSZ_REGKEYBASE: Pcwstr = w("SYSTEM\\CurrentControlSet\\Services\\CertSvc")
 
-public val wszREGKEYCERTSVCPATH: PCWSTR = w("SYSTEM\\CurrentControlSet\\Services\\CertSvc")
+public val WSZ_REGKEYCERTSVCPATH: Pcwstr = w("SYSTEM\\CurrentControlSet\\Services\\CertSvc")
 
-public val wszREGKEYCONFIG: PCWSTR = w("Configuration")
+public val WSZ_REGKEYCONFIG: Pcwstr = w("Configuration")
 
-public val wszREGKEYCSP: PCWSTR = w("CSP")
+public val WSZ_REGKEYCSP: Pcwstr = w("CSP")
 
-public val wszREGKEYDBPARAMETERS: PCWSTR = w("DBParameters")
+public val WSZ_REGKEYDBPARAMETERS: Pcwstr = w("DBParameters")
 
-public val wszREGKEYENCRYPTIONCSP: PCWSTR = w("EncryptionCSP")
+public val WSZ_REGKEYENCRYPTIONCSP: Pcwstr = w("EncryptionCSP")
 
-public val wszREGKEYENROLLMENT: PCWSTR = w("Software\\Microsoft\\Cryptography\\AutoEnrollment")
+public val WSZ_REGKEYENROLLMENT: Pcwstr = w("Software\\Microsoft\\Cryptography\\AutoEnrollment")
 
-public val wszREGKEYEXITMODULES: PCWSTR = w("ExitModules")
+public val WSZ_REGKEYEXITMODULES: Pcwstr = w("ExitModules")
 
-public val wszREGKEYGROUPPOLICYENROLLMENT: PCWSTR = w("Software\\Policies\\Microsoft\\Cryptography\\AutoEnrollment")
+public val WSZ_REGKEYGROUPPOLICYENROLLMENT: Pcwstr = w("Software\\Policies\\Microsoft\\Cryptography\\AutoEnrollment")
 
-public val wszREGKEYNOSYSTEMCERTSVCPATH: PCWSTR = w("CurrentControlSet\\Services\\CertSvc")
+public val WSZ_REGKEYNOSYSTEMCERTSVCPATH: Pcwstr = w("CurrentControlSet\\Services\\CertSvc")
 
-public val wszREGKEYPOLICYMODULES: PCWSTR = w("PolicyModules")
+public val WSZ_REGKEYPOLICYMODULES: Pcwstr = w("PolicyModules")
 
-public val wszREGKEYREPAIR: PCWSTR = w("KeyRepair")
+public val WSZ_REGKEYREPAIR: Pcwstr = w("KeyRepair")
 
-public val wszREGKEYRESTOREINPROGRESS: PCWSTR = w("RestoreInProgress")
+public val WSZ_REGKEYRESTOREINPROGRESS: Pcwstr = w("RestoreInProgress")
 
-public val wszREGKEYSIZE: PCWSTR = w("KeySize")
+public val WSZ_REGKEYSIZE: Pcwstr = w("KeySize")
 
-public val wszREGKRACERTCOUNT: PCWSTR = w("KRACertCount")
+public val WSZ_REGKRACERTCOUNT: Pcwstr = w("KRACertCount")
 
-public val wszREGKRACERTHASH: PCWSTR = w("KRACertHash")
+public val WSZ_REGKRACERTHASH: Pcwstr = w("KRACertHash")
 
-public val wszREGKRAFLAGS: PCWSTR = w("KRAFlags")
+public val WSZ_REGKRAFLAGS: Pcwstr = w("KRAFlags")
 
-public val wszREGLDAPFLAGS: PCWSTR = w("LDAPFlags")
+public val WSZ_REGLDAPFLAGS: Pcwstr = w("LDAPFlags")
 
-public val wszREGLDAPISSUERCERTURL_OLD: PCWSTR = w("LDAPIssuerCertURL")
+public val WSZ_REGLDAPISSUERCERTURL_OLD: Pcwstr = w("LDAPIssuerCertURL")
 
-public val wszREGLDAPREVOCATIONCRLURL_OLD: PCWSTR = w("LDAPRevocationCRLURL")
+public val WSZ_REGLDAPREVOCATIONCRLURL_OLD: Pcwstr = w("LDAPRevocationCRLURL")
 
-public val wszREGLDAPREVOCATIONDNTEMPLATE_OLD: PCWSTR = w("LDAPRevocationDNTemplate")
+public val WSZ_REGLDAPREVOCATIONDNTEMPLATE_OLD: Pcwstr = w("LDAPRevocationDNTemplate")
 
-public val wszREGLDAPREVOCATIONDN_OLD: PCWSTR = w("LDAPRevocationDN")
+public val WSZ_REGLDAPREVOCATIONDN_OLD: Pcwstr = w("LDAPRevocationDN")
 
-public val wszREGLDAPSESSIONOPTIONS: PCWSTR = w("LDAPSessionOptions")
+public val WSZ_REGLDAPSESSIONOPTIONS: Pcwstr = w("LDAPSessionOptions")
 
-public val wszREGLOGLEVEL: PCWSTR = w("LogLevel")
+public val WSZ_REGLOGLEVEL: Pcwstr = w("LogLevel")
 
-public val wszREGLOGPATH: PCWSTR = w("LogPath")
+public val WSZ_REGLOGPATH: Pcwstr = w("LogPath")
 
-public val wszREGLOWLOGNUMBER: PCWSTR = w("LowLogNumber")
+public val WSZ_REGLOWLOGNUMBER: Pcwstr = w("LowLogNumber")
 
-public val wszREGMAXINCOMINGALLOCSIZE: PCWSTR = w("MaxIncomingAllocSize")
+public val WSZ_REGMAXINCOMINGALLOCSIZE: Pcwstr = w("MaxIncomingAllocSize")
 
-public val wszREGMAXINCOMINGMESSAGESIZE: PCWSTR = w("MaxIncomingMessageSize")
+public val WSZ_REGMAXINCOMINGMESSAGESIZE: Pcwstr = w("MaxIncomingMessageSize")
 
-public val wszREGMAXPENDINGREQUESTDAYS: PCWSTR = w("MaxPendingRequestDays")
+public val WSZ_REGMAXPENDINGREQUESTDAYS: Pcwstr = w("MaxPendingRequestDays")
 
-public val wszREGMAXSCTLISTSIZE: PCWSTR = w("MaxSCTListSize")
+public val WSZ_REGMAXSCTLISTSIZE: Pcwstr = w("MaxSCTListSize")
 
-public val wszREGNAMESEPARATOR: PCWSTR = w("SubjectNameSeparator")
+public val WSZ_REGNAMESEPARATOR: Pcwstr = w("SubjectNameSeparator")
 
-public val wszREGNETSCAPECERTTYPE: PCWSTR = w("NetscapeCertType")
+public val WSZ_REGNETSCAPECERTTYPE: Pcwstr = w("NetscapeCertType")
 
-public val wszREGOFFICERRIGHTS: PCWSTR = w("OfficerRights")
+public val WSZ_REGOFFICERRIGHTS: Pcwstr = w("OfficerRights")
 
-public val wszREGPARENTCAMACHINE: PCWSTR = w("ParentCAMachine")
+public val WSZ_REGPARENTCAMACHINE: Pcwstr = w("ParentCAMachine")
 
-public val wszREGPARENTCANAME: PCWSTR = w("ParentCAName")
+public val WSZ_REGPARENTCANAME: Pcwstr = w("ParentCAName")
 
-public val wszREGPOLICYFLAGS: PCWSTR = w("PolicyFlags")
+public val WSZ_REGPOLICYFLAGS: Pcwstr = w("PolicyFlags")
 
-public val wszREGPRESERVESCEPDUMMYCERTS: PCWSTR = w("PreserveSCEPDummyCerts")
+public val WSZ_REGPRESERVESCEPDUMMYCERTS: Pcwstr = w("PreserveSCEPDummyCerts")
 
-public val wszREGPROCESSINGFLAGS: PCWSTR = w("ProcessingFlags")
+public val WSZ_REGPROCESSINGFLAGS: Pcwstr = w("ProcessingFlags")
 
-public val wszREGPROVIDER: PCWSTR = w("Provider")
+public val WSZ_REGPROVIDER: Pcwstr = w("Provider")
 
-public val wszREGPROVIDERTYPE: PCWSTR = w("ProviderType")
+public val WSZ_REGPROVIDERTYPE: Pcwstr = w("ProviderType")
 
-public val wszREGREQUESTDISPOSITION: PCWSTR = w("RequestDisposition")
+public val WSZ_REGREQUESTDISPOSITION: Pcwstr = w("RequestDisposition")
 
-public val wszREGREQUESTFILENAME: PCWSTR = w("RequestFileName")
+public val WSZ_REGREQUESTFILENAME: Pcwstr = w("RequestFileName")
 
-public val wszREGREQUESTID: PCWSTR = w("RequestId")
+public val WSZ_REGREQUESTID: Pcwstr = w("RequestId")
 
-public val wszREGREQUESTKEYCONTAINER: PCWSTR = w("RequestKeyContainer")
+public val WSZ_REGREQUESTKEYCONTAINER: Pcwstr = w("RequestKeyContainer")
 
-public val wszREGREQUESTKEYINDEX: PCWSTR = w("RequestKeyIndex")
+public val WSZ_REGREQUESTKEYINDEX: Pcwstr = w("RequestKeyIndex")
 
-public val wszREGRESTOREMAP: PCWSTR = w("RestoreMap")
+public val WSZ_REGRESTOREMAP: Pcwstr = w("RestoreMap")
 
-public val wszREGRESTOREMAPCOUNT: PCWSTR = w("RestoreMapCount")
+public val WSZ_REGRESTOREMAPCOUNT: Pcwstr = w("RestoreMapCount")
 
-public val wszREGRESTORESTATUS: PCWSTR = w("RestoreStatus")
+public val WSZ_REGRESTORESTATUS: Pcwstr = w("RestoreStatus")
 
-public val wszREGREVOCATIONCRLURL_OLD: PCWSTR = w("RevocationCRLURL")
+public val WSZ_REGREVOCATIONCRLURL_OLD: Pcwstr = w("RevocationCRLURL")
 
-public val wszREGREVOCATIONTYPE: PCWSTR = w("RevocationType")
+public val WSZ_REGREVOCATIONTYPE: Pcwstr = w("RevocationType")
 
-public val wszREGREVOCATIONURL: PCWSTR = w("RevocationURL")
+public val WSZ_REGREVOCATIONURL: Pcwstr = w("RevocationURL")
 
-public val wszREGROLESEPARATIONENABLED: PCWSTR = w("RoleSeparationEnabled")
+public val WSZ_REGROLESEPARATIONENABLED: Pcwstr = w("RoleSeparationEnabled")
 
-public val wszREGSETUPSTATUS: PCWSTR = w("SetupStatus")
+public val WSZ_REGSETUPSTATUS: Pcwstr = w("SetupStatus")
 
-public val wszREGSP4DEFAULTCONFIGURATION: PCWSTR = w("DefaultConfiguration")
+public val WSZ_REGSP4DEFAULTCONFIGURATION: Pcwstr = w("DefaultConfiguration")
 
-public val wszREGSP4KEYSETNAME: PCWSTR = w("KeySetName")
+public val WSZ_REGSP4KEYSETNAME: Pcwstr = w("KeySetName")
 
-public val wszREGSP4NAMES: PCWSTR = w("Names")
+public val WSZ_REGSP4NAMES: Pcwstr = w("Names")
 
-public val wszREGSP4QUERIES: PCWSTR = w("Queries")
+public val WSZ_REGSP4QUERIES: Pcwstr = w("Queries")
 
-public val wszREGSP4SUBJECTNAMESEPARATOR: PCWSTR = w("SubjectNameSeparator")
+public val WSZ_REGSP4SUBJECTNAMESEPARATOR: Pcwstr = w("SubjectNameSeparator")
 
-public val wszREGSUBJECTALTNAME: PCWSTR = w("SubjectAltName")
+public val WSZ_REGSUBJECTALTNAME: Pcwstr = w("SubjectAltName")
 
-public val wszREGSUBJECTALTNAME2: PCWSTR = w("SubjectAltName2")
+public val WSZ_REGSUBJECTALTNAME2: Pcwstr = w("SubjectAltName2")
 
-public val wszREGSUBJECTTEMPLATE: PCWSTR = w("SubjectTemplate")
+public val WSZ_REGSUBJECTTEMPLATE: Pcwstr = w("SubjectTemplate")
 
-public val wszREGSYMMETRICKEYSIZE: PCWSTR = w("SymmetricKeySize")
+public val WSZ_REGSYMMETRICKEYSIZE: Pcwstr = w("SymmetricKeySize")
 
-public val wszREGUNICODE: PCWSTR = w("Unicode")
+public val WSZ_REGUNICODE: Pcwstr = w("Unicode")
 
-public val wszREGUPNMAP: PCWSTR = w("UPNMap")
+public val WSZ_REGUPNMAP: Pcwstr = w("UPNMap")
 
-public val wszREGUSEDEFINEDCACERTINREQ: PCWSTR = w("UseDefinedCACertInRequest")
+public val WSZ_REGUSEDEFINEDCACERTINREQ: Pcwstr = w("UseDefinedCACertInRequest")
 
-public val wszREGVALIDITYPERIODCOUNT: PCWSTR = w("ValidityPeriodUnits")
+public val WSZ_REGVALIDITYPERIODCOUNT: Pcwstr = w("ValidityPeriodUnits")
 
-public val wszREGVALIDITYPERIODSTRING: PCWSTR = w("ValidityPeriod")
+public val WSZ_REGVALIDITYPERIODSTRING: Pcwstr = w("ValidityPeriod")
 
-public val wszREGVERIFYFLAGS: PCWSTR = w("VerifyFlags")
+public val WSZ_REGVERIFYFLAGS: Pcwstr = w("VerifyFlags")
 
-public val wszREGVERSION: PCWSTR = w("Version")
+public val WSZ_REGVERSION: Pcwstr = w("Version")
 
-public val wszREGVIEWAGEMINUTES: PCWSTR = w("ViewAgeMinutes")
+public val WSZ_REGVIEWAGEMINUTES: Pcwstr = w("ViewAgeMinutes")
 
-public val wszREGVIEWIDLEMINUTES: PCWSTR = w("ViewIdleMinutes")
+public val WSZ_REGVIEWIDLEMINUTES: Pcwstr = w("ViewIdleMinutes")
 
-public val wszREGWEBCLIENTCAMACHINE: PCWSTR = w("WebClientCAMachine")
+public val WSZ_REGWEBCLIENTCAMACHINE: Pcwstr = w("WebClientCAMachine")
 
-public val wszREGWEBCLIENTCANAME: PCWSTR = w("WebClientCAName")
+public val WSZ_REGWEBCLIENTCANAME: Pcwstr = w("WebClientCAName")
 
-public val wszREGWEBCLIENTCATYPE: PCWSTR = w("WebClientCAType")
+public val WSZ_REGWEBCLIENTCATYPE: Pcwstr = w("WebClientCAType")
 
-public val wszSECUREDATTRIBUTES: PCWSTR = w("SignedAttributes")
+public val WSZ_SECUREDATTRIBUTES: Pcwstr = w("SignedAttributes")
 
-public val wszSERVICE_NAME: PCWSTR = w("CertSvc")
+public val WSZ_SERVICE_NAME: Pcwstr = w("CertSvc")
 
-public val wszzDEFAULTSIGNEDATTRIBUTES: PCWSTR = w("RequesterName\u0000")
+public val WSZZ_DEFAULTSIGNEDATTRIBUTES: Pcwstr = w("RequesterName\u0000")
